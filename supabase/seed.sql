@@ -101,7 +101,7 @@ INSERT INTO public.films (tmdb_id, title, original_title, year, director, direct
     'A young nurse, Alma, is put in charge of Elisabeth Vogler, an actress who is recovering from some kind of breakdown. As they spend time together, Alma speaks to Elisabeth constantly, and eventually their identities seem to merge.'
   ),
   (
-    2337,
+    1398,
     'Stalker',
     'Сталкер',
     1979,
@@ -112,7 +112,7 @@ INSERT INTO public.films (tmdb_id, title, original_title, year, director, direct
     'A guide leads two men through an area known as the Zone to find a room that grants wishes.'
   ),
   (
-    498025,
+    491584,
     'Burning',
     '버닝',
     2018,

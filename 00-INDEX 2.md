@@ -15,10 +15,7 @@ repo/
 │  ├─ 00-INDEX.md               ← this file
 │  └─ missions/
 │     ├─ mission-00-kickoff.md  ← paste into Antigravity to start
-│     ├─ mission-01-kickoff.md
-│     ├─ mission-02-kickoff.md
-│     ├─ mission-06b-kickoff.md
-│     └─ mission-09b-kickoff.md
+│     └─ mission-01-kickoff.md
 ├─ design/                      ← VISUAL REFERENCE (not shipped); agents open/render to match
 │  ├─ globals.css               ← also copied into app/globals.css by Mission 0
 │  ├─ ref-home.html
@@ -57,10 +54,7 @@ assets live in `/public`.
 **Mission prompts** (paste into the Antigravity Manager, one at a time)
 - `mission-00-kickoff.md` — Scaffold & deploy.
 - `mission-01-kickoff.md` — Data layer (schema + RLS + seed).
-- `mission-02-kickoff.md` — TMDB + film pages.
-- `mission-06b-kickoff.md` — Admin console & roles.
-- `mission-09b-kickoff.md` — AI content pipeline (generate → verify → publish).
-- *(3, 4, 5, 6, 7, 8, 8b, 9, 10: generate from SPEC §13 as you reach them, same format.)*
+- *(2–10, 6b, 9b: generate from SPEC §13 as you go, same format.)*
 
 **Design system + references** (the look; agents reproduce, don't invent)
 - `globals.css` — design tokens + component classes (navy `--ink #1A2740`, paper `--bg
