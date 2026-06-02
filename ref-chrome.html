@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyniq — reference: global chrome (header &amp; footer)</title>
+<link rel="stylesheet" href="globals.css">
+</head>
+<body>
+<main class="shell">
+
+  <header class="site-header">
+    <a href="/" class="logo" aria-label="Kyniq home"><img src="kyniq-wordmark.png" alt="Kyniq" style="height:26px;display:block;"></a>
+    <div class="field search" style="flex:1;max-width:380px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      Search a film…
+    </div>
+    <a href="/login" class="action-secondary">Sign in</a>
+  </header>
+
+  <div style="min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;">
+    <div class="ui muted" style="font-size:13px;">— page content renders here —</div>
+    <div class="ui muted" style="font-size:11.5px;max-width:46ch;">Logged-out: the header shows “Sign in”. Logged-in: it shows an avatar that opens a menu — View profile · My activity · Settings · Sign out.</div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div>
+        <a href="/" class="logo" aria-label="Kyniq home"><img src="kyniq-wordmark.png" alt="Kyniq" style="height:24px;display:block;"></a>
+        <div class="tagline" style="margin-top:8px;">Read films closely.</div>
+      </div>
+      <div>
+        <a href="/about" class="footer-link">About</a>
+        <a href="/contact" class="footer-link">Contact</a>
+        <a href="/guidelines" class="footer-link">Community guidelines</a>
+        <a href="/terms" class="footer-link">Terms</a>
+        <a href="/privacy" class="footer-link">Privacy</a>
+      </div>
+      <div>
+        <div class="footer-link">Kyniq</div>
+        <div class="footer-link">Seoul, Republic of Korea</div>
+        <a href="mailto:contact.kyniq@gmail.com" class="footer-link">contact.kyniq@gmail.com</a>
+      </div>
+    </div>
+    <p class="tmdb-note" style="margin-top:20px;">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <div class="footer-baseline">
+      <span>© 2026 Kyniq. All rights reserved.</span>
+      <span>English ▾</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,367 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Kyniq — editorial design system (source of truth: SPEC.md §1.1/§2.1/§2.2)
+   Brand: Kyniq · kyniq.io · contact.kyniq@gmail.com. Logo = the Kyniq mark (navy wordmark
+   with an integrated "?"); palette = navy ink (#1A2740) / warm cream paper / oxblood accent.
+   Light "paper" is the core identity; warm dark "ink" mode via prefers-color-scheme.
+   Reference screens (ref-*.html) link to this file. Fonts loaded via next/font/google
+   in layout.tsx — CSS custom properties (--font-display, --font-body, --font-ui) are
+   set on <html> via font variable classes.
+   ============================================================ */
+
+/* ---- Tailwind v4 theme: map design tokens to utilities ---- */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-ui: var(--font-ui);
+}
+
+/* ---- Light mode (paper) — the default identity ---- */
+:root {
+  --bg: #FAF7F0;
+  --surface: #FFFFFF;
+  --ink: #1A2740;
+  --muted: #5E6675;
+  --hairline: rgba(26, 39, 64, 0.14);
+  --accent: #8A2A21;
+  --measure: 68ch;
+  /* Font families — values injected by next/font CSS variables */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-newsreader), Georgia, serif;
+  --font-ui: var(--font-hanken-grotesk), system-ui, sans-serif;
+}
+
+/* ---- Dark mode (ink) — warm, not blue-black ---- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18150F;
+    --surface: #201C15;
+    --ink: #ECE6DA;
+    --muted: #A39C8D;
+    --hairline: rgba(236, 230, 218, 0.15);
+    --accent: #C8584A;
+  }
+}
+
+/* ---- Base resets ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- PaperShell: the centered page container ---- */
+.shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 44px 28px;
+}
+
+/* ---- Type ---- */
+.disp {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.body {
+  font-family: var(--font-body);
+}
+
+.ui {
+  font-family: var(--font-ui);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.reading {
+  max-width: var(--measure);
+}
+
+/* ---- SectionLabel (magazine marker) ---- */
+.seclbl {
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tick {
+  border-top: 2px solid var(--accent);
+  width: 34px;
+  margin: 8px 0 14px;
+}
+
+/* ---- Rule (primary separator) ---- */
+.rule {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 20px 0;
+}
+
+/* ---- Standfirst (canonical TL;DR) ---- */
+.standfirst {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ---- CreditLine ---- */
+.credit {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ---- Actions ---- */
+.btn {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link-primary {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--accent);
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+.action-secondary {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* ---- Tabs ---- */
+.tab {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.tab.active {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+/* ---- QuestionRow ---- */
+.qrow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.qrow:last-child {
+  border-bottom: none;
+}
+
+/* ---- AuthorChip / avatar ---- */
+.avatar {
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  color: var(--ink);
+  flex: none;
+}
+
+/* ---- Badge ---- */
+.badge {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 5px 11px;
+  color: var(--muted);
+}
+
+.badge.marquee {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.badge.locked {
+  opacity: 0.45;
+}
+
+/* ---- MergedMarker ---- */
+.merged {
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  color: var(--accent);
+}
+
+/* ---- UpvoteControl (upvote only) ---- */
+.upvote {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.upvote.active {
+  color: var(--accent);
+}
+
+/* ---- Field ---- */
+.field {
+  font-family: var(--font-body);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 11px 13px;
+  color: var(--ink);
+  font-size: 16px;
+  background: var(--surface);
+}
+
+.field.search {
+  font-family: var(--font-ui);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* ---- StepMarker (ask flow) ---- */
+.step {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+/* ---- PosterThumb (placeholder; replace with TMDB poster, desaturated) ---- */
+.poster {
+  border-radius: 4px;
+  background: linear-gradient(160deg, #2c3340, #1b2028);
+  opacity: 0.9;
+  flex: none;
+}
+
+/* ---- Logo / wordmark (canonical logo = the asset files; geometric-sans logotype) ---- */
+.logo {
+  display: inline-block;
+  height: 26px;
+  width: auto;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* Dark mode logo swap handled via picture element in components */
+
+.tagline {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ---- Global header (slim, wraps every page) ---- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.site-header .search {
+  flex: 1;
+  max-width: 380px;
+}
+
+/* ---- Global footer ---- */
+.site-footer {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-ui);
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.footer-link {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.footer-link:hover {
+  color: var(--ink);
+}
+
+.footer-baseline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.tmdb-note {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
