@@ -84,8 +84,16 @@ function tmdbKey(): string {
 }
 
 async function tmdbGet<T>(path: string): Promise<T> {
-  const url = `${TMDB_BASE}${path}${path.includes("?") ? "&" : "?"}api_key=${tmdbKey()}`;
-  const res = await fetch(url, { next: { revalidate: 86400 } }); // cache 24h
+  const key = tmdbKey();
+  // v3 API keys are 32-char hex; v4 Read Access Tokens are long JWTs
+  const isV4 = key.length > 40;
+  const url = isV4
+    ? `${TMDB_BASE}${path}`
+    : `${TMDB_BASE}${path}${path.includes("?") ? "&" : "?"}api_key=${key}`;
+  const headers: HeadersInit = isV4
+    ? { Authorization: `Bearer ${key}`, "Content-Type": "application/json" }
+    : {};
+  const res = await fetch(url, { headers, next: { revalidate: 86400 } });
   if (!res.ok) throw new Error(`TMDB ${path}: ${res.status}`);
   return res.json() as Promise<T>;
 }

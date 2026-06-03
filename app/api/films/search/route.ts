@@ -21,7 +21,7 @@ export async function GET(request: Request) {
       poster_url: posterUrl(r.poster_path, "w185"),
     }));
 
-    return NextResponse.json(enriched);
+    return NextResponse.json({ results: enriched });
   } catch (err) {
     console.error("Film search error:", err);
     return NextResponse.json(

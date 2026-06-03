@@ -84,11 +84,9 @@ export default function RootLayout({
       className={`${fraunces.variable} ${newsreader.variable} ${hankenGrotesk.variable}`}
     >
       <body>
-        <main className="shell">
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
