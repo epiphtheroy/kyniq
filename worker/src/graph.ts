@@ -180,6 +180,31 @@ async function callModel(config: ModelConfig, prompt: string, systemPrompt?: str
 
 // ── Media curation is now handled by kyniqbot.ts ──
 
+// ── Robust JSON extraction (handles thinking model output) ──
+
+function extractJSON(text: string): unknown | null {
+  // 1. Try direct parse
+  try { return JSON.parse(text); } catch { /* continue */ }
+
+  // 2. Strip markdown code fences
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fenced) {
+    try { return JSON.parse(fenced[1].trim()); } catch { /* continue */ }
+  }
+
+  // 3. Find first JSON object or array in the text
+  const objMatch = text.match(/\{[\s\S]*\}/);
+  if (objMatch) {
+    try { return JSON.parse(objMatch[0]); } catch { /* continue */ }
+  }
+  const arrMatch = text.match(/\[[\s\S]*\]/);
+  if (arrMatch) {
+    try { return JSON.parse(arrMatch[0]); } catch { /* continue */ }
+  }
+
+  return null;
+}
+
 // ── Heartbeat helper ──────────────────────────────────────────────
 
 export async function writeHeartbeat(
@@ -328,12 +353,13 @@ Return JSON array:
   result.total_tokens += planResp.tokensUsed.total;
 
   let plan: PlanItem[];
-  try {
-    const parsed = JSON.parse(planResp.text);
-    plan = Array.isArray(parsed) ? parsed : [];
-  } catch {
+  const planParsed = extractJSON(planResp.text);
+  if (Array.isArray(planParsed)) {
+    plan = planParsed;
+  } else {
     plan = [];
     result.errors.push("Failed to parse planner output");
+    console.log("[graph] Planner raw (first 500):", planResp.text.slice(0, 500));
   }
 
   // Dedup
@@ -387,10 +413,12 @@ Return JSON:
       result.total_tokens += draftResp.tokensUsed.total;
 
       let draft: { answer_body: string; contributions: Array<{ body: string }> };
-      try {
-        draft = JSON.parse(draftResp.text);
-      } catch {
+      const draftParsed = extractJSON(draftResp.text);
+      if (draftParsed && typeof draftParsed === 'object' && 'answer_body' in (draftParsed as Record<string, unknown>)) {
+        draft = draftParsed as typeof draft;
+      } else {
         result.errors.push(`Failed to parse draft for: ${item.question_title}`);
+        console.log("[graph] Draft raw (first 300):", draftResp.text.slice(0, 300));
         continue;
       }
 
@@ -423,10 +451,10 @@ Return JSON:
       result.total_tokens += verifyResp.tokensUsed.total;
 
       let verify: VerifyResult;
-      try {
-        const parsed = JSON.parse(verifyResp.text);
-        verify = { ...parsed, model: verifyResp.model };
-      } catch {
+      const verifyParsed = extractJSON(verifyResp.text);
+      if (verifyParsed && typeof verifyParsed === 'object' && 'confidence' in (verifyParsed as Record<string, unknown>)) {
+        verify = { ...(verifyParsed as VerifyResult), model: verifyResp.model };
+      } else {
         verify = { confidence: 0.5, checks: [], issues: ["Failed to parse verification"], model: verifyResp.model };
       }
 

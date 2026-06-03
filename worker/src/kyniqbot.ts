@@ -403,9 +403,13 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
   let errors = 0;
 
   // Find published questions lacking media (no media rows at all)
-  const { data: questionsWithoutMedia } = await supabase.rpc(
-    "questions_without_media"
-  ).catch(() => ({ data: null }));
+  let questionsWithoutMedia = null;
+  try {
+    const { data } = await supabase.rpc("questions_without_media");
+    questionsWithoutMedia = data;
+  } catch {
+    // RPC doesn't exist yet — fall through to manual query
+  }
 
   // Fallback: manual query if RPC doesn't exist
   let candidates: Array<{
