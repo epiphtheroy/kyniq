@@ -50,7 +50,22 @@ function resetDailyIfNeeded(): void {
 // ── Queue polling ─────────────────────────────────────────────────
 
 async function claimJob(): Promise<string | null> {
-  // Atomic claim: only one worker gets the job
+  // Two-step claim: find oldest queued, then atomically claim it.
+  // Supabase PostgREST doesn't support update().order().limit().
+
+  // Step 1: Find the oldest queued job
+  const { data: candidates, error: findErr } = await supabase
+    .from("jobs")
+    .select("id")
+    .eq("status", "queued")
+    .order("created_at", { ascending: true })
+    .limit(1);
+
+  if (findErr || !candidates || candidates.length === 0) return null;
+
+  const candidateId = candidates[0].id;
+
+  // Step 2: Atomically claim it (eq on both id AND status='queued' ensures no race)
   const { data, error } = await supabase
     .from("jobs")
     .update({
@@ -59,9 +74,8 @@ async function claimJob(): Promise<string | null> {
       claimed_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     })
-    .eq("status", "queued")
-    .order("created_at", { ascending: true })
-    .limit(1)
+    .eq("id", candidateId)
+    .eq("status", "queued") // only succeeds if still queued (atomic guard)
     .select("id")
     .single();
 
