@@ -453,16 +453,35 @@ Return JSON:
         verify = { confidence: 0.5, checks: [], issues: ["Failed to parse verification"], model: verifyResp.model };
       }
 
-      // 5c. Write to DB
+      // 5c. Write to DB — gate to 'approved' (buffer) or 'in_review'
       const slug = item.question_title
         .toLowerCase()
         .replace(/[^a-z0-9가-힣]+/g, "-")
         .replace(/^-|-$/g, "")
         .slice(0, 80);
 
-      const shouldPublish = verify.confidence >= threshold && verify.issues.length === 0;
-      const status = shouldPublish ? "published" : "in_review";
+      const shouldApprove = verify.confidence >= threshold && verify.issues.length === 0;
+      const status = shouldApprove ? "approved" : "in_review";
       const now = new Date().toISOString();
+
+      // Jittered scheduling: question first, answer after delay, contributions later
+      // Each gets independent timing so they don't publish as a bundle
+      const jitterMin = 15; // minutes
+      const jitterMax = 120;
+      const answerDelay = 60; // minutes after question
+      const contribDelay = 180; // minutes after question
+
+      const baseDelay = i * (jitterMax + 30); // stagger across questions in this batch
+      const questionDelay = baseDelay + Math.floor(Math.random() * (jitterMax - jitterMin) + jitterMin);
+      const answerDelayMs = (questionDelay + answerDelay + Math.floor(Math.random() * 30)) * 60_000;
+      const contribDelayMs = (questionDelay + contribDelay + Math.floor(Math.random() * 60)) * 60_000;
+
+      const questionScheduled = shouldApprove
+        ? new Date(Date.now() + questionDelay * 60_000).toISOString()
+        : null;
+      const answerScheduled = shouldApprove
+        ? new Date(Date.now() + answerDelayMs).toISOString()
+        : null;
 
       // Insert question (no question_type — questions emerge from the film)
       const { data: qRow, error: qErr } = await supabase
@@ -476,8 +495,9 @@ Return JSON:
           status,
           source: "ai",
           generated_by: `${draftResp.provider}/${draftResp.model}`,
-          reviewed_by: shouldPublish ? EDITORIAL_PROFILE_ID : null,
-          published_at: shouldPublish ? now : null,
+          reviewed_by: shouldApprove ? EDITORIAL_PROFILE_ID : null,
+          published_at: null, // never set at creation — publisher sets this
+          scheduled_for: questionScheduled,
         })
         .select("id")
         .single();
@@ -494,12 +514,15 @@ Return JSON:
         status,
         source: "ai",
         generated_by: `${draftResp.provider}/${draftResp.model}`,
-        reviewed_by: shouldPublish ? EDITORIAL_PROFILE_ID : null,
-        published_at: shouldPublish ? now : null,
+        reviewed_by: shouldApprove ? EDITORIAL_PROFILE_ID : null,
+        published_at: null,
+        scheduled_for: answerScheduled,
       });
 
-      // Insert contributions
-      for (const contrib of draft.contributions ?? []) {
+      // Insert contributions (spaced even further out)
+      for (let ci = 0; ci < (draft.contributions ?? []).length; ci++) {
+        const contrib = draft.contributions[ci];
+        const thisContribDelay = contribDelayMs + ci * 90 * 60_000 + Math.floor(Math.random() * 60) * 60_000;
         await supabase.from("contributions").insert({
           question_id: qRow.id,
           author_id: EDITORIAL_PROFILE_ID,
@@ -507,12 +530,13 @@ Return JSON:
           status,
           source: "ai",
           generated_by: `${draftResp.provider}/${draftResp.model}`,
-          published_at: shouldPublish ? now : null,
+          published_at: null,
+          scheduled_for: shouldApprove ? new Date(Date.now() + thisContribDelay).toISOString() : null,
         });
       }
 
       // Log content events
-      await supabase.from("content_events").insert([
+      const events: Array<Record<string, unknown>> = [
         {
           entity_type: "question",
           entity_id: qRow.id,
@@ -527,7 +551,19 @@ Return JSON:
           actor_kind: "ai",
           meta: { confidence: verify.confidence, checks: verify.checks, issues: verify.issues, model: verify.model, provider: verifyResp.provider },
         },
-      ]);
+      ];
+
+      if (shouldApprove) {
+        events.push({
+          entity_type: "question",
+          entity_id: qRow.id,
+          event: "approved",
+          actor_kind: "ai",
+          meta: { confidence: verify.confidence, gate: "auto", threshold, voice: voice.codename, scheduled_for: questionScheduled },
+        });
+      }
+
+      await supabase.from("content_events").insert(events);
 
       result.questions_created++;
 
@@ -549,19 +585,11 @@ Return JSON:
         result.errors.push(`Media curation failed for ${qRow.id}`);
       }
 
-      // 5e. Gate
-      if (shouldPublish) {
-        result.questions_published++;
+      // 5e. Gate log
+      if (shouldApprove) {
+        result.questions_published++; // counts approved (will publish via publisher loop)
 
-        await supabase.from("content_events").insert({
-          entity_type: "question",
-          entity_id: qRow.id,
-          event: "published",
-          actor_kind: "ai",
-          meta: { confidence: verify.confidence, gate: "auto", threshold, voice: voice.codename },
-        });
-
-        console.log(`[graph] ✅ Published: "${item.question_title}" [${voice.codename}] (${verify.confidence.toFixed(2)})`);
+        console.log(`[graph] ✅ Approved: "${item.question_title}" [${voice.codename}] (${verify.confidence.toFixed(2)}) → scheduled ${questionScheduled?.slice(11, 16)}`);
       } else {
         result.questions_in_review++;
         console.log(`[graph] 🔍 In review: "${item.question_title}" [${voice.codename}] (${verify.confidence.toFixed(2)})`);

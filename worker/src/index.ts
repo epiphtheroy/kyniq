@@ -1,11 +1,12 @@
 /**
  * Kyniq Pipeline Worker — standalone service
  *
- * Polls the Supabase `jobs` queue, runs the generate→verify→gate graph,
- * writes results back. Runs outside Vercel (Railway/Render/Fly/cron).
+ * Runs three loops:
+ *   Loop 1: Generator — polls jobs queue, runs Planner→Drafter→Verifier→Gate
+ *   Loop 2: Publisher — releases approved items to published on schedule
+ *   Loop 3: (future) Kyniqbot media enrichment
  *
- * v3: Autonomous daily scheduler — when the manual queue is empty,
- *     auto-selects films from the pipeline list and enqueues jobs.
+ * v4: Publisher loop (cadence engine) — approved→published with jitter.
  *
  * Usage: DOTENV_CONFIG_PATH=../.env.local tsx src/index.ts
  */
@@ -13,6 +14,7 @@
 import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
 import { processJob, writeHeartbeat } from "./graph.js";
+import { runPublisherCycle } from "./publisher.js";
 
 // ── Supabase (service role) ───────────────────────────────────────
 
@@ -33,6 +35,7 @@ const supabase = createClient(supabaseUrl, serviceKey, {
 const WORKER_ID = `worker-${process.pid}-${Date.now()}`;
 const POLL_INTERVAL_MS = 10_000; // 10 seconds
 const SCHEDULER_INTERVAL_MS = 60 * 60 * 1000; // 1 hour between scheduler runs
+const PUBLISHER_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes between publisher cycles
 
 // ── Daily counters (reset at midnight) ────────────────────────────
 
@@ -335,9 +338,45 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// ── Publisher loop (Loop 2) ───────────────────────────────────────
+
+async function publisherLoop(): Promise<void> {
+  console.log(`[${WORKER_ID}] Publisher loop started. Running every ${PUBLISHER_INTERVAL_MS / 1000}s`);
+
+  // Wait a bit before first run so generator gets a head start
+  await sleep(30_000);
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    try {
+      const result = await runPublisherCycle(supabase);
+
+      if (result.published > 0) {
+        todayPublished += result.published;
+        await writeHeartbeat(
+          supabase, WORKER_ID, "idle",
+          `publisher released ${result.published} items (${result.cap_remaining} cap remaining)`,
+          null, todayPublished, todayCost
+        );
+      }
+    } catch (err) {
+      console.error("[publisher] Error:", err instanceof Error ? err.message : err);
+    }
+
+    await sleep(PUBLISHER_INTERVAL_MS);
+  }
+}
+
 // ── Start ─────────────────────────────────────────────────────────
 
-pollLoop().catch((err) => {
-  console.error("[worker] Fatal error:", err);
-  process.exit(1);
-});
+// Run both loops concurrently
+Promise.all([
+  pollLoop().catch((err) => {
+    console.error("[worker] Generator fatal:", err);
+    process.exit(1);
+  }),
+  publisherLoop().catch((err) => {
+    console.error("[worker] Publisher fatal:", err);
+    process.exit(1);
+  }),
+]);
