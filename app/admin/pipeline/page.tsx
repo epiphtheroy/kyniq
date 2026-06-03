@@ -11,6 +11,14 @@ export default async function AdminPipelinePage() {
     .select("id, title, year, director")
     .order("title");
 
+  // Get pipeline films (for progress tracker)
+  const { data: pipelineFilms } = await supabase
+    .from("films")
+    .select("id, title, year, pipeline_status, questions_published, questions_target, last_processed_at")
+    .eq("in_pipeline", true)
+    .order("pipeline_status", { ascending: true })
+    .order("title");
+
   // Get recent jobs
   const { data: recentJobs } = await supabase
     .from("jobs")
@@ -139,7 +147,165 @@ export default async function AdminPipelinePage() {
         ))}
       </div>
 
-      {/* Enqueue Job form */}
+      {/* Film List Upload */}
+      <div
+        style={{
+          background: "#0f172a",
+          border: "1px solid #334155",
+          borderRadius: 8,
+          padding: "1.5rem",
+          marginBottom: "2rem",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "1.125rem",
+            color: "#e2e8f0",
+            marginBottom: "0.5rem",
+          }}
+        >
+          📂 Film List Upload
+        </h2>
+        <p style={{ fontSize: "0.75rem", color: "#94a3b8", marginBottom: "1rem" }}>
+          Upload a CSV of films to auto-resolve via TMDB and add to the pipeline.
+          Format: <code style={{ background: "#1e293b", padding: "2px 4px", borderRadius: 3 }}>tmdb_id, title, director</code>{" "}
+          or <code style={{ background: "#1e293b", padding: "2px 4px", borderRadius: 3 }}>title, year, director</code>
+        </p>
+
+        <form
+          action="/api/admin/films/import"
+          method="POST"
+          encType="multipart/form-data"
+          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+        >
+          <div>
+            <label style={{ display: "block", fontSize: "0.8125rem", fontWeight: 500, color: "#cbd5e1", marginBottom: 4 }}>
+              CSV File
+            </label>
+            <input
+              type="file"
+              name="csv_file"
+              accept=".csv,.txt"
+              style={{
+                width: "100%",
+                padding: "0.5rem",
+                border: "1px solid #334155",
+                borderRadius: 6,
+                fontSize: "0.8125rem",
+                background: "#1e293b",
+                color: "#e2e8f0",
+              }}
+            />
+          </div>
+
+          <div>
+            <label style={{ display: "block", fontSize: "0.8125rem", fontWeight: 500, color: "#cbd5e1", marginBottom: 4 }}>
+              Or paste CSV here
+            </label>
+            <textarea
+              name="csv_text"
+              rows={5}
+              placeholder={`496243, Parasite, Bong Joon-ho\n497, The Green Mile, Frank Darabont\nEternal Sunshine of the Spotless Mind, 2004, Michel Gondry`}
+              style={{
+                width: "100%",
+                padding: "0.5rem",
+                border: "1px solid #334155",
+                borderRadius: 6,
+                fontSize: "0.8125rem",
+                background: "#1e293b",
+                color: "#e2e8f0",
+                fontFamily: "monospace",
+                resize: "vertical",
+              }}
+            />
+          </div>
+
+          <button
+            type="submit"
+            style={{
+              alignSelf: "flex-start",
+              padding: "0.625rem 1.5rem",
+              background: "#059669",
+              color: "#fff",
+              border: "none",
+              borderRadius: 6,
+              fontSize: "0.8125rem",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            📤 Import Films
+          </button>
+        </form>
+      </div>
+
+      {/* Pipeline Progress */}
+      {pipelineFilms && pipelineFilms.length > 0 && (
+        <div
+          style={{
+            background: "#0f172a",
+            border: "1px solid #334155",
+            borderRadius: 8,
+            overflow: "hidden",
+            marginBottom: "2rem",
+          }}
+        >
+          <div style={{ padding: "1rem 1.25rem", borderBottom: "1px solid #334155" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "1rem",
+                color: "#e2e8f0",
+                margin: 0,
+              }}
+            >
+              Pipeline Progress ({pipelineFilms.filter((f: { pipeline_status: string }) => f.pipeline_status === "done").length}/{pipelineFilms.length} complete)
+            </h2>
+          </div>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem" }}>
+            <thead>
+              <tr style={{ borderBottom: "1px solid #334155" }}>
+                <th style={{ textAlign: "left", padding: "0.5rem 1rem", fontWeight: 600, color: "#94a3b8" }}>Film</th>
+                <th style={{ textAlign: "left", padding: "0.5rem 0.75rem", fontWeight: 600, color: "#94a3b8" }}>Status</th>
+                <th style={{ textAlign: "left", padding: "0.5rem 0.75rem", fontWeight: 600, color: "#94a3b8" }}>Progress</th>
+                <th style={{ textAlign: "left", padding: "0.5rem 0.75rem", fontWeight: 600, color: "#94a3b8" }}>Last Processed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pipelineFilms.map((f: { id: string; title: string; year: number | null; pipeline_status: string; questions_published: number; questions_target: number; last_processed_at: string | null }) => {
+                const pct = f.questions_target > 0 ? Math.round((f.questions_published / f.questions_target) * 100) : 0;
+                const statusColors: Record<string, string> = { idle: "#6b7280", queued: "#3b82f6", in_progress: "#d97706", done: "#059669" };
+                return (
+                  <tr key={f.id} style={{ borderBottom: "1px solid #1e293b" }}>
+                    <td style={{ padding: "0.5rem 1rem", color: "#e2e8f0" }}>
+                      {f.title} {f.year ? `(${f.year})` : ""}
+                    </td>
+                    <td style={{ padding: "0.5rem 0.75rem" }}>
+                      <span style={{ padding: "2px 6px", borderRadius: 4, fontSize: "0.6875rem", fontWeight: 600, color: "#fff", background: statusColors[f.pipeline_status] ?? "#6b7280" }}>
+                        {f.pipeline_status}
+                      </span>
+                    </td>
+                    <td style={{ padding: "0.5rem 0.75rem" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                        <div style={{ flex: 1, height: 6, background: "#1e293b", borderRadius: 3, maxWidth: 100 }}>
+                          <div style={{ width: `${Math.min(pct, 100)}%`, height: "100%", background: pct >= 100 ? "#059669" : "#3b82f6", borderRadius: 3 }} />
+                        </div>
+                        <span style={{ color: "#94a3b8", fontSize: "0.6875rem" }}>
+                          {f.questions_published}/{f.questions_target}
+                        </span>
+                      </div>
+                    </td>
+                    <td style={{ padding: "0.5rem 0.75rem", color: "#64748b", fontSize: "0.6875rem" }}>
+                      {f.last_processed_at ? new Date(f.last_processed_at).toLocaleString() : "—"}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
       <div
         style={{
           background: "#0f172a",
