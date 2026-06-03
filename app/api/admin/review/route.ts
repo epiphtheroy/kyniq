@@ -40,13 +40,16 @@ export async function POST(request: Request) {
         : "contributions";
 
   if (action === "publish") {
+    const updateData: Record<string, unknown> = {
+      status: "published",
+      published_at: new Date().toISOString(),
+    };
+    if (table !== "contributions") {
+      updateData.reviewed_by = admin.id;
+    }
     const { error } = await supabase
       .from(table)
-      .update({
-        status: "published",
-        published_at: new Date().toISOString(),
-        reviewed_by: admin.id,
-      })
+      .update(updateData)
       .eq("id", id);
 
     if (error) {
@@ -62,12 +65,13 @@ export async function POST(request: Request) {
       meta: { action: "approve_and_publish" },
     });
   } else if (action === "reject") {
+    const rejectData: Record<string, unknown> = { status: "rejected" };
+    if (table !== "contributions") {
+      rejectData.reviewed_by = admin.id;
+    }
     const { error } = await supabase
       .from(table)
-      .update({
-        status: "rejected",
-        reviewed_by: admin.id,
-      })
+      .update(rejectData)
       .eq("id", id);
 
     if (error) {

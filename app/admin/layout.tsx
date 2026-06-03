@@ -26,7 +26,29 @@ export default async function AdminLayout({
   if (!admin) redirect("/admin/login");
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
+    <>
+      <style>{`
+        .admin-wrap {
+          --ink: #f1f5f9;
+          --muted: #94a3b8;
+          --hairline: rgba(148,163,184,0.2);
+          --accent: #60a5fa;
+          --bg: #0f172a;
+          --surface: #1e293b;
+        }
+        .admin-wrap input,
+        .admin-wrap select,
+        .admin-wrap textarea {
+          background: #0f172a !important;
+          color: #e2e8f0 !important;
+          border-color: #334155 !important;
+        }
+        .admin-wrap table { border-collapse: collapse; width: 100%; }
+        .admin-wrap th { color: #94a3b8 !important; }
+        .admin-wrap td { color: #cbd5e1 !important; }
+        .admin-wrap tr { border-color: #334155 !important; }
+      `}</style>
+      <div className="admin-wrap" style={{ display: "flex", minHeight: "100vh" }}>
       {/* Sidebar */}
       <nav
         style={{
@@ -108,5 +130,6 @@ export default async function AdminLayout({
         {children}
       </main>
     </div>
+    </>
   );
 }

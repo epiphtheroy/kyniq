@@ -83,7 +83,7 @@ export default async function AdminPipelinePage() {
             key={s.label}
             style={{
               flex: 1,
-              background: "#fff",
+              background: "#0f172a",
               border: "1px solid var(--hairline)",
               borderRadius: 8,
               padding: "1.25rem",
@@ -102,7 +102,7 @@ export default async function AdminPipelinePage() {
       {/* Generate form */}
       <div
         style={{
-          background: "#fff",
+          background: "#0f172a",
           border: "1px solid var(--hairline)",
           borderRadius: 8,
           padding: "1.5rem",
@@ -220,7 +220,7 @@ export default async function AdminPipelinePage() {
             style={{
               alignSelf: "flex-start",
               padding: "0.625rem 1.5rem",
-              background: "var(--ink)",
+              background: "#3b82f6",
               color: "#fff",
               border: "none",
               borderRadius: 6,
@@ -237,13 +237,13 @@ export default async function AdminPipelinePage() {
       {/* Configuration note */}
       <div
         style={{
-          background: "#fffbeb",
-          border: "1px solid #fde68a",
+          background: "#1e3a5f",
+          border: "1px solid #2563eb",
           borderRadius: 8,
           padding: "1rem 1.25rem",
           marginBottom: "2rem",
           fontSize: "0.8125rem",
-          color: "#92400e",
+          color: "#93c5fd",
         }}
       >
         <strong>Configuration:</strong> Auto-publish threshold = 0.85 · Max 5 items per run ·
@@ -262,10 +262,10 @@ export default async function AdminPipelinePage() {
         Recent Pipeline Events
       </h2>
 
-      <div style={{ background: "#fff", border: "1px solid var(--hairline)", borderRadius: 8, overflow: "hidden" }}>
+      <div style={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8, overflow: "hidden" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem" }}>
           <thead>
-            <tr style={{ background: "#f9fafb", borderBottom: "1px solid var(--hairline)" }}>
+            <tr style={{ background: "#0f172a", borderBottom: "1px solid #334155" }}>
               <th style={{ textAlign: "left", padding: "0.625rem 1rem", fontWeight: 600, color: "var(--muted)" }}>Time</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Event</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Entity</th>

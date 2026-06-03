@@ -180,7 +180,7 @@ export default async function AdminReviewPage() {
             padding: "3rem",
             textAlign: "center",
             color: "var(--muted)",
-            background: "#fff",
+            background: "#0f172a",
             borderRadius: 8,
             border: "1px solid var(--hairline)",
           }}
@@ -221,7 +221,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
   return (
     <div
       style={{
-        background: "#fff",
+        background: "#0f172a",
         border: "1px solid var(--hairline)",
         borderRadius: 8,
         padding: "1.25rem",
@@ -308,7 +308,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
       <p
         style={{
           fontSize: "0.8125rem",
-          color: "#4b5563",
+          color: "#94a3b8",
           lineHeight: 1.5,
           marginBottom: "0.75rem",
           display: "-webkit-box",
@@ -325,11 +325,11 @@ function ReviewCard({ item }: { item: ReviewItem }) {
         <div
           style={{
             padding: "0.5rem 0.75rem",
-            background: "#f0fdf4",
-            border: "1px solid #bbf7d0",
+            background: "#064e3b",
+            border: "1px solid #065f46",
             borderRadius: 6,
             fontSize: "0.75rem",
-            color: "#166534",
+            color: "#6ee7b7",
             marginBottom: "0.75rem",
           }}
         >
