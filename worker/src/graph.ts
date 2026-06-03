@@ -538,7 +538,7 @@ export async function processJob(
   const configMap = new Map((configs ?? []).map((c) => [c.key, c.value]));
   const routerConfig = (configMap.get("model_router") ?? {}) as Record<string, ModelConfig>;
   const voices = (configMap.get("personas") ?? []) as VoiceConfig[];
-  const gateConfig = (configMap.get("gate_threshold") ?? { default: 0.85 }) as { default: number };
+  const gateConfig = (configMap.get("gate_threshold") ?? { default: 0.80 }) as { default: number };
   const threshold = (j.params.threshold as number) ?? gateConfig.default;
 
   const dossierConfig = routerConfig.dossier ?? { provider: "gemini", model: "gemini-2.5-flash" };
