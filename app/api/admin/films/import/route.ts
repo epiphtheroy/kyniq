@@ -34,11 +34,9 @@ async function tmdbFetch(path: string): Promise<Record<string, unknown> | null> 
   const token = process.env.TMDB_READ_TOKEN;
   if (!token) throw new Error("Missing TMDB_READ_TOKEN");
 
-  const res = await fetch(`${TMDB_BASE}${path}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-    },
+  const separator = path.includes("?") ? "&" : "?";
+  const res = await fetch(`${TMDB_BASE}${path}${separator}api_key=${token}`, {
+    headers: { Accept: "application/json" },
   });
 
   if (!res.ok) return null;
