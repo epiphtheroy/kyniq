@@ -49,6 +49,7 @@ export default async function HomePage() {
     .select("username")
     .eq("is_public", true)
     .neq("role", "system")
+    .not("username", "is", null)
     .order("reputation", { ascending: false })
     .limit(5);
 
@@ -112,6 +113,9 @@ export default async function HomePage() {
               </Link>
             );
           })}
+          {(recentContribs ?? []).length === 0 && (
+            <p className="ui muted" style={{ fontSize: 13, marginTop: 10 }}>No activity yet.</p>
+          )}
         </div>
         <div>
           <div className="seclbl">Recently improved</div>
@@ -124,6 +128,9 @@ export default async function HomePage() {
               </Link>
             );
           })}
+          {(recentlyImproved ?? []).length === 0 && (
+            <p className="ui muted" style={{ fontSize: 13, marginTop: 10 }}>No updates yet.</p>
+          )}
         </div>
       </div>
 
