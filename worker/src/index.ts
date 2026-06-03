@@ -13,6 +13,7 @@
  */
 
 import "dotenv/config";
+import { createServer } from "node:http";
 import { createClient } from "@supabase/supabase-js";
 import { processJob, writeHeartbeat } from "./graph.js";
 import { runPublisherCycle } from "./publisher.js";
@@ -205,7 +206,7 @@ async function runScheduler(): Promise<void> {
   await writeHeartbeat(
     supabase, WORKER_ID, "idle",
     `scheduler enqueued ${films.length} films (${todayJobsEnqueued}/${dailyCap} today)`,
-    null, todayPublished, todayCost
+    undefined, todayPublished, todayCost
   );
 }
 
@@ -213,7 +214,7 @@ async function pollLoop(): Promise<void> {
   console.log(`[${WORKER_ID}] Pipeline worker started. Polling every ${POLL_INTERVAL_MS / 1000}s`);
 
   // Initial heartbeat
-  await writeHeartbeat(supabase, WORKER_ID, "idle", "worker started, waiting for jobs", null, 0, 0);
+  await writeHeartbeat(supabase, WORKER_ID, "idle", "worker started, waiting for jobs", undefined, 0, 0);
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
@@ -223,7 +224,7 @@ async function pollLoop(): Promise<void> {
       // Check if paused
       if (await isWorkerPaused()) {
         console.log("[worker] Paused — skipping poll");
-        await writeHeartbeat(supabase, WORKER_ID, "paused", "paused by admin", null, todayPublished, todayCost);
+        await writeHeartbeat(supabase, WORKER_ID, "paused", "paused by admin", undefined, todayPublished, todayCost);
         await sleep(POLL_INTERVAL_MS);
         continue;
       }
@@ -238,7 +239,7 @@ async function pollLoop(): Promise<void> {
         // Try claiming again (scheduler may have enqueued something)
         const scheduledJobId = await claimJob();
         if (!scheduledJobId) {
-          await writeHeartbeat(supabase, WORKER_ID, "idle", "waiting for jobs", null, todayPublished, todayCost);
+          await writeHeartbeat(supabase, WORKER_ID, "idle", "waiting for jobs", undefined, todayPublished, todayCost);
           await sleep(POLL_INTERVAL_MS);
           continue;
         }
@@ -319,7 +320,7 @@ async function processClaimedJob(jobId: string): Promise<void> {
         .eq("id", jobData.film_id);
     }
 
-    await writeHeartbeat(supabase, WORKER_ID, "idle", `completed job — ${result.questions_published} approved, ${result.questions_in_review} review, ${result.questions_held ?? 0} held`, null, todayPublished, todayCost);
+    await writeHeartbeat(supabase, WORKER_ID, "idle", `completed job — ${result.questions_published} approved, ${result.questions_in_review} review, ${result.questions_held ?? 0} held`, undefined, todayPublished, todayCost);
 
     console.log(`[worker] Job ${jobId} completed:`, JSON.stringify(result));
   } catch (err) {
@@ -335,7 +336,7 @@ async function processClaimedJob(jobId: string): Promise<void> {
       })
       .eq("id", jobId);
 
-    await writeHeartbeat(supabase, WORKER_ID, "idle", `job failed: ${msg.slice(0, 100)}`, null, todayPublished, todayCost);
+    await writeHeartbeat(supabase, WORKER_ID, "idle", `job failed: ${msg.slice(0, 100)}`, undefined, todayPublished, todayCost);
   }
 }
 
@@ -361,7 +362,7 @@ async function publisherLoop(): Promise<void> {
         await writeHeartbeat(
           supabase, WORKER_ID, "idle",
           `publisher released ${result.published} items (${result.cap_remaining} cap remaining)`,
-          null, todayPublished, todayCost
+          undefined, todayPublished, todayCost
         );
       }
     } catch (err) {
@@ -389,7 +390,7 @@ async function kyniqbotLoop(): Promise<void> {
         await writeHeartbeat(
           supabase, WORKER_ID, "idle",
           `kyniqbot enriched ${result.enriched} questions with media`,
-          null, todayPublished, todayCost
+          undefined, todayPublished, todayCost
         );
       }
     } catch (err) {
@@ -417,7 +418,7 @@ async function reauditLoop(): Promise<void> {
         await writeHeartbeat(
           supabase, WORKER_ID, "idle",
           `re-audit: ${result.audited} sampled, ${result.held} held`,
-          null, todayPublished, todayCost
+          undefined, todayPublished, todayCost
         );
       }
     } catch (err) {
@@ -428,7 +429,36 @@ async function reauditLoop(): Promise<void> {
   }
 }
 
+// ── Health check HTTP server (for Railway / cloud monitoring) ─────
+
+const HEALTH_PORT = parseInt(process.env.PORT ?? "3001", 10);
+const startTime = Date.now();
+
+const healthServer = createServer((req, res) => {
+  if (req.url === "/health" || req.url === "/") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({
+      status: "ok",
+      worker_id: WORKER_ID,
+      uptime_seconds: Math.floor((Date.now() - startTime) / 1000),
+      today: todayDate,
+      today_published: todayPublished,
+      today_cost_usd: todayCost,
+      today_jobs: todayJobsEnqueued,
+    }));
+  } else {
+    res.writeHead(404);
+    res.end("Not Found");
+  }
+});
+
+healthServer.listen(HEALTH_PORT, () => {
+  console.log(`[health] Listening on port ${HEALTH_PORT}`);
+});
+
 // ── Start ─────────────────────────────────────────────────────────
+
+console.log(`[${WORKER_ID}] Starting all loops...`);
 
 // Run all four loops concurrently
 Promise.all([

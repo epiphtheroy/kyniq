@@ -789,13 +789,10 @@ Return ONLY JSON:
       // Build evidence_refs + rubric_scores for persistence
       const evidenceRefs = {
         facts_used: draft.facts_used ?? [],
-        specifics_used: draft.specifics_used ?? [],
-        comparisons_used: draft.comparisons_used ?? [],
-        reading_basis: draft.reading_basis ?? [],
+        evidence_used: draft.evidence_used ?? [],
         verify: {
-          confidence: verify.confidence,
-          fact_checks_count: (verify.fact_checks ?? []).length,
-          ungrounded_count: (verify.ungrounded_specifics ?? []).length,
+          confidence_score: verify.confidence_score,
+          critical_errors_count: (verify.critical_errors ?? []).length,
           real_person_risk: verify.real_person_risk ?? [],
           retries: verifyRetries,
         },
@@ -861,16 +858,15 @@ Return ONLY JSON:
           meta: {
             model: draftResp.model, provider: draftResp.provider, voice: voice.codename,
             cost: draftResp.cost, tldr_length: draft.tldr?.length,
-            facts_used: draft.facts_used?.length, specifics_used: draft.specifics_used?.length,
-            comparisons_used: draft.comparisons_used?.length,
+            facts_used: draft.facts_used?.length, evidence_used: draft.evidence_used?.length,
           },
         },
         {
           entity_type: "question", entity_id: qRow.id, event: "verified",
           actor_kind: "ai",
           meta: {
-            confidence: verify.confidence, fact_checks: verify.fact_checks?.length,
-            ungrounded: verify.ungrounded_specifics?.length,
+            confidence_score: verify.confidence_score,
+            critical_errors: verify.critical_errors?.length,
             real_person_risk: verify.real_person_risk?.length,
             fixes_applied: verify.fixes?.length, retries: verifyRetries,
             model: verifierConfig.model,
@@ -888,7 +884,7 @@ Return ONLY JSON:
           entity_type: "question", entity_id: qRow.id, event: "approved",
           actor_kind: "ai",
           meta: {
-            confidence: verify.confidence, gate: "auto", threshold,
+            confidence_score: verify.confidence_score, gate: "auto", threshold,
             voice: voice.codename, scheduled_for: questionScheduled,
             rubric_verdict: rubric.verdict,
           },
@@ -899,7 +895,7 @@ Return ONLY JSON:
           actor_kind: "ai",
           meta: {
             reason: hasRealPersonRisk ? "real_person_risk" : rubric.verdict === "hold" ? "rubric_hold" : "quality_gate",
-            confidence: verify.confidence, rubric_verdict: rubric.verdict,
+            confidence_score: verify.confidence_score, rubric_verdict: rubric.verdict,
           },
         });
       }
@@ -934,13 +930,13 @@ Return ONLY JSON:
       // Gate log
       if (status === "approved") {
         result.questions_published++;
-        console.log(`[graph] ✅ Approved: "${item.question}" [${voice.codename}] (conf:${verify.confidence.toFixed(2)}, rubric:${rubric.verdict}) → ${questionScheduled?.slice(11, 16)}`);
+        console.log(`[graph] ✅ Approved: "${item.question}" [${voice.codename}] (conf:${verify.confidence_score.toFixed(2)}, rubric:${rubric.verdict}) → ${questionScheduled?.slice(11, 16)}`);
       } else if (status === "held") {
         result.questions_held++;
         console.log(`[graph] ⛔ Held: "${item.question}" [${voice.codename}] — ${hasRealPersonRisk ? "real_person_risk" : rubric.verdict}`);
       } else {
         result.questions_in_review++;
-        console.log(`[graph] 🔍 Review: "${item.question}" [${voice.codename}] (conf:${verify.confidence.toFixed(2)}, rubric:${rubric.verdict})`);
+        console.log(`[graph] 🔍 Review: "${item.question}" [${voice.codename}] (conf:${verify.confidence_score.toFixed(2)}, rubric:${rubric.verdict})`);
       }
 
       await updateJobStep(supabase, jobId, "drafting", i + 1);
