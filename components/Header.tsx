@@ -49,7 +49,7 @@ export default async function Header() {
         </picture>
       </Link>
 
-      <div className="field search" style={{ flex: 1, maxWidth: 380 }}>
+      <Link href="/film" className="field search" style={{ flex: 1, maxWidth: 380, textDecoration: "none", color: "var(--muted)", cursor: "pointer" }}>
         <svg
           width="16"
           height="16"
@@ -63,7 +63,7 @@ export default async function Header() {
           <line x1="21" y1="21" x2="16.5" y2="16.5" />
         </svg>
         Search a film…
-      </div>
+      </Link>
 
       {user ? (
         <UserMenu username={user.username} displayName={user.display_name} role={user.role} />

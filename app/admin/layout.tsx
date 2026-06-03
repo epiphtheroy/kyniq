@@ -104,7 +104,7 @@ export default async function AdminLayout({
       </nav>
 
       {/* Main content */}
-      <main style={{ flex: 1, padding: "2rem", overflow: "auto" }}>
+      <main style={{ flex: 1, padding: "2rem", overflow: "auto", background: "#fff", color: "#1A2740" }}>
         {children}
       </main>
     </div>
