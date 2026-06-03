@@ -102,13 +102,19 @@ Confirm these are set in Vercel dashboard (Settings → Environment Variables):
 ## Remaining Checks (Post Human Actions)
 
 Once the dashboard configuration is done:
-- [ ] **Auth**: Signup → email confirm → logged in
-- [ ] **Auth**: Google OAuth round-trip
-- [ ] **Auth**: Login + session persists across navigation
-- [ ] **Film search**: Home + ask flow search returns results
-- [ ] **Ask flow**: Complete question submission end-to-end
-- [ ] **Admin**: `/admin` works for admin, 404s for others
-- [ ] **Question page**: Canonical answer + contributions render
-- [ ] **Profiles**: Public profile visible, settings editable
-- [ ] **No draft leaks**: Only `status='published'` visible to anon
-- [ ] **No downvotes**: `grep -i downvote` empty
+- [x] **Film search**: Home + ask flow search returns results — tested `?q=mulholland`, 10 results returned ✅
+- [x] **No downvotes**: `grep -i downvote` — only "no downvotes" in copy (About, Guidelines, llms.txt) ✅
+- [x] **No draft leaks**: All public queries filter `status='published'` ✅
+- [x] **Home page**: Renders with correct sections, no `/u/null` links (fixed) ✅
+- [x] **Empty states**: Active now / Recently improved show "No activity yet" when empty ✅
+- [ ] **Auth**: Signup → email confirm → logged in (requires user to test)
+- [ ] **Auth**: Google OAuth round-trip (requires user to test)
+- [ ] **Auth**: Login + session persists across navigation (requires user to test)
+- [ ] **Ask flow**: Complete question submission end-to-end (requires user to test)
+- [ ] **Admin**: `/admin` works for admin, 404s for others (requires user to test)
+- [ ] **Question page**: Canonical answer + contributions render (requires content)
+- [ ] **Profiles**: Public profile visible, settings editable (requires user to test)
+
+### Additional Bug Found & Fixed
+- **Home page `/u/null` link**: Profiles with null username appeared in Notable readers. Added `.not("username", "is", null)` filter.
+- **Empty sections**: Active now / Recently improved showed blank. Added empty-state messages.
