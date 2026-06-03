@@ -50,11 +50,10 @@ interface VoiceConfig {
 
 interface PlanItem {
   question: string;
-  mode: string;
-  why_it_matters: string;
-  leads_to_insight: string;
+  thematic_focus: string;
+  hook: string;
   pitch: string;
-  evidence_refs: string[];
+  dossier_refs: string[];
   voice_id?: string;     // assigned by us after planning
 }
 
@@ -62,20 +61,16 @@ interface DraftOutput {
   tldr: string;
   body: string;
   facts_used: string[];
-  specifics_used: string[];
-  comparisons_used: string[];
-  reading_basis: string[];
-  voice: string;
+  evidence_used: string[];
+  voice_id: string;
 }
 
 interface VerifyOutput {
-  fact_checks: Array<{ claim: string; verdict: string; source: string }>;
-  ungrounded_specifics: Array<{ detail: string; issue: string }>;
-  comparison_checks: Array<{ comparison: string; verdict: string }>;
+  critical_errors: Array<{ claim: string; issue: string; fix_suggestion: string }>;
   real_person_risk: Array<{ claim: string; issue: string }>;
   spoiler_risk: boolean;
   fixes: Array<{ target: string; correction: string }>;
-  confidence: number;
+  confidence_score: number;
 }
 
 interface RubricOutput {
@@ -85,12 +80,11 @@ interface RubricOutput {
 }
 
 interface Dossier {
-  facts: Array<{ claim: string; source: string }>;
-  context: Array<{ item: string; source: string }>;
-  specifics: Array<{ detail: string; source_or_basis: string }>;
+  verified_facts: Array<{ claim: string; source: string }>;
+  cinematic_evidence: Array<{ detail: string; significance: string }>;
+  thematic_threads: string[];
   comparisons: Array<{ other_film: string; shared_attribute: string; source: string }>;
-  observations: Array<{ reading: string; anchored_to: string }>;
-  uncertainties: string[];
+  open_ambiguities: string[];
 }
 
 export interface JobResult {
@@ -110,34 +104,31 @@ const EDITORIAL_PROFILE_ID = "00000000-0000-0000-0000-000000000001";
 const MAX_VERIFY_RETRIES = 2;
 const MAX_REVISE_RETRIES = 2;
 
-// ── Editorial Constitution (§0 — prepended to EVERY stage call) ──
+// ── Editorial Constitution (§0 — FINAL: organic insight, anti-repetition, human voice) ──
 
-const EDITORIAL_CONSTITUTION = `You write for Kyniq, which aims to be the most insightful film-interpretation resource on the web. Your standard is depth, not summary.
+const EDITORIAL_CONSTITUTION = `You write for Kyniq, an automated but elite film-interpretation resource. Across thousands of entries your single greatest enemy is REPETITION BIAS — sounding the same on every film.
 
-THE GOAL (understand the whole point)
-Kyniq wants to be the film resource AI engines and serious viewers trust most. Every answer should read as if written by someone who *actually watched this film* and perceived it with the discernment of an authority — and should be unmistakably about THIS film and THIS question, not a template. Hold all the rules below in service of that.
+THE PRIME DIRECTIVE — ORGANIC CREATIVITY & ANTI-TEMPLATE
+- Eradicate the template. No stock structure, no habitual opening, no forced progression. Let the themes, tone, and pacing of THIS film dictate the shape of the writing — a frantic thriller and a quiet drama should not move the same way.
+- If a sentence, structure, or transition could sit unchanged under a different film, rewrite or delete it. Every line should feel native ONLY to this film and this question.
 
-METHOD
-- Observe before you theorize. Anchor every interpretive claim in something concrete and verifiable — a specific shot, cut, line, gesture, repetition, structural choice, or a sourced production fact. No floating abstractions.
-- Build an arc: rich, verified facts and context (production background, telling trivia, extra-textual connections people enjoy) are the ON-RAMP; they must climb toward an insightful interpretive CONCLUSION. Never stop at trivia. Facts serve the insight.
-- Prefer productive uncertainty to forced verdicts. It is good to hold two readings in tension — but never hedge the opening answer into mush.
-- Voice: conversational and warm, like a sharp friend who watched closely and thought hard. Deep underneath, plain on top. Show the idea; don't name-drop jargon.
+VOICE — talk like a person, NOT a paper
+- Casual, fast, spoken — a sharp friend who just watched it, not a lecturer. Short sentences, plain words. NO academic register, NO jargon, NO "moreover/furthermore," NO thesis throat-clearing. If a film-studies term sneaks in, say the idea in human words instead.
+- Depth is NOT the same as sounding academic. The insight should land as a punch, not a citation.
 
-DEMONSTRATE GENUINE, EXPERT VIEWING (the experience/authority signal)
-- Write so it's clear you truly saw the film and perceived it finely: name precise, grounded details (a specific image, a line, a cut, a recurring motif, a structural turn); place it against the director's other work or comparable films where it illuminates; let an experiential register show (what the moment does to a watching viewer) — the texture of real attention.
-- CRITICAL GUARD: that authority must come ONLY from details grounded in the dossier (verified facts + the dossier's flagged observations). **Never invent a specific — a scene, a line, a shot — to sound authoritative.** A fabricated detail is worse than a general one. If the grounded specifics are thin, reach for fewer but real ones, and lean on structure/idea.
-- Comparisons to other films must be to REAL films with attributes that are actually true of them; if you're not sure the comparison holds, don't make it.
+MAKE IT MOVE — earn the "aha" (these are QUALITIES, achieved organically; never a fixed order)
+- Answer the asker, not the void: pick up a word or two from the actual question and respond to it, then advance your read.
+- Reward set-up and pay-off: a concrete detail planted early and fired later lands the click.
+- Aim for one real "aha" — a turn where the obvious reading flips into the truer one. Achieve all of this however the film demands; do not impose a standard sequence (that becomes a template).
 
-STAY DISTINCT — no repetition bias (this method runs across ~10,000 items)
-- Drive each answer from THIS film's internal elements and THIS question's specific essence, with the cinematic evidence OPTIMIZED to that question. Do not apply a portable template, a stock opening, a habitual structure, or a go-to theory move across films. If a sentence could sit unchanged under a different film/question, cut or rewrite it.
-- Let the film and the question choose the shape and the evidence — not your house formula.
+FOCUS ON THE CINEMATIC ESSENCE
+- Show, don't tell. Anchor your intelligence in the actual fabric of the film: a camera movement, a lighting choice, a line of dialogue, a structural motif.
+- Cultivate productive ambiguity. Explore the gray areas; don't force a definitive verdict where the real truth is the tension.
 
-EVIDENCE & TRUTH (critical — nothing here is human-reviewed)
-- Separate FACTS (verifiable, sourced) from READINGS (your interpretation). State facts plainly; frame readings as readings ("one way to read this…", "the film seems to…").
-- NEVER assert an unsourced specific as fact. If you are not sure a detail is true, treat it as a reading or omit it.
-- About real people (directors, actors, crew): only sourced, non-defamatory facts. No rumor, no speculation about private lives, no unverified gossip. When in doubt, leave it out.
-- Citation-ready: open with a direct, self-contained answer; keep claims specific.
-- Never fabricate sources, users, or engagement.`;
+THE IRONCLAD CONSTRAINTS (no human will review this — these are absolute)
+1. ZERO HALLUCINATION. Never invent a specific scene, shot, quote, or production fact to sound authoritative. Fabricated authority is a fatal error. If you cannot ground it, lean on broader structural/thematic ideas instead.
+2. FACT VS READING. State verifiable facts plainly; frame interpretation as interpretation ("the film suggests…", "one way to read this…").
+3. REAL-PERSON SAFETY. About real people (directors, actors, crew): only sourced, professional facts. No rumor, no defamation, no private-life speculation.`;
 
 // ── Provider helpers ──────────────────────────────────────────────
 
@@ -179,21 +170,33 @@ async function callGemini(model: string, prompt: string, systemPrompt?: string, 
 
   const maxRetries = 3;
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents,
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 8192,
-            ...(jsonMode && { responseMimeType: "application/json" }),
-          },
-        }),
+    let res: Response;
+    try {
+      res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents,
+            generationConfig: {
+              temperature: 0.7,
+              maxOutputTokens: 8192,
+              ...(jsonMode && { responseMimeType: "application/json" }),
+            },
+          }),
+        }
+      );
+    } catch (networkErr) {
+      // Network-level failure (DNS, connection refused, timeout, etc.)
+      if (attempt < maxRetries) {
+        const retryAfter = Math.min(60, Math.pow(2, attempt + 1) * 10);
+        console.log(`[gemini] Network error (${(networkErr as Error).message}) — retrying in ${retryAfter}s (attempt ${attempt + 1}/${maxRetries})`);
+        await new Promise((r) => setTimeout(r, retryAfter * 1000));
+        continue;
       }
-    );
+      throw new Error(`Gemini network error after ${maxRetries} retries: ${(networkErr as Error).message}`);
+    }
 
     if (res.ok) {
       const data = await res.json();
@@ -324,37 +327,41 @@ async function buildOrGetDossier(
     .single();
 
   if (cached?.dossier) {
-    console.log(`[dossier] Cache hit for "${film.title}"`);
-    return cached.dossier as Dossier;
+    const d = cached.dossier as Record<string, unknown>;
+    // Only use cache if it matches the new FINAL JSON contract
+    if ("verified_facts" in d) {
+      console.log(`[dossier] Cache hit for "${film.title}"`);
+      return cached.dossier as Dossier;
+    }
+    console.log(`[dossier] Stale cache (old format) for "${film.title}", rebuilding...`);
   }
 
   console.log(`[dossier] Building dossier for "${film.title}"...`);
 
-  const dossierPrompt = `Build an evidence dossier for the film below. Gather BOTH (a) rich verifiable facts/context that make good connective tissue, and (b) the deep interpretive threads worth pursuing. ALSO collect **grounded specific details** the writers can use to show genuine viewing (precise images, lines, cuts, motifs, structural turns — only ones you can ground), and **real comparison points** (other films / the director's other work, with the attribute that makes the comparison true). Mark every item as fact (with a source) or reading (interpretation). Real-person claims need a source.
+  const dossierPrompt = `Build a foundational intelligence dossier for the film. The goal is not to force insights but to extract the cinematic and thematic DNA that writers will use to craft unique, grounded analyses.
 
-FILM: ${film.title} (${film.year}), dir. ${film.director}. TMDB overview: ${film.overview}. Genres: ${(film.genres ?? []).join(", ")}. Keywords: ${(film.keywords ?? []).join(", ")}.
+FILM: ${film.title} (${film.year}), dir. ${film.director}. TMDB data: ${film.overview}. Genres: ${(film.genres ?? []).join(", ")}. Keywords: ${(film.keywords ?? []).join(", ")}.
 
 Return ONLY JSON:
 {
-  "facts":        [{"claim": "...", "source": "TMDB|Wikidata|<url>"}],
-  "context":      [{"item": "production/trivia/extra-textual fact", "source": "..."}],
-  "specifics":    [{"detail": "precise grounded image/line/cut/motif/structure", "source_or_basis": "..."}],
-  "comparisons":  [{"other_film": "real title", "shared_attribute": "what's actually true of it", "source": "..."}],
-  "observations": [{"reading": "interpretive thread", "anchored_to": "concrete basis in the film"}],
-  "uncertainties":["open questions / contested readings"]
+  "verified_facts":     [{"claim": "verifiable truth/context", "source": "TMDB|Wikidata|<url>"}],
+  "cinematic_evidence": [{"detail": "precise, striking visual/audio/narrative element", "significance": "..."}],
+  "thematic_threads":   ["deep philosophical, structural, or emotional currents of the film"],
+  "comparisons":        [{"other_film": "real title", "shared_attribute": "factual connection", "source": "..."}],
+  "open_ambiguities":   ["genuine interpretive tensions / unanswered questions"]
 }
-No prose. Do not invent sources, specifics, or comparisons. Omit anything you cannot ground.`;
+Rule: Do not invent anything. If you cannot ground a detail in reality or broad consensus, omit it.`;
 
   const resp = await callModel(dossierConfig, dossierPrompt, EDITORIAL_CONSTITUTION, true);
   result.total_cost_usd += resp.cost;
   result.total_tokens += resp.tokensUsed.total;
 
   const parsed = extractJSON(resp.text);
-  if (!parsed || typeof parsed !== "object" || !("facts" in (parsed as Record<string, unknown>))) {
+  if (!parsed || typeof parsed !== "object" || !("verified_facts" in (parsed as Record<string, unknown>))) {
     console.log("[dossier] Failed to parse dossier, using minimal fallback");
     const fallback: Dossier = {
-      facts: [{ claim: `${film.title} (${film.year}), directed by ${film.director}`, source: "TMDB" }],
-      context: [], specifics: [], comparisons: [], observations: [], uncertainties: [],
+      verified_facts: [{ claim: `${film.title} (${film.year}), directed by ${film.director}`, source: "TMDB" }],
+      cinematic_evidence: [], thematic_threads: [], comparisons: [], open_ambiguities: [],
     };
     return fallback;
   }
@@ -371,7 +378,7 @@ No prose. Do not invent sources, specifics, or comparisons. Omit anything you ca
     tokens_used: resp.tokensUsed.total,
   }, { onConflict: "film_id" });
 
-  console.log(`[dossier] Built: ${dossier.facts.length} facts, ${dossier.specifics.length} specifics, ${dossier.comparisons.length} comparisons`);
+  console.log(`[dossier] Built: ${dossier.verified_facts.length} facts, ${dossier.cinematic_evidence.length} evidence, ${dossier.comparisons.length} comparisons`);
 
   return dossier;
 }
@@ -389,7 +396,13 @@ async function verifyAndFix(
   let body = draftBody;
 
   for (let retry = 0; retry <= MAX_VERIFY_RETRIES; retry++) {
-    const verifyPrompt = `Fact-check the draft against the dossier/sources. You are the last line before publish; no human will review this. Check every factual claim and every statement about a real person. Also confirm that **every specific detail and every film-comparison in the draft is grounded in the dossier** (\`specifics\`/\`comparisons\`) and that comparisons are actually true of the films named — flag any detail or comparison that appears invented or inaccurate (fabricated authority is a failure). Where a claim is wrong/unsupported, emit a TARGETED FIX (don't rewrite the whole thing). Flag spoilers.
+    const verifyPrompt = `You are the final automated fact-checker and constraint-enforcer. No human will review this. Your ONLY job is to catch FATAL OBJECTIVE flaws: hallucinations, factual errors, ungrounded specifics, defamatory risk about real people, and spoilers.
+
+Do NOT police writing style, structure, or subjective thematic interpretation — film analysis is subjective. Focus purely on objective grounding and factual safety.
+- Did they invent a scene, shot, quote, or fact that isn't true to the film or the dossier?
+- Are they presenting speculative rumors about real people as fact?
+
+Emit TARGETED FIXES for objective errors only (don't rewrite the whole thing). Rate confidence_score (0.0–1.0) as your certainty that the draft contains NO hallucinations or factual errors. This is FACTUAL SAFETY, not interpretive perfection — do NOT demand 1.0 for subjective readings; a sound, well-grounded interpretation should score high.
 
 DRAFT: ${body.slice(0, 3000)}
 DOSSIER: ${dossierJson.slice(0, 3000)}
@@ -397,22 +410,20 @@ FILM: "${film.title}" (${film.year}), dir. ${film.director}
 QUESTION: ${question}
 
 Return ONLY JSON:
-{"fact_checks":[{"claim":"...", "verdict":"supported|wrong|unsupported", "source":"..."}],
- "ungrounded_specifics":[{"detail":"...", "issue":"not in dossier|inaccurate"}],
- "comparison_checks":[{"comparison":"...", "verdict":"accurate|inaccurate|ungrounded"}],
- "real_person_risk":[{"claim":"...", "issue":"unsourced|speculative|defamatory"}],
+{"critical_errors":[{"claim":"...", "issue":"fabricated_detail|factual_error|ungrounded", "fix_suggestion":"..."}],
+ "real_person_risk":[{"claim":"...", "issue":"unsourced|defamatory"}],
  "spoiler_risk": false,
  "fixes":[{"target":"exact text to change", "correction":"replacement or 'remove'"}],
- "confidence": "0.0 to 1.0 — your honest assessment"}`;
+ "confidence_score": 0.0}`;
 
     const resp = await callModel(verifierConfig, verifyPrompt, EDITORIAL_CONSTITUTION, true);
     result.total_cost_usd += resp.cost;
     result.total_tokens += resp.tokensUsed.total;
 
     const parsed = extractJSON(resp.text) as VerifyOutput | null;
-    const verify: VerifyOutput = parsed && "confidence" in parsed
+    const verify: VerifyOutput = parsed && "confidence_score" in parsed
       ? parsed
-      : { fact_checks: [], ungrounded_specifics: [], comparison_checks: [], real_person_risk: [], spoiler_risk: false, fixes: [], confidence: 0.5 };
+      : { critical_errors: [], real_person_risk: [], spoiler_risk: false, fixes: [], confidence_score: 0.5 };
 
     // No fixes needed or last retry → return
     if (verify.fixes.length === 0 || retry === MAX_VERIFY_RETRIES) {
@@ -431,7 +442,7 @@ Return ONLY JSON:
   }
 
   // Should not reach here
-  return { finalBody: body, verify: { fact_checks: [], ungrounded_specifics: [], comparison_checks: [], real_person_risk: [], spoiler_risk: false, fixes: [], confidence: 0.5 }, retries: MAX_VERIFY_RETRIES };
+  return { finalBody: body, verify: { critical_errors: [], real_person_risk: [], spoiler_risk: false, fixes: [], confidence_score: 0.5 }, retries: MAX_VERIFY_RETRIES };
 }
 
 // ── Rubric Scorer + Revise Loop (§5) ─────────────────────────────
@@ -440,7 +451,6 @@ function codePreChecks(draft: DraftOutput, voice: VoiceConfig): string[] {
   const failures: string[] = [];
   if (!draft.tldr || draft.tldr.length < 10) failures.push("Missing or too short TL;DR");
   if (!draft.facts_used || draft.facts_used.length === 0) failures.push("No facts_used");
-  if (!draft.reading_basis || draft.reading_basis.length === 0) failures.push("No reading_basis");
 
   // Length band check (rough — voice has e.g. "300–500")
   const bandMatch = voice.length_band.match(/(\d+)/);
@@ -458,22 +468,22 @@ async function scoreWithRubric(
   scorerConfig: ModelConfig,
   result: JobResult
 ): Promise<RubricOutput> {
-  const scorePrompt = `Score the draft 1–5 on each dimension. Kyniq's bar is DEPTH; reward insight and the facts→insight arc; reward writing that reads as genuine, expert viewing (grounded specifics, apt real comparison); penalize fragmentary/summary-only/shallow answers AND anything that reads as a reusable template rather than a piece about THIS film and THIS question.
+  const scorePrompt = `Evaluate the draft. Kyniq's standard is profound, original insight delivered in a human voice, strictly grounded in THIS film's specific materials.
+
+PENALIZE heavily: generic AI-template feel, repetitive transitional formulas, academic/dry register, or failure to engage THIS film's specific materials.
+REWARD: organic (distinct) structure, real thematic depth, precise cinematic grounding, a casual human voice, and a genuine "aha" turn.
 
 DRAFT TL;DR: ${draft.tldr}
 DRAFT BODY (first 2000 chars): ${draft.body.slice(0, 2000)}
-VOICE: ${draft.voice}
-FACTS USED: ${draft.facts_used.length}, SPECIFICS USED: ${draft.specifics_used.length}, COMPARISONS USED: ${draft.comparisons_used.length}
+VOICE: ${draft.voice_id}
+FACTS USED: ${draft.facts_used.length}, EVIDENCE USED: ${draft.evidence_used?.length ?? 0}
 
 Return ONLY JSON:
 {"scores":{
-   "insight_depth":1, "fact_to_insight_arc":1, "evidence_grounding":1,
-   "demonstrated_viewing":1, "distinctiveness":1,
-   "productive_uncertainty":1, "voice_fit":1, "accessibility":1,
-   "citation_readiness":1, "non_fragmentary":1 },
+   "thematic_depth":1, "cinematic_grounding":1, "anti_template_variance":1,
+   "voice_and_flow":1, "aha_momentum":1 },
  "verdict":"publish|revise|hold",
- "revise_notes":"what to deepen / where it reads generic if revise"}`;
-
+ "revise_notes":"if revise: how to break the generic template, deepen the insight, or de-academize"}`;
   const resp = await callModel(scorerConfig, scorePrompt, undefined, true);
   result.total_cost_usd += resp.cost;
   result.total_tokens += resp.tokensUsed.total;
@@ -564,9 +574,18 @@ export async function processJob(
     .eq("film_id", f.id);
   const existingTitles = (existingQs ?? []).map((q) => q.title.toLowerCase());
 
-  const planPrompt = `From the dossier, propose ~12 candidate questions a real viewer would actually ask, then select the ${j.target_count} strongest. PRIORITIZE questions whose answer REQUIRES insight (meaning, ambiguity, structure, the director's signature, the emotional core) over trivia-only questions. Vary the type. Phrase each the way a person would ask it (conversational), not as an essay prompt.
+  const planPrompt = `From the dossier, propose ~14 candidate questions, then select the ${j.target_count} strongest. The QUESTION's job is to be BAIT — a short, casual hook that makes someone stop scrolling and need the answer.
 
-For each selected question, write a PITCH: 1–2 sentences, vivid and a little dramatic — make me want to read it — but honest, never clickbait.
+QUESTION RULES:
+- SHORT. Aim ≤10 words; rarely more. One idea. No multi-clause monsters. No essay-prompt phrasing.
+- Spoken, casual, tuned to THIS film's vibe. Contractions; a "wait" or "so" if it lands.
+- Aggro / provocative is the #1 trait — create intense anticipation. Take a side, poke, dare. A question that's a little WRONG or one-sided is GOOD: the wrong premise is the gun the answer gets to fire.
+- It must still open onto real insight (theme, structure, ambiguity, character psychology) — not pure trivia. Vary the kind of question across the ${j.target_count}.
+
+BAD (long/academic): "Is the Zone a literal place with supernatural powers, an alien landscape, or is it primarily a metaphor for the characters' internal struggles?"
+GOOD (short/hook): "Is the Zone even real?" · "Does the Zone actually do anything?"
+
+For each, write a PITCH (1-2 sentences): vivid, sells the payoff without spoiling it. No clickbait.
 
 DOSSIER: ${dossierJson.slice(0, 4000)}
 FILM: "${f.title}" (${f.year}), dir. ${f.director}
@@ -575,10 +594,9 @@ GENRES: ${(f.genres ?? []).join(", ")}
 Existing questions to AVOID duplicating:
 ${existingTitles.slice(0, 20).join("\n")}
 
-Return ONLY JSON array:
-[{"question":"...", "mode":"meaning|symbol|character|ambiguity|form|structure|theme|signature|emotional",
-  "why_it_matters":"...", "leads_to_insight":"how the answer climbs to insight",
-  "pitch":"...", "evidence_refs":["dossier items it will draw on"]}]`;
+Return ONLY JSON (rank by hook strength, strongest first):
+[{"question":"short hooky question", "thematic_focus":"the core idea it opens onto",
+  "hook":"why this baits a click", "pitch":"...", "dossier_refs":["relevant keys"]}]`;
 
   const planResp = await callModel(plannerConfig, planPrompt, EDITORIAL_CONSTITUTION, true);
   result.total_cost_usd += planResp.cost;
@@ -596,6 +614,17 @@ Return ONLY JSON array:
 
   // Dedup + assign voices
   plan = plan.filter((p) => !existingTitles.includes((p.question ?? "").toLowerCase()));
+
+  // Code pre-check: question must be short (≈≤12 words), not an essay-prompt
+  plan = plan.filter((p) => {
+    const wordCount = (p.question ?? "").split(/\s+/).length;
+    if (wordCount > 15) {
+      console.log(`[graph] Question too long (${wordCount} words), skipping: "${p.question}"`);
+      return false;
+    }
+    return true;
+  });
+
   plan = plan.slice(0, j.target_count);
 
   // Assign voices (round-robin across available voices)
@@ -625,22 +654,24 @@ Return ONLY JSON array:
       );
       await updateJobStep(supabase, jobId, "drafting", i);
 
-      const draftPrompt = `Write the answer to the question, in the assigned voice. Follow the arc: open with a self-contained, citable answer (TL;DR ≤40 words) → lay in the rich verified facts/context that connect to it (the part readers love) → CLIMB to an insightful interpretive conclusion (the payoff). Use ONLY the dossier's verified facts; frame interpretation as reading. Length per the voice's band. Real-person claims: sourced facts only.
+      const draftPrompt = `Write a profound, engaging answer in the assigned voice. Fully obey the Editorial Constitution.
 
-SHOW GENUINE VIEWING: weave in 1–3 precise grounded specifics from the dossier and, where it illuminates, one apt real comparison — so it reads as written by someone who truly saw and finely perceived the film. **Never invent a detail or a comparison to sound authoritative**; if grounded specifics are thin, use fewer real ones and lean on idea/structure.
+CREATIVE FREEDOM & SHAPE:
+- Break the formula. No rigid intro→body→conclusion, no fixed facts→insight arc. Let the film's mood and the question dictate the flow. Every answer should be structurally distinct.
+- Talk like a person, not a paper — casual, fast, plain. Depth lands as a punch, not a lecture.
+- Open with a self-contained, citable \`tldr\` (≤40 words) that states the claim cleanly without blowing the turn. In the \`body\`: answer the asker (echo a word or two from the question), weave in highly specific grounded cinematic elements, and earn one real "aha" — organically, not on a schedule.
 
-STAY DISTINCT: build from THIS question's specific essence and the evidence OPTIMIZED to it — not a portable template. No stock opening, no habitual structure, no go-to theory move. If a sentence could sit unchanged under another film or question, rewrite it.
+STRICT CONSTRAINTS:
+- Use ONLY facts and specifics grounded in the dossier. NEVER hallucinate a detail to sound smarter. Frame interpretation as interpretation. Real-person claims: sourced facts only.
+- Stay distinct: if a sentence could sit unchanged under another film/question, rewrite it.
 
-QUESTION: ${item.question}
-PITCH: ${item.pitch ?? ""}
-WHY IT MATTERS: ${item.why_it_matters ?? ""}
+QUESTION: ${item.question}  PITCH: ${item.pitch ?? ""}
 VOICE: ${voice.codename} — ${voice.register}, ${voice.length_band} words. ${voice.description}
 DOSSIER: ${dossierJson.slice(0, 4000)}
 
 Return ONLY JSON:
-{"tldr":"...", "body":"...", "facts_used":["dossier fact ids"], "specifics_used":["dossier specific ids"],
- "comparisons_used":["dossier comparison ids"], "reading_basis":["concrete anchors for each interpretive claim"],
- "voice":"${voice.id}"}`;
+{"tldr":"...", "body":"...", "facts_used":["dossier keys"], "evidence_used":["dossier cinematic_evidence keys"],
+ "voice_id":"${voice.id}"}`;
 
       const systemPromptForDraft = EDITORIAL_CONSTITUTION + "\n\n" + voice.system_prompt_suffix;
       let draftResp = await callModel(drafterConfig, draftPrompt, systemPromptForDraft, true);
@@ -691,9 +722,7 @@ Return ONLY JSON:
 
       // Check for hard-hold conditions
       const hasRealPersonRisk = (verify.real_person_risk ?? []).length > 0;
-      const hasUngroundedSpecifics = (verify.ungrounded_specifics ?? []).filter(
-        (s) => s.issue === "not in dossier"
-      ).length > 2; // Allow 1-2 minor gaps
+      const hasCriticalErrors = (verify.critical_errors ?? []).length > 0;
 
       // ── RUBRIC SCORER (§5) ─────────────────────────────────────
       await updateJobStep(supabase, jobId, "scoring", i);
@@ -721,14 +750,11 @@ Return ONLY JSON:
       }
 
       // ── GATE (§6) ──────────────────────────────────────────────
-      // Only 'wrong' facts are hard failures; 'unsupported' = no source found (acceptable for interpretive content)
-      const hasWrongFacts = (verify.fact_checks ?? []).some(
-        (c) => c.verdict === "wrong"
-      );
+      // confidence_score is FACTUAL SAFETY (0-1); gate at threshold (~0.85, never 1.0)
       // Confidence 0 is likely the model copying the example value — treat as 0.85 (neutral pass)
-      const effectiveConfidence = verify.confidence === 0 ? 0.85 : verify.confidence;
-      const passerVerifier = !hasWrongFacts && !hasRealPersonRisk && !verify.spoiler_risk &&
-        effectiveConfidence >= threshold && !hasUngroundedSpecifics;
+      const effectiveConfidence = verify.confidence_score === 0 ? 0.85 : verify.confidence_score;
+      const passerVerifier = !hasCriticalErrors && !hasRealPersonRisk && !verify.spoiler_risk &&
+        effectiveConfidence >= threshold;
       const passerScorer = rubric.verdict === "publish";
 
       let status: string;
