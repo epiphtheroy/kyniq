@@ -61,6 +61,15 @@ the single source of truth; this file is the short standing brief that applies t
   penalties the whole GEO strategy depends on avoiding.
 - Quality over volume: respect the scaled-content-abuse guardrail (§3.2) — depth, uniqueness,
   review, and a publish rate-limit.
+- **Pipeline runtime (§3.2):** the generator runs as a **separate worker** (not the Vercel
+  request path); it talks to Supabase via a **job queue** and writes `draft`/`in_review` rows,
+  with a **multi-provider model router** (model↔role mapping is admin config) and verification
+  on a **different provider/family** than generation. `/admin` is the control plane.
+- **Media (§3.3):** images = **TMDB only** (no web scraping, no user uploads); video = **YouTube
+  official embed + Data API**. A curator **auto-attaches media to every question** through an
+  automated relevance + **spoiler/appropriateness** filter; admin moderates after the fact.
+  `media` is published-gated and service-role-written; always render attribution; lazy-load
+  images and use a click-to-load YouTube facade.
 
 ## Security & approval (§0, §15)
 - Use **approval mode** for anything touching: auth, secrets/env, SQL migrations, RLS,

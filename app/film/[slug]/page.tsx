@@ -151,6 +151,18 @@ export default async function FilmPage({ params }: PageProps) {
   );
   const mostRead = await getMostReadQuestion(film.id);
 
+  // Fetch backdrop media for hero
+  const { data: filmMedia } = supabaseAnon()
+    .from("media")
+    .select("url, thumbnail_url, caption, attribution")
+    .eq("entity_type", "film")
+    .eq("entity_id", film.id)
+    .eq("kind", "image")
+    .eq("status", "published")
+    .order("position")
+    .limit(1);
+  const backdropUrl = (await filmMedia)?.at(0)?.url ?? null;
+
   return (
     <article>
       {/* Breadcrumb */}
@@ -168,6 +180,38 @@ export default async function FilmPage({ params }: PageProps) {
         {" › "}
         <span>Films</span>
       </nav>
+
+      {/* Backdrop hero */}
+      {backdropUrl && (
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: 200,
+            marginBottom: 20,
+            borderRadius: 8,
+            overflow: "hidden",
+          }}
+        >
+          <img
+            src={backdropUrl}
+            alt={`${film.title} backdrop`}
+            loading="lazy"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(transparent 40%, var(--bg) 100%)",
+            }}
+          />
+        </div>
+      )}
 
       {/* Film header — poster + title + meta + synopsis */}
       <div

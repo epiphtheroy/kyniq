@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { posterUrl } from "@/lib/tmdb";
 import ContributionSection from "./ContributionSection";
+import MediaGallery from "@/components/MediaGallery";
 
 function supabaseAnon() {
   return createClient(
@@ -82,6 +83,15 @@ export default async function QuestionPage({ params }: Props) {
   const updater = canonical?.updated_by_profile;
   const isAI = canonical?.source === "ai";
 
+  // Fetch published media for this question
+  const { data: mediaRows } = await supabase
+    .from("media")
+    .select("id, kind, source, external_id, url, thumbnail_url, caption, attribution")
+    .eq("entity_type", "question")
+    .eq("entity_id", question.id)
+    .eq("status", "published")
+    .order("position");
+
   // JSON-LD QAPage (M7 — built ahead)
   const jsonLd = {
     "@context": "https://schema.org",
@@ -105,6 +115,28 @@ export default async function QuestionPage({ params }: Props) {
       }),
     },
   };
+
+  // ImageObject / VideoObject JSON-LD for media (§8 GEO)
+  const mediaLd = (mediaRows ?? []).map((m) => {
+    if (m.kind === "image") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        contentUrl: m.url,
+        thumbnailUrl: m.thumbnail_url,
+        caption: m.caption ?? `Image for ${question.title}`,
+        creditText: m.attribution ?? "TMDB",
+      };
+    }
+    return {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: m.caption ?? question.title,
+      thumbnailUrl: m.thumbnail_url,
+      embedUrl: m.url,
+      uploadDate: question.created_at,
+    };
+  });
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -134,6 +166,13 @@ export default async function QuestionPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {mediaLd.map((ld, i) => (
+        <script
+          key={`media-ld-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
 
       <main className="shell">
         {/* Film context strip */}
@@ -171,6 +210,13 @@ export default async function QuestionPage({ params }: Props) {
           <p className="body reading" style={{ fontSize: 16, marginTop: 12, color: "var(--muted)" }}>
             {question.body}
           </p>
+        )}
+
+        {/* Media gallery */}
+        {mediaRows && mediaRows.length > 0 && (
+          <div style={{ margin: "1.5rem 0" }}>
+            <MediaGallery media={mediaRows as Array<{ id: string; kind: "image" | "video"; source: "tmdb" | "youtube"; external_id: string; url: string; thumbnail_url: string | null; caption: string | null; attribution: string | null }>} />
+          </div>
         )}
 
         <hr className="rule" />

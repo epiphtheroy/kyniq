@@ -13,6 +13,7 @@ repo/
 ├─ AGENTS.md                    ← standing brief the agent reads every task
 ├─ docs/
 │  ├─ 00-INDEX.md               ← this file
+│  ├─ pre-launch-checklist.md   ← clear before going public (legal/ops/security)
 │  └─ missions/                 ← all kickoff prompts written (00–10, incl. 06b & 09b)
 │     ├─ mission-00-kickoff.md … mission-10-kickoff.md
 ├─ design/                      ← VISUAL REFERENCE (not shipped); agents open/render to match
@@ -57,6 +58,15 @@ assets live in `/public`.
   `mission-08` Home/chrome/institutional · `mission-08b` Related + director hub ·
   `mission-09` i18n · `mission-09b` AI content pipeline · `mission-10` Seed (run the pipeline).
 - Deferred (not written, build later): 11 Ads · 12 @-mentions/actor pages.
+
+**Enhancement pack** (paste after the core build; build order P-worker → P-media → P-home)
+- `mission-pipeline-worker-kickoff.md` — multi-model AI content pipeline as a **separate worker
+  service** (queue + model router + personas + cross-model verify + rate governor). **Supersedes
+  `mission-09b-kickoff.md`** — build this instead of the simple 9b.
+- `mission-media-embed-kickoff.md` — media model + **auto-embedding** (TMDB images only +
+  YouTube embeds) attached to every question, spoiler-filtered, performance-budgeted.
+- `mission-home-redesign-kickoff.md` — Genius-style home/page redesign (media module + activity
+  module) within the editorial design system.
 
 **Design system + references** (the look; agents reproduce, don't invent)
 - `globals.css` — design tokens + component classes (navy `--ink #1A2740`, paper `--bg

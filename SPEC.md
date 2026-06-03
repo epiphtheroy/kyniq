@@ -348,10 +348,49 @@ project exists for. Instead, to avoid the "one robotic admin" feel honestly:
 **Honest caveats (must respect):**
 - **AI self-verification shares the generator's blind spots.** Keep the gate conservative and
   the human admin as the editorial backstop, especially early. Don't treat full autonomy as a
-  given.
+  given. Mitigation: run verification on a **different model provider/family** than generation.
 - **Scaled-content-abuse risk.** Mass low-quality/duplicative AI pages can trigger search/AI
   spam penalties — the opposite of the GEO goal (§1). Prioritize depth, uniqueness, and review
   over volume; rate-limit publishing; spot-check. Quality is the moat.
+
+**Runtime topology (the worker).** The pipeline runs as a **separate, always-on / scheduled
+worker service** (e.g. Railway/Render/Fly or a cron job) — **not** inside the Vercel request
+lifecycle (serverless time limits don't fit multi-minute, multi-model batch jobs). Integration
+seam = the **database/queue**, not the website runtime: the worker reads a Supabase job queue +
+the curated film list, runs the generate→verify→gate graph with a **multi-provider model
+router** (model↔role mapping is admin-tunable config), writes `draft`/`in_review` rows +
+`content_events`, and the existing `/admin` is the control plane (enqueue, status, pause/resume)
+and review surface. Any agent/framework can play this role; it only needs to read the queue and
+write to Supabase.
+
+---
+
+## 3.3 Media auto-embedding (images + video)
+
+**Intent.** A film site should look like one. The home and question pages are currently flat;
+relevant imagery and video give them vitality (the Genius reference) and add image/video search
+surface (a GEO upside). A **media curator** — a step in the pipeline worker (§3.2) and a
+background enrichment job for human-submitted questions — finds and attaches media to every
+question.
+
+Rules:
+- **Image source = TMDB only.** Posters / backdrops / stills from the already-integrated TMDB
+  data, with attribution. **No web-image scraping (e.g. "Google Images") and no user uploads** —
+  both carry copyright/DMCA risk that would undermine a trust-based brand. (Wikimedia Commons
+  optional later.)
+- **Video = YouTube official embed** (iframe) + **YouTube Data API** search for relevant videos
+  (trailers, video essays, interviews, scenes). Prefer official / reputable channels; skip
+  embed-disabled videos. Embedding is the intended, low-risk path (no hosting on our side).
+- **Auto-attach to every question** (no admin pre-approval), but through an **automated
+  relevance + appropriateness filter** — must match the right film/question, and **must guard
+  against spoilers** in video titles/thumbnails (critical for an interpretation site). The admin
+  can remove/replace media **after the fact** (post-hoc moderation, §6.13).
+- **Provenance + gate:** media rows carry `source`, `added_by` (ai/human), `confidence`,
+  `status`; only `status='published'` media is public (RLS, §4). Attribution (TMDB, YouTube
+  creator) always rendered.
+- **Performance (protects GEO):** lazy-load images (TMDB CDN, sized); YouTube via a **lite
+  facade** that loads the iframe on click — never eager-load heavy embeds. Add **ImageObject /
+  VideoObject JSON-LD** (§8) for the search surface.
 
 ---
 
@@ -416,6 +455,13 @@ Create these tables (column lists are the essentials; add `id uuid pk default ge
   `actor_kind text` (human / ai / system), `meta jsonb` (verification confidence, checks,
   sources, model, notes). The trail for the AI generate→verify→publish pipeline and every admin
   action; enables rollback and accountability.
+- **media** *(§3.3 — auto-embedded images & video)* — `entity_type text` (question / film),
+  `entity_id uuid`, `kind text` (image / video), `source text` (tmdb / youtube), `external_id
+  text` (TMDB file_path or YouTube video id), `url text`, `thumbnail_url text`, `caption text`,
+  `attribution text`, `position int` (display order), `added_by text` (ai / human),
+  `confidence numeric`, `status text default 'published'` (draft / published / hidden),
+  `created_at`. Public read gated on `status='published'` (RLS). The curator writes these; the
+  admin can hide/replace after the fact.
 
 **Editorial identity (seed):** create one (or a small, fixed, disclosed set of ≈3–5)
 `system`-role profile(s) — e.g. `kyniq-editorial` / "Kyniq Editorial" — that author AI-drafted
@@ -424,13 +470,14 @@ or fake engagement for AI output (§3.2).
 
 **Row Level Security (must enable):**
 - **Public read is gated on publication.** Anyone (incl. anonymous) may `SELECT` films, and
-  questions / canonical_answers / contributions / comments **only where `status = 'published'`**,
-  plus profiles where `is_public`. Draft / in_review / hidden / rejected rows are never publicly
-  readable — and never enter the sitemap or JSON-LD (§8). This is what keeps unpublished AI
-  drafts off crawlers and AI fetchers.
+  questions / canonical_answers / contributions / comments / **media** **only where
+  `status = 'published'`**, plus profiles where `is_public`. Draft / in_review / hidden /
+  rejected rows are never publicly readable — and never enter the sitemap or JSON-LD (§8). This
+  is what keeps unpublished AI drafts off crawlers and AI fetchers.
 - `INSERT`/`UPDATE` on questions, contributions, comments, votes, edit_suggestions, flags: only
   authenticated users (`auth.uid() is not null`) and only as themselves. Human-posted
   questions/contributions are created already `published` (frictionless participation, §3.1).
+  `media` is not client-writable — the curator (service role) writes it (§3.3).
 - Direct `UPDATE` on canonical_answers: not client-writable — no anon/auth UPDATE policy. Edits
   go through a server route / SECURITY DEFINER function gated on `reputation >= 250` or `admin`
   (§7.4); in the early phase, restrict to the founder.
