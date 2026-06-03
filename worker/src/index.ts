@@ -1,12 +1,13 @@
 /**
  * Kyniq Pipeline Worker — standalone service
  *
- * Runs three loops:
- *   Loop 1: Generator — polls jobs queue, runs Planner→Drafter→Verifier→Gate
+ * Runs four loops:
+ *   Loop 1: Generator — polls jobs queue, runs Dossier→Planner→Drafter→Verifier→Scorer→Gate
  *   Loop 2: Publisher — releases approved items to published on schedule
- *   Loop 3: (future) Kyniqbot media enrichment
+ *   Loop 3: Kyniqbot media enrichment (~3h sweep)
+ *   Loop 4: Re-audit — post-publish automated re-verification (daily)
  *
- * v4: Publisher loop (cadence engine) — approved→published with jitter.
+ * v5: Pipeline v4 prompt-design hardening.
  *
  * Usage: DOTENV_CONFIG_PATH=../.env.local tsx src/index.ts
  */
@@ -16,6 +17,7 @@ import { createClient } from "@supabase/supabase-js";
 import { processJob, writeHeartbeat } from "./graph.js";
 import { runPublisherCycle } from "./publisher.js";
 import { runKyniqbotSweep } from "./kyniqbot.js";
+import { runReAudit } from "./reaudit.js";
 
 // ── Supabase (service role) ───────────────────────────────────────
 
@@ -38,6 +40,7 @@ const POLL_INTERVAL_MS = 10_000; // 10 seconds
 const SCHEDULER_INTERVAL_MS = 60 * 60 * 1000; // 1 hour between scheduler runs
 const PUBLISHER_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes between publisher cycles
 const KYNIQBOT_INTERVAL_MS = 3 * 60 * 60 * 1000; // 3 hours between media sweeps
+const REAUDIT_INTERVAL_MS = 24 * 60 * 60 * 1000; // 24 hours between re-audits
 
 // ── Daily counters (reset at midnight) ────────────────────────────
 
@@ -316,7 +319,7 @@ async function processClaimedJob(jobId: string): Promise<void> {
         .eq("id", jobData.film_id);
     }
 
-    await writeHeartbeat(supabase, WORKER_ID, "idle", `completed job — ${result.questions_published} published, ${result.questions_in_review} in review`, null, todayPublished, todayCost);
+    await writeHeartbeat(supabase, WORKER_ID, "idle", `completed job — ${result.questions_published} approved, ${result.questions_in_review} review, ${result.questions_held ?? 0} held`, null, todayPublished, todayCost);
 
     console.log(`[worker] Job ${jobId} completed:`, JSON.stringify(result));
   } catch (err) {
@@ -397,9 +400,37 @@ async function kyniqbotLoop(): Promise<void> {
   }
 }
 
+// ── Re-audit loop (Loop 4) ────────────────────────────────────────
+
+async function reauditLoop(): Promise<void> {
+  console.log(`[${WORKER_ID}] Re-audit loop started. Running every ${REAUDIT_INTERVAL_MS / 1000 / 3600}h`);
+
+  // Wait 1 hour before first run (let other loops stabilize)
+  await sleep(60 * 60_000);
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    try {
+      const result = await runReAudit(supabase, { samplePercent: 5 });
+
+      if (result.audited > 0) {
+        await writeHeartbeat(
+          supabase, WORKER_ID, "idle",
+          `re-audit: ${result.audited} sampled, ${result.held} held`,
+          null, todayPublished, todayCost
+        );
+      }
+    } catch (err) {
+      console.error("[re-audit] Error:", err instanceof Error ? err.message : err);
+    }
+
+    await sleep(REAUDIT_INTERVAL_MS);
+  }
+}
+
 // ── Start ─────────────────────────────────────────────────────────
 
-// Run all three loops concurrently
+// Run all four loops concurrently
 Promise.all([
   pollLoop().catch((err) => {
     console.error("[worker] Generator fatal:", err);
@@ -411,6 +442,10 @@ Promise.all([
   }),
   kyniqbotLoop().catch((err) => {
     console.error("[worker] Kyniqbot fatal:", err);
+    process.exit(1);
+  }),
+  reauditLoop().catch((err) => {
+    console.error("[worker] Re-audit fatal:", err);
     process.exit(1);
   }),
 ]);
