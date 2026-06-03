@@ -30,15 +30,15 @@ export default async function AdminFlagsPage() {
       </p>
 
       {!flags || flags.length === 0 ? (
-        <div style={{ padding: "3rem", textAlign: "center", color: "var(--muted)", background: "#fff", borderRadius: 8, border: "1px solid var(--hairline)" }}>
+        <div style={{ padding: "3rem", textAlign: "center", color: "var(--muted)", background: "#0f172a", borderRadius: 8, border: "1px solid #334155" }}>
           <p style={{ fontSize: "1.125rem", marginBottom: "0.5rem" }}>🏳️ No flags</p>
           <p style={{ fontSize: "0.8125rem" }}>No user reports to review</p>
         </div>
       ) : (
-        <div style={{ background: "#fff", border: "1px solid var(--hairline)", borderRadius: 8, overflow: "hidden" }}>
+        <div style={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8, overflow: "hidden" }}>
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem" }}>
             <thead>
-              <tr style={{ background: "#f9fafb", borderBottom: "1px solid var(--hairline)" }}>
+              <tr style={{ background: "#0f172a", borderBottom: "1px solid #334155" }}>
                 <th style={{ textAlign: "left", padding: "0.625rem 1rem", fontWeight: 600, color: "var(--muted)" }}>Target</th>
                 <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Reason</th>
                 <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Reporter</th>

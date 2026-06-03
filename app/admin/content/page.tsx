@@ -167,7 +167,7 @@ export default async function AdminContentPage({
           type="submit"
           style={{
             padding: "0.5rem 1rem",
-            background: "var(--ink)",
+            background: "#3b82f6",
             color: "#fff",
             border: "none",
             borderRadius: 6,
@@ -181,10 +181,10 @@ export default async function AdminContentPage({
       </form>
 
       {/* Results table */}
-      <div style={{ background: "#fff", border: "1px solid var(--hairline)", borderRadius: 8, overflow: "hidden" }}>
+      <div style={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8, overflow: "hidden" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem" }}>
           <thead>
-            <tr style={{ background: "#f9fafb", borderBottom: "1px solid var(--hairline)" }}>
+            <tr style={{ background: "#0f172a", borderBottom: "1px solid #334155" }}>
               <th style={{ textAlign: "left", padding: "0.625rem 1rem", fontWeight: 600, color: "var(--muted)" }}>Title</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Film</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Status</th>

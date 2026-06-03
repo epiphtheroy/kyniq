@@ -6,7 +6,7 @@ import { getFilmBySlug, posterUrl } from "@/lib/tmdb";
 import { createClient } from "@supabase/supabase-js";
 
 // Dynamic SSR with ISR revalidation at runtime
-export const revalidate = 3600;
+export const revalidate = 60;
 
 /** Anon Supabase client for public reads (safe at build time — no cookies needed) */
 function supabaseAnon() {

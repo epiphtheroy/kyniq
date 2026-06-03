@@ -60,15 +60,15 @@ export default async function AdminAuditPage({
           <option value="hidden">Hidden</option>
           <option value="flag_resolved">Flag Resolved</option>
         </select>
-        <button type="submit" style={{ padding: "0.5rem 1rem", background: "var(--ink)", color: "#fff", border: "none", borderRadius: 6, fontSize: "0.8125rem", fontWeight: 600, cursor: "pointer" }}>
+        <button type="submit" style={{ padding: "0.5rem 1rem", background: "#3b82f6", color: "#fff", border: "none", borderRadius: 6, fontSize: "0.8125rem", fontWeight: 600, cursor: "pointer" }}>
           Filter
         </button>
       </form>
 
-      <div style={{ background: "#fff", border: "1px solid var(--hairline)", borderRadius: 8, overflow: "hidden" }}>
+      <div style={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8, overflow: "hidden" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem" }}>
           <thead>
-            <tr style={{ background: "#f9fafb", borderBottom: "1px solid var(--hairline)" }}>
+            <tr style={{ background: "#0f172a", borderBottom: "1px solid #334155" }}>
               <th style={{ textAlign: "left", padding: "0.625rem 1rem", fontWeight: 600, color: "var(--muted)" }}>Time</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Event</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Entity</th>

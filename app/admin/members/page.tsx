@@ -31,10 +31,10 @@ export default async function AdminMembersPage() {
         {members?.length ?? 0} registered users
       </p>
 
-      <div style={{ background: "#fff", border: "1px solid var(--hairline)", borderRadius: 8, overflow: "hidden" }}>
+      <div style={{ background: "#0f172a", border: "1px solid #334155", borderRadius: 8, overflow: "hidden" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.8125rem" }}>
           <thead>
-            <tr style={{ background: "#f9fafb", borderBottom: "1px solid var(--hairline)" }}>
+            <tr style={{ background: "#0f172a", borderBottom: "1px solid #334155" }}>
               <th style={{ textAlign: "left", padding: "0.625rem 1rem", fontWeight: 600, color: "var(--muted)" }}>User</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Role</th>
               <th style={{ textAlign: "left", padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--muted)" }}>Status</th>
