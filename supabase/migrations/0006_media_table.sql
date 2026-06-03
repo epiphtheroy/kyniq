@@ -6,6 +6,9 @@
 -- NOT client-writable (service role / curator writes only).
 -- ============================================================
 
+-- Drop old version if it exists (may lack new columns)
+DROP TABLE IF EXISTS public.media CASCADE;
+
 CREATE TABLE IF NOT EXISTS public.media (
   id            uuid DEFAULT gen_random_uuid() PRIMARY KEY,
   entity_type   text NOT NULL CHECK (entity_type IN ('question','film','contribution')),
