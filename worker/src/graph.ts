@@ -106,29 +106,44 @@ async function callGemini(model: string, prompt: string, systemPrompt?: string, 
   }
   contents.push({ role: "user", parts: [{ text: prompt }] });
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents,
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 4096,
-          ...(jsonMode && { responseMimeType: "application/json" }),
-        },
-      }),
+  const maxRetries = 3;
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents,
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 4096,
+            ...(jsonMode && { responseMimeType: "application/json" }),
+          },
+        }),
+      }
+    );
+
+    if (res.ok) {
+      const data = await res.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+      const u = data.usageMetadata ?? {};
+      const pt = u.promptTokenCount ?? 0, ct = u.candidatesTokenCount ?? 0;
+      return { text, tokensUsed: { prompt: pt, completion: ct, total: pt + ct }, cost: estimateCost(model, pt, ct), model, provider: "gemini" };
     }
-  );
 
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
-  const u = data.usageMetadata ?? {};
-  const pt = u.promptTokenCount ?? 0, ct = u.candidatesTokenCount ?? 0;
+    // Retry on rate limit (429) or server overload (503)
+    if ((res.status === 429 || res.status === 503) && attempt < maxRetries) {
+      const retryAfter = Math.min(60, Math.pow(2, attempt + 1) * 15); // 30s, 60s, 60s
+      console.log(`[gemini] ${res.status} — retrying in ${retryAfter}s (attempt ${attempt + 1}/${maxRetries})`);
+      await new Promise((r) => setTimeout(r, retryAfter * 1000));
+      continue;
+    }
 
-  return { text, tokensUsed: { prompt: pt, completion: ct, total: pt + ct }, cost: estimateCost(model, pt, ct), model, provider: "gemini" };
+    throw new Error(`Gemini ${res.status}: ${await res.text()}`);
+  }
+
+  throw new Error("Gemini: max retries exceeded");
 }
 
 async function callOpenAI(model: string, prompt: string, systemPrompt?: string, jsonMode = false): Promise<ModelResponse> {
