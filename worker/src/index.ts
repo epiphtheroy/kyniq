@@ -15,6 +15,7 @@ import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
 import { processJob, writeHeartbeat } from "./graph.js";
 import { runPublisherCycle } from "./publisher.js";
+import { runKyniqbotSweep } from "./kyniqbot.js";
 
 // ── Supabase (service role) ───────────────────────────────────────
 
@@ -36,6 +37,7 @@ const WORKER_ID = `worker-${process.pid}-${Date.now()}`;
 const POLL_INTERVAL_MS = 10_000; // 10 seconds
 const SCHEDULER_INTERVAL_MS = 60 * 60 * 1000; // 1 hour between scheduler runs
 const PUBLISHER_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes between publisher cycles
+const KYNIQBOT_INTERVAL_MS = 3 * 60 * 60 * 1000; // 3 hours between media sweeps
 
 // ── Daily counters (reset at midnight) ────────────────────────────
 
@@ -367,9 +369,37 @@ async function publisherLoop(): Promise<void> {
   }
 }
 
+// ── Kyniqbot loop (Loop 3) ──────────────────────────────────────
+
+async function kyniqbotLoop(): Promise<void> {
+  console.log(`[${WORKER_ID}] Kyniqbot loop started. Running every ${KYNIQBOT_INTERVAL_MS / 1000 / 60}min`);
+
+  // Wait 2 minutes before first sweep
+  await sleep(2 * 60_000);
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    try {
+      const result = await runKyniqbotSweep(supabase);
+
+      if (result.enriched > 0) {
+        await writeHeartbeat(
+          supabase, WORKER_ID, "idle",
+          `kyniqbot enriched ${result.enriched} questions with media`,
+          null, todayPublished, todayCost
+        );
+      }
+    } catch (err) {
+      console.error("[kyniqbot] Error:", err instanceof Error ? err.message : err);
+    }
+
+    await sleep(KYNIQBOT_INTERVAL_MS);
+  }
+}
+
 // ── Start ─────────────────────────────────────────────────────────
 
-// Run both loops concurrently
+// Run all three loops concurrently
 Promise.all([
   pollLoop().catch((err) => {
     console.error("[worker] Generator fatal:", err);
@@ -377,6 +407,10 @@ Promise.all([
   }),
   publisherLoop().catch((err) => {
     console.error("[worker] Publisher fatal:", err);
+    process.exit(1);
+  }),
+  kyniqbotLoop().catch((err) => {
+    console.error("[worker] Kyniqbot fatal:", err);
     process.exit(1);
   }),
 ]);

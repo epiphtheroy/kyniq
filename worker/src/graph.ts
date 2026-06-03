@@ -1,13 +1,14 @@
 /**
  * Pipeline Graph — per-job orchestration
  *
- * Planner → Drafter×N → Verifier×N → Media → Gate
+ * Planner → Drafter×N → Verifier×N → Media (Kyniqbot) → Gate
  *
- * v2: Voice-aware (editorial-voices.md), heartbeat writes,
- *     no question_type taxonomy, step tracking on jobs.
+ * v3: Uses kyniqbot module for media (TMDB images + YouTube videos).
+ *     Voice-aware, heartbeat writes, no question_type taxonomy.
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { curateMedia } from "./kyniqbot.js";
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -177,46 +178,7 @@ async function callModel(config: ModelConfig, prompt: string, systemPrompt?: str
   return callGemini(config.model, prompt, systemPrompt, jsonMode);
 }
 
-// ── TMDB Image Curation (inline — no Next.js imports) ──
-
-async function curateTMDBImages(
-  supabase: SupabaseClient,
-  entityType: string,
-  entityId: string,
-  filmTmdbId: number,
-  maxImages = 3
-): Promise<number> {
-  const token = process.env.TMDB_READ_TOKEN;
-  if (!token) return 0;
-
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${filmTmdbId}/images`, {
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-  });
-  if (!res.ok) return 0;
-
-  const data = await res.json();
-  const backdrops = (data.backdrops ?? []).sort((a: { vote_average: number }, b: { vote_average: number }) => b.vote_average - a.vote_average).slice(0, maxImages);
-
-  if (backdrops.length === 0) return 0;
-
-  const rows = backdrops.map((img: { file_path: string; vote_average: number }, i: number) => ({
-    entity_type: entityType,
-    entity_id: entityId,
-    kind: "image",
-    source: "tmdb",
-    external_id: img.file_path,
-    url: `https://image.tmdb.org/t/p/w1280${img.file_path}`,
-    thumbnail_url: `https://image.tmdb.org/t/p/w780${img.file_path}`,
-    attribution: "Image © TMDB",
-    position: i,
-    added_by: "ai",
-    confidence: Math.min(img.vote_average / 10, 1),
-    status: "published",
-  }));
-
-  const { error } = await supabase.from("media").insert(rows);
-  return error ? 0 : rows.length;
-}
+// ── Media curation is now handled by kyniqbot.ts ──
 
 // ── Heartbeat helper ──────────────────────────────────────────────
 
@@ -582,18 +544,22 @@ Return JSON:
 
       result.questions_created++;
 
-      // 5d. Media curation
+      // 5d. Media curation (TMDB images + YouTube videos via Kyniqbot)
       try {
-        const mediaCount = await curateTMDBImages(supabase, "question", qRow.id, f.tmdb_id, 2);
-        result.media_attached += mediaCount;
+        const media = await curateMedia(
+          supabase, "question", qRow.id,
+          f.tmdb_id, f.title, f.year ?? null,
+          item.question_title
+        );
+        result.media_attached += media.images + media.videos;
 
-        if (mediaCount > 0) {
+        if (media.images + media.videos > 0) {
           await supabase.from("content_events").insert({
             entity_type: "question",
             entity_id: qRow.id,
             event: "media_curated",
             actor_kind: "ai",
-            meta: { images: mediaCount, source: "tmdb" },
+            meta: { images: media.images, videos: media.videos, source: "kyniqbot_inline" },
           });
         }
       } catch {
