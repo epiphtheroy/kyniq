@@ -13,6 +13,8 @@ repo/
 ├─ AGENTS.md                    ← standing brief the agent reads every task
 ├─ docs/
 │  ├─ 00-INDEX.md               ← this file
+│  ├─ content-engine-overview.md ← read to understand the autonomous content engine (why)
+│  ├─ prompt-design-changelog.md ← what changed in the prompt design + how to implement (JSON deltas)
 │  ├─ pre-launch-checklist.md   ← clear before going public (legal/ops/security)
 │  └─ missions/                 ← all kickoff prompts written (00–10, incl. 06b & 09b)
 │     ├─ mission-00-kickoff.md … mission-10-kickoff.md
@@ -63,18 +65,24 @@ assets live in `/public`.
 - `mission-pipeline-worker-kickoff.md` — multi-model AI content pipeline as a **separate worker
   service** (queue + model router + personas + cross-model verify + rate governor). **Supersedes
   `mission-09b-kickoff.md`** — build this instead of the simple 9b.
-- `mission-media-embed-kickoff.md` — media model + **auto-embedding** (TMDB images only +
-  YouTube embeds) attached to every question, spoiler-filtered, performance-budgeted.
+- `mission-media-embed-kickoff.md` — **Kyniqbot**: media model + **auto-embedding** (TMDB images
+  only + YouTube embeds), attached at generation **and** via a ~3-hour sweep; spoiler-filtered;
+  "Related on YouTube" module at the bottom of the question; performance-budgeted.
 - `mission-home-redesign-kickoff.md` — Genius-style home/page redesign (media module + activity
   module) within the editorial design system.
 - `editorial-voices.md` — the worker's persona/voice config (≈5 anonymized, conversational,
   citation-first voices). Loaded by the pipeline worker; tunable in `/admin`.
+- `pipeline-prompts.md` — the **prompt pack** (editorial constitution + per-stage prompts with
+  JSON contracts). Encodes the deepest-insight standard, the facts→insight arc, the corrective
+  loop, and the **no-human-review** gate. The quality moat; iterate it.
 
 **Design system + references** (the look; agents reproduce, don't invent)
 - `globals.css` — design tokens + component classes (navy `--ink #1A2740`, paper `--bg
   #FAF7F0`, oxblood `--accent #8A2A21`; Fraunces / Newsreader / Hanken).
 - `ref-*.html` (10) — the screens: home, film, question, director, profile, ask flow, chrome
   (header/footer), signup, settings, about. Placeholder copy — match the *look*, not the text.
+- `ref-question-media.html` — question page **with the Kyniqbot "Related on YouTube" bottom
+  module + TMDB stills** (the media design mockup).
 
 **Brand & icons** (`/public`)
 - Wordmark: `kyniq-wordmark.svg` / `-dark.svg` (vector, preferred) + `.png` fallbacks.

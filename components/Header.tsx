@@ -3,6 +3,7 @@ import Image from "next/image";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import UserMenu from "./UserMenu";
+import SearchTypeahead from "./SearchTypeahead";
 
 async function getUser() {
   try {
@@ -49,21 +50,12 @@ export default async function Header() {
         </picture>
       </Link>
 
-      <Link href="/film" className="field search" style={{ flex: 1, maxWidth: 380, textDecoration: "none", color: "var(--muted)", cursor: "pointer" }}>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden="true"
-        >
-          <circle cx="11" cy="11" r="7" />
-          <line x1="21" y1="21" x2="16.5" y2="16.5" />
-        </svg>
-        Search a film…
-      </Link>
+      <nav className="header-nav">
+        <Link href="/film">Films</Link>
+        <Link href="/director">Directors</Link>
+      </nav>
+
+      <SearchTypeahead />
 
       {user ? (
         <UserMenu username={user.username} displayName={user.display_name} role={user.role} />

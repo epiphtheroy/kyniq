@@ -1,8 +1,9 @@
-# Mission — Media auto-embedding (TMDB images + YouTube)
+# Mission — Kyniqbot: media auto-embedding (TMDB images + YouTube)
 
-> Enhancement pack, part 2 of 3. Paste after the TMDB cache (M2) exists; pairs with the pipeline
-> worker (part 1 calls this curator) and feeds the home redesign (part 3). The migration + the
-> YouTube API key are **approval mode**.
+> Enhancement pack, part 2 of 3. Paste after the TMDB cache (M2) exists; **Kyniqbot is a third
+> worker loop** (with the generator + publisher, part 1) — the pipeline calls it at generation
+> and it also sweeps on its own. Feeds the home redesign (part 3). The migration + the YouTube API
+> key are **approval mode**.
 
 ---
 
@@ -37,17 +38,43 @@ Read `AGENTS.md` and `SPEC.md` §3.3 (media auto-embedding — the rules), §4 (
    embed-disabled videos**; prefer official / reputable channels; store `media` rows
    (`kind='video'`, `source='youtube'`, `external_id`=video id, `thumbnail_url`, channel
    `attribution`).
-4. **Relevance + spoiler/appropriateness filter (automated).** Match media to the right film /
-   question; score `confidence`; **screen video titles/thumbnails for spoilers** and obvious junk
-   (reaction/clickbait); below threshold → **skip** (never attach filler). Above → attach
-   automatically (no human gate). Log to `content_events`.
-5. **Two run paths:** (a) as a **step in the pipeline worker** (part 1) for AI-authored Q&A;
-   (b) as a **background enrichment job** that fires when a human question is published (enqueue
-   → curate → attach). Every published question ends up with media.
-6. **Rendering.** On the question page (§6.1) and film page (§6.3): a small **image gallery**
-   (TMDB stills/backdrop) + **YouTube embeds via a click-to-load facade** (thumbnail → loads the
-   iframe on click). Render **attribution** (TMDB + YouTube channel) always. Lazy-load
-   everything; never eager-load iframes.
+4. **Relevance + spoiler/appropriateness filter (automated, STRICT).** The live build attached
+   completely off-topic clips (e.g. an asteroid-impact video on *Stalker*) — that bug is what this
+   step exists to prevent. Concrete rules:
+   - **Query with film identity, not loose keywords.** Search the **exact title + year** (and the
+     director name for video essays), e.g. `"Stalker" 1979 Tarkovsky analysis`. Never search bare
+     fragments of the question text (that's how "the Zone" → space/asteroid junk happens).
+   - **Hard match gate (a candidate must pass to be eligible):** the video **title or channel/
+     description must contain the film title** (allowing known localized/alternate titles) **and**
+     be consistent with the year/director. Reject anything that only matches a generic word from
+     the question ("zone", "room", "space"). Optionally confirm with a cheap LLM check: *"Is this
+     video about the film {title} ({year}, dir. {director})? yes/no + why"* — `no` → reject.
+   - **Type allowlist:** trailer, video essay/analysis, interview, scene/clip from a reputable
+     channel. **Reject** reaction, clickbait/shorts farms, news, and unrelated viral clips.
+   - **Channel quality heuristic:** prefer official (studio/distributor) and established
+     film-essay channels; down-rank tiny/anonymous channels; an emoji-laden clickbait title is a
+     reject signal.
+   - **Spoiler screen:** scan title/thumbnail text for ending/twist spoilers; reject on risk.
+   - **Confidence + fail-safe:** score `confidence`; **below threshold → attach NOTHING.**
+     *Junk media is worse than no media* — empty is fine, off-topic is not. No human gate.
+   - **Post-attach audit:** the ~3-hour sweep (and a periodic re-check) re-validates already-
+     attached media against these rules and **detaches** anything that no longer passes. Log every
+     attach/reject/detach to `content_events`.
+5. **Kyniqbot — a third decoupled worker loop** ("it's just another queue", part 1's
+   architecture). Two attach paths: (a) **at generation** — runs as a step in the pipeline worker
+   for AI-authored Q&A so media is live when the question publishes; (b) **a ~3-hour sweep** —
+   Kyniqbot scans **published questions still lacking media** (esp. human-submitted, + any AI
+   gaps) and enriches them. Every published question ends up with media; the sweep naturally
+   staggers when media appears. Write an `agent_activity` heartbeat ("Kyniqbot: enriching N
+   questions") + `content_events`, surfaced in the §6.13 Activity Log.
+6. **Rendering — the design.** Build a **"Related on YouTube" module at the bottom of the question
+   page** (below the question and its readings), §6.1: a labeled section ("Related on YouTube" /
+   "관련 영상") holding **1–2 YouTube embeds via a click-to-load facade** (poster-frame thumbnail +
+   play button → loads the iframe on click), each with **video title + channel attribution**.
+   Editorial design tokens (navy/paper, hairline divider, generous whitespace) — a quiet module,
+   not a heavy widget. Film **imagery** (TMDB stills/backdrop) anchors the film hero/gallery
+   (§6.3) and a small gallery near the top of the question. Lazy-load everything; **reserve
+   dimensions to avoid layout shift**; never eager-load iframes.
 7. **Schema (GEO).** Emit **ImageObject** and **VideoObject** JSON-LD for attached media (§8) so
    it can surface in image/video search.
 8. **Admin moderation (post-hoc).** In `/admin` content management (§6.13): list a question's
@@ -56,14 +83,18 @@ Read `AGENTS.md` and `SPEC.md` §3.3 (media auto-embedding — the rules), §4 (
    facade and image sizing are mandatory, not optional.
 
 ## Verify (all must pass)
-- Every **published** question shows ≥1 TMDB image and (when a good match exists) ≥1 YouTube
-  embed, each with visible attribution.
+- Every **published** question shows ≥1 TMDB image and (when a good match exists) a **"Related on
+  YouTube" module at the bottom** of the question, each with visible attribution.
+- The **~3-hour sweep** picks up a published question that lacked media and enriches it on its own
+  (no manual trigger); Kyniqbot's heartbeat + events appear in the §6.13 Activity Log.
 - `media` is **published-gated**: a `draft`/`hidden` media row is invisible to the anon key and
   absent from JSON-LD/sitemap.
 - A deliberately spoiler-y or irrelevant video is **filtered out** (not attached); only relevant
-  media attaches.
-- YouTube loads **only on click** (facade); images are lazy-loaded + sized; Core Web Vitals stay
-  green.
+  media attaches. **Specifically: a video that matches only a generic word from the question
+  (e.g. "zone", "space") but is not about the film is rejected**, and an already-attached video
+  that fails re-validation on the sweep is **detached** (each logged).
+- YouTube loads **only on click** (facade); images are lazy-loaded + sized; **no layout shift**;
+  Core Web Vitals stay green.
 - `ImageObject` / `VideoObject` JSON-LD validate in the Rich Results test.
 - Hiding a media item in `/admin` removes it from the public page and logs a `content_events`
   row.

@@ -888,6 +888,7 @@ Return ONLY JSON:
           const media = await curateMedia(
             supabase, "question", qRow.id,
             f.tmdb_id, f.title, f.year ?? null,
+            f.director ?? undefined,
             item.question
           );
           result.media_attached += media.images + media.videos;

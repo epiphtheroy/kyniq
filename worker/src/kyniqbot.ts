@@ -217,7 +217,8 @@ export async function curateYouTubeVideos(
   entityId: string,
   filmTitle: string,
   filmYear: number | null,
-  questionTitle?: string,
+  filmDirector?: string,
+  _questionTitle?: string,
   maxVideos = 2
 ): Promise<number> {
   const apiKey =
@@ -234,18 +235,13 @@ export async function curateYouTubeVideos(
 
   if ((existing ?? 0) >= maxVideos) return 0;
 
-  // Build search query — film title + question context for relevance
-  let query = `${filmTitle}`;
+  // BUG #4 FIX: Search by film identity ONLY (title + year + director),
+  // NOT question keywords. Loose question-keyword matching attached
+  // irrelevant clips (e.g. asteroid videos to Stalker).
+  let query = `"${filmTitle}"`; // exact match on film title
   if (filmYear) query += ` ${filmYear}`;
-  if (questionTitle) {
-    // Extract key concepts from the question for better search
-    const shortQ = questionTitle
-      .replace(/^(what|why|how|does|is|are|do|did|was|were)\s+/i, "")
-      .slice(0, 60);
-    query += ` ${shortQ}`;
-  } else {
-    query += " analysis"; // default to analysis for film-level queries
-  }
+  if (filmDirector) query += ` ${filmDirector}`;
+  query += " film"; // ensure we're in the film domain
 
   // Search YouTube
   const searchUrl = new URL(
@@ -290,6 +286,11 @@ export async function curateYouTubeVideos(
     details.set(d.id, d);
   }
 
+  // BUG #4 FIX: Film-title presence check — reject videos whose title
+  // doesn't contain the film title or director name (prevents generic matches).
+  const filmTitleLower = filmTitle.toLowerCase();
+  const directorLower = (filmDirector ?? "").toLowerCase();
+
   // Filter + score + rank
   const candidates = items
     .map((item) => {
@@ -298,6 +299,12 @@ export async function curateYouTubeVideos(
 
       // Drop non-embeddable
       if (!detail.status.embeddable) return null;
+
+      // BUG #4: Reject if video title doesn't mention the film OR director
+      const videoTitleLower = item.snippet.title.toLowerCase();
+      const mentionsFilm = videoTitleLower.includes(filmTitleLower);
+      const mentionsDirector = directorLower.length > 2 && videoTitleLower.includes(directorLower);
+      if (!mentionsFilm && !mentionsDirector) return null;
 
       // Spoiler filter
       const spoilery = isSpoilery(item.snippet.title);
@@ -309,8 +316,8 @@ export async function curateYouTubeVideos(
         viewCount: detail.statistics?.viewCount,
       });
 
-      // Skip low-confidence matches
-      if (score < 0.3) return null;
+      // Skip low-confidence matches (raised from 0.3 to 0.45)
+      if (score < 0.45) return null;
 
       return {
         videoId: item.id.videoId,
@@ -371,6 +378,7 @@ export async function curateMedia(
   filmTmdbId: number,
   filmTitle: string,
   filmYear: number | null,
+  filmDirector?: string,
   questionTitle?: string
 ): Promise<{ images: number; videos: number }> {
   const images = await curateTMDBImages(
@@ -386,6 +394,7 @@ export async function curateMedia(
     entityId,
     filmTitle,
     filmYear,
+    filmDirector,
     questionTitle,
     2
   );
@@ -448,7 +457,7 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
       // Load film context
       const { data: film } = await supabase
         .from("films")
-        .select("tmdb_id, title, year")
+        .select("tmdb_id, title, year, director")
         .eq("id", q.film_id)
         .single();
 
@@ -461,6 +470,7 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
         film.tmdb_id,
         film.title,
         film.year,
+        film.director,
         q.title
       );
 

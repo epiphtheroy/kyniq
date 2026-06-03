@@ -304,9 +304,11 @@ admin oversees it from the console (§6.13). This must be designed now because i
 publicly readable (RLS) and crawlable (§8).
 
 **Lifecycle (status state machine)** on questions, canonical_answers, contributions:
-`draft → in_review → published`, plus `rejected` and `hidden` (unpublished after the fact). Only
-`published` rows are public (§4 RLS) and in the sitemap/JSON-LD (§8). Human-posted content is
-created directly as `published` (frictionless, §3.1); AI-authored content enters as `draft`.
+`draft → in_review → approved (publish buffer) → published`, plus `rejected` and `hidden`
+(unpublished after the fact). `approved` = verified + gated, **not yet live** — it sits in the
+buffer until the publisher releases it (see "Decoupled publishing" below). Only `published` rows
+are public (§4 RLS) and in the sitemap/JSON-LD (§8). Human-posted content is created directly as
+`published` (frictionless, §3.1); AI-authored content enters as `draft`.
 
 **Provenance** on each authored row: `source` (human / ai), `generated_by` (model/agent tag),
 `reviewed_by`, `published_at`. AI content is attributed to the **"Kyniq Editorial"** house
@@ -319,14 +321,51 @@ the Supabase **service role** (or SECURITY DEFINER RPCs) — bypasses RLS by des
    each, as `draft`, attributed to Kyniq Editorial. **No category/`question_type` taxonomy** —
    questions are not slotted into predefined buckets; several may cluster around one theme and
    that's fine. Reuse the §6.1 answer shape (answer-first TL;DR).
-2. **Verify (검산).** A *separate* AI pass fact-checks the checkable claims (title, year,
-   director, cast, plot facts) against TMDB / sources, scores a confidence, and writes a
-   `content_events` row. Interpretive claims are not "verifiable" — the pass checks facts +
-   coherence, not the correctness of a reading.
-3. **Gate.** High confidence + clean checks → publish. Low confidence / factual conflict /
-   flagged → stays `in_review` and goes to the admin queue (§6.13).
-4. **Publish.** Flip to `published`, set `published_at`, trigger ISR revalidate + sitemap
-   update (§8). Every step writes `content_events` (actor_kind = ai/system/human).
+2. **Verify (검산) — corrective, different model family.** A separate AI pass (a *different
+   provider/family* than the drafter) fact-checks every checkable claim (title, year, director,
+   cast, plot) and **every statement about a real person** against TMDB/sources, flags spoilers,
+   and emits **targeted fixes**. When issues are fixable → apply the fix (or re-draft only the
+   flagged spans) → **re-verify** (bounded retries). Interpretation is not "verifiable" — facts +
+   coherence + real-person safety only.
+3. **Score (rubric) — quality triage.** A rubric scorer judges depth/insight, the facts→insight
+   arc, grounding, voice, etc. (some dimensions are cheap code checks). `revise` → re-draft with
+   notes → re-score (bounded retries).
+4. **Gate (no per-item human review — see below).** All facts supported + no real-person risk +
+   no spoiler + confidence ≥ threshold + scorer `publish` → **`approved`** (buffer). Fixable →
+   the corrective loops above. Otherwise → **HOLD**: kept out of `published`, logged to
+   `content_events`. **There is no human review queue** — when uncertain, the system holds rather
+   than publishes.
+5. **Publish (decoupled — see below).** A *separate publisher* releases buffered `approved`
+   items to `published` on a randomized cadence; on release it sets `published_at`, triggers ISR
+   revalidate + sitemap update (§8). Every step writes `content_events` (actor_kind = ai/system/
+   human).
+
+**Decoupled publishing (cadence — why two loops).** Generation and publishing are **separated**
+so the site never publishes in suspicious bursts and always has a backlog to "breathe":
+- **Generator loop (batch, heavy, multi-model)** over-produces and fills the buffer with
+  `approved` Q&A. Runs when convenient.
+- **Publisher loop (light, frequent, jittered)** drips `approved` items to `published`. **Each
+  publishable entity has its own `scheduled_for`** — the **question**, the **canonical answer**,
+  and **each contribution** publish on *independent* timings, not as one bundle. Each item gets a
+  time drawn from a **randomized distribution** across active hours — random gaps (not fixed cron
+  ticks), **no identical timestamps, no bursts**, daily volume with ±jitter, and a film's ~10
+  questions **staggered over hours/days** (more natural, and better freshness).
+- **Ordering rule:** an answer/reading must publish **after** its question (the question must be
+  live first); multiple readings on a question are spaced out. So the natural sequence is
+  *question → (gap) → canonical answer → (over days) → more readings.* The publisher enforces
+  this dependency.
+- **Authorship is fixed at creation, not at publish.** The Drafter assigns the editorial voice
+  when it writes each item; that byline is stored as provenance (`author_id` / `source` /
+  `generated_by`) and is unaffected by when the publisher later releases it.
+- A **daily cap + slow ramp** (volume grows as the site ages) and admin pause/resume apply. The
+  publisher only releases items whose `scheduled_for <= now`.
+- **`published_at` is the real release time** — never backdated to fake an organic history. This
+  is sane editorial cadence + risk reduction, not disguise (we stay transparently editorial).
+- As long as generation ≥ publishing over time, the buffer keeps the site live daily — so you
+  **bulk-generate and just manage the queue**.
+
+*Honest note:* cadence reduces the crude-burst signal, but **quality, uniqueness, and (later)
+real human engagement + links are the dominant signals** — pacing is not a substitute for them.
 
 **Voice (conversational, deep).** Questions and answers read like **people talking** — a
 thoughtful friend who has watched closely and thought hard, not an academic. Questions are phrased
@@ -359,18 +398,30 @@ project exists for. Instead, to avoid the "one robotic admin" feel honestly:
   third-party endorsement.
 - **Never fake engagement:** no AI upvotes, no fabricated "other readers said," no invented
   reputation or badges. Upvotes, contributions, and reputation must come from real users only.
-- Disclose the stance per page and on `/about` ("Drafted with AI, reviewed by the Kyniq
-  editorial team"). The canonical answer is a *collective, openly-edited* artifact anyway — its
-  authority comes from the content and the public revision history, not from pretending many
-  strangers wrote it. This supports trust + E-E-A-T.
+- Disclose the stance honestly per page and on `/about`. Since there is **no per-item human
+  review**, do not claim there is — say something true, e.g. "AI-written and fact-checked to
+  Kyniq's editorial standards, with human oversight by sampling." The canonical answer is a
+  *collective, openly-edited* artifact anyway — its authority comes from the content and the
+  public revision history, not from pretending many strangers wrote it.
 
 **Honest caveats (must respect):**
-- **AI self-verification shares the generator's blind spots.** Keep the gate conservative and
-  the human admin as the editorial backstop, especially early. Don't treat full autonomy as a
-  given. Mitigation: run verification on a **different model provider/family** than generation.
+- **No per-item human review → the gate is the backstop.** Self-verification shares the
+  generator's blind spots, so: run verification on a **different provider/family**; make verify
+  **corrective** (fix → re-check); **hold (don't publish) when uncertain**; and add a
+  **post-publish automated re-audit** (re-run the verifier on a random sample of live items).
+  The admin oversees by **sampling/auditing in aggregate**, not item by item, and can hide any
+  item. Be especially strict on **claims about real people** (accuracy/defamation risk).
 - **Scaled-content-abuse risk.** Mass low-quality/duplicative AI pages can trigger search/AI
   spam penalties — the opposite of the GEO goal (§1). Prioritize depth, uniqueness, and review
-  over volume; rate-limit publishing; spot-check. Quality is the moat.
+  over volume; rate-limit publishing. Quality is the moat.
+- **Positioning standard.** Kyniq aims to be the **deepest-insight** film resource. Every
+  question/answer must climb from rich, *verified* facts/context (the on-ramp readers enjoy) to
+  an **insightful interpretive conclusion** (the destination); fragmentary information alone is a
+  failure. It must also read as **genuine, expert viewing** — grounded specifics + apt *real*
+  comparisons, **never invented to sound authoritative** — and stay **distinct per film/question**
+  (no portable template; guards repetition bias across ~10k items). The standard + all stage
+  prompts live in the prompt pack (`pipeline-prompts.md`); the rubric scores
+  `demonstrated_viewing` and `distinctiveness` alongside depth.
 
 **Runtime topology (the worker).** The pipeline runs as a **separate, always-on / scheduled
 worker service** (e.g. Railway/Render/Fly or a cron job) — **not** inside the Vercel request
@@ -382,15 +433,33 @@ router** (model↔role mapping is admin-tunable config), writes `draft`/`in_revi
 and review surface. Any agent/framework can play this role; it only needs to read the queue and
 write to Supabase.
 
+**Model & latency policy.** This is a **quality-first** pipeline: **prefer the newest, most
+capable models** for the core stages (dossier, planner, drafter, and the different-family
+verifier) — don't default the core to old/cheap models; keep model↔role swappable in config and
+validate a new model on a small batch before switching the whole run. Consequently **per-item
+generation is slow** — newest/reasoning models (thinking tokens) plus the corrective loops mean
+**seconds to minutes per film, which is acceptable**: the worker is **asynchronous/background and
+not user-facing**, generate↔publish is decoupled, and throughput is set by the rate-limiter/ramp,
+not by speed. Optimize for quality over latency; never move this onto the request path.
+
 ---
 
 ## 3.3 Media auto-embedding (images + video)
 
 **Intent.** A film site should look like one. The home and question pages are currently flat;
 relevant imagery and video give them vitality (the Genius reference) and add image/video search
-surface (a GEO upside). A **media curator** — a step in the pipeline worker (§3.2) and a
-background enrichment job for human-submitted questions — finds and attaches media to every
+surface (a GEO upside). **Kyniqbot** — the media curator — finds and attaches media to every
 question.
+
+**Kyniqbot = a third decoupled worker loop** (alongside the generator and publisher, §3.2; it's
+"just another queue"). Two attach paths:
+- **At generation (in the buffer):** for AI-authored questions, the curator runs as a step in the
+  pipeline worker so media is live the moment the question publishes.
+- **Sweep (every ~3 hours):** Kyniqbot scans **published questions that still lack media** (esp.
+  human-submitted ones, and any AI gaps) and enriches them. The periodic sweep also means media
+  arrives a little after a question — naturally staggered, not bursty. It shares the same
+  plumbing: Supabase queue, an `agent_activity` heartbeat ("Kyniqbot: enriching 4 questions"),
+  `content_events`, and the admin Activity Log (§6.13).
 
 Rules:
 - **Image source = TMDB only.** Posters / backdrops / stills from the already-integrated TMDB
@@ -404,12 +473,16 @@ Rules:
   relevance + appropriateness filter** — must match the right film/question, and **must guard
   against spoilers** in video titles/thumbnails (critical for an interpretation site). The admin
   can remove/replace media **after the fact** (post-hoc moderation, §6.13).
+- **Placement:** a **"Related on YouTube" module at the bottom of the question page** (below the
+  question and its readings) holds the video embed(s); film imagery anchors the film hero /
+  gallery (§6.1/§6.3, §3-home). 1–2 videos per question, capped.
 - **Provenance + gate:** media rows carry `source`, `added_by` (ai/human), `confidence`,
   `status`; only `status='published'` media is public (RLS, §4). Attribution (TMDB, YouTube
   creator) always rendered.
 - **Performance (protects GEO):** lazy-load images (TMDB CDN, sized); YouTube via a **lite
-  facade** that loads the iframe on click — never eager-load heavy embeds. Add **ImageObject /
-  VideoObject JSON-LD** (§8) for the search surface.
+  facade** (thumbnail → loads the iframe on click) — never eager-load heavy embeds; reserve
+  dimensions to avoid layout shift. Add **ImageObject / VideoObject JSON-LD** (§8) for the search
+  surface.
 
 ---
 
@@ -431,7 +504,9 @@ Create these tables (column lists are the essentials; add `id uuid pk default ge
   member management, §6.13).
 - **questions** — `film_id FK films`, `author_id FK profiles`, `title text`, `body text`,
   `slug text unique`, `view_count int default 0`, and the **lifecycle/provenance fields** (§3.2):
-  `status text default 'published'` (draft / in_review / published / rejected / hidden),
+  `status text default 'published'` (draft / in_review / approved / published / rejected /
+  hidden), `scheduled_for timestamptz` (when the publisher should release it; §3.2 decoupled
+  publishing),
   `source text default 'human'` (human / ai), `generated_by text` (model/agent tag, null for
   humans), `reviewed_by uuid FK profiles` (null), `published_at timestamptz`. (No
   `question_type` / category taxonomy — §3.2.) Optional later: `embedding vector` (pgvector) for
@@ -439,7 +514,8 @@ Create these tables (column lists are the essentials; add `id uuid pk default ge
 - **canonical_answers** — `question_id FK questions unique`, `body text`,
   `updated_by FK profiles`, `updated_at timestamptz`, `revision_count int default 0`, plus the
   **lifecycle/provenance fields** (§3.2): `status text default 'published'`
-  (draft / in_review / published / hidden), `source text default 'human'`, `generated_by text`,
+  (draft / in_review / approved / published / hidden), `scheduled_for timestamptz`,
+  `source text default 'human'`, `generated_by text`,
   `reviewed_by uuid FK profiles`, `published_at timestamptz`. (Verification detail lives in
   `content_events`, not here.)
 - **answer_revisions** — `canonical_answer_id FK`, `body text`, `editor_id FK profiles`,
@@ -447,9 +523,12 @@ Create these tables (column lists are the essentials; add `id uuid pk default ge
 - **contributions** — `question_id FK questions`, `author_id FK profiles`, `body text`,
   `upvotes int default 0`, `sort_score numeric default 0` (recomputed on upvote, §7.1),
   `merged_into_canonical bool default false`. (No downvote column — upvote-only.) Plus the
-  **lifecycle/provenance fields** (§3.2): `status text default 'published'`, `source text
-  default 'human'`, `generated_by text`, `published_at timestamptz`. (Human posts are created
-  `published`; AI-drafted contributions enter as `draft` and go through the pipeline.)
+  **lifecycle/provenance fields** (§3.2): `status text default 'published'` (... / approved /
+  published / ...), `scheduled_for timestamptz`, `source text default 'human'`,
+  `generated_by text`, `published_at timestamptz`. The **author (editorial voice) is fixed at
+  creation** (`author_id` = the assigned `system`-voice profile). AI-drafted contributions enter
+  as `draft`, are gated to `approved`, and publish on their **own** `scheduled_for` (human posts
+  are created `published`).
 - **comments** — `contribution_id FK contributions`, `author_id FK profiles`, `body text`.
   One level only (no nested threads); not ranked. Backs the §5 #2 / §6.1 comment feature.
 - **votes** — `user_id FK profiles`, `contribution_id FK contributions`,

@@ -57,14 +57,29 @@ the single source of truth; this file is the short standing brief that applies t
 - **No sockpuppets (hard rule, §3.2):** never fabricate or rotate human-looking accounts to
   simulate a crowd, and never fake engagement (AI upvotes, invented "other readers," fake
   reputation/badges). AI content carries a transparent editorial byline; upvotes/contributions/
-  reputation come from real users only. This is deception and would trigger the search/AI
-  penalties the whole GEO strategy depends on avoiding.
+  reputation come from real users only. Deception here triggers the search/AI penalties the GEO
+  strategy depends on avoiding.
+- **No per-item human review (§3.2):** the automated gate is final. Verify is **corrective** (a
+  different model family fixes → re-checks) and the rubric scorer triages quality;
+  **when uncertain, HOLD (don't publish) — there is no human review queue.** Be strict on
+  real-person claims (accuracy/defamation). Safety net = post-publish random re-audit + admin
+  sampling + hide-any-item. Disclose honestly (no claim of per-item human review).
+- **Positioning standard (§3.2):** Kyniq is the **deepest-insight** film resource. Every item
+  climbs from rich *verified* facts/context to an **insightful conclusion**; fragmentary info
+  alone fails. It must read as **genuine, expert viewing** (grounded specifics + apt *real*
+  comparisons — never invented for effect) and stay **distinct per film/question** (no template;
+  anti-repetition across ~10k items). The standard + all stage prompts live in
+  **`pipeline-prompts.md`** (the moat).
 - Quality over volume: respect the scaled-content-abuse guardrail (§3.2) — depth, uniqueness,
   review, and a publish rate-limit.
 - **Pipeline runtime (§3.2):** the generator runs as a **separate worker** (not the Vercel
   request path), talks to Supabase via a **job queue**, writes `draft`/`in_review` rows, uses a
   **multi-provider model router** (model↔role mapping = admin config) with verification on a
-  **different provider/family**. **Autonomous operation:** the admin uploads a curated film list
+  **different provider/family**. **Quality-first model policy:** prefer the **newest, most capable
+  models** for the core stages (don't default to old/cheap), swappable in config. **Latency is
+  expected and acceptable** — newest/reasoning models + the corrective loops make generation slow
+  (seconds–minutes/film); the worker is **async/background, not user-facing**, so optimize for
+  quality over speed and never put it on the request path. **Autonomous operation:** the admin uploads a curated film list
   once; a **daily scheduler self-feeds** through it (≥10 Q&A/film) with **no per-film manual
   trigger**. **No category/`question_type` taxonomy** — questions emerge from the film. **Voice
   is conversational and deep** — like a thoughtful friend talking, theory-grounded underneath but
@@ -72,15 +87,23 @@ the single source of truth; this file is the short standing brief that applies t
   **Voices** = the anonymized, original, conversational, citation-first set in
   `editorial-voices.md` (never name/imitate a real critic). **Observability:** the worker writes
   a `jobs` run log + `agent_activity` heartbeat + `content_events`; `/admin` shows Now / Timeline
-  / Latest outputs.
+  / Latest outputs. **Decoupled publishing:** generation fills an `approved` **buffer**; a
+  separate **publisher** drips items to `published` on a **jittered** schedule (`scheduled_for`,
+  random gaps, no bursts, daily cap + ramp, a film's questions staggered) — `published_at` is the
+  real time, never backdated.
 - **Pacing is mandatory (§3.2):** autonomously publishing ~1,000 films × 10 = ~10k pages is a
   scaled-content-abuse risk. Conservative daily cap + slow ramp + dedup/thin-content checks +
   periodic human spot-check. Quality and uniqueness over volume, always.
-- **Media (§3.3):** images = **TMDB only** (no web scraping, no user uploads); video = **YouTube
-  official embed + Data API**. A curator **auto-attaches media to every question** through an
-  automated relevance + **spoiler/appropriateness** filter; admin moderates after the fact.
-  `media` is published-gated and service-role-written; always render attribution; lazy-load
-  images and use a click-to-load YouTube facade.
+- **Media / Kyniqbot (§3.3):** images = **TMDB only** (no web scraping, no user uploads); video =
+  **YouTube official embed + Data API**. **Kyniqbot** is a third worker loop — it auto-attaches
+  media at generation (buffer) **and** on a **~3-hour sweep** of published questions lacking
+  media — through an automated relevance + **spoiler/appropriateness** filter; admin moderates
+  after the fact. Video renders as a **"Related on YouTube" module at the bottom of the question**
+  (click-to-load facade). **Match video on film identity (exact title+year+director), not loose
+  question keywords; below the confidence threshold attach nothing (junk media is worse than
+  none); a periodic re-check detaches media that stops passing.** `media` is published-gated and
+  service-role-written; always render attribution; lazy-load + reserve dimensions (no layout
+  shift).
 
 ## Security & approval (§0, §15)
 - Use **approval mode** for anything touching: auth, secrets/env, SQL migrations, RLS,
