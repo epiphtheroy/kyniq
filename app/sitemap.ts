@@ -1,19 +1,81 @@
 import type { MetadataRoute } from "next";
+import { createClient } from "@supabase/supabase-js";
 
 /**
  * Dynamic sitemap — SPEC §8.5
- * For Mission 0, returns only the root `/`. Future missions will query the DB
- * for published films, questions, director hubs, and public profiles.
+ * Only published content. Includes films, questions, director hubs, and public profiles.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kyniq.io";
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
-  return [
-    {
-      url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
+  const entries: MetadataRoute.Sitemap = [
+    { url: siteUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
+    { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/film`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
   ];
+
+  // Published films
+  const { data: films } = await supabase.from("films").select("slug, created_at");
+  for (const f of films ?? []) {
+    entries.push({
+      url: `${siteUrl}/film/${f.slug}`,
+      lastModified: new Date(f.created_at),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  }
+
+  // Published questions
+  const { data: questions } = await supabase
+    .from("questions")
+    .select("slug, published_at, created_at, film:films!inner(slug)")
+    .eq("status", "published");
+
+  for (const q of questions ?? []) {
+    const film = q.film as unknown as { slug: string };
+    entries.push({
+      url: `${siteUrl}/film/${film.slug}/q/${q.slug}`,
+      lastModified: new Date(q.published_at || q.created_at),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+  }
+
+  // Director hubs (unique director_slugs)
+  const { data: directors } = await supabase
+    .from("films")
+    .select("director_slug")
+    .not("director_slug", "is", null);
+
+  const uniqueDirectors = new Set((directors ?? []).map((d) => d.director_slug).filter(Boolean));
+  for (const ds of uniqueDirectors) {
+    entries.push({
+      url: `${siteUrl}/director/${ds}`,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    });
+  }
+
+  // Public profiles
+  const { data: profiles } = await supabase
+    .from("profiles")
+    .select("username")
+    .eq("is_public", true)
+    .neq("role", "system");
+
+  for (const p of profiles ?? []) {
+    if (p.username) {
+      entries.push({
+        url: `${siteUrl}/u/${p.username}`,
+        changeFrequency: "weekly",
+        priority: 0.4,
+      });
+    }
+  }
+
+  return entries;
 }

@@ -4,11 +4,6 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Only gate /admin routes (except /admin/login)
-  if (!pathname.startsWith("/admin") || pathname === "/admin/login") {
-    return NextResponse.next();
-  }
-
   let response = NextResponse.next({
     request: { headers: request.headers },
   });
@@ -36,35 +31,46 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  // Refresh session
+  // Refresh session on every request
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // No session → redirect to admin login
-  if (!user) {
-    const loginUrl = request.nextUrl.clone();
-    loginUrl.pathname = "/admin/login";
-    return NextResponse.redirect(loginUrl);
+  // ── Admin gate ──────────────────────────────────────────────
+  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
+    if (!user) {
+      const loginUrl = request.nextUrl.clone();
+      loginUrl.pathname = "/admin/login";
+      return NextResponse.redirect(loginUrl);
+    }
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+
+    if (!profile || profile.role !== "admin") {
+      const notFoundUrl = request.nextUrl.clone();
+      notFoundUrl.pathname = "/_not-found";
+      return NextResponse.rewrite(notFoundUrl);
+    }
   }
 
-  // Check admin role
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
-    .single();
-
-  if (!profile || profile.role !== "admin") {
-    // Non-admin gets 404 — don't reveal the route exists
-    const notFoundUrl = request.nextUrl.clone();
-    notFoundUrl.pathname = "/_not-found";
-    return NextResponse.rewrite(notFoundUrl);
+  // ── Auth-required pages ─────────────────────────────────────
+  const authRequired = ["/ask", "/settings"];
+  if (authRequired.some((p) => pathname.startsWith(p)) && !user) {
+    const loginUrl = request.nextUrl.clone();
+    loginUrl.pathname = "/login";
+    loginUrl.searchParams.set("next", pathname + request.nextUrl.search);
+    return NextResponse.redirect(loginUrl);
   }
 
   return response;
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|icon-.*|apple-touch-icon|kyniq-.*|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
 };

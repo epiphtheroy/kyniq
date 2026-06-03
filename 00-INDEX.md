@@ -13,12 +13,8 @@ repo/
 ├─ AGENTS.md                    ← standing brief the agent reads every task
 ├─ docs/
 │  ├─ 00-INDEX.md               ← this file
-│  └─ missions/
-│     ├─ mission-00-kickoff.md  ← paste into Antigravity to start
-│     ├─ mission-01-kickoff.md
-│     ├─ mission-02-kickoff.md
-│     ├─ mission-06b-kickoff.md
-│     └─ mission-09b-kickoff.md
+│  └─ missions/                 ← all kickoff prompts written (00–10, incl. 06b & 09b)
+│     ├─ mission-00-kickoff.md … mission-10-kickoff.md
 ├─ design/                      ← VISUAL REFERENCE (not shipped); agents open/render to match
 │  ├─ globals.css               ← also copied into app/globals.css by Mission 0
 │  ├─ ref-home.html
@@ -54,13 +50,13 @@ assets live in `/public`.
 - `AGENTS.md` — short standing rules (stack locked, GEO-first, design system, domain
   invariants, content lifecycle, no sockpuppets, security/approval, deferred scope).
 
-**Mission prompts** (paste into the Antigravity Manager, one at a time)
-- `mission-00-kickoff.md` — Scaffold & deploy.
-- `mission-01-kickoff.md` — Data layer (schema + RLS + seed).
-- `mission-02-kickoff.md` — TMDB + film pages.
-- `mission-06b-kickoff.md` — Admin console & roles.
-- `mission-09b-kickoff.md` — AI content pipeline (generate → verify → publish).
-- *(3, 4, 5, 6, 7, 8, 8b, 9, 10: generate from SPEC §13 as you reach them, same format.)*
+**Mission prompts** (paste into the Antigravity Manager, one at a time — full set written)
+- `mission-00` Scaffold & deploy · `mission-01` Data layer · `mission-02` TMDB + film pages ·
+  `mission-03` Auth + ask flow · `mission-04` Answers/voting · `mission-05` Edit governance ·
+  `mission-06` Profiles/account/badges · `mission-06b` Admin console · `mission-07` GEO layer ·
+  `mission-08` Home/chrome/institutional · `mission-08b` Related + director hub ·
+  `mission-09` i18n · `mission-09b` AI content pipeline · `mission-10` Seed (run the pipeline).
+- Deferred (not written, build later): 11 Ads · 12 @-mentions/actor pages.
 
 **Design system + references** (the look; agents reproduce, don't invent)
 - `globals.css` — design tokens + component classes (navy `--ink #1A2740`, paper `--bg
