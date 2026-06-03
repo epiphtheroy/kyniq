@@ -86,7 +86,7 @@ export default async function QuestionPage({ params }: Props) {
   // Fetch published media for this question
   const { data: mediaRows } = await supabase
     .from("media")
-    .select("id, kind, source, external_id, url, thumbnail_url, caption, attribution")
+    .select("id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
     .eq("entity_type", "question")
     .eq("entity_id", question.id)
     .eq("status", "published")
@@ -124,14 +124,14 @@ export default async function QuestionPage({ params }: Props) {
         "@type": "ImageObject",
         contentUrl: m.url,
         thumbnailUrl: m.thumbnail_url,
-        caption: m.caption ?? `Image for ${question.title}`,
+        caption: m.title ?? `Image for ${question.title}`,
         creditText: m.attribution ?? "TMDB",
       };
     }
     return {
       "@context": "https://schema.org",
       "@type": "VideoObject",
-      name: m.caption ?? question.title,
+      name: m.title ?? question.title,
       thumbnailUrl: m.thumbnail_url,
       embedUrl: m.url,
       uploadDate: question.created_at,
@@ -215,7 +215,7 @@ export default async function QuestionPage({ params }: Props) {
         {/* Media gallery */}
         {mediaRows && mediaRows.length > 0 && (
           <div style={{ margin: "1.5rem 0" }}>
-            <MediaGallery media={mediaRows as Array<{ id: string; kind: "image" | "video"; source: "tmdb" | "youtube"; external_id: string; url: string; thumbnail_url: string | null; caption: string | null; attribution: string | null }>} />
+            <MediaGallery media={mediaRows as Array<{ id: string; kind: "image" | "video"; source: "tmdb" | "youtube"; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null; duration?: string | null; channel_name?: string | null }>} />
           </div>
         )}
 
