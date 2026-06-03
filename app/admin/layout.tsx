@@ -31,7 +31,7 @@ export default async function AdminLayout({
       <nav
         style={{
           width: 220,
-          background: "var(--ink, #1A2740)",
+          background: "#1A2740",
           color: "#fff",
           padding: "1.5rem 0",
           flexShrink: 0,

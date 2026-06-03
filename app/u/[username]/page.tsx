@@ -20,11 +20,25 @@ export default async function ProfilePage({ params }: Props) {
   const { username } = await params;
   const supabase = supabaseAnon();
 
-  const { data: profile } = await supabase
+  // Try by username first, then by id (users without username set)
+  let profile;
+  const { data: byUsername } = await supabase
     .from("profiles")
     .select("id, username, display_name, bio, reputation, is_public, role, created_at")
     .eq("username", username)
     .single();
+
+  if (byUsername) {
+    profile = byUsername;
+  } else {
+    // Try by id (for users who haven't set a username yet)
+    const { data: byId } = await supabase
+      .from("profiles")
+      .select("id, username, display_name, bio, reputation, is_public, role, created_at")
+      .eq("id", username)
+      .single();
+    profile = byId;
+  }
 
   if (!profile || !profile.is_public) notFound();
 
