@@ -26,7 +26,7 @@ export default async function AdminLayout({
   if (!admin) redirect("/admin/login");
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#f8f9fa" }}>
+    <div style={{ display: "flex", minHeight: "100vh" }}>
       {/* Sidebar */}
       <nav
         style={{
@@ -104,7 +104,7 @@ export default async function AdminLayout({
       </nav>
 
       {/* Main content */}
-      <main style={{ flex: 1, padding: "2rem", overflow: "auto", background: "#fff", color: "#1A2740" }}>
+      <main style={{ flex: 1, padding: "2rem", overflow: "auto", background: "#1e293b", color: "#e2e8f0" }}>
         {children}
       </main>
     </div>
