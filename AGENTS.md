@@ -62,9 +62,20 @@ the single source of truth; this file is the short standing brief that applies t
 - Quality over volume: respect the scaled-content-abuse guardrail (§3.2) — depth, uniqueness,
   review, and a publish rate-limit.
 - **Pipeline runtime (§3.2):** the generator runs as a **separate worker** (not the Vercel
-  request path); it talks to Supabase via a **job queue** and writes `draft`/`in_review` rows,
-  with a **multi-provider model router** (model↔role mapping is admin config) and verification
-  on a **different provider/family** than generation. `/admin` is the control plane.
+  request path), talks to Supabase via a **job queue**, writes `draft`/`in_review` rows, uses a
+  **multi-provider model router** (model↔role mapping = admin config) with verification on a
+  **different provider/family**. **Autonomous operation:** the admin uploads a curated film list
+  once; a **daily scheduler self-feeds** through it (≥10 Q&A/film) with **no per-film manual
+  trigger**. **No category/`question_type` taxonomy** — questions emerge from the film. **Voice
+  is conversational and deep** — like a thoughtful friend talking, theory-grounded underneath but
+  plain-spoken. `/admin` is the control plane (list upload, daily rate/ramp, progress, pause).
+  **Voices** = the anonymized, original, conversational, citation-first set in
+  `editorial-voices.md` (never name/imitate a real critic). **Observability:** the worker writes
+  a `jobs` run log + `agent_activity` heartbeat + `content_events`; `/admin` shows Now / Timeline
+  / Latest outputs.
+- **Pacing is mandatory (§3.2):** autonomously publishing ~1,000 films × 10 = ~10k pages is a
+  scaled-content-abuse risk. Conservative daily cap + slow ramp + dedup/thin-content checks +
+  periodic human spot-check. Quality and uniqueness over volume, always.
 - **Media (§3.3):** images = **TMDB only** (no web scraping, no user uploads); video = **YouTube
   official embed + Data API**. A curator **auto-attaches media to every question** through an
   automated relevance + **spoiler/appropriateness** filter; admin moderates after the fact.
@@ -85,7 +96,8 @@ the single source of truth; this file is the short standing brief that applies t
 - @-mentions, actor pages, and the mention-tagged director layer (Mission 12). The **v1
   director hub** (directed films only, no mentions) ships in Mission 8b.
 - pgvector semantic relatedness (v2) and co-engagement (v3): v1 relatedness is metadata-only
-  (shared director / genres / keywords / era + `question_type`).
+  (shared director / genres / keywords / era) — **no question categories** (§3.2); semantic
+  embeddings are the cross-film relatedness path once content exists.
 
 ## Conventions
 - TypeScript throughout. Route and file names follow the §6 URL structure.

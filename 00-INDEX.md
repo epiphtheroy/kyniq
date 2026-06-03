@@ -67,6 +67,8 @@ assets live in `/public`.
   YouTube embeds) attached to every question, spoiler-filtered, performance-budgeted.
 - `mission-home-redesign-kickoff.md` — Genius-style home/page redesign (media module + activity
   module) within the editorial design system.
+- `editorial-voices.md` — the worker's persona/voice config (≈5 anonymized, conversational,
+  citation-first voices). Loaded by the pipeline worker; tunable in `/admin`.
 
 **Design system + references** (the look; agents reproduce, don't invent)
 - `globals.css` — design tokens + component classes (navy `--ink #1A2740`, paper `--bg

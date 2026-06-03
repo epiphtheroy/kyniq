@@ -314,9 +314,11 @@ identity (a `system`-role profile) — never fabricated human personas.
 
 **The pipeline (server-side only; never the public client).** A job/service authenticated with
 the Supabase **service role** (or SECURITY DEFINER RPCs) — bypasses RLS by design:
-1. **Generate (draft).** AI writes a question + canonical answer (and optionally a few
-   contributions) for a target film + `question_type`, as `draft`, attributed to Kyniq
-   Editorial. Reuse the §6.1 answer shape (answer-first TL;DR).
+1. **Generate (draft).** For a target film, AI generates the **questions that emerge from the
+   film itself** — the things a real viewer actually wonders about — and writes an answer for
+   each, as `draft`, attributed to Kyniq Editorial. **No category/`question_type` taxonomy** —
+   questions are not slotted into predefined buckets; several may cluster around one theme and
+   that's fine. Reuse the §6.1 answer shape (answer-first TL;DR).
 2. **Verify (검산).** A *separate* AI pass fact-checks the checkable claims (title, year,
    director, cast, plot facts) against TMDB / sources, scores a confidence, and writes a
    `content_events` row. Interpretive claims are not "verifiable" — the pass checks facts +
@@ -325,6 +327,23 @@ the Supabase **service role** (or SECURITY DEFINER RPCs) — bypasses RLS by des
    flagged → stays `in_review` and goes to the admin queue (§6.13).
 4. **Publish.** Flip to `published`, set `published_at`, trigger ISR revalidate + sitemap
    update (§8). Every step writes `content_events` (actor_kind = ai/system/human).
+
+**Voice (conversational, deep).** Questions and answers read like **people talking** — a
+thoughtful friend who has watched closely and thought hard, not an academic. Questions are phrased
+the way someone would actually ask ("Why does she open the window at the end?"), not as essay
+prompts. Answers are **theory-grounded underneath but plain-spoken on the surface**: depth and a
+real critical framework inform the thinking, but the prose is accessible and conversational. (This
+also matches how people query AI engines — a GEO advantage.)
+
+**Autonomous operation (the run model).** The admin **uploads a curated film list once** (e.g.
+~1,000 titles); an importer resolves each to TMDB and marks it `in_pipeline`. A **daily scheduler
+in the worker then runs on its own** — selecting the next batch of unfinished films, generating
+≥10 Q&A each, and publishing through the gate — **with no per-film manual trigger**. It works
+through the list over days/weeks and can later deepen or refresh. The admin only uploads the
+list, sets the **daily rate + ramp**, and reviews the gate queue. Pacing is not optional: see the
+scaled-content caveat below. The worker writes a **heartbeat** (`agent_activity`) and a per-film
+**run log** (`jobs`) so the admin can always see what it's doing now, what it did, and where the
+latest outputs are (§4, §6.13).
 
 **Authorship & attribution — no sockpuppets (hard rule).** AI-authored content must never
 masquerade as independent, organic users. Do **not** generate or rotate fabricated human
@@ -411,11 +430,12 @@ Create these tables (column lists are the essentials; add `id uuid pk default ge
   editorial identity, §3.2), `account_status text default 'active'` (active / suspended — for
   member management, §6.13).
 - **questions** — `film_id FK films`, `author_id FK profiles`, `title text`, `body text`,
-  `slug text unique`, `view_count int default 0`, `question_type text` (controlled vocab,
-  §6.11), and the **lifecycle/provenance fields** (§3.2): `status text default 'published'`
-  (draft / in_review / published / rejected / hidden), `source text default 'human'`
-  (human / ai), `generated_by text` (model/agent tag, null for humans), `reviewed_by uuid FK
-  profiles` (null), `published_at timestamptz`. Optional later: `embedding vector` (pgvector).
+  `slug text unique`, `view_count int default 0`, and the **lifecycle/provenance fields** (§3.2):
+  `status text default 'published'` (draft / in_review / published / rejected / hidden),
+  `source text default 'human'` (human / ai), `generated_by text` (model/agent tag, null for
+  humans), `reviewed_by uuid FK profiles` (null), `published_at timestamptz`. (No
+  `question_type` / category taxonomy — §3.2.) Optional later: `embedding vector` (pgvector) for
+  semantic relatedness.
 - **canonical_answers** — `question_id FK questions unique`, `body text`,
   `updated_by FK profiles`, `updated_at timestamptz`, `revision_count int default 0`, plus the
   **lifecycle/provenance fields** (§3.2): `status text default 'published'`
@@ -462,6 +482,16 @@ Create these tables (column lists are the essentials; add `id uuid pk default ge
   `confidence numeric`, `status text default 'published'` (draft / published / hidden),
   `created_at`. Public read gated on `status='published'` (RLS). The curator writes these; the
   admin can hide/replace after the fact.
+- **jobs** *(pipeline run log — §3.2)* — `id`, `film_id FK films`, `status text` (queued /
+  running / done / failed), `current_step text` (planning / drafting / verifying / publishing),
+  `questions_target int default 10`, `questions_done int default 0`, `cost numeric`,
+  `error text`, `started_at`, `finished_at`, `created_at`. One row per film run; the timeline of
+  what the worker did and is doing.
+- **agent_activity** *(heartbeat — §3.2)* — a tiny table (effectively a singleton per worker):
+  `worker_id text`, `state text` (idle / running / paused), `current_job_id uuid`,
+  `message text` (e.g. "drafting 3/10 for {film}"), `today_published int`, `today_cost numeric`,
+  `last_heartbeat_at timestamptz`. Lets the admin see **what the worker is doing right now**,
+  even between events.
 
 **Editorial identity (seed):** create one (or a small, fixed, disclosed set of ≈3–5)
 `system`-role profile(s) — e.g. `kyniq-editorial` / "Kyniq Editorial" — that author AI-drafted
@@ -743,24 +773,22 @@ Goal: after reading, always offer an obvious next thing — to keep readers on-s
 build the internal link graph crawlers/AI reward. This engine and the §8.8 content
 architecture are the same system. Placement:
 - **Question page, below the readings:** (a) **More about {film}** — other questions on the
-  same film; (b) **Related readings** — questions of the same interpretive *type* and/or
-  about *similar films*, across the catalogue. Cap ~5–6 each, editorial and quiet.
+  same film; (b) **Related readings** — questions about *similar films* (and, once embeddings
+  land, semantically similar questions) across the catalogue. Cap ~5–6 each, editorial and quiet.
 - **Film page:** **Related films** — same director / shared genres + keywords / same era.
 
-Relatedness logic — phased (build v1 now, the rest later):
-- **Question typing (do this now).** Tag each question with one of a small controlled
-  vocabulary (≈8): `ending-meaning`, `object-symbol`, `character-motive`,
-  `ambiguity/unreliable-reality`, `structure-time`, `theme-politics`, `technique-form`,
-  `title-meaning`. Chosen at ask-time (a select). This is the "same type of question about a
-  *different* film" axis the product needs, and it's cheap.
+Relatedness logic — phased (build v1 now, the rest later). **No question categories/`question_type`**
+(§3.2) — questions are not tagged into buckets; relatedness comes from the film and (later) meaning:
 - **Film similarity (v1, pure SQL on cached TMDB data).** Score by shared director
   (strongest), genre + keyword overlap, and era proximity; optionally cache TMDB's
   `/movie/{id}/similar`.
-- **v1 related questions** = same `question_type`, ranked by film-similarity to the current
-  film + engagement. (Plus the same-film list.)
-- **v2 semantic (pgvector).** Embed question title + canonical answer, store as a `vector` in
-  Supabase; related = nearest neighbours by cosine. Captures "about the same idea" across
-  films without shared tags — and directly helps GEO by matching AI query fan-out (§8).
+- **v1 related questions** = same-film list + questions on film-similar titles, ranked by
+  engagement.
+- **v2 semantic (pgvector) — the real cross-film engine.** Embed question title + canonical
+  answer, store as a `vector` in Supabase; related = nearest neighbours by cosine. Captures
+  "about the same idea" across films without any tags — and directly helps GEO by matching AI
+  query fan-out (§8). Without categories, this is *the* way to do cross-film relatedness well, so
+  prioritize it once there's enough content.
 - **v3 co-engagement.** "Readers who explored this also explored…" once traffic exists.
 
 Keep it clean: labelled sections, hard caps, no infinite "you may also like" walls.
@@ -808,10 +836,18 @@ own mission. Surfaces:
 - **Members** — list users; suspend/reactivate (`account_status`); anonymize; adjust
   reputation; grant/revoke `role`. (One admin in v1; the model already supports more.)
 - **Flags** — the user-report queue (`flags`); resolve → hide / keep / suspend author.
-- **Pipeline controls** — trigger a generation run for a film + `question_type`; view pipeline
-  status, confidence, and the publish-gate threshold; pause/resume publishing (the
-  scaled-content rate limit, §3.2).
-- **Audit log** — the `content_events` stream, filterable by entity / actor / event.
+- **Pipeline controls** — **upload the curated film list** (once); set the **daily rate + ramp**;
+  view progress (films done / remaining, questions per film, today's output, cost, confidence);
+  pause/resume. The daily scheduler runs autonomously (§3.2) — no per-film manual trigger.
+- **Activity log (observability).** Answers *what is the agent doing now, what did it do, and
+  where are the outputs:*
+  - **Now** — the `agent_activity` heartbeat: current state (running / idle / paused) and message
+    ("drafting 3/10 for {film}"), today's published count + cost, and films done / remaining.
+  - **Timeline** — reverse-chronological, **timestamped** stream of `content_events` + `jobs`
+    events (generated / verified / published / failed …), each with actor and a **link to the
+    item**. Filter by date / film / event / actor.
+  - **Latest outputs** — quick links to the most recent **drafts** (review queue) and most recent
+    **published** items, so the newest results are one click away.
 
 Uses the same design tokens, but utilitarian density (tables, denser rows) is fine here — it is
 a back-office tool, not the editorial reading view.
@@ -1065,9 +1101,10 @@ Dispatch in order. Each mission = one agent task with a reviewable Artifact.
   cached genres/keywords, and a `director_slug`.
 - **Mission 3 — Auth + ask flow.** Supabase Auth (email verification + Google OAuth) and the
   auth screens `/signup`, `/login`, `/verify` + password reset (§6.7). `/ask` requires login,
-  attaches `film_id` and a `question_type` select (§6.11), preserves drafts through the gate.
+  attaches `film_id`, and is kept **light and conversational** — just a title + optional context,
+  **no category/type select** (§3.2); preserves drafts through the gate.
   *Verify:* logged-out POST blocked; sign-up sends a verification email; logged-in question
-  appears under its film with a stored `question_type`.
+  appears under its film.
 - **Mission 4 — Answers, contributions, voting, ranking.** Canonical answer block +
   contributions stream + upvote-only voting + the `sort_score` ranking (§7.1). *Verify:*
   upvotes reorder contributions by `sort_score`; there is no downvote control anywhere.
@@ -1097,10 +1134,11 @@ Dispatch in order. Each mission = one agent task with a reviewable Artifact.
   Vitals pass; TMDB attribution + copyright + company address in the footer. *Verify:*
   Lighthouse performance/SEO green; footer links resolve to real pages; consent banner gates
   non-essential cookies; a bad URL shows the styled 404.
-- **Mission 8b — Related & discovery + director hub (v1).** "More about {film}" +
-  same-`question_type` cross-film "Related readings" on question pages; "Related films"
-  (director / genre+keyword overlap / era) on film pages (§6.11). Plus the **v1 director hub**
-  `/director/[slug]` keyed on `director_slug` (directed films + their question counts + a
+- **Mission 8b — Related & discovery + director hub (v1).** "More about {film}" + cross-film
+  "Related readings" based on **film similarity** (no categories, §3.2) on question pages;
+  "Related films" (director / genre+keyword overlap / era) on film pages (§6.11). Plus the **v1
+  director hub** `/director/[slug]` keyed on `director_slug` (directed films + their question
+  counts + a
   roll-up of notable questions, §6.12) with its `CollectionPage` schema (§8.8). *Verify:* a
   question page surfaces same-film and same-type cross-film questions; a film page surfaces
   related films; `/director/[slug]` lists that director's films and their questions. (v2

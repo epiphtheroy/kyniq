@@ -14,7 +14,7 @@ export default async function AdminPipelinePage() {
   // Get recent jobs
   const { data: recentJobs } = await supabase
     .from("jobs")
-    .select("id, film_id, status, target_count, result, error, created_at, updated_at, films!inner(title)")
+    .select("id, film_id, status, current_step, questions_done, target_count, result, error, created_at, updated_at, started_at, finished_at, films!inner(title)")
     .order("created_at", { ascending: false })
     .limit(10);
 

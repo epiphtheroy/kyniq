@@ -1,7 +1,10 @@
 /**
  * Pipeline Graph — per-job orchestration
  *
- * Planner → Drafter×N → Verifier×N → Tone → Media → Gate
+ * Planner → Drafter×N → Verifier×N → Media → Gate
+ *
+ * v2: Voice-aware (editorial-voices.md), heartbeat writes,
+ *     no question_type taxonomy, step tracking on jobs.
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -11,7 +14,6 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 interface JobRow {
   id: string;
   film_id: string;
-  question_types: string[];
   target_count: number;
   params: Record<string, unknown>;
   created_by: string | null;
@@ -29,28 +31,21 @@ interface FilmContext {
   keywords: string[];
 }
 
-interface PersonaConfig {
+interface VoiceConfig {
   id: string;
   name: string;
+  codename: string;
   register: string;
+  length_band: string;
   description: string;
+  entry_point: string;
   system_prompt_suffix: string;
 }
 
 interface PlanItem {
   question_title: string;
-  question_type: string;
   question_body: string;
-  persona_id: string;
-}
-
-interface DraftItem {
-  question_title: string;
-  question_body: string;
-  question_type: string;
-  answer_body: string;
-  contributions: Array<{ body: string }>;
-  persona: PersonaConfig;
+  voice_id: string;
 }
 
 interface VerifyResult {
@@ -208,11 +203,54 @@ async function curateTMDBImages(
   return error ? 0 : rows.length;
 }
 
+// ── Heartbeat helper ──────────────────────────────────────────────
+
+export async function writeHeartbeat(
+  supabase: SupabaseClient,
+  workerId: string,
+  state: "idle" | "running" | "paused",
+  message: string,
+  currentJobId: string | null = null,
+  todayPublished?: number,
+  todayCost?: number
+): Promise<void> {
+  const row: Record<string, unknown> = {
+    worker_id: workerId,
+    state,
+    message,
+    current_job_id: currentJobId,
+    last_heartbeat_at: new Date().toISOString(),
+  };
+  if (todayPublished !== undefined) row.today_published = todayPublished;
+  if (todayCost !== undefined) row.today_cost = todayCost;
+
+  await supabase
+    .from("agent_activity")
+    .upsert(row, { onConflict: "worker_id" });
+}
+
+// ── Job step tracking ─────────────────────────────────────────────
+
+async function updateJobStep(
+  supabase: SupabaseClient,
+  jobId: string,
+  step: string,
+  questionsDone?: number
+): Promise<void> {
+  const update: Record<string, unknown> = {
+    current_step: step,
+    updated_at: new Date().toISOString(),
+  };
+  if (questionsDone !== undefined) update.questions_done = questionsDone;
+  await supabase.from("jobs").update(update).eq("id", jobId);
+}
+
 // ── Main graph ────────────────────────────────────────────────────
 
 export async function processJob(
   jobId: string,
-  supabase: SupabaseClient
+  supabase: SupabaseClient,
+  workerId: string
 ): Promise<JobResult> {
   const result: JobResult = {
     questions_created: 0,
@@ -223,6 +261,13 @@ export async function processJob(
     media_attached: 0,
     errors: [],
   };
+
+  // Mark started
+  await supabase.from("jobs").update({
+    started_at: new Date().toISOString(),
+    current_step: "planning",
+    updated_at: new Date().toISOString(),
+  }).eq("id", jobId);
 
   // 1. Load job
   const { data: job, error: jobErr } = await supabase
@@ -252,7 +297,7 @@ export async function processJob(
 
   const configMap = new Map((configs ?? []).map((c) => [c.key, c.value]));
   const routerConfig = (configMap.get("model_router") ?? {}) as Record<string, ModelConfig>;
-  const personas = (configMap.get("personas") ?? []) as PersonaConfig[];
+  const voices = (configMap.get("personas") ?? []) as VoiceConfig[];
   const gateConfig = (configMap.get("gate_threshold") ?? { default: 0.85 }) as { default: number; auto_publish_min?: number };
   const threshold = (j.params.threshold as number) ?? gateConfig.default;
 
@@ -260,8 +305,10 @@ export async function processJob(
   const verifierConfig = routerConfig.verifier ?? { provider: "openai", model: "gpt-4o-mini" };
   const plannerConfig = routerConfig.planner ?? drafterConfig;
 
-  // 4. PLANNER — plan N questions, dedup
+  // ── PLANNER ─────────────────────────────────────────────────────
   console.log(`[graph] Planning ${j.target_count} questions for "${f.title}"`);
+
+  await writeHeartbeat(supabase, workerId, "running", `planning questions for "${f.title}"`, jobId);
 
   const { data: existingQs } = await supabase
     .from("questions")
@@ -269,22 +316,35 @@ export async function processJob(
     .eq("film_id", f.id);
   const existingTitles = (existingQs ?? []).map((q) => q.title.toLowerCase());
 
+  // Build voice listing for the planner
+  const voiceSummary = voices.map((v) => `${v.id} (${v.codename}, ${v.register}, ${v.length_band} words): ${v.description}`).join("\n");
+
   const planPrompt = `You are planning ${j.target_count} genuinely important questions about the film "${f.title}" (${f.year}, directed by ${f.director}).
 
 Film overview: ${f.overview}
 Genres: ${(f.genres ?? []).join(", ")}
 Keywords: ${(f.keywords ?? []).join(", ")}
 
-Available question types: ${j.question_types.join(", ")}
-Available personas: ${personas.map((p) => `${p.id} (${p.register})`).join(", ")}
+IMPORTANT: Questions should emerge from the film itself — what a real viewer would actually wonder about. Do NOT use a fixed category taxonomy. Several questions may cluster around one theme; that's fine.
+
+Available editorial voices (assign one per question, varying across the set):
+${voiceSummary}
+
+VOICE ASSIGNMENT GUIDE:
+- "frame" for questions about cinematography, shots, editing, sound design
+- "pulse" for questions about characters, relationships, emotional moments
+- "drift" for big thematic/philosophical questions, central tensions
+- "spark" for quirky details, witty observations, specific small moments
+- "reel" for common "what does this mean" questions, entry-level queries
+- Mix voices so the ${j.target_count} answers vary in length and temperament
 
 Existing questions to AVOID duplicating:
 ${existingTitles.slice(0, 20).join("\n")}
 
-Generate ${j.target_count} unique, searchable questions. Each should be the kind a thoughtful film viewer would search for. Assign each a question_type and persona_id.
+Generate ${j.target_count} unique, searchable questions. Each should be phrased the way someone would actually ask (e.g. "Why does she open the window at the end?" not "Analyze the symbolism of window imagery").
 
 Return JSON array:
-[{ "question_title": "...", "question_type": "...", "question_body": "...", "persona_id": "..." }]`;
+[{ "question_title": "...", "question_body": "optional brief context", "voice_id": "spark|frame|pulse|drift|reel" }]`;
 
   const planResp = await callModel(plannerConfig, planPrompt, undefined, true);
   result.total_cost_usd += planResp.cost;
@@ -292,8 +352,8 @@ Return JSON array:
 
   let plan: PlanItem[];
   try {
-    plan = JSON.parse(planResp.text);
-    if (!Array.isArray(plan)) plan = [];
+    const parsed = JSON.parse(planResp.text);
+    plan = Array.isArray(parsed) ? parsed : [];
   } catch {
     plan = [];
     result.errors.push("Failed to parse planner output");
@@ -303,17 +363,28 @@ Return JSON array:
   plan = plan.filter((p) => !existingTitles.includes(p.question_title.toLowerCase()));
   plan = plan.slice(0, j.target_count);
 
-  // 5. DRAFTER + VERIFIER + GATE for each question
-  for (const item of plan) {
+  // ── DRAFTER + VERIFIER + GATE for each question ─────────────────
+  await updateJobStep(supabase, jobId, "drafting", 0);
+
+  for (let i = 0; i < plan.length; i++) {
+    const item = plan[i];
     try {
-      const persona = personas.find((p) => p.id === item.persona_id) ?? personas[0];
-      if (!persona) {
-        result.errors.push(`No persona found for ${item.persona_id}`);
+      const voice = voices.find((v) => v.id === item.voice_id) ?? voices[0];
+      if (!voice) {
+        result.errors.push(`No voice found for ${item.voice_id}`);
         continue;
       }
 
-      // 5a. Draft
-      const draftPrompt = `Write a comprehensive answer to this question about the film "${f.title}" (${f.year}, directed by ${f.director}).
+      // Heartbeat: drafting N/total
+      await writeHeartbeat(
+        supabase, workerId, "running",
+        `drafting ${i + 1}/${plan.length} for "${f.title}" [${voice.codename}]`,
+        jobId, result.questions_published, result.total_cost_usd
+      );
+      await updateJobStep(supabase, jobId, "drafting", i);
+
+      // 5a. Draft — voice-aware
+      const draftPrompt = `Write an answer to this question about the film "${f.title}" (${f.year}, directed by ${f.director}).
 
 Question: ${item.question_title}
 ${item.question_body ? `Context: ${item.question_body}` : ""}
@@ -321,21 +392,20 @@ ${item.question_body ? `Context: ${item.question_body}` : ""}
 Film overview: ${f.overview}
 Genres: ${(f.genres ?? []).join(", ")}
 
-Write in the answer-first TL;DR shape:
-1. Start with a 2-3 sentence TL;DR that directly answers the question
-2. Follow with 3-5 paragraphs of detailed analysis
-3. Build from precise scene observation before theory
-4. Prefer productive uncertainty over forced conclusions
-
-Also generate 1-2 shorter alternative perspectives (contributions).
+CRITICAL FORMAT RULES:
+1. Start with a standalone 1–2 sentence direct answer (≤ ~40 words) that can be quoted verbatim
+2. Then elaborate in your voice's style and length band (${voice.length_band} words total)
+3. Anchor in something on screen first, then reach for meaning
+4. Modular paragraphs, each self-contained — no long unbroken walls
+5. Do NOT invent facts about cast, scenes, or plot; stick to what's in the film
 
 Return JSON:
 {
-  "answer_body": "Full answer with TL;DR first",
-  "contributions": [{ "body": "Alternative perspective (2-3 paragraphs)" }]
+  "answer_body": "Full answer — claim-first opening sentence, then elaboration in voice",
+  "contributions": [{ "body": "One alternative reading (2-3 sentences, different angle)" }]
 }`;
 
-      const draftResp = await callModel(drafterConfig, draftPrompt, persona.system_prompt_suffix, true);
+      const draftResp = await callModel(drafterConfig, draftPrompt, voice.system_prompt_suffix, true);
       result.total_cost_usd += draftResp.cost;
       result.total_tokens += draftResp.tokensUsed.total;
 
@@ -348,6 +418,13 @@ Return JSON:
       }
 
       // 5b. Verify (DIFFERENT PROVIDER)
+      await writeHeartbeat(
+        supabase, workerId, "running",
+        `verifying ${i + 1}/${plan.length} for "${f.title}"`,
+        jobId, result.questions_published, result.total_cost_usd
+      );
+      await updateJobStep(supabase, jobId, "verifying", i);
+
       const verifyPrompt = `Fact-check this film analysis. The film is "${f.title}" (${f.year}, directed by ${f.director}).
 TMDB overview: ${f.overview}
 Genres: ${(f.genres ?? []).join(", ")}
@@ -387,7 +464,7 @@ Return JSON:
       const status = shouldPublish ? "published" : "in_review";
       const now = new Date().toISOString();
 
-      // Insert question
+      // Insert question (no question_type — questions emerge from the film)
       const { data: qRow, error: qErr } = await supabase
         .from("questions")
         .insert({
@@ -396,7 +473,6 @@ Return JSON:
           title: item.question_title,
           body: item.question_body || null,
           slug: `${slug}-${Date.now()}`,
-          question_type: item.question_type,
           status,
           source: "ai",
           generated_by: `${draftResp.provider}/${draftResp.model}`,
@@ -442,7 +518,7 @@ Return JSON:
           entity_id: qRow.id,
           event: "generated",
           actor_kind: "ai",
-          meta: { model: draftResp.model, provider: draftResp.provider, persona: persona.id, cost: draftResp.cost },
+          meta: { model: draftResp.model, provider: draftResp.provider, voice: voice.codename, cost: draftResp.cost },
         },
         {
           entity_type: "question",
@@ -459,6 +535,16 @@ Return JSON:
       try {
         const mediaCount = await curateTMDBImages(supabase, "question", qRow.id, f.tmdb_id, 2);
         result.media_attached += mediaCount;
+
+        if (mediaCount > 0) {
+          await supabase.from("content_events").insert({
+            entity_type: "question",
+            entity_id: qRow.id,
+            event: "media_curated",
+            actor_kind: "ai",
+            meta: { images: mediaCount, source: "tmdb" },
+          });
+        }
       } catch {
         result.errors.push(`Media curation failed for ${qRow.id}`);
       }
@@ -472,19 +558,29 @@ Return JSON:
           entity_id: qRow.id,
           event: "published",
           actor_kind: "ai",
-          meta: { confidence: verify.confidence, gate: "auto", threshold },
+          meta: { confidence: verify.confidence, gate: "auto", threshold, voice: voice.codename },
         });
 
-        console.log(`[graph] ✅ Published: "${item.question_title}" (${verify.confidence.toFixed(2)})`);
+        console.log(`[graph] ✅ Published: "${item.question_title}" [${voice.codename}] (${verify.confidence.toFixed(2)})`);
       } else {
         result.questions_in_review++;
-        console.log(`[graph] 🔍 In review: "${item.question_title}" (${verify.confidence.toFixed(2)})`);
+        console.log(`[graph] 🔍 In review: "${item.question_title}" [${voice.codename}] (${verify.confidence.toFixed(2)})`);
       }
+
+      await updateJobStep(supabase, jobId, "drafting", i + 1);
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       result.errors.push(`Failed processing "${item.question_title}": ${msg}`);
     }
   }
+
+  // Mark finished
+  await supabase.from("jobs").update({
+    current_step: "done",
+    questions_done: result.questions_created,
+    finished_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }).eq("id", jobId);
 
   return result;
 }
