@@ -253,18 +253,59 @@ async function callModel(config: ModelConfig, prompt: string, systemPrompt?: str
 // ── Robust JSON extraction (handles thinking model output) ───────
 
 function extractJSON(text: string): unknown | null {
+  // Direct parse
   try { return JSON.parse(text); } catch { /* continue */ }
 
-  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  // Strip thinking blocks (Gemini sometimes wraps output in <think> tags)
+  let cleaned = text.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+
+  // Strip markdown fenced blocks
+  const fenced = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/);
   if (fenced) {
     try { return JSON.parse(fenced[1].trim()); } catch { /* continue */ }
   }
 
-  const objMatch = text.match(/\{[\s\S]*\}/);
+  // Try to find the outermost JSON array first (for planner output)
+  // Use a bracket-counting approach for robustness
+  const arrStart = cleaned.indexOf("[");
+  if (arrStart !== -1) {
+    let depth = 0;
+    let arrEnd = -1;
+    for (let i = arrStart; i < cleaned.length; i++) {
+      if (cleaned[i] === "[") depth++;
+      else if (cleaned[i] === "]") {
+        depth--;
+        if (depth === 0) { arrEnd = i; break; }
+      }
+    }
+    if (arrEnd !== -1) {
+      try { return JSON.parse(cleaned.slice(arrStart, arrEnd + 1)); } catch { /* continue */ }
+    }
+  }
+
+  // Try to find the outermost JSON object
+  const objStart = cleaned.indexOf("{");
+  if (objStart !== -1) {
+    let depth = 0;
+    let objEnd = -1;
+    for (let i = objStart; i < cleaned.length; i++) {
+      if (cleaned[i] === "{") depth++;
+      else if (cleaned[i] === "}") {
+        depth--;
+        if (depth === 0) { objEnd = i; break; }
+      }
+    }
+    if (objEnd !== -1) {
+      try { return JSON.parse(cleaned.slice(objStart, objEnd + 1)); } catch { /* continue */ }
+    }
+  }
+
+  // Last resort: greedy regex
+  const objMatch = cleaned.match(/\{[\s\S]*\}/);
   if (objMatch) {
     try { return JSON.parse(objMatch[0]); } catch { /* continue */ }
   }
-  const arrMatch = text.match(/\[[\s\S]*\]/);
+  const arrMatch = cleaned.match(/\[[\s\S]*\]/);
   if (arrMatch) {
     try { return JSON.parse(arrMatch[0]); } catch { /* continue */ }
   }
@@ -422,7 +463,13 @@ Return ONLY JSON:
 
     const parsed = extractJSON(resp.text) as VerifyOutput | null;
     const verify: VerifyOutput = parsed && "confidence_score" in parsed
-      ? parsed
+      ? {
+          ...parsed,
+          confidence_score: Number(parsed.confidence_score) || 0.5,
+          critical_errors: Array.isArray(parsed.critical_errors) ? parsed.critical_errors : [],
+          real_person_risk: Array.isArray(parsed.real_person_risk) ? parsed.real_person_risk : [],
+          fixes: Array.isArray(parsed.fixes) ? parsed.fixes : [],
+        }
       : { critical_errors: [], real_person_risk: [], spoiler_risk: false, fixes: [], confidence_score: 0.5 };
 
     // No fixes needed or last retry → return
@@ -930,13 +977,13 @@ Return ONLY JSON:
       // Gate log
       if (status === "approved") {
         result.questions_published++;
-        console.log(`[graph] ✅ Approved: "${item.question}" [${voice.codename}] (conf:${verify.confidence_score.toFixed(2)}, rubric:${rubric.verdict}) → ${questionScheduled?.slice(11, 16)}`);
+        console.log(`[graph] ✅ Approved: "${item.question}" [${voice.codename}] (conf:${Number(verify.confidence_score).toFixed(2)}, rubric:${rubric.verdict}) → ${questionScheduled?.slice(11, 16)}`);
       } else if (status === "held") {
         result.questions_held++;
         console.log(`[graph] ⛔ Held: "${item.question}" [${voice.codename}] — ${hasRealPersonRisk ? "real_person_risk" : rubric.verdict}`);
       } else {
         result.questions_in_review++;
-        console.log(`[graph] 🔍 Review: "${item.question}" [${voice.codename}] (conf:${verify.confidence_score.toFixed(2)}, rubric:${rubric.verdict})`);
+        console.log(`[graph] 🔍 Review: "${item.question}" [${voice.codename}] (conf:${Number(verify.confidence_score).toFixed(2)}, rubric:${rubric.verdict})`);
       }
 
       await updateJobStep(supabase, jobId, "drafting", i + 1);
