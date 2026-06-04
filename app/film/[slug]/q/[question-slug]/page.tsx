@@ -33,10 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!question) return { title: "Question not found" };
 
-  const film = question.films as unknown as { title: string };
+  const film = question.films as unknown as { title: string; year?: number };
+  const yearStr = film.year ? ` (${film.year})` : "";
   return {
-    title: `${question.title} — ${film.title} | Kyniq`,
-    description: `Read interpretations of "${question.title}" about ${film.title} on Kyniq.`,
+    title: `${question.title} — ${film.title}${yearStr} | Kyniq`,
+    description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on Kyniq.`,
   };
 }
 
@@ -116,10 +117,25 @@ export default async function QuestionPage({ params }: Props) {
     .eq("status", "published")
     .order("position");
 
-  // JSON-LD QAPage
+  // JSON-LD QAPage with about → Movie (§8.2 film-entity recognition)
+  const sameAsLinks = [
+    film.imdb_id ? `https://www.imdb.com/title/${film.imdb_id}/` : null,
+    film.wikidata_id ? `https://www.wikidata.org/wiki/${film.wikidata_id}` : null,
+  ].filter(Boolean);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
+    about: {
+      "@type": "Movie",
+      name: film.title,
+      ...(film.year && { dateCreated: String(film.year) }),
+      ...(film.director && {
+        director: { "@type": "Person", name: film.director },
+      }),
+      url: `https://kyniq.io/film/${film.slug}`,
+      ...(sameAsLinks.length > 0 && { sameAs: sameAsLinks }),
+    },
     mainEntity: {
       "@type": "Question",
       name: question.title,
@@ -308,7 +324,7 @@ export default async function QuestionPage({ params }: Props) {
 
                 {isAI && (
                   <div className="ui muted" style={{ fontSize: 11.5, marginTop: 8, fontStyle: "italic" }}>
-                    Drafted with AI, reviewed by the Kyniq editorial team.
+                    AI-written and fact-checked to Kyniq&apos;s editorial standards.
                   </div>
                 )}
 
