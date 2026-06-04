@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { data: question } = await supabase
     .from("questions")
-    .select("title, films!inner(title)")
+    .select("title, films!inner(title, year)")
     .eq("slug", qSlug)
     .eq("status", "published")
     .single();
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const film = question.films as unknown as { title: string; year?: number };
   const yearStr = film.year ? ` (${film.year})` : "";
   return {
-    title: `${question.title} — ${film.title}${yearStr} | Kyniq`,
+    title: `${question.title} — ${film.title}${yearStr}`,
     description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on Kyniq.`,
   };
 }
