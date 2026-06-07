@@ -12,16 +12,6 @@ function getSupabase() {
   );
 }
 
-const QUESTION_TYPES = [
-  { value: "interpretation", label: "Interpretation" },
-  { value: "symbolism", label: "Symbolism & imagery" },
-  { value: "character", label: "Character analysis" },
-  { value: "technique", label: "Technique & craft" },
-  { value: "theme", label: "Theme" },
-  { value: "ending", label: "Ending" },
-  { value: "comparison", label: "Comparison" },
-  { value: "context", label: "Context & background" },
-];
 
 interface FilmResult {
   tmdb_id: number;
@@ -51,7 +41,7 @@ function AskForm() {
   // Question
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [questionType, setQuestionType] = useState("interpretation");
+
 
   // First reading (optional)
   const [firstReading, setFirstReading] = useState("");
@@ -147,7 +137,6 @@ function AskForm() {
         title: title.trim(),
         body: body.trim() || null,
         slug,
-        question_type: questionType,
         status: "published",
         source: "human",
         published_at: new Date().toISOString(),
@@ -267,16 +256,6 @@ function AskForm() {
               Ask about meaning, symbolism, or intent — not trivia or plot recaps.
             </div>
 
-            <select
-              value={questionType}
-              onChange={(e) => setQuestionType(e.target.value)}
-              className="field ui"
-              style={{ width: "100%", boxSizing: "border-box", marginTop: 9, fontSize: 14, cursor: "pointer" }}
-            >
-              {QUESTION_TYPES.map((qt) => (
-                <option key={qt.value} value={qt.value}>{qt.label}</option>
-              ))}
-            </select>
 
             <textarea
               value={body}

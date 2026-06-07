@@ -1,4 +1,4 @@
-/* Server-only: AI content pipeline — generate → verify → publish */
+/* Server-only: AI content pipeline — single-call featured Q&A generator */
 
 import { createAdminClient } from "@/lib/supabase/admin";
 import { logContentEvent } from "@/lib/admin";
@@ -10,19 +10,6 @@ const EDITORIAL_PROFILE_ID = "00000000-0000-0000-0000-000000000001";
 
 const MODEL_TAG = "gemini-2.5-flash";
 
-const QUESTION_TYPES = [
-  "interpretation",
-  "symbolism",
-  "character",
-  "technique",
-  "theme",
-  "ending",
-  "comparison",
-  "context",
-] as const;
-
-export type QuestionType = (typeof QUESTION_TYPES)[number];
-
 // ── Gemini helper ─────────────────────────────────────────────────
 
 function geminiKey(): string {
@@ -31,17 +18,21 @@ function geminiKey(): string {
   return key;
 }
 
-async function callGemini(prompt: string): Promise<string> {
+async function callGemini(systemPrompt: string, userPrompt: string): Promise<string> {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_TAG}:generateContent?key=${geminiKey()}`;
 
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
+      contents: [
+        { role: "user", parts: [{ text: systemPrompt }] },
+        { role: "model", parts: [{ text: "Understood." }] },
+        { role: "user", parts: [{ text: userPrompt }] },
+      ],
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 4096,
+        maxOutputTokens: 16384,
         responseMimeType: "application/json",
       },
     }),
@@ -81,365 +72,158 @@ async function getFilmContext(filmId: string): Promise<FilmContext> {
   return data as FilmContext;
 }
 
-// ── 1. GENERATE ───────────────────────────────────────────────────
+// ── Types ─────────────────────────────────────────────────────────
+
+interface FeaturedItem {
+  question: string;
+  question_body: string;
+  asker_lens: string;
+  answer: string;
+  answerer_lens: string;
+  aha: string;
+  self_confidence: number;
+  claims_sourced: boolean;
+}
 
 interface GenerateResult {
   questionId: string;
   answerId: string;
-  contributionIds: string[];
 }
+
+// ── GENERATE (single call per film) ───────────────────────────────
+
+const SYSTEM_PROMPT = `You are FilmCurio Editorial, the in-house critical voice of FilmCurio. For one film, produce the questions viewers are most genuinely curious about after watching it, and answer each at the highest level of accuracy and insight you are capable of. There is no human editor after you. Return a JSON object with film_id, film_title, and items array. Each item has: question, question_body (optional, "" if none), asker_lens, answer (180-340 words), answerer_lens, aha, self_confidence (0-1), claims_sourced (boolean). Output JSON only, no prose.`;
 
 export async function generateContent(
   filmId: string,
-  questionType: QuestionType
-): Promise<GenerateResult> {
+): Promise<GenerateResult[]> {
   const film = await getFilmContext(filmId);
   const supabase = createAdminClient();
 
-  const prompt = `You are a film critic writing for FilmCurio, a sophisticated film analysis platform. Generate a question and answer about the film "${film.title}" (${film.year}, directed by ${film.director}).
+  const userPrompt = `film_id: ${film.id}
+Title: ${film.title} (${film.year ?? "unknown"})
+Director: ${film.director ?? "unknown"}
+Overview: ${film.overview ?? "No overview available."}
 
-Film overview: ${film.overview}
-Genres: ${(film.genres ?? []).join(", ")}
-Keywords: ${(film.keywords ?? []).join(", ")}
+Produce the featured Q&A JSON for this film now.`;
 
-Question type: ${questionType}
+  const raw = await callGemini(SYSTEM_PROMPT, userPrompt);
 
-Generate exactly one insightful question and a comprehensive canonical answer about this film. The question should be the kind that a thoughtful film viewer would search for. The answer should follow this shape: start with an answer-first TL;DR (2-3 sentences), then provide a detailed analysis (3-5 paragraphs).
-
-Also generate 1-2 shorter alternative perspectives (contributions) that offer different readings or additional insights.
-
-Return JSON in this exact format:
-{
-  "question_title": "The question as a clear, searchable title",
-  "question_body": "Optional elaboration on the question (1-2 sentences, or empty string)",
-  "answer_body": "The full canonical answer with TL;DR first, then detailed analysis",
-  "contributions": [
-    { "body": "An alternative perspective or additional insight (2-3 paragraphs)" }
-  ]
-}`;
-
-  const raw = await callGemini(prompt);
-
-  let parsed: {
-    question_title: string;
-    question_body: string;
-    answer_body: string;
-    contributions: { body: string }[];
-  };
-
+  let parsed: { items: FeaturedItem[] };
   try {
     parsed = JSON.parse(raw);
   } catch {
     throw new Error(`Failed to parse Gemini response: ${raw.slice(0, 200)}`);
   }
 
-  // Create question slug
-  const slug = `${film.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${questionType}-${Date.now().toString(36)}`;
+  if (!parsed.items || parsed.items.length === 0) {
+    throw new Error("No items in response");
+  }
 
-  // Insert question (draft)
-  const { data: question, error: qErr } = await supabase
-    .from("questions")
-    .insert({
-      film_id: filmId,
-      author_id: EDITORIAL_PROFILE_ID,
-      title: parsed.question_title,
-      body: parsed.question_body || null,
-      slug,
-      question_type: questionType,
-      status: "draft",
-      source: "ai",
-      generated_by: MODEL_TAG,
-    })
-    .select("id")
-    .single();
+  const results: GenerateResult[] = [];
 
-  if (qErr) throw new Error(`Question insert failed: ${qErr.message}`);
+  for (const item of parsed.items) {
+    // Skip low-confidence items
+    if (item.self_confidence < 0.75 || !item.claims_sourced) continue;
 
-  // Insert canonical answer (draft)
-  const { data: answer, error: aErr } = await supabase
-    .from("canonical_answers")
-    .insert({
-      question_id: question.id,
-      body: parsed.answer_body,
-      updated_by: EDITORIAL_PROFILE_ID,
-      status: "draft",
-      source: "ai",
-      generated_by: MODEL_TAG,
-    })
-    .select("id")
-    .single();
+    const slug = item.question
+      .toLowerCase()
+      .replace(/['']/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 80) + "-" + Date.now().toString(36);
 
-  if (aErr) throw new Error(`Answer insert failed: ${aErr.message}`);
-
-  // Insert contributions (draft)
-  const contributionIds: string[] = [];
-  for (const contrib of parsed.contributions ?? []) {
-    const { data: c, error: cErr } = await supabase
-      .from("contributions")
+    // Insert question (approved — ready for publisher)
+    const { data: question, error: qErr } = await supabase
+      .from("questions")
       .insert({
-        question_id: question.id,
+        film_id: filmId,
         author_id: EDITORIAL_PROFILE_ID,
-        body: contrib.body,
-        status: "draft",
+        title: item.question,
+        body: item.question_body || null,
+        slug,
+        status: "approved",
         source: "ai",
         generated_by: MODEL_TAG,
+        asker_lens: item.asker_lens,
+        self_confidence: item.self_confidence,
+        claims_sourced: item.claims_sourced,
       })
       .select("id")
       .single();
 
-    if (cErr) {
-      console.error("Contribution insert failed:", cErr.message);
-      continue;
-    }
-    contributionIds.push(c.id);
-  }
+    if (qErr) throw new Error(`Question insert failed: ${qErr.message}`);
 
-  // Log content_events
-  await logContentEvent({
-    entityType: "question",
-    entityId: question.id,
-    event: "generated",
-    actorId: null,
-    actorKind: "ai",
-    meta: { model: MODEL_TAG, film_id: filmId, question_type: questionType },
-  });
+    // Insert canonical answer (approved)
+    const { data: answer, error: aErr } = await supabase
+      .from("canonical_answers")
+      .insert({
+        question_id: question.id,
+        body: item.answer,
+        updated_by: EDITORIAL_PROFILE_ID,
+        status: "approved",
+        source: "ai",
+        generated_by: MODEL_TAG,
+        answerer_lens: item.answerer_lens,
+        aha: item.aha,
+        self_confidence: item.self_confidence,
+        claims_sourced: item.claims_sourced,
+      })
+      .select("id")
+      .single();
 
-  await logContentEvent({
-    entityType: "canonical_answer",
-    entityId: answer.id,
-    event: "generated",
-    actorId: null,
-    actorKind: "ai",
-    meta: { model: MODEL_TAG, question_id: question.id },
-  });
+    if (aErr) throw new Error(`Answer insert failed: ${aErr.message}`);
 
-  return {
-    questionId: question.id,
-    answerId: answer.id,
-    contributionIds,
-  };
-}
-
-// ── 2. VERIFY ─────────────────────────────────────────────────────
-
-interface VerifyResult {
-  confidence: number;
-  checks: { claim: string; result: "pass" | "fail" | "unverifiable" }[];
-  notes: string;
-}
-
-export async function verifyContent(
-  questionId: string
-): Promise<VerifyResult> {
-  const supabase = createAdminClient();
-
-  // Get the question + answer + film context
-  const { data: question } = await supabase
-    .from("questions")
-    .select("id, title, body, film_id")
-    .eq("id", questionId)
-    .single();
-
-  if (!question) throw new Error(`Question not found: ${questionId}`);
-
-  const { data: answer } = await supabase
-    .from("canonical_answers")
-    .select("id, body")
-    .eq("question_id", questionId)
-    .single();
-
-  if (!answer) throw new Error(`Answer not found for question: ${questionId}`);
-
-  const film = await getFilmContext(question.film_id);
-
-  const prompt = `You are a fact-checker for FilmCurio, a film analysis platform. Your job is to verify the factual accuracy of AI-generated content about the film "${film.title}" (${film.year}, directed by ${film.director}).
-
-REFERENCE DATA (from TMDB — treat as ground truth for factual claims):
-- Title: ${film.title}
-- Original title: ${film.original_title}
-- Year: ${film.year}
-- Director: ${film.director}
-- Overview: ${film.overview}
-- Genres: ${(film.genres ?? []).join(", ")}
-
-CONTENT TO VERIFY:
-Question: ${question.title}
-${question.body || ""}
-
-Answer: ${answer.body}
-
-INSTRUCTIONS:
-1. Check all FACTUAL claims (title, year, director, cast, plot facts, awards) against the reference data.
-2. Interpretive/analytical claims are NOT factual errors — mark them as "unverifiable" not "fail".
-3. Score confidence 0.0 to 1.0 based on factual accuracy only.
-4. Be conservative: if any factual claim contradicts the reference data, set confidence below 0.8.
-
-Return JSON:
-{
-  "confidence": 0.0-1.0,
-  "checks": [
-    { "claim": "description of claim checked", "result": "pass" | "fail" | "unverifiable" }
-  ],
-  "notes": "Summary of verification findings"
-}`;
-
-  const raw = await callGemini(prompt);
-
-  let result: VerifyResult;
-  try {
-    result = JSON.parse(raw);
-  } catch {
-    // If parsing fails, treat as low confidence
-    result = {
-      confidence: 0.5,
-      checks: [],
-      notes: `Verification parse error: ${raw.slice(0, 200)}`,
-    };
-  }
-
-  // Clamp confidence
-  result.confidence = Math.max(0, Math.min(1, result.confidence));
-
-  // Log verification event
-  await logContentEvent({
-    entityType: "question",
-    entityId: questionId,
-    event: "verified",
-    actorId: null,
-    actorKind: "ai",
-    meta: {
-      model: MODEL_TAG,
-      confidence: result.confidence,
-      checks: result.checks,
-      notes: result.notes,
-    },
-  });
-
-  await logContentEvent({
-    entityType: "canonical_answer",
-    entityId: answer.id,
-    event: "verified",
-    actorId: null,
-    actorKind: "ai",
-    meta: {
-      model: MODEL_TAG,
-      confidence: result.confidence,
-    },
-  });
-
-  return result;
-}
-
-// ── 3. GATE & PUBLISH ─────────────────────────────────────────────
-
-interface GateResult {
-  published: boolean;
-  confidence: number;
-  status: "published" | "in_review";
-}
-
-export async function gateAndPublish(
-  questionId: string,
-  verification: VerifyResult,
-  threshold: number = 0.85
-): Promise<GateResult> {
-  const supabase = createAdminClient();
-  const now = new Date().toISOString();
-
-  const shouldPublish =
-    verification.confidence >= threshold &&
-    !verification.checks.some((c) => c.result === "fail");
-
-  const newStatus = shouldPublish ? "published" : "in_review";
-
-  // Update question
-  await supabase
-    .from("questions")
-    .update({
-      status: newStatus,
-      ...(shouldPublish && {
-        published_at: now,
-        reviewed_by: EDITORIAL_PROFILE_ID,
-      }),
-    })
-    .eq("id", questionId);
-
-  // Update canonical answer
-  await supabase
-    .from("canonical_answers")
-    .update({
-      status: newStatus,
-      ...(shouldPublish && {
-        published_at: now,
-        reviewed_by: EDITORIAL_PROFILE_ID,
-      }),
-    })
-    .eq("question_id", questionId);
-
-  // Update contributions
-  await supabase
-    .from("contributions")
-    .update({
-      status: newStatus,
-      ...(shouldPublish && { published_at: now }),
-    })
-    .eq("question_id", questionId)
-    .eq("source", "ai")
-    .eq("status", "draft");
-
-  if (shouldPublish) {
+    // Log content_events
     await logContentEvent({
       entityType: "question",
-      entityId: questionId,
-      event: "published",
+      entityId: question.id,
+      event: "generated",
       actorId: null,
-      actorKind: "system",
+      actorKind: "ai",
       meta: {
-        confidence: verification.confidence,
-        threshold,
-        auto_published: true,
+        model: MODEL_TAG,
+        film_id: filmId,
+        asker_lens: item.asker_lens,
+        self_confidence: item.self_confidence,
       },
     });
+
+    await logContentEvent({
+      entityType: "canonical_answer",
+      entityId: answer.id,
+      event: "generated",
+      actorId: null,
+      actorKind: "ai",
+      meta: {
+        model: MODEL_TAG,
+        question_id: question.id,
+        answerer_lens: item.answerer_lens,
+        aha: item.aha,
+        self_confidence: item.self_confidence,
+      },
+    });
+
+    results.push({ questionId: question.id, answerId: answer.id });
   }
 
-  return {
-    published: shouldPublish,
-    confidence: verification.confidence,
-    status: newStatus,
-  };
+  return results;
 }
 
-// ── 4. FULL PIPELINE ──────────────────────────────────────────────
+// ── FULL PIPELINE (simplified: generate only, no separate verify/gate) ──
 
 export interface PipelineResult {
-  questionId: string;
-  answerId: string;
-  contributionIds: string[];
-  verification: VerifyResult;
-  gate: GateResult;
+  results: GenerateResult[];
+  count: number;
 }
 
 export async function runPipeline(
   filmId: string,
-  questionType: QuestionType,
-  options: { threshold?: number } = {}
 ): Promise<PipelineResult> {
-  const threshold = options.threshold ?? 0.85;
-
-  // Step 1: Generate
-  const generated = await generateContent(filmId, questionType);
-
-  // Step 2: Verify
-  const verification = await verifyContent(generated.questionId);
-
-  // Step 3: Gate & Publish
-  const gate = await gateAndPublish(generated.questionId, verification, threshold);
+  const results = await generateContent(filmId);
 
   return {
-    questionId: generated.questionId,
-    answerId: generated.answerId,
-    contributionIds: generated.contributionIds,
-    verification,
-    gate,
+    results,
+    count: results.length,
   };
 }

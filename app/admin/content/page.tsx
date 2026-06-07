@@ -99,7 +99,7 @@ export default async function AdminContentPage({
   const statusColors: Record<string, string> = {
     published: "#059669",
     draft: "#6b7280",
-    in_review: "#d97706",
+    draft: "#d97706",
     rejected: "#dc2626",
     hidden: "#9ca3af",
   };
@@ -159,7 +159,7 @@ export default async function AdminContentPage({
           <option value="">All statuses</option>
           <option value="published">Published</option>
           <option value="draft">Draft</option>
-          <option value="in_review">In Review</option>
+          <option value="draft">In Review</option>
           <option value="rejected">Rejected</option>
           <option value="hidden">Hidden</option>
         </select>

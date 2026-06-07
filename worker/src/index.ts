@@ -2,12 +2,12 @@
  * FilmCurio Pipeline Worker — standalone service
  *
  * Runs four loops:
- *   Loop 1: Generator — polls jobs queue, runs Dossier→Planner→Drafter→Verifier→Scorer→Gate
+ *   Loop 1: Generator — single-call per film (prompt-featured-qa.md)
  *   Loop 2: Publisher — releases approved items to published on schedule
  *   Loop 3: Curiobot media enrichment (~3h sweep)
  *   Loop 4: Re-audit — post-publish automated re-verification (daily)
  *
- * v5: Pipeline v4 prompt-design hardening.
+ * v6: Single-call pipeline (replaces multi-stage graph).
  *
  * Usage: DOTENV_CONFIG_PATH=../.env.local tsx src/index.ts
  */
@@ -15,7 +15,7 @@
 import "dotenv/config";
 import { createServer } from "node:http";
 import { createClient } from "@supabase/supabase-js";
-import { processJob, writeHeartbeat } from "./graph.js";
+import { processFilm, writeHeartbeat } from "./generator.js";
 import { runPublisherCycle } from "./publisher.js";
 import { runCuriobotSweep } from "./curiobot.js";
 import { runReAudit } from "./reaudit.js";
@@ -270,57 +270,66 @@ async function processClaimedJob(jobId: string): Promise<void> {
   await writeHeartbeat(supabase, WORKER_ID, "running", `processing job ${jobId.slice(0, 8)}…`, jobId, todayPublished, todayCost);
 
   try {
-    const result = await processJob(jobId, supabase, WORKER_ID);
+    // Get the film_id from the job
+    const { data: jobInfo } = await supabase
+      .from("jobs")
+      .select("film_id")
+      .eq("id", jobId)
+      .single();
+
+    if (!jobInfo?.film_id) throw new Error(`Job ${jobId} has no film_id`);
+
+    const result = await processFilm(jobInfo.film_id, supabase, WORKER_ID);
 
     // Update daily counters
-    todayPublished += result.questions_published;
+    todayPublished += result.questions_approved;
     todayCost += result.total_cost_usd;
 
     await supabase
       .from("jobs")
       .update({
         status: "done",
-        result,
+        result: {
+          questions_generated: result.questions_generated,
+          questions_published: result.questions_approved,
+          questions_in_review: 0,
+          questions_held: result.questions_rejected,
+          total_cost_usd: result.total_cost_usd,
+          mean_self_confidence: result.mean_self_confidence,
+        },
         updated_at: new Date().toISOString(),
       })
       .eq("id", jobId);
 
-    // Update film's questions_published count
-    const { data: jobData } = await supabase
-      .from("jobs")
-      .select("film_id")
-      .eq("id", jobId)
-      .single();
-
-    if (jobData?.film_id && result.questions_published > 0) {
-      // Count total published questions for this film
+    if (jobInfo?.film_id && result.questions_approved > 0) {
+      // Count total approved+published questions for this film
       const { count } = await supabase
         .from("questions")
         .select("id", { count: "exact", head: true })
-        .eq("film_id", jobData.film_id)
-        .eq("status", "published")
+        .eq("film_id", jobInfo.film_id)
+        .in("status", ["approved", "published"])
         .eq("source", "ai");
 
       const { data: filmData } = await supabase
         .from("films")
         .select("questions_target")
-        .eq("id", jobData.film_id)
+        .eq("id", jobInfo.film_id)
         .single();
 
-      const published = count ?? 0;
+      const total = count ?? 0;
       const target = filmData?.questions_target ?? 10;
 
       await supabase
         .from("films")
         .update({
-          questions_published: published,
+          questions_published: total,
           last_processed_at: new Date().toISOString(),
-          pipeline_status: published >= target ? "done" : "in_progress",
+          pipeline_status: total >= target ? "done" : "in_progress",
         })
-        .eq("id", jobData.film_id);
+        .eq("id", jobInfo.film_id);
     }
 
-    await writeHeartbeat(supabase, WORKER_ID, "idle", `completed job — ${result.questions_published} approved, ${result.questions_in_review} review, ${result.questions_held ?? 0} held`, undefined, todayPublished, todayCost);
+    await writeHeartbeat(supabase, WORKER_ID, "idle", `completed job — ${result.questions_approved} approved, $${result.total_cost_usd.toFixed(4)}, mean confidence ${result.mean_self_confidence.toFixed(2)}`, undefined, todayPublished, todayCost);
 
     console.log(`[worker] Job ${jobId} completed:`, JSON.stringify(result));
   } catch (err) {

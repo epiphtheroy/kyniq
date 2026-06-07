@@ -26,7 +26,7 @@ async function getReviewItems(): Promise<ReviewItem[]> {
   const supabase = createAdminClient();
   const items: ReviewItem[] = [];
 
-  // Questions in_review
+  // Questions draft
   const { data: questions } = await supabase
     .from("questions")
     .select(`
@@ -34,7 +34,7 @@ async function getReviewItems(): Promise<ReviewItem[]> {
       films!inner(title, slug),
       profiles!questions_author_id_fkey(display_name)
     `)
-    .eq("status", "in_review")
+    .eq("status", "draft")
     .order("created_at", { ascending: false });
 
   for (const q of questions ?? []) {
@@ -63,14 +63,14 @@ async function getReviewItems(): Promise<ReviewItem[]> {
     });
   }
 
-  // Canonical answers in_review
+  // Canonical answers draft
   const { data: answers } = await supabase
     .from("canonical_answers")
     .select(`
       id, body, status, source, created_at,
       questions!inner(title, slug, films!inner(title, slug))
     `)
-    .eq("status", "in_review")
+    .eq("status", "draft")
     .order("created_at", { ascending: false });
 
   for (const a of answers ?? []) {
@@ -102,7 +102,7 @@ async function getReviewItems(): Promise<ReviewItem[]> {
     });
   }
 
-  // Contributions in_review
+  // Contributions draft
   const { data: contribs } = await supabase
     .from("contributions")
     .select(`
@@ -110,7 +110,7 @@ async function getReviewItems(): Promise<ReviewItem[]> {
       questions!inner(title, slug, films!inner(title, slug)),
       profiles!contributions_author_id_fkey(display_name)
     `)
-    .eq("status", "in_review")
+    .eq("status", "draft")
     .order("created_at", { ascending: false });
 
   for (const c of contribs ?? []) {

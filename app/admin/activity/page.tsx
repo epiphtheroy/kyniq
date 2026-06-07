@@ -57,7 +57,7 @@ export default async function AdminActivityPage() {
   const { data: latestDrafts } = await supabase
     .from("questions")
     .select("id, title, slug, film_id, created_at, status, films!inner(title, slug)")
-    .in("status", ["draft", "in_review"])
+    .in("status", ["draft", "draft"])
     .eq("source", "ai")
     .order("created_at", { ascending: false })
     .limit(5);
@@ -273,7 +273,7 @@ export default async function AdminActivityPage() {
                         fontSize: "0.625rem",
                         fontWeight: 600,
                         color: "#fff",
-                        background: q.status === "in_review" ? "#d97706" : "#6b7280",
+                        background: q.status === "draft" ? "#d97706" : "#6b7280",
                         textTransform: "uppercase",
                         flexShrink: 0,
                       }}

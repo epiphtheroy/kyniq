@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About — FilmCurio",
@@ -27,10 +26,10 @@ export default function AboutPage() {
       <div className="seclbl">The name</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        <span className="disp" style={{ fontSize: 18 }}>FilmCurio</span> blends{" "}
-        <em>Kino</em> — German and Russian for &ldquo;film,&rdquo; the word cinephiles reach for — with{" "}
-        <em>IQ</em> and <em>Unique</em>. It holds a double meaning: intelligence about film, and the{" "}
-        <em>question</em> (Q) at the heart of every page.
+        <span className="disp" style={{ fontSize: 18 }}>FilmCurio</span> joins{" "}
+        <em>film</em> with <em>curio</em> — a small, intriguing object you keep because it rewards
+        a second look. The site is a cabinet of cinema&apos;s curiosities, and the{" "}
+        <em>question</em> (the &ldquo;?&rdquo; in the mark) sits at the heart of every page.
       </p>
 
       <hr className="rule" />
@@ -38,19 +37,37 @@ export default function AboutPage() {
       <div className="seclbl">How a reading is built</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Anyone can share an interpretation. The strongest readings are folded into a single canonical answer
-        that the community keeps editing — so each page grows more precise over time, while the original
-        perspectives stay visible beneath it. There are no wrong readings here, and no downvotes.
+        Each page centers on one canonical answer — the clearest interpretation we can assemble for
+        a given question — refined over time so the page grows more precise. Anyone can add their
+        own reading beneath it, and the strongest community contributions are merged upward into
+        that canonical answer, with the original perspectives staying visible underneath. There are
+        no wrong readings here, and no downvotes.
       </p>
 
       <hr className="rule" />
 
-      <div className="seclbl">AI-assisted content</div>
+      <div className="seclbl">How our interpretations are written</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Some initial readings are drafted with AI and reviewed by the FilmCurio editorial team. These are always
-        clearly labeled with an editorial byline and disclosure. AI never creates fake users, fake upvotes,
-        or fabricated engagement. All upvotes, contributions, and reputation come from real readers only.
+        We want to be straight with you about this. The featured readings are written by{" "}
+        <span className="disp" style={{ fontSize: 18 }}>FilmCurio Editorial</span>, an AI system
+        built for close film analysis. It checks its own facts and sourcing as it writes, and we
+        publish directly — there is no separate human or second-model review before a reading goes
+        up. Instead we audit published pages on an ongoing basis and revise them as readers, and our
+        own spot-checks, surface mistakes. We&apos;d rather tell you plainly that this is AI
+        writing, published as written and corrected in the open, than pretend a person signs off on
+        every line. Film stills and related videos are attached by{" "}
+        <span className="disp" style={{ fontSize: 18 }}>Curiobot</span>, with images from TMDB.
+        Spot something off? Tell us — corrections are welcome at the address below.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">Who&apos;s behind it</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        FilmCurio is an independent project based in Seoul, Republic of Korea. It&apos;s small and
+        built in the open; the quickest way to reach a human is email.
       </p>
 
       <hr className="rule" />

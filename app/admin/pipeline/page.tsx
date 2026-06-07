@@ -47,7 +47,7 @@ export default async function AdminPipelinePage() {
   const { count: reviewCount } = await supabase
     .from("questions")
     .select("id", { count: "exact", head: true })
-    .eq("status", "in_review")
+    .eq("status", "draft")
     .eq("source", "ai");
 
   const { count: publishedCount } = await supabase
