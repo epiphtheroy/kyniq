@@ -134,7 +134,7 @@ export default function YouTubeFacade({
             width: 54,
             height: 54,
             borderRadius: "50%",
-            background: "var(--accent, #8A2A21)",
+            background: "var(--accent, #E0922A)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -146,7 +146,7 @@ export default function YouTubeFacade({
             width="18"
             height="18"
             viewBox="0 0 18 18"
-            fill="var(--bg, #FAF7F0)"
+            fill="var(--bg, #FBF8F1)"
             style={{ marginLeft: 2 }}
           >
             <path d="M4 2l12 7-12 7z" />

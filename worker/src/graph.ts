@@ -13,7 +13,7 @@
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { curateMedia } from "./kyniqbot.js";
+import { curateMedia } from "./curiobot.js";
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -106,7 +106,7 @@ const MAX_REVISE_RETRIES = 2;
 
 // ── Editorial Constitution (§0 — FINAL: organic insight, anti-repetition, human voice) ──
 
-const EDITORIAL_CONSTITUTION = `You write for Kyniq, an automated but elite film-interpretation resource. Across thousands of entries your single greatest enemy is REPETITION BIAS — sounding the same on every film.
+const EDITORIAL_CONSTITUTION = `You write for FilmCurio, an automated but elite film-interpretation resource. Across thousands of entries your single greatest enemy is REPETITION BIAS — sounding the same on every film.
 
 THE PRIME DIRECTIVE — ORGANIC CREATIVITY & ANTI-TEMPLATE
 - Eradicate the template. No stock structure, no habitual opening, no forced progression. Let the themes, tone, and pacing of THIS film dictate the shape of the writing — a frantic thriller and a quiet drama should not move the same way.
@@ -515,7 +515,7 @@ async function scoreWithRubric(
   scorerConfig: ModelConfig,
   result: JobResult
 ): Promise<RubricOutput> {
-  const scorePrompt = `Evaluate the draft. Kyniq's standard is profound, original insight delivered in a human voice, strictly grounded in THIS film's specific materials.
+  const scorePrompt = `Evaluate the draft. FilmCurio's standard is profound, original insight delivered in a human voice, strictly grounded in THIS film's specific materials.
 
 PENALIZE heavily: generic AI-template feel, repetitive transitional formulas, academic/dry register, or failure to engage THIS film's specific materials.
 REWARD: organic (distinct) structure, real thematic depth, precise cinematic grounding, a casual human voice, and a genuine "aha" turn.
@@ -966,7 +966,7 @@ Return ONLY JSON:
             await supabase.from("content_events").insert({
               entity_type: "question", entity_id: qRow.id, event: "media_curated",
               actor_kind: "ai",
-              meta: { images: media.images, videos: media.videos, source: "kyniqbot_inline" },
+              meta: { images: media.images, videos: media.videos, source: "curiobot_inline" },
             });
           }
         } catch {

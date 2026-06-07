@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Kyniq",
-  description: "Kyniq terms of service and contribution content license.",
+  title: "Terms of Service — FilmCurio",
+  description: "FilmCurio terms of service and contribution content license.",
 };
 
 /* ⚠ DRAFT — NEEDS LEGAL REVIEW BEFORE LAUNCH */
@@ -20,7 +20,7 @@ export default function TermsPage() {
       <div className="seclbl">Eligibility</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
-        You must be at least 16 years old to create an account. By using Kyniq you agree to these terms
+        You must be at least 16 years old to create an account. By using FilmCurio you agree to these terms
         and our Privacy Policy.
       </p>
 
@@ -29,7 +29,7 @@ export default function TermsPage() {
       <div className="seclbl">Contribution content license</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
-        When you submit a reading, question, or edit suggestion, you grant Kyniq a non-exclusive,
+        When you submit a reading, question, or edit suggestion, you grant FilmCurio a non-exclusive,
         worldwide, royalty-free license to use, display, reproduce, and modify your contribution
         under a Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0) license. This ensures
         that canonical answers — which merge multiple contributors&apos; work — can be shared and
@@ -42,7 +42,7 @@ export default function TermsPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
         Do not post spam, harassment, illegal content, or content that violates others&apos; intellectual
-        property rights. Kyniq reserves the right to remove content and suspend accounts that violate
+        property rights. FilmCurio reserves the right to remove content and suspend accounts that violate
         these terms or our Community Guidelines.
       </p>
 
@@ -52,7 +52,7 @@ export default function TermsPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
         Content may be reviewed, edited, merged, or hidden by editors and administrators. AI-generated
-        content is clearly labeled and attributed to the Kyniq Editorial team.
+        content is clearly labeled and attributed to the FilmCurio Editorial team.
       </p>
 
       <hr className="rule" />
@@ -60,7 +60,7 @@ export default function TermsPage() {
       <div className="seclbl">Limitation of liability</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
-        Kyniq is provided &ldquo;as is&rdquo; without warranty. We are not liable for user-generated
+        FilmCurio is provided &ldquo;as is&rdquo; without warranty. We are not liable for user-generated
         content or any damages arising from your use of the platform.
       </p>
 

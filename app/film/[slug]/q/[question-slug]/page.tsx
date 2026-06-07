@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const yearStr = film.year ? ` (${film.year})` : "";
   return {
     title: `${question.title} — ${film.title}${yearStr}`,
-    description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on Kyniq.`,
+    description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on FilmCurio.`,
   };
 }
 
@@ -133,7 +133,7 @@ export default async function QuestionPage({ params }: Props) {
       ...(film.director && {
         director: { "@type": "Person", name: film.director },
       }),
-      url: `https://kyniq.io/film/${film.slug}`,
+      url: `https://filmcurio.com/film/${film.slug}`,
       ...(sameAsLinks.length > 0 && { sameAs: sameAsLinks }),
     },
     mainEntity: {
@@ -149,7 +149,7 @@ export default async function QuestionPage({ params }: Props) {
           dateModified: canonical.updated_at,
           author: {
             "@type": isAI ? "Organization" : "Person",
-            name: isAI ? "Kyniq Editorial" : (updater?.display_name || "Community"),
+            name: isAI ? "FilmCurio Editorial" : (updater?.display_name || "Community"),
           },
         },
       }),
@@ -182,8 +182,8 @@ export default async function QuestionPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://kyniq.io" },
-      { "@type": "ListItem", position: 2, name: film.title, item: `https://kyniq.io/film/${film.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://filmcurio.com" },
+      { "@type": "ListItem", position: 2, name: film.title, item: `https://filmcurio.com/film/${film.slug}` },
       { "@type": "ListItem", position: 3, name: question.title },
     ],
   };
@@ -317,14 +317,14 @@ export default async function QuestionPage({ params }: Props) {
                 <div className="credit" style={{ marginTop: 18 }}>
                   Last updated by{" "}
                   <span style={{ color: "var(--ink)" }}>
-                    {updater?.username || (isAI ? "Kyniq Editorial" : "community")}
+                    {updater?.username || (isAI ? "FilmCurio Editorial" : "community")}
                   </span>
                   {" "}· {timeAgo(canonical.updated_at)} · read by {question.view_count.toLocaleString()}
                 </div>
 
                 {isAI && (
                   <div className="ui muted" style={{ fontSize: 11.5, marginTop: 8, fontStyle: "italic" }}>
-                    AI-written and fact-checked to Kyniq&apos;s editorial standards.
+                    AI-written and fact-checked to FilmCurio&apos;s editorial standards.
                   </div>
                 )}
 

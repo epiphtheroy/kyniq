@@ -1,5 +1,5 @@
 /**
- * Kyniqbot — Media Auto-Embedding (Loop 3)
+ * Curiobot — Media Auto-Embedding (Loop 3)
  *
  * Two paths:
  *   (a) Inline: called from graph.ts during AI content generation
@@ -258,7 +258,7 @@ export async function curateYouTubeVideos(
   const searchRes = await fetch(searchUrl.toString());
   if (!searchRes.ok) {
     console.error(
-      `[kyniqbot] YouTube search failed: ${searchRes.status} ${await searchRes.text()}`
+      `[curiobot] YouTube search failed: ${searchRes.status} ${await searchRes.text()}`
     );
     return 0;
   }
@@ -404,7 +404,7 @@ export async function curateMedia(
 
 // ── Background sweep (Loop 3 standalone) ──────────────────────────
 
-export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
+export async function runCuriobotSweep(supabase: SupabaseClient): Promise<{
   enriched: number;
   errors: number;
 }> {
@@ -478,7 +478,7 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
       if (total > 0) {
         enriched++;
         console.log(
-          `[kyniqbot] 🎬 Enriched: "${q.title}" → ${result.images} images, ${result.videos} videos`
+          `[curiobot] 🎬 Enriched: "${q.title}" → ${result.images} images, ${result.videos} videos`
         );
 
         // Log content event
@@ -487,7 +487,7 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
           entity_id: q.id,
           event: "media_curated",
           actor_kind: "ai",
-          meta: { ...result, source: "kyniqbot_sweep" },
+          meta: { ...result, source: "curiobot_sweep" },
         });
       }
 
@@ -496,7 +496,7 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
     } catch (err) {
       errors++;
       console.error(
-        `[kyniqbot] Error enriching "${q.title}":`,
+        `[curiobot] Error enriching "${q.title}":`,
         err instanceof Error ? err.message : err
       );
     }
@@ -504,7 +504,7 @@ export async function runKyniqbotSweep(supabase: SupabaseClient): Promise<{
 
   if (enriched > 0 || errors > 0) {
     console.log(
-      `[kyniqbot] Sweep done: ${enriched} enriched, ${errors} errors`
+      `[curiobot] Sweep done: ${enriched} enriched, ${errors} errors`
     );
   }
 

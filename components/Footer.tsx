@@ -9,22 +9,32 @@ export default function Footer() {
       <div className="footer-cols">
         {/* Column 1: Brand */}
         <div>
-          <Link href="/" className="logo" aria-label="Kyniq home">
+          <Link href="/" className="brandlock" aria-label="FilmCurio home">
+            <Image
+              src="/mark.svg"
+              alt=""
+              width={24}
+              height={24}
+              style={{ height: 24, width: 24, marginRight: 6 }}
+            />
             <picture>
               <source
-                srcSet="/kyniq-wordmark-dark.svg"
+                srcSet="/wordmark-dark.svg"
                 media="(prefers-color-scheme: dark)"
               />
               <Image
-                src="/kyniq-wordmark.svg"
-                alt="Kyniq"
+                src="/wordmark.svg"
+                alt="FilmCurio"
                 width={72}
-                height={24}
-                style={{ height: 24, width: "auto" }}
+                height={18}
+                style={{ height: 18, width: "auto" }}
               />
             </picture>
           </Link>
-          <div className="tagline" style={{ marginTop: 8 }}>
+          <div className="seclbl" style={{ marginTop: 10 }}>
+            FILM Q&amp;A COMMUNITY
+          </div>
+          <div className="tagline" style={{ marginTop: 4 }}>
             Read films closely.
           </div>
         </div>
@@ -50,10 +60,10 @@ export default function Footer() {
 
         {/* Column 3: Company */}
         <div>
-          <div className="footer-link">Kyniq</div>
+          <div className="footer-link">FilmCurio</div>
           <div className="footer-link">Seoul, Republic of Korea</div>
-          <a href="mailto:contact.kyniq@gmail.com" className="footer-link">
-            contact.kyniq@gmail.com
+          <a href="mailto:channel.wonwoo@gmail.com" className="footer-link">
+            channel.wonwoo@gmail.com
           </a>
         </div>
       </div>
@@ -65,7 +75,7 @@ export default function Footer() {
 
       {/* Baseline */}
       <div className="footer-baseline">
-        <span>© {year} Kyniq. All rights reserved.</span>
+        <span>© {year} FilmCurio. All rights reserved.</span>
         <span>English ▾</span>
       </div>
     </footer>

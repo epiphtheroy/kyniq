@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
             marginBottom: "0.25rem",
           }}
         >
-          Kyniq Admin
+          FilmCurio Admin
         </h1>
         <p
           style={{

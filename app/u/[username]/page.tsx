@@ -13,7 +13,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { username } = await params;
-  return { title: `${username} — Kyniq`, description: `Film readings by ${username} on Kyniq.` };
+  return { title: `${username} — FilmCurio`, description: `Film readings by ${username} on FilmCurio.` };
 }
 
 export default async function ProfilePage({ params }: Props) {

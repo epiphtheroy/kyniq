@@ -4,9 +4,9 @@ import { getAllFilms, posterUrl } from "@/lib/tmdb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Films — Kyniq",
+  title: "Films — FilmCurio",
   description:
-    "Browse films on Kyniq. Read community interpretations, analysis, and discussions about cinema's most thought-provoking works.",
+    "Browse films on FilmCurio. Read community interpretations, analysis, and discussions about cinema's most thought-provoking works.",
 };
 
 export const revalidate = 3600;

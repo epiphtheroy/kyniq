@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Kyniq",
-  description: "Kyniq privacy policy — data collection, third parties, and your rights.",
+  title: "Privacy Policy — FilmCurio",
+  description: "FilmCurio privacy policy — data collection, third parties, and your rights.",
 };
 
 /* ⚠ DRAFT — NEEDS LEGAL REVIEW BEFORE LAUNCH */
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
       <div className="seclbl">AI crawlers</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
-        Kyniq allows AI search and retrieval bots to access public content. If you prefer to opt
+        FilmCurio allows AI search and retrieval bots to access public content. If you prefer to opt
         out of AI training data usage, contact us.
       </p>
 
@@ -65,8 +65,8 @@ export default function PrivacyPage() {
         You can access, correct, or delete your personal data at any time via Settings.
         Account deletion anonymizes your content to &ldquo;[deleted]&rdquo; and removes your
         personal information. To exercise additional rights, email{" "}
-        <a href="mailto:contact.kyniq@gmail.com" className="accent" style={{ textDecoration: "none" }}>
-          contact.kyniq@gmail.com
+        <a href="mailto:channel.wonwoo@gmail.com" className="accent" style={{ textDecoration: "none" }}>
+          channel.wonwoo@gmail.com
         </a>.
       </p>
 

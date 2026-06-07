@@ -33,19 +33,27 @@ export default async function Header() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="logo" aria-label="Kyniq home">
+      <Link href="/" className="brandlock" aria-label="FilmCurio home">
+        <Image
+          src="/mark.svg"
+          alt=""
+          width={28}
+          height={28}
+          priority
+          style={{ height: 28, width: 28, marginRight: 8 }}
+        />
         <picture>
           <source
-            srcSet="/kyniq-wordmark-dark.svg"
+            srcSet="/wordmark-dark.svg"
             media="(prefers-color-scheme: dark)"
           />
           <Image
-            src="/kyniq-wordmark.svg"
-            alt="Kyniq"
-            width={80}
-            height={26}
+            src="/wordmark.svg"
+            alt="FilmCurio"
+            width={100}
+            height={22}
             priority
-            style={{ height: 26, width: "auto" }}
+            style={{ height: 22, width: "auto" }}
           />
         </picture>
       </Link>

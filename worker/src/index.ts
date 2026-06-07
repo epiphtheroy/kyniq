@@ -1,10 +1,10 @@
 /**
- * Kyniq Pipeline Worker — standalone service
+ * FilmCurio Pipeline Worker — standalone service
  *
  * Runs four loops:
  *   Loop 1: Generator — polls jobs queue, runs Dossier→Planner→Drafter→Verifier→Scorer→Gate
  *   Loop 2: Publisher — releases approved items to published on schedule
- *   Loop 3: Kyniqbot media enrichment (~3h sweep)
+ *   Loop 3: Curiobot media enrichment (~3h sweep)
  *   Loop 4: Re-audit — post-publish automated re-verification (daily)
  *
  * v5: Pipeline v4 prompt-design hardening.
@@ -17,7 +17,7 @@ import { createServer } from "node:http";
 import { createClient } from "@supabase/supabase-js";
 import { processJob, writeHeartbeat } from "./graph.js";
 import { runPublisherCycle } from "./publisher.js";
-import { runKyniqbotSweep } from "./kyniqbot.js";
+import { runCuriobotSweep } from "./curiobot.js";
 import { runReAudit } from "./reaudit.js";
 
 // ── Supabase (service role) ───────────────────────────────────────
@@ -40,7 +40,7 @@ const WORKER_ID = `worker-${process.pid}-${Date.now()}`;
 const POLL_INTERVAL_MS = 10_000; // 10 seconds
 const SCHEDULER_INTERVAL_MS = 60 * 60 * 1000; // 1 hour between scheduler runs
 const PUBLISHER_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes between publisher cycles
-const KYNIQBOT_INTERVAL_MS = 3 * 60 * 60 * 1000; // 3 hours between media sweeps
+const CURIOBOT_INTERVAL_MS = 3 * 60 * 60 * 1000; // 3 hours between media sweeps
 const REAUDIT_INTERVAL_MS = 24 * 60 * 60 * 1000; // 24 hours between re-audits
 
 // ── Daily counters (reset at midnight) ────────────────────────────
@@ -373,10 +373,10 @@ async function publisherLoop(): Promise<void> {
   }
 }
 
-// ── Kyniqbot loop (Loop 3) ──────────────────────────────────────
+// ── Curiobot loop (Loop 3) ──────────────────────────────────────
 
-async function kyniqbotLoop(): Promise<void> {
-  console.log(`[${WORKER_ID}] Kyniqbot loop started. Running every ${KYNIQBOT_INTERVAL_MS / 1000 / 60}min`);
+async function curiobotLoop(): Promise<void> {
+  console.log(`[${WORKER_ID}] Curiobot loop started. Running every ${CURIOBOT_INTERVAL_MS / 1000 / 60}min`);
 
   // Wait 2 minutes before first sweep
   await sleep(2 * 60_000);
@@ -384,20 +384,20 @@ async function kyniqbotLoop(): Promise<void> {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     try {
-      const result = await runKyniqbotSweep(supabase);
+      const result = await runCuriobotSweep(supabase);
 
       if (result.enriched > 0) {
         await writeHeartbeat(
           supabase, WORKER_ID, "idle",
-          `kyniqbot enriched ${result.enriched} questions with media`,
+          `curiobot enriched ${result.enriched} questions with media`,
           undefined, todayPublished, todayCost
         );
       }
     } catch (err) {
-      console.error("[kyniqbot] Error:", err instanceof Error ? err.message : err);
+      console.error("[curiobot] Error:", err instanceof Error ? err.message : err);
     }
 
-    await sleep(KYNIQBOT_INTERVAL_MS);
+    await sleep(CURIOBOT_INTERVAL_MS);
   }
 }
 
@@ -470,8 +470,8 @@ Promise.all([
     console.error("[worker] Publisher fatal:", err);
     process.exit(1);
   }),
-  kyniqbotLoop().catch((err) => {
-    console.error("[worker] Kyniqbot fatal:", err);
+  curiobotLoop().catch((err) => {
+    console.error("[worker] Curiobot fatal:", err);
     process.exit(1);
   }),
   reauditLoop().catch((err) => {

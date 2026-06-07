@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — Kyniq",
-  description: "Get in touch with the Kyniq team.",
+  title: "Contact — FilmCurio",
+  description: "Get in touch with the FilmCurio team.",
 };
 
 export default function ContactPage() {
@@ -19,8 +19,8 @@ export default function ContactPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         Questions, press, partnerships, or just a thought about a film:{" "}
-        <a href="mailto:contact.kyniq@gmail.com" className="accent" style={{ textDecoration: "none" }}>
-          contact.kyniq@gmail.com
+        <a href="mailto:channel.wonwoo@gmail.com" className="accent" style={{ textDecoration: "none" }}>
+          channel.wonwoo@gmail.com
         </a>
       </p>
 
@@ -29,7 +29,7 @@ export default function ContactPage() {
       <div className="seclbl">Location</div>
       <div className="tick" />
       <p className="ui" style={{ fontSize: 15 }}>
-        Kyniq<br />
+        FilmCurio<br />
         Seoul, Republic of Korea
       </p>
     </main>

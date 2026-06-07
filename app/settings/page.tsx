@@ -117,7 +117,7 @@ export default function SettingsPage() {
           <input value={displayName} onChange={(e) => setDisplayName(e.target.value)} className="field" style={{ width: "100%", boxSizing: "border-box", outline: "none" }} />
         </div>
         <div>
-          <div className="ui muted" style={{ fontSize: 12, marginBottom: 5 }}>Username (your profile URL: kyniq.io/u/…)</div>
+          <div className="ui muted" style={{ fontSize: 12, marginBottom: 5 }}>Username (your profile URL: filmcurio.com/u/…)</div>
           <input value={username} onChange={(e) => setUsername(e.target.value)} className="field" style={{ width: "100%", boxSizing: "border-box", outline: "none" }} />
         </div>
         <div>

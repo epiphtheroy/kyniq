@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { getAdminUser } from "@/lib/admin";
 
 export const metadata: Metadata = {
-  title: "Admin — Kyniq",
+  title: "Admin — FilmCurio",
   robots: { index: false, follow: false },
 };
 
@@ -54,7 +54,7 @@ export default async function AdminLayout({
       <nav
         style={{
           width: 220,
-          background: "#1A2740",
+          background: "#16233F",
           color: "#fff",
           padding: "1.5rem 0",
           flexShrink: 0,
@@ -76,7 +76,7 @@ export default async function AdminLayout({
               fontWeight: 700,
             }}
           >
-            Kyniq Admin
+            FilmCurio Admin
           </div>
           <div
             style={{

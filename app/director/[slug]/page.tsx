@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const name = slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
   return {
-    title: `${name} — Director | Kyniq`,
-    description: `Films directed by ${name} and the questions readers are asking on Kyniq.`,
+    title: `${name} — Director | FilmCurio`,
+    description: `Films directed by ${name} and the questions readers are asking on FilmCurio.`,
   };
 }
 
@@ -61,11 +61,11 @@ export default async function DirectorPage({ params }: Props) {
     .limit(6);
 
   // JSON-LD
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kyniq.io";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://filmcurio.com";
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `${directorName} — Films on Kyniq`,
+    name: `${directorName} — Films on FilmCurio`,
     description: `Films directed by ${directorName} with reader interpretations.`,
     url: `${siteUrl}/director/${slug}`,
     mainEntity: {
@@ -106,7 +106,7 @@ export default async function DirectorPage({ params }: Props) {
 
         <h1 className="disp" style={{ fontSize: 30, margin: 0, lineHeight: 1.18 }}>{directorName}</h1>
         <div className="ui muted" style={{ fontSize: 13, marginTop: 7 }}>
-          Director · {films.length} film{films.length !== 1 ? "s" : ""} on Kyniq · {totalQuestions} questions
+          Director · {films.length} film{films.length !== 1 ? "s" : ""} on FilmCurio · {totalQuestions} questions
         </div>
 
         <hr className="rule" />

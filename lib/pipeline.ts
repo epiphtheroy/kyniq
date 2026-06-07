@@ -5,7 +5,7 @@ import { logContentEvent } from "@/lib/admin";
 
 // ── Constants ─────────────────────────────────────────────────────
 
-/** Kyniq Editorial system profile (seeded in 0001_init / seed.sql) */
+/** FilmCurio Editorial system profile (seeded in 0001_init / seed.sql) */
 const EDITORIAL_PROFILE_ID = "00000000-0000-0000-0000-000000000001";
 
 const MODEL_TAG = "gemini-2.5-flash";
@@ -96,7 +96,7 @@ export async function generateContent(
   const film = await getFilmContext(filmId);
   const supabase = createAdminClient();
 
-  const prompt = `You are a film critic writing for Kyniq, a sophisticated film analysis platform. Generate a question and answer about the film "${film.title}" (${film.year}, directed by ${film.director}).
+  const prompt = `You are a film critic writing for FilmCurio, a sophisticated film analysis platform. Generate a question and answer about the film "${film.title}" (${film.year}, directed by ${film.director}).
 
 Film overview: ${film.overview}
 Genres: ${(film.genres ?? []).join(", ")}
@@ -252,7 +252,7 @@ export async function verifyContent(
 
   const film = await getFilmContext(question.film_id);
 
-  const prompt = `You are a fact-checker for Kyniq, a film analysis platform. Your job is to verify the factual accuracy of AI-generated content about the film "${film.title}" (${film.year}, directed by ${film.director}).
+  const prompt = `You are a fact-checker for FilmCurio, a film analysis platform. Your job is to verify the factual accuracy of AI-generated content about the film "${film.title}" (${film.year}, directed by ${film.director}).
 
 REFERENCE DATA (from TMDB — treat as ground truth for factual claims):
 - Title: ${film.title}

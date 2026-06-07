@@ -133,7 +133,7 @@ export default function MediaGallery({ media }: MediaGalleryProps) {
                 padding: "3px 9px",
               }}
             >
-              Added by Kyniqbot
+              Added by Curiobot
             </span>
           </div>
         </div>

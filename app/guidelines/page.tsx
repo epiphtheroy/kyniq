@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Community Guidelines — Kyniq",
-  description: "Kyniq community guidelines for film interpretation and discussion.",
+  title: "Community Guidelines — FilmCurio",
+  description: "FilmCurio community guidelines for film interpretation and discussion.",
 };
 
 export default function GuidelinesPage() {
@@ -27,7 +27,7 @@ export default function GuidelinesPage() {
       <div className="seclbl">No downvotes, only upvotes</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Kyniq has no downvote button. Quality comes from curation and promotion, not punishment.
+        FilmCurio has no downvote button. Quality comes from curation and promotion, not punishment.
         If you see something that doesn&apos;t belong, use the flag system to report it quietly.
       </p>
 
@@ -45,7 +45,7 @@ export default function GuidelinesPage() {
       <div className="seclbl">Keep it about the film</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Kyniq is for film interpretation — meaning, symbolism, technique, and intent.
+        FilmCurio is for film interpretation — meaning, symbolism, technique, and intent.
         Avoid trivia, plot recaps, personal attacks, spam, or off-topic content.
       </p>
     </main>

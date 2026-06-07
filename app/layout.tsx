@@ -1,39 +1,17 @@
 import type { Metadata } from "next";
-import { Fraunces, Newsreader, Hanken_Grotesk } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-  axes: ["opsz"],
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
-  display: "swap",
-  axes: ["opsz"],
-});
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken-grotesk",
-  display: "swap",
-  weight: ["400", "500"],
-});
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kyniq.io";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://filmcurio.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "Kyniq — Film Interpretation Community",
-    template: "%s | Kyniq",
+    default: "FilmCurio — Film Q&A Community",
+    template: "%s · FilmCurio",
   },
   description:
-    "Read films closely. Kyniq is a community Q&A platform for interpreting difficult films — meaning, symbolism, and intent.",
+    "Read films closely. FilmCurio is a cabinet of cinema's curiosities — a global film Q&A community for meaning, symbolism, and intent.",
   metadataBase: new URL(siteUrl),
   icons: {
     icon: [
@@ -47,29 +25,29 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
-    siteName: "Kyniq",
-    title: "Kyniq — Film Interpretation Community",
+    siteName: "FilmCurio",
+    title: "FilmCurio — Film Q&A Community",
     description:
-      "Read films closely. A community Q&A platform for interpreting difficult films.",
+      "Read films closely. A cabinet of cinema's curiosities — a global film Q&A community.",
     url: siteUrl,
     images: [
       {
-        url: "/kyniq-logo-paper.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kyniq — Film Interpretation Community",
+        alt: "FilmCurio — Film Q&A Community",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kyniq — Film Interpretation Community",
+    title: "FilmCurio — Film Q&A Community",
     description:
-      "Read films closely. A community Q&A platform for interpreting difficult films.",
-    images: ["/kyniq-logo-paper.png"],
+      "Read films closely. A cabinet of cinema's curiosities — a global film Q&A community.",
+    images: ["/og-image.png"],
   },
   other: {
-    "theme-color": "#1A2740",
+    "theme-color": "#16233F",
   },
 };
 
@@ -79,10 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${newsreader.variable} ${hankenGrotesk.variable}`}
-    >
+    <html lang="en">
       <body>
         <Header />
         {children}
@@ -91,3 +66,4 @@ export default function RootLayout({
     </html>
   );
 }
+
