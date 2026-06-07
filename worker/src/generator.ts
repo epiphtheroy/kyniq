@@ -71,6 +71,8 @@ export interface ProcessFilmResult {
 const EDITORIAL_PROFILE_ID = "00000000-0000-0000-0000-000000000001";
 
 const MODEL_PRICING: Record<string, [number, number]> = {
+  "gemini-3.5-flash": [0.15, 0.60],
+  "gemini-3.1-pro-preview": [1.25, 10.00],
   "gemini-2.5-flash": [0.15, 0.60],
   "gemini-2.5-pro": [1.25, 10.00],
 };
@@ -481,7 +483,7 @@ export async function processFilm(
 
   const config: ModelConfig = modelOverride ?? {
     provider: (configRow?.value as Record<string, string>)?.generator_provider ?? "gemini",
-    model: (configRow?.value as Record<string, string>)?.generator_model ?? "gemini-2.5-flash",
+    model: (configRow?.value as Record<string, string>)?.generator_model ?? "gemini-3.5-flash",
   };
 
   // 3. Build the USER prompt (per film)

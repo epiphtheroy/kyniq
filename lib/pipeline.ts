@@ -8,7 +8,7 @@ import { logContentEvent } from "@/lib/admin";
 /** FilmCurio Editorial system profile (seeded in 0001_init / seed.sql) */
 const EDITORIAL_PROFILE_ID = "00000000-0000-0000-0000-000000000001";
 
-const MODEL_TAG = "gemini-2.5-flash";
+const MODEL_TAG = "gemini-3.5-flash";
 
 // ── Gemini helper ─────────────────────────────────────────────────
 
