@@ -12,7 +12,22 @@
  * Usage: DOTENV_CONFIG_PATH=../.env.local tsx src/index.ts
  */
 
-import "dotenv/config";
+import { readFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+// Manual .env.local loading (bypasses dotenv ECANCELED on macOS)
+const __dirname2 = dirname(fileURLToPath(import.meta.url));
+const envPath = process.env.DOTENV_CONFIG_PATH ?? resolve(__dirname2, "../../.env.local");
+try {
+  const envFile = readFileSync(envPath, "utf8");
+  for (const line of envFile.split("\n")) {
+    const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
+    if (m && !process.env[m[1]]) {
+      process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
+    }
+  }
+} catch { /* env already set via process */ }
 import { createServer } from "node:http";
 import { createClient } from "@supabase/supabase-js";
 import { processFilm, writeHeartbeat } from "./generator.js";
