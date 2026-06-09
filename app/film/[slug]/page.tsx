@@ -5,8 +5,8 @@ import Link from "next/link";
 import { getFilmBySlug, posterUrl } from "@/lib/tmdb";
 import { createClient } from "@supabase/supabase-js";
 
-// Dynamic SSR with ISR revalidation at runtime
-export const revalidate = 60;
+// Force dynamic rendering — always fetch fresh data from Supabase
+export const dynamic = 'force-dynamic';
 
 /** Anon Supabase client for public reads (safe at build time — no cookies needed) */
 function supabaseAnon() {
@@ -165,7 +165,7 @@ export default async function FilmPage({ params }: PageProps) {
   const backdropUrl = (await filmMedia)?.at(0)?.url ?? null;
 
   return (
-    <article>
+    <article className="shell">
       {/* Breadcrumb */}
       <nav
         className="ui muted"
