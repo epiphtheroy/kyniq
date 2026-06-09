@@ -1,52 +1,46 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-/**
- * GET /api/debug-qa — temporary debug endpoint to check if canonical_answers are visible
- */
 export async function GET() {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  // Count published questions
-  const { count: qCount } = await supabase
-    .from("questions")
-    .select("id", { count: "exact", head: true })
-    .eq("status", "published");
-
-  // Count published answers
-  const { count: aCount } = await supabase
-    .from("canonical_answers")
-    .select("id", { count: "exact", head: true })
-    .eq("status", "published");
-
-  // Try the exact join query
-  const { data: sample, error } = await supabase
+  // Run EXACT query from question page
+  const { data: question, error } = await supabase
     .from("questions")
     .select(`
-      id, title,
-      canonical_answers(id, body, status)
+      id, title, body, slug, question_type, view_count, created_at, published_at,
+      author:profiles!questions_author_id_fkey(username, display_name),
+      film:films!inner(id, title, year, director, director_slug, slug, poster_path, imdb_id, wikidata_id),
+      canonical_answers(id, body, updated_at, revision_count, status, source, generated_by,
+        updated_by_profile:profiles!canonical_answers_updated_by_fkey(username, display_name)
+      )
     `)
+    .eq("slug", "why-does-the-ending-feel-so-tragic-if-ki-woo-has-a-plan-to-buy-the-house-mq4c2loa")
     .eq("status", "published")
-    .limit(1)
     .single();
 
+  if (error) {
+    return NextResponse.json({
+      queryError: error.message,
+      errorCode: error.code,
+      errorDetails: error.details,
+      errorHint: error.hint,
+    });
+  }
+
+  const canonicalArr = question.canonical_answers as unknown as Array<{
+    id: string; body: string; status: string;
+  }>;
+
   return NextResponse.json({
-    supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL?.slice(0, 30) + "...",
-    publishedQuestions: qCount,
-    publishedAnswers: aCount,
-    sampleQuestion: sample?.title?.slice(0, 50),
-    sampleAnswerCount: Array.isArray(sample?.canonical_answers)
-      ? sample.canonical_answers.length
-      : sample?.canonical_answers ? 1 : 0,
-    sampleAnswer: (() => {
-      const ca = sample?.canonical_answers;
-      if (Array.isArray(ca) && ca.length > 0) return ca[0].body?.slice(0, 80);
-      if (ca && typeof ca === 'object' && 'body' in ca) return (ca as any).body?.slice(0, 80);
-      return null;
-    })(),
-    error: error?.message ?? null,
+    questionTitle: question.title,
+    questionType: question.question_type,
+    canonicalCount: canonicalArr?.length ?? 0,
+    canonicalStatus: canonicalArr?.[0]?.status,
+    canonicalBody: canonicalArr?.[0]?.body?.slice(0, 100),
+    filmTitle: (question.film as any)?.title,
   });
 }
