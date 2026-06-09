@@ -173,23 +173,26 @@ body{
 .feed-item:first-child{padding-top:12px;}
 .feed-item:last-child{border-bottom:none;}
 
-/* Film chips — styled buttons */
+/* Film chips — poster integrated into film chip */
 .feed-item__chips{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin-bottom:12px;
+  margin-bottom:14px;
+  align-items:center;
 }
 .feed-item__chip{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
   font-family:var(--font-ui);
-  font-size:12.5px;
+  font-size:13px;
   font-weight:600;
-  padding:5px 12px;
-  border-radius:6px;
+  padding:4px 14px 4px 4px;
+  border-radius:8px;
   text-decoration:none;
   line-height:1.3;
   transition:all .15s;
+  gap:8px;
 }
 .feed-item__chip--film{
   background:var(--ink);
@@ -199,45 +202,19 @@ body{
   background:var(--accent);
   color:#fff;
 }
-.feed-item__chip--director{
-  background:transparent;
-  color:var(--muted);
-  border:1.5px solid var(--hairline);
-}
-
-/* Two-column body: text left, poster thumb right */
-.feed-item__body{
-  display:flex;
-  gap:20px;
-  align-items:flex-start;
-}
-.feed-item__text{
-  flex:1;
-  min-width:0;
-}
-
-/* Right-side poster thumbnail */
-.feed-item__thumb{
-  flex:none;
-  width:100px;
-  border-radius:6px;
-  overflow:hidden;
-  display:block;
-  margin-top:2px;
-  transition:opacity .15s;
-}
-.feed-item__thumb:hover{opacity:.85;}
-.feed-item__thumb img{
-  width:100%;
-  height:auto;
-  display:block;
-  aspect-ratio:2/3;
+.feed-item__chip-poster{
+  width:28px;
+  height:42px;
+  border-radius:4px;
   object-fit:cover;
+  flex:none;
 }
-
-/* On mobile: hide poster to maximize text space */
-@media(max-width:600px){
-  .feed-item__thumb{width:72px;}
+.feed-item__chip--director{
+  background:var(--surface-2);
+  color:var(--muted);
+  border:1px solid var(--hairline);
+  padding:6px 14px;
+  font-size:12.5px;
 }
 
 /* Question title — THE HERO */

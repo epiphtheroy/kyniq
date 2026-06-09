@@ -122,82 +122,71 @@ export default function InfiniteScrollFeed({
 
         return (
           <article key={item.id} className="feed-item">
-            {/* Film chips — styled buttons */}
+            {/* Film chips — poster integrated into film chip */}
             <div className="feed-item__chips">
               <Link
                 href={`/film/${item.film.slug}`}
                 className="feed-item__chip feed-item__chip--film"
               >
-                🎬 {item.film.title} ({item.film.year})
+                {item.film.posterPath && (
+                  <img
+                    src={`${POSTER_BASE}/w92${item.film.posterPath}`}
+                    alt=""
+                    className="feed-item__chip-poster"
+                    loading="lazy"
+                  />
+                )}
+                <span>{item.film.title} ({item.film.year})</span>
               </Link>
               <span className="feed-item__chip feed-item__chip--director">
-                dir. {item.film.director}
+                {item.film.director}
               </span>
             </div>
 
-            {/* Two-column: Q&A left, poster right */}
-            <div className="feed-item__body">
-              <div className="feed-item__text">
-                {/* QUESTION — the hero */}
-                <h2 className="feed-item__question">
-                  <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
-                    {item.title}
-                  </Link>
-                </h2>
+            {/* QUESTION — the hero (full width) */}
+            <h2 className="feed-item__question">
+              <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
+                {item.title}
+              </Link>
+            </h2>
 
-                {/* ANSWER — immediately readable */}
-                <div className="feed-item__answer">
-                  {(isExpanded ? answerParagraphs : teaserParagraphs).map(
-                    (p, i) => (
-                      <p key={i}>{p}</p>
-                    )
-                  )}
-                </div>
-
-                {/* Continue reading */}
-                {hasMore && (
-                  <div className="feed-item__expand">
-                    {isExpanded ? (
-                      <button
-                        onClick={() => toggleExpand(item.id)}
-                        className="feed-item__expand-btn"
-                      >
-                        Show less ▴
-                      </button>
-                    ) : (
-                      <>
-                        <button
-                          onClick={() => toggleExpand(item.id)}
-                          className="feed-item__expand-btn"
-                        >
-                          Continue reading →
-                        </button>
-                        <Link
-                          href={`/film/${item.film.slug}/q/${item.slug}`}
-                          className="feed-item__readmore"
-                        >
-                          Open full page
-                        </Link>
-                      </>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {/* Poster thumbnail — right side */}
-              {item.film.posterPath && (
-                <Link
-                  href={`/film/${item.film.slug}`}
-                  className="feed-item__thumb"
-                >
-                  <img
-                    src={`${POSTER_BASE}/w185${item.film.posterPath}`}
-                    alt={`${item.film.title} poster`}
-                    loading="lazy"
-                  />
-                </Link>
+            {/* ANSWER — immediately readable, full width */}
+            <div className="feed-item__answer">
+              {(isExpanded ? answerParagraphs : teaserParagraphs).map(
+                (p, i) => (
+                  <p key={i}>{p}</p>
+                )
               )}
             </div>
+
+            {/* Continue reading */}
+            {hasMore && (
+              <div className="feed-item__expand">
+                {isExpanded ? (
+                  <button
+                    onClick={() => toggleExpand(item.id)}
+                    className="feed-item__expand-btn"
+                  >
+                    Show less ▴
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => toggleExpand(item.id)}
+                      className="feed-item__expand-btn"
+                    >
+                      Continue reading →
+                    </button>
+                    <Link
+                      href={`/film/${item.film.slug}/q/${item.slug}`}
+                      className="feed-item__readmore"
+                    >
+                      Open full page
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
 
             {/* Minimal meta */}
             <div className="feed-item__actions">
