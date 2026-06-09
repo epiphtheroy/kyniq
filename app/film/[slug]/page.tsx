@@ -55,6 +55,7 @@ interface QuestionRow {
   slug: string;
   created_at: string;
   view_count: number;
+  canonical_answers: { id: string; body: string }[];
   _contribution_count?: number;
 }
 
@@ -66,7 +67,7 @@ async function getPublishedQuestions(
 
   let query = supabase
     .from("questions")
-    .select("id, title, slug, created_at, view_count")
+    .select("id, title, slug, created_at, view_count, canonical_answers(id, body)")
     .eq("film_id", filmId)
     .eq("status", "published");
 
@@ -354,6 +355,13 @@ export default async function FilmPage({ params }: PageProps) {
         {questions.length > 0 ? (
           questions.map((q) => {
             const count = contributionCounts[q.id] ?? 0;
+            const hasAnswer = Array.isArray(q.canonical_answers) ? q.canonical_answers.length > 0 : !!q.canonical_answers;
+            const answerTeaser = hasAnswer
+              ? (Array.isArray(q.canonical_answers) ? q.canonical_answers[0]?.body : (q.canonical_answers as unknown as { body: string })?.body)
+              : null;
+            const teaser = answerTeaser && answerTeaser.length > 120
+              ? answerTeaser.slice(0, 120).replace(/\s+\S*$/, "") + "…"
+              : answerTeaser;
             return (
               <div key={q.id} className="qrow">
                 <div className="disp" style={{ fontSize: "17px" }}>
@@ -367,30 +375,39 @@ export default async function FilmPage({ params }: PageProps) {
                     {q.title}
                   </Link>
                 </div>
+                {teaser && (
+                  <p
+                    className="body"
+                    style={{
+                      fontSize: "14.5px",
+                      lineHeight: "1.55",
+                      color: "var(--muted)",
+                      margin: "4px 0 0",
+                      maxWidth: "60ch",
+                    }}
+                  >
+                    {teaser}{" "}
+                    <Link
+                      href={`/film/${slug}/q/${q.slug}`}
+                      className="ui accent"
+                      style={{ fontSize: "12px", textDecoration: "none" }}
+                    >
+                      read more ▸
+                    </Link>
+                  </p>
+                )}
                 <span
                   className="ui muted"
                   style={{
                     fontSize: "12px",
                     whiteSpace: "nowrap",
+                    marginTop: "4px",
+                    display: "block",
                   }}
                 >
-                  {count > 0 ? (
-                    <>
-                      answered · {count} reading
-                      {count !== 1 ? "s" : ""}
-                    </>
-                  ) : (
-                    <Link
-                      href={`/film/${slug}/q/${q.slug}`}
-                      className="ui accent"
-                      style={{
-                        fontSize: "12px",
-                        whiteSpace: "nowrap",
-                        textDecoration: "none",
-                      }}
-                    >
-                      no reading yet ▸
-                    </Link>
+                  {hasAnswer ? "answered" : "awaiting answer"}
+                  {count > 0 && (
+                    <> · {count} reading{count !== 1 ? "s" : ""}</>
                   )}
                 </span>
               </div>
