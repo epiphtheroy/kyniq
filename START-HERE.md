@@ -1,54 +1,44 @@
-# START HERE — FilmCurio bundle
+# START HERE — FilmCurio
 
-Everything for the FilmCurio build, in one place. Read top to bottom; you rarely need every file
-at once. (Full detail map: `00-INDEX.md`.)
+> Read this file first if you're new to the project.
 
----
+## Quick Overview
 
-## 1) Read first
-- **`00-INDEX.md`** — the complete map of every file.
-- **`SPEC.md`** — the single source of truth (product, design system §2, pages, schema/SEO).
-- **`AGENTS.md`** — standing rules for whoever/whatever builds it.
-- **`REBRAND-HANDOFF.md`** — if handing the rename to another AI: old→new mapping + every codebase
-  touchpoint (incl. the admin logo) + verification.
+**FilmCurio** (filmcurio.com) is a film Q&A platform with deep, essay-style interpretations. 
+Content is AI-generated, editorially curated, and served via a Next.js app on Vercel.
 
-## 2) Brand & design (copy these into the app)
-- **`brand/`** — the logo + favicon set and **`brand/brand-guide.md`** (palette, type, logo usage).
-  Start by opening **`brand/contact-sheet.png`** to see the identity at a glance.
-- **`globals.css`** — design tokens + component classes. The reference screens link to this; copy
-  it into the app as the base layer.
+## Reading Order
 
-## 3) Reference screens — how it should look (open alongside `globals.css`)
-**Use these two as the canonical redesigns:**
-- **`ref-home-v2.html`** — home.
-- **`ref-question-v2.html`** — question page.
+1. **`00-INDEX.md`** — Complete project map (structure, stack, schema, deployment)
+2. **`SPEC.md`** — Full product specification (86KB — the single source of truth)
+3. **`AGENTS.md`** — Rules for AI agents working on this codebase
 
-**Global chrome + the finished About page:**
-- **`ref-chrome.html`** — the shared header & footer.
-- **`ref-about.html`** — the finished `/about` copy (incl. the honest AI disclosure).
+## Key Files
 
-**Supporting screens** (same system): `ref-home.html`, `ref-film-page.html`,
-`ref-question-page.html`, `ref-director.html`, `ref-profile.html`, `ref-ask-flow.html`,
-`ref-signup.html`, `ref-settings.html`, `ref-question-media.html`.
+| File | What It Does |
+|---|---|
+| `app/globals.css` | Design system (colors, typography, components) |
+| `app/layout.tsx` | Root layout with Header/Footer |
+| `app/page.tsx` | Homepage — infinite scroll feed |
+| `components/InfiniteScrollFeed.tsx` | The main feed component |
+| `lib/pipeline.ts` | Content generation logic |
+| `worker/src/generator.ts` | Q&A generation worker |
 
-> Tip: open any `ref-*.html` from this folder so it can load `globals.css`. The logos and image
-> placeholders are built in, so no other files are needed to preview.
+## Content Engine Docs
 
-## 4) Content engine & editorial (how answers get made)
-- **`content-engine-overview.md`** — the 3 worker loops + lifecycle.
-- **`pipeline-prompts.md`** — the prompt pack.
-- **`editorial-voices.md`** — the anonymized writing voices.
-- **`prompt-design-changelog.md`**, **`redesign-home-and-question.md`** — supporting notes.
+- `content-engine-overview.md` — Architecture of the 3 worker loops
+- `pipeline-prompts.md` — AI prompt templates
+- `editorial-voices.md` — Writing voice definitions
+- `prompt-design-changelog.md` — Prompt iteration history
 
-## 5) Build missions (do in order)
-- **`mission-00-kickoff.md`** → **`mission-10-kickoff.md`** (plus `06b`, `08b`, `09b`).
-- Named tracks: **`mission-home-redesign-kickoff.md`**, **`mission-media-embed-kickoff.md`**,
-  **`mission-pipeline-worker-kickoff.md`**, **`mission-qa-kickoff.md`**.
-- **`pre-launch-checklist.md`** — run before going live.
+## Missions (Build History)
 
----
+`mission-00-kickoff.md` through `mission-10-kickoff.md` document the build phases.
+Named tracks: `mission-home-redesign-kickoff.md`, `mission-media-embed-kickoff.md`, 
+`mission-pipeline-worker-kickoff.md`, `mission-qa-kickoff.md`.
 
-### One-line status
-Brand, design tokens, all reference screens, the `/about` page, and every spec/mission/doc are on
-the FilmCurio system (navy + ivory, marigold/teal, Reddit Sans; mark + wordmark). Contact email:
-**channel.wonwoo@gmail.com**. Domain: **filmcurio.com**.
+## Contact
+
+- **Domain:** filmcurio.com
+- **Email:** channel.wonwoo@gmail.com
+- **Git:** github.com/epiphtheroy/kyniq (repo name is legacy)
