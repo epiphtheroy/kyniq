@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 
-export const revalidate = 120; // ISR: 2 min
+export const dynamic = 'force-dynamic';
 
 function supabaseAnon() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -70,8 +70,10 @@ export default async function HomePage() {
     .filter((q) => featured ? q.id !== featured.id : true)
     .slice(0, 6)
     .map((q: Record<string, unknown>) => {
-      const ca = q.canonical_answers as unknown as Array<{ body: string }>;
-      const body = ca?.[0]?.body ?? "";
+      // PostgREST returns object (not array) for 1:1 UNIQUE FK
+      const rawCA = q.canonical_answers as unknown;
+      const caBody = Array.isArray(rawCA) ? (rawCA[0] as { body: string })?.body : (rawCA as { body: string } | null)?.body;
+      const body = caBody ?? "";
       const teaser = body ? body.split(/\n\n+/)[0]?.slice(0, 140) + "…" : null;
       return {
         id: q.id as string,
@@ -197,9 +199,11 @@ export default async function HomePage() {
   const featuredFilm = featured?.film as unknown as {
     id: string; title: string; year: number; director: string; slug: string; poster_path: string | null;
   } | null;
-  const featuredAnswer = featured?.canonical_answers as unknown as Array<{ body: string }>;
-  const featuredTeaser = featuredAnswer?.[0]?.body
-    ? featuredAnswer[0].body.split(/\n\n+/)[0]?.slice(0, 180) + "…"
+  // PostgREST returns object (not array) for 1:1 UNIQUE FK
+  const rawFeaturedCA = featured?.canonical_answers as unknown;
+  const featuredBody = Array.isArray(rawFeaturedCA) ? (rawFeaturedCA[0] as { body: string })?.body : (rawFeaturedCA as { body: string } | null)?.body;
+  const featuredTeaser = featuredBody
+    ? featuredBody.split(/\n\n+/)[0]?.slice(0, 180) + "…"
     : null;
 
   return (
