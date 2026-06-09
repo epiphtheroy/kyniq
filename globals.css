@@ -173,53 +173,39 @@ body{
 .feed-item:first-child{padding-top:12px;}
 .feed-item:last-child{border-bottom:none;}
 
-/* Film context — tiny inline tag */
-.feed-item__film-bar{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  margin-bottom:10px;
-  padding:0;
-  border:none;
-  background:none;
-}
-.feed-item__poster{
-  width:24px;
-  height:36px;
-  border-radius:3px;
-  object-fit:cover;
-  flex:none;
-}
-.feed-item__film-info{
+/* Film chips — styled buttons */
+.feed-item__chips{
   display:flex;
-  align-items:baseline;
-  gap:4px;
   flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
 }
-.feed-item__film-title{
+.feed-item__chip{
+  display:inline-block;
   font-family:var(--font-ui);
-  font-size:13px;
+  font-size:12.5px;
   font-weight:600;
-  color:var(--accent-text);
+  padding:5px 12px;
+  border-radius:6px;
   text-decoration:none;
-  line-height:1;
+  line-height:1.3;
+  transition:all .15s;
 }
-.feed-item__film-title:hover{text-decoration:underline;}
-.feed-item__film-year{
-  font-weight:400;
+.feed-item__chip--film{
+  background:var(--ink);
+  color:var(--surface);
+}
+.feed-item__chip--film:hover{
+  background:var(--accent);
+  color:#fff;
+}
+.feed-item__chip--director{
+  background:transparent;
   color:var(--muted);
-  font-size:13px;
+  border:1.5px solid var(--hairline);
 }
-.feed-item__film-meta{
-  font-family:var(--font-ui);
-  font-size:13px;
-  color:var(--muted);
-  line-height:1;
-}
-.feed-item__film-meta a{color:inherit;text-decoration:none;}
-.feed-item__film-meta a:hover{color:var(--accent-text);}
 
-/* Two-column body: text left, video thumb right */
+/* Two-column body: text left, poster thumb right */
 .feed-item__body{
   display:flex;
   gap:20px;
@@ -230,60 +216,28 @@ body{
   min-width:0;
 }
 
-/* Right-side YouTube thumbnail */
+/* Right-side poster thumbnail */
 .feed-item__thumb{
   flex:none;
-  width:168px;
-  position:relative;
-  border-radius:8px;
+  width:100px;
+  border-radius:6px;
   overflow:hidden;
   display:block;
-  margin-top:4px;
+  margin-top:2px;
+  transition:opacity .15s;
 }
+.feed-item__thumb:hover{opacity:.85;}
 .feed-item__thumb img{
   width:100%;
   height:auto;
   display:block;
-  aspect-ratio:16/9;
+  aspect-ratio:2/3;
   object-fit:cover;
 }
-.feed-item__play{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:36px;
-  height:36px;
-  background:rgba(0,0,0,.7);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  font-size:14px;
-  transition:background .15s;
-}
-.feed-item__thumb:hover .feed-item__play{
-  background:var(--accent);
-}
-.feed-item__duration{
-  position:absolute;
-  bottom:4px;
-  right:4px;
-  background:rgba(0,0,0,.8);
-  color:#fff;
-  font-family:var(--font-ui);
-  font-size:11px;
-  font-weight:600;
-  padding:2px 5px;
-  border-radius:3px;
-  line-height:1;
-}
 
-/* On mobile: stack vertically */
+/* On mobile: hide poster to maximize text space */
 @media(max-width:600px){
-  .feed-item__body{flex-direction:column;}
-  .feed-item__thumb{width:100%;max-width:200px;}
+  .feed-item__thumb{width:72px;}
 }
 
 /* Question title — THE HERO */

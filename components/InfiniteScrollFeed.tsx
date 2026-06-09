@@ -122,36 +122,20 @@ export default function InfiniteScrollFeed({
 
         return (
           <article key={item.id} className="feed-item">
-            {/* Film context — tiny tag */}
-            <Link
-              href={`/film/${item.film.slug}`}
-              className="feed-item__film-bar"
-              style={{ textDecoration: "none" }}
-            >
-              {item.film.posterPath && (
-                <img
-                  src={`${POSTER_BASE}/w92${item.film.posterPath}`}
-                  alt=""
-                  className="feed-item__poster"
-                  loading="lazy"
-                />
-              )}
-              <div className="feed-item__film-info">
-                <span className="feed-item__film-title">
-                  {item.film.title}
-                  <span className="feed-item__film-year">
-                    {" "}
-                    ({item.film.year})
-                  </span>
-                </span>
-                <span className="feed-item__film-meta">
-                  {" · "}
-                  dir. {item.film.director}
-                </span>
-              </div>
-            </Link>
+            {/* Film chips — styled buttons */}
+            <div className="feed-item__chips">
+              <Link
+                href={`/film/${item.film.slug}`}
+                className="feed-item__chip feed-item__chip--film"
+              >
+                🎬 {item.film.title} ({item.film.year})
+              </Link>
+              <span className="feed-item__chip feed-item__chip--director">
+                dir. {item.film.director}
+              </span>
+            </div>
 
-            {/* Two-column: Q&A left, video thumb right */}
+            {/* Two-column: Q&A left, poster right */}
             <div className="feed-item__body">
               <div className="feed-item__text">
                 {/* QUESTION — the hero */}
@@ -200,30 +184,18 @@ export default function InfiniteScrollFeed({
                 )}
               </div>
 
-              {/* YouTube thumbnail — right side */}
-              {firstVideo && (
-                <a
-                  href={`https://www.youtube.com/watch?v=${firstVideo.external_id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {/* Poster thumbnail — right side */}
+              {item.film.posterPath && (
+                <Link
+                  href={`/film/${item.film.slug}`}
                   className="feed-item__thumb"
-                  title={firstVideo.title ?? item.title}
                 >
                   <img
-                    src={
-                      firstVideo.thumbnail_url ??
-                      `https://img.youtube.com/vi/${firstVideo.external_id}/mqdefault.jpg`
-                    }
-                    alt={firstVideo.title ?? "Related video"}
+                    src={`${POSTER_BASE}/w185${item.film.posterPath}`}
+                    alt={`${item.film.title} poster`}
                     loading="lazy"
                   />
-                  <span className="feed-item__play">▶</span>
-                  {firstVideo.duration && (
-                    <span className="feed-item__duration">
-                      {firstVideo.duration}
-                    </span>
-                  )}
-                </a>
+                </Link>
               )}
             </div>
 
