@@ -126,32 +126,26 @@ export default function InfiniteScrollFeed({
 
         return (
           <article key={item.id} className="feed-item">
-            {/* Film context bar */}
-            <div className="feed-item__film-bar">
+            {/* Film badge — pill style */}
+            <Link href={`/film/${item.film.slug}`} className="feed-item__film-bar" style={{ textDecoration: 'none' }}>
               {item.film.posterPath && (
-                <Link href={`/film/${item.film.slug}`}>
-                  <img
-                    src={`${POSTER_BASE}/w92${item.film.posterPath}`}
-                    alt=""
-                    className="feed-item__poster"
-                    loading="lazy"
-                  />
-                </Link>
+                <img
+                  src={`${POSTER_BASE}/w92${item.film.posterPath}`}
+                  alt=""
+                  className="feed-item__poster"
+                  loading="lazy"
+                />
               )}
               <div className="feed-item__film-info">
-                <Link href={`/film/${item.film.slug}`} className="feed-item__film-title">
+                <span className="feed-item__film-title">
                   {item.film.title}
                   <span className="feed-item__film-year"> ({item.film.year})</span>
-                </Link>
+                </span>
                 <span className="feed-item__film-meta">
-                  dir. {item.film.directorSlug ? (
-                    <Link href={`/director/${item.film.directorSlug}`}>{item.film.director}</Link>
-                  ) : item.film.director}
-                  {" · "}
-                  {timeAgo(item.publishedAt)}
+                  dir. {item.film.director} · {timeAgo(item.publishedAt)}
                 </span>
               </div>
-            </div>
+            </Link>
 
             {/* Question title */}
             <h2 className="feed-item__question">
@@ -193,7 +187,7 @@ export default function InfiniteScrollFeed({
             {/* YouTube videos inline */}
             {youtubeMedia.length > 0 && (
               <div className="feed-item__media">
-                {youtubeMedia.slice(0, 2).map((m) => (
+                {youtubeMedia.slice(0, 1).map((m) => (
                   <YouTubeFacade
                     key={m.external_id}
                     videoId={m.external_id}
