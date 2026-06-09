@@ -160,10 +160,10 @@ export default async function HomePage() {
     .order("created_at", { ascending: false })
     .limit(8);
 
-  // Questions needing a reading
+  // Questions needing a reading (no canonical answer AND no contributions)
   const { data: needingReadings } = await supabase
     .from("questions")
-    .select("id, title, slug, film:films!inner(title, year, slug, poster_path)")
+    .select("id, title, slug, film:films!inner(title, year, slug, poster_path), canonical_answers(id)")
     .eq("status", "published")
     .order("created_at", { ascending: false })
     .limit(20);
@@ -173,7 +173,12 @@ export default async function HomePage() {
     ? await supabase.from("contributions").select("question_id").in("question_id", questionIds).eq("status", "published")
     : { data: [] };
   const contribSet = new Set((contribCounts ?? []).map((c) => c.question_id));
-  const unanswered = (needingReadings ?? []).filter((q) => !contribSet.has(q.id)).slice(0, 5);
+  // Exclude questions with a canonical answer (1:1 FK returns object, not array)
+  const unanswered = (needingReadings ?? []).filter((q) => {
+    const ca = q.canonical_answers as unknown;
+    const hasCA = Array.isArray(ca) ? ca.length > 0 : !!ca;
+    return !hasCA && !contribSet.has(q.id);
+  }).slice(0, 5);
 
   // Stats
   const { count: totalQuestions } = await supabase
