@@ -7,8 +7,8 @@ import ContributionSection from "./ContributionSection";
 import MediaGallery from "@/components/MediaGallery";
 import RelatedQuestions from "@/components/RelatedQuestions";
 
-// ISR: revalidate every 60 seconds so new answers appear promptly
-export const revalidate = 60;
+// Force dynamic rendering — always fetch fresh data from Supabase
+export const dynamic = 'force-dynamic';
 
 function supabaseAnon() {
   return createClient(
