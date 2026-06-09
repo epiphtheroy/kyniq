@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import YouTubeFacade from "./YouTubeFacade";
 
 const POSTER_BASE = "https://image.tmdb.org/t/p";
 
@@ -152,67 +151,81 @@ export default function InfiniteScrollFeed({
               </div>
             </Link>
 
-            {/* QUESTION — the hero */}
-            <h2 className="feed-item__question">
-              <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
-                {item.title}
-              </Link>
-            </h2>
+            {/* Two-column: Q&A left, video thumb right */}
+            <div className="feed-item__body">
+              <div className="feed-item__text">
+                {/* QUESTION — the hero */}
+                <h2 className="feed-item__question">
+                  <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
+                    {item.title}
+                  </Link>
+                </h2>
 
-            {/* ANSWER — immediately readable */}
-            <div className="feed-item__answer">
-              {(isExpanded ? answerParagraphs : teaserParagraphs).map(
-                (p, i) => (
-                  <p key={i}>{p}</p>
-                )
-              )}
-            </div>
+                {/* ANSWER — immediately readable */}
+                <div className="feed-item__answer">
+                  {(isExpanded ? answerParagraphs : teaserParagraphs).map(
+                    (p, i) => (
+                      <p key={i}>{p}</p>
+                    )
+                  )}
+                </div>
 
-            {/* Continue reading */}
-            {hasMore && (
-              <div className="feed-item__expand">
-                {isExpanded ? (
-                  <button
-                    onClick={() => toggleExpand(item.id)}
-                    className="feed-item__expand-btn"
-                  >
-                    Show less ▴
-                  </button>
-                ) : (
-                  <>
-                    <button
-                      onClick={() => toggleExpand(item.id)}
-                      className="feed-item__expand-btn"
-                    >
-                      Continue reading →
-                    </button>
-                    <Link
-                      href={`/film/${item.film.slug}/q/${item.slug}`}
-                      className="feed-item__readmore"
-                    >
-                      Open full page
-                    </Link>
-                  </>
+                {/* Continue reading */}
+                {hasMore && (
+                  <div className="feed-item__expand">
+                    {isExpanded ? (
+                      <button
+                        onClick={() => toggleExpand(item.id)}
+                        className="feed-item__expand-btn"
+                      >
+                        Show less ▴
+                      </button>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => toggleExpand(item.id)}
+                          className="feed-item__expand-btn"
+                        >
+                          Continue reading →
+                        </button>
+                        <Link
+                          href={`/film/${item.film.slug}/q/${item.slug}`}
+                          className="feed-item__readmore"
+                        >
+                          Open full page
+                        </Link>
+                      </>
+                    )}
+                  </div>
                 )}
               </div>
-            )}
 
-            {/* YouTube — single video only */}
-            {firstVideo && (
-              <div className="feed-item__media">
-                <YouTubeFacade
-                  videoId={firstVideo.external_id}
+              {/* YouTube thumbnail — right side */}
+              {firstVideo && (
+                <a
+                  href={`https://www.youtube.com/watch?v=${firstVideo.external_id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="feed-item__thumb"
                   title={firstVideo.title ?? item.title}
-                  thumbnailUrl={firstVideo.thumbnail_url ?? undefined}
-                  attribution={
-                    firstVideo.channel_name ??
-                    firstVideo.attribution ??
-                    undefined
-                  }
-                  duration={firstVideo.duration ?? undefined}
-                />
-              </div>
-            )}
+                >
+                  <img
+                    src={
+                      firstVideo.thumbnail_url ??
+                      `https://img.youtube.com/vi/${firstVideo.external_id}/mqdefault.jpg`
+                    }
+                    alt={firstVideo.title ?? "Related video"}
+                    loading="lazy"
+                  />
+                  <span className="feed-item__play">▶</span>
+                  {firstVideo.duration && (
+                    <span className="feed-item__duration">
+                      {firstVideo.duration}
+                    </span>
+                  )}
+                </a>
+              )}
+            </div>
 
             {/* Minimal meta */}
             <div className="feed-item__actions">
