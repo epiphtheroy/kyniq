@@ -71,12 +71,18 @@ export default async function QuestionPage({ params }: Props) {
   };
 
   const author = question.author as unknown as { username: string; display_name: string } | null;
-  const canonicalArr = question.canonical_answers as unknown as Array<{
+  
+  // PostgREST returns a single object for 1:1 UNIQUE FK, or an array for 1:N.
+  // Handle both cases safely.
+  type CanonicalAnswer = {
     id: string; body: string; updated_at: string; revision_count: number;
     status: string; source: string; generated_by: string | null;
     updated_by_profile: { username: string; display_name: string } | null;
-  }>;
-  const canonical = canonicalArr?.[0] ?? null;
+  };
+  const rawCA = question.canonical_answers as unknown;
+  const canonical: CanonicalAnswer | null = Array.isArray(rawCA)
+    ? (rawCA[0] ?? null)
+    : (rawCA as CanonicalAnswer | null);
 
   // TL;DR extraction: first paragraph as standfirst
   let standfirst = "";
