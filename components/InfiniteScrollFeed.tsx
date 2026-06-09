@@ -200,17 +200,20 @@ export default function InfiniteScrollFeed({
               </div>
             )}
 
-            {/* Action bar */}
+            {/* Action bar — Reddit-style */}
             <div className="feed-item__actions">
               <span className="feed-item__stat">
-                {item.viewCount > 0 ? `${item.viewCount.toLocaleString()} reads` : "New"}
+                👁 {item.viewCount > 0 ? item.viewCount.toLocaleString() : "0"}
               </span>
               <Link
                 href={`/film/${item.film.slug}/q/${item.slug}`}
                 className="feed-item__action"
               >
-                Share your reading
+                💬 Read
               </Link>
+              <span className="feed-item__action" role="button" tabIndex={0}>
+                ↗ Share
+              </span>
             </div>
           </article>
         );
