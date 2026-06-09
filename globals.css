@@ -1,36 +1,30 @@
 /* ============================================================
-   FilmCurio — editorial design system (source of truth: SPEC.md §1.1/§2.1/§2.2)
-   Brand: FilmCurio · filmcurio.com. Logo = the film-frame "?" mark + a Reddit Sans
-   wordmark (see /brand). Identity: navy ink (#16233F) on a BRIGHT warm-ivory page,
-   with a lively MARIGOLD accent (#E0922A) and a TEAL secondary (#159A92).
-   Rethink note: the page base is intentionally light + airy (was a single muted
-   cream) — bright ivory page + white surfaces, with energy coming from the accents,
-   not from heavy fills. Dark "ink" mode via prefers-color-scheme.
-   Reference screens (ref-*.html) link to this file; assets live in /brand.
+   FilmCurio — Cinema Reading Room design system
+   Q&A-first editorial layout. Warm, literary, content-dominant.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700&display=swap');
 
 :root{
-  /* ---- neutrals — Reddit-style gray page ---- */
-  --bg:#DAE0E6;          /* page — Reddit light gray                 */
-  --surface:#FFFFFF;     /* cards, fields, raised                    */
-  --surface-2:#F6F7F8;   /* subtle fill / section bands              */
-  --ink:#1A1A1B;         /* text — near-black (Reddit standard)      */
-  --muted:#787C7E;       /* secondary text                           */
-  --subtle:#878A8C;      /* faint hint text                          */
-  --hairline:#EDEFF1;    /* card borders                             */
-  /* ---- accent: Reddit orange-red ---- */
-  --accent:#FF4500;      /* Reddit signature orange                  */
-  --accent-hover:#E03D00;
+  /* ---- neutrals — warm editorial ---- */
+  --bg:#FAFAF7;          /* page — warm near-white                   */
+  --surface:#FFFFFF;     /* cards                                    */
+  --surface-2:#F5F3EF;   /* subtle warm fill                         */
+  --ink:#1C1C1E;         /* text — near-black                        */
+  --muted:#6B6B6B;       /* secondary text                           */
+  --subtle:#999999;      /* faint hint text                          */
+  --hairline:#E8E8E8;    /* dividers                                 */
+  /* ---- accent: warm amber (cinematic) ---- */
+  --accent:#D4850E;      /* warm amber                               */
+  --accent-hover:#B87310;
   --accent-ink:#FFFFFF;  /* text ON accent                           */
-  --accent-text:#FF4500; /* accent-as-TEXT on light                  */
-  /* ---- secondary: teal (curiosity / interactive) ---- */
-  --accent-2:#0079D3;    /* Reddit blue                              */
-  --accent-2-text:#0079D3;
+  --accent-text:#C07A0C; /* accent-as-TEXT on light                  */
+  /* ---- secondary: deep teal ---- */
+  --accent-2:#1A7A6D;
+  --accent-2-text:#1A7A6D;
   /* ---- semantic ---- */
-  --success:#46D160; --danger:#FF585B; --warning:#FFB000;
-  --measure:68ch;
+  --success:#2F8F5B; --danger:#C0492F; --warning:#C9851F;
+  --measure:65ch;
   --font-display:"Reddit Sans",system-ui,sans-serif;
   --font-body:"Reddit Sans",system-ui,sans-serif;
   --font-ui:"Reddit Sans",system-ui,sans-serif;
@@ -38,20 +32,20 @@
 
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#030303;            /* Reddit dark mode background */
-    --surface:#1A1A1B;
-    --surface-2:#272729;
-    --ink:#D7DADC;
-    --muted:#818384;
-    --subtle:#6B6D6F;
-    --hairline:#343536;
-    --accent:#FF4500;
-    --accent-hover:#FF5722;
-    --accent-ink:#FFFFFF;
-    --accent-text:#FF4500;
-    --accent-2:#4FBCFF;
-    --accent-2-text:#4FBCFF;
-    --success:#46D160; --danger:#FF585B; --warning:#FFB000;
+    --bg:#121212;
+    --surface:#1E1E1E;
+    --surface-2:#2A2A2A;
+    --ink:#E8E6E3;
+    --muted:#9E9E9E;
+    --subtle:#6B6B6B;
+    --hairline:#333333;
+    --accent:#E9A033;
+    --accent-hover:#F2B255;
+    --accent-ink:#121212;
+    --accent-text:#E9A033;
+    --accent-2:#4EC8B8;
+    --accent-2-text:#4EC8B8;
+    --success:#52B07C; --danger:#E0775E; --warning:#E0A03A;
   }
 }
 
@@ -68,7 +62,7 @@ body{
 }
 
 /* ---- PaperShell: the centered page container ---- */
-.shell{max-width:640px;margin:0 auto;padding:20px 16px;}
+.shell{max-width:720px;margin:0 auto;padding:32px 24px;}
 
 /* ---- Card / panel (on the bright page) ---- */
 .card{background:var(--surface);border:1px solid var(--hairline);border-radius:8px;padding:16px 16px;}
@@ -165,56 +159,34 @@ body{
 .brandlock svg{height:26px;width:auto;display:block;}
 
 /* ============================================================
-   Infinite Scroll Feed — Reddit-faithful cards
+   Infinite Scroll Feed — Cinema Reading Room
+   Q&A-dominant, clean typography, generous whitespace.
    ============================================================ */
 
-.feed{display:flex;flex-direction:column;gap:10px;}
+.feed{display:flex;flex-direction:column;}
 
-/* ---- Feed item card ---- */
+/* ---- Feed item — separated by hairlines, no cards ---- */
 .feed-item{
-  background:var(--surface);
-  border:1px solid var(--hairline);
-  border-radius:4px;
-  padding:8px 16px 8px 40px;
-  position:relative;
-  cursor:pointer;
-  transition:border-color .1s;
+  padding:28px 0;
+  border-bottom:1px solid var(--hairline);
 }
-.feed-item:hover{
-  border-color:var(--muted);
-}
+.feed-item:first-child{padding-top:12px;}
+.feed-item:last-child{border-bottom:none;}
 
-/* Left accent stripe (like Reddit's vote column area) */
-.feed-item::before{
-  content:'';
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:40px;
-  background:var(--surface-2);
-  border-radius:4px 0 0 4px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* Film community line — compact Reddit r/subreddit style */
+/* Film context — tiny inline tag */
 .feed-item__film-bar{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  margin-bottom:6px;
+  margin-bottom:10px;
   padding:0;
   border:none;
-  border-radius:0;
   background:none;
 }
-.feed-item__film-bar:hover .feed-item__film-title{text-decoration:underline;}
 .feed-item__poster{
-  width:20px;
-  height:20px;
-  border-radius:50%;
+  width:24px;
+  height:36px;
+  border-radius:3px;
   object-fit:cover;
   flex:none;
 }
@@ -226,169 +198,130 @@ body{
 }
 .feed-item__film-title{
   font-family:var(--font-ui);
-  font-size:12px;
-  font-weight:700;
-  color:var(--ink);
+  font-size:13px;
+  font-weight:600;
+  color:var(--accent-text);
   text-decoration:none;
   line-height:1;
 }
+.feed-item__film-title:hover{text-decoration:underline;}
 .feed-item__film-year{
   font-weight:400;
   color:var(--muted);
-  font-size:12px;
+  font-size:13px;
 }
 .feed-item__film-meta{
   font-family:var(--font-ui);
-  font-size:12px;
+  font-size:13px;
   color:var(--muted);
   line-height:1;
 }
-.feed-item__film-meta a{
-  color:inherit;
-  text-decoration:none;
-}
-.feed-item__film-meta a:hover{text-decoration:underline;}
+.feed-item__film-meta a{color:inherit;text-decoration:none;}
+.feed-item__film-meta a:hover{color:var(--accent-text);}
 
-/* Question title — Reddit-style: 18-20px bold */
+/* Question title — THE HERO */
 .feed-item__question{
   font-family:var(--font-display);
-  font-size:18px;
-  font-weight:600;
-  line-height:1.35;
-  margin:0 0 8px;
-  letter-spacing:0;
+  font-size:22px;
+  font-weight:700;
+  line-height:1.3;
+  margin:0 0 10px;
+  letter-spacing:-.01em;
 }
 .feed-item__question a{
   color:var(--ink);
   text-decoration:none;
 }
-.feed-item__question a:hover{color:var(--accent-2);}
+.feed-item__question a:hover{color:var(--accent-text);}
 
-/* Answer body preview */
+/* Answer body — immediately readable */
 .feed-item__answer{
   font-family:var(--font-body);
-  font-size:14px;
-  line-height:1.6;
-  color:#4A4A4A;
+  font-size:16.5px;
+  line-height:1.7;
+  color:var(--ink);
   max-width:var(--measure);
+  opacity:.85;
 }
-@media(prefers-color-scheme:dark){.feed-item__answer{color:var(--muted);}}
-.feed-item__answer p{margin:0 0 6px;}
+.feed-item__answer p{margin:0 0 8px;}
 .feed-item__answer p:last-child{margin-bottom:0;}
 
-/* Expand / read more */
+/* Continue reading CTA */
 .feed-item__expand{
   display:flex;
   align-items:center;
-  gap:8px;
-  margin-top:8px;
-  font-family:var(--font-ui);
-  font-size:12px;
+  gap:12px;
+  margin-top:10px;
 }
 .feed-item__expand-btn{
-  background:transparent;
+  background:none;
   border:none;
-  border-radius:2px;
-  padding:4px 8px;
+  padding:0;
   font-family:var(--font-ui);
-  font-size:12px;
-  font-weight:700;
-  color:var(--muted);
+  font-size:14px;
+  font-weight:600;
+  color:var(--accent-text);
   cursor:pointer;
-  text-transform:uppercase;
-  letter-spacing:.03em;
-  transition:background .1s;
 }
-.feed-item__expand-btn:hover{
-  background:var(--surface-2);
-}
+.feed-item__expand-btn:hover{text-decoration:underline;}
 .feed-item__readmore{
-  color:var(--accent-2);
+  color:var(--muted);
   text-decoration:none;
-  font-size:12px;
-  font-weight:700;
+  font-size:13px;
 }
-.feed-item__readmore:hover{text-decoration:underline;}
+.feed-item__readmore:hover{color:var(--accent-text);}
 
-/* Media (YouTube inline) — single video */
+/* Media (YouTube inline) */
 .feed-item__media{
-  margin-top:10px;
-  border-radius:4px;
+  margin-top:14px;
+  border-radius:6px;
   overflow:hidden;
 }
 
-/* Action bar — Reddit-style icon buttons */
+/* Meta bar — minimal */
 .feed-item__actions{
   display:flex;
   align-items:center;
-  gap:4px;
-  margin-top:8px;
-  padding:0;
-  border-top:none;
+  gap:12px;
+  margin-top:14px;
   font-family:var(--font-ui);
-  font-size:12px;
-  font-weight:700;
+  font-size:13px;
   color:var(--muted);
 }
-.feed-item__stat{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  padding:4px 8px;
-  border-radius:2px;
-  color:var(--muted);
-  transition:background .1s;
-}
-.feed-item__stat:hover{background:var(--surface-2);}
+.feed-item__stat{color:var(--subtle);}
 .feed-item__action{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  padding:4px 8px;
-  border-radius:2px;
-  color:var(--muted);
+  color:var(--accent-text);
   text-decoration:none;
-  font-weight:700;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.03em;
-  transition:background .1s;
+  font-weight:600;
 }
-.feed-item__action:hover{
-  background:var(--surface-2);
-  text-decoration:none;
-}
+.feed-item__action:hover{text-decoration:underline;}
 
 /* ---- Loading skeleton ---- */
-.feed-loading{display:flex;flex-direction:column;gap:10px;}
+.feed-loading{display:flex;flex-direction:column;}
 .feed-skeleton{
-  background:var(--surface);
-  border:1px solid var(--hairline);
-  border-radius:4px;
-  padding:12px 16px 12px 40px;
-  display:flex;flex-direction:column;gap:10px;
+  padding:28px 0;
+  border-bottom:1px solid var(--hairline);
+  display:flex;flex-direction:column;gap:12px;
 }
 .feed-skeleton__bar{
-  height:12px;
-  border-radius:4px;
-  background:var(--surface-2);
+  height:14px;
+  border-radius:6px;
+  background:var(--hairline);
   animation:skeleton-pulse 1.2s ease-in-out infinite;
 }
 @keyframes skeleton-pulse{
   0%,100%{opacity:.3;}
-  50%{opacity:.7;}
+  50%{opacity:.6;}
 }
 
 /* ---- Feed end ---- */
 .feed-end{
   text-align:center;
-  padding:32px 0;
+  padding:40px 0;
   font-family:var(--font-ui);
-  font-size:12px;
-  font-weight:700;
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:.05em;
+  font-size:13px;
+  color:var(--subtle);
+  font-style:italic;
 }
 
 /* Sentinel (invisible) */

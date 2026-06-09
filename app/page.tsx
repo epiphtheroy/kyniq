@@ -140,29 +140,31 @@ export default async function HomePage() {
 
   return (
     <main className="shell">
-      {/* Stats bar */}
+      {/* Editorial header */}
       <div
         style={{
-          display: "flex",
-          gap: 24,
-          marginBottom: 4,
-          fontSize: 12.5,
-          color: "var(--muted)",
+          paddingBottom: 8,
+          marginBottom: 0,
           fontFamily: "var(--font-ui)",
         }}
       >
-        <span>
-          <strong style={{ color: "var(--ink)", fontSize: 16 }}>
-            {totalQuestions ?? 0}
+        <p
+          style={{
+            margin: "0 0 8px",
+            fontSize: 15,
+            color: "var(--muted)",
+            lineHeight: 1.5,
+          }}
+        >
+          Deep readings on cinema &mdash;{" "}
+          <strong style={{ color: "var(--ink)" }}>
+            {totalQuestions ?? 0} interpretations
           </strong>{" "}
-          interpretations
-        </span>
-        <span>
-          <strong style={{ color: "var(--ink)", fontSize: 16 }}>
-            {totalFilms ?? 0}
-          </strong>{" "}
-          films
-        </span>
+          across{" "}
+          <strong style={{ color: "var(--ink)" }}>
+            {totalFilms ?? 0} films
+          </strong>
+        </p>
       </div>
 
       <hr className="rule" />

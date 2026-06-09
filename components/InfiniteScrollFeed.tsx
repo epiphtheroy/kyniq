@@ -36,13 +36,9 @@ interface FeedItem {
 }
 
 interface Props {
-  /** SSR-rendered initial items */
   initialItems: FeedItem[];
-  /** Initial next-cursor from SSR */
   initialCursor: string | null;
-  /** Optional: filter to a specific film */
   filmId?: string;
-  /** Optional: exclude a question by id */
   excludeId?: string;
 }
 
@@ -77,7 +73,6 @@ export default function InfiniteScrollFeed({
     }
   }, [cursor, loading, filmId, excludeId]);
 
-  // IntersectionObserver for infinite scroll
   useEffect(() => {
     const el = sentinelRef.current;
     if (!el) return;
@@ -109,7 +104,7 @@ export default function InfiniteScrollFeed({
     if (hours < 1) return "just now";
     if (hours < 24) return `${hours}h ago`;
     const days = Math.floor(hours / 24);
-    if (days === 1) return "1d ago";
+    if (days === 1) return "yesterday";
     if (days < 30) return `${days}d ago`;
     const months = Math.floor(days / 30);
     return `${months}mo ago`;
@@ -122,12 +117,18 @@ export default function InfiniteScrollFeed({
         const answerParagraphs = item.answer.split(/\n\n+/).filter(Boolean);
         const teaserParagraphs = item.answerTeaser.split(/\n\n+/).filter(Boolean);
         const hasMore = item.answer.length > item.answerTeaser.length + 20;
-        const youtubeMedia = item.media.filter((m) => m.kind === "video" && m.source === "youtube");
+        const firstVideo = item.media.find(
+          (m) => m.kind === "video" && m.source === "youtube"
+        );
 
         return (
           <article key={item.id} className="feed-item">
-            {/* Film badge — pill style */}
-            <Link href={`/film/${item.film.slug}`} className="feed-item__film-bar" style={{ textDecoration: 'none' }}>
+            {/* Film context — tiny tag */}
+            <Link
+              href={`/film/${item.film.slug}`}
+              className="feed-item__film-bar"
+              style={{ textDecoration: "none" }}
+            >
               {item.film.posterPath && (
                 <img
                   src={`${POSTER_BASE}/w92${item.film.posterPath}`}
@@ -139,81 +140,96 @@ export default function InfiniteScrollFeed({
               <div className="feed-item__film-info">
                 <span className="feed-item__film-title">
                   {item.film.title}
-                  <span className="feed-item__film-year"> ({item.film.year})</span>
+                  <span className="feed-item__film-year">
+                    {" "}
+                    ({item.film.year})
+                  </span>
                 </span>
                 <span className="feed-item__film-meta">
-                  dir. {item.film.director} · {timeAgo(item.publishedAt)}
+                  {" · "}
+                  dir. {item.film.director}
                 </span>
               </div>
             </Link>
 
-            {/* Question title */}
+            {/* QUESTION — the hero */}
             <h2 className="feed-item__question">
               <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
                 {item.title}
               </Link>
             </h2>
 
-            {/* Answer body */}
+            {/* ANSWER — immediately readable */}
             <div className="feed-item__answer">
-              {(isExpanded ? answerParagraphs : teaserParagraphs).map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+              {(isExpanded ? answerParagraphs : teaserParagraphs).map(
+                (p, i) => (
+                  <p key={i}>{p}</p>
+                )
+              )}
             </div>
 
-            {/* Expand / Read more */}
+            {/* Continue reading */}
             {hasMore && (
               <div className="feed-item__expand">
                 {isExpanded ? (
-                  <button onClick={() => toggleExpand(item.id)} className="feed-item__expand-btn">
+                  <button
+                    onClick={() => toggleExpand(item.id)}
+                    className="feed-item__expand-btn"
+                  >
                     Show less ▴
                   </button>
                 ) : (
                   <>
-                    <button onClick={() => toggleExpand(item.id)} className="feed-item__expand-btn">
-                      Show full reading ▾
+                    <button
+                      onClick={() => toggleExpand(item.id)}
+                      className="feed-item__expand-btn"
+                    >
+                      Continue reading →
                     </button>
                     <Link
                       href={`/film/${item.film.slug}/q/${item.slug}`}
                       className="feed-item__readmore"
                     >
-                      Open page →
+                      Open full page
                     </Link>
                   </>
                 )}
               </div>
             )}
 
-            {/* YouTube videos inline */}
-            {youtubeMedia.length > 0 && (
+            {/* YouTube — single video only */}
+            {firstVideo && (
               <div className="feed-item__media">
-                {youtubeMedia.slice(0, 1).map((m) => (
-                  <YouTubeFacade
-                    key={m.external_id}
-                    videoId={m.external_id}
-                    title={m.title ?? item.title}
-                    thumbnailUrl={m.thumbnail_url ?? undefined}
-                    attribution={m.channel_name ?? m.attribution ?? undefined}
-                    duration={m.duration ?? undefined}
-                  />
-                ))}
+                <YouTubeFacade
+                  videoId={firstVideo.external_id}
+                  title={firstVideo.title ?? item.title}
+                  thumbnailUrl={firstVideo.thumbnail_url ?? undefined}
+                  attribution={
+                    firstVideo.channel_name ??
+                    firstVideo.attribution ??
+                    undefined
+                  }
+                  duration={firstVideo.duration ?? undefined}
+                />
               </div>
             )}
 
-            {/* Action bar — Reddit-style */}
+            {/* Minimal meta */}
             <div className="feed-item__actions">
               <span className="feed-item__stat">
-                👁 {item.viewCount > 0 ? item.viewCount.toLocaleString() : "0"}
+                {item.viewCount > 0
+                  ? `${item.viewCount.toLocaleString()} reads`
+                  : "New"}
+              </span>
+              <span className="feed-item__stat">
+                {timeAgo(item.publishedAt)}
               </span>
               <Link
                 href={`/film/${item.film.slug}/q/${item.slug}`}
                 className="feed-item__action"
               >
-                💬 Read
+                Share your reading →
               </Link>
-              <span className="feed-item__action" role="button" tabIndex={0}>
-                ↗ Share
-              </span>
             </div>
           </article>
         );
@@ -227,10 +243,10 @@ export default function InfiniteScrollFeed({
         <div className="feed-loading">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="feed-skeleton">
-              <div className="feed-skeleton__bar" style={{ width: "40%" }} />
-              <div className="feed-skeleton__bar" style={{ width: "80%" }} />
-              <div className="feed-skeleton__bar" style={{ width: "65%" }} />
+              <div className="feed-skeleton__bar" style={{ width: "30%" }} />
+              <div className="feed-skeleton__bar" style={{ width: "75%" }} />
               <div className="feed-skeleton__bar" style={{ width: "90%" }} />
+              <div className="feed-skeleton__bar" style={{ width: "60%" }} />
             </div>
           ))}
         </div>
@@ -239,7 +255,7 @@ export default function InfiniteScrollFeed({
       {/* End of feed */}
       {!cursor && items.length > 0 && (
         <div className="feed-end">
-          <span>You&apos;ve reached the end — {items.length} interpretations read.</span>
+          You&apos;ve explored {items.length} film interpretations.
         </div>
       )}
     </div>
