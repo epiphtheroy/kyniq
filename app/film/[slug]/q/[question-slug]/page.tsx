@@ -5,7 +5,6 @@ import Link from "next/link";
 import { posterUrl } from "@/lib/tmdb";
 import ContributionSection from "./ContributionSection";
 import MediaGallery from "@/components/MediaGallery";
-import RelatedQuestions from "@/components/RelatedQuestions";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 export const dynamic = 'force-dynamic';
@@ -357,72 +356,116 @@ export default async function QuestionPage({ params }: Props) {
             {/* Contributions section (client component) */}
             <ContributionSection questionId={question.id} filmSlug={film.slug} />
           </div>
-
-          {/* ── Sticky rail (desktop only via CSS) ── */}
-          <aside className="sticky-rail">
-            {/* Film context card */}
-            <div className="related-box" style={{ marginBottom: 16 }}>
-              <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                <Link href={`/film/${film.slug}`}>
-                  {film.poster_path ? (
-                    <img
-                      src={`${POSTER_BASE}/w92${film.poster_path}`}
-                      alt={film.title}
-                      style={{ width: 48, height: 72, borderRadius: 3, objectFit: "cover" }}
-                    />
-                  ) : (
-                    <div className="poster" style={{ width: 48, height: 72 }} />
-                  )}
-                </Link>
-                <div>
-                  <Link href={`/film/${film.slug}`} className="disp" style={{ fontSize: 15, textDecoration: "none", color: "var(--ink)" }}>
-                    {film.title}
-                  </Link>
-                  <div className="ui muted" style={{ fontSize: 12, marginTop: 2 }}>
-                    {film.year} · {film.director}
-                  </div>
-                  {filmQuestionCount && filmQuestionCount > 0 && (
-                    <Link
-                      href={`/film/${film.slug}`}
-                      className="ui"
-                      style={{ fontSize: 11.5, color: "var(--accent)", textDecoration: "none", display: "block", marginTop: 4 }}
-                    >
-                      {filmQuestionCount} question{filmQuestionCount > 1 ? "s" : ""} →
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Related questions in rail */}
-            <RelatedQuestions
-              currentQuestionId={question.id}
-              filmId={film.id}
-              filmTitle={film.title}
-              filmSlug={film.slug}
-              director={film.director}
-              directorSlug={film.director_slug}
-            />
-          </aside>
         </div>
 
-        {/* ── Mobile: Related questions below (hidden on desktop via CSS) ── */}
-        <div className="mobile-related" style={{ marginTop: 24 }}>
-          <style>{`
-            @media (min-width: 900px) {
-              .mobile-related { display: none; }
-            }
-          `}</style>
-          <RelatedQuestions
-            currentQuestionId={question.id}
-            filmId={film.id}
-            filmTitle={film.title}
-            filmSlug={film.slug}
-            director={film.director}
-            directorSlug={film.director_slug}
-          />
-        </div>
+        {/* ── Endless feed: more Q&A from this film + beyond ── */}
+        <hr className="rule" style={{ marginTop: 32 }} />
+        <div className="seclbl">More interpretations</div>
+        <div className="tick" />
+
+        <MoreFeed filmId={film.id} excludeId={question.id} />
       </main>
     </>
+  );
+}
+
+/* --- Client wrapper that fetches first page of "more" feed --- */
+import InfiniteScrollFeed from "@/components/InfiniteScrollFeed";
+
+async function MoreFeed({ filmId, excludeId }: { filmId: string; excludeId: string }) {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
+
+  const LIMIT = 8;
+  const { data: feedRaw } = await supabase
+    .from("questions")
+    .select(`
+      id, title, slug, view_count, published_at, created_at,
+      film:films!inner(id, title, year, director, director_slug, slug, poster_path),
+      canonical_answers!inner(body, status)
+    `)
+    .eq("status", "published")
+    .eq("canonical_answers.status", "published")
+    .neq("id", excludeId)
+    .order("published_at", { ascending: false })
+    .limit(LIMIT + 1);
+
+  const rows = feedRaw ?? [];
+  const hasMore = rows.length > LIMIT;
+  const items = rows.slice(0, LIMIT);
+
+  // Fetch media
+  const questionIds = items.map((q) => q.id);
+  let mediaMap = new Map<string, Array<{
+    kind: string; source: string; external_id: string;
+    url: string; thumbnail_url: string | null; title: string | null;
+    attribution: string | null; duration: string | null; channel_name: string | null;
+  }>>();
+
+  if (questionIds.length > 0) {
+    const { data: mediaRows } = await supabase
+      .from("media")
+      .select("entity_id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
+      .eq("entity_type", "question")
+      .eq("status", "published")
+      .in("entity_id", questionIds)
+      .order("position");
+
+    for (const m of mediaRows ?? []) {
+      const list = mediaMap.get(m.entity_id) ?? [];
+      list.push(m as typeof list[0]);
+      mediaMap.set(m.entity_id, list);
+    }
+  }
+
+  const feedItems = items.map((q) => {
+    const film = q.film as unknown as {
+      id: string; title: string; year: number; director: string;
+      director_slug: string | null; slug: string; poster_path: string | null;
+    };
+    const rawCA = q.canonical_answers as unknown;
+    const body = Array.isArray(rawCA)
+      ? (rawCA[0] as { body: string })?.body
+      : (rawCA as { body: string } | null)?.body;
+
+    const paragraphs = (body ?? "").split(/\n\n+/);
+    let teaser = "";
+    for (const p of paragraphs) {
+      if (teaser.length + p.length > 400) break;
+      teaser += (teaser ? "\n\n" : "") + p;
+    }
+
+    return {
+      id: q.id as string,
+      title: q.title as string,
+      slug: q.slug as string,
+      film: {
+        title: film.title,
+        year: film.year,
+        director: film.director,
+        directorSlug: film.director_slug,
+        slug: film.slug,
+        posterPath: film.poster_path,
+      },
+      answer: body ?? "",
+      answerTeaser: teaser,
+      media: mediaMap.get(q.id as string) ?? [],
+      publishedAt: (q.published_at ?? q.created_at) as string,
+      viewCount: q.view_count as number,
+    };
+  });
+
+  const nextCursor = hasMore
+    ? feedItems[feedItems.length - 1]?.publishedAt ?? null
+    : null;
+
+  return (
+    <InfiniteScrollFeed
+      initialItems={feedItems}
+      initialCursor={nextCursor}
+      excludeId={excludeId}
+    />
   );
 }

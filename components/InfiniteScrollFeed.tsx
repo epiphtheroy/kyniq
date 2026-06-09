@@ -1,0 +1,250 @@
+"use client";
+
+import { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
+import YouTubeFacade from "./YouTubeFacade";
+
+const POSTER_BASE = "https://image.tmdb.org/t/p";
+
+interface FeedItem {
+  id: string;
+  title: string;
+  slug: string;
+  film: {
+    title: string;
+    year: number;
+    director: string;
+    directorSlug: string | null;
+    slug: string;
+    posterPath: string | null;
+  };
+  answer: string;
+  answerTeaser: string;
+  media: Array<{
+    kind: string;
+    source: string;
+    external_id: string;
+    url: string;
+    thumbnail_url: string | null;
+    title: string | null;
+    attribution: string | null;
+    duration: string | null;
+    channel_name: string | null;
+  }>;
+  publishedAt: string;
+  viewCount: number;
+}
+
+interface Props {
+  /** SSR-rendered initial items */
+  initialItems: FeedItem[];
+  /** Initial next-cursor from SSR */
+  initialCursor: string | null;
+  /** Optional: filter to a specific film */
+  filmId?: string;
+  /** Optional: exclude a question by id */
+  excludeId?: string;
+}
+
+export default function InfiniteScrollFeed({
+  initialItems,
+  initialCursor,
+  filmId,
+  excludeId,
+}: Props) {
+  const [items, setItems] = useState<FeedItem[]>(initialItems);
+  const [cursor, setCursor] = useState<string | null>(initialCursor);
+  const [loading, setLoading] = useState(false);
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  const fetchMore = useCallback(async () => {
+    if (loading || !cursor) return;
+    setLoading(true);
+    try {
+      const params = new URLSearchParams({ cursor, limit: "10" });
+      if (filmId) params.set("filmId", filmId);
+      if (excludeId) params.set("exclude", excludeId);
+      const res = await fetch(`/api/feed?${params}`);
+      if (!res.ok) throw new Error("Feed fetch failed");
+      const data = await res.json();
+      setItems((prev) => [...prev, ...data.items]);
+      setCursor(data.nextCursor);
+    } catch (e) {
+      console.error("Feed error:", e);
+    } finally {
+      setLoading(false);
+    }
+  }, [cursor, loading, filmId, excludeId]);
+
+  // IntersectionObserver for infinite scroll
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting && cursor && !loading) {
+          fetchMore();
+        }
+      },
+      { rootMargin: "400px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [cursor, loading, fetchMore]);
+
+  const toggleExpand = (id: string) => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const timeAgo = (d: string) => {
+    if (!d) return "";
+    const diff = Date.now() - new Date(d).getTime();
+    const hours = Math.floor(diff / 3600000);
+    if (hours < 1) return "just now";
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days === 1) return "1d ago";
+    if (days < 30) return `${days}d ago`;
+    const months = Math.floor(days / 30);
+    return `${months}mo ago`;
+  };
+
+  return (
+    <div className="feed">
+      {items.map((item) => {
+        const isExpanded = expandedIds.has(item.id);
+        const answerParagraphs = item.answer.split(/\n\n+/).filter(Boolean);
+        const teaserParagraphs = item.answerTeaser.split(/\n\n+/).filter(Boolean);
+        const hasMore = item.answer.length > item.answerTeaser.length + 20;
+        const youtubeMedia = item.media.filter((m) => m.kind === "video" && m.source === "youtube");
+
+        return (
+          <article key={item.id} className="feed-item">
+            {/* Film context bar */}
+            <div className="feed-item__film-bar">
+              {item.film.posterPath && (
+                <Link href={`/film/${item.film.slug}`}>
+                  <img
+                    src={`${POSTER_BASE}/w92${item.film.posterPath}`}
+                    alt=""
+                    className="feed-item__poster"
+                    loading="lazy"
+                  />
+                </Link>
+              )}
+              <div className="feed-item__film-info">
+                <Link href={`/film/${item.film.slug}`} className="feed-item__film-title">
+                  {item.film.title}
+                  <span className="feed-item__film-year"> ({item.film.year})</span>
+                </Link>
+                <span className="feed-item__film-meta">
+                  dir. {item.film.directorSlug ? (
+                    <Link href={`/director/${item.film.directorSlug}`}>{item.film.director}</Link>
+                  ) : item.film.director}
+                  {" · "}
+                  {timeAgo(item.publishedAt)}
+                </span>
+              </div>
+            </div>
+
+            {/* Question title */}
+            <h2 className="feed-item__question">
+              <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
+                {item.title}
+              </Link>
+            </h2>
+
+            {/* Answer body */}
+            <div className="feed-item__answer">
+              {(isExpanded ? answerParagraphs : teaserParagraphs).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            {/* Expand / Read more */}
+            {hasMore && (
+              <div className="feed-item__expand">
+                {isExpanded ? (
+                  <button onClick={() => toggleExpand(item.id)} className="feed-item__expand-btn">
+                    Show less ▴
+                  </button>
+                ) : (
+                  <>
+                    <button onClick={() => toggleExpand(item.id)} className="feed-item__expand-btn">
+                      Show full reading ▾
+                    </button>
+                    <Link
+                      href={`/film/${item.film.slug}/q/${item.slug}`}
+                      className="feed-item__readmore"
+                    >
+                      Open page →
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* YouTube videos inline */}
+            {youtubeMedia.length > 0 && (
+              <div className="feed-item__media">
+                {youtubeMedia.slice(0, 2).map((m) => (
+                  <YouTubeFacade
+                    key={m.external_id}
+                    videoId={m.external_id}
+                    title={m.title ?? item.title}
+                    thumbnailUrl={m.thumbnail_url ?? undefined}
+                    attribution={m.channel_name ?? m.attribution ?? undefined}
+                    duration={m.duration ?? undefined}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Action bar */}
+            <div className="feed-item__actions">
+              <span className="feed-item__stat">
+                {item.viewCount > 0 ? `${item.viewCount.toLocaleString()} reads` : "New"}
+              </span>
+              <Link
+                href={`/film/${item.film.slug}/q/${item.slug}`}
+                className="feed-item__action"
+              >
+                Share your reading
+              </Link>
+            </div>
+          </article>
+        );
+      })}
+
+      {/* Sentinel for infinite scroll */}
+      <div ref={sentinelRef} className="feed-sentinel" />
+
+      {/* Loading state */}
+      {loading && (
+        <div className="feed-loading">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="feed-skeleton">
+              <div className="feed-skeleton__bar" style={{ width: "40%" }} />
+              <div className="feed-skeleton__bar" style={{ width: "80%" }} />
+              <div className="feed-skeleton__bar" style={{ width: "65%" }} />
+              <div className="feed-skeleton__bar" style={{ width: "90%" }} />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* End of feed */}
+      {!cursor && items.length > 0 && (
+        <div className="feed-end">
+          <span>You&apos;ve reached the end — {items.length} interpretations read.</span>
+        </div>
+      )}
+    </div>
+  );
+}

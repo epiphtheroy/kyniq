@@ -163,3 +163,163 @@ body{
 /* brand lockup (inline mark + wordmark used in ref headers) */
 .brandlock{display:inline-flex;align-items:center;text-decoration:none;}
 .brandlock svg{height:26px;width:auto;display:block;}
+
+/* ============================================================
+   Infinite Scroll Feed
+   ============================================================ */
+
+.feed{display:flex;flex-direction:column;}
+
+/* ---- Feed item card ---- */
+.feed-item{
+  padding:24px 0;
+  border-bottom:1px solid var(--hairline);
+}
+.feed-item:first-child{padding-top:0;}
+
+/* Film context bar (poster + film name + director) */
+.feed-item__film-bar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.feed-item__poster{
+  width:36px;
+  height:54px;
+  border-radius:4px;
+  object-fit:cover;
+  flex:none;
+}
+.feed-item__film-info{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+}
+.feed-item__film-title{
+  font-family:var(--font-ui);
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  text-decoration:none;
+}
+.feed-item__film-title:hover{color:var(--accent);}
+.feed-item__film-year{
+  font-weight:400;
+  color:var(--muted);
+}
+.feed-item__film-meta{
+  font-family:var(--font-ui);
+  font-size:12px;
+  color:var(--muted);
+}
+.feed-item__film-meta a{
+  color:inherit;
+  text-decoration:none;
+}
+.feed-item__film-meta a:hover{color:var(--accent);}
+
+/* Question title */
+.feed-item__question{
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:600;
+  line-height:1.25;
+  margin:0 0 10px;
+}
+.feed-item__question a{
+  color:var(--ink);
+  text-decoration:none;
+}
+.feed-item__question a:hover{color:var(--accent);}
+
+/* Answer body preview */
+.feed-item__answer{
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--ink);
+  max-width:var(--measure);
+}
+.feed-item__answer p{margin:0 0 10px;}
+.feed-item__answer p:last-child{margin-bottom:0;}
+
+/* Expand / read more */
+.feed-item__expand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:10px;
+  font-family:var(--font-ui);
+  font-size:13px;
+}
+.feed-item__expand-btn{
+  background:none;
+  border:1px solid var(--hairline);
+  border-radius:4px;
+  padding:5px 12px;
+  font-family:var(--font-ui);
+  font-size:13px;
+  color:var(--accent);
+  cursor:pointer;
+  transition:background .15s;
+}
+.feed-item__expand-btn:hover{
+  background:var(--surface-2, rgba(22,35,63,.04));
+}
+.feed-item__readmore{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:12.5px;
+}
+.feed-item__readmore:hover{color:var(--accent);}
+
+/* Media (YouTube inline) */
+.feed-item__media{
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Action bar */
+.feed-item__actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:14px;
+  font-family:var(--font-ui);
+  font-size:12.5px;
+}
+.feed-item__stat{color:var(--muted);}
+.feed-item__action{
+  color:var(--accent);
+  text-decoration:none;
+}
+.feed-item__action:hover{text-decoration:underline;}
+
+/* ---- Loading skeleton ---- */
+.feed-loading{display:flex;flex-direction:column;gap:20px;padding:20px 0;}
+.feed-skeleton{display:flex;flex-direction:column;gap:10px;}
+.feed-skeleton__bar{
+  height:14px;
+  border-radius:6px;
+  background:var(--hairline);
+  animation:skeleton-pulse 1.2s ease-in-out infinite;
+}
+@keyframes skeleton-pulse{
+  0%,100%{opacity:.4;}
+  50%{opacity:.8;}
+}
+
+/* ---- Feed end ---- */
+.feed-end{
+  text-align:center;
+  padding:32px 0;
+  font-family:var(--font-ui);
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Sentinel (invisible) */
+.feed-sentinel{height:1px;}
