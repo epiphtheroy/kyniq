@@ -13,23 +13,21 @@ export default function Footer() {
             <Image
               src="/mark.svg"
               alt=""
-              width={24}
-              height={24}
-              style={{ height: 24, width: 24, marginRight: 6 }}
+              width={20}
+              height={20}
+              style={{ height: 20, width: 20, marginRight: 8 }}
             />
-            <picture>
-              <source
-                srcSet="/wordmark-dark.svg"
-                media="(prefers-color-scheme: dark)"
-              />
-              <Image
-                src="/wordmark.svg"
-                alt="FilmCurio"
-                width={72}
-                height={18}
-                style={{ height: 18, width: "auto" }}
-              />
-            </picture>
+            <span
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: 17,
+                letterSpacing: "-0.01em",
+                color: "var(--ink)",
+              }}
+            >
+              filmcurio<span style={{ color: "var(--accent-text)" }}>.</span>
+            </span>
           </Link>
           <div className="seclbl" style={{ marginTop: 10 }}>
             FILM Q&amp;A COMMUNITY

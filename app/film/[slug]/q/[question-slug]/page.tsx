@@ -2,9 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { posterUrl } from "@/lib/tmdb";
 import ContributionSection from "./ContributionSection";
-import MediaGallery from "@/components/MediaGallery";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 export const dynamic = 'force-dynamic';
@@ -15,8 +13,6 @@ function supabaseAnon() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 }
-
-const POSTER_BASE = "https://image.tmdb.org/t/p";
 
 interface Props {
   params: Promise<{ slug: string; "question-slug": string }>;
@@ -95,35 +91,12 @@ export default async function QuestionPage({ params }: Props) {
   const updater = canonical?.updated_by_profile;
   const isAI = canonical?.source === "ai";
 
-  // Fetch backdrop image for the film banner
-  const { data: backdropMedia } = await supabase
-    .from("media")
-    .select("url")
-    .eq("entity_type", "film")
-    .eq("entity_id", film.id)
-    .eq("kind", "image")
-    .eq("status", "published")
-    .order("position")
-    .limit(1)
-    .single();
-
-  const backdropUrl = backdropMedia?.url ?? null;
-
   // Count questions on this film
   const { count: filmQuestionCount } = await supabase
     .from("questions")
     .select("id", { count: "exact", head: true })
     .eq("film_id", film.id)
     .eq("status", "published");
-
-  // Fetch published media for this question
-  const { data: mediaRows } = await supabase
-    .from("media")
-    .select("id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
-    .eq("entity_type", "question")
-    .eq("entity_id", question.id)
-    .eq("status", "published")
-    .order("position");
 
   // JSON-LD QAPage with about → Movie (§8.2 film-entity recognition)
   const sameAsLinks = [
@@ -164,28 +137,6 @@ export default async function QuestionPage({ params }: Props) {
     },
   };
 
-  // ImageObject / VideoObject JSON-LD for media (§8 GEO)
-  const mediaLd = (mediaRows ?? []).map((m) => {
-    if (m.kind === "image") {
-      return {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        contentUrl: m.url,
-        thumbnailUrl: m.thumbnail_url,
-        caption: m.title ?? `Image for ${question.title}`,
-        creditText: m.attribution ?? "TMDB",
-      };
-    }
-    return {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      name: m.title ?? question.title,
-      thumbnailUrl: m.thumbnail_url,
-      embedUrl: m.url,
-      uploadDate: question.created_at,
-    };
-  });
-
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -214,62 +165,33 @@ export default async function QuestionPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      {mediaLd.map((ld, i) => (
-        <script
-          key={`media-ld-${i}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
-        />
-      ))}
 
-      {/* ── D1: Big Film Banner ── */}
-      <div className="film-banner">
-        {backdropUrl ? (
-          <img src={backdropUrl} alt={film.title} className="film-banner__bg" loading="eager" fetchPriority="high" />
-        ) : (
-          <div className="film-banner__bg" style={{ background: "var(--ink)" }} />
-        )}
-        <div className="film-banner__overlay" />
-        <div className="film-banner__content">
-          <Link href={`/film/${film.slug}`}>
-            {film.poster_path ? (
-              <img
-                src={posterUrl(film.poster_path, "w185")!}
-                alt={film.title}
-                className="film-banner__poster"
-              />
-            ) : (
-              <div className="poster film-banner__poster" />
-            )}
-          </Link>
-          <div className="film-banner__info">
-            <h2 className="film-banner__title">
-              <Link href={`/film/${film.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
-                {film.title}
+      {/* ── Film context — TEXT subhead (binds page→film for SEO/AI; no banner) ── */}
+      <div className="filmbar">
+        <div className="filmbar__inner">
+          <Link href={`/film/${film.slug}`} className="filmbar__title">
+            {film.title}
+          </Link>{" "}
+          <span style={{ color: "var(--subtle)" }}>({film.year})</span>
+          <span className="filmbar__sep">·</span>
+          dir.{" "}
+          {film.director_slug ? (
+            <Link href={`/director/${film.director_slug}`}>{film.director}</Link>
+          ) : (
+            film.director
+          )}
+          {filmQuestionCount && filmQuestionCount > 1 && (
+            <>
+              <span className="filmbar__sep">·</span>
+              <Link href={`/film/${film.slug}`} className="filmbar__qn">
+                ▸ {filmQuestionCount} questions on this film
               </Link>
-              {" "}
-              <span style={{ fontWeight: 400, fontSize: 18, opacity: 0.7 }}>({film.year})</span>
-            </h2>
-            <div className="film-banner__meta">
-              dir.{" "}
-              {film.director_slug ? (
-                <Link href={`/director/${film.director_slug}`}>{film.director}</Link>
-              ) : (
-                film.director
-              )}
-            </div>
-            {filmQuestionCount && filmQuestionCount > 1 && (
-              <div className="film-banner__qcount">
-                <Link href={`/film/${film.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
-                  ▸ {filmQuestionCount} questions on this film
-                </Link>
-              </div>
-            )}
-          </div>
+            </>
+          )}
         </div>
       </div>
 
-      <main className="shell" style={{ paddingTop: 0 }}>
+      <main className="shell" style={{ paddingTop: 28 }}>
         {/* ── D2: Breadcrumb ── */}
         <nav className="breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -279,33 +201,25 @@ export default async function QuestionPage({ params }: Props) {
           <span style={{ color: "var(--ink)" }}>{question.title.length > 60 ? question.title.slice(0, 57) + "…" : question.title}</span>
         </nav>
 
-        {/* ── Desktop: sticky layout wrapper ── */}
-        <div className="sticky-layout">
-          {/* ── Main column ── */}
-          <div>
-            {/* Question title */}
-            <h1 className="disp" style={{ fontSize: 30, margin: 0 }}>{question.title}</h1>
-            <div className="credit" style={{ marginTop: 10 }}>
-              asked by {author?.username || "anonymous"} · {timeAgo(question.created_at)}
-            </div>
+        {/* Question title */}
+        <h1 className="disp" style={{ fontSize: 32, margin: 0, lineHeight: 1.18, maxWidth: "22ch" }}>{question.title}</h1>
+        <div className="credit" style={{ marginTop: 10 }}>
+          asked by {author?.username || "anonymous"} · {timeAgo(question.created_at)}
+        </div>
 
-            {question.body && (
-              <p className="body reading" style={{ fontSize: 16, marginTop: 12, color: "var(--muted)" }}>
-                {question.body}
-              </p>
-            )}
+        {question.body && (
+          <p
+            className="body"
+            style={{ fontSize: 18, lineHeight: 1.6, marginTop: 16, color: "var(--ink-soft)", maxWidth: "60ch", paddingLeft: 16, borderLeft: "2px solid var(--hairline-2)" }}
+          >
+            {question.body}
+          </p>
+        )}
 
-            {/* Media gallery */}
-            {mediaRows && mediaRows.length > 0 && (
-              <div style={{ margin: "1.5rem 0" }}>
-                <MediaGallery media={mediaRows as Array<{ id: string; kind: "image" | "video"; source: "tmdb" | "youtube"; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null; duration?: string | null; channel_name?: string | null }>} />
-              </div>
-            )}
+        <hr className="rule" style={{ marginTop: 24 }} />
 
-            <hr className="rule" />
-
-            {/* Canonical answer */}
-            {canonical && canonical.status === "published" ? (
+        {/* Canonical answer — the hero, immediately (no media above it) */}
+        {canonical && canonical.status === "published" ? (
               <>
                 <div className="seclbl">The reading</div>
                 <div className="tick" />
@@ -355,8 +269,6 @@ export default async function QuestionPage({ params }: Props) {
 
             {/* Contributions section (client component) */}
             <ContributionSection questionId={question.id} filmSlug={film.slug} />
-          </div>
-        </div>
 
         {/* ── Endless feed: more Q&A from this film + beyond ── */}
         <hr className="rule" style={{ marginTop: 32 }} />

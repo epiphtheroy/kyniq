@@ -2,7 +2,6 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { posterUrl } from "@/lib/tmdb";
 
 function supabaseAnon() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -126,16 +125,9 @@ export default async function DirectorPage({ params }: Props) {
                 textDecoration: "none", color: "inherit",
               }}
             >
-              <span style={{ display: "flex", alignItems: "center", gap: 13 }}>
-                {f.poster_path ? (
-                  <img src={posterUrl(f.poster_path, "w185")!} alt={f.title} style={{ width: 34, height: 48, borderRadius: 4, objectFit: "cover" }} />
-                ) : (
-                  <span className="poster" style={{ width: 34, height: 48 }} />
-                )}
-                <span>
-                  <span className="disp" style={{ fontSize: 17 }}>{f.title}</span>{" "}
-                  <span className="ui muted" style={{ fontSize: 12 }}>{f.year}</span>
-                </span>
+              <span>
+                <span className="disp" style={{ fontSize: 17 }}>{f.title}</span>{" "}
+                <span className="ui muted" style={{ fontSize: 12 }}>{f.year}</span>
               </span>
               <span className="ui muted" style={{ fontSize: 12, whiteSpace: "nowrap" }}>
                 {qCountMap[f.id] || 0} questions

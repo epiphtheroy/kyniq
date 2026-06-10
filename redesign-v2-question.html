@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why does Nykvist light their faces so harshly? — Persona (1966) · FilmCurio</title>
+<style>
+/* ============================================================
+   FilmCurio · Redesign v2 — Question page ("answer-first")
+   Same design system as the home mock (→ globals.css).
+   ============================================================ */
+:root{
+  --paper:#FBFAF7; --surface:#FFFFFF;
+  --ink:#1B1A17; --ink-soft:#34322D; --muted:#6E6C66; --faint:#9B998F;
+  --hairline:rgba(27,26,23,.12); --hairline-2:rgba(27,26,23,.22);
+  --accent:#8A3B2F; --accent-soft:rgba(138,59,47,.08);
+  --serif:"Iowan Old Style","Charter","Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+  --maxw:1040px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#141310; --surface:#1A1916;
+    --ink:#ECE9E1; --ink-soft:#D6D3CA; --muted:#9B988F; --faint:#6F6C64;
+    --hairline:rgba(236,233,225,.13); --hairline-2:rgba(236,233,225,.24);
+    --accent:#C2604E; --accent-soft:rgba(194,96,78,.14);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+a{color:inherit; text-decoration:none}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+
+/* header */
+.site-head{position:sticky; top:0; z-index:10; background:color-mix(in srgb,var(--paper) 88%, transparent);
+  backdrop-filter:saturate(120%) blur(6px); border-bottom:1px solid var(--hairline)}
+.head-row{display:flex; align-items:center; gap:28px; height:60px}
+.brand{font-family:var(--serif); font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--ink)}
+.brand .dot{color:var(--accent)}
+.nav{display:flex; gap:20px; font-size:14px; color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.head-spacer{flex:1}
+.search{flex:0 1 300px; display:flex; align-items:center; gap:8px; border:1px solid var(--hairline-2);
+  border-radius:4px; padding:7px 11px; color:var(--faint); font-size:14px}
+.search:focus-within{border-color:var(--ink)}
+.search input{border:0; background:transparent; outline:0; width:100%; font:inherit; color:var(--ink)}
+.search input::placeholder{color:var(--faint)}
+.signin{font-size:14px; color:var(--muted)}
+.signin:hover{color:var(--ink)}
+
+/* film context — TEXT subhead, no banner/poster (still binds the page to the film for SEO/AI) */
+.filmbar{border-bottom:1px solid var(--hairline); padding:16px 0}
+.filmbar .line{font-size:14px; color:var(--muted)}
+.filmbar .title{font-family:var(--serif); font-weight:700; font-size:17px; color:var(--ink)}
+.filmbar a:hover{color:var(--ink)}
+.filmbar .title:hover{text-decoration:underline; text-underline-offset:3px}
+.filmbar .sep{color:var(--faint); margin:0 8px}
+.filmbar .qn{color:var(--accent)}
+
+/* layout */
+.cols{display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:56px; padding:30px 0 80px}
+@media (max-width:860px){ .cols{grid-template-columns:1fr; gap:44px} }
+
+/* breadcrumb */
+.crumb{font-size:12.5px; color:var(--faint); margin-bottom:22px}
+.crumb a:hover{color:var(--ink)}
+.crumb .sep{margin:0 7px}
+
+/* question head */
+.q-title{font-family:var(--serif); font-weight:700; font-size:33px; line-height:1.18; letter-spacing:-.02em;
+  margin:0 0 14px; color:var(--ink); max-width:22ch}
+.q-meta{font-size:13px; color:var(--muted)}
+.q-meta b{color:var(--ink); font-weight:600}
+.q-body{margin-top:18px; font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink-soft);
+  max-width:60ch; padding-left:16px; border-left:2px solid var(--hairline-2)}
+
+/* section label */
+.seclabel{font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--muted); padding-bottom:10px; margin:40px 0 0; border-bottom:1px solid var(--hairline)}
+.seclabel .tick{display:inline-block; width:26px; border-top:2px solid var(--accent); vertical-align:middle; margin-right:8px}
+.seclabel .rt{float:right; font-weight:500; letter-spacing:.04em; text-transform:none; color:var(--faint)}
+.seclabel .rt a.on{color:var(--ink)}
+
+/* THE READING — the hero, high on the page */
+.reading{padding-top:22px}
+.reading .lead{font-family:var(--serif); font-size:22px; line-height:1.5; color:var(--ink); margin:0 0 22px; max-width:60ch}
+.reading p{font-family:var(--serif); font-size:19px; line-height:1.72; color:var(--ink); margin:0 0 20px; max-width:64ch}
+.reading p a{border-bottom:1px solid var(--hairline-2)}
+.reading p a:hover{border-bottom-color:var(--ink)}
+.credit{font-size:12.5px; color:var(--muted); margin-top:26px}
+.credit b{color:var(--ink); font-weight:600}
+.disclosure{font-size:12.5px; color:var(--faint); font-style:italic; margin-top:6px}
+
+/* actions */
+.actions{display:flex; align-items:center; gap:18px; margin-top:24px; padding-top:18px; border-top:1px solid var(--hairline)}
+.btn{font-family:var(--sans); font-size:14px; font-weight:600; color:#fff; background:var(--accent);
+  border:0; border-radius:4px; padding:9px 16px; cursor:pointer}
+.btn:hover{filter:brightness(1.06)}
+.linkact{font-size:13.5px; color:var(--muted)}
+.linkact:hover{color:var(--ink)}
+.upvote{margin-left:auto; font-size:13px; color:var(--muted); display:flex; align-items:center; gap:6px}
+.upvote .arw{color:var(--accent)}
+
+/* community */
+.empty{font-family:var(--serif); font-style:italic; font-size:16px; color:var(--muted); padding:20px 0}
+
+/* dwell engine — pure text link lists */
+.dwell{list-style:none; margin:14px 0 0; padding:0}
+.dwell li{padding:13px 0; border-bottom:1px solid var(--hairline); display:flex; gap:16px; justify-content:space-between; align-items:baseline}
+.dwell li a.q{font-family:var(--serif); font-size:17px; line-height:1.35; color:var(--ink)}
+.dwell li a.q:hover{text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--hairline-2)}
+.dwell li .fm{font-size:12px; color:var(--faint); white-space:nowrap}
+
+/* right rail (sticky text) */
+.rail{align-self:start; position:sticky; top:84px}
+.rail .block{margin-bottom:30px}
+.rail .rlabel{font-size:11.5px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; color:var(--muted);
+  padding-bottom:10px; margin-bottom:12px; border-bottom:1px solid var(--hairline)}
+.rail .film{font-family:var(--serif); font-size:18px; font-weight:700; color:var(--ink)}
+.rail .dir{font-size:13px; color:var(--muted); margin-top:3px}
+.rail .dir a:hover{color:var(--ink)}
+.rail ul{list-style:none; margin:10px 0 0; padding:0}
+.rail li{padding:7px 0; font-size:14px; line-height:1.4}
+.rail li a{color:var(--ink-soft)}
+.rail li a:hover{color:var(--ink)}
+.rail .all{font-size:13px; color:var(--muted)}
+.rail .all a{border-bottom:1px solid var(--hairline-2)}
+@media (max-width:860px){ .rail{position:static} }
+
+/* footer */
+.site-foot{border-top:1px solid var(--hairline); padding:34px 0 60px; font-size:13px; color:var(--muted)}
+.foot-row{display:flex; flex-wrap:wrap; gap:18px; align-items:baseline}
+.foot-row .brand{font-size:15px}
+.foot-links{display:flex; flex-wrap:wrap; gap:16px}
+.foot-links a:hover{color:var(--ink)}
+.foot-fine{margin-top:16px; font-size:12px; color:var(--faint); line-height:1.6}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="/">filmcurio<span class="dot">.</span></a>
+    <nav class="nav"><a href="/film">Films</a><a href="/director">Directors</a><a href="/collections">Collections</a></nav>
+    <span class="head-spacer"></span>
+    <label class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input placeholder="Search films, directors, questions…" aria-label="Search">
+    </label>
+    <a class="signin" href="/login">Sign in</a>
+  </div>
+</header>
+
+<!-- Film context as real, crawlable, linked TEXT (binds page→film for SEO/AI; no heavy banner) -->
+<div class="filmbar">
+  <div class="wrap line">
+    <a class="title" href="/film/persona-1966">Persona</a> <span style="color:var(--faint)">(1966)</span>
+    <span class="sep">·</span> dir. <a href="/director/ingmar-bergman">Ingmar Bergman</a>
+    <span class="sep">·</span> <a class="qn" href="/film/persona-1966">▸ 10 questions on this film</a>
+  </div>
+</div>
+
+<div class="wrap cols">
+
+  <!-- MAIN -->
+  <main>
+    <nav class="crumb">
+      <a href="/film">Films</a><span class="sep">›</span>
+      <a href="/film/persona-1966">Persona</a><span class="sep">›</span>
+      <span>Why does Nykvist light their faces so harshly?</span>
+    </nav>
+
+    <h1 class="q-title">Why does Nykvist light their faces so harshly?</h1>
+    <p class="q-meta"><b>FilmCurio Editorial</b> · updated 2 days ago · read by 12</p>
+
+    <p class="q-body">The lighting is so intense that sometimes their faces almost blend into the white backgrounds or get lost in deep shadow. What does that extreme contrast do for the story?</p>
+
+    <!-- THE READING: the canonical answer, immediately, as the hero -->
+    <div class="seclabel"><span class="tick"></span>The reading</div>
+    <article class="reading">
+      <p class="lead">Nykvist's blown-out whites and crushed blacks turn the face into a battleground — and the cruel joke is that the more light he throws at it, the less of the real self we get to see.</p>
+
+      <p>His high-contrast photography works like a visual scalpel, stripping away every soft, flattering tone to expose the raw, architectural landscape of a face. In <a href="/film/persona-1966">Persona</a> the face <em>is</em> the story's primary battleground, so the lighting fights there: blinding whites on one side, impenetrable black on the other.</p>
+
+      <p>Watch what happens at the extremes. When the light is bright enough that the edge of Elisabeth's face dissolves into the background, the image is literally acting out her wish — to vanish, to become nothing. Conversely, the deep shadows swallow the rest of the face, hiding the darker impulses she works so hard to deny. The same frame holds both, which is exactly the split running within and between the two women.</p>
+
+      <p>And here's the turn. By over-exposing the film, Nykvist makes their skin a stark canvas that catches every twitch, pore, and micro-expression — total scrutiny. Yet the brighter and harder he lights them, the less of their true features we can actually read. The cinematography stages the film's deepest claim: even under the most brutal looking, the self stays fundamentally obscured.</p>
+
+      <p class="credit">Last updated by <b>FilmCurio Editorial</b> · 2 days ago · read by 12</p>
+      <p class="disclosure">AI-written and fact-checked to FilmCurio's editorial standards, with human oversight by sampling.</p>
+
+      <div class="actions">
+        <button class="btn">Share your reading</button>
+        <a class="linkact" href="#">Suggest an edit</a>
+        <span class="upvote"><span class="arw">▲</span> 9 found this insightful</span>
+      </div>
+    </article>
+
+    <!-- community -->
+    <div class="seclabel"><span class="tick"></span>Readings from the community
+      <span class="rt"><a class="on" href="#">Top</a> · <a href="#">Newest</a></span></div>
+    <p class="empty">No community readings yet — share the first.</p>
+
+    <!-- DWELL ENGINE — text links only, never a dead end -->
+    <div class="seclabel">More questions about Persona</div>
+    <ul class="dwell">
+      <li><a class="q" href="#">Are the two women actually the same person?</a><span class="fm">read by 88</span></li>
+      <li><a class="q" href="#">What happens in the famous "film burning" break?</a><span class="fm">read by 54</span></li>
+      <li><a class="q" href="#">Why does Alma talk while Elisabet stays silent?</a><span class="fm">read by 41</span></li>
+      <li><a class="q" href="#">What's the boy reaching at the screen in the prologue?</a><span class="fm">read by 37</span></li>
+    </ul>
+
+    <div class="seclabel">More from Ingmar Bergman</div>
+    <ul class="dwell">
+      <li><a class="q" href="#">Is the knight's chess game with Death meant literally?</a><span class="fm">The Seventh Seal (1957)</span></li>
+      <li><a class="q" href="#">Why does the dream logic keep collapsing time?</a><span class="fm">Wild Strawberries (1957)</span></li>
+      <li><a class="q" href="#">What is the "spider god" the daughter sees?</a><span class="fm">Through a Glass Darkly (1961)</span></li>
+    </ul>
+
+    <p class="more" style="margin-top:24px; font-size:14px; color:var(--muted)"><a href="/film/persona-1966" style="border-bottom:1px solid var(--hairline-2)">Continue reading on Persona →</a></p>
+  </main>
+
+  <!-- RIGHT RAIL (sticky text) -->
+  <aside class="rail">
+    <div class="block">
+      <div class="rlabel">On this film</div>
+      <div class="film"><a href="/film/persona-1966">Persona</a> <span style="color:var(--faint);font-weight:400">(1966)</span></div>
+      <div class="dir">dir. <a href="/director/ingmar-bergman">Ingmar Bergman</a> · Sweden</div>
+      <p class="all" style="margin-top:10px"><a href="/film/persona-1966">▸ 10 questions on this film</a></p>
+    </div>
+
+    <div class="block">
+      <div class="rlabel">More on this film</div>
+      <ul>
+        <li><a href="#">Are the two women the same person?</a></li>
+        <li><a href="#">The "film burning" break, explained</a></li>
+        <li><a href="#">Why Alma talks and Elisabet doesn't</a></li>
+        <li><a href="#">The boy in the prologue</a></li>
+      </ul>
+      <p class="all" style="margin-top:8px"><a href="/film/persona-1966">All 10 →</a></p>
+    </div>
+
+    <div class="block">
+      <div class="rlabel">More from Bergman</div>
+      <ul>
+        <li><a href="#">The Seventh Seal (1957)</a></li>
+        <li><a href="#">Wild Strawberries (1957)</a></li>
+        <li><a href="#">Through a Glass Darkly (1961)</a></li>
+      </ul>
+      <p class="all" style="margin-top:8px"><a href="/director/ingmar-bergman">Director hub →</a></p>
+    </div>
+  </aside>
+
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="brand" href="/">filmcurio<span class="dot">.</span></a>
+      <span style="color:var(--faint)">Read films closely.</span>
+      <span class="head-spacer"></span>
+      <nav class="foot-links"><a href="/about">About</a><a href="/contact">Contact</a><a href="/guidelines">Guidelines</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></nav>
+    </div>
+    <p class="foot-fine">Seoul, Republic of Korea · channel.wonwoo@gmail.com<br>
+    This product uses the TMDB API but is not endorsed or certified by TMDB. © 2026 FilmCurio.</p>
+  </div>
+</footer>
+
+</body>
+</html>

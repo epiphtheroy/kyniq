@@ -4,8 +4,8 @@
   "description": "Film Q&A Community — a cabinet of cinema's curiosities.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#16233F",
-  "theme_color": "#16233F",
+  "background_color": "#FBFAF7",
+  "theme_color": "#FBFAF7",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },

@@ -37,25 +37,22 @@ export default async function Header() {
         <Image
           src="/mark.svg"
           alt=""
-          width={28}
-          height={28}
+          width={22}
+          height={22}
           priority
-          style={{ height: 28, width: 28, marginRight: 8 }}
+          style={{ height: 22, width: 22, marginRight: 9 }}
         />
-        <picture>
-          <source
-            srcSet="/wordmark-dark.svg"
-            media="(prefers-color-scheme: dark)"
-          />
-          <Image
-            src="/wordmark.svg"
-            alt="FilmCurio"
-            width={100}
-            height={22}
-            priority
-            style={{ height: 22, width: "auto" }}
-          />
-        </picture>
+        <span
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 700,
+            fontSize: 20,
+            letterSpacing: "-0.01em",
+            color: "var(--ink)",
+          }}
+        >
+          filmcurio<span style={{ color: "var(--accent-text)" }}>.</span>
+        </span>
       </Link>
 
       <nav className="header-nav">

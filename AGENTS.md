@@ -24,18 +24,24 @@ the single source of truth; this file is the short standing brief that applies t
 4. **One mission at a time** (§13). Deliver exactly that mission's scope and pass its *Verify*
    steps. Do not scope-creep into later or deferred work.
 
-## Design system (do not improvise)
-- All styling comes from `globals.css` (design tokens + component classes, §2.1/§2.2). Copy it
-  into the app as the base layer; do **not** redefine colors, fonts, or radii, and never add
-  drop shadows.
-- Palette: `--ink #16233F` (brand navy), `--bg #FBF8F1` (bright ivory), `--surface #FFFFFF`,
-  `--muted #5B6473`, `--hairline rgba(22,35,63,.12)`, `--accent #E0922A` (marigold) + `--accent-2 #159A92` (teal).
-  Dark mode via `prefers-color-scheme`. Marigold = primary action; teal = interactive/curiosity cues, used sparingly.
-- Fonts: **Reddit Sans** — one family, weight hierarchy (700 display, 600 UI, 400 reading).
-- **Match the reference screens** — open/render them and reproduce layout & proportion (not the
-  placeholder copy): `ref-home`, `ref-film-page`, `ref-question-page`, `ref-director`,
-  `ref-profile`, `ref-ask-flow`, `ref-chrome` (global header/footer), `ref-signup`,
-  `ref-settings`, `ref-about` (all `.html`).
+## Design system v2 — "Reading Instrument" (do not improvise)
+- All styling comes from `globals.css` (design tokens + component classes, §2.1/§2.2). Do **not**
+  redefine colors, fonts, or radii elsewhere; never add drop shadows, cards, or gradients.
+  Separation is **hairlines + whitespace** only. **Text-first:** no posters, backdrops, stills, or
+  video embeds on public pages.
+- Palette (near-achromatic, warm): `--bg #FBFAF7`, `--surface #FFFFFF`, `--ink #1B1A17`,
+  `--muted #6E6C66`, `--hairline rgba(27,26,23,.12)`, and ONE restrained accent `--accent #8A3B2F`
+  (oxblood) for the primary action + active state only — links are ink + hairline underline.
+  Dark mode via `prefers-color-scheme` (`--bg #141310`, `--ink #ECE9E1`, `--accent #C2604E`).
+  **Navy / marigold / teal are retired.**
+- Fonts (zero web-fonts): system **serif** for reading + display
+  (`Iowan Old Style, Charter, "Source Serif 4", Georgia, serif`); system **sans** for UI/chrome.
+  Reddit Sans is no longer loaded.
+- Logo: a minimal **dot-style** mark (thin oxblood "?" + round dot, `mark.svg`/`favicon.svg`) +
+  a **serif text wordmark** "filmcurio." with an oxblood period (rendered in the header/footer).
+- **Match the v2 mockups** — `redesign-v2-home.html`, `redesign-v2-question.html`, and the
+  rationale in `redesign-v2-plan.md`. (The old `ref-*.html` screens show the retired navy/marigold
+  look — ignore their palette/type; v2 wins.)
 - Reuse the §2.2 components. One primary action per screen. Separate with hairlines +
   whitespace, never boxes or cards.
 

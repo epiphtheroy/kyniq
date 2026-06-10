@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   other: {
-    "theme-color": "#16233F",
+    "theme-color": "#FBFAF7",
   },
 };
 

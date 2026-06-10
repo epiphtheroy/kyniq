@@ -3,8 +3,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 
-const POSTER_BASE = "https://image.tmdb.org/t/p";
-
 interface FeedItem {
   id: string;
   title: string;
@@ -116,41 +114,35 @@ export default function InfiniteScrollFeed({
         const answerParagraphs = item.answer.split(/\n\n+/).filter(Boolean);
         const teaserParagraphs = item.answerTeaser.split(/\n\n+/).filter(Boolean);
         const hasMore = item.answer.length > item.answerTeaser.length + 20;
-        const firstVideo = item.media.find(
-          (m) => m.kind === "video" && m.source === "youtube"
-        );
 
         return (
           <article key={item.id} className="feed-item">
-            {/* Film chips — poster integrated into film chip */}
-            <div className="feed-item__chips">
-              <Link
-                href={`/film/${item.film.slug}`}
-                className="feed-item__chip feed-item__chip--film"
-              >
-                {item.film.posterPath && (
-                  <img
-                    src={`${POSTER_BASE}/w92${item.film.posterPath}`}
-                    alt=""
-                    className="feed-item__chip-poster"
-                    loading="lazy"
-                  />
-                )}
-                <span>{item.film.title} ({item.film.year})</span>
-              </Link>
-              <span className="feed-item__chip feed-item__chip--director">
-                {item.film.director}
-              </span>
-            </div>
-
-            {/* QUESTION — the hero (full width) */}
+            {/* QUESTION — the hero */}
             <h2 className="feed-item__question">
               <Link href={`/film/${item.film.slug}/q/${item.slug}`}>
                 {item.title}
               </Link>
             </h2>
 
-            {/* ANSWER — immediately readable, full width */}
+            {/* FILM — text meta line (links, no poster) */}
+            <div className="feed-item__film">
+              <Link href={`/film/${item.film.slug}`}>{item.film.title}</Link>{" "}
+              <span className="yr">({item.film.year})</span>
+              {item.film.director && (
+                <>
+                  {" · "}
+                  {item.film.directorSlug ? (
+                    <Link href={`/director/${item.film.directorSlug}`}>
+                      {item.film.director}
+                    </Link>
+                  ) : (
+                    item.film.director
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* ANSWER teaser — immediately readable */}
             <div className="feed-item__answer">
               {(isExpanded ? answerParagraphs : teaserParagraphs).map(
                 (p, i) => (

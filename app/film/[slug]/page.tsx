@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { getFilmBySlug, posterUrl } from "@/lib/tmdb";
 import { createClient } from "@supabase/supabase-js";
@@ -145,24 +144,11 @@ export default async function FilmPage({ params }: PageProps) {
   const film = await getFilmBySlug(slug);
   if (!film) notFound();
 
-  const poster = posterUrl(film.poster_path);
   const questions = await getPublishedQuestions(film.id);
   const contributionCounts = await getContributionCounts(
     questions.map((q) => q.id)
   );
   const mostRead = await getMostReadQuestion(film.id);
-
-  // Fetch backdrop media for hero
-  const { data: filmMedia } = supabaseAnon()
-    .from("media")
-    .select("url, thumbnail_url, caption, attribution")
-    .eq("entity_type", "film")
-    .eq("entity_id", film.id)
-    .eq("kind", "image")
-    .eq("status", "published")
-    .order("position")
-    .limit(1);
-  const backdropUrl = (await filmMedia)?.at(0)?.url ?? null;
 
   return (
     <article className="shell">
@@ -182,101 +168,31 @@ export default async function FilmPage({ params }: PageProps) {
         <span>Films</span>
       </nav>
 
-      {/* Backdrop hero */}
-      {backdropUrl && (
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: 200,
-            marginBottom: 20,
-            borderRadius: 8,
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={backdropUrl}
-            alt={`${film.title} backdrop`}
-            loading="lazy"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(transparent 40%, var(--bg) 100%)",
-            }}
-          />
-        </div>
-      )}
-
-      {/* Film header — poster + title + meta + synopsis */}
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          alignItems: "flex-start",
-        }}
+      {/* Film header — text only */}
+      <h1
+        className="disp"
+        style={{ fontSize: "32px", margin: 0, lineHeight: "1.18" }}
       >
-        {/* Poster */}
-        <div
-          className="poster"
+        {film.title}
+      </h1>
+      <div className="ui muted" style={{ fontSize: "13px", marginTop: "7px" }}>
+        {film.year} · dir. {film.director ?? "Unknown"} ·{" "}
+        {questions.length} question{questions.length !== 1 ? "s" : ""}
+      </div>
+      {film.overview && (
+        <p
+          className="body"
           style={{
-            width: "90px",
-            height: "128px",
-            position: "relative",
-            overflow: "hidden",
+            fontSize: "17px",
+            lineHeight: "1.6",
+            margin: "14px 0 0",
+            maxWidth: "60ch",
+            color: "var(--ink-soft)",
           }}
         >
-          {poster && (
-            <Image
-              src={poster}
-              alt={`${film.title} poster`}
-              fill
-              sizes="90px"
-              style={{
-                objectFit: "cover",
-                filter: "saturate(0.7)",
-                borderRadius: "4px",
-              }}
-              priority
-            />
-          )}
-        </div>
-
-        <div style={{ flex: 1 }}>
-          <h1
-            className="disp"
-            style={{ fontSize: "30px", margin: 0, lineHeight: "1.18" }}
-          >
-            {film.title}
-          </h1>
-          <div
-            className="ui muted"
-            style={{ fontSize: "13px", marginTop: "6px" }}
-          >
-            {film.year} · dir. {film.director ?? "Unknown"} ·{" "}
-            {questions.length} question{questions.length !== 1 ? "s" : ""}
-          </div>
-          {film.overview && (
-            <p
-              className="body"
-              style={{
-                fontSize: "16.5px",
-                lineHeight: "1.6",
-                margin: "12px 0 0",
-                maxWidth: "60ch",
-              }}
-            >
-              {film.overview}
-            </p>
-          )}
-        </div>
-      </div>
+          {film.overview}
+        </p>
+      )}
 
       <hr className="rule" style={{ marginTop: "22px" }} />
 

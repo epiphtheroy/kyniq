@@ -11,6 +11,30 @@ Brand: **FilmCurio** · domain **filmcurio.com** · contact **channel.wonwoo@gma
 
 ---
 
+> ## ⚑ Design v2 — "Reading Instrument" (CURRENT — overrides the visual spec below)
+> The live design has been replaced with a **near-achromatic, text-first** system. Where the
+> sections below describe the old navy/marigold + Reddit Sans look, **v2 wins.** Rationale, tokens,
+> and page structure live in `redesign-v2-plan.md`; the mockups are `redesign-v2-home.html` and
+> `redesign-v2-question.html`. Summary of the overrides:
+> - **Palette (near-achromatic, warm):** `--bg #FBFAF7`, `--surface #FFFFFF`, `--ink #1B1A17`,
+>   `--muted #6E6C66`, `--hairline rgba(27,26,23,.12)`, and **one** restrained accent
+>   `--accent #8A3B2F` (muted oxblood) for the primary action + active state only. Dark mode:
+>   `--bg #141310`, `--ink #ECE9E1`, `--accent #C2604E`. **Navy / marigold / teal are retired.**
+> - **Type (zero web-fonts):** system **serif** for reading + display (`Iowan Old Style, Charter,
+>   "Source Serif 4", Georgia, serif`), system **sans** for UI/chrome. Reddit Sans is no longer loaded.
+> - **Text-first:** no posters, backdrops, stills, or video embeds on public pages. Separation is
+>   hairlines + whitespace — **no cards, shadows, or gradients.**
+> - **Question page:** the heavy film banner is replaced by a **linked text film subhead**; the
+>   canonical **answer (The Reading) sits high on the page** (no media above it); related modules
+>   are **text links**. Curiobot still *attaches* media in the DB, but it is **not rendered** on the
+>   page in v2 (and its `ImageObject`/`VideoObject` JSON-LD is omitted so markup matches visible content).
+> - **Home:** a question-led **text feed** (no posters) + a **browse rail** (films / directors /
+>   collections).
+> - **Logo:** a minimal **dot-style** mark — a thin oxblood "?" with a round dot — plus a **serif
+>   text wordmark** "filmcurio." with an oxblood period.
+
+---
+
 ## 0. How to drive this in Antigravity
 
 - Drop this file at the repo root as `SPEC.md`. Also create an `AGENTS.md` that says
@@ -58,15 +82,16 @@ readings, discussion, "add your interpretation") lives on-page to earn the click
   *film* with *curio* — a curio is a small, intriguing object kept because it rewards a second
   look. The site is a **cabinet of cinema's curiosities**, and the **question (the "?" in the
   mark)** sits at the heart of every page.
-- **Logo (designed mark, adopted).** A **film-frame question mark** — a clean "?" whose dot is a
-  marigold film cell — in a navy rounded tile, paired with a lowercase **Reddit Sans 700**
-  wordmark "filmcurio". It encodes film + question + *curio* and reads down to a 16px favicon.
-  Lowercase wordmark; never restyle per page. (Full system + files: `/brand`.)
-- **Brand palette (driven by the logo).** Brand navy **#16233F** is `--ink` (§2.1), on a bright
-  warm **ivory** page (`--bg` #FBF8F1) with white surfaces; the accent is a lively **marigold
-  #E0922A** (buttons, the mark's dot) with a **teal #159A92** secondary for interactive /
-  curiosity cues. Navy + ivory keeps it literary; marigold + teal keeps it curious and alive,
-  not sedate. (Full tokens incl. dark mode: §2.1 / `globals.css`.)
+- **Logo (v2 — minimal dot mark).** A lightweight **"?" reduced to a clean stroke + a round dot**,
+  drawn in the oxblood accent on a transparent ground (no navy tile) — `mark.svg` / `favicon.svg`.
+  It pairs with a lowercase **serif text wordmark** "filmcurio." whose period is an oxblood dot
+  (rendered live in the header/footer, not an outlined SVG). It encodes film + question + *curio*
+  and reads down to a 16px favicon.
+- **Brand palette (v2 — near-achromatic).** Warm near-white paper (`--bg` #FBFAF7) under warm
+  near-black ink (`--ink` #1B1A17) with white surfaces, and a single restrained **oxblood** accent
+  (`--accent` #8A3B2F) reserved for the primary action + active state. No secondary colour;
+  navy / marigold / teal are retired. Near-monochrome keeps it literary and gets out of the text's
+  way. (Full tokens incl. dark mode: §2.1 / `globals.css`.)
 - **Logo + favicon assets — in `/brand` (drop into Next.js `/public/`).** Vector: `lockup-horizontal.svg` (+ `-dark`), `lockup-stacked.svg`, `wordmark.svg` (+ `-dark`, outlined Reddit Sans 700), `mark.svg`, `app-icon.svg`, `icon-maskable.svg`, `favicon.svg`. Raster: `favicon-16/32/48.png`, `favicon.ico`, `apple-touch-icon.png` (180), `icon-192/512.png`, `icon-maskable-512.png`, `og-image.png` (1200×630), plus `site.webmanifest`. globals.css loads the wordmark with a `prefers-color-scheme` swap; the favicon is the mark's "?" tile, so favicon and wordmark stay one family. See `/brand/brand-guide.md`.
 - **Taglines — two roles, both kept.** "FILM Q&A COMMUNITY" is the **descriptor** in the logo
   lockup (self-explains the brand; good for OG + first-time visitors). "Read films closely." is
@@ -115,27 +140,27 @@ of standalone files shipped alongside SPEC.md — load and match them before bui
 The text in §2.1–§2.2 governs the rules; the reference files show the result. They are
 hand-built mockups with placeholder copy — reproduce the look, not the sample text.
 
-### Typography (load via Google Fonts)
-- **One family — Reddit Sans** (the practical, accessible sans Reddit uses), with a weight-based
-  hierarchy. A single clean sans keeps the product fast, legible, and friendly — not heavy or
-  overly literary.
-- **Display** (site title, film & question titles, section headers): Reddit Sans **700**.
-- **Reading body** (canonical answers + contributions): Reddit Sans **400**, 18px / line-height 1.7.
-- **UI / chrome** (nav, buttons, metadata, badges, tabs, labels): Reddit Sans **500–600**.
-- Reading measure: cap body text at ~68ch, generous vertical rhythm. Section labels: Reddit Sans
-  ~12px 600, letter-spaced, uppercase, above a hairline rule (magazine section markers).
+### Typography (system fonts — zero web-fonts)
+- **Two system stacks, no downloads.** Reading + display use a system **serif**
+  (`Iowan Old Style, Charter, "Source Serif 4", Georgia, serif`); UI/chrome uses a system **sans**
+  (`-apple-system, system-ui, …`). This is the lightest possible setup and maximises long-form
+  reading. Reddit Sans is no longer loaded.
+- **Display** (site title, film & question titles, section headers): serif **700**.
+- **Reading body** (canonical answers + contributions): serif **400**, 19px / line-height 1.72.
+- **UI / chrome** (nav, buttons, metadata, badges, tabs, labels): system sans **500–600**.
+- Reading measure: cap body text at ~66ch, generous vertical rhythm. Section labels: sans
+  ~11.5px 600, letter-spaced, uppercase, above a hairline rule (magazine section markers).
 
 ### Color tokens (expose as CSS variables + Tailwind theme)
 Light ("paper") — the default identity:
-- `--bg` #FBF8F1 (bright ivory) · `--surface` #FFFFFF · `--surface-2` #F3EEE3 · `--ink` #16233F
-  (brand navy) · `--muted` #5B6473 · `--hairline` rgba(22,35,63,0.12) · `--accent` #E0922A
-  (marigold — buttons, mark dot, active upvote) · `--accent-text` #B5701A (readable amber for
-  amber text/links) · `--accent-2` #159A92 (teal secondary) · `--accent-2-text` #0F7A73. Marigold
-  = primary action; teal = interactive / curiosity cues, used sparingly.
-Dark ("ink") — deep navy-charcoal:
-- `--bg` #11161F · `--surface` #18222F · `--surface-2` #1F2A3A · `--ink` #ECE7DB · `--muted`
-  #9AA1AD · `--hairline` rgba(236,231,219,0.14) · `--accent` #EDA23A (brighter marigold) ·
-  `--accent-2` #2BB3AA (teal).
+- `--bg` #FBFAF7 (warm near-white) · `--surface` #FFFFFF · `--surface-2` #F3F1EA · `--ink` #1B1A17
+  (warm near-black) · `--ink-soft` #34322D · `--muted` #6E6C66 · `--subtle` #9B998F ·
+  `--hairline` rgba(27,26,23,0.12) · `--hairline-2` rgba(27,26,23,0.22) · `--accent` #8A3B2F
+  (oxblood — primary action + active upvote, used almost nowhere else) · `--accent-text` #8A3B2F.
+  All links are ink + a hairline underline; the accent is reserved, not decorative.
+Dark ("ink") — warm near-black:
+- `--bg` #141310 · `--surface` #1A1916 · `--surface-2` #21201B · `--ink` #ECE9E1 · `--muted`
+  #9B988F · `--hairline` rgba(236,231,225,0.13) · `--accent` #C2604E.
 
 ### Components & details
 - **Separation:** hairline rules + whitespace, not boxes and shadows. Shadows essentially
