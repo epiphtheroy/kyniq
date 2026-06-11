@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContributionSection from "./ContributionSection";
+import MediaGallery from "@/components/MediaGallery";
+import ShareRow from "@/components/ShareRow";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 export const dynamic = 'force-dynamic';
@@ -19,7 +21,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, "question-slug": qSlug } = await params;
+  const { "question-slug": qSlug } = await params;
   const supabase = supabaseAnon();
 
   const { data: question } = await supabase
@@ -40,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function QuestionPage({ params }: Props) {
-  const { slug, "question-slug": qSlug } = await params;
+  const { "question-slug": qSlug } = await params;
   const supabase = supabaseAnon();
 
   // Fetch question + film + canonical answer
@@ -66,9 +68,8 @@ export default async function QuestionPage({ params }: Props) {
   };
 
   const author = question.author as unknown as { username: string; display_name: string } | null;
-  
+
   // PostgREST returns a single object for 1:1 UNIQUE FK, or an array for 1:N.
-  // Handle both cases safely.
   type CanonicalAnswer = {
     id: string; body: string; updated_at: string; revision_count: number;
     status: string; source: string; generated_by: string | null;
@@ -79,7 +80,7 @@ export default async function QuestionPage({ params }: Props) {
     ? (rawCA[0] ?? null)
     : (rawCA as CanonicalAnswer | null);
 
-  // TL;DR extraction: first paragraph as standfirst
+  // Standfirst (dek) = first paragraph; body = the rest
   let standfirst = "";
   let restBody = "";
   if (canonical?.body) {
@@ -90,6 +91,26 @@ export default async function QuestionPage({ params }: Props) {
 
   const updater = canonical?.updated_by_profile;
   const isAI = canonical?.source === "ai";
+
+  // Media for this question (hero still + videos)
+  type MediaItem = {
+    id: string; kind: "image" | "video"; source: "tmdb" | "youtube";
+    external_id: string; url: string; thumbnail_url: string | null;
+    title: string | null; attribution: string | null;
+    duration: string | null; channel_name: string | null;
+  };
+  const { data: mediaRows } = await supabase
+    .from("media")
+    .select("id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
+    .eq("entity_type", "question")
+    .eq("entity_id", question.id)
+    .eq("status", "published")
+    .order("position");
+
+  const media = (mediaRows ?? []) as MediaItem[];
+  const heroIdx = media.findIndex((m) => m.kind === "image");
+  const hero = heroIdx >= 0 ? media[heroIdx] : null;
+  const restMedia = media.filter((_, i) => i !== heroIdx);
 
   // Count questions on this film
   const { count: filmQuestionCount } = await supabase
@@ -147,13 +168,16 @@ export default async function QuestionPage({ params }: Props) {
     ],
   };
 
-  const timeAgo = (d: string) => {
-    const diff = Date.now() - new Date(d).getTime();
-    const days = Math.floor(diff / 86400000);
-    if (days < 1) return "today";
-    if (days === 1) return "1 day ago";
-    return `${days} days ago`;
-  };
+  const dateFmt = (d: string) =>
+    new Date(d).toLocaleDateString("en-GB", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+
+  const words = (canonical?.body ?? "").split(/\s+/).filter(Boolean).length;
+  const readMins = Math.max(1, Math.round(words / 220));
+  const bodyParagraphs = restBody ? restBody.split(/\n\n+/) : [];
 
   return (
     <>
@@ -166,122 +190,188 @@ export default async function QuestionPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      {/* ── Film context — TEXT subhead (binds page→film for SEO/AI; no banner) ── */}
-      <div className="filmbar">
-        <div className="filmbar__inner">
-          <Link href={`/film/${film.slug}`} className="filmbar__title">
-            {film.title}
-          </Link>{" "}
-          <span style={{ color: "var(--subtle)" }}>({film.year})</span>
-          <span className="filmbar__sep">·</span>
-          dir.{" "}
-          {film.director_slug ? (
-            <Link href={`/director/${film.director_slug}`}>{film.director}</Link>
-          ) : (
-            film.director
+      <main className="page">
+        <div className="colwrap">
+          {/* ── Kicker: film | year · director ── */}
+          <header className="article-head">
+            <p className="kicker">
+              <Link href={`/film/${film.slug}`}>{film.title}</Link>
+              <span className="sep">|</span>
+              <span className="topic">
+                {film.year}
+                {film.director ? (
+                  <>
+                    {" · dir. "}
+                    {film.director_slug ? (
+                      <Link
+                        href={`/director/${film.director_slug}`}
+                        style={{ color: "inherit", textDecoration: "none" }}
+                      >
+                        {film.director}
+                      </Link>
+                    ) : (
+                      film.director
+                    )}
+                  </>
+                ) : null}
+              </span>
+            </p>
+
+            {/* ── Headline ── */}
+            <h1 className="article-title">{question.title}</h1>
+
+            {/* ── Dek (standfirst) ── */}
+            {standfirst && <p className="article-dek">{standfirst}</p>}
+
+            {/* ── Meta + share row ── */}
+            <div className="article-metarow">
+              <span>{dateFmt(question.published_at ?? question.created_at)}</span>
+              <span>·</span>
+              <span>{readMins} min read</span>
+              {question.view_count > 0 && (
+                <>
+                  <span>·</span>
+                  <span>{question.view_count.toLocaleString()} reads</span>
+                </>
+              )}
+              <span className="grow" />
+              <ShareRow title={question.title} />
+            </div>
+          </header>
+
+          {/* ── Hero image with caption ── */}
+          {hero && (
+            <figure className="article-hero" style={{ margin: "18px 0 0" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={hero.url ?? hero.thumbnail_url ?? ""}
+                alt={hero.title ?? `Still from ${film.title}`}
+                width={780}
+                height={439}
+              />
+              <figcaption>
+                {hero.title ?? `${film.title} (${film.year})`}
+                {" · "}
+                {hero.attribution ?? "Still via TMDB"}
+              </figcaption>
+            </figure>
           )}
-          {filmQuestionCount && filmQuestionCount > 1 && (
+
+          {/* ── The asked question, if it has a body ── */}
+          {question.body && (
+            <p
+              className="body"
+              style={{
+                fontSize: 16.5,
+                lineHeight: 1.6,
+                marginTop: 20,
+                color: "var(--muted)",
+                maxWidth: "60ch",
+                paddingLeft: 14,
+                borderLeft: "2px solid var(--accent)",
+              }}
+            >
+              {question.body}
+              <span
+                className="ui"
+                style={{ display: "block", fontSize: 12, marginTop: 6, color: "var(--subtle)" }}
+              >
+                asked by {author?.username || "anonymous"}
+              </span>
+            </p>
+          )}
+
+          {/* ── Article body — drop cap, ■ end mark ── */}
+          {canonical && canonical.status === "published" ? (
             <>
-              <span className="filmbar__sep">·</span>
-              <Link href={`/film/${film.slug}`} className="filmbar__qn">
-                ▸ {filmQuestionCount} questions on this film
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
-
-      <main className="shell" style={{ paddingTop: 28 }}>
-        {/* ── D2: Breadcrumb ── */}
-        <nav className="breadcrumb" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span className="breadcrumb__sep">›</span>
-          <Link href={`/film/${film.slug}`}>{film.title}</Link>
-          <span className="breadcrumb__sep">›</span>
-          <span style={{ color: "var(--ink)" }}>{question.title.length > 60 ? question.title.slice(0, 57) + "…" : question.title}</span>
-        </nav>
-
-        {/* Question title */}
-        <h1 className="disp" style={{ fontSize: 32, margin: 0, lineHeight: 1.18, maxWidth: "22ch" }}>{question.title}</h1>
-        <div className="credit" style={{ marginTop: 10 }}>
-          asked by {author?.username || "anonymous"} · {timeAgo(question.created_at)}
-        </div>
-
-        {question.body && (
-          <p
-            className="body"
-            style={{ fontSize: 18, lineHeight: 1.6, marginTop: 16, color: "var(--ink-soft)", maxWidth: "60ch", paddingLeft: 16, borderLeft: "2px solid var(--hairline-2)" }}
-          >
-            {question.body}
-          </p>
-        )}
-
-        <hr className="rule" style={{ marginTop: 24 }} />
-
-        {/* Canonical answer — the hero, immediately (no media above it) */}
-        {canonical && canonical.status === "published" ? (
-              <>
-                <div className="seclbl">The reading</div>
-                <div className="tick" />
-
-                {standfirst && (
-                  <p className="standfirst" style={{ margin: "0 0 16px" }}>{standfirst}</p>
+              <div className="article-body">
+                {bodyParagraphs.length > 0 ? (
+                  bodyParagraphs.map((p, i) => (
+                    <p key={i} className={i === 0 ? "has-dropcap" : undefined}>
+                      {p}
+                      {i === bodyParagraphs.length - 1 && (
+                        <span className="endmark">■</span>
+                      )}
+                    </p>
+                  ))
+                ) : (
+                  <p className="has-dropcap">
+                    {standfirst}
+                    <span className="endmark">■</span>
+                  </p>
                 )}
+              </div>
 
-                {restBody && (
-                  <div className="body reading" style={{ fontSize: 18, margin: 0 }}>
-                    {restBody.split(/\n\n+/).map((p, i) => (
-                      <p key={i} style={{ margin: i === 0 ? 0 : "14px 0 0" }}>{p}</p>
-                    ))}
-                  </div>
-                )}
-
-                <div className="credit" style={{ marginTop: 18 }}>
-                  Last updated by{" "}
-                  <span style={{ color: "var(--ink)" }}>
-                    {updater?.username || (isAI ? "FilmCurio Editorial" : "community")}
-                  </span>
-                  {" "}· {timeAgo(canonical.updated_at)} · read by {question.view_count.toLocaleString()}
-                </div>
-
+              <div className="article-credit">
+                Last updated by{" "}
+                <span style={{ color: "var(--ink)" }}>
+                  {updater?.username || (isAI ? "FilmCurio Editorial" : "community")}
+                </span>{" "}
+                · {dateFmt(canonical.updated_at)}
                 {isAI && (
-                  <div className="ui muted" style={{ fontSize: 11.5, marginTop: 8, fontStyle: "italic" }}>
+                  <span style={{ display: "block", marginTop: 4, fontStyle: "italic" }}>
                     AI-written and fact-checked to FilmCurio&apos;s editorial standards.
-                  </div>
+                  </span>
                 )}
+              </div>
 
-                <div style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
-                  <Link href="#share-reading" className="link-primary">Share your reading</Link>
-                  <Link href="#suggest-edit" className="action-secondary">Suggest an edit</Link>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="seclbl">The reading</div>
-                <div className="tick" />
-                <p className="ui muted" style={{ fontSize: 15, fontStyle: "italic" }}>
-                  No canonical answer yet — <Link href="#share-reading" className="accent" style={{ textDecoration: "none" }}>share your reading</Link> to start one.
-                </p>
-              </>
-            )}
+              <div style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+                <Link href="#share-reading" className="link-primary">Share your reading</Link>
+                <Link href="#suggest-edit" className="action-secondary">Suggest an edit</Link>
+                {filmQuestionCount && filmQuestionCount > 1 ? (
+                  <Link href={`/film/${film.slug}`} className="action-secondary">
+                    {filmQuestionCount} questions on this film →
+                  </Link>
+                ) : null}
+              </div>
+            </>
+          ) : (
+            <p className="ui muted" style={{ fontSize: 15, fontStyle: "italic", marginTop: 24 }}>
+              No canonical answer yet —{" "}
+              <Link href="#share-reading" className="accent" style={{ textDecoration: "none" }}>
+                share your reading
+              </Link>{" "}
+              to start one.
+            </p>
+          )}
 
-            <hr className="rule" style={{ marginTop: 26 }} />
+          {/* ── Stills strip + related videos ── */}
+          {restMedia.length > 0 && (
+            <section className="secmod">
+              <div className="secmod__head secmod__head--red">
+                <h2 className="secmod__title">From the film</h2>
+              </div>
+              <div style={{ marginTop: 14 }}>
+                <MediaGallery media={restMedia} />
+              </div>
+            </section>
+          )}
 
-            {/* Contributions section (client component) */}
+          {/* ── Contributions ── */}
+          <section className="secmod">
+            <div className="secmod__head">
+              <h2 className="secmod__title">Readers&apos; readings</h2>
+            </div>
             <ContributionSection questionId={question.id} filmSlug={film.slug} />
+          </section>
 
-        {/* ── Endless feed: more Q&A from this film + beyond ── */}
-        <hr className="rule" style={{ marginTop: 32 }} />
-        <div className="seclbl">More interpretations</div>
-        <div className="tick" />
-
-        <MoreFeed filmId={film.id} excludeId={question.id} />
+          {/* ── More interpretations ── */}
+          <section className="secmod">
+            <div className="secmod__head secmod__head--red">
+              <h2 className="secmod__title">More interpretations</h2>
+              <Link href="/" className="secmod__more">
+                The latest →
+              </Link>
+            </div>
+            <MoreFeed filmId={film.id} excludeId={question.id} />
+          </section>
+        </div>
       </main>
     </>
   );
 }
 
-/* --- Client wrapper that fetches first page of "more" feed --- */
+/* --- Server helper that fetches the first page of the "more" feed --- */
 import InfiniteScrollFeed from "@/components/InfiniteScrollFeed";
 
 async function MoreFeed({ filmId, excludeId }: { filmId: string; excludeId: string }) {
@@ -310,7 +400,7 @@ async function MoreFeed({ filmId, excludeId }: { filmId: string; excludeId: stri
 
   // Fetch media
   const questionIds = items.map((q) => q.id);
-  let mediaMap = new Map<string, Array<{
+  const mediaMap = new Map<string, Array<{
     kind: string; source: string; external_id: string;
     url: string; thumbnail_url: string | null; title: string | null;
     attribution: string | null; duration: string | null; channel_name: string | null;

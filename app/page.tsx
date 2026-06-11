@@ -41,6 +41,19 @@ function supabaseAnon() {
   );
 }
 
+function editionDate(): string {
+  const d = new Date();
+  const day = d.getDate();
+  const suffix =
+    day % 10 === 1 && day !== 11 ? "st"
+    : day % 10 === 2 && day !== 12 ? "nd"
+    : day % 10 === 3 && day !== 13 ? "rd"
+    : "th";
+  const weekday = d.toLocaleDateString("en-GB", { weekday: "long" });
+  const month = d.toLocaleDateString("en-GB", { month: "long" });
+  return `${weekday} ${month} ${day}${suffix} ${d.getFullYear()}`;
+}
+
 export default async function HomePage() {
   const supabase = supabaseAnon();
 
@@ -74,7 +87,7 @@ export default async function HomePage() {
 
   // Fetch media for initial items
   const questionIds = items.map((q) => q.id);
-  let mediaMap = new Map<string, Array<{
+  const mediaMap = new Map<string, Array<{
     kind: string; source: string; external_id: string;
     url: string; thumbnail_url: string | null; title: string | null;
     attribution: string | null; duration: string | null; channel_name: string | null;
@@ -166,116 +179,107 @@ export default async function HomePage() {
   const topFilms = [...filmTally.values()].sort((a, b) => b.count - a.count).slice(0, 8);
   const topDirectors = [...dirTally.values()].sort((a, b) => b.count - a.count).slice(0, 6);
 
+  // "In brief" digest — the next headlines after the lead
+  const briefItems = feedItems.slice(1, 5);
+
   return (
-    <main className="home-main">
-      {/* Masthead */}
-      <div style={{ paddingBottom: 4 }}>
-        <h1
-          className="disp"
-          style={{
-            fontSize: 40,
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            margin: "0 0 14px",
-          }}
-        >
-          Read films closely.
-        </h1>
-        <p
-          className="body"
-          style={{
-            fontSize: 17,
-            lineHeight: 1.6,
-            color: "var(--muted)",
-            margin: 0,
-            maxWidth: "54ch",
-          }}
-        >
-          A cabinet of cinema&apos;s curiosities. One question about one film,
-          answered at the depth a single paragraph can&apos;t replace — written
-          to be read, and to be cited.
-        </p>
-        <p
-          className="ui"
-          style={{ margin: "16px 0 0", fontSize: 13.5, color: "var(--subtle)" }}
-        >
-          <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-            {totalQuestions ?? 0}
-          </strong>{" "}
-          interpretations across{" "}
-          <strong style={{ color: "var(--ink)", fontWeight: 600 }}>
-            {totalFilms ?? 0}
-          </strong>{" "}
-          films · updated daily
-        </p>
+    <main className="page">
+      {/* ── Edition line ── */}
+      <div className="edition">
+        <span className="edition__date">{editionDate()}</span>
+        <span className="edition__tag">Read films closely</span>
       </div>
 
-      <hr className="rule" style={{ margin: "28px 0 8px" }} />
-
-      <div className="home-cols">
-        {/* Feed */}
-        <div>
-          <div
-            className="seclbl"
-            style={{ paddingBottom: 10, marginBottom: 2, borderBottom: "1px solid var(--hairline)" }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: 26,
-                borderTop: "2px solid var(--accent)",
-                verticalAlign: "middle",
-                marginRight: 8,
-              }}
-            />
-            Latest readings
-          </div>
-          <InfiniteScrollFeed initialItems={feedItems} initialCursor={nextCursor} />
+      <div className="home-grid">
+        {/* ── Main column: lead story + story rows ── */}
+        <div className="home-grid__main">
+          <InfiniteScrollFeed
+            initialItems={feedItems}
+            initialCursor={nextCursor}
+            lead
+          />
         </div>
 
-        {/* Browse rail — text index */}
-        <aside className="home-rail">
-          {topFilms.length > 0 && (
-            <div className="block">
-              <div className="rlabel">Browse by film</div>
-              <ul>
-                {topFilms.map((f) => (
-                  <li key={f.slug}>
-                    <Link href={`/film/${f.slug}`}>{f.title}</Link>
-                    <span className="c">{f.count}</span>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/film">All films →</Link>
-                </li>
-              </ul>
-            </div>
-          )}
-
-          {topDirectors.length > 0 && (
-            <div className="block">
-              <div className="rlabel">Browse by director</div>
-              <ul>
-                {topDirectors.map((d) => (
-                  <li key={d.slug}>
-                    <Link href={`/director/${d.slug}`}>{d.name}</Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/director">All directors →</Link>
-                </li>
-              </ul>
-            </div>
-          )}
-
-          <div className="block">
-            <div className="rlabel">About</div>
-            <p className="note">
-              Interpretations are AI-written and fact-checked to FilmCurio&apos;s editorial
-              standards, with human oversight by sampling.{" "}
-              <Link href="/about">How it works →</Link>
+        {/* ── Secondary column ── */}
+        <aside>
+          {/* Dark digest module ≈ "The world in brief" */}
+          <section className="brief">
+            <p className="brief__label">FilmCurio in brief</p>
+            <h2 className="brief__title">
+              {totalQuestions ?? 0} interpretations across {totalFilms ?? 0} films
+            </h2>
+            <p className="brief__sub">
+              One question about one film, answered at depth — updated daily.
             </p>
-          </div>
+            {briefItems.map((b) => (
+              <Link
+                key={b.id}
+                href={`/film/${b.film.slug}/q/${b.slug}`}
+                className="brief__item"
+              >
+                {b.title}
+                <span className="f">
+                  {b.film.title} ({b.film.year})
+                </span>
+              </Link>
+            ))}
+            <Link href="/ask" className="brief__cta">
+              Ask your own question →
+            </Link>
+          </section>
+
+          {/* Section module: films */}
+          {topFilms.length > 0 && (
+            <section className="secmod">
+              <div className="secmod__head secmod__head--red">
+                <h2 className="secmod__title">Most-read films</h2>
+                <Link href="/film" className="secmod__more">
+                  All films →
+                </Link>
+              </div>
+              {topFilms.map((f) => (
+                <Link key={f.slug} href={`/film/${f.slug}`} className="idxrow">
+                  <span className="idxrow__t">{f.title}</span>
+                  <span className="idxrow__c">{f.count}</span>
+                </Link>
+              ))}
+            </section>
+          )}
+
+          {/* Section module: directors */}
+          {topDirectors.length > 0 && (
+            <section className="secmod">
+              <div className="secmod__head secmod__head--red">
+                <h2 className="secmod__title">Directors</h2>
+                <Link href="/director" className="secmod__more">
+                  All directors →
+                </Link>
+              </div>
+              {topDirectors.map((d) => (
+                <Link key={d.slug} href={`/director/${d.slug}`} className="idxrow">
+                  <span className="idxrow__t">{d.name}</span>
+                </Link>
+              ))}
+            </section>
+          )}
+
+          {/* About note */}
+          <section className="secmod">
+            <div className="secmod__head">
+              <h2 className="secmod__title">About FilmCurio</h2>
+            </div>
+            <p
+              className="ui"
+              style={{ fontSize: 13.5, lineHeight: 1.6, color: "var(--muted)", margin: "10px 0 0" }}
+            >
+              A cabinet of cinema&apos;s curiosities. Interpretations are AI-written
+              and fact-checked to FilmCurio&apos;s editorial standards, with human
+              oversight by sampling.{" "}
+              <Link href="/about" style={{ color: "var(--accent-text)" }}>
+                How it works →
+              </Link>
+            </p>
+          </section>
         </aside>
       </div>
     </main>

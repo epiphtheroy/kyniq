@@ -116,7 +116,6 @@ export default function SearchTypeahead({
       router.push(allItems[activeIdx].href);
       setOpen(false);
       setQuery("");
-      onNavigate?.();
     } else if (e.key === "Escape") {
       setOpen(false);
     }
@@ -188,7 +187,6 @@ export default function SearchTypeahead({
                       router.push(`/film/${f.slug}`);
                       setOpen(false);
                       setQuery("");
-                      onNavigate?.();
                     }}
                   >
                     {f.poster_path ? (
@@ -223,7 +221,6 @@ export default function SearchTypeahead({
                       router.push(`/director/${d.director_slug}`);
                       setOpen(false);
                       setQuery("");
-                      onNavigate?.();
                     }}
                   >
                     <div>
@@ -253,7 +250,6 @@ export default function SearchTypeahead({
                       router.push(`/film/${q.film_slug}/q/${q.slug}`);
                       setOpen(false);
                       setQuery("");
-                      onNavigate?.();
                     }}
                   >
                     <div>

@@ -1,9 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
-import UserMenu from "./UserMenu";
-import SearchTypeahead from "./SearchTypeahead";
+import Masthead from "./Masthead";
 
 async function getUser() {
   try {
@@ -30,45 +27,5 @@ async function getUser() {
 
 export default async function Header() {
   const user = await getUser();
-
-  return (
-    <header className="site-header">
-      <Link href="/" className="brandlock" aria-label="FilmCurio home">
-        <Image
-          src="/mark.svg"
-          alt=""
-          width={22}
-          height={22}
-          priority
-          style={{ height: 22, width: 22, marginRight: 9 }}
-        />
-        <span
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 700,
-            fontSize: 20,
-            letterSpacing: "-0.01em",
-            color: "var(--ink)",
-          }}
-        >
-          filmcurio<span style={{ color: "var(--accent-text)" }}>.</span>
-        </span>
-      </Link>
-
-      <nav className="header-nav">
-        <Link href="/film">Films</Link>
-        <Link href="/director">Directors</Link>
-      </nav>
-
-      <SearchTypeahead />
-
-      {user ? (
-        <UserMenu username={user.username} displayName={user.display_name} role={user.role} />
-      ) : (
-        <Link href="/login" className="action-secondary">
-          Sign in
-        </Link>
-      )}
-    </header>
-  );
+  return <Masthead user={user} />;
 }
