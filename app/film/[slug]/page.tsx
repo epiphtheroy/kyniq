@@ -6,7 +6,13 @@ import { createClient } from "@supabase/supabase-js";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 // ISR: edge-cached, background-refreshed (was force-dynamic).
+// generateStaticParams (even empty) opts the dynamic route into
+// static generation with on-demand ISR — without it Next renders
+// every request dynamically and nothing is cached.
 export const revalidate = 300;
+export async function generateStaticParams() {
+  return [];
+}
 
 /** Anon Supabase client for public reads (safe at build time — no cookies needed) */
 function supabaseAnon() {

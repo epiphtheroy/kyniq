@@ -11,6 +11,9 @@ import LightboxImage from "@/components/LightboxImage";
 // Force dynamic rendering — always fetch fresh data from Supabase
 // ISR: edge-cached, background-refreshed (was force-dynamic).
 export const revalidate = 300;
+export async function generateStaticParams() {
+  return [];
+}
 
 function supabaseAnon() {
   return createClient(

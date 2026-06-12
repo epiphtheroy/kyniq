@@ -12,6 +12,9 @@ import Link from "next/link";
 
 // ISR: edge-cached, background-refreshed (was force-dynamic).
 export const revalidate = 300;
+export async function generateStaticParams() {
+  return [];
+}
 
 function supabaseAnon() {
   return createClient(
