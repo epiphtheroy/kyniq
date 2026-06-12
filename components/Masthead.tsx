@@ -24,6 +24,7 @@ const NAV = [
   { href: "/", label: "The latest" },
   { href: "/film", label: "Films" },
   { href: "/director", label: "Directors" },
+  { href: "/frames", label: "Questions" },
   { href: "/ask", label: "Ask a question" },
   { href: "/about", label: "About" },
 ];

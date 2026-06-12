@@ -107,7 +107,7 @@ def call_gemini(model, user):
             {"role": "model", "parts": [{"text": "Understood."}]},
             {"role": "user", "parts": [{"text": user}]},
         ],
-        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1024,
+        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 8192,
                              "responseMimeType": "application/json"},
     }
     status, text = http(
@@ -133,12 +133,32 @@ def grade(user):
     raise last
 
 
+def coerce_bool(v):
+    if isinstance(v, bool):
+        return v
+    if isinstance(v, str):
+        if v.strip().lower() in ("true", "yes", "1"):
+            return True
+        if v.strip().lower() in ("false", "no", "0"):
+            return False
+    return None
+
+
 def validate(parsed, title):
     flags = []
-    if (not isinstance(parsed, dict)
-            or parsed.get("spoiler_level") not in SPOILER_LEVELS
+    if not isinstance(parsed, dict):
+        return None, ["invalid shape: not a dict"]
+    # tolerate case/whitespace variants from the model
+    lvl = parsed.get("spoiler_level")
+    if isinstance(lvl, str):
+        parsed["spoiler_level"] = lvl.strip().lower()
+    ts = coerce_bool(parsed.get("title_spoiler"))
+    if ts is not None:
+        parsed["title_spoiler"] = ts
+    if (parsed.get("spoiler_level") not in SPOILER_LEVELS
             or not isinstance(parsed.get("title_spoiler"), bool)):
-        return None, ["invalid shape"]
+        return None, [f'invalid shape: level={parsed.get("spoiler_level")!r} '
+                      f'title_spoiler={parsed.get("title_spoiler")!r}']
     item = {
         "spoiler_level": parsed["spoiler_level"],
         "title_spoiler": parsed["title_spoiler"],
@@ -195,13 +215,23 @@ for q in targets:
             f'ANSWER: {(ca.get("body") or "")[:2500]}\n\nGrade this item now. JSON only.')
     try:
         text, model = grade(user)
+        parsed = None
         try:
             parsed = json.loads(text)
         except Exception:
-            parsed = None
+            t = text.strip()
+            if t.startswith("```"):
+                t = t.split("\n", 1)[-1].rsplit("```", 1)[0]
+            s_i, e_i = t.find("{"), t.rfind("}")
+            if s_i >= 0 and e_i > s_i:
+                try:
+                    parsed = json.loads(t[s_i:e_i + 1])
+                except Exception:
+                    parsed = None
         item, flags = validate(parsed, q["title"])
         if item is None:
-            results.append((q, None, None, flags, "validation failed"))
+            results.append((q, None, None, flags,
+                            f"validation failed: {'; '.join(flags)} | raw={text[:160]!r}"))
             continue
         if not DRY:
             st, tx = sb("PATCH", f'questions?id=eq.{q["id"]}', {

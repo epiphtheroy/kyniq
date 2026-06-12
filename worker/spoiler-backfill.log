@@ -1,9 +1,139 @@
-[spoiler-backfill] 10 fetched (home-feed order), 1 to grade
+[spoiler-backfill] 133 fetched (home-feed order), 26 to grade
 
-— The Shawshank Redemption · "Why does the movie spend so much time on the library and the taxes?"
+— Stalker · "Why does the Writer put on a crown of thorns, and then immediately take it off?"
+   🟢 spoiler_level=none · title_spoiler=False
+   why:    The answer provides a purely thematic and psychological analysis of a character's symbolic gesture without revealing any narrative developments or character fates.
+
+— Forrest Gump · "How does the film use the contrast between Forrest's home in Alabama and Jenny's various locations to explore the concept of home?"
+   🟡 spoiler_level=mild · title_spoiler=False
+   why:    The answer analyzes thematic contrasts and character journeys across the film without revealing Jenny's ultimate fate or the final ending.
+
+— The Green Mile · "What is the cinematic purpose of showing John watching 'Top Hat'?"
    🔴 spoiler_level=major · title_spoiler=False
-   hook:   Discover how Andy Dufresne turns mundane prison paperwork into his ultimate shield and a clever tool for survival.
-   why:    The answer reveals Andy's ultimate fate by explicitly mentioning his escape plan and path to freedom.
+   hook:   Discover how a classic 1930s musical provides a heartbreaking contrast to the grim realities of death row in Frank Darabont's masterpiece.
+   why:    The answer reveals John's tragic fate by discussing how the musical serves as a bittersweet farewell before his execution.
 
-[spoiler-backfill] done: 1 graded + written, 0 errors
-  none: 0 · mild: 0 · major: 1 · masked titles: 0
+— Forrest Gump · "What is the significance of Lieutenant Dan's legs, and why does his attitude toward Forrest change so drastically after the hurricane?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Discover how a fierce storm and a broken promise help one of cinema's most bitter characters find peace and a new path forward.
+   why:    The answer is graded major because it reveals Lieutenant Dan's ultimate fate, including his emotional resolution and his appearance at the end of the film.
+
+— Forrest Gump · "How does the timeline of Forrest's run across America actually make sense, and what finally makes him stop?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Discover the emotional and psychological truth behind Forrest's legendary cross-country run and how a simple physical act helped him process his deepest unspoken grief.
+   why:    The answer is graded major because it reveals a significant late-film plot development regarding the existence of Forrest's son.
+
+— The Shawshank Redemption · "Why does the camera slowly zoom in on Red's face during his final parole hearing compared to his first two?"
+   🟡 spoiler_level=mild · title_spoiler=False
+   why:    The answer focuses on the cinematic craft and thematic meaning behind the camera movement in a late-film scene without explicitly revealing the final outcome of Red's parole or the movie's ending.
+
+— Persona · "What is the meaning of the boy touching the giant blurry face at the beginning and end?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Discover how Bergman's haunting opening and closing imagery unlocks the film's deepest themes of maternal rejection and the illusion of cinematic reality.
+   why:    The answer reveals a major psychological climax regarding Elisabeth's hidden feelings toward her son, which is a central revelation of the film.
+
+— Fight Club · "How did one guy manage to set up a nationwide terrorist network in his sleep?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: How did 👤 manage to set up a nationwide terrorist network 😴?
+   hook:   Unpack the viral, franchise-like strategy that allowed Project Mayhem to rapidly expand nationwide without its leader ever seemingly getting a full night's sleep.
+   why:    The answer reveals the film's central split-personality twist, while the title itself gives away the unconscious nature of the protagonist's double life.
+
+— The Green Mile · "How is Mr. Jingles still alive at the end of the movie?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: How is 🐭 still 🌟 at the end of the movie?
+   hook:   Discover how a touch of divine grace forever altered the natural lifespan of an unlikely companion on the Green Mile.
+   why:    The answer reveals major late-film secrets regarding the supernatural longevity gifted to both Paul and the mouse.
+
+— 2001: A Space Odyssey · "Why does HAL actually malfunction? Is it just a random glitch or did the crew do something wrong?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Discover the tragic programming paradox that drove cinema's most famous artificial intelligence to the brink of madness deep in the cosmos.
+   why:    The answer reveals HAL's murderous turn and the secret programming conflict that drives him to eliminate the crew.
+
+— Forrest Gump · "Why does Jenny keep running away from Forrest when he is the only person who truly loves her?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Delve into the deep psychological trauma that drives Jenny's elusive behavior and why unconditional love can sometimes feel like the most terrifying thing of all.
+   why:    The answer reveals the resolution of Jenny's lifelong emotional struggle and her ultimate return to Forrest, which constitutes a major character fate.
+
+— The Shawshank Redemption · "What is the significance of the rocks Andy polishes and carves?"
+   🟢 spoiler_level=none · title_spoiler=False
+   why:    The answer focuses entirely on the thematic and symbolic meaning of Andy's hobby without revealing his ultimate escape or the film's ending.
+
+— The Green Mile · "Why did John Coffey choose to die when Paul offered him a way out?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why did John Coffey choose to 🕊️ when Paul offered him a way out?
+   hook:   Discover the heartbreaking spiritual and societal reasons behind one of cinema's most devastating final decisions.
+   why:    The answer reveals the tragic fate and ultimate demise of the main character, John Coffey.
+
+— Persona · "What actually happened at the end? Did they swap places or what?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Unpack the haunting final moments of Bergman's masterpiece and discover what the psychological clash between Alma and Elisabeth truly means.
+   why:    The answer details the exact resolution of the characters' fates and the meaning of the film's final scenes.
+
+— The Lord of the Rings: The Fellowship of the Ring · "Why does Frodo decide to go to Mordor alone at the end?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why does Frodo decide to go to Mordor 👤 at the end?
+   hook:   Discover the heartbreaking realization that forced Frodo to make his ultimate sacrifice at the falls of Rauros.
+   why:    The answer details the climax of the film, including Boromir's betrayal and the breaking of the Fellowship, while the title reveals Frodo's final solitary departure.
+
+— Stalker · "Why didn't they actually go inside the Room at the end?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why didn't they actually 🚫 🚪 the Room at the end?
+   hook:   Discover the terrifying psychological mirror that stopped the travelers at the very threshold of their deepest desires.
+   why:    The answer reveals the climax and ultimate resolution of the characters' quest, while the title spoils that they never enter the Room.
+
+— Mulholland Drive · "What is the actual timeline of events, and when does the dream end?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Unravel the dual realities of David Lynch's masterpiece by decoding how a tragic subconscious fantasy reconstructs a shattered Hollywood life.
+   why:    The answer reveals the film's central narrative twist, explaining that the majority of the story is a guilt-induced dream hiding a tragic reality.
+
+— The Godfather · "Why did Tessio betray the Corleone family instead of Clemenza, and how did Michael know it was him?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why did 🕶️ 🐍 the Corleone family instead of Clemenza, and how did Michael know it was 👤?
+   hook:   Unpack the tactical chess match and the crucial piece of advice that allowed Michael to stay one step ahead of his enemies.
+   why:    The title spoils Tessio's late-game betrayal, while the answer details his ultimate fate and the mechanics of Michael's counter-strategy.
+
+— The Godfather · "Why does Sonny's death feel so much more visceral and shocking than the other assassinations in the film?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why does 🤌's 💀 feel so much more visceral and shocking than the other assassinations in the film?
+   hook:   Discover how Coppola used groundbreaking real-world influences and explosive practical effects to redefine cinematic violence in one of the film's most tragic sequences.
+   why:    The Q&A reveals the death of a major character, Sonny Corleone, and analyzes the cinematic techniques behind his iconic assassination.
+
+— The Godfather · "Why does Kay believe Michael's lie at the end of the film, and what does the final shot mean?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Explore the psychological depth behind the film's iconic final image and what it reveals about the tragic compromise at the heart of the Corleone marriage.
+   why:    The answer details the climax and final scene of the film, explaining the significance of Michael's lie and the symbolic closing door.
+
+— The Godfather · "Why does Michael take over the family business when he spent his whole life trying to escape it?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why does Michael 👑 the family business when he spent his whole life trying to 🏃‍♂️ it?
+   hook:   Discover the tragic turning point and moral compromise that forced Michael Corleone to embrace the dark destiny he spent his youth running from.
+   why:    The answer details Michael's ultimate moral descent and his fate as the family's new leader, while the title reveals his final role.
+
+— Whiplash · "Why did Andrew break up with Nicole so coldly?"
+   🟡 spoiler_level=mild · title_spoiler=True
+   masked: Why did Andrew 💔 Nicole so coldly?
+   why:    The title spoils a relationship breakup, while the answer details mid-movie plot points and character motivations without revealing the film's climactic final performance.
+
+— Pulp Fiction · "Why does Vincent Vega spend so much time in the bathroom, and how does it connect to his fate?"
+   🔴 spoiler_level=major · title_spoiler=False
+   hook:   Discover how a mundane habit and a hidden addiction serve as the ultimate, tragic undoing for Tarantino's iconic hitman.
+   why:    The answer reveals a major character's death, while the title only hints at a 'fate' without spoiling the specific outcome.
+
+— Pulp Fiction · "How does Pulp Fiction subvert the classic hardboiled noir tropes of the 1940s?"
+   🟡 spoiler_level=mild · title_spoiler=False
+   why:    The answer discusses mid-film plot developments, such as Mia's overdose and Butch's pawnshop detour, without revealing the film's ending or final character fates.
+
+— The Dark Knight · "Why does Batman take the fall for Harvey Dent's crimes at the end of the movie?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why does Batman take the fall for 🪙's ⚖️💥 at the end of the movie?
+   hook:   Discover the tragic philosophical sacrifice that redefined the Dark Knight's mission and saved Gotham's soul from absolute despair.
+   why:    The answer details the film's climax and Harvey Dent's tragic downfall, while the title openly reveals Batman's final sacrifice and Dent's corruption.
+
+— Parasite · "Why does the ending feel so tragic if Ki-woo has a plan to buy the house?"
+   🔴 spoiler_level=major · title_spoiler=True
+   masked: Why does the ending feel so 😭 if Ki-woo has a plan to 🔑 the 🏠?
+   hook:   Discover how Bong Joon Ho uses a devastating cinematic illusion to deliver the film's final, crushing critique of the class divide.
+   why:    The answer explains the film's final scene in detail, revealing that Ki-woo's plan to rescue his father is an impossible fantasy.
+
+[spoiler-backfill] done: 26 graded + written, 0 errors
+  none: 2 · mild: 4 · major: 20 · masked titles: 11

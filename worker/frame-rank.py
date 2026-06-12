@@ -9,6 +9,9 @@ with a one-line rationale each. Materialises the result into frame_rankings
 Usage:
   python3 frame-rank.py --slug is-the-ending-real --approve
   python3 frame-rank.py --slug symbolic-motif          # rank only
+  python3 frame-rank.py --all-gated                    # approve+rank every
+                                                       # candidate frame with
+                                                       # >=5 published instances
 """
 
 import json
@@ -42,10 +45,12 @@ if not (SUPABASE_URL and SERVICE_KEY and GEMINI_KEY):
     print("Missing env vars"); sys.exit(1)
 
 args = sys.argv[1:]
-if "--slug" not in args:
-    print("Usage: frame-rank.py --slug <frame-slug> [--approve]"); sys.exit(1)
-SLUG = args[args.index("--slug") + 1]
-APPROVE = "--approve" in args
+ALL_GATED = "--all-gated" in args
+HUB_GATE = 5
+if not ALL_GATED and "--slug" not in args:
+    print("Usage: frame-rank.py --slug <frame-slug> [--approve] | --all-gated"); sys.exit(1)
+SLUG = args[args.index("--slug") + 1] if "--slug" in args else None
+APPROVE = "--approve" in args or ALL_GATED
 
 
 def http(method, url, headers=None, body=None, timeout=120):
@@ -99,13 +104,7 @@ Return ONLY JSON:
 Every input index appears exactly once. Rationales must be spoiler-free (they appear on a public list page)."""
 
 
-def main():
-    # frame
-    st, tx = sb("GET", f"frames?select=id,slug,label,definition,status&slug=eq.{urllib.parse.quote(SLUG)}")
-    rows = json.loads(tx) if st == 200 else []
-    if not rows:
-        print(f"frame not found: {SLUG}"); sys.exit(1)
-    frame = rows[0]
+def process_frame(frame):
     print(f"[rank] frame: {frame['label']} ({frame['status']})")
 
     # instances
@@ -127,7 +126,7 @@ def main():
                      "aha": (ca or {}).get("aha") or ""})
     print(f"[rank] {len(inst)} published instances")
     if not inst:
-        sys.exit(0)
+        return
 
     listing = "\n".join(f'{i}. [{x["film"]}] {x["title"]}' + (f'\n   insight: {x["aha"]}' if x["aha"] else "")
                         for i, x in enumerate(inst))
@@ -137,7 +136,7 @@ def main():
     try:
         ranking = json.loads(raw)["ranking"]
     except Exception:
-        print(f"[rank] ❌ ranking JSON parse failed: {raw[:300]}"); sys.exit(1)
+        print(f"[rank] ❌ ranking JSON parse failed: {raw[:300]}"); return
 
     # replace rankings
     sb("DELETE", f"frame_rankings?frame_id=eq.{frame['id']}", prefer="return=minimal")
@@ -150,21 +149,47 @@ def main():
                          "rationale": r.get("rationale") or "", "model": "gemini-flash"})
     st, tx = sb("POST", "frame_rankings", rows, prefer="return=minimal")
     if st >= 300:
-        print(f"[rank] ❌ insert {st}: {tx}"); sys.exit(1)
+        print(f"[rank] ❌ insert {st}: {tx}"); return
     for r in sorted(rows, key=lambda x: x["rank"]):
         q = next(x for x in inst if x["id"] == r["question_id"])
         print(f'  #{r["rank"]} [{q["film"]}] — {r["rationale"][:90]}')
 
     if APPROVE and frame["status"] != "approved":
         sb("PATCH", f"frames?id=eq.{frame['id']}", {"status": "approved"}, prefer="return=minimal")
-        print(f"[rank] ✅ frame approved: {SLUG}")
+        print(f"[rank] ✅ frame approved: {frame['slug']}")
 
     sb("POST", "content_events", {
         "entity_type": "frame", "entity_id": frame["id"],
         "event": "frame_ranked", "actor_kind": "ai",
-        "meta": {"slug": SLUG, "instances": len(rows), "approved": APPROVE},
+        "meta": {"slug": frame["slug"], "instances": len(rows), "approved": APPROVE},
     }, prefer="return=minimal")
-    print(f"[rank] done: {len(rows)} rankings written")
+    print(f"[rank] done: {len(rows)} rankings written\n")
+
+
+def main():
+    if ALL_GATED:
+        # candidate frames passing the hub gate (>=5 published instances)
+        st, tx = sb("GET", f"frame_instance_counts?select=frame_id,instance_count"
+                           f"&instance_count=gte.{HUB_GATE}&limit=1000")
+        if st != 200:
+            print(f"Supabase {st}: {tx}"); sys.exit(1)
+        gated_ids = [r["frame_id"] for r in json.loads(tx)]
+        if not gated_ids:
+            print("[rank] no frames pass the gate"); return
+        ids = ",".join(gated_ids)
+        st, tx = sb("GET", f"frames?select=id,slug,label,definition,status"
+                           f"&id=in.({ids})&status=eq.candidate&order=slug")
+        frames = json.loads(tx) if st == 200 else []
+        print(f"[rank] {len(frames)} candidate frames pass the >= {HUB_GATE} gate\n")
+        for fr in frames:
+            process_frame(fr)
+        return
+
+    st, tx = sb("GET", f"frames?select=id,slug,label,definition,status&slug=eq.{urllib.parse.quote(SLUG)}")
+    rows = json.loads(tx) if st == 200 else []
+    if not rows:
+        print(f"frame not found: {SLUG}"); sys.exit(1)
+    process_frame(rows[0])
 
 
 if __name__ == "__main__":

@@ -20,13 +20,13 @@ fi
 echo "▶ $(pwd)"
 if command -v node >/dev/null 2>&1; then
   echo "▶ runtime: node ($(command -v node))"
-  node spoiler-backfill.mjs "$@" 2>&1 | tee spoiler-backfill.log
+  node spoiler-backfill.mjs --limit 200 "$@" 2>&1 | tee spoiler-backfill.log
 elif [ -x /usr/bin/python3 ] && xcode-select -p >/dev/null 2>&1; then
   echo "▶ runtime: python3 (/usr/bin/python3 — node not installed)"
-  /usr/bin/python3 spoiler-backfill.py "$@" 2>&1 | tee spoiler-backfill.log
+  /usr/bin/python3 spoiler-backfill.py --limit 200 "$@" 2>&1 | tee spoiler-backfill.log
 elif command -v python3 >/dev/null 2>&1 && python3 -c 'import sys' >/dev/null 2>&1; then
   echo "▶ runtime: python3 ($(command -v python3) — node not installed)"
-  python3 spoiler-backfill.py "$@" 2>&1 | tee spoiler-backfill.log
+  python3 spoiler-backfill.py --limit 200 "$@" 2>&1 | tee spoiler-backfill.log
 else
   echo "❌ Neither node nor a working python3 found. Install Node.js (https://nodejs.org) and re-run."
 fi

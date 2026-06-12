@@ -1,10 +1,145 @@
-[rank] frame: Is the ending real or a fantasy? (candidate)
+[rank] 11 candidate frames pass the >= 5 gate
+
+[rank] frame: Is this character actually the villain? (candidate)
+[rank] 7 published instances
+  #1 [The Dark Knight (2008)] — This film is a defining case because it directly interrogates whether its legendary hero's
+  #2 [The Godfather (1972)] — This masterpiece pioneered the modern cinematic deconstruction of the sympathetic patriarc
+  #3 [Burning (2018)] — The film is a masterclass in psychological ambiguity, entirely structuring its narrative a
+  #4 [Parasite (2019)] — This modern classic subverts traditional antagonist roles by showing how a ruthless econom
+  #5 [Whiplash (2014)] — The film brilliantly complicates the mentor-student dynamic by forcing the audience to deb
+  #6 [The Lord of the Rings: The Fellowship of the Ring (2001)] — This fantasy epic provides a nuanced look at moral corruption through a desperate defender
+  #7 [The Green Mile (1999)] — While the film deals with systemic injustice, the debate centers more on the limitations o
+[rank] ✅ frame approved: character-morality
+[rank] done: 7 rankings written
+
+[rank] frame: How does the film subvert genre tropes? (candidate)
+[rank] 10 published instances
+  #1 [Pulp Fiction (1994)] — Quentin Tarantino's masterpiece fundamentally redefined modern cinema by injecting mundane
+  #2 [Mulholland Drive (2001)] — David Lynch brilliantly deconstructs the classic Hollywood noir by collapsing the boundary
+  #3 [Parasite (2019)] — The film masterfully upends the home invasion thriller by shifting the threat from a malic
+  #4 [Persona (1966)] — Ingmar Bergman's avant-garde masterpiece strips away the conventional plot mechanics of th
+  #5 [Stalker (1979)] — Andrei Tarkovsky subverts the spectacle-driven science fiction genre by trading alien worl
+  #6 [Whiplash (2014)] — The film subverts the traditionally inspiring mentor-student dynamic by exposing the toxic
+  #7 [Fight Club (1999)] — This cult classic deconstructs the conventional buddy dynamic and male power fantasy by re
+  #8 [The Shawshank Redemption (1994)] — The film transcends the typical gritty prison break formula by prioritizing the quiet, spi
+  #9 [The Green Mile (1999)] — By presenting the prison guards as deeply empathetic figures, the film shifts the antagoni
+  #10 [Forrest Gump (1994)] — The film subverts the traditional historical epic by filtering major political and cultura
+[rank] ✅ frame approved: genre-subversion
+[rank] done: 10 rankings written
+
+[rank] frame: Does the film endorse its controversial message? (candidate)
 [rank] 6 published instances
-  #1 [Mulholland Drive (2001)] — Lynch's masterpiece is the definitive exploration of this frame, forcing the audience to d
-  #2 [Burning (2018)] — The film's climax perfectly embodies this frame by leaving viewers to question whether the
-  #3 [The Shawshank Redemption (1994)] — The debate over whether the final, picturesque reunion is a literal event or a comforting 
-  #4 [2001: A Space Odyssey (1968)] — The enigmatic final sequence transcends traditional narrative to place its protagonist in 
-  #5 [Persona (1966)] — Bergman's classic uses its final moments to dissolve the boundaries between two women, lea
-  #6 [Fight Club (1999)] — While the film is defined by psychological delusion, the final sequence acts more as a lit
-[rank] ✅ frame approved: is-the-ending-real
+  #1 [Fight Club (1999)] — This film is the ultimate cultural flashpoint for this frame, as generations of viewers ha
+  #2 [Whiplash (2014)] — The film perfectly embodies this tension by forcing the audience to grapple with whether i
+  #3 [Forrest Gump (1994)] — This beloved classic has long sparked intense ideological debate over whether its narrativ
+  #4 [The Dark Knight (2008)] — As a defining post-9/11 blockbuster, the film directly invites viewers to question whether
+  #5 [The Godfather (1972)] — The film constantly walks the line between romanticizing the mafia's insular loyalty and e
+  #6 [2001: A Space Odyssey (1968)] — Though more philosophical than overtly ideological, the film raises profound questions abo
+[rank] ✅ frame approved: ideological-message
 [rank] done: 6 rankings written
+
+[rank] frame: How does the film use external references or adaptations to build meaning? (candidate)
+[rank] 5 published instances
+  #1 [Persona (1966)] — Bergman's masterpiece is the definitive cinematic exploration of Jungian psychology, using
+  #2 [Burning (2018)] — This film serves as a premier example of adaptation by brilliantly recontextualizing a sur
+  #3 [Pulp Fiction (1994)] — Tarantino revolutionized modern cinema by demonstrating how a collage of pop culture refer
+  #4 [Pulp Fiction (1994)] — This iconic, modified biblical passage illustrates how a film can re-author an external te
+  #5 [The Green Mile (1999)] — The inclusion of a classic Hollywood musical provides a poignant, external artistic contra
+[rank] ✅ frame approved: intertextuality-and-adaptation
+[rank] done: 5 rankings written
+
+[rank] frame: Why is so much time spent on this slow sequence? (candidate)
+[rank] 5 published instances
+  #1 [2001: A Space Odyssey (1968)] — This legendary opening sequence uses deliberate, wordless pacing to establish the primal c
+  #2 [Stalker (1979)] — Tarkovsky's hypnotic, real-time trolley ride is the ultimate cinematic decompression chamb
+  #3 [Fight Club (1999)] — The film's initial, agonizingly slow descent into corporate numbness and consumerist despa
+  #4 [The Shawshank Redemption (1994)] — Spending extensive screen time on mundane administrative tasks and library building brilli
+  #5 [Forrest Gump (1994)] — The extended focus on the mundane struggles of the shrimping business serves as the narrat
+[rank] ✅ frame approved: pacing-and-focus
+[rank] done: 5 rankings written
+
+[rank] frame: How does this apparent plot hole make sense? (candidate)
+[rank] 8 published instances
+  #1 [The Lord of the Rings: The Fellowship of the Ring (2001)] — This represents the single most famous 'plot hole' debate in cinema history, resolved by a
+  #2 [The Dark Knight (2008)] — Addressing one of modern cinema's most debated master plans, this insight brilliantly refr
+  #3 [Parasite (2019)] — This case masterfully demonstrates how a seeming narrative convenience is actually a profo
+  #4 [The Shawshank Redemption (1994)] — This question tackles a major pacing query in a beloved classic, showing how the protagoni
+  #5 [The Shawshank Redemption (1994)] — This addresses one of the most famous physical logistics questions in film history with a 
+  #6 [Fight Club (1999)] — This insight elegantly resolves a massive logistical leap by showing how the story's anti-
+  #7 [Whiplash (2014)] — This analysis reframes a frustratingly ambiguous plot point as a crucial psychological tes
+  #8 [Forrest Gump (1994)] — This explains a famous, sprawling sequence by translating a logistical timeline question i
+[rank] ✅ frame approved: plot-hole-explanation
+[rank] done: 8 rankings written
+
+[rank] frame: Why did they make that self-destructive choice? (candidate)
+[rank] 9 published instances
+  #1 [The Godfather (1972)] — Michael's tragic descent into the criminal underworld he spent his life avoiding is cinema
+  #2 [Forrest Gump (1994)] — Jenny's repeated flight from stability and genuine affection is a legendary, heartbreaking
+  #3 [Whiplash (2014)] — Andrew's cold rejection of personal connection perfectly encapsulates the film's intense e
+  #4 [Mulholland Drive (2001)] — Diane's tragic unraveling serves as the surrealist core of the film, illustrating the deva
+  #5 [The Green Mile (1999)] — John's decision to accept his fate rather than continue enduring the world's cruelty is a 
+  #6 [Pulp Fiction (1994)] — Butch's high-stakes decision to risk his life for a family heirloom is a classic cinematic
+  #7 [The Lord of the Rings: The Fellowship of the Ring (2001)] — Frodo's choice to isolate himself on his perilous journey is a pivotal moment of self-sacr
+  #8 [The Shawshank Redemption (1994)] — Andy's deliberate provocation of the prison authorities is a triumphant act of spiritual r
+  #9 [The Godfather (1972)] — Tessio's pragmatic but fatal miscalculation serves as a chilling lesson in the cold busine
+[rank] ✅ frame approved: self-destructive-choice
+[rank] done: 9 rankings written
+
+[rank] frame: How does the setting or physical space represent thematic concepts? (candidate)
+[rank] 5 published instances
+  #1 [Parasite (2019)] — Bong Joon Ho's masterpiece is the definitive modern text on spatial metaphor, using litera
+  #2 [Stalker (1979)] — Tarkovsky's legendary sci-fi film is a masterclass in cinematic geography, where the shift
+  #3 [Parasite (2019)] — This sequence brilliantly weaponizes weather and topography to demonstrate how the physica
+  #4 [Burning (2018)] — The film masterfully utilizes its tense, liminal border setting to externalize the charact
+  #5 [Forrest Gump (1994)] — The contrast between static southern pastoralism and chaotic urban mobility serves as a tr
+[rank] ✅ frame approved: setting-and-space-symbolism
+[rank] done: 5 rankings written
+
+[rank] frame: What is the meaning of this surreal or abstract scene? (candidate)
+[rank] 8 published instances
+  #1 [Mulholland Drive (2001)] — This legendary sequence is a masterclass in cinematic dream-logic, perfectly capturing how
+  #2 [Persona (1966)] — This radical meta-cinematic rupture stands as one of film history's most famous abstract d
+  #3 [Stalker (1979)] — The film's enigmatic final image is a towering monument of poetic cinema, challenging view
+  #4 [Persona (1966)] — Bergman's iconic, dreamlike prologue uses striking, abstract imagery to immediately establ
+  #5 [Mulholland Drive (2001)] — The uncanny appearance of this enigmatic figure epitomizes the film's surreal logic, servi
+  #6 [Persona (1966)] — This daring formal repetition disrupts traditional narrative flow to abstractly mirror the
+  #7 [Parasite (2019)] — Though the film is largely a realist thriller, this eerie, metaphorical sequence brilliant
+  #8 [The Lord of the Rings: The Fellowship of the Ring (2001)] — This brief, jarring departure from classical fantasy conventions uses a sudden, monstrous 
+[rank] ✅ frame approved: surreal-or-abstract-scene
+[rank] done: 8 rankings written
+
+[rank] frame: What is the symbolic meaning of this motif? (candidate)
+[rank] 13 published instances
+  #1 [2001: A Space Odyssey (1968)] — The Monolith stands as one of cinema's most iconic and enigmatic symbols, perfectly bridgi
+  #2 [The Godfather (1972)] — The recurring presence of oranges is film history's premier example of a visual motif, sub
+  #3 [Forrest Gump (1994)] — The floating feather is a universally recognized cinematic bookend that beautifully visual
+  #4 [Pulp Fiction (1994)] — The glowing briefcase is a legendary cinematic mystery that serves as the ultimate blank c
+  #5 [Stalker (1979)] — The hypnotic imagery of flowing water and submerged relics serves as a profound, elemental
+  #6 [Fight Club (1999)] — The pink soap is a brilliantly ironic visual metaphor that encapsulates the film's dark cr
+  #7 [Parasite (2019)] — This brief, catchy jingle serves as a sharp, modern motif that exposes how class privilege
+  #8 [Whiplash (2014)] — The recurring imagery of blood-stained ice water brilliantly physicalizes the film's centr
+  #9 [The Shawshank Redemption (1994)] — The quiet act of polishing stones serves as a powerful, slow-burning metaphor for how pati
+  #10 [Burning (2018)] — The fleeting reflection of the tower is a haunting visual motif that perfectly captures th
+  #11 [The Lord of the Rings: The Fellowship of the Ring (2001)] — The eerie auditory motif of the Ring's whispers masterfully externalizes its corruptive, p
+  #12 [The Green Mile (1999)] — The wet sponge serves as a grim, recurring symbol of the fragile boundary between institut
+  #13 [The Green Mile (1999)] — The green linoleum floor acts as a quiet, atmospheric metaphor for the final, shared journ
+[rank] ✅ frame approved: symbolic-motif
+[rank] done: 13 rankings written
+
+[rank] frame: How does the film's technical style build its atmosphere? (candidate)
+[rank] 12 published instances
+  #1 [2001: A Space Odyssey (1968)] — Kubrick's revolutionary use of absolute silence and rhythmic breathing in space remains fi
+  #2 [The Godfather (1972)] — Gordon Willis's legendary, shadow-drenched cinematography pioneered a new visual language,
+  #3 [Persona (1966)] — Sven Nykvist's stark, high-contrast lighting serves as a profound visual metaphor, transfo
+  #4 [Whiplash (2014)] — The film's razor-sharp, syncopated editing acts as a physical instrument, directly thrusti
+  #5 [2001: A Space Odyssey (1968)] — The film's cold, symmetrical camera movements and vast wide shots establish an objective, 
+  #6 [Burning (2018)] — The film's masterfully subtle soundscape uses empty spaces and low-frequency hums to const
+  #7 [The Dark Knight (2008)] — The scene's brilliant visual and auditory constriction showcases how precise technical cho
+  #8 [Fight Club (1999)] — David Fincher's impossible, digitally-assisted camera movements perfectly capture the prot
+  #9 [The Dark Knight (2008)] — Christopher Nolan's relentless cross-cutting serves as a structural engine, translating th
+  #10 [The Lord of the Rings: The Fellowship of the Ring (2001)] — Peter Jackson's clever integration of visceral horror techniques elevates the fantasy sett
+  #11 [The Shawshank Redemption (1994)] — The subtle evolution of the camera's proximity during the parole hearings beautifully illu
+  #12 [Forrest Gump (1994)] — While the film's pioneering CGI integration is historically significant, it serves more as
+[rank] ✅ frame approved: technical-style-and-atmosphere
+[rank] done: 12 rankings written
+
