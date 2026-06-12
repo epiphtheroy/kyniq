@@ -1,0 +1,13 @@
+[discovery] 133 published questions
+[discovery] embedding 133 texts (gemini text-embedding-004)…
+[discovery] gemini embed failed (Gemini embed 404: {
+  "error": {
+    "code": 404,
+    "message": "models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of ava); trying openai…
+[discovery] embedding 133 texts (openai text-embedding-3-small)…
+[discovery] pairwise sim distribution: {'p10': 0.1489, 'p50': 0.2407, 'p90': 0.3614, 'p95': 0.4025, 'p97': 0.4302, 'p99': 0.4881, 'max': 0.7274}
+[discovery] θ=0.45: 8 multi-components, largest=89, covered=106
+[discovery] θ=0.50: 18 multi-components, largest=14, covered=63
+[discovery] θ=0.55: 12 multi-components, largest=10, covered=35
+[discovery] grouping all 133 questions via LLM…
+[discovery] done → frame-candidates.md / frame-candidates.json

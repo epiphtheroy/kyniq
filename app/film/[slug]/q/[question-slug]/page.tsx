@@ -360,6 +360,9 @@ export default async function QuestionPage({ params }: Props) {
             </p>
           )}
 
+          {/* ── This is one of cinema's big questions (frame module, IA §4.2) ── */}
+          <FrameModule questionId={question.id} />
+
           {/* ── Stills strip + related videos ── */}
           {restMedia.length > 0 && (
             <section className="secmod">
@@ -393,6 +396,101 @@ export default async function QuestionPage({ params }: Props) {
         </div>
       </main>
     </>
+  );
+}
+
+/* --- "One of cinema's big questions" — the leaf→hub module (IA §4.2) --- */
+async function FrameModule({ questionId }: { questionId: string }) {
+  const supabase = supabaseAnon();
+
+  // primary frame, visible only if approved (RLS enforces approved-only)
+  const { data: qf } = await supabase
+    .from("question_frames")
+    .select("frame:frames!inner(id, slug, label, definition)")
+    .eq("question_id", questionId)
+    .eq("is_primary", true)
+    .limit(1)
+    .maybeSingle();
+
+  const frame = (qf?.frame ?? null) as unknown as {
+    id: string; slug: string; label: string; definition: string | null;
+  } | null;
+  if (!frame) return null;
+
+  // top-ranked sibling instances (exclude self)
+  const { data: rankRows } = await supabase
+    .from("frame_rankings")
+    .select("question_id, rank, rationale")
+    .eq("frame_id", frame.id)
+    .neq("question_id", questionId)
+    .order("rank")
+    .limit(3);
+
+  const siblingIds = (rankRows ?? []).map((r) => r.question_id);
+  let siblings: Array<{
+    id: string; title: string; display_title: string | null;
+    spoiler_level: string | null; slug: string;
+    film: { title: string; year: number | null; slug: string };
+  }> = [];
+  if (siblingIds.length > 0) {
+    const { data: sibRows } = await supabase
+      .from("questions")
+      .select("id, title, display_title, spoiler_level, slug, film:films!inner(title, year, slug)")
+      .in("id", siblingIds)
+      .eq("status", "published");
+    const order = new Map<string, number>(siblingIds.map((id, i) => [id as string, i]));
+    siblings = ((sibRows ?? []) as unknown as typeof siblings).sort(
+      (a, b) => (order.get(a.id) ?? 9) - (order.get(b.id) ?? 9)
+    );
+  }
+
+  const { count } = await supabase
+    .from("question_frames")
+    .select("question_id", { count: "exact", head: true })
+    .eq("frame_id", frame.id)
+    .eq("is_primary", true);
+
+  return (
+    <section className="secmod">
+      <div className="secmod__head">
+        <h2 className="secmod__title">One of cinema&apos;s big questions</h2>
+        <Link href={`/frame/${frame.slug}`} className="secmod__more">
+          All {count ?? siblings.length + 1} films →
+        </Link>
+      </div>
+      <p className="dek" style={{ marginTop: 10 }}>
+        <strong style={{ color: "var(--ink)" }}>
+          <Link href={`/frame/${frame.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
+            {frame.label}
+          </Link>
+        </strong>
+        {frame.definition ? ` — ${frame.definition}` : ""}
+      </p>
+      {siblings.length > 0 && (
+        <ul style={{ listStyle: "none", margin: "12px 0 0", padding: 0 }}>
+          {siblings.map((s) => (
+            <li key={s.id} style={{ padding: "7px 0", borderTop: "1px solid var(--hairline)" }}>
+              <Link
+                href={`/film/${s.film.slug}/q/${s.slug}`}
+                className="body"
+                style={{ fontSize: 15, color: "var(--ink-soft)", textDecoration: "none" }}
+              >
+                <span className="ui" style={{ color: "var(--muted)", fontSize: 12.5 }}>
+                  {s.film.title}
+                  {s.film.year ? ` (${s.film.year})` : ""} ·{" "}
+                </span>
+                {s.display_title || s.title}
+              </Link>{" "}
+              {s.spoiler_level === "major" && (
+                <span className="spoiler-chip" title="The full answer discusses the ending">
+                  <span aria-hidden="true">🍿</span> Ending inside
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 

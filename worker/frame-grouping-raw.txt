@@ -1,0 +1,343 @@
+{
+  "frames": [
+    {
+      "label": "Is the ending real or a fantasy?",
+      "slug": "is-the-ending-real",
+      "definition": "This frame examines whether the final sequence of a film depicts actual narrative events or is merely a dream, hallucination, or projection of a character's desires. Viewers return to this question to resolve the emotional and narrative closure of ambiguous stories.",
+      "dimension": "ending",
+      "suggested_slots": [
+        {
+          "name": "reality_status",
+          "values": ["literal reality", "dream sequence", "post-mortem hallucination", "character's written fiction"]
+        }
+      ],
+      "member_indices": [26, 51, 58, 118, 122, 126]
+    },
+    {
+      "label": "Why did they make that self-destructive choice?",
+      "slug": "self-destructive-choice",
+      "definition": "This frame explores the psychological motivations behind a character's highly risky, irrational, or self-sabotaging decisions. Audiences ask this to understand the deeper emotional logic or tragic flaws driving a character's actions.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "motivation_type",
+          "values": ["pride", "obsession", "guilt", "loyalty", "existential despair"]
+        }
+      ],
+      "member_indices": [19, 32, 41, 43, 52, 80, 109, 119, 129]
+    },
+    {
+      "label": "How does the film subvert genre tropes?",
+      "slug": "genre-subversion",
+      "definition": "This frame analyzes how a film intentionally deconstructs, reverses, or plays with established conventions of its specific genre. Viewers ask this to appreciate the film's originality and how it challenges audience expectations.",
+      "dimension": "craft-choice",
+      "suggested_slots": [
+        {
+          "name": "subverted_trope",
+          "values": ["the evil authority figure", "the buddy dynamic", "the heroic journey", "the traditional home invasion"]
+        }
+      ],
+      "member_indices": [6, 22, 39, 54, 57, 78, 92, 103, 108, 132]
+    },
+    {
+      "label": "What is the symbolic meaning of this motif?",
+      "slug": "symbolic-motif",
+      "definition": "This frame investigates the thematic significance of recurring objects, sounds, or visual motifs throughout a film. Audiences seek to decode these symbols to uncover the underlying subtext and thematic layers of the narrative.",
+      "dimension": "symbol-or-motif",
+      "suggested_slots": [
+        {
+          "name": "motif_type",
+          "values": ["physical object", "recurring sound", "color palette", "sensory detail"]
+        }
+      ],
+      "member_indices": [7, 18, 28, 34, 42, 59, 70, 81, 85, 93, 96, 106, 111]
+    },
+    {
+      "label": "Is this character actually the villain?",
+      "slug": "character-morality",
+      "definition": "This frame questions the moral alignment of a central character, debating whether they are truly heroic or secretly the antagonist of their own story. Viewers ask this to grapple with complex moral ambiguity and challenge simple hero-versus-villain binaries.",
+      "dimension": "contested-point",
+      "suggested_slots": [
+        {
+          "name": "moral_status",
+          "values": ["secret antagonist", "tragic anti-hero", "misunderstood victim", "ideological extremist"]
+        }
+      ],
+      "member_indices": [5, 14, 29, 38, 47, 87, 99]
+    },
+    {
+      "label": "Why is so much time spent on this slow sequence?",
+      "slug": "pacing-and-focus",
+      "definition": "This frame examines the narrative and thematic purpose of extended, slow-paced, or seemingly mundane sequences that delay the main plot. Viewers ask this to understand how deliberate pacing builds atmosphere, character depth, or thematic resonance.",
+      "dimension": "craft-choice",
+      "suggested_slots": [
+        {
+          "name": "sequence_purpose",
+          "values": ["world-building", "character bonding", "thematic meditation", "tension building"]
+        }
+      ],
+      "member_indices": [67, 73, 97, 107, 116]
+    },
+    {
+      "label": "How does the film's technical style build its atmosphere?",
+      "slug": "technical-style-and-atmosphere",
+      "definition": "This frame explores how specific choices in cinematography, editing, sound design, or visual effects create a distinct mood or psychological state. Audiences ask this to connect the technical craft of filmmaking directly to their emotional experience of the movie.",
+      "dimension": "craft-choice",
+      "suggested_slots": [
+        {
+          "name": "technical_element",
+          "values": ["cross-cutting", "claustrophobic framing", "harsh lighting", "sound design", "extreme wide shots"]
+        }
+      ],
+      "member_indices": [11, 13, 31, 40, 49, 66, 76, 86, 104, 112, 125, 131]
+    },
+    {
+      "label": "Does the film endorse its controversial message?",
+      "slug": "ideological-message",
+      "definition": "This frame debates whether a film's depiction of extreme philosophies, political ethics, or controversial behaviors constitutes an endorsement or a critique. Viewers ask this to unpack the film's ideological stance and its real-world social implications.",
+      "dimension": "central-provocation",
+      "suggested_slots": [
+        {
+          "name": "ideological_stance",
+          "values": ["satirical critique", "sincere endorsement", "neutral exploration", "deconstructive warning"]
+        }
+      ],
+      "member_indices": [12, 36, 45, 74, 98, 123]
+    },
+    {
+      "label": "How does this apparent plot hole make sense?",
+      "slug": "plot-hole-explanation",
+      "definition": "This frame addresses logical gaps, highly complex schemes, or seemingly impossible events within the narrative. Viewers ask this to reconcile their suspension of disbelief and find logical explanations within the established rules of the film's world.",
+      "dimension": "contested-point",
+      "suggested_slots": [
+        {
+          "name": "explanation_type",
+          "values": ["character oversight", "unseen preparation", "thematic logic over realism", "unreliable narration"]
+        }
+      ],
+      "member_indices": [1, 10, 33, 79, 95, 110, 113, 121]
+    },
+    {
+      "label": "What is the meaning of this surreal or abstract scene?",
+      "slug": "surreal-or-abstract-scene",
+      "definition": "This frame analyzes highly abstract, bizarre, or dreamlike sequences that disrupt the realistic flow of the narrative. Viewers ask this to decode the psychological, symbolic, or foreshadowing significance of these surreal moments.",
+      "dimension": "central-ambiguity",
+      "suggested_slots": [
+        {
+          "name": "scene_function",
+          "values": ["psychological projection", "foreshadowing", "metacinematic commentary", "thematic abstraction"]
+        }
+      ],
+      "member_indices": [4, 53, 55, 64, 71, 72, 83, 130]
+    },
+    {
+      "label": "Is this ambiguous element real or imaginary?",
+      "slug": "ambiguous-reality",
+      "definition": "This frame questions whether a specific mysterious phenomenon, character, or twist exists within the physical reality of the film or is a psychological projection. Audiences ask this to determine the boundaries of the film's reality and the sanity of its characters.",
+      "dimension": "central-ambiguity",
+      "suggested_slots": [
+        {
+          "name": "reality_boundary",
+          "values": ["supernatural occurrence", "psychological delusion", "metaphorical device"]
+        }
+      ],
+      "member_indices": [63, 82, 101]
+    },
+    {
+      "label": "Why does the ending feel so tragic or ambiguous?",
+      "slug": "tragic-or-ambiguous-ending",
+      "definition": "This frame examines the emotional complexity of endings that leave viewers feeling unsettled, tragic, or uncertain despite a seemingly resolved plot. Viewers ask this to process the bittersweet or haunting implications of the final moments.",
+      "dimension": "ending",
+      "suggested_slots": [
+        {
+          "name": "emotional_tone",
+          "values": ["bittersweet tragedy", "existential dread", "unresolved tension", "false hope"]
+        }
+      ],
+      "member_indices": [0, 35, 44, 124]
+    },
+    {
+      "label": "Why does the film use a non-linear or unusual narrative structure?",
+      "slug": "unusual-narrative-structure",
+      "definition": "This frame explores the artistic and thematic reasons behind non-linear storytelling, sudden shifts in perspective, or extended prologues. Viewers ask this to understand how the ordering of events shapes their emotional journey and thematic understanding.",
+      "dimension": "craft-choice",
+      "suggested_slots": [
+        {
+          "name": "structural_device",
+          "values": ["non-linear timeline", "framing device", "sudden geographical shift", "extended prologue"]
+        }
+      ],
+      "member_indices": [17, 24, 46, 91]
+    },
+    {
+      "label": "How does the setting or physical space represent thematic concepts?",
+      "slug": "setting-and-space-symbolism",
+      "definition": "This frame analyzes how physical environments, geography, or architectural spaces are used to mirror social hierarchies or psychological states. Viewers ask this to connect the physical world of the film to its abstract social or philosophical critiques.",
+      "dimension": "symbol-or-motif",
+      "suggested_slots": [
+        {
+          "name": "spatial_metaphor",
+          "values": ["vertical class divide", "geopolitical border", "psychological labyrinth", "contrasting environments"]
+        }
+      ],
+      "member_indices": [3, 8, 30, 60, 115]
+    },
+    {
+      "label": "What are the subtle clues pointing to a twist or fate?",
+      "slug": "foreshadowing-clues",
+      "definition": "This frame identifies the hidden visual, auditory, or narrative clues scattered throughout a film that foreshadow its major twists or character fates. Viewers ask this to appreciate the meticulous craftsmanship that rewards repeat viewings.",
+      "dimension": "rewatch-detail",
+      "suggested_slots": [
+        {
+          "name": "clue_type",
+          "values": ["background visual detail", "recurring character habit", "subtle dialogue hint"]
+        }
+      ],
+      "member_indices": [23, 100]
+    },
+    {
+      "label": "Why does this character stay in a toxic relationship?",
+      "slug": "toxic-relationship-motivation",
+      "definition": "This frame investigates the complex psychological and emotional reasons why a character remains in an abusive, codependent, or destructive relationship. Audiences ask this to understand the deep-seated needs, fears, or shared delusions that bind characters together.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "relationship_dynamic",
+          "values": ["codependency", "shared trauma", "manipulative control", "existential loneliness"]
+        }
+      ],
+      "member_indices": [61, 94]
+    },
+    {
+      "label": "How did this film redefine its genre?",
+      "slug": "genre-redefinition",
+      "definition": "This frame examines how a groundbreaking film permanently altered the stylistic, narrative, or thematic boundaries of its genre. Viewers ask this to contextualize the film's historical importance and its lasting influence on subsequent cinema.",
+      "dimension": "craft-choice",
+      "suggested_slots": [
+        {
+          "name": "genre_impact",
+          "values": ["introducing gritty realism", "elevating production standards", "merging disparate genres", "deconstructing heroic archetypes"]
+        }
+      ],
+      "member_indices": [15, 48, 90, 127]
+    },
+    {
+      "label": "What is the truth behind this character's mystery?",
+      "slug": "character-mystery",
+      "definition": "This frame focuses on unresolved questions regarding a character's background, physical condition, or the truth behind their self-reported stories. Viewers ask this to piece together the factual reality of a character's identity and history.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "mystery_type",
+          "values": ["fabricated backstory", "unspecified medical condition", "hidden identity"]
+        }
+      ],
+      "member_indices": [16, 120]
+    },
+    {
+      "label": "Why does the character accept a tragic burden or punishment?",
+      "slug": "tragic-burden",
+      "definition": "This frame explores why a character willingly accepts blame, suffering, or a lifetime of punishment for the sake of a greater good or moral duty. Viewers ask this to understand the noble or tragic self-sacrifice at the heart of the character's journey.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "sacrifice_reason",
+          "values": ["protecting a legacy", "atoning for past sins", "preserving social order"]
+        }
+      ],
+      "member_indices": [9, 84]
+    },
+    {
+      "label": "How do contrasting character reactions highlight their core differences?",
+      "slug": "contrasting-character-reactions",
+      "definition": "This frame compares how different characters react to the same extraordinary event, miracle, or trauma to highlight their contrasting worldviews. Viewers ask this to analyze the philosophical or moral debates played out through character dynamics.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "contrasting_reaction",
+          "values": ["spiritual awakening vs cynicism", "acceptance vs resistance", "growth vs stagnation"]
+        }
+      ],
+      "member_indices": [20, 88, 128]
+    },
+    {
+      "label": "How does a character's specific trauma or trigger define their fate?",
+      "slug": "character-trauma-and-fate",
+      "definition": "This frame examines how a character's deep-seated psychological trauma, sensory triggers, or institutionalization dictates their ultimate actions and fate. Viewers ask this to understand the tragic inevitability of a character's psychological conditioning.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "trauma_manifestation",
+          "values": ["sensory trigger", "inability to adapt to freedom", "repressed class rage"]
+        }
+      ],
+      "member_indices": [2, 114]
+    },
+    {
+      "label": "Why does the character hesitate or refuse to take the final step?",
+      "slug": "hesitation-or-refusal",
+      "definition": "This frame analyzes moments where a character hesitates, backs away, or refuses to cross a threshold or enter a space of ultimate truth. Viewers ask this to explore the fear, moral realization, or existential dread that halts a character's progress.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "reason_for_hesitation",
+          "values": ["fear of the truth", "moral awakening", "existential paralysis"]
+        }
+      ],
+      "member_indices": [65, 89, 117]
+    },
+    {
+      "label": "How does the film use external references or adaptations to build meaning?",
+      "slug": "intertextuality-and-adaptation",
+      "definition": "This frame investigates how a film incorporates external texts, literary adaptations, psychological theories, or pop culture references to enrich its narrative. Viewers ask this to decode the intellectual and cultural layers embedded within the film.",
+      "dimension": "theme",
+      "suggested_slots": [
+        {
+          "name": "external_reference_type",
+          "values": ["literary adaptation", "psychological theory", "pop culture pastiche", "religious text"]
+        }
+      ],
+      "member_indices": [21, 25, 27, 75, 102]
+    },
+    {
+      "label": "What is the true nature or cause of an antagonist's behavior?",
+      "slug": "antagonist-behavior-and-motivation",
+      "definition": "This frame explores the underlying causes, glitches, or psychological states behind an antagonist's chillingly calm or erratic behavior. Viewers ask this to understand whether the threat stems from a logical error, systemic programming, or pure malice.",
+      "dimension": "character-motive-or-fate",
+      "suggested_slots": [
+        {
+          "name": "behavioral_cause",
+          "values": ["conflicting programming", "psychological detachment", "systemic failure"]
+        }
+      ],
+      "member_indices": [68, 69]
+    },
+    {
+      "label": "How did real-world production circumstances shape the film's style?",
+      "slug": "production-circumstances-and-style",
+      "definition": "This frame examines how real-world production constraints, historical contexts, or changes in medium influenced the film's final aesthetic and narrative structure. Viewers ask this to bridge the gap between behind-the-scenes history and on-screen art.",
+      "dimension": "director-connection",
+      "suggested_slots": [
+        {
+          "name": "production_factor",
+          "values": ["failed pilot transition", "artistic medium shift", "budgetary constraints"]
+        }
+      ],
+      "member_indices": [56, 62]
+    },
+    {
+      "label": "Is this self-indulgent choice actually meaningful?",
+      "slug": "artistic-indulgence-vs-meaning",
+      "definition": "This frame debates whether highly stylized, exceptionally long, or abstract sequences are self-indulgent excesses or essential thematic components. Viewers ask this to evaluate the artistic merit and narrative necessity of a filmmaker's boldest choices.",
+      "dimension": "contested-point",
+      "suggested_slots": [
+        {
+          "name": "artistic_choice",
+          "values": ["extreme runtime", "extended abstract sequence", "stylized visual effects"]
+        }
+      ],
+      "member_indices": [77, 105]
+    }
+  ],
+  "orphans": [37, 50]
+}

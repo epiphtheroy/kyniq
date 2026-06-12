@@ -1,0 +1,896 @@
+{
+  "method": "llm-bottom-up",
+  "sim_distribution": {
+    "p10": 0.1489,
+    "p50": 0.2407,
+    "p90": 0.3614,
+    "p95": 0.4025,
+    "p97": 0.4302,
+    "p99": 0.4881,
+    "max": 0.7274
+  },
+  "embedding_sweep": [
+    {
+      "threshold": 0.45,
+      "components": 35,
+      "multi_member": 8,
+      "singletons": 27,
+      "largest": 89,
+      "covered_questions": 106
+    },
+    {
+      "threshold": 0.5,
+      "components": 88,
+      "multi_member": 18,
+      "singletons": 70,
+      "largest": 14,
+      "covered_questions": 63
+    },
+    {
+      "threshold": 0.55,
+      "components": 110,
+      "multi_member": 12,
+      "singletons": 98,
+      "largest": 10,
+      "covered_questions": 35
+    }
+  ],
+  "frames": [
+    {
+      "frame": {
+        "label": "What is the symbolic meaning of this motif?",
+        "slug": "symbolic-motif",
+        "definition": "This frame investigates the thematic significance of recurring objects, sounds, or visual motifs throughout a film. Audiences seek to decode these symbols to uncover the underlying subtext and thematic layers of the narrative.",
+        "dimension": "symbol-or-motif",
+        "suggested_slots": [
+          {
+            "name": "motif_type",
+            "values": [
+              "physical object",
+              "recurring sound",
+              "color palette",
+              "sensory detail"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "1ba31f72-612e-4c0f-a08c-d29aca35aba5",
+        "cf973503-eee5-4afd-9f10-f16d0bd275b4",
+        "d96464c5-b95a-4a53-8171-18ceefb85a01",
+        "57805ad3-a46e-40d5-b0b3-16450f53e874",
+        "526eb51a-69ac-41c1-84e4-a9c59c5d2db9",
+        "6ac23ce3-8e1e-478c-87ff-325fdeaab04b",
+        "dbf060c4-de89-4eba-ac83-e2947f2614b6",
+        "28101d7c-daff-4b41-8ccc-da66965939fb",
+        "fab8d965-a9a1-4ca5-aeec-2dc470dc8bab",
+        "4534bcf2-a8ab-4c1d-b5f9-eb3e4521e144",
+        "d42a1956-f1bd-4252-8bf9-34d435971c6f",
+        "a0636e80-81bb-45ba-94b7-801c94a9ef03",
+        "bf2ecc98-ee1a-4084-b6a1-755803e2173f"
+      ],
+      "titles": [
+        "What is the significance of the Jessica, Only Child, Illinois, Chicago jingle?",
+        "What is actually inside Marsellus Wallace's briefcase?",
+        "Why does the camera focus so intently on the reflection of the N Seoul Tower in Hae-mi's tiny room, and what does that light symbolize?",
+        "What is the significance of the blood on the drums and the ice water?",
+        "What is the significance of the oranges that appear throughout the film?",
+        "What is the meaning of all the running water and submerged objects in the Zone?",
+        "What is the meaning of the monolith's perfect 1:4:9 dimensions and its pitch-black color?",
+        "What is the meaning of the creepy whispering sound that plays whenever the Ring is on screen?",
+        "What is the symbolic meaning of the wet sponge during the executions?",
+        "What is the significance of the rocks Andy polishes and carves?",
+        "What is the significance of the pink soap?",
+        "What is the thematic significance of the green linoleum floor in the prison?",
+        "What is the deeper meaning behind the floating feather that appears at the very beginning and end of the film?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How does the film's technical style build its atmosphere?",
+        "slug": "technical-style-and-atmosphere",
+        "definition": "This frame explores how specific choices in cinematography, editing, sound design, or visual effects create a distinct mood or psychological state. Audiences ask this to connect the technical craft of filmmaking directly to their emotional experience of the movie.",
+        "dimension": "craft-choice",
+        "suggested_slots": [
+          {
+            "name": "technical_element",
+            "values": [
+              "cross-cutting",
+              "claustrophobic framing",
+              "harsh lighting",
+              "sound design",
+              "extreme wide shots"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "14b1dd2e-ca48-4c10-a750-9a4fa80eca0f",
+        "f1559f26-052b-4e55-92ca-05fc94417fd8",
+        "6cae9b22-c84c-4e50-b01c-b5e7c929c31d",
+        "7f2b5d6c-9530-4f53-a4d7-919476d0d797",
+        "53a3f47a-e81b-4e7a-ad46-2bed196b7cf7",
+        "eede576d-9d69-42a9-8acc-9c8566a45cf5",
+        "6bda5c94-6d0f-435e-8af4-e4f337810e63",
+        "77ef4e26-f0a1-49b0-bacb-b33a9960792e",
+        "c4f2faf9-eb35-4ca5-80f2-be7744a99606",
+        "8d90c738-ce8f-41b9-8b10-cbe931b99f86",
+        "c4d65322-2d6e-484b-ac63-e388c651f1f9",
+        "3625a25c-1db1-458a-896e-1ea630dbc9cf"
+      ],
+      "titles": [
+        "Why does the police interrogation scene feel so uniquely intense and claustrophobic?",
+        "How does Christopher Nolan's signature cross-cutting technique build narrative momentum in the film's second act?",
+        "How does the film's atmospheric sound design and music score by Mowg build the movie's unique sense of dread?",
+        "How does the film's editing mimic the rhythm of a jazz performance?",
+        "How does Gordon Willis's cinematography use darkness and shadow to construct the film's moral universe?",
+        "Why does Sven Nykvist use such harsh, high-contrast lighting on their faces?",
+        "The silence in the space scenes is so striking—is that just scientific accuracy or is Kubrick doing something deeper?",
+        "Why does Peter Jackson use so many horror-movie techniques in a fantasy epic?",
+        "Why does the camera move through solid objects and kitchen cabinets in those early scenes?",
+        "Why does the camera slowly zoom in on Red's face during his final parole hearing compared to his first two?",
+        "Why does Zemeckis use CGI to insert Forrest into historical archival footage instead of just using actors to play those historical figures?",
+        "Why does Kubrick use so many extreme wide shots and slow, tracking camera movements instead of close-ups?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How does the film subvert genre tropes?",
+        "slug": "genre-subversion",
+        "definition": "This frame analyzes how a film intentionally deconstructs, reverses, or plays with established conventions of its specific genre. Viewers ask this to appreciate the film's originality and how it challenges audience expectations.",
+        "dimension": "craft-choice",
+        "suggested_slots": [
+          {
+            "name": "subverted_trope",
+            "values": [
+              "the evil authority figure",
+              "the buddy dynamic",
+              "the heroic journey",
+              "the traditional home invasion"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "3235a608-062f-4e04-b7da-6da897547114",
+        "3f1efbcb-95a7-4693-b0d0-11e441bc7f22",
+        "f4251946-ec71-4173-8374-eb0e0ce57458",
+        "108826ea-4179-4a4e-9780-dd6a403ee056",
+        "840a27cb-24bf-4751-9a2c-94bbfd77d81e",
+        "27b9af52-3ea4-40b7-b941-9673785ae78b",
+        "f9047531-3cb3-4889-809e-9bd3e2335a7c",
+        "6363836a-01a4-40cd-8180-f3683cedb8e2",
+        "a2333a90-8525-436d-82ae-8f5d3a3eef37",
+        "c7bf0577-c107-4aa5-a931-d533ad436730"
+      ],
+      "titles": [
+        "How does Parasite subvert the traditional home invasion thriller?",
+        "How does Pulp Fiction subvert the classic hardboiled noir tropes of the 1940s?",
+        "How does Whiplash subvert the classic mentor-student sports movie formula?",
+        "How does the film subvert the traditional tropes of Film Noir?",
+        "How does Stalker subvert the traditional science fiction tropes of its era?",
+        "How does Persona subvert the typical identity theft or psychological double thriller?",
+        "How does the film subvert the traditional 'evil prison guard' trope?",
+        "How does the film subvert the typical \"buddy movie\" dynamic?",
+        "How does Shawshank subvert the typical prison break movie formula?",
+        "How does the film subvert the traditional tropes of the historical epic?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why did they make that self-destructive choice?",
+        "slug": "self-destructive-choice",
+        "definition": "This frame explores the psychological motivations behind a character's highly risky, irrational, or self-sabotaging decisions. Audiences ask this to understand the deeper emotional logic or tragic flaws driving a character's actions.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "motivation_type",
+            "values": [
+              "pride",
+              "obsession",
+              "guilt",
+              "loyalty",
+              "existential despair"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "37fc673c-7e60-42f5-9a04-903f14ec45ff",
+        "bcfb355c-4804-458d-ad5b-6e50dfd091c4",
+        "1b1e83d1-fbf0-4a52-8a8e-b957fd48410b",
+        "bea3ad9a-e243-48a3-894d-0817e75b0251",
+        "8cc5fc22-82c3-4fd4-aeb2-fb62962e0d28",
+        "a6bcb594-abbe-4401-88a9-e8383888d7e2",
+        "5271778a-9f50-41bf-ab08-d001792901f0",
+        "d0d86560-0282-4d72-a4cd-9071e11ad9c7",
+        "e0c0a6d8-3c11-448c-bd3e-7103dba6fb5f"
+      ],
+      "titles": [
+        "Why does Butch go back for his father's gold watch if it's so dangerous?",
+        "Why did Andrew break up with Nicole so coldly?",
+        "Why does Michael take over the family business when he spent his whole life trying to escape it?",
+        "Why did Tessio betray the Corleone family instead of Clemenza, and how did Michael know it was him?",
+        "Why does Diane Selwyn kill herself at the end?",
+        "Why did John Coffey choose to die when Paul offered him a way out?",
+        "Why does Jenny keep running away from Forrest when he is the only person who truly loves her?",
+        "Why does Frodo decide to go to Mordor alone at the end?",
+        "Why does Andy play the Mozart opera over the prison loudspeakers, knowing he will get solitary confinement?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How does this apparent plot hole make sense?",
+        "slug": "plot-hole-explanation",
+        "definition": "This frame addresses logical gaps, highly complex schemes, or seemingly impossible events within the narrative. Viewers ask this to reconcile their suspension of disbelief and find logical explanations within the established rules of the film's world.",
+        "dimension": "contested-point",
+        "suggested_slots": [
+          {
+            "name": "explanation_type",
+            "values": [
+              "character oversight",
+              "unseen preparation",
+              "thematic logic over realism",
+              "unreliable narration"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "6b7a77f3-e717-4a70-b912-8821e76fe722",
+        "caeaacaa-b830-402a-8bb3-780f236bfe70",
+        "2cd785b2-42c0-4e3e-885c-309c7445b3cc",
+        "70793b5e-64f4-430d-8151-44cb59ab6cbd",
+        "6a7c6e96-fe56-491d-8116-a1db410cc937",
+        "05d81fcf-a93c-480d-b7ce-d52bf0f2b88e",
+        "7cfeef4c-ea5f-4417-af71-ebc0b1a8827e",
+        "68287bb7-5e8c-41ad-af31-c529190f61c8"
+      ],
+      "titles": [
+        "Why didn't the Parks notice that their new servants were all related?",
+        "How does the Joker's incredibly complex plan actually work without relying on impossible luck?",
+        "How did Andrew lose the folder of sheet music, and was it a setup?",
+        "Why didn't they just use the Great Eagles to fly the Ring to Mount Doom?",
+        "How did one guy manage to set up a nationwide terrorist network in his sleep?",
+        "Why did Andy wait nineteen years to escape if he had the chisel the whole time?",
+        "How does the timeline of Forrest's run across America actually make sense, and what finally makes him stop?",
+        "How did Andy put the poster back up over his tunnel after escaping?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "What is the meaning of this surreal or abstract scene?",
+        "slug": "surreal-or-abstract-scene",
+        "definition": "This frame analyzes highly abstract, bizarre, or dreamlike sequences that disrupt the realistic flow of the narrative. Viewers ask this to decode the psychological, symbolic, or foreshadowing significance of these surreal moments.",
+        "dimension": "central-ambiguity",
+        "suggested_slots": [
+          {
+            "name": "scene_function",
+            "values": [
+              "psychological projection",
+              "foreshadowing",
+              "metacinematic commentary",
+              "thematic abstraction"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "748ede55-71ad-4777-8644-e35f59e45d52",
+        "092a4738-56b8-474c-8026-52ac2542bed0",
+        "a096c7ca-a7b2-44b5-91c7-0ffd868457cf",
+        "e40be3eb-d161-42fd-a9f8-b1726329b801",
+        "6d9812e5-dd51-47d8-8b12-e9db6781255c",
+        "66367d65-ef56-4092-b201-1571cae55b50",
+        "a3651164-2a2c-4d33-be6f-338d048a017d",
+        "428e62fd-390f-45d0-94a3-ad65a8ddd389"
+      ],
+      "titles": [
+        "How does the ghost story about the basement foreshadow the film's second-half twist?",
+        "Who is the terrifying figure behind Winkie's diner?",
+        "Who is the Cowboy, and why does he show up to threaten Adam Kesher?",
+        "What does the final scene with Monkey moving the glasses with her mind actually mean?",
+        "What is the meaning of the boy touching the giant blurry face at the beginning and end?",
+        "What is up with the movie screen literally ripping and burning in the middle of the film?",
+        "Why does Bilbo have that terrifying monster-face reaction in Rivendell?",
+        "Why does Bergman repeat the exact same monologue about Elisabeth's unwanted pregnancy twice?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Is this character actually the villain?",
+        "slug": "character-morality",
+        "definition": "This frame questions the moral alignment of a central character, debating whether they are truly heroic or secretly the antagonist of their own story. Viewers ask this to grapple with complex moral ambiguity and challenge simple hero-versus-villain binaries.",
+        "dimension": "contested-point",
+        "suggested_slots": [
+          {
+            "name": "moral_status",
+            "values": [
+              "secret antagonist",
+              "tragic anti-hero",
+              "misunderstood victim",
+              "ideological extremist"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "6ef8eaa0-d46f-4938-9d31-78416a5ca754",
+        "963bd29c-c1df-40be-88e9-877edee655da",
+        "819443e3-3f99-4181-ba74-8d742e34a4ba",
+        "c61b156a-5a7e-44e1-b86e-d1c754695a8b",
+        "faab1c50-aa18-40e9-8c91-a7b5112374e6",
+        "450bb52e-dc41-4f09-bcc3-8bbd9ef65484",
+        "44d4a01d-df24-40f3-bd8f-a9e2fa211bd2"
+      ],
+      "titles": [
+        "Is the film arguing that the Kim family are actually the villains of the story?",
+        "Is Batman actually the true source of Gotham's misery, rather than its savior?",
+        "Is it possible that Ben is completely innocent and Jong-su is merely projecting his own class rage and jealousy onto him?",
+        "Is Terence Fletcher actually a fraud whose methods don't work?",
+        "Is Vito Corleone truly a man of honor, or is his paternalistic benevolence just a myth?",
+        "Is Boromir actually a villain, or is he just a scapegoat for the plot?",
+        "Is John Coffey just a 'Magical Negro' trope designed to soothe white guilt?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Is the ending real or a fantasy?",
+        "slug": "is-the-ending-real",
+        "definition": "This frame examines whether the final sequence of a film depicts actual narrative events or is merely a dream, hallucination, or projection of a character's desires. Viewers return to this question to resolve the emotional and narrative closure of ambiguous stories.",
+        "dimension": "ending",
+        "suggested_slots": [
+          {
+            "name": "reality_status",
+            "values": [
+              "literal reality",
+              "dream sequence",
+              "post-mortem hallucination",
+              "character's written fiction"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "69b78645-2f72-4b36-93f2-f74c8cd44ed5",
+        "96e2b4e4-cdd9-408a-a937-fad09a9b8799",
+        "419fe6fb-05f9-4d62-b5e9-fc47975bdda5",
+        "9ff30bf1-3d3e-475a-92a7-bf48e5d845c5",
+        "4f75234e-78ad-4c08-9fb1-76bb1cbfaa36",
+        "0cc4c524-e9af-4f98-8ed4-7518647a1b69"
+      ],
+      "titles": [
+        "Is the final scene where Jong-su kills Ben real, or is it just a scene from the novel Jong-su is writing?",
+        "What is the actual timeline of events, and when does the dream end?",
+        "What actually happened at the end? Did they swap places or what?",
+        "What actually happened at the end? What is the Star Child?",
+        "What actually happened in the final scene when he shoots himself?",
+        "Isn't the ending on the beach at Zihuatanejo just a cheap, sentimental fantasy?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Does the film endorse its controversial message?",
+        "slug": "ideological-message",
+        "definition": "This frame debates whether a film's depiction of extreme philosophies, political ethics, or controversial behaviors constitutes an endorsement or a critique. Viewers ask this to unpack the film's ideological stance and its real-world social implications.",
+        "dimension": "central-provocation",
+        "suggested_slots": [
+          {
+            "name": "ideological_stance",
+            "values": [
+              "satirical critique",
+              "sincere endorsement",
+              "neutral exploration",
+              "deconstructive warning"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "6cead373-c562-49d5-b3c3-d703c2093225",
+        "ca29ad29-fcdb-4c1a-8a36-ef2e01145489",
+        "1216edd5-49be-4b90-ac91-88d5f717f0b0",
+        "29eda368-b6cd-43bb-9304-a511a5b14fc0",
+        "5be53bc8-3a21-4c64-9222-d25f1fbf97df",
+        "c81951e2-dc8b-482e-9384-b32acef44360"
+      ],
+      "titles": [
+        "How does the film use the concept of escalation to comment on post-9/11 political ethics?",
+        "Is the film arguing that Fletcher's abusive methods are actually necessary for greatness?",
+        "How does the film critique the post-World War II American Dream?",
+        "How does the film explore the relationship between human evolution and technology?",
+        "Does the film actually support Tyler's philosophy, or is it criticizing him?",
+        "Is the movie actually a conservative sermon that punishes Jenny for being a rebel while rewarding Forrest for doing what he is told?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why is so much time spent on this slow sequence?",
+        "slug": "pacing-and-focus",
+        "definition": "This frame examines the narrative and thematic purpose of extended, slow-paced, or seemingly mundane sequences that delay the main plot. Viewers ask this to understand how deliberate pacing builds atmosphere, character depth, or thematic resonance.",
+        "dimension": "craft-choice",
+        "suggested_slots": [
+          {
+            "name": "sequence_purpose",
+            "values": [
+              "world-building",
+              "character bonding",
+              "thematic meditation",
+              "tension building"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "10fcec47-e2df-405d-ba5b-3ff540e8b37d",
+        "1a0fe4f0-844e-41f3-802b-0fac8d6aa378",
+        "aa60c4e4-4179-4621-9890-e0ae15fdfac3",
+        "a5e7c09e-2c01-4c68-bdf0-07b2df950038",
+        "f5bf0337-c31b-4d3b-95d8-66562350eacc"
+      ],
+      "titles": [
+        "Why does the movie spend so much time on the library and the taxes?",
+        "Do I really need to sit through the first 25 minutes of apes screaming at each other?",
+        "Why does the movie spend so much time on support groups and IKEA furniture before any fighting actually starts?",
+        "Why does the movie spend so much time on Forrest's shrimp boating business?",
+        "Why does the trolley ride to the Zone take so long without anyone talking?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How does the setting or physical space represent thematic concepts?",
+        "slug": "setting-and-space-symbolism",
+        "definition": "This frame analyzes how physical environments, geography, or architectural spaces are used to mirror social hierarchies or psychological states. Viewers ask this to connect the physical world of the film to its abstract social or philosophical critiques.",
+        "dimension": "symbol-or-motif",
+        "suggested_slots": [
+          {
+            "name": "spatial_metaphor",
+            "values": [
+              "vertical class divide",
+              "geopolitical border",
+              "psychological labyrinth",
+              "contrasting environments"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "5d252896-2cde-4cf7-87a3-38640f25e765",
+        "04219620-3972-4b38-8264-71b30708abbc",
+        "adbac9c3-3cd0-458f-808f-e25ef89bfbfd",
+        "9f49c985-a1e4-4675-aed1-d3e6dc9d23a7",
+        "e2d5a738-3332-40b1-8d55-bdd05d94cf78"
+      ],
+      "titles": [
+        "How does the film use vertical space to critique capitalism?",
+        "Why does the rainstorm affect the Kims and the Parks so differently?",
+        "What is the historical and social significance of the setting near the North Korean border, and why does the film keep showing propaganda broadcasts?",
+        "Why do they have to take such a ridiculously indirect path to get anywhere in the Zone?",
+        "How does the film use the contrast between Forrest's home in Alabama and Jenny's various locations to explore the concept of home?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How does the film use external references or adaptations to build meaning?",
+        "slug": "intertextuality-and-adaptation",
+        "definition": "This frame investigates how a film incorporates external texts, literary adaptations, psychological theories, or pop culture references to enrich its narrative. Viewers ask this to decode the intellectual and cultural layers embedded within the film.",
+        "dimension": "theme",
+        "suggested_slots": [
+          {
+            "name": "external_reference_type",
+            "values": [
+              "literary adaptation",
+              "psychological theory",
+              "pop culture pastiche",
+              "religious text"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "02f01a6c-1f41-4eb2-9c9a-b428d315c261",
+        "e1666e43-3269-465a-9950-198035aa04df",
+        "83194669-ebe8-4708-8e48-35547efaa8c3",
+        "f6d9f518-d1f9-42f1-a319-daa34c4c5015",
+        "29345b44-3a91-4f80-8da8-3c4bc57b8f1a"
+      ],
+      "titles": [
+        "Is the famous Ezekiel 25:17 speech just cool-sounding nonsense, or does it actually mean something?",
+        "How does the film's use of pop culture references and pastiche elevate it beyond a standard crime thriller?",
+        "How does the film adapt Haruki Murakami's short story \"Barn Burning\" to critique contemporary South Korean class dynamics?",
+        "How does Bergman use Jungian psychology to structure the conflict between Alma and Elisabeth?",
+        "What is the cinematic purpose of showing John watching 'Top Hat'?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why does the ending feel so tragic or ambiguous?",
+        "slug": "tragic-or-ambiguous-ending",
+        "definition": "This frame examines the emotional complexity of endings that leave viewers feeling unsettled, tragic, or uncertain despite a seemingly resolved plot. Viewers ask this to process the bittersweet or haunting implications of the final moments.",
+        "dimension": "ending",
+        "suggested_slots": [
+          {
+            "name": "emotional_tone",
+            "values": [
+              "bittersweet tragedy",
+              "existential dread",
+              "unresolved tension",
+              "false hope"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "09b9f498-aac8-4f07-aec6-c5bb332c064c",
+        "4f01147e-efba-4be9-8404-42ed3ecfca3b",
+        "41f7d6d2-cca5-42f4-a535-18c51e5929f2",
+        "e5f9fd79-ca32-467d-b34c-8f7dd408f106"
+      ],
+      "titles": [
+        "Why does the ending feel so tragic if Ki-woo has a plan to buy the house?",
+        "Why did Andrew's dad look so terrified in the final scene?",
+        "Why does Kay believe Michael's lie at the end of the film, and what does the final shot mean?",
+        "Why does Red get so angry and hopeless when Andy talks about his dreams of Zihuatanejo?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why does the film use a non-linear or unusual narrative structure?",
+        "slug": "unusual-narrative-structure",
+        "definition": "This frame explores the artistic and thematic reasons behind non-linear storytelling, sudden shifts in perspective, or extended prologues. Viewers ask this to understand how the ordering of events shapes their emotional journey and thematic understanding.",
+        "dimension": "craft-choice",
+        "suggested_slots": [
+          {
+            "name": "structural_device",
+            "values": [
+              "non-linear timeline",
+              "framing device",
+              "sudden geographical shift",
+              "extended prologue"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "828ae77a-454e-4b73-b886-ba01c7d7d6e6",
+        "b7c2d26b-00ad-4b8e-ba01-17529f8b9280",
+        "d62a3444-c4a3-4320-a6bb-ff2ec74b9227",
+        "7b23655b-bbea-44b3-9789-08438aa1e3b1"
+      ],
+      "titles": [
+        "Why is the movie told out of order?",
+        "How do Honey Bunny and Pumpkin's opening and closing scenes tie this massive, sprawling movie together?",
+        "Why does the narrative pivot to Sicily in the second act, and how does it change Michael?",
+        "Is the long prologue at the beginning really necessary, or does it just slow down the start?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How did this film redefine its genre?",
+        "slug": "genre-redefinition",
+        "definition": "This frame examines how a groundbreaking film permanently altered the stylistic, narrative, or thematic boundaries of its genre. Viewers ask this to contextualize the film's historical importance and its lasting influence on subsequent cinema.",
+        "dimension": "craft-choice",
+        "suggested_slots": [
+          {
+            "name": "genre_impact",
+            "values": [
+              "introducing gritty realism",
+              "elevating production standards",
+              "merging disparate genres",
+              "deconstructing heroic archetypes"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "a11f2a07-f70b-4c1d-8f7a-0e5b90e07d29",
+        "e23febf5-4bbc-40a0-a721-af255028d690",
+        "06e3a42f-3bd6-4899-b496-0ba46461ce0c",
+        "5a22a895-d6d8-4ec3-b9e7-c3af9c32f2f6"
+      ],
+      "titles": [
+        "How did the film's grounding in realistic crime cinema alter the trajectory of the superhero genre?",
+        "How does the famous baptism sequence redefine the narrative climax of the gangster genre?",
+        "How did 2001 completely rewrite the rules of the science fiction genre?",
+        "How did this film manage to escape the campy reputation of older fantasy movies?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Is this ambiguous element real or imaginary?",
+        "slug": "ambiguous-reality",
+        "definition": "This frame questions whether a specific mysterious phenomenon, character, or twist exists within the physical reality of the film or is a psychological projection. Audiences ask this to determine the boundaries of the film's reality and the sanity of its characters.",
+        "dimension": "central-ambiguity",
+        "suggested_slots": [
+          {
+            "name": "reality_boundary",
+            "values": [
+              "supernatural occurrence",
+              "psychological delusion",
+              "metaphorical device"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "1e8f87a9-4d72-4a20-9585-d28b650065d2",
+        "da9d334a-ab81-448b-84bc-6a10c51fe69a",
+        "838ec722-19a1-4212-8a17-d6c762174ebf"
+      ],
+      "titles": [
+        "Is the Zone actually magical, or is the Stalker just a paranoid guide making up rules?",
+        "How is Mr. Jingles still alive at the end of the movie?",
+        "Isn't the \"it's all in his head\" twist just a lazy cop-out to avoid a real ending?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How do contrasting character reactions highlight their core differences?",
+        "slug": "contrasting-character-reactions",
+        "definition": "This frame compares how different characters react to the same extraordinary event, miracle, or trauma to highlight their contrasting worldviews. Viewers ask this to analyze the philosophical or moral debates played out through character dynamics.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "contrasting_reaction",
+            "values": [
+              "spiritual awakening vs cynicism",
+              "acceptance vs resistance",
+              "growth vs stagnation"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "6243feb8-7f05-475f-a1b7-a574c79accc5",
+        "78312d1c-06a3-4585-b707-bd50a8b470b7",
+        "516851a0-400c-4f64-a06f-3ebb958b1cad"
+      ],
+      "titles": [
+        "Why does Jules decide to walk the earth after the miracle, while Vincent ignores it?",
+        "Why does John choose to share his power and visions only with Paul?",
+        "What is the significance of Lieutenant Dan's legs, and why does his attitude toward Forrest change so drastically after the hurricane?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why does the character hesitate or refuse to take the final step?",
+        "slug": "hesitation-or-refusal",
+        "definition": "This frame analyzes moments where a character hesitates, backs away, or refuses to cross a threshold or enter a space of ultimate truth. Viewers ask this to explore the fear, moral realization, or existential dread that halts a character's progress.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "reason_for_hesitation",
+            "values": [
+              "fear of the truth",
+              "moral awakening",
+              "existential paralysis"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "11c3eeb7-c707-4324-875e-0888f5a62ed6",
+        "a9a055fb-8497-415f-8e8d-fe63fd527b9f",
+        "ce6dfa6f-c4b9-49ef-911d-c423fe9eb7ea"
+      ],
+      "titles": [
+        "Why does the Writer put on a crown of thorns, and then immediately take it off?",
+        "Why does Gandalf hesitate so long in the Mines of Moria before choosing a path?",
+        "Why didn't they actually go inside the Room at the end?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "What are the subtle clues pointing to a twist or fate?",
+        "slug": "foreshadowing-clues",
+        "definition": "This frame identifies the hidden visual, auditory, or narrative clues scattered throughout a film that foreshadow its major twists or character fates. Viewers ask this to appreciate the meticulous craftsmanship that rewards repeat viewings.",
+        "dimension": "rewatch-detail",
+        "suggested_slots": [
+          {
+            "name": "clue_type",
+            "values": [
+              "background visual detail",
+              "recurring character habit",
+              "subtle dialogue hint"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "ac340021-16c8-4af0-8dec-6ca8840c275f",
+        "bb62dcce-6a9c-4c16-9279-209d47e102b5"
+      ],
+      "titles": [
+        "Why does Vincent Vega spend so much time in the bathroom, and how does it connect to his fate?",
+        "What are the subtle visual clues pointing to the big twist that you only notice on a second viewing?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why does this character stay in a toxic relationship?",
+        "slug": "toxic-relationship-motivation",
+        "definition": "This frame investigates the complex psychological and emotional reasons why a character remains in an abusive, codependent, or destructive relationship. Audiences ask this to understand the deep-seated needs, fears, or shared delusions that bind characters together.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "relationship_dynamic",
+            "values": [
+              "codependency",
+              "shared trauma",
+              "manipulative control",
+              "existential loneliness"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "77325143-b6e7-423a-a48c-9b354ac4d3b8",
+        "6cf54b38-dcf2-46eb-bd6e-b28e53019b40"
+      ],
+      "titles": [
+        "Why does the Stalker's wife stay with him when he brings so much misery to their family?",
+        "Why does Marla stick around after all the abuse and weirdness?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "What is the truth behind this character's mystery?",
+        "slug": "character-mystery",
+        "definition": "This frame focuses on unresolved questions regarding a character's background, physical condition, or the truth behind their self-reported stories. Viewers ask this to piece together the factual reality of a character's identity and history.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "mystery_type",
+            "values": [
+              "fabricated backstory",
+              "unspecified medical condition",
+              "hidden identity"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "80a9374a-57c8-45b0-87a7-ea7f3c2f439e",
+        "aba08e79-0533-44f1-8810-a76d967b4564"
+      ],
+      "titles": [
+        "Why does the Joker tell different stories about his scars, and what is the truth behind them?",
+        "What disease does Jenny actually die from at the end of the movie?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Why does the character accept a tragic burden or punishment?",
+        "slug": "tragic-burden",
+        "definition": "This frame explores why a character willingly accepts blame, suffering, or a lifetime of punishment for the sake of a greater good or moral duty. Viewers ask this to understand the noble or tragic self-sacrifice at the heart of the character's journey.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "sacrifice_reason",
+            "values": [
+              "protecting a legacy",
+              "atoning for past sins",
+              "preserving social order"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "551078bf-5066-4d06-b975-e2f82eea9a4d",
+        "1706121f-3d2f-4e14-90f8-87f40be2ee8d"
+      ],
+      "titles": [
+        "Why does Batman take the fall for Harvey Dent's crimes at the end of the movie?",
+        "Is Paul's long life at the end meant to be a punishment?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How does a character's specific trauma or trigger define their fate?",
+        "slug": "character-trauma-and-fate",
+        "definition": "This frame examines how a character's deep-seated psychological trauma, sensory triggers, or institutionalization dictates their ultimate actions and fate. Viewers ask this to understand the tragic inevitability of a character's psychological conditioning.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "trauma_manifestation",
+            "values": [
+              "sensory trigger",
+              "inability to adapt to freedom",
+              "repressed class rage"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "75031154-ef02-4e9e-bb12-a9473f16b2f6",
+        "3fec6dd7-07c5-4272-bb6c-ba76d70e76b6"
+      ],
+      "titles": [
+        "Why is the smell such a destructive trigger for Ki-taek?",
+        "How does the film define 'institutionalization' through the character of Brooks Hatlen?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "What is the true nature or cause of an antagonist's behavior?",
+        "slug": "antagonist-behavior-and-motivation",
+        "definition": "This frame explores the underlying causes, glitches, or psychological states behind an antagonist's chillingly calm or erratic behavior. Viewers ask this to understand whether the threat stems from a logical error, systemic programming, or pure malice.",
+        "dimension": "character-motive-or-fate",
+        "suggested_slots": [
+          {
+            "name": "behavioral_cause",
+            "values": [
+              "conflicting programming",
+              "psychological detachment",
+              "systemic failure"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "a1de7dcd-fb1d-41ff-bf9f-09a97f48e7b6",
+        "d67a3198-3774-4beb-8444-5c8193d01e18"
+      ],
+      "titles": [
+        "Why does HAL sound so incredibly polite while he is literally killing the crew?",
+        "Why does HAL actually malfunction? Is it just a random glitch or did the crew do something wrong?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "How did real-world production circumstances shape the film's style?",
+        "slug": "production-circumstances-and-style",
+        "definition": "This frame examines how real-world production constraints, historical contexts, or changes in medium influenced the film's final aesthetic and narrative structure. Viewers ask this to bridge the gap between behind-the-scenes history and on-screen art.",
+        "dimension": "director-connection",
+        "suggested_slots": [
+          {
+            "name": "production_factor",
+            "values": [
+              "failed pilot transition",
+              "artistic medium shift",
+              "budgetary constraints"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "36bf6358-53e8-4add-85e5-71798918a044",
+        "64292eb5-ddde-4fcd-bf93-ebfd1b2a13b8"
+      ],
+      "titles": [
+        "How did the film's origins as a failed television pilot shape its unique narrative structure?",
+        "What is the historical or artistic reason for switching between sepia and color?"
+      ]
+    },
+    {
+      "frame": {
+        "label": "Is this self-indulgent choice actually meaningful?",
+        "slug": "artistic-indulgence-vs-meaning",
+        "definition": "This frame debates whether highly stylized, exceptionally long, or abstract sequences are self-indulgent excesses or essential thematic components. Viewers ask this to evaluate the artistic merit and narrative necessity of a filmmaker's boldest choices.",
+        "dimension": "contested-point",
+        "suggested_slots": [
+          {
+            "name": "artistic_choice",
+            "values": [
+              "extreme runtime",
+              "extended abstract sequence",
+              "stylized visual effects"
+            ]
+          }
+        ]
+      },
+      "members": [
+        "f9890923-67de-414a-87eb-17fb9f31d917",
+        "a3adeadb-1536-46bf-91ab-c91a35d75ddd"
+      ],
+      "titles": [
+        "Is the final psychedelic light show just 1960s trippy nonsense to hide that the movie ran out of plot?",
+        "Why is this movie over three hours long? Could it have been shorter?"
+      ]
+    }
+  ],
+  "orphans": [
+    "258bce49-6711-4743-97ed-cd9c4c2f7dfe",
+    "cbb1a4df-fff7-4b53-89fa-de20d76c1d07"
+  ]
+}
