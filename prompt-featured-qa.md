@@ -39,7 +39,8 @@ yourself.
   *and* name the open question. Honest ambiguity is a trust signal, not a weakness; fake certainty
   is the fastest way to fail E-E-A-T.
 - Spoilers are expected here (these are interpretation pages). Answer **fully**, endings included.
-- English. No markdown inside field values. No emojis.
+- English. No markdown inside field values. No emojis — **except inside `question_display`**,
+  where emojis are the masking device (see the Spoiler gate below).
 
 ### What makes a FilmCurio answer — the bar (apply to every answer)
 1. **Mirror the question's crux, and answer it first.** The opening sentence is a committed,
@@ -129,6 +130,28 @@ you can answer well — never pad to hit a count.** Aim for **10** items; every 
 **self_confidence ≥ 0.75**. If you genuinely cannot reach 10 strong ones, return fewer (**minimum
 8**) rather than weak ones.
 
+### Spoiler gate (judge every item — readers who haven't seen the film browse the site)
+Answers are full-spoiler by design; the *surfaces around them* must not be. For every item set:
+- **spoiler_level** — grade what the ANSWER reveals:
+  - `"none"` — premise-level only: themes, craft, genre, context.
+  - `"mild"` — mid-film developments or details beyond the premise; no ending/twist/death/fate.
+  - `"major"` — the ending, a twist, a character's death or fate, a killer's/impostor's identity.
+- **title_spoiler** (boolean) — would the question TITLE alone spoil someone who hasn't seen the
+  film? Judge the title in isolation. "What actually happens at the end?" is **false** (it promises
+  a spoiler, it doesn't deliver one). "Why does X shoot Y at the end?" is **true**.
+- **question_display** — only when `title_spoiler` is true, write a masked version of the title:
+  - Replace **only the spoiling words** — names whose fate the title reveals, verbs like
+    kill/die/betray/shoot, twist nouns — with **1–3 fitting, trendy emojis**. Keep every other
+    word and the sentence shape intact so it still reads as a question.
+  - Never mask the film title itself. The result must stay enticing — a riddle that makes the
+    reader *want* to tap, not a redaction. Example: "Why did the detective shoot his partner?" →
+    "Why did the detective 🔫 his 🤝?"
+  - When `title_spoiler` is false, set it to `""`.
+- **hook** — only when `spoiler_level` is `"major"`, write **one spoiler-free teaser sentence
+  (≤30 words)** that sells the answer without revealing it ("The film answers this in a single
+  cut most viewers miss."). Used instead of the answer's opening in list previews. When the level
+  is not major, set it to `""`.
+
 ### Output — a single JSON object, exactly this shape, and nothing else
 ```
 {
@@ -142,6 +165,10 @@ you can answer well — never pad to hit a count.** Aim for **10** items; every 
       "answer": "<180–340 words meeting every rule above>",
       "answerer_lens": "<one of the 10 answerer labels>",
       "aha": "<one sentence naming the single aha insight this answer lands>",
+      "spoiler_level": "<none | mild | major>",
+      "title_spoiler": false,
+      "question_display": "<emoji-masked title when title_spoiler is true, else \"\">",
+      "hook": "<spoiler-free one-sentence teaser when spoiler_level is major, else \"\">",
       "self_confidence": 0.00,
       "claims_sourced": true
     }

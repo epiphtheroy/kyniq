@@ -51,6 +51,9 @@ export async function generateMetadata({
 interface QuestionRow {
   id: string;
   title: string;
+  display_title: string | null;
+  spoiler_level: string | null;
+  safe_hook: string | null;
   slug: string;
   created_at: string;
   view_count: number;
@@ -66,7 +69,7 @@ async function getPublishedQuestions(
 
   let query = supabase
     .from("questions")
-    .select("id, title, slug, created_at, view_count, canonical_answers(id, body)")
+    .select("id, title, display_title, spoiler_level, safe_hook, slug, created_at, view_count, canonical_answers(id, body)")
     .eq("film_id", filmId)
     .eq("status", "published");
 
@@ -108,7 +111,7 @@ async function getMostReadQuestion(filmId: string) {
   // Get top question by views that has a published canonical answer
   const { data: questions } = await supabase
     .from("questions")
-    .select("id, title, slug, view_count")
+    .select("id, title, display_title, spoiler_level, safe_hook, slug, view_count")
     .eq("film_id", filmId)
     .eq("status", "published")
     .order("view_count", { ascending: false })
@@ -125,12 +128,15 @@ async function getMostReadQuestion(filmId: string) {
       .single();
 
     if (answer) {
-      // Extract first ~200 chars as TL;DR teaser
+      // Extract first ~200 chars as TL;DR teaser.
+      // Spoiler guard: major answers open on the ending — use the safe hook.
+      const teaserSource =
+        q.spoiler_level === "major" ? (q.safe_hook ?? "") : answer.body;
       const teaser =
-        answer.body.length > 200
-          ? answer.body.slice(0, 200).replace(/\s+\S*$/, "") + "…"
-          : answer.body;
-      return { ...q, teaser };
+        teaserSource.length > 200
+          ? teaserSource.slice(0, 200).replace(/\s+\S*$/, "") + "…"
+          : teaserSource;
+      return { ...q, title: q.display_title || q.title, teaser };
     }
   }
 
@@ -272,8 +278,12 @@ export default async function FilmPage({ params }: PageProps) {
           questions.map((q) => {
             const count = contributionCounts[q.id] ?? 0;
             const hasAnswer = Array.isArray(q.canonical_answers) ? q.canonical_answers.length > 0 : !!q.canonical_answers;
+            // Spoiler guard: major answers open on the ending — preview the
+            // spoiler-free hook instead of the answer body.
             const answerTeaser = hasAnswer
-              ? (Array.isArray(q.canonical_answers) ? q.canonical_answers[0]?.body : (q.canonical_answers as unknown as { body: string })?.body)
+              ? (q.spoiler_level === "major"
+                  ? q.safe_hook
+                  : (Array.isArray(q.canonical_answers) ? q.canonical_answers[0]?.body : (q.canonical_answers as unknown as { body: string })?.body))
               : null;
             const teaser = answerTeaser && answerTeaser.length > 120
               ? answerTeaser.slice(0, 120).replace(/\s+\S*$/, "") + "…"
@@ -288,8 +298,16 @@ export default async function FilmPage({ params }: PageProps) {
                       textDecoration: "none",
                     }}
                   >
-                    {q.title}
+                    {q.display_title || q.title}
                   </Link>
+                  {q.spoiler_level === "major" && (
+                    <>
+                      {" "}
+                      <span className="spoiler-chip" title="The full answer discusses the ending">
+                        <span aria-hidden="true">🍿</span> Ending inside
+                      </span>
+                    </>
+                  )}
                 </div>
                 {teaser && (
                   <p

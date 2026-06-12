@@ -16,6 +16,12 @@ const IMG_BASE = "https://image.tmdb.org/t/p";
 interface FeedItem {
   id: string;
   title: string;
+  /** Emoji-masked title for list surfaces (null → use title) */
+  displayTitle?: string | null;
+  /** none | mild | major | null (legacy) */
+  spoilerLevel?: string | null;
+  /** Spoiler-free teaser for major items (null → body teaser) */
+  safeHook?: string | null;
   slug: string;
   film: {
     title: string;
@@ -64,12 +70,29 @@ function imageFor(item: FeedItem, big: boolean): string | null {
 }
 
 function dekFor(item: FeedItem, max = 150): string {
-  const flat = (item.answerTeaser || item.answer || "")
-    .replace(/\s+/g, " ")
-    .trim();
+  // Spoiler guard: major answers open on the crux (i.e. the ending) —
+  // list previews use the model's spoiler-free hook instead.
+  const source =
+    item.spoilerLevel === "major"
+      ? item.safeHook || ""
+      : item.answerTeaser || item.answer || "";
+  const flat = source.replace(/\s+/g, " ").trim();
   if (flat.length <= max) return flat;
   const cut = flat.slice(0, max);
   return cut.slice(0, Math.max(cut.lastIndexOf(" "), 60)) + "…";
+}
+
+function titleFor(item: FeedItem): string {
+  return item.displayTitle || item.title;
+}
+
+function SpoilerChip({ item }: { item: FeedItem }) {
+  if (item.spoilerLevel !== "major") return null;
+  return (
+    <span className="spoiler-chip" title="The full answer discusses the ending">
+      <span aria-hidden="true">🍿</span> Ending inside
+    </span>
+  );
 }
 
 function readMins(item: FeedItem): number {
@@ -193,7 +216,8 @@ export default function InfiniteScrollFeed({
               )}
               <Kicker item={item} />
               <h2 className="lead__title">
-                <Link href={href}>{item.title}</Link>
+                <Link href={href}>{titleFor(item)}</Link>{" "}
+                <SpoilerChip item={item} />
               </h2>
               <p className="dek">{dekFor(item, 190)}</p>
               <Meta item={item} />
@@ -208,7 +232,8 @@ export default function InfiniteScrollFeed({
             <div className="story__text">
               <Kicker item={item} />
               <h2 className="story__title">
-                <Link href={href}>{item.title}</Link>
+                <Link href={href}>{titleFor(item)}</Link>{" "}
+                <SpoilerChip item={item} />
               </h2>
               <p className="dek">{dekFor(item, 110)}</p>
               <Meta item={item} />

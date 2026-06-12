@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
   let query = supabase
     .from("questions")
     .select(`
-      id, title, slug, view_count, published_at, created_at,
+      id, title, display_title, spoiler_level, safe_hook, slug, view_count, published_at, created_at,
       film:films!inner(id, title, year, director, director_slug, slug, poster_path),
       canonical_answers!inner(body, status)
     `)
@@ -107,6 +107,9 @@ export async function GET(request: NextRequest) {
     return {
       id: q.id,
       title: q.title,
+      displayTitle: q.display_title ?? null,
+      spoilerLevel: q.spoiler_level ?? null,
+      safeHook: q.safe_hook ?? null,
       slug: q.slug,
       film: {
         title: film.title,

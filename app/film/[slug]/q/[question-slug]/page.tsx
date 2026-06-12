@@ -5,6 +5,7 @@ import Link from "next/link";
 import ContributionSection from "./ContributionSection";
 import MediaGallery from "@/components/MediaGallery";
 import ShareRow from "@/components/ShareRow";
+import SpoilerShield from "@/components/SpoilerShield";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 export const dynamic = 'force-dynamic';
@@ -49,7 +50,7 @@ export default async function QuestionPage({ params }: Props) {
   const { data: question, error } = await supabase
     .from("questions")
     .select(`
-      id, title, body, slug, question_type, view_count, created_at, published_at,
+      id, title, body, slug, question_type, spoiler_level, safe_hook, view_count, created_at, published_at,
       author:profiles!questions_author_id_fkey(username, display_name),
       film:films!inner(id, title, year, director, director_slug, slug, poster_path, imdb_id, wikidata_id),
       canonical_answers(id, body, updated_at, revision_count, status, source, generated_by,
@@ -91,6 +92,14 @@ export default async function QuestionPage({ params }: Props) {
 
   const updater = canonical?.updated_by_profile;
   const isAI = canonical?.source === "ai";
+
+  // ── Spoiler guard ──
+  // House style answers the crux in the first sentence, so for "major" items
+  // the standfirst IS the spoiler: swap in the model's spoiler-free hook as
+  // the dek and move the real opening paragraph behind the SpoilerShield.
+  const spoilerLevel = (question.spoiler_level as string | null) ?? null;
+  const isMajorSpoiler = spoilerLevel === "major";
+  const dek = isMajorSpoiler ? ((question.safe_hook as string | null) ?? "") : standfirst;
 
   // Media for this question (hero still + videos)
   type MediaItem = {
@@ -177,7 +186,11 @@ export default async function QuestionPage({ params }: Props) {
 
   const words = (canonical?.body ?? "").split(/\s+/).filter(Boolean).length;
   const readMins = Math.max(1, Math.round(words / 220));
+  // For major items the standfirst left the dek, so it leads the (shielded) body.
   const bodyParagraphs = restBody ? restBody.split(/\n\n+/) : [];
+  const displayParagraphs = isMajorSpoiler
+    ? [standfirst, ...bodyParagraphs].filter(Boolean)
+    : bodyParagraphs;
 
   return (
     <>
@@ -220,8 +233,8 @@ export default async function QuestionPage({ params }: Props) {
             {/* ── Headline ── */}
             <h1 className="article-title">{question.title}</h1>
 
-            {/* ── Dek (standfirst) ── */}
-            {standfirst && <p className="article-dek">{standfirst}</p>}
+            {/* ── Dek (standfirst — or the spoiler-free hook for major items) ── */}
+            {dek && <p className="article-dek">{dek}</p>}
 
             {/* ── Meta + share row ── */}
             <div className="article-metarow">
@@ -284,23 +297,25 @@ export default async function QuestionPage({ params }: Props) {
           {/* ── Article body — drop cap, ■ end mark ── */}
           {canonical && canonical.status === "published" ? (
             <>
-              <div className="article-body">
-                {bodyParagraphs.length > 0 ? (
-                  bodyParagraphs.map((p, i) => (
-                    <p key={i} className={i === 0 ? "has-dropcap" : undefined}>
-                      {p}
-                      {i === bodyParagraphs.length - 1 && (
-                        <span className="endmark">■</span>
-                      )}
+              <SpoilerShield level={spoilerLevel}>
+                <div className="article-body">
+                  {displayParagraphs.length > 0 ? (
+                    displayParagraphs.map((p, i) => (
+                      <p key={i} className={i === 0 ? "has-dropcap" : undefined}>
+                        {p}
+                        {i === displayParagraphs.length - 1 && (
+                          <span className="endmark">■</span>
+                        )}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="has-dropcap">
+                      {standfirst}
+                      <span className="endmark">■</span>
                     </p>
-                  ))
-                ) : (
-                  <p className="has-dropcap">
-                    {standfirst}
-                    <span className="endmark">■</span>
-                  </p>
-                )}
-              </div>
+                  )}
+                </div>
+              </SpoilerShield>
 
               <div className="article-credit">
                 Last updated by{" "}
@@ -384,7 +399,7 @@ async function MoreFeed({ filmId, excludeId }: { filmId: string; excludeId: stri
   const { data: feedRaw } = await supabase
     .from("questions")
     .select(`
-      id, title, slug, view_count, published_at, created_at,
+      id, title, display_title, spoiler_level, safe_hook, slug, view_count, published_at, created_at,
       film:films!inner(id, title, year, director, director_slug, slug, poster_path),
       canonical_answers!inner(body, status)
     `)
@@ -442,6 +457,9 @@ async function MoreFeed({ filmId, excludeId }: { filmId: string; excludeId: stri
     return {
       id: q.id as string,
       title: q.title as string,
+      displayTitle: (q.display_title as string | null) ?? null,
+      spoilerLevel: (q.spoiler_level as string | null) ?? null,
+      safeHook: (q.safe_hook as string | null) ?? null,
       slug: q.slug as string,
       film: {
         title: film.title,

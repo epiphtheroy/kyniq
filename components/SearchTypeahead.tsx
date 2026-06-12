@@ -49,7 +49,7 @@ export default function SearchTypeahead({
         .limit(4),
       supabase
         .from("questions")
-        .select("id, title, slug, film:films!inner(title, slug)")
+        .select("id, title, display_title, slug, film:films!inner(title, slug)")
         .ilike("title", pattern)
         .eq("status", "published")
         .limit(4),
@@ -66,7 +66,8 @@ export default function SearchTypeahead({
       const film = q.film as { title: string; slug: string };
       return {
         id: q.id as string,
-        title: q.title as string,
+        // Spoiler guard: lists show the emoji-masked title when one exists
+        title: (q.display_title as string | null) || (q.title as string),
         slug: q.slug as string,
         film_title: film.title,
         film_slug: film.slug,

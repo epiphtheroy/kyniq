@@ -27,6 +27,8 @@ interface FilmContext {
   keywords: string[];
 }
 
+type SpoilerLevel = "none" | "mild" | "major";
+
 interface FeaturedItem {
   question: string;
   question_body: string;
@@ -34,8 +36,15 @@ interface FeaturedItem {
   answer: string;
   answerer_lens: string;
   aha: string;
+  spoiler_level: SpoilerLevel;
+  title_spoiler: boolean;
+  question_display: string;
+  hook: string;
   self_confidence: number;
   claims_sourced: boolean;
+  /** Set by the validator when the regex backstop disagrees with the model
+   *  (title looks spoilery but title_spoiler=false). Audited, not rejected. */
+  _spoiler_heuristic_mismatch?: boolean;
 }
 
 interface GeneratorOutput {
@@ -86,6 +95,15 @@ const MAX_ANSWER_WORDS = 500;
 
 const BANNED_TERMS_RE = /\b(kyniq|filmcurio\.com|http[s]?:\/\/|www\.)\b/i;
 
+// Spoiler-guard validator constants
+const SPOILER_LEVELS = ["none", "mild", "major"] as const;
+const MAX_HOOK_LENGTH = 200;
+/** Regex backstop: titles that look like they reveal a fate/twist. */
+const SPOILER_TITLE_RE =
+  /\b(dies?|death|kills?|killed|murder(er|s)?|the killer|is actually|turns? out|twist|betray(s|ed|al)?|ending reveals?|was dead|isn'?t real|imagin(ed|ary))\b/i;
+/** Any emoji-ish codepoint (covers pictographs, symbols, transport, flags). */
+const EMOJI_RE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/u;
+
 const VALID_ASKER_LENSES = [
   "The First-Timer", "The Feeler", "The Logic-Checker", "The Symbol-Spotter",
   "The Bingewatcher", "The Student", "The Rewatcher", "The Skeptic",
@@ -120,7 +138,8 @@ yourself.
   *and* name the open question. Honest ambiguity is a trust signal, not a weakness; fake certainty
   is the fastest way to fail E-E-A-T.
 - Spoilers are expected here (these are interpretation pages). Answer **fully**, endings included.
-- English. No markdown inside field values. No emojis.
+- English. No markdown inside field values. No emojis — **except inside question_display**,
+  where emojis are the masking device (see the Spoiler gate below).
 
 ### What makes a FilmCurio answer — the bar (apply to every answer)
 1. **Mirror the question's crux, and answer it first.** The opening sentence is a committed,
@@ -198,6 +217,27 @@ you can answer well — never pad to hit a count.** Aim for **10** items; every 
 **self_confidence ≥ 0.75**. If you genuinely cannot reach 10 strong ones, return fewer (**minimum
 8**) rather than weak ones.
 
+### Spoiler gate (judge every item — readers who haven't seen the film browse the site)
+Answers are full-spoiler by design; the *surfaces around them* must not be. For every item set:
+- **spoiler_level** — grade what the ANSWER reveals:
+  - "none" — premise-level only: themes, craft, genre, context.
+  - "mild" — mid-film developments or details beyond the premise; no ending/twist/death/fate.
+  - "major" — the ending, a twist, a character's death or fate, a killer's/impostor's identity.
+- **title_spoiler** (boolean) — would the question TITLE alone spoil someone who hasn't seen the
+  film? Judge the title in isolation. "What actually happens at the end?" is **false** (it
+  promises a spoiler, it doesn't deliver one). "Why does X shoot Y at the end?" is **true**.
+- **question_display** — only when title_spoiler is true, write a masked version of the title:
+  - Replace **only the spoiling words** — names whose fate the title reveals, verbs like
+    kill/die/betray/shoot, twist nouns — with **1–3 fitting, trendy emojis**. Keep every other
+    word and the sentence shape intact so it still reads as a question.
+  - Never mask the film title itself. The result must stay enticing — a riddle that makes the
+    reader *want* to tap, not a redaction. Example: "Why did the detective shoot his partner?" →
+    "Why did the detective 🔫 his 🤝?"
+  - When title_spoiler is false, set it to "".
+- **hook** — only when spoiler_level is "major", write **one spoiler-free teaser sentence
+  (≤30 words)** that sells the answer without revealing it. Used instead of the answer's opening
+  in list previews. When the level is not major, set it to "".
+
 ### Output — a single JSON object, exactly this shape, and nothing else
 {
   "film_id": "<echo the input film_id>",
@@ -210,6 +250,10 @@ you can answer well — never pad to hit a count.** Aim for **10** items; every 
       "answer": "<180–340 words meeting every rule above>",
       "answerer_lens": "<one of the 10 answerer labels>",
       "aha": "<one sentence naming the single aha insight this answer lands>",
+      "spoiler_level": "<none | mild | major>",
+      "title_spoiler": false,
+      "question_display": "<emoji-masked title when title_spoiler is true, else \\"\\">",
+      "hook": "<spoiler-free one-sentence teaser when spoiler_level is major, else \\"\\">",
       "self_confidence": 0.00,
       "claims_sourced": true
     }
@@ -412,6 +456,60 @@ function validateOutput(raw: string, filmId: string): ValidationResult {
     // Ensure question_body is a string (may be missing)
     item.question_body = item.question_body ?? "";
 
+    // ── Spoiler gate (deterministic backstop) ──
+    // 1. spoiler_level must be a valid enum value
+    if (!SPOILER_LEVELS.includes(item.spoiler_level as (typeof SPOILER_LEVELS)[number])) {
+      errors.push(`item[${i}]: invalid spoiler_level "${item.spoiler_level}"`);
+      continue;
+    }
+    if (typeof item.title_spoiler !== "boolean") {
+      errors.push(`item[${i}]: missing title_spoiler`);
+      continue;
+    }
+    item.question_display = item.question_display ?? "";
+    item.hook = item.hook ?? "";
+
+    // 2. title_spoiler=true → question_display must exist, contain an emoji, differ from title
+    if (item.title_spoiler) {
+      if (
+        !item.question_display.trim() ||
+        !EMOJI_RE.test(item.question_display) ||
+        item.question_display.trim() === item.question.trim() ||
+        item.question_display.length > MAX_QUESTION_LENGTH
+      ) {
+        errors.push(`item[${i}]: title_spoiler=true but question_display is missing/unmasked`);
+        continue;
+      }
+    } else {
+      // 3. title_spoiler=false → no masked title (and no stray emojis on lists)
+      item.question_display = "";
+    }
+
+    // 4. major → spoiler-free hook required
+    if (item.spoiler_level === "major") {
+      if (!item.hook.trim() || item.hook.length > MAX_HOOK_LENGTH || BANNED_TERMS_RE.test(item.hook)) {
+        errors.push(`item[${i}]: spoiler_level=major but hook is missing/invalid`);
+        continue;
+      }
+    } else {
+      item.hook = "";
+    }
+
+    // 5. Regex backstop: spoilery-looking title the model judged safe.
+    //    Don't reject (we can't mask deterministically) — escalate the level
+    //    conservatively and flag for the admin audit trail.
+    if (!item.title_spoiler && SPOILER_TITLE_RE.test(item.question)) {
+      if (item.spoiler_level === "none") item.spoiler_level = "mild";
+      item._spoiler_heuristic_mismatch = true;
+      errors.push(`item[${i}]: spoiler heuristic mismatch (accepted, escalated)`);
+    }
+
+    // Emojis are allowed ONLY in question_display
+    if (EMOJI_RE.test(item.question) || EMOJI_RE.test(item.answer)) {
+      errors.push(`item[${i}]: emoji outside question_display`);
+      continue;
+    }
+
     validItems.push(item);
   }
 
@@ -570,6 +668,10 @@ Produce the featured Q&A JSON for this film now.`;
         source: "ai",
         generated_by: config.model,
         asker_lens: item.asker_lens,
+        spoiler_level: item.spoiler_level,
+        title_spoiler: item.title_spoiler,
+        display_title: item.question_display || null,
+        safe_hook: item.hook || null,
         self_confidence: item.self_confidence,
         claims_sourced: item.claims_sourced,
         scheduled_for: publishTimes[ptIdx++]?.toISOString(),
@@ -594,6 +696,7 @@ Produce the featured Q&A JSON for this film now.`;
         generated_by: config.model,
         answerer_lens: item.answerer_lens,
         aha: item.aha,
+        spoiler_level: item.spoiler_level,
         self_confidence: item.self_confidence,
         claims_sourced: item.claims_sourced,
         scheduled_for: publishTimes[ptIdx++]?.toISOString(),
@@ -617,6 +720,8 @@ Produce the featured Q&A JSON for this film now.`;
           model: config.model,
           film_id: filmId,
           asker_lens: item.asker_lens,
+          spoiler_level: item.spoiler_level,
+          title_spoiler: item.title_spoiler,
           self_confidence: item.self_confidence,
         },
       },
@@ -634,6 +739,23 @@ Produce the featured Q&A JSON for this film now.`;
         },
       },
     ]);
+
+    // Audit trail: regex backstop disagreed with the model's spoiler call
+    if (item._spoiler_heuristic_mismatch) {
+      await supabase.from("content_events").insert({
+        entity_type: "question",
+        entity_id: question.id,
+        event: "spoiler_heuristic_mismatch",
+        actor_kind: "ai",
+        meta: {
+          model: config.model,
+          film_id: filmId,
+          title: item.question,
+          model_said: { title_spoiler: false },
+          escalated_spoiler_level: item.spoiler_level,
+        },
+      });
+    }
   }
 
   // 7. Log film-level event

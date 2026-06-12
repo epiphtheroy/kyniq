@@ -32,7 +32,7 @@ export default async function RelatedQuestions({
   // 1. More questions about this film
   const { data: sameFilmQuestions } = await supabase
     .from("questions")
-    .select("id, title, slug, view_count")
+    .select("id, title, display_title, slug, view_count")
     .eq("film_id", filmId)
     .eq("status", "published")
     .neq("id", currentQuestionId)
@@ -56,7 +56,7 @@ export default async function RelatedQuestions({
     const filmIds = directorFilms.map((f) => f.id);
     const { data: dqs } = await supabase
       .from("questions")
-      .select("id, title, slug, view_count, film:films!inner(title, slug, poster_path)")
+      .select("id, title, display_title, slug, view_count, film:films!inner(title, slug, poster_path)")
       .in("film_id", filmIds)
       .eq("status", "published")
       .order("view_count", { ascending: false })
@@ -64,7 +64,7 @@ export default async function RelatedQuestions({
 
     directorQuestions = (dqs ?? []).map((q: Record<string, unknown>) => ({
       id: q.id as string,
-      title: q.title as string,
+      title: (q.display_title as string | null) || (q.title as string),
       slug: q.slug as string,
       view_count: q.view_count as number,
       film: q.film as { title: string; slug: string; poster_path: string | null },
@@ -74,7 +74,7 @@ export default async function RelatedQuestions({
   // 3. Trending interpretations (across all films)
   const { data: trendingQuestions } = await supabase
     .from("questions")
-    .select("id, title, slug, view_count, film:films!inner(title, slug, poster_path)")
+    .select("id, title, display_title, slug, view_count, film:films!inner(title, slug, poster_path)")
     .eq("status", "published")
     .neq("id", currentQuestionId)
     .order("view_count", { ascending: false })
@@ -82,7 +82,7 @@ export default async function RelatedQuestions({
 
   const trending = (trendingQuestions ?? []).map((q: Record<string, unknown>) => ({
     id: q.id as string,
-    title: q.title as string,
+    title: (q.display_title as string | null) || (q.title as string),
     slug: q.slug as string,
     view_count: q.view_count as number,
     film: q.film as { title: string; slug: string; poster_path: string | null },
@@ -108,7 +108,7 @@ export default async function RelatedQuestions({
               className="related-box__item"
             >
               <div>
-                <div className="related-box__qtitle">{q.title}</div>
+                <div className="related-box__qtitle">{q.display_title || q.title}</div>
                 <div className="related-box__qmeta">
                   {q.view_count > 0 ? `${q.view_count.toLocaleString()} reads` : "New"}
                 </div>

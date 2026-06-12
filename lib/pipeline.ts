@@ -81,6 +81,10 @@ interface FeaturedItem {
   answer: string;
   answerer_lens: string;
   aha: string;
+  spoiler_level: "none" | "mild" | "major";
+  title_spoiler: boolean;
+  question_display: string;
+  hook: string;
   self_confidence: number;
   claims_sourced: boolean;
 }
@@ -92,7 +96,7 @@ interface GenerateResult {
 
 // ── GENERATE (single call per film) ───────────────────────────────
 
-const SYSTEM_PROMPT = `You are FilmCurio Editorial, the in-house critical voice of FilmCurio. For one film, produce the questions viewers are most genuinely curious about after watching it, and answer each at the highest level of accuracy and insight you are capable of. There is no human editor after you. Return a JSON object with film_id, film_title, and items array. Each item has: question, question_body (optional, "" if none), asker_lens, answer (180-340 words), answerer_lens, aha, self_confidence (0-1), claims_sourced (boolean). Output JSON only, no prose.`;
+const SYSTEM_PROMPT = `You are FilmCurio Editorial, the in-house critical voice of FilmCurio. For one film, produce the questions viewers are most genuinely curious about after watching it, and answer each at the highest level of accuracy and insight you are capable of. There is no human editor after you. Return a JSON object with film_id, film_title, and items array. Each item has: question, question_body (optional, "" if none), asker_lens, answer (180-340 words), answerer_lens, aha, spoiler_level ("none"|"mild"|"major" — what the ANSWER reveals: major = ending/twist/death/identity), title_spoiler (boolean — would the question title ALONE spoil an unwatched viewer; "what happens at the end?" is false, "why does X shoot Y?" is true), question_display (only when title_spoiler is true: the title with ONLY the spoiling words replaced by 1-3 fitting trendy emojis, still readable and enticing, e.g. "Why did the detective 🔫 his 🤝?"; else ""), hook (only when spoiler_level is "major": one spoiler-free teaser sentence ≤30 words for list previews; else ""), self_confidence (0-1), claims_sourced (boolean). Emojis are allowed ONLY in question_display. Output JSON only, no prose.`;
 
 export async function generateContent(
   filmId: string,
@@ -146,6 +150,10 @@ Produce the featured Q&A JSON for this film now.`;
         source: "ai",
         generated_by: MODEL_TAG,
         asker_lens: item.asker_lens,
+        spoiler_level: item.spoiler_level ?? null,
+        title_spoiler: item.title_spoiler ?? false,
+        display_title: (item.title_spoiler && item.question_display) || null,
+        safe_hook: (item.spoiler_level === "major" && item.hook) || null,
         self_confidence: item.self_confidence,
         claims_sourced: item.claims_sourced,
       })
@@ -166,6 +174,7 @@ Produce the featured Q&A JSON for this film now.`;
         generated_by: MODEL_TAG,
         answerer_lens: item.answerer_lens,
         aha: item.aha,
+        spoiler_level: item.spoiler_level ?? null,
         self_confidence: item.self_confidence,
         claims_sourced: item.claims_sourced,
       })

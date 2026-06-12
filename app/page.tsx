@@ -72,7 +72,7 @@ export default async function HomePage() {
   const { data: feedRaw } = await supabase
     .from("questions")
     .select(`
-      id, title, slug, view_count, published_at, created_at,
+      id, title, display_title, spoiler_level, safe_hook, slug, view_count, published_at, created_at,
       film:films!inner(id, title, year, director, director_slug, slug, poster_path),
       canonical_answers!inner(body, status)
     `)
@@ -131,6 +131,9 @@ export default async function HomePage() {
     return {
       id: q.id as string,
       title: q.title as string,
+      displayTitle: (q.display_title as string | null) ?? null,
+      spoilerLevel: (q.spoiler_level as string | null) ?? null,
+      safeHook: (q.safe_hook as string | null) ?? null,
       slug: q.slug as string,
       film: {
         title: film.title,
