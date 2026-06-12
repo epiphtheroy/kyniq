@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { getAdminUser } from "@/lib/admin";
 
 export const metadata: Metadata = {
@@ -24,7 +23,11 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const admin = await getAdminUser();
-  if (!admin) redirect("/admin/login");
+  // No redirect here: middleware already gates every /admin route except
+  // /admin/login. Redirecting from this layout sent the login page to
+  // itself in an infinite loop (ERR_TOO_MANY_REDIRECTS) whenever the
+  // session was expired. Render the login page bare instead.
+  if (!admin) return <>{children}</>;
 
   return (
     <>
