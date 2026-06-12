@@ -9,6 +9,7 @@
  */
 
 import YouTubeFacade from "./YouTubeFacade";
+import LightboxImage from "./LightboxImage";
 
 interface MediaItem {
   id: string;
@@ -57,12 +58,14 @@ export default function MediaGallery({ media }: MediaGalleryProps) {
                   border: "1px solid var(--hairline)",
                 }}
               >
-                <img
+                <LightboxImage
                   src={img.thumbnail_url ?? img.url}
+                  fullUrl={img.url ?? img.thumbnail_url}
                   alt={img.title ?? "Film still"}
                   loading="lazy"
                   width={780}
                   height={439}
+                  caption={img.title ?? img.attribution ?? "Still via TMDB"}
                   style={{
                     width: "100%",
                     height: "auto",

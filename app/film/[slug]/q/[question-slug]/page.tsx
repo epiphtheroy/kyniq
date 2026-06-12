@@ -6,6 +6,7 @@ import ContributionSection from "./ContributionSection";
 import MediaGallery from "@/components/MediaGallery";
 import ShareRow from "@/components/ShareRow";
 import SpoilerShield from "@/components/SpoilerShield";
+import LightboxImage from "@/components/LightboxImage";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 export const dynamic = 'force-dynamic';
@@ -99,7 +100,13 @@ export default async function QuestionPage({ params }: Props) {
   // the dek and move the real opening paragraph behind the SpoilerShield.
   const spoilerLevel = (question.spoiler_level as string | null) ?? null;
   const isMajorSpoiler = spoilerLevel === "major";
-  const dek = isMajorSpoiler ? ((question.safe_hook as string | null) ?? "") : standfirst;
+  // Dek rules: major → spoiler-free hook; multi-paragraph → first paragraph;
+  // single-paragraph → NO dek (otherwise the same text printed twice: dek + body).
+  const dek = isMajorSpoiler
+    ? ((question.safe_hook as string | null) ?? "")
+    : restBody
+      ? standfirst
+      : "";
 
   // Media for this question (hero still + videos)
   type MediaItem = {
@@ -186,11 +193,13 @@ export default async function QuestionPage({ params }: Props) {
 
   const words = (canonical?.body ?? "").split(/\s+/).filter(Boolean).length;
   const readMins = Math.max(1, Math.round(words / 220));
-  // For major items the standfirst left the dek, so it leads the (shielded) body.
+  // Whenever the standfirst is NOT shown as the dek (major items use the hook,
+  // single-paragraph answers show no dek), it must lead the body instead.
   const bodyParagraphs = restBody ? restBody.split(/\n\n+/) : [];
-  const displayParagraphs = isMajorSpoiler
-    ? [standfirst, ...bodyParagraphs].filter(Boolean)
-    : bodyParagraphs;
+  const displayParagraphs =
+    isMajorSpoiler || !restBody
+      ? [standfirst, ...bodyParagraphs].filter(Boolean)
+      : bodyParagraphs;
 
   return (
     <>
@@ -255,12 +264,13 @@ export default async function QuestionPage({ params }: Props) {
           {/* ── Hero image with caption ── */}
           {hero && (
             <figure className="article-hero" style={{ margin: "18px 0 0" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <LightboxImage
                 src={hero.url ?? hero.thumbnail_url ?? ""}
+                fullUrl={hero.url ?? hero.thumbnail_url}
                 alt={hero.title ?? `Still from ${film.title}`}
                 width={780}
                 height={439}
+                caption={`${hero.title ?? `${film.title} (${film.year})`} · ${hero.attribution ?? "Still via TMDB"}`}
               />
               <figcaption>
                 {hero.title ?? `${film.title} (${film.year})`}
