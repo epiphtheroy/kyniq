@@ -8,7 +8,8 @@ import Link from "next/link";
  * Frames below the hub gate stay invisible until approved + >=5 instances.
  */
 
-export const dynamic = "force-dynamic";
+// ISR: edge-cached, background-refreshed (was force-dynamic).
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "The big questions of cinema",

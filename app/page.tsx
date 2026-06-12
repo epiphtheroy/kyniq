@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import InfiniteScrollFeed from "@/components/InfiniteScrollFeed";
 
-export const dynamic = "force-dynamic";
+// ISR: edge-cached, refreshed in the background (was force-dynamic —
+// every visitor paid full SSR + sequential DB round trips).
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "FilmCurio — Film Q&A Community",
@@ -57,29 +59,31 @@ function editionDate(): string {
 export default async function HomePage() {
   const supabase = supabaseAnon();
 
-  // Stats
-  const { count: totalQuestions } = await supabase
-    .from("questions")
-    .select("id", { count: "exact", head: true })
-    .eq("status", "published");
-
-  const { count: totalFilms } = await supabase
-    .from("films")
-    .select("id", { count: "exact", head: true });
-
-  // SSR: first page of feed (10 items)
+  // Stats + first feed page — independent queries fired in parallel
+  // (was 3 sequential round trips)
   const LIMIT = 10;
-  const { data: feedRaw } = await supabase
-    .from("questions")
-    .select(`
-      id, title, display_title, spoiler_level, safe_hook, slug, view_count, published_at, created_at,
-      film:films!inner(id, title, year, director, director_slug, slug, poster_path),
-      canonical_answers!inner(body, status)
-    `)
-    .eq("status", "published")
-    .eq("canonical_answers.status", "published")
-    .order("published_at", { ascending: false })
-    .limit(LIMIT + 1);
+  const [
+    { count: totalQuestions },
+    { count: totalFilms },
+    { data: feedRaw },
+  ] = await Promise.all([
+    supabase
+      .from("questions")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "published"),
+    supabase.from("films").select("id", { count: "exact", head: true }),
+    supabase
+      .from("questions")
+      .select(`
+        id, title, display_title, spoiler_level, safe_hook, slug, view_count, published_at, created_at,
+        film:films!inner(id, title, year, director, director_slug, slug, poster_path),
+        canonical_answers!inner(body, status)
+      `)
+      .eq("status", "published")
+      .eq("canonical_answers.status", "published")
+      .order("published_at", { ascending: false })
+      .limit(LIMIT + 1),
+  ]);
 
   const rows = feedRaw ?? [];
   const hasMore = rows.length > LIMIT;

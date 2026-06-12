@@ -10,7 +10,8 @@ import Link from "next/link";
  * Only `approved` frames are visible (RLS); gate publishes at ≥5 instances.
  */
 
-export const dynamic = "force-dynamic";
+// ISR: edge-cached, background-refreshed (was force-dynamic).
+export const revalidate = 300;
 
 function supabaseAnon() {
   return createClient(
@@ -52,22 +53,24 @@ async function getFrame(slug: string) {
     .single();
   if (!frame) return null;
 
-  const { data: qfRows } = await supabase
-    .from("question_frames")
-    .select(`
-      slots,
-      question:questions!inner(id, title, display_title, spoiler_level, slug, view_count, status,
-        film:films!inner(title, year, slug, director),
-        canonical_answers(aha, status))
-    `)
-    .eq("frame_id", frame.id)
-    .eq("is_primary", true)
-    .eq("question.status", "published");
-
-  const { data: rankRows } = await supabase
-    .from("frame_rankings")
-    .select("question_id, rank, rationale")
-    .eq("frame_id", frame.id);
+  // Instances + rankings in parallel (independent once the frame is known)
+  const [{ data: qfRows }, { data: rankRows }] = await Promise.all([
+    supabase
+      .from("question_frames")
+      .select(`
+        slots,
+        question:questions!inner(id, title, display_title, spoiler_level, slug, view_count, status,
+          film:films!inner(title, year, slug, director),
+          canonical_answers(aha, status))
+      `)
+      .eq("frame_id", frame.id)
+      .eq("is_primary", true)
+      .eq("question.status", "published"),
+    supabase
+      .from("frame_rankings")
+      .select("question_id, rank, rationale")
+      .eq("frame_id", frame.id),
+  ]);
 
   const rankMap = new Map<string, { rank: number; rationale: string | null }>(
     (rankRows ?? []).map((r) => [

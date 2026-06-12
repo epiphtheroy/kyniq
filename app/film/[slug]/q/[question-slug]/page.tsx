@@ -9,7 +9,8 @@ import SpoilerShield from "@/components/SpoilerShield";
 import LightboxImage from "@/components/LightboxImage";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
-export const dynamic = 'force-dynamic';
+// ISR: edge-cached, background-refreshed (was force-dynamic).
+export const revalidate = 300;
 
 function supabaseAnon() {
   return createClient(
@@ -115,25 +116,26 @@ export default async function QuestionPage({ params }: Props) {
     title: string | null; attribution: string | null;
     duration: string | null; channel_name: string | null;
   };
-  const { data: mediaRows } = await supabase
-    .from("media")
-    .select("id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
-    .eq("entity_type", "question")
-    .eq("entity_id", question.id)
-    .eq("status", "published")
-    .order("position");
+  // Media + film question count — independent, fetched in parallel
+  const [{ data: mediaRows }, { count: filmQuestionCount }] = await Promise.all([
+    supabase
+      .from("media")
+      .select("id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
+      .eq("entity_type", "question")
+      .eq("entity_id", question.id)
+      .eq("status", "published")
+      .order("position"),
+    supabase
+      .from("questions")
+      .select("id", { count: "exact", head: true })
+      .eq("film_id", film.id)
+      .eq("status", "published"),
+  ]);
 
   const media = (mediaRows ?? []) as MediaItem[];
   const heroIdx = media.findIndex((m) => m.kind === "image");
   const hero = heroIdx >= 0 ? media[heroIdx] : null;
   const restMedia = media.filter((_, i) => i !== heroIdx);
-
-  // Count questions on this film
-  const { count: filmQuestionCount } = await supabase
-    .from("questions")
-    .select("id", { count: "exact", head: true })
-    .eq("film_id", film.id)
-    .eq("status", "published");
 
   // JSON-LD QAPage with about → Movie (§8.2 film-entity recognition)
   const sameAsLinks = [

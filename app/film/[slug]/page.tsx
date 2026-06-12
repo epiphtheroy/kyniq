@@ -5,7 +5,8 @@ import { getFilmBySlug, posterUrl } from "@/lib/tmdb";
 import { createClient } from "@supabase/supabase-js";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
-export const dynamic = 'force-dynamic';
+// ISR: edge-cached, background-refreshed (was force-dynamic).
+export const revalidate = 300;
 
 /** Anon Supabase client for public reads (safe at build time — no cookies needed) */
 function supabaseAnon() {
@@ -83,24 +84,25 @@ async function getPublishedQuestions(
   return (data as QuestionRow[]) ?? [];
 }
 
-// Get contribution counts for questions
+// Get contribution counts for questions — ONE query for all ids
+// (was an N+1: one count round trip per question).
 async function getContributionCounts(
   questionIds: string[]
 ): Promise<Record<string, number>> {
   if (questionIds.length === 0) return {};
 
   const supabase = supabaseAnon();
+  const { data } = await supabase
+    .from("contributions")
+    .select("question_id")
+    .in("question_id", questionIds)
+    .eq("status", "published");
+
   const counts: Record<string, number> = {};
-
-  for (const qId of questionIds) {
-    const { count } = await supabase
-      .from("contributions")
-      .select("id", { count: "exact", head: true })
-      .eq("question_id", qId)
-      .eq("status", "published");
-    counts[qId] = count ?? 0;
+  for (const row of data ?? []) {
+    const id = row.question_id as string;
+    counts[id] = (counts[id] ?? 0) + 1;
   }
-
   return counts;
 }
 
@@ -109,38 +111,30 @@ async function getMostReadQuestion(filmId: string) {
   const supabase = supabaseAnon();
 
   // Get top question by views that has a published canonical answer
-  const { data: questions } = await supabase
+  // ONE query (was: top-5 fetch + up to 5 sequential answer lookups)
+  const { data: rows } = await supabase
     .from("questions")
-    .select("id, title, display_title, spoiler_level, safe_hook, slug, view_count")
+    .select("id, title, display_title, spoiler_level, safe_hook, slug, view_count, canonical_answers!inner(body, status)")
     .eq("film_id", filmId)
     .eq("status", "published")
+    .eq("canonical_answers.status", "published")
     .order("view_count", { ascending: false })
-    .limit(5);
+    .limit(1);
 
-  if (!questions || questions.length === 0) return null;
+  const q = rows?.[0];
+  if (!q) return null;
 
-  for (const q of questions) {
-    const { data: answer } = await supabase
-      .from("canonical_answers")
-      .select("body")
-      .eq("question_id", q.id)
-      .eq("status", "published")
-      .single();
+  const rawCA = q.canonical_answers as unknown;
+  const body =
+    (Array.isArray(rawCA) ? (rawCA[0] as { body: string })?.body : (rawCA as { body: string })?.body) ?? "";
 
-    if (answer) {
-      // Extract first ~200 chars as TL;DR teaser.
-      // Spoiler guard: major answers open on the ending — use the safe hook.
-      const teaserSource =
-        q.spoiler_level === "major" ? (q.safe_hook ?? "") : answer.body;
-      const teaser =
-        teaserSource.length > 200
-          ? teaserSource.slice(0, 200).replace(/\s+\S*$/, "") + "…"
-          : teaserSource;
-      return { ...q, title: q.display_title || q.title, teaser };
-    }
-  }
-
-  return null;
+  // Spoiler guard: major answers open on the ending — use the safe hook.
+  const teaserSource = q.spoiler_level === "major" ? (q.safe_hook ?? "") : body;
+  const teaser =
+    teaserSource.length > 200
+      ? teaserSource.slice(0, 200).replace(/\s+\S*$/, "") + "…"
+      : teaserSource;
+  return { ...q, title: q.display_title || q.title, teaser };
 }
 
 // ── Film features (fixed hub sections, film-features-plan.md) ────
@@ -200,13 +194,16 @@ export default async function FilmPage({ params }: PageProps) {
   const film = await getFilmBySlug(slug);
   if (!film) notFound();
 
-  const questions = await getPublishedQuestions(film.id);
+  // All independent fetches in parallel (was 5 sequential awaits)
+  const [questions, mostRead, features, filmFrames] = await Promise.all([
+    getPublishedQuestions(film.id),
+    getMostReadQuestion(film.id),
+    getFilmFeatures(film.id),
+    getFilmFrames(film.id),
+  ]);
   const contributionCounts = await getContributionCounts(
     questions.map((q) => q.id)
   );
-  const mostRead = await getMostReadQuestion(film.id);
-  const features = await getFilmFeatures(film.id);
-  const filmFrames = await getFilmFrames(film.id);
   const hasPreviewZone = !!(features.pitch || features.record || features.experience);
 
   return (
