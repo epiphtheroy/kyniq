@@ -13,18 +13,18 @@ export default function Footer() {
           aria-label="Metatake home"
           style={{ padding: "7px 10px 8px" }}
         >
-          <span className="logobox__line">Film</span>
-          <span className="logobox__line">Curio</span>
+          <span className="logobox__line">Meta</span>
+          <span className="logobox__line">take</span>
         </Link>
         <div className="tagline" style={{ marginTop: 10 }}>
-          Read films closely. One question about one film, answered in depth.
+          Read films closely — a critical map of cinema that links films through the meanings they share.
         </div>
 
         <div className="footer-cols">
           <div>
             <div className="footer-head">Sections</div>
-            <Link href="/" className="footer-link">
-              The latest
+            <Link href="/meta-takes" className="footer-link">
+              Meta takes
             </Link>
             <Link href="/film" className="footer-link">
               Films
@@ -32,8 +32,8 @@ export default function Footer() {
             <Link href="/director" className="footer-link">
               Directors
             </Link>
-            <Link href="/ask" className="footer-link">
-              Ask a question
+            <Link href="/genre" className="footer-link">
+              Genres
             </Link>
           </div>
 
