@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const yearStr = film.year ? ` (${film.year})` : "";
   return {
     title: `${question.title} — ${film.title}${yearStr}`,
-    description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on FilmCurio.`,
+    description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on Metatake.`,
   };
 }
 
@@ -156,7 +156,7 @@ export default async function QuestionPage({ params }: Props) {
       ...(film.director && {
         director: { "@type": "Person", name: film.director },
       }),
-      url: `https://filmcurio.com/film/${film.slug}`,
+      url: `https://metatake.net/film/${film.slug}`,
       ...(sameAsLinks.length > 0 && { sameAs: sameAsLinks }),
     },
     mainEntity: {
@@ -172,7 +172,7 @@ export default async function QuestionPage({ params }: Props) {
           dateModified: canonical.updated_at,
           author: {
             "@type": isAI ? "Organization" : "Person",
-            name: isAI ? "FilmCurio Editorial" : (updater?.display_name || "Community"),
+            name: isAI ? "Metatake Editorial" : (updater?.display_name || "Community"),
           },
         },
       }),
@@ -183,8 +183,8 @@ export default async function QuestionPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://filmcurio.com" },
-      { "@type": "ListItem", position: 2, name: film.title, item: `https://filmcurio.com/film/${film.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+      { "@type": "ListItem", position: 2, name: film.title, item: `https://metatake.net/film/${film.slug}` },
       { "@type": "ListItem", position: 3, name: question.title },
     ],
   };
@@ -335,12 +335,12 @@ export default async function QuestionPage({ params }: Props) {
               <div className="article-credit">
                 Last updated by{" "}
                 <span style={{ color: "var(--ink)" }}>
-                  {updater?.username || (isAI ? "FilmCurio Editorial" : "community")}
+                  {updater?.username || (isAI ? "Metatake Editorial" : "community")}
                 </span>{" "}
                 · {dateFmt(canonical.updated_at)}
                 {isAI && (
                   <span style={{ display: "block", marginTop: 4, fontStyle: "italic" }}>
-                    AI-written and fact-checked to FilmCurio&apos;s editorial standards.
+                    AI-written and fact-checked to Metatake&apos;s editorial standards.
                   </span>
                 )}
               </div>

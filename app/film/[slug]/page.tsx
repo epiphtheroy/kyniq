@@ -20,7 +20,7 @@ const KIND_LABEL: Record<string, string> = {
 const KIND_ORDER = ["character", "object", "location", "form", "trope"];
 
 type MetaTake = { slug: string; title: string } | null;
-type Fig = { id: string; kind: string | null; label: string; metaTakes: { slug: string; title: string }[] };
+type Fig = { id: string; kind: string | null; label: string; slug: string | null; metaTakes: { slug: string; title: string }[] };
 
 async function load(slug: string) {
   const supabase = db();
@@ -30,7 +30,7 @@ async function load(slug: string) {
 
   const [{ data: figRows }, { data: pitch }, { data: aff }] = await Promise.all([
     supabase.from("figures")
-      .select("id, kind, label, takes(meta_take:meta_takes(slug, title, status))")
+      .select("id, kind, label, slug, takes(meta_take:meta_takes(slug, title, status))")
       .eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_features").select("body, payload").eq("film_id", film.id).eq("kind", "pitch").eq("status", "published").maybeSingle(),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
@@ -39,7 +39,7 @@ async function load(slug: string) {
   const figures: Fig[] = (figRows ?? []).map((f) => {
     const takes = (f.takes ?? []) as unknown as { meta_take: { slug: string; title: string; status: string } | null }[];
     const mts = takes.map((t) => t.meta_take).filter((m): m is { slug: string; title: string; status: string } => !!m && m.status === "published");
-    return { id: f.id, kind: f.kind, label: f.label, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
+    return { id: f.id, kind: f.kind, label: f.label, slug: f.slug, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
   });
 
   // recommendations: resolve related films + the shared meta take titles
@@ -104,7 +104,7 @@ export default async function FilmPage({ params }: Props) {
             <ul className="mt-list">
               {g.items.map((f) => (
                 <li key={f.id}>
-                  {f.label}
+                  {f.slug ? <Link href={`/film/${film.slug}/figure/${f.slug}`}>{f.label}</Link> : f.label}
                   {f.metaTakes.length > 0 && (
                     <> {" "}
                       {f.metaTakes.map((m, i) => <span key={m.slug}>{i > 0 ? " · " : "→ "}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>)}

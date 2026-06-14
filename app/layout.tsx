@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://filmcurio.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
 
 export const metadata: Metadata = {
   title: {
-    default: "FilmCurio — Film Q&A Community",
-    template: "%s · FilmCurio",
+    default: "Metatake — A Critical Map of Cinema",
+    template: "%s · Metatake",
   },
   description:
-    "Read films closely. FilmCurio is a cabinet of cinema's curiosities — a global film Q&A community for meaning, symbolism, and intent.",
+    "Read films closely. Metatake breaks films into their figures and the critical readings they carry, then links films through the meanings they share — a critical map of cinema.",
   metadataBase: new URL(siteUrl),
   icons: {
     icon: [
@@ -24,25 +24,25 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
-    siteName: "FilmCurio",
-    title: "FilmCurio — Film Q&A Community",
+    siteName: "Metatake",
+    title: "Metatake — A Critical Map of Cinema",
     description:
-      "Read films closely. A cabinet of cinema's curiosities — a global film Q&A community.",
+      "Read films closely. A critical map of cinema that links films through the readings and meanings they share.",
     url: siteUrl,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "FilmCurio — Film Q&A Community",
+        alt: "Metatake — A Critical Map of Cinema",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FilmCurio — Film Q&A Community",
+    title: "Metatake — A Critical Map of Cinema",
     description:
-      "Read films closely. A cabinet of cinema's curiosities — a global film Q&A community.",
+      "Read films closely. A critical map of cinema that links films through the readings and meanings they share.",
     images: ["/og-image.png"],
   },
   other: {
@@ -67,7 +67,7 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300..700&display=swap"
         />
         {children}
         <Footer />

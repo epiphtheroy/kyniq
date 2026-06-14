@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — FilmCurio",
-  description: "FilmCurio privacy policy — data collection, third parties, and your rights.",
+  title: "Privacy Policy — Metatake",
+  description: "Metatake privacy policy — data collection, third parties, and your rights.",
 };
 
 /* ⚠ DRAFT — NEEDS LEGAL REVIEW BEFORE LAUNCH */
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
       <div className="seclbl">AI crawlers</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 17, margin: 0 }}>
-        FilmCurio allows AI search and retrieval bots to access public content. If you prefer to opt
+        Metatake allows AI search and retrieval bots to access public content. If you prefer to opt
         out of AI training data usage, contact us.
       </p>
 

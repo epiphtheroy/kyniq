@@ -16,10 +16,13 @@ function db() {
 
 export default async function Home() {
   const supabase = db();
-  const [{ data: mts }, { data: counts }] = await Promise.all([
+  const [{ data: mts }, { data: counts }, { data: figs }] = await Promise.all([
     supabase.from("meta_takes").select("id, slug, title, laconic").eq("status", "published"),
     supabase.from("meta_take_film_counts").select("meta_take_id, film_count"),
+    supabase.from("figures").select("slug, label, film:films!inner(slug, title)")
+      .not("slug", "is", null).eq("status", "approved").limit(10),
   ]);
+  const enriched = (figs ?? []) as unknown as { slug: string; label: string; film: { slug: string; title: string } }[];
   const countMap = new Map((counts ?? []).map((c) => [c.meta_take_id as string, c.film_count as number]));
   const featured = (mts ?? [])
     .map((m) => ({ ...m, n: countMap.get(m.id) ?? 0 }))
@@ -52,6 +55,23 @@ export default async function Home() {
                   <Link href={`/take/${m.slug}`}>{m.title}</Link>{" "}
                   <span style={{ color: "var(--subtle)" }}>{m.n}</span>
                   {m.laconic ? <div style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.4 }}>{m.laconic}</div> : null}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {enriched.length > 0 && (
+          <>
+            <h2 className="mt-h2">New — figure pages</h2>
+            <p className="mt-laconic" style={{ margin: "0 0 8px" }}>
+              Each figure now carries several register-tagged readings, each opening onto a meta take. Try one:
+            </p>
+            <div className="mt-cols">
+              {enriched.map((f) => (
+                <div key={`${f.film.slug}-${f.slug}`} style={{ marginBottom: 6 }}>
+                  <Link href={`/film/${f.film.slug}/figure/${f.slug}`}>{f.label}</Link>{" "}
+                  <span style={{ color: "var(--subtle)" }}>{f.film.title}</span>
                 </div>
               ))}
             </div>

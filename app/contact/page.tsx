@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — FilmCurio",
-  description: "Get in touch with the FilmCurio team.",
+  title: "Contact — Metatake",
+  description: "Get in touch with the Metatake team.",
 };
 
 export default function ContactPage() {
@@ -29,7 +29,7 @@ export default function ContactPage() {
       <div className="seclbl">Location</div>
       <div className="tick" />
       <p className="ui" style={{ fontSize: 15 }}>
-        FilmCurio<br />
+        Metatake<br />
         Seoul, Republic of Korea
       </p>
     </main>

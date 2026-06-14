@@ -1,0 +1,111 @@
+{
+  "_exemplar": "Hand-authored GOLD output for figure-enrich.py (figure-page-design.md §6.6 contract). Illustrative film/figure/uuids; demonstrates register diversity + evidence-first + convergence + NO psychoanalytic default. Doubles as the few-shot standard to paste into the prompt.",
+  "target": 3,
+  "figures": [
+    {
+      "figure_id": "fig-feather-0001",
+      "label": "the floating feather",
+      "kind": "object",
+      "film": "forrest-gump",
+      "description": "A single white feather that drifts on the wind across the opening credits and settles at Forrest's mud-flecked shoe on a Savannah bus-stop bench; it reappears, lifting off his book, in the film's final shot.",
+      "register_fit": ["philosophical", "formal", "genealogical", "semiotic"],
+      "existing_takes": 1,
+      "new_takes": [
+        {
+          "register": "formal",
+          "angle": "the wandering crane shot",
+          "evidence": "the unbroken ~90-second crane shot that opens the film, handing the frame to the feather on the wind",
+          "rationale": "Before a word is spoken, the camera gives itself to the wind. That long, uncut drift down to the bench refuses to choose — it lets a feather, not a character, lead the eye. The form is the argument: a life to be watched the way you watch weather, patient and uninsistent. By the time Forrest speaks, the movie has already trained your eye to wait for whatever happens to land.",
+          "metatake": { "new": { "title": "The Drifting Camera", "laconic": "When the camera follows objects, not people, and lets chance lead the eye." } },
+          "confidence": 0.79
+        },
+        {
+          "register": "philosophical",
+          "angle": "chance versus design",
+          "evidence": "the feather settling at Forrest's foot, rhymed with his graveside line about destiny 'or just floating around accidental-like on a breeze'",
+          "rationale": "The feather is the film thinking out loud about whether anything is meant. It lands at his foot as if chosen, yet arrives by pure drift — both at once, and the movie won't decide. Forrest names the tension himself at the grave: destiny, or floating around accidental-like. The object refuses the comfort of either answer, holding determinism and accident in one gentle image, which is harder and braver than picking a side.",
+          "metatake": { "ref": "chance-versus-destiny" },
+          "confidence": 0.83
+        },
+        {
+          "register": "genealogical",
+          "angle": "the invisible digital object",
+          "evidence": "the feather is a computer-generated element composited seamlessly into live action in 1994, the same toolkit that drops Forrest into archival news footage",
+          "rationale": "That feather is a quiet landmark in how movies lie. It's digital, stitched into a real sky the same year the film slips Forrest into archival footage to shake a president's hand. The flourish announces a new contract with the audience: the effect you don't notice. Cinema's older tricks wanted applause; this one wants to vanish. The feather floats so smoothly precisely because the technology has just learned to hide its hand.",
+          "metatake": { "new": { "title": "The Invisible Effect", "laconic": "The era when special effects learned to hide instead of show off." } },
+          "confidence": 0.76
+        }
+      ]
+    },
+    {
+      "figure_id": "fig-voiceover-0002",
+      "label": "Forrest's bus-bench voice-over",
+      "kind": "form",
+      "film": "forrest-gump",
+      "description": "Forrest narrates his life to a rotating series of strangers seated beside him on a Savannah bus-stop bench, a chocolate box on his lap; his flat, even voice carries most of the film's chronology in the gaps between scenes.",
+      "register_fit": ["ideological", "formal", "reception", "existential"],
+      "existing_takes": 1,
+      "new_takes": [
+        {
+          "register": "ideological",
+          "angle": "history as weather",
+          "evidence": "the bench narration folding Vietnam, the Black Panthers, desegregation and Watergate into the same mild, equal tone",
+          "rationale": "The voice flattens a violent half-century into weather. War, the Panthers, Watergate — all arrive in the same unbothered cadence, things that happened near Forrest rather than to anyone. That evenness isn't innocence; it's a politics. By narrating history as accidents a good-hearted man wandered through, the film quietly absolves it of cause and consequence. The calm is the message: nothing here was anyone's fault, so nothing needs changing.",
+          "metatake": { "new": { "title": "History as Weather", "laconic": "When a film narrates politics as something that merely happens, blameless." } },
+          "confidence": 0.8
+        },
+        {
+          "register": "formal",
+          "angle": "the frame-tale narrator",
+          "evidence": "the bench listeners who change from shot to shot, each cued to receive the next chapter, with the chocolate box as the prop that hands Forrest the floor",
+          "rationale": "The bench is a machine for telling. Listeners swap between cuts, each new stranger a fresh excuse to begin another chapter, and the chocolate box is the prop that hands Forrest the floor. It's the oldest structure there is — the traveller buttonholing a stranger — and it lets the film leap decades without a seam. The device flatters us, too: we become the patient listener, trusting the teller precisely because he seems too simple to spin us.",
+          "metatake": { "new": { "title": "The Bench Confessor", "laconic": "The stranger-buttonholing teller who licenses a story to roam." } },
+          "confidence": 0.74
+        },
+        {
+          "register": "reception",
+          "angle": "the consoling fable reading",
+          "evidence": "the film's pattern of rewarding Forrest's passive constancy while breaking Jenny's counter-cultural seeking",
+          "rationale": "A durable critical reading hears the film as a fable for its moment: stillness rewarded, restlessness punished. Forrest, who questions nothing, inherits fortune and love; Jenny, who marches and protests and searches, is broken and dies young. Read this way the narration isn't naive at all but consoling — a story telling a bruised country that its quiet citizens were right and its rebels were lost. The tenderness is real, and so is the argument beneath it.",
+          "metatake": { "new": { "title": "The Consoling Fable", "laconic": "A story that reassures a bruised audience its quiet ones were right." } },
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "figure_id": "fig-chocolates-0003",
+      "label": "the box of chocolates",
+      "kind": "object",
+      "film": "forrest-gump",
+      "description": "A heart-shaped Whitman's Sampler Forrest holds on the bench and offers to the strangers beside him; it is the source of the film's most-quoted line, delivered early and echoed near the close.",
+      "register_fit": ["semiotic", "existential", "politico_economic"],
+      "existing_takes": 1,
+      "new_takes": [
+        {
+          "register": "semiotic",
+          "angle": "the governing metaphor",
+          "evidence": "'Life is like a box of chocolates — you never know what you're gonna get,' offered with the open box to a stranger",
+          "rationale": "The box is the key the film presses into your hand and asks you to read everything else with. One sealed assortment, its contents unknown until bitten — it's the movie's whole theory of living, handed over as a sweet. Every later turn, the lost loves and dumb luck, is meant to be tasted through that line. It's a sign that teaches you how to read the film, which is why the movie offers it to strangers and to us in the same breath.",
+          "metatake": { "new": { "title": "The Governing Metaphor", "laconic": "The image a film hands you to read all the others by." } },
+          "confidence": 0.81
+        },
+        {
+          "register": "politico_economic",
+          "angle": "wisdom as packaged goods",
+          "evidence": "the wisdom arrives pre-packaged as a brand-name gift box, a Whitman's Sampler with the logo on the lid",
+          "rationale": "Notice the wisdom comes shrink-wrapped. It isn't earned on a mountain; it's a drugstore gift box with a brand on the lid, folk philosophy you can buy by the pound. The film sells reassurance the way the sampler sells chocolate — sweet, portioned, mass-produced. There's something quietly American in that: even meaning is retail here, and the deepest line in the movie is also, quite literally, a thing you could pick up on the way home.",
+          "metatake": { "new": { "title": "Commodified Wisdom", "laconic": "Meaning sold pre-packaged — comfort by the pound." } },
+          "confidence": 0.75
+        },
+        {
+          "register": "existential",
+          "angle": "a life without a steering wheel",
+          "evidence": "the line's actual content — that you don't choose, you only receive whatever you 'get'",
+          "rationale": "Listen to what the line really says: you don't choose, you receive. The chocolate comes to you; you never reach in and decide. That's Forrest's whole existence raised to a creed — a life of being handed things, wars and fortunes and goodbyes, none of them willed. It can sound cozy, but it's a stark picture of a person without a steering wheel, making peace with a world that simply arrives. The comfort and the helplessness are the very same sentence.",
+          "metatake": { "ref": "the-unsteered-life" },
+          "confidence": 0.78
+        }
+      ]
+    }
+  ]
+}

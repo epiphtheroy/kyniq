@@ -7,7 +7,7 @@ import type { MetadataRoute } from "next";
  * Google-Extended / CCBot lines to disallow; never block the retrieval bots.
  */
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://filmcurio.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
 
   return {
     rules: [

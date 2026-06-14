@@ -97,7 +97,7 @@ async function getReviewItems(): Promise<ReviewItem[]> {
       created_at: a.created_at,
       film_title: question?.films?.title,
       film_slug: question?.films?.slug,
-      author_name: "FilmCurio Editorial",
+      author_name: "Metatake Editorial",
       events: events ?? [],
     });
   }

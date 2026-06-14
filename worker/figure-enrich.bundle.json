@@ -1,0 +1,499 @@
+{
+  "target": 3,
+  "model": "gemini-3.1-pro-preview",
+  "films": [
+    {
+      "film": "the-power-of-the-dog-2021",
+      "film_intro": "Jane Campion's *The Power of the Dog* (2021) is a slow-burn psychological thriller disguised as a Western. It continues to spark debate for its surgical dismantling of frontier mythology and its chilling exploration of repressed desire, performative masculinity, and the lethal lengths of queer survival.",
+      "figures": [
+        {
+          "figure_id": "c0f14593-5334-4b41-90b1-12a4a5079104",
+          "label": "Phil's braided rawhide rope",
+          "slug": "phil-s-braided-rawhide-rope",
+          "kind": "trope",
+          "description": "A long, braided rope that Phil constructs throughout the film using thin strips of animal hide.",
+          "register_fit": [
+            "formal",
+            "politico_economic",
+            "mythic"
+          ],
+          "existing_take_register": "psychoanalytic",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "formal",
+              "angle": "The tactile rhythm of the braid",
+              "evidence": "Extreme close-ups of dirt-caked fingers and the tight, rhythmic creak of leather.",
+              "rationale": "The camera lingers in extreme close-up on Phil’s rough, dirt-caked fingers weaving the thin strips of hide. We hear the tight, rhythmic creak of the leather pulling taut. This tactile framing forces us to feel the intense, almost obsessive physical effort involved. It transforms a mundane ranch chore into a hypnotic, rhythmic ritual, anchoring the viewer directly in the sensory weight of the work and making the sheer friction of the frontier palpable.",
+              "metatake": {
+                "ref": "kinaesthetic-empathy"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "politico_economic",
+              "angle": "Manual labor as authenticity",
+              "evidence": "Phil hand-making the rope while George manages ledgers in a suit.",
+              "rationale": "Phil makes his own rope by hand while George wears a suit and manages the ranch's ledgers. The raw hide strips and the slow, deliberate craft stand in stark contrast to the modernizing, profit-driven world encroaching on the ranch. It is a stubborn display of manual labor, an insistence on old-world production methods to prove he belongs to the dirt, rejecting the soft comfort of wealth.",
+              "metatake": {
+                "ref": "subcultural-capital"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "mythic",
+              "angle": "The woven spell",
+              "evidence": "Phil meticulously weaving the anthrax-tainted hide into a finished tool.",
+              "rationale": "The rope functions as a deadly, woven spell. Phil spends the entire film crafting this object specifically for Peter, treating it like a sacred artifact passed from master to apprentice. But the hide itself is tainted with anthrax. The meticulous braiding becomes the spinning of a fatal thread, transforming a tool of the frontier into a poisoned chalice that ultimately seals the maker's doom, turning his own craftsmanship into a lethal trap.",
+              "metatake": {
+                "new": {
+                  "title": "The Fatal Thread",
+                  "laconic": "A seemingly mundane object that slowly weaves a character's inescapable doom."
+                }
+              },
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "figure_id": "862e2088-9f08-4a65-b8dd-1dd43eb1aad3",
+          "label": "Phil Burbank's hypermasculine persona",
+          "slug": "phil-burbank-s-hypermasculine-persona",
+          "kind": "trope",
+          "description": "Phil's unwashed denim clothing, aggressive posture, refusal to bathe, and habit of mocking others.",
+          "register_fit": [
+            "existential",
+            "semiotic",
+            "reception"
+          ],
+          "existing_take_register": "ideological",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "existential",
+              "angle": "The dread of exposure",
+              "evidence": "Phil aggressively stomping through the house in spurs and refusing to wash.",
+              "rationale": "Phil refuses to wash, caking himself in mud and sweat while mocking his brother's clean clothes. He stomps through the house in his spurs, treating every room like a saloon. This aggressive posture masks a profound, isolating dread. Without his armor of dirt and noise, he is terrified of disappearing or being found out. The performance is exhausting, a desperate attempt to outrun his own vulnerability by taking up as much space as possible.",
+              "metatake": {
+                "ref": "hegemonic-masculinity"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "semiotic",
+              "angle": "The vocabulary of toughness",
+              "evidence": "The unwashed denim, one-handed cigarette rolling, and heavy spurs.",
+              "rationale": "The unwashed denim, the rolling of cigarettes with one hand, and the heavy spurs are worn like military medals. They are a deliberate vocabulary of frontier toughness. By mastering these specific details, Phil hoards the authority of the real West. He uses this rugged costume to invalidate George's tailored suits, turning hygiene and clothing into a battlefield where authenticity is the ultimate prize.",
+              "metatake": {
+                "ref": "cultural-capital"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "reception",
+              "angle": "Deconstructing the cowboy",
+              "evidence": "The exaggerated swagger and performative castration of calves.",
+              "rationale": "Critics frequently note how Jane Campion's direction strips the cowboy myth down to its bones through Phil’s exaggerated swagger. By focusing heavily on the performative nature of his spitting, castration of calves, and aggressive banjo playing, reviewers argue the film exposes the frontier hero not as a natural state of grace, but as a deeply rehearsed and ultimately toxic masquerade, proving that the toughest man in the room is often the one most terrified of being seen.",
+              "metatake": {
+                "ref": "auteur-theory"
+              },
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "figure_id": "6d9f69ee-742b-400a-acb4-44e119642c76",
+          "label": "Close-up shots of hands interacting with objects (rawhide rope, paper flowers, saddle)",
+          "slug": "close-up-shots-of-hands-interacting-with-objects-rawhide-rop",
+          "kind": "form",
+          "description": "Extreme close-up shots isolating characters' hands as they stroke leather, braid hide, or fold paper.",
+          "register_fit": [
+            "philosophical",
+            "semiotic",
+            "psychoanalytic"
+          ],
+          "existing_take_register": "formal",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "philosophical",
+              "angle": "The ethics of touch",
+              "evidence": "Tight framing on fingers stroking a saddle or shaping a delicate paper petal.",
+              "rationale": "The tight framing isolates hands as they stroke the smooth curve of a saddle or delicately shape a paper petal. By severing the hands from the faces, the film asks us to read intention entirely through touch. It blurs the line between tenderness and violence—a caress of a leather strap looks identical to a threat. The camera insists that the truth of these characters lies not in what they say, but in how their fingers meet the world.",
+              "metatake": {
+                "new": {
+                  "title": "The Ambiguous Caress",
+                  "laconic": "When a gesture of touch blurs the terrifying line between tenderness and violence."
+                }
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "semiotic",
+              "angle": "The material vocabulary",
+              "evidence": "The visual contrast between delicate crisp paper flowers and stiff rawhide.",
+              "rationale": "The film sets up a stark contrast between Peter’s delicate paper flowers and Phil’s rough rawhide rope. The camera gives equal weight to both, studying the texture of the crisp paper and the stiff leather. These materials become a silent language of opposing worldviews: the fragile, artificial beauty of the parlor versus the tough, organic utility of the ranch. The objects speak the exact conflict the men cannot articulate, turning the physical environment into a battleground of opposing sensibilities.",
+              "metatake": {
+                "ref": "floating-signifier"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "psychoanalytic",
+              "angle": "Displacement of the body",
+              "evidence": "Obsessive focus on hands gently caressing leather straps and wood.",
+              "rationale": "The tight framing on hands stroking the saddle or delicately folding paper acts as a displacement of forbidden touch. In an environment where physical intimacy between men is violently policed, the objects become surrogates for the body. The camera’s obsessive focus on the caress of leather reveals a sublimated eroticism. The characters channel their repressed desires directly into the materials they hold, turning every mundane interaction into an act of secret longing.",
+              "metatake": {
+                "ref": "objet-petit-a"
+              },
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "figure_id": "631cb4af-5099-4029-b4a0-1247db821d17",
+          "label": "Phil's secret shrine to Bronco Henry",
+          "slug": "phil-s-secret-shrine-to-bronco-henry",
+          "kind": "trope",
+          "description": "A hidden woodland glade where Phil keeps a stash of male physique magazines and Bronco Henry's saddle.",
+          "register_fit": [
+            "existential",
+            "mythic",
+            "formal"
+          ],
+          "existing_take_register": "psychoanalytic",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "existential",
+              "angle": "Breaking character",
+              "evidence": "Phil lying in the grass, eyes closed, gently caressing the old saddle.",
+              "rationale": "Phil gently caresses the saddle of a man who has been dead for decades. This hidden shrine is the only place he drops his exhausting performance of the rugged cowboy. Away from the eyes of the ranch hands, he breaks character, revealing a profound vulnerability. The grove exposes his entire public persona as a desperate, rehearsed act, showing the tragic gap between his true self and the role he forces himself to play, making the hidden glade a site of tragic honesty.",
+              "metatake": {
+                "ref": "dramaturgical-analysis"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "mythic",
+              "angle": "The secluded temple",
+              "evidence": "The sun-dappled clearing separated from the plains, holding the sacred saddle.",
+              "rationale": "Phil retreats to a hidden, sun-dappled clearing in the willows, a space entirely separated from the dusty plains. Here, he keeps Bronco Henry’s saddle. It operates as a sacred grove, a private temple where he goes to commune with the spirit of his dead mentor. In this secluded sanctuary, the harsh rules of the frontier are suspended, allowing him to perform private rites of memory and forbidden devotion, entirely shielded from the punishing gaze of the men.",
+              "metatake": {
+                "ref": "homosocial-desire"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "formal",
+              "angle": "The atmospheric shift",
+              "evidence": "The abrupt transition from harsh sunlight and wind to soft dappled light and hushed rustling.",
+              "rationale": "The harsh, blinding sunlight of the ranch abruptly shifts to soft, dappled light filtering through the willow branches. The aggressive sound of wind and cattle is replaced by the gentle rustle of leaves and hushed breathing. This sudden shift in lighting and sound design creates an entirely different atmospheric zone. It visually and sonically isolates the glade as a vulnerable interior space, completely detached from the punishing reality outside, offering a brief, fragile moment of sensory relief.",
+              "metatake": {
+                "new": {
+                  "title": "The Atmospheric Sanctuary",
+                  "laconic": "A sudden shift in light and sound that isolates a space from the harsh world outside."
+                }
+              },
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "figure_id": "665230dc-b177-4b16-a582-f99f8f284bf3",
+          "label": "The recurring visual motif of the dog-shaped shadow in the mountains",
+          "slug": "the-recurring-visual-motif-of-the-dog-shaped-shadow-in-the-m",
+          "kind": "object",
+          "description": "A pattern of shadows cast on the hills, resembling a barking dog, visible only from a specific vantage point.",
+          "register_fit": [
+            "philosophical",
+            "semiotic",
+            "reception"
+          ],
+          "existing_take_register": "psychoanalytic",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "philosophical",
+              "angle": "The dividing line of truth",
+              "evidence": "Phil pointing to the hills and demanding to know what Peter sees.",
+              "rationale": "Phil points to the hills and demands to know what Peter sees. The revelation of the dog in the shadows is not just a visual trick; it is an epistemological dividing line. Seeing the dog separates those who truly perceive the world's hidden depths from those who merely look at its surface. It forces the question of whether truth is an objective reality in the landscape or a projection of the mind, challenging us to question everything else we are shown on screen.",
+              "metatake": {
+                "new": {
+                  "title": "The Epistemological Test",
+                  "laconic": "A visual puzzle that separates those who truly perceive from those who merely look."
+                }
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "semiotic",
+              "angle": "The landscape as password",
+              "evidence": "Phil mocking the ranch hands who only see rocks, reserving the secret for Peter.",
+              "rationale": "The shadow on the mountain acts as a password for an exclusive club. Phil uses it to mock George and the ranch hands, who only see dirt and rocks. The landscape is treated as a coded text that only the initiated can read. Recognizing the dog becomes a mark of belonging, a shared secret language between Phil, the dead Bronco Henry, and eventually, Peter, transforming the vast, open plains into a highly guarded psychological border.",
+              "metatake": {
+                "ref": "subcultural-capital"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "reception",
+              "angle": "Subjective cinema mastered",
+              "evidence": "The visual translation of a literary device into a shadow on the hills.",
+              "rationale": "Reviewers frequently highlight the dog shadow as a masterclass in subjective cinema. Critics note how Campion uses the landscape not just as a backdrop, but as a psychological Rorschach test for the characters. By making the dog visible only to those with a specific sensitivity, scholars argue the film successfully translates a literary device from the original novel into a purely visual cinematic motif, externalizing internal states, turning a simple trick of the light into a profound measure of character.",
+              "metatake": {
+                "ref": "auteurial-signature"
+              },
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "figure_id": "5027b60b-542d-49af-992c-f3d80686b55f",
+          "label": "The film's final sequence revealing Peter's actions",
+          "slug": "the-film-s-final-sequence-revealing-peter-s-actions",
+          "kind": "form",
+          "description": "A montage showing Peter handling a diseased hide with gloves, sliding a finished rope under a bed, and reading a Bible.",
+          "register_fit": [
+            "formal",
+            "philosophical",
+            "mythic"
+          ],
+          "existing_take_register": "genealogical",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "formal",
+              "angle": "The cold precision of the cut",
+              "evidence": "Cross-cutting between Phil sweating in a dark room and Peter calmly reading in bright light.",
+              "rationale": "The sequence cuts rhythmically between Phil sweating and dying in a dark, claustrophobic room, and Peter calmly reading a Bible in the bright, sterile light of his bedroom. The stark contrast in lighting and the slow, methodical pacing of the edits emphasize the cold precision of Peter's trap. The camera’s detached observation of Peter's gloved hands pushing the rope under the bed chills the blood through its absolute stillness, proving that the most terrifying violence often happens in complete silence.",
+              "metatake": {
+                "ref": "durational-aesthetics"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "philosophical",
+              "angle": "The paradox of the kill",
+              "evidence": "Peter carefully handling the infected hide with surgical gloves to protect his mother.",
+              "rationale": "Peter carefully handles the infected hide with surgical gloves, ensuring Phil’s death without ever raising a weapon. This silent assassination poses a terrifying ethical paradox: a murder committed purely as an act of profound care for his mother. The film strips away traditional morality, asking us to witness a brutal, premeditated killing that is framed simultaneously as a horrific crime and a perfectly justified rescue mission, leaving the audience to grapple with the disturbing necessity of the act.",
+              "metatake": {
+                "ref": "state-of-exception"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "mythic",
+              "angle": "The poisoned gift",
+              "evidence": "Peter bringing the diseased hide to Phil as a seemingly innocent offering.",
+              "rationale": "Peter brings the hide to Phil as a seemingly innocent offering to finish the rope. This is the classic maneuver of the trickster figure, who defeats a physically superior giant not with strength, but with a poisoned gift. The delicate boy uses the brute’s own pride and tools against him, turning the symbol of Phil’s mastery into the very instrument of his destruction, proving that brute force is no match for quiet, calculated cunning.",
+              "metatake": {
+                "new": {
+                  "title": "The Trickster's Gift",
+                  "laconic": "A seemingly innocent offering that secretly carries the instrument of a character's destruction."
+                }
+              },
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "figure_id": "26ff90d1-346c-47bb-80bb-2765f11ccc2b",
+          "label": "The scene of the musical duel between Phil's banjo and Rose's piano",
+          "slug": "the-scene-of-the-musical-duel-between-phil-s-banjo-and-rose-",
+          "kind": "form",
+          "description": "Phil sits off-screen in his upstairs bedroom, playing a banjo melody that Rose struggles to practice on the piano downstairs.",
+          "register_fit": [
+            "ideological",
+            "politico_economic",
+            "psychoanalytic"
+          ],
+          "existing_take_register": "formal",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "ideological",
+              "angle": "Invading the parlor",
+              "evidence": "Phil overpowering Rose's Strauss march with his banjo from upstairs.",
+              "rationale": "Rose tries to practice a Strauss march in the parlor, a room designated for feminine domesticity and refinement. Phil sits upstairs in his boots, playing the exact same tune flawlessly on his banjo. This is a territorial invasion. By overpowering her piano with his vernacular instrument, he asserts absolute patriarchal dominance over the house, refusing to let her claim even a sliver of cultural or physical space, turning the very air of the home into a weapon of control.",
+              "metatake": {
+                "new": {
+                  "title": "The Hostile Hearth",
+                  "laconic": "When domestic, feminine spaces are violently invaded by patriarchal authority."
+                }
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "politico_economic",
+              "angle": "The clash of capital",
+              "evidence": "The heavy, imported grand piano clashing with the portable, vernacular banjo.",
+              "rationale": "The grand piano was brought in by George at great expense, a heavy, imported symbol of bourgeois respectability and wealth. Phil’s banjo is portable, rough, and associated with working-class folk traditions. The duel between the instruments is a clash of class values. Phil weaponizes the vernacular culture of the frontier to reject and humiliate the polished, imported capital that Rose and George represent, proving that cultural dominance cannot simply be bought with eastern money.",
+              "metatake": {
+                "ref": "cultural-capital"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "psychoanalytic",
+              "angle": "Acoustic penetration",
+              "evidence": "The relentless banjo notes drifting down from the ceiling, mimicking Rose's mistakes.",
+              "rationale": "Phil’s banjo playing drifts down from the ceiling, perfectly mimicking Rose’s struggle with the piano. This acoustic invasion functions as a psychological penetration of her mental space. He does not need to be in the room to dominate her; his sound bypasses the physical walls and lodges directly in her mind. The relentless, mocking notes act as a form of auditory gaslighting, deliberately unraveling her sanity by proving she has no secure boundaries, slowly dismantling her sense of safety from the floorboards up.",
+              "metatake": {
+                "ref": "acousm-tre"
+              },
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "figure_id": "f8be2922-c6aa-425f-a333-f922d6908f8c",
+          "label": "The character arc of Peter Gordon",
+          "slug": "the-character-arc-of-peter-gordon",
+          "kind": "trope",
+          "description": "Peter's progression from making delicate paper flowers to dissecting animals and orchestrating Phil's death.",
+          "register_fit": [
+            "mythic",
+            "existential",
+            "reception"
+          ],
+          "existing_take_register": "genealogical",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "mythic",
+              "angle": "The lethal innocent",
+              "evidence": "Peter arriving in delicate clothing but calmly dissecting a rabbit in cold blood.",
+              "rationale": "Peter arrives at the ranch looking like a fragile victim, the perfect prey. Yet, he is the one who dissects a rabbit in cold blood. He embodies a twisted version of the survivor, the delicate boy who wanders into the dark woods and turns out to be more dangerous than the monster. He survives by hiding his sharp teeth behind a mask of absolute vulnerability, outsmarting the brute on his own territory, proving that true danger often wears the quietest face.",
+              "metatake": {
+                "ref": "the-final-girl"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "existential",
+              "angle": "Radical self-determination",
+              "evidence": "Peter watching Phil die, then calmly turning to look out the window at his mother.",
+              "rationale": "Peter watches Phil die, then turns calmly to look out the window at his mother. He operates with a chilling, absolute freedom. Unbound by the traditional moral codes of the West, he creates his own terrifying ethics. His arc is a portrait of radical self-determination, choosing to become a monster in secret so that his mother might live in peace, embracing a dark, unyielding autonomy that elevates him above the petty squabbles of the ranch.",
+              "metatake": {
+                "new": {
+                  "title": "The Sovereign Subject",
+                  "laconic": "A character who claims absolute freedom by inventing their own terrifying moral code."
+                }
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "reception",
+              "angle": "Weaponizing effeminacy",
+              "evidence": "The critical praise for portraying Peter's softness as a brilliant, lethal disguise.",
+              "rationale": "Many film scholars praise Peter's arc for its radical departure from the typical Western tenderfoot. Critics observe that his portrayal of effeminacy is never played for tragedy, but is instead weaponized as a disguise. Reviews point out how this dismantles decades of cinematic expectations, turning the soft-spoken boy into the most ruthless and calculating figure on screen, fundamentally rewriting the rules of who gets to survive in the wild West.",
+              "metatake": {
+                "ref": "genre-revisionism"
+              },
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "figure_id": "868ddc2b-ae2a-477e-aeee-428fbe0671bb",
+          "label": "The Burbank family ranch house",
+          "slug": "the-burbank-family-ranch-house",
+          "kind": "location",
+          "description": "A massive, dark, multi-story wooden mansion sitting isolated in the middle of a vast, barren plain.",
+          "register_fit": [
+            "formal",
+            "politico_economic",
+            "genealogical"
+          ],
+          "existing_take_register": "ideological",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "formal",
+              "angle": "The devouring dark",
+              "evidence": "Deep shadows, heavy wood paneling, and characters framed as prisoners in mirrors.",
+              "rationale": "The interiors of the house are shot with deep, suffocating shadows, heavy wood paneling, and labyrinthine corridors. The camera often shoots characters through doorways or reflected in mirrors, framing them as prisoners. The deliberate starvation of light makes the massive rooms feel like a dark, devouring cave, standing in stark contrast to the blinding, overexposed light of the plains outside, reflecting the characters' internal gloom, making the architecture itself feel like a heavy, inescapable weight pressing down on them.",
+              "metatake": {
+                "ref": "chromatic-symbolism"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "politico_economic",
+              "angle": "The enclosure of the frontier",
+              "evidence": "The sheer scale of the imported furnishings separating the owners from the barn hands.",
+              "rationale": "The massive, dark wood mansion sits incongruously in the middle of a dusty ranch. It is a monument to hoarded wealth, physically separating the Burbank brothers from the hired hands who sleep in the barns. The house’s sheer scale and imported furnishings assert a brutal economic hierarchy, proving that the frontier has already been conquered and enclosed by the rigid structures of early capitalism, ensuring that the wildness of the landscape is firmly locked outside the heavy oak doors.",
+              "metatake": {
+                "new": {
+                  "title": "The Fortress of Capital",
+                  "laconic": "A massive architectural structure that violently enforces class divisions on the landscape."
+                }
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "genealogical",
+              "angle": "Gothic romance in the West",
+              "evidence": "The architectural and atmospheric collision of a haunted mansion dropped into 1920s Montana.",
+              "rationale": "The house takes the architectural and atmospheric elements of a Gothic haunted mansion—complete with a brooding master, a tormented wife, and dark secrets—and drops them directly into a 1920s Western. This intertextual collision forces the wide-open mythology of the cowboy to confront the claustrophobic, psychological dread of the Gothic romance, fundamentally mutating the DNA of both genres and proving that the true horrors of the frontier are entirely domestic.",
+              "metatake": {
+                "ref": "postmodern-pastiche"
+              },
+              "confidence": 0.85
+            }
+          ]
+        },
+        {
+          "figure_id": "fde4ece3-6fa9-43bf-9066-20c9c8089661",
+          "label": "Ari Wegner's cinematography of the landscape",
+          "slug": "ari-wegner-s-cinematography-of-the-landscape",
+          "kind": "location",
+          "description": "Sweeping, desaturated wide shots of the dry, dusty New Zealand hills standing in for 1920s Montana.",
+          "register_fit": [
+            "genealogical",
+            "ideological",
+            "existential"
+          ],
+          "existing_take_register": "philosophical",
+          "existing_takes": 1,
+          "new_takes": [
+            {
+              "register": "genealogical",
+              "angle": "Defamiliarizing the frontier",
+              "evidence": "Shooting the rugged hills of New Zealand instead of traditional American locations.",
+              "rationale": "Jane Campion shoots the rugged hills of New Zealand to stand in for 1920s Montana. This geographic displacement strips the American West of its familiar iconography. By using a foreign landscape to tell a quintessential American story, the cinematography subtly defamiliarizes the frontier, removing the comforting nostalgia of Monument Valley and replacing it with an alien, unsettling terrain, forcing us to look at the cowboy narrative without the comforting safety net of American cinematic history.",
+              "metatake": {
+                "ref": "transnational-auteurism"
+              },
+              "confidence": 0.95
+            },
+            {
+              "register": "ideological",
+              "angle": "Dismantling manifest destiny",
+              "evidence": "Harsh, blinding light and cracked earth instead of golden sunsets or lush valleys.",
+              "rationale": "The camera refuses to romanticize the frontier. There are no golden sunsets or lush valleys here; only harsh, blinding light and cracked earth. This visual strategy actively dismantles the manifest destiny narrative of the West as a promised land of opportunity and freedom. Instead, it presents the landscape as a brutal, unforgiving prison, exposing the pioneer dream as a bleak and punishing reality, where survival is a matter of endurance rather than a glorious conquest of nature.",
+              "metatake": {
+                "ref": "national-allegory"
+              },
+              "confidence": 0.9
+            },
+            {
+              "register": "existential",
+              "angle": "The silence of the void",
+              "evidence": "Desaturated wide shots that reduce the characters to tiny specks against barren rock faces.",
+              "rationale": "The sweeping, desaturated wide shots of the dry, brown hills dwarf the characters, reducing them to tiny specks of dust. The camera lingers on the barren rock faces and empty skies, emphasizing a terrifying cosmic indifference. The landscape does not care about Phil’s posturing, Rose’s despair, or Peter’s plots. It is a vast, silent void that highlights the ultimate insignificance and isolation of the human drama, reminding us that the earth will remain long after these petty, violent struggles have faded away.",
+              "metatake": {
+                "new": {
+                  "title": "The Indifferent Cosmos",
+                  "laconic": "A vast, silent landscape that highlights the terrifying insignificance of the human drama."
+                }
+              },
+              "confidence": 0.9
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,7 +10,7 @@ export default function Footer() {
         <Link
           href="/"
           className="logobox"
-          aria-label="FilmCurio home"
+          aria-label="Metatake home"
           style={{ padding: "7px 10px 8px" }}
         >
           <span className="logobox__line">Film</span>
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <div className="footer-head">FilmCurio</div>
+            <div className="footer-head">Metatake</div>
             <Link href="/about" className="footer-link">
               About
             </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
         </p>
 
         <div className="footer-baseline">
-          <span>© {year} FilmCurio. All rights reserved.</span>
+          <span>© {year} Metatake. All rights reserved.</span>
           <span>Seoul, Republic of Korea</span>
         </div>
       </div>

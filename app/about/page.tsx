@@ -1,24 +1,27 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — FilmCurio",
-  description: "A place to read films closely — together, and out loud.",
+  title: "About — Metatake",
+  description: "Read films closely — and follow the meanings from one film to the next.",
 };
 
 export default function AboutPage() {
   return (
     <main className="shell">
-      <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>About FilmCurio</h1>
+      <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>About Metatake</h1>
       <p className="standfirst" style={{ margin: "14px 0 0", maxWidth: "60ch" }}>
-        A place to read films closely — together, and out loud.
+        Read films closely — and follow the meanings from one film to the next.
       </p>
 
       <hr className="rule" />
 
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Difficult films leave us with questions: what did that image mean, why that cut, whose memory are we inside?
-        FilmCurio gathers those questions, one film at a time, and lets readers build an answer together — a single,
-        evolving interpretation that anyone can deepen, beside the many readings that disagree with it.
+        Metatake breaks a film into its <em>figures</em> — a character, an object, a gesture, a shot,
+        a piece of music — and gives each one critical <em>readings</em>. When a reading recurs across
+        many films, it rises into a <em>meta-take</em>: a hub that gathers films you would never have
+        placed side by side. The result is less a database than a critical map of cinema: surfaces far
+        apart, meanings close together. You enter through a film you love and leave having met its
+        unexpected kin.
       </p>
 
       <hr className="rule" />
@@ -26,39 +29,38 @@ export default function AboutPage() {
       <div className="seclbl">The name</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        <span className="disp" style={{ fontSize: 18 }}>FilmCurio</span> joins{" "}
-        <em>film</em> with <em>curio</em> — a small, intriguing object you keep because it rewards
-        a second look. The site is a cabinet of cinema&apos;s curiosities, and the{" "}
-        <em>question</em> (the &ldquo;?&rdquo; in the mark) sits at the heart of every page.
+        A <em>take</em> is one interpretation of a single moment. A{" "}
+        <span className="disp" style={{ fontSize: 18 }}>meta-take</span> is the reading above the
+        readings — the concept that connects them across films. That hub is the protagonist of the
+        site, and it is where the rabbit hole begins.
       </p>
 
       <hr className="rule" />
 
-      <div className="seclbl">How a reading is built</div>
+      <div className="seclbl">How films connect</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Each page centers on one canonical answer — the clearest interpretation we can assemble for
-        a given question — refined over time so the page grows more precise. Anyone can add their
-        own reading beneath it, and the strongest community contributions are merged upward into
-        that canonical answer, with the original perspectives staying visible underneath. There are
-        no wrong readings here, and no downvotes.
+        Each figure is read through several critical registers — formal, mythic, political, existential,
+        and more — so the same object opens onto different meanings. Those readings are the links: a
+        figure points to the meta-takes it embodies, and each meta-take gathers the figures, across
+        many films, that share it. Follow a reading and you cross from one film to the next, guided not
+        by genre or era but by meaning. The connections we prize are the unexpected-but-defensible
+        ones — far apart on the surface, family underneath.
       </p>
 
       <hr className="rule" />
 
-      <div className="seclbl">How our interpretations are written</div>
+      <div className="seclbl">How our readings are written</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        We want to be straight with you about this. The featured readings are written by{" "}
-        <span className="disp" style={{ fontSize: 18 }}>FilmCurio Editorial</span>, an AI system
-        built for close film analysis. It checks its own facts and sourcing as it writes, and we
-        publish directly — there is no separate human or second-model review before a reading goes
-        up. Instead we audit published pages on an ongoing basis and revise them as readers, and our
-        own spot-checks, surface mistakes. We&apos;d rather tell you plainly that this is AI
-        writing, published as written and corrected in the open, than pretend a person signs off on
-        every line. Film stills and related videos are attached by{" "}
-        <span className="disp" style={{ fontSize: 18 }}>Curiobot</span>, with images from TMDB.
-        Spot something off? Tell us — corrections are welcome at the address below.
+        We want to be straight with you. The readings are written by{" "}
+        <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span>, an AI system built
+        for close film analysis, and some are anchored to published film scholarship. It is published
+        directly — there is no separate human or second-model sign-off before a reading goes up. Instead
+        we audit pages on an ongoing basis and revise them as readers, and our own spot-checks, surface
+        mistakes. Logged-in readers can add their own takes beneath any figure; there are no wrong
+        readings here, and no downvotes. Film stills and clips are attached with images from TMDB.
+        Spot something off? Corrections are welcome at the address below.
       </p>
 
       <hr className="rule" />
@@ -66,8 +68,8 @@ export default function AboutPage() {
       <div className="seclbl">Who&apos;s behind it</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        FilmCurio is an independent project based in Seoul, Republic of Korea. It&apos;s small and
-        built in the open; the quickest way to reach a human is email.
+        Metatake is an independent project based in Seoul, Republic of Korea. It&apos;s small and built
+        in the open; the quickest way to reach a human is email.
       </p>
 
       <hr className="rule" />

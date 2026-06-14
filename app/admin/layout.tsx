@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAdminUser } from "@/lib/admin";
 
 export const metadata: Metadata = {
-  title: "Admin — FilmCurio",
+  title: "Admin — Metatake",
   robots: { index: false, follow: false },
 };
 
@@ -80,7 +80,7 @@ export default async function AdminLayout({
               fontWeight: 700,
             }}
           >
-            FilmCurio Admin
+            Metatake Admin
           </div>
           <div
             style={{

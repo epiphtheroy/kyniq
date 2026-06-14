@@ -117,7 +117,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Not found" };
   return {
     title: `${data.frame.label} — ${data.instances.length} films, ranked`,
-    description: `${data.frame.definition ?? ""} The films where this question matters most, ranked and answered on FilmCurio.`,
+    description: `${data.frame.definition ?? ""} The films where this question matters most, ranked and answered on Metatake.`,
   };
 }
 
@@ -152,7 +152,7 @@ export default async function FramePage({ params }: Props) {
       "@type": "ListItem",
       position: idx + 1,
       name: `${i.film.title}${i.film.year ? ` (${i.film.year})` : ""}`,
-      url: `https://filmcurio.com/film/${i.film.slug}/q/${i.slug}`,
+      url: `https://metatake.net/film/${i.film.slug}/q/${i.slug}`,
     })),
   };
 
@@ -176,7 +176,7 @@ export default async function FramePage({ params }: Props) {
             <div className="article-metarow">
               <span>{instances.length} films carry this question</span>
               <span>·</span>
-              <span>ranked by FilmCurio Editorial</span>
+              <span>ranked by Metatake Editorial</span>
             </div>
           </header>
 
@@ -294,7 +294,7 @@ export default async function FramePage({ params }: Props) {
 
           {/* ── Footer link back ── */}
           <p className="ui muted" style={{ fontSize: 13, marginTop: 28 }}>
-            One of cinema&apos;s recurring questions, catalogued by FilmCurio —{" "}
+            One of cinema&apos;s recurring questions, catalogued by Metatake —{" "}
             <Link href="/" className="accent" style={{ textDecoration: "none" }}>
               the latest interpretations →
             </Link>

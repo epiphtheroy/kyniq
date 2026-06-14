@@ -52,7 +52,7 @@ function LoginForm() {
     <main className="shell" style={{ maxWidth: 420 }}>
       <div style={{ textAlign: "center", margin: "24px 0 26px" }}>
         <Link href="/" className="logo" style={{ fontSize: 26, fontFamily: "var(--font-display)", color: "var(--ink)", textDecoration: "none" }}>
-          FilmCurio
+          Metatake
         </Link>
         <div className="tagline" style={{ marginTop: 6 }}>Read films closely.</div>
       </div>

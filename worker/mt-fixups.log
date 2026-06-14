@@ -31,3 +31,35 @@
   [clean] progress 2210/4301 (done 2156, err 54)
   [clean] progress 2310/4301 (done 2254, err 56)
   [clean] progress 2410/4301 (done 2353, err 57)
+  [clean] progress 2510/4301 (done 2452, err 58)
+  [clean] progress 2610/4301 (done 2550, err 60)
+  [clean] progress 2710/4301 (done 2649, err 61)
+  [clean] progress 2810/4301 (done 2747, err 63)
+  [clean] progress 2910/4301 (done 2845, err 65)
+  [clean] progress 3010/4301 (done 2940, err 70)
+  [clean] progress 3110/4301 (done 3040, err 70)
+  [clean] progress 3210/4301 (done 3139, err 71)
+  [clean] progress 3310/4301 (done 3239, err 71)
+  [clean] progress 3410/4301 (done 3335, err 75)
+  [clean] progress 3510/4301 (done 3434, err 76)
+  [clean] progress 3610/4301 (done 3534, err 76)
+  [clean] progress 3710/4301 (done 3629, err 81)
+  [clean] progress 3810/4301 (done 3729, err 81)
+  [clean] progress 3910/4301 (done 3824, err 86)
+  [clean] progress 4010/4301 (done 3922, err 88)
+  [clean] progress 4110/4301 (done 4019, err 91)
+  [clean] progress 4210/4301 (done 4118, err 92)
+  [clean] progress 4301/4301 (done 4207, err 94)
+[clean] done: 4207 cleaned, 94 errors
+
+════════ 3/4 rank (relevance + surprise, refreshed on cleaned text) ════════
+[rank] 116 published meta takes
+[rank] done: 1549 rankings written
+
+════════ 4/4 recommend (film affinities, refreshed) ════════
+[recommend] 506 films across published meta takes
+[recommend] 9589 affinity pairs (top-20/film)
+[recommend] done: 9589 rows written
+
+✅ Fixups complete. The take rationales are now clean house voice and all
+   eligible meta takes are published. Reload the site to see the change.

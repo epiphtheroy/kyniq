@@ -5,11 +5,11 @@ import { NextResponse } from "next/server";
  * Helps AI systems understand the site structure.
  */
 export async function GET() {
-  const content = `# FilmCurio — Read films closely
+  const content = `# Metatake — Read films closely
 > A collaborative film interpretation platform where readers build shared canonical answers.
 
 ## About
-FilmCurio gathers interpretation questions about films and lets readers build answers together.
+Metatake gathers interpretation questions about films and lets readers build answers together.
 One canonical answer per question, evolving through edits and merged contributions.
 
 ## URL Structure
@@ -17,7 +17,7 @@ One canonical answer per question, evolving through edits and merged contributio
 - /film/[slug]/q/[question-slug] — Question page with canonical answer + community readings
 - /director/[slug] — Director hub with films and notable questions
 - /u/[username] — User profile
-- /about — About FilmCurio
+- /about — About Metatake
 - /guidelines — Community guidelines
 
 ## Content Model
@@ -25,7 +25,7 @@ One canonical answer per question, evolving through edits and merged contributio
 - One canonical answer per question (answer-first TL;DR + detailed analysis)
 - Multiple community contributions (readings) per question
 - Upvote-only (no downvotes) — quality through curation
-- AI-authored content is transparently labeled "FilmCurio Editorial"
+- AI-authored content is transparently labeled "Metatake Editorial"
 
 ## Contact
 channel.wonwoo@gmail.com

@@ -1,0 +1,11 @@
+▶ Figure enrichment CANARY — PERSIST 2 films (Forrest Gump + Power of the Dog) (2026년  6월 14일 일요일 21시 44분 14초 KST)
+  ⚠ THIS WRITES TO THE DB. Rollback boundary = the timestamp above.
+[enrich v2] 10 figures across 1 films (model gemini-3.1-pro-preview)
+  meta-take pool: 116 published
+  · forrest-gump-1994: 10 figures, register spread {'formal': 4, 'genealogical': 4, 'semiotic': 4, 'reception': 2, 'philosophical': 1, 'existential': 3, 'mythic': 3, 'politico_economic': 4, 'psychoanalytic': 3, 'ideological': 2}
+[enrich v2] PERSIST done: 30 takes. Next (downstream): mt-consolidate, mt-author, mt-rank, mt-recommend.
+
+✅ Done. Look at the per-film lines above:
+   • 'PERSIST done: N takes' = N takes written to the DB
+   • any '⚠ slug: X/Y figures matched' = re-run this command to fill the rest (idempotent)
+   • already-enriched figures are skipped automatically (need_enrich gate)

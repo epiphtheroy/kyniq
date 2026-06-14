@@ -1,0 +1,74 @@
+# KEPT — 나중에 같이 해결할 항목 (parking lot)
+
+> 대화가 길어져서, "나중에 해결"하기로 한 것을 여기 모은다. 해결되면 ✅ 표시하고 본 문서에서
+> 줄을 긋는다. 관련 상세: `figure-page-design.md`, `meta-take-architecture.md`.
+
+## A. 후속작업(설계상 다음 단계 — 누락 아님). 전 영화 보강 후 일괄 실행.
+- [ ] **빅뱅 수렴 / 중복병합·분리** — `mt-consolidate` (OpenAI text-embedding-3-small + 로컬 코사인).
+      enrichment이 만든 새 메타테이크 후보들을 임베딩으로 dedup(≥0.86) + >30편 분리. (arch §10-1, §14-6)
+- [ ] **허브 저작** title/laconic/thesis/essay — `mt-author` (Gemini), ≥5편 게이트. (arch §10-2)
+- [ ] **승인 큐** candidate→approved→published (어드민). (arch §10-3)
+- [ ] **이중 랭킹**(defining/unexpected) — `mt-rank` (OpenAI 임베딩). (arch §10b)
+- [ ] **추천·"kin"**(film_affinities) — `mt-recommend` (로컬 TF-IDF). (arch §10b)
+- [ ] **유지 봇**(야간 cron) — 신규 take 매칭/병합/분리/재랭킹. (arch §10-4)
+- [ ] **인용 출처(DOI) Crossref 검증** — `reception` 레지스터 take의 출처. 명시적 추후. (arch §14-3, 백로그 #4)
+
+## B. figure 페이지 셋업 갭(메타테이크 단계 아님 — 작은 것).
+- [ ] **figure.slug 백필** — migration 0014 적용 + `slugify(label)` 영화 내 충돌 해소. (URL용)
+- [ ] **기존 시드 take 레지스터 분류** — 페이지 배지/3-카운트용. (enrichment v2가 `existing_take_register`로 생성)
+- [ ] **토큰 linkify** — 본문 영화/형상/허브 언급을 `{{film}}/{{figure}}/{{meta_take}}`로. `mt-author`가 에세이엔 이미 적용.
+
+## C. 지금 튜닝(후속 아님 — 생성 품질).
+- [x] 목소리 학술화 → 금지어 + 하우스 보이스 (보정 프롬프트 반영).
+- [x] 개념·제목 중복(ideological 쏠림) → 한 콜/영화 + 레지스터 분산 (v2 반영).
+- [x] **존재하지 않는 허브 ref → take 유실 (2026-06-14 해결).** ref는 주입된 published 목록만 허용;
+      지어낸 ref는 워커가 `new` 후보로 자동 전환(드라이런·persist). 전체 허브 목록 주입으로 적중률↑.
+- [ ] 슬러그 ASCII 전용(accents 탈락: acousmêtre→acousm-tre). URL엔 무해하나 인지만. 추후 결정.
+- [ ] `reception` 레지스터가 실제로 쓰이게(현재 0회) + 출처는 A의 Crossref와 연동.
+
+## D. 진짜 약점(설계에도 명시 안 됨 — 결정 필요).
+- [ ] **사실 Verifier 부재.** 메타테이크 파이프라인엔 전용 사실검증 없음(문서는 "근거 강제 + 사후
+      spot-audit + content_events"만). 예: 보강 출력의 "다리 보조기 즉각 치유" 오류. 가벼운 사후
+      감사 이상이 필요한지 결정.
+
+## E. 미해결 설계 결정 (figure-page-design.md §12 M1–M7).
+- [ ] M1 모더레이션 강도(선검수 vs 선발행) · M2 새 메타테이크 제안 허용 범위 · M3 업보트/평판 ·
+      M4 본인 기여 수정/삭제·반달 대응 · M5 enrichment 런칭 전 전수 vs 점진 · M6 take 페이지
+      Examples 형상 링크화 시점 · M7 레지스터 팔레트 확정(10종/명칭/`reflexive`).
+
+## F. 인프라 메모.
+- [ ] 샌드박스가 Supabase/Gemini로 직접 못 나감(프록시 403) → 실모델 런은 사용자 맥에서
+      `.command` 더블클릭 또는 화면사용 ON 시 Claude가 구동. 결과 번들은 파일로 읽어 검수.
+- [x] **Gemini 3.1 Pro API 문자열 = `gemini-3.1-pro-preview`** (확인·적용됨. `--model`로 교체 가능).
+
+## G. 스케일/통합 — 1천 편 빅뱅 점검에서 나온 것 (최종 작업 시 필수).
+- [ ] **`mt-consolidate` v2 어댑테이션 (블로커 아님, 필수).** 현 코드는 시드 `raw_concept`를 재클러스터.
+      v2는 생성 때 ref/new로 허브를 이미 정하므로, 통합은 "raw 재클러스터"가 아니라 **new 후보끼리/기존
+      허브와 dedup(임베딩 ≥0.86) + ≥5편 게이트**로 바꿔야 함. 복잡도·비용은 동일.
+- [ ] **`components()` numpy 벡터화.** 현재 순수 파이썬 O(n²)·1536차원 → 구별 개념 ~5K 넘으면 급격히 느림
+      (n=20K ≈ 5시간+). numpy(또는 FAISS/근사 NN)로 한 줄 바꾸면 2만 개도 수 초. (증분 모드는 전체
+      재클러스터 안 하므로 무관 — 빅뱅 1회성에만 해당.)
+- [ ] **한 콜 출력 16K 토큰 상한.** figure당 3~5 take면 여유. 10 take/figure를 원하면 영화당 출력이
+      상한 근접 → **영화당 2콜로 분할** 필요(비용 ≈2배). 권장 그레인 = figure당 3~5.
+- [ ] **허브 목록 프롬프트 주입의 스케일 한계.** 전체 허브 주입은 수백 개까진 OK. 허브가 ~1–2K 넘으면
+      프롬프트가 비대(>200K 토큰 → 2배 단가) → **영화 임베딩 최근접 top-K 허브만 주입**으로 전환.
+- [ ] **비용 기준선(1천 편 빅뱅):** 생성 ~$60–130(배치~표준, 3 take), 저작 ~$6, 임베딩 <$1, 통합/랭킹
+      로컬. **증분 = 편당 ~$0.10.** 빅뱅 생성은 **배치 API(50% 할인)** + 야간 권장. 증분은 야간 cron.
+- [ ] **pgvector ANN 인덱스 필수(10만 take 규모).** 인덱스 없으면 유사도 쿼리가 전수 스캔 → 느림.
+- [x] **(카나리 2026-06-14 발견·해결) 영화당 1콜 + 10형상 → 출력 16K 상한 truncation / figure_id 에코
+      불일치로 일부 영화가 0건 적재**(FG가 그랬음, PotD 30건은 정상). 해결: **figure 6개씩 청크 분할**
+      + **label 폴백 매칭** + 매칭 부족 시 **⚠ 경고**(조용히 안 빠짐). `need_enrich` 멱등이라 재실행이
+      빠진 영화만 채움. → 전체 567편 돌리기 전 이 견고화가 적용돼 있어야 함(적용됨).
+
+## H. 임베딩 전략 — 세 엔티티 각자 고유 임베딩 (스키마에 이미 vector(1536) 존재).
+- **무엇을 임베딩하나(축이 다름):** figure → `description`(표면) · take → `rationale`(의미/읽기) ·
+  meta-take → `essay+thesis`(개념). 올바른 텍스트를 넣어야 함(섞으면 벡터 무용).
+- **figure 임베딩 = 표면 축.** "놀라움 = 의미 가까움 × 표면 멂" 계산 + figure dedup + 검색용.
+  figure끼리 표면 닮음은 주 연결자가 아님(의미 연결은 공유 허브 경유 — TV Tropes식 표면매칭 회피).
+- **용도:** 랭킹(relevance/surprise), 증분 매칭(새 항목→그래프), dedup(형상·후보·중복 take),
+  허브 soft edges(Compare/Contrast), 시맨틱 검색, 추천 보강.
+- **운영:** 빅뱅 때 배치 계산 + 증분은 신규만. **ANN 인덱스 필수.** 텍스트 변경 시 `dirty` 재임베딩.
+- **비용: 거의 0.** text-embedding-3-small $0.02/1M → 전체 ~$0.23 1회성, 편당 ~$0.0002. Gemini 생성
+  호출 수엔 영향 없음(별도 API). 한 번 저장하면 이후 모든 유사도=로컬 코사인 → 다운스트림 LLM 호출 절감.
+- (선택) figure에 "의미 센트로이드"(자기 take 평균)를 추가하면 "같은 읽기 형상" 검색이 빠름. 기본은
+  figure=표면 1개로 두고 필요 시 추가(센트로이드는 take 임베딩에서 도출 가능).

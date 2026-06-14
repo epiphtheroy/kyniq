@@ -1,0 +1,280 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Figure enrichment preview</title>
+<style>
+ body{margin:0;background:#121212;color:#E8E6E3;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+ .wrap{max-width:860px;margin:0 auto;padding:40px 22px 80px;}
+ .legend{background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:14px 18px;margin-bottom:34px;font-size:14px;color:#bdbab5;}
+ h1{font-size:24px;margin:48px 0 4px;color:#E9A033;border-bottom:1px solid #333;padding-bottom:8px;}
+ .sub{color:#9a968f;font-size:14px;margin:0 0 18px;}
+ .fig{border-top:1px solid #2a2a2a;padding-top:26px;margin-top:30px;}
+ .kind{font-size:11px;letter-spacing:.12em;color:#8a867f;}
+ .fig h2{font-size:26px;margin:4px 0 12px;color:#fff;}
+ .desc{background:#1a1a1a;border-left:3px solid #444;padding:10px 14px;color:#c9c5bf;font-size:14.5px;border-radius:0 6px 6px 0;}
+ .fit{font-size:12px;color:#7d7a73;margin:8px 0 18px;}
+ .readings-h{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a867f;margin:14px 0 10px;}
+ .take{border-left:4px solid #888;background:#171717;border-radius:0 8px 8px 0;padding:12px 16px;margin:0 0 14px;}
+ .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#fff;padding:2px 9px;border-radius:20px;}
+ .angle{font-weight:600;margin:8px 0 2px;color:#f0eee9;}
+ .ev{font-size:13px;color:#9a968f;font-style:italic;margin:2px 0 8px;}
+ .rat{margin:6px 0 10px;color:#e3dfd9;}
+ .hub{display:inline-block;font-size:13px;padding:4px 10px;border-radius:6px;}
+ .hub.ref{background:#10342f;color:#7fd9c8;}
+ .hub.new{background:#3a2c12;color:#e9a033;}
+ .conf{font-size:11px;color:#6b6862;margin-top:8px;}
+</style></head><body><div class="wrap">
+<div class="legend"><b>Figure enrichment preview</b> — this is the criticism the pilot generated, laid out the way a figure page will look.
+Each figure gets multiple <b>takes</b>, each entered through a different critical <b>register</b> (the colored badge) and converging on a meta-take:
+<span style="color:#7fd9c8">↳ existing hub</span> = links to a real hub (the rabbit-hole) · <span style="color:#e9a033">✦ proposes new hub</span> = a candidate concept.</div>
+<div class="block"><h1>Real model output (this run)</h1><p class="sub">Gemini dry-run on your DB, BEFORE the prompt tightening. Note: ‘ideological’ leads all 6 — the monoculture I fixed in the prompt afterward.</p><section class="fig">
+      <div class="kind">TROPE · forrest-gump-1994</div>
+      <h2>Depiction of the Black Panther Party</h2>
+      <div class="desc">The film depicts the Black Panther Party through a specific, brief sequence. Characters wear black berets, leather jackets, and dark sunglasses. They are shown in an urban setting, speaking in an aggressive, confrontational manner, and are associated with a sense of disorder and radicalism. One member is shown physically harming Jenny.</div>
+      <div class="fit">register-fit: Ideological · Semiotic · Film-Historical · Reception</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">Caricature as Historical Revisionism</div>
+      <div class="ev">🎬 On screen — The sequence where Black Panther members are shown with exaggerated scowls and confrontational dialogue, culminating in a member striking Jenny, frames the movement as purely violent and irrational.</div>
+      <p class="rat">This sequence actively constructs a specific ideological reading of the Black Panther Party. By focusing solely on aggression and depicting a member striking a white woman, the film naturalizes a narrative where the Panthers are a threat, rather than a complex political organization. It reinforces a conservative view of historical activism, effectively sanitizing the counter-narrative.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Ideological Simplification</b> — <i>Reducing complex social movements to easily digestible, often distorted, narrative tropes.</i></span>
+      <div class="conf">confidence 0.9</div>
+    </div><div class="take" style="border-left-color:#B8860B">
+      <div class="badge" style="background:#B8860B">SEMIOTIC</div>
+      <div class="angle">Signifiers of Threat and Disorder</div>
+      <div class="ev">🎬 On screen — The visual shorthand of black berets, leather jackets, and dark sunglasses on the Black Panther members immediately signifies a &#x27;radical&#x27; or &#x27;threatening&#x27; presence, even before their actions or dialogue are fully processed.</div>
+      <p class="rat">The film employs a semiotic shorthand, using established visual codes to instantly communicate a specific meaning. The costuming and aggressive body language function as signifiers that, for a mainstream audience, immediately conjure associations with danger and anti-establishment sentiment. This allows the film to bypass nuanced historical context, relying on pre-existing cultural understandings of these symbols to shape perception.</p>
+      <span class="hub ref">↳ existing hub · <b>Floating Signifier</b></span>
+      <div class="conf">confidence 0.85</div>
+    </div><div class="take" style="border-left-color:#2E86C1">
+      <div class="badge" style="background:#2E86C1">FILM-HISTORICAL</div>
+      <div class="angle">Echoes of Hollywood&#x27;s &#x27;Angry Black Man&#x27; Trope</div>
+      <div class="ev">🎬 On screen — The portrayal of the Black Panther members as uniformly angry, aggressive, and ultimately violent, particularly in the scene where one strikes Jenny, aligns with a long-standing Hollywood trope of the &#x27;angry Black man&#x27; or &#x27;radical Black militant&#x27; as a threat.</div>
+      <p class="rat">This depiction of the Black Panther Party draws from a cinematic genealogy of how Black political movements and figures have been historically represented in Hollywood. It echoes earlier films that often demonized or simplified radical Black activism, positioning it as a disruptive force rather than a response to systemic injustice. The film thus participates in and perpetuates a problematic representational lineage.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Trope&#x27;s Persistence</b> — <i>How recurring narrative patterns shape audience expectations and reinforce cultural biases.</i></span>
+      <div class="conf">confidence 0.9</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">FORM · forrest-gump-1994</div>
+      <h2>Forrest Gump&#x27;s voice-over narration</h2>
+      <div class="desc">Forrest Gump&#x27;s voice-over narration is a consistent, first-person narrative track that overlays the film&#x27;s visual events. Delivered in a slow, Southern drawl, it provides retrospective commentary, personal reflections, and factual explanations of the historical and personal events unfolding on screen, often directly addressing the viewer or an implied listener.</div>
+      <div class="fit">register-fit: Ideological · Mythic · Philosophical · Formal · Reception</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">Manufacturing historical consensus</div>
+      <div class="ev">🎬 On screen — Forrest&#x27;s voice-over states, &#x27;Mama always said life was like a box of chocolates. You never know what you&#x27;re gonna get,&#x27; immediately after showing him witness or participate in major historical events like the Vietnam War or the Watergate scandal.</div>
+      <p class="rat">The narration, delivered with an uncomplicated, folksy wisdom, frames complex historical events through a lens of simplistic inevitability and individual fate. This ideological move naturalizes specific interpretations of American history, presenting a comforting, uncritical version of the past where even profound societal shifts are reduced to personal anecdotes. It actively discourages deeper interrogation of systemic issues.</p>
+      <span class="hub new">✦ proposes new hub · <b>Historical Naturalization</b> — <i>Cinema&#x27;s smooth process of making complex history feel simple, inevitable, and unchallengeable.</i></span>
+      <div class="conf">confidence 0.9</div>
+    </div><div class="take" style="border-left-color:#A9743B">
+      <div class="badge" style="background:#A9743B">MYTHIC</div>
+      <div class="angle">The Fool as national guide</div>
+      <div class="ev">🎬 On screen — Forrest&#x27;s voice-over recounts his presence at pivotal historical moments, such as teaching Elvis Presley to dance, meeting multiple U.S. presidents, and inspiring the &#x27;shit happens&#x27; bumper sticker, all presented with an innocent, unselfconscious tone.</div>
+      <p class="rat">The narration positions Forrest as a modern-day &#x27;Holy Fool&#x27; or trickster figure within a national myth. His simple perspective, paradoxically, allows him to navigate and even influence significant cultural and political shifts without understanding their gravity. This mythic framework suggests that profound truths or accidental greatness often emerge from the most unassuming sources, reinforcing a specific American ideal of accidental genius and providential intervention.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Accidental Architect</b> — <i>The unassuming character who inadvertently shapes history, guided by fate rather than intention.</i></span>
+      <div class="conf">confidence 0.8</div>
+    </div><div class="take" style="border-left-color:#7E57C2">
+      <div class="badge" style="background:#7E57C2">PHILOSOPHICAL</div>
+      <div class="angle">The problem of perception and reality</div>
+      <div class="ev">🎬 On screen — Throughout the film, Forrest&#x27;s voice-over recounts events with unwavering certainty, even when the visuals present highly improbable scenarios, such as his instantaneous healing from a leg brace or his uncanny ability to be present at every major historical event.</div>
+      <p class="rat">Forrest&#x27;s narration raises a philosophical question about the nature of perception and the construction of reality. His unwavering conviction in his own extraordinary experiences, despite their fantastical nature, challenges the viewer to consider how personal narrative shapes our understanding of &#x27;truth.&#x27; The film thus explores the subjective lens through which history is not merely witnessed, but actively created in the mind of the beholder, blurring lines between fact and embellished memory.</p>
+      <span class="hub new">✦ proposes new hub · <b>Narrative as Reality</b> — <i>When a character&#x27;s story becomes the only &#x27;truth,&#x27; regardless of objective fact.</i></span>
+      <div class="conf">confidence 0.75</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">TROPE · forrest-gump-1994</div>
+      <h2>Forrest Gump&#x27;s characterization as intellectually disabled</h2>
+      <div class="desc">Forrest Gump is depicted as a man with an intellectual disability, often characterized by a childlike innocence, literal interpretation of language, and an unwavering, simple perspective on complex events. His narrative unfolds as a series of accidental encounters with significant historical moments and figures.</div>
+      <div class="fit">register-fit: Ideological · Mythic · Philosophical · Formal · Semiotic</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">The &#x27;innocent&#x27; observer as a naturalized perspective</div>
+      <div class="ev">🎬 On screen — Forrest&#x27;s voice-over narration, consistently delivered in a flat, matter-of-fact tone, recounts complex historical events (like Vietnam or Watergate) without critical judgment or deep emotional engagement, presenting them as simple occurrences he merely witnessed.</div>
+      <p class="rat">The film leverages Forrest&#x27;s intellectual disability to naturalize a particular, uncritical view of American history. His lack of sophisticated analysis or moral questioning positions his perspective as &#x27;pure&#x27; and therefore implicitly true, effectively sidestepping ideological scrutiny of the events themselves. This allows the film to present a nostalgic, sanitised version of the past through an &#x27;innocent&#x27; lens.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Naturalized Gaze</b> — <i>When a character&#x27;s perspective is presented as inherently true, beyond critique.</i></span>
+      <div class="conf">confidence 0.9</div>
+    </div><div class="take" style="border-left-color:#A9743B">
+      <div class="badge" style="background:#A9743B">MYTHIC</div>
+      <div class="angle">The Fool as a conduit for truth and fortune</div>
+      <div class="ev">🎬 On screen — Throughout the film, Forrest, despite his limitations, consistently stumbles into success, wealth, and historical significance (e.g., becoming a football star, a war hero, a shrimp boat captain, an early Apple investor), often guided by simple maxims like &#x27;Run, Forrest, run!&#x27; or &#x27;Life is like a box of chocolates.&#x27;</div>
+      <p class="rat">Forrest embodies the archetype of the &#x27;Holy Fool&#x27; or &#x27;Divine Idiot&#x27; found in various myths and folktales. This figure, often underestimated due to perceived simplicity, possesses an inherent purity or luck that allows them to achieve extraordinary things and inadvertently reveal profound truths. His successes are not earned through intellect but through an almost fated, innocent progression, echoing ancient narratives.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Holy Fool Archetype</b> — <i>The simple character who, through innocence or fate, achieves extraordinary things.</i></span>
+      <div class="conf">confidence 0.85</div>
+    </div><div class="take" style="border-left-color:#7E57C2">
+      <div class="badge" style="background:#7E57C2">PHILOSOPHICAL</div>
+      <div class="angle">Existential freedom through unburdened action</div>
+      <div class="ev">🎬 On screen — Forrest&#x27;s defining action, &#x27;running,&#x27; is often presented as an unthinking, pure response to situations—whether escaping bullies, playing football, or traversing the country. He simply &#x27;does&#x27; without extensive deliberation or existential angst, often leading to unexpected outcomes.</div>
+      <p class="rat">Forrest&#x27;s characterization, particularly his propensity for unburdened action, presents a fascinating philosophical query on freedom. Unhindered by complex self-reflection or the weight of existential choice, he acts spontaneously. This portrayal suggests a form of radical freedom, where the absence of overthinking allows for pure engagement with the world, unmediated by the anxieties that typically accompany conscious decision-making.</p>
+      <span class="hub new">✦ proposes new hub · <b>Unburdened Action</b> — <i>Pure, unthinking engagement with the world, unmediated by complex deliberation.</i></span>
+      <div class="conf">confidence 0.8</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">TROPE · forrest-gump-1994</div>
+      <h2>Jenny Curran&#x27;s character arc and death</h2>
+      <div class="desc">Jenny Curran&#x27;s character arc depicts her journey from childhood friend and love interest of Forrest Gump, through a tumultuous adolescence and adulthood marked by abuse, drug use, and involvement in counter-cultural movements, culminating in her reunion with Forrest, marriage, and eventual death from an unnamed illness.</div>
+      <div class="fit">register-fit: Ideological · Mythic · Philosophical · Formal · Existential · Reception</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">Punishing the counter-culture</div>
+      <div class="ev">🎬 On screen — Jenny Curran&#x27;s character arc and death are a narrative punishment of a woman representing counter-culture ideals. Jenny embodies sexual freedom, anti-war politics, and feminist ideals. Her story is a direct contrast to Forrest&#x27;s uncomplicated, traditional success.</div>
+      <p class="rat">The film consistently frames Jenny&#x27;s choices as leading to suffering, while Forrest&#x27;s unquestioning adherence to traditional values brings prosperity and happiness. Her eventual illness and death, following a life of &#x27;deviance&#x27; from mainstream American ideals, functions as a moralistic fable. It implicitly warns against the perils of counter-culture, reinforcing a conservative worldview.</p>
+      <span class="hub ref">↳ existing hub · <b>Symbolic Annihilation</b></span>
+      <div class="conf">confidence 0.9</div>
+    </div><div class="take" style="border-left-color:#A9743B">
+      <div class="badge" style="background:#A9743B">MYTHIC</div>
+      <div class="angle">The Maiden and the Fool</div>
+      <div class="ev">🎬 On screen — Jenny&#x27;s recurring presence and departures throughout Forrest&#x27;s life, often appearing at moments of crisis or transition for him, align her with archetypal figures who guide or test the hero. Her final return and the revelation of their son complete a cyclical journey.</div>
+      <p class="rat">Jenny functions as a &#x27;maiden&#x27; or &#x27;anima&#x27; figure in Forrest&#x27;s monomythic journey, representing both his ideal and his shadow. She embodies the chaotic, unpredictable elements Forrest must navigate, ultimately providing the lineage (their son) that grounds his future. Her death serves as a necessary sacrifice for the hero&#x27;s ultimate maturation and acceptance of responsibility.</p>
+      <span class="hub ref">↳ existing hub · <b>Monomyth The Hero S Journey</b></span>
+      <div class="conf">confidence 0.8</div>
+    </div><div class="take" style="border-left-color:#7E57C2">
+      <div class="badge" style="background:#7E57C2">PHILOSOPHICAL</div>
+      <div class="angle">The Problem of Freedom and Determinism</div>
+      <div class="ev">🎬 On screen — Jenny&#x27;s repeated attempts to escape her past and forge her own path, often leading to painful outcomes, contrast sharply with Forrest&#x27;s seemingly fated journey where good things happen to him without conscious effort. Her final, quiet acceptance of her fate and love for Forrest suggests a surrender.</div>
+      <p class="rat">Jenny&#x27;s struggle highlights the tension between free will and determinism. Her life is a series of choices, each an assertion of agency against a backdrop of trauma, yet these choices often lead to further suffering. Her arc questions whether true freedom is possible, or if some lives are simply predestined for pain, a stark counterpoint to Forrest&#x27;s &#x27;feather&#x27; metaphor for destiny.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Weight of Agency</b> — <i>When a character&#x27;s choices are a burden, not a liberation.</i></span>
+      <div class="conf">confidence 0.85</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">TROPE · forrest-gump-1994</div>
+      <h2>Use of &quot;Fortunate Son&quot; during Vietnam War scenes</h2>
+      <div class="desc">The recurring deployment of Creedence Clearwater Revival&#x27;s &quot;Fortunate Son&quot; as a musical backdrop during scenes depicting Forrest Gump&#x27;s experiences in the Vietnam War, particularly during combat and helicopter transport sequences.</div>
+      <div class="fit">register-fit: Ideological · Film-Historical · Semiotic · Reception</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">Revising historical memory through selective soundtracking</div>
+      <div class="ev">🎬 On screen — The juxtaposition of the song&#x27;s anti-establishment lyrics (&#x27;It ain&#x27;t me, it ain&#x27;t me, I ain&#x27;t no senator&#x27;s son&#x27;) with Forrest Gump&#x27;s uncritical, almost naive participation in the war.</div>
+      <p class="rat">The film leverages a widely recognized anti-war anthem, but recontextualizes its message. By aligning the song with Forrest&#x27;s apolitical experience, the sharp critique of class and privilege inherent in the lyrics is blunted. The music becomes a signifier of the era&#x27;s &#x27;vibe&#x27; rather than its political dissent, subtly naturalizing a sanitized version of the conflict for a mass audience. This approach effectively defangs the song&#x27;s original intent.</p>
+      <span class="hub new">✦ proposes new hub · <b>Historical Palimpsest</b> — <i>When new narratives are written over the past, blurring or erasing inconvenient truths.</i></span>
+      <div class="conf">confidence 0.9</div>
+    </div><div class="take" style="border-left-color:#2E86C1">
+      <div class="badge" style="background:#2E86C1">FILM-HISTORICAL</div>
+      <div class="angle">Establishing a cinematic shorthand for Vietnam</div>
+      <div class="ev">🎬 On screen — The immediate recognition and association of &#x27;Fortunate Son&#x27; with Vietnam War imagery, a trend solidified by its prominent use in &#x27;Forrest Gump&#x27; and subsequent films and media.</div>
+      <p class="rat">This specific song, through its repeated deployment in &#x27;Forrest Gump&#x27; and other period pieces, has become an almost instantaneous sonic cue for the Vietnam War. It functions as a powerful intertextual reference, instantly conjuring a specific historical moment and mood for the audience. The film didn&#x27;t invent this association, but it cemented its status as a widely understood cinematic shorthand, contributing to its genre&#x27;s evolving lexicon. It&#x27;s now a recognizable trope.</p>
+      <span class="hub ref">↳ existing hub · <b>Leitmotif</b></span>
+      <div class="conf">confidence 0.85</div>
+    </div><div class="take" style="border-left-color:#B8860B">
+      <div class="badge" style="background:#B8860B">SEMIOTIC</div>
+      <div class="angle">The signifier of rebellion stripped of its signified</div>
+      <div class="ev">🎬 On screen — The song&#x27;s presence during action sequences where Forrest, a character embodying unquestioning obedience, is involved in combat, rather than moments of protest or critical reflection.</div>
+      <p class="rat">The song &#x27;Fortunate Son&#x27; is a powerful signifier of counter-culture rebellion and anti-war sentiment. However, in &#x27;Forrest Gump,&#x27; this signifier is largely detached from its original signified meaning. It functions more as an atmospheric sonic texture, evoking the era without engaging with the song&#x27;s critical message. The film thus employs the song&#x27;s cultural cachet while emptying it of its political substance, turning a symbol of dissent into mere background noise. The image is there, but the meaning is gone.</p>
+      <span class="hub ref">↳ existing hub · <b>Simulacrum</b></span>
+      <div class="conf">confidence 0.9</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">CHARACTER · forrest-gump-1994</div>
+      <h2>The character of Benjamin Buford &quot;Bubba&quot; Blue</h2>
+      <div class="desc">Benjamin Buford &#x27;Bubba&#x27; Blue is a Black soldier in the US Army, serving in Vietnam alongside Forrest Gump. He is characterized by a prominent lower lip, a deep knowledge of shrimp and shrimping, and a gentle demeanor. He wears a standard military uniform and is consistently shown with a large, green army pack. His dialogue often revolves around his family&#x27;s history in the shrimping business and his aspirations to own his own shrimping boat.</div>
+      <div class="fit">register-fit: Semiotic · Ideological · Politico-Economic · Mythic</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">The naturalized subservience of Black characters.</div>
+      <div class="ev">🎬 On screen — Bubba&#x27;s repeated, almost obsessive, enumeration of shrimp preparations (&#x27;shrimp gumbo, pan-fried shrimp, deep-fried shrimp, stir-fried shrimp...&#x27;) functions as a naturalized, almost childlike, fixation on a service-oriented trade. His dream is not of upward mobility but of continuing a family legacy of manual labor.</div>
+      <p class="rat">Bubba&#x27;s character, particularly his singular focus on shrimping, subtly reinforces an ideological position. His aspirations are framed as humble and simple, aligning with a historical narrative that limits Black characters to roles of service or physical labor, rather than intellectual or entrepreneurial pursuits. This naturalizes a specific social hierarchy, presenting it as an inherent part of his identity rather than a product of systemic forces.</p>
+      <span class="hub ref">↳ existing hub · <b>Symbolic Annihilation</b></span>
+      <div class="conf">confidence 0.9</div>
+    </div><div class="take" style="border-left-color:#2E7D5B">
+      <div class="badge" style="background:#2E7D5B">POLITICO-ECONOMIC</div>
+      <div class="angle">The commodification of Black labor and dreams.</div>
+      <div class="ev">🎬 On screen — Forrest Gump ultimately fulfills Bubba&#x27;s dream of a shrimping business, naming it &#x27;Bubba Gump Shrimp Company&#x27; and sharing the profits. However, Bubba is dead, and Forrest, the white protagonist, is the one who benefits materially and socially from this enterprise, which is built on Bubba&#x27;s specific knowledge and unfulfilled aspiration.</div>
+      <p class="rat">Bubba&#x27;s character embodies the appropriation of Black labor and intellectual property within a capitalist framework. His specialized knowledge of shrimping, a form of cultural capital, is ultimately monetized by Forrest after Bubba&#x27;s death. This illustrates a politico-economic dynamic where the dreams and contributions of marginalized individuals are absorbed and profited from by the dominant group, without the original individual reaping the rewards.</p>
+      <span class="hub new">✦ proposes new hub · <b>Extractive Empathy</b> — <i>When one&#x27;s suffering or dreams are consumed to fuel another&#x27;s growth.</i></span>
+      <div class="conf">confidence 0.85</div>
+    </div><div class="take" style="border-left-color:#A9743B">
+      <div class="badge" style="background:#A9743B">MYTHIC</div>
+      <div class="angle">The archetype of the faithful companion and sacrifice.</div>
+      <div class="ev">🎬 On screen — Bubba&#x27;s unwavering loyalty to Forrest, his simple trust, and his ultimate death saving Forrest in Vietnam position him as a classic &#x27;faithful companion&#x27; figure. His final moments involve him asking for Forrest&#x27;s mother, a poignant sign of his dependence and innocence, before his sacrifice allows Forrest to gain wealth and purpose.</div>
+      <p class="rat">Bubba functions as a mythic archetype: the faithful companion whose sacrifice enables the hero&#x27;s journey. His death is not just a plot point but a ritualistic offering that clears the path for Forrest&#x27;s subsequent success and moral development. This echoes ancient narratives where the hero&#x27;s triumph is often predicated on the loss of a pure, devoted figure, whose role is largely to serve the protagonist&#x27;s destiny.</p>
+      <span class="hub ref">↳ existing hub · <b>Monomyth The Hero S Journey</b></span>
+      <div class="conf">confidence 0.8</div>
+    </div>
+    </section></div><div class="block"><h1>Gold exemplar (hand-authored)</h1><p class="sub">My reference standard — the voice/title quality the tightened prompt now aims for.</p><section class="fig">
+      <div class="kind">OBJECT · forrest-gump</div>
+      <h2>the floating feather</h2>
+      <div class="desc">A single white feather that drifts on the wind across the opening credits and settles at Forrest&#x27;s mud-flecked shoe on a Savannah bus-stop bench; it reappears, lifting off his book, in the film&#x27;s final shot.</div>
+      <div class="fit">register-fit: Philosophical · Formal · Film-Historical · Semiotic</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#5B8FB9">
+      <div class="badge" style="background:#5B8FB9">FORMAL</div>
+      <div class="angle">the wandering crane shot</div>
+      <div class="ev">🎬 On screen — the unbroken ~90-second crane shot that opens the film, handing the frame to the feather on the wind</div>
+      <p class="rat">Before a word is spoken, the camera gives itself to the wind. That long, uncut drift down to the bench refuses to choose — it lets a feather, not a character, lead the eye. The form is the argument: a life to be watched the way you watch weather, patient and uninsistent. By the time Forrest speaks, the movie has already trained your eye to wait for whatever happens to land.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Drifting Camera</b> — <i>When the camera follows objects, not people, and lets chance lead the eye.</i></span>
+      <div class="conf">confidence 0.79</div>
+    </div><div class="take" style="border-left-color:#7E57C2">
+      <div class="badge" style="background:#7E57C2">PHILOSOPHICAL</div>
+      <div class="angle">chance versus design</div>
+      <div class="ev">🎬 On screen — the feather settling at Forrest&#x27;s foot, rhymed with his graveside line about destiny &#x27;or just floating around accidental-like on a breeze&#x27;</div>
+      <p class="rat">The feather is the film thinking out loud about whether anything is meant. It lands at his foot as if chosen, yet arrives by pure drift — both at once, and the movie won&#x27;t decide. Forrest names the tension himself at the grave: destiny, or floating around accidental-like. The object refuses the comfort of either answer, holding determinism and accident in one gentle image, which is harder and braver than picking a side.</p>
+      <span class="hub ref">↳ existing hub · <b>Chance Versus Destiny</b></span>
+      <div class="conf">confidence 0.83</div>
+    </div><div class="take" style="border-left-color:#2E86C1">
+      <div class="badge" style="background:#2E86C1">FILM-HISTORICAL</div>
+      <div class="angle">the invisible digital object</div>
+      <div class="ev">🎬 On screen — the feather is a computer-generated element composited seamlessly into live action in 1994, the same toolkit that drops Forrest into archival news footage</div>
+      <p class="rat">That feather is a quiet landmark in how movies lie. It&#x27;s digital, stitched into a real sky the same year the film slips Forrest into archival footage to shake a president&#x27;s hand. The flourish announces a new contract with the audience: the effect you don&#x27;t notice. Cinema&#x27;s older tricks wanted applause; this one wants to vanish. The feather floats so smoothly precisely because the technology has just learned to hide its hand.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Invisible Effect</b> — <i>The era when special effects learned to hide instead of show off.</i></span>
+      <div class="conf">confidence 0.76</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">FORM · forrest-gump</div>
+      <h2>Forrest&#x27;s bus-bench voice-over</h2>
+      <div class="desc">Forrest narrates his life to a rotating series of strangers seated beside him on a Savannah bus-stop bench, a chocolate box on his lap; his flat, even voice carries most of the film&#x27;s chronology in the gaps between scenes.</div>
+      <div class="fit">register-fit: Ideological · Formal · Reception · Existential</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#C0392B">
+      <div class="badge" style="background:#C0392B">IDEOLOGICAL</div>
+      <div class="angle">history as weather</div>
+      <div class="ev">🎬 On screen — the bench narration folding Vietnam, the Black Panthers, desegregation and Watergate into the same mild, equal tone</div>
+      <p class="rat">The voice flattens a violent half-century into weather. War, the Panthers, Watergate — all arrive in the same unbothered cadence, things that happened near Forrest rather than to anyone. That evenness isn&#x27;t innocence; it&#x27;s a politics. By narrating history as accidents a good-hearted man wandered through, the film quietly absolves it of cause and consequence. The calm is the message: nothing here was anyone&#x27;s fault, so nothing needs changing.</p>
+      <span class="hub new">✦ proposes new hub · <b>History as Weather</b> — <i>When a film narrates politics as something that merely happens, blameless.</i></span>
+      <div class="conf">confidence 0.8</div>
+    </div><div class="take" style="border-left-color:#5B8FB9">
+      <div class="badge" style="background:#5B8FB9">FORMAL</div>
+      <div class="angle">the frame-tale narrator</div>
+      <div class="ev">🎬 On screen — the bench listeners who change from shot to shot, each cued to receive the next chapter, with the chocolate box as the prop that hands Forrest the floor</div>
+      <p class="rat">The bench is a machine for telling. Listeners swap between cuts, each new stranger a fresh excuse to begin another chapter, and the chocolate box is the prop that hands Forrest the floor. It&#x27;s the oldest structure there is — the traveller buttonholing a stranger — and it lets the film leap decades without a seam. The device flatters us, too: we become the patient listener, trusting the teller precisely because he seems too simple to spin us.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Bench Confessor</b> — <i>The stranger-buttonholing teller who licenses a story to roam.</i></span>
+      <div class="conf">confidence 0.74</div>
+    </div><div class="take" style="border-left-color:#159A8A">
+      <div class="badge" style="background:#159A8A">RECEPTION</div>
+      <div class="angle">the consoling fable reading</div>
+      <div class="ev">🎬 On screen — the film&#x27;s pattern of rewarding Forrest&#x27;s passive constancy while breaking Jenny&#x27;s counter-cultural seeking</div>
+      <p class="rat">A durable critical reading hears the film as a fable for its moment: stillness rewarded, restlessness punished. Forrest, who questions nothing, inherits fortune and love; Jenny, who marches and protests and searches, is broken and dies young. Read this way the narration isn&#x27;t naive at all but consoling — a story telling a bruised country that its quiet citizens were right and its rebels were lost. The tenderness is real, and so is the argument beneath it.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Consoling Fable</b> — <i>A story that reassures a bruised audience its quiet ones were right.</i></span>
+      <div class="conf">confidence 0.72</div>
+    </div>
+    </section><section class="fig">
+      <div class="kind">OBJECT · forrest-gump</div>
+      <h2>the box of chocolates</h2>
+      <div class="desc">A heart-shaped Whitman&#x27;s Sampler Forrest holds on the bench and offers to the strangers beside him; it is the source of the film&#x27;s most-quoted line, delivered early and echoed near the close.</div>
+      <div class="fit">register-fit: Semiotic · Existential · Politico-Economic</div>
+      <div class="readings-h">Readings — 3 new takes (existing seed take not shown)</div>
+      <div class="take" style="border-left-color:#B8860B">
+      <div class="badge" style="background:#B8860B">SEMIOTIC</div>
+      <div class="angle">the governing metaphor</div>
+      <div class="ev">🎬 On screen — &#x27;Life is like a box of chocolates — you never know what you&#x27;re gonna get,&#x27; offered with the open box to a stranger</div>
+      <p class="rat">The box is the key the film presses into your hand and asks you to read everything else with. One sealed assortment, its contents unknown until bitten — it&#x27;s the movie&#x27;s whole theory of living, handed over as a sweet. Every later turn, the lost loves and dumb luck, is meant to be tasted through that line. It&#x27;s a sign that teaches you how to read the film, which is why the movie offers it to strangers and to us in the same breath.</p>
+      <span class="hub new">✦ proposes new hub · <b>The Governing Metaphor</b> — <i>The image a film hands you to read all the others by.</i></span>
+      <div class="conf">confidence 0.81</div>
+    </div><div class="take" style="border-left-color:#2E7D5B">
+      <div class="badge" style="background:#2E7D5B">POLITICO-ECONOMIC</div>
+      <div class="angle">wisdom as packaged goods</div>
+      <div class="ev">🎬 On screen — the wisdom arrives pre-packaged as a brand-name gift box, a Whitman&#x27;s Sampler with the logo on the lid</div>
+      <p class="rat">Notice the wisdom comes shrink-wrapped. It isn&#x27;t earned on a mountain; it&#x27;s a drugstore gift box with a brand on the lid, folk philosophy you can buy by the pound. The film sells reassurance the way the sampler sells chocolate — sweet, portioned, mass-produced. There&#x27;s something quietly American in that: even meaning is retail here, and the deepest line in the movie is also, quite literally, a thing you could pick up on the way home.</p>
+      <span class="hub new">✦ proposes new hub · <b>Commodified Wisdom</b> — <i>Meaning sold pre-packaged — comfort by the pound.</i></span>
+      <div class="conf">confidence 0.75</div>
+    </div><div class="take" style="border-left-color:#546E7A">
+      <div class="badge" style="background:#546E7A">EXISTENTIAL</div>
+      <div class="angle">a life without a steering wheel</div>
+      <div class="ev">🎬 On screen — the line&#x27;s actual content — that you don&#x27;t choose, you only receive whatever you &#x27;get&#x27;</div>
+      <p class="rat">Listen to what the line really says: you don&#x27;t choose, you receive. The chocolate comes to you; you never reach in and decide. That&#x27;s Forrest&#x27;s whole existence raised to a creed — a life of being handed things, wars and fortunes and goodbyes, none of them willed. It can sound cozy, but it&#x27;s a stark picture of a person without a steering wheel, making peace with a world that simply arrives. The comfort and the helplessness are the very same sentence.</p>
+      <span class="hub ref">↳ existing hub · <b>The Unsteered Life</b></span>
+      <div class="conf">confidence 0.78</div>
+    </div>
+    </section></div>
+</div></body></html>

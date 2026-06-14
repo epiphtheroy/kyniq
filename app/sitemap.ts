@@ -6,7 +6,7 @@ import { createClient } from "@supabase/supabase-js";
  * Only published content. Includes films, questions, director hubs, and public profiles.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://filmcurio.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

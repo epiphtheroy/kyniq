@@ -14,7 +14,7 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "The big questions of cinema",
   description:
-    "The questions viewers keep asking of film after film — endings, motives, symbols, craft — catalogued and ranked across film history by FilmCurio.",
+    "The questions viewers keep asking of film after film — endings, motives, symbols, craft — catalogued and ranked across film history by Metatake.",
 };
 
 function supabaseAnon() {
@@ -74,7 +74,7 @@ export default async function FramesIndexPage() {
       <div className="colwrap">
         <header className="article-head">
           <p className="kicker">
-            <span>FilmCurio</span>
+            <span>Metatake</span>
             <span className="sep">|</span>
             <span className="topic">the catalogue</span>
           </p>

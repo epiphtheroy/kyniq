@@ -54,9 +54,9 @@ function IconSearch() {
 
 function LogoBox() {
   return (
-    <Link href="/" className="logobox" aria-label="FilmCurio home">
-      <span className="logobox__line">Film</span>
-      <span className="logobox__line">Curio</span>
+    <Link href="/" className="logobox" aria-label="Metatake home">
+      <span className="logobox__line">Meta</span>
+      <span className="logobox__line">take</span>
     </Link>
   );
 }

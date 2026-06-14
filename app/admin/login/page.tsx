@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
             marginBottom: "0.25rem",
           }}
         >
-          FilmCurio Admin
+          Metatake Admin
         </h1>
         <p
           style={{
