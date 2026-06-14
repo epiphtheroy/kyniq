@@ -1122,3 +1122,38 @@ p.has-dropcap::first-letter {
 .fig-take__rat { font-size: 15px; font-weight: 350; line-height: 1.72; color: var(--ink); margin: 0; }
 .fig-cta { margin: 24px 0 0; padding: 12px 14px; border: 0.5px solid var(--hairline);
   border-radius: 6px; font-size: 13px; color: var(--muted); background: var(--surface-2); }
+
+/* ---- TMDB media: tiny thumbnails, accordion, outbound buttons (design-clean) ---- */
+.film-head { display: flex; gap: 12px; align-items: flex-start; margin: 6px 0 2px; }
+.film-head__txt { min-width: 0; flex: 1 1 auto; }
+.film-poster { width: 46px; height: auto; border: 0.5px solid var(--hairline); border-radius: 2px;
+  flex: none; display: block; background: var(--surface-2); }
+.film-tagline { font-family: var(--font-display); font-style: italic; font-size: 13.5px;
+  color: var(--muted); margin: 4px 0 0; }
+.dir-photo { width: 46px; height: auto; border: 0.5px solid var(--hairline); border-radius: 2px;
+  flex: none; display: block; background: var(--surface-2); }
+.film-stills { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0 4px; }
+.film-still { width: 76px; height: 43px; object-fit: cover; border: 0.5px solid var(--hairline);
+  border-radius: 2px; background: var(--surface-2); display: block; }
+.mt-info__trailer { padding: 9px 11px 11px; border-top: 0.5px solid var(--hairline); }
+/* collapsed-by-default film/person info (native <details>, in-DOM → indexed) */
+details.film-info { margin: 14px 0 4px; border-top: 0.5px solid var(--hairline); }
+details.film-info > summary { cursor: pointer; list-style: none; padding: 9px 0 8px;
+  font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--accent-text); }
+details.film-info > summary::-webkit-details-marker { display: none; }
+details.film-info > summary::before { content: "▸ "; color: var(--subtle); }
+details.film-info[open] > summary::before { content: "▾ "; }
+.film-info__body { padding: 2px 0 10px; }
+.film-info__overview { font-size: 14.5px; font-weight: 350; line-height: 1.7; color: var(--ink); margin: 4px 0 12px; max-width: 64ch; }
+.film-info__dl { display: grid; grid-template-columns: 110px 1fr; gap: 4px 12px; margin: 0;
+  font-size: 13px; max-width: 64ch; }
+.film-info__dl dt { color: var(--subtle); font-family: var(--font-ui); font-size: 12px; }
+.film-info__dl dd { margin: 0; color: var(--ink); font-weight: 350; }
+.film-info__src { font-size: 11px; color: var(--subtle); margin-top: 12px; }
+/* outbound image/clip search buttons (figure page) */
+.fig-search { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 2px; }
+.fig-search a { font-family: var(--font-ui); font-size: 12px; color: var(--ink);
+  text-decoration: none; border: 0.5px solid var(--hairline-2); border-radius: 4px;
+  padding: 5px 10px; white-space: nowrap; }
+.fig-search a:hover { border-color: var(--accent); color: var(--accent-text); }

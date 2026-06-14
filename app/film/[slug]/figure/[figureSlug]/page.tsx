@@ -99,6 +99,11 @@ export default async function FigurePage({ params }: Props) {
           <p className="fig-desc">{renderTokens(figure.description, resolver)}</p>
         ) : null}
 
+        <div className="fig-search">
+          <a href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(`${film.title} ${figure.label}`)}`} target="_blank" rel="noopener noreferrer">Search images ↗</a>
+          <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(`${film.title} ${figure.label} scene clip`)}`} target="_blank" rel="noopener noreferrer">Search clips ↗</a>
+        </div>
+
         <h2 className="mt-h2">Readings</h2>
         <div className="fig-takes">
           {takes.map((t) => {

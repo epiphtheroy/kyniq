@@ -1,0 +1,7 @@
+▶ TMDB fetch — 2 canary films (2026년  6월 15일 월요일 08시 19분 42초 KST)
+[tmdb] 2 films
+  · forrest-gump-1994: runtime=142 cert=US:PG-13 trailer=Y backdrops=6 cast=6 dir=Robert Zemeckis
+  · the-power-of-the-dog-2021: runtime=127 cert=US:R trailer=Y backdrops=6 cast=6 dir=Jane Campion
+[tmdb] PERSIST done: 2 films updated, 14 media rows, 2 directors. Deploy to render.
+
+✅ Done. 'PERSIST done: N films, M media, D directors' = written. Deploy to render.

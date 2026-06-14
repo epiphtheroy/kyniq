@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import LightboxImage from "@/components/LightboxImage";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
+const IMG = "https://image.tmdb.org/t/p";
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -20,6 +22,9 @@ async function load(slug: string) {
   if (!films || films.length === 0) return null;
   const director = films[0].director ?? slug.replace(/-/g, " ");
   const filmIds = films.map((f) => f.id);
+
+  const { data: dir } = await supabase
+    .from("directors").select("name, profile_path, bio, birthday, place_of_birth").eq("slug", slug).maybeSingle();
 
   const { data: takeRows } = await supabase
     .from("takes")
@@ -43,7 +48,7 @@ async function load(slug: string) {
     .sort((a, b) => b.films.size - a.films.size)
     .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
 
-  return { director, films, signature, perFilmCount, total: films.length, mtCount: mtFilms.size };
+  return { director, dir, films, signature, perFilmCount, total: films.length, mtCount: mtFilms.size };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -57,22 +62,51 @@ export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, films, signature, perFilmCount, total, mtCount } = data;
+  const { director, dir, films, signature, perFilmCount, total, mtCount } = data;
+  const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
+  const jsonld = {
+    "@context": "https://schema.org", "@type": "Person", name: director, jobTitle: "Film director",
+    ...(d?.profile_path ? { image: `${IMG}/w342${d.profile_path}` } : {}),
+    ...(d?.birthday ? { birthDate: d.birthday } : {}),
+    ...(d?.place_of_birth ? { birthPlace: d.place_of_birth } : {}),
+    ...(d?.bio ? { description: d.bio.slice(0, 500) } : {}),
+  };
 
   return (
     <div className="mt">
       <MetatakeNav active="directors" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/director">Directors</Link></div>
-        <h1 className="mt-h1">{director}</h1>
+
+        <div className="film-head">
+          {d?.profile_path ? (
+            <LightboxImage src={`${IMG}/w185${d.profile_path}`} fullUrl={`${IMG}/w342${d.profile_path}`} alt={director} className="dir-photo" caption={director} />
+          ) : null}
+          <div className="film-head__txt">
+            <h1 className="mt-h1" style={{ borderBottom: "none" }}>{director}</h1>
+            {d?.place_of_birth ? <div className="film-tagline">{d.place_of_birth}</div> : null}
+          </div>
+        </div>
 
         <div className="mt-info">
           <div className="hd">Director</div>
           <div className="bd">
             <div className="row"><span className="k">Films</span><span>{total}</span></div>
             <div className="row"><span className="k">Meta takes</span><span>{mtCount}</span></div>
+            {d?.birthday ? <div className="row"><span className="k">Born</span><span>{d.birthday}</span></div> : null}
           </div>
         </div>
+
+        {d?.bio ? (
+          <details className="film-info">
+            <summary>Biography</summary>
+            <div className="film-info__body">
+              <p className="film-info__overview">{d.bio}</p>
+              <div className="film-info__src">Biography &amp; image via TMDB.</div>
+            </div>
+          </details>
+        ) : null}
 
         {signature.length > 0 && (
           <>
