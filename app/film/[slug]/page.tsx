@@ -1,555 +1,138 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getFilmBySlug, posterUrl } from "@/lib/tmdb";
 import { createClient } from "@supabase/supabase-js";
+import MetatakeNav from "@/components/MetatakeNav";
 
-// Force dynamic rendering — always fetch fresh data from Supabase
-// ISR: edge-cached, background-refreshed (was force-dynamic).
-// generateStaticParams (even empty) opts the dynamic route into
-// static generation with on-demand ISR — without it Next renders
-// every request dynamically and nothing is cached.
 export const revalidate = 300;
-export async function generateStaticParams() {
-  return [];
+export async function generateStaticParams() { return []; }
+
+function db() {
+  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-/** Anon Supabase client for public reads (safe at build time — no cookies needed) */
-function supabaseAnon() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-}
+interface Props { params: Promise<{ slug: string }>; }
 
-// ── Metadata ─────────────────────────────────────────────────────
+const KIND_LABEL: Record<string, string> = {
+  character: "Characters", object: "Objects & symbols", location: "Locations",
+  form: "Form & technique", trope: "Tropes",
+};
+const KIND_ORDER = ["character", "object", "location", "form", "trope"];
 
-type PageProps = { params: Promise<{ slug: string }> };
+type MetaTake = { slug: string; title: string } | null;
+type Fig = { id: string; kind: string | null; label: string; metaTakes: { slug: string; title: string }[] };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const film = await getFilmBySlug(slug);
-  if (!film) return {};
+async function load(slug: string) {
+  const supabase = db();
+  const { data: film } = await supabase
+    .from("films").select("id, title, slug, year, director, director_slug, genres").eq("slug", slug).maybeSingle();
+  if (!film) return null;
 
-  const title = `${film.title} (${film.year}) — Interpretations & Analysis`;
-  const description =
-    film.overview ??
-    `Read community interpretations and analysis of ${film.title}.`;
-  const poster = posterUrl(film.poster_path, "w500");
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      ...(poster && {
-        images: [{ url: poster, width: 500, height: 750, alt: film.title }],
-      }),
-    },
-  };
-}
-
-// ── Published questions query ─────────────────────────────────────
-
-interface QuestionRow {
-  id: string;
-  title: string;
-  display_title: string | null;
-  spoiler_level: string | null;
-  safe_hook: string | null;
-  slug: string;
-  created_at: string;
-  view_count: number;
-  canonical_answers: { id: string; body: string }[];
-  _contribution_count?: number;
-}
-
-async function getPublishedQuestions(
-  filmId: string,
-  sort: "discussed" | "newest" = "discussed"
-): Promise<QuestionRow[]> {
-  const supabase = supabaseAnon();
-
-  let query = supabase
-    .from("questions")
-    .select("id, title, display_title, spoiler_level, safe_hook, slug, created_at, view_count, canonical_answers(id, body)")
-    .eq("film_id", filmId)
-    .eq("status", "published");
-
-  if (sort === "newest") {
-    query = query.order("created_at", { ascending: false });
-  } else {
-    query = query.order("view_count", { ascending: false });
-  }
-
-  const { data } = await query.limit(50);
-  return (data as QuestionRow[]) ?? [];
-}
-
-// Get contribution counts for questions — ONE query for all ids
-// (was an N+1: one count round trip per question).
-async function getContributionCounts(
-  questionIds: string[]
-): Promise<Record<string, number>> {
-  if (questionIds.length === 0) return {};
-
-  const supabase = supabaseAnon();
-  const { data } = await supabase
-    .from("contributions")
-    .select("question_id")
-    .in("question_id", questionIds)
-    .eq("status", "published");
-
-  const counts: Record<string, number> = {};
-  for (const row of data ?? []) {
-    const id = row.question_id as string;
-    counts[id] = (counts[id] ?? 0) + 1;
-  }
-  return counts;
-}
-
-// Get the "most-read" question: most views with a canonical answer
-async function getMostReadQuestion(filmId: string) {
-  const supabase = supabaseAnon();
-
-  // Get top question by views that has a published canonical answer
-  // ONE query (was: top-5 fetch + up to 5 sequential answer lookups)
-  const { data: rows } = await supabase
-    .from("questions")
-    .select("id, title, display_title, spoiler_level, safe_hook, slug, view_count, canonical_answers!inner(body, status)")
-    .eq("film_id", filmId)
-    .eq("status", "published")
-    .eq("canonical_answers.status", "published")
-    .order("view_count", { ascending: false })
-    .limit(1);
-
-  const q = rows?.[0];
-  if (!q) return null;
-
-  const rawCA = q.canonical_answers as unknown;
-  const body =
-    (Array.isArray(rawCA) ? (rawCA[0] as { body: string })?.body : (rawCA as { body: string })?.body) ?? "";
-
-  // Spoiler guard: major answers open on the ending — use the safe hook.
-  const teaserSource = q.spoiler_level === "major" ? (q.safe_hook ?? "") : body;
-  const teaser =
-    teaserSource.length > 200
-      ? teaserSource.slice(0, 200).replace(/\s+\S*$/, "") + "…"
-      : teaserSource;
-  return { ...q, title: q.display_title || q.title, teaser };
-}
-
-// ── Film features (fixed hub sections, film-features-plan.md) ────
-
-interface PitchPayload {
-  assets: { title: string; body: string }[];
-  hwadu?: string;
-}
-interface RecordPayload {
-  premiere?: string | null; budget?: string | null; box_office?: string | null;
-  awards?: string[]; production_notes?: string[]; strategic_significance?: string | null;
-}
-interface ReceptionPayload {
-  at_release?: string | null; turning_point?: string | null; today?: string | null;
-}
-interface ExperiencePayload {
-  level: number; label: string; rationale?: string; comparables?: string[];
-}
-
-async function getFilmFeatures(filmId: string) {
-  const supabase = supabaseAnon();
-  const { data } = await supabase
-    .from("film_features")
-    .select("kind, body, payload")
-    .eq("film_id", filmId)
-    .eq("status", "published");
-  const map = new Map<string, { body: string | null; payload: unknown }>();
-  for (const r of data ?? []) map.set(r.kind as string, { body: r.body, payload: r.payload });
-  return {
-    pitch: map.get("pitch") as { body: string | null; payload: PitchPayload } | undefined,
-    record: map.get("record") as { body: string | null; payload: RecordPayload } | undefined,
-    reception: map.get("reception") as { body: string | null; payload: ReceptionPayload } | undefined,
-    experience: map.get("experience") as { body: string | null; payload: ExperiencePayload } | undefined,
-  };
-}
-
-async function getFilmFrames(filmId: string) {
-  const supabase = supabaseAnon();
-  const { data } = await supabase
-    .from("question_frames")
-    .select("frame:frames!inner(id, slug, label), question:questions!inner(film_id, status)")
-    .eq("question.film_id", filmId)
-    .eq("question.status", "published")
-    .eq("is_primary", true);
-  const seen = new Map<string, { slug: string; label: string }>();
-  for (const r of data ?? []) {
-    const f = r.frame as unknown as { id: string; slug: string; label: string };
-    if (f && !seen.has(f.id)) seen.set(f.id, { slug: f.slug, label: f.label });
-  }
-  return [...seen.values()];
-}
-
-// ── Page ──────────────────────────────────────────────────────────
-
-export default async function FilmPage({ params }: PageProps) {
-  const { slug } = await params;
-  const film = await getFilmBySlug(slug);
-  if (!film) notFound();
-
-  // All independent fetches in parallel (was 5 sequential awaits)
-  const [questions, mostRead, features, filmFrames] = await Promise.all([
-    getPublishedQuestions(film.id),
-    getMostReadQuestion(film.id),
-    getFilmFeatures(film.id),
-    getFilmFrames(film.id),
+  const [{ data: figRows }, { data: pitch }, { data: aff }] = await Promise.all([
+    supabase.from("figures")
+      .select("id, kind, label, takes(meta_take:meta_takes(slug, title, status))")
+      .eq("film_id", film.id).eq("status", "approved"),
+    supabase.from("film_features").select("body, payload").eq("film_id", film.id).eq("kind", "pitch").eq("status", "published").maybeSingle(),
+    supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
   ]);
-  const contributionCounts = await getContributionCounts(
-    questions.map((q) => q.id)
-  );
-  const hasPreviewZone = !!(features.pitch || features.record || features.experience);
+
+  const figures: Fig[] = (figRows ?? []).map((f) => {
+    const takes = (f.takes ?? []) as unknown as { meta_take: { slug: string; title: string; status: string } | null }[];
+    const mts = takes.map((t) => t.meta_take).filter((m): m is { slug: string; title: string; status: string } => !!m && m.status === "published");
+    return { id: f.id, kind: f.kind, label: f.label, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
+  });
+
+  // recommendations: resolve related films + the shared meta take titles
+  const relIds = (aff ?? []).map((a) => a.related_film_id);
+  const sharedIds = [...new Set((aff ?? []).flatMap((a) => (a.shared_meta_take_ids ?? []) as string[]))];
+  const [{ data: relFilms }, { data: sharedMts }] = await Promise.all([
+    relIds.length ? supabase.from("films").select("id, title, slug, year").in("id", relIds) : Promise.resolve({ data: [] as { id: string; title: string; slug: string; year: number | null }[] }),
+    sharedIds.length ? supabase.from("meta_takes").select("id, slug, title").in("id", sharedIds).eq("status", "published") : Promise.resolve({ data: [] as { id: string; slug: string; title: string }[] }),
+  ]);
+  const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
+  const mtMap = new Map((sharedMts ?? []).map((m) => [m.id, m]));
+  const recs = (aff ?? []).map((a) => {
+    const f = relFilmMap.get(a.related_film_id);
+    const reasons = ((a.shared_meta_take_ids ?? []) as string[]).map((id) => mtMap.get(id)).filter(Boolean) as { slug: string; title: string }[];
+    return f ? { film: f, reasons } : null;
+  }).filter(Boolean) as { film: { title: string; slug: string; year: number | null }; reasons: { slug: string; title: string }[] }[];
+
+  return { film, figures, pitch, recs };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await load(slug);
+  if (!data) return { title: "Not found" };
+  return { title: `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes` };
+}
+
+export default async function FilmPage({ params }: Props) {
+  const { slug } = await params;
+  const data = await load(slug);
+  if (!data) notFound();
+  const { film, figures, pitch, recs } = data;
+  const pitchLine = (pitch?.body as string | null) ?? null;
+  const grouped = KIND_ORDER.map((k) => ({ kind: k, items: figures.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
+  const mtTotal = new Set(figures.flatMap((f) => f.metaTakes.map((m) => m.slug))).size;
 
   return (
-    <article className="shell">
-      {/* Breadcrumb */}
-      <nav
-        className="ui muted"
-        style={{ fontSize: "12px", marginBottom: "16px" }}
-        aria-label="Breadcrumb"
-      >
-        <Link
-          href="/"
-          style={{ color: "inherit", textDecoration: "none" }}
-        >
-          Home
-        </Link>
-        {" › "}
-        <span>Films</span>
-      </nav>
-
-      {/* Film header — text only */}
-      <h1
-        className="disp"
-        style={{ fontSize: "32px", margin: 0, lineHeight: "1.18" }}
-      >
-        {film.title}
-      </h1>
-      <div className="ui muted" style={{ fontSize: "13px", marginTop: "7px" }}>
-        {film.year} · dir. {film.director ?? "Unknown"} ·{" "}
-        {questions.length} question{questions.length !== 1 ? "s" : ""}
-      </div>
-      {film.overview && (
-        <p
-          className="body"
-          style={{
-            fontSize: "17px",
-            lineHeight: "1.6",
-            margin: "14px 0 0",
-            maxWidth: "60ch",
-            color: "var(--ink-soft)",
-          }}
-        >
-          {film.overview}
-        </p>
-      )}
-
-      {/* ════ PREVIEW ZONE — safe before watching (spoiler-zero contract) ════ */}
-
-      {features.pitch && (
-        <section style={{ marginTop: 26 }}>
-          <div className="seclbl">Why watch — no spoilers</div>
-          <div className="tick" />
-          {(features.pitch.payload.assets ?? []).map((a, i) => (
-            <div key={i} style={{ marginTop: i === 0 ? 10 : 16 }}>
-              <h3 className="disp" style={{ fontSize: 17, margin: 0 }}>{a.title}</h3>
-              <p className="body" style={{ fontSize: 15.5, lineHeight: 1.6, margin: "5px 0 0", maxWidth: "62ch", color: "var(--ink-soft)" }}>
-                {a.body}
-              </p>
-            </div>
-          ))}
-          {features.pitch.body && (
-            <p className="body" style={{ fontSize: 16, lineHeight: 1.65, margin: "18px 0 0", maxWidth: "62ch", paddingLeft: 14, borderLeft: "2px solid var(--accent)" }}>
-              {features.pitch.body}
-            </p>
-          )}
-        </section>
-      )}
-
-      {features.experience && (
-        <section style={{ marginTop: 26 }}>
-          <div className="seclbl">The experience</div>
-          <div className="tick" />
-          <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 10, flexWrap: "wrap" }}>
-            <span className="disp" style={{ fontSize: 30, color: "var(--accent)", fontVariantNumeric: "tabular-nums" }}>
-              {features.experience.payload.level}<span style={{ fontSize: 16, color: "var(--subtle)" }}>/10</span>
-            </span>
-            <span className="disp" style={{ fontSize: 18 }}>{features.experience.payload.label}</span>
-          </div>
-          {features.experience.payload.rationale && (
-            <p className="body" style={{ fontSize: 15, lineHeight: 1.6, margin: "8px 0 0", maxWidth: "62ch", color: "var(--muted)" }}>
-              {features.experience.payload.rationale}
-            </p>
-          )}
-          {(features.experience.payload.comparables ?? []).length > 0 && (
-            <p className="ui" style={{ fontSize: 13, marginTop: 10, color: "var(--ink-soft)" }}>
-              A similar intensity: {(features.experience.payload.comparables ?? []).join(" · ")}
-            </p>
-          )}
-        </section>
-      )}
-
-      {features.record && (
-        <section style={{ marginTop: 26 }}>
-          <div className="seclbl">The record</div>
-          <div className="tick" />
-          <dl style={{ margin: "10px 0 0", display: "grid", gridTemplateColumns: "max-content 1fr", gap: "7px 18px", fontSize: 14.5 }}>
-            {([
-              ["Premiere", features.record.payload.premiere],
-              ["Budget", features.record.payload.budget],
-              ["Box office", features.record.payload.box_office],
-            ] as const).map(([k, v]) =>
-              v ? (
-                <div key={k} style={{ display: "contents" }}>
-                  <dt className="ui" style={{ color: "var(--muted)" }}>{k}</dt>
-                  <dd className="body" style={{ margin: 0, color: "var(--ink-soft)" }}>{v}</dd>
-                </div>
-              ) : null
-            )}
-            {(features.record.payload.awards ?? []).length > 0 && (
-              <div style={{ display: "contents" }}>
-                <dt className="ui" style={{ color: "var(--muted)" }}>Awards</dt>
-                <dd className="body" style={{ margin: 0, color: "var(--ink-soft)" }}>
-                  {(features.record.payload.awards ?? []).join(" · ")}
-                </dd>
-              </div>
-            )}
-          </dl>
-          {(features.record.payload.production_notes ?? []).length > 0 && (
-            <ul style={{ margin: "12px 0 0", paddingLeft: 18, maxWidth: "62ch" }}>
-              {(features.record.payload.production_notes ?? []).map((n, i) => (
-                <li key={i} className="body" style={{ fontSize: 14.5, lineHeight: 1.55, color: "var(--ink-soft)", marginBottom: 4 }}>{n}</li>
-              ))}
-            </ul>
-          )}
-          {features.record.payload.strategic_significance && (
-            <p className="body" style={{ fontSize: 14.5, lineHeight: 1.6, margin: "12px 0 0", maxWidth: "62ch", color: "var(--muted)", fontStyle: "italic" }}>
-              {features.record.payload.strategic_significance}
-            </p>
-          )}
-        </section>
-      )}
-
-      {/* ════ SPOILER BOUNDARY ════ */}
-      {hasPreviewZone && (
-        <div className="spoiler-banner" role="note" style={{ marginTop: 30 }}>
-          <span aria-hidden="true">🎬</span>
-          <span className="spoiler-banner__label">
-            Below this line: interpretations. Endings are discussed.
-          </span>
+    <div className="mt">
+      <MetatakeNav active="films" />
+      <div className="mt-wrap">
+        <div className="mt-crumb">
+          <Link href="/film">Films</Link>
+          {film.director_slug ? <> &nbsp;›&nbsp; <Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
         </div>
-      )}
+        <h1 className="mt-h1">{film.title} <span className="yr">({film.year ?? "?"})</span></h1>
 
-      {features.reception && (
-        <section style={{ marginTop: 26 }}>
-          <div className="seclbl">The reception — then and now</div>
-          <div className="tick" />
-          <p className="body" style={{ fontSize: 15.5, lineHeight: 1.65, margin: "10px 0 0", maxWidth: "62ch", color: "var(--ink-soft)" }}>
-            {features.reception.body}
-          </p>
-        </section>
-      )}
-
-      <hr className="rule" style={{ marginTop: "26px" }} />
-
-      {/* Most-read interpretation */}
-      <div className="seclbl">Most-read interpretation</div>
-      <div className="tick" />
-
-      {mostRead ? (
-        <>
-          <div className="disp" style={{ fontSize: "18px" }}>
-            <Link
-              href={`/film/${slug}/q/${mostRead.slug}`}
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              {mostRead.title}
-            </Link>
+        <div className="mt-info">
+          <div className="hd">Film</div>
+          <div className="bd">
+            {film.director ? <div className="row"><span className="k">Director</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></div> : null}
+            {film.genres && film.genres.length ? <div className="row"><span className="k">Genre</span><span style={{ textAlign: "right" }}>{film.genres.slice(0, 2).join(" · ")}</span></div> : null}
+            <div className="row"><span className="k">Meta takes</span><span>{mtTotal}</span></div>
           </div>
-          <p
-            className="body"
-            style={{
-              fontSize: "16px",
-              lineHeight: "1.6",
-              color: "var(--muted)",
-              margin: "5px 0 0",
-              maxWidth: "62ch",
-            }}
-          >
-            {mostRead.teaser}{" "}
-            <Link
-              href={`/film/${slug}/q/${mostRead.slug}`}
-              className="ui accent"
-              style={{
-                fontSize: "12.5px",
-                textDecoration: "none",
-              }}
-            >
-              read the full reading ▸
-            </Link>
-          </p>
-        </>
-      ) : (
-        <p
-          className="body muted"
-          style={{ fontSize: "16px", lineHeight: "1.6" }}
-        >
-          No interpretations yet — be the first to share a reading.
-        </p>
-      )}
-
-      {/* CTA */}
-      <div style={{ margin: "22px 0" }}>
-        <Link href={`/ask?film=${slug}`} className="btn">
-          Ask a question about this film
-        </Link>
-      </div>
-
-      <hr className="rule" />
-
-      {/* All questions */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-        }}
-      >
-        <div className="seclbl">All questions</div>
-        <div className="ui" style={{ fontSize: "12.5px" }}>
-          <span className="tab active">Most discussed</span>
-          &nbsp;·&nbsp;
-          <span className="tab">Newest</span>
         </div>
-      </div>
 
-      <div style={{ marginTop: "8px" }}>
-        {questions.length > 0 ? (
-          questions.map((q) => {
-            const count = contributionCounts[q.id] ?? 0;
-            const hasAnswer = Array.isArray(q.canonical_answers) ? q.canonical_answers.length > 0 : !!q.canonical_answers;
-            // Spoiler guard: major answers open on the ending — preview the
-            // spoiler-free hook instead of the answer body.
-            const answerTeaser = hasAnswer
-              ? (q.spoiler_level === "major"
-                  ? q.safe_hook
-                  : (Array.isArray(q.canonical_answers) ? q.canonical_answers[0]?.body : (q.canonical_answers as unknown as { body: string })?.body))
-              : null;
-            const teaser = answerTeaser && answerTeaser.length > 120
-              ? answerTeaser.slice(0, 120).replace(/\s+\S*$/, "") + "…"
-              : answerTeaser;
-            return (
-              <div key={q.id} className="qrow">
-                <div className="disp" style={{ fontSize: "17px" }}>
-                  <Link
-                    href={`/film/${slug}/q/${q.slug}`}
-                    style={{
-                      color: "inherit",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {q.display_title || q.title}
-                  </Link>
-                  {q.spoiler_level === "major" && (
-                    <>
-                      {" "}
-                      <span className="spoiler-chip" title="The full answer discusses the ending">
-                        <span aria-hidden="true">🍿</span> Ending inside
-                      </span>
+        {pitchLine ? <p>{pitchLine}</p> : null}
+
+        <h2 className="mt-h2">Figures</h2>
+        {grouped.map((g) => (
+          <div key={g.kind}>
+            <div className="mt-label">{KIND_LABEL[g.kind] ?? g.kind}</div>
+            <ul className="mt-list">
+              {g.items.map((f) => (
+                <li key={f.id}>
+                  {f.label}
+                  {f.metaTakes.length > 0 && (
+                    <> {" "}
+                      {f.metaTakes.map((m, i) => <span key={m.slug}>{i > 0 ? " · " : "→ "}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>)}
                     </>
                   )}
-                </div>
-                {teaser && (
-                  <p
-                    className="body"
-                    style={{
-                      fontSize: "14.5px",
-                      lineHeight: "1.55",
-                      color: "var(--muted)",
-                      margin: "4px 0 0",
-                      maxWidth: "60ch",
-                    }}
-                  >
-                    {teaser}{" "}
-                    <Link
-                      href={`/film/${slug}/q/${q.slug}`}
-                      className="ui accent"
-                      style={{ fontSize: "12px", textDecoration: "none" }}
-                    >
-                      read more ▸
-                    </Link>
-                  </p>
-                )}
-                <span
-                  className="ui muted"
-                  style={{
-                    fontSize: "12px",
-                    whiteSpace: "nowrap",
-                    marginTop: "4px",
-                    display: "block",
-                  }}
-                >
-                  {hasAnswer ? "answered" : "awaiting answer"}
-                  {count > 0 && (
-                    <> · {count} reading{count !== 1 ? "s" : ""}</>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        {recs.length > 0 && (
+          <>
+            <h2 className="mt-h2">Films most connected to {film.title}</h2>
+            <ul className="mt-list">
+              {recs.map((r) => (
+                <li key={r.film.slug}>
+                  <Link href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
+                  <span className="yr">({r.film.year ?? "?"})</span>
+                  {r.reasons.length > 0 && (
+                    <span className="meta"> — via {r.reasons.map((m, i) => <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>)}</span>
                   )}
-                </span>
-              </div>
-            );
-          })
-        ) : (
-          <p
-            className="body muted"
-            style={{
-              fontSize: "15px",
-              lineHeight: "1.6",
-              padding: "16px 0",
-            }}
-          >
-            No questions yet about this film. Be the first to ask
-            something.
-          </p>
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </div>
-
-      {/* ── Where this film sits — the big questions it belongs to ── */}
-      {filmFrames.length > 0 && (
-        <section style={{ marginTop: 28 }}>
-          <div className="seclbl">Where this film sits</div>
-          <div className="tick" />
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 10 }}>
-            {filmFrames.map((f) => (
-              <Link
-                key={f.slug}
-                href={`/frame/${f.slug}`}
-                className="ui"
-                style={{
-                  fontSize: 13,
-                  border: "1px solid var(--hairline-2)",
-                  borderRadius: 999,
-                  padding: "5px 13px",
-                  color: "var(--ink-soft)",
-                  textDecoration: "none",
-                }}
-              >
-                {f.label}
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-    </article>
+    </div>
   );
 }

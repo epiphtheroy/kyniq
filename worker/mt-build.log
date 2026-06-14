@@ -1,0 +1,38 @@
+▶ Metatake build starting (2026년  6월 14일 일요일 05시 03분 47초 KST)
+
+════════ 1/6 import (567 films, figures, takes) ════════
+[import] 4626 rows (blank Target Object skipped)
+[import] theory_families 1394 | theorists 1196
+[import] films upserted: 562 | mapped uuids: 565
+[import] figures inserted: 4626 | takes inserted: 4626
+[import] done. Next: mt-consolidate.py to birth meta takes from raw_concept.
+
+════════ 2/6 clean (house voice, drop scholar names + 'Target Object') ════════
+[clean] 4467 takes to clean (of 4626)
+[clean] done: 167 cleaned, 4300 errors
+
+════════ 3/6 consolidate (meta takes from concepts) ════════
+[consolidate] 4626 takes with concept
+[consolidate] 2747 normalized concepts
+[consolidate] 2606 clusters after embedding merge (θ=0.86)
+[consolidate] done: 116 meta_takes (candidate), 1549 takes linked, 2490 sub-gate clusters left orphan, 9 flagged >30 for split
+[consolidate] next: mt-author.py (titles/essays) → admin approve → mt-rank.py / mt-recommend.py
+
+════════ 4/6 author (titles, essays, publish) ════════
+[author] 116 candidate meta takes to author
+  ! symbolic-annihilation: bad output
+  ! the-gaze-le-regard: bad output
+  ! scopophilia: bad output
+  ! cyborg-ontology: bad output
+[author] done: 112 meta takes authored + published (audit after). Next: mt-rank.py, mt-recommend.py
+
+════════ 5/6 rank (relevance + surprise) ════════
+[rank] 112 published meta takes
+[rank] done: 1519 rankings written
+
+════════ 6/6 recommend (film affinities) ════════
+[recommend] 504 films across published meta takes
+[recommend] 9561 affinity pairs (top-20/film)
+[recommend] done: 9561 rows written
+
+✅ Build complete. Deploy the app (deploy-metatake.command) to see it live.

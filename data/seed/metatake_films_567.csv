@@ -1,0 +1,575 @@
+Film_TMDB_ID,Film_Title,Film_Director_Name
+13,Forrest Gump,Robert Zemeckis
+14,American Beauty,Sam Mendes
+18,The Fifth Element,Luc Besson
+33,Unforgiven,Clint Eastwood
+38,Eternal Sunshine of the Spotless Mind,Michel Gondry
+55,Amores Perros,Alejandro González Iñárritu
+59,A History of Violence,David Cronenberg
+63,Twelve Monkeys,Terry Gilliam
+64,Talk to Her,Pedro Almodóvar
+68,Brazil,Terry Gilliam
+76,Before Sunrise,Richard Linklater
+77,Memento,Christopher Nolan
+78,Blade Runner,Ridley Scott
+81,Nausicaä of the Valley of the Wind,Hayao Miyazaki
+85,Raiders of the Lost Ark,Steven Spielberg
+89,Indiana Jones and the Last Crusade,Steven Spielberg
+95,Armageddon,Michael Bay
+97,Tron,Steven Lisberger
+101,Léon: The Professional,Luc Besson
+104,Run Lola Run,Tom Tykwer
+105,Back to the Future,Robert Zemeckis
+106,Predator,John McTiernan
+108,Three Colors: Blue,Krzysztof Kieślowski
+109,Three Colors: White,Krzysztof Kieślowski
+110,Three Colors: Red,Krzysztof Kieślowski
+111,Scarface,Brian De Palma
+114,Pretty Woman,Garry Marshall
+115,The Big Lebowski,Joel Coen
+120,The Lord of the Rings: The Fellowship of the Ring,Peter Jackson
+128,Princess Mononoke,Hayao Miyazaki
+129,Spirited Away,Hayao Miyazaki
+137,Groundhog Day,Harold Ramis
+140,Bad Education,Pedro Almodóvar
+142,Brokeback Mountain,Ang Lee
+144,Wings of Desire,Wim Wenders
+145,Breaking the Waves,Lars von Trier
+146,"Crouching Tiger, Hidden Dragon",Ang Lee
+149,Akira,Katsuhiro Otomo
+153,Lost in Translation,Sofia Coppola
+155,The Dark Knight,Christopher Nolan
+161,Ocean's Eleven,Steven Soderbergh
+162,Edward Scissorhands,Tim Burton
+170,28 Days Later,Danny Boyle
+176,Saw,James Wan
+180,Minority Report,Steven Spielberg
+194,Amélie,Jean-Pierre Jeunet
+218,The Terminator,James Cameron
+218,The Terminator,James Cameron
+238,The Godfather,Francis Ford Coppola
+240,The Godfather Part II,Francis Ford Coppola
+267,Live Flesh,Pedro Almodóvar
+268,Batman,Tim Burton
+274,The Silence of the Lambs,Jonathan Demme
+275,Fargo,Joel Coen
+278,The Shawshank Redemption,Frank Darabont
+279,Amadeus,Miloš Forman
+280,Terminator 2: Judgment Day,James Cameron
+290,Barton Fink,Joel Coen
+302,Swimming Pool,François Ozon
+311,Once Upon a Time in America,Sergio Leone
+329,Jurassic Park,Steven Spielberg
+334,Magnolia,Paul Thomas Anderson
+377,A Nightmare on Elm Street,Wes Craven
+378,Raising Arizona,Joel Coen
+379,Miller's Crossing,Joel Coen
+402,Basic Instinct,Paul Verhoeven
+406,La Haine,Mathieu Kassovitz
+423,The Pianist,Roman Polanski
+424,Schindler's List,Steven Spielberg
+489,Good Will Hunting,Gus Van Sant
+492,Being John Malkovich,Spike Jonze
+500,Reservoir Dogs,Quentin Tarantino
+509,Notting Hill,Roger Michell
+524,Casino,Martin Scorsese
+550,Fight Club,David Fincher
+553,Dogville,Lars von Trier
+557,Spider-Man,Sam Raimi
+562,Die Hard,John McTiernan
+563,Starship Troopers,Paul Verhoeven
+565,The Ring,Gore Verbinski
+582,The Lives of Others,Florian Henckel von Donnersmarck
+597,Titanic,James Cameron
+598,City of God,Fernando Meirelles
+600,Full Metal Jacket,Stanley Kubrick
+601,E.T. the Extra-Terrestrial,Steven Spielberg
+602,Independence Day,Roland Emmerich
+603,The Matrix,Lana Wachowski
+613,Downfall,Oliver Hirschbiegel
+620,Ghostbusters,Ivan Reitman
+627,Trainspotting,Danny Boyle
+629,The Usual Suspects,Bryan Singer
+637,Life Is Beautiful,Roberto Benigni
+639,When Harry Met Sally...,Rob Reiner
+641,Requiem for a Dream,Darren Aronofsky
+655,"Paris, Texas",Wim Wenders
+666,Central Station,Walter Salles
+670,Oldboy,Park Chan-wook
+671,Harry Potter and the Philosopher's Stone,Chris Columbus
+673,Harry Potter and the Prisoner of Azkaban,Alfonso Cuarón
+679,Aliens,James Cameron
+680,Pulp Fiction,Quentin Tarantino
+694,The Shining,Stanley Kubrick
+713,The Piano,Jane Campion
+744,Top Gun,Tony Scott
+745,The Sixth Sense,M. Night Shyamalan
+746,The Last Emperor,Bernardo Bertolucci
+752,V for Vendetta,James McTeigue
+769,GoodFellas,Martin Scorsese
+782,Gattaca,Andrew Niccol
+793,Blue Velvet,David Lynch
+807,Se7en,David Fincher
+808,Shrek,Andrew Adamson
+813,Airplane!,Jim Abrahams
+837,Videodrome,David Cronenberg
+841,Dune,David Lynch
+843,In the Mood for Love,Wong Kar-wai
+857,Saving Private Ryan,Steven Spielberg
+858,Sleepless in Seattle,Nora Ephron
+861,Total Recall,Paul Verhoeven
+862,Toy Story,John Lasseter
+881,A Few Good Men,Rob Reiner
+925,Do the Right Thing,Spike Lee
+949,Heat,Michael Mann
+954,Mission: Impossible,Brian De Palma
+1018,Mulholland Drive,David Lynch
+1089,Point Break,Kathryn Bigelow
+1091,The Thing,John Carpenter
+1164,Babel,Alejandro González Iñárritu
+1359,American Psycho,Mary Harron
+1374,Rocky IV,Sylvester Stallone
+1391,Y Tu Mamá También,Alfonso Cuarón
+1417,Pan's Labyrinth,Guillermo del Toro
+1422,The Departed,Martin Scorsese
+1538,Collateral,Michael Mann
+1541,Thelma & Louise,Ridley Scott
+1542,Office Space,Mike Judge
+1578,Raging Bull,Martin Scorsese
+1637,Speed,Jan de Bont
+1700,Misery,Rob Reiner
+1726,Iron Man,Jon Favreau
+1891,The Empire Strikes Back,Irvin Kershner
+1892,Return of the Jedi,Richard Marquand
+1933,The Others,Alejandro Amenábar
+1949,Zodiac,David Fincher
+1987,Benny's Video,Michael Haneke
+2009,"4 Months, 3 Weeks and 2 Days",Cristian Mungiu
+2011,Persepolis,Vincent Paronnaud
+2015,Secret Sunshine,Lee Chang-dong
+2108,The Breakfast Club,John Hughes
+2118,L.A. Confidential,Curtis Hanson
+2288,Closer,Mike Nichols
+2291,Jacob's Ladder,Adrian Lyne
+2292,Clerks,Kevin Smith
+2346,Still Life,Jia Zhangke
+2493,The Princess Bride,Rob Reiner
+2501,The Bourne Identity,Doug Liman
+2640,Heathers,Michael Lehmann
+2666,Dark City,Alex Proyas
+2667,The Blair Witch Project,Daniel Myrick
+26955,Oasis,Lee Chang-dong
+2757,Adaptation.,Spike Jonze
+2767,The Lovers on the Bridge,Leos Carax
+2788,Reality Bites,Ben Stiller
+4011,Beetlejuice,Tim Burton
+4043,Law of Desire,Pedro Almodóvar
+4148,Revolutionary Road,Sam Mendes
+4203,Women on the Verge of a Nervous Breakdown,Pedro Almodóvar
+4232,Scream,Wes Craven
+4507,Jamon Jamon,Bigas Luna
+4638,Hot Fuzz,Edgar Wright
+4960,"Synecdoche, New York",Charlie Kaufman
+4995,Boogie Nights,Paul Thomas Anderson
+5503,The Fugitive,Andrew Davis
+5548,RoboCop,Paul Verhoeven
+6977,No Country for Old Men,Joel Coen
+7345,There Will Be Blood,Paul Thomas Anderson
+7974,The Match Factory Girl,Aki Kaurismäki
+8088,Broken Embraces,Pedro Almodóvar
+8220,Dark Habits,Pedro Almodóvar
+8337,They Live,John Carpenter
+8363,Superbad,Greg Mottola
+8392,My Neighbor Totoro,Hayao Miyazaki
+8587,The Lion King,Roger Allers
+8681,Taken,Pierre Morel
+8699,Anchorman: The Legend of Ron Burgundy,Adam McKay
+8741,The Thin Red Line,Terrence Malick
+8885,Waltz with Bashir,Ari Folman
+8899,Lorna's Silence,Jean-Pierre Dardenne
+8967,The Tree of Life,Terrence Malick
+9323,Ghost in the Shell,Mamoru Oshii
+9364,Wuthering Heights,Andrea Arnold
+9377,Ferris Bueller's Day Off,John Hughes
+9392,The Descent,Neil Marshall
+9426,The Fly,David Cronenberg
+9428,The Royal Tenenbaums,Wes Anderson
+9470,Kung Fu Hustle,Stephen Chow
+9529,Candyman,Bernard Rose
+9539,Martyrs,Pascal Laugier
+9540,Dead Ringers,David Cronenberg
+9571,Dazed and Confused,Richard Linklater
+9603,Clueless,Amy Heckerling
+9675,Sideways,Alexander Payne
+9693,Children of Men,Alfonso Cuarón
+9741,Unbreakable,M. Night Shyamalan
+9806,The Incredibles,Brad Bird
+10020,Beauty and the Beast,Gary Trousdale
+10234,Funny Games,Michael Haneke
+10315,Fantastic Mr. Fox,Wes Anderson
+10404,Raise the Red Lantern,Zhang Yimou
+10494,Perfect Blue,Satoshi Kon
+10625,Mean Girls,Mark Waters
+10681,WALL·E,Andrew Stanton
+10775,Infernal Affairs,Alan Mak Siu-Fai
+10997,Farewell My Concubine,Chen Kaige
+11031,This Is Spinal Tap,Rob Reiner
+11104,Chungking Express,Wong Kar-wai
+11423,Memories of Murder,Bong Joon Ho
+11489,Rosetta,Jean-Pierre Dardenne
+11490,The Child,Luc Dardenne
+11534,Tropical Malady,Apichatpong Weerasethakul
+11986,Betty Blue,Jean-Jacques Beineix
+12163,The Wrestler,Darren Aronofsky
+12477,Grave of the Fireflies,Isao Takahata
+12573,A Serious Man,Ethan Coen
+13183,Watchmen,Zack Snyder
+13310,Let the Right One In,Tomas Alfredson
+14160,Up,Pete Docter
+14626,Beau Travail,Claire Denis
+16869,Inglourious Basterds,Quentin Tarantino
+17431,Moon,Duncan Jones
+17654,District 9,Neill Blomkamp
+19995,Avatar,James Cameron
+21575,A Prophet,Jacques Audiard
+22797,The Butcher Boy,Neil Jordan
+22970,The Cabin in the Woods,Drew Goddard
+24428,The Avengers,Joss Whedon
+24469,Fish Tank,Andrea Arnold
+25237,Come and See,Elem Klimov
+25376,The Secret in Their Eyes,Juan José Campanella
+26935,Christmas in August,Hur Jin-ho
+27205,Inception,Christopher Nolan
+30020,Taste of Cherry,Abbas Kiarostami
+30970,Code Unknown,Michael Haneke
+31056,A Short Film About Love,Krzysztof Kieślowski
+31512,Memories of Matsuko,Tetsuya Nakashima
+31977,Black,Sanjay Leela Bhansali
+36557,Casino Royale,Martin Campbell
+37165,The Truman Show,Peter Weir
+37181,About Elly,Asghar Farhadi
+37185,"Comrades, Almost a Love Story",Peter Chan
+37724,Skyfall,Sam Mendes
+37799,The Social Network,David Fincher
+37903,The White Ribbon,Michael Haneke
+42113,The Ballad of Narayama,Shōhei Imamura
+44214,Black Swan,Darren Aronofsky
+45958,Biutiful,Alejandro González Iñárritu
+46738,Incendies,Denis Villeneuve
+47104,Through the Olive Trees,Abbas Kiarostami
+47909,Poetry,Lee Chang-dong
+49047,Gravity,Alfonso Cuarón
+49982,A City of Sadness,Hou Hsiao-hsien
+336199,Macadam Stories,Samuel Benchetrit
+55721,Bridesmaids,Paul Feig
+56292,Mission: Impossible - Ghost Protocol,Brad Bird
+60243,A Separation,Asghar Farhadi
+62215,Melancholia,Lars von Trier
+63311,The Skin I Live In,Pedro Almodóvar
+63831,The Kid with a Bike,Jean-Pierre Dardenne
+64690,Drive,Nicolas Winding Refn
+68341,Cold Fish,Sion Sono
+68718,Django Unchained,Quentin Tarantino
+68722,The Master,Paul Thomas Anderson
+70160,The Hunger Games,Gary Ross
+70596,Eric Johnson - Live from Austin TX,
+71859,We Need to Talk About Kevin,Lynne Ramsay
+72443,"Josee, the Tiger and the Fish",Isshin Inudo
+76341,Mad Max: Fury Road,George Miller
+85350,Boyhood,Richard Linklater
+86261,Oki's Movie,Hong Sang-soo
+86262,Like You Know It All,Hong Sang-soo
+86829,Inside Llewyn Davis,Joel Coen
+86837,Amour,Michael Haneke
+87827,Life of Pi,Ang Lee
+88284,Barbara,Christian Petzold
+94329,The Raid,Gareth Evans
+95453,One Fine Spring Day,Hur Jin-ho
+97365,Rust and Bone,Jacques Audiard
+97370,Under the Skin,Jonathan Glazer
+976893,Perfect Days,Wim Wenders
+100402,Captain America: The Winter Soldier,Joe Russo
+103328,Holy Motors,Leos Carax
+103663,The Hunt,Thomas Vinterberg
+106646,The Wolf of Wall Street,Martin Scorsese
+107235,Architecture 101,Lee Yong-ju
+109445,Frozen,Chris Buck
+110415,Snowpiercer,Bong Joon Ho
+118340,Guardians of the Galaxy,James Gunn
+118451,Eungyo,Jung Ji-woo
+120467,The Grand Budapest Hotel,Wes Anderson
+121986,Frances Ha,Noah Baumbach
+122906,About Time,Richard Curtis
+150540,Inside Out,Pete Docter
+152601,Her,Spike Jonze
+157336,Interstellar,Christopher Nolan
+157851,Maps to the Stars,David Cronenberg
+160068,Gloria,Sebastián Lelio
+160118,Child's Pose,Călin Peter Netzer
+160139,Night Train to Lisbon,Bille August
+184314,Young & Beautiful,François Ozon
+187022,A Touch of Sin,Jia Zhangke
+194662,Birdman or (The Unexpected Virtue of Ignorance),Alejandro González Iñárritu
+198277,Begin Again,John Carney
+200976,Waikiki Brothers,Yim Soon-rye
+209274,Ida,Paweł Pawlikowski
+210577,Gone Girl,David Fincher
+216156,Still Life,Uberto Pasolini
+242224,The Babadook,Jennifer Kent
+242582,Nightcrawler,Dan Gilroy
+244786,Whiplash,Damien Chazelle
+245891,John Wick,Chad Stahelski
+246741,What We Do in the Shadows,Taika Waititi
+254320,The Lobster,Yorgos Lanthimos
+258480,Carol,Todd Haynes
+263115,Logan,James Mangold
+264660,Ex Machina,Alex Garland
+265169,Winter Sleep,Nuri Bilge Ceylan
+265177,Mommy,Xavier Dolan
+265189,Force Majeure,Ruben Östlund
+265195,Wild Tales,Damián Szifron
+265228,Timbuktu,Abderrahmane Sissako
+270303,It Follows,David Robert Mitchell
+273248,The Hateful Eight,Quentin Tarantino
+273481,Sicario,Denis Villeneuve
+283601,Galveston,Mélanie Laurent
+284054,Black Panther,Ryan Coogler
+285023,"Fidelio, Alice's Odyssey",Lucie Borleteau
+286217,The Martian,Ridley Scott
+290098,The Handmaiden,Park Chan-wook
+293670,The Wailing,Na Hong-jin
+297762,Wonder Woman,Patty Jenkins
+299534,Avengers: Endgame,Anthony Russo
+300668,Annihilation,Alex Garland
+301365,The Neon Demon,Nicolas Winding Refn
+310131,The Witch,Robert Eggers
+313369,La La Land,Damien Chazelle
+314402,Dheepan,Jacques Audiard
+318846,The Big Short,Adam McKay
+324857,Spider-Man: Into the Spider-Verse,Bob Persichetti
+329865,Arrival,Denis Villeneuve
+334541,Manchester by the Sea,Kenneth Lonergan
+335984,Blade Runner 2049,Denis Villeneuve
+336050,Son of Saul,László Nemes
+339403,Baby Driver,Edgar Wright
+340485,American Honey,Andrea Arnold
+346698,Barbie,Greta Gerwig
+91073,Late Autumn,Kim Tae-yong
+354759,Happy Hour,Ryūsuke Hamaguchi
+354912,Coco,Lee Unkrich
+359784,Maudie,Aisling Walsh
+372058,Your Name.,Makoto Shinkai
+374475,Toni Erdmann,Maren Ade
+375262,The Favourite,Yorgos Lanthimos
+375315,The Salesman,Asghar Farhadi
+376867,Moonlight,Barry Jenkins
+381283,mother!,Darren Aronofsky
+391713,Lady Bird,Greta Gerwig
+394117,The Florida Project,Sean Baker
+396535,Train to Busan,Yeon Sang-ho
+398173,The House That Jack Built,Lars von Trier
+398818,Call Me by Your Name,Luca Guadagnino
+398978,The Irishman,Martin Scorsese
+399031,Happy End,Michael Haneke
+399055,The Shape of Water,Guillermo del Toro
+399057,The Killing of a Sacred Deer,Yorgos Lanthimos
+400617,Phantom Thread,Paul Thomas Anderson
+410117,Lady Macbeth,William Oldroyd
+418472,The Wild Pear Tree,Nuri Bilge Ceylan
+419430,Get Out,Jordan Peele
+424781,Sorry to Bother You,Boots Riley
+426426,Roma,Alfonso Cuarón
+429174,Loveless,Andrey Zvyagintsev
+434773,On the Beach at Night Alone,Hong Sang-soo
+440298,Cold War,Paweł Pawlikowski
+441393,Ash Is Purest White,Jia Zhangke
+442947,A Gentle Creature,Sergei Loznitsa
+88,Dirty Dancing,Emile Ardolino
+446159,Bacurau,Kleber Mendonça Filho
+447332,A Quiet Place,John Krasinski
+451955,Double Lover,François Ozon
+458723,Us,Jordan Peele
+466272,Once Upon a Time... in Hollywood,Quentin Tarantino
+467244,The Zone of Interest,Jonathan Glazer
+473033,Uncut Gems,Benny Safdie
+475557,Joker,Todd Phillips
+481432,Happy as Lazzaro,Alice Rohrwacher
+487850,Asako I & II,Ryūsuke Hamaguchi
+491584,Burning,Lee Chang-dong
+492188,Marriage Story,Noah Baumbach
+493922,Hereditary,Ari Aster
+496243,Parasite,Bong Joon Ho
+496967,Atlantics,Mati Diop
+497828,Triangle of Sadness,Ruben Östlund
+503919,The Lighthouse,Robert Eggers
+505192,Shoplifters,Hirokazu Kore-eda
+515001,Jojo Rabbit,Taika Waititi
+517814,Capernaum,Nadine Labaki
+517839,Border,Ali Abbasi
+519185,Ayka,Sergei Dvortsevoy
+522369,Sorry We Missed You,Ken Loach
+530385,Midsommar,Ari Aster
+531428,Portrait of a Lady on Fire,Céline Sciamma
+535550,Hotel by the River,Hong Sang-soo
+545611,Everything Everywhere All at Once,Daniel Scheinert
+546554,Knives Out,Rian Johnson
+548544,Invisible Life,Karim Aïnouz
+574396,Calm with Horses,Nick Rowland
+579974,RRR,S. S. Rajamouli
+580175,Another Round,Thomas Vinterberg
+581734,Nomadland,Chloé Zhao
+588182,Compartment No. 6,Juho Kuosmanen
+592807,Papicha,Mounia Meddour
+592807,Papicha,Mounia Meddour
+600583,The Power of the Dog,Jane Campion
+630240,Titane,Julia Ducournau
+631997,The Forest of Love,Sion Sono
+660120,The Worst Person in the World,Joachim Trier
+666277,Past Lives,Celine Song
+672208,A Hero,Asghar Farhadi
+674324,The Banshees of Inisherin,Martin McDonagh
+758866,Drive My Car,Ryūsuke Hamaguchi
+792307,Poor Things,Yorgos Lanthimos
+795811,Wheel of Fortune and Fantasy,Ryūsuke Hamaguchi
+800158,The Killer,David Fincher
+817758,TÁR,Todd Field
+837335,La Chimera,Alice Rohrwacher
+872585,Oppenheimer,Christopher Nolan
+914203,Tori and Lokita,Luc Dardenne
+915935,Anatomy of a Fall,Justine Triet
+965150,Aftersun,Charlotte Wells
+976893,Perfect Days,Wim Wenders
+1029955,Kinds of Kindness,Yorgos Lanthimos
+1064213,Anora,Sean Baker
+1278263,The Seed of the Sacred Fig,Mohammad Rasoulof
+77338,The Intouchables,Éric Toledano
+11977,Caddyshack,Harold Ramis
+9659,Mad Max,George Miller
+814,An American Werewolf in London,John Landis
+1368,First Blood,Ted Kotcheff
+13342,Fast Times at Ridgemont High,Amy Heckerling
+9443,Chariots of Fire,Hugh Hudson
+850,A Christmas Story,Bob Clark
+927,Gremlins,Joe Dante
+1885,The Karate Kid,John G. Avildsen
+15144,Sixteen Candles,John Hughes
+1702,Death Machine,Stephen Norrington
+9340,The Goonies,Richard Donner
+11003,The Wedding Singer,Frank Coraci
+11522,Pretty in Pink,Howard Deutch
+13240,Jeff Tweedy: Sunken Treasure - Live in the Pacific Northwest,Brendan Canty
+10998,Fatal Attraction,Adrian Lyne
+941,Lethal Weapon,Richard Donner
+10673,Wall Street,Oliver Stone
+948,Halloween,John Carpenter
+9003,Hellraiser,Clive Barker
+117,The Untouchables,Brian De Palma
+2280,Big,Penny Marshall
+10585,Child's Play,Tom Holland
+856,Who Framed Roger Rabbit,Robert Zemeckis
+380,Rain Man,Barry Levinson
+207,Dead Poets Society,Peter Weir
+2289,Cold Mountain,Anthony Minghella
+10144,The Little Mermaid,John Musker
+581,Dances with Wolves,Kevin Costner
+771,Home Alone,Chris Columbus
+251,Ghost,Jerry Zucker
+1669,The Hunt for Red October,John McTiernan
+650,Boyz n the Hood,John Singleton
+1598,Cape Fear,Martin Scorsese
+879,Hook,Steven Spielberg
+6114,Bram Stoker's Dracula,Francis Ford Coppola
+619,The Bodyguard,Mick Jackson
+8879,Pale Rider,Clint Eastwood
+9800,Philadelphia,Jonathan Demme
+788,Mrs. Doubtfire,Chris Columbus
+3101,I Love You to Death,Lawrence Kasdan
+9479,The Nightmare Before Christmas,Henry Selick
+8348,Thunderbolt and Lightfoot,Michael Cimino
+575,The Experiment,Oliver Hirschbiegel
+9495,The Crow,Alex Proyas
+628,Interview with the Vampire,Neil Jordan
+197,Braveheart,Mel Gibson
+568,Apollo 13,Ron Howard
+8844,Jumanji,Joe Johnston
+9398,Zoolander,Ben Stiller
+1592,Primal Fear,Gregory Hoblit
+75,Mars Attacks!,Tim Burton
+607,Men in Black,Barry Sonnenfeld
+754,Face/Off,John Woo
+431,Cube,Vincenzo Natali
+1835,"Farewell, My Lovely",Dick Richards
+1931,Stomp the Yard,Sylvain White
+2109,Rush Hour,Brett Ratner
+1878,Fear and Loathing in Las Vegas,Terry Gilliam
+4951,10 Things I Hate About You,Gil Junger
+497,The Green Mile,Frank Darabont
+926,Galaxy Quest,Dean Parisot
+98,Gladiator,Ridley Scott
+8358,Cast Away,Robert Zemeckis
+786,Almost Famous,Cameron Crowe
+3176,Battle Royale,Kinji Fukasaku
+644,A.I. Artificial Intelligence,Steven Spielberg
+183,The Wizard,Todd Holland
+8835,Legally Blonde,Robert Luketic
+161,Ocean's Eleven,Steven Soderbergh
+2034,Training Day,Antoine Fuqua
+141,Donnie Darko,Richard Kelly
+640,Catch Me If You Can,Steven Spielberg
+21575,A Prophet,Jacques Audiard
+2675,Signs,M. Night Shyamalan
+24,Kill Bill: Vol. 1,Quentin Tarantino
+12,Finding Nemo,Andrew Stanton
+508,Love Actually,Richard Curtis
+17403,How to Deal,Clare Kilner
+11036,The Notebook,Nick Cassavetes
+8193,Napoleon Dynamite,Jared Hess
+70,Million Dollar Baby,Clint Eastwood
+6957,The 40 Year Old Virgin,Judd Apatow
+187,Sin City,Robert Rodriguez
+272,Batman Begins,Christopher Nolan
+773,Little Miss Sunshine,Valerie Faris
+350,The Devil Wears Prada,David Frankel
+1271,300,Zack Snyder
+7326,Juno,Jason Reitman
+4348,Pride & Prejudice,Joe Wright
+23827,Paranormal Activity,Oren Peli
+2062,Ratatouille,Brad Bird
+8966,Twilight,Catherine Hardwicke
+12405,Slumdog Millionaire,Danny Boyle
+10360,Hunger,Steve McQueen
+18785,The Hangover,Todd Phillips
+19913,(500) Days of Summer,Marc Webb
+45267,Boccaccio '70,Vittorio De Sica
+22538,Scott Pilgrim vs. the World,Edgar Wright
+50014,The Help,Tate Taylor
+60308,Moneyball,Bennett Miller
+47933,Independence Day: Resurgence,Roland Emmerich
+122888,Moving Target,Paul Ziller
+138843,The Conjuring,James Wan
+152532,Dallas Buyers Club,Jean-Marc Vallée
+146233,Prisoners,Denis Villeneuve
+207703,Kingsman: The Secret Service,Matthew Vaughn
+314365,Spotlight,Tom McCarthy
+264644,Room,Lenny Abrahamson
+281957,The Revenant,Alejandro González Iñárritu
+293660,Deadpool,Tim Miller
+381284,Hidden Figures,Theodore Melfi
+359940,"Three Billboards Outside Ebbing, Missouri",Martin McDonagh
+396371,Molly's Game,Aaron Sorkin
+346364,It,Andy Muschietti
+332562,A Star Is Born,Bradley Cooper
+490132,Green Book,Peter Farrelly
+424694,Bohemian Rhapsody,Bryan Singer
+508942,Puppy Love,Margarita Mina
+331482,Little Women,Greta Gerwig
+582014,Promising Young Woman,Emerald Fennell
+776508,Il Nostro Mare,Randa Ghattas
+361743,Top Gun: Maverick,Joseph Kosinski
+593643,The Menu,Mark Mylod
+536554,M3GAN,Gerard Johnstone
+930564,Saltburn,Emerald Fennell
+799155,Attack,Lakshya Raj Anand
+786892,Furiosa: A Mad Max Saga,George Miller
+442947,A Gentle Creature,Sergei Loznitsa
+12477,Grave of the Fireflies,Isao Takahata
