@@ -1,0 +1,33 @@
+▶ Metatake fixups starting (2026년  6월 14일 일요일 13시 40분 18초 KST)
+
+════════ 1/4 author (publish the 4 remaining candidates) ════════
+[author] 4 candidate meta takes to author
+[author] done: 4 meta takes authored + published (audit after). Next: mt-rank.py, mt-recommend.py
+
+════════ 2/4 clean (house voice — now thinking-disabled, ~4300 takes) ════════
+[clean] 4301 takes to clean (of 4626)
+  [clean] progress 10/4301 (done 9, err 1)
+  [clean] progress 110/4301 (done 107, err 3)
+  [clean] progress 210/4301 (done 206, err 4)
+  [clean] progress 310/4301 (done 303, err 7)
+  [clean] progress 410/4301 (done 402, err 8)
+  [clean] progress 510/4301 (done 500, err 10)
+  [clean] progress 610/4301 (done 596, err 14)
+  [clean] progress 710/4301 (done 692, err 18)
+  [clean] progress 810/4301 (done 791, err 19)
+  [clean] progress 910/4301 (done 888, err 22)
+  [clean] progress 1010/4301 (done 986, err 24)
+  [clean] progress 1110/4301 (done 1076, err 34)
+  [clean] progress 1210/4301 (done 1173, err 37)
+  [clean] progress 1310/4301 (done 1272, err 38)
+  [clean] progress 1410/4301 (done 1371, err 39)
+  [clean] progress 1510/4301 (done 1470, err 40)
+  [clean] progress 1610/4301 (done 1570, err 40)
+  [clean] progress 1710/4301 (done 1668, err 42)
+  [clean] progress 1810/4301 (done 1766, err 44)
+  [clean] progress 1910/4301 (done 1866, err 44)
+  [clean] progress 2010/4301 (done 1965, err 45)
+  [clean] progress 2110/4301 (done 2062, err 48)
+  [clean] progress 2210/4301 (done 2156, err 54)
+  [clean] progress 2310/4301 (done 2254, err 56)
+  [clean] progress 2410/4301 (done 2353, err 57)

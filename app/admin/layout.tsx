@@ -8,7 +8,8 @@ export const metadata: Metadata = {
 };
 
 const NAV_ITEMS = [
-  { href: "/admin", label: "Review Queue", icon: "📋" },
+  { href: "/admin", label: "Control Center", icon: "🎛️" },
+  { href: "/admin/review", label: "Q&A Review", icon: "📋" },
   { href: "/admin/content", label: "Content", icon: "📄" },
   { href: "/admin/members", label: "Members", icon: "👥" },
   { href: "/admin/flags", label: "Flags", icon: "🚩" },

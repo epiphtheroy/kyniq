@@ -87,8 +87,10 @@ export default async function TakePage({ params }: Props) {
   const Example = ({ r }: { r: { label: string; rationale: string | null; film: Film } }) => (
     <li>
       <Link href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
-      <span className="yr">({r.film.year ?? "?"})</span> — {r.label}
-      {r.rationale ? <span style={{ color: "var(--muted)" }}>. {r.rationale.replace(/\s+/g, " ").slice(0, 180)}</span> : null}
+      <span className="yr">({r.film.year ?? "?"})</span> — <span className="mt-fig">{r.label}</span>
+      {r.rationale ? (
+        <div className="mt-rat">{r.rationale.replace(/\s+/g, " ").trim()}</div>
+      ) : null}
     </li>
   );
 
