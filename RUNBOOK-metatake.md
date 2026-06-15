@@ -28,6 +28,15 @@ import → clean → consolidate → author → rank → recommend 를 순서대
   (`python3 worker/mt-import.py` 등). 모든 스크립트는 재실행 안전.
 - 총 소요 ~40–60분 예상. 비용 대략 $15–40 (임베딩+생성).
 
+## 2.5 빌드 후 필수 백필 (재발 방지 — 반드시) — 상세: `MASTER.md §8`
+import/build는 **figure slug**·**film genres**를 채우지 않는다. 빠뜨리면 figure가 링크 안 되고(plain
+text로 죽음) 장르가 전부 `Other`로 뭉친다. 빌드 후 매번:
+- **figure slug 백필** — Supabase SQL 에디터에서 `MASTER.md §8.1`의 슬러그 백필 SQL 실행.
+  검증: `select count(*) from figures where slug is null` = 0.
+- **film 메타(genres·overview·미디어) 백필** — `worker/run-tmdb-fetch-all.command` 더블클릭
+  (= `tmdb-fetch.py --persist`, 전 영화). 검증: `coalesce(array_length(genres,1),0)=0` 가 0에 수렴.
+- (선택) **figure 보강** — `worker/run-figure-enrich.command`(형상당 ≥3 레지스터 take; slug도 함께 설정).
+
 ## 3. 앱 배포 (더블클릭) — `deploy-metatake.command`
 페이지·내비·토큰 렌더러·마이그레이션 파일을 커밋·푸시 → Vercel 자동 배포.
 (2번 데이터가 있어야 페이지에 내용이 보임. 데이터 전이라도 빈 상태로 안전하게 렌더.)

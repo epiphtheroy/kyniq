@@ -1,4 +1,4 @@
-# FilmCurio / Metatake — MASTER 총정리 (2026-06-14)
+# FilmCurio / Metatake — MASTER 총정리 (2026-06-15)
 
 > **이 문서가 최상위 진입점이다.** 로직 · 디자인 · 링크구조 · 프롬프트/프로그램 · **배치 런북**을 한 곳에
 > 모은다. 깊은 세부는 도메인 권위 문서를 가리킨다(§7 문서 지도). 배치는 잘못 돌리면 DB가 오염되어
@@ -40,7 +40,8 @@
 **임베딩 3축(미리 계산):** figure=`description`(표면) · take=`rationale`(의미) · meta=`essay+thesis`(개념).
 용도: 랭킹(relevance/surprise) · 증분 매칭 · dedup · soft edges · 검색. 비용 ~$0.23 1회성. 세부: `KEPT §H`.
 
-**모더레이션:** AI = "발행 후 감사"(content_events). 사용자 기여 = 선검수 권장(M1 미정).
+**모더레이션:** AI = "발행 후 감사"(content_events). **사용자 기여 = 즉시 발행**(migration 0017로 M1 확정) —
+로그인 게이트 + `source='human'` 배지로 표기. 검수 큐(`/admin/review` 복제)는 선택적 사후 안전망(미구현).
 
 ---
 
@@ -91,8 +92,15 @@
 - **figure-enrich 안전장치:** 기본 DRY(번들 JSON, DB 미변경). `--persist` 시에만 적재. ref는 주입된
   허브 목록만 허용, 지어낸 ref는 new 후보로 자동 전환(take 안 버림). `need_enrich` 게이트로 이미 ≥3
   레지스터인 형상은 건너뜀(재실행 안전).
-- **마이그레이션 0014** (`supabase/migrations/0014_figure_pages_contrib.sql`): figures.slug/author_id,
-  takes.register/angle/author_id/status/source/upvotes, slug_history 'figure', take_votes, RLS, 뷰.
+- **마이그레이션 이력:**
+  - `0014_figure_pages_contrib.sql`: figures.slug/author_id, takes.register/angle/author_id/status/source/upvotes,
+    slug_history 'figure', take_votes, RLS, 뷰.
+  - `0015_tmdb_enrichment.sql`: films.backdrop_path/tagline/runtime/release_date/certification/tmdb_extra,
+    directors 테이블, media CHECK 확장.
+  - `0016_meta_take_views.sql`: meta_takes.view_count + `increment_meta_take_views()` RPC + `meta_take_register_counts` 뷰.
+  - `0017_community_takes_publish.sql`: takes insert 정책이 `status='published'` 허용(즉시 발행).
+- **TMDB worker(`tmdb-fetch.py`)는 `overview`·`genres`도 가져온다** — `--persist`(인자 없이 전체) =
+  전 영화 백필. 장르가 `Other`로 보이면 = 그 영화가 아직 worker 미실행 상태(데이터 갭). `run-tmdb-fetch-all.command`.
 
 ---
 
@@ -189,4 +197,59 @@ H 임베딩 전략.
 - `figure-page-KEPT.md` — 미해결·배치·스케일·임베딩 (최종 작업 체크리스트).
 - `figure-meaning-plan.md` — 기저 메커니즘(레지스터·놀라움 점수). 용어 일부 구버전(의미=메타테이크).
 - `00-INDEX.md` — 프로젝트 일반 인덱스/스택.
-- 워커: `worker/figure-enrich.py`(+`run-figure-enrich.command`), `mt-*.py`, `supabase/migrations/0014_*.sql`.
+- 워커: `worker/figure-enrich.py`(+`run-figure-enrich.command`), `mt-*.py`, `supabase/migrations/0014..0017_*.sql`.
+
+---
+
+## 8. 2026-06-15 반영 + 데이터 무결성 규칙 (재발 방지)
+
+> 이번에 고친 것들이 **향후 import/배치에서 다시 깨지지 않도록** 하는 표준 규칙. 새 영화·형상을
+> 추가하거나 파이프라인을 돌릴 때 아래를 반드시 만족시킨다.
+
+### 8.1 모든 figure는 slug를 가져야 한다 (링크 가능성의 전제)
+- figure 페이지·링크는 `figures.slug` 없으면 동작 안 함. **slug 없는 figure = 영화/메타테이크 페이지에서
+  plain text로 죽은 채 노출**(이번 문제의 원인: 4626개 중 20개만 slug 보유).
+- 규칙: ① `figure-enrich.py`는 처리하는 figure에 slug를 PATCH한다(이미 그러함). ② enrichment를 안 거친
+  레거시/신규 figure는 **slug 백필 SQL**로 채운다(아래). import/mt-build 직후 1회 실행.
+- **slug 백필 SQL(멱등, `slug is null`만):**
+  ```sql
+  with gen as (select id, film_id,
+      nullif(trim(both '-' from regexp_replace(lower(label), '[^a-z0-9]+', '-', 'g')), '') as s0
+    from figures where slug is null),
+  based as (select id, film_id,
+      coalesce(nullif(trim(both '-' from substr(coalesce(s0,''),1,60)),''),'figure') as base from gen),
+  ranked as (select id, film_id, base,
+      row_number() over (partition by film_id, base order by id) as rn from based)
+  update figures f set slug = case when r.rn=1 then r.base else r.base||'-'||r.rn end
+    from ranked r where f.id=r.id;
+  ```
+  검증: `select count(*) from figures where slug is null` = 0, `(film_id,slug)` 중복 0.
+
+### 8.2 모든 film은 genres(+overview)를 가져야 한다
+- 원인: 초기 import가 genres/overview를 안 넣었고(565편 중 549편 공백), `tmdb_extra`도 비어 복구 불가.
+  메타테이크 "All takes"의 장르 폴더가 전부 `Other`로 뭉치고, 영화 페이지/FILM INFO에 장르 누락.
+- 규칙: **`tmdb-fetch.py`가 `overview`+`genres`를 가져온다(이미 반영).** 영화 추가/배치 후 항상
+  **`run-tmdb-fetch-all.command`**(= `tmdb-fetch.py --persist`, 전 영화) 1회 실행해 백필.
+- 검증: `select count(*) from films where coalesce(array_length(genres,1),0)=0` 가 0에 수렴.
+
+### 8.3 figure 링크는 어디서든 살아 있어야 한다 (3자 그물 완성)
+- 영화 페이지 형상 label → figure 페이지(완료). **메타테이크 페이지의 figure명 → figure 페이지(완료, M6 해소).**
+  **홈 "New — figure pages"의 영화명 → 영화 페이지(완료).** 새 목록 UI 추가 시 동일 원칙 적용.
+
+### 8.4 기여(take) = 즉시 발행 (M1 확정)
+- migration 0017: takes insert 정책 `with check (author_id=auth.uid() and source='human' and status in ('published','in_review'))`.
+- `FigureContribute.tsx`가 `status='published'`로 insert → 제출 즉시 공개. 사람 take엔 figure 페이지에서
+  `Community` 배지. (검수가 필요해지면 정책을 in_review only로 되돌리고 `/admin/review` 큐를 붙인다.)
+
+### 8.5 메타테이크 페이지 구조 (용어·발견성)
+- `Examples` → **`Representative takes`**(대표 테이크, 큐레이션 소수) + "전체는 아래 폴더" 안내.
+- **`All takes of "<제목>"`** 제목에 메타테이크명 포함 + `id="all-takes"` 앵커. 우측 info 박스의
+  **`Takes N ↓`** 가 거기로 점프(Films=고유 영화 수, Takes=take 수, 구분).
+- 전체는 **TV Tropes식 접이식 폴더**(테두리 구획 막대, 클릭 시 펼침) — 장르/레지스터 토글.
+
+### 8.6 인프라
+- `0016` view_count + `ViewBeacon`(세션 1회 increment) = 조회수(메타테이크 정렬 `sort=views`의 소스).
+- Vercel Web Analytics: `@vercel/analytics` + `<Analytics/>` in layout(반영). **대시보드에서 Web Analytics
+  "Enable" 토글 필요**(코드 외 1회 수동). 방문자 0 = 토글 미설정.
+- 메타테이크 인덱스(`/meta-takes`): `group=family|register|theorist` + `sort=films|views|new`(영화-장르 facet 제거).
+  register 그룹은 enrichment로 register가 채워질수록 의미 생김(현재 희소).

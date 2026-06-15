@@ -337,7 +337,11 @@ sub-angle**(자유 서술)이 붙는다(2층). `takes.register`.
 - 중복 폭발 방지: 제안 title을 임베딩해 기존 메타테이크와 cosine ≥0.86이면 "비슷한 게 있어요"
   로 기존 선택 유도(mt-consolidate 임계 재사용).
 
-### 7.4 모더레이션 모델 [결정 필요 — §12]
+### 7.4 모더레이션 모델 [확정 2026-06-15 — 즉시 발행]
+> **확정:** human take는 **즉시 published**(선발행 후감사, AI와 동일 원칙). `migration 0017`이 takes insert
+> 정책에서 `status='published'`를 허용한다(`author_id=auth.uid() and source='human' and status in ('published','in_review')`).
+> figure 페이지에서 사람 take는 `Community` 배지로 구분. 검수 큐(`/admin/review` 복제)는 선택적 사후 안전망(미구현).
+> 아래 원안(선검수)은 참고용으로 남긴다.
 - **권장(선검수):** human take/figure는 `status='in_review'`로 들어가 **관리자 큐**(기존
   `/admin/review` 패턴 재사용 — 카드 + 승인/반려)에서 검수 후 published. 신뢰 등급(role) 또는
   관리자는 즉시 published. → SEO/품질 보호. 소규모 사이트에 안전.
@@ -404,12 +408,13 @@ architecture 백로그 #2를 활성화. 목적: 시드 형상(대부분 take 1�
 
 ## 12. 미해결 결정 (다음 대화에서 확정)
 
-- **M1. 모더레이션 강도(§7.4):** 선검수(권장) vs 선발행 후감사 vs 신뢰등급 혼합.
+- **M1. 모더레이션 강도(§7.4):** ✅ **확정(2026-06-15): 선발행(즉시 공개)** — migration 0017 + `Community` 배지.
 - **M2. 새 메타테이크 제안 허용 여부(§7.3):** 허용(허브 생성 루프, 권장) vs 기존 선택만(품질 통제).
 - **M3. 업보트/평판:** 단순 업보트(불변 #2) 외에 정렬·노출에 평판 반영할지.
 - **M4. 본인 기여 수정/삭제 범위 + 반달 대응(레이트리밋·플래그).**
 - **M5. enrichment를 런칭 전 전수 돌릴지 vs 인기 영화부터 점진.**
-- **M6. take 페이지 Examples의 형상명을 형상 페이지 링크로 업그레이드할 시점.**
+- **M6.** ✅ **완료(2026-06-15):** take 페이지(대표 테이크 + 폴더)의 형상명이 형상 페이지로 링크됨.
+  legacy figure 4626개 slug 백필 완료(§MASTER 8.1). "Examples" → "Representative takes" + TV Tropes식 폴더.
 - **M7. 레지스터 팔레트 확정(§6.1):** v1 10종 + sub-angle 2층 모델. 종수(8~12)·명칭·`reflexive`
   승격 여부를 사용자가 최종 조정.
 

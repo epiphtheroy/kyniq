@@ -171,12 +171,14 @@ export default async function TakePage({ params }: Props) {
             {theorist ? <div className="row"><span className="k">Theorist</span><Link href={`/theorist/${theorist.slug}`}>{theorist.name}</Link></div> : null}
             {family ? <div className="row"><span className="k">Theory</span><Link href={`/meta-takes?family=${family.slug}`}>{family.name}</Link></div> : null}
             <div className="row"><span className="k">Films</span><span>{filmCount}</span></div>
+            {all.length > 0 ? <div className="row"><span className="k">Takes</span><a href="#all-takes" className="mt-jump">{all.length} ↓</a></div> : null}
           </div>
         </div>
 
         {mt.thesis ? <p>{mt.thesis}</p> : null}
 
-        <h2 className="mt-h2">Examples</h2>
+        <h2 className="mt-h2">Representative takes</h2>
+        <p className="mt-sortbar__hint">A few standouts. For every take, open a category under <a href="#all-takes">All takes</a> below.</p>
 
         {defining.length > 0 && (
           <>
@@ -193,7 +195,8 @@ export default async function TakePage({ params }: Props) {
 
         {all.length > 0 && (
           <>
-            <h2 className="mt-h2">All takes <span className="mt-h2__n">— {all.length} across {filmCount} {filmCount === 1 ? "film" : "films"}</span></h2>
+            <h2 className="mt-h2" id="all-takes">All takes of “{mt.title}” <span className="mt-h2__n">— {all.length} across {filmCount} {filmCount === 1 ? "film" : "films"}</span></h2>
+            <p className="mt-sortbar__hint">Click a folder to open it. Group by film genre or by critical register.</p>
             <FolderToggle genre={renderFolders(genreGroups)} register={renderFolders(regGroups)} />
           </>
         )}

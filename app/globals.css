@@ -1204,16 +1204,25 @@ details.film-info[open] > summary::before { content: "▾ "; }
   background: none; border: 0.5px solid var(--hairline-2); border-radius: 4px; padding: 4px 11px; cursor: pointer; }
 .mt-fold-tabs button:hover { border-color: var(--accent); color: var(--accent-text); }
 .mt-fold-tabs button.on { color: var(--bg); background: var(--accent); border-color: var(--accent); font-weight: 600; }
-.mt-folders { margin: 2px 0 0; }
+.mt-jump { color: var(--mt-link); text-decoration: none; font-weight: 600; }
+.mt-jump:hover { color: var(--mt-link-hover); text-decoration: underline; }
+/* TV Tropes–style folders: clear bordered bars that fold on click */
+.mt-folders { margin: 6px 0 2px; border: 0.5px solid var(--hairline); border-radius: 6px; overflow: hidden; }
 .mt-folder { border-top: 0.5px solid var(--hairline); }
-.mt-folder > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 7px;
-  padding: 8px 0; font-family: var(--font-ui); font-size: 13px; color: var(--ink); }
+.mt-folder:first-child { border-top: none; }
+.mt-folder > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px;
+  padding: 10px 13px; font-family: var(--font-ui); font-size: 13px; color: var(--ink); background: var(--surface-2); }
+.mt-folder > summary:hover { background: var(--surface); }
+.mt-folder[open] > summary { border-bottom: 0.5px solid var(--hairline); }
 .mt-folder > summary::-webkit-details-marker { display: none; }
+.mt-folder > summary::after { content: "▸"; color: var(--subtle); margin-left: 8px; font-size: 11px; }
+.mt-folder[open] > summary::after { content: "▾"; }
 .mt-folder__ico { color: var(--subtle); flex: none; }
 .mt-folder[open] .mt-folder__ico { color: var(--accent-text); }
 .mt-folder__name { font-weight: 600; }
-.mt-folder__n { margin-left: auto; color: var(--subtle); font-size: 12px; }
-.mt-folder > ul { margin: 0 0 12px; }
+.mt-folder__n { margin-left: auto; color: var(--muted); font-size: 11px;
+  background: var(--bg); border: 0.5px solid var(--hairline-2); border-radius: 20px; padding: 1px 9px; }
+.mt-folder > ul { margin: 0; padding: 10px 14px 12px 30px; }
 .mt-sortbar { display: flex; align-items: center; gap: 12px; margin: 2px 0; font-size: 13px; font-family: var(--font-ui); }
 .mt-sortbar__lbl { color: var(--subtle); text-transform: uppercase; font-size: 11px; letter-spacing: 0.06em; }
 .mt-sortbar a { color: var(--muted); text-decoration: none; }

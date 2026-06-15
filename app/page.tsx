@@ -71,7 +71,7 @@ export default async function Home() {
               {enriched.map((f) => (
                 <div key={`${f.film.slug}-${f.slug}`} style={{ marginBottom: 6 }}>
                   <Link href={`/film/${f.film.slug}/figure/${f.slug}`}>{f.label}</Link>{" "}
-                  <span style={{ color: "var(--subtle)" }}>{f.film.title}</span>
+                  <Link href={`/film/${f.film.slug}`} style={{ color: "var(--subtle)" }}>{f.film.title}</Link>
                 </div>
               ))}
             </div>
