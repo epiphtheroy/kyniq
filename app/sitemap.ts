@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
+import { SITE_INDEXABLE } from "@/lib/seo";
 
 /**
  * Dynamic sitemap — SPEC §8.5
@@ -7,6 +8,8 @@ import { createClient } from "@supabase/supabase-js";
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
+  // While not launch-ready, advertise nothing — pages are noindex anyway.
+  if (!SITE_INDEXABLE) return [{ url: siteUrl, lastModified: new Date() }];
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

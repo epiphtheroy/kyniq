@@ -1222,6 +1222,10 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .fig-take__maptoggle { font-family: var(--font-ui); font-size: 11.5px; color: var(--muted);
   background: none; border: none; padding: 0; cursor: pointer; }
 .fig-take__maptoggle:hover { color: var(--accent-text); }
+/* per-page provenance byline (E-E-A-T / transparency) */
+.provenance { margin: 24px 0 4px; padding-top: 11px; border-top: 0.5px solid var(--hairline);
+  font-family: var(--font-ui); font-size: 11.5px; color: var(--subtle); line-height: 1.6; }
+.provenance .prov-by { color: var(--muted); font-weight: 600; }
 
 /* ---- TMDB media: tiny thumbnails, accordion, outbound buttons (design-clean) ---- */
 .film-head { display: flex; gap: 12px; align-items: flex-start; margin: 6px 0 2px; }

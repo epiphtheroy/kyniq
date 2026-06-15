@@ -6,6 +6,8 @@ import MetatakeNav from "@/components/MetatakeNav";
 import ViewBeacon from "@/components/ViewBeacon";
 import FolderToggle from "@/components/FolderToggle";
 import NodeGraph from "@/components/NodeGraph";
+import Provenance from "@/components/Provenance";
+import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -38,7 +40,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: mt } = await supabase
     .from("meta_takes")
-    .select(`id, slug, title, laconic, thesis, genres,
+    .select(`id, slug, title, laconic, thesis, genres, created_at, updated_at,
       theory_family:theory_families(name, slug), theorist:theorists(name, slug)`)
     .eq("slug", slug).eq("status", "published").maybeSingle();
   if (!mt) return null;
@@ -91,6 +93,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${data.mt.title} — ${data.filmCount} films`,
     description: data.mt.thesis ?? data.mt.laconic ?? undefined,
+    robots: pageRobots(true),
   };
 }
 
@@ -209,6 +212,8 @@ export default async function TakePage({ params }: Props) {
         )}
 
         <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
+
+        <Provenance created={mt.created_at} updated={mt.updated_at} />
       </div>
     </div>
   );

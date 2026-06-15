@@ -6,6 +6,8 @@ import MetatakeNav from "@/components/MetatakeNav";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import NodeGraph from "@/components/NodeGraph";
+import Provenance from "@/components/Provenance";
+import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -30,7 +32,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra")
+    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
@@ -75,7 +77,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  return { title: `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes` };
+  return {
+    title: `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes`,
+    robots: pageRobots(true),
+  };
 }
 
 export default async function FilmPage({ params }: Props) {
@@ -208,6 +213,8 @@ export default async function FilmPage({ params }: Props) {
         )}
 
         <NodeGraph kind="film" filmSlug={film.slug} label={film.title} />
+
+        <Provenance created={film.created_at} />
       </div>
     </div>
   );

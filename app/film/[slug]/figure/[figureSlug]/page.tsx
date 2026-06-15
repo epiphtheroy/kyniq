@@ -6,7 +6,9 @@ import MetatakeNav from "@/components/MetatakeNav";
 import FigureContribute from "@/components/FigureContribute";
 import NodeGraph from "@/components/NodeGraph";
 import TakeMapToggle from "@/components/TakeMapToggle";
+import Provenance from "@/components/Provenance";
 import { renderTokens } from "@/lib/mtTokens";
+import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -48,7 +50,7 @@ async function load(slug: string, figureSlug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
   const { data: figure } = await supabase
-    .from("figures").select("id, label, kind, description")
+    .from("figures").select("id, label, kind, description, created_at, updated_at")
     .eq("film_id", film.id).eq("slug", figureSlug).maybeSingle();
   if (!figure) return null;
   const { data: takeRows } = await supabase
@@ -75,6 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${data.figure.label} — ${data.film.title}`,
     description: data.figure.description ?? undefined,
+    robots: pageRobots(data.takes.length >= 3),
   };
 }
 
@@ -149,6 +152,8 @@ export default async function FigurePage({ params }: Props) {
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
 
         <NodeGraph kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} />
+
+        <Provenance created={figure.created_at} updated={figure.updated_at} />
       </div>
     </div>
   );

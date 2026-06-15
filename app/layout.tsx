@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/Footer";
+import { pageRobots } from "@/lib/seo";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description:
     "Read films closely. Metatake breaks films into their figures and the critical readings they carry, then links films through the meanings they share — a critical map of cinema.",
   metadataBase: new URL(siteUrl),
+  robots: pageRobots(),
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
