@@ -1170,9 +1170,22 @@ p.has-dropcap::first-letter {
   border: none; padding: 2px 4px; cursor: pointer; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
 .ng-crumb-btn:hover { color: var(--mt-link-hover); text-decoration: underline; }
 .ng-crumb.on .ng-crumb-btn { color: var(--ink); font-weight: 600; cursor: default; text-decoration: none; }
-.ng-list { list-style: none; margin: 0; padding: 0; }
-.ng-row { display: flex; align-items: baseline; gap: 8px; padding: 8px 6px; cursor: pointer;
-  border-bottom: 0.5px solid var(--hairline); }
+.ng-crumb-x { font-family: var(--font-ui); font-size: 12px; color: var(--subtle); background: none; border: none;
+  padding: 0 2px; cursor: pointer; line-height: 1; }
+.ng-crumb-x:hover { color: var(--accent-text); }
+.ng-clear { font-family: var(--font-ui); font-size: 11px; color: var(--subtle); background: none;
+  border: 0.5px solid var(--hairline-2); border-radius: 4px; padding: 1px 7px; margin-left: 8px; cursor: pointer; flex: none; }
+.ng-clear:hover { border-color: var(--accent); color: var(--accent-text); }
+/* graph rail (curved connector lines) + readable rows */
+.ng-tree { position: relative; }
+.ng-rail { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+.ng-rail-focus { fill: var(--accent); }
+.ng-rail-link { opacity: 0; animation: ngLineIn .5s ease forwards; }
+.ng-rail-link path { stroke: var(--hairline-2); fill: none; }
+.ng-rail-link circle { fill: var(--muted); }
+.ng-list { list-style: none; margin: 0; padding-left: 40px; }
+.ng-row { display: flex; align-items: center; gap: 8px; padding: 0 6px; cursor: pointer;
+  border-bottom: 0.5px solid var(--hairline); opacity: 0; animation: ngRowIn .35s ease forwards; }
 .ng-row:hover { background: var(--surface-2); }
 .ng-row-kind { font-family: var(--font-ui); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.05em;
   color: var(--subtle); flex: none; width: 56px; }
@@ -1187,6 +1200,9 @@ p.has-dropcap::first-letter {
 .ng-go:hover { color: var(--mt-link-hover); }
 .ng-hint { font-family: var(--font-ui); font-size: 11px; color: var(--subtle); margin-top: 7px; }
 .ng-loading, .ng-empty { font-family: var(--font-ui); font-size: 12.5px; color: var(--muted); padding: 14px 4px; }
+@keyframes ngRowIn { from { opacity: 0; transform: translateX(7px); } to { opacity: 1; transform: none; } }
+@keyframes ngLineIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ng-row, .ng-rail-link { animation: none; opacity: 1; } }
 .fig-take__map { margin-top: 8px; }
 .fig-take__maptoggle { font-family: var(--font-ui); font-size: 11.5px; color: var(--muted);
   background: none; border: none; padding: 0; cursor: pointer; }

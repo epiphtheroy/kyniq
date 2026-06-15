@@ -258,7 +258,8 @@ H 임베딩 전략.
 - RPC(SECURITY DEFINER, anon): `graph_film_neighbors`(affinity score) · `graph_meta_take_neighbors`(임베딩
   코사인) · `graph_figure_neighbors`(공유 메타테이크 수) · `graph_meta_take_siblings`(reading → 형제).
 - `components/NodeGraph.tsx` = **방사형 force 그래프 폐기**(라벨 겹침) → **breadcrumb 탭(상단, 옆으로 확장)
-  + 이웃 목록(아래로)**. 행 클릭=한 단계 더 들어감, 탭 클릭=뒤로, `↗`=실제 페이지. 관련도는 행 우측 숫자.
+  + 이웃 목록(아래로)** + **왼쪽 곡선 연결선 레일**(현재 노드→각 이웃, 굵기=관련도) + 드릴 시 선·행 **진입 애니**
+  (라이브 맵 느낌). 행 클릭=한 단계 더, 탭 클릭=뒤로, 탭 `×`=그 단계 삭제 / `clear`=시작으로, `↗`=실제 페이지.
   영화/메타테이크/피겨 페이지 **하단**, 리딩 카드엔 `TakeMapToggle`로 **인라인**(reading→메타테이크 허브 +
   동류 리딩들의 figure). 의존성 없음(d3-force 제거).
 - 의존: 메타테이크 탐색은 `meta_takes.embedding`(116 전부 OK), reading 탐색은 meta_take가 published여야 형제 노출.
