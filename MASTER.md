@@ -254,10 +254,11 @@ H 임베딩 전략.
 - 메타테이크 인덱스(`/meta-takes`): `group=family|register|theorist` + `sort=films|views|new`(영화-장르 facet 제거).
   register 그룹은 enrichment로 register가 채워질수록 의미 생김(현재 희소).
 
-### 8.7 노드 그래프 (Obsidian식 맵) — migration 0018
+### 8.7 연결 탐색기 (디렉토리식 드릴다운) — migration 0018
 - RPC(SECURITY DEFINER, anon): `graph_film_neighbors`(affinity score) · `graph_meta_take_neighbors`(임베딩
-  코사인) · `graph_figure_neighbors`(공유 메타테이크 수) · `graph_meta_take_siblings`(take 3노드).
-- `components/NodeGraph.tsx` = 경량 SVG force 시뮬(의존성 없음). 영화/메타테이크/피겨 페이지 **하단**.
-  노드 클릭=그래프 내 재중심(동일 타입), 작은 `↗`=실제 페이지 이동, 선 굵기+숫자=관련도.
-- take는 전용 페이지가 없어 리딩 카드의 `TakeMapToggle`로 **인라인**(take→메타테이크→형제 take, 지연 마운트).
-- 의존: 메타테이크 그래프는 `meta_takes.embedding`(현재 116 전부 OK), take 그래프는 meta_take가 published여야 형제 표시.
+  코사인) · `graph_figure_neighbors`(공유 메타테이크 수) · `graph_meta_take_siblings`(reading → 형제).
+- `components/NodeGraph.tsx` = **방사형 force 그래프 폐기**(라벨 겹침) → **breadcrumb 탭(상단, 옆으로 확장)
+  + 이웃 목록(아래로)**. 행 클릭=한 단계 더 들어감, 탭 클릭=뒤로, `↗`=실제 페이지. 관련도는 행 우측 숫자.
+  영화/메타테이크/피겨 페이지 **하단**, 리딩 카드엔 `TakeMapToggle`로 **인라인**(reading→메타테이크 허브 +
+  동류 리딩들의 figure). 의존성 없음(d3-force 제거).
+- 의존: 메타테이크 탐색은 `meta_takes.embedding`(116 전부 OK), reading 탐색은 meta_take가 published여야 형제 노출.
