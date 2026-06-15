@@ -36,7 +36,7 @@ interface Props { params: Promise<{ slug: string; figureSlug: string }>; }
 type MetaTake = { slug: string; title: string; status: string } | null;
 type Take = {
   id: string; rationale: string | null; register: string | null;
-  angle: string | null; confidence: number | null; meta_take: MetaTake;
+  angle: string | null; confidence: number | null; source: string | null; meta_take: MetaTake;
 };
 
 async function load(slug: string, figureSlug: string) {
@@ -51,7 +51,7 @@ async function load(slug: string, figureSlug: string) {
   if (!figure) return null;
   const { data: takeRows } = await supabase
     .from("takes")
-    .select("id, rationale, register, angle, confidence, meta_take:meta_takes(slug, title, status)")
+    .select("id, rationale, register, angle, confidence, source, meta_take:meta_takes(slug, title, status)")
     .eq("figure_id", figure.id).eq("status", "published");
   const takes = ((takeRows ?? []) as unknown as Take[])
     .sort((a, b) => (b.confidence ?? 0) - (a.confidence ?? 0));
@@ -124,6 +124,7 @@ export default async function FigurePage({ params }: Props) {
               <div key={t.id} className="fig-take" style={{ borderLeftColor: color }}>
                 <div className="fig-take__top">
                   {reg ? <span className="fig-badge" style={{ background: color }}>{reg[0]}</span> : null}
+                  {t.source === "human" ? <span className="fig-badge fig-badge--community">Community</span> : null}
                   {mt ? (
                     <span className="fig-hub">
                       →{" "}

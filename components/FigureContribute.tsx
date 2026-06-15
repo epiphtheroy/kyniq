@@ -99,7 +99,7 @@ export default function FigureContribute({
       register,
       rationale: rationale.trim(),
       source: "human",
-      status: "in_review",
+      status: "published",
     });
     setPosting(false);
     if (e) { setError(e.message); return; }
@@ -142,7 +142,7 @@ export default function FigureContribute({
 
         {done && (
           <p className="fig-form__ok">
-            Thanks — your take was submitted and will appear once a reviewer approves it.
+            Thanks — your take is now live on this figure and its meta take.
           </p>
         )}
 
@@ -178,7 +178,7 @@ export default function FigureContribute({
         <div className="fig-form__foot">
           <span className="fig-form__count">{rationale.trim().length} chars{rationale.trim().length < 20 ? " (min 20)" : ""}</span>
           <button type="button" className="fig-form__btn" disabled={!ready || posting} onClick={submit}>
-            {posting ? "Submitting…" : "Submit for review"}
+            {posting ? "Publishing…" : "Publish take"}
           </button>
         </div>
         {error ? <p className="fig-form__err">Could not submit: {error}</p> : null}

@@ -16,9 +16,10 @@ git commit -m "Figure links everywhere + 'add your take' contribution layer
 - figure page: real contribution form (design 7.1) replaces the placeholder CTA
   - login-gated; meta-take select (required, grouped by theory family)
   - critical register select (required) + rationale (required)
-  - inserts source=human status=in_review (pre-review; RLS-enforced)
-  - contributor sees their own takes (in review / published) inline
-- CSS for the form, status badges, and linked figure labels"
+  - inserts source=human status=published (immediate publish, per decision)
+  - contributor sees their own takes inline; human takes get a Community badge
+- migration 0017: takes insert policy allows status=published for human authors
+- CSS for the form, badges, and linked figure labels"
 git push origin main
 echo
 echo "✅ Pushed. Vercel auto-deploys from 'main' (~1-2 min)."

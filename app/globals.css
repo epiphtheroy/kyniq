@@ -1117,6 +1117,7 @@ p.has-dropcap::first-letter {
 .fig-take__top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
 .fig-badge { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
   text-transform: uppercase; color: #fff; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.fig-badge--community { color: var(--muted); background: transparent; border: 0.5px solid var(--hairline-2); }
 .fig-hub { font-family: var(--font-ui); font-size: 13px; color: var(--subtle); }
 .fig-hub a { color: var(--mt-link); text-decoration: none; }
 .fig-hub a:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
