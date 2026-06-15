@@ -106,13 +106,21 @@ export default function NodeGraph(props: Props) {
   const maxW = Math.max(0.0001, ...neighbors.map((n) => n.w ?? 1));
   const railH = LIST_TOP + Math.max(1, neighbors.length) * ROW + 4;
 
+  const DESC: Record<Props["kind"], string> = {
+    film: `Films connected to “${props.label}” — they share meta takes. Click to roam the web.`,
+    meta_take: `Meta takes related to “${props.label}”, by reading similarity.`,
+    figure: `Figures connected to “${props.label}” — they share meta takes.`,
+    take: `This reading → its meta take → kindred readings across films.`,
+  };
+
   const body = (
     <div className="ng-body">
+      <p className="ng-desc">{DESC[props.kind]}</p>
       <div className="ng-crumbs" ref={crumbRef}>
         {trail.map((t, i) => (
           <span key={t.id + i} className={`ng-crumb${i === trail.length - 1 ? " on" : ""}`}>
             {i > 0 ? <span className="ng-crumb-sep">›</span> : null}
-            <button type="button" className="ng-crumb-btn" onClick={() => jump(i)} title={t.label}>{t.label}</button>
+            <button type="button" className={`ng-crumb-btn ng-k-${t.kind}`} onClick={() => jump(i)} title={t.label}>{t.label}</button>
             {t.href ? <button type="button" className="ng-go" title="Open page" onClick={(e) => go(e, t.href)}>↗</button> : null}
             {i > 0 ? <button type="button" className="ng-crumb-x" title="Remove this step" onClick={() => removeAt(i)}>×</button> : null}
           </span>
@@ -146,7 +154,7 @@ export default function NodeGraph(props: Props) {
               <li key={n.id} className="ng-row" style={{ height: ROW, animationDelay: `${i * 35}ms` }}
                   onClick={() => drill(n)} role="button" tabIndex={0}>
                 <span className="ng-row-kind">{KIND_LABEL[n.kind]}</span>
-                <span className="ng-row-label">{n.label}</span>
+                <span className={`ng-row-label ng-k-${n.kind}`}>{n.label}</span>
                 {n.sub ? <span className="ng-row-sub">{n.sub}</span> : null}
                 {n.weight ? <span className="ng-row-w">{n.weight}</span> : null}
                 {n.href ? <button type="button" className="ng-go" title="Open page" onClick={(e) => go(e, n.href)}>↗</button> : null}
@@ -165,7 +173,7 @@ export default function NodeGraph(props: Props) {
 
   return (
     <details className="ng-box film-info" open={open} onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}>
-      <summary>Map — connections</summary>
+      <summary>Map — {props.label}</summary>
       {body}
     </details>
   );

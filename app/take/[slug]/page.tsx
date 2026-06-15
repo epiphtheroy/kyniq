@@ -175,8 +175,6 @@ export default async function TakePage({ params }: Props) {
           </div>
         </div>
 
-        <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
-
         {mt.thesis ? <p>{mt.thesis}</p> : null}
 
         <h2 className="mt-h2">Representative takes</h2>
@@ -209,6 +207,8 @@ export default async function TakePage({ params }: Props) {
             {related.map((r, i) => <span key={r.slug}>{i > 0 ? " · " : ""}<Link href={`/take/${r.slug}`}>{r.title}</Link></span>)}
           </p>
         )}
+
+        <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
       </div>
     </div>
   );

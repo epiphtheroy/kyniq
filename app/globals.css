@@ -1064,11 +1064,20 @@ p.has-dropcap::first-letter {
    METATAKE — light wiki content (meta-take-architecture.md)
    readable type (+2pt) · weight 350 · RED links (brand identity)
    ============================================================ */
-:root { --mt-link: #E3120B; --mt-link-hover: #B80D05; }
+:root { --mt-link: #E3120B; --mt-link-hover: #B80D05;
+  --lk-film: #34383E; --lk-film-hover: #111316;
+  --lk-fig: #1F6FB2; --lk-fig-hover: #154E7E; }
 .mt { font-weight: 350; font-size: 15px; color: var(--ink); line-height: 1.7; }
 .mt-wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 40px; }
-.mt a, a.mt-link { color: var(--mt-link); text-decoration: none; }
-.mt a:hover, a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
+/* Link colour by entity (via href): meta take = red, figure = blue, film/structural = neutral */
+.mt a { color: var(--lk-film); text-decoration: none; }
+.mt a:hover { color: var(--lk-film-hover); text-decoration: underline; text-underline-offset: 2px; }
+.mt a[href^="/take/"] { color: var(--mt-link); }
+.mt a[href^="/take/"]:hover { color: var(--mt-link-hover); }
+.mt a[href*="/figure/"] { color: var(--lk-fig); }
+.mt a[href*="/figure/"]:hover { color: var(--lk-fig-hover); }
+a.mt-link { color: var(--mt-link); text-decoration: none; }
+a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 .mt-crumb { font-size: 13px; color: var(--subtle); margin: 14px 0 8px; }
 .mt-h1 { font-size: 22px; font-weight: 500; margin: 0; padding-bottom: 6px;
   border-bottom: 0.5px solid var(--hairline); letter-spacing: -0.2px; color: var(--ink); }
@@ -1094,8 +1103,8 @@ p.has-dropcap::first-letter {
 .mt-list li::before { content: "·"; position: absolute; left: -14px; color: var(--accent); }
 .mt-list li .yr, .mt-list li .meta { color: var(--subtle); }
 .mt-list li .mt-fig { color: var(--ink); }
-.mt-list li a.mt-fig { color: var(--mt-link); text-decoration: none; }
-.mt-list li a.mt-fig:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
+.mt-list li a.mt-fig { color: var(--lk-fig); text-decoration: none; }
+.mt-list li a.mt-fig:hover { color: var(--lk-fig-hover); text-decoration: underline; text-underline-offset: 2px; }
 /* full critical reading under each example (no truncation) */
 .mt-rat { margin: 3px 0 10px; font-size: 14.5px; font-weight: 350;
   line-height: 1.68; color: var(--muted, #5a5a5a); max-width: 64ch; }
@@ -1162,12 +1171,15 @@ p.has-dropcap::first-letter {
 .ng-box { margin: 26px 0 4px; }
 .ng-body { padding: 6px 0 2px; }
 .ng-bare { margin: 8px 0 2px; border: 0.5px solid var(--hairline); border-radius: 6px; background: var(--surface-2); padding: 8px 11px; }
+.ng-desc { font-family: var(--font-ui); font-size: 11.5px; color: var(--muted); margin: 0 0 8px; font-style: italic; }
 .ng-crumbs { display: flex; align-items: center; gap: 2px; overflow-x: auto; white-space: nowrap;
   padding: 2px 0 8px; border-bottom: 0.5px solid var(--hairline); margin-bottom: 4px; scrollbar-width: thin; }
 .ng-crumb { display: inline-flex; align-items: center; gap: 2px; flex: none; }
 .ng-crumb-sep { color: var(--subtle); margin: 0 4px; font-size: 12px; }
-.ng-crumb-btn { font-family: var(--font-ui); font-size: 12.5px; color: var(--mt-link); background: none;
+.ng-crumb-btn { font-family: var(--font-ui); font-size: 12.5px; color: var(--lk-film); background: none;
   border: none; padding: 2px 4px; cursor: pointer; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+.ng-crumb-btn.ng-k-meta_take { color: var(--mt-link); }
+.ng-crumb-btn.ng-k-figure { color: var(--lk-fig); }
 .ng-crumb-btn:hover { color: var(--mt-link-hover); text-decoration: underline; }
 .ng-crumb.on .ng-crumb-btn { color: var(--ink); font-weight: 600; cursor: default; text-decoration: none; }
 .ng-crumb-x { font-family: var(--font-ui); font-size: 12px; color: var(--subtle); background: none; border: none;
@@ -1190,9 +1202,11 @@ p.has-dropcap::first-letter {
 .ng-row:hover { background: var(--surface-2); }
 .ng-row-kind { font-family: var(--font-ui); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.05em;
   color: var(--subtle); flex: none; width: 56px; }
-.ng-row-label { font-family: var(--font-body); font-size: 14.5px; color: var(--mt-link); flex: 1 1 auto;
+.ng-row-label { font-family: var(--font-body); font-size: 14.5px; color: var(--lk-film); flex: 1 1 auto;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ng-row:hover .ng-row-label { color: var(--mt-link-hover); }
+.ng-row-label.ng-k-meta_take { color: var(--mt-link); }
+.ng-row-label.ng-k-figure { color: var(--lk-fig); }
+.ng-row:hover .ng-row-label { text-decoration: underline; }
 .ng-row-sub { font-family: var(--font-ui); font-size: 11.5px; color: var(--muted); flex: none; }
 .ng-row-w { font-family: var(--font-ui); font-size: 11px; color: var(--subtle); flex: none; min-width: 30px; text-align: right; }
 .ng-row-chev { color: var(--subtle); flex: none; font-size: 13px; }

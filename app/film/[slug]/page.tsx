@@ -141,8 +141,6 @@ export default async function FilmPage({ params }: Props) {
           ) : null}
         </div>
 
-        <NodeGraph kind="film" filmSlug={film.slug} label={film.title} />
-
         {stills.length > 0 ? (
           <div className="film-stills">
             {stills.map((s) => (
@@ -208,6 +206,8 @@ export default async function FilmPage({ params }: Props) {
             </ul>
           </>
         )}
+
+        <NodeGraph kind="film" filmSlug={film.slug} label={film.title} />
       </div>
     </div>
   );
