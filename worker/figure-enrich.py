@@ -36,8 +36,8 @@ def load_env(p):
         if line and not line.startswith("#") and "=" in line:
             k,_,v=line.partition("="); os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 load_env(os.path.join(ROOT,".env.local"))
-URL=os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY=os.environ.get("SUPABASE_SERVICE_ROLE_KEY"); GEM=os.environ.get("GEMINI_API_KEY")
-if not (URL and KEY and GEM): print("Missing env (NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY / GEMINI_API_KEY)"); sys.exit(1)
+URL=os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY=os.environ.get("SUPABASE_SERVICE_ROLE_KEY"); GEM=os.environ.get("GEMINI_API_KEY"); ANT=os.environ.get("ANTHROPIC_API_KEY")
+if not (URL and KEY): print("Missing env (NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)"); sys.exit(1)
 
 args=sys.argv[1:]
 PERSIST="--persist" in args
@@ -49,6 +49,9 @@ TARGET=3
 # Gemini 3.1 Pro for quality + reasoning. Confirm the exact API string for your key;
 # falls back if the first is rejected (404). Override with --model.
 MODELS=[args[args.index("--model")+1]] if "--model" in args else ["gemini-3.1-pro-preview","gemini-3.1-pro"]  # 3.1 only — fail loud, no silent downgrade
+USE_CLAUDE=MODELS[0].startswith("claude")   # e.g. --model claude-opus-4-8 -> Anthropic path
+if USE_CLAUDE and not ANT: print("Missing ANTHROPIC_API_KEY (needed for a claude model)"); sys.exit(1)
+if not USE_CLAUDE and not GEM: print("Missing GEMINI_API_KEY"); sys.exit(1)
 
 REGISTERS={
  "formal":"how it is MADE — framing, cut, sound, colour, blocking, performance, rhythm",
@@ -92,6 +95,19 @@ def gemini(system,prompt,temp=0.7):
             if st==400: continue       # budget/config rejected -> smaller budget
             raise RuntimeError(f"gemini {last}")
     raise RuntimeError(f"no model ({last})")
+def claude(system,prompt,temp=0.7):
+    """Anthropic path (Opus 4.8 etc.). Same prompt; parse() tolerates any wrapping."""
+    m=MODELS[0]
+    st,tx=http("POST","https://api.anthropic.com/v1/messages",
+        headers={"x-api-key":ANT,"anthropic-version":"2023-06-01"},
+        body={"model":m,"max_tokens":16000,"system":system,   # Opus 4.8 rejects `temperature` (deprecated)
+              "messages":[{"role":"user","content":prompt+"\n\nReturn ONLY the raw JSON object — no markdown fences, no prose."}]})
+    if st==200:
+        d=json.loads(tx)
+        return "".join(p.get("text","") for p in (d.get("content") or []) if p.get("type")=="text")
+    raise RuntimeError(f"claude {m} {st}: {tx[:200]}")
+def model_call(system,prompt,temp=0.7):
+    return claude(system,prompt,temp) if USE_CLAUDE else gemini(system,prompt,temp)
 def parse(t):
     try: return json.loads(t)
     except Exception:
@@ -230,7 +246,7 @@ def main():
         for chunk in chunked(group, CHUNK):
             avoid=sorted({r for r,c in corpus.items() if c>=max(2,len(group))})
             try:
-                out=parse(gemini(SYSTEM, build_user(film, chunk, sample, avoid))) or {}
+                out=parse(model_call(SYSTEM, build_user(film, chunk, sample, avoid))) or {}
             except Exception as e:
                 print(f"  ! {slug} chunk: {e}"); continue
             byid={f["id"]:f for f in chunk}

@@ -42,5 +42,6 @@ next-env.d.ts
 worker/node_modules/
 worker/dist/
 
-# worker run logs
+# worker run logs + enrichment output bundles (artifacts, not source)
 *.log
+worker/figure-enrich*.json
