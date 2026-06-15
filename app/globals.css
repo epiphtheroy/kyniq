@@ -1158,6 +1158,29 @@ p.has-dropcap::first-letter {
 .fig-form__btn:not(:disabled):hover { background: var(--mt-link-hover); }
 .fig-form__err { font-size: 12px; color: var(--accent-text); margin: 8px 0 0; }
 
+/* ---- NodeGraph (force-directed map) ---- */
+.ng-box { margin: 26px 0 4px; }
+.ng-body { padding: 4px 0; }
+.ng-svg { width: 100%; height: 340px; display: block; touch-action: none; }
+.ng-edge { stroke: var(--hairline-2); }
+.ng-dot { stroke: var(--bg); stroke-width: 1.2; }
+.ng-center .ng-dot { fill: var(--accent); }
+.ng-hub .ng-dot { fill: #7E57C2; }
+.ng-neighbor .ng-dot { fill: var(--muted); }
+.ng-label { font-family: var(--font-ui); font-size: 11px; fill: var(--ink); }
+.ng-center .ng-label { font-weight: 700; }
+.ng-sub { font-family: var(--font-ui); font-size: 9px; fill: var(--subtle); }
+.ng-go { font-family: var(--font-ui); font-size: 11px; fill: var(--mt-link); cursor: pointer; font-weight: 700; }
+.ng-go:hover { fill: var(--mt-link-hover); }
+.ng-hint { font-family: var(--font-ui); font-size: 11px; color: var(--subtle); margin-top: 4px; }
+.ng-loading, .ng-empty { font-family: var(--font-ui); font-size: 12px; color: var(--muted); padding: 18px 2px; }
+.ng-bare { margin: 8px 0 2px; border: 0.5px solid var(--hairline); border-radius: 6px; background: var(--surface-2); }
+.ng-bare .ng-svg { height: 250px; }
+.fig-take__map { margin-top: 8px; }
+.fig-take__maptoggle { font-family: var(--font-ui); font-size: 11.5px; color: var(--muted);
+  background: none; border: none; padding: 0; cursor: pointer; }
+.fig-take__maptoggle:hover { color: var(--accent-text); }
+
 /* ---- TMDB media: tiny thumbnails, accordion, outbound buttons (design-clean) ---- */
 .film-head { display: flex; gap: 12px; align-items: flex-start; margin: 6px 0 2px; }
 .film-head__txt { min-width: 0; flex: 1 1 auto; }

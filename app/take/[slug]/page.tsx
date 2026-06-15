@@ -5,6 +5,7 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import ViewBeacon from "@/components/ViewBeacon";
 import FolderToggle from "@/components/FolderToggle";
+import NodeGraph from "@/components/NodeGraph";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -207,6 +208,8 @@ export default async function TakePage({ params }: Props) {
             {related.map((r, i) => <span key={r.slug}>{i > 0 ? " · " : ""}<Link href={`/take/${r.slug}`}>{r.title}</Link></span>)}
           </p>
         )}
+
+        <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import FigureContribute from "@/components/FigureContribute";
+import NodeGraph from "@/components/NodeGraph";
+import TakeMapToggle from "@/components/TakeMapToggle";
 import { renderTokens } from "@/lib/mtTokens";
 
 export const revalidate = 300;
@@ -135,6 +137,9 @@ export default async function FigurePage({ params }: Props) {
                   ) : null}
                 </div>
                 {t.rationale ? <p className="fig-take__rat">{renderTokens(t.rationale, resolver)}</p> : null}
+                {mt && mt.status === "published" ? (
+                  <TakeMapToggle mtSlug={mt.slug} mtTitle={mt.title} label={figure.label} takeId={t.id} />
+                ) : null}
               </div>
             );
           })}
@@ -142,6 +147,8 @@ export default async function FigurePage({ params }: Props) {
         </div>
 
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
+
+        <NodeGraph kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} />
       </div>
     </div>
   );

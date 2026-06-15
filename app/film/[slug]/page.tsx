@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import MetatakeNav from "@/components/MetatakeNav";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
+import NodeGraph from "@/components/NodeGraph";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -205,6 +206,8 @@ export default async function FilmPage({ params }: Props) {
             </ul>
           </>
         )}
+
+        <NodeGraph kind="film" filmSlug={film.slug} label={film.title} />
       </div>
     </div>
   );
