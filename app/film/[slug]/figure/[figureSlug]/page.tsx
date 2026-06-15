@@ -87,10 +87,22 @@ export default async function FigurePage({ params }: Props) {
   if (!data) notFound();
   const { film, figure, takes, metaTakes } = data;
   const resolver = { film: { [film.slug]: { title: film.title } } };
+  const jsonld = {
+    "@context": "https://schema.org", "@type": "Article",
+    headline: `${figure.label} — ${film.title}`,
+    about: { "@type": "Movie", name: film.title, ...(film.year ? { datePublished: String(film.year) } : {}) },
+    ...(figure.description ? { description: figure.description as string } : {}),
+    author: { "@type": "Organization", name: "Metatake" },
+    editor: { "@type": "Person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", name: "Metatake" },
+    ...(figure.created_at ? { datePublished: figure.created_at as string } : {}),
+    ...(figure.updated_at ? { dateModified: figure.updated_at as string } : {}),
+  };
 
   return (
     <div className="mt">
       <MetatakeNav active="films" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <div className="mt-wrap">
         <div className="mt-crumb">
           <Link href="/film">Films</Link>

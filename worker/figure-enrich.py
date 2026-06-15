@@ -147,11 +147,11 @@ SYSTEM=(
 "   'the gaze','problematize','lens','trope','archetype','monomyth'. The register name lives ONLY in the "
 "   register field. No first person, no named real critics in the prose.\n"
 "6. DESCRIPTION: dry and OBSERVATIONAL — only what is on screen (rewrite the given one only if it slips "
-"   into interpretation). CLASSIFY the seed take into one register (existing_take_register).\n"
-"7. FILM INTRO: 1-2 plain sentences — what the film is and why people still argue about it.\n\n"
+"   into interpretation). NAME the film once inside the description (open with the title or weave it in "
+"   naturally) so the figure is self-identifying when read on its own. CLASSIFY the seed take into one "
+"   register (existing_take_register).\n\n"
 "Return ONLY JSON:\n"
-'{"film_intro":"<1-2 sentences>",'
-'"figures":[{"figure_id":"<echo exactly>","label":"<echo the figure label>","description":"<dry observational>",'
+'{"figures":[{"figure_id":"<echo exactly>","label":"<echo the figure label>","description":"<dry observational, names the film once>",'
 '"register_fit":["<registers this figure rewards, ranked>"],'
 '"existing_take_register":"<one register for the seed take>",'
 '"new_takes":[{"register":"<one>","angle":"<short sub-angle>","evidence":"<on-screen>",'
@@ -226,14 +226,13 @@ def main():
         film_mts={(t.get("meta_take") or {}).get("slug") for f in group for t in (f.get("takes") or []) if t.get("meta_take")}
         relevant=[m for m in pool if m["slug"] in film_mts]
         sample=relevant+[m for m in pool if m["slug"] not in film_mts]   # inject the FULL hub list, relevant first
-        film_rec={"film":slug,"film_intro":None,"figures":[]}; film_regs=Counter(); matched=0
+        film_rec={"film":slug,"figures":[]}; film_regs=Counter(); matched=0
         for chunk in chunked(group, CHUNK):
             avoid=sorted({r for r,c in corpus.items() if c>=max(2,len(group))})
             try:
                 out=parse(gemini(SYSTEM, build_user(film, chunk, sample, avoid))) or {}
             except Exception as e:
                 print(f"  ! {slug} chunk: {e}"); continue
-            if not film_rec["film_intro"]: film_rec["film_intro"]=out.get("film_intro")
             byid={f["id"]:f for f in chunk}
             bylabel={norm_label(f["label"]):f for f in chunk}
             for fo in out.get("figures",[]):
