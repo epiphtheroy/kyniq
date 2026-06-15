@@ -1177,13 +1177,14 @@ p.has-dropcap::first-letter {
   border: 0.5px solid var(--hairline-2); border-radius: 4px; padding: 1px 7px; margin-left: 8px; cursor: pointer; flex: none; }
 .ng-clear:hover { border-color: var(--accent); color: var(--accent-text); }
 /* graph rail (curved connector lines) + readable rows */
+.ng-scroll { max-height: 340px; overflow-y: auto; overflow-x: hidden; margin: 2px 0; }
 .ng-tree { position: relative; }
 .ng-rail { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
 .ng-rail-focus { fill: var(--accent); }
 .ng-rail-link { opacity: 0; animation: ngLineIn .5s ease forwards; }
 .ng-rail-link path { stroke: var(--hairline-2); fill: none; }
 .ng-rail-link circle { fill: var(--muted); }
-.ng-list { list-style: none; margin: 0; padding-left: 40px; }
+.ng-list { list-style: none; margin: 0; padding-left: 76px; }
 .ng-row { display: flex; align-items: center; gap: 8px; padding: 0 6px; cursor: pointer;
   border-bottom: 0.5px solid var(--hairline); opacity: 0; animation: ngRowIn .35s ease forwards; }
 .ng-row:hover { background: var(--surface-2); }

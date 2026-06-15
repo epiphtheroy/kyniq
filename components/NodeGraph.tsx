@@ -19,8 +19,8 @@ function sbc() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-// rail geometry
-const FX = 13, FY = 15, DX = 27, LIST_TOP = 34, ROW = 40, RAIL_W = 40;
+// rail geometry (wider gutter so the connector lines read clearly)
+const FX = 20, FY = 16, DX = 58, LIST_TOP = 34, ROW = 40, RAIL_W = 76;
 
 type Kind = "film" | "meta_take" | "figure" | "take";
 interface NavNode {
@@ -120,6 +120,7 @@ export default function NodeGraph(props: Props) {
         {trail.length > 1 ? <button type="button" className="ng-clear" title="Back to start" onClick={() => removeAt(1)}>clear</button> : null}
       </div>
 
+      <div className="ng-scroll">
       {loading ? (
         <div className="ng-loading">Loading…</div>
       ) : neighbors.length === 0 ? (
@@ -134,7 +135,7 @@ export default function NodeGraph(props: Props) {
               return (
                 <g key={n.id} className="ng-rail-link" style={{ animationDelay: `${i * 35}ms` }}>
                   <path d={`M ${FX} ${FY} C ${FX} ${my} ${DX} ${my} ${DX} ${y}`} fill="none"
-                        strokeWidth={0.8 + 2.4 * ((n.w ?? 1) / maxW)} />
+                        strokeWidth={0.5 + 1.2 * ((n.w ?? 1) / maxW)} />
                   <circle cx={DX} cy={y} r={2.6} />
                 </g>
               );
@@ -155,6 +156,7 @@ export default function NodeGraph(props: Props) {
           </ul>
         </div>
       )}
+      </div>
       <div className="ng-hint">Lines = relatedness · click a row to go deeper · a tab to go back · × removes a step · ↗ opens the page.</div>
     </div>
   );

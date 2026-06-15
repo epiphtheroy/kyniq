@@ -98,7 +98,7 @@ export default async function TakePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { mt, family, theorist, defining, unexpected, related, all, filmCount } = data;
+  const { mt, family, defining, unexpected, related, all, filmCount } = data;
 
   const Example = ({ r }: { r: RowR }) => (
     <li>
@@ -169,12 +169,13 @@ export default async function TakePage({ params }: Props) {
         <div className="mt-info">
           <div className="hd">Meta take</div>
           <div className="bd">
-            {theorist ? <div className="row"><span className="k">Theorist</span><Link href={`/theorist/${theorist.slug}`}>{theorist.name}</Link></div> : null}
             {family ? <div className="row"><span className="k">Theory</span><Link href={`/meta-takes?family=${family.slug}`}>{family.name}</Link></div> : null}
             <div className="row"><span className="k">Films</span><span>{filmCount}</span></div>
             {all.length > 0 ? <div className="row"><span className="k">Takes</span><a href="#all-takes" className="mt-jump">{all.length} ↓</a></div> : null}
           </div>
         </div>
+
+        <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
 
         {mt.thesis ? <p>{mt.thesis}</p> : null}
 
@@ -208,8 +209,6 @@ export default async function TakePage({ params }: Props) {
             {related.map((r, i) => <span key={r.slug}>{i > 0 ? " · " : ""}<Link href={`/take/${r.slug}`}>{r.title}</Link></span>)}
           </p>
         )}
-
-        <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
       </div>
     </div>
   );

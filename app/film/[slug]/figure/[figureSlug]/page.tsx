@@ -106,6 +106,8 @@ export default async function FigurePage({ params }: Props) {
           </div>
         </div>
 
+        <NodeGraph kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} />
+
         {figure.description ? (
           <p className="fig-desc">{renderTokens(figure.description, resolver)}</p>
         ) : null}
@@ -147,8 +149,6 @@ export default async function FigurePage({ params }: Props) {
         </div>
 
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
-
-        <NodeGraph kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} />
       </div>
     </div>
   );
