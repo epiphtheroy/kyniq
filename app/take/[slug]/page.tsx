@@ -30,7 +30,7 @@ const REG: Record<string, [string, string]> = {
 interface Props { params: Promise<{ slug: string }>; }
 
 type Film = { title: string; slug: string; year: number | null; director: string | null; genres: string[] | null };
-type Row = { figure_id: string; label: string; rationale: string | null; register: string | null; film: Film };
+type Row = { figure_id: string; label: string; figureSlug: string | null; rationale: string | null; register: string | null; film: Film };
 type RowR = Row & { rel: number; surp: number };
 
 async function load(slug: string) {
@@ -44,7 +44,7 @@ async function load(slug: string) {
 
   const [{ data: takeRows }, { data: ranks }, { data: edges }] = await Promise.all([
     supabase.from("takes")
-      .select("figure_id, rationale, register, figure:figures!inner(id, label, film:films!inner(title, slug, year, director, genres))")
+      .select("figure_id, rationale, register, figure:figures!inner(id, label, slug, film:films!inner(title, slug, year, director, genres))")
       .eq("meta_take_id", mt.id),
     supabase.from("meta_take_rankings")
       .select("figure_id, rel_rank, surp_rank").eq("meta_take_id", mt.id),
@@ -54,8 +54,8 @@ async function load(slug: string) {
 
   const byFig = new Map<string, Row>();
   for (const r of (takeRows ?? []) as unknown[]) {
-    const t = r as { figure_id: string; rationale: string | null; register: string | null; figure: { id: string; label: string; film: Film } };
-    if (!byFig.has(t.figure_id)) byFig.set(t.figure_id, { figure_id: t.figure_id, label: t.figure.label, rationale: t.rationale, register: t.register, film: t.figure.film });
+    const t = r as { figure_id: string; rationale: string | null; register: string | null; figure: { id: string; label: string; slug: string | null; film: Film } };
+    if (!byFig.has(t.figure_id)) byFig.set(t.figure_id, { figure_id: t.figure_id, label: t.figure.label, figureSlug: t.figure.slug ?? null, rationale: t.rationale, register: t.register, film: t.figure.film });
   }
   const rankMap = new Map<string, { rel_rank: number; surp_rank: number }>(
     (ranks ?? []).map((r) => [r.figure_id as string, { rel_rank: r.rel_rank as number, surp_rank: r.surp_rank as number }] as [string, { rel_rank: number; surp_rank: number }])
@@ -102,7 +102,10 @@ export default async function TakePage({ params }: Props) {
   const Example = ({ r }: { r: RowR }) => (
     <li>
       <Link href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
-      <span className="yr">({r.film.year ?? "?"})</span> — <span className="mt-fig">{r.label}</span>
+      <span className="yr">({r.film.year ?? "?"})</span> —{" "}
+      {r.figureSlug
+        ? <Link href={`/film/${r.film.slug}/figure/${r.figureSlug}`} className="mt-fig">{r.label}</Link>
+        : <span className="mt-fig">{r.label}</span>}
       {r.rationale ? (
         <div className="mt-rat">{r.rationale.replace(/\s+/g, " ").trim()}</div>
       ) : null}

@@ -1094,6 +1094,8 @@ p.has-dropcap::first-letter {
 .mt-list li::before { content: "·"; position: absolute; left: -14px; color: var(--accent); }
 .mt-list li .yr, .mt-list li .meta { color: var(--subtle); }
 .mt-list li .mt-fig { color: var(--ink); }
+.mt-list li a.mt-fig { color: var(--mt-link); text-decoration: none; }
+.mt-list li a.mt-fig:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 /* full critical reading under each example (no truncation) */
 .mt-rat { margin: 3px 0 10px; font-size: 14.5px; font-weight: 350;
   line-height: 1.68; color: var(--muted, #5a5a5a); max-width: 64ch; }
@@ -1122,6 +1124,38 @@ p.has-dropcap::first-letter {
 .fig-take__rat { font-size: 15px; font-weight: 350; line-height: 1.72; color: var(--ink); margin: 0; }
 .fig-cta { margin: 24px 0 0; padding: 12px 14px; border: 0.5px solid var(--hairline);
   border-radius: 6px; font-size: 13px; color: var(--muted); background: var(--surface-2); }
+.fig-cta__link { color: var(--mt-link); text-decoration: none; font-weight: 600; }
+.fig-cta__link:hover { color: var(--mt-link-hover); text-decoration: underline; }
+
+/* ---- figure contribution form (design §7.1) ---- */
+.fig-contrib { margin: 26px 0 0; padding-top: 14px; border-top: 0.5px solid var(--hairline); max-width: 64ch; }
+.fig-mine { margin: 0 0 16px; }
+.fig-mine__row { padding: 8px 0; border-bottom: 0.5px dotted var(--hairline); }
+.fig-status { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 20px; margin-right: 8px; white-space: nowrap; }
+.fig-status--pending { background: var(--surface-2); color: var(--muted); border: 0.5px solid var(--hairline-2); }
+.fig-status--live { background: #2E7D5B; color: #fff; }
+.fig-mine__mt { font-family: var(--font-ui); font-size: 13px; color: var(--mt-link); }
+.fig-mine__rat { font-size: 13.5px; font-weight: 350; line-height: 1.6; color: var(--ink); margin-top: 5px; }
+.fig-form { background: var(--surface-2); border: 0.5px solid var(--hairline); border-radius: 6px; padding: 13px 15px 15px; }
+.fig-form__ok { font-size: 13px; color: #2E7D5B; margin: 4px 0 10px; }
+.fig-form__lbl { display: block; font-family: var(--font-ui); font-size: 12px; font-weight: 600;
+  color: var(--ink); margin: 12px 0 4px; }
+.fig-form__lbl:first-of-type { margin-top: 4px; }
+.fig-form .req { color: var(--subtle); font-weight: 400; }
+.fig-form__sel, .fig-form__ta { width: 100%; box-sizing: border-box; font-size: 13.5px; color: var(--ink);
+  background: var(--bg); border: 0.5px solid var(--hairline-2); border-radius: 4px; padding: 8px 9px; }
+.fig-form__sel { font-family: var(--font-ui); }
+.fig-form__ta { font-family: var(--font-body); line-height: 1.55; resize: vertical; }
+.fig-form__sel:focus, .fig-form__ta:focus { outline: none; border-color: var(--accent); }
+.fig-form__hint { font-size: 12px; font-style: italic; color: var(--muted); margin: 5px 0 0; }
+.fig-form__foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; gap: 10px; }
+.fig-form__count { font-family: var(--font-ui); font-size: 11px; color: var(--subtle); }
+.fig-form__btn { font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: var(--bg);
+  background: var(--accent); border: none; border-radius: 4px; padding: 7px 16px; cursor: pointer; }
+.fig-form__btn:disabled { opacity: 0.45; cursor: default; }
+.fig-form__btn:not(:disabled):hover { background: var(--mt-link-hover); }
+.fig-form__err { font-size: 12px; color: var(--accent-text); margin: 8px 0 0; }
 
 /* ---- TMDB media: tiny thumbnails, accordion, outbound buttons (design-clean) ---- */
 .film-head { display: flex; gap: 12px; align-items: flex-start; margin: 6px 0 2px; }

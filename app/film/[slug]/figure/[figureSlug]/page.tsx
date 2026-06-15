@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import FigureContribute from "@/components/FigureContribute";
 import { renderTokens } from "@/lib/mtTokens";
 
 export const revalidate = 300;
@@ -54,7 +55,15 @@ async function load(slug: string, figureSlug: string) {
     .eq("figure_id", figure.id).eq("status", "published");
   const takes = ((takeRows ?? []) as unknown as Take[])
     .sort((a, b) => (b.confidence ?? 0) - (a.confidence ?? 0));
-  return { film, figure, takes };
+  const { data: mtRows } = await supabase
+    .from("meta_takes")
+    .select("id, title, laconic, theory_family:theory_families(name)")
+    .eq("status", "published").order("title");
+  const metaTakes = ((mtRows ?? []) as unknown[]).map((r) => {
+    const m = r as { id: string; title: string; laconic: string | null; theory_family: { name: string } | null };
+    return { id: m.id, title: m.title, laconic: m.laconic ?? null, family: m.theory_family?.name ?? null };
+  });
+  return { film, figure, takes, metaTakes };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -71,7 +80,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes } = data;
+  const { film, figure, takes, metaTakes } = data;
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
   return (
@@ -131,10 +140,7 @@ export default async function FigurePage({ params }: Props) {
           {takes.length === 0 ? <p className="mt-see">No takes yet.</p> : null}
         </div>
 
-        <div className="fig-cta">
-          Have a take on this figure? Logged-in contributions are coming soon — you’ll be able to
-          add your own take and link it to a meta take.
-        </div>
+        <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
       </div>
     </div>
   );
