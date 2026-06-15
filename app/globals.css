@@ -1157,3 +1157,31 @@ details.film-info[open] > summary::before { content: "▾ "; }
   text-decoration: none; border: 0.5px solid var(--hairline-2); border-radius: 4px;
   padding: 5px 10px; white-space: nowrap; }
 .fig-search a:hover { border-color: var(--accent); color: var(--accent-text); }
+/* take vs meta-take gloss under the figure "Takes" header */
+.fig-gloss { font-family: var(--font-ui); font-size: 12.5px; color: var(--muted);
+  margin: 2px 0 10px; max-width: 64ch; line-height: 1.6; }
+.fig-gloss strong { color: var(--accent-text); font-weight: 600; }
+
+/* ---- meta-take detail: foldered "all takes" + index facets ---- */
+.mt-h2__n { font-weight: 350; font-size: 13px; color: var(--subtle); letter-spacing: 0; text-transform: none; }
+.mt-fold-tabs { display: flex; gap: 6px; margin: 8px 0 10px; }
+.mt-fold-tabs button { font-family: var(--font-ui); font-size: 12px; color: var(--muted);
+  background: none; border: 0.5px solid var(--hairline-2); border-radius: 4px; padding: 4px 11px; cursor: pointer; }
+.mt-fold-tabs button:hover { border-color: var(--accent); color: var(--accent-text); }
+.mt-fold-tabs button.on { color: var(--bg); background: var(--accent); border-color: var(--accent); font-weight: 600; }
+.mt-folders { margin: 2px 0 0; }
+.mt-folder { border-top: 0.5px solid var(--hairline); }
+.mt-folder > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 7px;
+  padding: 8px 0; font-family: var(--font-ui); font-size: 13px; color: var(--ink); }
+.mt-folder > summary::-webkit-details-marker { display: none; }
+.mt-folder__ico { color: var(--subtle); flex: none; }
+.mt-folder[open] .mt-folder__ico { color: var(--accent-text); }
+.mt-folder__name { font-weight: 600; }
+.mt-folder__n { margin-left: auto; color: var(--subtle); font-size: 12px; }
+.mt-folder > ul { margin: 0 0 12px; }
+.mt-sortbar { display: flex; align-items: center; gap: 12px; margin: 2px 0; font-size: 13px; font-family: var(--font-ui); }
+.mt-sortbar__lbl { color: var(--subtle); text-transform: uppercase; font-size: 11px; letter-spacing: 0.06em; }
+.mt-sortbar a { color: var(--muted); text-decoration: none; }
+.mt-sortbar a:hover { color: var(--mt-link-hover); }
+.mt-sortbar .on { color: var(--ink); font-weight: 600; }
+.mt-sortbar__hint { font-size: 12px; color: var(--subtle); margin: 4px 0 6px; font-style: italic; max-width: 64ch; }

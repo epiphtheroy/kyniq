@@ -2,8 +2,9 @@
 """TMDB enrichment fetch (migration 0015) — film metadata + media + directors.
 
 Per film (by tmdb_id): /movie + /credits + /release_dates + /videos + /images.
-  - UPDATE films: backdrop_path, tagline, runtime, release_date, certification,
-    tmdb_extra (curated cast/writers/country/lang/vote/collection — NOT a raw dump).
+  - UPDATE films: overview, genres, backdrop_path, tagline, runtime, release_date,
+    certification, tmdb_extra (curated cast/writers/country/lang/vote/collection
+    — NOT a raw dump). overview/genres backfill films imported without them.
   - MEDIA rows: top backdrops (image/tmdb) + official trailer (video/youtube).
 Per unique director: /person/{id} → directors row (profile, bio) + profile media.
 
@@ -124,9 +125,11 @@ def main():
                "original_language":detail.get("original_language"),
                "vote_average":detail.get("vote_average"),
                "collection":(detail.get("belongs_to_collection") or {}).get("name")}
+        genres=[g.get("name") for g in (detail.get("genres") or []) if g.get("name")]
         upd={"backdrop_path":detail.get("backdrop_path"),"tagline":detail.get("tagline") or None,
              "runtime":detail.get("runtime") or None,"release_date":detail.get("release_date") or None,
-             "certification":cert,"tmdb_extra":extra}
+             "certification":cert,"tmdb_extra":extra,
+             "overview":detail.get("overview") or None,"genres":genres or None}
         print(f"  · {f['slug']}: runtime={upd['runtime']} cert={cert} trailer={'Y' if tr else '-'} "
               f"backdrops={len(bds)} cast={len(cast)} dir={director['name'] if director else '?'}")
         if not PERSIST: continue

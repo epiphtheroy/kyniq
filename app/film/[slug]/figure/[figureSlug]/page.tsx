@@ -91,7 +91,7 @@ export default async function FigurePage({ params }: Props) {
           <div className="bd">
             <div className="row"><span className="k">Film</span><Link href={`/film/${film.slug}`}>{film.title}{film.year ? ` (${film.year})` : ""}</Link></div>
             {figure.kind ? <div className="row"><span className="k">Kind</span><span>{KIND[figure.kind] ?? figure.kind}</span></div> : null}
-            <div className="row"><span className="k">Readings</span><span>{takes.length}</span></div>
+            <div className="row"><span className="k">Takes</span><span>{takes.length}</span></div>
           </div>
         </div>
 
@@ -104,7 +104,8 @@ export default async function FigurePage({ params }: Props) {
           <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(`${film.title} ${figure.label} scene clip`)}`} target="_blank" rel="noopener noreferrer">Search clips ↗</a>
         </div>
 
-        <h2 className="mt-h2">Readings</h2>
+        <h2 className="mt-h2">Takes</h2>
+        <p className="fig-gloss">A take is one critical reading of this figure. Takes that recur across films converge into a <strong>meta take</strong> — the hub each one links to below.</p>
         <div className="fig-takes">
           {takes.map((t) => {
             const reg = t.register ? REG[t.register] : undefined;
@@ -127,11 +128,11 @@ export default async function FigurePage({ params }: Props) {
               </div>
             );
           })}
-          {takes.length === 0 ? <p className="mt-see">No readings yet.</p> : null}
+          {takes.length === 0 ? <p className="mt-see">No takes yet.</p> : null}
         </div>
 
         <div className="fig-cta">
-          Have a reading of this figure? Logged-in contributions are coming soon — you’ll be able to
+          Have a take on this figure? Logged-in contributions are coming soon — you’ll be able to
           add your own take and link it to a meta take.
         </div>
       </div>

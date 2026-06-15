@@ -33,11 +33,10 @@ async function load(slug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
-  const [{ data: figRows }, { data: pitch }, { data: aff }, { data: mediaRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }] = await Promise.all([
     supabase.from("figures")
       .select("id, kind, label, slug, takes(meta_take:meta_takes(slug, title, status))")
       .eq("film_id", film.id).eq("status", "approved"),
-    supabase.from("film_features").select("body, payload").eq("film_id", film.id).eq("kind", "pitch").eq("status", "published").maybeSingle(),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
@@ -68,7 +67,7 @@ async function load(slug: string) {
     return f ? { film: f, reasons } : null;
   }).filter(Boolean) as { film: { title: string; slug: string; year: number | null }; reasons: { slug: string; title: string }[] }[];
 
-  return { film, figures, pitch, recs, stills, trailer };
+  return { film, figures, recs, stills, trailer };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -82,8 +81,7 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, pitch, recs, stills, trailer } = data;
-  const pitchLine = (pitch?.body as string | null) ?? null;
+  const { film, figures, recs, stills, trailer } = data;
   const grouped = KIND_ORDER.map((k) => ({ kind: k, items: figures.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
   const mtTotal = new Set(figures.flatMap((f) => f.metaTakes.map((m) => m.slug))).size;
   const extra = (film.tmdb_extra ?? {}) as { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string; vote_average?: number; collection?: string | null };
@@ -141,8 +139,6 @@ export default async function FilmPage({ params }: Props) {
             </div>
           ) : null}
         </div>
-
-        {pitchLine ? <p>{pitchLine}</p> : null}
 
         {stills.length > 0 ? (
           <div className="film-stills">

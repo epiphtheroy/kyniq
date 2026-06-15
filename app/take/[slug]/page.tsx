@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
-import { renderTokens } from "@/lib/mtTokens";
+import ViewBeacon from "@/components/ViewBeacon";
+import FolderToggle from "@/components/FolderToggle";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -12,23 +13,38 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+// register → [label, color]  (kept in sync with the figure page)
+const REG: Record<string, [string, string]> = {
+  formal: ["Formal", "#5B8FB9"],
+  semiotic: ["Semiotic", "#B8860B"],
+  psychoanalytic: ["Psychoanalytic", "#A8434F"],
+  ideological: ["Ideological", "#C0392B"],
+  politico_economic: ["Politico-economic", "#2E7D5B"],
+  philosophical: ["Philosophical", "#7E57C2"],
+  existential: ["Existential", "#546E7A"],
+  mythic: ["Mythic", "#A9743B"],
+  genealogical: ["Film-historical", "#2E86C1"],
+  reception: ["Reception", "#159A8A"],
+};
+
 interface Props { params: Promise<{ slug: string }>; }
 
-type Film = { title: string; slug: string; year: number | null; director: string | null };
-type Row = { figure_id: string; label: string; rationale: string | null; film: Film };
+type Film = { title: string; slug: string; year: number | null; director: string | null; genres: string[] | null };
+type Row = { figure_id: string; label: string; rationale: string | null; register: string | null; film: Film };
+type RowR = Row & { rel: number; surp: number };
 
 async function load(slug: string) {
   const supabase = db();
   const { data: mt } = await supabase
     .from("meta_takes")
-    .select(`id, slug, title, laconic, thesis, essay, genres,
+    .select(`id, slug, title, laconic, thesis, genres,
       theory_family:theory_families(name, slug), theorist:theorists(name, slug)`)
     .eq("slug", slug).eq("status", "published").maybeSingle();
   if (!mt) return null;
 
   const [{ data: takeRows }, { data: ranks }, { data: edges }] = await Promise.all([
     supabase.from("takes")
-      .select("figure_id, rationale, figure:figures!inner(id, label, film:films!inner(title, slug, year, director))")
+      .select("figure_id, rationale, register, figure:figures!inner(id, label, film:films!inner(title, slug, year, director, genres))")
       .eq("meta_take_id", mt.id),
     supabase.from("meta_take_rankings")
       .select("figure_id, rel_rank, surp_rank").eq("meta_take_id", mt.id),
@@ -38,8 +54,8 @@ async function load(slug: string) {
 
   const byFig = new Map<string, Row>();
   for (const r of (takeRows ?? []) as unknown[]) {
-    const t = r as { figure_id: string; rationale: string | null; figure: { id: string; label: string; film: Film } };
-    if (!byFig.has(t.figure_id)) byFig.set(t.figure_id, { figure_id: t.figure_id, label: t.figure.label, rationale: t.rationale, film: t.figure.film });
+    const t = r as { figure_id: string; rationale: string | null; register: string | null; figure: { id: string; label: string; film: Film } };
+    if (!byFig.has(t.figure_id)) byFig.set(t.figure_id, { figure_id: t.figure_id, label: t.figure.label, rationale: t.rationale, register: t.register, film: t.figure.film });
   }
   const rankMap = new Map<string, { rel_rank: number; surp_rank: number }>(
     (ranks ?? []).map((r) => [r.figure_id as string, { rel_rank: r.rel_rank as number, surp_rank: r.surp_rank as number }] as [string, { rel_rank: number; surp_rank: number }])
@@ -48,7 +64,7 @@ async function load(slug: string) {
   const filmSet = new Map<string, { title: string }>();
   for (const r of rows) filmSet.set(r.film.slug, { title: r.film.title });
 
-  const withRank = rows.map((r) => ({ ...r, rel: rankMap.get(r.figure_id)?.rel_rank ?? 999, surp: rankMap.get(r.figure_id)?.surp_rank ?? 999 }));
+  const withRank: RowR[] = rows.map((r) => ({ ...r, rel: rankMap.get(r.figure_id)?.rel_rank ?? 999, surp: rankMap.get(r.figure_id)?.surp_rank ?? 999 }));
   const defining = [...withRank].sort((a, b) => a.rel - b.rel).slice(0, 5);
   const defIds = new Set(defining.map((d) => d.figure_id));
   const unexpected = [...withRank].sort((a, b) => a.surp - b.surp).filter((r) => !defIds.has(r.figure_id)).slice(0, 3);
@@ -64,7 +80,7 @@ async function load(slug: string) {
 
   const family = mt.theory_family as unknown as { name: string; slug: string } | null;
   const theorist = mt.theorist as unknown as { name: string; slug: string } | null;
-  return { mt, family, theorist, defining, unexpected, related, filmCount: filmSet.size, filmMap: Object.fromEntries(filmSet) };
+  return { mt, family, theorist, defining, unexpected, related, all: withRank, filmCount: filmSet.size };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -81,10 +97,9 @@ export default async function TakePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { mt, family, theorist, defining, unexpected, related, filmCount, filmMap } = data;
-  const resolver = { film: filmMap };
+  const { mt, family, theorist, defining, unexpected, related, all, filmCount } = data;
 
-  const Example = ({ r }: { r: { label: string; rationale: string | null; film: Film } }) => (
+  const Example = ({ r }: { r: RowR }) => (
     <li>
       <Link href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
       <span className="yr">({r.film.year ?? "?"})</span> — <span className="mt-fig">{r.label}</span>
@@ -94,9 +109,51 @@ export default async function TakePage({ params }: Props) {
     </li>
   );
 
+  // folder groupings for the exhaustive "all takes" listing
+  const byGenre = new Map<string, RowR[]>();
+  for (const r of all) {
+    const gs = r.film.genres && r.film.genres.length ? r.film.genres : ["Other"];
+    for (const g of gs) { const a = byGenre.get(g) ?? []; a.push(r); byGenre.set(g, a); }
+  }
+  const genreGroups = [...byGenre.entries()]
+    .map(([name, rows]) => ({ name, color: undefined as string | undefined, rows: [...rows].sort((a, b) => a.rel - b.rel) }))
+    .sort((a, b) => b.rows.length - a.rows.length || a.name.localeCompare(b.name));
+
+  const byReg = new Map<string, RowR[]>();
+  for (const r of all) { const k = r.register ?? "__none"; const a = byReg.get(k) ?? []; a.push(r); byReg.set(k, a); }
+  const regGroups = [...byReg.entries()]
+    .map(([k, rows]) => ({
+      name: k === "__none" ? "Unspecified" : (REG[k]?.[0] ?? k),
+      color: k === "__none" ? undefined : REG[k]?.[1],
+      rows: [...rows].sort((a, b) => a.rel - b.rel),
+      _none: k === "__none",
+    }))
+    .sort((a, b) => Number(a._none) - Number(b._none) || b.rows.length - a.rows.length);
+
+  const FolderIcon = (
+    <svg className="mt-folder__ico" width="13" height="13" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4l2 2h9A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5v-11z" fill="currentColor" />
+    </svg>
+  );
+  const renderFolders = (groups: { name: string; color?: string; rows: RowR[] }[]) => (
+    <div className="mt-folders">
+      {groups.map((g) => (
+        <details key={g.name} className="mt-folder">
+          <summary>
+            {FolderIcon}
+            <span className="mt-folder__name" style={g.color ? { color: g.color } : undefined}>{g.name}</span>
+            <span className="mt-folder__n">{g.rows.length}</span>
+          </summary>
+          <ul className="mt-list">{g.rows.map((r) => <Example key={r.figure_id} r={r} />)}</ul>
+        </details>
+      ))}
+    </div>
+  );
+
   return (
     <div className="mt">
       <MetatakeNav active="takes" />
+      <ViewBeacon slug={mt.slug} />
       <div className="mt-wrap">
         <div className="mt-crumb">
           <Link href="/meta-takes">Meta takes</Link>
@@ -115,7 +172,6 @@ export default async function TakePage({ params }: Props) {
         </div>
 
         {mt.thesis ? <p>{mt.thesis}</p> : null}
-        {mt.essay ? <p>{renderTokens(mt.essay, resolver)}</p> : null}
 
         <h2 className="mt-h2">Examples</h2>
 
@@ -129,6 +185,13 @@ export default async function TakePage({ params }: Props) {
           <>
             <div className="mt-label">Unexpected kin <span style={{ textTransform: "none", letterSpacing: 0 }}>— far apart on the surface, family underneath</span></div>
             <ul className="mt-list">{unexpected.map((r) => <Example key={r.figure_id} r={r} />)}</ul>
+          </>
+        )}
+
+        {all.length > 0 && (
+          <>
+            <h2 className="mt-h2">All takes <span className="mt-h2__n">— {all.length} across {filmCount} {filmCount === 1 ? "film" : "films"}</span></h2>
+            <FolderToggle genre={renderFolders(genreGroups)} register={renderFolders(regGroups)} />
           </>
         )}
 
