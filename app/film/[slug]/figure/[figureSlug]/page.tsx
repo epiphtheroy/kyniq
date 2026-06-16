@@ -6,6 +6,7 @@ import MetatakeNav from "@/components/MetatakeNav";
 import FigureContribute from "@/components/FigureContribute";
 import NodeGraph from "@/components/NodeGraph";
 import EntityActions from "@/components/EntityActions";
+import SeqNav from "@/components/SeqNav";
 import TakeMapToggle from "@/components/TakeMapToggle";
 import Provenance from "@/components/Provenance";
 import { renderTokens } from "@/lib/mtTokens";
@@ -140,7 +141,7 @@ export default async function FigurePage({ params }: Props) {
             const color = reg ? reg[1] : "#8F8F8F";
             const mt = t.meta_take;
             return (
-              <div key={t.id} className="fig-take" style={{ borderLeftColor: color }}>
+              <div key={t.id} id={`t-${t.id}`} className="fig-take" style={{ borderLeftColor: color, scrollMarginTop: 64 }}>
                 <div className="fig-take__top">
                   {reg ? <span className="fig-badge" style={{ background: color }}>{reg[0]}</span> : null}
                   {t.source === "human" ? <span className="fig-badge fig-badge--community">Community</span> : null}
@@ -165,6 +166,7 @@ export default async function FigurePage({ params }: Props) {
 
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
 
+        <SeqNav kind="figure" id={figure.id} />
         <NodeGraph kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} />
 
         <Provenance created={figure.created_at} updated={figure.updated_at} />

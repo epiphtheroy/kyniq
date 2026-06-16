@@ -7,6 +7,7 @@ import ViewBeacon from "@/components/ViewBeacon";
 import FolderToggle from "@/components/FolderToggle";
 import NodeGraph from "@/components/NodeGraph";
 import EntityActions from "@/components/EntityActions";
+import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 
@@ -213,6 +214,7 @@ export default async function TakePage({ params }: Props) {
           </p>
         )}
 
+        <SeqNav kind="meta_take" id={mt.id} />
         <NodeGraph kind="meta_take" mtSlug={mt.slug} label={mt.title} />
 
         <Provenance created={mt.created_at} updated={mt.updated_at} />

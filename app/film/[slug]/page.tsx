@@ -7,6 +7,7 @@ import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import NodeGraph from "@/components/NodeGraph";
 import EntityActions from "@/components/EntityActions";
+import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 
@@ -214,6 +215,7 @@ export default async function FilmPage({ params }: Props) {
           </>
         )}
 
+        <SeqNav kind="film" id={film.id} />
         <NodeGraph kind="film" filmSlug={film.slug} label={film.title} />
 
         <Provenance created={film.created_at} />

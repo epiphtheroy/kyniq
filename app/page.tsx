@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import SearchBox from "@/components/SearchBox";
+import RandomShowcase from "@/components/RandomShowcase";
 
 export const revalidate = 120;
 
@@ -17,13 +18,17 @@ function db() {
 
 export default async function Home() {
   const supabase = db();
-  const [{ data: mts }, { data: counts }, { data: figs }] = await Promise.all([
+  const [{ data: mts }, { data: counts }, { data: figs }, { data: recentRaw }] = await Promise.all([
     supabase.from("meta_takes").select("id, slug, title, laconic").eq("status", "published"),
     supabase.from("meta_take_film_counts").select("meta_take_id, film_count"),
     supabase.from("figures").select("slug, label, film:films!inner(slug, title)")
       .not("slug", "is", null).eq("status", "approved").limit(10),
+    supabase.from("takes")
+      .select("id, figure:figures!inner(label, slug, film:films!inner(title, slug))")
+      .eq("status", "published").order("created_at", { ascending: false }).limit(6),
   ]);
   const enriched = (figs ?? []) as unknown as { slug: string; label: string; film: { slug: string; title: string } }[];
+  const recent = (recentRaw as unknown as { id: string; figure: { label: string; slug: string; film: { title: string; slug: string } } }[]) ?? [];
   const countMap = new Map((counts ?? []).map((c) => [c.meta_take_id as string, c.film_count as number]));
   const featured = (mts ?? [])
     .map((m) => ({ ...m, n: countMap.get(m.id) ?? 0 }))
@@ -50,6 +55,25 @@ export default async function Home() {
         <div style={{ margin: "14px 0 8px" }}>
           <SearchBox variant="hero" />
         </div>
+
+        <RandomShowcase />
+
+        {recent.length > 0 && (
+          <>
+            <h2 className="mt-h2" style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
+              <span>Latest readings</span>
+              <Link href="/latest" style={{ fontSize: 13, fontWeight: 400 }}>See all →</Link>
+            </h2>
+            <div className="mt-cols">
+              {recent.map((t) => (
+                <div key={t.id} style={{ marginBottom: 6 }}>
+                  <Link href={`/film/${t.figure.film.slug}/figure/${t.figure.slug}`}>{t.figure.label}</Link>{" "}
+                  <span style={{ color: "var(--subtle)" }}>{t.figure.film.title}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
 
         {featured.length > 0 && (
           <>

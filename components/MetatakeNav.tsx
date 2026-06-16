@@ -1,9 +1,10 @@
 import Link from "next/link";
 import SearchBox from "@/components/SearchBox";
 import AccountMenu from "@/components/AccountMenu";
+import RandomMenu from "@/components/RandomMenu";
 
 /** Light wiki-style top nav for the Metatake pages. */
-export default function MetatakeNav({ active }: { active?: "films" | "directors" | "takes" | "genres" }) {
+export default function MetatakeNav({ active }: { active?: "films" | "directors" | "takes" | "genres" | "latest" | "trending" }) {
   const item = (k: string, href: string, label: string) => (
     <Link href={href} className={active === k ? "active" : undefined}>{label}</Link>
   );
@@ -11,6 +12,8 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
     <div className="mt-nav">
       <Link href="/" className="brand">metatake</Link>
       <nav style={{ display: "flex", gap: 14 }}>
+        {item("latest", "/latest", "Latest")}
+        {item("trending", "/trending", "Trending")}
         {item("films", "/film", "Films")}
         {item("directors", "/director", "Directors")}
         {item("takes", "/meta-takes", "Meta takes")}
@@ -18,7 +21,7 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
       </nav>
       <span style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center", color: "var(--subtle)", fontSize: 13 }}>
         <SearchBox variant="nav" />
-        <Link href="/random/take" aria-label="Random meta take" style={{ color: "var(--subtle)" }}>Random</Link>
+        <RandomMenu />
         <AccountMenu />
       </span>
     </div>
