@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import ListFilter from "@/components/ListFilter";
 
 export const revalidate = 300;
 
@@ -125,12 +126,14 @@ export default async function MetaTakesIndex({ searchParams }: Props) {
 
         <p className="mt-sortbar__hint">{GROUP_HINT[group]}</p>
 
+        <ListFilter targetId="mt-list" total={total} placeholder="Filter meta takes…" />
+        <div id="mt-list">
         {ordered.map((g) => (
-          <div key={g.name} style={{ marginTop: 14 }}>
-            <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{g.name}</div>
+          <div key={g.name} data-filter-group style={{ marginTop: 14 }}>
+            <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{g.name} <span data-filter-count style={{ fontWeight: 350, color: "var(--subtle)" }}>{g.list.length}</span></div>
             <div className="mt-cols">
               {g.list.map((m) => (
-                <div key={m.id}>
+                <div key={m.id} data-filter-item data-filter-text={m.title.toLowerCase()}>
                   <Link href={`/take/${m.slug}`}>{m.title}</Link>{" "}
                   <span style={{ color: "var(--subtle)" }}>{metric(m)}</span>
                 </div>
@@ -138,6 +141,7 @@ export default async function MetaTakesIndex({ searchParams }: Props) {
             </div>
           </div>
         ))}
+        </div>
 
         {total === 0 && <p style={{ color: "var(--muted)" }}>The catalogue is being assembled.</p>}
       </div>

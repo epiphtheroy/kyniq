@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import ListFilter from "@/components/ListFilter";
 
 export const revalidate = 300;
 
@@ -65,12 +66,14 @@ export default async function FilmsIndex({ searchParams }: Props) {
           <span style={{ marginLeft: "auto", color: "var(--subtle)" }}>{total} films</span>
         </div>
 
+        <ListFilter targetId="film-list" total={total} placeholder="Filter films by title or director…" />
+        <div id="film-list">
         {ordered.map(([name, list]) => (
-          <div key={name} style={{ marginTop: 14 }}>
-            <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{name} <span style={{ fontWeight: 350, color: "var(--subtle)" }}>{list.length}</span></div>
+          <div key={name} data-filter-group style={{ marginTop: 14 }}>
+            <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{name} <span data-filter-count style={{ fontWeight: 350, color: "var(--subtle)" }}>{list.length}</span></div>
             <div className="mt-cols">
               {list.map((f) => (
-                <div key={f.slug} style={{ marginBottom: 5 }}>
+                <div key={f.slug} data-filter-item data-filter-text={`${f.title} ${f.director ?? ""} ${f.year ?? ""}`.toLowerCase()} style={{ marginBottom: 5 }}>
                   <Link href={`/film/${f.slug}`}>{f.title}</Link>{" "}
                   <span style={{ color: "var(--subtle)" }}>({f.year ?? "?"})</span>
                   {f.director ? <div style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.4 }}>{f.director}</div> : null}
@@ -79,6 +82,7 @@ export default async function FilmsIndex({ searchParams }: Props) {
             </div>
           </div>
         ))}
+        </div>
 
         {total === 0 && <p style={{ color: "var(--muted)" }}>The catalogue is being assembled.</p>}
       </div>

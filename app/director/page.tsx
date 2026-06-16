@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import ListFilter from "@/components/ListFilter";
 
 export const revalidate = 300;
 
@@ -99,12 +100,14 @@ export default async function DirectorsIndex({ searchParams }: Props) {
           <span style={{ marginLeft: "auto", color: "var(--subtle)" }}>{total} directors</span>
         </div>
 
+        <ListFilter targetId="director-list" total={total} placeholder="Filter directors by name…" />
+        <div id="director-list">
         {ordered.map(([name, list]) => (
-          <div key={name} style={{ marginTop: 14 }}>
-            <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{name} <span style={{ fontWeight: 350, color: "var(--subtle)" }}>{list.length}</span></div>
+          <div key={name} data-filter-group style={{ marginTop: 14 }}>
+            <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{name} <span data-filter-count style={{ fontWeight: 350, color: "var(--subtle)" }}>{list.length}</span></div>
             <div className="mt-cols">
               {list.map((d) => (
-                <div key={d.slug} style={{ marginBottom: 5 }}>
+                <div key={d.slug} data-filter-item data-filter-text={`${d.name} ${d.country}`.toLowerCase()} style={{ marginBottom: 5 }}>
                   <Link href={`/director/${d.slug}`}>{d.name}</Link>{" "}
                   <span style={{ color: "var(--subtle)" }}>{d.count}</span>
                 </div>
@@ -112,6 +115,7 @@ export default async function DirectorsIndex({ searchParams }: Props) {
             </div>
           </div>
         ))}
+        </div>
 
         {total === 0 && <p style={{ color: "var(--muted)" }}>The catalogue is being assembled.</p>}
       </div>
