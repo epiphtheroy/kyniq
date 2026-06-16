@@ -6,6 +6,7 @@ import MetatakeNav from "@/components/MetatakeNav";
 import ViewBeacon from "@/components/ViewBeacon";
 import FolderToggle from "@/components/FolderToggle";
 import NodeGraph from "@/components/NodeGraph";
+import EntityActions from "@/components/EntityActions";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 
@@ -168,6 +169,7 @@ export default async function TakePage({ params }: Props) {
         </div>
         <h1 className="mt-h1">{mt.title}</h1>
         {mt.laconic ? <p className="mt-laconic">{mt.laconic}</p> : null}
+        <EntityActions entityType="meta_take" entityId={mt.id} />
 
         <div className="mt-info">
           <div className="hd">Meta take</div>

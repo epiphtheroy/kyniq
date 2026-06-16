@@ -1338,3 +1338,40 @@ details.film-info[open] > summary::before { content: "▾ "; }
 .mt-sortbar a:hover { color: var(--mt-link-hover); }
 .mt-sortbar .on { color: var(--ink); font-weight: 600; }
 .mt-sortbar__hint { font-size: 12px; color: var(--subtle); margin: 4px 0 6px; font-style: italic; max-width: 64ch; }
+
+/* ── Account menu (nav) ───────────────────────────────────── */
+.acct, .acct-ph { position: relative; display: inline-flex; align-items: center; }
+.acct-ph { width: 60px; height: 22px; }
+.acct-signin { font-family: var(--font-ui); font-size: 13px; color: var(--accent-text) !important; font-weight: 600; text-decoration: none; }
+.acct-signin:hover { color: var(--mt-link-hover) !important; }
+.acct-btn { display: inline-flex; align-items: center; gap: 7px; background: none; border: none; cursor: pointer;
+  font-family: var(--font-ui); font-size: 13px; color: var(--muted); padding: 2px 2px; }
+.acct-btn:hover { color: var(--ink); }
+.acct-dot { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;
+  border-radius: 50%; background: var(--accent); color: #fff; font-size: 11.5px; font-weight: 700; }
+.acct-name { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acct-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 168px; z-index: 60;
+  background: var(--bg); border: 0.5px solid var(--hairline-2); border-radius: 8px;
+  box-shadow: 0 6px 22px rgba(0,0,0,.10); padding: 5px; display: flex; flex-direction: column; }
+.acct-menu a, .acct-menu .acct-logout { font-family: var(--font-ui); font-size: 13px; color: var(--ink); text-decoration: none;
+  text-align: left; background: none; border: none; cursor: pointer; padding: 8px 11px; border-radius: 5px; }
+.acct-menu a:hover, .acct-menu .acct-logout:hover { background: var(--surface, #f5f4f1); color: var(--ink) !important; }
+.acct-logout { border-top: 0.5px solid var(--hairline) !important; margin-top: 3px; color: var(--accent-text) !important; }
+
+/* ── Follow / Like (entity header) ────────────────────────── */
+.ea { display: flex; gap: 9px; align-items: center; margin: 10px 0 4px; }
+.ea--ph { min-height: 30px; }
+.ea-btn { display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  font-family: var(--font-ui); font-size: 12.5px; font-weight: 600; color: var(--muted);
+  background: var(--bg); border: 0.5px solid var(--hairline-2); border-radius: 20px; padding: 5px 13px;
+  transition: border-color .12s, color .12s, background .12s; }
+.ea-btn:hover { border-color: var(--subtle); color: var(--ink); }
+.ea-btn .ea-ic { color: currentColor; }
+.ea-btn.on { color: var(--ink); border-color: var(--subtle); background: var(--surface, #f5f4f1); }
+.ea-like .ea-heart { font-size: 14px; line-height: 1; color: var(--subtle); }
+.ea-like.on { color: var(--accent-text); border-color: #f3c9c6; background: #fdf3f2; }
+.ea-like.on .ea-heart { color: var(--accent); }
+
+/* ── /me dashboard ────────────────────────────────────────── */
+.me-list { font-family: var(--font-body); }
+.me-list li:last-child { border-bottom: none !important; }

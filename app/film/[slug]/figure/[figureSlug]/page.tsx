@@ -5,6 +5,7 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import FigureContribute from "@/components/FigureContribute";
 import NodeGraph from "@/components/NodeGraph";
+import EntityActions from "@/components/EntityActions";
 import TakeMapToggle from "@/components/TakeMapToggle";
 import Provenance from "@/components/Provenance";
 import { renderTokens } from "@/lib/mtTokens";
@@ -111,6 +112,7 @@ export default async function FigurePage({ params }: Props) {
         </div>
 
         <h1 className="mt-h1">{figure.label}</h1>
+        <EntityActions entityType="figure" entityId={figure.id} />
 
         <div className="mt-info">
           <div className="hd">Figure</div>

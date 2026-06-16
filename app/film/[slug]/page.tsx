@@ -6,6 +6,7 @@ import MetatakeNav from "@/components/MetatakeNav";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import NodeGraph from "@/components/NodeGraph";
+import EntityActions from "@/components/EntityActions";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 
@@ -127,6 +128,7 @@ export default async function FilmPage({ params }: Props) {
           <div className="film-head__txt">
             <h1 className="mt-h1" style={{ borderBottom: "none" }}>{film.title} <span className="yr">({film.year ?? "?"})</span></h1>
             {film.tagline ? <div className="film-tagline">{film.tagline}</div> : null}
+            <EntityActions entityType="film" entityId={film.id} />
           </div>
         </div>
 

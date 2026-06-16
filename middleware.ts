@@ -58,7 +58,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // ── Auth-required pages ─────────────────────────────────────
-  const authRequired = ["/ask", "/settings"];
+  const authRequired = ["/ask", "/settings", "/me"];
   if (authRequired.some((p) => pathname.startsWith(p)) && !user) {
     const loginUrl = request.nextUrl.clone();
     loginUrl.pathname = "/login";
