@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBox from "@/components/SearchBox";
 
 /** Light wiki-style top nav for the Metatake pages. */
 export default function MetatakeNav({ active }: { active?: "films" | "directors" | "takes" | "genres" }) {
@@ -15,6 +16,7 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
         {item("genres", "/genre", "Genres")}
       </nav>
       <span style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center", color: "var(--subtle)", fontSize: 13 }}>
+        <SearchBox variant="nav" />
         <Link href="/random/take" aria-label="Random meta take" style={{ color: "var(--subtle)" }}>Random</Link>
       </span>
     </div>

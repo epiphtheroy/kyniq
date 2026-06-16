@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import SearchBox from "@/components/SearchBox";
 
 export const revalidate = 120;
 
@@ -44,6 +45,10 @@ export default async function Home() {
           <Link href="/meta-takes">Browse meta takes</Link>
           <Link href="/film">Films</Link>
           <Link href="/director">Directors</Link>
+        </div>
+
+        <div style={{ margin: "14px 0 8px" }}>
+          <SearchBox variant="hero" />
         </div>
 
         {featured.length > 0 && (

@@ -72,3 +72,14 @@
   호출 수엔 영향 없음(별도 API). 한 번 저장하면 이후 모든 유사도=로컬 코사인 → 다운스트림 LLM 호출 절감.
 - (선택) figure에 "의미 센트로이드"(자기 take 평균)를 추가하면 "같은 읽기 형상" 검색이 빠름. 기본은
   figure=표면 1개로 두고 필요 시 추가(센트로이드는 take 임베딩에서 도출 가능).
+
+## I. 사이트 검색 v2 — 의미·하이브리드 (★ 잊지 말 것, 사용자 명시 요청 2026-06-16)
+- **v1 완료(migration 0019)**: Postgres FTS + pg_trgm로 **키워드+오타** 검색(films·figures·meta-takes·directors
+  의 이름/제목/laconic). `search_site(q,limit)` RPC + `SearchBox`(내비·홈 타입어헤드) + `/search` 페이지.
+- **v2 (반드시 할 것 — take/figure 임베딩이 생긴 뒤):**
+  1. **의미검색**: take.rationale + figure + meta_take 임베딩(pgvector)으로 *개념* 질의("감시에 관한 읽기").
+     쿼리 임베딩 1콜(OpenAI text-embedding-3-small) → `<=>` ANN.
+  2. **하이브리드 랭킹**: 키워드(FTS/trgm) + 의미(코사인)를 **RRF**(reciprocal rank fusion)로 융합.
+  3. **읽기 본문 검색**: v1은 *이름*만. takes.rationale까지 FTS 확장(결과는 그 take의 figure 페이지로).
+  4. 전제: figure-enrich 배치 + mt-rank가 take/figure 임베딩을 채운 뒤(현재 take_emb=0, fig_emb=0) + pgvector ANN 인덱스.
+- 비용: 쿼리당 임베딩 ~$0.000005(무시). 인덱스 1회 구축.
