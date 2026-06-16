@@ -19,7 +19,7 @@ export default function GuidelinesPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         Every interpretation is worth hearing. When you disagree, offer a richer reading rather than dismissing one.
-        There are no wrong readings — only deeper ones.
+        Interpretations aren&apos;t right or wrong — only shallower or deeper. Factual errors, though, are always worth flagging.
       </p>
 
       <hr className="rule" />

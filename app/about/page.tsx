@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About — Metatake",
@@ -53,14 +54,17 @@ export default function AboutPage() {
       <div className="seclbl">How our readings are written</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        We want to be straight with you. The readings are written by{" "}
-        <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span>, an AI system built
-        for close film analysis, and some are anchored to published film scholarship. It is published
-        directly — there is no separate human or second-model sign-off before a reading goes up. Instead
-        we audit pages on an ongoing basis and revise them as readers, and our own spot-checks, surface
-        mistakes. Logged-in readers can add their own takes beneath any figure; there are no wrong
-        readings here, and no downvotes. Film stills and clips are attached with images from TMDB.
-        Spot something off? Corrections are welcome at the address below.
+        We want to be straight with you. The readings are drafted by{" "}
+        <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span> — an AI system built
+        for close film analysis, working from established film-critical traditions — under editor{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>.
+        Each reading is published directly rather than passing a separate human or second-model
+        sign-off; instead, quality is maintained through an ongoing audit-and-revision loop — we and our
+        readers flag problems, and pages are corrected as issues surface. We treat the two kinds of
+        error differently: <em>factual mistakes we fix; interpretations stay open</em>, since a single
+        film sustains many readings. Logged-in readers can add their own beneath any figure (no
+        downvotes). Posters and stills come from TMDB. Spot something off? Corrections are welcome at
+        the address below.
       </p>
 
       <hr className="rule" />
