@@ -69,7 +69,15 @@ async function load(slug: string, figureSlug: string) {
     const m = r as { id: string; title: string; laconic: string | null; theory_family: { name: string } | null };
     return { id: m.id, title: m.title, laconic: m.laconic ?? null, family: m.theory_family?.name ?? null };
   });
-  return { film, figure, takes, metaTakes };
+  const { data: tropeRows } = await supabase
+    .from("figure_type_members")
+    .select("meta_take:meta_takes!inner(slug, title, kind, status)")
+    .eq("figure_id", figure.id);
+  const tropes = ((tropeRows ?? []) as unknown[])
+    .map((r) => (r as { meta_take: { slug: string; title: string; kind: string; status: string } }).meta_take)
+    .filter((m) => m && m.kind === "figure_type" && m.status === "published")
+    .map((m) => ({ slug: m.slug, title: m.title }));
+  return { film, figure, takes, metaTakes, tropes };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -87,7 +95,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes } = data;
+  const { film, figure, takes, metaTakes, tropes } = data;
   const resolver = { film: { [film.slug]: { title: film.title } } };
   const jsonld = {
     "@context": "https://schema.org", "@type": "Article",
@@ -120,6 +128,11 @@ export default async function FigurePage({ params }: Props) {
           <div className="bd">
             <div className="row"><span className="k">Film</span><Link href={`/film/${film.slug}`}>{film.title}{film.year ? ` (${film.year})` : ""}</Link></div>
             {figure.kind ? <div className="row"><span className="k">Kind</span><span>{KIND[figure.kind] ?? figure.kind}</span></div> : null}
+            {tropes.length > 0 ? (
+              <div className="row"><span className="k">Type</span>
+                <span>{tropes.map((t, i) => <span key={t.slug}>{i > 0 ? ", " : ""}<Link href={`/trope/${t.slug}`} className="mt-link">{t.title}</Link></span>)}</span>
+              </div>
+            ) : null}
             <div className="row"><span className="k">Takes</span><span>{takes.length}</span></div>
           </div>
         </div>
