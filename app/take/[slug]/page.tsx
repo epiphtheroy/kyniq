@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import ViewBeacon from "@/components/ViewBeacon";
-import FolderToggle from "@/components/FolderToggle";
+import TakeExplorer from "@/components/TakeExplorer";
 import NodeGraph from "@/components/NodeGraph";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
@@ -106,7 +106,10 @@ export default async function TakePage({ params }: Props) {
   const { mt, family, defining, unexpected, related, all, filmCount } = data;
 
   const Example = ({ r }: { r: RowR }) => (
-    <li>
+    <li
+      data-take-item
+      data-take-text={`${r.film.title} ${r.film.year ?? ""} ${r.label} ${r.register ? (REG[r.register]?.[0] ?? r.register) : ""} ${r.rationale ?? ""}`.toLowerCase()}
+    >
       <Link href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
       <span className="yr">({r.film.year ?? "?"})</span> —{" "}
       {r.figureSlug
@@ -202,8 +205,8 @@ export default async function TakePage({ params }: Props) {
         {all.length > 0 && (
           <>
             <h2 className="mt-h2" id="all-takes">All takes of “{mt.title}” <span className="mt-h2__n">— {all.length} across {filmCount} {filmCount === 1 ? "film" : "films"}</span></h2>
-            <p className="mt-sortbar__hint">Click a folder to open it. Group by film genre or by critical register.</p>
-            <FolderToggle genre={renderFolders(genreGroups)} register={renderFolders(regGroups)} />
+            <p className="mt-sortbar__hint">Search within these takes, jump to a random one, or open a folder. Group by film genre or by critical register.</p>
+            <TakeExplorer total={all.length} genre={renderFolders(genreGroups)} register={renderFolders(regGroups)} />
           </>
         )}
 
