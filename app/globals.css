@@ -1485,3 +1485,34 @@ details.film-info[open] > summary::before { content: "▾ "; }
   0% { background: #fde9c8; box-shadow: 0 0 0 6px #fde9c8; }
   100% { background: transparent; box-shadow: 0 0 0 6px transparent; }
 }
+
+/* ── ScholarHeader (meta-take academic header) ────────────── */
+.sch { border: 0.5px solid var(--hairline-2); border-radius: 9px; padding: 9px 14px; margin: 12px 0; font-family: var(--font-ui); }
+.sch-row { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 0.5px solid var(--hairline); flex-wrap: wrap; }
+.sch-row:last-of-type { border-bottom: none; }
+.sch-k { flex: 0 0 104px; color: var(--subtle); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; }
+.sch-term { font-size: 15px; color: var(--ink); font-style: italic; }
+.sch-after { color: var(--muted); font-style: normal; }
+.sch-regs { display: flex; flex-wrap: wrap; gap: 9px; }
+.sch-reg { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--ink); }
+.sch-reg-bar { display: inline-block; height: 8px; border-radius: 4px; }
+.sch-reg-n { color: var(--subtle); font-size: 11px; }
+.sch-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.sch-links a { color: var(--mt-link); text-decoration: none; font-size: 13px; }
+.sch-links a:hover { color: var(--mt-link-hover); text-decoration: underline; }
+.sch-note { margin-top: 8px; font-size: 12px; color: var(--subtle); line-height: 1.5; }
+
+/* ── Cross-link box (meaning ↔ device) ────────────────────── */
+.xbox { border: 0.5px solid var(--hairline-2); border-radius: 9px; padding: 11px 14px; margin: 12px 0; }
+.xbox-h { font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; display: flex; align-items: center; gap: 7px; }
+.xbox-ic { color: var(--lk-fig); }
+.xbox-list { display: flex; flex-direction: column; }
+.xbox-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 0.5px solid var(--hairline); text-decoration: none; }
+.xbox-row:last-child { border-bottom: none; }
+.xbox-name { color: var(--lk-fig); font-family: var(--font-body); font-size: 14.5px; }
+.xbox-row:hover .xbox-name { color: var(--lk-fig-hover); text-decoration: underline; }
+.xbox-arrow { color: var(--subtle); font-size: 12px; }
+.xbox-n { color: var(--subtle); font-family: var(--font-ui); font-size: 12px; white-space: nowrap; }
+.xbox--readings .xbox-h .xbox-ic { color: var(--mt-link); }
+.xbox--readings .xbox-name { color: var(--mt-link); }
+.xbox--readings .xbox-row:hover .xbox-name { color: var(--mt-link-hover); }

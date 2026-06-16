@@ -83,3 +83,33 @@
   3. **읽기 본문 검색**: v1은 *이름*만. takes.rationale까지 FTS 확장(결과는 그 take의 figure 페이지로).
   4. 전제: figure-enrich 배치 + mt-rank가 take/figure 임베딩을 채운 뒤(현재 take_emb=0, fig_emb=0) + pgvector ANN 인덱스.
 - 비용: 쿼리당 임베딩 ~$0.000005(무시). 인덱스 1회 구축.
+
+## J. Tropes (figure 유형) 레이어 — 2026-06-17 결정·구축
+- **개념:** 메타테이크=읽기(뜻), 트로프=figure 유형(대상/장치, TV-Tropes식 분류명사). 둘은 직교 축.
+  한 `meta_takes` 테이블에 **`kind` 판별자**('reading'|'figure_type'). figure↔트로프 멤버십은
+  `figure_type_members`(다대다). 마이그레이션 0028–0031.
+- **빌드 파이프라인(메타테이크 것 재사용):** ① `trope-tag.py`(stage1) — figure를 *영화-불문 유형 태그*
+  최대 3개로(영화당 1콜, Opus, **figure는 정수 인덱스로 식별** — UUID 왕복하면 LLM이 변조해 FK 에러).
+  ② stage2(군집+명명, 미작성) — figure_tags를 정규화/임베딩 군집 → ≥5편 게이트 → 가족 인지형 명명
+  (극작가 카테고리). ③ 소프트 배정(임계값) → members.
+- **★중요 발견:** **figure description 임베딩은 "같은 영화"로 뭉친다**(설명이 영화 고유명사를 담음),
+  교차영화로는 스타일/국적으로 뭉침 → 순수 임베딩으론 트로프 안 나옴. 그래서 **유형 태깅(추상화)** 필수.
+- **교차링크:** `trope_readings`(트로프→읽기) + `meta_take_tropes`(읽기→트로프) RPC. 양쪽 페이지에 `.xbox`.
+- **UI:** nav Genres→Tropes, `/tropes` 인덱스, `/trope/[slug]` 허브, figure 페이지 "Type" 줄.
+
+## K. 메타테이크 "학술 헤더" — 2026-06-17 구축 (학자·학생·연구자·창작자용)
+- **무엇:** 메타테이크(reading) 페이지에 `ScholarHeader` — ① 정식 이론용어(`raw_concept`) + 계보
+  (`theorist`, 274/274 채움; 분리자식엔 같은 raw_concept에서 backfill) ② 렌즈 지도(register 분포)
+  ③ 외부 학술검색 링크(Google Scholar·JSTOR·PhilPapers, **인용 생성 금지 — 검색 링크만**) ④ "개념별
+  필모그래피" 프레이밍 + AI 인용주의 문구.
+- **비용 0(LLM 없음):** 전부 기존 데이터(raw_concept·theorist·register)에서 렌더.
+
+## L. ★다음 빅뱅(영화 +500~1000) 프롬프트 점검 체크리스트 (반드시)
+빅뱅 때 figure-enrich/메타테이크 산출이 **아래를 빠짐없이 생성**해야 학술헤더·트로프가 자동으로 채워짐:
+1. take마다: `raw_concept`(정식 이론용어), `theorist`(정전적 귀속), `register`(10종), `rationale`,
+   (선택)`source_citation`/`source_url` — **단 출처는 미검증이므로 "scholarship anchored"로 과장 금지.**
+2. figure마다: 영화색을 *덜* 탄 깔끔한 `description`(유형 태깅 품질의 토대) + slug.
+3. 신규 영화 적재 후 순서: tmdb-fetch → figure-enrich → mt-embed → mt-consolidate(dedup+split≤70)
+   → mt-author(Opus) → mt-rank/recommend → **trope-tag → trope stage2** → 검증 → 배포.
+4. 백로그: 인용 **Crossref/Semantic Scholar 검증** 후에야 진짜 인용을 자산으로 노출(§A #4).
+5. about/guidelines 문구 유지: 사실오류는 고침/해석은 열어둠 · 즉시게시+감사루프 · posters·stills(TMDB).

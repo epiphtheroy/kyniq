@@ -74,10 +74,17 @@ export default async function TropePage({ params }: Props) {
         {t.thesis ? <p>{t.thesis}</p> : null}
 
         {readings.length > 0 && (
-          <p className="mt-see">
-            <span style={{ color: "var(--subtle)" }}>These figures are most often read as</span>&nbsp;&nbsp;
-            {readings.map((r, i) => <span key={r.slug}>{i > 0 ? " · " : ""}<Link href={`/take/${r.slug}`} className="mt-link">{r.title}</Link></span>)}
-          </p>
+          <div className="xbox xbox--readings">
+            <div className="xbox-h"><span className="xbox-ic" aria-hidden="true">◆</span> Using this device? It tends to mean</div>
+            <div className="xbox-list">
+              {readings.map((r) => (
+                <Link key={r.slug} href={`/take/${r.slug}`} className="xbox-row">
+                  <span className="xbox-name">{r.title} <span className="xbox-arrow">→</span></span>
+                  <span className="xbox-n">{r.n} {r.n === 1 ? "figure" : "figures"}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         )}
 
         <h2 className="mt-h2" id="members">Figures of this type <span className="mt-h2__n">— {members.length} across {filmCount} {filmCount === 1 ? "film" : "films"}</span></h2>
