@@ -60,9 +60,12 @@
 
   --measure: 64ch;
 
-  --font-display: "PT Serif", "Iowan Old Style", Georgia, Cambria, "Times New Roman", serif;
-  --font-body: "PT Serif", "Iowan Old Style", Georgia, Cambria, "Times New Roman", serif;
-  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Korean glyphs (incl. Chrome auto-translate) fall back to a real Korean font
+     with proper weights — listed before the generic serif/sans so they win for Hangul. */
+  --kr: "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", "Noto Sans KR";
+  --font-display: "PT Serif", "Iowan Old Style", Georgia, Cambria, "Times New Roman", var(--kr), serif;
+  --font-body: "PT Serif", "Iowan Old Style", Georgia, Cambria, "Times New Roman", var(--kr), serif;
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, var(--kr), Helvetica, Arial, sans-serif;
 
   --pad-x: 16px;        /* mobile gutter */
   --max-w: 1280px;
@@ -82,6 +85,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Chrome auto-translate sets <html lang="ko"> — use a Korean font family throughout
+   so translated text isn't a thin synthesized fallback. */
+html[lang="ko"], html[lang="ko-KR"] {
+  --font-display: var(--kr), sans-serif;
+  --font-body: var(--kr), sans-serif;
+  --font-ui: var(--kr), sans-serif;
 }
 
 img { max-width: 100%; }
@@ -1062,12 +1073,12 @@ p.has-dropcap::first-letter {
 
 /* ============================================================
    METATAKE — light wiki content (meta-take-architecture.md)
-   readable type (+2pt) · weight 350 · RED links (brand identity)
+   readable type (+2pt) · weight 400 · RED links (brand identity)
    ============================================================ */
 :root { --mt-link: #E3120B; --mt-link-hover: #B80D05;
   --lk-film: #34383E; --lk-film-hover: #111316;
   --lk-fig: #1F6FB2; --lk-fig-hover: #154E7E; }
-.mt { font-weight: 350; font-size: 15px; color: var(--ink); line-height: 1.7; }
+.mt { font-weight: 400; font-size: 15px; color: var(--ink); line-height: 1.7; }
 .mt-wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 40px; }
 /* Link colour by entity (via href): meta take = red, figure = blue, film/structural = neutral */
 .mt a { color: var(--lk-film); text-decoration: none; }
@@ -1087,7 +1098,7 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
   border-bottom: 0.5px solid var(--hairline); color: var(--ink); }
 .mt-label { font-size: 12px; color: var(--accent-text); letter-spacing: 0.05em;
   text-transform: uppercase; margin: 12px 0 5px; font-weight: 600; }
-.mt p { font-size: 15px; font-weight: 350; line-height: 1.75; color: var(--ink); margin: 12px 0 11px; }
+.mt p { font-size: 15px; font-weight: 400; line-height: 1.75; color: var(--ink); margin: 12px 0 11px; }
 .mt-info { float: right; width: 210px; margin: 5px 0 12px 18px;
   border: 0.5px solid var(--hairline); border-radius: 6px; font-size: 13px; }
 .mt-info .hd { font-size: 12.5px; color: var(--subtle); padding: 6px 11px;
@@ -1098,16 +1109,20 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .mt-info .row:last-child { border-bottom: none; }
 .mt-info .row .k { color: var(--subtle); }
 .mt-list { margin: 0 0 14px; padding-left: 16px; list-style: none; }
-.mt-list li { font-size: 15px; font-weight: 350; line-height: 1.65;
+.mt-list li { font-size: 15px; font-weight: 400; line-height: 1.65;
   margin-bottom: 8px; position: relative; }
 .mt-list li::before { content: "·"; position: absolute; left: -14px; color: var(--accent); }
 .mt-list li .yr, .mt-list li .meta { color: var(--subtle); }
 .mt-list li .mt-fig { color: var(--ink); }
 .mt-list li a.mt-fig { color: var(--lk-fig); text-decoration: none; }
 .mt-list li a.mt-fig:hover { color: var(--lk-fig-hover); text-decoration: underline; text-underline-offset: 2px; }
+/* each take is a distinct record (combined from many films) — divide them so the
+   page doesn't read as one continuous essay. Only rows carrying a reading get this. */
+.mt-list li:has(.mt-rat) { padding: 11px 0 12px; margin-bottom: 0; border-bottom: 0.5px solid var(--hairline); }
+.mt-list li:has(.mt-rat):last-child { border-bottom: none; }
 /* full critical reading under each example (no truncation) */
-.mt-rat { margin: 3px 0 10px; font-size: 14.5px; font-weight: 350;
-  line-height: 1.68; color: var(--muted, #5a5a5a); max-width: 64ch; }
+.mt-rat { margin: 3px 0 10px; font-size: 14.5px; font-weight: 400;
+  line-height: 1.68; color: #3d3d3d; max-width: 64ch; }
 .mt-cols { columns: 2; column-gap: 24px; font-size: 15px; line-height: 1.85; }
 .mt-nav { display: flex; align-items: center; gap: 14px; padding: 8px 18px;
   border-bottom: 0.5px solid var(--hairline);
@@ -1122,12 +1137,12 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .mt-nav a { font-size: 14px; color: var(--muted); text-decoration: none; }
 .mt-nav a:hover { color: var(--mt-link-hover); }
 .mt-nav a.active { color: var(--ink); }
-.mt-see { font-size: 14px; font-weight: 350; line-height: 1.8; color: var(--muted);
+.mt-see { font-size: 14px; font-weight: 400; line-height: 1.8; color: var(--muted);
   margin: 16px 0 0; padding-top: 11px; border-top: 0.5px solid var(--hairline); }
 .mt-tabs { display: flex; gap: 14px; margin: 9px 0 4px; font-size: 14px; }
 
 /* ---- figure page: register-tagged reading cards ---- */
-.fig-desc { font-size: 15px; font-weight: 350; color: var(--ink); line-height: 1.7; margin: 10px 0 6px; max-width: 64ch; }
+.fig-desc { font-size: 15px; font-weight: 400; color: var(--ink); line-height: 1.7; margin: 10px 0 6px; max-width: 64ch; }
 .fig-takes { margin: 8px 0 0; }
 .fig-take { border-left: 3px solid var(--hairline-2); padding: 9px 0 11px 14px; margin: 0 0 16px; max-width: 64ch; }
 .fig-take__top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
@@ -1138,7 +1153,7 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .fig-hub a { color: var(--mt-link); text-decoration: none; }
 .fig-hub a:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 .fig-hub .emerging { color: var(--subtle); }
-.fig-take__rat { font-size: 15px; font-weight: 350; line-height: 1.72; color: var(--ink); margin: 0; }
+.fig-take__rat { font-size: 15px; font-weight: 400; line-height: 1.72; color: var(--ink); margin: 0; }
 .fig-cta { margin: 24px 0 0; padding: 12px 14px; border: 0.5px solid var(--hairline);
   border-radius: 6px; font-size: 13px; color: var(--muted); background: var(--surface-2); }
 .fig-cta__link { color: var(--mt-link); text-decoration: none; font-weight: 600; }
@@ -1153,7 +1168,7 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .fig-status--pending { background: var(--surface-2); color: var(--muted); border: 0.5px solid var(--hairline-2); }
 .fig-status--live { background: #2E7D5B; color: #fff; }
 .fig-mine__mt { font-family: var(--font-ui); font-size: 13px; color: var(--mt-link); }
-.fig-mine__rat { font-size: 13.5px; font-weight: 350; line-height: 1.6; color: var(--ink); margin-top: 5px; }
+.fig-mine__rat { font-size: 13.5px; font-weight: 400; line-height: 1.6; color: var(--ink); margin-top: 5px; }
 .fig-form { background: var(--surface-2); border: 0.5px solid var(--hairline); border-radius: 6px; padding: 13px 15px 15px; }
 .fig-form__ok { font-size: 13px; color: #2E7D5B; margin: 4px 0 10px; }
 .fig-form__lbl { display: block; font-family: var(--font-ui); font-size: 12px; font-weight: 600;
@@ -1289,11 +1304,11 @@ details.film-info > summary::-webkit-details-marker { display: none; }
 details.film-info > summary::before { content: "▸ "; color: var(--subtle); }
 details.film-info[open] > summary::before { content: "▾ "; }
 .film-info__body { padding: 2px 0 10px; }
-.film-info__overview { font-size: 14.5px; font-weight: 350; line-height: 1.7; color: var(--ink); margin: 4px 0 12px; max-width: 64ch; }
+.film-info__overview { font-size: 14.5px; font-weight: 400; line-height: 1.7; color: var(--ink); margin: 4px 0 12px; max-width: 64ch; }
 .film-info__dl { display: grid; grid-template-columns: 110px 1fr; gap: 4px 12px; margin: 0;
   font-size: 13px; max-width: 64ch; }
 .film-info__dl dt { color: var(--subtle); font-family: var(--font-ui); font-size: 12px; }
-.film-info__dl dd { margin: 0; color: var(--ink); font-weight: 350; }
+.film-info__dl dd { margin: 0; color: var(--ink); font-weight: 400; }
 .film-info__src { font-size: 11px; color: var(--subtle); margin-top: 12px; }
 /* outbound image/clip search buttons (figure page) */
 .fig-search { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 2px; }
@@ -1307,7 +1322,7 @@ details.film-info[open] > summary::before { content: "▾ "; }
 .fig-gloss strong { color: var(--accent-text); font-weight: 600; }
 
 /* ---- meta-take detail: foldered "all takes" + index facets ---- */
-.mt-h2__n { font-weight: 350; font-size: 13px; color: var(--subtle); letter-spacing: 0; text-transform: none; }
+.mt-h2__n { font-weight: 400; font-size: 13px; color: var(--subtle); letter-spacing: 0; text-transform: none; }
 .mt-fold-tabs { display: flex; gap: 6px; margin: 8px 0 10px; }
 .mt-fold-tabs button { font-family: var(--font-ui); font-size: 12px; color: var(--muted);
   background: none; border: 0.5px solid var(--hairline-2); border-radius: 4px; padding: 4px 11px; cursor: pointer; }
