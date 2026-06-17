@@ -30,7 +30,8 @@ URL=os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY=os.environ.get("SUPABASE_SER
 OPENAI=os.environ.get("OPENAI_API_KEY"); GEM=os.environ.get("GEMINI_API_KEY"); ANT=os.environ.get("ANTHROPIC_API_KEY")
 args=sys.argv[1:]; PERSIST="--persist" in args
 def argf(f,d): return type(d)(args[args.index(f)+1]) if f in args else d
-THRESH=argf("--thresh",0.75); GATE=argf("--gate",5); K=argf("--k",3); MAXTAGS=argf("--maxtags",50)
+THRESH=argf("--thresh",0.75); GATE=argf("--gate",3); K=argf("--k",3); MAXTAGS=argf("--maxtags",50)
+RESET="--reset" in args
 MODEL=args[args.index("--model")+1] if "--model" in args else "claude-opus-4-8"
 USE_CLAUDE=MODEL.startswith("claude")
 if not (URL and KEY and OPENAI): print("Missing env (Supabase + OPENAI_API_KEY)"); sys.exit(1)
@@ -202,6 +203,9 @@ def main():
         print("[trope-build] DRY — no naming, no writes. Adjust --thresh if clusters look too broad/narrow.")
         return
 
+    if RESET:
+        print("  --reset: clearing existing figure_type hubs (cascades members)…")
+        sb("DELETE","meta_takes?kind=eq.figure_type",prefer="return=minimal")
     used=set(r["slug"] for r in fetch_all("meta_takes?select=slug"))
     created=0
     for i in range(0,len(cands),8):
