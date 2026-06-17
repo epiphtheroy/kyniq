@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     "Read films closely. Metatake breaks films into their figures and the critical readings they carry, then links films through the meanings they share — a critical map of cinema.",
   metadataBase: new URL(siteUrl),
   robots: pageRobots(),
+  verification: {
+    // Google Search Console (URL-prefix property https://metatake.net)
+    google: "Xlx_jr5Fg6VjxZXktgB9huxHQ_1lfGgDOuiSWGP60Gs",
+    // Bing: add here as other: { "msvalidate.01": "<code>" } — or import from GSC in Bing Webmaster Tools.
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
