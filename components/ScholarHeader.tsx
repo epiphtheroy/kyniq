@@ -1,26 +1,27 @@
 import Link from "next/link";
 
 /**
- * ScholarHeader — the academic header on a meta-take (reading) page.
- * Surfaces what we already have, framed for researchers/students/critics:
- *  - the precise scholarly term + its canonical lineage (theorist),
+ * ScholarHeader — the single right-rail box on a meta-take (reading) page.
+ * Merges what used to be two boxes (the "Meta take" info box + the academic
+ * header) into one, with no duplicated facts:
+ *  - the scholarly term + its canonical lineage (theorist),
+ *  - the theory family, the film count, and a jump to all takes,
  *  - a "lens map" (which critical registers this concept is read through),
- *  - outbound links to real scholarship databases (search, not generated citations),
- *  - the cross-film count framed as a working filmography.
- * No generated citations — links go to Google Scholar / JSTOR / PhilPapers searches.
+ *  - outbound links to scholarship databases (search, not generated citations).
  */
 
 function enc(s: string) { return encodeURIComponent(s); }
-
 function regSlug(label: string) { return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 
 export default function ScholarHeader({
-  term, theorist, registers, filmCount,
+  term, theorist, family, registers, filmCount, takeCount,
 }: {
   term: string;
   theorist: string | null;
+  family: { name: string; slug: string } | null;
   registers: { label: string; color: string; n: number }[];
   filmCount: number;
+  takeCount: number;
 }) {
   const top = registers.slice(0, 6);
   const maxN = Math.max(1, ...top.map((r) => r.n));
@@ -30,6 +31,25 @@ export default function ScholarHeader({
         <span className="sch-k">Scholarly term</span>
         <span className="sch-term">{term}{theorist ? <span className="sch-after"> · after {theorist}</span> : null}</span>
       </div>
+
+      {family && (
+        <div className="sch-row">
+          <span className="sch-k">Theory</span>
+          <span className="sch-val"><Link href={`/meta-takes?family=${family.slug}`}>{family.name}</Link></span>
+        </div>
+      )}
+
+      <div className="sch-row">
+        <span className="sch-k">Films</span>
+        <span className="sch-val">{filmCount}</span>
+      </div>
+
+      {takeCount > 0 && (
+        <div className="sch-row">
+          <span className="sch-k">Takes</span>
+          <span className="sch-val"><a href="#all-takes" className="mt-jump">{takeCount} ↓</a></span>
+        </div>
+      )}
 
       {top.length > 0 && (
         <div className="sch-row">
@@ -60,7 +80,6 @@ export default function ScholarHeader({
       </div>
 
       <div className="sch-note">
-        A working filmography: this reading recurs across <strong>{filmCount}</strong> {filmCount === 1 ? "film" : "films"} (below).
         Readings are AI-drafted critical interpretations — cite the films and scholarship, not this page, as a source.
       </div>
     </div>

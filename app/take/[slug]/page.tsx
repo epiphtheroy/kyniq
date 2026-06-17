@@ -185,26 +185,18 @@ export default async function TakePage({ params }: Props) {
         {mt.laconic ? <p className="mt-laconic">{mt.laconic}</p> : null}
         <EntityActions entityType="meta_take" entityId={mt.id} />
 
-        <div className="mt-info">
-          <div className="hd">Meta take</div>
-          <div className="bd">
-            {family ? <div className="row"><span className="k">Theory</span><Link href={`/meta-takes?family=${family.slug}`}>{family.name}</Link></div> : null}
-            <div className="row"><span className="k">Films</span><span>{filmCount}</span></div>
-            {all.length > 0 ? <div className="row"><span className="k">Takes</span><a href="#all-takes" className="mt-jump">{all.length} ↓</a></div> : null}
-          </div>
-        </div>
-
-        <ScholarHeader term={mt.raw_concept ?? mt.title} theorist={theorist?.name ?? null} registers={regForHeader} filmCount={filmCount} />
+        <ScholarHeader term={mt.raw_concept ?? mt.title} theorist={theorist?.name ?? null} family={family} registers={regForHeader} filmCount={filmCount} takeCount={all.length} />
 
         {mt.thesis ? <p>{mt.thesis}</p> : null}
 
         {devices.length > 0 && (
           <div className="xbox">
-            <div className="xbox-h"><span className="xbox-ic" aria-hidden="true">⚙</span> Writing toward this meaning? Films build it through</div>
+            <div className="xbox-h"><span className="xbox-ic" aria-hidden="true">⚙</span> The tropes that build this meaning</div>
+            <div className="xbox-sub">Screenwriting figure-types films use to construct this reading — open a trope to see its figures.</div>
             <div className="xbox-list">
               {devices.map((d) => (
                 <Link key={d.slug} href={`/trope/${d.slug}`} className="xbox-row">
-                  <span className="xbox-name">{d.title} <span className="xbox-arrow">→</span></span>
+                  <span className="xbox-name">{d.title} <span className="xbox-arrow">→ trope</span></span>
                   <span className="xbox-n">{d.n} {d.n === 1 ? "figure" : "figures"}</span>
                 </Link>
               ))}
