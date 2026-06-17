@@ -23,11 +23,12 @@ interface Props { params: Promise<{ slug: string }>; }
 
 const KIND_LABEL: Record<string, string> = {
   character: "Characters", object: "Objects & symbols", location: "Locations",
-  form: "Form & technique", trope: "Tropes",
+  form: "Form & technique", trope: "Themes & motifs",
 };
 const KIND_ORDER = ["character", "object", "location", "form", "trope"];
 
 type Fig = { id: string; kind: string | null; label: string; slug: string | null; metaTakes: { slug: string; title: string }[] };
+type ListItem = { slug: string; title: string; count: number };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
 
 async function load(slug: string) {
@@ -40,7 +41,7 @@ async function load(slug: string) {
 
   const [{ data: figRows }, { data: aff }, { data: mediaRows }] = await Promise.all([
     supabase.from("figures")
-      .select("id, kind, label, slug, takes(meta_take:meta_takes(slug, title, status))")
+      .select("id, kind, label, slug, takes(meta_take:meta_takes(slug, title, status, kind))")
       .eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -48,10 +49,39 @@ async function load(slug: string) {
   ]);
 
   const figures: Fig[] = (figRows ?? []).map((f) => {
-    const takes = (f.takes ?? []) as unknown as { meta_take: { slug: string; title: string; status: string } | null }[];
-    const mts = takes.map((t) => t.meta_take).filter((m): m is { slug: string; title: string; status: string } => !!m && m.status === "published");
+    const takes = (f.takes ?? []) as unknown as { meta_take: { slug: string; title: string; status: string; kind: string } | null }[];
+    const mts = takes.map((t) => t.meta_take).filter((m): m is { slug: string; title: string; status: string; kind: string } => !!m && m.status === "published" && m.kind === "reading");
     return { id: f.id, kind: f.kind, label: f.label, slug: f.slug, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
   });
+
+  // Layer 2 — distinct readings (kind='reading') this film's figures take part in.
+  const readMap = new Map<string, ListItem>();
+  for (const f of figures) {
+    const seen = new Set<string>();
+    for (const m of f.metaTakes) {
+      if (seen.has(m.slug)) continue;
+      seen.add(m.slug);
+      const e = readMap.get(m.slug);
+      if (e) e.count++; else readMap.set(m.slug, { slug: m.slug, title: m.title, count: 1 });
+    }
+  }
+  const readings = [...readMap.values()].sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+
+  // Layer 3 — tropes (kind='figure_type') this film instantiates, via figure_type_members.
+  const figIds = figures.map((f) => f.id);
+  let tropes: ListItem[] = [];
+  if (figIds.length) {
+    const { data: ftm } = await supabase.from("figure_type_members").select("meta_take_id, figure_id").in("figure_id", figIds);
+    const mtIds = [...new Set((ftm ?? []).map((r) => r.meta_take_id))];
+    if (mtIds.length) {
+      const { data: tms } = await supabase.from("meta_takes").select("id, slug, title").in("id", mtIds).eq("status", "published").eq("kind", "figure_type");
+      const tmMap = new Map((tms ?? []).map((m) => [m.id, m]));
+      const tcount = new Map<string, number>();
+      for (const r of (ftm ?? [])) if (tmMap.has(r.meta_take_id)) tcount.set(r.meta_take_id, (tcount.get(r.meta_take_id) ?? 0) + 1);
+      tropes = [...tcount.entries()].map(([id, count]) => { const m = tmMap.get(id)!; return { slug: m.slug, title: m.title, count }; })
+        .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+    }
+  }
 
   const media = (mediaRows ?? []) as unknown as MediaRow[];
   const stills = media.filter((m) => m.kind === "image").slice(0, 5);
@@ -89,9 +119,9 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, recs, stills, trailer } = data;
+  const { film, figures, readings, tropes, recs, stills, trailer } = data;
   const grouped = KIND_ORDER.map((k) => ({ kind: k, items: figures.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
-  const mtTotal = new Set(figures.flatMap((f) => f.metaTakes.map((m) => m.slug))).size;
+  const mtTotal = readings.length;
   const extra = (film.tmdb_extra ?? {}) as { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string; vote_average?: number; collection?: string | null };
   const cast = extra.cast ?? [];
   const runtimeFmt = film.runtime ? `${film.runtime} min` : null;
@@ -180,23 +210,50 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         <h2 className="mt-h2">Figures</h2>
+        <p className="mt-sub">The characters, objects, places, forms, and motifs critics have singled out in {film.title}.</p>
         {grouped.map((g) => (
           <div key={g.kind}>
             <div className="mt-label">{KIND_LABEL[g.kind] ?? g.kind}</div>
             <ul className="mt-list">
               {g.items.map((f) => (
                 <li key={f.id}>
-                  {f.slug ? <Link href={`/film/${film.slug}/figure/${f.slug}`}>{f.label}</Link> : f.label}
-                  {f.metaTakes.length > 0 && (
-                    <> {" "}
-                      {f.metaTakes.map((m, i) => <span key={m.slug}>{i > 0 ? " · " : "→ "}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>)}
-                    </>
-                  )}
+                  {f.slug ? <Link className="mt-fig" href={`/film/${film.slug}/figure/${f.slug}`}>{f.label}</Link> : <span className="mt-fig">{f.label}</span>}
+                  {f.metaTakes.length > 0 && <span className="meta"> · {f.metaTakes.length} reading{f.metaTakes.length > 1 ? "s" : ""}</span>}
                 </li>
               ))}
             </ul>
           </div>
         ))}
+
+        {readings.length > 0 && (
+          <>
+            <h2 className="mt-h2">Readings</h2>
+            <p className="mt-sub">Cross-film critical patterns this film takes part in — each links to the full reading.</p>
+            <ul className="mt-list">
+              {readings.map((r) => (
+                <li key={r.slug}>
+                  <Link href={`/take/${r.slug}`}>{r.title}</Link>
+                  {r.count > 1 && <span className="meta"> · across {r.count} figures</span>}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {tropes.length > 0 && (
+          <>
+            <h2 className="mt-h2">Tropes</h2>
+            <p className="mt-sub">Screenwriting types this film instantiates — shared with other films under <Link href="/tropes">Tropes</Link>.</p>
+            <ul className="mt-list">
+              {tropes.map((t) => (
+                <li key={t.slug}>
+                  <Link href={`/trope/${t.slug}`}>{t.title}</Link>
+                  {t.count > 1 && <span className="meta"> · {t.count} figures here</span>}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {recs.length > 0 && (
           <>
