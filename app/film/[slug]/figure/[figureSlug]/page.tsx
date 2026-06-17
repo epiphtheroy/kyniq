@@ -177,8 +177,6 @@ export default async function FigurePage({ params }: Props) {
           <p className="fig-desc">{renderTokens(figure.description, resolver)}</p>
         ) : null}
 
-        <EntityGraphLoader kind="figure" filmSlug={film.slug} figureSlug={figureSlug} height={520} />
-
         <h2 className="mt-h2">Takes</h2>
         <p className="fig-gloss">A take is one critical reading of this figure. Takes that recur across films converge into a <strong>meta take</strong> — the hub each one links to below.</p>
         <div className="fig-takes">
@@ -209,6 +207,8 @@ export default async function FigurePage({ params }: Props) {
           })}
           {takes.length === 0 ? <p className="mt-see">No takes yet.</p> : null}
         </div>
+
+        <EntityGraphLoader kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} height={460} />
 
         {connections.length > 0 && (
           <>

@@ -233,8 +233,6 @@ export default async function FilmPage({ params }: Props) {
           </details>
         ) : null}
 
-        <EntityGraphLoader kind="film" filmSlug={film.slug} height={400} />
-
         <h2 className="mt-h2">Figures</h2>
         <p className="mt-sub">The characters, objects, places, forms, and motifs critics have singled out in {film.title}.</p>
         {grouped.map((g) => (
@@ -250,6 +248,8 @@ export default async function FilmPage({ params }: Props) {
             </ul>
           </div>
         ))}
+
+        <EntityGraphLoader kind="film" filmSlug={film.slug} label={film.title} height={400} />
 
         {readings.length > 0 && (
           <>

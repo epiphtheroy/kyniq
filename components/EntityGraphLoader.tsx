@@ -4,6 +4,7 @@
  * EntityGraphLoader — fetches a graph seed (graph_film_seed / graph_figure_seed)
  * on mount and hands it to the Obsidian-style <EntityGraph>. Client-side + lazy
  * so the (large) graph payload never bloats the page's SSR HTML.
+ * Shows a caption (what the graph is) and an Expand toggle to enlarge it.
  */
 
 import { useEffect, useState } from "react";
@@ -18,15 +19,18 @@ export default function EntityGraphLoader({
   kind,
   filmSlug,
   figureSlug,
-  height = 520,
+  label,
+  height = 440,
 }: {
   kind: "film" | "figure";
   filmSlug: string;
   figureSlug?: string;
+  label?: string;
   height?: number;
 }) {
   const [data, setData] = useState<GraphData | null>(null);
   const [failed, setFailed] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -46,12 +50,25 @@ export default function EntityGraphLoader({
 
   if (failed) return null;
 
+  const h = expanded ? 820 : height;
+  const subject = label ?? (kind === "film" ? "this film" : "this figure");
+
   return (
     <div className="eg">
-      <div className="eg-cap">Connections <span>· drag a node, hover to focus, click to travel</span></div>
+      <div className="eg-head">
+        <div className="eg-cap">
+          <span className="eg-cap__t">Connection map · {subject}</span>
+          <span className="eg-cap__s">Built from AI embeddings — the films, figures, readings and tropes nearest in meaning. Drag a node, hover to focus, click to travel.</span>
+        </div>
+        {data ? (
+          <button type="button" className="eg-exp" onClick={() => setExpanded((v) => !v)} aria-expanded={expanded}>
+            {expanded ? "Collapse" : "Expand ⤢"}
+          </button>
+        ) : null}
+      </div>
       {data
-        ? <EntityGraph data={data} height={height} />
-        : <div className="eg-skel" style={{ height }}>Drawing connections…</div>}
+        ? <EntityGraph data={data} height={h} />
+        : <div className="eg-skel" style={{ height: h }}>Drawing connections…</div>}
     </div>
   );
 }
