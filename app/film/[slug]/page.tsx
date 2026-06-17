@@ -28,7 +28,8 @@ const KIND_LABEL: Record<string, string> = {
 const KIND_ORDER = ["character", "object", "location", "form", "trope"];
 
 type Fig = { id: string; kind: string | null; label: string; slug: string | null; metaTakes: { slug: string; title: string }[] };
-type ListItem = { slug: string; title: string; count: number };
+type FigRef = { label: string; slug: string | null };
+type FilmLink = { slug: string; title: string; figs: FigRef[] };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
 
 async function load(slug: string) {
@@ -54,32 +55,41 @@ async function load(slug: string) {
     return { id: f.id, kind: f.kind, label: f.label, slug: f.slug, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
   });
 
-  // Layer 2 — distinct readings (kind='reading') this film's figures take part in.
-  const readMap = new Map<string, ListItem>();
+  // Layer 2 — distinct meta-takes (kind='reading'); keep which of this film's figures reach each.
+  const readMap = new Map<string, FilmLink>();
   for (const f of figures) {
+    const fg: FigRef = { label: f.label, slug: f.slug };
     const seen = new Set<string>();
     for (const m of f.metaTakes) {
       if (seen.has(m.slug)) continue;
       seen.add(m.slug);
       const e = readMap.get(m.slug);
-      if (e) e.count++; else readMap.set(m.slug, { slug: m.slug, title: m.title, count: 1 });
+      if (e) { if (!e.figs.some((x) => x.label === fg.label)) e.figs.push(fg); }
+      else readMap.set(m.slug, { slug: m.slug, title: m.title, figs: [fg] });
     }
   }
-  const readings = [...readMap.values()].sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+  const readings = [...readMap.values()].sort((a, b) => b.figs.length - a.figs.length || a.title.localeCompare(b.title));
 
-  // Layer 3 — tropes (kind='figure_type') this film instantiates, via figure_type_members.
+  // Layer 3 — tropes (kind='figure_type'); keep this film's figures per trope.
   const figIds = figures.map((f) => f.id);
-  let tropes: ListItem[] = [];
+  const figById = new Map<string, FigRef>(figures.map((f) => [f.id, { label: f.label, slug: f.slug }]));
+  let tropes: FilmLink[] = [];
   if (figIds.length) {
     const { data: ftm } = await supabase.from("figure_type_members").select("meta_take_id, figure_id").in("figure_id", figIds);
     const mtIds = [...new Set((ftm ?? []).map((r) => r.meta_take_id))];
     if (mtIds.length) {
       const { data: tms } = await supabase.from("meta_takes").select("id, slug, title").in("id", mtIds).eq("status", "published").eq("kind", "figure_type");
       const tmMap = new Map((tms ?? []).map((m) => [m.id, m]));
-      const tcount = new Map<string, number>();
-      for (const r of (ftm ?? [])) if (tmMap.has(r.meta_take_id)) tcount.set(r.meta_take_id, (tcount.get(r.meta_take_id) ?? 0) + 1);
-      tropes = [...tcount.entries()].map(([id, count]) => { const m = tmMap.get(id)!; return { slug: m.slug, title: m.title, count }; })
-        .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+      const tFigs = new Map<string, FigRef[]>();
+      for (const r of (ftm ?? [])) {
+        if (!tmMap.has(r.meta_take_id)) continue;
+        const fg = figById.get(r.figure_id); if (!fg) continue;
+        const arr = tFigs.get(r.meta_take_id) ?? [];
+        if (!arr.some((x) => x.label === fg.label)) arr.push(fg);
+        tFigs.set(r.meta_take_id, arr);
+      }
+      tropes = [...tFigs.entries()].map(([id, figs]) => { const m = tmMap.get(id)!; return { slug: m.slug, title: m.title, figs }; })
+        .sort((a, b) => b.figs.length - a.figs.length || a.title.localeCompare(b.title));
     }
   }
 
@@ -126,6 +136,20 @@ export default async function FilmPage({ params }: Props) {
   const cast = extra.cast ?? [];
   const runtimeFmt = film.runtime ? `${film.runtime} min` : null;
   const cert = film.certification ? film.certification.replace(/^[A-Z]{2}:/, "") : null;
+
+  const viaFigs = (figs: FigRef[]) => {
+    if (!figs.length) return null;
+    const show = figs.slice(0, 3);
+    return (
+      <span className="film-via"> · via {show.map((fg, i) => (
+        <span key={i}>{i > 0 ? ", " : ""}
+          {fg.slug
+            ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="mt-fig">{fg.label}</Link>
+            : <span className="mt-fig">{fg.label}</span>}
+        </span>
+      ))}{figs.length > 3 ? ` +${figs.length - 3}` : ""}</span>
+    );
+  };
 
   const jsonld = {
     "@context": "https://schema.org", "@type": "Movie", name: film.title,
@@ -227,13 +251,13 @@ export default async function FilmPage({ params }: Props) {
 
         {readings.length > 0 && (
           <>
-            <h2 className="mt-h2">Readings</h2>
+            <h2 className="mt-h2">Meta takes</h2>
             <p className="mt-sub">Cross-film critical patterns this film takes part in — each links to the full reading.</p>
             <ul className="mt-list">
               {readings.map((r) => (
                 <li key={r.slug}>
                   <Link href={`/take/${r.slug}`}>{r.title}</Link>
-                  {r.count > 1 && <span className="meta"> · across {r.count} figures</span>}
+                  {viaFigs(r.figs)}
                 </li>
               ))}
             </ul>
@@ -248,7 +272,7 @@ export default async function FilmPage({ params }: Props) {
               {tropes.map((t) => (
                 <li key={t.slug}>
                   <Link href={`/trope/${t.slug}`}>{t.title}</Link>
-                  {t.count > 1 && <span className="meta"> · {t.count} figures here</span>}
+                  {viaFigs(t.figs)}
                 </li>
               ))}
             </ul>

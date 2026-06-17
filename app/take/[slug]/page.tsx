@@ -8,7 +8,6 @@ import TakeExplorer from "@/components/TakeExplorer";
 import NodeGraph from "@/components/NodeGraph";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
-import ScholarHeader from "@/components/ScholarHeader";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 
@@ -85,16 +84,8 @@ async function load(slug: string) {
   }
 
   const family = mt.theory_family as unknown as { name: string; slug: string } | null;
-  const theorist = mt.theorist as unknown as { name: string; slug: string } | null;
 
-  // lens map (which critical registers this concept is read through) + devices (cross-link)
-  const regCount = new Map<string, number>();
-  for (const r of withRank) if (r.register) regCount.set(r.register, (regCount.get(r.register) ?? 0) + 1);
-  const registers = [...regCount.entries()].sort((a, b) => b[1] - a[1]).map(([key, n]) => ({ key, n }));
-  const { data: devData } = await supabase.rpc("meta_take_tropes", { p_slug: slug, p_limit: 8 });
-  const devices = (devData as { slug: string; title: string; n: number }[]) ?? [];
-
-  return { mt, family, theorist, defining, unexpected, related, all: withRank, filmCount: filmSet.size, registers, devices };
+  return { mt, family, defining, unexpected, related, all: withRank, filmCount: filmSet.size };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -112,8 +103,7 @@ export default async function TakePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { mt, family, theorist, defining, unexpected, related, all, filmCount, registers, devices } = data;
-  const regForHeader = registers.map((r) => ({ label: REG[r.key]?.[0] ?? r.key, color: REG[r.key]?.[1] ?? "#8F8F8F", n: r.n }));
+  const { mt, family, defining, unexpected, related, all, filmCount } = data;
 
   const Example = ({ r }: { r: RowR }) => (
     <li
@@ -185,24 +175,15 @@ export default async function TakePage({ params }: Props) {
         {mt.laconic ? <p className="mt-laconic">{mt.laconic}</p> : null}
         <EntityActions entityType="meta_take" entityId={mt.id} />
 
-        <ScholarHeader term={mt.raw_concept ?? mt.title} theorist={theorist?.name ?? null} family={family} registers={regForHeader} filmCount={filmCount} takeCount={all.length} />
+        <div className="mt-info">
+          <div className="hd">Meta take</div>
+          <div className="bd">
+            <div className="row"><span className="k">Films</span><span>{filmCount}</span></div>
+            {all.length > 0 ? <div className="row"><span className="k">Takes</span><a href="#all-takes" className="mt-jump">{all.length} ↓</a></div> : null}
+          </div>
+        </div>
 
         {mt.thesis ? <p>{mt.thesis}</p> : null}
-
-        {devices.length > 0 && (
-          <div className="xbox">
-            <div className="xbox-h"><span className="xbox-ic" aria-hidden="true">⚙</span> The tropes that build this meaning</div>
-            <div className="xbox-sub">Screenwriting figure-types films use to construct this reading — open a trope to see its figures.</div>
-            <div className="xbox-list">
-              {devices.map((d) => (
-                <Link key={d.slug} href={`/trope/${d.slug}`} className="xbox-row">
-                  <span className="xbox-name">{d.title} <span className="xbox-arrow">→ trope</span></span>
-                  <span className="xbox-n">{d.n} {d.n === 1 ? "figure" : "figures"}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
 
         <h2 className="mt-h2">Representative takes</h2>
         <p className="mt-sortbar__hint">A few standouts. For every take, open a category under <a href="#all-takes">All takes</a> below.</p>

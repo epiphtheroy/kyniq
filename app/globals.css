@@ -1087,6 +1087,10 @@ p.has-dropcap::first-letter {
 .mt a[href^="/take/"]:hover { color: var(--mt-link-hover); }
 .mt a[href*="/figure/"] { color: var(--lk-fig); }
 .mt a[href*="/figure/"]:hover { color: var(--lk-fig-hover); }
+.mt a[href^="/trope/"] { color: var(--mt-link); }
+.mt a[href^="/trope/"]:hover { color: var(--mt-link-hover); }
+.film-via { color: var(--subtle); font-size: 13px; }
+.film-via a { font-size: 13px; }
 a.mt-link { color: var(--mt-link); text-decoration: none; }
 a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 .mt-crumb { font-size: 13px; color: var(--subtle); margin: 14px 0 8px; }
@@ -1492,8 +1496,12 @@ details.film-info[open] > summary::before { content: "▾ "; }
 
 /* trope members — click-to-expand "curtain" rows with an Open shortcut */
 .trm-list { list-style: none; padding: 0; margin: 8px 0 4px; }
-.trm-list > li { border-bottom: 0.5px solid var(--hairline); }
+.trm-list > li { padding: 10px 0; border-bottom: 0.5px solid var(--hairline); }
 .trm-list > li:last-child { border-bottom: none; }
+.trm-row { font-size: 15px; line-height: 1.55; }
+.trm-row .yr { color: var(--subtle); }
+.trm-arrow { color: var(--accent); text-decoration: none; font-family: var(--font-ui); }
+.trm-arrow:hover { color: var(--mt-link-hover); }
 .trm-sum { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; cursor: pointer; list-style: none; }
 .trm-sum::-webkit-details-marker { display: none; }
 .trm-sum::before { content: "\25B8"; color: var(--accent); font-size: 11px; flex: none; transform: translateY(-1px); transition: transform 0.15s ease; }
@@ -1507,7 +1515,7 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
   text-decoration: none; border: 0.5px solid var(--hairline-2); border-radius: 14px; padding: 3px 11px; white-space: nowrap; }
 .trm-go:hover { border-color: var(--accent); color: var(--mt-link-hover); }
 .trm-body { padding: 0 0 13px 17px; }
-.trm-desc { font-size: 14.5px; line-height: 1.65; color: #3d3d3d; margin: 2px 0 0; max-width: 66ch; }
+.trm-desc { font-size: 14px; line-height: 1.6; color: #3d3d3d; margin: 4px 0 0; max-width: 70ch; }
 .trm-muted { color: var(--subtle); font-style: italic; }
 .trm-reads { font-family: var(--font-ui); font-size: 12.5px; color: var(--subtle); margin-top: 8px; }
 .trm-reads a { color: var(--mt-link); text-decoration: none; }

@@ -19,7 +19,7 @@ type Row = { slug: string; title: string; laconic: string | null; figures: numbe
 export default async function TropesIndex() {
   const supabase = db();
   const { data } = await supabase.from("trope_counts").select("slug, title, laconic, figures, films");
-  const rows = ((data as Row[]) ?? []).sort((a, b) => b.films - a.films || b.figures - a.figures);
+  const rows = ((data as Row[]) ?? []).sort((a, b) => b.figures - a.figures || b.films - a.films);
 
   return (
     <div className="mt">
@@ -37,16 +37,14 @@ export default async function TropesIndex() {
         ) : (
           <>
             <ListFilter targetId="trope-list" placeholder={`Search ${rows.length} tropes…`} />
-            <ol className="trl" id="trope-list">
-              {rows.map((r, i) => (
-                <li key={r.slug} className="trl-item" data-filter-item data-filter-text={`${r.title} ${r.laconic ?? ""}`.toLowerCase()}>
-                  <span className="trl-rank">{i + 1}</span>
-                  <Link href={`/trope/${r.slug}`} className="trl-ttl">{r.title}</Link>
-                  {r.laconic ? <span className="trl-lac">{r.laconic}</span> : null}
-                  <span className="trl-stats">{r.figures} figures · {r.films} films</span>
-                </li>
+            <div className="mt-cols" id="trope-list">
+              {rows.map((r) => (
+                <div key={r.slug} data-filter-item data-filter-text={r.title.toLowerCase()} style={{ marginBottom: 6 }}>
+                  <Link href={`/trope/${r.slug}`}>{r.title}</Link>{" "}
+                  <span style={{ color: "var(--subtle)" }}>{r.figures}</span>
+                </div>
               ))}
-            </ol>
+            </div>
           </>
         )}
       </div>
