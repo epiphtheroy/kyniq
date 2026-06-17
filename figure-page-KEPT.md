@@ -110,6 +110,12 @@
    (선택)`source_citation`/`source_url` — **단 출처는 미검증이므로 "scholarship anchored"로 과장 금지.**
 2. figure마다: 영화색을 *덜* 탄 깔끔한 `description`(유형 태깅 품질의 토대) + slug.
 3. 신규 영화 적재 후 순서: tmdb-fetch → figure-enrich → mt-embed → mt-consolidate(dedup+split≤70)
-   → mt-author(Opus) → mt-rank/recommend → **trope-tag → trope stage2** → 검증 → 배포.
-4. 백로그: 인용 **Crossref/Semantic Scholar 검증** 후에야 진짜 인용을 자산으로 노출(§A #4).
-5. about/guidelines 문구 유지: 사실오류는 고침/해석은 열어둠 · 즉시게시+감사루프 · posters·stills(TMDB).
+   → mt-author(Opus) → mt-rank/recommend → **trope-tag → trope stage2** → **theory-canon 매칭** → 검증 → 배포.
+   - **trope-tag 파라미터(빅뱅 포함 필수):** figure당 **최대 3 태그**(주1+보조≤2), 영화당 1콜(Opus),
+     figure는 **정수 인덱스로 식별**(UUID 왕복 금지 — LLM 변조 시 FK 에러). 멱등(미태깅만).
+4. **이론 정전(Theories & Theorists CSV, 2,586개) 활용 = 프롬프트 주입이 아니라 임베딩 후처리.**
+   enrich는 raw_concept 자유 생성 그대로 → 사후 `theory-match`: raw_concept(또는 meta_take 임베딩)을
+   정전 이론 임베딩과 최근접 매칭 → theory_families(전통) 부여 + theorist 대조 검증(오귀속 플래그).
+   정전 1회 임베딩 ~$0.05, enrich 비용 0 추가, 이미 생성된 것에도 소급 적용. top-K *선정*은 LLM 0.
+5. 백로그: 인용 **Crossref/Semantic Scholar 검증** 후에야 진짜 인용을 자산으로 노출(§A #4).
+6. about/guidelines 문구 유지: 사실오류는 고침/해석은 열어둠 · 즉시게시+감사루프 · posters·stills(TMDB).
