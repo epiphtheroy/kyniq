@@ -62,7 +62,7 @@ async function load(slug: string) {
   const sharedIds = [...new Set((aff ?? []).flatMap((a) => (a.shared_meta_take_ids ?? []) as string[]))];
   const [{ data: relFilms }, { data: sharedMts }] = await Promise.all([
     relIds.length ? supabase.from("films").select("id, title, slug, year").in("id", relIds) : Promise.resolve({ data: [] as { id: string; title: string; slug: string; year: number | null }[] }),
-    sharedIds.length ? supabase.from("meta_takes").select("id, slug, title").in("id", sharedIds).eq("status", "published") : Promise.resolve({ data: [] as { id: string; slug: string; title: string }[] }),
+    sharedIds.length ? supabase.from("meta_takes").select("id, slug, title").in("id", sharedIds).eq("status", "published").eq("kind", "reading") : Promise.resolve({ data: [] as { id: string; slug: string; title: string }[] }),
   ]);
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const mtMap = new Map((sharedMts ?? []).map((m) => [m.id, m]));

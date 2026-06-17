@@ -39,7 +39,7 @@ export default async function LatestPage() {
       .eq("status", "published")
       .order("created_at", { ascending: false })
       .limit(40),
-    supabase.from("meta_takes").select("slug, title, laconic, created_at").eq("status", "published").order("created_at", { ascending: false }).limit(12),
+    supabase.from("meta_takes").select("slug, title, laconic, created_at").eq("status", "published").eq("kind", "reading").order("created_at", { ascending: false }).limit(12),
     supabase.from("figures").select("slug, label, created_at, film:films!inner(title, slug)").eq("status", "approved").not("slug", "is", null).order("created_at", { ascending: false }).limit(12),
   ]);
 

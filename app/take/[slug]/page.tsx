@@ -45,7 +45,7 @@ async function load(slug: string) {
     .from("meta_takes")
     .select(`id, slug, title, laconic, thesis, genres, created_at, updated_at, raw_concept,
       theory_family:theory_families(name, slug), theorist:theorists(name, slug)`)
-    .eq("slug", slug).eq("status", "published").maybeSingle();
+    .eq("slug", slug).eq("status", "published").eq("kind", "reading").maybeSingle();
   if (!mt) return null;
 
   const [{ data: takeRows }, { data: ranks }, { data: edges }] = await Promise.all([
@@ -80,7 +80,7 @@ async function load(slug: string) {
   let related: { slug: string; title: string }[] = [];
   if (otherIds.length) {
     const { data: rel } = await supabase.from("meta_takes")
-      .select("slug, title").in("id", otherIds).eq("status", "published");
+      .select("slug, title").in("id", otherIds).eq("status", "published").eq("kind", "reading");
     related = (rel ?? []) as { slug: string; title: string }[];
   }
 

@@ -51,7 +51,7 @@ export default async function MetaTakesIndex({ searchParams }: Props) {
   const [{ data: mts }, { data: counts }, { data: regCounts }] = await Promise.all([
     supabase.from("meta_takes")
       .select("id, slug, title, view_count, created_at, theory_family:theory_families(name, slug), theorist:theorists(name, slug)")
-      .eq("status", "published"),
+      .eq("status", "published").eq("kind", "reading"),
     supabase.from("meta_take_film_counts").select("meta_take_id, film_count"),
     supabase.from("meta_take_register_counts").select("meta_take_id, register, take_count"),
   ]);

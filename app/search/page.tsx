@@ -16,11 +16,12 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-type Kind = "film" | "meta_take" | "figure" | "director";
+type Kind = "film" | "meta_take" | "figure" | "director" | "trope";
 interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number }
 
 const GROUPS: { kind: Kind; label: string }[] = [
   { kind: "meta_take", label: "Meta takes" },
+  { kind: "trope", label: "Tropes" },
   { kind: "film", label: "Films" },
   { kind: "figure", label: "Figures" },
   { kind: "director", label: "Directors" },
@@ -28,6 +29,7 @@ const GROUPS: { kind: Kind; label: string }[] = [
 function hrefOf(r: Row): string {
   if (r.kind === "film") return `/film/${r.slug}`;
   if (r.kind === "meta_take") return `/take/${r.slug}`;
+  if (r.kind === "trope") return `/trope/${r.slug}`;
   if (r.kind === "figure") return `/film/${r.film_slug}/figure/${r.slug}`;
   return `/director/${r.slug}`;
 }

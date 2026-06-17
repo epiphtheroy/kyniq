@@ -11,13 +11,14 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
-type Kind = "film" | "meta_take" | "figure" | "director";
+type Kind = "film" | "meta_take" | "figure" | "director" | "trope";
 interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number }
 
-const KIND_LABEL: Record<Kind, string> = { film: "Film", meta_take: "Meta take", figure: "Figure", director: "Director" };
+const KIND_LABEL: Record<Kind, string> = { film: "Film", meta_take: "Meta take", figure: "Figure", director: "Director", trope: "Trope" };
 function hrefOf(r: Row): string {
   if (r.kind === "film") return `/film/${r.slug}`;
   if (r.kind === "meta_take") return `/take/${r.slug}`;
+  if (r.kind === "trope") return `/trope/${r.slug}`;
   if (r.kind === "figure") return `/film/${r.film_slug}/figure/${r.slug}`;
   return `/director/${r.slug}`;
 }

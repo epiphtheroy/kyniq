@@ -1271,6 +1271,7 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .sb-k-meta_take { color: var(--mt-link); }
 .sb-k-figure { color: var(--lk-fig); }
 .sb-k-film, .sb-k-director { color: var(--lk-film); }
+.sb-k-trope { color: var(--lk-fig); }
 .sb-title { font-family: var(--font-body); font-size: 14px; color: var(--ink); flex: 1 1 auto;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .sb-sub { font-family: var(--font-ui); font-size: 11px; color: var(--subtle); flex: none; max-width: 40%;

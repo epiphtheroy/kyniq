@@ -19,7 +19,7 @@ function db() {
 export default async function Home() {
   const supabase = db();
   const [{ data: mts }, { data: counts }, { data: figs }, { data: recentRaw }] = await Promise.all([
-    supabase.from("meta_takes").select("id, slug, title, laconic").eq("status", "published"),
+    supabase.from("meta_takes").select("id, slug, title, laconic").eq("status", "published").eq("kind", "reading"),
     supabase.from("meta_take_film_counts").select("meta_take_id, film_count"),
     supabase.from("figures").select("slug, label, film:films!inner(slug, title)")
       .not("slug", "is", null).eq("status", "approved").limit(10),

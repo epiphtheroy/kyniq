@@ -64,7 +64,7 @@ async function load(slug: string, figureSlug: string) {
   const { data: mtRows } = await supabase
     .from("meta_takes")
     .select("id, title, laconic, theory_family:theory_families(name)")
-    .eq("status", "published").order("title");
+    .eq("status", "published").eq("kind", "reading").order("title");
   const metaTakes = ((mtRows ?? []) as unknown[]).map((r) => {
     const m = r as { id: string; title: string; laconic: string | null; theory_family: { name: string } | null };
     return { id: m.id, title: m.title, laconic: m.laconic ?? null, family: m.theory_family?.name ?? null };
