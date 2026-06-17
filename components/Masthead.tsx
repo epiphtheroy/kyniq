@@ -25,7 +25,8 @@ const NAV = [
   { href: "/film", label: "Films" },
   { href: "/director", label: "Directors" },
   { href: "/frames", label: "Questions" },
-  { href: "/ask", label: "Ask a question" },
+  { href: "/ask", label: "Ask" },
+  { href: "/ask/new", label: "Ask a question" },
   { href: "/about", label: "About" },
 ];
 
@@ -105,7 +106,7 @@ export default function Masthead({ user }: { user: User }) {
             <IconSearch />
           </button>
 
-          <Link href="/ask" className="btn-cta">
+          <Link href="/ask/new" className="btn-cta">
             Ask
           </Link>
 
@@ -161,7 +162,7 @@ export default function Masthead({ user }: { user: User }) {
             </button>
             <LogoBox />
             <div className="masthead__spacer" />
-            <Link href="/ask" className="btn-cta" onClick={closeAll}>
+            <Link href="/ask/new" className="btn-cta" onClick={closeAll}>
               Ask
             </Link>
           </div>

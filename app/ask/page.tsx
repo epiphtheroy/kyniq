@@ -1,314 +1,136 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import { createBrowserClient } from "@supabase/ssr";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
+import MetatakeNav from "@/components/MetatakeNav";
 
-function getSupabase() {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+type Cite = {
+  rank: number; take_id: string; rationale: string; register: string | null; theorist: string | null;
+  film_title: string; film_slug: string; figure_label: string; figure_slug: string;
+  meta_title: string | null; meta_slug: string | null;
+};
+type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[] };
+
+const EXAMPLES = [
+  "How does cinema portray surveillance?",
+  "What does the color red tend to mean?",
+  "How do films show grief without dialogue?",
+  "What is the meaning of mirrors on screen?",
+];
+
+function citeTarget(c: Cite) {
+  return c.meta_slug ? `/take/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
 }
 
-
-interface FilmResult {
-  tmdb_id: number;
-  title: string;
-  year: number | null;
-  poster_path: string | null;
-}
-
-function AskForm() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  // Step state
-  const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [selectedFilm, setSelectedFilm] = useState<{
-    id: string;
-    title: string;
-    year: number | null;
-    slug: string;
-  } | null>(null);
-
-  // Film search
-  const [filmQuery, setFilmQuery] = useState("");
-  const [filmResults, setFilmResults] = useState<FilmResult[]>([]);
-  const [searching, setSearching] = useState(false);
-
-  // Question
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-
-
-  // First reading (optional)
-  const [firstReading, setFirstReading] = useState("");
-
-  // Submission
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  // Pre-select film from query param
-  useEffect(() => {
-    const filmParam = searchParams.get("film");
-    if (filmParam) {
-      setFilmQuery(filmParam);
-      searchFilms(filmParam);
-    }
-  }, [searchParams]);
-
-  async function searchFilms(query: string) {
-    if (query.length < 2) {
-      setFilmResults([]);
-      return;
-    }
-    setSearching(true);
-    try {
-      const res = await fetch(`/api/films/search?q=${encodeURIComponent(query)}`);
-      const data = await res.json();
-      setFilmResults(data.results ?? []);
-    } catch {
-      setFilmResults([]);
-    }
-    setSearching(false);
-  }
-
-  async function selectFilm(tmdbId: number, filmTitle: string, year: number | null) {
-    // Ensure film is in our DB via the backfill endpoint
-    const supabase = getSupabase();
-
-    // Check if film exists
-    const { data: existing } = await supabase
-      .from("films")
-      .select("id, title, year, slug")
-      .eq("tmdb_id", tmdbId)
-      .single();
-
-    if (existing) {
-      setSelectedFilm(existing);
-    } else {
-      // Call backfill to add film
-      const res = await fetch("/api/films/backfill", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tmdb_id: tmdbId }),
-      });
-      if (res.ok) {
-        const { data: newFilm } = await supabase
-          .from("films")
-          .select("id, title, year, slug")
-          .eq("tmdb_id", tmdbId)
-          .single();
-        if (newFilm) setSelectedFilm(newFilm);
-      }
-    }
-
-    setStep(2);
-    setFilmResults([]);
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!selectedFilm || !title.trim()) return;
-
-    setSubmitting(true);
-    setError(null);
-
-    const supabase = getSupabase();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    if (!user) {
-      setError("You must be signed in to post.");
-      setSubmitting(false);
-      return;
-    }
-
-    // Create slug
-    const slug = `${selectedFilm.slug}-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 60)}-${Date.now().toString(36)}`;
-
-    // Insert question
-    const { data: question, error: qErr } = await supabase
-      .from("questions")
-      .insert({
-        film_id: selectedFilm.id,
-        author_id: user.id,
-        title: title.trim(),
-        body: body.trim() || null,
-        slug,
-        status: "published",
-        source: "human",
-        published_at: new Date().toISOString(),
-      })
-      .select("id, slug")
-      .single();
-
-    if (qErr) {
-      setError(qErr.message);
-      setSubmitting(false);
-      return;
-    }
-
-    // Optional first reading as a contribution
-    if (firstReading.trim() && question) {
-      await supabase.from("contributions").insert({
-        question_id: question.id,
-        author_id: user.id,
-        body: firstReading.trim(),
-        status: "published",
-        source: "human",
-        published_at: new Date().toISOString(),
-      });
-    }
-
-    router.push(`/film/${selectedFilm.slug}/q/${question.slug}`);
-  }
-
+function renderPara(para: string, map: Map<number, Cite>, k: string) {
+  const parts = para.split(/(\[\d+\])/g);
   return (
-    <main className="shell">
-      <h1 className="disp" style={{ fontSize: 25, margin: 0 }}>Ask a question</h1>
-
-      {error && (
-        <div style={{ padding: "10px 13px", marginTop: 16, background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 4, color: "#991b1b", fontSize: 13, fontFamily: "var(--font-ui)" }}>
-          {error}
-        </div>
-      )}
-
-      {/* Step 1 — Pick the film */}
-      <div style={{ marginTop: 24 }}>
-        <div className="step">01 — Pick the film</div>
-
-        {selectedFilm ? (
-          <div className="field" style={{ marginTop: 9, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span>
-              {selectedFilm.title}{" "}
-              <span className="muted" style={{ fontSize: 13 }}>({selectedFilm.year})</span>
-            </span>
-            <button
-              onClick={() => { setSelectedFilm(null); setStep(1); }}
-              className="ui accent"
-              style={{ fontSize: 12, textDecoration: "none", background: "none", border: "none", cursor: "pointer" }}
-            >
-              change
-            </button>
-          </div>
-        ) : (
-          <div style={{ marginTop: 9 }}>
-            <input
-              type="text"
-              value={filmQuery}
-              onChange={(e) => {
-                setFilmQuery(e.target.value);
-                searchFilms(e.target.value);
-              }}
-              placeholder="Search a film…"
-              className="field search"
-              style={{ width: "100%", boxSizing: "border-box", outline: "none" }}
-              autoFocus
-            />
-            {filmResults.length > 0 && (
-              <div style={{ border: "1px solid var(--hairline)", borderRadius: 4, marginTop: 4, background: "var(--surface)", maxHeight: 300, overflow: "auto" }}>
-                {filmResults.map((f) => (
-                  <button
-                    key={f.tmdb_id}
-                    onClick={() => selectFilm(f.tmdb_id, f.title, f.year)}
-                    style={{
-                      display: "block",
-                      width: "100%",
-                      textAlign: "left",
-                      padding: "10px 13px",
-                      border: "none",
-                      borderBottom: "1px solid var(--hairline)",
-                      background: "none",
-                      cursor: "pointer",
-                      fontFamily: "var(--font-body)",
-                      fontSize: 15,
-                      color: "var(--ink)",
-                    }}
-                  >
-                    {f.title} <span className="muted" style={{ fontSize: 13 }}>({f.year})</span>
-                  </button>
-                ))}
-              </div>
-            )}
-            {searching && <div className="ui muted" style={{ fontSize: 12, marginTop: 6 }}>Searching…</div>}
-          </div>
-        )}
-      </div>
-
-      {step >= 2 && (
-        <>
-          <hr className="rule" />
-
-          {/* Step 2 — Write the question */}
-          <div>
-            <div className="step">02 — Write the question</div>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="What does the blue box actually mean?"
-              className="field"
-              style={{ width: "100%", boxSizing: "border-box", marginTop: 9, outline: "none" }}
-            />
-            <div className="ui muted" style={{ fontSize: 12, marginTop: 8 }}>
-              Ask about meaning, symbolism, or intent — not trivia or plot recaps.
-            </div>
-
-
-            <textarea
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              placeholder="Add context (optional)…"
-              className="field"
-              rows={2}
-              style={{ width: "100%", boxSizing: "border-box", marginTop: 9, resize: "vertical", outline: "none", minHeight: 54 }}
-            />
-          </div>
-
-          <hr className="rule" />
-
-          {/* Step 3 — Optional first reading */}
-          <div>
-            <div className="step">
-              03 — Add your first reading{" "}
-              <span className="ui muted" style={{ fontSize: 12, letterSpacing: 0 }}>
-                · optional, but no question should sit empty
-              </span>
-            </div>
-            <textarea
-              value={firstReading}
-              onChange={(e) => setFirstReading(e.target.value)}
-              placeholder="Share how you read it…"
-              className="field"
-              rows={3}
-              style={{ width: "100%", boxSizing: "border-box", marginTop: 9, resize: "vertical", outline: "none", minHeight: 72 }}
-            />
-          </div>
-
-          <hr className="rule" />
-
-          <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-            <button
-              onClick={handleSubmit}
-              disabled={submitting || !title.trim()}
-              className="btn"
-              style={{ opacity: submitting || !title.trim() ? 0.5 : 1 }}
-            >
-              {submitting ? "Posting…" : "Post question"}
-            </button>
-          </div>
-        </>
-      )}
-    </main>
+    <p key={k} className="ask-p">
+      {parts.map((p, i) => {
+        const m = p.match(/^\[(\d+)\]$/);
+        if (m) {
+          const c = map.get(Number(m[1]));
+          if (c) return <Link key={i} href={citeTarget(c)} className="ask-cite" title={`${c.figure_label} · ${c.film_title}`}>[{m[1]}]</Link>;
+        }
+        return <span key={i}>{p}</span>;
+      })}
+    </p>
   );
 }
 
 export default function AskPage() {
+  const [q, setQ] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [res, setRes] = useState<Result | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  async function run(question?: string) {
+    const query = (question ?? q).trim();
+    if (query.length < 3 || loading) return;
+    if (question) setQ(question);
+    setLoading(true); setErr(null); setRes(null);
+    try {
+      const r = await fetch("/api/ask", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ q: query }),
+      });
+      const d = await r.json();
+      if (!r.ok) setErr(d.error || "Couldn't answer that.");
+      else setRes(d as Result);
+    } catch {
+      setErr("Network error — try again.");
+    }
+    setLoading(false);
+  }
+
+  const map = new Map((res?.citations ?? []).map((c) => [c.rank, c]));
+
   return (
-    <Suspense>
-      <AskForm />
-    </Suspense>
+    <div className="mt">
+      <MetatakeNav active="ask" />
+      <div className="mt-wrap">
+        <h1 className="mt-h1" style={{ borderBottom: "none", marginBottom: 2 }}>Ask Metatake</h1>
+        <p className="mt-laconic" style={{ margin: "0 0 14px", maxWidth: "64ch" }}>
+          Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake&rsquo;s {`18,004`} close readings — and every claim links back to the reading it came from.
+        </p>
+
+        <form className="askbar" onSubmit={(e) => { e.preventDefault(); run(); }}>
+          <input
+            className="ask-input" value={q} onChange={(e) => setQ(e.target.value)}
+            placeholder="How does cinema portray surveillance?" maxLength={300} autoFocus
+            aria-label="Ask a question about cinema"
+          />
+          <button className="ask-go" type="submit" disabled={loading || q.trim().length < 3}>
+            {loading ? "Reading…" : "Ask"}
+          </button>
+        </form>
+
+        <div className="ask-eg">
+          {EXAMPLES.map((x) => (
+            <button key={x} type="button" className="ask-chip" onClick={() => run(x)} disabled={loading}>{x}</button>
+          ))}
+        </div>
+
+        {err ? <p className="ask-err">{err}</p> : null}
+        {loading ? <p className="ask-loading">Searching 18,004 readings, then composing&hellip;</p> : null}
+
+        {res ? (
+          <div className="ask-out">
+            <div className="ask-answer">
+              {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`))}
+            </div>
+
+            {res.readings.length > 0 ? (
+              <div className="ask-threads">
+                <span className="ask-threads__lbl">Threads to pull</span>
+                {res.readings.slice(0, 6).map((rd) => (
+                  <Link key={rd.slug} href={`/take/${rd.slug}`} className="ask-thread">{rd.title}</Link>
+                ))}
+              </div>
+            ) : null}
+
+            {res.citations.length > 0 ? (
+              <div className="ask-sources">
+                <div className="ask-sources__lbl">Sources</div>
+                <ol className="ask-srclist">
+                  {res.citations.map((c) => (
+                    <li key={c.rank} id={`src-${c.rank}`}>
+                      <Link href={`/film/${c.film_slug}/figure/${c.figure_slug}`} className="mt-fig">{c.figure_label}</Link>
+                      <span className="ask-src-film"> · {c.film_title}</span>
+                      {c.meta_slug && c.meta_title ? <> &nbsp;→&nbsp; <Link href={`/take/${c.meta_slug}`}>{c.meta_title}</Link></> : null}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
+        <p className="ask-foot">
+          Answers are synthesized by an AI strictly from our close readings — interpretations, not citations of record. Follow the links to read the source. Looking to post a question for others?{" "}
+          <Link href="/ask/new" className="mt-link">Ask the community →</Link>
+        </p>
+      </div>
+    </div>
   );
 }
