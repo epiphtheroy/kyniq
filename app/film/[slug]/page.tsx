@@ -119,9 +119,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
+  // Thin-content gate: a film with fewer than 3 figures has no real reading yet
+  // (e.g. just-added films before extraction) → noindex. Auto-flips to indexable
+  // once film-extract populates its figures/takes; no manual step per film.
+  const meetsBar = data.figures.length >= 3;
   return {
     title: `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes`,
-    robots: pageRobots(true),
+    robots: pageRobots(meetsBar),
   };
 }
 

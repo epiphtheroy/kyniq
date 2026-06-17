@@ -39,9 +39,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Published films
-  const { data: films } = await supabase.from("films").select("slug, created_at");
+  // Films — only those with real content (>=3 figures). Just-added films with no
+  // figures yet are NOT advertised to search engines (thin-content guard); they
+  // enter the sitemap automatically once film-extract populates them.
+  const { data: films } = await supabase.from("films").select("slug, created_at, figures(count)");
   for (const f of films ?? []) {
+    const figCount = (f.figures as unknown as { count: number }[] | null)?.[0]?.count ?? 0;
+    if (figCount < 3) continue;
     entries.push({
       url: `${siteUrl}/film/${f.slug}`,
       lastModified: new Date(f.created_at),
