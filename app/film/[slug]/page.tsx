@@ -10,7 +10,6 @@ import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
-import EntityGraph, { type GraphData } from "@/components/EntityGraph";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -41,14 +40,13 @@ async function load(slug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: graph }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }] = await Promise.all([
     supabase.from("figures")
       .select("id, kind, label, slug, takes(meta_take:meta_takes(slug, title, status, kind))")
       .eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
-    supabase.rpc("graph_film_seed", { p_slug: slug }),
   ]);
 
   const figures: Fig[] = (figRows ?? []).map((f) => {
@@ -114,7 +112,7 @@ async function load(slug: string) {
     return f ? { film: f, reasons } : null;
   }).filter(Boolean) as { film: { title: string; slug: string; year: number | null }; reasons: { slug: string; title: string }[] }[];
 
-  return { film, figures, readings, tropes, recs, stills, trailer, graph: (graph ?? null) as GraphData | null };
+  return { film, figures, readings, tropes, recs, stills, trailer };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -131,7 +129,7 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, readings, tropes, recs, stills, trailer, graph } = data;
+  const { film, figures, readings, tropes, recs, stills, trailer } = data;
   const grouped = KIND_ORDER.map((k) => ({ kind: k, items: figures.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
   const mtTotal = readings.length;
   const extra = (film.tmdb_extra ?? {}) as { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string; vote_average?: number; collection?: string | null };
@@ -189,14 +187,6 @@ export default async function FilmPage({ params }: Props) {
           </div>
         </div>
 
-        {graph && graph.nodes && graph.nodes.length > 0 ? (
-          <section className="film-graph" style={{ margin: "1.25rem 0 1.75rem" }} aria-label={`Connection graph for ${film.title}`}>
-            <EntityGraph data={graph} height={520} />
-          </section>
-        ) : null}
-
-        <EntityGraphLoader kind="film" filmSlug={film.slug} />
-
         <div className="mt-info">
           <div className="hd">Film</div>
           <div className="bd">
@@ -242,6 +232,8 @@ export default async function FilmPage({ params }: Props) {
             </div>
           </details>
         ) : null}
+
+        <EntityGraphLoader kind="film" filmSlug={film.slug} height={400} />
 
         <h2 className="mt-h2">Figures</h2>
         <p className="mt-sub">The characters, objects, places, forms, and motifs critics have singled out in {film.title}.</p>

@@ -168,16 +168,16 @@ export default async function FigurePage({ params }: Props) {
           </div>
         </div>
 
-        {figure.description ? (
-          <p className="fig-desc">{renderTokens(figure.description, resolver)}</p>
-        ) : null}
-
-        <EntityGraphLoader kind="figure" filmSlug={film.slug} figureSlug={figureSlug} height={560} />
-
         <div className="fig-search">
           <a href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(`${film.title} ${figure.label}`)}`} target="_blank" rel="noopener noreferrer">Search images ↗</a>
           <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(`${film.title} ${figure.label} scene clip`)}`} target="_blank" rel="noopener noreferrer">Search clips ↗</a>
         </div>
+
+        {figure.description ? (
+          <p className="fig-desc">{renderTokens(figure.description, resolver)}</p>
+        ) : null}
+
+        <EntityGraphLoader kind="figure" filmSlug={film.slug} figureSlug={figureSlug} height={520} />
 
         <h2 className="mt-h2">Takes</h2>
         <p className="fig-gloss">A take is one critical reading of this figure. Takes that recur across films converge into a <strong>meta take</strong> — the hub each one links to below.</p>

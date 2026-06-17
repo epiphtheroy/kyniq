@@ -26,19 +26,21 @@ export type GraphNode = {
 export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" };
 export type GraphData = { nodes: GraphNode[]; links: GraphLink[] };
 
+// Light theme — readable on a white canvas. Dots carry the category colour;
+// labels are the same hue darkened for contrast.
 const COLORS: Record<string, { dot: string; label: string }> = {
-  film: { dot: "#e8e2d4", label: "#e8e2d4" },
-  figure: { dot: "#cdbfa6", label: "#cdbfa6" },
-  reading: { dot: "#e0a34a", label: "#e7b56e" },
-  trope: { dot: "#4fb6ad", label: "#79d2c9" },
+  film: { dot: "#3a3a3a", label: "#2a2a2a" },
+  figure: { dot: "#1F6FB2", label: "#1a4e7a" },
+  reading: { dot: "#C0392B", label: "#8f2a20" },
+  trope: { dot: "#0F6E56", label: "#0b5343" },
 };
-const CENTER_COL = { dot: "#f0b65f", label: "#ffffff" };
+const CENTER_COL = { dot: "#E3120B", label: "#1a1a1a" };
 const EDGE = {
-  struct: "rgba(233,228,216,0.10)",
-  reading: "rgba(224,163,74,0.22)",
-  trope: "rgba(79,182,173,0.24)",
+  struct: "rgba(0,0,0,0.10)",
+  reading: "rgba(192,57,43,0.22)",
+  trope: "rgba(15,110,86,0.24)",
 };
-const EDGE_HI = { struct: "rgba(233,228,216,0.55)", reading: "#e0a34a", trope: "#4fb6ad" };
+const EDGE_HI = { struct: "rgba(0,0,0,0.42)", reading: "#C0392B", trope: "#0F6E56" };
 
 type SimNode = GraphNode & {
   x: number; y: number; vx: number; vy: number;
@@ -86,8 +88,8 @@ export default function EntityGraph({
     const nodes: SimNode[] = data.nodes.map((n) => {
       const o: SimNode = {
         ...n,
-        x: CX + (Math.random() - 0.5) * 180,
-        y: CY + (Math.random() - 0.5) * 180,
+        x: CX + (Math.random() - 0.5) * 110,
+        y: CY + (Math.random() - 0.5) * 110,
         vx: 0, vy: 0, fx: null, fy: null, deg: 0,
       };
       if (o.center) { o.fx = CX; o.fy = CY; }
@@ -127,16 +129,16 @@ export default function EntityGraph({
       const big = !!n.center;
       el.style.cssText =
         "position:absolute;transform:translate(-50%,-50%);cursor:pointer;user-select:none;transition:opacity .22s;";
-      const dotShadow = big ? "box-shadow:0 0 0 4px rgba(240,182,95,.16),0 0 26px rgba(240,182,95,.42);" : "";
+      const dotShadow = big ? "box-shadow:0 0 0 4px rgba(227,18,11,.14),0 0 20px rgba(227,18,11,.28);" : "";
       const labelText = n.type === "figure" && !n.center ? trunc(n.label, 42) : n.label;
       const subHtml = n.sub
-        ? `<span style="display:block;font:400 10px/1.1 ui-sans-serif,system-ui;color:#6d675c;margin-top:2px;">${esc(n.sub)}</span>`
+        ? `<span style="display:block;font:400 10px/1.1 ui-sans-serif,system-ui;color:#8a857b;margin-top:2px;">${esc(n.sub)}</span>`
         : "";
       el.innerHTML =
         `<div style="width:${r * 2}px;height:${r * 2}px;border-radius:50%;margin:0 auto;background:${col.dot};${dotShadow}transition:transform .18s;"></div>` +
         `<div style="position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;` +
         `font:${big ? "500 14px" : "500 12px"}/1.15 ui-sans-serif,system-ui,sans-serif;color:${col.label};` +
-        `text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.85);pointer-events:none;">${esc(labelText)}${subHtml}</div>`;
+        `text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.95);pointer-events:none;">${esc(labelText)}${subHtml}</div>`;
       el.title = n.label + (n.sub ? " — " + n.sub : "");
       n.el = el;
       world.appendChild(el);
@@ -158,7 +160,7 @@ export default function EntityGraph({
     let moved = false;
     let panning = false;
     let panStart = { x: 0, y: 0, tx: 0, ty: 0 };
-    let alpha = 1;
+    let alpha = 0.5;
 
     function attachNode(n: SimNode, el: HTMLDivElement) {
       el.addEventListener("pointerdown", (e) => {
@@ -243,7 +245,7 @@ export default function EntityGraph({
           let dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy;
           if (d2 < 1) d2 = 1;
           if (d2 < 160000) {
-            const f = 3600 / d2, d = Math.sqrt(d2), fx = (f * dx) / d, fy = (f * dy) / d;
+            const f = 2400 / d2, d = Math.sqrt(d2), fx = (f * dx) / d, fy = (f * dy) / d;
             a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
           }
         }
@@ -252,7 +254,7 @@ export default function EntityGraph({
       for (const l of links) {
         const len = l.kind === "struct" ? 96 : l.source.center || l.target.center ? 150 : 82;
         let dx = l.target.x - l.source.x, dy = l.target.y - l.source.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
-        const f = ((d - len) * 0.045 * (0.4 + alpha)), fx = (f * dx) / d, fy = (f * dy) / d;
+        const f = ((d - len) * 0.035 * (0.35 + alpha)), fx = (f * dx) / d, fy = (f * dy) / d;
         l.source.vx += fx; l.source.vy += fy; l.target.vx -= fx; l.target.vy -= fy;
       }
       // gravity + integrate
@@ -260,7 +262,7 @@ export default function EntityGraph({
         if (a.fx != null) { a.x = a.fx; a.y = a.fy as number; a.vx = 0; a.vy = 0; }
         else {
           a.vx += (CX - a.x) * 0.006; a.vy += (CY - a.y) * 0.006;
-          a.vx *= 0.86; a.vy *= 0.86; a.x += a.vx; a.y += a.vy;
+          a.vx *= 0.82; a.vy *= 0.82; a.x += a.vx; a.y += a.vy;
         }
         if (a.el) { a.el.style.left = a.x + "px"; a.el.style.top = a.y + "px"; }
       }
@@ -271,7 +273,7 @@ export default function EntityGraph({
         }
       }
       // keep a touch of life so drags always feel elastic; never fully freeze
-      alpha = Math.max(0.03, alpha * 0.99);
+      alpha = Math.max(0, alpha * 0.95);
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -297,8 +299,8 @@ export default function EntityGraph({
         height,
         overflow: "hidden",
         borderRadius: 14,
-        border: "1px solid rgba(233,228,216,0.12)",
-        background: "radial-gradient(120% 100% at 50% 30%, #101117, #0a0a0c)",
+        border: "1px solid rgba(0,0,0,0.10)",
+        background: "radial-gradient(120% 100% at 50% 30%, #ffffff, #f6f4ee)",
         touchAction: "none",
         cursor: "grab",
       }}
