@@ -71,13 +71,44 @@ async function load(slug: string, figureSlug: string) {
   });
   const { data: tropeRows } = await supabase
     .from("figure_type_members")
-    .select("meta_take:meta_takes!inner(slug, title, kind, status)")
+    .select("meta_take:meta_takes!inner(id, slug, title, kind, status)")
     .eq("figure_id", figure.id);
   const tropes = ((tropeRows ?? []) as unknown[])
-    .map((r) => (r as { meta_take: { slug: string; title: string; kind: string; status: string } }).meta_take)
+    .map((r) => (r as { meta_take: { id: string; slug: string; title: string; kind: string; status: string } }).meta_take)
     .filter((m) => m && m.kind === "figure_type" && m.status === "published")
-    .map((m) => ({ slug: m.slug, title: m.title }));
-  return { film, figure, takes, metaTakes, tropes };
+    .map((m) => ({ id: m.id, slug: m.slug, title: m.title }));
+
+  // Connected figures — siblings that share one of this figure's tropes (cross-film kinship).
+  type Sib = { id: string; label: string; slug: string | null; filmTitle: string; filmSlug: string; year: number | null };
+  const connections: { slug: string; title: string; siblings: Sib[]; total: number; more: number }[] = [];
+  const tropeIds = tropes.map((t) => t.id);
+  if (tropeIds.length) {
+    const { data: sibRows } = await supabase
+      .from("figure_type_members")
+      .select("meta_take_id, figure:figures!inner(id, label, slug, status, film:films!inner(title, slug, year))")
+      .in("meta_take_id", tropeIds)
+      .neq("figure_id", figure.id);
+    const byTrope = new Map<string, Sib[]>();
+    const seen = new Set<string>();
+    for (const r of (sibRows ?? []) as unknown[]) {
+      const row = r as { meta_take_id: string; figure: { id: string; label: string; slug: string | null; status: string; film: { title: string; slug: string; year: number | null } } };
+      const f = row.figure;
+      if (!f || f.status !== "approved") continue;
+      const key = `${row.meta_take_id}:${f.id}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const arr = byTrope.get(row.meta_take_id) ?? [];
+      arr.push({ id: f.id, label: f.label, slug: f.slug, filmTitle: f.film.title, filmSlug: f.film.slug, year: f.film.year });
+      byTrope.set(row.meta_take_id, arr);
+    }
+    for (const t of tropes) {
+      const all = (byTrope.get(t.id) ?? []).sort((a, b) => a.filmTitle.localeCompare(b.filmTitle));
+      if (all.length === 0) continue;
+      connections.push({ slug: t.slug, title: t.title, siblings: all.slice(0, 10), total: all.length, more: Math.max(0, all.length - 10) });
+    }
+  }
+
+  return { film, figure, takes, metaTakes, tropes, connections };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -95,7 +126,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes, tropes } = data;
+  const { film, figure, takes, metaTakes, tropes, connections } = data;
   const resolver = { film: { [film.slug]: { title: film.title } } };
   const jsonld = {
     "@context": "https://schema.org", "@type": "Article",
@@ -176,6 +207,36 @@ export default async function FigurePage({ params }: Props) {
           })}
           {takes.length === 0 ? <p className="mt-see">No takes yet.</p> : null}
         </div>
+
+        {connections.length > 0 && (
+          <>
+            <h2 className="mt-h2">Connected figures</h2>
+            <p className="fig-gloss">
+              Figures from other films that Metatake places alongside this one — grouped by the <strong>trope</strong>
+              {" "}(figure-type) they share. The shared trope is <em>why</em> they connect.
+            </p>
+            {connections.map((c) => (
+              <div key={c.slug} className="figconn">
+                <div className="figconn-h">
+                  via <Link href={`/trope/${c.slug}`}>{c.title}</Link>
+                  <span className="figconn-n">{c.total} other {c.total === 1 ? "figure" : "figures"}</span>
+                </div>
+                <ul className="mt-list">
+                  {c.siblings.map((s) => (
+                    <li key={s.id}>
+                      <Link href={`/film/${s.filmSlug}`}>{s.filmTitle}</Link>{" "}
+                      <span className="yr">({s.year ?? "?"})</span> —{" "}
+                      {s.slug
+                        ? <Link href={`/film/${s.filmSlug}/figure/${s.slug}`} className="mt-fig">{s.label}</Link>
+                        : <span className="mt-fig">{s.label}</span>}
+                    </li>
+                  ))}
+                </ul>
+                {c.more > 0 && <Link href={`/trope/${c.slug}`} className="figconn-more">+{c.more} more →</Link>}
+              </div>
+            ))}
+          </>
+        )}
 
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
 

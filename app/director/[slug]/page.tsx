@@ -48,7 +48,25 @@ async function load(slug: string) {
     .sort((a, b) => b.films.size - a.films.size)
     .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
 
-  return { director, dir, films, signature, perFilmCount, total: films.length, mtCount: mtFilms.size };
+  // Tropes (figure-types) recurring across the filmography.
+  const { data: tropeRows } = await supabase
+    .from("figure_type_members")
+    .select("meta_take:meta_takes!inner(id, slug, title, status, kind), figure:figures!inner(film_id)")
+    .in("figure.film_id", filmIds)
+    .eq("meta_take.status", "published")
+    .eq("meta_take.kind", "figure_type");
+  const tropeFilms = new Map<string, { slug: string; title: string; films: Set<string> }>();
+  for (const r of (tropeRows ?? []) as unknown[]) {
+    const t = r as { meta_take: { id: string; slug: string; title: string }; figure: { film_id: string } };
+    const e = tropeFilms.get(t.meta_take.id) ?? { slug: t.meta_take.slug, title: t.meta_take.title, films: new Set<string>() };
+    e.films.add(t.figure.film_id); tropeFilms.set(t.meta_take.id, e);
+  }
+  const sigTropes = [...tropeFilms.values()]
+    .filter((m) => m.films.size >= 2)
+    .sort((a, b) => b.films.size - a.films.size)
+    .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
+
+  return { director, dir, films, signature, sigTropes, perFilmCount, total: films.length, mtCount: mtFilms.size, tropeCount: tropeFilms.size };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -62,7 +80,7 @@ export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, dir, films, signature, perFilmCount, total, mtCount } = data;
+  const { director, dir, films, signature, sigTropes, perFilmCount, total, mtCount, tropeCount } = data;
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
   const jsonld = {
     "@context": "https://schema.org", "@type": "Person", name: director, jobTitle: "Film director",
@@ -94,6 +112,7 @@ export default async function DirectorPage({ params }: Props) {
           <div className="bd">
             <div className="row"><span className="k">Films</span><span>{total}</span></div>
             <div className="row"><span className="k">Meta takes</span><span>{mtCount}</span></div>
+            <div className="row"><span className="k">Tropes</span><span>{tropeCount}</span></div>
             {d?.birthday ? <div className="row"><span className="k">Born</span><span>{d.birthday}</span></div> : null}
           </div>
         </div>
@@ -118,6 +137,27 @@ export default async function DirectorPage({ params }: Props) {
               {signature.map((m) => (
                 <li key={m.slug}>
                   <Link href={`/take/${m.slug}`}>{m.title}</Link>{" "}
+                  <span className="meta">— in {m.films.size} of {total}</span>
+                  <br />
+                  <span style={{ color: "var(--muted)" }}>
+                    {m.filmList.map((f, i) => <span key={f.slug}>{i > 0 ? " · " : ""}<Link href={`/film/${f.slug}`}>{f.title}</Link></span>)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {sigTropes.length > 0 && (
+          <>
+            <h2 className="mt-h2">Signature tropes</h2>
+            <p style={{ fontSize: 11.5, color: "var(--subtle)", margin: "7px 0 8px" }}>
+              Figure-types (devices, situations, objects) the director returns to across films.
+            </p>
+            <ul className="mt-list">
+              {sigTropes.map((m) => (
+                <li key={m.slug}>
+                  <Link href={`/trope/${m.slug}`}>{m.title}</Link>{" "}
                   <span className="meta">— in {m.films.size} of {total}</span>
                   <br />
                   <span style={{ color: "var(--muted)" }}>
