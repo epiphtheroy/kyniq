@@ -102,7 +102,7 @@ async function load(slug: string) {
     return f ? { film: f, reasons } : null;
   }).filter(Boolean) as { film: { title: string; slug: string; year: number | null }; reasons: { slug: string; title: string }[] }[];
 
-  return { film, figures, recs, stills, trailer };
+  return { film, figures, readings, tropes, recs, stills, trailer };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
