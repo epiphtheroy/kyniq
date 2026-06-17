@@ -59,6 +59,11 @@ export default function EntityGraphLoader({
   const h = expanded ? 820 : height;
   const subject =
     label ?? (kind === "film" ? "this film" : kind === "figure" ? "this figure" : kind === "metatake" ? "this reading" : "this trope");
+  const blurb =
+    kind === "metatake" ? "this reading, the films and figures that carry it, and the readings nearest it in meaning"
+    : kind === "trope" ? "this trope, the figures and films that share it, and the readings those figures receive"
+    : kind === "figure" ? "this figure, its readings, and the figures across films nearest it in meaning"
+    : "this film, its figures, and the films nearest it in meaning";
 
   return (
     <div className="eg">
