@@ -1091,6 +1091,15 @@ p.has-dropcap::first-letter {
 .mt a[href^="/trope/"]:hover { color: var(--mt-link-hover); }
 .film-via { color: var(--subtle); font-size: 13px; }
 .film-via a { font-size: 13px; }
+
+/* Obsidian-style connection graph (EntityGraph + loader) */
+.eg { margin: 14px 0 18px; }
+.eg-cap { font-family: var(--font-ui); font-size: 12px; color: var(--subtle); margin-bottom: 6px; }
+.eg-cap span { opacity: 0.7; }
+.eg-skel { display: flex; align-items: center; justify-content: center; border-radius: 14px;
+  border: 1px solid rgba(233,228,216,0.12);
+  background: radial-gradient(120% 100% at 50% 30%, #101117, #0a0a0c);
+  color: #6d675c; font-family: var(--font-ui); font-size: 13px; }
 a.mt-link { color: var(--mt-link); text-decoration: none; }
 a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 .mt-crumb { font-size: 13px; color: var(--subtle); margin: 14px 0 8px; }

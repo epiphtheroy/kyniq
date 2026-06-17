@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import FigureContribute from "@/components/FigureContribute";
-import NodeGraph from "@/components/NodeGraph";
+import EntityGraphLoader from "@/components/EntityGraphLoader";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import TakeMapToggle from "@/components/TakeMapToggle";
@@ -172,6 +172,8 @@ export default async function FigurePage({ params }: Props) {
           <p className="fig-desc">{renderTokens(figure.description, resolver)}</p>
         ) : null}
 
+        <EntityGraphLoader kind="figure" filmSlug={film.slug} figureSlug={figureSlug} height={560} />
+
         <div className="fig-search">
           <a href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(`${film.title} ${figure.label}`)}`} target="_blank" rel="noopener noreferrer">Search images ↗</a>
           <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(`${film.title} ${figure.label} scene clip`)}`} target="_blank" rel="noopener noreferrer">Search clips ↗</a>
@@ -241,7 +243,6 @@ export default async function FigurePage({ params }: Props) {
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
 
         <SeqNav kind="figure" id={figure.id} />
-        <NodeGraph kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} />
 
         <Provenance created={figure.created_at} updated={figure.updated_at} />
       </div>
