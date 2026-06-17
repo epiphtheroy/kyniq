@@ -1583,6 +1583,43 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .hm-nav a span { color: var(--subtle); font-size: 11px; }
 @media (max-width: 680px) { .hm-2 { grid-template-columns: 1fr; } .hm-ex { grid-template-columns: 1fr; } .hm-2col { grid-template-columns: 1fr; } }
 
+/* ── Living Paper homepage (hero + counters + random wall) ──── */
+.lp-h1 { font-family: var(--font-body); font-size: 38px; font-weight: 500; line-height: 1.08;
+  letter-spacing: -0.01em; margin: 16px 0 0; color: var(--ink); border: none; }
+.lp-em { color: var(--accent); }
+@media (max-width: 560px) { .lp-h1 { font-size: 30px; } }
+
+.gauges { display: flex; flex-wrap: wrap; gap: 18px 30px; margin: 16px 0 4px; padding: 12px 0;
+  border-top: 0.5px solid var(--hairline); border-bottom: 0.5px solid var(--hairline); }
+.gauge { display: flex; flex-direction: column; }
+.gauge__n { font-family: var(--font-body); font-size: 25px; font-weight: 500; line-height: 1;
+  color: var(--ink); font-variant-numeric: tabular-nums; }
+.gauge__l { font-family: var(--font-ui); font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--subtle); margin-top: 5px; }
+
+.rw { margin: 24px 0 18px; }
+.rw-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  border-bottom: 0.5px solid var(--hairline); padding-bottom: 6px; }
+.rw-shuf { font-family: var(--font-ui); font-size: 12.5px; font-weight: 600; color: var(--mt-link);
+  background: var(--bg); border: 0.5px solid var(--hairline-2); border-radius: 20px; padding: 6px 14px;
+  cursor: pointer; white-space: nowrap; }
+.rw-shuf:hover { border-color: var(--accent); color: var(--mt-link-hover); }
+.rw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 12px; }
+.rw-card { display: flex; flex-direction: column; gap: 3px; border: 0.5px solid var(--hairline);
+  border-left: 2px solid var(--hairline-2); border-radius: 7px; padding: 9px 12px; text-decoration: none;
+  background: var(--bg); transition: border-color .15s; }
+.rw-card:hover { border-color: var(--hairline-2); }
+.rw-card:hover .rw-ttl { color: var(--mt-link-hover); }
+.rw-type { font-family: var(--font-ui); font-size: 10px; text-transform: uppercase; letter-spacing: .07em; color: var(--subtle); }
+.rw-ttl { font-family: var(--font-body); font-size: 15px; line-height: 1.25; color: var(--ink); }
+.rw-sub { font-family: var(--font-ui); font-size: 11.5px; color: var(--subtle); }
+.rw-snip { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 2px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.rw-reading { border-left-color: var(--accent); }
+.rw-trope { border-left-color: #0F6E56; }
+.rw-figure { border-left-color: var(--lk-fig); }
+.rw-film { border-left-color: var(--ink); }
+
 /* ── Ask Metatake (grounded Q&A over the readings) ──────────── */
 .askbar { display: flex; gap: 8px; margin: 6px 0 10px; }
 .ask-input { flex: 1 1 auto; min-width: 0; font-family: var(--font-body); font-size: 17px;

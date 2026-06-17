@@ -10,6 +10,7 @@ import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
+import EntityGraphLoader from "@/components/EntityGraphLoader";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -184,6 +185,8 @@ export default async function TakePage({ params }: Props) {
         </div>
 
         {mt.thesis ? <p>{mt.thesis}</p> : null}
+
+        <EntityGraphLoader kind="metatake" slug={mt.slug} label={mt.title} height={520} />
 
         <h2 className="mt-h2">Representative takes</h2>
         <p className="mt-sortbar__hint">A few standouts. For every take, open a category under <a href="#all-takes">All takes</a> below.</p>

@@ -7,6 +7,7 @@ import EntityActions from "@/components/EntityActions";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
+import EntityGraphLoader from "@/components/EntityGraphLoader";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -69,6 +70,8 @@ export default async function TropePage({ params }: Props) {
         </div>
 
         {t.thesis ? <p>{t.thesis}</p> : null}
+
+        <EntityGraphLoader kind="trope" slug={t.slug} label={t.title} height={520} />
 
         <h2 className="mt-h2" id="members">Figures of {t.title} <span className="mt-h2__n">— {members.length} across {filmCount} {filmCount === 1 ? "film" : "films"}</span></h2>
         {members.length === 0 ? (

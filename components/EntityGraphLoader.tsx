@@ -19,12 +19,14 @@ export default function EntityGraphLoader({
   kind,
   filmSlug,
   figureSlug,
+  slug,
   label,
   height = 440,
 }: {
-  kind: "film" | "figure";
-  filmSlug: string;
+  kind: "film" | "figure" | "metatake" | "trope";
+  filmSlug?: string;
   figureSlug?: string;
+  slug?: string;
   label?: string;
   height?: number;
 }) {
@@ -39,19 +41,24 @@ export default function EntityGraphLoader({
       const res =
         kind === "film"
           ? await s.rpc("graph_film_seed", { p_slug: filmSlug })
-          : await s.rpc("graph_figure_seed", { p_film_slug: filmSlug, p_figure_slug: figureSlug });
+          : kind === "figure"
+          ? await s.rpc("graph_figure_seed", { p_film_slug: filmSlug, p_figure_slug: figureSlug })
+          : kind === "metatake"
+          ? await s.rpc("graph_metatake_seed", { p_slug: slug })
+          : await s.rpc("graph_trope_seed", { p_slug: slug });
       if (!alive) return;
       const d = res.data as GraphData | null;
       if (res.error || !d || !Array.isArray(d.nodes) || d.nodes.length === 0) { setFailed(true); return; }
       setData(d);
     })();
     return () => { alive = false; };
-  }, [kind, filmSlug, figureSlug]);
+  }, [kind, filmSlug, figureSlug, slug]);
 
   if (failed) return null;
 
   const h = expanded ? 820 : height;
-  const subject = label ?? (kind === "film" ? "this film" : "this figure");
+  const subject =
+    label ?? (kind === "film" ? "this film" : kind === "figure" ? "this figure" : kind === "metatake" ? "this reading" : "this trope");
 
   return (
     <div className="eg">
