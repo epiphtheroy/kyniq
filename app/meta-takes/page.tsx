@@ -129,7 +129,7 @@ export default async function MetaTakesIndex({ searchParams }: Props) {
         <ListFilter targetId="mt-list" total={total} placeholder="Filter meta takes…" />
         <div id="mt-list">
         {ordered.map((g) => (
-          <div key={g.name} data-filter-group style={{ marginTop: 14 }}>
+          <div key={g.name} id={`g-${g.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`} data-filter-group style={{ marginTop: 14, scrollMarginTop: 60 }}>
             <div className="mt-h2" style={{ fontSize: 13, marginBottom: 6 }}>{g.name} <span data-filter-count style={{ fontWeight: 350, color: "var(--subtle)" }}>{g.list.length}</span></div>
             <div className="mt-cols">
               {g.list.map((m) => (

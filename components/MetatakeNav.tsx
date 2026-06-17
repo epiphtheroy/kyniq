@@ -16,8 +16,8 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
         {item("trending", "/trending", "Trending")}
         {item("films", "/film", "Films")}
         {item("directors", "/director", "Directors")}
-        {item("takes", "/meta-takes", "Meta takes")}
         {item("tropes", "/tropes", "Tropes")}
+        {item("takes", "/meta-takes", "Meta takes")}
       </nav>
       <span style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center", color: "var(--subtle)", fontSize: 13 }}>
         <SearchBox variant="nav" />

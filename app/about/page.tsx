@@ -3,50 +3,137 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About — Metatake",
-  description: "Read films closely — and follow the meanings from one film to the next.",
+  description: "A large-scale AI project that uses embeddings to map the unconscious lines between films — and between film and the world.",
 };
 
 export default function AboutPage() {
   return (
     <main className="shell">
       <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>About Metatake</h1>
-      <p className="standfirst" style={{ margin: "14px 0 0", maxWidth: "60ch" }}>
-        Read films closely — and follow the meanings from one film to the next.
+      <p className="standfirst" style={{ margin: "14px 0 0", maxWidth: "62ch" }}>
+        A large-scale AI project that uses embeddings to map the unconscious lines between films —
+        and between film and the world.
+      </p>
+
+      <p className="body reading" style={{ fontSize: 18, margin: "18px 0 0", maxWidth: "62ch" }}>
+        <strong>I&apos;m Wonwoo Yoon, and I watch a lot of films.</strong> Metatake is how I watch them: closely,
+        then following the lines that run from one to the next. Welcome — make yourself at home.
       </p>
 
       <hr className="rule" />
 
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Metatake breaks a film into its <em>figures</em> — a character, an object, a gesture, a shot,
-        a piece of music — and gives each one critical <em>readings</em>. When a reading recurs across
-        many films, it rises into a <em>meta-take</em>: a hub that gathers films you would never have
-        placed side by side. The result is less a database than a critical map of cinema: surfaces far
-        apart, meanings close together. You enter through a film you love and leave having met its
-        unexpected kin.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">The name</div>
+      <div className="seclbl">What Metatake is</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        A <em>take</em> is one interpretation of a single moment. A{" "}
-        <span className="disp" style={{ fontSize: 18 }}>meta-take</span> is the reading above the
-        readings — the concept that connects them across films. That hub is the protagonist of the
-        site, and it is where the rabbit hole begins.
+        Metatake is a close-reading companion for cinema — and, under the hood, a large-scale AI project that
+        uses <em>embeddings</em> to map the unconscious connections between films, and between film and the world.
+        Instead of scores and stars, it offers <em>readings</em> — short, careful interpretations built around the
+        <em> figures</em> a film keeps returning to: an object, a gesture, a color, a particular kind of silence.
+        Each figure opens onto other films that share it, and the connections are yours to follow.
       </p>
 
       <hr className="rule" />
 
-      <div className="seclbl">How films connect</div>
+      <div className="seclbl">Why it exists</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Each figure is read through several critical registers — formal, mythic, political, existential,
-        and more — so the same object opens onto different meanings. Those readings are the links: a
-        figure points to the meta-takes it embodies, and each meta-take gathers the figures, across
-        many films, that share it. Follow a reading and you cross from one film to the next, guided not
-        by genre or era but by meaning. The connections we prize are the unexpected-but-defensible
-        ones — far apart on the surface, family underneath.
+        Most of the film web is busy telling you whether a movie is &ldquo;good.&rdquo; Very little of it helps with the
+        quieter question you carry out of the theatre: <em>what was that — and what did it connect to?</em> A rating
+        flattens a film into a thumbs-up. Metatake is built for the opposite impulse — to slow down, look again, and
+        trace how one film rhymes with another, and with the ideas it&apos;s wrestling with off-screen.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">How it works — figure, take, meta-take, trope</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Four simple pieces. A <em>figure</em> is a meaningful element a film keeps returning to — a mirror, a
+        staircase, a held look. A <em>take</em> is a close reading of what that figure is doing <em>here</em>. A{" "}
+        <em>meta-take</em> is what surfaces when the same figure speaks across many films — the reading you land on,
+        gathered from every film that shares it. And a <em>trope</em> is the screenwriter&apos;s-eye <em>type</em> a
+        figure belongs to — the device beneath the meaning. Follow a figure and you don&apos;t get a verdict; you get
+        a doorway to the next film.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">How the connections are drawn</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        The links between films aren&apos;t hand-filed into tidy categories. Every reading is turned into a point in a
+        high-dimensional space — an <em>embedding</em> — so that films thinking about the same thing drift close
+        together, even when they share no genre, era, or language. What you walk when you pull a thread is that map:
+        the quiet, often unconscious lines that run between one film and another, and between a film and the world it&apos;s
+        trying to make sense of. The map grows with every reading, and it&apos;s made to be wandered, not finished.
+      </p>
+      <p className="ui muted" style={{ fontSize: 14.5, margin: "12px 0 0", maxWidth: "62ch", lineHeight: 1.6 }}>
+        <em>For the technically minded:</em> this is where film and AI genuinely meet. Embeddings don&apos;t match
+        keywords, genres, or tags — they place each reading by <strong>meaning</strong>, in a space of thousands of
+        dimensions, where distance <em>is</em> similarity of sense. That makes them unusually good at surfacing the
+        affinities no one filed by hand: the latent, unconscious kinship between films. Metatake is, at bottom, a wager
+        that this is the right instrument for that job — and an attempt to see how far it can be pushed across a whole
+        body of cinema.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">Who it&apos;s for</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        For the viewer who leaves the cinema still turning the film over — this is the room for that. For{" "}
+        <strong>students and teachers</strong>, a thinking partner, and a way to watch a single idea — the gaze, cruel
+        optimism, the double — move across dozens of films. For <strong>filmmakers and writers</strong>, a look at how
+        a choice reads from the other side of the screen, with a working vocabulary of the devices (our{" "}
+        <Link href="/tropes" className="accent" style={{ textDecoration: "none" }}>tropes</Link>) underneath. For{" "}
+        <strong>critics and journalists</strong>, a sparring partner and a fast way to find the film that rhymes with
+        the one in front of you. For <strong>scholars</strong>, a concept mapped across the corpus, with links out to
+        the literature when you want to go deeper. No answer key, no downvotes. If watching closely is your idea of a
+        good time, this was made for you.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">Why I made it</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        I built Metatake because that after-film feeling — the one that wants to talk, to connect, to look once
+        more — never had anywhere to go. The web had summaries and hot takes; it didn&apos;t have a room for thinking.
+        So I made one.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">Where it&apos;s going</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        The aim isn&apos;t to be the last word on any film. It&apos;s to become a living map of how cinema talks to
+        itself — and to the world — grown reading by reading, and more and more by the people who use it. Connective
+        tissue for film, not a scoreboard.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">How to wander</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Start anywhere — a film you love, a figure that catches your eye — and pull the thread. One figure leads to
+        another film, which opens another reading, which suggests the next. It&apos;s a rabbit hole, the good kind; we
+        won&apos;t apologize for the hours you lose in it. Add your own take beneath any figure — there are no wrong
+        readings here. More than anything, it just wants you to keep looking.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">With gratitude</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        A last word, and the most important one. None of this would exist without the films — or the people who made
+        them. To the directors, writers, actors, cinematographers, editors, composers, and crews whose work we read
+        here, and to the critics and scholars who taught all of us how to look: thank you. Metatake only rearranges
+        light that others made first. The same is true of the system that drafts these readings — it can write about
+        film only because a century of film, and of writing about film, came before it. Every new work leans on the
+        work that made it possible, and we try not to forget whose shoulders we stand on.
       </p>
 
       <hr className="rule" />
@@ -54,17 +141,15 @@ export default function AboutPage() {
       <div className="seclbl">How our readings are written</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        We want to be straight with you. The readings are drafted by{" "}
-        <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span> — an AI system built
-        for close film analysis, working from established film-critical traditions — under editor{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>.
-        Each reading is published directly rather than passing a separate human or second-model
-        sign-off; instead, quality is maintained through an ongoing audit-and-revision loop — we and our
-        readers flag problems, and pages are corrected as issues surface. We treat the two kinds of
-        error differently: <em>factual mistakes we fix; interpretations stay open</em>, since a single
-        film sustains many readings. Logged-in readers can add their own beneath any figure (no
-        downvotes). Posters and stills come from TMDB. Spot something off? Corrections are welcome at
-        the address below.
+        The readings are drafted by{" "}
+        <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span> — an AI system built for close film
+        analysis — and published under the editor&apos;s name. They draw on the language and concepts of film criticism
+        and theory, but each reading is an <em>interpretation, not a citation</em>, and it&apos;s published directly
+        rather than passing a separate human sign-off. Quality is kept up by an ongoing audit-and-revision loop: we and
+        our readers flag errors, and pages are corrected as issues surface. We fix factual mistakes; interpretations
+        stay open — a film sustains many readings, so logged-in readers can add their own beneath any figure (no
+        downvotes). Film stills and posters come from TMDB. Spot something off? Corrections are welcome at the address
+        below.
       </p>
 
       <hr className="rule" />
@@ -72,8 +157,11 @@ export default function AboutPage() {
       <div className="seclbl">Who&apos;s behind it</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Metatake is an independent project based in Seoul, Republic of Korea. It&apos;s small and built
-        in the open; the quickest way to reach a human is email.
+        Metatake is made and edited by{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> — a cinephile in
+        Seoul, trained as a management scholar, who started Metatake to give the after-film feeling somewhere to go.
+        The readings are drafted by Metatake Editorial and published under his name. Questions, corrections, and
+        disagreements are all welcome.
       </p>
 
       <hr className="rule" />

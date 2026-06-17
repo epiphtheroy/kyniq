@@ -12,6 +12,8 @@ import Link from "next/link";
 
 function enc(s: string) { return encodeURIComponent(s); }
 
+function regSlug(label: string) { return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+
 export default function ScholarHeader({
   term, theorist, registers, filmCount,
 }: {
@@ -34,10 +36,15 @@ export default function ScholarHeader({
           <span className="sch-k">Read through</span>
           <span className="sch-regs">
             {top.map((r) => (
-              <span key={r.label} className="sch-reg" title={`${r.n} readings`}>
+              <Link
+                key={r.label}
+                href={`/meta-takes?group=register#g-${regSlug(r.label)}`}
+                className="sch-reg"
+                title={`${r.n} takes read through the ${r.label} register — browse all readings by register`}
+              >
                 <span className="sch-reg-bar" style={{ background: r.color, width: `${Math.round(10 + 34 * (r.n / maxN))}px` }} />
                 {r.label} <span className="sch-reg-n">{r.n}</span>
-              </span>
+              </Link>
             ))}
           </span>
         </div>

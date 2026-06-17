@@ -37,15 +37,13 @@ export default async function TropesIndex() {
         ) : (
           <>
             <ListFilter targetId="trope-list" placeholder={`Search ${rows.length} tropes…`} />
-            <ol className="tr-list" id="trope-list">
+            <ol className="trl" id="trope-list">
               {rows.map((r, i) => (
-                <li key={r.slug} className="tr-item" data-filter-item data-filter-text={`${r.title} ${r.laconic ?? ""}`.toLowerCase()}>
-                  <span className="tr-rank">{i + 1}</span>
-                  <span className="tr-body">
-                    <Link href={`/trope/${r.slug}`} className="tr-ttl">{r.title}</Link>
-                    {r.laconic ? <span className="tr-lac">{r.laconic}</span> : null}
-                    <span className="tr-stats">{r.figures} figures · {r.films} films</span>
-                  </span>
+                <li key={r.slug} className="trl-item" data-filter-item data-filter-text={`${r.title} ${r.laconic ?? ""}`.toLowerCase()}>
+                  <span className="trl-rank">{i + 1}</span>
+                  <Link href={`/trope/${r.slug}`} className="trl-ttl">{r.title}</Link>
+                  {r.laconic ? <span className="trl-lac">{r.laconic}</span> : null}
+                  <span className="trl-stats">{r.figures} figures · {r.films} films</span>
                 </li>
               ))}
             </ol>

@@ -16,10 +16,11 @@ type Pin = { kind: string; entity_type: string; slug: string | null; film_slug: 
 function hrefOf(p: Pin): string | null {
   if (p.entity_type === "film" && p.slug) return `/film/${p.slug}`;
   if (p.entity_type === "meta_take" && p.slug) return `/take/${p.slug}`;
+  if (p.entity_type === "trope" && p.slug) return `/trope/${p.slug}`;
   if (p.entity_type === "figure" && p.slug && p.film_slug) return `/film/${p.film_slug}/figure/${p.slug}`;
   return null;
 }
-const KIND_LABEL: Record<string, string> = { film: "Film", meta_take: "Meta take", figure: "Figure" };
+const KIND_LABEL: Record<string, string> = { film: "Film", meta_take: "Meta take", trope: "Trope", figure: "Figure" };
 
 function PinList({ pins }: { pins: Pin[] }) {
   if (pins.length === 0) return <p className="ui muted" style={{ fontSize: 14, fontStyle: "italic", margin: "8px 0 0" }}>Nothing here yet.</p>;

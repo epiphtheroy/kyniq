@@ -32,7 +32,7 @@ function ago(iso: string): string {
 
 export default async function LatestPage() {
   const supabase = db();
-  const [{ data: takesRaw }, { data: mtsRaw }, { data: figsRaw }] = await Promise.all([
+  const [{ data: takesRaw }, { data: mtsRaw }, { data: tropesRaw }, { data: figsRaw }] = await Promise.all([
     supabase
       .from("takes")
       .select("id, rationale, register, created_at, source, figure:figures!inner(label, slug, film:films!inner(title, slug)), meta_take:meta_takes(title, slug, status)")
@@ -40,6 +40,7 @@ export default async function LatestPage() {
       .order("created_at", { ascending: false })
       .limit(40),
     supabase.from("meta_takes").select("slug, title, laconic, created_at").eq("status", "published").eq("kind", "reading").order("created_at", { ascending: false }).limit(12),
+    supabase.from("meta_takes").select("slug, title, laconic, created_at").eq("status", "published").eq("kind", "figure_type").order("created_at", { ascending: false }).limit(12),
     supabase.from("figures").select("slug, label, created_at, film:films!inner(title, slug)").eq("status", "approved").not("slug", "is", null).order("created_at", { ascending: false }).limit(12),
   ]);
 
@@ -49,6 +50,7 @@ export default async function LatestPage() {
     meta_take: { title: string; slug: string; status: string } | null;
   }>) ?? [];
   const mts = (mtsRaw as Array<{ slug: string; title: string; laconic: string | null; created_at: string }>) ?? [];
+  const tropes = (tropesRaw as Array<{ slug: string; title: string; laconic: string | null; created_at: string }>) ?? [];
   const figs = (figsRaw as unknown as Array<{ slug: string; label: string; created_at: string; film: { title: string; slug: string } }>) ?? [];
 
   return (
@@ -90,6 +92,20 @@ export default async function LatestPage() {
               {mts.map((m) => (
                 <div key={m.slug} style={{ marginBottom: 6 }}>
                   <Link href={`/take/${m.slug}`}>{m.title}</Link>
+                  {m.laconic ? <div style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.4 }}>{m.laconic}</div> : null}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {tropes.length > 0 && (
+          <>
+            <h2 className="mt-h2">New tropes</h2>
+            <div className="mt-cols">
+              {tropes.map((m) => (
+                <div key={m.slug} style={{ marginBottom: 6 }}>
+                  <Link href={`/trope/${m.slug}`}>{m.title}</Link>
                   {m.laconic ? <div style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.4 }}>{m.laconic}</div> : null}
                 </div>
               ))}
