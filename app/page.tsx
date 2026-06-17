@@ -6,6 +6,7 @@ import SearchBox from "@/components/SearchBox";
 import Counters from "@/components/Counters";
 import RandomWall, { type PoolItem } from "@/components/RandomWall";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
+import AskBox from "@/components/AskBox";
 
 export const revalidate = 60;
 
@@ -36,6 +37,13 @@ export default async function Home() {
   const c = (counts ?? { films: 0, figures: 0, takes: 0, metatakes: 0, tropes: 0 }) as Counts;
   const items = (Array.isArray(pool) ? pool : []) as PoolItem[];
 
+  let featuredImg: string | null = null;
+  if (featured?.ex && featured.ex.length) {
+    const { data: imgs } = await supabase.from("films").select("slug, backdrop_path").in("slug", featured.ex.map((e) => e.filmslug));
+    const im = new Map((imgs ?? []).map((r) => [r.slug as string, (r.backdrop_path as string | null) ?? null]));
+    for (const e of featured.ex) { const b = im.get(e.filmslug); if (b) { featuredImg = b; break; } }
+  }
+
   return (
     <div className="mt">
       <MetatakeNav />
@@ -51,6 +59,7 @@ export default async function Home() {
 
         {featured && (
           <section className="hm-box hm-hero" style={{ marginTop: 14 }}>
+            {featuredImg ? <img className="hm-hero__img" src={`https://image.tmdb.org/t/p/w300${featuredImg}`} alt="" /> : null}
             <div className="hm-kick">Reading of the moment · connects {featured.films} films</div>
             <h2 className="hm-htitle"><Link href={`/take/${featured.slug}`}>{featured.title}</Link></h2>
             {featured.laconic ? <p className="hm-lac">{featured.laconic}</p> : null}
@@ -91,6 +100,8 @@ export default async function Home() {
             </ul>
           </section>
         )}
+
+        <AskBox />
       </div>
     </div>
   );

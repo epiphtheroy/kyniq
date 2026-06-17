@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 
@@ -38,7 +39,9 @@ function renderPara(para: string, map: Map<number, Cite>, k: string) {
   );
 }
 
-export default function AskPage() {
+function AskInner() {
+  const sp = useSearchParams();
+  const ranRef = useRef(false);
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(false);
   const [res, setRes] = useState<Result | null>(null);
@@ -62,6 +65,12 @@ export default function AskPage() {
     }
     setLoading(false);
   }
+
+  useEffect(() => {
+    const q0 = sp.get("q");
+    if (q0 && q0.trim().length >= 3 && !ranRef.current) { ranRef.current = true; setQ(q0); run(q0); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sp]);
 
   const map = new Map((res?.citations ?? []).map((c) => [c.rank, c]));
 
@@ -132,5 +141,13 @@ export default function AskPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function AskPage() {
+  return (
+    <Suspense fallback={null}>
+      <AskInner />
+    </Suspense>
   );
 }
