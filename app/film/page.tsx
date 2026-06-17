@@ -30,6 +30,7 @@ export default async function FilmsIndex({ searchParams }: Props) {
   const { data } = await supabase
     .from("films")
     .select("slug, title, year, director, genres")
+    .eq("visible", true)
     .order("year", { ascending: false });
   const films = (data ?? []) as Film[];
   const total = films.length;

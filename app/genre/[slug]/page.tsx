@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function GenrePage({ params }: Props) {
   const { slug } = await params;
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  const { data: films } = await supabase.from("films").select("title, slug, year, genres").limit(5000);
+  const { data: films } = await supabase.from("films").select("title, slug, year, genres").eq("visible", true).limit(5000);
   const want = slug.toLowerCase();
   const inGenre = (films ?? []).filter((f) =>
     ((f.genres ?? []) as string[]).some((g) => g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") === want)

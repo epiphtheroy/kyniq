@@ -18,7 +18,7 @@ interface Props { params: Promise<{ slug: string }>; }
 async function load(slug: string) {
   const supabase = db();
   const { data: films } = await supabase
-    .from("films").select("id, title, slug, year, director").eq("director_slug", slug).order("year");
+    .from("films").select("id, title, slug, year, director").eq("director_slug", slug).eq("visible", true).order("year");
   if (!films || films.length === 0) return null;
   const director = films[0].director ?? slug.replace(/-/g, " ");
   const filmIds = films.map((f) => f.id);
