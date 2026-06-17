@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   verification: {
     // Google Search Console (URL-prefix property https://metatake.net)
     google: "Xlx_jr5Fg6VjxZXktgB9huxHQ_1lfGgDOuiSWGP60Gs",
-    // Bing: add here as other: { "msvalidate.01": "<code>" } — or import from GSC in Bing Webmaster Tools.
+    // Bing Webmaster Tools (also verifiable via public/BingSiteAuth.xml — same token)
+    other: { "msvalidate.01": "B19CC42557D19874EA92BD9497BB2F68" },
   },
   icons: {
     icon: [
