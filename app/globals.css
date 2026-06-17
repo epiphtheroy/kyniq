@@ -1490,6 +1490,29 @@ details.film-info[open] > summary::before { content: "▾ "; }
   color: var(--subtle); white-space: nowrap; font-variant-numeric: tabular-nums; }
 @media (max-width: 640px) { .trl-lac { display: none; } .trl-ttl { white-space: normal; } }
 
+/* trope members — click-to-expand "curtain" rows with an Open shortcut */
+.trm-list { list-style: none; padding: 0; margin: 8px 0 4px; }
+.trm-list > li { border-bottom: 0.5px solid var(--hairline); }
+.trm-list > li:last-child { border-bottom: none; }
+.trm-sum { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; cursor: pointer; list-style: none; }
+.trm-sum::-webkit-details-marker { display: none; }
+.trm-sum::before { content: "\25B8"; color: var(--accent); font-size: 11px; flex: none; transform: translateY(-1px); transition: transform 0.15s ease; }
+details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
+.trm-head { flex: 1 1 auto; min-width: 0; font-size: 15px; line-height: 1.5; }
+.trm-head .mt-fig { color: var(--lk-fig); }
+.trm-film { color: var(--subtle); font-size: 14px; }
+.trm-film a { color: var(--subtle); text-decoration: none; }
+.trm-film a:hover { color: var(--mt-link-hover); text-decoration: underline; }
+.trm-go { flex: none; margin-left: auto; font-family: var(--font-ui); font-size: 12px; color: var(--mt-link);
+  text-decoration: none; border: 0.5px solid var(--hairline-2); border-radius: 14px; padding: 3px 11px; white-space: nowrap; }
+.trm-go:hover { border-color: var(--accent); color: var(--mt-link-hover); }
+.trm-body { padding: 0 0 13px 17px; }
+.trm-desc { font-size: 14.5px; line-height: 1.65; color: #3d3d3d; margin: 2px 0 0; max-width: 66ch; }
+.trm-muted { color: var(--subtle); font-style: italic; }
+.trm-reads { font-family: var(--font-ui); font-size: 12.5px; color: var(--subtle); margin-top: 8px; }
+.trm-reads a { color: var(--mt-link); text-decoration: none; }
+.trm-reads a:hover { text-decoration: underline; }
+
 /* ── TakeExplorer (meta-take all-takes search + random) ───── */
 .tx-bar { display: flex; align-items: center; gap: 9px; margin: 6px 0 8px; flex-wrap: wrap; }
 .tx-input { font-family: var(--font-ui); font-size: 13px; color: var(--ink); background: var(--bg);
