@@ -6,7 +6,7 @@ import type { Metadata } from "next";
  * not assess us as thin/scaled content before we are ready. Flip to true (then
  * deploy) once figures are enriched (≥3 takes) and the catalogue is launch-ready.
  */
-export const SITE_INDEXABLE = false;
+export const SITE_INDEXABLE = true;
 
 /**
  * pageRobots — returns a Next `robots` metadata value.

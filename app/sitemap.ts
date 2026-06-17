@@ -19,7 +19,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: siteUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/film`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
+    { url: `${siteUrl}/meta-takes`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
+    { url: `${siteUrl}/tropes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteUrl}/latest`, lastModified: new Date(), changeFrequency: "daily", priority: 0.6 },
   ];
+
+  // Published readings (/take) + tropes (/trope) — the core interpretive corpus.
+  const { data: metas } = await supabase
+    .from("meta_takes")
+    .select("slug, kind, updated_at, created_at")
+    .eq("status", "published")
+    .in("kind", ["reading", "figure_type"]);
+  for (const m of metas ?? []) {
+    entries.push({
+      url: `${siteUrl}/${m.kind === "figure_type" ? "trope" : "take"}/${m.slug}`,
+      lastModified: new Date(m.updated_at || m.created_at),
+      changeFrequency: "weekly",
+      priority: m.kind === "figure_type" ? 0.7 : 0.85,
+    });
+  }
 
   // Published films
   const { data: films } = await supabase.from("films").select("slug, created_at");
