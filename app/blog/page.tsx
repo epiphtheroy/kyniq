@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import SubscribeForm from "@/components/SubscribeForm";
+import EditionBody, { type EditionPost } from "@/components/EditionBody";
 
 export const revalidate = 120;
 
@@ -17,21 +18,15 @@ function db() {
 }
 
 const W342 = "https://image.tmdb.org/t/p/w342";
-type Entry = { rank: number; ehead: string; event: string; film_title: string; film_slug: string; film_year: number | null; stars: number; bd: string | null };
-type Post = { slug: string; title: string; edition_date: string; dek: string | null; read_min: number; entries: Entry[]; floor: { html: string }[] };
+type Post = EditionPost & { title: string; edition_date: string; dek: string | null; read_min: number };
 
 const full = (d: string) => new Date(d + "T00:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 const mon = (d: string) => new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
 const wdyr = (d: string) => { const dt = new Date(d + "T00:00:00"); return dt.toLocaleDateString("en-US", { weekday: "long" }) + ", " + dt.getFullYear(); };
 
-function Stars({ n }: { n: number }) {
-  const f = Math.max(0, Math.min(5, n));
-  return <span className="st">{"★".repeat(f)}{f < 5 ? <span className="o">{"★".repeat(5 - f)}</span> : null}</span>;
-}
-
 export default async function BlogIndex() {
   const supabase = db();
-  const { data } = await supabase.from("posts").select("slug, title, edition_date, dek, read_min, entries, floor").eq("status", "published").order("edition_date", { ascending: false }).limit(20);
+  const { data } = await supabase.from("posts").select("slug, title, edition_date, dek, read_min, intro, entries, floor").eq("status", "published").order("edition_date", { ascending: false }).limit(20);
   const posts = (data as Post[] | null) ?? [];
   const today = posts[0];
   const recent = posts.slice(1);
@@ -61,30 +56,14 @@ export default async function BlogIndex() {
         </section>
 
         {today && (
-          <section className="blg-sec">
+          <section className="blg-sec" style={{ paddingTop: 30 }}>
             <div className="blg-wrap">
-              <div className="blg-sechd"><h3>Today&apos;s edition</h3><span className="when">{full(today.edition_date)}</span></div>
-              <div className="blg-feat">
-                <div className="blg-feat__top"><span className="lbl">Between Film and the World</span><span className="ttl">Five rhymes</span><span className="date">{mon(today.edition_date)} · {today.read_min} min</span></div>
-                <div className="blg-rhymes">
-                  {today.entries.map((e) => (
-                    <Link className="blg-rh" key={e.rank} href={`/blog/${today.slug}`}>
-                      <span className="rk">{e.rank}</span>
-                      <span className="th">{e.bd && <img src={`${W342}${e.bd}`} alt="" loading="lazy" />}</span>
-                      <span><span className="ev">{e.ehead}</span><span className="mp">{e.event} → <span className="fm">{e.film_title}</span> <Stars n={e.stars} /></span></span>
-                    </Link>
-                  ))}
-                  {today.floor?.length > 0 && (
-                    <div className="blg-rh" style={{ opacity: 0.55 }}>
-                      <span className="rk" style={{ color: "var(--hairline-2)" }}>—</span>
-                      <span className="th" style={{ background: "repeating-linear-gradient(45deg,#eceae3,#eceae3 7px,#f6f5f0 7px,#f6f5f0 14px)", borderStyle: "dashed" }} />
-                      <span><span className="ev" style={{ color: "var(--muted)" }}>On the cutting-room floor</span><span className="mp">{today.floor.length} stories · big news, weak rhyme — cut</span></span>
-                    </div>
-                  )}
-                </div>
-                <div className="blg-feat__cta"><Link href={`/blog/${today.slug}`}>Read today&apos;s edition →</Link><span className="note">Every film &amp; reading confirmed in the live database.</span></div>
-              </div>
+              <div className="blg-sechd"><h3>Today&apos;s edition</h3><span className="when">{full(today.edition_date)}</span><Link className="more" href={`/blog/${today.slug}`}>Permalink →</Link></div>
             </div>
+            <article className="blg-article" style={{ paddingTop: 6 }}>
+              <div className="blg-byline"><b>{full(today.edition_date)}</b><span className="dot" /><span>{today.read_min} min read</span><span className="dot" /><span>The Metatake desk</span></div>
+              <EditionBody post={today} />
+            </article>
           </section>
         )}
 
