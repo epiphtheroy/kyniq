@@ -65,8 +65,8 @@ export default function PrivacyPage() {
         You can access, correct, or delete your personal data at any time via Settings.
         Account deletion anonymizes your content to &ldquo;[deleted]&rdquo; and removes your
         personal information. To exercise additional rights, email{" "}
-        <a href="mailto:channel.wonwoo@gmail.com" className="accent" style={{ textDecoration: "none" }}>
-          channel.wonwoo@gmail.com
+        <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
+          wonwoo@metatake.net
         </a>.
       </p>
 

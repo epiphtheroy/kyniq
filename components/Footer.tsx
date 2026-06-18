@@ -58,8 +58,8 @@ export default function Footer() {
             <Link href="/privacy" className="footer-link">
               Privacy
             </Link>
-            <a href="mailto:channel.wonwoo@gmail.com" className="footer-link">
-              channel.wonwoo@gmail.com
+            <a href="mailto:wonwoo@metatake.net" className="footer-link">
+              wonwoo@metatake.net
             </a>
           </div>
         </div>

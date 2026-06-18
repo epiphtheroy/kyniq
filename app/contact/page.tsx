@@ -19,8 +19,8 @@ export default function ContactPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         Questions, press, partnerships, or just a thought about a film:{" "}
-        <a href="mailto:channel.wonwoo@gmail.com" className="accent" style={{ textDecoration: "none" }}>
-          channel.wonwoo@gmail.com
+        <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
+          wonwoo@metatake.net
         </a>
       </p>
 

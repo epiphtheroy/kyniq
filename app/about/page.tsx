@@ -168,8 +168,8 @@ export default function AboutPage() {
 
       <p className="ui muted" style={{ fontSize: 13 }}>
         Questions, press, or partnerships:{" "}
-        <a href="mailto:channel.wonwoo@gmail.com" className="accent" style={{ textDecoration: "none" }}>
-          channel.wonwoo@gmail.com
+        <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
+          wonwoo@metatake.net
         </a>
       </p>
     </main>

@@ -28,7 +28,7 @@ One canonical answer per question, evolving through edits and merged contributio
 - AI-authored content is transparently labeled "Metatake Editorial"
 
 ## Contact
-channel.wonwoo@gmail.com
+wonwoo@metatake.net
 `;
 
   return new NextResponse(content, {
