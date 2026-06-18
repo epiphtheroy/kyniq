@@ -201,8 +201,10 @@ export default async function FilmPage({ params }: Props) {
           <p className="film-intro">
             Metatake reads <strong>{film.title}</strong> through {figures.length} figure{figures.length === 1 ? "" : "s"}
             {mtTotal ? <> and the {mtTotal} recurring idea{mtTotal === 1 ? "" : "s"} it shares with the rest of cinema</> : null}.
-            {recs.length ? <> <Link href={`/movies-like/${film.slug}`} className="film-like-link">Movies like {film.title} →</Link></> : null}
           </p>
+        ) : null}
+        {recs.length ? (
+          <Link href={`/movies-like/${film.slug}`} className="film-like-cta">🎬 Movies like {film.title} →</Link>
         ) : null}
 
         <div className="mt-info">
@@ -301,7 +303,7 @@ export default async function FilmPage({ params }: Props) {
 
         {recs.length > 0 && (
           <>
-            <h2 className="mt-h2">Films most connected to {film.title}</h2>
+            <h2 className="mt-h2">Films most connected to {film.title} <Link href={`/movies-like/${film.slug}`} className="mt-h2__more">see all →</Link></h2>
             <ul className="mt-list">
               {recs.map((r) => (
                 <li key={r.film.slug}>

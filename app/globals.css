@@ -1748,12 +1748,18 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .ml-item { border-top: 1px solid var(--mt-rule, #e7e3d8); padding-top: 1rem; }
 .ml-row { display: flex; gap: 0.9rem; align-items: flex-start; }
 .ml-thumb { flex: 0 0 132px; display: block; border-radius: 4px; overflow: hidden; }
-.ml-thumb img { width: 132px; height: 74px; object-fit: cover; display: block; filter: grayscale(1); transition: filter .2s; }
-.ml-thumb:hover img { filter: grayscale(0); }
+.ml-thumb img { width: 132px; height: 74px; object-fit: cover; display: block; transition: transform .25s ease, filter .25s ease; }
+.ml-thumb:hover img { transform: scale(1.07); filter: brightness(1.08) saturate(1.08); }
 .ml-txt { flex: 1 1 auto; min-width: 0; }
 .ml-title { font-weight: 500; }
 .ml-dir { color: var(--mt-dim, #6b6457); }
 .ml-why { margin: 0.3rem 0 0; font-size: 0.92em; color: var(--mt-dim, #6b6457); }
 @media (max-width: 560px) { .ml-thumb, .ml-thumb img { flex-basis: 96px; width: 96px; height: 54px; } }
-.film-intro { margin: 0.6rem 0 1.1rem; font-size: 1.02em; line-height: 1.5; }
-.film-like-link { white-space: nowrap; font-weight: 500; color: var(--mt-link); }
+.film-intro { margin: 0.6rem 0 0.7rem; font-size: 1.02em; line-height: 1.5; }
+/* Prominent "Movies like" call-to-action (pill button) */
+.film-like-cta { display: inline-block; margin: 0 0 1.2rem; padding: 0.5rem 0.95rem; border: 1px solid var(--mt-link, #1F6FB2);
+  border-radius: 999px; font-weight: 600; font-size: 0.95em; color: var(--mt-link, #1F6FB2); text-decoration: none;
+  transition: background .15s ease, color .15s ease; }
+.film-like-cta:hover { background: var(--mt-link, #1F6FB2); color: #fff; }
+/* "see all →" link beside a section heading */
+.mt-h2__more { font-size: 0.62em; font-weight: 500; vertical-align: middle; margin-left: 0.5rem; color: var(--mt-link); white-space: nowrap; }
