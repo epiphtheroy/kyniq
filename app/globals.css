@@ -1792,6 +1792,11 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .idx-dcard h2 .cnt{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap}
 .idx-lac{font-family:var(--font-display);font-style:italic;font-size:17px;color:var(--ink);margin:0 0 9px}
 .idx-thesis{font-family:var(--font-display);font-size:15px;line-height:1.55;color:var(--muted);margin:0 0 14px;max-width:66ch;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.idx-tdef{font-family:var(--font-display);font-size:14.5px;line-height:1.5;color:var(--muted);margin:0 0 11px;max-width:66ch;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.idx-kindline{font-size:11.5px;color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:7px}
+.idx-kindline .kdot{width:8px;height:8px;border-radius:2px;background:#167C6B;flex:none}
+.idx-kindline b{color:var(--ink);font-weight:600}
+.idx-kindline .ksep{color:var(--hairline-2)}
 .idx-lbl{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 6px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .idx-lbl .h{font-weight:400;letter-spacing:0;text-transform:none;color:var(--subtle);font-size:11px}
 .idx-cases{border-top:1px solid var(--ink);margin-bottom:15px}
@@ -1851,4 +1856,13 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .idx-seed{font-size:12.5px;color:var(--ink-soft);border:1px solid var(--hairline);border-radius:2px;padding:5px 10px;display:inline-flex;align-items:center;gap:8px}
 .idx-seed:hover{border-color:var(--ink)}
 .idx-seed .z{font-size:10px;color:var(--subtle);border-left:1px solid var(--hairline);padding-left:8px}
-.idx--teal{--accent:#167C6B;--accent-hover:#11614F}
+/* teal trope theming — selective (cnt/def/kick/dots/azbar teal; readmore + hovers stay red) */
+.idx--teal .idx-dcard{border-top-color:#167C6B}
+.idx--teal .idx-dcard h2 .cnt{color:#167C6B}
+.idx--teal .idx-def{border-left-color:#167C6B}
+.idx--teal .idx-def .term{color:#167C6B}
+.idx--teal .idx-def .term.r{color:var(--accent)}
+.idx--teal .idx-kick .die{color:#167C6B}
+.idx--teal .idx-kick .auto i{background:#167C6B}
+.idx--teal .idx-dots button[data-on]{background:#167C6B}
+.idx--teal .idx-azbar a:hover{background:#167C6B}

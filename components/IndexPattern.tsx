@@ -22,6 +22,8 @@ export type IdxFeature = {
   family: string | null;
   theorist: string | null;
   cases: IdxCase[];
+  def?: string | null;   // trope variant: 3-line definition
+  figs?: number | null;  // trope variant: figure count
 };
 export type IdxItem = { slug: string; title: string; films: number; created_at: string | null };
 
@@ -70,7 +72,10 @@ export default function IndexPattern({
   rowBase,
   unit = "films",
   noun = "meta takes",
+  variant = "metatake",
   defaultSort = "alpha",
+  totOverride,
+  showSeeded = true,
   catalogueTitle = "The full catalogue of meta takes",
   catalogueSub = "Every meta take on Metatake. Click any one to open the reading and the films that gather under it.",
   filterPlaceholder = "Filter meta takes…",
@@ -83,7 +88,10 @@ export default function IndexPattern({
   rowBase: string; // row + card links resolve to `${rowBase}/${slug}`
   unit?: string;
   noun?: string;
+  variant?: "metatake" | "trope";
   defaultSort?: SortMode;
+  totOverride?: string;
+  showSeeded?: boolean;
   catalogueTitle?: string;
   catalogueSub?: string;
   filterPlaceholder?: string;
@@ -246,11 +254,17 @@ export default function IndexPattern({
                       <span className="cnt">{ft.n} {unit}</span>
                     </h2>
                     {ft.lac && <p className="idx-lac">{ft.lac}</p>}
-                    {ft.thesis && <p className="idx-thesis">{ft.thesis}</p>}
+                    {variant === "trope"
+                      ? (ft.def && <p className="idx-tdef">{ft.def}</p>)
+                      : (ft.thesis && <p className="idx-thesis">{ft.thesis}</p>)}
+
+                    {variant === "trope" && (
+                      <div className="idx-kindline"><span className="kdot" />Trope · figure-type <span className="ksep">·</span> <b>{ft.figs ?? 0}</b> figures across <b>{ft.n}</b> films</div>
+                    )}
 
                     {ft.cases.length > 0 && (
                       <>
-                        <div className="idx-lbl">Defining cases <span className="h">— the film, and the figure that carries the reading</span></div>
+                        <div className="idx-lbl">{variant === "trope" ? "Figures" : "Defining cases"} <span className="h">— the film, and the figure that {variant === "trope" ? "instantiates the trope" : "carries the reading"}</span></div>
                         <div className="idx-cases">
                           {ft.cases.slice(0, 5).map((c, i) => (
                             <Link key={i} href={c.figslug ? `/film/${c.fs}/figure/${c.figslug}` : `/film/${c.fs}`} className="idx-case">
@@ -267,13 +281,15 @@ export default function IndexPattern({
                       </>
                     )}
 
-                    <div className="idx-tags">
-                      {ft.family && (<><span className="idx-tag axis">theory</span><span className="idx-tag">{ft.family}</span></>)}
-                      {ft.reg && (<><span className="idx-tag axis">register</span><span className="idx-tag"><i style={{ background: REG_COLOR[ft.reg] ?? "var(--subtle)" }} />{REG_LABEL[ft.reg] ?? ft.reg}</span></>)}
-                      {ft.theorist && (<><span className="idx-tag axis">theorist</span><span className="idx-tag">{ft.theorist}</span></>)}
-                    </div>
+                    {variant !== "trope" && (
+                      <div className="idx-tags">
+                        {ft.family && (<><span className="idx-tag axis">theory</span><span className="idx-tag">{ft.family}</span></>)}
+                        {ft.reg && (<><span className="idx-tag axis">register</span><span className="idx-tag"><i style={{ background: REG_COLOR[ft.reg] ?? "var(--subtle)" }} />{REG_LABEL[ft.reg] ?? ft.reg}</span></>)}
+                        {ft.theorist && (<><span className="idx-tag axis">theorist</span><span className="idx-tag">{ft.theorist}</span></>)}
+                      </div>
+                    )}
 
-                    <Link href={`${rowBase}/${ft.slug}`} className="idx-readmore">Open the meta-take <span aria-hidden="true">→</span></Link>
+                    <Link href={`${rowBase}/${ft.slug}`} className="idx-readmore">{variant === "trope" ? "Open the trope" : "Open the meta-take"} <span aria-hidden="true">→</span></Link>
                   </article>
                 );
               })}
@@ -293,7 +309,7 @@ export default function IndexPattern({
         <button data-on={sort === "alpha" ? "" : undefined} onClick={() => setSort("alpha")}>A–Z</button>
         <button data-on={sort === "films" ? "" : undefined} onClick={() => setSort("films")}>Most {unit}</button>
         <button data-on={sort === "new" ? "" : undefined} onClick={() => setSort("new")}>Newest</button>
-        <span className="tot">{catalogue.length} {noun}</span>
+        <span className="tot">{totOverride ?? `${catalogue.length} ${noun}`}</span>
       </div>
 
       <input className="idx-filter" placeholder={filterPlaceholder} value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
@@ -336,7 +352,7 @@ export default function IndexPattern({
       )}
 
       {/* ---- just seeded (0-film readings) ---- */}
-      {seeded.length > 0 && (
+      {showSeeded && seeded.length > 0 && (
         <details className="idx-seeded">
           <summary><span className="chev">▸</span> {seedSummary} <span className="sub">({seeded.length})</span></summary>
           <div className="idx-seeded__body">
