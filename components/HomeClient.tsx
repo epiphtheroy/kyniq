@@ -235,8 +235,8 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
       <section className="hm-sec">
         <div className="hm-wrap">
           <p className="hm-sec__k">Wander the map</p>
-          <h2 className="hm-sec__h">The constellation is alive</h2>
-          <p className="hm-sec__s">The one place on this paper where colour is allowed to glow. Each star is a film or a figure; the lines are cosine-near neighbours. Drag to pan, scroll to zoom, hover a star to light up its neighbours.</p>
+          <h2 className="hm-sec__h">The lines between films</h2>
+          <p className="hm-sec__s">Two films you&apos;d never shelve together, joined by the meta-take they secretly share — the unconscious lines, drawn. Drag a node, hover to focus, click to travel into it.</p>
           <HomeConstellation pairs={pairs} />
         </div>
       </section>
