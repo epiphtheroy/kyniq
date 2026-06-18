@@ -58,8 +58,11 @@ export async function middleware(request: NextRequest) {
   }
 
   // ── Auth-required pages ─────────────────────────────────────
-  const authRequired = ["/ask", "/settings", "/me"];
-  if (authRequired.some((p) => pathname.startsWith(p)) && !user) {
+  // Segment-exact match so /meta-takes is NOT caught by /me, and /ask (public
+  // grounded Q&A) stays open — only /ask/new (posting a question) needs login.
+  const authRequired = ["/settings", "/me", "/ask/new"];
+  const needsAuth = authRequired.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  if (needsAuth && !user) {
     const loginUrl = request.nextUrl.clone();
     loginUrl.pathname = "/login";
     loginUrl.searchParams.set("next", pathname + request.nextUrl.search);
