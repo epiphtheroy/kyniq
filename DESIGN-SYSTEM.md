@@ -70,10 +70,14 @@ phones get 16–20px so content isn't crushed.
 ## Migration status (per block)
 - [x] Token layer in `:root`
 - [x] Home `hm-*` (pair metaphor now vertical on mobile)
-- [ ] Indexes `idx-*` (meta-takes / films / tropes / directors)
-- [ ] Latest `lt-*` · Trending `tg-*` · Blog `blg-*`
-- [ ] Detail `df-/fg-/dr-/tp-/mk-/ak-`
-- [ ] QA at 360 / 600 / 900 / 1180 + final deploy
+- [x] Indexes `idx-*` (meta-takes / films / tropes / directors)
+- [x] Latest `lt-*` · Trending `tg-*` · Blog `blg-*`
+- [x] Detail `df-/fg-/dr-/tp-/mk-/ak-`
+- [x] Every redesign block is mobile-first; ≥900px renders identically to before
+- [ ] Optional polish: legacy/shared components still desktop-first (harmless, already
+      mobile-functional): `.home-cols` (legacy), `.float-player`, `.sb--nav` (search),
+      `.seqnav`, `.trl` (trailer), `.sch` (scholar float), `.ml-thumb`, old `.hm-2/.lp-*`.
+- [ ] QA at 360 / 600 / 900 / 1180 on device
 
 Each block converts the same way: flip the base to the phone layout, move the wide grid
 into `@media (min-width: 900px)` (and a 2-col step at 600 where useful), swap fixed font
