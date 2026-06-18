@@ -123,8 +123,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // (e.g. just-added films before extraction) → noindex. Auto-flips to indexable
   // once film-extract populates its figures/takes; no manual step per film.
   const meetsBar = data.figures.length >= 3;
+  const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes`;
+  const description = data.figures.length
+    ? `${data.film.title} read closely: ${data.figures.length} figures and the ${data.readings.length} recurring ideas it shares across cinema.`
+    : undefined;
   return {
-    title: `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes`,
+    title,
+    ...(description ? { description } : {}),
+    openGraph: { title, ...(description ? { description } : {}) },
     robots: pageRobots(meetsBar),
   };
 }
@@ -190,6 +196,14 @@ export default async function FilmPage({ params }: Props) {
             <EntityActions entityType="film" entityId={film.id} />
           </div>
         </div>
+
+        {figures.length > 0 ? (
+          <p className="film-intro">
+            Metatake reads <strong>{film.title}</strong> through {figures.length} figure{figures.length === 1 ? "" : "s"}
+            {mtTotal ? <> and the {mtTotal} recurring idea{mtTotal === 1 ? "" : "s"} it shares with the rest of cinema</> : null}.
+            {recs.length ? <> <Link href={`/movies-like/${film.slug}`} className="film-like-link">Movies like {film.title} →</Link></> : null}
+          </p>
+        ) : null}
 
         <div className="mt-info">
           <div className="hd">Film</div>

@@ -52,6 +52,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.8,
     });
+    entries.push({
+      url: `${siteUrl}/movies-like/${f.slug}`,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    });
   }
 
   // Published questions

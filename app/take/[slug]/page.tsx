@@ -93,9 +93,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
+  const title = `${data.mt.title} — ${data.filmCount} films`;
+  const description = data.mt.thesis ?? data.mt.laconic ?? undefined;
   return {
-    title: `${data.mt.title} — ${data.filmCount} films`,
-    description: data.mt.thesis ?? data.mt.laconic ?? undefined,
+    title,
+    description,
+    openGraph: { title, ...(description ? { description } : {}) },
     robots: pageRobots(true),
   };
 }
@@ -166,6 +169,16 @@ export default async function TakePage({ params }: Props) {
   return (
     <div className="mt">
       <MetatakeNav active="takes" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
+        { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Meta takes", item: "https://metatake.net/meta-takes" },
+          { "@type": "ListItem", position: 2, name: mt.title, item: `https://metatake.net/take/${mt.slug}` },
+        ] },
+        { "@context": "https://schema.org", "@type": "Article", headline: mt.title,
+          ...(mt.thesis || mt.laconic ? { description: mt.thesis ?? mt.laconic } : {}),
+          author: { "@type": "Organization", name: "Metatake" },
+          publisher: { "@type": "Organization", name: "Metatake" } },
+      ]) }} />
       <ViewBeacon slug={mt.slug} />
       <div className="mt-wrap">
         <div className="mt-crumb">

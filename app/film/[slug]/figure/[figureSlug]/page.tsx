@@ -115,9 +115,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) return { title: "Not found" };
+  // Question/"explained" framing targets long-tail "{element} in {film} meaning" queries.
+  const title = `${data.figure.label} in ${data.film.title}${data.film.year ? ` (${data.film.year})` : ""}, explained`;
+  const description = data.figure.description ?? undefined;
   return {
-    title: `${data.figure.label} — ${data.film.title}`,
-    description: data.figure.description ?? undefined,
+    title,
+    description,
+    openGraph: { title, ...(description ? { description } : {}) },
     robots: pageRobots(data.takes.length >= 3),
   };
 }
@@ -140,10 +144,19 @@ export default async function FigurePage({ params }: Props) {
     ...(figure.updated_at ? { dateModified: figure.updated_at as string } : {}),
   };
 
+  const faqLd = figure.description ? {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: [{
+      "@type": "Question", name: `What does ${figure.label} mean in ${film.title}?`,
+      acceptedAnswer: { "@type": "Answer", text: String(figure.description) },
+    }],
+  } : null;
+
   return (
     <div className="mt">
       <MetatakeNav active="films" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+      {faqLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} /> : null}
       <div className="mt-wrap">
         <div className="mt-crumb">
           <Link href="/film">Films</Link>

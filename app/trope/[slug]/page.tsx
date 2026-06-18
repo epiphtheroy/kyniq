@@ -38,9 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Trope — Metatake" };
+  const title = `${data.t.title} — a figure-type across ${data.filmCount} films`;
+  const description = data.t.thesis ?? data.t.laconic ?? undefined;
   return {
-    title: `${data.t.title} — a figure-type across ${data.filmCount} films`,
-    description: data.t.thesis ?? data.t.laconic ?? undefined,
+    title,
+    description,
+    openGraph: { title, ...(description ? { description } : {}) },
     robots: pageRobots(true),
   };
 }
@@ -55,6 +58,16 @@ export default async function TropePage({ params }: Props) {
   return (
     <div className="mt">
       <MetatakeNav active="tropes" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
+        { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Tropes", item: "https://metatake.net/tropes" },
+          { "@type": "ListItem", position: 2, name: t.title, item: `https://metatake.net/trope/${t.slug}` },
+        ] },
+        { "@context": "https://schema.org", "@type": "Article", headline: t.title,
+          ...(t.thesis || t.laconic ? { description: t.thesis ?? t.laconic } : {}),
+          author: { "@type": "Organization", name: "Metatake" },
+          publisher: { "@type": "Organization", name: "Metatake" } },
+      ]) }} />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/tropes">Tropes</Link></div>
         <h1 className="mt-h1">{t.title}</h1>
