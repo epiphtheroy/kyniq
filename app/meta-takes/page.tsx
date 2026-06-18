@@ -8,7 +8,7 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Meta takes — the readings that recur across cinema",
   description:
-    "A meta take is a critical reading that recurs across unrelated films, reached through a different figure each time. Browse every published meta take.",
+    "A meta take is a reading that recurs across films. Every film is built from figures; each figure carries a take; when a take recurs, it becomes a meta take. Browse them all.",
 };
 
 function db() {
@@ -24,6 +24,7 @@ export default async function MetaTakesIndex() {
 
   const featured = ((featuredRes.data as IdxFeature[] | null) ?? []).filter((f) => f && f.cases?.length);
   const catalogue = (catRes.data as IdxItem[] | null) ?? [];
+  const total = catalogue.length;
 
   return (
     <div className="mt">
@@ -32,23 +33,19 @@ export default async function MetaTakesIndex() {
         <h1 className="idx-h1">Meta takes</h1>
 
         <p className="idx-def">
-          A <span className="term">meta take</span> is a critical reading that recurs across unrelated films —
-          each time reached through a different <b>figure</b>: a character, an object, a place, a formal choice.
-          Metatake gathers them so you can follow the <b>idea</b>, not just the instance.
+          <b>What&apos;s a meta take?</b> Every film is built from <span className="term">figures</span> — a face,
+          an object, a place, a scene. Each figure carries a <span className="term">take</span>: a reading of what it
+          means. When the same reading recurs across many films, it becomes a <span className="term">meta take</span> —
+          and below it gather, not lookalikes, but kin.
         </p>
 
         <p className="idx-intro">
-          {catalogue.length > 0 ? (
-            <>
-              <strong>{catalogue.length.toLocaleString()}</strong> readings published so far, each one assembled from
-              the films where it surfaces. Below: a rotating sample, then the full catalogue.
-            </>
-          ) : (
-            <>The catalogue is being assembled.</>
-          )}
+          <strong>{total.toLocaleString()} of them so far.</strong> Not genres, not plots — the meanings films share.
+          Each is a hub: pick one and a whole constellation of films gathers beneath it. This isn&apos;t a list to scroll
+          past. It&apos;s <strong>{total.toLocaleString()} doors</strong>.
         </p>
 
-        <IndexPattern featured={featured} catalogue={catalogue} rowBase="/take" unit="films" defaultSort="alpha" />
+        <IndexPattern featured={featured} catalogue={catalogue} rowBase="/take" unit="films" noun="meta takes" defaultSort="alpha" />
       </div>
     </div>
   );

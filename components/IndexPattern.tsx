@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type SyntheticEvent } from "react";
 import Link from "next/link";
 
-/* ---- shared types (also used by /film, /tropes, /director indexes in W2) ---- */
+/* ---- shared types (reused by /film, /tropes, /director indexes in W2) ---- */
 export type IdxCase = {
   f: string;
   y: number | null;
@@ -20,6 +20,7 @@ export type IdxFeature = {
   n: number;
   reg: string | null;
   family: string | null;
+  theorist: string | null;
   cases: IdxCase[];
 };
 export type IdxItem = { slug: string; title: string; films: number; created_at: string | null };
@@ -38,7 +39,7 @@ const REG_COLOR: Record<string, string> = {
   existential: "#546E7A", mythic: "#A9743B", genealogical: "#2E86C1", reception: "#159A8A",
 };
 
-const IMG = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w300${p}` : null);
+const IMG = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w342${p}` : null);
 const DECK_N = 4;
 
 /* article-insensitive sort key */
@@ -68,13 +69,27 @@ export default function IndexPattern({
   catalogue,
   rowBase,
   unit = "films",
+  noun = "meta takes",
   defaultSort = "alpha",
+  catalogueTitle = "The full catalogue of meta takes",
+  catalogueSub = "Every meta take on Metatake. Click any one to open the reading and the films that gather under it.",
+  filterPlaceholder = "Filter meta takes…",
+  emptyText = "No meta take matches that.",
+  seedSummary = "Just seeded — meta takes waiting for their first film",
+  seedNote = "These readings exist as concepts but haven't been connected to a film yet. Spot one in a movie? Open it and add the first take — you'll be the reading's founder.",
 }: {
   featured: IdxFeature[];
   catalogue: IdxItem[];
-  rowBase: string; // e.g. "/take" -> row links to `${rowBase}/${slug}`
+  rowBase: string; // row + card links resolve to `${rowBase}/${slug}`
   unit?: string;
+  noun?: string;
   defaultSort?: SortMode;
+  catalogueTitle?: string;
+  catalogueSub?: string;
+  filterPlaceholder?: string;
+  emptyText?: string;
+  seedSummary?: string;
+  seedNote?: string;
 }) {
   /* ============ DECK ============ */
   const [batch, setBatch] = useState<number[]>(() => pickBatch(featured.length, DECK_N, []));
@@ -94,7 +109,7 @@ export default function IndexPattern({
       setOrder((o) => [...o.slice(1), o[0]]);
       setFlying(null);
       busy.current = false;
-    }, 480);
+    }, 520);
   }, [order, k]);
 
   const reverse = useCallback(() => {
@@ -128,19 +143,24 @@ export default function IndexPattern({
     return () => { window.clearInterval(a); window.clearInterval(b); };
   }, [featured.length]);
 
+  /* v4 stacking: fan right + down, scale + fade by depth; front flies off right */
   const cardStyle = (bp: number): CSSProperties => {
-    const depth = order.indexOf(bp);
+    const p = order.indexOf(bp);
     if (flying === bp) {
-      return { transform: "translate3d(135%,-6px,0) rotateY(-24deg)", opacity: 0, zIndex: k + 1, transition: "transform .48s cubic-bezier(.4,0,.2,1), opacity .48s" };
+      return {
+        transform: "translate3d(135%,-6px,0) rotateY(-24deg) scale(.95)",
+        opacity: 0, zIndex: 61, pointerEvents: "none",
+        transition: "transform .55s cubic-bezier(.5,0,.3,1), opacity .55s",
+      };
     }
-    const lift = depth * 10;
-    const scale = 1 - depth * 0.03;
     return {
-      transform: `translate3d(0,${lift}px,0) scale(${scale})`,
-      opacity: depth > 3 ? 0 : 1 - depth * 0.06,
-      zIndex: k - depth,
-      transition: "transform .5s cubic-bezier(.4,0,.2,1), opacity .5s",
-      pointerEvents: depth === 0 ? "auto" : "none",
+      transform: p === 0
+        ? "translate3d(0,0,0) scale(1)"
+        : `translate3d(${p * 15}px,${p * 9}px,0) scale(${1 - p * 0.045})`,
+      opacity: p === 0 ? 1 : 1 - p * 0.16,
+      zIndex: 60 - p,
+      pointerEvents: p === 0 ? "auto" : "none",
+      transition: "transform .55s cubic-bezier(.4,0,.2,1), opacity .55s",
     };
   };
 
@@ -150,11 +170,16 @@ export default function IndexPattern({
   const [sort, setSort] = useState<SortMode>(defaultSort);
   const [q, setQ] = useState("");
 
+  const withFilms = useMemo(() => catalogue.filter((c) => c.films > 0), [catalogue]);
+  const seeded = useMemo(
+    () => catalogue.filter((c) => c.films <= 0).sort((a, b) => sortKey(a.title).localeCompare(sortKey(b.title))),
+    [catalogue]
+  );
+
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    const base = needle ? catalogue.filter((c) => c.title.toLowerCase().includes(needle)) : catalogue;
-    return base;
-  }, [catalogue, q]);
+    return needle ? withFilms.filter((c) => c.title.toLowerCase().includes(needle)) : withFilms;
+  }, [withFilms, q]);
 
   const azGroups = useMemo(() => {
     if (sort !== "alpha") return null;
@@ -186,23 +211,26 @@ export default function IndexPattern({
       ? (it.created_at ? new Date(it.created_at).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "—")
       : `${it.films} ${unit}`;
 
+  const fadeRef = (el: HTMLImageElement | null) => { if (el && el.complete) el.classList.add("idx-on"); };
+  const onImgLoad = (e: SyntheticEvent<HTMLImageElement>) => e.currentTarget.classList.add("idx-on");
+
   return (
     <>
-      {/* deck controls */}
+      {/* ---- feature deck ---- */}
       {featured.length > 0 && (
         <>
           <div className="idx-kick">
-            <span className="die">⛛ At random</span>
-            <span className="auto"><i />auto-rotating</span>
+            <span className="die">🎲 Readings, at random</span>
+            <span className="auto"><i />turning · a fresh set of {DECK_N} every 5 min</span>
             <span className="idx-ctl">
+              <button className="idx-arw" aria-label="previous" onClick={reverse}>‹</button>
               <span className="idx-dots">
                 {batch.map((_, bp) => (
                   <button key={bp} aria-label={`card ${bp + 1}`} data-on={bp === frontBp ? "" : undefined} onClick={() => setFront(bp)} />
                 ))}
               </span>
-              <button className="idx-arw" aria-label="previous" onClick={reverse}>‹</button>
               <button className="idx-arw" aria-label="next" onClick={advance}>›</button>
-              <button className="idx-roll" onClick={newBatch}>Reshuffle</button>
+              <button className="idx-roll" onClick={newBatch}>↻ new set</button>
             </span>
           </div>
 
@@ -217,19 +245,21 @@ export default function IndexPattern({
                       <Link href={`${rowBase}/${ft.slug}`}>{ft.title}</Link>
                       <span className="cnt">{ft.n} {unit}</span>
                     </h2>
-                    {ft.lac && <p className="idx-lac">“{ft.lac}”</p>}
+                    {ft.lac && <p className="idx-lac">{ft.lac}</p>}
                     {ft.thesis && <p className="idx-thesis">{ft.thesis}</p>}
 
                     {ft.cases.length > 0 && (
                       <>
-                        <p className="idx-lbl">Seen in <span className="h">a reading recurs across these films, reached through a different figure each time</span></p>
+                        <div className="idx-lbl">Defining cases <span className="h">— the film, and the figure that carries the reading</span></div>
                         <div className="idx-cases">
-                          {ft.cases.slice(0, 4).map((c, i) => (
+                          {ft.cases.slice(0, 5).map((c, i) => (
                             <Link key={i} href={c.figslug ? `/film/${c.fs}/figure/${c.figslug}` : `/film/${c.fs}`} className="idx-case">
-                              <span className="idx-thumb">{IMG(c.bd) && <img src={IMG(c.bd) as string} alt="" loading="lazy" />}</span>
                               <span className="tx">
-                                <span className="idx-cf">{c.f}{c.y ? <span className="yr"> · {c.y}</span> : null}</span>
+                                <span className="idx-cf">{c.f} {c.y ? <span className="yr">({c.y})</span> : null}</span>
                                 {c.fig && <span className="idx-cv"><span className="vv">via</span> <span className="fig">{c.fig}</span></span>}
+                              </span>
+                              <span className="idx-thumb">
+                                {IMG(c.bd) && <img ref={fadeRef} onLoad={onImgLoad} src={IMG(c.bd) as string} alt={c.f} loading="lazy" />}
                               </span>
                             </Link>
                           ))}
@@ -238,13 +268,12 @@ export default function IndexPattern({
                     )}
 
                     <div className="idx-tags">
-                      {ft.reg && (
-                        <span className="idx-tag"><i style={{ background: REG_COLOR[ft.reg] ?? "var(--subtle)" }} />{REG_LABEL[ft.reg] ?? ft.reg}</span>
-                      )}
-                      {ft.family && <span className="idx-tag">{ft.family}</span>}
+                      {ft.family && (<><span className="idx-tag axis">theory</span><span className="idx-tag">{ft.family}</span></>)}
+                      {ft.reg && (<><span className="idx-tag axis">register</span><span className="idx-tag"><i style={{ background: REG_COLOR[ft.reg] ?? "var(--subtle)" }} />{REG_LABEL[ft.reg] ?? ft.reg}</span></>)}
+                      {ft.theorist && (<><span className="idx-tag axis">theorist</span><span className="idx-tag">{ft.theorist}</span></>)}
                     </div>
 
-                    <Link href={`${rowBase}/${ft.slug}`} className="idx-readmore">Read the meta take →</Link>
+                    <Link href={`${rowBase}/${ft.slug}`} className="idx-readmore">Open the meta-take <span aria-hidden="true">→</span></Link>
                   </article>
                 );
               })}
@@ -253,10 +282,10 @@ export default function IndexPattern({
         </>
       )}
 
-      {/* catalogue */}
+      {/* ---- catalogue ---- */}
       <div className="idx-listhead">
-        <div className="t">The full catalogue</div>
-        <p className="sub">Every published meta take. Sorted A–Z by default; articles (the, a, an) ignored.</p>
+        <div className="t">{catalogueTitle}</div>
+        <p className="sub">{catalogueSub}</p>
       </div>
 
       <div className="idx-tabs">
@@ -264,10 +293,10 @@ export default function IndexPattern({
         <button data-on={sort === "alpha" ? "" : undefined} onClick={() => setSort("alpha")}>A–Z</button>
         <button data-on={sort === "films" ? "" : undefined} onClick={() => setSort("films")}>Most {unit}</button>
         <button data-on={sort === "new" ? "" : undefined} onClick={() => setSort("new")}>Newest</button>
-        <span className="tot">{filtered.length}{q ? ` of ${catalogue.length}` : ""}</span>
+        <span className="tot">{catalogue.length} {noun}</span>
       </div>
 
-      <input className="idx-filter" placeholder="Filter the catalogue…" value={q} onChange={(e) => setQ(e.target.value)} />
+      <input className="idx-filter" placeholder={filterPlaceholder} value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
 
       {sort === "alpha" && (
         <div className="idx-azbar">
@@ -279,7 +308,7 @@ export default function IndexPattern({
         </div>
       )}
 
-      {q.trim() !== "" && filtered.length === 0 && <p className="idx-empty">Nothing matches “{q}”.</p>}
+      {filtered.length === 0 && <p className="idx-empty" style={{ display: "block" }}>{emptyText}</p>}
 
       {sort === "alpha" && azGroups?.map((g) => (
         <section key={g.L} id={`az-${g.L === "#" ? "0" : g.L}`} className="idx-grp">
@@ -304,6 +333,23 @@ export default function IndexPattern({
             </Link>
           ))}
         </div>
+      )}
+
+      {/* ---- just seeded (0-film readings) ---- */}
+      {seeded.length > 0 && (
+        <details className="idx-seeded">
+          <summary><span className="chev">▸</span> {seedSummary} <span className="sub">({seeded.length})</span></summary>
+          <div className="idx-seeded__body">
+            <p className="idx-seeded__note">{seedNote}</p>
+            <div className="idx-seedgrid">
+              {seeded.map((it) => (
+                <Link key={it.slug} href={`${rowBase}/${it.slug}`} className="idx-seed">
+                  {it.title}<span className="z">0 {unit}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </details>
       )}
     </>
   );
