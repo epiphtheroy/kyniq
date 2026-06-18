@@ -42,10 +42,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Films — only those with real content (>=3 figures). Just-added films with no
   // figures yet are NOT advertised to search engines (thin-content guard); they
   // enter the sitemap automatically once film-extract populates them.
-  const { data: films } = await supabase.from("films").select("slug, created_at, figures(count)");
+  const { data: films } = await supabase.from("films").select("slug, created_at").eq("visible", true);
   for (const f of films ?? []) {
-    const figCount = (f.figures as unknown as { count: number }[] | null)?.[0]?.count ?? 0;
-    if (figCount < 3) continue;
     entries.push({
       url: `${siteUrl}/film/${f.slug}`,
       lastModified: new Date(f.created_at),
@@ -69,8 +67,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Published questions
   const { data: questions } = await supabase
     .from("questions")
-    .select("slug, published_at, created_at, film:films!inner(slug)")
-    .eq("status", "published");
+    .select("slug, published_at, created_at, film:films!inner(slug, visible)")
+    .eq("status", "published")
+    .eq("film.visible", true);
 
   for (const q of questions ?? []) {
     const film = q.film as unknown as { slug: string };
@@ -86,6 +85,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { data: directors } = await supabase
     .from("films")
     .select("director_slug")
+    .eq("visible", true)
     .not("director_slug", "is", null);
 
   const uniqueDirectors = new Set((directors ?? []).map((d) => d.director_slug).filter(Boolean));

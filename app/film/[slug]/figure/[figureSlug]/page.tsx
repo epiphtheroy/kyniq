@@ -51,7 +51,7 @@ type Take = {
 async function load(slug: string, figureSlug: string) {
   const supabase = db();
   const { data: film } = await supabase
-    .from("films").select("id, title, slug, year, director, director_slug, poster_path")
+    .from("films").select("id, title, slug, year, director, director_slug, poster_path, visible")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
   const { data: figure } = await supabase
@@ -125,7 +125,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     openGraph: { title, ...(description ? { description } : {}) },
-    robots: pageRobots(data.takes.length >= 3),
+    robots: pageRobots(data.takes.length >= 3 && (data.film as { visible?: boolean }).visible !== false),
   };
 }
 

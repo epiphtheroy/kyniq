@@ -36,7 +36,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at")
+    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at, visible")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Thin-content gate: a film with fewer than 3 figures has no real reading yet
   // (e.g. just-added films before extraction) → noindex. Auto-flips to indexable
   // once film-extract populates its figures/takes; no manual step per film.
-  const meetsBar = data.figures.length >= 3;
+  const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
   const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes`;
   const description = data.figures.length
     ? `${data.film.title} read closely: ${data.figures.length} figures and the ${data.readings.length} recurring ideas it shares across cinema.`
