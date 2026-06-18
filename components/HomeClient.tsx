@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
+import HomeConstellation from "@/components/HomeConstellation";
 
 const W780 = "https://image.tmdb.org/t/p/w780";
 const W300 = "https://image.tmdb.org/t/p/w300";
@@ -227,6 +228,16 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* constellation */}
+      <section className="hm-sec">
+        <div className="hm-wrap">
+          <p className="hm-sec__k">Wander the map</p>
+          <h2 className="hm-sec__h">The constellation is alive</h2>
+          <p className="hm-sec__s">The one place on this paper where colour is allowed to glow. Each star is a film or a figure; the lines are cosine-near neighbours. Drag to pan, scroll to zoom, hover a star to light up its neighbours.</p>
+          <HomeConstellation pairs={pairs} />
         </div>
       </section>
 
