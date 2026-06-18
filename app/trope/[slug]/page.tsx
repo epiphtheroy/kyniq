@@ -23,7 +23,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: t } = await supabase
     .from("meta_takes")
-    .select("id, slug, title, laconic, thesis, created_at, updated_at")
+    .select("id, slug, title, laconic, thesis, seo_phrase, created_at, updated_at")
     .eq("slug", slug).eq("kind", "figure_type").eq("status", "published").maybeSingle();
   if (!t) return null;
   const { data: mems } = await supabase.from("figure_type_members")
@@ -38,7 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Trope — Metatake" };
-  const title = `${data.t.title} — a figure-type across ${data.filmCount} films`;
+  const phrase = (data.t as { seo_phrase?: string | null }).seo_phrase;
+  const title = phrase ? `${phrase} — ${data.filmCount} films` : `${data.t.title} — a figure-type across ${data.filmCount} films`;
   const description = data.t.thesis ?? data.t.laconic ?? undefined;
   return {
     title,

@@ -43,7 +43,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: mt } = await supabase
     .from("meta_takes")
-    .select(`id, slug, title, laconic, thesis, genres, created_at, updated_at, raw_concept,
+    .select(`id, slug, title, laconic, thesis, seo_phrase, genres, created_at, updated_at, raw_concept,
       theory_family:theory_families(name, slug), theorist:theorists(name, slug)`)
     .eq("slug", slug).eq("status", "published").eq("kind", "reading").maybeSingle();
   if (!mt) return null;
@@ -93,7 +93,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  const title = `${data.mt.title} — ${data.filmCount} films`;
+  const phrase = (data.mt as { seo_phrase?: string | null }).seo_phrase;
+  const title = phrase ? `${phrase} — ${data.filmCount} films` : `${data.mt.title} — ${data.filmCount} films`;
   const description = data.mt.thesis ?? data.mt.laconic ?? undefined;
   return {
     title,
