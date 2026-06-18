@@ -27,7 +27,7 @@ const KIND_LABEL: Record<string, string> = {
 };
 const KIND_ORDER = ["character", "object", "location", "form", "trope"];
 
-type Fig = { id: string; kind: string | null; label: string; slug: string | null; metaTakes: { slug: string; title: string }[] };
+type Fig = { id: string; kind: string | null; label: string; slug: string | null; description: string | null; metaTakes: { slug: string; title: string }[] };
 type FigRef = { label: string; slug: string | null };
 type FilmLink = { slug: string; title: string; figs: FigRef[] };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
@@ -42,7 +42,7 @@ async function load(slug: string) {
 
   const [{ data: figRows }, { data: aff }, { data: mediaRows }] = await Promise.all([
     supabase.from("figures")
-      .select("id, kind, label, slug, takes(meta_take:meta_takes(slug, title, status, kind))")
+      .select("id, kind, label, slug, description, takes(meta_take:meta_takes(slug, title, status, kind))")
       .eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -52,7 +52,7 @@ async function load(slug: string) {
   const figures: Fig[] = (figRows ?? []).map((f) => {
     const takes = (f.takes ?? []) as unknown as { meta_take: { slug: string; title: string; status: string; kind: string } | null }[];
     const mts = takes.map((t) => t.meta_take).filter((m): m is { slug: string; title: string; status: string; kind: string } => !!m && m.status === "published" && m.kind === "reading");
-    return { id: f.id, kind: f.kind, label: f.label, slug: f.slug, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
+    return { id: f.id, kind: f.kind, label: f.label, slug: f.slug, description: (f.description as string | null) ?? null, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
   });
 
   // Layer 2 — distinct meta-takes (kind='reading'); keep which of this film's figures reach each.
@@ -146,16 +146,18 @@ export default async function FilmPage({ params }: Props) {
   const cast = extra.cast ?? [];
   const runtimeFmt = film.runtime ? `${film.runtime} min` : null;
   const cert = film.certification ? film.certification.replace(/^[A-Z]{2}:/, "") : null;
+  const country = extra.country?.length ? extra.country[0] : null;
 
+  // "via [figure]" inline list — red figure links, used in the two-column lists.
   const viaFigs = (figs: FigRef[]) => {
     if (!figs.length) return null;
     const show = figs.slice(0, 3);
     return (
-      <span className="film-via"> · via {show.map((fg, i) => (
+      <span className="df-via"><span className="df-via__lab">via</span>{show.map((fg, i) => (
         <span key={i}>{i > 0 ? ", " : ""}
           {fg.slug
-            ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="mt-fig">{fg.label}</Link>
-            : <span className="mt-fig">{fg.label}</span>}
+            ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="df-f">{fg.label}</Link>
+            : <span className="df-f">{fg.label}</span>}
         </span>
       ))}{figs.length > 3 ? ` +${figs.length - 3}` : ""}</span>
     );
@@ -177,66 +179,186 @@ export default async function FilmPage({ params }: Props) {
     <div className="mt">
       <MetatakeNav active="films" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
-      <div className="mt-wrap">
-        <div className="mt-crumb">
+      <div className="df-wrap">
+        <div className="df-crumb">
           <Link href="/film">Films</Link>
-          {film.director_slug ? <> &nbsp;›&nbsp; <Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
+          {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
         </div>
 
-        <div className="film-head">
-          {film.poster_path ? (
-            <LightboxImage
-              src={`${IMG}/w185${film.poster_path}`} fullUrl={`${IMG}/w500${film.poster_path}`}
-              alt={`${film.title} poster`} className="film-poster" caption={film.title}
-            />
-          ) : null}
-          <div className="film-head__txt">
-            <h1 className="mt-h1" style={{ borderBottom: "none" }}>{film.title} <span className="yr">({film.year ?? "?"})</span></h1>
-            {film.tagline ? <div className="film-tagline">{film.tagline}</div> : null}
-            <EntityActions entityType="film" entityId={film.id} />
-          </div>
-        </div>
-
-        {figures.length > 0 ? (
-          <p className="film-intro">
-            Metatake reads <strong>{film.title}</strong> through {figures.length} figure{figures.length === 1 ? "" : "s"}
-            {mtTotal ? <> and the {mtTotal} recurring idea{mtTotal === 1 ? "" : "s"} it shares with the rest of cinema</> : null}.
-          </p>
-        ) : null}
-        {recs.length ? (
-          <Link href={`/movies-like/${film.slug}`} className="film-like-cta">🎬 Movies like {film.title} →</Link>
-        ) : null}
-
-        <div className="mt-info">
-          <div className="hd">Film</div>
-          <div className="bd">
-            {film.director ? <div className="row"><span className="k">Director</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></div> : null}
-            {film.genres && film.genres.length ? <div className="row"><span className="k">Genre</span><span style={{ textAlign: "right" }}>{film.genres.slice(0, 2).join(" · ")}</span></div> : null}
-            {runtimeFmt ? <div className="row"><span className="k">Runtime</span><span>{runtimeFmt}</span></div> : null}
-            {cert ? <div className="row"><span className="k">Rated</span><span>{cert}</span></div> : null}
-            <div className="row"><span className="k">Meta takes</span><span>{mtTotal}</span></div>
-          </div>
-          {trailer ? (
-            <div className="mt-info__trailer">
-              <YouTubeFacade videoId={trailer.external_id} title={trailer.title ?? "Trailer"} thumbnailUrl={trailer.thumbnail_url ?? undefined} attribution={trailer.attribution ?? undefined} />
+        {/* HERO — colour backdrop + poster */}
+        <section className="df-hero">
+          {film.backdrop_path ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} />
+          ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
+          <div className="df-headrow">
+            {film.poster_path ? (
+              <LightboxImage
+                src={`${IMG}/w342${film.poster_path}`} fullUrl={`${IMG}/w500${film.poster_path}`}
+                alt={`${film.title} poster`} className="df-poster" caption={film.title}
+              />
+            ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
+            <div className="df-htxt">
+              <h1>{film.title} <span className="df-yr">({film.year ?? "?"})</span></h1>
+              {film.tagline ? <div className="df-tagline">{film.tagline}</div> : null}
+              <div className="df-facts">
+                {film.director ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : null}
+                {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).join(" · ")}</> : null}
+                {runtimeFmt ? <><span className="df-d" />{runtimeFmt}</> : null}
+                {cert ? <><span className="df-d" />{cert}</> : null}
+                {country ? <><span className="df-d" />{country}</> : null}
+              </div>
+              <div className="df-hactions">
+                <EntityActions entityType="film" entityId={film.id} />
+                {recs.length ? <Link className="df-like" href={`/movies-like/${film.slug}`}>🎬 Movies like {film.title} →</Link> : null}
+              </div>
             </div>
+          </div>
+
+          {figures.length > 0 ? (
+            <p className="df-intro">
+              Metatake reads <b>{film.title}</b> through <b>{figures.length} figure{figures.length === 1 ? "" : "s"}</b>
+              {mtTotal ? <> and the <b>{mtTotal} recurring idea{mtTotal === 1 ? "" : "s"}</b> it shares with the rest of cinema</> : null}.
+              {" "}Not a review — a reading: the concrete things the film keeps returning to, and the lines they draw to other films.
+            </p>
           ) : null}
-        </div>
+
+          {/* STAT STRIP — clickable jump links, static numbers */}
+          <div className="df-stats">
+            <Link className="df-stat" href="#df-figures"><span className="df-n">{figures.length}</span><span className="df-k">Figures</span></Link>
+            <Link className="df-stat df-red" href="#df-metatakes"><span className="df-n">{mtTotal}</span><span className="df-k">Meta takes</span></Link>
+            <Link className="df-stat df-teal" href="#df-tropes"><span className="df-n">{tropes.length}</span><span className="df-k">Tropes</span></Link>
+            <Link className="df-stat" href="#df-connected"><span className="df-n">{recs.length}</span><span className="df-k">Connected films</span></Link>
+          </div>
+        </section>
 
         {stills.length > 0 ? (
-          <div className="film-stills">
+          <div className="df-stills">
             {stills.map((s) => (
-              <LightboxImage key={s.id} src={s.thumbnail_url ?? s.url} fullUrl={s.url} alt={s.title ?? `${film.title} still`} className="film-still" caption={`${film.title} — still · TMDB`} />
+              <LightboxImage key={s.id} src={s.thumbnail_url ?? s.url} fullUrl={s.url} alt={s.title ?? `${film.title} still`} className="df-still" caption={`${film.title} — still · TMDB`} />
             ))}
           </div>
         ) : null}
 
-        {(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length) ? (
-          <details className="film-info">
-            <summary>Film info</summary>
-            <div className="film-info__body">
-              {film.overview ? <p className="film-info__overview">{film.overview}</p> : null}
-              <dl className="film-info__dl">
+        {/* FIGURES — grouped by kind, wide rows with full description + reaches */}
+        {grouped.length > 0 ? (
+          <section className="df-sec" id="df-figures">
+            <h2 className="df-h2">Figures</h2>
+            <p className="df-sub">The characters, objects, places, forms and motifs critics have singled out in {film.title} — each described in full, with the readings it reaches.</p>
+            {grouped.map((g) => (
+              <div key={g.kind} className="df-fgroup">
+                <div className="df-flabel">{KIND_LABEL[g.kind] ?? g.kind}</div>
+                {g.items.map((f) => {
+                  const n = f.metaTakes.length;
+                  return (
+                    <div key={f.id} className="df-fig">
+                      <div className="df-figL">
+                        <div className="df-lab">{f.label}</div>
+                        <div className="df-figmeta">
+                          <span className={`df-rc${n === 0 ? " df-rc--zero" : ""}`}>{n} reading{n === 1 ? "" : "s"}</span>
+                          {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>Open →</Link> : null}
+                        </div>
+                      </div>
+                      <div className="df-figR">
+                        {f.description ? <p className="df-figdesc">{f.description}</p> : null}
+                        {n > 0 ? (
+                          <div className="df-reaches">
+                            <span className="df-rl">reaches</span>
+                            {f.metaTakes.map((m, i) => (
+                              <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="df-reaches df-reaches--none"><span className="df-rl">reaches</span>figure only — no published reading yet</div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </section>
+        ) : null}
+
+        {/* LIVING MAP */}
+        <section className="df-sec">
+          <h2 className="df-h2">The map of {film.title}</h2>
+          <p className="df-sub">The film at the centre, its figures around it, and the readings each figure reaches. Drag to pan, scroll to zoom, hover a node.</p>
+          <div className="df-map">
+            <EntityGraphLoader kind="film" filmSlug={film.slug} label={film.title} height={400} />
+          </div>
+        </section>
+
+        {/* META TAKES | TROPES — two columns */}
+        {(readings.length > 0 || tropes.length > 0) ? (
+          <section className="df-sec">
+            <div className="df-cols">
+              <div className="df-col" id="df-metatakes">
+                <h2 className="df-h2">Meta takes</h2>
+                <p className="df-sub">Cross-film critical patterns {film.title} takes part in. <b>Via</b> = the figure that reaches it.</p>
+                <div className="df-mlist">
+                  {readings.map((r) => (
+                    <div key={r.slug} className={`df-mrow${r.figs.length >= 2 ? " df-top" : ""}`}>
+                      <Link className="df-t" href={`/take/${r.slug}`}>{r.title}</Link>
+                      {r.figs.length > 1 ? <span className="df-cnt">{r.figs.length}</span> : null}
+                      {viaFigs(r.figs)}
+                    </div>
+                  ))}
+                  {readings.length === 0 ? <p className="df-empty">No meta takes yet.</p> : null}
+                </div>
+              </div>
+
+              <div className="df-col df-tcol" id="df-tropes">
+                <h2 className="df-h2">Tropes</h2>
+                <p className="df-sub">Screenwriting types it instantiates — shared under <Link href="/tropes">Tropes</Link>.</p>
+                <div className="df-mlist">
+                  {tropes.map((t) => (
+                    <div key={t.slug} className={`df-mrow${t.figs.length >= 2 ? " df-top" : ""}`}>
+                      <Link className="df-t" href={`/trope/${t.slug}`}>{t.title}</Link>
+                      {t.figs.length > 1 ? <span className="df-cnt">{t.figs.length}</span> : null}
+                      {viaFigs(t.figs)}
+                    </div>
+                  ))}
+                  {tropes.length === 0 ? <p className="df-empty">No tropes yet.</p> : null}
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* CONNECTED FILMS */}
+        {recs.length > 0 ? (
+          <section className="df-sec" id="df-connected">
+            <h2 className="df-h2">Films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>see all →</Link></h2>
+            <p className="df-sub">Nearest neighbours in meaning-space — films that share the most readings. <b>Shared</b> = the meta takes they hold in common.</p>
+            <div className="df-conn">
+              {recs.map((r) => (
+                <div key={r.film.slug} className="df-crow">
+                  <Link className="df-ti" href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
+                  <span className="df-cyr">({r.film.year ?? "?"})</span>
+                  {r.reasons.length > 0 ? (
+                    <span className="df-cvia"><span className="df-via__lab">shared</span>{r.reasons.map((m, i) => (
+                      <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>
+                    ))}</span>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {/* FILM INFO — accordion (keeps trailer + stills inside) */}
+        {(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer) ? (
+          <details className="df-finfo">
+            <summary>Film info &amp; credits</summary>
+            <div className="df-finfo__body">
+              {film.overview ? <p className="df-ov">{film.overview}</p> : null}
+              {trailer ? (
+                <div className="df-trailer">
+                  <YouTubeFacade videoId={trailer.external_id} title={trailer.title ?? "Trailer"} thumbnailUrl={trailer.thumbnail_url ?? undefined} attribution={trailer.attribution ?? undefined} />
+                </div>
+              ) : null}
+              <dl className="df-dl">
                 {film.director ? <><dt>Director</dt><dd><Link href={`/director/${film.director_slug}`}>{film.director}</Link></dd></> : null}
                 {cast.length ? <><dt>Cast</dt><dd>{cast.slice(0, 5).map((c) => c.character ? `${c.name} (${c.character})` : c.name).join(", ")}</dd></> : null}
                 {extra.writers?.length ? <><dt>Writing</dt><dd>{extra.writers.join(", ")}</dd></> : null}
@@ -248,77 +370,14 @@ export default async function FilmPage({ params }: Props) {
                 {extra.country?.length ? <><dt>Country</dt><dd>{extra.country.join(", ")}</dd></> : null}
                 {extra.collection ? <><dt>Collection</dt><dd>{extra.collection}</dd></> : null}
               </dl>
-              <div className="film-info__src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
+              <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
             </div>
           </details>
         ) : null}
 
-        <h2 className="mt-h2">Figures</h2>
-        <p className="mt-sub">The characters, objects, places, forms, and motifs critics have singled out in {film.title}.</p>
-        {grouped.map((g) => (
-          <div key={g.kind}>
-            <div className="mt-label">{KIND_LABEL[g.kind] ?? g.kind}</div>
-            <ul className="mt-list">
-              {g.items.map((f) => (
-                <li key={f.id}>
-                  {f.slug ? <Link className="mt-fig" href={`/film/${film.slug}/figure/${f.slug}`}>{f.label}</Link> : <span className="mt-fig">{f.label}</span>}
-                  {f.metaTakes.length > 0 && <span className="meta"> · {f.metaTakes.length} reading{f.metaTakes.length > 1 ? "s" : ""}</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-
-        <EntityGraphLoader kind="film" filmSlug={film.slug} label={film.title} height={400} />
-
-        {readings.length > 0 && (
-          <>
-            <h2 className="mt-h2">Meta takes</h2>
-            <p className="mt-sub">Cross-film critical patterns this film takes part in — each links to the full reading.</p>
-            <ul className="mt-list">
-              {readings.map((r) => (
-                <li key={r.slug}>
-                  <Link href={`/take/${r.slug}`}>{r.title}</Link>
-                  {viaFigs(r.figs)}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        {tropes.length > 0 && (
-          <>
-            <h2 className="mt-h2">Tropes</h2>
-            <p className="mt-sub">Screenwriting types this film instantiates — shared with other films under <Link href="/tropes">Tropes</Link>.</p>
-            <ul className="mt-list">
-              {tropes.map((t) => (
-                <li key={t.slug}>
-                  <Link href={`/trope/${t.slug}`}>{t.title}</Link>
-                  {viaFigs(t.figs)}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        {recs.length > 0 && (
-          <>
-            <h2 className="mt-h2">Films most connected to {film.title} <Link href={`/movies-like/${film.slug}`} className="mt-h2__more">see all →</Link></h2>
-            <ul className="mt-list">
-              {recs.map((r) => (
-                <li key={r.film.slug}>
-                  <Link href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
-                  <span className="yr">({r.film.year ?? "?"})</span>
-                  {r.reasons.length > 0 && (
-                    <span className="meta"> — via {r.reasons.map((m, i) => <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>)}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        <SeqNav kind="film" id={film.id} />
+        <div className="df-seq">
+          <SeqNav kind="film" id={film.id} />
+        </div>
 
         <Provenance created={film.created_at} />
       </div>

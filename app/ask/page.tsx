@@ -19,19 +19,46 @@ const EXAMPLES = [
   "What is the meaning of mirrors on screen?",
 ];
 
+// register → [label, color] (kept in sync with the figure / take pages)
+const REG: Record<string, [string, string]> = {
+  formal: ["Formal", "#5B8FB9"],
+  semiotic: ["Semiotic", "#B8860B"],
+  psychoanalytic: ["Psychoanalytic", "#A8434F"],
+  ideological: ["Ideological", "#C0392B"],
+  politico_economic: ["Politico-economic", "#2E7D5B"],
+  philosophical: ["Philosophical", "#7E57C2"],
+  existential: ["Existential", "#546E7A"],
+  mythic: ["Mythic", "#A9743B"],
+  genealogical: ["Film-historical", "#2E86C1"],
+  reception: ["Reception", "#159A8A"],
+};
+
 function citeTarget(c: Cite) {
   return c.meta_slug ? `/take/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
 }
 
-function renderPara(para: string, map: Map<number, Cite>, k: string) {
+function renderPara(para: string, map: Map<number, Cite>, k: string, onCite: (n: number) => void) {
   const parts = para.split(/(\[\d+\])/g);
   return (
-    <p key={k} className="ask-p">
+    <p key={k} className="ak-p">
       {parts.map((p, i) => {
         const m = p.match(/^\[(\d+)\]$/);
         if (m) {
-          const c = map.get(Number(m[1]));
-          if (c) return <Link key={i} href={citeTarget(c)} className="ask-cite" title={`${c.figure_label} · ${c.film_title}`}>[{m[1]}]</Link>;
+          const n = Number(m[1]);
+          const c = map.get(n);
+          if (c) {
+            return (
+              <a
+                key={i}
+                href={`#ak-src-${n}`}
+                className="ak-cite"
+                title={`${c.figure_label} · ${c.film_title}`}
+                onClick={() => onCite(n)}
+              >
+                [{m[1]}]
+              </a>
+            );
+          }
         }
         return <span key={i}>{p}</span>;
       })}
@@ -43,15 +70,18 @@ function AskInner() {
   const sp = useSearchParams();
   const ranRef = useRef(false);
   const [q, setQ] = useState("");
+  const [asked, setAsked] = useState("");
   const [loading, setLoading] = useState(false);
   const [res, setRes] = useState<Result | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  const [hi, setHi] = useState<number | null>(null);
 
   async function run(question?: string) {
     const query = (question ?? q).trim();
     if (query.length < 3 || loading) return;
     if (question) setQ(question);
-    setLoading(true); setErr(null); setRes(null);
+    setAsked(query);
+    setLoading(true); setErr(null); setRes(null); setHi(null);
     try {
       const r = await fetch("/api/ask", {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -77,67 +107,82 @@ function AskInner() {
   return (
     <div className="mt">
       <MetatakeNav active="ask" />
-      <div className="mt-wrap">
-        <h1 className="mt-h1" style={{ borderBottom: "none", marginBottom: 2 }}>Ask Metatake</h1>
-        <p className="mt-laconic" style={{ margin: "0 0 14px", maxWidth: "64ch" }}>
-          Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake&rsquo;s {`18,004`} close readings — and every claim links back to the reading it came from.
-        </p>
+      <div className="ak-wrap">
+        <div className="ak-head">
+          <h1 className="ak-h1">Ask Metatake</h1>
+          <p className="ak-sub">
+            Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake&apos;s 18,004 close readings — and every claim links back to the reading it came from.
+          </p>
+          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated</p>
 
-        <form className="askbar" onSubmit={(e) => { e.preventDefault(); run(); }}>
-          <input
-            className="ask-input" value={q} onChange={(e) => setQ(e.target.value)}
-            placeholder="How does cinema portray surveillance?" maxLength={300} autoFocus
-            aria-label="Ask a question about cinema"
-          />
-          <button className="ask-go" type="submit" disabled={loading || q.trim().length < 3}>
-            {loading ? "Reading…" : "Ask"}
-          </button>
-        </form>
+          <form className="ak-bar" onSubmit={(e) => { e.preventDefault(); run(); }}>
+            <input
+              className="ak-input" value={q} onChange={(e) => setQ(e.target.value)}
+              placeholder="How does cinema portray surveillance?" maxLength={300} autoFocus
+              aria-label="Ask a question about cinema"
+            />
+            <button className="ak-go" type="submit" disabled={loading || q.trim().length < 3}>
+              {loading ? "Reading…" : "Ask"}
+            </button>
+          </form>
 
-        <div className="ask-eg">
-          {EXAMPLES.map((x) => (
-            <button key={x} type="button" className="ask-chip" onClick={() => run(x)} disabled={loading}>{x}</button>
-          ))}
+          <div className="ak-eg">
+            {EXAMPLES.map((x) => (
+              <button key={x} type="button" className="ak-chip" onClick={() => run(x)} disabled={loading}>{x}</button>
+            ))}
+          </div>
+
+          {loading ? <p className="ak-loading">Searching 18,004 readings, then composing…</p> : null}
+          {err ? <p className="ak-err">{err}</p> : null}
         </div>
 
-        {err ? <p className="ask-err">{err}</p> : null}
-        {loading ? <p className="ask-loading">Searching 18,004 readings, then composing&hellip;</p> : null}
-
         {res ? (
-          <div className="ask-out">
-            <div className="ask-answer">
-              {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`))}
+          <div className="ak-out">
+            <div className="ak-q">
+              <span className="ak-q__lbl">Answering</span>
+              <b className="ak-q__txt">{asked}</b>
+              <span className="ak-q__tag">grounded</span>
+            </div>
+
+            <div className="ak-answer">
+              {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi))}
             </div>
 
             {res.readings.length > 0 ? (
-              <div className="ask-threads">
-                <span className="ask-threads__lbl">Threads to pull</span>
+              <div className="ak-threads">
+                <span className="ak-threads__lbl">Threads to pull</span>
                 {res.readings.slice(0, 6).map((rd) => (
-                  <Link key={rd.slug} href={`/take/${rd.slug}`} className="ask-thread">{rd.title}</Link>
+                  <Link key={rd.slug} href={`/take/${rd.slug}`} className="ak-thread">{rd.title}</Link>
                 ))}
               </div>
             ) : null}
 
             {res.citations.length > 0 ? (
-              <div className="ask-sources">
-                <div className="ask-sources__lbl">Sources</div>
-                <ol className="ask-srclist">
-                  {res.citations.map((c) => (
-                    <li key={c.rank} id={`src-${c.rank}`}>
-                      <Link href={`/film/${c.film_slug}/figure/${c.figure_slug}`} className="mt-fig">{c.figure_label}</Link>
-                      <span className="ask-src-film"> · {c.film_title}</span>
-                      {c.meta_slug && c.meta_title ? <> &nbsp;→&nbsp; <Link href={`/take/${c.meta_slug}`}>{c.meta_title}</Link></> : null}
-                    </li>
-                  ))}
+              <div className="ak-sources">
+                <div className="ak-sources__lbl">Sources — every claim above, traceable</div>
+                <ol className="ak-srclist">
+                  {res.citations.map((c) => {
+                    const reg = c.register ? REG[c.register] : null;
+                    return (
+                      <li key={c.rank} id={`ak-src-${c.rank}`} className={hi === c.rank ? "ak-hi" : undefined}>
+                        <Link href={`/film/${c.film_slug}/figure/${c.figure_slug}`} className="ak-fig">{c.figure_label}</Link>
+                        <span className="ak-film"> · {c.film_title}</span>
+                        {reg ? <span className="ak-reg" style={{ background: reg[1] }}>{reg[0]}</span> : null}
+                        {c.meta_slug && c.meta_title ? (
+                          <> &nbsp;→&nbsp; <Link href={citeTarget(c)} className="ak-to">{c.meta_title}</Link></>
+                        ) : null}
+                      </li>
+                    );
+                  })}
                 </ol>
               </div>
             ) : null}
           </div>
         ) : null}
 
-        <p className="ask-foot">
-          Answers are synthesized by an AI strictly from our close readings — interpretations, not citations of record. Follow the links to read the source. Looking to post a question for others?{" "}
-          <Link href="/ask/new" className="mt-link">Ask the community →</Link>
+        <p className="ak-foot">
+          Answers are synthesized by an AI <b>strictly from our close readings</b> — interpretations, not citations of record. Follow the links to read the source. No claim appears that isn&apos;t traceable to a reading in the corpus. &nbsp;Looking to post a question for others?{" "}
+          <Link href="/ask/new" className="ak-foot__link">Ask the community →</Link>
         </p>
       </div>
     </div>
