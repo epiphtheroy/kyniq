@@ -59,6 +59,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
+  // Concept (canonical-term) pages
+  entries.push({ url: `${siteUrl}/concept`, changeFrequency: "weekly", priority: 0.7 });
+  const { data: concepts } = await supabase.rpc("concept_index");
+  for (const c of (concepts ?? []) as { slug: string }[]) {
+    entries.push({ url: `${siteUrl}/concept/${c.slug}`, changeFrequency: "weekly", priority: 0.6 });
+  }
+
   // Published questions
   const { data: questions } = await supabase
     .from("questions")

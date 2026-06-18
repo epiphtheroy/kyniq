@@ -4,7 +4,7 @@ import AccountMenu from "@/components/AccountMenu";
 import RandomMenu from "@/components/RandomMenu";
 
 /** Light wiki-style top nav for the Metatake pages. */
-export default function MetatakeNav({ active }: { active?: "films" | "directors" | "takes" | "genres" | "latest" | "trending" | "tropes" | "ask" }) {
+export default function MetatakeNav({ active }: { active?: "films" | "directors" | "takes" | "genres" | "latest" | "trending" | "tropes" | "ask" | "concepts" }) {
   const item = (k: string, href: string, label: string) => (
     <Link href={href} className={active === k ? "active" : undefined}>{label}</Link>
   );
@@ -18,6 +18,7 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
         {item("films", "/film", "Films")}
         {item("directors", "/director", "Directors")}
         {item("tropes", "/tropes", "Tropes")}
+        {item("concepts", "/concept", "Concepts")}
         {item("takes", "/meta-takes", "Meta takes")}
       </nav>
       <span style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center", color: "var(--subtle)", fontSize: 13 }}>
