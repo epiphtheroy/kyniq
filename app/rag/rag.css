@@ -1,0 +1,48 @@
+
+/* ─── W5: Answer / Readings mode toggle + prominence cue ─── */
+.ak-modebar{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:0 0 20px; }
+.ak-mode{ display:inline-flex; border:1px solid var(--ink); border-radius:0; overflow:hidden; }
+.ak-mode__btn{ font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--ink2); background:#fff; border:0; padding:7px 16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+.ak-mode__btn + .ak-mode__btn{ border-left:1px solid var(--ink); }
+.ak-mode__btn:hover{ color:var(--accent); }
+.ak-mode__btn--on{ background:var(--ink); color:#fff; }
+.ak-mode__btn--on:hover{ color:#fff; }
+.ak-mode__n{ font-size:10.5px; font-weight:700; color:inherit; opacity:.7; }
+.ak-modebar__cue{ font-family:var(--font-ui); font-size:12.5px; color:var(--muted); background:none; border:0; padding:0; cursor:pointer; letter-spacing:.01em; }
+.ak-modebar__cue:hover{ color:var(--accent); }
+.ak-modebar__n{ font-weight:700; color:var(--accent); }
+
+/* ─── W5: Readings view — retrieved close-readings as first-class cards ─── */
+.ak-reads{ margin:4px 0 0; animation:ak-fade .4s ease; }
+.ak-reads__lbl{ font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 14px; }
+.ak-cards{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.ak-card{ display:flex; gap:14px; border:1px solid var(--hairline); border-left:3px solid var(--accent); background:#fff; padding:14px 16px; }
+.ak-card__rank{ flex:0 0 auto; font-family:var(--font-ui); font-size:11px; font-weight:700; color:var(--accent); padding-top:3px; min-width:18px; }
+.ak-card__body{ flex:1 1 auto; min-width:0; }
+.ak-card__head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 8px; }
+.ak-card__fig{ font-family:var(--font-display); font-weight:700; font-size:17px; color:var(--ink); }
+.ak-card__fig:hover{ color:var(--accent); }
+.ak-card__film{ font-family:var(--font-ui); font-size:13px; color:var(--muted); }
+.ak-card__after{ font-family:var(--font-ui); font-size:11.5px; font-style:italic; color:var(--faint); }
+.ak-card__rat{ font-family:var(--font-display); font-size:15.5px; line-height:1.55; color:var(--ink2); margin:8px 0 0; }
+.ak-card__to{ display:inline-block; font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--accent); margin:10px 0 0; }
+.ak-card__to:hover{ text-decoration:underline; }
+
+/* W7 — "Further reading — beyond the corpus". Deliberately DISTINCT from the
+   grounded sources (teal, not the corpus red; dashed frame; explicit note) so a
+   reader never mistakes these external scholarly links for corpus citations. */
+.ak-fr{ margin:30px 0 0; border-top:2px dashed var(--teal); padding-top:16px; }
+.ak-fr__lbl{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); margin:0 0 14px; }
+.ak-fr__note{ font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.02em; text-transform:none; color:var(--faint); }
+.ak-fr__list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.ak-fr__item{ border:1px solid var(--hairline); border-left:3px solid var(--teal); background:#f4faf8; padding:13px 16px; }
+.ak-fr__title{ font-family:var(--font-display); font-weight:700; font-size:16.5px; line-height:1.35; color:var(--teal); }
+.ak-fr__title:hover{ text-decoration:underline; }
+.ak-fr__title--plain{ color:var(--ink2); }
+.ak-fr__meta{ font-family:var(--font-ui); font-size:12.5px; color:var(--ink2); margin:5px 0 0; }
+.ak-fr__abs{ font-family:var(--font-display); font-size:14.5px; line-height:1.5; color:var(--ink2); margin:8px 0 0; }
+.ak-fr__foot{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; margin:9px 0 0; font-family:var(--font-ui); font-size:11px; color:var(--faint); }
+.ak-fr__src{ font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--teal); }
+.ak-fr__cites{ color:var(--ink2); }
+.ak-fr__doi{ color:var(--faint); word-break:break-all; }
+
