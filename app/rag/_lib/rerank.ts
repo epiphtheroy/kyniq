@@ -269,7 +269,10 @@ export class VoyageReranker implements Reranker {
  * If the requested vendor's key is missing, falls back transparently.
  */
 export function getReranker(): Reranker {
-  const choice = (process.env.RERANK_PROVIDER || "fallback").toLowerCase();
+  // Default to Voyage on this surface: with VOYAGE_API_KEY present it upgrades
+  // ranking; absent (or on failure) it degrades to the fallback below. Safe by
+  // default — no env var needed.
+  const choice = (process.env.RERANK_PROVIDER || "voyage").toLowerCase();
   if (choice === "cohere") {
     const r = new CohereReranker();
     return r.isAvailable() ? r : fallback;

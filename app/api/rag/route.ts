@@ -20,6 +20,9 @@ import { rerank, activeRerankerName, type RerankRow } from "@/app/rag/_lib/reran
 import { diversify } from "@/app/rag/_lib/diversify";
 import { SYS_V2 } from "@/app/rag/_lib/prompt";
 import { findFurtherReading, type AcademicRef } from "@/app/rag/_lib/academic";
+import {
+  quotationContract, quotesAreClean, clampQuote, attribution, type MagazinePassage,
+} from "@/app/rag/_lib/quotation";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -128,11 +131,51 @@ export async function POST(req: NextRequest) {
       })
       .join("\n");
 
-    const resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}`, {
-      systemPrompt: SYS_V2, temperature: 0.2, maxTokens: 750,
-    });
+    // W8 — magazine critic quotes (ADDITIVE; behind MAGAZINE_QUOTES, default OFF).
+    // Short, ATTRIBUTED quotes woven into the answer under fair-use guardrails
+    // (quotation.ts: per-quote length cap + over-reproduction guard). They are
+    // NEVER merged into the corpus `citations`/[n] — they carry their own [C#]
+    // markers + a separate `critics` field. If the guard trips, a fail-safe
+    // regenerates a corpus-only answer and drops the quotes.
+    let criticPassages: MagazinePassage[] = [];
+    let critics: { snippet: string; outlet: string; author: string | null; url: string; year: number | null }[] = [];
+    let criticCtx = "";
+    if (process.env.MAGAZINE_QUOTES !== "0") {
+      try {
+        const { data: cdata } = await supabase.rpc("magazine_retrieve", {
+          p_qvec: `[${vec.join(",")}]`, p_q: analysis.ftsQuery || query, p_k: 6,
+        });
+        criticPassages = ((cdata ?? []) as Array<Record<string, unknown>>).map((r) => ({
+          id: String(r.passage_id), outlet: String(r.outlet ?? ""),
+          title: (r.article_title as string) ?? null, author: (r.author as string) ?? null,
+          year: (r.published_year as number) ?? null, url: String(r.article_url ?? ""),
+          snippet: String(r.snippet ?? ""),
+        }));
+        if (criticPassages.length) {
+          criticCtx = "\n\nCritic passages (quote sparingly, attribute, use [C#] markers):\n" +
+            criticPassages.map((p, i) => `[C${i + 1}] "${p.snippet}" — ${attribution(p).label}`).join("\n");
+          critics = criticPassages.map((p) => ({
+            snippet: clampQuote(p.snippet), outlet: p.outlet, author: p.author, url: p.url, year: p.year,
+          }));
+        }
+      } catch { /* optional layer — never break the grounded answer */ }
+    }
 
-    const answer = (resp.text ?? "").replace(/\n?USED:\s*[\d,\s]*$/i, "").trim();
+    const sys = criticPassages.length ? `${SYS_V2}\n\n${quotationContract()}` : SYS_V2;
+    let resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}${criticCtx}`, {
+      systemPrompt: sys, temperature: 0.2, maxTokens: 750,
+    });
+    let answer = (resp.text ?? "").replace(/\n?USED:\s*[\d,\s]*$/i, "").trim();
+
+    // Fair-use fail-safe: if the answer over-reproduces or over-quotes the critic
+    // passages, regenerate ONCE corpus-only and drop the critic quotes.
+    if (criticPassages.length && !quotesAreClean(answer, criticPassages)) {
+      resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}`, {
+        systemPrompt: SYS_V2, temperature: 0.2, maxTokens: 750,
+      });
+      answer = (resp.text ?? "").replace(/\n?USED:\s*[\d,\s]*$/i, "").trim();
+      critics = [];
+    }
 
     const seen = new Set<string>();
     const readings: { slug: string; title: string }[] = [];
@@ -165,6 +208,7 @@ export async function POST(req: NextRequest) {
       citations: cites,
       readings,
       ...(further_reading ? { further_reading } : {}),
+      ...(critics.length ? { critics } : {}),
       meta: {
         model: ANSWER_MODEL,
         intent: analysis.intent,

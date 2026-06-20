@@ -4,12 +4,8 @@ import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "@/components/AskReadings";
 
-type Cite = {
-  rank: number; take_id: string; rationale: string; register: string | null; theorist: string | null;
-  film_title: string; film_slug: string; figure_label: string; figure_slug: string;
-  meta_title: string | null; meta_slug: string | null;
-};
 type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[] };
 
 const EXAMPLES = [
@@ -18,20 +14,6 @@ const EXAMPLES = [
   "How do films show grief without dialogue?",
   "What is the meaning of mirrors on screen?",
 ];
-
-// register → [label, color] (kept in sync with the figure / take pages)
-const REG: Record<string, [string, string]> = {
-  formal: ["Formal", "#5B8FB9"],
-  semiotic: ["Semiotic", "#B8860B"],
-  psychoanalytic: ["Psychoanalytic", "#A8434F"],
-  ideological: ["Ideological", "#C0392B"],
-  politico_economic: ["Politico-economic", "#2E7D5B"],
-  philosophical: ["Philosophical", "#7E57C2"],
-  existential: ["Existential", "#546E7A"],
-  mythic: ["Mythic", "#A9743B"],
-  genealogical: ["Film-historical", "#2E86C1"],
-  reception: ["Reception", "#159A8A"],
-};
 
 function citeTarget(c: Cite) {
   return c.meta_slug ? `/take/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
@@ -75,15 +57,16 @@ function AskInner() {
   const [res, setRes] = useState<Result | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [hi, setHi] = useState<number | null>(null);
+  const [mode, setMode] = useState<AskMode>("answer");
 
   async function run(question?: string) {
     const query = (question ?? q).trim();
     if (query.length < 3 || loading) return;
     if (question) setQ(question);
     setAsked(query);
-    setLoading(true); setErr(null); setRes(null); setHi(null);
+    setLoading(true); setErr(null); setRes(null); setHi(null); setMode("answer");
     try {
-      const r = await fetch("/api/ask", {
+      const r = await fetch("/api/rag", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ q: query }),
       });
@@ -144,39 +127,61 @@ function AskInner() {
               <span className="ak-q__tag">grounded</span>
             </div>
 
-            <div className="ak-answer">
-              {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi))}
-            </div>
-
-            {res.readings.length > 0 ? (
-              <div className="ak-threads">
-                <span className="ak-threads__lbl">Threads to pull</span>
-                {res.readings.slice(0, 6).map((rd) => (
-                  <Link key={rd.slug} href={`/take/${rd.slug}`} className="ak-thread">{rd.title}</Link>
-                ))}
-              </div>
-            ) : null}
-
             {res.citations.length > 0 ? (
-              <div className="ak-sources">
-                <div className="ak-sources__lbl">Sources — every claim above, traceable</div>
-                <ol className="ak-srclist">
-                  {res.citations.map((c) => {
-                    const reg = c.register ? REG[c.register] : null;
-                    return (
-                      <li key={c.rank} id={`ak-src-${c.rank}`} className={hi === c.rank ? "ak-hi" : undefined}>
-                        <Link href={`/film/${c.film_slug}/figure/${c.figure_slug}`} className="ak-fig">{c.figure_label}</Link>
-                        <span className="ak-film"> · {c.film_title}</span>
-                        {reg ? <span className="ak-reg" style={{ background: reg[1] }}>{reg[0]}</span> : null}
-                        {c.meta_slug && c.meta_title ? (
-                          <> &nbsp;→&nbsp; <Link href={citeTarget(c)} className="ak-to">{c.meta_title}</Link></>
-                        ) : null}
-                      </li>
-                    );
-                  })}
-                </ol>
+              <div className="ak-modebar">
+                <AskModeToggle mode={mode} onChange={setMode} readingCount={res.citations.length} />
+                {mode === "answer" ? (
+                  <button
+                    type="button"
+                    className="ak-modebar__cue"
+                    onClick={() => setMode("readings")}
+                    aria-label={`Browse the ${res.citations.length} retrieved readings`}
+                  >
+                    <span className="ak-modebar__n">{res.citations.length}</span> readings retrieved
+                  </button>
+                ) : null}
               </div>
             ) : null}
+
+            {mode === "answer" ? (
+              <>
+                <div className="ak-answer">
+                  {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi))}
+                </div>
+
+                {res.readings.length > 0 ? (
+                  <div className="ak-threads">
+                    <span className="ak-threads__lbl">Threads to pull</span>
+                    {res.readings.slice(0, 6).map((rd) => (
+                      <Link key={rd.slug} href={`/take/${rd.slug}`} className="ak-thread">{rd.title}</Link>
+                    ))}
+                  </div>
+                ) : null}
+
+                {res.citations.length > 0 ? (
+                  <div className="ak-sources">
+                    <div className="ak-sources__lbl">Sources — every claim above, traceable</div>
+                    <ol className="ak-srclist">
+                      {res.citations.map((c) => {
+                        const reg = c.register ? REG[c.register] : null;
+                        return (
+                          <li key={c.rank} id={`ak-src-${c.rank}`} className={hi === c.rank ? "ak-hi" : undefined}>
+                            <Link href={`/film/${c.film_slug}/figure/${c.figure_slug}`} className="ak-fig">{c.figure_label}</Link>
+                            <span className="ak-film"> · {c.film_title}</span>
+                            {reg ? <span className="ak-reg" style={{ background: reg[1] }}>{reg[0]}</span> : null}
+                            {c.meta_slug && c.meta_title ? (
+                              <> &nbsp;→&nbsp; <Link href={citeTarget(c)} className="ak-to">{c.meta_title}</Link></>
+                            ) : null}
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <AskReadings citations={res.citations} />
+            )}
           </div>
         ) : null}
 
