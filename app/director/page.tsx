@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import MetatakeNav from "@/components/MetatakeNav";
 import DirectorsIndex, { type DirFeat, type DirCat } from "@/components/indexes/DirectorsIndex";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Directors — the recurring obsessions of a filmography",

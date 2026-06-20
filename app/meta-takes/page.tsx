@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import MetatakeNav from "@/components/MetatakeNav";
 import IndexPattern, { type IdxFeature, type IdxItem } from "@/components/IndexPattern";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Meta takes — the readings that recur across cinema",

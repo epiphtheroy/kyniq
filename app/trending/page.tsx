@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 
-export const revalidate = 120;
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   title: "Trending — the readings drawing the most attention",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import LatestMagazine, { type LatestPool } from "@/components/LatestMagazine";
 
-export const revalidate = 120;
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   title: "Latest — what's newest across Metatake",

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import MetatakeNav from "@/components/MetatakeNav";
 import FilmsIndex, { type FilmFeat, type FilmCat } from "@/components/indexes/FilmsIndex";
 
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Films — read closely through their figures",
