@@ -16,11 +16,6 @@ export default function AskHero({ readings, films }: { readings: number; films: 
       <div className="ah__in">
         <p className="ah-kick"><span className="dot" /> A critical map of cinema</p>
         <h1 className="ah-h1">Search the map — <em>or ask it anything.</em></h1>
-        <p className="ah-lead">
-          Metatake reads films through their <b>figures</b> — the concrete things a film keeps
-          returning to — and maps how those readings connect across all of cinema. Not reviews
-          or ratings: close readings to explore without end.
-        </p>
 
         {/* PRIMARY — in-site search */}
         <div className="ah-search">
