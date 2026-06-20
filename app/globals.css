@@ -2935,12 +2935,17 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .ah-search .sb-input{border:1.5px solid var(--ink);border-radius:10px;padding:15px 17px;font-size:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .ah-search .sb-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 15%,transparent)}
 .ah-shint{font-family:var(--font-ui);font-size:12px;color:var(--subtle);margin:11px 0 0;text-align:center}
+.ah-shint a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--hairline) 85%,transparent);transition:color .15s,border-color .15s}
+.ah-shint a:hover{color:var(--accent);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent)}
 .ah-ask{max-width:600px;margin:30px auto 0}
 .ah-or{display:flex;align-items:center;justify-content:center;gap:12px;font-family:var(--font-ui);font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:0 0 13px}
 .ah-or::before,.ah-or::after{content:"";height:1px;background:var(--hairline);flex:1 1 auto;max-width:90px}
 .ah-go{border:0;background:var(--accent);color:#fff;font-family:var(--font-ui);font-weight:600;font-size:15px;padding:0 22px;cursor:pointer;white-space:nowrap}
 .ah-go:hover{background:var(--accent-hover)}
-.ah-eg{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:16px auto 0;max-width:600px}
+.ah-eg{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:16px auto 0;max-width:600px;min-height:40px;transition:opacity .35s ease,transform .35s ease}
+.ah-eg.on{opacity:1;transform:none}
+.ah-eg.off{opacity:0;transform:translateY(7px);pointer-events:none}
+@media (prefers-reduced-motion:reduce){.ah-eg{transition:none;opacity:1;transform:none}}
 .ah-chip{font-family:var(--font-ui);font-size:13px;color:var(--ink-soft);background:var(--surface-2);border:1px solid var(--hairline);padding:8px 13px;line-height:1.2}
 .ah-chip:hover{border-color:var(--accent);color:var(--accent)}
 .ah-trust{font-family:var(--font-ui);font-size:12.5px;color:var(--muted);margin:22px 0 0}
