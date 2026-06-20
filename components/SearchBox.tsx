@@ -82,7 +82,7 @@ export default function SearchBox({ variant = "nav" }: { variant?: "nav" | "hero
         aria-label="Search Metatake"
         autoComplete="off"
       />
-      {open && (
+      {open && q.trim().length >= 2 && (
         <div className="sb-drop">
           {rows.length === 0 ? (
             <div className="sb-empty">No matches for “{q.trim()}”.</div>
