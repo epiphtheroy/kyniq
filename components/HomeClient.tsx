@@ -125,9 +125,9 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
       {/* hero — the unlikely pair */}
       <section className="hm-hero">
         <div className="hm-wrap">
-          <p className="hm-kick"><span className="dot" /> The unlikely pair</p>
-          <h2 className="hm-h1">Two films you&apos;d never shelve together — and the <em>line</em> between them.</h2>
-          <p className="hm-lead">metatake reads thousands of films as points in meaning-space, then draws the unconscious lines between them. <b>Here is one of those lines</b>, redrawn each time you look — two films that share almost nothing on the surface, and one idea underneath.</p>
+          <p className="hm-kick"><span className="dot" /> One reading, two films</p>
+          <h2 className="hm-h1">Read a film closely, through its <em>figures</em> — and watch the reading recur.</h2>
+          <p className="hm-lead">metatake reads each film through its <b>figures</b> — the concrete things it keeps returning to — and turns every reading into criticism you can follow. When one reading surfaces in two films that share nothing on the surface, the map draws the line. <b>Here is one</b>, redrawn each time you look.</p>
 
           {p && (
             <div className="hm-exhibit">
@@ -201,7 +201,7 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
         <div className="hm-wrap">
           <p className="hm-sec__k">How a reading is built</p>
           <h2 className="hm-phil">Not <span className="x">reviews</span>. Not <span className="x">ratings</span>. <span className="y">Readings</span>.</h2>
-          <p className="hm-sec__s">Every line on this site is built the same way — from the single film up to the idea that gathers many of them. This chain is the whole grammar of metatake.</p>
+          <p className="hm-sec__s">Every reading on this site is built the same way — from the single film, through the figure it returns to, up to the idea that gathers many of them. This chain is the whole grammar of metatake.</p>
           <div className="hm-chain">
             <div className="cnode"><div className="step">01 · where it starts</div><div className="nm">Film <span className="ar">→</span></div><div className="df">A single movie — the ground everything is read from.</div><div className="eg"><b>Black Swan</b> (2010)</div></div>
             <div className="cnode"><div className="step">02 · what it returns to</div><div className="nm">Figure <span className="ar">→</span></div><div className="df">A concrete thing the film keeps returning to — an object, a gesture, a colour, a body. A figure can be a trope.</div><div className="eg"><b>Nina&apos;s bodily mutations</b> — skin, quills, feathers</div></div>
@@ -235,8 +235,8 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
       <section className="hm-sec">
         <div className="hm-wrap">
           <p className="hm-sec__k">Wander the map</p>
-          <h2 className="hm-sec__h">The lines between films</h2>
-          <p className="hm-sec__s">Two films you&apos;d never shelve together, joined by the meta-take they secretly share — the unconscious lines, drawn. Drag a node, hover to focus, click to travel into it.</p>
+          <h2 className="hm-sec__h">Follow a reading across cinema</h2>
+          <p className="hm-sec__s">Each line is a reading two films share — one figure, read the same way in both. Drag a node, hover to focus, click to travel into it.</p>
           <HomeConstellation pairs={pairs} />
         </div>
       </section>
@@ -266,8 +266,8 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
       {/* manifesto */}
       <section className="hm-mani">
         <div className="hm-wrap">
-          <p>For people who can&apos;t stop thinking about films, metatake finds the <span className="em">unconscious lines</span> between them — and hands you the thread.</p>
-          <p className="by">No reviews. No scores. No ranking what is &quot;best.&quot; Only readings — and the connections an index would never make.</p>
+          <p>For people who can&apos;t stop thinking about films, metatake reads each one closely — through the <span className="em">figures</span> it keeps returning to — and lets you follow the readings without end.</p>
+          <p className="by">No reviews. No scores. No ranking what is &quot;best.&quot; Only readings — and the lines they draw across cinema.</p>
         </div>
       </section>
     </main>

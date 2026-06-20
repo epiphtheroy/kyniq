@@ -9,9 +9,9 @@ import TrendingSections, { type TrendPool } from "@/components/TrendingSections"
 export const revalidate = 900;
 
 export const metadata: Metadata = {
-  title: "Metatake — the unconscious lines between films",
+  title: "Metatake — a critical map of cinema, read figure by figure",
   description:
-    "A large-scale AI project that uses embeddings to map the unconscious lines between films — two films you'd never shelve together, and the reading they secretly share. Not reviews. Not ratings. Readings.",
+    "Metatake reads films closely through their figures — the concrete things a film keeps returning to — and maps how those readings recur across all of cinema. Not reviews. Not ratings. Readings.",
 };
 
 function db() {
