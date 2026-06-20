@@ -26,5 +26,5 @@ export default function HomeConstellation({ pairs }: { pairs: CPair[] }) {
 
   const data: GraphData = { nodes, links };
   if (nodes.length === 0) return null;
-  return <EntityGraph data={data} height={440} />;
+  return <div className="hm-mapbox"><EntityGraph data={data} height={440} /></div>;
 }

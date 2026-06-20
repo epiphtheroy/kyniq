@@ -1115,7 +1115,11 @@ p.has-dropcap::first-letter {
 .film-via a { font-size: 13px; }
 
 /* Obsidian-style connection graph (EntityGraph + loader) */
-.eg { margin: 14px 0 18px; clear: both; }
+/* Graphs get LEFT+RIGHT gutters (scroll lanes) so MacBook/iPhone users can scroll
+   past the canvas without it grabbing the wheel/pinch. Applies to every EntityGraph
+   via .eg (detail pages) and .hm-mapbox (home). */
+.eg { margin: 14px clamp(16px, 5vw, 64px) 18px; clear: both; }
+.hm-mapbox { margin: 0 clamp(16px, 5vw, 64px); }
 .eg-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
 .eg-cap { font-family: var(--font-ui); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .eg-cap__t { font-size: 12.5px; font-weight: 600; color: var(--accent-text); }

@@ -301,7 +301,7 @@ export default function EntityGraph({
         borderRadius: 14,
         border: "1px solid rgba(0,0,0,0.10)",
         background: "radial-gradient(120% 100% at 50% 30%, #ffffff, #f6f4ee)",
-        touchAction: "none",
+        touchAction: "pan-y",
         cursor: "grab",
       }}
     />
