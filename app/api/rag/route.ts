@@ -14,8 +14,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { openaiAdapter } from "@/lib/providers/openai";
+import { anthropicAdapter } from "@/app/rag/_lib/anthropic";
 import { analyzeQuery } from "@/app/rag/_lib/queryUnderstanding";
-import { rerank, type RerankRow } from "@/app/rag/_lib/rerank";
+import { rerank, activeRerankerName, type RerankRow } from "@/app/rag/_lib/rerank";
 import { diversify } from "@/app/rag/_lib/diversify";
 import { SYS_V2 } from "@/app/rag/_lib/prompt";
 import { findFurtherReading, type AcademicRef } from "@/app/rag/_lib/academic";
@@ -25,7 +26,16 @@ export const dynamic = "force-dynamic";
 
 const OPENAI = "https://api.openai.com/v1";
 const EMBED_MODEL = "text-embedding-3-small";
-const ANSWER_MODEL = process.env.ASK_MODEL || "gpt-4o-mini";
+// Generation model. Default to Claude Sonnet 4.6 on this preview surface.
+// SAFETY: if a Claude model is requested but ANTHROPIC_API_KEY isn't present in
+// this environment (e.g. not yet added to Vercel), gracefully fall back to
+// gpt-4o-mini so the route never hard-fails. The diagnostic strip reports the
+// model ACTUALLY used, so it's obvious whether the key is live.
+const ASK_MODEL = process.env.ASK_MODEL || "claude-sonnet-4-6";
+const WANTS_CLAUDE = ASK_MODEL.toLowerCase().startsWith("claude");
+const USE_CLAUDE = WANTS_CLAUDE && !!process.env.ANTHROPIC_API_KEY;
+const ANSWER_MODEL = USE_CLAUDE ? ASK_MODEL : WANTS_CLAUDE ? "gpt-4o-mini" : ASK_MODEL;
+const GEN = USE_CLAUDE ? anthropicAdapter : openaiAdapter;
 
 const CANDIDATES = 60; // retrieve wider than v1 (40) — the reranker sorts.
 const KEEP = 14; // …then diversify down to this many.
@@ -118,7 +128,7 @@ export async function POST(req: NextRequest) {
       })
       .join("\n");
 
-    const resp = await openaiAdapter.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}`, {
+    const resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}`, {
       systemPrompt: SYS_V2, temperature: 0.2, maxTokens: 750,
     });
 
@@ -159,7 +169,7 @@ export async function POST(req: NextRequest) {
         model: ANSWER_MODEL,
         intent: analysis.intent,
         lang: analysis.lang,
-        reranker: (process.env.RERANK_PROVIDER || "fallback").toLowerCase(),
+        reranker: activeRerankerName(),
         inTokens: resp.tokensUsed?.prompt ?? null,
         outTokens: resp.tokensUsed?.completion ?? null,
         costUsd: resp.cost ?? null,

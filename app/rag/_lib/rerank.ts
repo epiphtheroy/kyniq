@@ -292,3 +292,12 @@ export async function rerank(
 ): Promise<RerankRow[]> {
   return getReranker().rerank(query, rows, opts);
 }
+
+/**
+ * The reranker that will actually run given the current env — "voyage"/"cohere"
+ * when the vendor key is present, otherwise "fallback". Used for the diagnostic
+ * strip so we can see whether the vendor key is live.
+ */
+export function activeRerankerName(): string {
+  return getReranker().name;
+}
