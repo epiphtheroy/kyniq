@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import MetatakeNav from "@/components/MetatakeNav";
+import AskHero from "@/components/AskHero";
 import HomeClient, { type HomeBundle } from "@/components/HomeClient";
 
 export const revalidate = 900;
@@ -34,6 +35,7 @@ export default async function Home() {
   return (
     <div className="mt">
       <MetatakeNav />
+      <AskHero readings={bundle.stats.metas} films={bundle.stats.films} />
       <HomeClient bundle={bundle} />
     </div>
   );

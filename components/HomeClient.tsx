@@ -126,7 +126,7 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
       <section className="hm-hero">
         <div className="hm-wrap">
           <p className="hm-kick"><span className="dot" /> The unlikely pair</p>
-          <h1 className="hm-h1">Two films you&apos;d never shelve together — and the <em>line</em> between them.</h1>
+          <h2 className="hm-h1">Two films you&apos;d never shelve together — and the <em>line</em> between them.</h2>
           <p className="hm-lead">metatake reads thousands of films as points in meaning-space, then draws the unconscious lines between them. <b>Here is one of those lines</b>, redrawn each time you look — two films that share almost nothing on the surface, and one idea underneath.</p>
 
           {p && (

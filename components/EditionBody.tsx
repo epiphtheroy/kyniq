@@ -14,7 +14,9 @@ export function Stars({ n }: { n: number }) {
   return <span className="stars">{"★".repeat(f)}{f < 5 ? <span className="o">{"★".repeat(5 - f)}</span> : null}</span>;
 }
 
-/** The reading body of one edition — shared by /blog (today's edition, in full) and /blog/[slug]. */
+/** The reading body of one edition — shared by /blog (today's edition, in full) and /blog/[slug].
+ *  Email-look: a full-width film still on top of each item, a numbered serif headline, the
+ *  event→film→rhyme line, the news, the reading in a red-ruled blockquote, then the deposit box. */
 export default function EditionBody({ post, inlineSub = true }: { post: EditionPost; inlineSub?: boolean }) {
   const entries = post.entries ?? [];
   return (
@@ -22,24 +24,23 @@ export default function EditionBody({ post, inlineSub = true }: { post: EditionP
       {post.intro && <p className="intro" dangerouslySetInnerHTML={{ __html: post.intro }} />}
       {entries.map((e, i) => (
         <div key={e.rank}>
-          <div className="blg-entry">
-            <div className="erank">{e.rank}</div>
-            <div className="ebody">
-              <h2 className="ehead">{e.ehead}</h2>
-              <div className="blg-emap">
-                <span className="ev">{e.event}</span><span className="ar">→</span>
-                <Link className="film" href={`/film/${e.film_slug}`}>{e.film_title}</Link>
-                <Stars n={e.stars} /><span className="rl">rhyme</span>
-              </div>
-              <p className="blg-news" dangerouslySetInnerHTML={{ __html: e.news }} />
-              <p className="blg-read" dangerouslySetInnerHTML={{ __html: e.read }} />
-              <p className="blg-deposit"><span style={{ color: "var(--accent)", fontWeight: 700, marginRight: 4 }}>→</span><span dangerouslySetInnerHTML={{ __html: e.deposit }} /></p>
+          <article className="blg-item">
+            {e.bd && (
+              <Link className="blg-shot" href={`/film/${e.film_slug}`}>
+                <img src={`${W500}${e.bd}`} alt={e.film_title} loading="lazy" />
+              </Link>
+            )}
+            <h2 className="blg-ihead"><span className="n">{e.rank}.</span> {e.ehead}</h2>
+            <div className="blg-imap">
+              <b className="ev">{e.event}</b><span className="ar">→</span>
+              <Link className="film" href={`/film/${e.film_slug}`}>{e.film_title}</Link>
+              <Stars n={e.stars} />
             </div>
-            <div className="blg-ethumb">
-              <Link className="pic" href={`/film/${e.film_slug}`}>{e.bd && <img src={`${W500}${e.bd}`} alt={e.film_title} loading="lazy" />}</Link>
-              <div className="cap"><b>{e.film_title}</b>{e.film_year ? ` · ${e.film_year}` : ""}</div>
-            </div>
-          </div>
+            <p className="blg-news" dangerouslySetInnerHTML={{ __html: e.news }} />
+            <div className="blg-read"><p dangerouslySetInnerHTML={{ __html: e.read }} /></div>
+            <p className="blg-deposit"><span className="ar">→</span> <span dangerouslySetInnerHTML={{ __html: e.deposit }} /></p>
+          </article>
+
           {inlineSub && i === 1 && (
             <div className="blg-sub-inline">
               <div className="t">Get this every morning.<small>Between Film and the World — the day&apos;s news, read as cinema. Free, almost daily.</small></div>
