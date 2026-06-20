@@ -14,7 +14,7 @@ export default function AskHero({ readings, films }: { readings: number; films: 
   return (
     <section className="ah">
       <div className="ah__in">
-        <p className="ah-kick"><span className="dot" /> A critical map of cinema</p>
+        <p className="ah-kick"><span className="dot" /> A critical map of cinema <span className="ah-kick-cont">— read film by film, figure by figure</span></p>
         <h1 className="ah-h1">Search the map — <em>or ask it anything.</em></h1>
 
         {/* PRIMARY — in-site search */}
