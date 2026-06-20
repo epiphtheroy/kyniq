@@ -26,8 +26,22 @@ const wdyr = (d: string) => { const dt = new Date(d + "T00:00:00"); return dt.to
 
 export default async function BlogIndex() {
   const supabase = db();
-  const { data } = await supabase.from("posts").select("slug, title, edition_date, dek, read_min, intro, entries, floor").eq("status", "published").order("edition_date", { ascending: false }).limit(20);
-  const posts = (data as Post[] | null) ?? [];
+  // Resilient fetch: never let a slow/overloaded DB hang the build (this page is
+  // statically generated; a >60s data fetch fails the whole deployment). Cap it and
+  // fall back to empty — ISR refills it on the next revalidation.
+  let posts: Post[] = [];
+  try {
+    const { data } = await supabase
+      .from("posts")
+      .select("slug, title, edition_date, dek, read_min, intro, entries, floor")
+      .eq("status", "published")
+      .order("edition_date", { ascending: false })
+      .limit(20)
+      .abortSignal(AbortSignal.timeout(4500));
+    posts = (data as Post[] | null) ?? [];
+  } catch {
+    posts = [];
+  }
   const today = posts[0];
   const recent = posts.slice(1);
   const proofFilms = today ? today.entries.slice(0, 3).map((e) => e.film_title) : [];
