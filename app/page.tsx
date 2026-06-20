@@ -64,13 +64,24 @@ export default async function Home() {
               </div>
               <Link className="tg-more" href="/latest">See all latest →</Link>
             </div>
-            <LatestMagazine pool={latest} />
+            <LatestMagazine pool={latest} cap={12} />
             <div className="home-latest-foot">
               <Link className="tg-more" href="/latest">See all latest →</Link>
             </div>
           </div>
         </section>
       ) : null}
+
+      <section className="home-about">
+        <div className="lt-wrap">
+          <p className="home-about-k">About Metatake</p>
+          <p className="home-about-t">Metatake is an independent project mapping cinema through <b>close reading</b> — every film broken into the figures it keeps returning to and the criticism they carry, then linked by the meanings films share. Built in Seoul, edited as it grows.</p>
+          <p className="home-about-cta">
+            <Link href="/about">About the project →</Link>
+            <Link href="/contact">Contact →</Link>
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

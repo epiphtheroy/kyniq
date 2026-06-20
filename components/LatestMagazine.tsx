@@ -155,25 +155,30 @@ function Box({ d, type }: { d: unknown; type: string }) {
   );
 }
 
-export default function LatestMagazine({ pool }: { pool: LatestPool }) {
+export default function LatestMagazine({ pool, cap }: { pool: LatestPool; cap?: number }) {
   const magRef = useRef<HTMLDivElement>(null);
   const sentinel = useRef<HTMLDivElement>(null);
-  const [count, setCount] = useState(12);
+  const [count, setCount] = useState(cap ?? 12);
 
   const types = useMemo(() => PATTERN.filter((t) => (pool[(t + "s") as keyof LatestPool] ?? []).length > 0), [pool]);
 
   const seq = useMemo(() => {
     if (types.length === 0) return [] as { type: string; d: unknown; key: string }[];
+    const total = types.reduce((s, t) => s + (pool[(t + "s") as keyof LatestPool] as unknown[]).length, 0);
+    const target = cap ? Math.min(count, total) : count; // capped: never exceed unique items (no endless repeat)
     const cur: Record<string, number> = {};
     const out: { type: string; d: unknown; key: string }[] = [];
-    for (let i = 0; i < count; i++) {
-      const t = types[i % types.length];
+    let i = 0, guard = 0;
+    while (out.length < target && guard < target + types.length * 3) {
+      const t = types[i % types.length]; i++; guard++;
       const arr = pool[(t + "s") as keyof LatestPool] as unknown[];
-      const idx = (cur[t] ?? 0); cur[t] = idx + 1;
-      out.push({ type: t, d: arr[idx % arr.length], key: `${t}-${i}` });
+      const idx = cur[t] ?? 0;
+      if (cap && idx >= arr.length) continue; // capped: skip exhausted types so nothing repeats
+      cur[t] = idx + 1;
+      out.push({ type: t, d: arr[idx % arr.length], key: `${t}-${out.length}` });
     }
     return out;
-  }, [pool, types, count]);
+  }, [pool, types, count, cap]);
 
   useLayoutEffect(() => {
     const mag = magRef.current; if (!mag) return;
@@ -194,20 +199,21 @@ export default function LatestMagazine({ pool }: { pool: LatestPool }) {
   }, []);
 
   useEffect(() => {
+    if (cap) return; // bounded mode (home tail): no infinite scroll
     const el = sentinel.current; if (!el) return;
     const io = new IntersectionObserver((es) => {
       es.forEach((e) => { if (e.isIntersecting) setCount((c) => c + 8); });
     }, { rootMargin: "700px" });
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [cap]);
 
   return (
     <>
       <div className="lt-mag" ref={magRef}>
         {seq.map((b) => <Box key={b.key} d={b.d} type={b.type} />)}
       </div>
-      <div className="lt-loader" ref={sentinel}>editing in more features <span className="dot" /><span className="dot" /><span className="dot" /></div>
+      {!cap && <div className="lt-loader" ref={sentinel}>editing in more features <span className="dot" /><span className="dot" /><span className="dot" /></div>}
     </>
   );
 }
