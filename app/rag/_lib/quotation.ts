@@ -147,7 +147,7 @@ export function quotationContract(policy: QuotePolicy = DEFAULT_QUOTE_POLICY): s
     "When you draw on a CRITIC passage (marked [C#]):",
     `- Quote at most ${policy.maxSentences} sentence(s) / ~${policy.maxWords} words, inside quotation marks.`,
     "- Attribute every quote in-line to its outlet and author, e.g. (“…” — Author, Outlet).",
-    "- When a CRITIC passage is directly relevant to the question, include at most ONE short attributed quote and mark it [C#]; otherwise paraphrase or omit. Never reproduce a paragraph or stitch quotes together.",
+    "- If a CRITIC passage speaks directly to the question's theme, weave in ONE short attributed quote from it ([C#]) — favour doing so when it sharpens or frames the point; use at most two critic quotes total, and omit critics entirely if none is genuinely apropos. Never reproduce a paragraph or stitch quotes together.",
     "- Critic passages are secondary: your own analysis and the corpus close-readings lead.",
     "- Never present a critic's wording as the corpus's, and keep their [C#] markers distinct from corpus [n].",
   ].join("\n");
