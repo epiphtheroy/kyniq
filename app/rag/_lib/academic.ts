@@ -61,7 +61,7 @@ const SNIPPET_MAX = 280;
 
 /** Contact email for the polite pools; falls back to a placeholder. */
 function mailto(): string {
-  return (process.env.ACADEMIC_MAILTO || "").trim() || "research@example.com";
+  return (process.env.ACADEMIC_MAILTO || "").trim() || "wonwoo@metatake.net";
 }
 
 /** A fetch wrapper that always resolves to a parsed JSON object or null. */

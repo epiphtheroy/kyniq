@@ -133,13 +133,14 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // W7 — academic "further reading" (ADDITIVE, behind ACADEMIC_FURTHER_READING).
-    // GROUNDING INVARIANT: this runs AFTER generation, so it CANNOT enter the
-    // prompt. It is attached to a SEPARATE top-level `further_reading` field and
-    // is NEVER merged into `citations` or cited with [n]. On flag-off or any
-    // failure, the field is simply omitted — the response is otherwise identical.
+    // W7 — academic "further reading" (ADDITIVE). ON BY DEFAULT on this /rag
+    // preview surface so it's visible end-to-end; set ACADEMIC_FURTHER_READING=0
+    // to turn it off. GROUNDING INVARIANT: this runs AFTER generation, so it
+    // CANNOT enter the prompt. It is attached to a SEPARATE top-level
+    // `further_reading` field and is NEVER merged into `citations` or cited with
+    // [n]. On any failure, the field is simply omitted — response otherwise identical.
     let further_reading: AcademicRef[] | undefined;
-    if (process.env.ACADEMIC_FURTHER_READING) {
+    if (process.env.ACADEMIC_FURTHER_READING !== "0") {
       try {
         const items = await findFurtherReading(analysis.ftsQuery || query);
         if (items.length > 0) further_reading = items;
