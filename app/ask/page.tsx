@@ -108,7 +108,7 @@ function AskInner() {
           <p className="ak-sub">
             Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake&apos;s 18,004 close readings — and every claim links back to the reading it came from.
           </p>
-          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated</p>
+          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated · <Link href="/chat" className="ak-foot__link">Try Chat →</Link></p>
 
           <form className="ak-bar" onSubmit={(e) => { e.preventDefault(); run(); }}>
             <input

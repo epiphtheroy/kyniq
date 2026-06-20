@@ -2817,6 +2817,11 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .ak-chip{ font-family:var(--font-ui); font-size:12.5px; color:var(--ink2); background:var(--paper); border:1px solid var(--hairline); border-radius:0; padding:7px 12px; cursor:pointer; }
 .ak-chip:hover{border-color:var(--accent);color:var(--accent)}
 .ak-chip:disabled{opacity:.55;cursor:default}
+/* multi-turn chat thread */
+.ak-chat{display:flex;flex-direction:column;gap:26px;margin:20px 0 0}
+.ak-turn:not(:first-child){border-top:1px solid var(--hairline);padding-top:22px}
+.ak-bar--chat{margin:24px 0 0}
+.ak-chip--new{align-self:flex-start}
 .ak-loading{ font-family:var(--font-ui); font-size:14px; color:var(--muted); margin:26px 0 0; animation:ak-pulse 1.3s ease-in-out infinite; }
 @keyframes ak-pulse{0%,100%{opacity:.5}50%{opacity:1}}
 .ak-err{ font-family:var(--font-ui); font-size:14px; color:var(--accent); margin:22px 0 0; }

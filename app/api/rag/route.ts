@@ -73,6 +73,25 @@ async function embed(q: string): Promise<number[]> {
   return d.data[0].embedding as number[];
 }
 
+/** Conversational follow-up → standalone query, using recent history. Cheap model. */
+async function condense(history: { role: string; content: string }[], q: string): Promise<string> {
+  if (!history.length) return q;
+  try {
+    const convo = history
+      .map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${String(m.content).slice(0, 500)}`)
+      .join("\n");
+    const r = await openaiAdapter.call(
+      "gpt-4o-mini",
+      `Conversation:\n${convo}\n\nLatest user message: ${q}\n\nRewrite the latest user message as a standalone, self-contained search query about cinema, resolving any pronouns or references using the conversation. Return ONLY the rewritten query.`,
+      { temperature: 0, maxTokens: 60 }
+    );
+    const out = (r.text ?? "").replace(/^["']|["']$/g, "").trim();
+    return out.length >= 3 ? out : q;
+  } catch {
+    return q;
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     if (!process.env.OPENAI_API_KEY) {
@@ -83,23 +102,35 @@ export async function POST(req: NextRequest) {
     if (query.length < 3) return NextResponse.json({ error: "Ask a fuller question." }, { status: 400 });
     if (query.length > 300) return NextResponse.json({ error: "That question is too long." }, { status: 400 });
 
+    // Conversational history (recent turns) for follow-up resolution. Capped to ~3 turns.
+    const history: { role: string; content: string }[] = Array.isArray(body?.history)
+      ? (body.history as Array<{ role?: unknown; content?: unknown }>)
+          .filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string")
+          .map((m) => ({ role: m.role as string, content: m.content as string }))
+          .slice(-6)
+      : [];
+
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
     if (rateLimited(ip)) return NextResponse.json({ error: "A moment — too many questions at once." }, { status: 429 });
 
     const key = "v2:" + query.toLowerCase().replace(/\s+/g, " ");
-    const cached = cache.get(key);
-    if (cached && Date.now() - cached.ts < CACHE_TTL) return NextResponse.json(cached.data);
+    if (history.length === 0) {
+      const cached = cache.get(key);
+      if (cached && Date.now() - cached.ts < CACHE_TTL) return NextResponse.json(cached.data);
+    }
 
     // W2 — query understanding. The vector axis uses the ORIGINAL query; the
     // keyword/FTS axis uses the English-normalized ftsQuery. ask_retrieve takes
     // a single p_q for its FTS leg, so we feed it ftsQuery (English-normalized).
-    const analysis = await analyzeQuery(query);
+    // Conversational: rewrite a follow-up into a standalone query using the history.
+    const searchQuery = await condense(history, query);
+    const analysis = await analyzeQuery(searchQuery);
 
     const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-    const vec = await embed(query); // vector axis: original query (multilingual-safe)
+    const vec = await embed(searchQuery); // vector axis: standalone (condensed) query
     const { data, error } = await supabase.rpc("ask_retrieve", {
       p_qvec: `[${vec.join(",")}]`,
-      p_q: analysis.ftsQuery || query, // keyword axis: English-normalized
+      p_q: analysis.ftsQuery || searchQuery, // keyword axis: English-normalized
       p_k: CANDIDATES,
     });
     if (error) throw new Error(error.message);
@@ -108,7 +139,7 @@ export async function POST(req: NextRequest) {
 
     // W3 — rerank (vendor if keyed, else transparent fallback), then diversify
     // by intent (broad → cap 2; specific-film → relax to depth).
-    const reranked = await rerank(query, candidates as RerankRow[], {
+    const reranked = await rerank(searchQuery, candidates as RerankRow[], {
       expansions: analysis.expansions,
       topN: 40, // hand the diversifier a focused, sorted pool
     });
@@ -146,11 +177,11 @@ export async function POST(req: NextRequest) {
         if (process.env.TAVILY_API_KEY) {
           // Live, domain-restricted web search over the allow-listed critic outlets
           // (on-demand; full archive; nothing stored — short snippet + link out).
-          criticPassages = await searchCritics(query, 6);
+          criticPassages = await searchCritics(searchQuery, 6);
         } else {
           // Fallback: the pre-crawled snippet store (RSS), if present.
           const { data: cdata } = await supabase.rpc("magazine_retrieve", {
-            p_qvec: `[${vec.join(",")}]`, p_q: analysis.ftsQuery || query, p_k: 6,
+            p_qvec: `[${vec.join(",")}]`, p_q: analysis.ftsQuery || searchQuery, p_k: 6,
           });
           criticPassages = ((cdata ?? []) as Array<Record<string, unknown>>).map((r) => ({
             id: String(r.passage_id), outlet: String(r.outlet ?? ""),
@@ -172,7 +203,12 @@ export async function POST(req: NextRequest) {
     const sys =
       (criticPassages.length ? `${SYS_V2}\n\n${quotationContract()}` : SYS_V2) +
       "\n\nIf the numbered corpus readings do not actually address the question's specific subject (e.g. a director or film not present in the corpus), do NOT merely refuse: acknowledge the corpus gap in ONE sentence, then give the most useful answer you can from any CRITIC passages provided ([C#]); if there are none, briefly point the reader to the scholarly further reading shown beneath the answer. Never fabricate corpus attributions.";
-    let resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}${criticCtx}`, {
+    const convoBlock = history.length
+      ? "Conversation so far (context only — cite ONLY the numbered readings below, never the conversation):\n" +
+        history.map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.content.slice(0, 600)}`).join("\n") +
+        "\n\n"
+      : "";
+    let resp = await GEN.call(ANSWER_MODEL, `${convoBlock}Question: ${query}\n\nReadings:\n${ctx}${criticCtx}`, {
       systemPrompt: sys, temperature: 0.2, maxTokens: 750,
     });
     let answer = (resp.text ?? "").replace(/\n?USED:\s*[\d,\s]*$/i, "").trim();
@@ -180,7 +216,7 @@ export async function POST(req: NextRequest) {
     // Fair-use fail-safe: if the answer over-reproduces or over-quotes the critic
     // passages, regenerate ONCE corpus-only and drop the critic quotes.
     if (criticPassages.length && !quotesAreClean(answer, criticPassages)) {
-      resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}`, {
+      resp = await GEN.call(ANSWER_MODEL, `${convoBlock}Question: ${query}\n\nReadings:\n${ctx}`, {
         systemPrompt: SYS_V2, temperature: 0.2, maxTokens: 750,
       });
       answer = (resp.text ?? "").replace(/\n?USED:\s*[\d,\s]*$/i, "").trim();
@@ -238,7 +274,7 @@ export async function POST(req: NextRequest) {
         costUsd: resp.cost ?? null,
       },
     };
-    cache.set(key, { data: out, ts: Date.now() });
+    if (history.length === 0) cache.set(key, { data: out, ts: Date.now() });
     return NextResponse.json(out);
   } catch (e) {
     return NextResponse.json({ error: (e as Error).message || "Ask failed." }, { status: 500 });
