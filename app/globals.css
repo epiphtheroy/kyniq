@@ -1968,12 +1968,12 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 /* ===== Latest / Trending — magazine (HANDOFF redesign W3) ===== */
 .lt-wrap{max-width:1220px;margin:0 auto;padding:0 var(--wrap-x)}
 /* Home page trending tail */
-.home-trend{margin:56px 0 0;padding-top:30px;border-top:3px double var(--ink)}
-.home-trend-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
-.home-trend-k{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
-.home-trend-h{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0}
-.home-trend-s{font-family:var(--font-ui);font-size:13.5px;line-height:1.5;color:var(--muted);margin:7px 0 0;max-width:60ch}
-.home-trend-foot{margin-top:10px;text-align:center}
+.home-latest{margin:56px 0 0;padding-top:30px;border-top:3px double var(--ink)}
+.home-latest-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.home-latest-k{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.home-latest-h{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0}
+.home-latest-s{font-family:var(--font-ui);font-size:13.5px;line-height:1.5;color:var(--muted);margin:7px 0 0;max-width:60ch}
+.home-latest-foot{margin-top:10px;text-align:center}
 .lt-edition{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0 11px;border-bottom:1px solid var(--ink);flex-wrap:wrap}
 .lt-edition .date{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .lt-edition .tag{font-family:var(--font-display);font-style:italic;font-size:13.5px;color:var(--muted)}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import AskHero from "@/components/AskHero";
 import HomeClient, { type HomeBundle } from "@/components/HomeClient";
-import TrendingSections, { type TrendPool } from "@/components/TrendingSections";
+import LatestMagazine, { type LatestPool } from "@/components/LatestMagazine";
 
 export const revalidate = 900;
 
@@ -32,41 +32,41 @@ async function loadBundle(): Promise<HomeBundle> {
   throw new Error("home_bundle returned empty after retries");
 }
 
-// Trending block at the foot of the home page. Never throws — if it can't load,
+// Latest block at the foot of the home page. Never throws — if it can't load,
 // the home simply renders without it (it must not jeopardise the main page).
-async function loadTrending(): Promise<TrendPool | null> {
+async function loadLatest(): Promise<LatestPool | null> {
   try {
-    const { data } = await db().rpc("trending_pool", { p_window: "all" });
-    const p = data as TrendPool | null;
-    if (p && (p.metas?.length || p.films?.length || p.tropes?.length || p.takes?.length)) return p;
+    const { data } = await db().rpc("latest_pool");
+    const p = data as LatestPool | null;
+    if (p && (p.films?.length || p.metas?.length || p.tropes?.length || p.directors?.length || p.concepts?.length || p.readings?.length)) return p;
   } catch {
-    /* ignore — render home without the trending tail */
+    /* ignore — render home without the latest tail */
   }
   return null;
 }
 
 export default async function Home() {
-  const [bundle, trend] = await Promise.all([loadBundle(), loadTrending()]);
+  const [bundle, latest] = await Promise.all([loadBundle(), loadLatest()]);
   return (
     <div className="mt">
       <MetatakeNav />
       <AskHero readings={bundle.stats.metas} films={bundle.stats.films} />
       <HomeClient bundle={bundle} />
 
-      {trend ? (
-        <section className="home-trend">
+      {latest ? (
+        <section className="home-latest">
           <div className="lt-wrap">
-            <div className="home-trend-head">
+            <div className="home-latest-head">
               <div>
-                <p className="home-trend-k">Live on the map</p>
-                <h2 className="home-trend-h">Trending now</h2>
-                <p className="home-trend-s">The readings, tropes and films drawing the most attention — shown through the films and figures that carry them.</p>
+                <p className="home-latest-k">Fresh on the map</p>
+                <h2 className="home-latest-h">Latest</h2>
+                <p className="home-latest-s">What&apos;s newest across Metatake — fresh readings, meta takes, tropes, directors and concepts, edited like a magazine.</p>
               </div>
-              <Link className="tg-more" href="/trending">See all trending →</Link>
+              <Link className="tg-more" href="/latest">See all latest →</Link>
             </div>
-            <TrendingSections pool={trend} />
-            <div className="home-trend-foot">
-              <Link className="tg-more" href="/trending">See all trending →</Link>
+            <LatestMagazine pool={latest} />
+            <div className="home-latest-foot">
+              <Link className="tg-more" href="/latest">See all latest →</Link>
             </div>
           </div>
         </section>
