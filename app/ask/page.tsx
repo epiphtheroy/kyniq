@@ -6,7 +6,8 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "@/components/AskReadings";
 
-type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[] };
+type Critic = { snippet: string; outlet: string; author: string | null; url: string; year: number | null };
+type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[]; critics?: Critic[] };
 
 const EXAMPLES = [
   "How does cinema portray surveillance?",
@@ -19,11 +20,21 @@ function citeTarget(c: Cite) {
   return c.meta_slug ? `/take/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
 }
 
-function renderPara(para: string, map: Map<number, Cite>, k: string, onCite: (n: number) => void) {
-  const parts = para.split(/(\[\d+\])/g);
+function renderPara(para: string, map: Map<number, Cite>, k: string, onCite: (n: number) => void, criticsLen = 0) {
+  const parts = para.split(/(\[C?\d+\])/g);
   return (
     <p key={k} className="ak-p">
       {parts.map((p, i) => {
+        const mc = p.match(/^\[C(\d+)\]$/);
+        if (mc) {
+          const n = Number(mc[1]);
+          if (n >= 1 && n <= criticsLen) {
+            return (
+              <a key={i} href={`#ak-crit-${n}`} className="ak-cite ak-cite--crit" title="Critic source">[C{mc[1]}]</a>
+            );
+          }
+          return <span key={i}>{p}</span>;
+        }
         const m = p.match(/^\[(\d+)\]$/);
         if (m) {
           const n = Number(m[1]);
@@ -146,7 +157,7 @@ function AskInner() {
             {mode === "answer" ? (
               <>
                 <div className="ak-answer">
-                  {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi))}
+                  {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi, res.critics?.length ?? 0))}
                 </div>
 
                 {res.readings.length > 0 ? (
@@ -175,6 +186,21 @@ function AskInner() {
                           </li>
                         );
                       })}
+                    </ol>
+                  </div>
+                ) : null}
+
+                {res.critics && res.critics.length > 0 ? (
+                  <div className="ak-sources ak-critics">
+                    <div className="ak-sources__lbl">Critics — short quotes, attributed &amp; linked to the source</div>
+                    <ol className="ak-srclist">
+                      {res.critics.map((c, i) => (
+                        <li key={i} id={`ak-crit-${i + 1}`}>
+                          <em className="ak-critq">&ldquo;{c.snippet}&rdquo;</em>{" "}
+                          <span className="ak-film">— {[c.author, c.outlet, c.year != null ? String(c.year) : null].filter(Boolean).join(", ")}</span>{" "}
+                          <a href={c.url} target="_blank" rel="noopener noreferrer nofollow" className="ak-to">source ↗</a>
+                        </li>
+                      ))}
                     </ol>
                   </div>
                 ) : null}
