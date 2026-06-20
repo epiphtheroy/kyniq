@@ -177,6 +177,15 @@ export async function POST(req: NextRequest) {
       critics = [];
     }
 
+    // Show only the critic passages the answer ACTUALLY cited via [C#] — keeps the
+    // section tight and on-point (loosely-related or boilerplate snippets never show).
+    if (critics.length) {
+      const usedC = new Set(
+        [...answer.matchAll(/\[C(\d+)\]/g)].map((m) => Number(m[1]))
+      );
+      critics = critics.filter((_, i) => usedC.has(i + 1));
+    }
+
     const seen = new Set<string>();
     const readings: { slug: string; title: string }[] = [];
     for (const r of cites) {
