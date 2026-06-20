@@ -26,7 +26,7 @@ export default function AskHero({ readings, films }: { readings: number; films: 
           figures and tropes it&apos;s built on.
         </p>
 
-        <form className="ah-bar" action="/ask" method="get" role="search">
+        <form className="ah-bar" action="/chat" method="get" role="search">
           <input
             className="ah-input" name="q" type="search" maxLength={300}
             placeholder="Ask about a film, a theme, a feeling…"
@@ -37,7 +37,7 @@ export default function AskHero({ readings, films }: { readings: number; films: 
 
         <div className="ah-eg">
           {EXAMPLES.map((x) => (
-            <Link key={x} className="ah-chip" href={`/ask?q=${encodeURIComponent(x)}`}>{x}</Link>
+            <Link key={x} className="ah-chip" href={`/chat?q=${encodeURIComponent(x)}`}>{x}</Link>
           ))}
         </div>
 
