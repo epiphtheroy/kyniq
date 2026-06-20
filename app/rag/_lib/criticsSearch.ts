@@ -62,13 +62,20 @@ export async function searchCritics(query: string, k = 6): Promise<MagazinePassa
   if (!key) return [];
   const { map, list } = await allowedDomains();
   if (list.length === 0) return [];
+  // Short / bare-name queries (e.g. just a director) search weakly inside a domain
+  // filter; add light film context so a name reliably surfaces critic essays.
+  const q = query.trim();
+  const searchQ =
+    q.split(/\s+/).length <= 3 && !/\b(film|films|cinema|movie|movies|director)\b/i.test(q)
+      ? `${q} film`
+      : q;
   try {
     const r = await fetch("https://api.tavily.com/search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         api_key: key,
-        query,
+        query: searchQ,
         include_domains: list,
         max_results: k,
         search_depth: "basic",

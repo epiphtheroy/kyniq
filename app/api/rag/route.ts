@@ -169,7 +169,9 @@ export async function POST(req: NextRequest) {
       } catch { /* optional layer — never break the grounded answer */ }
     }
 
-    const sys = criticPassages.length ? `${SYS_V2}\n\n${quotationContract()}` : SYS_V2;
+    const sys =
+      (criticPassages.length ? `${SYS_V2}\n\n${quotationContract()}` : SYS_V2) +
+      "\n\nIf the numbered corpus readings do not actually address the question's specific subject (e.g. a director or film not present in the corpus), do NOT merely refuse: acknowledge the corpus gap in ONE sentence, then give the most useful answer you can from any CRITIC passages provided ([C#]); if there are none, briefly point the reader to the scholarly further reading shown beneath the answer. Never fabricate corpus attributions.";
     let resp = await GEN.call(ANSWER_MODEL, `Question: ${query}\n\nReadings:\n${ctx}${criticCtx}`, {
       systemPrompt: sys, temperature: 0.2, maxTokens: 750,
     });
