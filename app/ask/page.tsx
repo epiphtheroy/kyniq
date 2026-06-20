@@ -5,9 +5,10 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "@/components/AskReadings";
+import FurtherReading, { type AcademicRef } from "@/app/rag/_components/FurtherReading";
 
 type Critic = { snippet: string; outlet: string; author: string | null; url: string; year: number | null };
-type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[]; critics?: Critic[] };
+type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[]; critics?: Critic[]; further_reading?: AcademicRef[] };
 
 const EXAMPLES = [
   "How does cinema portray surveillance?",
@@ -204,6 +205,8 @@ function AskInner() {
                     </ol>
                   </div>
                 ) : null}
+
+                <FurtherReading items={res.further_reading} />
               </>
             ) : (
               <AskReadings citations={res.citations} />
