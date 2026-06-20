@@ -104,7 +104,7 @@ function AskInner() {
       <MetatakeNav active="ask" />
       <div className="ak-wrap">
         <div className="ak-head">
-          <h1 className="ak-h1">Ask Metatake</h1>
+          <h1 className="ak-h1">Metatake AI</h1>
           <p className="ak-sub">
             Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake&apos;s 18,004 close readings — and every claim links back to the reading it came from.
           </p>
