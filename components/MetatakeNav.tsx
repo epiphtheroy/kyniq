@@ -13,7 +13,6 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
       <Link href="/" className="brand">metatake</Link>
       <nav style={{ display: "flex", gap: 14 }}>
         {item("ask", "/ask", "Ask")}
-        {item("rag", "/rag", "RAG")}
         {item("latest", "/latest", "Latest")}
         {item("trending", "/trending", "Trending")}
         {item("films", "/film", "Films")}
