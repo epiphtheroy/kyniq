@@ -23,6 +23,7 @@ import { findFurtherReading, type AcademicRef } from "@/app/rag/_lib/academic";
 import {
   quotationContract, quotesAreClean, clampQuote, attribution, type MagazinePassage,
 } from "@/app/rag/_lib/quotation";
+import { searchCritics } from "@/app/rag/_lib/criticsSearch";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -142,15 +143,22 @@ export async function POST(req: NextRequest) {
     let criticCtx = "";
     if (process.env.MAGAZINE_QUOTES !== "0") {
       try {
-        const { data: cdata } = await supabase.rpc("magazine_retrieve", {
-          p_qvec: `[${vec.join(",")}]`, p_q: analysis.ftsQuery || query, p_k: 6,
-        });
-        criticPassages = ((cdata ?? []) as Array<Record<string, unknown>>).map((r) => ({
-          id: String(r.passage_id), outlet: String(r.outlet ?? ""),
-          title: (r.article_title as string) ?? null, author: (r.author as string) ?? null,
-          year: (r.published_year as number) ?? null, url: String(r.article_url ?? ""),
-          snippet: String(r.snippet ?? ""),
-        }));
+        if (process.env.TAVILY_API_KEY) {
+          // Live, domain-restricted web search over the allow-listed critic outlets
+          // (on-demand; full archive; nothing stored — short snippet + link out).
+          criticPassages = await searchCritics(query, 6);
+        } else {
+          // Fallback: the pre-crawled snippet store (RSS), if present.
+          const { data: cdata } = await supabase.rpc("magazine_retrieve", {
+            p_qvec: `[${vec.join(",")}]`, p_q: analysis.ftsQuery || query, p_k: 6,
+          });
+          criticPassages = ((cdata ?? []) as Array<Record<string, unknown>>).map((r) => ({
+            id: String(r.passage_id), outlet: String(r.outlet ?? ""),
+            title: (r.article_title as string) ?? null, author: (r.author as string) ?? null,
+            year: (r.published_year as number) ?? null, url: String(r.article_url ?? ""),
+            snippet: String(r.snippet ?? ""),
+          }));
+        }
         if (criticPassages.length) {
           criticCtx = "\n\nCritic passages (quote sparingly, attribute, use [C#] markers):\n" +
             criticPassages.map((p, i) => `[C${i + 1}] "${p.snippet}" — ${attribution(p).label}`).join("\n");
