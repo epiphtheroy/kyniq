@@ -2967,3 +2967,43 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .ah-trust{font-family:var(--font-ui);font-size:12.5px;color:var(--muted);margin:22px 0 0}
 .ah-trust b{color:var(--ink)}
 .ah-trust .st{color:var(--accent);font-weight:700}
+
+/* ====== STRONG MISREADINGS (new model) ====== */
+/* figure-page reading cards */
+.sm-card{border:1px solid var(--hairline); border-left:4px solid #8f8f8f; padding:16px 18px; margin:0 0 14px; background:var(--bg)}
+.sm-card__top{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:8px}
+.sm-fw{font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
+.sm-str{font-size:10px; letter-spacing:1px; margin-left:auto; white-space:nowrap}
+.sm-str__on{color:var(--accent)}
+.sm-str__off{color:var(--hairline)}
+.sm-title{font-family:var(--font-display); font-size:18px; font-weight:700; line-height:1.32; letter-spacing:-.01em; margin:0 0 8px; color:var(--ink)}
+.sm-thesis{font-family:var(--font-display); font-size:16px; line-height:1.65; color:var(--ink); margin:0}
+.sm-thesis .mt-link{color:var(--accent); font-weight:600}
+.sm-thesis .mt-link:hover{text-decoration:underline}
+.sm-leap{font-family:var(--font-ui); font-size:13.5px; line-height:1.55; color:var(--muted); margin:10px 0 0; padding-top:9px; border-top:1px dashed var(--hairline)}
+.sm-leap__l{font-weight:700; text-transform:uppercase; letter-spacing:.07em; font-size:10.5px; color:var(--accent); margin-right:6px}
+.sm-meta{display:flex; flex-wrap:wrap; gap:7px; margin-top:11px}
+.sm-tag{font-family:var(--font-ui); font-size:11px; font-weight:600; color:var(--ink); background:var(--surface-2); border:1px solid var(--hairline); padding:2px 8px}
+.sm-tag--c{font-style:italic}
+.sm-tag--p{color:var(--muted)}
+.sm-card--inv{border-left-color:#444; background:var(--surface-2)}
+.sm-thesis--inv{font-size:16.5px; line-height:1.7}
+
+/* film-page invitation lead */
+.df-invite{margin:26px 0 0; border:1px solid var(--hairline); border-left:4px solid #444; background:var(--surface-2); padding:20px 22px}
+.df-invite__k{font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
+.df-invite__p{font-family:var(--font-display); font-size:17px; line-height:1.7; color:var(--ink); margin:0; max-width:68ch}
+.df-invite__note{font-family:var(--font-ui); font-size:11.5px; color:var(--muted); margin-top:12px; font-style:italic}
+
+/* film-page Strong Misreadings grouped by family */
+.df-smfam{margin:0 0 22px}
+.df-smfam__h{font-family:var(--font-ui); font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--hairline)}
+.sm-row{border-left:3px solid #8f8f8f; padding:2px 0 14px 14px; margin:0 0 14px}
+.sm-row__top{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px}
+.sm-row .sm-fw{font-size:10.5px}
+.sm-via{font-family:var(--font-ui); font-size:12px; color:var(--accent); font-weight:600}
+.sm-via:hover{text-decoration:underline}
+.sm-row__title{font-family:var(--font-display); font-size:16.5px; font-weight:700; line-height:1.32; letter-spacing:-.01em; margin:0 0 5px}
+.sm-row__title a:hover{color:var(--accent)}
+.sm-row__thesis{font-family:var(--font-display); font-size:14.5px; line-height:1.6; color:var(--muted); margin:0; max-width:72ch}
+.df-mlist--wide{border-top:1px solid var(--hairline)}

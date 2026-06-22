@@ -45,15 +45,35 @@ export default function AboutPage() {
 
       <hr className="rule" />
 
-      <div className="seclbl">How it works — figure, take, meta-take, trope</div>
+      <div className="seclbl">How it works — figures, readings, tropes</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Four simple pieces. A <em>figure</em> is a meaningful element a film keeps returning to — a mirror, a
-        staircase, a held look. A <em>take</em> is a close reading of what that figure is doing <em>here</em>. A{" "}
-        <em>meta-take</em> is what surfaces when the same figure speaks across many films — the reading you land on,
-        gathered from every film that shares it. And a <em>trope</em> is the screenwriter&apos;s-eye <em>type</em> a
-        figure belongs to — the device beneath the meaning. Follow a figure and you don&apos;t get a verdict; you get
-        a doorway to the next film.
+        Three pieces. A <em>figure</em> is a meaningful element a film keeps returning to — a mirror, a staircase, a
+        held look. A <em>Strong Misreading</em> is one bold reading of that figure, filed under one of fourteen{" "}
+        <em>frameworks</em> — from the film&apos;s hidden ontology to a real place it was shot, a theorist it summons,
+        or a single life it secretly rhymes with. And a <em>trope</em> is what surfaces when the same reading recurs
+        across films: a coded pattern on a maturity arc, from a singular reading no one has made before to a full-blown
+        cliché. Follow a figure and you don&apos;t get a verdict; you get a doorway to the next film.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl" id="strong-misreadings" style={{ scrollMarginTop: 70 }}>Strong Misreadings</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        The critic Harold Bloom argued that no reading is innocent — that <em>&ldquo;reading is always
+        misreading,&rdquo;</em> and that the readings worth having are the strong ones: forceful interpretations that
+        wrest a new meaning from a work rather than dutifully recovering its obvious sense. A strong misreading earns
+        its keep not by being correct, but by how much it lets you see. That is the wager here. Each one takes a
+        surface detail — an image, a line, a fact about how the film was made — distrusts it, and turns it into
+        something the film never says aloud.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Which is why the name is what it is. To call these <em>Strong Misreadings</em> is to keep a promise: we push a
+        reading as far as it will go, and we do not pretend the result is the truth of the film. &ldquo;Misreading&rdquo;
+        is the disclaimer built into the title — a reading this bold forfeits any right to also call itself the correct
+        one, so it doesn&apos;t. Read them as provocations, not verdicts. If one changes how a film looks to you, it has
+        done the only thing it set out to do.
       </p>
 
       <hr className="rule" />

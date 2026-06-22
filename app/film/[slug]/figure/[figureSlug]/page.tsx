@@ -7,10 +7,10 @@ import FigureContribute from "@/components/FigureContribute";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
-import TakeMapToggle from "@/components/TakeMapToggle";
 import Provenance from "@/components/Provenance";
 import { FigureStats } from "@/components/detail/FigureDetailBits";
 import { renderTokens } from "@/lib/mtTokens";
+import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -22,19 +22,6 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-// register → [label, color]  (figure-page-design.md §6.1)
-const REG: Record<string, [string, string]> = {
-  formal: ["Formal", "#5B8FB9"],
-  semiotic: ["Semiotic", "#B8860B"],
-  psychoanalytic: ["Psychoanalytic", "#A8434F"],
-  ideological: ["Ideological", "#C0392B"],
-  politico_economic: ["Politico-economic", "#2E7D5B"],
-  philosophical: ["Philosophical", "#7E57C2"],
-  existential: ["Existential", "#546E7A"],
-  mythic: ["Mythic", "#A9743B"],
-  genealogical: ["Film-historical", "#2E86C1"],
-  reception: ["Reception", "#159A8A"],
-};
 const KIND: Record<string, string> = {
   character: "Character", object: "Object / symbol", location: "Location",
   form: "Form / technique", trope: "Trope",
@@ -44,8 +31,10 @@ interface Props { params: Promise<{ slug: string; figureSlug: string }>; }
 
 type MetaTake = { slug: string; title: string; status: string } | null;
 type Take = {
-  id: string; rationale: string | null; register: string | null;
-  angle: string | null; confidence: number | null; source: string | null; meta_take: MetaTake;
+  id: string; framework: string | null; take_title: string | null; rationale: string | null;
+  leap: string | null; strength: number | null; theorist_name: string | null;
+  concept: string | null; real_person: string | null; is_invitation: boolean | null;
+  source: string | null; meta_take: MetaTake;
 };
 
 async function load(slug: string, figureSlug: string) {
@@ -60,10 +49,10 @@ async function load(slug: string, figureSlug: string) {
   if (!figure) return null;
   const { data: takeRows } = await supabase
     .from("takes")
-    .select("id, rationale, register, angle, confidence, source, meta_take:meta_takes(slug, title, status)")
+    .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source, meta_take:meta_takes(slug, title, status)")
     .eq("figure_id", figure.id).eq("status", "published");
   const takes = ((takeRows ?? []) as unknown as Take[])
-    .sort((a, b) => (b.confidence ?? 0) - (a.confidence ?? 0));
+    .sort((a, b) => Number(b.is_invitation ?? false) - Number(a.is_invitation ?? false) || (b.strength ?? 0) - (a.strength ?? 0));
   const { data: mtRows } = await supabase
     .from("meta_takes")
     .select("id, title, laconic, theory_family:theory_families(name)")
@@ -213,7 +202,7 @@ export default async function FigurePage({ params }: Props) {
               </span>
             ) : null}
             <span className="fg-dot" />
-            <span>Takes <b>{takes.length}</b></span>
+            <span>Readings <b>{takes.length}</b></span>
           </div>
 
           {figure.description ? (
@@ -232,40 +221,41 @@ export default async function FigurePage({ params }: Props) {
           <FigureStats takes={takes.length} metaTakes={metaTakeCount} connected={connections.length ? connectedCount : null} />
         </section>
 
-        {/* TAKES */}
+        {/* STRONG MISREADINGS */}
         <section className="fg-sec" id="takes">
-          <h2 className="fg-h2">Takes</h2>
-          <p className="fg-gloss">A take is one critical reading of this figure. Takes that recur across films converge into a <strong>meta take</strong> — the hub each one links to. Filed by critical register.</p>
+          <h2 className="fg-h2">Strong Misreadings</h2>
+          <p className="fg-gloss">Bold readings of this figure — each a deliberate over-reading, offered as a provocation, not a verdict. Filed by <Link href="/about#strong-misreadings">framework</Link>.</p>
 
           <div className="fg-takes">
             {takes.map((t) => {
-              const reg = t.register ? REG[t.register] : undefined;
-              const color = reg ? reg[1] : "#8F8F8F";
-              const mt = t.meta_take;
+              const F = fw(t.framework);
+              const inv = !!t.is_invitation;
+              const s = Math.min(5, Math.max(0, t.strength ?? 0));
               return (
-                <div key={t.id} id={`t-${t.id}`} className="fg-take" style={{ borderLeftColor: color, scrollMarginTop: 70 }}>
-                  <div className="fg-take__top">
-                    {reg ? <span className="fg-badge" style={{ background: color }}>{reg[0]}</span> : null}
-                    {t.source === "human" ? <span className="fg-badge fg-badge--community">Community</span> : null}
-                    {mt ? (
-                      <span className="fg-hub">
-                        <span className="fg-hub__ar">→</span>{" "}
-                        {mt.status === "published"
-                          ? <Link href={`/take/${mt.slug}`}>{mt.title}</Link>
-                          : <span className="fg-hub__emerging">{mt.title} <em>(emerging)</em></span>}
+                <div key={t.id} id={`t-${t.id}`} className={`sm-card${inv ? " sm-card--inv" : ""}`} style={{ borderLeftColor: F.color, scrollMarginTop: 70 }}>
+                  <div className="sm-card__top">
+                    <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>
+                    {!inv && s > 0 ? (
+                      <span className="sm-str" title={`Strength ${s}/5`} aria-label={`Strength ${s} of 5`}>
+                        <span className="sm-str__on">{"●".repeat(s)}</span><span className="sm-str__off">{"●".repeat(5 - s)}</span>
                       </span>
                     ) : null}
+                    {t.source === "human" ? <span className="fg-badge fg-badge--community">Community</span> : null}
                   </div>
-                  {t.rationale ? <p className="fg-take__rat">{renderTokens(t.rationale, resolver)}</p> : null}
-                  {mt && mt.status === "published" ? (
-                    <div className="fg-take__foot">
-                      <TakeMapToggle mtSlug={mt.slug} mtTitle={mt.title} label={figure.label} takeId={t.id} />
+                  {!inv && t.take_title ? <h3 className="sm-title">{t.take_title}</h3> : null}
+                  {t.rationale ? <p className={`sm-thesis${inv ? " sm-thesis--inv" : ""}`}>{renderTokens(t.rationale, resolver)}</p> : null}
+                  {!inv && t.leap ? <p className="sm-leap"><span className="sm-leap__l">The leap</span> {t.leap}</p> : null}
+                  {!inv && (t.theorist_name || t.concept || t.real_person) ? (
+                    <div className="sm-meta">
+                      {t.theorist_name ? <span className="sm-tag">{t.theorist_name}</span> : null}
+                      {t.concept ? <span className="sm-tag sm-tag--c">{t.concept}</span> : null}
+                      {t.real_person ? <span className="sm-tag sm-tag--p">{t.real_person}</span> : null}
                     </div>
                   ) : null}
                 </div>
               );
             })}
-            {takes.length === 0 ? <p className="fg-empty">No takes yet.</p> : null}
+            {takes.length === 0 ? <p className="fg-empty">No readings yet.</p> : null}
           </div>
         </section>
 

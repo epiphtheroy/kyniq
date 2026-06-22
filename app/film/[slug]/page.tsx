@@ -9,6 +9,7 @@ import EntityGraphLoader from "@/components/EntityGraphLoader";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
+import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -23,14 +24,22 @@ interface Props { params: Promise<{ slug: string }>; }
 
 const KIND_LABEL: Record<string, string> = {
   character: "Characters", object: "Objects & symbols", location: "Locations",
-  form: "Form & technique", trope: "Themes & motifs",
+  form: "Form & technique", trope: "Themes & motifs", title: "Title", film: "The film itself",
 };
-const KIND_ORDER = ["character", "object", "location", "form", "trope"];
+const KIND_ORDER = ["film", "character", "object", "location", "form", "trope", "title"];
 
-type Fig = { id: string; kind: string | null; label: string; slug: string | null; description: string | null; metaTakes: { slug: string; title: string }[] };
+type Fig = { id: string; kind: string | null; label: string; slug: string | null; description: string | null };
 type FigRef = { label: string; slug: string | null };
 type FilmLink = { slug: string; title: string; figs: FigRef[] };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
+type TakeRow = { figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; strength: number | null; is_invitation: boolean | null };
+type SM = { framework: string | null; take_title: string | null; thesis: string | null; strength: number | null; figLabel: string; figSlug: string | null };
+
+function snip(s: string | null, n: number): string {
+  if (!s) return "";
+  const t = s.trim();
+  return t.length > n ? t.slice(0, n).replace(/\s+\S*$/, "") + "…" : t;
+}
 
 async function load(slug: string) {
   const supabase = db();
@@ -41,38 +50,36 @@ async function load(slug: string) {
   if (!film) return null;
 
   const [{ data: figRows }, { data: aff }, { data: mediaRows }] = await Promise.all([
-    supabase.from("figures")
-      .select("id, kind, label, slug, description, takes(meta_take:meta_takes(slug, title, status, kind))")
-      .eq("film_id", film.id).eq("status", "approved"),
-    supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
+    supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
+    supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
   ]);
 
-  const figures: Fig[] = (figRows ?? []).map((f) => {
-    const takes = (f.takes ?? []) as unknown as { meta_take: { slug: string; title: string; status: string; kind: string } | null }[];
-    const mts = takes.map((t) => t.meta_take).filter((m): m is { slug: string; title: string; status: string; kind: string } => !!m && m.status === "published" && m.kind === "reading");
-    return { id: f.id, kind: f.kind, label: f.label, slug: f.slug, description: (f.description as string | null) ?? null, metaTakes: mts.map((m) => ({ slug: m.slug, title: m.title })) };
-  });
+  const figures = (figRows ?? []) as Fig[];
+  const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
+  const figIds = figures.map((f) => f.id);
 
-  // Layer 2 — distinct meta-takes (kind='reading'); keep which of this film's figures reach each.
-  const readMap = new Map<string, FilmLink>();
-  for (const f of figures) {
-    const fg: FigRef = { label: f.label, slug: f.slug };
-    const seen = new Set<string>();
-    for (const m of f.metaTakes) {
-      if (seen.has(m.slug)) continue;
-      seen.add(m.slug);
-      const e = readMap.get(m.slug);
-      if (e) { if (!e.figs.some((x) => x.label === fg.label)) e.figs.push(fg); }
-      else readMap.set(m.slug, { slug: m.slug, title: m.title, figs: [fg] });
+  // Strong Misreadings (new model) — published takes anchored to this film's figures.
+  let invitation: string | null = null;
+  const misreadings: SM[] = [];
+  const takeCount = new Map<string, number>();
+  if (figIds.length) {
+    const { data: takeRows } = await supabase
+      .from("takes")
+      .select("figure_id, framework, take_title, rationale, strength, is_invitation")
+      .in("figure_id", figIds).eq("status", "published");
+    for (const t of (takeRows ?? []) as TakeRow[]) {
+      if (t.is_invitation) { if (!invitation) invitation = t.rationale; continue; }
+      const f = figById.get(t.figure_id);
+      misreadings.push({ framework: t.framework, take_title: t.take_title, thesis: t.rationale, strength: t.strength, figLabel: f?.label ?? "", figSlug: f?.slug ?? null });
+      takeCount.set(t.figure_id, (takeCount.get(t.figure_id) ?? 0) + 1);
     }
   }
-  const readings = [...readMap.values()].sort((a, b) => b.figs.length - a.figs.length || a.title.localeCompare(b.title));
+  misreadings.sort((a, b) => fwOrder(a.framework) - fwOrder(b.framework));
 
-  // Layer 3 — tropes (kind='figure_type'); keep this film's figures per trope.
-  const figIds = figures.map((f) => f.id);
-  const figById = new Map<string, FigRef>(figures.map((f) => [f.id, { label: f.label, slug: f.slug }]));
+  // Tropes (kind='figure_type') — cross-film types this film's figures belong to.
+  const figRefById = new Map<string, FigRef>(figures.map((f) => [f.id, { label: f.label, slug: f.slug }]));
   let tropes: FilmLink[] = [];
   if (figIds.length) {
     const { data: ftm } = await supabase.from("figure_type_members").select("meta_take_id, figure_id").in("figure_id", figIds);
@@ -83,7 +90,7 @@ async function load(slug: string) {
       const tFigs = new Map<string, FigRef[]>();
       for (const r of (ftm ?? [])) {
         if (!tmMap.has(r.meta_take_id)) continue;
-        const fg = figById.get(r.figure_id); if (!fg) continue;
+        const fg = figRefById.get(r.figure_id); if (!fg) continue;
         const arr = tFigs.get(r.meta_take_id) ?? [];
         if (!arr.some((x) => x.label === fg.label)) arr.push(fg);
         tFigs.set(r.meta_take_id, arr);
@@ -97,35 +104,25 @@ async function load(slug: string) {
   const stills = media.filter((m) => m.kind === "image").slice(0, 5);
   const trailer = media.find((m) => m.kind === "video") ?? null;
 
-  // recommendations
+  // Connected films — nearest neighbours by affinity (reasons layer retired with old readings).
   const relIds = (aff ?? []).map((a) => a.related_film_id);
-  const sharedIds = [...new Set((aff ?? []).flatMap((a) => (a.shared_meta_take_ids ?? []) as string[]))];
-  const [{ data: relFilms }, { data: sharedMts }] = await Promise.all([
-    relIds.length ? supabase.from("films").select("id, title, slug, year").in("id", relIds) : Promise.resolve({ data: [] as { id: string; title: string; slug: string; year: number | null }[] }),
-    sharedIds.length ? supabase.from("meta_takes").select("id, slug, title").in("id", sharedIds).eq("status", "published").eq("kind", "reading") : Promise.resolve({ data: [] as { id: string; slug: string; title: string }[] }),
-  ]);
+  const { data: relFilms } = relIds.length
+    ? await supabase.from("films").select("id, title, slug, year").in("id", relIds)
+    : { data: [] as { id: string; title: string; slug: string; year: number | null }[] };
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
-  const mtMap = new Map((sharedMts ?? []).map((m) => [m.id, m]));
-  const recs = (aff ?? []).map((a) => {
-    const f = relFilmMap.get(a.related_film_id);
-    const reasons = ((a.shared_meta_take_ids ?? []) as string[]).map((id) => mtMap.get(id)).filter(Boolean) as { slug: string; title: string }[];
-    return f ? { film: f, reasons } : null;
-  }).filter(Boolean) as { film: { title: string; slug: string; year: number | null }; reasons: { slug: string; title: string }[] }[];
+  const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, readings, tropes, recs, stills, trailer };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  // Thin-content gate: a film with fewer than 3 figures has no real reading yet
-  // (e.g. just-added films before extraction) → noindex. Auto-flips to indexable
-  // once film-extract populates its figures/takes; no manual step per film.
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
-  const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & meta takes`;
-  const description = data.figures.length
-    ? `${data.film.title} read closely: ${data.figures.length} figures and the ${data.readings.length} recurring ideas it shares across cinema.`
+  const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & strong misreadings`;
+  const description = data.misreadings.length
+    ? `${data.film.title} read closely: ${data.figures.length} figures and ${data.misreadings.length} strong misreadings across 14 critical frameworks.`
     : undefined;
   return {
     title,
@@ -139,29 +136,20 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, readings, tropes, recs, stills, trailer } = data;
-  const grouped = KIND_ORDER.map((k) => ({ kind: k, items: figures.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
-  const mtTotal = readings.length;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer } = data;
+
+  // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
+  const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title");
+  const grouped = KIND_ORDER.filter((k) => k !== "film" && k !== "title")
+    .map((k) => ({ kind: k, items: catalogue.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
+
+  const smByFamily = FAMILIES.map((fam) => ({ fam, items: misreadings.filter((m) => fw(m.framework).family === fam.key) })).filter((g) => g.items.length > 0);
+
   const extra = (film.tmdb_extra ?? {}) as { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string; vote_average?: number; collection?: string | null };
   const cast = extra.cast ?? [];
   const runtimeFmt = film.runtime ? `${film.runtime} min` : null;
   const cert = film.certification ? film.certification.replace(/^[A-Z]{2}:/, "") : null;
   const country = extra.country?.length ? extra.country[0] : null;
-
-  // "via [figure]" inline list — red figure links, used in the two-column lists.
-  const viaFigs = (figs: FigRef[]) => {
-    if (!figs.length) return null;
-    const show = figs.slice(0, 3);
-    return (
-      <span className="df-via"><span className="df-via__lab">via</span>{show.map((fg, i) => (
-        <span key={i}>{i > 0 ? ", " : ""}
-          {fg.slug
-            ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="df-f">{fg.label}</Link>
-            : <span className="df-f">{fg.label}</span>}
-        </span>
-      ))}{figs.length > 3 ? ` +${figs.length - 3}` : ""}</span>
-    );
-  };
 
   const jsonld = {
     "@context": "https://schema.org", "@type": "Movie", name: film.title,
@@ -215,22 +203,23 @@ export default async function FilmPage({ params }: Props) {
             </div>
           </div>
 
-          {figures.length > 0 ? (
-            <p className="df-intro">
-              Metatake reads <b>{film.title}</b> through <b>{figures.length} figure{figures.length === 1 ? "" : "s"}</b>
-              {mtTotal ? <> and the <b>{mtTotal} recurring idea{mtTotal === 1 ? "" : "s"}</b> it shares with the rest of cinema</> : null}.
-              {" "}Not a review — a reading: the concrete things the film keeps returning to, and the lines they draw to other films.
-            </p>
-          ) : null}
-
-          {/* STAT STRIP — clickable jump links, static numbers */}
+          {/* STAT STRIP — clickable jump links */}
           <div className="df-stats">
-            <Link className="df-stat" href="#df-figures"><span className="df-n">{figures.length}</span><span className="df-k">Figures</span></Link>
-            <Link className="df-stat df-red" href="#df-metatakes"><span className="df-n">{mtTotal}</span><span className="df-k">Meta takes</span></Link>
+            <Link className="df-stat" href="#df-figures"><span className="df-n">{catalogue.length}</span><span className="df-k">Figures</span></Link>
+            <Link className="df-stat df-red" href="#df-readings"><span className="df-n">{misreadings.length}</span><span className="df-k">Strong misreadings</span></Link>
             <Link className="df-stat df-teal" href="#df-tropes"><span className="df-n">{tropes.length}</span><span className="df-k">Tropes</span></Link>
             <Link className="df-stat" href="#df-connected"><span className="df-n">{recs.length}</span><span className="df-k">Connected films</span></Link>
           </div>
         </section>
+
+        {/* INVITATION — spoiler-free way in */}
+        {invitation ? (
+          <section className="df-invite">
+            <div className="df-invite__k">An invitation</div>
+            <p className="df-invite__p">{invitation}</p>
+            <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
+          </section>
+        ) : null}
 
         {stills.length > 0 ? (
           <div className="df-stills">
@@ -240,16 +229,16 @@ export default async function FilmPage({ params }: Props) {
           </div>
         ) : null}
 
-        {/* FIGURES — grouped by kind, wide rows with full description + reaches */}
+        {/* FIGURES — grouped by kind */}
         {grouped.length > 0 ? (
           <section className="df-sec" id="df-figures">
             <h2 className="df-h2">Figures</h2>
-            <p className="df-sub">The characters, objects, places, forms and motifs critics have singled out in {film.title} — each described in full, with the readings it reaches.</p>
+            <p className="df-sub">The characters, objects, places, forms and motifs Metatake singled out in {film.title} — each the anchor for one or more strong misreadings.</p>
             {grouped.map((g) => (
               <div key={g.kind} className="df-fgroup">
                 <div className="df-flabel">{KIND_LABEL[g.kind] ?? g.kind}</div>
                 {g.items.map((f) => {
-                  const n = f.metaTakes.length;
+                  const n = takeCount.get(f.id) ?? 0;
                   return (
                     <div key={f.id} className="df-fig">
                       <div className="df-figL">
@@ -261,17 +250,41 @@ export default async function FilmPage({ params }: Props) {
                       </div>
                       <div className="df-figR">
                         {f.description ? <p className="df-figdesc">{f.description}</p> : null}
-                        {n > 0 ? (
-                          <div className="df-reaches">
-                            <span className="df-rl">reaches</span>
-                            {f.metaTakes.map((m, i) => (
-                              <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="df-reaches df-reaches--none"><span className="df-rl">reaches</span>figure only — no published reading yet</div>
-                        )}
                       </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </section>
+        ) : null}
+
+        {/* STRONG MISREADINGS — grouped by framework family */}
+        {misreadings.length > 0 ? (
+          <section className="df-sec" id="df-readings">
+            <h2 className="df-h2">Strong Misreadings</h2>
+            <p className="df-sub">
+              Bold readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">critical frameworks</Link> — each a deliberate over-reading, a provocation rather than a verdict.
+            </p>
+            {smByFamily.map(({ fam, items }) => (
+              <div key={fam.key} className="df-smfam">
+                <div className="df-smfam__h">{fam.label}</div>
+                {items.map((m, i) => {
+                  const F = fw(m.framework);
+                  return (
+                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>
+                      <div className="sm-row__top">
+                        <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>
+                        {m.figSlug
+                          ? <Link className="sm-via" href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.figLabel}</Link>
+                          : <span className="sm-via">{m.figLabel}</span>}
+                      </div>
+                      {m.take_title ? (
+                        <div className="sm-row__title">
+                          {m.figSlug ? <Link href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.take_title}</Link> : m.take_title}
+                        </div>
+                      ) : null}
+                      {m.thesis ? <p className="sm-row__thesis">{snip(m.thesis, 260)}</p> : null}
                     </div>
                   );
                 })}
@@ -289,39 +302,27 @@ export default async function FilmPage({ params }: Props) {
           </div>
         </section>
 
-        {/* META TAKES | TROPES — two columns */}
-        {(readings.length > 0 || tropes.length > 0) ? (
-          <section className="df-sec">
-            <div className="df-cols">
-              <div className="df-col" id="df-metatakes">
-                <h2 className="df-h2">Meta takes</h2>
-                <p className="df-sub">Cross-film critical patterns {film.title} takes part in. <b>Via</b> = the figure that reaches it.</p>
-                <div className="df-mlist">
-                  {readings.map((r) => (
-                    <div key={r.slug} className={`df-mrow${r.figs.length >= 2 ? " df-top" : ""}`}>
-                      <Link className="df-t" href={`/take/${r.slug}`}>{r.title}</Link>
-                      {r.figs.length > 1 ? <span className="df-cnt">{r.figs.length}</span> : null}
-                      {viaFigs(r.figs)}
-                    </div>
-                  ))}
-                  {readings.length === 0 ? <p className="df-empty">No meta takes yet.</p> : null}
+        {/* TROPES */}
+        {tropes.length > 0 ? (
+          <section className="df-sec" id="df-tropes">
+            <h2 className="df-h2">Tropes</h2>
+            <p className="df-sub">Cross-film types {film.title} instantiates — shared under <Link href="/tropes">Tropes</Link>. <b>Via</b> = the figure that carries it.</p>
+            <div className="df-mlist df-mlist--wide">
+              {tropes.map((t) => (
+                <div key={t.slug} className={`df-mrow${t.figs.length >= 2 ? " df-top" : ""}`}>
+                  <Link className="df-t" href={`/trope/${t.slug}`}>{t.title}</Link>
+                  {t.figs.length > 1 ? <span className="df-cnt">{t.figs.length}</span> : null}
+                  {t.figs.length ? (
+                    <span className="df-via"><span className="df-via__lab">via</span>{t.figs.slice(0, 3).map((fg, i) => (
+                      <span key={i}>{i > 0 ? ", " : ""}
+                        {fg.slug
+                          ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="df-f">{fg.label}</Link>
+                          : <span className="df-f">{fg.label}</span>}
+                      </span>
+                    ))}{t.figs.length > 3 ? ` +${t.figs.length - 3}` : ""}</span>
+                  ) : null}
                 </div>
-              </div>
-
-              <div className="df-col df-tcol" id="df-tropes">
-                <h2 className="df-h2">Tropes</h2>
-                <p className="df-sub">Screenwriting types it instantiates — shared under <Link href="/tropes">Tropes</Link>.</p>
-                <div className="df-mlist">
-                  {tropes.map((t) => (
-                    <div key={t.slug} className={`df-mrow${t.figs.length >= 2 ? " df-top" : ""}`}>
-                      <Link className="df-t" href={`/trope/${t.slug}`}>{t.title}</Link>
-                      {t.figs.length > 1 ? <span className="df-cnt">{t.figs.length}</span> : null}
-                      {viaFigs(t.figs)}
-                    </div>
-                  ))}
-                  {tropes.length === 0 ? <p className="df-empty">No tropes yet.</p> : null}
-                </div>
-              </div>
+              ))}
             </div>
           </section>
         ) : null}
@@ -330,24 +331,19 @@ export default async function FilmPage({ params }: Props) {
         {recs.length > 0 ? (
           <section className="df-sec" id="df-connected">
             <h2 className="df-h2">Films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>see all →</Link></h2>
-            <p className="df-sub">Nearest neighbours in meaning-space — films that share the most readings. <b>Shared</b> = the meta takes they hold in common.</p>
+            <p className="df-sub">Nearest neighbours in meaning-space — films Metatake places closest to this one.</p>
             <div className="df-conn">
               {recs.map((r) => (
-                <div key={r.film.slug} className="df-crow">
-                  <Link className="df-ti" href={`/film/${r.film.slug}`}>{r.film.title}</Link>{" "}
-                  <span className="df-cyr">({r.film.year ?? "?"})</span>
-                  {r.reasons.length > 0 ? (
-                    <span className="df-cvia"><span className="df-via__lab">shared</span>{r.reasons.map((m, i) => (
-                      <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>
-                    ))}</span>
-                  ) : null}
+                <div key={r.slug} className="df-crow">
+                  <Link className="df-ti" href={`/film/${r.slug}`}>{r.title}</Link>{" "}
+                  <span className="df-cyr">({r.year ?? "?"})</span>
                 </div>
               ))}
             </div>
           </section>
         ) : null}
 
-        {/* FILM INFO — accordion (keeps trailer + stills inside) */}
+        {/* FILM INFO — accordion */}
         {(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer) ? (
           <details className="df-finfo">
             <summary>Film info &amp; credits</summary>
