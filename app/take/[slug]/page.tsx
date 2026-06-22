@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
@@ -115,6 +115,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TakePage({ params }: Props) {
   const { slug } = await params;
+  // The reading layer has folded into tropes — resolve any /take/* URL to its trope
+  // (permanent). Published readings (none now; restored later by bold-takes) still render.
+  {
+    const sup = db();
+    const { data: row } = await sup
+      .from("meta_takes").select("kind, status, merged_into").eq("slug", slug).maybeSingle();
+    if (row) {
+      if (row.kind === "figure_type" && row.status === "published") permanentRedirect(`/trope/${slug}`);
+      if (row.merged_into) {
+        const { data: tgt } = await sup.from("meta_takes").select("slug, kind").eq("id", row.merged_into).maybeSingle();
+        if (tgt?.slug) permanentRedirect(`/${tgt.kind === "figure_type" ? "trope" : "take"}/${tgt.slug}`);
+      }
+    }
+  }
   const data = await load(slug);
   if (!data) notFound();
   const { mt, family, theorist, defining, unexpected, related, all, filmCount, registers } = data;

@@ -155,9 +155,9 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
                     <div className="knot" />
                     <div className="pill">
                       <div className="both">Both are really about</div>
-                      <Link className="mttitle" href={`/take/${p.slug}`}>{p.mt}</Link>
+                      <Link className="mttitle" href={`/trope/${p.slug}`}>{p.mt}</Link>
                       {p.lac && <p className="mtlac">“{p.lac}”</p>}
-                      <Link className="cta" href={`/take/${p.slug}`}>Open this reading →</Link>
+                      <Link className="cta" href={`/trope/${p.slug}`}>Open this trope →</Link>
                     </div>
                   </div>
 

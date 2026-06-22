@@ -19,7 +19,7 @@ export default function HomeConstellation({ pairs }: { pairs: CPair[] }) {
     const mId = "m:" + (p.slug || p.mt);
     add({ id: aId, type: "film", label: p.a.f, href: p.a.fs ? `/film/${p.a.fs}` : null });
     add({ id: bId, type: "film", label: p.b.f, href: p.b.fs ? `/film/${p.b.fs}` : null });
-    add({ id: mId, type: "reading", label: p.mt, href: p.slug ? `/take/${p.slug}` : null });
+    add({ id: mId, type: "reading", label: p.mt, href: p.slug ? `/trope/${p.slug}` : null });
     links.push({ s: aId, t: mId, kind: "reading" });
     links.push({ s: bId, t: mId, kind: "reading" });
   }
