@@ -25,7 +25,7 @@ const EXAMPLES = [
 ];
 
 function citeTarget(c: Cite) {
-  return c.meta_slug ? `/take/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
+  return c.meta_slug ? `/trope/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
 }
 
 // Render one answer paragraph, linkifying [n] (corpus) and [C#] (critic) markers.
@@ -72,9 +72,9 @@ function Answer({ res, pfx }: { res: Result; pfx: string }) {
 
       {res.readings.length > 0 ? (
         <div className="ak-threads">
-          <span className="ak-threads__lbl">Threads to pull</span>
+          <span className="ak-threads__lbl">Tropes to pull</span>
           {res.readings.slice(0, 6).map((rd) => (
-            <Link key={rd.slug} href={`/take/${rd.slug}`} className="ak-thread">{rd.title}</Link>
+            <Link key={rd.slug} href={`/trope/${rd.slug}`} className="ak-thread">{rd.title}</Link>
           ))}
         </div>
       ) : null}

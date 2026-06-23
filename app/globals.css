@@ -1314,7 +1314,7 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .sb-row.on { background: var(--surface-2); }
 .sb-kind { font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: 0.05em;
   text-transform: uppercase; flex: none; width: 62px; }
-.sb-k-meta_take { color: var(--mt-link); }
+.sb-k-reading { color: var(--accent); }
 .sb-k-figure { color: var(--lk-fig); }
 .sb-k-film, .sb-k-director { color: var(--lk-film); }
 .sb-k-trope { color: var(--lk-fig); }

@@ -113,7 +113,7 @@ export default function AskReadings({ citations }: { citations: Cite[] }) {
                 </div>
                 {c.rationale ? <p className="ak-card__rat">{snippet(c.rationale)}</p> : null}
                 {c.meta_slug && c.meta_title ? (
-                  <Link href={`/take/${c.meta_slug}`} className="ak-card__to">
+                  <Link href={`/trope/${c.meta_slug}`} className="ak-card__to">
                     {c.meta_title} →
                   </Link>
                 ) : null}

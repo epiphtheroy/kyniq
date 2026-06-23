@@ -11,15 +11,14 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
-type Kind = "film" | "meta_take" | "figure" | "director" | "trope";
+type Kind = "film" | "reading" | "figure" | "director" | "trope";
 interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number }
 
-const KIND_LABEL: Record<Kind, string> = { film: "Film", meta_take: "Meta take", figure: "Figure", director: "Director", trope: "Trope" };
+const KIND_LABEL: Record<Kind, string> = { film: "Film", reading: "Reading", figure: "Figure", director: "Director", trope: "Trope" };
 function hrefOf(r: Row): string {
   if (r.kind === "film") return `/film/${r.slug}`;
-  if (r.kind === "meta_take") return `/take/${r.slug}`;
   if (r.kind === "trope") return `/trope/${r.slug}`;
-  if (r.kind === "figure") return `/film/${r.film_slug}/figure/${r.slug}`;
+  if (r.kind === "reading" || r.kind === "figure") return `/film/${r.film_slug}/figure/${r.slug}`;
   return `/director/${r.slug}`;
 }
 
@@ -75,7 +74,7 @@ export default function SearchBox({ variant = "nav" }: { variant?: "nav" | "hero
         className="sb-input"
         type="search"
         value={q}
-        placeholder={variant === "hero" ? "Search films, figures, meta takes…" : "Search… ( / )"}
+        placeholder={variant === "hero" ? "Search films, figures, readings, tropes…" : "Search… ( / )"}
         onChange={(e) => setQ(e.target.value)}
         onKeyDown={onKeyDown}
         onFocus={() => { if (rows.length) setOpen(true); }}
