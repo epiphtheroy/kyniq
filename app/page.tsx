@@ -50,7 +50,7 @@ export default async function Home() {
   return (
     <div className="mt">
       <MetatakeNav />
-      <AskHero readings={bundle.stats.metas} films={bundle.stats.films} />
+      <AskHero readings={bundle.stats.takes} films={bundle.stats.films} />
       <HomeClient bundle={bundle} />
 
       {latest ? (
@@ -60,7 +60,7 @@ export default async function Home() {
               <div>
                 <p className="home-latest-k">Fresh on the map</p>
                 <h2 className="home-latest-h">Latest</h2>
-                <p className="home-latest-s">What&apos;s newest across Metatake — fresh readings, meta takes, tropes, directors and concepts, edited like a magazine.</p>
+                <p className="home-latest-s">What&apos;s newest across Metatake — fresh Strong Misreadings, tropes, directors and concepts, edited like a magazine.</p>
               </div>
               <Link className="tg-more" href="/latest">See all latest →</Link>
             </div>

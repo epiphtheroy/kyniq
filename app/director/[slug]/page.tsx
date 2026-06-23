@@ -26,27 +26,23 @@ async function load(slug: string) {
   const { data: dir } = await supabase
     .from("directors").select("name, profile_path, bio, birthday, place_of_birth").eq("slug", slug).maybeSingle();
 
-  const { data: takeRows } = await supabase
+  // Per-film Strong Misreading (reading) counts across the filmography.
+  const { data: readRows } = await supabase
     .from("takes")
-    .select("meta_take:meta_takes!takes_meta_take_id_fkey!inner(id, slug, title, status), figure:figures!inner(film_id)")
+    .select("figure:figures!inner(film_id)")
     .in("figure.film_id", filmIds)
-    .eq("meta_take.status", "published");
-
-  const mtFilms = new Map<string, { slug: string; title: string; films: Set<string> }>();
-  const perFilmCount = new Map<string, Set<string>>();
-  for (const r of (takeRows ?? []) as unknown[]) {
-    const t = r as { meta_take: { id: string; slug: string; title: string }; figure: { film_id: string } };
-    const e = mtFilms.get(t.meta_take.id) ?? { slug: t.meta_take.slug, title: t.meta_take.title, films: new Set<string>() };
-    e.films.add(t.figure.film_id); mtFilms.set(t.meta_take.id, e);
-    const s = perFilmCount.get(t.figure.film_id) ?? new Set<string>(); s.add(t.meta_take.id); perFilmCount.set(t.figure.film_id, s);
+    .eq("status", "published");
+  const perFilmReadings = new Map<string, number>();
+  for (const r of (readRows ?? []) as unknown[]) {
+    const fid = (r as { figure: { film_id: string } }).figure.film_id;
+    perFilmReadings.set(fid, (perFilmReadings.get(fid) ?? 0) + 1);
   }
+  let readingCount = 0;
+  for (const v of perFilmReadings.values()) readingCount += v;
+
   const filmById = new Map<string, { id: string; title: string; slug: string; year: number | null }>(
     films.map((f) => [f.id as string, f as { id: string; title: string; slug: string; year: number | null }])
   );
-  const signature = [...mtFilms.values()]
-    .filter((m) => m.films.size >= 2)
-    .sort((a, b) => b.films.size - a.films.size)
-    .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
 
   // Tropes (figure-types) recurring across the filmography.
   const { data: tropeRows } = await supabase
@@ -66,7 +62,7 @@ async function load(slug: string) {
     .sort((a, b) => b.films.size - a.films.size)
     .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
 
-  return { director, dir, films, signature, sigTropes, perFilmCount, total: films.length, mtCount: mtFilms.size, tropeCount: tropeFilms.size };
+  return { director, dir, films, sigTropes, perFilmReadings, total: films.length, readingCount, tropeCount: tropeFilms.size };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -115,7 +111,7 @@ export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, dir, films, signature, sigTropes, perFilmCount, total, mtCount, tropeCount } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount } = data;
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   const jsonld = {
@@ -135,7 +131,6 @@ export default async function DirectorPage({ params }: Props) {
       : dt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
   }
 
-  const sigShown = signature.slice(0, SIG_LIMIT);
   const tropesShown = sigTropes.slice(0, SIG_LIMIT);
 
   return (
@@ -176,13 +171,13 @@ export default async function DirectorPage({ params }: Props) {
         {/* STAT STRIP — clickable jump links */}
         <div className="dr-stats">
           <a className="dr-stat" href="#dr-filmography"><div className="dr-n">{total}</div><div className="dr-k">Films</div></a>
-          <a className="dr-stat dr-red" href="#dr-sigmeta"><div className="dr-n">{mtCount}</div><div className="dr-k">Meta takes</div></a>
+          <a className="dr-stat" href="#dr-filmography"><div className="dr-n">{readingCount}</div><div className="dr-k">Readings</div></a>
           <a className="dr-stat dr-teal" href="#dr-sigtropes"><div className="dr-n">{tropeCount}</div><div className="dr-k">Tropes</div></a>
         </div>
 
         {/* FINGERPRINT INTRO */}
         <p className="dr-finger">
-          What makes a film unmistakably {director}&apos;s — the readings and devices that recur across the
+          What makes a film unmistakably {director}&apos;s — the tropes and devices that recur across the
           filmography. <b>Computed, not asserted:</b> each one below appears in two or more of{" "}
           {total === 1 ? "the single film" : `the ${total} films`} on Metatake.
         </p>
@@ -197,25 +192,6 @@ export default async function DirectorPage({ params }: Props) {
             </div>
           </details>
         ) : null}
-
-        {/* SIGNATURE META TAKES */}
-        {signature.length > 0 && (
-          <section className="dr-sec" id="dr-sigmeta">
-            <h2 className="dr-h2">Signature meta takes</h2>
-            <p className="dr-gloss">
-              Readings that recur across the films — what makes a film unmistakably {director}&apos;s. The dots show
-              how many of {total === 1 ? "the film" : <>the <strong>{total} films</strong></>} each one touches.
-            </p>
-            <div className="dr-siglist">
-              {sigShown.map((m) => (
-                <SigRow key={m.slug} href={`/take/${m.slug}`} title={m.title} films={m.filmList} total={total} tone="red" />
-              ))}
-            </div>
-            {signature.length > SIG_LIMIT && (
-              <Link className="dr-showall" href="/meta-takes">Show all {signature.length} signature readings →</Link>
-            )}
-          </section>
-        )}
 
         {/* SIGNATURE TROPES */}
         {sigTropes.length > 0 && (
@@ -240,8 +216,8 @@ export default async function DirectorPage({ params }: Props) {
         <section className="dr-sec" id="dr-filmography">
           <h2 className="dr-h2">Filmography</h2>
           <p className="dr-gloss">
-            {total === 1 ? "One film" : `${total} films`} on Metatake — each read closely. The count is the distinct
-            meta takes each film takes part in.
+            {total === 1 ? "One film" : `${total} films`} on Metatake — each read closely. The count is the number of
+            Strong Misreadings written for each film.
           </p>
           <div className="dr-films-grid">
             {films.map((f) => {
@@ -249,7 +225,7 @@ export default async function DirectorPage({ params }: Props) {
               const art = film.backdrop_path
                 ? `${IMG}/w500${film.backdrop_path}`
                 : film.poster_path ? `${IMG}/w342${film.poster_path}` : null;
-              const count = perFilmCount.get(f.id)?.size ?? 0;
+              const count = perFilmReadings.get(f.id) ?? 0;
               return (
                 <Link className="dr-fcard" href={`/film/${film.slug}`} key={film.slug}>
                   {art ? (
@@ -263,7 +239,7 @@ export default async function DirectorPage({ params }: Props) {
                       {film.title}{" "}
                       {film.year ? <span className="dr-yr">({film.year})</span> : null}
                     </div>
-                    <div className="dr-fmt"><b>{count}</b> meta take{count === 1 ? "" : "s"}</div>
+                    <div className="dr-fmt"><b>{count}</b> reading{count === 1 ? "" : "s"}</div>
                   </div>
                 </Link>
               );

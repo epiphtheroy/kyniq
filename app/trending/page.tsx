@@ -9,7 +9,7 @@ export const revalidate = 600;
 export const metadata: Metadata = {
   title: "Trending — the readings drawing the most attention",
   description:
-    "The meta takes, readings, tropes and films drawing the most attention on Metatake — shown through the films and figures that carry them.",
+    "The Strong Misreadings, tropes and films drawing the most attention on Metatake — shown through the films and figures that carry them.",
 };
 
 function db() {

@@ -23,9 +23,8 @@ export default function AskHero({ readings, films }: { readings: number; films: 
           <p className="ah-shint">
             <Link href="/film">Films</Link>
             {" · "}<Link href="/director">Directors</Link>
-            {" · "}<Link href="/tropes">Figures</Link>
+            {" · "}<Link href="/tropes">Tropes</Link>
             {" · "}<Link href="/concept">Concepts</Link>
-            {" · "}<Link href="/meta-takes">Meta takes</Link>
             {" — type to jump straight there"}
           </p>
         </div>

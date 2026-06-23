@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
 import HomeConstellation from "@/components/HomeConstellation";
+import { FRAMEWORKS } from "@/lib/frameworks";
 
 const W780 = "https://image.tmdb.org/t/p/w780";
 const W300 = "https://image.tmdb.org/t/p/w300";
@@ -14,17 +15,17 @@ type Doors = { meta: { t: string; n: number }[]; trope: { t: string; lac: string
 type Tick = { kind: string; x: string; s: string | null };
 export type HomeBundle = { pairs: Pair[]; stats: Stats; doors: Doors; ticker: Tick[] };
 
-const TICK_COLOR: Record<string, string> = { "Meta take": "#E3120B", "Trope": "#167C6B", "Reading": "#A8434F", "Concept": "#2E6F8E" };
+const TICK_COLOR: Record<string, string> = { "Trope": "#167C6B", "Reading": "#A8434F", "Concept": "#2E6F8E" };
 const onImg = (e: SyntheticEvent<HTMLImageElement>) => e.currentTarget.classList.add("hm-on");
 const imgRef = (el: HTMLImageElement | null) => { if (el && el.complete) el.classList.add("hm-on"); };
 
 function figHref(s: Side) { return s.figslug ? `/film/${s.fs}/figure/${s.figslug}` : `/film/${s.fs}`; }
 
 function Gauges({ stats }: { stats: Stats }) {
-  const nodes = stats.films + stats.figures + stats.metas + stats.tropes;
+  const nodes = stats.films + stats.figures + stats.tropes;
   const targets: [number, string][] = [
-    [stats.films, "Films"], [stats.figures, "Figures"], [stats.takes, "Takes"],
-    [stats.metas, "Meta-takes"], [stats.tropes, "Tropes"], [nodes, "Nodes"],
+    [stats.films, "Films"], [stats.figures, "Figures"], [stats.takes, "Readings"],
+    [stats.tropes, "Tropes"], [nodes, "Nodes"],
   ];
   const ref = useRef<HTMLDivElement>(null);
   const [vals, setVals] = useState<number[]>(targets.map(() => 0));
@@ -74,12 +75,6 @@ function useRotator(len: number, ms: number) {
   return i;
 }
 
-const REGS: [string, string][] = [
-  ["Formal", "#5B8FB9"], ["Semiotic", "#B8860B"], ["Psychoanalytic", "#A8434F"], ["Ideological", "#C0392B"],
-  ["Politico-economic", "#2E7D5B"], ["Philosophical", "#7E57C2"], ["Existential", "#546E7A"], ["Mythic", "#A9743B"],
-  ["Film-historical", "#2E86C1"], ["Reception", "#159A8A"],
-];
-
 export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
   const { pairs, stats, doors, ticker } = bundle;
   const n = pairs.length;
@@ -104,7 +99,6 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pIdx, n]);
 
-  const dMeta = useRotator(doors.meta.length, 5200);
   const dTrope = useRotator(doors.trope.length, 5600);
   const dDir = useRotator(doors.director.length, 6000);
   const dConcept = useRotator(doors.concept.length, 5400);
@@ -175,7 +169,7 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
           <div className="hm-gallerywrap">
             <div className="hm-gallhead">
               <span className="gk">Ten lines, on screen at once —</span>
-              <span className="gsub">and {stats.metas} meta-takes, {stats.takes.toLocaleString()} readings underneath. The map redraws every night.</span>
+              <span className="gsub">and {stats.takes.toLocaleString()} Strong Misreadings underneath. The map redraws every night.</span>
             </div>
             <div className="hm-gallery">
               {pairs.map((pp, i) => (
@@ -201,15 +195,15 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
         <div className="hm-wrap">
           <p className="hm-sec__k">How a reading is built</p>
           <h2 className="hm-phil">Not <span className="x">reviews</span>. Not <span className="x">ratings</span>. <span className="y">Readings</span>.</h2>
-          <p className="hm-sec__s">Every reading on this site is built the same way — from the single film, through the figure it returns to, up to the idea that gathers many of them. This chain is the whole grammar of metatake.</p>
+          <p className="hm-sec__s">Every reading on this site is built the same way — from the single film, through the figure it returns to, up to the trope that gathers many of them. This chain is the whole grammar of metatake.</p>
           <div className="hm-chain">
             <div className="cnode"><div className="step">01 · where it starts</div><div className="nm">Film <span className="ar">→</span></div><div className="df">A single movie — the ground everything is read from.</div><div className="eg"><b>Black Swan</b> (2010)</div></div>
             <div className="cnode"><div className="step">02 · what it returns to</div><div className="nm">Figure <span className="ar">→</span></div><div className="df">A concrete thing the film keeps returning to — an object, a gesture, a colour, a body. A figure can be a trope.</div><div className="eg"><b>Nina&apos;s bodily mutations</b> — skin, quills, feathers</div></div>
-            <div className="cnode"><div className="step">03 · the close reading</div><div className="nm">Take <span className="ar">→</span></div><div className="df">One reading of that figure, backed by evidence and filed under one of ten critical registers.</div><div className="eg"><b>Psychoanalytic</b> — the body confesses what the self denies</div></div>
-            <div className="cnode hub"><div className="step">04 · the idea that gathers</div><div className="nm">Meta-take</div><div className="df">The concept that surfaces when the same reading crosses many films. The hub — and the main character of this site.</div><div className="eg"><b>The Flesh That Changes Shape</b></div></div>
+            <div className="cnode"><div className="step">03 · the close reading</div><div className="nm">Strong Misreading <span className="ar">→</span></div><div className="df">One bold reading of that figure, argued through a critical framework and earning its leap.</div><div className="eg"><b>Psychoanalytic</b> — the body confesses what the self denies</div></div>
+            <div className="cnode hub"><div className="step">04 · the code that recurs</div><div className="nm">Trope</div><div className="df">The recurring code that surfaces when the same misreading crosses many films. The hub — and the main character of this site.</div><div className="eg"><b>The Flesh That Changes Shape</b></div></div>
           </div>
-          <div className="hm-regline">Ten registers:
-            {REGS.map(([label, c]) => <span className="regchip" key={label} style={{ background: c }}>{label}</span>)}
+          <div className="hm-regline">Critical frameworks:
+            {FRAMEWORKS.filter((f) => f.key !== "INVITATION").map((f) => <span className="regchip" key={f.key} style={{ background: f.color }}>{f.label}</span>)}
           </div>
         </div>
       </section>
@@ -246,9 +240,9 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
         <div className="hm-wrap">
           <p className="hm-sec__k">Start anywhere</p>
           <h2 className="hm-sec__h">Four ways in</h2>
-          <p className="hm-sec__s">There is no front of the book. Pull any thread — the films, the ideas that gather them, the auteurs who keep returning, or the theory behind every reading.</p>
+          <p className="hm-sec__s">There is no front of the book. Pull any thread — the films, the tropes that gather them, the auteurs who keep returning, or the theory behind every reading.</p>
           <div className="hm-doors">
-            <Link className="hm-door" href="/meta-takes"><span className="bar" style={{ background: "var(--meta)" }} /><div className="dc" style={{ color: "var(--meta)" }}>{stats.metas} hubs</div><div className="dn">Meta takes</div><p className="ds">The ideas that gather films from across decades and genres.</p><p className="sample">{doors.meta[dMeta] ? `${doors.meta[dMeta].t} — across ${doors.meta[dMeta].n} films` : ""}</p><span className="go">All meta takes →</span></Link>
+            <Link className="hm-door" href="/film"><span className="bar" style={{ background: "var(--film)" }} /><div className="dc" style={{ color: "var(--film)" }}>{stats.films.toLocaleString()} films</div><div className="dn">Films</div><p className="ds">Every film on the map, broken into the figures it keeps returning to.</p><p className="sample" /><span className="go">All films →</span></Link>
             <Link className="hm-door" href="/tropes"><span className="bar" style={{ background: "var(--trope)" }} /><div className="dc" style={{ color: "var(--trope)" }}>{stats.tropes} figure-types</div><div className="dn">Tropes</div><p className="ds">The shapes cinema keeps reaching for, again and again.</p><p className="sample">{doors.trope[dTrope] ? `${doors.trope[dTrope].t}${doors.trope[dTrope].lac ? " — " + doors.trope[dTrope].lac : ""}` : ""}</p><span className="go">All tropes →</span></Link>
             <Link className="hm-door" href="/director"><span className="bar" style={{ background: "var(--director)" }} /><div className="dc" style={{ color: "var(--director)" }}>auteur fingerprints</div><div className="dn">Directors</div><p className="ds">Signature readings and tropes that recur across a filmography.</p><p className="sample">{doors.director[dDir] ? `${doors.director[dDir].name} — ${doors.director[dDir].n} films` : ""}</p><span className="go">All directors →</span></Link>
             <Link className="hm-door" href="/concept"><span className="bar" style={{ background: "var(--concept)" }} /><div className="dc" style={{ color: "var(--concept)" }}>the theory</div><div className="dn">Concepts</div><p className="ds">The critical ideas the readings are built on.</p><p className="sample">{doors.concept[dConcept] ? `${doors.concept[dConcept].t} — ${doors.concept[dConcept].n} films` : ""}</p><span className="go">All concepts →</span></Link>
