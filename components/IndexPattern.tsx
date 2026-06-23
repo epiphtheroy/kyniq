@@ -66,6 +66,16 @@ function pickBatch(total: number, n: number, prev: number[]): number[] {
   return src.slice(0, n).sort((a, b) => a - b);
 }
 
+/* trope maturity, derived from the count of films it recurs across */
+function matOf(films: number): { key: string; label: string } | null {
+  if (films >= 26) return { key: "cliche", label: "Cliché" };
+  if (films >= 9) return { key: "established", label: "Established" };
+  if (films >= 4) return { key: "emerging", label: "Emerging" };
+  if (films >= 2) return { key: "fresh", label: "Fresh" };
+  if (films >= 1) return { key: "noble", label: "Noble" };
+  return null;
+}
+
 export default function IndexPattern({
   featured,
   catalogue,
@@ -219,6 +229,11 @@ export default function IndexPattern({
       ? (it.created_at ? new Date(it.created_at).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "—")
       : `${it.films} ${unit}`;
 
+  const matBadge = (films: number) => {
+    const m = variant === "trope" ? matOf(films) : null;
+    return m ? <span className={`tp-mat tp-mat--${m.key} idx-matbadge`}>{m.label}</span> : null;
+  };
+
   const fadeRef = (el: HTMLImageElement | null) => { if (el && el.complete) el.classList.add("idx-on"); };
   const onImgLoad = (e: SyntheticEvent<HTMLImageElement>) => e.currentTarget.classList.add("idx-on");
 
@@ -259,7 +274,7 @@ export default function IndexPattern({
                       : (ft.thesis && <p className="idx-thesis">{ft.thesis}</p>)}
 
                     {variant === "trope" && (
-                      <div className="idx-kindline"><span className="kdot" />Trope · figure-type <span className="ksep">·</span> <b>{ft.figs ?? 0}</b> figures across <b>{ft.n}</b> films</div>
+                      <div className="idx-kindline"><span className="kdot" />Trope · figure-type <span className="ksep">·</span> <b>{ft.figs ?? 0}</b> figures across <b>{ft.n}</b> films{matBadge(ft.n)}</div>
                     )}
 
                     {ft.cases.length > 0 && (
@@ -333,7 +348,7 @@ export default function IndexPattern({
             {g.items.map((it) => (
               <Link key={it.slug} href={`${rowBase}/${it.slug}`} className="idx-fcell">
                 <span className="ft">{it.title}</span>
-                <span className="fd">{rowMeta(it)}</span>
+                <span className="fd">{rowMeta(it)}{matBadge(it.films)}</span>
               </Link>
             ))}
           </div>

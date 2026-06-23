@@ -3011,11 +3011,14 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .df-mlist--wide{border-top:1px solid var(--hairline)}
 
 /* ====== TROPE hub — maturity + Strong-Misreading readings ====== */
-.tp-mat{font-weight:700}
-.tp-mat--fresh{color:#2E8B57}
-.tp-mat--emerging{color:var(--teal)}
-.tp-mat--established{color:#8A6D3B}
-.tp-mat--cliche{color:var(--muted)}
+/* maturity — a shiny pill badge, not plain text */
+.tp-mat{display:inline-block;padding:2px 9px;border-radius:999px;font-family:var(--font-ui);font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;line-height:1.55;border:1px solid;vertical-align:middle;white-space:nowrap;background-image:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0))}
+.tp-mat--noble{color:#6D4FA8;border-color:#cdbce8;background-color:#f3eefb}
+.tp-mat--fresh{color:#2E8B57;border-color:#bfe3cd;background-color:#eef8f1}
+.tp-mat--emerging{color:#127C6B;border-color:#bfe2dc;background-color:#ecf7f4}
+.tp-mat--established{color:#8A6D3B;border-color:#e4d6b5;background-color:#f8f2e4}
+.tp-mat--cliche{color:#9A5A3C;border-color:#e6cdbf;background-color:#f8efe9}
+.idx-matbadge{margin-left:8px;font-size:8.5px;padding:1px 7px;letter-spacing:.05em}
 .tp-matnote{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); margin:12px 0 0; max-width:70ch}
 /* Related tropes (embedding-nearest) at the foot of a trope page */
 .tp-rel{margin:38px 0 0;padding-top:22px;border-top:2px solid var(--ink)}
