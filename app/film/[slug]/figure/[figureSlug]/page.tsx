@@ -23,8 +23,7 @@ function db() {
 }
 
 const KIND: Record<string, string> = {
-  character: "Character", object: "Object / symbol", location: "Location",
-  form: "Form / technique", trope: "Theme / motif", title: "Title", film: "The film itself",
+  character: "Character", object: "Object / symbol", location: "Location", form: "Form / technique",
 };
 
 interface Props { params: Promise<{ slug: string; figureSlug: string }>; }
@@ -127,7 +126,7 @@ export default async function FigurePage({ params }: Props) {
 
   // distinct published meta takes reached by this figure's takes
   const connectedCount = connections.reduce((n, c) => n + c.total, 0);
-  const kindLabel = figure.kind ? (KIND[figure.kind] ?? figure.kind) : null;
+  const kindLabel = figure.kind ? (KIND[figure.kind] ?? null) : null;
 
   const jsonld = {
     "@context": "https://schema.org", "@type": "Article",
@@ -163,7 +162,7 @@ export default async function FigurePage({ params }: Props) {
         </div>
 
         <section className="fg-head">
-          <div className="fg-kindtag">{kindLabel ?? "Figure"}</div>
+          <div className="fg-kindtag">Figure</div>
           <h1 className="fg-h1">{figure.label}</h1>
 
           <div className="fg-fromfilm">
