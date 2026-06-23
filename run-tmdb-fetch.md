@@ -10,7 +10,7 @@
 - **Name:** FilmCurio
 - **Domain:** https://filmcurio.com
 - **Tagline:** "Read films closely."
-- **Contact:** channel.wonwoo@gmail.com
+- **Contact:** wonwoo@metatake.net
 
 ## What Is This?
 

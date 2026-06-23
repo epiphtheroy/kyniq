@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metatake — the unconscious lines between films (home concept v5)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Metatake — HOME concept "the living paper" v5
+   Austere editorial paper, ONE red accent, but it breathes:
+   AI-embedding ticker, a dark constellation window, streaming dots.
+   ============================================================ */
+:root{
+  --bg:#FFFFFF; --surface-2:#F2F2F2;
+  --ink:#0D0D0D; --ink-soft:#1F1F1F; --muted:#6B6B6B; --subtle:#8F8F8F;
+  --hairline:#D8D8D8; --hairline-2:#B9B9B9;
+  --accent:#E3120B; --accent-hover:#B80D05;
+  --serif:"PT Serif","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --pad-x:24px; --max-w:1200px;
+  --d-bg:#0B0C10; --d-ink:#E9E4D8; --d-ink2:#9AA0A8; --d-line:rgba(233,228,216,.12);
+  --n-film:#E9E4D8; --n-figure:#C9B79A; --n-meta:#F2554F; --n-trope:#4FB6AD; --n-center:#F0B65F;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+
+/* ---- Masthead ---- */
+.masthead{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--hairline)}
+.masthead__row{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px var(--pad-x);min-height:58px}
+.logobox{display:inline-flex;flex-direction:column;justify-content:center;background:var(--accent);color:#fff;padding:6px 10px 7px;line-height:1.0;flex:none}
+.logobox b{font-family:var(--serif);font-weight:700;font-size:15.5px;letter-spacing:.01em;color:#fff;display:block}
+.logobox:hover{background:var(--accent-hover)}
+.mh-spacer{flex:1 1 auto}
+.mh-nav{display:none;gap:22px}
+@media(min-width:880px){.mh-nav{display:flex}}
+.mh-nav a{font-size:13px;font-weight:500;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap}
+.mh-nav a:hover{color:var(--accent)}
+.mh-nav a[data-active]{border-bottom-color:var(--accent)}
+.mh-ico{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:var(--ink);cursor:pointer}
+.mh-ico:hover{color:var(--accent)}
+.mh-cta{font-size:13px;font-weight:600;background:var(--accent);color:#fff;border-radius:2px;padding:9px 14px;white-space:nowrap}
+.mh-cta:hover{background:var(--accent-hover)}
+
+/* ---- Edition line ---- */
+.edition{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0 11px;border-bottom:1px solid var(--ink)}
+.edition__date{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.edition__tag{font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted)}
+
+/* ---- Hero + instrument panel ---- */
+.hero{padding:26px 0 4px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.12;letter-spacing:-.014em;margin:0 0 10px;max-width:18ch}
+.hero h1 .em{color:var(--accent)}
+.hero p{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--muted);margin:0;max-width:66ch}
+.hero p a{color:var(--ink);border-bottom:1px solid var(--hairline-2)}
+.hero p a:hover{border-bottom-color:var(--ink)}
+.hero p .lead-em{color:var(--ink);font-weight:700;font-style:normal}
+
+.panelwrap{margin:22px 0 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--hairline)}
+.panel-top{display:flex;align-items:center;justify-content:space-between;padding:8px 0 9px}
+.panel-top .lbl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.live .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,18,11,.45)}70%{box-shadow:0 0 0 7px rgba(227,18,11,0)}100%{box-shadow:0 0 0 0 rgba(227,18,11,0)}}
+.gauges{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--hairline)}
+.gauge{padding:14px 16px 15px;border-right:1px solid var(--hairline)}
+.gauge:last-child{border-right:none}
+.gauge .n{font-family:var(--serif);font-weight:700;font-size:27px;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.gauge .k{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle);margin-top:7px}
+.gauge.flash .n{color:var(--accent)}
+@media(max-width:780px){.gauges{grid-template-columns:repeat(3,1fr)}.gauge:nth-child(3){border-right:none}.gauge:nth-child(-n+3){border-bottom:1px solid var(--hairline)}}
+.embedline{font-family:var(--mono);font-size:11px;color:var(--subtle);line-height:1.7;padding:9px 0 11px;letter-spacing:.01em;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.embedline .tag{color:var(--accent);font-weight:500}
+.embedline b{color:var(--ink-soft);font-weight:500}
+.embedline .ax i{color:var(--ink);font-style:normal;font-weight:500}
+
+/* ---- section heads ---- */
+.sec{margin-top:38px}
+.sechead{border-top:2px solid var(--ink);padding-top:10px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.sechead.red{border-top-color:var(--accent)}
+.sechead h2{font-family:var(--serif);font-weight:700;font-size:20px;margin:0}
+.sechead .more{font-size:12.5px;font-weight:500;color:var(--accent);white-space:nowrap}
+.sechead .more:hover{text-decoration:underline;text-underline-offset:2px}
+.sechead .auto{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.sechead .auto i{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.4s infinite}
+.kick{font-size:12.5px;font-weight:500;color:var(--accent);margin:0 0 7px;display:flex;align-items:center;gap:8px}
+.kick .roll{appearance:none;border:1px solid var(--hairline-2);background:none;border-radius:2px;color:var(--muted);font:inherit;font-size:11px;padding:2px 8px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.kick .roll:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ---- featured pair ---- */
+.feature-grid{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:0 40px;margin-top:22px}
+.feature-grid>.col-l{border-right:1px solid var(--hairline);padding-right:40px}
+@media(max-width:880px){.feature-grid{grid-template-columns:1fr;gap:34px}.feature-grid>.col-l{border-right:none;padding-right:0;border-bottom:1px solid var(--hairline);padding-bottom:30px}}
+
+/* featured film — real film-feature layout, tidied */
+.ffilm__frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--surface-2);overflow:hidden;border:1px solid var(--hairline)}
+.ffilm__frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.04);opacity:0;transition:opacity .6s}
+.ffilm__frame img.on{opacity:1}
+.ffilm__frame .ph{position:absolute;inset:0;background:repeating-linear-gradient(180deg,#191919,#191919 2px,#212121 2px,#212121 26px)}
+.ffilm__frame .yr{position:absolute;left:0;bottom:0;background:var(--accent);color:#fff;font-size:12px;font-weight:600;letter-spacing:.05em;padding:5px 10px}
+.ffilm h3{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.12;letter-spacing:-.012em;margin:15px 0 3px}
+.ffilm h3 a:hover{color:var(--accent-hover)}
+.ffilm-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 4px;font-size:12.5px;color:var(--muted)}
+.lvlbadge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--ink);padding:3px 8px;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.lvlbadge .num{font-family:var(--serif);font-size:14px;font-weight:700}
+.feat-label{font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:17px 0 7px;display:flex;align-items:center;gap:8px}
+.feat-label::after{content:"";flex:1;height:1px;background:var(--hairline)}
+.pitch{font-family:var(--serif);font-size:15.5px;line-height:1.58;color:var(--ink-soft);margin:0}
+.frecord{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--hairline)}
+.frecord .cell{padding:9px 12px;border-right:1px solid var(--hairline)}
+.frecord .cell:last-child{border-right:none}
+.frecord .k{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle)}
+.frecord .v{font-family:var(--serif);font-size:14px;font-weight:700;margin-top:3px;line-height:1.2}
+.chiprow{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:11.5px;color:var(--muted);border:1px solid var(--hairline);border-radius:2px;padding:4px 9px}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.fig{border-color:var(--hairline-2);color:var(--ink-soft)}
+.readmore{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:1px;margin-top:18px}
+.readmore:hover{color:var(--accent-hover)}
+
+/* featured meta-take — sample hub page preview */
+.tprev{border:1px solid var(--hairline-2);border-top:3px solid var(--ink);background:var(--bg)}
+.tprev__chrome{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hairline);background:var(--surface-2)}
+.tprev__chrome i{width:9px;height:9px;border-radius:50%;background:var(--hairline-2);flex:none}
+.tprev__url{font-family:var(--mono);font-size:11px;color:var(--subtle);margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tprev__body{padding:18px 20px 20px}
+.tprev__kind{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.tprev h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.14;margin:8px 0 4px}
+.tprev .lac{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--muted);margin:0 0 11px}
+.tprev .def{font-family:var(--serif);font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin:0 0 15px}
+.tprev .miniband{display:flex;gap:18px;padding:9px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-bottom:14px}
+.tprev .miniband .c{font-size:12px;color:var(--muted)}
+.tprev .miniband .c b{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:700;margin-right:5px;font-variant-numeric:tabular-nums}
+.subh{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 9px}
+.tcase{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--hairline)}
+.tcase:last-child{border-bottom:none}
+.tcase .rk{font-size:11px;color:var(--subtle);font-variant-numeric:tabular-nums;padding-top:3px;width:13px;flex:none}
+.tcase .tx{min-width:0}
+.tcase .ti{font-family:var(--serif);font-weight:700;font-size:14.5px;line-height:1.25;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tcase .ti .yr{color:var(--subtle);font-weight:400}
+.tcase .rs{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+.tcase .rs .fig{color:var(--ink);border-bottom:1px solid var(--hairline-2)}
+.reg{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;color:var(--muted);border:1px solid var(--hairline);border-radius:2px;padding:1px 6px;text-transform:uppercase;letter-spacing:.05em;font-family:var(--ui);font-weight:500}
+.reg i{width:6px;height:6px;border-radius:50%;flex:none}
+.kinline{font-size:12px;color:var(--muted);margin-top:12px;padding-top:11px;border-top:1px dotted var(--hairline-2);line-height:1.45}
+.kinline .kl{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.kinline b{color:var(--ink);font-weight:700}
+.tprev__foot{margin-top:16px;padding-top:13px;border-top:2px solid var(--ink)}
+
+/* ---- graph window ---- */
+.gwin{margin-top:8px;background:var(--d-bg);color:var(--d-ink);position:relative;overflow:hidden;border:1px solid #000}
+.gwin__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--d-line);position:relative;z-index:6;flex-wrap:wrap}
+.gwin__bar .ttl{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--d-ink)}
+.gwin__bar .sub{font-family:var(--mono);font-size:11.5px;color:var(--d-ink2);margin-left:8px;letter-spacing:0}
+.gtoggle{display:inline-flex;border:1px solid var(--d-line);border-radius:8px;overflow:hidden}
+.gtoggle button{appearance:none;background:none;border:none;color:var(--d-ink2);font:inherit;font-size:12px;font-weight:500;padding:7px 14px;cursor:pointer}
+.gtoggle button[data-on]{background:rgba(240,182,95,.14);color:var(--n-center)}
+.gtools{display:flex;gap:8px;align-items:center}
+.gbtn{height:32px;background:#15161c;border:1px solid var(--d-line);border-radius:8px;color:var(--d-ink);padding:0 12px;font-size:12px;font-weight:500;cursor:pointer}
+.gbtn:hover{border-color:var(--n-center);color:var(--n-center)}
+.stage{position:relative;height:460px;overflow:hidden;cursor:grab}
+.stage.drag{cursor:grabbing}
+#world{position:absolute;left:0;top:0;transform-origin:0 0}
+#lines{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.gnode{position:absolute;transform:translate(-50%,-50%);cursor:pointer;transition:opacity .25s}
+.gnode .gd{border-radius:50%;margin:0 auto;transition:transform .2s}
+.gnode:hover .gd{transform:scale(1.2)}
+.gnode .gl{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;font-size:11.5px;font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.85)}
+.gnode.dim{opacity:.12}
+.gnode.film .gd{background:var(--n-film)} .gnode.film .gl{color:var(--n-film)}
+.gnode.figure .gd{background:var(--n-figure)} .gnode.figure .gl{color:var(--n-figure)}
+.gnode.meta .gd{background:var(--n-meta)} .gnode.meta .gl{color:#f3897f}
+.gnode.trope .gd{background:var(--n-trope)} .gnode.trope .gl{color:#79d2c9}
+.gnode.center .gd{background:var(--n-center);box-shadow:0 0 0 4px rgba(240,182,95,.16),0 0 26px rgba(240,182,95,.4)}
+.gnode.center .gl{color:#fff;font-family:var(--serif);font-size:14px}
+.gnode.leaf .gl{color:var(--d-ink2);font-weight:400}
+.glegend{position:absolute;right:14px;bottom:13px;z-index:6;display:flex;flex-direction:column;gap:6px;pointer-events:none;background:rgba(11,12,16,.55);padding:10px 12px;border-radius:9px}
+.glegend span{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:var(--d-ink2)}
+.glegend i{width:8px;height:8px;border-radius:50%}
+.ghint{position:absolute;left:16px;bottom:15px;z-index:6;font-family:var(--mono);font-size:11px;color:var(--d-ink2);pointer-events:none;opacity:.9;max-width:60%}
+.gvign{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 90px 30px rgba(8,9,11,.85)}
+.zoom{position:absolute;right:14px;top:64px;z-index:6;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:30px;height:30px;border-radius:7px;border:1px solid var(--d-line);background:rgba(21,22,28,.85);color:var(--d-ink);font-size:15px;cursor:pointer}
+.zoom button:hover{border-color:var(--n-center);color:var(--n-center)}
+
+/* ---- new lists with streaming dots ---- */
+.lists{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:22px}
+.lists>.col:first-child{border-right:1px solid var(--hairline);padding-right:40px}
+@media(max-width:880px){.lists{grid-template-columns:1fr;gap:30px}.lists>.col:first-child{border-right:none;padding-right:0}}
+.nrow{padding:15px 0;border-bottom:1px solid var(--hairline);animation:rowin .5s ease}
+@keyframes rowin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.nrow:last-child{border-bottom:none}
+.nrow__h{display:flex;align-items:baseline;gap:10px;justify-content:space-between}
+.nrow__t{font-family:var(--serif);font-weight:700;font-size:16.5px;line-height:1.25}
+.nrow:hover .nrow__t{color:var(--accent-hover)}
+.nrow__c{font-size:11.5px;color:var(--subtle);white-space:nowrap;font-variant-numeric:tabular-nums}
+.nrow__lac{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.4}
+.dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;min-height:24px;align-items:center}
+.dots .seen{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-right:2px}
+.fdot{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);border:1px solid var(--hairline);border-radius:20px;padding:2px 9px 2px 7px;opacity:0;transform:translateY(4px);transition:opacity .45s,transform .45s,border-color .2s}
+.fdot.in{opacity:1;transform:none}
+.fdot:hover{border-color:var(--ink);color:var(--ink)}
+.fdot i{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+.fdot.more{border-style:dashed;color:var(--subtle)}
+
+/* ---- footer ---- */
+.foot{margin-top:54px;border-top:2px solid var(--ink);background:var(--bg)}
+.foot__in{max-width:var(--max-w);margin:0 auto;padding:24px var(--pad-x) 44px}
+.foot__top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.foot__top .note{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px}
+.foot__cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;margin-top:22px}
+.foot__h{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.foot a.fl{display:block;font-size:13px;color:var(--muted);margin:6px 0}
+.foot a.fl:hover{color:var(--accent)}
+.foot__base{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:13px;border-top:1px solid var(--hairline);font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ===== MASTHEAD ===== -->
+<header class="masthead">
+  <div class="masthead__row">
+    <a class="logobox" href="#"><b>META</b><b>TAKE</b></a>
+    <nav class="mh-nav">
+      <a href="#" data-active>The Latest</a><a href="#">Films</a><a href="#">Tropes</a><a href="#">Meta-takes</a><a href="#graph">Graph</a><a href="#">About</a>
+    </nav>
+    <span class="mh-spacer"></span>
+    <span class="mh-ico" title="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
+    <a class="mh-cta" href="#">Sign in</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== EDITION LINE ===== -->
+  <div class="edition">
+    <span class="edition__date">WEDNESDAY · JUNE 17, 2026</span>
+    <span class="edition__tag">An open AI research project — written reading by reading, still growing</span>
+  </div>
+
+  <!-- ===== HERO + EMBEDDING INSTRUMENT PANEL ===== -->
+  <section class="hero">
+    <h1>The unconscious lines <span class="em">between films.</span></h1>
+    <p><span class="lead-em">A large-scale AI project.</span> Metatake turns every figure, take and film into an <a href="#">embedding</a> — a point in meaning-space — then reads the geometry: the lines you follow here are nearest neighbours by cosine distance, the rhymes between films that no human index would ever catch. Not reviews. Not ratings. <a href="#">Readings</a>.</p>
+
+    <div class="panelwrap">
+      <div class="panel-top">
+        <span class="lbl">The archive, right now</span>
+        <span class="live"><span class="dot"></span> Live</span>
+      </div>
+      <div class="gauges" id="gauges">
+        <div class="gauge"><div class="n" data-target="567">0</div><div class="k">Films</div></div>
+        <div class="gauge"><div class="n" data-target="4626">0</div><div class="k">Figures</div></div>
+        <div class="gauge"><div class="n" data-target="13241">0</div><div class="k">Takes</div></div>
+        <div class="gauge"><div class="n" data-target="152">0</div><div class="k">Meta-takes</div></div>
+        <div class="gauge"><div class="n" data-target="96">0</div><div class="k">Tropes</div></div>
+        <div class="gauge"><div class="n" data-target="5441">0</div><div class="k">Nodes</div></div>
+      </div>
+      <div class="embedline">
+        <span class="tag">▦ embedding space</span>
+        <span class="ax">3 axes — <i>surface</i> (figure) · <i>meaning</i> (take) · <i>concept</i> (meta-take)</span>
+        <span><b>1,536</b> dims</span>
+        <span>cosine k-NN + dedup ≥ <b>0.86</b></span>
+        <span><b>18,907</b> soft edges</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PAIR ===== -->
+  <div class="feature-grid">
+    <!-- Featured film — real film-feature layout, tidied -->
+    <section class="col-l">
+      <p class="kick">Featured film · the film feature
+        <button class="roll" id="film-roll"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> another</button>
+      </p>
+      <article class="ffilm" id="ffilm">
+        <div class="ffilm__frame"><div class="ph"></div><img id="ffilm-img" alt=""><span class="yr" id="ffilm-yr">1984</span></div>
+        <h3><a href="#" id="ffilm-title">The Terminator</a></h3>
+        <div class="ffilm-meta"><span id="ffilm-dir">dir. James Cameron</span><span class="lvlbadge">Experience <span class="num" id="ffilm-lvl">7</span> / <span id="ffilm-lvllabel">Relentless</span></span></div>
+        <div class="feat-label">Why watch</div>
+        <p class="pitch" id="ffilm-pitch"></p>
+        <div class="feat-label">The record</div>
+        <div class="frecord" id="ffilm-record"></div>
+        <div class="feat-label">The figures</div>
+        <div class="chiprow" id="ffilm-figs"></div>
+        <div class="feat-label">Comparable in experience</div>
+        <div class="chiprow" id="ffilm-comps"></div>
+        <a class="readmore" href="#">Read the full film <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
+
+    <!-- Featured META-TAKE — random hub sample page -->
+    <section class="col-r">
+      <p class="kick">Featured meta-take · the hub
+        <button class="roll" id="meta-roll"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> another</button>
+      </p>
+      <article class="tprev" id="mprev">
+        <div class="tprev__chrome"><i></i><i></i><i></i><span class="tprev__url" id="mprev-url">metatake.com/take/architecture-as-social-hierarchy</span></div>
+        <div class="tprev__body">
+          <div class="tprev__kind">Meta-take · the hub</div>
+          <h3 id="mprev-title">Architecture as Social Hierarchy</h3>
+          <p class="lac" id="mprev-lac"></p>
+          <p class="def" id="mprev-thesis"></p>
+          <div class="miniband">
+            <span class="c"><b id="mprev-films">64</b>films</span>
+            <span class="c"><b id="mprev-takes">81</b>takes</span>
+            <span class="c"><b id="mprev-reg">3</b>registers</span>
+          </div>
+          <p class="subh">Representative takes — defining cases</p>
+          <div id="mprev-cases"></div>
+          <p class="kinline" id="mprev-kin"></p>
+          <div class="tprev__foot"><a class="readmore" href="#" style="margin-top:0">Open the full meta-take <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <!-- ===== GRAPH WINDOW (WOW) ===== -->
+  <section class="sec" id="graph">
+    <div class="sechead red">
+      <h2>The map is alive</h2>
+      <a class="more" href="#">Open the explorer ↗</a>
+    </div>
+    <p class="kick" style="margin-top:12px;color:var(--muted)">A live window onto the embedding graph — drag to pan, scroll to zoom, click a film to travel into it.</p>
+    <div class="gwin">
+      <div class="gwin__bar">
+        <div><span class="ttl">Constellation</span><span class="sub" id="g-sub">film graph · cosine-near neighbours</span></div>
+        <div class="gtools">
+          <div class="gtoggle" id="g-toggle">
+            <button data-mode="film" data-on>Film graph</button>
+            <button data-mode="figure">Figure graph</button>
+          </div>
+          <button class="gbtn" id="g-random">⤳ Random</button>
+        </div>
+      </div>
+      <div class="stage" id="stage">
+        <div id="world"><svg id="lines"></svg></div>
+        <div class="zoom"><button id="zin">+</button><button id="zout">−</button></div>
+        <div class="glegend">
+          <span><i style="background:var(--n-film)"></i>film</span>
+          <span><i style="background:var(--n-figure)"></i>figure</span>
+          <span><i style="background:var(--n-meta)"></i>meta-take</span>
+          <span><i style="background:var(--n-trope)"></i>trope</span>
+        </div>
+        <div class="ghint" id="g-hint">hover a node — these are its cosine-near neighbours</div>
+        <div class="gvign"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JUST ADDED — auto-rotating lists with streaming dots ===== -->
+  <section class="sec">
+    <div class="sechead">
+      <h2>Just added</h2>
+      <span class="auto"><i></i> refreshing live · the dots are the films each one reaches</span>
+    </div>
+    <div class="lists">
+      <div class="col">
+        <p class="kick" style="color:var(--muted);margin:16px 0 2px">New tropes</p>
+        <div id="list-tropes"></div>
+      </div>
+      <div class="col">
+        <p class="kick" style="color:var(--muted);margin:16px 0 2px">New meta-takes</p>
+        <div id="list-metas"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="foot__in">
+    <div class="foot__top">
+      <a class="logobox" href="#"><b>META</b><b>TAKE</b></a>
+      <span class="note">Every link leads deeper into film — never out to a store, an ad, or a tracker.</span>
+    </div>
+    <div class="foot__cols">
+      <div><div class="foot__h">Explore</div><a class="fl" href="#">The Latest</a><a class="fl" href="#">Films</a><a class="fl" href="#">Directors</a><a class="fl" href="#">Trending</a></div>
+      <div><div class="foot__h">The structure</div><a class="fl" href="#">Figures</a><a class="fl" href="#">Takes</a><a class="fl" href="#">Meta-takes</a><a class="fl" href="#">Tropes</a></div>
+      <div><div class="foot__h">The project</div><a class="fl" href="#">About / manifesto</a><a class="fl" href="#">How readings are written</a><a class="fl" href="#">The embedding method</a></div>
+      <div><div class="foot__h">The graph</div><a class="fl" href="#">Film constellation</a><a class="fl" href="#">Figure constellation</a><a class="fl" href="#">Connection explorer</a></div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 Metatake — the Metatake project. A place to think about films.</span>
+      <span>Film stills &amp; data via TMDB. This page is a design concept.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var IMG="https://image.tmdb.org/t/p/w780";
+
+/* register → [label, colour] (mirrors the real take/figure pages) */
+var REG={
+ formal:["Formal","#3F6F9C"], semiotic:["Semiotic","#7A5EA6"], psycho:["Psychoanalytic","#B0506B"],
+ ideology:["Ideological","#B5632A"], political:["Political economy","#4F7A52"], philosophy:["Philosophical","#5E6B73"],
+ existential:["Existential","#8A6A2E"], mythic:["Mythic","#9C7A2E"], historical:["Film-historical","#50707A"], reception:["Reception","#6B6B6B"]
+};
+
+/* ---------- FEATURED FILMS (real film-feature layout) ---------- */
+var FEATURED=[
+ {slug:"the-terminator",title:"The Terminator",yr:1984,dir:"James Cameron",bd:"/ffdqHMWkh1h9MABwIfbfRJhgFW6.jpg",
+  lvl:7,lvlLabel:"Relentless",
+  pitch:"A machine is sent back through time to kill a woman who matters only because of a son she has not yet had. Cameron turns a chase into a myth about fate — built from truck headlights, hard rain, and a villain that never once blinks.",
+  record:{premiere:"Oct 26, 1984",box:"$78.4M",awards:"Saturn — Best Writing"},
+  figures:["the T-800's flesh-metal body","the predestination loop","the tech-noir cityscape"],
+  comps:["Aliens","RoboCop","The Matrix","Predator","Mad Max 2"],
+  metas:["flesh-reduced-to-persistence"], trope:{title:"The Body Turned Into A Weapon",films:["Terminator 2","The Wrestler","Papicha"]}},
+ {slug:"black-swan-2010",title:"Black Swan",yr:2010,dir:"Darren Aronofsky",bd:"/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg",
+  lvl:9,lvlLabel:"Feverish",
+  pitch:"A ballerina is cast in the role of her life and begins to lose the border between discipline and disintegration. Aronofsky films ambition as horror, pressed so close to the skin you can feel the splinters.",
+  record:{premiere:"Venice, 2010",box:"$329M",awards:"Oscar — Best Actress"},
+  figures:["Nina's bodily mutations","the mirror that moves alone","the white-to-black wardrobe"],
+  comps:["Perfect Blue","Suspiria","The Wrestler","Repulsion","Mulholland Drive"],
+  metas:["the-doubled-self-as-confession","saturated-hues-as-emotional-diagnosis"], trope:{title:"The Flesh That Changes Shape",films:["Videodrome","The Fly","Tropical Malady"]}},
+ {slug:"joker-2019",title:"Joker",yr:2019,dir:"Todd Phillips",bd:"/rlay2M5QYvi6igbGcFjq8jxeusY.jpg",
+  lvl:8,lvlLabel:"Operatic",
+  pitch:"A failed comedian in a rotting city slides toward the only identity that will have him. Phoenix gives a performance of pure, dangerous tenderness, and the film lets the laughter slowly curdle.",
+  record:{premiere:"Venice, 2019 — Golden Lion",box:"$1.07B",awards:"2 Academy Awards"},
+  figures:["the steep outdoor stairs","the descending cello theme","the mask as a way of moving"],
+  comps:["Taxi Driver","The King of Comedy","Network","Falling Down","Nightcrawler"],
+  metas:["architecture-as-social-hierarchy","score-as-standalone-signature"], trope:{title:"The Lying Mouth",films:["The Others","Funny Games","Bad Education"]}},
+ {slug:"pulp-fiction-1994",title:"Pulp Fiction",yr:1994,dir:"Quentin Tarantino",bd:"/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
+  lvl:8,lvlLabel:"Electric",
+  pitch:"Two hit men, a boxer, and a briefcase nobody can explain — shuffled out of order until coincidence starts to feel like fate. Tarantino's talk-heavy crime opera rewired what a movie was allowed to sound like.",
+  record:{premiere:"Cannes, 1994 — Palme d'Or",box:"$214M",awards:"Oscar — Original Screenplay"},
+  figures:["the glowing briefcase","the non-linear chronology","the diner stand-off"],
+  comps:["Reservoir Dogs","Jackie Brown","Goodfellas","Trainspotting","Snatch"],
+  metas:["the-sign-that-refuses-meaning","secular-transcendence-in-objects"], trope:{title:"The Coveted Container",films:["WALL·E","Black Panther","The Revenant"]}},
+ {slug:"gravity-2013",title:"Gravity",yr:2013,dir:"Alfonso Cuarón",bd:"/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg",
+  lvl:9,lvlLabel:"Vertiginous",
+  pitch:"A routine spacewalk becomes a fight to get home on the thinnest margin of air and luck. Cuarón builds suspense out of silence and the long, unbroken take, and refuses to let your stomach settle.",
+  record:{premiere:"Venice, 2013",box:"$759M",awards:"7 Academy Awards"},
+  figures:["the recurring shots of Earth","the unbroken opening take","the floating teardrop"],
+  comps:["2001: A Space Odyssey","Apollo 13","The Martian","All Is Lost","Interstellar"],
+  metas:["the-indifferent-landscape","secular-transcendence-in-objects"], trope:{title:"The Land That Does Not Care",films:["Wuthering Heights","Bacurau","There Will Be Blood"]}},
+ {slug:"300-2006",title:"300",yr:2006,dir:"Zack Snyder",bd:"/lgBZlJ1LHQel5nneNQMoesmvc7l.jpg",
+  lvl:7,lvlLabel:"Stylised",
+  pitch:"Three hundred Spartans hold a mountain pass against an empire, rendered as a graphic novel come to bronze-lit life. Snyder's film is less history than heraldry — pure, stylised defiance.",
+  record:{premiere:"Berlin, 2007",box:"$456M",awards:"MTV Movie Award"},
+  figures:["the traced comic panels","the bronze-lit palette","the narrated framing"],
+  comps:["Gladiator","Sin City","Troy","Immortals","Conan the Barbarian"],
+  metas:["the-patriarchal-bargain","spirit-over-letter-adaptations"], trope:{title:"The Painted World",films:["Dogville","Miller's Crossing","Moneyball"]}}
+];
+
+/* ---------- META-TAKES (rich hubs) ---------- */
+var METAS=[
+ {slug:"architecture-as-social-hierarchy",title:"Architecture as Social Hierarchy",n:64,takes:81,figs:47,
+  lac:"Stairs and corridors as a diagram of who holds power.",
+  thesis:"When a film lets its sets do the arguing, height becomes class and the route a body is forced to take becomes its place in the order of things — power read off the floor plan.",
+  cases:[{f:"Joker",y:2019,fig:"the steep outdoor stairs",rs:"the daily tax of the climb",reg:"ideology"},
+         {f:"The Raid",y:2011,fig:"the ascent floor by floor",rs:"power mapped as vertical conquest",reg:"formal"},
+         {f:"The Favourite",y:2018,fig:"the long palace corridors",rs:"proximity to the throne measured in footsteps",reg:"political"}],
+  kin:{f:"Invisible Life",y:2019,note:"a staircase that quietly separates two sisters' fates"},
+  films:["Joker","The Raid","The Favourite","Invisible Life","Betty Blue"]},
+ {slug:"flesh-reduced-to-persistence",title:"Flesh Reduced to Persistence",n:59,takes:73,figs:42,
+  lac:"Life narrowed to the single fact of not stopping.",
+  thesis:"Across war films, horror and science fiction a body appears that has been stripped of everything but endurance — it neither desires nor tires, and its refusal to stop becomes the screen's purest image of the inhuman.",
+  cases:[{f:"The Terminator",y:1984,fig:"the T-800's flesh-metal body",rs:"persistence with no inner life behind it",reg:"philosophy"},
+         {f:"Die Hard",y:1988,fig:"McClane's bare bleeding feet",rs:"endurance as the last form of agency",reg:"existential"},
+         {f:"Timbuktu",y:2014,fig:"the body kneeling under occupation",rs:"persistence as quiet refusal",reg:"political"}],
+  kin:{f:"V for Vendetta",y:2005,note:"the mask that outlives the man wearing it"},
+  films:["The Terminator","Die Hard","Timbuktu","V for Vendetta","The Secret in Their Eyes"]},
+ {slug:"the-sign-that-refuses-meaning",title:"The Sign That Refuses Meaning",n:59,takes:70,figs:44,
+  lac:"An object everyone reads and the film never explains.",
+  thesis:"The withheld sign — a glow, a sound, a sealed container — turns the audience into interpreters and exposes how much of cinema's pull is simply our hunger to be told what a thing means.",
+  cases:[{f:"Pulp Fiction",y:1994,fig:"the briefcase's golden glow",rs:"desire poured into an empty frame",reg:"semiotic"},
+         {f:"Miller's Crossing",y:1990,fig:"the hat in the dream",rs:"a symbol that resists its own decoding",reg:"psycho"},
+         {f:"Boogie Nights",y:1997,fig:"the final reveal",rs:"meaning deferred to the last possible beat",reg:"formal"}],
+  kin:{f:"Guardians of the Galaxy",y:2014,note:"the orb everyone wants and no one understands"},
+  films:["Pulp Fiction","Miller's Crossing","Boogie Nights","Guardians of the Galaxy","Harry Potter and the Prisoner of Azkaban"]},
+ {slug:"the-indifferent-landscape",title:"The Indifferent Landscape",n:58,takes:69,figs:40,
+  lac:"A world that frames the drama but never joins it.",
+  thesis:"Some films set human striving against a nature that will not take sides; the landscape's refusal to care reframes survival as a choice rather than a destiny.",
+  cases:[{f:"Gravity",y:2013,fig:"the turning Earth below",rs:"beauty wholly indifferent to her fate",reg:"existential"},
+         {f:"Wuthering Heights",y:2011,fig:"the wind-scoured moor",rs:"weather that ignores the love it frames",reg:"mythic"},
+         {f:"Loveless",y:2017,fig:"the bare winter forest",rs:"a search the world declines to assist",reg:"philosophy"}],
+  kin:{f:"There Will Be Blood",y:2007,note:"land filmed as appetite, not as backdrop"},
+  films:["Gravity","Wuthering Heights","Loveless","The Favourite","There Will Be Blood"]},
+ {slug:"saturated-hues-as-emotional-diagnosis",title:"Saturated Hues as Emotional Diagnosis",n:84,takes:103,figs:58,
+  lac:"When colour stops decorating and starts diagnosing.",
+  thesis:"A palette pushed past realism reads less as style than as symptom — the film's way of showing a state of mind the characters cannot yet name.",
+  cases:[{f:"Black Swan",y:2010,fig:"the bleeding reds of the finale",rs:"colour as the body's confession",reg:"psycho"},
+         {f:"Betty Blue",y:1986,fig:"the cobalt beach house",rs:"saturation tracking a mind coming apart",reg:"existential"},
+         {f:"Invisible Life",y:2019,fig:"the hothouse greens",rs:"hue as buried feeling made visible",reg:"formal"}],
+  kin:{f:"Guardians of the Galaxy",y:2014,note:"pop colour quietly weaponised for grief"},
+  films:["Black Swan","Betty Blue","Invisible Life","Guardians of the Galaxy","Miller's Crossing"]},
+ {slug:"score-as-standalone-signature",title:"Score as Standalone Signature",n:66,takes:79,figs:45,
+  lac:"A theme that becomes a character in its own right.",
+  thesis:"When a score detaches from the scene and begins to carry meaning on its own, the music stops underlining the film and starts to author it.",
+  cases:[{f:"Joker",y:2019,fig:"the descending cello theme",rs:"a motif that narrates the fall",reg:"formal"},
+         {f:"The Favourite",y:2018,fig:"the percussive harpsichord",rs:"sound that comments rather than accompanies",reg:"semiotic"},
+         {f:"Raiders of the Lost Ark",y:1981,fig:"the march that announces the hero",rs:"a theme that becomes the character's name",reg:"mythic"}],
+  kin:{f:"The Raid",y:2011,note:"percussion that keeps the body moving"},
+  films:["Joker","The Favourite","Raiders of the Lost Ark","The Raid","Guardians of the Galaxy"]},
+ {slug:"the-doubled-self-as-confession",title:"The Doubled Self as Confession",n:47,takes:58,figs:35,
+  lac:"The double says what the self cannot.",
+  thesis:"The doppelgänger returns whenever a film needs a character to face a desire they have disowned; the double is not a threat from outside but a confession from within.",
+  cases:[{f:"Black Swan",y:2010,fig:"the mirror that moves on its own",rs:"the rival self as repressed wish",reg:"psycho"},
+         {f:"The Others",y:2001,fig:"the household's second family",rs:"a double that reveals the true tense",reg:"semiotic"},
+         {f:"TÁR",y:2022,fig:"the recurring stranger",rs:"the self pursued by what it denies",reg:"existential"}],
+  kin:{f:"Scarface",y:1983,note:"the man undone by his own reflection"},
+  films:["Black Swan","The Others","TÁR","Scarface","Kill Bill: Vol. 1"]},
+ {slug:"the-patriarchal-bargain",title:"The Patriarchal Bargain",n:58,takes:70,figs:41,
+  lac:"Power bought at the price of one's own subjection.",
+  thesis:"A recurring deal in which a character trades autonomy for a place inside the very system that constrains her — the film watching the cost of the bargain quietly accrue.",
+  cases:[{f:"300",y:2006,fig:"Queen Gorgo's negotiated influence",rs:"authority granted only through submission",reg:"ideology"},
+         {f:"Dogville",y:2003,fig:"Grace's terms of shelter",rs:"safety priced as servitude",reg:"political"},
+         {f:"The Favourite",y:2018,fig:"the courtiers' calculus",rs:"intimacy spent as currency",reg:"psycho"}],
+  kin:{f:"Top Gun: Maverick",y:2022,note:"belonging earned by total obedience"},
+  films:["300","Dogville","The Favourite","Top Gun: Maverick","The Incredibles"]},
+ {slug:"secular-transcendence-in-objects",title:"Secular Transcendence in Objects",n:62,takes:75,figs:43,
+  lac:"The sacred relocated into ordinary things.",
+  thesis:"Without a god in the frame, certain films invest the holy in matter itself — a teardrop, a streetlight, an insect — letting grace survive in a disenchanted world.",
+  cases:[{f:"Gravity",y:2013,fig:"the floating teardrop",rs:"grace located in a single bead of water",reg:"philosophy"},
+         {f:"Collateral",y:2004,fig:"the night-lit city",rs:"transcendence in fluorescent ordinariness",reg:"existential"},
+         {f:"American Honey",y:2016,fig:"the insect held in a hand",rs:"the holy found in roadside debris",reg:"mythic"}],
+  kin:{f:"Starship Troopers",y:1997,note:"propaganda images turned strangely sacred"},
+  films:["Gravity","Wuthering Heights","Collateral","American Honey","Starship Troopers"]},
+ {slug:"spirit-over-letter-adaptations",title:"Spirit Over Letter Adaptations",n:66,takes:78,figs:46,
+  lac:"Faithful to the feeling, not the text.",
+  thesis:"The strongest adaptations betray the letter to keep the spirit; fidelity is reimagined as the translation of intensity rather than the transcription of plot.",
+  cases:[{f:"300",y:2006,fig:"the traced comic panels",rs:"fidelity to a drawing's heat, not to history",reg:"historical"},
+         {f:"Wuthering Heights",y:2011,fig:"the wordless long takes",rs:"the novel's weather kept, its dialogue dropped",reg:"formal"},
+         {f:"Closer",y:2004,fig:"the play's compressions",rs:"theatre's cruelty carried into film",reg:"reception"}],
+  kin:{f:"Harry Potter and the Prisoner of Azkaban",y:2004,note:"the book's mood chosen over its incidents"},
+  films:["300","Wuthering Heights","Closer","Harry Potter and the Prisoner of Azkaban","Farewell, My Lovely"]}
+];
+var META_BYSLUG={}; METAS.forEach(function(m){META_BYSLUG[m.slug]=m;});
+
+/* ---------- POOLS for the auto-rotating "Just added" lists ---------- */
+var TROPE_POOL=[
+ {title:"The Repeating Day",n:5,lac:"A life caught in a loop it must live until it learns.",films:["Groundhog Day","Run Lola Run","Donnie Darko","Twelve Monkeys","The Terminator"]},
+ {title:"The Flesh That Changes Shape",n:11,lac:"The body betrays the self by becoming something else.",films:["Black Swan","Videodrome","The Fly","Tropical Malady","Fight Club"]},
+ {title:"The Painted World",n:47,lac:"A film that admits, proudly, that it was made.",films:["Dogville","Miller's Crossing","300","Moneyball","Farewell, My Lovely"]},
+ {title:"The Land That Does Not Care",n:11,lac:"A landscape so vast the human drama barely registers.",films:["Wuthering Heights","Bacurau","There Will Be Blood","Gravity","Loveless"]},
+ {title:"The Lying Mouth",n:27,lac:"The story we are told is the one designed to deceive us.",films:["The Others","Funny Games","Bad Education","A Christmas Story","Joker"]},
+ {title:"The Coveted Container",n:4,lac:"Everyone wants what is inside; the film keeps it shut.",films:["WALL·E","Black Panther","The Revenant","Pulp Fiction"]},
+ {title:"The Body Turned Into A Weapon",n:5,lac:"Flesh trained, starved or rebuilt until it is a tool.",films:["Terminator 2","Papicha","The Wrestler","The Bodyguard"]},
+ {title:"The Unbroken Opening Shot",n:6,lac:"One long breath before the film will let you cut.",films:["Boogie Nights","Pride & Prejudice","Room","Gravity","The Silence of the Lambs"]},
+ {title:"The Climactic Performance",n:16,lac:"Everything resolves on a stage, in front of a crowd.",films:["Moneyball","Dead Poets Society","Bohemian Rhapsody","Black Swan","Schindler's List"]},
+ {title:"The Love That Time Defeats",n:6,lac:"A romance the clock was always going to win.",films:["Casino Royale","Bram Stoker's Dracula","The Fly","A Star Is Born"]},
+ {title:"The Rising Of The Trampled",n:3,lac:"The mask of the lowest becomes the banner of revolt.",films:["Us","Fantastic Mr. Fox","Joker"]}
+];
+var META_POOL=METAS.map(function(m){return {title:m.title,n:m.n,lac:m.lac,films:m.films};}).concat([
+ {title:"Camera-Coupled Bodily Motion",n:54,lac:"The lens moves as if it shared the body's nerves.",films:["Crouching Tiger, Hidden Dragon","Wuthering Heights","Saltburn","Kill Bill: Vol. 1"]},
+ {title:"The Hyperreal Mirage",n:62,lac:"A surface so polished it stops being real.",films:["Dogville","Minority Report","Closer","The Hangover"]},
+ {title:"Survivors of Vanished Worlds",n:57,lac:"People left holding a world that has already ended.",films:["Black","The Others","Past Lives","A Christmas Story"]},
+ {title:"Inherited Visual Grammar",n:57,lac:"A film speaking in a language older directors built.",films:["Moneyball","Saltburn","Kill Bill: Vol. 1","The Others"]},
+ {title:"Labor Priced in Chalk",n:59,lac:"Work counted, tallied, and quietly underpaid.",films:["Dogville","Farewell, My Lovely","American Honey","Collateral"]}
+]);
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id);}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function fmt(n){return n.toLocaleString("en-US");}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function regTag(k){var r=REG[k]||["",""];return '<span class="reg"><i style="background:'+r[1]+'"></i>'+r[0]+'</span>';}
+
+/* ---------- live counters ---------- */
+function runCounters(){
+  document.querySelectorAll("#gauges .n").forEach(function(el){
+    var target=+el.getAttribute("data-target"),t0=performance.now(),dur=1200+Math.random()*500;
+    (function step(now){var p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(target*e));if(p<1)requestAnimationFrame(step);})(performance.now());
+  });
+}
+function liveTick(){
+  var idx=Math.random()<.6?2:5; /* Takes or Nodes */
+  var el=document.querySelectorAll("#gauges .n")[idx];
+  var cur=+el.getAttribute("data-target")+(Math.random()<.5?1:2);
+  el.setAttribute("data-target",cur); el.textContent=fmt(cur);
+  var g=el.parentElement; g.classList.add("flash"); setTimeout(function(){g.classList.remove("flash");},260);
+  setTimeout(liveTick,3500+Math.random()*5000);
+}
+
+/* ---------- featured film ---------- */
+function renderFilm(d){
+  var img=$("ffilm-img"); img.classList.remove("on"); img.alt=d.title;
+  img.onload=function(){img.classList.add("on");}; img.onerror=function(){img.classList.remove("on");};
+  img.src=IMG+d.bd;
+  $("ffilm-title").textContent=d.title; $("ffilm-yr").textContent=d.yr;
+  $("ffilm-dir").textContent="dir. "+d.dir; $("ffilm-lvl").textContent=d.lvl; $("ffilm-lvllabel").textContent=d.lvlLabel;
+  $("ffilm-pitch").textContent=d.pitch;
+  $("ffilm-record").innerHTML=
+    '<div class="cell"><div class="k">Premiere</div><div class="v">'+esc(d.record.premiere)+'</div></div>'+
+    '<div class="cell"><div class="k">Box office</div><div class="v">'+esc(d.record.box)+'</div></div>'+
+    '<div class="cell"><div class="k">Awards</div><div class="v">'+esc(d.record.awards)+'</div></div>';
+  var fg=$("ffilm-figs"); fg.innerHTML=""; d.figures.forEach(function(t){var a=document.createElement("a");a.className="chip fig";a.href="#";a.textContent=t;fg.appendChild(a);});
+  var cp=$("ffilm-comps"); cp.innerHTML=""; d.comps.forEach(function(t){var a=document.createElement("a");a.className="chip";a.href="#";a.textContent=t;cp.appendChild(a);});
+}
+var lastFilm=-1;
+function rollFilm(){var i;do{i=Math.floor(Math.random()*FEATURED.length);}while(i===lastFilm&&FEATURED.length>1);lastFilm=i;renderFilm(FEATURED[i]);}
+
+/* ---------- featured meta-take ---------- */
+function renderMeta(d){
+  $("mprev-url").textContent="metatake.com/take/"+d.slug;
+  $("mprev-title").textContent=d.title;
+  $("mprev-lac").textContent=d.lac;
+  $("mprev-thesis").textContent=d.thesis;
+  $("mprev-films").textContent=d.n; $("mprev-takes").textContent=d.takes;
+  var regs={}; d.cases.forEach(function(c){regs[c.reg]=1;}); $("mprev-reg").textContent=Object.keys(regs).length;
+  var box=$("mprev-cases"); box.innerHTML="";
+  d.cases.forEach(function(c,i){
+    var row=document.createElement("div"); row.className="tcase";
+    row.innerHTML='<span class="rk">'+(i+1)+'</span><div class="tx"><div class="ti">'+esc(c.f)+' <span class="yr">('+c.y+')</span> '+regTag(c.reg)+'</div><div class="rs"><span class="fig">'+esc(c.fig)+'</span> — '+esc(c.rs)+'</div></div>';
+    box.appendChild(row);
+  });
+  $("mprev-kin").innerHTML='<span class="kl">Unexpected kin</span> <b>'+esc(d.kin.f)+'</b> <span style="color:var(--subtle)">('+d.kin.y+')</span> — '+esc(d.kin.note);
+}
+var lastMeta=-1;
+function rollMeta(){var i;do{i=Math.floor(Math.random()*METAS.length);}while(i===lastMeta&&METAS.length>1);lastMeta=i;renderMeta(METAS[i]);}
+
+/* ---------- streaming "dots" lists (auto-rotating) ---------- */
+function buildList(host,items){
+  host.innerHTML="";
+  items.forEach(function(d){
+    var row=document.createElement("div"); row.className="nrow";
+    var lac=d.lac?'<div class="nrow__lac">'+esc(d.lac)+'</div>':'';
+    row.innerHTML='<div class="nrow__h"><a class="nrow__t" href="#">'+esc(d.title)+'</a><span class="nrow__c">'+d.n+' films</span></div>'+lac+'<div class="dots"><span class="seen">reaches</span></div>';
+    host.appendChild(row);
+    streamDots(row.querySelector(".dots"),d.films);
+  });
+}
+function streamDots(box,films){
+  var show=films.slice(0,5);
+  show.forEach(function(f,i){
+    var el=document.createElement("span"); el.className="fdot"; el.innerHTML='<i></i>'+esc(f);
+    box.appendChild(el); setTimeout(function(){el.classList.add("in");},200*(i+1));
+  });
+  var more=document.createElement("span"); more.className="fdot more"; more.textContent="+ more";
+  box.appendChild(more); setTimeout(function(){more.classList.add("in");},200*(show.length+1));
+}
+function refreshLists(){
+  buildList($("list-tropes"),shuffle(TROPE_POOL).slice(0,5));
+  buildList($("list-metas"),shuffle(META_POOL).slice(0,5));
+}
+
+/* ===================================================================
+   THE GRAPH — dependency-free embedding constellation
+   =================================================================== */
+var stage=$("stage"),world=$("world"),lines=$("lines");
+var WX=1400,WY=900,CX=WX/2,CY=WY/2;
+var nodes=[],links=[],byId={},mode="film",k=1,tx=0,ty=0;
+var FILM_BYTITLE={}; FEATURED.forEach(function(f){FILM_BYTITLE[f.title]=f;});
+
+function addN(o){if(byId[o.id])return byId[o.id];o.x=CX+(Math.random()-.5)*140;o.y=CY+(Math.random()-.5)*140;o.vx=0;o.vy=0;byId[o.id]=o;nodes.push(o);return o;}
+function addL(a,b,kind){for(var i=0;i<links.length;i++){if(links[i].a===a&&links[i].b===b)return;}links.push({a:a,b:b,kind:kind});}
+
+function buildFilm(f){
+  nodes=[];links=[];byId={};
+  var c=addN({id:"film:"+f.slug,type:"film",center:true,label:f.title}); c.fx=CX;c.fy=CY;
+  var figNodes=f.figures.slice(0,4).map(function(fl,i){var fn=addN({id:"fig:"+i,type:"figure",label:fl});addL(c,fn,"struct");return fn;});
+  (f.metas||[]).forEach(function(slug,mi){
+    var m=META_BYSLUG[slug]; if(!m)return;
+    var hn=addN({id:"meta:"+slug,type:"meta",label:m.title});
+    addL(figNodes[mi%figNodes.length],hn,"meta");
+    m.films.slice(0,3).forEach(function(t,ti){addL(hn,addN({id:"mf:"+slug+":"+ti,type:"film",leaf:true,label:t}),"meta");});
+  });
+  if(f.trope){
+    var tn=addN({id:"trope",type:"trope",label:f.trope.title});
+    addL(figNodes[figNodes.length-1],tn,"trope");
+    f.trope.films.forEach(function(t,ti){addL(tn,addN({id:"tf:"+ti,type:"film",leaf:true,label:t}),"trope");});
+  }
+  recount();
+}
+function buildFigure(m){
+  nodes=[];links=[];byId={};
+  var c=addN({id:"figc",type:"figure",center:true,label:m.cases[0].fig}); c.fx=CX;c.fy=CY;
+  addL(c,addN({id:"infilm",type:"film",leaf:true,label:m.cases[0].f}),"struct");
+  var hub=addN({id:"hub",type:"meta",label:m.title}); addL(c,hub,"meta");
+  m.films.slice(0,4).forEach(function(t,i){addL(hub,addN({id:"kin:"+i,type:"film",leaf:true,label:t}),"meta");});
+  m.cases.slice(1).forEach(function(cs,i){
+    var rn=addN({id:"read:"+i,type:"meta",label:"a reading — "+cs.rs.split(",")[0]});
+    addL(c,rn,"meta"); addL(rn,addN({id:"rf:"+i,type:"film",leaf:true,label:cs.f}),"meta");
+  });
+  recount();
+}
+function recount(){nodes.forEach(function(n){n.deg=0;});links.forEach(function(l){l.a.deg++;l.b.deg++;});}
+function radius(n){return n.center?12:n.type==="figure"?6:(n.type==="meta"||n.type==="trope")?5.5:Math.min(8,3.4+(n.deg||1)*1.0);}
+function baseCol(kind){return kind==="meta"?"rgba(242,85,79,.26)":kind==="trope"?"rgba(79,182,173,.26)":"rgba(233,228,216,.10)";}
+
+function draw(){
+  lines.setAttribute("viewBox","0 0 "+WX+" "+WY);
+  var lp=""; links.forEach(function(l,i){l.id="L"+i;lp+='<line id="'+l.id+'" stroke="'+baseCol(l.kind)+'" stroke-width="1.1"></line>';});
+  lines.innerHTML=lp; links.forEach(function(l){l.el=document.getElementById(l.id);});
+  Array.prototype.slice.call(world.querySelectorAll(".gnode")).forEach(function(e){e.remove();});
+  nodes.forEach(function(n){
+    var el=document.createElement("div"); el.className="gnode "+n.type+(n.center?" center":"")+(n.leaf?" leaf":"");
+    var r=radius(n);
+    el.innerHTML='<div class="gd" style="width:'+(r*2)+'px;height:'+(r*2)+'px"></div><div class="gl">'+esc(n.label)+'</div>';
+    el.addEventListener("mouseenter",function(){focus(n);});
+    el.addEventListener("mouseleave",unfocus);
+    el.addEventListener("click",function(e){e.stopPropagation();clickNode(n);});
+    n.el=el; world.appendChild(el);
+  });
+}
+function tick(){
+  var i,j,a,b,dx,dy,d2,d,f,fx,fy;
+  for(i=0;i<nodes.length;i++){a=nodes[i];
+    for(j=i+1;j<nodes.length;j++){b=nodes[j];dx=a.x-b.x;dy=a.y-b.y;d2=dx*dx+dy*dy;if(d2<1)d2=1;
+      if(d2<130000){f=3200/d2;d=Math.sqrt(d2);fx=f*dx/d;fy=f*dy/d;a.vx+=fx;a.vy+=fy;b.vx-=fx;b.vy-=fy;}}}
+  for(i=0;i<links.length;i++){var l=links[i];var len=l.kind==="struct"?92:l.a.center?140:72;
+    dx=l.b.x-l.a.x;dy=l.b.y-l.a.y;d=Math.sqrt(dx*dx+dy*dy)||1;f=(d-len)*0.04;fx=f*dx/d;fy=f*dy/d;
+    l.a.vx+=fx;l.a.vy+=fy;l.b.vx-=fx;l.b.vy-=fy;}
+  for(i=0;i<nodes.length;i++){a=nodes[i];
+    if(a.fx!=null){a.x=a.fx;a.y=a.fy;a.vx=0;a.vy=0;}
+    else{a.vx+=(CX-a.x)*0.006;a.vy+=(CY-a.y)*0.006;a.vx*=0.86;a.vy*=0.86;a.x+=a.vx;a.y+=a.vy;}
+    if(a.el){a.el.style.left=a.x+"px";a.el.style.top=a.y+"px";}}
+  for(i=0;i<links.length;i++){var ll=links[i];if(ll.el){ll.el.setAttribute("x1",ll.a.x);ll.el.setAttribute("y1",ll.a.y);ll.el.setAttribute("x2",ll.b.x);ll.el.setAttribute("y2",ll.b.y);}}
+  requestAnimationFrame(tick);
+}
+function neighbors(n){var s=new Set([n]);links.forEach(function(l){if(l.a===n)s.add(l.b);if(l.b===n)s.add(l.a);});return s;}
+function focus(n){var nb=neighbors(n);
+  nodes.forEach(function(m){if(m.el)m.el.classList.toggle("dim",!nb.has(m));});
+  links.forEach(function(l){var on=(l.a===n||l.b===n);if(l.el){l.el.setAttribute("stroke",on?(l.kind==="trope"?"#4fb6ad":l.kind==="meta"?"#f2554f":"rgba(233,228,216,.5)"):baseCol(l.kind));l.el.setAttribute("stroke-width",on?"1.9":"1.1");}});
+  $("g-hint").textContent="◦ "+n.label;
+}
+function unfocus(){nodes.forEach(function(m){if(m.el)m.el.classList.remove("dim");});links.forEach(function(l){if(l.el){l.el.setAttribute("stroke",baseCol(l.kind));l.el.setAttribute("stroke-width","1.1");}});}
+function clickNode(n){if(n.type==="film"){var f=FILM_BYTITLE[n.label];if(f){mode="film";setToggle("film");buildFilm(f);draw();resetView();$("g-sub").textContent="film graph · cosine-near neighbours";}}}
+
+function rebuild(){
+  if(mode==="film")buildFilm(pick(FEATURED)); else buildFigure(pick(METAS));
+  draw(); resetView();
+  $("g-sub").textContent=mode==="film"?"film graph · cosine-near neighbours":"figure graph · how one figure travels";
+}
+function applyView(){world.style.transform="translate("+tx+"px,"+ty+"px) scale("+k+")";}
+function resetView(){k=stage.clientWidth<640?.6:.9;tx=stage.clientWidth/2-CX*k;ty=stage.clientHeight/2-CY*k;applyView();}
+$("zin").onclick=function(){zoomAt(stage.clientWidth/2,stage.clientHeight/2,1.2);};
+$("zout").onclick=function(){zoomAt(stage.clientWidth/2,stage.clientHeight/2,1/1.2);};
+function zoomAt(px,py,fac){var nk=Math.max(.4,Math.min(2.2,k*fac));var wx=(px-tx)/k,wy=(py-ty)/k;k=nk;tx=px-wx*k;ty=py-wy*k;applyView();}
+stage.addEventListener("wheel",function(e){e.preventDefault();var r=stage.getBoundingClientRect();zoomAt(e.clientX-r.left,e.clientY-r.top,e.deltaY<0?1.12:1/1.12);},{passive:false});
+(function(){var down=false,sx,sy,ox,oy;
+  stage.addEventListener("pointerdown",function(e){if(e.target.closest(".gnode"))return;down=true;stage.classList.add("drag");sx=e.clientX;sy=e.clientY;ox=tx;oy=ty;});
+  window.addEventListener("pointermove",function(e){if(!down)return;tx=ox+(e.clientX-sx);ty=oy+(e.clientY-sy);applyView();});
+  window.addEventListener("pointerup",function(){down=false;stage.classList.remove("drag");});
+})();
+function setToggle(m){document.querySelectorAll("#g-toggle button").forEach(function(b){if(b.getAttribute("data-mode")===m)b.setAttribute("data-on","");else b.removeAttribute("data-on");});}
+document.querySelectorAll("#g-toggle button").forEach(function(b){b.onclick=function(){mode=b.getAttribute("data-mode");setToggle(mode);rebuild();};});
+$("g-random").onclick=rebuild;
+window.addEventListener("resize",resetView);
+
+/* ---------- boot ---------- */
+function boot(){
+  runCounters(); setTimeout(liveTick,4000);
+  rollFilm(); rollMeta();
+  $("film-roll").onclick=rollFilm; $("meta-roll").onclick=rollMeta;
+  refreshLists(); setInterval(refreshLists,7000);
+  buildFilm(pick(FEATURED)); draw(); resetView(); requestAnimationFrame(tick);
+}
+if(document.readyState!=="loading")boot(); else document.addEventListener("DOMContentLoaded",boot);
+})();
+</script>
+</body>
+</html>

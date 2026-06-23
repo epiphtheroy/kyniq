@@ -1,0 +1,4 @@
+contact_id,outlet_id,outlet_name,contact_type,is_role_address,person_name,person_title,email,phone,profile_url,source_url,last_verified,notes
+1,1,Film Comment,editorial,yes,unknown,unknown,info@filmcomment.com,unknown,unknown,https://www.filmcomment.com/contact/,2026-06-19,"role address from public contact page (example row — verify before use)"
+2,1,Film Comment,partnerships,no,unknown,unknown,unknown,unknown,unknown,https://www.filmlinc.org/about/contact/,2026-06-19,"partnerships likely via parent Film at Lincoln Center — confirm correct dept/email"
+3,2,Senses of Cinema,general,yes,unknown,unknown,admin@sensesofcinema.com,unknown,unknown,https://www.sensesofcinema.com/about/contact/,2026-06-19,"example row — verify"

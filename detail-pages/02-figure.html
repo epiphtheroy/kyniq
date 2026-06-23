@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The scholar's rock (Suseok) in Parasite (2019), explained · metatake</title>
+<!--
+  metatake · FIGURE detail page redesign (시안) — /film/[slug]/figure/[figureSlug]   ·   example: Parasite → the scholar's rock (Suseok)
+  Built on the REAL current page (app/film/[slug]/figure/[figureSlug]/page.tsx). All data REAL (Supabase):
+  figure description, 4 takes (register-coloured, full rationale, → meta-take hub, one emerging), 1 trope-type, 2 connected figures.
+  v6 system: white paper, PT Serif + Inter, one-red #E3120B (teal #167C6B for trope), register colours from the real REG map, hairlines.
+  Consistent with the film page: clickable stat strip (jumps + count-up), wide full-text bodies, the dark "map", colour images.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:880px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+.crumb{font-family:var(--ui);font-size:12.5px;color:var(--muted);padding:18px 0 0}
+.crumb a:hover{color:var(--accent)}
+.crumb .sep{color:var(--hair2);margin:0 7px}
+
+/* figure header */
+.fhead{padding:14px 0 6px;border-bottom:1px solid var(--hair)}
+.kind-tag{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.fhead h1{font-family:var(--serif);font-weight:700;font-size:38px;line-height:1.08;letter-spacing:-.022em;margin:6px 0 12px}
+.fromfilm{display:flex;align-items:center;gap:13px;margin:0 0 16px}
+.fromfilm .pp{width:46px;flex:0 0 46px;aspect-ratio:2/3;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair)}
+.fromfilm .ff{font-family:var(--ui);font-size:13px;color:var(--muted)}
+.fromfilm .ff b{display:block;font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:700}
+.fromfilm .ff a{color:var(--ink)}.fromfilm .ff a:hover{color:var(--accent)}
+.metarow{font-family:var(--ui);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.metarow .d{width:3px;height:3px;border-radius:50%;background:var(--hair2)}
+.metarow .type a{color:var(--teal);font-weight:600}
+.fdesc{font-size:18px;line-height:1.62;color:var(--ink);margin:6px 0 0}
+.fsearch{display:flex;gap:10px;margin:16px 0 4px}
+.fsearch a{font-family:var(--ui);font-size:12px;font-weight:600;color:var(--ink2);border:1px solid var(--hair2);padding:6px 12px}
+.fsearch a:hover{border-color:var(--ink);color:var(--accent)}
+.actions{display:flex;gap:10px;align-items:center;margin-top:12px}
+.actions .save{font-family:var(--ui);font-size:12.5px;font-weight:600;border:1px solid var(--hair2);padding:7px 13px;color:var(--ink2);cursor:pointer}
+.actions .save:hover{border-color:var(--ink)}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:22px 0 0}
+.stat{background:#fff;padding:13px 16px;display:block;cursor:pointer;transition:background .15s}
+.stat:hover{background:var(--paper)}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1;font-variant-numeric:tabular-nums}
+.stat.red .n{color:var(--accent)}.stat.teal .n{color:var(--teal)}
+.stat .k{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:flex;align-items:center;gap:5px}
+.stat .k:after{content:"↓";color:var(--hair2);font-weight:700}
+.stat:hover .k:after{color:var(--accent)}
+
+/* sections */
+.sec{padding:38px 0 4px;scroll-margin-top:70px}
+.h2{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.02em;margin:0 0 5px}
+.gloss{font-size:14.5px;color:var(--muted);margin:0 0 22px;max-width:64ch}
+.gloss strong{color:var(--ink)}
+
+/* takes */
+.take{border:1px solid var(--hair);border-left:4px solid #8f8f8f;padding:16px 18px;margin:0 0 14px;background:#fff}
+.take__top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px}
+.badge{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.04em;color:#fff;padding:2px 9px}
+.badge.community{background:#fff;color:var(--ink2);border:1px solid var(--hair2)}
+.hub{font-family:var(--ui);font-size:13px;font-weight:600;margin-left:auto}
+.hub .ar{color:var(--hair2);margin-right:5px}
+.hub a{color:var(--accent)}
+.hub a:hover{text-decoration:underline}
+.hub .emerging{color:var(--muted)}
+.hub .emerging em{font-style:italic;color:var(--faint);font-weight:400}
+.take__rat{font-size:16px;line-height:1.65;color:var(--ink2);margin:0}
+.take__foot{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin-top:11px;padding-top:9px;border-top:1px dashed var(--hair)}
+.take__foot a{color:var(--accent);font-weight:600}
+
+/* map */
+.mapwrap{position:relative;border:1px solid var(--ink);background:#0c0e12;overflow:hidden;height:380px;margin-top:8px}
+.mapwrap canvas{display:block;width:100%;height:100%;cursor:grab}
+.mapwrap canvas:active{cursor:grabbing}
+.mapbar{position:absolute;top:12px;left:13px;right:13px;display:flex;gap:10px;align-items:center;z-index:2;pointer-events:none}
+.mapbar .t{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e8e3d8}
+.mapbar .s{font-family:var(--ui);font-size:11.5px;color:#8c93a0}
+.maphint{position:absolute;bottom:11px;left:13px;font-family:var(--ui);font-size:11.5px;color:#7b828f;z-index:2;pointer-events:none}
+.legend{position:absolute;bottom:11px;right:13px;display:flex;gap:12px;z-index:2;font-family:var(--ui);font-size:11px;color:#9aa0ad}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+
+/* connected figures */
+.figconn{margin:0 0 18px;border:1px solid var(--hair)}
+.figconn-h{font-family:var(--ui);font-size:13px;color:var(--muted);padding:11px 15px;border-bottom:1px solid var(--hair);background:#f1f8f6;display:flex;align-items:center;gap:8px}
+.figconn-h a{color:var(--teal);font-weight:700}
+.figconn-h .n{font-size:11px;color:var(--faint);margin-left:auto;letter-spacing:.04em;text-transform:uppercase}
+.figconn ul{list-style:none;margin:0;padding:4px 15px 12px}
+.figconn li{padding:9px 0;border-bottom:1px dashed var(--hair);font-size:15px}
+.figconn li:last-child{border-bottom:0}
+.figconn li .fl{font-family:var(--serif);font-weight:700}
+.figconn li .fl:hover{color:var(--accent)}
+.figconn li .yr{color:var(--muted);font-size:13px}
+.figconn li .fg{color:var(--accent);font-weight:600;font-family:var(--ui);font-size:13px}
+.figconn li .fg:hover{text-decoration:underline}
+
+/* contribute */
+.contrib{margin:34px 0 0;border:1px dashed var(--hair2);background:var(--paper);padding:18px 18px}
+.contrib h3{font-family:var(--serif);font-size:18px;font-weight:700;margin:0 0 5px}
+.contrib p{font-family:var(--ui);font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.5}
+.contrib .btn{font-family:var(--ui);font-size:12.5px;font-weight:600;color:#fff;background:var(--ink);padding:8px 15px;display:inline-block}
+.contrib .btn:hover{background:var(--accent)}
+
+/* seq + prov */
+.seq{display:flex;justify-content:space-between;gap:14px;margin:34px 0 0;border-top:1px solid var(--hair);padding-top:18px;font-family:var(--ui);font-size:13px}
+.seq a{color:var(--ink2)}.seq a:hover{color:var(--accent)}
+.seq .lab{display:block;font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.prov{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:20px 0 58px}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#" data-on>Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#">Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#">Films</a><span class="sep">›</span><a href="#">Bong Joon Ho</a><span class="sep">›</span><a href="#">Parasite</a></div>
+</div>
+
+<section class="fhead">
+  <div class="wrap">
+    <div class="kind-tag">Figure · Trope</div>
+    <h1>The scholar's rock (Suseok)</h1>
+    <div class="fromfilm">
+      <a class="pp" href="#" data-bd="/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"></a>
+      <div class="ff">a figure in<b><a href="#">Parasite</a> <span style="color:var(--muted);font-weight:400">(2019)</span></b>dir. Bong Joon Ho</div>
+    </div>
+    <div class="metarow">
+      <span>Kind <b style="color:var(--ink2)">Trope</b></span><span class="d"></span>
+      <span class="type">Type <a href="#">The Household Thing Made Deadly</a></span><span class="d"></span>
+      <span>Takes <b style="color:var(--ink2)">4</b></span>
+    </div>
+    <p class="fdesc">In Parasite, Min gifts the Kims a suseok mounted on a wooden stand, calling it metaphorical. Ki-woo carries it through the film, takes it into the flooded basement, and later uses it in the bunker, where Geun-sae strikes him with it.</p>
+    <div class="fsearch">
+      <a href="#" target="_blank" rel="noopener">Search images ↗</a>
+      <a href="#" target="_blank" rel="noopener">Search clips ↗</a>
+    </div>
+    <div class="actions"><button class="save">☆ Save figure</button></div>
+    <div class="stats">
+      <a class="stat" href="#takes"><div class="n cu" data-target="4">0</div><div class="k">Takes</div></a>
+      <a class="stat red" href="#takes"><div class="n cu" data-target="3">0</div><div class="k">Meta takes</div></a>
+      <a class="stat teal" href="#connected"><div class="n cu" data-target="2">0</div><div class="k">Connected figures</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- TAKES -->
+<section class="sec" id="takes">
+  <div class="wrap">
+    <h2 class="h2">Takes</h2>
+    <p class="gloss">A take is one critical reading of this figure. Takes that recur across films converge into a <strong>meta take</strong> — the hub each one links to. Filed by critical register.</p>
+
+    <div class="take" style="border-left-color:#546E7A">
+      <div class="take__top"><span class="badge" style="background:#546E7A">Existential</span><span class="hub"><span class="ar">→</span><a href="#">The Last Stubborn No</a></span></div>
+      <p class="take__rat">Ki-woo says the thing won't leave him alone, and he's right in a way he doesn't grasp. He clutches the rock as a promise that his life will rise above the basement, and in the flood it absurdly bobs on the water like hope itself refusing to sink. Then it comes back to fracture his head. The object he carried as a ladder out turns into the weight that nearly kills him — aspiration revealed as the exact stone you drown holding.</p>
+    </div>
+
+    <div class="take" style="border-left-color:#A9743B">
+      <div class="take__top"><span class="badge" style="background:#A9743B">Mythic</span><span class="hub"><span class="ar">→</span><span class="emerging">The Talisman's Backfire <em>(emerging)</em></span></span></div>
+      <p class="take__rat">It arrives like a charmed heirloom, passed from a wealthier friend with the air of blessing — a stone that supposedly draws wealth to a household. But every gift that promises fortune in stories carries a price, and this one delivers flood and blood instead of luck. The Kims treat it as a talisman and it behaves like a curse, the kind of object that grants its wish in the cruelest literal form. Ki-woo only escapes once he finally puts it back in the stream.</p>
+    </div>
+
+    <div class="take" style="border-left-color:#7E57C2">
+      <div class="take__top"><span class="badge" style="background:#7E57C2">Philosophical</span><span class="hub"><span class="ar">→</span><a href="#">Land And Heritage Extracted</a></span></div>
+      <p class="take__rat">Min insists the rock is symbolic, and Ki-woo nods as if meaning alone could feed a family. The whole point becomes that you can't eat a metaphor. When the water rises and the violence starts, the suseok stops being an idea and reverts to plain mass — heavy, indifferent, capable of cracking bone. The film keeps testing the gap between the beautiful concept poor people are handed and the brute material fact they're left holding.</p>
+    </div>
+
+    <div class="take" style="border-left-color:#B8860B">
+      <div class="take__top"><span class="badge" style="background:#B8860B">Semiotic</span><span class="badge community">Community</span><span class="hub"><span class="ar">→</span><a href="#">Desire Conferred By Distance</a></span></div>
+      <p class="take__rat">The scholar's rock, gifted to the Kims, functions as a symbol of abstract aspirational wealth, illustrating Commodity Fetishism. The Kims imbue it with mystical power for social mobility, fetishizing it as an object that can transcend their material conditions. In reality, it is just a heavy, burdensome stone, mirroring the weight of their false consciousness and the impracticality of their hopes for easy advancement.</p>
+      <div class="take__foot">This reading recurs across films → <a href="#">see Desire Conferred By Distance across cinema</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="h2">The neighbourhood of this figure</h2>
+    <p class="gloss">The figure at the centre, the readings it gathers above, and the trope-siblings it connects to across films. Drag, zoom, hover.</p>
+    <div class="mapwrap">
+      <div class="mapbar"><span class="t">The scholar's rock</span><span class="s">figure → meta take · trope → sibling figures</span></div>
+      <canvas id="cv"></canvas>
+      <div class="maphint" id="mapHint">hover a star — its links light up</div>
+      <div class="legend"><span><i style="background:#e8e3d8"></i>figure</span><span><i style="background:#f2554f"></i>meta take</span><span><i style="background:#4fb6ad"></i>trope</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECTED FIGURES -->
+<section class="sec" id="connected">
+  <div class="wrap">
+    <h2 class="h2">Connected figures</h2>
+    <p class="gloss">Figures from other films Metatake places alongside this one — grouped by the <strong>trope</strong> (figure-type) they share. The shared trope is <em>why</em> they connect.</p>
+    <div class="figconn">
+      <div class="figconn-h">via <a href="#">The Household Thing Made Deadly</a><span class="n">2 other figures</span></div>
+      <ul>
+        <li><a class="fl" href="#">A Quiet Place</a> <span class="yr">(2018)</span> — <a class="fg" href="#">Regan's cochlear implant</a></li>
+        <li><a class="fl" href="#">Inglourious Basterds</a> <span class="yr">(2009)</span> — <a class="fg" href="#">Shosanna's use of flammable nitrate film to destroy the cinema</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contrib">
+    <h3>See another reading in this figure?</h3>
+    <p>Metatake grows by close reading. Propose a take — name the critical register and the meta take it converges toward. Community takes are reviewed before publishing.</p>
+    <a class="btn" href="#">+ Contribute a take</a>
+  </div>
+
+  <div class="seq">
+    <a href="#"><span class="lab">← Previous figure</span>The 'Ram-Don' (Jjapaguri) with sirloin</a>
+    <a href="#" style="text-align:right"><span class="lab">Next figure →</span>The Kim family's semi-basement window</a>
+  </div>
+  <div class="prov">Reading retrieved from the live corpus, not generated · figure in Parasite (2019).</div>
+</div>
+
+<script>
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+/* colour images */
+$all("[data-bd]").forEach(function(el){
+  var url="https://image.tmdb.org/t/p/w185"+el.getAttribute("data-bd");
+  var im=new Image(); im.onload=function(){ el.style.backgroundImage="url("+url+")"; }; im.src=url;
+});
+
+/* count-up */
+function countUp(el){ var target=+el.getAttribute("data-target"), t0=null, dur=900+Math.random()*400;
+  function step(now){ if(!t0)t0=now; var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=Math.round(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+  requestAnimationFrame(step);
+}
+(function(){ var seen=new WeakSet();
+  var obs=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting&&!seen.has(en.target)){ seen.add(en.target); countUp(en.target); } }); },{threshold:.6});
+  $all(".cu").forEach(function(el){ obs.observe(el); });
+})();
+
+/* map — figure → meta takes ; trope → sibling figures */
+(function(){
+  var cv=$("#cv"); if(!cv) return; var ctx=cv.getContext("2d"), DPR=Math.min(2,window.devicePixelRatio||1), W=0,H=0;
+  function size(){ var r=cv.getBoundingClientRect(); W=r.width;H=r.height; cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  var nodes=[], links=[];
+  var fig={id:"fig",label:"The scholar's rock",type:"figure"};
+  var trope={id:"trope",label:"The Household Thing Made Deadly",type:"trope"};
+  nodes.push(fig,trope); links.push({a:fig,b:trope});
+  ["The Last Stubborn No","The Talisman's Backfire","Land And Heritage Extracted","Desire Conferred By Distance"].forEach(function(m){ var n={id:"m:"+m,label:m,type:"meta"}; nodes.push(n); links.push({a:fig,b:n}); });
+  [["A Quiet Place — Regan's cochlear implant"],["Inglourious Basterds — Shosanna's nitrate film"]].forEach(function(s){ var n={id:"s:"+s[0],label:s[0],type:"sib"}; nodes.push(n); links.push({a:trope,b:n}); });
+  var cx,cy,R;
+  function seed(){ cx=W/2; cy=H/2; R=Math.min(W,H)*0.34;
+    fig.bx=cx; fig.by=cy-R*0.15;
+    var metas=nodes.filter(function(n){return n.type==="meta";});
+    metas.forEach(function(n,i){ var a=-Math.PI*0.85+ (i/(metas.length-1))*Math.PI*0.7; n.bx=cx+Math.cos(a)*R*1.05; n.by=cy-R*0.15+Math.sin(a)*R*1.05; });
+    trope.bx=cx; trope.by=cy+R*0.75;
+    var sibs=nodes.filter(function(n){return n.type==="sib";});
+    sibs.forEach(function(n,i){ n.bx=cx+(i===0?-1:1)*R*0.7; n.by=cy+R*1.15; });
+    nodes.forEach(function(n){ n.x=n.bx; n.y=n.by; n.ph=Math.random()*6.28; });
+  }
+  function rad(n){ return n.type==="figure"?9:n.type==="trope"?6.5:n.type==="meta"?5:4.5; }
+  function col(n,lit){ if(n.type==="figure")return lit?"#fff":"rgba(233,228,216,.9)"; if(n.type==="trope")return lit?"#7fe0d6":"#4fb6ad"; if(n.type==="meta")return lit?"#ff6a64":"rgba(242,85,79,.82)"; return lit?"#cfd6e0":"rgba(180,186,196,.7)"; }
+  var k=1,tx=0,ty=0,hover=null,dragging=false,ds=null;
+  function nbrs(n){ var s={}; s[n.id]=1; links.forEach(function(l){ if(l.a===n)s[l.b.id]=1; if(l.b===n)s[l.a.id]=1; }); return s; }
+  function draw(){ ctx.clearRect(0,0,W,H); ctx.save(); ctx.translate(tx,ty); ctx.scale(k,k);
+    var nb=hover?nbrs(hover):null;
+    links.forEach(function(l){ var lit=nb&&nb[l.a.id]&&nb[l.b.id];
+      ctx.beginPath(); ctx.moveTo(l.a.x,l.a.y); ctx.lineTo(l.b.x,l.b.y);
+      ctx.strokeStyle=lit?"rgba(242,85,79,.5)":"rgba(150,150,160,.13)"; ctx.lineWidth=(lit?1.4:0.7)/k; ctx.stroke(); });
+    nodes.forEach(function(n){ var lit=!nb||nb[n.id], r=rad(n);
+      if(hover===n){ ctx.beginPath(); ctx.arc(n.x,n.y,r+5,0,7); ctx.fillStyle="rgba(242,85,79,.16)"; ctx.fill(); }
+      ctx.globalAlpha=lit?1:0.25; ctx.beginPath(); ctx.arc(n.x,n.y,r,0,7); ctx.fillStyle=col(n,hover===n); ctx.fill(); ctx.globalAlpha=1;
+      if(n.type==="figure"||hover===n){ ctx.font="600 11px Inter,sans-serif"; ctx.fillStyle=lit?"#e8e3d8":"rgba(232,227,216,.3)"; ctx.textAlign="left"; ctx.fillText(n.label.length>26?n.label.slice(0,25)+"…":n.label, n.x+r+5, n.y+3); }
+    });
+    ctx.restore();
+  }
+  function loop(){ nodes.forEach(function(n){ n.ph+=0.008; n.x=n.bx+Math.cos(n.ph)*4.5; n.y=n.by+Math.sin(n.ph*0.9)*4.5; }); draw(); requestAnimationFrame(loop); }
+  function local(ev){ var r=cv.getBoundingClientRect(); return {x:(ev.clientX-r.left-tx)/k,y:(ev.clientY-r.top-ty)/k}; }
+  function hit(p){ var best=null,bd=16; nodes.forEach(function(n){ var d=Math.hypot(n.x-p.x,n.y-p.y); if(d<bd){bd=d;best=n;} }); return best; }
+  cv.addEventListener("mousemove",function(ev){ if(dragging){ tx=ds.tx+(ev.clientX-ds.x); ty=ds.ty+(ev.clientY-ds.y); return; } hover=hit(local(ev)); $("#mapHint").textContent=hover?(hover.type+" · "+hover.label):"hover a star — its links light up"; });
+  cv.addEventListener("mousedown",function(ev){ dragging=true; ds={x:ev.clientX,y:ev.clientY,tx:tx,ty:ty}; });
+  window.addEventListener("mouseup",function(){ dragging=false; });
+  cv.addEventListener("mouseleave",function(){ hover=null; });
+  cv.addEventListener("wheel",function(ev){ ev.preventDefault(); var r=cv.getBoundingClientRect(),px=ev.clientX-r.left,py=ev.clientY-r.top,fac=ev.deltaY<0?1.1:0.9,nk=Math.max(0.5,Math.min(2.4,k*fac)),wx=(px-tx)/k,wy=(py-ty)/k; k=nk; tx=px-wx*k; ty=py-wy*k; },{passive:false});
+  size(); seed(); requestAnimationFrame(loop);
+  window.addEventListener("resize",function(){ size(); seed(); });
+})();
+</script>
+</body>
+</html>

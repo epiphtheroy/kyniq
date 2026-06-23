@@ -46,7 +46,7 @@ the single source of truth; this file is the short standing brief that applies t
   whitespace, never boxes or cards.
 
 ## Brand & icons (§1.1)
-- Brand: **FilmCurio · filmcurio.com · channel.wonwoo@gmail.com.**
+- Brand: **FilmCurio · filmcurio.com · wonwoo@metatake.net.**
 - The logo is the **wordmark asset, never re-set in a font.** Header/footer use
   `filmcurio-wordmark.svg` (+ `filmcurio-wordmark-dark.svg` for dark mode). Full lockups:
   `filmcurio-logo.png` / `-dark.png` / `-paper.png` (OG/social/About).

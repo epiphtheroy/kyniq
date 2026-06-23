@@ -33,6 +33,8 @@ args=sys.argv[1:]
 PERSIST="--persist" in args
 LIMIT=int(args[args.index("--limit")+1]) if "--limit" in args else 100000
 FILMS=[args[i+1] for i,a in enumerate(args) if a=="--film"]
+MISSING="--missing" in args   # only films with no overview yet (brand-new ones, not the working 565)
+POSTER_ONLY="--poster-only" in args   # fast: only fill films missing poster_path (1 API call each, no media churn)
 IMG="https://image.tmdb.org/t/p"
 
 def http(method,url,headers=None,body=None,timeout=60):
@@ -98,10 +100,32 @@ def top_backdrops(imgs, n=6):
     b=sorted(b, key=lambda x:(x.get("iso_639_1") is not None, -(x.get("vote_average") or 0)))
     return b[:n]
 
+def backfill_posters():
+    """Fast mode: only fill films whose poster_path is null — 1 TMDB call each, no media churn."""
+    sel="id,tmdb_id,slug"
+    q=f"films?select={sel}&tmdb_id=not.is.null&poster_path=is.null"
+    if FILMS: q+="&slug=in.("+",".join(FILMS)+")"
+    films=fetch_all(q)[:LIMIT]
+    print(f"[poster] {len(films)} films missing poster_path{'' if PERSIST else '  [DRY — fetch+print, no DB writes]'}")
+    if not films: print("  nothing to do"); return
+    n=skip=0
+    for f in films:
+        d=tmdb(f"/movie/{f['tmdb_id']}")
+        pp=(d or {}).get("poster_path")
+        if not pp:
+            print(f"  - {f['slug']}: TMDB has no poster"); skip+=1; time.sleep(0.15); continue
+        print(f"  · {f['slug']}: {pp}")
+        if PERSIST:
+            sb("PATCH",f"films?id=eq.{f['id']}",{"poster_path":pp},prefer="return=minimal"); n+=1
+        time.sleep(0.2)
+    print(f"[poster] {'PERSIST done: '+str(n)+' updated, '+str(skip)+' had no TMDB poster.' if PERSIST else 'DRY done — re-run with --persist to write.'}")
+
 def main():
+    if POSTER_ONLY: return backfill_posters()
     sel="id,tmdb_id,title,slug,year,director,director_slug"
     q=f"films?select={sel}&tmdb_id=not.is.null"
     if FILMS: q+="&slug=in.("+",".join(FILMS)+")"
+    if MISSING: q+="&overview=is.null"   # only brand-new films, leave the working catalogue untouched
     films=[f for f in fetch_all(q)][:LIMIT]
     print(f"[tmdb] {len(films)} films{'' if PERSIST else '  [DRY — fetch+print, no DB writes]'}")
     if not films: print("  nothing to do"); return
@@ -130,7 +154,8 @@ def main():
              "runtime":detail.get("runtime") or None,"release_date":detail.get("release_date") or None,
              "certification":cert,"tmdb_extra":extra,
              "overview":detail.get("overview") or None,"genres":genres or None}
-        print(f"  · {f['slug']}: runtime={upd['runtime']} cert={cert} trailer={'Y' if tr else '-'} "
+        if detail.get("poster_path"): upd["poster_path"]=detail["poster_path"]   # fill poster (never null an existing one)
+        print(f"  · {f['slug']}: poster={'Y' if detail.get('poster_path') else '-'} runtime={upd['runtime']} cert={cert} trailer={'Y' if tr else '-'} "
               f"backdrops={len(bds)} cast={len(cast)} dir={director['name'] if director else '?'}")
         if not PERSIST: continue
         # films update

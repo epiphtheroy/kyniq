@@ -24,6 +24,7 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "./_components/AskReadings";
 import FurtherReading, { type AcademicRef } from "./_components/FurtherReading";
+import CriticQuotes, { type Critic } from "./_components/CriticQuotes";
 
 type Meta = {
   model?: string | null;
@@ -40,6 +41,7 @@ type Result = {
   readings: { slug: string; title: string }[];
   meta?: Meta;
   further_reading?: AcademicRef[];
+  critics?: Critic[];
 };
 
 const ENDPOINT = "/api/rag";
@@ -250,6 +252,9 @@ function RagInner() {
                     </ol>
                   </div>
                 ) : null}
+
+                {/* Critic quotes (W8) — separate, attributed, link-out. No-ops unless present. */}
+                <CriticQuotes items={res.critics} />
 
                 {/* Academic rail — separate, labeled, link-out only. No-ops unless the field is present. */}
                 <FurtherReading items={res.further_reading} />

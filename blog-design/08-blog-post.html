@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Between Film and the World · Jun 18, 2026 — metatake blog</title>
+<!--
+  metatake · BLOG · single-post reading design (시안) — "Between Film and the World" (Metatake's daily)
+  Matches the v6 site system: white paper, PT Serif + Inter, one-red #E3120B discipline, hairlines, square corners, images in colour.
+  Email subscription = the core: balanced placement (blog bar · mid-article inline · end-of-post box). Provider-agnostic form (see SUBSCRIBE note near </script>).
+  Content is the user's real sample edition; every film/reading links to its real metatake.net route; news links go to the original sources.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+/* blog identity bar */
+.blogbar{border-bottom:1px solid var(--hair);background:var(--paper)}
+.blogbar__row{max-width:1180px;margin:0 auto;padding:10px 26px;display:flex;align-items:center;gap:12px}
+.blogbar .col{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:-.01em}
+.blogbar .col .red{color:var(--accent)}
+.blogbar .tag{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.blogbar .sp{flex:1 1 auto}
+.blogbar .sub-btn{font-family:var(--ui);font-size:12.5px;font-weight:600;color:#fff;background:var(--accent);padding:6px 13px;white-space:nowrap}
+.blogbar .sub-btn:hover{background:#b50e08}
+@media(max-width:600px){.blogbar .tag{display:none}}
+
+/* article shell */
+.article{max-width:760px;margin:0 auto;padding:46px 26px 30px}
+.eyebrow{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+.title{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.06;letter-spacing:-.022em;margin:0 0 14px}
+.dek{font-size:19px;color:var(--ink2);font-style:italic;margin:0 0 20px;line-height:1.45}
+.byline{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 0;margin-bottom:30px}
+.byline .dot{width:3px;height:3px;border-radius:50%;background:var(--hair2)}
+.byline b{color:var(--ink);font-weight:600}
+.intro{font-size:18px;line-height:1.6;color:var(--ink2);margin:0 0 14px}
+.intro .lead{font-weight:700;color:var(--ink)}
+
+/* link styles — internal metatake vs external sources */
+.lk-in{color:var(--accent);font-weight:600;border-bottom:1px solid rgba(227,18,11,.28)}
+.lk-in:hover{border-bottom-color:var(--accent)}
+.lk-out{color:var(--ink2);border-bottom:1px solid var(--hair2)}
+.lk-out:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.lk-out:after{content:"↗";font-size:.75em;vertical-align:super;color:var(--faint);margin-left:1px}
+
+/* ranked entries */
+.entries{margin:6px 0 0}
+.entry{display:grid;grid-template-columns:46px 1fr 150px;gap:18px;padding:26px 0;border-top:1px solid var(--hair)}
+.entry:first-child{border-top:2px solid var(--ink)}
+.erank{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1;color:var(--faint);position:relative;padding-top:2px}
+.erank:after{content:"";display:block;width:18px;height:3px;background:var(--accent);margin-top:8px}
+.ehead{font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.22;letter-spacing:-.01em;margin:0 0 12px}
+.emap{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--ui);font-size:12.5px;margin:0 0 14px;padding:8px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.emap .ev{color:var(--ink);font-weight:600}
+.emap .ar{color:var(--hair2)}
+.emap .film{color:var(--accent);font-weight:700;border-bottom:1px solid rgba(227,18,11,.3)}
+.emap .stars{margin-left:2px;letter-spacing:1px;color:var(--accent);font-size:13px}
+.emap .stars .o{color:var(--hair2)}
+.emap .rl{color:var(--faint);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.news{font-size:16.5px;line-height:1.62;color:var(--ink2);margin:0 0 14px}
+.read{font-size:16.5px;line-height:1.62;color:var(--ink);margin:0 0 14px;padding-left:16px;border-left:2px solid var(--accent)}
+.read em{font-style:italic;font-weight:700}
+.deposit{font-family:var(--ui);font-size:13px;line-height:1.5;color:var(--ink2);background:var(--paper);border-left:3px solid var(--accent);padding:10px 14px;margin:0}
+.deposit b{color:var(--ink);font-weight:700}
+.deposit .arr{color:var(--accent);font-weight:700;margin-right:4px}
+.ethumb{align-self:start}
+.ethumb .pic{display:block;width:100%;aspect-ratio:3/2;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair)}
+.ethumb .cap{font-family:var(--ui);font-size:11px;color:var(--muted);margin-top:6px;line-height:1.3}
+.ethumb .cap b{color:var(--ink);font-weight:600}
+@media(max-width:720px){
+  .title{font-size:33px}
+  .entry{grid-template-columns:38px 1fr;gap:14px}
+  .ethumb{grid-column:2;order:2;max-width:220px}
+}
+
+/* mid-article inline subscribe */
+.sub-inline{display:flex;flex-wrap:wrap;align-items:center;gap:12px;border:1px solid var(--ink);background:var(--paper);padding:16px 18px;margin:30px 0}
+.sub-inline .t{font-family:var(--serif);font-weight:700;font-size:17px;flex:1 1 220px;line-height:1.3}
+.sub-inline .t small{display:block;font-family:var(--ui);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px}
+.subform{display:flex;gap:8px;flex:1 1 280px}
+.subform input{flex:1 1 auto;font-family:var(--ui);font-size:13.5px;padding:9px 12px;border:1px solid var(--hair2);background:#fff;color:var(--ink);min-width:0}
+.subform input:focus{outline:none;border-color:var(--accent)}
+.subform button{font-family:var(--ui);font-size:13px;font-weight:600;color:#fff;background:var(--ink);border:0;padding:9px 16px;cursor:pointer;white-space:nowrap}
+.subform button:hover{background:var(--accent)}
+.subok{font-family:var(--ui);font-size:13.5px;color:var(--teal);font-weight:600;padding:4px 0}
+
+/* cutting-room floor */
+.floor{margin:34px 0 0;border:1px solid var(--hair);background:#fff}
+.floor__h{padding:13px 16px;border-bottom:1px solid var(--hair);background:repeating-linear-gradient(45deg,#fbfaf7,#fbfaf7 9px,#f3f1ea 9px,#f3f1ea 18px)}
+.floor__h b{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.floor__h span{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin-left:8px}
+.floor ul{list-style:none;margin:0;padding:6px 16px 14px}
+.floor li{font-size:15px;color:var(--muted);line-height:1.55;padding:9px 0;border-bottom:1px dashed var(--hair)}
+.floor li:last-child{border-bottom:0}
+.floor li em{font-style:italic;color:var(--ink2)}
+.floor li .cut{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:4px}
+
+/* method note */
+.method{margin:26px 0 0;font-family:var(--ui);font-size:13px;line-height:1.6;color:var(--muted);border-top:1px solid var(--hair);padding-top:16px}
+.method b{color:var(--ink)}
+.method .stamp{color:var(--accent);font-weight:700}
+
+/* end subscribe box */
+.sub-box{margin:40px 0 8px;border:2px solid var(--ink);padding:26px 24px;text-align:center}
+.sub-box .k{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.sub-box h3{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.02em;margin:0 0 8px}
+.sub-box p{font-size:15.5px;color:var(--ink2);max-width:46ch;margin:0 auto 18px}
+.sub-box .subform{max-width:440px;margin:0 auto}
+.sub-box .fine{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:12px 0 0}
+
+/* end actions */
+.endrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin:24px 0 10px;font-family:var(--ui);font-size:13.5px}
+.endrow .sbtn{font-weight:600;color:#fff;background:var(--accent);padding:9px 18px}
+.endrow .wander{font-weight:600;color:var(--ink);border-bottom:1px solid var(--hair2);padding-bottom:1px}
+.endrow .wander:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+/* footer */
+footer{border-top:1px solid var(--hair);margin-top:40px;padding:34px 0 56px}
+.fcols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
+.fbrand{font-family:var(--serif);font-weight:700;font-size:19px}
+.fbrand p{font-family:var(--ui);font-size:12.5px;color:var(--muted);max-width:42ch;margin:8px 0 0;line-height:1.5}
+.fcols h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 11px}
+.fcols a{display:block;font-family:var(--ui);font-size:13.5px;color:var(--ink2);padding:3px 0}
+.fcols a:hover{color:var(--accent)}
+.bl{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin-top:26px;border-top:1px solid var(--hair);padding-top:14px}
+@media(max-width:680px){.fcols{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#" data-on>Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="blogbar">
+  <div class="blogbar__row">
+    <a class="col" href="#">Between Film and the <span class="red">World</span></a>
+    <span class="tag">Metatake's daily</span>
+    <span class="sp"></span>
+    <a class="sub-btn" href="#sub">Subscribe</a>
+  </div>
+</div>
+
+<article class="article">
+  <p class="eyebrow">Metatake's daily · The wire, read as a film</p>
+  <h1 class="title">Between Film and the World</h1>
+  <p class="dek">Five things that happened, and the films that already knew.</p>
+  <div class="byline"><b>Thursday, June 18, 2026</b><span class="dot"></span><span>6 min read</span><span class="dot"></span><span>The Metatake desk</span></div>
+
+  <p class="intro">Every day we read the wire the way we read a film: looking for the figure underneath. These are the day's events that rhymed hardest with something in the Metatake corpus — <span class="lead">every film and reading below was confirmed in the live database before we linked it.</span> Ranked by the strength of the rhyme. What didn't earn it is at the bottom.</p>
+
+  <div class="entries">
+
+    <div class="entry">
+      <div class="erank">1</div>
+      <div class="ebody">
+        <h2 class="ehead">A former military island is handed to a private resort.</h2>
+        <div class="emap"><span class="ev">Sazan Island, Albania</span><span class="ar">→</span><a class="film" href="https://metatake.net/film/bacurau-2019">Bacurau</a><span class="stars">★★★★★</span><span class="rl">rhyme</span></div>
+        <p class="news">For a <a class="lk-out" href="https://www.npr.org/2026/06/16/g-s1-128162/albania-resort-protests-kushner-trump">12th straight day</a>, tens of thousands of Albanians marched against the Kushner-Trump luxury resort planned for the protected Vjosa-Narta lagoon and Sazan Island — a former communist-era military base — as the anticorruption prosecutor opened an inquiry into how the land's protected status was quietly changed.</p>
+        <p class="read">The figure isn't "a hotel." It's <em>enclosure</em> — common ground (and a flamingo lagoon) reclassified as someone's private island. Cinema's fiercest image of it is Bacurau, whose village is scrubbed from the map so foreign visitors can treat it as a playground; Metatake reads it through <a class="lk-in" href="https://metatake.net/take/state-of-exception">The State of Exception</a> — the move where the usual rules are suspended for the powerful. The film's reply isn't a petition. It's the village remembering it outnumbers its guests.</p>
+        <p class="deposit"><span class="arr">→</span><b>In Metatake:</b> deposits the enclosed commons, joining today's island to <a class="lk-in" href="https://metatake.net/take/state-of-exception">The State of Exception</a> and to the land-buyer of <a class="lk-in" href="https://metatake.net/film/there-will-be-blood-2007">There Will Be Blood</a>.</p>
+      </div>
+      <div class="ethumb"><a class="pic" href="https://metatake.net/film/bacurau-2019" data-bd="/nhsC7Q1Zb5n2p4H3UKy422zP5XC.jpg"></a><div class="cap"><b>Bacurau</b> · 2019</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="erank">2</div>
+      <div class="ebody">
+        <h2 class="ehead">An emperor performs a sovereignty he does not hold.</h2>
+        <div class="emap"><span class="ev">Naruhito's state visit</span><span class="ar">→</span><a class="film" href="https://metatake.net/film/the-last-emperor-1987">The Last Emperor</a><span class="stars">★★★★★</span><span class="rl">rhyme</span></div>
+        <p class="news">The Netherlands gave Emperor Naruhito and Empress Masako a <a class="lk-out" href="https://www.royal-house.nl/latest/news/2026/06/02/programme-for-the-japanese-state-visit">full state welcome</a> at Dam Square — wreath, anthems, gold braid — for a reign that is, by Japan's own constitution, entirely ceremonial.</p>
+        <p class="read">The figure is power drained into pure role. Bertolucci's Puyi is crowned as a child over a country he will never govern, and Metatake gathers that into the reading <a class="lk-in" href="https://metatake.net/take/selfhood-dissolved-into-a-role">Selfhood Dissolved Into a Role</a> — the person vanishing into the office. Naruhito's wave from the square is that story's gentle, democratic ending: the crown survives precisely by becoming, at last, only a performance.</p>
+        <p class="deposit"><span class="arr">→</span><b>In Metatake:</b> deposits sovereignty-as-ritual, joining the state visit and Puyi's hollow throne to <a class="lk-in" href="https://metatake.net/take/selfhood-dissolved-into-a-role">Selfhood Dissolved Into a Role</a>.</p>
+      </div>
+      <div class="ethumb"><a class="pic" href="https://metatake.net/film/the-last-emperor-1987" data-bd="/k29qVmwWwR0i5A1UMIws1Vmv6hV.jpg"></a><div class="cap"><b>The Last Emperor</b> · 1987</div></div>
+    </div>
+
+    <div class="sub-inline">
+      <div class="t">Get this every morning.<small>Between Film and the World — the day's news, read as cinema. Free, almost daily.</small></div>
+      <form class="subform" onsubmit="return doSub(event)"><input type="email" required placeholder="you@example.com" aria-label="Email"><button type="submit">Subscribe</button></form>
+    </div>
+
+    <div class="entry">
+      <div class="erank">3</div>
+      <div class="ebody">
+        <h2 class="ehead">At thirty-eight, he ties the all-time record.</h2>
+        <div class="emap"><span class="ev">Messi's World Cup hat-trick</span><span class="ar">→</span><a class="film" href="https://metatake.net/film/the-wrestler-2008">The Wrestler</a><span class="stars">★★★★<span class="o">★</span></span><span class="rl">rhyme</span></div>
+        <p class="news">Lionel Messi, 38, scored a <a class="lk-out" href="https://www.aljazeera.com/sports/2026/6/17/messi-fires-argentina-to-win-against-algeria-in-world-cup-defence-opener">hat-trick in Argentina's 3-0 win over Algeria</a> — 20 years to the day after his World Cup debut — drawing level with Miroslav Klose's all-time record of 16 World Cup goals.</p>
+        <p class="read">The rhyme for the maestro at the far end isn't a sports movie. Metatake's reading of Randy "The Ram," <a class="lk-in" href="https://metatake.net/take/flesh-reduced-to-persistence">Flesh Reduced to Persistence</a>, rests on a body kept going past sense, wholly itself only in the ring. Messi is the luminous inverse — the body still obeys, the genius still arrives on time — but the figure underneath is shared: the performer for whom the arena is the one room where the clock agrees to wait.</p>
+        <p class="deposit"><span class="arr">→</span><b>In Metatake:</b> deposits the body that performs past its hour, joining Messi's day to Flesh Reduced to Persistence, across to <a class="lk-in" href="https://metatake.net/film/raging-bull-1980">Raging Bull</a>.</p>
+      </div>
+      <div class="ethumb"><a class="pic" href="https://metatake.net/film/the-wrestler-2008" data-bd="/wcJmFsz8RqIhozMwvU81hreTX4i.jpg"></a><div class="cap"><b>The Wrestler</b> · 2008</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="erank">4</div>
+      <div class="ebody">
+        <h2 class="ehead">A seventy-year-old bomber falls out of the sky.</h2>
+        <div class="emap"><span class="ev">The Edwards B-52 crash</span><span class="ar">→</span><a class="film" href="https://metatake.net/film/top-gun-maverick-2022">Top Gun: Maverick</a><span class="stars">★★★★<span class="o">★</span></span><span class="rl">rhyme</span></div>
+        <p class="news">A <a class="lk-out" href="https://www.foxnews.com/politics/deadly-b-52-crash-puts-focus-engines-controllability-investigators-hunt-answers">B-52 went down</a> after takeoff from Edwards Air Force Base on a radar-modernization test flight; all eight aboard were killed — a real loss, named first.</p>
+        <p class="read">The figure is the machine we will not retire. The B-52 first flew in 1952 and is being upgraded to serve into the 2050s. Top Gun: Maverick's entire plot is an institution trying to ground a pilot and a way of flying the drone age has made obsolete, and Metatake files it under <a class="lk-in" href="https://metatake.net/take/preemptive-nostalgia">Preemptive Nostalgia</a> — mourning a thing even as we cling to it. The movie lets the old machine win one more time. Thursday was the other ending.</p>
+        <p class="deposit"><span class="arr">→</span><b>In Metatake:</b> deposits the machine kept past its era, joining the airframe to Preemptive Nostalgia, near the un-buildable deterrent of <a class="lk-in" href="https://metatake.net/film/oppenheimer-2023">Oppenheimer</a>.</p>
+      </div>
+      <div class="ethumb"><a class="pic" href="https://metatake.net/film/top-gun-maverick-2022" data-bd="/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg"></a><div class="cap"><b>Top Gun: Maverick</b> · 2022</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="erank">5</div>
+      <div class="ebody">
+        <h2 class="ehead">The season's first storm gets a name, then fades.</h2>
+        <div class="emap"><span class="ev">Tropical Storm Arthur</span><span class="ar">→</span><a class="film" href="https://metatake.net/film/melancholia-2011">Melancholia</a><span class="stars">★★★★<span class="o">★</span></span><span class="rl">rhyme</span></div>
+        <p class="news"><a class="lk-out" href="https://www.cbsnews.com/news/tropical-storm-arthur-first-hurricane-season-texas-gulf-coast/">Arthur</a>, the first named storm of the 2026 Atlantic season, formed off the Texas Gulf Coast and then weakened to a post-tropical cyclone — the year's opening notice that more are coming.</p>
+        <p class="read">The figure is the named catastrophe on the horizon. We give storms friendly names to make the impersonal feel negotiable; von Trier names the approaching planet too, and Metatake reads Melancholia through <a class="lk-in" href="https://metatake.net/take/the-indifferent-landscape">The Indifferent Landscape</a> — a world serenely uninterested in our dread. The fear was never the impact. It's the blue-sky interval before it, when the end is still just a small swirl with a friendly name.</p>
+        <p class="deposit"><span class="arr">→</span><b>In Metatake:</b> deposits the named catastrophe, joining storm-naming to The Indifferent Landscape, beside <a class="lk-in" href="https://metatake.net/film/the-tree-of-life-2011">The Tree of Life</a>.</p>
+      </div>
+      <div class="ethumb"><a class="pic" href="https://metatake.net/film/melancholia-2011" data-bd="/qzrS5ShZZPsPdhM5ZbcQKG7fwFo.jpg"></a><div class="cap"><b>Melancholia</b> · 2011</div></div>
+    </div>
+
+  </div>
+
+  <div class="floor">
+    <div class="floor__h"><b>On the cutting-room floor</b><span>Big news, weak rhyme — so we left them.</span></div>
+    <ul>
+      <li>Trump–Iran deal to reopen the Strait of Hormuz. The pull was <em>Syriana</em> and the oil-thriller shelf — a theme, not a figure.<span class="cut">Cut</span></li>
+      <li>FBI foils an <a class="lk-out" href="https://www.foxnews.com/politics/fbi-disrupts-alleged-explosive-drone-plot-targeting-white-house-ufc-event-officials-say">explosive-drone plot</a> at a D.C. UFC event. <em>Minority Report</em>'s pre-crime tempted us — they stopped it before it happened — but the link reached for the gadget, not a figure.<span class="cut">Cut</span></li>
+    </ul>
+  </div>
+
+  <p class="method"><b>How this was made:</b> each event was reduced to a figure, then matched against the live Metatake corpus — every film and reading above was confirmed in the database before it was linked (no dead ends, no invented hubs). Each rhyme then becomes a permanent edge in the map. <span class="stamp">Retrieved, not remembered.</span></p>
+
+  <div class="sub-box" id="sub">
+    <p class="k">Between Film and the World</p>
+    <h3>The day's news, read as cinema.</h3>
+    <p>One short edition, almost every morning — five events and the films that already knew. Free. No spam, unsubscribe anytime.</p>
+    <form class="subform" onsubmit="return doSub(event)"><input type="email" required placeholder="you@example.com" aria-label="Email"><button type="submit">Subscribe</button></form>
+    <p class="fine">Join the readers getting the wire through cinema.</p>
+  </div>
+
+  <div class="endrow">
+    <a class="sbtn" href="#sub">Subscribe</a>
+    <a class="wander" href="https://metatake.net">Wander Metatake →</a>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="fbrand">metatake · blog</div>
+        <p>Between Film and the World — the day's events, read for the figure underneath. Retrieved from the live corpus, not remembered.</p>
+      </div>
+      <div><h4>The blog</h4><a href="#">Latest edition</a><a href="#">All editions</a><a href="#sub">Subscribe</a></div>
+      <div><h4>metatake</h4><a href="https://metatake.net">The map</a><a href="#">Meta takes</a><a href="#">How readings are written</a></div>
+    </div>
+    <div class="bl">© 2026 metatake. Blog reading design — a concept (시안). Subscription form is provider-agnostic; wire to Buttondown / ConvertKit / Substack on build.</div>
+  </div>
+</footer>
+
+<script>
+"use strict";
+// load colour backdrops (fade in)
+(function(){
+  var IMG="https://image.tmdb.org/t/p/w500";
+  var pics=document.querySelectorAll(".pic[data-bd]");
+  for(var i=0;i<pics.length;i++){ (function(el){ var url=IMG+el.getAttribute("data-bd"); var im=new Image(); im.onload=function(){ el.style.backgroundImage="url("+url+")"; }; im.src=url; })(pics[i]); }
+})();
+// SUBSCRIBE: provider-agnostic demo. On build, replace doSub() with your service's embed/endpoint
+// (Buttondown: POST to https://buttondown.email/api/emails/embed-subscribe/<user>; ConvertKit: form action to /forms/<id>/subscriptions; Substack: redirect to <pub>.substack.com/subscribe).
+function doSub(ev){
+  ev.preventDefault();
+  var form=ev.target, email=form.querySelector("input").value;
+  var ok=document.createElement("div"); ok.className="subok"; ok.textContent="✓ Almost there — check your inbox to confirm ("+email+").";
+  form.parentNode.replaceChild(ok, form);
+  return false;
+}
+</script>
+</body>
+</html>

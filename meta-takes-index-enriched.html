@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta takes — enriched index (시안) · Metatake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Metatake — /meta-takes ENRICHED index (시안)
+   Pattern: benefit-led intro → random feature → enriched list.
+   Reuses the site's restrained system: white, near-black ink,
+   ONE red (#E3120B), PT Serif + Inter, hairlines, square corners.
+   ============================================================ */
+:root{
+  --bg:#FFFFFF; --surface-2:#F2F2F2;
+  --ink:#0D0D0D; --ink-soft:#1F1F1F; --muted:#6B6B6B; --subtle:#8F8F8F;
+  --hairline:#D8D8D8; --hairline-2:#B9B9B9;
+  --accent:#E3120B; --accent-hover:#B80D05;
+  --serif:"PT Serif","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --pad-x:24px; --max-w:1080px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+
+/* ---- masthead (matches live inner-page nav) ---- */
+.masthead{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--hairline)}
+.mh{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:16px;padding:11px var(--pad-x);min-height:56px}
+.brand{font-family:var(--ui);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+.mh nav{display:none;gap:14px}
+@media(min-width:900px){.mh nav{display:flex}}
+.mh nav a{font-size:13px;color:var(--muted)}
+.mh nav a:hover{color:var(--accent)}
+.mh nav a[data-on]{color:var(--ink);font-weight:600}
+.mh .sp{flex:1 1 auto}
+.mh .rnd{font-size:13px;color:var(--muted);border:1px solid var(--hairline-2);border-radius:3px;padding:4px 9px}
+.mh .rnd:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ---- page head + intro ---- */
+.h1{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.01em;margin:26px 0 8px}
+.intro{font-family:var(--serif);font-size:16.5px;line-height:1.55;color:var(--ink-soft);max-width:62ch;margin:0 0 4px}
+.intro .em{color:var(--accent);font-weight:700;font-style:normal}
+.introsub{font-size:13px;color:var(--muted);margin:8px 0 0}
+
+/* ---- random feature card ---- */
+.feat{border:1px solid var(--hairline-2);border-top:3px solid var(--accent);margin:20px 0 8px;padding:18px 20px 20px}
+.feat .kick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:8px}
+.feat .kick .die{color:var(--accent);font-weight:600;letter-spacing:.02em}
+.feat .kick .roll{appearance:none;border:1px solid var(--hairline-2);background:none;border-radius:3px;color:var(--muted);font:inherit;font-size:11px;padding:2px 9px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.feat .kick .roll:hover{border-color:var(--ink);color:var(--ink)}
+.feat .kick .tot{margin-left:auto;color:var(--subtle)}
+.feat h2{font-family:var(--serif);font-weight:700;font-size:27px;line-height:1.13;margin:0 0 5px;display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.feat h2 a:hover{color:var(--accent-hover)}
+.feat h2 .cnt{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap}
+.feat .lac{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink);margin:0 0 10px}
+.feat .thesis{font-family:var(--serif);font-size:15px;line-height:1.58;color:var(--muted);margin:0 0 15px;max-width:64ch}
+.feat .lbl{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 7px}
+.cases{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:15px}
+.case{font-size:12.5px;color:var(--ink-soft);border:1px solid var(--hairline);border-radius:2px;padding:4px 9px}
+.case:hover{border-color:var(--ink)}
+.case .yr{color:var(--subtle)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:16px}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);border:1px solid var(--hairline);border-radius:20px;padding:2px 10px}
+.tag i{width:7px;height:7px;border-radius:50%;flex:none}
+.tag.axis{text-transform:uppercase;letter-spacing:.05em;font-size:10px;font-weight:600;color:var(--subtle)}
+.readmore{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:1px}
+.readmore:hover{color:var(--accent-hover)}
+
+/* ---- "three ways in" ---- */
+.ways{margin:30px 0 6px}
+.ways__h{border-top:2px solid var(--ink);padding-top:9px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.waysgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:760px){.waysgrid{grid-template-columns:1fr}}
+.wcard{border:1px solid var(--hairline);padding:13px 15px 14px;cursor:pointer}
+.wcard[data-on]{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--accent)}
+.wcard .t{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:3px}
+.wcard .d{font-size:12.5px;color:var(--muted);line-height:1.45}
+.wcard .go{font-size:12px;color:var(--accent);font-weight:600;margin-top:8px;display:inline-block}
+
+/* ---- list ---- */
+.listhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:2px solid var(--ink);padding-top:9px;margin-top:30px;flex-wrap:wrap}
+.listhead .t{font-family:var(--serif);font-weight:700;font-size:18px}
+.sortbar{display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--muted);margin:12px 0 6px}
+.sortbar .lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle)}
+.sortbar button{appearance:none;background:none;border:none;font:inherit;font-size:12.5px;color:var(--muted);cursor:pointer;padding:0}
+.sortbar button[data-on]{color:var(--ink);font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.sortbar button:hover{color:var(--ink)}
+.filter{width:100%;font-family:var(--ui);font-size:14px;border:1px solid var(--hairline-2);border-radius:3px;padding:9px 12px;margin:8px 0 14px;color:var(--ink)}
+.filter:focus{outline:none;border-color:var(--ink)}
+.filter::placeholder{color:var(--subtle)}
+.mtrow{padding:12px 0;border-bottom:1px solid var(--hairline)}
+.mtrow__h{display:flex;align-items:baseline;gap:10px;justify-content:space-between}
+.mtrow__t{font-family:var(--serif);font-weight:700;font-size:16.5px;line-height:1.25}
+.mtrow:hover .mtrow__t{color:var(--accent-hover)}
+.mtrow__c{font-size:12px;color:var(--subtle);white-space:nowrap;font-variant-numeric:tabular-nums}
+.mtrow__lac{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.45;max-width:74ch}
+.empty{font-size:13px;color:var(--subtle);padding:14px 0}
+
+/* ---- "just seeded" tail ---- */
+.seeded{margin-top:26px;border:1px dashed var(--hairline-2);padding:0 16px}
+.seeded>summary{cursor:pointer;list-style:none;padding:13px 0;font-size:13px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:9px}
+.seeded>summary::-webkit-details-marker{display:none}
+.seeded>summary .chev{transition:transform .2s;color:var(--subtle)}
+.seeded[open]>summary .chev{transform:rotate(90deg)}
+.seeded>summary .sub{font-weight:400;color:var(--muted)}
+.seeded__body{padding:2px 0 16px}
+.seeded__note{font-size:12.5px;color:var(--muted);margin:0 0 12px;line-height:1.5}
+.seedgrid{display:flex;flex-wrap:wrap;gap:8px}
+.seed{font-size:12.5px;color:var(--ink-soft);border:1px solid var(--hairline);border-radius:2px;padding:5px 10px;display:inline-flex;align-items:center;gap:8px}
+.seed:hover{border-color:var(--ink)}
+.seed .z{font-size:10px;color:var(--subtle);border-left:1px solid var(--hairline);padding-left:8px}
+
+/* ---- footer ---- */
+.foot{margin-top:50px;border-top:2px solid var(--ink)}
+.foot__in{max-width:var(--max-w);margin:0 auto;padding:22px var(--pad-x) 40px;font-size:13px;color:var(--muted)}
+.foot__row{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:14px}
+.foot a{color:var(--muted)}.foot a:hover{color:var(--accent)}
+.foot .bl{font-size:12px;color:var(--subtle);border-top:1px solid var(--hairline);padding-top:12px}
+.note{margin-top:8px;font-style:italic;font-family:var(--serif);color:var(--subtle)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mh">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#" data-on>Meta takes</a>
+    </nav>
+    <span class="sp"></span>
+    <a class="rnd" href="#">Random ▾</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 class="h1">Meta takes</h1>
+  <p class="intro"><span class="em">274 readings that recur across cinema.</span> Not genres, not plots — the <em>meanings</em> films share. Each one is a hub: pick it and a whole constellation of films gathers below, not lookalikes but kin. This isn't a list to scroll past. It's <strong style="color:var(--ink)">274 doors</strong>.</p>
+  <p class="introsub">Below: one at random to start you off, three ways to browse, then the full catalogue.</p>
+
+  <!-- RANDOM FEATURE -->
+  <section class="feat" id="feat">
+    <div class="kick">
+      <span class="die">🎲 A reading, at random</span>
+      <button class="roll" id="roll"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> another</button>
+      <span class="tot">1 of 274 in the catalogue</span>
+    </div>
+    <h2><a href="#" id="f-title">Chromatic Symbolism</a> <span class="cnt" id="f-cnt">84 films</span></h2>
+    <p class="lac" id="f-lac"></p>
+    <p class="thesis" id="f-thesis"></p>
+    <div class="lbl">Defining cases</div>
+    <div class="cases" id="f-cases"></div>
+    <div class="tags" id="f-tags"></div>
+    <a class="readmore" href="#">Open the meta-take <span aria-hidden="true">→</span></a>
+  </section>
+
+  <!-- THREE WAYS IN -->
+  <section class="ways">
+    <div class="ways__h">Three ways in</div>
+    <div class="waysgrid">
+      <div class="wcard" data-on>
+        <div class="t">By theory</div>
+        <div class="d">The school of thought each reading descends from.</div>
+        <span class="go">browse families →</span>
+      </div>
+      <div class="wcard">
+        <div class="t">By register</div>
+        <div class="d">The critical route used to reach it — the lens, not the conclusion.</div>
+        <span class="go">browse registers →</span>
+      </div>
+      <div class="wcard">
+        <div class="t">By theorist</div>
+        <div class="d">The thinker whose concept the reading draws on.</div>
+        <span class="go">browse theorists →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LIST -->
+  <div class="listhead">
+    <span class="t">The catalogue</span>
+  </div>
+  <div class="sortbar">
+    <span class="lbl">Sort</span>
+    <button data-sort="films" data-on>Most films</button>
+    <button data-sort="views">Most viewed</button>
+    <button data-sort="new">Newest</button>
+    <button data-sort="az">A–Z</button>
+  </div>
+  <input class="filter" id="filter" placeholder="Filter 274 meta takes…" autocomplete="off">
+  <div id="list"></div>
+  <p class="empty" id="empty" style="display:none">No reading matches that.</p>
+
+  <!-- JUST SEEDED tail -->
+  <details class="seeded">
+    <summary><span class="chev">▸</span> Just seeded — readings waiting for their first film <span class="sub" id="seed-n"></span></summary>
+    <div class="seeded__body">
+      <p class="seeded__note">These readings exist as concepts but haven't been connected to a film yet. Spot one in a movie? Open it and add the first take — you'll be the reading's founder.</p>
+      <div class="seedgrid" id="seedgrid"></div>
+    </div>
+  </details>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div class="foot__row">
+      <a href="#">Meta takes</a><a href="#">Films</a><a href="#">Directors</a><a href="#">Genres</a>
+      <a href="#">About</a><a href="#">Contact</a><a href="#">Community guidelines</a>
+    </div>
+    <p class="note">Read films closely — every link leads deeper into film, never out.</p>
+    <div class="bl">© 2026 Metatake. This page is a design concept (시안). Built on the live /meta-takes structure.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+
+/* register → colour (from the live take page REG map) */
+var REGC={formal:"#5B8FB9",semiotic:"#B8860B",psychoanalytic:"#A8434F",ideological:"#C0392B",
+ politico_economic:"#2E7D5B",philosophical:"#7E57C2",existential:"#546E7A",mythic:"#A9743B",
+ genealogical:"#2E86C1",reception:"#159A8A"};
+var REGL={formal:"Formal",semiotic:"Semiotic",psychoanalytic:"Psychoanalytic",ideological:"Ideological",
+ politico_economic:"Politico-economic",philosophical:"Philosophical",existential:"Existential",
+ mythic:"Mythic",genealogical:"Film-historical",reception:"Reception"};
+
+/* ---- FEATURE POOL (real titles + real laconics from the live site) ---- */
+var FEAT=[
+ {slug:"chromatic-symbolism",title:"Chromatic Symbolism",n:84,reg:"formal",family:"Formalism",theorist:null,
+  lac:"When colours stop decorating the frame and start dictating the narrative.",
+  thesis:"Colour ceases to be décor and becomes argument — a second script the eye reads before the ear catches a word.",
+  cases:[["Suspiria",1977],["In the Mood for Love",2000],["Vertigo",1958],["The Double Life of Véronique",1991],["Hero",2002]]},
+ {slug:"the-gaze-le-regard",title:"The Cinematic Gaze",n:81,reg:"psychoanalytic",family:"Feminist film theory",theorist:"Laura Mulvey",
+  lac:"Who gets to look, who gets looked at, and who holds the power.",
+  thesis:"The camera is never neutral; every frame decides who is the subject of desire and who its object.",
+  cases:[["Rear Window",1954],["Peeping Tom",1960],["Persona",1966],["Mulholland Drive",2001],["Portrait of a Lady on Fire",2019]]},
+ {slug:"the-face-of-the-other",title:"The Face Of The Other",n:69,reg:"philosophical",family:"Ethics",theorist:"Emmanuel Levinas",
+  lac:"The undeniable presence of another being that demands an immediate moral response.",
+  thesis:"Before we judge or possess, the face of the other simply commands: do not harm me.",
+  cases:[["Au Hasard Balthazar",1966],["The Passion of Joan of Arc",1928],["Three Colours: Blue",1993],["Close-Up",1990],["Ordet",1955]]},
+ {slug:"leitmotif",title:"The Sonic Calling Card",n:66,reg:"formal",family:"Formalism",theorist:null,
+  lac:"An unmistakable audio signature that defines a film's identity, rhythm, or psychological subtext.",
+  thesis:"A few bars of music become a character's shadow — arriving before they do, lingering after they leave.",
+  cases:[["Jaws",1975],["Once Upon a Time in the West",1968],["Star Wars",1977],["Psycho",1960],["The Good, the Bad and the Ugly",1966]]},
+ {slug:"the-sublime",title:"The Cinematic Sublime",n:62,reg:"existential",family:"Philosophy of art",theorist:null,
+  lac:"Beauty so vast, indifferent, or strange that it threatens to swallow you whole.",
+  thesis:"The sublime is awe edged with terror — the screen made large enough to dwarf the self.",
+  cases:[["2001: A Space Odyssey",1968],["Stalker",1979],["The Tree of Life",2011],["Gravity",2013],["Aguirre, the Wrath of God",1972]]},
+ {slug:"floating-signifier",title:"The Empty Vessel",n:59,reg:"semiotic",family:"Structuralism",theorist:null,
+  lac:"A blank cinematic slate that characters desperately fill with their own fatal meanings.",
+  thesis:"An object with no fixed meaning becomes a mirror — each character reads into it the thing that will undo them.",
+  cases:[["Pulp Fiction",1994],["2001: A Space Odyssey",1968],["Mulholland Drive",2001],["Barton Fink",1991],["Lost Highway",1997]]}
+];
+
+/* ---- LIST POOL (real titles + counts; laconics added) ---- */
+var LIST=[
+ {slug:"saturated-hues-as-emotional-diagnosis",title:"Saturated Hues as Emotional Diagnosis",n:85,v:4100,lac:"Colour pushed past realism until it reads as a symptom."},
+ {slug:"inverting-the-objectifying-lens",title:"Inverting the Objectifying Lens",n:81,v:3600,lac:"The look turned back on the one who looks."},
+ {slug:"score-as-standalone-signature",title:"Score As Standalone Signature",n:69,v:3550,lac:"A theme that detaches from the scene and starts to author it."},
+ {slug:"the-unrefusable-claim",title:"The Unrefusable Claim",n:69,v:2400,lac:"A demand the film will not let the character — or us — refuse."},
+ {slug:"secular-transcendence-in-objects",title:"Secular Transcendence in Objects",n:66,v:3100,lac:"The sacred relocated into ordinary things."},
+ {slug:"the-camera-held-too-close",title:"The Camera Held Too Close",n:63,v:2700,lac:"Proximity past comfort, until a face becomes a landscape."},
+ {slug:"survivors-of-vanished-worlds",title:"Survivors of Vanished Worlds",n:61,v:2900,lac:"People left holding a world that has already ended."},
+ {slug:"the-sign-that-refuses-meaning",title:"The Sign That Refuses Meaning",n:60,v:2500,lac:"An object everyone reads and the film never explains."},
+ {slug:"star-persona",title:"The Star Persona",n:58,v:5200,lac:"When an actor's off-screen myth becomes the special effect."},
+ {slug:"decaying-and-vulnerable-flesh",title:"Decaying And Vulnerable Flesh",n:58,v:2100,lac:"The body as perishable matter — leaking, ageing, failing."},
+ {slug:"reinvented-names-and-disavowed-origins",title:"Reinvented Names and Disavowed Origins",n:57,v:1800,lac:"The self remade by erasing where it came from."},
+ {slug:"the-dead-end-grind",title:"The Dead-End Grind",n:54,v:2600,lac:"Labour as an endless, spirit-breaking loop."},
+ {slug:"jouissance",title:"The Excess of Jouissance",n:51,v:2300,lac:"Pleasure pushed past pleasure, into something unbearable."},
+ {slug:"the-repetition-compulsion",title:"The Repetition Compulsion",n:48,v:1900,lac:"The wound restaged again and again, hoping to master it."},
+ {slug:"simulated-worlds-more-real-than-reality",title:"Simulated Worlds More Real Than Reality",n:47,v:3000,lac:"The copy that out-competes the original it replaced."},
+ {slug:"the-displaced-wound",title:"The Displaced Wound",n:47,v:1500,lac:"A pain that surfaces everywhere except where it began."}
+];
+
+/* ---- JUST SEEDED (real 0-film titles from the live tail) ---- */
+var SEED=["Queer Kinship","The Mentor's Gift and Sacrifice","Communities Enforcing Belonging","The Forbidden Elsewhere",
+ "Genre Convention Quoting","The Tenderness Beneath the Performance","Inverting Stock Conventions",
+ "The Object That Consumes the Pursuer","Fantasy of Total Control","The Lingering Past","Profaned Sacred Remnants","The Auteurial Signature"];
+
+/* ---- render feature ---- */
+function renderFeat(d){
+  $("f-title").textContent=d.title;
+  $("f-cnt").textContent=d.n+" films";
+  $("f-lac").textContent=d.lac;
+  $("f-thesis").textContent=d.thesis;
+  var c=$("f-cases"); c.innerHTML="";
+  d.cases.forEach(function(x){var a=document.createElement("a");a.className="case";a.href="#";a.innerHTML=esc(x[0])+' <span class="yr">('+x[1]+')</span>';c.appendChild(a);});
+  var t=$("f-tags"); t.innerHTML="";
+  if(d.family){t.insertAdjacentHTML("beforeend",'<span class="tag axis">theory</span><span class="tag">'+esc(d.family)+'</span>');}
+  if(d.reg){t.insertAdjacentHTML("beforeend",'<span class="tag axis">register</span><span class="tag"><i style="background:'+REGC[d.reg]+'"></i>'+REGL[d.reg]+'</span>');}
+  if(d.theorist){t.insertAdjacentHTML("beforeend",'<span class="tag axis">theorist</span><span class="tag">'+esc(d.theorist)+'</span>');}
+}
+var last=-1;
+function roll(){var i;do{i=Math.floor(Math.random()*FEAT.length);}while(i===last&&FEAT.length>1);last=i;renderFeat(FEAT[i]);}
+
+/* ---- render list ---- */
+var sortMode="films";
+function renderList(){
+  var arr=LIST.slice();
+  if(sortMode==="films")arr.sort(function(a,b){return b.n-a.n;});
+  else if(sortMode==="views")arr.sort(function(a,b){return b.v-a.v;});
+  else if(sortMode==="az")arr.sort(function(a,b){return a.title.localeCompare(b.title);});
+  /* "new" = leave insertion order as a stand-in */
+  var host=$("list"); host.innerHTML="";
+  arr.forEach(function(m){
+    var metric=sortMode==="views"?(m.v.toLocaleString()+" views"):sortMode==="az"?(m.n+" films"):(m.n+" films");
+    var row=document.createElement("div"); row.className="mtrow"; row.setAttribute("data-text",m.title.toLowerCase());
+    row.innerHTML='<div class="mtrow__h"><a class="mtrow__t" href="#">'+esc(m.title)+'</a><span class="mtrow__c">'+metric+'</span></div><div class="mtrow__lac">'+esc(m.lac)+'</div>';
+    host.appendChild(row);
+  });
+  applyFilter();
+}
+function applyFilter(){
+  var q=$("filter").value.trim().toLowerCase(), any=false;
+  document.querySelectorAll("#list .mtrow").forEach(function(r){
+    var on=!q||r.getAttribute("data-text").indexOf(q)>=0; r.style.display=on?"":"none"; if(on)any=true;
+  });
+  $("empty").style.display=any?"none":"block";
+}
+
+/* ---- seeded ---- */
+function renderSeed(){
+  $("seed-n").textContent="("+SEED.length+")";
+  var g=$("seedgrid"); g.innerHTML="";
+  SEED.forEach(function(t){var a=document.createElement("a");a.className="seed";a.href="#";a.innerHTML=esc(t)+'<span class="z">0 films</span>';g.appendChild(a);});
+}
+
+/* ---- wire ---- */
+$("roll").onclick=roll;
+$("filter").addEventListener("input",applyFilter);
+document.querySelectorAll(".sortbar button").forEach(function(b){b.onclick=function(){
+  document.querySelectorAll(".sortbar button").forEach(function(x){x.removeAttribute("data-on");});
+  b.setAttribute("data-on",""); sortMode=b.getAttribute("data-sort"); renderList();
+};});
+document.querySelectorAll(".wcard").forEach(function(c){c.onclick=function(){
+  document.querySelectorAll(".wcard").forEach(function(x){x.removeAttribute("data-on");}); c.setAttribute("data-on","");
+};});
+
+/* ---- boot ---- */
+roll(); renderList(); renderSeed();
+})();
+</script>
+</body>
+</html>

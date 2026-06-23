@@ -143,11 +143,19 @@ def main():
             chunk=missing[i:i+200]
             vecs=embed(chunk)
             rows=[{"tag":chunk[j],"embedding":vecs[j]} for j in range(len(chunk))]
-            st,tx=sb("POST","trope_tags",rows,prefer="resolution=ignore-duplicates,return=minimal")
+            st,tx=sb("POST","rpc/insert_trope_tags",{"p":rows})
             if st>=300: print(f"    ! tag insert {st}: {tx[:120]}")
             else: wrote+=len(rows)
             print(f"    stored {wrote}/{len(missing)}")
         print("  embeddings stored.")
+
+    # The HNSW index on trope_tags is dropped during bulk load (so inserts stay light
+    # and don't overwhelm the instance). Rebuild it once here — no statement timeout —
+    # before the ANN pairing step, which needs it.
+    print("  ensuring HNSW index on trope_tags (one-time build, may take a few min)…")
+    ist,itx=http("POST",f"{URL}/rest/v1/rpc/ensure_trope_tag_index",{"apikey":KEY,"Authorization":f"Bearer {KEY}"},{},timeout=1200)
+    if ist>=300: print(f"  ! index ensure {ist}: {itx[:200]}")
+    else: print("  index ready.")
 
     # chunked ANN (one long statement would hit the 8s statement timeout)
     total=len(have) or len(ntags)

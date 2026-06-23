@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quentin Tarantino — the recurring readings of a filmography · metatake</title>
+<!--
+  metatake · DIRECTOR detail page redesign (시안) — /director/[slug]   ·   example: Quentin Tarantino
+  Built on the REAL current page (app/director/[slug]/page.tsx). All data REAL (Supabase): photo, bio, 7 films (per-film meta-take counts),
+  signature meta takes (readings recurring in ≥2 films, top 10 of 34) and signature tropes (7) — each with its film list. Totals 93 / 41.
+  Logic preserved: "signature" = recurs across ≥2 of the director's films (computed, not asserted).
+  v6 system: white paper, PT Serif + Inter, one-red #E3120B (teal #167C6B for tropes), hairlines, colour images.
+  Consistent with film/figure pages: clickable stat strip (jumps + count-up), the dark tone, wide readable rows.
+  New: a "presence" dot meter (N of 7 films) that visualises how much of the filmography each reading touches.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:960px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+.crumb{font-family:var(--ui);font-size:12.5px;color:var(--muted);padding:18px 0 0}
+.crumb a:hover{color:var(--accent)}
+
+/* director header */
+.dhead{display:flex;gap:26px;align-items:flex-end;padding:18px 0 0}
+.dphoto{width:128px;flex:0 0 128px;aspect-ratio:3/4;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair);filter:saturate(1.03)}
+.dtxt{flex:1 1 auto;padding-bottom:4px}
+.dtxt .role{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dtxt h1{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.05;letter-spacing:-.022em;margin:6px 0 6px}
+.dtxt .born{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dtxt .born .d{width:3px;height:3px;border-radius:50%;background:var(--hair2)}
+@media(max-width:600px){.dhead{gap:16px}.dphoto{width:92px;flex-basis:92px}.dtxt h1{font-size:30px}}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:22px 0 0}
+.stat{background:#fff;padding:14px 16px;display:block;cursor:pointer;transition:background .15s}
+.stat:hover{background:var(--paper)}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.stat.red .n{color:var(--accent)}.stat.teal .n{color:var(--teal)}
+.stat .k{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:7px;display:flex;align-items:center;gap:5px}
+.stat .k:after{content:"↓";color:var(--hair2);font-weight:700}
+.stat:hover .k:after{color:var(--accent)}
+
+/* fingerprint intro */
+.finger{border-left:3px solid var(--accent);padding:4px 0 4px 16px;margin:26px 0 0;font-size:16.5px;color:var(--ink2);line-height:1.55;max-width:70ch}
+.finger b{color:var(--ink)}
+
+/* biography */
+.bio{margin:20px 0 0;border:1px solid var(--hair)}
+.bio summary{font-family:var(--ui);font-size:13px;font-weight:600;padding:12px 15px;cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;color:var(--ink2)}
+.bio summary::-webkit-details-marker{display:none}
+.bio summary:before{content:"+";color:var(--accent);font-weight:700}
+.bio[open] summary:before{content:"–"}
+.bio__b{padding:6px 15px 16px;border-top:1px solid var(--hair);font-size:14.5px;line-height:1.62;color:var(--ink2)}
+.bio__b .src{font-family:var(--ui);font-size:11px;color:var(--faint);margin-top:12px}
+
+/* sections */
+.sec{padding:38px 0 4px;scroll-margin-top:70px}
+.h2{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.02em;margin:0 0 5px;display:flex;align-items:baseline;gap:12px}
+.h2 .more{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--accent);margin-left:auto}
+.gloss{font-size:14.5px;color:var(--muted);margin:0 0 20px;max-width:66ch}
+.gloss strong{color:var(--ink)}
+
+/* signature rows */
+.siglist{border-top:1px solid var(--hair)}
+.sig{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:14px 6px;border-bottom:1px solid var(--hair);align-items:baseline;transition:background .15s}
+.sig:hover{background:var(--paper)}
+.sig .t{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:-.01em}
+.sig .t:hover{color:var(--accent)}
+.sig .pres{display:flex;align-items:center;gap:9px;justify-self:end;white-space:nowrap}
+.sig .dots{display:inline-flex;gap:3px}
+.sig .dots i{width:8px;height:8px;border-radius:50%;background:var(--hair);display:inline-block}
+.sig .dots i.on{background:var(--accent)}
+.sig .inof{font-family:var(--ui);font-size:11.5px;font-weight:700;color:var(--ink2)}
+.sig .films{grid-column:1 / -1;font-family:var(--ui);font-size:12.5px;color:var(--muted)}
+.sig .films .vl{color:var(--faint);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;margin-right:5px}
+.sig .films a{color:var(--accent);font-weight:600}
+.sig .films a:hover{text-decoration:underline}
+.sec.teal .sig .dots i.on{background:var(--teal)}
+.sec.teal .sig .t:hover{color:var(--teal)}
+.sec.teal .sig .films a{color:var(--teal)}
+.sec.teal .gloss strong{color:var(--ink)}
+.showall{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--accent);display:inline-block;margin:16px 0 0}
+
+/* filmography */
+.films-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.fcard{border:1px solid var(--hair);background:#fff;transition:border-color .15s,transform .15s}
+.fcard:hover{border-color:var(--ink);transform:translateY(-2px)}
+.fcard .bd{width:100%;aspect-ratio:16/9;background:#1a1f25 center/cover no-repeat;filter:saturate(1.02)}
+.fcard .cap{padding:10px 12px 12px}
+.fcard .ti{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.2;letter-spacing:-.01em}
+.fcard .mt{font-family:var(--ui);font-size:11.5px;color:var(--muted);margin-top:5px}
+.fcard .mt b{color:var(--accent)}
+
+/* seq/prov */
+.prov{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:34px 0 58px;border-top:1px solid var(--hair);padding-top:16px}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#" data-on>Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#">Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#">Directors</a></div>
+  <div class="dhead">
+    <div class="dphoto" data-bd="/1gjcpAa99FAOWGnrUvHEXXsRs7o.jpg"></div>
+    <div class="dtxt">
+      <div class="role">Director</div>
+      <h1>Quentin Tarantino</h1>
+      <div class="born"><span>Born March 27, 1963</span><span class="d"></span><span>Knoxville, Tennessee, USA</span></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <a class="stat" href="#filmography"><div class="n cu" data-target="7">0</div><div class="k">Films</div></a>
+    <a class="stat red" href="#sigmeta"><div class="n cu" data-target="93">0</div><div class="k">Meta takes</div></a>
+    <a class="stat teal" href="#sigtropes"><div class="n cu" data-target="41">0</div><div class="k">Tropes</div></a>
+  </div>
+
+  <p class="finger">What makes a film unmistakably Tarantino — the readings and devices that recur across the filmography. <b>Computed, not asserted:</b> each one below appears in two or more of his seven films.</p>
+
+  <details class="bio">
+    <summary>Biography</summary>
+    <div class="bio__b">
+      <p>Quentin Jerome Tarantino (born March 27, 1963) is an American film director, screenwriter, producer, cinematographer and actor. In the early 1990s he was an independent filmmaker whose films used nonlinear storylines and aestheticization of violence. His films have earned him a variety of Academy Award, Golden Globe, BAFTA and Palme d'Or Awards. He worked in a video rental store before becoming a filmmaker, paying close attention to the types of films people liked to rent — an experience he cites as inspiration for his directorial career.</p>
+      <div class="src">Biography &amp; image via TMDB / Wikipedia (CC-BY-SA).</div>
+    </div>
+  </details>
+</div>
+
+<!-- SIGNATURE META TAKES -->
+<section class="sec" id="sigmeta">
+  <div class="wrap">
+    <h2 class="h2">Signature meta takes</h2>
+    <p class="gloss">Readings that recur across the films — what makes a film unmistakably Tarantino. The dots show how many of his <strong>7 films</strong> each one touches.</p>
+    <div class="siglist">
+      <div class="sig"><a class="t" href="#">The Alienation Effect</a><span class="pres"><span class="dots" data-n="5" data-of="7"></span><span class="inof">5 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Pulp Fiction</a> · <a href="#">Kill Bill: Vol. 1</a> · <a href="#">Inglourious Basterds</a> · <a href="#">Django Unchained</a> · <a href="#">The Hateful Eight</a></div></div>
+      <div class="sig"><a class="t" href="#">Genre-Shifting Tonal Whiplash</a><span class="pres"><span class="dots" data-n="4" data-of="7"></span><span class="inof">4 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Pulp Fiction</a> · <a href="#">Kill Bill: Vol. 1</a> · <a href="#">Django Unchained</a> · <a href="#">Once Upon a Time… in Hollywood</a></div></div>
+      <div class="sig"><a class="t" href="#">The Camera Inside the Frame</a><span class="pres"><span class="dots" data-n="4" data-of="7"></span><span class="inof">4 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Inglourious Basterds</a> · <a href="#">Django Unchained</a> · <a href="#">The Hateful Eight</a> · <a href="#">Once Upon a Time… in Hollywood</a></div></div>
+      <div class="sig"><a class="t" href="#">Cheerful Pop Against Violence</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Reservoir Dogs</a> · <a href="#">Kill Bill: Vol. 1</a> · <a href="#">Once Upon a Time… in Hollywood</a></div></div>
+      <div class="sig"><a class="t" href="#">Cross-Genre Mashup Collage</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Reservoir Dogs</a> · <a href="#">Pulp Fiction</a> · <a href="#">Django Unchained</a></div></div>
+      <div class="sig"><a class="t" href="#">Death-and-Return Transformation Arcs</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Pulp Fiction</a> · <a href="#">Kill Bill: Vol. 1</a> · <a href="#">Django Unchained</a></div></div>
+      <div class="sig"><a class="t" href="#">Genre Convention Quoting</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Reservoir Dogs</a> · <a href="#">Kill Bill: Vol. 1</a> · <a href="#">The Hateful Eight</a></div></div>
+      <div class="sig"><a class="t" href="#">People Priced as Property</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Pulp Fiction</a> · <a href="#">Django Unchained</a> · <a href="#">The Hateful Eight</a></div></div>
+      <div class="sig"><a class="t" href="#">Serene Scores Over Suffering</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Reservoir Dogs</a> · <a href="#">Kill Bill: Vol. 1</a> · <a href="#">Once Upon a Time… in Hollywood</a></div></div>
+      <div class="sig"><a class="t" href="#">The Postmodern Collage</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Kill Bill: Vol. 1</a> · <a href="#">Inglourious Basterds</a> · <a href="#">Django Unchained</a></div></div>
+    </div>
+    <a class="showall" href="#">Show all 34 signature readings →</a>
+  </div>
+</section>
+
+<!-- SIGNATURE TROPES -->
+<section class="sec teal" id="sigtropes">
+  <div class="wrap">
+    <h2 class="h2">Signature tropes</h2>
+    <p class="gloss">Figure-types — devices, situations, objects — Tarantino returns to across films. Shared with other directors under <a href="#" style="color:var(--teal);font-weight:600">Tropes</a>.</p>
+    <div class="siglist">
+      <div class="sig"><a class="t" href="#">The Shuffled Reel</a><span class="pres"><span class="dots" data-n="3" data-of="7"></span><span class="inof">3 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Reservoir Dogs</a> · <a href="#">Pulp Fiction</a> · <a href="#">Kill Bill: Vol. 1</a></div></div>
+      <div class="sig"><a class="t" href="#">The Heirloom Of The Departed</a><span class="pres"><span class="dots" data-n="2" data-of="7"></span><span class="inof">2 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Pulp Fiction</a> · <a href="#">The Hateful Eight</a></div></div>
+      <div class="sig"><a class="t" href="#">The Jukebox Era Stamp</a><span class="pres"><span class="dots" data-n="2" data-of="7"></span><span class="inof">2 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Pulp Fiction</a> · <a href="#">Once Upon a Time… in Hollywood</a></div></div>
+      <div class="sig"><a class="t" href="#">The Long Road To Vengeance</a><span class="pres"><span class="dots" data-n="2" data-of="7"></span><span class="inof">2 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Kill Bill: Vol. 1</a> · <a href="#">Django Unchained</a></div></div>
+      <div class="sig"><a class="t" href="#">The Mask Pulled Off</a><span class="pres"><span class="dots" data-n="2" data-of="7"></span><span class="inof">2 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Reservoir Dogs</a> · <a href="#">Inglourious Basterds</a></div></div>
+      <div class="sig"><a class="t" href="#">The Needle-Drop Out Of Time</a><span class="pres"><span class="dots" data-n="2" data-of="7"></span><span class="inof">2 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Inglourious Basterds</a> · <a href="#">Django Unchained</a></div></div>
+      <div class="sig"><a class="t" href="#">The Nod To Old Movies</a><span class="pres"><span class="dots" data-n="2" data-of="7"></span><span class="inof">2 / 7</span></span><div class="films"><span class="vl">in</span><a href="#">Kill Bill: Vol. 1</a> · <a href="#">Django Unchained</a></div></div>
+    </div>
+    <a class="showall" href="#" style="color:var(--teal)">Show all 7 signature tropes →</a>
+  </div>
+</section>
+
+<!-- FILMOGRAPHY -->
+<section class="sec" id="filmography">
+  <div class="wrap">
+    <h2 class="h2">Filmography</h2>
+    <p class="gloss">Seven films on Metatake — each read closely. The count is the distinct meta takes each film takes part in.</p>
+    <div class="films-grid">
+      <a class="fcard" href="#"><div class="bd" data-bd="/jwt159hXWA9Q5xpBo8hWb3zwLi7.jpg"></div><div class="cap"><div class="ti">Reservoir Dogs <span style="color:var(--muted);font-weight:400;font-size:13px">(1992)</span></div><div class="mt"><b>17</b> meta takes</div></div></a>
+      <a class="fcard" href="#"><div class="bd" data-bd="/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"></div><div class="cap"><div class="ti">Pulp Fiction <span style="color:var(--muted);font-weight:400;font-size:13px">(1994)</span></div><div class="mt"><b>29</b> meta takes</div></div></a>
+      <a class="fcard" href="#"><div class="bd" data-bd="/iffzIhuLAO38Po6sh1s6ZEVwlNL.jpg"></div><div class="cap"><div class="ti">Kill Bill: Vol. 1 <span style="color:var(--muted);font-weight:400;font-size:13px">(2003)</span></div><div class="mt"><b>23</b> meta takes</div></div></a>
+      <a class="fcard" href="#"><div class="bd" data-bd="/hwNtEmmugU5Yd7hpfprNWI0DGIn.jpg"></div><div class="cap"><div class="ti">Inglourious Basterds <span style="color:var(--muted);font-weight:400;font-size:13px">(2009)</span></div><div class="mt"><b>16</b> meta takes</div></div></a>
+      <a class="fcard" href="#"><div class="bd" data-bd="/2oZklIzUbvZXXzIFzv7Hi68d6xf.jpg"></div><div class="cap"><div class="ti">Django Unchained <span style="color:var(--muted);font-weight:400;font-size:13px">(2012)</span></div><div class="mt"><b>17</b> meta takes</div></div></a>
+      <a class="fcard" href="#"><div class="bd" data-bd="/7g1zO5t0bd27Iqn5ZUDJmksOGPJ.jpg"></div><div class="cap"><div class="ti">The Hateful Eight <span style="color:var(--muted);font-weight:400;font-size:13px">(2015)</span></div><div class="mt"><b>16</b> meta takes</div></div></a>
+      <a class="fcard" href="#"><div class="bd" data-bd="/xwgBHC2FgoIrQitl8jZwXXdsR9u.jpg"></div><div class="cap"><div class="ti">Once Upon a Time… in Hollywood <span style="color:var(--muted);font-weight:400;font-size:13px">(2019)</span></div><div class="mt"><b>23</b> meta takes</div></div></a>
+    </div>
+    <div class="prov">Director fingerprint computed from the live corpus — signatures recur across two or more films. Bio &amp; images via TMDB.</div>
+  </div>
+</section>
+
+<script>
+"use strict";
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+/* colour images */
+$all("[data-bd]").forEach(function(el){
+  var size=el.classList.contains("dphoto")?"w185":"w500";
+  var url="https://image.tmdb.org/t/p/"+size+el.getAttribute("data-bd");
+  var im=new Image(); im.onload=function(){ el.style.backgroundImage="url("+url+")"; }; im.src=url;
+});
+
+/* presence dots */
+$all(".dots").forEach(function(el){
+  var n=+el.getAttribute("data-n"), of=+el.getAttribute("data-of"), html="";
+  for(var i=0;i<of;i++){ html+='<i'+(i<n?' class="on"':'')+'></i>'; }
+  el.innerHTML=html;
+});
+
+/* count-up */
+function countUp(el){ var target=+el.getAttribute("data-target"), t0=null, dur=950+Math.random()*500;
+  function step(now){ if(!t0)t0=now; var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=Math.round(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+  requestAnimationFrame(step);
+}
+(function(){ var seen=new WeakSet();
+  var obs=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting&&!seen.has(en.target)){ seen.add(en.target); countUp(en.target); } }); },{threshold:.6});
+  $all(".cu").forEach(function(el){ obs.observe(el); });
+})();
+</script>
+</body>
+</html>

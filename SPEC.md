@@ -7,7 +7,7 @@ voted **contributions**. Primary strategic goal: **visibility in AI answer engin
 (ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews) and search. Revenue:
 display ads, switched on *after* traffic exists.
 
-Brand: **FilmCurio** · domain **filmcurio.com** · contact **channel.wonwoo@gmail.com** (see §1.1).
+Brand: **FilmCurio** · domain **filmcurio.com** · contact **wonwoo@metatake.net** (see §1.1).
 
 ---
 
@@ -77,7 +77,7 @@ readings, discussion, "add your interpretation") lives on-page to earn the click
 
 ## 1.1 Brand — FilmCurio
 
-- **Name:** FilmCurio. **Domain:** filmcurio.com. **Contact:** channel.wonwoo@gmail.com.
+- **Name:** FilmCurio. **Domain:** filmcurio.com. **Contact:** wonwoo@metatake.net.
 - **Etymology / meaning (use in `/about`, OG copy, and the masthead tooltip):** FilmCurio joins
   *film* with *curio* — a curio is a small, intriguing object kept because it rewards a second
   look. The site is a **cabinet of cinema's curiosities**, and the **question (the "?" in the
@@ -830,7 +830,7 @@ primary action in the chrome.
 - **FilmCurio** wordmark + tagline ("Read films closely.").
 - **Links:** About · Contact · Community guidelines · Terms · Privacy.
 - **Company:** legal entity name (placeholder until incorporated, e.g. "FilmCurio") + registered
-  address (placeholder) + contact email **channel.wonwoo@gmail.com**.
+  address (placeholder) + contact email **wonwoo@metatake.net**.
 - **TMDB attribution (required, §10):** "This product uses the TMDB API but is not endorsed
   or certified by TMDB." with the TMDB logo.
 - **Baseline:** copyright line "© {year} FilmCurio. All rights reserved." and the locale switcher
@@ -897,7 +897,7 @@ Two different things, often confused:
 - **`/about`** — what FilmCurio is and why (the "read films closely" mission), the name's meaning
   (film + curio — a cabinet of cinema's curiosities; §1.1), how the canonical-answer
   model works, and who's behind it. Doubles as an authority/E-E-A-T signal for §8.
-- **`/contact`** — a simple form or the published email (channel.wonwoo@gmail.com) + the
+- **`/contact`** — a simple form or the published email (wonwoo@metatake.net) + the
   company address.
 - **`/guidelines`** — community standards (interpretive good faith, no spam, no abuse; how
   flagging and moderation work). Keep short.

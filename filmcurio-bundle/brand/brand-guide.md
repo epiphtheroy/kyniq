@@ -67,4 +67,4 @@ FilmCurio system — Reddit Sans + marigold/teal on ivory, mark + wordmark, "Fil
 byline, "Curiobot" media bot. Remaining build tasks:
 1. Build the `/about` page copy from the curio meaning above (Mission 08).
 2. Wire the favicons + `site.webmanifest` into the app `<head>` / `/public` (snippet above).
-3. Confirm the contact email (placeholder `channel.wonwoo@gmail.com`).
+3. Confirm the contact email (placeholder `wonwoo@metatake.net`).

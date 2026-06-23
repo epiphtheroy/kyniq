@@ -43,12 +43,12 @@ export default async function FrameworkPage({ params }: Props) {
   return (
     <div className="mt">
       <MetatakeNav active="misreadings" />
-      <div className="mt-wrap sm-fw">
-        <div className="sm-crumb"><Link href="/strong-misreadings">Strong Misreadings</Link></div>
-        <h1 className="sm-fw__h" style={isAll ? undefined : { color: f!.color }}>
+      <div className="mt-wrap smb-fw">
+        <div className="smb-crumb"><Link href="/strong-misreadings">Strong Misreadings</Link></div>
+        <h1 className="smb-fw__h" style={isAll ? undefined : { color: f!.color }}>
           {isAll ? "All readings" : f!.label}
         </h1>
-        <p className="sm-fw__short">
+        <p className="smb-fw__short">
           {isAll ? "Every Strong Misreading on Metatake, across all 14 frameworks." : f!.short}
         </p>
         <ReadingFeed fwSlug={isAll ? "all" : f!.slug} isAll={isAll} initial={initial} facets={facets} />

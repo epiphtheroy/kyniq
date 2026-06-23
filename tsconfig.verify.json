@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["node", "react", "react-dom"],
+    "baseUrl": ".",
+    "paths": { "@/*": ["./*"] }
+  },
+  "include": [
+    "components/IndexPattern.tsx",
+    "app/meta-takes/page.tsx"
+  ]
+}

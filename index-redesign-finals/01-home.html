@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>metatake — the unconscious lines between films (home concept v6 · The Pair)</title>
+<!--
+  metatake · HOME concept v6 "The Pair" · 시안 (design concept, not production)
+  Hero = the unlikely pair: two very different films + the red line + the meta-take they secretly share (via each figure), rotating.
+  Then: how a reading is built (film→figure→take→meta-take) · the AI scale · a living constellation · doors to wander · a manifesto.
+  Bold but still paper: white paper, PT Serif + Inter, one-red discipline, hairlines, square corners. Images stay in colour.
+  All pairs/figures/laconics are REAL metatake.net relationships (placeholder counts/specs to be wired to live data — see HANDOFF-MASTER).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#0D0D0D; --ink2:#2A2A2A; --muted:#6B6B6B; --faint:#9A9A9A;
+  --hair:#D8D8D8; --hair2:#B9B9B9; --paper:#FBFAF7;
+  --accent:#E3120B; --teal:#167C6B;
+  --film:#26303B; --meta:#E3120B; --take:#A8434F; --trope:#167C6B; --director:#6B4E9E; --concept:#2E6F8E;
+  --serif:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+img{display:block}
+::selection{background:#ffd9d7}
+
+/* ---------- masthead (real metatake nav) ---------- */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:16px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:14px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+.mast .rnd:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:920px){.mast nav{display:none}}
+
+/* ---------- hero : the unlikely pair ---------- */
+.hero{padding:54px 0 30px;border-bottom:1px solid var(--hair)}
+.kick{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:9px;margin:0 0 16px}
+.kick .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;display:inline-block}
+.h1{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1.08;letter-spacing:-.022em;margin:0 0 14px;max-width:18ch}
+.h1 em{font-style:italic;color:var(--accent)}
+.lead{font-size:17.5px;color:var(--ink2);max-width:62ch;margin:0 0 30px}
+.lead b{font-weight:700}
+
+.stage{display:grid;grid-template-columns:1fr minmax(230px,300px) 1fr;align-items:stretch;gap:0;margin-top:8px}
+.fcard{position:relative;min-width:0;transition:opacity .42s ease,transform .42s ease}
+.fcard.swap{opacity:0;transform:translateY(8px)}
+.fcard .bd{display:block;width:100%;aspect-ratio:16/9;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair);filter:saturate(1.02)}
+.fcard .bd img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.fcard .bd img.on{opacity:1}
+.fcard .ord{position:absolute;top:10px;left:10px;font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.12em;color:#fff;background:rgba(13,13,13,.62);padding:3px 8px;text-transform:uppercase}
+.fcard .ftitle{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:-.01em;margin:12px 0 2px;line-height:1.12}
+.fcard .fmeta{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin-bottom:8px}
+.fcard .fvia{font-size:14.5px;color:var(--ink2)}
+.fcard .fvia .v{font-family:var(--ui);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-right:6px}
+.fcard .fvia i{font-style:italic;color:var(--ink)}
+.fcard.right{text-align:right}
+.fcard.right .ord{left:auto;right:10px}
+
+/* center tie */
+.tie{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 18px}
+.barwrap{position:absolute;left:-1px;right:-1px;top:50%;height:2px;z-index:1}
+.barL,.barR{position:absolute;top:0;height:2px;background:linear-gradient(90deg,rgba(227,18,11,.12),var(--accent));transform:scaleX(0);transition:transform .6s cubic-bezier(.55,0,.2,1)}
+.barL{transform-origin:right center}
+.barR{background:linear-gradient(90deg,var(--accent),rgba(227,18,11,.12));transform-origin:left center}
+.tie.draw .barL,.tie.draw .barR{transform:scaleX(1)}
+.tie .pill{margin-top:0;position:relative;z-index:3;text-align:center;background:var(--bg);padding:0 4px}
+.tie .both{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.tie .mttitle{font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.14;letter-spacing:-.01em;padding-bottom:7px;border-bottom:2px solid var(--accent);display:inline-block}
+.tie .mtlac{font-style:italic;color:var(--muted);font-size:14.5px;margin:11px 0 0;line-height:1.4}
+.tie .cta{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--accent);margin-top:14px;display:inline-block}
+.tie .cta:hover{text-decoration:underline}
+.knot{width:34px;height:34px;margin:16px auto 12px;position:relative}
+.knot:before,.knot:after{content:"";position:absolute;inset:0;border:2px solid var(--accent);border-radius:50%;}
+.knot:after{transform:scale(.5);opacity:.5}
+
+.heroctl{display:flex;align-items:center;gap:16px;margin-top:30px}
+.another{font-family:var(--ui);font-size:13px;font-weight:600;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:9px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.another:hover{background:var(--accent);border-color:var(--accent)}
+.another svg{width:14px;height:14px}
+.pdots{display:flex;gap:7px}
+.pdots i{width:7px;height:7px;border-radius:50%;background:var(--hair2);cursor:pointer;transition:background .2s,transform .2s}
+.pdots i.on{background:var(--accent);transform:scale(1.25)}
+.hnote{font-family:var(--ui);font-size:12px;color:var(--faint);margin-left:auto}
+
+@media(max-width:820px){
+  .h1{font-size:34px}
+  .stage{grid-template-columns:1fr;gap:6px}
+  .fcard.right{text-align:left}
+  .fcard.right .ord{left:10px;right:auto}
+  .tie{padding:14px 0 18px}
+  .tie .barwrap{display:none}
+  .knot{margin:6px auto 12px}
+  .hnote{display:none}
+}
+
+/* ---------- first-line method bar ---------- */
+.basis{background:var(--paper);border-bottom:1px solid var(--hair)}
+.basis__row{max-width:1180px;margin:0 auto;padding:13px 26px;display:flex;align-items:flex-start;gap:13px}
+.basis .glyph{font-size:15px;color:var(--accent);flex:0 0 auto;line-height:1.5}
+.basis__t{margin:0;font-family:var(--ui);font-size:13.5px;line-height:1.52;color:var(--ink2)}
+.basis__t b{color:var(--ink);font-weight:700}
+.basis__t i{font-style:italic}
+.basis__em{color:var(--accent);font-weight:600}
+@media(max-width:820px){.basis__t{font-size:12.5px}}
+
+/* ---------- featured exhibit box ---------- */
+.exhibit{border:1px solid var(--ink);background:#fff;margin-top:4px}
+.exhead{display:flex;align-items:center;gap:12px;padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--paper)}
+.exlabel{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:8px}
+.exdot{width:7px;height:7px;background:var(--accent);border-radius:50%;display:inline-block}
+.excount{font-family:var(--ui);font-size:12px;color:var(--muted)}
+.excount b{color:var(--ink);font-weight:700}
+.exsp{flex:1 1 auto}
+.exhint{font-family:var(--ui);font-size:11.5px;color:var(--faint)}
+.exhead .another{padding:7px 13px}
+.exbody{padding:24px 22px 26px}
+@media(max-width:820px){.exhint{display:none}.exbody{padding:16px 13px 18px}.exhead{flex-wrap:wrap;gap:9px}}
+
+/* ---------- ten-pair gallery (abundance) ---------- */
+.gallerywrap{margin-top:30px;border-top:1px solid var(--hair);padding-top:20px}
+.gallhead{margin-bottom:14px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.gallhead .gk{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.01em}
+.gallhead .gsub{font-family:var(--ui);font-size:13px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.gbox{display:block;border:1px solid var(--hair);background:#fff;padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;transition:border-color .18s,transform .18s,box-shadow .18s}
+.gbox:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 7px 18px rgba(0,0,0,.08)}
+.gbox.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.gbox .duo{display:flex;align-items:stretch;height:74px}
+.gbox .gthumb{flex:1 1 0;min-width:0;background:#1a1f25 center/cover no-repeat;display:block;filter:saturate(1.02)}
+.gbox .gln{flex:0 0 2px;background:var(--accent)}
+.gbox .gmeta{padding:9px 11px 11px}
+.gbox .gmt{font-family:var(--serif);font-weight:700;font-size:13.5px;line-height:1.18;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gbox .gfilms{font-family:var(--ui);font-size:11px;color:var(--muted);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gbox .gfilms i{font-style:normal;color:var(--accent);margin:0 4px}
+@media(max-width:1000px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- section frame ---------- */
+.sec{padding:52px 0;border-bottom:1px solid var(--hair)}
+.sec__k{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.sec__h{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+.sec__s{font-size:16px;color:var(--ink2);max-width:64ch;margin:0 0 26px}
+
+/* concept chain */
+.phil{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+.phil .x{color:var(--faint);text-decoration:line-through;text-decoration-color:var(--hair2);font-weight:400}
+.phil .y{color:var(--accent)}
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;border:1px solid var(--hair)}
+.cnode{position:relative;padding:20px 18px 22px;border-right:1px solid var(--hair);cursor:default;transition:background .2s}
+.cnode:last-child{border-right:0}
+.cnode:hover{background:var(--paper)}
+.cnode .step{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;color:var(--faint);text-transform:uppercase}
+.cnode .nm{font-family:var(--serif);font-weight:700;font-size:21px;margin:6px 0 8px;display:flex;align-items:center;gap:8px}
+.cnode .nm .ar{color:var(--hair2);font-size:16px}
+.cnode .df{font-size:13.5px;color:var(--ink2);line-height:1.45}
+.cnode .eg{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px;padding-top:9px;border-top:1px dashed var(--hair)}
+.cnode .eg b{color:var(--ink);font-weight:600}
+.cnode.hub{background:#fff}
+.cnode.hub .nm{color:var(--accent)}
+.cnode.hub:after{content:"the hub";position:absolute;top:20px;right:16px;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--accent);padding:2px 7px}
+.regline{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.regchip{font-size:11px;color:#fff;padding:2px 8px;letter-spacing:.02em}
+@media(max-width:820px){.chain{grid-template-columns:1fr 1fr}.cnode:nth-child(2){border-right:0}}
+
+/* scale / engine */
+.scalegrid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:1px solid var(--hair)}
+.gauge{background:#fff;padding:18px 14px;text-align:left}
+.gauge .n{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.02em;line-height:1;position:relative;display:inline-block}
+.gauge .n:after{content:"";position:absolute;left:0;bottom:-7px;height:3px;width:0;background:var(--accent);transition:width 1.1s ease}
+.gauge.lit .n:after{width:26px}
+.gauge .k{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:13px}
+.method{font-size:16px;color:var(--ink2);line-height:1.55}
+.method b{color:var(--ink)}
+.method .spec{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.method .spec span{border:1px solid var(--hair);padding:3px 9px}
+@media(max-width:820px){.scalegrid{grid-template-columns:1fr;gap:26px}.gauge .n{font-size:26px}}
+
+/* constellation */
+.mapwrap{position:relative;border:1px solid var(--ink);background:#0c0e12;overflow:hidden;height:430px}
+.mapwrap canvas{display:block;width:100%;height:100%;cursor:grab}
+.mapwrap canvas:active{cursor:grabbing}
+.mapbar{position:absolute;top:12px;left:12px;right:12px;display:flex;align-items:center;gap:10px;z-index:2;pointer-events:none}
+.mapbar .ttl{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e8e3d8}
+.mapbar .sub{font-family:var(--ui);font-size:11.5px;color:#8c93a0}
+.tg{pointer-events:auto;display:flex;border:1px solid #2a2f38;margin-left:auto}
+.tg button{font-family:var(--ui);font-size:11.5px;font-weight:600;color:#aab0bd;background:transparent;border:0;padding:5px 12px;cursor:pointer}
+.tg button.on{background:#e8e3d8;color:#11141a}
+.maphint{position:absolute;bottom:11px;left:13px;font-family:var(--ui);font-size:11.5px;color:#7b828f;z-index:2;pointer-events:none}
+.mapcta{position:absolute;bottom:11px;right:13px;font-family:var(--ui);font-size:12px;font-weight:600;color:#f2554f;z-index:2}
+
+/* doors / wander */
+.doors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.door{border:1px solid var(--hair);padding:18px 16px 16px;position:relative;transition:border-color .2s,transform .2s;display:block}
+.door:hover{border-color:var(--ink);transform:translateY(-2px)}
+.door .bar{position:absolute;top:0;left:0;width:100%;height:3px}
+.door .dn{font-family:var(--serif);font-weight:700;font-size:19px;margin:6px 0 2px}
+.door .dc{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+.door .ds{font-size:13.5px;color:var(--ink2);margin:10px 0 0;min-height:38px}
+.door .sample{font-style:italic;color:var(--muted);font-size:13px;margin-top:10px;padding-top:9px;border-top:1px dashed var(--hair);min-height:34px;transition:opacity .4s}
+.door .go{font-family:var(--ui);font-size:12px;font-weight:600;color:var(--accent);margin-top:12px;display:inline-block}
+@media(max-width:900px){.doors{grid-template-columns:1fr 1fr}}
+
+.ticker{margin-top:26px;border:1px solid var(--hair);background:var(--paper);display:flex;align-items:center;gap:14px;padding:11px 16px;font-family:var(--ui);font-size:13px}
+.ticker .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.ticker .item{color:var(--ink2);transition:opacity .4s}
+.ticker .item b{font-weight:600}
+.ticker .item .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:1px 6px;margin-right:8px}
+
+/* manifesto + footer */
+.mani{padding:56px 0;border-bottom:1px solid var(--hair)}
+.mani p{font-family:var(--serif);font-size:23px;line-height:1.5;letter-spacing:-.01em;max-width:30ch;margin:0}
+.mani p .em{color:var(--accent)}
+.mani .by{font-family:var(--ui);font-size:13px;color:var(--muted);margin-top:20px}
+footer{padding:40px 0 60px}
+.fcols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.fcols h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.fcols a{display:block;font-family:var(--ui);font-size:13.5px;color:var(--ink2);padding:3px 0}
+.fcols a:hover{color:var(--accent)}
+.fbrand{font-family:var(--serif);font-weight:700;font-size:20px}
+.fbrand p{font-family:var(--ui);font-size:12.5px;color:var(--muted);max-width:34ch;margin:8px 0 0;line-height:1.5}
+.bl{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin-top:30px;border-top:1px solid var(--hair);padding-top:16px}
+@media(max-width:820px){.fcols{grid-template-columns:1fr 1fr}.mani p{font-size:20px}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<!-- ===================== FIRST LINE : THE METHOD (embeddings ≠ AI-generated content) ===================== -->
+<section class="basis">
+  <div class="basis__row">
+    <span class="glyph">▦</span>
+    <p class="basis__t"><b>Built on AI embeddings — not AI-generated content.</b> The model does not write opinions or invent films. It turns every <i>real</i> film, figure and reading into a point in meaning-space, then measures which works secretly rhyme — connections no human index would catch. <span class="basis__em">The readings are criticism; the AI is the instrument that finds them.</span></p>
+  </div>
+</section>
+
+<!-- ===================== HERO : THE UNLIKELY PAIR ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <p class="kick"><span class="dot"></span> The unlikely pair</p>
+    <h1 class="h1">Two films you'd never shelve together — and the <em>line</em> between them.</h1>
+    <p class="lead">metatake reads thousands of films as points in meaning-space, then draws the unconscious lines between them. <b>Here is one of those lines</b>, redrawn each time you look — two films that share almost nothing on the surface, and one idea underneath.</p>
+
+    <div class="exhibit">
+      <div class="exhead">
+        <span class="exlabel"><span class="exdot"></span> Featured line</span>
+        <span class="excount"><b id="exNum">01</b> / 10</span>
+        <span class="exsp"></span>
+        <span class="exhint">auto-rotates · hover to hold</span>
+        <div class="pdots" id="pdots"></div>
+        <button class="another" id="another"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> Another</button>
+      </div>
+      <div class="exbody">
+    <div class="stage" id="stage">
+      <div class="fcard left" id="cardA">
+        <a class="bd" id="bdA" href="#"><span class="ord">Film A</span></a>
+        <div class="ftitle" id="titA">—</div>
+        <div class="fmeta" id="metA">—</div>
+        <div class="fvia"><span class="v">via</span><i id="viaA">—</i></div>
+      </div>
+
+      <div class="tie" id="tie">
+        <div class="barwrap"><span class="barL" id="barL"></span><span class="barR" id="barR"></span></div>
+        <div class="knot"></div>
+        <div class="pill">
+          <div class="both">Both are really about</div>
+          <a class="mttitle" id="mtTitle" href="#">—</a>
+          <p class="mtlac" id="mtLac">—</p>
+          <a class="cta" id="mtCta" href="#">Open this reading →</a>
+        </div>
+      </div>
+
+      <div class="fcard right" id="cardB">
+        <a class="bd" id="bdB" href="#"><span class="ord">Film B</span></a>
+        <div class="ftitle" id="titB">—</div>
+        <div class="fmeta" id="metB">—</div>
+        <div class="fvia"><span class="v">via</span><i id="viaB">—</i></div>
+      </div>
+    </div>
+
+      </div><!-- /exbody -->
+    </div><!-- /exhibit -->
+
+    <div class="gallerywrap">
+      <div class="gallhead">
+        <span class="gk">Ten lines, on screen at once —</span>
+        <span class="gsub">and 152 meta-takes, 13,241 readings underneath. The map redraws every night.</span>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONCEPT : HOW A READING IS BUILT ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__k">How a reading is built</p>
+    <h2 class="phil">Not <span class="x">reviews</span>. Not <span class="x">ratings</span>. <span class="y">Readings</span>.</h2>
+    <p class="sec__s">Every line on this site is built the same way — from the single film up to the idea that gathers many of them. This chain is the whole grammar of metatake.</p>
+
+    <div class="chain">
+      <div class="cnode">
+        <div class="step">01 · where it starts</div>
+        <div class="nm">Film <span class="ar">→</span></div>
+        <div class="df">A single movie — the ground everything is read from.</div>
+        <div class="eg"><b>Black Swan</b> (2010)</div>
+      </div>
+      <div class="cnode">
+        <div class="step">02 · what it returns to</div>
+        <div class="nm">Figure <span class="ar">→</span></div>
+        <div class="df">A concrete thing the film keeps returning to — an object, a gesture, a colour, a body. A figure can be a trope.</div>
+        <div class="eg"><b>Nina's bodily mutations</b> — skin, quills, feathers</div>
+      </div>
+      <div class="cnode">
+        <div class="step">03 · the close reading</div>
+        <div class="nm">Take <span class="ar">→</span></div>
+        <div class="df">One reading of that figure, backed by evidence and filed under one of ten critical registers.</div>
+        <div class="eg"><b>Psychoanalytic</b> — the body confesses what the self denies</div>
+      </div>
+      <div class="cnode hub">
+        <div class="step">04 · the idea that gathers</div>
+        <div class="nm">Meta-take</div>
+        <div class="df">The concept that surfaces when the same reading crosses many films. The hub — and the main character of this site.</div>
+        <div class="eg"><b>The Flesh That Changes Shape</b> — across 14 films</div>
+      </div>
+    </div>
+
+    <div class="regline">Ten registers:
+      <span class="regchip" style="background:#5B8FB9">Formal</span>
+      <span class="regchip" style="background:#B8860B">Semiotic</span>
+      <span class="regchip" style="background:#A8434F">Psychoanalytic</span>
+      <span class="regchip" style="background:#C0392B">Ideological</span>
+      <span class="regchip" style="background:#2E7D5B">Politico-economic</span>
+      <span class="regchip" style="background:#7E57C2">Philosophical</span>
+      <span class="regchip" style="background:#546E7A">Existential</span>
+      <span class="regchip" style="background:#A9743B">Mythic</span>
+      <span class="regchip" style="background:#2E86C1">Film-historical</span>
+      <span class="regchip" style="background:#159A8A">Reception</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCALE / ENGINE ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="scalegrid">
+      <div>
+        <p class="sec__k">The machine underneath</p>
+        <div class="gauges" id="gauges">
+          <div class="gauge"><div class="n" data-target="567">0</div><div class="k">Films</div></div>
+          <div class="gauge"><div class="n" data-target="4626">0</div><div class="k">Figures</div></div>
+          <div class="gauge"><div class="n" data-target="13241">0</div><div class="k">Takes</div></div>
+          <div class="gauge"><div class="n" data-target="152">0</div><div class="k">Meta-takes</div></div>
+          <div class="gauge"><div class="n" data-target="96">0</div><div class="k">Tropes</div></div>
+          <div class="gauge"><div class="n" data-target="5441">0</div><div class="k">Nodes</div></div>
+        </div>
+      </div>
+      <div>
+        <p class="method"><b>A large-scale AI project.</b> Every figure, take and film becomes an <b>embedding</b> — a point in meaning-space. The model then reads the geometry: nearest neighbours by cosine distance are the <b>rhymes between films</b> that no human index would ever catch. The pair above was found exactly this way.
+          <span class="spec"><span>text-embedding-3-small</span><span>1,536 dimensions</span><span>cosine k-NN</span></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONSTELLATION ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__k">Wander the map</p>
+    <h2 class="sec__h">The constellation is alive</h2>
+    <p class="sec__s">The one place on this paper where colour is allowed to glow. Each star is a film or a figure; the lines are cosine-near neighbours. Drag to pan, scroll to zoom, click a film to travel into it.</p>
+    <div class="mapwrap">
+      <div class="mapbar">
+        <span class="ttl">Constellation</span>
+        <span class="sub" id="mapSub">film graph · cosine-near neighbours</span>
+        <span class="tg"><button id="tgFilm" class="on">Films</button><button id="tgFig">Figures</button></span>
+      </div>
+      <canvas id="cv"></canvas>
+      <div class="maphint" id="mapHint">hover a star — its neighbours light up</div>
+      <a class="mapcta" href="#">Open the full graph →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOORS / WANDER IN ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <p class="sec__k">Start anywhere</p>
+    <h2 class="sec__h">Four ways in</h2>
+    <p class="sec__s">There is no front of the book. Pull any thread — the films, the ideas that gather them, the auteurs who keep returning, or the theory behind every reading.</p>
+    <div class="doors">
+      <a class="door" href="#"><span class="bar" style="background:var(--meta)"></span>
+        <div class="dc" style="color:var(--meta)">152 hubs</div><div class="dn">Meta takes</div>
+        <p class="ds">The ideas that gather films from across decades and genres.</p>
+        <p class="sample" id="sMeta">—</p><span class="go">All meta takes →</span></a>
+      <a class="door" href="#"><span class="bar" style="background:var(--trope)"></span>
+        <div class="dc" style="color:var(--trope)">96 figure-types</div><div class="dn">Tropes</div>
+        <p class="ds">The shapes cinema keeps reaching for, again and again.</p>
+        <p class="sample" id="sTrope">—</p><span class="go">All tropes →</span></a>
+      <a class="door" href="#"><span class="bar" style="background:var(--director)"></span>
+        <div class="dc" style="color:var(--director)">auteur fingerprints</div><div class="dn">Directors</div>
+        <p class="ds">Signature readings and tropes that recur across a filmography.</p>
+        <p class="sample" id="sDir">—</p><span class="go">All directors →</span></a>
+      <a class="door" href="#"><span class="bar" style="background:var(--concept)"></span>
+        <div class="dc" style="color:var(--concept)">the theory</div><div class="dn">Concepts</div>
+        <p class="ds">The critical ideas the readings are built on.</p>
+        <p class="sample" id="sConcept">—</p><span class="go">All concepts →</span></a>
+    </div>
+
+    <div class="ticker">
+      <span class="lbl">Just added</span>
+      <span class="item" id="tickItem">—</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MANIFESTO ===================== -->
+<section class="mani">
+  <div class="wrap">
+    <p>For people who can't stop thinking about films, metatake finds the <span class="em">unconscious lines</span> between them — and hands you the thread.</p>
+    <p class="by">No reviews. No scores. No ranking what is "best." Only readings — and the connections an index would never make.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="fbrand">metatake</div>
+        <p>The unconscious lines between films. A large-scale reading of cinema as a space of meaning.</p>
+      </div>
+      <div><h4>Explore</h4><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a><a href="#">Directors</a></div>
+      <div><h4>Ideas</h4><a href="#">Meta takes</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Ask</a></div>
+      <div><h4>The project</h4><a href="#">About / manifesto</a><a href="#">How readings are written</a><a href="#">The embedding method</a></div>
+    </div>
+    <div class="bl">© 2026 metatake. This page is a design concept (시안) for the home page — built on the live metatake.net structure. Counts and specs are placeholders to be wired to live data.</div>
+  </div>
+</footer>
+
+<script>
+"use strict";
+function $(id){return document.getElementById(id);}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+var IMG="https://image.tmdb.org/t/p/";
+function bg(el,path,size){ if(!path){return;} var url=IMG+(size||"w780")+path; var im=new Image(); im.onload=function(){ el.style.backgroundImage="url("+url+")"; }; im.src=url; }
+
+/* ---------- HERO PAIRS (real metatake meta-take relationships) ---------- */
+var PAIRS=[
+ {mt:"Architecture as Social Hierarchy", lac:"Space itself ranks the bodies inside it — who climbs, and who is kept below.",
+  a:{f:"Parasite",y:2019,d:"Bong Joon Ho",fig:"the semi-basement window",bd:"/8eihUxjQsJ7WvGySkVMC0EwbPAD.jpg"},
+  b:{f:"The Favourite",y:2018,d:"Yorgos Lanthimos",fig:"the wide-angle / fisheye lenses",bd:"/iSskYDN193CJfTbSpFfscSwZ9Sx.jpg"}},
+ {mt:"Flesh Reduced to Persistence", lac:"Life narrowed to the single fact of not stopping.",
+  a:{f:"The Revenant",y:2015,d:"Alejandro G. Iñárritu",fig:"the unbroken bear-mauling shot",bd:"/mNQtUJv1F3u0uSKILFrGjIHqkxx.jpg"},
+  b:{f:"Die Hard",y:1988,d:"John McTiernan",fig:"crawling through the air ducts",bd:"/bvk2AAH64lP2YZs02Q3jskfHT8j.jpg"}},
+ {mt:"The Doubled Self as Confession", lac:"The double says what the self cannot.",
+  a:{f:"TÁR",y:2022,d:"Todd Field",fig:"Lydia Tár's disintegration",bd:"/84XcRwKHAw4VXdKOYTSW5ARxFEt.jpg"},
+  b:{f:"Three Colours: Blue",y:1993,d:"Krzysztof Kieślowski",fig:"Julie severing the past",bd:"/nAyUVvcdOKHmukdgGHZ7xR5er1q.jpg"}},
+ {mt:"Saturated Hues as Emotional Diagnosis", lac:"Colour pushed past realism until it reads as a diagnosis of a mind.",
+  a:{f:"Bad Education",y:2004,d:"Pedro Almodóvar",fig:"the saturated use of red",bd:"/wNFiDhGnrnSfyqYxzeAa8mFnUhj.jpg"},
+  b:{f:"The Neon Demon",y:2016,d:"Nicolas Winding Refn",fig:"the neon, synth-scored surfaces",bd:"/xcfjWEmSpgJe8htlg1qFTwQfPG7.jpg"}},
+ {mt:"The Sign That Refuses Meaning", lac:"An object everyone reads, and the film never explains.",
+  a:{f:"Pulp Fiction",y:1994,d:"Quentin Tarantino",fig:"the glowing briefcase",bd:"/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"},
+  b:{f:"Halloween",y:1978,d:"John Carpenter",fig:"Michael Myers's motiveless evil",bd:"/sHI9xlFRWCJ38AIIfOqnGjuEvXz.jpg"}},
+ {mt:"The Flesh That Changes Shape", lac:"A body warps, swells, or becomes beast before our eyes.",
+  a:{f:"Black Swan",y:2010,d:"Darren Aronofsky",fig:"Nina's bodily mutations",bd:"/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg"},
+  b:{f:"Videodrome",y:1983,d:"David Cronenberg",fig:"the abdominal slit",bd:"/eBS1nvaQ7BMdsSlkoLyKapf0FEY.jpg"}},
+ {mt:"The Repeating Day", lac:"He wakes to the same morning, again and again.",
+  a:{f:"Groundhog Day",y:1993,d:"Harold Ramis",fig:"the 6 a.m. clock-radio loop",bd:"/4W6RYDNe4OByNryOCvJprrutm9h.jpg"},
+  b:{f:"Run Lola Run",y:1998,d:"Tom Tykwer",fig:"the three runs",bd:"/wRcm3iwi4BeMN59U4fjO7u3dOVI.jpg"}},
+ {mt:"The Land That Does Not Care", lac:"A vast, arid country watches human suffering without pity.",
+  a:{f:"Gravity",y:2013,d:"Alfonso Cuarón",fig:"the turning Earth",bd:"/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg"},
+  b:{f:"There Will Be Blood",y:2007,d:"Paul Thomas Anderson",fig:"the sun-bleached California hills",bd:"/9UAKA6ceZi6TgQwTAAMt7DWwYPI.jpg"}},
+ {mt:"The Climactic Performance", lac:"Everything resolves on stage, in one final number.",
+  a:{f:"Whiplash",y:2014,d:"Damien Chazelle",fig:"the final drum solo",bd:"/wbQa0EnWUyRzQ5d1pHLNRlmsCUP.jpg"},
+  b:{f:"Bohemian Rhapsody",y:2018,d:"Bryan Singer",fig:"the Live Aid reenactment",bd:"/dcvbs8z0GEXslC1kCT77x19XDeR.jpg"}},
+ {mt:"The Monstrous-Feminine", lac:"The feminine rendered as something to fear — and the film knows it.",
+  a:{f:"Carrie",y:1976,d:"Brian De Palma",fig:"the prom-night blood",bd:"/zwJFfKQdfiptK2GY6N8GkZFrAxJ.jpg"},
+  b:{f:"The Girl with the Needle",y:2024,d:"Magnus von Horn",fig:"Dagmar, the fairy-tale ogress",bd:"/uwACVNL5OpiI3oT72DVGxnU4SRV.jpg"}}
+];
+
+var pIdx=0, holding=false, pairTimer=null;
+function renderPair(i,animate){
+  var p=PAIRS[i];
+  var tie=$("tie");
+  function fill(){
+    $("titA").textContent=p.a.f; $("metA").textContent=p.a.y+" · "+p.a.d; $("viaA").textContent=p.a.fig;
+    $("titB").textContent=p.b.f; $("metB").textContent=p.b.y+" · "+p.b.d; $("viaB").textContent=p.b.fig;
+    $("mtTitle").textContent=p.mt; $("mtLac").textContent="“"+p.lac+"”";
+    $("bdA").style.backgroundImage=""; $("bdB").style.backgroundImage="";
+    bg($("bdA"),p.a.bd,"w780"); bg($("bdB"),p.b.bd,"w780");
+    $("cardA").classList.remove("swap"); $("cardB").classList.remove("swap");
+    // re-draw the connecting line from behind the meta-take out to each film
+    tie.classList.remove("draw");
+    requestAnimationFrame(function(){ placeBars(); requestAnimationFrame(function(){ tie.classList.add("draw"); }); });
+    renderDots();
+    var num=i+1; $("exNum").textContent=(num<10?"0":"")+num;
+    var gbs=document.querySelectorAll("#gallery .gbox");
+    for(var z=0;z<gbs.length;z++){ gbs[z].classList.toggle("active",z===i); }
+  }
+  if(animate){
+    $("cardA").classList.add("swap"); $("cardB").classList.add("swap");
+    setTimeout(fill,260);
+  } else { fill(); }
+}
+function renderDots(){
+  var box=$("pdots"), html="";
+  for(var i=0;i<PAIRS.length;i++){ html+='<i data-i="'+i+'" class="'+(i===pIdx?"on":"")+'"></i>'; }
+  box.innerHTML=html;
+  var dots=box.querySelectorAll("i");
+  for(var j=0;j<dots.length;j++){ dots[j].addEventListener("click",function(){ pIdx=+this.getAttribute("data-i"); renderPair(pIdx,true); resetTimer(); }); }
+}
+function renderGallery(){
+  var box=$("gallery"), html="";
+  for(var i=0;i<PAIRS.length;i++){ var p=PAIRS[i];
+    html+='<button class="gbox" data-i="'+i+'">'
+      +'<div class="duo"><span class="gthumb" data-bd="'+p.a.bd+'"></span><span class="gln"></span><span class="gthumb" data-bd="'+p.b.bd+'"></span></div>'
+      +'<div class="gmeta"><div class="gmt">'+esc(p.mt)+'</div><div class="gfilms">'+esc(p.a.f)+' <i>⟷</i> '+esc(p.b.f)+'</div></div>'
+      +'</button>';
+  }
+  box.innerHTML=html;
+  var thumbs=box.querySelectorAll(".gthumb");
+  for(var t=0;t<thumbs.length;t++){ bg(thumbs[t], thumbs[t].getAttribute("data-bd"), "w300"); }
+  var gbs=box.querySelectorAll(".gbox");
+  for(var g=0;g<gbs.length;g++){ gbs[g].addEventListener("click",function(){ pIdx=+this.getAttribute("data-i"); renderPair(pIdx,true); resetTimer(); var ex=document.querySelector(".exhibit"); if(ex&&ex.scrollIntoView) ex.scrollIntoView({behavior:"smooth",block:"center"}); }); }
+}
+function nextPair(){ pIdx=(pIdx+1)%PAIRS.length; renderPair(pIdx,true); }
+function resetTimer(){ if(pairTimer)clearInterval(pairTimer); pairTimer=setInterval(function(){ if(!holding) nextPair(); },9000); }
+$("another").addEventListener("click",function(){ nextPair(); resetTimer(); });
+$("stage").addEventListener("mouseenter",function(){ holding=true; });
+$("stage").addEventListener("mouseleave",function(){ holding=false; });
+renderGallery();
+pIdx=Math.floor(Math.random()*PAIRS.length);
+renderPair(pIdx,false); resetTimer();
+// align the connector bars to the meta-take's vertical centre, reaching out to each film card
+function placeBars(){
+  var tie=$("tie"), bdA=$("bdA"), bdB=$("bdB"), mt=$("mtTitle"), wrap=document.querySelector(".barwrap");
+  if(!tie||!wrap||!bdA) return;
+  var tr=tie.getBoundingClientRect(), ar=bdA.getBoundingClientRect(), brr=bdB.getBoundingClientRect(), mr=mt.getBoundingClientRect();
+  var y=(mr.top - tr.top)+mr.height/2;            // centre of the meta-take title
+  wrap.style.top=y+"px";
+  var halfTie=tr.width/2;
+  var leftReach = halfTie + (tr.left - ar.right) + ar.width*0.4;   // into film A
+  var rightReach= halfTie + (brr.left - tr.right) + brr.width*0.4; // into film B
+  var bl=$("barL"), br=$("barR");
+  bl.style.right="50%"; bl.style.width=Math.max(40,leftReach)+"px";
+  br.style.left="50%";  br.style.width=Math.max(40,rightReach)+"px";
+}
+window.addEventListener("resize",placeBars);
+setTimeout(placeBars,400);
+setTimeout(placeBars,1200);
+
+/* ---------- COUNTERS ---------- */
+function fmt(n){return n.toLocaleString("en-US");}
+var counted=false;
+function runCounters(){
+  if(counted)return; counted=true;
+  var gs=document.querySelectorAll("#gauges .n");
+  for(var i=0;i<gs.length;i++){
+    (function(el){
+      var target=+el.getAttribute("data-target"), t0=performance.now(), dur=1100+Math.random()*600;
+      el.parentNode.classList.add("lit");
+      (function step(now){ var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=fmt(Math.round(target*e)); if(p<1) requestAnimationFrame(step); })(performance.now());
+    })(gs[i]);
+  }
+  setTimeout(liveTick,2600);
+}
+function liveTick(){
+  var gs=document.querySelectorAll("#gauges .n");
+  var idx=Math.random()<.6?2:5; // Takes or Nodes
+  var el=gs[idx]; if(el){ var cur=+el.getAttribute("data-target")+(Math.random()<.5?1:2); el.setAttribute("data-target",cur); el.textContent=fmt(cur); }
+  setTimeout(liveTick,3500+Math.random()*5000);
+}
+var scaleObs=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting) runCounters(); }); },{threshold:.4});
+scaleObs.observe($("gauges"));
+
+/* ---------- DOORS: rotating samples ---------- */
+var S_META=["Architecture as Social Hierarchy — across 9 films","The Flesh That Changes Shape — across 14 films","The Doubled Self as Confession — across 7 films","Saturated Hues as Emotional Diagnosis — across 6 films"];
+var S_TROPE=["The Repeating Day — he wakes to the same morning, again and again.","The Land That Does Not Care — a vast country watches suffering without pity.","The Climactic Performance — everything resolves on stage in one final number."];
+var S_DIR=["Bong Joon Ho — architecture & the tonal whiplash, across the filmography","Yorgos Lanthimos — the fisheye, the decaying body, the cruel game","George Miller — the prosthetic, the body under custodial power"];
+var S_CONCEPT=["The Uncanny — the strangely familiar, when the dead seem to look back.","The Gaze — who gets to look, and the power that decides.","Commodity Fetishism — value that hides the labour behind it.","Intertextuality — a film built entirely from quotation."];
+function rotator(id,arr){ var el=$(id), k=Math.floor(Math.random()*arr.length); el.textContent=arr[k]; setInterval(function(){ k=(k+1)%arr.length; el.style.opacity=0; setTimeout(function(){ el.textContent=arr[k]; el.style.opacity=1; },360); }, 5200+Math.random()*1500); }
+rotator("sMeta",S_META); rotator("sTrope",S_TROPE); rotator("sDir",S_DIR); rotator("sConcept",S_CONCEPT);
+
+/* ---------- JUST ADDED ticker ---------- */
+var ADDED=[
+ {t:"Meta take",c:"#E3120B",x:"The Displaced Wound",s:"the ache that pours into the wall instead"},
+ {t:"Trope",c:"#167C6B",x:"The Land That Does Not Care",s:"now across 11 films"},
+ {t:"Reading",c:"#A8434F",x:"Gravity",s:"the turning Earth, indifferent to the woman above it"},
+ {t:"Meta take",c:"#E3120B",x:"The Monstrous-Feminine",s:"the fairy-tale ogress, reread"},
+ {t:"Concept",c:"#2E6F8E",x:"Posthumanism & New Materialism",s:"bodies fused with machines and matter"}
+];
+var tk=0;
+function tick(){ var d=ADDED[tk%ADDED.length]; $("tickItem").style.opacity=0; setTimeout(function(){ $("tickItem").innerHTML='<span class="t" style="background:'+d.c+'">'+esc(d.t)+'</span><b>'+esc(d.x)+'</b> — '+esc(d.s); $("tickItem").style.opacity=1; },360); tk++; }
+tick(); setInterval(tick,7000);
+
+/* ---------- CONSTELLATION (canvas) ---------- */
+(function(){
+  var cv=$("cv"), ctx=cv.getContext("2d"), DPR=Math.min(2,window.devicePixelRatio||1);
+  var W=0,H=0;
+  function size(){ var r=cv.getBoundingClientRect(); W=r.width; H=r.height; cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  // build graph from PAIRS: film nodes + meta nodes (film–meta), figure mode inserts figure nodes
+  var films={}, metas={}, figs={}, nodes=[], links=[];
+  function addFilm(f){ if(!films[f]){ films[f]={id:f,label:f,type:"film",deg:0}; } return films[f]; }
+  function addMeta(m){ if(!metas[m]){ metas[m]={id:"M:"+m,label:m,type:"meta",deg:0}; } return metas[m]; }
+  function addFig(g){ if(!figs[g]){ figs[g]={id:"F:"+g,label:g,type:"figure",deg:0}; } return figs[g]; }
+  var mode="film";
+  function build(){
+    films={};metas={};figs={};nodes=[];links=[];
+    PAIRS.forEach(function(p){
+      var fa=addFilm(p.a.f), fb=addFilm(p.b.f), m=addMeta(p.mt);
+      if(mode==="film"){
+        links.push({a:fa,b:m}); links.push({a:fb,b:m});
+      } else {
+        var ga=addFig(p.a.fig+" · "+p.a.f), gb=addFig(p.b.fig+" · "+p.b.f);
+        links.push({a:fa,b:ga}); links.push({a:ga,b:m});
+        links.push({a:fb,b:gb}); links.push({a:gb,b:m});
+      }
+    });
+    var dict=mode==="film"?{}:{};
+    [films,metas,figs].forEach(function(D){ for(var k in D){ nodes.push(D[k]); } });
+    links.forEach(function(l){ l.a.deg++; l.b.deg++; });
+    // seed positions on a soft circle by type
+    var cx=W/2, cy=H/2, R=Math.min(W,H)*0.34;
+    nodes.forEach(function(n,i){
+      var ang=(i/nodes.length)*Math.PI*2 + (n.type==="meta"?0.3:0);
+      var rr=n.type==="meta"?R*0.45:R*(0.85+Math.random()*0.3);
+      n.x=cx+Math.cos(ang)*rr+(Math.random()-0.5)*40;
+      n.y=cy+Math.sin(ang)*rr+(Math.random()-0.5)*40;
+      n.vx=0;n.vy=0; n.bx=n.x;n.by=n.y; n.ph=Math.random()*Math.PI*2;
+    });
+  }
+  function radius(n){ return n.type==="meta"?6.5:n.type==="figure"?4:5+Math.min(4,n.deg); }
+  function col(n,lit){
+    if(n.type==="meta") return lit?"#ff6a64":"rgba(242,85,79,.85)";
+    if(n.type==="figure") return lit?"#7fe0d6":"rgba(79,182,173,.8)";
+    return lit?"#f2efe6":"rgba(233,228,216,.82)";
+  }
+  // view transform (pan/zoom)
+  var k=1,tx=0,ty=0;
+  var hover=null;
+  function neighborsOf(n){ var s={}; s[n.id]=1; links.forEach(function(l){ if(l.a===n)s[l.b.id]=1; if(l.b===n)s[l.a.id]=1; }); return s; }
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    ctx.save(); ctx.translate(tx,ty); ctx.scale(k,k);
+    var nb=hover?neighborsOf(hover):null;
+    // links
+    links.forEach(function(l){
+      var lit=nb&&(nb[l.a.id]&&nb[l.b.id]);
+      ctx.beginPath(); ctx.moveTo(l.a.x,l.a.y); ctx.lineTo(l.b.x,l.b.y);
+      ctx.strokeStyle= lit? "rgba(242,85,79,.5)" : "rgba(150,150,160,.13)";
+      ctx.lineWidth=(lit?1.4:0.8)/k; ctx.stroke();
+    });
+    // nodes
+    nodes.forEach(function(n){
+      var lit=!nb||nb[n.id];
+      var r=radius(n);
+      if(hover===n){ ctx.beginPath(); ctx.arc(n.x,n.y,r+5,0,7); ctx.fillStyle="rgba(242,85,79,.18)"; ctx.fill(); }
+      ctx.beginPath(); ctx.arc(n.x,n.y,r,0,7); ctx.fillStyle=col(n,hover===n); ctx.globalAlpha=lit?1:0.25; ctx.fill(); ctx.globalAlpha=1;
+      if(n.type==="meta"||hover===n){
+        ctx.font="600 11px Inter, sans-serif"; ctx.fillStyle=lit?"#e8e3d8":"rgba(232,227,216,.3)"; ctx.textAlign="left";
+        ctx.fillText(n.label.length>26?n.label.slice(0,25)+"…":n.label, n.x+r+5, n.y+3);
+      }
+    });
+    ctx.restore();
+  }
+  function tickAnim(t){
+    nodes.forEach(function(n){ n.ph+=0.008; n.x=n.bx+Math.cos(n.ph)*6; n.y=n.by+Math.sin(n.ph*0.9)*6; });
+    draw(t); requestAnimationFrame(tickAnim);
+  }
+  // interactions
+  function toLocal(ev){ var r=cv.getBoundingClientRect(); return {x:(ev.clientX-r.left-tx)/k, y:(ev.clientY-r.top-ty)/k, sx:ev.clientX-r.left, sy:ev.clientY-r.top}; }
+  function hitTest(p){ var best=null,bd=18; nodes.forEach(function(n){ var d=Math.hypot(n.x-p.x,n.y-p.y); if(d<bd){bd=d;best=n;} }); return best; }
+  cv.addEventListener("mousemove",function(ev){ if(dragging){ tx=dragStart.tx+(ev.clientX-dragStart.x); ty=dragStart.ty+(ev.clientY-dragStart.y); return; } var p=toLocal(ev); hover=hitTest(p); $("mapHint").textContent=hover?(hover.type+" · "+hover.label):"hover a star — its neighbours light up"; });
+  var dragging=false,dragStart=null;
+  cv.addEventListener("mousedown",function(ev){ dragging=true; dragStart={x:ev.clientX,y:ev.clientY,tx:tx,ty:ty}; });
+  window.addEventListener("mouseup",function(){ dragging=false; });
+  cv.addEventListener("mouseleave",function(){ hover=null; });
+  cv.addEventListener("wheel",function(ev){ ev.preventDefault(); var r=cv.getBoundingClientRect(); var px=ev.clientX-r.left, py=ev.clientY-r.top; var fac=ev.deltaY<0?1.1:0.9; var nk=Math.max(0.5,Math.min(2.4,k*fac)); var wx=(px-tx)/k, wy=(py-ty)/k; k=nk; tx=px-wx*k; ty=py-wy*k; },{passive:false});
+  cv.addEventListener("click",function(ev){ if(dragStart&&(Math.abs(ev.clientX-dragStart.x)>4||Math.abs(ev.clientY-dragStart.y)>4))return; var p=toLocal(ev); var n=hitTest(p); if(n&&n.type==="film"){ var cx=W/2,cy=H/2; tx=0;ty=0;k=1; nodes.forEach(function(m){ m.bx=cx+(m.bx-n.bx)*0.7; m.by=cy+(m.by-n.by)*0.7; }); } });
+  function setMode(m){ mode=m; $("tgFilm").classList.toggle("on",m==="film"); $("tgFig").classList.toggle("on",m==="figure"); $("mapSub").textContent=(m==="film"?"film graph":"figure graph")+" · cosine-near neighbours"; build(); }
+  $("tgFilm").addEventListener("click",function(){ setMode("film"); });
+  $("tgFig").addEventListener("click",function(){ setMode("figure"); });
+  size(); build(); requestAnimationFrame(tickAnim);
+  window.addEventListener("resize",function(){ size(); build(); });
+})();
+</script>
+</body>
+</html>

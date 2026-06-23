@@ -27,7 +27,7 @@ and the brand assets (`filmcurio-*.svg/.png`, `favicon.*`, `apple-touch-icon.png
    - Build a **root layout** with the global header + footer exactly per `ref-chrome.html`:
      header logo = `filmcurio-wordmark.svg` (links home); footer = About / Contact / Community
      guidelines / Terms / Privacy links, company line (FilmCurio · address placeholder ·
-     channel.wonwoo@gmail.com), the **TMDB attribution** sentence, and "© 2026 FilmCurio."
+     wonwoo@metatake.net), the **TMDB attribution** sentence, and "© 2026 FilmCurio."
 4. **Brand assets:** copy every `filmcurio-*` and `favicon.*` / `apple-touch-icon.png` /
    `icon-192.png` / `icon-512.png` into `/public`. Create `site.webmanifest` (name "FilmCurio",
    icons 192 + 512, `theme_color #16233F`, `background_color #FBF8F1`). Wire all icon `<link>`s

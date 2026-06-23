@@ -51,4 +51,4 @@ at once. (Full detail map: `00-INDEX.md`.)
 ### One-line status
 Brand, design tokens, all reference screens, the `/about` page, and every spec/mission/doc are on
 the FilmCurio system (navy + ivory, marigold/teal, Reddit Sans; mark + wordmark). Contact email:
-**channel.wonwoo@gmail.com**. Domain: **filmcurio.com**.
+**wonwoo@metatake.net**. Domain: **filmcurio.com**.

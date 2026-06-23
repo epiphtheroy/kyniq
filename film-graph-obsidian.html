@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metatake — Film graph (Obsidian-style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0c10;--ink:#e9e4d8;--ink2:#9aa0a8;--ink3:#5b6068;--line:rgba(233,228,216,.12);
+  --film:#e8e2d4;--figure:#c9b79a;--reading:#e0a34a;--trope:#4fb6ad;--accent:#f0b65f;
+  --ui:'Inter',system-ui,sans-serif;--serif:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;height:100vh;overflow:hidden;background:radial-gradient(120% 100% at 50% 35%,#101117,#080809);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap;z-index:10}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font:600 15px/1 var(--ui);letter-spacing:.16em}
+.brand span{font:400 12px/1 var(--ui);color:var(--ink2)}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tools input{height:34px;width:210px;background:#15161c;border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:0 12px 0 30px;font:400 13px var(--ui);outline:none}
+.tools input:focus{border-color:var(--accent)}
+.search{position:relative}.search .m{position:absolute;left:10px;top:8px;color:var(--ink3)}
+.btn{height:34px;background:#15161c;border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:0 13px;font:500 12px/1 var(--ui);cursor:pointer;transition:.18s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.stage{position:relative;flex:1;overflow:hidden;cursor:grab}
+.stage.drag{cursor:grabbing}
+#world{position:absolute;left:0;top:0;transform-origin:0 0}
+#lines{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.gnode{position:absolute;transform:translate(-50%,-50%);cursor:pointer;transition:opacity .25s}
+.gnode .dot{border-radius:50%;margin:0 auto;transition:box-shadow .2s,transform .2s,background .2s}
+.gnode:hover .dot{transform:scale(1.18)}
+.gnode .lbl{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;
+  font:500 12px/1.1 var(--ui);text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.8);transition:color .2s,opacity .2s}
+.gnode.dim{opacity:.12}
+.gnode.film .dot{background:var(--film)}
+.gnode.film .lbl{color:var(--film)}
+.gnode.center .dot{background:var(--accent);box-shadow:0 0 0 4px rgba(240,182,95,.16),0 0 26px rgba(240,182,95,.4)}
+.gnode.center .lbl{color:#fff;font:500 15px/1.1 var(--serif)}
+.gnode.figure .dot{background:var(--figure)}
+.gnode.figure .lbl{color:var(--figure)}
+.gnode.reading .dot{background:var(--reading)}
+.gnode.reading .lbl{color:#e7b56e}
+.gnode.trope .dot{background:var(--trope)}
+.gnode.trope .lbl{color:#79d2c9}
+.gnode.leaf .lbl{color:var(--ink2);font-weight:400}
+.gnode.leaf.seed .dot{box-shadow:0 0 0 3px rgba(240,182,95,.25)}
+.gnode.leaf.seed .lbl{color:#cdb892}
+.gnode.sel .dot{box-shadow:0 0 0 4px rgba(255,255,255,.18),0 0 18px rgba(255,255,255,.25)}
+
+.hud{position:absolute;left:16px;top:14px;z-index:6;pointer-events:none;max-width:60%}
+.crumb{display:flex;gap:6px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+.crumb a{font:500 12px/1 var(--ui);color:var(--ink2);background:rgba(12,13,18,.7);border:1px solid var(--line);border-radius:7px;padding:6px 9px;cursor:pointer}
+.crumb a.now{color:var(--accent);border-color:rgba(240,182,95,.4)}
+.crumb span{color:var(--ink3)}
+.panel{position:absolute;left:16px;bottom:16px;z-index:6;width:300px;background:rgba(11,12,16,.92);border:1px solid var(--line);border-radius:12px;padding:14px 15px;backdrop-filter:blur(8px)}
+.panel .k{font:500 10px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.panel .nm{font:500 17px/1.25 var(--serif);margin:7px 0 2px}
+.panel .meta{font:400 12.5px/1.5 var(--ui);color:var(--ink2)}
+.panel .act{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.panel .act a{font:500 11px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:9px 11px;cursor:pointer;transition:.18s}
+.panel .act a:hover{border-color:var(--accent);color:var(--accent)}
+.legend{position:absolute;right:16px;bottom:16px;z-index:6;display:flex;flex-direction:column;gap:7px;pointer-events:none;background:rgba(11,12,16,.6);padding:11px 13px;border-radius:10px}
+.legend span{display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--ui);color:var(--ink2)}
+.legend i{width:9px;height:9px;border-radius:50%}
+.zoom{position:absolute;right:16px;top:14px;z-index:6;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:rgba(21,22,28,.85);color:var(--ink);font-size:15px;cursor:pointer}
+.zoom button:hover{border-color:var(--accent);color:var(--accent)}
+.hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:5;font:400 12px/1 var(--ui);color:var(--ink3);pointer-events:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><b>METATAKE</b><span>film graph · explore the connections</span></div>
+  <div class="tools">
+    <div class="search"><span class="m">⌕</span><input id="film-input" list="film-list" placeholder="Jump to a film…" autocomplete="off"></div>
+    <datalist id="film-list"></datalist>
+    <button class="btn" id="random">🎲 Random</button>
+    <button class="btn" id="recenter">Recenter</button>
+  </div>
+</header>
+<div class="stage" id="stage">
+  <div id="world"><svg id="lines"></svg></div>
+  <div class="hud"><div class="crumb" id="crumb"></div></div>
+  <div class="zoom"><button id="zin">+</button><button id="zout">−</button></div>
+  <div class="panel" id="panel"></div>
+  <div class="legend">
+    <span><i style="background:var(--film)"></i>film</span>
+    <span><i style="background:var(--figure)"></i>figure</span>
+    <span><i style="background:var(--reading)"></i>reading · meta-take</span>
+    <span><i style="background:var(--trope)"></i>trope</span>
+  </div>
+  <div class="hint">hover to focus · drag to pan · scroll to zoom · click a film to travel into it</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+const SEED={"300-2006":{"title":"300","bd":"/lgBZlJ1LHQel5nneNQMoesmvc7l.jpg","year":2006,"figures":[{"label":"The character arc and political role of Queen Gorgo","slug":"the-character-arc-and-political-role-of-queen-gorgo","hubs":[{"kind":"reading","title":"The Patriarchal Bargain","slug":"patriarchal-bargain","n":58,"films":["dogville-2003","farewell-my-lovely-1975","top-gun-maverick-2022","the-incredibles-2004"]},{"kind":"trope","title":"The Casting-Couch Ultimatum","slug":"the-casting-couch-ultimatum","n":3,"films":["nightcrawler-2014","amadeus-1984"]}]},{"label":"The depiction of Xerxes and the Persian army","slug":"the-depiction-of-xerxes-and-the-persian-army","hubs":[{"kind":"reading","title":"The Monstrous-Feminine","slug":"the-monstrous-feminine","n":42,"films":["minority-report-2002","crouching-tiger-hidden-dragon-2000","who-framed-roger-rabbit-1988","betty-blue-1986"]}]},{"label":"The film's deliberate and stylized historical inaccuracies","slug":"the-film-s-deliberate-and-stylized-historical-inaccuracies","hubs":[{"kind":"reading","title":"Generic Transformation","slug":"generic-transformation","n":51,"films":["crouching-tiger-hidden-dragon-2000","kill-bill-vol-1-2003","anora-2024","mrs-doubtfire-1993"]}]},{"label":"The film's direct visual replication of panels from Frank Miller's graphic novel","slug":"the-film-s-direct-visual-replication-of-panels-from-frank-mi","hubs":[{"kind":"reading","title":"Spirit Over Letter Adaptations","slug":"spirit-over-letter-adaptations","n":66,"films":["closer-2004","farewell-my-lovely-1975","wuthering-heights-2011","harry-potter-and-the-prisoner-of-azkaban-2004"]},{"kind":"trope","title":"The Painted World","slug":"the-painted-world","n":47,"films":["dogville-2003","miller-s-crossing-1990","farewell-my-lovely-1975","moneyball-2011"]}]},{"label":"The film's overall visual style and glorification of violence","slug":"the-film-s-overall-visual-style-and-glorification-of-violenc","hubs":[{"kind":"reading","title":"Secular Transcendence in Objects","slug":"secular-transcendence-in-objects","n":62,"films":["wuthering-heights-2011","starship-troopers-1997","american-honey-2016","collateral-2004"]},{"kind":"trope","title":"The Hero's Final Stand","slug":"the-hero-s-final-stand","n":17,"films":["terminator-2-judgment-day-1991","beauty-and-the-beast-1991","the-hunger-games-2012","a-quiet-place-2018"]}]}]},"black-swan-2010":{"title":"Black Swan","bd":"/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg","year":2010,"figures":[{"label":"Nina's bodily mutations (skin rashes, feathers, bleeding)","slug":"nina-s-bodily-mutations-skin-rashes-feathers-bleeding","hubs":[{"kind":"reading","title":"The Cage of Promised Fulfillment","slug":"the-cage-of-promised-fulfillment","n":57,"films":["the-favourite-2018","invisible-life-2019","loveless-2017","starship-troopers-1997"]},{"kind":"trope","title":"The Flesh That Changes Shape","slug":"the-flesh-that-changes-shape","n":11,"films":["tropical-malady-2004","nightcrawler-2014","videodrome-1983","fight-club-1999"]}]},{"label":"Nina's visions of her doppelgänger, particularly the digitally-rendered transformations.","slug":"nina-s-visions-of-her-doppelg-nger-particularly-the-digitall","hubs":[{"kind":"reading","title":"The Doubled Self As Confession","slug":"the-doubled-self-as-confession","n":47,"films":["kill-bill-vol-1-2003","the-others-2001","scarface-1983","t-r-2022"]},{"kind":"trope","title":"The Flesh That Changes Shape","slug":"the-flesh-that-changes-shape","n":11,"films":["tropical-malady-2004","nightcrawler-2014","videodrome-1983","fight-club-1999"]}]},{"label":"The extreme physical discipline and technological/animalistic transformation of Nina's body.","slug":"the-extreme-physical-discipline-and-technological-animalisti","hubs":[{"kind":"reading","title":"The Excess of Jouissance","slug":"jouissance","n":50,"films":["dogville-2003","the-raid-2011","crouching-tiger-hidden-dragon-2000","the-favourite-2018"]},{"kind":"trope","title":"The Flesh That Changes Shape","slug":"the-flesh-that-changes-shape","n":11,"films":["tropical-malady-2004","nightcrawler-2014","videodrome-1983","fight-club-1999"]}]},{"label":"The final on-stage transformation sequence","slug":"the-final-on-stage-transformation-sequence","hubs":[{"kind":"reading","title":"Camera-Coupled Bodily Motion","slug":"camera-coupled-bodily-motion","n":54,"films":["crouching-tiger-hidden-dragon-2000","wuthering-heights-2011","saltburn-2023","kill-bill-vol-1-2003"]},{"kind":"trope","title":"The Flesh That Changes Shape","slug":"the-flesh-that-changes-shape","n":11,"films":["tropical-malady-2004","nightcrawler-2014","videodrome-1983","fight-club-1999"]}]},{"label":"The final performance sequence, where Nina's transformation is complete.","slug":"the-final-performance-sequence-where-nina-s-transformation-i","hubs":[{"kind":"reading","title":"Saturated Hues as Emotional Diagnosis","slug":"saturated-hues-as-emotional-diagnosis","n":84,"films":["miller-s-crossing-1990","invisible-life-2019","guardians-of-the-galaxy-2014","betty-blue-1986"]},{"kind":"trope","title":"The Climactic Performance","slug":"the-climactic-performance","n":16,"films":["moneyball-2011","dead-poets-society-1989","bohemian-rhapsody-2018","schindler-s-list"]}]}]},"gravity-2013":{"title":"Gravity","bd":"/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg","year":2013,"figures":[{"label":"The depiction of the Kessler Syndrome chain reaction.","slug":"the-depiction-of-the-kessler-syndrome-chain-reaction","hubs":[{"kind":"reading","title":"Parallel-Timeline Suspense Editing","slug":"parallel-timeline-suspense-editing","n":29,"films":["mrs-doubtfire-1993","uncut-gems-2019","la-haine-1995","boyhood-2014"]}]},{"label":"The film's use of long takes and first-person point-of-view shots","slug":"the-film-s-use-of-long-takes-and-first-person-point-of-view-","hubs":[{"kind":"reading","title":"Lens and Texture as Tactile Tools","slug":"lens-and-texture-as-tactile-tools","n":65,"films":["the-raid-2011","invisible-life-2019","wuthering-heights-2011","top-gun-maverick-2022"]},{"kind":"trope","title":"The Unbroken Opening Shot","slug":"the-unbroken-opening-shot","n":6,"films":["boogie-nights-1997","pride-prejudice-2005","room-2015","the-silence-of-the-lambs-1991"]}]},{"label":"The Kessler Syndrome debris storm that initiates the disaster","slug":"the-kessler-syndrome-debris-storm-that-initiates-the-disaste","hubs":[{"kind":"reading","title":"Secular Transcendence in Objects","slug":"secular-transcendence-in-objects","n":62,"films":["wuthering-heights-2011","starship-troopers-1997","american-honey-2016","collateral-2004"]}]},{"label":"The recurring, awe-inspiring shots of Planet Earth","slug":"the-recurring-awe-inspiring-shots-of-planet-earth","hubs":[{"kind":"reading","title":"The Indifferent Landscape","slug":"the-indifferent-landscape","n":58,"films":["the-favourite-2018","wuthering-heights-2011","loveless-2017","black-2005"]},{"kind":"trope","title":"The Land That Does Not Care","slug":"the-land-that-does-not-care","n":11,"films":["wuthering-heights-2011","bacurau-2019","il-nostro-mare-2016","there-will-be-blood-2007"]}]},{"label":"The sound design during the initial debris collision sequence.","slug":"the-sound-design-during-the-initial-debris-collision-sequenc","hubs":[{"kind":"reading","title":"Secular Transcendence in Objects","slug":"secular-transcendence-in-objects","n":62,"films":["wuthering-heights-2011","starship-troopers-1997","american-honey-2016","collateral-2004"]}]}]},"joker-2019":{"title":"Joker","bd":"/rlay2M5QYvi6igbGcFjq8jxeusY.jpg","year":2019,"figures":[{"label":"Arthur's forced therapy sessions and subsequent funding cuts.","slug":"arthur-s-forced-therapy-sessions-and-subsequent-funding-cuts","hubs":[{"kind":"reading","title":"Flesh Reduced To Persistence","slug":"flesh-reduced-to-persistence","n":59,"films":["timbuktu-2014","die-hard-1988","v-for-vendetta-2005","the-secret-in-their-eyes-2009"]}]},{"label":"The \"Kill the Rich\" protest movement adopting the clown mask.","slug":"the-kill-the-rich-protest-movement-adopting-the-clown-mask","hubs":[{"kind":"reading","title":"The Dead-End Grind","slug":"the-dead-end-grind","n":54,"films":["who-framed-roger-rabbit-1988","wuthering-heights-2011","american-honey-2016","the-incredibles-2004"]},{"kind":"trope","title":"The Rising Of The Trampled","slug":"the-rising-of-the-trampled","n":3,"films":["us-2019","fantastic-mr-fox-2009"]}]},{"label":"The character of Sophie Dumond and her role in the narrative.","slug":"the-character-of-sophie-dumond-and-her-role-in-the-narrative","hubs":[{"kind":"reading","title":"The Displaced Wound","slug":"the-displaced-wound","n":42,"films":["who-framed-roger-rabbit-1988","the-favourite-2018","dead-poets-society-1989","bohemian-rhapsody-2018"]},{"kind":"trope","title":"The Lying Mouth","slug":"the-lying-mouth","n":27,"films":["the-others-2001","a-christmas-story-1983","bad-education-2004","funny-games-1997"]}]},{"label":"The main cello theme in Hildur Guðnadóttir's score.","slug":"the-main-cello-theme-in-hildur-gu-nad-ttir-s-score","hubs":[{"kind":"reading","title":"Score As Standalone Signature","slug":"score-as-standalone-signature","n":66,"films":["the-raid-2011","the-favourite-2018","guardians-of-the-galaxy-2014","raiders-of-the-lost-ark-1981"]}]},{"label":"The steep, long outdoor stairs Arthur frequently traverses.","slug":"the-steep-long-outdoor-stairs-arthur-frequently-traverses","hubs":[{"kind":"reading","title":"Architecture as Social Hierarchy","slug":"architecture-as-social-hierarchy","n":64,"films":["the-raid-2011","the-favourite-2018","invisible-life-2019","betty-blue-1986"]}]}]},"pulp-fiction-1994":{"title":"Pulp Fiction","bd":"/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg","year":1994,"figures":[{"label":"Jack Rabbit Slim's restaurant scene","slug":"jack-rabbit-slim-s-restaurant-scene","hubs":[{"kind":"reading","title":"Inherited Visual Grammar","slug":"inherited-visual-grammar","n":57,"films":["moneyball-2011","saltburn-2023","kill-bill-vol-1-2003","the-others-2001"]}]},{"label":"The accidental shooting of Marvin in the car","slug":"the-accidental-shooting-of-marvin-in-the-car","hubs":[{"kind":"reading","title":"Unmoved Camera And Indifferent Nature","slug":"unmoved-camera-and-indifferent-nature","n":63,"films":["dogville-2003","wuthering-heights-2011","amour-2012","loveless-2017"]},{"kind":"trope","title":"The Gun That Went Off","slug":"the-gun-that-went-off","n":3,"films":["timbuktu-2014","babel-2006"]}]},{"label":"The briefcase with the glowing contents","slug":"the-briefcase-with-the-glowing-contents","hubs":[{"kind":"reading","title":"The Sign That Refuses Meaning","slug":"the-sign-that-refuses-meaning","n":59,"films":["miller-s-crossing-1990","guardians-of-the-galaxy-2014","harry-potter-and-the-prisoner-of-azkaban-2004","boogie-nights-1997"]},{"kind":"trope","title":"The Coveted Container","slug":"the-coveted-container","n":4,"films":["wall-e-2008","the-revenant-2015","black-panther-2018"]}]},{"label":"The dynamic between Vincent Vega and Jules Winnfield","slug":"the-dynamic-between-vincent-vega-and-jules-winnfield","hubs":[{"kind":"reading","title":"Labor Priced in Chalk","slug":"labor-priced-in-chalk","n":59,"films":["dogville-2003","farewell-my-lovely-1975","american-honey-2016","collateral-2004"]},{"kind":"trope","title":"The Walking Argument","slug":"the-walking-argument","n":3,"films":["the-wild-pear-tree-2018","before-sunrise-1995"]}]},{"label":"The recurring motif of food (Big Kahuna Burger, five-dollar shake, etc.)","slug":"the-recurring-motif-of-food-big-kahuna-burger-five-dollar-sh","hubs":[{"kind":"reading","title":"The Hyperreal Mirage","slug":"hyperreality","n":62,"films":["dogville-2003","minority-report-2002","closer-2004","the-hangover-2009"]}]}]},"the-terminator":{"title":"The Terminator","bd":"/ffdqHMWkh1h9MABwIfbfRJhgFW6.jpg","year":1984,"figures":[{"label":"The film's causal loop narrative (predestination paradox).","slug":"the-film-s-causal-loop-narrative-predestination-paradox","hubs":[{"kind":"reading","title":"Survivors of Vanished Worlds","slug":"survivors-of-vanished-worlds","n":57,"films":["black-2005","the-others-2001","past-lives-2023","a-christmas-story-1983"]}]},{"label":"The T-800's cybernetic body, particularly its flesh-metal hybridity.","slug":"the-t-800-s-cybernetic-body-particularly-its-flesh-metal-hyb","hubs":[{"kind":"reading","title":"Flesh Reduced To Persistence","slug":"flesh-reduced-to-persistence","n":59,"films":["timbuktu-2014","die-hard-1988","v-for-vendetta-2005","the-secret-in-their-eyes-2009"]},{"kind":"trope","title":"The Body Turned Into A Weapon","slug":"the-body-turned-into-a-weapon","n":5,"films":["terminator-2-judgment-day-1991","papicha-2019","the-wrestler-2008","the-bodyguard-1992"]}]},{"label":"The temporal loop where Kyle Reese fathers John Connor.","slug":"the-temporal-loop-where-kyle-reese-fathers-john-connor","hubs":[{"kind":"reading","title":"Hauntology","slug":"hauntology-11","n":3,"films":["dead-poets-society-1989","batman-1989"]},{"kind":"trope","title":"The Love That Time Defeats","slug":"the-love-that-time-defeats","n":6,"films":["casino-royale-2006","bram-stoker-s-dracula-1992","the-fly-1986","a-star-is-born-2018"]}]},{"label":"The temporal paradox (John Connor sending his own father to the past).","slug":"the-temporal-paradox-john-connor-sending-his-own-father-to-t","hubs":[{"kind":"reading","title":"Adaptive Motive Substitution","slug":"adaptive-motive-substitution","n":30,"films":["farewell-my-lovely-1975","wuthering-heights-2011","kill-bill-vol-1-2003","the-hunt-2012"]}]},{"label":"The time-travel plot creating a causal loop for John Connor's conception.","slug":"the-time-travel-plot-creating-a-causal-loop-for-john-connor-","hubs":[{"kind":"reading","title":"Appetite Without Arrival","slug":"appetite-without-arrival","n":93,"films":["miller-s-crossing-1990","moneyball-2011","terminator-2-judgment-day-1991","dead-poets-society-1989"]},{"kind":"trope","title":"The Repeating Day","slug":"the-repeating-day","n":5,"films":["donnie-darko-2001","groundhog-day-1993","run-lola-run-1998","twelve-monkeys-1995"]}]}]}}, FILMS={"300-2006":{"t":"300","b":"/lgBZlJ1LHQel5nneNQMoesmvc7l.jpg"},"dogville-2003":{"t":"Dogville","b":"/r3xsFBD1VTUusk393bBc7SsDUJe.jpg"},"farewell-my-lovely-1975":{"t":"Farewell, My Lovely","b":"/r0EBtfYplRIagrYMfi0pni3xpzr.jpg"},"top-gun-maverick-2022":{"t":"Top Gun: Maverick","b":"/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg"},"the-incredibles-2004":{"t":"The Incredibles","b":"/lxwzY9vNwjDgxWKt3zZ6zcU6rEJ.jpg"},"nightcrawler-2014":{"t":"Nightcrawler","b":"/bdI6U1mT0kCdTJ6TWtiFxQ42GSn.jpg"},"amadeus-1984":{"t":"Amadeus","b":"/rnQyWw68dPHPRtvSWMtLSueXf05.jpg"},"minority-report-2002":{"t":"Minority Report","b":"/PrMb3oeEluauy0q9ZO5xL33A6C.jpg"},"crouching-tiger-hidden-dragon-2000":{"t":"Crouching Tiger, Hidden Dragon","b":"/nSm9cij9VRrGDoZoS16CPnX0FqK.jpg"},"who-framed-roger-rabbit-1988":{"t":"Who Framed Roger Rabbit","b":"/udIE8Cdon9wnYmVIOFYrBPfA2Mq.jpg"},"betty-blue-1986":{"t":"Betty Blue","b":"/hZVBkgxgezyKEkWIbPVLiWAOsrl.jpg"},"kill-bill-vol-1-2003":{"t":"Kill Bill: Vol. 1","b":"/iffzIhuLAO38Po6sh1s6ZEVwlNL.jpg"},"anora-2024":{"t":"Anora","b":"/87GU2ifjNYtgYtcRH1NNH1P4ODo.jpg"},"mrs-doubtfire-1993":{"t":"Mrs. Doubtfire","b":"/f9X91dUckoRzOZlw4XBUOfkN9FC.jpg"},"closer-2004":{"t":"Closer","b":"/s7oDV92ltdecJ7BTfGSOgsDi900.jpg"},"wuthering-heights-2011":{"t":"Wuthering Heights","b":"/9ObUDVAFRjF1J9fJ7aYD33hM85.jpg"},"harry-potter-and-the-prisoner-of-azkaban-2004":{"t":"Harry Potter and the Prisoner of Azkaban","b":"/htmYEfH7TQgzsXHCnNXxmoYKQtL.jpg"},"miller-s-crossing-1990":{"t":"Miller's Crossing","b":"/cEsnLkTCJ4jh9Oym7nPAPGnOMm3.jpg"},"moneyball-2011":{"t":"Moneyball","b":"/kYlBNDkB5qFdpTDpnlQdH0CdK3T.jpg"},"starship-troopers-1997":{"t":"Starship Troopers","b":"/7iEfnj3rfyunky6BzvnlwqfoEF0.jpg"},"american-honey-2016":{"t":"American Honey","b":"/fLvgZEMv012AHZk2PAxMyG8WROt.jpg"},"collateral-2004":{"t":"Collateral","b":"/qVzmXKKOTtd3szkiCheCNrfa394.jpg"},"terminator-2-judgment-day-1991":{"t":"Terminator 2: Judgment Day","b":"/izkMjmhauFx9DjoBQqM5sM5WAwE.jpg"},"beauty-and-the-beast-1991":{"t":"Beauty and the Beast","b":"/fW4ZCoEZRBqLAJGFQ2g5AdAfPQR.jpg"},"the-hunger-games-2012":{"t":"The Hunger Games","b":"/yVBQ65YBYZ9UhzJ4NGdRgeXtyTL.jpg"},"a-quiet-place-2018":{"t":"A Quiet Place","b":"/nHRUtBwFNnNN70vcQ7lAsjc2T6S.jpg"},"black-swan-2010":{"t":"Black Swan","b":"/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg"},"the-favourite-2018":{"t":"The Favourite","b":"/iSskYDN193CJfTbSpFfscSwZ9Sx.jpg"},"invisible-life-2019":{"t":"Invisible Life","b":"/u2Av6NyDeLkwYTBXxIGousLNzz.jpg"},"loveless-2017":{"t":"Loveless","b":"/fnWEr4voDR1kp0sXZ1WufM7j2Qp.jpg"},"tropical-malady-2004":{"t":"Tropical Malady","b":"/6JPh7zM1CYJVytBT8BTyUoOzevA.jpg"},"videodrome-1983":{"t":"Videodrome","b":"/eBS1nvaQ7BMdsSlkoLyKapf0FEY.jpg"},"fight-club-1999":{"t":"Fight Club","b":"/xRyINp9KfMLVjRiO5nCsoRDdvvF.jpg"},"the-others-2001":{"t":"The Others","b":"/rbBe9WQ1OqCxzgwskOTnaY6JdUA.jpg"},"scarface-1983":{"t":"Scarface","b":"/1qM2BYNE11Viby8ImC9LC00DgDr.jpg"},"t-r-2022":{"t":"TÁR","b":"/84XcRwKHAw4VXdKOYTSW5ARxFEt.jpg"},"the-raid-2011":{"t":"The Raid","b":"/kFD6fVwnrHq085JIHCDXsSIqAZf.jpg"},"saltburn-2023":{"t":"Saltburn","b":"/yCN98oNvavyHvFvdvwqmw9TkY9A.jpg"},"guardians-of-the-galaxy-2014":{"t":"Guardians of the Galaxy","b":"/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg"},"dead-poets-society-1989":{"t":"Dead Poets Society","b":"/lFIXZpwwlF9hg8NM3RazaIJDuaj.jpg"},"bohemian-rhapsody-2018":{"t":"Bohemian Rhapsody","b":"/dcvbs8z0GEXslC1kCT77x19XDeR.jpg"},"schindler-s-list":{"t":"Schindler's List","b":"/zb6fM1CX41D9rF9hdgclu0peUmy.jpg"},"gravity-2013":{"t":"Gravity","b":"/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg"},"uncut-gems-2019":{"t":"Uncut Gems","b":"/eGljNfNCrPhFYG2RXXmmE0OKu5.jpg"},"la-haine-1995":{"t":"La Haine","b":"/k61xLJgPo7ScxHLLiBzTM9IDaB7.jpg"},"boyhood-2014":{"t":"Boyhood","b":"/qRwkMMZhQRKM4uDaXpd2XbZZmkE.jpg"},"boogie-nights-1997":{"t":"Boogie Nights","b":"/ArpTzQZHWh4UVsgUvV6S7WjTq1n.jpg"},"pride-prejudice-2005":{"t":"Pride & Prejudice","b":"/1Onam6oWyFAUCcoxtdWkACtEiNr.jpg"},"room-2015":{"t":"Room","b":"/cGV6R2vzT4TYIabf3JgmrOISQ0y.jpg"},"the-silence-of-the-lambs-1991":{"t":"The Silence of the Lambs","b":"/aYcnDyLMnpKce1FOYUpZrXtgUye.jpg"},"black-2005":{"t":"Black","b":"/x2EwZsBJY0NxQl64JeNXI0xPLgQ.jpg"},"bacurau-2019":{"t":"Bacurau","b":"/nhsC7Q1Zb5n2p4H3UKy422zP5XC.jpg"},"il-nostro-mare-2016":{"t":"Il Nostro Mare","b":"/9Ylt9bdlu9ueumkfr9Lib1yMO6U.jpg"},"there-will-be-blood-2007":{"t":"There Will Be Blood","b":"/9UAKA6ceZi6TgQwTAAMt7DWwYPI.jpg"},"joker-2019":{"t":"Joker","b":"/rlay2M5QYvi6igbGcFjq8jxeusY.jpg"},"timbuktu-2014":{"t":"Timbuktu","b":"/3cQO2X0vRpMYwNhoZURSCxUpCPh.jpg"},"die-hard-1988":{"t":"Die Hard","b":"/bvk2AAH64lP2YZs02Q3jskfHT8j.jpg"},"v-for-vendetta-2005":{"t":"V for Vendetta","b":"/sFEYsEfzTx7hhjetlNrme8B5OUo.jpg"},"the-secret-in-their-eyes-2009":{"t":"The Secret in Their Eyes","b":"/fNHCogWhABNAmzk0IFdzQP5XLYj.jpg"},"us-2019":{"t":"Us","b":"/sC0b8iPUHfZdD8kseLiHw3N8gkp.jpg"},"fantastic-mr-fox-2009":{"t":"Fantastic Mr. Fox","b":"/xRxSLhhjPG2D8l0BXi0KdN4IvPt.jpg"},"a-christmas-story-1983":{"t":"A Christmas Story","b":"/feCcRTZNGUop3LnWBLTToYhd03S.jpg"},"bad-education-2004":{"t":"Bad Education","b":"/wNFiDhGnrnSfyqYxzeAa8mFnUhj.jpg"},"funny-games-1997":{"t":"Funny Games","b":"/yUmtjm5eLK7WohDtt5E2lHXx84P.jpg"},"raiders-of-the-lost-ark-1981":{"t":"Raiders of the Lost Ark","b":"/zPACwR32amTNvzId9qyapCWXYDJ.jpg"},"pulp-fiction-1994":{"t":"Pulp Fiction","b":"/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"},"amour-2012":{"t":"Amour","b":"/w7Z4BVMin49voNN61IUWyN9DopV.jpg"},"babel-2006":{"t":"Babel","b":"/9YoLdWeBSxAdR6BqQ5uS88d3FWO.jpg"},"wall-e-2008":{"t":"WALL·E","b":"/nYs4ZwnJBK4AgljhvzwNz7fpr3E.jpg"},"the-revenant-2015":{"t":"The Revenant","b":"/mNQtUJv1F3u0uSKILFrGjIHqkxx.jpg"},"black-panther-2018":{"t":"Black Panther","b":"/19Ed4XgjahPm4U8JT7SnntERIlt.jpg"},"the-wild-pear-tree-2018":{"t":"The Wild Pear Tree","b":"/3VUKpgrssr9iQYFAZiAbN5lbw7g.jpg"},"before-sunrise-1995":{"t":"Before Sunrise","b":"/qA2TyqPldTtoTVY3LKrNIG5g6bH.jpg"},"the-hangover-2009":{"t":"The Hangover","b":"/iuRVt8tFiXDPGgzavhuSa3QHRxD.jpg"},"the-terminator":{"t":"The Terminator","b":"/ffdqHMWkh1h9MABwIfbfRJhgFW6.jpg"},"past-lives-2023":{"t":"Past Lives","b":"/7HR38hMBl23lf38MAN63y4pKsHz.jpg"},"papicha-2019":{"t":"Papicha","b":"/x4n5ZYRFdQ1o3ADbDq8LnIOufo2.jpg"},"the-wrestler-2008":{"t":"The Wrestler","b":"/wcJmFsz8RqIhozMwvU81hreTX4i.jpg"},"the-bodyguard-1992":{"t":"The Bodyguard","b":"/bJyb7Bk9PLUslPggangniTBLzHO.jpg"},"batman-1989":{"t":"Batman","b":"/zlsaQEE26TS34ziXAiNIAqa0MLX.jpg"},"casino-royale-2006":{"t":"Casino Royale","b":"/klJMCIblHLFwCuGjKz7tyOpekIC.jpg"},"bram-stoker-s-dracula-1992":{"t":"Bram Stoker's Dracula","b":"/88S6EYQBVyQktDfSqsB33I169jN.jpg"},"the-fly-1986":{"t":"The Fly","b":"/g1FzhbtWYKk9WMJYi1X26kf2Q4Q.jpg"},"a-star-is-born-2018":{"t":"A Star Is Born","b":"/dDYpjrwh1wNVQk0rEpc9P81wQt4.jpg"},"the-hunt-2012":{"t":"The Hunt","b":"/jmVWlCZ8hRtmrQGbKXXFHsrSohp.jpg"},"donnie-darko-2001":{"t":"Donnie Darko","b":"/msCHK5Kh1YbdZ0zPJ2nzPUhhSN9.jpg"},"groundhog-day-1993":{"t":"Groundhog Day","b":"/4W6RYDNe4OByNryOCvJprrutm9h.jpg"},"run-lola-run-1998":{"t":"Run Lola Run","b":"/wRcm3iwi4BeMN59U4fjO7u3dOVI.jpg"},"twelve-monkeys-1995":{"t":"Twelve Monkeys","b":"/mKIkGoyuR71qz6FdiEiOjxvBQcS.jpg"}}, ROOTS=[{"slug":"the-terminator","title":"The Terminator","year":1984},{"slug":"black-swan-2010","title":"Black Swan","year":2010},{"slug":"joker-2019","title":"Joker","year":2019},{"slug":"pulp-fiction-1994","title":"Pulp Fiction","year":1994},{"slug":"gravity-2013","title":"Gravity","year":2013},{"slug":"300-2006","title":"300","year":2006}];
+const SITE='https://filmcurio.com';
+const stage=document.getElementById('stage'), world=document.getElementById('world'), lines=document.getElementById('lines');
+const WX=1500, WY=1000, CX=WX/2, CY=WY/2;
+let nodes=[], links=[], byId={}, root='the-terminator', selected=null, trail=['the-terminator'];
+let k=1, tx=0, ty=0;
+
+/* hub slug -> set of seed films that contain it (for film<->film bridges) */
+const hubSeeds={};
+ROOTS.forEach(function(r){ SEED[r.slug].figures.forEach(function(fg){ fg.hubs.forEach(function(h){ (hubSeeds[h.slug]=hubSeeds[h.slug]||new Set()).add(r.slug); }); }); });
+
+function title(s){ return FILMS[s]?FILMS[s].t:s; }
+
+function build(rootSlug){
+  nodes=[]; links=[]; byId={};
+  const data=SEED[rootSlug];
+  const c=addN({id:'film:'+rootSlug, type:'film', center:true, slug:rootSlug, label:data.title});
+  c.fx=CX; c.fy=CY;
+  data.figures.forEach(function(fg){
+    const fn=addN({id:'fig:'+rootSlug+'/'+fg.slug, type:'figure', label:fg.label, figslug:fg.slug, filmslug:rootSlug});
+    addL(c, fn, 'struct');
+    fg.hubs.forEach(function(h){
+      const hn=addN({id:'hub:'+h.slug, type:h.kind, label:h.title, slug:h.slug, n:h.n});
+      addL(fn, hn, h.kind);
+      h.films.forEach(function(s){
+        const lf=addN({id:'film:'+s, type:'film', leaf:true, slug:s, label:title(s), seed:!!SEED[s]});
+        addL(hn, lf, h.kind);
+      });
+      /* bridge: other seed films sharing this hub -> travelable */
+      (hubSeeds[h.slug]||new Set()).forEach(function(os){
+        if(os===rootSlug) return;
+        const lf=addN({id:'film:'+os, type:'film', leaf:true, slug:os, label:SEED[os].title, seed:true, bridge:true});
+        addL(hn, lf, h.kind);
+      });
+    });
+  });
+  nodes.forEach(function(n){ n.deg=0; });
+  links.forEach(function(l){ l.a.deg++; l.b.deg++; });
+}
+function addN(o){ if(byId[o.id]) return byId[o.id]; o.x=CX+(Math.random()-.5)*120; o.y=CY+(Math.random()-.5)*120; o.vx=0; o.vy=0; byId[o.id]=o; nodes.push(o); return o; }
+function addL(a,b,kind){ for(var i=0;i<links.length;i++){ if(links[i].a===a&&links[i].b===b) return; } links.push({a:a,b:b,kind:kind}); }
+
+function radius(n){ return n.center?13 : n.type==='figure'?6.5 : (n.type==='reading'||n.type==='trope')?5.5 : Math.min(9, 3.5+(n.deg||1)*1.1); }
+
+/* ---- render DOM ---- */
+function draw(){
+  lines.setAttribute('width',WX); lines.setAttribute('height',WY); lines.setAttribute('viewBox','0 0 '+WX+' '+WY);
+  var lp='';
+  links.forEach(function(l,i){ l.id='L'+i;
+    var col=l.kind==='reading'?'rgba(224,163,74,.22)':l.kind==='trope'?'rgba(79,182,173,.24)':'rgba(233,228,216,.10)';
+    lp+='<line id="'+l.id+'" x1="0" y1="0" x2="0" y2="0" stroke="'+col+'" stroke-width="1.1"></line>';
+  });
+  lines.innerHTML=lp;
+  links.forEach(function(l){ l.el=document.getElementById(l.id); });
+
+  Array.prototype.slice.call(world.querySelectorAll('.gnode')).forEach(function(e){e.remove();});
+  nodes.forEach(function(n){
+    var el=document.createElement('div');
+    el.className='gnode '+n.type+(n.center?' center':'')+(n.leaf?' leaf':'')+(n.seed?' seed':'');
+    var r=radius(n);
+    el.innerHTML='<div class="dot" style="width:'+(r*2)+'px;height:'+(r*2)+'px"></div><div class="lbl" style="font-size:'+(n.center?15:n.leaf?11:12.5)+'px">'+esc(n.label)+'</div>';
+    el.addEventListener('mouseenter',function(){focus(n);showPanel(n,true);});
+    el.addEventListener('mouseleave',function(){unfocus();});
+    el.addEventListener('click',function(e){e.stopPropagation();clickNode(n);});
+    el.addEventListener('dblclick',function(e){e.stopPropagation();openPage(n);});
+    n.el=el; world.appendChild(el);
+  });
+}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* ---- force sim ---- */
+function tick(){
+  var i,j,a,b,dx,dy,d2,d,f,fx,fy;
+  for(i=0;i<nodes.length;i++){ a=nodes[i];
+    for(j=i+1;j<nodes.length;j++){ b=nodes[j]; dx=a.x-b.x; dy=a.y-b.y; d2=dx*dx+dy*dy; if(d2<1)d2=1;
+      if(d2<140000){ f=3400/d2; d=Math.sqrt(d2); fx=f*dx/d; fy=f*dy/d; a.vx+=fx; a.vy+=fy; b.vx-=fx; b.vy-=fy; } } }
+  for(i=0;i<links.length;i++){ var l=links[i]; var len=l.kind==='struct'?96:l.a.center?150:78;
+    dx=l.b.x-l.a.x; dy=l.b.y-l.a.y; d=Math.sqrt(dx*dx+dy*dy)||1; f=(d-len)*0.04; fx=f*dx/d; fy=f*dy/d;
+    l.a.vx+=fx; l.a.vy+=fy; l.b.vx-=fx; l.b.vy-=fy; }
+  for(i=0;i<nodes.length;i++){ a=nodes[i];
+    if(a.fx!=null){ a.x=a.fx; a.y=a.fy; a.vx=0; a.vy=0; }
+    else { a.vx+=(CX-a.x)*0.006; a.vy+=(CY-a.y)*0.006; a.vx*=0.85; a.vy*=0.85; a.x+=a.vx; a.y+=a.vy; }
+    if(a.el){ a.el.style.left=a.x+'px'; a.el.style.top=a.y+'px'; }
+  }
+  for(i=0;i<links.length;i++){ var ll=links[i]; if(ll.el){ ll.el.setAttribute('x1',ll.a.x); ll.el.setAttribute('y1',ll.a.y); ll.el.setAttribute('x2',ll.b.x); ll.el.setAttribute('y2',ll.b.y); } }
+  requestAnimationFrame(tick);
+}
+
+/* ---- focus / hover ---- */
+function neighbors(n){ var s=new Set([n]); links.forEach(function(l){ if(l.a===n)s.add(l.b); if(l.b===n)s.add(l.a); }); return s; }
+function focus(n){ var nb=neighbors(n);
+  nodes.forEach(function(m){ m.el.classList.toggle('dim', !nb.has(m)); });
+  links.forEach(function(l){ var on=(l.a===n||l.b===n); if(l.el){ l.el.setAttribute('stroke', on?(l.kind==='trope'?'#4fb6ad':l.kind==='reading'?'#e0a34a':'rgba(233,228,216,.5)'):baseCol(l.kind)); l.el.setAttribute('stroke-width', on?'1.9':'1.1'); } });
+}
+function unfocus(){ nodes.forEach(function(m){ m.el.classList.remove('dim'); }); links.forEach(function(l){ if(l.el){ l.el.setAttribute('stroke',baseCol(l.kind)); l.el.setAttribute('stroke-width','1.1'); } }); }
+function baseCol(kind){ return kind==='reading'?'rgba(224,163,74,.22)':kind==='trope'?'rgba(79,182,173,.24)':'rgba(233,228,216,.10)'; }
+
+/* ---- interactions ---- */
+function clickNode(n){
+  select(n);
+  if(n.type==='film' && !n.center){ if(SEED[n.slug]) travel(n.slug); else openPage(n); }
+}
+function select(n){ if(selected&&selected.el)selected.el.classList.remove('sel'); selected=n; if(n.el)n.el.classList.add('sel'); showPanel(n,false); }
+function pageOf(n){ if(n.type==='figure')return '/film/'+n.filmslug+'/figure/'+n.figslug; if(n.type==='reading')return '/take/'+n.slug; if(n.type==='trope')return '/trope/'+n.slug; return '/film/'+n.slug; }
+function openPage(n){ window.open(SITE+pageOf(n),'_blank'); }
+
+function showPanel(n,hover){
+  var p=document.getElementById('panel');
+  var kind=n.center?'this film':n.type==='figure'?'figure':n.type==='reading'?'reading · meta-take':n.type==='trope'?'trope':(n.seed?'film · click to travel':'film');
+  var meta=n.center?(SEED[root].figures.length+' figures · the centre of this graph')
+    :n.type==='figure'?'a concrete element in this film · branch of readings + a trope'
+    :(n.type==='reading'||n.type==='trope')?(n.n+' films share this'+(n.type==='reading'?' reading':' trope'))
+    :(n.bridge?'also runs through this graph — click to travel':(n.seed?'in your library — click to travel':'click to open on the site'));
+  p.innerHTML='<div class="k">'+kind+'</div><div class="nm">'+esc(n.label)+'</div><div class="meta">'+meta+'</div>'+
+    '<div class="act"><a id="pa-open">open page ↗</a>'+((n.type==='film'&&!n.center&&SEED[n.slug])?'<a id="pa-travel">travel into ↻</a>':'')+'</div>';
+  var o=document.getElementById('pa-open'); if(o)o.onclick=function(){openPage(n);};
+  var t=document.getElementById('pa-travel'); if(t)t.onclick=function(){travel(n.slug);};
+}
+
+/* ---- travel between films ---- */
+function travel(slug){ if(!SEED[slug]||slug===root) return; root=slug;
+  trail.push(slug); if(trail.length>6) trail.shift();
+  resetView(); build(root); draw(); renderCrumb(); document.getElementById('film-input').value=SEED[root].title; select(byId['film:'+root]);
+}
+function setRoot(slug){ if(!SEED[slug]) return; root=slug; trail=[slug]; resetView(); build(root); draw(); renderCrumb(); document.getElementById('film-input').value=SEED[root].title; select(byId['film:'+root]); }
+function renderCrumb(){ var c=document.getElementById('crumb'); c.innerHTML='';
+  trail.forEach(function(s,i){ var a=document.createElement('a'); a.textContent=SEED[s].title; if(i===trail.length-1)a.className='now'; a.onclick=function(){ trail=trail.slice(0,i+1); root=s; resetView(); build(root); draw(); renderCrumb(); select(byId['film:'+root]); }; c.appendChild(a); if(i<trail.length-1){ var sp=document.createElement('span'); sp.textContent='›'; c.appendChild(sp); } });
+}
+
+/* ---- pan / zoom ---- */
+function applyView(){ world.style.transform='translate('+tx+'px,'+ty+'px) scale('+k+')'; }
+function resetView(){ k=1; tx=(stage.clientWidth/2-CX); ty=(stage.clientHeight/2-CY); applyView(); }
+document.getElementById('zin').onclick=function(){ zoomAt(stage.clientWidth/2,stage.clientHeight/2,1.2); };
+document.getElementById('zout').onclick=function(){ zoomAt(stage.clientWidth/2,stage.clientHeight/2,1/1.2); };
+function zoomAt(px,py,factor){ var nk=Math.max(.35,Math.min(2.4,k*factor)); var wx=(px-tx)/k, wy=(py-ty)/k; k=nk; tx=px-wx*k; ty=py-wy*k; applyView(); }
+stage.addEventListener('wheel',function(e){ e.preventDefault(); zoomAt(e.clientX, e.clientY-stage.getBoundingClientRect().top, e.deltaY<0?1.12:1/1.12); },{passive:false});
+(function(){ var down=false,sx,sy,ox,oy;
+  stage.addEventListener('pointerdown',function(e){ if(e.target.closest('.gnode'))return; down=true; stage.classList.add('drag'); sx=e.clientX; sy=e.clientY; ox=tx; oy=ty; });
+  window.addEventListener('pointermove',function(e){ if(!down)return; tx=ox+(e.clientX-sx); ty=oy+(e.clientY-sy); applyView(); });
+  window.addEventListener('pointerup',function(){ down=false; stage.classList.remove('drag'); });
+})();
+
+/* ---- controls ---- */
+ROOTS.forEach(function(r){ var o=document.createElement('option'); o.value=r.title; document.getElementById('film-list').appendChild(o); });
+document.getElementById('film-input').addEventListener('change',function(){ var v=this.value.trim().toLowerCase(); var hit=ROOTS.find(function(r){return r.title.toLowerCase()===v;}); if(hit)setRoot(hit.slug); });
+document.getElementById('random').onclick=function(){ var r=ROOTS[Math.floor(Math.random()*ROOTS.length)]; setRoot(r.slug); };
+document.getElementById('recenter').onclick=function(){ resetView(); };
+window.addEventListener('resize',function(){ resetView(); });
+
+/* ---- boot ---- */
+build(root); draw(); resetView(); renderCrumb(); document.getElementById('film-input').value=SEED[root].title; select(byId['film:'+root]);
+requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

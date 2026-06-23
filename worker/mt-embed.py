@@ -103,11 +103,16 @@ def kind_table(kind): return {"take":"takes","figure":"figures","meta_take":"met
 def main():
     want=lambda k: (ONLY is None) or (k in ONLY)
     if want("take"):
-        where="rationale=not.is.null" + ("" if FORCE else "&embedding=is.null")
-        do("take","id,rationale",lambda r:r.get("rationale"),where)
+        # New model: embed the bold reading on its CODE — take_title + thesis — so similar
+        # interpretive moves cluster together. Published only (retired old takes don't need it).
+        where="rationale=not.is.null&status=eq.published" + ("" if FORCE else "&embedding=is.null")
+        do("take","id,take_title,rationale",
+           lambda r:(f'{r["take_title"]}. {r.get("rationale") or ""}'.strip() if r.get("take_title") else (r.get("rationale") or "")),
+           where)
     if want("figure"):
-        where="description=not.is.null" + ("" if FORCE else "&embedding=is.null")
-        do("figure","id,description",lambda r:r.get("description"),where)
+        # Basis = description, falling back to label (new film/title/new-label figures may have thin descriptions).
+        where="id=not.is.null" + ("" if FORCE else "&embedding=is.null")
+        do("figure","id,label,description",lambda r:(r.get("description") or r.get("label")),where)
     if want("meta_take"):
         # ALL hubs, one consistent basis (so dedup compares like-with-like)
         def mt_text(r):

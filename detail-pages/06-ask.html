@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Metatake — grounded answers about cinema · metatake</title>
+<!--
+  metatake · ASK page redesign (시안) — /ask   ·   grounded Q&A (RAG over the corpus)
+  Built on the REAL current page (app/ask/page.tsx): ask a question → an answer composed ONLY from the corpus's close readings,
+  every claim an inline [N] citation that links to its source reading, + "Threads to pull" + a Sources list.
+  The sample answer ("How does cinema portray surveillance?") and all 4 citations are REAL takes from Supabase
+  (The Passion of Joan of Arc, Modern Times, A Matter of Life and Death — real figures → real meta takes).
+  This page is the clearest statement of the site identity: AI as instrument, grounded, "Retrieved, not generated."
+  v6 system: white paper, PT Serif + Inter, one-red #E3120B, hairlines. Interactive demo: Ask / chips replay the search→answer flow.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:760px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+.head{padding:40px 0 0}
+.head h1{font-family:var(--serif);font-weight:700;font-size:38px;letter-spacing:-.022em;margin:0 0 8px}
+.head .sub{font-size:17px;color:var(--ink2);line-height:1.55;margin:0 0 4px;max-width:64ch}
+.head .sub em{font-style:italic;color:var(--ink)}
+.head .stamp{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--accent);margin:10px 0 0;display:flex;align-items:center;gap:7px}
+.head .stamp .gl{font-size:14px}
+
+/* ask bar */
+.askbar{display:flex;gap:10px;margin:22px 0 0}
+.ask-input{flex:1 1 auto;font-family:var(--serif);font-size:17px;padding:14px 16px;border:1px solid var(--ink);background:#fff;color:var(--ink);min-width:0}
+.ask-input:focus{outline:none;border-color:var(--accent)}
+.ask-go{font-family:var(--ui);font-size:14px;font-weight:600;color:#fff;background:var(--accent);border:0;padding:0 24px;cursor:pointer;white-space:nowrap}
+.ask-go:hover{background:#b50e08}
+.ask-go:disabled{background:var(--hair2);cursor:default}
+.ask-eg{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 0}
+.ask-chip{font-family:var(--ui);font-size:12.5px;color:var(--ink2);background:var(--paper);border:1px solid var(--hair);padding:7px 12px;cursor:pointer}
+.ask-chip:hover{border-color:var(--accent);color:var(--accent)}
+
+.ask-loading{font-family:var(--ui);font-size:14px;color:var(--muted);margin:26px 0 0;display:none}
+.ask-loading.on{display:block;animation:pulse 1.3s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* answer */
+.ask-out{margin:28px 0 0;display:none}
+.ask-out.on{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ask-q{font-family:var(--ui);font-size:12px;color:var(--muted);border-bottom:1px solid var(--hair);padding-bottom:12px;margin-bottom:18px;display:flex;align-items:baseline;gap:8px}
+.ask-q b{font-family:var(--serif);font-size:18px;color:var(--ink);font-weight:700}
+.ask-q .tag{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);border:1px solid var(--hair);padding:2px 7px}
+.ask-answer .ask-p{font-size:18px;line-height:1.66;color:var(--ink);margin:0 0 16px}
+.ask-answer em{font-style:italic}
+.ask-cite{color:var(--accent);font-weight:700;font-family:var(--ui);font-size:12px;vertical-align:super;line-height:0;padding:0 1px;text-decoration:none}
+.ask-cite:hover{text-decoration:underline}
+
+.ask-threads{margin:22px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:8px;border-top:1px solid var(--hair);padding-top:16px}
+.ask-threads__lbl{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.ask-thread{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--accent);border:1px solid rgba(227,18,11,.3);padding:6px 11px}
+.ask-thread:hover{background:#fff1f0}
+
+.ask-sources{margin:24px 0 0;border-top:1px solid var(--hair);padding-top:16px}
+.ask-sources__lbl{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.ask-srclist{margin:0;padding:0;list-style:none;counter-reset:src}
+.ask-srclist li{counter-increment:src;position:relative;padding:10px 0 10px 30px;border-bottom:1px dashed var(--hair);font-size:15px}
+.ask-srclist li:last-child{border-bottom:0}
+.ask-srclist li:before{content:"["counter(src)"]";position:absolute;left:0;top:10px;font-family:var(--ui);font-size:11px;font-weight:700;color:var(--accent)}
+.ask-srclist li.hi{background:#fff7f6}
+.ask-srclist .fig{font-family:var(--serif);font-weight:700;color:var(--ink)}
+.ask-srclist .fig:hover{color:var(--accent)}
+.ask-srclist .film{color:var(--muted);font-size:13.5px;font-family:var(--ui)}
+.ask-srclist .reg{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.03em;color:#fff;padding:1px 6px;margin-left:6px}
+.ask-srclist .to{color:var(--accent);font-weight:600}
+.ask-srclist .to:hover{text-decoration:underline}
+
+.ask-foot{font-family:var(--ui);font-size:12.5px;color:var(--muted);line-height:1.55;margin:32px 0 56px;border-top:1px solid var(--hair);padding-top:16px}
+.ask-foot a{color:var(--accent);font-weight:600}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#" data-on>Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#">Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="head">
+    <h1>Ask Metatake</h1>
+    <p class="sub">Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake's 18,004 close readings — and every claim links back to the reading it came from.</p>
+    <p class="stamp"><span class="gl">▦</span> Grounded in the corpus · retrieved, not generated</p>
+
+    <form class="askbar" id="askform">
+      <input class="ask-input" id="q" value="How does cinema portray surveillance?" placeholder="How does cinema portray surveillance?" maxlength="300" aria-label="Ask a question about cinema">
+      <button class="ask-go" id="go" type="submit">Ask</button>
+    </form>
+    <div class="ask-eg">
+      <button type="button" class="ask-chip">How does cinema portray surveillance?</button>
+      <button type="button" class="ask-chip">What does the color red tend to mean?</button>
+      <button type="button" class="ask-chip">How do films show grief without dialogue?</button>
+      <button type="button" class="ask-chip">What is the meaning of mirrors on screen?</button>
+    </div>
+
+    <p class="ask-loading" id="loading">Searching 18,004 readings, then composing…</p>
+  </div>
+
+  <div class="ask-out on" id="out">
+    <div class="ask-q"><span>Answering</span><b id="qecho">How does cinema portray surveillance?</b><span class="tag">sample</span></div>
+
+    <div class="ask-answer">
+      <p class="ask-p">On Metatake, surveillance is rarely a matter of cameras and wiretaps — it surfaces first as <em>the gaze</em>, the question of who is permitted to watch whom. Dreyer's <em>The Passion of Joan of Arc</em> keeps cutting to the faces of the watching crowd until the spectator is folded into it: your own looking becomes part of the execution <a class="ask-cite" href="#src-1" data-src="1">[1]</a>. Read in a colder register, the same scene is a broadcast — a public burning staged so the onlookers will learn what happens to those who refuse to conform, power performing itself for an audience <a class="ask-cite" href="#src-2" data-src="2">[2]</a>.</p>
+      <p class="ask-p">The watching eye is also an instrument of authority. In <em>Modern Times</em>, Chaplin puts the boss's face on a screen-within-the-screen, looming over the shop floor; composition alone tells you who owns the building, decades before the workplace camera was ordinary <a class="ask-cite" href="#src-3" data-src="3">[3]</a>. And cinema is uneasily aware that it is itself a watching machine: <em>A Matter of Life and Death</em> sets a camera obscura at its heart — a "gentle, loving surveillance," the apparatus of the movies quietly watching life and telling stories about what it sees <a class="ask-cite" href="#src-4" data-src="4">[4]</a>.</p>
+      <p class="ask-p">Pulled together, these readings suggest cinema portrays surveillance as a <em>moral relation</em> rather than a technology: to watch is to hold power, to implicate, and sometimes to care — and the screen keeps turning that watching back on the person in the seat.</p>
+    </div>
+
+    <div class="ask-threads">
+      <span class="ask-threads__lbl">Threads to pull</span>
+      <a class="ask-thread" href="#">The Bystander's Implication</a>
+      <a class="ask-thread" href="#">The Broadcast As Political Machinery</a>
+      <a class="ask-thread" href="#">The Camera Inside the Frame</a>
+      <a class="ask-thread" href="#">The Pleasures of Looking</a>
+      <a class="ask-thread" href="#">Unbroken Observation</a>
+    </div>
+
+    <div class="ask-sources">
+      <div class="ask-sources__lbl">Sources — every claim above, traceable</div>
+      <ol class="ask-srclist">
+        <li id="src-1"><a class="fig" href="#">The Watching Crowd</a> <span class="film">· The Passion of Joan of Arc (1928)</span><span class="reg" style="background:#5B8FB9">Formal</span> &nbsp;→&nbsp; <a class="to" href="#">The Bystander's Implication</a></li>
+        <li id="src-2"><a class="fig" href="#">The Watching Crowd</a> <span class="film">· The Passion of Joan of Arc (1928)</span><span class="reg" style="background:#2E7D5B">Politico-economic</span> &nbsp;→&nbsp; <a class="to" href="#">The Broadcast As Political Machinery</a></li>
+        <li id="src-3"><a class="fig" href="#">The Boss's Screen</a> <span class="film">· Modern Times (1936)</span><span class="reg" style="background:#5B8FB9">Formal</span> &nbsp;→&nbsp; <a class="to" href="#">The Camera Inside the Frame</a></li>
+        <li id="src-4"><a class="fig" href="#">Dr. Reeves' camera obscura</a> <span class="film">· A Matter of Life and Death (1946)</span><span class="reg" style="background:#5B8FB9">Formal</span> &nbsp;→&nbsp; <a class="to" href="#">The Pleasures of Looking</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <p class="ask-foot">
+    Answers are synthesized by an AI <b>strictly from our close readings</b> — interpretations, not citations of record. Follow the links to read the source. No claim appears that isn't traceable to a reading in the corpus. &nbsp;Looking to post a question for others? <a href="#">Ask the community →</a>
+  </p>
+</div>
+
+<script>
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+var out=$("#out"), loading=$("#loading"), qIn=$("#q"), qEcho=$("#qecho");
+
+/* demo: any Ask/chip replays the search → answer flow (sample answer is fixed) */
+function ask(text){
+  if(text){ qIn.value=text; }
+  var qv=qIn.value.trim(); if(qv.length<3) return;
+  qEcho.textContent=qv;
+  out.classList.remove("on");
+  loading.classList.add("on");
+  setTimeout(function(){
+    loading.classList.remove("on");
+    out.classList.add("on");
+    out.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }, 1300);
+}
+$("#askform").addEventListener("submit",function(e){ e.preventDefault(); ask(); });
+$all(".ask-chip").forEach(function(c){ c.addEventListener("click",function(){ ask(c.textContent); }); });
+
+/* citation [N] → highlight its source row */
+$all(".ask-cite").forEach(function(a){
+  a.addEventListener("click",function(){
+    setTimeout(function(){
+      $all(".ask-srclist li").forEach(function(li){ li.classList.remove("hi"); });
+      var li=$("#src-"+a.getAttribute("data-src")); if(li){ li.classList.add("hi"); }
+    },10);
+  });
+});
+</script>
+</body>
+</html>

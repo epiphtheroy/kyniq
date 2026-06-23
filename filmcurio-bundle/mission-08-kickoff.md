@@ -17,7 +17,7 @@ pages.**
    server-rendered.
 2. **Global chrome** — finalize header + footer per `ref-chrome.html` (logged-in avatar menu:
    View profile · My activity · Settings · Sign out). Footer: About/Contact/Guidelines/Terms/
-   Privacy, company line (FilmCurio · address · channel.wonwoo@gmail.com), TMDB attribution,
+   Privacy, company line (FilmCurio · address · wonwoo@metatake.net), TMDB attribution,
    © 2026 FilmCurio, locale switcher.
 3. **Institutional pages** (§6.9), server-rendered (E-E-A-T): `/about` (mission + the film + curio meaning + the AI-assisted/human-reviewed disclosure, per `ref-about.html`);
    `/contact`; `/guidelines`; `/terms` (**must include the contribution content license** —

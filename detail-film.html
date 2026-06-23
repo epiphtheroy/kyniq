@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parasite (2019) — figures & meta takes · metatake</title>
+<!--
+  metatake · FILM detail page redesign (시안) — /film/[slug]   ·   example: Parasite (2019)
+  Built on the REAL current page (app/film/[slug]/page.tsx). All data REAL (Supabase): 11 figures (+ full descriptions),
+  19 meta takes, 3 tropes, 6 connected films, with figure→reading via-links preserved.
+  v6 system: white paper, PT Serif + Inter, one-red #E3120B (teal #167C6B only for tropes), hairlines, square corners, colour images.
+  Revisions: (1) each figure box shows body text (2 lines) and expands to the EXACT full description; (2) Meta takes & Tropes side-by-side
+  in two columns; (3) the stat strip up top jumps down to each section; (4) the stat numbers count up on scroll-in.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+.crumb{font-family:var(--ui);font-size:12.5px;color:var(--muted);padding:18px 0 0}
+.crumb a:hover{color:var(--accent)}
+.crumb .sep{color:var(--hair2);margin:0 7px}
+
+/* hero */
+.hero{padding:14px 0 8px;border-bottom:1px solid var(--hair)}
+.backdrop{position:relative;width:100%;aspect-ratio:2.5/1;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair);filter:saturate(1.03)}
+.headrow{display:flex;gap:24px;margin-top:-58px;position:relative;z-index:2;align-items:flex-end}
+.poster{width:140px;flex:0 0 140px;aspect-ratio:2/3;background:#1a1f25 center/cover no-repeat;border:1px solid #fff;box-shadow:0 6px 22px rgba(0,0,0,.22)}
+.htxt{flex:1 1 auto;padding-bottom:4px}
+.htxt h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.05;letter-spacing:-.022em;margin:0 0 4px}
+.htxt h1 .yr{color:var(--muted);font-weight:400;font-size:.62em}
+.tagline{font-style:italic;color:var(--ink2);font-size:16.5px;margin:0 0 10px}
+.facts{font-family:var(--ui);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.facts .d{width:3px;height:3px;border-radius:50%;background:var(--hair2)}
+.facts a:hover{color:var(--accent)}
+.hactions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.hactions .save{font-family:var(--ui);font-size:12.5px;font-weight:600;border:1px solid var(--hair2);padding:7px 13px;color:var(--ink2);cursor:pointer}
+.hactions .save:hover{border-color:var(--ink)}
+.hactions .like{font-family:var(--ui);font-size:13px;font-weight:600;color:#fff;background:var(--accent);padding:8px 14px}
+.hactions .like:hover{background:#b50e08}
+.intro{font-size:17px;color:var(--ink2);line-height:1.55;margin:18px 0 0;max-width:64ch}
+.intro b{color:var(--ink);font-weight:700}
+@media(max-width:680px){.headrow{margin-top:-40px;gap:16px}.poster{width:100px;flex-basis:100px}.htxt h1{font-size:30px}}
+
+/* stat strip — clickable jump + count-up */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:24px 0 0}
+.stat{background:#fff;padding:14px 16px;display:block;cursor:pointer;transition:background .15s}
+.stat:hover{background:var(--paper)}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.stat .k{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:7px;display:flex;align-items:center;gap:5px}
+.stat .k:after{content:"↓";color:var(--hair2);font-weight:700}
+.stat:hover .k:after{color:var(--accent)}
+.stat.red .n{color:var(--accent)}.stat.teal .n{color:var(--teal)}
+
+/* section */
+.sec{padding:40px 0 6px;scroll-margin-top:70px}
+.h2{font-family:var(--serif);font-weight:700;font-size:27px;letter-spacing:-.02em;margin:0 0 5px;display:flex;align-items:baseline;gap:12px}
+.h2 .more{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--accent);margin-left:auto}
+.sub{font-size:15px;color:var(--muted);margin:0 0 22px;max-width:66ch}
+
+/* figures grouped — wide rows, full text always visible (no expand) */
+.fgroup{margin:0 0 26px}
+.flabel{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 2px;padding-bottom:8px;border-bottom:1px solid var(--hair)}
+.fig{display:grid;grid-template-columns:248px 1fr;gap:30px;padding:17px 4px;border-bottom:1px solid var(--hair);align-items:start;transition:background .15s}
+.fig:hover{background:var(--paper)}
+.figL .lab{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.28;letter-spacing:-.01em}
+.figL .meta{margin-top:9px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.figL .rc{font-family:var(--ui);font-size:11px;font-weight:700;white-space:nowrap;color:#fff;background:var(--accent);padding:2px 7px}
+.figL .rc.zero{background:var(--hair2)}
+.figL .figopen{font-family:var(--ui);font-size:11.5px;font-weight:600;color:var(--ink2)}
+.figL .figopen:hover{color:var(--accent)}
+.figdesc{font-size:15px;line-height:1.6;color:var(--ink2);margin:0}
+.reaches{font-family:var(--ui);font-size:11.5px;color:var(--muted);margin-top:11px;padding-top:9px;border-top:1px dashed var(--hair)}
+.reaches .rl{color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;margin-right:5px}
+.reaches a{color:var(--accent);font-weight:600}
+.reaches a:hover{text-decoration:underline}
+.reaches.none{color:var(--faint)}
+@media(max-width:680px){.fig{grid-template-columns:1fr;gap:10px}}
+
+/* living map */
+.mapwrap{position:relative;border:1px solid var(--ink);background:#0c0e12;overflow:hidden;height:380px;margin-top:8px}
+.mapwrap canvas{display:block;width:100%;height:100%;cursor:grab}
+.mapwrap canvas:active{cursor:grabbing}
+.mapbar{position:absolute;top:12px;left:13px;right:13px;display:flex;gap:10px;align-items:center;z-index:2;pointer-events:none}
+.mapbar .t{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e8e3d8}
+.mapbar .s{font-family:var(--ui);font-size:11.5px;color:#8c93a0}
+.maphint{position:absolute;bottom:11px;left:13px;font-family:var(--ui);font-size:11.5px;color:#7b828f;z-index:2;pointer-events:none}
+.legend{position:absolute;bottom:11px;right:13px;display:flex;gap:12px;z-index:2;font-family:var(--ui);font-size:11px;color:#9aa0ad}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+
+/* two-column: meta takes | tropes */
+.cols{display:grid;grid-template-columns:1.55fr 1fr;gap:38px;align-items:start}
+.col h2{margin-bottom:5px}
+.mlist{border-top:1px solid var(--hair)}
+.mrow{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 10px;padding:12px 8px;border-bottom:1px solid var(--hair);transition:background .15s;cursor:pointer}
+.mrow:hover{background:var(--paper)}
+.mrow .t{font-family:var(--serif);font-size:16.5px;font-weight:700;letter-spacing:-.01em}
+.mrow .t:hover{color:var(--accent)}
+.mrow .via{font-family:var(--ui);font-size:12px;color:var(--muted);width:100%}
+.mrow .via .vlabel{color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;margin-right:4px}
+.mrow .via .f{color:var(--accent);font-weight:600}
+.mrow .cnt{font-family:var(--ui);font-size:10.5px;font-weight:700;color:#fff;background:var(--accent);padding:1px 6px;white-space:nowrap}
+.mrow.top .t:after{content:"central";font-family:var(--ui);font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:1px 4px;margin-left:8px;vertical-align:middle}
+.col.teal .mrow .t:hover{color:var(--teal)}
+.col.teal .mrow .via .f{color:var(--teal)}
+.col.teal .mrow .cnt{background:var(--teal)}
+.col.teal .mrow.top .t:after{color:var(--teal);border-color:var(--teal)}
+.col.teal .sub a{color:var(--teal);font-weight:600}
+@media(max-width:760px){.cols{grid-template-columns:1fr;gap:20px}}
+
+/* connected films */
+.conn{border-top:1px solid var(--hair)}
+.crow{display:flex;align-items:baseline;gap:8px;padding:13px 8px;border-bottom:1px solid var(--hair);flex-wrap:wrap}
+.crow:hover{background:var(--paper)}
+.crow .ti{font-family:var(--serif);font-size:17px;font-weight:700}
+.crow .ti:hover{color:var(--accent)}
+.crow .yr{color:var(--muted);font-weight:400;font-size:14px}
+.crow .via{font-family:var(--ui);font-size:12.5px;color:var(--muted);width:100%;margin-top:3px}
+.crow .via .vlabel{color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-size:11px;margin-right:5px}
+.crow .via a{color:var(--accent);font-weight:600}
+.crow .via a:hover{text-decoration:underline}
+
+/* film info details */
+.finfo{margin:30px 0 0;border:1px solid var(--hair)}
+.finfo summary{font-family:var(--ui);font-size:13px;font-weight:600;padding:13px 16px;cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;color:var(--ink2)}
+.finfo summary::-webkit-details-marker{display:none}
+.finfo summary:before{content:"+";color:var(--accent);font-weight:700}
+.finfo[open] summary:before{content:"–"}
+.finfo__body{padding:4px 16px 18px;border-top:1px solid var(--hair)}
+.finfo__body .ov{font-size:15.5px;color:var(--ink2);line-height:1.6;margin:14px 0}
+.finfo dl{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;font-size:13.5px;margin:0}
+.finfo dt{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.finfo dd{margin:0;color:var(--ink2)}
+.finfo dd a{color:var(--accent)}
+.finfo .src{font-family:var(--ui);font-size:11px;color:var(--faint);margin-top:14px;border-top:1px solid var(--hair);padding-top:10px}
+
+/* seqnav + provenance */
+.seq{display:flex;justify-content:space-between;gap:14px;margin:36px 0 0;border-top:1px solid var(--hair);padding-top:18px;font-family:var(--ui);font-size:13px}
+.seq a{color:var(--ink2)}.seq a:hover{color:var(--accent)}
+.seq .lab{display:block;font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.prov{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:22px 0 60px}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#" data-on>Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#">Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#">Films</a><span class="sep">›</span><a href="#">Bong Joon Ho</a></div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="backdrop" data-bd="/8eihUxjQsJ7WvGySkVMC0EwbPAD.jpg"></div>
+    <div class="headrow">
+      <div class="poster" data-bd="/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" data-poster="1"></div>
+      <div class="htxt">
+        <h1>Parasite <span class="yr">(2019)</span></h1>
+        <div class="tagline">Act like you own the place.</div>
+        <div class="facts"><a href="#">Bong Joon Ho</a><span class="d"></span>Comedy · Thriller · Drama<span class="d"></span>133 min<span class="d"></span>R<span class="d"></span>South Korea</div>
+        <div class="hactions">
+          <button class="save">☆ Save</button>
+          <a class="like" href="#">🎬 Movies like Parasite →</a>
+        </div>
+      </div>
+    </div>
+    <p class="intro">Metatake reads <b>Parasite</b> through <b><span class="cu" data-target="11">0</span> figures</b> and the <b><span class="cu" data-target="19">0</span> recurring ideas</b> it shares with the rest of cinema. Not a review — a reading: the concrete things the film keeps returning to, and the lines they draw to other films.</p>
+    <div class="stats">
+      <a class="stat" href="#figures"><div class="n cu" data-target="11">0</div><div class="k">Figures</div></a>
+      <a class="stat red" href="#metatakes"><div class="n cu" data-target="19">0</div><div class="k">Meta takes</div></a>
+      <a class="stat teal" href="#tropes"><div class="n cu" data-target="3">0</div><div class="k">Tropes</div></a>
+      <a class="stat" href="#connected"><div class="n cu" data-target="6">0</div><div class="k">Connected films</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section class="sec" id="figures">
+  <div class="wrap">
+    <h2 class="h2">Figures</h2>
+    <p class="sub">The objects, places, forms and motifs critics have singled out in Parasite — each described in full, with the readings it reaches.</p>
+
+    <div class="fgroup">
+      <div class="flabel">Objects &amp; symbols</div>
+      <div class="fig" data-fig="subway">
+        <div class="figL"><div class="lab">The recurring motif of the 'subway smell'</div><div class="meta"><span class="rc">1 reading</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, Mr. Park repeatedly remarks on a smell that 'crosses the line,' comparing it to the subway. Da-song notices the Kim family members share the same odor. Mr. Park pinches his nose near the dying Geun-sae at the party.</p><div class="reaches"><span class="rl">reaches</span><a href="#">The Abject Borderline</a></div></div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="flabel">Locations</div>
+      <div class="fig" data-fig="bunker">
+        <div class="figL"><div class="lab">The secret bunker beneath the Park house</div><div class="meta"><span class="rc">2 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, a hidden bunker lies beneath the Park family's basement, accessed through a passage behind a shelf. The former housekeeper's husband, Geun-sae, has lived there in hiding for years, sending Morse-code messages with a light switch and praising 'Mr. Park' as his provider.</p><div class="reaches"><span class="rl">reaches</span><a href="#">Sound Without A Source</a>, <a href="#">The Repressed Double</a></div></div>
+      </div>
+      <div class="fig" data-fig="compare">
+        <div class="figL"><div class="lab">The Park house vs. the Kim semi-basement</div><div class="meta"><span class="rc zero">0 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, the Park family occupies a hillside modernist house with a wide lawn and floor-to-ceiling glass, while the Kim family lives in a semi-basement apartment where the toilet sits raised near the ceiling and street-level windows show passing feet. Characters repeatedly climb up or down stairs to move between the two.</p><div class="reaches none"><span class="rl">reaches</span>figure only — no published reading yet</div></div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="flabel">Form &amp; technique</div>
+      <div class="fig" data-fig="flood">
+        <div class="figL"><div class="lab">The flood scene destroying the Kim's apartment</div><div class="meta"><span class="rc">3 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, a downpour sends sewage surging up into the Kims' semi-basement. Ki-jung sits atop the overflowing toilet smoking; the family wades through filthy water salvaging belongings as the camera descends with the deluge.</p><div class="reaches"><span class="rl">reaches</span><a href="#">The Trojan Horse Narrative</a>, <a href="#">Flesh Reduced To Persistence</a>, <a href="#">Lens and Texture as Tactile Tools</a></div></div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="flabel">Themes &amp; motifs</div>
+      <div class="fig" data-fig="tonal">
+        <div class="figL"><div class="lab">The tonal shifts — comedy to thriller to tragedy</div><div class="meta"><span class="rc">4 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">Parasite opens as a sly con comedy, pivots into home-invasion thriller when the old housekeeper returns, and ends in bloody tragedy at the garden party. Bong cuts between registers without warning.</p><div class="reaches"><span class="rl">reaches</span><a href="#">The Trojan Horse Narrative</a>, <a href="#">Generic Transformation</a>, <a href="#">Genre-Shifting Tonal Whiplash</a>, <a href="#">Transnational Auteurism</a></div></div>
+      </div>
+      <div class="fig" data-fig="rock">
+        <div class="figL"><div class="lab">The scholar's rock (Suseok)</div><div class="meta"><span class="rc">3 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, Min gifts the Kims a suseok mounted on a wooden stand, calling it metaphorical. Ki-woo carries it through the film, takes it into the flooded basement, and later uses it in the bunker, where Geun-sae strikes him with it.</p><div class="reaches"><span class="rl">reaches</span><a href="#">Desire Conferred By Distance</a>, <a href="#">Land And Heritage Extracted</a>, <a href="#">The Last Stubborn No</a></div></div>
+      </div>
+      <div class="fig" data-fig="ramdon">
+        <div class="figL"><div class="lab">The 'Ram-Don' (Jjapaguri) with sirloin</div><div class="meta"><span class="rc">2 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, Mrs. Park phones from the car and asks the housekeeper to prepare ram-don — a dish combining two cheap instant noodle brands — topped with premium Hanwoo sirloin. Chung-sook cooks it in roughly eight minutes while the family hides under the table nearby.</p><div class="reaches"><span class="rl">reaches</span><a href="#">Fluency As Convertible Currency</a>, <a href="#">The Servants in Soft Focus</a></div></div>
+      </div>
+      <div class="fig" data-fig="english">
+        <div class="figL"><div class="lab">The Kim children's English &amp; American refs</div><div class="meta"><span class="rc">2 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, Ki-woo adopts the name "Kevin" and Ki-jung becomes "Jessica," who memorizes a mnemonic jingle to sound like an art-therapy expert. English phrases and Western credentials lend their cons an air of authority.</p><div class="reaches"><span class="rl">reaches</span><a href="#">Fluency As Convertible Currency</a>, <a href="#">The Glocal Aesthetic</a></div></div>
+      </div>
+      <div class="fig" data-fig="infiltration">
+        <div class="figL"><div class="lab">The Kim family's infiltration of the Park household</div><div class="meta"><span class="rc">2 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, the four Kims maneuver, one by one, into jobs at the wealthy Park home — tutor, art therapist, driver, housekeeper — each posing as an unrelated, vetted professional with no family ties.</p><div class="reaches"><span class="rl">reaches</span><a href="#">Bodies Outside The Law</a>, <a href="#">The Enterprise of the Self</a></div></div>
+      </div>
+      <div class="fig" data-fig="window">
+        <div class="figL"><div class="lab">The Kim family's semi-basement window</div><div class="meta"><span class="rc">2 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, the Kims' half-underground apartment has a wide window at street level. Through it they watch passing legs, a drunk urinating, and the alley; light enters from above, framing the world as something seen from below.</p><div class="reaches"><span class="rl">reaches</span><a href="#">Architecture as Social Hierarchy</a>, <a href="#">Inverting the Objectifying Lens</a></div></div>
+      </div>
+      <div class="fig" data-fig="noplan">
+        <div class="figL"><div class="lab">Ki-taek's line: "No plan never fails."</div><div class="meta"><span class="rc zero">0 readings</span><a class="figopen" href="#">Open →</a></div></div>
+        <div class="figR"><p class="figdesc">In Parasite, Ki-taek tells his son that the surest plan is no plan, first in the cramped half-flooded gym shelter and echoed later. He speaks softly, eyes lowered, as the family sits among emergency blankets.</p><div class="reaches none"><span class="rl">reaches</span>figure only — no published reading yet</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVING MAP -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="h2">The map of Parasite</h2>
+    <p class="sub">The film at the centre, its figures around it, and the readings each figure reaches. Drag to pan, scroll to zoom, hover a star.</p>
+    <div class="mapwrap">
+      <div class="mapbar"><span class="t">Parasite</span><span class="s">film → figure → meta take · cosine-near</span></div>
+      <canvas id="cv"></canvas>
+      <div class="maphint" id="mapHint">hover a star — its links light up</div>
+      <div class="legend"><span><i style="background:#f0b65f"></i>film</span><span><i style="background:#e8e3d8"></i>figure</span><span><i style="background:#f2554f"></i>meta take</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- META TAKES | TROPES (two columns) -->
+<section class="sec">
+  <div class="wrap cols">
+    <div class="col" id="metatakes">
+      <h2 class="h2">Meta takes</h2>
+      <p class="sub">Cross-film critical patterns Parasite takes part in. <b style="color:var(--ink)">Via</b> = the figure that reaches it.</p>
+      <div class="mlist">
+        <div class="mrow top"><span class="t">Fluency As Convertible Currency</span><span class="cnt">2</span><span class="via"><span class="vlabel">via</span><span class="f">Ram-Don</span>, <span class="f">Kim children's English</span></span></div>
+        <div class="mrow top"><span class="t">The Trojan Horse Narrative</span><span class="cnt">2</span><span class="via"><span class="vlabel">via</span><span class="f">tonal shifts</span>, <span class="f">flood scene</span></span></div>
+        <div class="mrow"><span class="t">Architecture as Social Hierarchy</span><span class="via"><span class="vlabel">via</span><span class="f">semi-basement window</span></span></div>
+        <div class="mrow"><span class="t">Bodies Outside The Law</span><span class="via"><span class="vlabel">via</span><span class="f">the infiltration</span></span></div>
+        <div class="mrow"><span class="t">Desire Conferred By Distance</span><span class="via"><span class="vlabel">via</span><span class="f">scholar's rock</span></span></div>
+        <div class="mrow"><span class="t">Flesh Reduced To Persistence</span><span class="via"><span class="vlabel">via</span><span class="f">flood scene</span></span></div>
+        <div class="mrow"><span class="t">Generic Transformation</span><span class="via"><span class="vlabel">via</span><span class="f">tonal shifts</span></span></div>
+        <div class="mrow"><span class="t">Genre-Shifting Tonal Whiplash</span><span class="via"><span class="vlabel">via</span><span class="f">tonal shifts</span></span></div>
+        <div class="mrow"><span class="t">Inverting the Objectifying Lens</span><span class="via"><span class="vlabel">via</span><span class="f">semi-basement window</span></span></div>
+        <div class="mrow"><span class="t">Land And Heritage Extracted</span><span class="via"><span class="vlabel">via</span><span class="f">scholar's rock</span></span></div>
+        <div class="mrow"><span class="t">Lens and Texture as Tactile Tools</span><span class="via"><span class="vlabel">via</span><span class="f">flood scene</span></span></div>
+        <div class="mrow"><span class="t">Sound Without A Source</span><span class="via"><span class="vlabel">via</span><span class="f">secret bunker</span></span></div>
+        <div class="mrow"><span class="t">The Abject Borderline</span><span class="via"><span class="vlabel">via</span><span class="f">subway smell</span></span></div>
+        <div class="mrow"><span class="t">The Enterprise of the Self</span><span class="via"><span class="vlabel">via</span><span class="f">the infiltration</span></span></div>
+        <div class="mrow"><span class="t">The Glocal Aesthetic</span><span class="via"><span class="vlabel">via</span><span class="f">Kim children's English</span></span></div>
+        <div class="mrow"><span class="t">The Last Stubborn No</span><span class="via"><span class="vlabel">via</span><span class="f">scholar's rock</span></span></div>
+        <div class="mrow"><span class="t">The Repressed Double</span><span class="via"><span class="vlabel">via</span><span class="f">secret bunker</span></span></div>
+        <div class="mrow"><span class="t">The Servants in Soft Focus</span><span class="via"><span class="vlabel">via</span><span class="f">Ram-Don</span></span></div>
+        <div class="mrow"><span class="t">Transnational Auteurism</span><span class="via"><span class="vlabel">via</span><span class="f">tonal shifts</span></span></div>
+      </div>
+    </div>
+
+    <div class="col teal" id="tropes">
+      <h2 class="h2">Tropes</h2>
+      <p class="sub">Screenwriting types it instantiates — shared under <a href="#">Tropes</a>.</p>
+      <div class="mlist">
+        <div class="mrow top"><span class="t">The Borrowed Name</span><span class="cnt">2</span><span class="via"><span class="vlabel">via</span><span class="f">Kim children's English</span>, <span class="f">the infiltration</span></span></div>
+        <div class="mrow"><span class="t">The Household Thing Made Deadly</span><span class="via"><span class="vlabel">via</span><span class="f">scholar's rock</span></span></div>
+        <div class="mrow"><span class="t">The Mid-Story Genre Turn</span><span class="via"><span class="vlabel">via</span><span class="f">tonal shifts</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECTED -->
+<section class="sec" id="connected">
+  <div class="wrap">
+    <h2 class="h2">Films most connected to Parasite <a class="more" href="#">see all →</a></h2>
+    <p class="sub">Nearest neighbours in meaning-space — films that share the most readings. <b style="color:var(--ink)">Shared</b> = the meta takes they hold in common.</p>
+    <div class="conn">
+      <div class="crow"><a class="ti" href="#">Let the Right One In</a> <span class="yr">(2008)</span><span class="via"><span class="vlabel">shared</span><a href="#">The Trojan Horse Narrative</a>, <a href="#">Inverting the Objectifying Lens</a>, <a href="#">Sound Without A Source</a></span></div>
+      <div class="crow"><a class="ti" href="#">Bacurau</a> <span class="yr">(2019)</span><span class="via"><span class="vlabel">shared</span><a href="#">The Trojan Horse Narrative</a>, <a href="#">Inverting the Objectifying Lens</a>, <a href="#">Flesh Reduced To Persistence</a></span></div>
+      <div class="crow"><a class="ti" href="#">Us</a> <span class="yr">(2019)</span><span class="via"><span class="vlabel">shared</span><a href="#">Land And Heritage Extracted</a>, <a href="#">The Repressed Double</a>, <a href="#">Flesh Reduced To Persistence</a></span></div>
+      <div class="crow"><a class="ti" href="#">Y Tu Mamá También</a> <span class="yr">(2001)</span><span class="via"><span class="vlabel">shared</span><a href="#">The Enterprise of the Self</a>, <a href="#">The Trojan Horse Narrative</a>, <a href="#">Lens and Texture as Tactile Tools</a></span></div>
+      <div class="crow"><a class="ti" href="#">The Ring</a> <span class="yr">(2002)</span><span class="via"><span class="vlabel">shared</span><a href="#">Inverting the Objectifying Lens</a>, <a href="#">Sound Without A Source</a>, <a href="#">The Glocal Aesthetic</a></span></div>
+      <div class="crow"><a class="ti" href="#">Infernal Affairs</a> <span class="yr">(2002)</span><span class="via"><span class="vlabel">shared</span><a href="#">The Repressed Double</a>, <a href="#">The Glocal Aesthetic</a>, <a href="#">Generic Transformation</a></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM INFO -->
+<div class="wrap">
+  <details class="finfo">
+    <summary>Film info &amp; credits</summary>
+    <div class="finfo__body">
+      <p class="ov">All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.</p>
+      <dl>
+        <dt>Director</dt><dd><a href="#">Bong Joon Ho</a></dd>
+        <dt>Cast</dt><dd>Song Kang-ho (Kim Ki-taek), Lee Sun-kyun (Park Dong-ik), Cho Yeo-jeong (Yeon-kyo), Choi Woo-shik (Ki-woo), Park So-dam (Ki-jung)</dd>
+        <dt>Runtime</dt><dd>133 min</dd>
+        <dt>Genre</dt><dd>Comedy, Thriller, Drama</dd>
+        <dt>Rated</dt><dd>R</dd>
+        <dt>Language</dt><dd>KO</dd>
+        <dt>Country</dt><dd>South Korea</dd>
+      </dl>
+      <div class="src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
+    </div>
+  </details>
+
+  <div class="seq">
+    <a href="#"><span class="lab">← Previous film</span>Okja (2017)</a>
+    <a href="#" style="text-align:right"><span class="lab">Next film →</span>Memories of Murder (2003)</a>
+  </div>
+  <div class="prov">Added to metatake · reading retrieved from the live corpus, not generated.</div>
+</div>
+
+<script>
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+/* colour images */
+$all("[data-bd]").forEach(function(el){
+  var size=el.getAttribute("data-poster")?"w342":"w780";
+  var url="https://image.tmdb.org/t/p/"+size+el.getAttribute("data-bd");
+  var im=new Image(); im.onload=function(){ el.style.backgroundImage="url("+url+")"; }; im.src=url;
+});
+
+/* count-up numbers (roll up on scroll-in) */
+function countUp(el){
+  var target=+el.getAttribute("data-target"), t0=null, dur=900+Math.random()*500;
+  function step(now){ if(!t0)t0=now; var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=Math.round(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+  requestAnimationFrame(step);
+}
+(function(){
+  var seen=new WeakSet();
+  var obs=new IntersectionObserver(function(ents){ ents.forEach(function(en){ if(en.isIntersecting && !seen.has(en.target)){ seen.add(en.target); countUp(en.target); } }); },{threshold:.6});
+  $all(".cu").forEach(function(el){ obs.observe(el); });
+})();
+
+/* living map — film → figures → meta takes */
+(function(){
+  var cv=$("#cv"); if(!cv) return; var ctx=cv.getContext("2d"), DPR=Math.min(2,window.devicePixelRatio||1), W=0,H=0;
+  function size(){ var r=cv.getBoundingClientRect(); W=r.width;H=r.height; cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  var FIGS=[
+    {k:"subway",l:"subway smell",mt:["The Abject Borderline"]},
+    {k:"bunker",l:"secret bunker",mt:["Sound Without A Source","The Repressed Double"]},
+    {k:"flood",l:"flood scene",mt:["The Trojan Horse Narrative","Flesh Reduced To Persistence","Lens and Texture"]},
+    {k:"tonal",l:"tonal shifts",mt:["The Trojan Horse Narrative","Generic Transformation","Genre-Shifting Tonal Whiplash","Transnational Auteurism"]},
+    {k:"rock",l:"scholar's rock",mt:["Desire Conferred By Distance","Land And Heritage Extracted","The Last Stubborn No"]},
+    {k:"ramdon",l:"Ram-Don dish",mt:["Fluency As Convertible Currency","The Servants in Soft Focus"]},
+    {k:"english",l:"Kim children's English",mt:["Fluency As Convertible Currency","The Glocal Aesthetic"]},
+    {k:"infiltration",l:"the infiltration",mt:["Bodies Outside The Law","The Enterprise of the Self"]},
+    {k:"window",l:"semi-basement window",mt:["Architecture as Social Hierarchy","Inverting the Objectifying Lens"]}
+  ];
+  var nodes=[], links=[], byId={};
+  var film={id:"film",label:"Parasite",type:"film"}; nodes.push(film); byId.film=film;
+  FIGS.forEach(function(f){ var fn={id:"f:"+f.k,label:f.l,type:"figure"}; nodes.push(fn); byId[fn.id]=fn; links.push({a:film,b:fn});
+    f.mt.forEach(function(m){ var id="m:"+m; if(!byId[id]){ byId[id]={id:id,label:m,type:"meta"}; nodes.push(byId[id]); } links.push({a:fn,b:byId[id]}); });
+  });
+  var cx,cy,R;
+  function seed(){ cx=W/2; cy=H/2; R=Math.min(W,H)*0.36;
+    var figList=nodes.filter(function(n){return n.type==="figure";});
+    var metaList=nodes.filter(function(n){return n.type==="meta";});
+    film.bx=cx; film.by=cy;
+    figList.forEach(function(n,i){ var a=(i/figList.length)*Math.PI*2; n.bx=cx+Math.cos(a)*R*0.5; n.by=cy+Math.sin(a)*R*0.5; });
+    metaList.forEach(function(n,i){ var a=(i/metaList.length)*Math.PI*2+0.3; n.bx=cx+Math.cos(a)*R*1.02; n.by=cy+Math.sin(a)*R*1.02; });
+    nodes.forEach(function(n){ n.x=n.bx; n.y=n.by; n.ph=Math.random()*6.28; });
+  }
+  function rad(n){ return n.type==="film"?11:n.type==="figure"?5:4; }
+  function col(n,lit){ if(n.type==="film")return lit?"#ffd089":"#f0b65f"; if(n.type==="figure")return lit?"#fff":"rgba(233,228,216,.85)"; return lit?"#ff6a64":"rgba(242,85,79,.8)"; }
+  var k=1,tx=0,ty=0,hover=null,dragging=false,ds=null;
+  function nbrs(n){ var s={}; s[n.id]=1; links.forEach(function(l){ if(l.a===n)s[l.b.id]=1; if(l.b===n)s[l.a.id]=1; }); return s; }
+  function draw(){
+    ctx.clearRect(0,0,W,H); ctx.save(); ctx.translate(tx,ty); ctx.scale(k,k);
+    var nb=hover?nbrs(hover):null;
+    links.forEach(function(l){ var lit=nb&&nb[l.a.id]&&nb[l.b.id];
+      ctx.beginPath(); ctx.moveTo(l.a.x,l.a.y); ctx.lineTo(l.b.x,l.b.y);
+      ctx.strokeStyle=lit?"rgba(242,85,79,.5)":"rgba(150,150,160,.12)"; ctx.lineWidth=(lit?1.4:0.7)/k; ctx.stroke(); });
+    nodes.forEach(function(n){ var lit=!nb||nb[n.id], r=rad(n);
+      if(hover===n){ ctx.beginPath(); ctx.arc(n.x,n.y,r+5,0,7); ctx.fillStyle="rgba(242,85,79,.16)"; ctx.fill(); }
+      ctx.globalAlpha=lit?1:0.25; ctx.beginPath(); ctx.arc(n.x,n.y,r,0,7); ctx.fillStyle=col(n,hover===n); ctx.fill(); ctx.globalAlpha=1;
+      if(n.type==="film"||hover===n){ ctx.font="600 11px Inter,sans-serif"; ctx.fillStyle=lit?"#e8e3d8":"rgba(232,227,216,.3)"; ctx.textAlign="left"; ctx.fillText(n.label.length>22?n.label.slice(0,21)+"…":n.label, n.x+r+5, n.y+3); }
+    });
+    ctx.restore();
+  }
+  function loop(){ nodes.forEach(function(n){ n.ph+=0.008; n.x=n.bx+Math.cos(n.ph)*5; n.y=n.by+Math.sin(n.ph*0.9)*5; }); draw(); requestAnimationFrame(loop); }
+  function local(ev){ var r=cv.getBoundingClientRect(); return {x:(ev.clientX-r.left-tx)/k,y:(ev.clientY-r.top-ty)/k}; }
+  function hit(p){ var best=null,bd=16; nodes.forEach(function(n){ var d=Math.hypot(n.x-p.x,n.y-p.y); if(d<bd){bd=d;best=n;} }); return best; }
+  cv.addEventListener("mousemove",function(ev){ if(dragging){ tx=ds.tx+(ev.clientX-ds.x); ty=ds.ty+(ev.clientY-ds.y); return; } hover=hit(local(ev)); $("#mapHint").textContent=hover?(hover.type+" · "+hover.label):"hover a star — its links light up"; });
+  cv.addEventListener("mousedown",function(ev){ dragging=true; ds={x:ev.clientX,y:ev.clientY,tx:tx,ty:ty}; });
+  window.addEventListener("mouseup",function(){ dragging=false; });
+  cv.addEventListener("mouseleave",function(){ hover=null; });
+  cv.addEventListener("wheel",function(ev){ ev.preventDefault(); var r=cv.getBoundingClientRect(),px=ev.clientX-r.left,py=ev.clientY-r.top,fac=ev.deltaY<0?1.1:0.9,nk=Math.max(0.5,Math.min(2.4,k*fac)),wx=(px-tx)/k,wy=(py-ty)/k; k=nk; tx=px-wx*k; ty=py-wy*k; },{passive:false});
+  size(); seed(); requestAnimationFrame(loop);
+  window.addEventListener("resize",function(){ size(); seed(); });
+})();
+</script>
+</body>
+</html>

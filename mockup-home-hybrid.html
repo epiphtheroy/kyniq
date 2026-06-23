@@ -1,0 +1,142 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metatake — hybrid home mockup (Ask hero + editorial)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300..700&display=swap">
+<style>
+  :root{--bg:#fff;--paper:#FBFAF7;--paper2:#F2F1EC;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+        --hair:#D8D8D8;--hair2:#B9B9B9;--accent:#E3120B;--teal:#167C6B;--director:#6B4E9E;--concept:#2E6F8E;
+        --serif:"PT Serif",Georgia,serif;--ui:"Inter",-apple-system,system-ui,sans-serif}
+  *{box-sizing:border-box} body{margin:0;background:var(--paper2);color:var(--ink);font-family:var(--ui)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  /* masthead */
+  .mh{background:var(--bg);border-bottom:1px solid var(--hair)}
+  .mh__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:18px}
+  .logo{background:var(--accent);color:#fff;font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:-.01em;padding:6px 9px;line-height:1}
+  .nav{display:flex;gap:17px;font-size:14px;color:var(--muted)} .nav a:hover{color:var(--ink)} .nav .on{color:var(--ink);font-weight:600}
+  .mh__sp{flex:1 1 auto}
+  .srch{font-size:13px;color:var(--faint);border:1px solid var(--hair);padding:6px 12px;width:190px}
+  /* HERO — prompt-first */
+  .hero{background:var(--bg);border-bottom:1px solid var(--hair)}
+  .hero__in{max-width:760px;margin:0 auto;padding:54px 26px 46px;text-align:center}
+  .kick{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+  .kick i{display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;margin-right:7px;vertical-align:1px}
+  h1{font-family:var(--serif);font-weight:700;font-size:43px;line-height:1.08;letter-spacing:-.022em;margin:0 0 14px}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{font-family:var(--serif);font-size:18px;line-height:1.55;color:var(--ink2);max-width:60ch;margin:0 auto 26px}
+  .ask{display:flex;gap:0;border:2px solid var(--ink);background:#fff;max-width:620px;margin:0 auto}
+  .ask input{flex:1 1 auto;border:0;outline:0;font-family:var(--serif);font-size:17px;padding:15px 18px;color:var(--ink);background:transparent}
+  .ask button{border:0;background:var(--accent);color:#fff;font-family:var(--ui);font-weight:600;font-size:15px;padding:0 24px;cursor:pointer;white-space:nowrap}
+  .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px auto 0;max-width:640px}
+  .chip{font-family:var(--ui);font-size:13px;color:var(--ink2);background:var(--paper);border:1px solid var(--hair);padding:8px 13px;line-height:1.2}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  .trust{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin:22px 0 0}
+  .trust b{color:var(--ink)} .trust .st{color:var(--accent);font-weight:700}
+  /* divider */
+  .orw{max-width:1180px;margin:0 auto;padding:30px 26px 4px;display:flex;align-items:center;gap:16px;color:var(--faint)}
+  .orw:before,.orw:after{content:"";flex:1;height:1px;background:var(--hair)}
+  .orw span{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  /* featured pair (editorial, crawlable) */
+  .pairwrap{padding:18px 0 6px}
+  .pairhead{display:flex;align-items:baseline;gap:9px;margin:0 0 14px;flex-wrap:wrap}
+  .pairhead .gk{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.01em}
+  .pairhead .gs{font-family:var(--ui);font-size:13px;color:var(--muted)}
+  .stage{display:grid;grid-template-columns:1fr minmax(220px,300px) 1fr;gap:0;align-items:stretch;background:#fff;border:1px solid var(--ink)}
+  .fc{padding:0;min-width:0}
+  .fc .bd{display:block;width:100%;aspect-ratio:16/9;background:#1a1f25;overflow:hidden;border-bottom:1px solid var(--hair)}
+  .fc .bd img{width:100%;height:100%;object-fit:cover;display:block}
+  .fc .body{padding:14px 16px}
+  .fc .ord{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .fc .ttl{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:-.01em;margin:4px 0 2px}
+  .fc .meta{font-family:var(--ui);font-size:12.5px;color:var(--muted)}
+  .fc .via{font-family:var(--serif);font-size:14px;color:var(--ink2);margin-top:7px}
+  .fc .via i{font-style:italic;color:var(--ink)}
+  .fc.right{text-align:right}
+  .tie{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;border-left:1px solid var(--hair);border-right:1px solid var(--hair);background:var(--paper)}
+  .tie .both{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+  .tie .knot{width:30px;height:30px;border:2px solid var(--accent);border-radius:50%;margin:0 auto 12px;position:relative}
+  .tie .knot:after{content:"";position:absolute;inset:6px;border:2px solid var(--accent);border-radius:50%;opacity:.4}
+  .tie .mt{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.15;letter-spacing:-.01em;border-bottom:2px solid var(--accent);padding-bottom:6px;display:inline-block}
+  .tie .lac{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px;margin:11px 0 0;line-height:1.4}
+  .tie .cta{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--accent);margin-top:13px}
+  /* doors */
+  .doors{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 0}
+  .door{background:#fff;border:1px solid var(--hair);padding:16px 15px;position:relative}
+  .door .bar{position:absolute;top:0;left:0;width:100%;height:3px}
+  .door .c{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .door .n{font-family:var(--serif);font-weight:700;font-size:19px;margin:5px 0 2px}
+  .door .s{font-family:var(--serif);font-size:13.5px;color:var(--ink2);margin:8px 0 0;line-height:1.4}
+  /* stats + manifesto */
+  .stats{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--hair);background:var(--hair);margin:30px 0 0}
+  .stat{background:#fff;flex:1 1 0;min-width:120px;padding:15px 16px}
+  .stat .v{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1}
+  .stat .k{font-family:var(--ui);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+  .mani{padding:48px 0 56px}
+  .mani p{font-family:var(--serif);font-size:22px;line-height:1.5;letter-spacing:-.01em;max-width:30ch;margin:0}
+  .mani .em{color:var(--accent)}
+  .mani .by{font-family:var(--ui);font-size:13px;color:var(--muted);margin-top:18px;max-width:60ch}
+  .note{font-family:var(--ui);font-size:12px;color:var(--faint);text-align:center;padding:10px 26px 30px}
+</style></head>
+<body>
+
+<div class="mh"><div class="mh__row">
+  <a class="logo">metatake</a>
+  <nav class="nav"><a class="on">Ask</a><a>Films</a><a>Directors</a><a>Tropes</a><a>Concepts</a><a>Meta takes</a><a>Blog</a></nav>
+  <span class="mh__sp"></span><span class="srch">Search… ( / )</span>
+</div></div>
+
+<section class="hero"><div class="hero__in">
+  <p class="kick"><i></i>Ask the map · grounded in real criticism</p>
+  <h1>A critical map of cinema — <em>ask it anything.</em></h1>
+  <p class="lead">Type a question about any film, theme, or feeling. Every answer is <b>retrieved from Metatake's readings — not generated</b> — and comes with the films, figures and tropes it's built on.</p>
+  <div class="ask"><input placeholder="Ask about a film, a theme, a feeling…" value="Why does Synecdoche, New York feel like a maze?"><button>Ask&nbsp;→</button></div>
+  <div class="chips">
+    <a class="chip">Films about surveillance that isn't a camera</a>
+    <a class="chip">What connects Bacurau and There Will Be Blood?</a>
+    <a class="chip">The body that performs past its hour</a>
+    <a class="chip">Directors obsessed with enclosure</a>
+    <a class="chip">Why do storms get friendly names?</a>
+  </div>
+  <p class="trust">Grounded in <b>270 readings</b> across <b>559 films</b> · <span class="st">retrieved, not remembered</span></p>
+</div></section>
+
+<div class="orw"><span>or wander the map</span></div>
+
+<div class="wrap">
+  <section class="pairwrap">
+    <div class="pairhead"><span class="gk">Two films you'd never shelve together —</span><span class="gs">and the line between them. Redrawn every visit.</span></div>
+    <div class="stage">
+      <div class="fc"><span class="bd"><img src="https://image.tmdb.org/t/p/w780/insPcjOIWFf6Uc9DR0ORgXATqSM.jpg" alt=""></span>
+        <div class="body"><div class="ord">Film A</div><div class="ttl">Synecdoche, New York</div><div class="meta">2008 · Charlie Kaufman</div>
+        <div class="via">via <i>the life rebuilt as a place you can walk through</i></div></div></div>
+      <div class="tie"><div class="both">Both are really about</div><div class="knot"></div>
+        <div class="mt">The Monumental Image</div><p class="lac">"a life hardens into a thing you can tour"</p><div class="cta">Open this reading →</div></div>
+      <div class="fc right"><span class="bd"><img src="https://image.tmdb.org/t/p/w780/gAsHuCQMN7mv4uFIvM4ACQ09hPr.jpg" alt=""></span>
+        <div class="body"><div class="ord">Film B</div><div class="ttl">The Power of the Dog</div><div class="meta">2021 · Jane Campion</div>
+        <div class="via">via <i>the monument built to outlast its maker</i></div></div></div>
+    </div>
+
+    <div class="doors">
+      <a class="door"><span class="bar" style="background:var(--accent)"></span><div class="c" style="color:var(--accent)">270 hubs</div><div class="n">Meta takes</div><p class="s">The ideas that gather films across decades.</p></a>
+      <a class="door"><span class="bar" style="background:var(--teal)"></span><div class="c" style="color:var(--teal)">439 figure-types</div><div class="n">Tropes</div><p class="s">The shapes cinema keeps reaching for.</p></a>
+      <a class="door"><span class="bar" style="background:var(--director)"></span><div class="c" style="color:var(--director)">auteur fingerprints</div><div class="n">Directors</div><p class="s">Readings that recur across a filmography.</p></a>
+      <a class="door"><span class="bar" style="background:var(--concept)"></span><div class="c" style="color:var(--concept)">the theory</div><div class="n">Concepts</div><p class="s">The critical ideas the readings rest on.</p></a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">559</div><div class="k">Films</div></div>
+      <div class="stat"><div class="v">7,400</div><div class="k">Figures</div></div>
+      <div class="stat"><div class="v">26,000</div><div class="k">Takes</div></div>
+      <div class="stat"><div class="v">270</div><div class="k">Meta-takes</div></div>
+      <div class="stat"><div class="v">439</div><div class="k">Tropes</div></div>
+    </div>
+  </section>
+
+  <section class="mani">
+    <p>For people who can't stop thinking about films, metatake finds the <span class="em">unconscious lines</span> between them — now you can just <span class="em">ask</span> for one.</p>
+    <p class="by">No reviews. No scores. Only readings — retrieved from a real corpus, with everything they're built on one click away.</p>
+  </section>
+</div>
+
+<p class="note">Mockup · hybrid home: Ask prompt as the hero, the editorial map kept below (crawlable for SEO + discovery).</p>
+
+</body></html>

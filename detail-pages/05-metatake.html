@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cyborg Body — 33 films · metatake</title>
+<!--
+  metatake · META TAKE detail page redesign (시안) — /take/[slug]   ·   example: The Cyborg Body   ·   THE HUB / main character
+  Built on the REAL current page (app/take/[slug]/page.tsx). All data REAL (Supabase): laconic, thesis, theorist (Haraway), 39 takes / 33 films,
+  5 Defining cases (rel_rank) + 3 Unexpected kin (surp_rank) with full rationale & register, genre/register folder counts.
+  Red is the meta-take identity. Register badges use the real REG colour map. Preserves: laconic → thesis → graph → Representative takes
+  (Defining cases + Unexpected kin) → All takes (search · random · group by genre/register, foldered) → seq/provenance.
+  v6 system + consistency with film/figure/director/trope pages: stat strip (jump + count-up), dark map, full-text rationale.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:880px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+.crumb{font-family:var(--ui);font-size:12.5px;color:var(--muted);padding:18px 0 0}
+.crumb a:hover{color:var(--accent)}
+
+/* meta-take header */
+.mhead{padding:12px 0 4px}
+.role{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.mhead h1{font-family:var(--serif);font-weight:700;font-size:46px;line-height:1.04;letter-spacing:-.024em;margin:7px 0 12px}
+.laconic{font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.38;color:var(--ink);margin:0;padding-left:16px;border-left:3px solid var(--accent);max-width:40ch}
+.after{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin:12px 0 0;padding-left:16px}
+.after b{color:var(--ink2);font-weight:600}
+.actions{display:flex;gap:10px;align-items:center;margin-top:16px}
+.actions .save{font-family:var(--ui);font-size:12.5px;font-weight:600;border:1px solid var(--hair2);padding:7px 13px;color:var(--ink2);cursor:pointer}
+.actions .save:hover{border-color:var(--accent);color:var(--accent)}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:22px 0 0}
+.stat{background:#fff;padding:14px 16px;display:block;cursor:pointer;transition:background .15s}
+.stat:hover{background:var(--paper)}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:27px;line-height:1;font-variant-numeric:tabular-nums}
+.stat.red .n{color:var(--accent)}
+.stat .k{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:7px;display:flex;align-items:center;gap:5px}
+.stat .k:after{content:"↓";color:var(--hair2);font-weight:700}
+.stat:hover .k:after{color:var(--accent)}
+
+.thesis{font-size:18px;line-height:1.64;color:var(--ink);margin:26px 0 0;max-width:72ch}
+
+/* map */
+.mapwrap{position:relative;border:1px solid var(--ink);background:#0c0e12;overflow:hidden;height:440px;margin-top:26px}
+.mapwrap canvas{display:block;width:100%;height:100%;cursor:grab}
+.mapwrap canvas:active{cursor:grabbing}
+.mapbar{position:absolute;top:12px;left:13px;right:13px;display:flex;gap:10px;align-items:center;z-index:2;pointer-events:none}
+.mapbar .t{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e8e3d8}
+.mapbar .s{font-family:var(--ui);font-size:11.5px;color:#8c93a0}
+.maphint{position:absolute;bottom:11px;left:13px;font-family:var(--ui);font-size:11.5px;color:#7b828f;z-index:2;pointer-events:none}
+.legend{position:absolute;bottom:11px;right:13px;display:flex;gap:13px;z-index:2;font-family:var(--ui);font-size:11px;color:#9aa0ad}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+
+/* sections */
+.sec{padding:40px 0 4px;scroll-margin-top:70px}
+.h2{font-family:var(--serif);font-weight:700;font-size:27px;letter-spacing:-.02em;margin:0 0 5px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.h2 .n{color:var(--muted);font-weight:400;font-size:17px}
+.gloss{font-size:14.5px;color:var(--muted);margin:0 0 20px;max-width:66ch}
+.gloss a{color:var(--accent);font-weight:600}
+
+.label{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:24px 0 12px;display:flex;align-items:baseline;gap:9px}
+.label .sm{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:14px;color:var(--muted)}
+
+/* case cards */
+.case{border:1px solid var(--hair);border-left:3px solid var(--accent);padding:16px 18px;margin:0 0 13px;background:#fff}
+.case.kin{border-left-style:dashed}
+.case__top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 10px;margin-bottom:4px}
+.case__rk{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--faint);min-width:18px}
+.case__film{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.01em}
+.case__film:hover{color:var(--accent)}
+.case__yr{color:var(--muted);font-weight:400;font-size:15px}
+.case__top .dash{color:var(--hair2)}
+.case__fig{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--accent);line-height:1.2}
+.case__fig:hover{text-decoration:underline}
+.badge{font-family:var(--ui);font-size:10.5px;font-weight:700;letter-spacing:.03em;color:#fff;padding:2px 8px;margin-left:auto;align-self:center}
+.badge.none{background:#fff;color:var(--muted);border:1px solid var(--hair2)}
+.case__rat{font-size:15.5px;line-height:1.62;color:var(--ink2);margin:9px 0 0}
+
+/* all-takes explorer */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 16px}
+.toolbar .search{flex:1 1 220px;position:relative}
+.toolbar .search input{width:100%;font-family:var(--ui);font-size:13.5px;padding:9px 12px;border:1px solid var(--hair2);background:#fff;color:var(--ink)}
+.toolbar .search input:focus{outline:none;border-color:var(--accent)}
+.toolbar .rand{font-family:var(--ui);font-size:12.5px;font-weight:600;border:1px solid var(--hair2);background:#fff;padding:9px 13px;cursor:pointer;color:var(--ink2)}
+.toolbar .rand:hover{border-color:var(--accent);color:var(--accent)}
+.toggle{display:flex;border:1px solid var(--hair2)}
+.toggle button{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--muted);background:#fff;border:0;padding:9px 13px;cursor:pointer}
+.toggle button.on{background:var(--ink);color:#fff}
+.folders details{border:1px solid var(--hair);border-bottom:0}
+.folders details:last-child{border-bottom:1px solid var(--hair)}
+.folders summary{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;list-style:none;font-family:var(--ui);font-size:13.5px}
+.folders summary::-webkit-details-marker{display:none}
+.folders summary:hover{background:var(--paper)}
+.folders summary:before{content:"";width:17px;height:17px;flex:0 0 17px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6.5A1.5 1.5 0 0 1 4.5 5h4l2 2h9A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5v-11z' fill='%239A9A9A'/%3E%3C/svg%3E") center/contain no-repeat}
+.folders details[open] summary:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 7A1.5 1.5 0 0 1 4.5 5.5h4l2 2h9A1.5 1.5 0 0 1 21 9v1.5H3z' fill='%230D0D0D'/%3E%3Cpath d='M3.2 10.5h18.4l-2 7.6A1.6 1.6 0 0 1 18 19.5H4.5A1.5 1.5 0 0 1 3 18z' fill='%230D0D0D' opacity='.5'/%3E%3C/svg%3E")}
+.folders .fname{font-weight:600}
+.folders .fn{margin-left:auto;font-family:var(--ui);font-size:12.5px;font-weight:400;color:var(--muted);white-space:nowrap}
+.folders .fn b{color:var(--ink);font-weight:700}
+.folders .body{padding:2px 14px 12px;border-top:1px solid var(--hair)}
+.tk{padding:9px 2px;border-bottom:1px dashed var(--hair);line-height:1.35}
+.tk:last-child{border-bottom:0}
+.tk .f{font-family:var(--serif);font-size:16px;font-weight:700}
+.tk .f:hover{color:var(--accent)}
+.tk .y{color:var(--muted);font-size:14px;font-weight:400}
+.tk .dash{color:var(--hair2)}
+.tk .fg{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--accent)}
+.tk .fg:hover{text-decoration:underline}
+.tk .more{font-family:var(--ui);font-size:12px;color:var(--muted);padding:9px 0 2px;font-style:italic}
+.tk.flash{animation:fl 1.2s ease}
+@keyframes fl{0%,100%{background:transparent}30%{background:#fff1f0}}
+.hidden{display:none}
+
+.compare{font-family:var(--ui);font-size:13px;color:var(--muted);margin:30px 0 0}
+.compare .none{font-style:italic}
+.seq{display:flex;justify-content:space-between;gap:14px;margin:30px 0 0;border-top:1px solid var(--hair);padding-top:18px;font-family:var(--ui);font-size:13px}
+.seq a{color:var(--ink2)}.seq a:hover{color:var(--accent)}
+.seq .lab{display:block;font-size:11px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.prov{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:22px 0 58px}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#" data-on>Meta takes</a><a href="#">Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#">Meta takes</a></div>
+  <div class="mhead">
+    <div class="role">Meta take · the hub</div>
+    <h1>The Cyborg Body</h1>
+    <p class="laconic">The fusion of flesh and technology that exposes the fragile boundaries of the human.</p>
+    <p class="after">Theory · after <b>Donna Haraway</b></p>
+    <div class="actions"><button class="save">☆ Save meta take</button></div>
+  </div>
+
+  <div class="stats">
+    <a class="stat" href="#rep"><div class="n cu" data-target="33">0</div><div class="k">Films</div></a>
+    <a class="stat red" href="#all-takes"><div class="n cu" data-target="39">0</div><div class="k">Takes</div></a>
+    <a class="stat" href="#all-takes"><div class="n cu" data-target="8">0</div><div class="k">Registers</div></a>
+  </div>
+
+  <p class="thesis">In cinema, the cyborg is rarely just a sci-fi prop; it is a walking battleground between the organic and the synthetic. By fusing flesh with machinery, prosthetics, or genetic reconstruction, these characters challenge our assumptions about identity, agency, and soul. Whether tragic, monstrous, or transcendent, this hybrid form serves as a mirror for humanity's deepest anxieties about its own adaptability.</p>
+
+  <div class="mapwrap">
+    <div class="mapbar"><span class="t">The Cyborg Body</span><span class="s">the hub · 33 films gather here · defining near, kin far</span></div>
+    <canvas id="cv"></canvas>
+    <div class="maphint" id="mapHint">hover a star — the films that gather here</div>
+    <div class="legend"><span><i style="background:#f2554f"></i>this meta take</span><span><i style="background:#e8e3d8"></i>defining film</span><span><i style="background:#8a93a0"></i>unexpected kin</span></div>
+  </div>
+</div>
+
+<!-- REPRESENTATIVE TAKES -->
+<section class="sec" id="rep">
+  <div class="wrap">
+    <h2 class="h2">Representative takes</h2>
+    <p class="gloss">A few standouts — the clearest cases, and the surprising ones. For every take, open a folder under <a href="#all-takes">All takes</a> below.</p>
+
+    <div class="label">Defining cases</div>
+    <div class="case">
+      <div class="case__top"><span class="case__rk">1</span><a class="case__film" href="#">Akira</a> <span class="case__yr">(1988)</span> <span class="dash">—</span> <a class="case__fig" href="#">Tetsuo's bodily transformations</a><span class="badge" style="background:#7E57C2">Philosophical</span></div>
+      <p class="case__rat">Watch what Tetsuo's arm is actually made of: not clean prosthetics but a tangle of wire and torn meat, the city's junk crawling into his body. The boundary between him and the machinery around him just dissolves. He doesn't use technology, he becomes continuous with it, and the film refuses to say where the boy stops and the wreckage starts. That refusal is the whole horror — a body that no longer agrees to be only a body.</p>
+    </div>
+    <div class="case">
+      <div class="case__top"><span class="case__rk">2</span><a class="case__film" href="#">Mission: Impossible — Ghost Protocol</a> <span class="case__yr">(2011)</span> <span class="dash">—</span> <a class="case__fig" href="#">the recurring failure of high-tech gadgets</a><span class="badge" style="background:#B8860B">Semiotic</span></div>
+      <p class="case__rat">Each gadget is the body trying to become more than itself — sticking to glass, projecting new faces, defying gravity. And each one fails right at the seam where flesh and machine are supposed to merge. The film keeps testing the dream of the upgraded human and keeps finding the wiring loose. What survives is the stubborn organic part, the thing no firmware can replace, which makes these failures a running commentary on how far the enhanced self can actually be trusted.</p>
+    </div>
+    <div class="case">
+      <div class="case__top"><span class="case__rk">3</span><a class="case__film" href="#">The Neon Demon</a> <span class="case__yr">(2016)</span> <span class="dash">—</span> <a class="case__fig" href="#">Gigi's surgically-enhanced body</a><span class="badge" style="background:#B8860B">Semiotic</span></div>
+      <p class="case__rat">Gigi's surgically-enhanced body in contrast to Jesse's 'natural' beauty highlights the tensions of the posthuman cyborg body. As a collage of plastic and prosthetics, this form blurs the boundary between organism and machine, challenging traditional notions of identity. The violent envy directed at natural beauty reveals a deep-seated cultural anxiety surrounding authenticity, exposing how the natural is fetishized and commodified even within a society entirely dependent on artificial enhancement for its ideals.</p>
+    </div>
+    <div class="case">
+      <div class="case__top"><span class="case__rk">4</span><a class="case__film" href="#">The Terminator</a> <span class="case__yr">(1984)</span> <span class="dash">—</span> <a class="case__fig" href="#">Arnold Schwarzenegger's star persona</a><span class="badge" style="background:#B8860B">Semiotic</span></div>
+      <p class="case__rat">Long before we see the steel skeleton, the body is already telling us he isn't human. That impossible muscularity reads as armor, the smooth definition standing in for the chassis underneath. When skin later peels to expose the endoskeleton, it confirms what the silhouette promised. The film makes a sculpted human form mean 'manufactured,' so the boundary between built body and built machine collapses into one continuous sign of fabricated power.</p>
+    </div>
+    <div class="case">
+      <div class="case__top"><span class="case__rk">5</span><a class="case__film" href="#">The Fifth Element</a> <span class="case__yr">(1997)</span> <span class="dash">—</span> <a class="case__fig" href="#">the regeneration of Leeloo's body</a><span class="badge none">Unspecified</span></div>
+      <p class="case__rat">The regeneration of Leeloo's body presents her as a literal post-human entity, a hybrid of organism and machine created by advanced technology. However, the narrative ultimately domesticates this radical potential by insisting on her need for traditional human love to fulfill her purpose. This reveals a conservative impulse within the film, containing the transgressive implications of the cyborg figure and reaffirming conventional human values.</p>
+    </div>
+
+    <div class="label">Unexpected kin <span class="sm">— far apart on the surface, family underneath</span></div>
+    <div class="case kin">
+      <div class="case__top"><a class="case__film" href="#">Return of the Jedi</a> <span class="case__yr">(1983)</span> <span class="dash">—</span> <a class="case__fig" href="#">Darth Vader's final act of redemption</a><span class="badge" style="background:#546E7A">Existential</span></div>
+      <p class="case__rat">What lands is the timing: the one free act of his life is also the last. For decades he followed orders, and now, with his son frying in front of him, he finally decides something for himself. The redemption isn't really about good versus evil; it's about a man discovering he still has a will, exercising it once, and dying immediately. The film quietly suggests that to be free, even briefly, can be worth your whole life.</p>
+    </div>
+    <div class="case kin">
+      <div class="case__top"><a class="case__film" href="#">Annihilation</a> <span class="case__yr">(2018)</span> <span class="dash">—</span> <a class="case__fig" href="#">the four-note alien musical motif</a><span class="badge" style="background:#5B8FB9">Formal</span></div>
+      <p class="case__rat">What gets you is the timbre, not the melody. It starts warm, fingered, almost folk — then the same notes return scrubbed of any human hand, smeared into something a machine would exhale. The score quietly relocates the tune from a body to a circuit, so you stop being able to say who or what is making the sound. By the lighthouse it has no origin you'd recognize, which is the whole horror of the place rendered as one slow change of texture.</p>
+    </div>
+    <div class="case kin">
+      <div class="case__top"><a class="case__film" href="#">Apollo 13</a> <span class="case__yr">(1995)</span> <span class="dash">—</span> <a class="case__fig" href="#">the Odyssey and Aquarius spacecraft</a><span class="badge" style="background:#546E7A">Existential</span></div>
+      <p class="case__rat">The lander named Aquarius was built to touch the moon, not to keep men alive for days — and watching them shiver inside it, breath fogging, you feel how thin the wall is between warm body and killing vacuum. The vessel stops being a triumph of engineering and becomes a flimsy tent in a hostile nowhere. Their lives hang on a machine improvised past its purpose, and that dependence on cold metal to simply keep breathing is quietly chilling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ALL TAKES -->
+<section class="sec" id="all-takes">
+  <div class="wrap">
+    <h2 class="h2">All takes of "The Cyborg Body" <span class="n">— 39 across 33 films</span></h2>
+    <p class="gloss">Every reading of this idea across cinema. Search within them, jump to a random one, or open a folder — grouped by film genre or by critical register.</p>
+    <div class="toolbar">
+      <div class="search"><input id="q" type="search" placeholder="Search 39 takes…" aria-label="Search takes"></div>
+      <button class="rand" id="rand">🎲 Random take</button>
+      <div class="toggle"><button id="byReg" class="on">By register</button><button id="byGen">By genre</button></div>
+    </div>
+
+    <!-- folders generated from the full take list — every row shows on expand -->
+    <div class="folders" id="regView"></div>
+    <div class="folders hidden" id="genView"></div>
+
+    <p class="compare"><span style="color:var(--faint)">Compare</span> &nbsp; <span class="none">no linked meta takes yet — this hub stands alone for now.</span></p>
+
+    <div class="seq">
+      <a href="#"><span class="lab">← Previous meta take</span>The Cyborg Ontology</a>
+      <a href="#" style="text-align:right"><span class="lab">Next meta take →</span>Gender as Stylized Repetition</a>
+    </div>
+    <div class="prov">Hub assembled from the live corpus — every take retrieved and ranked by relevance &amp; surprise, not generated.</div>
+  </div>
+</section>
+
+<script>
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+/* count-up */
+function countUp(el){ var target=+el.getAttribute("data-target"), t0=null, dur=950+Math.random()*450;
+  function step(now){ if(!t0)t0=now; var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=Math.round(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+  requestAnimationFrame(step);
+}
+(function(){ var seen=new WeakSet();
+  var obs=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting&&!seen.has(en.target)){ seen.add(en.target); countUp(en.target); } }); },{threshold:.6});
+  $all(".cu").forEach(function(el){ obs.observe(el); });
+})();
+
+/* ---- all-takes explorer: build folders from the FULL take list (every row shows on expand) ---- */
+(function(){
+  var TAKES=[
+   {f:"Akira",y:1988,lab:"Tetsuo's painful and phallic-centric bodily transformations (e.g., his new arm).",reg:"philosophical",gen:["Animation","Science Fiction","Action"]},
+   {f:"Mission: Impossible - Ghost Protocol",y:2011,lab:"The recurring failure of high-tech gadgets (gecko gloves, mask maker, etc.)",reg:"semiotic",gen:["Action","Thriller","Adventure"]},
+   {f:"The Neon Demon",y:2016,lab:"Gigi's surgically-enhanced body in contrast to Jesse's 'natural' beauty",reg:"semiotic",gen:["Horror"]},
+   {f:"The Terminator",y:1984,lab:"Arnold Schwarzenegger's star persona.",reg:"semiotic",gen:["Action","Thriller","Science Fiction"]},
+   {f:"The Fifth Element",y:1997,lab:"The regeneration of Leeloo's body",reg:null,gen:["Science Fiction","Action","Adventure"]},
+   {f:"Edward Scissorhands",y:1990,lab:"Edward as an unfinished artificial man",reg:"semiotic",gen:["Fantasy","Drama","Romance"]},
+   {f:"The Empire Strikes Back",y:1980,lab:"Luke Skywalker's cybernetic hand",reg:"semiotic",gen:["Adventure","Action","Science Fiction"]},
+   {f:"Return of the Jedi",y:1983,lab:"Darth Vader as a man-machine hybrid",reg:"semiotic",gen:["Adventure","Action","Science Fiction"]},
+   {f:"Child's Play",y:1988,lab:"The hybrid nature of Chucky (doll/human/machine)",reg:"philosophical",gen:["Horror"]},
+   {f:"Captain America: The Winter Soldier",y:2014,lab:"The Winter Soldier's cybernetic arm and memory-wiping chair",reg:"psychoanalytic",gen:["Action","Adventure","Science Fiction"]},
+   {f:"Furiosa: A Mad Max Saga",y:2024,lab:"Furiosa's mechanical arm",reg:"formal",gen:["Action","Science Fiction","Adventure"]},
+   {f:"Gravity",y:2013,lab:"The astronaut spacesuit as depicted throughout the film.",reg:"semiotic",gen:["Science Fiction","Thriller","Drama"]},
+   {f:"Ghost in the Shell",y:1995,lab:"The recurring image of the Basset Hound",reg:"semiotic",gen:["Action","Animation","Science Fiction"]},
+   {f:"Titane",y:2021,lab:"Alexia's hybrid body (titanium plate, automotive pregnancy)",reg:"semiotic",gen:["Drama","Thriller","Horror"]},
+   {f:"Videodrome",y:1983,lab:"The fusion of Max's hand with his pistol, creating the flesh-gun",reg:"existential",gen:["Horror","Science Fiction","Mystery"]},
+   {f:"Videodrome",y:1983,lab:"The interface between Max's body and media technology (VCR, TV, pistol)",reg:"existential",gen:["Horror","Science Fiction","Mystery"]},
+   {f:"RoboCop",y:1987,lab:"RoboCop's cyborg body and his struggle to reclaim his identity as Alex Murphy.",reg:"philosophical",gen:["Action","Thriller","Science Fiction"]},
+   {f:"Sicario",y:2015,lab:"The tunnel raid sequence viewed through thermal and night vision",reg:"formal",gen:["Action","Crime","Thriller"]},
+   {f:"The Terminator",y:1984,lab:"The Terminator (T-800) as an unstoppable killing machine.",reg:"existential",gen:["Action","Thriller","Science Fiction"]},
+   {f:"Ex Machina",y:2014,lab:"The film's electronic score and ambient sound design",reg:"semiotic",gen:["Drama","Science Fiction"]},
+   {f:"Ex Machina",y:2014,lab:"The character of Kyoko",reg:"semiotic",gen:["Drama","Science Fiction"]},
+   {f:"M3GAN",y:2022,lab:"M3GAN's physical appearance and ambiguous lifelike quality",reg:"genealogical",gen:["Science Fiction","Horror"]},
+   {f:"Clueless",y:1995,lab:"Cher's computerized closet",reg:"formal",gen:["Comedy","Romance"]},
+   {f:"Death Machine",y:1994,lab:"The creator-creation relationship between Jack Dante and the Warbeast",reg:"semiotic",gen:["Action","Horror","Science Fiction","Thriller"]},
+   {f:"The Piano",y:1993,lab:"The finger-chopping scene.",reg:"semiotic",gen:["Drama","Romance"]},
+   {f:"M3GAN",y:2022,lab:"M3GAN's self-aware evolution beyond her programming",reg:"politico_economic",gen:["Science Fiction","Horror"]},
+   {f:"Apollo 13",y:1995,lab:"The Odyssey and Aquarius spacecraft",reg:"existential",gen:["Drama","History"]},
+   {f:"Annihilation",y:2018,lab:"The four-note alien musical motif",reg:"formal",gen:["Science Fiction","Horror"]},
+   {f:"Return of the Jedi",y:1983,lab:"Darth Vader's final act of redemption",reg:"existential",gen:["Adventure","Action","Science Fiction"]},
+   {f:"2046",y:2004,lab:"The android attendants on the 2046 train",reg:"philosophical",gen:["Drama","Science Fiction","Romance"]},
+   {f:"After Yang",y:2022,lab:"Ada and Yang's prior lives",reg:"philosophical",gen:["Science Fiction","Drama"]},
+   {f:"Alien",y:1979,lab:"The Xenomorph",reg:"semiotic",gen:["Horror","Science Fiction"]},
+   {f:"Alien",y:1979,lab:"The Space Jockey",reg:"semiotic",gen:["Horror","Science Fiction"]},
+   {f:"Avengers: Infinity War",y:2018,lab:"Vision and the Mind Stone",reg:"semiotic",gen:["Adventure","Action","Science Fiction"]},
+   {f:"Metropolis",y:1927,lab:"Rotwang's Hand",reg:"semiotic",gen:["Drama","Science Fiction"]},
+   {f:"Modern Times",y:1936,lab:"The Assembly-Line Wrenches",reg:"semiotic",gen:["Comedy","Drama","Romance"]},
+   {f:"Robot Dreams",y:2023,lab:"Robot rusting on the beach",reg:"philosophical",gen:["Animation","Drama","Comedy","Science Fiction"]},
+   {f:"Sound of Metal",y:2020,lab:"The cochlear implant",reg:"philosophical",gen:["Drama","Music"]},
+   {f:"Star Wars",y:1977,lab:"Darth Vader's breathing",reg:"existential",gen:["Adventure","Action","Science Fiction"]}
+  ];
+  var REGC={formal:"#5B8FB9",semiotic:"#B8860B",psychoanalytic:"#A8434F",ideological:"#C0392B",politico_economic:"#2E7D5B",philosophical:"#7E57C2",existential:"#546E7A",mythic:"#A9743B",genealogical:"#2E86C1",reception:"#159A8A"};
+  var REGL={formal:"Formal",semiotic:"Semiotic",psychoanalytic:"Psychoanalytic",ideological:"Ideological",politico_economic:"Politico-economic",philosophical:"Philosophical",existential:"Existential",mythic:"Mythic",genealogical:"Film-historical",reception:"Reception"};
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+  function row(t){
+    var reg=t.reg?REGL[t.reg]:"";
+    var dt=(t.f+" "+t.y+" "+t.lab+" "+reg).toLowerCase();
+    return '<div class="tk" data-text="'+esc(dt)+'"><a class="f" href="#">'+esc(t.f)+'</a> <span class="y">('+t.y+')</span> <span class="dash">—</span> <a class="fg" href="#">'+esc(t.lab)+'</a></div>';
+  }
+  function buildView(container,groups){
+    container.innerHTML=groups.map(function(g,i){
+      var nm=g.color?'<span class="fname" style="color:'+g.color+'">'+esc(g.name)+'</span>':'<span class="fname none">'+esc(g.name)+'</span>';
+      var n=g.items.length, cnt='<span class="fn"><b>'+n+'</b> take'+(n===1?"":"s")+'</span>';
+      return '<details'+(i===0?' open':'')+'><summary>'+nm+cnt+'</summary><div class="body">'+g.items.map(row).join("")+'</div></details>';
+    }).join("");
+  }
+  var regMap={};
+  TAKES.forEach(function(t){ var k=t.reg||"__none"; (regMap[k]=regMap[k]||[]).push(t); });
+  var regGroups=Object.keys(regMap).map(function(k){ return {key:k,name:k==="__none"?"Unspecified":REGL[k],color:k==="__none"?null:REGC[k],items:regMap[k]}; });
+  regGroups.sort(function(a,b){ if(a.key==="__none")return 1; if(b.key==="__none")return -1; return b.items.length-a.items.length; });
+  var genMap={};
+  TAKES.forEach(function(t){ var gs=(t.gen&&t.gen.length)?t.gen:["Other"]; gs.forEach(function(g){ (genMap[g]=genMap[g]||[]).push(t); }); });
+  var genGroups=Object.keys(genMap).map(function(g){ return {name:g,color:null,items:genMap[g]}; }).sort(function(a,b){ return b.items.length-a.items.length||a.name.localeCompare(b.name); });
+
+  var regView=$("#regView"), genView=$("#genView");
+  buildView(regView,regGroups); buildView(genView,genGroups);
+
+  var byReg=$("#byReg"), byGen=$("#byGen");
+  function show(reg){ byReg.classList.toggle("on",reg); byGen.classList.toggle("on",!reg); regView.classList.toggle("hidden",!reg); genView.classList.toggle("hidden",reg); }
+  byReg.addEventListener("click",function(){ show(true); });
+  byGen.addEventListener("click",function(){ show(false); });
+
+  $("#q").addEventListener("input",function(){
+    var v=this.value.trim().toLowerCase();
+    $all(".folders .tk").forEach(function(tk){ tk.style.display=(!v||tk.getAttribute("data-text").indexOf(v)>=0)?"":"none"; });
+    $all(".folders details").forEach(function(d){
+      var any=$all(".tk",d).some(function(tk){ return tk.style.display!=="none"; });
+      d.style.display=(!v||any)?"":"none"; if(v&&any) d.open=true;
+    });
+  });
+
+  $("#rand").addEventListener("click",function(){
+    var view=regView.classList.contains("hidden")?genView:regView;
+    var rows=$all(".tk",view).filter(function(tk){ return tk.style.display!=="none"; });
+    if(!rows.length) return;
+    var r=rows[Math.floor(Math.random()*rows.length)];
+    var d=r.closest("details"); if(d) d.open=true;
+    r.classList.remove("flash"); void r.offsetWidth; r.classList.add("flash");
+    r.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+})();
+
+/* map — meta take hub: defining (inner) + unexpected kin (outer) + a cloud of the rest */
+(function(){
+  var cv=$("#cv"); if(!cv) return; var ctx=cv.getContext("2d"), DPR=Math.min(2,window.devicePixelRatio||1), W=0,H=0;
+  function size(){ var r=cv.getBoundingClientRect(); W=r.width;H=r.height; cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  var DEF=["Akira","Mission: Impossible","The Neon Demon","The Terminator","The Fifth Element"];
+  var KIN=["Return of the Jedi","Annihilation","Apollo 13"];
+  var nodes=[], links=[];
+  var hub={id:"hub",label:"The Cyborg Body",type:"hub"}; nodes.push(hub);
+  DEF.forEach(function(f){ var n={id:"d:"+f,label:f,type:"def"}; nodes.push(n); links.push({a:hub,b:n}); });
+  KIN.forEach(function(f){ var n={id:"k:"+f,label:f,type:"kin"}; nodes.push(n); links.push({a:hub,b:n}); });
+  var EXTRA=25; for(var i=0;i<EXTRA;i++){ var n={id:"x"+i,label:"",type:"dim"}; nodes.push(n); links.push({a:hub,b:n}); }
+  var cx,cy,R;
+  function seed(){ cx=W/2; cy=H/2; R=Math.min(W,H)*0.42; hub.bx=cx; hub.by=cy;
+    var def=nodes.filter(function(n){return n.type==="def";});
+    def.forEach(function(n,i){ var a=(i/def.length)*Math.PI*2-Math.PI/2; n.bx=cx+Math.cos(a)*R*0.45; n.by=cy+Math.sin(a)*R*0.45; });
+    var kin=nodes.filter(function(n){return n.type==="kin";});
+    kin.forEach(function(n,i){ var a=(i/kin.length)*Math.PI*2+0.5; n.bx=cx+Math.cos(a)*R*1.0; n.by=cy+Math.sin(a)*R*1.0; });
+    var dim=nodes.filter(function(n){return n.type==="dim";});
+    dim.forEach(function(n,i){ var a=Math.random()*Math.PI*2, rr=R*(0.6+Math.random()*0.55); n.bx=cx+Math.cos(a)*rr; n.by=cy+Math.sin(a)*rr; });
+    nodes.forEach(function(n){ n.x=n.bx; n.y=n.by; n.ph=Math.random()*6.28; });
+  }
+  function rad(n){ return n.type==="hub"?12:n.type==="def"?5.5:n.type==="kin"?5:2.6; }
+  function col(n,lit){ if(n.type==="hub")return lit?"#ff7a74":"#f2554f"; if(n.type==="def")return lit?"#fff":"rgba(233,228,216,.92)"; if(n.type==="kin")return lit?"#cfd6e0":"rgba(138,147,160,.85)"; return "rgba(150,150,160,.4)"; }
+  var k=1,tx=0,ty=0,hover=null,dragging=false,ds=null;
+  function nbrs(n){ var s={}; s[n.id]=1; links.forEach(function(l){ if(l.a===n)s[l.b.id]=1; if(l.b===n)s[l.a.id]=1; }); return s; }
+  function draw(){ ctx.clearRect(0,0,W,H); ctx.save(); ctx.translate(tx,ty); ctx.scale(k,k);
+    var nb=hover?nbrs(hover):null;
+    links.forEach(function(l){ var lit=nb&&nb[l.a.id]&&nb[l.b.id];
+      ctx.beginPath(); ctx.moveTo(l.a.x,l.a.y); ctx.lineTo(l.b.x,l.b.y);
+      ctx.strokeStyle=lit?"rgba(242,85,79,.5)":(l.b.type==="dim"?"rgba(150,150,160,.07)":"rgba(150,150,160,.16)"); ctx.lineWidth=(lit?1.4:0.7)/k; ctx.stroke(); });
+    nodes.forEach(function(n){ var lit=!nb||nb[n.id], r=rad(n);
+      if(hover===n){ ctx.beginPath(); ctx.arc(n.x,n.y,r+5,0,7); ctx.fillStyle="rgba(242,85,79,.16)"; ctx.fill(); }
+      ctx.globalAlpha=lit?1:0.25; ctx.beginPath(); ctx.arc(n.x,n.y,r,0,7); ctx.fillStyle=col(n,hover===n); ctx.fill(); ctx.globalAlpha=1;
+      if(n.type==="hub"||hover===n){ ctx.font="600 11px Inter,sans-serif"; ctx.fillStyle=lit?"#e8e3d8":"rgba(232,227,216,.3)"; ctx.textAlign="left"; ctx.fillText(n.label, n.x+r+5, n.y+3); }
+    });
+    ctx.restore();
+  }
+  function loop(){ nodes.forEach(function(n){ n.ph+=0.007; n.x=n.bx+Math.cos(n.ph)*4; n.y=n.by+Math.sin(n.ph*0.9)*4; }); draw(); requestAnimationFrame(loop); }
+  function local(ev){ var r=cv.getBoundingClientRect(); return {x:(ev.clientX-r.left-tx)/k,y:(ev.clientY-r.top-ty)/k}; }
+  function hit(p){ var best=null,bd=15; nodes.forEach(function(n){ if(n.type==="dim")return; var d=Math.hypot(n.x-p.x,n.y-p.y); if(d<bd){bd=d;best=n;} }); return best; }
+  cv.addEventListener("mousemove",function(ev){ if(dragging){ tx=ds.tx+(ev.clientX-ds.x); ty=ds.ty+(ev.clientY-ds.y); return; } hover=hit(local(ev)); $("#mapHint").textContent=hover?((hover.type==="hub"?"meta take":hover.type==="def"?"defining":"unexpected kin")+" · "+hover.label):"hover a star — the films that gather here"; });
+  cv.addEventListener("mousedown",function(ev){ dragging=true; ds={x:ev.clientX,y:ev.clientY,tx:tx,ty:ty}; });
+  window.addEventListener("mouseup",function(){ dragging=false; });
+  cv.addEventListener("mouseleave",function(){ hover=null; });
+  cv.addEventListener("wheel",function(ev){ ev.preventDefault(); var r=cv.getBoundingClientRect(),px=ev.clientX-r.left,py=ev.clientY-r.top,fac=ev.deltaY<0?1.1:0.9,nk=Math.max(0.5,Math.min(2.4,k*fac)),wx=(px-tx)/k,wy=(py-ty)/k; k=nk; tx=px-wx*k; ty=py-wy*k; },{passive:false});
+  size(); seed(); requestAnimationFrame(loop);
+  window.addEventListener("resize",function(){ size(); seed(); });
+})();
+</script>
+</body>
+</html>

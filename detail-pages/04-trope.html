@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mid-Story Genre Turn — a figure-type across 18 films · metatake</title>
+<!--
+  metatake · TROPE detail page redesign (시안) — /trope/[slug]   ·   example: The Mid-Story Genre Turn
+  Built on the REAL current page (app/trope/[slug]/page.tsx). All data REAL (Supabase): laconic, thesis, 18 member figures across 18 films,
+  each with its real figure description. Trope = figure-type hub → TEAL #167C6B is the section identity.
+  Preserves: laconic → thesis → graph → "Figures of {trope} — N across M films" + a working search filter.
+  v6 system + consistency with film/figure/director pages: stat strip (jump + count-up), dark map, full-text rows, colour-coded.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;--teal-soft:#f1f8f6;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#c7ece4}
+.wrap{max-width:880px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--teal)}
+.mast nav a[data-on]{color:var(--teal);border-bottom-color:var(--teal);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+.crumb{font-family:var(--ui);font-size:12.5px;color:var(--muted);padding:18px 0 0}
+.crumb a:hover{color:var(--teal)}
+
+/* trope header */
+.thead{padding:12px 0 4px}
+.role{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.thead h1{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.06;letter-spacing:-.022em;margin:7px 0 10px}
+.laconic{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:var(--ink);margin:0 0 4px;padding-left:15px;border-left:3px solid var(--teal)}
+.actions{display:flex;gap:10px;align-items:center;margin-top:16px}
+.actions .save{font-family:var(--ui);font-size:12.5px;font-weight:600;border:1px solid var(--hair2);padding:7px 13px;color:var(--ink2);cursor:pointer}
+.actions .save:hover{border-color:var(--teal);color:var(--teal)}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:22px 0 0}
+.stat{background:#fff;padding:14px 16px;display:block;cursor:pointer;transition:background .15s}
+.stat:hover{background:var(--teal-soft)}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:27px;line-height:1;color:var(--teal);font-variant-numeric:tabular-nums}
+.stat .k{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:7px;display:flex;align-items:center;gap:5px}
+.stat .k:after{content:"↓";color:var(--hair2);font-weight:700}
+.stat:hover .k:after{color:var(--teal)}
+
+.thesis{font-size:17px;line-height:1.62;color:var(--ink2);margin:26px 0 0;max-width:70ch}
+
+/* map */
+.mapwrap{position:relative;border:1px solid #103e37;background:#08110f;overflow:hidden;height:420px;margin-top:26px}
+.mapwrap canvas{display:block;width:100%;height:100%;cursor:grab}
+.mapwrap canvas:active{cursor:grabbing}
+.mapbar{position:absolute;top:12px;left:13px;right:13px;display:flex;gap:10px;align-items:center;z-index:2;pointer-events:none}
+.mapbar .t{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#cdeee6}
+.mapbar .s{font-family:var(--ui);font-size:11.5px;color:#6f9a90}
+.maphint{position:absolute;bottom:11px;left:13px;font-family:var(--ui);font-size:11.5px;color:#5f877e;z-index:2;pointer-events:none}
+
+/* members */
+.sec{padding:40px 0 4px;scroll-margin-top:70px}
+.h2{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.02em;margin:0 0 4px}
+.h2 .n{color:var(--muted);font-weight:400;font-size:17px}
+.gloss{font-size:14.5px;color:var(--muted);margin:0 0 16px;max-width:66ch}
+.searchbar{position:relative;margin:0 0 8px}
+.searchbar input{width:100%;font-family:var(--ui);font-size:14px;padding:11px 14px;border:1px solid var(--hair2);background:#fff;color:var(--ink)}
+.searchbar input:focus{outline:none;border-color:var(--teal)}
+.searchcount{font-family:var(--ui);font-size:12px;color:var(--faint);margin:7px 0 4px}
+.mlist{border-top:1px solid var(--hair)}
+.member{padding:15px 4px;border-bottom:1px solid var(--hair)}
+.member:hover{background:var(--teal-soft)}
+.mhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px}
+.mhead .fl{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:-.01em}
+.mhead .fl:hover{color:var(--teal)}
+.mhead .yr{color:var(--muted);font-size:14px}
+.mhead .dash{color:var(--hair2)}
+.mhead .fig{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--teal)}
+.mhead .fig:hover{text-decoration:underline}
+.mdesc{font-size:14.5px;line-height:1.58;color:var(--ink2);margin:8px 0 0;max-width:74ch}
+.noresult{font-family:var(--ui);font-size:13.5px;color:var(--muted);padding:16px 4px;display:none}
+
+.prov{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:30px 0 58px;border-top:1px solid var(--hair);padding-top:16px}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#" data-on>Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#">Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#">Tropes</a></div>
+  <div class="thead">
+    <div class="role">Trope · figure-type</div>
+    <h1>The Mid-Story Genre Turn</h1>
+    <p class="laconic">The film changes its genre partway through.</p>
+    <div class="actions"><button class="save">☆ Save trope</button></div>
+  </div>
+
+  <div class="stats">
+    <a class="stat" href="#members"><div class="n cu" data-target="18">0</div><div class="k">Figures</div></a>
+    <a class="stat" href="#members"><div class="n cu" data-target="18">0</div><div class="k">Films</div></a>
+  </div>
+
+  <p class="thesis">A narrative pivots or blends genres, shifting tone, structure, or score from one register to another. The audience's expectations rupture as the story becomes a different kind of film.</p>
+
+  <div class="mapwrap">
+    <div class="mapbar"><span class="t">The Mid-Story Genre Turn</span><span class="s">trope → figures, one per film</span></div>
+    <canvas id="cv"></canvas>
+    <div class="maphint" id="mapHint">hover a star — its film lights up</div>
+  </div>
+</div>
+
+<!-- MEMBERS -->
+<section class="sec" id="members">
+  <div class="wrap">
+    <h2 class="h2">Figures of The Mid-Story Genre Turn <span class="n">— 18 across 18 films</span></h2>
+    <p class="gloss">Every figure across cinema that instantiates this trope — the concrete way each film changes its kind midway. The shared trope is <strong>why</strong> they connect.</p>
+    <div class="searchbar"><input id="q" type="search" placeholder="Search 18 figures…" aria-label="Search figures"></div>
+    <div class="searchcount" id="scount">Showing 18 of 18</div>
+    <div class="mlist" id="mlist">
+      <div class="member" data-text="a separation the film's generic identity courtroom domestic drama thriller"><div class="mhead"><a class="fl" href="#">A Separation</a> <span class="yr">(2011)</span> <span class="dash">—</span> <a class="fig" href="#">the film's generic identity →</a></div><p class="mdesc">A Separation blends courtroom procedure, domestic drama, and moral thriller — building suspense around a disputed miscarriage and a question of who lied, while staying rooted in everyday household conflict.</p></div>
+      <div class="member" data-text="anora romantic comedy to violent thriller chase confinement"><div class="mhead"><a class="fl" href="#">Anora</a> <span class="yr">(2024)</span> <span class="dash">—</span> <a class="fig" href="#">shift from rom-com to violent thriller →</a></div><p class="mdesc">Anora opens with the bright tempo of a romance — meet-cute, whirlwind wedding, Vegas montage — then pivots into a tense, chaotic chase and confinement after the parents intervene. The tone, pacing, and music change registers around the midpoint.</p></div>
+      <div class="member" data-text="armageddon narrative structure character archetypes western war space adventure"><div class="mhead"><a class="fl" href="#">Armageddon</a> <span class="yr">(1998)</span> <span class="dash">—</span> <a class="fig" href="#">narrative structure &amp; archetypes →</a></div><p class="mdesc">In Armageddon, the plot assembles a ragtag drilling crew, a NASA mission, a father-daughter conflict, a romance, and a heroic sacrifice, drawing on Western, war, and space-adventure conventions.</p></div>
+      <div class="member" data-text="barton fink hollywood satire psychological dread supernatural climax coen"><div class="mhead"><a class="fl" href="#">Barton Fink</a> <span class="yr">(1991)</span> <span class="dash">—</span> <a class="fig" href="#">overall narrative &amp; aesthetic →</a></div><p class="mdesc">Barton Fink shifts registers without warning, moving from a 1941 Hollywood satire to a hotel-bound psychological dread to a fiery near-supernatural climax, ending on an unexplained beach image that mirrors a picture in Barton's room.</p></div>
+      <div class="member" data-text="chungking express crime noir romantic comedy wong kar-wai two stories"><div class="mhead"><a class="fl" href="#">Chungking Express</a> <span class="yr">(1994)</span> <span class="dash">—</span> <a class="fig" href="#">crime/noir vs. rom-com structure →</a></div><p class="mdesc">Chungking Express tells two loosely linked stories in sequence: the first follows a heartbroken cop and a drug-running woman in a blonde wig; the second follows a different cop and the snack-bar worker who breaks into his flat.</p></div>
+      <div class="member" data-text="django unchained musical score hip-hop r&b anachronistic morricone tarantino"><div class="mhead"><a class="fl" href="#">Django Unchained</a> <span class="yr">(2012)</span> <span class="dash">—</span> <a class="fig" href="#">the anachronistic hip-hop / R&amp;B score →</a></div><p class="mdesc">Django Unchained scores its 1858 setting with anachronistic music, dropping modern hip-hop and R&amp;B tracks by artists like Rick Ross and 2Pac alongside Morricone and period-style cues.</p></div>
+      <div class="member" data-text="donnie darko tone structure high school comedy sci-fi horror 28 days apocalypse"><div class="mhead"><a class="fl" href="#">Donnie Darko</a> <span class="yr">(2001)</span> <span class="dash">—</span> <a class="fig" href="#">overall tone &amp; structure →</a></div><p class="mdesc">Donnie Darko unfolds across 28 days counting down to a predicted apocalypse, shifting between high-school comedy, suburban family drama, sci-fi physics, and horror. Title cards mark dates; the narrative loops back to its own opening.</p></div>
+      <div class="member" data-text="ghost generic hybridity romance supernatural fantasy comedy thriller heist"><div class="mhead"><a class="fl" href="#">Ghost</a> <span class="yr">(1990)</span> <span class="dash">—</span> <a class="fig" href="#">generic hybridity →</a></div><p class="mdesc">Ghost shifts between romance, supernatural fantasy, comedy, and thriller, opening as a love story, becoming a murder mystery, running a heist, and closing on tearful farewell.</p></div>
+      <div class="member" data-text="gremlins horror comedy christmas movie splatstick creature carnage"><div class="mhead"><a class="fl" href="#">Gremlins</a> <span class="yr">(1984)</span> <span class="dash">—</span> <a class="fig" href="#">horror / comedy / Christmas mix →</a></div><p class="mdesc">Gremlins shifts between gentle small-town Christmas comedy, splatstick creature carnage, and outright horror, often within a single scene — a kitchen battle plays for laughs and gore at once.</p></div>
+      <div class="member" data-text="law of desire almodovar high low culture genres cocteau thriller melodrama comedy"><div class="mhead"><a class="fl" href="#">Law of Desire</a> <span class="yr">(1987)</span> <span class="dash">—</span> <a class="fig" href="#">blending of high &amp; low-culture genres →</a></div><p class="mdesc">Law of Desire shifts between Cocteau-derived theatrical staging, thriller mechanics, melodrama, and bawdy comedy within single sequences, mixing literary allusion with pulp.</p></div>
+      <div class="member" data-text="memories of matsuko rapid editing genre blending cgi animation musical numbers"><div class="mhead"><a class="fl" href="#">Memories of Matsuko</a> <span class="yr">(2006)</span> <span class="dash">—</span> <a class="fig" href="#">visual style: editing, genre blend, CGI →</a></div><p class="mdesc">Memories of Matsuko mixes rapid cuts, animation inserts, musical numbers, melodrama, and digitally saturated color, shifting registers and genres scene to scene throughout.</p></div>
+      <div class="member" data-text="parasite tonal shifts comedy thriller tragedy bong joon ho garden party"><div class="mhead"><a class="fl" href="#">Parasite</a> <span class="yr">(2019)</span> <span class="dash">—</span> <a class="fig" href="#">tonal shifts: comedy → thriller → tragedy →</a></div><p class="mdesc">Parasite opens as a sly con comedy, pivots into home-invasion thriller when the old housekeeper returns, and ends in bloody tragedy at the garden party. Bong cuts between registers without warning.</p></div>
+      <div class="member" data-text="raising arizona coen screwball comedy crime caper biblical narration western"><div class="mhead"><a class="fl" href="#">Raising Arizona</a> <span class="yr">(1987)</span> <span class="dash">—</span> <a class="fig" href="#">overall generic composition →</a></div><p class="mdesc">Raising Arizona blends fast-talking screwball comedy, crime-caper plotting, biblical narration, western desert iconography, and cartoon-style chase action into a single tonally unstable whole.</p></div>
+      <div class="member" data-text="sorry to bother you workplace comedy surrealism body horror boots riley"><div class="mhead"><a class="fl" href="#">Sorry to Bother You</a> <span class="yr">(2018)</span> <span class="dash">—</span> <a class="fig" href="#">aesthetic &amp; narrative structure →</a></div><p class="mdesc">Sorry to Bother You shifts from grounded workplace comedy into escalating surrealism — sight gags, abrupt tonal swerves, and a body-horror climax that breaks realism entirely.</p></div>
+      <div class="member" data-text="swimming pool writer's block character study erotic thriller murder mystery ozon"><div class="mhead"><a class="fl" href="#">Swimming Pool</a> <span class="yr">(2003)</span> <span class="dash">—</span> <a class="fig" href="#">narrative structure &amp; thematic elements →</a></div><p class="mdesc">Swimming Pool drifts between writer's-block character study, erotic thriller, and possible murder mystery, never settling — a corpse may be buried in the garden, yet the film withholds confirmation and dissolves the plot into Sarah's manuscript.</p></div>
+      <div class="member" data-text="the fifth element space opera screwball comedy action besson egypt prologue"><div class="mhead"><a class="fl" href="#">The Fifth Element</a> <span class="yr">(1997)</span> <span class="dash">—</span> <a class="fig" href="#">narrative &amp; generic hybridity →</a></div><p class="mdesc">In The Fifth Element, an ancient-Egypt prologue gives way to space opera, a screwball cab-driver romance, a comic radio-host subplot, gun-battle action, and a cosmic countdown to save Earth, all within one continuous story.</p></div>
+      <div class="member" data-text="the lives of others surveillance thriller chamber melodrama conscience berlin"><div class="mhead"><a class="fl" href="#">The Lives of Others</a> <span class="yr">(2006)</span> <span class="dash">—</span> <a class="fig" href="#">overall narrative structure →</a></div><p class="mdesc">The Lives of Others moves from a procedural surveillance thriller — bugging, transcripts, interrogation — into a chamber melodrama of conscience and love, then a post-1989 coda spanning years, closing on a bookshop in reunified Berlin.</p></div>
+      <div class="member" data-text="the wailing police procedural infection thriller occult horror folk mystery na hong-jin"><div class="mhead"><a class="fl" href="#">The Wailing</a> <span class="yr">(2016)</span> <span class="dash">—</span> <a class="fig" href="#">overall narrative structure →</a></div><p class="mdesc">The Wailing shifts across police procedural, infection thriller, family melodrama, occult horror, and folk mystery, withholding any final explanation of who is good, who is evil, or what truly caused the deaths.</p></div>
+      <div class="noresult" id="noresult">No figures match your search.</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="prov">Figure-type computed from the live corpus — figures grouped by the device they share, not asserted. Retrieved, not generated.</div>
+</div>
+
+<script>
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function $all(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+/* count-up */
+function countUp(el){ var target=+el.getAttribute("data-target"), t0=null, dur=900+Math.random()*400;
+  function step(now){ if(!t0)t0=now; var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3); el.textContent=Math.round(target*e); if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+  requestAnimationFrame(step);
+}
+(function(){ var seen=new WeakSet();
+  var obs=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting&&!seen.has(en.target)){ seen.add(en.target); countUp(en.target); } }); },{threshold:.6});
+  $all(".cu").forEach(function(el){ obs.observe(el); });
+})();
+
+/* search filter */
+(function(){
+  var q=$("#q"), members=$all("#mlist .member"), count=$("#scount"), none=$("#noresult");
+  q.addEventListener("input",function(){
+    var v=q.value.trim().toLowerCase(), shown=0;
+    members.forEach(function(m){ var hit=!v||m.getAttribute("data-text").indexOf(v)>=0; m.style.display=hit?"":"none"; if(hit)shown++; });
+    count.textContent="Showing "+shown+" of "+members.length;
+    none.style.display=shown?"none":"block";
+  });
+})();
+
+/* map — trope → figures (one per film) */
+(function(){
+  var cv=$("#cv"); if(!cv) return; var ctx=cv.getContext("2d"), DPR=Math.min(2,window.devicePixelRatio||1), W=0,H=0;
+  function size(){ var r=cv.getBoundingClientRect(); W=r.width;H=r.height; cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
+  var FILMS=["A Separation","Anora","Armageddon","Barton Fink","Chungking Express","Django Unchained","Donnie Darko","Ghost","Gremlins","Law of Desire","Memories of Matsuko","Parasite","Raising Arizona","Sorry to Bother You","Swimming Pool","The Fifth Element","The Lives of Others","The Wailing"];
+  var nodes=[], links=[];
+  var trope={id:"trope",label:"The Mid-Story Genre Turn",type:"trope"}; nodes.push(trope);
+  FILMS.forEach(function(f){ var n={id:"f:"+f,label:f,type:"fig"}; nodes.push(n); links.push({a:trope,b:n}); });
+  var cx,cy,R;
+  function seed(){ cx=W/2; cy=H/2; R=Math.min(W,H)*0.4; trope.bx=cx; trope.by=cy;
+    var figs=nodes.filter(function(n){return n.type==="fig";});
+    figs.forEach(function(n,i){ var a=(i/figs.length)*Math.PI*2-Math.PI/2; n.bx=cx+Math.cos(a)*R; n.by=cy+Math.sin(a)*R; });
+    nodes.forEach(function(n){ n.x=n.bx; n.y=n.by; n.ph=Math.random()*6.28; });
+  }
+  function rad(n){ return n.type==="trope"?9:4.5; }
+  function col(n,lit){ if(n.type==="trope")return lit?"#7fe0d6":"#4fb6ad"; return lit?"#eafaf6":"rgba(190,224,216,.78)"; }
+  var k=1,tx=0,ty=0,hover=null,dragging=false,ds=null;
+  function nbrs(n){ var s={}; s[n.id]=1; links.forEach(function(l){ if(l.a===n)s[l.b.id]=1; if(l.b===n)s[l.a.id]=1; }); return s; }
+  function draw(){ ctx.clearRect(0,0,W,H); ctx.save(); ctx.translate(tx,ty); ctx.scale(k,k);
+    var nb=hover?nbrs(hover):null;
+    links.forEach(function(l){ var lit=nb&&nb[l.a.id]&&nb[l.b.id];
+      ctx.beginPath(); ctx.moveTo(l.a.x,l.a.y); ctx.lineTo(l.b.x,l.b.y);
+      ctx.strokeStyle=lit?"rgba(79,182,173,.6)":"rgba(120,150,144,.16)"; ctx.lineWidth=(lit?1.5:0.7)/k; ctx.stroke(); });
+    nodes.forEach(function(n){ var lit=!nb||nb[n.id], r=rad(n);
+      if(hover===n){ ctx.beginPath(); ctx.arc(n.x,n.y,r+5,0,7); ctx.fillStyle="rgba(79,182,173,.18)"; ctx.fill(); }
+      ctx.globalAlpha=lit?1:0.25; ctx.beginPath(); ctx.arc(n.x,n.y,r,0,7); ctx.fillStyle=col(n,hover===n); ctx.fill(); ctx.globalAlpha=1;
+      if(n.type==="trope"||hover===n){ ctx.font="600 11px Inter,sans-serif"; ctx.fillStyle=lit?"#cdeee6":"rgba(205,238,230,.3)"; ctx.textAlign="left"; ctx.fillText(n.label, n.x+r+5, n.y+3); }
+    });
+    ctx.restore();
+  }
+  function loop(){ nodes.forEach(function(n){ n.ph+=0.007; n.x=n.bx+Math.cos(n.ph)*4; n.y=n.by+Math.sin(n.ph*0.9)*4; }); draw(); requestAnimationFrame(loop); }
+  function local(ev){ var r=cv.getBoundingClientRect(); return {x:(ev.clientX-r.left-tx)/k,y:(ev.clientY-r.top-ty)/k}; }
+  function hit(p){ var best=null,bd=15; nodes.forEach(function(n){ var d=Math.hypot(n.x-p.x,n.y-p.y); if(d<bd){bd=d;best=n;} }); return best; }
+  cv.addEventListener("mousemove",function(ev){ if(dragging){ tx=ds.tx+(ev.clientX-ds.x); ty=ds.ty+(ev.clientY-ds.y); return; } hover=hit(local(ev)); $("#mapHint").textContent=hover?(hover.type==="trope"?"trope":"film")+" · "+hover.label:"hover a star — its film lights up"; });
+  cv.addEventListener("mousedown",function(ev){ dragging=true; ds={x:ev.clientX,y:ev.clientY,tx:tx,ty:ty}; });
+  window.addEventListener("mouseup",function(){ dragging=false; });
+  cv.addEventListener("mouseleave",function(){ hover=null; });
+  cv.addEventListener("wheel",function(ev){ ev.preventDefault(); var r=cv.getBoundingClientRect(),px=ev.clientX-r.left,py=ev.clientY-r.top,fac=ev.deltaY<0?1.1:0.9,nk=Math.max(0.5,Math.min(2.4,k*fac)),wx=(px-tx)/k,wy=(py-ty)/k; k=nk; tx=px-wx*k; ty=py-wy*k; },{passive:false});
+  size(); seed(); requestAnimationFrame(loop);
+  window.addEventListener("resize",function(){ size(); seed(); });
+})();
+</script>
+</body>
+</html>

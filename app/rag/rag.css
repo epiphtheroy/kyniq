@@ -46,3 +46,13 @@
 .ak-fr__cites{ color:var(--ink2); }
 .ak-fr__doi{ color:var(--faint); word-break:break-all; }
 
+
+/* ─── W8: "From the critics" — short, attributed magazine quotes ─── */
+.ak-cr{ margin:22px 0 8px; padding:14px 16px; border:1px solid var(--hairline,#e5e5e5); border-left:3px solid #8a6d3b; background:rgba(138,109,59,0.03); }
+.ak-cr__lbl{ font-family:var(--font-ui,inherit); font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#8a6d3b; display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; }
+.ak-cr__note{ font-weight:400; text-transform:none; letter-spacing:0; color:var(--subtle,#888); font-size:11.5px; }
+.ak-cr__list{ list-style:none; margin:10px 0 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.ak-cr__item{ font-family:var(--font-display,Georgia,serif); }
+.ak-cr__quote{ color:var(--ink,#222); font-style:italic; }
+.ak-cr__by{ display:inline; margin-left:6px; font-family:var(--font-ui,inherit); font-style:normal; font-size:12.5px; color:#8a6d3b; text-decoration:none; }
+a.ak-cr__by:hover{ text-decoration:underline; }

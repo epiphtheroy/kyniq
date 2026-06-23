@@ -53,13 +53,16 @@ def main():
         ex=next(iter(aff.items())) if aff else None
         print("  sample:", ex[0] if ex else None, "->", [(b,s) for b,s,_ in (ex[1][:3] if ex else [])])
         return
-    sb("DELETE","film_affinities?film_id=not.is.null",prefer="return=minimal")
-    out=[]
+    # per-film replace — one global DELETE of ~30k rows times out at the 8s limit.
+    total_w=0; nf=0
     for f, lst in aff.items():
-        for b,s,shared in lst:
-            out.append({"film_id":f,"related_film_id":b,"score":s,"shared_meta_take_ids":shared})
-    for i in range(0,len(out),300):
-        st,tx=sb("POST","film_affinities",out[i:i+300],prefer="return=minimal")
-        if st>=300: print(f"[recommend] insert {st}: {tx[:160]}"); sys.exit(1)
-    print(f"[recommend] done: {len(out)} rows written")
+        nf+=1
+        sb("DELETE",f"film_affinities?film_id=eq.{f}",prefer="return=minimal")
+        rows_f=[{"film_id":f,"related_film_id":b,"score":s,"shared_meta_take_ids":shared} for b,s,shared in lst]
+        for i in range(0,len(rows_f),300):
+            st,tx=sb("POST","film_affinities",rows_f[i:i+300],prefer="return=minimal")
+            if st>=300: print(f"[recommend] insert {st}: {tx[:160]}"); sys.exit(1)
+        total_w+=len(rows_f)
+        if nf%200==0: print(f"[recommend] …{nf} films, {total_w} rows", flush=True)
+    print(f"[recommend] done: {total_w} rows written across {nf} films")
 if __name__=="__main__": main()

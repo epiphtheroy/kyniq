@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — metatake · Between Film and the World</title>
+<!--
+  metatake · BLOG · index / main page design (시안) — archive of the daily column "Between Film and the World".
+  Matches the v6 system: white paper, PT Serif + Inter, one-red #E3120B, hairlines, square corners, colour images.
+  Email subscription is the core: hero form (top) + closing band (bottom). Provider-agnostic (wire to Buttondown/ConvertKit/Substack on build).
+  Today's edition uses the user's real sample (films confirmed in the live DB). Past-edition rows are sample placeholders.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#0D0D0D;--ink2:#2A2A2A;--muted:#6B6B6B;--faint:#9A9A9A;
+  --hair:#D8D8D8;--hair2:#B9B9B9;--paper:#FBFAF7;
+  --accent:#E3120B;--teal:#167C6B;
+  --serif:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}
+::selection{background:#ffd9d7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--hair)}
+.mast__row{max-width:1180px;margin:0 auto;padding:11px 26px;display:flex;align-items:center;gap:20px}
+.brand{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.mast nav{display:flex;gap:15px;font-family:var(--ui);font-size:13.5px;color:var(--ink2)}
+.mast nav a{color:var(--ink2);padding:2px 0;border-bottom:1.5px solid transparent}
+.mast nav a:hover{color:var(--accent)}
+.mast nav a[data-on]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.mast .sp{flex:1 1 auto}
+.mast .act{font-family:var(--ui);font-size:13px;color:var(--muted);display:flex;gap:13px;align-items:center}
+.mast .rnd{font-family:var(--ui);font-size:13px;border:1px solid var(--hair2);padding:4px 10px}
+@media(max-width:940px){.mast nav{display:none}}
+
+/* hero : column identity + subscribe */
+.hero{border-bottom:1px solid var(--hair);padding:50px 0 40px}
+.hero__grid{display:grid;grid-template-columns:1.25fr .95fr;gap:48px;align-items:start}
+.kick{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:9px;margin:0 0 16px}
+.kick .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;display:inline-block}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:50px;line-height:1.04;letter-spacing:-.024em;margin:0 0 14px}
+.hero h1 .red{color:var(--accent)}
+.hero .dek{font-size:19px;font-style:italic;color:var(--ink2);margin:0 0 16px;line-height:1.4}
+.hero .intro{font-size:16px;color:var(--ink2);line-height:1.6;max-width:54ch;margin:0}
+.hero .intro b{color:var(--ink);font-weight:700}
+
+/* subscribe card (hero right) */
+.subcard{border:2px solid var(--ink);padding:22px 20px;position:sticky;top:74px}
+.subcard .sk{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px}
+.subcard h2{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.15;letter-spacing:-.01em;margin:0 0 8px}
+.subcard p{font-size:14.5px;color:var(--ink2);margin:0 0 16px;line-height:1.5}
+.subform{display:flex;gap:8px}
+.subform input{flex:1 1 auto;font-family:var(--ui);font-size:13.5px;padding:10px 12px;border:1px solid var(--hair2);background:#fff;color:var(--ink);min-width:0}
+.subform input:focus{outline:none;border-color:var(--accent)}
+.subform button{font-family:var(--ui);font-size:13px;font-weight:600;color:#fff;background:var(--accent);border:0;padding:10px 17px;cursor:pointer;white-space:nowrap}
+.subform button:hover{background:#b50e08}
+.subok{font-family:var(--ui);font-size:13.5px;color:var(--teal);font-weight:600;padding:6px 0}
+.subcard .fine{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:11px 0 0}
+.subcard .proof{font-family:var(--ui);font-size:12px;color:var(--muted);margin:14px 0 0;border-top:1px solid var(--hair);padding-top:12px}
+.subcard .proof b{color:var(--ink)}
+@media(max-width:880px){.hero__grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:38px}.subcard{position:static}}
+
+/* section heads */
+.sec{padding:40px 0;border-bottom:1px solid var(--hair)}
+.sechd{display:flex;align-items:baseline;gap:12px;margin:0 0 22px}
+.sechd h3{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.01em;margin:0}
+.sechd .when{font-family:var(--ui);font-size:13px;color:var(--muted)}
+.sechd .more{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--accent);margin-left:auto}
+
+/* today's edition feature */
+.feat{border:1px solid var(--ink);background:#fff}
+.feat__top{display:flex;align-items:baseline;gap:10px;padding:14px 18px;border-bottom:1px solid var(--hair);background:var(--paper)}
+.feat__top .lbl{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.feat__top .ttl{font-family:var(--serif);font-weight:700;font-size:18px}
+.feat__top .date{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin-left:auto}
+.rhymes{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.rh{display:grid;grid-template-columns:26px 84px 1fr;gap:12px;padding:15px 18px;border-top:1px solid var(--hair);border-right:1px solid var(--hair);align-items:center}
+.rh:nth-child(odd){border-right:1px solid var(--hair)}
+.rh:nth-child(even){border-right:0}
+.rh .rk{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--faint)}
+.rh .th{width:84px;aspect-ratio:3/2;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair)}
+.rh .ev{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:4px}
+.rh .mp{font-family:var(--ui);font-size:11.5px;color:var(--muted)}
+.rh .mp .fm{color:var(--accent);font-weight:600}
+.rh .mp .st{color:var(--accent);letter-spacing:.5px;margin-left:3px}
+.rh .mp .o{color:var(--hair2)}
+.feat__cta{padding:14px 18px;border-top:1px solid var(--ink);display:flex;align-items:center;gap:12px}
+.feat__cta a{font-family:var(--ui);font-size:13.5px;font-weight:600;color:#fff;background:var(--accent);padding:9px 18px}
+.feat__cta .note{font-family:var(--ui);font-size:12.5px;color:var(--muted)}
+@media(max-width:760px){.rhymes{grid-template-columns:1fr}.rh{border-right:0}}
+
+/* recent editions list */
+.edrow{display:grid;grid-template-columns:120px 1fr auto;gap:20px;align-items:center;padding:16px 0;border-top:1px solid var(--hair)}
+.edrow:hover{background:var(--paper)}
+.edrow .d{font-family:var(--ui);font-size:12.5px;color:var(--muted)}
+.edrow .d b{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);font-weight:700}
+.edrow .strip{display:flex;gap:5px}
+.edrow .strip span{width:54px;height:36px;background:#1a1f25 center/cover no-repeat;border:1px solid var(--hair)}
+.edrow .lead{font-family:var(--ui);font-size:13px;color:var(--ink2);margin-top:7px}
+.edrow .go{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--accent);white-space:nowrap}
+@media(max-width:680px){.edrow{grid-template-columns:1fr;gap:8px}.edrow .go{justify-self:start}}
+
+/* closing subscribe band */
+.band{background:var(--paper);border-bottom:1px solid var(--hair)}
+.band__in{max-width:760px;margin:0 auto;padding:48px 26px;text-align:center}
+.band .sk{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.band h3{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.02em;margin:0 0 8px}
+.band p{font-size:16px;color:var(--ink2);max-width:48ch;margin:0 auto 18px}
+.band .subform{max-width:440px;margin:0 auto}
+.band .fine{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin:12px 0 0}
+
+/* footer */
+footer{padding:36px 0 56px}
+.fcols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
+.fbrand{font-family:var(--serif);font-weight:700;font-size:19px}
+.fbrand p{font-family:var(--ui);font-size:12.5px;color:var(--muted);max-width:42ch;margin:8px 0 0;line-height:1.5}
+.fcols h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 11px}
+.fcols a{display:block;font-family:var(--ui);font-size:13.5px;color:var(--ink2);padding:3px 0}
+.fcols a:hover{color:var(--accent)}
+.bl{font-family:var(--ui);font-size:11.5px;color:var(--faint);margin-top:26px;border-top:1px solid var(--hair);padding-top:14px}
+@media(max-width:680px){.fcols{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__row">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a><a href="#" data-on>Blog</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act"><span>Search</span><a class="rnd" href="#">Random ▾</a><span>Account</span></span>
+  </div>
+</header>
+
+<!-- HERO : column identity + subscribe -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="kick"><span class="dot"></span> The metatake blog</p>
+      <h1>Between Film<br>and the <span class="red">World</span></h1>
+      <p class="dek">Metatake's daily — five things that happened, and the films that already knew.</p>
+      <p class="intro">Every morning we read the wire the way we read a film: looking for the figure underneath. Each edition links the day's events to a film and a reading — and <b>every one is confirmed in the live corpus before we publish it.</b> Retrieved, not remembered.</p>
+    </div>
+    <aside class="subcard" id="sub">
+      <p class="sk">Subscribe — it's free</p>
+      <h2>The day's news, read as cinema.</h2>
+      <p>One short edition, almost every morning. Five events, five films, in your inbox.</p>
+      <form class="subform" onsubmit="return doSub(event)"><input type="email" required placeholder="you@example.com" aria-label="Email"><button type="submit">Subscribe</button></form>
+      <p class="fine">No spam. Unsubscribe anytime.</p>
+      <p class="proof">Today's edition links to <b>Bacurau</b>, <b>The Last Emperor</b>, <b>The Wrestler</b> and 2 more — all live in the map.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- TODAY'S EDITION (feature) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sechd"><h3>Today's edition</h3><span class="when">Thursday, June 18, 2026</span><a class="more" href="#">All editions →</a></div>
+    <div class="feat">
+      <div class="feat__top"><span class="lbl">Between Film and the World</span><span class="ttl">Five rhymes</span><span class="date">Jun 18, 2026 · 6 min</span></div>
+      <div class="rhymes">
+        <a class="rh" href="blog-post.html"><span class="rk">1</span><span class="th" data-bd="/nhsC7Q1Zb5n2p4H3UKy422zP5XC.jpg"></span><span><span class="ev">A former military island is handed to a private resort.</span><span class="mp">Sazan Island → <span class="fm">Bacurau</span> <span class="st">★★★★★</span></span></span></a>
+        <a class="rh" href="blog-post.html"><span class="rk">2</span><span class="th" data-bd="/k29qVmwWwR0i5A1UMIws1Vmv6hV.jpg"></span><span><span class="ev">An emperor performs a sovereignty he does not hold.</span><span class="mp">Naruhito's visit → <span class="fm">The Last Emperor</span> <span class="st">★★★★★</span></span></span></a>
+        <a class="rh" href="blog-post.html"><span class="rk">3</span><span class="th" data-bd="/wcJmFsz8RqIhozMwvU81hreTX4i.jpg"></span><span><span class="ev">At thirty-eight, he ties the all-time record.</span><span class="mp">Messi's hat-trick → <span class="fm">The Wrestler</span> <span class="st">★★★★<span class="o">★</span></span></span></span></a>
+        <a class="rh" href="blog-post.html"><span class="rk">4</span><span class="th" data-bd="/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg"></span><span><span class="ev">A seventy-year-old bomber falls out of the sky.</span><span class="mp">The B-52 crash → <span class="fm">Top Gun: Maverick</span> <span class="st">★★★★<span class="o">★</span></span></span></span></a>
+        <a class="rh" href="blog-post.html"><span class="rk">5</span><span class="th" data-bd="/qzrS5ShZZPsPdhM5ZbcQKG7fwFo.jpg"></span><span><span class="ev">The season's first storm gets a name, then fades.</span><span class="mp">Storm Arthur → <span class="fm">Melancholia</span> <span class="st">★★★★<span class="o">★</span></span></span></span></a>
+        <div class="rh" style="opacity:.55"><span class="rk" style="color:var(--hair2)">—</span><span class="th" style="background:repeating-linear-gradient(45deg,#eceae3,#eceae3 7px,#f6f5f0 7px,#f6f5f0 14px);border-style:dashed"></span><span><span class="ev" style="color:var(--muted)">On the cutting-room floor</span><span class="mp">2 stories · big news, weak rhyme — cut</span></span></div>
+      </div>
+      <div class="feat__cta"><a href="blog-post.html">Read today's edition →</a><span class="note">Every film & reading confirmed in the live database.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT EDITIONS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sechd"><h3>Recent editions</h3><a class="more" href="#">Browse the archive →</a></div>
+
+    <a class="edrow" href="blog-post.html">
+      <div class="d"><b>Jun 17</b>Wednesday, 2026</div>
+      <div><div class="strip"><span data-bd="/8eihUxjQsJ7WvGySkVMC0EwbPAD.jpg"></span><span data-bd="/iSskYDN193CJfTbSpFfscSwZ9Sx.jpg"></span><span data-bd="/84XcRwKHAw4VXdKOYTSW5ARxFEt.jpg"></span><span data-bd="/wbQa0EnWUyRzQ5d1pHLNRlmsCUP.jpg"></span><span data-bd="/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg"></span></div><div class="lead">Five events, five films — the verdict, the merger, the heat dome, the comeback, the eclipse.</div></div>
+      <span class="go">Read →</span>
+    </a>
+
+    <a class="edrow" href="blog-post.html">
+      <div class="d"><b>Jun 16</b>Tuesday, 2026</div>
+      <div><div class="strip"><span data-bd="/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg"></span><span data-bd="/mNQtUJv1F3u0uSKILFrGjIHqkxx.jpg"></span><span data-bd="/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg"></span><span data-bd="/9UAKA6ceZi6TgQwTAAMt7DWwYPI.jpg"></span><span data-bd="/dcvbs8z0GEXslC1kCT77x19XDeR.jpg"></span></div><div class="lead">Five events, five films — a signature, a strike, a flood, a record, a reunion.</div></div>
+      <span class="go">Read →</span>
+    </a>
+
+    <a class="edrow" href="blog-post.html">
+      <div class="d"><b>Jun 15</b>Monday, 2026</div>
+      <div><div class="strip"><span data-bd="/bvk2AAH64lP2YZs02Q3jskfHT8j.jpg"></span><span data-bd="/sHI9xlFRWCJ38AIIfOqnGjuEvXz.jpg"></span><span data-bd="/xcfjWEmSpgJe8htlg1qFTwQfPG7.jpg"></span><span data-bd="/nAyUVvcdOKHmukdgGHZ7xR5er1q.jpg"></span><span data-bd="/4W6RYDNe4OByNryOCvJprrutm9h.jpg"></span></div><div class="lead">Five events, five films — a resignation, a launch, a drought, a trial, a farewell.</div></div>
+      <span class="go">Read →</span>
+    </a>
+
+    <a class="edrow" href="blog-post.html">
+      <div class="d"><b>Jun 14</b>Sunday, 2026</div>
+      <div><div class="strip"><span data-bd="/eBS1nvaQ7BMdsSlkoLyKapf0FEY.jpg"></span><span data-bd="/wRcm3iwi4BeMN59U4fjO7u3dOVI.jpg"></span><span data-bd="/uwACVNL5OpiI3oT72DVGxnU4SRV.jpg"></span><span data-bd="/zwJFfKQdfiptK2GY6N8GkZFrAxJ.jpg"></span><span data-bd="/k29qVmwWwR0i5A1UMIws1Vmv6hV.jpg"></span></div><div class="lead">Five events, five films — a verdict, a blackout, a merger, a monsoon, a name.</div></div>
+      <span class="go">Read →</span>
+    </a>
+  </div>
+</section>
+
+<!-- CLOSING SUBSCRIBE BAND -->
+<section class="band">
+  <div class="band__in">
+    <p class="sk">Don't miss tomorrow's</p>
+    <h3>One edition, almost every morning.</h3>
+    <p>Free. Five events and the films that already knew them — retrieved from the live corpus, not remembered.</p>
+    <form class="subform" onsubmit="return doSub(event)"><input type="email" required placeholder="you@example.com" aria-label="Email"><button type="submit">Subscribe</button></form>
+    <p class="fine">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="fbrand">metatake · blog</div>
+        <p>Between Film and the World — the day's events, read for the figure underneath. Part of the metatake reading of cinema.</p>
+      </div>
+      <div><h4>The blog</h4><a href="blog-post.html">Today's edition</a><a href="#">All editions</a><a href="#sub">Subscribe</a></div>
+      <div><h4>metatake</h4><a href="https://metatake.net">The map</a><a href="#">Meta takes</a><a href="#">Tropes</a></div>
+    </div>
+    <div class="bl">© 2026 metatake. Blog index — a design concept (시안). Subscription is provider-agnostic; today's edition links are live, past editions are samples.</div>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function(){
+  var IMG="https://image.tmdb.org/t/p/w342";
+  var els=document.querySelectorAll("[data-bd]");
+  for(var i=0;i<els.length;i++){ (function(el){ var url=IMG+el.getAttribute("data-bd"); var im=new Image(); im.onload=function(){ el.style.backgroundImage="url("+url+")"; }; im.src=url; })(els[i]); }
+})();
+// provider-agnostic subscribe demo — replace on build (Buttondown / ConvertKit / Substack embed)
+function doSub(ev){
+  ev.preventDefault();
+  var form=ev.target, email=form.querySelector("input").value;
+  var ok=document.createElement("div"); ok.className="subok"; ok.textContent="✓ Almost there — check your inbox to confirm.";
+  form.parentNode.replaceChild(ok, form);
+  return false;
+}
+</script>
+</body>
+</html>

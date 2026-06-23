@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · Metatake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Metatake — BLOG · design v1 (시안)
+   Reuses design system v3 "Newspaper": white paper, near-black ink,
+   ONE red accent #E3120B, PT Serif + Inter, hairline rows, square corners.
+   Single self-contained HTML — open directly in a browser.
+   Core goal: email subscription.
+   ============================================================ */
+:root{
+  --bg:#FFFFFF; --surface-2:#F2F2F2;
+  --ink:#0D0D0D; --ink-soft:#1F1F1F; --muted:#6B6B6B; --subtle:#8F8F8F;
+  --hairline:#D8D8D8; --hairline-2:#B9B9B9;
+  --accent:#E3120B; --accent-hover:#B80D05;
+  --kr:"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR";
+  --serif:"PT Serif","Iowan Old Style",Georgia,"Times New Roman",var(--kr),serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,var(--kr),Helvetica,Arial,sans-serif;
+  --pad-x:24px; --max-w:1080px; --col-w:720px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:var(--col-w);margin:0 auto;padding:0 var(--pad-x)}
+
+/* ---------- masthead (matches MetatakeNav) ---------- */
+.masthead{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--hairline)}
+.mh{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:16px;padding:11px var(--pad-x);min-height:56px}
+.brand{font-family:var(--ui);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+.mh nav{display:none;gap:14px}
+@media(min-width:980px){.mh nav{display:flex}}
+.mh nav a{font-size:13px;color:var(--muted)}
+.mh nav a:hover{color:var(--accent)}
+.mh nav a[data-on]{color:var(--ink);font-weight:600}
+.mh .sp{flex:1 1 auto}
+.mh .act{font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:12px}
+.mh .act a:hover{color:var(--ink)}
+.mh .rnd{border:1px solid var(--hairline-2);border-radius:3px;padding:4px 9px}
+.mh .rnd:hover{border-color:var(--ink);color:var(--ink)}
+
+/* ---------- blog header ---------- */
+.bloghead{padding:30px 0 4px;border-bottom:1px solid var(--ink)}
+.bloghead h1{font-family:var(--serif);font-weight:700;font-size:40px;letter-spacing:-.015em;margin:0 0 8px}
+.bloghead .standfirst{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;color:var(--muted);margin:0 0 14px;max-width:52ch}
+.bloghead .byline{font-family:var(--ui);font-size:12.5px;color:var(--subtle);display:flex;align-items:center;gap:8px;padding-bottom:14px}
+.byline .live{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.byline .live i{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,18,11,.5)}70%{box-shadow:0 0 0 6px rgba(227,18,11,0)}100%{box-shadow:0 0 0 0 rgba(227,18,11,0)}}
+
+/* ---------- subscribe (primary band) ---------- */
+.subband{border:1px solid var(--ink);border-top:3px solid var(--accent);padding:22px 24px 20px;margin:26px 0 10px}
+.subband .lab{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.subband h2{font-family:var(--serif);font-weight:700;font-size:25px;line-height:1.14;margin:0 0 7px}
+.subband p{font-family:var(--serif);font-size:15.5px;line-height:1.5;color:var(--muted);margin:0;max-width:52ch}
+.subform{display:flex;gap:8px;margin:16px 0 9px;flex-wrap:wrap}
+.subform input[type=email]{flex:1 1 250px;min-width:0;font-family:var(--ui);font-size:15px;border:1px solid var(--hairline-2);border-radius:2px;padding:12px 13px;color:var(--ink);background:var(--bg)}
+.subform input[type=email]:focus{outline:none;border-color:var(--ink)}
+.subform button{font-family:var(--ui);font-weight:600;font-size:14px;background:var(--accent);color:#fff;border:none;border-radius:2px;padding:12px 20px;cursor:pointer;white-space:nowrap}
+.subform button:hover{background:var(--accent-hover)}
+.fineprint{font-family:var(--ui);font-size:12px;color:var(--subtle);margin:0}
+.subok{display:none;font-family:var(--serif);font-size:15.5px;color:var(--ink);margin:14px 0 2px;line-height:1.5}
+.subok b{color:var(--accent)}
+.subband.done .subform,.subband.done p{display:none}
+.subband.done .subok{display:block}
+
+/* ---------- lead post ---------- */
+.kick{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--accent);margin:0 0 7px;text-transform:uppercase}
+.kick .sep{color:var(--hairline-2);margin:0 7px;font-weight:400}
+.kick .topic{color:var(--muted)}
+.lead{display:block;padding:22px 0 22px;border-bottom:1px solid var(--hairline)}
+.lead__title{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.14;letter-spacing:-.014em;margin:0;color:var(--ink)}
+.lead:hover .lead__title{color:var(--accent-hover)}
+.lead__dek{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--muted);margin:9px 0 0;max-width:56ch}
+.lead__meta{font-family:var(--ui);font-size:12px;color:var(--subtle);margin-top:11px}
+
+/* ---------- section module ---------- */
+.secmod{margin-top:34px}
+.secmod__head{border-top:2px solid var(--ink);padding-top:10px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.secmod__title{font-family:var(--serif);font-weight:700;font-size:20px;margin:0;color:var(--ink)}
+.secmod__more{font-family:var(--ui);font-size:12.5px;font-weight:500;color:var(--accent);white-space:nowrap}
+.secmod__more:hover{text-decoration:underline;text-underline-offset:2px}
+
+/* post rows */
+.post{display:block;padding:17px 0;border-bottom:1px solid var(--hairline)}
+.post:last-child{border-bottom:none}
+.post .kick{margin-bottom:5px;font-size:11.5px}
+.post__title{font-family:var(--serif);font-weight:700;font-size:19px;line-height:1.26;letter-spacing:-.006em;margin:0;color:var(--ink)}
+.post:hover .post__title{color:var(--accent-hover)}
+.post__dek{font-family:var(--serif);font-size:14.5px;line-height:1.45;color:var(--muted);margin:4px 0 0;max-width:60ch}
+.post__meta{font-family:var(--ui);font-size:11.5px;color:var(--subtle);margin-top:6px}
+
+/* archive compact */
+.arch{margin-top:34px}
+.arch__head{border-top:2px solid var(--ink);padding-top:10px;font-family:var(--serif);font-weight:700;font-size:20px;margin:0 0 4px}
+.arrow{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--hairline)}
+.arow a{font-family:var(--serif);font-weight:700;font-size:15.5px;color:var(--ink)}
+.arow:hover a{color:var(--accent-hover)}
+.arow .c{font-family:var(--ui);font-size:12px;color:var(--subtle);font-variant-numeric:tabular-nums}
+
+/* ---------- inline subscribe reminder (secondary) ---------- */
+.subinline{margin:36px 0 0;border:1px solid var(--hairline-2);border-left:3px solid var(--accent);padding:16px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.subinline .t{font-family:var(--serif);font-size:16px;color:var(--ink);flex:1 1 230px;margin:0}
+.subinline form{display:flex;gap:7px;flex:1 1 280px}
+.subinline input{flex:1 1 auto;min-width:0;font-family:var(--ui);font-size:14px;border:1px solid var(--hairline-2);border-radius:2px;padding:9px 11px;color:var(--ink)}
+.subinline input:focus{outline:none;border-color:var(--ink)}
+.subinline button{font-family:var(--ui);font-weight:600;font-size:13px;background:var(--ink);color:#fff;border:none;border-radius:2px;padding:9px 15px;cursor:pointer;white-space:nowrap}
+.subinline button:hover{background:var(--accent)}
+.subinline.done .t{color:var(--accent)}
+.subinline.done form{display:none}
+
+/* ---------- footer ---------- */
+.foot{margin-top:54px;border-top:2px solid var(--ink)}
+.foot__in{max-width:var(--max-w);margin:0 auto;padding:24px var(--pad-x) 44px;font-family:var(--ui);font-size:13px;color:var(--muted)}
+.foot__row{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:14px}
+.foot a{color:var(--muted)} .foot a:hover{color:var(--accent)}
+.foot .bl{font-size:12px;color:var(--subtle);border-top:1px solid var(--hairline);padding-top:13px}
+.foot .note{margin-top:7px;font-style:italic;font-family:var(--serif);color:var(--subtle)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mh">
+    <a href="/" class="brand">metatake</a>
+    <nav>
+      <a href="/ask">Ask</a>
+      <a href="/blog" data-on>Blog</a>
+      <a href="/latest">Latest</a>
+      <a href="/trending">Trending</a>
+      <a href="/film">Films</a>
+      <a href="/director">Directors</a>
+      <a href="/tropes">Tropes</a>
+      <a href="/concept">Concepts</a>
+      <a href="/meta-takes">Meta takes</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="act">
+      <a href="/search">Search</a>
+      <a href="/random" class="rnd">Random ▾</a>
+      <a href="/account">Account</a>
+    </span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="bloghead">
+    <h1>Blog</h1>
+    <p class="standfirst">Near-daily notes from inside Metatake — the news, read the way we read a film: looking for the figure underneath.</p>
+    <div class="byline">
+      <span>By Wonwoo Yoon</span>
+      <span class="live"><i></i> updated most weekdays</span>
+    </div>
+  </div>
+
+  <!-- PRIMARY subscribe band -->
+  <section class="subband" id="band1">
+    <p class="lab">Subscribe</p>
+    <h2>Get each piece in your inbox.</h2>
+    <p>One short reading a day, where the day's events meet the films that already knew. Free, and you can leave whenever you like.</p>
+    <form class="subform" onsubmit="return sub(this,'band1')">
+      <input type="email" required placeholder="your@email.com" aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="fineprint">No spam. One email a day at most. Unsubscribe in one click.</p>
+    <p class="subok">Thanks — we sent a confirmation link to <b class="addr">your inbox</b>. Click it and you're in. ■</p>
+  </section>
+
+  <!-- LEAD post -->
+  <a class="lead" href="/blog/between-film-and-the-world-2026-06-18">
+    <p class="kick">June 18, 2026 <span class="sep">·</span> <span class="topic">The daily</span></p>
+    <h2 class="lead__title">Between Film and the World</h2>
+    <p class="lead__dek">Five things that happened, and the films that already knew — ranked by the strength of the rhyme.</p>
+    <p class="lead__meta">6 min read</p>
+  </a>
+
+  <!-- RECENT -->
+  <section class="secmod">
+    <div class="secmod__head">
+      <h3 class="secmod__title">Recent</h3>
+      <a class="secmod__more" href="/blog/archive">Archive →</a>
+    </div>
+
+    <a class="post" href="#">
+      <p class="kick">June 17, 2026 <span class="sep">·</span> <span class="topic">Essay</span></p>
+      <h3 class="post__title">The island that was erased so the guests could arrive</h3>
+      <p class="post__dek">On enclosure, a flamingo lagoon, and the village in <i>Bacurau</i> that remembers it outnumbers its visitors.</p>
+      <p class="post__meta">5 min read</p>
+    </a>
+
+    <a class="post" href="#">
+      <p class="kick">June 16, 2026 <span class="sep">·</span> <span class="topic">Essay</span></p>
+      <h3 class="post__title">An emperor who performs a power he does not hold</h3>
+      <p class="post__dek">A state visit, gold braid, and the gentle democratic ending of <i>The Last Emperor</i>.</p>
+      <p class="post__meta">4 min read</p>
+    </a>
+
+    <a class="post" href="#">
+      <p class="kick">June 13, 2026 <span class="sep">·</span> <span class="topic">Notebook</span></p>
+      <h3 class="post__title">The machine we refuse to retire</h3>
+      <p class="post__dek">A seventy-year-old bomber, and the obsolete pilot at the heart of <i>Top Gun: Maverick</i>.</p>
+      <p class="post__meta">4 min read</p>
+    </a>
+
+    <a class="post" href="#">
+      <p class="kick">June 12, 2026 <span class="sep">·</span> <span class="topic">Essay</span></p>
+      <h3 class="post__title">We give the catastrophe a friendly name</h3>
+      <p class="post__dek">The season's first storm, and the blue-sky interval before the end in <i>Melancholia</i>.</p>
+      <p class="post__meta">5 min read</p>
+    </a>
+
+    <a class="post" href="#">
+      <p class="kick">June 11, 2026 <span class="sep">·</span> <span class="topic">Notebook</span></p>
+      <h3 class="post__title">The body that performs past its hour</h3>
+      <p class="post__dek">A record-tying hat-trick at thirty-eight, read through <i>The Wrestler</i>.</p>
+      <p class="post__meta">3 min read</p>
+    </a>
+
+    <a class="post" href="#">
+      <p class="kick">June 10, 2026 <span class="sep">·</span> <span class="topic">On method</span></p>
+      <h3 class="post__title">On reading the news the way we read a film</h3>
+      <p class="post__dek">What it means to look for the figure underneath an event — and why Metatake links it back to the map.</p>
+      <p class="post__meta">7 min read</p>
+    </a>
+  </section>
+
+  <!-- ARCHIVE (compact) -->
+  <section class="arch">
+    <h3 class="arch__head">Archive</h3>
+    <div class="arow"><a href="#">June 2026</a><span class="c">14 posts</span></div>
+    <div class="arow"><a href="#">May 2026</a><span class="c">21 posts</span></div>
+    <div class="arow"><a href="#">April 2026</a><span class="c">19 posts</span></div>
+  </section>
+
+  <!-- SECONDARY inline subscribe -->
+  <section class="subinline" id="band2">
+    <p class="t">Like this? Get the next one in your inbox.</p>
+    <form onsubmit="return sub(this,'band2')">
+      <input type="email" required placeholder="your@email.com" aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div class="foot__row">
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/blog/archive">Archive</a>
+      <a href="/blog/subscribe">Subscribe</a>
+      <a href="/">Explore Metatake →</a>
+    </div>
+    <div class="bl">© 2026 Metatake · Wonwoo Yoon</div>
+    <p class="note">Read the world the way we read a film.</p>
+  </div>
+</footer>
+
+<script>
+/* mockup only — replace with a real POST to your form endpoint (Supabase / provider API) */
+function sub(form, bandId){
+  var email = form.querySelector('input[type=email]').value.trim();
+  var band = document.getElementById(bandId);
+  band.classList.add('done');
+  var addr = band.querySelector('.addr');
+  if(addr && email) addr.textContent = email;
+  if(bandId==='band2'){ band.querySelector('.t').textContent = 'Thanks — check your inbox to confirm. ■'; }
+  return false;
+}
+</script>
+</body>
+</html>

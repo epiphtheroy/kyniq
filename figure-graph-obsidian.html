@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metatake — Figure graph (Obsidian-style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0c10;--ink:#e9e4d8;--ink2:#9aa0a8;--ink3:#5b6068;--line:rgba(233,228,216,.12);
+  --figure:#e8e2d4;--reading:#e0a34a;--kin:#c9b79a;--accent:#f0b65f;
+  --ideological:#d98a6a;--philosophical:#86b3c9;--psychoanalytic:#c98ac9;--formal:#e0a34a;
+  --ui:'Inter',system-ui,sans-serif;--serif:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;height:100vh;overflow:hidden;background:radial-gradient(120% 100% at 50% 32%,#101117,#080809);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap;z-index:10}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font:600 15px/1 var(--ui);letter-spacing:.15em}
+.brand span{font:400 12px/1 var(--ui);color:var(--ink2)}
+.ctx{font:400 12px/1.4 var(--ui);color:var(--ink2)}
+.ctx b{color:var(--accent);font-weight:500}
+.btn{height:32px;background:#15161c;border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:0 12px;font:500 12px/1 var(--ui);cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.stage{position:relative;flex:1;overflow:hidden;cursor:grab}
+.stage.drag{cursor:grabbing}
+#world{position:absolute;left:0;top:0;transform-origin:0 0}
+#lines{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.gnode{position:absolute;transform:translate(-50%,-50%);cursor:pointer;transition:opacity .25s}
+.gnode .dot{border-radius:50%;margin:0 auto;transition:transform .2s,box-shadow .2s}
+.gnode:hover .dot{transform:scale(1.18)}
+.gnode .lbl{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;
+  font:500 12px/1.15 var(--ui);text-shadow:0 1px 4px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.85);transition:color .2s}
+.gnode .sub{display:block;font:400 10px/1.1 var(--ui);color:var(--ink3);margin-top:2px}
+.gnode.dim{opacity:.1}
+.gnode.figure .dot{background:var(--accent);box-shadow:0 0 0 4px rgba(240,182,95,.16),0 0 28px rgba(240,182,95,.42)}
+.gnode.figure .lbl{color:#fff;font:500 14px/1.2 var(--serif);max-width:240px;white-space:normal;text-align:center}
+.gnode.reading .dot{background:var(--reading)}
+.gnode.reading .lbl{color:#e7b56e;font-weight:600}
+.gnode.kin .dot{background:var(--kin)}
+.gnode.kin .lbl{color:var(--ink);font-weight:400}
+.gnode.kin .lbl b{color:var(--kin);font-weight:500}
+.gnode.sel .dot{box-shadow:0 0 0 4px rgba(255,255,255,.2),0 0 18px rgba(255,255,255,.28)}
+.hud{position:absolute;left:16px;top:14px;z-index:6;pointer-events:none;max-width:62%}
+.title{font:500 15px/1.3 var(--serif);color:var(--ink)}
+.title span{color:var(--ink2);font-family:var(--ui);font-size:12px}
+.panel{position:absolute;left:16px;bottom:16px;z-index:6;width:320px;background:rgba(11,12,16,.93);border:1px solid var(--line);border-radius:12px;padding:14px 15px;backdrop-filter:blur(8px)}
+.panel .k{font:500 10px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.panel .nm{font:500 16px/1.3 var(--serif);margin:7px 0 3px}
+.panel .meta{font:400 12.5px/1.55 var(--ui);color:var(--ink2)}
+.panel .act{margin-top:12px}
+.panel .act a{font:500 11px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:9px 11px;cursor:pointer}
+.panel .act a:hover{border-color:var(--accent);color:var(--accent)}
+.legend{position:absolute;right:16px;bottom:16px;z-index:6;display:flex;flex-direction:column;gap:7px;pointer-events:none;background:rgba(11,12,16,.6);padding:11px 13px;border-radius:10px}
+.legend span{display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--ui);color:var(--ink2)}
+.legend i{width:9px;height:9px;border-radius:50%}
+.zoom{position:absolute;right:16px;top:14px;z-index:6;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:rgba(21,22,28,.85);color:var(--ink);font-size:15px;cursor:pointer}
+.zoom button:hover{border-color:var(--accent);color:var(--accent)}
+.hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:5;font:400 12px/1 var(--ui);color:var(--ink3);pointer-events:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><b>METATAKE</b><span>figure graph</span></div>
+  <div class="ctx">중심 형상: <b>응시당하는 니나</b> · Black Swan (2010) — 한 형상이 네 가지 읽기로 갈라진다</div>
+  <button class="btn" id="recenter">Recenter</button>
+</header>
+<div class="stage" id="stage">
+  <div id="world"><svg id="lines"></svg></div>
+  <div class="hud"><div class="title">The figure at the centre<span> · hover to focus · click a node to open its page</span></div></div>
+  <div class="zoom"><button id="zin">+</button><button id="zout">−</button></div>
+  <div class="panel" id="panel"></div>
+  <div class="legend">
+    <span><i style="background:var(--accent)"></i>이 형상 (center)</span>
+    <span><i style="background:var(--reading)"></i>읽기 · 메타테이크</span>
+    <span><i style="background:var(--kin)"></i>kin 형상 (다른 영화)</span>
+  </div>
+  <div class="hint">drag to pan · scroll to zoom · 같은 형상이 여러 읽기에 걸리면 더 큰 점으로 수렴</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+const SITE='https://filmcurio.com';
+const CENTER={label:"The recurring motif of Nina being watched (by Thomas, her mother, herself in mirrors, the audience).",short:"응시당하는 니나",film:"black-swan-2010",ftitle:"Black Swan",figslug:"the-recurring-motif-of-nina-being-watched-by-thomas-her-moth"};
+const READINGS=[
+ {hub:"the-camera-s-watching-eye",title:"The Camera's Watching Eye",register:"ideological",figs:51,kin:[
+   {label:"The self-contained laboratory/prison setting.",figslug:"the-self-contained-laboratory-prison-setting",film:"the-experiment-2001",ftitle:"The Experiment"},
+   {label:"The use of static long takes and surveillance footage",figslug:"the-use-of-static-long-takes-and-surveillance-footage",film:"happy-end-2017",ftitle:"Happy End"},
+   {label:"The South Central Los Angeles neighborhood setting",figslug:"the-south-central-los-angeles-neighborhood-setting",film:"boyz-n-the-hood-1991",ftitle:"Boyz n the Hood"},
+   {label:"The surveillance camera footage of Amadou",figslug:"the-surveillance-camera-footage-of-amadou",film:"code-unknown-2000",ftitle:"Code Unknown"},
+   {label:"The musical duel between Phil's banjo and Rose's piano",figslug:"the-scene-of-the-musical-duel-between-phil-s-banjo-and-rose-",film:"the-power-of-the-dog-2021",ftitle:"The Power of the Dog"}]},
+ {hub:"the-repressed-double",title:"The Repressed Double",register:"philosophical",figs:62,kin:[
+   {label:"The peep show booth scene",figslug:"the-peep-show-booth-scene",film:"paris-texas-1984",ftitle:"Paris, Texas"},
+   {label:"The surface world and the underground tunnels",figslug:"the-relationship-between-the-surface-world-and-the-undergrou",film:"us-2019",ftitle:"Us"},
+   {label:"Applying and removing the Peking Opera makeup",figslug:"the-ritual-of-applying-and-removing-the-peking-opera-makeup",film:"farewell-my-concubine-1993",ftitle:"Farewell My Concubine"},
+   {label:"Nina's relationship with Lily",figslug:"nina-s-relationship-with-lily",film:"black-swan-2010",ftitle:"Black Swan"},
+   {label:"The duplicate Kane who returns from Area X",figslug:"the-duplicate-kane-who-returns-from-area-x",film:"annihilation-2018",ftitle:"Annihilation"}]},
+ {hub:"the-male-gaze",title:"The Male Gaze",register:"psychoanalytic",figs:63,kin:[
+   {label:"Jean Tatlock and Kitty Oppenheimer",figslug:"the-narrative-function-of-jean-tatlock-and-kitty-oppenheimer",film:"oppenheimer-2023",ftitle:"Oppenheimer"},
+   {label:"The comatose female bodies of Alicia and Lydia",figslug:"the-comatose-female-bodies-of-alicia-and-lydia",film:"talk-to-her-2002",ftitle:"Talk to Her"},
+   {label:"Young Noodles spying on Deborah through the hole",figslug:"young-noodles-spying-on-deborah-through-the-hole-in-the-wall",film:"once-upon-a-time-in-america",ftitle:"Once Upon a Time in America"},
+   {label:"The opening scene of Vivian getting dressed",figslug:"the-opening-scene-showing-vivian-getting-dressed",film:"pretty-woman-1990",ftitle:"Pretty Woman"},
+   {label:"The physical contrast between Lee Juk-yo and Eungyo",figslug:"the-physical-contrast-between-lee-juk-yo-and-eungyo",film:"eungyo-2012",ftitle:"Eungyo"}]},
+ {hub:"scopophilia",title:"The Pleasures of Looking",register:"formal",figs:45,kin:[
+   {label:"The stalker, Me-Mania (Mamoru Uchida)",figslug:"the-stalker-me-mania-mamoru-uchida",film:"perfect-blue-1997",ftitle:"Perfect Blue"},
+   {label:"Tomek's voyeurism via his telescope",figslug:"tomek-s-voyeurism-via-his-telescope",film:"a-short-film-about-love-1988",ftitle:"A Short Film About Love"},
+   {label:"The competitive bodies of the male pilots",figslug:"the-physical-bodies-and-competitive-interactions-of-the-male",film:"top-gun-1986",ftitle:"Top Gun"},
+   {label:"Young Noodles spying on Deborah through the hole",figslug:"young-noodles-spying-on-deborah-through-the-hole-in-the-wall",film:"once-upon-a-time-in-america",ftitle:"Once Upon a Time in America"},
+   {label:"Characters filmed through windows and reflections",figslug:"the-recurring-visual-motif-of-characters-being-filmed-throug",film:"carol-2015",ftitle:"Carol"}]}
+];
+const REGCOL={ideological:'#d98a6a',philosophical:'#86b3c9',psychoanalytic:'#c98ac9',formal:'#e0a34a'};
+
+const stage=document.getElementById('stage'),world=document.getElementById('world'),lines=document.getElementById('lines');
+const WX=1500,WY=1000,CX=WX/2,CY=WY/2;
+let nodes=[],links=[],byId={},selected=null,k=1,tx=0,ty=0;
+function trunc(s,n){return s.length>n?s.slice(0,n-1)+'…':s;}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function build(){
+  nodes=[];links=[];byId={};
+  const c=addN({id:'C',type:'figure',label:CENTER.short,full:CENTER.label,film:CENTER.film,figslug:CENTER.figslug,ftitle:CENTER.ftitle});
+  c.fx=CX;c.fy=CY;
+  READINGS.forEach(function(r){
+    const hn=addN({id:'h:'+r.hub,type:'reading',label:r.title,slug:r.hub,register:r.register,figs:r.figs});
+    addL(c,hn);
+    r.kin.forEach(function(kf){
+      const kn=addN({id:'k:'+kf.film+'/'+kf.figslug,type:'kin',label:kf.label,figslug:kf.figslug,film:kf.film,ftitle:kf.ftitle});
+      addL(hn,kn);
+    });
+  });
+  nodes.forEach(function(n){n.deg=0;});
+  links.forEach(function(l){l.a.deg++;l.b.deg++;});
+}
+function addN(o){if(byId[o.id])return byId[o.id];o.x=CX+(Math.random()-.5)*140;o.y=CY+(Math.random()-.5)*140;o.vx=0;o.vy=0;byId[o.id]=o;nodes.push(o);return o;}
+function addL(a,b){for(var i=0;i<links.length;i++){if(links[i].a===a&&links[i].b===b)return;}links.push({a:a,b:b});}
+function radius(n){return n.type==='figure'?13:n.type==='reading'?7:Math.min(10,4+(n.deg||1)*1.7);}
+
+function draw(){
+  lines.setAttribute('width',WX);lines.setAttribute('height',WY);lines.setAttribute('viewBox','0 0 '+WX+' '+WY);
+  var lp='';links.forEach(function(l,i){l.id='L'+i;
+    var col=l.b.type==='reading'?'rgba(224,163,74,.22)':'rgba(233,228,216,.13)';
+    lp+='<line id="'+l.id+'" stroke="'+col+'" stroke-width="1.1"></line>';});
+  lines.innerHTML=lp;links.forEach(function(l){l.el=document.getElementById(l.id);});
+  Array.prototype.slice.call(world.querySelectorAll('.gnode')).forEach(function(e){e.remove();});
+  nodes.forEach(function(n){
+    var el=document.createElement('div');el.className='gnode '+n.type;
+    var r=radius(n);
+    var dotStyle='width:'+(r*2)+'px;height:'+(r*2)+'px';
+    if(n.type==='reading')dotStyle+=';background:'+(REGCOL[n.register]||'#e0a34a');
+    var lbl;
+    if(n.type==='figure')lbl='<div class="lbl">'+esc(n.label)+'</div>';
+    else if(n.type==='reading')lbl='<div class="lbl">'+esc(n.label)+'<span class="sub">'+n.register+' · '+n.figs+' figures</span></div>';
+    else lbl='<div class="lbl">'+esc(trunc(n.label,40))+'<span class="sub">'+esc(n.ftitle)+'</span></div>';
+    el.innerHTML='<div class="dot" style="'+dotStyle+'"></div>'+lbl;
+    el.title=n.full||n.label;
+    el.addEventListener('mouseenter',function(){focus(n);showPanel(n);});
+    el.addEventListener('mouseleave',unfocus);
+    el.addEventListener('click',function(e){e.stopPropagation();select(n);openPage(n);});
+    n.el=el;world.appendChild(el);
+  });
+}
+function neighbors(n){var s=new Set([n]);links.forEach(function(l){if(l.a===n)s.add(l.b);if(l.b===n)s.add(l.a);});return s;}
+function focus(n){var nb=neighbors(n);nodes.forEach(function(m){m.el.classList.toggle('dim',!nb.has(m));});
+  links.forEach(function(l){var on=(l.a===n||l.b===n);if(l.el){l.el.setAttribute('stroke',on?(l.b.type==='reading'?(REGCOL[l.b.register]||'#e0a34a'):'rgba(233,228,216,.55)'):basec(l));l.el.setAttribute('stroke-width',on?'2':'1.1');}});}
+function unfocus(){nodes.forEach(function(m){m.el.classList.remove('dim');});links.forEach(function(l){if(l.el){l.el.setAttribute('stroke',basec(l));l.el.setAttribute('stroke-width','1.1');}});}
+function basec(l){return l.b.type==='reading'?'rgba(224,163,74,.22)':'rgba(233,228,216,.13)';}
+function select(n){if(selected&&selected.el)selected.el.classList.remove('sel');selected=n;if(n.el)n.el.classList.add('sel');showPanel(n);}
+function pageOf(n){if(n.type==='figure')return '/film/'+n.film+'/figure/'+n.figslug;if(n.type==='reading')return '/take/'+n.slug;return '/film/'+n.film+'/figure/'+n.figslug;}
+function openPage(n){window.open(SITE+pageOf(n),'_blank');}
+function showPanel(n){var p=document.getElementById('panel');
+  var kind=n.type==='figure'?'this figure · Black Swan':n.type==='reading'?('reading · meta-take · '+n.register):'kin figure · '+n.ftitle;
+  var meta=n.type==='figure'?'네 가지 읽기로 갈라지는 중심 형상. 각 읽기는 다른 영화의 형상들과 이어진다.'
+    :n.type==='reading'?(n.figs+'개 형상이 이 읽기를 공유합니다. 눌러서 메타테이크 허브로.')
+    :'다른 영화에서 같은 읽기를 받은 형상. 눌러서 그 형상 페이지로 (프로덕션에선 거기서 또 그래프가 펼쳐짐).';
+  p.innerHTML='<div class="k">'+kind+'</div><div class="nm">'+esc(n.full||n.label)+'</div><div class="meta">'+meta+'</div><div class="act"><a id="po">open page ↗</a></div>';
+  var o=document.getElementById('po');if(o)o.onclick=function(){openPage(n);};
+}
+function tick(){var i,j,a,b,dx,dy,d2,d,f,fx,fy;
+  for(i=0;i<nodes.length;i++){a=nodes[i];for(j=i+1;j<nodes.length;j++){b=nodes[j];dx=a.x-b.x;dy=a.y-b.y;d2=dx*dx+dy*dy;if(d2<1)d2=1;
+    if(d2<150000){f=3600/d2;d=Math.sqrt(d2);fx=f*dx/d;fy=f*dy/d;a.vx+=fx;a.vy+=fy;b.vx-=fx;b.vy-=fy;}}}
+  for(i=0;i<links.length;i++){var l=links[i];var len=l.b.type==='reading'?150:80;dx=l.b.x-l.a.x;dy=l.b.y-l.a.y;d=Math.sqrt(dx*dx+dy*dy)||1;f=(d-len)*0.04;fx=f*dx/d;fy=f*dy/d;l.a.vx+=fx;l.a.vy+=fy;l.b.vx-=fx;l.b.vy-=fy;}
+  for(i=0;i<nodes.length;i++){a=nodes[i];if(a.fx!=null){a.x=a.fx;a.y=a.fy;a.vx=0;a.vy=0;}else{a.vx+=(CX-a.x)*0.006;a.vy+=(CY-a.y)*0.006;a.vx*=0.85;a.vy*=0.85;a.x+=a.vx;a.y+=a.vy;}if(a.el){a.el.style.left=a.x+'px';a.el.style.top=a.y+'px';}}
+  for(i=0;i<links.length;i++){var ll=links[i];if(ll.el){ll.el.setAttribute('x1',ll.a.x);ll.el.setAttribute('y1',ll.a.y);ll.el.setAttribute('x2',ll.b.x);ll.el.setAttribute('y2',ll.b.y);}}
+  requestAnimationFrame(tick);
+}
+function applyView(){world.style.transform='translate('+tx+'px,'+ty+'px) scale('+k+')';}
+function resetView(){k=1;tx=stage.clientWidth/2-CX;ty=stage.clientHeight/2-CY;applyView();}
+function zoomAt(px,py,factor){var nk=Math.max(.4,Math.min(2.2,k*factor));var wx=(px-tx)/k,wy=(py-ty)/k;k=nk;tx=px-wx*k;ty=py-wy*k;applyView();}
+document.getElementById('zin').onclick=function(){zoomAt(stage.clientWidth/2,stage.clientHeight/2,1.2);};
+document.getElementById('zout').onclick=function(){zoomAt(stage.clientWidth/2,stage.clientHeight/2,1/1.2);};
+document.getElementById('recenter').onclick=resetView;
+stage.addEventListener('wheel',function(e){e.preventDefault();zoomAt(e.clientX,e.clientY-stage.getBoundingClientRect().top,e.deltaY<0?1.12:1/1.12);},{passive:false});
+(function(){var down=false,sx,sy,ox,oy;
+  stage.addEventListener('pointerdown',function(e){if(e.target.closest('.gnode'))return;down=true;stage.classList.add('drag');sx=e.clientX;sy=e.clientY;ox=tx;oy=ty;});
+  window.addEventListener('pointermove',function(e){if(!down)return;tx=ox+(e.clientX-sx);ty=oy+(e.clientY-sy);applyView();});
+  window.addEventListener('pointerup',function(){down=false;stage.classList.remove('drag');});
+})();
+window.addEventListener('resize',resetView);
+build();draw();resetView();select(byId['C']);requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

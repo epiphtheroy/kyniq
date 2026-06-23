@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tropes — enriched index (시안) · Metatake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --surface-2:#F2F2F2;
+  --ink:#0D0D0D; --ink-soft:#1F1F1F; --muted:#6B6B6B; --subtle:#8F8F8F;
+  --hairline:#D8D8D8; --hairline-2:#B9B9B9;
+  --accent:#E3120B; --accent-hover:#B80D05; --teal:#167C6B;
+  --serif:"PT Serif","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --pad-x:24px; --max-w:1080px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+
+/* masthead */
+.masthead{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--hairline)}
+.mh{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:16px;padding:11px var(--pad-x);min-height:56px}
+.brand{font-family:var(--ui);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+.mh nav{display:none;gap:14px}
+@media(min-width:900px){.mh nav{display:flex}}
+.mh nav a{font-size:13px;color:var(--muted)}
+.mh nav a:hover{color:var(--accent)}
+.mh nav a[data-on]{color:var(--ink);font-weight:600}
+.mh .sp{flex:1 1 auto}
+.mh .rnd{font-size:13px;color:var(--muted);border:1px solid var(--hairline-2);border-radius:3px;padding:4px 9px}
+.mh .rnd:hover{border-color:var(--ink);color:var(--ink)}
+
+/* head */
+.h1{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.01em;margin:26px 0 10px}
+.def{font-family:var(--serif);font-size:15.5px;line-height:1.6;color:var(--ink-soft);border-left:3px solid var(--teal);padding:3px 0 3px 15px;margin:0 0 14px;max-width:70ch}
+.def b{font-weight:700}
+.def .term{color:var(--teal);font-weight:700}
+.def .term.r{color:var(--accent)}
+.intro{font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--muted);max-width:64ch;margin:0}
+.intro strong{color:var(--ink)}
+
+/* feature deck */
+.kick{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:22px 0 10px}
+.kick .die{color:var(--teal);font-weight:600}
+.kick .auto{display:inline-flex;align-items:center;gap:6px;color:var(--subtle)}
+.kick .auto i{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(22,124,107,.45)}70%{box-shadow:0 0 0 6px rgba(22,124,107,0)}100%{box-shadow:0 0 0 0 rgba(22,124,107,0)}}
+.deckctl{margin-left:auto;display:inline-flex;align-items:center;gap:10px}
+.deckctl button{appearance:none;background:none;border:1px solid var(--hairline-2);border-radius:3px;color:var(--muted);font:inherit;cursor:pointer}
+.deckctl .arw{width:26px;height:26px;font-size:15px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.deckctl .arw:hover{border-color:var(--ink);color:var(--ink)}
+.deckctl .roll{font-size:11px;padding:3px 9px}
+.deckctl .roll:hover{border-color:var(--ink);color:var(--ink)}
+.dots{display:inline-flex;gap:6px;align-items:center}
+.dots button{width:7px;height:7px;border-radius:50%;border:none;padding:0;background:var(--hairline-2);cursor:pointer}
+.dots button[data-on]{background:var(--teal)}
+.deckwrap{overflow:hidden;margin:0 -4px}
+.deck{position:relative;perspective:1700px;min-height:510px;padding:6px 4px}
+@media(max-width:680px){.deck{min-height:700px}}
+.dcard{position:absolute;top:6px;left:4px;right:4px;background:var(--bg);border:1px solid var(--hairline-2);border-top:3px solid var(--teal);
+  padding:18px 20px 20px;box-shadow:0 10px 30px rgba(0,0,0,.07);transform-origin:50% 50%;backface-visibility:hidden;will-change:transform,opacity}
+.dcard h2{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.13;margin:0 0 5px;display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.dcard h2 a:hover{color:var(--accent-hover)}
+.dcard h2 .cnt{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--teal);white-space:nowrap}
+.dcard .lac{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink);margin:0 0 9px}
+.dcard .tdef{font-family:var(--serif);font-size:14.5px;line-height:1.5;color:var(--muted);margin:0 0 11px;max-width:66ch;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.kindline{font-size:11.5px;color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:7px}
+.kindline .kdot{width:8px;height:8px;border-radius:2px;background:var(--teal);flex:none}
+.kindline b{color:var(--ink);font-weight:600}
+.kindline .ksep{color:var(--hairline-2)}
+.lbl{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 6px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.lbl .lblh{font-weight:400;letter-spacing:0;text-transform:none;color:var(--subtle);font-size:11px}
+.dcases{border-top:1px solid var(--ink);margin-bottom:15px}
+.dcase{display:flex;gap:11px;padding:8px 0;border-bottom:1px solid var(--hairline);align-items:flex-start}
+.dcase:last-child{border-bottom:none}
+.dcase .tx{min-width:0;padding-top:1px;flex:1 1 auto}
+.dc-f{font-family:var(--serif);font-weight:700;font-size:14px;line-height:1.2;color:var(--ink)}
+.dcase:hover .dc-f{color:var(--accent-hover)}
+.dc-f .yr{color:var(--subtle);font-weight:400}
+.dc-v{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.35}
+.dc-v .vv{color:var(--subtle);font-style:italic}
+.dc-v .fig{color:var(--ink-soft)}
+.dcase .thumb{width:92px;aspect-ratio:16/9;flex:none;background:repeating-linear-gradient(180deg,#191919,#191919 2px,#222 2px,#222 15px);overflow:hidden;border:1px solid var(--hairline)}
+.dcase .thumb img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.dcase .thumb img.on{opacity:1}
+.dcase:hover .thumb{border-color:var(--ink)}
+.readmore{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:1px}
+.readmore:hover{color:var(--accent-hover)}
+
+/* ===== catalogue ===== */
+.listhead{border-top:2px solid var(--ink);padding-top:9px;margin-top:34px}
+.listhead .t{font-family:var(--serif);font-weight:700;font-size:19px}
+.listhead .sub{font-size:13px;color:var(--muted);margin:4px 0 0}
+.tabs{display:flex;align-items:center;gap:8px;font-size:12.5px;margin:14px 0 6px;flex-wrap:wrap}
+.tabs .lbl2{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin-right:4px}
+.tabs button{appearance:none;background:none;border:1px solid var(--hairline-2);border-radius:3px;font:inherit;font-size:12.5px;color:var(--muted);cursor:pointer;padding:3px 11px}
+.tabs button[data-on]{color:#fff;background:var(--ink);border-color:var(--ink);font-weight:600}
+.tabs button:hover{border-color:var(--ink);color:var(--ink)}
+.tabs button[data-on]:hover{color:#fff}
+.tabs .tot{margin-left:auto;color:var(--subtle)}
+.filter{width:100%;font-family:var(--ui);font-size:14px;border:1px solid var(--hairline-2);border-radius:3px;padding:9px 12px;margin:8px 0;color:var(--ink)}
+.filter:focus{outline:none;border-color:var(--ink)}
+.filter::placeholder{color:var(--subtle)}
+.azbar{position:sticky;top:55px;z-index:50;background:var(--bg);display:flex;flex-wrap:wrap;gap:1px;padding:7px 0;margin:0 0 4px;border-bottom:1px solid var(--hairline)}
+.azbar a{font-size:12px;font-weight:600;color:var(--muted);padding:3px 8px;border-radius:3px;cursor:pointer;font-variant-numeric:tabular-nums}
+.azbar a:hover{color:#fff;background:var(--teal)}
+.azbar a.off{color:var(--hairline-2);pointer-events:none}
+.grp{margin-top:20px;scroll-margin-top:112px}
+.grp__h{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--ink);margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--hairline);display:flex;align-items:baseline;gap:9px}
+.grp__h .gc{font-family:var(--ui);font-weight:400;color:var(--subtle);font-size:12px}
+.fcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
+@media(max-width:760px){.fcols{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.fcols{grid-template-columns:1fr}}
+.fcell{display:block;padding:7px 0;border-bottom:1px solid var(--hairline);min-width:0}
+.fcell .ft{font-family:var(--serif);font-weight:700;font-size:14.5px;line-height:1.25;color:var(--ink)}
+.fcell:hover .ft{color:var(--accent-hover)}
+.fcell .fd{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.empty{font-size:13px;color:var(--subtle);padding:14px 0;display:none}
+
+/* footer */
+.foot{margin-top:50px;border-top:2px solid var(--ink)}
+.foot__in{max-width:var(--max-w);margin:0 auto;padding:22px var(--pad-x) 40px;font-size:13px;color:var(--muted)}
+.foot__row{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:14px}
+.foot a{color:var(--muted)}.foot a:hover{color:var(--accent)}
+.foot .bl{font-size:12px;color:var(--subtle);border-top:1px solid var(--hairline);padding-top:12px}
+.note{margin-top:8px;font-style:italic;font-family:var(--serif);color:var(--subtle)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mh">
+    <a class="brand" href="#">metatake</a>
+    <nav>
+      <a href="#">Ask</a><a href="#">Latest</a><a href="#">Trending</a><a href="#">Films</a>
+      <a href="#">Directors</a><a href="#" data-on>Tropes</a><a href="#">Concepts</a><a href="#">Meta takes</a>
+    </nav>
+    <span class="sp"></span>
+    <a class="rnd" href="#">Random ▾</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 class="h1">Tropes</h1>
+
+  <p class="def">Recurring <span class="term">figure-types</span> — the dramatic devices, situations and objects that return across films. Where a <span class="term r">meta take</span> is a recurring <em>reading</em> (what something <em>means</em>), a trope is a recurring <em>kind of thing</em> (what it <em>is</em>). A working catalogue for readers — and for writers.</p>
+
+  <p class="intro"><strong>Pick one and see it recur.</strong> Each trope opens onto the films that instantiate it — and, crucially, the exact <em>figure</em> on screen where it appears. Start with one at random, then browse the catalogue below.</p>
+
+  <!-- FEATURE deck -->
+  <div class="kick">
+    <span class="die">🎲 Tropes, at random</span>
+    <span class="auto"><i></i> turning · a fresh set of four every 5 min</span>
+    <span class="deckctl">
+      <button class="arw" id="prev" aria-label="previous">‹</button>
+      <span class="dots" id="dots"></span>
+      <button class="arw" id="next" aria-label="next">›</button>
+      <button class="roll" id="roll">↻ new set</button>
+    </span>
+  </div>
+  <div class="deckwrap"><div class="deck" id="deck"></div></div>
+
+  <!-- CATALOGUE -->
+  <div class="listhead">
+    <div class="t">The full catalogue of tropes</div>
+    <p class="sub">Every figure-type on Metatake — the devices, situations and objects that recur across cinema. Click any one to open it.</p>
+  </div>
+  <div class="tabs">
+    <span class="lbl2">Sort</span>
+    <button data-mode="alpha" data-on>A–Z</button>
+    <button data-mode="films">Most films</button>
+    <button data-mode="new">Newest</button>
+    <span class="tot">a working catalogue</span>
+  </div>
+  <input class="filter" id="filter" placeholder="Filter tropes…" autocomplete="off">
+  <div class="azbar" id="azbar"></div>
+  <div id="list"></div>
+  <p class="empty" id="empty">No trope matches that.</p>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div class="foot__row">
+      <a href="#">Meta takes</a><a href="#">Films</a><a href="#">Directors</a><a href="#">Genres</a>
+      <a href="#">About</a><a href="#">Contact</a><a href="#">Community guidelines</a>
+    </div>
+    <p class="note">Read films closely — every link leads deeper into film, never out.</p>
+    <div class="bl">© 2026 Metatake. This page is a design concept (시안). Built on the live /tropes structure.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function range(n){var a=[];for(var i=0;i<n;i++)a.push(i);return a;}
+var IMG="https://image.tmdb.org/t/p/w342";
+
+/* FEATURE pool — real tropes; each "figure" = real film (with backdrop) + the figure that instantiates the trope */
+var FEAT=[
+ {slug:"the-flesh-that-changes-shape",title:"The Flesh That Changes Shape",films:11,figs:15,
+  lac:"A body warps, swells, or becomes beast before our eyes.",
+  def:"A character's physical form is radically altered — by an actor's regimen, makeup, or supernatural mutation into animal or monster. The visible change of the body externalizes an inner unraveling or rebirth.",
+  cases:[
+   {f:"Black Swan",y:2010,fig:"Nina's bodily mutations — skin rashes, feathers, bleeding",bd:"/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg"},
+   {f:"Videodrome",y:1983,fig:"the vaginal slit that develops on Max Renn's stomach",bd:"/eBS1nvaQ7BMdsSlkoLyKapf0FEY.jpg"},
+   {f:"Joker",y:2019,fig:"Joaquin Phoenix's emaciated physique as Arthur Fleck",bd:"/rlay2M5QYvi6igbGcFjq8jxeusY.jpg"},
+   {f:"Fight Club",y:1999,fig:"the characters' scarred and muscular bodies",bd:"/xRyINp9KfMLVjRiO5nCsoRDdvvF.jpg"},
+   {f:"Nightcrawler",y:2014,fig:"Jake Gyllenhaal's physical transformation for the role",bd:"/bdI6U1mT0kCdTJ6TWtiFxQ42GSn.jpg"}]},
+ {slug:"the-repeating-day",title:"The Repeating Day",films:5,figs:6,
+  lac:"He wakes to the same morning, again and again.",
+  def:"A character is trapped reliving the same span of time until some condition is met. Each reset accumulates knowledge while the world resets around them.",
+  cases:[
+   {f:"Groundhog Day",y:1993,fig:"the time loop itself (the 6:00 a.m. clock-radio)",bd:"/4W6RYDNe4OByNryOCvJprrutm9h.jpg"},
+   {f:"Run Lola Run",y:1998,fig:"the three narrative loops, each from a tiny altered detail",bd:"/wRcm3iwi4BeMN59U4fjO7u3dOVI.jpg"},
+   {f:"Donnie Darko",y:2001,fig:"the cyclical narrative and overlapping timelines",bd:"/msCHK5Kh1YbdZ0zPJ2nzPUhhSN9.jpg"},
+   {f:"Twelve Monkeys",y:1995,fig:"the temporal loop culminating in the airport scene",bd:"/mKIkGoyuR71qz6FdiEiOjxvBQcS.jpg"},
+   {f:"The Terminator",y:1984,fig:"the time-travel causal loop for John Connor's conception",bd:"/ffdqHMWkh1h9MABwIfbfRJhgFW6.jpg"}]},
+ {slug:"the-land-that-does-not-care",title:"The Land That Does Not Care",films:11,figs:11,
+  lac:"A vast, arid country watches human suffering without pity.",
+  def:"The setting is a stark natural expanse, utterly indifferent to the characters' struggles. Its blank harshness dwarfs human drama and underscores cosmic insignificance.",
+  cases:[
+   {f:"Gravity",y:2013,fig:"the recurring, awe-inspiring shots of Planet Earth",bd:"/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg"},
+   {f:"The Revenant",y:2015,fig:"vast, non-sentient landscapes — avalanches, frozen rivers",bd:"/mNQtUJv1F3u0uSKILFrGjIHqkxx.jpg"},
+   {f:"There Will Be Blood",y:2007,fig:"the dry, sun-bleached California hills, indifferent to the men",bd:"/9UAKA6ceZi6TgQwTAAMt7DWwYPI.jpg"},
+   {f:"Wuthering Heights",y:2011,fig:"the Yorkshire moors — wind, rain and mud as constant presence",bd:"/9ObUDVAFRjF1J9fJ7aYD33hM85.jpg"},
+   {f:"Bacurau",y:2019,fig:"the sertão, the arid Brazilian backlands",bd:"/nhsC7Q1Zb5n2p4H3UKy422zP5XC.jpg"}]},
+ {slug:"the-climactic-performance",title:"The Climactic Performance",films:16,figs:16,
+  lac:"Everything resolves on stage in one final number.",
+  def:"The story culminates in a public performance that crowns or destroys the artist. Triumph or collapse is staged before an audience as the emotional payoff.",
+  cases:[
+   {f:"Black Swan",y:2010,fig:"the final Swan Lake performance, the transformation complete",bd:"/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg"},
+   {f:"Bohemian Rhapsody",y:2018,fig:"the Live Aid concert reenactment, shot for shot",bd:"/dcvbs8z0GEXslC1kCT77x19XDeR.jpg"},
+   {f:"Dead Poets Society",y:1989,fig:"Neil Perry's radiant performance as Puck",bd:"/lFIXZpwwlF9hg8NM3RazaIJDuaj.jpg"},
+   {f:"Schindler's List",y:1993,fig:"the swelling score and triumphant final rescue",bd:"/zb6fM1CX41D9rF9hdgclu0peUmy.jpg"},
+   {f:"Moneyball",y:2011,fig:"the sparse, melancholic non-diegetic score",bd:"/kYlBNDkB5qFdpTDpnlQdH0CdK3T.jpg"}]}
+];
+
+/* CATALOGUE pool — real trope titles + film counts (from the live /tropes index) */
+var LIST=[
+ {t:"The Painted World",slug:"the-painted-world",n:51},
+ {t:"The Family You Find",slug:"the-family-you-find",n:45},
+ {t:"The Voice From Above",slug:"the-voice-from-above",n:44},
+ {t:"The Slow Unraveling",slug:"the-slow-unraveling",n:34},
+ {t:"The Lying Mouth",slug:"the-lying-mouth",n:32},
+ {t:"The Two Threads",slug:"the-two-threads",n:26},
+ {t:"The Movie Inside The Movie",slug:"the-movie-inside-the-movie",n:25},
+ {t:"The Single Room",slug:"the-single-room",n:24},
+ {t:"The Mask Pulled Off",slug:"the-mask-pulled-off",n:23},
+ {t:"The Deathbed Avowal",slug:"the-deathbed-avowal",n:22},
+ {t:"The Melancholy Hometown",slug:"the-melancholy-hometown",n:20},
+ {t:"The Watching Eye",slug:"the-watching-eye",n:19},
+ {t:"The Borrowed Name",slug:"the-borrowed-name-2",n:19},
+ {t:"The Mid-Story Genre Turn",slug:"the-mid-story-genre-turn",n:18},
+ {t:"The Hero's Final Stand",slug:"the-hero-s-final-stand",n:18},
+ {t:"The Framing Flashback",slug:"the-framing-flashback",n:18},
+ {t:"The Empty Crib",slug:"the-empty-crib",n:17},
+ {t:"The Thing In The Dark",slug:"the-thing-in-the-dark",n:17},
+ {t:"The Romantic Triangle",slug:"the-romantic-triangle",n:16},
+ {t:"The Climactic Performance",slug:"the-climactic-performance",n:16},
+ {t:"The Golden-Lit Yesteryear",slug:"the-golden-lit-yesteryear",n:16},
+ {t:"The Public Spectacle of Cruelty",slug:"the-public-spectacle-of-cruelty",n:15},
+ {t:"The Underdog's Final Stand",slug:"the-underdog-s-final-stand",n:15},
+ {t:"The Object That Carries Guilt",slug:"the-object-that-carries-guilt",n:15},
+ {t:"The Choreographed Showdown",slug:"the-choreographed-showdown",n:15},
+ {t:"The Heirloom Of The Departed",slug:"the-heirloom-of-the-departed",n:15},
+ {t:"The Road That Changes You",slug:"the-road-that-changes-you",n:15},
+ {t:"The Flesh That Changes Shape",slug:"the-flesh-that-changes-shape",n:15},
+ {t:"The Stranger At The Long Table",slug:"the-stranger-at-the-long-table",n:14},
+ {t:"The Joking Best Friend",slug:"the-joking-best-friend",n:14},
+ {t:"The Duel With the Double",slug:"the-duel-with-the-double",n:14},
+ {t:"The Neon Labyrinth",slug:"the-neon-labyrinth",n:13},
+ {t:"The Look Through the Frame",slug:"the-look-through-the-frame",n:13},
+ {t:"The Confession to the Lens",slug:"the-confession-to-the-lens",n:12},
+ {t:"The Bullet in Slow Motion",slug:"the-bullet-in-slow-motion",n:12},
+ {t:"The Land That Does Not Care",slug:"the-land-that-does-not-care",n:11},
+ {t:"The Wise Mentor",slug:"the-wise-mentor",n:11},
+ {t:"The Desolate Landscape",slug:"the-desolate-landscape",n:11},
+ {t:"The Perfect Impostor",slug:"the-perfect-impostor",n:11},
+ {t:"The Held Close-Up",slug:"the-held-close-up",n:10},
+ {t:"The Judas Among Friends",slug:"the-judas-among-friends",n:10},
+ {t:"The Makeover Reveal",slug:"the-makeover-reveal",n:10},
+ {t:"The City That Breathes",slug:"the-city-that-breathes",n:10},
+ {t:"The Voice on the Line",slug:"the-voice-on-the-line",n:9},
+ {t:"The Shuffled Reel",slug:"the-shuffled-reel",n:9},
+ {t:"The Nod To Old Movies",slug:"the-nod-to-old-movies",n:9},
+ {t:"The Unbroken Opening Shot",slug:"the-unbroken-opening-shot",n:9},
+ {t:"The Ticking Clock",slug:"the-ticking-clock",n:8},
+ {t:"The Empty Chair At The Table",slug:"the-empty-chair-at-the-table",n:7},
+ {t:"The Repeating Day",slug:"the-repeating-day",n:6},
+ {t:"The Body Turned Into A Weapon",slug:"the-body-turned-into-a-weapon",n:5},
+ {t:"The Warping Wide-Angle",slug:"the-warping-wide-angle",n:5},
+ {t:"The Coveted Container",slug:"the-coveted-container",n:4},
+ {t:"The Last Confrontation",slug:"the-last-confrontation",n:4},
+ {t:"The Killer Who Quotes Philosophy",slug:"the-killer-who-quotes-philosophy",n:3},
+ {t:"The Gun That Went Off",slug:"the-gun-that-went-off",n:3},
+ {t:"The Walking Argument",slug:"the-walking-argument",n:3},
+ {t:"The Rising Of The Trampled",slug:"the-rising-of-the-trampled",n:3}
+];
+
+/* =================== ROTATING DECK =================== */
+var BATCH=4, batch=[], cards=[], order=[], hovering=false, animating=false;
+function cardHTML(d){
+  var caseH=d.cases.map(function(x){
+    return '<a class="dcase" href="#"><span class="tx">'+
+      '<span class="dc-f">'+esc(x.f)+' <span class="yr">('+x.y+')</span></span>'+
+      '<span class="dc-v"><span class="vv">via</span> <span class="fig">'+esc(x.fig)+'</span></span></span>'+
+      '<span class="thumb"><img alt="'+esc(x.f)+'" data-bd="'+x.bd+'"></span></a>';
+  }).join("");
+  return '<h2><a href="#">'+esc(d.title)+'</a> <span class="cnt">'+d.films+' films</span></h2>'+
+    '<p class="lac">'+esc(d.lac)+'</p>'+
+    '<p class="tdef">'+esc(d.def)+'</p>'+
+    '<div class="kindline"><span class="kdot"></span>Trope · figure-type <span class="ksep">·</span> <b>'+d.figs+'</b> figures across <b>'+d.films+'</b> films</div>'+
+    '<div class="lbl">Figures <span class="lblh">— the film, and the figure that instantiates the trope</span></div>'+
+    '<div class="dcases">'+caseH+'</div>'+
+    '<a class="readmore" href="#">Open the trope <span aria-hidden="true">&rarr;</span></a>';
+}
+function loadThumbs(el){
+  el.querySelectorAll(".thumb img").forEach(function(img){
+    if(img.src) return; img.onload=function(){img.classList.add("on");}; img.src=IMG+img.getAttribute("data-bd");
+  });
+}
+function pos(el,p,animate){
+  el.style.transition=animate?"transform .55s cubic-bezier(.4,0,.2,1), opacity .55s":"none";
+  el.style.zIndex=String(60-p);
+  if(p===0){el.style.transform="translate3d(0,0,0) rotateY(0) scale(1)";el.style.opacity="1";el.style.pointerEvents="auto";}
+  else{el.style.transform="translate3d("+(p*15)+"px,"+(p*9)+"px,0) rotateY(0) scale("+(1-p*0.045)+")";el.style.opacity=String(1-p*0.16);el.style.pointerEvents="none";}
+}
+function relayout(animate){ order.forEach(function(ci,p){ pos(cards[ci],p,animate); }); renderDots(); }
+function buildDeck(){
+  var deck=$("deck"); deck.innerHTML=""; cards=[];
+  batch.forEach(function(d){ var el=document.createElement("div"); el.className="dcard"; el.innerHTML=cardHTML(d); deck.appendChild(el); cards.push(el); loadThumbs(el); });
+  order=range(BATCH); relayout(false);
+}
+function newBatch(){ batch=shuffle(range(FEAT.length)).slice(0,BATCH).map(function(i){return FEAT[i];}); buildDeck(); }
+function advance(){
+  if(animating||cards.length<2) return; animating=true;
+  var front=cards[order[0]];
+  front.style.transition="transform .55s cubic-bezier(.5,0,.3,1), opacity .55s";
+  front.style.transform="translate3d(135%,-6px,0) rotateY(-24deg) scale(.95)"; front.style.opacity="0"; front.style.pointerEvents="none";
+  setTimeout(function(){ order.push(order.shift()); pos(front,BATCH-1,false); void front.offsetWidth; relayout(true); animating=false; },520);
+}
+function reverse(){ if(animating||cards.length<2) return; animating=true; order.unshift(order.pop()); relayout(true); setTimeout(function(){animating=false;},560); }
+function setFront(target){ if(animating) return; var g=0; while(order[0]!==target && g++<BATCH){ order.push(order.shift()); } relayout(true); }
+function renderDots(){
+  var d=$("dots"); if(d.children.length!==BATCH){ d.innerHTML=""; for(var i=0;i<BATCH;i++){ (function(i){var b=document.createElement("button");b.onclick=function(){setFront(i);};d.appendChild(b);})(i); } }
+  Array.prototype.forEach.call(d.children,function(b,i){ if(i===order[0])b.setAttribute("data-on",""); else b.removeAttribute("data-on"); });
+}
+$("deck").addEventListener("mouseenter",function(){hovering=true;});
+$("deck").addEventListener("mouseleave",function(){hovering=false;});
+$("next").onclick=advance; $("prev").onclick=reverse; $("roll").onclick=newBatch;
+setInterval(function(){ if(!hovering) advance(); }, 7000);
+setInterval(newBatch, 300000);
+
+/* =================== CATALOGUE: A–Z / Most films / Newest ==================== */
+var mode="alpha";
+function sortKey(t){ return t.replace(/^(the|a|an)\s+/i,"").toLowerCase(); }
+function letterOf(t){ var c=sortKey(t).charAt(0).toUpperCase(); return /[A-Z]/.test(c)?c:"#"; }
+function groupId(k){ return "g-"+k.replace(/[^A-Za-z0-9]/g,""); }
+function renderCat(){
+  var groups={}, keys=[];
+  if(mode==="alpha"){
+    LIST.forEach(function(d){ var k=letterOf(d.t); if(!groups[k]){groups[k]=[];keys.push(k);} groups[k].push(d); });
+    keys.sort(function(a,b){ if(a==="#")return 1; if(b==="#")return -1; return a.localeCompare(b);});
+  } else {
+    var k = mode==="films" ? "Most films first" : "Newest first";
+    groups[k]=LIST.slice(); keys=[k];
+  }
+  var host=$("list"); host.innerHTML="";
+  keys.forEach(function(k){
+    var list=groups[k].slice();
+    if(mode==="films") list.sort(function(a,b){return b.n-a.n || sortKey(a.t).localeCompare(sortKey(b.t));});
+    else if(mode==="alpha") list.sort(function(a,b){return sortKey(a.t).localeCompare(sortKey(b.t));});
+    var cells=list.map(function(d){
+      return '<a class="fcell" href="#" data-text="'+esc(d.t.toLowerCase())+'"><span class="ft">'+esc(d.t)+'</span><span class="fd">'+d.n+' films</span></a>';
+    }).join("");
+    var wrap=document.createElement("div"); wrap.className="grp"; wrap.id=groupId(k);
+    wrap.innerHTML='<div class="grp__h">'+esc(k)+' <span class="gc">'+list.length+'</span></div><div class="fcols">'+cells+'</div>';
+    host.appendChild(wrap);
+  });
+  renderAz(keys);
+  applyFilter();
+}
+function renderAz(keys){
+  var bar=$("azbar");
+  if(mode!=="alpha"){ bar.style.display="none"; bar.innerHTML=""; return; }
+  bar.style.display="";
+  var present={}; keys.forEach(function(k){present[k]=1;});
+  var html="";
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(function(L){
+    html += present[L] ? '<a data-go="g-'+L+'">'+L+'</a>' : '<a class="off">'+L+'</a>';
+  });
+  if(present["#"]) html += '<a data-go="g-">#</a>';
+  bar.innerHTML=html;
+  bar.querySelectorAll("a[data-go]").forEach(function(a){ a.onclick=function(){ var el=$(a.getAttribute("data-go")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }; });
+}
+function applyFilter(){
+  var q=$("filter").value.trim().toLowerCase(), any=false;
+  document.querySelectorAll("#list .grp").forEach(function(g){
+    var shown=0;
+    g.querySelectorAll(".fcell").forEach(function(r){
+      var on=!q||r.getAttribute("data-text").indexOf(q)>=0; r.style.display=on?"":"none"; if(on){shown++;any=true;}
+    });
+    g.style.display=shown?"":"none";
+  });
+  $("empty").style.display=any?"none":"block";
+}
+$("filter").addEventListener("input",applyFilter);
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){
+  document.querySelectorAll(".tabs button").forEach(function(x){x.removeAttribute("data-on");});
+  b.setAttribute("data-on",""); mode=b.getAttribute("data-mode"); renderCat();
+};});
+
+/* boot */
+newBatch(); renderCat();
+})();
+</script>
+</body>
+</html>

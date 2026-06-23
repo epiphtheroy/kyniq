@@ -1,19 +1,26 @@
 "use client";
 
 /**
- * ReadingFeed — search-first, faceted, infinite feed of Strong Misreadings for one
- * framework (or "all"). SSR seeds the first page; the client refetches /api/readings
- * on any filter change and appends pages on scroll.
+ * ReadingFeed — Strong Misreadings browse for one framework (or "all").
+ * - typeahead suggestions (trigram) as you type
+ * - semantic search results (embeddings) when a query is present
+ * - rotating random "featured" cards under the search
+ * - decade facet + sort; infinite scroll; right-side film thumbnail per row
+ * Classes are `smb-*` to stay isolated from the film page's bold-take `sm-*`.
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
+
+const W185 = "https://image.tmdb.org/t/p/w185";
 
 export type FeedRow = {
   id: string; tt: string | null; fw: string; snip: string;
   fig: string; figslug: string | null; film: string; filmslug: string; year: number | null;
-  trope: string | null; tropeslug: string | null;
+  bd: string | null; poster: string | null;
+  trope: string | null; tropeslug: string | null; sim?: number;
 };
 export type Facets = {
   total: number;
@@ -21,6 +28,7 @@ export type Facets = {
   top_tropes: { slug: string; title: string; n: number }[];
 };
 type Init = { total: number; rows: FeedRow[] };
+type Suggestion = { tt: string; film: string; filmslug: string; figslug: string | null };
 
 const LIMIT = 24;
 const SORTS: [string, string][] = [
@@ -28,35 +36,59 @@ const SORTS: [string, string][] = [
   ["bold", "Boldest"], ["recent", "Just added"],
 ];
 
+function thumb(r: { bd: string | null; poster: string | null }) {
+  return r.bd ? `${W185}${r.bd}` : r.poster ? `${W185}${r.poster}` : null;
+}
+function figHref(r: { filmslug: string; figslug: string | null }) {
+  return r.figslug ? `/film/${r.filmslug}/figure/${r.figslug}` : `/film/${r.filmslug}`;
+}
+
 export default function ReadingFeed(
   { fwSlug, isAll, initial, facets }: { fwSlug: string; isAll: boolean; initial: Init; facets: Facets }
 ) {
+  const router = useRouter();
+  const [draft, setDraft] = useState("");
   const [q, setQ] = useState("");
   const [sort, setSort] = useState("film");
   const [decade, setDecade] = useState<number | null>(null);
-  const [trope, setTrope] = useState<string | null>(null);
   const [rows, setRows] = useState<FeedRow[]>(initial.rows);
   const [total, setTotal] = useState(initial.total);
   const [offset, setOffset] = useState(initial.rows.length);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(initial.rows.length >= initial.total);
+  const [sugs, setSugs] = useState<Suggestion[]>([]);
+  const [sugOpen, setSugOpen] = useState(false);
+  const [featured, setFeatured] = useState<FeedRow[]>([]);
+  const [fIdx, setFIdx] = useState(0);
+
   const pristine = useRef(true);
   const sentinel = useRef<HTMLDivElement>(null);
   const debTimer = useRef<number | undefined>(undefined);
+  const searching = q.trim().length > 0;
 
   const buildUrl = useCallback((off: number) => {
     const p = new URLSearchParams();
     p.set("fw", fwSlug);
     if (q) p.set("q", q);
-    if (sort) p.set("sort", sort);
+    if (!q && sort) p.set("sort", sort);
     if (decade != null) p.set("decade", String(decade));
-    if (trope) p.set("trope", trope);
     p.set("limit", String(LIMIT));
     p.set("offset", String(off));
     return `/api/readings?${p.toString()}`;
-  }, [fwSlug, q, sort, decade, trope]);
+  }, [fwSlug, q, sort, decade]);
 
-  // Refetch page 0 on any filter change (skip first render — SSR already seeded it).
+  // featured rotator — fetch a batch once, cycle 3 at a time
+  useEffect(() => {
+    fetch(`/api/readings/featured?fw=${encodeURIComponent(fwSlug)}&n=12`)
+      .then((r) => r.json()).then((d) => setFeatured((d.rows ?? []) as FeedRow[])).catch(() => {});
+  }, [fwSlug]);
+  useEffect(() => {
+    if (featured.length <= 3) return;
+    const t = window.setInterval(() => setFIdx((i) => (i + 3) % featured.length), 5000);
+    return () => window.clearInterval(t);
+  }, [featured]);
+
+  // results: refetch page 0 on query/sort/decade change (skip first render — SSR seeded)
   useEffect(() => {
     if (pristine.current) { pristine.current = false; return; }
     let cancelled = false;
@@ -65,12 +97,12 @@ export default function ReadingFeed(
       if (cancelled) return;
       const rs: FeedRow[] = d.rows ?? [];
       setRows(rs); setTotal(d.total ?? 0); setOffset(rs.length);
-      setDone(rs.length >= (d.total ?? 0)); setLoading(false);
+      setDone(rs.length < LIMIT); setLoading(false);
     }).catch(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
   }, [buildUrl]);
 
-  // Infinite scroll.
+  // infinite scroll
   useEffect(() => {
     const el = sentinel.current; if (!el) return;
     const io = new IntersectionObserver((entries) => {
@@ -81,7 +113,7 @@ export default function ReadingFeed(
             const rs: FeedRow[] = d.rows ?? [];
             setRows((prev) => [...prev, ...rs]);
             setOffset((o) => o + rs.length);
-            setDone(rs.length < LIMIT || offset + rs.length >= (d.total ?? total));
+            setDone(rs.length < LIMIT);
             setLoading(false);
           }).catch(() => setLoading(false));
         }
@@ -89,79 +121,132 @@ export default function ReadingFeed(
     }, { rootMargin: "700px" });
     io.observe(el);
     return () => io.disconnect();
-  }, [buildUrl, offset, loading, done, total]);
+  }, [buildUrl, offset, loading, done]);
 
-  const onSearch = (v: string) => {
+  // typeahead + query (one debounce drives both suggestions and the semantic search)
+  const onType = (v: string) => {
+    setDraft(v);
     window.clearTimeout(debTimer.current);
-    debTimer.current = window.setTimeout(() => setQ(v.trim()), 300);
+    debTimer.current = window.setTimeout(() => {
+      const term = v.trim();
+      setQ(term);
+      if (term.length >= 2) {
+        fetch(`/api/readings/suggest?fw=${encodeURIComponent(fwSlug)}&q=${encodeURIComponent(term)}`)
+          .then((r) => r.json()).then((d) => { setSugs((d.rows ?? d) as Suggestion[]); setSugOpen(true); }).catch(() => {});
+      } else { setSugs([]); setSugOpen(false); }
+    }, 280);
   };
+  const clearSearch = () => { setDraft(""); setQ(""); setSugs([]); setSugOpen(false); };
+
+  const fcards = featured.length ? Array.from({ length: Math.min(3, featured.length) }, (_, k) => featured[(fIdx + k) % featured.length]) : [];
 
   return (
     <>
-      <div className="sm-controls">
-        <input className="sm-feedsearch" type="search" placeholder="Search these readings…"
-          defaultValue="" onChange={(e) => onSearch(e.target.value)} aria-label="Search readings" />
-        <label className="sm-sortwrap">Sort
-          <select className="sm-sort" value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort">
-            {SORTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
-          </select>
-        </label>
+      {/* search + typeahead */}
+      <div className="smb-searchwrap">
+        <input
+          className="smb-search" type="search" value={draft}
+          placeholder={isAll ? "Search all Strong Misreadings…" : "Search these readings…"}
+          onChange={(e) => onType(e.target.value)}
+          onFocus={() => { if (sugs.length) setSugOpen(true); }}
+          onBlur={() => window.setTimeout(() => setSugOpen(false), 150)}
+          aria-label="Search readings"
+        />
+        {draft ? <button className="smb-clear" onClick={clearSearch} aria-label="Clear">×</button> : null}
+        {sugOpen && sugs.length > 0 && (
+          <ul className="smb-sugs">
+            {sugs.map((s, i) => (
+              <li key={i}>
+                <button className="smb-sug" onMouseDown={(e) => { e.preventDefault(); router.push(figHref(s)); }}>
+                  <span className="smb-sug__tt">{s.tt}</span>
+                  <span className="smb-sug__film">{s.film}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
-      {(facets.top_tropes.length > 0 || facets.decades.length > 0) && (
-        <div className="sm-facets">
-          {facets.top_tropes.length > 0 && (
-            <div className="sm-facetrow">
-              <span className="sm-facetlbl">Trope</span>
-              <button className={`sm-chip${trope === null ? " on" : ""}`} onClick={() => setTrope(null)}>All</button>
-              {facets.top_tropes.map((t) => (
-                <button key={t.slug} className={`sm-chip${trope === t.slug ? " on" : ""}`}
-                  onClick={() => setTrope(trope === t.slug ? null : t.slug)}>{t.title} <span className="n">{t.n}</span></button>
-              ))}
-            </div>
-          )}
-          {facets.decades.length > 0 && (
-            <div className="sm-facetrow">
-              <span className="sm-facetlbl">Decade</span>
-              <button className={`sm-chip${decade === null ? " on" : ""}`} onClick={() => setDecade(null)}>All</button>
-              {facets.decades.map((d) => (
-                <button key={d.d} className={`sm-chip${decade === d.d ? " on" : ""}`}
-                  onClick={() => setDecade(decade === d.d ? null : d.d)}>{d.d}s <span className="n">{d.n}</span></button>
-              ))}
-            </div>
-          )}
+      {/* rotating featured examples */}
+      {!searching && fcards.length > 0 && (
+        <div className="smb-feat">
+          <div className="smb-feat__lbl">Dip in —</div>
+          <div className="smb-feat__row">
+            {fcards.map((r) => {
+              const F = fw(r.fw); const im = thumb(r);
+              return (
+                <Link key={r.id} className="smb-fcard" href={figHref(r)}>
+                  {im ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="smb-fcard__img" src={im} alt="" loading="lazy" /> : <span className="smb-fcard__img smb-fcard__img--blank" />}
+                  <span className="smb-fcard__body">
+                    <span className="smb-fcard__fw" style={{ color: F.color }}>{F.label}</span>
+                    <span className="smb-fcard__tt">{r.tt ?? r.fig}</span>
+                    <span className="smb-fcard__film">{r.film}{r.year ? ` (${r.year})` : ""}</span>
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       )}
 
-      <div className="sm-count">
-        <b>{total.toLocaleString()}</b> {total === 1 ? "reading" : "readings"}{q ? <> matching “{q}”</> : null}
+      {/* controls */}
+      <div className="smb-controls">
+        {!searching && (
+          <label className="smb-sortwrap">Sort
+            <select className="smb-sort" value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort">
+              {SORTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+            </select>
+          </label>
+        )}
+        {facets.decades.length > 0 && (
+          <div className="smb-decades">
+            <button className={`smb-chip${decade === null ? " on" : ""}`} onClick={() => setDecade(null)}>All years</button>
+            {facets.decades.map((d) => (
+              <button key={d.d} className={`smb-chip${decade === d.d ? " on" : ""}`}
+                onClick={() => setDecade(decade === d.d ? null : d.d)}>{d.d}s <span className="n">{d.n}</span></button>
+            ))}
+          </div>
+        )}
       </div>
 
-      <ul className="sm-list">
+      <div className="smb-count">
+        {searching
+          ? <>Closest matches for <b>“{q}”</b></>
+          : <><b>{total.toLocaleString()}</b> {total === 1 ? "reading" : "readings"}{decade != null ? ` · ${decade}s` : ""}</>}
+      </div>
+
+      <ul className="smb-list">
         {rows.map((r) => {
-          const F = fw(r.fw);
-          const href = r.figslug ? `/film/${r.filmslug}/figure/${r.figslug}` : `/film/${r.filmslug}`;
+          const F = fw(r.fw); const href = figHref(r); const im = thumb(r);
           return (
-            <li className="sm-row" key={r.id}>
-              <div className="sm-row__top">
-                {isAll ? <span className="sm-row__fw" style={{ color: F.color }}>{F.label}</span> : null}
-                <Link className="sm-row__film" href={`/film/${r.filmslug}`}>{r.film}</Link>
-                {r.year ? <span className="sm-row__yr">({r.year})</span> : null}
-                <span className="sm-row__via">via <Link href={href}>{r.fig}</Link></span>
+            <li className="smb-row" key={r.id}>
+              <div className="smb-row__col">
+                <Link className="smb-row__main" href={href}>
+                  <span className="smb-row__top">
+                    {isAll ? <span className="smb-row__fw" style={{ color: F.color }}>{F.label}</span> : null}
+                    <span className="smb-row__film">{r.film}</span>
+                    {r.year ? <span className="smb-row__yr">({r.year})</span> : null}
+                    <span className="smb-row__via">via {r.fig}</span>
+                  </span>
+                  <span className="smb-row__tt">{r.tt ?? r.fig}<span className="arr"> →</span></span>
+                  {r.snip ? <span className="smb-row__snip">{r.snip}…</span> : null}
+                </Link>
+                {r.trope && r.tropeslug ? <Link className="smb-row__trope" href={`/trope/${r.tropeslug}`}># {r.trope}</Link> : null}
               </div>
-              <Link className="sm-row__tt" href={href}>{r.tt ?? r.fig}<span className="arr"> →</span></Link>
-              {r.snip ? <p className="sm-row__snip">{r.snip}…</p> : null}
-              {r.trope && r.tropeslug ? (
-                <Link className="sm-row__trope" href={`/trope/${r.tropeslug}`}># {r.trope}</Link>
+              {im ? (
+                <Link className="smb-row__thumb" href={href} aria-hidden="true" tabIndex={-1}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={im} alt="" loading="lazy" />
+                </Link>
               ) : null}
             </li>
           );
         })}
       </ul>
 
-      {rows.length === 0 && !loading ? <p className="sm-empty">No readings match that.</p> : null}
-      {!done ? <div className="sm-loader" ref={sentinel}>{loading ? "Loading…" : "Scroll for more"}</div>
-             : rows.length > 0 ? <div className="sm-end">— all {total.toLocaleString()} shown —</div> : null}
+      {rows.length === 0 && !loading ? <p className="smb-empty">No readings match that.</p> : null}
+      {!done ? <div className="smb-loader" ref={sentinel}>{loading ? "Loading…" : "Scroll for more"}</div>
+             : rows.length > 0 && !searching ? <div className="smb-end">— all {total.toLocaleString()} shown —</div> : null}
     </>
   );
 }

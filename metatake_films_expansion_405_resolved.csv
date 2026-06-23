@@ -1,0 +1,406 @@
+Film_TMDB_ID,Film_Title,Film_Director_Name,tmdb_title,tmdb_year,tmdb_director,confidence,status,note
+389,12 Angry Men,Sidney Lumet,12 Angry Men,1957,Sidney Lumet,given,new,tmdb_id supplied
+62,2001: A Space Odyssey,Stanley Kubrick,2001: A Space Odyssey,1968,Stanley Kubrick,given,exists,tmdb_id supplied
+422,8 1/2,Federico Fellini,8½,1963,Federico Fellini,given,new,tmdb_id supplied
+185,A Clockwork Orange,Stanley Kubrick,A Clockwork Orange,1971,Stanley Kubrick,given,new,tmdb_id supplied
+895,Andrei Rublev,Andrei Tarkovsky,Andrei Rublev,1966,Andrei Tarkovsky,given,new,tmdb_id supplied
+28,Apocalypse Now,Francis Ford Coppola,Apocalypse Now,1979,Francis Ford Coppola,given,new,tmdb_id supplied
+20108,Au Hasard Balthazar,Robert Bresson,Au Hasard Balthazar,1966,Robert Bresson,given,new,tmdb_id supplied
+3175,Barry Lyndon,Stanley Kubrick,Barry Lyndon,1975,Stanley Kubrick,given,new,tmdb_id supplied
+643,Battleship Potemkin,Sergei Eisenstein,Battleship Potemkin,1925,Sergei Eisenstein,given,new,tmdb_id supplied
+5156,Bicycle Thieves,Vittorio De Sica,Bicycle Thieves,1948,Vittorio De Sica,given,new,tmdb_id supplied
+269,Breathless,Jean-Luc Godard,Breathless,1960,Jean-Luc Godard,given,new,tmdb_id supplied
+289,Casablanca,Michael Curtiz,Casablanca,1943,Michael Curtiz,given,new,tmdb_id supplied
+829,Chinatown,Roman Polanski,Chinatown,1974,Roman Polanski,given,new,tmdb_id supplied
+15,Citizen Kane,Orson Welles,Citizen Kane,1941,Orson Welles,given,new,tmdb_id supplied
+901,City Lights,Charlie Chaplin,City Lights,1931,Charlie Chaplin,given,new,tmdb_id supplied
+996,Double Indemnity,Billy Wilder,Double Indemnity,1944,Billy Wilder,given,new,tmdb_id supplied
+935,Dr. Strangelove,Stanley Kubrick,Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb,1964,Stanley Kubrick,given,new,tmdb_id supplied
+3782,Ikiru,Akira Kurosawa,Ikiru,1952,Akira Kurosawa,given,new,tmdb_id supplied
+5165,L'Avventura,Michelangelo Antonioni,L'Avventura,1960,Michelangelo Antonioni,given,new,tmdb_id supplied
+439,La Dolce Vita,Federico Fellini,La Dolce Vita,1960,Federico Fellini,given,new,tmdb_id supplied
+947,Lawrence of Arabia,David Lean,Lawrence of Arabia,1962,David Lean,given,new,tmdb_id supplied
+832,M,Fritz Lang,M,1931,Fritz Lang,given,new,tmdb_id supplied
+19,Metropolis,Fritz Lang,Metropolis,1927,Fritz Lang,given,new,tmdb_id supplied
+1396,Mirror,Andrei Tarkovsky,Mirror,1975,Andrei Tarkovsky,given,new,tmdb_id supplied
+3082,Modern Times,Charlie Chaplin,Modern Times,1936,Charlie Chaplin,given,new,tmdb_id supplied
+213,North by Northwest,Alfred Hitchcock,North by Northwest,1959,Alfred Hitchcock,given,new,tmdb_id supplied
+653,Nosferatu,F.W. Murnau,Nosferatu,1922,F. W. Murnau,given,new,tmdb_id supplied
+5801,Pather Panchali,Satyajit Ray,Pather Panchali,1955,Satyajit Ray,given,new,tmdb_id supplied
+797,Persona,Ingmar Bergman,Persona,1966,Ingmar Bergman,given,exists,tmdb_id supplied
+690,Pickpocket,Robert Bresson,Pickpocket,1959,Robert Bresson,given,new,tmdb_id supplied
+539,Psycho,Alfred Hitchcock,Psycho,1960,Alfred Hitchcock,given,new,tmdb_id supplied
+548,Rashomon,Akira Kurosawa,Rashomon,1950,Akira Kurosawa,given,new,tmdb_id supplied
+567,Rear Window,Alfred Hitchcock,Rear Window,1954,Alfred Hitchcock,given,new,tmdb_id supplied
+346,Seven Samurai,Akira Kurosawa,Seven Samurai,1954,Akira Kurosawa,given,new,tmdb_id supplied
+872,Singin' in the Rain,Stanley Donen,Singin' in the Rain,1952,"Gene Kelly, Stanley Donen",given,new,tmdb_id supplied
+593,Solaris,Andrei Tarkovsky,Solaris,1972,Andrei Tarkovsky,given,new,tmdb_id supplied
+239,Some Like It Hot,Billy Wilder,Some Like It Hot,1959,Billy Wilder,given,new,tmdb_id supplied
+1398,Stalker,Andrei Tarkovsky,Stalker,1979,Andrei Tarkovsky,given,exists,tmdb_id supplied
+631,Sunrise,F.W. Murnau,Sunrise: A Song of Two Humans,1927,F. W. Murnau,given,new,tmdb_id supplied
+599,Sunset Boulevard,Billy Wilder,Sunset Boulevard,1950,Billy Wilder,given,new,tmdb_id supplied
+103,Taxi Driver,Martin Scorsese,Taxi Driver,1976,Martin Scorsese,given,new,tmdb_id supplied
+147,The 400 Blows,Francois Truffaut,The 400 Blows,1959,François Truffaut,given,new,tmdb_id supplied
+17295,The Battle of Algiers,Gillo Pontecorvo,The Battle of Algiers,1966,Gillo Pontecorvo,given,new,tmdb_id supplied
+234,The Cabinet of Dr. Caligari,Robert Wiene,The Cabinet of Dr. Caligari,1920,Robert Wiene,given,new,tmdb_id supplied
+8416,The Conformist,Bernardo Bertolucci,The Conformist,1971,Bernardo Bertolucci,given,new,tmdb_id supplied
+780,The Passion of Joan of Arc,Carl Theodor Dreyer,The Passion of Joan of Arc,1928,Carl Theodor Dreyer,given,new,tmdb_id supplied
+776,The Rules of the Game,Jean Renoir,The Rules of the Game,1939,Jean Renoir,given,new,tmdb_id supplied
+3114,The Searchers,John Ford,The Searchers,1956,John Ford,given,new,tmdb_id supplied
+490,The Seventh Seal,Ingmar Bergman,The Seventh Seal,1957,Ingmar Bergman,given,new,tmdb_id supplied
+1092,The Third Man,Carol Reed,The Third Man,1949,Carol Reed,given,new,tmdb_id supplied
+45706,Tokyo Drifter,Seijun Suzuki,Tokyo Drifter,1966,Seijun Suzuki,given,new,tmdb_id supplied
+18148,Tokyo Story,Yasujiro Ozu,Tokyo Story,1953,Yasujirō Ozu,given,new,tmdb_id supplied
+1480,Touch of Evil,Orson Welles,Touch of Evil,1958,Orson Welles,given,new,tmdb_id supplied
+426,Vertigo,Alfred Hitchcock,Vertigo,1958,Alfred Hitchcock,given,new,tmdb_id supplied
+16672,Woman in the Dunes,Hiroshi Teshigahara,Woman in the Dunes,1964,Hiroshi Teshigahara,given,new,tmdb_id supplied
+927547,All We Imagine as Light,Payal Kapadia,All We Imagine as Light,2024,Payal Kapadia,given,new,tmdb_id supplied
+994108,All of Us Strangers,Andrew Haigh,All of Us Strangers,2023,Andrew Haigh,given,new,tmdb_id supplied
+747188,Asteroid City,Wes Anderson,Asteroid City,2023,Wes Anderson,given,new,tmdb_id supplied
+685691,Bardo,Alejandro Gonzalez Inarritu,"BARDO, False Chronicle of a Handful of Truths",2022,Alejandro G. Iñárritu,given,new,tmdb_id supplied
+798286,Beau Is Afraid,Ari Aster,Beau Is Afraid,2023,Ari Aster,given,new,tmdb_id supplied
+736732,Broker,Hirokazu Kore-eda,Broker,2022,Hirokazu Kore-eda,given,new,tmdb_id supplied
+901563,Close,Lukas Dhont,Close,2022,Lukas Dhont,given,new,tmdb_id supplied
+974576,Conclave,Edward Berger,Conclave,2024,Edward Berger,given,new,tmdb_id supplied
+705996,Decision to Leave,Park Chan-wook,Decision to Leave,2022,Park Chan-wook,given,new,tmdb_id supplied
+785398,EO,Jerzy Skolimowski,EO,2022,Jerzy Skolimowski,given,new,tmdb_id supplied
+991708,El Conde,Pablo Larrain,El Conde,2023,Pablo Larraín,given,new,tmdb_id supplied
+1156125,Evil Does Not Exist,Ryusuke Hamaguchi,Evil Does Not Exist,2023,Ryusuke Hamaguchi,given,new,tmdb_id supplied
+986280,Fallen Leaves,Aki Kaurismaki,Fallen Leaves,2023,Aki Kaurismäki,given,new,tmdb_id supplied
+558582,First Cow,Kelly Reichardt,First Cow,2020,Kelly Reichardt,given,new,tmdb_id supplied
+823219,Flow,Gints Zilbalodis,Flow,2024,Gints Zilbalodis,given,new,tmdb_id supplied
+1000837,I'm Still Here,Walter Salles,I'm Still Here,2024,Walter Salles,given,new,tmdb_id supplied
+500840,I'm Thinking of Ending Things,Charlie Kaufman,I'm Thinking of Ending Things,2020,Charlie Kaufman,given,new,tmdb_id supplied
+1456349,It Was Just an Accident,Jafar Panahi,It Was Just an Accident,2025,Jafar Panahi,given,new,tmdb_id supplied
+523607,Maestro,Bradley Cooper,Maestro,2023,Bradley Cooper,given,new,tmdb_id supplied
+614560,Mank,David Fincher,Mank,2020,David Fincher,given,new,tmdb_id supplied
+839369,May December,Todd Haynes,May December,2023,Todd Haynes,given,new,tmdb_id supplied
+511819,Memoria,Apichatpong Weerasethakul,Memoria,2021,Apichatpong Weerasethakul,given,new,tmdb_id supplied
+615643,Minari,Lee Isaac Chung,Minari,2021,Lee Isaac Chung,given,new,tmdb_id supplied
+1050035,Monster,Hirokazu Kore-eda,Monster,2023,Hirokazu Kore-eda,given,new,tmdb_id supplied
+83666,Moonrise Kingdom,Wes Anderson,Moonrise Kingdom,2012,Wes Anderson,given,new,tmdb_id supplied
+1028196,Nickel Boys,RaMell Ross,Nickel Boys,2024,RaMell Ross,given,new,tmdb_id supplied
+387426,Okja,Bong Joon Ho,Okja,2017,Bong Joon Ho,given,new,tmdb_id supplied
+1054867,One Battle After Another,Paul Thomas Anderson,One Battle After Another,2025,Paul Thomas Anderson,given,new,tmdb_id supplied
+749004,Petite Maman,Celine Sciamma,Petite Maman,2021,Céline Sciamma,given,new,tmdb_id supplied
+952701,Return to Seoul,Davy Chou,Return to Seoul,2022,Davy Chou,given,new,tmdb_id supplied
+925943,Saint Omer,Alice Diop,Saint Omer,2022,Alice Diop,given,new,tmdb_id supplied
+1124566,Sentimental Value,Joachim Trier,Sentimental Value,2025,Joachim Trier,given,new,tmdb_id supplied
+790416,Showing Up,Kelly Reichardt,Showing Up,2023,Kelly Reichardt,given,new,tmdb_id supplied
+1233413,Sinners,Ryan Coogler,Sinners,2025,Ryan Coogler,given,new,tmdb_id supplied
+508883,The Boy and the Heron,Hayao Miyazaki,The Boy and the Heron,2023,Hayao Miyazaki,given,new,tmdb_id supplied
+549509,The Brutalist,Brady Corbet,The Brutalist,2024,Brady Corbet,given,new,tmdb_id supplied
+565310,The Farewell,Lulu Wang,The Farewell,2019,Lulu Wang,given,new,tmdb_id supplied
+542178,The French Dispatch,Wes Anderson,"The French Dispatch of the Liberty, Kansas Evening Sun",2021,Wes Anderson,given,new,tmdb_id supplied
+559907,The Green Knight,David Lowery,The Green Knight,2021,David Lowery,given,new,tmdb_id supplied
+840430,The Holdovers,Alexander Payne,The Holdovers,2023,Alexander Payne,given,new,tmdb_id supplied
+554230,The Lost Daughter,Maggie Gyllenhaal,The Lost Daughter,2021,Maggie Gyllenhaal,given,new,tmdb_id supplied
+933260,The Substance,Coralie Fargeat,The Substance,2024,Coralie Fargeat,given,new,tmdb_id supplied
+556984,The Trial of the Chicago 7,Aaron Sorkin,The Trial of the Chicago 7,2020,Aaron Sorkin,given,new,tmdb_id supplied
+785084,The Whale,Darren Aronofsky,The Whale,2022,Darren Aronofsky,given,new,tmdb_id supplied
+4552,A Tale of Two Sisters,Kim Jee-woon,A Tale of Two Sisters,2003,Kim Jee-woon,given,new,tmdb_id supplied
+348,Alien,Ridley Scott,Alien,1979,Ridley Scott,given,new,tmdb_id supplied
+11075,Audition,Takashi Miike,Audition,2000,Takashi Miike,given,new,tmdb_id supplied
+299536,Avengers: Infinity War,Anthony Russo,Avengers: Infinity War,2018,"Joe Russo, Anthony Russo",given,new,tmdb_id supplied
+840,Close Encounters of the Third Kind,Steven Spielberg,Close Encounters of the Third Kind,1977,Steven Spielberg,given,new,tmdb_id supplied
+36095,Cure,Kiyoshi Kurosawa,Cure,1997,Kiyoshi Kurosawa,given,new,tmdb_id supplied
+923,Dawn of the Dead,George A. Romero,Dawn of the Dead,1978,George A. Romero,given,new,tmdb_id supplied
+438631,Dune,Denis Villeneuve,Dune,2021,Denis Villeneuve,given,exists,tmdb_id supplied
+693134,Dune: Part Two,Denis Villeneuve,Dune: Part Two,2024,Denis Villeneuve,given,new,tmdb_id supplied
+49797,I Saw the Devil,Kim Jee-woon,I Saw the Devil,2010,Kim Jee-woon,given,new,tmdb_id supplied
+87,Indiana Jones and the Temple of Doom,Steven Spielberg,Indiana Jones and the Temple of Doom,1984,Steven Spielberg,given,new,tmdb_id supplied
+578,Jaws,Steven Spielberg,Jaws,1975,Steven Spielberg,given,new,tmdb_id supplied
+1226578,Longlegs,Osgood Perkins,Longlegs,2024,Osgood Perkins,given,new,tmdb_id supplied
+8810,Mad Max 2: The Road Warrior,George Miller,Mad Max 2,1981,George Miller,given,new,tmdb_id supplied
+10331,Night of the Living Dead,George A. Romero,Night of the Living Dead,1968,George A. Romero,given,new,tmdb_id supplied
+949423,Pearl,Ti West,Pearl,2022,Ti West,given,new,tmdb_id supplied
+871,Planet of the Apes,Franklin J. Schaffner,Planet of the Apes,1968,Franklin J. Schaffner,given,new,tmdb_id supplied
+21484,Possession,Andrzej Zulawski,Possession,1981,Andrzej Żuławski,given,new,tmdb_id supplied
+2671,Ringu,Hideo Nakata,Ring,1998,Hideo Nakata,given,new,tmdb_id supplied
+1366,Rocky,John G. Avildsen,Rocky,1976,John G. Avildsen,given,new,tmdb_id supplied
+805,Rosemary's Baby,Roman Polanski,Rosemary's Baby,1968,Roman Polanski,given,new,tmdb_id supplied
+558,Spider-Man 2,Sam Raimi,Spider-Man 2,2004,Sam Raimi,given,new,tmdb_id supplied
+569094,Spider-Man: Across the Spider-Verse,Joaquim Dos Santos,Spider-Man: Across the Spider-Verse,2023,"Justin K. Thompson, Kemp Powers, Joaquim Dos Santos",given,new,tmdb_id supplied
+11,Star Wars,George Lucas,Star Wars,1977,George Lucas,given,new,tmdb_id supplied
+1924,Superman,Richard Donner,Superman,1978,Richard Donner,given,new,tmdb_id supplied
+11906,Suspiria,Dario Argento,Suspiria,1977,Dario Argento,given,new,tmdb_id supplied
+1008042,Talk to Me,Danny Philippou,Talk to Me,2023,"Michael Philippou, Danny Philippou",given,new,tmdb_id supplied
+414906,The Batman,Matt Reeves,The Batman,2022,Matt Reeves,given,new,tmdb_id supplied
+764,The Evil Dead,Sam Raimi,The Evil Dead,1981,Sam Raimi,given,new,tmdb_id supplied
+9552,The Exorcist,William Friedkin,The Exorcist,1973,William Friedkin,given,new,tmdb_id supplied
+1255,The Host,Bong Joon Ho,The Host,2006,Bong Joon Ho,given,new,tmdb_id supplied
+122,The Lord of the Rings: The Return of the King,Peter Jackson,The Lord of the Rings: The Return of the King,2003,Peter Jackson,given,new,tmdb_id supplied
+121,The Lord of the Rings: The Two Towers,Peter Jackson,The Lord of the Rings: The Two Towers,2002,Peter Jackson,given,new,tmdb_id supplied
+30497,The Texas Chain Saw Massacre,Tobe Hooper,The Texas Chain Saw Massacre,1974,Tobe Hooper,given,new,tmdb_id supplied
+16307,The Wicker Man,Robin Hardy,The Wicker Man,1973,Robin Hardy,given,new,tmdb_id supplied
+22536,Thirst,Park Chan-wook,Thirst,2009,Park Chan-wook,given,new,tmdb_id supplied
+760104,X,Ti West,X,2022,Ti West,given,new,tmdb_id supplied
+702,A Streetcar Named Desire,Elia Kazan,A Streetcar Named Desire,1951,Elia Kazan,given,new,tmdb_id supplied
+29845,A Woman Under the Influence,John Cassavetes,A Woman Under the Influence,1974,John Cassavetes,given,new,tmdb_id supplied
+2000,"Aguirre, the Wrath of God",Werner Herzog,"Aguirre, the Wrath of God",1972,Werner Herzog,given,new,tmdb_id supplied
+216,Ali: Fear Eats the Soul,Rainer Werner Fassbinder,Ali: Fear Eats the Soul,1974,Rainer Werner Fassbinder,given,new,tmdb_id supplied
+705,All About Eve,Joseph L. Mankiewicz,All About Eve,1950,Joseph L. Mankiewicz,given,new,tmdb_id supplied
+703,Annie Hall,Woody Allen,Annie Hall,1977,Woody Allen,given,new,tmdb_id supplied
+5055,Ashes and Diamonds,Andrzej Wajda,Ashes and Diamonds,1958,Andrzej Wajda,given,new,tmdb_id supplied
+3133,Badlands,Terrence Malick,Badlands,1974,Terrence Malick,given,new,tmdb_id supplied
+649,Belle de Jour,Luis Bunuel,Belle de Jour,1967,Luis Buñuel,given,new,tmdb_id supplied
+475,Bonnie and Clyde,Arthur Penn,Bonnie and Clyde,1967,Arthur Penn,given,new,tmdb_id supplied
+900,Bringing Up Baby,Howard Hawks,Bringing Up Baby,1938,Howard Hawks,given,new,tmdb_id supplied
+35790,Charulata,Satyajit Ray,Charulata,1964,Satyajit Ray,given,new,tmdb_id supplied
+2457,Children of Paradise,Marcel Carne,Children of Paradise,1945,Marcel Carné,given,new,tmdb_id supplied
+499,Cleo from 5 to 7,Agnes Varda,Cléo from 5 to 7,1962,Agnès Varda,given,new,tmdb_id supplied
+266,Contempt,Jean-Luc Godard,Contempt,1963,Jean-Luc Godard,given,new,tmdb_id supplied
+46919,Daisies,Vera Chytilova,Daisies,1966,Věra Chytilová,given,new,tmdb_id supplied
+16642,Days of Heaven,Terrence Malick,Days of Heaven,1978,Terrence Malick,given,new,tmdb_id supplied
+968,Dog Day Afternoon,Sidney Lumet,Dog Day Afternoon,1975,Sidney Lumet,given,new,tmdb_id supplied
+931,Don't Look Now,Nicolas Roeg,Don't Look Now,1973,Nicolas Roeg,given,new,tmdb_id supplied
+985,Eraserhead,David Lynch,Eraserhead,1977,David Lynch,given,new,tmdb_id supplied
+9343,Fitzcarraldo,Werner Herzog,Fitzcarraldo,1982,Werner Herzog,given,new,tmdb_id supplied
+777,Grand Illusion,Jean Renoir,Grand Illusion,1937,Jean Renoir,given,new,tmdb_id supplied
+14537,Harakiri,Masaki Kobayashi,Harakiri,1962,Masaki Kobayashi,given,new,tmdb_id supplied
+5544,Hiroshima Mon Amour,Alain Resnais,Hiroshima Mon Amour,1959,Alain Resnais,given,new,tmdb_id supplied
+5879,In the Realm of the Senses,Nagisa Oshima,In the Realm of the Senses,1976,Nagisa Ōshima,given,new,tmdb_id supplied
+1585,It's a Wonderful Life,Frank Capra,It's a Wonderful Life,1946,Frank Capra,given,new,tmdb_id supplied
+1628,Jules and Jim,Francois Truffaut,Jules and Jim,1962,François Truffaut,given,new,tmdb_id supplied
+4024,Last Year at Marienbad,Alain Resnais,Last Year at Marienbad,1961,Alain Resnais,given,new,tmdb_id supplied
+20530,Late Spring,Yasujiro Ozu,Late Spring,1949,Yasujirō Ozu,given,new,tmdb_id supplied
+696,Manhattan,Woody Allen,Manhattan,1979,Woody Allen,given,new,tmdb_id supplied
+29005,McCabe & Mrs. Miller,Robert Altman,McCabe & Mrs. Miller,1971,Robert Altman,given,new,tmdb_id supplied
+203,Mean Streets,Martin Scorsese,Mean Streets,1973,Martin Scorsese,given,new,tmdb_id supplied
+3121,Nashville,Robert Altman,Nashville,1975,Robert Altman,given,new,tmdb_id supplied
+10774,Network,Sidney Lumet,Network,1976,Sidney Lumet,given,new,tmdb_id supplied
+654,On the Waterfront,Elia Kazan,On the Waterfront,1954,Elia Kazan,given,new,tmdb_id supplied
+510,One Flew Over the Cuckoo's Nest,Milos Forman,One Flew Over the Cuckoo's Nest,1975,Miloš Forman,given,new,tmdb_id supplied
+2786,Pierrot le Fou,Jean-Luc Godard,Pierrot le Fou,1965,Jean-Luc Godard,given,new,tmdb_id supplied
+8422,Rocco and His Brothers,Luchino Visconti,Rocco and His Brothers,1960,Luchino Visconti,given,new,tmdb_id supplied
+5336,"Salo, or the 120 Days of Sodom",Pier Paolo Pasolini,"Salò, or the 120 Days of Sodom",1976,Pier Paolo Pasolini,given,new,tmdb_id supplied
+20532,Sansho the Bailiff,Kenji Mizoguchi,Sansho the Bailiff,1954,Kenji Mizoguchi,given,new,tmdb_id supplied
+995,Stagecoach,John Ford,Stagecoach,1939,John Ford,given,new,tmdb_id supplied
+26302,The Color of Pomegranates,Sergei Parajanov,The Color of Pomegranates,1969,Sergei Parajanov,given,new,tmdb_id supplied
+592,The Conversation,Francis Ford Coppola,The Conversation,1974,Francis Ford Coppola,given,new,tmdb_id supplied
+38360,The Cranes Are Flying,Mikhail Kalatozov,The Cranes Are Flying,1957,Mikheil Kalatozishvili,given,new,tmdb_id supplied
+4593,The Discreet Charm of the Bourgeoisie,Luis Bunuel,The Discreet Charm of the Bourgeoisie,1972,Luis Buñuel,given,new,tmdb_id supplied
+37247,The Graduate,Mike Nichols,The Graduate,1967,Mike Nichols,given,new,tmdb_id supplied
+1040,The Leopard,Luchino Visconti,The Leopard,1963,Luchino Visconti,given,new,tmdb_id supplied
+661,The Marriage of Maria Braun,Rainer Werner Fassbinder,The Marriage of Maria Braun,1979,Rainer Werner Fassbinder,given,new,tmdb_id supplied
+3112,The Night of the Hunter,Charles Laughton,The Night of the Hunter,1955,Charles Laughton,given,new,tmdb_id supplied
+4495,The Spirit of the Beehive,Victor Erice,The Spirit of the Beehive,1973,Víctor Erice,given,new,tmdb_id supplied
+5967,The Umbrellas of Cherbourg,Jacques Demy,The Umbrellas of Cherbourg,1964,Jacques Demy,given,new,tmdb_id supplied
+204,The Wages of Fear,Henri-Georges Clouzot,The Wages of Fear,1953,Henri-Georges Clouzot,given,new,tmdb_id supplied
+576,The Wild Bunch,Sam Peckinpah,The Wild Bunch,1969,Sam Peckinpah,given,new,tmdb_id supplied
+14696,Ugetsu,Kenji Mizoguchi,Ugetsu,1953,Kenji Mizoguchi,given,new,tmdb_id supplied
+4497,Viridiana,Luis Bunuel,Viridiana,1962,Luis Buñuel,given,new,tmdb_id supplied
+661539,A Complete Unknown,James Mangold,A Complete Unknown,2024,James Mangold,given,new,tmdb_id supplied
+1013850,A Real Pain,Jesse Eisenberg,A Real Pain,2024,Jesse Eisenberg,given,new,tmdb_id supplied
+665733,About Dry Grasses,Nuri Bilge Ceylan,About Dry Grasses,2023,Nuri Bilge Ceylan,given,new,tmdb_id supplied
+99,All About My Mother,Pedro Almodovar,All About My Mother,1999,Pedro Almodóvar,given,new,tmdb_id supplied
+517148,Beanpole,Kantemir Balagov,Beanpole,2019,Kantemir Balagov,given,new,tmdb_id supplied
+1128752,Bird,Andrea Arnold,Bird,2024,Andrea Arnold,given,new,tmdb_id supplied
+1299655,Blue Moon,Richard Linklater,Blue Moon,2025,Richard Linklater,given,new,tmdb_id supplied
+701387,Bugonia,Yorgos Lanthimos,Bugonia,2025,Yorgos Lanthimos,given,new,tmdb_id supplied
+937287,Challengers,Luca Guadagnino,Challengers,2024,Luca Guadagnino,given,new,tmdb_id supplied
+929590,Civil War,Alex Garland,Civil War,2024,Alex Garland,given,new,tmdb_id supplied
+888321,Corsage,Marie Kreutzer,Corsage,2022,Marie Kreutzer,given,new,tmdb_id supplied
+1228682,Dreams,Dag Johan Haugerud,Dreams,2024,Dag Johan Haugerud,given,new,tmdb_id supplied
+974950,Emilia Perez,Jacques Audiard,Emilia Pérez,2024,Jacques Audiard,given,new,tmdb_id supplied
+1159206,Father Mother Sister Brother,Jim Jarmusch,Father Mother Sister Brother,2025,Jim Jarmusch,given,new,tmdb_id supplied
+1062722,Frankenstein,Guillermo del Toro,Frankenstein,2025,Guillermo del Toro,given,new,tmdb_id supplied
+960206,Godland,Hlynur Palmason,Godland,2022,Hlynur Pálmason,given,new,tmdb_id supplied
+835975,Great Freedom,Sebastian Meise,Great Freedom,2021,Sebastian Meise,given,new,tmdb_id supplied
+858024,Hamnet,Chloe Zhao,Hamnet,2025,Chloé Zhao,given,new,tmdb_id supplied
+1013154,Hard Truths,Mike Leigh,Hard Truths,2024,Mike Leigh,given,new,tmdb_id supplied
+1317288,Marty Supreme,Josh Safdie,Marty Supreme,2025,Josh Safdie,given,new,tmdb_id supplied
+2517,Nobody Knows,Hirokazu Kore-eda,Nobody Knows,2004,Hirokazu Kore-eda,given,new,tmdb_id supplied
+691214,Pacifiction,Albert Serra,Pacifiction,2022,Albert Serra,given,new,tmdb_id supplied
+519010,Pain and Glory,Pedro Almodovar,Pain and Glory,2019,Pedro Almodóvar,given,new,tmdb_id supplied
+766798,Parallel Mothers,Pedro Almodovar,Parallel Mothers,2021,Pedro Almodóvar,given,new,tmdb_id supplied
+958487,Plan 75,Chie Hayakawa,Plan 75,2022,Chie Hayakawa,given,new,tmdb_id supplied
+788734,Sick of Myself,Kristoffer Borgli,Sick of Myself,2022,Kristoffer Borgli,given,new,tmdb_id supplied
+1155828,Sing Sing,Greg Kwedar,Sing Sing,2024,Greg Kwedar,given,new,tmdb_id supplied
+1151272,Sirat,Oliver Laxe,Sirāt,2025,Oliver Laxe,given,new,tmdb_id supplied
+1221061,Sound of Falling,Mascha Schilinski,Sound of Falling,2025,Mascha Schilinski,given,new,tmdb_id supplied
+25050,Still Walking,Hirokazu Kore-eda,Still Walking,2008,Hirokazu Kore-eda,given,new,tmdb_id supplied
+803700,The Eight Mountains,Felix van Groeningen,The Eight Mountains,2022,"Charlotte Vandermeersch, Felix van Groeningen",given,new,tmdb_id supplied
+1232827,The Girl with the Needle,Magnus von Horn,The Girl with the Needle,2024,Magnus von Horn,given,new,tmdb_id supplied
+660942,The Innocents,Eskil Vogt,The Innocents,2021,Eskil Vogt,given,new,tmdb_id supplied
+850165,The Iron Claw,Sean Durkin,The Iron Claw,2023,Sean Durkin,given,new,tmdb_id supplied
+1352624,The Mastermind,Kelly Reichardt,The Mastermind,2025,Kelly Reichardt,given,new,tmdb_id supplied
+916405,The Quiet Girl,Colm Bairead,The Quiet Girl,2022,Colm Bairéad,given,new,tmdb_id supplied
+1088514,The Room Next Door,Pedro Almodovar,The Room Next Door,2024,Pedro Almodóvar,given,new,tmdb_id supplied
+1220564,The Secret Agent,Kleber Mendonca Filho,The Secret Agent,2025,Kleber Mendonça Filho,given,new,tmdb_id supplied
+760329,The Smashing Machine,Benny Safdie,The Smashing Machine,2025,Benny Safdie,given,new,tmdb_id supplied
+473019,The Souvenir,Joanna Hogg,The Souvenir,2019,Joanna Hogg,given,new,tmdb_id supplied
+964960,The Taste of Things,Tran Anh Hung,The Taste of Things,2023,Trần Anh Hùng,given,new,tmdb_id supplied
+1480382,The Voice of Hind Rajab,Kaouther Ben Hania,The Voice of Hind Rajab,2025,Kaouther Ben Hania,given,new,tmdb_id supplied
+1241983,Train Dreams,Clint Bentley,Train Dreams,2025,Clint Bentley,given,new,tmdb_id supplied
+219,Volver,Pedro Almodovar,Volver,2006,Pedro Almodóvar,given,new,tmdb_id supplied
+812,Aladdin,Ron Clements,Aladdin,1992,"Ron Clements, John Musker",given,new,tmdb_id supplied
+10515,Castle in the Sky,Hayao Miyazaki,Castle in the Sky,1986,Hayao Miyazaki,given,new,tmdb_id supplied
+568124,Encanto,Jared Bush,Encanto,2021,"Byron Howard, Jared Bush",given,new,tmdb_id supplied
+756,Fantasia,James Algar,Fantasia,1940,"Samuel Armstrong, James Algar, Bill Roberts, Paul Satterfield, Hamilton Luske, Jim Handley, T. Hee, Wilfred Jackson, Ben Sharpsteen, Norman Ferguson, David Hand, Ford Beebe Jr.",given,new,tmdb_id supplied
+16306,Fantastic Planet,Rene Laloux,Fantastic Planet,1973,René Laloux,given,new,tmdb_id supplied
+680813,Flee,Jonas Poher Rasmussen,Flee,2021,Jonas Poher Rasmussen,given,new,tmdb_id supplied
+501,Grizzly Man,Werner Herzog,Grizzly Man,2005,Werner Herzog,given,new,tmdb_id supplied
+14275,Hoop Dreams,Steve James,Hoop Dreams,1994,Steve James,given,new,tmdb_id supplied
+4935,Howl's Moving Castle,Hayao Miyazaki,Howl's Moving Castle,2004,Hayao Miyazaki,given,new,tmdb_id supplied
+858017,I Saw the TV Glow,Jane Schoenbrun,I Saw the TV Glow,2024,Jane Schoenbrun,given,new,tmdb_id supplied
+16859,Kiki's Delivery Service,Hayao Miyazaki,Kiki's Delivery Service,1989,Hayao Miyazaki,given,new,tmdb_id supplied
+33320,Millennium Actress,Satoshi Kon,Millennium Actress,2002,Satoshi Kon,given,new,tmdb_id supplied
+277834,Moana,Ron Clements,Moana,2016,"Ron Clements, John Musker",given,new,tmdb_id supplied
+585,"Monsters, Inc.",Pete Docter,"Monsters, Inc.",2001,Pete Docter,given,new,tmdb_id supplied
+10674,Mulan,Tony Bancroft,Mulan,1998,"Tony Bancroft, Barry Cook",given,new,tmdb_id supplied
+803,Night and Fog,Alain Resnais,Night and Fog,1956,Alain Resnais,given,new,tmdb_id supplied
+15080,Only Yesterday,Isao Takahata,Only Yesterday,1991,Isao Takahata,given,new,tmdb_id supplied
+4977,Paprika,Satoshi Kon,Paprika,2006,Satoshi Kon,given,new,tmdb_id supplied
+10895,Pinocchio,Ben Sharpsteen,Pinocchio,1940,"Hamilton Luske, Ben Sharpsteen, T. Hee, Wilfred Jackson, Norman Ferguson, Jack Kinney, Bill Roberts",given,new,tmdb_id supplied
+12429,Ponyo,Hayao Miyazaki,Ponyo,2008,Hayao Miyazaki,given,new,tmdb_id supplied
+11621,Porco Rosso,Hayao Miyazaki,Porco Rosso,1992,Hayao Miyazaki,given,new,tmdb_id supplied
+1563,Sans Soleil,Chris Marker,Sans Soleil,1983,Chris Marker,given,new,tmdb_id supplied
+42044,Shoah,Claude Lanzmann,Shoah,1985,Claude Lanzmann,given,new,tmdb_id supplied
+408,Snow White and the Seven Dwarfs,David Hand,Snow White and the Seven Dwarfs,1938,"David Hand, Ben Sharpsteen, William Cottrell, Larry Morey, Perce Pearce, Wilfred Jackson",given,new,tmdb_id supplied
+508442,Soul,Pete Docter,Soul,2020,Pete Docter,given,new,tmdb_id supplied
+123678,The Act of Killing,Joshua Oppenheimer,The Act of Killing,2012,Joshua Oppenheimer,given,new,tmdb_id supplied
+10386,The Iron Giant,Brad Bird,The Iron Giant,1999,Brad Bird,given,new,tmdb_id supplied
+149871,The Tale of the Princess Kaguya,Isao Takahata,The Tale of The Princess Kaguya,2013,Isao Takahata,given,new,tmdb_id supplied
+9662,The Triplets of Belleville,Sylvain Chomet,The Triplets of Belleville,2003,Sylvain Chomet,given,new,tmdb_id supplied
+149870,The Wind Rises,Hayao Miyazaki,The Wind Rises,2013,Hayao Miyazaki,given,new,tmdb_id supplied
+13398,Tokyo Godfathers,Satoshi Kon,Tokyo Godfathers,2003,Satoshi Kon,given,new,tmdb_id supplied
+863,Toy Story 2,John Lasseter,Toy Story 2,1999,John Lasseter,given,new,tmdb_id supplied
+10193,Toy Story 3,Lee Unkrich,Toy Story 3,2010,Lee Unkrich,given,new,tmdb_id supplied
+11837,Watership Down,Martin Rosen,Watership Down,1978,Martin Rosen,given,new,tmdb_id supplied
+441130,Wolfwalkers,Tomm Moore,Wolfwalkers,2020,"Tomm Moore, Ross Stewart",given,new,tmdb_id supplied
+269149,Zootopia,Byron Howard,Zootopia,2016,"Byron Howard, Rich Moore",given,new,tmdb_id supplied
+844,2046,Wong Kar-wai,2046,2004,Wong Kar-Wai,given,new,tmdb_id supplied
+15804,A Brighter Summer Day,Edward Yang,A Brighter Summer Day,1991,Edward Yang,given,new,tmdb_id supplied
+28162,A Matter of Life and Death,Michael Powell,A Matter of Life and Death,1946,"Emeric Pressburger, Michael Powell",given,new,tmdb_id supplied
+50759,An Autumn Afternoon,Yasujiro Ozu,An Autumn Afternoon,1962,Yasujirō Ozu,given,new,tmdb_id supplied
+897,Aparajito,Satyajit Ray,Aparajito,1956,Satyajit Ray,given,new,tmdb_id supplied
+15383,Army of Shadows,Jean-Pierre Melville,Army of Shadows,1969,Jean-Pierre Melville,given,new,tmdb_id supplied
+95597,Black Girl,Ousmane Sembene,Black Girl,1966,Ousmane Sembène,given,new,tmdb_id supplied
+67612,"Black God, White Devil",Glauber Rocha,"Black God, White Devil",1964,Glauber Rocha,given,new,tmdb_id supplied
+16391,Black Narcissus,Michael Powell,Black Narcissus,1947,"Emeric Pressburger, Michael Powell",given,new,tmdb_id supplied
+10238,Cries and Whispers,Ingmar Bergman,Cries and Whispers,1972,Ingmar Bergman,given,new,tmdb_id supplied
+18311,Days of Being Wild,Wong Kar-wai,Days of Being Wild,1990,Wong Kar-Wai,given,new,tmdb_id supplied
+11220,Fallen Angels,Wong Kar-wai,Fallen Angels,1995,Wong Kar-Wai,given,new,tmdb_id supplied
+5961,Fanny and Alexander,Ingmar Bergman,Fanny and Alexander,1982,Ingmar Bergman,given,new,tmdb_id supplied
+46918,Floating Weeds,Yasujiro Ozu,Floating Weeds,1959,Yasujirō Ozu,given,new,tmdb_id supplied
+45935,Flowers of Shanghai,Hou Hsiao-hsien,Flowers of Shanghai,1998,Hou Hsiao-hsien,given,new,tmdb_id supplied
+18329,Happy Together,Wong Kar-wai,Happy Together,1997,Wong Kar-Wai,given,new,tmdb_id supplied
+12493,High and Low,Akira Kurosawa,High and Low,1963,Akira Kurosawa,given,new,tmdb_id supplied
+41821,Ju Dou,Zhang Yimou,Ju Dou,1990,Zhang Yimou,given,new,tmdb_id supplied
+30959,Kwaidan,Masaki Kobayashi,Kwaidan,1965,Masaki Kobayashi,given,new,tmdb_id supplied
+43904,L'Atalante,Jean Vigo,L'Atalante,1934,Jean Vigo,given,new,tmdb_id supplied
+11657,Le Cercle Rouge,Jean-Pierre Melville,Le Cercle Rouge,1970,Jean-Pierre Melville,given,new,tmdb_id supplied
+5511,Le Samourai,Jean-Pierre Melville,Le Samouraï,1967,Jean-Pierre Melville,given,new,tmdb_id supplied
+802,Lolita,Stanley Kubrick,Lolita,1962,Stanley Kubrick,given,new,tmdb_id supplied
+47576,Memories of Underdevelopment,Tomas Gutierrez Alea,Memories of Underdevelopment,1968,Tomás Gutiérrez Alea,given,new,tmdb_id supplied
+427,Mon Oncle,Jacques Tati,Mon Oncle,1958,Jacques Tati,given,new,tmdb_id supplied
+335,Once Upon a Time in the West,Sergio Leone,Once Upon a Time in the West,1968,Sergio Leone,given,new,tmdb_id supplied
+3763,Onibaba,Kaneto Shindo,Onibaba,1964,Kaneto Shindō,given,new,tmdb_id supplied
+48035,Ordet,Carl Theodor Dreyer,Ordet,1955,Carl Theodor Dreyer,given,new,tmdb_id supplied
+678,Out of the Past,Jacques Tourneur,Out of the Past,1947,Jacques Tourneur,given,new,tmdb_id supplied
+975,Paths of Glory,Stanley Kubrick,Paths of Glory,1957,Stanley Kubrick,given,new,tmdb_id supplied
+42148,Pixote,Hector Babenco,Pixote,1980,Héctor Babenco,given,new,tmdb_id supplied
+80427,Platform,Jia Zhangke,Platform,2001,Jia Zhangke,given,new,tmdb_id supplied
+10227,Playtime,Jacques Tati,PlayTime,1967,Jacques Tati,given,new,tmdb_id supplied
+11645,Ran,Akira Kurosawa,Ran,1985,Akira Kurosawa,given,new,tmdb_id supplied
+133919,Scenes from a Marriage,Ingmar Bergman,Scenes from a Marriage,1974,Ingmar Bergman,given,new,tmdb_id supplied
+976,Sweet Smell of Success,Alexander Mackendrick,Sweet Smell of Success,1957,Alexander Mackendrick,given,new,tmdb_id supplied
+253450,The Assassin,Hou Hsiao-hsien,The Assassin,2015,Hou Hsiao-hsien,given,new,tmdb_id supplied
+27030,The Earrings of Madame de...,Max Ophuls,The Earrings of Madame de...,1953,Max Ophüls,given,new,tmdb_id supplied
+429,"The Good, the Bad and the Ugly",Sergio Leone,"The Good, the Bad and the Ugly",1966,Sergio Leone,given,new,tmdb_id supplied
+1059,The Hidden Fortress,Akira Kurosawa,The Hidden Fortress,1958,Akira Kurosawa,given,new,tmdb_id supplied
+3766,The Lady from Shanghai,Orson Welles,The Lady from Shanghai,1947,Orson Welles,given,new,tmdb_id supplied
+43364,The Life of Oharu,Kenji Mizoguchi,The Life of Oharu,1952,Kenji Mizoguchi,given,new,tmdb_id supplied
+822,The Music Room,Satyajit Ray,The Music Room,1958,Satyajit Ray,given,new,tmdb_id supplied
+29263,The Official Story,Luis Puenzo,The Official Story,1985,Luis Puenzo,given,new,tmdb_id supplied
+19542,The Red Shoes,Michael Powell,The Red Shoes,1948,"Michael Powell, Emeric Pressburger",given,new,tmdb_id supplied
+896,The World of Apu,Satyajit Ray,The World of Apu,1959,Satyajit Ray,given,new,tmdb_id supplied
+3777,Throne of Blood,Akira Kurosawa,Throne of Blood,1957,Akira Kurosawa,given,new,tmdb_id supplied
+31439,To Live,Zhang Yimou,To Live,1994,Zhang Yimou,given,new,tmdb_id supplied
+77771,Touki Bouki,Djibril Diop Mambety,Touki Bouki,1973,Djibril Diop Mambéty,given,new,tmdb_id supplied
+614,Wild Strawberries,Ingmar Bergman,Wild Strawberries,1957,Ingmar Bergman,given,new,tmdb_id supplied
+76636,Xala,Ousmane Sembene,Xala,1975,Ousmane Sembène,given,new,tmdb_id supplied
+71329,Yeelen,Souleymane Cisse,Yeelen,1987,Souleymane Cissé,given,new,tmdb_id supplied
+25538,Yi Yi,Edward Yang,Yi Yi,2000,Edward Yang,given,new,tmdb_id supplied
+11878,Yojimbo,Akira Kurosawa,Yojimbo,1961,Akira Kurosawa,given,new,tmdb_id supplied
+342737,20th Century Women,Mike Mills,20th Century Women,2016,Mike Mills,given,new,tmdb_id supplied
+989662,A Different Man,Aaron Schimberg,A Different Man,2024,Aaron Schimberg,given,new,tmdb_id supplied
+403300,A Hidden Life,Terrence Malick,A Hidden Life,2019,Terrence Malick,given,new,tmdb_id supplied
+622951,A Sun,Chung Mong-hong,A Sun,2019,Chung Mong-hong,given,new,tmdb_id supplied
+585378,After Yang,Kogonada,After Yang,2022,Kogonada,given,new,tmdb_id supplied
+800227,All Dirt Roads Taste of Salt,Raven Jackson,All Dirt Roads Taste of Salt,2023,Raven Jackson,given,new,tmdb_id supplied
+499556,An Elephant Sitting Still,Hu Bo,An Elephant Sitting Still,2018,Hu Bo,given,new,tmdb_id supplied
+852046,Athena,Romain Gavras,Athena,2022,Romain Gavras,given,new,tmdb_id supplied
+632617,C'mon C'mon,Mike Mills,C'mon C'mon,2021,Mike Mills,given,new,tmdb_id supplied
+788977,Cairo Conspiracy,Tarik Saleh,Cairo Conspiracy,2022,Tarik Saleh,given,new,tmdb_id supplied
+507076,Climax,Gaspar Noe,Climax,2018,Gaspar Noé,given,new,tmdb_id supplied
+414453,Columbus,Kogonada,Columbus,2017,Kogonada,given,new,tmdb_id supplied
+1101256,Dahomey,Mati Diop,Dahomey,2024,Mati Diop,given,new,tmdb_id supplied
+937085,Do Not Expect Too Much from the End of the World,Radu Jude,Do Not Expect Too Much from the End of the World,2023,Radu Jude,given,new,tmdb_id supplied
+34647,Enter the Void,Gaspar Noe,Enter the Void,2010,Gaspar Noé,given,new,tmdb_id supplied
+1069193,Four Daughters,Kaouther Ben Hania,Four Daughters,2023,Kaouther Ben Hania,given,new,tmdb_id supplied
+575774,His House,Remi Weekes,His House,2020,Remi Weekes,given,new,tmdb_id supplied
+889699,Holy Spider,Ali Abbasi,Holy Spider,2022,Ali Abbasi,given,new,tmdb_id supplied
+1075175,How to Have Sex,Molly Manning Walker,How to Have Sex,2023,Molly Manning Walker,given,new,tmdb_id supplied
+1037035,Janet Planet,Annie Baker,Janet Planet,2024,Annie Baker,given,new,tmdb_id supplied
+177945,"Like Father, Like Son",Hirokazu Kore-eda,"Like Father, Like Son",2013,Hirokazu Kore-eda,given,new,tmdb_id supplied
+760099,Living,Oliver Hermanus,Living,2022,Oliver Hermanus,given,new,tmdb_id supplied
+486898,Long Day's Journey Into Night,Bi Gan,Long Day's Journey Into Night,2018,Bi Gan,given,new,tmdb_id supplied
+1064486,Memoir of a Snail,Adam Elliot,Memoir of a Snail,2024,Adam Elliot,given,new,tmdb_id supplied
+974521,No Bears,Jafar Panahi,No Bears,2022,Jafar Panahi,given,new,tmdb_id supplied
+762504,Nope,Jordan Peele,Nope,2022,Jordan Peele,given,new,tmdb_id supplied
+315846,Our Little Sister,Hirokazu Kore-eda,Our Little Sister,2015,Hirokazu Kore-eda,given,new,tmdb_id supplied
+898673,Passages,Ira Sachs,Passages,2023,Ira Sachs,given,new,tmdb_id supplied
+641662,Pieces of a Woman,Kornel Mundruczo,Pieces of a Woman,2020,Kornél Mundruczó,given,new,tmdb_id supplied
+728118,"Quo Vadis, Aida?",Jasmila Zbanic,"Quo Vadis, Aida?",2021,Jasmila Žbanić,given,new,tmdb_id supplied
+838240,Robot Dreams,Pablo Berger,Robot Dreams,2023,Pablo Berger,given,new,tmdb_id supplied
+493899,"So Long, My Son",Wang Xiaoshuai,"So Long, My Son",2019,Wang Xiaoshuai,given,new,tmdb_id supplied
+906126,Society of the Snow,J.A. Bayona,Society of the Snow,2023,J. A. Bayona,given,new,tmdb_id supplied
+502033,Sound of Metal,Darius Marder,Sound of Metal,2020,Darius Marder,given,new,tmdb_id supplied
+1182047,The Apprentice,Ali Abbasi,The Apprentice,2024,Ali Abbasi,given,new,tmdb_id supplied
+958279,The Blue Caftan,Maryam Touzani,The Blue Caftan,2023,Maryam Touzani,given,new,tmdb_id supplied
+600354,The Father,Florian Zeller,The Father,2020,Florian Zeller,given,new,tmdb_id supplied
+989589,The Settlers,Felipe Galvez,The Settlers,2023,Felipe Gálvez,given,new,tmdb_id supplied
+998022,The Teachers' Lounge,Ilker Catak,The Teachers' Lounge,2023,İlker Çatak,given,new,tmdb_id supplied
+575428,The Wild Goose Lake,Diao Yinan,The Wild Goose Lake,2019,Diao Yinan,given,new,tmdb_id supplied
+823766,The Wonder,Sebastian Lelio,The Wonder,2022,Sebastián Lelio,given,new,tmdb_id supplied
+958186,Totem,Lila Aviles,Tótem,2023,Lila Avilés,given,new,tmdb_id supplied
+807070,Vortex,Gaspar Noe,Vortex,2021,Gaspar Noé,given,new,tmdb_id supplied
+777245,Women Talking,Sarah Polley,Women Talking,2022,Sarah Polley,given,new,tmdb_id supplied
+378064,A Silent Voice,Naoko Yamada,A Silent Voice: The Movie,2016,Naoko Yamada,given,new,tmdb_id supplied
+776305,Belle,Mamoru Hosoda,Belle,2021,Mamoru Hosoda,given,new,tmdb_id supplied
+11072,Blazing Saddles,Mel Brooks,Blazing Saddles,1974,Mel Brooks,given,new,tmdb_id supplied
+496,Borat,Larry Charles,Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan,2006,Larry Charles,given,new,tmdb_id supplied
+293310,Citizenfour,Laura Poitras,Citizenfour,2014,Laura Poitras,given,new,tmdb_id supplied
+9461,Enter the Dragon,Robert Clouse,Enter the Dragon,1973,Robert Clouse,given,new,tmdb_id supplied
+43003,F for Fake,Orson Welles,F for Fake,1973,"Orson Welles, François Reichenbach",given,new,tmdb_id supplied
+515042,Free Solo,Elizabeth Chai Vasarhelyi,Free Solo,2018,"Jimmy Chin, Elizabeth Chai Vasarhelyi",given,new,tmdb_id supplied
+11782,Hard Boiled,John Woo,Hard Boiled,1992,John Woo,given,new,tmdb_id supplied
+79,Hero,Zhang Yimou,Hero,2002,Zhang Yimou,given,new,tmdb_id supplied
+9550,House of Flying Daggers,Zhang Yimou,House of Flying Daggers,2004,Zhang Yimou,given,new,tmdb_id supplied
+1022789,Inside Out 2,Kelsey Mann,Inside Out 2,2024,Kelsey Mann,given,new,tmdb_id supplied
+14756,Ip Man,Wilson Yip,Ip Man,2008,Wilson Yip,given,new,tmdb_id supplied
+13597,Labyrinth,Jim Henson,Labyrinth,1986,Jim Henson,given,new,tmdb_id supplied
+583,Life of Brian,Terry Jones,Life of Brian,1979,Terry Jones,given,new,tmdb_id supplied
+14048,Man on Wire,James Marsh,Man on Wire,2008,James Marsh,given,new,tmdb_id supplied
+762,Monty Python and the Holy Grail,Terry Gilliam,Monty Python and the Holy Grail,1975,"Terry Jones, Terry Gilliam",given,new,tmdb_id supplied
+377462,O.J.: Made in America,Ezra Edelman,O.J.: Made in America,2016,Ezra Edelman,given,new,tmdb_id supplied
+9056,Police Story,Jackie Chan,Police Story,1985,Jackie Chan,given,new,tmdb_id supplied
+84334,Searching for Sugar Man,Malik Bendjelloul,Searching for Sugar Man,2012,Malik Bendjelloul,given,new,tmdb_id supplied
+58496,Senna,Asif Kapadia,Senna,2010,Asif Kapadia,given,new,tmdb_id supplied
+747,Shaun of the Dead,Edgar Wright,Shaun of the Dead,2004,Edgar Wright,given,new,tmdb_id supplied
+235,Stand by Me,Rob Reiner,Stand by Me,1986,Rob Reiner,given,new,tmdb_id supplied
+128216,Stories We Tell,Sarah Polley,Stories We Tell,2012,Sarah Polley,given,new,tmdb_id supplied
+776527,Summer of Soul,Questlove,"Summer of Soul (...Or, When the Revolution Could Not Be Televised)",2021,Questlove,given,new,tmdb_id supplied
+916224,Suzume,Makoto Shinkai,Suzume,2022,Makoto Shinkai,given,new,tmdb_id supplied
+525,The Blues Brothers,John Landis,The Blues Brothers,1980,John Landis,given,new,tmdb_id supplied
+970347,The Killer,John Woo,The Killer,2024,John Woo,given,exists,tmdb_id supplied
+34584,The NeverEnding Story,Wolfgang Petersen,The NeverEnding Story,1984,Wolfgang Petersen,given,new,tmdb_id supplied
+14285,The Thin Blue Line,Errol Morris,The Thin Blue Line,1988,Errol Morris,given,new,tmdb_id supplied
+1184918,The Wild Robot,Chris Sanders,The Wild Robot,2024,Chris Sanders,given,new,tmdb_id supplied
+36819,Time Bandits,Terry Gilliam,Time Bandits,1981,Terry Gilliam,given,new,tmdb_id supplied
+568160,Weathering with You,Makoto Shinkai,Weathering with You,2019,Makoto Shinkai,given,new,tmdb_id supplied
+252,Willy Wonka & the Chocolate Factory,Mel Stuart,Willy Wonka & the Chocolate Factory,1971,Mel Stuart,given,new,tmdb_id supplied
+110420,Wolf Children,Mamoru Hosoda,Wolf Children,2012,Mamoru Hosoda,given,new,tmdb_id supplied
+3034,Young Frankenstein,Mel Brooks,Young Frankenstein,1974,Mel Brooks,given,new,tmdb_id supplied

@@ -227,22 +227,22 @@ export default async function FilmPage({ params }: Props) {
                 <div className="df-smfam__h">{fam.label}</div>
                 {items.map((m, i) => {
                   const F = fw(m.framework);
-                  return (
-                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>
+                  const href = m.figSlug ? `/film/${film.slug}/figure/${m.figSlug}` : null;
+                  const inner = (
+                    <>
                       <div className="sm-row__top">
                         <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>
-                        {m.figSlug
-                          ? <Link className="sm-via" href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.figLabel}</Link>
-                          : <span className="sm-via">{m.figLabel}</span>}
+                        <span className="sm-via">via {m.figLabel}</span>
                       </div>
-                      {m.take_title ? (
-                        <div className="sm-row__title">
-                          {m.figSlug ? <Link href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.take_title}</Link> : m.take_title}
-                        </div>
-                      ) : null}
+                      {m.take_title ? <div className="sm-row__title">{m.take_title}</div> : null}
                       {m.thesis ? <p className="sm-row__thesis sm-row__thesis--full">{m.thesis}</p> : null}
                       {m.leap ? <p className="sm-row__leap"><span className="sm-leap__l">The leap</span> {m.leap}</p> : null}
-                    </div>
+                    </>
+                  );
+                  return href ? (
+                    <Link key={i} className="sm-row sm-row--link" href={href} style={{ borderLeftColor: F.color }}>{inner}</Link>
+                  ) : (
+                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>{inner}</div>
                   );
                 })}
               </div>

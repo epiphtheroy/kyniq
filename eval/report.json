@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-06-18T23:26:26.755Z",
+  "args": {
+    "retrievalOnly": true,
+    "type": null,
+    "limit": 5,
+    "gold": "eval/gold-set.json",
+    "k": 40,
+    "keep": 14,
+    "out": "eval/report.json",
+    "concurrency": 3
+  },
+  "note": "PROVISIONAL — baseline must not be frozen until the 1500-film import + embedding stabilizes. expected.films/themes are approximate hints, not strict relevance judgments.",
+  "summary": {
+    "overall": {
+      "totalQuestions": 5,
+      "errors": 5,
+      "p50LatencyMs": null,
+      "p95LatencyMs": null,
+      "retrievalOnly": true,
+      "embedModel": "text-embedding-3-small",
+      "answerModel": null,
+      "k": 40,
+      "keep": 14
+    },
+    "byType": {
+      "broad-concept": {
+        "n": 5,
+        "errors": 5,
+        "retrievalHitRate": null,
+        "hitDenominator": 0,
+        "refusalCorrectRate": null,
+        "refusalDenominator": 0,
+        "avgUniqueFilms": null,
+        "p50LatencyMs": null,
+        "p95LatencyMs": null,
+        "avgCitations": null,
+        "usedLineRate": null,
+        "outOfRangeCiteTotal": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "bc-001",
+      "type": "broad-concept",
+      "lang": "en",
+      "question": "How does cinema portray surveillance?",
+      "should_refuse": false,
+      "error": "fetch failed",
+      "latencyMs": 20
+    },
+    {
+      "id": "bc-002",
+      "type": "broad-concept",
+      "lang": "en",
+      "question": "What does the color red tend to mean on screen?",
+      "should_refuse": false,
+      "error": "fetch failed",
+      "latencyMs": 8
+    },
+    {
+      "id": "bc-003",
+      "type": "broad-concept",
+      "lang": "en",
+      "question": "How do films show grief without dialogue?",
+      "should_refuse": false,
+      "error": "fetch failed",
+      "latencyMs": 8
+    },
+    {
+      "id": "bc-004",
+      "type": "broad-concept",
+      "lang": "en",
+      "question": "What is the meaning of mirrors on screen?",
+      "should_refuse": false,
+      "error": "fetch failed",
+      "latencyMs": 2
+    },
+    {
+      "id": "bc-005",
+      "type": "broad-concept",
+      "lang": "en",
+      "question": "How does film depict the loss of self or fractured identity?",
+      "should_refuse": false,
+      "error": "fetch failed",
+      "latencyMs": 1
+    }
+  ]
+}

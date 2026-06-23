@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metatake — Follow the thread (home redesign prototype)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --bg2:#070708; --panel:#101013; --line:rgba(239,233,221,.12);
+  --ink:#efe9dd; --ink2:#a9a193; --ink3:#6d675c;
+  --thread:#e0a34a; --thread-bright:#f4bd66;
+  --serif:'Fraunces',Georgia,serif; --ui:'Inter',system-ui,sans-serif;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.kick{font:500 11px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--thread)}
+.muted{color:var(--ink2)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.reg{display:inline-block;font:500 10.5px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,border-color .35s;
+  border-bottom:1px solid transparent}
+header.solid{background:rgba(8,8,10,.82);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mark{display:flex;align-items:baseline;gap:11px}
+.mark b{font:600 17px/1 var(--ui);letter-spacing:.16em}
+.mark span{font:400 11.5px/1 var(--ui);color:var(--ink2);letter-spacing:.02em}
+nav{display:flex;gap:26px;align-items:center}
+nav a{font:500 13px/1 var(--ui);color:var(--ink2);transition:color .2s}
+nav a:hover{color:var(--ink)}
+nav .s{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;color:var(--ink2)}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:660px;overflow:hidden;background:var(--bg2)}
+.dip{position:absolute;inset:0;display:flex}
+.pane{flex:1;background-size:cover;background-position:center;transition:opacity .6s ease;
+  animation:burns 18s ease-in-out infinite alternate}
+.pane.r{animation-delay:-9s}
+@keyframes burns{from{transform:scale(1.02)}to{transform:scale(1.13)}}
+.seam{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(0,0,0,.5);z-index:3}
+.hero-grad{position:absolute;inset:0;z-index:4;
+  background:linear-gradient(90deg,rgba(7,7,9,.94) 0%,rgba(7,7,9,.66) 38%,rgba(7,7,9,.28) 62%,rgba(7,7,9,.78) 100%),
+             linear-gradient(0deg,rgba(7,7,9,.92) 2%,rgba(7,7,9,0) 34%)}
+.hero-in{position:relative;z-index:6;max-width:var(--maxw);margin:0 auto;height:100%;padding:0 28px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:9vh}
+.hero-in .kick{margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.hero-in .kick i{width:5px;height:5px;border-radius:50%;background:var(--thread);display:inline-block}
+.htitle{font:600 clamp(44px,7.4vw,104px)/0.98 var(--serif);letter-spacing:-.018em;margin:0;max-width:15ch}
+.hlac{font:400 italic 19px/1.5 var(--serif);color:var(--ink2);margin:18px 0 0;max-width:46ch}
+.pairline{display:flex;align-items:center;gap:14px;margin-top:26px;flex-wrap:wrap;max-width:62ch}
+.pairline .fp{font:500 13px/1 var(--ui);color:var(--ink)}
+.pairline .fp em{font-style:normal;color:var(--ink2)}
+.pairline .x{color:var(--thread);font-size:15px}
+.preading{font:400 italic 16px/1.5 var(--serif);color:var(--ink);margin:14px 0 0;max-width:60ch;min-height:48px}
+.hctrl{display:flex;align-items:center;gap:18px;margin-top:30px}
+.dots{display:flex;gap:8px}
+.dot{width:30px;height:3px;background:rgba(239,233,221,.22);border:0;border-radius:2px;cursor:pointer;transition:background .25s}
+.dot.on{background:var(--thread)}
+.arw{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:50%;cursor:pointer;font-size:16px;transition:.2s}
+.arw:hover{border-color:var(--thread);color:var(--thread)}
+.follow{margin-left:auto;display:inline-flex;align-items:center;gap:9px;font:500 12px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);cursor:pointer}
+.follow:hover{color:var(--thread)}
+.follow .a{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+
+/* generic section */
+section.blk{padding:120px 0;border-top:1px solid var(--line)}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:46px}
+.shead h2{font:500 clamp(28px,3.6vw,42px)/1.05 var(--serif);letter-spacing:-.01em;margin:.4rem 0 0}
+.shead p{font:400 15px/1.6 var(--ui);color:var(--ink2);margin:10px 0 0;max-width:52ch}
+.shead .more{font:500 12px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);white-space:nowrap}
+.shead .more:hover{color:var(--thread)}
+
+/* constellation */
+.constel{position:relative;width:100%;max-width:640px;margin:0 auto;aspect-ratio:1/1}
+.constel svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cnode{position:absolute;width:104px;height:66px;margin:-33px 0 0 -52px;border-radius:7px;overflow:hidden;
+  border:1px solid var(--line);cursor:pointer;background-size:cover;background-position:center;
+  transition:transform .25s,border-color .25s;filter:saturate(.85) brightness(.78)}
+.cnode:after{content:attr(data-f);position:absolute;left:0;right:0;bottom:0;padding:4px 6px;
+  font:500 9.5px/1.1 var(--ui);letter-spacing:.02em;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
+.cnode:hover,.cnode.on{transform:scale(1.12);border-color:var(--thread);filter:saturate(1) brightness(1)}
+.ccenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46%;text-align:center;z-index:5}
+.ccenter .ct{font:600 22px/1.15 var(--serif);letter-spacing:-.01em}
+.ccenter .cl{font:400 italic 12.5px/1.45 var(--serif);color:var(--ink2);margin-top:8px}
+.ccenter .cr{font:400 italic 13.5px/1.5 var(--serif);color:var(--ink);margin-top:14px;min-height:60px;
+  transition:opacity .25s}
+.ccenter .cf{margin-top:8px;font:500 10.5px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--thread)}
+
+/* lens */
+.lens{display:grid;grid-template-columns:1.05fr .95fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.lens-img{position:relative;min-height:520px;background-size:cover;background-position:center;transition:filter .5s}
+.lens-img .cap{position:absolute;left:0;right:0;bottom:0;padding:20px 22px;z-index:3;
+  background:linear-gradient(0deg,rgba(0,0,0,.82),transparent)}
+.lens-img .cap b{font:500 14px/1.2 var(--ui)}
+.lens-img .cap span{display:block;font:400 12px/1.4 var(--ui);color:#cfc8ba;margin-top:3px}
+.lens-img .tint{position:absolute;inset:0;mix-blend-mode:soft-light;transition:background .5s;z-index:2}
+.lens-r{padding:42px 40px;display:flex;flex-direction:column}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.chip{font:500 11px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);
+  border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 13px;cursor:pointer;transition:.2s}
+.chip:hover{color:var(--ink);border-color:var(--ink2)}
+.chip.on{color:#0a0a0c;background:var(--thread);border-color:var(--thread)}
+.lens-read{font:400 23px/1.5 var(--serif);letter-spacing:-.005em;flex:1;transition:opacity .25s}
+.lens-read .q{color:var(--thread);font-size:30px;line-height:0;vertical-align:-.1em;margin-right:4px}
+.lens-foot{margin-top:26px;font:500 12px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);cursor:pointer}
+.lens-foot:hover{color:var(--thread)}
+
+/* feed */
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);
+  cursor:pointer;transition:transform .3s,border-color .3s;opacity:0;transform:translateY(18px)}
+.card.in{opacity:1;transform:none}
+.card:hover{transform:translateY(-4px);border-color:var(--thread)}
+.card .ph{height:188px;background-size:cover;background-position:center;filter:saturate(.9) brightness(.82);transition:.3s}
+.card:hover .ph{filter:saturate(1.05) brightness(.95)}
+.card .ph:after{content:'';position:absolute;left:0;right:0;top:0;height:188px;
+  background:linear-gradient(0deg,rgba(16,16,19,.96) 4%,rgba(16,16,19,.1) 60%)}
+.card .body{position:relative;padding:0 18px 20px;margin-top:-46px;z-index:2}
+.card .mt{font:500 20px/1.18 var(--serif);letter-spacing:-.005em;margin:10px 0 0}
+.card .fm{font:500 12px/1 var(--ui);color:var(--ink2);margin-top:9px}
+.card .sn{font:400 13.5px/1.55 var(--serif);color:var(--ink2);margin-top:10px}
+.card .go{margin-top:13px;font:500 11px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--thread);opacity:0;transition:.25s}
+.card:hover .go{opacity:1}
+.loadwrap{display:flex;justify-content:center;margin-top:48px}
+.load{font:500 12px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+  border:1px solid var(--line);background:transparent;border-radius:999px;padding:15px 30px;cursor:pointer;transition:.2s}
+.load:hover{color:var(--thread);border-color:var(--thread)}
+
+/* footer */
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:80px 0 70px}
+.stats{display:flex;gap:54px;flex-wrap:wrap;margin-bottom:54px}
+.stat b{font:500 38px/1 var(--serif);color:var(--ink)}
+.stat span{display:block;font:500 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-top:10px}
+.lenses{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.lenses a{font:500 12px/1 var(--ui);letter-spacing:.04em;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:10px 14px;transition:.2s}
+.lenses a:hover{color:var(--thread);border-color:var(--thread)}
+.fnote{margin-top:54px;padding-top:30px;border-top:1px solid var(--line);font:400 12.5px/1.7 var(--ui);color:var(--ink3);max-width:70ch}
+
+@media(max-width:880px){
+  nav .nl{display:none}
+  .lens{grid-template-columns:1fr}
+  .lens-img{min-height:300px}
+  .feed{grid-template-columns:1fr 1fr}
+  section.blk{padding:84px 0}
+}
+@media(max-width:620px){ .feed{grid-template-columns:1fr} .hero-grad{background:linear-gradient(0deg,rgba(7,7,9,.95) 8%,rgba(7,7,9,.3) 70%)} }
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header id="hdr">
+  <div class="bar">
+    <a class="mark" href="#top"><b>METATAKE</b><span>the unconscious lines between films</span></a>
+    <nav>
+      <a class="nl" href="#threads">Threads</a>
+      <a class="nl" href="#lens">Lenses</a>
+      <a class="nl" href="#feed">Readings</a>
+      <a class="nl" href="#feed">Films</a>
+      <a class="s" href="#" aria-label="search">⌕</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="threads" aria-label="Thread of the day">
+    <div class="dip">
+      <div class="pane" id="paneA"></div>
+      <div class="pane r" id="paneB"></div>
+    </div>
+    <div class="seam"></div>
+    <div class="hero-grad"></div>
+    <div class="hero-in">
+      <div class="kick"><i></i><span id="hk">Thread of the day · connects 8 films</span></div>
+      <h1 class="htitle"><a id="htitle" href="#">The Reciprocal Final Look</a></h1>
+      <p class="hlac">Closing shots flip surveillance into mutual recognition — the watched, at last, look back.</p>
+      <div class="pairline" id="pairline"></div>
+      <p class="preading" id="preading"></p>
+      <div class="hctrl">
+        <button class="arw" id="prev" aria-label="previous">‹</button>
+        <button class="arw" id="next" aria-label="next">›</button>
+        <div class="dots" id="dots"></div>
+        <a class="follow" href="#constel">Follow this thread <span class="a">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSTELLATION -->
+  <section class="blk" id="constel">
+    <div class="wrap">
+      <div class="shead reveal">
+        <div>
+          <div class="kick">One gesture · eight worlds</div>
+          <h2>The same closing move, across films that never meet</h2>
+          <p>A Korean crime procedural, a French period romance, a German surveillance drama — all end by handing the look back. Hover a film to read how. This is one of 4,581 such hubs.</p>
+        </div>
+        <a class="more" href="#">Open the hub →</a>
+      </div>
+      <div class="constel reveal" id="constelMap" aria-label="constellation map">
+        <svg id="threads-svg"></svg>
+        <div class="ccenter">
+          <div class="ct">The Reciprocal<br>Final Look</div>
+          <div class="cl">Surveillance flips into mutual recognition.</div>
+          <div class="cr" id="cReading">Hover any film to follow the thread into its reading.</div>
+          <div class="cf" id="cFilm"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LENS -->
+  <section class="blk" id="lens">
+    <div class="wrap">
+      <div class="shead reveal">
+        <div>
+          <div class="kick">One frame · re-seen</div>
+          <h2>The same image, through six minds</h2>
+          <p>A single shot in <em>Ida</em> — two women digging for a grave. Switch the lens; the meaning turns. No general chatbot gives you ten disciplined readings of one frame.</p>
+        </div>
+      </div>
+      <div class="lens reveal">
+        <div class="lens-img" id="lensImg">
+          <div class="tint" id="lensTint"></div>
+          <div class="cap"><b>Ida (2013)</b><span>The search for the unmarked grave of Ida's parents</span></div>
+        </div>
+        <div class="lens-r">
+          <div class="kick">Choose a lens</div>
+          <div class="chips" id="chips"></div>
+          <div class="lens-read" id="lensRead"></div>
+          <a class="lens-foot" href="#">Open all readings of this frame →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEED -->
+  <section class="blk" id="feed">
+    <div class="wrap">
+      <div class="shead reveal">
+        <div>
+          <div class="kick">Keep pulling the thread</div>
+          <h2>Every frame opens a dozen doors</h2>
+          <p>The Male Gaze on a ballet thriller. The bootstrap myth in a prison. Homosocial triangulation in a teen comedy. Each card is one reading — and one way in.</p>
+        </div>
+        <a class="more" href="#">Browse 18,004 readings →</a>
+      </div>
+      <div class="feed" id="feedGrid"></div>
+      <div class="loadwrap"><button class="load" id="loadMore">Load more readings</button></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><b>565</b><span>films</span></div>
+        <div class="stat"><b>4,626</b><span>figures</span></div>
+        <div class="stat"><b>18,004</b><span>readings</span></div>
+        <div class="stat"><b>4,581</b><span>meta-takes</span></div>
+      </div>
+      <div class="kick">Enter through a lens</div>
+      <div class="lenses" id="lensesNav"></div>
+      <p class="fnote">Prototype — Metatake home redesign. Stills via TMDB; readings are real rows from the live database. Links open the live site (filmcurio.com). Best viewed on desktop; the hero, the constellation, and the lens are live and clickable.</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+const SITE='https://filmcurio.com';
+const BD='https://image.tmdb.org/t/p/w1280';
+const BDs='https://image.tmdb.org/t/p/w780';
+const open=(u)=>window.open(u,'_blank');
+
+/* ---------- HERO pairings ---------- */
+const PAIRS=[
+ {a:{f:'Memories of Murder',y:2003,s:'memories-of-murder-2003',r:'reception',bd:'/6Kn6qW3an3DkPl3MahWemTzrjCt.jpg'},
+  b:{f:'Portrait of a Lady on Fire',y:2019,s:'portrait-of-a-lady-on-fire-2019',r:'reception',bd:'/ivJ5UzT6IzucLVfbZwCCwiJJoBz.jpg'},
+  line:'A detective turns to the camera; a lover is finally given the whole frame. Both endings hand the look back to the watched.'},
+ {a:{f:'The Lives of Others',y:2006,s:'the-lives-of-others-2006',r:'philosophical',bd:'/g11nKgir3nIhlG2gIDWIvJeR4fz.jpg'},
+  b:{f:'Poetry',y:2010,s:'poetry-2010',r:'existential',bd:'/m3xCLh3b3QH9QkZx67argsU5PTO.jpg'},
+  line:'One-way surveillance becomes mutual recognition — and a faceless woman, at the very end, turns and sees us.'},
+ {a:{f:'Carol',y:2015,s:'carol-2015',r:'formal',bd:'/o0ghC4XMIMdbRBXIqSvnPrxwj3W.jpg'},
+  b:{f:'A Short Film About Love',y:1988,s:'a-short-film-about-love-1988',r:'formal',bd:'/1GzNRA6kKW18EsL52vQVybUAu1v.jpg'},
+  line:'The optics flip: the one who was looked at picks up the instrument and looks. The camera refuses to break the gaze.'},
+ {a:{f:'The Secret in Their Eyes',y:2009,s:'the-secret-in-their-eyes-2009',r:'psychoanalytic',bd:'/fNHCogWhABNAmzk0IFdzQP5XLYj.jpg'},
+  b:{f:'Young & Beautiful',y:2013,s:'young-beautiful-2013',r:'psychoanalytic',bd:'/6NQqojkmxGe3sxs9bNx6Mi9BuOd.jpg'},
+  line:'You can’t fake where you look — a longing frozen in a photograph; two gazes meeting and recognising a possible self.'},
+];
+let pi=0,timer=null;
+const paneA=document.getElementById('paneA'),paneB=document.getElementById('paneB');
+const pairline=document.getElementById('pairline'),preading=document.getElementById('preading');
+const dotsWrap=document.getElementById('dots');
+PAIRS.forEach((_,i)=>{const d=document.createElement('button');d.className='dot'+(i===0?' on':'');d.onclick=()=>{go(i);rest();};dotsWrap.appendChild(d);});
+function render(){
+  const p=PAIRS[pi];
+  paneA.style.opacity=0;paneB.style.opacity=0;
+  setTimeout(()=>{
+    paneA.style.backgroundImage=`url(${BD}${p.a.bd})`;
+    paneB.style.backgroundImage=`url(${BD}${p.b.bd})`;
+    paneA.style.opacity=1;paneB.style.opacity=1;
+  },180);
+  pairline.innerHTML=
+    `<a class="fp" href="${SITE}/film/${p.a.s}" target="_blank">${p.a.f} <em>(${p.a.y}) · ${p.a.r}</em></a>`+
+    `<span class="x">⟷</span>`+
+    `<a class="fp" href="${SITE}/film/${p.b.s}" target="_blank">${p.b.f} <em>(${p.b.y}) · ${p.b.r}</em></a>`;
+  preading.textContent=p.line;
+  [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('on',i===pi));
+}
+function go(i){pi=(i+PAIRS.length)%PAIRS.length;render();}
+function rest(){clearInterval(timer);timer=setInterval(()=>go(pi+1),5600);}
+document.getElementById('next').onclick=()=>{go(pi+1);rest();};
+document.getElementById('prev').onclick=()=>{go(pi-1);rest();};
+document.getElementById('htitle').href=SITE+'/take/the-reciprocal-final-look';
+document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(timer));
+document.querySelector('.hero').addEventListener('mouseleave',rest);
+render();rest();
+
+/* ---------- CONSTELLATION ---------- */
+const NODES=[
+ {f:'Poetry',s:'poetry-2010',r:'existential',bd:'/m3xCLh3b3QH9QkZx67argsU5PTO.jpg',line:'Agnes has no face for the whole film — then she turns and looks back at us. One act of seeing, saved for the last frame.'},
+ {f:'A Short Film About Love',s:'a-short-film-about-love-1988',r:'formal',bd:'/1GzNRA6kKW18EsL52vQVybUAu1v.jpg',line:'For the whole film we watch through Tomek’s telescope; now Magda takes it and aims it back at her own window.'},
+ {f:'Carol',s:'carol-2015',r:'formal',bd:'/o0ghC4XMIMdbRBXIqSvnPrxwj3W.jpg',line:'Everything collapses into one final exchanged look the camera refuses to break — eyes, not an embrace, end the film.'},
+ {f:'The Lives of Others',s:'the-lives-of-others-2006',r:'philosophical',bd:'/g11nKgir3nIhlG2gIDWIvJeR4fz.jpg',line:'Wiesler buys Dreyman’s book; the one-way watch becomes a reciprocal gaze that quietly remakes the watcher.'},
+ {f:'The Secret in Their Eyes',s:'the-secret-in-their-eyes-2009',r:'psychoanalytic',bd:'/fNHCogWhABNAmzk0IFdzQP5XLYj.jpg',line:'You can’t fake where you look: the case cracks because a man’s eyes betray a longing he never spoke aloud.'},
+ {f:'Young & Beautiful',s:'young-beautiful-2013',r:'psychoanalytic',bd:'/6NQqojkmxGe3sxs9bNx6Mi9BuOd.jpg',line:'Two gazes meet — and each woman catches sight of a possible future of her own in the other’s longing.'},
+ {f:'Portrait of a Lady on Fire',s:'portrait-of-a-lady-on-fire-2019',r:'reception',bd:'/ivJ5UzT6IzucLVfbZwCCwiJJoBz.jpg',line:'The ending pays off the whole film’s question of who gets to look: the observed woman is given the entire frame.'},
+ {f:'Memories of Murder',s:'memories-of-murder-2003',r:'reception',bd:'/6Kn6qW3an3DkPl3MahWemTzrjCt.jpg',line:'Park turns and stares straight into the lens — Bong pointing at us; the murderer might be among the viewers.'},
+];
+(function buildConstel(){
+  const map=document.getElementById('constelMap');
+  const svg=document.getElementById('threads-svg');
+  const size=600,cx=size/2,cy=size/2,R=232;
+  svg.setAttribute('viewBox',`0 0 ${size} ${size}`);
+  const cReading=document.getElementById('cReading'),cFilm=document.getElementById('cFilm');
+  NODES.forEach((n,i)=>{
+    const ang=(-90+i*45)*Math.PI/180;
+    const x=cx+R*Math.cos(ang),y=cy+R*Math.sin(ang);
+    const ln=document.createElementNS('http://www.w3.org/2000/svg','line');
+    ln.setAttribute('x1',cx);ln.setAttribute('y1',cy);ln.setAttribute('x2',x);ln.setAttribute('y2',y);
+    ln.setAttribute('stroke','rgba(224,163,74,.28)');ln.setAttribute('stroke-width','1');ln.id='ln'+i;
+    svg.appendChild(ln);
+    const node=document.createElement('div');
+    node.className='cnode';node.style.left=(x/size*100)+'%';node.style.top=(y/size*100)+'%';
+    node.style.backgroundImage=`url(${BDs}${n.bd})`;node.setAttribute('data-f',n.f);
+    node.onmouseenter=()=>{
+      cReading.style.opacity=0;
+      setTimeout(()=>{cReading.textContent='“'+n.line+'”';cReading.style.opacity=1;},140);
+      cFilm.textContent=n.f+' · '+n.r;
+      ln.setAttribute('stroke','rgba(244,189,102,.95)');ln.setAttribute('stroke-width','2');
+      document.querySelectorAll('.cnode')[i]?.classList.add('on');
+    };
+    node.onmouseleave=()=>{ln.setAttribute('stroke','rgba(224,163,74,.28)');ln.setAttribute('stroke-width','1');node.classList.remove('on');};
+    node.onclick=()=>open(`${SITE}/film/${n.s}`);
+    map.appendChild(node);
+  });
+})();
+
+/* ---------- LENS (Ida) ---------- */
+const IDA_BD='/c9SvfYLJyai34bafR1AvqD9vAJi.jpg';
+const TINT={existential:'rgba(70,90,130,.6)',mythic:'rgba(120,80,40,.6)',philosophical:'rgba(60,70,80,.55)',
+  'politico-economic':'rgba(120,50,40,.55)',psychoanalytic:'rgba(90,50,90,.6)',semiotic:'rgba(40,90,80,.55)'};
+const IDA=[
+ {r:'existential',t:'Two women clawing wet earth in the dark — no priest, no marker. The one act in the film that is genuinely theirs to perform.'},
+ {r:'mythic',t:'It plays like an old underworld errand: go down into the ground, find your dead, and bring something back to the living world.'},
+ {r:'philosophical',t:'The farmer keeps his gaze low and never quite faces them; a stranger’s presence at the pit changes what can be confessed.'},
+ {r:'politico-economic',t:'Strip away the spiritual weight and the dig is a transaction — bones traded for a stolen farm, a confession for property.'},
+ {r:'psychoanalytic',t:'She thought she was an orphan with a calling; the dig tells her she is the survivor of a murder, the one infant spared.'},
+ {r:'semiotic',t:'The absent — the murdered parents — exert a more defining force on the frame than anyone still alive within it.'},
+];
+const chips=document.getElementById('chips'),lensRead=document.getElementById('lensRead'),
+  lensImg=document.getElementById('lensImg'),lensTint=document.getElementById('lensTint');
+lensImg.style.backgroundImage=`url(${BD}${IDA_BD})`;
+IDA.forEach((d,i)=>{const c=document.createElement('button');c.className='chip'+(i===0?' on':'');
+  c.textContent=d.r.replace('-',' ');c.onclick=()=>setLens(i);chips.appendChild(c);});
+function setLens(i){
+  [...chips.children].forEach((c,j)=>c.classList.toggle('on',i===j));
+  lensRead.style.opacity=0;
+  setTimeout(()=>{lensRead.innerHTML='<span class="q">“</span>'+IDA[i].t;lensRead.style.opacity=1;},150);
+  lensTint.style.background=TINT[IDA[i].r]||'transparent';
+}
+setLens(0);
+
+/* ---------- FEED ---------- */
+const FEED=[
+ {f:'Black Swan',y:2010,s:'black-swan-2010',bd:'/eDLp4uFdqP1gpy9oMrutwH6Q64I.jpg',r:'psychoanalytic',mt:'The Male Gaze',mts:'the-male-gaze',sn:'Nina, watched by everyone — her mentor, her mother, the mirror, us — read straight through Mulvey.'},
+ {f:'A Prophet',y:2009,s:'a-prophet-2009',bd:'/jEJDjDBT6KCoS4WOBq68vZMbFk2.jpg',r:'ideological',mt:'The Bootstrap Gospel of Merit',mts:'the-bootstrap-gospel-of-merit',sn:'A prison climb told in the upbeat language of self-improvement — every beating an investment.'},
+ {f:'10 Things I Hate About You',y:1999,s:'10-things-i-hate-about-you-1999',bd:'/yvPbncYhMu9FfTjDhq0N5lgnVkO.jpg',r:'psychoanalytic',mt:'Homosocial Triangulation',mts:'homosocial-triangulation',sn:'He can’t just ask her out — his want has to detour through brokering another man’s romance.'},
+ {f:'Ocean’s Eleven',y:2001,s:'ocean-s-eleven-2001',bd:'/ncoqdHs1poUaBqyKic9YI8ai7MP.jpg',r:'semiotic',mt:'The Camera Inside the Frame',mts:'the-camera-inside-the-frame',sn:'Split-screen turns the heist into the very surveillance monitors the crew is beating.'},
+ {f:'Gravity',y:2013,s:'gravity-2013',bd:'/a2n6bKD7qhCPCAEALgsAhWOAQcc.jpg',r:'genealogical',mt:'The Technological Sublime',mts:'the-technological-sublime',sn:'The moment the digital toolkit stops imitating reality and starts building it around real faces.'},
+ {f:'300',y:2006,s:'300-2006',bd:'/lgBZlJ1LHQel5nneNQMoesmvc7l.jpg',r:'semiotic',mt:'The Posthuman Body',mts:'the-posthuman-body',sn:'Perfected Spartans against altered Persians — a war staged over the future of the body.'},
+ {f:'Grave of the Fireflies',y:1988,s:'grave-of-the-fireflies-1988',bd:'/aHaqZpOL7UyVu0nKqp3SMz0o2E1.jpg',r:'reception',mt:'The National Allegory',mts:'national-allegory',sn:'Is it even an anti-war film? Takahata resisted the label; critics have split for decades.'},
+ {f:'Perfect Days',y:2023,s:'perfect-days-2023',bd:'/hjWxngV6tidwDkfJDEgMjHD2KEz.jpg',r:'genealogical',mt:'Transnational Auteurism',mts:'transnational-auteurism',sn:'You’ve seen this stillness before — the floor-level camera, the cutaways to empty rooms.'},
+ {f:'Nomadland',y:2020,s:'nomadland-2020',bd:'/563sRDK3rZS31TXCdTY4lfcwrNK.jpg',r:'reception',mt:'Soundtrack as Emotional Engine',mts:'performance-and-soundtrack-as-emotional-engine',sn:'Did those looping piano lines pre-chew every feeling the images had already earned?'},
+ {f:'The Ballad of Narayama',y:1983,s:'the-ballad-of-narayama-1983',bd:'/76phbJ3Brq4VmpOomEOW9bNy8C5.jpg',r:'formal',mt:'The Alienation Effect',mts:'verfremdungseffekt-alienation-effect',sn:'A modern camera crew opens the film — a Brechtian jolt that breaks the folk tale’s spell.'},
+ {f:'Papicha',y:2019,s:'papicha-2019',bd:'/x4n5ZYRFdQ1o3ADbDq8LnIOufo2.jpg',r:'politico-economic',mt:'Indoctrination Through Family & Media',mts:'indoctrination-through-family-and-media',sn:'The dorm exists because the state decided to educate women and had to house them somewhere.'},
+ {f:'The Terminator',y:1984,s:'the-terminator',bd:'/ffdqHMWkh1h9MABwIfbfRJhgFW6.jpg',r:'politico-economic',mt:'The Self Consumed by the Role',mts:'the-self-consumed-by-the-role',sn:'Before she’s the mother of the future, Sarah is a girl wiping tables for tips.'},
+ {f:'Scott Pilgrim vs. the World',y:2010,s:'scott-pilgrim-vs-the-world-2010',bd:'/6R9nT6m8wmzayV5XOQq3TRA6yZw.jpg',r:'reception',mt:'Spirit Over Letter Adaptations',mts:'spirit-over-letter-adaptations',sn:'The adaptation feels true precisely because it disobeys the panel-by-panel original.'},
+ {f:'Comrades, Almost a Love Story',y:1996,s:'comrades-almost-a-love-story-1996',bd:'/zFPns25Qnt6WCM6DLQrPrNziC0e.jpg',r:'formal',mt:'The Confining Frame & Setting',mts:'the-confining-frame-and-setting',sn:'Hong Kong’s cramped streets and apartments as a specific time-space of deferred longing.'},
+];
+const grid=document.getElementById('feedGrid');
+function cardEl(d){
+  const a=document.createElement('a');a.className='card';a.href=`${SITE}/take/${d.mts}`;a.target='_blank';
+  a.innerHTML=`<div class="ph" style="background-image:url(${BDs}${d.bd})"></div>
+    <div class="body"><span class="reg">${d.r.replace('-',' ')}</span>
+    <div class="mt">${d.mt}</div><div class="fm">${d.f} · ${d.y}</div>
+    <div class="sn">${d.sn}</div><div class="go">Pull the thread →</div></div>`;
+  return a;
+}
+function addCards(list){list.forEach((d,i)=>{const el=cardEl(d);grid.appendChild(el);
+  setTimeout(()=>el.classList.add('in'),60*i);});}
+addCards(FEED);
+let loaded=1;
+document.getElementById('loadMore').onclick=function(){
+  const shuffled=[...FEED].sort(()=>Math.random()-0.5);addCards(shuffled);
+  loaded++;if(loaded>=3){this.textContent='That’s the demo set — the real feed is bottomless';this.disabled=true;this.style.opacity=.5;}
+};
+
+/* lenses nav */
+const LENSES=['Formal','Semiotic','Psychoanalytic','Ideological','Politico-economic','Philosophical','Existential','Mythic','Genealogical','Reception'];
+const ln=document.getElementById('lensesNav');
+LENSES.forEach(l=>{const a=document.createElement('a');a.textContent=l;a.href=SITE+'/meta-takes';a.target='_blank';ln.appendChild(a);});
+
+/* header solidify + reveal on scroll */
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>40));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

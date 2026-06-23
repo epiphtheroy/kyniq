@@ -20,7 +20,7 @@ tokens.
 | Product name | Kyniq | **FilmCurio** |
 | Wordmark (lowercase) | kyniq | **filmcurio** |
 | Domain | kyniq.io | **filmcurio.com** (on Vercel; NS1/NS2.VERCEL-DNS.COM) |
-| Contact email | contact.kyniq@gmail.com | **channel.wonwoo@gmail.com** |
+| Contact email | contact.kyniq@gmail.com | **wonwoo@metatake.net** |
 | AI byline (published answers) | "Kyniq Editorial" | **"FilmCurio Editorial"** |
 | Media bot (stills + YouTube) | "Kyniqbot" | **"Curiobot"** |
 | Lockup descriptor | "FILM INTERPRETATION COMMUNITY" | **"FILM Q&A COMMUNITY"** |
@@ -89,7 +89,7 @@ Min wordmark height ~18px; below that use the mark alone. Clear space ≈ the ma
   (palette/fonts/standing rules), `00-INDEX.md` (globals description).
 - **Design:** `globals.css`; `/brand/*` + `/brand/brand-guide.md`.
 - **Reference screens (all 13 `ref-*.html`):** brand lockup logo, new tokens, "FilmCurio
-  Editorial" byline, "Curiobot", curio about copy, `channel.wonwoo@gmail.com`, © FilmCurio.
+  Editorial" byline, "Curiobot", curio about copy, `wonwoo@metatake.net`, © FilmCurio.
   `ref-about.html` carries the **finished `/about` copy** (incl. the honest AI disclosure).
   `ref-chrome.html` is the canonical global header/footer.
 - **Content / pipeline docs:** `content-engine-overview.md`, `editorial-voices.md`,
@@ -133,12 +133,12 @@ The app may be built incrementally per the missions; apply each item as that are
 
 ### 5.5 Header / footer (global chrome — see `ref-chrome.html`)
 - Logo = FilmCurio mark + wordmark lockup (links home; wordmark `var(--ink)` for dark flip).
-- Footer: brand "FilmCurio", "Seoul, Republic of Korea", contact `channel.wonwoo@gmail.com`, TMDB
+- Footer: brand "FilmCurio", "Seoul, Republic of Korea", contact `wonwoo@metatake.net`, TMDB
   attribution, © 2026 FilmCurio, tagline "Read films closely.", descriptor "FILM Q&A COMMUNITY".
 
 ### 5.6 Email (transactional + sender identity)
 - Sender display name "FilmCurio"; `from` on filmcurio.com (e.g. `no-reply@filmcurio.com`) once
-  domain email + SPF/DKIM/DMARC are set; reply-to / published contact `channel.wonwoo@gmail.com`.
+  domain email + SPF/DKIM/DMARC are set; reply-to / published contact `wonwoo@metatake.net`.
 - Template logo, colors, and footer brand → FilmCurio.
 
 ### 5.7 Content pipeline (workers — see `content-engine-overview.md`, `pipeline-prompts.md`)
@@ -210,4 +210,4 @@ this, plus the sibling institutional pages per SPEC §6.9: `/contact`, `/guideli
 - **Global chrome:** `ref-chrome.html` · **Pages:** `ref-*.html` · **/about copy:** `ref-about.html`
 - **Pipeline byline / bot identity:** `content-engine-overview.md`, `pipeline-prompts.md`
 - **Standing build rules:** `AGENTS.md` · **Doc map:** `00-INDEX.md`
-- **Contact:** channel.wonwoo@gmail.com
+- **Contact:** wonwoo@metatake.net

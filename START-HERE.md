@@ -40,5 +40,5 @@ Named tracks: `mission-home-redesign-kickoff.md`, `mission-media-embed-kickoff.m
 ## Contact
 
 - **Domain:** filmcurio.com
-- **Email:** channel.wonwoo@gmail.com
+- **Email:** wonwoo@metatake.net
 - **Git:** github.com/epiphtheroy/kyniq (repo name is legacy)

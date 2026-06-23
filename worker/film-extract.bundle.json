@@ -1,0 +1,952 @@
+{
+  "model": "claude-opus-4-8",
+  "films": [
+    {
+      "film": "seven-samurai-1954",
+      "title": "Seven Samurai",
+      "film_intro": "Kurosawa's three-hour study of hired swords defending a farming village isn't a battle picture so much as a meditation on class, dignity, and who gets to be remembered. Every figure carries weight; the rain-soaked finale settles nothing cleanly.",
+      "figures": [
+        {
+          "label": "Kambei's shaved head",
+          "kind": "motif",
+          "description": "In Seven Samurai, the veteran leader Kambei has his topknot cut and head shaved to disguise himself as a monk in order to rescue a kidnapped child. The shorn head recurs as his calm, almost priestly authority.",
+          "character_names": "Kambei Shimada",
+          "image_query": "Seven Samurai Kambei shaved head monk Takashi Shimura",
+          "youtube_query": "Seven Samurai Kambei rescues child monk disguise scene",
+          "register_fit": [
+            "semiotic",
+            "existential",
+            "mythic"
+          ],
+          "takes": [
+            {
+              "register": "semiotic",
+              "angle": "The unsoldier",
+              "evidence": "Kambei kneels, has his topknot shorn, dons a monk's robe, and walks unarmed into the thief's hut to free the child.",
+              "rationale": "A samurai's topknot is his rank made visible, and he gives it up without ceremony to save a stranger's kid. That single haircut tells you everything about this man before he says it: he sheds the warrior's badge the moment it stops being useful and becomes a hindrance. The film keeps the bald head on him for the whole story, so we read his calm leadership against the soldier he's quietly stopped pretending to be.",
+              "metatake": {
+                "new": {
+                  "title": "The Surrendered Insignia",
+                  "laconic": "A character sheds the mark of rank to become merely useful."
+                }
+              },
+              "confidence": 0.78
+            },
+            {
+              "register": "existential",
+              "angle": "The defeated veteran",
+              "evidence": "Kambei tells Katsushiro he has fought many battles and always lost, stroking his bare scalp as he speaks of survival without victory.",
+              "rationale": "He says it plainly: he's lost every war he ever fought, and the smooth head reads like a tally of all that. There's no glory left in him, just a tired competence and a willingness to do one more impossible job for rice. What's moving is how little he expects from it. He recruits men knowing the math, knowing some will die, knowing nobody wins. The shaved head is a man who's stopped lying to himself.",
+              "metatake": {
+                "ref": "the-failing-body-s-betrayal"
+              }
+            },
+            {
+              "register": "mythic",
+              "angle": "The wandering monk-warrior",
+              "evidence": "The disguise that frees the child renders Kambei a figure between priest and soldier; villagers and ronin alike defer to his stillness.",
+              "rationale": "The image taps something older than this story — the holy man who is also deadly, the one who's renounced the world yet acts in it more decisively than anyone. He gathers a band, sets the plan, blesses the dying. People follow him the way you follow a hermit who came down from the mountain. The film leans into that aura, letting his shaved calm do the work of summoning the whole group into being.",
+              "metatake": {
+                "ref": "threshold-helpers-and-successor-heroes"
+              }
+            }
+          ],
+          "slug": "kambei-s-shaved-head"
+        },
+        {
+          "label": "Kikuchiyo",
+          "kind": "character",
+          "description": "In Seven Samurai, Kikuchiyo is the manic, sword-waving farmer's son who attaches himself to the samurai band, brandishing a stolen lineage scroll and oversized weapon. His loud bravado masks a fury at both peasants and samurai.",
+          "character_names": "Kikuchiyo",
+          "image_query": "Seven Samurai Kikuchiyo Toshiro Mifune sword",
+          "youtube_query": "Seven Samurai Kikuchiyo armor speech farmers samurai scene",
+          "register_fit": [
+            "ideological",
+            "psychoanalytic",
+            "formal"
+          ],
+          "takes": [
+            {
+              "register": "ideological",
+              "angle": "The man between classes",
+              "evidence": "Kikuchiyo erupts, holding up armor stripped from dead samurai, screaming that farmers are cunning, miserly cowards — because they were made that way by samurai who burned, robbed, and raped them.",
+              "rationale": "His big speech detonates the film's whole pretty premise of noble warriors saving humble peasants. He's a farmer pretending to be a samurai, so he can see the lie from both sides: the villagers are sly and frightened, sure, but who do you think did that to them? In one rant he names the system that produced both the desperate peasant and the murderous ronin, and he can't belong to either. That's why he shouts.",
+              "metatake": {
+                "ref": "the-community-s-naturalized-rules"
+              }
+            },
+            {
+              "register": "psychoanalytic",
+              "angle": "The stolen name",
+              "evidence": "Kikuchiyo produces a family scroll to prove samurai birth; Kambei notes the dates make him thirteen years old, exposing the forgery, and Kikuchiyo collapses into drunken rage.",
+              "rationale": "He carries around someone else's pedigree like a passport to a self he can never have. The forged scroll is the whole wound: he wants to be the thing that destroyed his family, the warrior caste, and the lie is so transparent that even the paper laughs at him. Every reckless charge after that is a man trying to earn by deed the identity he couldn't fake on parchment. He dies finally a samurai, which is the cruelest joke of all.",
+              "metatake": {
+                "ref": "reinvented-names-and-disavowed-origins"
+              }
+            },
+            {
+              "register": "formal",
+              "angle": "The body that won't sit still",
+              "evidence": "Mifune plays him in constant motion — scratching, leaping, sleeping splayed in the dirt, swinging the absurdly long sword — against the other ronin's economy of gesture.",
+              "rationale": "Watch him next to the still, composed swordsmen and the contrast does the characterization for free. The others conserve every movement; he flails, mugs, throws his whole body around. That restlessness reads as a man who doesn't fit his own skin, never trained into the discipline that frames the warrior's calm. The performance physically can't perform belonging. Kurosawa shoots the others in poised compositions and lets Mifune crash through them, a peasant's animal energy that no costume contains.",
+              "metatake": {
+                "ref": "grotesque-realism"
+              }
+            }
+          ],
+          "slug": "kikuchiyo"
+        },
+        {
+          "label": "The rain in the final battle",
+          "kind": "form",
+          "description": "In Seven Samurai, the climactic defense of the village unfolds in torrential rain that turns the ground to mud, soaking samurai and bandits alike as horses and bodies churn through the muck.",
+          "character_names": "",
+          "image_query": "Seven Samurai final battle rain mud",
+          "youtube_query": "Seven Samurai final battle rain mud horses scene",
+          "register_fit": [
+            "formal",
+            "existential",
+            "genealogical"
+          ],
+          "takes": [
+            {
+              "register": "formal",
+              "angle": "Weather as chaos engine",
+              "evidence": "The final fight is shot in driving rain with multiple cameras and telephoto lenses, mud erasing the clean choreography, men slipping, water streaking the frame.",
+              "rationale": "The rain isn't atmosphere, it's a weapon against legibility. It smears the image, makes everyone equally filthy and indistinguishable, dissolves the orderly battle plan into pure scramble. Shooting through telephoto with several cameras flattens the depth and packs the chaos right up against your face. You can't always tell who's winning, which is the point — combat here is not a duel but a mess. The mud makes a hero and a thief look identical.",
+              "metatake": {
+                "ref": "kinetic-camera-and-cutting"
+              }
+            },
+            {
+              "register": "existential",
+              "angle": "Indifferent downpour",
+              "evidence": "The rain falls equally on the dying samurai and the bandits, on the muddy graves, never letting up for any death.",
+              "rationale": "Nature doesn't care who's noble. The same water that drowns the bandit chief soaks the good men's corpses, and the sky keeps pouring regardless of who falls. There's no dramatic clearing for the hero's last stand, no sunbeam for sacrifice. Death here is wet, cold, and ordinary, and the weather refuses to grant it meaning. That refusal is the film's deepest honesty — heroism happens, men die for it, and the world goes on raining.",
+              "metatake": {
+                "ref": "the-indifferent-landscape"
+              }
+            },
+            {
+              "register": "genealogical",
+              "angle": "The template for every muddy finale",
+              "evidence": "The choreography of rain, mud, and multi-camera massed combat became the model later action and war films openly copied.",
+              "rationale": "This sequence is the source code for a thousand grim finales that came after — the dirty, weather-lashed last stand where glory and degradation are the same shade of brown. Before this, screen battles were largely clean and posed; here Kurosawa makes filth and confusion the very texture of fighting. Later filmmakers lifted the technique wholesale, the slow-motion deaths and the rain, until it stopped looking like an innovation and started looking like the natural way to shoot war.",
+              "metatake": {
+                "ref": "camera-movement-and-editing-rhythm"
+              }
+            }
+          ],
+          "slug": "the-rain-in-the-final-battle"
+        },
+        {
+          "label": "The four graves on the hill",
+          "kind": "object",
+          "description": "In Seven Samurai, four mounds with swords planted upright mark the dead samurai, set on a hill above the village. The final shot lingers on them as the survivors look up.",
+          "character_names": "",
+          "image_query": "Seven Samurai four graves swords hill final shot",
+          "youtube_query": "Seven Samurai ending graves we have lost again scene",
+          "register_fit": [
+            "existential",
+            "semiotic",
+            "ideological"
+          ],
+          "takes": [
+            {
+              "register": "existential",
+              "angle": "We have lost again",
+              "evidence": "Kambei stands before the four sword-topped mounds and tells Shichiroji that the farmers are the victors, not the samurai — 'again we have lost.'",
+              "rationale": "The line gut-punches the whole adventure. They won the battle, saved the village, and the leader calls it a defeat. Four of seven are dead in the dirt, and the men who'll thrive are the ones planting rice and singing. The graves on the high ground make the irony spatial — the samurai are literally above the village, monuments looking down on a life they protected but can never share. Their job was to fight and die for people who'll forget them.",
+              "metatake": {
+                "ref": "survivors-of-vanished-worlds"
+              }
+            },
+            {
+              "register": "semiotic",
+              "angle": "Swords as headstones",
+              "evidence": "Each mound is marked by an upright sword instead of a stone or name, blades that killed now standing as grave-markers.",
+              "rationale": "The weapon becomes the tombstone, which says it all about these men — they had nothing but the sword, so the sword is what's left. No names, no families, just the tool of their trade jammed into the earth. It's a marker that can't tell you who they were, only what they did. And the bare blades, useless now, planted in farmland they don't own, quietly admit that a warrior's whole identity collapses the instant the fighting stops.",
+              "metatake": {
+                "ref": "secular-transcendence-in-objects"
+              }
+            },
+            {
+              "register": "ideological",
+              "angle": "Whose history gets buried",
+              "evidence": "The graves sit silent above the planting song; the farmers' labor continues in the valley as the dead samurai recede from frame.",
+              "rationale": "The film ends not on the heroes but on the rice planting, the farmers' rhythm reabsorbing everything. The samurai die spectacularly and get four mounds; the peasants endure, multiply, and own the future. Kurosawa quietly sides with the ones who survive by working, and the graves become a marker of a class that's already obsolete, fighting for a world that has no place for them. The valley belongs to labor, and the warrior is just a temporary, expensive guest who pays with his life.",
+              "metatake": {
+                "ref": "restorative-nostalgia-3"
+              }
+            }
+          ],
+          "slug": "the-four-graves-on-the-hill"
+        },
+        {
+          "label": "The peasants' rice and millet",
+          "kind": "object",
+          "description": "In Seven Samurai, the village hires the samurai not for money but for food — bowls of white rice while the farmers themselves eat millet. The meager harvest is the currency of the entire deal.",
+          "character_names": "",
+          "image_query": "Seven Samurai farmers rice bowls samurai eating",
+          "youtube_query": "Seven Samurai farmers feed samurai rice millet scene",
+          "register_fit": [
+            "politico_economic",
+            "ideological",
+            "semiotic"
+          ],
+          "takes": [
+            {
+              "register": "politico_economic",
+              "angle": "Hired for a bowl of rice",
+              "evidence": "The villagers admit they can pay only food; the samurai agree to risk death for white rice while the farmers eat millet, and the recruits remark on the inequity of the meal.",
+              "rationale": "Strip away the heroism and the contract is brutal: men trade their lives for the difference between rice and millet. The villagers starve themselves to feed the swordsmen, and the swordsmen take the job because masterless warriors have nothing and no one. It's a bargain between two kinds of desperation. The food is the wage, and it exposes how thin the line is between the noble samurai and the wretched peasant — both are working for their next meal, just with different tools.",
+              "metatake": {
+                "ref": "the-dead-end-grind"
+              }
+            },
+            {
+              "register": "semiotic",
+              "angle": "Rice versus millet",
+              "evidence": "A samurai notices he's being fed white rice while the farmers crouch eating dark millet, and the moment turns the meal into an accusation.",
+              "rationale": "Two grains, two classes, one table. The farmers give away the good food and keep the poor stuff, and that small detail says more about who has and who doesn't than any speech. White rice is what you offer someone you fear and need; millet is what you survive on. When a samurai clocks the difference, his appetite curdles into shame. The film lets a bowl carry the whole weight of obligation, guilt, and the gap between the men eating side by side.",
+              "metatake": {
+                "ref": "labor-priced-in-chalk"
+              }
+            },
+            {
+              "register": "ideological",
+              "angle": "The hidden discovery of hoarded food",
+              "evidence": "The samurai find that the supposedly destitute farmers have hidden sake and food, exposing the peasants' wary cunning beneath their pleading poverty.",
+              "rationale": "Just when you've settled into pitying the noble starving peasants, the samurai find their stashes. Suddenly the helpless victims are calculating, hoarding survivors who'd let you die for their grain. The film refuses to let either side be simply good. The hidden food reframes the whole arrangement — the farmers aren't saints, they're shrewd, and their generosity with rice was a transaction, not gratitude. It complicates the rescue into something colder and more human: everyone here is protecting what little they have.",
+              "metatake": {
+                "ref": "the-community-s-naturalized-rules"
+              }
+            }
+          ],
+          "slug": "the-peasants-rice-and-millet"
+        },
+        {
+          "label": "Kyuzo",
+          "kind": "character",
+          "description": "In Seven Samurai, Kyuzo is the silent master swordsman, recruited after Kambei watches him win a duel without flourish. He speaks rarely, moves with total economy, and is admired wordlessly by the young Katsushiro.",
+          "character_names": "Kyuzo",
+          "image_query": "Seven Samurai Kyuzo swordsman Seiji Miyaguchi",
+          "youtube_query": "Seven Samurai Kyuzo duel scene introduction",
+          "register_fit": [
+            "formal",
+            "philosophical",
+            "psychoanalytic"
+          ],
+          "takes": [
+            {
+              "register": "formal",
+              "angle": "The economy of the master",
+              "evidence": "In his introduction Kyuzo wins a duel with a single clean stroke, no wasted motion, while his opponent flails; throughout, he stands utterly still.",
+              "rationale": "Everything Kikuchiyo is, Kyuzo isn't. His mastery shows entirely in what he doesn't do — no posturing, no extra movement, just one decisive cut and silence. The film builds his whole character out of stillness, framing him calm and centered while chaos moves around him. You learn to read his competence in the absence of effort. He's the purest expression of the warrior's ideal, and the contrast with the louder men makes restraint itself look like the highest skill.",
+              "metatake": {
+                "ref": "performing-emotional-control"
+              }
+            },
+            {
+              "register": "philosophical",
+              "angle": "The art with no purpose left",
+              "evidence": "Kyuzo pursues swordsmanship as a discipline for its own sake, sneaking out alone to steal a gun from the enemy purely as a feat, indifferent to reward.",
+              "rationale": "He's perfected an art that the world is rendering pointless — the gun that kills him needs no skill at all. Yet he keeps refining, treating combat as a craft to be honed rather than a means to anything. There's something almost monastic in it, a devotion to mastery that asks for no payoff. He's the most complete man on screen and also the most obsolete, and the film admires and mourns him at once. Excellence here is its own quiet, doomed reward.",
+              "metatake": {
+                "ref": "the-last-stubborn-no"
+              }
+            },
+            {
+              "register": "psychoanalytic",
+              "angle": "The object of the boy's worship",
+              "evidence": "Katsushiro watches Kyuzo with open-mouthed reverence, trailing him, longing to be him, his admiration framed as something nearer to love than respect.",
+              "rationale": "The young recruit doesn't just respect Kyuzo, he adores him with an intensity the film treats tenderly. Kyuzo is the ideal self Katsushiro will never be — composed, deadly, complete — and the boy's gaze keeps fixing on him with a hunger that has no other outlet. When Kyuzo dies, it lands on Katsushiro like a personal grief, the death of the man he wanted to grow into. The bond runs through admiration toward something the boy can't name.",
+              "metatake": {
+                "ref": "homosocial-desire"
+              }
+            }
+          ],
+          "slug": "kyuzo"
+        },
+        {
+          "label": "The water wheel and the outlying houses",
+          "kind": "location",
+          "description": "In Seven Samurai, the defense plan requires flooding the approaches and sacrificing the three outlying houses beyond the river, including the home by the turning water wheel, judged indefensible and abandoned to the bandits.",
+          "character_names": "",
+          "image_query": "Seven Samurai water wheel village house burning",
+          "youtube_query": "Seven Samurai outlying houses sacrifice water wheel burning scene",
+          "register_fit": [
+            "politico_economic",
+            "semiotic",
+            "existential"
+          ],
+          "takes": [
+            {
+              "register": "politico_economic",
+              "angle": "The arithmetic of who's defended",
+              "evidence": "Kambei draws a map and rules the three houses across the river indefensible; their owners must abandon their homes for the collective fort, sparking near-revolt.",
+              "rationale": "Defense is a budget, and someone always gets cut. The leader does the cold math and decides the outlying families lose their homes so the many can be saved. It's strategically sound and personally devastating, and the film stages the families' fury at being written off. The line on the map is a line between who's worth protecting and who isn't, drawn by an outsider with a strategist's logic. Survival as a group means somebody's house burns first.",
+              "metatake": {
+                "ref": "diffused-moral-authorship"
+              }
+            },
+            {
+              "register": "semiotic",
+              "angle": "The wheel that keeps turning",
+              "evidence": "The old man's house by the water wheel is among the sacrificed; the wheel keeps slowly turning even as the home is overrun and burned.",
+              "rationale": "That turning wheel is the village's whole way of life in miniature — patient, cyclical, tied to water and harvest. To abandon the house at the wheel is to give up a piece of the rhythm they're fighting to preserve. The image of it still turning while the home falls is quietly unbearable: the machine of ordinary life grinds on, indifferent to the people being killed beside it. Continuity and loss occupy the same frame, the wheel mourning nothing.",
+              "metatake": {
+                "ref": "the-recurring-motif-anchor"
+              }
+            },
+            {
+              "register": "existential",
+              "angle": "The home you can't hold",
+              "evidence": "The old man refuses to leave his house across the river even knowing it's doomed, clinging to the place that defines him as bandits close in.",
+              "rationale": "There's a kind of person who'd rather die at home than survive elsewhere, and the film honors that stubbornness even as the plan condemns it. To these farmers a house isn't shelter, it's identity, ancestors, the only proof you ever existed. Giving it up to save your skin feels like a smaller death. The strategy is right and the refusal is human, and Kurosawa lets both be true. Some things people won't trade for survival, and the film knows why.",
+              "metatake": {
+                "ref": "land-and-heritage-extracted"
+              }
+            }
+          ],
+          "slug": "the-water-wheel-and-the-outlying-houses"
+        }
+      ]
+    },
+    {
+      "film": "tokyo-story-1953",
+      "title": "Tokyo Story",
+      "film_intro": "Ozu's study of an elderly couple visiting their grown children in postwar Tokyo rewards attention because its meaning lives in framing, posture, props, and the spaces between dutiful words — not in event.",
+      "figures": [
+        {
+          "label": "Noriko",
+          "kind": "character",
+          "description": "In Tokyo Story, the widowed daughter-in-law who, of all the children, takes time off work to show the visiting parents the city and later tends the dying mother. She keeps a fixed smile and admits to her own emptiness only at the very end.",
+          "character_names": "Noriko",
+          "image_query": "Tokyo Story Noriko Setsuko Hara smiling",
+          "youtube_query": "Tokyo Story Noriko final scene Kyoko",
+          "register_fit": [
+            "philosophical",
+            "existential",
+            "politico_economic"
+          ],
+          "takes": [
+            {
+              "register": "philosophical",
+              "angle": "Goodness that doubts itself",
+              "evidence": "Her late confession to Kyoko that she is 'not the good woman you think,' that some days she forgets her dead husband, that she too is 'selfish.'",
+              "rationale": "Everyone calls Noriko the kind one, and you brace for the film to crown her a saint. Instead she dismantles the praise herself — confessing she forgets, that she manages her own loneliness, that her warmth is partly chosen labor against despair. Goodness here isn't a settled trait but a daily decision made by someone who knows she might stop. That admission is more moving than any halo, because it makes kindness a thing she has to keep doing, not a thing she is.",
+              "metatake": {
+                "new": {
+                  "title": "Goodness as Daily Decision",
+                  "laconic": "Virtue confessed as effortful choice, not settled nature, deepens it."
+                }
+              },
+              "confidence": 0.82
+            },
+            {
+              "register": "politico_economic",
+              "angle": "Unpaid devotion to the dead",
+              "evidence": "She takes leave from her office job to host the parents while the blood children plead they're too busy; her in-laws urge her to remarry and stop spending herself on a husband eight years dead.",
+              "rationale": "Watch who actually shows up. The real children run shops and clinics and have no hours to spare; the daughter-in-law, who owes them nothing by blood and has a job of her own, gives the time. The film quietly notices that the warmth holding this family together is donated by the one person with the least obligation and the least security. Her care is real labor, uncounted and unrewarded, and the others' busyness is the alibi that lets them accept it.",
+              "metatake": {
+                "ref": "women-s-uncounted-caretaking"
+              }
+            },
+            {
+              "register": "existential",
+              "angle": "Living on after the world ended",
+              "evidence": "The watch the mother gives her; her line that she can't keep grieving forever, said with a smile that doesn't reach the eyes.",
+              "rationale": "Her husband died in the war and her life simply continued without him, and that continuance is its own quiet horror. She isn't dramatically broken — she goes to the office, she smiles, she helps. But the film lets you feel that smiling itself is the achievement, that she has built a passable life on top of a loss she can't fully name. The handed-down watch lands like a baton: keep going, the way the old keep going, because there is nothing else to do.",
+              "metatake": {
+                "ref": "survivors-of-vanished-worlds"
+              }
+            }
+          ],
+          "slug": "noriko"
+        },
+        {
+          "label": "The tatami-level camera",
+          "kind": "form",
+          "description": "Throughout Tokyo Story the camera sits at the eye height of a person kneeling on a floor mat, roughly three feet up, almost never tilting, panning, or tracking. Characters enter and exit fixed frames; cuts join still views.",
+          "image_query": "Ozu Tokyo Story low angle tatami shot interior",
+          "youtube_query": "Ozu tatami shot low camera style Tokyo Story",
+          "register_fit": [
+            "formal",
+            "philosophical",
+            "genealogical"
+          ],
+          "takes": [
+            {
+              "register": "genealogical",
+              "angle": "The refusal of the moving camera",
+              "evidence": "Conversations cut between matched low frontal shots of each speaker rather than panning or reverse-angling in the standard Hollywood way; no crane, no dolly across the whole film.",
+              "rationale": "By the 1950s the rest of world cinema is busy moving — tracking, craning, swooping in. Ozu plants his camera on the floor and leaves it. Every choice the dominant grammar makes, he politely declines. The effect is less a quirk than a whole alternative idea of what film should do: not chase action but hold a place and wait for life to pass through it. Watch a few scenes and you can read his entire stubborn position toward cinema in the simple fact that nothing slides.",
+              "metatake": {
+                "ref": "camera-movement-and-editing-rhythm"
+              }
+            },
+            {
+              "register": "philosophical",
+              "angle": "The patient onlooker's height",
+              "evidence": "The lens rests at kneeling height even when no one kneels nearby, holding doorways and corridors empty for beats before and after people pass.",
+              "rationale": "That low, unmoving vantage isn't a person's point of view — nobody in the film looks from there. It's more like the room's own steady attention, present before the characters arrive and lingering after they leave. The world is simply allowed to be there, indifferent to whether anyone occupies it. Departures, arrivals, deaths all happen inside the same calm frame, none of them granted special emphasis. The camera's equanimity becomes a way of seeing the whole human bustle as small, passing, and quietly held.",
+              "metatake": {
+                "ref": "unmoved-camera-and-indifferent-nature"
+              }
+            },
+            {
+              "register": "formal",
+              "angle": "Cuts between stillness",
+              "evidence": "Scene transitions go through 'pillow shots' — a chimney, a passing train, washing on a line — held with no people, joined by straight cuts.",
+              "rationale": "Between human scenes Ozu drops in views of things: rooftops, a kettle, smokestacks, an empty hallway. They carry no plot, advance nothing, and yet they're where the film breathes. They reset your attention and let time settle, so that when the next conversation begins you arrive at it calmed rather than rushed. The film keeps insisting that the gaps between events matter as much as the events, and that watching a still object is itself a way of feeling time move.",
+              "metatake": {
+                "ref": "durational-aesthetics-4"
+              }
+            }
+          ],
+          "slug": "the-tatami-level-camera"
+        },
+        {
+          "label": "The visiting parents, Shukichi and Tomi",
+          "kind": "character",
+          "description": "In Tokyo Story the elderly couple from the seaside town of Onomichi who travel to Tokyo to see their grown children, are gently shuffled between households, and end up packed off to a noisy spa resort. The mother sickens and dies soon after returning home.",
+          "character_names": "Shukichi Hirayama, Tomi Hirayama",
+          "image_query": "Tokyo Story old couple Shukichi Tomi sitting",
+          "youtube_query": "Tokyo Story parents on the embankment scene",
+          "register_fit": [
+            "existential",
+            "politico_economic",
+            "mythic"
+          ],
+          "takes": [
+            {
+              "register": "existential",
+              "angle": "Politeness over disappointment",
+              "evidence": "Sitting on a sea wall after being sent to the spa, they agree their children have 'changed' but conclude they are 'better than most' — never raising their voices, never accusing.",
+              "rationale": "They came hoping to be wanted and discover they're a chore to be managed. What's devastating is how they absorb it: no scene, no reproach, just a measured verdict delivered to each other on a stone embankment that things turned out about as well as one could expect. The film makes you feel the whole weight of aging in that restraint — the recognition that you have become an inconvenience to the people you raised, and the dignity of declining to say so out loud.",
+              "metatake": {
+                "ref": "performing-emotional-control"
+              }
+            },
+            {
+              "register": "politico_economic",
+              "angle": "The elders priced as a burden",
+              "evidence": "The children debate who must host them, pool money to send them to the spa instead of giving time, and the daughter later eyes the mother's clothes after the funeral.",
+              "rationale": "Notice how every gesture toward the parents gets converted into a transaction: hours that can't be spared, a spa trip bought to discharge an obligation, mourning clothes assessed for their afterlife. Tokyo's striving households treat the old couple as a cost to be allocated efficiently. The film never raises its voice about this, but it shows duty curdling into accounting — care measured in yen and convenience because everyone is too busy earning to spend the one thing the parents actually wanted, which was attention.",
+              "metatake": {
+                "ref": "bodies-under-custodial-administration"
+              }
+            },
+            {
+              "register": "mythic",
+              "angle": "The journey that ends in death",
+              "evidence": "The structure: the long train journey up to the capital, the circuit through the children, the return home, and the mother's death immediately after — a round trip that closes in mourning.",
+              "rationale": "The whole film traces an old shape: elders leave home, cross into the great city seeking their kin, are tested by indifference, and turn back — and the return is also a passage out of life. Tomi falls ill on the way home and dies almost at the threshold. The visit reads like a final pilgrimage to see whether the next generation will carry the line, and the answer arrives as a homecoming that is really a leave-taking, the journey's true destination all along.",
+              "metatake": {
+                "ref": "thresholds-of-parting-and-passage"
+              }
+            }
+          ],
+          "slug": "the-visiting-parents-shukichi-and-tomi"
+        },
+        {
+          "label": "The Atami spa resort",
+          "kind": "location",
+          "description": "In Tokyo Story the hot-spring resort to which the children dispatch the parents instead of hosting them. It is full of young vacationers, loud late-night singing and mahjong, and the old couple lie awake unable to sleep before leaving early.",
+          "image_query": "Tokyo Story Atami spa resort scene old couple",
+          "youtube_query": "Tokyo Story Atami hot spring sleepless scene",
+          "register_fit": [
+            "politico_economic",
+            "existential",
+            "semiotic"
+          ],
+          "takes": [
+            {
+              "register": "politico_economic",
+              "angle": "Hospitality outsourced",
+              "evidence": "The children pool funds to send the parents to Atami; the parents sit on a breakwater the next morning, sleepless, and decide to go back.",
+              "rationale": "The spa is what affection looks like when it's converted into money. Rather than give the parents a quiet bed and a few hours of company, the children buy them a package and ship them off, a generosity that is also a removal. The place itself, designed for paying pleasure-seekers, has no room for two tired old people. The film quietly shows modern care becoming a service you purchase and delegate, the warmth subcontracted to an institution that doesn't know or want them.",
+              "metatake": {
+                "ref": "intimacy-for-hire"
+              }
+            },
+            {
+              "register": "existential",
+              "angle": "Surplus to the young world",
+              "evidence": "The frame holds the couple seated stiffly amid revelers; the camera lingers on them alone at dawn on the empty sea wall.",
+              "rationale": "Placed inside a building built for youthful leisure, the old couple become visibly out of place — the singing belongs to others, the mahjong belongs to others, even the hours belong to others. Their sleeplessness isn't just noise; it's the felt fact of no longer fitting the world's rhythm. The dawn shot of the two of them on the breakwater, finally alone, is almost a relief, because at least the emptiness there is honest. The resort makes their obsolescence into geography.",
+              "metatake": {
+                "ref": "survivors-of-vanished-worlds"
+              }
+            },
+            {
+              "register": "semiotic",
+              "angle": "The gift that means dismissal",
+              "evidence": "The trip is framed by the children as a treat — 'somewhere relaxing' — yet sends the parents away from the homes they came to share.",
+              "rationale": "On its face the spa is a present, a thoughtful indulgence for tired travelers. Read it against what the parents actually wanted and it flips into its opposite: a way of getting them out of the apartments. The same act reads as generosity to the givers and as exile to the receivers, and both readings are sincere. The film lets the gesture carry both charges at once, so the resort becomes a perfect emblem of duty that has learned to look like love while functioning as removal.",
+              "metatake": {
+                "ref": "the-dual-decoded-sign"
+              }
+            }
+          ],
+          "slug": "the-atami-spa-resort"
+        },
+        {
+          "label": "The handed-down watch",
+          "kind": "object",
+          "description": "In Tokyo Story the small timepiece the dying mother leaves to Noriko, given to her by Kyoko after the funeral. Noriko holds it as she weeps, the only moment her composure fully breaks.",
+          "character_names": "",
+          "image_query": "Tokyo Story watch Noriko crying final scene",
+          "youtube_query": "Tokyo Story watch Noriko weeping ending",
+          "register_fit": [
+            "semiotic",
+            "philosophical",
+            "existential"
+          ],
+          "takes": [
+            {
+              "register": "semiotic",
+              "angle": "Time as the bequest",
+              "evidence": "The dead mother's keepsake is specifically a watch, pressed into Noriko's hand and triggering her only tears; the film ends soon after on Onomichi clocks and a passing train.",
+              "rationale": "Of all the objects to leave behind, it's a watch — the thing that measures the very passing that just took the mother and will take everyone. Handing it to Noriko isn't merely sentimental; it transfers the burden of going on, of living through more of the time the watch keeps. The whole film has been about generations sliding past one another, and now that movement is condensed into a small ticking thing in an open palm. The inheritance is mortality itself, politely wrapped.",
+              "metatake": {
+                "ref": "the-recurring-motif-anchor"
+              }
+            },
+            {
+              "register": "philosophical",
+              "angle": "A small thing holding a whole grief",
+              "evidence": "Noriko, who has smiled through every prior scene, finally sobs only while clutching the watch.",
+              "rationale": "Everything Noriko cannot say — about the dead husband, the kind mother, her own loneliness — collects in this one object. She manages every conversation with a composed face, but the watch in her hand undoes her, because a held thing can carry feeling that words would only diminish. The film trusts the prop to do the confessing. Her breakdown isn't over the death exactly; it's over receiving a love that simple, from the only person who saw her clearly, and now gone.",
+              "metatake": {
+                "ref": "secular-transcendence-in-objects"
+              }
+            },
+            {
+              "register": "existential",
+              "angle": "The relay of carrying on",
+              "evidence": "Kyoko, the youngest, bitter about her siblings' coldness, is the one who passes the watch; Noriko gently counsels her that life is disappointing and one continues anyway.",
+              "rationale": "The watch moves from the dead mother, through the angry young sister, into the hands of the daughter-in-law — a chain of women told, each in turn, to keep going. Noriko's quiet advice to Kyoko that life lets you down and you live on regardless is the whole ethic of the film, and the watch is its physical token. Passing it is passing the instruction: the clock doesn't stop for grief, so you wind it and continue. Endurance handed forward, object to object, generation to generation.",
+              "metatake": {
+                "ref": "the-quiet-continuance-of-the-used-up"
+              }
+            }
+          ],
+          "slug": "the-handed-down-watch"
+        },
+        {
+          "label": "Onomichi and the passing train",
+          "kind": "motif",
+          "description": "In Tokyo Story the seaside hometown the couple leaves and returns to, marked by harbor views, a temple, and the recurring sight and sound of trains crossing the frame at beginnings, transitions, and the close.",
+          "image_query": "Tokyo Story Onomichi harbor train passing shot",
+          "youtube_query": "Tokyo Story Onomichi opening closing train",
+          "register_fit": [
+            "semiotic",
+            "philosophical",
+            "existential"
+          ],
+          "takes": [
+            {
+              "register": "semiotic",
+              "angle": "The train that keeps moving",
+              "evidence": "Trains open the film, carry the parents to Tokyo and back, and reappear at the end after the mother's death, gliding past the still harbor.",
+              "rationale": "The recurring train is the film's pulse: it carries the family apart and together, and it goes right on running after a death that changes everything for the people but nothing for the schedule. Each appearance reminds you that the world's motion is indifferent to private loss — the line still runs, the harbor still sits, the next departure is already due. By bracketing the story with these crossings, the film frames the whole grief as one stop on a route that continues without it.",
+              "metatake": {
+                "ref": "the-recurring-motif-anchor"
+              }
+            },
+            {
+              "register": "philosophical",
+              "angle": "Home as the place you outlive",
+              "evidence": "The same Onomichi harbor and temple open and close the film; the father sits alone in the now-emptier house at the end, the view unchanged.",
+              "rationale": "The town doesn't change — the harbor, the temple, the light are the same coming and going. What changes is who's left to look at it. The film returns the surviving father to an identical landscape that has quietly become a different place, because the person who made it home is gone. Stability and loss occupy the same frame: the world's calm permanence is exactly what makes the absence inside it unbearable. Home is revealed as the thing that stays while the people who filled it leave.",
+              "metatake": {
+                "ref": "the-indifferent-landscape"
+              }
+            },
+            {
+              "register": "existential",
+              "angle": "The hum that fills the silence",
+              "evidence": "The closing shots return to Onomichi with the distant sound of a passing train over the lone father's stillness.",
+              "rationale": "After the funeral and the children's quick departures, the film leaves the father alone and lets the ambient sound of the town — the train, the harbor — carry the last minutes. There's no swelling music to tell you how to feel, just the ordinary noise of a place going about its day around one motionless old man. That undramatic hum is the loneliest sound in the film, because it's the world declining to pause. The everyday continues; he sits inside it, suddenly singular.",
+              "metatake": {
+                "ref": "withheld-resolution"
+              }
+            }
+          ],
+          "slug": "onomichi-and-the-passing-train"
+        },
+        {
+          "label": "Shige, the beauty-parlor daughter",
+          "kind": "character",
+          "description": "In Tokyo Story the eldest daughter who runs a Tokyo hair salon, resents the disruption her parents cause, complains about the cost of hosting them, and after the funeral asks to keep her mother's clothes and a keepsake.",
+          "character_names": "Shige Kaneko",
+          "image_query": "Tokyo Story Shige beauty parlor daughter",
+          "youtube_query": "Tokyo Story Shige funeral clothes scene",
+          "register_fit": [
+            "politico_economic",
+            "ideological",
+            "existential"
+          ],
+          "takes": [
+            {
+              "register": "politico_economic",
+              "angle": "Care weighed against the till",
+              "evidence": "She grumbles that the parents are eating expensive cakes, proposes the cheaper spa trip, and at the funeral promptly requests her mother's sash and clothing.",
+              "rationale": "Shige runs a small business and runs her family the same way — by the ledger. Hosting her parents registers chiefly as an expense: pricey treats, lost work hours, a bill to minimize. Even mourning becomes acquisition, the dead mother's wardrobe noted as available goods before the grief has cooled. The film doesn't make her a villain; it shows how a life organized around earning quietly reorganizes love into cost-control, so that the cheapest discharge of duty starts to feel like the sensible one.",
+              "metatake": {
+                "ref": "the-dead-end-grind"
+              }
+            },
+            {
+              "register": "ideological",
+              "angle": "The dutiful child who isn't",
+              "evidence": "She voices all the proper sentiments — concern, mourning, family feeling — while consistently choosing the least costly, least time-consuming option.",
+              "rationale": "Shige knows exactly what a good daughter is supposed to say and says it, fluently, while doing the opposite. The film sets her performance of filial respect against her actions and lets the gap speak. What looks like the natural order — children honoring parents — turns out to be a script people recite over self-interest. Her case quietly asks how much of 'duty' was ever feeling and how much was just the expected words, kept up because abandoning them outright would cost more in standing than in cash.",
+              "metatake": {
+                "ref": "performing-emotional-control"
+              }
+            }
+          ],
+          "slug": "shige-the-beauty-parlor-daughter"
+        }
+      ]
+    },
+    {
+      "film": "vertigo-1958",
+      "title": "Vertigo",
+      "film_intro": "Hitchcock's San Francisco melodrama turns surveillance, fear of falling, and erotic obsession into a closed loop where a man tries to remake a dead woman from a living one — and the film keeps doubling back on its own structure.",
+      "figures": [
+        {
+          "label": "The Gray Suit",
+          "kind": "object",
+          "description": "In Vertigo, Madeleine's tailored gray suit and pinned blonde chignon become the template Scottie later forces onto Judy, demanding the exact color, the exact hair, the exact shoes.",
+          "character_names": "",
+          "image_query": "Vertigo 1958 Kim Novak gray suit",
+          "youtube_query": "Vertigo Judy transformation gray suit scene",
+          "register_fit": [
+            "psychoanalytic",
+            "mythic",
+            "reception"
+          ],
+          "takes": [
+            {
+              "register": "psychoanalytic",
+              "angle": "Dressing the corpse",
+              "evidence": "Scottie marches Judy through Ransohoff's, rejecting suits until the saleswoman produces the exact gray one, then insists on the platinum blonde, the precise upsweep.",
+              "rationale": "Watch how the suit stops being clothing and becomes a body — the body of a dead woman Scottie never actually possessed. He isn't dressing Judy; he's reassembling a phantom, and every fitting-room argument is really a refusal to mourn. The terrible thing is how clinical it gets: collar, color, hair. He wants the surface so badly because the surface is all he ever had, and he keeps reaching for it as if it could be alive.",
+              "metatake": {
+                "ref": "the-displaced-wound"
+              },
+              "confidence": 0.86
+            },
+            {
+              "register": "mythic",
+              "angle": "Remaking the lost bride",
+              "evidence": "Judy emerges from the bathroom in full Madeleine costume, bathed in green neon, and Scottie steps forward to embrace what he has resurrected.",
+              "rationale": "This is the old descent-and-return story turned poisonous. A man loses a woman to death and tries to bring her back up from the dark, but instead of leading her into the light he insists she stay exactly the dead thing he loved. The green glow makes her look drowned, returned, not quite alive. He's playing a hero who refuses the rule that the rescued must change — and the refusal is what damns them both.",
+              "metatake": {
+                "new": {
+                  "title": "The Fantasy Of Total Control",
+                  "laconic": ""
+                }
+              },
+              "confidence": 0.78
+            },
+            {
+              "register": "reception",
+              "angle": "The suit as the film's thesis",
+              "evidence": "The wardrobe-driven transformation has been read repeatedly as the literal staging of male fantasy reconstructing the female image.",
+              "rationale": "Critics keep returning to this sequence as the moment the movie stops hiding what it's about. The clothes aren't decoration; they're the argument made visible. A man builds a woman to specification, and the film hands us the receipt. Needs a source before this take publishes, but the long critical conversation treats the gray suit as the place where Hitchcock confesses the whole apparatus — that the beloved is being manufactured, fitting by fitting, to match a picture in someone's head.",
+              "metatake": {
+                "ref": "the-male-gaze"
+              },
+              "confidence": 0.55
+            }
+          ],
+          "slug": "the-gray-suit"
+        },
+        {
+          "label": "The Spiral",
+          "kind": "motif",
+          "description": "In Vertigo the spiral recurs as Madeleine's coiled hairdo, as the title-sequence vortex spinning from an eye, as the painted whorl in Carlotta's portrait, and as the curling stairs of the bell tower.",
+          "character_names": "",
+          "image_query": "Vertigo spiral hair Carlotta portrait title sequence",
+          "youtube_query": "Vertigo opening titles Saul Bass",
+          "register_fit": [
+            "mythic",
+            "psychoanalytic",
+            "genealogical"
+          ],
+          "takes": [
+            {
+              "register": "mythic",
+              "angle": "The labyrinth with no center",
+              "evidence": "The same coil appears in the eye-vortex of the credits, the back of Madeleine's head at the museum, and the swirl of the tower stairs.",
+              "rationale": "A spiral promises a center and then keeps deferring it — you fall inward forever and never arrive. That's the shape of Scottie's whole pursuit. Every clue circles a woman who turns out to be a fabrication, and the deeper he goes the further the truth recedes. The film keeps drawing the same figure because it's drawing his fate: not a quest that ends in a prize but a turning that consumes the turner, winding tighter until there's nothing left to grasp.",
+              "metatake": {
+                "ref": "the-object-that-consumes-the-pursuer"
+              },
+              "confidence": 0.8
+            },
+            {
+              "register": "psychoanalytic",
+              "angle": "The eye that opens onto the abyss",
+              "evidence": "The title sequence dissolves from a woman's lips to a single eye, then the spiral spins out of the pupil in lurid color.",
+              "rationale": "It starts in an eye and falls into a pit — that's the whole movie compressed into a graphic. Looking, here, isn't safe observation; it tips you over an edge into something bottomless. Scottie watches and watches, and the watching is exactly what unmoors him. The spiral coming out of the pupil says the danger is inside the act of looking itself: stare hard enough at what you desire and you spin down into your own vertigo, no ground beneath.",
+              "metatake": {
+                "ref": "scopophilia"
+              },
+              "confidence": 0.7
+            },
+            {
+              "register": "genealogical",
+              "angle": "Bass and Herrmann's collaboration",
+              "evidence": "Saul Bass's animated vortices play over Bernard Herrmann's circling, unresolving Wagner-tinged main theme.",
+              "rationale": "This opening became a touchstone for how a credit sequence could state a film's deep structure before a single scene. The hand-built abstraction of the spiral, married to music that keeps reaching upward without landing, set a template later thrillers and designers raided for decades. You can trace a whole lineage of films that try to put their unconscious on the title card. Vertigo got there first by trusting an animator and a composer to draw the shape of obsession in pure form.",
+              "metatake": {
+                "ref": "score-as-standalone-signature"
+              },
+              "confidence": 0.62
+            }
+          ],
+          "slug": "the-spiral"
+        },
+        {
+          "label": "The Dolly Zoom",
+          "kind": "form",
+          "description": "In Vertigo the view down the bell-tower stairwell stretches and lurches as the camera tracks back while zooming in, the floor seeming to rush away and toward the viewer at once.",
+          "character_names": "",
+          "image_query": "Vertigo vertigo effect stairwell shot",
+          "youtube_query": "Vertigo dolly zoom bell tower stairs effect",
+          "register_fit": [
+            "formal",
+            "existential",
+            "genealogical"
+          ],
+          "takes": [
+            {
+              "register": "formal",
+              "angle": "Two contradictory motions in one frame",
+              "evidence": "The shot down the mission stairwell elongates impossibly: the well deepens while the railings swell, an effect achieved by pulling the camera back as the lens zooms in.",
+              "rationale": "What's brilliant is that nothing in the frame is moving, yet the whole space convulses. The trick puts two opposite movements into a single image, so your eye can't settle — exactly what vertigo feels like from the inside. Hitchcock doesn't describe the dizziness or have Scottie announce it; he makes the screen itself unstable so you share the swoon. It's a sensation engineered into optics, a feeling no dialogue could deliver, sitting right in the picture.",
+              "metatake": {
+                "ref": "lens-and-texture-as-tactile-tools"
+              },
+              "confidence": 0.85
+            },
+            {
+              "register": "existential",
+              "angle": "Solid ground betraying the body",
+              "evidence": "The effect recurs at the moment Scottie must climb and his fear of the depth physically defeats him on the stairs.",
+              "rationale": "There's a particular dread in discovering the floor itself can't be trusted. The stretching stairwell turns a fixed building into something that yawns and recedes, and that's the deeper terror under the plot: the ground you stood on was never stable. Scottie's whole world keeps doing this — the woman, the case, the love, all elongating into something he can't reach. The shot makes a private panic into the film's mood, the sick certainty that nothing holds.",
+              "metatake": {
+                "ref": "the-lacanian-real"
+              },
+              "confidence": 0.6
+            },
+            {
+              "register": "genealogical",
+              "angle": "Inventing a permanent grammar",
+              "evidence": "This stairwell shot is the technique's debut as a dramatic device, later borrowed across thrillers and horror whenever a character's world tilts.",
+              "rationale": "Before this, the move barely existed as a storytelling tool; after it, filmmakers reach for it whenever a character's certainty collapses. Hitchcock didn't just stage a thrill — he minted a piece of cinematic vocabulary that outlived its film. Every dread-struck stair, every realization shot in later movies owes this stairwell. It's rare for a single trick to enter the language so completely that audiences read it instinctively, which is what makes its first appearance worth pausing on.",
+              "metatake": {
+                "new": {
+                  "title": "The Auteurial Signature",
+                  "laconic": ""
+                }
+              },
+              "confidence": 0.66
+            }
+          ],
+          "slug": "the-dolly-zoom"
+        },
+        {
+          "label": "Judy / Madeleine",
+          "kind": "character",
+          "description": "In Vertigo, Kim Novak plays both Madeleine Elster — the haunted wife Scottie is hired to follow — and Judy Barton, the shopgirl who impersonated her, and whom Scottie later rebuilds into Madeleine again.",
+          "character_names": "Judy Barton, Madeleine Elster",
+          "image_query": "Kim Novak Vertigo two roles",
+          "youtube_query": "Vertigo Judy Barton flashback letter reveal",
+          "register_fit": [
+            "psychoanalytic",
+            "ideological",
+            "mythic"
+          ],
+          "takes": [
+            {
+              "register": "psychoanalytic",
+              "angle": "Loved only as a copy of herself",
+              "evidence": "Judy, already the original woman, must be dressed and made up to imitate the false Madeleine she once played, so that Scottie can love her.",
+              "rationale": "The cruelest knot in the film: Judy is the actual person, yet to be wanted she has to counterfeit the counterfeit she invented. Scottie can't love the woman in front of him; he can only love the image she once wore. So she submits to becoming a copy of her own performance, erased twice over. Her grief comes from knowing the real her is precisely what's unwanted — she's competing with a ghost who is also herself, and losing.",
+              "metatake": {
+                "ref": "the-doubled-self-as-confession"
+              },
+              "confidence": 0.82
+            },
+            {
+              "register": "ideological",
+              "angle": "The woman as raw material",
+              "evidence": "Judy submits to the hair, the clothes, the makeover under Scottie's escalating demands, her own preferences overruled at every turn.",
+              "rationale": "Notice who gets to want and who gets shaped. Scottie's desire is treated as natural, even tragic; Judy's compliance is the price of being kept. The film hands the man the project of fashioning a woman to spec and lets us feel the romance of it before the cruelty surfaces. What looks like passion is really a man with the authority to overwrite a person — and the movie quietly shows how readily we accept his right to do it until the wreckage becomes undeniable.",
+              "metatake": {
+                "ref": "the-male-gaze"
+              },
+              "confidence": 0.7
+            },
+            {
+              "register": "mythic",
+              "angle": "Orpheus refusing the resurrection",
+              "evidence": "Judy returns from the staged death as a living woman, but Scottie drags her back up the same tower to re-stage the fall.",
+              "rationale": "She's a beloved brought back from the dead, which should be a miracle — but the man can't let her be a living return. He needs to recreate the death itself, to look again at the fall he failed to stop. So the resurrected woman is led back to the exact threshold and lost a second time. The old story warns that you cannot bring the dead back unchanged; Scottie insists on the impossible and earns the inevitable, twice.",
+              "metatake": {
+                "ref": "rituals-that-never-complete"
+              },
+              "confidence": 0.68
+            }
+          ],
+          "slug": "judy-madeleine"
+        },
+        {
+          "label": "The Bell Tower",
+          "kind": "location",
+          "description": "In Vertigo the Spanish-mission bell tower is where Madeleine seems to fall to her death, where Scottie fails to follow her up the stairs, and where, near the end, he forces Judy back to re-enact the climb.",
+          "character_names": "",
+          "image_query": "Vertigo bell tower mission",
+          "youtube_query": "Vertigo bell tower climax ending scene",
+          "register_fit": [
+            "mythic",
+            "formal",
+            "existential"
+          ],
+          "takes": [
+            {
+              "register": "mythic",
+              "angle": "The threshold he cannot cross",
+              "evidence": "Twice Scottie reaches the foot of the tower stairs and is stopped — first by his fear, the second time by his determination to conquer it — and both times a woman goes over the edge.",
+              "rationale": "Some doorways in stories test whether you're ready to pass through, and failing them costs everything. This tower is Scottie's gate, and he flunks it the first time, freezing on the stairs while a death he could have stopped happens above. The whole film is him trying to get back to that doorway and pass it cleanly. When he finally climbs, the threshold takes its toll anyway — the test was never really about height. It was about letting go.",
+              "metatake": {
+                "ref": "threshold-refusals-and-sacred-quests"
+              },
+              "confidence": 0.62
+            },
+            {
+              "register": "formal",
+              "angle": "Vertical space as the story's geometry",
+              "evidence": "The film keeps stacking its drama on staircases, ledges, and the tower's spiraling steps, the camera repeatedly forced to look up or plunge down.",
+              "rationale": "Look how often the movie organizes itself by height — rooftops, ladders, the museum gallery, the tower well. Up and down aren't background; they're the grammar. Scottie's affliction makes the vertical axis lethal, so every climb becomes suspense and every fall becomes meaning. The architecture does the plotting. By the end you read elevation as fate: to ascend is to risk loss, to look down is to lose your footing, and the building's geometry has been quietly arranging the tragedy all along.",
+              "metatake": {
+                "ref": "architecture-of-narrative-geometry"
+              },
+              "confidence": 0.7
+            },
+            {
+              "register": "existential",
+              "angle": "The cure that kills",
+              "evidence": "In the final climb Scottie conquers his vertigo, reaches the top free of his fear — and in that instant of triumph loses Judy over the edge.",
+              "rationale": "He gets exactly what he wanted: the ascent, the mastery, the fear beaten. And the moment of victory is the moment of total loss. The tower delivers the bitter joke of the whole film — that getting to the top of the thing that broke you doesn't heal you, it just lets you witness, clearly this time, the void you've been circling. He stands cured and alone, looking down into the same drop. Mastery arrives empty-handed.",
+              "metatake": {
+                "ref": "the-lacanian-real"
+              },
+              "confidence": 0.6
+            }
+          ],
+          "slug": "the-bell-tower"
+        },
+        {
+          "label": "Carlotta's Portrait",
+          "kind": "object",
+          "description": "In Vertigo a museum portrait of Carlotta Valdes — the long-dead woman Madeleine supposedly believes she is becoming — hangs in the gallery, its spiral hairdo and held nosegay matching Madeleine's own as she sits gazing at it.",
+          "character_names": "",
+          "image_query": "Vertigo Carlotta Valdes portrait",
+          "youtube_query": "Vertigo Carlotta portrait museum Scottie watching scene",
+          "register_fit": [
+            "semiotic",
+            "psychoanalytic",
+            "mythic"
+          ],
+          "takes": [
+            {
+              "register": "semiotic",
+              "angle": "A painted clue planted to be misread",
+              "evidence": "Scottie's camera-eye matches Madeleine's hair coil and bouquet to the portrait's, building his conviction that she's possessed by Carlotta's spirit.",
+              "rationale": "The painting is a piece of bait dressed as evidence. Every detail — the spiral of hair, the flowers — is arranged to be decoded as proof of haunting, and Scottie reads it dutifully. But the whole thing is a stage prop in a murder plot, a sign manufactured to point him exactly wrong. The film loves making us trust a picture and then revealing the picture was placed there to deceive. The portrait teaches that a perfectly legible clue can be a complete lie.",
+              "metatake": {
+                "ref": "self-undermining-verification"
+              },
+              "confidence": 0.72
+            },
+            {
+              "register": "psychoanalytic",
+              "angle": "Loving the dead through a frame",
+              "evidence": "Scottie watches Madeleine watching the portrait, his desire kindled by a woman absorbed in a dead woman's image.",
+              "rationale": "His longing routes through layers of image before it touches anything living: he wants a woman who is staring at a painting of a corpse. Desire here can't take a direct object; it needs the detour through the dead, the framed, the past. The portrait becomes the screen onto which he projects a romance with extinction. What he finds beautiful is precisely the morbid fixation, the woman dissolving into a ghost — and he's hooked on the dissolving, not the woman.",
+              "metatake": {
+                "ref": "hauntology-3"
+              },
+              "confidence": 0.65
+            },
+            {
+              "register": "mythic",
+              "angle": "The ancestral curse retold",
+              "evidence": "The story told over the portrait — abandoned woman, lost child, madness, suicide — is offered as a doom now repeating in Madeleine's blood.",
+              "rationale": "The film dangles an old, satisfying shape: a wrong done generations ago that comes due in a descendant, fate handed down through a bloodline. Scottie buys it because it's a comforting story — tragedy as inheritance, beautiful and inevitable. The cruel reveal is that there's no curse, only a man profiting from how readily we believe in one. The portrait sells the romance of doom, and the movie lets us feel its pull before exposing it as a tool of a cold, ordinary crime.",
+              "metatake": {
+                "ref": "mythic-templates-of-doom"
+              },
+              "confidence": 0.6
+            }
+          ],
+          "slug": "carlotta-s-portrait"
+        },
+        {
+          "label": "Bernard Herrmann's Score",
+          "kind": "sound",
+          "description": "In Vertigo the score builds on rising-and-falling arpeggiated figures and an unresolved love theme that swells but rarely settles, surging beneath the wordless transformation and the climactic embrace.",
+          "character_names": "",
+          "image_query": "Vertigo Bernard Herrmann soundtrack",
+          "youtube_query": "Vertigo Herrmann score scene d'amour transformation",
+          "register_fit": [
+            "formal",
+            "existential",
+            "genealogical"
+          ],
+          "takes": [
+            {
+              "register": "formal",
+              "angle": "Music that climbs without arriving",
+              "evidence": "Herrmann's love theme rises through repeating, circling phrases during the green-lit reveal of the transformed Judy, surging upward but withholding any final cadence.",
+              "rationale": "The music does what the dolly zoom does — it moves and moves without landing. Those circling phrases climb toward a resolution that keeps slipping away, so the longest, most rapturous moments feel like reaching, never arriving. It's the spiral made audible. During the embrace the score swells as if to bless the reunion, but it can't close, because nothing here can close. The unresolved harmony tells you the truth the images romance over: this love is a loop, not a destination.",
+              "metatake": {
+                "ref": "withheld-resolution"
+              },
+              "confidence": 0.78
+            },
+            {
+              "register": "existential",
+              "angle": "Yearning as a permanent condition",
+              "evidence": "The score carries entire dialogue-free passages — the silent drives, the wordless wandering through the city — pure longing with no scene to discharge it.",
+              "rationale": "For long stretches nobody speaks and the music does all the feeling. It pours out a yearning that has no proper object and no possible satisfaction, just the ache itself sustained at length. That's the emotional weather of the whole film — wanting as a state you live inside rather than a problem you solve. Herrmann refuses to let it cool. The result is a mood of suspended desire that the silence makes unbearable, a hunger the score keeps alive precisely by never feeding it.",
+              "metatake": {
+                "ref": "appetite-without-arrival"
+              },
+              "confidence": 0.66
+            },
+            {
+              "register": "genealogical",
+              "angle": "A score that escaped its film",
+              "evidence": "Herrmann's circling motifs and the Wagnerian unresolved harmonies became a recognizable model for later romantic-suspense scoring.",
+              "rationale": "This music doesn't just serve the picture; it became a standard later composers measure themselves against. The way it borrows from late-Romantic yearning and refuses resolution turned into a whole approach to scoring obsession and dread. You can hear its descendants for decades after, the circling figures, the deferred cadences. Few scores so fully detach from their movie to become a reference point of their own — a sound you'd recognize as 'that kind of music' long before you place the film it came from.",
+              "metatake": {
+                "ref": "score-as-standalone-signature"
+              },
+              "confidence": 0.6
+            }
+          ],
+          "slug": "bernard-herrmann-s-score"
+        }
+      ]
+    }
+  ]
+}
