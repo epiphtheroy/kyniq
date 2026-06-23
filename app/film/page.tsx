@@ -22,7 +22,7 @@ export default async function FilmIndexPage() {
     supabase.rpc("films_catalogue"),
   ]);
 
-  const featured = ((featuredRes.data as FilmFeat[] | null) ?? []).filter((f) => f && f.metaList?.length);
+  const featured = ((featuredRes.data as FilmFeat[] | null) ?? []).filter((f) => f && f.readingList?.length);
   const catalogue = (catRes.data as FilmCat[] | null) ?? [];
 
   return (

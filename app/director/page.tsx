@@ -22,7 +22,7 @@ export default async function DirectorIndexPage() {
     supabase.rpc("directors_catalogue"),
   ]);
 
-  const featured = ((featuredRes.data as DirFeat[] | null) ?? []).filter((d) => d && d.readings?.length);
+  const featured = ((featuredRes.data as DirFeat[] | null) ?? []).filter((d) => d && d.tropesList?.length);
   const catalogue = (catRes.data as DirCat[] | null) ?? [];
 
   return (

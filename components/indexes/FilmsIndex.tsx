@@ -9,7 +9,7 @@ export type FilmFeat = {
   slug: string; title: string; year: number | null; dir: string | null; genre: string | null;
   runtime: string | null; rated: string | null; tagline: string | null; bd: string | null;
   figures: number; readings: number; tropes: number;
-  metaList: { t: string; slug: string; fig: string }[];
+  readingList: { t: string; slug: string; fig: string }[];
   tropeList: { t: string; slug: string; fig: string }[];
   kin: { t: string; y: number | null; slug: string; n: number }[];
 };
@@ -58,8 +58,8 @@ function FilmCard(d: FilmFeat) {
         <div className="idx-viahint">Every reading and trope is carried by a <b>figure</b> in the film:</div>
         <div className="idx-fpcols">
           <div className="idx-fpcol">
-            <div className="idx-fph"><i className="r" />Meta takes <span className="n">{d.readings}</span></div>
-            {viaList(d.metaList, "/take")}
+            <div className="idx-fph"><i className="r" />Strong Misreadings <span className="n">{d.readings}</span></div>
+            {d.readingList.length > 0 ? viaList(d.readingList, `/film/${d.slug}/figure`) : <div className="idx-fpempty">No readings yet.</div>}
           </div>
           <div className="idx-fpcol">
             <div className="idx-fph"><i className="t" />Tropes <span className="n">{d.tropes}</span></div>

@@ -8,9 +8,9 @@ import Catalogue, { type CatMode } from "@/components/Catalogue";
 type DirSig = { t: string; slug: string; n: number; fig: string };
 export type DirFeat = {
   slug: string; name: string; photo: string | null; place: string | null; born: number | null;
-  films: number; mt: number; tropes: number;
+  films: number; readings: number; tropes: number;
   rep: { t: string; y: number | null; bd: string | null } | null;
-  readings: DirSig[]; tropesList: DirSig[];
+  tropesList: DirSig[];
   filmography: { t: string; y: number | null; s: string }[];
 };
 export type DirCat = { slug: string; name: string; country: string; films: number };
@@ -42,7 +42,7 @@ function DirectorCard(d: DirFeat) {
           <div className="idx-place">{[d.place, d.born ? `b.${d.born}` : null].filter(Boolean).join(" · ")}</div>
           <div className="idx-statrow">
             <div className="idx-stat"><div className="num">{d.films}</div><div className="lab">Films</div></div>
-            <div className="idx-stat mt"><div className="num">{d.mt}</div><div className="lab">Meta takes</div></div>
+            <div className="idx-stat rd"><div className="num">{d.readings}</div><div className="lab">Readings</div></div>
             <div className="idx-stat tr"><div className="num">{d.tropes}</div><div className="lab">Tropes</div></div>
           </div>
         </div>
@@ -55,13 +55,9 @@ function DirectorCard(d: DirFeat) {
         </div>
       )}
 
-      <div className="idx-fpcols">
+      <div className="idx-fpcols idx-fpcols--one">
         <div className="idx-fpcol">
-          <div className="idx-fph"><i className="r" />Signature readings</div>
-          {d.readings.length > 0 ? sigList(d.readings, "r", "/take") : <div className="idx-fpempty">No signature readings yet.</div>}
-        </div>
-        <div className="idx-fpcol">
-          <div className="idx-fph"><i className="t" />Signature tropes</div>
+          <div className="idx-fph"><i className="t" />Signature tropes — what recurs across {d.films === 1 ? "the film" : "the films"}</div>
           {d.tropesList.length > 0 ? sigList(d.tropesList, "t", "/trope") : <div className="idx-fpempty">No signature tropes yet.</div>}
         </div>
       </div>

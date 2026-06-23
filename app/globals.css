@@ -1915,6 +1915,8 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .idx-fpcol:first-child{padding-right:0;border-right:none;border-bottom:1px solid var(--hairline)}
 .idx-fpcol:last-child{padding-left:0}
 @media(min-width:900px){.idx-fpcols{grid-template-columns:1fr 1fr}.idx-fpcol:first-child{padding-right:16px;border-right:1px solid var(--hairline);border-bottom:none}.idx-fpcol:last-child{padding-left:16px}}
+.idx-fpcols--one{grid-template-columns:1fr}
+.idx-fpcols--one .idx-fpcol:first-child{padding-right:0;border-right:none;border-bottom:none}
 .idx-fph{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:7px}
 .idx-fph i{width:9px;height:9px;border-radius:2px;flex:none}
 .idx-fph i.r{background:var(--accent)}
