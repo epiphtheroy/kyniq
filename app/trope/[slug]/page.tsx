@@ -7,6 +7,7 @@ import EntityActions from "@/components/EntityActions";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
+import { fw } from "@/lib/frameworks";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 
 export const revalidate = 300;
@@ -17,21 +18,33 @@ function db() {
 }
 interface Props { params: Promise<{ slug: string }> }
 
-type Member = { figure: { id: string; label: string; slug: string | null; description: string | null; film: { title: string; slug: string; year: number | null } } };
+type Reading = {
+  id: string; take_title: string | null; framework: string | null;
+  figure: { id: string; label: string; slug: string | null; film: { title: string; slug: string; year: number | null } };
+};
+
+const MATURITY: Record<string, [string, string]> = {
+  // label, blurb
+  fresh: ["Fresh", "a pattern just beginning to be shared — only these films, so far"],
+  emerging: ["Emerging", "a real recurring pattern, still rare"],
+  established: ["Established", "a recurring pattern across many films"],
+  cliche: ["Cliché", "fully conventional — cinema returns to it again and again"],
+};
 
 async function load(slug: string) {
   const supabase = db();
   const { data: t } = await supabase
     .from("meta_takes")
-    .select("id, slug, title, laconic, thesis, seo_phrase, created_at, updated_at")
+    .select("id, slug, title, laconic, thesis, seo_phrase, maturity, trope_kind, film_count, member_count, created_at, updated_at")
     .eq("slug", slug).eq("kind", "figure_type").eq("status", "published").maybeSingle();
   if (!t) return null;
-  const { data: mems } = await supabase.from("figure_type_members")
-    .select("figure:figures!inner(id, label, slug, description, film:films!inner(title, slug, year))")
-    .eq("meta_take_id", t.id);
-  const members = (mems as unknown as Member[]) ?? [];
-  const films = new Set(members.map((m) => m.figure.film.slug));
-  return { t, members, filmCount: films.size };
+  // The readings that define this trope (each take whose trope_id = this trope).
+  const { data: rd } = await supabase.from("takes")
+    .select("id, take_title, framework, figure:figures!inner(id, label, slug, film:films!inner(title, slug, year))")
+    .eq("trope_id", t.id).eq("status", "published");
+  const readings = (rd as unknown as Reading[]) ?? [];
+  const films = new Set(readings.map((r) => r.figure.film.slug));
+  return { t, readings, filmCount: films.size };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -39,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(slug);
   if (!data) return { title: "Trope — Metatake" };
   const phrase = (data.t as { seo_phrase?: string | null }).seo_phrase;
-  const title = phrase ? `${phrase} — ${data.filmCount} films` : `${data.t.title} — a figure-type across ${data.filmCount} films`;
+  const title = phrase ? `${phrase} — ${data.filmCount} films` : `${data.t.title} — a trope across ${data.filmCount} films`;
   const description = data.t.thesis ?? data.t.laconic ?? undefined;
   return {
     title,
@@ -53,10 +66,13 @@ export default async function TropePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { t, members, filmCount } = data;
-  const sorted = [...members].sort((a, b) => a.figure.film.title.localeCompare(b.figure.film.title));
+  const { t, readings, filmCount } = data;
+  const tt = t as typeof t & { maturity: string | null };
+  const sorted = [...readings].sort((a, b) => a.figure.film.title.localeCompare(b.figure.film.title));
   const filmLabel = filmCount === 1 ? "film" : "films";
-  const figLabel = members.length === 1 ? "figure" : "figures";
+  const n = readings.length;
+  const readLabel = n === 1 ? "reading" : "readings";
+  const mat = tt.maturity ? MATURITY[tt.maturity] : null;
 
   return (
     <div className="mt">
@@ -76,7 +92,9 @@ export default async function TropePage({ params }: Props) {
         <div className="tp-crumb"><Link href="/tropes">Tropes</Link></div>
 
         <header className="tp-head">
-          <div className="tp-role">Trope · figure-type</div>
+          <div className="tp-role">
+            Trope{mat ? <> · <span className={`tp-mat tp-mat--${tt.maturity}`}>{mat[0]}</span></> : null}
+          </div>
           <h1 className="tp-h1">{t.title}</h1>
           {t.laconic ? <p className="tp-laconic">{t.laconic}</p> : null}
           <div className="tp-actions">
@@ -86,8 +104,8 @@ export default async function TropePage({ params }: Props) {
 
         <div className="tp-stats">
           <a className="tp-stat" href="#members">
-            <div className="tp-stat__n">{members.length}</div>
-            <div className="tp-stat__k">{figLabel}</div>
+            <div className="tp-stat__n">{n}</div>
+            <div className="tp-stat__k">{readLabel}</div>
           </a>
           <a className="tp-stat" href="#members">
             <div className="tp-stat__n">{filmCount}</div>
@@ -96,6 +114,7 @@ export default async function TropePage({ params }: Props) {
         </div>
 
         {t.thesis ? <p className="tp-thesis">{t.thesis}</p> : null}
+        {mat ? <p className="tp-matnote"><span className={`tp-mat tp-mat--${tt.maturity}`}>{mat[0]}</span> — {mat[1]}.</p> : null}
 
         <div className="tp-map">
           <EntityGraphLoader kind="trope" slug={t.slug} label={t.title} height={420} />
@@ -103,36 +122,41 @@ export default async function TropePage({ params }: Props) {
 
         <section className="tp-sec" id="members">
           <h2 className="tp-h2">
-            Figures of {t.title}{" "}
-            <span className="tp-h2__n">— {members.length} across {filmCount} {filmLabel}</span>
+            The readings that make {t.title}{" "}
+            <span className="tp-h2__n">— {n} {readLabel} across {filmCount} {filmLabel}</span>
           </h2>
           <p className="tp-gloss">
-            Every figure across cinema that instantiates this trope — the concrete way each film carries the device. The shared trope is <strong>why</strong> they connect.
+            Every <Link href="/about#strong-misreadings">Strong Misreading</Link> that carries this code — the bold reading each film earns. The shared code is <strong>why</strong> they gather here.
           </p>
 
-          {members.length === 0 ? (
-            <p className="tp-empty">No figures yet.</p>
+          {n === 0 ? (
+            <p className="tp-empty">No readings yet.</p>
           ) : (
             <>
-              <ListFilter targetId="trope-members" placeholder={`Search ${members.length} ${figLabel}…`} total={members.length} />
+              <ListFilter targetId="trope-members" placeholder={`Search ${n} ${readLabel}…`} total={n} />
               <ul className="tp-mlist" id="trope-members">
-                {sorted.map((m) => {
-                  const figHref = m.figure.slug ? `/film/${m.figure.film.slug}/figure/${m.figure.slug}` : `/film/${m.figure.film.slug}`;
-                  const desc = m.figure.description?.replace(/\s+/g, " ").trim();
+                {sorted.map((r) => {
+                  const figHref = r.figure.slug ? `/film/${r.figure.film.slug}/figure/${r.figure.slug}` : `/film/${r.figure.film.slug}`;
+                  const F = fw(r.framework);
                   return (
                     <li
-                      key={m.figure.id}
+                      key={r.id}
                       className="tp-member"
                       data-filter-item
-                      data-filter-text={`${m.figure.film.title} ${m.figure.label} ${desc ?? ""}`.toLowerCase()}
+                      data-filter-text={`${r.figure.film.title} ${r.figure.label} ${r.take_title ?? ""}`.toLowerCase()}
                     >
                       <div className="tp-mhead">
-                        <Link href={`/film/${m.figure.film.slug}`} className="tp-fl">{m.figure.film.title}</Link>{" "}
-                        {m.figure.film.year != null ? <span className="tp-yr">({m.figure.film.year})</span> : null}{" "}
-                        <span className="tp-dash">—</span>{" "}
-                        <Link href={figHref} className="tp-fig">{m.figure.label}<span className="tp-arrow"> →</span></Link>
+                        <Link href={`/film/${r.figure.film.slug}`} className="tp-fl">{r.figure.film.title}</Link>{" "}
+                        {r.figure.film.year != null ? <span className="tp-yr">({r.figure.film.year})</span> : null}{" "}
+                        <span className="tp-dash">·</span>{" "}
+                        <span className="tp-fwc" style={{ color: F.color }}>{F.label}</span>
                       </div>
-                      {desc ? <p className="tp-mdesc">{desc}</p> : null}
+                      {r.take_title ? (
+                        <Link href={figHref} className="tp-mtitle">{r.take_title}<span className="tp-arrow"> →</span></Link>
+                      ) : (
+                        <Link href={figHref} className="tp-fig">{r.figure.label}<span className="tp-arrow"> →</span></Link>
+                      )}
+                      <div className="tp-mvia">via <Link href={figHref}>{r.figure.label}</Link></div>
                     </li>
                   );
                 })}

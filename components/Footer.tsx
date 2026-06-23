@@ -23,17 +23,17 @@ export default function Footer() {
         <div className="footer-cols">
           <div>
             <div className="footer-head">Sections</div>
-            <Link href="/meta-takes" className="footer-link">
-              Meta takes
-            </Link>
             <Link href="/film" className="footer-link">
               Films
             </Link>
             <Link href="/director" className="footer-link">
               Directors
             </Link>
-            <Link href="/genre" className="footer-link">
-              Genres
+            <Link href="/tropes" className="footer-link">
+              Tropes
+            </Link>
+            <Link href="/concept" className="footer-link">
+              Concepts
             </Link>
           </div>
 
