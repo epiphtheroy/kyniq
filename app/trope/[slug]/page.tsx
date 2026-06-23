@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TropePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) notFound();
+  if (!data) redirect("/tropes");   // retired/old trope slug (e.g. a stale cached link) → index, not a 404
   const { t, readings, filmCount } = data;
   const tt = t as typeof t & { maturity: string | null };
   const sorted = [...readings].sort((a, b) => a.figure.film.title.localeCompare(b.figure.film.title));

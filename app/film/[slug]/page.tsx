@@ -32,14 +32,8 @@ type Fig = { id: string; kind: string | null; label: string; slug: string | null
 type FigRef = { label: string; slug: string | null };
 type FilmLink = { slug: string; title: string; figs: FigRef[] };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
-type TakeRow = { figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; strength: number | null; is_invitation: boolean | null };
-type SM = { framework: string | null; take_title: string | null; thesis: string | null; strength: number | null; figLabel: string; figSlug: string | null };
-
-function snip(s: string | null, n: number): string {
-  if (!s) return "";
-  const t = s.trim();
-  return t.length > n ? t.slice(0, n).replace(/\s+\S*$/, "") + "…" : t;
-}
+type TakeRow = { figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null };
+type SM = { framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
 
 async function load(slug: string) {
   const supabase = db();
@@ -67,12 +61,12 @@ async function load(slug: string) {
   if (figIds.length) {
     const { data: takeRows } = await supabase
       .from("takes")
-      .select("figure_id, framework, take_title, rationale, strength, is_invitation")
+      .select("figure_id, framework, take_title, rationale, leap, strength, is_invitation")
       .in("figure_id", figIds).eq("status", "published");
     for (const t of (takeRows ?? []) as TakeRow[]) {
       if (t.is_invitation) { if (!invitation) invitation = t.rationale; continue; }
       const f = figById.get(t.figure_id);
-      misreadings.push({ framework: t.framework, take_title: t.take_title, thesis: t.rationale, strength: t.strength, figLabel: f?.label ?? "", figSlug: f?.slug ?? null });
+      misreadings.push({ framework: t.framework, take_title: t.take_title, thesis: t.rationale, leap: t.leap, strength: t.strength, figLabel: f?.label ?? "", figSlug: f?.slug ?? null });
       takeCount.set(t.figure_id, (takeCount.get(t.figure_id) ?? 0) + 1);
     }
   }
@@ -221,6 +215,41 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
+        {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
+        {misreadings.length > 0 ? (
+          <section className="df-sec" id="df-readings">
+            <h2 className="df-h2">Strong Misreadings</h2>
+            <p className="df-sub">
+              Bold readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">critical frameworks</Link> — each a deliberate over-reading, a provocation rather than a verdict.
+            </p>
+            {smByFamily.map(({ fam, items }) => (
+              <div key={fam.key} className="df-smfam">
+                <div className="df-smfam__h">{fam.label}</div>
+                {items.map((m, i) => {
+                  const F = fw(m.framework);
+                  return (
+                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>
+                      <div className="sm-row__top">
+                        <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>
+                        {m.figSlug
+                          ? <Link className="sm-via" href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.figLabel}</Link>
+                          : <span className="sm-via">{m.figLabel}</span>}
+                      </div>
+                      {m.take_title ? (
+                        <div className="sm-row__title">
+                          {m.figSlug ? <Link href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.take_title}</Link> : m.take_title}
+                        </div>
+                      ) : null}
+                      {m.thesis ? <p className="sm-row__thesis sm-row__thesis--full">{m.thesis}</p> : null}
+                      {m.leap ? <p className="sm-row__leap"><span className="sm-leap__l">The leap</span> {m.leap}</p> : null}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </section>
+        ) : null}
+
         {stills.length > 0 ? (
           <div className="df-stills">
             {stills.map((s) => (
@@ -251,40 +280,6 @@ export default async function FilmPage({ params }: Props) {
                       <div className="df-figR">
                         {f.description ? <p className="df-figdesc">{f.description}</p> : null}
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-          </section>
-        ) : null}
-
-        {/* STRONG MISREADINGS — grouped by framework family */}
-        {misreadings.length > 0 ? (
-          <section className="df-sec" id="df-readings">
-            <h2 className="df-h2">Strong Misreadings</h2>
-            <p className="df-sub">
-              Bold readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">critical frameworks</Link> — each a deliberate over-reading, a provocation rather than a verdict.
-            </p>
-            {smByFamily.map(({ fam, items }) => (
-              <div key={fam.key} className="df-smfam">
-                <div className="df-smfam__h">{fam.label}</div>
-                {items.map((m, i) => {
-                  const F = fw(m.framework);
-                  return (
-                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>
-                      <div className="sm-row__top">
-                        <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>
-                        {m.figSlug
-                          ? <Link className="sm-via" href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.figLabel}</Link>
-                          : <span className="sm-via">{m.figLabel}</span>}
-                      </div>
-                      {m.take_title ? (
-                        <div className="sm-row__title">
-                          {m.figSlug ? <Link href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.take_title}</Link> : m.take_title}
-                        </div>
-                      ) : null}
-                      {m.thesis ? <p className="sm-row__thesis">{snip(m.thesis, 260)}</p> : null}
                     </div>
                   );
                 })}
