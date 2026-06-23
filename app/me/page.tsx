@@ -53,7 +53,7 @@ export default async function MeDashboard() {
     supabase.rpc("get_my_pins"),
     supabase
       .from("takes")
-      .select("id, rationale, register, status, created_at, meta_take:meta_takes(title, slug), figure:figures!inner(label, slug, film:films!inner(title, slug))")
+      .select("id, rationale, register, status, created_at, meta_take:meta_takes!takes_meta_take_id_fkey(title, slug), figure:figures!inner(label, slug, film:films!inner(title, slug))")
       .eq("author_id", user.id)
       .order("created_at", { ascending: false })
       .limit(40),

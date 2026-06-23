@@ -49,22 +49,16 @@ function CountUp({ target }: { target: number }) {
 
 export function FigureStats({
   takes,
-  metaTakes,
   connected,
 }: {
   takes: number;
-  metaTakes: number;
   connected: number | null;
 }) {
   return (
     <div className="fg-stats">
       <a className="fg-stat" href="#takes">
         <span className="fg-stat__n"><CountUp target={takes} /></span>
-        <span className="fg-stat__k">Takes</span>
-      </a>
-      <a className="fg-stat fg-stat--red" href="#takes">
-        <span className="fg-stat__n"><CountUp target={metaTakes} /></span>
-        <span className="fg-stat__k">Meta takes</span>
+        <span className="fg-stat__k">Readings</span>
       </a>
       {connected !== null ? (
         <a className="fg-stat fg-stat--teal" href="#connected">

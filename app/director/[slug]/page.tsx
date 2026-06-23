@@ -28,7 +28,7 @@ async function load(slug: string) {
 
   const { data: takeRows } = await supabase
     .from("takes")
-    .select("meta_take:meta_takes!inner(id, slug, title, status), figure:figures!inner(film_id)")
+    .select("meta_take:meta_takes!takes_meta_take_id_fkey!inner(id, slug, title, status), figure:figures!inner(film_id)")
     .in("figure.film_id", filmIds)
     .eq("meta_take.status", "published");
 

@@ -29,12 +29,11 @@ const KIND: Record<string, string> = {
 
 interface Props { params: Promise<{ slug: string; figureSlug: string }>; }
 
-type MetaTake = { slug: string; title: string; status: string } | null;
 type Take = {
   id: string; framework: string | null; take_title: string | null; rationale: string | null;
   leap: string | null; strength: number | null; theorist_name: string | null;
   concept: string | null; real_person: string | null; is_invitation: boolean | null;
-  source: string | null; meta_take: MetaTake;
+  source: string | null;
 };
 
 async function load(slug: string, figureSlug: string) {
@@ -49,7 +48,7 @@ async function load(slug: string, figureSlug: string) {
   if (!figure) return null;
   const { data: takeRows } = await supabase
     .from("takes")
-    .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source, meta_take:meta_takes(slug, title, status)")
+    .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source")
     .eq("figure_id", figure.id).eq("status", "published");
   const takes = ((takeRows ?? []) as unknown as Take[])
     .sort((a, b) => Number(b.is_invitation ?? false) - Number(a.is_invitation ?? false) || (b.strength ?? 0) - (a.strength ?? 0));
@@ -127,9 +126,6 @@ export default async function FigurePage({ params }: Props) {
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
   // distinct published meta takes reached by this figure's takes
-  const metaTakeCount = new Set(
-    takes.map((t) => t.meta_take).filter((m): m is NonNullable<MetaTake> => !!m && m.status === "published").map((m) => m.slug)
-  ).size;
   const connectedCount = connections.reduce((n, c) => n + c.total, 0);
   const kindLabel = figure.kind ? (KIND[figure.kind] ?? figure.kind) : null;
 
@@ -216,7 +212,7 @@ export default async function FigurePage({ params }: Props) {
             <EntityActions entityType="figure" entityId={figure.id} />
           </div>
 
-          <FigureStats takes={takes.length} metaTakes={metaTakeCount} connected={connections.length ? connectedCount : null} />
+          <FigureStats takes={takes.length} connected={connections.length ? connectedCount : null} />
         </section>
 
         {/* STRONG MISREADINGS */}
