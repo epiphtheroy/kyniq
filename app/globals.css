@@ -3017,6 +3017,25 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .tp-mat--established{color:#8A6D3B}
 .tp-mat--cliche{color:var(--muted)}
 .tp-matnote{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); margin:12px 0 0; max-width:70ch}
+/* Related tropes (embedding-nearest) at the foot of a trope page */
+.tp-rel{margin:38px 0 0;padding-top:22px;border-top:2px solid var(--ink)}
+.tp-rel-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+@media(min-width:760px){.tp-rel-grid{grid-template-columns:repeat(3,1fr)}}
+.tp-rel-card{display:flex;flex-direction:column;gap:7px;padding:14px 15px 13px;border:1px solid var(--hairline);border-radius:9px;background:#fff;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
+.tp-rel-card:hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(0,0,0,.07);transform:translateY(-2px)}
+.tp-rel-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:18px}
+.tp-rel-kin{font-family:var(--font-ui);font-size:11px;font-variant-numeric:tabular-nums;color:var(--teal);font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.tp-rel-kin .u{font-weight:500;color:var(--muted);font-size:9.5px;margin-left:1px}
+.tp-rel-title{font-family:var(--font-display);font-size:17px;font-weight:700;line-height:1.26;letter-spacing:-.01em;margin:1px 0 0;color:var(--ink)}
+.tp-rel-card:hover .tp-rel-title{color:var(--teal)}
+.tp-rel-lac{font-size:13px;line-height:1.45;color:var(--ink);opacity:.82;margin:0;font-style:italic}
+.tp-rel-meta{font-family:var(--font-ui);font-size:11.5px;color:var(--muted);letter-spacing:.01em}
+.tp-rel-eg{font-size:11.5px;line-height:1.46;color:var(--ink);opacity:.9;border-top:1px solid var(--hairline);padding-top:8px;margin-top:2px}
+.tp-rel-eg__k{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:.09em;font-size:9px;color:var(--muted);font-weight:700;margin-right:3px}
+.tp-rel-eg__fw{font-family:var(--font-ui);font-weight:700;font-size:10.5px;letter-spacing:.03em}
+.tp-rel-eg__tt{font-weight:600}
+.tp-rel-eg__film{color:var(--muted)}
+.tp-rel-go{margin-top:auto;font-family:var(--font-ui);font-size:11.5px;font-weight:700;color:var(--teal);letter-spacing:.02em;padding-top:3px}
 .tp-fwc{font-family:var(--font-ui); font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase}
 .tp-mtitle{display:inline-block; font-family:var(--font-display); font-size:16.5px; font-weight:700; line-height:1.34; letter-spacing:-.01em; margin:5px 0 3px}
 .tp-mtitle:hover{color:var(--teal)}

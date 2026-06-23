@@ -23,6 +23,12 @@ type Reading = {
   figure: { id: string; label: string; slug: string | null; film: { title: string; slug: string; year: number | null } };
 };
 
+type Related = {
+  slug: string; title: string; laconic: string | null; maturity: string | null;
+  film_count: number | null; member_count: number | null; sim: number;
+  sample: { film: string; year: number | null; fw: string | null; tt: string | null } | null;
+};
+
 const MATURITY: Record<string, [string, string]> = {
   // label, blurb
   fresh: ["Fresh", "a pattern just beginning to be shared — only these films, so far"],
@@ -67,6 +73,8 @@ export default async function TropePage({ params }: Props) {
   const data = await load(slug);
   if (!data) redirect("/tropes");   // retired/old trope slug (e.g. a stale cached link) → index, not a 404
   const { t, readings, filmCount } = data;
+  const { data: relRaw } = await db().rpc("trope_related", { p_slug: slug, p_n: 3 });
+  const related = (relRaw as Related[] | null) ?? [];
   const tt = t as typeof t & { maturity: string | null };
   const sorted = [...readings].sort((a, b) => a.figure.film.title.localeCompare(b.figure.film.title));
   const filmLabel = filmCount === 1 ? "film" : "films";
@@ -164,6 +172,48 @@ export default async function TropePage({ params }: Props) {
             </>
           )}
         </section>
+
+        {related.length > 0 && (
+          <section className="tp-rel" aria-labelledby="tp-rel-h">
+            <h2 className="tp-h2" id="tp-rel-h">
+              Drawn to {t.title}? <span className="tp-h2__n">— follow these</span>
+            </h2>
+            <p className="tp-gloss">
+              The codes nearest this one in meaning-space — computed from the readings each gathers, not hand-linked.
+              If <strong>{t.title}</strong> holds you, this is where it leads next.
+            </p>
+            <div className="tp-rel-grid">
+              {related.map((r) => {
+                const F = r.sample?.fw ? fw(r.sample.fw) : null;
+                const rm = r.maturity ? MATURITY[r.maturity] : null;
+                const fc = r.film_count ?? 0;
+                const mc = r.member_count ?? 0;
+                return (
+                  <Link key={r.slug} href={`/trope/${r.slug}`} className="tp-rel-card">
+                    <div className="tp-rel-top">
+                      {rm ? <span className={`tp-mat tp-mat--${r.maturity}`}>{rm[0]}</span> : <span />}
+                      <span className="tp-rel-kin" title="embedding kinship — cosine similarity of the two tropes">
+                        {Math.round(r.sim * 100)}<span className="u">% kin</span>
+                      </span>
+                    </div>
+                    <h3 className="tp-rel-title">{r.title}</h3>
+                    {r.laconic ? <p className="tp-rel-lac">{r.laconic}</p> : null}
+                    <div className="tp-rel-meta">{fc} {fc === 1 ? "film" : "films"} · {mc} {mc === 1 ? "reading" : "readings"}</div>
+                    {r.sample?.tt ? (
+                      <div className="tp-rel-eg">
+                        <span className="tp-rel-eg__k">e.g.</span>{" "}
+                        {F ? <span className="tp-rel-eg__fw" style={{ color: F.color }}>{F.label}</span> : null}{" "}
+                        <span className="tp-rel-eg__tt">{r.sample.tt}</span>
+                        <span className="tp-rel-eg__film"> — {r.sample.film}{r.sample.year ? ` (${r.sample.year})` : ""}</span>
+                      </div>
+                    ) : null}
+                    <span className="tp-rel-go">Open this trope →</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         <Provenance created={t.created_at} updated={t.updated_at} />
       </div>
