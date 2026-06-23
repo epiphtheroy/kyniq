@@ -24,8 +24,9 @@ export default async function TrendingPage({ searchParams }: { searchParams: Pro
   const pool = (data as TrendPool | null) ?? { metas: [], takes: [], tropes: [], films: [] };
 
   const now = new Date();
-  const wd = now.toLocaleDateString("en-US", { weekday: "long" }).toUpperCase();
-  const md = now.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }).toUpperCase();
+  const TZ = "Asia/Seoul";
+  const wd = now.toLocaleDateString("en-US", { weekday: "long", timeZone: TZ }).toUpperCase();
+  const md = now.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: TZ }).toUpperCase();
 
   return (
     <div className="mt">

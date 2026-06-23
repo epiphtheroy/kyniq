@@ -20,9 +20,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (slug === "all") return { title: "All Strong Misreadings — every critical reading on Metatake" };
   const f = fwBySlug(slug);
   if (!f) return { title: "Strong Misreadings — Metatake" };
+  const title = `${f.label} — Strong Misreadings`;
+  const description = `${f.short} Every ${f.label} Strong Misreading across cinema, searchable on Metatake.`;
   return {
-    title: `${f.label} — Strong Misreadings`,
-    description: `${f.short} Every ${f.label} Strong Misreading across cinema, searchable on Metatake.`,
+    title,
+    description,
+    alternates: { canonical: `https://metatake.net/strong-misreadings/${f.slug}` },
+    openGraph: { title, description, type: "website", url: `https://metatake.net/strong-misreadings/${f.slug}` },
   };
 }
 

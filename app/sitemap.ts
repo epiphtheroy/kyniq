@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
 import { SITE_INDEXABLE } from "@/lib/seo";
+import { BROWSABLE } from "@/lib/frameworks";
 
 /**
  * Dynamic sitemap — SPEC §8.5
@@ -19,10 +20,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: siteUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/film`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
-    { url: `${siteUrl}/meta-takes`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
+    { url: `${siteUrl}/strong-misreadings`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${siteUrl}/tropes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteUrl}/latest`, lastModified: new Date(), changeFrequency: "daily", priority: 0.6 },
   ];
+
+  // Strong Misreadings — the 14 framework hubs.
+  for (const f of BROWSABLE) {
+    entries.push({ url: `${siteUrl}/strong-misreadings/${f.slug}`, changeFrequency: "weekly", priority: 0.75 });
+  }
 
   // Published readings (/take) + tropes (/trope) — the core interpretive corpus.
   const { data: metas } = await supabase

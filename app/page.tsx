@@ -21,7 +21,7 @@ function db() {
 async function loadBundle(): Promise<HomeBundle> {
   const supabase = db();
   for (let i = 0; i < 3; i++) {
-    const { data } = await supabase.rpc("home_bundle");
+    const { data } = await supabase.rpc("home_bundle_cached");
     const b = data as HomeBundle | null;
     if (b && Array.isArray(b.pairs) && b.pairs.length > 0) return b;
     if (i < 2) await new Promise((r) => setTimeout(r, 500));
