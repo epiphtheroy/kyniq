@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
@@ -24,7 +24,7 @@ function db() {
 
 const KIND: Record<string, string> = {
   character: "Character", object: "Object / symbol", location: "Location",
-  form: "Form / technique", trope: "Trope",
+  form: "Form / technique", trope: "Theme / motif", title: "Title", film: "The film itself",
 };
 
 interface Props { params: Promise<{ slug: string; figureSlug: string }>; }
@@ -123,6 +123,7 @@ export default async function FigurePage({ params }: Props) {
   const data = await load(slug, figureSlug);
   if (!data) notFound();
   const { film, figure, takes, metaTakes, tropes, connections } = data;
+  if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
   // distinct published meta takes reached by this figure's takes
@@ -130,7 +131,6 @@ export default async function FigurePage({ params }: Props) {
     takes.map((t) => t.meta_take).filter((m): m is NonNullable<MetaTake> => !!m && m.status === "published").map((m) => m.slug)
   ).size;
   const connectedCount = connections.reduce((n, c) => n + c.total, 0);
-  const primaryTrope = tropes[0] ?? null;
   const kindLabel = figure.kind ? (KIND[figure.kind] ?? figure.kind) : null;
 
   const jsonld = {
@@ -167,9 +167,7 @@ export default async function FigurePage({ params }: Props) {
         </div>
 
         <section className="fg-head">
-          <div className="fg-kindtag">
-            Figure{primaryTrope ? <> · Trope</> : kindLabel ? <> · {kindLabel}</> : null}
-          </div>
+          <div className="fg-kindtag">{kindLabel ?? "Figure"}</div>
           <h1 className="fg-h1">{figure.label}</h1>
 
           <div className="fg-fromfilm">
