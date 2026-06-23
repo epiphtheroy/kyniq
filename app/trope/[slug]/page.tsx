@@ -73,7 +73,7 @@ export default async function TropePage({ params }: Props) {
   const data = await load(slug);
   if (!data) redirect("/tropes");   // retired/old trope slug (e.g. a stale cached link) → index, not a 404
   const { t, readings, filmCount } = data;
-  const { data: relRaw } = await db().rpc("trope_related", { p_slug: slug, p_n: 3 });
+  const { data: relRaw } = await db().rpc("trope_related", { p_slug: slug, p_n: 9 });
   const related = (relRaw as Related[] | null) ?? [];
   const tt = t as typeof t & { maturity: string | null };
   const sorted = [...readings].sort((a, b) => a.figure.film.title.localeCompare(b.figure.film.title));
