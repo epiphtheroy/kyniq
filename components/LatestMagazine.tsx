@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
+import { fw } from "@/lib/frameworks";
 
 const W500 = "https://image.tmdb.org/t/p/w500";
 const W342 = "https://image.tmdb.org/t/p/w342";
@@ -9,23 +10,12 @@ const W185 = "https://image.tmdb.org/t/p/w185";
 
 const ENT: Record<string, string> = { film: "#26303B", meta: "#E3120B", trope: "#167C6B", director: "#6B4E9E", concept: "#2E6F8E" };
 const ENTL: Record<string, string> = { film: "Film", meta: "Meta take", trope: "Trope", director: "Director", concept: "Concept" };
-const REGC: Record<string, string> = {
-  psychoanalytic: "#A8434F", formal: "#5B8FB9", mythic: "#A9743B", existential: "#546E7A",
-  philosophical: "#7E57C2", ideological: "#C0392B", semiotic: "#B8860B", politico_economic: "#2E7D5B",
-  genealogical: "#2E86C1", reception: "#159A8A",
-};
-const REGL: Record<string, string> = {
-  psychoanalytic: "Psychoanalytic", formal: "Formal", mythic: "Mythic", existential: "Existential",
-  philosophical: "Philosophical", ideological: "Ideological", semiotic: "Semiotic", politico_economic: "Politico-economic",
-  genealogical: "Film-historical", reception: "Reception",
-};
-
 type Case = { f: string; y: number | null; fig: string; fs: string; figslug: string | null; bd: string | null };
 type FilmBox = { title: string; y: number | null; dir: string | null; slug: string; bd: string | null; vias: { fig: string; mt: string; mtslug: string }[]; kin: string[] };
 type HubBox = { title: string; slug: string; lac: string | null; cases: Case[] };
 type DirBox = { name: string; slug: string; photo: string | null; place: string | null; sig: { t: string; slug: string; fig: string }[] };
 type ConceptBox = { title: string; slug: string; n: number };
-type ReadingBox = { reg: string | null; fig: string; figslug: string | null; f: string; fs: string; y: number | null; mt: string; mtslug: string; snip: string };
+type ReadingBox = { fw: string | null; tt: string | null; fig: string; figslug: string | null; f: string; fs: string; y: number | null; mt: string | null; mtslug: string | null; snip: string };
 export type LatestPool = {
   films: FilmBox[]; metas: HubBox[]; tropes: HubBox[]; directors: DirBox[]; concepts: ConceptBox[]; readings: ReadingBox[];
 };
@@ -137,18 +127,18 @@ function Box({ d, type }: { d: unknown; type: string }) {
       </div>
     );
   }
-  // reading
+  // reading (Strong Misreading)
   const r = d as ReadingBox;
-  const reg = r.reg ?? "formal";
+  const F = fw(r.fw);
   return (
     <div className="lt-box">
       <Link className="lt-inner" href={r.figslug ? `/film/${r.fs}/figure/${r.figslug}` : `/film/${r.fs}`}>
-        <Band color={REGC[reg] ?? "#5B8FB9"} label={`Reading · ${REGL[reg] ?? reg}`} />
+        <Band color={F.color} label={`Reading · ${F.label}`} />
         <span className="lt-body">
-          <span className="lt-hl">{r.fig}</span>
+          <span className="lt-hl">{r.tt ?? r.fig}</span>
           <span className="lt-dir">{r.f} · {r.y}</span>
           <p className="lt-snip">{r.snip}</p>
-          <span className="lt-kin"><span className="o">reads as</span><b>{r.mt}</b></span>
+          {r.mt ? <span className="lt-kin"><span className="o">a trope</span><b>{r.mt}</b></span> : null}
         </span>
       </Link>
     </div>

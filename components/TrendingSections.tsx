@@ -1,29 +1,19 @@
 import Link from "next/link";
+import { fw } from "@/lib/frameworks";
 
 /**
- * TrendingSections — the four ranked trending blocks (Meta takes · Takes · Tropes
- * · Films), shown through the films & figures that carry them. Pure render: pass in
- * a `pool` from the `trending_pool` RPC. Used by /trending (full page, with window
- * toggle chrome) and embedded at the bottom of the home page. One source of truth.
+ * TrendingSections — the ranked trending blocks (Strong Misreadings · Tropes · Films),
+ * shown through the films & figures that carry them. Pure render: pass in a `pool` from
+ * the `trending_pool` RPC. Used by /trending and the bottom of the home page.
  */
 
 const W342 = "https://image.tmdb.org/t/p/w342";
-const REGC: Record<string, string> = {
-  psychoanalytic: "#A8434F", formal: "#5B8FB9", mythic: "#A9743B", existential: "#546E7A",
-  philosophical: "#7E57C2", ideological: "#C0392B", semiotic: "#B8860B", politico_economic: "#2E7D5B",
-  genealogical: "#2E86C1", reception: "#159A8A",
-};
-const REGL: Record<string, string> = {
-  psychoanalytic: "Psychoanalytic", formal: "Formal", mythic: "Mythic", existential: "Existential",
-  philosophical: "Philosophical", ideological: "Ideological", semiotic: "Semiotic", politico_economic: "Politico-economic",
-  genealogical: "Film-historical", reception: "Reception",
-};
 
 export type TCase = { f: string; y: number | null; fs: string; fig: string; bd: string | null };
 export type TMeta = { t: string; slug: string; n: number; cases: TCase[] };
 export type TTrope = { t: string; slug: string; fg: number; n: number; cases: TCase[] };
 export type TFilm = { t: string; slug: string; y: number | null; dir: string | null; bd: string | null; n: number; vias: { fig: string; mt: string; mtslug: string }[] };
-export type TTake = { reg: string | null; fig: string; figslug: string | null; f: string; fs: string; y: number | null; mt: string; mtslug: string; snip: string; bd: string | null };
+export type TTake = { fw: string | null; tt: string | null; fig: string; figslug: string | null; f: string; fs: string; y: number | null; mt: string | null; mtslug: string | null; snip: string; bd: string | null };
 export type TrendPool = { metas: TMeta[]; takes: TTake[]; tropes: TTrope[]; films: TFilm[] };
 
 function Strip({ cases }: { cases: TCase[] }) {
@@ -55,31 +45,18 @@ function Section({ color, name, sub, more, moreHref, children }: { color: string
 export default function TrendingSections({ pool }: { pool: TrendPool }) {
   return (
     <>
-      <Section color="#E3120B" name="Meta takes" sub="recurring readings" more="All meta takes →" moreHref="/meta-takes">
-        {pool.metas.map((m, i) => (
-          <div className="tg-card" key={m.slug}>
-            <span className="tg-rk">{i + 1}</span>
-            <div className="tg-body">
-              <Link className="tg-tt" href={`/take/${m.slug}`}>{m.t}</Link>
-              <div className="tg-tc">{m.n} films share this reading</div>
-              {m.cases.length > 0 && <Strip cases={m.cases} />}
-            </div>
-          </div>
-        ))}
-      </Section>
-
-      <Section color="#A8434F" name="Takes" sub="individual readings" more="More readings →" moreHref="/latest">
+      <Section color="#A8434F" name="Strong Misreadings" sub="individual bold readings" more="More readings →" moreHref="/latest">
         {pool.takes.map((t, i) => {
-          const reg = t.reg ?? "formal";
+          const F = fw(t.fw);
           return (
             <div className="tg-card take" key={i}>
               <span className="tg-rk">{i + 1}</span>
               <div className="tg-body">
-                <span className="tg-reg" style={{ background: REGC[reg] ?? "#5B8FB9" }}>{REGL[reg] ?? reg}</span>
-                <Link className="tg-tt" href={t.figslug ? `/film/${t.fs}/figure/${t.figslug}` : `/film/${t.fs}`}>{t.fig}</Link>
+                <span className="tg-reg" style={{ background: F.color }}>{F.label}</span>
+                <Link className="tg-tt" href={t.figslug ? `/film/${t.fs}/figure/${t.figslug}` : `/film/${t.fs}`}>{t.tt ?? t.fig}</Link>
                 <div className="tg-tc">{t.f} · {t.y}</div>
                 <p className="tg-snip">{t.snip}</p>
-                <Link className="tg-takevia" href={`/take/${t.mtslug}`}>→ {t.mt}</Link>
+                {t.mt && t.mtslug ? <Link className="tg-takevia" href={`/trope/${t.mtslug}`}>→ {t.mt}</Link> : null}
               </div>
               {t.bd && <Link className="tg-tkthumb" href={t.figslug ? `/film/${t.fs}/figure/${t.figslug}` : `/film/${t.fs}`}><img src={`${W342}${t.bd}`} alt="" loading="lazy" /></Link>}
             </div>
