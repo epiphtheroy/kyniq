@@ -1183,6 +1183,11 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .mt-nav a { font-size: 14px; color: var(--muted); text-decoration: none; }
 .mt-nav a:hover { color: var(--mt-link-hover); }
 .mt-nav a.active { color: var(--ink); }
+/* mobile: let the top nav wrap instead of forcing horizontal overflow (which zooms the whole page out) */
+@media (max-width: 900px) {
+  .mt-nav { flex-wrap: wrap; row-gap: 8px; }
+  .mt-nav nav { flex: 1 1 100%; flex-wrap: wrap; row-gap: 8px; min-width: 0; }
+}
 .mt-see { font-size: 14px; font-weight: 400; line-height: 1.8; color: var(--muted);
   margin: 16px 0 0; padding-top: 11px; border-top: 0.5px solid var(--hairline); }
 .mt-tabs { display: flex; gap: 14px; margin: 9px 0 4px; font-size: 14px; }
