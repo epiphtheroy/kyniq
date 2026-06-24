@@ -20,7 +20,6 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
         {item("directors", "/director", "Directors")}
         {item("tropes", "/tropes", "Tropes")}
         {item("catalog", "/catalog", "Archetype")}
-        {item("concepts", "/concept", "Concepts")}
         {item("blog", "/blog", "Blog")}
       </nav>
       <span style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center", color: "var(--subtle)", fontSize: 13 }}>

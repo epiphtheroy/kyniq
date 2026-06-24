@@ -3188,6 +3188,18 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .cat-mfig{font-size:12.5px; line-height:1.3; padding:7px 8px 2px}
 .cat-mfilm{font-size:11px; color:var(--subtle); padding:0 8px 9px}
 .cat-mcard--more{align-items:center; justify-content:center; color:var(--teal); font-size:13px; font-weight:600; min-height:120px}
+/* archetype detail member list — 2-column news-style (thumbnail + title) */
+.cat-mlist{display:grid; grid-template-columns:1fr 1fr; gap:0 30px}
+.cat-mrow{display:flex; gap:12px; align-items:flex-start; padding:13px 0; border-bottom:1px solid var(--hairline); text-decoration:none; color:var(--ink)}
+.cat-mrthumb{flex:0 0 100px; aspect-ratio:16/10; border-radius:6px; overflow:hidden; background:#EFEDE6; display:flex; align-items:center; justify-content:center}
+.cat-mrthumb img{width:100%; height:100%; object-fit:cover; display:block}
+.cat-mrthumb i{font-size:22px; color:var(--subtle)}
+.cat-mrtext{min-width:0; flex:1}
+.cat-mrfig{font-size:15px; line-height:1.32; font-weight:500}
+.cat-mrow:hover .cat-mrfig{color:var(--teal,#167C6B)}
+.cat-mrfilm{font-size:12.5px; color:var(--subtle); margin-top:3px}
+.cat-mrow--more{justify-content:center; align-items:center; color:var(--teal,#167C6B); font-weight:600; font-size:13px}
+@media(max-width:640px){.cat-mlist{grid-template-columns:1fr}}
 .cat-rels{display:flex; flex-wrap:wrap; gap:32px; margin-top:30px}
 .cat-relblock{flex:1; min-width:260px}
 .cat-h3{font-size:15px; font-weight:600; margin:0 0 10px}

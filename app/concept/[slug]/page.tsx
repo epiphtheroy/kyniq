@@ -11,7 +11,8 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 interface Props { params: Promise<{ slug: string }> }
-type Row = { concept: string; slug: string; title: string; laconic: string | null; films: number };
+type Row = { concept: string; slug: string; title: string; laconic: string | null; films: number; bd: string | null };
+const IMG = "https://image.tmdb.org/t/p/w300";
 
 async function load(slug: string) {
   const { data } = await db().rpc("concept_readings", { p_slug: slug });
@@ -53,25 +54,28 @@ export default async function ConceptPage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="concepts" />
+      <MetatakeNav active="catalog" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <div className="mt-wrap">
-        <div className="mt-crumb"><Link href="/concept">Concepts</Link></div>
+        <div className="mt-crumb"><Link href="/catalog">Archetype</Link> › <Link href="/concept">Theory</Link></div>
         <h1 className="mt-h1">{concept} in film</h1>
         <p className="mt-laconic">
-          {rows.length} ways {concept.toLowerCase()} shows up across cinema — each a close reading that gathers the films sharing it. A search-friendly door into the idea; follow any reading to fall through to the films.
+          {rows.length} ways {concept.toLowerCase()} shows up across cinema — each a recurring trope that gathers the films sharing it.
         </p>
-        <ul className="trm-list">
-          {rows.map((r) => (
-            <li key={r.slug}>
-              <div className="trm-row">
-                <Link href={`/trope/${r.slug}`} className="mt-fig">{r.title}</Link>{" "}
-                <span className="yr">· {r.films} film{r.films === 1 ? "" : "s"}</span>
-              </div>
-              {r.laconic ? <p className="trm-desc">{r.laconic}</p> : null}
-            </li>
-          ))}
-        </ul>
+        <div className="cat-mlist">
+          {rows.map((r) => {
+            const src = r.bd ? `${IMG}${r.bd}` : null;
+            return (
+              <Link key={r.slug} href={`/trope/${r.slug}`} className="cat-mrow">
+                <div className="cat-mrthumb">{src ? <img src={src} alt="" loading="lazy" /> : <i className="ti ti-movie" aria-hidden="true" />}</div>
+                <div className="cat-mrtext">
+                  <div className="cat-mrfig">{r.title}</div>
+                  <div className="cat-mrfilm">{r.films} film{r.films === 1 ? "" : "s"}{r.laconic ? ` · ${r.laconic}` : ""}</div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
         <p className="mt-see" style={{ marginTop: "1.25rem" }}>← All <Link href="/concept">concepts</Link></p>
       </div>
     </div>

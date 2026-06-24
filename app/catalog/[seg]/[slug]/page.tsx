@@ -103,24 +103,26 @@ export default async function CatalogNode({ params }: Props) {
           {members.length === 0 ? (
             <p className="cat-empty">No figures yet.</p>
           ) : (
-            <div className="cat-grid">
+            <div className="cat-mlist">
               {members.map((m, i) => {
                 const href = m.figure_slug
                   ? `/film/${m.film_slug}/figure/${m.figure_slug}`
                   : `/film/${m.film_slug}`;
-                const src = img(m.poster) || img(m.backdrop);
+                const src = img(m.backdrop) || img(m.poster);
                 return (
-                  <Link key={`${m.film_slug}-${i}`} href={href} className="cat-mcard">
-                    <div className="cat-mthumb">
+                  <Link key={`${m.film_slug}-${i}`} href={href} className="cat-mrow">
+                    <div className="cat-mrthumb">
                       {src ? <img src={src} alt="" loading="lazy" /> : <i className="ti ti-movie" aria-hidden="true" />}
                     </div>
-                    <div className="cat-mfig">{m.figure_label}</div>
-                    <div className="cat-mfilm">{m.film_title}{m.yr ? ` · ${m.yr}` : ""}</div>
+                    <div className="cat-mrtext">
+                      <div className="cat-mrfig">{m.figure_label}</div>
+                      <div className="cat-mrfilm">{m.film_title}{m.yr ? ` · ${m.yr}` : ""}</div>
+                    </div>
                   </Link>
                 );
               })}
               {n > members.length ? (
-                <div className="cat-mcard cat-mcard--more"><span>+{(n - members.length).toLocaleString()} more</span></div>
+                <div className="cat-mrow cat-mrow--more"><span>+{(n - members.length).toLocaleString()} more</span></div>
               ) : null}
             </div>
           )}
