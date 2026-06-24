@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
-import SearchBox from "@/components/SearchBox";
+import ListFilter from "@/components/ListFilter";
 import { pageRobots } from "@/lib/seo";
 import { kindBySeg, sectionByKey, axisLabel, nodeHref, sectionHref } from "@/lib/catalog";
 
@@ -82,8 +82,6 @@ export default async function CatalogNode({ params }: Props) {
           {km.label}
         </div>
 
-        <div className="cat-search"><SearchBox variant="hero" /></div>
-
         <header className="cat-nhead">
           <div className="cat-nrole">
             {km.label}
@@ -106,14 +104,19 @@ export default async function CatalogNode({ params }: Props) {
           {members.length === 0 ? (
             <p className="cat-empty">No figures yet.</p>
           ) : (
-            <div className="cat-mlist">
+            <>
+              {members.length > 8 ? (
+                <ListFilter targetId="cat-members" placeholder={`Filter these ${figLabel}…`} total={members.length} />
+              ) : null}
+              <div className="cat-mlist" id="cat-members">
               {members.map((m, i) => {
                 const href = m.figure_slug
                   ? `/film/${m.film_slug}/figure/${m.figure_slug}`
                   : `/film/${m.film_slug}`;
                 const src = img(m.backdrop) || img(m.poster);
                 return (
-                  <Link key={`${m.film_slug}-${i}`} href={href} className="cat-mrow">
+                  <Link key={`${m.film_slug}-${i}`} href={href} className="cat-mrow"
+                    data-filter-item data-filter-text={`${m.figure_label} ${m.film_title}`.toLowerCase()}>
                     <div className="cat-mrthumb">
                       {src ? <img src={src} alt="" loading="lazy" /> : <i className="ti ti-movie" aria-hidden="true" />}
                     </div>
@@ -127,7 +130,8 @@ export default async function CatalogNode({ params }: Props) {
               {n > members.length ? (
                 <div className="cat-mrow cat-mrow--more"><span>+{(n - members.length).toLocaleString()} more</span></div>
               ) : null}
-            </div>
+              </div>
+            </>
           )}
         </section>
 

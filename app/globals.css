@@ -3154,10 +3154,11 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .cat-h1 em{font-style:italic}
 .cat-intro{font-size:16px; line-height:1.65; color:var(--ink-soft); max-width:70ch; margin:0 0 28px}
 .cat-intro a{color:var(--teal); text-decoration:none}
-.cat-search{margin:2px 0 26px; max-width:560px}
-.cat-search .sb--hero{max-width:none; width:100%}
-.cat-search .sb-input{border:1.5px solid var(--hairline-2); border-radius:10px; padding:12px 16px; font-size:15px; background:#fff}
-.cat-search .sb-input:focus{border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent)}
+/* prominent in-page filter inside the Archetype pages (section browse + node members) */
+.cat-wrap .lf{margin:0 0 14px; gap:9px}
+.cat-wrap .lf-input{min-width:min(420px,100%); width:min(420px,100%); font-size:14px; padding:10px 15px; border-radius:10px; border:1.5px solid var(--hairline-2)}
+.cat-wrap .lf-input:focus{border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}
+.cat-wrap .lf-count{font-size:12px}
 .cat-sections{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
 .cat-scard{border:1px solid var(--hairline); border-radius:12px; padding:18px; background:#fff; display:flex; flex-direction:column}
 .cat-scard__h{display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--ink)}

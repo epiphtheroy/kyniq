@@ -2,7 +2,6 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
-import SearchBox from "@/components/SearchBox";
 import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "@/lib/catalog";
 
 export const revalidate = 600;
@@ -51,8 +50,6 @@ export default async function CatalogHub() {
           beside <Link href="/tropes">Tropes</Link>, the interpretive layer — what a figure{" "}
           <em>means</em>.
         </p>
-
-        <div className="cat-search"><SearchBox variant="hero" /></div>
 
         <div className="cat-sections">
           {SECTIONS.map((s) => {
