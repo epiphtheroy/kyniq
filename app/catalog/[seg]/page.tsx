@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import ListFilter from "@/components/ListFilter";
+import SearchBox from "@/components/SearchBox";
 import { sectionBySeg, kindMeta, axisLabel, nodeHref } from "@/lib/catalog";
 
 export const revalidate = 600;
@@ -44,6 +45,7 @@ export default async function CatalogSection({ params }: Props) {
       <MetatakeNav active="catalog" />
       <div className="cat-wrap">
         <div className="cat-crumb"><Link href="/catalog">Archetype</Link> <span>›</span> {s.label}</div>
+        <div className="cat-search"><SearchBox variant="hero" /></div>
         <h1 className="cat-h1">{s.label}</h1>
         <p className="cat-intro">{s.blurb}</p>
 

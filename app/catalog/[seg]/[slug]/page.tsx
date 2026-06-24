@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import SearchBox from "@/components/SearchBox";
 import { pageRobots } from "@/lib/seo";
 import { kindBySeg, sectionByKey, axisLabel, nodeHref, sectionHref } from "@/lib/catalog";
 
@@ -80,6 +81,8 @@ export default async function CatalogNode({ params }: Props) {
           {section ? <Link href={sectionHref(section.key)}>{section.label}</Link> : null} <span>›</span>{" "}
           {km.label}
         </div>
+
+        <div className="cat-search"><SearchBox variant="hero" /></div>
 
         <header className="cat-nhead">
           <div className="cat-nrole">
