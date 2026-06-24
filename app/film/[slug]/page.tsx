@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import MetatakeNav from "@/components/MetatakeNav";
+import FilmTabBar from "@/components/FilmTabBar";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
@@ -10,6 +11,7 @@ import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
+import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -34,6 +36,7 @@ type FilmLink = { slug: string; title: string; figs: FigRef[] };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
 type TakeRow = { figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null };
 type SM = { framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
+type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null };
 
 async function load(slug: string) {
   const supabase = db();
@@ -43,12 +46,14 @@ async function load(slug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
+    supabase.rpc("film_catalog", { p_film_id: film.id }),
   ]);
+  const archetypes = (catRows ?? []) as ArchRow[];
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
@@ -106,8 +111,12 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes };
 }
+
+// order + cap for the film-page Archetype section
+const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
+const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -130,7 +139,7 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes } = data;
 
   // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
   const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount.get(f.id) ?? 0) > 0);
@@ -144,6 +153,20 @@ export default async function FilmPage({ params }: Props) {
   const runtimeFmt = film.runtime ? `${film.runtime} min` : null;
   const cert = film.certification ? film.certification.replace(/^[A-Z]{2}:/, "") : null;
   const country = extra.country?.length ? extra.country[0] : null;
+
+  const archGroups = ARCH_ORDER
+    .map((axis) => ({ axis, items: archetypes.filter((a) => a.axis === axis).slice(0, ARCH_CAP[axis] ?? 999) }))
+    .filter((g) => g.items.length > 0);
+  const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
+  const tabs = ([
+    invitation ? { id: "df-invitation", label: "Invitation" } : null,
+    misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
+    grouped.length ? { id: "df-figures", label: "Figures" } : null,
+    tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
+    archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
+    recs.length ? { id: "df-connected", label: "Films like" } : null,
+    filmInfoPresent ? { id: "df-information", label: "Information" } : null,
+  ].filter(Boolean)) as { id: string; label: string }[];
 
   const jsonld = {
     "@context": "https://schema.org", "@type": "Movie", name: film.title,
@@ -206,9 +229,12 @@ export default async function FilmPage({ params }: Props) {
           </div>
         </section>
 
+        {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
+        {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
+
         {/* INVITATION — spoiler-free way in */}
         {invitation ? (
-          <section className="df-invite">
+          <section className="df-invite" id="df-invitation">
             <div className="df-invite__k">An invitation</div>
             <p className="df-invite__p">{invitation}</p>
             <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
@@ -322,6 +348,34 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
+        {/* ARCHETYPE — catalog classification of this film's figures */}
+        {archGroups.length > 0 ? (
+          <section className="df-sec" id="df-archetype">
+            <h2 className="df-h2">Archetype</h2>
+            <p className="df-sub">What {film.title}&apos;s figures <i>are</i> — their catalog classification, each linking into the <Link href="/catalog">Archetype</Link> catalog. <b>Via</b> = the figure that carries it.</p>
+            {archGroups.map((g) => (
+              <div key={g.axis} className="df-archgrp">
+                <div className="df-flabel">{axisLabel(g.axis)}</div>
+                <div className="df-mlist df-mlist--wide">
+                  {g.items.map((a) => (
+                    <div key={a.slug} className="df-mrow">
+                      <Link className="df-t" href={nodeHref(g.axis, a.slug)}>{a.label}</Link>
+                      {a.n > 1 ? <span className="df-cnt">{a.n}</span> : null}
+                      {a.fig_label ? (
+                        <span className="df-via"><span className="df-via__lab">via</span>{" "}
+                          {a.fig_slug
+                            ? <Link href={`/film/${film.slug}/figure/${a.fig_slug}`} className="df-f">{a.fig_label}</Link>
+                            : <span className="df-f">{a.fig_label}</span>}
+                        </span>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </section>
+        ) : null}
+
         {/* CONNECTED FILMS */}
         {recs.length > 0 ? (
           <section className="df-sec" id="df-connected">
@@ -340,7 +394,7 @@ export default async function FilmPage({ params }: Props) {
 
         {/* FILM INFO — accordion */}
         {(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer) ? (
-          <details className="df-finfo">
+          <details className="df-finfo" id="df-information">
             <summary>Film info &amp; credits</summary>
             <div className="df-finfo__body">
               {film.overview ? <p className="df-ov">{film.overview}</p> : null}
