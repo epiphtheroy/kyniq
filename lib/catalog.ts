@@ -7,7 +7,8 @@ export type SectionKey = "objects" | "characters" | "locations" | "themes" | "th
 export type Section = {
   key: SectionKey;
   seg: string;        // url under /catalog (browse page): /catalog/{seg}
-  label: string;      // display, plural section noun
+  label: string;      // display, plural section noun (browse page H1, "Browse X")
+  cardTitle: string;  // hub card title — the "<X> Archetype" form
   blurb: string;
   icon: string;       // tabler icon name (used by our CSS/icon font)
   kinds: string[];    // node kinds aggregated into this section's counts
@@ -15,19 +16,19 @@ export type Section = {
 };
 
 export const SECTIONS: Section[] = [
-  { key: "objects", seg: "objects", label: "Objects", icon: "cube",
+  { key: "objects", seg: "objects", label: "Objects", cardTitle: "Object Archetype", icon: "cube",
     blurb: "Props and things — what each object is, by type, function, and named archetype.",
     kinds: ["object", "object_type", "function"], primaryKind: "object" },
-  { key: "characters", seg: "characters", label: "Characters", icon: "user",
+  { key: "characters", seg: "characters", label: "Characters", cardTitle: "Character Archetype", icon: "user",
     blurb: "People on screen — their identities, internal complexes, and named character archetypes.",
     kinds: ["char_identity", "char_complex", "char_archetype", "char_function"], primaryKind: "char_archetype" },
-  { key: "locations", seg: "locations", label: "Locations", icon: "map-pin",
+  { key: "locations", seg: "locations", label: "Locations", cardTitle: "Place Archetype", icon: "map-pin",
     blurb: "Places and settings — by realm, place type, and named place archetype.",
     kinds: ["location", "location_category", "location_group"], primaryKind: "location" },
-  { key: "themes", seg: "themes", label: "Themes", icon: "affiliate",
+  { key: "themes", seg: "themes", label: "Themes", cardTitle: "Theme Archetype", icon: "affiliate",
     blurb: "What a work is about — the abstract subjects that recur across figures and films.",
     kinds: ["theme", "theme_cluster"], primaryKind: "theme" },
-  { key: "theory", seg: "theory", label: "Theory", icon: "book",
+  { key: "theory", seg: "theory", label: "Theory", cardTitle: "Theory Archetype", icon: "book",
     blurb: "The critical concepts and theorists the readings draw on (from the canon).",
     kinds: ["theory"], primaryKind: "theory" },
 ];
