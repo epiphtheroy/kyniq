@@ -38,6 +38,7 @@ type MediaRow = { id: string; kind: string; source: string; external_id: string;
 type TakeRow = { figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null };
 type SM = { framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
 type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null };
+type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string };
 
 async function load(slug: string) {
   const supabase = db();
@@ -47,14 +48,16 @@ async function load(slug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
     supabase.rpc("film_catalog", { p_film_id: film.id }),
+    supabase.rpc("film_reception", { p_film_id: film.id }),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
+  const reception = (rcpRows ?? []) as RcpRow[];
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
@@ -112,7 +115,7 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception };
 }
 
 // order + cap for the film-page Archetype section
@@ -140,7 +143,9 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception } = data;
+  const reviews = reception.filter((r) => r.kind === "criticism");
+  const papers = reception.filter((r) => r.kind === "academic");
 
   // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
   const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount.get(f.id) ?? 0) > 0);
@@ -165,6 +170,7 @@ export default async function FilmPage({ params }: Props) {
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
+    reception.length ? { id: "df-reception", label: "Reception" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
   ].filter(Boolean)) as { id: string; label: string }[];
@@ -381,6 +387,43 @@ export default async function FilmPage({ params }: Props) {
                 </div>
               </div>
             ))}
+          </section>
+        ) : null}
+
+        {/* RECEPTION — critics & scholarship (copyright-safe: headlines + ≤10-word verbatim verdicts) */}
+        {reception.length > 0 ? (
+          <section className="df-sec" id="df-reception">
+            <h2 className="df-h2">Reception</h2>
+            <p className="df-sub">What critics and scholars have written about {film.title} — each headline links to the source; short quotes are verbatim from publishers&apos; own link previews and paper abstracts.</p>
+            {reviews.length > 0 ? (
+              <div className="df-rcpgrp">
+                <div className="df-flabel">Reviews <span className="df-cnt">{reviews.length}</span></div>
+                <div className="rcp-list">
+                  {reviews.map((r, i) => (
+                    <div key={i} className="rcp-row">
+                      <a className="rcp-h" href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
+                      <div className="rcp-m">{r.outlet}{r.critic ? ` · ${r.critic}` : ""}{r.year ? ` · ${r.year}` : ""}</div>
+                      {r.verdict ? <p className="rcp-v">“{r.verdict}”</p> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {papers.length > 0 ? (
+              <div className="df-rcpgrp">
+                <div className="df-flabel">Scholarship <span className="df-cnt">{papers.length}</span></div>
+                <div className="rcp-list">
+                  {papers.map((r, i) => (
+                    <div key={i} className="rcp-row">
+                      <a className="rcp-h" href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
+                      <div className="rcp-m">{r.outlet}{r.critic ? ` · ${r.critic}` : ""}{r.year ? ` · ${r.year}` : ""}</div>
+                      {r.verdict ? <p className="rcp-v">“{r.verdict}”</p> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            <div className="df-src">Headlines &amp; ≤10-word quotes from publishers&apos; link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.</div>
           </section>
         ) : null}
 
