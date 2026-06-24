@@ -1170,9 +1170,10 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .mt-rat { margin: 3px 0 10px; font-size: 14.5px; font-weight: 400;
   line-height: 1.68; color: #3d3d3d; max-width: 64ch; }
 .mt-cols { columns: 2; column-gap: 24px; font-size: 15px; line-height: 1.85; }
-.mt-nav { display: flex; align-items: center; gap: 14px; padding: 8px 18px;
-  border-bottom: 0.5px solid var(--hairline);
+.mt-nav { border-bottom: 0.5px solid var(--hairline);
   position: sticky; top: 0; z-index: 50; background: var(--bg); }
+.mt-nav__in { display: flex; align-items: center; gap: 14px; padding: 8px var(--wrap-x);
+  max-width: 1240px; margin: 0 auto; }
 /* in-page list filter (client-side narrowing of an already-rendered list) */
 .lf { display: flex; align-items: baseline; gap: 10px; margin: 8px 0 4px; flex-wrap: wrap; }
 .lf-input { font-family: var(--font-ui); font-size: 13px; color: var(--ink); background: var(--bg);
@@ -1185,8 +1186,8 @@ a.mt-link:hover { color: var(--mt-link-hover); text-decoration: underline; text-
 .mt-nav a.active { color: var(--ink); }
 /* mobile: let the top nav wrap instead of forcing horizontal overflow (which zooms the whole page out) */
 @media (max-width: 900px) {
-  .mt-nav { flex-wrap: wrap; row-gap: 8px; }
-  .mt-nav nav { flex: 1 1 100%; flex-wrap: wrap; row-gap: 8px; min-width: 0; }
+  .mt-nav__in { flex-wrap: wrap; row-gap: 8px; }
+  .mt-nav__in nav { flex: 1 1 100%; flex-wrap: wrap; row-gap: 8px; min-width: 0; }
 }
 .mt-see { font-size: 14px; font-weight: 400; line-height: 1.8; color: var(--muted);
   margin: 16px 0 0; padding-top: 11px; border-top: 0.5px solid var(--hairline); }

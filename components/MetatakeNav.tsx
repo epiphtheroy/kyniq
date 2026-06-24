@@ -10,6 +10,7 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
   );
   return (
     <div className="mt-nav">
+      <div className="mt-nav__in">
       <Link href="/" className="brand">metatake</Link>
       <nav style={{ display: "flex", gap: 14 }}>
         {item("chat", "/chat", "💬 Chat")}
@@ -27,6 +28,7 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
         <RandomMenu />
         <AccountMenu />
       </span>
+      </div>
     </div>
   );
 }
