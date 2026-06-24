@@ -218,7 +218,7 @@ export default async function FilmPage({ params }: Props) {
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
           <section className="df-sec" id="df-readings">
-            <h2 className="df-h2">Strong Misreadings</h2>
+            <h2 className="df-h2">Strong Misreadings!</h2>
             <p className="df-sub">
               Bold readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">critical frameworks</Link> — each a deliberate over-reading, a provocation rather than a verdict.
             </p>
@@ -228,21 +228,21 @@ export default async function FilmPage({ params }: Props) {
                 {items.map((m, i) => {
                   const F = fw(m.framework);
                   const href = m.figSlug ? `/film/${film.slug}/figure/${m.figSlug}` : null;
-                  const inner = (
-                    <>
+                  const fwHref = F.slug && m.framework !== "INVITATION" ? `/strong-misreadings/${F.slug}` : null;
+                  return (
+                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>
                       <div className="sm-row__top">
-                        <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>
-                        <span className="sm-via">via {m.figLabel}</span>
+                        {fwHref
+                          ? <Link className="sm-fw" href={fwHref} style={{ color: F.color }}>{F.label}</Link>
+                          : <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>}
+                        <span className="sm-via">via {href ? <Link href={href}>{m.figLabel}</Link> : m.figLabel}</span>
                       </div>
-                      {m.take_title ? <div className="sm-row__title">{m.take_title}</div> : null}
+                      {m.take_title ? (
+                        <div className="sm-row__title">{href ? <Link href={href}>{m.take_title}</Link> : m.take_title}</div>
+                      ) : null}
                       {m.thesis ? <p className="sm-row__thesis sm-row__thesis--full">{m.thesis}</p> : null}
                       {m.leap ? <p className="sm-row__leap"><span className="sm-leap__l">The leap</span> {m.leap}</p> : null}
-                    </>
-                  );
-                  return href ? (
-                    <Link key={i} className="sm-row sm-row--link" href={href} style={{ borderLeftColor: F.color }}>{inner}</Link>
-                  ) : (
-                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>{inner}</div>
+                    </div>
                   );
                 })}
               </div>
