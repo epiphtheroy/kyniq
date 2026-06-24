@@ -4,6 +4,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import MetatakeNav from "@/components/MetatakeNav";
 import FilmTabBar from "@/components/FilmTabBar";
+import InviteVideo from "@/components/InviteVideo";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
@@ -234,10 +235,17 @@ export default async function FilmPage({ params }: Props) {
 
         {/* INVITATION — spoiler-free way in */}
         {invitation ? (
-          <section className="df-invite" id="df-invitation">
-            <div className="df-invite__k">An invitation</div>
-            <p className="df-invite__p">{invitation}</p>
-            <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
+          <section className={`df-invite${trailer ? " df-invite--vid" : ""}`} id="df-invitation">
+            <div className="df-invite__txt">
+              <div className="df-invite__k">An invitation</div>
+              <p className="df-invite__p">{invitation}</p>
+              <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
+            </div>
+            {trailer ? (
+              <div className="df-invite__vid">
+                <InviteVideo videoId={trailer.external_id} title={trailer.title ?? `${film.title} trailer`} poster={trailer.thumbnail_url ?? undefined} />
+              </div>
+            ) : null}
           </section>
         ) : null}
 
@@ -398,7 +406,7 @@ export default async function FilmPage({ params }: Props) {
             <summary>Film info &amp; credits</summary>
             <div className="df-finfo__body">
               {film.overview ? <p className="df-ov">{film.overview}</p> : null}
-              {trailer ? (
+              {trailer && !invitation ? (
                 <div className="df-trailer">
                   <YouTubeFacade videoId={trailer.external_id} title={trailer.title ?? "Trailer"} thumbnailUrl={trailer.thumbnail_url ?? undefined} attribution={trailer.attribution ?? undefined} />
                 </div>

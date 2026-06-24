@@ -3003,6 +3003,14 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .df-invite__k{font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
 .df-invite__p{font-family:var(--font-display); font-size:17px; line-height:1.7; color:var(--ink); margin:0; max-width:68ch}
 .df-invite__note{font-family:var(--font-ui); font-size:11.5px; color:var(--muted); margin-top:12px; font-style:italic}
+.df-invite--vid{display:grid; grid-template-columns:1fr; gap:18px; align-items:start}
+@media(min-width:760px){.df-invite--vid{grid-template-columns:1.25fr 1fr}}
+.df-invite__txt{min-width:0}
+.df-invite--vid .df-invite__p{max-width:none}
+.df-invite__vid{min-width:0}
+.iv-frame{position:relative; aspect-ratio:16/9; border-radius:8px; overflow:hidden; background:#0c0e12 center/cover no-repeat; display:flex; align-items:center; justify-content:center}
+.iv-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.iv-ph{color:rgba(255,255,255,.82); font-size:30px; text-shadow:0 1px 6px rgba(0,0,0,.5)}
 
 /* film-page Strong Misreadings grouped by family */
 .df-smfam{margin:0 0 22px}
