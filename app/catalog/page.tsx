@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
-import { SECTIONS, sectionCounts, sectionHref, nodeHref, axisLabel, type KindCount } from "@/lib/catalog";
+import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "@/lib/catalog";
 
 export const revalidate = 600;
 
@@ -59,7 +59,7 @@ export default async function CatalogHub() {
               <section key={s.key} className="cat-scard">
                 <Link href={sectionHref(s.key)} className="cat-scard__h">
                   <i className={`ti ti-${s.icon}`} aria-hidden="true" />
-                  <span className="cat-scard__title">{axisLabel(s.primaryKind)}</span>
+                  <span className="cat-scard__title">{s.cardTitle}</span>
                 </Link>
                 <div className="cat-scard__count">
                   {s.key === "theory"

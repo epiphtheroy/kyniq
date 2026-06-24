@@ -43,7 +43,7 @@ export default async function CatalogSection({ params }: Props) {
     <div className="mt">
       <MetatakeNav active="catalog" />
       <div className="cat-wrap">
-        <div className="cat-crumb"><Link href="/catalog">Catalog</Link> <span>›</span> {s.label}</div>
+        <div className="cat-crumb"><Link href="/catalog">Archetype</Link> <span>›</span> {s.label}</div>
         <h1 className="cat-h1">{s.label}</h1>
         <p className="cat-intro">{s.blurb}</p>
 

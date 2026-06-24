@@ -19,7 +19,7 @@ export default function MetatakeNav({ active }: { active?: "films" | "directors"
         {item("films", "/film", "Films")}
         {item("directors", "/director", "Directors")}
         {item("tropes", "/tropes", "Tropes")}
-        {item("catalog", "/catalog", "Catalog")}
+        {item("catalog", "/catalog", "Archetype")}
         {item("concepts", "/concept", "Concepts")}
         {item("blog", "/blog", "Blog")}
       </nav>

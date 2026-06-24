@@ -76,7 +76,7 @@ export default async function CatalogNode({ params }: Props) {
       <MetatakeNav active="catalog" />
       <div className="cat-wrap cat-node">
         <div className="cat-crumb">
-          <Link href="/catalog">Catalog</Link> <span>›</span>{" "}
+          <Link href="/catalog">Archetype</Link> <span>›</span>{" "}
           {section ? <Link href={sectionHref(section.key)}>{section.label}</Link> : null} <span>›</span>{" "}
           {km.label}
         </div>
