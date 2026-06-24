@@ -48,7 +48,7 @@ export default async function ConceptPage({ params }: Props) {
     ] },
     { "@context": "https://schema.org", "@type": "ItemList", name: `${concept} in film`, numberOfItems: rows.length,
       itemListElement: rows.map((r, i) => ({ "@type": "ListItem", position: i + 1,
-        item: { "@type": "CreativeWork", name: r.title, url: `https://metatake.net/take/${r.slug}` } })) },
+        item: { "@type": "CreativeWork", name: r.title, url: `https://metatake.net/trope/${r.slug}` } })) },
   ];
 
   return (
@@ -65,7 +65,7 @@ export default async function ConceptPage({ params }: Props) {
           {rows.map((r) => (
             <li key={r.slug}>
               <div className="trm-row">
-                <Link href={`/take/${r.slug}`} className="mt-fig">{r.title}</Link>{" "}
+                <Link href={`/trope/${r.slug}`} className="mt-fig">{r.title}</Link>{" "}
                 <span className="yr">· {r.films} film{r.films === 1 ? "" : "s"}</span>
               </div>
               {r.laconic ? <p className="trm-desc">{r.laconic}</p> : null}

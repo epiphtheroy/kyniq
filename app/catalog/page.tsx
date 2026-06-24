@@ -2,12 +2,12 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
-import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "@/lib/catalog";
+import { SECTIONS, sectionCounts, sectionHref, nodeHref, axisLabel, type KindCount } from "@/lib/catalog";
 
 export const revalidate = 600;
 
 export const metadata: Metadata = {
-  title: "Catalog — what each figure is | Metatake",
+  title: "Archetype — what each figure is | Metatake",
   description:
     "A controlled vocabulary for every figure in the archive — objects, characters, places, themes, theory. Browse cinema by what its elements are, not only what they mean.",
 };
@@ -31,11 +31,17 @@ export default async function CatalogHub() {
   const topBySection: Record<string, Top[]> = {};
   featutedKinds.forEach((s, i) => { topBySection[s.key] = (tops[i].data as Top[]) ?? []; });
 
+  // Theory section is sourced from the concept layer (takes.concept), not figure_taxonomy.
+  const { data: cRows } = await supabase.rpc("concept_index");
+  const concepts = (cRows as { slug: string; title: string; n: number }[]) ?? [];
+  const conceptCount = concepts.length;
+  topBySection["theory"] = concepts.slice(0, 4).map((c) => ({ slug: c.slug, label: c.title, code: null, n: c.n }));
+
   return (
     <div className="mt">
       <MetatakeNav active="catalog" />
       <div className="cat-wrap">
-        <div className="cat-kick">Catalog</div>
+        <div className="cat-kick">Archetype</div>
         <h1 className="cat-h1">What each figure <em>is</em></h1>
         <p className="cat-intro">
           A controlled vocabulary for every figure in the archive — its <strong>objects</strong>,{" "}
@@ -53,18 +59,18 @@ export default async function CatalogHub() {
               <section key={s.key} className="cat-scard">
                 <Link href={sectionHref(s.key)} className="cat-scard__h">
                   <i className={`ti ti-${s.icon}`} aria-hidden="true" />
-                  <span className="cat-scard__title">{s.label}</span>
+                  <span className="cat-scard__title">{axisLabel(s.primaryKind)}</span>
                 </Link>
                 <div className="cat-scard__count">
                   {s.key === "theory"
-                    ? "from the critical canon"
+                    ? `${conceptCount.toLocaleString()} concepts · from the readings`
                     : `${c.nodes.toLocaleString()} ${s.key === "themes" ? "themes" : "archetypes"} · ${c.figures.toLocaleString()} figures`}
                 </div>
                 <p className="cat-scard__blurb">{s.blurb}</p>
                 {feat.length > 0 ? (
                   <div className="cat-chips">
                     {feat.map((f) => (
-                      <Link key={f.slug} href={nodeHref(s.primaryKind, f.slug)} className="cat-chip">
+                      <Link key={f.slug} href={s.key === "theory" ? `/concept/${f.slug}` : nodeHref(s.primaryKind, f.slug)} className="cat-chip">
                         {f.label}<span className="cat-chip__n">{f.n}</span>
                       </Link>
                     ))}
