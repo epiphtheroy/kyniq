@@ -3287,4 +3287,14 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .rb-item a:hover{color:var(--accent); text-decoration:underline}
 .rb-yr{color:var(--subtle); font-size:12.5px}
 .rb-sep{color:var(--hairline-2)}
+/* film-page personal lists — Seen / Watchlist + rating */
+.ml{display:inline-flex; align-items:center; gap:8px; flex-wrap:wrap}
+.ml--ph{min-height:30px; min-width:150px}
+.ml-btn{font-family:var(--font-ui); font-size:12.5px; display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border:1px solid var(--hairline-2); border-radius:6px; background:#fff; color:var(--ink2); cursor:pointer; transition:border-color .15s, background .15s, color .15s}
+.ml-btn:hover{border-color:var(--ink)}
+.ml-btn.on{background:var(--accent); border-color:var(--accent); color:#fff}
+.ml-ic{font-weight:700}
+.ml-stars{display:inline-flex; gap:1px}
+.ml-star{background:none; border:0; cursor:pointer; font-size:16px; line-height:1; color:var(--hairline-2); padding:0 1px}
+.ml-star.on,.ml-star:hover{color:var(--accent)}
 @media (min-width:760px){ .ww-grid{grid-template-columns:1fr 1fr} }

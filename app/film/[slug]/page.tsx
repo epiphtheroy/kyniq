@@ -9,6 +9,7 @@ import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 import EntityActions from "@/components/EntityActions";
+import MovieListActions from "@/components/MovieListActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
@@ -235,6 +236,7 @@ export default async function FilmPage({ params }: Props) {
                 {country ? <><span className="df-d" />{country}</> : null}
               </div>
               <div className="df-hactions">
+                <MovieListActions filmId={film.id} />
                 <EntityActions entityType="film" entityId={film.id} />
                 {recs.length ? <Link className="df-like" href={`/movies-like/${film.slug}`}>🎬 Movies like {film.title} →</Link> : null}
               </div>

@@ -40,6 +40,21 @@ function PinList({ pins }: { pins: Pin[] }) {
   );
 }
 
+function MovieList({ rows }: { rows: Array<{ rating: number | null; film: { slug: string; title: string; year: number | null } }> }) {
+  if (rows.length === 0) return <p className="ui muted" style={{ fontSize: 14, fontStyle: "italic", margin: "8px 0 0" }}>Nothing here yet.</p>;
+  return (
+    <ul className="me-list mt" style={{ listStyle: "none", padding: 0, margin: "10px 0 0" }}>
+      {rows.map((m, i) => (
+        <li key={i} style={{ padding: "9px 0", borderBottom: "1px solid var(--hairline)" }}>
+          <Link href={`/film/${m.film.slug}`} style={{ fontSize: 16 }}>{m.film.title}</Link>
+          <span className="ui muted" style={{ fontSize: 13, marginLeft: 8 }}>({m.film.year ?? "?"})</span>
+          {m.rating ? <span style={{ color: "var(--accent)", marginLeft: 8, letterSpacing: "1px" }}>{"★".repeat(m.rating)}</span> : null}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default async function MeDashboard() {
   const supabase = await createClient();
   const { data: auth } = await supabase.auth.getUser();
@@ -49,8 +64,11 @@ export default async function MeDashboard() {
   const { data: profile } = await supabase.from("profiles").select("username, display_name").eq("id", user.id).maybeSingle();
   const name = profile?.display_name || profile?.username || user.email?.split("@")[0] || "you";
 
-  const [{ data: pinsRaw }, { data: takesRaw }] = await Promise.all([
+  const [{ data: pinsRaw }, { data: moviesRaw }, { data: takesRaw }] = await Promise.all([
     supabase.rpc("get_my_pins"),
+    supabase.from("user_movies")
+      .select("status, rating, added_at, film:films!inner(slug, title, year)")
+      .order("added_at", { ascending: false }),
     supabase
       .from("takes")
       .select("id, rationale, register, status, created_at, meta_take:meta_takes!takes_meta_take_id_fkey(title, slug), figure:figures!inner(label, slug, film:films!inner(title, slug))")
@@ -62,6 +80,9 @@ export default async function MeDashboard() {
   const pins: Pin[] = (pinsRaw as Pin[] | null) ?? [];
   const follows = pins.filter((p) => p.kind === "follow");
   const likes = pins.filter((p) => p.kind === "like");
+  const movies = (moviesRaw as unknown as Array<{ status: string; rating: number | null; film: { slug: string; title: string; year: number | null } }>) ?? [];
+  const watched = movies.filter((m) => m.status === "watched");
+  const watchlist = movies.filter((m) => m.status === "watchlist");
   const takes = (takesRaw as unknown as Array<{
     id: string; rationale: string; register: string | null; status: string; created_at: string;
     meta_take: { title: string; slug: string } | null;
@@ -80,6 +101,16 @@ export default async function MeDashboard() {
         </p>
 
         <section style={{ marginTop: 22 }}>
+          <div className="seclbl">✓ Watched · {watched.length}</div>
+          <MovieList rows={watched} />
+        </section>
+
+        <section style={{ marginTop: 26 }}>
+          <div className="seclbl">＋ Watchlist · {watchlist.length}</div>
+          <MovieList rows={watchlist} />
+        </section>
+
+        <section style={{ marginTop: 26 }}>
           <div className="seclbl">📌 Following · {follows.length}</div>
           <PinList pins={follows} />
         </section>
