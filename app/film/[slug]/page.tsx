@@ -39,6 +39,10 @@ type TakeRow = { figure_id: string; framework: string | null; take_title: string
 type SM = { framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
 type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null };
 type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string };
+type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_director: string | null; reason: string; target_slug: string | null; target_title: string | null; target_year: number | null; target_poster: string | null; tmdb_id: number | null; poster_path: string | null };
+type WwPoint = { label?: string; text: string };
+type WwLens = { key: string; points: WwPoint[] };
+const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
 
 async function load(slug: string) {
   const supabase = db();
@@ -48,16 +52,20 @@ async function load(slug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
     supabase.rpc("film_catalog", { p_film_id: film.id }),
     supabase.rpc("film_reception", { p_film_id: film.id }),
+    supabase.rpc("film_next", { p_film_id: film.id }),
+    supabase.rpc("film_asset", { p_film_id: film.id }),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
+  const watchNext = (wnRows ?? []) as WnRow[];
+  const whyWatch = (Array.isArray(waRows) ? waRows : []) as WwLens[];
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
@@ -115,7 +123,7 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch };
 }
 
 // order + cap for the film-page Archetype section
@@ -143,7 +151,7 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
 
@@ -166,11 +174,13 @@ export default async function FilmPage({ params }: Props) {
   const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
+    whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
+    watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
   ].filter(Boolean)) as { id: string; label: string }[];
@@ -252,6 +262,24 @@ export default async function FilmPage({ params }: Props) {
                 <InviteVideo videoId={trailer.external_id} title={trailer.title ?? `${film.title} trailer`} poster={trailer.thumbnail_url ?? undefined} />
               </div>
             ) : null}
+          </section>
+        ) : null}
+
+        {/* WHY WATCH — spoiler-free dossier of what the film offers, across 7 lenses */}
+        {whyWatch.length > 0 ? (
+          <section className="df-sec" id="df-whywatch">
+            <h2 className="df-h2">Why watch</h2>
+            <p className="df-sub">A spoiler-free brief on what {film.title} offers — the director&apos;s vision, its craft and ideas, its space and its place in film history.</p>
+            <div className="ww-grid">
+              {whyWatch.map((L, i) => (
+                <div key={i} className="ww-lens">
+                  <div className="ww-h">{WW_TITLE[L.key] ?? L.key}</div>
+                  <ul className="ww-pts">
+                    {(L.points ?? []).map((p, j) => <li key={j}>{p.label ? <b className="ww-lab">{p.label}</b> : null}{p.label ? " — " : ""}{p.text}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </section>
         ) : null}
 
@@ -424,6 +452,42 @@ export default async function FilmPage({ params }: Props) {
               </div>
             ) : null}
             <div className="df-src">Headlines &amp; ≤10-word quotes from publishers&apos; link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.</div>
+          </section>
+        ) : null}
+
+        {/* WATCH NEXT — curated 9 next films (LLM, with the bridge), linked if in our DB */}
+        {watchNext.length > 0 ? (
+          <section className="df-sec" id="df-watchnext">
+            <h2 className="df-h2">Watch next</h2>
+            <p className="df-sub">Where to go after {film.title} — nine films that continue its conversation, each chosen for a specific bridge. Curated, not algorithmic.</p>
+            <div className="wn-list">
+              {watchNext.map((w, i) => {
+                const href = w.target_slug ? `/film/${w.target_slug}` : null;
+                const poster = w.target_poster ?? w.poster_path;
+                const title = w.target_title ?? w.rec_title;
+                const year = w.target_year ?? w.rec_year;
+                return (
+                  <div key={i} className="wn-card">
+                    <div className="wn-pos">{i + 1}</div>
+                    {poster ? (
+                      href
+                        // eslint-disable-next-line @next/next/no-img-element
+                        ? <Link href={href} className="wn-pl"><img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" /></Link>
+                        // eslint-disable-next-line @next/next/no-img-element
+                        : <img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" />
+                    ) : <div className="wn-pi wn-pi--empty" aria-hidden="true" />}
+                    <div className="wn-tx">
+                      <div className="wn-h">{href ? <Link href={href}>{title}</Link> : title} <span className="wn-yr">({year ?? "?"})</span></div>
+                      {w.rec_director ? <div className="wn-dir">{w.rec_director}</div> : null}
+                      {w.reason ? <p className="wn-why">{w.reason}</p> : null}
+                      {!href && w.tmdb_id ? (
+                        <span className="wn-ext">not yet on Metatake · <a href={`https://www.themoviedb.org/movie/${w.tmdb_id}`} target="_blank" rel="noopener nofollow">TMDB ↗</a></span>
+                      ) : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </section>
         ) : null}
 
