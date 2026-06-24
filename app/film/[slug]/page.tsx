@@ -42,6 +42,7 @@ type RcpRow = { kind: string; outlet: string; critic: string | null; year: numbe
 type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_director: string | null; reason: string; target_slug: string | null; target_title: string | null; target_year: number | null; target_poster: string | null; tmdb_id: number | null; poster_path: string | null };
 type WwPoint = { label?: string; text: string };
 type WwLens = { key: string; points: WwPoint[] };
+type RevRow = { source_slug: string; source_title: string; source_year: number | null };
 const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
 
 async function load(slug: string) {
@@ -52,7 +53,7 @@ async function load(slug: string) {
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -61,11 +62,13 @@ async function load(slug: string) {
     supabase.rpc("film_reception", { p_film_id: film.id }),
     supabase.rpc("film_next", { p_film_id: film.id }),
     supabase.rpc("film_asset", { p_film_id: film.id }),
+    supabase.rpc("film_next_reverse", { p_film_id: film.id }),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
   const watchNext = (wnRows ?? []) as WnRow[];
   const whyWatch = (Array.isArray(waRows) ? waRows : []) as WwLens[];
+  const recommendedBy = (revRows ?? []) as RevRow[];
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
@@ -123,7 +126,7 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy };
 }
 
 // order + cap for the film-page Archetype section
@@ -151,7 +154,7 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
 
@@ -175,6 +178,7 @@ export default async function FilmPage({ params }: Props) {
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
+    recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
@@ -278,6 +282,21 @@ export default async function FilmPage({ params }: Props) {
                     {(L.points ?? []).map((p, j) => <li key={j}>{p.label ? <b className="ww-lab">{p.label}</b> : null}{p.label ? " — " : ""}{p.text}</li>)}
                   </ul>
                 </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
+        {recommendedBy.length > 0 ? (
+          <section className="df-sec" id="df-recby">
+            <h2 className="df-h2">Recommended by <span className="rb-n">{recommendedBy.length}</span></h2>
+            <p className="df-sub">Films whose viewers Metatake points toward {film.title} — these {recommendedBy.length} films name it among their nine &ldquo;Watch next&rdquo; picks.</p>
+            <div className="rb-list">
+              {recommendedBy.map((r, i) => (
+                <span key={i} className="rb-item">
+                  <Link href={`/film/${r.source_slug}`}>{r.source_title}</Link> <span className="rb-yr">({r.source_year ?? "?"})</span>{i < recommendedBy.length - 1 ? <span className="rb-sep"> · </span> : null}
+                </span>
               ))}
             </div>
           </section>
