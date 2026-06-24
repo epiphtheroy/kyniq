@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import MetatakeNav from "@/components/MetatakeNav";
+import MovieSearchAdd from "@/components/MovieSearchAdd";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -99,6 +100,11 @@ export default async function MeDashboard() {
           {profile?.username && <> · <Link href={`/u/${profile.username}`} className="mt-link">public profile</Link></>}
           {" "}· <Link href="/settings" className="mt-link">settings</Link>
         </p>
+
+        <section style={{ marginTop: 22 }}>
+          <div className="seclbl">＋ Add a film</div>
+          <MovieSearchAdd />
+        </section>
 
         <section style={{ marginTop: 22 }}>
           <div className="seclbl">✓ Watched · {watched.length}</div>

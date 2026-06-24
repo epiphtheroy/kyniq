@@ -50,9 +50,10 @@ async function load(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at, visible")
+    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at, visible, is_analyzed")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
+  if (film.is_analyzed === false) return { minimal: true as const, film };   // Tier-2 catalog record
 
   const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
@@ -138,6 +139,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
+  if ("minimal" in data && data.minimal) {
+    const f = data.film as { title: string; year: number | null };
+    const t = `${f.title}${f.year ? ` (${f.year})` : ""} — Metatake`;
+    return { title: t, robots: pageRobots(false) };
+  }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
   const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & strong misreadings`;
   const description = data.misreadings.length
@@ -155,6 +161,33 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
+  if ("minimal" in data && data.minimal) {
+    const f = data.film as { id: string; title: string; year: number | null; director: string | null; poster_path: string | null };
+    return (
+      <div className="mt">
+        <MetatakeNav active="films" />
+        <div className="df-wrap">
+          <div className="df-crumb"><Link href="/film">Films</Link></div>
+          <section className="df-hero">
+            <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />
+            <div className="df-headrow">
+              {f.poster_path ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="df-poster" src={`${IMG}/w342${f.poster_path}`} alt={`${f.title} poster`} />
+              ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
+              <div className="df-htxt">
+                <h1>{f.title} <span className="df-yr">({f.year ?? "?"})</span></h1>
+                {f.director ? <div className="df-facts">{f.director}</div> : null}
+                <div className="df-hactions"><MovieListActions filmId={f.id} /></div>
+                <p className="df-catnote">Catalog entry — not yet deeply analyzed on Metatake. Track it in your lists; the films most readers add are the ones we analyze next.</p>
+              </div>
+            </div>
+          </section>
+          <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
+        </div>
+      </div>
+    );
+  }
   const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");

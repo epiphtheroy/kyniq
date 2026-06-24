@@ -3297,4 +3297,22 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .ml-stars{display:inline-flex; gap:1px}
 .ml-star{background:none; border:0; cursor:pointer; font-size:16px; line-height:1; color:var(--hairline-2); padding:0 1px}
 .ml-star.on,.ml-star:hover{color:var(--accent)}
+/* /me — add any film (TMDB) + Tier-2 catalog page */
+.msa{position:relative; max-width:540px}
+.msa-in{width:100%; font-family:var(--font-ui); font-size:14px; padding:9px 12px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
+.msa-res{margin-top:8px; border:1px solid var(--hairline); border-radius:8px; background:#fff; overflow:hidden}
+.msa-row{display:flex; align-items:center; gap:10px; padding:8px 10px; border-bottom:1px solid var(--hairline)}
+.msa-row:last-child{border-bottom:0}
+.msa-pi{width:34px; height:51px; object-fit:cover; border-radius:3px; background:var(--paper)}
+.msa-pi--e{display:inline-block; width:34px; height:51px; border-radius:3px; background:var(--hairline)}
+.msa-t{flex:1; font-family:var(--font-display); font-size:14px; line-height:1.3}
+.msa-y{color:var(--subtle)}
+.msa-badge{font-family:var(--font-ui); font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); border:1px solid var(--accent); border-radius:4px; padding:0 5px; margin-left:7px}
+.msa-acts{display:flex; gap:6px}
+.msa-acts button{font-family:var(--font-ui); font-size:12px; padding:4px 9px; border:1px solid var(--hairline-2); border-radius:6px; background:#fff; cursor:pointer}
+.msa-acts button:hover{border-color:var(--ink)}
+.msa-acts button:disabled{opacity:.5; cursor:default}
+.msa-ok{font-family:var(--font-ui); font-size:12px; color:var(--accent)}
+.msa-foot{font-family:var(--font-ui); font-size:11px; color:var(--faint); padding:7px 10px}
+.df-catnote{font-family:var(--font-display); font-size:14px; color:var(--ink2); margin:12px 0 0; max-width:60ch}
 @media (min-width:760px){ .ww-grid{grid-template-columns:1fr 1fr} }
