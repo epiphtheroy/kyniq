@@ -12,6 +12,7 @@ import { FigureStats } from "@/components/detail/FigureDetailBits";
 import { renderTokens } from "@/lib/mtTokens";
 import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
+import { axisLabel, nodeHref } from "@/lib/catalog";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -68,6 +69,16 @@ async function load(slug: string, figureSlug: string) {
     .filter((m) => m && m.kind === "figure_type" && m.status === "published")
     .map((m) => ({ id: m.id, slug: m.slug, title: m.title }));
 
+  // Catalog classification — what this figure IS (taxonomy layer), spelled out per axis.
+  const { data: catRows } = await supabase
+    .from("figure_taxonomy")
+    .select("axis, node:taxonomy_nodes!inner(slug, label, kind)")
+    .eq("figure_id", figure.id);
+  const catalog = ((catRows ?? []) as unknown[]).map((r) => {
+    const x = r as { axis: string; node: { slug: string; label: string; kind: string } };
+    return { axis: x.axis, slug: x.node.slug, label: x.node.label, kind: x.node.kind };
+  });
+
   // Connected figures — siblings that share one of this figure's tropes (cross-film kinship).
   type Sib = { id: string; label: string; slug: string | null; filmTitle: string; filmSlug: string; year: number | null };
   const connections: { slug: string; title: string; siblings: Sib[]; total: number; more: number }[] = [];
@@ -98,8 +109,15 @@ async function load(slug: string, figureSlug: string) {
     }
   }
 
-  return { film, figure, takes, metaTakes, tropes, connections };
+  return { film, figure, takes, metaTakes, tropes, connections, catalog };
 }
+
+// Display order for the figure-page "Classified as" line (named archetype first, then tiers, then themes).
+const CATALOG_ORDER = [
+  "object", "location", "char_archetype", "char_identity", "char_complex",
+  "object_type", "function", "location_category", "location_group", "theme",
+] as const;
+const CATALOG_CAP: Record<string, number> = { theme: 5, char_identity: 4, char_complex: 3 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, figureSlug } = await params;
@@ -120,7 +138,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes, tropes, connections } = data;
+  const { film, figure, takes, metaTakes, tropes, connections, catalog } = data;
   if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
@@ -197,6 +215,25 @@ export default async function FigurePage({ params }: Props) {
             <span className="fg-dot" />
             <span>Readings <b>{takes.length}</b></span>
           </div>
+
+          {catalog.length > 0 ? (
+            <div className="fg-catrow">
+              <span className="fg-cat__l">Classified as</span>
+              {CATALOG_ORDER.map((k) => {
+                const items = catalog.filter((c) => c.kind === k);
+                if (!items.length) return null;
+                const shown = items.slice(0, CATALOG_CAP[k] ?? 8);
+                return (
+                  <span key={k} className="fg-cat__grp">
+                    <span className="fg-cat__k">{axisLabel(k)}</span>{" "}
+                    {shown.map((c, i) => (
+                      <span key={c.slug}>{i > 0 ? ", " : ""}<Link href={nodeHref(c.kind, c.slug)}>{c.label}</Link></span>
+                    ))}
+                  </span>
+                );
+              })}
+            </div>
+          ) : null}
 
           {figure.description ? (
             <p className="fg-desc">{renderTokens(figure.description, resolver)}</p>
