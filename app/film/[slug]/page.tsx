@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import MetatakeNav from "@/components/MetatakeNav";
 import FilmTabBar from "@/components/FilmTabBar";
 import PosterActions from "@/components/PosterActions";
+import SaveChip from "@/components/SaveChip";
 import InviteVideo from "@/components/InviteVideo";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -37,8 +38,8 @@ type Fig = { id: string; kind: string | null; label: string; slug: string | null
 type FigRef = { label: string; slug: string | null };
 type FilmLink = { slug: string; title: string; figs: FigRef[] };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
-type TakeRow = { figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null };
-type SM = { framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
+type TakeRow = { id: string; figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null };
+type SM = { id: string; framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
 type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null };
 type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string };
 type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_director: string | null; reason: string; target_slug: string | null; target_title: string | null; target_year: number | null; target_poster: string | null; tmdb_id: number | null; poster_path: string | null };
@@ -87,12 +88,12 @@ async function load(slug: string) {
   if (figIds.length) {
     const { data: takeRows } = await supabase
       .from("takes")
-      .select("figure_id, framework, take_title, rationale, leap, strength, is_invitation")
+      .select("id, figure_id, framework, take_title, rationale, leap, strength, is_invitation")
       .in("figure_id", figIds).eq("status", "published");
     for (const t of (takeRows ?? []) as TakeRow[]) {
       if (t.is_invitation) { if (!invitation) invitation = t.rationale; continue; }
       const f = figById.get(t.figure_id);
-      misreadings.push({ framework: t.framework, take_title: t.take_title, thesis: t.rationale, leap: t.leap, strength: t.strength, figLabel: f?.label ?? "", figSlug: f?.slug ?? null });
+      misreadings.push({ id: t.id, framework: t.framework, take_title: t.take_title, thesis: t.rationale, leap: t.leap, strength: t.strength, figLabel: f?.label ?? "", figSlug: f?.slug ?? null });
       takeCount.set(t.figure_id, (takeCount.get(t.figure_id) ?? 0) + 1);
     }
   }
@@ -419,6 +420,7 @@ export default async function FilmPage({ params }: Props) {
                           ? <Link className="sm-fw" href={fwHref} style={{ color: F.color }}>{F.label}</Link>
                           : <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>}
                         <span className="sm-via">via {href ? <Link href={href}>{m.figLabel}</Link> : m.figLabel}</span>
+                        <SaveChip entityType="take" entityRef={m.id} />
                       </div>
                       {m.take_title ? (
                         <div className="sm-row__title">{href ? <Link href={href}>{m.take_title}</Link> : m.take_title}</div>

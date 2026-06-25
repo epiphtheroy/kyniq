@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import MetatakeNav from "@/components/MetatakeNav";
 import MovieSearchAdd from "@/components/MovieSearchAdd";
-import { FRAMEWORKS } from "@/lib/frameworks";
+import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
 type PB = {
   watched?: number; watchlist?: number; avg_rating?: number | null; my_takes?: number;
@@ -88,6 +88,29 @@ export default async function MeDashboard() {
     supabase.rpc("portfolio_breakdown"),
     supabase.rpc("score_watchlist"),
   ]);
+
+  // Saved (user_saves): readings/directors/lineage lists the user bookmarked
+  const { data: savesRaw } = await supabase
+    .from("user_saves").select("entity_type, entity_ref, created_at").eq("kind", "save")
+    .order("created_at", { ascending: false });
+  const saves = (savesRaw as Array<{ entity_type: string; entity_ref: string }> | null) ?? [];
+  const takeRefs = saves.filter((s) => s.entity_type === "take").map((s) => s.entity_ref);
+  const dirRefs = saves.filter((s) => s.entity_type === "director").map((s) => s.entity_ref);
+  const linRefs = saves.filter((s) => s.entity_type === "lineage").map((s) => s.entity_ref);
+  const trpRefs = saves.filter((s) => s.entity_type === "trope").map((s) => s.entity_ref);
+  const [savedTakesRes, savedDirsRes, savedLinsRes, savedTrpsRes] = await Promise.all([
+    takeRefs.length
+      ? supabase.from("takes").select("id, take_title, framework, figure:figures!inner(label, slug, film:films!inner(title, slug))").in("id", takeRefs).eq("status", "published")
+      : Promise.resolve({ data: [] }),
+    dirRefs.length ? supabase.from("directors").select("slug, name").in("slug", dirRefs) : Promise.resolve({ data: [] }),
+    linRefs.length ? supabase.from("lineage_lists").select("slug, label").in("slug", linRefs) : Promise.resolve({ data: [] }),
+    trpRefs.length ? supabase.from("meta_takes").select("slug, title").in("slug", trpRefs).eq("kind", "figure_type") : Promise.resolve({ data: [] }),
+  ]);
+  const savedTakes = (savedTakesRes.data as unknown as Array<{ id: string; take_title: string | null; framework: string | null; figure: { label: string; slug: string; film: { title: string; slug: string } } }>) ?? [];
+  const savedDirs = (savedDirsRes.data as Array<{ slug: string; name: string }> | null) ?? [];
+  const savedLins = (savedLinsRes.data as Array<{ slug: string; label: string }> | null) ?? [];
+  const savedTrps = (savedTrpsRes.data as Array<{ slug: string; title: string }> | null) ?? [];
+  const savedCount = savedTakes.length + savedDirs.length + savedLins.length + savedTrps.length;
   const pb = (pbRaw ?? {}) as PB;
   const wl = (wlRaw as WL[] | null) ?? [];
   const seenFw = new Set(Object.keys(pb.framework ?? {}));
@@ -182,6 +205,33 @@ export default async function MeDashboard() {
             <MovieList rows={watchlist} />
           )}
         </section>
+
+        {savedCount > 0 && (
+          <section style={{ marginTop: 26 }}>
+            <div className="seclbl">🔖 Saved · {savedCount}</div>
+            {savedTakes.length > 0 && (
+              <ul className="me-list" style={{ listStyle: "none", padding: 0, margin: "10px 0 0" }}>
+                {savedTakes.map((t) => {
+                  const F = fw(t.framework);
+                  return (
+                    <li key={t.id} style={{ padding: "10px 0", borderBottom: "1px solid var(--hairline)" }}>
+                      <span className="ui" style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: F.color, marginRight: 8 }}>{F.label}</span>
+                      <Link href={`/film/${t.figure.film.slug}/figure/${t.figure.slug}#t-${t.id}`} style={{ fontSize: 15.5 }}>{t.take_title ?? t.figure.label}</Link>
+                      <span className="ui muted" style={{ fontSize: 13, marginLeft: 8 }}>{t.figure.film.title}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+            {(savedDirs.length > 0 || savedLins.length > 0 || savedTrps.length > 0) && (
+              <div className="me-blind" style={{ marginTop: 12 }}>
+                {savedDirs.map((d) => <Link key={d.slug} className="me-chip" href={`/director/${d.slug}`}>♥ {d.name}</Link>)}
+                {savedTrps.map((tr) => <Link key={tr.slug} className="me-chip" href={`/trope/${tr.slug}`}>{tr.title}</Link>)}
+                {savedLins.map((l) => <Link key={l.slug} className="me-chip" href={`/lineage/${l.slug}`}>{l.label}</Link>)}
+              </div>
+            )}
+          </section>
+        )}
 
         <section style={{ marginTop: 26 }}>
           <div className="seclbl">📌 Following · {follows.length}</div>

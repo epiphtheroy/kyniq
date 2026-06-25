@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/Footer";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
+import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { pageRobots } from "@/lib/seo";
 import "./globals.css";
 
@@ -79,7 +80,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300..700&display=swap"
         />
-        <UserFilmsProvider>{children}</UserFilmsProvider>
+        <UserFilmsProvider><UserSavesProvider>{children}</UserSavesProvider></UserFilmsProvider>
         <Footer />
         <Analytics />
       </body>

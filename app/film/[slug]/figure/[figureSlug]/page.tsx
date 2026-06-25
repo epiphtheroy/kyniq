@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 import EntityActions from "@/components/EntityActions";
@@ -271,6 +272,7 @@ export default async function FigurePage({ params }: Props) {
                       </span>
                     ) : null}
                     {t.source === "human" ? <span className="fg-badge fg-badge--community">Community</span> : null}
+                    {!inv ? <SaveChip entityType="take" entityRef={t.id} /> : null}
                   </div>
                   {!inv && t.take_title ? <h3 className="sm-title">{t.take_title}</h3> : null}
                   {t.rationale ? <p className={`sm-thesis${inv ? " sm-thesis--inv" : ""}`}>{renderTokens(t.rationale, resolver)}</p> : null}
