@@ -3330,6 +3330,8 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .dr-life-intro{font-family:var(--font-display); font-size:16px; line-height:1.6; color:var(--ink2); max-width:68ch; margin:0 0 14px}
 .dr-life-list{margin:0; padding-left:1.4em; max-width:70ch}
 .dr-fact{font-family:var(--font-display); font-size:15.5px; line-height:1.6; margin-bottom:11px}
+.dr-fact-src{font-family:var(--font-ui); font-size:11px; color:var(--subtle); white-space:nowrap; text-decoration:none; border-bottom:1px dotted var(--hairline-2)}
+.dr-fact-src:hover{color:var(--accent)}
 .dr-next-grid{display:flex; flex-direction:column; gap:0; margin-top:12px}
 .dr-next-card{display:flex; gap:13px; padding:13px 0; border-bottom:1px solid var(--hairline)}
 .dr-next-photo{width:54px; height:54px; border-radius:50%; object-fit:cover; flex:none; background:var(--paper)}

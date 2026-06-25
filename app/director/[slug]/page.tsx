@@ -17,7 +17,7 @@ function db() {
 interface Props { params: Promise<{ slug: string }>; }
 
 type Pick = { pos: number; film_slug: string | null; film_title: string | null; film_year: number | null; label: string | null; reason: string | null };
-type Fact = { n: number; text: string };
+type Fact = { n: number; text: string; source?: string | null };
 type Next = { pos: number; rec_name: string; reason: string; target_slug: string | null; tmdb_person_id: number | null; profile_path: string | null };
 
 async function load(slug: string) {
@@ -251,9 +251,18 @@ export default async function DirectorPage({ params }: Props) {
             ) : null}
             {facts.intro ? <p className="dr-life-intro">{facts.intro}</p> : null}
             <ol className="dr-life-list">
-              {facts.facts.slice().sort((a, b) => a.n - b.n).map((f) => (<li key={f.n} className="dr-fact">{f.text}</li>))}
+              {facts.facts.slice().sort((a, b) => a.n - b.n).map((f) => {
+                let host = "";
+                try { if (f.source) host = new URL(f.source).hostname.replace(/^www\./, ""); } catch {}
+                return (
+                  <li key={f.n} className="dr-fact">
+                    {f.text}
+                    {f.source ? <> <a className="dr-fact-src" href={f.source} target="_blank" rel="noopener nofollow" title={f.source}>↗ {host}</a></> : null}
+                  </li>
+                );
+              })}
             </ol>
-            <div className="dr-src">Researched against public sources; figures verbatim where verifiable.</div>
+            <div className="dr-src">Each fact is written freely, then verified against a live web source (English &amp; native-language). Source link per fact.</div>
           </section>
         )}
 
