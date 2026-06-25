@@ -4,6 +4,7 @@ import { Fragment, type SyntheticEvent } from "react";
 import Link from "next/link";
 import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
+import PosterActions from "@/components/PosterActions";
 
 export type FilmFeat = {
   slug: string; title: string; year: number | null; dir: string | null; genre: string | null;
@@ -40,6 +41,7 @@ function FilmCard(d: FilmFeat) {
       <div className="idx-hero">
         {d.genre && <span className="idx-badge">{d.genre.split(" · ")[0]}</span>}
         {HERO(d.bd) && <img ref={fadeRef} onLoad={onImgLoad} src={HERO(d.bd) as string} alt={d.title} />}
+        <PosterActions slug={d.slug} compact />
         <div className="idx-htext">
           <h2><Link href={`/film/${d.slug}`}>{d.title}</Link> {d.year ? <span className="yr">{d.year}</span> : null}</h2>
           {d.dir && <div className="idx-dir">dir. {d.dir}</div>}

@@ -3369,6 +3369,8 @@ a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .ml-thumb{position:relative}
 .tg-fthumb{position:relative}
 .lt-ph{position:relative}
+.idx-hero{position:relative}
+.hm-bd{position:relative}
 .dr-bdwrap{position:relative}
 .dr-save{margin-top:10px}
 .lh-actions{display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 20px}

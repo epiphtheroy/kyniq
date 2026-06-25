@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
 import HomeConstellation from "@/components/HomeConstellation";
+import PosterActions from "@/components/PosterActions";
 import { FRAMEWORKS } from "@/lib/frameworks";
 
 const W780 = "https://image.tmdb.org/t/p/w780";
@@ -138,7 +139,7 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
               <div className="hm-exbody">
                 <div className="hm-stage" onMouseEnter={() => (holding.current = true)} onMouseLeave={() => (holding.current = false)}>
                   <div className={`hm-fcard left${swap ? " swap" : ""}`}>
-                    <Link className="hm-bd" href={`/film/${p.a.fs}`}>{p.a.bd && <img ref={imgRef} onLoad={onImg} src={`${W780}${p.a.bd}`} alt="" />}<span className="ord">Film A</span></Link>
+                    <Link className="hm-bd" href={`/film/${p.a.fs}`}>{p.a.bd && <img ref={imgRef} onLoad={onImg} src={`${W780}${p.a.bd}`} alt="" />}<span className="ord">Film A</span><PosterActions slug={p.a.fs} compact /></Link>
                     <div className="ftitle">{p.a.f}</div>
                     <div className="fmeta">{[p.a.y, p.a.d].filter(Boolean).join(" · ")}</div>
                     <div className="fvia"><span className="v">via</span> <i>{p.a.fig}</i></div>
@@ -156,7 +157,7 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
                   </div>
 
                   <div className={`hm-fcard right${swap ? " swap" : ""}`}>
-                    <Link className="hm-bd" href={`/film/${p.b.fs}`}>{p.b.bd && <img ref={imgRef} onLoad={onImg} src={`${W780}${p.b.bd}`} alt="" />}<span className="ord">Film B</span></Link>
+                    <Link className="hm-bd" href={`/film/${p.b.fs}`}>{p.b.bd && <img ref={imgRef} onLoad={onImg} src={`${W780}${p.b.bd}`} alt="" />}<span className="ord">Film B</span><PosterActions slug={p.b.fs} compact /></Link>
                     <div className="ftitle">{p.b.f}</div>
                     <div className="fmeta">{[p.b.y, p.b.d].filter(Boolean).join(" · ")}</div>
                     <div className="fvia"><span className="v">via</span> <i>{p.b.fig}</i></div>
