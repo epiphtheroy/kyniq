@@ -49,7 +49,7 @@ function MovieList({ rows }: { rows: Array<{ rating: number | null; film: { slug
         <li key={i} style={{ padding: "9px 0", borderBottom: "1px solid var(--hairline)" }}>
           <Link href={`/film/${m.film.slug}`} style={{ fontSize: 16 }}>{m.film.title}</Link>
           <span className="ui muted" style={{ fontSize: 13, marginLeft: 8 }}>({m.film.year ?? "?"})</span>
-          {m.rating ? <span style={{ color: "var(--accent)", marginLeft: 8, letterSpacing: "1px" }}>{"★".repeat(m.rating)}</span> : null}
+          {m.rating ? <span style={{ color: "var(--accent)", marginLeft: 8 }}>★ {Number(m.rating).toFixed(1)}</span> : null}
         </li>
       ))}
     </ul>
@@ -68,7 +68,7 @@ export default async function MeDashboard() {
   const [{ data: pinsRaw }, { data: moviesRaw }, { data: takesRaw }] = await Promise.all([
     supabase.rpc("get_my_pins"),
     supabase.from("user_movies")
-      .select("status, rating, added_at, film:films!inner(slug, title, year)")
+      .select("seen, watchlist, rating, added_at, film:films!inner(slug, title, year)")
       .order("added_at", { ascending: false }),
     supabase
       .from("takes")
@@ -81,9 +81,9 @@ export default async function MeDashboard() {
   const pins: Pin[] = (pinsRaw as Pin[] | null) ?? [];
   const follows = pins.filter((p) => p.kind === "follow");
   const likes = pins.filter((p) => p.kind === "like");
-  const movies = (moviesRaw as unknown as Array<{ status: string; rating: number | null; film: { slug: string; title: string; year: number | null } }>) ?? [];
-  const watched = movies.filter((m) => m.status === "watched");
-  const watchlist = movies.filter((m) => m.status === "watchlist");
+  const movies = (moviesRaw as unknown as Array<{ seen: boolean; watchlist: boolean; rating: number | null; film: { slug: string; title: string; year: number | null } }>) ?? [];
+  const watched = movies.filter((m) => m.seen);
+  const watchlist = movies.filter((m) => m.watchlist);
   const takes = (takesRaw as unknown as Array<{
     id: string; rationale: string; register: string | null; status: string; created_at: string;
     meta_take: { title: string; slug: string } | null;
