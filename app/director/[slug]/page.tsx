@@ -5,6 +5,8 @@ import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
+import { fw } from "@/lib/frameworks";
+import { axisLabel, nodeHref } from "@/lib/catalog";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -28,14 +30,34 @@ async function load(slug: string) {
   const director = films[0].director ?? slug.replace(/-/g, " ");
   const filmIds = films.map((f) => f.id);
 
-  const [{ data: dir }, { data: portrait }, { data: facts }, { data: picks }, { data: next }, { data: recByRaw }] = await Promise.all([
+  const [{ data: dir }, { data: portrait }, { data: facts }, { data: picks }, { data: next }, { data: recByRaw }, { data: misRows }, { data: archRows }] = await Promise.all([
     supabase.from("directors").select("name, profile_path, bio, birthday, place_of_birth").eq("slug", slug).maybeSingle(),
     supabase.from("director_portrait").select("body, source").eq("director_slug", slug).maybeSingle(),
     supabase.from("director_facts").select("name_meaning, intro, facts").eq("director_slug", slug).maybeSingle(),
     supabase.from("director_picks").select("pos, film_slug, film_title, film_year, label, reason").eq("director_slug", slug).order("pos"),
     supabase.from("director_next").select("pos, rec_name, reason, target_slug, tmdb_person_id, profile_path").eq("director_slug", slug).order("pos"),
     supabase.from("director_next").select("director_slug").eq("target_slug", slug),
+    supabase.rpc("director_misreadings", { p_slug: slug, p_limit: 30 }),
+    supabase.rpc("director_catalog", { p_slug: slug }),
   ]);
+
+  // Strong Misreadings — pick a representative set: strongest first, max 2 per film, cap 8.
+  type Mis = { framework: string | null; take_title: string | null; rationale: string | null; strength: number | null; figure_label: string | null; figure_slug: string | null; film_title: string; film_slug: string; film_year: number | null };
+  const perFilm = new Map<string, number>(); const misreadings: Mis[] = [];
+  for (const m of ((misRows as Mis[] | null) ?? [])) {
+    const c = perFilm.get(m.film_slug) ?? 0;
+    if (c >= 2) continue;
+    perFilm.set(m.film_slug, c + 1); misreadings.push(m);
+    if (misreadings.length >= 8) break;
+  }
+  // Archetype — aggregate across the filmography, cap per axis.
+  type Arch = { axis: string; slug: string; label: string; n: number };
+  const archByAxis = new Map<string, Arch[]>();
+  for (const a of ((archRows as Arch[] | null) ?? [])) {
+    const arr = archByAxis.get(a.axis) ?? []; if (arr.length < 12) arr.push(a); archByAxis.set(a.axis, arr);
+  }
+  const ARCH_AXES = ["char_archetype", "char_identity", "char_complex", "object", "location", "theme"];
+  const archGroups = ARCH_AXES.map((axis) => ({ axis, items: archByAxis.get(axis) ?? [] })).filter((g) => g.items.length > 0);
 
   // reverse "recommended by" — resolve recommender slugs → display names
   const recBySlugs = [...new Set(((recByRaw ?? []) as { director_slug: string }[]).map((r) => r.director_slug))];
@@ -92,7 +114,7 @@ async function load(slug: string) {
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
-    recBy,
+    recBy, misreadings, archGroups,
   };
 }
 
@@ -103,39 +125,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: `${data.director} — portrait, filmography & where to start — Metatake` };
 }
 
-function PresenceDots({ n, of, tone }: { n: number; of: number; tone: "red" | "teal" }) {
-  return (
-    <span className="dr-pres">
-      <span className="dr-dots">
-        {Array.from({ length: of }).map((_, i) => (
-          <i key={i} className={i < n ? (tone === "teal" ? "dr-on-teal" : "dr-on") : undefined} />
-        ))}
-      </span>
-      <span className="dr-inof">{n} / {of}</span>
-    </span>
-  );
-}
-
-function SigRow({ href, title, films, total, tone }: { href: string; title: string; films: { slug: string; title: string }[]; total: number; tone: "red" | "teal" }) {
-  return (
-    <div className="dr-sig">
-      <Link className="dr-sig-t" href={href}>{title}</Link>
-      <PresenceDots n={films.length} of={total} tone={tone} />
-      <div className="dr-sig-films">
-        <span className="dr-vl">in</span>
-        {films.map((f, i) => (<span key={f.slug}>{i > 0 ? " · " : ""}<Link href={`/film/${f.slug}`}>{f.title}</Link></span>))}
-      </div>
-    </div>
-  );
-}
-
-const SIG_LIMIT = 10;
+const SIG_LIMIT = 12;
 
 export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups } = data;
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   const jsonld = {
@@ -163,10 +159,6 @@ export default async function DirectorPage({ params }: Props) {
     .map((f, i) => ({ f, k: (i * 2654435761 + seed * 40503) % 1000000 }))
     .sort((a, b) => a.k - b.k).slice(0, 6).map((x) => x.f);
 
-  // Strong Misreadings TOC: films that have readings, most-read first.
-  const mrFilms = (films as FilmArt[])
-    .filter((f) => (perFilmReadings.get(f.id) ?? 0) > 0)
-    .sort((a, b) => (perFilmReadings.get(b.id) ?? 0) - (perFilmReadings.get(a.id) ?? 0));
   // poster for each pick (picks reference the director's own films)
   const posterBySlug = new Map<string, string | null>((films as FilmArt[]).map((f) => [f.slug, f.poster_path || f.backdrop_path || null]));
 
@@ -175,8 +167,9 @@ export default async function DirectorPage({ params }: Props) {
     { id: "dr-portrait", label: "Portrait" },
     { id: "dr-filmography", label: "Filmography" },
   ];
-  if (mrFilms.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings" });
+  if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings" });
   if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes" });
+  if (archGroups.length) tabs.push({ id: "dr-archetype", label: "Archetype" });
   if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life" });
   if (next.length) tabs.push({ id: "dr-next", label: "Who's Next" });
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
@@ -249,34 +242,63 @@ export default async function DirectorPage({ params }: Props) {
           </div>
         </section>
 
-        {/* TROPES (signature figure-types, computed) */}
-        {sigTropes.length > 0 && (
-          <section className="dr-sec dr-sec--teal" id="dr-tropes">
-            <h2 className="dr-h2">Tropes</h2>
-            <p className="dr-gloss">
-              Figure-types — devices, situations, objects — {director} returns to across films. <b>Computed, not asserted:</b> each
-              appears in two or more of {total === 1 ? "the single film" : `the ${total} films`} on Metatake. Shared with other
-              directors under <Link className="dr-teal-link" href="/tropes">Tropes</Link>.
-            </p>
-            <div className="dr-siglist">
-              {tropesShown.map((m) => (<SigRow key={m.slug} href={`/trope/${m.slug}`} title={m.title} films={m.filmList} total={total} tone="teal" />))}
+        {/* STRONG MISREADINGS — a representative set of real readings across the films */}
+        {misreadings.length > 0 && (
+          <section className="dr-sec" id="dr-misreadings">
+            <h2 className="dr-h2">Strong Misreadings</h2>
+            <p className="dr-gloss">{readingCount} bold readings across {director}&apos;s films — here are the strongest, at most two per film. Open a film for its full set.</p>
+            <div className="dr-mr-cards">
+              {misreadings.map((m, i) => {
+                const f = fw(m.framework);
+                const thesis = m.rationale ? (m.rationale.length > 220 ? m.rationale.slice(0, 220).trimEnd() + "…" : m.rationale) : null;
+                return (
+                  <div className="dr-mr-card" key={i}>
+                    <div className="dr-mr-top">
+                      <span className="dr-mr-fw" style={{ color: f.color }}>{f.label}</span>
+                      <Link className="dr-mr-film" href={`/film/${m.film_slug}#df-readings`}>{m.film_title}{m.film_year ? ` (${m.film_year})` : ""}</Link>
+                    </div>
+                    {m.take_title ? <div className="dr-mr-title">{m.take_title}</div> : null}
+                    {thesis ? <p className="dr-mr-thesis">{thesis}</p> : null}
+                    {m.figure_label ? (
+                      <div className="dr-mr-via"><span className="dr-mr-vk">via</span>{" "}
+                        {m.figure_slug ? <Link href={`/film/${m.film_slug}/figure/${m.figure_slug}`}>{m.figure_label}</Link> : <span>{m.figure_label}</span>}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}
 
-        {/* STRONG MISREADINGS — compact contents into each film's readings */}
-        {mrFilms.length > 0 && (
-          <section className="dr-sec" id="dr-misreadings">
-            <h2 className="dr-h2">Strong Misreadings</h2>
-            <p className="dr-gloss">{readingCount} strong misreadings across {director}&apos;s films — a contents list. Open any film to read them.</p>
-            <div className="dr-mr-toc">
-              {mrFilms.map((f) => (
-                <Link className="dr-mr-item" href={`/film/${f.slug}#df-readings`} key={f.slug}>
-                  <span className="dr-mr-ti">{f.title}{f.year ? <span className="dr-yr"> ({f.year})</span> : null}</span>
-                  <span className="dr-mr-n">{perFilmReadings.get(f.id)}</span>
-                </Link>
+        {/* TROPES — signature figure-types, just the items */}
+        {sigTropes.length > 0 && (
+          <section className="dr-sec dr-sec--teal" id="dr-tropes">
+            <h2 className="dr-h2">Tropes</h2>
+            <p className="dr-gloss">Figure-types {director} returns to — computed across the filmography. <Link className="dr-teal-link" href="/tropes">All tropes →</Link></p>
+            <div className="dr-chips">
+              {tropesShown.map((m) => (
+                <Link key={m.slug} className="dr-chip dr-chip--teal" href={`/trope/${m.slug}`}>{m.title}<span className="dr-chip-n">{m.filmList.length}</span></Link>
               ))}
             </div>
+          </section>
+        )}
+
+        {/* ARCHETYPE — catalog classification aggregated across the filmography */}
+        {archGroups.length > 0 && (
+          <section className="dr-sec" id="dr-archetype">
+            <h2 className="dr-h2">Archetype</h2>
+            <p className="dr-gloss">What recurs across {director}&apos;s films by the figure catalog — characters, objects, places, themes. Each links into the <Link href="/catalog">Archetype</Link> catalog.</p>
+            {archGroups.map((g) => (
+              <div className="dr-arch-grp" key={g.axis}>
+                <div className="dr-arch-axis">{axisLabel(g.axis)}</div>
+                <div className="dr-chips">
+                  {g.items.map((a) => (
+                    <Link key={a.slug} className="dr-chip" href={nodeHref(g.axis, a.slug)}>{a.label}{a.n > 1 ? <span className="dr-chip-n">{a.n}</span> : null}</Link>
+                  ))}
+                </div>
+              </div>
+            ))}
           </section>
         )}
 
