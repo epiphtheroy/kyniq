@@ -151,13 +151,14 @@ export default async function DirectorPage({ params }: Props) {
   const tropesShown = sigTropes.slice(0, SIG_LIMIT);
   const portraitText = portrait?.body || d?.bio || null;
 
-  // Portrait art: up to 6 of the director's own film images (seeded shuffle → stable per ISR window).
+  // Portrait art: 2 wide stills (backdrops) over 3 tall posters — seeded shuffle → stable per ISR.
   type FilmArt = { id: string; slug: string; title: string; year: number | null; poster_path?: string | null; backdrop_path?: string | null };
-  const artPool = (films as FilmArt[]).filter((f) => f.poster_path || f.backdrop_path);
   const seed = slug.split("").reduce((a, c) => a + c.charCodeAt(0), 7);
-  const portraitArt = artPool
-    .map((f, i) => ({ f, k: (i * 2654435761 + seed * 40503) % 1000000 }))
-    .sort((a, b) => a.k - b.k).slice(0, 6).map((x) => x.f);
+  const shuf = (arr: FilmArt[]) => arr.map((f, i) => ({ f, k: (i * 2654435761 + seed * 40503) % 1000000 })).sort((a, b) => a.k - b.k).map((x) => x.f);
+  const wideArt = shuf((films as FilmArt[]).filter((f) => f.backdrop_path)).slice(0, 2);
+  const wideSlugs = new Set(wideArt.map((f) => f.slug));
+  const tallArt = shuf((films as FilmArt[]).filter((f) => f.poster_path && !wideSlugs.has(f.slug))).slice(0, 3);
+  const hasArt = wideArt.length > 0 || tallArt.length > 0;
 
   // poster for each pick (picks reference the director's own films)
   const posterBySlug = new Map<string, string | null>((films as FilmArt[]).map((f) => [f.slug, f.poster_path || f.backdrop_path || null]));
@@ -216,7 +217,7 @@ export default async function DirectorPage({ params }: Props) {
         {/* PORTRAIT */}
         <section className="dr-sec" id="dr-portrait">
           <h2 className="dr-h2">Portrait</h2>
-          <div className={`dr-portrait-row${portraitArt.length ? "" : " dr-portrait-row--solo"}`}>
+          <div className={`dr-portrait-row${hasArt ? "" : " dr-portrait-row--solo"}`}>
             <div className="dr-portrait-main">
               {portraitText ? (
                 <div className="dr-portrait-body">
@@ -227,16 +228,24 @@ export default async function DirectorPage({ params }: Props) {
                 <p className="dr-gloss">A portrait of {director} is coming soon.</p>
               )}
             </div>
-            {portraitArt.length > 0 && (
+            {hasArt && (
               <div className="dr-portrait-art" aria-hidden="true">
-                {portraitArt.map((f) => {
-                  const src = f.poster_path ? `${IMG}/w185${f.poster_path}` : f.backdrop_path ? `${IMG}/w300${f.backdrop_path}` : null;
-                  if (!src) return null;
-                  return (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img key={f.slug} className="dr-pa-img" src={src} alt="" loading="lazy" title={`${f.title}${f.year ? ` (${f.year})` : ""}`} />
-                  );
-                })}
+                {wideArt.length > 0 && (
+                  <div className="dr-pa-wide">
+                    {wideArt.map((f) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img key={f.slug} className="dr-pa-w" src={`${IMG}/w300${f.backdrop_path}`} alt="" loading="lazy" title={`${f.title}${f.year ? ` (${f.year})` : ""}`} />
+                    ))}
+                  </div>
+                )}
+                {tallArt.length > 0 && (
+                  <div className="dr-pa-tall">
+                    {tallArt.map((f) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img key={f.slug} className="dr-pa-t" src={`${IMG}/w185${f.poster_path}`} alt="" loading="lazy" title={`${f.title}${f.year ? ` (${f.year})` : ""}`} />
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -257,7 +266,9 @@ export default async function DirectorPage({ params }: Props) {
                       <span className="dr-mr-fw" style={{ color: f.color }}>{f.label}</span>
                       <Link className="dr-mr-film" href={`/film/${m.film_slug}#df-readings`}>{m.film_title}{m.film_year ? ` (${m.film_year})` : ""}</Link>
                     </div>
-                    {m.take_title ? <div className="dr-mr-title">{m.take_title}</div> : null}
+                    {m.take_title ? (
+                      <Link className="dr-mr-title" href={m.figure_slug ? `/film/${m.film_slug}/figure/${m.figure_slug}` : `/film/${m.film_slug}#df-readings`}>{m.take_title}</Link>
+                    ) : null}
                     {thesis ? <p className="dr-mr-thesis">{thesis}</p> : null}
                     {m.figure_label ? (
                       <div className="dr-mr-via"><span className="dr-mr-vk">via</span>{" "}
