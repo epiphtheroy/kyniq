@@ -2,34 +2,38 @@
 
 /**
  * PosterActions — compact overlay for a film poster card: Seen ✓ · Watchlist 🔖 · 0.5 rating.
- * Reads/writes the global UserFilmsProvider map (one load per session). Drop into any poster
- * container that is position:relative. No-op (renders nothing) outside a provider.
+ * Pass `filmId` (uuid) or `slug`. Reads/writes the global UserFilmsProvider (one load per session).
+ * Drop into any poster container that is position:relative. `compact` shrinks it for tiny posters;
+ * `rating={false}` hides the stars. Renders nothing outside a provider / before ready.
  */
-import { useUserFilms } from "@/components/UserFilmsProvider";
+import { useUserFilms, type FilmKey } from "@/components/UserFilmsProvider";
 
-export default function PosterActions({ filmId, rating: showRating = true }: { filmId: string; rating?: boolean }) {
+export default function PosterActions({
+  filmId, slug, rating: showRating = true, compact = false,
+}: { filmId?: string; slug?: string; rating?: boolean; compact?: boolean }) {
   const ctx = useUserFilms();
   if (!ctx || !ctx.ready) return null;
-  const st = ctx.get(filmId);
+  const key: FilmKey = { id: filmId, slug };
+  const st = ctx.get(key);
   const stop = (e: React.MouseEvent) => { e.preventDefault(); e.stopPropagation(); };
 
   return (
-    <div className="pa" onClick={stop}>
+    <div className={`pa${compact ? " pa--c" : ""}`} onClick={stop}>
       <div className="pa-top">
         <button type="button" className={`pa-b${st.seen ? " on" : ""}`} title={st.seen ? "Seen" : "Mark seen"}
-          aria-pressed={st.seen} onClick={(e) => { stop(e); ctx.toggleSeen(filmId); }}>✓</button>
+          aria-pressed={st.seen} onClick={(e) => { stop(e); ctx.toggleSeen(key); }}>✓</button>
         <button type="button" className={`pa-b pa-bm${st.watchlist ? " on" : ""}`} title={st.watchlist ? "On your watchlist" : "Add to watchlist"}
-          aria-pressed={st.watchlist} onClick={(e) => { stop(e); ctx.toggleWatch(filmId); }}>{st.watchlist ? "🔖" : "+"}</button>
+          aria-pressed={st.watchlist} onClick={(e) => { stop(e); ctx.toggleWatch(key); }}>{st.watchlist ? "🔖" : "+"}</button>
       </div>
-      {showRating ? (
+      {showRating && !compact ? (
         <div className={`pa-stars${st.rating ? " has" : ""}`} role="group" aria-label="Rate (half-steps)">
           {[1, 2, 3, 4, 5].map((n) => {
             const pct = st.rating >= n ? 100 : st.rating >= n - 0.5 ? 50 : 0;
             return (
               <span className="pa-star" key={n}>
                 ★<span className="pa-fill" style={{ width: `${pct}%` }}>★</span>
-                <button type="button" className="pa-half pa-half--l" onClick={(e) => { stop(e); ctx.rate(filmId, n - 0.5); }} aria-label={`${n - 0.5} stars`} />
-                <button type="button" className="pa-half pa-half--r" onClick={(e) => { stop(e); ctx.rate(filmId, n); }} aria-label={`${n} stars`} />
+                <button type="button" className="pa-half pa-half--l" onClick={(e) => { stop(e); ctx.rate(key, n - 0.5); }} aria-label={`${n - 0.5} stars`} />
+                <button type="button" className="pa-half pa-half--r" onClick={(e) => { stop(e); ctx.rate(key, n); }} aria-label={`${n} stars`} />
               </span>
             );
           })}

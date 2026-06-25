@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
+import PosterActions from "@/components/PosterActions";
 
 const W500 = "https://image.tmdb.org/t/p/w500";
 const W342 = "https://image.tmdb.org/t/p/w342";
@@ -64,7 +65,7 @@ function Box({ d, type }: { d: unknown; type: string }) {
     return (
       <div className="lt-box lt-box--wide">
         <Link className="lt-inner" href={`/film/${f.slug}`}>
-          <span className="lt-ph">{f.bd && <img ref={imgRef} onLoad={onImg} src={`${W500}${f.bd}`} alt="" />}</span>
+          <span className="lt-ph">{f.bd && <img ref={imgRef} onLoad={onImg} src={`${W500}${f.bd}`} alt="" />}<PosterActions slug={f.slug} compact /></span>
           <Band t="film" />
           <span className="lt-body">
             <span className="lt-hl">{f.title} {f.y ? <span className="yr">({f.y})</span> : null}</span>

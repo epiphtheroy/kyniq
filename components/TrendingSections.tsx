@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
+import PosterActions from "@/components/PosterActions";
 
 /**
  * TrendingSections — the ranked trending blocks (Strong Misreadings · Tropes · Films),
@@ -81,7 +82,7 @@ export default function TrendingSections({ pool }: { pool: TrendPool }) {
         {pool.films.map((f, i) => (
           <div className="tg-card film" key={f.slug}>
             <span className="tg-rk">{i + 1}</span>
-            {f.bd && <Link className="tg-fthumb" href={`/film/${f.slug}`}><img src={`${W342}${f.bd}`} alt="" loading="lazy" /></Link>}
+            {f.bd && <Link className="tg-fthumb" href={`/film/${f.slug}`}><img src={`${W342}${f.bd}`} alt="" loading="lazy" /><PosterActions slug={f.slug} compact /></Link>}
             <div className="tg-body">
               <Link className="tg-tt" href={`/film/${f.slug}`}>{f.t} {f.y ? <span className="yr">({f.y})</span> : null}</Link>
               <div className="tg-tc">{f.dir ? `dir. ${f.dir} · ` : ""}{f.n} readings</div>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import MetatakeNav from "@/components/MetatakeNav";
+import PosterActions from "@/components/PosterActions";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -111,6 +112,7 @@ export default async function MoviesLikePage({ params }: Props) {
                   {r.film.backdrop_path ? (
                     <Link href={`/film/${r.film.slug}`} className="ml-thumb" aria-label={r.film.title}>
                       <img src={`${IMG}/w300${r.film.backdrop_path}`} alt="" loading="lazy" />
+                      <PosterActions slug={r.film.slug} compact />
                     </Link>
                   ) : null}
                   <div className="ml-txt">

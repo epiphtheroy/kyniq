@@ -4,6 +4,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import MetatakeNav from "@/components/MetatakeNav";
 import FilmTabBar from "@/components/FilmTabBar";
+import PosterActions from "@/components/PosterActions";
 import InviteVideo from "@/components/InviteVideo";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -585,8 +586,7 @@ export default async function FilmPage({ params }: Props) {
                     <div className="wn-pos">{i + 1}</div>
                     {poster ? (
                       href
-                        // eslint-disable-next-line @next/next/no-img-element
-                        ? <Link href={href} className="wn-pl"><img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" /></Link>
+                        ? <Link href={href} className="wn-pl">{/* eslint-disable-next-line @next/next/no-img-element */}<img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" />{w.target_slug ? <PosterActions slug={w.target_slug} compact /> : null}</Link>
                         // eslint-disable-next-line @next/next/no-img-element
                         : <img className="wn-pi" src={`${IMG}/w185${poster}`} alt="" loading="lazy" />
                     ) : <div className="wn-pi wn-pi--empty" aria-hidden="true" />}

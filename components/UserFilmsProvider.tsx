@@ -1,23 +1,24 @@
 "use client";
 
 /**
- * UserFilmsProvider — loads the signed-in user's whole user_movies map ONCE per session,
- * so every poster card (PosterActions) can read/toggle Seen / Watchlist / 0.5 rating without
- * a query per card. Writes optimistically via RLS. Logged-out → ready with empty map.
- * (migration: save_layer_user_films_and_saves)
+ * UserFilmsProvider — loads the signed-in user's whole user_movies map ONCE per session, keyed by
+ * film_id with a slug→id index, so any poster card (PosterActions) can read/toggle Seen / Watchlist /
+ * 0.5 rating by film_id OR by slug without a query per card. Writes optimistically via RLS.
+ * A never-touched film referenced by slug resolves its id lazily on first toggle. Logged-out → /login.
  */
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
 
 export type FilmState = { seen: boolean; watchlist: boolean; rating: number };
+export type FilmKey = { id?: string | null; slug?: string | null };
 type Ctx = {
   ready: boolean;
   uid: string | null;
-  get: (filmId: string) => FilmState;
-  toggleSeen: (filmId: string) => void;
-  toggleWatch: (filmId: string) => void;
-  rate: (filmId: string, n: number) => void;
+  get: (key: FilmKey) => FilmState;
+  toggleSeen: (key: FilmKey) => void;
+  toggleWatch: (key: FilmKey) => void;
+  rate: (key: FilmKey, n: number) => void;
 };
 const EMPTY: FilmState = { seen: false, watchlist: false, rating: 0 };
 const UserFilms = createContext<Ctx | null>(null);
@@ -31,6 +32,7 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
   const [uid, setUid] = useState<string | null>(null);
   const [map, setMap] = useState<Record<string, FilmState>>({});
+  const idBySlug = useRef<Record<string, string>>({});
 
   useEffect(() => {
     let alive = true;
@@ -40,11 +42,13 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
       const user = auth?.user;
       if (alive && user) {
         setUid(user.id);
-        const { data } = await c.from("user_movies").select("film_id, seen, watchlist, rating").eq("user_id", user.id);
+        const { data } = await c.from("user_movies").select("film_id, seen, watchlist, rating, film:films!inner(slug)").eq("user_id", user.id);
         if (alive && data) {
           const m: Record<string, FilmState> = {};
-          for (const r of data as Array<{ film_id: string; seen: boolean; watchlist: boolean; rating: number | null }>)
+          for (const r of data as Array<{ film_id: string; seen: boolean; watchlist: boolean; rating: number | null; film: { slug: string } | null }>) {
             m[r.film_id] = { seen: !!r.seen, watchlist: !!r.watchlist, rating: Number(r.rating) || 0 };
+            if (r.film?.slug) idBySlug.current[r.film.slug] = r.film_id;
+          }
           setMap(m);
         }
       }
@@ -53,40 +57,42 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
     return () => { alive = false; };
   }, []);
 
-  const persist = useCallback(async (filmId: string, s: FilmState) => {
-    if (!uid) return;
+  const resolveId = useCallback(async (key: FilmKey): Promise<string | null> => {
+    if (key.id) return key.id;
+    if (!key.slug) return null;
+    if (idBySlug.current[key.slug]) return idBySlug.current[key.slug];
+    const { data } = await sb().from("films").select("id").eq("slug", key.slug).maybeSingle();
+    const id = (data as { id: string } | null)?.id ?? null;
+    if (id) idBySlug.current[key.slug] = id;
+    return id;
+  }, []);
+
+  const persist = useCallback(async (id: string, s: FilmState) => {
     const c = sb();
-    if (!s.seen && !s.watchlist && !s.rating) {
-      await c.from("user_movies").delete().eq("user_id", uid).eq("film_id", filmId);
-    } else {
-      await c.from("user_movies").upsert(
-        { user_id: uid, film_id: filmId, seen: s.seen, watchlist: s.watchlist, rating: s.rating || null },
-        { onConflict: "user_id,film_id" });
-    }
+    if (!s.seen && !s.watchlist && !s.rating) await c.from("user_movies").delete().eq("user_id", uid!).eq("film_id", id);
+    else await c.from("user_movies").upsert({ user_id: uid!, film_id: id, seen: s.seen, watchlist: s.watchlist, rating: s.rating || null }, { onConflict: "user_id,film_id" });
   }, [uid]);
 
-  const need = useCallback(() => {
-    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return true; }
-    return false;
-  }, [uid, router]);
-
-  const apply = useCallback((filmId: string, patch: (cur: FilmState) => FilmState) => {
-    if (need()) return;
+  const apply = useCallback(async (key: FilmKey, patch: (cur: FilmState) => FilmState) => {
+    if (!uid) { router.push(`/login?next=${encodeURIComponent(window.location.pathname)}`); return; }
+    const id = await resolveId(key);
+    if (!id) return;
     setMap((prev) => {
-      const cur = prev[filmId] ?? EMPTY;
-      const next = patch(cur);
-      const m = { ...prev, [filmId]: next };
-      persist(filmId, next);
-      return m;
+      const next = patch(prev[id] ?? EMPTY);
+      persist(id, next);
+      return { ...prev, [id]: next };
     });
-  }, [need, persist]);
+  }, [uid, router, resolveId, persist]);
 
   const value = useMemo<Ctx>(() => ({
     ready, uid,
-    get: (filmId) => map[filmId] ?? EMPTY,
-    toggleSeen: (filmId) => apply(filmId, (c) => ({ ...c, seen: !c.seen, rating: c.seen ? 0 : c.rating })),
-    toggleWatch: (filmId) => apply(filmId, (c) => ({ ...c, watchlist: !c.watchlist })),
-    rate: (filmId, n) => apply(filmId, (c) => ({ ...c, rating: c.rating === n ? 0 : n, seen: (c.rating === n ? c.seen : true) })),
+    get: (key) => {
+      const id = key.id ?? (key.slug ? idBySlug.current[key.slug] : null);
+      return (id && map[id]) || EMPTY;
+    },
+    toggleSeen: (key) => apply(key, (c) => ({ ...c, seen: !c.seen, rating: c.seen ? 0 : c.rating })),
+    toggleWatch: (key) => apply(key, (c) => ({ ...c, watchlist: !c.watchlist })),
+    rate: (key, n) => apply(key, (c) => ({ ...c, rating: c.rating === n ? 0 : n, seen: c.rating === n ? c.seen : true })),
   }), [ready, uid, apply, map]);
 
   return <UserFilms.Provider value={value}>{children}</UserFilms.Provider>;
