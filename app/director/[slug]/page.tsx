@@ -167,6 +167,8 @@ export default async function DirectorPage({ params }: Props) {
   const mrFilms = (films as FilmArt[])
     .filter((f) => (perFilmReadings.get(f.id) ?? 0) > 0)
     .sort((a, b) => (perFilmReadings.get(b.id) ?? 0) - (perFilmReadings.get(a.id) ?? 0));
+  // poster for each pick (picks reference the director's own films)
+  const posterBySlug = new Map<string, string | null>((films as FilmArt[]).map((f) => [f.slug, f.poster_path || f.backdrop_path || null]));
 
   // Dynamic tabs: Portrait + Filmography always; others when their data exists.
   const tabs: { id: string; label: string }[] = [
@@ -175,9 +177,9 @@ export default async function DirectorPage({ params }: Props) {
   ];
   if (mrFilms.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings" });
   if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes" });
-  if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
   if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life" });
   if (next.length) tabs.push({ id: "dr-next", label: "Who's Next" });
+  if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
 
   return (
     <div className="mt">
@@ -278,26 +280,6 @@ export default async function DirectorPage({ params }: Props) {
           </section>
         )}
 
-        {/* WHERE TO START */}
-        {picks.length > 0 && (
-          <section className="dr-sec" id="dr-start">
-            <h2 className="dr-h2">Where to Start</h2>
-            <p className="dr-gloss">A way into {director}&apos;s filmography — where to begin, the peak, the deep cut. Curated, not ranked by box office.</p>
-            <div className="dr-picks">
-              {picks.map((p) => (
-                <div className="dr-pick" key={p.pos}>
-                  {p.label ? <span className="dr-pick-label">{p.label}</span> : null}
-                  <div className="dr-pick-film">
-                    {p.film_slug ? <Link href={`/film/${p.film_slug}`}>{p.film_title}</Link> : <span>{p.film_title}</span>}
-                    {p.film_year ? <span className="dr-yr"> ({p.film_year})</span> : null}
-                  </div>
-                  {p.reason ? <p className="dr-pick-why">{p.reason}</p> : null}
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
         {/* THE LIFE */}
         {facts && Array.isArray(facts.facts) && facts.facts.length > 0 && (
           <section className="dr-sec" id="dr-life">
@@ -380,6 +362,37 @@ export default async function DirectorPage({ params }: Props) {
           </div>
           <div className="dr-prov">Director fingerprint computed from the live corpus — signatures recur across two or more films. Bio &amp; images via TMDB.</div>
         </section>
+
+        {/* WHERE TO START — a route through the filmography (sits below it) */}
+        {picks.length > 0 && (
+          <section className="dr-sec" id="dr-start">
+            <h2 className="dr-h2">Where to Start</h2>
+            <p className="dr-gloss">A way into {director}&apos;s filmography — where to begin, the peak, the deep cut. Curated, not ranked by box office.</p>
+            <div className="dr-picks">
+              {picks.map((p) => {
+                const poster = p.film_slug ? posterBySlug.get(p.film_slug) : null;
+                return (
+                  <div className="dr-pick" key={p.pos}>
+                    {p.film_slug && poster ? (
+                      <Link href={`/film/${p.film_slug}`} className="dr-pick-thumb">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={`${IMG}/w92${poster}`} alt="" loading="lazy" />
+                      </Link>
+                    ) : <span className="dr-pick-thumb dr-pick-thumb--e" aria-hidden="true" />}
+                    <div className="dr-pick-b">
+                      {p.label ? <span className="dr-pick-label">{p.label}</span> : null}
+                      <div className="dr-pick-film">
+                        {p.film_slug ? <Link href={`/film/${p.film_slug}`}>{p.film_title}</Link> : <span>{p.film_title}</span>}
+                        {p.film_year ? <span className="dr-yr"> ({p.film_year})</span> : null}
+                      </div>
+                      {p.reason ? <p className="dr-pick-why">{p.reason}</p> : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

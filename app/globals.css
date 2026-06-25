@@ -3380,11 +3380,16 @@ a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .dr-mr-n{margin-left:auto; font-family:var(--font-ui); font-size:12px; font-weight:700; color:var(--accent)}
 .dr-sub{margin-top:26px; padding-top:18px; border-top:1px solid var(--hairline)}
 .dr-h3{font-family:var(--font-ui); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin:0 0 6px}
-.dr-picks{display:flex; flex-direction:column; gap:16px; margin-top:14px}
-.dr-pick{border-left:2px solid var(--accent); padding-left:13px}
+.dr-picks{display:grid; grid-template-columns:1fr; gap:16px 28px; margin-top:14px}
+@media (min-width:680px){ .dr-picks{grid-template-columns:1fr 1fr} }
+.dr-pick{display:flex; gap:11px; align-items:flex-start}
+.dr-pick-thumb{flex:0 0 46px; width:46px; display:block}
+.dr-pick-thumb img{width:46px; height:69px; object-fit:cover; border-radius:4px; background:var(--hairline); box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.dr-pick-thumb--e{height:69px; border-radius:4px; background:var(--hairline)}
+.dr-pick-b{min-width:0; border-left:2px solid var(--accent); padding-left:11px}
 .dr-pick-label{display:inline-block; font-family:var(--font-ui); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); margin-bottom:3px}
-.dr-pick-film{font-family:var(--font-display); font-size:17px}
-.dr-pick-why{font-family:var(--font-display); font-size:15px; line-height:1.55; color:var(--ink2); margin:4px 0 0; max-width:66ch}
+.dr-pick-film{font-family:var(--font-display); font-size:16px; line-height:1.3}
+.dr-pick-why{font-family:var(--font-display); font-size:14px; line-height:1.5; color:var(--ink2); margin:4px 0 0}
 .dr-namemean{background:var(--paper); border:1px solid var(--hairline); border-radius:8px; padding:11px 15px; margin:10px 0 14px; max-width:68ch}
 .dr-nm-k{display:block; font-family:var(--font-ui); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--subtle); margin-bottom:4px}
 .dr-namemean p{margin:0; font-family:var(--font-display); font-size:15px; line-height:1.6}
