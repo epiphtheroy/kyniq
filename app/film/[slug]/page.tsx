@@ -220,13 +220,13 @@ export default async function FilmPage({ params }: Props) {
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
+    hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
-    hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
@@ -328,6 +328,57 @@ export default async function FilmPage({ params }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+        ) : null}
+
+        {/* LINEAGE — where the film sits: awards, canons, auteur line */}
+        {hasLineage ? (
+          <section className="df-sec" id="df-lineage">
+            <h2 className="df-h2">Lineage</h2>
+            <p className="df-sub">Where {film.title} sits in cinema&apos;s record — the awards it won, the canons it belongs to, and the auteur line it extends.</p>
+            {linAwards.length > 0 ? (
+              <div className="df-lingrp">
+                <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
+                <div className="lin-list">
+                  {linAwards.map((l, i) => (
+                    <div key={i} className="lin-row">
+                      <span className="lin-name">{l.list_label}</span>
+                      {l.parent_label && l.parent_label !== l.list_label ? <span className="lin-meta"> · {l.parent_label}</span> : null}
+                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+                      {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {linCanons.length > 0 ? (
+              <div className="df-lingrp">
+                <div className="df-flabel">Canons &amp; lists <span className="df-cnt">{linCanons.length}</span></div>
+                <div className="lin-list">
+                  {linCanons.map((l, i) => (
+                    <div key={i} className="lin-row">
+                      <span className="lin-name">{l.list_label}</span>
+                      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
+                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {linAuteur.length > 0 ? (
+              <div className="df-lingrp">
+                <div className="df-flabel">Auteur lineage <span className="df-cnt">{linAuteur.length}</span></div>
+                <div className="lin-list">
+                  {linAuteur.map((l, i) => (
+                    <div key={i} className="lin-row">
+                      <span className="lin-name">{l.list_label}</span>
+                      {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            <div className="df-src">Lineage memberships from public awards records and critics&apos;/institutional canons. Movements &amp; style lines arrive in a later pass.</div>
           </section>
         ) : null}
 
@@ -515,57 +566,6 @@ export default async function FilmPage({ params }: Props) {
               </div>
             ) : null}
             <div className="df-src">Headlines &amp; ≤10-word quotes from publishers&apos; link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.</div>
-          </section>
-        ) : null}
-
-        {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        {hasLineage ? (
-          <section className="df-sec" id="df-lineage">
-            <h2 className="df-h2">Lineage</h2>
-            <p className="df-sub">Where {film.title} sits in cinema&apos;s record — the awards it won, the canons it belongs to, and the auteur line it extends.</p>
-            {linAwards.length > 0 ? (
-              <div className="df-lingrp">
-                <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
-                <div className="lin-list">
-                  {linAwards.map((l, i) => (
-                    <div key={i} className="lin-row">
-                      <span className="lin-name">{l.list_label}</span>
-                      {l.parent_label && l.parent_label !== l.list_label ? <span className="lin-meta"> · {l.parent_label}</span> : null}
-                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
-                      {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            {linCanons.length > 0 ? (
-              <div className="df-lingrp">
-                <div className="df-flabel">Canons &amp; lists <span className="df-cnt">{linCanons.length}</span></div>
-                <div className="lin-list">
-                  {linCanons.map((l, i) => (
-                    <div key={i} className="lin-row">
-                      <span className="lin-name">{l.list_label}</span>
-                      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
-                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            {linAuteur.length > 0 ? (
-              <div className="df-lingrp">
-                <div className="df-flabel">Auteur lineage <span className="df-cnt">{linAuteur.length}</span></div>
-                <div className="lin-list">
-                  {linAuteur.map((l, i) => (
-                    <div key={i} className="lin-row">
-                      <span className="lin-name">{l.list_label}</span>
-                      {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            <div className="df-src">Lineage memberships from public awards records and critics&apos;/institutional canons. Movements &amp; style lines arrive in a later pass.</div>
           </section>
         ) : null}
 
