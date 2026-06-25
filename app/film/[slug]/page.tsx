@@ -44,6 +44,7 @@ type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_dire
 type WwPoint = { label?: string; text: string };
 type WwLens = { key: string; points: WwPoint[] };
 type RevRow = { source_slug: string; source_title: string; source_year: number | null };
+type LinRow = { facet: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
 
 async function load(slug: string) {
@@ -55,7 +56,7 @@ async function load(slug: string) {
   if (!film) return null;
   if (film.is_analyzed === false) return { minimal: true as const, film };   // Tier-2 catalog record
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -65,12 +66,14 @@ async function load(slug: string) {
     supabase.rpc("film_next", { p_film_id: film.id }),
     supabase.rpc("film_asset", { p_film_id: film.id }),
     supabase.rpc("film_next_reverse", { p_film_id: film.id }),
+    supabase.rpc("film_lineage_for", { p_film_id: film.id }),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
   const watchNext = (wnRows ?? []) as WnRow[];
   const whyWatch = (Array.isArray(waRows) ? waRows : []) as WwLens[];
   const recommendedBy = (revRows ?? []) as RevRow[];
+  const lineage = (lnRows ?? []) as LinRow[];
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
@@ -128,7 +131,7 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage };
 }
 
 // order + cap for the film-page Archetype section
@@ -188,9 +191,14 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
+  // Lineage groups: won → awards/honours, listed → canons/lists, auteur → auteur line.
+  const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
+  const linCanons = lineage.filter((l) => l.facet !== "auteur" && l.result === "listed");
+  const linAuteur = lineage.filter((l) => l.facet === "auteur");
+  const hasLineage = linAwards.length > 0 || linCanons.length > 0 || linAuteur.length > 0;
 
   // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
   const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount.get(f.id) ?? 0) > 0);
@@ -218,6 +226,7 @@ export default async function FilmPage({ params }: Props) {
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
+    hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
@@ -506,6 +515,57 @@ export default async function FilmPage({ params }: Props) {
               </div>
             ) : null}
             <div className="df-src">Headlines &amp; ≤10-word quotes from publishers&apos; link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.</div>
+          </section>
+        ) : null}
+
+        {/* LINEAGE — where the film sits: awards, canons, auteur line */}
+        {hasLineage ? (
+          <section className="df-sec" id="df-lineage">
+            <h2 className="df-h2">Lineage</h2>
+            <p className="df-sub">Where {film.title} sits in cinema&apos;s record — the awards it won, the canons it belongs to, and the auteur line it extends.</p>
+            {linAwards.length > 0 ? (
+              <div className="df-lingrp">
+                <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
+                <div className="lin-list">
+                  {linAwards.map((l, i) => (
+                    <div key={i} className="lin-row">
+                      <span className="lin-name">{l.list_label}</span>
+                      {l.parent_label && l.parent_label !== l.list_label ? <span className="lin-meta"> · {l.parent_label}</span> : null}
+                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+                      {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {linCanons.length > 0 ? (
+              <div className="df-lingrp">
+                <div className="df-flabel">Canons &amp; lists <span className="df-cnt">{linCanons.length}</span></div>
+                <div className="lin-list">
+                  {linCanons.map((l, i) => (
+                    <div key={i} className="lin-row">
+                      <span className="lin-name">{l.list_label}</span>
+                      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
+                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {linAuteur.length > 0 ? (
+              <div className="df-lingrp">
+                <div className="df-flabel">Auteur lineage <span className="df-cnt">{linAuteur.length}</span></div>
+                <div className="lin-list">
+                  {linAuteur.map((l, i) => (
+                    <div key={i} className="lin-row">
+                      <span className="lin-name">{l.list_label}</span>
+                      {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            <div className="df-src">Lineage memberships from public awards records and critics&apos;/institutional canons. Movements &amp; style lines arrive in a later pass.</div>
           </section>
         ) : null}
 

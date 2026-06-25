@@ -3252,6 +3252,17 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .rcp-m{font-family:var(--font-ui); font-size:11.5px; letter-spacing:.02em; color:var(--muted); margin-top:3px}
 .rcp-v{font-family:var(--font-display); font-style:italic; font-size:13.5px; color:var(--ink2); margin:6px 0 0; padding-left:11px; border-left:2px solid var(--hairline-2); max-width:80ch}
 @media (min-width:760px){ .rcp-list{grid-template-columns:1fr 1fr; column-gap:30px} .rcp-row:nth-last-child(2):nth-child(odd){border-bottom:1px solid var(--hairline)} }
+/* film-page Lineage (awards / canons / auteur line) */
+#df-lineage{scroll-margin-top:140px}
+.df-lingrp{margin:16px 0 6px}
+.df-lingrp .df-flabel .df-cnt{margin-left:6px}
+.lin-list{display:grid; grid-template-columns:1fr; gap:0; margin-top:8px; border-top:1px solid var(--hairline)}
+@media (min-width:760px){ .lin-list{grid-template-columns:1fr 1fr; column-gap:30px} }
+.lin-row{padding:8px 0; border-bottom:1px solid var(--hairline); font-size:14px; line-height:1.4}
+.lin-name{font-family:var(--font-display); font-weight:600; color:var(--ink)}
+.lin-meta{font-family:var(--font-ui); font-size:12px; color:var(--muted)}
+.lin-rank{font-family:var(--font-ui); font-size:12px; font-weight:700; color:var(--accent)}
+.lin-res{font-family:var(--font-ui); font-size:12px; color:var(--muted); text-transform:capitalize}
 /* film-page Watch next (curated 9 next films) */
 #df-watchnext{scroll-margin-top:140px}
 .wn-list{display:grid; grid-template-columns:1fr; gap:0; margin-top:10px; border-top:1px solid var(--hairline)}
