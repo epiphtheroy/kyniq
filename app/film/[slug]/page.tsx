@@ -44,7 +44,7 @@ type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_dire
 type WwPoint = { label?: string; text: string };
 type WwLens = { key: string; points: WwPoint[] };
 type RevRow = { source_slug: string; source_title: string; source_year: number | null };
-type LinRow = { facet: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
+type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
 
 async function load(slug: string) {
@@ -342,7 +342,7 @@ export default async function FilmPage({ params }: Props) {
                 <div className="lin-list">
                   {linAwards.map((l, i) => (
                     <div key={i} className="lin-row">
-                      <span className="lin-name">{l.list_label}</span>
+                      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
                       {l.parent_label && l.parent_label !== l.list_label ? <span className="lin-meta"> · {l.parent_label}</span> : null}
                       {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
                       {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
@@ -357,7 +357,7 @@ export default async function FilmPage({ params }: Props) {
                 <div className="lin-list">
                   {linCanons.map((l, i) => (
                     <div key={i} className="lin-row">
-                      <span className="lin-name">{l.list_label}</span>
+                      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
                       {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
                       {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
                     </div>
@@ -371,7 +371,7 @@ export default async function FilmPage({ params }: Props) {
                 <div className="lin-list">
                   {linAuteur.map((l, i) => (
                     <div key={i} className="lin-row">
-                      <span className="lin-name">{l.list_label}</span>
+                      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
                       {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
                     </div>
                   ))}
