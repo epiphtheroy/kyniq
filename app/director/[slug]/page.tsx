@@ -76,12 +76,22 @@ async function load(slug: string) {
     .filter((m) => m.films.size >= 2).sort((a, b) => b.films.size - a.films.size)
     .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
 
+  // Who's Next photos: matched directors (target_slug set) have their photo in `directors`,
+  // not in director_next — pull it so the circles aren't grey.
+  const nextArr = (next as Next[] | null) ?? [];
+  const needPhoto = [...new Set(nextArr.filter((n) => n.target_slug && !n.profile_path).map((n) => n.target_slug as string))];
+  if (needPhoto.length) {
+    const { data: dp } = await supabase.from("directors").select("slug, profile_path").in("slug", needPhoto);
+    const pmap = new Map((dp ?? []).map((r: { slug: string; profile_path: string | null }) => [r.slug, r.profile_path]));
+    for (const n of nextArr) { if (n.target_slug && !n.profile_path) n.profile_path = pmap.get(n.target_slug) ?? null; }
+  }
+
   return {
     director, dir, films, sigTropes, perFilmReadings, total: films.length, readingCount, tropeCount: tropeFilms.size,
     portrait: portrait as { body: string; source: string } | null,
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
-    next: (next as Next[] | null) ?? [],
+    next: nextArr,
     recBy,
   };
 }
@@ -145,11 +155,26 @@ export default async function DirectorPage({ params }: Props) {
   const tropesShown = sigTropes.slice(0, SIG_LIMIT);
   const portraitText = portrait?.body || d?.bio || null;
 
+  // Portrait art: up to 6 of the director's own film images (seeded shuffle → stable per ISR window).
+  type FilmArt = { id: string; slug: string; title: string; year: number | null; poster_path?: string | null; backdrop_path?: string | null };
+  const artPool = (films as FilmArt[]).filter((f) => f.poster_path || f.backdrop_path);
+  const seed = slug.split("").reduce((a, c) => a + c.charCodeAt(0), 7);
+  const portraitArt = artPool
+    .map((f, i) => ({ f, k: (i * 2654435761 + seed * 40503) % 1000000 }))
+    .sort((a, b) => a.k - b.k).slice(0, 6).map((x) => x.f);
+
+  // Strong Misreadings TOC: films that have readings, most-read first.
+  const mrFilms = (films as FilmArt[])
+    .filter((f) => (perFilmReadings.get(f.id) ?? 0) > 0)
+    .sort((a, b) => (perFilmReadings.get(b.id) ?? 0) - (perFilmReadings.get(a.id) ?? 0));
+
   // Dynamic tabs: Portrait + Filmography always; others when their data exists.
   const tabs: { id: string; label: string }[] = [
     { id: "dr-portrait", label: "Portrait" },
     { id: "dr-filmography", label: "Filmography" },
   ];
+  if (mrFilms.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings" });
+  if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes" });
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
   if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life" });
   if (next.length) tabs.push({ id: "dr-next", label: "Who's Next" });
@@ -185,41 +210,73 @@ export default async function DirectorPage({ params }: Props) {
         {/* STAT STRIP */}
         <div className="dr-stats">
           <a className="dr-stat" href="#dr-filmography"><div className="dr-n">{total}</div><div className="dr-k">Films</div></a>
-          <a className="dr-stat" href="#dr-filmography"><div className="dr-n">{readingCount}</div><div className="dr-k">Readings</div></a>
-          <a className="dr-stat dr-teal" href="#dr-portrait"><div className="dr-n">{tropeCount}</div><div className="dr-k">Tropes</div></a>
+          <a className="dr-stat" href="#dr-misreadings"><div className="dr-n">{readingCount}</div><div className="dr-k">Readings</div></a>
+          <a className="dr-stat dr-teal" href="#dr-tropes"><div className="dr-n">{tropeCount}</div><div className="dr-k">Tropes</div></a>
         </div>
       </div>
 
-      <FilmTabBar tabs={tabs} />
-
       <div className="dr-wrap">
+        <FilmTabBar tabs={tabs} />
+
         {/* PORTRAIT */}
         <section className="dr-sec" id="dr-portrait">
           <h2 className="dr-h2">Portrait</h2>
-          {portraitText ? (
-            <div className="dr-portrait-body">
-              {portraitText.split(/\n\s*\n/).map((para, i) => <p key={i}>{para}</p>)}
-              <div className="dr-src">{portrait?.body ? "Metatake editorial method (AI-drafted)." : "Biography via TMDB — Metatake portrait coming soon."}</div>
+          <div className={`dr-portrait-row${portraitArt.length ? "" : " dr-portrait-row--solo"}`}>
+            <div className="dr-portrait-main">
+              {portraitText ? (
+                <div className="dr-portrait-body">
+                  {portraitText.split(/\n\s*\n/).map((para, i) => <p key={i}>{para}</p>)}
+                  <div className="dr-src">{portrait?.body ? "Metatake editorial method (AI-drafted)." : "Biography via TMDB — Metatake portrait coming soon."}</div>
+                </div>
+              ) : (
+                <p className="dr-gloss">A portrait of {director} is coming soon.</p>
+              )}
             </div>
-          ) : (
-            <p className="dr-gloss">A portrait of {director} is coming soon.</p>
-          )}
-
-          {/* computed fingerprint — signature tropes */}
-          {sigTropes.length > 0 && (
-            <div className="dr-sub dr-sec--teal" id="dr-sigtropes">
-              <h3 className="dr-h3">Signature tropes</h3>
-              <p className="dr-gloss">
-                Figure-types — devices, situations, objects — {director} returns to across films. <b>Computed, not asserted:</b> each
-                appears in two or more of {total === 1 ? "the single film" : `the ${total} films`} on Metatake. Shared with other
-                directors under <Link className="dr-teal-link" href="/tropes">Tropes</Link>.
-              </p>
-              <div className="dr-siglist">
-                {tropesShown.map((m) => (<SigRow key={m.slug} href={`/trope/${m.slug}`} title={m.title} films={m.filmList} total={total} tone="teal" />))}
+            {portraitArt.length > 0 && (
+              <div className="dr-portrait-art" aria-hidden="true">
+                {portraitArt.map((f) => {
+                  const src = f.poster_path ? `${IMG}/w185${f.poster_path}` : f.backdrop_path ? `${IMG}/w300${f.backdrop_path}` : null;
+                  if (!src) return null;
+                  return (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img key={f.slug} className="dr-pa-img" src={src} alt="" loading="lazy" title={`${f.title}${f.year ? ` (${f.year})` : ""}`} />
+                  );
+                })}
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </section>
+
+        {/* TROPES (signature figure-types, computed) */}
+        {sigTropes.length > 0 && (
+          <section className="dr-sec dr-sec--teal" id="dr-tropes">
+            <h2 className="dr-h2">Tropes</h2>
+            <p className="dr-gloss">
+              Figure-types — devices, situations, objects — {director} returns to across films. <b>Computed, not asserted:</b> each
+              appears in two or more of {total === 1 ? "the single film" : `the ${total} films`} on Metatake. Shared with other
+              directors under <Link className="dr-teal-link" href="/tropes">Tropes</Link>.
+            </p>
+            <div className="dr-siglist">
+              {tropesShown.map((m) => (<SigRow key={m.slug} href={`/trope/${m.slug}`} title={m.title} films={m.filmList} total={total} tone="teal" />))}
+            </div>
+          </section>
+        )}
+
+        {/* STRONG MISREADINGS — compact contents into each film's readings */}
+        {mrFilms.length > 0 && (
+          <section className="dr-sec" id="dr-misreadings">
+            <h2 className="dr-h2">Strong Misreadings</h2>
+            <p className="dr-gloss">{readingCount} strong misreadings across {director}&apos;s films — a contents list. Open any film to read them.</p>
+            <div className="dr-mr-toc">
+              {mrFilms.map((f) => (
+                <Link className="dr-mr-item" href={`/film/${f.slug}#df-readings`} key={f.slug}>
+                  <span className="dr-mr-ti">{f.title}{f.year ? <span className="dr-yr"> ({f.year})</span> : null}</span>
+                  <span className="dr-mr-n">{perFilmReadings.get(f.id)}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* WHERE TO START */}
         {picks.length > 0 && (
