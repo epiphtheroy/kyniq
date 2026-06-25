@@ -3315,4 +3315,29 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .msa-ok{font-family:var(--font-ui); font-size:12px; color:var(--accent)}
 .msa-foot{font-family:var(--font-ui); font-size:11px; color:var(--faint); padding:7px 10px}
 .df-catnote{font-family:var(--font-display); font-size:14px; color:var(--ink2); margin:12px 0 0; max-width:60ch}
+/* Director page — Portrait / Where to Start / The Life / Who's Next */
+.dr-portrait-body p{font-family:var(--font-display); font-size:17px; line-height:1.65; max-width:68ch; margin:0 0 14px}
+.dr-sub{margin-top:26px; padding-top:18px; border-top:1px solid var(--hairline)}
+.dr-h3{font-family:var(--font-ui); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin:0 0 6px}
+.dr-picks{display:flex; flex-direction:column; gap:16px; margin-top:14px}
+.dr-pick{border-left:2px solid var(--accent); padding-left:13px}
+.dr-pick-label{display:inline-block; font-family:var(--font-ui); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); margin-bottom:3px}
+.dr-pick-film{font-family:var(--font-display); font-size:17px}
+.dr-pick-why{font-family:var(--font-display); font-size:15px; line-height:1.55; color:var(--ink2); margin:4px 0 0; max-width:66ch}
+.dr-namemean{background:var(--paper); border:1px solid var(--hairline); border-radius:8px; padding:11px 15px; margin:10px 0 14px; max-width:68ch}
+.dr-nm-k{display:block; font-family:var(--font-ui); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--subtle); margin-bottom:4px}
+.dr-namemean p{margin:0; font-family:var(--font-display); font-size:15px; line-height:1.6}
+.dr-life-intro{font-family:var(--font-display); font-size:16px; line-height:1.6; color:var(--ink2); max-width:68ch; margin:0 0 14px}
+.dr-life-list{margin:0; padding-left:1.4em; max-width:70ch}
+.dr-fact{font-family:var(--font-display); font-size:15.5px; line-height:1.6; margin-bottom:11px}
+.dr-next-grid{display:flex; flex-direction:column; gap:0; margin-top:12px}
+.dr-next-card{display:flex; gap:13px; padding:13px 0; border-bottom:1px solid var(--hairline)}
+.dr-next-photo{width:54px; height:54px; border-radius:50%; object-fit:cover; flex:none; background:var(--paper)}
+.dr-next-photo--e{background:var(--hairline)}
+.dr-next-b{flex:1; min-width:0}
+.dr-next-name{font-family:var(--font-display); font-size:16px}
+.dr-next-off{font-family:var(--font-ui); font-size:11px; color:var(--subtle); margin-left:6px}
+.dr-next-why{font-family:var(--font-display); font-size:14.5px; line-height:1.5; color:var(--ink2); margin:3px 0 0; max-width:64ch}
+.dr-recby{margin-top:16px; font-family:var(--font-ui); font-size:13px; color:var(--ink2)}
+.dr-recby-k{color:var(--subtle)}
 @media (min-width:760px){ .ww-grid{grid-template-columns:1fr 1fr} }
