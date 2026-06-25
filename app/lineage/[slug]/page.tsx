@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import MetatakeNav from "@/components/MetatakeNav";
+import LineageActions from "@/components/LineageActions";
 
 export const revalidate = 1800;
 const IMG = "https://image.tmdb.org/t/p";
@@ -58,6 +59,7 @@ export default async function LineagePage({ params }: Props) {
           <span className="lh-cnt">{list.film_count} films</span>
         </div>
         {list.description ? <p className="lh-def">{list.description}</p> : null}
+        <LineageActions slug={slug} />
 
         <div className="lh-films">
           {films.map((f, i) => (

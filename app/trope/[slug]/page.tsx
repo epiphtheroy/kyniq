@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
 import EntityActions from "@/components/EntityActions";
+import SaveButton from "@/components/SaveButton";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
@@ -107,6 +108,7 @@ export default async function TropePage({ params }: Props) {
           {t.laconic ? <p className="tp-laconic">{t.laconic}</p> : null}
           <div className="tp-actions">
             <EntityActions entityType="meta_take" entityId={t.id} />
+            <SaveButton entityType="trope" entityRef={slug} label="Save" labelOn="Saved" variant="bookmark" />
           </div>
         </header>
 

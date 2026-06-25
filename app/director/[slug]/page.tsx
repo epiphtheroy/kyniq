@@ -7,6 +7,8 @@ import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
+import SaveButton from "@/components/SaveButton";
+import PosterActions from "@/components/PosterActions";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -200,6 +202,7 @@ export default async function DirectorPage({ params }: Props) {
                 {d?.place_of_birth && <span>{d.place_of_birth}</span>}
               </div>
             )}
+            <div className="dr-save"><SaveButton entityType="director" entityRef={slug} label="Add to favorites" labelOn="Favorite" variant="heart" /></div>
           </div>
         </div>
 
@@ -381,10 +384,13 @@ export default async function DirectorPage({ params }: Props) {
               const count = perFilmReadings.get(f.id) ?? 0;
               return (
                 <Link className="dr-fcard" href={`/film/${film.slug}`} key={film.slug}>
-                  {art ? (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img className="dr-bd" src={art} alt={`${film.title} backdrop`} loading="lazy" />
-                  ) : (<div className="dr-bd dr-bd--empty" aria-hidden="true" />)}
+                  <div className="dr-bdwrap">
+                    {art ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img className="dr-bd" src={art} alt={`${film.title} backdrop`} loading="lazy" />
+                    ) : (<div className="dr-bd dr-bd--empty" aria-hidden="true" />)}
+                    <PosterActions filmId={f.id as string} />
+                  </div>
                   <div className="dr-cap">
                     <div className="dr-ti">{film.title}{" "}{film.year ? <span className="dr-yr">({film.year})</span> : null}</div>
                     <div className="dr-fmt"><b>{count}</b> reading{count === 1 ? "" : "s"}</div>

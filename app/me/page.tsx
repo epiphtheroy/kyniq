@@ -4,6 +4,15 @@ import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import MetatakeNav from "@/components/MetatakeNav";
 import MovieSearchAdd from "@/components/MovieSearchAdd";
+import { FRAMEWORKS } from "@/lib/frameworks";
+
+type PB = {
+  watched?: number; watchlist?: number; avg_rating?: number | null; my_takes?: number;
+  framework?: Record<string, number>; country?: Record<string, number>; decade?: Record<string, number>;
+  director?: Record<string, number>; trope?: Record<string, number>;
+  canon?: Array<{ label: string; seen: number; total: number }>;
+};
+type WL = { slug: string; title: string; year: number | null; wwi: number; canon: number; lineage: number; gap: number; reason: string };
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -65,7 +74,7 @@ export default async function MeDashboard() {
   const { data: profile } = await supabase.from("profiles").select("username, display_name").eq("id", user.id).maybeSingle();
   const name = profile?.display_name || profile?.username || user.email?.split("@")[0] || "you";
 
-  const [{ data: pinsRaw }, { data: moviesRaw }, { data: takesRaw }] = await Promise.all([
+  const [{ data: pinsRaw }, { data: moviesRaw }, { data: takesRaw }, { data: pbRaw }, { data: wlRaw }] = await Promise.all([
     supabase.rpc("get_my_pins"),
     supabase.from("user_movies")
       .select("seen, watchlist, rating, added_at, film:films!inner(slug, title, year)")
@@ -76,7 +85,13 @@ export default async function MeDashboard() {
       .eq("author_id", user.id)
       .order("created_at", { ascending: false })
       .limit(40),
+    supabase.rpc("portfolio_breakdown"),
+    supabase.rpc("score_watchlist"),
   ]);
+  const pb = (pbRaw ?? {}) as PB;
+  const wl = (wlRaw as WL[] | null) ?? [];
+  const seenFw = new Set(Object.keys(pb.framework ?? {}));
+  const blindFw = FRAMEWORKS.filter((f) => f.key !== "INVITATION" && !seenFw.has(f.key)).slice(0, 6);
 
   const pins: Pin[] = (pinsRaw as Pin[] | null) ?? [];
   const follows = pins.filter((p) => p.kind === "follow");
@@ -101,6 +116,43 @@ export default async function MeDashboard() {
           {" "}· <Link href="/settings" className="mt-link">settings</Link>
         </p>
 
+        {/* KPI strip */}
+        <div className="me-kpi">
+          <div className="me-k"><b>{pb.watched ?? watched.length}</b><span>Watched</span></div>
+          <div className="me-k"><b>{pb.watchlist ?? watchlist.length}</b><span>Watchlist</span></div>
+          <div className="me-k"><b>{pb.avg_rating ?? "—"}</b><span>Avg rating</span></div>
+          <div className="me-k"><b>{pb.my_takes ?? takes.length}</b><span>My takes</span></div>
+        </div>
+
+        {/* Portfolio — canon coverage + reading blind spots */}
+        {(watched.length > 0) && (
+          <section style={{ marginTop: 22 }}>
+            <div className="seclbl">Portfolio</div>
+            {pb.canon && pb.canon.length > 0 ? (
+              <div className="me-cov">
+                {pb.canon.slice(0, 6).map((c) => {
+                  const pct = c.total > 0 ? Math.round((c.seen / c.total) * 100) : 0;
+                  return (
+                    <div className="me-cov-row" key={c.label}>
+                      <span className="me-cov-l">{c.label}</span>
+                      <span className="me-cov-bar"><i style={{ width: `${pct}%` }} /></span>
+                      <span className="me-cov-n">{c.seen}/{c.total}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : null}
+            {blindFw.length > 0 ? (
+              <div className="me-blind">
+                <span className="me-blind-k">Reading blind spots</span>
+                {blindFw.map((f) => (
+                  <Link key={f.key} className="me-chip" href={`/strong-misreadings/${f.slug}`} style={{ borderColor: f.color, color: f.color }}>{f.label}</Link>
+                ))}
+              </div>
+            ) : null}
+          </section>
+        )}
+
         <section style={{ marginTop: 22 }}>
           <div className="seclbl">＋ Add a film</div>
           <MovieSearchAdd />
@@ -112,8 +164,23 @@ export default async function MeDashboard() {
         </section>
 
         <section style={{ marginTop: 26 }}>
-          <div className="seclbl">＋ Watchlist · {watchlist.length}</div>
-          <MovieList rows={watchlist} />
+          <div className="seclbl">＋ Watchlist · {watchlist.length}{wl.length ? " · ranked by Why-Watch" : ""}</div>
+          {wl.length > 0 ? (
+            <ul className="me-list" style={{ listStyle: "none", padding: 0, margin: "10px 0 0" }}>
+              {wl.map((w) => (
+                <li key={w.slug} className="me-wl">
+                  <span className="me-wwi">{Math.round(Number(w.wwi))}</span>
+                  <div className="me-wl-b">
+                    <Link href={`/film/${w.slug}`} style={{ fontSize: 16 }}>{w.title}</Link>
+                    {w.year ? <span className="ui muted" style={{ fontSize: 13, marginLeft: 6 }}>({w.year})</span> : null}
+                    <div className="me-wl-sub">{w.reason} · <span className="ui muted">canon {Math.round(Number(w.canon))} · link {Math.round(Number(w.lineage))} · gap {Math.round(Number(w.gap))}</span></div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <MovieList rows={watchlist} />
+          )}
         </section>
 
         <section style={{ marginTop: 26 }}>
