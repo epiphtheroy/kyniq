@@ -36,7 +36,7 @@ export default function SettingsPage() {
         setDisplayName(p.display_name || "");
         setUsername(p.username || "");
         setBio(p.bio || "");
-        setIsPublic(p.is_public ?? true);
+        setIsPublic((p.is_public ?? true) && (p.portfolio_public ?? false));
       }
       setLoading(false);
     }
@@ -54,6 +54,7 @@ export default function SettingsPage() {
       username: username.trim() || null,
       bio: bio.trim() || null,
       is_public: isPublic,
+      portfolio_public: isPublic,
     }).eq("id", user.id);
 
     if (error) {
@@ -126,7 +127,7 @@ export default function SettingsPage() {
         </div>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", border: "1px solid var(--hairline)", borderRadius: 4, padding: "11px 13px" }}>
           <span className="ui" style={{ fontSize: 14 }}>
-            Public profile <span className="muted" style={{ fontSize: 12 }}>— others can view /u/{username}</span>
+            Public film portfolio <span className="muted" style={{ fontSize: 12 }}>— others can view your seen films &amp; NAV at /u/{username}</span>
           </span>
           <button
             onClick={() => setIsPublic(!isPublic)}
