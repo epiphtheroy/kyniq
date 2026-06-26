@@ -51,14 +51,6 @@ export default function Nav({ data }: { data: HomeV2 }) {
             <span className="dot" />
             <span className="t">Ask&nbsp;metatake&nbsp;AI</span>
           </Link>
-          <Link className="nicon" href="/lineage" title="Wander the map">
-            <svg viewBox="0 0 24 24">
-              <circle cx="6" cy="7" r="2" />
-              <circle cx="18" cy="6" r="2" />
-              <circle cx="13" cy="17" r="2" />
-              <path d="M8 8l9 7M16 7l-7 8" />
-            </svg>
-          </Link>
           <Link className="nicon" href="/me" title="Your Shelf">
             <svg viewBox="0 0 24 24">
               <path d="M6 3h12v18l-6-4-6 4z" />
@@ -134,48 +126,57 @@ export default function Nav({ data }: { data: HomeV2 }) {
       <div className={`mega${open === "mega" ? " open" : ""}`} id="mega">
         <div className="wrap">
           <div className="mcol">
-            <h4>Browse the map</h4>
+            <h4>Watch</h4>
             <Link href="/film">
               Films<span className="ar">{stats.films.toLocaleString()} →</span>
             </Link>
             <Link href="/director">
               Directors<span className="ar">{stats.directors.toLocaleString()} →</span>
             </Link>
-            <Link href="/tropes">
-              Tropes<span className="ar">{stats.tropes.toLocaleString()} →</span>
-            </Link>
-            <Link href="/idea">
-              Concepts<span className="ar">{stats.concepts.toLocaleString()} →</span>
-            </Link>
-          </div>
-          <div className="mcol">
-            <h4>Ways through</h4>
-            <Link href="/lineage">
-              Lineage<span className="ar">→</span>
-            </Link>
-            <Link href="/strong-misreadings">
-              Archetype<span className="ar">→</span>
-            </Link>
-            <Link href="/strong-misreadings">
-              Strong Misreadings<span className="ar">→</span>
-            </Link>
-            <Link href="/lineage">
-              Wander the map<span className="ar">→</span>
-            </Link>
-          </div>
-          <div className="mcol">
-            <h4>Fresh</h4>
             <Link href="/latest">
               Latest<span className="ar">→</span>
             </Link>
             <Link href="/trending">
               Trending<span className="ar">→</span>
             </Link>
-            <Link href="/latest">
-              Just added<span className="ar">→</span>
+          </div>
+          <div className="mcol">
+            <h4>Wander</h4>
+            <Link href="/lineage">
+              The map<span className="ar">→</span>
+            </Link>
+            <Link href="/me">
+              Recommended<span className="ar">→</span>
+            </Link>
+            <Link href="/random">
+              Surprise me<span className="ar">→</span>
             </Link>
             <Link href="/blog">
               Blog<span className="ar">→</span>
+            </Link>
+          </div>
+          <div className="mcol">
+            <h4>Ideas</h4>
+            <Link href="/idea">
+              Concepts<span className="ar">{stats.concepts.toLocaleString()} →</span>
+            </Link>
+            <Link href="/theorist">
+              Theorists<span className="ar">→</span>
+            </Link>
+            <Link href="/tradition">
+              Traditions<span className="ar">→</span>
+            </Link>
+          </div>
+          <div className="mcol">
+            <h4>Lenses</h4>
+            <Link href="/tropes">
+              Tropes<span className="ar">{stats.tropes.toLocaleString()} →</span>
+            </Link>
+            <Link href="/catalog">
+              Archetypes<span className="ar">→</span>
+            </Link>
+            <Link href="/strong-misreadings">
+              Strong Misreadings<span className="ar">→</span>
             </Link>
           </div>
           <div className="mcol">
