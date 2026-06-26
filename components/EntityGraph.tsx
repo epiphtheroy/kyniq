@@ -170,47 +170,48 @@ export default function EntityGraph({
       const ring = big ? ",0 0 0 3px rgba(227,18,11,.55)" : "";
 
       // marker: poster (film) / face circle (director) / coloured dot
-      let marker: string; let halfW: number;
+      let marker: string;
       if (n.img && n.type === "film") {
-        const w = big ? 54 : 40, h = Math.round(w * 1.45); halfW = w / 2;
+        const w = big ? 54 : 40, h = Math.round(w * 1.45);
         marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${w}px;height:${h}px;object-fit:cover;border-radius:4px;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
       } else if (n.img && (n.type === "director" || n.type === "theorist")) {
-        const d = big ? 62 : 46; halfW = d / 2;
+        const d = big ? 62 : 46;
         marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${d}px;height:${d}px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
       } else {
-        halfW = r;
         const dotShadow = big ? "box-shadow:0 0 0 4px rgba(227,18,11,.14),0 0 20px rgba(227,18,11,.28);" : "";
         marker = `<div style="width:${r * 2}px;height:${r * 2}px;border-radius:50%;margin:0 auto;background:${col.dot};${dotShadow}transition:transform .18s;"></div>`;
       }
-
-      const labelText = n.type === "figure" && !n.center ? trunc(n.label, 42) : trunc(n.label, 60);
-      const dimHtml = n.dim ? ` <span style="color:#a39c91;font-weight:400;">${esc(n.dim)}</span>` : "";
-      const subHtml = n.sub
-        ? `<span style="display:block;font:400 10px/1.1 ui-sans-serif,system-ui;color:#8a857b;margin-top:2px;">${esc(n.sub)}</span>`
-        : "";
-      el.innerHTML =
-        marker +
-        `<div style="position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;` +
-        `font:${big ? "600 14px" : "500 12px"}/1.15 ui-sans-serif,system-ui,sans-serif;color:${col.label};` +
-        `text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.95);pointer-events:none;">${esc(labelText)}${dimHtml}${subHtml}</div>`;
+      el.innerHTML = marker;
       el.title = n.label + (n.sub ? " — " + n.sub : "");
 
-      // per-node ↗ shortcut → entity page (doesn't trigger drag/recenter)
+      // label — title, faint inline year, then a small ↗ that opens the page.
+      const labelText = n.type === "figure" && !n.center ? trunc(n.label, 42) : trunc(n.label, 60);
+      const dimHtml = n.dim ? ` <span style="color:#a39c91;font-weight:400;">${esc(n.dim)}</span>` : "";
+      const labelDiv = document.createElement("div");
+      labelDiv.style.cssText =
+        `position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;` +
+        `font:${big ? "600 14px" : "500 12px"}/1.15 ui-sans-serif,system-ui,sans-serif;color:${col.label};` +
+        `text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.95);pointer-events:none;`;
+      labelDiv.innerHTML = `${esc(labelText)}${dimHtml}`;
       if (n.href) {
-        const open = document.createElement("div");
+        const open = document.createElement("span");
         open.textContent = "↗";
         open.title = "Open page";
-        open.style.cssText =
-          `position:absolute;top:${-halfW - 2}px;left:${halfW - 6}px;width:18px;height:18px;border-radius:50%;` +
-          `background:#fff;border:1px solid rgba(0,0,0,.22);color:#C8102E;font:700 11px/16px ui-sans-serif,system-ui;` +
-          `text-align:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.22);z-index:5;`;
+        open.style.cssText = "pointer-events:auto;cursor:pointer;margin-left:4px;font-size:0.8em;font-weight:700;color:#C8102E;vertical-align:baseline;";
         open.addEventListener("pointerdown", (e) => { e.stopPropagation(); });
         open.addEventListener("click", (e) => {
           e.stopPropagation();
           if (openRef.current) openRef.current(n); else if (n.href) router.push(n.href);
         });
-        el.appendChild(open);
+        labelDiv.appendChild(open);
       }
+      if (n.sub) {
+        const s = document.createElement("span");
+        s.style.cssText = "display:block;font:400 10px/1.1 ui-sans-serif,system-ui;color:#8a857b;margin-top:2px;";
+        s.textContent = n.sub;
+        labelDiv.appendChild(s);
+      }
+      el.appendChild(labelDiv);
 
       n.el = el;
       world.appendChild(el);
