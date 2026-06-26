@@ -10,6 +10,7 @@ import FilmTopInfo from "@/components/FilmTopInfo";
 import FilmLineageSection from "@/components/FilmLineageSection";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
+import FilmHeroReel from "@/components/FilmHeroReel";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
@@ -150,6 +151,12 @@ async function load(slug: string) {
   const media = (mediaRows ?? []) as unknown as MediaRow[];
   const stills = media.filter((m) => m.kind === "image").slice(0, 5);
   const trailer = media.find((m) => m.kind === "video") ?? null;
+  // Hero reel: all videos, clips first (title not "trailer/teaser") and trailer last.
+  // media is already position-ordered, and Array.sort is stable, so order is preserved within groups.
+  const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
+  const orderedVids = media.filter((m) => m.kind === "video").sort((a, b) => (isTrailerTitle(a.title) ? 1 : 0) - (isTrailerTitle(b.title) ? 1 : 0));
+  const videos = orderedVids.map((m) => ({ id: m.external_id, title: m.title ?? "" }));
+  const heroPoster = orderedVids[0]?.thumbnail_url ?? null;
 
   // Connected films — nearest neighbours by affinity (reasons layer retired with old readings).
   const relIds = (aff ?? []).map((a) => a.related_film_id);
@@ -159,7 +166,7 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch };
 }
 
 // order + cap for the film-page Archetype section
@@ -242,7 +249,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -303,17 +310,9 @@ export default async function FilmPage({ params }: Props) {
         </div>
 
         {/* HERO — autoplay (muted) trailer in full 16:9; falls back to the colour backdrop */}
-        <section className={`df-hero${trailer ? " df-hero--vid" : ""}`}>
-          {trailer ? (
-            <div className="df-video">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${trailer.external_id}?autoplay=1&mute=1&controls=0&start=5&loop=1&playlist=${trailer.external_id}&playsinline=1&modestbranding=1&rel=0&disablekb=1`}
-                title={trailer.title ?? `${film.title} trailer`}
-                allow="autoplay; encrypted-media; picture-in-picture"
-                referrerPolicy="strict-origin-when-cross-origin"
-                loading="eager"
-              />
-            </div>
+        <section className={`df-hero${videos.length ? " df-hero--vid" : ""}`}>
+          {videos.length ? (
+            <FilmHeroReel videos={videos} poster={heroPoster ?? undefined} start={7} />
           ) : film.backdrop_path ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} />

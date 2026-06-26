@@ -11,7 +11,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 
-export default function InviteVideo({ videoId, title, poster }: { videoId: string; title: string; poster?: string }) {
+export default function InviteVideo({ videoId, title, poster, start = 0, loop = false }: { videoId: string; title: string; poster?: string; start?: number; loop?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [on, setOn] = useState(false);
   const [floating, setFloating] = useState(false);
@@ -34,7 +34,8 @@ export default function InviteVideo({ videoId, title, poster }: { videoId: strin
     return () => io.disconnect();
   }, []);
 
-  const src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`;
+  // controls left ON (no controls=0) so the viewer can unmute and scrub. start/loop optional.
+  const src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1${start > 0 ? `&start=${start}` : ""}${loop ? `&loop=1&playlist=${videoId}` : ""}`;
 
   return (
     <div ref={ref} className="iv-wrap">
