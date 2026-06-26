@@ -3740,6 +3740,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .map-stype--film{background:#3a3a3a} .map-stype--director{background:#B5642A} .map-stype--trope{background:#0F6E56} .map-stype--idea{background:#6D4AAE} .map-stype--theorist{background:#B23A8F} .map-stype--figure{background:#1F6FB2}
 .map-slabel{flex:1; min-width:0; font-family:var(--font-display); font-size:13.5px; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .map-ssub{flex:0 0 auto; font-family:var(--font-ui); font-size:11px; color:var(--subtle)}
+/* autodeploy self-test — harmless marker */
 /* filter grid */
 .map-filters{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:9px 16px; background:var(--bg); border-bottom:1px solid var(--hairline)}
 .map-filters label{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:11px; color:var(--subtle); text-transform:uppercase; letter-spacing:.05em}
