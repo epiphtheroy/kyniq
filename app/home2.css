@@ -321,3 +321,21 @@
 .mthome .bigsearch h2{font-size:30px}
 .mthome .facetgrid{grid-template-columns:1fr}
 }
+
+/* Detail-page masthead — home v7 header tone (dark nav + tinted band) over the existing readable body. */
+.mthome .dhead{background:var(--paper-2);border-bottom:1px solid var(--line);padding:32px 0 0}
+.mthome .dhead .dwrap{max-width:760px;margin:0 auto;padding:0 18px}
+.mthome .dhead .crumb{font-family:var(--ui);font-size:12.5px;color:var(--ink-faint);margin-bottom:14px}
+.mthome .dhead .crumb a{color:var(--ink-soft)}
+.mthome .dhead .crumb a:hover{color:var(--red)}
+.mthome .dhead .kicker{margin-bottom:13px}
+.mthome .dtitle{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5.2vw,46px);line-height:1.03;letter-spacing:-.022em;color:var(--ink);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.mthome .dnative{font-family:var(--text-serif);font-style:italic;font-weight:400;font-size:.46em;color:var(--ink-faint);letter-spacing:0}
+.mthome .dmeta{font-family:var(--text-serif);font-size:16px;color:var(--ink-soft);margin:14px 0 20px}
+.mthome .dmeta a,.mthome .dmeta b{color:var(--ink);font-weight:600}
+.mthome .dmeta a:hover{color:var(--red)}
+.mthome .dtabs{display:flex;gap:26px;border-top:1px solid var(--line)}
+.mthome .dtabs a,.mthome .dtabs span{font-family:var(--ui);font-size:14px;font-weight:600;color:var(--ink-faint);padding:14px 0 12px;display:inline-block;cursor:pointer}
+.mthome .dtabs a:hover{color:var(--ink)}
+.mthome .dtabs .on{color:var(--ink);border-bottom:2px solid var(--red)}
+@media(max-width:640px){.mthome .dhead{padding-top:22px}.mthome .dtitle{font-size:30px}}

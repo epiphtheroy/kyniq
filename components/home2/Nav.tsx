@@ -6,8 +6,8 @@ import type { HomeV2 } from "@/lib/home2";
 
 type OpenId = "mega" | "am" | null;
 
-export default function Nav({ data }: { data: HomeV2 }) {
-  const { stats } = data;
+export default function Nav({ data }: { data?: HomeV2 }) {
+  const stats = data?.stats;
   const [open, setOpen] = useState<OpenId>(null);
   const rootRef = useRef<HTMLElement>(null);
 
@@ -136,16 +136,16 @@ export default function Nav({ data }: { data: HomeV2 }) {
           <div className="mcol">
             <h4>Browse the map</h4>
             <Link href="/film">
-              Films<span className="ar">{stats.films.toLocaleString()} →</span>
+              Films<span className="ar">{stats ? `${stats.films.toLocaleString()} →` : "→"}</span>
             </Link>
             <Link href="/director">
-              Directors<span className="ar">{stats.directors.toLocaleString()} →</span>
+              Directors<span className="ar">{stats ? `${stats.directors.toLocaleString()} →` : "→"}</span>
             </Link>
             <Link href="/tropes">
-              Tropes<span className="ar">{stats.tropes.toLocaleString()} →</span>
+              Tropes<span className="ar">{stats ? `${stats.tropes.toLocaleString()} →` : "→"}</span>
             </Link>
             <Link href="/idea">
-              Concepts<span className="ar">{stats.concepts.toLocaleString()} →</span>
+              Concepts<span className="ar">{stats ? `${stats.concepts.toLocaleString()} →` : "→"}</span>
             </Link>
           </div>
           <div className="mcol">
