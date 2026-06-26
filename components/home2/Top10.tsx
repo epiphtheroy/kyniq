@@ -57,6 +57,9 @@ export default function Top10({ data }: { data: HomeV2 }) {
           {top10.map((f) => (
             <Link className="tr10" href={filmHref(f.slug)} key={f.slug}>
               <div className="pp" style={{ background: tone(hashTone(f.slug)) }}>
+                {posterUrl(f.poster) ? (
+                  <img src={posterUrl(f.poster)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                ) : null}
                 <div className="rk">#{f.rank}</div>
               </div>
               <div className="nm">{f.title}</div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
-import { hashTone, tone, conceptHref } from "./helpers";
+import { hashTone, tone, conceptHref, backdropUrl } from "./helpers";
 import Rail from "./Rail";
 
 export default function ConceptTiles({ data }: { data: HomeV2 }) {
@@ -24,6 +24,9 @@ export default function ConceptTiles({ data }: { data: HomeV2 }) {
           {data.concepts.map((c) => (
             <Link className="tile" href={conceptHref(c.slug)} key={c.name}>
               <div className="img" style={{ background: tone(hashTone(c.name)) }}>
+                {backdropUrl(c.backdrop) ? (
+                  <img src={backdropUrl(c.backdrop)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                ) : null}
                 <span className="addcirc">+</span>
                 <div className="lab">
                   <div className="l1">{c.name}</div>

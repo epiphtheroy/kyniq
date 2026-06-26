@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
-import { hashTone, tone, initials, directorHref } from "./helpers";
+import { hashTone, tone, initials, directorHref, profileUrl } from "./helpers";
 import Rail from "./Rail";
 
 export default function Auteurs({ data }: { data: HomeV2 }) {
@@ -24,7 +24,11 @@ export default function Auteurs({ data }: { data: HomeV2 }) {
           {data.auteurs.map((p) => (
             <Link className="bp" href={directorHref(p.slug)} key={p.slug}>
               <div className="av" style={{ background: tone(hashTone(p.slug)) }}>
-                <div className="di">{initials(p.name)}</div>
+                {profileUrl(p.image) ? (
+                  <img src={profileUrl(p.image)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                ) : (
+                  <div className="di">{initials(p.name)}</div>
+                )}
                 <div className="hrt" title="Follow">
                   ♡
                 </div>

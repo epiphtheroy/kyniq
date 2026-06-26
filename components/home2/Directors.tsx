@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
-import { hashTone, tone, initials, directorHref } from "./helpers";
+import { hashTone, tone, initials, directorHref, profileUrl } from "./helpers";
 import Rail from "./Rail";
 
 export default function Directors({ data }: { data: HomeV2 }) {
@@ -32,8 +32,11 @@ export default function Directors({ data }: { data: HomeV2 }) {
         {d ? (
           <div className="dspot" id="dspot">
             <div className="portrait" style={{ background: tone(hashTone(d.slug)) }}>
+              {profileUrl(d.image) ? (
+                <img src={profileUrl(d.image)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              ) : null}
               <div className="pchip">Director in focus</div>
-              <div className="pin">{initials(d.name)}</div>
+              {profileUrl(d.image) ? null : <div className="pin">{initials(d.name)}</div>}
               <div className="pname">
                 <div className="nm">{d.name}</div>
                 <div className="pl">{d.place}</div>
@@ -108,7 +111,11 @@ export default function Directors({ data }: { data: HomeV2 }) {
           {data.directors.map((dir) => (
             <Link className="dcard" href={directorHref(dir.slug)} key={dir.slug}>
               <div className="dpic" style={{ background: tone(hashTone(dir.slug)) }}>
-                <div className="di">{initials(dir.name)}</div>
+                {profileUrl(dir.image) ? (
+                  <img src={profileUrl(dir.image)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                ) : (
+                  <div className="di">{initials(dir.name)}</div>
+                )}
               </div>
               <div className="dcn">{dir.name}</div>
               <div className="dcm">

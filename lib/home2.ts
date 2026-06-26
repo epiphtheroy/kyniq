@@ -25,19 +25,20 @@ export type Film = {
 
 export type Pick = Film & { shared: number };           // shared readings count
 export type Top3 = Film & { rank: number; meta: string; metascore: number | null; rt: number | null; syn: string };
-export type Top10Item = { rank: number; title: string; slug: string; imdb: number | null };
+export type Top10Item = { rank: number; title: string; slug: string; imdb: number | null; poster?: string | null };
 export type Wide = Film & { trope: string; framework: string }; // "Newly mapped" wide card
 export type TropeRow = { rank: number; title: string; pair: string; slug: string; n: number }; // → /trope/{slug}
-export type ConceptTile = { name: string; slug: string; n: number };                            // → /idea/{slug}
+export type ConceptTile = { name: string; slug: string; n: number; backdrop?: string | null };    // → /idea/{slug}
 export type LensFilm = Film & { shared?: number };                                              // via figure
 export type DirectorSpot = {
   name: string; slug: string; place: string;        // slug → /director/{slug}
+  image?: string | null;                            // directors.profile_path
   films: number; readings: number; tropes: number;
   sig: { title: string; count: string; via: string }[];
   filmo: { title: string; year: string }[];
 };
-export type DirectorCard = { name: string; slug: string; country: string; films: number; signature: string };
-export type Auteur = { name: string; slug: string; films: number };
+export type DirectorCard = { name: string; slug: string; country: string; films: number; signature: string; image?: string | null };
+export type Auteur = { name: string; slug: string; films: number; image?: string | null };
 export type CanonFilm = Film & { lists: number };     // on N canon lists
 export type GuideStep = { label: string; title: string; year: number | null; reason: string; slug?: string | null };
 export type BlogLead = { title: string; dek: string; meta: string; slug: string };  // → /blog/{slug}
