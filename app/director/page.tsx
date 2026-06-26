@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import DirectorsIndex, { type DirFeat, type DirCat } from "@/components/indexes/DirectorsIndex";
 
 export const revalidate = 1800;
@@ -27,7 +27,7 @@ export default async function DirectorIndexPage() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="directors" />
+      <SiteNav />
       <div className="mt-wrap idx">
         <h1 className="idx-h1">Directors</h1>
 

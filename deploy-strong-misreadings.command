@@ -1,25 +1,32 @@
 #!/usr/bin/env bash
-# Metatake — Deploy: Strong Misreadings front-end (new model).
-# Stages ONLY the new-model files (figure + film pages, frameworks lib, about manifesto,
-# CSS), commits, and pushes to main → Vercel rebuilds. Other locally-modified files are
-# left untouched.
+# New top-level category: Strong Misreadings.
+# DB (already applied): combined title+rationale FTS index; readings_by_framework / framework_facets /
+#   frameworks_overview RPCs.
+# App: nav item; hub /strong-misreadings (14 framework cards by family + global search);
+#   /strong-misreadings/[fw] search-first faceted infinite feed (+ "all"); /api/readings; frameworks slugs; CSS.
 set -uo pipefail
 cd "$(dirname "$0")"
-echo "▶ Repo: $(pwd)"
-[ -f .git/index.lock ] && { echo "▶ removing stale .git/index.lock"; rm -f .git/index.lock; }
+export GIT_PAGER=cat PAGER=cat
+[ -f .git/index.lock ] && rm -f .git/index.lock
 for p in "/opt/homebrew/bin" "/usr/local/bin" "$HOME/.volta/bin" "$HOME/.bun/bin"; do
-  [ -d "$p" ] && case ":$PATH:" in *":$p:"*) ;; *) PATH="$p:$PATH" ;; esac
-done
-if [ -d "$HOME/.nvm/versions/node" ]; then
-  nvmbin="$(ls -d "$HOME/.nvm/versions/node"/*/bin 2>/dev/null | sort -V | tail -1)"
-  [ -n "$nvmbin" ] && PATH="$nvmbin:$PATH"
-fi
+  [ -d "$p" ] && case ":$PATH:" in *":$p:"*) ;; *) PATH="$p:$PATH";; esac; done
+if [ -d "$HOME/.nvm/versions/node" ]; then nb="$(ls -d "$HOME/.nvm/versions/node"/*/bin 2>/dev/null|sort -V|tail -1)"; [ -n "$nb" ] && PATH="$nb:$PATH"; fi
 export PATH
 
-git add app/film app/about/page.tsx app/globals.css lib/frameworks.ts
-echo "▶ staged files:"; git diff --cached --name-only
-git commit -m "Strong Misreadings: new-model film + figure pages, frameworks lib, about manifesto"
-git push origin main
-echo
-echo "✅ Pushed to main. Vercel rebuilds (~2 min). Tell Claude to verify the build + live pages."
+F1="lib/frameworks.ts"
+F2="app/api/readings/route.ts"
+F3="components/MetatakeNav.tsx"
+F4="components/ReadingFeed.tsx"
+F5="app/strong-misreadings/page.tsx"
+F6="app/strong-misreadings/[fw]/page.tsx"
+F7="app/globals.css"
+
+git -c core.pager=cat add -- "$F1" "$F2" "$F3" "$F4" "$F5" "$F6" "$F7"
+echo "▶ committing ONLY:"
+git -c core.pager=cat diff --cached --name-only -- "$F1" "$F2" "$F3" "$F4" "$F5" "$F6" "$F7"
+echo "------"
+git -c core.pager=cat commit -m "Strong Misreadings: top-level category + hub + per-framework search/faceted feed" -- "$F1" "$F2" "$F3" "$F4" "$F5" "$F6" "$F7"
+echo "------ pushing ------"
+git -c core.pager=cat push origin main
+echo "✅ pushed. Vercel builds (~2 min)."
 echo "Press Enter to close..."; read -r _

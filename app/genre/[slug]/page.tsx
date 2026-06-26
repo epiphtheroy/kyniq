@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import ListFilter from "@/components/ListFilter";
 
 export const revalidate = 600;
@@ -27,7 +27,7 @@ export default async function GenrePage({ params }: Props) {
   if (inGenre.length === 0) notFound();
   return (
     <div className="mt">
-      <MetatakeNav active="genres" />
+      <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/genre">Genres</Link></div>
         <h1 className="mt-h1" style={{ textTransform: "capitalize" }}>{unslug(slug)}</h1>

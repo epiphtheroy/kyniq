@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import SubscribeForm from "@/components/SubscribeForm";
 import EditionBody, { type EditionPost } from "@/components/EditionBody";
 
@@ -48,7 +48,7 @@ export default async function BlogIndex() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="blog" />
+      <SiteNav />
       <div className="blg">
         <section className="blg-hero">
           <div className="blg-wrap blg-hero__grid">

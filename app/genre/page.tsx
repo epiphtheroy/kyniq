@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 
 export const revalidate = 600;
 export const metadata: Metadata = { title: "Genres" };
@@ -16,7 +16,7 @@ export default async function GenreIndex() {
   const list = [...counts.entries()].sort((a, b) => b[1] - a[1]);
   return (
     <div className="mt">
-      <MetatakeNav active="genres" />
+      <SiteNav />
       <div className="mt-wrap">
         <h1 className="mt-h1">Genres</h1>
         {list.length === 0 ? (

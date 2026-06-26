@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNavClient from "@/components/home2/SiteNavClient";
 import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "@/components/AskReadings";
 import FurtherReading, { type AcademicRef } from "@/app/rag/_components/FurtherReading";
 
@@ -101,7 +101,7 @@ function AskInner() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="ask" />
+      <SiteNavClient />
       <div className="ak-wrap">
         <div className="ak-head">
           <h1 className="ak-h1">Metatake AI</h1>

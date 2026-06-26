@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import IndexPattern, { type IdxCase, type IdxFeature, type IdxItem } from "@/components/IndexPattern";
 
 export const revalidate = 1800;
@@ -34,7 +34,7 @@ export default async function TropesIndex() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="tropes" />
+      <SiteNav />
       <div className="mt-wrap idx idx--teal">
         <h1 className="idx-h1">Tropes</h1>
 

@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import EntityActions from "@/components/EntityActions";
 import SaveButton from "@/components/SaveButton";
 import ListFilter from "@/components/ListFilter";
@@ -85,7 +85,7 @@ export default async function TropePage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="tropes" />
+      <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
         { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
           { "@type": "ListItem", position: 1, name: "Tropes", item: "https://metatake.net/tropes" },

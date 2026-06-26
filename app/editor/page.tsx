@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function EditorPage() {
 
   return (
     <div className="mt">
-      <MetatakeNav />
+      <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/about">About</Link></div>

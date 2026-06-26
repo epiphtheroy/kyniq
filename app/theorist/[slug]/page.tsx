@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import { fw } from "@/lib/frameworks";
 
 export const revalidate = 1800;
@@ -48,7 +48,7 @@ export default async function TheoristPage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="theory" />
+      <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/concept">Theory</Link> › <Link href="/theorist">Theorists</Link></div>
         <h1 className="th-h1">{name}</h1>

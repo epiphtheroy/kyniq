@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 600;
@@ -21,7 +21,7 @@ export default async function ConceptIndex() {
   const items = (data ?? []) as { slug: string; title: string; n: number }[];
   return (
     <div className="mt">
-      <MetatakeNav active="concepts" />
+      <SiteNav />
       <div className="mt-wrap">
         <h1 className="mt-h1">Concepts in film</h1>
         <p className="mt-laconic">

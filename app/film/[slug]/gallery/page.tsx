@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import GalleryViewer from "@/components/GalleryViewer";
 
 // Images change rarely; cache the TMDB call for a day (ISR).
@@ -62,7 +62,7 @@ export default async function FilmGalleryPage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="films" />
+      <SiteNav />
       <div className="mt-wrap">
         <h1 className="gal-h1">{film.title} {film.year ? <span className="gal-yr">({film.year})</span> : null} <span className="gal-h1k">gallery</span></h1>
         {backdrops.length === 0 && posters.length === 0 ? (

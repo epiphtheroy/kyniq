@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 
 export const dynamic = "force-dynamic";
 
@@ -52,7 +52,7 @@ export default async function PortfolioPage({ params }: Props) {
 
   return (
     <main className="mt-wrap">
-      <MetatakeNav />
+      <SiteNav />
       <div className="mt">
         {/* Header */}
         <div className="up-head">

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNavClient from "@/components/home2/SiteNavClient";
 import { REG, type Cite } from "@/components/AskReadings";
 import FurtherReading, { type AcademicRef } from "@/app/rag/_components/FurtherReading";
 
@@ -172,7 +172,7 @@ function ChatInner() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="chat" />
+      <SiteNavClient />
       <div className="ak-wrap">
         <div className="ak-head">
           <h1 className="ak-h1">Metatake AI · Chat</h1>

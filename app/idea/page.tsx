@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 
 export const revalidate = 1800;
 
@@ -24,7 +24,7 @@ export default async function IdeaIndex() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="theory" />
+      <SiteNav />
       <div className="mt-wrap lh">
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/theorist">Theorists</Link> · <Link href="/tradition">Traditions</Link></div>
         <h1 className="lh-h1">Concepts</h1>

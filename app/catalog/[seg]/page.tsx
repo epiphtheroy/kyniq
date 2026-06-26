@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import ListFilter from "@/components/ListFilter";
 import { sectionBySeg, kindMeta, axisLabel, nodeHref } from "@/lib/catalog";
 
@@ -41,7 +41,7 @@ export default async function CatalogSection({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="catalog" />
+      <SiteNav />
       <div className="cat-wrap">
         <div className="cat-crumb"><Link href="/catalog">Archetype</Link> <span>›</span> {s.label}</div>
         <h1 className="cat-h1">{s.label}</h1>

@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "@/lib/catalog";
 
 export const revalidate = 600;
@@ -39,7 +39,7 @@ export default async function CatalogHub() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="catalog" />
+      <SiteNav />
       <div className="cat-wrap">
         <div className="cat-kick">Archetype</div>
         <h1 className="cat-h1">What each figure <em>is</em></h1>

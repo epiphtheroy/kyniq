@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import ViewBeacon from "@/components/ViewBeacon";
 import TakeExplorer from "@/components/TakeExplorer";
 import ScholarHeader from "@/components/ScholarHeader";
@@ -216,7 +216,7 @@ export default async function TakePage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="takes" />
+      <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
         { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
           { "@type": "ListItem", position: 1, name: "Meta takes", item: "https://metatake.net/meta-takes" },

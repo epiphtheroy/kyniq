@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import FilmsIndex, { type FilmFeat, type FilmCat } from "@/components/indexes/FilmsIndex";
 
 export const revalidate = 1800;
@@ -27,7 +27,7 @@ export default async function FilmIndexPage() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="films" />
+      <SiteNav />
       <div className="mt-wrap idx">
         <h1 className="idx-h1">Films</h1>
 

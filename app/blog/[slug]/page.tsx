@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import SubscribeForm from "@/components/SubscribeForm";
 import EditionBody, { type EditionPost } from "@/components/EditionBody";
 
@@ -41,7 +41,7 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="blog" />
+      <SiteNav />
       <div className="blg">
         <div className="blg-bar">
           <div className="blg-bar__row">

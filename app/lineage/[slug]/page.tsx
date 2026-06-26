@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import LineageActions from "@/components/LineageActions";
 
 export const revalidate = 1800;
@@ -49,7 +49,7 @@ export default async function LineagePage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="lineage" />
+      <SiteNav />
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/lineage">Lineage</Link></div>
         <h1 className="lh-h1">{list.label}</h1>

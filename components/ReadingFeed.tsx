@@ -13,6 +13,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
+import SaveChip from "@/components/SaveChip";
 
 const W185 = "https://image.tmdb.org/t/p/w185";
 
@@ -232,6 +233,7 @@ export default function ReadingFeed(
                   {r.snip ? <span className="smb-row__snip">{r.snip}…</span> : null}
                 </Link>
                 {r.trope && r.tropeslug ? <Link className="smb-row__trope" href={`/trope/${r.tropeslug}`}># {r.trope}</Link> : null}
+                <div className="smb-row__act"><SaveChip entityType="take" entityRef={r.id} /></div>
               </div>
               {im ? (
                 <Link className="smb-row__thumb" href={href} aria-hidden="true" tabIndex={-1}>

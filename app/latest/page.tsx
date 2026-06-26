@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import LatestMagazine, { type LatestPool } from "@/components/LatestMagazine";
 
 export const revalidate = 600;
@@ -33,7 +33,7 @@ export default async function LatestPage() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="latest" />
+      <SiteNav />
       <div className="lt-wrap">
         <div className="lt-edition">
           <span className="date">{wd} · {md}</span>

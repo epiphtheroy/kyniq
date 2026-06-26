@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import SubscribeForm from "@/components/SubscribeForm";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function SubscribePage() {
   return (
     <div className="mt">
-      <MetatakeNav active="blog" />
+      <SiteNav />
       <div className="blg">
         <section className="blg-hero">
           <div className="blg-wrap" style={{ maxWidth: 720 }}>

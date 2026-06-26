@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import PosterActions from "@/components/PosterActions";
 import { pageRobots } from "@/lib/seo";
 
@@ -91,7 +91,7 @@ export default async function MoviesLikePage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="films" />
+      <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <div className="mt-wrap">
         <div className="mt-crumb">

@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import SearchBox from "@/components/SearchBox";
 import { pageRobots } from "@/lib/seo";
 
@@ -49,7 +49,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav />
+      <SiteNav />
       <div className="mt-wrap">
         <h1 className="mt-h1">Search</h1>
         <div style={{ margin: "6px 0 14px" }}>

@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import TrendingSections, { type TrendPool } from "@/components/TrendingSections";
 
 export const revalidate = 600;
@@ -30,7 +30,7 @@ export default async function TrendingPage({ searchParams }: { searchParams: Pro
 
   return (
     <div className="mt">
-      <MetatakeNav active="trending" />
+      <SiteNav />
       <div className="lt-wrap">
         <div className="lt-edition">
           <span className="date">{wd} · {md}</span>

@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import LineageIndexClient from "@/components/LineageIndexClient";
 
 export const revalidate = 1800;
@@ -32,7 +32,7 @@ export default async function LineageIndex() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="lineage" />
+      <SiteNav />
       <div className="mt-wrap lh">
         <h1 className="lh-h1">Lineage</h1>
         <p className="lh-def">

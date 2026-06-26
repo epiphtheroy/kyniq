@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import AskHero from "@/components/AskHero";
 import HomeClient, { type HomeBundle } from "@/components/HomeClient";
 import LatestMagazine, { type LatestPool } from "@/components/LatestMagazine";
@@ -50,7 +50,7 @@ export default async function Home() {
   const [bundle, latest] = await Promise.all([loadBundle(), loadLatest()]);
   return (
     <div className="mt">
-      <MetatakeNav />
+      <SiteNav />
       <AskHero readings={bundle.stats.takes} films={bundle.stats.films} />
       <HomeClient bundle={bundle} />
 

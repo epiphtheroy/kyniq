@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import ReadingFeed, { type FeedRow, type Facets } from "@/components/ReadingFeed";
 import { fwBySlug } from "@/lib/frameworks";
 
@@ -46,7 +46,7 @@ export default async function FrameworkPage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="misreadings" />
+      <SiteNav />
       <div className="mt-wrap smb-fw">
         <div className="smb-crumb"><Link href="/strong-misreadings">Strong Misreadings</Link></div>
         <h1 className="smb-fw__h" style={isAll ? undefined : { color: f!.color }}>

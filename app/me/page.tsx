@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import MovieSearchAdd from "@/components/MovieSearchAdd";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
@@ -130,7 +130,7 @@ export default async function MeDashboard() {
 
   return (
     <main className="mt-wrap">
-      <MetatakeNav />
+      <SiteNav />
       <div className="mt">
         <h1 className="disp" style={{ fontSize: 26, margin: "18px 0 2px" }}>My dashboard</h1>
         <p className="ui muted" style={{ fontSize: 13, margin: 0 }}>

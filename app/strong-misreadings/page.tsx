@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import { FAMILIES, BROWSABLE } from "@/lib/frameworks";
 
 export const revalidate = 900;
@@ -27,7 +27,7 @@ export default async function StrongMisreadingsHub() {
 
   return (
     <div className="mt">
-      <MetatakeNav active="misreadings" />
+      <SiteNav />
       <div className="mt-wrap sm-hub">
         <h1 className="idx-h1">Strong Misreadings</h1>
         <p className="idx-def">

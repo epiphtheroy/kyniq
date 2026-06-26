@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
@@ -185,7 +185,7 @@ export default async function FigurePage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="films" />
+      <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       {faqLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} /> : null}
 
