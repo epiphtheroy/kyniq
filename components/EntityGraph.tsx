@@ -172,7 +172,7 @@ export default function EntityGraph({
       // marker: poster (film) / face circle (director) / coloured dot
       let marker: string;
       if (n.img && n.type === "film") {
-        const w = big ? 54 : 40, h = Math.round(w * 1.45);
+        const w = big ? 48 : 36, h = Math.round(w * 1.45);
         marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${w}px;max-width:none;height:${h}px;object-fit:cover;border-radius:4px;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
       } else if (n.img && (n.type === "director" || n.type === "theorist")) {
         const d = big ? 62 : 46;
@@ -245,6 +245,12 @@ export default function EntityGraph({
       });
       el.addEventListener("mouseenter", () => focus(n));
       el.addEventListener("mouseleave", unfocus);
+      // single click = navigate within the map (recenter). Drags are filtered by `moved`.
+      el.addEventListener("click", () => {
+        if (moved) return;
+        if (clickRef.current) clickRef.current(n);
+        else if (n.href) router.push(n.href);
+      });
     }
 
     const onMove = (e: PointerEvent) => {
@@ -263,12 +269,9 @@ export default function EntityGraph({
       }
     };
     const onUp = () => {
+      // recenter/open is handled by the element's click listener; here we only end a drag
       if (dragNode) {
         const n = dragNode;
-        if (!moved) {
-          if (clickRef.current) clickRef.current(n);
-          else if (n.href) router.push(n.href);
-        }
         if (!n.center) { n.fx = null; n.fy = null; }
         dragNode = null;
       }
