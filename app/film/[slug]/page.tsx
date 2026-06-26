@@ -6,7 +6,9 @@ import MetatakeNav from "@/components/MetatakeNav";
 import FilmTabBar from "@/components/FilmTabBar";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
-import WatchProviders from "@/components/WatchProviders";
+import FilmTopInfo from "@/components/FilmTopInfo";
+import FilmLineageSection from "@/components/FilmLineageSection";
+import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -53,11 +55,6 @@ type WatchCountry = { link?: string; flatrate?: WatchProv[]; rent?: WatchProv[];
 type Watch = { results: Record<string, WatchCountry>; countries: string[] };
 type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
-function fmtVotes(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
-  if (n >= 1_000) return `${Math.round(n / 1_000)}k`;
-  return String(n);
-}
 
 async function load(slug: string) {
   const supabase = db();
@@ -66,7 +63,22 @@ async function load(slug: string) {
     .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at, visible, is_analyzed")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
-  if (film.is_analyzed === false) return { minimal: true as const, film };   // Tier-2 catalog record
+  if (film.is_analyzed === false) {
+    // Tier-2 catalog record: still surface the ambient data we DO have (no figures/readings).
+    const [{ data: lnRows }, { data: revRows }, { data: ratRow }, { data: wpRow }] = await Promise.all([
+      supabase.rpc("film_lineage_for", { p_film_id: film.id }),
+      supabase.rpc("film_next_reverse", { p_film_id: film.id }),
+      supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer").eq("film_id", film.id).maybeSingle(),
+      supabase.from("film_watch_providers").select("results, countries").eq("film_id", film.id).maybeSingle(),
+    ]);
+    return {
+      minimal: true as const, film,
+      lineage: (lnRows ?? []) as LinRow[],
+      recommendedBy: (revRows ?? []) as RevRow[],
+      ratings: (ratRow as Ratings | null) ?? null,
+      watch: (wpRow as Watch | null) ?? null,
+    };
+  }
 
   const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
@@ -181,14 +193,23 @@ export default async function FilmPage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   if ("minimal" in data && data.minimal) {
-    const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; poster_path: string | null };
+    const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null };
+    const { lineage, recommendedBy, ratings, watch } = data;
+    const mTabs = ([
+      lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
+      recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
+      f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
+    ].filter(Boolean)) as { id: string; label: string; href?: string }[];
     return (
       <div className="mt">
         <MetatakeNav active="films" />
         <div className="df-wrap">
           <div className="df-crumb"><Link href="/film">Films</Link></div>
           <section className="df-hero">
-            <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />
+            {f.backdrop_path ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img className="df-backdrop" src={`${IMG}/w780${f.backdrop_path}`} alt={`${f.title} backdrop`} />
+            ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
             <div className="df-headrow">
               {f.poster_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -196,7 +217,10 @@ export default async function FilmPage({ params }: Props) {
               ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
               <div className="df-htxt">
                 <h1>{f.title} <span className="df-yr">({f.year ?? "?"})</span></h1>
-                {f.director ? <div className="df-facts">{f.director}</div> : null}
+                <div className="df-facts">
+                  {f.director ? (f.director_slug ? <Link href={`/director/${f.director_slug}`}>{f.director}</Link> : <span>{f.director}</span>) : null}
+                  {f.genres?.length ? <><span className="df-d" />{f.genres.slice(0, 3).join(" · ")}</> : null}
+                </div>
                 <div className="df-hactions">
                   <MovieListActions filmId={f.id} />
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
@@ -205,21 +229,23 @@ export default async function FilmPage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          <FilmTopInfo ratings={ratings} watch={watch} imdbId={f.imdb_id} />
+
+          {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
+
+          <FilmLineageSection lineage={lineage} title={f.title} />
+          <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+
           <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
         </div>
       </div>
     );
   }
   const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch } = data;
-  const hasRatings = !!(ratings && (ratings.imdb_rating || ratings.metascore || ratings.rt_tomatometer));
-  const hasWatch = !!(watch && watch.countries.length > 0);
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
-  // Lineage groups: won → awards/honours, listed → canons/lists, auteur → auteur line.
-  const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
-  const linCanons = lineage.filter((l) => l.facet !== "auteur" && l.result === "listed");
-  const linAuteur = lineage.filter((l) => l.facet === "auteur");
-  const hasLineage = linAwards.length > 0 || linCanons.length > 0 || linAuteur.length > 0;
+  const hasLineage = lineage.length > 0;
 
   // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
   const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount.get(f.id) ?? 0) > 0);
@@ -317,22 +343,7 @@ export default async function FilmPage({ params }: Props) {
         </section>
 
         {/* TOP INFO BAND — ratings + where to watch, directly under the poster/hero */}
-        {(hasRatings || hasWatch) ? (
-          <div className="df-topinfo">
-            {hasRatings ? (
-              <div className="df-ratings">
-                {ratings!.imdb_rating ? (
-                  film.imdb_id
-                    ? <a className="df-rt df-rt--imdb" href={`https://www.imdb.com/title/${film.imdb_id}/`} target="_blank" rel="noopener noreferrer"><b>IMDb</b> {ratings!.imdb_rating}{ratings!.imdb_votes ? <span className="df-rt-v">{fmtVotes(ratings!.imdb_votes)}</span> : null}</a>
-                    : <span className="df-rt df-rt--imdb"><b>IMDb</b> {ratings!.imdb_rating}</span>
-                ) : null}
-                {ratings!.rt_tomatometer != null ? <span className="df-rt df-rt--rt"><b>RT</b> {ratings!.rt_tomatometer}%</span> : null}
-                {ratings!.metascore != null ? <span className="df-rt df-rt--meta"><b>Metascore</b> {ratings!.metascore}</span> : null}
-              </div>
-            ) : null}
-            {hasWatch ? <WatchProviders results={watch!.results} countries={watch!.countries} /> : null}
-          </div>
-        ) : null}
+        <FilmTopInfo ratings={ratings} watch={watch} imdbId={film.imdb_id} />
 
         {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
         {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
@@ -372,70 +383,10 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        {hasLineage ? (
-          <section className="df-sec" id="df-lineage">
-            <h2 className="df-h2">Lineage</h2>
-            <p className="df-sub">Where {film.title} sits in cinema&apos;s record — the awards it won, the canons it belongs to, and the auteur line it extends.</p>
-            {linAwards.length > 0 ? (
-              <div className="df-lingrp">
-                <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
-                <div className="lin-list">
-                  {linAwards.map((l, i) => (
-                    <div key={i} className="lin-row">
-                      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
-                      {l.parent_label && l.parent_label !== l.list_label ? <span className="lin-meta"> · {l.parent_label}</span> : null}
-                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
-                      {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            {linCanons.length > 0 ? (
-              <div className="df-lingrp">
-                <div className="df-flabel">Canons &amp; lists <span className="df-cnt">{linCanons.length}</span></div>
-                <div className="lin-list">
-                  {linCanons.map((l, i) => (
-                    <div key={i} className="lin-row">
-                      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
-                      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
-                      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            {linAuteur.length > 0 ? (
-              <div className="df-lingrp">
-                <div className="df-flabel">Auteur lineage <span className="df-cnt">{linAuteur.length}</span></div>
-                <div className="lin-list">
-                  {linAuteur.map((l, i) => (
-                    <div key={i} className="lin-row">
-                      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
-                      {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            <div className="df-src">Lineage memberships from public awards records and critics&apos;/institutional canons. Movements &amp; style lines arrive in a later pass.</div>
-          </section>
-        ) : null}
+        <FilmLineageSection lineage={lineage} title={film.title} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
-        {recommendedBy.length > 0 ? (
-          <section className="df-sec" id="df-recby">
-            <h2 className="df-h2">Recommended by <span className="rb-n">{recommendedBy.length}</span></h2>
-            <p className="df-sub">Films whose viewers Metatake points toward {film.title} — these {recommendedBy.length} films name it among their nine &ldquo;Watch next&rdquo; picks.</p>
-            <div className="rb-list">
-              {recommendedBy.map((r, i) => (
-                <span key={i} className="rb-item">
-                  <Link href={`/film/${r.source_slug}`}>{r.source_title}</Link> <span className="rb-yr">({r.source_year ?? "?"})</span>{i < recommendedBy.length - 1 ? <span className="rb-sep"> · </span> : null}
-                </span>
-              ))}
-            </div>
-          </section>
-        ) : null}
+        <FilmRecommendedBy rows={recommendedBy} title={film.title} />
 
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
