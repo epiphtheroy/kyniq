@@ -173,10 +173,10 @@ export default function EntityGraph({
       let marker: string;
       if (n.img && n.type === "film") {
         const w = big ? 54 : 40, h = Math.round(w * 1.45);
-        marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${w}px;height:${h}px;object-fit:cover;border-radius:4px;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
+        marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${w}px;max-width:none;height:${h}px;object-fit:cover;border-radius:4px;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
       } else if (n.img && (n.type === "director" || n.type === "theorist")) {
         const d = big ? 62 : 46;
-        marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${d}px;height:${d}px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
+        marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${d}px;max-width:none;height:${d}px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
       } else {
         const dotShadow = big ? "box-shadow:0 0 0 4px rgba(227,18,11,.14),0 0 20px rgba(227,18,11,.28);" : "";
         marker = `<div style="width:${r * 2}px;height:${r * 2}px;border-radius:50%;margin:0 auto;background:${col.dot};${dotShadow}transition:transform .18s;"></div>`;
@@ -192,7 +192,7 @@ export default function EntityGraph({
         `position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;` +
         `font:${big ? "600 14px" : "500 12px"}/1.15 ui-sans-serif,system-ui,sans-serif;color:${col.label};` +
         `text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.95);pointer-events:none;`;
-      labelDiv.innerHTML = `${esc(labelText)}${dimHtml}`;
+      labelDiv.innerHTML = `<span class="eg-nodelabel" style="pointer-events:auto;cursor:pointer;">${esc(labelText)}${dimHtml}</span>`;
       if (n.href) {
         const open = document.createElement("span");
         open.textContent = "↗";

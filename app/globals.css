@@ -3722,6 +3722,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .map-tab{font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--ink2); background:transparent; border:0; border-bottom:2px solid transparent; padding:8px 14px; margin-bottom:-1px; border-radius:7px 7px 0 0; cursor:pointer}
 .map-tab:hover{color:var(--ink); background:var(--surface-2)}
 .map-tab.on{color:#C8102E; border-bottom-color:#C8102E}
+/* node label = a link affordance (name + year). hover underlines. */
+.eg-nodelabel:hover{text-decoration:underline}
 /* filter grid */
 .map-filters{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:9px 16px; background:var(--bg); border-bottom:1px solid var(--hairline)}
 .map-filters label{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:11px; color:var(--subtle); text-transform:uppercase; letter-spacing:.05em}
