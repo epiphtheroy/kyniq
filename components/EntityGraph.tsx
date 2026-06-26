@@ -33,6 +33,9 @@ const COLORS: Record<string, { dot: string; label: string }> = {
   figure: { dot: "#1F6FB2", label: "#1a4e7a" },
   reading: { dot: "#C0392B", label: "#8f2a20" },
   trope: { dot: "#0F6E56", label: "#0b5343" },
+  idea: { dot: "#6D4AAE", label: "#4e3380" },
+  director: { dot: "#B5642A", label: "#8a4a1f" },
+  theorist: { dot: "#B23A8F", label: "#86286a" },
 };
 const CENTER_COL = { dot: "#E3120B", label: "#1a1a1a" };
 const EDGE = {
@@ -53,13 +56,19 @@ export default function EntityGraph({
   data,
   height = 560,
   className,
+  onNodeClick,
 }: {
   data: GraphData;
   height?: number;
   className?: string;
+  // When provided, a (non-drag) click invokes this instead of navigating to href.
+  // Used by The Map to recenter the graph on the clicked node.
+  onNodeClick?: (n: GraphNode) => void;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const clickRef = useRef(onNodeClick);
+  clickRef.current = onNodeClick;
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -190,7 +199,10 @@ export default function EntityGraph({
     const onUp = () => {
       if (dragNode) {
         const n = dragNode;
-        if (!moved && n.href) router.push(n.href);
+        if (!moved) {
+          if (clickRef.current) clickRef.current(n);
+          else if (n.href) router.push(n.href);
+        }
         if (!n.center) { n.fx = null; n.fy = null; }
         dragNode = null;
       }
