@@ -44,6 +44,8 @@ export type GuideStep = { label: string; title: string; year: number | null; rea
 export type BlogLead = { title: string; dek: string; meta: string; slug: string };  // → /blog/{slug}
 export type BlogItem = { title: string; meta: string; slug: string };
 export type GraphNode = { label: string; kind: "film" | "trope"; slug: string };
+// Structured pair for the original constellation graph (HomeConstellation/EntityGraph).
+export type CPair = { mt: string; slug: string; a: { f: string; fs: string }; b: { f: string; fs: string } };
 
 export type HomeV2 = {
   stats: { films: number; directors: number; tropes: number; concepts: number; readings: number; figures: number; lists: number };
@@ -63,6 +65,7 @@ export type HomeV2 = {
   guide: { director: string; slug: string; steps: GuideStep[] }; // a way into [director]
   blog: { lead: BlogLead; more: BlogItem[] };     // Between Film and the World
   graph: GraphNode[];                             // live node graph pool (≥16, film/trope alternating)
+  pairs?: CPair[];                                // structured pairs for the original constellation graph
 };
 
 // ── Minimal placeholder so the frontend renders before the RPC is wired. ──

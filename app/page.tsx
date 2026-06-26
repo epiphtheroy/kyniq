@@ -27,7 +27,7 @@ function db() {
 async function loadV2(): Promise<HomeV2Data> {
   for (let i = 0; i < 3; i++) {
     try {
-      const { data } = await db().rpc("home_v2_bundle");
+      const { data } = await db().rpc("home_v2_bundle_v2");
       const b = data as HomeV2Data | null;
       if (b && Array.isArray(b.picks) && b.picks.length > 0 && b.stats?.films) return b;
     } catch {

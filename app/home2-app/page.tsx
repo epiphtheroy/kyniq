@@ -22,7 +22,7 @@ function db() {
 // Falls back to PLACEHOLDER so the preview never breaks while data is iterated on.
 async function loadV2(): Promise<HomeV2Data> {
   try {
-    const { data } = await db().rpc("home_v2_bundle");
+    const { data } = await db().rpc("home_v2_bundle_v2");
     const b = data as HomeV2Data | null;
     if (b && Array.isArray(b.picks) && b.picks.length > 0 && b.stats?.films) return b;
   } catch {
