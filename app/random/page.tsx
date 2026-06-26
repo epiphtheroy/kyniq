@@ -11,9 +11,11 @@ type Card = {
   backdrop?: string | null; clip?: string | null; portrait?: string | null;
 };
 
+type GCard = { kind: string; line?: string; sub?: string | null; href?: string; backdrop?: string | null };
+
 const KINDS: [string, string][] = [
   ["any", "Surprise"], ["film", "Film"], ["reading", "Reading"],
-  ["trope", "Trope"], ["idea", "Idea"], ["director", "Director"],
+  ["idea", "Idea"], ["director", "Director"],
 ];
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -21,32 +23,46 @@ export default function SurprisePage() {
   const [kind, setKind] = useState("any");
   const [card, setCard] = useState<Card | null>(null);
   const [loading, setLoading] = useState(true);
-  const [trail, setTrail] = useState<Card[]>([]);
+  const [set, setSet] = useState<GCard[]>([]);
+  const [setLoading, setSetLoading] = useState(true);
   const kindRef = useRef(kind); kindRef.current = kind;
   const busy = useRef(false);
 
-  const draw = useCallback(async (k?: string) => {
+  const drawCard = useCallback(async (k?: string) => {
     if (busy.current) return;
     busy.current = true;
     const kk = k ?? kindRef.current;
     setLoading(true);
     try {
       const r = await fetch(`/api/surprise?kind=${kk}&_=${Date.now()}`, { cache: "no-store" });
-      const j = (await r.json()) as Card;
-      setCard((prev) => { if (prev?.line) setTrail((t) => [prev, ...t].slice(0, 6)); return j; });
+      setCard((await r.json()) as Card);
     } catch { /* noop */ } finally { setLoading(false); busy.current = false; }
   }, []);
 
-  useEffect(() => { draw("any"); }, [draw]);
+  const drawSet = useCallback(async (k?: string) => {
+    const kk = k ?? kindRef.current;
+    setSetLoading(true);
+    try {
+      const r = await fetch(`/api/surprise/set?kind=${kk}&n=30&_=${Date.now()}`, { cache: "no-store" });
+      const j = await r.json();
+      setSet(Array.isArray(j) ? (j as GCard[]) : []);
+    } catch { /* noop */ } finally { setSetLoading(false); }
+  }, []);
+
+  useEffect(() => { drawCard("any"); drawSet("any"); }, [drawCard, drawSet]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !(e.target as HTMLElement)?.closest?.("input,textarea")) { e.preventDefault(); draw(); }
+      if (e.code === "Space" && !(e.target as HTMLElement)?.closest?.("input,textarea,a,button")) { e.preventDefault(); drawCard(); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [draw]);
+  }, [drawCard]);
 
-  const pick = (k: string) => { setKind(k); draw(k); };
+  const pick = (k: string) => { setKind(k); drawCard(k); drawSet(k); };
+
+  const clipSrc = card?.clip
+    ? `https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=1&controls=0&loop=1&playlist=${card.clip}&start=7&playsinline=1&modestbranding=1&rel=0`
+    : null;
 
   return (
     <div className="mt sm-page">
@@ -64,27 +80,26 @@ export default function SurprisePage() {
         </div>
 
         <div className={`sm-card${loading ? " is-load" : ""}`}>
-          {card?.clip ? (
+          {clipSrc ? (
             <iframe
-              key={card.clip}
+              key={card!.clip}
               className="sm-bg"
-              src={`https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=1&controls=0&loop=1&playlist=${card.clip}&playsinline=1&modestbranding=1&rel=0`}
-              title={card.line ?? "clip"}
+              src={clipSrc}
+              title={card?.line ?? "clip"}
               allow="autoplay; encrypted-media; picture-in-picture"
             />
           ) : card?.backdrop ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img className="sm-bg" src={`${IMG}/w1280${card.backdrop}`} alt="" />
           ) : <div className="sm-bg sm-bg--empty" aria-hidden="true" />}
+        </div>
 
-          <div className="sm-grad" />
-
+        <div className="sm-meta">
           {card?.portrait ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="sm-portrait" src={`${IMG}/w185${card.portrait}`} alt="" />
+            <img className="sm-pic" src={`${IMG}/w185${card.portrait}`} alt="" />
           ) : null}
-
-          <div className="sm-body">
+          <div className="sm-metabody">
             {card?.label ? (
               <span className="sm-chip">{card.label}{card.theorist ? ` · after ${card.theorist}` : ""}</span>
             ) : null}
@@ -96,31 +111,32 @@ export default function SurprisePage() {
             {card?.leap ? <div className="sm-leap"><span>The leap</span> {card.leap}</div> : null}
             {card?.fact ? <div className="sm-leap"><span>The life</span> {card.fact}</div> : null}
             {card?.kind === "director" && card?.film ? <div className="sm-sub">Where to start · {card.film}</div> : null}
-            {card?.kind === "trope" && card?.example ? <div className="sm-sub">e.g. {card.example}</div> : null}
+            <div className="sm-actions">
+              <button className="sm-again" onClick={() => drawCard()} disabled={loading}>
+                ↻ Surprise me again <kbd>Space</kbd>
+              </button>
+              {card?.href ? <a className="sm-open" href={card.href}>Open ↗</a> : null}
+            </div>
           </div>
         </div>
 
-        <div className="sm-actions">
-          <button className="sm-again" onClick={() => draw()} disabled={loading}>
-            ↻ Surprise me again <kbd>Space</kbd>
-          </button>
-          {card?.href ? <a className="sm-open" href={card.href}>Open ↗</a> : null}
+        <div className="sm-setbar">
+          <span className="sm-setk">More to wander — 30 cards</span>
+          <button className="sm-setbtn" onClick={() => drawSet()} disabled={setLoading}>↻ Show another 30</button>
         </div>
-
-        {trail.length ? (
-          <div className="sm-trail">
-            <span className="sm-trail__k">Just drawn</span>
-            {trail.map((c, i) => (
-              <button
-                key={i}
-                className="sm-thumb"
-                title={c.line}
-                onClick={() => setCard(c)}
-                style={c.backdrop ? { backgroundImage: `url(${IMG}/w300${c.backdrop})` } : undefined}
-              />
-            ))}
-          </div>
-        ) : null}
+        <div className="sm-grid">
+          {set.map((c, i) => (
+            <a
+              key={i}
+              className="sm-gcard"
+              href={c.href}
+              style={c.backdrop ? { backgroundImage: `linear-gradient(0deg,rgba(8,7,5,.9),rgba(8,7,5,.12)),url(${IMG}/w500${c.backdrop})` } : undefined}
+            >
+              <span className="sm-gkind">{c.kind}</span>
+              <span className="sm-gline">{c.line}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
