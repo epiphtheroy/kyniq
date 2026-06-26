@@ -53,6 +53,13 @@ async function load(slug: string, figureSlug: string) {
     .eq("figure_id", figure.id).eq("status", "published");
   const takes = ((takeRows ?? []) as unknown as Take[])
     .sort((a, b) => Number(b.is_invitation ?? false) - Number(a.is_invitation ?? false) || (b.strength ?? 0) - (a.strength ?? 0));
+  // Map this figure's concept tags → /idea slugs (only concepts that recur become links).
+  const conceptKeys = Array.from(new Set(takes.map((t) => (t.concept ?? "").trim().toLowerCase()).filter(Boolean)));
+  const conceptSlugs: Record<string, string> = {};
+  if (conceptKeys.length) {
+    const { data: cs } = await supabase.from("sm_concepts").select("slug, name_l").in("name_l", conceptKeys);
+    for (const r of (cs ?? []) as { slug: string; name_l: string }[]) conceptSlugs[r.name_l] = r.slug;
+  }
   const { data: mtRows } = await supabase
     .from("meta_takes")
     .select("id, title, laconic, theory_family:theory_families(name)")
@@ -110,7 +117,7 @@ async function load(slug: string, figureSlug: string) {
     }
   }
 
-  return { film, figure, takes, metaTakes, tropes, connections, catalog };
+  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs };
 }
 
 // Display order for the figure-page "Classified as" line (named archetype first, then tiers, then themes).
@@ -139,7 +146,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes, tropes, connections, catalog } = data;
+  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs } = data;
   if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
@@ -282,7 +289,9 @@ export default async function FigurePage({ params }: Props) {
                       {t.theorist_name ? (t.theorist?.slug
                         ? <Link className="sm-tag sm-tag--link" href={`/theorist/${t.theorist.slug}`}>{t.theorist_name}</Link>
                         : <span className="sm-tag">{t.theorist_name}</span>) : null}
-                      {t.concept ? <span className="sm-tag sm-tag--c">{t.concept}</span> : null}
+                      {t.concept ? (conceptSlugs[(t.concept ?? "").trim().toLowerCase()]
+                        ? <Link className="sm-tag sm-tag--c sm-tag--link" href={`/idea/${conceptSlugs[(t.concept ?? "").trim().toLowerCase()]}`}>{t.concept}</Link>
+                        : <span className="sm-tag sm-tag--c">{t.concept}</span>) : null}
                       {t.real_person ? <span className="sm-tag sm-tag--p">{t.real_person}</span> : null}
                     </div>
                   ) : null}
