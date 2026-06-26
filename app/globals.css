@@ -3035,6 +3035,34 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .svc--ph{display:inline-block; width:58px; height:23px; border:1px solid var(--hairline); border-radius:6px; opacity:.4}
 .smb-row__act{margin-top:8px}
 .smb-row__act .svc{margin-left:0}
+/* ===== Top info band — ratings + where to watch, under the hero ===== */
+.df-topinfo{display:flex; flex-wrap:wrap; align-items:flex-start; gap:14px 30px; padding:14px 0 6px; border-bottom:1px solid var(--hairline)}
+.df-topinfo .df-ratings{margin:0; flex:0 0 auto}
+.df-topinfo .wp{margin-top:0; flex:1 1 340px; min-width:0}
+/* ===== Ratings badges (OMDb) — film header ===== */
+.df-ratings{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 2px}
+.df-rt{display:inline-flex; align-items:baseline; gap:5px; font-family:var(--font-ui); font-size:13px; line-height:1; padding:5px 9px; border:1px solid var(--hairline-2); border-radius:7px; text-decoration:none; color:var(--ink)}
+.df-rt b{font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:700}
+.df-rt-v{font-size:11px; color:var(--subtle); margin-left:2px}
+a.df-rt:hover{border-color:var(--ink)}
+.df-rt--imdb b{color:#C7A008}
+.df-rt--rt b{color:#FA320A}
+.df-rt--meta b{color:#2E6F2E}
+/* ===== Where to watch (TMDB / JustWatch) ===== */
+.wp{margin-top:10px}
+.wp-head{display:flex; align-items:center; gap:9px; margin-bottom:12px}
+.wp-clbl{font-family:var(--font-ui); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--subtle)}
+.wp-select{font-family:var(--font-ui); font-size:14px; padding:6px 10px; border:1px solid var(--hairline-2); border-radius:7px; background:#fff; color:var(--ink)}
+.wp-row{display:flex; align-items:flex-start; gap:12px; padding:9px 0; border-bottom:1px solid var(--hairline)}
+.wp-row__k{flex:0 0 78px; font-family:var(--font-ui); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink2); padding-top:6px}
+.wp-logos{display:flex; flex-wrap:wrap; gap:8px}
+.wp-prov{display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid var(--hairline); border-radius:9px; overflow:hidden; background:#fff}
+.wp-prov img{width:100%; height:100%; object-fit:cover}
+.wp-prov__txt{font-family:var(--font-ui); font-size:9px; text-align:center; padding:2px; color:var(--ink2)}
+.wp-empty{font-family:var(--font-ui); font-size:13.5px; color:var(--ink2); margin:6px 0}
+.wp-attr{font-family:var(--font-ui); font-size:11.5px; color:var(--subtle); margin-top:12px}
+.wp-attr a{color:var(--accent); text-decoration:none}
+.wp-attr a:hover{text-decoration:underline}
 .sm-row__title{font-family:var(--font-display); font-size:16.5px; font-weight:700; line-height:1.32; letter-spacing:-.01em; margin:0 0 5px}
 .sm-row__title a:hover{color:var(--accent)}
 .sm-row__thesis{font-family:var(--font-display); font-size:14.5px; line-height:1.6; color:var(--muted); margin:0; max-width:72ch}

@@ -6,6 +6,7 @@ import MetatakeNav from "@/components/MetatakeNav";
 import FilmTabBar from "@/components/FilmTabBar";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
+import WatchProviders from "@/components/WatchProviders";
 import InviteVideo from "@/components/InviteVideo";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -46,8 +47,17 @@ type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_dire
 type WwPoint = { label?: string; text: string };
 type WwLens = { key: string; points: WwPoint[] };
 type RevRow = { source_slug: string; source_title: string; source_year: number | null };
+type Ratings = { imdb_rating: number | null; imdb_votes: number | null; metascore: number | null; rt_tomatometer: number | null };
+type WatchProv = { provider_id: number; provider_name: string; logo_path: string | null };
+type WatchCountry = { link?: string; flatrate?: WatchProv[]; rent?: WatchProv[]; buy?: WatchProv[]; free?: WatchProv[]; ads?: WatchProv[] };
+type Watch = { results: Record<string, WatchCountry>; countries: string[] };
 type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
+function fmtVotes(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
+  if (n >= 1_000) return `${Math.round(n / 1_000)}k`;
+  return String(n);
+}
 
 async function load(slug: string) {
   const supabase = db();
@@ -58,7 +68,7 @@ async function load(slug: string) {
   if (!film) return null;
   if (film.is_analyzed === false) return { minimal: true as const, film };   // Tier-2 catalog record
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -69,6 +79,8 @@ async function load(slug: string) {
     supabase.rpc("film_asset", { p_film_id: film.id }),
     supabase.rpc("film_next_reverse", { p_film_id: film.id }),
     supabase.rpc("film_lineage_for", { p_film_id: film.id }),
+    supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer").eq("film_id", film.id).maybeSingle(),
+    supabase.from("film_watch_providers").select("results, countries").eq("film_id", film.id).maybeSingle(),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
@@ -76,6 +88,8 @@ async function load(slug: string) {
   const whyWatch = (Array.isArray(waRows) ? waRows : []) as WwLens[];
   const recommendedBy = (revRows ?? []) as RevRow[];
   const lineage = (lnRows ?? []) as LinRow[];
+  const ratings = (ratRow as Ratings | null) ?? null;
+  const watch = (wpRow as Watch | null) ?? null;
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
@@ -133,7 +147,7 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage };
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch };
 }
 
 // order + cap for the film-page Archetype section
@@ -193,7 +207,9 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch } = data;
+  const hasRatings = !!(ratings && (ratings.imdb_rating || ratings.metascore || ratings.rt_tomatometer));
+  const hasWatch = !!(watch && watch.countries.length > 0);
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   // Lineage groups: won → awards/honours, listed → canons/lists, auteur → auteur line.
@@ -295,6 +311,24 @@ export default async function FilmPage({ params }: Props) {
             <Link className="df-stat" href="#df-connected"><span className="df-n">{recs.length}</span><span className="df-k">Connected films</span></Link>
           </div>
         </section>
+
+        {/* TOP INFO BAND — ratings + where to watch, directly under the poster/hero */}
+        {(hasRatings || hasWatch) ? (
+          <div className="df-topinfo">
+            {hasRatings ? (
+              <div className="df-ratings">
+                {ratings!.imdb_rating ? (
+                  film.imdb_id
+                    ? <a className="df-rt df-rt--imdb" href={`https://www.imdb.com/title/${film.imdb_id}/`} target="_blank" rel="noopener noreferrer"><b>IMDb</b> {ratings!.imdb_rating}{ratings!.imdb_votes ? <span className="df-rt-v">{fmtVotes(ratings!.imdb_votes)}</span> : null}</a>
+                    : <span className="df-rt df-rt--imdb"><b>IMDb</b> {ratings!.imdb_rating}</span>
+                ) : null}
+                {ratings!.rt_tomatometer != null ? <span className="df-rt df-rt--rt"><b>RT</b> {ratings!.rt_tomatometer}%</span> : null}
+                {ratings!.metascore != null ? <span className="df-rt df-rt--meta"><b>Metascore</b> {ratings!.metascore}</span> : null}
+              </div>
+            ) : null}
+            {hasWatch ? <WatchProviders results={watch!.results} countries={watch!.countries} /> : null}
+          </div>
+        ) : null}
 
         {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
         {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
