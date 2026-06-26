@@ -239,9 +239,8 @@ export default function EntityGraph({
       el.addEventListener("pointerdown", (e) => {
         e.stopPropagation();
         dragNode = n; moved = false; downAt = { x: e.clientX, y: e.clientY };
-        const w = toWorld(e.clientX, e.clientY);
-        n.fx = w.x; n.fy = w.y;
-        alpha = Math.max(alpha, 0.7);
+        // Don't pin/drag yet — only once the pointer clearly moves. A still press
+        // (incl. trackpad clicks that jitter a few px) stays a click → recenter.
         (el as HTMLElement).setPointerCapture?.(e.pointerId);
       });
       el.addEventListener("mouseenter", () => focus(n));
@@ -250,10 +249,13 @@ export default function EntityGraph({
 
     const onMove = (e: PointerEvent) => {
       if (dragNode) {
-        if (Math.abs(e.clientX - downAt.x) + Math.abs(e.clientY - downAt.y) > 4) moved = true;
+        if (!moved) {
+          if (Math.abs(e.clientX - downAt.x) + Math.abs(e.clientY - downAt.y) > 8) moved = true;
+          else return; // small jitter — keep it a click, don't start dragging
+        }
         const w = toWorld(e.clientX, e.clientY);
         dragNode.fx = w.x; dragNode.fy = w.y;
-        alpha = Math.max(alpha, 0.5);
+        alpha = Math.max(alpha, 0.6);
       } else if (panning) {
         tx = panStart.tx + (e.clientX - panStart.x);
         ty = panStart.ty + (e.clientY - panStart.y);
