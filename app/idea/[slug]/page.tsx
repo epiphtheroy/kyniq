@@ -24,9 +24,12 @@ type Reading = {
 
 async function load(slug: string) {
   const supabase = db();
-  const { data: c } = await supabase.from("sm_concepts").select("name, native").eq("slug", slug).maybeSingle();
-  if (!c) return null;
-  const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: slug });
+  // sm_concepts has RLS on with no anon policy, so read via a security-definer RPC.
+  // It resolves a variant slug OR a canonical slug → representative member + clean name.
+  const { data: head } = await supabase.rpc("sm_concept_head", { p_slug: slug });
+  const h = (head as { resolved_slug: string; name: string; native: string | null }[] | null)?.[0];
+  if (!h) return null;
+  const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
   const readings = (rd as Reading[] | null) ?? [];
   // Dominant theorist across the readings (for the masthead "after …" line).
   const counts = new Map<string, { name: string; slug: string | null; n: number }>();
@@ -38,8 +41,8 @@ async function load(slug: string) {
   }
   const theorist = [...counts.values()].sort((a, b) => b.n - a.n)[0] ?? null;
   return {
-    name: (c as { name: string }).name,
-    native: (c as { native: string | null }).native ?? null,
+    name: h.name,
+    native: h.native ?? null,
     readings,
     theorist,
   };
