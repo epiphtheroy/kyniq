@@ -9,7 +9,7 @@ import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 import { fw } from "@/lib/frameworks";
-import EntityGraphLoader from "@/components/EntityGraphLoader";
+import EntityMap from "@/components/EntityMap";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -126,9 +126,12 @@ export default async function TropePage({ params }: Props) {
         {t.thesis ? <p className="tp-thesis">{t.thesis}</p> : null}
         {mat ? <p className="tp-matnote"><span className={`tp-mat tp-mat--${tt.maturity}`}>{mat[0]}</span> — {mat[1]}.</p> : null}
 
-        <div className="tp-map">
-          <EntityGraphLoader kind="trope" slug={t.slug} label={t.title} height={420} />
-        </div>
+        <section className="tp-sec" id="tp-map">
+          <h2 className="tp-h2">{t.title} — connection map</h2>
+          <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{filmCount}</b> {filmLabel}</p>
+          <p className="cmap-intro">The figures that carry {t.title} and the films they belong to, across Metatake&rsquo;s critical web. Click a node to open it.</p>
+          <EntityMap api={`/api/map?type=trope&key=${slug}`} full={`/map?m=critical&t=trope&k=${slug}`} />
+        </section>
 
         <section className="tp-sec" id="members">
           <h2 className="tp-h2">
