@@ -3656,47 +3656,47 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 
 /* ── Surprise me (/random) — immersive one-card draw ───────────────── */
 .sm-page{background:#0e0c0a; min-height:100vh}
-.sm-wrap{max-width:920px; margin:0 auto; padding:0 18px 64px}
-.sm-head{text-align:center; padding:26px 0 12px}
-.sm-h1{font-family:var(--font-display); font-size:30px; font-weight:500; color:#fff; margin:0}
-.sm-tag{font-family:var(--font-ui); font-size:13px; color:#9a9388; margin:6px 0 0}
-.sm-toggles{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:16px 0 18px}
-.sm-tog{font-family:var(--font-ui); font-size:13px; padding:7px 15px; border-radius:20px; border:1px solid rgba(255,255,255,.18); color:#cfc7b7; background:transparent; cursor:pointer}
-.sm-tog:hover{border-color:rgba(255,255,255,.4); color:#fff}
-.sm-tog.on{background:#C8102E; color:#fff; border-color:#C8102E}
+.sm-page .sm-wrap{max-width:920px; margin:0 auto; padding:0 18px 64px}
+.sm-page .sm-head{text-align:center; padding:26px 0 12px}
+.sm-page .sm-h1{font-family:var(--font-display); font-size:30px; font-weight:500; color:#fff; margin:0}
+.sm-page .sm-tag{font-family:var(--font-ui); font-size:13px; color:#9a9388; margin:6px 0 0}
+.sm-page .sm-toggles{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:16px 0 18px}
+.sm-page .sm-tog{font-family:var(--font-ui); font-size:13px; padding:7px 15px; border-radius:20px; border:1px solid rgba(255,255,255,.18); color:#cfc7b7; background:transparent; cursor:pointer}
+.sm-page .sm-tog:hover{border-color:rgba(255,255,255,.4); color:#fff}
+.sm-page .sm-tog.on{background:#C8102E; color:#fff; border-color:#C8102E}
 /* hero = video on top (16:9), full text in the panel below (nothing is clipped) */
-.sm-card{position:relative; border-radius:16px 16px 0 0; overflow:hidden; background:#000; aspect-ratio:16/9; border:1px solid rgba(255,255,255,.10); border-bottom:0; transition:opacity .18s}
-.sm-card.is-load{opacity:.55}
-.sm-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; display:block}
-.sm-bg--empty{background:linear-gradient(120deg,#23303a,#16110f)}
-.sm-meta{display:flex; gap:18px; align-items:flex-start; background:#16130f; border:1px solid rgba(255,255,255,.10); border-top:0; border-radius:0 0 16px 16px; padding:20px 24px 22px}
-.sm-pic{flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.82)}
-.sm-metabody{flex:1; min-width:0}
-.sm-chip{display:inline-block; font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:#fff; background:#C8102E; padding:3px 9px; border-radius:5px; margin-bottom:10px}
-.sm-line{font-family:var(--font-display); font-size:clamp(21px,3.1vw,31px); line-height:1.2; color:#fff; font-weight:500}
-.sm-native{font-style:italic; font-weight:400; color:#cfc7b7; font-size:.6em}
-.sm-sub{font-family:var(--font-ui); font-size:13.5px; color:#cfc7b7; margin-top:9px}
-.sm-leap{font-family:var(--font-ui); font-size:14px; line-height:1.55; color:#cbc4b8; margin-top:10px}
-.sm-leap span{color:#E8A7AF; font-weight:600}
-.sm-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:18px}
-.sm-again{flex:1; min-width:200px; display:flex; align-items:center; justify-content:center; gap:10px; font-family:var(--font-ui); font-size:15px; font-weight:500; color:#fff; background:#C8102E; border:0; padding:14px; border-radius:12px; cursor:pointer}
-.sm-again:hover{background:#9b0c23}
-.sm-again:disabled{opacity:.55; cursor:default}
-.sm-open{display:flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:14px; color:#fff !important; border:1px solid rgba(255,255,255,.25); padding:14px 18px; border-radius:12px; text-decoration:none}
-.sm-open:hover{background:rgba(255,255,255,.08)}
+.sm-page .sm-card{position:relative; border-radius:16px 16px 0 0; overflow:hidden; background:#000; aspect-ratio:16/9; border:1px solid rgba(255,255,255,.10); border-bottom:0; transition:opacity .18s}
+.sm-page .sm-card.is-load{opacity:.55}
+.sm-page .sm-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; display:block}
+.sm-page .sm-bg--empty{background:linear-gradient(120deg,#23303a,#16110f)}
+.sm-page .sm-meta{display:flex; gap:18px; align-items:flex-start; background:#16130f; border:1px solid rgba(255,255,255,.10); border-top:0; border-radius:0 0 16px 16px; padding:20px 24px 22px}
+.sm-page .sm-pic{flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.82)}
+.sm-page .sm-metabody{flex:1; min-width:0}
+.sm-page .sm-chip{display:inline-block; font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:#fff; background:#C8102E; padding:3px 9px; border-radius:5px; margin-bottom:10px}
+.sm-page .sm-line{font-family:var(--font-display); font-size:clamp(21px,3.1vw,31px); line-height:1.2; color:#fff; font-weight:500}
+.sm-page .sm-native{font-style:italic; font-weight:400; color:#cfc7b7; font-size:.6em}
+.sm-page .sm-sub{font-family:var(--font-ui); font-size:13.5px; color:#cfc7b7; margin-top:9px}
+.sm-page .sm-leap{font-family:var(--font-ui); font-size:14px; line-height:1.55; color:#cbc4b8; margin-top:10px}
+.sm-page .sm-leap span{color:#E8A7AF; font-weight:600}
+.sm-page .sm-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:18px}
+.sm-page .sm-again{flex:1; min-width:200px; display:flex; align-items:center; justify-content:center; gap:10px; font-family:var(--font-ui); font-size:15px; font-weight:500; color:#fff; background:#C8102E; border:0; padding:14px; border-radius:12px; cursor:pointer}
+.sm-page .sm-again:hover{background:#9b0c23}
+.sm-page .sm-again:disabled{opacity:.55; cursor:default}
+.sm-page .sm-open{display:flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:14px; color:#fff !important; border:1px solid rgba(255,255,255,.25); padding:14px 18px; border-radius:12px; text-decoration:none}
+.sm-page .sm-open:hover{background:rgba(255,255,255,.08)}
 .sm-page kbd{font-family:var(--font-ui); font-size:11px; border:1px solid rgba(255,255,255,.45); border-radius:4px; padding:1px 6px; opacity:.85}
 /* the wall — 30 cards, drawn again on demand */
-.sm-setbar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:34px; padding-top:16px; border-top:1px solid rgba(255,255,255,.10)}
-.sm-setk{font-family:var(--font-ui); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#7a7468}
-.sm-setbtn{font-family:var(--font-ui); font-size:13px; color:#fff; background:transparent; border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:9px 16px; cursor:pointer}
-.sm-setbtn:hover{background:rgba(255,255,255,.08)}
-.sm-setbtn:disabled{opacity:.5; cursor:default}
-.sm-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:11px; margin-top:14px}
-.sm-gcard{position:relative; aspect-ratio:16/10; border-radius:10px; overflow:hidden; background:#23303a center/cover no-repeat; border:1px solid rgba(255,255,255,.10); display:flex; flex-direction:column; justify-content:flex-end; padding:10px; text-decoration:none; transition:border-color .15s,transform .15s}
-.sm-gcard:hover{border-color:rgba(255,255,255,.55); transform:translateY(-2px)}
-.sm-gkind{font-family:var(--font-ui); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:#E8A7AF; margin-bottom:3px}
-.sm-gline{font-family:var(--font-display); font-size:13px; line-height:1.25; color:#fff; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
-@media(max-width:640px){ .sm-meta{flex-direction:column; gap:12px} .sm-pic{width:58px; height:58px} }
+.sm-page .sm-setbar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:34px; padding-top:16px; border-top:1px solid rgba(255,255,255,.10)}
+.sm-page .sm-setk{font-family:var(--font-ui); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#7a7468}
+.sm-page .sm-setbtn{font-family:var(--font-ui); font-size:13px; color:#fff; background:transparent; border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:9px 16px; cursor:pointer}
+.sm-page .sm-setbtn:hover{background:rgba(255,255,255,.08)}
+.sm-page .sm-setbtn:disabled{opacity:.5; cursor:default}
+.sm-page .sm-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:11px; margin-top:14px}
+.sm-page .sm-gcard{position:relative; aspect-ratio:16/10; border-radius:10px; overflow:hidden; background:#23303a center/cover no-repeat; border:1px solid rgba(255,255,255,.10); display:flex; flex-direction:column; justify-content:flex-end; padding:10px; text-decoration:none; transition:border-color .15s,transform .15s}
+.sm-page .sm-gcard:hover{border-color:rgba(255,255,255,.55); transform:translateY(-2px)}
+.sm-page .sm-gkind{font-family:var(--font-ui); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:#E8A7AF; margin-bottom:3px}
+.sm-page .sm-gline{font-family:var(--font-display); font-size:13px; line-height:1.25; color:#fff; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+@media(max-width:640px){ .sm-page .sm-meta{flex-direction:column; gap:12px} .sm-page .sm-pic{width:58px; height:58px} }
 
 /* ── The Map (/map) — full-screen critical-web explorer ───────────────── */
 .map-shell{position:relative; width:100%}
