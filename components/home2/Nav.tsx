@@ -145,9 +145,6 @@ export default function Nav({ data }: { data: HomeV2 }) {
             <Link href="/lineage">
               The map<span className="ar">→</span>
             </Link>
-            <Link href="/me">
-              Recommended<span className="ar">→</span>
-            </Link>
             <Link href="/random">
               Surprise me<span className="ar">→</span>
             </Link>
@@ -161,10 +158,10 @@ export default function Nav({ data }: { data: HomeV2 }) {
               Concepts<span className="ar">{stats.concepts.toLocaleString()} →</span>
             </Link>
             <Link href="/theorist">
-              Theorists<span className="ar">→</span>
+              Theorists<span className="ar">{stats.theorists ? `${stats.theorists.toLocaleString()} →` : "→"}</span>
             </Link>
             <Link href="/tradition">
-              Traditions<span className="ar">→</span>
+              Traditions<span className="ar">{stats.traditions ? `${stats.traditions.toLocaleString()} →` : "→"}</span>
             </Link>
           </div>
           <div className="mcol">
@@ -176,7 +173,7 @@ export default function Nav({ data }: { data: HomeV2 }) {
               Archetypes<span className="ar">→</span>
             </Link>
             <Link href="/strong-misreadings">
-              Strong Misreadings<span className="ar">→</span>
+              Strong Misreadings<span className="ar">{stats.readings ? `${stats.readings.toLocaleString()} →` : "→"}</span>
             </Link>
           </div>
           <div className="mcol">

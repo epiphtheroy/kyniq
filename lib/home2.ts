@@ -48,7 +48,7 @@ export type GraphNode = { label: string; kind: "film" | "trope"; slug: string };
 export type CPair = { mt: string; slug: string; a: { f: string; fs: string }; b: { f: string; fs: string } };
 
 export type HomeV2 = {
-  stats: { films: number; directors: number; tropes: number; concepts: number; readings: number; figures: number; lists: number };
+  stats: { films: number; directors: number; tropes: number; concepts: number; readings: number; figures: number; lists: number; theorists?: number; traditions?: number };
   hero: Film[];                                   // rotating featured (counts + figureLabel populated)
   picks: Pick[];                                  // Recommended by the map (≥30)
   top3: Top3[];                                   // essential 10, detailed #1–3
@@ -90,7 +90,7 @@ const POOL: Film[] = [
 ];
 
 export const PLACEHOLDER: HomeV2 = {
-  stats: { films: 1935, directors: 870, tropes: 4710, concepts: 1227, readings: 26975, figures: 18168, lists: 399 },
+  stats: { films: 1935, directors: 870, tropes: 4710, concepts: 1078, readings: 26975, figures: 18168, lists: 399, theorists: 898, traditions: 342 },
   hero: POOL.slice(0, 5),
   picks: POOL.map((x) => ({ ...x, shared: x.readings ?? 10 })),
   top3: [
