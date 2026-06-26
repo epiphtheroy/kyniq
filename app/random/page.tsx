@@ -24,7 +24,7 @@ export default function SurprisePage() {
   const [card, setCard] = useState<Card | null>(null);
   const [loading, setLoading] = useState(true);
   const [set, setSet] = useState<GCard[]>([]);
-  const [setLoading, setSetLoading] = useState(true);
+  const [gridLoading, setGridLoading] = useState(true);
   const kindRef = useRef(kind); kindRef.current = kind;
   const busy = useRef(false);
 
@@ -41,12 +41,12 @@ export default function SurprisePage() {
 
   const drawSet = useCallback(async (k?: string) => {
     const kk = k ?? kindRef.current;
-    setSetLoading(true);
+    setGridLoading(true);
     try {
       const r = await fetch(`/api/surprise/set?kind=${kk}&n=30&_=${Date.now()}`, { cache: "no-store" });
       const j = await r.json();
       setSet(Array.isArray(j) ? (j as GCard[]) : []);
-    } catch { /* noop */ } finally { setSetLoading(false); }
+    } catch { /* noop */ } finally { setGridLoading(false); }
   }, []);
 
   useEffect(() => { drawCard("any"); drawSet("any"); }, [drawCard, drawSet]);
@@ -122,7 +122,7 @@ export default function SurprisePage() {
 
         <div className="sm-setbar">
           <span className="sm-setk">More to wander — 30 cards</span>
-          <button className="sm-setbtn" onClick={() => drawSet()} disabled={setLoading}>↻ Show another 30</button>
+          <button className="sm-setbtn" onClick={() => drawSet()} disabled={gridLoading}>↻ Show another 30</button>
         </div>
         <div className="sm-grid">
           {set.map((c, i) => (
