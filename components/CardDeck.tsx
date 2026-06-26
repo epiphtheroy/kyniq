@@ -37,7 +37,11 @@ export default function CardDeck<T>({
   tall?: boolean;
   cardClassName?: string;
 }) {
-  const [batch, setBatch] = useState<number[]>(() => pickBatch(items.length, DECK_N, []));
+  // Deterministic first render (server === client) so hydration never mismatches.
+  // The client reshuffles to a random batch on mount (effect below).
+  const [batch, setBatch] = useState<number[]>(() =>
+    Array.from({ length: Math.min(DECK_N, Math.max(items.length, 0)) }, (_, i) => i)
+  );
   const k = batch.length;
   const [order, setOrder] = useState<number[]>(() => batch.map((_, i) => i));
   const [flying, setFlying] = useState<number | null>(null);
@@ -78,6 +82,16 @@ export default function CardDeck<T>({
 
   const advanceRef = useRef(advance); advanceRef.current = advance;
   const newBatchRef = useRef(newBatch); newBatchRef.current = newBatch;
+
+  // Client-only: shuffle once after hydration (SSR stays deterministic → no #418).
+  useEffect(() => {
+    if (items.length > DECK_N) {
+      const nb = pickBatch(items.length, DECK_N, []);
+      setBatch(nb);
+      setOrder(nb.map((_, i) => i));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items.length]);
 
   useEffect(() => {
     if (items.length < 2) return;

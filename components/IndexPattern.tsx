@@ -110,7 +110,11 @@ export default function IndexPattern({
   seedNote?: string;
 }) {
   /* ============ DECK ============ */
-  const [batch, setBatch] = useState<number[]>(() => pickBatch(featured.length, DECK_N, []));
+  // Deterministic first render (server === client) → no hydration mismatch;
+  // the client reshuffles to a random batch on mount (effect below).
+  const [batch, setBatch] = useState<number[]>(() =>
+    Array.from({ length: Math.min(DECK_N, Math.max(featured.length, 0)) }, (_, i) => i)
+  );
   const k = batch.length;
   const [order, setOrder] = useState<number[]>(() => batch.map((_, i) => i));
   const [flying, setFlying] = useState<number | null>(null);
@@ -153,6 +157,16 @@ export default function IndexPattern({
   advanceRef.current = advance;
   const newBatchRef = useRef(newBatch);
   newBatchRef.current = newBatch;
+
+  // Client-only: shuffle once after hydration (SSR stays deterministic → no #418).
+  useEffect(() => {
+    if (featured.length > DECK_N) {
+      const nb = pickBatch(featured.length, DECK_N, []);
+      setBatch(nb);
+      setOrder(nb.map((_, i) => i));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [featured.length]);
 
   useEffect(() => {
     if (featured.length < 2) return;
