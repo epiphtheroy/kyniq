@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
 
 /** Lineage section — awards/honours, canons/lists, auteur line. Shared by the full and catalog film pages. */
 export type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
@@ -17,14 +18,18 @@ export default function FilmLineageSection({ lineage, title }: { lineage: LinRow
         <div className="df-lingrp">
           <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
           <div className="lin-list">
-            {linAwards.map((l, i) => (
-              <div key={i} className="lin-row">
-                <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
-                {l.parent_label && l.parent_label !== l.list_label ? <span className="lin-meta"> · {l.parent_label}</span> : null}
-                {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
-                {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
-              </div>
-            ))}
+            {linAwards.map((l, i) => {
+              const b = awardBody(l.list_slug);
+              return (
+                <div key={i} className="lin-row">
+                  <span className="lin-em" aria-hidden="true">{b?.emblem ?? "🏆"}</span>
+                  {b ? <><span className="lin-body">{b.name}</span><span className="lin-sep">·</span></> : (l.parent_label && l.parent_label !== l.list_label ? <><span className="lin-body">{l.parent_label}</span><span className="lin-sep">·</span></> : null)}
+                  <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{awardLabel(l.list_label, l.list_slug)}</Link>
+                  {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+                  {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
+                </div>
+              );
+            })}
           </div>
         </div>
       ) : null}
@@ -34,6 +39,7 @@ export default function FilmLineageSection({ lineage, title }: { lineage: LinRow
           <div className="lin-list">
             {linCanons.map((l, i) => (
               <div key={i} className="lin-row">
+                <span className="lin-em" aria-hidden="true">{canonEmblem(l.list_slug)}</span>
                 <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
                 {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
                 {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
@@ -48,6 +54,7 @@ export default function FilmLineageSection({ lineage, title }: { lineage: LinRow
           <div className="lin-list">
             {linAuteur.map((l, i) => (
               <div key={i} className="lin-row">
+                <span className="lin-em" aria-hidden="true">🎬</span>
                 <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
                 {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
               </div>

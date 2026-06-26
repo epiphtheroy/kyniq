@@ -3352,6 +3352,9 @@ a.df-rt:hover{border-color:var(--ink)}
 .lin-list{display:grid; grid-template-columns:1fr; gap:0; margin-top:8px; border-top:1px solid var(--hairline)}
 @media (min-width:760px){ .lin-list{grid-template-columns:1fr 1fr; column-gap:30px} }
 .lin-row{padding:8px 0; border-bottom:1px solid var(--hairline); font-size:14px; line-height:1.4}
+.lin-em{display:inline-block; width:1.35em; margin-right:5px; text-align:center; font-size:14px}
+.lin-body{font-family:var(--font-ui); font-size:12px; font-weight:600; color:var(--ink2)}
+.lin-sep{margin:0 5px; color:var(--subtle)}
 .lin-name{font-family:var(--font-display); font-weight:600; color:var(--ink); text-decoration:none}
 a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .lin-meta{font-family:var(--font-ui); font-size:12px; color:var(--muted)}
