@@ -15,6 +15,7 @@ import Auteurs from "./AuteursRow";
 import Rhyme from "./Rhyme";
 import Canon from "./Canon";
 import BlogGraph from "./BlogGraph";
+import HomeMap from "./HomeMap";
 import BigSearch from "./BigSearch";
 import SixWays from "./SixWays";
 import SiteFooter from "./SiteFooter";
@@ -43,6 +44,8 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
       <ConceptTiles data={data} />
       {/* 8 — Explore by lens (dark) */}
       <LensRail data={data} />
+      {/* 8b — The living map of cinema (paper-2) */}
+      <HomeMap />
       {/* 9 — Directors spotlight + cards (paper-2) */}
       <Directors data={data} />
       {/* 10 — Auteurs to explore (dark) */}

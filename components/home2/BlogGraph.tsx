@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
 import { hashTone, tone, blogHref, backdropUrl } from "./helpers";
-import HomeConstellation from "@/components/HomeConstellation";
+import SubscribeForm from "@/components/SubscribeForm";
 
 // "Between Film and the World" — daily column + the original constellation graph
 // (EntityGraph force renderer), with film-still thumbnails on the article cards.
@@ -67,10 +67,10 @@ export default function BlogGraph({ data }: { data: HomeV2 }) {
               })}
             </div>
           </div>
-          <div className="graphbox" style={{ height: "auto", minHeight: 380, paddingTop: 46 }}>
-            <div className="gcap">Wander the map · live</div>
-            <div className="gsub">two films joined by the reading they secretly share — drag a node, click to travel in</div>
-            <HomeConstellation pairs={data.pairs ?? []} />
+          <div className="graphbox blg-subbox" style={{ height: "auto", minHeight: 0, padding: "28px 24px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div className="gcap">Get the daily column</div>
+            <div className="gsub">Between Film and the World, in your inbox — retrieved, not remembered. No spam, unsubscribe anytime.</div>
+            <div style={{ marginTop: 14 }}><SubscribeForm source="home-blog" /></div>
           </div>
         </div>
       </div>
