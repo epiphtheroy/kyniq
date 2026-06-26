@@ -2,22 +2,63 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import type { HomeV2 } from "@/lib/home2";
 
-type OpenId = "mega" | "am" | null;
+export type NavCounts = {
+  films?: number; directors?: number; tropes?: number; concepts?: number;
+  readings?: number; theorists?: number; traditions?: number;
+};
 
-export default function Nav({ data }: { data: HomeV2 }) {
-  const { stats } = data;
-  const [open, setOpen] = useState<OpenId>(null);
+type Item = { t: string; h: string; c?: number };
+type Group = { id: string; label: string; items: Item[] };
+
+function buildGroups(c: NavCounts): Group[] {
+  return [
+    { id: "watch", label: "Watch", items: [
+      { t: "Films", h: "/film", c: c.films },
+      { t: "Directors", h: "/director", c: c.directors },
+      { t: "Latest", h: "/latest" },
+      { t: "Trending", h: "/trending" },
+    ] },
+    { id: "wander", label: "Wander", items: [
+      { t: "The map", h: "/lineage" },
+      { t: "Surprise me", h: "/random" },
+      { t: "Blog", h: "/blog" },
+    ] },
+    { id: "ideas", label: "Ideas", items: [
+      { t: "Concepts", h: "/idea", c: c.concepts },
+      { t: "Theorists", h: "/theorist", c: c.theorists },
+      { t: "Traditions", h: "/tradition", c: c.traditions },
+    ] },
+    { id: "lenses", label: "Lenses", items: [
+      { t: "Tropes", h: "/tropes", c: c.tropes },
+      { t: "Archetypes", h: "/catalog" },
+      { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
+    ] },
+    { id: "you", label: "You", items: [
+      { t: "Your Shelf", h: "/me" },
+      { t: "Saved Readings", h: "/me" },
+      { t: "For You", h: "/me" },
+      { t: "Ask metatake AI", h: "/ask" },
+    ] },
+  ];
+}
+
+const arrow = (c?: number) => (c != null ? `${c.toLocaleString()} →` : "→");
+
+export default function Nav({ counts = {} }: { counts?: NavCounts }) {
+  const groups = buildGroups(counts);
+  const [open, setOpen] = useState<"mega" | "am" | null>(null);
+  const [grp, setGrp] = useState<string | null>(null); // open dropdown group (desktop)
   const rootRef = useRef<HTMLElement>(null);
 
-  // tog(id): if already open → close; else open it (closing the other). (mockup: tog)
-  const tog = (id: Exclude<OpenId, null>) => setOpen((cur) => (cur === id ? null : id));
+  const tog = (id: "mega" | "am") => setOpen((cur) => (cur === id ? null : id));
 
-  // Close on outside click (mockup: document click listener).
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
-      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(null);
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(null);
+        setGrp(null);
+      }
     };
     document.addEventListener("click", onDoc);
     return () => document.removeEventListener("click", onDoc);
@@ -31,6 +72,8 @@ export default function Nav({ data }: { data: HomeV2 }) {
           <br />
           take
         </Link>
+
+        {/* Narrow / overflow: single Menu → full mega */}
         <div className="menubtn" onClick={() => tog("mega")}>
           <span className="bars">
             <i />
@@ -39,13 +82,43 @@ export default function Nav({ data }: { data: HomeV2 }) {
           </span>
           Menu
         </div>
+
+        {/* Wide: the five top groups, each with a dropdown */}
+        <nav className="navgroups" onMouseLeave={() => setGrp(null)}>
+          {groups.map((g) => (
+            <div
+              className="ng"
+              key={g.id}
+              onMouseEnter={() => setGrp(g.id)}
+            >
+              <button
+                type="button"
+                className="ngl"
+                onClick={() => setGrp((cur) => (cur === g.id ? null : g.id))}
+                aria-expanded={grp === g.id}
+              >
+                {g.label}
+              </button>
+              <div className={`drop${grp === g.id ? " open" : ""}`}>
+                {g.items.map((it) => (
+                  <Link key={it.t + it.h} href={it.h}>
+                    {it.t}
+                    <span className="ar">{arrow(it.c)}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </nav>
+
         <form className="navsearch" action="/search" method="get">
           <div className="scope">All ▾</div>
-          <input name="q" placeholder="Search films, directors, figures, tropes…" />
+          <input name="q" placeholder="Search films, directors, ideas…" />
           <button type="submit" className="go" aria-label="Search" style={{ border: 0, background: "transparent", cursor: "pointer" }}>
             ⌕
           </button>
         </form>
+
         <div className="navright">
           <Link className="npro" href="/ask">
             <span className="dot" />
@@ -101,16 +174,6 @@ export default function Nav({ data }: { data: HomeV2 }) {
                 </div>
                 <div className="n">+</div>
               </div>
-              <div className="prow">
-                <div className="l">
-                  <div className="ico">✦</div>
-                  <div>
-                    <div className="t">Recommended</div>
-                    <div className="s">FILMS FOUND BY SHARED READINGS</div>
-                  </div>
-                </div>
-                <div className="n">›</div>
-              </div>
               <div className="acctfoot">
                 <Link href="/about">About</Link>
                 <Link href="/blog/subscribe">Newsletter</Link>
@@ -123,74 +186,21 @@ export default function Nav({ data }: { data: HomeV2 }) {
           <div className="lang">EN ▾</div>
         </div>
       </div>
+
+      {/* Hamburger mega (narrow / overflow) — same five groups */}
       <div className={`mega${open === "mega" ? " open" : ""}`} id="mega">
         <div className="wrap">
-          <div className="mcol">
-            <h4>Watch</h4>
-            <Link href="/film">
-              Films<span className="ar">{stats.films.toLocaleString()} →</span>
-            </Link>
-            <Link href="/director">
-              Directors<span className="ar">{stats.directors.toLocaleString()} →</span>
-            </Link>
-            <Link href="/latest">
-              Latest<span className="ar">→</span>
-            </Link>
-            <Link href="/trending">
-              Trending<span className="ar">→</span>
-            </Link>
-          </div>
-          <div className="mcol">
-            <h4>Wander</h4>
-            <Link href="/lineage">
-              The map<span className="ar">→</span>
-            </Link>
-            <Link href="/random">
-              Surprise me<span className="ar">→</span>
-            </Link>
-            <Link href="/blog">
-              Blog<span className="ar">→</span>
-            </Link>
-          </div>
-          <div className="mcol">
-            <h4>Ideas</h4>
-            <Link href="/idea">
-              Concepts<span className="ar">{stats.concepts.toLocaleString()} →</span>
-            </Link>
-            <Link href="/theorist">
-              Theorists<span className="ar">{stats.theorists ? `${stats.theorists.toLocaleString()} →` : "→"}</span>
-            </Link>
-            <Link href="/tradition">
-              Traditions<span className="ar">{stats.traditions ? `${stats.traditions.toLocaleString()} →` : "→"}</span>
-            </Link>
-          </div>
-          <div className="mcol">
-            <h4>Lenses</h4>
-            <Link href="/tropes">
-              Tropes<span className="ar">{stats.tropes.toLocaleString()} →</span>
-            </Link>
-            <Link href="/catalog">
-              Archetypes<span className="ar">→</span>
-            </Link>
-            <Link href="/strong-misreadings">
-              Strong Misreadings<span className="ar">{stats.readings ? `${stats.readings.toLocaleString()} →` : "→"}</span>
-            </Link>
-          </div>
-          <div className="mcol">
-            <h4>You</h4>
-            <Link href="/me">
-              Your Shelf<span className="ar">→</span>
-            </Link>
-            <Link href="/me">
-              Saved Readings<span className="ar">→</span>
-            </Link>
-            <Link href="/me">
-              For You<span className="ar">→</span>
-            </Link>
-            <Link href="/ask">
-              Ask metatake AI<span className="ar">→</span>
-            </Link>
-          </div>
+          {groups.map((g) => (
+            <div className="mcol" key={g.id}>
+              <h4>{g.label}</h4>
+              {g.items.map((it) => (
+                <Link key={it.t + it.h} href={it.h}>
+                  {it.t}
+                  <span className="ar">{arrow(it.c)}</span>
+                </Link>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </header>

@@ -28,7 +28,7 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
   return (
     <div className="mthome">
       {/* 1 — Nav (dark, sticky) */}
-      <Nav data={data} />
+      <Nav counts={data.stats} />
       {/* 2 — Today's Feature video hero (dark) + Up next + topic chips */}
       <Hero data={data} />
       {/* 3 — Recommended by the map (paper) */}

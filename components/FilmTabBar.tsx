@@ -18,7 +18,7 @@ export default function FilmTabBar({ tabs }: { tabs: Tab[] }) {
 
   useEffect(() => {
     const measure = () => {
-      const nav = document.querySelector(".mt-nav") as HTMLElement | null;
+      const nav = document.querySelector("header.nav, .mt-nav") as HTMLElement | null;
       setNavH(nav ? Math.round(nav.getBoundingClientRect().height) : 0);
     };
     measure();

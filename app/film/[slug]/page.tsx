@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
-import MetatakeNav from "@/components/MetatakeNav";
+import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar from "@/components/FilmTabBar";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
@@ -202,7 +202,7 @@ export default async function FilmPage({ params }: Props) {
     ].filter(Boolean)) as { id: string; label: string; href?: string }[];
     return (
       <div className="mt">
-        <MetatakeNav active="films" />
+        <SiteNav />
         <div className="df-wrap">
           <div className="df-crumb"><Link href="/film">Films</Link></div>
           <section className="df-hero">
@@ -294,7 +294,7 @@ export default async function FilmPage({ params }: Props) {
 
   return (
     <div className="mt">
-      <MetatakeNav active="films" />
+      <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <div className="df-wrap">
         <div className="df-crumb">
