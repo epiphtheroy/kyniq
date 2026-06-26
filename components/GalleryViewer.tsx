@@ -22,6 +22,7 @@ export default function GalleryViewer({
   const [count, setCount] = useState(STEP);
   const [active, setActive] = useState(0);
   const [zoom, setZoom] = useState<number | null>(null);
+  const [playing, setPlaying] = useState(false);
   const feedRef = useRef<HTMLDivElement>(null);
   const sentinel = useRef<HTMLDivElement>(null);
 
@@ -53,18 +54,27 @@ export default function GalleryViewer({
     requestAnimationFrame(() => document.getElementById(`gimg-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }, [count, list.length]);
 
-  // Lightbox keyboard + body lock.
+  // Lightbox keyboard (← → wrap, Esc closes) + body lock.
   useEffect(() => {
     if (zoom === null) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setZoom(null);
-      else if (e.key === "ArrowRight") setZoom((z) => (z === null ? z : Math.min(list.length - 1, z + 1)));
-      else if (e.key === "ArrowLeft") setZoom((z) => (z === null ? z : Math.max(0, z - 1)));
+      if (e.key === "Escape") { setZoom(null); setPlaying(false); }
+      else if (e.key === "ArrowRight") setZoom((z) => (z === null ? z : (z + 1) % list.length));
+      else if (e.key === "ArrowLeft") setZoom((z) => (z === null ? z : (z - 1 + list.length) % list.length));
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
   }, [zoom, list.length]);
+
+  // Auto-advance slideshow: every 1.5s while playing + lightbox open (wraps).
+  useEffect(() => {
+    if (zoom === null || !playing) return;
+    const id = setInterval(() => setZoom((z) => (z === null ? z : (z + 1) % list.length)), 1500);
+    return () => clearInterval(id);
+  }, [zoom, playing, list.length]);
+  // Stop the slideshow whenever the lightbox closes.
+  useEffect(() => { if (zoom === null && playing) setPlaying(false); }, [zoom, playing]);
 
   const feedSize = tab === "backdrops" ? "w1280" : "w780";
   const shown = list.slice(0, count);
@@ -112,12 +122,13 @@ export default function GalleryViewer({
       {zoom !== null && list[zoom] ? (
         <div className="gal-zoom" role="dialog" aria-modal="true" onClick={() => setZoom(null)}>
           <button className="gal-zoom__x" onClick={(e) => { e.stopPropagation(); setZoom(null); }} aria-label="Close">×</button>
+          <button className="gal-zoom__arrow gal-zoom__arrow--l" onClick={(e) => { e.stopPropagation(); setZoom((z) => (z === null ? z : (z - 1 + list.length) % list.length)); }} aria-label="Previous image">‹</button>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="gal-zoom__img" src={T("w1280", list[zoom].file_path)} alt={`${title} ${zoom + 1}`} onClick={(e) => e.stopPropagation()} />
+          <button className="gal-zoom__arrow gal-zoom__arrow--r" onClick={(e) => { e.stopPropagation(); setZoom((z) => (z === null ? z : (z + 1) % list.length)); }} aria-label="Next image">›</button>
           <div className="gal-zoom__nav" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setZoom((z) => (z === null ? z : Math.max(0, z - 1)))} disabled={zoom === 0} aria-label="Previous">‹</button>
+            <button className={`gal-zoom__play${playing ? " on" : ""}`} onClick={() => setPlaying((p) => !p)} aria-label={playing ? "Pause slideshow" : "Play slideshow (1.5s)"} title={playing ? "Pause" : "Auto-advance every 1.5s"}>{playing ? "⏸" : "▶"}</button>
             <span>{zoom + 1} / {list.length}</span>
-            <button onClick={() => setZoom((z) => (z === null ? z : Math.min(list.length - 1, z + 1)))} disabled={zoom === list.length - 1} aria-label="Next">›</button>
           </div>
         </div>
       ) : null}

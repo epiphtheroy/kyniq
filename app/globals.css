@@ -3099,6 +3099,13 @@ a.df-rt:hover{border-color:var(--ink)}
 .gal-zoom__nav{position:fixed; bottom:16px; left:50%; transform:translateX(-50%); z-index:10001; display:flex; align-items:center; gap:18px; color:#fff; font-family:var(--font-ui); font-size:13px; font-variant-numeric:tabular-nums; background:rgba(0,0,0,.4); padding:6px 16px; border-radius:999px}
 .gal-zoom__nav button{font-size:26px; line-height:1; color:#fff; background:none; border:none; cursor:pointer; opacity:.9}
 .gal-zoom__nav button:disabled{opacity:.3; cursor:default}
+.gal-zoom__play{font-size:14px !important; width:30px; height:30px; border:1px solid rgba(255,255,255,.5) !important; border-radius:50%; display:flex; align-items:center; justify-content:center}
+.gal-zoom__play.on{border-color:var(--accent) !important; color:#fff; background:var(--accent) !important}
+.gal-zoom__arrow{position:fixed; top:50%; transform:translateY(-50%); z-index:10001; width:54px; height:78px; display:flex; align-items:center; justify-content:center; font-size:46px; line-height:1; color:#fff; background:rgba(0,0,0,.32); border:none; border-radius:10px; cursor:pointer; opacity:.78; transition:opacity .15s, background .15s}
+.gal-zoom__arrow:hover{opacity:1; background:rgba(0,0,0,.5)}
+.gal-zoom__arrow--l{left:14px}
+.gal-zoom__arrow--r{right:14px}
+@media(max-width:680px){ .gal-zoom__arrow{width:42px; height:62px; font-size:34px} }
 .gal-bar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:10px; font-family:var(--font-ui); font-size:12.5px; color:var(--subtle)}
 .gal-back{color:var(--accent); text-decoration:none; font-size:14px}
 .gal-back:hover{text-decoration:underline}
