@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import { fw } from "@/lib/frameworks";
+import EntityMap from "@/components/EntityMap";
 
 export const revalidate = 1800;
 
@@ -79,6 +80,12 @@ export default async function TheoristPage({ params }: Props) {
             );
           })}
         </div>
+        <section className="cmap-sec" id="theorist-map">
+          <h2 className="cmap-h2">{name} — connection map</h2>
+          <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>
+          <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
+          <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
+        </section>
         <p className="th-foot"><Link href="/theorist">← All theorists</Link></p>
       </div>
     </div>
