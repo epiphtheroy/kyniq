@@ -60,6 +60,15 @@ async function load(slug: string, figureSlug: string) {
     const { data: cs } = await supabase.from("sm_concepts").select("slug, name_l").in("name_l", conceptKeys);
     for (const r of (cs ?? []) as { slug: string; name_l: string }[]) conceptSlugs[r.name_l] = r.slug;
   }
+  // The canonical tradition each reading leans on (Phase 3) — one canon per take, if matched.
+  const tradition: Record<string, { slug: string; title: string }> = {};
+  const takeIds = takes.map((t) => t.id);
+  if (takeIds.length) {
+    const { data: tr } = await supabase.rpc("take_traditions", { p_ids: takeIds });
+    for (const r of (tr ?? []) as { take_id: string; slug: string; title: string }[]) {
+      tradition[r.take_id] = { slug: r.slug, title: r.title.replace(/\s*\([^)]*\)\s*$/, "").trim() || r.title };
+    }
+  }
   const { data: mtRows } = await supabase
     .from("meta_takes")
     .select("id, title, laconic, theory_family:theory_families(name)")
@@ -117,7 +126,7 @@ async function load(slug: string, figureSlug: string) {
     }
   }
 
-  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs };
+  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition };
 }
 
 // Display order for the figure-page "Classified as" line (named archetype first, then tiers, then themes).
@@ -146,7 +155,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs } = data;
+  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition } = data;
   if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
@@ -294,6 +303,12 @@ export default async function FigurePage({ params }: Props) {
                         : <span className="sm-tag sm-tag--c">{t.concept}</span>) : null}
                       {t.real_person ? <span className="sm-tag sm-tag--p">{t.real_person}</span> : null}
                     </div>
+                  ) : null}
+                  {!inv && tradition[t.id] ? (
+                    <p className="sm-trad">
+                      <span className="sm-trad__l">Tradition</span>
+                      <Link className="sm-trad__v" href={`/tradition/${tradition[t.id].slug}`}>{tradition[t.id].title}</Link>
+                    </p>
                   ) : null}
                 </div>
               );

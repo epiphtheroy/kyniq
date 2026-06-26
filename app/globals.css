@@ -2996,6 +2996,10 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .sm-tag{font-family:var(--font-ui); font-size:11px; font-weight:600; color:var(--ink); background:var(--surface-2); border:1px solid var(--hairline); padding:2px 8px}
 .sm-tag--c{font-style:italic}
 .sm-tag--p{color:var(--muted)}
+.sm-trad{margin:9px 0 0; font-family:var(--font-ui); font-size:12px; color:var(--muted)}
+.sm-trad__l{font-weight:700; text-transform:uppercase; letter-spacing:.07em; font-size:10px; color:var(--muted); margin-right:7px}
+.sm-trad__v{color:var(--ink); border-bottom:1px solid var(--hairline)}
+.sm-trad__v:hover{color:var(--accent); border-bottom-color:var(--accent)}
 .sm-card--inv{border-left-color:#444; background:var(--surface-2)}
 .sm-thesis--inv{font-size:16.5px; line-height:1.7}
 
@@ -3365,6 +3369,9 @@ a.df-rt:hover{border-color:var(--ink)}
 .th-row{display:flex; align-items:baseline; gap:8px; padding:8px 0; border-bottom:1px solid var(--hairline); text-decoration:none; color:var(--ink)}
 .th-row:hover .th-name{color:var(--accent); text-decoration:underline}
 .th-name{font-family:var(--font-display); font-size:15px}
+.th-by{color:var(--muted); font-size:12.5px; font-family:var(--font-ui)}
+.th-domain{font-style:italic}
+.th-by2{color:var(--ink2)}
 .th-n{margin-left:auto; font-family:var(--font-ui); font-size:12px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums}
 .th-h1{font-family:var(--font-display); font-weight:700; font-size:clamp(24px,4.5vw,34px); letter-spacing:-.02em; margin:14px 0 4px}
 .th-blurb{font-family:var(--font-display); font-size:17px; line-height:1.6; max-width:64ch; margin:0 0 6px; color:var(--ink2)}

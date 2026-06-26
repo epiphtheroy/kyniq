@@ -26,12 +26,12 @@ export default async function IdeaIndex() {
     <div className="mt">
       <MetatakeNav active="theory" />
       <div className="mt-wrap lh">
-        <div className="mt-crumb"><Link href="/theorist">Theory</Link></div>
+        <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/theorist">Theorists</Link> · <Link href="/tradition">Traditions</Link></div>
         <h1 className="lh-h1">Concepts</h1>
         <p className="lh-def">
           The ideas a Strong Misreading turns on — the lens it borrows to over-read a film. These {rows.length} concepts
           recur across {total.toLocaleString()} readings; open any to see every film that stages it. (Paired with the{" "}
-          <Link href="/theorist">theorists</Link> who think them.)
+          <Link href="/theorist">theorists</Link> who think them and the <Link href="/tradition">traditions</Link> they belong to.)
         </p>
         <div className="th-grid">
           {rows.map((r) => (
