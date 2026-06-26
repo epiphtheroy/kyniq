@@ -1,0 +1,40 @@
+"use client";
+
+import Link from "next/link";
+import type { HomeV2 } from "@/lib/home2";
+import { hashTone, tone, initials, directorHref } from "./helpers";
+import Rail from "./Rail";
+
+export default function Auteurs({ data }: { data: HomeV2 }) {
+  return (
+    <section className="band dark">
+      <div className="wrap">
+        <div className="shead">
+          <div>
+            <h2>
+              Auteurs to explore <span className="chev">›</span>
+            </h2>
+            <div className="sub">Follow a director and new readings come to you · per portrait: films on the map</div>
+          </div>
+          <Link className="seeall" href="/director">
+            All {data.stats.directors} directors ›
+          </Link>
+        </div>
+        <Rail variant="born">
+          {data.auteurs.map((p) => (
+            <Link className="bp" href={directorHref(p.slug)} key={p.slug}>
+              <div className="av" style={{ background: tone(hashTone(p.slug)) }}>
+                <div className="di">{initials(p.name)}</div>
+                <div className="hrt" title="Follow">
+                  ♡
+                </div>
+              </div>
+              <div className="nm">{p.name}</div>
+              <div className="ag">{p.films} films</div>
+            </Link>
+          ))}
+        </Rail>
+      </div>
+    </section>
+  );
+}
