@@ -45,3 +45,8 @@ worker/dist/
 # worker run logs + enrichment output bundles (artifacts, not source)
 *.log
 worker/figure-enrich*.json
+
+.fuse_hidden*
+.autodeploy.log
+.autodeploy.out.log
+.autodeploy.err.log
