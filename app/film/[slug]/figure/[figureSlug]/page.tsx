@@ -34,7 +34,7 @@ type Take = {
   id: string; framework: string | null; take_title: string | null; rationale: string | null;
   leap: string | null; strength: number | null; theorist_name: string | null;
   concept: string | null; real_person: string | null; is_invitation: boolean | null;
-  source: string | null;
+  source: string | null; theorist: { slug: string } | null;
 };
 
 async function load(slug: string, figureSlug: string) {
@@ -49,7 +49,7 @@ async function load(slug: string, figureSlug: string) {
   if (!figure) return null;
   const { data: takeRows } = await supabase
     .from("takes")
-    .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source")
+    .select("id, framework, take_title, rationale, leap, strength, theorist_name, concept, real_person, is_invitation, source, theorist:theorists(slug)")
     .eq("figure_id", figure.id).eq("status", "published");
   const takes = ((takeRows ?? []) as unknown as Take[])
     .sort((a, b) => Number(b.is_invitation ?? false) - Number(a.is_invitation ?? false) || (b.strength ?? 0) - (a.strength ?? 0));
@@ -279,7 +279,9 @@ export default async function FigurePage({ params }: Props) {
                   {!inv && t.leap ? <p className="sm-leap"><span className="sm-leap__l">The leap</span> {t.leap}</p> : null}
                   {!inv && (t.theorist_name || t.concept || t.real_person) ? (
                     <div className="sm-meta">
-                      {t.theorist_name ? <span className="sm-tag">{t.theorist_name}</span> : null}
+                      {t.theorist_name ? (t.theorist?.slug
+                        ? <Link className="sm-tag sm-tag--link" href={`/theorist/${t.theorist.slug}`}>{t.theorist_name}</Link>
+                        : <span className="sm-tag">{t.theorist_name}</span>) : null}
                       {t.concept ? <span className="sm-tag sm-tag--c">{t.concept}</span> : null}
                       {t.real_person ? <span className="sm-tag sm-tag--p">{t.real_person}</span> : null}
                     </div>
