@@ -302,9 +302,19 @@ export default async function FilmPage({ params }: Props) {
           {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
         </div>
 
-        {/* HERO — colour backdrop + poster */}
-        <section className="df-hero">
-          {film.backdrop_path ? (
+        {/* HERO — autoplay (muted) trailer in full 16:9; falls back to the colour backdrop */}
+        <section className={`df-hero${trailer ? " df-hero--vid" : ""}`}>
+          {trailer ? (
+            <div className="df-video">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${trailer.external_id}?autoplay=1&mute=1&controls=0&start=5&loop=1&playlist=${trailer.external_id}&playsinline=1&modestbranding=1&rel=0&disablekb=1`}
+                title={trailer.title ?? `${film.title} trailer`}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerPolicy="strict-origin-when-cross-origin"
+                loading="eager"
+              />
+            </div>
+          ) : film.backdrop_path ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} />
           ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
@@ -350,13 +360,15 @@ export default async function FilmPage({ params }: Props) {
 
         {/* INVITATION — spoiler-free way in */}
         {invitation ? (
-          <section className={`df-invite${trailer ? " df-invite--vid" : ""}`} id="df-invitation">
+          <section className={`df-invite${false && trailer ? " df-invite--vid" : ""}`} id="df-invitation">
             <div className="df-invite__txt">
               <div className="df-invite__k">An invitation</div>
               <p className="df-invite__p">{invitation}</p>
               <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
             </div>
-            {trailer ? (
+            {/* PRESERVED: the trailer now plays in the hero, so this duplicate is disabled.
+                To bring it back, remove the `false && ` here and on the section's df-invite--vid class above. */}
+            {false && trailer ? (
               <div className="df-invite__vid">
                 <InviteVideo videoId={trailer.external_id} title={trailer.title ?? `${film.title} trailer`} poster={trailer.thumbnail_url ?? undefined} />
               </div>
