@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 공개 프로필 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#FFFFFF;--paper:#FAF8F3;--s2:#F1EFE8;--ink:#14110D;--mut:#6B675F;--sub:#9A958C;--line:#E0DBD1;--line2:#CFC9BC;
+    --accent:#E3120B;--good:#2E7D4F;--gold:#9A6A1E;--teal:#0F6E56;--violet:#5B4AB7;--blue:#2C5FA8;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);font-size:13.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .ser{font-family:var(--ser)}.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:780px;margin:0 auto;padding:14px 22px 60px}
+  .top{display:flex;align-items:center;gap:12px;padding:9px 0 13px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--accent);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .top .rt{font-size:12px;color:var(--mut)}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* owner control strip */
+  .ctrl{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--s2);border:1px solid var(--line);border-radius:4px;padding:9px 13px;margin:14px 0 22px;font-size:12px;color:var(--mut)}
+  .ctrl .leg{display:flex;align-items:center;gap:6px}
+  .prev{margin-left:auto;display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--ink)}
+  .sw{width:38px;height:20px;border-radius:10px;background:#cfc9bc;position:relative;transition:.15s}
+  .sw::after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;left:2px;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+  .prev.on .sw{background:var(--accent)}.prev.on .sw::after{left:20px}
+
+  /* identity */
+  .ident{display:flex;gap:18px;align-items:flex-start;margin-bottom:8px}
+  .ava{width:84px;height:84px;flex:0 0 auto;border:1px solid var(--line2);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+  .ava.photo{background:linear-gradient(150deg,#ddd6c8,#c8c0b0)}
+  .ava .pc{position:absolute;bottom:-2px;right:-2px;background:#fff;border:1px solid var(--line2);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--mut);cursor:pointer}
+  .iname{flex:1;min-width:0}
+  .handle{font-family:var(--ser);font-size:27px;line-height:1.1;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .lvl{font-size:11px;font-family:var(--mono);color:var(--gold);border:1px solid #d8c79a;background:#f7f0df;border-radius:3px;padding:1px 7px}
+  .navtag{font-size:11px;font-family:var(--mono);color:var(--accent);border:1px solid #f0c2c0;background:#fcecec;border-radius:3px;padding:1px 7px}
+  .rulerow{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);margin-top:6px}
+  .rulerow .r{display:flex;align-items:center;gap:5px}
+  .sig{font-family:var(--ser);font-style:italic;font-size:16px;color:var(--ink);margin-top:11px;line-height:1.5}
+  .emailrow{margin-top:9px;font-size:12px;color:var(--mut);display:flex;align-items:center;gap:8px}
+  .tg{cursor:pointer;color:var(--sub);font-size:16px}.tg.on{color:var(--accent)}
+  .mini{font-size:11px;color:var(--sub);border:1px solid var(--line2);border-radius:12px;padding:2px 9px;cursor:pointer}
+
+  /* NAV showcase card */
+  .navcard{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:linear-gradient(180deg,#fff,var(--s2));border:1px solid var(--line2);border-radius:8px;padding:15px 18px;margin:18px 0 4px;position:relative;overflow:hidden}
+  .navcard::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(154,106,30,.10),transparent 70%);pointer-events:none}
+  .navring{flex:0 0 auto}
+  .navinfo .eb{font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub)}
+  .navinfo .lvl2{font-size:13px;color:var(--gold);font-weight:600;letter-spacing:.03em;margin-top:5px;display:flex;align-items:center;gap:6px}
+  .navinfo .pctl{font-size:11.5px;color:var(--mut);margin-top:4px}
+  .navinfo .pctl b{color:var(--good);font-family:var(--mono)}
+  .navbands{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:11px;max-width:340px}
+  .band{font-size:9px;font-family:var(--mono);text-align:center;padding:3px 2px;border-radius:3px;border:1px solid var(--line);color:var(--sub);background:#fff;letter-spacing:.02em}
+  .band.on{border-color:#d8c79a;background:#f7f0df;color:var(--gold);font-weight:600}
+  .navnote{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);margin-top:13px;padding-top:9px;display:flex;gap:7px;align-items:flex-start}
+  .navnote .ti{color:var(--gold);flex:0 0 auto;margin-top:1px}
+
+  /* module */
+  .mod{margin-top:24px}
+  .mod.priv .body{opacity:.4}
+  .mh{display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:13px}
+  .mh h2{margin:0;font-family:var(--ser);font-size:17px;font-weight:700}
+  .mh .sublabel{font-size:11px;color:var(--sub);font-style:italic}
+  .mh .vis{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--sub)}
+  .mh .vis .tg{font-size:17px}
+  .privtag{font-size:10px;font-family:var(--mono);color:var(--mut);border:1px solid var(--line2);border-radius:3px;padding:1px 6px}
+  .pubchip{font-size:10px;font-family:var(--mono);color:var(--good);border:1px solid #a9d8c9;background:#e6f4ee;border-radius:3px;padding:1px 6px;margin-left:auto;display:inline-flex;align-items:center;gap:4px}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:9px}
+  .st{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:11px 12px}
+  .st .v{font-family:var(--mono);font-size:22px}.st .l{font-size:10.5px;color:var(--sub);margin-top:2px}
+  .st .v small{font-size:13px;color:var(--sub)}
+
+  .badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:9px}
+  .bd{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:9px 11px}
+  .bd.locked{opacity:.5;border-style:dashed}
+  .bd .ic{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;flex:0 0 auto;border:1px solid}
+  .bd .n{font-size:12.5px;font-weight:500;line-height:1.25}.bd .s{font-size:10px;color:var(--sub)}
+  .b-gold .ic{color:var(--gold);border-color:#d8c79a;background:#f7f0df}
+  .b-red .ic{color:var(--accent);border-color:#f0c2c0;background:#fcecec}
+  .b-teal .ic{color:var(--teal);border-color:#a9d8c9;background:#e6f4ee}
+  .b-violet .ic{color:var(--violet);border-color:#c5bdef;background:#efecfb}
+  .b-blue .ic{color:var(--blue);border-color:#b8c9e6;background:#e8eef7}
+  .b-base .ic{color:var(--mut);border-color:var(--line2);background:var(--s2)}
+
+  .lin{display:flex;flex-direction:column;gap:9px}
+  .lrow{display:grid;grid-template-columns:188px 1fr 78px;align-items:center;gap:11px;font-size:13px}
+  .lrow .nm{font-family:var(--ser);font-size:14px}
+  .lrow .nm small{font-family:var(--ui);font-style:normal;color:var(--sub);font-size:10.5px;margin-left:5px}
+  .track{height:7px;background:var(--s2);border-radius:0;overflow:hidden}.track>i{display:block;height:100%;background:var(--accent)}
+  .track>i.mid{background:var(--gold)}.track>i.hi{background:var(--good)}
+  .lrow .pct{font-family:var(--mono);font-size:12px;text-align:right;color:var(--mut);display:flex;justify-content:flex-end;gap:6px;align-items:baseline}
+  .lrow .pct .frac{font-size:9.5px;color:var(--sub)}
+  .lingrp{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);margin:13px 0 7px}
+  .lingrp:first-child{margin-top:2px}
+
+  .wlist{display:flex;flex-direction:column}
+  .wi{padding:10px 0;border-bottom:1px solid var(--line)}
+  .wi:last-child{border-bottom:0}
+  .wi .t{font-family:var(--ser);font-size:15.5px}
+  .wi .m{font-size:11px;color:var(--sub);margin-top:2px;display:flex;gap:8px;align-items:center}
+  .wi .ex{font-size:13px;color:var(--mut);margin-top:5px;max-width:62ch}
+
+  .posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+  .pcard{text-align:center}
+  .po{width:100%;aspect-ratio:2/3;border-radius:2px;background:linear-gradient(150deg,#ddd6c8,#c5bdac);position:relative;border:1px solid var(--line)}
+  .po .yr{position:absolute;bottom:4px;left:0;right:0;font-family:var(--mono);font-size:9px;color:#5b5547}
+  .po .rk{position:absolute;top:4px;left:4px;font-family:var(--mono);font-size:9px;color:#fff;background:rgba(20,17,13,.55);border-radius:2px;padding:0 4px}
+  .pcard .pt{font-family:var(--ser);font-size:11px;margin-top:4px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .seemore{font-size:12px;color:var(--accent);margin-top:10px;display:inline-block;cursor:pointer}
+
+  /* podium */
+  .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .pod{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:13px;text-align:center;position:relative}
+  .pod .medal{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;padding:1px 8px;border-radius:11px;display:inline-block;margin-bottom:8px}
+  .pod.p1 .medal{color:var(--gold);background:#f7f0df;border:1px solid #d8c79a}
+  .pod.p2 .medal{color:var(--mut);background:var(--s2);border:1px solid var(--line2)}
+  .pod.p3 .medal{color:#8a5a2a;background:#f4ece0;border:1px solid #d9c4a8}
+  .pod .pt{font-family:var(--ser);font-size:15px;line-height:1.2}
+  .pod .py{font-family:var(--mono);font-size:11px;color:var(--sub);margin-top:3px}
+  .pod .pw{font-size:11px;color:var(--mut);font-style:italic;margin-top:7px;line-height:1.4}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .col{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:13px}
+  .col .ct{font-family:var(--ser);font-size:15px;display:flex;align-items:center;gap:7px}
+  .col .cm{font-size:11px;color:var(--sub);margin-top:3px}
+  .col .cs{font-size:11.5px;color:var(--mut);margin-top:8px;border-top:1px solid var(--line);padding-top:7px}
+  .pubdot{font-size:10px;color:var(--good);margin-left:auto}
+
+  .footnote{font-size:11px;color:var(--sub);font-style:italic;text-align:center;margin-top:30px;border-top:1px solid var(--line);padding-top:14px;line-height:1.6}
+  .footnote b{color:var(--mut);font-style:normal}
+  .hidden{display:none!important}
+  @media(max-width:620px){.cols{grid-template-columns:1fr}.lrow{grid-template-columns:130px 1fr 70px}.navcard{grid-template-columns:1fr}.navbands{max-width:none}.podium{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:17px;font-weight:700">공개 프로필</span>
+    <span class="rt"><span id="ownerChrome">내 프로필 · 편집 중</span></span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <div class="ctrl" id="ctrl">
+    <span class="leg"><i class="ti ti-eye" style="color:var(--accent)"></i> <b style="color:var(--ink);font-weight:600">공개 항목</b>만 남들이 봅니다 — 켜진 칸</span>
+    <span class="leg" style="color:var(--sub)">· <i class="ti ti-lock" style="font-size:13px"></i> 끄면 <b style="font-weight:600">비공개로 보호됨</b></span>
+    <span class="prev" id="prev"><span class="sw"></span><span id="prevLbl">공개 미리보기</span></span>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="ident">
+    <div class="ava" id="ava">
+      <svg width="56" height="56" viewBox="0 0 56 56" id="emblem"><circle cx="28" cy="28" r="22" fill="none" stroke="#9A6A1E" stroke-width="1.4"/>
+        <path d="M28 10 L28 46 M10 28 L46 28" stroke="#CFC9BC" stroke-width="1"/><circle cx="28" cy="28" r="7" fill="#E3120B"/></svg>
+      <span class="pc" id="photoToggle" title="사진 올리기/숨기기"><i class="ti ti-camera"></i></span>
+    </div>
+    <div class="iname">
+      <div class="handle">@lantern_kr <span class="lvl">LV. ESTABLISHED</span> <span class="navtag">NAV 1,284</span></div>
+      <div class="rulerow">
+        <span class="r"><i class="ti ti-lock"></i> 실명·이메일 비공개 · <b style="color:var(--mut);font-weight:600">별칭(핸들)으로만 활동</b></span>
+        <span class="r"><i class="ti ti-map-pin-off"></i> 위치 비공개</span>
+      </div>
+      <div class="sig">정전을 향해 천천히 걷는 관객 — 권위 있는 목록을 한 줄씩 완파해 갑니다.</div>
+      <div class="emailrow"><i class="ti ti-mail tg" id="emailTg"></i> <span id="emailVal">이메일 비공개</span>
+        <span class="mini" id="emailEdit">공개로 바꾸기</span></div>
+    </div>
+  </div>
+
+  <!-- NAV SHOWCASE -->
+  <div class="navcard">
+    <div class="navring">
+      <svg width="88" height="88" viewBox="0 0 88 88" aria-label="NAV 레벨 링">
+        <circle cx="44" cy="44" r="36" fill="none" stroke="#E0DBD1" stroke-width="7"/>
+        <circle cx="44" cy="44" r="36" fill="none" stroke="#9A6A1E" stroke-width="7" stroke-linecap="round"
+          stroke-dasharray="226" stroke-dashoffset="81" transform="rotate(-90 44 44)"/>
+        <text x="44" y="42" text-anchor="middle" font-size="18" fill="#14110D" font-family="ui-monospace,monospace" font-weight="600">1,284</text>
+        <text x="44" y="56" text-anchor="middle" font-size="8" fill="#9A958C" letter-spacing="1.5">NAV</text>
+      </svg>
+    </div>
+    <div class="navinfo">
+      <div class="eb">영화적 자산 · Net Asset Value</div>
+      <div class="lvl2"><i class="ti ti-circle-filled" style="font-size:9px"></i> LV. ESTABLISHED</div>
+      <div class="pctl">코퍼스 백분위 <b>상위 14%</b> · NAV 집계값(개별 평점은 비공개)</div>
+      <div class="navbands">
+        <span class="band">SEEDLING</span>
+        <span class="band">EMERGING</span>
+        <span class="band on">ESTABLISHED</span>
+        <span class="band">SEASONED</span>
+        <span class="band">MASTER</span>
+      </div>
+    </div>
+    <div class="navnote"><i class="ti ti-info-circle"></i> NAV는 폭·권위·깊이·발굴을 집계한 공개 가능한 자산 수치입니다. <b style="color:var(--mut)">레벨 밴드와 집계값만 공개</b>되고, 이를 구성한 개별 평점·노트는 공개되지 않습니다.</div>
+  </div>
+
+  <!-- MODULES -->
+  <div id="modules"></div>
+
+  <div class="footnote">
+    공개되는 것은 <b>커버리지·레벨 밴드·NAV 집계·완파 뱃지·계보 진척·내가 고른 Top 3</b> — 모두 업적이라 공유합니다.<br>
+    <b>트로프·형상 코드, 강한 오독(misreading), 개별 평점 숫자, 관람일·노트, 실명·이메일</b>은 프로필에 절대 노출되지 않습니다 — 해석의 내부는 사적으로 둡니다.
+  </div>
+</div>
+
+<script>
+let preview=false, photoOn=false, emailPub=false;
+const mods=[
+ {key:'stats',title:'커버리지 & 레벨',sub:'집계 수치만 — 개별 평점 아님',pub:true},
+ {key:'badges',title:'도장깨기 업적',sub:'완파·근접 뱃지 월',pub:true},
+ {key:'lineage',title:'계보(리니지) 커버리지',sub:'정전·시상·국가 정전 진척',pub:true},
+ {key:'podium',title:'내가 고른 Top 3',sub:'내 포디움 1·2·3 (옵션)',pub:true},
+ {key:'writings',title:'공개한 글',pub:true},
+ {key:'watched',title:'내가 본 영화',sub:'평점 없이 작품만',pub:true},
+ {key:'collections',title:'내가 만든 리스트',pub:true},
+];
+// 공개 안전: 집계·밴드만 (개별 평점 7.x 같은 숫자는 미노출)
+const STATS=[
+ ['보유','142',''],['진입 계보','52','/115'],['가중 커버리지','23.4','%'],
+ ['정전 커버리지','38','/250'],['공개 글','6',''],['동행','7',''],
+];
+const BADGES=[
+ // 완파(conquer) — 도장깨기
+ ['ti-flag','브레송 근접 정복','감독 5/6 · 1편 남음','b-gold',false],
+ ['ti-flag-filled','하네케 근접','감독 6/7','b-gold',false],
+ ['ti-layers-intersect','S&S 2022 진척','41% · 50% 완파 9편','b-blue',false],
+ ['ti-flag-2','KOFA 한국 정전','52% · 75% 완파 23편','b-teal',false],
+ ['ti-stack-2','100편 돌파','보유 142','b-base',false],
+ ['ti-award','정전 38/250','가중 커버리지','b-base',false],
+ ['ti-compass','발굴가 밴드','Discovery 31','b-violet',false],
+ ['ti-trophy','첫 완파 대기','미조구치 0/6 · 잠금','b-base',true],
+];
+// 계보 진척 — 공개 안전 (커버리지 %는 업적)
+const LIN=[
+ ['CANON',[
+   ['Sight & Sound 2022','비평가 100',41,'41/100'],
+   ['Cahiers 100','가장 아름다운 영화',38,'38/100'],
+   ['TSPDT 1000','역대 위대한 영화',19,'188/994'],
+ ]],
+ ['FESTIVAL / AWARD',[
+   ["Palme d'Or",'칸 황금종려',27,'21/77'],
+   ['Academy · 작품상','오스카',29,'28/97'],
+ ]],
+ ['NATIONAL',[
+   ['KOFA 100','한국 정전',52,'52/100'],
+ ]],
+];
+// 옵션 포디움 — 내가 고른 1·2·3 (평점 숫자 아님, 큐레이션 선택)
+const PODIUM=[
+ ['p2','② 은메달','Tokyo Story',"'53 · 오즈","견딤의 형식을 처음 가르쳐준 작품."],
+ ['p1','① 금메달','Au Hasard Balthazar',"'66 · 브레송","손과 얼굴로 영혼을 보게 한 영화."],
+ ['p3','③ 동메달','In the Mood for Love',"'00 · 왕가위","절제가 어떻게 격정이 되는지."],
+];
+const WRIT=[
+ ['브레송의 손에 대하여','06.20','얼굴보다 손으로 먼저 말하는 인물들 — 표정을 지운 자리에서 행위가 영혼이 된다.'],
+ ['느린 영화는 왜 윤리적인가','06.18','지속(duration)은 판단을 유보하게 한다. 시간을 견디게 함으로써 우리를 윤리적 주체로 만든다.'],
+ ['풍경의 무관심, 한 갈래로','06.24','인간의 고통과 무관하게 펼쳐지는 풍경 — 타르의 바람과 라이카트의 강이 만나는 곳.'],
+];
+const WATCHED=[['Parasite','19'],['Au Hasard Balthazar','66'],['Tokyo Story','53'],['Yi Yi','00'],['Stalker','79'],['In the Mood for Love','00'],['The Turin Horse','11'],['Persona','66']];
+const COLLS=[['느린 영화의 윤리','9개 · 영화·감독·리니지'],['입문자를 위한 12편','12개 · 큐레이션']];
+
+function trackCls(p){return p>=50?'hi':p>=25?'mid':'';}
+function modBody(k){
+ if(k==='stats')return `<div class="stats">${STATS.map(([l,v,u])=>`<div class="st"><div class="v">${v}${u?`<small>${u}</small>`:''}</div><div class="l">${l}</div></div>`).join('')}</div>`;
+ if(k==='badges')return `<div class="badges">${BADGES.map(([i,n,s,c,lk])=>`<div class="bd ${c}${lk?' locked':''}"><div class="ic"><i class="ti ${i}"></i></div><div><div class="n">${n}</div><div class="s">${s}</div></div></div>`).join('')}</div>`;
+ if(k==='lineage')return `<div class="lin">${LIN.map(([g,rows])=>`<div class="lingrp">${g}</div>${rows.map(([n,sub,p,fr])=>`<div class="lrow"><span class="nm">${n}<small>${sub}</small></span><div class="track"><i class="${trackCls(p)}" style="width:${p}%"></i></div><span class="pct">${p}%<span class="frac">${fr}</span></span></div>`).join('')}`).join('')}</div>`;
+ if(k==='podium')return `<div class="podium">${PODIUM.map(([cl,m,t,y,w])=>`<div class="pod ${cl}"><span class="medal">${m}</span><div class="pt">${t}</div><div class="py">${y}</div><div class="pw">${w}</div></div>`).join('')}</div>`;
+ if(k==='writings')return `<div class="wlist">${WRIT.map(([t,d,e])=>`<div class="wi"><div class="t">${t}</div><div class="m"><i class="ti ti-world" style="color:var(--good)"></i> 공개 · ${d}</div><div class="ex">${e}</div></div>`).join('')}</div>`;
+ if(k==='watched')return `<div class="posters">${WATCHED.map(([t,y])=>`<div class="pcard"><div class="po"><span class="yr">'${y}</span></div><div class="pt">${t}</div></div>`).join('')}</div><div style="font-size:10.5px;color:var(--sub);margin-top:9px"><i class="ti ti-lock" style="font-size:11px"></i> 작품만 표시 — 개별 평점·관람일·노트는 비공개</div><span class="seemore" onclick="location.href='mockup-me-collection-list-v2.html'">내가 본 142편 전체 보기 →</span>`;
+ if(k==='collections')return `<div class="cols">${COLLS.map(([t,m])=>`<div class="col"><div class="ct"><i class="ti ti-folder" style="color:var(--mut)"></i> ${t}<span class="pubdot">● 공개</span></div><div class="cm">${m}</div><div class="cs" style="cursor:pointer" onclick="location.href='mockup-me-library.html'">미리보기 →</div></div>`).join('')}</div>`;
+ return '';
+}
+function render(){
+ // identity chrome
+ document.getElementById('ctrl').classList.toggle('hidden',preview);
+ document.getElementById('ownerChrome').textContent=preview?'공개된 모습 (방문자 시점)':'내 프로필 · 편집 중';
+ document.getElementById('ava').classList.toggle('photo',photoOn);
+ document.getElementById('emblem').style.display=photoOn?'none':'';
+ document.getElementById('photoToggle').classList.toggle('hidden',preview);
+ // email
+ document.getElementById('emailTg').classList.toggle('on',emailPub);
+ document.getElementById('emailVal').textContent=emailPub?'thinkartist1@gmail.com':'이메일 비공개';
+ document.getElementById('emailEdit').classList.toggle('hidden',preview);
+ document.querySelector('.emailrow').classList.toggle('hidden',preview&&!emailPub);
+ // modules
+ const box=document.getElementById('modules');
+ box.innerHTML=mods.map(m=>{
+   if(preview&&!m.pub)return '';
+   const privCls=(!preview&&!m.pub)?' priv':'';
+   const subEl=m.sub?`<span class="sublabel">${m.sub}</span>`:'';
+   const visCtrl=preview?'<span class="pubchip"><i class="ti ti-world"></i> 공개 항목</span>':`<span class="vis">${m.pub?'공개':'<span class="privtag">비공개로 보호됨</span>'} <i class="ti ti-${m.pub?'eye':'eye-off'} tg ${m.pub?'on':''}" data-mod="${m.key}"></i></span>`;
+   return `<section class="mod${privCls}"><div class="mh"><h2>${m.title}</h2>${subEl}${visCtrl}</div><div class="body">${modBody(m.key)}</div></section>`;
+ }).join('');
+}
+document.getElementById('prev').onclick=()=>{preview=!preview;document.getElementById('prev').classList.toggle('on',preview);
+ document.getElementById('prevLbl').textContent=preview?'편집으로 돌아가기':'공개 미리보기';render();};
+document.getElementById('photoToggle').onclick=()=>{photoOn=!photoOn;render();};
+document.getElementById('emailTg').onclick=()=>{emailPub=!emailPub;render();};
+document.getElementById('emailEdit').onclick=()=>{emailPub=!emailPub;render();};
+document.getElementById('modules').addEventListener('click',e=>{const t=e.target.closest('[data-mod]');if(t){const m=mods.find(x=>x.key===t.dataset.mod);m.pub=!m.pub;render();}});
+render();
+</script>
+</body>
+</html>
