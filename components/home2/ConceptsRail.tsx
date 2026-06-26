@@ -14,7 +14,7 @@ export default function ConceptTiles({ data }: { data: HomeV2 }) {
             <h2>
               Popular concepts <span className="chev">›</span>
             </h2>
-            <div className="sub">The critical ideas cinema returns to · per tile: films embodying it</div>
+            <div className="sub">The critical ideas cinema returns to · a film still per tile</div>
           </div>
           <Link className="seeall" href="/idea">
             All concepts ›
