@@ -18,16 +18,23 @@ export default function GalleryViewer({
   const [tab, setTab] = useState<"backdrops" | "posters">(backdrops.length ? "backdrops" : "posters");
   const list = tab === "backdrops" ? backdrops : posters;
   const [i, setI] = useState(0);
+  const [zoom, setZoom] = useState(false);
   useEffect(() => { setI(0); }, [tab]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") setI((p) => Math.min(list.length - 1, p + 1));
       else if (e.key === "ArrowLeft") setI((p) => Math.max(0, p - 1));
+      else if (e.key === "Escape") setZoom(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [list.length]);
+
+  useEffect(() => {
+    document.body.style.overflow = zoom ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [zoom]);
 
   const cur = list[i];
   const mainSize = tab === "backdrops" ? "w1280" : "w780";
@@ -54,14 +61,27 @@ export default function GalleryViewer({
       <div className="gal-main">
         {cur ? (
           /* eslint-disable-next-line @next/next/no-img-element */
-          <img key={cur.file_path} className={`gal-img gal-img--${tab}`} src={T(mainSize, cur.file_path)} alt={`${title} — ${tab === "backdrops" ? "backdrop" : "poster"} ${i + 1}`} />
+          <img key={cur.file_path} className={`gal-img gal-img--${tab}`} src={T(mainSize, cur.file_path)} alt={`${title} — ${tab === "backdrops" ? "backdrop" : "poster"} ${i + 1}`} onClick={() => setZoom(true)} title="Click to view full screen" />
         ) : <p className="gal-empty">No images for this title yet.</p>}
         <div className="gal-bar">
           <Link href={`/film/${filmSlug}`} className="gal-back">← {title}</Link>
           {cur ? <span className="gal-count">{i + 1} / {list.length}</span> : null}
-          <span className="gal-src">Images via TMDB. Not endorsed or certified by TMDB.</span>
+          <span className="gal-src">Images via TMDB</span>
         </div>
       </div>
+
+      {zoom && cur ? (
+        <div className="gal-zoom" role="dialog" aria-modal="true" onClick={() => setZoom(false)}>
+          <button className="gal-zoom__x" onClick={(e) => { e.stopPropagation(); setZoom(false); }} aria-label="Close">×</button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="gal-zoom__img" src={T("w1280", cur.file_path)} alt={`${title} ${i + 1}`} onClick={(e) => e.stopPropagation()} />
+          <div className="gal-zoom__nav" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setI((p) => Math.max(0, p - 1))} disabled={i === 0} aria-label="Previous">‹</button>
+            <span>{i + 1} / {list.length}</span>
+            <button onClick={() => setI((p) => Math.min(list.length - 1, p + 1))} disabled={i === list.length - 1} aria-label="Next">›</button>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
