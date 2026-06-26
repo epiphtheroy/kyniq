@@ -72,7 +72,7 @@ export default async function FilmGalleryPage({ params }: Props) {
             {!TMDB ? <><br /><span style={{ fontSize: 12, color: "var(--subtle)" }}>(TMDB image API not configured.)</span></> : null}
           </p>
         ) : (
-          <GalleryViewer backdrops={backdrops} posters={posters} title={film.title} filmSlug={film.slug} />
+          <GalleryViewer backdrops={backdrops} posters={posters} title={film.title} year={film.year} filmSlug={film.slug} />
         )}
       </div>
     </div>

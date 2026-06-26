@@ -181,7 +181,7 @@ export default async function FilmPage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   if ("minimal" in data && data.minimal) {
-    const f = data.film as { id: string; title: string; year: number | null; director: string | null; poster_path: string | null };
+    const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; poster_path: string | null };
     return (
       <div className="mt">
         <MetatakeNav active="films" />
@@ -197,7 +197,10 @@ export default async function FilmPage({ params }: Props) {
               <div className="df-htxt">
                 <h1>{f.title} <span className="df-yr">({f.year ?? "?"})</span></h1>
                 {f.director ? <div className="df-facts">{f.director}</div> : null}
-                <div className="df-hactions"><MovieListActions filmId={f.id} /></div>
+                <div className="df-hactions">
+                  <MovieListActions filmId={f.id} />
+                  {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
+                </div>
                 <p className="df-catnote">Catalog entry — not yet deeply analyzed on Metatake. Track it in your lists; the films most readers add are the ones we analyze next.</p>
               </div>
             </div>
