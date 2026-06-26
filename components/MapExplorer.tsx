@@ -82,7 +82,35 @@ export default function MapExplorer() {
     setLoading(false); busy.current = false;
   }, []);
 
-  useEffect(() => { loadOverview("films", { yr: null, imdb: null, rt: null }); }, [loadOverview]);
+  // initial view: focus from URL (?m=&t=&k=&k2=) if present, else films overview
+  useEffect(() => {
+    (async () => {
+      const sp = new URLSearchParams(window.location.search);
+      const m = sp.get("m"); const t = sp.get("t"); const k = sp.get("k"); const k2 = sp.get("k2");
+      busy.current = true; setLoading(true);
+      if (k && m === "directors") {
+        setMode("directors"); modeRef.current = "directors";
+        const target: Target = { mode: "directors", key: k };
+        const d = await fetchMap(target); setData(d);
+        setStack([{ id: `dir:${k}`, label: k.replace(/-/g, " "), target }]);
+      } else if (k && m === "films") {
+        setMode("films"); modeRef.current = "films";
+        const target: Target = { mode: "films", key: k };
+        const d = await fetchMap(target); setData(d);
+        setStack([{ id: `film:${k}`, label: k.replace(/-/g, " "), target }]);
+      } else if (k && t) {
+        setMode("critical"); modeRef.current = "critical";
+        const target: Target = { mode: "critical", ego: { type: t, key: k, key2: k2 ?? undefined } };
+        const d = await fetchMap(target); setData(d);
+        setStack([{ id: `${t}:${k}`, label: k.replace(/-/g, " "), target }]);
+      } else {
+        const target: Target = { mode: "films", key: null, filt: {} };
+        const d = await fetchMap(target); setData(d);
+        setStack([{ id: "__all_films", label: "All films", target }]);
+      }
+      setLoading(false); busy.current = false;
+    })();
+  }, []);
 
   // debounced fuzzy search
   useEffect(() => {

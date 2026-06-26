@@ -3740,7 +3740,20 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .map-stype--film{background:#3a3a3a} .map-stype--director{background:#B5642A} .map-stype--trope{background:#0F6E56} .map-stype--idea{background:#6D4AAE} .map-stype--theorist{background:#B23A8F} .map-stype--figure{background:#1F6FB2}
 .map-slabel{flex:1; min-width:0; font-family:var(--font-display); font-size:13.5px; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .map-ssub{flex:0 0 auto; font-family:var(--font-ui); font-size:11px; color:var(--subtle)}
-/* autodeploy self-test — harmless marker */
+/* embedded entity map (tab/section on entity pages) */
+.emap{margin:14px 0 4px}
+.emap-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:8px}
+.emap-hint{font-family:var(--font-ui); font-size:12px; color:var(--subtle)}
+.emap-actions{display:flex; align-items:center; gap:14px}
+.emap-exp{font-family:var(--font-ui); font-size:12px; color:var(--ink2); background:transparent; border:1px solid var(--hairline); border-radius:7px; padding:5px 11px; cursor:pointer}
+.emap-exp:hover{background:var(--surface-2)}
+.emap-full{font-family:var(--font-ui); font-size:12px; font-weight:600; color:#C8102E !important; text-decoration:none}
+.emap-full:hover{text-decoration:underline}
+.emap-skel{display:flex; align-items:center; justify-content:center; font-family:var(--font-ui); font-size:13px; color:var(--subtle); border:1px solid var(--hairline); border-radius:14px; background:var(--surface-2)}
+/* connection-map section intro (SEO) */
+.cmap-intro{font-family:var(--font-ui); font-size:14px; line-height:1.55; color:var(--ink2); margin:2px 0 4px; max-width:70ch}
+.cmap-stat{font-family:var(--font-ui); font-size:12.5px; color:var(--subtle); margin:0 0 4px}
+.cmap-stat b{color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums}
 /* filter grid */
 .map-filters{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:9px 16px; background:var(--bg); border-bottom:1px solid var(--hairline)}
 .map-filters label{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:11px; color:var(--subtle); text-transform:uppercase; letter-spacing:.05em}
