@@ -3653,3 +3653,40 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 
 /* FilmHeroReel — YT IFrame API player fills the .iv-frame box. */
 .iv-frame .iv-yt{position:absolute; inset:0; width:100%; height:100%}
+
+/* ── Surprise me (/random) — immersive one-card draw ───────────────── */
+.sm-page{background:#0e0c0a; min-height:100vh}
+.sm-wrap{max-width:920px; margin:0 auto; padding:0 18px 64px}
+.sm-head{text-align:center; padding:26px 0 12px}
+.sm-h1{font-family:var(--font-display); font-size:30px; font-weight:500; color:#fff; margin:0}
+.sm-tag{font-family:var(--font-ui); font-size:13px; color:#9a9388; margin:6px 0 0}
+.sm-toggles{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:16px 0 18px}
+.sm-tog{font-family:var(--font-ui); font-size:13px; padding:7px 15px; border-radius:20px; border:1px solid rgba(255,255,255,.18); color:#cfc7b7; background:transparent; cursor:pointer}
+.sm-tog:hover{border-color:rgba(255,255,255,.4); color:#fff}
+.sm-tog.on{background:#C8102E; color:#fff; border-color:#C8102E}
+.sm-card{position:relative; border-radius:16px; overflow:hidden; background:#000; aspect-ratio:16/9; border:1px solid rgba(255,255,255,.10); transition:opacity .18s}
+.sm-card.is-load{opacity:.55}
+.sm-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; display:block}
+.sm-bg--empty{background:linear-gradient(120deg,#23303a,#16110f)}
+.sm-grad{position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.92) 6%,rgba(0,0,0,.35) 46%,rgba(0,0,0,.04)); pointer-events:none}
+.sm-portrait{position:absolute; left:22px; bottom:22px; width:74px; height:74px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.82); z-index:3}
+.sm-body{position:absolute; left:0; right:0; bottom:0; padding:24px 26px; z-index:3}
+.sm-card:has(.sm-portrait) .sm-body{padding-left:112px}
+.sm-chip{display:inline-block; font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:#fff; background:#C8102E; padding:3px 9px; border-radius:5px; margin-bottom:10px}
+.sm-line{font-family:var(--font-display); font-size:clamp(22px,3.4vw,34px); line-height:1.16; color:#fff; font-weight:500; max-width:34ch}
+.sm-native{font-style:italic; font-weight:400; color:#cfc7b7; font-size:.6em}
+.sm-sub{font-family:var(--font-ui); font-size:13.5px; color:#cfc7b7; margin-top:9px}
+.sm-leap{font-family:var(--font-ui); font-size:13px; color:#b8b1a6; margin-top:7px; max-width:72ch}
+.sm-leap span{color:#E8A7AF; font-weight:600}
+.sm-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:18px}
+.sm-again{flex:1; min-width:200px; display:flex; align-items:center; justify-content:center; gap:10px; font-family:var(--font-ui); font-size:15px; font-weight:500; color:#fff; background:#C8102E; border:0; padding:14px; border-radius:12px; cursor:pointer}
+.sm-again:hover{background:#9b0c23}
+.sm-again:disabled{opacity:.55; cursor:default}
+.sm-open{display:flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:14px; color:#fff !important; border:1px solid rgba(255,255,255,.25); padding:14px 18px; border-radius:12px; text-decoration:none}
+.sm-open:hover{background:rgba(255,255,255,.08)}
+.sm-page kbd{font-family:var(--font-ui); font-size:11px; border:1px solid rgba(255,255,255,.45); border-radius:4px; padding:1px 6px; opacity:.85}
+.sm-trail{display:flex; align-items:center; gap:8px; margin-top:18px; flex-wrap:wrap}
+.sm-trail__k{font-family:var(--font-ui); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#7a7468}
+.sm-thumb{width:60px; height:38px; border-radius:6px; border:1px solid rgba(255,255,255,.18); background:#23303a center/cover no-repeat; cursor:pointer; flex:0 0 auto; padding:0}
+.sm-thumb:hover{border-color:rgba(255,255,255,.55)}
+@media(max-width:640px){ .sm-card:has(.sm-portrait) .sm-body{padding-left:26px} .sm-portrait{width:54px;height:54px;left:16px;bottom:auto;top:16px} }
