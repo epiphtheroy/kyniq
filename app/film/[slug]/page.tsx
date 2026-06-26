@@ -13,7 +13,7 @@ import InviteVideo from "@/components/InviteVideo";
 import FilmHeroReel from "@/components/FilmHeroReel";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
-import EntityGraphLoader from "@/components/EntityGraphLoader";
+import EntityMap from "@/components/EntityMap";
 import EntityActions from "@/components/EntityActions";
 import MovieListActions from "@/components/MovieListActions";
 import SeqNav from "@/components/SeqNav";
@@ -279,6 +279,7 @@ export default async function FilmPage({ params }: Props) {
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
+    { id: "df-map", label: "Map" },
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
@@ -473,13 +474,12 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        {/* LIVING MAP */}
-        <section className="df-sec">
-          <h2 className="df-h2">The map of {film.title}</h2>
-          <p className="df-sub">The film at the centre, its figures around it, and the readings each figure reaches. Drag to pan, scroll to zoom, hover a node.</p>
-          <div className="df-map">
-            <EntityGraphLoader kind="film" filmSlug={film.slug} label={film.title} height={400} />
-          </div>
+        {/* CONNECTION MAP */}
+        <section className="df-sec" id="df-map">
+          <h2 className="df-h2">{film.title} — connection map</h2>
+          <p className="cmap-stat"><b>{figures.length}</b> figures · <b>{misreadings.length}</b> strong misreadings · <b>{tropes.length}</b> tropes</p>
+          <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
+          <EntityMap api={`/api/map?type=film&key=${film.slug}`} full={`/map?m=critical&t=film&k=${film.slug}`} />
         </section>
 
         {/* TROPES */}
