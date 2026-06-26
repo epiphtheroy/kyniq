@@ -17,11 +17,13 @@ import { useRouter } from "next/navigation";
 
 export type GraphNode = {
   id: string;
-  type: "film" | "figure" | "reading" | "trope";
+  type: "film" | "figure" | "reading" | "trope" | "idea" | "director" | "theorist";
   label: string;
   sub?: string | null;
   href?: string | null;
   center?: boolean;
+  img?: string | null;   // poster (film) or profile photo (director)
+  dim?: string | null;   // faint inline suffix — film year / director birth year
 };
 export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" | "next" | "like"; arrow?: boolean };
 export type GraphData = { nodes: GraphNode[]; links: GraphLink[] };
@@ -60,6 +62,7 @@ export default function EntityGraph({
   height = 560,
   className,
   onNodeClick,
+  onOpen,
 }: {
   data: GraphData;
   height?: number;
@@ -67,11 +70,15 @@ export default function EntityGraph({
   // When provided, a (non-drag) click invokes this instead of navigating to href.
   // Used by The Map to recenter the graph on the clicked node.
   onNodeClick?: (n: GraphNode) => void;
+  // The little ↗ shortcut on each node — navigate to the entity page.
+  onOpen?: (n: GraphNode) => void;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const clickRef = useRef(onNodeClick);
   clickRef.current = onNodeClick;
+  const openRef = useRef(onOpen);
+  openRef.current = onOpen;
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -133,10 +140,13 @@ export default function EntityGraph({
       links.forEach((l) => { if (l.source === n) s.add(l.target); if (l.target === n) s.add(l.source); });
       return s;
     };
-    const radius = (n: SimNode) =>
-      n.center ? 13 : n.type === "figure" ? Math.min(11, 5 + n.deg * 1.5)
-      : n.type === "reading" || n.type === "trope" ? 7
-      : Math.min(11, 5 + n.deg * 1.5);
+    const radius = (n: SimNode) => {
+      if (n.img) return n.center ? 30 : 22;           // poster / face nodes
+      if (n.center) return 15;
+      if (n.type === "figure") return Math.min(11, 5 + n.deg * 1.5);
+      if (n.type === "reading" || n.type === "trope") return 7;
+      return Math.min(11, 5 + n.deg * 1.5);
+    };
 
     // ---- edges (svg) ----
     links.forEach((l) => {
@@ -157,17 +167,51 @@ export default function EntityGraph({
       const big = !!n.center;
       el.style.cssText =
         "position:absolute;transform:translate(-50%,-50%);cursor:pointer;user-select:none;transition:opacity .22s;";
-      const dotShadow = big ? "box-shadow:0 0 0 4px rgba(227,18,11,.14),0 0 20px rgba(227,18,11,.28);" : "";
-      const labelText = n.type === "figure" && !n.center ? trunc(n.label, 42) : n.label;
+      const ring = big ? ",0 0 0 3px rgba(227,18,11,.55)" : "";
+
+      // marker: poster (film) / face circle (director) / coloured dot
+      let marker: string; let halfW: number;
+      if (n.img && n.type === "film") {
+        const w = big ? 54 : 40, h = Math.round(w * 1.45); halfW = w / 2;
+        marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${w}px;height:${h}px;object-fit:cover;border-radius:4px;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
+      } else if (n.img && (n.type === "director" || n.type === "theorist")) {
+        const d = big ? 62 : 46; halfW = d / 2;
+        marker = `<img src="${esc(n.img)}" alt="" draggable="false" style="width:${d}px;height:${d}px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;box-shadow:0 2px 9px rgba(0,0,0,.30)${ring};">`;
+      } else {
+        halfW = r;
+        const dotShadow = big ? "box-shadow:0 0 0 4px rgba(227,18,11,.14),0 0 20px rgba(227,18,11,.28);" : "";
+        marker = `<div style="width:${r * 2}px;height:${r * 2}px;border-radius:50%;margin:0 auto;background:${col.dot};${dotShadow}transition:transform .18s;"></div>`;
+      }
+
+      const labelText = n.type === "figure" && !n.center ? trunc(n.label, 42) : trunc(n.label, 60);
+      const dimHtml = n.dim ? ` <span style="color:#a39c91;font-weight:400;">${esc(n.dim)}</span>` : "";
       const subHtml = n.sub
         ? `<span style="display:block;font:400 10px/1.1 ui-sans-serif,system-ui;color:#8a857b;margin-top:2px;">${esc(n.sub)}</span>`
         : "";
       el.innerHTML =
-        `<div style="width:${r * 2}px;height:${r * 2}px;border-radius:50%;margin:0 auto;background:${col.dot};${dotShadow}transition:transform .18s;"></div>` +
+        marker +
         `<div style="position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;` +
-        `font:${big ? "500 14px" : "500 12px"}/1.15 ui-sans-serif,system-ui,sans-serif;color:${col.label};` +
-        `text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.95);pointer-events:none;">${esc(labelText)}${subHtml}</div>`;
+        `font:${big ? "600 14px" : "500 12px"}/1.15 ui-sans-serif,system-ui,sans-serif;color:${col.label};` +
+        `text-shadow:0 1px 3px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.95);pointer-events:none;">${esc(labelText)}${dimHtml}${subHtml}</div>`;
       el.title = n.label + (n.sub ? " — " + n.sub : "");
+
+      // per-node ↗ shortcut → entity page (doesn't trigger drag/recenter)
+      if (n.href) {
+        const open = document.createElement("div");
+        open.textContent = "↗";
+        open.title = "Open page";
+        open.style.cssText =
+          `position:absolute;top:${-halfW - 2}px;left:${halfW - 6}px;width:18px;height:18px;border-radius:50%;` +
+          `background:#fff;border:1px solid rgba(0,0,0,.22);color:#C8102E;font:700 11px/16px ui-sans-serif,system-ui;` +
+          `text-align:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.22);z-index:5;`;
+        open.addEventListener("pointerdown", (e) => { e.stopPropagation(); });
+        open.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (openRef.current) openRef.current(n); else if (n.href) router.push(n.href);
+        });
+        el.appendChild(open);
+      }
+
       n.el = el;
       world.appendChild(el);
       attachNode(n, el);
