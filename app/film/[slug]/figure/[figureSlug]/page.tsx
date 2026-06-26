@@ -5,7 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
-import EntityGraphLoader from "@/components/EntityGraphLoader";
+import EntityMap from "@/components/EntityMap";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
@@ -318,10 +318,11 @@ export default async function FigurePage({ params }: Props) {
         </section>
 
         {/* MAP */}
-        <section className="fg-sec">
-          <h2 className="fg-h2">The neighbourhood of this figure</h2>
-          <p className="fg-gloss">The figure at the centre, the readings it gathers above, and the trope-siblings it connects to across films. Drag, zoom, hover.</p>
-          <EntityGraphLoader kind="figure" filmSlug={film.slug} figureSlug={figureSlug} label={figure.label} height={460} />
+        <section className="fg-sec" id="fg-map">
+          <h2 className="fg-h2">{figure.label} — connection map</h2>
+          <p className="cmap-stat"><b>{takes.length}</b> readings · <b>{tropes.length}</b> tropes</p>
+          <p className="cmap-intro">{figure.label} in {film.title} — its tropes, the ideas and theorists it draws, and the figures nearest it across films. Click a node to open it.</p>
+          <EntityMap api={`/api/map?type=figure&key=${film.slug}&key2=${figureSlug}`} full={`/map?m=critical&t=figure&k=${film.slug}&k2=${figureSlug}`} />
         </section>
 
         {/* CONNECTED FIGURES */}
