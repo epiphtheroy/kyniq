@@ -23,7 +23,7 @@ export type GraphNode = {
   href?: string | null;
   center?: boolean;
 };
-export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" };
+export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" | "next" | "like"; arrow?: boolean };
 export type GraphData = { nodes: GraphNode[]; links: GraphLink[] };
 
 // Light theme — readable on a white canvas. Dots carry the category colour;
@@ -42,15 +42,18 @@ const EDGE = {
   struct: "rgba(0,0,0,0.10)",
   reading: "rgba(192,57,43,0.22)",
   trope: "rgba(15,110,86,0.24)",
+  next: "rgba(200,16,46,0.40)",
+  recby: "rgba(31,111,178,0.42)",
+  like: "rgba(0,0,0,0.13)",
 };
-const EDGE_HI = { struct: "rgba(0,0,0,0.42)", reading: "#C0392B", trope: "#0F6E56" };
+const EDGE_HI = { struct: "rgba(0,0,0,0.42)", reading: "#C0392B", trope: "#0F6E56", next: "#C8102E", recby: "#1F6FB2", like: "rgba(0,0,0,0.45)" };
 
 type SimNode = GraphNode & {
   x: number; y: number; vx: number; vy: number;
   fx: number | null; fy: number | null; deg: number;
   el?: HTMLDivElement;
 };
-type SimLink = { source: SimNode; target: SimNode; kind: string; el?: SVGLineElement };
+type SimLink = { source: SimNode; target: SimNode; kind: string; arrow: boolean; el?: SVGLineElement };
 
 export default function EntityGraph({
   data,
@@ -89,6 +92,21 @@ export default function EntityGraph({
     svg.setAttribute("width", String(VW));
     svg.setAttribute("height", String(VH));
     svg.style.cssText = "position:absolute;left:0;top:0;overflow:visible;pointer-events:none;";
+    // arrowhead markers for directed links: next (red) and recommended-by (blue)
+    const defs = document.createElementNS(SVGNS, "defs");
+    const mkArrow = (id: string, fill: string) => {
+      const mk = document.createElementNS(SVGNS, "marker");
+      mk.setAttribute("id", id); mk.setAttribute("viewBox", "0 0 10 10");
+      mk.setAttribute("refX", "9"); mk.setAttribute("refY", "5");
+      mk.setAttribute("markerWidth", "7"); mk.setAttribute("markerHeight", "7");
+      mk.setAttribute("orient", "auto-start-reverse");
+      const mp = document.createElementNS(SVGNS, "path");
+      mp.setAttribute("d", "M0,0 L10,5 L0,10 z"); mp.setAttribute("fill", fill);
+      mk.appendChild(mp); defs.appendChild(mk);
+    };
+    mkArrow("mk-next", "#C8102E");
+    mkArrow("mk-recby", "#1F6FB2");
+    svg.appendChild(defs);
     world.appendChild(svg);
     wrap.appendChild(world);
 
@@ -106,7 +124,7 @@ export default function EntityGraph({
       return o;
     });
     const links: SimLink[] = data.links
-      .map((l) => ({ source: byId[l.s], target: byId[l.t], kind: l.kind || "struct" }))
+      .map((l) => ({ source: byId[l.s], target: byId[l.t], kind: l.kind || "struct", arrow: !!l.arrow }))
       .filter((l) => l.source && l.target) as SimLink[];
     links.forEach((l) => { l.source.deg++; l.target.deg++; });
 
@@ -124,7 +142,8 @@ export default function EntityGraph({
     links.forEach((l) => {
       const ln = document.createElementNS(SVGNS, "line");
       ln.setAttribute("stroke", EDGE[l.kind as keyof typeof EDGE] || EDGE.struct);
-      ln.setAttribute("stroke-width", "1.1");
+      ln.setAttribute("stroke-width", l.arrow ? "1.5" : "1.1");
+      if (l.arrow) ln.setAttribute("marker-end", l.kind === "recby" ? "url(#mk-recby)" : "url(#mk-next)");
       svg.appendChild(ln);
       l.el = ln;
     });
@@ -280,8 +299,14 @@ export default function EntityGraph({
       }
       for (const l of links) {
         if (l.el) {
+          let x2 = l.target.x, y2 = l.target.y;
+          if (l.arrow) { // pull the head back to the node edge so the arrow is visible
+            const dx = x2 - l.source.x, dy = y2 - l.source.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
+            const pad = radius(l.target) + 8;
+            x2 -= (dx / d) * pad; y2 -= (dy / d) * pad;
+          }
           l.el.setAttribute("x1", String(l.source.x)); l.el.setAttribute("y1", String(l.source.y));
-          l.el.setAttribute("x2", String(l.target.x)); l.el.setAttribute("y2", String(l.target.y));
+          l.el.setAttribute("x2", String(x2)); l.el.setAttribute("y2", String(y2));
         }
       }
       // keep a touch of life so drags always feel elastic; never fully freeze
