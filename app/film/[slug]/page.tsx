@@ -248,7 +248,8 @@ export default async function FilmPage({ params }: Props) {
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
-  ].filter(Boolean)) as { id: string; label: string }[];
+    (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
+  ].filter(Boolean)) as { id: string; label: string; href?: string }[];
 
   const jsonld = {
     "@context": "https://schema.org", "@type": "Movie", name: film.title,

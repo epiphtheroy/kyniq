@@ -7,8 +7,9 @@
  * Mobile: horizontally scrollable.
  */
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
-type Tab = { id: string; label: string };
+type Tab = { id: string; label: string; href?: string };
 
 export default function FilmTabBar({ tabs }: { tabs: Tab[] }) {
   const barRef = useRef<HTMLElement>(null);
@@ -59,15 +60,21 @@ export default function FilmTabBar({ tabs }: { tabs: Tab[] }) {
     <nav ref={barRef} className="df-tabs" style={{ top: navH }} aria-label="Sections on this page">
       <div className="df-tabs__in">
         {tabs.map((t) => (
-          <a
-            key={t.id}
-            href={`#${t.id}`}
-            className={`df-tab${active === t.id ? " active" : ""}`}
-            aria-current={active === t.id ? "true" : undefined}
-            onClick={(e) => onClick(e, t.id)}
-          >
-            {t.label}
-          </a>
+          t.href ? (
+            <Link key={t.id} href={t.href} className="df-tab df-tab--link">
+              {t.label}
+            </Link>
+          ) : (
+            <a
+              key={t.id}
+              href={`#${t.id}`}
+              className={`df-tab${active === t.id ? " active" : ""}`}
+              aria-current={active === t.id ? "true" : undefined}
+              onClick={(e) => onClick(e, t.id)}
+            >
+              {t.label}
+            </a>
+          )
         ))}
       </div>
     </nav>
