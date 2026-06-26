@@ -5,6 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
+import EntityMap from "@/components/EntityMap";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import SaveButton from "@/components/SaveButton";
@@ -176,6 +177,7 @@ export default async function DirectorPage({ params }: Props) {
   if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life" });
   if (next.length) tabs.push({ id: "dr-next", label: "Who's Next" });
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
+  tabs.push({ id: "dr-map", label: "Map" });
 
   return (
     <div className="mt">
@@ -370,6 +372,14 @@ export default async function DirectorPage({ params }: Props) {
             )}
           </section>
         )}
+
+        {/* CONNECTION MAP */}
+        <section className="dr-sec" id="dr-map">
+          <h2 className="dr-h2">{director} — director map</h2>
+          <p className="cmap-stat"><b>{total}</b> films · <b>{readingCount}</b> readings · <b>{tropeCount}</b> tropes</p>
+          <p className="cmap-intro">Where {director} sits among filmmakers — who to watch next, the directors who point back here, and the directors nearest by Metatake&rsquo;s embedding of their films. Click a face to travel.</p>
+          <EntityMap api={`/api/map?mode=directors&key=${slug}`} full={`/map?m=directors&k=${slug}`} />
+        </section>
 
         {/* FILMOGRAPHY */}
         <section className="dr-sec" id="dr-filmography">
