@@ -1,11 +1,11 @@
 "use client";
 
 /**
- * MapExplorer — "The Map". Three modes (tabs): Films (default) · Directors · Grouped.
- * Film/director nodes show poster / face; year & birth-year sit faint inline; every
- * node carries an ↗ shortcut to its page. A filter grid (year / IMDb / Rotten Tomatoes
- * for films, year for directors) reshapes the opening cloud. Click a node to recenter;
- * a breadcrumb records the path; the centered node is enlarged.
+ * MapExplorer — "The Map". Tabs: Films (default) · Directors · Grouped.
+ * Film/director nodes show poster/face; year & birth-year sit faint inline; every node
+ * has a small ↗ to its page and a single-click recenter. A fuzzy search box (top-left of
+ * the graph) jumps the map to any film/director/trope/idea/theorist/figure. A filter grid
+ * (Year/IMDb/Rotten Tomatoes for films, Year for directors) reshapes the opening cloud on Apply.
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -16,13 +16,12 @@ type EgoParams = { type: string; key: string; key2?: string };
 type Filt = { yr?: number | null; imdb?: number | null; rt?: number | null };
 type Target = { mode: Mode; ego?: EgoParams | null; key?: string | null; filt?: Filt };
 type Crumb = { id: string; label: string; target: Target };
+type SearchHit = { type: string; key: string; key2: string | null; label: string; sub: string | null; score: number };
 
 const MODES: [Mode, string][] = [["films", "Films"], ["directors", "Directors"], ["critical", "Grouped"]];
 const ALL_LABEL: Record<Mode, string> = { films: "All films", directors: "All directors", critical: "All" };
-
 const PREFIX: Record<string, string> = { film: "film", fig: "figure", trope: "trope", idea: "idea", dir: "director", theo: "theorist" };
 const TYPE_LABEL: Record<string, string> = { film: "Film", figure: "Figure", trope: "Trope", idea: "Idea", director: "Director", theorist: "Theorist" };
-
 const YEARS = [null, 1970, 1980, 1990, 2000, 2010, 2020];
 const IMDBS = [null, 6, 7, 7.5, 8];
 const RTS = [null, 60, 75, 90];
@@ -47,9 +46,7 @@ async function fetchMap(t: Target): Promise<GraphData> {
       if (t.filt.yr) p.set("yr", String(t.filt.yr));
       if (t.mode === "films") { if (t.filt.imdb) p.set("imdb", String(t.filt.imdb)); if (t.filt.rt) p.set("rt", String(t.filt.rt)); }
     }
-  } else if (t.ego) {
-    p.set("type", t.ego.type); p.set("key", t.ego.key); if (t.ego.key2) p.set("key2", t.ego.key2);
-  }
+  } else if (t.ego) { p.set("type", t.ego.type); p.set("key", t.ego.key); if (t.ego.key2) p.set("key2", t.ego.key2); }
   p.set("_", String(Date.now()));
   try {
     const r = await fetch(`/api/map?${p.toString()}`, { cache: "no-store" });
@@ -64,10 +61,11 @@ export default function MapExplorer() {
   const [stack, setStack] = useState<Crumb[]>([{ id: "__all_films", label: "All films", target: { mode: "films", key: null, filt: {} } }]);
   const [loading, setLoading] = useState(true);
   const [h, setH] = useState(600);
-  const [filt, setFilt] = useState<Filt>({ yr: null, imdb: null, rt: null });
+  const [filt, setFilt] = useState<Filt>({ yr: null, imdb: null, rt: null });   // pending (selects)
+  const [query, setQuery] = useState("");
+  const [hits, setHits] = useState<SearchHit[]>([]);
   const busy = useRef(false);
   const modeRef = useRef<Mode>(mode); modeRef.current = mode;
-  const filtRef = useRef<Filt>(filt); filtRef.current = filt;
 
   useEffect(() => {
     const fit = () => setH(Math.max(420, window.innerHeight - 210));
@@ -77,7 +75,7 @@ export default function MapExplorer() {
 
   const loadOverview = useCallback(async (m: Mode, f: Filt) => {
     busy.current = true; setLoading(true);
-    const t: Target = { mode: m, key: null, filt: f };
+    const t: Target = m === "critical" ? { mode: "critical", ego: null } : { mode: m, key: null, filt: f };
     const d = await fetchMap(t);
     setData(d);
     setStack([{ id: `__all_${m}`, label: ALL_LABEL[m], target: t }]);
@@ -86,25 +84,33 @@ export default function MapExplorer() {
 
   useEffect(() => { loadOverview("films", { yr: null, imdb: null, rt: null }); }, [loadOverview]);
 
+  // debounced fuzzy search
+  useEffect(() => {
+    const t = query.trim();
+    if (t.length < 2) { setHits([]); return; }
+    const id = setTimeout(async () => {
+      try { const r = await fetch(`/api/map/search?q=${encodeURIComponent(t)}`, { cache: "no-store" }); const j = await r.json(); setHits(Array.isArray(j) ? j : []); } catch { setHits([]); }
+    }, 200);
+    return () => clearTimeout(id);
+  }, [query]);
+
   const center = data.nodes.find((n) => n.center) || null;
 
   const switchMode = useCallback((m: Mode) => {
     if (busy.current || m === modeRef.current) return;
-    setMode(m);
-    if (m === "critical") { // grouped overview ignores filters
-      (async () => { busy.current = true; setLoading(true);
-        const t: Target = { mode: "critical", ego: null };
-        const d = await fetchMap(t); setData(d);
-        setStack([{ id: "__all_critical", label: "All", target: t }]);
-        setLoading(false); busy.current = false; })();
-    } else loadOverview(m, filtRef.current);
-  }, [loadOverview]);
+    setMode(m); loadOverview(m, filt);
+  }, [loadOverview, filt]);
 
-  const changeFilt = useCallback((patch: Filt) => {
-    const f = { ...filtRef.current, ...patch };
-    setFilt(f);
-    if (modeRef.current !== "critical") loadOverview(modeRef.current, f);
-  }, [loadOverview]);
+  const applyFilters = useCallback(() => {
+    if (modeRef.current !== "critical") loadOverview(modeRef.current, filt);
+  }, [loadOverview, filt]);
+
+  const goTarget = useCallback(async (target: Target, crumb: Crumb) => {
+    busy.current = true; setLoading(true);
+    const d = await fetchMap(target);
+    if (d.nodes.length) setData((prev) => { setStack((s) => [...s, crumb]); return d; });
+    setLoading(false); busy.current = false;
+  }, []);
 
   const recenter = useCallback(async (node: GraphNode) => {
     if (busy.current || node.center) return;
@@ -115,11 +121,8 @@ export default function MapExplorer() {
       if (!p) { if (node.href) window.location.assign(node.href); return; }
       target = { mode: "critical", ego: p };
     } else { const slug = slugOf(node.id); if (!slug) return; target = { mode: m, key: slug }; }
-    busy.current = true; setLoading(true);
-    const d = await fetchMap(target);
-    if (d.nodes.length) { setData(d); setStack((s) => [...s, { id: node.id, label: node.label, target: target! }]); }
-    setLoading(false); busy.current = false;
-  }, []);
+    await goTarget(target, { id: node.id, label: node.label, target });
+  }, [goTarget]);
 
   const goCrumb = useCallback(async (i: number) => {
     if (busy.current) return;
@@ -131,6 +134,17 @@ export default function MapExplorer() {
   }, [stack]);
 
   const openNode = useCallback((n: GraphNode) => { if (n.href) window.location.assign(n.href); }, []);
+
+  // jump from a search hit → set the right mode and recenter the map on it
+  const jumpTo = useCallback(async (hit: SearchHit) => {
+    setQuery(""); setHits([]);
+    let m: Mode; let target: Target;
+    if (hit.type === "film") { m = "films"; target = { mode: "films", key: hit.key }; }
+    else if (hit.type === "director") { m = "directors"; target = { mode: "directors", key: hit.key }; }
+    else { m = "critical"; target = { mode: "critical", ego: { type: hit.type, key: hit.key, key2: hit.key2 ?? undefined } }; }
+    setMode(m); modeRef.current = m;
+    await goTarget(target, { id: `${hit.type}:${hit.key}`, label: hit.label, target });
+  }, [goTarget]);
 
   const legend = mode === "films"
     ? (<><span><i style={{ background: "#3a3a3a" }} />Film</span><span className="map-ek"><b style={{ background: "#C8102E" }} />→ Watch next</span><span className="map-ek"><b style={{ background: "#1F6FB2" }} />→ Recommended by</span><span className="map-ek"><b style={{ background: "rgba(0,0,0,.28)" }} />Film like</span></>)
@@ -149,24 +163,25 @@ export default function MapExplorer() {
       {mode !== "critical" && (
         <div className="map-filters">
           <label>Year
-            <select value={filt.yr ?? ""} onChange={(e) => changeFilt({ yr: e.target.value ? Number(e.target.value) : null })}>
+            <select value={filt.yr ?? ""} onChange={(e) => setFilt({ ...filt, yr: e.target.value ? Number(e.target.value) : null })}>
               {YEARS.map((y) => <option key={String(y)} value={y ?? ""}>{y ? `from ${y}` : "Any"}</option>)}
             </select>
           </label>
           {mode === "films" && (
             <>
               <label>IMDb
-                <select value={filt.imdb ?? ""} onChange={(e) => changeFilt({ imdb: e.target.value ? Number(e.target.value) : null })}>
+                <select value={filt.imdb ?? ""} onChange={(e) => setFilt({ ...filt, imdb: e.target.value ? Number(e.target.value) : null })}>
                   {IMDBS.map((v) => <option key={String(v)} value={v ?? ""}>{v ? `${v}★+` : "Any"}</option>)}
                 </select>
               </label>
               <label>Rotten Tomatoes
-                <select value={filt.rt ?? ""} onChange={(e) => changeFilt({ rt: e.target.value ? Number(e.target.value) : null })}>
+                <select value={filt.rt ?? ""} onChange={(e) => setFilt({ ...filt, rt: e.target.value ? Number(e.target.value) : null })}>
                   {RTS.map((v) => <option key={String(v)} value={v ?? ""}>{v ? `${v}%+` : "Any"}</option>)}
                 </select>
               </label>
             </>
           )}
+          <button className="map-apply" onClick={applyFilters}>Apply</button>
         </div>
       )}
 
@@ -191,7 +206,30 @@ export default function MapExplorer() {
         </div>
       </div>
 
-      <EntityGraph data={data} height={h} onNodeClick={recenter} onOpen={openNode} className="map-canvas" />
+      <div className="map-graphwrap">
+        <div className="map-search">
+          <input
+            className="map-sinput"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search the map — films, directors, ideas…"
+            spellCheck={false}
+          />
+          {hits.length > 0 && (
+            <div className="map-sresults">
+              {hits.map((hit, i) => (
+                <button key={hit.type + hit.key + i} className="map-shit" onClick={() => jumpTo(hit)}>
+                  <span className={`map-stype map-stype--${hit.type}`}>{TYPE_LABEL[hit.type] || hit.type}</span>
+                  <span className="map-slabel">{hit.label}</span>
+                  {hit.sub ? <span className="map-ssub">{hit.sub}</span> : null}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+        <EntityGraph data={data} height={h} onNodeClick={recenter} onOpen={openNode} className="map-canvas" />
+      </div>
+
       <div className="map-legend">{legend}</div>
     </div>
   );
