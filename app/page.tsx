@@ -4,7 +4,10 @@ import HomeV2 from "@/components/home2/HomeV2";
 import { PLACEHOLDER, type HomeV2 as HomeV2Data } from "@/lib/home2";
 import "@/app/home2.css";
 
-export const revalidate = 900;
+// Dynamic + uncached RPC fetch: the home bundle changes nightly and gained new fields
+// (card images); Next's Data Cache must not pin a stale build-time bundle.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Metatake — a critical map of cinema",
@@ -14,7 +17,9 @@ export const metadata: Metadata = {
 };
 
 function db() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+    global: { fetch: (input: RequestInfo | URL, init?: RequestInit) => fetch(input, { ...init, cache: "no-store" }) },
+  });
 }
 
 // Real home bundle from home_v2_bundle() (same shape as the contract).

@@ -4,7 +4,8 @@ import HomeV2 from "@/components/home2/HomeV2";
 import { PLACEHOLDER, type HomeV2 as HomeV2Data } from "@/lib/home2";
 import "@/app/home2.css";
 
-export const revalidate = 900;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Metatake — new home (preview)",
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
 };
 
 function db() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+    global: { fetch: (input: RequestInfo | URL, init?: RequestInit) => fetch(input, { ...init, cache: "no-store" }) },
+  });
 }
 
 // Pulls the real bundle from home_v2_bundle() (same shape as the contract).
