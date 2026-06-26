@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
-import Link from "next/link";
 import MetatakeNav from "@/components/MetatakeNav";
+import LineageIndexClient from "@/components/LineageIndexClient";
 
 export const revalidate = 1800;
 
@@ -29,8 +29,6 @@ export default async function LineageIndex() {
   const supabase = db();
   const { data } = await supabase.rpc("lineage_index");
   const rows = (data as IdxRow[] | null) ?? [];
-  const byFacet = new Map<string, IdxRow[]>();
-  for (const r of rows) { const a = byFacet.get(r.facet) ?? []; a.push(r); byFacet.set(r.facet, a); }
 
   return (
     <div className="mt">
@@ -43,26 +41,7 @@ export default async function LineageIndex() {
           film&apos;s <em>Lineage</em> tab to see everything it belongs to.
         </p>
 
-        {GROUPS.map((g) => {
-          const items = (byFacet.get(g.key) ?? []).filter((r) => r.film_count > 0);
-          if (!items.length) return null;
-          return (
-            <section className="lh-grp" key={g.key}>
-              <h2 className="lh-h2">{g.title} <span className="lh-cnt">{items.length}</span></h2>
-              <p className="lh-blurb">{g.blurb}</p>
-              <div className="lh-list">
-                {items.map((r) => (
-                  <Link className="lh-row" href={`/lineage/${r.slug}`} key={r.slug}>
-                    <span className="lh-name">{r.label}</span>
-                    {r.parent_label && r.parent_label !== r.label ? <span className="lh-meta"> · {r.parent_label}</span> : null}
-                    {r.country ? <span className="lh-meta"> · {r.country.toUpperCase()}</span> : null}
-                    <span className="lh-n">{r.film_count}</span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          );
-        })}
+        <LineageIndexClient rows={rows} groups={GROUPS} />
       </div>
     </div>
   );

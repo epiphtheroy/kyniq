@@ -1,8 +1,14 @@
 import Link from "next/link";
-import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
+import { awardBody, awardLabel, canonEmblem, codeToFlag } from "@/lib/lineageBodies";
 
 /** Lineage section — awards/honours, canons/lists, auteur line. Shared by the full and catalog film pages. */
-export type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
+export type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null; country?: string | null };
+
+function CC({ country }: { country?: string | null }) {
+  if (!country) return null;
+  const f = codeToFlag(country);
+  return <span className="lin-cc"> · {f ? `${f} ` : ""}{country.toUpperCase()}</span>;
+}
 
 export default function FilmLineageSection({ lineage, title }: { lineage: LinRow[]; title: string }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
@@ -27,6 +33,7 @@ export default function FilmLineageSection({ lineage, title }: { lineage: LinRow
                   <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{awardLabel(l.list_label, l.list_slug)}</Link>
                   {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
                   {l.result && l.result !== "won" ? <span className="lin-res"> · {l.result}</span> : null}
+                  <CC country={l.country} />
                 </div>
               );
             })}
@@ -43,6 +50,7 @@ export default function FilmLineageSection({ lineage, title }: { lineage: LinRow
                 <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{l.list_label}</Link>
                 {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
                 {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+                <CC country={l.country} />
               </div>
             ))}
           </div>

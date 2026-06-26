@@ -62,3 +62,11 @@ export function canonEmblem(slug: string): string {
   for (const [key, e] of CANON_EMBLEM) if (s.includes(key)) return e;
   return "📋";
 }
+
+/** ISO 3166-1 alpha-2 (or "eu") → flag emoji. "" if unknown. */
+export function codeToFlag(cc: string | null | undefined): string {
+  if (!cc || cc.length !== 2) return "";
+  const c = cc.toLowerCase();
+  const A = 0x1f1e6;
+  return String.fromCodePoint(A + (c.charCodeAt(0) - 97), A + (c.charCodeAt(1) - 97));
+}
