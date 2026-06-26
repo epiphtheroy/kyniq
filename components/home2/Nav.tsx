@@ -68,9 +68,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
     <header className="nav" ref={rootRef}>
       <div className="wrap navrow">
         <Link className="logo" href="/">
-          Meta
-          <br />
-          take
+          Metatake
         </Link>
 
         {/* Narrow / overflow: single Menu → full mega */}

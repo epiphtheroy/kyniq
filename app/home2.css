@@ -17,7 +17,7 @@
 .mthome .mockbar b{color:#fff;font-weight:600}
 .mthome header.nav{position:sticky;top:0;z-index:90;background:var(--dark);border-bottom:1px solid var(--dline)}
 .mthome .navrow{display:flex;align-items:center;gap:16px;height:60px}
-.mthome .logo{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:7px 10px;border-radius:5px}
+.mthome .logo{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:1;padding:7px 12px;letter-spacing:-.01em;border-radius:5px}
 .mthome .menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}
 .mthome .menubtn:hover{background:rgba(255,255,255,.08)}
 .mthome .menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
@@ -328,7 +328,7 @@
 .mthome .ngl{font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;background:none;border:0;cursor:pointer;padding:8px 11px;border-radius:6px;line-height:1}
 .mthome .ng:hover .ngl,.mthome .ngl[aria-expanded="true"]{background:rgba(255,255,255,.08)}
 .mthome .ng .drop{position:absolute;left:0;top:100%;min-width:244px;background:var(--dark-2);border:1px solid var(--dline);border-radius:11px;padding:8px;display:none;z-index:95;box-shadow:0 22px 55px -18px rgba(0,0,0,.65)}
-.mthome .ng .drop.open{display:block}
+.mthome .ng:hover .drop,.mthome .ng .drop.open{display:block}
 .mthome .ng .drop a{display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:16px;color:#EFEADD;padding:8px 11px;border-radius:7px}
 .mthome .ng .drop a:hover{background:rgba(255,255,255,.07);color:var(--red-soft)}
 .mthome .ng .drop a .ar{font-family:var(--ui);font-size:12px;color:#8c8474;white-space:nowrap}
