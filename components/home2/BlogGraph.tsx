@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
 import { hashTone, tone, blogHref, backdropUrl } from "./helpers";
-import SubscribeForm from "@/components/SubscribeForm";
+import NewsletterCard from "./NewsletterCard";
 
 // "Between Film and the World" — daily column + the original constellation graph
 // (EntityGraph force renderer), with film-still thumbnails on the article cards.
@@ -67,13 +67,7 @@ export default function BlogGraph({ data }: { data: HomeV2 }) {
               })}
             </div>
           </div>
-          <aside className="blg-subcard">
-            <p className="sk">Subscribe — it&apos;s free</p>
-            <h2>The day&apos;s news, read as cinema.</h2>
-            <p>One short edition, almost every morning. Five events, five films, in your inbox.</p>
-            <SubscribeForm source="home-blog" />
-            <p className="fine">No spam. Unsubscribe anytime.</p>
-          </aside>
+          <NewsletterCard />
         </div>
       </div>
     </section>
