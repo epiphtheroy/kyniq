@@ -67,11 +67,13 @@ export default function BlogGraph({ data }: { data: HomeV2 }) {
               })}
             </div>
           </div>
-          <div className="graphbox blg-subbox" style={{ height: "auto", minHeight: 0, padding: "28px 24px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <div className="gcap">Get the daily column</div>
-            <div className="gsub">Between Film and the World, in your inbox — retrieved, not remembered. No spam, unsubscribe anytime.</div>
-            <div style={{ marginTop: 14 }}><SubscribeForm source="home-blog" /></div>
-          </div>
+          <aside className="blg-subcard">
+            <p className="sk">Subscribe — it&apos;s free</p>
+            <h2>The day&apos;s news, read as cinema.</h2>
+            <p>One short edition, almost every morning. Five events, five films, in your inbox.</p>
+            <SubscribeForm source="home-blog" />
+            <p className="fine">No spam. Unsubscribe anytime.</p>
+          </aside>
         </div>
       </div>
     </section>
