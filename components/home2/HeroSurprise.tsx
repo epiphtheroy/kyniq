@@ -131,6 +131,61 @@ export default function HeroSurprise() {
                   {card.leap ? <p className="hs-leap"><span>The leap</span> {card.leap}</p> : null}
                   {card.href ? <a className="hs-open" href={card.href}>Read the full reading ↗</a> : null}
                 </>
+              ) : isChips(card.mode) ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  <div className="hs-chips">
+                    {(card.chips ?? []).map((c, i) => <span key={i} className={`hs-cz${c.kind ? ` hs-cz--${c.kind}` : ""}`}>{c.text}</span>)}
+                  </div>
+                  {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}
+                </>
+              ) : card.mode === "director_tropes" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  {(card.groups ?? []).map((g, gi) => g.chips.length ? (
+                    <div className="hs-grp" key={gi}>
+                      <div className="hs-grp__h">{g.title}</div>
+                      <div className="hs-chips">{g.chips.map((c, i) => <span key={i} className="hs-cz">{c.text}</span>)}</div>
+                    </div>
+                  ) : null)}
+                  {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}
+                </>
+              ) : card.mode === "director_next" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  <ul className="hs-list">
+                    {(card.items ?? []).map((it, i) => {
+                      const inner = (
+                        <div className="hs-row">
+                          {it.profile ? <img className="hs-face" src={`${IMG}/w185${it.profile}`} alt="" loading="lazy" /> : <span className="hs-face hs-face--ph" aria-hidden="true" />}
+                          <span className="hs-row__b">
+                            <span className="hs-li__h">{it.name}</span>
+                            {it.reason ? <span className="hs-li__t">{it.reason}</span> : null}
+                          </span>
+                        </div>
+                      );
+                      return it.slug ? <li className="hs-li" key={i}><Link href={`/director/${it.slug}`}>{inner}</Link></li> : <li className="hs-li" key={i}>{inner}</li>;
+                    })}
+                  </ul>
+                  {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}
+                </>
+              ) : card.mode === "why_watch" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  <ul className="hs-list">
+                    {(card.items ?? []).map((it, i) => (
+                      <li className="hs-li" key={i}>
+                        {it.label ? <span className="hs-li__h">{it.label}</span> : null}
+                        <span className="hs-li__t">{it.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}
+                </>
               ) : (
                 <>
                   <span className="hs-chip">{card.label}</span>
@@ -138,24 +193,15 @@ export default function HeroSurprise() {
                   <ul className="hs-list">
                     {(card.items ?? []).map((it, i) => {
                       const inner = (
-                        <>
-                          {card.mode === "where_to_start" && it.pos ? <span className="hs-li__pos">{it.pos}</span> : null}
-                          {card.mode === "why_watch" ? (
-                            <>
-                              {it.label ? <span className="hs-li__h">{it.label}</span> : null}
-                              <span className="hs-li__t">{it.text}</span>
-                            </>
-                          ) : (
-                            <>
-                              <span className="hs-li__h">{it.title}{it.year ? ` (${it.year})` : ""}{it.director ? ` · dir. ${it.director}` : ""}</span>
-                              {it.reason ? <span className="hs-li__t">{it.reason}</span> : null}
-                            </>
-                          )}
-                        </>
+                        <div className="hs-row">
+                          {it.poster ? <img className="hs-poster" src={`${IMG}/w154${it.poster}`} alt="" loading="lazy" /> : <span className="hs-poster hs-poster--ph" aria-hidden="true" />}
+                          <span className="hs-row__b">
+                            <span className="hs-li__h">{card.mode === "where_to_start" && it.pos ? <span className="hs-li__pos">{it.pos}</span> : null}{it.title}{it.year ? ` (${it.year})` : ""}{it.director ? ` · dir. ${it.director}` : ""}</span>
+                            {it.reason ? <span className="hs-li__t">{it.reason}</span> : null}
+                          </span>
+                        </div>
                       );
-                      return it.slug ? (
-                        <li className="hs-li" key={i}><Link href={`/film/${it.slug}`}>{inner}</Link></li>
-                      ) : <li className="hs-li" key={i}>{inner}</li>;
+                      return it.slug ? <li className="hs-li" key={i}><Link href={`/film/${it.slug}`}>{inner}</Link></li> : <li className="hs-li" key={i}>{inner}</li>;
                     })}
                   </ul>
                   {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}

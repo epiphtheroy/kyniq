@@ -140,6 +140,20 @@
 .mthome .hs-open{margin-top:16px;font-family:var(--ui);font-size:13px;color:#fff;border:1px solid rgba(255,255,255,.28);padding:9px 16px;border-radius:8px;text-decoration:none}
 .mthome .hs-open:hover{background:rgba(255,255,255,.08)}
 .mthome .hs-skel{align-self:stretch;height:280px;border-radius:8px;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(255,255,255,.1),rgba(255,255,255,.05))}
+/* chip-cloud cards (film/director archetypes·tropes·ideas) */
+.mthome .hs-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.mthome .hs-cz{font-family:var(--ui);font-size:12.5px;color:#e7dfd0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:6px 13px;line-height:1.2}
+.mthome .hs-cz--trope{border-color:rgba(232,167,175,.45);color:#f0d9dc}
+.mthome .hs-cz--archetype{border-color:rgba(255,255,255,.22)}
+.mthome .hs-grp{margin-top:14px}
+.mthome .hs-grp__h{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9c9486}
+/* list rows with poster / face */
+.mthome .hs-row{display:flex;gap:11px;align-items:flex-start}
+.mthome .hs-row__b{min-width:0;flex:1}
+.mthome .hs-poster{flex:0 0 auto;width:44px;height:66px;object-fit:cover;border-radius:4px;background:#23303a}
+.mthome .hs-poster--ph{background:#23303a}
+.mthome .hs-face{flex:0 0 auto;width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.7);background:#23303a}
+.mthome .hs-face--ph{background:#23303a}
 /* Home foot — Today's newsletter summary card (right of the blog column) */
 .mthome .news .nlc{align-self:start}
 .mthome .nlc{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:var(--paper)}
