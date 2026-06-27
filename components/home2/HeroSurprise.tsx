@@ -7,7 +7,10 @@ import EntityMap from "@/components/EntityMap";
 type Item = {
   title?: string; year?: number | null; director?: string | null; reason?: string;
   slug?: string | null; label?: string | null; text?: string; pos?: number;
+  poster?: string | null; profile?: string | null; name?: string | null;
 };
+type Chip = { text: string; kind?: string };
+type Group = { title: string; chips: Chip[] };
 type Card = {
   mode: string; label?: string; subject?: string; intro?: string;
   film_title?: string; film_year?: number | null; film_slug?: string;
@@ -18,12 +21,13 @@ type Card = {
   fig_label?: string; fig_slug?: string;
   // maps
   mapApi?: string; mapFull?: string;
-  // lists
-  items?: Item[];
+  // lists / chips
+  items?: Item[]; chips?: Chip[]; groups?: Group[];
 };
 
 const IMG = "https://image.tmdb.org/t/p";
 const isMap = (m?: string) => m === "film_map" || m === "director_map" || m === "figure_links";
+const isChips = (m?: string) => m === "film_tropes" || m === "film_ideas" || m === "director_ideas";
 
 // Home hero — "Surprise me". A random film, drawn one at a time, seen through a
 // random lens: a Strong Misreading (≥1 in 3), the film's map, its director's map,

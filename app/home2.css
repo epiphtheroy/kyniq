@@ -16,6 +16,9 @@
 .mthome .mockbar .tag{color:var(--red-soft);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
 .mthome .mockbar b{color:#fff;font-weight:600}
 .mthome header.nav{position:sticky;top:0;z-index:90;background:var(--dark);border-bottom:1px solid var(--dline)}
+/* On non-home pages the nav is wrapped alone in .mthome; make that wrapper boxless
+   so the sticky nav anchors to the page (.mt), not its own nav-tall container. */
+.mthome--bare{display:contents}
 .mthome .navrow{display:flex;align-items:center;gap:16px;height:60px}
 .mthome .logo{display:flex;align-items:center;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:1;padding:7px 12px;letter-spacing:-.01em;border-radius:5px}
 .mthome .menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}

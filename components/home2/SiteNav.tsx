@@ -17,7 +17,7 @@ export default async function SiteNav() {
     /* degrade gracefully → arrows without numbers */
   }
   return (
-    <div className="mthome">
+    <div className="mthome mthome--bare">
       <Nav counts={counts} />
     </div>
   );

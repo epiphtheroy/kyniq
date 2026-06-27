@@ -21,7 +21,7 @@ export default function SiteNavClient() {
     return () => { on = false; };
   }, []);
   return (
-    <div className="mthome">
+    <div className="mthome mthome--bare">
       <Nav counts={counts} />
     </div>
   );
