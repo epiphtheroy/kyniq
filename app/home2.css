@@ -172,6 +172,8 @@
 .mthome .nlc-sk{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:8px}
 .mthome .nlc-fine{font-family:var(--ui);font-size:11px;color:var(--ink-faint);margin:8px 0 0}
 .mthome .nlc-card--skel{height:150px;border-radius:8px;background:var(--paper-2)}
+.mthome .blg-rel{font-family:var(--ui);font-size:12px;color:var(--red);font-weight:600;margin:3px 0 2px}
+.mthome .lead--skel{min-height:220px;border-radius:10px;background:var(--paper-2)}
 .mthome .band{padding:38px 0}
 .mthome .band.dark{background:var(--dark);color:#EFEADD}
 .mthome .band.p2{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}

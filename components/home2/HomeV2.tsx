@@ -55,7 +55,7 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
       {/* 12 — Recommended by (canon + guide) (paper-2) */}
       <Canon data={data} />
       {/* 13 — Between Film and the World + live node graph (paper-2) */}
-      <BlogGraph data={data} />
+      <BlogGraph />
       {/* 14 — Search the map (paper-2) */}
       <BigSearch data={data} />
       {/* 15 — Six ways in (paper) */}
