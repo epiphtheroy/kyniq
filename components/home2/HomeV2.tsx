@@ -3,7 +3,7 @@
 import type { HomeV2 as HomeV2Data } from "@/lib/home2";
 
 import Nav from "./Nav";
-import Hero from "./Hero";
+import HeroSurprise from "./HeroSurprise";
 import Picked from "./Picked";
 import Top10 from "./EssentialTen";
 import Newly from "./Newly";
@@ -30,8 +30,8 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
     <div className="mthome">
       {/* 1 — Nav (dark, sticky) */}
       <Nav counts={data.stats} />
-      {/* 2 — Today's Feature video hero (dark) + Up next + topic chips */}
-      <Hero data={data} />
+      {/* 2 — Surprise me hero (dark): random draw + red space-bar + text panel */}
+      <HeroSurprise />
       {/* 3 — Recommended by the map (paper) */}
       <Picked data={data} />
       {/* 4 — The essential 10 (dark) */}
