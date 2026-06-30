@@ -3765,6 +3765,12 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .fmap-li__s{display:block; font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.35}
 .fmap-canvas{width:100%; min-height:300px}
 .maplibregl-popup-content{border-radius:8px; padding:11px 13px}
+.fmap-ctrls{display:flex; align-items:center; gap:8px}
+.fmap-seg{display:inline-flex; border:1px solid var(--hairline-2); border-radius:6px; overflow:hidden}
+.fmap-seg button{font-family:var(--font-ui); font-size:11.5px; padding:5px 9px; background:#fff; border:0; border-left:1px solid var(--hairline-2); color:var(--muted); cursor:pointer}
+.fmap-seg button:first-child{border-left:0}
+.fmap-seg button.on{background:var(--ink); color:#fff}
+.fmap-dot--f{display:inline-block; width:8px; height:8px; border-radius:50%; background:#0F6E56; margin-right:6px; vertical-align:middle}
 @media(max-width:640px){ .fmap-body{grid-template-columns:1fr} .fmap-list{max-height:150px; border-right:0; border-bottom:1px solid var(--hairline)} }
 .emap-actions{display:flex; align-items:center; gap:14px}
 .emap-exp{font-family:var(--font-ui); font-size:12px; color:var(--ink2); background:transparent; border:1px solid var(--hairline); border-radius:7px; padding:5px 11px; cursor:pointer}
