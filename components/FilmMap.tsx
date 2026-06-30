@@ -88,6 +88,7 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
           type: "Feature", geometry: { type: "Point", coordinates: [r.lng, r.lat] },
           properties: { id: r.id, name: r.name, sub: subFor(r), href: hrefFor(r, filmSlug) ?? "",
             narr: r.narrative_setting ?? "", desc: (r.fig_desc ?? "").slice(0, 320),
+            layer: r.layer ?? "setting",
             film: r.film_title ? `${r.film_title}${r.film_year ? ` (${r.film_year})` : ""}` : "" },
         })),
       };
@@ -101,7 +102,7 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
         if (m.getSource("pts")) return;
         m.addSource("pts", { type: "geojson", data: fcRef.current, cluster: true, clusterRadius: 44, clusterMaxZoom: 9 });
         m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26] } });
-        m.addLayer({ id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#C8102E", "circle-radius": 7, "circle-stroke-color": "#fff", "circle-stroke-width": 1.6 } });
+        m.addLayer({ id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]], paint: { "circle-color": ["match", ["get", "layer"], "filmed", "#0F6E56", "#C8102E"], "circle-radius": 7, "circle-stroke-color": "#fff", "circle-stroke-width": 1.6 } });
       };
       const fit = () => {
         try { const b = new ml.LngLatBounds(); rows.forEach((r) => b.extend([r.lng, r.lat])); m.fitBounds(b, { padding: 48, maxZoom: 9, duration: 0 }); } catch { /* single point */ }
