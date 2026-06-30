@@ -129,11 +129,16 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
         const f = e.features?.[0]; if (!f) return;
         setActive(f.properties.id);
         const p = f.properties;
-        const link = p.href ? `<a href="${p.href}" style="color:#C8102E;font-weight:600;display:inline-block;margin-top:6px">Read this ↗</a>` : "";
+        const esc = (x: string) => (x || "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string));
+        const parts = [`<b style="font-size:14px">${esc(p.name)}</b>`];
+        if (p.film) parts.push(`<div style="color:#8a8278;font-size:11.5px;margin-top:1px">${esc(p.film)}</div>`);
+        if (p.narr) parts.push(`<div style="font-weight:600;margin-top:7px">${esc(p.narr)}</div>`);
+        if (p.desc) parts.push(`<div style="color:#55504a;margin-top:3px;line-height:1.45">${esc(p.desc)}${p.desc.length >= 320 ? "…" : ""}</div>`);
+        if (p.href) parts.push(`<a href="${p.href}" style="color:#C8102E;font-weight:600;display:inline-block;margin-top:8px">Read this in the film ↗</a>`);
         popup.current?.remove();
-        popup.current = new ml.Popup({ closeButton: true, offset: 12, maxWidth: "260px" })
+        popup.current = new ml.Popup({ closeButton: true, offset: 12, maxWidth: "280px" })
           .setLngLat(f.geometry.coordinates as number[])
-          .setHTML(`<div style="font-family:sans-serif;font-size:13px"><b>${p.name}</b>${p.sub ? `<div style="color:#666;margin-top:2px">${p.sub}</div>` : ""}${link}</div>`)
+          .setHTML(`<div style="font-family:sans-serif;font-size:12.5px">${parts.join("")}</div>`)
           .addTo(m);
       });
       ["clusters", "pt"].forEach((id) => {
