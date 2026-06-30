@@ -59,6 +59,7 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sat, setSat] = useState(false);
   const [active, setActive] = useState<string | null>(null);
+  const [inView, setInView] = useState<Set<string> | null>(null);   // ids within current map bounds (live)
   const mapEl = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const map = useRef<any>(null);
@@ -106,6 +107,10 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
 
       m.on("load", () => { addPoints(); fit(); });
       m.on("styledata", addPoints);   // re-add points after a satellite/map style swap
+      // live: the left list reflects only what's in the current viewport
+      m.on("moveend", () => {
+        try { const b = m.getBounds(); setInView(new Set(rows.filter((r) => b.contains([r.lng, r.lat])).map((r) => r.id))); } catch { /* noop */ }
+      });
 
       // delegated listeners persist across style swaps (bound by layer id)
       m.on("click", "clusters", (e: { features?: { properties: Record<string, unknown>; geometry: { coordinates: number[] } }[] }) => {
