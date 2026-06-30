@@ -3,9 +3,9 @@
 /**
  * FilmMap — the geographic "Atlas": real-world pins for a film's / director's
  * narrative locations (and later, filming locations). Keyless: MapLibre GL JS
- * loaded from CDN + Esri raster basemaps (street ↔ satellite). Data comes from
- * /api/geo (data/presentation separated → swappable to Google Maps later).
- * Click a pin → read that location figure. Empty data → renders nothing.
+ * (CDN) + OpenFreeMap vector basemap (MapLibre-native, CORS-clean) ↔ Esri
+ * satellite raster toggle. Data from /api/geo (data/presentation separated →
+ * swappable to Google Maps later). Click a pin → read that location figure.
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -17,8 +17,13 @@ type Row = {
   film_slug?: string | null; film_title?: string | null; film_year?: number | null;
 };
 
-const STREET = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}";
-const SAT = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+const STYLE_MAP = "https://tiles.openfreemap.org/styles/liberty";
+const SAT_TILE = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+const STYLE_SAT = {
+  version: 8,
+  sources: { esri: { type: "raster", tiles: [SAT_TILE], tileSize: 256, attribution: "© Esri" } },
+  layers: [{ id: "esri", type: "raster", source: "esri" }],
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let mlPromise: Promise<any> | null = null;
@@ -54,11 +59,13 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sat, setSat] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-  const mapRef = useRef<HTMLDivElement>(null);
+  const mapEl = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const map = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const popup = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const fcRef = useRef<any>(null);
 
   useEffect(() => {
     let alive = true;
@@ -70,10 +77,10 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
   }, [endpoint]);
 
   useEffect(() => {
-    if (!rows || rows.length === 0 || !mapRef.current) return;
+    if (!rows || rows.length === 0 || !mapEl.current) return;
     let alive = true;
     loadMapLibre().then((ml) => {
-      if (!alive || !mapRef.current) return;
+      if (!alive || !mapEl.current) return;
       const fc = {
         type: "FeatureCollection",
         features: rows.map((r) => ({
@@ -81,53 +88,41 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
           properties: { id: r.id, name: r.name, sub: subFor(r), href: hrefFor(r, filmSlug) ?? "" },
         })),
       };
-      const m = new ml.Map({
-        container: mapRef.current,
-        style: {
-          version: 8,
-          sources: {
-            base: { type: "raster", tiles: [STREET], tileSize: 256, attribution: "© Esri, OpenStreetMap contributors" },
-            pts: { type: "geojson", data: fc, cluster: true, clusterRadius: 44, clusterMaxZoom: 9 },
-          },
-          layers: [
-            { id: "base", type: "raster", source: "base" },
-            { id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26] } },
-            { id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#C8102E", "circle-radius": 7, "circle-stroke-color": "#fff", "circle-stroke-width": 1.6 } },
-          ],
-        },
-        attributionControl: true,
-        cooperativeGestures: false,
-      });
+      fcRef.current = fc;
+      const m = new ml.Map({ container: mapEl.current, style: STYLE_MAP, attributionControl: true });
       map.current = m;
       m.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");
+      m.on("error", () => { /* swallow tile noise */ });
 
-      m.on("load", () => {
-        try {
-          const b = new ml.LngLatBounds();
-          rows.forEach((r) => b.extend([r.lng, r.lat]));
-          m.fitBounds(b, { padding: 48, maxZoom: 9, duration: 0 });
-        } catch { /* single point */ }
-      });
+      const addPoints = () => {
+        if (m.getSource("pts")) return;
+        m.addSource("pts", { type: "geojson", data: fcRef.current, cluster: true, clusterRadius: 44, clusterMaxZoom: 9 });
+        m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26] } });
+        m.addLayer({ id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]], paint: { "circle-color": "#C8102E", "circle-radius": 7, "circle-stroke-color": "#fff", "circle-stroke-width": 1.6 } });
+      };
+      const fit = () => {
+        try { const b = new ml.LngLatBounds(); rows.forEach((r) => b.extend([r.lng, r.lat])); m.fitBounds(b, { padding: 48, maxZoom: 9, duration: 0 }); } catch { /* single point */ }
+      };
 
+      m.on("load", () => { addPoints(); fit(); });
+      m.on("styledata", addPoints);   // re-add points after a satellite/map style swap
+
+      // delegated listeners persist across style swaps (bound by layer id)
       m.on("click", "clusters", (e: { features?: { properties: Record<string, unknown>; geometry: { coordinates: number[] } }[] }) => {
         const f = e.features?.[0]; if (!f) return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (m.getSource("pts") as any).getClusterExpansionZoom(f.properties.cluster_id, (_err: unknown, zoom: number) => {
-          m.easeTo({ center: f.geometry.coordinates, zoom: zoom ?? m.getZoom() + 2 });
-        });
+        (m.getSource("pts") as any).getClusterExpansionZoom(f.properties.cluster_id, (_e: unknown, zoom: number) => m.easeTo({ center: f.geometry.coordinates, zoom: zoom ?? m.getZoom() + 2 }));
       });
-      const openPopup = (lngLat: number[], p: Record<string, string>) => {
-        const link = p.href ? `<a href="${p.href}" style="color:#C8102E;font-weight:600;display:inline-block;margin-top:6px">Read this ↗</a>` : "";
-        popup.current?.remove();
-        popup.current = new ml.Popup({ closeButton: true, offset: 12, maxWidth: "260px" })
-          .setLngLat(lngLat)
-          .setHTML(`<div style="font-family:var(--font-ui,sans-serif);font-size:13px"><b>${p.name}</b>${p.sub ? `<div style="color:#666;margin-top:2px">${p.sub}</div>` : ""}${link}</div>`)
-          .addTo(m);
-      };
       m.on("click", "pt", (e: { features?: { properties: Record<string, string>; geometry: { coordinates: number[] } }[] }) => {
         const f = e.features?.[0]; if (!f) return;
         setActive(f.properties.id);
-        openPopup(f.geometry.coordinates as number[], f.properties);
+        const p = f.properties;
+        const link = p.href ? `<a href="${p.href}" style="color:#C8102E;font-weight:600;display:inline-block;margin-top:6px">Read this ↗</a>` : "";
+        popup.current?.remove();
+        popup.current = new ml.Popup({ closeButton: true, offset: 12, maxWidth: "260px" })
+          .setLngLat(f.geometry.coordinates as number[])
+          .setHTML(`<div style="font-family:sans-serif;font-size:13px"><b>${p.name}</b>${p.sub ? `<div style="color:#666;margin-top:2px">${p.sub}</div>` : ""}${link}</div>`)
+          .addTo(m);
       });
       ["clusters", "pt"].forEach((id) => {
         m.on("mouseenter", id, () => { m.getCanvas().style.cursor = "pointer"; });
@@ -137,10 +132,9 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
     return () => { alive = false; try { map.current?.remove(); } catch { /* noop */ } map.current = null; };
   }, [rows, filmSlug]);
 
-  // satellite toggle
   useEffect(() => {
     const m = map.current; if (!m) return;
-    try { const s = m.getSource("base"); if (s) s.setTiles([sat ? SAT : STREET]); } catch { /* noop */ }
+    try { m.setStyle(sat ? STYLE_SAT : STYLE_MAP); } catch { /* noop */ }
   }, [sat]);
 
   const flyTo = (r: Row) => {
@@ -169,7 +163,7 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
             );
           })}
         </ul>
-        <div className="fmap-canvas" ref={mapRef} style={{ height }} />
+        <div className="fmap-canvas" ref={mapEl} style={{ height }} />
       </div>
     </div>
   );
