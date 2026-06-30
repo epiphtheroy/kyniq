@@ -14,6 +14,7 @@ import FilmHeroReel from "@/components/FilmHeroReel";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityMap from "@/components/EntityMap";
+import FilmMap from "@/components/FilmMap";
 import EntityActions from "@/components/EntityActions";
 import MovieListActions from "@/components/MovieListActions";
 import SeqNav from "@/components/SeqNav";
@@ -166,7 +167,10 @@ async function load(slug: string) {
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch };
+  const { data: geoRows } = await supabase.rpc("film_geo", { p_slug: slug });
+  const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
+
+  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount };
 }
 
 // order + cap for the film-page Archetype section
@@ -279,7 +283,8 @@ export default async function FilmPage({ params }: Props) {
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
-    { id: "df-map", label: "Map" },
+    { id: "df-map", label: "Connections" },
+    geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
