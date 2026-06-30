@@ -253,7 +253,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -486,6 +486,15 @@ export default async function FilmPage({ params }: Props) {
           <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
           <EntityMap api={`/api/map?type=film&key=${film.slug}`} full={`/map?m=critical&t=film&k=${film.slug}`} />
         </section>
+
+        {/* ATLAS — real-world places */}
+        {geoCount > 0 ? (
+          <section className="df-sec" id="df-atlas">
+            <h2 className="df-h2">{film.title} — on the map</h2>
+            <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
+            <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={460} />
+          </section>
+        ) : null}
 
         {/* TROPES */}
         {tropes.length > 0 ? (
