@@ -150,15 +150,17 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
 
   if (rows && rows.length === 0) return null;
 
+  const shown = (rows ?? []).filter((r) => !inView || inView.has(r.id));
+
   return (
     <div className="fmap">
       <div className="fmap-head">
-        <span className="fmap-hint">{rows ? `${rows.length} place${rows.length !== 1 ? "s" : ""} · drag · scroll to zoom` : "Loading the map…"}</span>
+        <span className="fmap-hint">{rows ? `${shown.length} place${shown.length !== 1 ? "s" : ""} in view${inView && shown.length !== rows.length ? ` of ${rows.length}` : ""} · drag / zoom to explore` : "Loading the map…"}</span>
         <button type="button" className="fmap-sat" onClick={() => setSat((v) => !v)}>{sat ? "Map" : "Satellite"}</button>
       </div>
       <div className="fmap-body">
         <ul className="fmap-list">
-          {(rows ?? []).map((r) => {
+          {shown.map((r) => {
             const href = hrefFor(r, filmSlug);
             const inner = (<><span className="fmap-li__n">{r.name}</span>{subFor(r) ? <span className="fmap-li__s">{subFor(r)}</span> : null}</>);
             return (
