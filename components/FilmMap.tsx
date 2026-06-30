@@ -105,12 +105,17 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
         try { const b = new ml.LngLatBounds(); rows.forEach((r) => b.extend([r.lng, r.lat])); m.fitBounds(b, { padding: 48, maxZoom: 9, duration: 0 }); } catch { /* single point */ }
       };
 
-      m.on("load", () => { addPoints(); fit(); });
-      m.on("styledata", addPoints);   // re-add points after a satellite/map style swap
       // live: the left list reflects only what's in the current viewport
-      m.on("moveend", () => {
-        try { const b = m.getBounds(); setInView(new Set(rows.filter((r) => b.contains([r.lng, r.lat])).map((r) => r.id))); } catch { /* noop */ }
-      });
+      const updateInView = () => {
+        try {
+          const b = m.getBounds(); const w = b.getWest(), e = b.getEast(), s = b.getSouth(), n = b.getNorth();
+          const ids = rows.filter((r) => r.lat >= s && r.lat <= n && (e >= w ? (r.lng >= w && r.lng <= e) : (r.lng >= w || r.lng <= e))).map((r) => r.id);
+          setInView(new Set(ids));
+        } catch { /* noop */ }
+      };
+      m.on("load", () => { addPoints(); fit(); updateInView(); });
+      m.on("styledata", addPoints);   // re-add points after a satellite/map style swap
+      m.on("moveend", updateInView);
 
       // delegated listeners persist across style swaps (bound by layer id)
       m.on("click", "clusters", (e: { features?: { properties: Record<string, unknown>; geometry: { coordinates: number[] } }[] }) => {
