@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 type Row = {
   id: string; name: string; narrative_setting?: string | null; scene_role?: string | null;
   kind?: string | null; lat: number; lng: number; precision?: string | null; country?: string | null;
-  layer?: string; fig_slug?: string | null; fig_label?: string | null;
+  layer?: string; fig_slug?: string | null; fig_label?: string | null; fig_desc?: string | null;
   film_slug?: string | null; film_title?: string | null; film_year?: number | null;
 };
 
@@ -86,7 +86,9 @@ export default function FilmMap({ endpoint, height = 460, filmSlug }: { endpoint
         type: "FeatureCollection",
         features: rows.map((r) => ({
           type: "Feature", geometry: { type: "Point", coordinates: [r.lng, r.lat] },
-          properties: { id: r.id, name: r.name, sub: subFor(r), href: hrefFor(r, filmSlug) ?? "" },
+          properties: { id: r.id, name: r.name, sub: subFor(r), href: hrefFor(r, filmSlug) ?? "",
+            narr: r.narrative_setting ?? "", desc: (r.fig_desc ?? "").slice(0, 320),
+            film: r.film_title ? `${r.film_title}${r.film_year ? ` (${r.film_year})` : ""}` : "" },
         })),
       };
       fcRef.current = fc;
