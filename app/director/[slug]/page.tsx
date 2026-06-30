@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
 import EntityMap from "@/components/EntityMap";
+import FilmMap from "@/components/FilmMap";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import SaveButton from "@/components/SaveButton";
@@ -111,13 +112,16 @@ async function load(slug: string) {
     for (const n of nextArr) { if (n.target_slug && !n.profile_path) n.profile_path = pmap.get(n.target_slug) ?? null; }
   }
 
+  const { data: geoRows } = await supabase.rpc("director_geo", { p_slug: slug });
+  const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
+
   return {
     director, dir, films, sigTropes, perFilmReadings, total: films.length, readingCount, tropeCount: tropeFilms.size,
     portrait: portrait as { body: string; source: string } | null,
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
-    recBy, misreadings, archGroups,
+    recBy, misreadings, archGroups, geoCount,
   };
 }
 
@@ -134,7 +138,7 @@ export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount } = data;
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   const jsonld = {
