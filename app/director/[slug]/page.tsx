@@ -181,7 +181,8 @@ export default async function DirectorPage({ params }: Props) {
   if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life" });
   if (next.length) tabs.push({ id: "dr-next", label: "Who's Next" });
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
-  tabs.push({ id: "dr-map", label: "Map" });
+  tabs.push({ id: "dr-map", label: "Connections" });
+  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas" });
 
   return (
     <div className="mt">
