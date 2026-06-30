@@ -386,6 +386,15 @@ export default async function DirectorPage({ params }: Props) {
           <EntityMap api={`/api/map?mode=directors&key=${slug}`} full={`/map?m=directors&k=${slug}`} />
         </section>
 
+        {/* ATLAS — real-world places across the filmography */}
+        {geoCount > 0 ? (
+          <section className="dr-sec" id="dr-atlas">
+            <h2 className="dr-h2">{director} — on the map</h2>
+            <p className="cmap-intro">The real places {director}&rsquo;s films are set in and name, across the whole filmography. Click a pin to read the location.</p>
+            <FilmMap endpoint={`/api/geo?director=${slug}`} height={480} />
+          </section>
+        ) : null}
+
         {/* FILMOGRAPHY */}
         <section className="dr-sec" id="dr-filmography">
           <h2 className="dr-h2">Filmography</h2>
