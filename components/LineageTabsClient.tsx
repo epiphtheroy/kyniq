@@ -1,8 +1,8 @@
 "use client";
 
-/** Unified Lineage hub: a global search across everything + tabs (National cinemas, Movements,
- *  Awards, Canons, Auteur lines). Search spans all facets/hubs; tabs are for browsing. */
-import { useMemo, useState } from "react";
+/** Unified Lineage hub: a global search across everything + film-page-style scroll navigation
+ *  (all sections stacked; the sticky tab bar scrolls to each). */
+import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { codeToFlag } from "@/lib/lineageBodies";
 import type { MvHub } from "@/app/movements/page";
@@ -10,14 +10,6 @@ import type { MvHub } from "@/app/movements/page";
 const IMG = "https://image.tmdb.org/t/p/w154";
 export type IdxRow = { facet: string; slug: string; label: string; parent_label: string | null; country: string | null; tier: string | null; film_count: number };
 
-type TabId = "national" | "movements" | "award" | "canon" | "auteur";
-const TABS: { id: TabId; label: string; kind: "hub" | "list" }[] = [
-  { id: "national", label: "National cinemas", kind: "hub" },
-  { id: "movements", label: "Movements", kind: "hub" },
-  { id: "award", label: "Awards", kind: "list" },
-  { id: "canon", label: "Canons", kind: "list" },
-  { id: "auteur", label: "Auteur lines", kind: "list" },
-];
 const KIND_LABEL: Record<string, string> = { national: "National cinema", movement: "Movement", award: "Award", canon: "Canon", auteur: "Auteur line", festival: "Festival", section: "Section", style: "Style" };
 
 function HubCard({ h, flag }: { h: MvHub; flag: boolean }) {
@@ -34,22 +26,33 @@ function HubCard({ h, flag }: { h: MvHub; flag: boolean }) {
     </Link>
   );
 }
+function ListRows({ rows }: { rows: IdxRow[] }) {
+  return (
+    <div className="lh-list">
+      {rows.map((r) => (
+        <Link className="lh-row" href={`/lineage/${r.slug}`} key={r.slug}>
+          <span className="lh-name">{r.country ? `${codeToFlag(r.country)} ` : ""}{r.label}</span>
+          <span className="lh-n">{r.film_count}</span>
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 type Uni = { key: string; label: string; kind: string; href: string; count: number; country?: string | null };
 
 export default function LineageTabsClient({ national, movements, lists }: { national: MvHub[]; movements: MvHub[]; lists: IdxRow[] }) {
-  const [tab, setTab] = useState<TabId>("national");
   const [q, setQ] = useState("");
 
   const nat = useMemo(() => national.filter((h) => h.film_count > 0), [national]);
   const mov = useMemo(() => movements.filter((h) => h.film_count > 0), [movements]);
-  const listsByFacet = useMemo(() => {
+  const byFacet = useMemo(() => {
     const m: Record<string, IdxRow[]> = {};
     for (const r of lists) if (r.film_count > 0) (m[r.facet] ??= []).push(r);
+    for (const k in m) m[k].sort((a, b) => b.film_count - a.film_count || a.label.localeCompare(b.label));
     return m;
   }, [lists]);
 
-  // one combined searchable index across everything
   const universe = useMemo<Uni[]>(() => {
     const u: Uni[] = [];
     for (const h of nat) u.push({ key: "n" + h.slug, label: h.label, kind: "national", href: `/movements/${h.slug}`, count: h.film_count, country: h.country_code });
@@ -58,11 +61,6 @@ export default function LineageTabsClient({ national, movements, lists }: { nati
     return u;
   }, [nat, mov, lists]);
 
-  const counts: Record<TabId, number> = {
-    national: nat.length, movements: mov.length,
-    award: (listsByFacet.award ?? []).length, canon: (listsByFacet.canon ?? []).length, auteur: (listsByFacet.auteur ?? []).length,
-  };
-
   const searching = q.trim().length > 0;
   const results = useMemo(() => {
     if (!searching) return [];
@@ -70,9 +68,14 @@ export default function LineageTabsClient({ national, movements, lists }: { nati
     return universe.filter((x) => x.label.toLowerCase().includes(s)).sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
   }, [universe, q, searching]);
 
-  const activeKind = TABS.find((t) => t.id === tab)!.kind;
-  const hubShown = tab === "national" ? nat : mov;
-  const listShown = (listsByFacet[tab] ?? []).slice().sort((a, b) => b.film_count - a.film_count || a.label.localeCompare(b.label));
+  // sections in scroll order (only those with content)
+  const sections: { id: string; label: string; n: number; render: () => ReactNode }[] = [
+    { id: "national", label: "National cinemas", n: nat.length, render: () => <div className="mv-grid">{nat.map((h) => <HubCard key={h.slug} h={h} flag />)}</div> },
+    { id: "movements", label: "Movements", n: mov.length, render: () => <div className="mv-grid">{mov.map((h) => <HubCard key={h.slug} h={h} flag={false} />)}</div> },
+    { id: "award", label: "Awards", n: (byFacet.award ?? []).length, render: () => <ListRows rows={byFacet.award ?? []} /> },
+    { id: "canon", label: "Canons", n: (byFacet.canon ?? []).length, render: () => <ListRows rows={byFacet.canon ?? []} /> },
+    { id: "auteur", label: "Auteur lines", n: (byFacet.auteur ?? []).length, render: () => <ListRows rows={byFacet.auteur ?? []} /> },
+  ].filter((s) => s.n > 0);
 
   return (
     <>
@@ -95,25 +98,15 @@ export default function LineageTabsClient({ national, movements, lists }: { nati
         </>
       ) : (
         <>
-          <div className="lin-tabs">
-            {TABS.map((t) => counts[t.id] > 0 ? (
-              <button key={t.id} className={tab === t.id ? "on" : ""} onClick={() => setTab(t.id)}>{t.label}<span>{counts[t.id]}</span></button>
-            ) : null)}
+          <div className="mvh-tabs">
+            {sections.map((s) => <a key={s.id} href={`#lin-${s.id}`}>{s.label} <span style={{ opacity: .55 }}>{s.n}</span></a>)}
           </div>
-          {activeKind === "hub" ? (
-            <div className="mv-grid" style={{ marginTop: 14 }}>
-              {hubShown.map((h) => <HubCard key={h.slug} h={h} flag={tab === "national"} />)}
-            </div>
-          ) : (
-            <div className="lh-list" style={{ marginTop: 14 }}>
-              {listShown.map((r) => (
-                <Link className="lh-row" href={`/lineage/${r.slug}`} key={r.slug}>
-                  <span className="lh-name">{r.country ? `${codeToFlag(r.country)} ` : ""}{r.label}</span>
-                  <span className="lh-n">{r.film_count}</span>
-                </Link>
-              ))}
-            </div>
-          )}
+          {sections.map((s) => (
+            <section key={s.id} id={`lin-${s.id}`} className="mvh-sec">
+              <h2 className="mvh-h2">{s.label} <span className="df-cnt">{s.n}</span></h2>
+              {s.render()}
+            </section>
+          ))}
         </>
       )}
     </>
