@@ -300,7 +300,7 @@ export default async function FilmPage({ params }: Props) {
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
-    codex ? { id: "df-codex", label: "Codex" } : null,
+    codex ? { id: "df-codex", label: "TakeScore" } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
