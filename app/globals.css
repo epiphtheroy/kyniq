@@ -3755,15 +3755,30 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .fmap-hint{font-family:var(--font-ui); font-size:12px; color:var(--subtle)}
 .fmap-sat{font-family:var(--font-ui); font-size:12px; font-weight:600; color:var(--ink); background:none; border:1px solid var(--hairline-2); border-radius:6px; padding:5px 12px; cursor:pointer}
 .fmap-sat:hover{border-color:var(--accent); color:var(--accent)}
-.fmap-body{display:grid; grid-template-columns:220px 1fr}
-.fmap-list{list-style:none; margin:0; padding:0; max-height:460px; overflow-y:auto; border-right:1px solid var(--hairline); font-family:var(--font-ui)}
-.fmap-li{padding:9px 12px; border-bottom:1px solid var(--hairline); cursor:pointer}
+.fmap-body{display:grid; grid-template-columns:1fr 320px}
+.fmap-list{list-style:none; margin:0; padding:0; overflow-y:auto; border-left:1px solid var(--hairline); font-family:var(--font-ui); background:var(--bg)}
+.fmap-li{display:flex; gap:10px; padding:11px 12px; border-bottom:1px solid var(--hairline); cursor:pointer; align-items:flex-start}
 .fmap-li:hover, .fmap-li.on{background:#faf7f2}
-.fmap-li a{display:block; text-decoration:none; color:inherit}
-.fmap-li__n{display:block; font-size:13px; font-weight:600; color:var(--ink)}
-.fmap-li a:hover .fmap-li__n{color:var(--accent)}
-.fmap-li__s{display:block; font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.35}
+.fmap-li--other{opacity:.62}
+.fmap-li__thumb{flex:0 0 auto; width:40px; height:60px; object-fit:cover; border-radius:4px; background:var(--hairline)}
+.fmap-li__thumb--e{background:var(--hairline)}
+.fmap-li__tx{min-width:0; display:flex; flex-direction:column; gap:2px}
+.fmap-li__ttl{font-family:var(--font-serif,Georgia,serif); font-size:16px; line-height:1.15; color:var(--ink); font-weight:600}
+.fmap-li.on .fmap-li__ttl{color:var(--accent)}
+.fmap-li__place{font-size:12px; color:var(--ink); opacity:.75}
+.fmap-li__role{font-size:11.5px; color:var(--muted); line-height:1.4; margin-top:1px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+.fmap-li__open{align-self:flex-start; margin-top:3px; font-size:11.5px; color:var(--accent,#C8102E); text-decoration:none}
 .fmap-canvas{width:100%; min-height:300px}
+
+/* film search box on the map head */
+.fmap-search{position:relative; flex:1; min-width:200px; max-width:420px}
+.fmap-search input{width:100%; font-family:var(--font-ui); font-size:13px; padding:7px 11px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
+.fmap-sug{position:absolute; z-index:20; top:calc(100% + 4px); left:0; right:0; background:#fff; border:1px solid var(--hairline-2); border-radius:8px; box-shadow:0 6px 24px rgba(0,0,0,.12); overflow:hidden; max-height:340px; overflow-y:auto}
+.fmap-sug__i{display:flex; gap:9px; align-items:center; padding:7px 10px; text-decoration:none; color:var(--ink); border-bottom:1px solid var(--hairline)}
+.fmap-sug__i:hover{background:#faf7f2}
+.fmap-sug__i img, .fmap-sug__e{width:28px; height:42px; object-fit:cover; border-radius:3px; background:var(--hairline); flex:0 0 auto}
+.fmap-sug__t{font-family:var(--font-serif,Georgia,serif); font-size:14px; line-height:1.2}
+.fmap-sug__t i{font-family:var(--font-ui); font-size:11.5px; color:var(--muted); font-style:normal}
 .maplibregl-popup-content{border-radius:8px; padding:11px 13px}
 .fmap-ctrls{display:flex; align-items:center; gap:8px}
 .fmap-seg{display:inline-flex; border:1px solid var(--hairline-2); border-radius:6px; overflow:hidden}
@@ -3973,7 +3988,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .df-mv{font-family:var(--font-ui); font-size:12px; text-decoration:none; color:var(--ink); background:rgba(0,0,0,.05); border:1px solid var(--hairline-2); border-radius:999px; padding:3px 10px}
 .df-mv:hover{border-color:var(--ink)}
 .df-mv--mov{color:#0F6E56; border-color:rgba(15,110,86,.35); background:rgba(15,110,86,.07)}
-@media(max-width:640px){ .fmap-body{grid-template-columns:1fr} .fmap-list{max-height:150px; border-right:0; border-bottom:1px solid var(--hairline)} }
+@media(max-width:640px){ .fmap-head{flex-wrap:wrap} .fmap-body{grid-template-columns:1fr} .fmap-list{max-height:300px!important; border-left:0; border-top:1px solid var(--hairline)} }
 .emap-actions{display:flex; align-items:center; gap:14px}
 .emap-exp{font-family:var(--font-ui); font-size:12px; color:var(--ink2); background:transparent; border:1px solid var(--hairline); border-radius:7px; padding:5px 11px; cursor:pointer}
 .emap-exp:hover{background:var(--surface-2)}
