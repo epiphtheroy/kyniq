@@ -1,3 +1,4 @@
+import FilmContentHub from "./FilmContentHub";
 /** S11 Cinecodex card (dark shell). The second objective axis beside 정전가.
  *  Never blends: our V/R/U · external imdb/rt/meta · canon(정전가) sit in SEPARATE columns.
  *  Risk uses --risk (never --red). Confidence dims low-reliability (but divisive ≠ unreliable). */
@@ -71,6 +72,7 @@ export default function CinecodexCard({ d, showBadge = false, slug }: { d: CcDat
 
       <div className="relcard" style={{ marginTop: 8 }}>우리·외부·정전은 분리 표시 — 절대 한 숫자로 합치지 않습니다.</div>
       {slug ? <a href={`/room/film/${slug}`} className="actbtn" style={{ display: "block", textAlign: "center", marginTop: 8, fontSize: 11.5 }}>전체 평가 카드 · 13 서브점수 →</a> : null}
+      {slug ? <FilmContentHub slug={slug} /> : null}
     </div>
   );
 }

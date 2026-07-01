@@ -17,6 +17,8 @@ const NAV: { sec: string; items: { label: string; icon: string; href: string; ke
     { label: "볼 영화 · 추천", icon: "ti-target-arrow", href: "/room/watchlist", key: "watchlist" },
     { label: "운용 데스크", icon: "ti-briefcase", href: "/room/desk" },
     { label: "자산 분석", icon: "ti-chart-arcs", href: "/room/analysis" },
+    { label: "지리 Atlas", icon: "ti-map-2", href: "/room/atlas" },
+    { label: "감독 정복", icon: "ti-crown", href: "/room/auteurs" },
   ]},
   { sec: "기록 · 교류", items: [
     { label: "기록 · 평가", icon: "ti-star", href: "/room/rate" },
@@ -59,7 +61,7 @@ function InspectorCol({ collapsed, onToggle }: { collapsed: boolean; onToggle: (
 
 const CRUMB: Record<string, string> = {
   "/room": "현황 · 커맨드센터", "/room/collection": "보유 영화", "/room/watchlist": "볼 영화 · 추천",
-  "/room/desk": "운용 데스크", "/room/analysis": "자산 분석", "/room/rate": "기록 · 평가",
+  "/room/desk": "운용 데스크", "/room/analysis": "자산 분석", "/room/atlas": "지리 Atlas", "/room/auteurs": "감독 정복", "/room/rate": "기록 · 평가",
   "/room/library": "서재", "/room/write": "노트", "/room/pair": "동행",
 };
 
