@@ -1,6 +1,8 @@
 /* /room — dedicated dark "operating-system shell" CSS.
    FULLY SCOPED under .room-root so it never leaks into the light main site
    (globals.css / home2.css are untouched). Class contract mirrors mockup-me-*.html. */
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css");
 
 .room-root{
   --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
