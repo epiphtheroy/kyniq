@@ -13,12 +13,10 @@ export default function FilmCard({
   f,
   cat,
   lens = true,
-  sub = "❝ Top reading",
 }: {
   f: Film;
   cat: React.ReactNode;
   lens?: boolean;
-  sub?: string;
 }) {
   const url = posterUrl(f.poster);
   return (

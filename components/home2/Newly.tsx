@@ -14,7 +14,7 @@ export default function Newly({ data }: { data: HomeV2 }) {
             <h2>
               Newly mapped <span className="chev">›</span>
             </h2>
-            <div className="sub">Films just read closely · per card: ★ rating · readings added</div>
+            <div className="sub">Films just read closely</div>
           </div>
           <Link className="seeall" href="/latest">
             All just-added ›
@@ -49,7 +49,6 @@ export default function Newly({ data }: { data: HomeV2 }) {
                       {f.title}
                     </Link>
                     <div className="react">
-                      <span className="star">★ {f.imdb != null ? f.imdb.toFixed(1) : "—"}</span>
                       <span>
                         <b>{f.readings ?? 0}</b> readings
                       </span>

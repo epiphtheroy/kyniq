@@ -41,9 +41,8 @@ export default function Top10({ data }: { data: HomeV2 }) {
                   <div className="ti">{f.title}</div>
                   <div className="mt">{f.meta}</div>
                   <div className="rt">
-                    <span className="star">★ {f.imdb != null ? f.imdb.toFixed(1) : "—"}</span>
                     <span>
-                      · Metascore {f.metascore ?? "—"} · RT {f.rt ?? "—"}%
+                      Metascore {f.metascore ?? "—"} · RT {f.rt ?? "—"}%
                     </span>
                   </div>
                   <div className="watched">◉ Mark as read</div>
@@ -63,9 +62,7 @@ export default function Top10({ data }: { data: HomeV2 }) {
                 <div className="rk">#{f.rank}</div>
               </div>
               <div className="nm">{f.title}</div>
-              <div className="rt">
-                <span className="star">★ {f.imdb != null ? f.imdb.toFixed(1) : "—"}</span> · on the canon
-              </div>
+              <div className="rt">on the canon</div>
             </Link>
           ))}
         </Rail>

@@ -22,7 +22,6 @@ function LensCard({ f }: { f: LensFilm }) {
         <span className="addc">+</span>
       </Link>
       <div className="lrate">
-        <span className="lstar">★ {f.imdb != null ? f.imdb.toFixed(1) : "—"}</span>
         <span className="lread">{f.readings ?? 0} readings</span>
       </div>
       <div className="nm">
@@ -47,7 +46,7 @@ export default function LensRail({ data }: { data: HomeV2 }) {
             <h2>
               Explore by lens <span className="chev">›</span>
             </h2>
-            <div className="sub">Pick a framework · per card: ★ rating · readings · the figure it reads through</div>
+            <div className="sub">Pick a framework · per card: readings · the figure it reads through</div>
           </div>
           <Link className="seeall" href="/strong-misreadings">
             Edit your lenses ✎

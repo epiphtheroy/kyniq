@@ -5,10 +5,6 @@ import Link from "next/link";
 import type { Film, HomeV2 } from "@/lib/home2";
 import { backdropUrl, hashTone, tone, filmHref } from "./helpers";
 
-function star(r: number | null) {
-  return r != null ? r.toFixed(1) : "—";
-}
-
 export default function Hero({ data }: { data: HomeV2 }) {
   const pool = data.hero;
   const [cur, setCur] = useState(0);
@@ -89,8 +85,7 @@ export default function Hero({ data }: { data: HomeV2 }) {
                 {f.title} <span className="yr">{f.year ?? ""}</span>
               </div>
               <div className="vwatch">
-                <span className="vstar">★ {star(f.imdb)}</span>
-                <span>· Watch the trailer</span>
+                <span>Watch the trailer</span>
                 <span className="dur">2:18</span>
                 <span>· dir. {f.director ?? "—"}</span>
               </div>
@@ -129,7 +124,7 @@ export default function Hero({ data }: { data: HomeV2 }) {
                     </div>
                     <div className="uni">
                       <div className="un1">{u.title}</div>
-                      <div className="un2">★ {star(u.imdb)} · Watch the trailer</div>
+                      <div className="un2">Watch the trailer</div>
                       <div className="un3">
                         {u.readings ?? 0} readings · {u.figures ?? 0} figures
                       </div>

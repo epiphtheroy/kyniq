@@ -15,7 +15,7 @@ export default function Picked({ data }: { data: HomeV2 }) {
               Recommended by the map <span className="chev">›</span>
             </h2>
             <div className="sub">
-              Films nearest in meaning — found by shared readings, no crowd needed · per card: ★ IMDb · shared readings
+              Films nearest in meaning — found by shared readings, no crowd needed
             </div>
           </div>
           <Link className="seeall" href="/lineage">

@@ -17,7 +17,7 @@ export default function Canon({ data }: { data: HomeV2 }) {
               Recommended by <span className="chev">›</span>
             </h2>
             <div className="sub">
-              Not by clicks — by the canon lists and the directors that vouch for a film · per card: ★ IMDb · canon lists
+              Not by clicks — by the canon lists and the directors that vouch for a film
             </div>
           </div>
           <Link className="seeall" href="/lineage">
@@ -26,7 +26,7 @@ export default function Canon({ data }: { data: HomeV2 }) {
         </div>
         <Rail>
           {canon.map((f, i) => (
-            <FilmCard key={`${f.slug}-${i}`} f={f} cat={`${f.lists} canon lists`} sub="▤ On the canon" />
+            <FilmCard key={`${f.slug}-${i}`} f={f} cat={`${f.lists} canon lists`} />
           ))}
         </Rail>
         <div className="railcount">

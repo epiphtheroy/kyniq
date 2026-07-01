@@ -16,7 +16,7 @@ export default function Rhyme({ data }: { data: HomeV2 }) {
               Films that <em>rhyme</em> <span className="chev">›</span>
             </h2>
             <div className="sub">
-              Because you opened <b>{seed}</b> · per card: ★ rating · shared readings
+              Because you opened <b>{seed}</b>
             </div>
           </div>
           <Link className="seeall" href="/lineage">
@@ -29,7 +29,6 @@ export default function Rhyme({ data }: { data: HomeV2 }) {
               key={`${f.slug}-${i}`}
               f={f}
               cat={`${f.shared} shared readings`}
-              sub="❝ Why it rhymes"
             />
           ))}
         </Rail>
