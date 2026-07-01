@@ -5,7 +5,7 @@ import MovementsIndexClient from "@/components/MovementsIndexClient";
 
 export const revalidate = 1800;
 
-// Phase-0 origins finalized → indexable.
+// Phase-0 origins finalized → indexable. (card links read `slug`; RPC returns hub_slug as slug)
 export const metadata: Metadata = {
   title: "Movements — national cinemas & film movements · Metatake",
   description:
