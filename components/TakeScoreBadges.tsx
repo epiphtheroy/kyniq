@@ -29,7 +29,8 @@ export default function TakeScoreBadges() {
     const layer = layerRef.current;
     if (!layer) return;
     const badges = new Map<HTMLImageElement, HTMLElement>();
-    let raf = 0;
+    let posRaf = 0;      // repositioning (scroll/resize) — its own handle
+    let scanT: number = 0; // debounced scan — separate timer so bursts don't starve it
 
     async function loadScores(slugs: string[]) {
       const need = [...new Set(slugs)].filter((s) => !cache.has(s));
@@ -85,23 +86,24 @@ export default function TakeScoreBadges() {
       reposition();
     }
 
-    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(reposition); };
-    const kick = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(scan); };
+    const onScroll = () => { cancelAnimationFrame(posRaf); posRaf = requestAnimationFrame(reposition); };
+    const kick = () => { clearTimeout(scanT); scanT = window.setTimeout(() => { void scan(); }, 180); };
 
-    kick();
-    // observe only the app content for new posters; never mutates React nodes
-    const mo = new MutationObserver(() => kick());
+    void scan(); // immediate first pass
+    // observe app content for newly-added posters; never mutates React nodes
+    const mo = new MutationObserver(kick);
     mo.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("scroll", onScroll, true);
     window.addEventListener("resize", onScroll);
-    const iv = window.setInterval(reposition, 600);
+    const iv = window.setInterval(() => { void scan(); reposition(); }, 1000); // fallback sweep
 
     return () => {
       mo.disconnect();
       window.removeEventListener("scroll", onScroll, true);
       window.removeEventListener("resize", onScroll);
       window.clearInterval(iv);
-      cancelAnimationFrame(raf);
+      clearTimeout(scanT);
+      cancelAnimationFrame(posRaf);
       badges.clear();
     };
   }, []);
