@@ -301,13 +301,13 @@ export default async function FilmPage({ params }: Props) {
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
     codex ? { id: "df-codex", label: "TakeScore" } : null,
+    geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
     { id: "df-map", label: "Connections" },
-    geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
@@ -424,8 +424,18 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        {/* LINEAGE — where the film sits: awards, canons, auteur line */}
         <CinecodexPanel data={codex as Codex | null} title={film.title} />
+
+        {/* ATLAS — real-world places (directly under the TakeScore) */}
+        {geoCount > 0 ? (
+          <section className="df-sec" id="df-atlas">
+            <h2 className="df-h2">{film.title} — on the map</h2>
+            <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
+            <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={460} />
+          </section>
+        ) : null}
+
+        {/* LINEAGE — where the film sits: awards, canons, auteur line */}
         <FilmLineageSection lineage={lineage} title={film.title} movements={movements} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
@@ -512,15 +522,6 @@ export default async function FilmPage({ params }: Props) {
           <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
           <EntityMap api={`/api/map?type=film&key=${film.slug}`} full={`/map?m=critical&t=film&k=${film.slug}`} />
         </section>
-
-        {/* ATLAS — real-world places */}
-        {geoCount > 0 ? (
-          <section className="df-sec" id="df-atlas">
-            <h2 className="df-h2">{film.title} — on the map</h2>
-            <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
-            <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={460} />
-          </section>
-        ) : null}
 
         {/* TROPES */}
         {tropes.length > 0 ? (
