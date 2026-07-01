@@ -20,7 +20,7 @@ function buildGroups(c: NavCounts): Group[] {
       { t: "Trending", h: "/trending" },
     ] },
     { id: "wander", label: "Wander", items: [
-      { t: "Movements", h: "/movements" },
+      { t: "Lineage", h: "/lineage" },
       { t: "Atlas", h: "/atlas" },
       { t: "Connections", h: "/map" },
       { t: "Surprise me", h: "/random" },
