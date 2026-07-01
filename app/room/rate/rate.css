@@ -1,0 +1,135 @@
+/* /room/rate — 기록 · 평가 (평가 입력 워크스테이션). Ported from mockup-me-onboard-rate-v2.html.
+   Every selector scoped under .room-root. Reuses shared tokens from room.css. */
+
+.room-root { --gold:#E8B23A; }
+
+/* hero */
+.room-root .rate-hero{display:grid;grid-template-columns:auto 1fr;gap:18px;background:linear-gradient(180deg,var(--pnl),var(--bg2));
+  border:1px solid var(--line2);border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+.room-root .rate-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+.room-root .rate-navbig{display:flex;align-items:center;gap:16px}
+.room-root .rate-ring{position:relative;flex:0 0 auto}
+.room-root .rate-navmeta .lvl{font-size:12px;font-weight:600;letter-spacing:.04em;margin-top:5px}
+.room-root .rate-navmeta .pctl{font-size:11px;color:var(--mut);margin-top:3px}
+.room-root .rate-navmeta .pctl b{color:var(--safe);font-family:var(--mono)}
+.room-root .rate-components{display:flex;flex-direction:column;gap:7px;justify-content:center;border-left:1px solid var(--line);padding-left:18px}
+.room-root .rate-comp{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:10px}
+.room-root .rate-comp .cl{font-size:11px;color:var(--mut)}
+.room-root .rate-comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .rate-comp .ct>i{display:block;height:100%;border-radius:4px}
+.room-root .rate-comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+.room-root .rate-explain{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);margin-top:12px;padding-top:9px;display:flex;gap:8px;align-items:center}
+.room-root .rate-explain .ti{color:var(--canon)}
+
+/* kpi strip */
+.room-root .rate-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:13px}
+.room-root .rate-kpi{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 12px}
+.room-root .rate-kpi:hover{border-color:var(--line2)}
+.room-root .rate-kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
+.room-root .rate-kpi .v small{font-size:13px;color:var(--sub)}
+.room-root .rate-kpi .d{font-size:10.5px;margin-top:3px}
+.room-root .rate-kpi .d.up{color:var(--safe)}
+.room-root .rate-kpi .d.flat{color:var(--mut)}
+
+/* module primary anchor */
+.room-root .rate-mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+.room-root .rate-mod.primary{border-color:var(--line2)}
+.room-root .rate-modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.room-root .rate-mod.primary .rate-modh{background:linear-gradient(180deg,#1f1808,var(--bg2));border-bottom-color:#5b481f}
+.room-root .rate-modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.room-root .rate-modh h3 .ti{color:var(--mut)}
+.room-root .rate-mod.primary .rate-modh h3 .ti{color:var(--gold)}
+.room-root .rate-modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+.room-root .rate-modbody{padding:11px 13px}
+.room-root .ratecue{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--mut);background:var(--pnl2);border:1px solid var(--line);border-radius:6px;padding:8px 11px;margin-bottom:11px}
+.room-root .ratecue i.ti{color:var(--gold);font-size:15px}
+.room-root .ratecue b{color:var(--ink)}
+
+/* search / add bar */
+.room-root .rate-searchbox{position:relative;margin-bottom:13px}
+.room-root .rate-searchbox input{width:100%;background:var(--pnl);border:1px solid var(--line2);border-radius:7px;padding:12px 14px 12px 40px;color:var(--ink);font-family:var(--ui);font-size:14px}
+.room-root .rate-searchbox input:focus{outline:none;border-color:var(--line3)}
+.room-root .rate-searchbox .si{position:absolute;left:14px;top:13px;color:var(--sub);font-size:16px}
+.room-root .rate-searchbox .hint{position:absolute;right:14px;top:12px;font-size:10px;color:var(--faint);font-family:var(--mono)}
+.room-root .rate-sugg{position:absolute;left:0;right:0;top:50px;background:#161618;border:1px solid var(--line2);border-radius:7px;z-index:9;max-height:320px;overflow:auto;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.room-root .rate-sugg .sg{display:flex;align-items:center;gap:10px;padding:9px 13px;cursor:pointer;border-bottom:1px solid var(--line)}
+.room-root .rate-sugg .sg:last-child{border-bottom:0}
+.room-root .rate-sugg .sg:hover{background:var(--pnl2)}
+.room-root .rate-sugg .sg .t{font-family:var(--ser);font-size:14px}
+.room-root .rate-sugg .sg .m{font-size:10.5px;color:var(--sub);margin-left:auto;text-align:right}
+.room-root .rate-sugg .sg.busy{color:var(--sub);font-size:11.5px;cursor:default}
+
+/* rate list header + chips */
+.room-root .relchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;align-items:center}
+.room-root .relchips .lbl{font-size:11px;color:var(--sub)}
+.room-root .relchips .lbl b{color:var(--ink)}
+
+/* card grid (films to rate / recent) */
+.room-root .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:10px}
+.room-root .fcard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 11px;display:flex;gap:11px;animation:rate-flyin .32s ease both;cursor:pointer}
+.room-root .fcard:hover{border-color:var(--line2)}
+.room-root .fcard.sel{border-color:var(--line3);background:var(--pnl2)}
+@keyframes rate-flyin{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.room-root .fpo{width:44px;height:64px;border-radius:3px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line);position:relative;background-size:cover;background-position:center}
+.room-root .fpo .f{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:8px;color:var(--sub)}
+.room-root .fc-b{min-width:0;flex:1}
+.room-root .fc-t{font-family:var(--ser);font-size:14px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .fc-d{font-size:10.5px;color:var(--sub);margin-top:1px}
+
+/* half-star control */
+.room-root .stars{display:flex;width:max-content;user-select:none}
+.room-root .star{position:relative;width:19px;height:19px;font-size:18px;line-height:19px;color:#3a3a40;cursor:pointer}
+.room-root .star .half{position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden;color:#3a3a40}
+.room-root .star .full{color:#3a3a40}
+.room-root .star.lit .full,.room-root .star.lit .half{color:var(--gold)}
+.room-root .star.hf .half{color:var(--gold)}
+.room-root .starwrap{display:flex;align-items:center;gap:9px;margin-top:8px}
+.room-root .scalehint{font-size:9px;color:var(--faint);font-family:var(--mono);white-space:nowrap}
+.room-root .fcard:hover .scalehint{color:var(--sub)}
+.room-root .acts{display:flex;gap:8px;margin-top:7px;font-size:10.5px}
+.room-root .acts a{color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:3px}
+.room-root .acts a.no:hover{color:var(--red)}
+.room-root .rated-badge{font-size:9px;font-family:var(--mono);color:#5fd0b2;border:1px solid #1d4d40;background:#0e221c;border-radius:3px;padding:1px 6px;margin-left:6px}
+.room-root .emptyset{color:var(--sub);font-style:italic;padding:24px;text-align:center;border:1px dashed var(--line);border-radius:7px;grid-column:1/-1}
+.room-root .emptyset b{color:var(--ink);font-style:normal}
+
+/* neighbor fly-in (이웃) */
+.room-root .nbpanel{background:var(--pnl);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:13px}
+.room-root .nbhd{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.room-root .nbhd h3{margin:0;font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px}
+.room-root .nbhd h3 .ti{color:var(--reading)}
+.room-root .nbhd .meta{margin-left:auto;font-size:9.5px;color:var(--sub);font-family:var(--mono)}
+.room-root .nbbody{padding:11px 13px}
+.room-root .nbidle{font-size:11px;color:var(--faint);font-style:italic;padding:2px 0;line-height:1.5}
+.room-root .nbidle b{color:var(--mut);font-style:normal}
+.room-root .nbhint{font-size:11px;color:var(--sub);font-style:italic;margin-bottom:10px;line-height:1.5}
+.room-root .nbhint b{color:var(--ink);font-style:normal}
+.room-root .nbcard{display:flex;gap:9px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);animation:rate-flyinR .4s ease both}
+.room-root .nbcard:last-child{border-bottom:0}
+@keyframes rate-flyinR{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+.room-root .npo{width:32px;height:46px;border-radius:2px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line);background-size:cover;background-position:center}
+.room-root .nc-t{font-family:var(--ser);font-size:12.5px;line-height:1.15}
+.room-root .nc-d{font-size:9.5px;color:var(--sub)}
+.room-root .nc-aff{font-size:9px;font-family:var(--mono);color:var(--reading);margin-top:3px}
+.room-root .nc-aff span{color:var(--faint)}
+.room-root .nadd{margin-left:auto;font-size:16px;color:var(--sub);cursor:pointer;flex:0 0 auto}
+.room-root .nadd:hover{color:var(--gold)}
+.room-root .nbpanel.armed{border-color:#4a3f86;box-shadow:0 0 0 1px rgba(139,127,232,.25),0 14px 34px rgba(139,127,232,.10)}
+.room-root .nbpanel.armed .nbhd{background:linear-gradient(180deg,#171430,var(--bg2))}
+.room-root .nbcount{font-family:var(--mono);font-size:10px;color:#bda1f0;border:1px solid #4a3f86;background:#171430;border-radius:11px;padding:1px 8px;display:inline-flex;align-items:center;gap:4px}
+
+/* inspector rate panel (half-star, larger) */
+.room-root .istars{display:flex;margin:4px 0;width:max-content;user-select:none}
+.room-root .istar{position:relative;width:27px;height:27px;font-size:26px;line-height:27px;color:#3a3a40;cursor:pointer}
+.room-root .istar .half{position:absolute;top:0;left:0;width:50%;height:100%;overflow:hidden;color:#3a3a40}
+.room-root .istar .full{color:#3a3a40}
+.room-root .istar.lit .full,.room-root .istar.lit .half{color:var(--gold)}
+.room-root .istar.hf .half{color:var(--gold)}
+.room-root .ratebadge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-family:var(--mono);color:#5fd0b2;border:1px solid #1d4d40;background:#0e221c;border-radius:13px;padding:2px 9px}
+.room-root .anchorchip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block;margin:3px 3px 0 0}
+.room-root .nbline{display:flex;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line)}
+.room-root .nbline:last-child{border-bottom:0}
+.room-root .nbline .nm{font-family:var(--ser);font-size:12.5px;flex:1}
+.room-root .nbline .nm small{font-family:var(--ui);color:var(--sub);font-size:10px;margin-left:5px}
+.room-root .nbline .aff{font-family:var(--mono);font-size:10px;color:var(--reading)}
