@@ -27,9 +27,15 @@ const NAV: { sec: string; items: { label: string; icon: string; href: string; ke
   ]},
 ];
 
-function useSticky(key: string, def = false) {
-  const [v, setV] = useState(def);
-  useEffect(() => { const s = localStorage.getItem(key); if (s != null) setV(s === "1"); }, [key]);
+// Collapsed state persists in localStorage; if unset, auto-collapse when the
+// viewport is narrower than `collapseBelow` so all columns fit on first load.
+function useSticky(key: string, collapseBelow = 0) {
+  const [v, setV] = useState(false);
+  useEffect(() => {
+    const s = localStorage.getItem(key);
+    if (s != null) setV(s === "1");
+    else if (collapseBelow > 0 && typeof window !== "undefined") setV(window.innerWidth < collapseBelow);
+  }, [key, collapseBelow]);
   const toggle = () => setV((p) => { const n = !p; localStorage.setItem(key, n ? "1" : "0"); return n; });
   return [v, toggle] as const;
 }
@@ -37,7 +43,7 @@ function useSticky(key: string, def = false) {
 function InspectorCol({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => void }) {
   const insp = useInspector();
   return (
-    <aside className={`col inspector${collapsed ? " collapsed force" : " force"}`}>
+    <aside className={`col inspector${collapsed ? " collapsed" : ""}`}>
       <div className="insphd">
         <span className="chv" onClick={onToggle}><i className="ti ti-layout-sidebar-right-collapse" /></span>
         <span className="ti-tit">{insp.title}</span>
@@ -66,9 +72,9 @@ export default function RoomShell({
   const pathname = usePathname();
   const router = useRouter();
   const crumb = CRUMB[pathname] ?? (pathname.startsWith("/room/film") ? "평가 카드" : "커맨드센터");
-  const [railC, toggleRail] = useSticky("mt_rail");
-  const [inspC, toggleInsp] = useSticky("mt_inspector");
-  const [actC, toggleAct] = useSticky("mt_activity");
+  const [railC, toggleRail] = useSticky("mt_rail", 820);
+  const [inspC, toggleInsp] = useSticky("mt_inspector", 1180);
+  const [actC, toggleAct] = useSticky("mt_activity", 1440);
   const [cmdk, setCmdk] = useState(false);
 
   useEffect(() => {
