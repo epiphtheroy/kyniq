@@ -1,7 +1,6 @@
 "use client";
 /** 보유 Collection — 내 영화 자산 거래소. 정전가(시장가) + Cinecodex(V/U) 나란히 + 2축 가치뱃지. */
 import { useMemo, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useInspector } from "./InspectorContext";
 import CinecodexCard from "./CinecodexCard";
 
@@ -49,7 +48,7 @@ function Insp({ f }: { f: CollRow }) {
 
 export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
   const insp = useInspector();
-  const router = useRouter();
+  const { setDefault } = insp;
   const [q, setQ] = useState("");
   const [sort, setSort] = useState<"score" | "rating" | "gap" | "recent">("score");
   const [findOnly, setFindOnly] = useState(false);
@@ -58,7 +57,7 @@ export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
   useEffect(() => {
     const scored = rows.filter((r) => r.v != null);
     const medV = scored.length ? [...scored].map((r) => r.v!).sort((a, b) => a - b)[Math.floor(scored.length / 2)] : null;
-    insp.setDefault(
+    setDefault(
       <div>
         <div className="icard"><h4><i className="ti ti-chart-pie" /> 포트폴리오 분포</h4>
           <div className="kv"><span>보유(관람)</span><b>{rows.length}</b></div>
@@ -68,7 +67,7 @@ export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
         <div className="emptyins">행을 클릭하면 정전가 분해 · Cinecodex · 2축 뱃지가 열립니다.</div>
       </div>
     );
-  }, [rows, insp]);
+  }, [rows, setDefault]);
 
   const view = useMemo(() => {
     let a = rows;
