@@ -7,6 +7,7 @@ import MovieSearchAdd from "@/components/MovieSearchAdd";
 import WatchlistPipeline, { type WLRow } from "@/components/WatchlistPipeline";
 import PortfolioQuality, { type MeSummary } from "@/components/PortfolioQuality";
 import WatchedScored, { type WatchedRow } from "@/components/WatchedScored";
+import TasteRail, { type TasteRow } from "@/components/TasteRail";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
 type PB = {
@@ -89,12 +90,14 @@ export default async function MeDashboard() {
     supabase.rpc("portfolio_breakdown"),
     supabase.rpc("me_watchlist_scored"),
   ]);
-  const [{ data: tsSummaryRaw }, { data: watchedScoredRaw }] = await Promise.all([
+  const [{ data: tsSummaryRaw }, { data: watchedScoredRaw }, { data: tasteRaw }] = await Promise.all([
     supabase.rpc("me_takescore_summary"),
     supabase.rpc("me_watched_scored"),
+    supabase.rpc("me_taste_neighbors", { p_limit: 8 }),
   ]);
   const tsSummary = (tsSummaryRaw as MeSummary | null) ?? null;
   const watchedScored = (watchedScoredRaw as WatchedRow[] | null) ?? [];
+  const taste = (tasteRaw as TasteRow[] | null) ?? [];
 
   // Saved (user_saves): readings/directors/lineage lists the user bookmarked
   const { data: savesRaw } = await supabase
@@ -181,6 +184,14 @@ export default async function MeDashboard() {
                 ))}
               </div>
             ) : null}
+          </section>
+        )}
+
+        {taste.length > 0 && (
+          <section style={{ marginTop: 22 }}>
+            <div className="seclbl">✦ Recommended for you · by taste</div>
+            <p className="ui muted" style={{ fontSize: 12.5, margin: "2px 0 0" }}>Nearest to the films you rated highly — by shared readings, shown with their TakeScore.</p>
+            <TasteRail rows={taste} />
           </section>
         )}
 
