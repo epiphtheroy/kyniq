@@ -45,7 +45,7 @@
 .room-root .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
 .room-root .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
 .room-root .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
-.room-root .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+.room-root .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;margin:0;padding:0}
 .room-root .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
 .room-root .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
 
@@ -147,7 +147,7 @@
 .room-root .rt small{font-family:var(--ui);font-size:11px;color:var(--mut);font-weight:400}
 .room-root .keptflag{font-family:var(--mono);font-size:9px;color:var(--safe);border:1px solid rgba(31,178,134,.4);border-radius:3px;padding:0 4px}
 .room-root .rsub{font-size:11px;color:var(--mut);margin-top:2px}
-.room-root .wwi{text-align:right}
+.room-root .wwi{text-align:right;margin:0}
 .room-root .wwi .pv{font-family:var(--mono);font-size:22px;line-height:1}
 .room-root .wwi .pl{font-size:8.5px;color:var(--sub)}
 .room-root .ucol{text-align:right}
