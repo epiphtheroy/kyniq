@@ -117,9 +117,14 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
     setLoading(false);
   }, [sort, lam, q, country, decade, offset]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // refetch (reset) when any filter changes (debounced)
+  // refetch (reset) when any filter changes (debounced); self-heal if the
+  // server render came back empty (e.g. stale ISR built before data landed).
   useEffect(() => {
-    if (first.current) { first.current = false; return; }
+    if (first.current) {
+      first.current = false;
+      if (initialRows.length === 0) fetchPage(true);
+      return;
+    }
     setOpen(null);
     const t = setTimeout(() => fetchPage(true), 280);
     return () => clearTimeout(t);

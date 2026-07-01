@@ -4,7 +4,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import CodexExplorer, { type CodexRow } from "@/components/CodexExplorer";
 
-export const revalidate = 1800;
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "The Metatake Score — films ranked by durable value, not popularity · Metatake",
