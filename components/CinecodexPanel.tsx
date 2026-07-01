@@ -31,7 +31,7 @@ export default function CinecodexPanel({ data, title }: { data: Codex | null; ti
   const { ext } = data;
   return (
     <section className="df-sec ccx" id="df-codex">
-      <h2 className="df-h2">Metatake Score <a className="ccx-how" href="/codex/about">how it works →</a></h2>
+      <h2 className="df-h2">Metatake Score <a className="ccx-how" href="/score/about">how it works →</a></h2>
       <p className="df-sub">
         Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
         the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
