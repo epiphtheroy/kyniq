@@ -144,7 +144,7 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
           <span className="cx-lbl">Decade</span>
           <div className="cx-chips">
             <button className={decade === "" ? "on" : ""} onClick={() => setDecade("")}>All</button>
-            {decades.map((d) => <button key={d} className={decade === d ? "on" : ""} onClick={() => setDecade(d)}>{d.slice(2)}s</button>)}
+            {decades.map((d) => <button key={d} className={decade === d ? "on" : ""} onClick={() => setDecade(d)}>{d}s</button>)}
           </div>
         </div>
 
