@@ -480,7 +480,7 @@ export default function AnalysisWorkspace({ data }: { data: AnalysisData }) {
                     const size = 10.5 + (f.n / maxN) * 5.5;
                     const opacity = f.n === 1 ? 0.72 : 1;
                     return (
-                      <a key={f.slug} className="an-fc" href={`/theory/${f.slug}`} style={{ fontSize: size, opacity }} title={`${f.label} · ${f.n}편`}>
+                      <a key={f.slug} className="an-fc" href={`/trope/${f.slug}`} style={{ fontSize: size, opacity }} title={`${f.label} · ${f.n}편`}>
                         {f.label}<b>{f.n}</b>
                       </a>
                     );
