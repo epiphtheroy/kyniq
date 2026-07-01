@@ -33,7 +33,7 @@ function Insp({ f }: { f: CollRow }) {
       <div className="icard"><h4><i className="ti ti-building-bank" /> 정전가 · 시장가</h4>
         <div className="bigscore">{f.prestige != null ? Math.round(f.prestige) : "—"}</div>
         <div className="kv"><span>Discovery(숨은가치)</span><b>{f.discovery != null ? Math.round(f.discovery) : "—"}</b></div>
-        <div className="kv"><span>내 별점</span><b>{f.rating != null ? f.rating.toFixed(1) : "—"}</b></div>
+        <div className="kv"><span>내 별점</span><b>{f.rating != null ? Number(f.rating).toFixed(1) : "—"}</b></div>
       </div>
       <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
       {(m != null || a != null) ? (
@@ -120,7 +120,7 @@ export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
               </div>
               <div className="xstars">
                 <div className="st" title={f.rating != null ? `${f.rating}` : ""}>{stars(f.rating)}</div>
-                <div className="me">{f.rating != null ? f.rating.toFixed(1) : "미평가"}</div>
+                <div className="me">{f.rating != null ? Number(f.rating).toFixed(1) : "미평가"}</div>
               </div>
               <div className="xval"><div className="ax">
                 {m != null ? <span className={`xmini ${isFind ? "find" : isOver ? "over" : ""}`}>시장 {m > 0 ? "+" : ""}{m}</span> : null}
