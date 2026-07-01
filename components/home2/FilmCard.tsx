@@ -37,8 +37,6 @@ export default function FilmCard({
       </Link>
       <div className="body">
         <div className="rateline">
-          <span className="star">★ {f.imdb != null ? f.imdb.toFixed(1) : "—"}</span>
-          <span className="dotsep">·</span>
           <span className="catnum">
             {lens ? <span className="lz" /> : null}
             {cat}
@@ -53,10 +51,6 @@ export default function FilmCard({
           </span>
         </div>
         <button className="wl">＋ Shelf</button>
-        <div className="row2">
-          <span className="tr">{sub}</span>
-          <span className="inf">i</span>
-        </div>
       </div>
     </div>
   );
