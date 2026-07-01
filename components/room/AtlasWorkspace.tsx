@@ -8,7 +8,7 @@
  *  in AnalysisWorkspace (ScatterSVG) / CommandCenterWorkspace (constellation). Every dot →
  *  inspector-swap with that film (CinecodexCard slug → film content hub). PostgREST numerics
  *  (incl. lat/lng) arrive as strings → coerced with num() before any math. */
-import { useMemo, useEffect, type ReactNode } from "react";
+import { useMemo, useEffect } from "react";
 import { useInspector } from "./InspectorContext";
 import CinecodexCard from "./CinecodexCard";
 
