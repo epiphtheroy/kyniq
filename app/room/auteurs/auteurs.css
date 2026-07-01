@@ -1,0 +1,96 @@
+/* 감독 정복 (Auteur Conquest) — /room/auteurs
+   Scoped under .room-root, classes prefixed au-. Reuses room.css tokens
+   (--canon/--conquer/--safe/--gap/--mut/--ink/--pnl/--sub/--line*) and shared
+   primitives (.icard/.selhead/.po/.kv/.crow/.cbar/.emptyins/.rsn/.kpi/.xseg).
+   완파 4-state: 잠금<50 gray · 진행50–74 --canon · 근접75–99 --canon(glow) · 완파100 --conquer. */
+
+/* ── KPI strip ── */
+.room-root .au-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 16px}
+.room-root .au-kpis .kpi .kn small{font-size:13px;color:var(--mut);margin-left:1px}
+
+/* ── module header (title + sort seg / meta) ── */
+.room-root .au-modh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.room-root .au-modh h3{margin:0;font-size:12.5px;font-family:var(--ser);color:var(--ink);display:flex;align-items:center;gap:7px}
+.room-root .au-modh h3 i{color:var(--canon)}
+.room-root .au-meta{font-size:10.5px;color:var(--sub)}
+
+/* ── director row ── */
+.room-root .au-row{
+  display:grid;grid-template-columns:44px 1fr 200px 96px 48px;gap:12px;align-items:center;
+  padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;position:relative;
+}
+.room-root .au-row:last-child{border-bottom:none}
+.room-root .au-row:hover{background:var(--pnl2)}
+.room-root .au-row.sel{background:var(--pnl2);box-shadow:inset 2px 0 0 var(--red)}
+
+.room-root .au-thumb{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(145deg,#26262c,#151517);border:1px solid var(--line2);
+  background-size:cover;background-position:center top;flex:0 0 auto;
+}
+.room-root .au-name{min-width:0}
+.room-root .au-nm{font-family:var(--ser);font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .au-sub{font-size:10.5px;color:var(--mut);margin-top:2px}
+
+/* completion bar + % */
+.room-root .au-barwrap{display:flex;align-items:center;gap:9px}
+.room-root .au-track{flex:1;height:7px;border-radius:4px;background:var(--pnl3);overflow:hidden;border:1px solid var(--line2)}
+.room-root .au-track i{display:block;height:100%;border-radius:4px;background:var(--canon);transition:width .3s ease}
+.room-root .au-pct{font-family:var(--mono);font-size:11.5px;width:34px;text-align:right;flex:0 0 auto}
+
+/* 완파 4-state accents (row-level: bar glow + left edge on 근접/완파) */
+.room-root .au-row.st-lock .au-track i{background:var(--sub)}
+.room-root .au-row.st-prog .au-track i{background:var(--canon)}
+.room-root .au-row.st-near .au-track i{background:var(--canon);box-shadow:0 0 7px rgba(200,146,43,.65)}
+.room-root .au-row.st-near{box-shadow:inset 2px 0 0 var(--canon)}
+.room-root .au-row.st-done .au-track i{background:var(--conquer);box-shadow:0 0 8px rgba(227,18,11,.55)}
+.room-root .au-row.st-done{box-shadow:inset 2px 0 0 var(--conquer)}
+
+.room-root .au-stars{text-align:right}
+.room-root .au-stars .st{font-size:11px;color:var(--canon);letter-spacing:.5px;line-height:1.1}
+.room-root .au-stars .me{font-family:var(--mono);font-size:10px;color:var(--mut);margin-top:2px}
+
+/* state tag */
+.room-root .au-statetag{
+  font-size:9.5px;letter-spacing:.05em;text-align:center;color:var(--sub);
+  border:1px solid var(--line2);border-radius:999px;padding:2px 0;
+}
+.room-root .au-row.st-prog .au-statetag,
+.room-root .au-row.st-near .au-statetag{color:var(--canon);border-color:rgba(200,146,43,.4)}
+.room-root .au-row.st-done .au-statetag{color:var(--conquer);border-color:rgba(227,18,11,.45);background:rgba(227,18,11,.08)}
+
+/* ── 도장깨기 데스크 row (flat cross-director) ── */
+.room-root .au-conqdesk-row{
+  display:grid;grid-template-columns:26px 40px 1fr 66px 52px;gap:11px;align-items:center;
+  padding:9px 12px;border-bottom:1px solid var(--line);cursor:pointer;
+}
+.room-root .au-conqdesk-row:last-child{border-bottom:none}
+.room-root .au-conqdesk-row:hover{background:var(--pnl2)}
+.room-root .au-rk{font-family:var(--mono);font-size:13px;color:var(--sub);text-align:center}
+
+.room-root .au-cpo{
+  width:40px;height:58px;border-radius:3px;
+  background:linear-gradient(145deg,#26262c,#151517);border:1px solid var(--line2);
+  background-size:cover;background-position:center;flex:0 0 auto;
+}
+.room-root .au-cbody{min-width:0}
+.room-root .au-ctt{font-family:var(--ser);font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .au-ctt small{color:var(--mut);font-size:10.5px;font-family:var(--mono)}
+.room-root .au-csub{font-size:10.5px;color:var(--mut);margin-top:1px}
+.room-root .au-rsn-line{margin-top:5px;display:flex;gap:6px}
+
+.room-root .au-cnum{text-align:right}
+.room-root .au-cnum .pv{font-family:var(--mono);font-size:15px;line-height:1;color:var(--ink)}
+.room-root .au-cnum .pl{font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-top:2px}
+
+/* ── inspector: milestone chips + 도장깨기 list ── */
+.room-root .au-ms{display:flex;gap:6px;margin-top:9px}
+.room-root .au-conqlist{display:flex;flex-direction:column;gap:2px}
+.room-root .au-conqrow{
+  display:grid;grid-template-columns:34px 1fr 52px 40px;gap:9px;align-items:center;
+  padding:7px 4px;border-top:1px solid var(--line);cursor:pointer;border-radius:5px;
+}
+.room-root .au-conqrow:first-child{border-top:none}
+.room-root .au-conqrow:hover{background:var(--pnl2)}
+.room-root .au-conqrow .au-cpo{width:34px;height:50px}
+.room-root .au-conqrow .au-cnum .pv{font-size:13px}
