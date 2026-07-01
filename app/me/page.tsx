@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import SiteNav from "@/components/home2/SiteNav";
 import MovieSearchAdd from "@/components/MovieSearchAdd";
 import WatchlistPipeline, { type WLRow } from "@/components/WatchlistPipeline";
+import PortfolioQuality, { type MeSummary } from "@/components/PortfolioQuality";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
 type PB = {
@@ -87,6 +88,8 @@ export default async function MeDashboard() {
     supabase.rpc("portfolio_breakdown"),
     supabase.rpc("me_watchlist_scored"),
   ]);
+  const { data: tsSummaryRaw } = await supabase.rpc("me_takescore_summary");
+  const tsSummary = (tsSummaryRaw as MeSummary | null) ?? null;
 
   // Saved (user_saves): readings/directors/lineage lists the user bookmarked
   const { data: savesRaw } = await supabase
@@ -150,6 +153,7 @@ export default async function MeDashboard() {
         {(watched.length > 0) && (
           <section style={{ marginTop: 22 }}>
             <div className="seclbl">Portfolio</div>
+            {tsSummary ? <PortfolioQuality s={tsSummary} /> : null}
             {pb.canon && pb.canon.length > 0 ? (
               <div className="me-cov">
                 {pb.canon.slice(0, 6).map((c) => {
