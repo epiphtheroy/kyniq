@@ -3,6 +3,7 @@ import { awardBody, awardLabel, canonEmblem, codeToFlag } from "@/lib/lineageBod
 
 /** Lineage section — awards/honours, canons/lists, auteur line. Shared by the full and catalog film pages. */
 export type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null; country?: string | null };
+export type MvChip = { slug: string; label: string; kind: string; country_code: string | null };
 
 function CC({ country }: { country?: string | null }) {
   if (!country) return null;
@@ -10,16 +11,37 @@ function CC({ country }: { country?: string | null }) {
   return <span className="lin-cc"> · {f ? `${f} ` : ""}{country.toUpperCase()}</span>;
 }
 
-export default function FilmLineageSection({ lineage, title }: { lineage: LinRow[]; title: string }) {
+export default function FilmLineageSection({ lineage, title, movements = [] }: { lineage: LinRow[]; title: string; movements?: MvChip[] }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linCanons = lineage.filter((l) => l.facet !== "auteur" && l.result === "listed");
   const linAuteur = lineage.filter((l) => l.facet === "auteur");
-  if (linAwards.length + linCanons.length + linAuteur.length === 0) return null;
+  const nations = movements.filter((m) => m.kind !== "movement");
+  const moves = movements.filter((m) => m.kind === "movement");
+  if (linAwards.length + linCanons.length + linAuteur.length + movements.length === 0) return null;
 
   return (
     <section className="df-sec" id="df-lineage">
       <h2 className="df-h2">Lineage</h2>
-      <p className="df-sub">Where {title} sits in cinema&apos;s record — the awards it won, the canons it belongs to, and the auteur line it extends.</p>
+      <p className="df-sub">Where {title} comes from and sits in cinema&apos;s record — its national cinema and movement, the awards it won, the canons it belongs to, and the auteur line it extends.</p>
+      {movements.length > 0 ? (
+        <div className="df-lingrp">
+          <div className="df-flabel">National cinema &amp; movements <span className="df-cnt">{movements.length}</span></div>
+          <div className="lin-list">
+            {nations.map((m, i) => (
+              <div key={`n${i}`} className="lin-row">
+                <span className="lin-em" aria-hidden="true">{m.country_code ? codeToFlag(m.country_code) : "🌍"}</span>
+                <Link className="lin-name" href={`/movements/${m.slug}`}>{m.label}</Link>
+              </div>
+            ))}
+            {moves.map((m, i) => (
+              <div key={`m${i}`} className="lin-row">
+                <span className="lin-em" aria-hidden="true">🎞️</span>
+                <Link className="lin-name" href={`/movements/${m.slug}`}>{m.label}</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
       {linAwards.length > 0 ? (
         <div className="df-lingrp">
           <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
@@ -70,7 +92,7 @@ export default function FilmLineageSection({ lineage, title }: { lineage: LinRow
           </div>
         </div>
       ) : null}
-      <div className="df-src">Lineage memberships from public awards records and critics&apos;/institutional canons. Movements &amp; style lines arrive in a later pass.</div>
+      <div className="df-src">Origin from TMDB; awards &amp; canons from public records and critics&apos;/institutional polls; movements from auteur rosters.</div>
     </section>
   );
 }
