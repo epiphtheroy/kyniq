@@ -118,14 +118,20 @@ export default function FilmHeroReel({ videos, poster, start = 7 }: { videos: Vi
   return (
     <div ref={wrapRef} className="iv-wrap">
       <div ref={frameRef} className={`iv-frame${isFloat ? " iv-frame--float" : ""}`} style={frameStyle}>
-        {isFloat ? <div className="iv-drag" onPointerDown={onDragDown} title="Drag to move">⋮⋮ drag</div> : null}
-        <div ref={holderRef} className="iv-yt" />
-        <button type="button" className={`iv-mute${muted ? "" : " on"}`} onClick={toggleMute} aria-label={muted ? "Unmute" : "Mute"}>
-          {muted ? "🔇 Sound off" : "🔊 Sound on"}
-        </button>
-        {isFloat ? (
-          <button type="button" className="iv-close" onClick={() => { setDismissed(true); setFloating(false); setPos(null); }} aria-label="Close floating video">×</button>
-        ) : null}
+        {/* YT replaces the inner .iv-yt node; keep it wrapped so React never
+            reconciles siblings relative to the replaced node (avoids insertBefore crash) */}
+        <div className="iv-ytwrap"><div ref={holderRef} className="iv-yt" /></div>
+        {/* controls live in their own always-present container; only their
+            internal children toggle, never nodes around the YT holder */}
+        <div className="iv-ctrls">
+          {isFloat ? <div className="iv-drag" onPointerDown={onDragDown} title="Drag to move">⋮⋮ drag</div> : null}
+          <button type="button" className={`iv-mute${muted ? "" : " on"}`} onClick={toggleMute} aria-label={muted ? "Unmute" : "Mute"}>
+            {muted ? "🔇 Sound off" : "🔊 Sound on"}
+          </button>
+          {isFloat ? (
+            <button type="button" className="iv-close" onClick={() => { setDismissed(true); setFloating(false); setPos(null); }} aria-label="Close floating video">×</button>
+          ) : null}
+        </div>
       </div>
     </div>
   );
