@@ -51,14 +51,21 @@ function InspectorCol({ collapsed, onToggle }: { collapsed: boolean; onToggle: (
   );
 }
 
+const CRUMB: Record<string, string> = {
+  "/room": "현황 · 커맨드센터", "/room/collection": "보유 영화", "/room/watchlist": "볼 영화 · 추천",
+  "/room/desk": "운용 데스크", "/room/analysis": "자산 분석", "/room/rate": "기록 · 평가",
+  "/room/library": "서재", "/room/write": "노트", "/room/pair": "동행",
+};
+
 export default function RoomShell({
-  children, crumb, chip, counts, ticker,
+  children, chip, counts, ticker,
 }: {
-  children: ReactNode; crumb: string; chip: NavChip; counts: RailCounts;
+  children: ReactNode; chip: NavChip; counts: RailCounts;
   ticker: { icon?: string; text: string }[];
 }) {
   const pathname = usePathname();
   const router = useRouter();
+  const crumb = CRUMB[pathname] ?? (pathname.startsWith("/room/film") ? "평가 카드" : "커맨드센터");
   const [railC, toggleRail] = useSticky("mt_rail");
   const [inspC, toggleInsp] = useSticky("mt_inspector");
   const [actC, toggleAct] = useSticky("mt_activity");
