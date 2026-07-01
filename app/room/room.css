@@ -309,9 +309,8 @@
 .room-root .palitem:hover,.room-root .palitem.on{background:var(--pnl2);color:var(--ink)}
 .room-root .palitem .pk{margin-left:auto;font-size:10px;color:var(--faint)}
 
-/* responsive: auto-collapse inspector on narrow */
-@media(max-width:1280px){
-  .room-root .inspector:not(.force){width:40px}
-  .room-root .inspector:not(.force) .inspbody{display:none}
-  .room-root .inspector:not(.force) .insphd{flex-direction:column;height:auto;padding:8px 0}
-}
+/* Responsive: column auto-collapse is handled in RoomShell (width-based defaults,
+   respecting the user's manual toggle). As a safety net, never let the shell clip
+   columns off-screen — allow horizontal scroll only if it somehow overflows. */
+.room-root .shell{overflow-x:auto}
+.room-root .col.main{min-width:320px}
