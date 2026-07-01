@@ -3881,6 +3881,36 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .cx-more{text-align:center; margin:18px 0}
 .cx-more button{font-family:var(--font-ui); font-size:13px; padding:9px 20px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff; cursor:pointer}
 
+/* row: big TakeScore box on the right */
+.cx-tsbox{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:52px; padding:5px 8px; border-radius:8px; background:#0F6E56; color:#fff; line-height:1}
+.cx-tsbox b{font-family:var(--font-serif,Georgia,serif); font-size:21px; font-weight:700}
+.cx-tsbox i{font-family:var(--font-ui); font-size:9.5px; font-style:normal; letter-spacing:.08em; opacity:.85; margin-top:2px}
+
+/* dimension range table */
+.cx-ctl--dims{align-items:center; gap:14px}
+.cx-dimtoggle{font-family:var(--font-ui); font-size:12.5px; color:var(--ink); background:transparent; border:0; cursor:pointer; padding:2px 0}
+.cx-dimclear{font-family:var(--font-ui); font-size:11.5px; color:var(--accent,#C8102E); background:transparent; border:0; cursor:pointer}
+.cx-dims{display:grid; grid-template-columns:repeat(3,1fr); gap:14px 22px; padding:12px; border:1px dashed var(--hairline-2); border-radius:10px; background:#fff}
+@media(max-width:720px){.cx-dims{grid-template-columns:1fr}}
+.cx-dimgl{font-family:var(--font-ui); font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px}
+.cx-dimgl.cx-lv{color:#0F6E56} .cx-dimgl.cx-lc{color:#6b7280} .cx-dimgl.cx-lr{color:#C8102E}
+.cx-dimrow{display:grid; grid-template-columns:96px 1fr 48px; align-items:center; gap:9px; margin:7px 0}
+.cx-dimn{font-family:var(--font-ui); font-size:11.5px; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.cx-dimv{font-family:var(--font-ui); font-size:11px; color:var(--muted); text-align:right}
+
+/* dual-thumb range */
+.cxr{position:relative; height:20px}
+.cxr-track{position:absolute; top:8px; left:0; right:0; height:4px; border-radius:2px; background:var(--hairline)}
+.cxr-fill{position:absolute; top:0; bottom:0; background:#0F6E56; border-radius:2px}
+.cxr input[type=range]{position:absolute; top:0; left:0; width:100%; height:20px; margin:0; background:transparent; -webkit-appearance:none; appearance:none; pointer-events:none}
+.cxr input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:14px; height:14px; border-radius:50%; background:#fff; border:2px solid #0F6E56; cursor:pointer; pointer-events:auto; margin-top:0}
+.cxr input[type=range]::-moz-range-thumb{width:14px; height:14px; border-radius:50%; background:#fff; border:2px solid #0F6E56; cursor:pointer; pointer-events:auto}
+
+/* site-wide TakeScore poster badge (overlay) */
+.ts-badge{position:absolute; top:5px; left:5px; z-index:3; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:30px; padding:3px 5px; border-radius:6px; background:rgba(15,110,86,.94); color:#fff; line-height:1; box-shadow:0 1px 4px rgba(0,0,0,.3); pointer-events:none}
+.ts-badge b{font-family:var(--font-serif,Georgia,serif); font-size:15px; font-weight:700}
+.ts-badge i{font-family:var(--font-ui); font-size:7.5px; font-style:normal; letter-spacing:.1em; opacity:.9; margin-top:1px}
+
 /* MTS badge on the film hero */
 .df-mts{display:inline-flex; align-items:center; gap:9px; margin:8px 0 2px; padding:5px 11px 5px 8px; border:1px solid var(--hairline-2); border-radius:8px; text-decoration:none; color:inherit; background:var(--paper-2,#fafafa)}
 .df-mts:hover{border-color:var(--ink)}
