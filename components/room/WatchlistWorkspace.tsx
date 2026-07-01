@@ -53,6 +53,7 @@ function Insp({ f, lam }: { f: WwiRow; lam: number }) {
 
 export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
   const insp = useInspector();
+  const { setDefault } = insp;
   const [lam, setLam] = useState(1.0);
   const [hideRisk, setHideRisk] = useState(false);
   const [sort, setSort] = useState<"wwi" | "u" | "risk">("wwi");
@@ -78,7 +79,7 @@ export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
   useEffect(() => {
     const safe = rows.filter((f) => (f.r ?? 99) <= 15).length;
     const bold = rows.filter((f) => (f.r ?? 0) >= 26).length;
-    insp.setDefault(
+    setDefault(
       <div>
         <div className="icard"><h4><i className="ti ti-adjustments" /> 후보 데스크 요약</h4>
           <div className="kv"><span>후보(미관람)</span><b>{rows.length}</b></div>
@@ -89,7 +90,7 @@ export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
         <div className="emptyins">후보를 클릭하면 WWI 분해 · Cinecodex(왜 안전/위험)가 열립니다.</div>
       </div>
     );
-  }, [rows, lam, insp]);
+  }, [rows, lam, setDefault]);
 
   return (
     <div className="mainpad">
