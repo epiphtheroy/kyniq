@@ -10,19 +10,23 @@ export type WwiRow = {
   v: number | null; r: number | null; ts: number | null; prestige: number | null;
   conf: number | null; tier: string | null; sim: number;
   u_util: number; t_taste: number; s_standing: number; wwi: number;
+  disc: number | null; reasons: string[] | null; avail: { state: string; provider?: string } | null; delta: number | null;
 };
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const clamp = (x: number) => Math.max(0, Math.min(1, x));
 
+// 6+가용 이유 정본 (engine ⑤): safe·frontier·canon·gap·conquer·reading
+const REASON_MAP: Record<string, { cls: string; label: string }> = {
+  safe: { cls: "safe", label: "안전자산" },
+  reading: { cls: "reading", label: "취향 적중" },
+  canon: { cls: "canon", label: "정전 위상" },
+  gap: { cls: "gap", label: "공백 충족" },
+  frontier: { cls: "frontier", label: "안전한 모험" },
+  conquer: { cls: "conquer", label: "도장깨기" },
+};
 function reasonsOf(f: WwiRow): { cls: string; label: string }[] {
-  const out: { cls: string; label: string }[] = [];
-  if (f.r != null && f.r <= 15) out.push({ cls: "safe", label: "안전자산" });
-  if (f.t_taste >= 80) out.push({ cls: "reading", label: "취향 적중" });
-  if (f.s_standing >= 80) out.push({ cls: "canon", label: "정전 위상" });
-  if (f.r != null && f.r >= 20 && f.r < 30 && (f.v ?? 0) >= 75) out.push({ cls: "frontier", label: "안전한 모험" });
-  if (out.length === 0) out.push({ cls: "frontier", label: "후보" });
-  return out.slice(0, 3);
+  return (f.reasons ?? ["frontier"]).map((c) => REASON_MAP[c] ?? { cls: "frontier", label: c }).slice(0, 3);
 }
 
 function riskClass(r: number | null) { return r == null ? "" : r <= 15 ? "lo" : r <= 25 ? "mid" : "hi"; }
@@ -117,12 +121,16 @@ export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
             onClick={() => { setSel(f.slug); insp.select(<Insp f={f} lam={lam} />, "인스펙터 · 후보"); }}>
             <span className="rk">{i + 1}</span>
             <div>
-              <div className="rt ser">{f.title} <small>{f.year ?? ""}{f.director ? ` · ${f.director}` : ""}</small>{kept.has(f.slug) ? <span className="keptflag">담음</span> : null}</div>
+              <div className="rt ser">{f.title} <small>{f.year ?? ""}{f.director ? ` · ${f.director}` : ""}</small>
+                {f.avail ? (f.avail.state === "on"
+                  ? <span className="availdot on" title={`지금 볼 수 있음 · ${f.avail.provider ?? ""} (KR)`} />
+                  : <span className="availdot unk" title="가용성 미확인 (≠ 안 됨)" />) : null}
+                {kept.has(f.slug) ? <span className="keptflag">담음</span> : null}</div>
               <div className="reasons">{reasonsOf(f).map((rn, j) => <span key={j} className={`rsn ${rn.cls}`}>{rn.label}</span>)}</div>
             </div>
             <div className="wwi"><div className="pv" style={{ color: "#86b9ec" }}>{wwi}</div><div className="pl">WWI</div></div>
             <div className="ucol"><div className="uv">{u}</div><div className="ul">U 순가치</div><div className="rrisk">{f.r != null ? <span className={`riskbadge ${riskClass(f.r)}`}>R {Math.round(f.r)}</span> : null}</div></div>
-            <div className="dlt">{Math.round(f.sim * 100)}%<small>취향</small></div>
+            <div className="dlt">+{f.delta ?? 0}<small>→ NAV</small></div>
             <div className="rowact">
               <span className={`ria add${kept.has(f.slug) ? " done" : ""}`} title="담기" onClick={(e) => { e.stopPropagation(); setKept((s) => new Set(s).add(f.slug)); }}><i className="ti ti-bookmark-plus" /></span>
               <span className="ria seen" title="봤어요" onClick={(e) => { e.stopPropagation(); setGone((s) => new Set(s).add(f.slug)); }}><i className="ti ti-check" /></span>
