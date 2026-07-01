@@ -42,7 +42,7 @@ function Insp({ f, lam }: { f: WwiRow; lam: number }) {
         <div className="kv" style={{ marginTop: 6 }}><span>WWI 종합</span><b>{f.wwi}</b></div>
         <div className="kv"><span>취향 근접</span><b>{Math.round(f.sim * 100)}%</b></div>
       </div>
-      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} />
+      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
       <div className="actbar">
         <div className="actbtn pri">담기</div>
         <div className="actbtn">봤어요</div>

@@ -12,7 +12,7 @@ function Bar({ v, cls }: { v: number | null; cls?: string }) {
   return <span className="bar"><i className={cls} style={{ width: `${Math.max(0, Math.min(100, v ?? 0))}%` }} /></span>;
 }
 
-export default function CinecodexCard({ d, showBadge = false }: { d: CcData; showBadge?: boolean }) {
+export default function CinecodexCard({ d, showBadge = false, slug }: { d: CcData; showBadge?: boolean; slug?: string }) {
   if (d.v == null || d.r == null) {
     return <div className="icard cc-card"><h4><i className="ti ti-diamond" /> Cinecodex</h4><div className="ccempty">Cinecodex 미평가 · 분석 대기</div></div>;
   }
@@ -70,6 +70,7 @@ export default function CinecodexCard({ d, showBadge = false }: { d: CcData; sho
       ) : null}
 
       <div className="relcard" style={{ marginTop: 8 }}>우리·외부·정전은 분리 표시 — 절대 한 숫자로 합치지 않습니다.</div>
+      {slug ? <a href={`/room/film/${slug}`} className="actbtn" style={{ display: "block", textAlign: "center", marginTop: 8, fontSize: 11.5 }}>전체 평가 카드 · 13 서브점수 →</a> : null}
     </div>
   );
 }

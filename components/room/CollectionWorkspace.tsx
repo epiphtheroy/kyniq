@@ -35,7 +35,7 @@ function Insp({ f }: { f: CollRow }) {
         <div className="kv"><span>Discovery(숨은가치)</span><b>{f.discovery != null ? Math.round(f.discovery) : "—"}</b></div>
         <div className="kv"><span>내 별점</span><b>{f.rating != null ? f.rating.toFixed(1) : "—"}</b></div>
       </div>
-      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge />
+      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
       {(m != null || a != null) ? (
         <div className="icard"><h4><i className="ti ti-arrows-diff" /> 가치뱃지 2축</h4>
           <div className="kv"><span>시장 합치 (별점−정전가)</span><b style={{ color: m != null && m >= 12 ? "var(--safe)" : m != null && m <= -9 ? "var(--reading)" : "var(--ink)" }}>{m != null ? (m > 0 ? "+" : "") + m : "—"}</b></div>

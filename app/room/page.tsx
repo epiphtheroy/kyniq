@@ -43,7 +43,7 @@ export default async function RoomHome() {
               <div className="ser" style={{ fontSize: 20 }}>{today.title} <span style={{ color: "var(--mut)", fontSize: 13 }}>{today.year ?? ""}</span></div>
               <div style={{ color: "var(--mut)", fontSize: 12, marginTop: 3 }}>TakeScore {today.ts ?? "—"} · 신뢰도 {today.tier ?? "—"}</div>
             </div>
-            <Link className="actbtn pri" style={{ maxWidth: 130 }} href={`/film/${today.slug}`}>상세 보기</Link>
+            <Link className="actbtn pri" style={{ maxWidth: 150 }} href={`/room/film/${today.slug}`}>Cinecodex 평가 →</Link>
           </div>
         </div>
       ) : null}

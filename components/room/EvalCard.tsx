@@ -194,6 +194,22 @@ export default function EvalCard({ d }: { d: CardData }) {
         </div>
       </div>
 
+      {/* REFERENCE BASKET */}
+      {d.basket && d.basket.length ? (
+        <div className="mod">
+          <div className="modh"><h3><i className="ti ti-arrows-sort" /> 기준 바스켓 · U 순위</h3><span className="meta">이 영화의 위치 · 좌상(고U·저R) 이상향</span></div>
+          <div className="modbody">
+            {d.basket.map((b) => (
+              <div className="baskrow" key={b.slug} style={b.self ? { background: "var(--pnl2)", borderRadius: 5, padding: "4px 6px" } : undefined}>
+                <span className="nm" style={b.self ? { color: "#5fd0b2" } : undefined}>{b.title}</span>
+                <span className="bu">{b.u}</span><span className="br">{b.r}</span>
+              </div>
+            ))}
+            <div style={{ fontSize: 9.5, color: "var(--sub)", marginTop: 7 }}>U = V − λ·R · R은 <span style={{ color: "var(--risk)" }}>--risk</span> — 완파 red와 구분.</div>
+          </div>
+        </div>
+      ) : null}
+
       <div style={{ fontSize: 10.5, color: "var(--faint)", marginTop: 2, textAlign: "center" }}>엔진 ⑨ 내재가치 · Cinecodex — 정전가(②)와 나란히 서는 두 번째 객관 축 · 비섞임 단방향</div>
     </div>
   );
