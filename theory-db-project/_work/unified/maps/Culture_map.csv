@@ -1,0 +1,112 @@
+OldTrueMajor,NewMajorNo,NewMajorName,NewSub,Action,Note
+I. Foundational & Classical Approaches,1,Foundations & Classical Approaches,A. Culture as a Whole Way of Life,KEEP,"Backbone anchor; well-formed low number"
+XXVII. Anthropology of Culture,1,Foundations & Classical Approaches,B. Anthropology of Culture,FOLD,"Cultural Relativism -> classical anthro"
+XLIX. Cultural Anthropology (Meaning),1,Foundations & Classical Approaches,B. Anthropology of Culture,FOLD,Culture as Meaning Systems
+XXVI. Everyday Life Studies,1,Foundations & Classical Approaches,C. Everyday Life & Praxis,FOLD,Everyday Life Theory
+XXXV. Philosophy of Culture,2,Philosophy & Aesthetics of Culture,A. Symbolic Forms & Praxis,FOLD,"Culture as Praxis Theory; dup label of XIII"
+XIII. Philosophy of Culture,2,Philosophy & Aesthetics of Culture,A. Symbolic Forms & Praxis,KEEP,"Symbolic Forms / Critique of Modernity anchor"
+XXXVI. Aesthetics (Cultural Context),2,Philosophy & Aesthetics of Culture,B. Cultural Aesthetics,FOLD,Cultural Aesthetics Theory
+XCI. Cultural Authenticity,2,Philosophy & Aesthetics of Culture,C. Authenticity in Culture,FOLD,Authenticity in Culture Theory
+XXXVIII. Posthumanism (Cultural),2,Philosophy & Aesthetics of Culture,D. Posthuman & Material Philosophy,FOLD,Posthuman Culture Theory
+III. Critical Theory,3,Critical Theory & Frankfurt School,A. Culture Industry & Instrumental Reason,KEEP,Adorno/Horkheimer anchor
+III. Critical Theory & Frankfurt School (Culture),3,Critical Theory & Frankfurt School,A. Culture Industry & Instrumental Reason,DEDUP,Duplicate of III; Culture Industry Theory
+XLII. Critical Discourse Analysis (Cultural),3,Critical Theory & Frankfurt School,B. Ideology & Critical Discourse,FOLD,CDA in Cultural Studies
+IV. Post-Structuralism,4,Post-Structuralism & Postmodernism,A. Simulation & Hyperreality,KEEP,Baudrillard/Jameson anchor
+IV. Post-Structuralism & Postmodernism (Culture),4,Post-Structuralism & Postmodernism,A. Simulation & Hyperreality,DEDUP,Duplicate of IV; Simulation and Simulacra
+XXX. Performance Studies (Cultural),4,Post-Structuralism & Postmodernism,B. Performativity & Discourse,FOLD,Performativity (Cultural)
+II. British Cultural Studies (Birmingham School),5,British Cultural Studies (Birmingham School),A. Hegemony & Encoding/Decoding,KEEP,Hall/Hebdige anchor
+XXV. Popular Culture Studies,5,British Cultural Studies (Birmingham School),B. Subculture & Fandom,FOLD,Fandom Studies -> subculture lineage
+LX. Popular Culture & Politics,5,British Cultural Studies (Birmingham School),C. Popular Culture & Politics,FOLD,Cultural Politics of Popular Culture
+LXXIX. Global Popular Culture,5,British Cultural Studies (Birmingham School),C. Popular Culture & Politics,FOLD,Global Popular Culture Theory
+LXXXVIII. Cultural Resistance,5,British Cultural Studies (Birmingham School),D. Cultural Resistance,FOLD,Cultural Resistance Theory
+V. Cultural Sociology,6,Cultural Sociology,"A. Habitus, Field & Capital",KEEP,Bourdieu anchor; well-formed
+V. Cultural Sociology & Social Theory,6,Cultural Sociology,"A. Habitus, Field & Capital",DEDUP,Duplicate of V; Cultural Capital Theory
+LXXVIII. Cultural Sociology (Aesthetics),6,Cultural Sociology,B. Taste & Distinction,FOLD,Sociology of Taste Theory
+XCV. Cultural Sociology (Taste),6,Cultural Sociology,B. Taste & Distinction,FOLD,Cultural Omnivore Theory
+XVIII. Sociology of Art,6,Cultural Sociology,C. Sociology of Art,FOLD,Art as Social System Theory
+XLIII. Cultural Psychology,6,Cultural Sociology,D. Cultural Psychology & Self,FOLD,Cultural Self Theory
+LXXI. Cultural Psychology (Identity),6,Cultural Sociology,D. Cultural Psychology & Self,FOLD,Cultural Identity Theory
+LIV. Cultural Neuroscience,6,Cultural Sociology,D. Cultural Psychology & Self,FOLD,Cultural Neuroscience -> psychology cluster
+LXXXIV. Cultural Consumption (Identity),6,Cultural Sociology,E. Consumption & Taste,FOLD,Identity Consumption Theory
+VII. Media,7,Media & Communication,A. Media Effects & Audiences,KEEP,Agenda-Setting/Uses & Gratifications anchor
+VII. Media & Communication in Culture,7,Media & Communication,A. Media Effects & Audiences,DEDUP,Duplicate of VII; Cultivation Theory
+XIV. Media Archaeology (Cultural),7,Media & Communication,B. Media Archaeology & Materiality,FOLD,Media Archaeology (Cultural)
+XXII. Visual Culture Studies,7,Media & Communication,C. Visual & Sound Culture,FOLD,Visual Culture Theory
+XXI. Sound Studies (Cultural),7,Media & Communication,C. Visual & Sound Culture,FOLD,Soundscapes Theory
+VIII. Global,8,Global & Transnational Culture,A. Hybridization & World Culture,KEEP,Cultural Hybridization / World Culture anchor
+VIII. Global & Transnational Cultural Theories,8,Global & Transnational Culture,A. Hybridization & World Culture,DEDUP,Duplicate of VIII; Glocalization
+XXXIII. Transnational Cultural Studies,8,Global & Transnational Culture,B. Diaspora & Deterritorialization,FOLD,Diasporic Culture Theory
+XLVII. Global Cultural Flows (Deep Dive),8,Global & Transnational Culture,B. Diaspora & Deterritorialization,FOLD,Deterritorialization (Cultural)
+XCII. Cultural Flows (Beyond Western),8,Global & Transnational Culture,B. Diaspora & Deterritorialization,FOLD,Reverse Cultural Flows Theory
+LXII. Cultural Exchange Theories,8,Global & Transnational Culture,C. Creolization & Transculturation,FOLD,Transculturation
+LXXXIX. Cultural Hybridity (Global Context),8,Global & Transnational Culture,C. Creolization & Transculturation,FOLD,Cultural Creolization Theory
+LXVII. Cultural Industries (Global),8,Global & Transnational Culture,D. Global Cultural Industries & Diplomacy,FOLD,Global Cultural Industries Theory
+LVII. Cultural Policy (Global),8,Global & Transnational Culture,D. Global Cultural Industries & Diplomacy,FOLD,Cultural Diplomacy Theory
+LXXVI. Cultural Diplomacy,8,Global & Transnational Culture,D. Global Cultural Industries & Diplomacy,FOLD,Soft Power (Cultural Studies)
+LVIII. Indigenous Cultural Studies,8,Global & Transnational Culture,E. Indigenous & Decolonial Culture,FOLD,Decolonizing Cultural Studies
+LXXXII. Indigenous Cultural Revitalization,8,Global & Transnational Culture,E. Indigenous & Decolonial Culture,FOLD,Cultural Revitalization (Indigenous)
+VI. Identity,9,Identity & Difference,"A. Gender, Race & Sexuality",KEEP,Doing Gender/Queer/Whiteness anchor
+VI. Identity & Difference in Culture,9,Identity & Difference,"A. Gender, Race & Sexuality",DEDUP,Duplicate of VI; Intersectionality/Appropriation
+XLI. Embodiment in Culture,9,Identity & Difference,B. Embodiment & Performativity,FOLD,Embodied Culture Theory
+XX. Fashion Studies (Cultural),9,Identity & Difference,C. Fashion & Self-Presentation,FOLD,Fashion and Identity Theory
+LII. Cultural Citizenship,9,Identity & Difference,D. Cultural Citizenship & Politics,FOLD,Cultural Citizenship Theory
+LXIV. Cultural Rights (Legal),9,Identity & Difference,D. Cultural Citizenship & Politics,FOLD,Human Rights and Culture Theory
+XLVI. Cultural Politics,9,Identity & Difference,D. Cultural Citizenship & Politics,FOLD,Cultural Politics Theory
+IX. Affect Theory,10,"Affect, Emotion & Embodiment",A. Affect & Sensory Studies,KEEP,Emotional Culture / Sensory Studies anchor
+IX. Affect Theory & Sensory Studies in Culture,10,"Affect, Emotion & Embodiment",A. Affect & Sensory Studies,DEDUP,Duplicate of IX; Affect Theory (Cultural Studies)
+XCIX. Cultural Studies of Emotions,10,"Affect, Emotion & Embodiment",B. Emotions & Emotionology,FOLD,Emotionology (Cultural)
+LIII. Affective Publics,10,"Affect, Emotion & Embodiment",C. Affective Publics,FOLD,Affective Publics Theory; bridges digital affect
+XI. Digital Culture,11,"Digital, Media & Algorithmic Culture",A. Networked & Participatory Culture,KEEP,Networked Individualism / Imagined Communities (Digital) anchor
+XI. Digital Culture & Communication,11,"Digital, Media & Algorithmic Culture",A. Networked & Participatory Culture,DEDUP,Duplicate of XI; Digital Ethnography
+LXXIV. Digital Culture (Participation),11,"Digital, Media & Algorithmic Culture",A. Networked & Participatory Culture,FOLD,Participatory Culture Theory
+XXVIII. Digital Media Theories (Cultural),11,"Digital, Media & Algorithmic Culture",B. Digital Materiality & Folklore,FOLD,Digital Materiality (Cultural)
+XXXIX. Digital Culture (Specific Phenomena),11,"Digital, Media & Algorithmic Culture",B. Digital Materiality & Folklore,FOLD,Digital Folklore Theory
+XCIII. Cultural Studies of Algorithms,11,"Digital, Media & Algorithmic Culture",C. Algorithmic & Platform Culture,FOLD,Algorithmic Culture; contemporary platform/algorithm anchor
+XC. Cultural Studies of Surveillance,11,"Digital, Media & Algorithmic Culture",C. Algorithmic & Platform Culture,FOLD,Surveillance Culture Theory
+LXXXV. Cultural Studies of Technology,11,"Digital, Media & Algorithmic Culture",D. Technological Culture & STS,FOLD,Technological Culture Theory
+XXIII. Science and Technology Studies (Cultural),11,"Digital, Media & Algorithmic Culture",D. Technological Culture & STS,FOLD,SCOT in Cultural Studies
+XXXVII. Sociology of Science & Culture,11,"Digital, Media & Algorithmic Culture",D. Technological Culture & STS,FOLD,Science as Culture Theory
+LIX. Cultural Studies of Science,11,"Digital, Media & Algorithmic Culture",D. Technological Culture & STS,FOLD,Science in Culture Theory
+C. Cultural Studies of Science (Lay Knowledge),11,"Digital, Media & Algorithmic Culture",D. Technological Culture & STS,FOLD,Lay Expertise; science/tech culture
+LXV. Cultural Production (Alternative Models),11,"Digital, Media & Algorithmic Culture",E. Prosumption & Convergence,FOLD,Prosumption (Cultural); digital production
+XII. Cultural Economy,12,Cultural Economy & Production,A. Creative & Cultural Industries,KEEP,Precariat / Cultural Value anchor
+XII. Cultural Economy & Production,12,Cultural Economy & Production,A. Creative & Cultural Industries,DEDUP,Duplicate of XII; Creative Industries Theory
+LVI. Cultural Value Chains,12,Cultural Economy & Production,B. Cultural Value & Economics,FOLD,Cultural Value Chains Theory
+LXX. Cultural Value (Economic),12,Cultural Economy & Production,B. Cultural Value & Economics,FOLD,Cultural Economics Theory
+LI. Experience Economy (Cultural),12,Cultural Economy & Production,C. Experience Economy & Consumption,FOLD,Experience Economy (Cultural)
+XL. Cultural Policy Studies,12,Cultural Economy & Production,D. Cultural Policy,FOLD,Cultural Policy Theory
+XVII. Material Culture Studies,13,"Material, Spatial & Heritage Culture",A. Material Culture & Objects,KEEP,Material Culture Theory / Social Lives of Things anchor
+XIX. Food Studies (Cultural),13,"Material, Spatial & Heritage Culture",B. Food & Foodways,FOLD,Food and Culture Theory
+LXXX. Cultural Politics of Food,13,"Material, Spatial & Heritage Culture",B. Food & Foodways,FOLD,Food Sovereignty (Cultural)
+XCVII. Cultural Studies of Food (Globalization),13,"Material, Spatial & Heritage Culture",B. Food & Foodways,FOLD,Global Foodways Theory
+XCVI. Cultural Studies of Waste,13,"Material, Spatial & Heritage Culture",C. Waste & Discard,FOLD,Waste and Culture Theory
+LXXXI. Cultural Studies of Infrastructure,13,"Material, Spatial & Heritage Culture",D. Infrastructure & Urban Space,FOLD,Infrastructure as Culture Theory
+XXIV. Urban Cultural Studies,13,"Material, Spatial & Heritage Culture",D. Infrastructure & Urban Space,FOLD,City as Text Theory
+XXXI. Cultural Geography,13,"Material, Spatial & Heritage Culture",E. Cultural Geography & Place,FOLD,Cultural Landscape Theory
+XLV. Cultural Geography (Advanced),13,"Material, Spatial & Heritage Culture",E. Cultural Geography & Place,FOLD,Sense of Place Theory
+LXXXVII. Cultural Studies of Space,13,"Material, Spatial & Heritage Culture",E. Cultural Geography & Place,FOLD,Cultural Space Theory
+XVI. Heritage Studies (Cultural),13,"Material, Spatial & Heritage Culture",F. Heritage & Preservation,FOLD,Heritage Studies (Cultural)
+XXIX. Critical Heritage Studies,13,"Material, Spatial & Heritage Culture",F. Heritage & Preservation,FOLD,Dark Heritage (Cultural)
+LXI. Cultural Heritage Management,13,"Material, Spatial & Heritage Culture",F. Heritage & Preservation,FOLD,Intangible Cultural Heritage Theory
+XCIV. Cultural Politics of Memory (Advanced),13,"Material, Spatial & Heritage Culture",F. Heritage & Preservation,FOLD,Contested Heritage Theory
+XV. Memory Studies,14,"Memory, Time, Trauma & Resilience",A. Cultural & Public Memory,KEEP,Public Memory (Cultural) anchor
+XV. Memory Studies (Cultural),14,"Memory, Time, Trauma & Resilience",A. Cultural & Public Memory,DEDUP,Duplicate of XV; Cultural Memory of Trauma
+XXXIV. Cultural Memory Studies (Advanced),14,"Memory, Time, Trauma & Resilience",A. Cultural & Public Memory,FOLD,Communicative Memory (Cultural)
+LXVIII. Cultural Politics of Memory,14,"Memory, Time, Trauma & Resilience",A. Cultural & Public Memory,FOLD,Memory Wars (Cultural Studies)
+XLVIII. Cultural Trauma Studies,14,"Memory, Time, Trauma & Resilience",B. Cultural Trauma,FOLD,Cultural Trauma Theory
+LXXVII. Cultural Studies of Disaster (Representation),14,"Memory, Time, Trauma & Resilience",B. Cultural Trauma,FOLD,Disaster Narratives (Cultural)
+LXVI. Cultural Studies of Disaster,14,"Memory, Time, Trauma & Resilience",B. Cultural Trauma,FOLD,Disaster Culture Theory
+L. Culture and Time,14,"Memory, Time, Trauma & Resilience",C. Cultural Time & Rhythms,FOLD,Cultural Temporalities Theory
+LXXXVI. Cultural Studies of Time,14,"Memory, Time, Trauma & Resilience",C. Cultural Time & Rhythms,FOLD,Cultural Rhythms Theory
+LXIX. Cultural Resilience,14,"Memory, Time, Trauma & Resilience",D. Resilience & Risk,FOLD,Cultural Resilience Theory
+LXXIII. Cultural Studies of Risk,14,"Memory, Time, Trauma & Resilience",D. Resilience & Risk,FOLD,Risk Culture Theory
+LXXXIII. Cultural Studies of Risk (Social Amplification),14,"Memory, Time, Trauma & Resilience",D. Resilience & Risk,FOLD,SARF in Cultural Studies
+LXXV. Cultural Studies of Health,14,"Memory, Time, Trauma & Resilience",E. Health & Body Culture,FOLD,Culture of Health Theory
+X. Critical Animal Studies,15,"Environment, Nature & Multispecies",A. Ecocriticism & Anthropocene,KEEP,Ecocriticism / Anthropocene anchor
+X. Critical Animal Studies & Environmental Humanities,15,"Environment, Nature & Multispecies",A. Ecocriticism & Anthropocene,DEDUP,Duplicate of X; Critical Animal Studies
+XCVIII. Cultural Studies of Animals,15,"Environment, Nature & Multispecies",B. Multispecies & Animal Studies,FOLD,Multispecies Ethnography (Cultural)
+LXIII. Cultural Ecology (Human Adaptation),15,"Environment, Nature & Multispecies",C. Cultural Ecology & Adaptation,FOLD,Cultural Adaptation Theory
+XXXII. Cultural Evolution,16,Cultural Evolution & Transmission,A. Memetics & Transmission,FOLD,Memetics anchor
+XLIV. Cultural Evolution (Advanced),16,Cultural Evolution & Transmission,A. Memetics & Transmission,FOLD,Cultural Transmission Theory
+LV. Cultural Evolution (Computational),16,Cultural Evolution & Transmission,B. Computational Cultural Dynamics,FOLD,Cultural Dynamics (Computational)
+LXXII. Cultural Semiotics,16,Cultural Evolution & Transmission,C. Cultural Codes & Semiotics,FOLD,Cultural Codes Theory; meaning transmission

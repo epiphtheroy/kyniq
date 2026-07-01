@@ -1,0 +1,97 @@
+PART: Family   (총 178개 이론, 현행 Major 94개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[15] VII. Specialized Family Theories (Added)  ::  Family Coping Theory / Ambiguous Loss Theory (Family) / Multigenerational Transmission Process / Emotional Cutoff
+[14] V. Specific Family Phenomenon Theories  ::  Assortative Mating Theory / Social Homogamy Theory / Marital Quality Theory / Divorce Process Theory
+[11] IV. Socio-Cultural  ::  Doing Family / Intersectionality (Family) / Queer Family Theory / Postmodern Family Theory
+[9] I. Foundational Family Theories  ::  Structural Functionalism (Family) / Socialization Theory (Family) / Conflict Theory (Family) / Feminist Family Theory
+[8] II. Systems  ::  Communication Theory (Family) / Double Bind Theory (Family) / Identified Patient / Structural Family Therapy
+[8] III. Psychological  ::  Transference and Countertransference (Family) / Attachment Theory (Family) / Internal Working Models (Family) / Social Learning Theory (Family)
+[8] VI. Advanced  ::  Social Construction of Illness (Family) / Indigenous Family Theory / Decolonizing Family Studies / Transnational Families Theory
+[8] VIII. Emerging  ::  Care Ethics (Family) / Ecofeminist Family Theory / Climate Change and Family Theory / Incarceration and Family Theory
+[5] IX. Advanced Family Dynamics  ::  Expressed Emotion (EE) Theory (Family) / Family Cohesion Theory / Family Adaptability Theory / Family Power Theory
+[4] X. Theoretical Frameworks (E. Psychodynamic)  ::  Family Systems Genogram / Emotional Triangles (Family) / Undifferentiated Family Ego Mass / Societal Emotional Process
+[3] X. Theoretical Frameworks (C. Ecological)  ::  Exosystem (Family) / Macrosystem (Family) / Chronosystem (Family)
+[2] II. Systems & Cybernetic Theories  ::  Family Systems Theory / Circular Causality
+[2] X. Theoretical Frameworks (D. Critical)  ::  Patriarchy (Family) / Gender Roles (Family)
+[1] III. Psychological & Psychodynamic Theories (Family Context)  ::  Object Relations Theory (Family)
+[1] IV. Socio-Cultural & Critical Family Theories  ::  Social Construction of Family
+[1] IX. Advanced Family Dynamics & Processes  ::  Emotion Regulation Theory (Family)
+[1] VI. Advanced & Interdisciplinary Family Theories  ::  Narrative Family Therapy
+[1] VIII. Emerging & Intersectional Family Theories  ::  Disability and Family Theory
+[1] X. Theoretical Frameworks (A. Social Capital (Family))  ::  Collective Efficacy (Family)
+[1] X. Theoretical Frameworks (AA. Family & Law)  ::  No-Fault Divorce Theory
+[1] X. Theoretical Frameworks (AAA. Family & Therapy)  ::  Narrative Exposure Therapy (Family Context)
+[1] X. Theoretical Frameworks (Applied to Family)  ::  Bridging and Bonding Social Capital (Family)
+[1] X. Theoretical Frameworks (B. Social Learning)  ::  Vicarious Learning (Family)
+[1] X. Theoretical Frameworks (BB. Family & Technology)  ::  Digital Family Rhythms
+[1] X. Theoretical Frameworks (BBB. Family & Therapy)  ::  Internal Family Systems (IFS)
+[1] X. Theoretical Frameworks (CC. Family & Social Inequality)  ::  Cumulative Disadvantage Theory (Family)
+[1] X. Theoretical Frameworks (CCC. Family & Theory)  ::  Critical Family Studies
+[1] X. Theoretical Frameworks (DD. Family & Cultural Studies)  ::  Family Narratives (Cultural)
+[1] X. Theoretical Frameworks (DDD. Family & Theory)  ::  Posthuman Family
+[1] X. Theoretical Frameworks (EE. Family & Aging)  ::  Filial Piety (Family)
+[1] X. Theoretical Frameworks (EEE. Family & Theory)  ::  Virtual Family (Sociology)
+[1] X. Theoretical Frameworks (F. Rational Choice)  ::  Bargaining Theory (Family)
+[1] X. Theoretical Frameworks (FF. Family & Policy)  ::  Universal Basic Income (UBI) and Family
+[1] X. Theoretical Frameworks (FFF. Family & Theory)  ::  Familial Capitalism
+[1] X. Theoretical Frameworks (G. Social Stress)  ::  Acute vs. Chronic Stress (Family)
+[1] X. Theoretical Frameworks (GG. Family & Crime)  ::  Family Risk Factors for Delinquency
+[1] X. Theoretical Frameworks (GGG. Family & Theory)  ::  The Myth of the Traditional Family
+[1] X. Theoretical Frameworks (H. Lifespan Development)  ::  Transitions and Trajectories (Family)
+[1] X. Theoretical Frameworks (HH. Family & Health)  ::  Social Support and Family Health
+[1] X. Theoretical Frameworks (HHH. Family & Theory)  ::  Chosen Families
+[1] X. Theoretical Frameworks (I. Feminist)  ::  Dual-Earner Household Theory
+[1] X. Theoretical Frameworks (II. Family & Sexuality)  ::  LGBTQ+ Parenting Theory
+[1] X. Theoretical Frameworks (III. Family & Theory)  ::  New Kinship Studies
+[1] X. Theoretical Frameworks (J. Critical Theory)  ::  Commodification of Family Life
+[1] X. Theoretical Frameworks (JJ. Family & Technology)  ::  Technofamily Theory
+[1] X. Theoretical Frameworks (JJJ. Family & Theory)  ::  Family Norms
+[1] X. Theoretical Frameworks (K. Health Sociology)  ::  Social Support Theory (Family Health)
+[1] X. Theoretical Frameworks (KK. Family & Social Justice)  ::  Family Abolition (Critical Theory)
+[1] X. Theoretical Frameworks (KKK. Family & Theory)  ::  Family Rituals
+[1] X. Theoretical Frameworks (L. Gender Studies)  ::  Household Division of Labor Theory
+[1] X. Theoretical Frameworks (LL. Family & Reproduction)  ::  Reproductive Justice (Family)
+[1] X. Theoretical Frameworks (LLL. Family & Theory)  ::  Family Communication Patterns Theory
+[1] X. Theoretical Frameworks (M. Cultural Anthropology)  ::  Kinship Systems Theory
+[1] X. Theoretical Frameworks (MM. Family & Care)  ::  Care Economy (Family)
+[1] X. Theoretical Frameworks (MMM. Family & Theory)  ::  Social Support Networks (Family)
+[1] X. Theoretical Frameworks (N. Communication Studies)  ::  Family Rules Theory
+[1] X. Theoretical Frameworks (NN. Family & Identity)  ::  Family Identity Theory
+[1] X. Theoretical Frameworks (NNN. Family & Theory)  ::  Interparental Conflict Theory
+[1] X. Theoretical Frameworks (O. Social Psychology)  ::  Group Cohesion Theory (Family)
+[1] X. Theoretical Frameworks (OO. Family & Education)  ::  Parental Involvement Theory (Education)
+[1] X. Theoretical Frameworks (OOO. Family & Theory)  ::  Parent-Child Coercion Theory
+[1] X. Theoretical Frameworks (P. Aging Studies)  ::  Intergenerational Solidarity Theory
+[1] X. Theoretical Frameworks (PP. Family & History)  ::  Historical Demography (Family)
+[1] X. Theoretical Frameworks (PPP. Family & Theory)  ::  Parental Alienation Theory
+[1] X. Theoretical Frameworks (Q. Childhood Studies)  ::  Child-Centered Family Theory
+[1] X. Theoretical Frameworks (QQ. Family & Migration)  ::  Transnational Motherhood Theory
+[1] X. Theoretical Frameworks (QQQ. Family & Theory)  ::  Adolescent Autonomy Granting Theory
+[1] X. Theoretical Frameworks (R. Legal Studies)  ::  Best Interests of the Child Doctrine
+[1] X. Theoretical Frameworks (RR. Family & Policy)  ::  Familialism
+[1] X. Theoretical Frameworks (RRR. Family & Theory)  ::  Homeostatic Family Theory
+[1] X. Theoretical Frameworks (S. Public Policy)  ::  Welfare State and Family Theory
+[1] X. Theoretical Frameworks (SS. Family & Psychology)  ::  Scapegoat Theory (Family)
+[1] X. Theoretical Frameworks (SSS. Family & Theory)  ::  Scapegoating (Family Dynamics)
+[1] X. Theoretical Frameworks (T. Sociology of Emotions)  ::  Affective Practices in Families
+[1] X. Theoretical Frameworks (TT. Family & Social Capital)  ::  Bonding Capital (Family)
+[1] X. Theoretical Frameworks (TTT. Family & Theory)  ::  Family Life Education Theory
+[1] X. Theoretical Frameworks (U. Sociology of Childhood)  ::  Sociology of Childhood (Family)
+[1] X. Theoretical Frameworks (UU. Family & Social Capital)  ::  Bridging Capital (Family)
+[1] X. Theoretical Frameworks (UUU. Family & Theory)  ::  Intergenerational Ambivalence
+[1] X. Theoretical Frameworks (V. Disability Studies)  ::  Family Resilience and Disability
+[1] X. Theoretical Frameworks (VV. Family & Stress)  ::  Chronic Sorrow (Family)
+[1] X. Theoretical Frameworks (VVV. Family & Theory)  ::  Family Microaggressions
+[1] X. Theoretical Frameworks (W. Gender and Work)  ::  Gendered Division of Labor (Family)
+[1] X. Theoretical Frameworks (WW. Family & Resilience)  ::  Hardiness (Family)
+[1] X. Theoretical Frameworks (WWW. Family & Theory)  ::  Family Storytelling (Therapy)
+[1] X. Theoretical Frameworks (X. Global & Transnational)  ::  Remittance Economy (Family)
+[1] X. Theoretical Frameworks (XX. Family & Therapy)  ::  Conjoint Family Therapy
+[1] X. Theoretical Frameworks (XXX. Family & Theory)  ::  Family Leisure Theory
+[1] X. Theoretical Frameworks (Y. Family & Mental Health)  ::  Family Burden Theory (Mental Health)
+[1] X. Theoretical Frameworks (YY. Family & Therapy)  ::  Strategic Family Therapy
+[1] X. Theoretical Frameworks (YYY. Family & Theory)  ::  Family Meaning-Making
+[1] X. Theoretical Frameworks (Z. Family & Social Change)  ::  Second Demographic Transition Theory (Family)
+[1] X. Theoretical Frameworks (ZZ. Family & Therapy)  ::  Milan Systemic Family Therapy
+[1] X. Theoretical Frameworks (ZZZ. Family & Theory)  ::  Family Strengths Perspective

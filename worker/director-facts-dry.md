@@ -1,0 +1,134 @@
+# The Life — DRY (3) · gen gemini-3.1-pro-preview + Brave verify (EN+native) · interest-first
+
+## Bong Joon Ho  ·  kept 16/26 · native «봉준호» (Korean)
+
+**The name** — In Hanja, Bong (奉) means 'to offer, revere, or serve,' Joon (俊) translates to 'talented, capable, or handsome,' and Ho (昊) signifies 'vast, limitless, or summer sky.' Together, the name evokes a person of boundless talent and reverence.
+
+*The architect of South Korean cinema's global triumph, Bong Joon Ho merges pitch-black satire with Hitchcockian suspense. A meticulous storyboarder dubbed 'Detail Bong,' he weaponizes genre tropes to expose the absurdities and cruelties of modern class warfare.*
+
+1. Bong's maternal grandfather was Park Tae-won, a celebrated modernist author who defected to North Korea in 1950, a taboo family secret that forced Bong's mother to live under strict South Korean state surveillance for decades.
+   ↳ https://www.nytimes.com/2020/02/13/world/asia/bong-joon-ho-south-korea.html
+2. Growing up in Daegu, he acquired his vast cinematic knowledge not from local theaters, but by religiously watching the American Forces Korea Network (AFKN), an English-language military channel that broadcast unedited Hollywood classics into Korean living rooms.
+   ↳ https://www.nytimes.com/2020/02/13/world/asia/bong-joon-ho-south-korea.html
+3. While studying sociology at Yonsei University during the late 1980s pro-democracy movement, Bong regularly threw Molotov cocktails at riot police and later admitted that the sweet, pungent smell of tear gas still triggers acute nostalgia for his youth.
+   ↳ https://www.vulture.com/2019/10/bong-joon-ho-parasite.html
+4. Before he ever picked up a camera, he expressed his satirical streak by drawing political comic strips for the Yonsei university newspaper, Yonsei Chunchu.
+   ↳ http://chunchu.yonsei.ac.kr/news/articleView.html?idxno=2301
+5. He earned the industry nickname 'Bong Tae-il' (Detail Bong) because he obsessively storyboards every single frame of his films like a comic book, refusing to shoot standard coverage or master shots.
+   ↳ https://mydramalist.com/people/5647-bong-joon-ho
+6. During post-production on Snowpiercer, he saved a bizarre shot of a train guard gutting a fish by lying to the notoriously demanding producer Harvey Weinstein, falsely claiming the shot was a deeply personal tribute to his fisherman father.
+   ↳ https://screenrant.com/snowpiercer-movie-bong-joon-ho-harvey-weinstein-fight/
+7. Under the conservative administration of President Park Geun-hye, Bong was secretly placed on a government blacklist of nearly 10,000 cultural figures deemed unpatriotic, which severely restricted his access to state funding.
+   ↳ https://www.upi.com/Top_News/World-News/2020/02/10/South-Korea-president-congratulates-Parasite-director-Bong-Joon-ho/4671581344445/
+8. Despite featuring intense animal cruelty in Okja to critique the meat industry, Bong himself became a temporary vegan during the research phase after visiting a massive slaughterhouse in Colorado where the overwhelming smell of blood physically sickened him.
+   ↳ https://en.wikipedia.org/wiki/Okja
+9. He bonded instantly with Tilda Swinton at the 2011 Cannes Film Festival, leading to a long-term collaborative friendship where she happily donned grotesque prosthetics and false teeth to play villains in both Snowpiercer and Okja.
+   ↳ https://www.filmlinc.org/daily/bong-joon-ho-unleashes-snowpiercer-at-the-film-society/
+10. When Parasite won the Palme d'Or at the 2019 Cannes Film Festival by a unanimous jury vote, Bong was so overwhelmed and exhausted that he later confessed his only thought on stage was figuring out where he could get a drink.
+   ↳ https://www.theguardian.com/film/2019/may/25/bong-joon-hos-parasite-wins-palme-dor-at-cannes-film-festival
+11. Throughout the grueling six-month Parasite awards campaign, he refused to speak English in public, relying entirely on his 25-year-old interpreter, Sharon Choi, a young filmmaker who became a viral celebrity in her own right.
+   ↳ https://www.oprahdaily.com/entertainment/tv-movies/a30852753/parasite-bong-joon-ho-translator-sharon-choi/
+12. He famously chastised insular American audiences at the 2020 Golden Globes by urging them to overcome the 'one-inch-tall barrier of subtitles' to discover a wider world of cinema.
+   ↳ https://www.latimes.com/entertainment-arts/movies/story/2020-01-06/golden-globes-parasite-foreign-film-oscars
+13. When Parasite won Best Director at the Academy Awards, Bong used his speech to quote a formative piece of advice—'the most personal is the most creative'—prompting a standing ovation for the quote's author, Martin Scorsese, who was sitting in the front row.
+   ↳ https://variety.com/2020/film/news/bong-joon-ho-wins-oscar-best-director-parasite-1203496970/
+14. In that same Oscar speech, he thanked Quentin Tarantino for championing his earlier, lesser-known films on American lists, joking that he wanted to take a Texas chainsaw to the Oscar trophy to share it with his fellow nominees.
+   ↳ https://www.hollywoodreporter.com/news/general-news/transcript-bong-joon-ho-best-director-oscars-2020-acceptance-speech-1277808/
+15. Food is a central obsession in his life and work, famously culminating in the global popularization of 'Ram-don' (Jjapaguri), a mix of cheap instant noodles and expensive sirloin steak that perfectly encapsulated the class warfare of Parasite.
+   ↳ https://food52.com/story/25002-what-is-ram-don
+16. He considers Alfred Hitchcock his supreme cinematic deity, once admitting he spent his formative years obsessively studying a bootleg VHS tape of Psycho to reverse-engineer its editing rhythms.
+   ↳ https://www.vanityfair.com/hollywood/2019/10/bong-joon-ho-parasite-interview
+
+## Hayao Miyazaki  ·  kept 24/30 · native «宮崎駿» (Japanese)
+
+**The name** — In Japanese kanji, Miyazaki (宮崎) translates to "palace" or "shrine" (宮, miya) and "cape" or "peninsula" (崎, zaki). His given name, Hayao (駿), means "fast," "swift," or "a good horse," reflecting the kinetic energy that defines his work.
+
+*The visionary co-founder of Studio Ghibli, Hayao Miyazaki elevated hand-drawn animation into profound cinematic art. Shaped by childhood war trauma and an obsession with aviation, his deeply ecological, pacifist masterpieces blend breathtaking fantasy with intricate psychological realism.*
+
+1. Born in Bunkyo, Tokyo, Miyazaki’s lifelong obsession with aviation and pacifism stems from his father Katsuji, who directed Miyazaki Airplane, a factory manufacturing rudders for A6M Zero fighter planes during World War II.
+   ↳ https://en-academic.com/dic.nsf/enwiki/12313
+2. At age four, he survived the July 1945 firebombing of Utsunomiya, fleeing a burning city in his uncle's truck while his family was forced to ignore the desperate pleas of civilians begging for a ride, a formative trauma that haunted him for decades.
+   ↳ https://riot.nyc/hayao-miyazaki-visionary-animator/
+3. His mother, Yoshiko, suffered from spinal tuberculosis and was bedridden from 1947 to 1955, an ordeal that directly inspired the ailing matriarch in 'My Neighbor Totoro' and shaped his penchant for strong, resilient female protagonists.
+   ↳ https://jobsinjapan.com/living-in-japan-guide/unveiling-the-enchanting-world-of-studio-ghibli-hayao-miyazakis-creative-journey/
+4. Instead of attending art school, he graduated from the prestigious Gakushuin University in 1963 with degrees in Political Science and Economics, spending his free time in the university's Children's Literature Research Club.
+   ↳ https://en-academic.com/dic.nsf/enwiki/12313
+5. He nearly quit his entry-level in-between animator job at Toei Animation until he watched Lev Atamanov’s 1957 Soviet animated feature 'The Snow Queen', which convinced him that the medium could convey profound, authentic human emotion.
+   ↳ https://animationobsessive.substack.com/p/hayao-miyazakis-favorite-film
+6. During his early years at Toei Animation, he led a labor dispute as the chief secretary of the studio's labor union, working alongside future lifelong collaborator Isao Takahata to fight for better working conditions.
+   ↳ https://fr-academic.com/dic.nsf/frwiki/1173684
+7. He married fellow Toei animator Akemi Ota in 1965, who reluctantly abandoned her own promising animation career to raise their two sons, Goro and Keisuke, a sacrifice Miyazaki later admitted caused lasting friction in their marriage.
+   ↳ https://en.wikipedia.org/wiki/Hayao_Miyazaki
+8. In 1971, he traveled to Sweden with Isao Takahata to secure the rights to animate Astrid Lindgren's 'Pippi Longstocking', but the author refused to meet with them, forcing them to abandon the project.
+   ↳ https://www.animenewsnetwork.com/interest/2015-05-09/hayao-miyazaki-pippi-longstocking-finally-lives-in-book-release/.87983
+9. He famously never writes traditional screenplays for his films, instead drawing sequential storyboards and allowing the narrative to develop organically alongside the animation process because, as he claims, 'the story dictates to me.'
+   ↳ https://en.wikipedia.org/wiki/Hayao_Miyazaki
+10. Furious that his 1984 film 'Nausicaä of the Valley of the Wind' was heavily butchered for its American release, Miyazaki adopted a strict 'no cuts' policy, leading his producer Toshio Suzuki to mail Miramax executive Harvey Weinstein a samurai katana bearing the English message 'No cuts' to protect 'Princess Mononoke'.
+   ↳ https://en.wikipedia.org/wiki/Nausica%C3%A4_of_the_Valley_of_the_Wind_(film)
+11. He holds a deep disdain for the modern Japanese animation industry, publicly criticizing it for being produced by 'otaku' who spend their lives exclusively watching anime rather than observing real human behavior.
+   ↳ https://en.wikipedia.org/wiki/Hayao_Miyazaki
+12. During a 2016 presentation by CGI developers showcasing an AI program that generated grotesque, writhing movement, a visibly disgusted Miyazaki stated he would never incorporate the technology, calling it 'an insult to life itself.'
+   ↳ https://onsyudasyuda.com/hayao-miyazaki-anti-ai/
+13. He refused to attend the 75th Academy Awards in 2003 to accept his historic Best Animated Feature Oscar for 'Spirited Away', later revealing to the Los Angeles Times that he was quietly protesting the United States' invasion of Iraq.
+   ↳ https://www.rollingstone.com/tv-movies/tv-movie-features/spirited-away-oscar-best-animated-feature-hayao-miyazaki-america-first-bias-iraq-war-1234691090/
+14. He spent over two decades begging author Ursula K. Le Guin for the rights to animate her 'Earthsea' novels; when she finally agreed in 2005, she was deeply disappointed to learn that Hayao had passed the directing duties to his inexperienced son, Goro.
+   ↳ https://www.ursulakleguin.com/adaptation-tales-of-earthsea
+15. He vehemently opposed Goro's decision to direct the 2006 Studio Ghibli film 'Tales from Earthsea', refusing to speak to him during production and coldly walking out halfway through the film's premiere.
+   ↳ https://thecityoflostbooks.glasgow.ac.uk/stepping-out-of-the-shadow-goro-miyazakis-tales-from-earthsea/
+16. He shared a notoriously intense, 55-year love-hate rivalry with Studio Ghibli co-founder Isao Takahata, delivering a tearful eulogy at Takahata's 2018 funeral where he affectionately referred to him by his lifelong nickname, 'Paku-san.'
+   ↳ https://blog.screenweek.it/2018/05/isao-takahata-lelogio-hayao-miyazaki-alla-cerimonia-dello-studio-ghibli/
+17. He is notorious for his frequent, aborted retirements, having officially announced he was quitting feature filmmaking after 'Princess Mononoke' (1997), 'Spirited Away' (2001), 'Ponyo' (2008), and 'The Wind Rises' (2013), before returning each time.
+   ↳ https://en.wikipedia.org/wiki/Princess_Mononoke
+18. A legendary chain-smoker, he reportedly consumes up to 30 Seven Stars brand cigarettes a day, a habit that forced him to take frequent smoke breaks during the rigorous hand-drawn production of his features.
+   ↳ https://www.nytimes.com/2021/11/23/t-magazine/hayao-miyazaki-studio-ghibli.html
+19. Despite his immense wealth and global fame, he eschews luxury vehicles to drive a vintage, slate-gray Citroën 2CV around the narrow streets of Koganei, Tokyo.
+   ↳ https://www.autoweek.com/car-life/classic-cars/a30432692/hayao-miyazaki-studio-ghibli-and-the-citroen-2cv/
+20. He is an obsessive environmentalist in his private life, spending his Sunday mornings personally picking up trash and clearing brush from the Fuchi no Mori forest and the riverbeds near his home in Tokorozawa.
+   ↳ https://comicbook.com/anime/news/studio-ghibli-how-totoro-was-born-story-new-book/
+21. For the 2008 film 'Ponyo', he refused to use CGI for the ocean sequences, insisting on hand-drawing the kinetic water and wave animations himself to ensure they felt like living, breathing entities.
+   ↳ https://www.academymuseum.org/exhibitions/studio-ghiblis-ponyo
+22. In 2008, he designed and funded a free, nature-focused kindergarten called 'Creche Ghibli' located directly next to the animation studio, allowing his employees' children to play in the mud while their parents worked.
+   ↳ https://en.wikipedia.org/wiki/Hayao_Miyazaki
+23. His 2023 film 'The Boy and the Heron' was originally titled 'How Do You Live?' in Japan, directly borrowing the name of a 1937 novel by Genzaburo Yoshino that Miyazaki’s mother gave him during his childhood.
+   ↳ https://en.wikipedia.org/wiki/The_Boy_and_the_Heron
+24. He personally designed the Ghibli Museum in Mitaka, ensuring there were no set routes so children would get delightfully lost, and strictly banned all photography inside to force visitors to 'experience with their own eyes.'
+   ↳ https://en.wikipedia.org/wiki/Ghibli_Museum
+
+## Christopher Nolan  ·  kept 16/30 · native «Christopher Nolan» (English)
+
+**The name** — The name Christopher originates from the Greek 'Christophoros', meaning 'bearer of Christ'. Nolan is an Anglicized form of the Irish Gaelic surname 'Ó Nualláin', translating to 'descendant of Nuallán', a personal name meaning 'noble', 'famous', or 'champion'.
+
+*A fiercely analog auteur obsessed with time, memory, and practical effects, Christopher Nolan revived the blockbuster with intellectual rigor. Clad in sharp suits, he shuns smartphones and CGI, crafting labyrinthine epics that have redefined modern cinematic scale.*
+
+1. Born in Westminster to an English advertising executive and an American flight attendant, he split his youth between London and Evanston, Illinois, resulting in dual UK-US citizenship and a distinctive mid-Atlantic accent.
+   ↳ https://en.wikipedia.org/wiki/Christopher_Nolan
+2. He deliberately chose to study English Literature at University College London in 1990 simply because the university's student union housed professional Steenbeck editing suites and 16mm film cameras he could use for free.
+   ↳ https://alchetron.com/Christopher-Nolan
+3. He met his future wife and producing partner, Emma Thomas, on his very first day at University College London; she has since produced every single one of his feature films through their company, Syncopy.
+   ↳ https://www.independent.co.uk/news/uk/christopher-nolan-government-oscar-university-college-london-university-b2520344.html
+4. While Christopher built a Hollywood empire, his older brother Matthew was arrested in 2009 for an alleged Costa Rican contract killing and famously attempted to escape a Chicago federal prison using a rope made of bedsheets.
+   ↳ https://www.nbcchicago.com/news/local/batman-directors-brother-sentenced/1879052/
+5. He made Cillian Murphy screen-test for Batman wearing Val Kilmer’s Batman Forever suit, knowing Murphy wasn't physically right for Bruce Wayne but using the undeniable footage to convince Warner Bros. executives to cast him as the Scarecrow.
+   ↳ https://www.businessinsider.com/cillian-murphy-christopher-nolan-batman-val-kilmer-batsuit-2023-7
+6. He considers veteran actor Michael Caine his 'lucky charm' and cast him in eight consecutive films, beginning with Batman Begins in 2005 and ending with Tenet in 2020.
+   ↳ https://www.indiewire.com/gallery/christopher-nolan-collaborators/
+7. Rather than using CGI for Interstellar, he planted 500 acres of real corn in Alberta, Canada—a practical trick he learned from Zack Snyder's Man of Steel—and actually sold the crop for a profit after filming wrapped.
+   ↳ https://screenrant.com/interstellar-filming-locations-explained/
+8. He purchased a real, decommissioned Boeing 747 aircraft and crashed it into a hangar at Victorville Airport for Tenet because he calculated it was cheaper and more realistic than commissioning digital effects or scale miniatures.
+   ↳ https://aeroxplorer.com/articles/this-boeing-747-was-purposely-crashed-for-a-movie-stunt
+9. He recreated the Trinity nuclear test for Oppenheimer entirely without computer-generated imagery, using a forced-perspective mixture of gasoline, propane, magnesium, and aluminum powder detonated in the New Mexico desert.
+   ↳ https://ew.com/movies/oppenheimer-christopher-nolan-atomic-bomb-recreation/
+10. He adamantly refuses to use Digital Intermediates for color grading, insisting that his films be photochemically color-timed in a traditional laboratory to preserve the organic, analog look of celluloid.
+   ↳ https://screenrant.com/christopher-nolan-imax-3d-cgi/
+11. He pioneered the use of bulky 65mm IMAX cameras for Hollywood feature films starting with The Dark Knight, eventually forcing Kodak to engineer custom black-and-white 70mm film stock specifically for Oppenheimer.
+   ↳ https://variety.com/2025/film/news/christopher-nolan-explains-odyssey-imax-cameras-1236583667/
+12. He broke a legendary, decade-long collaboration with composer Hans Zimmer for Tenet because Zimmer chose to score Denis Villeneuve's Dune instead, leading Nolan to forge a new partnership with Ludwig Göransson.
+   ↳ https://collider.com/tenet-hans-zimmer-dune/
+13. He rode across the choppy English Channel in a small boat during a storm just to viscerally understand the physical reality of the civilian sailors he was depicting in Dunkirk.
+   ↳ https://en.wikipedia.org/wiki/Dunkirk_(2017_film)
+14. He is deeply influenced by the works of Argentine writer Jorge Luis Borges, embedding Borgesian motifs of labyrinths, mirrors, and infinite time loops into the architecture of Inception and Interstellar.
+   ↳ https://www.researchgate.net/publication/313170064_Influencia_y_legado_de_Borges_en_el_cine_de_Christopher_Nolan
+15. He received his first-ever Academy Award for Best Director in 2024 for Oppenheimer from the hands of Steven Spielberg, one of his greatest childhood filmmaking idols.
+   ↳ https://www.reuters.com/lifestyle/christopher-nolan-wins-best-director-oscar-oppenheimer-2024-03-11/
+16. He was formally knighted as Sir Christopher Nolan by King Charles III in March 2024, alongside his wife Emma Thomas, who received a damehood for their joint services to the British film industry.
+   ↳ https://people.com/christopher-nolan-wife-emma-thomas-knighthood-damehood-king-charles-iii-8764117

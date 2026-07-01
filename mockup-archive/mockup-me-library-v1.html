@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 내 서재 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;--gold:#E8B23A;--good:#1FB286;
+    --film:#ECEAE5;--director:#9B8CF0;--trope:#1FB286;--misreading:#C8922B;--lineage:#3E8FE0;--figure:#86b9ec;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1500px;margin:0 auto;padding:14px 18px 50px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  .layout{display:grid;grid-template-columns:228px minmax(0,1fr);gap:16px;margin-top:14px}
+  .side{align-self:start;position:sticky;top:10px}
+  .snav{display:flex;flex-direction:column;gap:1px;margin-bottom:14px}
+  .nv{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:4px;cursor:pointer;color:var(--mut)}
+  .nv:hover{background:var(--pnl2)}.nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv i.lead{font-size:16px;width:18px;text-align:center}
+  .nv .nm{flex:1;font-size:13px}.nv .ct{font-family:var(--mono);font-size:11px;color:var(--sub)}
+  .sgl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:14px 0 6px;padding:0 9px;display:flex;justify-content:space-between;align-items:center}
+  .sgl .add{cursor:pointer;color:var(--mut)}.sgl .add:hover{color:var(--ink)}
+  .nv .dot{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+  .nv .pub{font-size:11px;color:var(--sub)}
+
+  .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .head .h1{font-family:var(--ser);font-size:22px}
+  .head .meta{font-size:12px;color:var(--sub)}
+  .head .sp{margin-left:auto;display:flex;gap:8px;align-items:center}
+  .srch{position:relative}.srch input{background:var(--pnl);border:1px solid var(--line2);border-radius:4px;padding:7px 10px 7px 30px;color:var(--ink);font-size:12.5px;width:180px}
+  .srch input:focus{outline:none;border-color:var(--ink)}.srch i{position:absolute;left:9px;top:8px;color:var(--sub);font-size:14px}
+  .btn{background:transparent;color:var(--ink);border:1px solid var(--line2);border-radius:4px;padding:6px 11px;font-family:var(--ui);font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .btn:hover{border-color:var(--ink)}
+  .btn.pubon{background:#0e211c;color:#8ee3cc;border-color:#1d5145}
+
+  .tchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}
+  .tc{font-size:11.5px;padding:4px 10px;border:1px solid var(--line2);border-radius:13px;color:var(--mut);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .tc.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}.tc .d{width:8px;height:8px;border-radius:50%}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:11px}
+  .card{background:var(--pnl);border:1px solid var(--line);border-radius:6px;padding:12px;position:relative;animation:fin .25s ease both}
+  @keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card .ttag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:5px;margin-bottom:9px}
+  .card .ttag .d{width:7px;height:7px;border-radius:50%}
+  .card .fav{position:absolute;top:10px;right:34px;font-size:15px;color:#3a3a40;cursor:pointer}
+  .card .fav.on{color:var(--gold)}
+  .card .mgr{position:absolute;top:10px;right:11px;font-size:15px;color:var(--sub);cursor:pointer}.card .mgr:hover{color:var(--ink)}
+  .ftitle{font-family:var(--ser);font-size:16px;line-height:1.22}
+  .fsub{font-size:11px;color:var(--mut);margin-top:3px}
+  .filmline{display:flex;gap:10px}
+  .po{width:42px;height:60px;border-radius:2px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618)}
+  .ava{width:38px;height:38px;border-radius:50%;background:#221d36;color:#c6bcf7;display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:15px;flex:0 0 auto}
+  .chip2{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:2px;border:1px solid var(--line2);color:var(--mut)}
+  .quote{font-family:var(--ser);font-style:italic;font-size:13.5px;line-height:1.5;color:var(--ink)}
+  .qmeta{font-size:10.5px;color:var(--sub);margin-top:7px}
+  .cov{height:6px;background:#26262a;border-radius:0;overflow:hidden;margin-top:8px}.cov>i{display:block;height:100%;background:var(--lineage)}
+  .samp{font-size:10.5px;color:var(--sub);margin-top:7px}
+  .infolders{display:flex;gap:4px;flex-wrap:wrap;margin-top:9px;padding-top:8px;border-top:1px solid var(--line)}
+  .ftag{font-size:9.5px;color:var(--mut);background:var(--pnl2);border:1px solid var(--line);border-radius:10px;padding:1px 7px}
+  .empty{color:var(--sub);font-style:italic;padding:40px;text-align:center}
+
+  /* modal */
+  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:20}
+  .backdrop.show{display:flex}
+  .modal{background:#161618;border:1px solid var(--line2);border-radius:7px;width:340px;padding:16px;max-height:80vh;overflow:auto}
+  .modal h3{margin:0 0 3px;font-family:var(--ser);font-size:16px}.modal .ms{font-size:11px;color:var(--sub);margin-bottom:12px}
+  .frow{display:flex;align-items:center;gap:9px;padding:8px 6px;border-radius:4px;cursor:pointer}
+  .frow:hover{background:var(--pnl2)}
+  .frow .cbx{width:15px;height:15px;border:1px solid var(--line2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px}
+  .frow .cbx.on{background:var(--good);border-color:var(--good);color:#0B0B0C}
+  .frow .fn{flex:1;font-size:12.5px}.frow .pub{font-size:10px;color:var(--sub)}
+  .newf{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:10px;border-top:1px solid var(--line);color:var(--mut);cursor:pointer;font-size:12px}
+  .newf:hover{color:var(--ink)}
+  .mdel{margin-top:12px;font-size:11.5px;color:#e98a86;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .note{font-size:10.5px;color:var(--sub);margin-top:12px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">내 서재 · Library</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-books"></i> 담아둔 모든 것</span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <div class="layout">
+    <aside class="side">
+      <div class="snav" id="navMain"></div>
+      <div class="sgl">분류별</div>
+      <div class="snav" id="navTypes"></div>
+      <div class="sgl">컬렉션 <span class="add" id="newFolderBtn"><i class="ti ti-plus"></i></span></div>
+      <div class="snav" id="navFolders"></div>
+    </aside>
+
+    <main>
+      <div class="head">
+        <span class="h1" id="viewTitle">전체</span>
+        <span class="meta" id="viewMeta"></span>
+        <div class="sp">
+          <span class="srch"><i class="ti ti-search"></i><input id="search" placeholder="서재에서 검색"></span>
+          <button class="btn" id="pubToggle" style="display:none"></button>
+          <button class="btn" id="shareBtn" style="display:none;cursor:pointer" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-share"></i> 공유</button>
+        </div>
+      </div>
+      <div class="tchips" id="tchips"></div>
+      <div class="grid" id="grid"></div>
+    </main>
+  </div>
+</div>
+
+<!-- ADD TO COLLECTION MODAL -->
+<div class="backdrop" id="backdrop">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+const TYPES={
+ film:{l:"영화",c:"#ECEAE5",i:"ti-movie"},director:{l:"감독",c:"#9B8CF0",i:"ti-user-star"},
+ trope:{l:"트로프",c:"#1FB286",i:"ti-affiliate"},misreading:{l:"미스리딩",c:"#C8922B",i:"ti-quote"},
+ lineage:{l:"리니지",c:"#3E8FE0",i:"ti-route"},figure:{l:"형상",c:"#86b9ec",i:"ti-eye"}};
+let folders=[
+ {id:'f1',name:"느린 영화의 윤리",pub:true},
+ {id:'f2',name:"목격자라는 형식",pub:false},
+ {id:'f3',name:"2026 정주행 계획",pub:false},
+ {id:'f4',name:"입문자를 위한 12편",pub:true},
+];
+let items=[
+ {id:1,type:'film',t:"Parasite",sub:"2019 · 봉준호",co:'KR',y:2019,score:93,fav:true,folders:['f4']},
+ {id:2,type:'film',t:"Au Hasard Balthazar",sub:"1966 · 브레송",co:'FR',y:1966,score:86,fav:true,folders:['f1','f2']},
+ {id:3,type:'film',t:"Tokyo Story",sub:"1953 · 오즈",co:'JP',y:1953,score:89,fav:false,folders:['f4']},
+ {id:4,type:'film',t:"The Turin Horse",sub:"2011 · 벨라 타르",co:'HU',y:2011,score:82,fav:false,folders:['f1']},
+ {id:5,type:'film',t:"Yi Yi",sub:"2000 · 에드워드 양",co:'TW',y:2000,score:90,fav:false,folders:['f3','f4']},
+ {id:6,type:'film',t:"Stalker",sub:"1979 · 타르콥스키",co:'SU',y:1979,score:88,fav:false,folders:['f1','f3']},
+ {id:7,type:'director',name:"로베르 브레송",g:'G1',co:"프랑스",nf:6,fav:true,folders:['f1','f2']},
+ {id:8,type:'director',name:"안드레이 타르콥스키",g:'G1',co:"소련",nf:7,fav:false,folders:['f1']},
+ {id:9,type:'director',name:"에드워드 양",g:'G1',co:"대만",nf:7,fav:false,folders:['f3']},
+ {id:10,type:'trope',t:"무력한 목격자",mat:"정착",nf:7,samp:"발타자르 · 무셰트 · Le Fils",fav:true,folders:['f2']},
+ {id:11,type:'trope',t:"전이된 죄",mat:"정착",nf:5,samp:"올드보이 · 드라이브 마이 카",fav:false,folders:['f2']},
+ {id:12,type:'trope',t:"풍경의 무관심",mat:"태동",nf:3,samp:"토리노의 말 · 퍼스트 카우",fav:false,folders:['f1']},
+ {id:13,type:'misreading',quote:"복수는 억압된 것의 회귀, 거울 속 타자가 자아를 삼킨다.",film:"올드보이",lens:"정신분석",fav:true,folders:['f2']},
+ {id:14,type:'misreading',quote:"당나귀의 무판단적 응시가 인간의 도덕적 추락을 거울처럼 비춘다.",film:"발타자르",lens:"윤리",fav:false,folders:['f1','f2']},
+ {id:15,type:'misreading',quote:"반복되는 일상의 소멸로 존재의 영도(零度)를 응시한다.",film:"토리노의 말",lens:"존재론",fav:false,folders:['f1']},
+ {id:16,type:'misreading',quote:"계단은 계급의 수직성을 신체에 새기는 장치다.",film:"기생충",lens:"정치",fav:false,folders:[]},
+ {id:17,type:'lineage',t:"칸 황금종려",facet:'award',cov:27,fav:false,folders:['f3']},
+ {id:18,type:'lineage',t:"S&S 2022 비평가 100",facet:'canon',cov:41,fav:true,folders:['f3']},
+ {id:19,type:'lineage',t:"프랑스 영성영화",facet:'movement',cov:60,fav:false,folders:['f1','f2']},
+ {id:20,type:'figure',t:"강·물",nf:6,fav:false,folders:['f2']},
+ {id:21,type:'figure',t:"거울",nf:4,fav:false,folders:['f2']},
+];
+let nextId=22, nextF=5;
+let view={kind:'all',key:null}, tfilter=new Set(), q='', pickFor=null;
+
+function inView(it){
+ if(view.kind==='fav'&&!it.fav)return false;
+ if(view.kind==='type'&&it.type!==view.key)return false;
+ if(view.kind==='folder'&&!it.folders.includes(view.key))return false;
+ if(tfilter.size&&!tfilter.has(it.type))return false;
+ if(q){const hay=(it.t||'')+(it.name||'')+(it.quote||'')+(it.sub||'')+(it.film||'');if(!hay.toLowerCase().includes(q))return false;}
+ return true;
+}
+function renderNav(){
+ navMain.innerHTML=`
+  <div class="nv ${view.kind==='all'?'on':''}" data-v="all"><i class="ti ti-stack-2 lead"></i><span class="nm">전체</span><span class="ct">${items.length}</span></div>
+  <div class="nv ${view.kind==='fav'?'on':''}" data-v="fav"><i class="ti ti-star lead" style="color:var(--gold)"></i><span class="nm">즐겨찾기</span><span class="ct">${items.filter(i=>i.fav).length}</span></div>`;
+ navTypes.innerHTML=Object.keys(TYPES).map(t=>{const n=items.filter(i=>i.type===t).length;
+   return `<div class="nv ${view.kind==='type'&&view.key===t?'on':''}" data-v="type" data-k="${t}"><span class="dot lead" style="background:${TYPES[t].c}"></span><span class="nm">${TYPES[t].l}</span><span class="ct">${n}</span></div>`;}).join('');
+ navFolders.innerHTML=folders.map(f=>{const n=items.filter(i=>i.folders.includes(f.id)).length;
+   return `<div class="nv ${view.kind==='folder'&&view.key===f.id?'on':''}" data-v="folder" data-k="${f.id}"><i class="ti ti-folder lead"></i><span class="nm">${f.name}</span>${f.pub?'<i class="ti ti-world pub"></i>':'<i class="ti ti-lock pub"></i>'}<span class="ct">${n}</span></div>`;}).join('');
+}
+function renderHead(){
+ let title='전체',sub=`${items.length}개 담음`,folder=null;
+ if(view.kind==='fav'){title='즐겨찾기';sub=items.filter(i=>i.fav).length+'개';}
+ else if(view.kind==='type'){title=TYPES[view.key].l;sub=items.filter(i=>i.type===view.key).length+'개';}
+ else if(view.kind==='folder'){folder=folders.find(f=>f.id===view.key);title=folder.name;sub=items.filter(i=>i.folders.includes(folder.id)).length+'개 · '+(folder.pub?'공개':'비공개');}
+ viewTitle.textContent=title;viewMeta.textContent=sub;
+ const pt=document.getElementById('pubToggle'),sb=document.getElementById('shareBtn');
+ if(folder){pt.style.display='';sb.style.display=folder.pub?'':'none';
+   pt.className='btn '+(folder.pub?'pubon':'');pt.innerHTML=folder.pub?'<i class="ti ti-world"></i> 공개됨':'<i class="ti ti-lock"></i> 비공개';
+ }else{pt.style.display='none';sb.style.display='none';}
+}
+function renderChips(){
+ tchips.innerHTML=Object.keys(TYPES).map(t=>`<span class="tc ${tfilter.has(t)?'on':''}" data-tc="${t}"><span class="d" style="background:${TYPES[t].c}"></span>${TYPES[t].l}</span>`).join('');
+}
+function foldersTags(it){if(!it.folders.length)return '';
+ return `<div class="infolders">${it.folders.map(fid=>{const f=folders.find(x=>x.id===fid);return f?`<span class="ftag"><i class="ti ti-folder" style="font-size:10px"></i> ${f.name}</span>`:'';}).join('')}</div>`;}
+function cardBody(it){
+ if(it.type==='film')return `<div class="filmline"><div class="po"></div><div><div class="ftitle">${it.t}</div><div class="fsub">${it.sub}</div><div class="chip2" style="margin-top:8px;display:inline-block">정전가 ${it.score}</div></div></div>`;
+ if(it.type==='director')return `<div class="filmline"><div class="ava">${it.name.slice(0,1)}</div><div><div class="ftitle">${it.name}</div><div class="fsub">${it.co} · 대표작 ${it.nf}편</div><div class="chip2" style="margin-top:8px;display:inline-block;color:#c6bcf7;border-color:#463c84">${it.g} 거장</div></div></div>`;
+ if(it.type==='trope')return `<div class="ftitle">「${it.t}」</div><div class="fsub">내 영화 ${it.nf}편 · 성숙도 ${it.mat}</div><div class="samp">${it.samp}</div>`;
+ if(it.type==='misreading')return `<div class="quote">“${it.quote}”</div><div class="qmeta">— 「${it.film}」 · <span style="color:#e6c884">${it.lens}</span> 렌즈</div>`;
+ if(it.type==='lineage')return `<div class="ftitle">${it.t}</div><div class="fsub">정전 커버리지 ${it.cov}%</div><div class="cov"><i style="width:${it.cov}%"></i></div>`;
+ if(it.type==='figure')return `<div class="ftitle">${it.t}</div><div class="fsub">내 영화 ${it.nf}편을 가로지름</div>`;
+ return '';
+}
+function renderGrid(){
+ const list=items.filter(inView);
+ grid.innerHTML=list.length?list.map(it=>`<div class="card" data-id="${it.id}">
+   <div class="ttag" style="color:${TYPES[it.type].c}"><span class="d" style="background:${TYPES[it.type].c}"></span>${TYPES[it.type].l}</div>
+   <i class="ti ti-star fav ${it.fav?'on':''}" data-fav="${it.id}"></i>
+   <i class="ti ti-dots mgr" data-mgr="${it.id}"></i>
+   ${cardBody(it)}${foldersTags(it)}</div>`).join('')
+   :'<div class="empty">여기엔 아직 담은 것이 없습니다.</div>';
+}
+function renderAll(){renderNav();renderHead();renderChips();renderGrid();}
+
+document.addEventListener('click',e=>{
+ const nav=e.target.closest('[data-v]');if(nav){view={kind:nav.dataset.v,key:nav.dataset.k||null};renderAll();return;}
+ const tc=e.target.closest('[data-tc]');if(tc){const t=tc.dataset.tc;tfilter.has(t)?tfilter.delete(t):tfilter.add(t);renderAll();return;}
+ const fv=e.target.closest('[data-fav]');if(fv){const it=items.find(i=>i.id==fv.dataset.fav);it.fav=!it.fav;renderAll();return;}
+ const mg=e.target.closest('[data-mgr]');if(mg){openModal(+mg.dataset.mgr);return;}
+});
+document.getElementById('search').oninput=e=>{q=e.target.value.toLowerCase().trim();renderGrid();};
+document.getElementById('pubToggle').onclick=()=>{const f=folders.find(x=>x.id===view.key);if(f){f.pub=!f.pub;renderAll();}};
+document.getElementById('newFolderBtn').onclick=()=>{const n=prompt('새 컬렉션 이름');if(n){folders.push({id:'f'+(nextF++),name:n,pub:false});renderAll();}};
+
+// MODAL
+const backdrop=document.getElementById('backdrop'),modal=document.getElementById('modal');
+function openModal(id){pickFor=id;const it=items.find(i=>i.id===id);
+ const tlabel=it.t||it.name||('「'+it.film+'」 미스리딩');
+ modal.innerHTML=`<h3>${tlabel}</h3><div class="ms">컬렉션에 담기 / 빼기 · ${TYPES[it.type].l}</div>
+   <div class="frow" data-mfav><span class="cbx ${it.fav?'on':''}">${it.fav?'<i class="ti ti-check"></i>':''}</span><span class="fn"><i class="ti ti-star" style="color:var(--gold)"></i> 즐겨찾기</span></div>
+   <div style="height:8px"></div>
+   ${folders.map(f=>{const on=it.folders.includes(f.id);return `<div class="frow" data-mf="${f.id}"><span class="cbx ${on?'on':''}">${on?'<i class="ti ti-check"></i>':''}</span><span class="fn">${f.name}</span><span class="pub">${f.pub?'공개':'비공개'}</span></div>`;}).join('')}
+   <div class="newf" data-mnew><i class="ti ti-plus"></i> 새 컬렉션 만들어 담기</div>
+   <div class="mdel" data-mdel><i class="ti ti-trash"></i> 서재에서 빼기</div>
+   <div class="note">미스리딩·트로프·리니지·감독·형상 — 무엇이든 같은 방식으로 담깁니다.</div>`;
+ backdrop.classList.add('show');
+}
+backdrop.addEventListener('click',e=>{
+ if(e.target===backdrop){backdrop.classList.remove('show');renderAll();return;}
+ const it=items.find(i=>i.id===pickFor);if(!it)return;
+ if(e.target.closest('[data-mfav]')){it.fav=!it.fav;openModal(it.id);renderAll();return;}
+ const mf=e.target.closest('[data-mf]');if(mf){const fid=mf.dataset.mf;const k=it.folders.indexOf(fid);k<0?it.folders.push(fid):it.folders.splice(k,1);openModal(it.id);renderAll();return;}
+ if(e.target.closest('[data-mnew]')){const n=prompt('새 컬렉션 이름');if(n){const id='f'+(nextF++);folders.push({id,name:n,pub:false});it.folders.push(id);openModal(it.id);renderAll();}return;}
+ if(e.target.closest('[data-mdel]')){items=items.filter(x=>x.id!==it.id);backdrop.classList.remove('show');renderAll();return;}
+});
+renderAll();
+</script>
+</body>
+</html>

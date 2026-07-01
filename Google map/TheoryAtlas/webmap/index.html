@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Theory Atlas — 사상의 지도</title>
+<script src="https://unpkg.com/deck.gl@9.0.38/dist.min.js"></script>
+<style>
+:root{--bg:#0b0e14;--panel:#11161f;--line:#222b38;--txt:#e6edf3;--mut:#92a0b0;--accent:#ffd166}
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--txt);overflow:hidden}
+#app{display:flex;height:100vh}
+#stage{flex:1;position:relative}
+#deck-canvas{width:100%;height:100%}
+#side{width:360px;max-width:42vw;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column}
+header{padding:14px 16px;border-bottom:1px solid var(--line)}
+header h1{font-size:15px;margin:0 0 3px}header p{margin:0;font-size:11.5px;color:var(--mut);line-height:1.5}
+.row{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line)}
+.chip{font-size:11px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--mut);cursor:pointer;user-select:none;display:flex;align-items:center;gap:5px}
+.chip.on{color:#0b0e14;font-weight:600}
+.lang{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.lang button{background:none;border:none;color:var(--mut);font-size:11px;padding:4px 10px;cursor:pointer}
+.lang button.on{background:var(--accent);color:#0b0e14;font-weight:700}
+#count{padding:8px 16px;font-size:11px;color:var(--mut);border-bottom:1px solid var(--line)}
+#list{flex:1;overflow-y:auto}
+.card{padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer}.card:hover{background:#172030}
+.card .ttl{font-size:13px;font-weight:600;margin-bottom:2px}.card .meta{font-size:11px;color:var(--mut);margin-bottom:5px}
+.card .ex{font-size:12px;color:#c4cdd6;line-height:1.5}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:0 0 auto}
+#hint{position:absolute;left:12px;bottom:12px;background:rgba(17,22,31,.9);border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:11px;color:var(--mut)}
+#tooltip{position:absolute;pointer-events:none;z-index:30;background:#0b0e14;border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:12px;max-width:240px;display:none}
+#tooltip b{color:var(--accent)}
+#reader{position:fixed;top:0;right:-620px;width:600px;max-width:94vw;height:100%;background:var(--panel);border-left:1px solid var(--line);box-shadow:-20px 0 50px rgba(0,0,0,.55);transition:right .28s;z-index:60;overflow-y:auto}
+#reader.open{right:0}
+.rhead{padding:22px 24px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.rhead .tag{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700}
+.rhead h2{margin:6px 0 2px;font-size:23px}.rhead .by{color:var(--mut);font-size:13px}
+.rhead .src{color:var(--mut);font-size:12px;margin-top:6px}
+.close{position:absolute;top:16px;right:16px;border:1px solid var(--line);background:none;color:var(--txt);width:30px;height:30px;border-radius:8px;cursor:pointer}
+.rbody{padding:18px 24px}.rbody h4{margin:0 0 6px;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.5px}
+.rbody p{font-size:14px;line-height:1.75;color:#d7dee6;margin:0 0 18px}
+.rfilm{padding:0 24px 22px;color:var(--mut);font-size:12px}
+</style></head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="deck-canvas"></div>
+    <div id="tooltip"></div>
+    <div id="hint">🖱️ 드래그=이동 · 휠=확대/축소 · 점 클릭=전문 읽기</div>
+  </div>
+  <aside id="side">
+    <header><h1>🧭 Theory Atlas — 사상의 지도</h1>
+      <p>지명이 아닌 <b>의미</b>로 그린 가상지도. 가까운 개념일수록 서로 가깝게 놓입니다. 영역=발견된 사상 권역.</p></header>
+    <div class="row" id="filters"></div>
+    <div id="count"></div>
+    <div id="list"></div>
+  </aside>
+</div>
+<div id="reader"><button class="close" onclick="closeReader()">✕</button><div id="rcontent"></div></div>
+
+<script>
+const ATLAS = {"nodes": [{"id": "mulvey", "concept": "To-be-looked-at-ness", "theorist": "Laura Mulvey", "year": 1975, "work": "\"Visual Pleasure and Narrative Cinema\" (Screen)", "tradition": "Feminist film theory", "film": "Cléo from 5 to 7", "film_dir": "Agnès Varda", "film_year": 1962, "en": "Classical cinema splits labor by gender — men *do*, women are *seen*. A woman on screen is built to halt the story and pool the camera's desire; she exists to be looked at, and learns to look at herself looking. Cléo's rebellion is to remove her wig and walk out to *see* rather than be seen.", "ko": "고전 영화는 노동을 성별로 가른다 — 남성은 *행위*를, 여성은 *보여짐*을 맡는다. 스크린 위 여성은 이야기를 멈추고 카메라의 욕망을 고이게 하도록 설계된다. 그녀는 보여지기 위해 존재하며, 보여지는 자신을 다시 들여다보는 법을 익힌다. 클레오의 반란은 가발을 벗고 거리로 나가 보는 쪽이 되는 것이다.", "x": -60.365639091468594, "y": -16.649565432943746, "region": "gaze", "color": "#e85d75"}, {"id": "baudelaire", "concept": "Flâneur", "theorist": "Charles Baudelaire", "year": 1863, "work": "\"Le Peintre de la vie moderne\"", "tradition": "Urban modernity", "film": "Cléo from 5 to 7", "film_dir": "Agnès Varda", "film_year": 1962, "en": "The man who treats the crowd as his living-room, dissolving into the urban flow to drink its faces and shop-windows like 'a botanist of the sidewalk' — a modern way of knowing through wandering, where attention itself becomes art. Varda asks whether a woman can claim that freedom.", "ko": "군중을 제 거실처럼 다루며 도시의 흐름 속에 녹아들어 얼굴들과 진열창을 '보도의 식물학자'처럼 음미하는 자 — 거닐며 알아가는 현대적 방식, 주의 그 자체가 예술이 되는 상태. 바르다는 여성도 그 자유를 누릴 수 있는지 묻는다.", "x": -10.18647746162059, "y": -82.56744020299067, "region": "percept", "color": "#5bc0be"}, {"id": "bazin", "concept": "Plan-séquence (Sequence shot)", "theorist": "André Bazin", "year": 1960, "work": "\"Qu'est-ce que le cinéma?\"", "tradition": "French realist film theory", "film": "Cléo from 5 to 7", "film_dir": "Agnès Varda", "film_year": 1962, "en": "The cut is a small lie: it pre-digests reality and tells you where to look. The held shot in depth hands you the room intact and trusts you to find meaning — 'ambiguity restored.' Faith in duration preserves the suspense of the actual.", "ko": "컷은 작은 거짓말이다 — 현실을 미리 소화시켜 어디를 보라 일러준다. 깊이를 품은 채 유지되는 숏은 방을 통째로 건네고 당신이 의미를 찾도록 믿어 맡긴다 — '되살아난 모호함'. 지속에 대한 믿음이 현실의 서스펜스를 보존한다.", "x": 67.77071335799417, "y": 74.15913801762967, "region": "realism", "color": "#f4a259"}, {"id": "dubois", "concept": "Double Consciousness", "theorist": "W.E.B. Du Bois", "year": 1903, "work": "\"The Souls of Black Folk\"", "tradition": "African-American sociology", "film": "Do the Right Thing", "film_dir": "Spike Lee", "film_year": 1989, "en": "The strange arithmetic of being two people inside one skin: the self you know, and the self assembled from how a hostile world appraises you. Forever 'looking at one's self through the eyes of others,' measuring your soul by a tape the world hands you.", "ko": "한 살갗 안에 두 사람으로 존재하는 기이한 산수 — 내가 아는 나, 그리고 적대적 세계가 나를 가늠하는 방식으로 조립된 나. 영원히 '타인의 눈을 통해 자기 자신을 바라보며', 세상이 건넨 잣대로 제 영혼을 잰다.", "x": -99.99999979861155, "y": -0.4976565003858772, "region": "gaze", "color": "#e85d75"}, {"id": "fanon", "concept": "The Fact of Blackness", "theorist": "Frantz Fanon", "year": 1952, "work": "\"Black Skin, White Masks\"", "tradition": "Postcolonial phenomenology", "film": "Do the Right Thing", "film_dir": "Spike Lee", "film_year": 1989, "en": "The moment the white world's look lands on you and freezes you solid: you expected to unfold into the future, but you are suddenly an object, 'fixed' like a specimen, sealed 'into a crushing objecthood.' You are not seen, you are *seen as* — and the difference can get you killed.", "ko": "백인 세계의 시선이 내려앉아 당신을 단단히 얼려 버리는 순간 — 미래로 펼쳐질 인간이리라 기대했던 자리에서 당신은 돌연 하나의 사물이 되어 표본처럼 '고정'되고 '짓누르는 사물성 안에' 봉인된다. 당신은 보여지는 게 아니라 무엇으로 간주되며, 그 차이가 당신을 죽일 수도 있다.", "x": -82.19791126993573, "y": 17.456175611971986, "region": "gaze", "color": "#e85d75"}, {"id": "eisenstein", "concept": "Montage of Attractions", "theorist": "Sergei Eisenstein", "year": 1923, "work": "\"Montage of Attractions\"", "tradition": "Soviet montage theory", "film": "Do the Right Thing", "film_dir": "Spike Lee", "film_year": 1989, "en": "A film need not flow like a smooth river; it can be built from *jolts* — deliberately chosen shocks bolted together to detonate a single feeling in the spectator. The audience is not an observer but raw material to be worked on; each 'attraction' a hand reaching off the screen.", "ko": "영화는 매끄러운 강물처럼 흐를 필요가 없다 — *충격*들로 지어질 수 있다. 의도적으로 고른 충격들을 볼트로 죄어 관객 안에서 단 하나의 감정을 터뜨린다. 관객은 관찰자가 아니라 가공되어야 할 원재료이며, 각 '어트랙션'은 스크린 밖으로 뻗는 손이다.", "x": 95.58007850344119, "y": -26.653492786461985, "region": "percept", "color": "#5bc0be"}, {"id": "chion", "concept": "The acousmêtre", "theorist": "Michel Chion", "year": 1982, "work": "\"La Voix au cinéma\"", "tradition": "Film-sound theory", "film": "2001: A Space Odyssey", "film_dir": "Stanley Kubrick", "film_year": 1968, "en": "A voice we hear everywhere but cannot pin to a body on screen. Strip a voice of its mouth and it becomes a kind of weather — it seems to see all, know all, hover over every room. Its power lasts exactly as long as it stays hidden.", "ko": "어디서나 들리지만 화면 속 어떤 몸에도 붙들어 맬 수 없는 목소리. 입을 떼어내면 그것은 일종의 날씨가 된다 — 모든 것을 보고 알며 모든 방 위를 떠도는 듯하다. 그 힘은 숨겨져 있는 동안만 지속된다.", "x": 2.6305636776509598, "y": 85.98600509403262, "region": "realism", "color": "#f4a259"}, {"id": "michelson", "concept": "Carnal Knowledge", "theorist": "Annette Michelson", "year": 1969, "work": "\"Bodies in Space\" (Artforum)", "tradition": "Phenomenology of spectatorship", "film": "2001: A Space Odyssey", "film_dir": "Stanley Kubrick", "film_year": 1968, "en": "2001 doesn't deliver meaning to the mind; it stages knowledge in the body. Kubrick weaponizes weightlessness and slow rotation to dislodge your sense of up and down — the film teaches through your inner ear and lurching gut. Cinema becomes a gymnasium for perception.", "ko": "『2001』은 정신에 의미를 배달하지 않는다 — 앎을 몸 안에서 상연한다. 큐브릭은 무중력과 느린 회전을 무기 삼아 위·아래 감각을 어긋나게 한다. 영화는 속귀와 요동치는 속을 통해 가르친다. 영화는 지각의 체육관이 된다.", "x": 22.094279578654007, "y": -1.1877975227064503, "region": "percept", "color": "#5bc0be"}, {"id": "shklovsky", "concept": "Defamiliarization (ostranenie)", "theorist": "Viktor Shklovsky", "year": 1917, "work": "\"Art as Device\"", "tradition": "Russian Formalism", "film": "2001: A Space Odyssey", "film_dir": "Stanley Kubrick", "film_year": 1968, "en": "Perception calcifies, the familiar goes numb; the artist's job is to slow your eye, to roughen the surface so a stone feels stony again. The bone-to-satellite match cut refuses to let 'a thing humans hold' stay automatic, making the whole span of technology suddenly strange.", "ko": "지각은 굳어가고 익숙한 것은 무감각해진다 — 예술가의 임무는 당신의 눈을 늦춰 표면을 거칠게 함으로써 돌이 다시 돌처럼 느껴지게 하는 것. 뼈다귀-위성의 매치 컷은 '인간이 손에 쥔 무엇'이 자동적인 것으로 남기를 거부하고 기술의 전 역사를 돌연 낯설게 만든다.", "x": 64.67439250389614, "y": -50.04536627814554, "region": "percept", "color": "#5bc0be"}], "regions": [{"key": "gaze", "label": "시선과 인종화된 자아  ·  The Look & the Racialized Self", "color": "#e85d75", "centroid": [-80.8545167200053, 0.10298455954745478], "polygon": [[-119.99016474036063, -1.1247973152484274], [-44.882391348843065, -29.309306320516498], [-83.74158935112345, 37.396513071043756]]}, {"key": "percept", "label": "낯설어진 지각  ·  Perception Made Strange", "color": "#5bc0be", "centroid": [43.04056828109269, -40.11352419757616], "polygon": [[-25.822138573879304, -95.03845065052862], [82.85048579582596, -58.38980350560815], [114.95438791889083, -21.69001268935078], [12.617095102388598, 16.424214696311395]]}, {"key": "realism", "label": "실재의 결: 시간과 소리  ·  The Grain of the Real", "color": "#f4a259", "centroid": [35.20063851782256, 80.07257155583115], "polygon": [[90.30318330376168, 80.07257155583115], [88.4256096208112, 94.33415958004679], [82.92084211561561, 107.6238439488007], [74.16402159659555, 119.03595463460414], [62.751910910792134, 127.79277515362418], [49.46222654203821, 133.2975426588198], [35.20063851782256, 135.17511634177026], [20.93905049360692, 133.2975426588198], [7.64936612485301, 127.79277515362419], [-3.7627445609504235, 119.03595463460414], [-12.519565079970484, 107.6238439488007], [-18.02433258516607, 94.33415958004682], [-19.901906268116562, 80.07257155583115], [-18.02433258516608, 65.81098353161549], [-12.51956507997049, 52.521299162861595], [-3.762744560950452, 41.109188477058176], [7.649366124852975, 32.352367958038116], [20.93905049360692, 26.847600452842507], [35.200638517822554, 24.970026769892023], [49.46222654203818, 26.8476004528425], [62.751910910792134, 32.35236795803811], [74.16402159659555, 41.10918847705815], [82.92084211561559, 52.52129916286156], [88.42560962081119, 65.81098353161545]]}], "edges": [{"s": "mulvey", "t": "baudelaire", "w": 0.58}, {"s": "mulvey", "t": "dubois", "w": 0.72}, {"s": "mulvey", "t": "fanon", "w": 0.74}, {"s": "mulvey", "t": "michelson", "w": 0.52}, {"s": "baudelaire", "t": "michelson", "w": 0.62}, {"s": "baudelaire", "t": "shklovsky", "w": 0.6}, {"s": "bazin", "t": "chion", "w": 0.52}, {"s": "bazin", "t": "michelson", "w": 0.5}, {"s": "dubois", "t": "fanon", "w": 0.86}, {"s": "eisenstein", "t": "shklovsky", "w": 0.82}, {"s": "chion", "t": "michelson", "w": 0.6}, {"s": "michelson", "t": "shklovsky", "w": 0.7}], "meta": {"count": 9, "method": "LLM-similarity → classical MDS (PoC)", "docs": 3}};
+let lang = "ko";
+const NODE = {}; ATLAS.nodes.forEach(n=>NODE[n.id]=n);
+const REGION = {}; ATLAS.regions.forEach(r=>REGION[r.key]=r);
+let activeRegions = new Set(ATLAS.regions.map(r=>r.key));
+const hex2rgb = h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];
+
+// 필터 칩 + 언어 토글
+const fr=document.getElementById("filters");
+ATLAS.regions.forEach(r=>{
+  const c=document.createElement("div"); c.className="chip on"; c.dataset.k=r.key;
+  c.style.borderColor=r.color; c.style.background=r.color; c.style.color="#0b0e14";
+  c.innerHTML=`<span class="dot" style="background:#0b0e14"></span>${r.label.split("·")[0].trim()}`;
+  c.onclick=()=>{const on=c.classList.toggle("on");
+    if(on){activeRegions.add(r.key);c.style.background=r.color;c.style.color="#0b0e14";}
+    else{activeRegions.delete(r.key);c.style.background="none";c.style.color="var(--mut)";}
+    render();};
+  fr.appendChild(c);
+});
+const lg=document.createElement("div"); lg.className="lang";
+lg.innerHTML=`<button id="ko" class="on" onclick="setLang('ko')">한국어</button><button id="en" onclick="setLang('en')">EN</button>`;
+fr.appendChild(lg);
+function setLang(l){lang=l;document.getElementById("ko").classList.toggle("on",l==="ko");
+  document.getElementById("en").classList.toggle("on",l==="en");refreshList();}
+
+const {Deck,OrthographicView,ScatterplotLayer,PolygonLayer,TextLayer,LineLayer}=deck;
+let deckgl, viewport=null;
+
+function visibleNodes(){
+  let ns=ATLAS.nodes.filter(n=>activeRegions.has(n.region));
+  if(viewport){
+    const tl=viewport.unproject([0,0]), br=viewport.unproject([viewport.width,viewport.height]);
+    const xmin=Math.min(tl[0],br[0]),xmax=Math.max(tl[0],br[0]),ymin=Math.min(tl[1],br[1]),ymax=Math.max(tl[1],br[1]);
+    ns=ns.filter(n=>n.x>=xmin&&n.x<=xmax&&n.y>=ymin&&n.y<=ymax);
+  }
+  return ns;
+}
+function layers(){
+  return [
+    new PolygonLayer({id:"regions",data:ATLAS.regions.filter(r=>activeRegions.has(r.key)),
+      getPolygon:r=>r.polygon,getFillColor:r=>[...hex2rgb(r.color),28],
+      getLineColor:r=>[...hex2rgb(r.color),120],getLineWidth:1.5,lineWidthUnits:"pixels",
+      stroked:true,filled:true,pickable:false}),
+    new LineLayer({id:"edges",data:ATLAS.edges.filter(e=>activeRegions.has(NODE[e.s].region)&&activeRegions.has(NODE[e.t].region)),
+      getSourcePosition:e=>[NODE[e.s].x,NODE[e.s].y],getTargetPosition:e=>[NODE[e.t].x,NODE[e.t].y],
+      getColor:e=>[120,140,160,40+e.w*90],getWidth:e=>0.5+e.w*1.5,widthUnits:"pixels"}),
+    new TextLayer({id:"rlabels",data:ATLAS.regions.filter(r=>activeRegions.has(r.key)),
+      getPosition:r=>r.centroid,getText:r=>r.label.split("·")[0].trim(),
+      getColor:r=>[...hex2rgb(r.color),150],getSize:15,characterSet:"auto",
+      fontWeight:700,getPixelOffset:[0,-4],billboard:true}),
+    new ScatterplotLayer({id:"nodes",data:ATLAS.nodes.filter(n=>activeRegions.has(n.region)),
+      getPosition:n=>[n.x,n.y],getFillColor:n=>hex2rgb(n.color),getLineColor:[11,14,20],
+      getRadius:7,radiusUnits:"pixels",stroked:true,getLineWidth:2,lineWidthUnits:"pixels",
+      pickable:true,onClick:info=>info.object&&openReader(info.object.id),
+      onHover:info=>showTip(info)}),
+    new TextLayer({id:"nlabels",data:ATLAS.nodes.filter(n=>activeRegions.has(n.region)),
+      getPosition:n=>[n.x,n.y],getText:n=>n.concept,getColor:[230,237,243,220],
+      getSize:11,characterSet:"auto",getPixelOffset:[0,14],billboard:true,
+      getTextAnchor:"middle",fontWeight:500}),
+  ];
+}
+function render(){ if(deckgl) deckgl.setProps({layers:layers()}); refreshList(); }
+
+deckgl=new Deck({
+  parent:document.getElementById("deck-canvas"),
+  views:new OrthographicView({}),
+  initialViewState:{target:[0,0,0],zoom:2.1,minZoom:0.5,maxZoom:6},
+  controller:true,
+  layers:layers(),
+  onViewStateChange:({viewState})=>{viewport=deckgl.getViewports()[0];refreshList();},
+  onLoad:()=>{viewport=deckgl.getViewports()[0];refreshList();}
+});
+
+function showTip(info){
+  const t=document.getElementById("tooltip");
+  if(info.object){t.style.display="block";t.style.left=(info.x+14)+"px";t.style.top=(info.y+14)+"px";
+    t.innerHTML=`<b>${info.object.concept}</b><br>${info.object.theorist} · ${info.object.year}<br><span style="color:#92a0b0">${info.object.tradition}</span>`;}
+  else t.style.display="none";
+}
+function excerpt(n){const s=(lang==="ko"?n.ko:n.en);return s.length>150?s.slice(0,150).replace(/\s\S*$/,"")+"…":s;}
+function refreshList(){
+  const ns=visibleNodes();
+  document.getElementById("count").textContent=`화면 안: 개념 ${ns.length} / 전체 ${ATLAS.nodes.length} · 이론가 ${new Set(ns.map(n=>n.theorist)).size}명`;
+  ns.sort((a,b)=>a.concept.localeCompare(b.concept));
+  document.getElementById("list").innerHTML = ns.map(n=>`
+    <div class="card" onclick="flyTo('${n.id}')">
+      <div class="ttl"><span class="dot" style="background:${n.color}"></span> ${n.concept}</div>
+      <div class="meta">${n.theorist} · ${n.year} · ${n.tradition}</div>
+      <div class="ex">${excerpt(n)}</div>
+    </div>`).join("") || `<div style="padding:20px;color:var(--mut);font-size:12px">이 영역에 표시할 개념이 없습니다. 축소하거나 이동해 보세요.</div>`;
+}
+function flyTo(id){const n=NODE[id];
+  deckgl.setProps({initialViewState:{target:[n.x,n.y,0],zoom:3.4,transitionDuration:600}});
+  openReader(id);}
+
+function openReader(id){
+  const n=NODE[id]; const r=REGION[n.region];
+  document.getElementById("rcontent").innerHTML=`
+   <div class="rhead">
+     <div class="tag" style="color:${n.color}">${r.label}</div>
+     <h2>${n.concept}</h2>
+     <div class="by">${n.theorist} · ${n.year}</div>
+     <div class="src">${n.work} · <i>${n.tradition}</i></div>
+   </div>
+   <div class="rbody">
+     <h4>${lang==="ko"?"개념":"Concept"}</h4>
+     <p>${lang==="ko"?n.ko:n.en}</p>
+     <h4>${lang==="ko"?"다른 언어":"Other language"}</h4>
+     <p style="color:#aab4be">${lang==="ko"?n.en:n.ko}</p>
+   </div>
+   <div class="rfilm">🎬 ${n.film} · ${n.film_dir}, ${n.film_year}</div>`;
+  document.getElementById("reader").classList.add("open");
+}
+function closeReader(){document.getElementById("reader").classList.remove("open");}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeReader();});
+</script>
+</body></html>

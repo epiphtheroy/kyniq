@@ -1,0 +1,135 @@
+PART: MANAGEMENT   (총 222개 이론, 현행 Major 132개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[21] I. Organizational Behavior & Management  ::  Hierarchy of Needs (Management) / Two-Factor Theory (Motivation-Hygiene Theory) / Expectancy Theory (Motivation) / Equity Theory (Motivation)
+[9] V. Human Resource Management (HRM)  ::  Social Capital Theory (HRM) / Signaling Theory (HRM) / Goal-Setting Theory (HRM) / Reinforcement Theory (HRM)
+[7] III. Marketing  ::  Consumer Decision Process / Theory of Reasoned Action (Marketing) / Theory of Planned Behavior (Marketing) / Brand Equity Theory
+[7] X. Organizational Theory & Design  ::  Institutional Theory (Management) / Institutional Isomorphism (Management) / Decoupling (Management) / Agency Theory (Organizational)
+[6] II. Strategic Management  ::  Five Forces Framework / Generic Strategies / Resource-Based View (RBV) / Dynamic Capabilities Theory
+[6] IV. Finance  ::  Prospect Theory (Finance) / Efficient Market Hypothesis (Behavioral Critique) / Mental Accounting (Finance) / Disposition Effect (Finance)
+[3] VII. Innovation & Entrepreneurship  ::  Diffusion of Innovations (Business) / Disruptive Innovation Theory / Entrepreneurial Cognition Theory
+[2] IX. Corporate Social Responsibility (CSR) & Ethics  ::  Stakeholder Theory / Carroll's Pyramid of CSR
+[2] L. Strategic Management (Evolutionary)  ::  Organizational Ecology Theory / Population Ecology of Organizations
+[2] LIII. Human Resource Management (Work-Life)  ::  Work-Life Balance Theory / Work-Family Conflict Theory (HRM)
+[2] LIX. Leadership (Contingency)  ::  Path-Goal Theory of Leadership / Vroom-Yetton Contingency Model
+[2] LXIII. Human Resource Management (Commitment)  ::  Organizational Commitment Theory / Employee Turnover Theory (Behavioral)
+[2] VI. Operations Management & Supply Chain  ::  Behavioral Operations Management / Human Factor Theory (Operations)
+[2] XI. Knowledge Management  ::  SECI Model of Knowledge Creation / Absorptive Capacity Theory
+[2] XII. Crisis Management  ::  Situational Crisis Communication Theory (SCCT) / Image Repair Theory
+[2] XIII. Change Management  ::  Lewin's Change Management Model / Resistance to Change Theory
+[2] XIV. Entrepreneurship (Advanced)  ::  Effectuation Theory / Entrepreneurial Opportunity Recognition
+[2] XIX. Finance (Corporate Governance)  ::  Corporate Governance Theory / Stakeholder Theory (Corporate Governance)
+[2] XL. Organizational Behavior (Well-being)  ::  Job Demands-Resources (JD-R) Model / Conservation of Resources (COR) Theory
+[2] XLII. Marketing (Digital)  ::  Customer Relationship Management (CRM) Theory / Customer Lifetime Value (CLV)
+[2] XLIV. Human Resource Management (Diversity)  ::  Diversity Management Theory / Social Categorization Theory (HRM)
+[2] XLIX. Organizational Behavior (Power)  ::  French and Raven's Bases of Power / Power-Dependence Theory
+[2] XLV. Operations Management (Service)  ::  Service Dominant Logic (Marketing/Ops) / Service Quality Theory (SERVQUAL)
+[2] XLVII. International Business (MNC Behavior)  ::  Organizational Slack Theory (IB) / Managerial Discretion (IB)
+[2] XV. Leadership (Advanced)  ::  Leader-Member Exchange (LMX) Theory / Authentic Leadership Theory
+[2] XVII. Organizational Behavior (Advanced)  ::  Organizational Justice Theory (Greenberg) / Social Exchange Theory (OB)
+[2] XVIII. Marketing (Advanced Consumer Behavior)  ::  Consumer Culture Theory (CCT) / Brand Community Theory
+[2] XX. Operations Management (Supply Chain Behavior)  ::  Behavioral Supply Chain Management / Bullwhip Effect (Supply Chain)
+[2] XXII. Business Ethics  ::  Virtue Ethics (Business) / Deontology (Business Ethics)
+[2] XXIII. Organizational Change (Advanced)  ::  Kotter's 8-Step Change Model / Appreciative Inquiry
+[2] XXIV. Knowledge Management (Advanced)  ::  Communities of Practice Theory / Explicit vs. Tacit Knowledge Theory
+[2] XXIX. Organizational Justice (Specifics)  ::  Procedural Justice Theory / Interactional Justice
+[2] XXV. International Management  ::  Cross-Cultural Management Theory / GLOBE Project
+[2] XXVI. Human Resource Management (Advanced)  ::  Psychological Contract Breach / Employee Engagement Theory
+[2] XXVII. Marketing (Digital)  ::  Digital Marketing Theory / Viral Marketing Theory
+[2] XXVIII. Finance (Behavioral Corporate Finance)  ::  Behavioral Corporate Finance / Managerial Empire Building
+[2] XXX. Leadership (Contextual)  ::  Shared Leadership Theory / Servant Leadership Theory
+[2] XXXI. Organizational Development  ::  Action Research (OD) / Appreciative Inquiry (OD)
+[2] XXXII. Strategic Human Resource Management (Fit)  ::  Vertical Fit (SHRM) / Horizontal Fit (SHRM)
+[2] XXXIV. Finance (Behavioral Investment)  ::  Investor Biases (Behavioral Finance) / Herding Behavior (Finance)
+[2] XXXIX. Corporate Social Responsibility (Advanced)  ::  Creating Shared Value (CSV) Theory / Social License to Operate
+[2] XXXV. Organizational Behavior (Decision Making)  ::  Escalation of Commitment Theory / Group Polarization (Management)
+[2] XXXVI. Supply Chain Management (Behavioral)  ::  Behavioral Supply Chain Theory / Trust in Supply Chains
+[2] XXXVII. Innovation Management  ::  Organizational Ambidexterity Theory / Open Innovation Theory
+[2] XXXVIII. International Business (Entry Mode)  ::  Uppsala Model of Internationalization / Eclectic Paradigm (OLI Framework)
+[1] C. Strategic Management (Adaptive)  ::  Adaptive Strategy Theory
+[1] CI. Marketing (Pricing)  ::  Behavioral Pricing Theory
+[1] CII. Finance (Market Microstructure)  ::  Behavioral Market Microstructure Theory
+[1] CIII. Human Resource Management (Performance)  ::  Effort-Reward Imbalance Model (HRM)
+[1] CIV. Operations Management (Service Innovation)  ::  Service Innovation Theory (Ops)
+[1] CIX. Leadership (Contingency - New)  ::  Cognitive Resource Theory of Leadership
+[1] CV. Innovation (Ecosystems)  ::  Innovation Ecosystems Theory (Business)
+[1] CVI. International Business (Emerging Markets)  ::  Emerging Market Strategies (IB)
+[1] CVII. Corporate Social Responsibility (Measurement)  ::  CSR Measurement Theory
+[1] CVIII. Organizational Behavior (Ethics)  ::  Behavioral Ethics (Organizational Behavior)
+[1] CX. Strategic Management (Non-Market)  ::  Non-Market Strategy Theory
+[1] CXI. Marketing (Consumer Neuroscience)  ::  Neuromarketing Theory
+[1] CXII. Finance (Behavioral Asset Pricing)  ::  Representativeness Heuristic (Behavioral Finance)
+[1] CXIII. Human Resource Management (Job Crafting)  ::  Job Crafting Theory (HRM)
+[1] CXIV. Operations Management (Human Error)  ::  Human Error Theory (Operations)
+[1] CXIX. Leadership (Authenticity)  ::  Authentic Followership Theory
+[1] CXV. Innovation (Ecosystems)  ::  Ecosystem Approach to Innovation (Business)
+[1] CXVI. International Business (Non-Market Strategy)  ::  Non-Market Strategy (International Business)
+[1] CXVII. Corporate Social Responsibility (Ethical Leadership)  ::  Ethical Leadership (CSR) Theory
+[1] CXVIII. Organizational Behavior (Well-being - Advanced)  ::  Mindfulness in OB Theory
+[1] CXX. Strategic Management (Uncertainty)  ::  Real Options Theory (Strategy)
+[1] CXXI. Marketing (Service Recovery)  ::  Service Recovery Paradox Theory
+[1] CXXII. Finance (Behavioral Corporate Finance)  ::  Myopic Loss Aversion (Finance)
+[1] CXXIII. Human Resource Management (Conflict)  ::  Conflict Management Styles (HRM)
+[1] CXXIV. Operations Management (Lean)  ::  Lean Management (Human Factors) Theory
+[1] CXXIX. Leadership (Followership)  ::  Followership Theory
+[1] CXXV. Innovation (Networked)  ::  Network Theory of Innovation
+[1] CXXVI. International Business (Born Global)  ::  Born Global Firms Theory
+[1] CXXVII. Corporate Social Responsibility (Governance)  ::  Shared Value (CSV) Governance Theory
+[1] CXXVIII. Organizational Behavior (Engagement)  ::  Job Demands-Resources (JD-R) Model (Engagement)
+[1] CXXX. Strategic Management (Adaptive/Emergent)  ::  Emergent Strategy Theory
+[1] IX. Corporate Social Responsibility (CSR)  ::  Ethical Decision-Making Models (Business)
+[1] LI. Marketing (Relationship)  ::  Relationship Marketing Theory
+[1] LII. Finance (Corporate Governance - Behavioral)  ::  Behavioral Agency Theory
+[1] LIV. Operations Management (Quality)  ::  Total Quality Management (TQM)
+[1] LV. Innovation (Behavioral)  ::  Behavioral Innovation Theory
+[1] LVI. International Business (Cultural Distance)  ::  Psychic Distance Theory
+[1] LVII. Corporate Social Responsibility (Theory of the Firm)  ::  Theory of the Firm (CSR Integration)
+[1] LVIII. Organizational Behavior (Justice - Advanced)  ::  Fairness Heuristics Theory
+[1] LX. Organizational Theory (Ecological)  ::  Resource Dependence Theory
+[1] LXI. Marketing (Consumer Culture)  ::  Consumer Resistance Theory
+[1] LXII. Finance (Behavioral Investment)  ::  Narrow Framing (Behavioral Finance)
+[1] LXIV. Operations Management (Human Factors)  ::  Ergonomics (Operations)
+[1] LXIX. Leadership (Ethics)  ::  Ethical Leadership Theory
+[1] LXV. Innovation (User-Centric)  ::  User Innovation Theory
+[1] LXVI. International Business (Behavioral)  ::  Behavioral International Business Theory
+[1] LXVII. Corporate Social Responsibility (Managerial)  ::  CSR as Managerial Discretion Theory
+[1] LXVIII. Organizational Behavior (Learning)  ::  Reinforcement Schedule Theory (OB)
+[1] LXX. Strategic Management (Learning)  ::  Organizational Learning (Strategic Management)
+[1] LXXI. Marketing (Digital Engagement)  ::  Customer Engagement Theory
+[1] LXXII. Finance (Behavioral Corporate Finance)  ::  Capital Budgeting (Behavioral Finance)
+[1] LXXIII. Human Resource Management (Flexibility)  ::  Flexible Work Arrangements Theory (HRM)
+[1] LXXIV. Operations Management (Service Encounter)  ::  Service Encounter Theory
+[1] LXXIX. Leadership (Ethics)  ::  Servant Leadership Theory (Advanced)
+[1] LXXV. Innovation (Social Networks)  ::  Social Networks in Innovation Theory
+[1] LXXVI. International Business (Cultural Competence)  ::  Cross-Cultural Competence Theory (IB)
+[1] LXXVII. Corporate Social Responsibility (Ethics)  ::  Business Ethics Theory
+[1] LXXVIII. Organizational Behavior (Power)  ::  Political Skill Theory (OB)
+[1] LXXX. Strategic Management (Behavioral Economics)  ::  Behavioral Corporate Strategy Theory
+[1] LXXXI. Marketing (Consumer Psychology)  ::  Self-Congruity Theory (Marketing)
+[1] LXXXII. Finance (Behavioral Households)  ::  Household Finance (Behavioral)
+[1] LXXXIII. Human Resource Management (Well-being)  ::  Employee Well-being Theory (HRM)
+[1] LXXXIV. Operations Management (Behavioral Supply Chain)  ::  Behavioral Game Theory in Supply Chain
+[1] LXXXIX. Leadership (Dark Side)  ::  Abusive Supervision Theory
+[1] LXXXV. Innovation (Ambidexterity)  ::  Exploitation vs. Exploration (Innovation)
+[1] LXXXVI. International Business (Managerial Cognition)  ::  Managerial Cognition in International Business
+[1] LXXXVII. Corporate Social Responsibility (Stakeholder Salience)  ::  Stakeholder Salience Theory
+[1] LXXXVIII. Organizational Behavior (Workplace Deviance)  ::  Workplace Deviance Theory
+[1] VIII. International Business  ::  Cultural Intelligence Theory
+[1] VIII. International Business & Globalization  ::  Cultural Dimensions Theory (Business)
+[1] XC. Strategic Management (Cognition)  ::  Strategic Cognition Theory
+[1] XCI. Marketing (Consumer Decision-Making)  ::  Heuristics in Consumer Decision-Making Theory
+[1] XCII. Finance (Behavioral Asset Pricing)  ::  Limited Attention Theory (Behavioral Finance)
+[1] XCIII. Human Resource Management (Job Design)  ::  Job Characteristics Model (JCM)
+[1] XCIV. Operations Management (Behavioral Operations)  ::  Behavioral Queuing Theory (Operations)
+[1] XCIX. Leadership (Power)  ::  Social Power Theory (Leadership)
+[1] XCV. Innovation (Organizational Context)  ::  Innovation Systems Theory (Business)
+[1] XCVI. International Business (Liability of Foreignness)  ::  Liability of Foreignness Theory
+[1] XCVII. Corporate Social Responsibility (Stakeholder Engagement)  ::  Stakeholder Engagement Theory (CSR)
+[1] XCVIII. Organizational Behavior (Culture)  ::  National Culture and OB Theory
+[1] XLI. Strategic Management (Behavioral)  ::  Prospect Theory (Strategic Management)
+[1] XLIII. Finance (Behavioral Corporate Governance)  ::  Behavioral Corporate Governance Theory
+[1] XLVI. Entrepreneurship (Social)  ::  Social Entrepreneurship Theory
+[1] XLVIII. Corporate Social Responsibility (Behavioral)  ::  Behavioral CSR Theory
+[1] XVI. Human Resource Management (Strategic)  ::  Strategic Human Resource Management (SHRM)
+[1] XXI. Strategic Management (Behavioral)  ::  Behavioral Strategy Theory
+[1] XXXIII. Marketing (Social Aspects)  ::  Social Marketing Theory

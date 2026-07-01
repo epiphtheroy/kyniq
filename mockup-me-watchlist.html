@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 볼 영화 · Watchlist (운영시스템 시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+    --red:#E3120B; --reddim:#7a1410;
+    /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
+    --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    /* SHARED-STANDARD S2: 블라인드/공백 amber (conquer red에서 분리) · 형성중 골드 */
+    --blind:#E8B23A; --forming:#C8922B;
+    /* SHARED-STANDARD S11 · 엔진 ⑨ Cinecodex 위험색 (완파 --red / --conquer 와 반드시 분리 — 빨강=정복 전용) */
+    --risk:#D64518;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --rail:212px; --insp:344px; --feed:286px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  a{color:inherit;text-decoration:none}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#34343a}::-webkit-scrollbar-track{background:transparent}
+
+  /* ───────── APP BAR ───────── */
+  .appbar{height:46px;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid var(--line2);background:var(--bg2);position:relative;z-index:30}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:11px;letter-spacing:.13em;padding:3px 7px;border-radius:2px}
+  .crumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .crumb b{color:var(--ink);font-weight:600;font-family:var(--ser);font-size:14px}
+  .crumb i.ti{font-size:13px;color:var(--faint)}
+  .cmdk{margin-left:8px;flex:0 1 320px;display:flex;align-items:center;gap:8px;background:var(--pnl);border:1px solid var(--line2);
+    border-radius:6px;padding:5px 9px;color:var(--sub);font-size:12px;cursor:text}
+  .cmdk:hover{border-color:var(--line3)}
+  .cmdk .kbd{margin-left:auto;font-family:var(--mono);font-size:10px;background:var(--pnl3);border:1px solid var(--line2);border-radius:3px;padding:1px 5px;color:var(--mut)}
+  .abright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .navchip{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:6px;padding:4px 11px}
+  .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
+  .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
+  .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+  .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+  .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+
+  /* ───────── LIVE TICKER ───────── */
+  .ticker{height:27px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg2);position:relative;z-index:20}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:9px;letter-spacing:.14em;padding:0 9px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .vp{overflow:hidden;flex:1}
+  .ticker .run{display:inline-flex;gap:30px;padding-left:22px;white-space:nowrap;animation:tick 46s linear infinite;font-size:11.5px;color:var(--mut)}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:7px;font-size:9px;vertical-align:1px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───────── SHELL ───────── */
+  .shell{display:flex;height:calc(100vh - 73px);overflow:hidden}
+  .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
+  .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
+
+  /* collapse handle */
+  .chv{cursor:pointer;color:var(--sub);font-size:15px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px}
+  .chv:hover{color:var(--ink);background:var(--pnl2)}
+
+  /* ── COL 1: NAV RAIL ── */
+  .rail{width:var(--rail);background:var(--bg2);border-right:1px solid var(--line2)}
+  .rail.collapsed{width:54px}
+  .railhd{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-bottom:1px solid var(--line);color:var(--sub)}
+  .railhd .eb{flex:1}
+  .rail.collapsed .railhd .eb{display:none}
+  .navsec{padding:8px 8px 4px}
+  .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
+  .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
+  .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
+  .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+  .nv:hover{background:var(--pnl2);color:var(--ink)}
+  .nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .nv i.lead{font-size:17px;width:20px;text-align:center;flex:0 0 auto}
+  .nv .tx{font-size:12.5px;flex:1;white-space:nowrap;overflow:hidden}
+  .nv .ct{font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rail.collapsed .nv .tx,.rail.collapsed .nv .ct{display:none}
+  .rail.collapsed .nv{justify-content:center;padding:8px 0}
+  .railft{margin-top:auto;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--faint)}
+  .rail.collapsed .railft{display:none}
+
+  /* ── COL 2: MAIN ── */
+  .main{flex:1 1 auto;background:var(--bg);min-width:0}
+  .mainpad{padding:14px 16px 40px}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;background:linear-gradient(180deg,var(--pnl),var(--bg2));
+    border:1px solid var(--line2);border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+  .navbig{display:flex;align-items:center;gap:16px}
+  .ring{position:relative;flex:0 0 auto}
+  .navnum{font-family:var(--mono);font-size:34px;font-weight:600;line-height:1}
+  .navmeta .lvl{font-size:12px;color:var(--canon);font-weight:600;letter-spacing:.04em;margin-top:5px}
+  .navmeta .pctl{font-size:11px;color:var(--mut);margin-top:3px}
+  .navmeta .pctl b{color:var(--safe);font-family:var(--mono)}
+  /* hero primary-action cluster — main action visible at entry, no scroll/inspector detour */
+  .herocta{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
+  .hbtn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:6px;cursor:pointer;border:1px solid var(--line2)}
+  .hbtn i{font-size:14px}
+  .hbtn.pri{background:var(--red);color:#fff;border-color:var(--red)}
+  .hbtn.pri:hover{background:#c5100a}
+  .hbtn.gho{background:var(--pnl2);color:var(--ink)}
+  .hbtn.gho:hover{border-color:var(--line3)}
+  .hbtn.gho.avail{color:#7fd99a;border-color:#1f5132;background:#0c2014;cursor:default;font-weight:500}
+  .components{display:flex;flex-direction:column;gap:7px;justify-content:center;border-left:1px solid var(--line);padding-left:18px}
+  .comp{display:grid;grid-template-columns:74px 1fr 38px;align-items:center;gap:10px}
+  .comp .cl{font-size:11px;color:var(--mut)}
+  .comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+  .comp .ct>i{display:block;height:100%;border-radius:4px}
+  .comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .explain{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);margin-top:12px;padding-top:9px;display:flex;gap:8px;align-items:center}
+  .explain .ti{color:var(--canon)}
+
+  /* kpi */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:13px}
+  .kpi{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:default}
+  .kpi:hover{border-color:var(--line2)}
+  .kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
+  .kpi .v small{font-size:13px;color:var(--sub)}
+  .kpi .d{font-size:10.5px;margin-top:3px}
+  .up{color:var(--safe)} .dn{color:var(--red)} .flat{color:var(--mut)}
+
+  /* module panel */
+  .mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+  .modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+  .modh h3 .ti{color:var(--mut)}
+  .modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+  .modh .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden;margin-left:auto}
+  .modh .seg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);font-family:var(--ui);
+    font-size:10.5px;padding:3px 9px;cursor:pointer}
+  .modh .seg button:last-child{border-right:0}.modh .seg button.on{background:var(--ink);color:#0A0A0B}
+  .modbody{padding:11px 13px}
+
+  /* coverage matrix */
+  .grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:10px 0 5px;display:flex;justify-content:space-between;align-items:center}
+  .grp:first-child{margin-top:0}
+  .lrow{display:grid;grid-template-columns:1fr 120px 78px 26px;align-items:center;gap:11px;padding:6px 7px;border-radius:5px;cursor:pointer;border:1px solid transparent}
+  .lrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .lrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .lname{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lname small{font-family:var(--ui);color:var(--sub);font-size:10.5px;margin-left:6px}
+  .barwrap{display:flex;align-items:center;gap:8px}
+  .track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+  .track>i{display:block;height:100%;border-radius:4px}
+  .pct{font-family:var(--mono);font-size:12px;width:34px;text-align:right}
+  .cov-lo>i{background:var(--red)} .cov-mid>i{background:var(--canon)} .cov-hi>i{background:var(--safe)}
+  .cov-lo .pct{color:#e98a86} .cov-mid .pct{color:#e0bb6e} .cov-hi .pct{color:#5fd0b2}
+  .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+  .tier{font-family:var(--mono);font-size:9px;padding:1px 5px;border:1px solid var(--line2);border-radius:3px;color:var(--mut);text-align:center}
+  .t1{color:#F2C9C7;border-color:#7a1410;background:#2a0c0a}
+
+  /* recommendation desk */
+  .rrow{display:grid;grid-template-columns:22px 1fr 118px 66px 58px 96px;gap:11px;align-items:center;padding:10px 8px;border-radius:6px;cursor:pointer;border:1px solid transparent;position:relative}
+  .rrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .rrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  /* urgent: expiring-soon rows get a warning left-accent so the most time-critical pick pops */
+  .rrow.urgent{border-color:#5b481f;background:#1a1407}
+  .rrow.urgent::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:#D9A441}
+  .rrow.urgent:hover{background:#211a08}
+  /* inline row actions (no inspector detour) */
+  .rowact{display:flex;gap:5px;justify-content:flex-end;align-items:center;opacity:0;transition:opacity .12s}
+  .rrow:hover .rowact,.rrow.sel .rowact,.rrow.kept .rowact{opacity:1}
+  .ria{width:26px;height:26px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl2);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;flex:0 0 auto}
+  .ria:hover{color:var(--ink);border-color:var(--line3)}
+  .ria.add:hover{background:var(--reddim);border-color:var(--red);color:#fff}
+  .ria.seen:hover{background:#0e221c;border-color:#1d4d40;color:#5fd0b2}
+  .ria.skip:hover{background:var(--pnl3);color:var(--sub)}
+  .ria.add.done{background:#0e221c;border-color:#1d4d40;color:#5fd0b2}
+  .rrow.kept{opacity:.78}
+  .rrow.kept .rt{text-decoration:none}
+  .keptflag{display:none;font-size:9px;font-family:var(--mono);color:#5fd0b2;border:1px solid #1d4d40;background:#0e221c;border-radius:3px;padding:1px 5px;margin-left:6px;vertical-align:1px}
+  .rrow.kept .keptflag{display:inline-block}
+  .rk{font-family:var(--mono);color:var(--sub);font-size:13px;text-align:center}
+  .rt{font-family:var(--ser);font-size:15px}
+  .rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+  .rsub{font-size:11px;color:var(--mut);margin-top:2px}
+  .reasons{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+  .rsn{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:3px;display:flex;align-items:center;gap:4px;border:1px solid}
+  .rsn::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+  .rsn.safe{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .rsn.frontier{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .rsn.canon{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+  .rsn.gap{color:#edc873;border-color:#5e4d1d;background:#211a08}
+  .rsn.conquer{color:#f2a39f;border-color:#7a1410;background:#260a08}
+  .rsn.reading{color:#bda1f0;border-color:#4a3f86;background:#171430}
+  .rsn.avail{color:#7fd99a;border-color:#1f5132;background:#0c2014}
+  .wwi{text-align:right}
+  .wwi .pv{font-family:var(--mono);font-size:22px;line-height:1}
+  .wwi .pl{font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+  .dlt{font-family:var(--mono);font-size:13px;color:var(--safe);text-align:right}
+  .dlt small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.08em}
+  /* availability dot + expiry pill (page-specific) */
+  .availtag{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--mut);font-family:var(--mono)}
+  .availtag .dot{width:7px;height:7px;border-radius:50%}
+  /* unknown availability: hollow ring (≠ 안 됨) so a gray solid dot isn't misread as "unavailable" */
+  .dot-unk{background:transparent;border:1.5px solid var(--sub);width:7px;height:7px;border-radius:50%}
+  .exppill{font-family:var(--mono);font-size:9.5px;padding:1px 6px;border-radius:3px;border:1px solid #5b481f;color:#e6c884;background:#1f1808}
+
+  /* ───────── CINECODEX (엔진 ⑨ · S11) — 위험 배지 R · U 컬럼 · 고위험 강등 ───────── */
+  /* 위험 배지 R — --risk 신토큰(완파 red와 분리). 분열성(고R)은 오류가 아님 → 흐림 금지 */
+  .riskbadge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:600;
+    padding:1px 6px;border-radius:3px;border:1px solid var(--risk);color:var(--risk);background:rgba(214,69,24,.09);letter-spacing:.02em}
+  .riskbadge.lo{border-color:#1d4d40;color:#5fd0b2;background:#0e221c}     /* R≤15 저위험 = teal */
+  .riskbadge.mid{border-color:#5b481f;color:#e6c884;background:#1f1808}    /* R 16–25 중위험 = amber */
+  .riskbadge.hi{border-color:var(--risk);color:#f2916f;background:rgba(214,69,24,.12)} /* R≥26 고위험 = --risk */
+  /* U 컬럼 (영화 순가치 = V−λR) — WWI 옆 두 번째 객관 축 */
+  .ucol{text-align:right}
+  .ucol .uv{font-family:var(--mono);font-size:16px;line-height:1;color:var(--ink)}
+  .ucol .ul{font-size:8px;color:var(--sub);letter-spacing:.08em}
+  .ucol .rrisk{margin-top:4px;display:flex;justify-content:flex-end}
+  /* 고위험 자동 강등: 살짝 낮춘 명도 + --risk 좌액센트(불신뢰 아님 — 분열성 라벨은 별도) */
+  .rrow.hirisk{border-color:rgba(214,69,24,.32)}
+  .rrow.hirisk::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--risk);opacity:.72}
+  .rrow.hirisk .rt{opacity:.9}
+  body.hidehirisk .rrow.hirisk{display:none !important}
+  /* λ 다이얼 (보수↔모험) — 개념적으로 U=V−λR 정렬 이동 */
+  .lambda{display:inline-flex;align-items:center;gap:8px;padding:3px 10px;border-radius:14px;border:1px solid var(--line2);background:var(--pnl2)}
+  .lambda .lx{font-size:9px;color:var(--sub);letter-spacing:.06em}
+  .lambda .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+  .lambda .seg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);font-family:var(--mono);
+    font-size:10px;padding:2px 8px;cursor:pointer}
+  .lambda .seg button:last-child{border-right:0}
+  .lambda .seg button.on{background:var(--risk);color:#fff}
+  .lambda .lv{font-family:var(--mono);font-size:10px;color:var(--mut);min-width:38px;text-align:center}
+
+  /* Cinecodex 미니카드 (인스펙터) — 3축 V/C/R + U/S + 미적단계 + 나란히 3칸 (NEVER blend) */
+  .ccminibars .crow .ct>i.axr{background:var(--risk)}
+  .ccbig{display:flex;gap:14px;align-items:baseline;margin:2px 0 9px}
+  .ccbig .b{display:flex;flex-direction:column}
+  .ccbig .b .n{font-family:var(--mono);font-size:24px;font-weight:600;line-height:1}
+  .ccbig .b .n.u{color:#7fd99a}
+  .ccbig .b .n.s{color:var(--mut);font-size:19px}
+  .ccbig .b .l{font-size:8.5px;color:var(--sub);letter-spacing:.08em;margin-top:2px}
+  .tier-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;padding:2px 9px;border-radius:12px;
+    border:1px solid var(--reading);color:#bda1f0;background:#171430;font-family:var(--ui)}
+  .polar-badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9.5px;padding:1px 7px;border-radius:11px;
+    border:1px solid var(--risk);color:#f2916f;background:rgba(214,69,24,.10)}
+  /* 나란히 3분할 — 우리 / 외부 / 정전 : 절대 한 숫자로 합치지 않는다 */
+  .sxs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:2px}
+  .sxs .sx{background:var(--pnl);padding:8px 9px}
+  .sxs .sx h5{margin:0 0 6px;font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sub);font-weight:600}
+  .sxs .sx .sr{display:flex;justify-content:space-between;font-size:11px;padding:2px 0}
+  .sxs .sx .sr .sk{color:var(--mut)}
+  .sxs .sx .sr .sn{font-family:var(--mono);color:var(--ink)}
+  .sxs .sx.ours{box-shadow:inset 3px 0 0 var(--frontier)}
+  .sxs .sx.ext{box-shadow:inset 3px 0 0 var(--sub)}
+  .sxs .sx.canon{box-shadow:inset 3px 0 0 var(--canon)}
+  .conf-line{font-size:10px;color:var(--sub);margin-top:8px;display:flex;align-items:center;gap:6px;line-height:1.5}
+  .conf-line .flg{color:#e6c884}
+
+  /* SHARED-STANDARD S5: 용어집 hover (analysis.html .gloss 패턴 재사용) */
+  .gloss{border-bottom:1px dotted var(--line3);cursor:help;position:relative}
+  .gloss:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 7px);width:230px;
+    background:#1c1c20;border:1px solid var(--line3);border-radius:6px;padding:8px 10px;font-family:var(--ui);
+    font-size:11px;font-weight:400;line-height:1.5;color:var(--ink);letter-spacing:0;text-transform:none;
+    box-shadow:0 8px 22px rgba(0,0,0,.55);z-index:40;white-space:normal}
+  .gloss:hover::before{content:"";position:absolute;left:14px;bottom:calc(100% + 1px);border:5px solid transparent;border-top-color:var(--line3);z-index:40}
+  .strat{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .stratchip{font-size:10.5px;font-family:var(--mono);padding:3px 9px;border-radius:13px;border:1px solid var(--line2);color:var(--mut);cursor:pointer;display:flex;align-items:center;gap:5px}
+  .stratchip .d{width:7px;height:7px;border-radius:50%}
+  .stratchip.on{color:var(--ink)}
+  .stratchip.on[data-s="safe"]{border-color:#1d4d40;background:#0e221c}
+  .stratchip.on[data-s="frontier"]{border-color:#234a72;background:#0c1c2e}
+  .stratchip.on[data-s="gap"]{border-color:#5e4d1d;background:#211a08}
+  .stratchip.on[data-s="conquer"]{border-color:#7a1410;background:#260a08}
+  .toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:0 0 11px;border-bottom:1px solid var(--line);margin-bottom:11px}
+  .toolbar .srch{flex:0 1 190px;display:flex;align-items:center;gap:7px;background:var(--pnl2);border:1px solid var(--line2);border-radius:6px;padding:4px 9px;color:var(--sub);font-size:11.5px}
+  .toolbar .srch input{flex:1;background:transparent;border:none;color:var(--ink);font-size:11.5px;font-family:var(--ui);min-width:0}
+  .toolbar .srch input:focus{outline:none}
+  .toolbar select{background:var(--pnl2);color:var(--ink);border:1px solid var(--line2);border-radius:6px;padding:4px 8px;font-size:11.5px;font-family:var(--ui)}
+  .toolbar .ttl{font-size:10px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase}
+  .tbsep{width:1px;align-self:stretch;background:var(--line2);margin:1px 1px}
+  .qtoggle{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:var(--ui);padding:4px 10px;border-radius:14px;
+    border:1px solid var(--line2);color:var(--mut);background:var(--pnl2);cursor:pointer;user-select:none}
+  .qtoggle:hover{color:var(--ink);border-color:var(--line3)}
+  .qtoggle .dot{width:7px;height:7px;border-radius:50%}
+  .qtoggle.on{color:var(--ink);border-color:#1f5132;background:#0c2014}
+  #q-expiry.on{border-color:#5b481f;background:#1f1808;color:#e6c884}
+  #q-hirisk.on{border-color:var(--risk);background:rgba(214,69,24,.12);color:#f2916f}
+
+  /* ── COL 3: INSPECTOR ── */
+  .inspector{width:var(--insp);background:var(--bg2);border-left:1px solid var(--line2)}
+  .inspector.collapsed{width:40px}
+  .insphd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);background:var(--bg2);position:sticky;top:0;z-index:5}
+  .insphd .ti-tit{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden}
+  .inspector.collapsed .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .inspector.collapsed .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:140px;flex:0 0 auto}
+  .inspector.collapsed .inspbody{display:none}
+  .inspbody{padding:12px 12px 30px}
+  .icard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:11px;margin-bottom:11px}
+  .icard h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:6px}
+  .selhead{display:flex;gap:11px;margin-bottom:11px}
+  .poster{width:50px;height:72px;border-radius:3px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line)}
+  .seltitle{font-family:var(--ser);font-size:17px;line-height:1.15}
+  .selsub{font-size:11px;color:var(--mut);margin-top:3px}
+  .selflag{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap}
+  .bigscore{display:flex;align-items:baseline;gap:8px;margin:4px 0 10px}
+  .bigscore .n{font-family:var(--mono);font-size:30px;font-weight:600}
+  .bigscore .u{font-size:10px;color:var(--sub);letter-spacing:.1em}
+  .crow{display:grid;grid-template-columns:62px 1fr 34px;align-items:center;gap:9px;margin:6px 0}
+  .crow .cl{font-size:11px;color:var(--mut)}
+  .crow .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.crow .ct>i{display:block;height:100%;border-radius:4px}
+  .crow .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-family:var(--mono);color:var(--ink)}
+  .badge-val{font-size:10px;font-weight:600;padding:2px 7px;border-radius:3px;display:inline-block}
+  .bv-find{background:#0e221c;color:#5fd0b2;border:1px solid #1d4d40}
+  .bv-fit{background:var(--pnl2);color:var(--mut);border:1px solid var(--line2)}
+  .bv-over{background:#260a08;color:#f2a39f;border:1px solid #7a1410}
+  .availrow{display:flex;align-items:center;gap:7px;font-size:11.5px;margin:5px 0}
+  .availrow .dot{width:7px;height:7px;border-radius:50%}
+  .actbar{display:flex;gap:7px;margin-top:11px}
+  .actbtn{flex:1;text-align:center;padding:7px;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid var(--line2)}
+  .actbtn.pri{background:var(--red);color:#fff;border-color:var(--red)}
+  .actbtn.gho{background:transparent;color:var(--ink)}
+  .backlink{font-size:11px;color:var(--frontier);cursor:pointer;display:flex;align-items:center;gap:5px;margin-bottom:10px}
+  .backlink:hover{text-decoration:underline}
+  .anchorchip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block;margin:3px 3px 0 0}
+  .mini-scatter,.mini-bars{margin-top:4px}
+  .mvrow{display:grid;grid-template-columns:110px 1fr 26px;gap:8px;align-items:center;padding:3px 0;font-size:11.5px}
+  .mvrow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mvrow .nm.bl{color:#e98a86}
+
+  /* ── COL 4: ACTIVITY ── */
+  .activity{width:var(--feed);background:var(--bg2);border-left:1px solid var(--line2)}
+  .activity.collapsed{width:40px}
+  .acthd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:5}
+  .acthd .t{font-size:11.5px;font-weight:600;letter-spacing:.04em;flex:1}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--safe);box-shadow:0 0 0 0 rgba(31,178,134,.6);animation:pl 2s infinite}
+  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(31,178,134,.5)}70%{box-shadow:0 0 0 6px rgba(31,178,134,0)}100%{box-shadow:0 0 0 0 rgba(31,178,134,0)}}
+  .activity.collapsed .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .activity.collapsed .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:110px;flex:0 0 auto}
+  .activity.collapsed .actbody{display:none}
+  .actbody{padding:10px 11px 30px}
+  .feeditem{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .feeditem .fi{flex:0 0 auto;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--pnl2)}
+  .feeditem .fb{flex:1;min-width:0}
+  .feeditem .fb .ft{font-size:11.5px;line-height:1.35}.feeditem .fb .ft b{color:var(--ink)}
+  .feeditem .fb .fm{font-size:9.5px;color:var(--faint);font-family:var(--mono);margin-top:2px}
+  .acard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px;margin:11px 0}
+  .acard h4{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+  .milestone{margin:7px 0}
+  .milestone .ml{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
+  .milestone .ml b{font-family:var(--ser)}
+  .milestone .mt{height:5px;background:#24242a;border-radius:3px;overflow:hidden}.milestone .mt>i{display:block;height:100%}
+  .stat{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+  .stat b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .demobar{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);margin-top:6px}
+  .sw{width:34px;height:18px;border-radius:10px;background:#2a2a2f;position:relative;cursor:pointer;transition:.15s;flex:0 0 auto}
+  .sw::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .sw.on{background:#0e4a3a}.sw.on::after{left:18px;background:var(--safe)}
+
+  /* command palette */
+  .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-start;justify-content:center;z-index:60;padding-top:13vh}
+  .palette.show{display:flex}
+  .palbox{width:540px;max-width:92vw;background:#161618;border:1px solid var(--line3);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .palin{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .palin input{flex:1;background:transparent;border:none;color:var(--ink);font-size:15px;font-family:var(--ui)}
+  .palin input:focus{outline:none}
+  .pallist{max-height:340px;overflow:auto;padding:7px}
+  .pi{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:6px;cursor:pointer;color:var(--mut)}
+  .pi:hover,.pi.on{background:var(--pnl2);color:var(--ink)}
+  .pi i.lead{font-size:16px;width:20px;text-align:center}
+  .pi .pk{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+
+  @media(max-width:1280px){ .inspector{width:40px} .inspector .inspbody{display:none}
+    .inspector .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+    .inspector .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);height:140px;flex:0 0 auto} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ APP BAR ═══════════ -->
+<div class="appbar">
+  <span class="logo">META TAKE</span>
+  <div class="crumb"><b>볼 영화 · Watchlist</b><i class="ti ti-chevron-right"></i><span>추천 데스크</span><i class="ti ti-lock" style="font-size:11px"></i></div>
+  <div class="cmdk" onclick="openPalette()">
+    <i class="ti ti-search" style="font-size:14px"></i><span>영화 · 계보 · 감독 검색</span><span class="kbd">⌘K</span>
+  </div>
+  <div class="abright">
+    <div class="navchip"><div><div class="eb">NAV</div></div><span class="n" id="navchip">1,284</span>
+      <div><div class="l">ESTABLISHED</div><div class="up">▲ +38 · 30일</div></div></div>
+    <div class="iconbtn" title="새로고침"><i class="ti ti-refresh"></i></div>
+    <div class="iconbtn" title="공개 프로필 ↗" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-external-link"></i></div>
+    <div class="ava">W</div>
+  </div>
+</div>
+
+<!-- ═══════════ LIVE TICKER ═══════════ -->
+<div class="ticker">
+  <span class="tag">LIVE</span>
+  <div class="vp"><div class="run">
+    <span><i class="ti ti-point-filled dot"></i>오늘의 한 편 <b>Touki Bouki</b> · WWI <b>88</b> ▲ 후보 1위</span>
+    <span><i class="ti ti-point-filled dot"></i>만료 임박 · <b>A Brighter Summer Day</b> D-5 · Criterion KR</span>
+    <span><i class="ti ti-point-filled dot"></i>새 후보 <b>+4편</b> · film_affinities 갱신</span>
+    <span><i class="ti ti-point-filled dot"></i>Δindex 최대 <b>Touki Bouki +6</b> — 공백 충족이 권위 추월</span>
+    <span><i class="ti ti-point-filled dot"></i><b>The Wind Will Carry Us</b> D-9 · MUBI KR 떠남</span>
+    <span><i class="ti ti-point-filled dot"></i>취향 벡터 <b>형성 중</b> · loved 7편 · 정전·인기 폴백 가산</span>
+    <span><i class="ti ti-point-filled dot"></i>오늘의 한 편 <b>Touki Bouki</b> · WWI <b>88</b> ▲ 후보 1위</span>
+    <span><i class="ti ti-point-filled dot"></i>만료 임박 · <b>A Brighter Summer Day</b> D-5 · Criterion KR</span>
+    <span><i class="ti ti-point-filled dot"></i>새 후보 <b>+4편</b> · film_affinities 갱신</span>
+    <span><i class="ti ti-point-filled dot"></i>Δindex 최대 <b>Touki Bouki +6</b> — 공백 충족이 권위 추월</span>
+    <span><i class="ti ti-point-filled dot"></i><b>The Wind Will Carry Us</b> D-9 · MUBI KR 떠남</span>
+    <span><i class="ti ti-point-filled dot"></i>취향 벡터 <b>형성 중</b> · loved 7편 · 정전·인기 폴백 가산</span>
+  </div></div>
+</div>
+
+<!-- ═══════════ SHELL ═══════════ -->
+<div class="shell">
+
+  <!-- ── COL 1 · NAV RAIL ── -->
+  <aside class="col rail" id="rail">
+    <div class="col-scroll" style="display:flex;flex-direction:column">
+      <div class="railhd"><span class="eb">운영 메뉴</span><span class="chv" onclick="toggle('rail')"><i class="ti ti-layout-sidebar-left-collapse"></i></span></div>
+      <div class="navsec">
+        <div class="navlbl">자산 운영</div>
+        <div class="nv" onclick="location.href='mockup-me-command-center.html'"><i class="ti ti-dashboard lead"></i><span class="tx">현황 (커맨드센터)</span></div>
+        <div class="nv" onclick="location.href='mockup-me-collection-list-v2.html'"><i class="ti ti-list-details lead"></i><span class="tx">보유 영화</span><span class="ct">142</span></div>
+        <div class="nv on"><i class="ti ti-target-arrow lead"></i><span class="tx">볼 영화 · 추천</span><span class="ct">28</span></div>
+        <div class="nv" onclick="location.href='mockup-me-asset-desk.html'"><i class="ti ti-briefcase lead"></i><span class="tx">운용 데스크</span></div>
+        <div class="nv" onclick="location.href='mockup-me-analysis-v2.html'"><i class="ti ti-chart-arcs lead"></i><span class="tx">자산 분석</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">기록 · 교류</div>
+        <div class="nv" onclick="location.href='mockup-me-onboard-rate-v2.html'"><i class="ti ti-star lead"></i><span class="tx">기록 · 평가</span></div>
+        <div class="nv" onclick="location.href='mockup-me-library.html'"><i class="ti ti-books lead"></i><span class="tx">서재</span></div>
+        <div class="nv" onclick="location.href='mockup-me-write.html'"><i class="ti ti-feather lead"></i><span class="tx">노트 · 글쓰기</span></div>
+        <div class="nv" onclick="location.href='mockup-me-pair.html'"><i class="ti ti-users lead"></i><span class="tx">동행</span><span class="ct">1</span></div>
+        <div class="nv" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-id-badge lead"></i><span class="tx">공개 프로필</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">이 화면</div>
+        <div class="nv" onclick="jump('m-rec')"><i class="ti ti-bolt lead"></i><span class="tx">추천 후보 데스크</span></div>
+        <div class="nv" onclick="jump('m-strat')"><i class="ti ti-target-arrow lead"></i><span class="tx">전략별 후보</span></div>
+        <div class="nv" onclick="jump('m-exp')"><i class="ti ti-hourglass-low lead"></i><span class="tx">만료 임박</span></div>
+        <div class="nv" onclick="jump('m-avail')"><i class="ti ti-device-tv lead"></i><span class="tx">가용성 · 채널</span></div>
+      </div>
+      <div class="railft">미관람 후보 28 · film_affinities<br>WWI 모델 v2 · 폴백 가산</div>
+    </div>
+  </aside>
+
+  <!-- ── COL 2 · MAIN ── -->
+  <main class="col main">
+    <div class="col-scroll"><div class="mainpad">
+
+      <!-- HERO: 오늘의 한 편 + WWI components -->
+      <div class="hero" id="hero">
+        <div class="navbig">
+          <div class="ring">
+            <svg width="92" height="92" viewBox="0 0 92 92">
+              <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="46" cy="46" r="38" fill="none" stroke="#3E8FE0" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="239" stroke-dashoffset="29" transform="rotate(-90 46 46)"/>
+              <text x="46" y="44" text-anchor="middle" font-size="22" fill="#86b9ec" font-family="ui-monospace,monospace" font-weight="600">88</text>
+              <text x="46" y="58" text-anchor="middle" font-size="8.5" fill="#6C6960" letter-spacing="1.5">WWI</text>
+            </svg>
+          </div>
+          <div class="navmeta">
+            <div class="eb">오늘의 한 편 · Why-Watch Index</div>
+            <div class="lvl" style="color:#86b9ec">★ Touki Bouki · 1973</div>
+            <div class="pctl">Mambéty · 세네갈 · 최대 Δ · <span class="gloss" data-tip="Δindex = 이 한 편을 보면 내 NAV(내 영화 자산 총량)가 +N 오른다는 예측 증가분.">Δindex</span> <b>→ NAV +6</b></div>
+            <div class="herocta">
+              <span class="hbtn pri" onclick="keepRow(document.querySelector('.rrow[data-id=touki] .ria.add'),'touki')"><i class="ti ti-bookmark-plus"></i> 담기</span>
+              <span class="hbtn gho" onclick="sel('touki',document.querySelector('.rrow[data-id=touki]'))"><i class="ti ti-bolt"></i> 왜 1위 · 상세</span>
+              <span class="hbtn gho avail" title="MUBI KR · 지금 볼 수 있음"><i class="ti ti-device-tv"></i> MUBI KR</span>
+            </div>
+          </div>
+        </div>
+        <div class="components">
+          <div class="comp"><span class="cl">taste 친연</span><div class="ct"><i style="width:62%;background:var(--safe)"></i></div><span class="cv">0.62</span></div>
+          <div class="comp"><span class="cl">lineage</span><div class="ct"><i style="width:70%;background:var(--frontier)"></i></div><span class="cv">0.70</span></div>
+          <div class="comp"><span class="cl">gap 공백</span><div class="ct"><i style="width:96%;background:var(--gap)"></i></div><span class="cv">0.96</span></div>
+          <div class="comp"><span class="cl">canon</span><div class="ct"><i style="width:71%;background:var(--canon)"></i></div><span class="cv">0.71</span></div>
+        </div>
+        <div class="explain"><i class="ti ti-info-circle"></i> <span class="gloss" data-tip="WWI = 이 영화가 나에게 맞는 정도(0–100). 취향·계보·공백을 합산한 Why-Watch Index.">WWI</span> = taste-aware 블렌드(친연·계보·<b style="color:var(--mut)">공백 충족</b>·<span class="gloss" data-tip="정전가 = 영화의 객관 시장가. 평단·역사가 매긴 정전(canon) 위상 점수.">정전가</span>). 공백 가산이 권위 포화를 추월 — <b style="color:var(--mut)">공백 채우는 한 편이 더 권위 높은 포화작을 이긴다</b>. 가용성은 이유가 아닌 필터·가산.</div>
+      </div>
+
+      <!-- KPI STRIP -->
+      <div class="kpis">
+        <div class="kpi"><div class="eb">미관람 후보</div><div class="v">28</div><div class="d up">▲ 4 · 7일</div></div>
+        <div class="kpi"><div class="eb">평균 WWI</div><div class="v">82</div><div class="d flat">상위 7편</div></div>
+        <div class="kpi"><div class="eb">지금 볼 수 있음</div><div class="v">19<small>/28</small></div><div class="d up">MUBI · Criterion</div></div>
+        <div class="kpi"><div class="eb">만료 임박</div><div class="v">2</div><div class="d dn">D-5 · D-9</div></div>
+        <div class="kpi"><div class="eb">최대 Δindex</div><div class="v">+6</div><div class="d up">Touki Bouki</div></div>
+        <div class="kpi" title="Cinecodex R≥26 — 실망·분열 위험. 강등되지만 신뢰 문제는 아님"><div class="eb"><span class="gloss" data-tip="Cinecodex R = 영화 위험도(지적 파산·미적 불성실·예술적 비겁 + 분열성). 높을수록 실망 확률↑. 완파 red와 무관.">고위험 후보 (R)</span></div><div class="v" style="color:var(--risk)">1<small>/7</small></div><div class="d" style="color:var(--risk)">Black God · R29</div></div>
+      </div>
+
+      <!-- RECOMMENDATION DESK -->
+      <div class="mod" id="m-rec">
+        <div class="modh"><h3><i class="ti ti-bolt"></i> 매수 후보 데스크 · 다음 한 편의 알파</h3>
+          <span class="meta">미관람 · film_affinities ∖ 본 영화 ∖ 담음</span></div>
+        <div class="modbody">
+
+          <!-- TOOLBAR: strategy / quick toggles / sort / search -->
+          <div class="toolbar">
+            <span class="ttl">전략</span>
+            <div class="strat" id="strat">
+              <span class="stratchip on" data-s="all">전체</span>
+              <span class="stratchip" data-s="safe"><span class="d" style="background:var(--safe)"></span>safe 7</span>
+              <span class="stratchip" data-s="frontier"><span class="d" style="background:var(--frontier)"></span>frontier 4</span>
+              <span class="stratchip" data-s="gap"><span class="d" style="background:var(--gap)"></span>gap 6</span>
+              <span class="stratchip" data-s="conquer"><span class="d" style="background:var(--conquer)"></span>conquer 3</span>
+            </div>
+            <span class="tbsep"></span>
+            <!-- one-click quick views -->
+            <span class="qtoggle" id="q-avail" onclick="toggleAvailOnly()" title="지금 볼 수 있는 것만 보기">
+              <span class="dot" style="background:var(--avail)"></span>지금 볼 수 있는 것만</span>
+            <span class="qtoggle" id="q-expiry" onclick="sortExpiry()" title="만료 임박순으로 정렬">
+              <i class="ti ti-hourglass-low" style="font-size:12px;color:#e6c884"></i>만료 임박순</span>
+            <!-- CINECODEX ⑨: 실망 거르기 — 고위험(R≥26) 후보 숨김 -->
+            <span class="qtoggle" id="q-hirisk" onclick="toggleHideRisk()" title="Cinecodex 고위험(R≥26) 후보 숨기기 — 실망 거르기">
+              <span class="dot" style="background:var(--risk)"></span>고위험 숨기기</span>
+            <span class="tbsep"></span>
+            <!-- λ 다이얼: 보수↔모험 — 개념적으로 U=V−λR 정렬 이동(λ↑ = 위험회피↑) -->
+            <span class="lambda" title="위험회피 다이얼 λ — U=V−λR. 보수(λ2)는 고위험작을 더 강하게 감점, 모험(λ0.5)은 위험을 덜 벌함">
+              <span class="lx">보수</span>
+              <span class="seg" id="lambdaSeg">
+                <button data-l="2" title="λ2 · 보수">λ2</button>
+                <button data-l="1" class="on" title="λ1 · 기본">λ1</button>
+                <button data-l="0.5" title="λ0.5 · 모험">λ½</button>
+              </span>
+              <span class="lx">모험</span>
+              <span class="lv" id="lambdaVal">U=V−1·R</span>
+            </span>
+            <select id="sort" title="정렬">
+              <option value="wwi">정렬 · WWI 높은순</option>
+              <option value="u">정렬 · U 순가치 높은순</option>
+              <option value="risk">정렬 · 위험 낮은순 (R)</option>
+              <option value="delta">정렬 · Δindex 높은순</option>
+              <option value="expiry">정렬 · 만료 임박순</option>
+              <option value="avail">정렬 · 지금 볼 수 있음</option>
+            </select>
+            <div class="srch"><i class="ti ti-search" style="font-size:13px"></i><input id="rsearch" placeholder="후보 검색 · 제목·감독·국가"></div>
+          </div>
+
+          <div id="reclist">
+          <div class="rrow sel" data-id="touki" data-strat="frontier gap conquer" data-wwi="88" data-delta="6" data-exp="999" data-avail="1" data-v="78" data-c="59" data-r="22" data-u="56" data-s="1.3" data-txt="touki bouki mambéty 세네갈">
+            <div class="rk">1</div>
+            <div><div class="rt">Touki Bouki <small>1973 · Djibril Diop Mambéty</small><span class="keptflag">담음</span></div>
+              <div class="rsub">세네갈 · 가장 먼 신대륙 — 라틴·아프리카 <span class="gloss" data-tip="블라인드 = 아직 0편~소수만 본 권위 계보. 공백(gap)의 절대형. 메우면 커버리지가 크게 오른다." style="color:var(--blind)">블라인드</span>를 동시에 연다</div>
+              <div class="reasons"><span class="rsn frontier">frontier 94</span><span class="rsn gap">gap 0%→진입</span><span class="rsn conquer">conquer FESPACO</span><span class="rsn avail">avail MUBI</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#86b9ec">88</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px"><span class="dot" style="background:var(--avail)"></span>MUBI KR</div></div>
+            <div class="ucol"><div class="uv">56</div><div class="ul">U 순가치</div><div class="rrisk"><span class="riskbadge mid">R 22</span></div></div>
+            <div class="dlt">+6<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'touki')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'touki')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'touki')"><i class="ti ti-x"></i></span></div>
+          </div>
+          <div class="rrow" data-id="yiyi" data-strat="safe canon gap" data-wwi="86" data-delta="5" data-exp="999" data-avail="1" data-v="86" data-c="50" data-r="10" data-u="76" data-s="3.6" data-txt="yi yi edward yang 대만">
+            <div class="rk">2</div>
+            <div><div class="rt">Yi Yi <small>2000 · Edward Yang</small><span class="keptflag">담음</span></div>
+              <div class="rsub">대만 · 코사인 0.91 — 가족 드라마 군집과 직결한 "of-course" 안전자산</div>
+              <div class="reasons"><span class="rsn safe">safe 0.91</span><span class="rsn canon">canon 90</span><span class="rsn gap">gap 금마 8%</span><span class="rsn avail">avail Criterion</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#5fd0b2">86</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px"><span class="dot" style="background:var(--avail)"></span>Criterion KR</div></div>
+            <div class="ucol"><div class="uv">76</div><div class="ul">U 순가치</div><div class="rrisk"><span class="riskbadge lo">R 10</span></div></div>
+            <div class="dlt">+5<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'yiyi')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'yiyi')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'yiyi')"><i class="ti ti-x"></i></span></div>
+          </div>
+          <div class="rrow urgent" data-id="abrighter" data-strat="safe canon gap" data-wwi="84" data-delta="4" data-exp="5" data-avail="1" data-v="86" data-c="55" data-r="13" data-u="73" data-s="2.8" data-txt="a brighter summer day edward yang 대만">
+            <div class="rk">3</div>
+            <div><div class="rt">A Brighter Summer Day <small>1991 · Edward Yang</small><span class="keptflag">담음</span></div>
+              <div class="rsub">대만 · 양더창 2편째 · 만료 임박 — 떠나기 전 봐야 할 정전</div>
+              <div class="reasons"><span class="rsn safe">safe 0.89</span><span class="rsn canon">canon 88</span><span class="rsn gap">gap 금마</span><span class="rsn avail">avail D-5</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#5fd0b2">84</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px"><span class="exppill">만료 D-5</span></div></div>
+            <div class="ucol"><div class="uv">73</div><div class="ul">U 순가치</div><div class="rrisk"><span class="riskbadge lo">R 13</span></div></div>
+            <div class="dlt">+4<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'abrighter')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'abrighter')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'abrighter')"><i class="ti ti-x"></i></span></div>
+          </div>
+          <div class="rrow urgent" data-id="wind" data-strat="reading safe gap" data-wwi="83" data-delta="4" data-exp="9" data-avail="1" data-v="78" data-c="57" data-r="19" data-u="59" data-s="1.5" data-txt="the wind will carry us kiarostami 이란">
+            <div class="rk">4</div>
+            <div><div class="rt">The Wind Will Carry Us <small>1999 · Abbas Kiarostami</small><span class="keptflag">담음</span></div>
+              <div class="rsub">이란 · 시그니처 「절제된 응시」와 reading 합치 · MUBI 떠남</div>
+              <div class="reasons"><span class="rsn reading">reading 관조</span><span class="rsn safe">safe 0.88</span><span class="rsn gap">gap 이란 12%</span><span class="rsn avail">avail D-9</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#bda1f0">83</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px"><span class="exppill">만료 D-9</span></div></div>
+            <div class="ucol"><div class="uv">59</div><div class="ul">U 순가치</div><div class="rrisk"><span class="riskbadge mid">R 19</span></div></div>
+            <div class="dlt">+4<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'wind')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'wind')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'wind')"><i class="ti ti-x"></i></span></div>
+          </div>
+          <div class="rrow" data-id="closeup" data-strat="reading canon gap" data-wwi="82" data-delta="3" data-exp="999" data-avail="1" data-v="86" data-c="59" data-r="15" data-u="71" data-s="2.4" data-txt="close-up close up kiarostami 이란">
+            <div class="rk">5</div>
+            <div><div class="rt">Close-Up <small>1990 · Abbas Kiarostami</small><span class="keptflag">담음</span></div>
+              <div class="rsub">이란 · 수용·자기지시 reading + 이란 뉴웨이브 정점</div>
+              <div class="reasons"><span class="rsn reading">reading 오독</span><span class="rsn canon">canon 86</span><span class="rsn gap">gap 이란</span><span class="rsn avail">avail MUBI</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#bda1f0">82</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px"><span class="dot" style="background:var(--avail)"></span>MUBI KR</div></div>
+            <div class="ucol"><div class="uv">71</div><div class="ul">U 순가치</div><div class="rrisk"><span class="riskbadge lo">R 15</span></div></div>
+            <div class="dlt">+3<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'closeup')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'closeup')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'closeup')"><i class="ti ti-x"></i></span></div>
+          </div>
+          <div class="rrow" data-id="bgwd" data-strat="gap conquer frontier" data-wwi="81" data-delta="5" data-exp="999" data-avail="0" data-txt="black god white devil glauber rocha 브라질">
+            <div class="rk">6</div>
+            <div><div class="rt">Black God, White Devil <small>1964 · Glauber Rocha</small><span class="keptflag">담음</span></div>
+              <div class="rsub">브라질 · 라틴 대륙 0% → 진입 · 대륙 <span class="gloss" data-tip="커버리지 = 이 계보(대륙·사조·감독) 중 내가 본 비율(%). 블라인드를 메우면 오른다.">커버리지</span>를 가장 크게 끌어올림</div>
+              <div class="reasons"><span class="rsn gap">gap 라틴 0%</span><span class="rsn conquer">conquer Cinema Novo</span><span class="rsn frontier">frontier 88</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#86b9ec">81</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px" title="제공자 정보 미확인 — 안 된다는 뜻이 아님"><span class="dot dot-unk"></span>가용성 미확인</div></div>
+            <div class="dlt">+5<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'bgwd')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'bgwd')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'bgwd')"><i class="ti ti-x"></i></span></div>
+          </div>
+          <div class="rrow" data-id="vengeance" data-strat="canon gap" data-wwi="78" data-delta="4" data-exp="999" data-avail="1" data-txt="vengeance is mine shohei imamura 일본">
+            <div class="rk">7</div>
+            <div><div class="rt">Vengeance Is Mine <small>1979 · Shohei Imamura</small><span class="keptflag">담음</span></div>
+              <div class="rsub">일본 · 키네마준보 보강 + 1970년대 일본 연대 공백</div>
+              <div class="reasons"><span class="rsn canon">canon 79</span><span class="rsn gap">gap 70s 일본</span><span class="rsn avail">avail Criterion</span></div></div>
+            <div class="wwi"><div class="pv">78</div><div class="pl">WWI</div>
+              <div class="availtag" style="justify-content:flex-end;margin-top:4px"><span class="dot" style="background:var(--avail)"></span>Criterion KR</div></div>
+            <div class="dlt">+4<small>→ NAV</small></div>
+            <div class="rowact" onclick="event.stopPropagation()">
+              <span class="ria add" title="담기" onclick="keepRow(this,'vengeance')"><i class="ti ti-bookmark-plus"></i></span>
+              <span class="ria seen" title="봤어요" onclick="seenRow(this,'vengeance')"><i class="ti ti-check"></i></span>
+              <span class="ria skip" title="관심없음" onclick="skipRow(this,'vengeance')"><i class="ti ti-x"></i></span></div>
+          </div>
+          </div>
+
+          <div id="recempty" style="display:none;text-align:center;color:var(--sub);padding:26px;font-style:italic">조건에 맞는 후보가 없습니다 — 전략·검색을 조정하세요.</div>
+        </div>
+      </div>
+
+      <!-- STRATEGY MIX (전략별 후보) -->
+      <div class="mod" id="m-strat">
+        <div class="modh"><h3><i class="ti ti-target-arrow"></i> 전략별 후보 · 6+가용 정본</h3>
+          <span class="meta">이유 = WWI 기여 · avail = 필터/가산</span></div>
+        <div class="modbody">
+          <div class="grp"><span>취향 · 정전 (TASTE / CANON)</span><span style="display:flex;gap:54px"><span>대표</span><span>후보</span></span></div>
+          <div class="lrow" data-id="yiyi" onclick="sel('yiyi',this)"><div class="lname"><span class="rsn safe" style="cursor:default">safe</span> 안전자산 <small>취향 코사인 ≥ 0.85</small></div>
+            <div class="barwrap cov-hi"><div class="track"><i style="width:64%"></i></div><span class="pct">64%</span></div>
+            <span class="frac">Yi Yi · ABSD</span><span class="tier">7</span></div>
+          <div class="lrow" data-id="vengeance" onclick="sel('vengeance',this)"><div class="lname"><span class="rsn canon" style="cursor:default">canon</span> 정전 위상 <small>정전가 ≥ 79</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:58%"></i></div><span class="pct">58%</span></div>
+            <span class="frac">Vengeance · Close-Up</span><span class="tier">9</span></div>
+
+          <div class="grp" style="margin-top:13px"><span>발굴 · 공백 (FRONTIER / GAP / CONQUER)</span><span style="display:flex;gap:54px"><span>대표</span><span>후보</span></span></div>
+          <div class="lrow" data-id="touki" onclick="sel('touki',this)"><div class="lname"><span class="rsn frontier" style="cursor:default">frontier</span> 새로운 도전 <small>discovery ≥ 85</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:31%"></i></div><span class="pct">31%</span></div>
+            <span class="frac">Touki · Black God</span><span class="tier t1">4</span></div>
+          <div class="lrow" data-id="bgwd" onclick="sel('bgwd',this)"><div class="lname"><span class="rsn gap" style="cursor:default">gap</span> 공백 충족 <small>대륙·연대 미답</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:42%"></i></div><span class="pct">42%</span></div>
+            <span class="frac">라틴 0% · 이란 12%</span><span class="tier t1">6</span></div>
+          <div class="lrow" data-id="touki" onclick="sel('touki',this)"><div class="lname"><span class="rsn conquer" style="cursor:default">conquer</span> 완파 근접 <small>사조·감독 도장깨기</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:22%"></i></div><span class="pct">22%</span></div>
+            <span class="frac">FESPACO · Cinema Novo</span><span class="tier">3</span></div>
+
+          <div class="grp" style="margin-top:13px"><span>오독 성향 (READING)</span><span style="display:flex;gap:54px"><span>대표</span><span>후보</span></span></div>
+          <div class="lrow" data-id="wind" onclick="sel('wind',this)"><div class="lname"><span class="rsn reading" style="cursor:default">reading</span> 오독 성향 <small>관조·자기지시 렌즈</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:38%"></i></div><span class="pct">38%</span></div>
+            <span class="frac">Wind · Close-Up</span><span class="tier">5</span></div>
+        </div>
+      </div>
+
+      <!-- EXPIRY (만료 임박) -->
+      <div class="mod" id="m-exp">
+        <div class="modh"><h3><i class="ti ti-hourglass-low"></i> 만료 임박 · 떠나기 전</h3>
+          <span class="meta">flatrate 제공자 · KR · 신선도 4일</span></div>
+        <div class="modbody">
+          <div class="lrow" data-id="abrighter" onclick="sel('abrighter',this)"><div class="lname">A Brighter Summer Day <small>1991 · Edward Yang</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:17%"></i></div><span class="pct">D-5</span></div>
+            <span class="frac">Criterion KR</span><span class="tier t1">WWI 84</span></div>
+          <div class="lrow" data-id="wind" onclick="sel('wind',this)"><div class="lname">The Wind Will Carry Us <small>1999 · Kiarostami</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:30%"></i></div><span class="pct">D-9</span></div>
+            <span class="frac">MUBI KR</span><span class="tier t1">WWI 83</span></div>
+          <div style="font-size:10.5px;color:var(--sub);margin-top:9px"><i class="ti ti-info-circle"></i> 만료일은 flatrate(구독) 라인 기준 · "정보 없음 ≠ 안 됨" — 제공자 미상은 가용성 미확인일 뿐.</div>
+        </div>
+      </div>
+
+      <!-- AVAILABILITY / CHANNELS (가용성) -->
+      <div class="mod" id="m-avail">
+        <div class="modh"><h3><i class="ti ti-device-tv"></i> 가용성 · 내 채널</h3>
+          <span class="meta">지금 볼 수 있는 것 19 / 28</span></div>
+        <div class="modbody">
+          <div class="lrow"><div class="lname"><span class="availtag"><span class="dot" style="background:var(--avail)"></span></span> MUBI <small>flatrate · KR</small></div>
+            <div class="barwrap cov-hi"><div class="track"><i style="width:39%"></i></div><span class="pct">11</span></div>
+            <span class="frac">신선 4일</span><span class="tier">구독</span></div>
+          <div class="lrow"><div class="lname"><span class="availtag"><span class="dot" style="background:var(--avail)"></span></span> Criterion <small>flatrate · KR</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:29%"></i></div><span class="pct">8</span></div>
+            <span class="frac">신선 4일</span><span class="tier">구독</span></div>
+          <div class="lrow"><div class="lname"><span class="availtag"><span class="dot" style="background:#e6c884"></span></span> Watcha <small>flatrate · KR</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:11%"></i></div><span class="pct">3</span></div>
+            <span class="frac">신선 31일 · stale</span><span class="tier">구독</span></div>
+          <div class="lrow"><div class="lname"><span class="availtag"><span class="dot" style="background:var(--sub)"></span></span> 정보 없음 <small>제공자 미상</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:6%"></i></div><span class="pct">2</span></div>
+            <span class="frac">≠ 안 됨</span><span class="tier">미확인</span></div>
+          <div style="font-size:10.5px;color:var(--sub);margin-top:9px"><i class="ti ti-info-circle"></i> 가용성은 추천 <b style="color:var(--mut)">이유가 아님</b> — 필터·동률 가산일 뿐. 30일↑ 신선도는 stale 경고(노란 점)로 표시.</div>
+        </div>
+      </div>
+
+    </div></div>
+  </main>
+
+  <!-- ── COL 3 · INSPECTOR ── -->
+  <aside class="col inspector" id="inspector">
+    <div class="insphd">
+      <span class="chv" onclick="toggle('inspector')"><i class="ti ti-layout-sidebar-right-collapse"></i></span>
+      <span class="ti-tit" id="insp-title">인스펙터 · 분석</span>
+    </div>
+    <div class="col-scroll inspbody" id="inspbody"><!-- filled by JS --></div>
+  </aside>
+
+  <!-- ── COL 4 · ACTIVITY ── -->
+  <aside class="col activity" id="activity">
+    <div class="acthd"><span class="pulse"></span><span class="t">라이브 피드</span>
+      <span class="chv" onclick="toggle('activity')"><i class="ti ti-layout-sidebar-right-collapse"></i></span></div>
+    <div class="col-scroll actbody">
+      <div class="feeditem"><div class="fi" style="color:#e6c884"><i class="ti ti-hourglass-low"></i></div>
+        <div class="fb"><div class="ft">만료 임박 · <b>A Brighter Summer Day</b> D-5 — Criterion KR 떠남</div><div class="fm">방금 · expiry_watch()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:#e6c884"><i class="ti ti-hourglass-low"></i></div>
+        <div class="fb"><div class="ft">만료 임박 · <b>The Wind Will Carry Us</b> D-9 — MUBI KR</div><div class="fm">12분 전 · expiry_watch()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-sparkles"></i></div>
+        <div class="fb"><div class="ft">새 후보 <b>+4편</b> 진입 — film_affinities 갱신</div><div class="fm">1시간 전 · recompute_affinities</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--gap)"><i class="ti ti-arrow-up-right"></i></div>
+        <div class="fb"><div class="ft"><b>Touki Bouki</b> Δindex <b>+6</b> — 공백 가산이 권위 추월, 1위 유지</div><div class="fm">오늘 · rank_candidates()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:#e0bb6e"><i class="ti ti-seedling"></i></div>
+        <div class="fb"><div class="ft">취향 벡터 <b>형성 중</b> — loved 7편(&lt;8) · 정전·인기 폴백 가산</div><div class="fm">자정(KST) 갱신 · taste_forming</div></div></div>
+
+      <div class="acard">
+        <h4>만료 임박 · 떠나기 전</h4>
+        <div class="milestone"><div class="ml"><b>A Brighter Summer Day</b><span class="mono" style="color:#e6c884">D-5</span></div>
+          <div class="mt"><i style="width:17%;background:#D9A441"></i></div></div>
+        <div class="milestone"><div class="ml"><b>The Wind Will Carry Us</b><span class="mono" style="color:#e6c884">D-9</span></div>
+          <div class="mt"><i style="width:30%;background:#D9A441"></i></div></div>
+        <div class="milestone"><div class="ml"><b>오늘의 한 편 · Touki Bouki</b><span class="mono" style="color:#86b9ec">WWI 88</span></div>
+          <div class="mt"><i style="width:88%;background:var(--frontier)"></i></div></div>
+      </div>
+
+      <div class="acard">
+        <h4>시스템 상태</h4>
+        <div class="stat"><span>WWI 모델</span><b>v2 · 정합</b></div>
+        <div class="stat"><span>제공자 신선도</span><b style="color:var(--safe)">KR · 4일</b></div>
+        <div class="stat"><span>후보 풀</span><b>28 미관람 active</b></div>
+        <div class="stat"><span>취향 벡터</span><b style="color:#e0bb6e">형성 중 · loved 7</b></div>
+        <div class="demobar"><span>상태 데모</span><span class="sw" id="csw" onclick="coldStart()"></span><span id="cslabel">운영 모드</span></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="palette" id="palette" onclick="if(event.target===this)closePalette()">
+  <div class="palbox">
+    <div class="palin"><i class="ti ti-search" style="color:var(--sub)"></i>
+      <input id="palinput" placeholder="영화 · 계보 · 감독 · 페이지로 이동…" oninput="filterPalette()" onkeydown="palKey(event)"></div>
+    <div class="pallist" id="pallist"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = window.localStorage;
+
+  /* ───── collapsible columns (persisted) ───── */
+  function applyState(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var c = LS.getItem('mt_'+id)==='1';
+    el.classList.toggle('collapsed', c);
+  }
+  window.toggle = function(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('collapsed');
+    LS.setItem('mt_'+id, el.classList.contains('collapsed')?'1':'0');
+  };
+  ['rail','inspector','activity'].forEach(applyState);
+
+  function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  window.jump = jump;
+
+  /* ───── inspector content model ───── */
+  var bar = function(label,val,color){
+    return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
+  };
+
+  // recommendation candidate detail (films) — WWI breakdown + 6-reason stack
+  var FILM = {
+    touki:{t:'Touki Bouki',s:'1973 · Djibril Diop Mambéty · 세네갈',wwi:88,wc:'#86b9ec',pre:71,dis:94,
+      comps:[['taste 친연',62,'var(--safe)'],['lineage',70,'var(--frontier)'],['gap 공백',96,'var(--gap)'],['canon',71,'var(--canon)']],
+      reasons:'<span class="rsn frontier">frontier 94</span> <span class="rsn gap">gap 0%→진입</span> <span class="rsn conquer">conquer FESPACO</span> <span class="rsn avail">avail MUBI</span>',
+      why:'<b style="color:#edc873">왜 1위:</b> 공백 충족(gap 0.96)이 최상위 기여 — 라틴·아프리카 정전 0% 동시 진입. 희소도 최상 → Δindex +6, 모든 후보 중 최대. 공백 가산이 권위 포화를 추월.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR · 신선 4일'],['Criterion','var(--sub)','정보 없음 ≠ 안 됨']],delta:6,exp:null},
+    yiyi:{t:'Yi Yi',s:'2000 · Edward Yang · 대만',wwi:86,wc:'#5fd0b2',pre:90,dis:18,
+      comps:[['taste 친연',91,'var(--safe)'],['lineage',64,'var(--frontier)'],['gap 공백',55,'var(--gap)'],['canon',90,'var(--canon)']],
+      reasons:'<span class="rsn safe">safe 0.91</span> <span class="rsn canon">canon 90</span> <span class="rsn gap">gap 금마 8%</span> <span class="rsn avail">avail Criterion</span>',
+      why:'<b style="color:#5fd0b2">왜 이 추천:</b> 취향 코사인 0.91이 최상위 기여 — 가족 드라마 군집과 직결한 "of-course" 안전자산. 금마장 8%→보강.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR · 신선 4일']],delta:5,exp:null},
+    abrighter:{t:'A Brighter Summer Day',s:'1991 · Edward Yang · 대만',wwi:84,wc:'#5fd0b2',pre:88,dis:40,
+      comps:[['taste 친연',89,'var(--safe)'],['lineage',62,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',88,'var(--canon)']],
+      reasons:'<span class="rsn safe">safe 0.89</span> <span class="rsn canon">canon 88</span> <span class="rsn gap">gap 금마</span> <span class="rsn avail">avail D-5</span>',
+      why:'<b style="color:#e6c884">만료 D-5:</b> 양더창 2편째 안전자산이지만 Criterion KR에서 떠남 임박 — 떠나기 전 우선 순위 상향.',
+      avail:[['Criterion','#D9A441','만료 D-5 · KR']],delta:4,exp:5},
+    wind:{t:'The Wind Will Carry Us',s:'1999 · Abbas Kiarostami · 이란',wwi:83,wc:'#bda1f0',pre:82,dis:44,
+      comps:[['taste 친연',88,'var(--safe)'],['lineage',60,'var(--frontier)'],['gap 공백',62,'var(--gap)'],['canon',82,'var(--canon)']],
+      reasons:'<span class="rsn reading">reading 관조</span> <span class="rsn safe">safe 0.88</span> <span class="rsn gap">gap 이란 12%</span> <span class="rsn avail">avail D-9</span>',
+      why:'<b style="color:#bda1f0">오독 성향:</b> 시그니처 「절제된 응시」와 reading 합치가 최상위 기여. 이란 뉴웨이브 12%→확장. MUBI KR D-9 떠남.',
+      avail:[['MUBI','#D9A441','만료 D-9 · KR']],delta:4,exp:9},
+    closeup:{t:'Close-Up',s:'1990 · Abbas Kiarostami · 이란',wwi:82,wc:'#bda1f0',pre:86,dis:44,
+      comps:[['taste 친연',80,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',60,'var(--gap)'],['canon',86,'var(--canon)']],
+      reasons:'<span class="rsn reading">reading 오독</span> <span class="rsn canon">canon 86</span> <span class="rsn gap">gap 이란</span> <span class="rsn avail">avail MUBI</span>',
+      why:'<b style="color:#bda1f0">오독 성향:</b> 수용·자기지시 reading 렌즈가 당신 성향과 합치. 이란 뉴웨이브 정점, S&S 2022 상위.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:3,exp:null},
+    bgwd:{t:'Black God, White Devil',s:'1964 · Glauber Rocha · 브라질',wwi:81,wc:'#86b9ec',pre:74,dis:88,
+      comps:[['taste 친연',58,'var(--safe)'],['lineage',66,'var(--frontier)'],['gap 공백',92,'var(--gap)'],['canon',74,'var(--canon)']],
+      reasons:'<span class="rsn gap">gap 라틴 0%</span> <span class="rsn conquer">conquer Cinema Novo</span> <span class="rsn frontier">frontier 88</span>',
+      why:'<b style="color:#edc873">공백 충족:</b> 라틴 대륙 정전 0% → 진입. 대륙 커버리지를 가장 크게 끌어올림(Δbreadth 최상위급). 제공자 정보 없음 ≠ 안 됨.',
+      avail:[['정보 없음','var(--sub)','이 지역 제공자 정보 없음 ≠ 안 됨']],delta:5,exp:null},
+    vengeance:{t:'Vengeance Is Mine',s:'1979 · Shohei Imamura · 일본',wwi:78,wc:'#ECEAE5',pre:79,dis:36,
+      comps:[['taste 친연',70,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',79,'var(--canon)']],
+      reasons:'<span class="rsn canon">canon 79</span> <span class="rsn gap">gap 70s 일본</span> <span class="rsn avail">avail Criterion</span>',
+      why:'<b style="color:#e0bb6e">정전 위상:</b> 키네마준보 올타임 #1급. 연대 공백(1970년대 일본) 충족 + 일본 거장 군집과 친연.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:4,exp:null}
+  };
+
+  function filmDetail(f,id){
+    var av = f.avail.map(function(a){return '<div class="availrow"><span class="dot" style="background:'+a[1]+'"></span><b style="font-family:var(--mono);font-size:11px">'+a[0]+'</b><span style="color:var(--sub);font-size:10.5px">'+a[2]+'</span></div>';}).join('');
+    var cb = f.comps.map(function(c){return bar(c[0],c[1],c[2]);}).join('');
+    var expRow = f.exp!=null ? '<div class="kv"><span class="k">만료 D-N</span><span class="v" style="color:#e6c884">D-'+f.exp+'</span></div>' : '';
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 전략 믹스로</div>'+
+      '<div class="selhead"><div class="poster"></div><div><div class="seltitle">'+f.t+'</div><div class="selsub">'+f.s+'</div>'+
+        '<div class="selflag"><span class="rsn frontier" style="cursor:default">미관람 후보</span></div></div></div>'+
+      '<div class="icard"><h4><i class="ti ti-bolt"></i> WWI · 친연 분해 (taste·lineage·gap·canon)</h4>'+
+        '<div class="bigscore"><span class="n" style="color:'+f.wc+'">'+f.wwi+'</span><span class="u">/ 100 WHY-WATCH</span></div>'+cb+
+        '<div style="margin-top:9px">'+f.reasons+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-info-circle"></i> 왜 이 추천 / 왜 이 순위</h4>'+
+        '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">'+f.why+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-coin"></i> 자산 지표</h4>'+
+        '<div class="kv"><span class="k">정전가 (Standing)</span><span class="v">'+f.pre+'</span></div>'+
+        '<div class="kv"><span class="k">Discovery</span><span class="v">'+f.dis+'</span></div>'+
+        '<div class="kv"><span class="k">Δindex → NAV</span><span class="v" style="color:var(--safe)">+'+f.delta+'</span></div>'+expRow+'</div>'+
+      '<div class="icard"><h4><i class="ti ti-device-tv"></i> 지금 볼 수 있나 · 가용성</h4>'+av+'</div>'+
+      '<div class="actbar"><span class="actbtn pri" onclick="keepFromInsp(\''+id+'\')">담기</span>'+
+        '<span class="actbtn gho" onclick="seenFromInsp(\''+id+'\')">봤어요</span><span class="actbtn gho" style="flex:0 0 auto;padding:7px 10px;color:var(--sub)" onclick="skipFromInsp(\''+id+'\')">관심없음</span></div>';
+  }
+
+  // default analytical stack — strategy mix + 오늘의 한 편 + taste signature
+  var DEFAULT = ''+
+    '<div class="icard"><h4><i class="ti ti-star"></i> 오늘의 한 편</h4>'+
+      '<div class="selhead" style="margin-bottom:6px"><div class="poster"></div><div><div class="seltitle" style="font-size:15px">Touki Bouki</div><div class="selsub">1973 · Mambéty · 세네갈</div>'+
+        '<div class="selflag"><span class="rsn frontier" style="cursor:default">frontier 94</span><span class="rsn gap" style="cursor:default">gap 0%</span></div></div></div>'+
+      '<div class="bigscore" style="margin:2px 0 6px"><span class="n" style="color:#86b9ec">88</span><span class="u">/ 100 WWI · Δ+6 → NAV</span></div>'+
+      '<div style="font-size:11px;color:var(--sub)">공백 충족이 권위 추월 — 후보 중 최대 Δindex. <span style="color:var(--frontier);cursor:pointer" onclick="sel(\'touki\',document.querySelector(\'.rrow[data-id=touki]\'))">상세 →</span></div></div>'+
+    '<div class="icard"><h4><i class="ti ti-target-arrow"></i> 전략 믹스 · 미관람 28</h4>'+
+      '<div class="kv"><span class="k"><span class="rsn safe" style="cursor:default">safe</span> 안전자산</span><span class="v">7</span></div>'+
+      '<div class="kv"><span class="k"><span class="rsn frontier" style="cursor:default">frontier</span> 새로운 도전</span><span class="v">4</span></div>'+
+      '<div class="kv"><span class="k"><span class="rsn gap" style="cursor:default">gap</span> 공백 충족</span><span class="v">6</span></div>'+
+      '<div class="kv"><span class="k"><span class="rsn conquer" style="cursor:default">conquer</span> 완파 근접</span><span class="v">3</span></div>'+
+      '<div class="kv"><span class="k"><span class="rsn reading" style="cursor:default">reading</span> 오독 성향</span><span class="v">5</span></div>'+
+      '<div class="kv"><span class="k"><span class="rsn avail" style="cursor:default">avail</span> 지금 볼 수 있음</span><span class="v" style="color:var(--safe)">19 / 28</span></div></div>'+
+    '<div class="icard"><h4><i class="ti ti-fingerprint"></i> 취향 시그니처 · 추천 앵커</h4>'+
+      '<div style="font-size:12.5px;font-family:var(--ser);line-height:1.5;color:var(--ink)">윤리적 응시와 무의식의 전이로 영화를 보는 관객.</div>'+
+      '<div style="margin-top:9px"><span class="anchorchip">무력한 목격자</span><span class="anchorchip">전이된 죄</span><span class="anchorchip">절제된 응시</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:9px">앵커 = meta_takes(figure_type·reading) ∼ v_loved · 추천 친연의 taste 축</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-seedling"></i> cold-start · taste_forming</h4>'+
+      '<div class="kv"><span class="k">loved (≥8★)</span><span class="v" style="color:#e0bb6e">7 / 8</span></div>'+
+      '<div class="kv"><span class="k">폴백</span><span class="v">정전·인기 가산</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:7px">loved 8편 미만 → 취향 벡터 형성 중. 정전가·인기로 폴백 가산, 1편 더 ★8↑이면 친연 우선 전환.</div></div>';
+
+  function setInsp(html,title){ document.getElementById('inspbody').innerHTML=html; document.getElementById('insp-title').textContent=title||'인스펙터 · 분석'; document.getElementById('inspbody').scrollTop=0; }
+  function resetInsp(){ setInsp(DEFAULT,'인스펙터 · 분석'); clearSel(); }
+  window.resetInsp = resetInsp;
+
+  function clearSel(){ document.querySelectorAll('.lrow.sel,.rrow.sel').forEach(function(e){e.classList.remove('sel');}); }
+  window.sel = function(id,node){
+    clearSel(); if(node) node.classList.add('sel');
+    // auto-expand inspector if collapsed
+    var insp=document.getElementById('inspector'); if(insp.classList.contains('collapsed')){insp.classList.remove('collapsed');LS.setItem('mt_inspector','0');}
+    if(FILM[id]) setInsp(filmDetail(FILM[id],id), FILM[id].t);
+  };
+
+  // init inspector: show top recommendation
+  sel('touki', document.querySelector('.rrow[data-id="touki"]'));
+
+  // click a candidate row body → open its WWI breakdown in inspector (inline actions stopPropagation)
+  document.getElementById('reclist').addEventListener('click',function(e){
+    if(e.target.closest('.rowact')) return;
+    var row=e.target.closest('.rrow'); if(!row) return;
+    sel(row.getAttribute('data-id'), row);
+  });
+
+  /* ───── candidate desk: strategy filter / sort / search ───── */
+  var stratFilter='all', searchQ='', availOnly=false;
+  function applyDesk(){
+    var rows=[].slice.call(document.querySelectorAll('#reclist .rrow'));
+    var sortKey=document.getElementById('sort').value;
+    // filter
+    var visible=rows.filter(function(r){
+      var okStrat = stratFilter==='all' || (' '+r.getAttribute('data-strat')+' ').indexOf(' '+stratFilter+' ')>=0;
+      var okSearch = !searchQ || r.getAttribute('data-txt').toLowerCase().indexOf(searchQ)>=0;
+      var okAvail = !availOnly || r.getAttribute('data-avail')==='1';
+      r.style.display = (okStrat&&okSearch&&okAvail)?'':'none';
+      return okStrat&&okSearch&&okAvail;
+    });
+    // sort visible
+    visible.sort(function(a,b){
+      function num(el,k){return parseFloat(el.getAttribute(k));}
+      switch(sortKey){
+        case 'delta': return num(b,'data-delta')-num(a,'data-delta') || num(b,'data-wwi')-num(a,'data-wwi');
+        case 'expiry': return num(a,'data-exp')-num(b,'data-exp') || num(b,'data-wwi')-num(a,'data-wwi');
+        case 'avail': return num(b,'data-avail')-num(a,'data-avail') || num(b,'data-wwi')-num(a,'data-wwi');
+        default: return num(b,'data-wwi')-num(a,'data-wwi');
+      }
+    });
+    var list=document.getElementById('reclist');
+    visible.forEach(function(r){ list.appendChild(r); });
+    document.getElementById('recempty').style.display = visible.length?'none':'';
+  }
+  document.getElementById('strat').addEventListener('click',function(e){
+    var chip=e.target.closest('.stratchip'); if(!chip) return;
+    document.querySelectorAll('#strat .stratchip').forEach(function(c){c.classList.remove('on');});
+    chip.classList.add('on'); stratFilter=chip.getAttribute('data-s'); applyDesk();
+  });
+  document.getElementById('sort').addEventListener('change',function(){
+    document.getElementById('q-expiry').classList.toggle('on', document.getElementById('sort').value==='expiry');
+    applyDesk();
+  });
+  document.getElementById('rsearch').addEventListener('input',function(e){ searchQ=e.target.value.trim().toLowerCase(); applyDesk(); });
+
+  /* ───── quick views: "지금 볼 수 있는 것만" toggle · "만료 임박순" one-click sort ───── */
+  window.toggleAvailOnly = function(){
+    availOnly=!availOnly;
+    document.getElementById('q-avail').classList.toggle('on',availOnly);
+    applyDesk();
+  };
+  window.sortExpiry = function(){
+    var sel=document.getElementById('sort');
+    // toggle: expiry ↔ back to WWI
+    var goExpiry = sel.value!=='expiry';
+    sel.value = goExpiry?'expiry':'wwi';
+    document.getElementById('q-expiry').classList.toggle('on',goExpiry);
+    applyDesk();
+  };
+
+  /* ───── inline row actions: 담기 / 봤어요 / 관심없음 (no inspector detour) ───── */
+  function rowOf(node){ return node.closest('.rrow'); }
+  window.keepRow = function(node,id){
+    var r=rowOf(node); if(!r) return;
+    r.classList.add('kept');
+    var add=r.querySelector('.ria.add'); if(add){ add.innerHTML='<i class="ti ti-check"></i>'; add.classList.add('done'); add.setAttribute('title','담음 — 보유로 이동'); }
+  };
+  window.seenRow = function(node,id){
+    var r=rowOf(node); if(!r) return;
+    // mark watched → remove from candidate desk with a brief fade
+    r.style.transition='opacity .25s'; r.style.opacity='.25';
+    setTimeout(function(){ r.style.display='none'; r.style.opacity=''; if(r.classList.contains('sel')) resetInsp(); applyDesk(); },240);
+  };
+  window.skipRow = function(node,id){
+    var r=rowOf(node); if(!r) return;
+    r.style.transition='opacity .25s'; r.style.opacity='.25';
+    setTimeout(function(){ r.style.display='none'; r.style.opacity=''; if(r.classList.contains('sel')) resetInsp(); applyDesk(); },240);
+  };
+
+  /* lightweight in-place toast (S8: 담기 = 제자리 마킹 + toast, 페이지 이동 없음) */
+  var toastT;
+  function toast(msg){
+    var t=document.getElementById('mt-toast');
+    if(!t){ t=document.createElement('div'); t.id='mt-toast';
+      t.style.cssText='position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#161618;border:1px solid var(--line3);color:var(--ink);font-size:12px;padding:9px 15px;border-radius:7px;box-shadow:0 10px 30px rgba(0,0,0,.55);z-index:80;opacity:0;transition:opacity .18s;font-family:var(--ui)';
+      document.body.appendChild(t); }
+    t.textContent=msg; t.style.opacity='1';
+    clearTimeout(toastT); toastT=setTimeout(function(){t.style.opacity='0';},1600);
+  }
+
+  /* inspector action bar → same in-place semantics as row actions (S8: 담기는 페이지 이동 없음) */
+  window.keepFromInsp = function(id){
+    var add=document.querySelector('.rrow[data-id="'+id+'"] .ria.add');
+    if(add){ keepRow(add,id); }
+    toast('워치리스트에 담았어요 — 「보유로 이동」은 평점을 주면 자동');
+  };
+  window.seenFromInsp = function(id){
+    var seen=document.querySelector('.rrow[data-id="'+id+'"] .ria.seen');
+    if(seen){ seenRow(seen,id); } resetInsp();
+    toast('봤어요로 표시 — 보유로 이동');
+  };
+  window.skipFromInsp = function(id){
+    var skip=document.querySelector('.rrow[data-id="'+id+'"] .ria.skip');
+    if(skip){ skipRow(skip,id); } resetInsp();
+    toast('관심없음으로 표시');
+  };
+
+  /* ───── cold-start demo (taste_forming) ───── */
+  var cold=false;
+  window.coldStart = function(){
+    cold=!cold;
+    document.getElementById('csw').classList.toggle('on',cold);
+    document.getElementById('cslabel').textContent = cold?'형성 중(데모)':'운영 모드';
+    var navchip=document.getElementById('navchip');
+    var hero=document.getElementById('hero');
+    if(cold){
+      navchip.textContent='—';
+      hero.querySelector('.navbig').innerHTML='<div style="display:flex;align-items:center;gap:14px"><i class="ti ti-seedling" style="font-size:40px;color:#e0bb6e"></i><div><div class="eb">오늘의 한 편 · WWI</div><div class="lvl" style="color:#e0bb6e">● 취향 형성 중</div><div class="pctl">loved 7편(&lt;8) — 정전·인기 폴백으로 추천 (NaN 0건)</div></div></div>';
+      hero.querySelectorAll('.components .cv').forEach(function(e){e.textContent='폴백';});
+      hero.querySelectorAll('.components .ct>i').forEach(function(e){e.style.width='0%';});
+    } else { location.reload(); }
+  };
+
+  /* ───── command palette ───── */
+  var PAGES=[
+    ['현황 · 커맨드센터','ti-dashboard','mockup-me-command-center.html','자산'],
+    ['보유 영화 · 가격표','ti-list-details','mockup-me-collection-list-v2.html','자산'],
+    ['볼 영화 · 추천 데스크','ti-target-arrow','mockup-me-watchlist.html','자산'],
+    ['운용 데스크','ti-briefcase','mockup-me-asset-desk.html','자산'],
+    ['자산 분석','ti-chart-arcs','mockup-me-analysis-v2.html','자산'],
+    ['기록 · 평가','ti-star','mockup-me-onboard-rate-v2.html','기록'],
+    ['서재','ti-books','mockup-me-library.html','기록'],
+    ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
+    ['동행','ti-users','mockup-me-pair.html','교류'],
+    ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Touki Bouki — 오늘의 한 편 · WWI 88','ti-movie','#','후보'],
+    ['Yi Yi — 후보 2위 · safe 0.91','ti-movie','#','후보'],
+    ['A Brighter Summer Day — 만료 D-5','ti-hourglass-low','#','만료'],
+    ['브레송 — 근접 정복 5/6','ti-user-star','#','감독']
+  ];
+  function renderPalette(q){
+    q=(q||'').toLowerCase();
+    var list=document.getElementById('pallist'); list.innerHTML='';
+    PAGES.filter(function(p){return p[0].toLowerCase().indexOf(q)>=0||p[3].toLowerCase().indexOf(q)>=0;}).forEach(function(p,i){
+      var d=document.createElement('div'); d.className='pi'+(i===0?' on':'');
+      d.innerHTML='<i class="ti '+p[1]+' lead"></i><span>'+p[0]+'</span><span class="pk">'+p[3]+'</span>';
+      d.onclick=function(){ if(p[2]&&p[2]!=='#') location.href=p[2]; else closePalette(); };
+      list.appendChild(d);
+    });
+  }
+  window.openPalette=function(){ document.getElementById('palette').classList.add('show'); var i=document.getElementById('palinput'); i.value=''; renderPalette(''); setTimeout(function(){i.focus();},30); };
+  window.closePalette=function(){ document.getElementById('palette').classList.remove('show'); };
+  window.filterPalette=function(){ renderPalette(document.getElementById('palinput').value); };
+  window.palKey=function(e){
+    if(e.key==='Escape'){closePalette();}
+    if(e.key==='Enter'){var on=document.querySelector('.pi.on')||document.querySelector('.pi'); if(on)on.click();}
+  };
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openPalette();}
+  });
+})();
+</script>
+</body>
+</html>

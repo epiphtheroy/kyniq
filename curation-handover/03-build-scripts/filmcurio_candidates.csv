@@ -1,0 +1,406 @@
+Wave,Bucket,Film_Title,Film_Director_Name,Year,Country,Why_curated
+1,Canon backfill,2001: A Space Odyssey,Stanley Kubrick,1968,USA/UK,S&S top-10 all-time; deepest sci-fi crit lit
+1,Canon backfill,Citizen Kane,Orson Welles,1941,USA,"Canon cornerstone; deep-focus form, Bazin"
+1,Canon backfill,Vertigo,Alfred Hitchcock,1958,USA,Mulvey gaze theory built on it; S&S #1 2012
+1,Canon backfill,Tokyo Story,Yasujiro Ozu,1953,Japan,S&S top-5; quietness/space crit lit
+1,Canon backfill,Seven Samurai,Akira Kurosawa,1954,Japan,Most-written-about action canon
+1,Canon backfill,Psycho,Alfred Hitchcock,1960,USA,Founding slasher; psychoanalytic crit
+1,Canon backfill,The 400 Blows,Francois Truffaut,1959,France,French New Wave anchor
+1,Canon backfill,Breathless,Jean-Luc Godard,1960,France,Jump-cut modernism; theory staple
+1,Canon backfill,8 1/2,Federico Fellini,1963,Italy,Self-reflexive cinema canon
+1,Canon backfill,Bicycle Thieves,Vittorio De Sica,1948,Italy,Italian neorealism keystone
+1,Canon backfill,Persona,Ingmar Bergman,1966,Sweden,Identity/doubling; heavily theorized
+1,Canon backfill,The Seventh Seal,Ingmar Bergman,1957,Sweden,Allegory/death iconography
+1,Canon backfill,Apocalypse Now,Francis Ford Coppola,1979,USA,War myth; high search + crit lit
+1,Canon backfill,Taxi Driver,Martin Scorsese,1976,USA,Scorsese already a hub; extends graph
+1,Canon backfill,Chinatown,Roman Polanski,1974,USA,"Neo-noir canon, ideology readings"
+1,Canon backfill,A Clockwork Orange,Stanley Kubrick,1971,UK,Violence/ideology; high search
+1,Canon backfill,Dr. Strangelove,Stanley Kubrick,1964,USA/UK,Cold-war satire canon
+1,Canon backfill,Barry Lyndon,Stanley Kubrick,1975,UK,Form/painterly image crit lit
+1,Canon backfill,The Rules of the Game,Jean Renoir,1939,France,S&S top-10; class allegory
+1,Canon backfill,Andrei Rublev,Andrei Tarkovsky,1966,USSR,Tarkovsky canon; art/faith
+1,Canon backfill,Stalker,Andrei Tarkovsky,1979,USSR,Zone allegory; huge crit lit
+1,Canon backfill,Mirror,Andrei Tarkovsky,1975,USSR,Memory/form canon
+1,Canon backfill,Solaris,Andrei Tarkovsky,1972,USSR,SF philosophy canon
+1,Canon backfill,Rashomon,Akira Kurosawa,1950,Japan,'Rashomon effect'; epistemology
+1,Canon backfill,Ikiru,Akira Kurosawa,1952,Japan,Existential canon
+1,Canon backfill,La Dolce Vita,Federico Fellini,1960,Italy,Modernity/spectacle
+1,Canon backfill,L'Avventura,Michelangelo Antonioni,1960,Italy,Antonioni alienation canon
+1,Canon backfill,The Conformist,Bernardo Bertolucci,1970,Italy,Fascism/psychoanalysis; form
+1,Canon backfill,Au Hasard Balthazar,Robert Bresson,1966,France,Bresson transcendental style
+1,Canon backfill,Pickpocket,Robert Bresson,1959,France,Bresson canon; grace/hands
+1,Canon backfill,Pather Panchali,Satyajit Ray,1955,India,Indian canon backbone (huge gap)
+1,Canon backfill,The Battle of Algiers,Gillo Pontecorvo,1966,Italy/Algeria,Anti-colonial; political-film canon
+1,Canon backfill,M,Fritz Lang,1931,Germany,Crowd/justice; early-sound crit lit
+1,Canon backfill,Metropolis,Fritz Lang,1927,Germany,SF/labor allegory; silent canon
+1,Canon backfill,Nosferatu,F.W. Murnau,1922,Germany,Vampire iconography origin
+1,Canon backfill,Sunrise,F.W. Murnau,1927,USA,Silent-form canon
+1,Canon backfill,The Cabinet of Dr. Caligari,Robert Wiene,1920,Germany,Expressionism origin
+1,Canon backfill,Battleship Potemkin,Sergei Eisenstein,1925,USSR,Montage theory source text
+1,Canon backfill,The Passion of Joan of Arc,Carl Theodor Dreyer,1928,France,Face/close-up canon
+1,Canon backfill,City Lights,Charlie Chaplin,1931,USA,Chaplin canon; sentiment/modernity
+1,Canon backfill,Modern Times,Charlie Chaplin,1936,USA,Machine/labor; high search
+1,Canon backfill,Casablanca,Michael Curtiz,1942,USA,Most-cited classic; high search
+1,Canon backfill,Sunset Boulevard,Billy Wilder,1950,USA,Hollywood-on-Hollywood canon
+1,Canon backfill,Some Like It Hot,Billy Wilder,1959,USA,Gender/comedy; Butler-adjacent
+1,Canon backfill,Double Indemnity,Billy Wilder,1944,USA,Film-noir template
+1,Canon backfill,Singin' in the Rain,Stanley Donen,1952,USA,Musical canon; high search
+1,Canon backfill,The Searchers,John Ford,1956,USA,Western/race ideology canon
+1,Canon backfill,12 Angry Men,Sidney Lumet,1957,USA,High search; group/justice
+1,Canon backfill,Touch of Evil,Orson Welles,1958,USA,Noir long-take canon
+1,Canon backfill,North by Northwest,Alfred Hitchcock,1959,USA,Hitchcock set-piece canon
+1,Canon backfill,Rear Window,Alfred Hitchcock,1954,USA,Voyeurism/gaze theory
+1,Canon backfill,Lawrence of Arabia,David Lean,1962,UK,Epic/Orientalism crit lit
+1,Canon backfill,The Third Man,Carol Reed,1949,UK,Noir/Vienna; canon
+1,Canon backfill,Tokyo Drifter,Seijun Suzuki,1966,Japan,Pop-art yakuza; form crit
+1,Canon backfill,Woman in the Dunes,Hiroshi Teshigahara,1964,Japan,Existential allegory canon
+1,Contemporary curation,One Battle After Another,Paul Thomas Anderson,2025,USA,Oscar Best Picture 2026; PTA is a hub
+1,Contemporary curation,Sinners,Ryan Coogler,2025,USA,Top-rated 2025; horror/Americana
+1,Contemporary curation,It Was Just an Accident,Jafar Panahi,2025,Iran,Cannes 2025 Palme d'Or
+1,Contemporary curation,The Substance,Coralie Fargeat,2024,France/UK,Body-horror/gaze; huge 2024 crit lit
+1,Contemporary curation,The Brutalist,Brady Corbet,2024,USA,2024 awards; architecture/immigration
+1,Contemporary curation,Sentimental Value,Joachim Trier,2025,Norway,Cannes 2025 Grand Prix; Trier is in
+1,Contemporary curation,Conclave,Edward Berger,2024,UK/USA,2024 awards; institution/ritual
+1,Contemporary curation,Nickel Boys,RaMell Ross,2024,USA,POV form; race; 2024 crit darling
+1,Contemporary curation,I'm Still Here,Walter Salles,2024,Brazil,Oscar Intl Feature 2025; Salles is in
+1,Contemporary curation,All We Imagine as Light,Payal Kapadia,2024,India,Cannes 2024 Grand Prix; Indian gap
+1,Contemporary curation,Decision to Leave,Park Chan-wook,2022,South Korea,Park is a hub; gaze/noir
+1,Contemporary curation,Memoria,Apichatpong Weerasethakul,2021,Thailand/Colombia,Apichatpong is in; sound/Chion
+1,Contemporary curation,Monster,Hirokazu Kore-eda,2023,Japan,Kore-eda is a hub; perspective
+1,Contemporary curation,Evil Does Not Exist,Ryusuke Hamaguchi,2023,Japan,Hamaguchi is a hub; nature/ethics
+1,Contemporary curation,The Boy and the Heron,Hayao Miyazaki,2023,Japan,Miyazaki is a hub; late-style
+1,Contemporary curation,Flow,Gints Zilbalodis,2024,Latvia,Oscar Animation 2025; dialogue-free
+1,Contemporary curation,The Holdovers,Alexander Payne,2023,USA,Payne is in; class/melancholy
+1,Contemporary curation,May December,Todd Haynes,2023,USA,Haynes is in; melodrama/gaze
+1,Contemporary curation,All of Us Strangers,Andrew Haigh,2023,UK,Queer grief; ghost form
+1,Contemporary curation,Fallen Leaves,Aki Kaurismaki,2023,Finland,Kaurismaki is in; deadpan
+1,Contemporary curation,Close,Lukas Dhont,2022,Belgium,Boyhood/masculinity; Cannes
+1,Contemporary curation,Petite Maman,Celine Sciamma,2021,France,Sciamma is in; childhood/time
+1,Contemporary curation,Saint Omer,Alice Diop,2022,France,Trial/motherhood; Venice
+1,Contemporary curation,EO,Jerzy Skolimowski,2022,Poland,Animal-POV; Bresson lineage
+1,Contemporary curation,Return to Seoul,Davy Chou,2022,Cambodia/France,Adoption/identity; Korean gap
+1,Contemporary curation,First Cow,Kelly Reichardt,2019,USA,Reichardt slow-cinema; friendship/capital
+1,Contemporary curation,Showing Up,Kelly Reichardt,2022,USA,Art-labor; Reichardt
+1,Contemporary curation,Broker,Hirokazu Kore-eda,2022,South Korea,Kore-eda + Korean cast; family
+1,Contemporary curation,Asteroid City,Wes Anderson,2023,USA,Anderson is a hub; nested form
+1,Contemporary curation,The French Dispatch,Wes Anderson,2021,USA,Anderson is a hub; anthology
+1,Contemporary curation,Moonrise Kingdom,Wes Anderson,2012,USA,Anderson is a hub; childhood
+1,Contemporary curation,The Green Knight,David Lowery,2021,USA,Myth/adaptation; A24
+1,Contemporary curation,Minari,Lee Isaac Chung,2020,USA,Immigrant family; Korean-American
+1,Contemporary curation,The Farewell,Lulu Wang,2019,USA/China,Diaspora/grief; high search
+1,Contemporary curation,Beau Is Afraid,Ari Aster,2023,USA,Aster is a hub; anxiety/odyssey
+1,Contemporary curation,The Whale,Darren Aronofsky,2022,USA,Aronofsky is a hub; body/shame
+1,Contemporary curation,Bardo,Alejandro Gonzalez Inarritu,2022,Mexico,Inarritu is a hub; memory
+1,Contemporary curation,Maestro,Bradley Cooper,2023,USA,Biopic/performance; Netflix
+1,Contemporary curation,El Conde,Pablo Larrain,2023,Chile,Pinochet-as-vampire; allegory
+1,Contemporary curation,Okja,Bong Joon Ho,2017,South Korea,Bong is a hub; capital/animal
+1,Contemporary curation,Mank,David Fincher,2020,USA,Fincher is a hub; Hollywood/Welles
+1,Contemporary curation,I'm Thinking of Ending Things,Charlie Kaufman,2020,USA,Kaufman; identity/dread
+1,Contemporary curation,The Trial of the Chicago 7,Aaron Sorkin,2020,USA,Sorkin is in; politics/trial
+1,Contemporary curation,The Lost Daughter,Maggie Gyllenhaal,2021,USA/Greece,Motherhood/ambivalence
+1,Popular/genre depth,Star Wars,George Lucas,1977,USA,Franchise origin (only sequels in); myth
+1,Popular/genre depth,Alien,Ridley Scott,1979,USA,Creed 'monstrous-feminine' source text
+1,Popular/genre depth,Jaws,Steven Spielberg,1975,USA,Blockbuster origin; Jameson/ideology
+1,Popular/genre depth,The Exorcist,William Friedkin,1973,USA,Horror canon; body/religion crit
+1,Popular/genre depth,Rosemary's Baby,Roman Polanski,1968,USA,Pregnancy-horror; feminist crit
+1,Popular/genre depth,The Texas Chain Saw Massacre,Tobe Hooper,1974,USA,Slasher theory source
+1,Popular/genre depth,Suspiria,Dario Argento,1977,Italy,Color/giallo; horror crit lit
+1,Popular/genre depth,The Lord of the Rings: The Return of the King,Peter Jackson,2003,NZ/USA,Trilogy gap; myth; huge search
+1,Popular/genre depth,The Lord of the Rings: The Two Towers,Peter Jackson,2002,NZ/USA,Trilogy gap; myth
+1,Popular/genre depth,Dune,Denis Villeneuve,2021,USA,Villeneuve is a hub; only Lynch Dune in
+1,Popular/genre depth,Dune: Part Two,Denis Villeneuve,2024,USA,Villeneuve hub; ecology/power
+1,Popular/genre depth,Spider-Man: Across the Spider-Verse,Joaquim Dos Santos,2023,USA,Spider-Verse gap; form/animation
+1,Popular/genre depth,The Batman,Matt Reeves,2022,USA,Noir superhero; high search
+1,Popular/genre depth,Avengers: Infinity War,Anthony Russo,2018,USA,MCU hub; only Avengers/Endgame in
+1,Popular/genre depth,Spider-Man 2,Sam Raimi,2004,USA,Raimi is in; superhero ethics
+1,Popular/genre depth,Superman,Richard Donner,1978,USA,Superhero myth origin; high search
+1,Popular/genre depth,Mad Max 2: The Road Warrior,George Miller,1981,Australia,Miller is a hub; wasteland myth
+1,Popular/genre depth,Indiana Jones and the Temple of Doom,Steven Spielberg,1984,USA,Spielberg hub; colonial crit
+1,Popular/genre depth,Rocky,John G. Avildsen,1976,USA,Only Rocky IV in; masculinity/Reagan
+1,Popular/genre depth,Close Encounters of the Third Kind,Steven Spielberg,1977,USA,Spielberg hub; wonder/sublime
+1,Popular/genre depth,Planet of the Apes,Franklin J. Schaffner,1968,USA,Allegory/race; SF canon
+1,Popular/genre depth,Night of the Living Dead,George A. Romero,1968,USA,Zombie/race allegory source
+1,Popular/genre depth,Dawn of the Dead,George A. Romero,1978,USA,Consumerism/zombie; Jameson
+1,Popular/genre depth,Audition,Takashi Miike,1999,Japan,J-horror; gender/body crit
+1,Popular/genre depth,Ringu,Hideo Nakata,1998,Japan,J-horror origin (US Ring is in)
+1,Popular/genre depth,A Tale of Two Sisters,Kim Jee-woon,2003,South Korea,K-horror; family/psyche
+1,Popular/genre depth,I Saw the Devil,Kim Jee-woon,2010,South Korea,Revenge/violence; K-cinema hub
+1,Popular/genre depth,The Host,Bong Joon Ho,2006,South Korea,Bong is a hub; monster/politics
+1,Popular/genre depth,Thirst,Park Chan-wook,2009,South Korea,Park is a hub; vampire/desire
+1,Popular/genre depth,Cure,Kiyoshi Kurosawa,1997,Japan,Hypnosis/dread; crit darling
+1,Popular/genre depth,Possession,Andrzej Zulawski,1981,France/Germany,Body/marriage horror; cult crit
+1,Popular/genre depth,The Wicker Man,Robin Hardy,1973,UK,Folk-horror canon source
+1,Popular/genre depth,The Evil Dead,Sam Raimi,1981,USA,Raimi is in; cabin/horror form
+1,Popular/genre depth,Talk to Me,Danny Philippou,2022,Australia,New horror; grief/possession
+1,Popular/genre depth,Longlegs,Osgood Perkins,2024,USA,2024 horror hit; dread/form
+1,Popular/genre depth,X,Ti West,2022,USA,Meta-slasher; body/aging
+1,Popular/genre depth,Pearl,Ti West,2022,USA,Technicolor horror; star/gaze
+2,Canon backfill,Harakiri,Masaki Kobayashi,1962,Japan,Bushido critique; canon
+2,Canon backfill,Ugetsu,Kenji Mizoguchi,1953,Japan,Mizoguchi ghost canon
+2,Canon backfill,Sansho the Bailiff,Kenji Mizoguchi,1954,Japan,Mizoguchi canon
+2,Canon backfill,Late Spring,Yasujiro Ozu,1949,Japan,Ozu marriage/space canon
+2,Canon backfill,In the Realm of the Senses,Nagisa Oshima,1976,Japan,Sexuality/transgression crit
+2,Canon backfill,"Aguirre, the Wrath of God",Werner Herzog,1972,Germany,Herzog colonial madness canon
+2,Canon backfill,Fitzcarraldo,Werner Herzog,1982,Germany,Herzog obsession canon
+2,Canon backfill,Ali: Fear Eats the Soul,Rainer Werner Fassbinder,1974,Germany,Race/melodrama; Sirkian
+2,Canon backfill,The Marriage of Maria Braun,Rainer Werner Fassbinder,1979,Germany,Postwar allegory
+2,Canon backfill,The Spirit of the Beehive,Victor Erice,1973,Spain,Childhood/Francoism canon
+2,Canon backfill,Cleo from 5 to 7,Agnes Varda,1962,France,Varda time/gaze canon
+2,Canon backfill,Jules and Jim,Francois Truffaut,1962,France,New Wave love-triangle canon
+2,Canon backfill,Contempt,Jean-Luc Godard,1963,France,Cinema-on-cinema; gaze
+2,Canon backfill,Pierrot le Fou,Jean-Luc Godard,1965,France,Godard color/violence canon
+2,Canon backfill,The Umbrellas of Cherbourg,Jacques Demy,1964,France,Sung melodrama; canon
+2,Canon backfill,Belle de Jour,Luis Bunuel,1967,France,Fantasy/desire; psychoanalysis
+2,Canon backfill,The Discreet Charm of the Bourgeoisie,Luis Bunuel,1972,France,Surreal class satire
+2,Canon backfill,Hiroshima Mon Amour,Alain Resnais,1959,France,Memory/trauma; canon
+2,Canon backfill,Last Year at Marienbad,Alain Resnais,1961,France,Time/narration modernism
+2,Canon backfill,Children of Paradise,Marcel Carne,1945,France,Theatre/spectacle canon
+2,Canon backfill,The Wages of Fear,Henri-Georges Clouzot,1953,France,Suspense/labor canon
+2,Canon backfill,Bonnie and Clyde,Arthur Penn,1967,USA,New Hollywood violence turn
+2,Canon backfill,The Graduate,Mike Nichols,1967,USA,Generation/desire; high search
+2,Canon backfill,The Wild Bunch,Sam Peckinpah,1969,USA,Violence/Western elegy
+2,Canon backfill,Nashville,Robert Altman,1975,USA,Altman mosaic; Americana
+2,Canon backfill,McCabe & Mrs. Miller,Robert Altman,1971,USA,Revisionist Western canon
+2,Canon backfill,The Conversation,Francis Ford Coppola,1974,USA,Surveillance/sound; Chion
+2,Canon backfill,Network,Sidney Lumet,1976,USA,Media critique; high search
+2,Canon backfill,Dog Day Afternoon,Sidney Lumet,1975,USA,Queer/heist; ideology
+2,Canon backfill,One Flew Over the Cuckoo's Nest,Milos Forman,1975,USA,Foucault/institution readings
+2,Canon backfill,A Woman Under the Influence,John Cassavetes,1974,USA,Cassavetes performance canon
+2,Canon backfill,Badlands,Terrence Malick,1973,USA,Malick already a hub; extends graph
+2,Canon backfill,Days of Heaven,Terrence Malick,1978,USA,Malick image/nature canon
+2,Canon backfill,Annie Hall,Woody Allen,1977,USA,Romcom/form; high search
+2,Canon backfill,Manhattan,Woody Allen,1979,USA,City/romance canon
+2,Canon backfill,Mean Streets,Martin Scorsese,1973,USA,Early Scorsese; extends hub
+2,Canon backfill,Don't Look Now,Nicolas Roeg,1973,UK,Editing/grief; horror-adjacent canon
+2,Canon backfill,Eraserhead,David Lynch,1977,USA,Lynch already a hub; body/anxiety
+2,Canon backfill,All About Eve,Joseph L. Mankiewicz,1950,USA,Theatre/ambition; gender
+2,Canon backfill,The Night of the Hunter,Charles Laughton,1955,USA,Expressionist fable canon
+2,Canon backfill,On the Waterfront,Elia Kazan,1954,USA,Labor/conscience canon
+2,Canon backfill,A Streetcar Named Desire,Elia Kazan,1951,USA,Desire/gender; Method
+2,Canon backfill,Viridiana,Luis Bunuel,1961,Spain,Religion/transgression; Palme
+2,Canon backfill,The Leopard,Luchino Visconti,1963,Italy,Class/time; Visconti canon
+2,Canon backfill,Rocco and His Brothers,Luchino Visconti,1960,Italy,Migration/melodrama
+2,Canon backfill,"Salo, or the 120 Days of Sodom",Pier Paolo Pasolini,1975,Italy,Power/fascism; extreme-cinema crit
+2,Canon backfill,The Color of Pomegranates,Sergei Parajanov,1969,USSR/Armenia,Tableau form; canon
+2,Canon backfill,The Cranes Are Flying,Mikhail Kalatozov,1957,USSR,Camera movement canon
+2,Canon backfill,Ashes and Diamonds,Andrzej Wajda,1958,Poland,Polish postwar canon
+2,Canon backfill,Daisies,Vera Chytilova,1966,Czechoslovakia,Feminist avant-garde canon
+2,Canon backfill,Charulata,Satyajit Ray,1964,India,Ray gaze/interior canon
+2,Canon backfill,Stagecoach,John Ford,1939,USA,Western/space; Ford canon
+2,Canon backfill,Grand Illusion,Jean Renoir,1937,France,War/class humanism canon
+2,Canon backfill,It's a Wonderful Life,Frank Capra,1946,USA,High search; Americana ideology
+2,Canon backfill,Bringing Up Baby,Howard Hawks,1938,USA,Screwball/gender canon
+2,Contemporary curation,Civil War,Alex Garland,2024,USA,Garland is in; image/witness
+2,Contemporary curation,Challengers,Luca Guadagnino,2024,USA,Guadagnino is in; desire/sport
+2,Contemporary curation,The Iron Claw,Sean Durkin,2023,USA,Masculinity/body; wrestling
+2,Contemporary curation,Frankenstein,Guillermo del Toro,2025,USA/Mexico,del Toro is in; myth/body; Oscar nom 2026
+2,Contemporary curation,Hamnet,Chloe Zhao,2025,UK/USA,Zhao is in; grief; Oscar nom 2026
+2,Contemporary curation,Bugonia,Yorgos Lanthimos,2025,USA,Lanthimos is a hub; Oscar nom 2026
+2,Contemporary curation,Marty Supreme,Josh Safdie,2025,USA,Safdie energy; Oscar nom 2026
+2,Contemporary curation,Train Dreams,Clint Bentley,2025,USA,Americana/labor; Oscar nom 2026
+2,Contemporary curation,The Secret Agent,Kleber Mendonca Filho,2025,Brazil,Cannes 2025 Director+Actor
+2,Contemporary curation,Father Mother Sister Brother,Jim Jarmusch,2025,USA,Venice 2025 Golden Lion
+2,Contemporary curation,The Voice of Hind Rajab,Kaouther Ben Hania,2025,Tunisia,Venice 2025 Grand Jury; Gaza
+2,Contemporary curation,The Smashing Machine,Benny Safdie,2025,USA,Venice 2025 Best Director
+2,Contemporary curation,Sirat,Oliver Laxe,2025,Spain,Cannes 2025 Jury Prize
+2,Contemporary curation,Sound of Falling,Mascha Schilinski,2025,Germany,Cannes 2025 Jury Prize
+2,Contemporary curation,Dreams,Dag Johan Haugerud,2025,Norway,Berlinale 2025 Golden Bear
+2,Contemporary curation,Blue Moon,Richard Linklater,2025,USA,Linklater is a hub; Berlinale 2025
+2,Contemporary curation,The Mastermind,Kelly Reichardt,2025,USA,Reichardt; 2025 crit pick
+2,Contemporary curation,Hard Truths,Mike Leigh,2024,UK,Leigh realism; performance
+2,Contemporary curation,A Real Pain,Jesse Eisenberg,2024,USA/Poland,Memory/trauma tourism; 2024
+2,Contemporary curation,A Complete Unknown,James Mangold,2024,USA,Mangold is in; biopic/myth
+2,Contemporary curation,Sing Sing,Greg Kwedar,2024,USA,Prison/theatre; performance
+2,Contemporary curation,Emilia Perez,Jacques Audiard,2024,France,Audiard is a hub; trans/genre
+2,Contemporary curation,The Girl with the Needle,Magnus von Horn,2024,Denmark,B&W horror-history; Oscar nom
+2,Contemporary curation,Bird,Andrea Arnold,2024,UK,Arnold is a hub; social-realist/magic
+2,Contemporary curation,Corsage,Marie Kreutzer,2022,Austria,Empress/biopic revisionism
+2,Contemporary curation,Godland,Hlynur Palmason,2022,Iceland/Denmark,Colonial/landscape; form
+2,Contemporary curation,The Quiet Girl,Colm Bairead,2022,Ireland,Childhood/care; Irish-language
+2,Contemporary curation,The Innocents,Eskil Vogt,2021,Norway,Childhood/power; horror-adjacent
+2,Contemporary curation,Beanpole,Kantemir Balagov,2019,Russia,Postwar trauma; color/body
+2,Contemporary curation,Pacifiction,Albert Serra,2022,France,Colonial dread; slow cinema
+2,Contemporary curation,About Dry Grasses,Nuri Bilge Ceylan,2023,Turkey,Ceylan is a hub; talk/ethics
+2,Contemporary curation,Plan 75,Chie Hayakawa,2022,Japan,Aging/biopolitics; Foucault
+2,Contemporary curation,Sick of Myself,Kristoffer Borgli,2022,Norway,Attention/narcissism satire
+2,Contemporary curation,The Souvenir,Joanna Hogg,2019,UK,Memory/autofiction; class
+2,Contemporary curation,The Taste of Things,Tran Anh Hung,2023,France,Food/labor/desire; Cannes Director
+2,Contemporary curation,The Eight Mountains,Felix van Groeningen,2022,Italy,Friendship/landscape
+2,Contemporary curation,Great Freedom,Sebastian Meise,2021,Austria,Para.175/queer history; Foucault
+2,Contemporary curation,Pain and Glory,Pedro Almodovar,2019,Spain,Almodovar big hub; memory/autofiction
+2,Contemporary curation,Parallel Mothers,Pedro Almodovar,2021,Spain,Almodovar; motherhood/history
+2,Contemporary curation,All About My Mother,Pedro Almodovar,1999,Spain,Almodovar; performance/identity
+2,Contemporary curation,Volver,Pedro Almodovar,2006,Spain,Almodovar; ghosts/women
+2,Contemporary curation,The Room Next Door,Pedro Almodovar,2024,Spain/USA,Venice 2024 Golden Lion; Almodovar
+2,Contemporary curation,Still Walking,Hirokazu Kore-eda,2008,Japan,Kore-eda hub; family/loss
+2,Contemporary curation,Nobody Knows,Hirokazu Kore-eda,2004,Japan,Kore-eda; abandonment
+2,Popular/genre depth,I Saw the TV Glow,Jane Schoenbrun,2024,USA,Trans allegory; media/horror
+2,Popular/genre depth,Howl's Moving Castle,Hayao Miyazaki,2004,Japan,Ghibli gap; Miyazaki hub
+2,Popular/genre depth,Kiki's Delivery Service,Hayao Miyazaki,1989,Japan,Ghibli gap; coming-of-age
+2,Popular/genre depth,Castle in the Sky,Hayao Miyazaki,1986,Japan,Ghibli gap; tech/nature
+2,Popular/genre depth,Porco Rosso,Hayao Miyazaki,1992,Japan,Ghibli gap; fascism/flight
+2,Popular/genre depth,The Wind Rises,Hayao Miyazaki,2013,Japan,Ghibli gap; war/creation ethics
+2,Popular/genre depth,The Tale of the Princess Kaguya,Isao Takahata,2013,Japan,Takahata is in; form/myth
+2,Popular/genre depth,Only Yesterday,Isao Takahata,1991,Japan,Takahata; memory/rural
+2,Popular/genre depth,Ponyo,Hayao Miyazaki,2008,Japan,Ghibli gap; childhood/sea
+2,Popular/genre depth,Paprika,Satoshi Kon,2006,Japan,Kon is in; dream/media
+2,Popular/genre depth,Tokyo Godfathers,Satoshi Kon,2003,Japan,Kon is in; city/family
+2,Popular/genre depth,Millennium Actress,Satoshi Kon,2001,Japan,Kon is in; memory/cinema
+2,Popular/genre depth,Toy Story 3,Lee Unkrich,2010,USA,Pixar hub; mortality/objects
+2,Popular/genre depth,"Monsters, Inc.",Pete Docter,2001,USA,Docter is in; fear/labor
+2,Popular/genre depth,Soul,Pete Docter,2020,USA,Docter is in; existential
+2,Popular/genre depth,The Iron Giant,Brad Bird,1999,USA,Bird is in; pacifism/Cold War
+2,Popular/genre depth,Toy Story 2,John Lasseter,1999,USA,Pixar hub; collecting/identity
+2,Popular/genre depth,Pinocchio,Ben Sharpsteen,1940,USA,Disney canon; fairy-tale/ideology
+2,Popular/genre depth,Fantasia,James Algar,1940,USA,Music/abstraction; canon
+2,Popular/genre depth,Snow White and the Seven Dwarfs,David Hand,1937,USA,Feature-animation origin; gender
+2,Popular/genre depth,Aladdin,Ron Clements,1992,USA,Orientalism crit lit; high search
+2,Popular/genre depth,Mulan,Tony Bancroft,1998,USA,Gender/nation; high search
+2,Popular/genre depth,Moana,Ron Clements,2016,USA,Myth/Pacific; representation
+2,Popular/genre depth,Zootopia,Byron Howard,2016,USA,Allegory/race/policing
+2,Popular/genre depth,Encanto,Jared Bush,2021,USA,Family/trauma; huge search
+2,Popular/genre depth,The Triplets of Belleville,Sylvain Chomet,2003,France,Form/satire; animation crit
+2,Popular/genre depth,Wolfwalkers,Tomm Moore,2020,Ireland,Cartoon Saloon; colonial/nature
+2,Popular/genre depth,Flee,Jonas Poher Rasmussen,2021,Denmark,Animated doc; refugee/memory
+2,Popular/genre depth,Fantastic Planet,Rene Laloux,1973,France,SF allegory; animation canon
+2,Popular/genre depth,Watership Down,Martin Rosen,1978,UK,Myth/violence; animation
+2,Popular/genre depth,The Act of Killing,Joshua Oppenheimer,2012,Denmark,Doc; perpetrator/performance
+2,Popular/genre depth,Sans Soleil,Chris Marker,1983,France,Essay-film canon; memory/image
+2,Popular/genre depth,Shoah,Claude Lanzmann,1985,France,Holocaust doc; testimony
+2,Popular/genre depth,Night and Fog,Alain Resnais,1956,France,Holocaust essay-film canon
+2,Popular/genre depth,Grizzly Man,Werner Herzog,2005,USA,Herzog doc; nature/madness
+2,Popular/genre depth,Hoop Dreams,Steve James,1994,USA,Doc; race/class/sport
+3,Canon backfill,Yojimbo,Akira Kurosawa,1961,Japan,Genre-template canon
+3,Canon backfill,Ran,Akira Kurosawa,1985,Japan,Late Kurosawa Lear; color/war
+3,Canon backfill,"The Good, the Bad and the Ugly",Sergio Leone,1966,Italy,Leone (OUaTime in America in); Western myth
+3,Canon backfill,Once Upon a Time in the West,Sergio Leone,1968,Italy,Leone; Western elegy canon
+3,Canon backfill,Le Samourai,Jean-Pierre Melville,1967,France,Minimalist noir; huge influence
+3,Canon backfill,Army of Shadows,Jean-Pierre Melville,1969,France,Resistance/ethics; canon
+3,Canon backfill,Le Cercle Rouge,Jean-Pierre Melville,1970,France,Heist/fatalism
+3,Canon backfill,Playtime,Jacques Tati,1967,France,Modernity/architecture; form canon
+3,Canon backfill,Mon Oncle,Jacques Tati,1958,France,Modernity satire
+3,Canon backfill,The Red Shoes,Michael Powell,1948,UK,Art/obsession; Technicolor canon
+3,Canon backfill,A Matter of Life and Death,Michael Powell,1946,UK,Powell-Pressburger; afterlife/color
+3,Canon backfill,Black Narcissus,Michael Powell,1947,UK,Repression/color; canon
+3,Canon backfill,Paths of Glory,Stanley Kubrick,1957,USA,Kubrick; war/class injustice
+3,Canon backfill,Lolita,Stanley Kubrick,1962,USA/UK,Kubrick; desire/satire
+3,Canon backfill,Ordet,Carl Theodor Dreyer,1955,Denmark,Faith/miracle; Dreyer canon
+3,Canon backfill,Wild Strawberries,Ingmar Bergman,1957,Sweden,Memory/aging; Bergman
+3,Canon backfill,Cries and Whispers,Ingmar Bergman,1972,Sweden,Death/red; Bergman
+3,Canon backfill,Fanny and Alexander,Ingmar Bergman,1982,Sweden,Childhood/theatre; Bergman
+3,Canon backfill,Scenes from a Marriage,Ingmar Bergman,1973,Sweden,Marriage; talk-cinema
+3,Canon backfill,The Earrings of Madame de...,Max Ophuls,1953,France,Camera movement/objects canon
+3,Canon backfill,L'Atalante,Jean Vigo,1934,France,Poetic realism canon
+3,Canon backfill,Throne of Blood,Akira Kurosawa,1957,Japan,Macbeth/Noh; Kurosawa
+3,Canon backfill,High and Low,Akira Kurosawa,1963,Japan,Class/crime; form
+3,Canon backfill,The Hidden Fortress,Akira Kurosawa,1958,Japan,Star Wars source; adventure
+3,Canon backfill,Floating Weeds,Yasujiro Ozu,1959,Japan,Ozu color; theatre/family
+3,Canon backfill,An Autumn Afternoon,Yasujiro Ozu,1962,Japan,Ozu final; marriage/time
+3,Canon backfill,The Life of Oharu,Kenji Mizoguchi,1952,Japan,Woman's suffering; Mizoguchi
+3,Canon backfill,Kwaidan,Masaki Kobayashi,1964,Japan,Ghost-story form; color
+3,Canon backfill,Onibaba,Kaneto Shindo,1964,Japan,Folk-horror/sexuality
+3,Canon backfill,Yi Yi,Edward Yang,2000,Taiwan,Taiwanese New Wave (major gap)
+3,Canon backfill,A Brighter Summer Day,Edward Yang,1991,Taiwan,Youth/history epic; canon
+3,Canon backfill,Days of Being Wild,Wong Kar-wai,1990,Hong Kong,WKW hub; time/longing
+3,Canon backfill,Happy Together,Wong Kar-wai,1997,Hong Kong,WKW; queer/diaspora
+3,Canon backfill,Fallen Angels,Wong Kar-wai,1995,Hong Kong,WKW; night-city form
+3,Canon backfill,2046,Wong Kar-wai,2004,Hong Kong,WKW; memory/SF
+3,Canon backfill,The Assassin,Hou Hsiao-hsien,2015,Taiwan,Hou (City of Sadness in); wuxia/form
+3,Canon backfill,Flowers of Shanghai,Hou Hsiao-hsien,1998,Taiwan,Hou; interior/ritual
+3,Canon backfill,To Live,Zhang Yimou,1994,China,Zhang (Red Lantern in); history/survival
+3,Canon backfill,Ju Dou,Zhang Yimou,1990,China,Zhang; color/transgression
+3,Canon backfill,Platform,Jia Zhangke,2000,China,Jia (3 in); reform-era epic
+3,Canon backfill,Aparajito,Satyajit Ray,1956,India,Apu trilogy; Ray
+3,Canon backfill,The World of Apu,Satyajit Ray,1959,India,Apu trilogy; Ray
+3,Canon backfill,The Music Room,Satyajit Ray,1958,India,Ray; decline/music
+3,Canon backfill,Touki Bouki,Djibril Diop Mambety,1973,Senegal,African canon (major gap); Diop lineage
+3,Canon backfill,Black Girl,Ousmane Sembene,1966,Senegal,Postcolonial canon; Sembene
+3,Canon backfill,Xala,Ousmane Sembene,1975,Senegal,Postcolonial satire
+3,Canon backfill,Yeelen,Souleymane Cisse,1987,Mali,African myth canon
+3,Canon backfill,Memories of Underdevelopment,Tomas Gutierrez Alea,1968,Cuba,Revolution/intellectual; canon
+3,Canon backfill,"Black God, White Devil",Glauber Rocha,1964,Brazil,Cinema Novo canon
+3,Canon backfill,The Official Story,Luis Puenzo,1985,Argentina,Dictatorship/memory; Oscar
+3,Canon backfill,Pixote,Hector Babenco,1981,Brazil,Street children; realism
+3,Canon backfill,Sweet Smell of Success,Alexander Mackendrick,1957,USA,Media/power; noir canon
+3,Canon backfill,Out of the Past,Jacques Tourneur,1947,USA,Noir template
+3,Canon backfill,The Lady from Shanghai,Orson Welles,1947,USA,Welles; mirror/noir
+3,Contemporary curation,"Like Father, Like Son",Hirokazu Kore-eda,2013,Japan,Kore-eda; nature/nurture
+3,Contemporary curation,Our Little Sister,Hirokazu Kore-eda,2015,Japan,Kore-eda; sisters/seasons
+3,Contemporary curation,A Hidden Life,Terrence Malick,2019,USA,Malick hub; conscience/faith
+3,Contemporary curation,The Father,Florian Zeller,2020,UK,Dementia/form; performance
+3,Contemporary curation,Sound of Metal,Darius Marder,2019,USA,Deafness/sound; Chion-adjacent
+3,Contemporary curation,Women Talking,Sarah Polley,2022,USA,Faith/feminism; talk-cinema
+3,Contemporary curation,Pieces of a Woman,Kornel Mundruczo,2020,USA,Grief/long-take birth
+3,Contemporary curation,His House,Remi Weekes,2020,UK,Refugee horror; allegory
+3,Contemporary curation,The Wonder,Sebastian Lelio,2022,Ireland/UK,Lelio (Gloria in); faith/body
+3,Contemporary curation,Athena,Romain Gavras,2022,France,Banlieue/long-take; politics
+3,Contemporary curation,"Quo Vadis, Aida?",Jasmila Zbanic,2020,Bosnia,Srebrenica; witness
+3,Contemporary curation,Holy Spider,Ali Abbasi,2022,Iran/Denmark,Abbasi (Border in); gender/violence
+3,Contemporary curation,The Apprentice,Ali Abbasi,2024,USA,Abbasi; power/myth
+3,Contemporary curation,No Bears,Jafar Panahi,2022,Iran,Panahi; image/border
+3,Contemporary curation,Four Daughters,Kaouther Ben Hania,2023,Tunisia,Doc-hybrid; performance/memory
+3,Contemporary curation,Dahomey,Mati Diop,2024,France/Senegal,Berlinale 2024 Golden Bear; Diop (Atlantics in)
+3,Contemporary curation,The Blue Caftan,Maryam Touzani,2022,Morocco,Queer/craft; Maghreb
+3,Contemporary curation,An Elephant Sitting Still,Hu Bo,2018,China,Despair epic; slow cinema
+3,Contemporary curation,Long Day's Journey Into Night,Bi Gan,2018,China,Bi Gan (Cannes 2025); 3D long-take dream
+3,Contemporary curation,"So Long, My Son",Wang Xiaoshuai,2019,China,One-child policy; epic melodrama
+3,Contemporary curation,The Wild Goose Lake,Diao Yinan,2019,China,Neo-noir; neon/crime
+3,Contemporary curation,A Sun,Chung Mong-hong,2019,Taiwan,Family/guilt; Taiwanese
+3,Contemporary curation,Columbus,Kogonada,2017,USA,Architecture/grief; form
+3,Contemporary curation,After Yang,Kogonada,2021,USA,AI/memory/family; Kogonada
+3,Contemporary curation,20th Century Women,Mike Mills,2016,USA,Mills; feminism/era
+3,Contemporary curation,C'mon C'mon,Mike Mills,2021,USA,Mills; care/listening
+3,Contemporary curation,Vortex,Gaspar Noe,2021,France,Split-screen; aging/death
+3,Contemporary curation,Climax,Gaspar Noe,2018,France,Body/dance/dread
+3,Contemporary curation,Enter the Void,Gaspar Noe,2009,France,POV/afterlife; form
+3,Contemporary curation,Robot Dreams,Pablo Berger,2023,Spain,Animation; friendship/loss; no dialogue
+3,Contemporary curation,Memoir of a Snail,Adam Elliot,2024,Australia,Claymation; melancholy
+3,Contemporary curation,A Different Man,Aaron Schimberg,2024,USA,Face/identity; A24
+3,Contemporary curation,Janet Planet,Annie Baker,2023,USA,Childhood/time; playwright-film
+3,Contemporary curation,Do Not Expect Too Much from the End of the World,Radu Jude,2023,Romania,Labor/media satire; form
+3,Contemporary curation,Passages,Ira Sachs,2023,France,Desire/triangle; Sachs
+3,Contemporary curation,Totem,Lila Aviles,2023,Mexico,Child-POV; family/death
+3,Contemporary curation,The Teachers' Lounge,Ilker Catak,2023,Germany,Institution/paranoia; Oscar nom
+3,Contemporary curation,Society of the Snow,J.A. Bayona,2023,Spain,Survival/ethics; Oscar nom
+3,Contemporary curation,How to Have Sex,Molly Manning Walker,2023,UK,Consent/youth; Cannes UCR
+3,Contemporary curation,The Settlers,Felipe Galvez,2023,Chile,Colonial violence; Western
+3,Contemporary curation,Living,Oliver Hermanus,2022,UK,Ikiru remake; mortality/bureaucracy
+3,Contemporary curation,Nope,Jordan Peele,2022,USA,Peele hub (Get Out/Us in); spectacle/gaze
+3,Contemporary curation,All Dirt Roads Taste of Salt,Raven Jackson,2023,USA,Memory/Black-Southern; form
+3,Contemporary curation,Cairo Conspiracy,Tarik Saleh,2022,Sweden/Egypt,Institution/faith thriller
+3,Popular/genre depth,The Thin Blue Line,Errol Morris,1988,USA,Doc; truth/reenactment
+3,Popular/genre depth,F for Fake,Orson Welles,1973,France/Iran,Essay-film; authorship/fakery
+3,Popular/genre depth,O.J.: Made in America,Ezra Edelman,2016,USA,Doc; race/celebrity/media
+3,Popular/genre depth,Stories We Tell,Sarah Polley,2012,Canada,Doc; memory/family/truth
+3,Popular/genre depth,Free Solo,Elizabeth Chai Vasarhelyi,2018,USA,Doc; risk/body; high search
+3,Popular/genre depth,Monty Python and the Holy Grail,Terry Gilliam,1975,UK,Gilliam is in; parody/form
+3,Popular/genre depth,Life of Brian,Terry Jones,1979,UK,Satire/religion; high search
+3,Popular/genre depth,Shaun of the Dead,Edgar Wright,2004,UK,Wright is a hub; genre-parody
+3,Popular/genre depth,Borat,Larry Charles,2006,USA,Satire/performance; ideology
+3,Popular/genre depth,The Blues Brothers,John Landis,1980,USA,Landis is in; music/Americana
+3,Popular/genre depth,Hero,Zhang Yimou,2002,China,Wuxia spectacle; ideology debate; high search
+3,Popular/genre depth,House of Flying Daggers,Zhang Yimou,2004,China,Wuxia; color/romance
+3,Popular/genre depth,Hard Boiled,John Woo,1992,Hong Kong,Woo (Face/Off in); gun-fu canon
+3,Popular/genre depth,The Killer,John Woo,1989,Hong Kong,Woo; heroic-bloodshed canon
+3,Popular/genre depth,Enter the Dragon,Robert Clouse,1973,Hong Kong/USA,Bruce Lee; martial-arts icon; high search
+3,Popular/genre depth,Ip Man,Wilson Yip,2008,Hong Kong,Martial-arts franchise; nationalism
+3,Popular/genre depth,Police Story,Jackie Chan,1985,Hong Kong,Chan stunt-canon; high search
+3,Popular/genre depth,Stand by Me,Rob Reiner,1986,USA,Reiner (5 in); coming-of-age; high search
+3,Popular/genre depth,Labyrinth,Jim Henson,1986,UK/USA,Cult fantasy; high search
+3,Popular/genre depth,The NeverEnding Story,Wolfgang Petersen,1984,Germany,Fantasy; childhood/story
+3,Popular/genre depth,Willy Wonka & the Chocolate Factory,Mel Stuart,1971,USA,Cult; morality fable; high search
+3,Popular/genre depth,Young Frankenstein,Mel Brooks,1974,USA,Parody canon; Brooks
+3,Popular/genre depth,Blazing Saddles,Mel Brooks,1974,USA,Satire/race; Brooks
+3,Popular/genre depth,Time Bandits,Terry Gilliam,1981,UK,Gilliam hub; history/fantasy
+3,Popular/genre depth,A Silent Voice,Naoko Yamada,2016,Japan,Anime; disability/bullying; high search
+3,Popular/genre depth,Weathering with You,Makoto Shinkai,2019,Japan,Shinkai (Your Name in); climate/teen
+3,Popular/genre depth,Suzume,Makoto Shinkai,2022,Japan,Shinkai; disaster/grief
+3,Popular/genre depth,Wolf Children,Mamoru Hosoda,2012,Japan,Hosoda; motherhood/folklore
+3,Popular/genre depth,Belle,Mamoru Hosoda,2021,Japan,Hosoda; virtual/identity
+3,Popular/genre depth,The Wild Robot,Chris Sanders,2024,USA,Animation; nature/care; 2024 hit
+3,Popular/genre depth,Inside Out 2,Kelsey Mann,2024,USA,Pixar; emotion/adolescence; huge box office
+3,Popular/genre depth,Man on Wire,James Marsh,2008,UK,Doc; high search; risk/art
+3,Popular/genre depth,Searching for Sugar Man,Malik Bendjelloul,2012,Sweden/UK,Doc; myth/music
+3,Popular/genre depth,Senna,Asif Kapadia,2010,UK,Doc; sport/icon
+3,Popular/genre depth,Citizenfour,Laura Poitras,2014,USA,Doc; surveillance/Snowden
+3,Popular/genre depth,Summer of Soul,Questlove,2021,USA,Doc; music/erasure/archive

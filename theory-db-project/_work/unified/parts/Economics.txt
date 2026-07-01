@@ -1,0 +1,139 @@
+PART: Economics   (총 199개 이론, 현행 Major 136개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[10] I. Behavioral Economics (Foundational)  ::  Prospect Theory / Bounded Rationality / Framing Effect / Loss Aversion
+[8] V. Psychology of Consumption  ::  Hedonic Consumption / Experiential Consumption / Endogenous Preferences / Habit Formation (Economics)
+[7] VI. Behavioral Finance  ::  Herd Behavior (Finance) / Speculative Bubbles (Behavioral) / Overconfidence Bias (Finance) / Confirmation Bias (Finance)
+[6] II. Neuroeconomics  ::  Neuroeconomics (General) / Reward Prediction Error (Neuroeconomics) / Dual System Theory (Neuroeconomics) / Neurobiology of Fairness
+[5] I. Behavioral Economics (Foundational) E. Other Behavioral Phenomena  ::  Mental Accounting Theory / Status Quo Bias / Overconfidence Bias / Planning Fallacy
+[5] IV. Behavioral Game Theory  ::  Behavioral Game Theory / Social Norms (Economics) / Ultimatum Game (Behavioral Economics) / Dictator Game (Behavioral Economics)
+[4] I. Behavioral Economics (Foundational) B. Intertemporal Choice & Self-Control  ::  Hyperbolic Discounting / Time Inconsistency / Self-Control Problems / Dual-Self Model
+[4] I. Behavioral Economics (Foundational) C. Social Preferences  ::  Fairness Theory (Economics) / Reciprocity (Economics) / Altruism (Economics) / Inequality Aversion
+[4] I. Behavioral Economics (Foundational) D. Nudges & Choice Architecture  ::  Nudge Theory / Choice Architecture / Default Effect / Libertarian Paternalism
+[4] III. Information Economics  ::  Screening Theory (Behavioral Economics) / Information Asymmetry (Behavioral Impact) / Adverse Selection (Behavioral Economics) / Moral Hazard (Behavioral Economics)
+[4] VII. Behavioral Labor Economics  ::  Reference-Dependent Labor Supply / Fairness and Wage Setting / Intrinsic Motivation (Labor) / Search Frictions (Behavioral)
+[4] VIII. Behavioral Public Economics  ::  Warm-Glow Giving / Social Norms and Tax Compliance / Nudges in Public Policy / Salience Bias (Taxation)
+[2] IX. Behavioral Development Economics  ::  Poverty Traps (Behavioral) / Behavioral Interventions for Development
+[2] X. Behavioral Environmental Economics  ::  Social Norms and Environmental Behavior / Nudging Green Behavior
+[2] XI. Behavioral Health Economics  ::  Present Bias in Health / Nudges in Health
+[2] XII. Behavioral Education Economics  ::  Self-Control and Educational Outcomes / Intrinsic Motivation in Education
+[2] XIV. Behavioral Political Economy  ::  Voter Heuristics and Biases / Behavioral Institutional Design
+[2] XV. Complexity Economics  ::  Complexity Economics / Agent-Based Computational Economics (ACE)
+[2] XVI. Evolutionary Economics (Beyond Biology)  ::  Cultural Evolution in Economics / Institutional Evolution (Economics)
+[2] XVIII. Happiness Economics  ::  Happiness Economics / Easterlin Paradox
+[2] XXI. Personnel Economics (Behavioral)  ::  Psychological Contracts (Economics) / Intrinsic vs. Extrinsic Motivation (Behavioral Economics)
+[2] XXXIII. Behavioral Economics of Addiction  ::  Rational Addiction Theory / Addiction as a Self-Control Problem (Behavioral Economics)
+[1] C. Identity Economics (Policy Implications)  ::  Identity-Based Policy (Economics)
+[1] CI. Happiness Economics (Inequality)  ::  Inequality and Happiness (Economics)
+[1] CII. Neuroeconomics (Risk & Uncertainty)  ::  Neurobiology of Risk (Economics)
+[1] CIII. Behavioral Development Economics (Commitment Devices)  ::  Commitment Devices (Behavioral Development)
+[1] CIV. Behavioral Environmental Economics (Choice Architecture)  ::  Defaults for Green Choices (Environmental)
+[1] CIX. Behavioral Law and Economics (Contract Renegotiation)  ::  Behavioral Renegotiation (Law and Economics)
+[1] CV. Behavioral Health Economics (Insurance)  ::  Behavioral Insurance (Health)
+[1] CVI. Behavioral Education Economics (Motivation)  ::  Behavioral Motivation in Education
+[1] CVII. Behavioral Public Economics (Public Acceptance)  ::  Public Acceptance of Policy (Behavioral Public Economics)
+[1] CVIII. Behavioral Finance (Over-extrapolation)  ::  Extrapolation Bias (Behavioral Finance)
+[1] CX. Complexity Economics (Path Dependence)  ::  Path Dependence (Complexity Economics)
+[1] CXI. Evolutionary Economics (Bounded Rationality)  ::  Ecological Rationality (Evolutionary Economics)
+[1] CXII. Identity Economics (Public Goods)  ::  Identity and Public Goods (Economics)
+[1] CXIII. Happiness Economics (Adaptation)  ::  Hedonic Adaptation (Happiness Economics)
+[1] CXIV. Neuroeconomics (Risk Preferences)  ::  Neural Basis of Risk Preferences (Economics)
+[1] CXIX. Behavioral Public Economics (Voting)  ::  Behavioral Voter Turnout (Public Economics)
+[1] CXV. Behavioral Development Economics (Poverty Alleviation)  ::  Poverty Alleviation (Behavioral Insights)
+[1] CXVI. Behavioral Environmental Economics (Social Marketing)  ::  Social Marketing for Environment (Behavioral)
+[1] CXVII. Behavioral Health Economics (Patient-Provider)  ::  Patient-Provider Interaction (Behavioral Health Economics)
+[1] CXVIII. Behavioral Education Economics (Learning)  ::  Behavioral Learning in Education (Economics)
+[1] CXX. Behavioral Finance (Cognitive Biases)  ::  Confirmation Bias (Behavioral Finance)
+[1] CXXI. Behavioral Law and Economics (Contract Design)  ::  Behavioral Contract Design (Law and Economics)
+[1] CXXII. Complexity Economics (Self-Organization)  ::  Self-Organization (Complexity Economics)
+[1] CXXIII. Evolutionary Economics (Technological Change)  ::  Evolutionary Theory of Technological Change
+[1] CXXIV. Identity Economics (Education)  ::  Identity and Educational Choices (Economics)
+[1] CXXIX. Behavioral Health Economics (Risk Perception)  ::  Risk Perception in Health (Behavioral Health Economics)
+[1] CXXV. Happiness Economics (Social Comparison)  ::  Social Comparison Theory (Happiness Economics)
+[1] CXXVI. Neuroeconomics (Intertemporal Choice)  ::  Neural Discounting (Neuroeconomics)
+[1] CXXVII. Behavioral Development Economics (Human Capital)  ::  Behavioral Human Capital (Development)
+[1] CXXVIII. Behavioral Environmental Economics (Information)  ::  Information Provision & Behavior (Environmental)
+[1] CXXX. Behavioral Education Economics (Attendance)  ::  Behavioral Attendance Incentives (Education)
+[1] III. Information Economics & Asymmetric Information  ::  Signaling Theory (Behavioral Economics)
+[1] L. Behavioral Economics of Crime  ::  Behavioral Crime and Deterrence Theory
+[1] LI. Behavioral International Economics  ::  Behavioral Trade Theory
+[1] LII. Behavioral Macroeconomics (Asset Prices)  ::  Behavioral Asset Pricing Theory
+[1] LIII. Behavioral Regulation  ::  Regulatory Nudges (Behavioral)
+[1] LIV. Behavioral Environmental Economics (Policy)  ::  Behavioral Policy Design for Environment
+[1] LIX. Behavioral Ethics (Economics)  ::  Ethical Decision Making (Behavioral Economics)
+[1] LV. Behavioral Health Economics (Adherence)  ::  Behavioral Adherence (Health)
+[1] LVI. Behavioral Education Economics (Teacher Incentives)  ::  Behavioral Teacher Incentives
+[1] LVII. Behavioral Public Economics (Pensions)  ::  Retirement Savings (Behavioral Economics)
+[1] LVIII. Behavioral Finance (Speculative Bubbles)  ::  Greater Fool Theory (Behavioral Finance)
+[1] LX. Behavioral Labor Economics (Automation)  ::  Automation and Behavioral Response (Labor)
+[1] LXI. Behavioral Development Economics (Risk)  ::  Risk Preferences in Development (Behavioral)
+[1] LXII. Behavioral Environmental Economics (Valuation)  ::  Stated Preference Biases (Environmental Economics)
+[1] LXIII. Behavioral Health Economics (Prevention)  ::  Prevention Behavior (Behavioral Health Economics)
+[1] LXIV. Behavioral Education Economics (Financial Literacy)  ::  Financial Literacy (Behavioral Education)
+[1] LXIX. Evolutionary Economics (Behavioral Roots)  ::  Behavioral Roots of Evolutionary Economics
+[1] LXV. Behavioral Public Economics (Compliance)  ::  Tax Evasion (Behavioral Economics)
+[1] LXVI. Behavioral Finance (Market Microstructure)  ::  Order Flow Imbalance (Behavioral Finance)
+[1] LXVII. Behavioral Law and Economics (Contract Enforcement)  ::  Contract Enforcement (Behavioral Law and Economics)
+[1] LXVIII. Complexity Economics (Emergence)  ::  Emergence (Complexity Economics)
+[1] LXX. Identity Economics (Consumer Behavior)  ::  Identity and Consumption (Economics)
+[1] LXXI. Happiness Economics (Policy)  ::  Happiness Policy (Economics)
+[1] LXXII. Neuro-Pricing  ::  Neuro-Pricing
+[1] LXXIII. Behavioral Development Economics (Social Learning)  ::  Social Learning in Development (Behavioral Economics)
+[1] LXXIV. Behavioral Public Economics (Paternalism)  ::  Asymmetric Paternalism
+[1] LXXIX. Identity Economics (Workplace)  ::  Identity and Motivation (Work Economics)
+[1] LXXV. Behavioral Finance (Market Efficiency)  ::  Behavioral Market Efficiency Theory
+[1] LXXVI. Behavioral Law and Economics (Compliance)  ::  Expressive Law (Behavioral Law and Economics)
+[1] LXXVII. Complexity Economics (Innovation)  ::  Emergent Innovation (Complexity Economics)
+[1] LXXVIII. Evolutionary Economics (Institutions)  ::  Co-evolution of Institutions and Preferences (Economics)
+[1] LXXX. Happiness Economics (Social Capital)  ::  Social Capital and Happiness (Economics)
+[1] LXXXI. Neuro-Marketing (Decision Process)  ::  Brain and Purchase Decisions (Neuro-Marketing)
+[1] LXXXII. Behavioral Development Economics (Gender)  ::  Gender Biases in Development (Behavioral Economics)
+[1] LXXXIII. Behavioral Public Economics (Political Behavior)  ::  Rational Ignorance (Behavioral Public Economics)
+[1] LXXXIV. Behavioral Finance (Bubbles & Crashes)  ::  Noise Trader Theory (Behavioral Finance)
+[1] LXXXIX. Happiness Economics (Relative Deprivation)  ::  Relative Deprivation (Happiness Economics)
+[1] LXXXV. Behavioral Law and Economics (Property Rights)  ::  Behavioral Property Rights (Law and Economics)
+[1] LXXXVI. Complexity Economics (Learning)  ::  Learning and Adaptation (Complexity Economics)
+[1] LXXXVII. Evolutionary Economics (Cooperation)  ::  Indirect Reciprocity (Evolutionary Economics)
+[1] LXXXVIII. Identity Economics (Social Policy)  ::  Identity and Social Policy (Economics)
+[1] V. Psychology of Consumption & Choice  ::  Consumer Choice Theory (Behavioral)
+[1] XC. Neuroeconomics (Market Dynamics)  ::  Neurobiology of Market Behavior
+[1] XCI. Behavioral Development Economics (Risk Management)  ::  Risk Preferences & Poverty (Behavioral Development)
+[1] XCII. Behavioral Environmental Economics (Valuation)  ::  Moral Licensing (Environmental Economics)
+[1] XCIII. Behavioral Health Economics (Information)  ::  Information Overload (Behavioral Health Economics)
+[1] XCIV. Behavioral Education Economics (Peer Effects)  ::  Peer Effects in Education (Behavioral Economics)
+[1] XCIX. Evolutionary Economics (Innovation Diffusion)  ::  Innovation Diffusion (Evolutionary Economics)
+[1] XCV. Behavioral Public Economics (Public Good Provision)  ::  Conditional Cooperation (Behavioral Public Economics)
+[1] XCVI. Behavioral Finance (Behavioral Portfolios)  ::  Behavioral Portfolio Theory
+[1] XCVII. Behavioral Law and Economics (Cognitive Capacity)  ::  Cognitive Capacity and Law (Behavioral Law and Economics)
+[1] XCVIII. Complexity Economics (Adaptive Markets)  ::  Adaptive Markets Hypothesis (Complexity Economics)
+[1] XIII. Behavioral Industrial Organization  ::  Behavioral Industrial Organization
+[1] XIX. Neuro-Finance  ::  Neuro-Finance
+[1] XL. Behavioral Finance (Puzzles)  ::  Equity Premium Puzzle (Behavioral)
+[1] XLI. Behavioral Law and Economics (Punishment)  ::  Behavioral Deterrence (Law and Economics)
+[1] XLII. Complexity Economics (Adaptive Learning)  ::  Adaptive Learning (Complexity Economics)
+[1] XLIII. Evolutionary Economics (Innovation)  ::  Innovation and Evolution (Economics)
+[1] XLIV. Identity Economics (Behavioral Applications)  ::  Identity and Labor Supply Theory
+[1] XLIX. Behavioral Finance (Household Finance)  ::  Household Behavioral Finance
+[1] XLV. Happiness Economics (Social Factors)  ::  Relative Income Hypothesis (Happiness)
+[1] XLVI. Neuro-Marketing  ::  Consumer Neuromarketing
+[1] XLVII. Behavioral Development Economics (Education)  ::  Behavioral Education Interventions
+[1] XLVIII. Behavioral Public Economics (Prosociality)  ::  Prosocial Behavior in Public Goods (Behavioral)
+[1] XVII. Identity Economics  ::  Identity Economics
+[1] XX. Behavioral Development Economics (Second Wave)  ::  Cultural Behavioral Economics (Development)
+[1] XXII. Behavioral Public Choice  ::  Behavioral Public Choice Theory
+[1] XXIII. Behavioral Law and Economics  ::  Behavioral Law and Economics
+[1] XXIV. Evolutionary Game Theory (Economics)  ::  Evolutionary Game Theory (Economics)
+[1] XXIX. Behavioral Marketing  ::  Behavioral Pricing
+[1] XXV. Behavioral IO (Industrial Organization)  ::  Consumer Manipulation Theory (Behavioral IO)
+[1] XXVI. Behavioral Macroeconomics  ::  Behavioral Macroeconomics
+[1] XXVII. Behavioral Urban Economics  ::  Behavioral Urban Economics
+[1] XXVIII. Behavioral Real Estate  ::  Behavioral Real Estate Economics
+[1] XXX. Behavioral Public Health Economics  ::  Behavioral Public Health Economics
+[1] XXXI. Behavioral Environmental Policy  ::  Behavioral Environmental Policy
+[1] XXXII. Behavioral Finance (Bubbles & Crashes)  ::  Rational Bubbles (Behavioral Economics)
+[1] XXXIV. Behavioral Contracts  ::  Incomplete Contracts (Behavioral Economics)
+[1] XXXIX. Behavioral Public Economics (Policy Biases)  ::  Political Biases (Behavioral Public Economics)
+[1] XXXV. Behavioral Development Economics (Behavioral Insights)  ::  Behavioral Insights for Development
+[1] XXXVI. Behavioral Game Theory (Social Preferences)  ::  Intentions-Based Reciprocity
+[1] XXXVII. Behavioral Industrial Organization (Pricing)  ::  Price Stickiness (Behavioral Economics)
+[1] XXXVIII. Behavioral Labor Economics (Discrimination)  ::  Behavioral Discrimination (Economics)

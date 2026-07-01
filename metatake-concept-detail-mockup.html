@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>repetition compulsion — concept detail (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFBF7; --paper-2:#F4F1E9; --ink:#1A1714; --ink-soft:#5C564E; --ink-faint:#8C857A;
+  --red:#C8102E; --red-deep:#9b0c23; --red-soft:#E8A7AF; --gold:#E8A100; --line:#E7E2D6; --line-strong:#D6CFBF;
+  --dark:#100D0A; --dark-2:#1b1712; --dark-3:#262019; --dline:rgba(255,255,255,.09);
+  --serif:"Newsreader",Georgia,serif; --text-serif:"Spectral","Newsreader",Georgia,serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--text-serif);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 26px}
+section[id]{scroll-margin-top:112px}
+.kicker{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+.mockbar{background:#0b0907;color:#E9E4D8;font-family:var(--ui);font-size:12px;text-align:center;padding:7px 16px}
+.mockbar .tag{color:var(--red-soft);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+.mockbar b{color:#fff;font-weight:600}
+
+/* NAV (홈과 동일) */
+header.nav{position:sticky;top:0;z-index:90;background:var(--dark);border-bottom:1px solid var(--dline)}
+.navrow{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:7px 10px;border-radius:5px}
+.menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}
+.menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
+.menubtn .bars i{width:16px;height:2px;background:#EFEADD;display:block}
+.navsearch{flex:1;max-width:560px;display:flex;background:#fff;border-radius:7px;overflow:hidden;height:38px}
+.scope{display:flex;align-items:center;padding:0 12px;font-family:var(--ui);font-size:13px;color:#222;border-right:1px solid #e2e2e2;white-space:nowrap}
+.navsearch input{flex:1;border:0;outline:0;font-family:var(--text-serif);font-size:15px;padding:0 12px;color:#1a1714}
+.navsearch .go{width:46px;display:flex;align-items:center;justify-content:center;color:#444;font-size:17px}
+.navright{display:flex;align-items:center;gap:18px;margin-left:auto}
+.npro{font-family:var(--ui);font-size:13px;font-weight:700;color:#EFEADD;display:flex;align-items:center;gap:6px}
+.npro .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.nicon{color:#EFEADD;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:14px;font-weight:600}
+.nicon svg{width:22px;height:22px;stroke:#EFEADD;fill:none;stroke-width:1.6}
+.avatar{width:32px;height:32px;border-radius:50%;background:#fff;color:var(--red);font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD}
+
+/* MASTHEAD */
+.masthead{position:relative;background:var(--dark);color:#EFEADD;overflow:hidden}
+.mast-bg{position:absolute;inset:0;background:linear-gradient(155deg,#3a4452,#10141b 72%);opacity:.5}
+.mast-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,13,10,.96),rgba(16,13,10,.6) 60%,rgba(16,13,10,.85))}
+.masthead .wrap{position:relative;z-index:2;padding-top:22px;padding-bottom:34px}
+.crumb{font-family:var(--ui);font-size:12px;color:#a79b88;margin-bottom:20px}
+.crumb a:hover{color:#fff}.crumb .sep{margin:0 7px;color:#6a6253}
+.clabel{font-family:var(--ui);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red-soft);margin-bottom:14px}
+.ctitle{font-family:var(--serif);font-size:58px;font-weight:600;line-height:1.0;letter-spacing:-.02em;color:#fff}
+.cnative{font-family:var(--text-serif);font-style:italic;font-size:22px;color:#cfc7b8;margin-top:8px}
+.cgloss{font-family:var(--text-serif);font-size:18px;color:#d9d1c1;line-height:1.5;margin-top:16px;max-width:760px}
+.statstrip{display:flex;gap:0;margin-top:26px;border:1px solid var(--dline);border-radius:11px;overflow:hidden;max-width:520px}
+.statstrip .s{flex:1;text-align:center;padding:14px 8px;border-right:1px solid var(--dline)}
+.statstrip .s:last-child{border-right:0}
+.statstrip .s .v{font-family:var(--serif);font-size:26px;font-weight:600;color:#fff}
+.statstrip .s .k{font-family:var(--ui);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8c8474;margin-top:3px}
+.theorline{font-family:var(--text-serif);font-style:italic;font-size:14px;color:var(--red-soft);margin-top:18px}
+.theorline a:hover{color:#fff}
+.mcta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.mcta .b{font-family:var(--ui);font-size:13px;font-weight:700;border-radius:8px;padding:11px 18px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.mcta .b.primary{background:var(--red);color:#fff}.mcta .b.primary:hover{background:var(--red-deep)}
+.mcta .b.ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:#EFEADD}.mcta .b.ghost:hover{background:rgba(255,255,255,.1)}
+
+/* STICKY SUBNAV */
+.subnav{position:sticky;top:60px;z-index:80;background:rgba(16,13,10,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--dline)}
+.subnav .wrap{display:flex;gap:22px;overflow-x:auto;height:48px;align-items:center;scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
+.subnav a{font-family:var(--ui);font-size:12.5px;font-weight:600;color:#9c9486;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.subnav a:hover{color:#EFEADD}
+.subnav a.on{color:#fff;border-bottom-color:var(--red)}
+
+/* SECTION FRAME */
+.band{padding:42px 0}
+.band.p2{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band.dark{background:var(--dark);color:#EFEADD}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:20px}
+.shead h2{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.05;position:relative;padding-left:15px;display:flex;align-items:center;gap:8px}
+.shead h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;background:var(--red);border-radius:2px}
+.shead .sub{font-family:var(--ui);font-size:12.5px;color:var(--ink-faint);margin-top:6px;padding-left:15px}
+.shead .seeall{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--red);white-space:nowrap}
+.band.dark .shead h2{color:#fff}
+
+/* DEFINITION / ESSAY */
+.essay{max-width:820px}
+.essay p{font-family:var(--text-serif);font-size:18px;line-height:1.62;color:var(--ink)}
+.essay p+p{margin-top:18px}
+.essay .drop::first-letter{font-family:var(--serif);font-size:62px;font-weight:600;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--red)}
+.essay em{font-style:italic}
+.essay .note{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink-faint);margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+
+/* TROPES */
+.tropelist{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.troperow{display:flex;align-items:center;gap:12px;padding:15px 2px;border-bottom:1px solid var(--line)}
+.troperow .tn{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.15}
+.troperow .tv{font-family:var(--text-serif);font-style:italic;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.troperow .cnt{margin-left:auto;font-family:var(--ui);font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:20px;padding:2px 9px;flex:0 0 auto}
+.troperow.primary .tn{font-size:18px}
+.troperow.primary .cnt{background:var(--ink)}
+
+/* FILM GRID */
+.filmgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.fcard{display:flex;flex-direction:column}
+.fcard .pp{aspect-ratio:2/3;border-radius:10px;border:1px solid var(--line-strong);background:linear-gradient(155deg,#46505c,#161b22 72%);position:relative;overflow:hidden;cursor:pointer}
+.fcard .pp .ph{position:absolute;inset:0;display:flex;align-items:flex-end;padding:11px;font-family:var(--ui);font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.45);text-transform:uppercase}
+.fcard .pp .add{position:absolute;top:8px;left:8px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:15px;display:flex;align-items:center;justify-content:center;z-index:3}
+.fcard .pp .add:hover{background:var(--red)}
+.fcard .ft{font-family:var(--text-serif);font-size:15px;margin-top:9px;line-height:1.18}
+.fcard .ft .yr{color:var(--ink-faint);font-family:var(--ui);font-size:11.5px}
+.fcard .fd{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+.fcard .via{font-family:var(--text-serif);font-style:italic;font-size:12.5px;color:var(--ink-soft);margin-top:7px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fcard .read{font-family:var(--ui);font-size:11.5px;font-weight:700;color:var(--red);margin-top:7px}
+
+/* THEORIST CARD */
+.theorist{display:grid;grid-template-columns:120px 1fr;gap:26px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;align-items:start;max-width:900px}
+.theorist .av{width:120px;height:120px;border-radius:50%;position:relative;overflow:hidden;border:1px solid var(--line-strong);background:linear-gradient(155deg,#46505c,#161b22 72%)}
+.theorist .av .ti{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:42px;font-weight:300;color:rgba(255,255,255,.85)}
+.theorist .tk{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.theorist .tn{font-family:var(--serif);font-size:28px;font-weight:600;margin-top:5px;line-height:1.05}
+.theorist .tt{font-family:var(--text-serif);font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:8px}
+.theorist .tb{font-family:var(--text-serif);font-size:15px;color:var(--ink-soft);line-height:1.5;margin-top:12px}
+.theorist .tsrc{font-family:var(--ui);font-size:11px;color:var(--ink-faint);margin-top:13px}
+.theorist .topen{display:inline-flex;margin-top:14px;font-family:var(--ui);font-size:12.5px;font-weight:700;color:#fff;background:var(--ink);padding:9px 16px;border-radius:8px;gap:6px}
+.theorist .topen:hover{background:var(--red)}
+
+/* CONNECTION MAP */
+.graphbox{position:relative;border:1px solid var(--dline);border-radius:14px;background:var(--dark-2);overflow:hidden;height:420px}
+.graphbox .gcap{position:absolute;left:18px;top:15px;z-index:4;font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474}
+.graphbox .gsub{position:absolute;left:18px;top:32px;z-index:4;font-family:var(--text-serif);font-style:italic;font-size:12px;color:#a79b88}
+.graphbox svg{position:absolute;inset:0;width:100%;height:100%}
+.gnode{cursor:pointer}.gnode text{font-family:var(--ui);font-size:10px;font-weight:600;fill:#EFEADD}
+.gnode:hover circle{stroke:#fff}
+.gedge{stroke:rgba(200,16,46,.3);stroke-width:1}
+@keyframes gin{from{opacity:0}to{opacity:1}}.gfade{animation:gin .6s ease}
+
+/* RELATED CONCEPTS chips */
+.archchips{display:flex;flex-wrap:wrap;gap:9px}
+.archchips .c{font-family:var(--text-serif);font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line-strong);border-radius:22px;padding:8px 15px;display:flex;align-items:center;gap:9px}
+.archchips .c:hover{border-color:var(--red);color:var(--red)}
+.archchips .c .nat{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink-faint)}
+.archchips .c:hover .nat{color:var(--red-soft)}
+.archchips .c .b{font-family:var(--ui);font-size:10px;font-weight:700;color:#fff;background:var(--ink-faint);border-radius:10px;padding:1px 7px}
+.prov{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink-faint);text-align:center;padding:26px 0 4px}
+
+/* FOOTER */
+footer{background:var(--dark);color:#C8BFB0;padding:48px 0 34px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:28px}
+.fbrand{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:8px 11px;border-radius:5px;width:max-content;margin-bottom:14px}
+.fabout{font-family:var(--text-serif);font-size:14px;color:#a79f90;line-height:1.5;max-width:290px}
+.fcol h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8c8474;margin-bottom:12px}
+.fcol a{display:block;font-family:var(--text-serif);font-size:14.5px;color:#C8BFB0;padding:5px 0}
+.fcol a:hover{color:#fff}
+.fbar{font-family:var(--ui);font-size:11.5px;color:#7d7568;margin-top:28px;border-top:1px solid var(--dline);padding-top:18px;display:flex;gap:18px;flex-wrap:wrap}
+.tmdb{font-style:italic;font-family:var(--text-serif)}
+
+@media(max-width:1020px){
+  .filmgrid{grid-template-columns:repeat(3,1fr)}
+  .tropelist{grid-template-columns:1fr}
+  .theorist{grid-template-columns:1fr}
+  .ctitle{font-size:42px}.fgrid{grid-template-columns:repeat(2,1fr)}
+  .navsearch{display:none}
+}
+@media(max-width:680px){.filmgrid{grid-template-columns:repeat(2,1fr)}.ctitle{font-size:34px}}
+</style>
+</head>
+<body>
+
+<div class="mockbar"><span class="tag">Mockup · Concept detail</span> <b>/concept/{slug}</b> — 새 홈 디자인 시스템 위에 라이브 콘텐츠 재구성. 데이터: repetition compulsion (실데이터, Supabase). <b>(포스터는 TMDB 자리 placeholder · READINGS/TROPES 카운트 일부는 예시)</b></div>
+
+<!-- NAV -->
+<header class="nav"><div class="wrap navrow">
+  <a class="logo" href="#">Meta<br>take</a>
+  <div class="menubtn"><span class="bars"><i></i><i></i><i></i></span>Menu</div>
+  <div class="navsearch"><div class="scope">All ▾</div><input placeholder="Search films, directors, figures, tropes…"><div class="go">⌕</div></div>
+  <div class="navright">
+    <a class="npro" href="#"><span class="dot"></span>Ask&nbsp;AI</a>
+    <div class="nicon" title="Your Shelf"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Shelf</span></div>
+    <div class="avatar">＋</div>
+    <div class="lang">EN ▾</div>
+  </div>
+</div></header>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-bg"></div>
+  <div class="wrap">
+    <div class="crumb"><a href="/concept">Concepts</a><span class="sep">›</span><a href="#">Psychoanalysis</a></div>
+    <div class="clabel">Concept · The theory</div>
+    <div class="ctitle">repetition compulsion</div>
+    <div class="cnative">Wiederholungszwang</div>
+    <div class="cgloss">The psyche stages an unmastered wound again and again — as ritual, place, loop or behaviour — instead of mourning it.</div>
+
+    <div class="statstrip">
+      <div class="s"><div class="v">248</div><div class="k">Films</div></div>
+      <div class="s"><div class="v">248</div><div class="k">Readings</div></div>
+      <div class="s"><div class="v">12</div><div class="k">Tropes</div></div>
+    </div>
+
+    <div class="theorline">After <a href="/theorist/sigmund-freud">Sigmund Freud</a></div>
+
+    <div class="mcta">
+      <button class="b primary">＋ Save concept</button>
+      <a class="b ghost" href="#map">⌖ Open the map</a>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY SUBNAV -->
+<nav class="subnav"><div class="wrap" id="subnav">
+  <a href="#definition" class="on">Definition</a>
+  <a href="#tropes">Tropes</a>
+  <a href="#films">Films</a>
+  <a href="#theorist">The theorist</a>
+  <a href="#map">Connection map</a>
+  <a href="#related">Related concepts</a>
+</div></nav>
+
+<!-- DEFINITION / ESSAY -->
+<section class="band" id="definition"><div class="wrap">
+  <div class="shead"><div><span class="kicker">The idea</span><h2 style="margin-top:8px">What "repetition compulsion" means</h2></div></div>
+  <div class="essay">
+    <p class="drop">Freud named it in <em>Beyond the Pleasure Principle</em> (1920): the disquieting observation that we do not only seek pleasure and avoid pain — we are driven, against our own interest, to repeat the very experiences that wounded us. The shell-shocked soldier returns to the trench in his dreams; the child who lost a mother stages the disappearance again and again with a wooden reel (the famous <em>fort-da</em>); the analytic patient re-enacts an old betrayal rather than remembering it. Repetition, Freud argued, is the psyche's attempt to master after the fact a trauma it could not absorb the first time — and behind that compulsion he heard, for the first time, the death drive: a pull beyond the pleasure principle, toward the inorganic stillness from which life departed.</p>
+    <p>Cinema is built for this. A film is itself a loop that can be run again, a return engineered into the medium — so it is no accident that the screen overflows with characters who circle back: the detective who must remake a dead woman, the survivor who restages the disaster, the loop that resets until the wound is named. metatake gathers <strong>248 films</strong> in which a critic has read exactly this movement — the unmastered wound staged once more instead of mourned — and maps them onto the figures, tropes and theorists that carry the idea. <em>The vocabulary critics actually use, mapped onto the movies that show it.</em></p>
+    <p class="note">○ A critical concept — a tool for reading, not a verdict. The readings below over-read on purpose.</p>
+  </div>
+</div></section>
+
+<!-- TROPES BUILT ON IT -->
+<section class="band p2" id="tropes"><div class="wrap">
+  <div class="shead"><div><h2>Tropes built on it</h2><div class="sub">The recurring figure-types that instantiate this concept — count = films sharing the trope across metatake</div></div><a class="seeall" href="#">All 12 tropes →</a></div>
+  <div class="tropelist">
+    <div class="troperow primary"><div><div class="tn">The Compulsion To Repeat An Unmastered Wound</div><div class="tv">the keystone trope of this concept</div></div><span class="cnt">52</span></div>
+    <div class="troperow"><div><div class="tn">The Object That Will Not Be Mourned</div><div class="tv">the lost thing the psyche keeps restaging</div></div><span class="cnt">43</span></div>
+    <div class="troperow"><div><div class="tn">The Held Shot As Ethical Witness</div><div class="tv">form that refuses to look away from the wound</div></div><span class="cnt">37</span></div>
+    <div class="troperow"><div><div class="tn">The Death Drive Wearing A Disguise</div><div class="tv">repetition mistaken for desire or destiny</div></div><span class="cnt">21</span></div>
+    <div class="troperow"><div><div class="tn">The Return Of The Repressed Wears A Mask</div><div class="tv">the buried thing comes back in costume</div></div><span class="cnt">8</span></div>
+    <div class="troperow"><div><div class="tn">The Compulsive Repetition That Wards Off Mourning</div><div class="tv">looping in order not to grieve</div></div><span class="cnt">7</span></div>
+    <div class="troperow"><div><div class="tn">Trauma Compelled To Restage Its Own Wound</div><div class="tv">the scene re-enacted, never resolved</div></div><span class="cnt">5</span></div>
+    <div class="troperow"><div><div class="tn">The Dance As Compulsion To Repeat</div><div class="tv">the body looping the trauma it cannot speak</div></div><span class="cnt">5</span></div>
+  </div>
+</div></section>
+
+<!-- FILMS THAT EMBODY IT -->
+<section class="band" id="films"><div class="wrap">
+  <div class="shead"><div><h2>Films that embody it</h2><div class="sub">Where a critic read this concept — via = the figure that carries it · → opens that reading</div></div><a class="seeall" href="#">See all 248 films →</a></div>
+  <div class="filmgrid">
+
+    <a class="fcard" href="/film/aftersun-2022"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">Aftersun <span class="yr">2022</span></div><div class="fd">Charlotte Wells</div>
+      <div class="via">via the camcorder footage — replaying the father to hold what was already lost</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/the-iron-claw-2023"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">The Iron Claw <span class="yr">2023</span></div><div class="fd">Sean Durkin</div>
+      <div class="via">via the Von Erich curse — "The Curse Is The Compulsion To Repeat"</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/black-swan-2010"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">Black Swan <span class="yr">2010</span></div><div class="fd">Darren Aronofsky</div>
+      <div class="via">via Nina's mutations — the dancer restaging her wound on the body</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/the-shining-1980"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">The Shining <span class="yr">1980</span></div><div class="fd">Stanley Kubrick</div>
+      <div class="via">via Room 237 — the hotel that loops its murders forever</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/vertigo-1958"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">Vertigo <span class="yr">1958</span></div><div class="fd">Alfred Hitchcock</div>
+      <div class="via">via Herrmann's spiraling score — "The Music Never Resolves Because The Mourning Never Ends"</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/mulholland-drive-2001"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">Mulholland Drive <span class="yr">2001</span></div><div class="fd">David Lynch</div>
+      <div class="via">via the blue box — the dream restaged to defer an unbearable truth</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/cache-2005"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">Caché <span class="yr">2005</span></div><div class="fd">Michael Haneke</div>
+      <div class="via">via the surveillance tape — the buried guilt returning on a loop</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/the-favourite-2018"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">The Favourite <span class="yr">2018</span></div><div class="fd">Yorgos Lanthimos</div>
+      <div class="via">via the rabbits — "Abigail's Ascent Is The Compulsion To Repeat The Father's Fall"</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/marnie-1964"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">Marnie <span class="yr">1964</span></div><div class="fd">Alfred Hitchcock</div>
+      <div class="via">via Marnie's compulsive theft — "Serial Theft As The Logic Of Capital's Repetition Compulsion"</div><div class="read">→ reading</div></a>
+
+    <a class="fcard" href="/film/the-fabelmans-2022"><div class="pp"><div class="add">＋</div><div class="ph">TMDB poster</div></div>
+      <div class="ft">The Fabelmans <span class="yr">2022</span></div><div class="fd">Steven Spielberg</div>
+      <div class="via">via the train-set crash — "The Compulsion To Repeat The Disaster You Survived"</div><div class="read">→ reading</div></a>
+
+  </div>
+</div></section>
+
+<!-- THE THEORIST -->
+<section class="band p2" id="theorist"><div class="wrap">
+  <div class="shead"><div><h2>The theorist</h2><div class="sub">Whose idea this is — the figure metatake credits as the concept's source</div></div></div>
+  <div class="theorist">
+    <div class="av"><div class="ti">SF</div></div>
+    <div>
+      <div class="tk">Theorist · Psychoanalysis</div>
+      <div class="tn">Sigmund Freud</div>
+      <div class="tt">1856–1939 · Vienna · founder of psychoanalysis</div>
+      <div class="tb">Freud introduced the repetition compulsion in <em>Beyond the Pleasure Principle</em> (1920), where the puzzle of why traumatised minds return to their wounds — and why play, dreams and transference are structured by return — led him to posit a force "beyond" pleasure. From that compulsion he drew the concept's lineage to the <a href="/concept/deathedrivee-todestrieb">death drive (Todestrieb)</a>: the pull toward the inanimate that shadows every act of living repetition.</div>
+      <div class="tsrc">Key text: <em>Beyond the Pleasure Principle</em> (1920) · bio note illustrative — to be sourced via the Combined Intellectuals database.</div>
+      <a class="topen" href="/theorist/sigmund-freud">Open Sigmund Freud →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- CONNECTION MAP -->
+<section class="band dark" id="map"><div class="wrap">
+  <div class="shead"><div><h2>The map of repetition compulsion</h2><div class="sub">The concept at the centre, the films and tropes that reach it around the ring</div></div></div>
+  <div class="graphbox"><div class="gcap">Connection map · live</div><div class="gsub">Built from AI embeddings — click a node to travel</div><svg id="graph" viewBox="0 0 1180 420" preserveAspectRatio="xMidYMid meet"></svg></div>
+</div></section>
+
+<!-- RELATED CONCEPTS -->
+<section class="band" id="related"><div class="wrap">
+  <div class="shead"><div><h2>Related concepts</h2><div class="sub">Neighbouring critical ideas — by films they share with this one · count = films embodying each</div></div><a class="seeall" href="/concept">All concepts →</a></div>
+  <div class="archchips">
+    <a class="c" href="/concept/deathedrivee-todestrieb">death drive <span class="nat">(Todestrieb)</span> <span class="b">134</span></a>
+    <a class="c" href="/concept/returneofetheerepressed">return of the repressed <span class="nat">(Wiederkehr des Verdrängten)</span> <span class="b">72</span></a>
+    <a class="c" href="/concept/theeuncanny">the uncanny <span class="nat">(das Unheimliche)</span> <span class="b">50</span></a>
+    <a class="c" href="/concept/mourningeandemelancholia">mourning and melancholia <span class="nat">(Trauer und Melancholie)</span> <span class="b">31</span></a>
+    <a class="c" href="/concept/nachtraglichkeit">Nachträglichkeit <span class="nat">(deferred action)</span> <span class="b">13</span></a>
+  </div>
+  <div class="prov">Concept page generated by the metatake editorial method (AI-drafted) · concept slug <b>repetition-compulsion</b> · created Jun 26, 2026 · editor Wonwoo Yoon</div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="fbrand">Meta<br>take</div><p class="fabout">Read films closely — a critical map of cinema that links films through the meanings they share.</p></div>
+    <div class="fcol"><h4>Sections</h4><a href="#">Films</a><a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Lineage</a></div>
+    <div class="fcol"><h4>Your map</h4><a href="#">Your Shelf</a><a href="#">Saved Readings</a><a href="#">Following</a><a href="#">For You</a></div>
+    <div class="fcol"><h4>Metatake</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Community guidelines</a><a href="#">Blog</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">wonwoo@metatake.net</a></div>
+  </div>
+  <div class="fbar"><span>© 2026 Metatake. All rights reserved.</span><span>Seoul, Republic of Korea</span><span class="tmdb">This product uses the TMDB API but is not endorsed or certified by TMDB.</span></div>
+</div></footer>
+
+<script>
+/* CONNECTION MAP — concept centre + films ring + tropes outer (live redraw) */
+const FILMS=["Aftersun","The Iron Claw","Black Swan","The Shining","Vertigo","Mulholland Drive","Caché","The Favourite","Marnie","The Fabelmans"];
+const TRO=["The Compulsion To Repeat An Unmastered Wound","The Object That Will Not Be Mourned","The Held Shot As Ethical Witness","The Death Drive Wearing A Disguise","The Dance As Compulsion To Repeat"];
+const GSVG=document.getElementById('graph');
+function clip(s){return s.length>22?s.slice(0,21)+'…':s;}
+function graph(){
+ const W=1180,H=420,cx=W/2,cy=H/2;
+ let edges="",nodes="";
+ nodes+=`<a href="#" class="gnode"><title>Concept: repetition compulsion</title><circle cx="${cx}" cy="${cy}" r="14" fill="#C8102E"/><text x="${cx}" y="${cy-22}" text-anchor="middle" style="font-size:13px;fill:#fff">repetition compulsion</text></a>`;
+ const ring=FILMS.map((f,i)=>{const a=(i/FILMS.length)*Math.PI*2 + Math.random()*0.3;const r=140+Math.random()*40;return {l:f,x:cx+Math.cos(a)*r*1.7,y:cy+Math.sin(a)*r};});
+ ring.forEach(n=>{edges+=`<line class="gedge" x1="${cx}" y1="${cy}" x2="${n.x}" y2="${n.y}"/>`;});
+ const outer=TRO.map((t,i)=>{const src=ring[i%ring.length];const a=Math.random()*Math.PI*2;const r=68+Math.random()*42;return {l:t,x:src.x+Math.cos(a)*r,y:src.y+Math.sin(a)*r,sx:src.x,sy:src.y};});
+ outer.forEach(n=>{edges+=`<line class="gedge" x1="${n.sx}" y1="${n.sy}" x2="${n.x}" y2="${n.y}"/>`;});
+ ring.forEach(n=>{const anc=n.x>cx?'start':'end';const tx=anc==='start'?n.x+10:n.x-10;nodes+=`<a href="#" class="gnode"><title>Film: ${n.l}</title><circle cx="${n.x}" cy="${n.y}" r="7" fill="#1b1712" stroke="#E8A7AF" stroke-width="1.6"/><text x="${tx}" y="${n.y+3.5}" text-anchor="${anc}">${clip(n.l)}</text></a>`;});
+ outer.forEach(n=>{const anc=n.x>cx?'start':'end';const tx=anc==='start'?n.x+9:n.x-9;nodes+=`<a href="#" class="gnode"><title>Trope: ${n.l}</title><circle cx="${n.x}" cy="${n.y}" r="5" fill="#C8102E" opacity=".8"/><text x="${tx}" y="${n.y+3}" text-anchor="${anc}" style="font-size:9px;fill:#a79b88">${clip(n.l)}</text></a>`;});
+ GSVG.innerHTML=edges+nodes;
+ GSVG.classList.remove('gfade');void GSVG.offsetWidth;GSVG.classList.add('gfade');
+}
+graph();setInterval(graph,4200);
+
+/* STICKY SUBNAV scrollspy */
+const links=[...document.querySelectorAll('#subnav a')];
+const map={};links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+const obs=new IntersectionObserver(es=>{
+ es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('on'));const a=map[e.target.id];if(a)a.classList.add('on');}});
+},{rootMargin:'-120px 0px -65% 0px',threshold:0});
+document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

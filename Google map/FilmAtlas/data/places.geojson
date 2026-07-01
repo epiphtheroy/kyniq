@@ -1,0 +1,1090 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": "2026-06-28",
+    "count": 45,
+    "films": 6
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.1686,
+          41.3874
+        ]
+      },
+      "properties": {
+        "id": 0,
+        "place": "Barcelona",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 0,
+        "persp_heading": "The Barcelona Without Postcards",
+        "persp_subheading": "The Anti-Tourist City in Biutiful's Immigrant Neighborhoods",
+        "excerpt": "Alejandro González Iñárritu's Biutiful (2010) performs a deliberate erasure: it sets a story in Barcelona while refusing nearly every image the world…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.1681,
+          41.3797
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "place": "El Raval",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 0,
+        "persp_heading": "The Barcelona Without Postcards",
+        "persp_subheading": "The Anti-Tourist City in Biutiful's Immigrant Neighborhoods",
+        "excerpt": "Alejandro González Iñárritu's Biutiful (2010) performs a deliberate erasure: it sets a story in Barcelona while refusing nearly every image the world…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.1894,
+          41.3797
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "place": "La Barceloneta",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 0,
+        "persp_heading": "The Barcelona Without Postcards",
+        "persp_subheading": "The Anti-Tourist City in Biutiful's Immigrant Neighborhoods",
+        "excerpt": "Alejandro González Iñárritu's Biutiful (2010) performs a deliberate erasure: it sets a story in Barcelona while refusing nearly every image the world…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.2079,
+          41.4517
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "place": "Santa Coloma de Gramenet",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 0,
+        "persp_heading": "The Barcelona Without Postcards",
+        "persp_subheading": "The Anti-Tourist City in Biutiful's Immigrant Neighborhoods",
+        "excerpt": "Alejandro González Iñárritu's Biutiful (2010) performs a deliberate erasure: it sets a story in Barcelona while refusing nearly every image the world…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.2474,
+          41.45
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "place": "Badalona",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 0,
+        "persp_heading": "The Barcelona Without Postcards",
+        "persp_subheading": "The Anti-Tourist City in Biutiful's Immigrant Neighborhoods",
+        "excerpt": "Alejandro González Iñárritu's Biutiful (2010) performs a deliberate erasure: it sets a story in Barcelona while refusing nearly every image the world…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.0998,
+          41.3596
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "place": "L'Hospitalet de Llobregat",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 0,
+        "persp_heading": "The Barcelona Without Postcards",
+        "persp_subheading": "The Anti-Tourist City in Biutiful's Immigrant Neighborhoods",
+        "excerpt": "Alejandro González Iñárritu's Biutiful (2010) performs a deliberate erasure: it sets a story in Barcelona while refusing nearly every image the world…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.173,
+          41.3809
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "place": "La Rambla",
+        "scale": "street",
+        "role": "setting",
+        "film_id": "biutiful",
+        "film_title": "Biutiful",
+        "year": 2010,
+        "director": "Alejandro González Iñárritu",
+        "persp": 2,
+        "persp_heading": "The Street Belongs to No One",
+        "persp_subheading": "African Vendors and Policing in Biutiful's Public Space",
+        "excerpt": "Biutiful's other migrant economy is visible on the pavement: Senegalese street vendors, the manteros, hawking counterfeit bags from sheets they can snatch up…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3738,
+          48.2082
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "place": "Vienna",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 0,
+        "persp_heading": "Two Directions, One Wound",
+        "persp_subheading": "EU Migration Geography in Import/Export's East–West Axis",
+        "excerpt": "Ulrich Seidl's Import/Export (2007) is built on a single brutal symmetry: Olga, a nurse from Ukraine, travels west to Austria seeking a better life; Pauli, an…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.1656,
+          48.3794
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "place": "Ukraine",
+        "scale": "country",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 0,
+        "persp_heading": "Two Directions, One Wound",
+        "persp_subheading": "EU Migration Geography in Import/Export's East–West Axis",
+        "excerpt": "Ulrich Seidl's Import/Export (2007) is built on a single brutal symmetry: Olga, a nurse from Ukraine, travels west to Austria seeking a better life; Pauli, an…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5501,
+          47.5162
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "place": "Austria",
+        "scale": "country",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 0,
+        "persp_heading": "Two Directions, One Wound",
+        "persp_subheading": "EU Migration Geography in Import/Export's East–West Axis",
+        "excerpt": "Ulrich Seidl's Import/Export (2007) is built on a single brutal symmetry: Olga, a nurse from Ukraine, travels west to Austria seeking a better life; Pauli, an…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.699,
+          48.669
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "place": "Slovakia",
+        "scale": "country",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 0,
+        "persp_heading": "Two Directions, One Wound",
+        "persp_subheading": "EU Migration Geography in Import/Export's East–West Axis",
+        "excerpt": "Ulrich Seidl's Import/Export (2007) is built on a single brutal symmetry: Olga, a nurse from Ukraine, travels west to Austria seeking a better life; Pauli, an…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.473,
+          49.8175
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "place": "Czech Republic",
+        "scale": "country",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 0,
+        "persp_heading": "Two Directions, One Wound",
+        "persp_subheading": "EU Migration Geography in Import/Export's East–West Axis",
+        "excerpt": "Ulrich Seidl's Import/Export (2007) is built on a single brutal symmetry: Olga, a nurse from Ukraine, travels west to Austria seeking a better life; Pauli, an…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9668,
+          45.9432
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "place": "Romania",
+        "scale": "country",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 0,
+        "persp_heading": "Two Directions, One Wound",
+        "persp_subheading": "EU Migration Geography in Import/Export's East–West Axis",
+        "excerpt": "Ulrich Seidl's Import/Export (2007) is built on a single brutal symmetry: Olga, a nurse from Ukraine, travels west to Austria seeking a better life; Pauli, an…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.2783,
+          48.1726
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "place": "Lainz Geriatric Hospital, Vienna",
+        "scale": "poi",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 1,
+        "persp_heading": "Real Bodies on the Ward",
+        "persp_subheading": "Documentary Ethics in Import/Export's Vienna Geriatric Ward",
+        "excerpt": "The most unsettling power of Import/Export comes from its refusal to fake. When Olga, the migrant nurse, takes a job cleaning a geriatric ward, Seidl shot…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.2197,
+          48.7164
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "place": "Luník IX, Košice",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "importexport",
+        "film_title": "Import/Export",
+        "year": 2007,
+        "director": "Ulrich Seidl",
+        "persp": 2,
+        "persp_heading": "A Palace of Garbage",
+        "persp_subheading": "Roma Poverty in Import/Export's Slovak Housing Estate",
+        "excerpt": "One of Import/Export's bleakest passages sends Pauli and his stepfather into a decayed socialist-era housing block taken over by Roma families — filmed at a…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1667,
+          45.85
+        ]
+      },
+      "properties": {
+        "id": 15,
+        "place": "Lake Annecy",
+        "scale": "natural",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.4,
+          46.0
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "place": "Haute-Savoie",
+        "scale": "region",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2156,
+          45.8412
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "place": "Talloires",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2179,
+          45.8419
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "place": "Auberge du Père Bise, Talloires",
+        "scale": "poi",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1294,
+          45.8992
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "place": "Annecy",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.133,
+          45.8995
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "place": "Pont des Amours, Annecy",
+        "scale": "poi",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.223,
+          45.827
+        ]
+      },
+      "properties": {
+        "id": 21,
+        "place": "Angon",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "clairesknee",
+        "film_title": "Claire's Knee",
+        "year": 1970,
+        "director": "Éric Rohmer",
+        "persp": 0,
+        "persp_heading": "Leisure Has an Owner",
+        "persp_subheading": "Class and Tourism in Claire's Knee's Lake Annecy",
+        "excerpt": "Bourgeois desire needs a backdrop. Rohmer found his on Lake Annecy. Claire's Knee (Le Genou de Claire, 1970), the fifth of Rohmer's Six Moral Tales, sets…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.3666,
+          23.1136
+        ]
+      },
+      "properties": {
+        "id": 22,
+        "place": "Havana (depicted)",
+        "scale": "city",
+        "role": "symbolic",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 0,
+        "persp_heading": "One Strongman's Island Plays Another",
+        "persp_subheading": "Embargo Geopolitics in The Godfather Part II's Havana",
+        "excerpt": "The 1962 U.S. trade embargo made Batista's Havana unfilmable for an American crew, so Coppola rebuilt Cuba in the Dominican Republic. The film's New Year's Eve…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.9312,
+          18.4861
+        ]
+      },
+      "properties": {
+        "id": 23,
+        "place": "Santo Domingo",
+        "scale": "city",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 0,
+        "persp_heading": "One Strongman's Island Plays Another",
+        "persp_subheading": "Embargo Geopolitics in The Godfather Part II's Havana",
+        "excerpt": "The 1962 U.S. trade embargo made Batista's Havana unfilmable for an American crew, so Coppola rebuilt Cuba in the Dominican Republic. The film's New Year's Eve…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.9389,
+          18.4539
+        ]
+      },
+      "properties": {
+        "id": 24,
+        "place": "Hotel El Embajador, Santo Domingo",
+        "scale": "poi",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 0,
+        "persp_heading": "One Strongman's Island Plays Another",
+        "persp_subheading": "Embargo Geopolitics in The Godfather Part II's Havana",
+        "excerpt": "The 1962 U.S. trade embargo made Batista's Havana unfilmable for an American crew, so Coppola rebuilt Cuba in the Dominican Republic. The film's New Year's Eve…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.8995,
+          18.4655
+        ]
+      },
+      "properties": {
+        "id": 25,
+        "place": "Palacio Nacional, Santo Domingo",
+        "scale": "poi",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 0,
+        "persp_heading": "One Strongman's Island Plays Another",
+        "persp_subheading": "Embargo Geopolitics in The Godfather Part II's Havana",
+        "excerpt": "The 1962 U.S. trade embargo made Batista's Havana unfilmable for an American crew, so Coppola rebuilt Cuba in the Dominican Republic. The film's New Year's Eve…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3005,
+          37.8129
+        ]
+      },
+      "properties": {
+        "id": 26,
+        "place": "Corleone",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 1,
+        "persp_heading": "The Village That Exports Its Sons",
+        "persp_subheading": "Emigration Geography in The Godfather Part II's Sicily",
+        "excerpt": "Young Vito Andolini's flight from Corleone — orphaned by a don's vendetta, shipped to New York around 1901 — was filmed not in Corleone but in the hill towns…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2658,
+          37.9606
+        ]
+      },
+      "properties": {
+        "id": 27,
+        "place": "Savoca",
+        "scale": "district",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 1,
+        "persp_heading": "The Village That Exports Its Sons",
+        "persp_subheading": "Emigration Geography in The Godfather Part II's Sicily",
+        "excerpt": "Young Vito Andolini's flight from Corleone — orphaned by a don's vendetta, shipped to New York around 1901 — was filmed not in Corleone but in the hill towns…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.266,
+          37.9607
+        ]
+      },
+      "properties": {
+        "id": 28,
+        "place": "Bar Vitelli, Savoca",
+        "scale": "poi",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 1,
+        "persp_heading": "The Village That Exports Its Sons",
+        "persp_subheading": "Emigration Geography in The Godfather Part II's Sicily",
+        "excerpt": "Young Vito Andolini's flight from Corleone — orphaned by a don's vendetta, shipped to New York around 1901 — was filmed not in Corleone but in the hill towns…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2569,
+          37.9152
+        ]
+      },
+      "properties": {
+        "id": 29,
+        "place": "Forza d'Agrò",
+        "scale": "district",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 1,
+        "persp_heading": "The Village That Exports Its Sons",
+        "persp_subheading": "Emigration Geography in The Godfather Part II's Sicily",
+        "excerpt": "Young Vito Andolini's flight from Corleone — orphaned by a don's vendetta, shipped to New York around 1901 — was filmed not in Corleone but in the hill towns…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.0324,
+          39.0968
+        ]
+      },
+      "properties": {
+        "id": 30,
+        "place": "Lake Tahoe",
+        "scale": "natural",
+        "role": "setting",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 2,
+        "persp_heading": "The Immigrant Buys the Lake",
+        "persp_subheading": "Assimilation and Capital in The Godfather Part II's Lake Tahoe",
+        "excerpt": "Michael Corleone's fortified compound — site of the First Communion gala, the assassination attempt, and Fredo's death sentence — is Fleur du Lac, a real…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1599,
+          39.0876
+        ]
+      },
+      "properties": {
+        "id": 31,
+        "place": "Fleur du Lac, Lake Tahoe",
+        "scale": "poi",
+        "role": "production",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 2,
+        "persp_heading": "The Immigrant Buys the Lake",
+        "persp_subheading": "Assimilation and Capital in The Godfather Part II's Lake Tahoe",
+        "excerpt": "Michael Corleone's fortified compound — site of the First Communion gala, the assassination attempt, and Fredo's death sentence — is Fleur du Lac, a real…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0397,
+          40.6995
+        ]
+      },
+      "properties": {
+        "id": 32,
+        "place": "Ellis Island, New York",
+        "scale": "poi",
+        "role": "setting",
+        "film_id": "godfather2",
+        "film_title": "The Godfather Part II",
+        "year": 1974,
+        "director": "Francis Ford Coppola",
+        "persp": 2,
+        "persp_heading": "The Immigrant Buys the Lake",
+        "persp_subheading": "Assimilation and Capital in The Godfather Part II's Lake Tahoe",
+        "excerpt": "Michael Corleone's fortified compound — site of the First Communion gala, the assassination attempt, and Fredo's death sentence — is Fleur du Lac, a real…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.7209,
+          62.2415
+        ]
+      },
+      "properties": {
+        "id": 33,
+        "place": "Finn-Match Plant, Jyväskylä",
+        "scale": "poi",
+        "role": "production",
+        "film_id": "matchfactorygirl",
+        "film_title": "The Match Factory Girl",
+        "year": 1990,
+        "director": "Aki Kaurismäki",
+        "persp": 0,
+        "persp_heading": "The Assembly Line Is Real",
+        "persp_subheading": "Industrial Labor in The Match Factory Girl's Finn-Match Plant",
+        "excerpt": "Kaurismäki opens The Match Factory Girl (1990) with several wordless minutes of an actual production line: logs stripped, matches cut, dried, boxed, and…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9384,
+          60.1699
+        ]
+      },
+      "properties": {
+        "id": 34,
+        "place": "Helsinki",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "matchfactorygirl",
+        "film_title": "The Match Factory Girl",
+        "year": 1990,
+        "director": "Aki Kaurismäki",
+        "persp": 1,
+        "persp_heading": "A Country on the Brink, on Television",
+        "persp_subheading": "Historical Time in The Match Factory Girl's Helsinki",
+        "excerpt": "Iris's drab Helsinki — a cramped courtyard flat on Toinen linja, a dance hall in Laajasalo, the Hietaniemi cemetery — looks timeless in its grey misery, but…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.954,
+          60.183
+        ]
+      },
+      "properties": {
+        "id": 35,
+        "place": "Toinen linja, Helsinki",
+        "scale": "street",
+        "role": "setting",
+        "film_id": "matchfactorygirl",
+        "film_title": "The Match Factory Girl",
+        "year": 1990,
+        "director": "Aki Kaurismäki",
+        "persp": 1,
+        "persp_heading": "A Country on the Brink, on Television",
+        "persp_subheading": "Historical Time in The Match Factory Girl's Helsinki",
+        "excerpt": "Iris's drab Helsinki — a cramped courtyard flat on Toinen linja, a dance hall in Laajasalo, the Hietaniemi cemetery — looks timeless in its grey misery, but…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.913,
+          60.173
+        ]
+      },
+      "properties": {
+        "id": 36,
+        "place": "Hietaniemi Cemetery, Helsinki",
+        "scale": "poi",
+        "role": "setting",
+        "film_id": "matchfactorygirl",
+        "film_title": "The Match Factory Girl",
+        "year": 1990,
+        "director": "Aki Kaurismäki",
+        "persp": 1,
+        "persp_heading": "A Country on the Brink, on Television",
+        "persp_subheading": "Historical Time in The Match Factory Girl's Helsinki",
+        "excerpt": "Iris's drab Helsinki — a cramped courtyard flat on Toinen linja, a dance hall in Laajasalo, the Hietaniemi cemetery — looks timeless in its grey misery, but…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.04,
+          60.17
+        ]
+      },
+      "properties": {
+        "id": 37,
+        "place": "Laajasalo, Helsinki",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "matchfactorygirl",
+        "film_title": "The Match Factory Girl",
+        "year": 1990,
+        "director": "Aki Kaurismäki",
+        "persp": 1,
+        "persp_heading": "A Country on the Brink, on Television",
+        "persp_subheading": "Historical Time in The Match Factory Girl's Helsinki",
+        "excerpt": "Iris's drab Helsinki — a cramped courtyard flat on Toinen linja, a dance hall in Laajasalo, the Hietaniemi cemetery — looks timeless in its grey misery, but…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0686,
+          59.3293
+        ]
+      },
+      "properties": {
+        "id": 38,
+        "place": "Swedish Film Institute, Stockholm",
+        "scale": "poi",
+        "role": "production",
+        "film_id": "matchfactorygirl",
+        "film_title": "The Match Factory Girl",
+        "year": 1990,
+        "director": "Aki Kaurismäki",
+        "persp": 2,
+        "persp_heading": "Nordic Money for a Small, Hard Film",
+        "persp_subheading": "Co-Production Economics in The Match Factory Girl",
+        "excerpt": "A 68-minute, near-silent film about a humiliated factory worker is no commercial proposition. The Match Factory Girl was a Finnish-Swedish co-production, made…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.615,
+          39.6739
+        ]
+      },
+      "properties": {
+        "id": 39,
+        "place": "Keskin, Kırıkkale",
+        "scale": "district",
+        "role": "setting",
+        "film_id": "anatolia",
+        "film_title": "Once Upon a Time in Anatolia",
+        "year": 2011,
+        "director": "Nuri Bilge Ceylan",
+        "persp": 0,
+        "persp_heading": "The State Drives Into the Dark",
+        "persp_subheading": "Bureaucracy and Periphery in the film's Keskin",
+        "excerpt": "Once Upon a Time in Anatolia (2011) follows a convoy — a prosecutor, a doctor, police, gendarmes, and a confessed killer — searching the night steppe for a…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.5153,
+          39.8468
+        ]
+      },
+      "properties": {
+        "id": 40,
+        "place": "Kırıkkale Province",
+        "scale": "region",
+        "role": "setting",
+        "film_id": "anatolia",
+        "film_title": "Once Upon a Time in Anatolia",
+        "year": 2011,
+        "director": "Nuri Bilge Ceylan",
+        "persp": 0,
+        "persp_heading": "The State Drives Into the Dark",
+        "persp_subheading": "Bureaucracy and Periphery in the film's Keskin",
+        "excerpt": "Once Upon a Time in Anatolia (2011) follows a convoy — a prosecutor, a doctor, police, gendarmes, and a confessed killer — searching the night steppe for a…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8597,
+          39.9334
+        ]
+      },
+      "properties": {
+        "id": 41,
+        "place": "Ankara",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "anatolia",
+        "film_title": "Once Upon a Time in Anatolia",
+        "year": 2011,
+        "director": "Nuri Bilge Ceylan",
+        "persp": 0,
+        "persp_heading": "The State Drives Into the Dark",
+        "persp_subheading": "Bureaucracy and Periphery in the film's Keskin",
+        "excerpt": "Once Upon a Time in Anatolia (2011) follows a convoy — a prosecutor, a doctor, police, gendarmes, and a confessed killer — searching the night steppe for a…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9784,
+          41.0082
+        ]
+      },
+      "properties": {
+        "id": 42,
+        "place": "Istanbul",
+        "scale": "city",
+        "role": "setting",
+        "film_id": "anatolia",
+        "film_title": "Once Upon a Time in Anatolia",
+        "year": 2011,
+        "director": "Nuri Bilge Ceylan",
+        "persp": 1,
+        "persp_heading": "An Emptiness Full of People Leaving",
+        "persp_subheading": "Depopulation in the film's Steppe",
+        "excerpt": "The film's defining image is the Anatolian steppe at night — endless rolling dark, a few distant lights, a lonely village where the convoy pauses. This…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4131,
+          43.8563
+        ]
+      },
+      "properties": {
+        "id": 43,
+        "place": "Sarajevo (co-producer)",
+        "scale": "city",
+        "role": "production",
+        "film_id": "anatolia",
+        "film_title": "Once Upon a Time in Anatolia",
+        "year": 2011,
+        "director": "Nuri Bilge Ceylan",
+        "persp": 2,
+        "persp_heading": "A Border Drawn in Money",
+        "persp_subheading": "Co-Production Geography of the film",
+        "excerpt": "A nearly three-hour, slow, dialogue-dense Turkish film about a nocturnal body search is a hard commercial sell. Once Upon a Time in Anatolia was produced by…"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0174,
+          43.5528
+        ]
+      },
+      "properties": {
+        "id": 44,
+        "place": "Cannes Film Festival",
+        "scale": "poi",
+        "role": "festival",
+        "film_id": "anatolia",
+        "film_title": "Once Upon a Time in Anatolia",
+        "year": 2011,
+        "director": "Nuri Bilge Ceylan",
+        "persp": 2,
+        "persp_heading": "A Border Drawn in Money",
+        "persp_subheading": "Co-Production Geography of the film",
+        "excerpt": "A nearly three-hour, slow, dialogue-dense Turkish film about a nocturnal body search is a hard commercial sell. Once Upon a Time in Anatolia was produced by…"
+      }
+    }
+  ]
+}

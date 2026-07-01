@@ -1,0 +1,1001 @@
+Rank,Wave,Bucket,Film_Title,Film_Director_Name,Year,Country,Demand,Density,Priority
+1,1,Contemporary curation,Before Midnight,Richard Linklater,2013,USA,4,5,22
+2,1,Popular/genre depth,1917,Sam Mendes,2019,UK,5,4,22
+3,1,Contemporary curation,Dunkirk,Christopher Nolan,2017,UK,5,4,22
+4,1,Popular/genre depth,The Dark Knight Rises,Christopher Nolan,2012,USA,5,4,22
+5,1,Popular/genre depth,12 Years a Slave,Steve McQueen,2013,UK,4,5,21
+6,1,Canon backfill,Mother,Bong Joon Ho,2009,South Korea,4,5,21
+7,1,Contemporary curation,Before Sunset,Richard Linklater,2004,USA,4,5,21
+8,1,Contemporary curation,Rushmore,Wes Anderson,1998,USA,4,5,21
+9,1,Contemporary curation,Malcolm X,Spike Lee,1992,USA,4,5,21
+10,1,Canon backfill,The Birds,Alfred Hitchcock,1963,USA,4,5,21
+11,1,Popular/genre depth,Star Wars: The Last Jedi,Rian Johnson,2017,USA,5,4,21
+12,1,Contemporary curation,The Prestige,Christopher Nolan,2006,USA,5,4,21
+13,1,Popular/genre depth,The Hurt Locker,Kathryn Bigelow,2008,USA,4,5,20
+14,1,Contemporary curation,Eddington,Ari Aster,2025,USA,4,4,19
+15,1,Popular/genre depth,Nosferatu,Robert Eggers,2024,USA,4,4,19
+16,1,Contemporary curation,Killers of the Flower Moon,Martin Scorsese,2023,USA,4,4,19
+17,1,Contemporary curation,The Northman,Robert Eggers,2022,USA,4,4,19
+18,1,Contemporary curation,BlacKkKlansman,Spike Lee,2018,USA,4,4,19
+19,1,Contemporary curation,Isle of Dogs,Wes Anderson,2018,USA,4,4,19
+20,1,Canon backfill,Walk Up,Hong Sang-soo,2022,South Korea,3,5,18
+21,1,Canon backfill,In Front of Your Face,Hong Sang-soo,2021,South Korea,3,5,18
+22,1,Canon backfill,Grass,Hong Sang-soo,2018,South Korea,3,5,18
+23,1,Contemporary curation,If Beale Street Could Talk,Barry Jenkins,2018,USA,3,5,18
+24,1,Popular/genre depth,Bring Her Back,Danny Philippou,2025,Australia,4,4,18
+25,1,Popular/genre depth,Weapons,Zach Cregger,2025,USA,4,4,18
+26,1,Popular/genre depth,Look Back,Kiyotaka Oshiyama,2024,Japan,4,4,18
+27,1,Contemporary curation,All Quiet on the Western Front,Edward Berger,2022,Germany,4,4,18
+28,1,Popular/genre depth,Barbarian,Zach Cregger,2022,USA,4,4,18
+29,1,Popular/genre depth,The Invisible Man,Leigh Whannell,2020,USA,4,4,18
+30,1,Popular/genre depth,Apollo 11,Todd Douglas Miller,2019,USA,4,4,18
+31,1,Contemporary curation,Eighth Grade,Bo Burnham,2018,USA,4,4,18
+32,1,Contemporary curation,A Dangerous Method,David Cronenberg,2011,Canada,4,4,18
+33,1,Contemporary curation,Shutter Island,Martin Scorsese,2010,USA,4,4,18
+34,1,Contemporary curation,No Other Land,Basel Adra,2024,Palestine,3,5,17
+35,1,Popular/genre depth,20 Days in Mariupol,Mstyslav Chernov,2023,Ukraine,3,5,17
+36,1,Popular/genre depth,All the Beauty and the Bloodshed,Laura Poitras,2022,USA,3,5,17
+37,1,Canon backfill,Undine,Christian Petzold,2020,Germany,3,5,17
+38,1,Popular/genre depth,For Sama,Waad Al-Kateab,2019,Syria,3,5,17
+39,1,Canon backfill,Synonyms,Nadav Lapid,2019,Israel,3,5,17
+40,1,Canon backfill,3 Faces,Jafar Panahi,2018,Iran,3,5,17
+41,1,Canon backfill,Dogman,Matteo Garrone,2018,Italy,3,5,17
+42,1,Contemporary curation,Leave No Trace,Debra Granik,2018,USA,3,5,17
+43,1,Canon backfill,Claire's Camera,Hong Sang-soo,2017,South Korea,3,5,17
+44,1,Canon backfill,The Day After,Hong Sang-soo,2017,South Korea,3,5,17
+45,1,Contemporary curation,Paterson,Jim Jarmusch,2016,USA,3,5,17
+46,1,Contemporary curation,Silence,Martin Scorsese,2016,USA,3,5,17
+47,1,Canon backfill,Louder Than Bombs,Joachim Trier,2015,Norway,3,5,17
+48,1,Contemporary curation,"Two Days, One Night",Jean-Pierre Dardenne,2014,Belgium,3,5,17
+49,1,Canon backfill,In Another Country,Hong Sang-soo,2012,South Korea,3,5,17
+50,1,Canon backfill,Like Someone in Love,Abbas Kiarostami,2012,Japan,3,5,17
+51,1,Canon backfill,Alps,Yorgos Lanthimos,2011,Greece,3,5,17
+52,1,Canon backfill,"Oslo, August 31st",Joachim Trier,2011,Norway,3,5,17
+53,1,Canon backfill,Play,Ruben Ostlund,2011,Sweden,3,5,17
+54,1,Contemporary curation,Tomboy,Celine Sciamma,2011,France,3,5,17
+55,1,Canon backfill,Certified Copy,Abbas Kiarostami,2010,France,3,5,17
+56,1,Contemporary curation,The Death of Stalin,Armando Iannucci,2017,UK,4,4,17
+57,1,Popular/genre depth,Hell or High Water,David Mackenzie,2016,USA,4,4,17
+58,1,Popular/genre depth,Sing Street,John Carney,2016,Ireland,4,4,17
+59,1,Popular/genre depth,Amy,Asif Kapadia,2015,UK,4,4,17
+60,1,Popular/genre depth,The Raid 2,Gareth Evans,2014,Indonesia,4,4,17
+61,1,Popular/genre depth,When Marnie Was There,Hiromasa Yonebayashi,2014,Japan,4,4,17
+62,1,Contemporary curation,Blue Is the Warmest Color,Abdellatif Kechiche,2013,France,4,4,17
+63,1,Popular/genre depth,New World,Park Hoon-jung,2013,South Korea,4,4,17
+64,1,Popular/genre depth,Looper,Rian Johnson,2012,USA,4,4,17
+65,1,Popular/genre depth,Prometheus,Ridley Scott,2012,USA,4,4,17
+66,1,Contemporary curation,The Place Beyond the Pines,Derek Cianfrance,2012,USA,4,4,17
+67,1,Popular/genre depth,Zero Dark Thirty,Kathryn Bigelow,2012,USA,4,4,17
+68,1,Popular/genre depth,Exit Through the Gift Shop,Banksy,2010,UK,4,4,17
+69,1,Contemporary curation,Polytechnique,Denis Villeneuve,2009,Canada,4,4,17
+70,1,Popular/genre depth,5 Centimeters per Second,Makoto Shinkai,2007,Japan,4,4,17
+71,1,Contemporary curation,The Darjeeling Limited,Wes Anderson,2007,USA,4,4,17
+72,1,Popular/genre depth,A Bittersweet Life,Kim Jee-woon,2005,South Korea,4,4,17
+73,1,Contemporary curation,The Life Aquatic with Steve Zissou,Wes Anderson,2004,USA,4,4,17
+74,1,Contemporary curation,Gangs of New York,Martin Scorsese,2002,USA,4,4,17
+75,1,Contemporary curation,Spider,David Cronenberg,2002,Canada,4,4,17
+76,1,Canon backfill,Joint Security Area,Park Chan-wook,2000,South Korea,4,4,17
+77,1,Contemporary curation,"O Brother, Where Art Thou?",Joel Coen,2000,USA,4,4,17
+78,1,Contemporary curation,Traffic,Steven Soderbergh,2000,USA,4,4,17
+79,1,Contemporary curation,Bringing Out the Dead,Martin Scorsese,1999,USA,4,4,17
+80,1,Contemporary curation,The Virgin Suicides,Sofia Coppola,1999,USA,4,4,17
+81,1,Contemporary curation,Following,Christopher Nolan,1998,UK,4,4,17
+82,1,Contemporary curation,Amistad,Steven Spielberg,1997,USA,4,4,17
+83,1,Contemporary curation,Hard Eight,Paul Thomas Anderson,1996,USA,4,4,17
+84,1,Contemporary curation,The Flower of My Secret,Pedro Almodovar,1995,Spain,4,4,17
+85,1,Contemporary curation,The Hudsucker Proxy,Joel Coen,1994,USA,4,4,17
+86,1,Contemporary curation,The Age of Innocence,Martin Scorsese,1993,USA,4,4,17
+87,1,Contemporary curation,High Heels,Pedro Almodovar,1991,Spain,4,4,17
+88,1,Contemporary curation,Tie Me Up! Tie Me Down!,Pedro Almodovar,1989,Spain,4,4,17
+89,1,Contemporary curation,Matador,Pedro Almodovar,1986,Spain,4,4,17
+90,1,Contemporary curation,After Hours,Martin Scorsese,1985,USA,4,4,17
+91,1,Contemporary curation,The Elephant Man,David Lynch,1980,USA,4,4,17
+92,1,Contemporary curation,Alice Doesn't Live Here Anymore,Martin Scorsese,1974,USA,4,4,17
+93,1,Contemporary curation,Duel,Steven Spielberg,1971,USA,4,4,17
+94,1,Canon backfill,Spartacus,Stanley Kubrick,1960,USA,4,4,17
+95,1,Popular/genre depth,Demon Slayer: Infinity Castle,Haruo Sotozaki,2025,Japan,5,3,17
+96,1,Popular/genre depth,KPop Demon Hunters,Maggie Kang,2025,USA,5,3,17
+97,1,Popular/genre depth,Thunderbolts,Jake Schreier,2025,USA,5,3,17
+98,1,Popular/genre depth,Alien: Romulus,Fede Alvarez,2024,USA,5,3,17
+99,1,Popular/genre depth,Deadpool & Wolverine,Shawn Levy,2024,USA,5,3,17
+100,1,Popular/genre depth,Gladiator II,Ridley Scott,2024,USA,5,3,17
+101,1,Popular/genre depth,Wicked,Jon M. Chu,2024,USA,5,3,17
+102,1,Contemporary curation,Godzilla Minus One,Takashi Yamazaki,2023,Japan,5,3,17
+103,1,Popular/genre depth,John Wick: Chapter 4,Chad Stahelski,2023,USA,5,3,17
+104,1,Popular/genre depth,Mission: Impossible - Dead Reckoning Part One,Christopher McQuarrie,2023,USA,5,3,17
+105,1,Popular/genre depth,The Super Mario Bros. Movie,Aaron Horvath,2023,USA,5,3,17
+106,1,Popular/genre depth,Wonka,Paul King,2023,USA,5,3,17
+107,1,Popular/genre depth,Avatar: The Way of Water,James Cameron,2022,USA,5,3,17
+108,1,Popular/genre depth,Black Panther: Wakanda Forever,Ryan Coogler,2022,USA,5,3,17
+109,1,Contemporary curation,Glass Onion: A Knives Out Mystery,Rian Johnson,2022,USA,5,3,17
+110,1,Popular/genre depth,No Time to Die,Cary Joji Fukunaga,2021,UK,5,3,17
+111,1,Popular/genre depth,Shang-Chi and the Legend of the Ten Rings,Destin Daniel Cretton,2021,USA,5,3,17
+112,1,Popular/genre depth,Spider-Man: No Way Home,Jon Watts,2021,USA,5,3,17
+113,1,Popular/genre depth,The Suicide Squad,James Gunn,2021,USA,5,3,17
+114,1,Popular/genre depth,Demon Slayer: Mugen Train,Haruo Sotozaki,2020,Japan,5,3,17
+115,1,Popular/genre depth,Captain Marvel,Anna Boden,2019,USA,5,3,17
+116,1,Popular/genre depth,Frozen II,Chris Buck,2019,USA,5,3,17
+117,1,Popular/genre depth,John Wick: Chapter 3 - Parabellum,Chad Stahelski,2019,USA,5,3,17
+118,1,Popular/genre depth,Terminator: Dark Fate,Tim Miller,2019,USA,5,3,17
+119,1,Popular/genre depth,Toy Story 4,Josh Cooley,2019,USA,5,3,17
+120,1,Popular/genre depth,Aquaman,James Wan,2018,USA,5,3,17
+121,1,Popular/genre depth,Creed II,Steven Caple Jr.,2018,USA,5,3,17
+122,1,Popular/genre depth,Incredibles 2,Brad Bird,2018,USA,5,3,17
+123,1,Popular/genre depth,Mission: Impossible - Fallout,Christopher McQuarrie,2018,USA,5,3,17
+124,1,Contemporary curation,First Reformed,Paul Schrader,2017,USA,3,5,16
+125,1,Contemporary curation,Good Time,Benny Safdie,2017,USA,3,5,16
+126,1,Popular/genre depth,I Am Not Your Negro,Raoul Peck,2016,USA,3,5,16
+127,1,Contemporary curation,"I, Daniel Blake",Ken Loach,2016,UK,3,5,16
+128,1,Popular/genre depth,In This Corner of the World,Sunao Katabuchi,2016,Japan,3,5,16
+129,1,Canon backfill,Arabian Nights,Miguel Gomes,2015,Portugal,3,5,16
+130,1,Canon backfill,A Pigeon Sat on a Branch Reflecting on Existence,Roy Andersson,2014,Sweden,3,5,16
+131,1,Canon backfill,Leviathan,Andrey Zvyagintsev,2014,Russia,3,5,16
+132,1,Canon backfill,The Kindergarten Teacher,Nadav Lapid,2014,Israel,3,5,16
+133,1,Canon backfill,Borgman,Alex van Warmerdam,2013,Netherlands,3,5,16
+134,1,Canon backfill,Omar,Hany Abu-Assad,2013,Palestine,3,5,16
+135,1,Canon backfill,Stray Dogs,Tsai Ming-liang,2013,Taiwan,3,5,16
+136,1,Canon backfill,Pieta,Kim Ki-duk,2012,South Korea,3,5,16
+137,1,Canon backfill,Tabu,Miguel Gomes,2012,Portugal,3,5,16
+138,1,Canon backfill,Wadjda,Haifaa al-Mansour,2012,Saudi Arabia,3,5,16
+139,1,Canon backfill,Attenberg,Athina Rachel Tsangari,2010,Greece,3,5,16
+140,1,Canon backfill,Nostalgia for the Light,Patricio Guzman,2010,Chile,3,5,16
+141,1,Canon backfill,Antichrist,Lars von Trier,2009,Denmark,3,5,16
+142,1,Canon backfill,Dogtooth,Yorgos Lanthimos,2009,Greece,3,5,16
+143,1,Canon backfill,24 City,Jia Zhangke,2008,China,3,5,16
+144,1,Canon backfill,Reprise,Joachim Trier,2006,Norway,3,5,16
+145,1,Canon backfill,Cache,Michael Haneke,2005,France,3,5,16
+146,1,Canon backfill,Manderlay,Lars von Trier,2005,Denmark,3,5,16
+147,1,Canon backfill,Three Times,Hou Hsiao-hsien,2005,Taiwan,3,5,16
+148,1,Canon backfill,The World,Jia Zhangke,2004,China,3,5,16
+149,1,Contemporary curation,Elephant,Gus Van Sant,2003,USA,3,5,16
+150,1,Canon backfill,Time of the Wolf,Michael Haneke,2003,France,3,5,16
+151,1,Contemporary curation,25th Hour,Spike Lee,2002,USA,3,5,16
+152,1,Contemporary curation,Far from Heaven,Todd Haynes,2002,USA,3,5,16
+153,1,Contemporary curation,Punch-Drunk Love,Paul Thomas Anderson,2002,USA,3,5,16
+154,1,Canon backfill,Ten,Abbas Kiarostami,2002,Iran,3,5,16
+155,1,Canon backfill,Unknown Pleasures,Jia Zhangke,2002,China,3,5,16
+156,1,Canon backfill,Millennium Mambo,Hou Hsiao-hsien,2001,Taiwan,3,5,16
+157,1,Canon backfill,The Piano Teacher,Michael Haneke,2001,Austria,3,5,16
+158,1,Canon backfill,Barking Dogs Never Bite,Bong Joon Ho,2000,South Korea,3,5,16
+159,1,Popular/genre depth,Dancer in the Dark,Lars von Trier,2000,Denmark,3,5,16
+160,1,Canon backfill,Not One Less,Zhang Yimou,1999,China,3,5,16
+161,1,Canon backfill,Peppermint Candy,Lee Chang-dong,1999,South Korea,3,5,16
+162,1,Canon backfill,The Road Home,Zhang Yimou,1999,China,3,5,16
+163,1,Canon backfill,The Wind Will Carry Us,Abbas Kiarostami,1999,Iran,3,5,16
+164,1,Canon backfill,The Idiots,Lars von Trier,1998,Denmark,3,5,16
+165,1,Canon backfill,Green Fish,Lee Chang-dong,1997,South Korea,3,5,16
+166,1,Contemporary curation,Lost Highway,David Lynch,1997,USA,3,5,16
+167,1,Contemporary curation,Crash,David Cronenberg,1996,Canada,3,5,16
+168,1,Contemporary curation,Dead Man,Jim Jarmusch,1995,USA,3,5,16
+169,1,Canon backfill,Maborosi,Hirokazu Kore-eda,1995,Japan,3,5,16
+170,1,Contemporary curation,Safe,Todd Haynes,1995,USA,3,5,16
+171,1,Canon backfill,Ashes of Time,Wong Kar-wai,1994,Hong Kong,3,5,16
+172,1,Canon backfill,Lessons of Darkness,Werner Herzog,1992,Germany,3,5,16
+173,1,Canon backfill,The Story of Qiu Ju,Zhang Yimou,1992,China,3,5,16
+174,1,Canon backfill,Europa,Lars von Trier,1991,Denmark,3,5,16
+175,1,Contemporary curation,My Own Private Idaho,Gus Van Sant,1991,USA,3,5,16
+176,1,Canon backfill,The Double Life of Veronique,Krzysztof Kieslowski,1991,France,3,5,16
+177,1,Canon backfill,Until the End of the World,Wim Wenders,1991,Germany,3,5,16
+178,1,Canon backfill,Close-Up,Abbas Kiarostami,1990,Iran,3,5,16
+179,1,Canon backfill,Dekalog,Krzysztof Kieslowski,1989,Poland,3,5,16
+180,1,Canon backfill,The Seventh Continent,Michael Haneke,1989,Austria,3,5,16
+181,1,Canon backfill,A Short Film About Killing,Krzysztof Kieslowski,1988,Poland,3,5,16
+182,1,Canon backfill,As Tears Go By,Wong Kar-wai,1988,Hong Kong,3,5,16
+183,1,Canon backfill,Red Sorghum,Zhang Yimou,1987,China,3,5,16
+184,1,Canon backfill,Where Is the Friend's House?,Abbas Kiarostami,1987,Iran,3,5,16
+185,1,Canon backfill,Dust in the Wind,Hou Hsiao-hsien,1986,Taiwan,3,5,16
+186,1,Canon backfill,A Time to Live and a Time to Die,Hou Hsiao-hsien,1985,Taiwan,3,5,16
+187,1,Contemporary curation,Stranger Than Paradise,Jim Jarmusch,1984,USA,3,5,16
+188,1,Canon backfill,The Element of Crime,Lars von Trier,1984,Denmark,3,5,16
+189,1,Canon backfill,L'Argent,Robert Bresson,1983,France,3,5,16
+190,1,Contemporary curation,The King of Comedy,Martin Scorsese,1982,USA,3,5,16
+191,1,Canon backfill,Veronika Voss,Rainer Werner Fassbinder,1982,Germany,3,5,16
+192,1,Canon backfill,Berlin Alexanderplatz,Rainer Werner Fassbinder,1980,Germany,3,5,16
+193,1,Canon backfill,Kagemusha,Akira Kurosawa,1980,Japan,3,5,16
+194,1,Canon backfill,The Last Metro,Francois Truffaut,1980,France,3,5,16
+195,1,Canon backfill,Nosferatu the Vampyre,Werner Herzog,1979,Germany,3,5,16
+196,1,Canon backfill,Autumn Sonata,Ingmar Bergman,1978,Sweden,3,5,16
+197,1,Canon backfill,In a Year of 13 Moons,Rainer Werner Fassbinder,1978,Germany,3,5,16
+198,1,Canon backfill,Stroszek,Werner Herzog,1977,Germany,3,5,16
+199,1,Canon backfill,That Obscure Object of Desire,Luis Bunuel,1977,France,3,5,16
+200,1,Canon backfill,The American Friend,Wim Wenders,1977,Germany,3,5,16
+201,1,Canon backfill,Heart of Glass,Werner Herzog,1976,Germany,3,5,16
+202,1,Canon backfill,Kings of the Road,Wim Wenders,1976,Germany,3,5,16
+203,1,Canon backfill,Dersu Uzala,Akira Kurosawa,1975,USSR/Japan,3,5,16
+204,1,Canon backfill,Fox and His Friends,Rainer Werner Fassbinder,1975,Germany,3,5,16
+205,1,Canon backfill,The Passenger,Michelangelo Antonioni,1975,Italy,3,5,16
+206,1,Canon backfill,The Story of Adele H.,Francois Truffaut,1975,France,3,5,16
+207,1,Canon backfill,Alice in the Cities,Wim Wenders,1974,Germany,3,5,16
+208,1,Canon backfill,Effi Briest,Rainer Werner Fassbinder,1974,Germany,3,5,16
+209,1,Canon backfill,Lancelot du Lac,Robert Bresson,1974,France,3,5,16
+210,1,Canon backfill,The Enigma of Kaspar Hauser,Werner Herzog,1974,Germany,3,5,16
+211,1,Canon backfill,The Phantom of Liberty,Luis Bunuel,1974,France,3,5,16
+212,1,Canon backfill,Amarcord,Federico Fellini,1973,Italy,3,5,16
+213,1,Canon backfill,Day for Night,Francois Truffaut,1973,France,3,5,16
+214,1,Canon backfill,World on a Wire,Rainer Werner Fassbinder,1973,Germany,3,5,16
+215,1,Canon backfill,Frenzy,Alfred Hitchcock,1972,UK,3,5,16
+216,1,Canon backfill,The Bitter Tears of Petra von Kant,Rainer Werner Fassbinder,1972,Germany,3,5,16
+217,1,Canon backfill,Even Dwarfs Started Small,Werner Herzog,1970,Germany,3,5,16
+218,1,Canon backfill,The Wild Child,Francois Truffaut,1970,France,3,5,16
+219,1,Canon backfill,Tristana,Luis Bunuel,1970,Spain,3,5,16
+220,1,Canon backfill,Zabriskie Point,Michelangelo Antonioni,1970,USA,3,5,16
+221,1,Canon backfill,Satyricon,Federico Fellini,1969,Italy,3,5,16
+222,1,Canon backfill,Hour of the Wolf,Ingmar Bergman,1968,Sweden,3,5,16
+223,1,Canon backfill,Shame,Ingmar Bergman,1968,Sweden,3,5,16
+224,1,Canon backfill,Stolen Kisses,Francois Truffaut,1968,France,3,5,16
+225,1,Canon backfill,La Chinoise,Jean-Luc Godard,1967,France,3,5,16
+226,1,Canon backfill,Mouchette,Robert Bresson,1967,France,3,5,16
+227,1,Canon backfill,Weekend,Jean-Luc Godard,1967,France,3,5,16
+228,1,Canon backfill,Masculin Feminin,Jean-Luc Godard,1966,France,3,5,16
+229,1,Canon backfill,Alphaville,Jean-Luc Godard,1965,France,3,5,16
+230,1,Canon backfill,Juliet of the Spirits,Federico Fellini,1965,Italy,3,5,16
+231,1,Canon backfill,Red Beard,Akira Kurosawa,1965,Japan,3,5,16
+232,1,Canon backfill,Simon of the Desert,Luis Bunuel,1965,Mexico,3,5,16
+233,1,Canon backfill,Marnie,Alfred Hitchcock,1964,USA,3,5,16
+234,1,Canon backfill,Sanjuro,Akira Kurosawa,1962,Japan,3,5,16
+235,1,Canon backfill,The Exterminating Angel,Luis Bunuel,1962,Mexico,3,5,16
+236,1,Canon backfill,Vivre sa vie,Jean-Luc Godard,1962,France,3,5,16
+237,1,Canon backfill,La Notte,Michelangelo Antonioni,1961,Italy,3,5,16
+238,1,Canon backfill,Une Femme est une Femme,Jean-Luc Godard,1961,France,3,5,16
+239,1,Canon backfill,Shoot the Piano Player,Francois Truffaut,1960,France,3,5,16
+240,1,Canon backfill,The Bad Sleep Well,Akira Kurosawa,1960,Japan,3,5,16
+241,1,Canon backfill,The Virgin Spring,Ingmar Bergman,1960,Sweden,3,5,16
+242,1,Canon backfill,Good Morning,Yasujiro Ozu,1959,Japan,3,5,16
+243,1,Canon backfill,Nazarin,Luis Bunuel,1959,Mexico,3,5,16
+244,1,Canon backfill,Equinox Flower,Yasujiro Ozu,1958,Japan,3,5,16
+245,1,Canon backfill,The Magician,Ingmar Bergman,1958,Sweden,3,5,16
+246,1,Canon backfill,Il Grido,Michelangelo Antonioni,1957,Italy,3,5,16
+247,1,Canon backfill,Tokyo Twilight,Yasujiro Ozu,1957,Japan,3,5,16
+248,1,Canon backfill,A Man Escaped,Robert Bresson,1956,France,3,5,16
+249,1,Canon backfill,The Killing,Stanley Kubrick,1956,USA,3,5,16
+250,1,Canon backfill,The Man Who Knew Too Much,Alfred Hitchcock,1956,USA,3,5,16
+251,2,Canon backfill,To Catch a Thief,Alfred Hitchcock,1955,USA,3,5,16
+252,2,Canon backfill,Dial M for Murder,Alfred Hitchcock,1954,USA,3,5,16
+253,2,Canon backfill,I Vitelloni,Federico Fellini,1953,Italy,3,5,16
+254,2,Canon backfill,Summer with Monika,Ingmar Bergman,1953,Sweden,3,5,16
+255,2,Canon backfill,Diary of a Country Priest,Robert Bresson,1951,France,3,5,16
+256,2,Canon backfill,Early Summer,Yasujiro Ozu,1951,Japan,3,5,16
+257,2,Canon backfill,Strangers on a Train,Alfred Hitchcock,1951,USA,3,5,16
+258,2,Canon backfill,Los Olvidados,Luis Bunuel,1950,Mexico,3,5,16
+259,2,Canon backfill,Stray Dog,Akira Kurosawa,1949,Japan,3,5,16
+260,2,Canon backfill,Drunken Angel,Akira Kurosawa,1948,Japan,3,5,16
+261,2,Canon backfill,Rope,Alfred Hitchcock,1948,USA,3,5,16
+262,2,Canon backfill,Notorious,Alfred Hitchcock,1946,USA,3,5,16
+263,2,Canon backfill,Spellbound,Alfred Hitchcock,1945,USA,3,5,16
+264,2,Canon backfill,Lifeboat,Alfred Hitchcock,1944,USA,3,5,16
+265,2,Canon backfill,Shadow of a Doubt,Alfred Hitchcock,1943,USA,3,5,16
+266,2,Canon backfill,There Was a Father,Yasujiro Ozu,1942,Japan,3,5,16
+267,2,Canon backfill,Suspicion,Alfred Hitchcock,1941,USA,3,5,16
+268,2,Canon backfill,Foreign Correspondent,Alfred Hitchcock,1940,USA,3,5,16
+269,2,Canon backfill,Rebecca,Alfred Hitchcock,1940,USA,3,5,16
+270,2,Canon backfill,The Lady Vanishes,Alfred Hitchcock,1938,UK,3,5,16
+271,2,Canon backfill,Sabotage,Alfred Hitchcock,1936,UK,3,5,16
+272,2,Canon backfill,The 39 Steps,Alfred Hitchcock,1935,UK,3,5,16
+273,2,Canon backfill,"I Was Born, But...",Yasujiro Ozu,1932,Japan,3,5,16
+274,2,Canon backfill,L'Age d'Or,Luis Bunuel,1930,France,3,5,16
+275,2,Popular/genre depth,The Chaser,Na Hong-jin,2008,South Korea,4,4,16
+276,2,Popular/genre depth,Once,John Carney,2007,Ireland,4,4,16
+277,2,Popular/genre depth,Sunshine,Danny Boyle,2007,UK,4,4,16
+278,2,Popular/genre depth,Mystic River,Clint Eastwood,2003,USA,4,4,16
+279,2,Popular/genre depth,Lagaan,Ashutosh Gowariker,2001,India,4,4,16
+280,2,Popular/genre depth,Contact,Robert Zemeckis,1997,USA,4,4,16
+281,2,Popular/genre depth,Whisper of the Heart,Yoshifumi Kondo,1995,Japan,4,4,16
+282,2,Canon backfill,Cinema Paradiso,Giuseppe Tornatore,1988,Italy,4,4,16
+283,2,Popular/genre depth,Evil Dead II,Sam Raimi,1987,USA,4,4,16
+284,2,Popular/genre depth,Carrie,Brian De Palma,1976,USA,4,4,16
+285,2,Popular/genre depth,The Omen,Richard Donner,1976,USA,4,4,16
+286,2,Popular/genre depth,Alien: Covenant,Ridley Scott,2017,USA,5,3,16
+287,2,Popular/genre depth,Baahubali 2: The Conclusion,S.S. Rajamouli,2017,India,5,3,16
+288,2,Popular/genre depth,Guardians of the Galaxy Vol. 2,James Gunn,2017,USA,5,3,16
+289,2,Popular/genre depth,John Wick: Chapter 2,Chad Stahelski,2017,USA,5,3,16
+290,2,Popular/genre depth,Spider-Man: Homecoming,Jon Watts,2017,USA,5,3,16
+291,2,Popular/genre depth,Thor: Ragnarok,Taika Waititi,2017,USA,5,3,16
+292,2,Popular/genre depth,Captain America: Civil War,Anthony Russo,2016,USA,5,3,16
+293,2,Popular/genre depth,Dangal,Nitesh Tiwari,2016,India,5,3,16
+294,2,Popular/genre depth,Fantastic Beasts and Where to Find Them,David Yates,2016,UK,5,3,16
+295,2,Popular/genre depth,Finding Dory,Andrew Stanton,2016,USA,5,3,16
+296,2,Popular/genre depth,Rogue One: A Star Wars Story,Gareth Edwards,2016,USA,5,3,16
+297,2,Popular/genre depth,Baahubali: The Beginning,S.S. Rajamouli,2015,India,5,3,16
+298,2,Popular/genre depth,Jurassic World,Colin Trevorrow,2015,USA,5,3,16
+299,2,Popular/genre depth,Mission: Impossible - Rogue Nation,Christopher McQuarrie,2015,USA,5,3,16
+300,2,Popular/genre depth,Spectre,Sam Mendes,2015,UK,5,3,16
+301,2,Popular/genre depth,Star Wars: The Force Awakens,J.J. Abrams,2015,USA,5,3,16
+302,2,Popular/genre depth,Man of Steel,Zack Snyder,2013,USA,5,3,16
+303,2,Popular/genre depth,Monsters University,Dan Scanlon,2013,USA,5,3,16
+304,2,Popular/genre depth,The Hobbit: The Desolation of Smaug,Peter Jackson,2013,NZ/USA,5,3,16
+305,2,Popular/genre depth,The Hobbit: An Unexpected Journey,Peter Jackson,2012,NZ/USA,5,3,16
+306,2,Popular/genre depth,Fast Five,Justin Lin,2011,USA,5,3,16
+307,2,Popular/genre depth,Harry Potter and the Deathly Hallows: Part 2,David Yates,2011,UK,5,3,16
+308,2,Popular/genre depth,The Lost World: Jurassic Park,Steven Spielberg,1997,USA,5,3,16
+309,2,Canon backfill,Everyone Else,Maren Ade,2009,Germany,3,5,15
+310,2,Canon backfill,The Time That Remains,Elia Suleiman,2009,Palestine,3,5,15
+311,2,Canon backfill,Gomorrah,Matteo Garrone,2008,Italy,3,5,15
+312,2,Canon backfill,Il Divo,Paolo Sorrentino,2008,Italy,3,5,15
+313,2,Canon backfill,Love Exposure,Sion Sono,2008,Japan,3,5,15
+314,2,Canon backfill,Tokyo Sonata,Kiyoshi Kurosawa,2008,Japan,3,5,15
+315,2,Contemporary curation,The Assassination of Jesse James by the Coward Robert Ford,Andrew Dominik,2007,USA,3,5,15
+316,2,Canon backfill,The Edge of Heaven,Fatih Akin,2007,Germany,3,5,15
+317,2,Canon backfill,Yella,Christian Petzold,2007,Germany,3,5,15
+318,2,Canon backfill,"You, the Living",Roy Andersson,2007,Sweden,3,5,15
+319,2,Canon backfill,Colossal Youth,Pedro Costa,2006,Portugal,3,5,15
+320,2,Canon backfill,Offside,Jafar Panahi,2006,Iran,3,5,15
+321,2,Canon backfill,Summer Palace,Lou Ye,2006,China,3,5,15
+322,2,Canon backfill,Paradise Now,Hany Abu-Assad,2005,Palestine,3,5,15
+323,2,Canon backfill,3-Iron,Kim Ki-duk,2004,South Korea,3,5,15
+324,2,Canon backfill,Head-On,Fatih Akin,2004,Germany,3,5,15
+325,2,Popular/genre depth,Mind Game,Masaaki Yuasa,2004,Japan,3,5,15
+326,2,Canon backfill,Moolaade,Ousmane Sembene,2004,Senegal,3,5,15
+327,2,Canon backfill,Turtles Can Fly,Bahman Ghobadi,2004,Iran,3,5,15
+328,2,Canon backfill,"Goodbye, Dragon Inn",Tsai Ming-liang,2003,Taiwan,3,5,15
+329,2,Popular/genre depth,The Fog of War,Errol Morris,2003,USA,3,5,15
+330,2,Canon backfill,Divine Intervention,Elia Suleiman,2002,Palestine,3,5,15
+331,2,Canon backfill,Russian Ark,Aleksandr Sokurov,2002,Russia,3,5,15
+332,2,Canon backfill,Beijing Bicycle,Wang Xiaoshuai,2001,China,3,5,15
+333,2,Canon backfill,Pulse,Kiyoshi Kurosawa,2001,Japan,3,5,15
+334,2,Canon backfill,What Time Is It There?,Tsai Ming-liang,2001,Taiwan,3,5,15
+335,2,Canon backfill,A Time for Drunken Horses,Bahman Ghobadi,2000,Iran,3,5,15
+336,2,Canon backfill,Chunhyang,Im Kwon-taek,2000,South Korea,3,5,15
+337,2,Canon backfill,Devils on the Doorstep,Jiang Wen,2000,China,3,5,15
+338,2,Canon backfill,Songs from the Second Floor,Roy Andersson,2000,Sweden,3,5,15
+339,2,Canon backfill,Suzhou River,Lou Ye,2000,China,3,5,15
+340,2,Canon backfill,The Circle,Jafar Panahi,2000,Iran,3,5,15
+341,2,Canon backfill,The Gleaners and I,Agnes Varda,2000,France,3,5,15
+342,2,Canon backfill,The Isle,Kim Ki-duk,2000,South Korea,3,5,15
+343,2,Canon backfill,Kikujiro,Takeshi Kitano,1999,Japan,3,5,15
+344,2,Canon backfill,The Color of Paradise,Majid Majidi,1999,Iran,3,5,15
+345,2,Canon backfill,Eternity and a Day,Theo Angelopoulos,1998,Greece,3,5,15
+346,2,Canon backfill,The Apple,Samira Makhmalbaf,1998,Iran,3,5,15
+347,2,Canon backfill,The Celebration,Thomas Vinterberg,1998,Denmark,3,5,15
+348,2,Canon backfill,Children of Heaven,Majid Majidi,1997,Iran,3,5,15
+349,2,Canon backfill,Cure,Kiyoshi Kurosawa,1997,Japan,3,5,15
+350,2,Canon backfill,The Eel,Shohei Imamura,1997,Japan,3,5,15
+351,2,Canon backfill,A Moment of Innocence,Mohsen Makhmalbaf,1996,Iran,3,5,15
+352,2,Canon backfill,Gabbeh,Mohsen Makhmalbaf,1996,Iran,3,5,15
+353,2,Canon backfill,La Ceremonie,Claude Chabrol,1995,France,3,5,15
+354,2,Canon backfill,The White Balloon,Jafar Panahi,1995,Iran,3,5,15
+355,2,Canon backfill,Ulysses' Gaze,Theo Angelopoulos,1995,Greece,3,5,15
+356,2,Canon backfill,In the Heat of the Sun,Jiang Wen,1994,China,3,5,15
+357,2,Canon backfill,Vive L'Amour,Tsai Ming-liang,1994,Taiwan,3,5,15
+358,2,Canon backfill,Sonatine,Takeshi Kitano,1993,Japan,3,5,15
+359,2,Canon backfill,Sopyonje,Im Kwon-taek,1993,South Korea,3,5,15
+360,2,Canon backfill,The Blue Kite,Tian Zhuangzhuang,1993,China,3,5,15
+361,2,Canon backfill,Center Stage,Stanley Kwan,1991,Hong Kong,3,5,15
+362,2,Canon backfill,La Belle Noiseuse,Jacques Rivette,1991,France,3,5,15
+363,2,Canon backfill,Black Rain,Shohei Imamura,1989,Japan,3,5,15
+364,2,Canon backfill,Landscape in the Mist,Theo Angelopoulos,1988,Greece,3,5,15
+365,2,Canon backfill,Salaam Bombay!,Mira Nair,1988,India,3,5,15
+366,2,Canon backfill,A Chinese Ghost Story,Ching Siu-tung,1987,Hong Kong,3,5,15
+367,2,Canon backfill,A Taxing Woman,Juzo Itami,1987,Japan,3,5,15
+368,2,Canon backfill,Rouge,Stanley Kwan,1987,Hong Kong,3,5,15
+369,2,Canon backfill,The Green Ray,Eric Rohmer,1986,France,3,5,15
+370,2,Canon backfill,The Terrorizers,Edward Yang,1986,Taiwan,3,5,15
+371,2,Canon backfill,Taipei Story,Edward Yang,1985,Taiwan,3,5,15
+372,2,Canon backfill,Vagabond,Agnes Varda,1985,France,3,5,15
+373,2,Canon backfill,Yellow Earth,Chen Kaige,1984,China,3,5,15
+374,2,Canon backfill,A nos amours,Maurice Pialat,1983,France,3,5,15
+375,2,Canon backfill,El Sur,Victor Erice,1983,Spain,3,5,15
+376,2,Canon backfill,Pauline at the Beach,Eric Rohmer,1983,France,3,5,15
+377,2,Canon backfill,The Fourth Man,Paul Verhoeven,1983,Netherlands,3,5,15
+378,2,Popular/genre depth,Being There,Hal Ashby,1979,USA,3,5,15
+379,2,Canon backfill,Vengeance Is Mine,Shohei Imamura,1979,Japan,3,5,15
+380,2,Canon backfill,Soldier of Orange,Paul Verhoeven,1977,Netherlands,3,5,15
+381,2,Canon backfill,The Chess Players,Satyajit Ray,1977,India,3,5,15
+382,2,Canon backfill,Cria Cuervos,Carlos Saura,1976,Spain,3,5,15
+383,2,Popular/genre depth,Grey Gardens,Albert Maysles,1975,USA,3,5,15
+384,2,Canon backfill,"Jeanne Dielman, 23 quai du Commerce",Chantal Akerman,1975,Belgium,3,5,15
+385,2,Canon backfill,The Lost Honour of Katharina Blum,Volker Schlondorff,1975,Germany,3,5,15
+386,2,Canon backfill,The Travelling Players,Theo Angelopoulos,1975,Greece,3,5,15
+387,2,Canon backfill,Celine and Julie Go Boating,Jacques Rivette,1974,France,3,5,15
+388,2,Canon backfill,We All Loved Each Other So Much,Ettore Scola,1974,Italy,3,5,15
+389,2,Canon backfill,The Mother and the Whore,Jean Eustache,1973,France,3,5,15
+390,2,Canon backfill,Turkish Delight,Paul Verhoeven,1973,Netherlands,3,5,15
+391,2,Canon backfill,Death in Venice,Luchino Visconti,1971,Italy,3,5,15
+392,2,Popular/genre depth,Harold and Maude,Hal Ashby,1971,USA,3,5,15
+393,2,Canon backfill,Trafic,Jacques Tati,1971,France,3,5,15
+394,2,Canon backfill,Claire's Knee,Eric Rohmer,1970,France,3,5,15
+395,2,Canon backfill,Days and Nights in the Forest,Satyajit Ray,1970,India,3,5,15
+396,2,Canon backfill,Investigation of a Citizen Above Suspicion,Elio Petri,1970,Italy,3,5,15
+397,2,Canon backfill,Le Boucher,Claude Chabrol,1970,France,3,5,15
+398,2,Canon backfill,The Spider's Stratagem,Bernardo Bertolucci,1970,Italy,3,5,15
+399,2,Canon backfill,Boy,Nagisa Oshima,1969,Japan,3,5,15
+400,2,Canon backfill,Funeral Parade of Roses,Toshio Matsumoto,1969,Japan,3,5,15
+401,2,Contemporary curation,Kes,Ken Loach,1969,UK,3,5,15
+402,2,Canon backfill,My Night at Maud's,Eric Rohmer,1969,France,3,5,15
+403,2,Canon backfill,The Cow,Dariush Mehrjui,1969,Iran,3,5,15
+404,2,Canon backfill,Death by Hanging,Nagisa Oshima,1968,Japan,3,5,15
+405,2,Canon backfill,Kuroneko,Kaneto Shindo,1968,Japan,3,5,15
+406,2,Canon backfill,Teorema,Pier Paolo Pasolini,1968,Italy,3,5,15
+407,2,Canon backfill,Samurai Rebellion,Masaki Kobayashi,1967,Japan,3,5,15
+408,2,Canon backfill,The Young Girls of Rochefort,Jacques Demy,1967,France,3,5,15
+409,2,Canon backfill,Nayak,Satyajit Ray,1966,India,3,5,15
+410,2,Canon backfill,The Sword of Doom,Kihachi Okamoto,1966,Japan,3,5,15
+411,2,Canon backfill,Young Torless,Volker Schlondorff,1966,Germany,3,5,15
+412,2,Canon backfill,Le Bonheur,Agnes Varda,1965,France,3,5,15
+413,2,Canon backfill,Subarnarekha,Ritwik Ghatak,1965,India,3,5,15
+414,2,Canon backfill,Before the Revolution,Bernardo Bertolucci,1964,Italy,3,5,15
+415,2,Canon backfill,Gertrud,Carl Theodor Dreyer,1964,Denmark,3,5,15
+416,2,Canon backfill,Pale Flower,Masahiro Shinoda,1964,Japan,3,5,15
+417,2,Canon backfill,The Gospel According to St. Matthew,Pier Paolo Pasolini,1964,Italy,3,5,15
+418,2,Canon backfill,An Actor's Revenge,Kon Ichikawa,1963,Japan,3,5,15
+419,2,Canon backfill,The Big City,Satyajit Ray,1963,India,3,5,15
+420,2,Canon backfill,The Insect Woman,Shohei Imamura,1963,Japan,3,5,15
+421,2,Canon backfill,Il Sorpasso,Dino Risi,1962,Italy,3,5,15
+422,2,Canon backfill,La Jetee,Chris Marker,1962,France,3,5,15
+423,2,Canon backfill,Le Doulos,Jean-Pierre Melville,1962,France,3,5,15
+424,2,Canon backfill,Mamma Roma,Pier Paolo Pasolini,1962,Italy,3,5,15
+425,2,Canon backfill,Accattone,Pier Paolo Pasolini,1961,Italy,3,5,15
+426,2,Canon backfill,Aimless Bullet,Yu Hyun-mok,1961,South Korea,3,5,15
+427,2,Canon backfill,Divorce Italian Style,Pietro Germi,1961,Italy,3,5,15
+428,2,Canon backfill,"Leon Morin, Priest",Jean-Pierre Melville,1961,France,3,5,15
+429,2,Canon backfill,Pigs and Battleships,Shohei Imamura,1961,Japan,3,5,15
+430,2,Canon backfill,Le Trou,Jacques Becker,1960,France,3,5,15
+431,2,Canon backfill,Mughal-e-Azam,K. Asif,1960,India,3,5,15
+432,2,Canon backfill,Purple Noon,Rene Clement,1960,France,3,5,15
+433,2,Canon backfill,The Cloud-Capped Star,Ritwik Ghatak,1960,India,3,5,15
+434,2,Canon backfill,The Housemaid,Kim Ki-young,1960,South Korea,3,5,15
+435,2,Canon backfill,The Naked Island,Kaneto Shindo,1960,Japan,3,5,15
+436,2,Canon backfill,When a Woman Ascends the Stairs,Mikio Naruse,1960,Japan,3,5,15
+437,2,Canon backfill,Fires on the Plain,Kon Ichikawa,1959,Japan,3,5,15
+438,2,Canon backfill,Kaagaz Ke Phool,Guru Dutt,1959,India,3,5,15
+439,2,Canon backfill,Cairo Station,Youssef Chahine,1958,Egypt,3,5,15
+440,2,Canon backfill,Mother India,Mehboob Khan,1957,India,3,5,15
+441,2,Canon backfill,Pyaasa,Guru Dutt,1957,India,3,5,15
+442,2,Canon backfill,The Burmese Harp,Kon Ichikawa,1956,Japan,3,5,15
+443,2,Canon backfill,Floating Clouds,Mikio Naruse,1955,Japan,3,5,15
+444,2,Canon backfill,French Cancan,Jean Renoir,1955,France,3,5,15
+445,2,Canon backfill,Senso,Luchino Visconti,1954,Italy,3,5,15
+446,2,Canon backfill,Twenty-Four Eyes,Keisuke Kinoshita,1954,Japan,3,5,15
+447,2,Canon backfill,Do Bigha Zamin,Bimal Roy,1953,India,3,5,15
+448,2,Canon backfill,Mr. Hulot's Holiday,Jacques Tati,1953,France,3,5,15
+449,2,Canon backfill,Casque d'Or,Jacques Becker,1952,France,3,5,15
+450,2,Canon backfill,Forbidden Games,Rene Clement,1952,France,3,5,15
+451,2,Canon backfill,Le Plaisir,Max Ophuls,1952,France,3,5,15
+452,2,Canon backfill,Orpheus,Jean Cocteau,1950,France,3,5,15
+453,2,Canon backfill,Spring in a Small Town,Fei Mu,1948,China,3,5,15
+454,2,Canon backfill,Day of Wrath,Carl Theodor Dreyer,1943,Denmark,3,5,15
+455,2,Canon backfill,Le Corbeau,Henri-Georges Clouzot,1943,France,3,5,15
+456,2,Canon backfill,Ossessione,Luchino Visconti,1943,Italy,3,5,15
+457,2,Canon backfill,Aniki Bobo,Manoel de Oliveira,1942,Portugal,3,5,15
+458,2,Canon backfill,La Bete Humaine,Jean Renoir,1938,France,3,5,15
+459,2,Canon backfill,Street Angel,Yuan Muzhi,1937,China,3,5,15
+460,2,Canon backfill,The Goddess,Wu Yonggang,1934,China,3,5,15
+461,2,Canon backfill,The Testament of Dr. Mabuse,Fritz Lang,1933,Germany,3,5,15
+462,2,Canon backfill,Boudu Saved from Drowning,Jean Renoir,1932,France,3,5,15
+463,2,Canon backfill,Vampyr,Carl Theodor Dreyer,1932,Germany,3,5,15
+464,2,Canon backfill,Pandora's Box,G.W. Pabst,1929,Germany,3,5,15
+465,2,Canon backfill,Spies,Fritz Lang,1928,Germany,3,5,15
+466,2,Canon backfill,Faust,F.W. Murnau,1926,Germany,3,5,15
+467,2,Canon backfill,The General,Buster Keaton,1926,USA,3,5,15
+468,2,Canon backfill,Master of the House,Carl Theodor Dreyer,1925,Denmark,3,5,15
+469,2,Canon backfill,Die Nibelungen,Fritz Lang,1924,Germany,3,5,15
+470,2,Canon backfill,The Last Laugh,F.W. Murnau,1924,Germany,3,5,15
+471,2,Canon backfill,Dr. Mabuse the Gambler,Fritz Lang,1922,Germany,3,5,15
+472,2,Canon backfill,The Phantom Carriage,Victor Sjostrom,1921,Sweden,3,5,15
+473,2,Contemporary curation,Nouvelle Vague,Richard Linklater,2025,USA,3,4,15
+474,2,Contemporary curation,Babylon,Damien Chazelle,2022,USA,3,4,15
+475,2,Contemporary curation,Crimes of the Future,David Cronenberg,2022,Canada,3,4,15
+476,2,Contemporary curation,Kimi,Steven Soderbergh,2022,USA,3,4,15
+477,2,Contemporary curation,The Fabelmans,Steven Spielberg,2022,USA,3,4,15
+478,2,Contemporary curation,Licorice Pizza,Paul Thomas Anderson,2021,USA,3,4,15
+479,2,Contemporary curation,Nightmare Alley,Guillermo del Toro,2021,USA,3,4,15
+480,2,Contemporary curation,Red Rocket,Sean Baker,2021,USA,3,4,15
+481,2,Contemporary curation,Spencer,Pablo Larrain,2021,Chile,3,4,15
+482,2,Contemporary curation,The Tragedy of Macbeth,Joel Coen,2021,USA,3,4,15
+483,2,Contemporary curation,Da 5 Bloods,Spike Lee,2020,USA,3,4,15
+484,2,Contemporary curation,Summer of 85,Francois Ozon,2020,France,3,4,15
+485,2,Contemporary curation,The Man Who Sold His Skin,Kaouther Ben Hania,2020,Tunisia,3,4,15
+486,2,Contemporary curation,Young Ahmed,Jean-Pierre Dardenne,2019,Belgium,3,4,15
+487,2,Contemporary curation,By the Grace of God,Francois Ozon,2018,France,3,4,15
+488,2,Contemporary curation,First Man,Damien Chazelle,2018,USA,3,4,15
+489,2,Contemporary curation,High Life,Claire Denis,2018,France,3,4,15
+490,2,Popular/genre depth,Shadow,Zhang Yimou,2018,China,3,4,15
+491,2,Contemporary curation,The Ballad of Buster Scruggs,Joel Coen,2018,USA,3,4,15
+492,2,Contemporary curation,The Phoenician Scheme,Wes Anderson,2025,USA,4,3,15
+493,2,Contemporary curation,Tenet,Christopher Nolan,2020,USA,4,3,15
+494,2,Popular/genre depth,3 Idiots,Rajkumar Hirani,2009,India,5,3,15
+495,2,Popular/genre depth,Harry Potter and the Half-Blood Prince,David Yates,2009,UK,5,3,15
+496,2,Popular/genre depth,Harry Potter and the Order of the Phoenix,David Yates,2007,UK,5,3,15
+497,2,Popular/genre depth,Harry Potter and the Goblet of Fire,Mike Newell,2005,UK,5,3,15
+498,2,Popular/genre depth,Star Wars: Episode III - Revenge of the Sith,George Lucas,2005,USA,5,3,15
+499,2,Popular/genre depth,Pirates of the Caribbean: The Curse of the Black Pearl,Gore Verbinski,2003,USA,5,3,15
+500,2,Popular/genre depth,Harry Potter and the Chamber of Secrets,Chris Columbus,2002,UK,5,3,15
+501,3,Popular/genre depth,GoldenEye,Martin Campbell,1995,UK,5,3,15
+502,3,Popular/genre depth,Rocky III,Sylvester Stallone,1982,USA,5,3,15
+503,3,Popular/genre depth,Rocky II,Sylvester Stallone,1979,USA,5,3,15
+504,3,Popular/genre depth,From Russia with Love,Terence Young,1963,UK,5,3,15
+505,3,Contemporary curation,Die My Love,Lynne Ramsay,2025,USA,3,4,14
+506,3,Contemporary curation,If I Had Legs I'd Kick You,Mary Bronstein,2025,USA,3,4,14
+507,3,Contemporary curation,Materialists,Celine Song,2025,USA,3,4,14
+508,3,Contemporary curation,"Sorry, Baby",Eva Victor,2025,USA,3,4,14
+509,3,Popular/genre depth,Black Box Diaries,Shiori Ito,2024,Japan,3,4,14
+510,3,Contemporary curation,Love Lies Bleeding,Rose Glass,2024,USA,3,4,14
+511,3,Popular/genre depth,MaXXXine,Ti West,2024,USA,3,4,14
+512,3,Contemporary curation,Queer,Luca Guadagnino,2024,Italy,3,4,14
+513,3,Contemporary curation,Santosh,Sandhya Suri,2024,India,3,4,14
+514,3,Popular/genre depth,Sugarcane,Julian Brave NoiseCat,2024,USA,3,4,14
+515,3,Popular/genre depth,The First Omen,Arkasha Stevenson,2024,USA,3,4,14
+516,3,Canon backfill,Afire,Christian Petzold,2023,Germany,3,4,14
+517,3,Contemporary curation,American Fiction,Cord Jefferson,2023,USA,3,4,14
+518,3,Popular/genre depth,Beyond Utopia,Madeleine Gavin,2023,USA,3,4,14
+519,3,Canon backfill,Close Your Eyes,Victor Erice,2023,Spain,3,4,14
+520,3,Contemporary curation,Dream Scenario,Kristoffer Borgli,2023,USA,3,4,14
+521,3,Popular/genre depth,Late Night with the Devil,Cameron Cairnes,2023,Australia,3,4,14
+522,3,Contemporary curation,The Old Oak,Ken Loach,2023,UK,3,4,14
+523,3,Canon backfill,"Argentina, 1985",Santiago Mitre,2022,Argentina,3,4,14
+524,3,Contemporary curation,Armageddon Time,James Gray,2022,USA,3,4,14
+525,3,Contemporary curation,Bones and All,Luca Guadagnino,2022,USA,3,4,14
+526,3,Popular/genre depth,Fire of Love,Sara Dosa,2022,USA,3,4,14
+527,3,Contemporary curation,Annette,Leos Carax,2021,France,3,4,14
+528,3,Contemporary curation,Happening,Audrey Diwan,2021,France,3,4,14
+529,3,Contemporary curation,Judas and the Black Messiah,Shaka King,2021,USA,3,4,14
+530,3,Contemporary curation,Passing,Rebecca Hall,2021,USA,3,4,14
+531,3,Contemporary curation,Pig,Michael Sarnoski,2021,USA,3,4,14
+532,3,Contemporary curation,The Card Counter,Paul Schrader,2021,USA,3,4,14
+533,3,Contemporary curation,The Hand of God,Paolo Sorrentino,2021,Italy,3,4,14
+534,3,Popular/genre depth,Dick Johnson Is Dead,Kirsten Johnson,2020,USA,3,4,14
+535,3,Contemporary curation,Ma Rainey's Black Bottom,George C. Wolfe,2020,USA,3,4,14
+536,3,Contemporary curation,Never Rarely Sometimes Always,Eliza Hittman,2020,USA,3,4,14
+537,3,Contemporary curation,One Night in Miami,Regina King,2020,USA,3,4,14
+538,3,Popular/genre depth,Time,Garrett Bradley,2020,USA,3,4,14
+539,3,Contemporary curation,Ad Astra,James Gray,2019,USA,3,4,14
+540,3,Popular/genre depth,American Factory,Steven Bognar,2019,USA,3,4,14
+541,3,Canon backfill,It Must Be Heaven,Elia Suleiman,2019,Palestine,3,4,14
+542,3,Contemporary curation,Les Miserables,Ladj Ly,2019,France,3,4,14
+543,3,Canon backfill,Monos,Alejandro Landes,2019,Colombia,3,4,14
+544,3,Contemporary curation,Saint Maud,Rose Glass,2019,UK,3,4,14
+545,3,Contemporary curation,The Last Black Man in San Francisco,Joe Talbot,2019,USA,3,4,14
+546,3,Contemporary curation,Mid90s,Jonah Hill,2018,USA,3,4,14
+547,3,Contemporary curation,Non-Fiction,Olivier Assayas,2018,France,3,4,14
+548,3,Canon backfill,Rafiki,Wanuri Kahiu,2018,Kenya,3,4,14
+549,3,Popular/genre depth,The Spy Gone North,Yoon Jong-bin,2018,South Korea,3,4,14
+550,3,Canon backfill,Transit,Christian Petzold,2018,Germany,3,4,14
+551,3,Contemporary curation,Tumbbad,Rahi Anil Barve,2018,India,3,4,14
+552,3,Contemporary curation,Vox Lux,Brady Corbet,2018,USA,3,4,14
+553,3,Contemporary curation,Wildlife,Paul Dano,2018,USA,3,4,14
+554,3,Contemporary curation,Let the Sunshine In,Claire Denis,2017,France,3,4,14
+555,3,Contemporary curation,The Meyerowitz Stories,Noah Baumbach,2017,USA,3,4,14
+556,3,Canon backfill,The Square,Ruben Ostlund,2017,Sweden,3,4,14
+557,3,Canon backfill,Thelma,Joachim Trier,2017,Norway,3,4,14
+558,3,Contemporary curation,Everybody Wants Some!!,Richard Linklater,2016,USA,3,4,14
+559,3,Contemporary curation,Julieta,Pedro Almodovar,2016,Spain,3,4,14
+560,3,Canon backfill,Neruda,Pablo Larrain,2016,Chile,3,4,14
+561,3,Contemporary curation,Mistress America,Noah Baumbach,2015,USA,3,4,14
+562,3,Canon backfill,Mountains May Depart,Jia Zhangke,2015,China,3,4,14
+563,3,Contemporary curation,Tangerine,Sean Baker,2015,USA,3,4,14
+564,3,Contemporary curation,Girlhood,Celine Sciamma,2014,France,3,4,14
+565,3,Contemporary curation,Enemy,Denis Villeneuve,2013,Canada,3,4,14
+566,3,Canon backfill,Nymphomaniac,Lars von Trier,2013,Denmark,3,4,14
+567,3,Contemporary curation,Only Lovers Left Alive,Jim Jarmusch,2013,USA,3,4,14
+568,3,Canon backfill,Stoker,Park Chan-wook,2013,USA,3,4,14
+569,3,Canon backfill,The Grandmaster,Wong Kar-wai,2013,Hong Kong,3,4,14
+570,3,Canon backfill,The Past,Asghar Farhadi,2013,France,3,4,14
+571,3,Contemporary curation,In the House,Francois Ozon,2012,France,3,4,14
+572,3,Contemporary curation,Lincoln,Steven Spielberg,2012,USA,3,4,14
+573,3,Canon backfill,No,Pablo Larrain,2012,Chile,3,4,14
+574,3,Contemporary curation,Bernie,Richard Linklater,2011,USA,3,4,14
+575,3,Contemporary curation,Greenberg,Noah Baumbach,2010,USA,3,4,14
+576,3,Popular/genre depth,Chainsaw Man - The Movie: Reze Arc,Tatsuya Yoshihara,2025,Japan,4,3,14
+577,3,Popular/genre depth,Mission: Impossible - The Final Reckoning,Christopher McQuarrie,2025,USA,4,3,14
+578,3,Popular/genre depth,The Monkey,Osgood Perkins,2025,USA,4,3,14
+579,3,Contemporary curation,Warfare,Alex Garland,2025,USA,4,3,14
+580,3,Popular/genre depth,A Quiet Place: Day One,Michael Sarnoski,2024,USA,4,3,14
+581,3,Popular/genre depth,Abigail,Matt Bettinelli-Olpin,2024,USA,4,3,14
+582,3,Popular/genre depth,Exhuma,Jang Jae-hyun,2024,South Korea,4,3,14
+583,3,Contemporary curation,Heretic,Scott Beck,2024,USA,4,3,14
+584,3,Popular/genre depth,Joker: Folie a Deux,Todd Phillips,2024,USA,4,3,14
+585,3,Contemporary curation,Rebel Ridge,Jeremy Saulnier,2024,USA,4,3,14
+586,3,Popular/genre depth,Terrifier 3,Damien Leone,2024,USA,4,3,14
+587,3,Contemporary curation,We Live in Time,John Crowley,2024,UK,4,3,14
+588,3,Popular/genre depth,12.12: The Day,Kim Sung-su,2023,South Korea,4,3,14
+589,3,Popular/genre depth,Guardians of the Galaxy Vol. 3,James Gunn,2023,USA,4,3,14
+590,3,Contemporary curation,Nimona,Nick Bruno,2023,USA,4,3,14
+591,3,Popular/genre depth,Navalny,Daniel Roher,2022,USA,4,3,14
+592,3,Popular/genre depth,Scream,Matt Bettinelli-Olpin,2022,USA,4,3,14
+593,3,Popular/genre depth,Smile,Parker Finn,2022,USA,4,3,14
+594,3,Popular/genre depth,Terrifier 2,Damien Leone,2022,USA,4,3,14
+595,3,Popular/genre depth,The First Slam Dunk,Takehiko Inoue,2022,Japan,4,3,14
+596,3,Contemporary curation,Don't Look Up,Adam McKay,2021,USA,4,3,14
+597,3,Popular/genre depth,Jujutsu Kaisen 0,Sunghoo Park,2021,Japan,4,3,14
+598,3,Popular/genre depth,The Black Phone,Scott Derrickson,2021,USA,4,3,14
+599,3,Popular/genre depth,The Matrix Resurrections,Lana Wachowski,2021,USA,4,3,14
+600,3,Contemporary curation,The Mitchells vs. the Machines,Mike Rianda,2021,USA,4,3,14
+601,3,Popular/genre depth,A Quiet Place Part II,John Krasinski,2020,USA,4,3,14
+602,3,Contemporary curation,Palm Springs,Max Barbakow,2020,USA,4,3,14
+603,3,Popular/genre depth,Booksmart,Olivia Wilde,2019,USA,4,3,14
+604,3,Popular/genre depth,Children of the Sea,Ayumu Watanabe,2019,Japan,4,3,14
+605,3,Popular/genre depth,Doctor Sleep,Mike Flanagan,2019,USA,4,3,14
+606,3,Popular/genre depth,Extreme Job,Lee Byeong-heon,2019,South Korea,4,3,14
+607,3,Popular/genre depth,Gully Boy,Zoya Akhtar,2019,India,4,3,14
+608,3,Contemporary curation,Hustlers,Lorene Scafaria,2019,USA,4,3,14
+609,3,Popular/genre depth,It Chapter Two,Andy Muschietti,2019,USA,4,3,14
+610,3,Contemporary curation,Klaus,Sergio Pablos,2019,Spain,4,3,14
+611,3,Popular/genre depth,Ride Your Wave,Masaaki Yuasa,2019,Japan,4,3,14
+612,3,Popular/genre depth,Rocketman,Dexter Fletcher,2019,UK,4,3,14
+613,3,Popular/genre depth,Andhadhun,Sriram Raghavan,2018,India,4,3,14
+614,3,Popular/genre depth,Game Night,John Francis Daley,2018,USA,4,3,14
+615,3,Popular/genre depth,Halloween,David Gordon Green,2018,USA,4,3,14
+616,3,Popular/genre depth,Maquia: When the Promised Flower Blooms,Mari Okada,2018,Japan,4,3,14
+617,3,Popular/genre depth,Mirai,Mamoru Hosoda,2018,Japan,4,3,14
+618,3,Popular/genre depth,Stree,Amar Kaushik,2018,India,4,3,14
+619,3,Popular/genre depth,Three Identical Strangers,Tim Wardle,2018,UK,4,3,14
+620,3,Popular/genre depth,Won't You Be My Neighbor?,Morgan Neville,2018,USA,4,3,14
+621,3,Popular/genre depth,Pacific Rim,Guillermo del Toro,2013,USA,4,3,14
+622,3,Popular/genre depth,The Garden of Words,Makoto Shinkai,2013,Japan,4,3,14
+623,3,Popular/genre depth,The World's End,Edgar Wright,2013,UK,4,3,14
+624,3,Contemporary curation,The Girl with the Dragon Tattoo,David Fincher,2011,USA,4,3,14
+625,3,Contemporary curation,True Grit,Joel Coen,2010,USA,4,3,14
+626,3,Canon backfill,The Woman Who Ran,Hong Sang-soo,2020,South Korea,2,5,13
+627,3,Contemporary curation,120 BPM (Beats per Minute),Robin Campillo,2017,France,3,4,13
+628,3,Contemporary curation,A Fantastic Woman,Sebastian Lelio,2017,Chile,3,4,13
+629,3,Contemporary curation,Beach Rats,Eliza Hittman,2017,USA,3,4,13
+630,3,Contemporary curation,Custody,Xavier Legrand,2017,France,3,4,13
+631,3,Canon backfill,Faces Places,Agnes Varda,2017,France,3,4,13
+632,3,Canon backfill,Foxtrot,Samuel Maoz,2017,Israel,3,4,13
+633,3,Contemporary curation,God's Own Country,Francis Lee,2017,UK,3,4,13
+634,3,Contemporary curation,Ingrid Goes West,Matt Spicer,2017,USA,3,4,13
+635,3,Contemporary curation,Lean on Pete,Andrew Haigh,2017,UK,3,4,13
+636,3,Contemporary curation,Mudbound,Dee Rees,2017,USA,3,4,13
+637,3,Contemporary curation,The Insult,Ziad Doueiri,2017,Lebanon,3,4,13
+638,3,Popular/genre depth,"The Night Is Short, Walk On Girl",Masaaki Yuasa,2017,Japan,3,4,13
+639,3,Contemporary curation,Thoroughbreds,Cory Finley,2017,USA,3,4,13
+640,3,Canon backfill,Elle,Paul Verhoeven,2016,France,3,4,13
+641,3,Contemporary curation,Personal Shopper,Olivier Assayas,2016,France,3,4,13
+642,3,Contemporary curation,The Lost City of Z,James Gray,2016,USA,3,4,13
+643,3,Popular/genre depth,Weiner,Josh Kriegman,2016,USA,3,4,13
+644,3,Contemporary curation,45 Years,Andrew Haigh,2015,UK,3,4,13
+645,3,Contemporary curation,Beasts of No Nation,Cary Joji Fukunaga,2015,USA,3,4,13
+646,3,Popular/genre depth,Cartel Land,Matthew Heineman,2015,USA,3,4,13
+647,3,Canon backfill,Embrace of the Serpent,Ciro Guerra,2015,Colombia,3,4,13
+648,3,Contemporary curation,Green Room,Jeremy Saulnier,2015,USA,3,4,13
+649,3,Contemporary curation,Masaan,Neeraj Ghaywan,2015,India,3,4,13
+650,3,Contemporary curation,Mustang,Deniz Gamze Erguven,2015,France,3,4,13
+651,3,Canon backfill,Taxi,Jafar Panahi,2015,Iran,3,4,13
+652,3,Contemporary curation,"Black Coal, Thin Ice",Diao Yinan,2014,China,3,4,13
+653,3,Contemporary curation,Clouds of Sils Maria,Olivier Assayas,2014,France,3,4,13
+654,3,Canon backfill,Phoenix,Christian Petzold,2014,Germany,3,4,13
+655,3,Contemporary curation,Still the Water,Naomi Kawase,2014,Japan,3,4,13
+656,3,Contemporary curation,Blue Ruin,Jeremy Saulnier,2013,USA,3,4,13
+657,3,Canon backfill,The Great Beauty,Paolo Sorrentino,2013,Italy,3,4,13
+658,3,Contemporary curation,The Lunchbox,Ritesh Batra,2013,India,3,4,13
+659,3,Contemporary curation,Beasts of the Southern Wild,Benh Zeitlin,2012,USA,3,4,13
+660,3,Contemporary curation,Gangs of Wasseypur,Anurag Kashyap,2012,India,3,4,13
+661,3,Popular/genre depth,The Imposter,Bart Layton,2012,UK,3,4,13
+662,3,Contemporary curation,Weekend,Andrew Haigh,2011,UK,3,4,13
+663,3,Contemporary curation,Blue Valentine,Derek Cianfrance,2010,USA,3,4,13
+664,3,Contemporary curation,Carlos,Olivier Assayas,2010,France,3,4,13
+665,3,Contemporary curation,Of Gods and Men,Xavier Beauvois,2010,France,3,4,13
+666,3,Popular/genre depth,The Yellow Sea,Na Hong-jin,2010,South Korea,3,4,13
+667,3,Contemporary curation,Winter's Bone,Debra Granik,2010,USA,3,4,13
+668,3,Contemporary curation,Che: Part One,Steven Soderbergh,2008,USA,3,4,13
+669,3,Contemporary curation,Medicine for Melancholy,Barry Jenkins,2008,USA,3,4,13
+670,3,Contemporary curation,Milk,Gus Van Sant,2008,USA,3,4,13
+671,3,Contemporary curation,Three Monkeys,Nuri Bilge Ceylan,2008,Turkey,3,4,13
+672,3,Contemporary curation,Eastern Promises,David Cronenberg,2007,Canada,3,4,13
+673,3,Contemporary curation,I'm Not There,Todd Haynes,2007,USA,3,4,13
+674,3,Contemporary curation,Paranoid Park,Gus Van Sant,2007,USA,3,4,13
+675,3,Contemporary curation,Water Lilies,Celine Sciamma,2007,France,3,4,13
+676,3,Contemporary curation,A Scanner Darkly,Richard Linklater,2006,USA,3,4,13
+677,3,Canon backfill,Fireworks Wednesday,Asghar Farhadi,2006,Iran,3,4,13
+678,3,Contemporary curation,Marie Antoinette,Sofia Coppola,2006,USA,3,4,13
+679,3,Contemporary curation,The Fountain,Darren Aronofsky,2006,USA,3,4,13
+680,3,Canon backfill,Lady Vengeance,Park Chan-wook,2005,South Korea,3,4,13
+681,3,Contemporary curation,Munich,Steven Spielberg,2005,USA,3,4,13
+682,3,Contemporary curation,The Beat That My Heart Skipped,Jacques Audiard,2005,France,3,4,13
+683,3,Contemporary curation,The Squid and the Whale,Noah Baumbach,2005,USA,3,4,13
+684,3,Contemporary curation,21 Grams,Alejandro Gonzalez Inarritu,2003,Mexico,3,4,13
+685,3,Canon backfill,Sympathy for Mr. Vengeance,Park Chan-wook,2002,South Korea,3,4,13
+686,3,Contemporary curation,Read My Lips,Jacques Audiard,2001,France,3,4,13
+687,3,Contemporary curation,The Devil's Backbone,Guillermo del Toro,2001,Spain,3,4,13
+688,3,Contemporary curation,The Man Who Wasn't There,Joel Coen,2001,USA,3,4,13
+689,3,Contemporary curation,Waking Life,Richard Linklater,2001,USA,3,4,13
+690,3,Contemporary curation,Under the Sand,Francois Ozon,2000,France,3,4,13
+691,3,Contemporary curation,Ghost Dog: The Way of the Samurai,Jim Jarmusch,1999,USA,3,4,13
+692,3,Contemporary curation,The Limey,Steven Soderbergh,1999,USA,3,4,13
+693,3,Contemporary curation,The Straight Story,David Lynch,1999,USA,3,4,13
+694,3,Contemporary curation,eXistenZ,David Cronenberg,1999,Canada,3,4,13
+695,3,Contemporary curation,Pi,Darren Aronofsky,1998,USA,3,4,13
+696,3,Contemporary curation,Velvet Goldmine,Todd Haynes,1998,USA,3,4,13
+697,3,Contemporary curation,Bottle Rocket,Wes Anderson,1996,USA,3,4,13
+698,3,Popular/genre depth,Pom Poko,Isao Takahata,1994,Japan,3,4,13
+699,3,Contemporary curation,Cronos,Guillermo del Toro,1993,Mexico,3,4,13
+700,3,Contemporary curation,Twin Peaks: Fire Walk with Me,David Lynch,1992,USA,3,4,13
+701,3,Contemporary curation,Jungle Fever,Spike Lee,1991,USA,3,4,13
+702,3,Contemporary curation,Night on Earth,Jim Jarmusch,1991,USA,3,4,13
+703,3,Contemporary curation,Mo' Better Blues,Spike Lee,1990,USA,3,4,13
+704,3,Contemporary curation,Slacker,Richard Linklater,1990,USA,3,4,13
+705,3,Contemporary curation,Wild at Heart,David Lynch,1990,USA,3,4,13
+706,3,Contemporary curation,Drugstore Cowboy,Gus Van Sant,1989,USA,3,4,13
+707,3,Contemporary curation,Mystery Train,Jim Jarmusch,1989,USA,3,4,13
+708,3,Contemporary curation,"Sex, Lies, and Videotape",Steven Soderbergh,1989,USA,3,4,13
+709,3,Contemporary curation,Empire of the Sun,Steven Spielberg,1987,USA,3,4,13
+710,3,Popular/genre depth,A Better Tomorrow,John Woo,1986,Hong Kong,3,4,13
+711,3,Contemporary curation,Down by Law,Jim Jarmusch,1986,USA,3,4,13
+712,3,Contemporary curation,She's Gotta Have It,Spike Lee,1986,USA,3,4,13
+713,3,Contemporary curation,The Color Purple,Steven Spielberg,1985,USA,3,4,13
+714,3,Contemporary curation,"I, Tonya",Craig Gillespie,2017,USA,4,3,13
+715,3,Contemporary curation,The Disaster Artist,James Franco,2017,USA,4,3,13
+716,3,Popular/genre depth,Wind River,Taylor Sheridan,2017,USA,4,3,13
+717,3,Popular/genre depth,Hacksaw Ridge,Mel Gibson,2016,USA,4,3,13
+718,3,Contemporary curation,Shin Godzilla,Hideaki Anno,2016,Japan,4,3,13
+719,3,Popular/genre depth,The Conjuring 2,James Wan,2016,USA,4,3,13
+720,3,Popular/genre depth,Creed,Ryan Coogler,2015,USA,4,3,13
+721,3,Popular/genre depth,The Boy and the Beast,Mamoru Hosoda,2015,Japan,4,3,13
+722,3,Popular/genre depth,Veteran,Ryoo Seung-wan,2015,South Korea,4,3,13
+723,3,Popular/genre depth,American Sniper,Clint Eastwood,2014,USA,4,3,13
+724,3,Popular/genre depth,Edge of Tomorrow,Doug Liman,2014,USA,4,3,13
+725,3,Popular/genre depth,PK,Rajkumar Hirani,2014,India,4,3,13
+726,3,Popular/genre depth,The Imitation Game,Morten Tyldum,2014,UK,4,3,13
+727,3,Popular/genre depth,Iron Man 3,Shane Black,2013,USA,4,3,13
+728,3,Popular/genre depth,21 Jump Street,Phil Lord,2012,USA,4,3,13
+729,3,Popular/genre depth,Argo,Ben Affleck,2012,USA,4,3,13
+730,3,Popular/genre depth,Sinister,Scott Derrickson,2012,USA,4,3,13
+731,3,Popular/genre depth,The Perks of Being a Wallflower,Stephen Chbosky,2012,USA,4,3,13
+732,3,Popular/genre depth,From Up on Poppy Hill,Goro Miyazaki,2011,Japan,4,3,13
+733,3,Popular/genre depth,Source Code,Duncan Jones,2011,USA,4,3,13
+734,3,Popular/genre depth,Harry Potter and the Deathly Hallows: Part 1,David Yates,2010,UK,4,3,13
+735,3,Popular/genre depth,Insidious,James Wan,2010,USA,4,3,13
+736,3,Popular/genre depth,The King's Speech,Tom Hooper,2010,UK,4,3,13
+737,3,Popular/genre depth,The Man from Nowhere,Lee Jeong-beom,2010,South Korea,4,3,13
+738,3,Popular/genre depth,The Secret World of Arrietty,Hiromasa Yonebayashi,2010,Japan,4,3,13
+739,3,Popular/genre depth,The Town,Ben Affleck,2010,USA,4,3,13
+740,3,Contemporary curation,Burn After Reading,Joel Coen,2008,USA,4,3,13
+741,3,Contemporary curation,The Curious Case of Benjamin Button,David Fincher,2008,USA,4,3,13
+742,3,Contemporary curation,Inside Man,Spike Lee,2006,USA,4,3,13
+743,3,Contemporary curation,War of the Worlds,Steven Spielberg,2005,USA,4,3,13
+744,3,Contemporary curation,The Aviator,Martin Scorsese,2004,USA,4,3,13
+745,3,Contemporary curation,Erin Brockovich,Steven Soderbergh,2000,USA,4,3,13
+746,3,Popular/genre depth,Alien 3,David Fincher,1992,USA,4,3,13
+747,3,Contemporary curation,April,Dea Kulumbegashvili,2024,Georgia,2,5,12
+748,3,Contemporary curation,Inside the Yellow Cocoon Shell,Pham Thien An,2023,Vietnam,2,5,12
+749,3,Contemporary curation,The Disciple,Chaitanya Tamhane,2020,India,2,5,12
+750,3,Canon backfill,Vitalina Varela,Pedro Costa,2019,Portugal,2,5,12
+751,4,Contemporary curation,The Rider,Chloe Zhao,2017,USA,2,5,12
+752,4,Contemporary curation,Certain Women,Kelly Reichardt,2016,USA,2,5,12
+753,4,Canon backfill,"Right Now, Wrong Then",Hong Sang-soo,2015,South Korea,2,5,12
+754,4,Canon backfill,The Club,Pablo Larrain,2015,Chile,2,5,12
+755,4,Contemporary curation,Once Upon a Time in Anatolia,Nuri Bilge Ceylan,2011,Turkey,2,5,12
+756,4,Canon backfill,The Day He Arrives,Hong Sang-soo,2011,South Korea,2,5,12
+757,4,Contemporary curation,Meek's Cutoff,Kelly Reichardt,2010,USA,2,5,12
+758,4,Contemporary curation,I Killed My Mother,Xavier Dolan,2009,Canada,3,4,12
+759,4,Canon backfill,Departures,Yojiro Takita,2008,Japan,3,4,12
+760,4,Contemporary curation,The Class,Laurent Cantet,2008,France,3,4,12
+761,4,Contemporary curation,Two Lovers,James Gray,2008,USA,3,4,12
+762,4,Popular/genre depth,Gone Baby Gone,Ben Affleck,2007,USA,3,4,12
+763,4,Popular/genre depth,Michael Clayton,Tony Gilroy,2007,USA,3,4,12
+764,4,Popular/genre depth,Letters from Iwo Jima,Clint Eastwood,2006,USA,3,4,12
+765,4,Contemporary curation,The Wind That Shakes the Barley,Ken Loach,2006,UK,3,4,12
+766,4,Popular/genre depth,Ghost in the Shell 2: Innocence,Mamoru Oshii,2004,Japan,3,4,12
+767,4,Popular/genre depth,Capturing the Friedmans,Andrew Jarecki,2003,USA,3,4,12
+768,4,Canon backfill,"Spring, Summer, Fall, Winter... and Spring",Kim Ki-duk,2003,South Korea,3,4,12
+769,4,Canon backfill,The Return,Andrey Zvyagintsev,2003,Russia,3,4,12
+770,4,Popular/genre depth,Metropolis,Rintaro,2001,Japan,3,4,12
+771,4,Popular/genre depth,American Movie,Chris Smith,1999,USA,3,4,12
+772,4,Popular/genre depth,Jin-Roh: The Wolf Brigade,Hiroyuki Okiura,1999,Japan,3,4,12
+773,4,Popular/genre depth,Dil Se,Mani Ratnam,1998,India,3,4,12
+774,4,Canon backfill,Hana-bi,Takeshi Kitano,1997,Japan,3,4,12
+775,4,Contemporary curation,Irma Vep,Olivier Assayas,1996,France,3,4,12
+776,4,Canon backfill,Underground,Emir Kusturica,1995,Yugoslavia,3,4,12
+777,4,Popular/genre depth,Crumb,Terry Zwigoff,1994,USA,3,4,12
+778,4,Popular/genre depth,Once Upon a Time in China,Tsui Hark,1991,Hong Kong,3,4,12
+779,4,Canon backfill,The Vanishing,George Sluizer,1988,Netherlands,3,4,12
+780,4,Popular/genre depth,Withnail and I,Bruce Robinson,1987,UK,3,4,12
+781,4,Popular/genre depth,Re-Animator,Stuart Gordon,1985,USA,3,4,12
+782,4,Canon backfill,Tampopo,Juzo Itami,1985,Japan,3,4,12
+783,4,Popular/genre depth,Repo Man,Alex Cox,1984,USA,3,4,12
+784,4,Canon backfill,Merry Christmas Mr. Lawrence,Nagisa Oshima,1983,Japan,3,4,12
+785,4,Canon backfill,House,Nobuhiko Obayashi,1977,Japan,3,4,12
+786,4,Popular/genre depth,Gimme Shelter,Albert Maysles,1970,USA,3,4,12
+787,4,Popular/genre depth,Dont Look Back,D.A. Pennebaker,1967,USA,3,4,12
+788,4,Canon backfill,Shock Corridor,Samuel Fuller,1963,USA,3,4,12
+789,4,Canon backfill,The Man Who Shot Liberty Valance,John Ford,1962,USA,3,4,12
+790,4,Canon backfill,Imitation of Life,Douglas Sirk,1959,USA,3,4,12
+791,4,Canon backfill,Rio Bravo,Howard Hawks,1959,USA,3,4,12
+792,4,Canon backfill,Giant,George Stevens,1956,USA,3,4,12
+793,4,Canon backfill,Written on the Wind,Douglas Sirk,1956,USA,3,4,12
+794,4,Canon backfill,All That Heaven Allows,Douglas Sirk,1955,USA,3,4,12
+795,4,Canon backfill,East of Eden,Elia Kazan,1955,USA,3,4,12
+796,4,Canon backfill,Kiss Me Deadly,Robert Aldrich,1955,USA,3,4,12
+797,4,Canon backfill,Johnny Guitar,Nicholas Ray,1954,USA,3,4,12
+798,4,Canon backfill,Pickup on South Street,Samuel Fuller,1953,USA,3,4,12
+799,4,Canon backfill,The Band Wagon,Vincente Minnelli,1953,USA,3,4,12
+800,4,Canon backfill,The Big Heat,Fritz Lang,1953,USA,3,4,12
+801,4,Canon backfill,A Place in the Sun,George Stevens,1951,USA,3,4,12
+802,4,Canon backfill,An American in Paris,Vincente Minnelli,1951,USA,3,4,12
+803,4,Canon backfill,The Lavender Hill Mob,Charles Crichton,1951,UK,3,4,12
+804,4,Canon backfill,The Man in the White Suit,Alexander Mackendrick,1951,UK,3,4,12
+805,4,Canon backfill,Gun Crazy,Joseph H. Lewis,1950,USA,3,4,12
+806,4,Canon backfill,In a Lonely Place,Nicholas Ray,1950,USA,3,4,12
+807,4,Canon backfill,The Asphalt Jungle,John Huston,1950,USA,3,4,12
+808,4,Canon backfill,Kind Hearts and Coronets,Robert Hamer,1949,UK,3,4,12
+809,4,Canon backfill,White Heat,Raoul Walsh,1949,USA,3,4,12
+810,4,Canon backfill,Letter from an Unknown Woman,Max Ophuls,1948,USA,3,4,12
+811,4,Canon backfill,Red River,Howard Hawks,1948,USA,3,4,12
+812,4,Canon backfill,The Treasure of the Sierra Madre,John Huston,1948,USA,3,4,12
+813,4,Canon backfill,Gilda,Charles Vidor,1946,USA,3,4,12
+814,4,Canon backfill,My Darling Clementine,John Ford,1946,USA,3,4,12
+815,4,Canon backfill,The Best Years of Our Lives,William Wyler,1946,USA,3,4,12
+816,4,Canon backfill,The Big Sleep,Howard Hawks,1946,USA,3,4,12
+817,4,Canon backfill,The Killers,Robert Siodmak,1946,USA,3,4,12
+818,4,Canon backfill,Detour,Edgar G. Ulmer,1945,USA,3,4,12
+819,4,Canon backfill,Scarlet Street,Fritz Lang,1945,USA,3,4,12
+820,4,Canon backfill,Laura,Otto Preminger,1944,USA,3,4,12
+821,4,Canon backfill,Meet Me in St. Louis,Vincente Minnelli,1944,USA,3,4,12
+822,4,Canon backfill,To Be or Not to Be,Ernst Lubitsch,1942,USA,3,4,12
+823,4,Canon backfill,How Green Was My Valley,John Ford,1941,USA,3,4,12
+824,4,Canon backfill,Sullivan's Travels,Preston Sturges,1941,USA,3,4,12
+825,4,Canon backfill,The Lady Eve,Preston Sturges,1941,USA,3,4,12
+826,4,Canon backfill,His Girl Friday,Howard Hawks,1940,USA,3,4,12
+827,4,Canon backfill,The Grapes of Wrath,John Ford,1940,USA,3,4,12
+828,4,Canon backfill,The Philadelphia Story,George Cukor,1940,USA,3,4,12
+829,4,Canon backfill,The Shop Around the Corner,Ernst Lubitsch,1940,USA,3,4,12
+830,4,Canon backfill,Mr. Smith Goes to Washington,Frank Capra,1939,USA,3,4,12
+831,4,Canon backfill,Ninotchka,Ernst Lubitsch,1939,USA,3,4,12
+832,4,Canon backfill,Top Hat,Mark Sandrich,1935,USA,3,4,12
+833,4,Canon backfill,It Happened One Night,Frank Capra,1934,USA,3,4,12
+834,4,Canon backfill,Trouble in Paradise,Ernst Lubitsch,1932,USA,3,4,12
+835,4,Contemporary curation,Highest 2 Lowest,Spike Lee,2025,USA,3,3,12
+836,4,Contemporary curation,Jay Kelly,Noah Baumbach,2025,USA,3,3,12
+837,4,Contemporary curation,Maria,Pablo Larrain,2024,Chile,3,3,12
+838,4,Contemporary curation,Presence,Steven Soderbergh,2024,USA,3,3,12
+839,4,Contemporary curation,Hit Man,Richard Linklater,2023,USA,3,3,12
+840,4,Contemporary curation,Priscilla,Sofia Coppola,2023,USA,3,3,12
+841,4,Contemporary curation,White Noise,Noah Baumbach,2022,USA,3,3,12
+842,4,Contemporary curation,"Paris, 13th District",Jacques Audiard,2021,France,3,3,12
+843,4,Contemporary curation,West Side Story,Steven Spielberg,2021,USA,3,3,12
+844,4,Contemporary curation,Dark Waters,Todd Haynes,2019,USA,3,3,12
+845,4,Popular/genre depth,Summer Wars,Mamoru Hosoda,2009,Japan,4,3,12
+846,4,Popular/genre depth,Pineapple Express,David Gordon Green,2008,USA,4,3,12
+847,4,Popular/genre depth,Step Brothers,Adam McKay,2008,USA,4,3,12
+848,4,Popular/genre depth,Tropic Thunder,Ben Stiller,2008,USA,4,3,12
+849,4,Popular/genre depth,Knocked Up,Judd Apatow,2007,USA,4,3,12
+850,4,Popular/genre depth,Idiocracy,Mike Judge,2006,USA,4,3,12
+851,4,Popular/genre depth,Mission: Impossible III,J.J. Abrams,2006,USA,4,3,12
+852,4,Popular/genre depth,Fahrenheit 9/11,Michael Moore,2004,USA,4,3,12
+853,4,Popular/genre depth,Ong-Bak,Prachya Pinkaew,2003,Thailand,4,3,12
+854,4,Popular/genre depth,The Matrix Reloaded,Lana Wachowski,2003,USA,4,3,12
+855,4,Popular/genre depth,Bowling for Columbine,Michael Moore,2002,USA,4,3,12
+856,4,Popular/genre depth,Chicago,Rob Marshall,2002,USA,4,3,12
+857,4,Popular/genre depth,Devdas,Sanjay Leela Bhansali,2002,India,4,3,12
+858,4,Popular/genre depth,The Cat Returns,Hiroyuki Morita,2002,Japan,4,3,12
+859,4,Popular/genre depth,Moulin Rouge!,Baz Luhrmann,2001,USA,4,3,12
+860,4,Popular/genre depth,Shaolin Soccer,Stephen Chow,2001,Hong Kong,4,3,12
+861,4,Popular/genre depth,Ocean Waves,Tomomi Mochizuki,1993,Japan,4,3,12
+862,4,Popular/genre depth,Mad Max Beyond Thunderdome,George Miller,1985,Australia,4,3,12
+863,4,Popular/genre depth,Poltergeist,Tobe Hooper,1982,USA,4,3,12
+864,4,Popular/genre depth,Friday the 13th,Sean S. Cunningham,1980,USA,4,3,12
+865,4,Popular/genre depth,The Rocky Horror Picture Show,Jim Sharman,1975,UK,4,3,12
+866,4,Popular/genre depth,Goldfinger,Guy Hamilton,1964,UK,4,3,12
+867,4,Popular/genre depth,Dr. No,Terence Young,1962,UK,4,3,12
+868,4,Canon backfill,Zama,Lucrecia Martel,2017,Argentina,2,5,11
+869,4,Contemporary curation,Court,Chaitanya Tamhane,2014,India,2,5,11
+870,4,Contemporary curation,35 Shots of Rum,Claire Denis,2008,France,2,5,11
+871,4,Contemporary curation,Wendy and Lucy,Kelly Reichardt,2008,USA,2,5,11
+872,4,Contemporary curation,Climates,Nuri Bilge Ceylan,2006,Turkey,2,5,11
+873,4,Contemporary curation,Distant,Nuri Bilge Ceylan,2002,Turkey,2,5,11
+874,4,Contemporary curation,The Son,Jean-Pierre Dardenne,2002,Belgium,2,5,11
+875,4,Contemporary curation,La Promesse,Jean-Pierre Dardenne,1996,Belgium,2,5,11
+876,4,Contemporary curation,Caught by the Tides,Jia Zhangke,2024,China,2,4,11
+877,4,Contemporary curation,After the Hunt,Luca Guadagnino,2025,USA,3,3,11
+878,4,Contemporary curation,Hedda,Nia DaCosta,2025,USA,3,3,11
+879,4,Contemporary curation,Roofman,Derek Cianfrance,2025,USA,3,3,11
+880,4,Contemporary curation,The Ballad of a Small Player,Edward Berger,2025,UK,3,3,11
+881,4,Contemporary curation,Babygirl,Halina Reijn,2024,USA,3,3,11
+882,4,Popular/genre depth,Cuckoo,Tilman Singer,2024,Germany,3,3,11
+883,4,Contemporary curation,Friendship,Andrew DeYoung,2024,USA,3,3,11
+884,4,Popular/genre depth,Immaculate,Michael Mohan,2024,USA,3,3,11
+885,4,Popular/genre depth,In a Violent Nature,Chris Nash,2024,Canada,3,3,11
+886,4,Contemporary curation,Megalopolis,Francis Ford Coppola,2024,USA,3,3,11
+887,4,Contemporary curation,September 5,Tim Fehlbaum,2024,Germany,3,3,11
+888,4,Contemporary curation,The Order,Justin Kurzel,2024,USA,3,3,11
+889,4,Popular/genre depth,Concrete Utopia,Um Tae-hwa,2023,South Korea,3,3,11
+890,4,Contemporary curation,Origin,Ava DuVernay,2023,USA,3,3,11
+891,4,Contemporary curation,The Promised Land,Nikolaj Arcel,2023,Denmark,3,3,11
+892,4,Contemporary curation,Blonde,Andrew Dominik,2022,USA,3,3,11
+893,4,Contemporary curation,Bodies Bodies Bodies,Halina Reijn,2022,USA,3,3,11
+894,4,Popular/genre depth,Malignant,James Wan,2021,USA,3,3,11
+895,4,Popular/genre depth,The Medium,Banjong Pisanthanakun,2021,Thailand,3,3,11
+896,4,Contemporary curation,Ammonite,Francis Lee,2020,UK,3,3,11
+897,4,Popular/genre depth,Boys State,Amanda McBaine,2020,USA,3,3,11
+898,4,Contemporary curation,Honey Boy,Alma Har'el,2019,USA,3,3,11
+899,4,Contemporary curation,I'm No Longer Here,Fernando Frias,2019,Mexico,3,3,11
+900,4,Contemporary curation,La Llorona,Jayro Bustamante,2019,Guatemala,3,3,11
+901,4,Popular/genre depth,"The Gangster, the Cop, the Devil",Lee Won-tae,2019,South Korea,3,3,11
+902,4,Contemporary curation,The Two Popes,Fernando Meirelles,2019,UK,3,3,11
+903,4,Popular/genre depth,Gonjiam: Haunted Asylum,Jung Bum-shik,2018,South Korea,3,3,11
+904,4,Popular/genre depth,The Witch: Part 1,Park Hoon-jung,2018,South Korea,3,3,11
+905,4,Contemporary curation,Vice,Adam McKay,2018,USA,3,3,11
+906,4,Contemporary curation,The Beguiled,Sofia Coppola,2017,USA,3,3,11
+907,4,Contemporary curation,The Post,Steven Spielberg,2017,USA,3,3,11
+908,4,Contemporary curation,Frantz,Francois Ozon,2016,France,3,3,11
+909,4,Contemporary curation,Bridge of Spies,Steven Spielberg,2015,USA,3,3,11
+910,4,Contemporary curation,Crimson Peak,Guillermo del Toro,2015,USA,3,3,11
+911,4,Contemporary curation,While We're Young,Noah Baumbach,2014,USA,3,3,11
+912,4,Contemporary curation,The Bling Ring,Sofia Coppola,2013,USA,3,3,11
+913,4,Contemporary curation,Magic Mike,Steven Soderbergh,2012,USA,3,3,11
+914,4,Contemporary curation,Hugo,Martin Scorsese,2011,USA,3,3,11
+915,4,Contemporary curation,Somewhere,Sofia Coppola,2010,USA,3,3,11
+916,4,Popular/genre depth,Doctor Strange,Scott Derrickson,2016,USA,5,2,11
+917,4,Popular/genre depth,Angel's Egg,Mamoru Oshii,1985,Japan,2,5,10
+918,4,Popular/genre depth,Harlan County USA,Barbara Kopple,1976,USA,2,5,10
+919,4,Popular/genre depth,The Sorrow and the Pity,Marcel Ophuls,1969,France,2,5,10
+920,4,Popular/genre depth,Titicut Follies,Frederick Wiseman,1967,USA,2,5,10
+921,4,Popular/genre depth,The Up Series,Michael Apted,1964,UK,2,5,10
+922,4,Popular/genre depth,Chronicle of a Summer,Jean Rouch,1961,France,2,5,10
+923,4,Contemporary curation,Kontinental 25,Radu Jude,2025,Romania,2,4,10
+924,4,Contemporary curation,Resurrection,Bi Gan,2025,China,2,4,10
+925,4,Contemporary curation,Black Dog,Guan Hu,2024,China,2,4,10
+926,4,Contemporary curation,Grand Tour,Miguel Gomes,2024,Portugal,2,4,10
+927,4,Contemporary curation,On Becoming a Guinea Fowl,Rungano Nyoni,2024,Zambia,2,4,10
+928,4,Contemporary curation,Sujo,Astrid Rondero,2024,Mexico,2,4,10
+929,4,Contemporary curation,Universal Language,Matthew Rankin,2024,Canada,2,4,10
+930,4,Contemporary curation,Vermiglio,Maura Delpero,2024,Italy,2,4,10
+931,4,Contemporary curation,Earth Mama,Savanah Leaf,2023,USA,2,4,10
+932,4,Contemporary curation,Green Border,Agnieszka Holland,2023,Poland,2,4,10
+933,4,Contemporary curation,The Eternal Memory,Maite Alberdi,2023,Chile,2,4,10
+934,4,Contemporary curation,R.M.N.,Cristian Mungiu,2022,Romania,2,4,10
+935,4,Contemporary curation,Ahed's Knee,Nadav Lapid,2021,Israel,2,4,10
+936,4,Contemporary curation,Nitram,Justin Kurzel,2021,Australia,2,4,10
+937,4,Contemporary curation,Prayers for the Stolen,Tatiana Huezo,2021,Mexico,2,4,10
+938,4,Contemporary curation,The Souvenir Part II,Joanna Hogg,2021,UK,2,4,10
+939,4,Contemporary curation,Beginning,Dea Kulumbegashvili,2020,Georgia,2,4,10
+940,4,Contemporary curation,Shirley,Josephine Decker,2020,USA,2,4,10
+941,4,Contemporary curation,Jallikattu,Lijo Jose Pellissery,2019,India,2,4,10
+942,4,Contemporary curation,Martin Eden,Pietro Marcello,2019,Italy,2,4,10
+943,4,Contemporary curation,The Painted Bird,Vaclav Marhoul,2019,Czechia,2,4,10
+944,4,Contemporary curation,House of Hummingbird,Kim Bora,2018,South Korea,2,4,10
+945,4,Contemporary curation,Rojo,Benjamin Naishtat,2018,Argentina,2,4,10
+946,4,Contemporary curation,Beauty and the Dogs,Kaouther Ben Hania,2017,Tunisia,2,4,10
+947,4,Popular/genre depth,Gerald's Game,Mike Flanagan,2017,USA,3,3,10
+948,4,Contemporary curation,Tigers Are Not Afraid,Issa Lopez,2017,Mexico,3,3,10
+949,4,Contemporary curation,Colossal,Nacho Vigalondo,2016,Spain,3,3,10
+950,4,Contemporary curation,Divines,Houda Benyamina,2016,France,3,3,10
+951,4,Popular/genre depth,The Attorney,Yang Woo-suk,2013,South Korea,3,3,10
+952,4,Popular/genre depth,The Spectacular Now,James Ponsoldt,2013,USA,3,3,10
+953,4,Popular/genre depth,Tucker and Dale vs. Evil,Eli Craig,2010,USA,3,3,10
+954,4,Popular/genre depth,Red Cliff,John Woo,2008,China,3,3,10
+955,4,Contemporary curation,Broken Flowers,Jim Jarmusch,2005,USA,3,3,10
+956,4,Contemporary curation,8 Women,Francois Ozon,2002,France,3,3,10
+957,4,Contemporary curation,Insomnia,Christopher Nolan,2002,USA,3,3,10
+958,4,Contemporary curation,Panic Room,David Fincher,2002,USA,3,3,10
+959,4,Contemporary curation,Out of Sight,Steven Soderbergh,1998,USA,3,3,10
+960,4,Contemporary curation,The Game,David Fincher,1997,USA,3,3,10
+961,4,Contemporary curation,To Die For,Gus Van Sant,1995,USA,3,3,10
+962,4,Popular/genre depth,Jawan,Atlee,2023,India,4,2,10
+963,4,Popular/genre depth,K.G.F: Chapter 2,Prashanth Neel,2022,India,4,2,10
+964,4,Popular/genre depth,The Roundup,Lee Sang-yong,2022,South Korea,4,2,10
+965,4,Popular/genre depth,The Conjuring: The Devil Made Me Do It,Michael Chaves,2021,USA,4,2,10
+966,4,Popular/genre depth,Wonder Woman 1984,Patty Jenkins,2020,USA,4,2,10
+967,4,Popular/genre depth,Spider-Man: Far From Home,Jon Watts,2019,USA,4,2,10
+968,4,Popular/genre depth,Star Wars: The Rise of Skywalker,J.J. Abrams,2019,USA,4,2,10
+969,4,Popular/genre depth,Jurassic World: Fallen Kingdom,J.A. Bayona,2018,USA,4,2,10
+970,4,Popular/genre depth,Solo: A Star Wars Story,Ron Howard,2018,USA,4,2,10
+971,4,Popular/genre depth,The Nun,Corin Hardy,2018,USA,4,2,10
+972,4,Popular/genre depth,Star Wars: Episode I - The Phantom Menace,George Lucas,1999,USA,5,2,10
+973,4,Contemporary curation,Ixcanul,Jayro Bustamante,2015,Guatemala,2,4,9
+974,4,Contemporary curation,Kaili Blues,Bi Gan,2015,China,2,4,9
+975,4,Contemporary curation,Sweet Bean,Naomi Kawase,2015,Japan,2,4,9
+976,4,Contemporary curation,The Childhood of a Leader,Brady Corbet,2015,USA,2,4,9
+977,4,Contemporary curation,Blind Massage,Lou Ye,2014,China,2,4,9
+978,4,Contemporary curation,Laurence Anyways,Xavier Dolan,2012,Canada,2,4,9
+979,4,Contemporary curation,Ship of Theseus,Anand Gandhi,2012,India,2,4,9
+980,4,Contemporary curation,Snowtown,Justin Kurzel,2011,Australia,2,4,9
+981,4,Contemporary curation,White Material,Claire Denis,2009,France,2,4,9
+982,4,Contemporary curation,Inland Empire,David Lynch,2006,USA,2,4,9
+983,4,Contemporary curation,Old Joy,Kelly Reichardt,2006,USA,2,4,9
+984,4,Contemporary curation,Trouble Every Day,Claire Denis,2001,France,2,4,9
+985,4,Popular/genre depth,Redline,Takeshi Koike,2009,Japan,3,3,9
+986,4,Contemporary curation,We Own the Night,James Gray,2007,USA,3,3,9
+987,4,Popular/genre depth,Steamboy,Katsuhiro Otomo,2004,Japan,3,3,9
+988,4,Popular/genre depth,Vampire Hunter D: Bloodlust,Yoshiaki Kawajiri,2000,Japan,3,3,9
+989,4,Popular/genre depth,Drunken Master II,Lau Kar-leung,1994,Hong Kong,3,3,9
+990,4,Popular/genre depth,Say Anything...,Cameron Crowe,1989,USA,3,3,9
+991,4,Popular/genre depth,The Howling,Joe Dante,1981,USA,3,3,9
+992,4,Popular/genre depth,The Fog,John Carpenter,1980,USA,3,3,9
+993,4,Popular/genre depth,The Spy Who Loved Me,Lewis Gilbert,1977,UK,3,3,9
+994,4,Popular/genre depth,Woodstock,Michael Wadleigh,1970,USA,3,3,9
+995,4,Popular/genre depth,Along with the Gods: The Two Worlds,Kim Yong-hwa,2017,South Korea,4,2,9
+996,4,Popular/genre depth,Annabelle: Creation,David F. Sandberg,2017,USA,4,2,9
+997,4,Contemporary curation,Lebanon,Samuel Maoz,2009,Israel,2,4,8
+998,4,Contemporary curation,Spring Fever,Lou Ye,2009,China,2,4,8
+999,4,Contemporary curation,Summer Hours,Olivier Assayas,2008,France,2,4,8
+1000,4,Contemporary curation,Sir,Rohena Gera,2018,India,2,3,8

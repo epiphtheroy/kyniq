@@ -1,0 +1,161 @@
+slug,name,country,also_country,wikidata,birth_year,group,authority_weight,source,notes
+auteur-bong-joon-ho,Bong Joon-ho,kr,,Q495980,1969,G1,0.92,wikidata,
+auteur-park-chan-wook,Park Chan-wook,kr,,Q315484,1963,G1,0.92,wikidata,
+auteur-lee-chang-dong,Lee Chang-dong,kr,,Q239656,1954,G1,0.92,wikidata,
+auteur-hirokazu-kore-eda,Hirokazu Kore-eda,jp,,Q740758,1962,G1,0.92,wikidata,
+auteur-jia-zhangke,Jia Zhangke,cn,,Q461079,1970,G1,0.92,wikidata,
+auteur-hou-hsiao-hsien,Hou Hsiao-hsien,tw,,Q435626,1947,G1,0.92,wikidata,born in mainland China
+auteur-tsai-ming-liang,Tsai Ming-liang,tw,my,Q698710,1957,G1,0.92,wikidata,Malaysian-Taiwanese
+auteur-apichatpong-weerasethakul,Apichatpong Weerasethakul,th,,Q445198,1970,G1,0.92,wikidata,
+auteur-ryusuke-hamaguchi,Ryusuke Hamaguchi,jp,,Q17220313,1978,G2,0.82,wikidata,
+auteur-lav-diaz,Lav Diaz,ph,,Q129619,1958,G2,0.82,wikidata,
+auteur-kiyoshi-kurosawa,Kiyoshi Kurosawa,jp,,Q53834,1955,G3,0.70,wikidata,
+auteur-bi-gan,Bi Gan,cn,,Q24833063,1989,G3,0.70,wikidata,
+auteur-wang-bing,Wang Bing,cn,,Q3566046,1967,G3,0.70,wikidata,
+auteur-chung-mong-hong,Chung Mong-hong,tw,,Q15903922,1965,G4,0.55,wikidata,
+auteur-brillante-mendoza,Brillante Mendoza,ph,,Q917051,1960,G4,0.55,wikidata,
+auteur-nawapol-thamrongrattanarit,Nawapol Thamrongrattanarit,th,,Q16306669,1984,G5,0.40,wikidata,
+auteur-banjong-pisanthanakun,Banjong Pisanthanakun,th,,Q636817,1979,G5,0.40,wikidata,
+auteur-erik-matti,Erik Matti,ph,,Q5388719,1970,G5,0.40,wikidata,"birth_year corrected from 1971 to 1970"
+auteur-ash-mayfair,Ash Mayfair,vn,,Q98556458,1985,G5,0.40,wikidata,
+auteur-anthony-chen,Anthony Chen,sg,,Q14593421,1984,G5,0.40,wikidata,
+auteur-boo-junfeng,Boo Junfeng,sg,,Q4942742,1983,G5,0.40,wikidata,
+auteur-amanda-nell-eu,Amanda Nell Eu,my,,Q123504894,1980,G5,0.40,wikidata,
+auteur-kamila-andini,Kamila Andini,id,,Q3663579,1986,G5,0.40,wikidata,
+auteur-joko-anwar,Joko Anwar,id,,Q11036795,1976,G5,0.40,wikidata,
+auteur-asghar-farhadi,Asghar Farhadi,ir,,Q334242,1972,G1,0.92,wikidata,
+auteur-jafar-panahi,Jafar Panahi,ir,,Q31637,1960,G2,0.82,wikidata,
+auteur-nadine-labaki,Nadine Labaki,lb,,Q266539,1974,G2,0.82,wikidata,
+auteur-elia-suleiman,Elia Suleiman,ps,,Q577569,1960,G2,0.82,wikidata,"holds israeli passport, identifies palestinian"
+auteur-haifaa-al-mansour,Haifaa al-Mansour,sa,,Q386131,1974,G2,0.82,wikidata,
+auteur-mohammad-rasoulof,Mohammad Rasoulof,ir,,Q981853,1972,G3,0.70,wikidata,in exile in germany
+auteur-ari-folman,Ari Folman,il,,Q653645,1962,G3,0.70,wikidata,
+auteur-nadav-lapid,Nadav Lapid,il,,Q7060835,1975,G3,0.70,wikidata,
+auteur-mati-diop,Mati Diop,sn,fr,Q3299073,1982,G3,0.70,wikidata,"born paris, franco-senegalese"
+auteur-payal-kapadia,Payal Kapadia,in,,Q107803283,1986,G3,0.70,wikidata,
+auteur-jayro-bustamante,Jayro Bustamante,gt,,Q19199110,1977,G3,0.70,wikidata,
+auteur-kaouther-ben-hania,Kaouther Ben Hania,tn,,Q30005402,1977,G3,0.70,wikidata,
+auteur-anurag-kashyap,Anurag Kashyap,in,,Q2839609,1972,G4,0.55,wikidata,
+auteur-hany-abu-assad,Hany Abu-Assad,ps,nl,Q727108,1961,G4,0.55,wikidata,palestinian-dutch dual citizen
+auteur-nabil-ayouch,Nabil Ayouch,ma,fr,Q2388301,1969,G4,0.55,wikidata,franco-moroccan
+auteur-oliver-hermanus,Oliver Hermanus,za,,Q13035667,1983,G4,0.55,wikidata,
+auteur-cj-obasi,C.J. Obasi,ng,,Q16745438,1985,G4,0.55,wikidata,
+auteur-adilkhan-yerzhanov,Adilkhan Yerzhanov,kz,,Q59185728,1982,G4,0.55,wikidata,
+auteur-samuel-maoz,Samuel Maoz,il,,Q979828,1962,G5,0.40,wikidata,
+auteur-alain-gomis,Alain Gomis,fr,sn,Q2829867,1972,G5,0.40,wikidata,"born paris, franco-senegalese; primary corrected to fr"
+auteur-rima-das,Rima Das,in,,Q45410390,1977,G5,0.40,wikidata,
+auteur-maha-haj,Maha Haj,ps,,Q27847794,,G5,0.40,wikidata,birth year unconfirmed
+auteur-cesar-diaz,César Díaz,gt,be,Q75612503,1978,G5,0.40,wikidata,belgian-guatemalan
+auteur-ziad-doueiri,Ziad Doueiri,lb,,Q8071326,1963,G5,0.40,wikidata,
+auteur-mohamed-diab,Mohamed Diab,eg,,Q12240468,1978,G5,0.40,wikidata,
+auteur-maryam-touzani,Maryam Touzani,ma,,Q50587732,1980,G5,0.40,wikidata,
+auteur-john-trengove,John Trengove,za,,Q29473669,1978,G5,0.40,wikidata,
+auteur-leyla-bouzid,Leyla Bouzid,tn,fr,Q3831456,1984,G5,0.40,wikidata,"canon spelling leyla; birth corrected 1981->1984"
+auteur-karim-moussaoui,Karim Moussaoui,dz,,Q29551774,1976,G5,0.40,wikidata,
+auteur-emir-baigazin,Emir Baigazin,kz,,Q12269954,1984,G5,0.40,wikidata,
+auteur-amjad-abu-alala,Amjad Abu Alala,sd,,Q79351454,1985,G5,0.40,wikidata,based in uae
+auteur-wanuri-kahiu,Wanuri Kahiu,ke,,Q3566180,1980,G5,0.40,wikidata,
+auteur-akin-omotoso,Akin Omotoso,ng,za,Q3607334,1974,G5,0.40,wikidata,nigerian-south african
+auteur-steve-mcqueen,Steve McQueen,gb,,Q706475,1969,G1,0.92,wikidata,director/video artist; distinct from the actor
+auteur-michael-haneke,Michael Haneke,at,,Q84199,1942,G1,0.92,wikidata,German-born Austrian
+auteur-dardenne-brothers,Dardenne Brothers,be,,Q597609,1951,G1,0.92,wikidata,"duo; Jean-Pierre b.1951, Luc b.1954"
+auteur-pedro-almodovar,Pedro Almodóvar,es,,Q55171,1949,G1,0.92,wikidata,
+auteur-martin-mcdonagh,Martin McDonagh,ie,gb,Q372394,1970,G1,0.92,wikidata,"born London to Irish parents, Irish-British"
+auteur-paolo-sorrentino,Paolo Sorrentino,it,,Q374678,1970,G1,0.92,wikidata,
+auteur-jacques-audiard,Jacques Audiard,fr,,Q382389,1952,G2,0.82,wikidata,
+auteur-jonathan-glazer,Jonathan Glazer,gb,,Q1703182,1965,G2,0.82,wikidata,
+auteur-maren-ade,Maren Ade,de,,Q91508,1976,G2,0.82,wikidata,
+auteur-christian-petzold,Christian Petzold,de,,Q67268,1960,G2,0.82,wikidata,
+auteur-alice-rohrwacher,Alice Rohrwacher,it,,Q510194,1981,G2,0.82,wikidata,
+auteur-pedro-costa,Pedro Costa,pt,,Q1354061,1959,G2,0.82,wikidata,
+auteur-celine-sciamma,Céline Sciamma,fr,,Q461350,1978,G3,0.70,wikidata,
+auteur-julia-ducournau,Julia Ducournau,fr,,Q24061147,1983,G3,0.70,wikidata,
+auteur-andrea-arnold,Andrea Arnold,gb,,Q457493,1961,G3,0.70,wikidata,
+auteur-matteo-garrone,Matteo Garrone,it,,Q940107,1968,G3,0.70,wikidata,
+auteur-lukas-dhont,Lukas Dhont,be,,Q53815755,1991,G3,0.70,wikidata,
+auteur-miguel-gomes,Miguel Gomes,pt,,Q1890376,1972,G3,0.70,wikidata,
+auteur-jessica-hausner,Jessica Hausner,at,,Q79003,1972,G3,0.70,wikidata,
+auteur-lenny-abrahamson,Lenny Abrahamson,ie,,Q6522913,1966,G3,0.70,wikidata,
+auteur-carla-simon,Carla Simón,es,,Q31158071,1986,G3,0.70,wikidata,works mainly in Catalan
+auteur-fatih-akin,Fatih Akin,de,tr,Q77061,1973,G4,0.55,wikidata,dual German-Turkish; born Hamburg
+auteur-alex-van-warmerdam,Alex van Warmerdam,nl,,Q1933451,1952,G4,0.55,wikidata,
+auteur-john-crowley,John Crowley,ie,,Q6227781,1969,G4,0.55,wikidata,
+auteur-albert-serra,Albert Serra,es,,Q2422285,1975,G4,0.55,wikidata,Catalan; born Banyoles
+auteur-bas-devos,Bas Devos,be,,Q53100456,1983,G5,0.40,wikidata,
+auteur-joao-pedro-rodrigues,João Pedro Rodrigues,pt,,Q782982,1966,G5,0.40,wikidata,
+auteur-sebastian-meise,Sebastian Meise,at,,Q107095385,1977,G5,0.40,wikidata,
+auteur-sacha-polak,Sacha Polak,nl,,Q21062988,1983,G5,0.40,wikidata,
+auteur-nanouk-leopold,Nanouk Leopold,nl,,Q514776,1969,G5,0.40,wikidata,
+auteur-cyril-schaublin,Cyril Schäublin,ch,,Q47539569,1984,G5,0.40,wikidata,
+auteur-aki-kaurismaki,Aki Kaurismäki,fi,,Q276186,1957,G1,0.92,wikidata,
+auteur-ruben-ostlund,Ruben Östlund,se,,Q211228,1974,G1,0.92,wikidata,
+auteur-thomas-vinterberg,Thomas Vinterberg,dk,,Q314287,1969,G2,0.82,wikidata,
+auteur-joachim-trier,Joachim Trier,no,dk,Q653571,1974,G2,0.82,wikidata,Danish-Norwegian; born in Denmark
+auteur-lars-von-trier,Lars von Trier,dk,,Q133730,1956,G3,0.70,wikidata,
+auteur-roy-andersson,Roy Andersson,se,,Q703513,1943,G3,0.70,wikidata,
+auteur-nicolas-winding-refn,Nicolas Winding Refn,dk,,Q359397,1970,G4,0.55,wikidata,
+auteur-ali-abbasi,Ali Abbasi,ir,dk;se,Q28842152,1981,G4,0.55,wikidata,Iranian-born; based Denmark/Sweden
+auteur-eskil-vogt,Eskil Vogt,no,,Q16905873,1974,G4,0.55,wikidata,
+auteur-juho-kuosmanen,Juho Kuosmanen,fi,,Q18632044,1979,G4,0.55,wikidata,
+auteur-maria-sodahl,Maria Sødahl,no,,Q17111165,1965,G5,0.40,wikidata,birth corrected 1968->1965
+auteur-hanna-bergholm,Hanna Bergholm,fi,,Q110983658,1980,G5,0.40,wikidata,birth corrected 1979->1980
+auteur-benedikt-erlingsson,Benedikt Erlingsson,is,,Q15635899,1969,G5,0.40,wikidata,
+auteur-hlynur-palmason,Hlynur Pálmason,is,dk,Q31509858,1984,G5,0.40,wikidata,works between Iceland and Denmark
+auteur-valdimar-johannsson,Valdimar Jóhannsson,is,,Q53105053,1978,G5,0.40,wikidata,
+auteur-sarunas-bartas,Šarūnas Bartas,lt,,Q391277,1964,G5,0.40,wikidata,
+auteur-yorgos-lanthimos,Yorgos Lanthimos,gr,,Q975410,1973,G1,0.92,wikidata,
+auteur-pawel-pawlikowski,Paweł Pawlikowski,pl,,Q1377022,1957,G1,0.92,wikidata,UK-based
+auteur-nuri-bilge-ceylan,Nuri Bilge Ceylan,tr,,Q724172,1959,G1,0.92,wikidata,
+auteur-andrey-zvyagintsev,Andrey Zvyagintsev,ru,,Q122425,1964,G1,0.92,wikidata,France-resident
+auteur-cristian-mungiu,Cristian Mungiu,ro,,Q314353,1968,G1,0.92,wikidata,
+auteur-agnieszka-holland,Agnieszka Holland,pl,,Q231019,1948,G2,0.82,wikidata,France-based
+auteur-radu-jude,Radu Jude,ro,,Q1248032,1977,G2,0.82,wikidata,
+auteur-danis-tanovic,Danis Tanović,ba,be,Q313497,1969,G2,0.82,wikidata,dual Bosnian-Belgian
+auteur-sergei-loznitsa,Sergei Loznitsa,ua,,Q9336699,1964,G2,0.82,wikidata,"born in Belarus, Ukrainian; Germany-based"
+auteur-cristi-puiu,Cristi Puiu,ro,,Q1140264,1967,G3,0.70,wikidata,
+auteur-laszlo-nemes,László Nemes,hu,,Q6495014,1977,G3,0.70,wikidata,raised in France
+auteur-kantemir-balagov,Kantemir Balagov,ru,,Q30346628,1991,G3,0.70,wikidata,Circassian; US exile
+auteur-jasmila-zbanic,Jasmila Žbanić,ba,,Q83487,1974,G3,0.70,wikidata,
+auteur-athina-rachel-tsangari,Athina Rachel Tsangari,gr,,Q755543,1966,G4,0.55,wikidata,birth corrected 1974->1966
+auteur-jan-komasa,Jan Komasa,pl,,Q11718051,1981,G4,0.55,wikidata,
+auteur-semih-kaplanoglu,Semih Kaplanoğlu,tr,,Q1373349,1963,G4,0.55,wikidata,
+auteur-ildiko-enyedi,Ildikó Enyedi,hu,,Q273962,1955,G4,0.55,wikidata,
+auteur-kirill-serebrennikov,Kirill Serebrennikov,ru,,Q1974774,1969,G4,0.55,wikidata,Germany-based exile
+auteur-dea-kulumbegashvili,Dea Kulumbegashvili,ge,,Q96942531,1986,G4,0.55,wikidata,born Oryol Russia; raised Georgia
+auteur-myroslav-slaboshpytskyi,Myroslav Slaboshpytskyi,ua,,Q12153531,1974,G4,0.55,wikidata,
+auteur-christos-nikou,Christos Nikou,gr,,Q111736397,1984,G5,0.40,wikidata,
+auteur-deniz-gamze-erguven,Deniz Gamze Ergüven,tr,fr,Q20730476,1978,G5,0.40,wikidata,dual Turkish-French
+auteur-kornel-mundruczo,Kornél Mundruczó,hu,,Q537284,1975,G5,0.40,wikidata,
+auteur-alexandre-koberidze,Alexandre Koberidze,ge,,Q95225131,1984,G5,0.40,wikidata,Berlin-based
+auteur-nana-ekvtimishvili,Nana Ekvtimishvili,ge,,Q15958698,1978,G5,0.40,wikidata,
+auteur-iryna-tsilyk,Iryna Tsilyk,ua,,Q12168970,1982,G5,0.40,wikidata,
+auteur-aida-begic,Aida Begić,ba,,Q2827768,1976,G5,0.40,wikidata,
+auteur-vaclav-marhoul,Václav Marhoul,cz,,Q3563923,1960,G5,0.40,wikidata,
+auteur-blerta-basholli,Blerta Basholli,xk,,Q105371355,1983,G5,0.40,wikidata,Kosovar; born Pristina
+auteur-srdan-golubovic,Srdan Golubović,rs,,Q3495210,1972,G5,0.40,wikidata,
+auteur-dalibor-matanic,Dalibor Matanić,hr,,Q5210962,1975,G5,0.40,wikidata,
+auteur-teona-strugar-mitevska,Teona Strugar Mitevska,mk,,Q9357004,1974,G5,0.40,wikidata,
+auteur-paul-thomas-anderson,Paul Thomas Anderson,us,,Q25132,1970,G1,0.92,wikidata,
+auteur-alfonso-cuaron,Alfonso Cuarón,mx,,Q28028,1961,G1,0.92,wikidata,
+auteur-denis-villeneuve,Denis Villeneuve,ca,,Q548823,1967,G1,0.92,wikidata,francophone Quebec
+auteur-jane-campion,Jane Campion,nz,,Q230448,1954,G1,0.92,wikidata,
+auteur-guillermo-del-toro,Guillermo del Toro,mx,,Q219124,1964,G2,0.82,wikidata,
+auteur-alejandro-gonzalez-inarritu,Alejandro González Iñárritu,mx,,Q55215,1963,G2,0.82,wikidata,
+auteur-pablo-larrain,Pablo Larraín,cl,,Q1985090,1976,G2,0.82,wikidata,
+auteur-kleber-mendonca-filho,Kleber Mendonça Filho,br,,Q14940022,1968,G2,0.82,wikidata,
+auteur-damien-chazelle,Damien Chazelle,us,fr,Q18350026,1985,G3,0.70,wikidata,dual us/fr
+auteur-barry-jenkins,Barry Jenkins,us,,Q26821227,1979,G3,0.70,wikidata,
+auteur-sarah-polley,Sarah Polley,ca,,Q234212,1979,G3,0.70,wikidata,
+auteur-lucrecia-martel,Lucrecia Martel,ar,,Q254152,1966,G3,0.70,wikidata,
+auteur-sebastian-lelio,Sebastián Lelio,cl,,Q4250213,1974,G3,0.70,wikidata,born in Argentina
+auteur-karim-ainouz,Karim Aïnouz,br,,Q749493,1966,G3,0.70,wikidata,Algerian father
+auteur-jennifer-kent,Jennifer Kent,au,,Q18688012,1969,G3,0.70,wikidata,
+auteur-xavier-dolan,Xavier Dolan,ca,,Q551861,1989,G4,0.55,wikidata,francophone Quebec
+auteur-damian-szifron,Damián Szifron,ar,,Q5212638,1975,G4,0.55,wikidata,
+auteur-ciro-guerra,Ciro Guerra,co,,Q2974216,1981,G4,0.55,wikidata,
+auteur-juliano-dornelles,Juliano Dornelles,br,,Q65165608,1980,G4,0.55,wikidata,
+auteur-justin-kurzel,Justin Kurzel,au,,Q6317793,1974,G4,0.55,wikidata,
+auteur-santiago-mitre,Santiago Mitre,ar,,Q6121032,1980,G5,0.40,wikidata,
+auteur-maite-alberdi,Maite Alberdi,cl,,Q52161286,1983,G5,0.40,wikidata,documentary
+auteur-alejandro-landes,Alejandro Landes,co,ec,Q26435742,1980,G5,0.40,wikidata,dual co/ec; born in Brazil
+auteur-laura-mora-ortega,Laura Mora Ortega,co,,Q24708123,1981,G5,0.40,wikidata,

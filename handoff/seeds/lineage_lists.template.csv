@@ -1,0 +1,21 @@
+facet,slug,label,parent_slug,has_editions,authority_weight,source,external_ref,description
+festival,cannes,Cannes Film Festival,,false,,wikidata,"{""wikidata"":""Q49024""}",
+section,cannes-competition,Cannes Competition,cannes,true,0.70,wikidata,{},In-competition selection
+award,cannes-palme-dor,Palme d'Or,cannes,true,0.95,wikidata,"{""wikidata"":""Q179808""}",
+award,cannes-grand-prix,Grand Prix,cannes,true,0.80,wikidata,{},
+award,cannes-best-director,Best Director,cannes,true,0.75,wikidata,{},
+festival,venice,Venice Film Festival,,false,,wikidata,{},
+award,venice-golden-lion,Golden Lion,venice,true,0.95,wikidata,{},
+festival,berlin,Berlinale,,false,,wikidata,{},
+award,berlin-golden-bear,Golden Bear,berlin,true,0.95,wikidata,{},
+canon,sight-and-sound-critics,Sight & Sound Critics' Poll,,true,0.95,bfi,{},Decennial critics poll (1952-2022)
+canon,sight-and-sound-directors,Sight & Sound Directors' Poll,,true,0.92,bfi,{},Decennial directors poll
+canon,tspdt-1000,TSPDT 1000 Greatest Films,,true,0.90,tspdt,{},Annual aggregate of critics lists
+canon,afi-100,AFI 100 Years...100 Movies,,true,0.55,afi,{},US-centric
+movement,french-new-wave,French New Wave,,false,0.70,editorial,{},
+movement,italian-neorealism,Italian Neorealism,,false,0.70,editorial,{},
+movement,asian-new-wave,Asian New Wave,,false,0.55,editorial,{},Umbrella term
+movement,hk-new-wave,Hong Kong New Wave,asian-new-wave,false,0.60,editorial,{},
+movement,taiwan-new-cinema,Taiwan New Cinema,asian-new-wave,false,0.60,editorial,{},
+movement,korean-new-wave,Korean New Wave,asian-new-wave,false,0.60,editorial,{},
+movement,iranian-new-wave,Iranian New Wave,asian-new-wave,false,0.60,editorial,{},

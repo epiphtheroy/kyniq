@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>metatake — home (design mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFBF7;
+  --paper-2:#F4F1E9;
+  --ink:#1A1714;
+  --ink-soft:#5C564E;
+  --ink-faint:#8C857A;
+  --red:#B11226;
+  --red-deep:#8A0E1E;
+  --line:#E7E2D6;
+  --line-strong:#D6CFBF;
+  --dark:#16130F;
+  --dark-2:#211D17;
+  --serif:"Newsreader",Georgia,serif;
+  --text-serif:"Spectral","Newsreader",Georgia,serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--text-serif);
+  font-size:17px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+
+/* ---------- micro labels ---------- */
+.kicker{
+  font-family:var(--ui);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+.kicker.nodot::before{display:none}
+.ui{font-family:var(--ui)}
+
+/* ---------- mockup ribbon ---------- */
+.mockbar{
+  background:var(--dark);
+  color:#E9E4D8;
+  font-family:var(--ui);
+  font-size:12px;
+  letter-spacing:.02em;
+  text-align:center;
+  padding:7px 16px;
+}
+.mockbar b{color:#fff;font-weight:600}
+.mockbar .tag{color:var(--red);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+
+/* ---------- top nav ---------- */
+header.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(252,251,247,.92);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.navrow{display:flex;align-items:center;gap:22px;height:64px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:-.01em}
+.brand .glyph{width:20px;height:20px;border:2px solid var(--ink);position:relative;border-radius:2px}
+.brand .glyph::after{content:"";position:absolute;inset:3px;background:var(--red)}
+.navlinks{display:flex;gap:20px;font-family:var(--serif);font-size:16.5px}
+.navlinks a{color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;transition:.15s}
+.navlinks a:hover{color:var(--ink)}
+.navlinks a.on{color:var(--ink);border-bottom-color:var(--red)}
+.menubtn{display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;border:1px solid var(--line-strong);padding:7px 11px;border-radius:7px;background:#fff}
+.menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
+.menubtn .bars i{width:14px;height:2px;background:var(--ink);display:block}
+
+.search{flex:1;max-width:420px;position:relative}
+.search input{
+  width:100%;font-family:var(--text-serif);font-size:15px;
+  padding:10px 14px 10px 38px;border:1px solid var(--line-strong);
+  border-radius:9px;background:#fff;color:var(--ink);
+}
+.search input::placeholder{color:var(--ink-faint)}
+.search .mag{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-faint);font-size:15px}
+.search .slash{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-family:var(--ui);font-size:11px;color:var(--ink-faint);border:1px solid var(--line-strong);border-radius:5px;padding:2px 6px}
+
+.navright{display:flex;align-items:center;gap:14px;margin-left:auto}
+.askai{font-family:var(--ui);font-size:12.5px;font-weight:600;color:#fff;background:var(--ink);padding:8px 13px;border-radius:8px;display:flex;gap:6px;align-items:center}
+.askai .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.icbtn{position:relative;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:13px;font-weight:600;color:var(--ink-soft)}
+.icbtn svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.icbtn .count{font-variant-numeric:tabular-nums}
+.badge{position:absolute;top:-6px;right:-9px;min-width:16px;height:16px;background:var(--red);color:#fff;border-radius:9px;font-family:var(--ui);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#B11226,#6c0c18);color:#fff;font-family:var(--serif);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid rgba(0,0,0,.1)}
+
+/* ---------- account dropdown (personalization) ---------- */
+.acct{position:relative}
+.acctmenu{
+  position:absolute;right:0;top:46px;width:312px;background:#fff;
+  border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 24px 60px -18px rgba(0,0,0,.28);
+  padding:16px;display:none;z-index:80;
+}
+.acctmenu.open{display:block}
+.acctmenu .me{display:flex;align-items:center;gap:11px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.acctmenu .me .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#B11226,#6c0c18);color:#fff;font-family:var(--serif);font-size:18px;display:flex;align-items:center;justify-content:center}
+.acctmenu .me .nm{font-family:var(--serif);font-size:18px;line-height:1.1}
+.acctmenu .me .lk{font-family:var(--ui);font-size:12px;color:var(--red);font-weight:600}
+.prow{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;border-bottom:1px solid var(--line)}
+.prow .l{display:flex;align-items:center;gap:11px}
+.prow .ico{width:30px;height:30px;border-radius:8px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:15px}
+.prow .t{font-family:var(--text-serif);font-size:15.5px}
+.prow .s{font-family:var(--ui);font-size:11px;color:var(--ink-faint);letter-spacing:.02em}
+.prow .n{font-family:var(--ui);font-size:13px;font-weight:700;color:var(--ink);background:var(--paper-2);border-radius:20px;padding:3px 10px}
+.acctfoot{display:flex;gap:16px;padding-top:12px;font-family:var(--ui);font-size:12.5px;color:var(--ink-soft)}
+.acctfoot a:hover{color:var(--red)}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--dark);color:#EFEADD;position:relative;overflow:hidden}
+.hero .htop{display:flex;align-items:baseline;justify-content:space-between;padding:22px 0 6px}
+.hero .htop .kicker{color:#C8BBaa}
+.hero .htop .kicker::before{background:var(--red)}
+.hero .hsub{font-family:var(--ui);font-size:12px;color:#9c9486;letter-spacing:.03em}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:380px;position:relative;border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
+.still{position:relative;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.still::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.72));mix-blend-mode:multiply}
+.still .filmtag{position:absolute;top:14px;left:14px;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.16em;color:#fff;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);padding:4px 9px;border-radius:4px;z-index:3}
+.still .meta{position:relative;z-index:3}
+.still .ftitle{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+.still .fyear{font-family:var(--ui);font-size:12.5px;color:#cfc7b8;margin-top:5px;letter-spacing:.02em}
+.still .fvia{font-family:var(--text-serif);font-style:italic;font-size:14px;color:#e7dfce;margin-top:9px}
+.still .fvia b{font-style:normal;font-family:var(--ui);font-weight:700;font-size:9.5px;letter-spacing:.18em;color:#a79b88;margin-right:7px}
+
+.medallion{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:5;width:330px;max-width:46%;text-align:center;
+  background:rgba(20,17,13,.74);backdrop-filter:blur(3px);
+  border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:24px 22px;
+}
+.medallion .ring{width:34px;height:34px;border:1.5px solid var(--red);border-radius:50%;margin:0 auto 12px;position:relative}
+.medallion .ring::after{content:"";position:absolute;inset:8px;border:1px solid rgba(255,255,255,.35);border-radius:50%}
+.medallion .lbl{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.2em;color:#a79b88}
+.medallion .trope{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.12;margin:9px 0 11px;color:#fff}
+.medallion .quote{font-family:var(--text-serif);font-style:italic;font-size:14.5px;color:#d9d1c1;line-height:1.4}
+.medallion .go{display:inline-block;margin-top:14px;font-family:var(--ui);font-size:12px;font-weight:600;color:#fff;border-bottom:1.5px solid var(--red);padding-bottom:2px}
+
+.herofoot{display:flex;align-items:center;gap:18px;padding:16px 0 26px}
+.harrows{display:flex;gap:8px}
+.harrows button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:transparent;color:#EFEADD;font-size:16px;cursor:pointer;transition:.15s}
+.harrows button:hover{background:rgba(255,255,255,.1)}
+.hdots{display:flex;gap:7px}
+.hdots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer}
+.hdots i.on{background:var(--red)}
+.another{margin-left:auto;font-family:var(--ui);font-size:12.5px;font-weight:600;color:#EFEADD;border:1px solid rgba(255,255,255,.22);background:transparent;border-radius:8px;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:7px}
+.another:hover{background:rgba(255,255,255,.1)}
+.upnext{display:flex;gap:10px}
+.upnext .un{width:104px;cursor:pointer;opacity:.72;transition:.15s}
+.upnext .un:hover,.upnext .un.on{opacity:1}
+.upnext .unimg{height:60px;border-radius:4px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.upnext .unt{font-family:var(--ui);font-size:10px;color:#cfc7b8;margin-top:5px;line-height:1.25;letter-spacing:.01em}
+
+/* ---------- section frame ---------- */
+section.band{padding:44px 0}
+.band-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;gap:20px}
+.band-head h2{font-family:var(--serif);font-size:29px;font-weight:600;letter-spacing:-.015em;line-height:1.1}
+.band-head h2 em{font-style:italic;color:var(--red)}
+.band-head .seeall{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--ink-soft);white-space:nowrap}
+.band-head .seeall:hover{color:var(--red)}
+.band.alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ---------- carousel ---------- */
+.rail{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.rail::-webkit-scrollbar{height:7px}
+.rail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:4px}
+
+/* film poster card */
+.poster{flex:0 0 188px;width:188px}
+.poster .img{height:268px;border-radius:7px;position:relative;overflow:hidden;border:1px solid var(--line-strong)}
+.poster .img .ribbon{position:absolute;top:0;left:13px;width:26px;height:38px;background:var(--ink);clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);display:flex;align-items:flex-start;justify-content:center;padding-top:5px;color:#fff;font-size:13px;cursor:pointer;transition:.15s}
+.poster .img .ribbon.saved{background:var(--red)}
+.poster .img .ptitle{position:absolute;left:0;right:0;bottom:0;padding:30px 12px 12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.82));color:#fff;font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.1}
+.poster .metricrow{display:flex;align-items:center;gap:7px;margin-top:10px}
+.poster .metric{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:5px}
+.poster .metric .lozenge{width:13px;height:13px;border:1.4px solid var(--red);border-radius:50%;position:relative}
+.poster .metric .lozenge::after{content:"";position:absolute;inset:3px;background:var(--red);border-radius:50%}
+.poster .reads{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint)}
+.poster .ptt{font-family:var(--text-serif);font-size:15px;margin-top:6px;line-height:1.2}
+.poster .pmeta{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint);margin-top:2px;letter-spacing:.01em}
+.poster .pfw{display:inline-block;margin-top:8px;font-family:var(--ui);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);border:1px solid var(--line-strong);border-radius:20px;padding:3px 9px}
+.poster .addbtn{margin-top:10px;width:100%;font-family:var(--ui);font-size:12px;font-weight:600;color:var(--ink);background:var(--paper-2);border:1px solid var(--line-strong);border-radius:7px;padding:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.poster .addbtn:hover{background:#fff;border-color:var(--ink)}
+
+/* ---------- top 10 ---------- */
+.topten{display:grid;grid-template-columns:repeat(2,1fr);gap:0 46px}
+.tt{display:flex;align-items:center;gap:18px;padding:15px 4px;border-bottom:1px solid var(--line)}
+.tt .num{font-family:var(--serif);font-size:46px;font-weight:300;color:var(--line-strong);line-height:1;width:54px;text-align:center;flex:0 0 54px}
+.tt .body .ttp{font-family:var(--serif);font-size:18.5px;font-weight:600;line-height:1.15}
+.tt .body .ttp em{font-style:italic;color:var(--red)}
+.tt .body .ttm{font-family:var(--ui);font-size:12px;color:var(--ink-faint);margin-top:4px;letter-spacing:.01em}
+.tt .delta{margin-left:auto;font-family:var(--ui);font-size:11px;font-weight:700;color:#2f7d4f}
+.tt .delta.flat{color:var(--ink-faint)}
+
+/* ---------- for you ---------- */
+.foryou{background:var(--dark);color:#EFEADD}
+.foryou .band-head h2{color:#fff}
+.foryou .band-head h2 em{color:#E9A6AE}
+.foryou .becausetag{font-family:var(--ui);font-size:12px;color:#b0a795;letter-spacing:.02em;margin-top:6px}
+.foryou .becausetag b{color:#fff;font-weight:600}
+.foryou .seeall{color:#cfc7b8}
+.fy-card{flex:0 0 250px;width:250px;background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+.fy-card .fimg{height:120px;position:relative}
+.fy-card .fb{padding:14px}
+.fy-card .fk{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.16em;color:#9c9486;text-transform:uppercase}
+.fy-card .ft{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.15;margin:7px 0;color:#fff}
+.fy-card .fd{font-family:var(--text-serif);font-size:13.5px;color:#c3bbac;line-height:1.4}
+.fy-card .fpair{font-family:var(--ui);font-size:11px;color:#a79b88;margin-top:10px;letter-spacing:.01em}
+
+/* ---------- four ways ---------- */
+.ways{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.way{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff;transition:.15s}
+.way:hover{border-color:var(--ink);transform:translateY(-2px)}
+.way .wk{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase}
+.way h3{font-family:var(--serif);font-size:24px;font-weight:600;margin:8px 0 10px}
+.way p{font-family:var(--text-serif);font-size:14.5px;color:var(--ink-soft);line-height:1.45;min-height:62px}
+.way .eg{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink);border-top:1px solid var(--line);padding-top:11px;margin-top:6px}
+.way .go{display:block;margin-top:14px;font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--red)}
+
+/* ---------- news / just added ---------- */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.nw{display:flex;gap:14px}
+.nw .nimg{flex:0 0 120px;height:84px;border-radius:7px;position:relative;overflow:hidden;border:1px solid var(--line-strong)}
+.nw .nk{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.nw .nt{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.18;margin-top:5px}
+.nw .nm{font-family:var(--ui);font-size:11px;color:var(--ink-faint);margin-top:6px}
+
+/* ---------- footer ---------- */
+footer{background:var(--dark);color:#C8BFB0;padding:50px 0 36px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:30px}
+.fcol h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474;margin-bottom:14px}
+.fcol a{display:block;font-family:var(--text-serif);font-size:14.5px;color:#C8BFB0;padding:5px 0}
+.fcol a:hover{color:#fff}
+.fbrand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:24px;font-weight:600;color:#fff;margin-bottom:12px}
+.fbrand .glyph{width:18px;height:18px;border:2px solid #fff;position:relative;border-radius:2px}
+.fbrand .glyph::after{content:"";position:absolute;inset:3px;background:var(--red)}
+.fabout{font-family:var(--text-serif);font-size:14px;color:#a79f90;line-height:1.5;max-width:300px}
+.fnote{font-family:var(--text-serif);font-style:italic;font-size:13px;color:#8c8474;margin-top:18px;border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
+.fbar{font-family:var(--ui);font-size:12px;color:#7d7568;margin-top:30px;display:flex;gap:18px;flex-wrap:wrap}
+
+/* ---------- film still gradient palettes ---------- */
+.g-balthazar{background:linear-gradient(150deg,#3a4452,#171b22 70%)}
+.g-chronicle{background:linear-gradient(150deg,#5c4a33,#241a12 70%)}
+.g-budapest{background:linear-gradient(150deg,#c98aa0,#7a3a52 60%,#3a1c28)}
+.g-hero{background:linear-gradient(150deg,#b6452a,#6e1c14 65%,#2c0d0a)}
+.g-blackswan{background:linear-gradient(150deg,#4a3a52,#140d18 72%)}
+.g-favourite{background:linear-gradient(150deg,#8a6a3a,#3a2a14 70%)}
+.g-amour{background:linear-gradient(150deg,#4a5560,#1a2026 72%)}
+.g-minority{background:linear-gradient(150deg,#3a6a7a,#10242c 72%)}
+.g-crouching{background:linear-gradient(150deg,#3a6a4a,#0f2418 72%)}
+.g-isle{background:linear-gradient(150deg,#46606a,#14222a 72%)}
+.g-traffic{background:linear-gradient(150deg,#7a6a3a,#2a2410 72%)}
+.g-night{background:linear-gradient(150deg,#b1456a,#3a1424 68%)}
+.grain::before{content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:overlay;background-image:radial-gradient(rgba(255,255,255,.10) .5px,transparent .5px);background-size:3px 3px}
+
+@media(max-width:980px){
+  .navlinks,.menubtn .lbl,.askai .lbl{display:none}
+  .topten{grid-template-columns:1fr}
+  .ways{grid-template-columns:repeat(2,1fr)}
+  .news{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .stage{grid-template-columns:1fr}
+  .still:last-child{display:none}
+  .medallion{position:static;transform:none;width:auto;max-width:none;margin:14px 0}
+  .upnext{display:none}
+  .ways{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- mockup note -->
+<div class="mockbar"><span class="tag">Design mockup</span> Proposed new <b>metatake.net</b> home — IMDb-style information architecture, metatake's own editorial identity. The current homepage moves to <b>/about</b>.</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="brand" href="#"><span class="glyph"></span>metatake</a>
+    <div class="menubtn"><span class="bars"><i></i><i></i><i></i></span><span class="lbl">Browse</span></div>
+    <nav class="navlinks">
+      <a href="#" class="on">Films</a>
+      <a href="#">Directors</a>
+      <a href="#">Tropes</a>
+      <a href="#">Lineage</a>
+      <a href="#">Concepts</a>
+      <a href="#">Blog</a>
+    </nav>
+    <div class="search">
+      <span class="mag">⌕</span>
+      <input placeholder="Search films, figures, readings, tropes…">
+      <span class="slash">/</span>
+    </div>
+    <div class="navright">
+      <a class="askai" href="#"><span class="dot"></span><span class="lbl">Ask&nbsp;AI</span></a>
+      <div class="icbtn" title="Your Shelf">
+        <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+        <span class="count">24</span>
+      </div>
+      <div class="icbtn" title="New readings on figures you follow">
+        <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        <span class="badge">5</span>
+      </div>
+      <div class="acct">
+        <div class="avatar" onclick="document.getElementById('am').classList.toggle('open')">w</div>
+        <div class="acctmenu open" id="am">
+          <div class="me">
+            <div class="av">w</div>
+            <div>
+              <div class="nm">wonwoo</div>
+              <a class="lk" href="#">View your map →</a>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="l"><div class="ico">▦</div><div><div class="t">Your Shelf</div><div class="s ui">FILMS YOU SAVED</div></div></div>
+            <div class="n">24</div>
+          </div>
+          <div class="prow">
+            <div class="l"><div class="ico">❝</div><div><div class="t">Saved Readings &amp; Lines</div><div class="s ui">BOOKMARKED MISREADINGS</div></div></div>
+            <div class="n">11</div>
+          </div>
+          <div class="prow">
+            <div class="l"><div class="ico">⌖</div><div><div class="t">Following</div><div class="s ui">DIRECTORS &amp; FIGURES</div></div></div>
+            <div class="n">6·9</div>
+          </div>
+          <div class="prow">
+            <div class="l"><div class="ico">✦</div><div><div class="t">For You</div><div class="s ui">NEW READINGS PICKED FOR YOU</div></div></div>
+            <div class="n">5</div>
+          </div>
+          <div class="acctfoot">
+            <a href="#">Activity</a><a href="#">Settings</a><a href="#" style="margin-left:auto">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="htop">
+      <span class="kicker">Today's line · it all comes down to film</span>
+      <span class="hsub" id="heroIndex">01 / 10 · the map redraws every night</span>
+    </div>
+
+    <div class="stage" id="stage">
+      <!-- filled by JS -->
+    </div>
+
+    <div class="herofoot">
+      <div class="harrows"><button onclick="step(-1)">‹</button><button onclick="step(1)">›</button></div>
+      <div class="hdots" id="dots"></div>
+      <div class="upnext" id="upnext"></div>
+      <button class="another" onclick="step(1)">↻ Another</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TRENDING FILMS (Fan Favorites) ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <div>
+        <span class="kicker">Most read this week</span>
+        <h2 style="margin-top:8px">Films people can't stop <em>reading</em></h2>
+      </div>
+      <a class="seeall" href="#">All 1,935 films →</a>
+    </div>
+    <div class="rail" id="trending"></div>
+  </div>
+</section>
+
+<!-- ============ TOP 10 LINES ============ -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="band-head">
+      <div>
+        <span class="kicker">Most-traveled this week</span>
+        <h2 style="margin-top:8px">Top 10 <em>lines</em> on the map</h2>
+      </div>
+      <a class="seeall" href="#">All 4,710 tropes →</a>
+    </div>
+    <div class="topten" id="topten"></div>
+  </div>
+</section>
+
+<!-- ============ FOR YOU ============ -->
+<section class="band foryou">
+  <div class="wrap">
+    <div class="band-head">
+      <div>
+        <span class="kicker nodot" style="color:#b0a795">For you</span>
+        <h2 style="margin-top:8px">Readings <em>picked for you</em></h2>
+        <div class="becausetag">Because you follow <b>Robert Bresson</b> and saved <b>Black Swan</b></div>
+      </div>
+      <a class="seeall" href="#">Tune your feed →</a>
+    </div>
+    <div class="rail" id="foryou"></div>
+  </div>
+</section>
+
+<!-- ============ FOUR WAYS IN ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-head">
+      <div>
+        <span class="kicker">Start anywhere</span>
+        <h2 style="margin-top:8px">Four ways in</h2>
+      </div>
+      <a class="seeall" href="#">About the map →</a>
+    </div>
+    <div class="ways">
+      <a class="way" href="#"><div class="wk">1,935 films</div><h3>Films</h3><p>Every film on the map, broken into the figures it keeps returning to.</p><div class="eg">Black Swan — Nina's bodily mutations</div><span class="go">All films →</span></a>
+      <a class="way" href="#"><div class="wk">4,710 figure-types</div><h3>Tropes</h3><p>The shapes cinema keeps reaching for, again and again — the hubs of the map.</p><div class="eg">The Flesh That Changes Shape</div><span class="go">All tropes →</span></a>
+      <a class="way" href="#"><div class="wk">Auteur fingerprints</div><h3>Directors</h3><p>Signature readings and tropes that recur across a single filmography.</p><div class="eg">Steven Spielberg — 25 films</div><span class="go">All directors →</span></a>
+      <a class="way" href="#"><div class="wk">The theory</div><h3>Concepts</h3><p>The critical ideas every reading is built on, traced across cinema.</p><div class="eg">repetition compulsion — 129 films</div><span class="go">All concepts →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JUST ADDED / NEWS ============ -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="band-head">
+      <div><span class="kicker">Just added · from the blog</span><h2 style="margin-top:8px">Fresh on the map</h2></div>
+      <a class="seeall" href="#">All entries →</a>
+    </div>
+    <div class="news" id="news"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <div class="fbrand"><span class="glyph"></span>metatake</div>
+        <p class="fabout">A critical map of cinema, read figure by figure. Built on AI embeddings — not AI-generated content. The readings are criticism; the AI is the instrument that finds them.</p>
+        <p class="fnote">1,935 films · 4,710 tropes · 26,975 readings. The map redraws every night.</p>
+      </div>
+      <div class="fcol"><h4>Browse</h4><a href="#">Films</a><a href="#">Directors</a><a href="#">Tropes</a><a href="#">Lineage</a><a href="#">Concepts</a><a href="#">Archetype</a></div>
+      <div class="fcol"><h4>Your map</h4><a href="#">Your Shelf</a><a href="#">Saved Readings</a><a href="#">Following</a><a href="#">For You</a><a href="#">Activity</a></div>
+      <div class="fcol"><h4>About</h4><a href="#">What metatake is</a><a href="#">How a reading is built</a><a href="#">The machine underneath</a><a href="#">Strong Misreadings</a><a href="#">Blog</a></div>
+      <div class="fcol"><h4>More</h4><a href="#">Ask metatake AI</a><a href="#">Random</a><a href="#">Trending</a><a href="#">Latest</a><a href="#">Sign in</a></div>
+    </div>
+    <div class="fbar"><span>© 2026 metatake</span><a href="#">Privacy</a><a href="#">Terms</a><a href="#">text-embedding-3-small · 1,536 dimensions · cosine k-NN</a></div>
+  </div>
+</footer>
+
+<script>
+/* ---------- DATA (real metatake films, figures, tropes) ---------- */
+const LINES = [
+  {trope:"The Face As Infinite Ethical Summons",
+   quote:"Levinas's face issues an ethical demand — honored, refused, or annihilated.",
+   a:{t:"Au Hasard Balthazar",y:"1966 · Robert Bresson",via:"Balthazar the donkey",g:"g-balthazar"},
+   b:{t:"Chronicle of a Summer",y:"1961 · Jean Rouch",via:"The street interview: 'Are you happy?'",g:"g-chronicle"}},
+  {trope:"Duty As Categorical Imperative Against Consequence",
+   quote:"The maxim held absolute — duty done indifferent to cost.",
+   a:{t:"The Grand Budapest Hotel",y:"2014 · Wes Anderson",via:"Mentorship of M. Gustave & Zero",g:"g-budapest"},
+   b:{t:"Hero",y:"2002 · Zhang Yimou",via:"The name 'Nameless'",g:"g-hero"}},
+  {trope:"The Compulsion To Repeat An Unmastered Wound",
+   quote:"The psyche stages the wound again, hoping this time to master it.",
+   a:{t:"The Favourite",y:"2018 · Yorgos Lanthimos",via:"The rabbits in Anne's chamber",g:"g-favourite"},
+   b:{t:"The Night Is Short, Walk On Girl",y:"2017 · Masaaki Yuasa",via:"The endless drinking night",g:"g-night"}},
+];
+const els={stage:document.getElementById('stage'),dots:document.getElementById('dots'),up:document.getElementById('upnext'),idx:document.getElementById('heroIndex')};
+let cur=0;
+function renderHero(){
+  const L=LINES[cur];
+  els.stage.innerHTML=`
+    <div class="still ${L.a.g} grain">
+      <span class="filmtag">FILM A</span>
+      <div class="meta"><div class="ftitle">${L.a.t}</div><div class="fyear">${L.a.y}</div><div class="fvia"><b>VIA</b>${L.a.via}</div></div>
+    </div>
+    <div class="still ${L.b.g} grain">
+      <span class="filmtag">FILM B</span>
+      <div class="meta" style="text-align:right"><div class="ftitle">${L.b.t}</div><div class="fyear">${L.b.y}</div><div class="fvia"><b>VIA</b>${L.b.via}</div></div>
+    </div>
+    <div class="medallion">
+      <div class="ring"></div>
+      <div class="lbl">BOTH ARE REALLY ABOUT</div>
+      <div class="trope">${L.trope}</div>
+      <div class="quote">"${L.quote}"</div>
+      <a class="go" href="#">Open this trope →</a>
+    </div>`;
+  els.idx.textContent=String(cur+1).padStart(2,'0')+" / 10 · the map redraws every night";
+  els.dots.innerHTML=LINES.map((_,i)=>`<i class="${i===cur?'on':''}" onclick="goto(${i})"></i>`).join('');
+  els.up.innerHTML=LINES.map((L,i)=>`<div class="un ${i===cur?'on':''}" onclick="goto(${i})"><div class="unimg ${L.a.g}"></div><div class="unt">${L.trope.split(' ').slice(0,4).join(' ')}…</div></div>`).join('');
+}
+function step(d){cur=(cur+d+LINES.length)%LINES.length;renderHero();}
+function goto(i){cur=i;renderHero();}
+renderHero();
+let auto=setInterval(()=>step(1),7000);
+els.stage.addEventListener('mouseenter',()=>clearInterval(auto));
+
+/* ---------- trending films (fan favorites) ---------- */
+const FILMS=[
+  {t:"Black Swan",m:"2010 · Darren Aronofsky",fig:9,reads:31,g:"g-blackswan",fw:"Psychoanalysis",saved:true},
+  {t:"The Favourite",m:"2018 · Yorgos Lanthimos",fig:14,reads:42,g:"g-favourite",fw:"Politics"},
+  {t:"Amour",m:"2012 · Michael Haneke",fig:8,reads:27,g:"g-amour",fw:"Ethics"},
+  {t:"Minority Report",m:"2002 · Steven Spielberg",fig:11,reads:33,g:"g-minority",fw:"Ontology"},
+  {t:"The Grand Budapest Hotel",m:"2014 · Wes Anderson",fig:13,reads:38,g:"g-budapest",fw:"Subtext",saved:true},
+  {t:"Crouching Tiger, Hidden Dragon",m:"2000 · Ang Lee",fig:10,reads:29,g:"g-crouching",fw:"Semiotics"},
+  {t:"Hero",m:"2002 · Zhang Yimou",fig:12,reads:35,g:"g-hero",fw:"Politics"},
+  {t:"The Isle",m:"2000 · Kim Ki-duk",fig:7,reads:22,g:"g-isle",fw:"Ethics"},
+];
+document.getElementById('trending').innerHTML=FILMS.map(f=>`
+  <div class="poster">
+    <div class="img ${f.g} grain">
+      <div class="ribbon ${f.saved?'saved':''}" title="${f.saved?'On your shelf':'Add to your shelf'}">${f.saved?'✓':'+'}</div>
+      <div class="ptitle">${f.t}</div>
+    </div>
+    <div class="metricrow">
+      <span class="metric"><span class="lozenge"></span>${f.fig} figures</span>
+      <span class="reads">· ${f.reads} readings</span>
+    </div>
+    <div class="ptt">${f.t}</div>
+    <div class="pmeta">${f.m}</div>
+    <span class="pfw">${f.fw}</span>
+    <button class="addbtn">${f.saved?'✓ On your shelf':'＋ Add to shelf'}</button>
+  </div>`).join('');
+
+/* ---------- top 10 lines ---------- */
+const TOP=[
+  {t:"The Face As Infinite Ethical Summons",m:"Au Hasard Balthazar ⟷ Chronicle of a Summer · 47 films",d:"▲ 4"},
+  {t:"The Compulsion To Repeat An Unmastered Wound",m:"The Favourite ⟷ The Night Is Short · 129 films",d:"▲ 2"},
+  {t:"The Flesh That Changes Shape",m:"Black Swan ⟷ The Fly · 38 films",d:"▲ 9"},
+  {t:"The Banality Of Evil, Administered",m:"The Fog of War ⟷ Fantastic Planet · 26 films",d:"— 0"},
+  {t:"The Object That Will Not Be Mourned",m:"Minority Report ⟷ The Favourite · 31 films",d:"▲ 1"},
+  {t:"The Held Shot As Ethical Witness",m:"Still the Water ⟷ Amour · 22 films",d:"▲ 6"},
+  {t:"The Award As Society's Absolution Ritual",m:"Investigation of a Citizen ⟷ Traffic · 19 films",d:"▲ 3"},
+  {t:"The West Crowned Its Own Appetite As Authenticity",m:"Crouching Tiger ⟷ The Isle · 24 films",d:"— 0"},
+  {t:"The Critic's Verdict As Unwitting Confession",m:"Closer ⟷ If I Had Legs I'd Kick You · 17 films",d:"▲ 5"},
+  {t:"The Person Used Merely As Means",m:"The Favourite ⟷ Amour · 28 films",d:"▲ 2"},
+];
+document.getElementById('topten').innerHTML=TOP.map((t,i)=>{
+  const em=t.t.replace(/(Ethical|Repeat|Flesh|Evil|Mourned|Witness|Ritual|Authenticity|Confession|Means)/,'<em>$1</em>');
+  return `<div class="tt"><div class="num">${i+1}</div><div class="body"><div class="ttp">${em}</div><div class="ttm">${t.m}</div></div><div class="delta ${t.d.startsWith('—')?'flat':''}">${t.d}</div></div>`;
+}).join('');
+
+/* ---------- for you ---------- */
+const FY=[
+  {k:"Because you follow Bresson",t:"The Held Shot As Ethical Witness",d:"The camera refuses to cut away — and the holding becomes a moral act.",pair:"Au Hasard Balthazar ⟷ Amour",g:"g-balthazar"},
+  {k:"Because you saved Black Swan",t:"The Flesh That Changes Shape",d:"The body confesses what the self denies — skin, quills, feathers.",pair:"Black Swan ⟷ The Isle",g:"g-blackswan"},
+  {k:"From a figure you follow",t:"The Object That Will Not Be Mourned",d:"A thing outlives the grief it should have absorbed.",pair:"Minority Report ⟷ The Favourite",g:"g-minority"},
+  {k:"Near your last reading",t:"Duty As Categorical Imperative",d:"The maxim held absolute — duty done indifferent to cost.",pair:"The Grand Budapest Hotel ⟷ Hero",g:"g-hero"},
+  {k:"Rising in your taste-space",t:"The Critic's Verdict As Confession",d:"The review reveals more about the reviewer than the film.",pair:"Closer ⟷ If I Had Legs…",g:"g-favourite"},
+];
+document.getElementById('foryou').innerHTML=FY.map(f=>`
+  <div class="fy-card">
+    <div class="fimg ${f.g} grain"></div>
+    <div class="fb">
+      <div class="fk">${f.k}</div>
+      <div class="ft">${f.t}</div>
+      <div class="fd">${f.d}</div>
+      <div class="fpair">${f.pair}</div>
+    </div>
+  </div>`).join('');
+
+/* ---------- news ---------- */
+const NEWS=[
+  {k:"New trope",t:"Oakland As Decaying Promised Land",m:"The Bay Area filmed as monument to decline and broken Eden.",g:"g-traffic"},
+  {k:"New trope",t:"The Cut That Obeys The Beat",m:"Editing surrenders narrative logic to rhythm and percussion.",g:"g-night"},
+  {k:"Essay",t:"The Praise That Indicts The Praised",m:"How acclaim for 'immersion' becomes the viewer's guilty symptom.",g:"g-isle"},
+];
+document.getElementById('news').innerHTML=NEWS.map(n=>`
+  <a class="nw" href="#">
+    <div class="nimg ${n.g} grain"></div>
+    <div><div class="nk">${n.k}</div><div class="nt">${n.t}</div><div class="nm">${n.m}</div></div>
+  </a>`).join('');
+
+/* close account menu when clicking elsewhere */
+document.addEventListener('click',e=>{
+  const a=document.getElementById('am'), av=e.target.closest('.avatar');
+  if(!e.target.closest('.acctmenu') && !av) a.classList.remove('open');
+});
+</script>
+</body>
+</html>

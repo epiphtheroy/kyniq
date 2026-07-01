@@ -1,0 +1,146 @@
+PART: History   (총 241개 이론, 현행 Major 143개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[11] XXVI. Specialised Historical Fields  ::  History of Masculinities / Disability History / History of Childhood (Advanced) / Oral History (Advanced)
+[9] XXX. Theory of History  ::  Metahistory / Philosophy of History (Analytic) / Historical Objectivity / Presentism (Historical)
+[8] IV. Post-Structuralist  ::  Archaeology of Knowledge (Historical) / Discourse (Historical) / Death of the Author (Historical) / Historiographic Metafiction (Historical)
+[6] IX. Memory Studies  ::  Postmemory (Historical) / Social Frameworks of Memory / Trauma Theory (Historical) / Heritage Studies
+[6] V. Cultural History  ::  History of Everyday Life (Alltagsgeschichte) / Microhistory / History of Emotions / History of Reading
+[6] XVI. Economic History  ::  Capitalism (Historical) / Feudalism (Historical) / Industrial Revolution (Historical) / Consumer History
+[6] XVII. Political History  ::  History of the State / Constitutional History / History of Political Thought / History of Genocide
+[6] XXV. Historical Methodology  ::  Source Criticism / Internal and External Criticism / Counterfactual History / Historical Causation
+[5] III. Annales School  ::  Conjuncture / Event (Annales) / History from Below / Mentalités
+[5] VII. Environmental History  ::  Environmental History / Anthropocene (Historical Theory) / Ecological Imperialism / Climate History
+[5] XVIII. Social History  ::  Demographic History / History of Childhood / History of Class / Rural History
+[4] I. Classical & Early Modern Approaches  ::  Cyclical Theory of History / Providential History / Rankean History (Historicism) / Historicism (Historical Theory)
+[4] VIII. Global  ::  Global History / Transnational History / Big History / World History
+[4] XIII. History of Science  ::  Actor-Network Theory (History of Science) / Laboratory Studies (Historical) / Social Shaping of Technology (Historical) / Technological Determinism (Historical)
+[4] XXI. History of Religion  ::  History of Christianity / History of Islam / History of Religious Revival / History of Secularization
+[3] II. Marxist & Materialist Approaches  ::  Historical Materialism (Historical) / Base and Superstructure (Historical) / Modes of Production
+[3] LIV. Historiography  ::  The Use and Abuse of History / Hermeneutics (Historical) / Philosophy of Time (History)
+[3] XII. Gender History  ::  History of Sexuality / Women's History / Queer History
+[3] XIV. Intellectual History  ::  History of Ideas / Episteme (Historical) / Paradigm Shift (Historical)
+[3] XIX. History of Education  ::  History of Universities / History of Literacy / History of the Book
+[3] XXIX. Memory Studies  ::  Sites of Memory (Lieux de Mémoire) / History of Forgetting / Structural Amnesia
+[3] XXVII. Post-Humanist  ::  History of Ecologies / History of Technology (as Actor) / History of Things / Material Culture
+[2] LXXIX. History of Emotions (Specific Manifestations)  ::  History of Crying / History of Laughter
+[2] LXXV. History of Consumption (Specific)  ::  History of Luxury / History of Fashion
+[2] XI. Digital History  ::  Historiography (Methodology) / Micro-archives
+[2] XX. History of Art  ::  Formalism (Art History) / Social History of Art
+[2] XXII. History of Science  ::  Scientific Revolution (Historical) / History of Medicine
+[2] XXIII. History of Philosophy  ::  History of Western Philosophy / History of Political Philosophy
+[2] XXIV. Legal History  ::  Legal History / History of Human Rights
+[2] XXVIII. Digital History  ::  Algorithm History / Digital Archival Theory
+[2] XXXI. Indigenous  ::  Decolonizing History / Settler Colonial Studies (Historical)
+[2] XXXIX. Historiographical Debates  ::  Microhistory vs. Macrohistory / Individual vs. Structure (History)
+[1] C. History of Emotions (Cross-Cultural)  ::  Cross-Cultural History of Emotions
+[1] III. Annales School & Social History  ::  Longue Durée
+[1] IV. Post-Structuralist & Postmodern Approaches  ::  Genealogy (Historical)
+[1] IX. Memory Studies & Public History  ::  Collective Memory (Historical)
+[1] L. History of Childhood  ::  History of Child Labor
+[1] L. History of Childhood (Specific Focus)  ::  History of Children's Rights
+[1] LI. History of Science  ::  History of Experimentation
+[1] LI. History of Science (Specific Focus)  ::  History of Scientific Instruments
+[1] LII. Cultural Studies  ::  History of Consumption (Cultural)
+[1] LII. Cultural Studies (Historical Applications)  ::  History of Popular Culture
+[1] LIII. History of Disease (Advanced)  ::  Disease Narratives (History)
+[1] LIV. Historiography (Advanced)  ::  Historical Responsibility
+[1] LIX. History of Body & Health  ::  Social History of Medicine
+[1] LV. Comparative History (Advanced)  ::  Global Comparisons (History)
+[1] LVI. History of Memory & Heritage (Advanced)  ::  Collective Trauma (History)
+[1] LVII. Environmental History (Advanced)  ::  Political Ecology (Historical)
+[1] LVIII. History of Emotions (Specific Emotions)  ::  History of Fear
+[1] LX. History of Science (Specific Branches)  ::  History of Biology
+[1] LXI. History of Knowledge  ::  Social History of Knowledge
+[1] LXII. History of Crime & Policing  ::  History of Policing
+[1] LXIII. History of Public Opinion  ::  History of Public Opinion
+[1] LXIV. History of Infrastructure  ::  History of Infrastructure
+[1] LXIX. History of Space (Advanced)  ::  History of Landscape
+[1] LXV. History of Food  ::  History of Food
+[1] LXVI. History of Animals (Advanced)  ::  History of Pets
+[1] LXVII. History of Education (Specific Focus)  ::  History of Higher Education
+[1] LXVIII. History of Time  ::  History of Time (Concept)
+[1] LXX. History of Memory (Specific Types)  ::  Cultural Memory
+[1] LXXI. History of Science & Religion  ::  History of Science and Religion
+[1] LXXII. History of Poverty  ::  History of Poverty
+[1] LXXIII. History of the Family (Advanced)  ::  History of Adolescence
+[1] LXXIV. History of Gender (Intersection with other factors)  ::  Gender and Class (History)
+[1] LXXVI. History of Urban Planning  ::  History of Urban Planning
+[1] LXXVII. History of Human Rights (Advanced)  ::  Philosophical History of Human Rights
+[1] LXXVIII. History of Migration  ::  History of Migration
+[1] LXXX. History of Technology (A. Printing & Information)  ::  History of Photography
+[1] LXXX. History of Technology (Specific Technologies)  ::  History of the Internet
+[1] LXXXI. History of Knowledge Production (A. Disciplines & Institutions)  ::  History of Universities (Social Role)
+[1] LXXXI. History of Knowledge Production (Advanced)  ::  History of Disciplines
+[1] LXXXII. History of War (Specific Aspects)  ::  History of War Trauma
+[1] LXXXIII. History of Empires (Advanced)  ::  History of Empires
+[1] LXXXIV. History of the Media (Advanced)  ::  History of Visual Culture
+[1] LXXXIX. History of the State (Advanced)  ::  History of State Building
+[1] LXXXV. History of Sexuality (Specific Focus)  ::  History of Deviance (Sexual)
+[1] LXXXVI. History of Public Health (Specific Diseases)  ::  History of AIDS Epidemic
+[1] LXXXVII. History of Science & Race  ::  History of Scientific Racism
+[1] LXXXVIII. History of Memory (Theoretical Nuances)  ::  Contested Memories
+[1] V. Cultural History & Microhistory  ::  Thick Description (Historical)
+[1] VI. Quantitative History  ::  Quantitative History
+[1] VI. Quantitative History & Cliometrics  ::  Cliometrics
+[1] VIII. Global & Transnational History  ::  Connected Histories
+[1] X. Oral History  ::  Life Narratives (Historical)
+[1] X. Oral History & Life Narratives  ::  Oral History
+[1] XC. History of Emotions (Methodological)  ::  Emotions and Historical Sources
+[1] XCI. History of Global Connections  ::  History of Transnational Networks
+[1] XCII. History of the Environment (Specific Aspects)  ::  History of Urban Environments
+[1] XCIII. History of Technology (Broader Context)  ::  History of Technology and Society
+[1] XCIV. History of Ideas (Reception & Impact)  ::  Reception History (Intellectual)
+[1] XCIX. History of Disasters  ::  History of Disasters
+[1] XCV. History of Science (Institutions & Practices)  ::  History of Scientific Institutions
+[1] XCVI. History of Crime (Specific)  ::  History of Surveillance
+[1] XCVII. History of Childhood (Legal/Social)  ::  History of Child Welfare
+[1] XCVIII. History of Capitalism (Specific Aspect)  ::  History of Financialization
+[1] XI. Digital History & Historiography  ::  Digital History
+[1] XII. Gender History & Queer History  ::  Gender History
+[1] XIII. History of Science & Technology  ::  Social Construction of Science (Historical)
+[1] XIV. Intellectual History & History of Ideas  ::  Conceptual History (Begriffsgeschichte)
+[1] XIX. History of Education & Knowledge  ::  History of Education
+[1] XL. Post-Holocaust  ::  Testimony (Historical)
+[1] XL. Post-Holocaust & Genocide Studies  ::  Witnessing (Historical)
+[1] XLI. History of Science  ::  History of Conservation
+[1] XLI. History of Science & Environment (Intersections)  ::  Environmental Humanities (History)
+[1] XLII. History of Crime  ::  History of Prisons
+[1] XLII. History of Crime & Punishment  ::  History of Punishment
+[1] XLIII. History of Ideas  ::  History of Postmodernity
+[1] XLIII. History of Ideas (Deep Dive)  ::  History of Modernity
+[1] XLIV. History of Emotions  ::  Emotional Communities
+[1] XLIV. History of Emotions (Advanced)  ::  Affective Regimes (History)
+[1] XLIX. History of Media  ::  History of Print Culture
+[1] XLIX. History of Media & Communication  ::  History of Communication
+[1] XLV. Global History  ::  Entangled History (Verflechtungsgeschichte)
+[1] XLV. Global History (Advanced)  ::  Comparative History
+[1] XLVI. Digital History  ::  Geospatial History
+[1] XLVI. Digital History (Advanced)  ::  Network Analysis (History)
+[1] XLVII. History of Race  ::  Postcolonial Critique of History
+[1] XLVII. History of Race & Empire  ::  Imperialism (Historical Theory)
+[1] XLVIII. History of the Senses  ::  Auditory History
+[1] XLVIII. History of the Senses (Advanced)  ::  Olfactory History
+[1] XV. Spatial History  ::  History of Cartography
+[1] XV. Spatial History & Cartographic History  ::  Spatial History
+[1] XVIII. Social History (Advanced)  ::  History of the Family
+[1] XX. History of Art & Aesthetics  ::  Iconography (Art History)
+[1] XXIX. Memory Studies (Advanced)  ::  Memory Politics
+[1] XXVII. Post-Humanist & Environmental Approaches  ::  Animal History
+[1] XXVIII. Digital History & Archives  ::  History of Data
+[1] XXX. Theory of History (Metahistory)  ::  Philosophy of History (Speculative)
+[1] XXXI. Indigenous & Decolonial Historical Approaches  ::  Indigenous History
+[1] XXXII. Emotion  ::  History of Melancholy
+[1] XXXII. Emotion & Affective History  ::  Shame and Guilt (Historical)
+[1] XXXIII. Sensory  ::  History of Dirt / Cleanliness
+[1] XXXIII. Sensory & Material History  ::  History of the Senses
+[1] XXXIV. Public Health  ::  Social History of Disease
+[1] XXXIV. Public Health & Disease History  ::  History of Epidemics
+[1] XXXV. History of Consumption  ::  History of Credit & Debt
+[1] XXXV. History of Consumption & Credit  ::  History of Consumer Society
+[1] XXXVI. History of Violence  ::  History of Torture
+[1] XXXVI. History of Violence & Conflict  ::  History of Violence
+[1] XXXVII. Global  ::  Trans-imperial History
+[1] XXXVII. Global & Transnational Approaches (Deep Dive)  ::  Global Commodity Chains (History)
+[1] XXXVIII. History of Race  ::  Whiteness Studies (Historical)
+[1] XXXVIII. History of Race & Racism  ::  Racial Formation Theory (Historical)

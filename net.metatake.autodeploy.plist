@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>net.metatake.autodeploy</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/jerryje/Documents/MetaTake/auto-deploy-watch.sh</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/Users/jerryje/Documents/MetaTake/.autodeploy.out.log</string>
+  <key>StandardErrorPath</key><string>/Users/jerryje/Documents/MetaTake/.autodeploy.err.log</string>
+</dict>
+</plist>

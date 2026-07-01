@@ -1,0 +1,166 @@
+PART: Psychology   (총 254개 이론, 현행 Major 163개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[13] IV. Social Psychology Theories  ::  Social Identity Theory / Social Comparison Theory / Conformity (Psychology) / Obedience to Authority
+[11] I. Classical Psychological Traditions  ::  Psychosexual Development Theory / Id, Ego, Superego (Psychology) / Defense Mechanisms / Analytical Psychology (Individual)
+[8] XII. Counseling  ::  Relational Psychoanalysis / Rational Emotive Behavior Therapy (REBT) / Schema Therapy / Gestalt Therapy
+[7] II. Cognitive  ::  Schema Theory (Cognition) / Attribution Theory / Self-Efficacy Theory / Locus of Control
+[6] III. Developmental Psychology Theories  ::  Cognitive Development Theory (Piaget) / Sociocultural Theory (Development) / Psychosocial Development Theory / Moral Development Theory (Kohlberg)
+[6] IX. Relationship  ::  Social Support Theory (Individual) / Gottman's Sound Relationship House / Conflict Styles (Relationships) / Triangular Theory of Love
+[6] V. Personality Theories  ::  Five-Factor Model (Big Five) / Trait Theory (General) / Ego Psychology / Object Relations Theory (Individual)
+[6] VI. Abnormal Psychology  ::  Biopsychosocial Model / Cognitive Behavioral Therapy (CBT) / Dialectical Behavior Therapy (DBT) / Psychodynamic Therapy
+[6] XI. Emerging  ::  Cultural Psychology / Social Neuroscience / Evolutionary Psychology / Cyberpsychology
+[6] XIII. Social Psychology  ::  Reactance Theory / Elaboration Likelihood Model (ELM) / Cognitive Consistency Theory / Self-Verification Theory
+[6] XXX. Relationship Psychology  ::  Repair Attempts (Relationships) / Investment Model of Commitment / Relational Dialectics Theory / Communication Accommodation Theory
+[5] X. Critical  ::  Mad Studies (Psychology) / Health Belief Model / Theory of Planned Behavior / Environmental Psychology
+[5] XXII. Social Psychology  ::  Theory of Reasoned Action (TRA) / Reciprocity Principle (Persuasion) / Opportunities seem more valuable when their availability is limited. / Social Loafing
+[4] VIII. Cognitive Science  ::  Theory of Mind / Embodied Cognition (Psychology) / Neuroplasticity / Affective Neuroscience
+[3] VII. Positive Psychology Theories  ::  PERMA Model of Well-being / Flow Theory / Character Strengths and Virtues
+[3] XVII. Cognitive Psychology  ::  Levels of Processing Theory (Memory) / Prospect Theory / Bounded Rationality
+[3] XXI. Health  ::  Self-Medication Hypothesis (Addiction) / Polyvagal Theory (Trauma) / Somatic Experiencing (Trauma Therapy)
+[3] XXVII. Counseling Psychology  ::  Feminist Therapy / Multicultural Counseling Theory / Trauma-Informed Care
+[2] XIV. Health Psychology  ::  General Adaptation Syndrome (GAS) / Self-Regulation Theory (Health)
+[2] XV. Developmental Psychology  ::  Identity Status Theory (Adolescence) / Socioemotional Selectivity Theory (Aging)
+[1] C. Psychotherapy (Short-Term)  ::  Solution-Building
+[1] CI. Attachment Theory (Beyond Childhood)  ::  Disorganized Attachment (Adult)
+[1] CII. Cognitive Bias Theory  ::  Hindsight Bias
+[1] CIII. Social Identity (Beyond Basic)  ::  Optimal Distinctiveness Theory
+[1] CIV. Relationship Theory (Conflict)  ::  Four Horsemen of the Apocalypse (Relationships)
+[1] CIX. Cognitive Psychology (Problem Solving)  ::  Insight (Psychology)
+[1] CV. Health Psychology (Stress & Illness)  ::  Stress-Buffering Hypothesis
+[1] CVI. Personality (Self-Regulation)  ::  Self-Control Theory (Psychology)
+[1] CVII. Developmental Psychopathology  ::  Developmental Psychopathology
+[1] CVIII. Evolutionary Psychology (Social Exchange)  ::  Cheater Detection Module
+[1] CX. Social Psychology (Attitudes & Behavior)  ::  Theory of Planned Behavior (TPB)
+[1] CXI. Personality (Motivation)  ::  Self-Transcendent Experiences
+[1] CXII. Clinical Psychology (Trauma)  ::  Complex Trauma Theory
+[1] CXIII. Positive Psychology (Well-being)  ::  Hedonic Well-being
+[1] CXIV. Developmental Psychology (Language)  ::  Interactionist Theory of Language Acquisition
+[1] CXIX. Health Psychology (Chronic Illness)  ::  Self-Management Theory (Chronic Illness)
+[1] CXV. Social Psychology (Compliance)  ::  Door-in-the-Face Technique
+[1] CXVI. Personality (Neurobiology)  ::  Behavioral Inhibition System (BIS)
+[1] CXVII. Personality (Neurobiology)  ::  Behavioral Activation System (BAS)
+[1] CXVIII. Relationships (Attachment & Neuroscience)  ::  Neurobiology of Attachment
+[1] CXX. Developmental Psychology (Social Influence)  ::  Peer Influence Theory
+[1] CXXI. Cognitive Psychology (Creativity)  ::  Divergent Thinking Theory
+[1] CXXII. Social Psychology (Prejudice)  ::  Contact Hypothesis
+[1] CXXIII. Personality (Self-Concept)  ::  Self-Verification Theory
+[1] CXXIV. Developmental Psychology (Resilience)  ::  Protective Factors (Developmental)
+[1] CXXIX. Developmental Psychology (Emotional Regulation)  ::  Emotional Competence Theory
+[1] CXXV. Health Psychology (Behavioral Change Models)  ::  Health Action Process Approach (HAPA)
+[1] CXXVI. Counseling Psychology (Solution-Focused)  ::  Miracle Question (Therapy)
+[1] CXXVII. Social Psychology (Attribution)  ::  Self-Perception Theory
+[1] CXXVIII. Personality (Cognitive Affective)  ::  Cognitive-Affective Personality System (CAPS)
+[1] CXXX. Relationships (Conflict)  ::  Negative Reciprocity (Relationships)
+[1] II. Cognitive & Social-Cognitive Theories  ::  Cognitive Dissonance Theory (Psychology)
+[1] IX. Relationship & Interpersonal Theories (Advanced)  ::  Self-Disclosure Theory
+[1] L. Psychotherapy (Integrative Approaches)  ::  Common Factors Theory (Therapy)
+[1] LI. Stress & Coping (Specific Models)  ::  Buffering Hypothesis (Social Support)
+[1] LII. Positive Psychology (Future-Oriented)  ::  Hope Theory (Psychology)
+[1] LIII. Decision-Making (Behavioral Economics)  ::  Anchoring Bias
+[1] LIV. Personality (Dynamic Approaches)  ::  Narrative Identity Theory
+[1] LIX. Relationships (Advanced Dynamics)  ::  Outcome Interdependence
+[1] LV. Social Cognition (Advanced Processes)  ::  Implicit Association Test (IAT) (Theory)
+[1] LVI. Developmental Psychology (Contextual)  ::  Microsystem (Developmental)
+[1] LVII. Clinical Psychology (Intervention Mechanisms)  ::  Therapeutic Alliance Theory
+[1] LVIII. Humanistic Psychology (Further Development)  ::  Peak Experiences
+[1] LX. Health Psychology (Psychological Factors)  ::  Theory of Reasoned Action (TRA) (Health)
+[1] LXI. Cognitive Psychology (Beyond Memory)  ::  Means-Ends Analysis
+[1] LXII. Social Influence (Advanced Mechanisms)  ::  Minority Influence Theory
+[1] LXIII. Personality (Situational Influences)  ::  Person-Situation Debate
+[1] LXIV. Positive Psychology (Interventions)  ::  Strengths-Based Interventions
+[1] LXIX. Relationship Psychology (Maintenance)  ::  Comparison Level (Relationships)
+[1] LXV. Developmental Psychology (Social Cognition)  ::  Social Perspective-Taking
+[1] LXVI. Emotion Psychology (Basic Processes)  ::  Component Process Model of Emotion
+[1] LXVII. Psychopathology (Specific Models)  ::  Biosocial Theory of Borderline Personality Disorder
+[1] LXVIII. Health Psychology (Stress Pathways)  ::  Allostasis and Allostatic Load
+[1] LXX. Relationship Psychology (Attraction)  ::  Proximity Effect (Attraction)
+[1] LXXI. Personality Development (Lifespan)  ::  Generativity vs. Stagnation
+[1] LXXII. Positive Psychology (Applications to Life)  ::  Resilience Theory (Psychology)
+[1] LXXIII. Cognitive Psychology (Language)  ::  Universal Grammar Theory
+[1] LXXIV. Social Influence (Advanced)  ::  Social Proof Principle (Persuasion)
+[1] LXXIX. Personality (Self-Concept)  ::  Self-Discrepancy Theory
+[1] LXXV. Group Dynamics (Leadership Styles)  ::  Contingency Theory of Leadership
+[1] LXXVI. Relationships (Attachment in Adulthood)  ::  Adult Attachment Theory
+[1] LXXVII. Health Psychology (Illness Behavior)  ::  Common Sense Model of Illness Self-Regulation
+[1] LXXVIII. Developmental Psychology (Moral Reasoning)  ::  Prosocial Moral Reasoning
+[1] LXXX. Social Cognition (Attribution Biases)  ::  Actor-Observer Bias
+[1] LXXXI. Positive Psychology (Strengths)  ::  Self-Compassion Theory
+[1] LXXXII. Memory (Advanced)  ::  Constructive Memory
+[1] LXXXIII. Social Influence (Compliance)  ::  Foot-in-the-Door Technique
+[1] LXXXIV. Group Dynamics (Decision Making)  ::  Group Polarization
+[1] LXXXIX. Developmental Psychology (Play)  ::  Play Theory (Developmental)
+[1] LXXXV. Health Psychology (Stress and Disease)  ::  Psychoneuroimmunology (PNI)
+[1] LXXXVI. Relationships (Attachment in Therapy)  ::  Emotionally Focused Therapy (EFT)
+[1] LXXXVII. Personality (Evolutionary Approaches)  ::  Individual Differences (Evolutionary)
+[1] LXXXVIII. Social Cognition (Stereotypes)  ::  Stereotype Threat Theory
+[1] VI. Abnormal Psychology & Clinical Theories  ::  Diathesis-Stress Model
+[1] VIII. Cognitive Science & Neuroscience (Psychology)  ::  Dual Process Theory (Cognition)
+[1] X. Critical & Applied Psychological Theories  ::  Critical Psychology
+[1] XC. Counseling Psychology (Integrative)  ::  Integrative Psychotherapy
+[1] XCI. Cognitive Psychology (Attention)  ::  Selective Attention Theory
+[1] XCII. Social Psychology (Aggression)  ::  Frustration-Aggression Hypothesis
+[1] XCIII. Personality (Humanistic)  ::  Ideal Self vs. Real Self
+[1] XCIV. Developmental Psychology (Gender)  ::  Social Learning Theory of Gender Development
+[1] XCIX. Developmental Psychology (Cognitive Flexibility)  ::  Executive Functions Theory
+[1] XCV. Positive Psychology (Interpersonal)  ::  Active Constructive Responding
+[1] XCVI. Health Psychology (Chronic Pain)  ::  Biopsychosocial Model of Pain
+[1] XCVII. Social Psychology (Helping Behavior)  ::  Reciprocity Norm (Helping)
+[1] XCVIII. Personality (Cultural Influences)  ::  Cultural-Personality Approach
+[1] XI. Emerging & Specialized Psychological Theories  ::  Positive Youth Development
+[1] XII. Counseling & Therapeutic Theories (Specific)  ::  Transference-Focused Psychotherapy (TFP)
+[1] XIII. Social Psychology (Advanced)  ::  Social Impact Theory
+[1] XIV. Health Psychology (Advanced)  ::  Transactional Model of Stress and Coping
+[1] XIX. Evolutionary Psychology  ::  Sexual Strategies Theory
+[1] XIX. Evolutionary Psychology (Advanced)  ::  Parental Investment Theory
+[1] XL. Social Cognition  ::  Implicit Bias Theory
+[1] XL. Social Cognition (Recent Developments)  ::  Embodied Simulation (Psychology)
+[1] XLI. Personality & Social Psychology (Integration)  ::  Interactionism (Personality)
+[1] XLII. Health Psychology (Behavioral Change)  ::  Transtheoretical Model (Stages of Change)
+[1] XLIII. Developmental Psychology (Lifespan)  ::  Midlife Crisis Theory
+[1] XLIV. Abnormal Psychology (Etiology)  ::  Expressed Emotion (EE) (Psychology)
+[1] XLIX. Neuropsychology  ::  Dual-Coding Theory (Memory)
+[1] XLV. Positive Psychology (Applications)  ::  Gratitude Theory
+[1] XLVI. Cognitive Psychology (Applied)  ::  Deliberate Practice Theory
+[1] XLVII. Environmental Psychology (Applications)  ::  Attention Restoration Theory (ART)
+[1] XLVIII. Evolutionary Psychology (Social Behavior)  ::  Reciprocal Altruism
+[1] XV. Developmental Psychology (Advanced)  ::  Theory of Mind (Development)
+[1] XVI. Cross-Cultural  ::  Independent vs. Interdependent Self-Construal
+[1] XVI. Cross-Cultural & Cultural Psychology  ::  Cultural Dimensions Theory (Hofstede)
+[1] XVII. Cognitive Psychology (Advanced)  ::  Working Memory Model
+[1] XVIII. Environmental Psychology  ::  Stress Reduction Theory (SRT)
+[1] XVIII. Environmental Psychology (Advanced)  ::  Restoration Theory (Environmental)
+[1] XX. Personality Psychology  ::  HEXACO Model of Personality
+[1] XX. Personality Psychology (Advanced)  ::  Interpersonal Psychoanalysis
+[1] XXI. Health & Clinical Psychology (Advanced)  ::  Addiction as a Disease Model
+[1] XXII. Social Psychology (Beyond Basic)  ::  Social Norms Theory
+[1] XXIII. Cognitive Neuroscience  ::  Emotion Regulation Strategies
+[1] XXIII. Cognitive Neuroscience (Applied)  ::  Reward Prediction Error (Neuroscience)
+[1] XXIV. Positive Psychology  ::  Eudaimonic Well-being
+[1] XXIV. Positive Psychology (Specific Applications)  ::  Search for Meaning Theory
+[1] XXIX. Group Dynamics  ::  Social Facilitation Theory
+[1] XXIX. Group Dynamics (Advanced)  ::  Transformational Leadership Theory
+[1] XXV. Developmental Psychology  ::  Attachment Parenting Theory
+[1] XXV. Developmental Psychology (Specific Focus)  ::  Authoritative Parenting Theory
+[1] XXVI. Cross-Cultural Psychology  ::  Cultural Syndromes (Psychology)
+[1] XXVI. Cross-Cultural Psychology (Advanced)  ::  Relational Self-Construal
+[1] XXVII. Counseling Psychology (Broader Approaches)  ::  Logotherapy
+[1] XXVIII. Social Cognition  ::  Representativeness Heuristic
+[1] XXVIII. Social Cognition (Advanced)  ::  Availability Heuristic
+[1] XXX. Relationship Psychology (Specific Theories)  ::  Demand/Withdraw Pattern
+[1] XXXI. Developmental Psychology  ::  False-Belief Task (Theory of Mind)
+[1] XXXI. Developmental Psychology (Special Topics)  ::  Empathy Development Theory
+[1] XXXII. Personality Psychology  ::  Reinforcement Sensitivity Theory (RST)
+[1] XXXII. Personality Psychology (Advanced Models)  ::  Self Psychology
+[1] XXXIII. Social Influence  ::  Perceptions of how most people behave in a given situation.
+[1] XXXIII. Social Influence & Persuasion (Advanced)  ::  Injunctive Norms
+[1] XXXIV. Stress  ::  Emotion-Focused Coping
+[1] XXXIV. Stress & Coping (Clinical Applications)  ::  Problem-Focused Coping
+[1] XXXIX. Interpersonal Relationships  ::  Social Support Theory (Relationships)
+[1] XXXIX. Interpersonal Relationships (Advanced Models)  ::  Self-Expansion Theory
+[1] XXXV. Positive Psychology  ::  Dispositional Optimism
+[1] XXXV. Positive Psychology (Further Concepts)  ::  Grit Theory
+[1] XXXVI. Emotion Regulation  ::  Inhibiting the behavioral expression of emotion.
+[1] XXXVI. Emotion Regulation (Advanced)  ::  Cognitive Reappraisal
+[1] XXXVII. Addiction (Beyond Basic Models)  ::  Dual Process Theory of Addiction
+[1] XXXVIII. Trauma & Resilience (Further Concepts)  ::  Post-Traumatic Growth (PTG)

@@ -1,0 +1,114 @@
+PART: Culture   (총 159개 이론, 현행 Major 111개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[8] IV. Post-Structuralism  ::  Hyperreality (Cultural) / Pastiche (Cultural) / Waning of Affect (Cultural) / Intertextuality (Cultural)
+[8] VII. Media  ::  Agenda-Setting Theory (Cultural) / Uses and Gratifications Theory (Cultural) / Active Audience Theory (Cultural Studies) / Convergence Culture (Cultural Studies)
+[7] I. Foundational & Classical Approaches  ::  Culture and Civilization (Early) / Culture as a "Whole Way of Life" / Base and Superstructure (Culture) / Ideology (Cultural Studies)
+[7] V. Cultural Sociology  ::  Habitus (Cultural Studies) / Field Theory (Cultural Studies) / The Practice of Everyday Life (Cultural) / Conspicuous Consumption (Cultural)
+[6] II. British Cultural Studies (Birmingham School)  ::  Hegemony (Cultural Studies) / Encoding/Decoding Model (Cultural Studies) / Subculture Theory (Cultural Studies) / Semiotics of Subculture
+[6] VI. Identity  ::  Doing Gender (Cultural) / Queer Theory (Cultural Studies) / Whiteness Studies (Cultural) / Racial Formation Theory (Cultural)
+[4] III. Critical Theory  ::  Instrumental Reason (Culture) / Pseudo-Individualization / The Work of Art in the Age of Mechanical Reproduction (Cultural) / Aura (Cultural)
+[3] VIII. Global  ::  Cultural Hybridization / World Culture Theory / Cultural Imperialism
+[2] IX. Affect Theory  ::  Emotional Culture (Cultural) / Sensory Studies (Cultural)
+[2] VI. Identity & Difference in Culture  ::  Intersectionality (Cultural Studies) / Cultural Appropriation (Theory)
+[2] X. Critical Animal Studies  ::  Ecocriticism (Cultural Studies) / Anthropocene (Cultural Studies)
+[2] XI. Digital Culture  ::  Networked Individualism (Cultural) / Imagined Communities (Digital)
+[2] XII. Cultural Economy  ::  Precariat (Cultural Studies) / Cultural Value Theory
+[2] XIII. Philosophy of Culture  ::  Symbolic Forms Theory / Critique of Modernity (Cultural)
+[2] XVII. Material Culture Studies  ::  Material Culture Theory / Social Lives of Things
+[1] C. Cultural Studies of Science (Lay Knowledge)  ::  Lay Expertise (Cultural Studies of Science)
+[1] III. Critical Theory & Frankfurt School (Culture)  ::  Culture Industry Theory
+[1] IV. Post-Structuralism & Postmodernism (Culture)  ::  Simulation and Simulacra (Cultural)
+[1] IX. Affect Theory & Sensory Studies in Culture  ::  Affect Theory (Cultural Studies)
+[1] L. Culture and Time  ::  Cultural Temporalities Theory
+[1] LI. Experience Economy (Cultural)  ::  Experience Economy (Cultural)
+[1] LII. Cultural Citizenship  ::  Cultural Citizenship Theory
+[1] LIII. Affective Publics  ::  Affective Publics Theory
+[1] LIV. Cultural Neuroscience  ::  Cultural Neuroscience
+[1] LIX. Cultural Studies of Science  ::  Science in Culture Theory
+[1] LV. Cultural Evolution (Computational)  ::  Cultural Dynamics (Computational)
+[1] LVI. Cultural Value Chains  ::  Cultural Value Chains Theory
+[1] LVII. Cultural Policy (Global)  ::  Cultural Diplomacy Theory
+[1] LVIII. Indigenous Cultural Studies  ::  Decolonizing Cultural Studies
+[1] LX. Popular Culture & Politics  ::  Cultural Politics of Popular Culture
+[1] LXI. Cultural Heritage Management  ::  Intangible Cultural Heritage Theory
+[1] LXII. Cultural Exchange Theories  ::  Transculturation
+[1] LXIII. Cultural Ecology (Human Adaptation)  ::  Cultural Adaptation Theory
+[1] LXIV. Cultural Rights (Legal)  ::  Human Rights and Culture Theory
+[1] LXIX. Cultural Resilience  ::  Cultural Resilience Theory
+[1] LXV. Cultural Production (Alternative Models)  ::  Prosumption (Cultural)
+[1] LXVI. Cultural Studies of Disaster  ::  Disaster Culture Theory
+[1] LXVII. Cultural Industries (Global)  ::  Global Cultural Industries Theory
+[1] LXVIII. Cultural Politics of Memory  ::  Memory Wars (Cultural Studies)
+[1] LXX. Cultural Value (Economic)  ::  Cultural Economics Theory
+[1] LXXI. Cultural Psychology (Identity)  ::  Cultural Identity Theory
+[1] LXXII. Cultural Semiotics  ::  Cultural Codes Theory
+[1] LXXIII. Cultural Studies of Risk  ::  Risk Culture Theory
+[1] LXXIV. Digital Culture (Participation)  ::  Participatory Culture Theory
+[1] LXXIX. Global Popular Culture  ::  Global Popular Culture Theory
+[1] LXXV. Cultural Studies of Health  ::  Culture of Health Theory
+[1] LXXVI. Cultural Diplomacy  ::  Soft Power (Cultural Studies)
+[1] LXXVII. Cultural Studies of Disaster (Representation)  ::  Disaster Narratives (Cultural)
+[1] LXXVIII. Cultural Sociology (Aesthetics)  ::  Sociology of Taste Theory
+[1] LXXX. Cultural Politics of Food  ::  Food Sovereignty (Cultural)
+[1] LXXXI. Cultural Studies of Infrastructure  ::  Infrastructure as Culture Theory
+[1] LXXXII. Indigenous Cultural Revitalization  ::  Cultural Revitalization (Indigenous)
+[1] LXXXIII. Cultural Studies of Risk (Social Amplification)  ::  Social Amplification of Risk Framework (SARF in Cultural Studies)
+[1] LXXXIV. Cultural Consumption (Identity)  ::  Identity Consumption Theory
+[1] LXXXIX. Cultural Hybridity (Global Context)  ::  Cultural Creolization Theory
+[1] LXXXV. Cultural Studies of Technology  ::  Technological Culture Theory
+[1] LXXXVI. Cultural Studies of Time  ::  Cultural Rhythms Theory
+[1] LXXXVII. Cultural Studies of Space  ::  Cultural Space Theory
+[1] LXXXVIII. Cultural Resistance  ::  Cultural Resistance Theory
+[1] V. Cultural Sociology & Social Theory  ::  Cultural Capital Theory (Cultural Studies)
+[1] VII. Media & Communication in Culture  ::  Cultivation Theory (Cultural)
+[1] VIII. Global & Transnational Cultural Theories  ::  Glocalization (Cultural Studies)
+[1] X. Critical Animal Studies & Environmental Humanities  ::  Critical Animal Studies (Cultural)
+[1] XC. Cultural Studies of Surveillance  ::  Surveillance Culture Theory
+[1] XCI. Cultural Authenticity  ::  Authenticity in Culture Theory
+[1] XCII. Cultural Flows (Beyond Western)  ::  Reverse Cultural Flows Theory
+[1] XCIII. Cultural Studies of Algorithms  ::  Algorithmic Culture (Advanced Cultural Studies)
+[1] XCIV. Cultural Politics of Memory (Advanced)  ::  Contested Heritage Theory
+[1] XCIX. Cultural Studies of Emotions  ::  Emotionology (Cultural)
+[1] XCV. Cultural Sociology (Taste)  ::  Cultural Omnivore Theory
+[1] XCVI. Cultural Studies of Waste  ::  Waste and Culture Theory
+[1] XCVII. Cultural Studies of Food (Globalization)  ::  Global Foodways Theory
+[1] XCVIII. Cultural Studies of Animals  ::  Multispecies Ethnography (Cultural)
+[1] XI. Digital Culture & Communication  ::  Digital Ethnography
+[1] XII. Cultural Economy & Production  ::  Creative Industries Theory
+[1] XIV. Media Archaeology (Cultural)  ::  Media Archaeology (Cultural)
+[1] XIX. Food Studies (Cultural)  ::  Food and Culture Theory
+[1] XL. Cultural Policy Studies  ::  Cultural Policy Theory
+[1] XLI. Embodiment in Culture  ::  Embodied Culture Theory
+[1] XLII. Critical Discourse Analysis (Cultural)  ::  Critical Discourse Analysis (CDA in Cultural Studies)
+[1] XLIII. Cultural Psychology  ::  Cultural Self Theory
+[1] XLIV. Cultural Evolution (Advanced)  ::  Cultural Transmission Theory
+[1] XLIX. Cultural Anthropology (Meaning)  ::  Culture as Meaning Systems Theory
+[1] XLV. Cultural Geography (Advanced)  ::  Sense of Place Theory (Cultural)
+[1] XLVI. Cultural Politics  ::  Cultural Politics Theory
+[1] XLVII. Global Cultural Flows (Deep Dive)  ::  Deterritorialization (Cultural)
+[1] XLVIII. Cultural Trauma Studies  ::  Cultural Trauma Theory
+[1] XV. Memory Studies  ::  Public Memory (Cultural)
+[1] XV. Memory Studies (Cultural)  ::  Cultural Memory of Trauma (Cultural Studies)
+[1] XVI. Heritage Studies (Cultural)  ::  Heritage Studies (Cultural)
+[1] XVIII. Sociology of Art  ::  Art as Social System Theory
+[1] XX. Fashion Studies (Cultural)  ::  Fashion and Identity Theory
+[1] XXI. Sound Studies (Cultural)  ::  Soundscapes Theory (Cultural)
+[1] XXII. Visual Culture Studies  ::  Visual Culture Theory
+[1] XXIII. Science and Technology Studies (Cultural)  ::  Social Construction of Technology (SCOT in Cultural Studies)
+[1] XXIV. Urban Cultural Studies  ::  City as Text Theory
+[1] XXIX. Critical Heritage Studies  ::  Dark Heritage (Cultural)
+[1] XXV. Popular Culture Studies  ::  Fandom Studies (Cultural)
+[1] XXVI. Everyday Life Studies  ::  Everyday Life Theory (Cultural)
+[1] XXVII. Anthropology of Culture  ::  Cultural Relativism (Cultural)
+[1] XXVIII. Digital Media Theories (Cultural)  ::  Digital Materiality (Cultural)
+[1] XXX. Performance Studies (Cultural)  ::  Performativity (Cultural)
+[1] XXXI. Cultural Geography  ::  Cultural Landscape Theory
+[1] XXXII. Cultural Evolution  ::  Memetics
+[1] XXXIII. Transnational Cultural Studies  ::  Diasporic Culture Theory
+[1] XXXIV. Cultural Memory Studies (Advanced)  ::  Communicative Memory (Cultural)
+[1] XXXIX. Digital Culture (Specific Phenomena)  ::  Digital Folklore Theory
+[1] XXXV. Philosophy of Culture  ::  Culture as Praxis Theory
+[1] XXXVI. Aesthetics (Cultural Context)  ::  Cultural Aesthetics Theory
+[1] XXXVII. Sociology of Science & Culture  ::  Science as Culture Theory
+[1] XXXVIII. Posthumanism (Cultural)  ::  Posthuman Culture Theory

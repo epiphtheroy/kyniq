@@ -1,0 +1,21 @@
+tmdb_id,title,year,country_code_provisional,cohort,analysis_status,total_score,imdb_votes,authority_flag,demand_flag,quadrant,score_tier,primary_facet,recommended_action,ingest_wave,should_index
+28580,The Lost Weekend,1945,,atlas_4744,queued,92.9,41583,true,true,A,T1,award,analyze_now,1,false
+15919,Marty,1955,,atlas_4744,queued,92.6,29819,true,true,A,T1,award,analyze_now,1,false
+313369,La La Land,2016,us,atlas_4744,queued,91.5,759966,true,true,A,T1,award,analyze_now,1,false
+74643,The Artist,2011,fr,atlas_4744,queued,91.2,254736,true,true,A,T1,award,analyze_now,1,false
+100784,"Khrustalyov, My Car!",1998,ru,atlas_4744,queued,30.9,2340,true,false,B,T3,canon,wave2,2,false
+86282,Tie Xi Qu: West of the Tracks,2003,jp,atlas_4744,queued,30.0,1381,true,false,B,T3,canon,wave2,2,false
+97989,Neighboring Sounds,2012,br,atlas_4744,queued,29.0,8940,true,false,B,T3,auteur,wave2,2,false
+31032,The Death of Mr. Lazarescu,2005,ro,atlas_4744,queued,28.8,16090,true,false,B,T3,canon,wave2,2,false
+64682,The Great Gatsby,2013,au,atlas_4744,queued,37.7,641730,false,true,C,T2,national,selective,3,false
+36657,X-Men,2000,,atlas_4744,queued,18.6,690803,false,true,C,T4,award,selective,3,false
+36658,X2,2003,,atlas_4744,queued,18.6,611038,false,true,C,T4,award,selective,3,false
+33202,Jo Jeeta Wohi Sikandar,1992,in,atlas_4744,parked,25.6,24617,false,false,D,T3,national,park,,false
+46387,Hum Aapke Hain Koun..!,1994,in,atlas_4744,parked,25.6,23833,false,false,D,T3,national,park,,false
+8440,Carandiru,2003,br,atlas_4744,parked,14.5,22483,false,false,D,T4,national,park,,false
+11502,Knife in the Water,1962,pl,atlas_4744,parked,11.2,24943,false,false,D,T4,national,park,,false
+9443,Chariots of Fire,1981,gb,seed_567,analyzed,92.5,69810,true,true,A,T1,award,done,,true
+423,The Pianist,2002,fr,seed_567,analyzed,91.2,1010154,true,true,A,T1,award,done,,true
+426426,Roma,2018,mx,seed_567,analyzed,90.2,176987,true,true,A,T1,award,done,,true
+746,The Last Emperor,1987,it,seed_567,analyzed,88.5,118875,true,true,A,T1,award,done,,true
+17295,The Battle of Algiers,1966,it,exp_405,analyzed,61.1,74756,true,true,A,T1,canon,done,,true

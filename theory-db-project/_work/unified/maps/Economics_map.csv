@@ -1,0 +1,147 @@
+OldTrueMajor,NewMajorNo,NewMajorName,NewSub,Action,Note
+[SYNTHESIZED] Classical & Neoclassical Economics: Classical Political Economy,I,Classical & Neoclassical Economics,Classical Political Economy,add,Canonical backbone root (Smith/Ricardo/Mill lineage). No input rows; spine anchor for the discipline.
+[SYNTHESIZED] Classical & Neoclassical Economics: Marginalism & General Equilibrium,I,Classical & Neoclassical Economics,Marginalism & General Equilibrium,add,"Backbone Sub (marginal utility, Walrasian GE, Pareto). Spine anchor."
+[SYNTHESIZED] Classical & Neoclassical Economics: Microeconomic Foundations,I,Classical & Neoclassical Economics,Microeconomic Foundations,add,"Backbone Sub (rational choice, supply/demand, welfare theorems). Spine anchor."
+[SYNTHESIZED] Macroeconomics & Monetary Theory: Keynesian & New Keynesian,II,Macroeconomics & Monetary Theory,Keynesian & New Keynesian,add,"Canonical backbone root (Keynes, IS-LM, sticky prices). Spine anchor."
+[SYNTHESIZED] Macroeconomics & Monetary Theory: Monetarism & New Classical,II,Macroeconomics & Monetary Theory,Monetarism & New Classical,add,"Backbone Sub (Friedman, rational expectations, RBC). Spine anchor."
+[SYNTHESIZED] Institutional & Evolutionary Economics: Institutional Economics,VII,Institutional & Evolutionary Economics,Institutional Economics,add,"Backbone Sub (old/new institutionalism, Veblen, North, transaction costs). Spine anchor."
+"[SYNTHESIZED] Welfare, Happiness & Heterodox Economics: Marxist & Heterodox Traditions",XII,"Welfare, Happiness & Heterodox Economics",Marxist & Heterodox Traditions,add,"Canonical backbone Sub (Marxian value, post-Keynesian, Sraffian). Spine anchor for heterodoxy."
+"[SYNTHESIZED] Platform, Digital & Data Economy: Platform & Network Economics",XIII,"Platform, Digital & Data Economy",Platform & Network Economics,add,"Canonical contemporary root (two-sided markets, network effects). Spine anchor; secures digital economy."
+"[SYNTHESIZED] Platform, Digital & Data Economy: Data & Algorithmic Markets",XIII,"Platform, Digital & Data Economy",Data & Algorithmic Markets,add,"Backbone Sub (data as factor, algorithmic pricing, attention markets). Spine anchor."
+"[SYNTHESIZED] Platform, Digital & Data Economy: Gig & Automation Economy",XIII,"Platform, Digital & Data Economy",Gig & Automation Economy,add,"Backbone Sub (gig/precarious labor, automation, AI labor displacement). Spine anchor."
+I. Behavioral Economics (Foundational),III,Behavioral & Cognitive Economics,Foundations & Bounded Rationality,relabel,"Root behavioral cluster (prospect theory, bounded rationality, framing, loss aversion). Becomes canonical III-A."
+I. Behavioral Economics (Foundational) B. Intertemporal Choice & Self-Control,III,Behavioral & Cognitive Economics,Intertemporal Choice & Self-Control,keep,"Hyperbolic discounting, time inconsistency, dual-self."
+I. Behavioral Economics (Foundational) C. Social Preferences,III,Behavioral & Cognitive Economics,Social Preferences & Fairness,keep,"Fairness, reciprocity, altruism, inequality aversion."
+I. Behavioral Economics (Foundational) D. Nudges & Choice Architecture,III,Behavioral & Cognitive Economics,Nudges & Choice Architecture,keep,"Nudge, choice architecture, default effect, libertarian paternalism."
+I. Behavioral Economics (Foundational) E. Other Behavioral Phenomena,III,Behavioral & Cognitive Economics,Other Biases & Heuristics,relabel,"Mental accounting, status quo bias, overconfidence, planning fallacy."
+V. Psychology of Consumption,XI,"Marketing, Consumption & Industrial Organization",Psychology of Consumption,relabel,"Hedonic/experiential consumption, endogenous preferences, habit formation. Folded to consumption Major."
+V. Psychology of Consumption & Choice,XI,"Marketing, Consumption & Industrial Organization",Psychology of Consumption,merge,Duplicate-variant of 'Psychology of Consumption' (consumer choice theory). Merged into XI-A.
+II. Neuroeconomics,III,Behavioral & Cognitive Economics,Neuroeconomics & Neuromarketing,relabel,"Neuroeconomics, reward prediction error, dual-system, neurobiology of fairness. Canonical III-F."
+IV. Behavioral Game Theory,IV,Behavioral Game Theory & Strategic Interaction,Behavioral Game Theory,relabel,"Behavioral game theory, social norms, ultimatum/dictator games. Root of Major IV."
+III. Information Economics,V,Information & Contract Economics,Asymmetric Information,relabel,"Screening, info asymmetry, adverse selection, moral hazard (behavioral). Root of Major V."
+III. Information Economics & Asymmetric Information,V,Information & Contract Economics,Asymmetric Information,merge,Variant duplicate (signaling theory). Merged into V-A.
+VII. Behavioral Labor Economics,X,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,relabel,"Reference-dependent labor supply, fair wages, intrinsic motivation, search frictions. Root of Major X."
+VIII. Behavioral Public Economics,VIII,Political Economy & Public Choice,Behavioral Public Economics,relabel,"Warm-glow giving, tax-compliance norms, public-policy nudges, salience. Root of Major VIII."
+IX. Behavioral Development Economics,IX,Development & Environmental Economics,Behavioral Development Economics,relabel,"Poverty traps, behavioral development interventions. Root of Major IX."
+X. Behavioral Environmental Economics,IX,Development & Environmental Economics,Environmental & Resource Economics,relabel,"Environmental norms, green nudging. Folded into IX-B."
+XI. Behavioral Health Economics,IX,Development & Environmental Economics,Health & Education Economics,relabel,"Present bias in health, health nudges. Folded into IX-C."
+XII. Behavioral Education Economics,IX,Development & Environmental Economics,Health & Education Economics,merge,"Self-control & educational outcomes, intrinsic motivation in education. Merged into IX-C."
+XIV. Behavioral Political Economy,VIII,Political Economy & Public Choice,Public Choice & Political Behavior,relabel,"Voter heuristics/biases, behavioral institutional design. Folded into VIII-B."
+XV. Complexity Economics,VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,relabel,"Complexity economics, agent-based computational economics. Canonical VII-C."
+XVI. Evolutionary Economics (Beyond Biology),VII,Institutional & Evolutionary Economics,Evolutionary Economics,relabel,Cultural & institutional evolution in economics. Canonical VII-B.
+XVIII. Happiness Economics,XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,relabel,"Happiness economics, Easterlin paradox. Root of Major XII."
+XXI. Personnel Economics (Behavioral),X,"Labor, Personnel & Inequality Economics",Personnel & Organizational,relabel,"Psychological contracts, intrinsic vs extrinsic motivation. Canonical X-B."
+XXXIII. Behavioral Economics of Addiction,III,Behavioral & Cognitive Economics,Intertemporal Choice & Self-Control,merge,"Rational addiction, addiction as self-control problem. Folded into III-B."
+C. Identity Economics (Policy Implications),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity-based policy. Folded into VIII-C.
+CI. Happiness Economics (Inequality),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Inequality and happiness. Singleton merged into XII-A.
+CII. Neuroeconomics (Risk & Uncertainty),III,Behavioral & Cognitive Economics,Neuroeconomics & Neuromarketing,merge,Neurobiology of risk. Singleton merged into III-F.
+CIII. Behavioral Development Economics (Commitment Devices),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Commitment devices. Singleton merged into IX-A.
+CIV. Behavioral Environmental Economics (Choice Architecture),IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Defaults for green choices. Singleton merged into IX-B.
+CIX. Behavioral Law and Economics (Contract Renegotiation),V,Information & Contract Economics,Behavioral Law & Economics,merge,Behavioral renegotiation. Singleton merged into V-C.
+CV. Behavioral Health Economics (Insurance),IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral insurance (health). Singleton merged into IX-C.
+CVI. Behavioral Education Economics (Motivation),IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral motivation in education. Singleton merged into IX-C.
+CVII. Behavioral Public Economics (Public Acceptance),VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Public acceptance of policy. Singleton merged into VIII-A.
+VI. Behavioral Finance,VI,Behavioral Finance & Asset Markets,Investor Psychology & Biases,relabel,"Root behavioral finance cluster (herd behavior, speculative bubbles, overconfidence, confirmation bias). Canonical VI-B root."
+CVIII. Behavioral Finance (Over-extrapolation),VI,Behavioral Finance & Asset Markets,Investor Psychology & Biases,merge,Extrapolation bias. Singleton merged into VI-B.
+CX. Complexity Economics (Path Dependence),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Path dependence. Singleton merged into VII-C.
+CXI. Evolutionary Economics (Bounded Rationality),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Ecological rationality. Singleton merged into VII-B.
+CXII. Identity Economics (Public Goods),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity and public goods. Singleton merged into VIII-C.
+CXIII. Happiness Economics (Adaptation),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Hedonic adaptation. Singleton merged into XII-A.
+CXIV. Neuroeconomics (Risk Preferences),III,Behavioral & Cognitive Economics,Neuroeconomics & Neuromarketing,merge,Neural basis of risk preferences. Singleton merged into III-F.
+CXIX. Behavioral Public Economics (Voting),VIII,Political Economy & Public Choice,Public Choice & Political Behavior,merge,Behavioral voter turnout. Singleton merged into VIII-B.
+CXV. Behavioral Development Economics (Poverty Alleviation),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Poverty alleviation (behavioral insights). Singleton merged into IX-A.
+CXVI. Behavioral Environmental Economics (Social Marketing),IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Social marketing for environment. Singleton merged into IX-B.
+CXVII. Behavioral Health Economics (Patient-Provider),IX,Development & Environmental Economics,Health & Education Economics,merge,Patient-provider interaction. Singleton merged into IX-C.
+CXVIII. Behavioral Education Economics (Learning),IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral learning in education. Singleton merged into IX-C.
+CXX. Behavioral Finance (Cognitive Biases),VI,Behavioral Finance & Asset Markets,Investor Psychology & Biases,merge,Confirmation bias (finance). Singleton merged into VI-B.
+CXXI. Behavioral Law and Economics (Contract Design),V,Information & Contract Economics,Behavioral Law & Economics,merge,Behavioral contract design. Singleton merged into V-C.
+CXXII. Complexity Economics (Self-Organization),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Self-organization. Singleton merged into VII-C.
+CXXIII. Evolutionary Economics (Technological Change),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Evolutionary theory of technological change. Singleton merged into VII-B.
+CXXIV. Identity Economics (Education),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity and educational choices. Singleton merged into VIII-C.
+CXXIX. Behavioral Health Economics (Risk Perception),IX,Development & Environmental Economics,Health & Education Economics,merge,Risk perception in health. Singleton merged into IX-C.
+CXXV. Happiness Economics (Social Comparison),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Social comparison theory. Singleton merged into XII-A.
+CXXVI. Neuroeconomics (Intertemporal Choice),III,Behavioral & Cognitive Economics,Neuroeconomics & Neuromarketing,merge,Neural discounting. Singleton merged into III-F.
+CXXVII. Behavioral Development Economics (Human Capital),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Behavioral human capital. Singleton merged into IX-A.
+CXXVIII. Behavioral Environmental Economics (Information),IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Information provision & behavior. Singleton merged into IX-B.
+CXXX. Behavioral Education Economics (Attendance),IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral attendance incentives. Singleton merged into IX-C.
+L. Behavioral Economics of Crime,V,Information & Contract Economics,Behavioral Law & Economics,merge,Behavioral crime & deterrence. Singleton merged into V-C.
+LI. Behavioral International Economics,XII,"Welfare, Happiness & Heterodox Economics",Marxist & Heterodox Traditions,merge,Behavioral trade theory. Heterodox/applied singleton parked in XII-B (closest spine fit).
+LII. Behavioral Macroeconomics (Asset Prices),II,Macroeconomics & Monetary Theory,Behavioral Macroeconomics,relabel,Behavioral asset pricing. Folded into II-C.
+LIII. Behavioral Regulation,VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Regulatory nudges. Singleton merged into VIII-A.
+LIV. Behavioral Environmental Economics (Policy),IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Behavioral policy design for environment. Singleton merged into IX-B.
+LIX. Behavioral Ethics (Economics),XII,"Welfare, Happiness & Heterodox Economics",Ethics & Normative Economics,relabel,Ethical decision making. Canonical XII-C.
+LV. Behavioral Health Economics (Adherence),IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral adherence (health). Singleton merged into IX-C.
+LVI. Behavioral Education Economics (Teacher Incentives),IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral teacher incentives. Singleton merged into IX-C.
+LVII. Behavioral Public Economics (Pensions),VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Retirement savings (behavioral). Singleton merged into VIII-A.
+LVIII. Behavioral Finance (Speculative Bubbles),VI,Behavioral Finance & Asset Markets,Market Anomalies & Bubbles,relabel,Greater fool theory. Folded into VI-A.
+LX. Behavioral Labor Economics (Automation),XIII,"Platform, Digital & Data Economy",Gig & Automation Economy,relabel,Automation & behavioral response (labor). Routed to contemporary XIII-C.
+LXI. Behavioral Development Economics (Risk),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Risk preferences in development. Singleton merged into IX-A.
+LXII. Behavioral Environmental Economics (Valuation),IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Stated preference biases. Singleton merged into IX-B.
+LXIII. Behavioral Health Economics (Prevention),IX,Development & Environmental Economics,Health & Education Economics,merge,Prevention behavior. Singleton merged into IX-C.
+LXIV. Behavioral Education Economics (Financial Literacy),IX,Development & Environmental Economics,Health & Education Economics,merge,Financial literacy. Singleton merged into IX-C.
+LXIX. Evolutionary Economics (Behavioral Roots),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Behavioral roots of evolutionary economics. Singleton merged into VII-B.
+LXV. Behavioral Public Economics (Compliance),VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Tax evasion (behavioral). Singleton merged into VIII-A.
+LXVI. Behavioral Finance (Market Microstructure),VI,Behavioral Finance & Asset Markets,Microstructure & Household Finance,relabel,Order flow imbalance. Canonical VI-C.
+LXVII. Behavioral Law and Economics (Contract Enforcement),V,Information & Contract Economics,Behavioral Law & Economics,merge,Contract enforcement. Singleton merged into V-C.
+LXVIII. Complexity Economics (Emergence),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Emergence. Singleton merged into VII-C.
+LXX. Identity Economics (Consumer Behavior),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity and consumption. Singleton merged into VIII-C.
+LXXI. Happiness Economics (Policy),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Happiness policy. Singleton merged into XII-A.
+LXXII. Neuro-Pricing,XI,"Marketing, Consumption & Industrial Organization",Behavioral Marketing & Pricing,relabel,Neuro-pricing. Folded into XI-B.
+LXXIII. Behavioral Development Economics (Social Learning),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Social learning in development. Singleton merged into IX-A.
+LXXIV. Behavioral Public Economics (Paternalism),VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Asymmetric paternalism. Singleton merged into VIII-A.
+LXXIX. Identity Economics (Workplace),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity and motivation (work). Singleton merged into VIII-C.
+LXXV. Behavioral Finance (Market Efficiency),VI,Behavioral Finance & Asset Markets,Market Anomalies & Bubbles,merge,Behavioral market efficiency. Singleton merged into VI-A.
+LXXVI. Behavioral Law and Economics (Compliance),V,Information & Contract Economics,Behavioral Law & Economics,merge,Expressive law. Singleton merged into V-C.
+LXXVII. Complexity Economics (Innovation),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Emergent innovation. Singleton merged into VII-C.
+LXXVIII. Evolutionary Economics (Institutions),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Co-evolution of institutions and preferences. Singleton merged into VII-B.
+LXXX. Happiness Economics (Social Capital),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Social capital and happiness. Singleton merged into XII-A.
+LXXXI. Neuro-Marketing (Decision Process),XI,"Marketing, Consumption & Industrial Organization",Behavioral Marketing & Pricing,merge,Brain and purchase decisions. Singleton merged into XI-B.
+LXXXII. Behavioral Development Economics (Gender),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Gender biases in development. Singleton merged into IX-A.
+LXXXIII. Behavioral Public Economics (Political Behavior),VIII,Political Economy & Public Choice,Public Choice & Political Behavior,merge,Rational ignorance. Singleton merged into VIII-B.
+LXXXIV. Behavioral Finance (Bubbles & Crashes),VI,Behavioral Finance & Asset Markets,Market Anomalies & Bubbles,merge,Noise trader theory. Singleton merged into VI-A.
+LXXXIX. Happiness Economics (Relative Deprivation),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Relative deprivation. Singleton merged into XII-A.
+LXXXV. Behavioral Law and Economics (Property Rights),V,Information & Contract Economics,Behavioral Law & Economics,merge,Behavioral property rights. Singleton merged into V-C.
+LXXXVI. Complexity Economics (Learning),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Learning and adaptation. Singleton merged into VII-C.
+LXXXVII. Evolutionary Economics (Cooperation),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Indirect reciprocity. Singleton merged into VII-B.
+LXXXVIII. Identity Economics (Social Policy),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity and social policy. Singleton merged into VIII-C.
+XC. Neuroeconomics (Market Dynamics),III,Behavioral & Cognitive Economics,Neuroeconomics & Neuromarketing,merge,Neurobiology of market behavior. Singleton merged into III-F.
+XCI. Behavioral Development Economics (Risk Management),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Risk preferences & poverty. Singleton merged into IX-A.
+XCII. Behavioral Environmental Economics (Valuation),IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Moral licensing (environmental). Singleton merged into IX-B.
+XCIII. Behavioral Health Economics (Information),IX,Development & Environmental Economics,Health & Education Economics,merge,Information overload (health). Singleton merged into IX-C.
+XCIV. Behavioral Education Economics (Peer Effects),IX,Development & Environmental Economics,Health & Education Economics,merge,Peer effects in education. Singleton merged into IX-C.
+XCIX. Evolutionary Economics (Innovation Diffusion),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Innovation diffusion. Singleton merged into VII-B.
+XCV. Behavioral Public Economics (Public Good Provision),VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Conditional cooperation. Singleton merged into VIII-A.
+XCVI. Behavioral Finance (Behavioral Portfolios),VI,Behavioral Finance & Asset Markets,Investor Psychology & Biases,merge,Behavioral portfolio theory. Singleton merged into VI-B.
+XCVII. Behavioral Law and Economics (Cognitive Capacity),V,Information & Contract Economics,Behavioral Law & Economics,merge,Cognitive capacity and law. Singleton merged into V-C.
+XCVIII. Complexity Economics (Adaptive Markets),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Adaptive markets hypothesis. Singleton merged into VII-C.
+XIII. Behavioral Industrial Organization,XI,"Marketing, Consumption & Industrial Organization",Behavioral Industrial Organization,relabel,Behavioral IO. Canonical XI-C.
+XIX. Neuro-Finance,VI,Behavioral Finance & Asset Markets,Neuro-Finance,relabel,Neuro-finance. Canonical VI-D.
+XL. Behavioral Finance (Puzzles),VI,Behavioral Finance & Asset Markets,Market Anomalies & Bubbles,merge,Equity premium puzzle (behavioral). Singleton merged into VI-A.
+XLI. Behavioral Law and Economics (Punishment),V,Information & Contract Economics,Behavioral Law & Economics,merge,Behavioral deterrence. Singleton merged into V-C.
+XLII. Complexity Economics (Adaptive Learning),VII,Institutional & Evolutionary Economics,Complexity & Agent-Based Economics,merge,Adaptive learning. Singleton merged into VII-C.
+XLIII. Evolutionary Economics (Innovation),VII,Institutional & Evolutionary Economics,Evolutionary Economics,merge,Innovation and evolution. Singleton merged into VII-B.
+XLIV. Identity Economics (Behavioral Applications),VIII,Political Economy & Public Choice,Identity Economics,merge,Identity and labor supply theory. Singleton merged into VIII-C.
+XLIX. Behavioral Finance (Household Finance),VI,Behavioral Finance & Asset Markets,Microstructure & Household Finance,merge,Household behavioral finance. Singleton merged into VI-C.
+XLV. Happiness Economics (Social Factors),XII,"Welfare, Happiness & Heterodox Economics",Happiness & Wellbeing,merge,Relative income hypothesis. Singleton merged into XII-A.
+XLVI. Neuro-Marketing,XI,"Marketing, Consumption & Industrial Organization",Behavioral Marketing & Pricing,merge,Consumer neuromarketing. Singleton merged into XI-B.
+XLVII. Behavioral Development Economics (Education),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Behavioral education interventions (development). Singleton merged into IX-A.
+XLVIII. Behavioral Public Economics (Prosociality),VIII,Political Economy & Public Choice,Behavioral Public Economics,merge,Prosocial behavior in public goods. Singleton merged into VIII-A.
+XVII. Identity Economics,VIII,Political Economy & Public Choice,Identity Economics,relabel,Identity economics (Akerlof-Kranton). Canonical VIII-C root.
+XX. Behavioral Development Economics (Second Wave),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Cultural behavioral economics (development). Singleton merged into IX-A.
+XXII. Behavioral Public Choice,VIII,Political Economy & Public Choice,Public Choice & Political Behavior,relabel,Behavioral public choice theory. Canonical VIII-B root.
+XXIII. Behavioral Law and Economics,V,Information & Contract Economics,Behavioral Law & Economics,relabel,Behavioral law and economics. Canonical V-C root.
+XXIV. Evolutionary Game Theory (Economics),IV,Behavioral Game Theory & Strategic Interaction,Evolutionary Game Theory,relabel,Evolutionary game theory. Canonical IV-B.
+XXIX. Behavioral Marketing,XI,"Marketing, Consumption & Industrial Organization",Behavioral Marketing & Pricing,relabel,Behavioral pricing. Canonical XI-B root.
+XXV. Behavioral IO (Industrial Organization),XI,"Marketing, Consumption & Industrial Organization",Behavioral Industrial Organization,merge,Consumer manipulation theory. Merged into XI-C.
+XXVI. Behavioral Macroeconomics,II,Macroeconomics & Monetary Theory,Behavioral Macroeconomics,relabel,Behavioral macroeconomics. Canonical II-C root.
+XXVII. Behavioral Urban Economics,XI,"Marketing, Consumption & Industrial Organization",Urban & Real Estate,relabel,Behavioral urban economics. Canonical XI-D.
+XXVIII. Behavioral Real Estate,XI,"Marketing, Consumption & Industrial Organization",Urban & Real Estate,merge,Behavioral real estate economics. Merged into XI-D.
+XXX. Behavioral Public Health Economics,IX,Development & Environmental Economics,Health & Education Economics,merge,Behavioral public health economics. Singleton merged into IX-C.
+XXXI. Behavioral Environmental Policy,IX,Development & Environmental Economics,Environmental & Resource Economics,merge,Behavioral environmental policy. Singleton merged into IX-B.
+XXXII. Behavioral Finance (Bubbles & Crashes),VI,Behavioral Finance & Asset Markets,Market Anomalies & Bubbles,merge,Rational bubbles (behavioral). Singleton merged into VI-A.
+XXXIV. Behavioral Contracts,V,Information & Contract Economics,Contracts & Mechanism Design,relabel,Incomplete contracts (behavioral). Canonical V-B.
+XXXIX. Behavioral Public Economics (Policy Biases),VIII,Political Economy & Public Choice,Public Choice & Political Behavior,merge,Political biases. Singleton merged into VIII-B.
+XXXV. Behavioral Development Economics (Behavioral Insights),IX,Development & Environmental Economics,Behavioral Development Economics,merge,Behavioral insights for development. Singleton merged into IX-A.
+XXXVI. Behavioral Game Theory (Social Preferences),IV,Behavioral Game Theory & Strategic Interaction,Social Norms & Cooperation,relabel,Intentions-based reciprocity. Canonical IV-C.
+XXXVII. Behavioral Industrial Organization (Pricing),XI,"Marketing, Consumption & Industrial Organization",Behavioral Industrial Organization,merge,Price stickiness (behavioral). Merged into XI-C.
+XXXVIII. Behavioral Labor Economics (Discrimination),X,"Labor, Personnel & Inequality Economics",Discrimination & Inequality,relabel,Behavioral discrimination. Canonical X-C.

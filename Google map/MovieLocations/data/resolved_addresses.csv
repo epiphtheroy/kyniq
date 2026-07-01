@@ -1,0 +1,125 @@
+﻿idx,movie,year,real_name,basis,resolved_query,lat,lng,precision,confidence
+0,Parasite,2019,Sky Pizza,address,"86 Noryangjin-ro 6-gil, Dongjak-gu, Seoul, South Korea",37.5128,126.9425,street,verified
+1,Parasite,2019,Doijissal (Pig Rice) Supermarket,address,"32 Songijeong-ro, Mapo-gu, Seoul, South Korea",37.5506,126.9558,street,verified
+2,Parasite,2019,Stairs & alleys of Ahyeon-dong / Changsin-dong,real_place,"Stairs & alleys of Ahyeon-dong / Changsin-dong, Seoul, South Korea",37.553,126.9555,area,verified
+3,Parasite,2019,Park family mansion,address,"near Jeonju Film Studio Complex, Jeonju, South Korea",35.8662,127.1469,set,verified_set_not_real
+4,La La Land,2016,Griffith Observatory,address,"2800 E Observatory Rd, Los Angeles, USA",34.1184,-118.3004,exact,verified
+5,La La Land,2016,Colorado Street Bridge,address,"532 W Colorado Blvd, Pasadena, Pasadena, USA",34.1397,-118.1637,exact,verified
+6,La La Land,2016,Angels Flight Railway,address,"351 S Hill St, Downtown Los Angeles, USA",34.051,-118.2495,exact,verified
+7,La La Land,2016,Lighthouse Cafe,address,"30 Pier Ave, Hermosa Beach, Hermosa Beach, USA",33.8615,-118.4011,exact,verified
+8,Mad Max: Fury Road,2015,Namib Desert near Swakopmund,real_place,"Namib Desert near Swakopmund, Swakopmund, Namibia",-22.68,14.95,region,verified
+9,Mad Max: Fury Road,2015,Salt plains near Walvis Bay,real_place,"Salt plains near Walvis Bay, Walvis Bay, Namibia",-22.99,14.5,area,verified
+10,Mad Max: Fury Road,2015,Dorob National Park,real_place,"Dorob National Park, Erongo Region, Namibia",-22.55,14.55,region,verified
+11,Skyfall,2012,"Glencoe (A82, Buachaille Etive Mor)",address,"A82, Glencoe, Glencoe, Scotland, UK",56.6431,-4.9036,exact,verified
+12,Skyfall,2012,Skyfall Lodge,address,"Hankley Common, Elstead, Surrey, England, UK",51.168,-0.683,area,verified_set_not_real
+13,Skyfall,2012,Grand Bazaar & Eminonu Square,address,"Eminonu, Fatih, Istanbul, Turkey",41.0108,28.968,exact,verified
+14,Skyfall,2012,Old Vic Tunnels (Waterloo),address,"beneath Waterloo Station, London, England, UK",51.501,-0.113,area,verified
+15,Inception,2010,Pont de Bir-Hakeim,real_place,"Pont de Bir-Hakeim, Paris, France",48.8556,2.2879,exact,verified
+16,Inception,2010,Fortress Mountain ski resort,address,"Kananaskis, Alberta, Canada",50.83,-115.2,area,verified
+17,Inception,2010,Cardington hangars,address,"Cardington, Bedfordshire, England, UK",52.1043,-0.4189,exact,verified_set_not_real
+18,Inception,2010,John Ferraro Building (LADWP),address,"111 N Hope St, Los Angeles, USA",34.0588,-118.249,exact,verified
+19,The Dark Knight,2008,Chicago Main Post Office,address,"404 W Harrison St, Chicago, USA",41.8744,-87.639,exact,verified
+20,The Dark Knight,2008,Richard J Daley Center,address,"Washington St, Chicago, USA",41.884,-87.63,exact,verified
+21,The Dark Knight,2008,IBM Building (AMA Plaza),address,"330 N Wabash Ave, Chicago, USA",41.8888,-87.627,exact,verified
+22,The Dark Knight,2008,Willis (Sears) Tower,address,"233 S Wacker Dr, Chicago, USA",41.8789,-87.6359,exact,verified
+23,Slumdog Millionaire,2008,Dharavi,real_place,"Dharavi, Mumbai, India",19.042,72.854,area,verified
+24,Slumdog Millionaire,2008,Chhatrapati Shivaji Terminus (CST),real_place,"Chhatrapati Shivaji Terminus (CST), Mumbai, India",18.9398,72.8355,exact,verified
+25,Slumdog Millionaire,2008,Taj Mahal,real_place,"Taj Mahal, Agra, India",27.1751,78.0421,exact,verified
+26,The Lord of the Rings: Fellowship,2001,"Hobbiton movie set, Alexander Farm",real_place,"Hobbiton movie set, Alexander Farm, Matamata, New Zealand",-37.8721,175.6837,exact,verified_set_not_real
+27,The Lord of the Rings: Fellowship,2001,"Mount Ngauruhoe, Tongariro NP",real_place,"Mount Ngauruhoe, Tongariro NP, Tongariro National Park, New Zealand",-39.1564,175.632,exact,verified
+28,The Lord of the Rings: Fellowship,2001,Kaitoke Regional Park,address,"near Upper Hutt, Wellington region, New Zealand",-41.05,175.18,area,verified
+29,The Lord of the Rings: Fellowship,2001,Mount Sunday,address,"Canterbury, South Island, New Zealand",-43.63,170.97,exact,verified
+30,Harry Potter and the Philosopher's Stone,2001,Leavesden Studios,real_place,"Leavesden Studios, Leavesden, England, UK",51.6906,-0.4186,exact,verified_set_not_real
+31,Harry Potter and the Philosopher's Stone,2001,Alnwick Castle,address,"Alnwick, Northumberland, Northumberland, England, UK",55.4156,-1.706,exact,verified
+32,Harry Potter and the Philosopher's Stone,2001,Gloucester Cathedral,real_place,"Gloucester Cathedral, Gloucester, England, UK",51.8674,-2.2466,exact,verified
+33,Harry Potter and the Philosopher's Stone,2001,Leadenhall Market,address,"42 Bull's Head Passage, London, England, UK",51.5128,-0.0836,exact,verified
+34,Harry Potter and the Philosopher's Stone,2001,12 Picket Post Close,address,"Martins Heron, Bracknell, Berkshire, Berkshire, England, UK",51.408,-0.708,street,verified
+35,The Beach,2000,"Maya Bay, Ko Phi Phi Leh",address,"Ko Phi Phi Leh, Krabi, Thailand",7.678,98.766,area,verified
+36,The Beach,2000,"Haew Suwat Waterfall, Khao Yai NP",address,"Khao Yai National Park, Nakhon Ratchasima, Thailand",14.438,101.387,exact,verified
+37,Lost in Translation,2003,Park Hyatt Tokyo,address,"3-7-1-2 Nishi-Shinjuku, Tokyo, Japan",35.6855,139.6905,exact,verified
+38,Lost in Translation,2003,Shibuya Crossing,address,"Shibuya, Tokyo, Japan",35.6595,139.7004,exact,verified
+39,Lost in Translation,2003,"Karaoke Kan, Shibuya",address,"Shibuya, Tokyo, Japan",35.661,139.698,exact,verified
+40,Amelie,2001,Cafe des Deux Moulins,address,"15 rue Lepic, Paris (Montmartre), France",48.8842,2.334,exact,verified
+41,Amelie,2001,Sacre-Coeur steps,address,"Montmartre, Paris, France",48.8867,2.3431,exact,verified
+42,Amelie,2001,Canal Saint-Martin,address,"10th arrondissement, Paris, France",48.871,2.365,area,verified
+43,Amelie,2001,Gare de l'Est,address,"Gare de l'Est, Paris, France",48.8767,2.359,exact,verified
+44,The Grand Budapest Hotel,2014,Goerlitzer Warenhaus,address,"Demianplatz, Goerlitz, Germany",51.1519,14.9886,exact,verified
+45,The Grand Budapest Hotel,2014,"Molkerei Pfund, Dresden",address,"Dresden, Saxony, Germany",51.0686,13.7626,exact,verified
+46,The Grand Budapest Hotel,2014,Freisebad bathhouse,address,"Goerlitz, Saxony, Germany",51.162,14.97,area,verified
+47,Notting Hill,1999,280 Westbourne Park Road,address,"280 Westbourne Park Rd, London, England, UK",51.517,-0.201,street,verified
+48,Notting Hill,1999,142 Portobello Road,address,"142 Portobello Rd, London, England, UK",51.5165,-0.205,street,verified
+49,Notting Hill,1999,The Coronet,address,"Notting Hill Gate, London, England, UK",51.5093,-0.1968,exact,verified
+50,Notting Hill,1999,The Savoy Hotel,address,"Strand, London, England, UK",51.5101,-0.1206,exact,verified
+51,Braveheart,1995,Glen Nevis,address,"near Fort William, Highland, Scotland, UK",56.77,-5.03,area,verified
+52,Braveheart,1995,Glen Coe,address,"Glencoe, Highland, Scotland, UK",56.68,-5.1,area,verified
+53,Braveheart,1995,Trim Castle,address,"Trim, Co Meath, Leinster, Ireland",53.555,-6.79,exact,verified
+54,Braveheart,1995,Curragh Plains,address,"Co Kildare, Leinster, Ireland",53.16,-6.82,area,verified
+55,Braveheart,1995,Ardmore Studios,address,"Bray, Co Wicklow, Leinster, Ireland",53.201,-6.11,exact,verified_set_not_real
+56,Black Panther,2018,Pinewood Atlanta Studios,real_place,"Pinewood Atlanta Studios, Atlanta, GA, USA",33.486,-84.555,set,verified_set_not_real
+57,Black Panther,2018,Gwangan Bridge & Gwangalli Beach,address,"Busan, Busan, South Korea",35.153,129.118,area,verified
+58,Black Panther,2018,High Museum of Art,address,"1280 Peachtree St NE, Atlanta, Atlanta, GA, USA",33.79,-84.3856,exact,verified
+59,Black Panther,2018,Sweet Auburn district,address,"Atlanta, GA, USA, USA",33.755,-84.372,area,verified
+60,Tenet,2020,Linnahall,address,"Kalasadama 4, Tallinn, Estonia",59.445,24.756,exact,verified
+61,Tenet,2020,Laagna Road,address,"Laagna tee, Tallinn, Estonia",59.438,24.83,area,verified
+62,Tenet,2020,"Villa Cimbrone, Ravello",address,"Ravello, Amalfi Coast, Italy",40.647,14.612,exact,verified
+63,Tenet,2020,Gateway of India & Taj Mahal Palace Hotel,address,"Colaba, Mumbai, India",18.922,72.8347,exact,verified
+64,No Time to Die,2021,Matera,address,"Matera, Basilicata, Matera, Italy",40.6664,16.6043,area,verified
+65,No Time to Die,2021,Gravina aqueduct bridge,address,"Gravina in Puglia, Puglia, Italy",40.815,16.415,exact,verified
+66,No Time to Die,2021,Atlantic Ocean Road,address,"More og Romsdal, Norway, Norway",63.0128,7.3105,area,verified
+67,No Time to Die,2021,Kalsoy,address,"Kalsoy, Faroe Islands, Faroe Islands, Denmark",62.3,-6.72,area,verified
+68,No Time to Die,2021,"San San Beach, Port Antonio",address,"Port Antonio, Portland, Jamaica",18.17,-76.41,area,verified
+69,Dunkirk,2017,Plage de Malo-les-Bains,address,"Digue de Mer, Dunkerque, Dunkerque, France",51.048,2.39,area,verified
+70,Dunkirk,2017,Replica East Mole (jetty),address,"Malo-les-Bains, Dunkerque, France",51.05,2.37,set,verified_set_not_real
+71,1917,2019,Salisbury Plain,address,"Wiltshire, Wiltshire, England, UK",51.2,-1.8,region,verified
+72,1917,2019,Ambrose Quarry,address,"near Ewelme, Oxfordshire, Oxfordshire, England, UK",51.62,-1.09,area,verified
+73,Interstellar,2014,Ranch near Longview,address,"near Longview, Alberta, Canada",50.534,-114.221,area,verified
+74,Interstellar,2014,Svinafellsjokull glacier,address,"near Skaftafell, South Iceland, Iceland",64.0,-16.88,exact,verified
+75,Interstellar,2014,Eldhraun lava field (Orrustuholl),address,"Eldhraun, South Iceland, Iceland",63.68,-18.2,area,verified
+76,Interstellar,2014,Westin Bonaventure Hotel,address,"404 S Figueroa St, Los Angeles, USA",34.052,-118.257,exact,verified
+77,"Crouching Tiger, Hidden Dragon",2000,Mukeng Bamboo Forest,address,"Mukeng, Huangshan, Anhui, China",29.9,118.29,area,verified
+78,"Crouching Tiger, Hidden Dragon",2000,Anji Bamboo Sea,address,"Anji, Huzhou, Zhejiang, China",30.52,119.56,area,verified
+79,"Crouching Tiger, Hidden Dragon",2000,Cangyan Shan (Cangyan Mountain),address,"SW of Shijiazhuang, Hebei, China",37.93,114.08,exact,verified
+80,"Crouching Tiger, Hidden Dragon",2000,Hengdian World Studios,address,"Hengdian, Zhejiang, China",29.145,120.28,exact,verified_set_not_real
+81,Roman Holiday,1953,Spanish Steps,address,"Scalinata di Trinita dei Monti, Rome, Italy",41.906,12.4828,exact,verified
+82,Roman Holiday,1953,Bocca della Verita (Mouth of Truth),address,"Santa Maria in Cosmedin, Rome, Italy",41.8882,12.4815,exact,verified
+83,Roman Holiday,1953,Via Margutta 51,address,"Via Margutta 51, Rome, Italy",41.908,12.479,exact,verified
+84,Roman Holiday,1953,Palazzo Colonna,address,"Piazza SS Apostoli 66, Rome, Italy",41.8975,12.483,exact,verified
+85,Roman Holiday,1953,Cinecitta Studios,address,"Rome, Lazio, Italy",41.851,12.568,exact,verified_set_not_real
+86,The Sound of Music,1965,Schloss Leopoldskron,address,"Leopoldskronstrasse, Salzburg, Austria",47.782,13.033,exact,verified
+87,The Sound of Music,1965,Schloss Frohnburg,address,"Hellbrunner Allee, Salzburg, Austria",47.777,13.056,exact,verified
+88,The Sound of Music,1965,Nonnberg Abbey,address,"Nonnberggasse, Salzburg, Austria",47.795,13.049,exact,verified
+89,The Sound of Music,1965,Mirabell Gardens,address,"Mirabellgarten, Salzburg, Austria",47.805,13.042,exact,verified
+90,The Sound of Music,1965,Felsenreitschule,address,"Hofstallgasse, Salzburg, Austria",47.798,13.042,exact,verified
+91,The Sound of Music,1965,"Basilica St Michael, Mondsee",address,"Mondsee, Upper Austria, Austria",47.856,13.349,exact,verified
+92,Jurassic Park,1993,Manawaiopuna Falls,address,"Hanapepe Valley, Kauai, Kauai, Hawaii, USA",21.99,-159.55,area,verified
+93,Jurassic Park,1993,Allerton Garden,address,"4425 Lawai Rd, Koloa, Kauai, Kauai, Hawaii, USA",21.895,-159.503,exact,verified
+94,Jurassic Park,1993,"Kualoa Ranch, Ka'a'awa Valley",address,"Kamehameha Hwy, Oahu, Oahu, Hawaii, USA",21.517,-157.84,exact,verified
+95,Jurassic Park,1993,Na Pali Coast,address,"Kauai, Kauai, Hawaii, USA",22.17,-159.65,area,verified
+96,Trainspotting,1996,"Former John Menzies, Princes Street",address,"107-109 Princes St, Edinburgh, Scotland, UK",55.952,-3.198,exact,verified
+97,Trainspotting,1996,WD & HO Wills tobacco factory,address,"Alexandra Parade, Glasgow, Scotland, UK",55.865,-4.22,exact,verified
+98,Trainspotting,1996,Cafe D'Jaconelli,address,"570 Maryhill Rd, Glasgow, Scotland, UK",55.881,-4.287,exact,verified
+99,Trainspotting,1996,Rouken Glen Park,address,"Thornliebank, Glasgow, Scotland, UK",55.805,-4.31,area,verified
+100,Trainspotting,1996,Rannoch Moor station,address,"Rannoch Moor, Highland, Scotland, UK",56.6856,-4.5878,exact,verified
+101,Oldboy,2003,"Chinese restaurant, Busan Chinatown",address,"Chinatown, Busan, Busan, South Korea",35.115,129.04,area,verified
+102,Oldboy,2003,Mount Lyford,address,"Southern Alps, Canterbury, New Zealand",-42.82,173.3,area,verified
+103,Bohemian Rhapsody,2018,Bovingdon Airfield,address,"Bovingdon, Hemel Hempstead, Hertfordshire, England, UK",51.725,-0.555,exact,verified_set_not_real
+104,Wake in Fright,1971,Sulphide Street Railway Station,real_place,"Sulphide Street Railway Station, Broken Hill, NSW, Australia",-31.962,141.467,exact,verified
+105,Wake in Fright,1971,Old Broken Hill Hospital,real_place,"Old Broken Hill Hospital, Broken Hill, NSW, Australia",-31.954,141.46,area,probable
+106,Wake in Fright,1971,"Silverton, NSW",real_place,"Silverton, NSW, Silverton, NSW, Australia",-31.9,141.22,area,verified
+107,Wake in Fright,1971,Menindee Lakes,real_place,"Menindee Lakes, Menindee, NSW, Australia",-32.35,142.4,area,probable
+108,Wake in Fright,1971,"Ajax Studios, Bondi",address,"Bondi, Sydney, Australia",-33.89,151.27,area,probable
+109,Save the Green Planet!,2003,Unnamed coal-mining town,real_place,"Unnamed coal-mining town, South Korea, South Korea",37.164,128.985,region,weak
+110,Save the Green Planet!,2003,Seoul streets,real_place,"Seoul streets, Seoul, South Korea",37.5665,126.978,area,weak
+111,Spoorloos (The Vanishing),1988,Rest stop near Nimes,real_place,"Rest stop near Nimes, Nimes, Languedoc, France",43.837,4.36,area,probable
+112,Spoorloos (The Vanishing),1988,"Gas station, Place du General Tessier de Marguerittes",address,"Marguerittes 30320, Marguerittes, France",43.852,4.435,street,weak
+113,Withnail and I,1987,Sleddale Hall ('Crow Crag'),address,"near Shap, Cumbria, England, UK",54.507,-2.74,exact,verified
+114,Withnail and I,1987,River Lowther bridge,real_place,"River Lowther bridge, Cumbria, England, UK",54.56,-2.72,area,verified
+115,Withnail and I,1987,"57 Chepstow Place, Bayswater",address,"57 Chepstow Place, W2, London, England, UK",51.514,-0.193,street,verified
+116,Withnail and I,1987,Stony Stratford market square,address,"Stony Stratford, Milton Keynes, Buckinghamshire, England, UK",52.057,-0.854,area,verified
+117,Withnail and I,1987,London Zoo wolf enclosure,address,"Regent's Park, London, England, UK",51.5353,-0.153,exact,verified
+118,"Aguirre, the Wrath of God",1972,"Huayna Picchu stairway, Machu Picchu",address,"Machu Picchu, Cusco, Peru",-13.1547,-72.545,exact,verified
+119,"Aguirre, the Wrath of God",1972,"Huallaga & Nanay rivers, Ucayali",address,"Ucayali region, Loreto, Peru",-4.5,-73.5,region,verified
+120,The Long Good Friday,1980,"North Quay, West India Dock",address,"West India Dock, London, England, UK",51.507,-0.022,area,verified
+121,The Long Good Friday,1980,"St George in the East Church, Wapping",address,"14 Cannon Street Road, E1, London, England, UK",51.511,-0.061,exact,verified
+122,The Long Good Friday,1980,"Waterman's Arms pub, Isle of Dogs",address,"1 Glenaffric Ave, E14, London, England, UK",51.488,-0.019,exact,verified
+123,The Long Good Friday,1980,Bethnal Green Town Hall,address,"Patriot Square, E2, London, England, UK",51.53,-0.056,exact,verified

@@ -1,0 +1,119 @@
+PART: ART   (총 160개 이론, 현행 Major 116개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[8] I. Aesthetics & Philosophy of Art  ::  Theory of Mimesis (Art) / Catharsis (Art) / The Sublime (Art) / Disinterest (Aesthetic)
+[6] III. Performance Studies  ::  Social Performance Theory / Ritual Theory (Performing Arts) / Brechtian Alienation Effect (Verfremdungseffekt) / Theatre of the Oppressed
+[6] V. Literature  ::  Cultural Materialism (Literature) / Feminist Literary Criticism / Queer Literary Theory / Postcolonial Literary Theory
+[5] II. Art History  ::  Iconology (Art History) / Social History of Art / Art and Patronage Theory / Cultural History of Art
+[5] IV. Music  ::  Subcultural Theory (Music) / Political Economy of Music / Music and Power Theory / Cognitive Musicology
+[5] VI. Sports  ::  Sport and Nationalism Theory / Commodification of Sport / Sociology of the Body (Sport) / Performance Enhancement (Ethics/Sociology)
+[5] VII. Cultural Studies of Art & Media (Applied)  ::  Visual Culture Theory (Art) / Spectacle (Art/Media) / Media Ecology Theory (Art/Media) / Digital Art Theory
+[3] IX. Posthumanism  ::  Art and Anthropocene Theory / Posthuman Art Theory / Bio Art Theory
+[2] VIII. Anthropology of Art  ::  Art and Ritual (Anthropological) / Cultural Production Theory (Art)
+[2] X. Critical Race  ::  Postcolonial Art Theory / Race and Representation in Art Theory
+[2] XII. Cultural Production  ::  Cultural Industries Theory (Arts) / Cultural Policy Theory (Arts)
+[2] XIII. Art & Psychology (Applied)  ::  Art Therapy Theory / Psychology of Aesthetics
+[2] XIV. Art & Memory  ::  Art and Collective Memory Theory / Trauma and Art Theory
+[2] XV. Performance Art & Body  ::  Body Art Theory / Performance as Research
+[2] XXII. Digital Humanities (Arts Focus)  ::  Digital Art History / Digital Musicology
+[2] XXIX. Sports (Body & Health)  ::  Biomechanics of Sport Theory / Sports Psychology
+[2] XXXIV. Sports (Gender & Race)  ::  Gender and Sport Theory / Race and Sport Theory
+[1] C. Fashion (Body)  ::  Fashion and the Body Theory
+[1] II. Art History & Historiography of Art  ::  Iconography (Art History)
+[1] III. Performance Studies & Performing Arts  ::  Performativity (Performing Arts)
+[1] IV. Music & Society  ::  Music and Identity Theory
+[1] IX. Posthumanism & Environmental Arts  ::  Ecocriticism (Arts)
+[1] L. Sports (Race & Ethnicity)  ::  Racial Stacking Theory (Sport)
+[1] LI. Aesthetics (Evolutionary)  ::  Evolutionary Aesthetics (Arts)
+[1] LII. Art History (Postcolonial)  ::  Postcolonial Curating Theory
+[1] LIII. Performance Studies (Politics)  ::  Performance and Politics Theory
+[1] LIV. Music (Therapy - Advanced)  ::  Neurologic Music Therapy (NMT) Theory
+[1] LIX. Art and Human Ecology  ::  Art and Ecology Theory
+[1] LV. Sports (Media)  ::  Media and Sport Theory
+[1] LVI. Architecture (Sustainability)  ::  Sustainable Architecture Theory
+[1] LVII. Fashion (Ethical)  ::  Ethical Fashion Theory
+[1] LVIII. Art Therapy (Specifics)  ::  Psychodynamic Art Therapy Theory
+[1] LX. Music (Digital)  ::  Digital Musicology Theory
+[1] LXI. Sports (Sociology of Race)  ::  Racialized Bodies in Sport Theory
+[1] LXII. Aesthetics (Sensory)  ::  Sensory Aesthetics (Art)
+[1] LXIII. Public Art (Controversy)  ::  Public Art Controversy Theory
+[1] LXIV. Photography (Ethics)  ::  Photographic Ethics Theory
+[1] LXIX. Digital Arts (Immersive)  ::  Immersive Art Theory
+[1] LXV. Dance (Therapy)  ::  Dance/Movement Therapy Theory
+[1] LXVI. Architecture (Experience)  ::  Phenomenological Architecture Theory
+[1] LXVII. Fashion (Performance)  ::  Fashion as Performance Theory
+[1] LXVIII. Arts and Healing  ::  Arts in Healthcare Environments Theory
+[1] LXX. Music (Politics of Sound)  ::  Politics of Sound (Music) Theory
+[1] LXXI. Sports (Fan Behavior)  ::  Psychology of Sport Fans Theory
+[1] LXXII. Aesthetics (Environmental)  ::  Environmental Aesthetics Theory
+[1] LXXIII. Art History (Global)  ::  Global Art History Theory
+[1] LXXIV. Performance Studies (Everyday)  ::  Everyday Performance Theory
+[1] LXXIX. Art Therapy (Specific Populations)  ::  Trauma-Informed Art Therapy Theory
+[1] LXXV. Music (Cultural Exchange)  ::  Music and Globalization Theory
+[1] LXXVI. Sports (Ethics of Competition)  ::  Ethics of Competition Theory (Sport)
+[1] LXXVII. Architecture (Behavioral Economics)  ::  Behavioral Architecture Theory
+[1] LXXVIII. Fashion (Cultural Production)  ::  Fashion System Theory
+[1] LXXX. Digital Arts (AI & Creativity)  ::  AI Art Theory
+[1] LXXXI. Music (Therapeutic Use)  ::  Music and Healing Theory
+[1] LXXXII. Sports (Identity)  ::  Sport and Identity Theory
+[1] LXXXIII. Aesthetics (Neuroscience)  ::  Neuroaesthetics (Arts)
+[1] LXXXIV. Art History (Gender)  ::  Gender and Art History Theory
+[1] LXXXIX. Fashion (Sustainability)  ::  Circular Fashion Theory
+[1] LXXXV. Performance Studies (Ethics)  ::  Ethics of Performance Theory
+[1] LXXXVI. Music (Cultural Heritage)  ::  Music Heritage Theory
+[1] LXXXVII. Sports (Global)  ::  Global Sport Theory
+[1] LXXXVIII. Architecture (Politics)  ::  Architecture and Power Theory
+[1] V. Literature & Society (Literary Theory)  ::  New Historicism (Literature)
+[1] VI. Sports & Physical Culture  ::  Sociology of Sport
+[1] VIII. Anthropology of Art & Culture  ::  Anthropology of Art
+[1] X. Critical Race & Postcolonial Approaches to Art  ::  Decolonizing Art Theory
+[1] XC. Art Therapy (Developmental)  ::  Developmental Art Therapy Theory
+[1] XCI. Digital Arts (Generative)  ::  Generative Art Theory
+[1] XCII. Music (Therapy - Social)  ::  Community Music Therapy Theory
+[1] XCIII. Sports (Psychology of Performance)  ::  Flow Theory (Sport)
+[1] XCIV. Aesthetics (Everyday - Advanced)  ::  Micro-Aesthetics Theory
+[1] XCIX. Architecture (Human Factors)  ::  Environmental Psychology in Architecture Theory
+[1] XCV. Art History (Materiality)  ::  Materiality of Art Theory
+[1] XCVI. Performance Studies (Restoration)  ::  Restored Behavior Theory (Performance)
+[1] XCVII. Music (Cognitive Development)  ::  Musical Development Theory
+[1] XCVIII. Sports (Ethics of Fair Play)  ::  Fair Play Theory (Sport)
+[1] XI. Feminist  ::  Queer Art Theory
+[1] XI. Feminist & Queer Approaches to Art  ::  Feminist Art Criticism
+[1] XII. Cultural Production & Institutions  ::  Art Market Theory
+[1] XIX. Dance Studies  ::  Embodiment in Dance Theory
+[1] XIX. Dance Studies & Embodiment  ::  Sociology of Dance
+[1] XL. Conservation Ethics (Art)  ::  Conservation Ethics Theory (Art)
+[1] XLI. Dance (Politics)  ::  Dance and Politics Theory
+[1] XLII. Visual Culture (Advanced)  ::  Spectatorship Theory (Visual Culture)
+[1] XLIII. Music (Therapy)  ::  Music Therapy Theory
+[1] XLIV. Sports (Ethics)  ::  Sports Ethics Theory
+[1] XLIX. Music (Global)  ::  Ethnomusicology
+[1] XLV. Architecture (Behavioral)  ::  Behavioral Architecture Theory
+[1] XLVI. Fashion (Sustainability)  ::  Sustainable Fashion Theory
+[1] XLVII. Arts and Health  ::  Arts in Health Theory
+[1] XLVIII. Digital Arts (Participatory)  ::  Participatory Art Theory (Digital)
+[1] XVI. Public Art  ::  Street Art Theory
+[1] XVI. Public Art & Urban Space  ::  Public Art Theory
+[1] XVII. Photography  ::  Photographic Gaze Theory
+[1] XVII. Photography & Society  ::  Theory of Photography
+[1] XVIII. Digital Arts  ::  Algorithmic Art Theory
+[1] XVIII. Digital Arts & Interactive Media  ::  Interactive Art Theory
+[1] XX. Architecture  ::  Genius Loci (Spirit of Place)
+[1] XX. Architecture & Society  ::  Architecture as Social Space Theory
+[1] XXI. Fashion  ::  Dress & Identity Theory
+[1] XXI. Fashion & Culture  ::  Fashion Theory
+[1] XXIII. Critical Pedagogy in Arts Education  ::  Critical Arts Education Theory
+[1] XXIV. Art and Trauma  ::  Art as Witness Theory
+[1] XXV. Philosophy of Music  ::  Music and Emotion Theory
+[1] XXVI. Sociology of Music  ::  Music and Social Class Theory
+[1] XXVII. History of Performance Art  ::  Performance Art Theory
+[1] XXVIII. Art and Human Rights  ::  Art as Human Rights Advocacy Theory
+[1] XXX. Aesthetics of the Everyday  ::  Everyday Aesthetics Theory
+[1] XXXI. Art and Ecology (Deep Dive)  ::  Eco-Art Theory
+[1] XXXII. Digital Art History (Advanced)  ::  Computational Art History Theory
+[1] XXXIII. Music and Politics (Advanced)  ::  Music as Propaganda Theory
+[1] XXXIX. Museum Studies (Cultural)  ::  Museology Theory
+[1] XXXV. Art and Technology (Interaction)  ::  Human-Computer Interaction (HCI) in Art Theory
+[1] XXXVI. Architecture (Sociology)  ::  Sociology of Architecture
+[1] XXXVII. Fashion (Social Psychology)  ::  Social Psychology of Fashion Theory
+[1] XXXVIII. Public Art (Engagement)  ::  Relational Aesthetics Theory

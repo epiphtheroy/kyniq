@@ -1,0 +1,108 @@
+PART: LAW   (총 160개 이론, 현행 Major 105개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[11] II. Critical Legal Theories  ::  Critical Legal Studies (CLS) / Indeterminacy Thesis (CLS) / Legal Formalism (CLS Critique) / Critical Race Theory (CRT in Law)
+[7] I. Jurisprudence  ::  Lex Iniusta Non Est Lex (Unjust Law is No Law) / Legal Positivism / Command Theory of Law / Rule of Recognition
+[6] XII. Criminal Law Theories  ::  Retributive Justice / Deterrence Theory (Criminal Law) / Rehabilitative Justice / Restorative Justice (Legal)
+[5] V. International Law Theories  ::  International Legal Positivism / State Sovereignty (International Law) / International Legal Realism / Third World Approaches to International Law (TWAIL)
+[4] III. Law and Society Approaches  ::  Sociological Jurisprudence / Law as a Social Institution / Empirical Legal Studies / Legal Pluralism
+[4] VIII. Sociology of Law  ::  Law as Social Control Theory / Deviance and Social Control (Legal) / Legal Pluralism (Sociological) / Legal Culture Theory
+[4] X. Constitutional Interpretation Theories  ::  Originalism (Constitutional) / Textualism (Constitutional) / Living Constitutionalism / Judicial Activism vs. Restraint
+[3] IV. Constitutional Theory  ::  Judicial Review / Rights Theory (Legal) / Deliberative Democracy (Legal Theory)
+[3] VII. Law and Economics  ::  Law and Economics (General) / Coase Theorem / Public Choice Theory (Legal)
+[3] XIV. Property Law Theories  ::  Labor Theory of Property / Utilitarian Theory of Property / Tragedy of the Commons (Legal)
+[3] XXIII. Critical Legal Race Theory (Advanced)  ::  LatCrit Theory / AsianCrit Theory / TribalCrit Theory
+[2] IX. Psychology of Law  ::  Eyewitness Memory Theory (Legal) / Forensic Psychology
+[2] VI. Legal History  ::  Legal Evolutionism / Critical Legal History
+[2] XI. Administrative Law Theories  ::  Delegation Doctrine (Administrative Law) / Agency Discretion Theory (Administrative Law)
+[2] XIII. Tort Law Theories  ::  Corrective Justice (Tort Law) / Distributive Justice (Tort)
+[2] XIX. Transitional Justice Theories  ::  Transitional Justice Theory / Justice vs. Peace Debate (Transitional Justice)
+[2] XV. Contract Law Theories  ::  Will Theory of Contract / Reliance Theory of Contract
+[2] XVII. Environmental Law Theories  ::  Ecocentric Legal Theory / Sustainable Development Law
+[2] XVIII. Human Rights Law Theories  ::  Universalism vs. Relativism (Human Rights Law) / Indivisibility and Interdependence of Human Rights
+[2] XX. Law and Technology Theories  ::  Cyberlaw Theory / Regulation of Technology Theory
+[2] XXI. Law and Literature Theories  ::  Law as Narrative Theory / Legal Storytelling
+[2] XXIV. Law and Social Movements  ::  Law as a Tool for Change Theory / Law as a Site of Struggle Theory
+[2] XXV. Law and Political Economy (LPE)  ::  Law and Political Economy (LPE) / Neoliberalism and Law Theory
+[2] XXVI. Legal Anthropology  ::  Customary Law Theory / Dispute Resolution (Anthropological) Theory
+[1] C. Law and Trust  ::  Trust in Legal Systems Theory
+[1] I. Jurisprudence (Philosophy of Law)  ::  Natural Law Theory (Legal)
+[1] IV. Constitutional Theory & Public Law  ::  Constitutionalism
+[1] IX. Psychology of Law & Legal Psychology  ::  Behavioral Legal Psychology
+[1] L. Law and Disaster  ::  Disaster Law Theory
+[1] LI. Law and Poverty  ::  Poverty Law Theory
+[1] LII. Law and Social Work  ::  Therapeutic Jurisprudence (Law)
+[1] LIII. Law and Public Health  ::  Public Health Law Theory
+[1] LIV. Law and Media  ::  Media Law Theory
+[1] LIX. Law and Development  ::  Law and Development (Critical Theory)
+[1] LV. Law and Gender Identity  ::  Transgender Legal Theory
+[1] LVI. Law and Posthumanism  ::  Posthuman Law Theory
+[1] LVII. Law and Global Justice  ::  Global Constitutionalism (Legal) Theory
+[1] LVIII. Law and Urbanism  ::  Law and the City Theory
+[1] LX. Law and Emotion (Regulation)  ::  Regulation of Emotion (Legal Theory)
+[1] LXI. Law and Data  ::  Data Governance Theory (Legal)
+[1] LXII. Law and AI Ethics  ::  AI Ethics (Legal)
+[1] LXIII. Law and Complexity Theory  ::  Law as a Complex System Theory
+[1] LXIV. Legal History (Genealogy)  ::  Legal Genealogy Theory
+[1] LXIX. Law and Migration  ::  Migration Law Theory
+[1] LXV. Law and Social Capital  ::  Social Capital and Law Theory
+[1] LXVI. Law and Human Rights (Cultural Relativism)  ::  Cultural Relativism in Human Rights Law
+[1] LXVII. Law and Memory  ::  Law and Collective Memory Theory
+[1] LXVIII. Law and the Body  ::  Corporeal Jurisprudence
+[1] LXX. Law and Environmental Justice  ::  Environmental Justice Law Theory
+[1] LXXI. Law and Political Science (Behavioral)  ::  Behavioral Political Science (Legal)
+[1] LXXII. Law and Disability  ::  Disability Law Theory
+[1] LXXIII. Law and Economics (Game Theory)  ::  Game Theory in Law (Behavioral)
+[1] LXXIV. Law and Posthumanism (Rights)  ::  Rights of AI/Robots (Legal)
+[1] LXXIX. Law and Technology (Ethics)  ::  Legal Tech Ethics Theory
+[1] LXXV. Law and Climate Change  ::  Climate Change Law Theory
+[1] LXXVI. Law and Culture  ::  Law as Culture Theory
+[1] LXXVII. Law and Emotion (Procedural Justice)  ::  Emotional Justice (Legal)
+[1] LXXVIII. Law and the Neurosciences  ::  Free Will and Law (Neuroscience) Theory
+[1] LXXX. Law and Human Development (Juvenile Justice)  ::  Developmental Psychology in Juvenile Justice
+[1] LXXXI. Law and Global Health  ::  Global Health Law Theory
+[1] LXXXII. Law and the Sharing Economy  ::  Law of Sharing Economy Theory
+[1] LXXXIII. Law and Post-Truth  ::  Law and Post-Truth Theory
+[1] LXXXIV. Law and Narrative (Criminal Justice)  ::  Narrative in Criminal Justice Theory
+[1] LXXXIX. Law and Technology (Privacy)  ::  Privacy by Design (Legal Theory)
+[1] LXXXV. Law and Social Norms  ::  Social Norms and Law Theory
+[1] LXXXVI. Law and the Commons  ::  Commons Governance Theory (Legal)
+[1] LXXXVII. Law and Behavioral Ethics  ::  Behavioral Ethics in Law Theory
+[1] LXXXVIII. Law and Design  ::  Legal Design Theory
+[1] VI. Legal History & Historical Jurisprudence  ::  Historical School of Law
+[1] XC. Law and Global Supply Chains  ::  Global Supply Chain Law Theory
+[1] XCI. Law and Trauma  ::  Trauma-Informed Legal Practice Theory
+[1] XCII. Law and the Anthropocene  ::  Anthropocene Law Theory
+[1] XCIII. Law and the Sharing Economy (Regulation)  ::  Platform Regulation (Legal Theory)
+[1] XCIV. Law and Human-Animal Studies  ::  Animal Law Theory
+[1] XCIX. Law and Global Governance (Human Rights)  ::  Human Rights Governance Theory
+[1] XCV. Law and Emotions (Decision-Making)  ::  Judicial Emotion Theory
+[1] XCVI. Law and Neuroscience (Criminal Justice)  ::  Criminal Neuroscience Theory
+[1] XCVII. Law and Social Media  ::  Social Media Law Theory
+[1] XCVIII. Law and Climate Justice  ::  Climate Justice Law Theory
+[1] XL. Legal Philosophy (Post-Structuralist)  ::  Deconstruction (Legal)
+[1] XLI. Law and Social Justice  ::  Transformative Justice (Legal)
+[1] XLII. Legal History (Microhistory)  ::  Legal Microhistory
+[1] XLIII. Law and Emotion (Jurisprudence)  ::  Affective Jurisprudence
+[1] XLIV. Law and Human Development  ::  Law and Childhood Development Theory
+[1] XLIX. Legal Pluralism (Postcolonial)  ::  Pluralistic Legal Orders (Postcolonial) Theory
+[1] XLV. Law and the Environment (Rights of Nature)  ::  Rights of Nature Theory (Legal)
+[1] XLVI. Law and Genetics  ::  Genoethics (Law)
+[1] XLVII. Law and Artificial Intelligence  ::  AI and Law Theory
+[1] XLVIII. Law and Global Governance  ::  Global Administrative Law Theory
+[1] XVI. Legal History  ::  Legal Exceptionalism Theory
+[1] XVI. Legal History (Specific Approaches)  ::  Law and Society in History
+[1] XXII. Global Justice Theories (Legal)  ::  Global Distributive Justice (Legal)
+[1] XXIX. Legal Geographies  ::  Spatial Justice (Legal)
+[1] XXVII. Restorative Justice (Advanced)  ::  Transformative Justice Theory
+[1] XXVIII. Law and Emotion  ::  Law and Emotion Theory
+[1] XXX. Law and Psychology (Cognitive)  ::  Cognitive Biases in Law Theory
+[1] XXXI. Law and Sociology (Social Construction)  ::  Social Construction of Law Theory
+[1] XXXII. Legal Storytelling (Advanced)  ::  Counter-Narratives (Legal)
+[1] XXXIII. Law and Economics (Behavioral Insights)  ::  Nudge Theory (Legal)
+[1] XXXIV. Critical Disability Legal Studies  ::  Anti-Ableism in Law Theory
+[1] XXXIX. Legal Geographies (Advanced)  ::  Law and Space Theory
+[1] XXXV. Law and Technology (Algorithms)  ::  Algorithmic Governance (Legal)
+[1] XXXVI. Legal Consciousness  ::  Legal Consciousness Theory
+[1] XXXVII. Law and Literature (Narrative)  ::  Forensic Narrative Theory (Law and Literature)
+[1] XXXVIII. Law and Neuroscience  ::  NeuroLaw Theory

@@ -1,0 +1,25 @@
+list_slug,year,edition_label,slug,rank_max,source,external_ref
+sight-and-sound-critics,1952,1952 Critics' Poll,sight-and-sound-critics-1952,10,bfi,{}
+sight-and-sound-critics,1962,1962 Critics' Poll,sight-and-sound-critics-1962,10,bfi,{}
+sight-and-sound-critics,1972,1972 Critics' Poll,sight-and-sound-critics-1972,10,bfi,{}
+sight-and-sound-critics,1982,1982 Critics' Poll,sight-and-sound-critics-1982,10,bfi,{}
+sight-and-sound-critics,1992,1992 Critics' Poll,sight-and-sound-critics-1992,10,bfi,{}
+sight-and-sound-critics,2002,2002 Critics' Poll,sight-and-sound-critics-2002,10,bfi,{}
+sight-and-sound-critics,2012,2012 Critics' Poll,sight-and-sound-critics-2012,250,bfi,"{""wikidata"":""Q4835528""}"
+sight-and-sound-critics,2022,2022 Critics' Poll,sight-and-sound-critics-2022,100,bfi,"{""wikidata"":""Q115577992""}"
+sight-and-sound-directors,1992,1992 Directors' Poll,sight-and-sound-directors-1992,10,bfi,{}
+sight-and-sound-directors,2002,2002 Directors' Poll,sight-and-sound-directors-2002,10,bfi,{}
+sight-and-sound-directors,2012,2012 Directors' Poll,sight-and-sound-directors-2012,100,bfi,{}
+sight-and-sound-directors,2022,2022 Directors' Poll,sight-and-sound-directors-2022,100,bfi,{}
+tspdt-1000,2026,21st Edition (2026),tspdt-1000-2026,1000,tspdt,{}
+afi-100,1998,Original List (1998),afi-100-1998,100,afi,{}
+afi-100,2007,10th Anniversary Edition (2007),afi-100-2007,100,afi,{}
+bbc-21st-century,2016,2016 Critics' Poll,bbc-21st-century-2016,100,bbc,{}
+bbc-foreign-language,2018,2018 Critics' Poll,bbc-foreign-language-2018,100,bbc,{}
+bbc-greatest-films-by-women,2019,2019 Critics' Poll,bbc-greatest-films-by-women-2019,100,bbc,{}
+guardian-21st-century,2019,2019 Edition,guardian-21st-century-2019,100,guardian,{}
+nyt-best-21st-century,2017,25 Best Films of the 21st Century So Far,nyt-best-21st-century-2017,25,nyt,{}
+nyt-best-21st-century,2025,100 Best Movies of the 21st Century,nyt-best-21st-century-2025,100,nyt,{}
+time-all-time-100,2005,2005 Edition,time-all-time-100-2005,100,time,"{""wikidata"":""Q3738538""}"
+cahiers-100-plus-beaux,2008,2008 Edition,cahiers-100-plus-beaux-2008,100,cahiers,{}
+wga-101-screenplays,2006,2006 Edition,wga-101-screenplays-2006,101,wga,{}

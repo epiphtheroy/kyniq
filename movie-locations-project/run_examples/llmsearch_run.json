@@ -1,0 +1,113 @@
+{
+  "method": "LLM + web search, citation-grounded, multi-source verified",
+  "generated_at": "2026-06-28",
+  "run_note": "Actual prototype run executed via live web search. Generator+verifier = LLM; search = web. Precision-first: only multi-source items shipped as 'verified'; set-traps flagged.",
+  "grading_rule": {
+    "verified": "Supported by >=2 independent domains; filming (not just setting) confirmed.",
+    "single_source": "Only 1 independent source found -> quarantined, not shipped.",
+    "built_set_flag": "Place is a constructed set / CGI, NOT a real visitable location.",
+    "fields": "narrative_setting (in-film place) is kept separate from real filming location."
+  },
+  "movies": [
+    {
+      "title": "Parasite", "year": 2019,
+      "narrative_setting": "Seoul, South Korea",
+      "filming_summary": "Real Seoul street locations + key houses built as sets near Jeonju.",
+      "locations": [
+        {"real_name": "Sky Pizza (Scoul Pizza)", "narrative_setting": "Kim family's pizza-box job", "built_set": false,
+         "scene_role": "Pizzeria whose boxes the father folds", "address": "86 Noryangjin-ro 6-gil, Dongjak-gu, Seoul",
+         "filming_area": "Dongjak-gu, Seoul", "country": "South Korea", "granularity": "address",
+         "sources": ["cnn.com", "english.visitkorea.or.kr", "creatrip.com"], "source_count": 3, "confidence": "verified"},
+        {"real_name": "Doijissal (Pig Rice) Supermarket", "narrative_setting": "Woori Supermarket", "built_set": false,
+         "scene_role": "Store where the son hears of the tutoring job", "address": "32 Songijeong-ro, Mapo-gu, Seoul",
+         "filming_area": "Mapo-gu, Seoul", "country": "South Korea", "granularity": "address",
+         "sources": ["cnn.com", "creatrip.com", "klook.com"], "source_count": 3, "confidence": "verified"},
+        {"real_name": "Stairs and alleys of Ahyeon-dong / Changsin-dong", "narrative_setting": "Kim family's low-lying neighbourhood", "built_set": false,
+         "scene_role": "Steep stairways representing the family's downhill descent", "address": "",
+         "filming_area": "Seoul", "country": "South Korea", "granularity": "area",
+         "sources": ["english.visitkorea.or.kr", "cnn.com", "klook.com"], "source_count": 3, "confidence": "verified"},
+        {"real_name": "Park family mansion (CONSTRUCTED SET)", "narrative_setting": "wealthy Seoul home", "built_set": true,
+         "scene_role": "The Park house - a purpose-built set, NOT a real residence", "address": "near Jeonju Film Studio Complex, Jeonju",
+         "filming_area": "Jeonju, Jeollabuk-do", "country": "South Korea", "granularity": "set",
+         "sources": ["screenrant.com", "dezeen.com", "filmoblivion.com"], "source_count": 3, "confidence": "verified_set_not_real"}
+      ]
+    },
+    {
+      "title": "La La Land", "year": 2016,
+      "narrative_setting": "Los Angeles, USA",
+      "filming_summary": "Real LA-area locations, mostly visitable.",
+      "locations": [
+        {"real_name": "Colorado Street Bridge", "narrative_setting": "Los Angeles", "built_set": false,
+         "scene_role": "1913 bridge backdrop", "address": "532 W Colorado Blvd, Pasadena, CA",
+         "filming_area": "Pasadena", "country": "USA", "granularity": "address",
+         "sources": ["socalpulse.com", "thecinemaholic.com", "imdb.com"], "source_count": 3, "confidence": "verified"},
+        {"real_name": "Griffith Observatory", "narrative_setting": "Los Angeles", "built_set": false,
+         "scene_role": "Planetarium 'floating' dance", "address": "2800 E Observatory Rd, Los Angeles, CA",
+         "filming_area": "Griffith Park, Los Angeles", "country": "USA", "granularity": "address",
+         "sources": ["socalpulse.com", "thecinemaholic.com", "livelybylaura.com"], "source_count": 3, "confidence": "verified"},
+        {"real_name": "Angels Flight Railway", "narrative_setting": "Los Angeles", "built_set": false,
+         "scene_role": "Funicular the couple ride", "address": "351 S Hill St, Los Angeles, CA",
+         "filming_area": "Downtown Los Angeles", "country": "USA", "granularity": "address",
+         "sources": ["socalpulse.com", "thecinemaholic.com"], "source_count": 2, "confidence": "verified"},
+        {"real_name": "Lighthouse Cafe", "narrative_setting": "Los Angeles jazz club", "built_set": false,
+         "scene_role": "Jazz club the pianist plays", "address": "30 Pier Ave, Hermosa Beach, CA",
+         "filming_area": "Hermosa Beach", "country": "USA", "granularity": "address",
+         "sources": ["socalpulse.com", "livelybylaura.com"], "source_count": 2, "confidence": "verified"},
+        {"real_name": "Rialto Theatre", "narrative_setting": "Los Angeles cinema", "built_set": false,
+         "scene_role": "Cinema of the Rebel Without a Cause date", "address": "1023 Fair Oaks Ave, South Pasadena, CA",
+         "filming_area": "South Pasadena", "country": "USA", "granularity": "address",
+         "sources": ["socalpulse.com", "thecinemaholic.com"], "source_count": 2, "confidence": "verified"},
+        {"real_name": "105/110 Freeway interchange", "narrative_setting": "Los Angeles", "built_set": false,
+         "scene_role": "'Another Day of Sun' opening number", "address": "I-105 / I-110 interchange",
+         "filming_area": "South Los Angeles", "country": "USA", "granularity": "area",
+         "sources": ["socalpulse.com", "thecinemaholic.com", "imdb.com"], "source_count": 3, "confidence": "verified"}
+      ]
+    },
+    {
+      "title": "Mad Max: Fury Road", "year": 2015,
+      "narrative_setting": "fictional post-apocalyptic wasteland",
+      "filming_summary": "Main unit in the Namib Desert, Namibia (relocated from Australia). Region-level locations.",
+      "locations": [
+        {"real_name": "Namib Desert near Swakopmund", "narrative_setting": "the Wasteland", "built_set": false,
+         "scene_role": "Primary desert filming base", "address": "",
+         "filming_area": "Swakopmund / Dorob National Park", "country": "Namibia", "granularity": "region",
+         "sources": ["npr.org", "nomadicnotes.com", "imdb.com", "giggster.com"], "source_count": 4, "confidence": "verified"},
+        {"real_name": "Salt plains near Walvis Bay", "narrative_setting": "the Wasteland", "built_set": false,
+         "scene_role": "Where the War Rig breaks down", "address": "",
+         "filming_area": "Walvis Bay", "country": "Namibia", "granularity": "area",
+         "sources": ["nomadicnotes.com", "orbitzfeatures.waveinteractive.com"], "source_count": 2, "confidence": "verified"},
+        {"real_name": "Dorob National Park", "narrative_setting": "the Wasteland", "built_set": false,
+         "scene_role": "Relocated main filming area", "address": "",
+         "filming_area": "Erongo Region", "country": "Namibia", "granularity": "region",
+         "sources": ["nomadicnotes.com", "npr.org"], "source_count": 2, "confidence": "verified"},
+        {"real_name": "Rossing Mountains", "narrative_setting": "the Wasteland (opening capture)", "built_set": false,
+         "scene_role": "Opening scene where Max is captured", "address": "",
+         "filming_area": "near Swakopmund", "country": "Namibia", "granularity": "area",
+         "sources": ["nomadicnotes.com"], "source_count": 1, "confidence": "single_source"}
+      ]
+    },
+    {
+      "title": "Skyfall", "year": 2012,
+      "narrative_setting": "London / Scotland / Istanbul / Shanghai / Macau",
+      "filming_summary": "Real London & Istanbul & Glencoe locations; the 'Scottish' lodge was a Surrey set.",
+      "locations": [
+        {"real_name": "Glencoe (A82, Buachaille Etive Mor)", "narrative_setting": "Scottish Highlands", "built_set": false,
+         "scene_role": "Bond and M drive into the Highlands", "address": "A82, Glencoe",
+         "filming_area": "Glencoe, Highlands", "country": "Scotland, UK", "granularity": "area",
+         "sources": ["thejamesbonddossier.com", "huntingbond.com", "imdb.com", "en.wikipedia.org"], "source_count": 4, "confidence": "verified"},
+        {"real_name": "Skyfall Lodge (CONSTRUCTED SET)", "narrative_setting": "Bond's Scottish ancestral home", "built_set": true,
+         "scene_role": "The lodge - a plywood/plaster set built then blown up; NOT a real Scottish house", "address": "Hankley Common, near Elstead, Surrey",
+         "filming_area": "Surrey", "country": "England, UK", "granularity": "set",
+         "sources": ["007.info", "visitsurrey.com", "thejamesbonddossier.com", "getsurrey.co.uk"], "source_count": 4, "confidence": "verified_set_not_real"},
+        {"real_name": "Grand Bazaar & Eminonu Square", "narrative_setting": "Istanbul", "built_set": false,
+         "scene_role": "Opening rooftop & market chase", "address": "Eminonu, Fatih, Istanbul",
+         "filming_area": "Istanbul", "country": "Turkey", "granularity": "area",
+         "sources": ["huntingbond.com", "media.hopper.com", "imdb.com"], "source_count": 3, "confidence": "verified"},
+        {"real_name": "Old Vic Tunnels (Waterloo)", "narrative_setting": "MI6 underground facility", "built_set": false,
+         "scene_role": "Disused railway vaults used as MI6 tunnels", "address": "beneath Waterloo Station, South Bank, London",
+         "filming_area": "London", "country": "England, UK", "granularity": "venue",
+         "sources": ["movie-locations.com", "tokyofox.net"], "source_count": 2, "confidence": "verified"}
+      ]
+    }
+  ]
+}

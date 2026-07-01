@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 커맨드센터 (운영시스템 시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+    --red:#E3120B; --reddim:#7a1410;
+    /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
+    --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --rail:212px; --insp:344px; --feed:286px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  a{color:inherit;text-decoration:none}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#34343a}::-webkit-scrollbar-track{background:transparent}
+
+  /* ───────── APP BAR ───────── */
+  .appbar{height:46px;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid var(--line2);background:var(--bg2);position:relative;z-index:30}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:11px;letter-spacing:.13em;padding:3px 7px;border-radius:2px}
+  .crumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .crumb b{color:var(--ink);font-weight:600;font-family:var(--ser);font-size:14px}
+  .crumb i.ti{font-size:13px;color:var(--faint)}
+  .cmdk{margin-left:8px;flex:0 1 320px;display:flex;align-items:center;gap:8px;background:var(--pnl);border:1px solid var(--line2);
+    border-radius:6px;padding:5px 9px;color:var(--sub);font-size:12px;cursor:text}
+  .cmdk:hover{border-color:var(--line3)}
+  .cmdk .kbd{margin-left:auto;font-family:var(--mono);font-size:10px;background:var(--pnl3);border:1px solid var(--line2);border-radius:3px;padding:1px 5px;color:var(--mut)}
+  .abright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .navchip{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:6px;padding:4px 11px}
+  .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
+  .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
+  .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+  .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+  .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+
+  /* ───────── LIVE TICKER ───────── */
+  .ticker{height:27px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg2);position:relative;z-index:20}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:9px;letter-spacing:.14em;padding:0 9px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .vp{overflow:hidden;flex:1}
+  .ticker .run{display:inline-flex;gap:30px;padding-left:22px;white-space:nowrap;animation:tick 46s linear infinite;font-size:11.5px;color:var(--mut)}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:7px;font-size:9px;vertical-align:1px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───────── SHELL ───────── */
+  .shell{display:flex;height:calc(100vh - 73px);overflow:hidden}
+  .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
+  .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
+
+  /* collapse handle */
+  .chv{cursor:pointer;color:var(--sub);font-size:15px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px}
+  .chv:hover{color:var(--ink);background:var(--pnl2)}
+
+  /* ── COL 1: NAV RAIL ── */
+  .rail{width:var(--rail);background:var(--bg2);border-right:1px solid var(--line2)}
+  .rail.collapsed{width:54px}
+  .railhd{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-bottom:1px solid var(--line);color:var(--sub)}
+  .railhd .eb{flex:1}
+  .rail.collapsed .railhd .eb{display:none}
+  .navsec{padding:8px 8px 4px}
+  .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
+  .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
+  .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
+  .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+  .nv:hover{background:var(--pnl2);color:var(--ink)}
+  .nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .nv i.lead{font-size:17px;width:20px;text-align:center;flex:0 0 auto}
+  .nv .tx{font-size:12.5px;flex:1;white-space:nowrap;overflow:hidden}
+  .nv .ct{font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rail.collapsed .nv .tx,.rail.collapsed .nv .ct{display:none}
+  .rail.collapsed .nv{justify-content:center;padding:8px 0}
+  .railft{margin-top:auto;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--faint)}
+  .rail.collapsed .railft{display:none}
+
+  /* ── COL 2: MAIN ── */
+  .main{flex:1 1 auto;background:var(--bg);min-width:0}
+  .mainpad{padding:14px 16px 40px}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;background:linear-gradient(180deg,var(--pnl),var(--bg2));
+    border:1px solid var(--line2);border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+  .navbig{display:flex;align-items:center;gap:16px}
+  .ring{position:relative;flex:0 0 auto}
+  .navnum{font-family:var(--mono);font-size:34px;font-weight:600;line-height:1}
+  .navmeta .lvl{font-size:12px;color:var(--canon);font-weight:600;letter-spacing:.04em;margin-top:5px}
+  .navmeta .pctl{font-size:11px;color:var(--mut);margin-top:3px}
+  .navmeta .pctl b{color:var(--safe);font-family:var(--mono)}
+  .components{display:flex;flex-direction:column;gap:7px;justify-content:center;border-left:1px solid var(--line);padding-left:18px}
+  .comp{display:grid;grid-template-columns:74px 1fr 38px;align-items:center;gap:10px}
+  .comp .cl{font-size:11px;color:var(--mut)}
+  .comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+  .comp .ct>i{display:block;height:100%;border-radius:4px}
+  .comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .explain{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);margin-top:12px;padding-top:9px;display:flex;gap:8px;align-items:center}
+  .explain .ti{color:var(--canon)}
+
+  /* kpi */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:13px}
+  .kpi{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:default}
+  .kpi:hover{border-color:var(--line2)}
+  .kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
+  .kpi .v small{font-size:13px;color:var(--sub)}
+  .kpi .d{font-size:10.5px;margin-top:3px}
+  .up{color:var(--safe)} .dn{color:var(--red)} .flat{color:var(--mut)}
+
+  /* module panel */
+  .mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+  .modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+  .modh h3 .ti{color:var(--mut)}
+  .modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+  .modh .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden;margin-left:auto}
+  .modh .seg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);font-family:var(--ui);
+    font-size:10.5px;padding:3px 9px;cursor:pointer}
+  .modh .seg button:last-child{border-right:0}.modh .seg button.on{background:var(--ink);color:#0A0A0B}
+  .modbody{padding:11px 13px}
+
+  /* coverage matrix */
+  .grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:10px 0 5px;display:flex;justify-content:space-between;align-items:center}
+  .grp:first-child{margin-top:0}
+  .lrow{display:grid;grid-template-columns:1fr 120px 78px 26px;align-items:center;gap:11px;padding:6px 7px;border-radius:5px;cursor:pointer;border:1px solid transparent}
+  .lrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .lrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .lname{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lname small{font-family:var(--ui);color:var(--sub);font-size:10.5px;margin-left:6px}
+  .barwrap{display:flex;align-items:center;gap:8px}
+  .track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+  .track>i{display:block;height:100%;border-radius:4px}
+  .pct{font-family:var(--mono);font-size:12px;width:34px;text-align:right}
+  .cov-lo>i{background:var(--red)} .cov-mid>i{background:var(--canon)} .cov-hi>i{background:var(--safe)}
+  .cov-lo .pct{color:#e98a86} .cov-mid .pct{color:#e0bb6e} .cov-hi .pct{color:#5fd0b2}
+  .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+  .tier{font-family:var(--mono);font-size:9px;padding:1px 5px;border:1px solid var(--line2);border-radius:3px;color:var(--mut);text-align:center}
+  .t1{color:#F2C9C7;border-color:#7a1410;background:#2a0c0a}
+
+  /* recommendation desk */
+  .rrow{display:grid;grid-template-columns:22px 1fr 132px 64px;gap:12px;align-items:center;padding:10px 8px;border-radius:6px;cursor:pointer;border:1px solid transparent}
+  .rrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .rrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .rk{font-family:var(--mono);color:var(--sub);font-size:13px;text-align:center}
+  .rt{font-family:var(--ser);font-size:15px}
+  .rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+  .rsub{font-size:11px;color:var(--mut);margin-top:2px}
+  .reasons{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+  .rsn{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:3px;display:flex;align-items:center;gap:4px;border:1px solid}
+  .rsn::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+  .rsn.safe{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .rsn.frontier{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .rsn.canon{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+  .rsn.gap{color:#edc873;border-color:#5e4d1d;background:#211a08}
+  .rsn.conquer{color:#f2a39f;border-color:#7a1410;background:#260a08}
+  .rsn.reading{color:#bda1f0;border-color:#4a3f86;background:#171430}
+  .wwi{text-align:right}
+  .wwi .pv{font-family:var(--mono);font-size:22px;line-height:1}
+  .wwi .pl{font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+  .dlt{font-family:var(--mono);font-size:13px;color:var(--safe);text-align:right}
+  .dlt small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.08em}
+
+  /* constellation */
+  svg text{font-family:var(--ui)}
+  .legend{display:flex;gap:13px;font-size:10px;color:var(--mut);margin-top:4px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+
+  /* ── COL 3: INSPECTOR ── */
+  .inspector{width:var(--insp);background:var(--bg2);border-left:1px solid var(--line2)}
+  .inspector.collapsed{width:40px}
+  .insphd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);background:var(--bg2);position:sticky;top:0;z-index:5}
+  .insphd .ti-tit{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden}
+  .inspector.collapsed .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .inspector.collapsed .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:140px;flex:0 0 auto}
+  .inspector.collapsed .inspbody{display:none}
+  .inspbody{padding:12px 12px 30px}
+  .icard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:11px;margin-bottom:11px}
+  .icard h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:6px}
+  .selhead{display:flex;gap:11px;margin-bottom:11px}
+  .poster{width:50px;height:72px;border-radius:3px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line)}
+  .seltitle{font-family:var(--ser);font-size:17px;line-height:1.15}
+  .selsub{font-size:11px;color:var(--mut);margin-top:3px}
+  .selflag{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap}
+  .bigscore{display:flex;align-items:baseline;gap:8px;margin:4px 0 10px}
+  .bigscore .n{font-family:var(--mono);font-size:30px;font-weight:600}
+  .bigscore .u{font-size:10px;color:var(--sub);letter-spacing:.1em}
+  .crow{display:grid;grid-template-columns:62px 1fr 34px;align-items:center;gap:9px;margin:6px 0}
+  .crow .cl{font-size:11px;color:var(--mut)}
+  .crow .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.crow .ct>i{display:block;height:100%;border-radius:4px}
+  .crow .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-family:var(--mono);color:var(--ink)}
+  .badge-val{font-size:10px;font-weight:600;padding:2px 7px;border-radius:3px;display:inline-block}
+  .bv-find{background:#0e221c;color:#5fd0b2;border:1px solid #1d4d40}
+  .bv-fit{background:var(--pnl2);color:var(--mut);border:1px solid var(--line2)}
+  .bv-over{background:#260a08;color:#f2a39f;border:1px solid #7a1410}
+  .availrow{display:flex;align-items:center;gap:7px;font-size:11.5px;margin:5px 0}
+  .availrow .dot{width:7px;height:7px;border-radius:50%}
+  .actbar{display:flex;gap:7px;margin-top:11px}
+  .actbtn{flex:1;text-align:center;padding:7px;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid var(--line2)}
+  .actbtn.pri{background:var(--red);color:#fff;border-color:var(--red)}
+  .actbtn.gho{background:transparent;color:var(--ink)}
+  .backlink{font-size:11px;color:var(--frontier);cursor:pointer;display:flex;align-items:center;gap:5px;margin-bottom:10px}
+  .backlink:hover{text-decoration:underline}
+  .anchorchip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block;margin:3px 3px 0 0}
+  .mini-scatter,.mini-bars{margin-top:4px}
+  .mvrow{display:grid;grid-template-columns:110px 1fr 26px;gap:8px;align-items:center;padding:3px 0;font-size:11.5px}
+  .mvrow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mvrow .nm.bl{color:#e98a86}
+
+  /* ── COL 4: ACTIVITY ── */
+  .activity{width:var(--feed);background:var(--bg2);border-left:1px solid var(--line2)}
+  .activity.collapsed{width:40px}
+  .acthd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:5}
+  .acthd .t{font-size:11.5px;font-weight:600;letter-spacing:.04em;flex:1}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--safe);box-shadow:0 0 0 0 rgba(31,178,134,.6);animation:pl 2s infinite}
+  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(31,178,134,.5)}70%{box-shadow:0 0 0 6px rgba(31,178,134,0)}100%{box-shadow:0 0 0 0 rgba(31,178,134,0)}}
+  .activity.collapsed .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .activity.collapsed .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:110px;flex:0 0 auto}
+  .activity.collapsed .actbody{display:none}
+  .actbody{padding:10px 11px 30px}
+  .feeditem{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .feeditem .fi{flex:0 0 auto;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--pnl2)}
+  .feeditem .fb{flex:1;min-width:0}
+  .feeditem .fb .ft{font-size:11.5px;line-height:1.35}.feeditem .fb .ft b{color:var(--ink)}
+  .feeditem .fb .fm{font-size:9.5px;color:var(--faint);font-family:var(--mono);margin-top:2px}
+  .acard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px;margin:11px 0}
+  .acard h4{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+  .milestone{margin:7px 0}
+  .milestone .ml{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
+  .milestone .ml b{font-family:var(--ser)}
+  .milestone .mt{height:5px;background:#24242a;border-radius:3px;overflow:hidden}.milestone .mt>i{display:block;height:100%}
+  .stat{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+  .stat b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .demobar{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);margin-top:6px}
+  .sw{width:34px;height:18px;border-radius:10px;background:#2a2a2f;position:relative;cursor:pointer;transition:.15s;flex:0 0 auto}
+  .sw::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .sw.on{background:#0e4a3a}.sw.on::after{left:18px;background:var(--safe)}
+
+  /* command palette */
+  .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-start;justify-content:center;z-index:60;padding-top:13vh}
+  .palette.show{display:flex}
+  .palbox{width:540px;max-width:92vw;background:#161618;border:1px solid var(--line3);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .palin{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .palin input{flex:1;background:transparent;border:none;color:var(--ink);font-size:15px;font-family:var(--ui)}
+  .palin input:focus{outline:none}
+  .pallist{max-height:340px;overflow:auto;padding:7px}
+  .pi{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:6px;cursor:pointer;color:var(--mut)}
+  .pi:hover,.pi.on{background:var(--pnl2);color:var(--ink)}
+  .pi i.lead{font-size:16px;width:20px;text-align:center}
+  .pi .pk{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+
+  @media(max-width:1280px){ .inspector{width:40px} .inspector .inspbody{display:none}
+    .inspector .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+    .inspector .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);height:140px;flex:0 0 auto} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ APP BAR ═══════════ -->
+<div class="appbar">
+  <span class="logo">META TAKE</span>
+  <div class="crumb"><b>커맨드센터</b><i class="ti ti-chevron-right"></i><span>내 자산 · 현황</span><i class="ti ti-lock" style="font-size:11px"></i></div>
+  <div class="cmdk" onclick="openPalette()">
+    <i class="ti ti-search" style="font-size:14px"></i><span>영화 · 계보 · 감독 검색</span><span class="kbd">⌘K</span>
+  </div>
+  <div class="abright">
+    <div class="navchip"><div><div class="eb">NAV</div></div><span class="n" id="navchip">1,284</span>
+      <div><div class="l">ESTABLISHED</div><div class="up">▲ +38 · 30일</div></div></div>
+    <div class="iconbtn" title="새로고침"><i class="ti ti-refresh"></i></div>
+    <div class="iconbtn" title="공개 프로필 ↗" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-external-link"></i></div>
+    <div class="ava">W</div>
+  </div>
+</div>
+
+<!-- ═══════════ LIVE TICKER ═══════════ -->
+<div class="ticker">
+  <span class="tag">LIVE</span>
+  <div class="vp"><div class="run">
+    <span><i class="ti ti-point-filled dot"></i>NFR 2025 신규 등재 <b>+25편</b> · 당신 미관람 <b>22</b></span>
+    <span><i class="ti ti-point-filled dot"></i>Touki Bouki · Discovery <b>94</b> ▲ 추천 1위</span>
+    <span><i class="ti ti-point-filled dot"></i>블라인드 경보 · 라틴 정전 <b>0%</b> (3개 라인)</span>
+    <span><i class="ti ti-point-filled dot"></i>S&amp;S 2022 비평가 100 · <b>41%</b> — 50% 완파까지 9편</span>
+    <span><i class="ti ti-point-filled dot"></i>당신 인덱스 <b>+6</b> (지난 7일)</span>
+    <span><i class="ti ti-point-filled dot"></i>정전가 모델 <b>v2</b> 적용 · Vertigo 40→84 재평가</span>
+    <span><i class="ti ti-point-filled dot"></i>NFR 2025 신규 등재 <b>+25편</b> · 당신 미관람 <b>22</b></span>
+    <span><i class="ti ti-point-filled dot"></i>Touki Bouki · Discovery <b>94</b> ▲ 추천 1위</span>
+    <span><i class="ti ti-point-filled dot"></i>블라인드 경보 · 라틴 정전 <b>0%</b> (3개 라인)</span>
+    <span><i class="ti ti-point-filled dot"></i>S&amp;S 2022 비평가 100 · <b>41%</b> — 50% 완파까지 9편</span>
+    <span><i class="ti ti-point-filled dot"></i>당신 인덱스 <b>+6</b> (지난 7일)</span>
+    <span><i class="ti ti-point-filled dot"></i>정전가 모델 <b>v2</b> 적용 · Vertigo 40→84 재평가</span>
+  </div></div>
+</div>
+
+<!-- ═══════════ SHELL ═══════════ -->
+<div class="shell">
+
+  <!-- ── COL 1 · NAV RAIL ── -->
+  <aside class="col rail" id="rail">
+    <div class="col-scroll" style="display:flex;flex-direction:column">
+      <div class="railhd"><span class="eb">운영 메뉴</span><span class="chv" onclick="toggle('rail')"><i class="ti ti-layout-sidebar-left-collapse"></i></span></div>
+      <div class="navsec">
+        <div class="navlbl">자산 운영</div>
+        <div class="nv on"><i class="ti ti-dashboard lead"></i><span class="tx">현황 (커맨드센터)</span></div>
+        <div class="nv" onclick="location.href='mockup-me-collection-list-v2.html'"><i class="ti ti-list-details lead"></i><span class="tx">보유 영화</span><span class="ct">142</span></div>
+        <div class="nv" onclick="location.href='mockup-me-watchlist.html'"><i class="ti ti-target-arrow lead"></i><span class="tx">볼 영화 · 추천</span><span class="ct">28</span></div>
+        <div class="nv" onclick="location.href='mockup-me-asset-desk.html'"><i class="ti ti-briefcase lead"></i><span class="tx">운용 데스크</span></div>
+        <div class="nv" onclick="location.href='mockup-me-analysis-v2.html'"><i class="ti ti-chart-arcs lead"></i><span class="tx">자산 분석</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">기록 · 교류</div>
+        <div class="nv" onclick="location.href='mockup-me-onboard-rate-v2.html'"><i class="ti ti-star lead"></i><span class="tx">기록 · 평가</span></div>
+        <div class="nv" onclick="location.href='mockup-me-library.html'"><i class="ti ti-books lead"></i><span class="tx">서재</span></div>
+        <div class="nv" onclick="location.href='mockup-me-write.html'"><i class="ti ti-feather lead"></i><span class="tx">노트 · 글쓰기</span></div>
+        <div class="nv" onclick="location.href='mockup-me-pair.html'"><i class="ti ti-users lead"></i><span class="tx">동행</span><span class="ct">1</span></div>
+        <div class="nv" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-id-badge lead"></i><span class="tx">공개 프로필</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">이 화면</div>
+        <div class="nv" onclick="jump('m-cov')"><i class="ti ti-layout-grid lead"></i><span class="tx">커버리지 매트릭스</span></div>
+        <div class="nv" onclick="jump('m-rec')"><i class="ti ti-bolt lead"></i><span class="tx">추천 데스크</span></div>
+        <div class="nv" onclick="jump('m-con')"><i class="ti ti-affiliate lead"></i><span class="tx">별자리</span></div>
+      </div>
+      <div class="railft">계보 115 라인 · 10,238 멤버십<br>160 감독 · 모델 v2</div>
+    </div>
+  </aside>
+
+  <!-- ── COL 2 · MAIN ── -->
+  <main class="col main">
+    <div class="col-scroll"><div class="mainpad">
+
+      <!-- HERO: NAV + components -->
+      <div class="hero" id="hero">
+        <div class="navbig">
+          <div class="ring">
+            <svg width="92" height="92" viewBox="0 0 92 92">
+              <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="46" cy="46" r="38" fill="none" stroke="var(--red)" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="239" stroke-dashoffset="86" transform="rotate(-90 46 46)"/>
+              <text x="46" y="44" text-anchor="middle" font-size="19" fill="#ECEAE5" font-family="ui-monospace,monospace" font-weight="600">1,284</text>
+              <text x="46" y="58" text-anchor="middle" font-size="8.5" fill="#6C6960" letter-spacing="1.5">NAV</text>
+            </svg>
+          </div>
+          <div class="navmeta">
+            <div class="eb">영화적 자산 · Net Asset Value</div>
+            <div class="lvl">● LV. ESTABLISHED</div>
+            <div class="pctl">상위 <b>14%</b> · 30일 <b>▲ +38</b> · 코퍼스 백분위</div>
+          </div>
+        </div>
+        <div class="components">
+          <div class="comp"><span class="cl">breadth 폭</span><div class="ct"><i style="width:74%;background:var(--frontier)"></i></div><span class="cv">0.74</span></div>
+          <div class="comp"><span class="cl">prestige 권위</span><div class="ct"><i style="width:81%;background:var(--canon)"></i></div><span class="cv">0.81</span></div>
+          <div class="comp"><span class="cl">depth 깊이</span><div class="ct"><i style="width:46%;background:var(--safe)"></i></div><span class="cv">0.46</span></div>
+          <div class="comp"><span class="cl">disc 발굴</span><div class="ct"><i style="width:31%;background:var(--reading)"></i></div><span class="cv">0.31</span></div>
+        </div>
+        <div class="explain"><i class="ti ti-info-circle"></i> NAV = 100·(0.35·breadth + 0.35·prestige + 0.20·depth + 0.10·disc) / C — <b style="color:var(--mut)">관람은 절대 NAV를 깎지 않는다</b>(저평점은 P&amp;L regret에만). 단조 보장.</div>
+      </div>
+
+      <!-- KPI STRIP -->
+      <div class="kpis">
+        <div class="kpi"><div class="eb">보유 영화</div><div class="v">142</div><div class="d up">▲ 6 · 7일</div></div>
+        <div class="kpi"><div class="eb">진입 계보</div><div class="v">52<small>/115</small></div><div class="d flat">45% 라인</div></div>
+        <div class="kpi"><div class="eb">가중 커버리지</div><div class="v">23.4<small>%</small></div><div class="d up">▲ 1.1</div></div>
+        <div class="kpi"><div class="eb">Discovery 지수</div><div class="v">31</div><div class="d dn">정전 추종형</div></div>
+        <div class="kpi"><div class="eb">블라인드 계보</div><div class="v">63</div><div class="d dn">첫 진입 6</div></div>
+      </div>
+
+      <!-- COVERAGE MATRIX -->
+      <div class="mod" id="m-cov">
+        <div class="modh"><h3><i class="ti ti-layout-grid"></i> 계보 커버리지 매트릭스</h3>
+          <div class="seg"><button class="on">등급순</button><button>관람순</button><button>facet</button></div></div>
+        <div class="modbody">
+          <div class="grp"><span>정전 · 베스트 리스트 (CANON)</span><span style="display:flex;gap:60px"><span>aw</span><span>TIER</span></span></div>
+          <div class="lrow" data-id="ss22" onclick="sel('ss22',this)"><div class="lname">Sight &amp; Sound 2022 <small>비평가 100</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:41%"></i></div><span class="pct">41%</span></div>
+            <span class="frac">41/100</span><span class="tier t1">T1</span></div>
+          <div class="lrow" data-id="tspdt" onclick="sel('tspdt',this)"><div class="lname">TSPDT 1000 <small>역대 위대한 영화</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:19%"></i></div><span class="pct">19%</span></div>
+            <span class="frac">188/994</span><span class="tier t1">T1</span></div>
+          <div class="lrow" data-id="afi" onclick="sel('afi',this)"><div class="lname">AFI 100 <small>미국 정전</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:33%"></i></div><span class="pct">33%</span></div>
+            <span class="frac">33/100</span><span class="tier">T2</span></div>
+          <div class="lrow" data-id="cahiers" onclick="sel('cahiers',this)"><div class="lname">Cahiers 100 <small>가장 아름다운 영화</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:38%"></i></div><span class="pct">38%</span></div>
+            <span class="frac">38/100</span><span class="tier">T2</span></div>
+
+          <div class="grp" style="margin-top:13px"><span>영화제 · 시상 (FESTIVAL / AWARD)</span><span style="display:flex;gap:60px"><span>aw</span><span>TIER</span></span></div>
+          <div class="lrow" data-id="palme" onclick="sel('palme',this)"><div class="lname">Palme d'Or <small>칸 황금종려상</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:27%"></i></div><span class="pct">27%</span></div>
+            <span class="frac">21/77</span><span class="tier t1">T1</span></div>
+          <div class="lrow" data-id="oscar" onclick="sel('oscar',this)"><div class="lname">Academy · Best Picture <small>오스카 작품상</small></div>
+            <div class="barwrap cov-mid"><div class="track"><i style="width:29%"></i></div><span class="pct">29%</span></div>
+            <span class="frac">28/97</span><span class="tier t1">T1</span></div>
+          <div class="lrow" data-id="bear" onclick="sel('bear',this)"><div class="lname">Golden Bear <small>베를린 황금곰</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:7%"></i></div><span class="pct">7%</span></div>
+            <span class="frac">5/74</span><span class="tier t1">T1</span></div>
+
+          <div class="grp" style="margin-top:13px"><span>국가 정전 (NATIONAL)</span><span style="display:flex;gap:60px"><span>aw</span><span>TIER</span></span></div>
+          <div class="lrow" data-id="kofa" onclick="sel('kofa',this)"><div class="lname">KOFA 100 <small>한국 정전</small></div>
+            <div class="barwrap cov-hi"><div class="track"><i style="width:52%"></i></div><span class="pct">52%</span></div>
+            <span class="frac">52/100</span><span class="tier">T2</span></div>
+          <div class="lrow" data-id="abraccine" onclick="sel('abraccine',this)"><div class="lname">Abraccine 100 <small>브라질 정전</small></div>
+            <div class="barwrap cov-lo"><div class="track"><i style="width:0%"></i></div><span class="pct">0%</span></div>
+            <span class="frac">0/100</span><span class="tier">T3</span></div>
+        </div>
+      </div>
+
+      <!-- RECOMMENDATION DESK -->
+      <div class="mod" id="m-rec">
+        <div class="modh"><h3><i class="ti ti-bolt"></i> WHY-WATCH 추천 데스크 · 다음 한 편의 알파</h3>
+          <span class="meta">미관람 · WWI 순 · 이유 = 6+가용 정본</span></div>
+        <div class="modbody">
+          <div class="rrow sel" data-id="touki" onclick="sel('touki',this)">
+            <div class="rk">1</div>
+            <div><div class="rt">Touki Bouki <small>1973 · Djibril Diop Mambéty</small></div>
+              <div class="rsub">세네갈 · 당신의 가장 큰 블라인드 두 개를 동시에 연다</div>
+              <div class="reasons"><span class="rsn frontier">frontier 94</span><span class="rsn gap">gap 0%→진입</span><span class="rsn conquer">conquer FESPACO</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#86b9ec">88</div><div class="pl">WWI</div></div>
+            <div class="dlt">+6<small>→ NAV</small></div>
+          </div>
+          <div class="rrow" data-id="yiyi" onclick="sel('yiyi',this)">
+            <div class="rk">2</div>
+            <div><div class="rt">Yi Yi <small>2000 · Edward Yang</small></div>
+              <div class="rsub">대만 · 금마장 블라인드 + 당신의 가족 드라마 군집과 친연</div>
+              <div class="reasons"><span class="rsn safe">safe 0.91</span><span class="rsn canon">canon 90</span><span class="rsn gap">gap 금마 8%</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#5fd0b2">86</div><div class="pl">WWI</div></div>
+            <div class="dlt">+5<small>→ NAV</small></div>
+          </div>
+          <div class="rrow" data-id="wind" onclick="sel('wind',this)">
+            <div class="rk">3</div>
+            <div><div class="rt">The Wind Will Carry Us <small>1999 · Abbas Kiarostami</small></div>
+              <div class="rsub">이란 · 이란 뉴웨이브 정점 + 당신 시그니처 「절제된 응시」</div>
+              <div class="reasons"><span class="rsn reading">reading 관조</span><span class="rsn safe">safe 0.88</span><span class="rsn gap">gap 이란 12%</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#bda1f0">83</div><div class="pl">WWI</div></div>
+            <div class="dlt">+4<small>→ NAV</small></div>
+          </div>
+          <div class="rrow" data-id="bgwd" onclick="sel('bgwd',this)">
+            <div class="rk">4</div>
+            <div><div class="rt">Black God, White Devil <small>1964 · Glauber Rocha</small></div>
+              <div class="rsub">브라질 · 라틴 대륙 블라인드 + Cinema Novo 사조</div>
+              <div class="reasons"><span class="rsn gap">gap 라틴 0%</span><span class="rsn conquer">conquer Cinema Novo</span><span class="rsn frontier">frontier 88</span></div></div>
+            <div class="wwi"><div class="pv" style="color:#86b9ec">81</div><div class="pl">WWI</div></div>
+            <div class="dlt">+5<small>→ NAV</small></div>
+          </div>
+          <div class="rrow" data-id="vengeance" onclick="sel('vengeance',this)">
+            <div class="rk">5</div>
+            <div><div class="rt">Vengeance Is Mine <small>1979 · Shohei Imamura</small></div>
+              <div class="rsub">일본 · 키네마준보 보강 + 당신의 일본 70s 연대 공백</div>
+              <div class="reasons"><span class="rsn canon">canon 79</span><span class="rsn gap">gap 70s 일본</span></div></div>
+            <div class="wwi"><div class="pv">78</div><div class="pl">WWI</div></div>
+            <div class="dlt">+4<small>→ NAV</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSTELLATION -->
+      <div class="mod" id="m-con">
+        <div class="modh"><h3><i class="ti ti-affiliate"></i> 별자리 · 보유분 + 인접 추천</h3><span class="meta">film_affinities · 공유 라인으로 연결</span></div>
+        <div class="modbody">
+          <svg viewBox="0 0 700 250" width="100%" role="img" aria-label="보유 영화 별자리와 인접 추천 노드">
+            <g stroke="#2c2c30" stroke-width="1">
+              <line x1="350" y1="125" x2="220" y2="75"/><line x1="350" y1="125" x2="470" y2="75"/>
+              <line x1="350" y1="125" x2="250" y2="190"/><line x1="350" y1="125" x2="460" y2="185"/>
+              <line x1="220" y1="75" x2="120" y2="125"/><line x1="470" y1="75" x2="580" y2="115"/>
+              <line x1="250" y1="190" x2="160" y2="220"/><line x1="460" y1="185" x2="560" y2="210"/>
+            </g>
+            <g stroke="var(--red)" stroke-width="1" stroke-dasharray="3 3">
+              <line x1="120" y1="125" x2="60" y2="90"/><line x1="580" y1="115" x2="642" y2="80"/><line x1="160" y1="220" x2="95" y2="238"/>
+            </g>
+            <circle cx="350" cy="125" r="9" fill="var(--red)"/><text x="350" y="109" text-anchor="middle" font-size="11" fill="#ECEAE5" font-family="PT Serif,serif">Parasite</text>
+            <circle cx="220" cy="75" r="6" fill="#ECEAE5"/><text x="220" y="62" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Burning</text>
+            <circle cx="470" cy="75" r="6" fill="#ECEAE5"/><text x="470" y="62" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Drive My Car</text>
+            <circle cx="250" cy="190" r="6" fill="#ECEAE5"/><text x="250" y="208" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Oldboy</text>
+            <circle cx="460" cy="185" r="6" fill="#ECEAE5"/><text x="460" y="203" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Tokyo Story</text>
+            <circle cx="120" cy="125" r="5" fill="var(--frontier)"/><text x="120" y="125" dy="-9" text-anchor="middle" font-size="9.5" fill="var(--frontier)">칸 팔메</text>
+            <circle cx="580" cy="115" r="5" fill="var(--safe)"/><text x="580" y="115" dy="-9" text-anchor="middle" font-size="9.5" fill="var(--safe)">S&amp;S 2022</text>
+            <circle cx="60" cy="90" r="6" fill="none" stroke="var(--red)" stroke-width="1.5"/><text x="60" y="76" text-anchor="middle" font-size="10" fill="#e98a86" font-family="PT Serif,serif">Yi Yi</text>
+            <circle cx="642" cy="80" r="6" fill="none" stroke="var(--red)" stroke-width="1.5"/><text x="642" y="66" text-anchor="middle" font-size="10" fill="#e98a86" font-family="PT Serif,serif">Touki Bouki</text>
+            <circle cx="95" cy="238" r="6" fill="none" stroke="var(--red)" stroke-width="1.5"/><text x="95" y="254" text-anchor="middle" font-size="10" fill="#e98a86" font-family="PT Serif,serif">Wind Will…</text>
+          </svg>
+          <div class="legend">
+            <span><i style="background:var(--red)"></i>보유(중심)</span><span><i style="background:#ECEAE5"></i>보유 영화</span>
+            <span><i style="background:var(--frontier)"></i>계보 노드</span><span><i style="background:var(--safe)"></i>정전 노드</span>
+            <span><i style="background:transparent;border:1.5px solid var(--red)"></i>추천(미점등)</span>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+  </main>
+
+  <!-- ── COL 3 · INSPECTOR ── -->
+  <aside class="col inspector" id="inspector">
+    <div class="insphd">
+      <span class="chv" onclick="toggle('inspector')"><i class="ti ti-layout-sidebar-right-collapse"></i></span>
+      <span class="ti-tit" id="insp-title">인스펙터 · 분석</span>
+    </div>
+    <div class="col-scroll inspbody" id="inspbody"><!-- filled by JS --></div>
+  </aside>
+
+  <!-- ── COL 4 · ACTIVITY ── -->
+  <aside class="col activity" id="activity">
+    <div class="acthd"><span class="pulse"></span><span class="t">라이브 피드</span>
+      <span class="chv" onclick="toggle('activity')"><i class="ti ti-layout-sidebar-right-collapse"></i></span></div>
+    <div class="col-scroll actbody">
+      <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-sparkles"></i></div>
+        <div class="fb"><div class="ft"><b>Touki Bouki</b> Discovery 94 — 추천 1위로 진입</div><div class="fm">방금 · recommend()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--red)"><i class="ti ti-eye-off"></i></div>
+        <div class="fb"><div class="ft">블라인드 경보 · <b>라틴 정전 0%</b> (Abraccine·Somos·Encuesta)</div><div class="fm">12분 전 · my_blind_spots()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--canon)"><i class="ti ti-trophy"></i></div>
+        <div class="fb"><div class="ft"><b>S&amp;S 2022</b> 50% 완파까지 <b>9편</b> 남음</div><div class="fm">1시간 전 · 도장깨기</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--safe)"><i class="ti ti-arrow-up-right"></i></div>
+        <div class="fb"><div class="ft">정전가 모델 <b>v2</b> 적용 — Vertigo 40→<b>84</b> 재평가</div><div class="fm">오늘 · compute_film_scores</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--reading)"><i class="ti ti-users"></i></div>
+        <div class="fb"><div class="ft">오늘의 동행 · 싱크율 <b>87%</b> 매칭됨</div><div class="fm">자정(KST) 갱신 · 동행</div></div></div>
+
+      <div class="acard">
+        <h4>도장깨기 근접</h4>
+        <div class="milestone"><div class="ml"><b>S&amp;S 2022 비평가</b><span class="mono" style="color:#e0bb6e">41% → 50%</span></div>
+          <div class="mt"><i style="width:82%;background:var(--canon)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>KOFA 한국 정전</b><span class="mono" style="color:#5fd0b2">52% → 75%</span></div>
+          <div class="mt"><i style="width:69%;background:var(--safe)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>브레송 정복</b><span class="mono" style="color:#e0bb6e">5/6 · 1편</span></div>
+          <div class="mt"><i style="width:83%;background:var(--canon)"></i></div></div>
+      </div>
+
+      <div class="acard">
+        <h4>시스템 상태</h4>
+        <div class="stat"><span>정전가 모델</span><b>v2 · 정합</b></div>
+        <div class="stat"><span>제공자 신선도</span><b style="color:var(--safe)">KR · 4일</b></div>
+        <div class="stat"><span>계보 우주</span><b>275 라인 active</b></div>
+        <div class="stat"><span>취향 벡터</span><b style="color:#e0bb6e">형성 중 · 142편</b></div>
+        <div class="demobar"><span>상태 데모</span><span class="sw" id="csw" onclick="coldStart()"></span><span id="cslabel">운영 모드</span></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="palette" id="palette" onclick="if(event.target===this)closePalette()">
+  <div class="palbox">
+    <div class="palin"><i class="ti ti-search" style="color:var(--sub)"></i>
+      <input id="palinput" placeholder="영화 · 계보 · 감독 · 페이지로 이동…" oninput="filterPalette()" onkeydown="palKey(event)"></div>
+    <div class="pallist" id="pallist"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = window.localStorage;
+
+  /* ───── collapsible columns (persisted) ───── */
+  function applyState(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var c = LS.getItem('mt_'+id)==='1';
+    el.classList.toggle('collapsed', c);
+  }
+  window.toggle = function(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('collapsed');
+    LS.setItem('mt_'+id, el.classList.contains('collapsed')?'1':'0');
+  };
+  ['rail','inspector','activity'].forEach(applyState);
+
+  function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  window.jump = jump;
+
+  /* ───── inspector content model ───── */
+  var bar = function(label,val,color){
+    return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
+  };
+
+  // recommendation detail (films)
+  var FILM = {
+    touki:{t:'Touki Bouki',s:'1973 · Djibril Diop Mambéty · 세네갈',wwi:88,wc:'#86b9ec',pre:71,dis:94,rating:null,
+      comps:[['taste 친연',62,'var(--safe)'],['lineage',70,'var(--frontier)'],['gap 공백',96,'var(--gap)'],['canon',71,'var(--canon)']],
+      reasons:'<span class="rsn frontier">frontier 94</span> <span class="rsn gap">gap 0%→진입</span> <span class="rsn conquer">conquer FESPACO</span>',
+      why:'FESPACO·아프리카 정전 0% → 동시 진입. 희소도(selectivity) 최상위 → 발굴 가치 극대. Δindex가 모든 후보 중 최대.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR'],['Criterion','var(--sub)','정보 없음']],delta:6,badge:null},
+    yiyi:{t:'Yi Yi',s:'2000 · Edward Yang · 대만',wwi:86,wc:'#5fd0b2',pre:90,dis:18,rating:null,
+      comps:[['taste 친연',91,'var(--safe)'],['lineage',64,'var(--frontier)'],['gap 공백',55,'var(--gap)'],['canon',90,'var(--canon)']],
+      reasons:'<span class="rsn safe">safe 0.91</span> <span class="rsn canon">canon 90</span> <span class="rsn gap">gap 금마 8%</span>',
+      why:'취향 벡터 코사인 0.91 — 당신의 가족 드라마 군집과 직결("of-course" 안전자산). 금마장 8%→보강.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5,badge:null},
+    wind:{t:'The Wind Will Carry Us',s:'1999 · Abbas Kiarostami · 이란',wwi:83,wc:'#bda1f0',pre:82,dis:44,rating:null,
+      comps:[['taste 친연',88,'var(--safe)'],['lineage',60,'var(--frontier)'],['gap 공백',62,'var(--gap)'],['canon',82,'var(--canon)']],
+      reasons:'<span class="rsn reading">reading 관조</span> <span class="rsn safe">safe 0.88</span> <span class="rsn gap">gap 이란 12%</span>',
+      why:'당신 시그니처 「절제된 응시」와 reading 합치. 이란 뉴웨이브 12%→확장. 베니스 심사위원대상.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4,badge:null},
+    bgwd:{t:'Black God, White Devil',s:'1964 · Glauber Rocha · 브라질',wwi:81,wc:'#86b9ec',pre:74,dis:88,rating:null,
+      comps:[['taste 친연',58,'var(--safe)'],['lineage',66,'var(--frontier)'],['gap 공백',92,'var(--gap)'],['canon',74,'var(--canon)']],
+      reasons:'<span class="rsn gap">gap 라틴 0%</span> <span class="rsn conquer">conquer Cinema Novo</span> <span class="rsn frontier">frontier 88</span>',
+      why:'라틴 대륙 정전 0% → 진입. 대륙 커버리지를 가장 크게 끌어올림(Δbreadth 최상위급).',
+      avail:[['정보 없음','var(--sub)','이 지역 제공자 정보 없음']],delta:5,badge:null},
+    vengeance:{t:'Vengeance Is Mine',s:'1979 · Shohei Imamura · 일본',wwi:78,wc:'#ECEAE5',pre:79,dis:36,rating:null,
+      comps:[['taste 친연',70,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',79,'var(--canon)']],
+      reasons:'<span class="rsn canon">canon 79</span> <span class="rsn gap">gap 70s 일본</span>',
+      why:'키네마준보 올타임 #1급. 연대 공백(1970년대 일본) 충족 + 당신 일본 거장 군집과 친연.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4,badge:null}
+  };
+
+  // coverage lineage detail
+  var LIN = {
+    ss22:{t:'Sight & Sound 2022',s:'비평가 100 · canon · aw 0.98 · T1',watched:41,total:100,opp:0.58,next:'50% 완파까지 9편',
+      films:[['Jeanne Dielman','#1 · 미관람'],['Vertigo','#2 · 보유 ★4.6'],['Tokyo Story','#4 · 보유 ★4.5'],['In the Mood for Love','#5 · 보유']]},
+    tspdt:{t:'TSPDT 1000',s:'역대 위대한 영화 · canon · aw 0.92 · T1',watched:188,total:994,opp:0.74,next:'25% 보강까지 60편',
+      films:[['Vertigo','#2 · 보유'],['2001: A Space Odyssey','#6 · 보유'],['Citizen Kane','#11 · 보유'],['Sátántangó','#36 · 미관람']]},
+    afi:{t:'AFI 100',s:'미국 정전 · canon · aw 0.80 · T2',watched:33,total:100,opp:0.54,next:'50% 완파까지 17편',films:[['Citizen Kane','#1 · 보유'],['The Godfather','#2 · 보유'],['Casablanca','#3 · 미관람']]},
+    cahiers:{t:'Cahiers 100',s:'가장 아름다운 영화 · canon · aw 0.74 · T2',watched:38,total:100,opp:0.46,next:'50% 완파까지 12편',films:[['Sunrise','#1 · 미관람'],['The Night of the Hunter','#2 · 보유'],['Rules of the Game','#4 · 보유']]},
+    palme:{t:"Palme d'Or",s:'칸 황금종려 · award · aw 0.97 · T1',watched:21,total:77,opp:0.70,next:'타이틀 완파까지 56편',films:[['Parasite','2019 · 보유 ★4.8'],['Taste of Cherry','1997 · 미관람'],['The Tree of Life','2011 · 보유']]},
+    oscar:{t:'Academy · Best Picture',s:'오스카 작품상 · award · aw 0.96 · T1',watched:28,total:97,opp:0.68,next:'',films:[['Parasite','2019 · 보유'],['Moonlight','2016 · 보유'],['No Country for Old Men','2007 · 미관람']]},
+    bear:{t:'Golden Bear',s:'베를린 황금곰 · award · aw 0.90 · T1',watched:5,total:74,opp:0.84,next:'첫 보강까지 다수',films:[['A Separation','2011 · 보유'],['Alphaville','1965 · 미관람'],['Magnolia','1999 · 미관람']]},
+    kofa:{t:'KOFA 100',s:'한국 정전 · national · aw 0.74 · T2',watched:52,total:100,opp:0.36,next:'75% 완파까지 23편',films:[['The Housemaid','1960 · 보유'],['Aimless Bullet','1961 · 보유'],['Madame Freedom','1956 · 미관람']]},
+    abraccine:{t:'Abraccine 100',s:'브라질 정전 · national · aw 0.78 · T3 · 첫 진입',watched:0,total:100,opp:0.78,next:'첫 진입 — 0편',films:[['Limite','1931 · 미관람'],['Black God White Devil','1964 · 추천 ↑'],['City of God','2002 · 미관람']]}
+  };
+
+  function filmDetail(f){
+    var av = f.avail.map(function(a){return '<div class="availrow"><span class="dot" style="background:'+a[1]+'"></span><b style="font-family:var(--mono);font-size:11px">'+a[0]+'</b><span style="color:var(--sub);font-size:10.5px">'+a[2]+'</span></div>';}).join('');
+    var cb = f.comps.map(function(c){return bar(c[0],c[1],c[2]);}).join('');
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>'+
+      '<div class="selhead"><div class="poster"></div><div><div class="seltitle">'+f.t+'</div><div class="selsub">'+f.s+'</div>'+
+        '<div class="selflag"><span class="rsn frontier" style="cursor:default">미관람</span></div></div></div>'+
+      '<div class="icard"><h4><i class="ti ti-bolt"></i> WWI · 적합도 분해</h4>'+
+        '<div class="bigscore"><span class="n" style="color:'+f.wc+'">'+f.wwi+'</span><span class="u">/ 100 WHY-WATCH</span></div>'+cb+
+        '<div style="margin-top:9px">'+f.reasons+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-info-circle"></i> 왜 이 추천인가</h4>'+
+        '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">'+f.why+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-coin"></i> 자산 지표</h4>'+
+        '<div class="kv"><span class="k">정전가 (Standing)</span><span class="v">'+f.pre+'</span></div>'+
+        '<div class="kv"><span class="k">Discovery</span><span class="v">'+f.dis+'</span></div>'+
+        '<div class="kv"><span class="k">Δindex → NAV</span><span class="v" style="color:var(--safe)">+'+f.delta+'</span></div></div>'+
+      '<div class="icard"><h4><i class="ti ti-device-tv"></i> 지금 볼 수 있나</h4>'+av+'</div>'+
+      '<div class="actbar"><span class="actbtn pri" onclick="location.href=\'mockup-me-watchlist.html\'">볼 영화에 담기</span>'+
+        '<span class="actbtn gho">봤어요</span></div>';
+  }
+  function linDetail(l){
+    var pct = Math.round(100*l.watched/l.total);
+    var col = pct>=50?'var(--safe)':pct>=25?'var(--canon)':'var(--red)';
+    var fl = l.films.map(function(x){return '<div class="kv"><span class="k" style="font-family:var(--ser);font-size:12.5px;color:var(--ink)">'+x[0]+'</span><span class="v" style="font-size:10.5px;color:var(--sub)">'+x[1]+'</span></div>';}).join('');
+    var ms = [50,75,100].map(function(m){var on=pct>=m;return '<span class="rsn '+(on?'safe':'')+'" style="'+(on?'':'opacity:.4')+'">'+m+'%</span>';}).join(' ');
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>'+
+      '<div class="icard"><h4><i class="ti ti-layout-grid"></i> 계보 상세</h4>'+
+        '<div class="seltitle" style="font-size:16px">'+l.t+'</div><div class="selsub">'+l.s+'</div>'+
+        '<div class="bigscore" style="margin-top:10px"><span class="n" style="color:'+col+'">'+pct+'%</span><span class="u">'+l.watched+' / '+l.total+' 관람</span></div>'+
+        '<div class="crow"><span class="cl">커버리지</span><div class="ct"><i style="width:'+pct+'%;background:'+col+'"></i></div><span class="cv">'+pct+'</span></div>'+
+        '<div style="font-size:11px;color:var(--mut);margin-top:8px">완파 마일스톤 &nbsp;'+ms+'</div>'+
+        '<div style="font-size:11px;color:var(--canon);margin-top:7px"><i class="ti ti-flag"></i> '+l.next+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-target"></i> 기회 점수</h4>'+
+        '<div class="kv"><span class="k">opportunity = aw × 미답</span><span class="v">'+l.opp.toFixed(2)+'</span></div>'+
+        '<div style="font-size:11px;color:var(--sub);margin-top:6px">권위 높은 미답 라인일수록 블라인드 상단으로.</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-list"></i> 이 라인의 영화</h4>'+fl+'</div>';
+  }
+
+  // default analytical stack
+  var DEFAULT = ''+
+    '<div class="icard"><h4><i class="ti ti-fingerprint"></i> 취향 시그니처</h4>'+
+      '<div style="font-size:12.5px;font-family:var(--ser);line-height:1.5;color:var(--ink)">윤리적 응시와 무의식의 전이로 영화를 보는 관객.</div>'+
+      '<div style="margin-top:9px"><span class="anchorchip">무력한 목격자</span><span class="anchorchip">전이된 죄</span><span class="anchorchip">절제된 응시</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:9px">앵커 = meta_takes(figure_type·reading) ∼ v_loved · 코사인 상위</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-chart-dots"></i> 포지셔닝 · Prestige × Discovery</h4>'+
+      '<svg viewBox="0 0 320 180" width="100%">'+
+      '<line x1="34" y1="150" x2="305" y2="150" stroke="#2c2c30"/><line x1="34" y1="16" x2="34" y2="150" stroke="#2c2c30"/>'+
+      '<text x="305" y="166" text-anchor="end" font-size="9" fill="#6C6960">PRESTIGE →</text>'+
+      '<text x="20" y="18" font-size="9" fill="#6C6960" transform="rotate(-90 14 90)">DISCOVERY →</text>'+
+      '<g fill="#3a3a40"><circle cx="80" cy="120" r="3"/><circle cx="130" cy="92" r="3"/><circle cx="190" cy="70" r="3"/><circle cx="160" cy="115" r="3"/>'+
+      '<circle cx="230" cy="56" r="3"/><circle cx="110" cy="64" r="3"/><circle cx="260" cy="92" r="3"/><circle cx="285" cy="48" r="3"/>'+
+      '<circle cx="200" cy="130" r="3"/><circle cx="150" cy="48" r="3"/><circle cx="240" cy="116" r="3"/></g>'+
+      '<rect x="52" y="92" width="110" height="56" fill="none" stroke="var(--safe)" stroke-dasharray="4 4"/>'+
+      '<text x="58" y="105" font-size="8.5" fill="var(--safe)">기회 구역 · 발굴↑</text>'+
+      '<circle cx="242" cy="116" r="7" fill="var(--red)"/><text x="242" y="108" dy="-5" text-anchor="middle" font-size="9.5" fill="#ECEAE5">당신 평균</text></svg>'+
+      '<div style="font-size:11px;color:var(--sub);margin-top:4px">고권위·저발굴 상한 → <b style="color:var(--ink)">정전 추종형</b>. 좌상(발굴)으로 이동 시 Discovery↑·다양성↑.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-vector-triangle"></i> 사조 마스터리 <span style="color:var(--faint);font-weight:400">· 추천 다양성 축</span></h4>'+
+      '<div class="mvrow"><span class="nm">이탈리아 네오리얼리즘</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:75%;background:var(--safe)"></i></div><span class="mono" style="color:#5fd0b2">75</span></div>'+
+      '<div class="mvrow"><span class="nm">프랑스 누벨바그</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:62%;background:var(--safe)"></i></div><span class="mono" style="color:#5fd0b2">62</span></div>'+
+      '<div class="mvrow"><span class="nm bl">이란 뉴웨이브</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:12%;background:var(--red)"></i></div><span class="mono" style="color:#e98a86">12</span></div>'+
+      '<div class="mvrow"><span class="nm bl">Cinema Novo</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:0%;background:var(--red)"></i></div><span class="mono" style="color:#e98a86">0</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:8px">사조 = 품질 아닌 <b style="color:var(--mut)">닮음</b> → 정전가 제외, 추천 다양성에만(범주 오류 방지).</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-user-star"></i> 감독 정복 · G1 거장</h4>'+
+      '<div class="kv"><span class="k" style="color:#e0bb6e">근접: 브레송</span><span class="v">5/6</span></div>'+
+      '<div class="kv"><span class="k" style="color:#e0bb6e">근접: 하네케</span><span class="v">6/7</span></div>'+
+      '<div class="kv"><span class="k">블라인드: 미조구치</span><span class="v" style="color:#e98a86">0/6</span></div>'+
+      '<div class="kv"><span class="k">블라인드: 드레이어</span><span class="v" style="color:#e98a86">0/5</span></div></div>';
+
+  function setInsp(html,title){ document.getElementById('inspbody').innerHTML=html; document.getElementById('insp-title').textContent=title||'인스펙터 · 분석'; document.getElementById('inspbody').scrollTop=0; }
+  function resetInsp(){ setInsp(DEFAULT,'인스펙터 · 분석'); clearSel(); }
+  window.resetInsp = resetInsp;
+
+  function clearSel(){ document.querySelectorAll('.lrow.sel,.rrow.sel').forEach(function(e){e.classList.remove('sel');}); }
+  window.sel = function(id,node){
+    clearSel(); if(node) node.classList.add('sel');
+    // auto-expand inspector if collapsed
+    var insp=document.getElementById('inspector'); if(insp.classList.contains('collapsed')){insp.classList.remove('collapsed');LS.setItem('mt_inspector','0');}
+    if(FILM[id]) setInsp(filmDetail(FILM[id]), FILM[id].t);
+    else if(LIN[id]) setInsp(linDetail(LIN[id]), LIN[id].t);
+  };
+
+  // init inspector: show top recommendation
+  sel('touki', document.querySelector('.rrow[data-id="touki"]'));
+
+  /* ───── cold-start demo ───── */
+  var cold=false;
+  window.coldStart = function(){
+    cold=!cold;
+    document.getElementById('csw').classList.toggle('on',cold);
+    document.getElementById('cslabel').textContent = cold?'형성 중(데모)':'운영 모드';
+    var navchip=document.getElementById('navchip');
+    var hero=document.getElementById('hero');
+    if(cold){
+      navchip.textContent='—';
+      hero.querySelector('.navbig').innerHTML='<div style="display:flex;align-items:center;gap:14px"><i class="ti ti-seedling" style="font-size:40px;color:#e0bb6e"></i><div><div class="eb">영화적 자산 · NAV</div><div class="lvl" style="color:#e0bb6e">● 형성 중</div><div class="pctl">7편 — 8편부터 NAV·레벨 산출 (NaN 0건)</div></div></div>';
+      hero.querySelectorAll('.components .cv').forEach(function(e){e.textContent='—';});
+      hero.querySelectorAll('.components .ct>i').forEach(function(e){e.style.width='0%';});
+    } else { location.reload(); }
+  };
+
+  /* ───── command palette ───── */
+  var PAGES=[
+    ['현황 · 커맨드센터','ti-dashboard','mockup-me-command-center.html','자산'],
+    ['보유 영화 · 가격표','ti-list-details','mockup-me-collection-list-v2.html','자산'],
+    ['볼 영화 · 추천 데스크','ti-target-arrow','mockup-me-watchlist.html','자산'],
+    ['운용 데스크','ti-briefcase','mockup-me-asset-desk.html','자산'],
+    ['자산 분석','ti-chart-arcs','mockup-me-analysis-v2.html','자산'],
+    ['기록 · 평가','ti-star','mockup-me-onboard-rate-v2.html','기록'],
+    ['서재','ti-books','mockup-me-library.html','기록'],
+    ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
+    ['동행','ti-users','mockup-me-pair.html','교류'],
+    ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Touki Bouki — 추천 1위','ti-movie','#','영화'],
+    ['Yi Yi — 추천 2위','ti-movie','#','영화'],
+    ['Sight & Sound 2022 — 41%','ti-layout-grid','#','계보'],
+    ['브레송 — 근접 정복 5/6','ti-user-star','#','감독']
+  ];
+  function renderPalette(q){
+    q=(q||'').toLowerCase();
+    var list=document.getElementById('pallist'); list.innerHTML='';
+    PAGES.filter(function(p){return p[0].toLowerCase().indexOf(q)>=0||p[3].toLowerCase().indexOf(q)>=0;}).forEach(function(p,i){
+      var d=document.createElement('div'); d.className='pi'+(i===0?' on':'');
+      d.innerHTML='<i class="ti '+p[1]+' lead"></i><span>'+p[0]+'</span><span class="pk">'+p[3]+'</span>';
+      d.onclick=function(){ if(p[2]&&p[2]!=='#') location.href=p[2]; else closePalette(); };
+      list.appendChild(d);
+    });
+  }
+  window.openPalette=function(){ document.getElementById('palette').classList.add('show'); var i=document.getElementById('palinput'); i.value=''; renderPalette(''); setTimeout(function(){i.focus();},30); };
+  window.closePalette=function(){ document.getElementById('palette').classList.remove('show'); };
+  window.filterPalette=function(){ renderPalette(document.getElementById('palinput').value); };
+  window.palKey=function(e){
+    if(e.key==='Escape'){closePalette();}
+    if(e.key==='Enter'){var on=document.querySelector('.pi.on')||document.querySelector('.pi'); if(on)on.click();}
+  };
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openPalette();}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+PART: Society   (총 174개 이론, 현행 Major 24개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[93] V. Advanced & Applied Social Theories (Added) M. General Social Theories  ::  Structuration Theory / Habermas's Theory of Legitimation Crisis / Postcolonial Theory (Sociology) / World Society Theory
+[14] III. Specific Social Phenomena Theories  ::  Diffusion of Innovations / Resource Mobilization Theory / Collective Behavior / Labeling Theory (Sociology)
+[10] II. Contemporary Sociological Perspectives  ::  Communicative Action / Critical Race Theory (Sociology) / Interpellation (Sociology) / Simulation and Simulacra (Sociology)
+[7] I. Classical Sociological Traditions  ::  Structural Functionalism / Manifest and Latent Functions / Class Conflict / Power and Authority
+[3] IV. Contemporary Social Theories (Added)  ::  World-Systems Theory / Globalization Theory (Social) / Glocalization (Sociology)
+[3] IV. Contemporary Social Theories (Added) B. Power and Control  ::  Governmentality / Panopticism (Sociology) / Biopower (Sociology)
+[3] IV. Contemporary Social Theories (Added) C. Social Constructionism  ::  Social Construction of Reality / Queer Theory (Sociology) / Standpoint Theory
+[3] IV. Contemporary Social Theories (Added) F. Cultural Sociology  ::  Cultural Production Theory / Field Theory (Sociology) / Habitus (Sociology)
+[3] IV. Contemporary Social Theories (Added) G. Social Movements  ::  Political Process Theory / Framing Theory (Social Movements) / New Social Movement Theory
+[3] V. Advanced & Applied Social Theories (Added) B. Environmental Sociology  ::  Ecological Modernization Theory / Treadmill of Production / Environmental Justice Theory
+[3] V. Advanced & Applied Social Theories (Added) F. Sociology of Work & Organizations  ::  Flexible Accumulation / McDonaldization / Emotional Dissonance
+[3] V. Advanced & Applied Social Theories (Added) G. Sociology of Culture & Media  ::  Agenda-Setting Theory / Cultivation Theory / Uses and Gratifications Theory
+[3] V. Advanced & Applied Social Theories (Added) H. Sociology of Gender & Sexuality  ::  Doing Gender / Heteronormativity (Sociology) / Cisnormativity
+[3] V. Advanced & Applied Social Theories (Added) I. Sociological Theories of Race & Ethnicity  ::  Racial Formation Theory (Sociology) / Internal Colonialism / Segmented Assimilation Theory
+[3] V. Advanced & Applied Social Theories (Added) L. Sociology of Globalization & Development  ::  Dependency Theory / Neocolonialism / Modernization Theory
+[2] IV. Contemporary Social Theories (Added) D. Posthumanism & New Materialism  ::  Actor-Network Theory (Sociology) / Assemblage Theory
+[2] IV. Contemporary Social Theories (Added) E. Emotion and Affect  ::  Emotional Labor / Affect Theory (Sociology)
+[2] V. Advanced & Applied Social Theories (Added) A. Social Technology & Data  ::  Algorithmic Bias / Digital Divide Theory
+[2] V. Advanced & Applied Social Theories (Added) C. Sociology of Health & Illness  ::  Social Determinants of Health / Medicalization
+[2] V. Advanced & Applied Social Theories (Added) D. Sociology of Education  ::  Cultural Reproduction Theory (Education) / Human Capital Theory (Education)
+[2] V. Advanced & Applied Social Theories (Added) E. Sociology of Science & Technology  ::  Social Shaping of Technology (SST) / Technoscience
+[2] V. Advanced & Applied Social Theories (Added) J. Sociology of Religion  ::  Secularization Theory / Rational Choice Theory of Religion
+[2] V. Advanced & Applied Social Theories (Added) K. Sociology of Family  ::  Family Systems Theory / Social Exchange Theory (Family)
+[1] V. Advanced & Applied Social Theories (Added)  ::  A. Social Technology & Data

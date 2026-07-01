@@ -1,0 +1,240 @@
+facet,slug,label,parent_slug,has_editions,tier,authority_weight,source,external_ref,description,country,strategic_tier
+festival,cannes,Cannes Film Festival,,false,T1,0.96,wikidata,"{""wikidata"":""Q42369""}",Premier international film festival held annually in Cannes France,,S1
+award,cannes-palme-dor,Palme d'Or,cannes,true,T1,0.97,wikidata,"{""wikidata"":""Q179808""}",Top prize for best feature film in Cannes Official Competition,,S1
+award,cannes-grand-prix,Grand Prix,cannes,true,T2,0.85,wikidata,{},Second-most prestigious Cannes prize after the Palme d'Or,,S1
+award,cannes-jury-prize,Jury Prize,cannes,true,T2,0.75,wikidata,{},Cannes Prix du Jury awarded by the competition jury,,S1
+award,cannes-best-director,Best Director,cannes,true,T2,0.80,wikidata,{},Cannes Prix de la mise en scène for best director,,S1
+award,cannes-best-screenplay,Best Screenplay,cannes,true,T2,0.78,wikidata,{},Cannes Prix du scénario for best screenplay,,S1
+award,cannes-best-actor,Best Actor,cannes,true,T2,0.76,wikidata,{},Cannes award for best male performance,,S1
+award,cannes-best-actress,Best Actress,cannes,true,T2,0.76,wikidata,{},Cannes award for best female performance,,S1
+award,cannes-camera-dor,Caméra d'Or,cannes,true,T2,0.74,wikidata,"{""wikidata"":""Q775091""}",Cannes prize for best first feature across all selections,,S1
+section,cannes-competition,Competition,cannes,true,T2,0.80,wikidata,{},Main Official Competition for the Palme d'Or,,S1
+section,cannes-un-certain-regard,Un Certain Regard,cannes,true,T3,0.62,wikidata,{},Cannes parallel section spotlighting original visions,,S1
+section,cannes-directors-fortnight,Directors' Fortnight,cannes,true,T3,0.62,wikidata,{},Independent parallel section Quinzaine des Cinéastes,,S1
+section,cannes-critics-week,Critics' Week,cannes,true,T3,0.60,wikidata,{},Semaine de la Critique for first and second features,,S1
+festival,venice,Venice Film Festival,,false,T1,0.95,wikidata,"{""wikidata"":""Q49024""}",World's oldest film festival held at the Venice Biennale,,S1
+award,venice-golden-lion,Golden Lion,venice,true,T1,0.96,wikidata,"{""wikidata"":""Q209459""}",Top prize for best film at the Venice Film Festival,,S1
+award,venice-grand-jury-prize,Grand Jury Prize,venice,true,T2,0.84,wikidata,{},Venice second-place award after the Golden Lion,,S1
+award,venice-silver-lion-best-director,Silver Lion for Best Director,venice,true,T2,0.82,wikidata,{},Venice award for best director in competition,,S1
+award,venice-volpi-cup-best-actor,Volpi Cup for Best Actor,venice,true,T2,0.76,wikidata,{},Coppa Volpi for best male performance at Venice,,S1
+award,venice-volpi-cup-best-actress,Volpi Cup for Best Actress,venice,true,T2,0.76,wikidata,{},Coppa Volpi for best female performance at Venice,,S1
+section,venice-competition,Competition,venice,true,T2,0.80,wikidata,{},Main Venice competition for the Golden Lion,,S1
+section,venice-orizzonti,Orizzonti,venice,true,T3,0.62,wikidata,{},Venice Horizons section for new trends in world cinema,,S1
+festival,berlin,Berlin International Film Festival,,false,T1,0.95,wikidata,"{""wikidata"":""Q130871""}",Major European festival held annually in Berlin (Berlinale),,S1
+award,berlin-golden-bear,Golden Bear,berlin,true,T1,0.96,wikidata,"{""wikidata"":""Q154590""}",Top prize for best film at the Berlinale,,S1
+award,berlin-silver-bear-grand-jury-prize,Silver Bear Grand Jury Prize,berlin,true,T2,0.84,wikidata,{},Berlinale second-place jury award,,S1
+award,berlin-silver-bear-best-director,Silver Bear for Best Director,berlin,true,T2,0.82,wikidata,{},Berlinale award for best director,,S1
+award,berlin-silver-bear-best-leading-performance,Silver Bear for Best Leading Performance,berlin,true,T2,0.76,wikidata,{},Berlinale gender-neutral award for best leading performance,,S1
+section,berlin-competition,Competition,berlin,true,T2,0.80,wikidata,{},Main Berlinale competition for the Golden Bear,,S1
+section,berlin-panorama,Panorama,berlin,true,T3,0.62,wikidata,{},Berlinale section for independent and arthouse cinema,,S1
+section,berlin-encounters,Encounters,berlin,true,T3,0.60,wikidata,{},Berlinale section for bold and independent auteur work,,S1
+festival,sundance,Sundance Film Festival,,false,T2,0.82,wikidata,"{""wikidata"":""Q189887""}",Leading US independent film festival in Park City Utah,,S2
+award,sundance-grand-jury-prize,Grand Jury Prize,sundance,true,T2,0.78,wikidata,{},Top Sundance jury prize awarded across competition categories,,S2
+festival,toronto,Toronto International Film Festival,,false,T2,0.84,wikidata,"{""wikidata"":""Q390018""}",Major audience-driven festival and awards-season launchpad (TIFF),,S2
+award,toronto-peoples-choice,People's Choice Award,toronto,true,T2,0.80,wikidata,"{""wikidata"":""Q39087364""}",TIFF top audience-voted award and strong Oscar predictor,,S2
+festival,locarno,Locarno Film Festival,,false,T2,0.78,wikidata,"{""wikidata"":""Q502053""}",Swiss festival known for auteur and experimental cinema,,S2
+award,locarno-golden-leopard,Golden Leopard,locarno,true,T2,0.76,wikidata,"{""wikidata"":""Q1700510""}",Pardo d'Oro top prize at the Locarno Film Festival,,S2
+festival,rotterdam,International Film Festival Rotterdam,,false,T2,0.76,wikidata,"{""wikidata"":""Q1666554""}",Dutch festival focused on independent and emerging cinema (IFFR),,S2
+award,rotterdam-tiger-award,Tiger Award,rotterdam,true,T2,0.74,wikidata,"{""wikidata"":""Q2777961""}",IFFR top prize for first and second feature films,,S2
+festival,san-sebastian,San Sebastián International Film Festival,,false,T2,0.78,wikidata,"{""wikidata"":""Q622423""}",Leading Spanish-language and European festival in San Sebastián,,S2
+award,san-sebastian-golden-shell,Golden Shell,san-sebastian,true,T2,0.74,wikidata,"{""wikidata"":""Q775086""}",Concha de Oro top prize at San Sebastián,,S2
+festival,karlovy-vary,Karlovy Vary International Film Festival,,false,T3,0.62,wikidata,"{""wikidata"":""Q332869""}",Leading Central and Eastern European festival (KVIFF),,S3
+award,karlovy-vary-crystal-globe,Crystal Globe,karlovy-vary,true,T3,0.60,wikidata,"{""wikidata"":""Q2565389""}",Top prize at the Karlovy Vary festival,,S3
+festival,busan,Busan International Film Festival,,false,T3,0.62,wikidata,"{""wikidata"":""Q482633""}",Largest film festival in Asia held in Busan South Korea,,S3
+award,busan-new-currents-award,New Currents Award,busan,true,T3,0.58,wikidata,{},Busan award for debut and second features by Asian directors,,S3
+festival,telluride,Telluride Film Festival,,false,T2,0.74,wikidata,"{""wikidata"":""Q2402350""}","Prestigious non-competitive US festival; selection-based, no competitive award",,S1
+festival,new-york,New York Film Festival,,false,T2,0.74,wikidata,"{""wikidata"":""Q25648""}","Curated non-competitive festival by Film at Lincoln Center; selection-based, no competitive award",,S1
+award,oscar-best-picture,Best Picture,,true,T1,0.96,wikidata,"{""wikidata"":""Q102427""}",Academy Award for the year's best motion picture,,
+award,oscar-best-director,Best Director,,true,T2,0.86,wikidata,"{""wikidata"":""Q103360""}",Academy Award for best achievement in directing,,
+award,oscar-best-international-feature,Best International Feature Film,,true,T2,0.80,wikidata,"{""wikidata"":""Q105304""}",Academy Award for best non-English-language feature,,
+award,oscar-best-actor,Best Actor,,true,T2,0.80,wikidata,"{""wikidata"":""Q103916""}",Academy Award for best leading male performance,,
+award,oscar-best-actress,Best Actress,,true,T2,0.80,wikidata,"{""wikidata"":""Q103618""}",Academy Award for best leading female performance,,
+award,oscar-best-original-screenplay,Best Original Screenplay,,true,T2,0.78,wikidata,"{""wikidata"":""Q41417""}",Academy Award for best original screenplay,,
+award,oscar-best-adapted-screenplay,Best Adapted Screenplay,,true,T2,0.78,wikidata,"{""wikidata"":""Q107258""}",Academy Award for best adapted screenplay,,
+award,bafta-best-film,Best Film,,true,T2,0.82,wikidata,"{""wikidata"":""Q139184""}",British Academy Film Award for best film,,
+award,bafta-best-director,Best Direction,,true,T2,0.80,wikidata,"{""wikidata"":""Q787131""}",British Academy Film Award for best direction,,
+canon,sight-and-sound-critics,Sight & Sound Critics' Poll,,true,T1,0.98,bfi,"{""wikidata"":""Q4835528""}","Once-a-decade BFI critics' poll of the greatest films of all time, first held 1952",,
+canon,sight-and-sound-directors,Sight & Sound Directors' Poll,,true,T1,0.95,bfi,{},"BFI directors' poll of the greatest films of all time, separate poll begun 1992",,
+canon,tspdt-1000,"They Shoot Pictures Don't They? 1,000 Greatest Films",,true,T1,0.92,tspdt,{},"Meta-list of the 1,000 greatest films aggregated from thousands of critics' lists and ballots, updated annually",,
+canon,afi-100,AFI's 100 Years...100 Movies,,true,T2,0.80,afi,"{""wikidata"":""Q719345""}",American Film Institute ranking of the 100 greatest American films,,
+canon,1001-movies,1001 Movies You Must See Before You Die,,true,T2,0.74,editorial,"{""wikidata"":""Q929091""}","Reference book of 1,001 films curated by critics, edited by Steven Jay Schneider",,
+canon,criterion-collection,The Criterion Collection,,false,T2,0.78,editorial,"{""wikidata"":""Q1204187""}","Curated catalog of important classic and contemporary films, numbered by spine",,
+canon,cahiers-annual-top-ten,Cahiers du Cinéma Annual Top Ten,,true,T2,0.76,editorial,{},"French magazine's annual top-ten best films of the year, published since 1951",,
+canon,mubi-top-1000,MUBI Top 1000,,false,T3,0.55,mubi,{},"Weekly-updated list of the top 1,000 films voted by the MUBI community",,
+canon,national-film-registry,National Film Registry,,false,T3,0.60,editorial,"{""wikidata"":""Q823422""}","Library of Congress selections preserved for cultural, historical or aesthetic significance",,
+movement,soviet-montage,Soviet Montage,,false,T2,0.72,wikidata,"{""period"":""1924-1933"",""wikidata"":""Q1814850""}",Soviet 1920s editing-based montage school (Eisenstein Pudovkin Vertov),,
+movement,german-expressionism,German Expressionism,,false,T2,0.74,wikidata,"{""period"":""1919-1931"",""wikidata"":""Q157031""}",Weimar-era stylized distortion and shadow (Caligari Metropolis Nosferatu),,
+movement,new-objectivity-kammerspiel,New Objectivity / Kammerspiel,german-expressionism,false,T3,0.55,editorial,"{""period"":""1924-1929""}","Sober Weimar reaction to Expressionism, intimate chamber dramas",,
+movement,french-impressionist-cinema,French Impressionist Cinema,,false,T3,0.60,wikidata,"{""period"":""1918-1929"",""wikidata"":""Q1457017""}",1920s French avant-garde emphasizing subjectivity and rhythm (Gance Epstein Dulac),,
+movement,surrealist-film,Surrealist Film,,false,T3,0.62,wikidata,"{""period"":""1924-1930"",""wikidata"":""Q2526225""}","Avant-garde dream-logic cinema (Bunuel Dali, Un Chien Andalou)",,
+movement,poetic-realism,Poetic Realism,,false,T3,0.62,wikidata,"{""period"":""1934-1940"",""wikidata"":""Q3395305""}",1930s French studio-bound fatalist realism (Carne Renoir Duvivier),,
+movement,hollywood-pre-code,Hollywood Pre-Code,,false,T3,0.52,editorial,"{""period"":""1929-1934""}",Hollywood films before strict Production Code enforcement,,
+movement,italian-neorealism,Italian Neorealism,,false,T2,0.80,wikidata,"{""period"":""1943-1954"",""wikidata"":""Q484591""}",Postwar Italian location-shot social realism (Rossellini De Sica Visconti),,
+movement,calligrafismo,Calligrafismo,,false,T3,0.50,editorial,"{""period"":""1940-1943""}",Stylized literary Italian cinema preceding Neorealism,,
+movement,free-cinema,Free Cinema,,false,T3,0.62,wikidata,"{""period"":""1956-1959"",""wikidata"":""Q1452608""}",British observational documentary movement at the NFT,,
+movement,british-new-wave,British New Wave,free-cinema,false,T2,0.72,wikidata,"{""period"":""1959-1965"",""wikidata"":""Q2096413""}","Kitchen-sink social-realist features (""Angry Young Men"")",,
+movement,french-new-wave,French New Wave (Nouvelle Vague),,false,T2,0.86,wikidata,"{""period"":""1958-1968"",""wikidata"":""Q156619""}",Cahiers critics turned directors (Godard Truffaut Chabrol Rohmer),,
+movement,left-bank,Left Bank (Rive Gauche),french-new-wave,false,T3,0.58,wikidata,"{""period"":""1958-1968"",""wikidata"":""Q3243049""}",Literary leftist Paris cohort (Resnais Varda Marker),,
+movement,cinema-verite,Cinema Verite,,false,T2,0.70,wikidata,"{""period"":""1960-1970"",""wikidata"":""Q1062589""}",Interactive observational documentary style (Rouch Morin),,
+movement,direct-cinema,Direct Cinema,,false,T2,0.70,wikidata,"{""period"":""1958-1970"",""wikidata"":""Q1226525""}",Fly-on-the-wall North American observational documentary (Maysles Pennebaker Leacock),,
+movement,czechoslovak-new-wave,Czechoslovak New Wave,,false,T2,0.72,wikidata,"{""period"":""1962-1968"",""wikidata"":""Q1140075""}",1960s Czech and Slovak liberalization-era cinema (Forman Chytilova Menzel),,
+movement,japanese-new-wave,Japanese New Wave (Nuberu Bagu),,false,T2,0.70,wikidata,"{""period"":""1956-1972"",""wikidata"":""Q1149825""}",Politically radical postwar Japanese cinema (Oshima Imamura Yoshida),,
+movement,parallel-cinema,Parallel Cinema,,false,T2,0.70,wikidata,"{""period"":""1969-1985"",""wikidata"":""Q2913008""}",Indian alternative art cinema to mainstream Bollywood,,
+movement,cinema-novo,Cinema Novo,,false,T2,0.70,wikidata,"{""period"":""1960-1972"",""wikidata"":""Q1092840""}",Brazilian social-political new cinema (Glauber Rocha),,
+movement,third-cinema,Third Cinema,,false,T2,0.70,wikidata,"{""period"":""1968-1980"",""wikidata"":""Q1141399""}",Latin American anti-colonial militant filmmaking theory,,
+movement,new-hollywood,New Hollywood,,false,T2,0.82,wikidata,"{""period"":""1967-1980"",""wikidata"":""Q1143774""}",Auteur-driven American studio renaissance (Scorsese Coppola Altman),,
+movement,new-german-cinema,New German Cinema,,false,T2,0.76,wikidata,"{""period"":""1962-1982"",""wikidata"":""Q564389""}",West German auteur revival (Fassbinder Herzog Wenders Schlondorff),,
+movement,iranian-new-wave,Iranian New Wave,,false,T2,0.72,wikidata,"{""period"":""1969-1979"",""wikidata"":""Q3603095""}",Pre-revolution Iranian art cinema (Mehrjui Kimiai),,
+movement,hong-kong-new-wave,Hong Kong New Wave,,false,T2,0.70,wikidata,"{""period"":""1979-1997"",""wikidata"":""Q3134558""}","TV-trained directors modernizing HK cinema (Hui Tsui Hark, later Wong Kar-wai)",,
+movement,taiwan-new-cinema,Taiwan New Cinema,,false,T2,0.70,wikidata,"{""period"":""1982-1990"",""wikidata"":""Q716659""}",Realist Taiwanese new wave (Hou Hsiao-hsien Edward Yang),,
+movement,cinema-du-look,Cinema du Look,,false,T3,0.58,wikidata,"{""period"":""1981-1991"",""wikidata"":""Q1092635""}",Slick stylized 1980s French cinema (Besson Beineix Carax),,
+movement,la-rebellion,L.A. Rebellion,,false,T3,0.58,wikidata,"{""period"":""1968-1990"",""wikidata"":""Q6457516""}",UCLA Black independent filmmakers (Burnett Dash Gerima),,
+movement,american-independent-cinema,American Independent Cinema,,false,T3,0.64,editorial,"{""period"":""1980-1999""}","Sundance-era US indie boom (Lynch, Soderbergh, Jarmusch, Tarantino)",,
+movement,korean-new-wave,Korean New Wave,,false,T2,0.70,wikidata,"{""period"":""1988-2003"",""wikidata"":""Q12609131""}",Post-democratization South Korean cinematic renaissance (Park Kwang-su Im Kwon-taek),,
+movement,new-queer-cinema,New Queer Cinema,,false,T3,0.62,wikidata,"{""period"":""1991-1997"",""wikidata"":""Q1455355""}",Politically charged LGBTQ independent film wave (Haynes Araki Kalin),,
+movement,dogme-95,Dogme 95,,false,T2,0.72,wikidata,"{""period"":""1995-2005"",""wikidata"":""Q212944""}",Danish manifesto-based naturalist filmmaking (von Trier Vinterberg),,
+movement,romanian-new-wave,Romanian New Wave,,false,T2,0.70,wikidata,"{""period"":""2005-2015"",""wikidata"":""Q2270773""}",Austere minimalist post-communist Romanian realism (Puiu Mungiu Porumboiu),,
+movement,new-french-extremity,New French Extremity,,false,T3,0.58,wikidata,"{""period"":""1998-2010"",""wikidata"":""Q3343807""}","Transgressive violent French cinema (term coined by James Quandt, 2004)",,
+movement,berlin-school,Berlin School,,false,T3,0.58,wikidata,"{""period"":""1995-2015"",""wikidata"":""Q887369""}",Contemplative contemporary German cinema (Petzold Schanelec Arslan),,
+movement,mumblecore,Mumblecore,american-independent-cinema,false,T3,0.55,wikidata,"{""period"":""2002-2013"",""wikidata"":""Q1233720""}",Low-budget naturalistic US indie relationship films (Bujalski Duplass Swanberg),,
+movement,slow-cinema,Slow Cinema,,false,T3,0.60,wikidata,"{""period"":""1990-2020"",""wikidata"":""Q7541793""}","Contemplative long-take minimalist cinema (Tarr, Tsai, Lav Diaz, Costa)",,
+movement,nollywood,Nollywood,,false,T3,0.58,wikidata,"{""period"":""1992-2025"",""wikidata"":""Q500675""}","Nigerian video-film industry/movement, prolific direct-to-video output",,
+movement,new-objectivity,Neue Sachlichkeit film,new-objectivity-kammerspiel,false,T3,0.50,editorial,"{""period"":""1925-1929""}",Documentary-leaning sober Weimar street films,,
+movement,cinema-of-quality,Cinema of Quality (Tradition de Qualite),,false,T3,0.50,editorial,"{""period"":""1945-1958""}",Polished literary French studio cinema the New Wave rebelled against,,
+movement,oberhausen-manifesto,Oberhausen Group,new-german-cinema,false,T3,0.52,editorial,"{""period"":""1962-1965""}",1962 Oberhausen Manifesto signatories who launched Young German Cinema,,
+movement,nuevo-cine-mexicano,Nuevo Cine Mexicano,,false,T3,0.55,editorial,"{""period"":""1990-2010""}","Mexican new wave (Cuaron, del Toro, Inarritu)",,
+national,national-fr-cesar-best-film,César Award for Best Film,,true,T2,0.85,wikidata,"{""wikidata"":""Q645595""}","France's flagship national film award (César du meilleur film), awarded annually since 1976",fr,
+national,national-es-goya-best-film,Goya Award for Best Film,,true,T2,0.82,wikidata,"{""wikidata"":""Q1467554""}",Spain's flagship national film award (Premio Goya a la mejor película) since 1987,es,
+national,national-it-david-best-film,David di Donatello for Best Film,,true,T2,0.80,wikidata,"{""wikidata"":""Q768476""}","Italy's flagship national film award, presented by the Accademia del Cinema Italiano",it,
+national,national-de-filmpreis-best-film,German Film Award for Best Feature Film,,true,T2,0.78,wikidata,"{""wikidata"":""Q1204831""}","Germany's national film award (Deutscher Filmpreis), Golden Lola for Best Feature Film",de,
+national,national-se-guldbagge-best-film,Guldbagge Award for Best Film,,true,T3,0.66,wikidata,"{""wikidata"":""Q382371""}",Sweden's flagship national film award presented by the Swedish Film Institute since 1964,se,
+national,national-dk-bodil-best-film,Bodil Award for Best Danish Film,,true,T3,0.62,wikidata,"{""wikidata"":""Q889845""}","Denmark's oldest film award (since 1948), voted by the Danish Film Critics Association",dk,
+national,national-dk-robert-best-film,Robert Award for Best Danish Film,,true,T3,0.60,wikidata,"{""wikidata"":""Q1505691""}",Denmark's film-academy award (since 1984) for Best Danish Film,dk,
+national,national-pl-eagles-best-film,Polish Film Award for Best Film,,true,T3,0.62,wikidata,"{""wikidata"":""Q930627""}","Poland's national film award (Orły / Eagles), presented by the Polish Film Academy since 1999",pl,
+national,national-pl-gdynia-golden-lions,Gdynia Golden Lions for Best Film,,true,T3,0.58,wikidata,{},Grand Prix Golden Lions (Złote Lwy) of the Polish Film Festival in Gdynia,pl,
+national,national-ru-nika-best-film,Nika Award for Best Picture,,true,T3,0.62,wikidata,"{""wikidata"":""Q4377007""}","Russia's oldest national film award, presented by the Russian Academy of Cinema Arts",ru,
+national,national-ru-golden-eagle-best-film,Golden Eagle Award for Best Motion Picture,,true,T3,0.58,wikidata,"{""wikidata"":""Q4376991""}","Russia's Golden Eagle Award, established 2002 as a counterweight to the Nika",ru,
+national,national-jp-japan-academy-best-film,Japan Academy Film Prize for Picture of the Year,,true,T2,0.78,wikidata,"{""wikidata"":""Q378567""}","Japan's flagship national film academy award (since 1978), Picture of the Year",jp,
+national,national-jp-kinema-junpo-best-film,Kinema Junpo Award for Best Film of the Year,,true,T3,0.66,wikidata,"{""wikidata"":""Q18388323""}","Kinema Junpo Best Ten critics' award for best Japanese film, given since 1926",jp,
+national,national-kr-blue-dragon-best-film,Blue Dragon Film Award for Best Film,,true,T2,0.75,wikidata,"{""wikidata"":""Q97495156""}",South Korea's prestigious national film award presented by Sports Chosun,kr,
+national,national-kr-grand-bell-best-film,Grand Bell Award for Best Film,,true,T3,0.66,wikidata,"{""wikidata"":""Q133744498""}","South Korea's oldest continuous film award (Daejong), often called the Korean Oscars",kr,
+national,national-kr-baeksang-best-film,Baeksang Arts Award for Best Film,,true,T3,0.66,wikidata,"{""wikidata"":""Q65121855""}",South Korea's Baeksang Arts Awards Best Film (film category) presented since 1965,kr,
+national,national-kr-kofa-100-korean-films,KOFA 100 Korean Films,,false,T3,0.60,editorial,{},"Korean Film Archive's canon of the 100 most iconic Korean films, polled from film experts",kr,
+national,national-hk-hkfa-best-film,Hong Kong Film Award for Best Film,,true,T2,0.74,wikidata,"{""wikidata"":""Q4722629""}",Hong Kong's flagship national film award (HKFA) since 1982,hk,
+national,national-cn-golden-rooster-best-film,Golden Rooster Award for Best Picture,,true,T2,0.72,wikidata,"{""wikidata"":""Q5579757""}",Mainland China's flagship national film award (Golden Rooster) since 1981,cn,
+national,national-tw-golden-horse-best-film,Golden Horse Award for Best Feature Film,,true,T2,0.78,wikidata,"{""wikidata"":""Q5579574""}","Taiwan's flagship national film award, most prestigious in the Chinese-speaking world",tw,
+national,national-in-nfa-best-feature,National Film Award for Best Feature Film,,true,T2,0.78,wikidata,"{""wikidata"":""Q1435633""}",India's top state film honour (Swarna Kamal) across all Indian languages since 1954,in,
+national,national-in-filmfare-best-film,Filmfare Award for Best Film,,true,T3,0.62,wikidata,"{""wikidata"":""Q1414525""}","India's oldest film-industry award (Hindi cinema), presented since 1954",in,
+national,national-ir-crystal-simorgh-best-film,Crystal Simorgh for Best Film,,true,T3,0.66,wikidata,"{""wikidata"":""Q16074086""}",Iran's top film honour awarded at the Fajr Film Festival since 1983,ir,
+national,national-mx-ariel-best-picture,Ariel Award for Best Picture,,true,T2,0.74,wikidata,"{""wikidata"":""Q2108656""}","Mexico's flagship national film award (since 1946), presented by the AMACC",mx,
+national,national-br-grande-otelo-best-film,Grande Prêmio do Cinema Brasileiro for Best Film,,true,T3,0.66,wikidata,"{""wikidata"":""Q17105892""}","Brazil's flagship national film award (Grande Otelo), by the Brazilian Academy of Cinema",br,
+national,national-ar-silver-condor-best-film,Silver Condor Award for Best Film,,true,T3,0.66,wikidata,"{""wikidata"":""Q6359050""}","Argentina's national film award (Cóndor de Plata), by the Argentine Film Critics Association",ar,
+national,national-gb-bfi-100-british,BFI Top 100 British Films,,false,T3,0.62,wikidata,"{""wikidata"":""Q2555746""}",BFI's 1999 poll of the 100 greatest British films of the 20th century,gb,
+national,national-au-aacta-best-film,AACTA Award for Best Film,,true,T2,0.74,wikidata,"{""wikidata"":""Q3600406""}","Australia's flagship national film award (AACTA), successor to the AFI Awards",au,
+national,national-ca-csa-best-motion-picture,Canadian Screen Award for Best Motion Picture,,true,T3,0.66,wikidata,"{""wikidata"":""Q2620100""}","Canada's flagship national film award, successor to the Genie Awards",ca,
+award,nyfcc-best-film,New York Film Critics Circle Best Film,,true,T2,0.72,wikidata,"{""wikidata"":""Q1983066""}",New York Film Critics Circle Award for Best Film; annual critics' prize since 1935,,
+award,lafca-best-picture,Los Angeles Film Critics Association Best Picture,,true,T2,0.72,wikidata,"{""wikidata"":""Q952914""}",Los Angeles Film Critics Association Award for Best Film,,
+award,nsfc-best-picture,National Society of Film Critics Best Picture,,true,T2,0.72,wikidata,"{""wikidata"":""Q1720784""}",National Society of Film Critics Award for Best Film,,
+award,nbr-best-film,National Board of Review Best Film,,true,T3,0.62,wikidata,"{""wikidata"":""Q1789102""}",National Board of Review Award for Best Film,,
+canon,nbr-top-ten,National Board of Review Top Ten Films,,true,T3,0.60,wikidata,"{""wikidata"":""Q1966965""}",National Board of Review: Top Ten Films; annual ten-title list rather than a single winner,,
+award,nyfcc-best-first-film,NYFCC Best First Film,,true,T3,0.58,wikidata,"{""wikidata"":""Q1983053"",""debut"":true}",New York Film Critics Circle Award for Best First Film; debut feature award,,
+award,golden-globe-best-picture-drama,Golden Globe Best Motion Picture Drama,,true,T2,0.70,wikidata,"{""wikidata"":""Q1011509""}",Golden Globe Award for Best Motion Picture - Drama,,
+award,golden-globe-best-picture-musical-comedy,Golden Globe Best Motion Picture Musical or Comedy,,true,T2,0.70,wikidata,"{""wikidata"":""Q670282""}",Golden Globe Award for Best Motion Picture - Musical or Comedy,,
+award,critics-choice-best-picture,Critics' Choice Best Picture,,true,T2,0.70,wikidata,{},Critics' Choice Movie Award for Best Picture (Critics Choice Association),,
+award,european-film-awards-best-film,European Film Awards Best Film,,true,T2,0.74,wikidata,"{""wikidata"":""Q777921""}",European Film Award for Best Film (European Film Academy),,
+award,asian-film-awards-best-film,Asian Film Awards Best Film,,true,T2,0.70,wikidata,"{""wikidata"":""Q4806632""}",Asian Film Award for Best Film,,
+award,independent-spirit-best-feature,Independent Spirit Best Feature,,true,T2,0.70,wikidata,"{""wikidata"":""Q2544844""}",Film Independent Spirit Award for Best Feature/Best Film,,
+award,gotham-best-feature,Gotham Best Feature,,true,T3,0.62,wikidata,"{""wikidata"":""Q1538768""}",Gotham Independent Film Award for Best Feature,,
+award,saturn-best-film,Saturn Award Best Film,,true,T4,0.45,wikidata,"{""scope"":""genre""}",Saturn Awards best film (sci-fi/fantasy/horror genre awards),,
+award,dga-best-feature,Directors Guild Best Feature,,true,T3,0.64,wikidata,"{""wikidata"":""Q5280675""}",Directors Guild of America Award for Outstanding Directing - Feature Film,,
+award,pga-best-picture,Producers Guild Best Picture,,true,T3,0.64,wikidata,"{""wikidata"":""Q5569374""}",Producers Guild of America Award for Best Theatrical Motion Picture,,
+award,sag-best-cast,SAG Outstanding Cast,,true,T3,0.60,wikidata,"{""wikidata"":""Q518675""}",Screen Actors Guild Award for Outstanding Performance by a Cast in a Motion Picture,,
+award,wga-best-original-screenplay,WGA Best Original Screenplay,,true,T3,0.62,wikidata,"{""wikidata"":""Q8038461"",""subtype"":""craft""}",Writers Guild of America Award for Best Original Screenplay,,
+award,wga-best-adapted-screenplay,WGA Best Adapted Screenplay,,true,T3,0.62,wikidata,"{""wikidata"":""Q8038458"",""subtype"":""craft""}",Writers Guild of America Award for Best Adapted Screenplay,,
+canon,bbc-21st-century,BBC: 100 Greatest Films of the 21st Century,,true,T2,0.74,bbc,{},Poll of 177 critics worldwide ranking the best films released since 2000; Mulholland Drive #1,,
+canon,bbc-foreign-language,BBC: 100 Greatest Foreign-Language Films,,true,T2,0.72,bbc,{},Poll of 209 critics from 43 countries on the greatest non-English-language films; Seven Samurai #1,,
+canon,bbc-greatest-films-by-women,BBC: 100 Greatest Films Directed by Women,,true,T3,0.62,bbc,"{""scope"":""women-directed""}",Poll of 368 experts from 84 countries on best films by women directors; The Piano #1,,
+canon,guardian-21st-century,The Guardian: 100 Best Films of the 21st Century,,true,T2,0.70,guardian,{},Guardian critics' countdown of best films since 2000; There Will Be Blood #1,,
+canon,nyt-best-21st-century,New York Times: Best Films of the 21st Century,,true,T2,0.72,nyt,{},NYT critics' ranking; published as a 25-film list (2017) and a 100-film list (2025),,
+canon,time-all-time-100,TIME: All-TIME 100 Movies,,true,T2,0.70,time,"{""wikidata"":""Q3738538""}",Unranked alphabetical selection of 100 greatest films since 1923 by Corliss and Schickel,,
+canon,cahiers-100-plus-beaux,Cahiers du Cinéma: 100 plus beaux films du monde,,true,T2,0.74,cahiers,{},"100 most beautiful films of all time compiled by ~78 French directors, critics and figures",,
+canon,wga-101-screenplays,WGA: 101 Greatest Screenplays,,true,T3,0.62,wga,"{""subtype"":""craft""}",Greatest film screenplays as voted by WGA members; The Godfather #1,,
+national,national-jp-kinema-junpo-alltime,Kinema Junpo All-Time Best Japanese Films,,false,T2,0.82,kinema-junpo,"{""year"":2009}",Critics/industry poll ranking the greatest Japanese films of all time (Top 199; earlier 1995/1999),jp,
+national,national-tw-golden-horse-100,Golden Horse 100 Greatest Chinese-Language Films,,false,T2,0.80,golden-horse,"{""year"":2011,""region"":""chinese-language""}",122 professionals across Taiwan/HK/China; topped by A City of Sadness,,
+national,national-it-100-da-salvare,100 film italiani da salvare,,false,T2,0.74,venice-days,"{""year"":2008}",100 Italian films (1942-1978) that shaped national memory; curated at Venice Days,it,
+national,national-de-wichtigste,Die wichtigsten deutschen Filme,,false,T2,0.76,kinematheksverbund,"{""year"":1995}",Canon of the most important German films by the German Cinematheque Association,de,
+national,national-es-caiman-100,Caimán: 100 mejores películas del cine español,,false,T2,0.80,caiman,"{""year"":2016}",350 critics/specialists ranked the 100 best Spanish films; topped by Viridiana,es,
+national,national-se-flm,FLM best Swedish films,,false,T2,0.72,flm,"{""year"":2022}",72 critics/scholars ranking the best Swedish films; topped by Körkarlen,se,
+national,national-pl-najlepsze,Najlepsze filmy polskie,,false,T3,0.60,polish-critics,{},Canon of greatest Polish films; no single definitive edition confirmed (review),pl,
+national,national-dk-best,Danish best films (DFI/Politiken),,false,T3,0.56,dfi,{},Canon of best Danish films; specific DFI/Politiken edition not confirmed (review),dk,
+national,national-mx-somos-100,Somos: 100 mejores del cine mexicano,,false,T2,0.76,somos,"{""year"":1994}",25 specialists selected the 100 best Mexican films for the magazine's 100th issue,mx,
+national,national-br-abraccine-100,Abraccine: 100 melhores filmes brasileiros,,false,T2,0.78,abraccine,"{""year"":2015}",~100 Brazilian critics ranked the 100 best Brazilian films; topped by Limite,br,
+national,national-ar-encuesta,Museo del Cine Encuesta de Cine Argentino,,false,T2,0.78,museo-del-cine,"{""year"":2022}",[HIDDEN pending verification] Museo del Cine Encuesta de Cine Argentino 2022 — PARTIAL: only reliable top ~28 of 100 captured,ar,
+national,national-ca-tiff-top-ten,TIFF Canada's All-Time Top Ten,,false,T2,0.78,tiff,"{""year"":2015}",Decennial poll of 220 critics/programmers; topped by Atanarjuat,ca,
+national,national-au-best,Australian Critics' 21st-Century Top 25 (2018),,false,T3,0.58,au-critics,{},"Poll of 51 Australian film critics — best Australian films of the 21st century, 2018",au,
+national,national-kr-cine21-21c,Cine21 Best Korean Films of 2020,,false,T3,0.62,cine21,{},Cine21 critics/filmmakers year-end poll — best Korean films of 2020 (annual top 10; NOT a 21st-century canon),kr,
+national,national-jp-kinema-junpo-2000s,Kinema Junpo Best of the 2000s,,false,T3,0.62,kinema-junpo,{},Kinema Junpo critics poll — best Japanese & foreign films of the 2000s decade (2020),jp,
+national,national-es-caiman-21c-50,Caimán 50 mejores del siglo XXI,,false,T3,0.60,caiman,{},Caimán best of the 21st century; specific 2021 edition not confirmed (review),es,
+national,national-ro-rfca-decade,Romanian Critics All-Time Top 10 (2008),,false,T3,0.56,rfca,{},"Romanian Filmmakers Union & Film Critics Association all-time best Romanian films poll, 2008 (topped by The Reenactment)",ro,
+national,national-us-indiewire-decade,IndieWire Best Films of the Decade,,false,T3,0.64,indiewire,"{""year"":2019}",250 critics/programmers/filmmakers named 100 best films of the 2010s,us,
+section,berlin-forum,Forum (Internationales Forum des Jungen Films),berlin,true,T3,0.60,wikipedia,{},"Non-competitive avant-garde, essay and experimental sidebar of the Berlinale since 1971",,S1
+section,nyff-main-slate,NYFF Main Slate,new-york,true,T2,0.74,wikipedia,{},"Principal program of the New York Film Festival, ~25-30 feature-length films",,S1
+section,nyff-currents,NYFF Currents,new-york,true,T3,0.62,wikipedia,{},"NYFF section for new and innovative narrative, documentary and experimental forms",,S1
+section,tiff-wavelengths,TIFF Wavelengths,toronto,true,T3,0.60,wikipedia,{},Curated avant-garde/experimental showcase of artist film and video at TIFF,,S2
+section,tiff-platform,TIFF Platform,toronto,true,T3,0.64,wikipedia,{},Juried director's-cinema competition at TIFF since 2015; winner receives the Platform Prize,,S2
+section,locarno-concorso-internazionale,Concorso Internazionale,locarno,true,T2,0.74,wikipedia,{},Main international competition of Locarno; top prize the Pardo d'Oro (Golden Leopard),,S2
+section,locarno-cineasti-del-presente,Concorso Cineasti del Presente,locarno,true,T3,0.62,wikipedia,{},Locarno competition for first and second feature films,,S2
+section,sundance-world-cinema-dramatic,World Cinema Dramatic Competition,sundance,true,T2,0.70,wikipedia,{},Sundance competition for international narrative feature films,,S2
+section,sundance-next,NEXT,sundance,true,T3,0.60,wikipedia,{},Sundance section for bold innovative storytelling; awards the NEXT Innovator Award,,S2
+festival,bafici,Buenos Aires International Festival of Independent Cinema,,false,T3,0.62,wikidata,"{""wikidata"":""Q4985536""}","Argentina's foremost independent film festival, in Buenos Aires since 1999",,S3
+award,bafici-international-competition,International Competition,bafici,true,T3,0.60,wikipedia,{},BAFICI's principal competitive section for first/second/third features; awards Best Film,,S3
+festival,fespaco,Panafrican Film and Television Festival of Ouagadougou,,false,T3,0.64,wikidata,"{""wikidata"":""Q1202380""}","Largest African film festival, held biennially in Ouagadougou since 1969",,S3
+award,fespaco-etalon-yennenga,Étalon d'Or de Yennenga,fespaco,true,T3,0.64,wikipedia,{},FESPACO's top prize (Golden Stallion of Yennenga) for the best African feature,,S3
+festival,idfa,International Documentary Film Festival Amsterdam,,false,T3,0.66,wikidata,"{""wikidata"":""Q1666506"",""subtype"":""documentary""}","World's largest documentary film festival, in Amsterdam since 1988",,S4
+award,idfa-best-film,Best Film International Competition,idfa,true,T3,0.64,wikipedia,"{""subtype"":""documentary""}",IDFA's main prize for best film in the International Competition,,S4
+festival,cph-dox,CPH:DOX,,false,T3,0.62,wikidata,"{""wikidata"":""Q5168483"",""subtype"":""documentary""}","Copenhagen International Documentary Film Festival, leading doc festival since 2003",,S4
+award,cph-dox-dox-award,DOX:AWARD,cph-dox,true,T3,0.60,wikipedia,"{""subtype"":""documentary""}",CPH:DOX's flagship main competition prize for feature documentaries,,S4
+festival,il-cinema-ritrovato,Il Cinema Ritrovato,,false,T3,0.58,wikidata,"{""wikidata"":""Q2250346"",""subtype"":""restoration""}",Annual classic-cinema and restoration festival by Cineteca di Bologna since 1986,,S4
+festival,annecy,Annecy International Animation Film Festival,,false,T3,0.62,wikidata,"{""wikidata"":""Q1408677"",""subtype"":""animation""}","Premier international animation film festival, in Annecy France since 1960",,S4
+award,annecy-cristal-feature,Cristal for Best Feature,annecy,true,T3,0.62,wikipedia,"{""subtype"":""animation""}",Annecy's top prize for best animated feature (the Cristal since 2003),,S4
+movement,cinema-of-attractions,Cinema of Attractions,,false,T3,0.58,wikidata,"{""period"":""1895-1906"",""wikidata"":""Q1811653""}",Gunning/Gaudreault's term for early exhibitionist cinema of spectacle and direct address,,
+movement,brighton-school,Brighton School,,false,T3,0.55,wikidata,"{""period"":""1896-1910"",""wikidata"":""Q2251066""}","Pioneering British filmmakers (Smith, Williamson) experimenting with close-ups and continuity",,
+movement,kammerspielfilm,Kammerspielfilm,,false,T3,0.60,wikidata,"{""period"":""1921-1924"",""wikidata"":""Q1502766""}",Intimate German silent chamber-drama reacting against Expressionist spectacle,,
+movement,cinema-pur,Cinema Pur,,false,T3,0.57,wikidata,"{""period"":""1921-1931"",""wikidata"":""Q2742446""}",Paris avant-garde seeking pure cinema of motion and rhythm freed from narrative,,
+movement,classical-hollywood,Classical Hollywood,,false,T2,0.72,wikidata,"{""period"":""1917-1960"",""wikidata"":""Q2166646""}","Dominant studio-system style of American filmmaking; continuity editing, invisible form",,
+movement,japanese-golden-age,Japanese Golden Age,,false,T2,0.70,,"{""period"":""1950-1960""}","Peak of postwar Japanese studio cinema (Kurosawa, Ozu, Mizoguchi)",,
+movement,polish-school,Polish Film School,,false,T3,0.62,wikidata,"{""period"":""1956-1963"",""wikidata"":""Q719868""}","Postwar Polish movement (Wajda, Munk) confronting WWII trauma after the 1956 thaw",,
+movement,yugoslav-black-wave,Yugoslav Black Wave,,false,T3,0.60,wikidata,"{""period"":""1963-1972"",""wikidata"":""Q2330738""}","Polemical Yugoslav movement (Makavejev, Pavlovic, Zilnik) critiquing socialist society",,
+movement,imperfect-cinema,Imperfect Cinema,,false,T3,0.56,,"{""period"":""1969-1979""}",Cuban tendency (Garcia Espinosa 1969 manifesto) valuing urgent low-budget cinema,,
+movement,chinese-fifth-generation,Chinese Fifth Generation,,false,T2,0.70,wikidata,"{""period"":""1983-1993"",""wikidata"":""Q11818799""}","Post-Mao Beijing Film Academy directors (Zhang Yimou, Chen Kaige) of bold visual allegory",,
+movement,chinese-sixth-generation,Chinese Sixth Generation,,false,T3,0.64,wikidata,"{""period"":""1990-2005"",""wikidata"":""Q95875016""}","Independent underground 1990s directors (Jia Zhangke, Lou Ye) of documentary urban realism",,
+movement,greek-weird-wave,Greek Weird Wave,,false,T2,0.70,wikidata,"{""period"":""2009-2015"",""wikidata"":""Q62086465""}","Late-2000s Greek absurdist deadpan films (Lanthimos, Tsangari) amid economic crisis",,
+movement,new-argentine-cinema,New Argentine Cinema,,false,T2,0.70,wikidata,"{""period"":""1995-2010"",""wikidata"":""Q2843729""}",Mid-1990s Argentine renewal of long takes and observational realism,,
+movement,no-wave-cinema,No Wave Cinema,,false,T3,0.58,,"{""period"":""1976-1985""}",Lower East Side guerrilla Super-8 movement of raw immediacy; seeded Cinema of Transgression,,
+movement,structural-materialist-film,Structural/Materialist Film,,false,T3,0.57,wikidata,"{""period"":""1966-1979"",""wikidata"":""Q2973217""}","Avant-garde foregrounding film's material/formal properties (Gidal, Le Grice)",,
+movement,expanded-cinema,Expanded Cinema,,false,T3,0.57,wikidata,"{""period"":""1965-1975"",""wikidata"":""Q471920""}",1960s multimedia practice extending cinema beyond the single screen (Youngblood 1970),,
+movement,zanzibar-group,Zanzibar Group,,false,T3,0.53,wikidata,"{""period"":""1968-1970"",""wikidata"":""Q15408735""}","Radical post-May-1968 French collective (Garrel, Raynal) of scriptless 35mm films",,
+movement,new-american-cinema-underground,New American Cinema (Underground),,false,T3,0.62,wikidata,"{""period"":""1960-1970"",""wikidata"":""Q16582085""}",NY avant-garde crystallized by Mekas's 1960 New American Cinema Group manifesto,,
+movement,essay-film,Essay Film,,false,T2,0.70,wikidata,"{""period"":""1958-2000"",""wikidata"":""Q11356864""}","Reflective form between doc and fiction (Marker, Resnais, Varda, Godard)",,
+movement,sensory-ethnography-lab,Sensory Ethnography Lab,,false,T3,0.55,wikidata,"{""period"":""2006-2020"",""wikidata"":""Q7451113""}",Harvard lab (Castaing-Taylor) of immersive non-verbal observational documentary,,
+movement,desktop-documentary,Desktop Documentary,,false,T3,0.54,,"{""period"":""2014-2024""}",Screen-capture nonfiction form (Kevin B. Lee 2014) using the desktop as camera and canvas,,
+movement,film-noir,Film Noir,,false,T2,0.72,wikidata,"{""period"":""1940-1958"",""wikidata"":""Q185867"",""subtype"":""genre-cycle""}","Classic Hollywood crime cycle of cynicism, chiaroscuro and hardboiled fatalism",,
+movement,spaghetti-western,Spaghetti Western,,false,T2,0.70,wikidata,"{""period"":""1964-1978"",""wikidata"":""Q212781"",""subtype"":""genre-cycle""}",European (Italian) Western cycle launched by Leone's stylized violence and Morricone scores,,
+movement,giallo,Giallo,,false,T2,0.70,,"{""period"":""1963-1979"",""subtype"":""genre-cycle""}","Italian murder-mystery cycle (Bava, Argento) of lurid color and black-gloved killers",,
+movement,pinku-eiga,Pinku Eiga,,false,T3,0.58,wikidata,"{""period"":""1962-1985"",""wikidata"":""Q1194365"",""subtype"":""genre-cycle""}",Japanese low-budget erotic feature cycle that also enabled formal/political experimentation,,
+movement,elevated-horror,Elevated Horror,,false,T3,0.60,wikidata,"{""period"":""2014-2024"",""wikidata"":""Q97191621"",""subtype"":""genre-cycle""}",2010s arthouse horror (often A24) foregrounding grief and dread; contested 'post-horror',,
+style,style-minimalism,Minimalism,,false,,0.48,,"{""subtype"":""aesthetic""}","Pared-down aesthetic of restraint, sparse mise-en-scene and elliptical narration",,
+style,style-long-take,Long Take,,false,,0.50,,"{""subtype"":""aesthetic""}",Sustained unbroken shots preserving real time and spatial continuity,,
+style,style-female-gaze,Female Gaze,,false,,0.46,,"{""subtype"":""aesthetic""}",Mode of looking centering female subjectivity and embodied experience,,
+style,style-magic-realism,Magic Realism,,false,,0.48,,"{""subtype"":""aesthetic""}",Fantastical elements presented matter-of-factly within an otherwise realistic world,,
+style,style-tableau-cinema,Tableau Cinema,,false,,0.45,,"{""subtype"":""aesthetic""}",Static painterly frontal tableau shots emphasizing depth staging over editing,,
+style,style-deadpan,Deadpan,,false,,0.46,,"{""subtype"":""aesthetic""}",Flat affectless performance where absurdity is played with impassive seriousness,,
+style,style-transcendental-style,Transcendental Style,,false,,0.50,,"{""subtype"":""aesthetic""}","Schrader's term for austere contemplative form (Ozu, Bresson, Dreyer)",,
+style,style-genre-bending,Genre-Bending,,false,,0.44,,"{""subtype"":""aesthetic""}","Deliberate mixing, subversion or hybridization of genre conventions",,
+style,style-hyperlink-narrative,Hyperlink Narrative,,false,,0.46,,"{""subtype"":""aesthetic""}",Multi-strand storytelling connecting dispersed characters through chance or theme,,
+style,style-meta-cinema,Meta-Cinema,,false,,0.46,,"{""subtype"":""aesthetic""}","Self-reflexive aesthetic foregrounding filmmaking, spectatorship or the medium's artifice",,
+style,style-docufiction,Docufiction,,false,,0.48,,"{""subtype"":""aesthetic""}","Hybrid blending documentary and fictional methods, real settings and non-actors",,
+style,style-bressonian,Bressonian,,false,,0.50,,"{""subtype"":""auteur-adjective"",""namesake"":""Robert Bresson""}","After Bresson: non-professional models, fragmented gestures, spiritual restraint",,
+style,style-lynchian,Lynchian,,false,,0.52,,"{""subtype"":""auteur-adjective"",""namesake"":""David Lynch""}",After Lynch: uncanny surreal dread juxtaposed with mundane Americana,,
+style,style-tarkovskian,Tarkovskian,,false,,0.50,,"{""subtype"":""auteur-adjective"",""namesake"":""Andrei Tarkovsky""}","After Tarkovsky: slow contemplative long takes, sculpted time, elemental imagery",,
+style,style-ozu-esque,Ozu-esque,,false,,0.48,,"{""subtype"":""auteur-adjective"",""namesake"":""Yasujiro Ozu""}","After Ozu: tatami-level static camera, geometric framing, pillow shots",,

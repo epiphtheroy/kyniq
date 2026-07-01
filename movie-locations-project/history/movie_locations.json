@@ -1,0 +1,1797 @@
+{
+  "sources": {
+    "movieloc": "movie-locations.com (rephrased facts)",
+    "wikidata": "Wikidata P915 (CC0)"
+  },
+  "extraction_policy": "Objective facts only. Descriptive fields (scene_role) are 100% rephrased into neutral logical wording - the site's original sentences are never copied. fictional_name = in-film name (empty if the place plays itself); real_name = actual venue. Proper nouns (names, addresses) kept accurate. | 멀티소스 스키마(coordinates, sources 추가).",
+  "note_wikidata": "이 파일은 --source movieloc 결과(새 스키마). Wikidata 병합은 본인 환경에서 --source both로 실행.",
+  "movie_count": 10,
+  "movies": [
+    {
+      "title": "Heat",
+      "year": 1995,
+      "directors": [
+        "Michael Mann"
+      ],
+      "cast": [
+        "Robert De Niro",
+        "Al Pacino",
+        "Val Kilmer",
+        "Amy Brenneman",
+        "Jon Voight",
+        "Tom Sizemore",
+        "Wes Studi",
+        "Diane Venora",
+        "Dennis Haysbert",
+        "Natalie Portman",
+        "William Fichtner",
+        "Ashley Judd"
+      ],
+      "regions": [
+        "Los Angeles, California, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/h/Heat.php",
+      "locations": [
+        {
+          "fictional_name": "",
+          "real_name": "Marine-Redondo Station (Metro C Line)",
+          "scene_role": "Opening-credits rail arrival of the lead criminal",
+          "address": "2406 Marine Avenue",
+          "area": "Redondo Beach, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "St Mary Medical Center",
+          "scene_role": "Hospital from which an ambulance is stolen",
+          "address": "1050 Linden Avenue",
+          "area": "Long Beach",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Arizona",
+          "real_name": "Whittier",
+          "scene_role": "Stands in for the state where a crew member buys explosives",
+          "address": "",
+          "area": "Whittier, Los Angeles County",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Venice Boulevard beneath the I-10 / I-110 interchange",
+          "scene_role": "Site of the armoured-car bearer-bond robbery",
+          "address": "Venice Boulevard, Downtown",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Johnie's Broiler (rebuilt as Bob's Big Boy Broiler)",
+          "scene_role": "Diner clash between the crew leader and a rogue accomplice",
+          "address": "7447 Firestone Boulevard",
+          "area": "Downey",
+          "status": "rebuilt",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Hennessey and Ingalls bookstore",
+          "scene_role": "Bookshop where the lead buys a metallurgy book",
+          "address": "1254 Third Street Promenade",
+          "area": "Santa Monica",
+          "status": "closed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Broadway Deli (now Lululemon Athletica)",
+          "scene_role": "Restaurant where the love interest first approaches the lead",
+          "address": "1457 Third Street",
+          "area": "Santa Monica",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Zen Zero (now Ivy at the Shore)",
+          "scene_role": "Seafront restaurant placed under police surveillance",
+          "address": "1535 Ocean Avenue",
+          "area": "Santa Monica",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Centinela Drive-In",
+          "scene_role": "Abandoned drive-in set up for a double-cross",
+          "address": "5700 West Centinela Avenue",
+          "area": "Inglewood",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Factory Place (off South Alameda Street)",
+          "scene_role": "Industrial site of the aborted metals-depot robbery",
+          "address": "Factory Place, Arts District",
+          "area": "Downtown Los Angeles",
+          "status": "partly redeveloped",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Kate Mantilini restaurant",
+          "scene_role": "Upscale diner of the detective-criminal face-off",
+          "address": "9101 Wilshire Boulevard",
+          "area": "Beverly Hills",
+          "status": "closed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Bob's Big Boy",
+          "scene_role": "Burger restaurant where a getaway driver is recruited",
+          "address": "4211 West Riverside Drive",
+          "area": "Burbank",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "a bank",
+          "real_name": "444 South Flower Street office tower",
+          "scene_role": "Forecourt staged as the climactic bank robbery",
+          "address": "444 South Flower Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "West Fifth Street",
+          "scene_role": "Streets of the post-robbery gun battle",
+          "address": "West Fifth Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Union Bank Plaza",
+          "scene_role": "Elevated plaza where a gunman takes a child hostage",
+          "address": "Fourth & Figueroa Streets",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "The Blue Room bar",
+          "scene_role": "Bar from which the lead phones his fence",
+          "address": "916 South San Fernando Road",
+          "area": "Burbank",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Hotel Angeleno (former Holiday Inn)",
+          "scene_role": "Hotel the detective moves into after his marriage fails",
+          "address": "170 North Church Lane",
+          "area": "Brentwood, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Beachfront house on Ocean Front Walk",
+          "scene_role": "Police safe house holding a suspect's wife",
+          "address": "117-119 Ocean Front Walk",
+          "area": "Venice Beach",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Airport Marriott",
+          "real_name": "Hilton Los Angeles Airport",
+          "scene_role": "Airport hotel of the final confrontation",
+          "address": "5711 West Century Boulevard",
+          "area": "Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "The Godfather",
+      "year": 1972,
+      "directors": [
+        "Francis Ford Coppola"
+      ],
+      "cast": [
+        "Marlon Brando",
+        "Al Pacino",
+        "James Caan",
+        "Diane Keaton",
+        "Robert Duvall",
+        "Talia Shire",
+        "John Cazale",
+        "Richard Conte",
+        "Al Lettieri",
+        "Alex Rocco"
+      ],
+      "regions": [
+        "New York, USA",
+        "Los Angeles, California, USA",
+        "Nevada, USA",
+        "Sicily, Italy"
+      ],
+      "source_url": "https://movie-locations.com/movies/g/Godfather.php",
+      "locations": [
+        {
+          "fictional_name": "",
+          "real_name": "Filmways Studios",
+          "scene_role": "Interior sound stages for the production",
+          "address": "246 East 127th Street",
+          "area": "East Harlem, New York",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Corleone compound ('Long Island')",
+          "real_name": "Private house, Emerson Hill",
+          "scene_role": "Family mansion and opening wedding",
+          "address": "110 Longfellow Avenue",
+          "area": "Staten Island, New York",
+          "status": "active (private home)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Grauman's Chinese Theatre",
+          "scene_role": "Landmark in a newsreel-style Hollywood shot",
+          "address": "6925 Hollywood Boulevard",
+          "area": "Hollywood, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Woltz International Pictures",
+          "real_name": "Paramount Pictures lot (Gower Street gate)",
+          "scene_role": "Studio gate the family lawyer enters",
+          "address": "Gower Street",
+          "area": "Hollywood, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Woltz's West Coast villa (bedroom)",
+          "real_name": "Falaise, Sands Point Preserve",
+          "scene_role": "Bedroom where the severed horse's head is found",
+          "address": "127 Middle Neck Road",
+          "area": "Long Island, New York",
+          "status": "active (museum)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Woltz's villa (grounds)",
+          "real_name": "Beverly Hills estate",
+          "scene_role": "Grounds of the film mogul's mansion",
+          "address": "1011 North Beverly Drive",
+          "area": "Beverly Hills, Los Angeles",
+          "status": "active (private)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "St Regis Hotel (now St Regis New York)",
+          "scene_role": "Manhattan hotel where the couple stay",
+          "address": "2 East 55th Street",
+          "area": "Midtown, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Best & Co department store",
+          "scene_role": "Store of the couple's Christmas shopping",
+          "address": "Fifth Avenue between 51st & 52nd Streets",
+          "area": "New York",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Polk's Hobby Shop",
+          "scene_role": "Toy shop where the lawyer is abducted while buying gifts",
+          "address": "314 Fifth Avenue",
+          "area": "New York",
+          "status": "gone",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Edison Hotel",
+          "scene_role": "Bar where an enforcer is lured to a meeting",
+          "address": "228 West 47th Street",
+          "area": "New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Hotel St George bar",
+          "scene_role": "Bar interior of the enforcer's garroting",
+          "address": "100 Henry Street",
+          "area": "Brooklyn Heights",
+          "status": "repurposed (housing)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Genco Olive Oil ('Mulberry Street')",
+          "real_name": "Mietz Building",
+          "scene_role": "Family olive-oil office; the don is shot just outside",
+          "address": "128 Mott Street",
+          "area": "Little Italy, New York",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Grocery store at 137 Mott Street",
+          "scene_role": "Fruit stand where the don buys oranges before the shooting",
+          "address": "137 Mott Street",
+          "area": "Little Italy, New York",
+          "status": "active (grocery)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Radio City Music Hall",
+          "scene_role": "Cinema where the couple learn of the shooting",
+          "address": "1260 Avenue of the Americas",
+          "area": "New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Lincoln Medical Center",
+          "scene_role": "Hospital exterior",
+          "address": "234 East 149th Street",
+          "area": "Bronx, New York",
+          "status": "rebuilt",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "New York Eye and Ear Infirmary",
+          "scene_role": "Hospital interior",
+          "address": "310 East 14th Street",
+          "area": "East Village, New York",
+          "status": "rebuilt",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Queensboro Bridge",
+          "scene_role": "Bridge of the decoy U-turn",
+          "address": "Queensboro Bridge",
+          "area": "New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Louis' Restaurant",
+          "real_name": "Former Luna restaurant (now SRM Fabric & Yarn)",
+          "scene_role": "Restaurant of the double assassination",
+          "address": "3531 White Plains Road",
+          "area": "Bronx, New York",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Corleone (Sicily)",
+          "real_name": "Forza d'Agro and Savoca",
+          "scene_role": "Villages standing in for the ancestral town",
+          "address": "near Taormina",
+          "area": "Sicily, Italy",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Bar Vitelli and Chiesa di Santa Lucia, Savoca",
+          "scene_role": "Tavern and church of the Sicilian courtship and wedding",
+          "address": "Savoca",
+          "area": "Sicily, Italy",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Michael's Sicilian villa",
+          "real_name": "Castello degli Schiavi",
+          "scene_role": "Villa where the car bombing occurs",
+          "address": "near Fiumefreddo",
+          "area": "Sicily, Italy",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Corner of 118th Street & Pleasant Avenue",
+          "scene_role": "Street where the eldest son beats his brother-in-law",
+          "address": "118th Street & Pleasant Avenue",
+          "area": "East Harlem, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Jones Beach Causeway tollbooths",
+          "real_name": "Floyd Bennett Field (former airfield)",
+          "scene_role": "Tollbooth ambush killing of the eldest son",
+          "address": "Flatbush Avenue",
+          "area": "Brooklyn, New York",
+          "status": "active (park)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Bellevue Hospital morgue",
+          "scene_role": "Morgue used as the undertaker's parlour",
+          "address": "First Avenue at East 29th Street",
+          "area": "Gramercy, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Boardroom above Grand Central (Penn Central Railroad)",
+          "scene_role": "Boardroom of the Five Families summit",
+          "address": "42nd Street & Park Avenue",
+          "area": "New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Tropicana",
+          "scene_role": "Casino of the family's Las Vegas venture",
+          "address": "3801 Las Vegas Boulevard South",
+          "area": "Las Vegas, Nevada",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "First Calvary Cemetery",
+          "scene_role": "Cemetery of the don's funeral",
+          "address": "Greenpoint Avenue",
+          "area": "Queens, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "McBurney YMCA",
+          "scene_role": "Steam room where a casino boss is shot",
+          "address": "215 West 23rd Street",
+          "area": "New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "New York County Courthouse",
+          "scene_role": "Courthouse steps of a rival boss's assassination",
+          "address": "60 Centre Street",
+          "area": "Lower Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Old St Patrick's Cathedral",
+          "scene_role": "Church interior of the climactic christening",
+          "address": "264 Mulberry Street",
+          "area": "Little Italy, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Mission of the Immaculate Virgin",
+          "scene_role": "Church exterior for the christening",
+          "address": "Hylan Boulevard, Mount Loretto",
+          "area": "Staten Island, New York",
+          "status": "rebuilt",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Jaws",
+      "year": 1975,
+      "directors": [
+        "Steven Spielberg"
+      ],
+      "cast": [
+        "Roy Scheider",
+        "Robert Shaw",
+        "Richard Dreyfuss",
+        "Murray Hamilton"
+      ],
+      "regions": [
+        "Martha's Vineyard, Massachusetts, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/j/Jaws.php",
+      "locations": [
+        {
+          "fictional_name": "Amity Island town center",
+          "real_name": "Edgartown",
+          "scene_role": "Town center where the police chief gathers sign materials",
+          "address": "Water Street & Main Street",
+          "area": "Edgartown, Martha's Vineyard",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Chappaquiddick Island Ferry",
+          "scene_role": "Ferry landing of the mayor's quiet warning",
+          "address": "Daggett Street",
+          "area": "Edgartown, Martha's Vineyard",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Amity beach",
+          "real_name": "Joseph A Sylvia State Beach",
+          "scene_role": "Public beach of the first daylight shark attack",
+          "address": "between Edgartown and Oak Bluffs",
+          "area": "Martha's Vineyard",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "American Legion Memorial Bridge & Sengekontacket Pond",
+          "scene_role": "Bridge and inlet of the second attack ('Jaws bridge')",
+          "address": "coast road north of Edgartown",
+          "area": "Martha's Vineyard",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Menemsha Harbor",
+          "scene_role": "Fishing harbor of the shark hunter's shed and the boat's departure",
+          "address": "515 North Road",
+          "area": "Menemsha, Martha's Vineyard",
+          "status": "active (set removed)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Swimming pool of editor Verna Fields",
+          "scene_role": "Pool where the severed-head jump-scare was shot",
+          "address": "",
+          "area": "Los Angeles, California",
+          "status": "n/a",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "directors": [
+        "Ridley Scott"
+      ],
+      "cast": [
+        "Russell Crowe",
+        "Joaquin Phoenix",
+        "Oliver Reed",
+        "Connie Nielsen",
+        "Richard Harris",
+        "Derek Jacobi",
+        "Djimon Hounsou"
+      ],
+      "regions": [
+        "Morocco",
+        "Malta",
+        "Surrey, United Kingdom"
+      ],
+      "source_url": "https://movie-locations.com/movies/g/Gladiator.php",
+      "locations": [
+        {
+          "fictional_name": "Germania (opening battlefield)",
+          "real_name": "Bourne Wood",
+          "scene_role": "Forest battlefield of the opening campaign",
+          "address": "near Farnham (off Tilford Road)",
+          "area": "Surrey, United Kingdom",
+          "status": "active (forest)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "North African town and provincial arena",
+          "real_name": "Ait Ben Haddou (ksar / UNESCO site)",
+          "scene_role": "Desert town and first arena where the hero is enslaved",
+          "address": "near Ouarzazate",
+          "area": "Morocco",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Rome (the Colosseum)",
+          "real_name": "Fort Ricasoli",
+          "scene_role": "Fortress on which the Roman arena set was built",
+          "address": "Kalkara",
+          "area": "Malta",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "The Matrix",
+      "year": 1999,
+      "directors": [
+        "Lilly Wachowski",
+        "Lana Wachowski"
+      ],
+      "cast": [
+        "Keanu Reeves",
+        "Carrie-Anne Moss",
+        "Laurence Fishburne",
+        "Hugo Weaving",
+        "Joe Pantoliano"
+      ],
+      "regions": [
+        "Sydney, New South Wales, Australia"
+      ],
+      "source_url": "https://movie-locations.com/movies/m/Matrix.php",
+      "locations": [
+        {
+          "fictional_name": "",
+          "real_name": "Fox Studios, Moore Park",
+          "scene_role": "Sound stages for interior filming",
+          "address": "Lang Road",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "'Wells and Lake' phone box",
+          "real_name": "Underpass at Hickson Road and Towns Place",
+          "scene_role": "Street where the heroine dodges a truck at a phone box",
+          "address": "Hickson Road at Towns Place",
+          "area": "Sydney, NSW",
+          "status": "redeveloped",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Martin Place fountain",
+          "scene_role": "Plaza of the 'woman in red' training simulation",
+          "address": "Martin Place at Pitt Street",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Forty One Restaurant, Chifley Tower",
+          "scene_role": "Restaurant of the betrayer's deal with the agent",
+          "address": "2 Chifley Square",
+          "area": "Sydney, NSW",
+          "status": "closed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "old hotel ambush site",
+          "real_name": "Former General Post Office (now Westin Hotel)",
+          "scene_role": "Building where the team is ambushed after the 'deja vu' cat",
+          "address": "1 Martin Place",
+          "area": "Sydney, NSW",
+          "status": "active (hotel)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "government building",
+          "real_name": "Colonial State Bank Centre",
+          "scene_role": "Building where the mentor is held and interrogated",
+          "address": "52 Martin Place",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Aon Tower",
+          "scene_role": "Rooftop of the helicopter take-off",
+          "address": "201 Kent Street",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "AWA Building",
+          "scene_role": "Tower the helicopter passes",
+          "address": "47 York Street",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Allianz Building (former MMI Centre)",
+          "scene_role": "Rooftop where the heroes land",
+          "address": "2 Market Street",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "BT Tower",
+          "scene_role": "Tower the helicopter crashes into",
+          "address": "1 Market Street",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "subway station",
+          "real_name": "Disused Glebe Island Silos rail track",
+          "scene_role": "Track standing in for the subway duel",
+          "address": "White Bay",
+          "area": "Sydney, NSW",
+          "status": "disused",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Phone box at Pitt and Hunter Streets",
+          "scene_role": "Phone box of the closing call",
+          "address": "Pitt & Hunter Streets",
+          "area": "Sydney, NSW",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Vertigo",
+      "year": 1958,
+      "directors": [
+        "Alfred Hitchcock"
+      ],
+      "cast": [
+        "James Stewart",
+        "Kim Novak",
+        "Barbara Bel Geddes",
+        "Tom Helmore",
+        "Henry Jones"
+      ],
+      "regions": [
+        "San Francisco, California, USA",
+        "Northern California, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/v/Vertigo.php",
+      "locations": [
+        {
+          "fictional_name": "Ernie's restaurant",
+          "real_name": "Site of Ernie's restaurant",
+          "scene_role": "Restaurant where the lead first sees the woman he must follow",
+          "address": "847 Montgomery Street",
+          "area": "Financial District, San Francisco, CA 94133",
+          "status": "closed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Elster's apartment block",
+          "real_name": "Brocklebank Apartments",
+          "scene_role": "Apartment building where the surveillance begins",
+          "address": "1000 Mason Street",
+          "area": "Nob Hill, San Francisco, CA 94108",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Claude Lane",
+          "scene_role": "Alley the woman slips into while being followed",
+          "address": "Claude Lane off Sutter Street",
+          "area": "Financial District, San Francisco, CA 94108",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "the flower shop",
+          "real_name": "Former Podesta Baldocchi florist (now 7 For All Mankind)",
+          "scene_role": "Florist the woman secretly visits",
+          "address": "224 Grant Avenue",
+          "area": "Financial District, San Francisco, CA 94108",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Palace of the Legion of Honor",
+          "scene_role": "Gallery where the woman fixates on a portrait",
+          "address": "Legion of Honor Drive",
+          "area": "Lincoln Park, San Francisco, CA 94121",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Mission Dolores",
+          "scene_role": "Mission cemetery the woman visits",
+          "address": "320 Dolores Street at Sixteenth Street",
+          "area": "Mission District, San Francisco",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Fort Point",
+          "scene_role": "Seawall of the staged plunge into the bay",
+          "address": "Long Avenue & Marine Drive",
+          "area": "San Francisco, CA 94129",
+          "status": "active (museum)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Scottie's apartment",
+          "real_name": "Private house on Lombard Street",
+          "scene_role": "The protagonist's home",
+          "address": "900 Lombard Street",
+          "area": "Russian Hill, San Francisco, CA 94133",
+          "status": "active (altered)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "the sanatorium",
+          "real_name": "Private residence on Buena Vista Avenue East",
+          "scene_role": "Building used as the recovery sanatorium",
+          "address": "351 Buena Vista Avenue East",
+          "area": "The Castro, San Francisco, CA 94117",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Hotel Empire",
+          "real_name": "Hotel Vertigo (former York Hotel)",
+          "scene_role": "Hotel where the lookalike woman lodges",
+          "address": "940 Sutter Street",
+          "area": "Lower Nob Hill, San Francisco, CA 94109",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Palace of Fine Arts",
+          "scene_role": "Colonnade where the couple stroll",
+          "address": "3601 Lyon Street",
+          "area": "Marina District, San Francisco, CA 94123",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Ransohoff's store",
+          "real_name": "Former Ransohoff's fashion store",
+          "scene_role": "Shop where the lead re-dresses the woman",
+          "address": "259 Post Street",
+          "area": "Union Square, San Francisco, CA 94108",
+          "status": "gone",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Muir Woods",
+          "real_name": "Big Basin Redwoods State Park",
+          "scene_role": "Redwood grove standing in for the named forest",
+          "address": "21600 Big Basin Way",
+          "area": "Boulder Creek, CA 95006",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Old Mission of San Juan Bautista",
+          "scene_role": "Mission of the vertigo-driven climax",
+          "address": "406 2nd Street",
+          "area": "San Juan Bautista, CA 95045",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Fight Club",
+      "year": 1999,
+      "directors": [
+        "David Fincher"
+      ],
+      "cast": [
+        "Edward Norton",
+        "Brad Pitt",
+        "Helena Bonham-Carter",
+        "Meatloaf",
+        "Jared Leto"
+      ],
+      "regions": [
+        "Los Angeles, California, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/f/Fight-Club.php",
+      "locations": [
+        {
+          "fictional_name": "Pearson Towers",
+          "real_name": "Promenade Towers",
+          "scene_role": "High-rise condo of the narrator",
+          "address": "123 South Figueroa Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "the 'Paper Street' house / Lou's Tavern",
+          "real_name": "Temporary set in the San Pedro harbour area",
+          "scene_role": "Derelict house and basement bar of the club",
+          "address": "San Pedro",
+          "area": "Los Angeles",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "St Francis Religious Center",
+          "real_name": "St Brendan's Church",
+          "scene_role": "Church hosting the support-group meetings",
+          "address": "310 South Van Ness Avenue",
+          "area": "Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Launderland (now Lavanderia Coin Laundry)",
+          "scene_role": "Laundromat where clothes are stolen",
+          "address": "4371 Melrose Avenue",
+          "area": "East Hollywood",
+          "status": "active (renamed)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Former Potter's florist (now Glamour Hair Studio)",
+          "scene_role": "Thrift store where the stolen clothes are sold",
+          "address": "4314 Melrose Avenue",
+          "area": "East Hollywood",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Pressman Hotel restaurant",
+          "real_name": "Millennium Biltmore Hotel (Emerald Ballroom)",
+          "scene_role": "Hotel restaurant of the kitchen-sabotage scene",
+          "address": "506 South Grand Avenue",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Bristol Hotel",
+          "scene_role": "Run-down hotel of the female lead's room",
+          "address": "423 West Eighth Street",
+          "area": "Downtown Los Angeles",
+          "status": "repurposed (housing)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "444 South Flower Street",
+          "scene_role": "Forecourt of the 'pick a fight with a stranger' task",
+          "address": "444 South Flower Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Lightning computer store",
+          "real_name": "Corner of West Sixth Street and Grand Avenue",
+          "scene_role": "Computer store destroyed by the group",
+          "address": "West Sixth Street at Grand Avenue",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "California Plaza",
+          "scene_role": "Plaza water feature of the corporate-art demolition",
+          "address": "350 South Grand Avenue",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "S&H Cleaners",
+          "scene_role": "Dry cleaner questioned on the trail of the alter ego",
+          "address": "511 South Spring Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Former Clifton's Silver Spoon Cafeteria",
+          "scene_role": "Cafeteria where the narrator warns the woman to leave",
+          "address": "515 West Seventh Street",
+          "area": "Downtown Los Angeles",
+          "status": "closed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Street frontage at 325 West Eighth Street",
+          "scene_role": "Frontage faked as the cafeteria exterior / bus stop",
+          "address": "325 West Eighth Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Die Hard",
+      "year": 1988,
+      "directors": [
+        "John McTiernan"
+      ],
+      "cast": [
+        "Bruce Willis",
+        "Alan Rickman",
+        "Bonnie Bedelia",
+        "William Atherton",
+        "Paul Gleason"
+      ],
+      "regions": [
+        "Los Angeles, California, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/d/Die-Hard.php",
+      "locations": [
+        {
+          "fictional_name": "Nakatomi Tower / Nakatomi Plaza",
+          "real_name": "Fox Plaza",
+          "scene_role": "Office skyscraper besieged by terrorists",
+          "address": "2121 Avenue of the Stars",
+          "area": "Century City, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Taxi Driver",
+      "year": 1976,
+      "directors": [
+        "Martin Scorsese"
+      ],
+      "cast": [
+        "Robert De Niro",
+        "Jodie Foster",
+        "Harvey Keitel",
+        "Cybill Shepherd",
+        "Peter Boyle",
+        "Albert Brooks"
+      ],
+      "regions": [
+        "New York, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/t/Taxi-Driver.php",
+      "locations": [
+        {
+          "fictional_name": "",
+          "real_name": "Former cab depot at 57th Street & 11th Avenue",
+          "scene_role": "Taxi company where the insomniac applies for night work",
+          "address": "57th Street at 11th Avenue",
+          "area": "Manhattan, New York",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Hotel Olcott",
+          "scene_role": "Hotel where a passenger is dropped off",
+          "address": "27 West 72nd Street",
+          "area": "Upper West Side, New York",
+          "status": "repurposed (residential)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Gray Line Visitor Center (former cinema canopy)",
+          "scene_role": "Old cinema canopy the lead walks past",
+          "address": "777 Eighth Avenue",
+          "area": "Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "'Show and Tell' adult theatre",
+          "real_name": "Former adult cinema (now Riu Plaza hotel)",
+          "scene_role": "Porn theatre the lead frequents",
+          "address": "735 Eighth Avenue",
+          "area": "Manhattan, New York",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Palantine campaign HQ",
+          "real_name": "Site now Bank of America Financial Center",
+          "scene_role": "Presidential campaign office",
+          "address": "Broadway at West 63rd Street",
+          "area": "Manhattan, New York",
+          "status": "redeveloped",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Charles Coffee Shop",
+          "real_name": "Former coffee shop (now Duane Reade)",
+          "scene_role": "Cafe of the lead's first date",
+          "address": "4 Columbus Circle",
+          "area": "Manhattan, New York",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Corner of Columbus Avenue & West 89th Street",
+          "scene_role": "Corner where the cab is pelted with eggs",
+          "address": "Columbus Avenue at West 89th Street",
+          "area": "Upper West Side, New York",
+          "status": "redeveloped",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Lyric Theatre",
+          "scene_role": "Theatre where the lead mistakenly takes his date to an adult film",
+          "address": "214 West 43rd Street",
+          "area": "Manhattan, New York",
+          "status": "active (live theatre)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Ed Sullivan Theater (side entrance)",
+          "scene_role": "Office entrance with the payphone of the rejection call",
+          "address": "1697 Broadway",
+          "area": "Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Former McAnn's Bar (now Muldoon's Irish Pub)",
+          "scene_role": "Bar where a disturbed passenger is collected",
+          "address": "692 Third Avenue",
+          "area": "Manhattan, New York",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Tudor City",
+          "scene_role": "Apartment block the passenger fixates on",
+          "address": "Tudor City Place at East 41st Street",
+          "area": "Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Belmore Cafeteria",
+          "scene_role": "Cabbies' diner where the lead confides dark thoughts",
+          "address": "Park Avenue South at 28th Street",
+          "area": "Manhattan, New York",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Corner of Fifth Avenue & 19th Street",
+          "scene_role": "Corner where the lead is collected to meet an arms dealer",
+          "address": "Fifth Avenue at 19th Street",
+          "area": "Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Apartment at 87 Columbia Heights",
+          "scene_role": "Apartment where the lead buys weapons",
+          "address": "87 Columbia Heights",
+          "area": "Brooklyn, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Pineapple Walk, Cadman Plaza West",
+          "scene_role": "Rally site where the lead speaks with a federal agent",
+          "address": "Cadman Plaza West",
+          "area": "Brooklyn, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "R&M Supermarket",
+          "real_name": "Grocery store at 546 Columbus Avenue",
+          "scene_role": "Store where the lead shoots an armed robber",
+          "address": "546 Columbus Avenue",
+          "area": "Upper West Side, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Seventh Avenue at 38th Street",
+          "scene_role": "Rally where the lead is moved along by police",
+          "address": "Seventh Avenue at 38th Street",
+          "area": "Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Building doorway at 204 East 13th Street",
+          "scene_role": "Doorway where the pimp loiters",
+          "address": "204 East 13th Street",
+          "area": "East Village, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "Iris's hotel",
+          "real_name": "Former hotel (now a private home)",
+          "scene_role": "Brothel hotel of the climactic shootout",
+          "address": "226 East 13th Street",
+          "area": "East Village, New York",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Columbus Circle",
+          "scene_role": "Rally the lead attends with a mohawk",
+          "address": "Columbus Circle",
+          "area": "Manhattan, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "St Regis Hotel",
+          "scene_role": "Hotel where the lead later picks up his former date",
+          "address": "2 East 55th Street",
+          "area": "Midtown, New York",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    },
+    {
+      "title": "Pretty Woman",
+      "year": 1990,
+      "directors": [
+        "Garry Marshall"
+      ],
+      "cast": [
+        "Julia Roberts",
+        "Richard Gere",
+        "Hector Elizondo",
+        "Jason Alexander",
+        "Ralph Bellamy",
+        "Laura San Giacomo"
+      ],
+      "regions": [
+        "Los Angeles, California, USA"
+      ],
+      "source_url": "https://movie-locations.com/movies/p/Pretty-Woman.php",
+      "locations": [
+        {
+          "fictional_name": "",
+          "real_name": "Bank of America Building (Four Arches plaza)",
+          "scene_role": "Office tower of the businessman's workplace",
+          "address": "333 South Hope Street at West 3rd Street",
+          "area": "Downtown Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Regent Beverly Wilshire",
+          "scene_role": "Luxury hotel at the centre of the romance",
+          "address": "9500 Wilshire Boulevard",
+          "area": "Beverly Hills, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Ambassador Hotel",
+          "scene_role": "Ballroom of the table-manners lesson",
+          "address": "3400 Wilshire Boulevard",
+          "area": "Mid-Wilshire, Los Angeles",
+          "status": "demolished",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Former Boulmiche Boutique (now Badgley Mischka)",
+          "scene_role": "Rodeo-area boutique where the lead is snubbed",
+          "address": "9501 Santa Monica Boulevard",
+          "area": "Beverly Hills, Los Angeles",
+          "status": "repurposed",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Former Rex II Ristorante (now Cicada), Oviatt Building",
+          "scene_role": "Restaurant of the escargot dinner",
+          "address": "617 South Olive Street",
+          "area": "Downtown Los Angeles",
+          "status": "active (renamed)",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "'San Francisco' opera house",
+          "real_name": "Natural History Museum of Los Angeles County",
+          "scene_role": "Building doubling for the opera-house exterior",
+          "address": "900 Exposition Boulevard, Exposition Park",
+          "area": "Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        },
+        {
+          "fictional_name": "",
+          "real_name": "Las Palmas Hotel",
+          "scene_role": "Modest hotel of the lead's room and the fire-escape finale",
+          "address": "1738 Las Palmas Avenue",
+          "area": "Hollywood, Los Angeles",
+          "status": "active",
+          "coordinates": "",
+          "sources": [
+            "movieloc"
+          ]
+        }
+      ],
+      "sources": [
+        "movieloc"
+      ],
+      "license": "movie-locations.com (rephrased facts; DB-right applies)"
+    }
+  ]
+}

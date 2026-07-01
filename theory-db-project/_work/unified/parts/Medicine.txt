@@ -1,0 +1,144 @@
+PART: Medicine   (총 177개 이론, 현행 Major 141개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[11] I. Medical Sociology  ::  Illness Experience Theory / Medicalization Theory / Social Determinants of Health Theory / Fundamental Cause Theory
+[6] II. Medical Anthropology  ::  Culture-Bound Syndromes Theory / Illness Narratives Theory / Ritual and Healing Theory / Placebo Effect (Anthropological)
+[6] IV. Critical Medical Humanities  ::  Graphic Medicine Theory / Stigma and Health Theory / Courtesy Stigma / Biopolitics of Health Theory
+[5] III. Public Health  ::  Social Capital Theory (Health) / Health Belief Model (Public Health) / Theory of Planned Behavior (Public Health) / Epidemiological Transition Theory
+[5] VII. Psychiatry  ::  Labeling Theory (Mental Illness) / Expressed Emotion (EE) Theory (Mental Health) / Cultural Formulation (Mental Health) / Cultural Syndromes (Mental Health)
+[4] V. Psychology of Health  ::  Self-Regulation Theory (Health Behavior) / Stress and Coping Theory (Health) / Social Cognitive Theory (Health) / Health Locus of Control
+[3] XII. Sociology of the Body in Medicine  ::  Embodied Illness Theory / Normalization (Medical) / Biocitizenship
+[2] IX. Disability Studies in Medicine  ::  Social Model of Disability (Medical) / Ableism in Medicine Theory
+[2] VI. Global Health  ::  Social Justice in Health / Critical Global Health
+[2] XI. Public Health  ::  Health Literacy Theory / Community-Based Participatory Research (CBPR) Theory (Health)
+[1] C. Public Health (Social Norms)  ::  Social Norms Approach (Health)
+[1] CI. Sociology of the Body (Commodity)  ::  Commodity Body Theory (Medical)
+[1] CII. Medical Anthropology (Global Health Interventions)  ::  Humanitarianism and Health Theory
+[1] CIII. Public Health (Systems Thinking)  ::  Systems Thinking in Public Health Theory
+[1] CIV. Sociology of Mental Illness (Recovery)  ::  Social Model of Recovery (Mental Health)
+[1] CIX. Sociology of Care (Gender)  ::  Gendered Care Work Theory (Medical)
+[1] CV. Medical Humanities (Visual Culture)  ::  Visual Pathology Theory
+[1] CVI. Sociology of Health (Trust)  ::  Trust in Healthcare Theory
+[1] CVII. Medical Anthropology (Pharmacology)  ::  Pharmaceutical Anthropology Theory
+[1] CVIII. Public Health (Narrative)  ::  Public Health Narratives Theory
+[1] CX. Medical Humanities (Performing Arts)  ::  Drama Therapy in Health Theory
+[1] CXI. Sociology of Health (Technology)  ::  Health Technology and Society Theory
+[1] CXII. Public Health (Health Communication)  ::  Message Framing (Health Communication)
+[1] CXIII. Medical Anthropology (Epidemiology)  ::  Syndemics Theory
+[1] CXIV. Sociology of Mental Health (Social Stigma)  ::  Stigma of Mental Illness Theory
+[1] CXIX. Public Health (Social Marketing)  ::  Behavioral Economics in Public Health Theory
+[1] CXV. Medical Humanities (Aging)  ::  Culture of Aging (Medical Humanities)
+[1] CXVI. Public Health (Behavioral Insights)  ::  Choice Architecture in Public Health Theory
+[1] CXVII. Sociology of Biomedicine  ::  Biomedicalization Theory
+[1] CXVIII. Medical Anthropology (Spirituality)  ::  Spirituality and Health (Anthropological) Theory
+[1] CXX. Sociology of Pain (Social Meaning)  ::  Social Meaning of Pain Theory
+[1] CXXI. Medical Humanities (Disability Narratives)  ::  Disability Narratives Theory (Medical Humanities)
+[1] CXXII. Public Health (Crisis Communication)  ::  Crisis and Emergency Risk Communication (CERC) Theory
+[1] CXXIII. Sociology of Health (Technology & Surveillance)  ::  Quantified Self and Health Theory
+[1] CXXIV. Medical Anthropology (Illness Management)  ::  Illness Management Theory (Anthropological)
+[1] CXXIX. Medical Anthropology (Globalization)  ::  Global Health Governance (Anthropological) Theory
+[1] CXXV. Public Health (Health in All Policies)  ::  Health in All Policies (HiAP) Theory
+[1] CXXVI. Sociology of Death & Dying (Medicalization)  ::  Medicalization of Dying Theory
+[1] CXXVII. Medical Humanities (Visual Storytelling)  ::  Visual Storytelling in Medicine Theory
+[1] CXXVIII. Sociology of Organ Transplantation (Ethical)  ::  Commodification of Organs Theory
+[1] CXXX. Public Health (Health Policy)  ::  Health Policy Analysis (Behavioral Public Health)
+[1] I. Medical Sociology & Social Theories of Health  ::  Social Construction of Illness Theory
+[1] II. Medical Anthropology & Cultural Models of Health  ::  Explanatory Models of Illness
+[1] III. Public Health & Social Epidemiology  ::  Social Ecological Model of Health
+[1] IV. Critical Medical Humanities & Cultural Approaches to Disease  ::  Narrative Medicine Theory
+[1] L. Sociology of Disease (Chronic Illness)  ::  Chronic Illness Trajectory Model (Sociology)
+[1] LI. Health Psychology (Motivation)  ::  Self-Determination Theory (Health)
+[1] LII. Sociology of Disability (Intersection)  ::  Intersectionality of Disability (Medical Context)
+[1] LIII. Medical Anthropology (Global Health)  ::  Critical Medical Anthropology
+[1] LIV. Public Health (Ethics of Intervention)  ::  Population Ethics (Public Health)
+[1] LIX. Medical Anthropology (Epidemics)  ::  Cultural Responses to Epidemics Theory
+[1] LV. Sociology of Genetics & Society  ::  Geneticization Theory
+[1] LVI. Medical History (Social)  ::  Social History of Medicine
+[1] LVII. Medical Humanities (Bioethics)  ::  Narrative Bioethics Theory
+[1] LVIII. Sociology of Health (Aging)  ::  Sociology of Aging & Health Theory
+[1] LX. Public Health (Behavioral Economics)  ::  Behavioral Public Health Theory
+[1] LXI. Sociology of Addiction  ::  Social Control of Addiction Theory
+[1] LXII. Medical Anthropology (Suffering)  ::  Experience of Suffering Theory (Medical Anthropology)
+[1] LXIII. Public Health (Health Promotion)  ::  Health Promotion Theory
+[1] LXIV. Sociology of the Pharmaceutical Industry (Medicalization)  ::  Disease Mongering Theory
+[1] LXIX. Sociology of Complementary & Alternative Medicine (CAM)  ::  CAM Usage Theory
+[1] LXV. Medical Humanities (Visual Arts)  ::  Visual Culture of Medicine Theory
+[1] LXVI. Sociology of Genetics (Identity)  ::  Genetic Identity Theory
+[1] LXVII. Medical Anthropology (Biomedicine)  ::  Biomedicine as Culture Theory
+[1] LXVIII. Public Health (Ethics of Equity)  ::  Health Equity Frameworks (Public Health)
+[1] LXX. Medical Anthropology (Technoscience)  ::  Medical Technoscience Theory
+[1] LXXI. Sociology of Pain  ::  Social Construction of Pain Theory
+[1] LXXII. Medical Humanities (Performing Arts)  ::  Performance of Illness Theory
+[1] LXXIII. Public Health (Social Movements)  ::  Health Social Movements Theory
+[1] LXXIV. Sociology of Health (Globalization)  ::  Globalization of Health Theory
+[1] LXXIX. Sociology of Care  ::  Care Ethics (Sociology of Care)
+[1] LXXV. Medical Anthropology (Health Inequalities)  ::  Structural Violence (Medical)
+[1] LXXVI. Psychiatry (Critical Approaches)  ::  Anti-Psychiatry Movement Theory
+[1] LXXVII. Sociology of Mental Health (Social Networks)  ::  Social Networks and Mental Health Theory
+[1] LXXVIII. Medical Humanities (Art & Healing)  ::  Arts and Health Theory
+[1] LXXX. Medicalization of Childbirth  ::  Medicalization of Childbirth Theory
+[1] LXXXI. Public Health (Policy Ethics)  ::  Harm Reduction Theory (Public Health)
+[1] LXXXII. Sociology of Organ Transplantation  ::  Organ Donation & Society Theory
+[1] LXXXIII. Medical Anthropology (Ethnomedicine)  ::  Ethnomedicine Theory
+[1] LXXXIV. Sociology of Genetics (Stigma)  ::  Genetic Stigma Theory
+[1] LXXXIX. Medical Humanities (Empathy)  ::  Empathy in Medicine Theory
+[1] LXXXV. Medical Humanities (Performance)  ::  Performance Studies in Medicine
+[1] LXXXVI. Public Health (Health Promotion Models)  ::  PRECEDE-PROCEED Model (Health Promotion)
+[1] LXXXVII. Sociology of the Body (Disability)  ::  Body Norms and Disability Theory
+[1] LXXXVIII. Global Health (Social Protection)  ::  Health and Social Protection Theory
+[1] V. Psychology of Health & Illness (Socio-Cultural Context)  ::  Illness Behavior Theory
+[1] VI. Global Health & Postcolonial Medicine  ::  Postcolonial Health Theory
+[1] VII. Psychiatry & Mental Health (Sociocultural Models)  ::  Social Psychiatry
+[1] VIII. Narrative Gerontology  ::  Life Review Therapy
+[1] VIII. Narrative Gerontology & Aging  ::  Narrative Gerontology
+[1] X. Medical Ethics  ::  Narrative Ethics (Medicine)
+[1] X. Medical Ethics (Sociocultural Context)  ::  Principlism (Cultural Critique)
+[1] XC. Sociology of Risk (Health)  ::  Social Construction of Health Risk Theory
+[1] XCI. Medical Anthropology (Global Health Ethics)  ::  Global Health Ethics (Anthropological)
+[1] XCII. Public Health (Urban Health)  ::  Urban Health Theory
+[1] XCIII. Sociology of Mental Health (Recovery)  ::  Recovery Model (Mental Health)
+[1] XCIV. Medical Humanities (History)  ::  History of Disease (Cultural)
+[1] XCIX. Medical Humanities (Disability)  ::  Disability as Culture (Medical Humanities)
+[1] XCV. Sociology of Patient Advocacy  ::  Patient Advocacy Theory
+[1] XCVI. Public Health (Social Marketing)  ::  Social Marketing (Health)
+[1] XCVII. Medical Anthropology (Illness Meaning)  ::  Meaning of Illness Theory
+[1] XCVIII. Sociology of Health (Life Course)  ::  Life Course Perspective (Health)
+[1] XI. Public Health & Behavior Change (Advanced)  ::  Health Communication Theory
+[1] XIII. Global Mental Health  ::  Decolonizing Global Mental Health Theory
+[1] XIV. Environmental Health  ::  Climate Change and Health Theory (Social Aspects)
+[1] XIV. Environmental Health & Society  ::  Environmental Justice (Health)
+[1] XIX. Sociology of Profession (Medicine)  ::  Professional Dominance Theory (Medicine)
+[1] XL. Sociology of Bioethics (Patient Experience)  ::  Patient Autonomy (Sociological)
+[1] XLI. Public Health (Ethics)  ::  Social Justice in Public Health Theory
+[1] XLII. Sociology of Pharmaceuticals  ::  Direct-to-Consumer Advertising (DTCA) Theory
+[1] XLIII. Medical Anthropology (Body)  ::  Lived Body (Medical Anthropology)
+[1] XLIV. Sociology of Mental Health  ::  Deinstitutionalization Theory (Mental Health)
+[1] XLIX. Medical Anthropology (Healing Systems)  ::  Healing Systems Theory
+[1] XLV. Global Health (Political Economy)  ::  Political Economy of Health Theory
+[1] XLVI. Medical Humanities (Literature & Film)  ::  Illness Narratives in Literature Theory
+[1] XLVII. Sociology of the Body (Medical)  ::  Body as Capital Theory (Medical)
+[1] XLVIII. Public Health (Behavioral Insights)  ::  Nudge Theory in Public Health
+[1] XV. Medical Humanities (Broader)  ::  Critical Medical Humanities
+[1] XVI. Public Health Ethics  ::  Ethics of Public Health Interventions Theory
+[1] XVII. Sociology of Genetics & Genomics  ::  Social Implications of Genomics Theory
+[1] XVIII. Medicalization of Deviance  ::  Deviance as Illness Theory
+[1] XX. Critical Disability Studies (Medical Context)  ::  Medical Model of Disability (Critical)
+[1] XXI. Health Psychology (Social Influences)  ::  Social Support Theory (Health)
+[1] XXII. Sociology of Death & Dying  ::  Death in Society Theory
+[1] XXIII. Anthropology of the Body  ::  Culturally Shaped Body Theory
+[1] XXIV. Medical Anthropology (Illness Experience)  ::  Embodied Suffering Theory
+[1] XXIX. Medical Humanities (Narrative & Ethics)  ::  Ethics of Care (Medical)
+[1] XXV. Public Health (Inequality)  ::  Health Equity Theory
+[1] XXVI. Sociology of Bioethics  ::  Bioethical Debates (Sociological)
+[1] XXVII. Medicalization of Risk  ::  Medicalization of Risk Theory
+[1] XXVIII. Sociology of the Pharmaceutical Industry  ::  Pharmaceuticalization Theory
+[1] XXX. Sociology of Expertise (Medicine)  ::  Lay Expertise (Health)
+[1] XXXI. Anthropology of Mental Illness  ::  Culture-Bound Syndromes (Anthropology)
+[1] XXXII. Health Behavior Change Theories (Social)  ::  Transtheoretical Model / Stages of Change (Health)
+[1] XXXIII. Public Health Communication  ::  Health Risk Communication Theory
+[1] XXXIV. Sociology of the Clinical Encounter  ::  Clinical Gaze (Post-Foucault) (Sociology)
+[1] XXXIX. Medical Anthropology (Therapeutic Process)  ::  Therapeutic Emplotment Theory
+[1] XXXV. Global Health (Social Theory)  ::  Social Suffering Theory (Global Health)
+[1] XXXVI. Medical Education (Sociocultural)  ::  Hidden Curriculum (Medical Education)
+[1] XXXVII. Sociology of Public Health  ::  Public Health Infrastructure Theory
+[1] XXXVIII. Critical Epidemiology  ::  Social Production of Disease Theory

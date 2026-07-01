@@ -1,0 +1,303 @@
+theorist,concept,native,one_liner,part,major,sub,era,source,confidence
+Richard Ryan,Intrinsic Motivation (Labor),,"Behavior driven by inherent satisfaction rather than external rewards.",Economics,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,Contemporary,DB,high
+Richard Ryan,Intrinsic Motivation in Education,,"Students learn best when curiosity and interest drive engagement.",Economics,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,Contemporary,DB,high
+Richard Ryan,Self-Determination Theory,,"Autonomy, competence, and relatedness underpin human motivation.",Economics,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,Contemporary,Knowledge,high
+Richard Ryan,Cognitive Evaluation Theory,,"External rewards can undermine pre-existing intrinsic motivation.",Economics,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,Contemporary,Knowledge,high
+Richard Ryan,Organismic Integration Theory,,"Extrinsic motivation lies on a continuum toward internalization.",Economics,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,Contemporary,Knowledge,high
+Richard Ryan,Basic Psychological Needs Theory,,"Wellbeing depends on satisfying autonomy, competence, and relatedness.",Economics,"Labor, Personnel & Inequality Economics",Behavioral Labor Economics,Contemporary,Knowledge,high
+James Alm,Social Norms and Tax Compliance,,"Perceived norms shape whether citizens pay or evade taxes.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,DB,high
+James Alm,Tax Evasion (Behavioral Economics),,"Compliance reflects more than pure expected-utility deterrence calculations.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,DB,high
+James Alm,Tax Morale,,"Intrinsic willingness to pay taxes beyond enforcement pressure.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,Knowledge,med
+James Alm,Slippery Slope Framework,,"Trust in authorities and power jointly determine compliance.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,Knowledge,med
+Raj Chetty,Peer Effects in Education,,"Classmates' behavior measurably shapes individual student outcomes.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,DB,high
+Raj Chetty,Salience Bias (Taxation),,"Visible taxes alter behavior more than hidden ones.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,DB,high
+Raj Chetty,Equality of Opportunity,,"Geography and neighborhoods strongly shape upward mobility chances.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,Knowledge,high
+Raj Chetty,Intergenerational Mobility,,"Children's income prospects depend heavily on where they grow up.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,Knowledge,high
+Raj Chetty,Tax Salience and Default Effects,,"Automatic enrollment and visibility powerfully steer financial choices.",Economics,Political Economy & Public Choice,Behavioral Public Economics,Contemporary,Knowledge,med
+Dean Karlan,Behavioral Interventions for Development,,"Small nudges can produce large development outcomes among the poor.",Economics,Development & Environmental Economics,Behavioral Development Economics,Contemporary,DB,high
+Dean Karlan,Commitment Devices,,"Voluntary self-binding mechanisms help people meet long-term goals.",Economics,Development & Environmental Economics,Behavioral Development Economics,Contemporary,DB,high
+Dean Karlan,Randomized Controlled Trials in Development,,"Field experiments rigorously test what anti-poverty programs actually work.",Economics,Development & Environmental Economics,Behavioral Development Economics,Contemporary,Knowledge,high
+Dean Karlan,Microcredit Impact Evaluation,,"Empirical testing tempers exaggerated claims about microfinance's effects.",Economics,Development & Environmental Economics,Behavioral Development Economics,Contemporary,Knowledge,med
+Andrew W. Lo,Adaptive Markets Hypothesis,,"Market efficiency evolves through competition, adaptation, and natural selection.",Economics,Behavioral Finance & Asset Markets,Neuro-Finance,Contemporary,DB,high
+Andrew W. Lo,Neuro-Finance,,"Brain mechanisms and emotion drive financial decision-making.",Economics,Behavioral Finance & Asset Markets,Neuro-Finance,Contemporary,DB,high
+Andrew W. Lo,Financial Ecosystems,,"Markets behave like evolving biological systems of competing strategies.",Economics,Behavioral Finance & Asset Markets,Neuro-Finance,Contemporary,Knowledge,med
+Andrew W. Lo,Variance Ratio Test,,"Statistical test challenging the random-walk model of stock prices.",Economics,Behavioral Finance & Asset Markets,Neuro-Finance,Contemporary,Knowledge,med
+Oliver Hart,Incomplete Contracts,,"Real contracts cannot specify every future contingency.",Economics,Information & Contract Economics,Contracts & Mechanism Design,Contemporary,DB,high
+Oliver Hart,Behavioral Contract Design,,"Contracts must account for limited foresight and bounded rationality.",Economics,Information & Contract Economics,Contracts & Mechanism Design,Contemporary,DB,high
+Oliver Hart,Property Rights Theory of the Firm,,"Ownership allocates residual control rights over assets.",Economics,Information & Contract Economics,Contracts & Mechanism Design,Contemporary,Knowledge,high
+Oliver Hart,Reference Points in Contracts,,"Contracts shape entitlements that govern later cooperative behavior.",Economics,Information & Contract Economics,Contracts & Mechanism Design,Contemporary,Knowledge,high
+Oliver Hart,Hold-Up Problem,,"Underinvestment arises when partners fear ex-post renegotiation.",Economics,Information & Contract Economics,Contracts & Mechanism Design,Contemporary,Knowledge,high
+Roland Fryer Jr.,Behavioral Motivation in Education,,"Incentive structures shape student achievement and effort.",Economics,Development & Environmental Economics,Health & Education Economics,Contemporary,DB,high
+Roland Fryer Jr.,Behavioral Teacher Incentives,,"Performance-pay schemes alter teacher and student outcomes.",Economics,Development & Environmental Economics,Health & Education Economics,Contemporary,DB,high
+Roland Fryer Jr.,Racial Achievement Gap,,"Empirical study of disparities in educational and economic outcomes.",Economics,Development & Environmental Economics,Health & Education Economics,Contemporary,Knowledge,high
+Roland Fryer Jr.,Acting White Hypothesis,,"Social penalties can discourage high achievement among minority students.",Economics,Development & Environmental Economics,Health & Education Economics,Contemporary,Knowledge,med
+Thomas Scheff,Labeling Theory (Mental Illness),,"Mental illness is partly produced by societal labeling of deviance.",Medicine,Medical Sociology,B. Social Construction of Illness,Modern,DB,high
+Thomas Scheff,Social Construction of Illness Theory,,"Definitions of sickness reflect social rather than purely biological facts.",Medicine,Medical Sociology,B. Social Construction of Illness,Modern,DB,high
+Thomas Scheff,Residual Rule-Breaking,,"Unnamed norm violations get categorized as mental illness.",Medicine,Medical Sociology,B. Social Construction of Illness,Modern,Knowledge,high
+Thomas Scheff,Shame-Rage Spiral,,"Unacknowledged shame fuels escalating cycles of conflict.",Medicine,Medical Sociology,B. Social Construction of Illness,Modern,Knowledge,med
+João Biehl,Pharmaceutical Anthropology Theory,,"Medications mediate citizenship, abandonment, and survival in global health.",Medicine,Global Health & Postcolonial Medicine,A. Critical & Postcolonial Global Health,Contemporary,DB,high
+João Biehl,Postcolonial Health Theory,,"Global health is shaped by colonial legacies and inequality.",Medicine,Global Health & Postcolonial Medicine,A. Critical & Postcolonial Global Health,Contemporary,DB,high
+João Biehl,Zones of Social Abandonment,,"Spaces where the unwanted are left to die socially.",Medicine,Global Health & Postcolonial Medicine,A. Critical & Postcolonial Global Health,Contemporary,Knowledge,high
+João Biehl,Pharmaceuticalization of Public Health,,"Drug access reshapes how states deliver and citizens claim care.",Medicine,Global Health & Postcolonial Medicine,A. Critical & Postcolonial Global Health,Contemporary,Knowledge,med
+Drew Leder,Embodied Illness Theory,,"Illness reorganizes the lived experience of one's own body.",Medicine,"Body, Embodiment & Disability",B. Embodiment & Biocitizenship,Contemporary,DB,high
+Drew Leder,Lived Body (Medical Anthropology),,"The body is experienced, not merely a biological object.",Medicine,"Body, Embodiment & Disability",B. Embodiment & Biocitizenship,Contemporary,DB,high
+Drew Leder,The Absent Body,,"The healthy body disappears from awareness until pain returns it.",Medicine,"Body, Embodiment & Disability",B. Embodiment & Biocitizenship,Contemporary,Knowledge,high
+Drew Leder,Dys-appearance,,"Pain and dysfunction force the body back into conscious attention.",Medicine,"Body, Embodiment & Disability",B. Embodiment & Biocitizenship,Contemporary,Knowledge,high
+Thomas Szasz,Anti-Psychiatry Movement Theory,,"Psychiatry medicalizes problems of living as fictitious diseases.",Medicine,Medical Sociology,A. Core Theories & Medicalization,Modern,DB,high
+Thomas Szasz,Deviance as Illness Theory,,"Labeling deviance as illness masks moral and political judgment.",Medicine,Medical Sociology,A. Core Theories & Medicalization,Modern,DB,high
+Thomas Szasz,Myth of Mental Illness,,"Mental illness is a metaphor, not a literal brain disease.",Medicine,Medical Sociology,A. Core Theories & Medicalization,Modern,Knowledge,high
+Thomas Szasz,Therapeutic State,,"State and psychiatry ally to control citizens through medicine.",Medicine,Medical Sociology,A. Core Theories & Medicalization,Modern,Knowledge,high
+Thomas Szasz,Problems in Living,,"Human difficulties reframed as medical disorders for control.",Medicine,Medical Sociology,A. Core Theories & Medicalization,Modern,Knowledge,med
+Anselm Strauss,Chronic Illness Trajectory Model,,"Chronic illness unfolds as a managed, shifting course over time.",Medicine,Medical Sociology,"C. Chronic Illness, Aging & Dying",Modern,DB,high
+Anselm Strauss,Illness Management Theory (Anthropological),,"Patients and families actively organize daily work of illness.",Medicine,Medical Sociology,"C. Chronic Illness, Aging & Dying",Modern,DB,high
+Anselm Strauss,Grounded Theory,,"Theory built inductively from systematically analyzed qualitative data.",Medicine,Medical Sociology,"C. Chronic Illness, Aging & Dying",Modern,Knowledge,high
+Anselm Strauss,Awareness Contexts (Dying),,"What each party knows about dying shapes interaction.",Medicine,Medical Sociology,"C. Chronic Illness, Aging & Dying",Modern,Knowledge,high
+Anselm Strauss,Negotiated Order,,"Social order is continuously produced through ongoing negotiation.",Medicine,Medical Sociology,"C. Chronic Illness, Aging & Dying",Modern,Knowledge,high
+Anselm Strauss,Illness Work,,"Managing chronic illness requires labor distributed across actors.",Medicine,Medical Sociology,"C. Chronic Illness, Aging & Dying",Modern,Knowledge,med
+Lawrence W. Green,Health Promotion Theory,,"Planned change combines education with environmental and policy supports.",Medicine,Public Health & Social Epidemiology,G. Health Promotion,Contemporary,DB,high
+Lawrence W. Green,PRECEDE-PROCEED Model,,"Framework planning health programs from outcomes back to causes.",Medicine,Public Health & Social Epidemiology,G. Health Promotion,Contemporary,DB,high
+Lawrence W. Green,Predisposing-Enabling-Reinforcing Factors,,"Three factor classes shape health-related behaviors.",Medicine,Public Health & Social Epidemiology,G. Health Promotion,Contemporary,Knowledge,med
+Lawrence W. Green,Ecological Approach to Health,,"Health behavior is embedded in multiple environmental levels.",Medicine,Public Health & Social Epidemiology,G. Health Promotion,Contemporary,Knowledge,med
+George Foster,Ethnomedicine Theory,,"Healing systems vary by culture's conception of disease causation.",Medicine,Medical Anthropology & Cultural Models,"A. Culture, Healing & Explanatory Models",Modern,DB,high
+George Foster,Spirituality and Health Theory,,"Beliefs in supernatural agents shape illness and healing.",Medicine,Medical Anthropology & Cultural Models,"A. Culture, Healing & Explanatory Models",Modern,DB,high
+George Foster,Personalistic vs Naturalistic Disease Etiologies,,"Cultures attribute illness either to agents or natural imbalance.",Medicine,Medical Anthropology & Cultural Models,"A. Culture, Healing & Explanatory Models",Modern,Knowledge,high
+George Foster,Image of Limited Good,,"Peasant worldview where all goods exist in fixed scarcity.",Medicine,Medical Anthropology & Cultural Models,"A. Culture, Healing & Explanatory Models",Modern,Knowledge,med
+Théophile Gautier,Art for Art's Sake (L'art pour l'art),L'art pour l'art,"Art needs no moral or utilitarian justification beyond beauty.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,DB,high
+Théophile Gautier,Autonomy of Art,,"Beauty is self-sufficient and serves no external purpose.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Théophile Gautier,Transposition of Art,Transposition d'art,"Rendering visual artworks into vivid poetic description.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,med
+Oscar Wilde,Art for Art's Sake (L'art pour l'art),L'art pour l'art,"Art exists for beauty alone, not moral instruction.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,DB,high
+Oscar Wilde,Aestheticism,,"Life and art should be devoted to the pursuit of beauty.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Oscar Wilde,Life Imitates Art,,"Nature and life copy art more than art copies life.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Oscar Wilde,The Critic as Artist,,"Criticism is itself a creative, autonomous art form.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Clive Bell,Formalism,,"Art's value lies in form, not subject or representation.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,DB,high
+Clive Bell,Significant Form,,"Arrangements of lines and colors that arouse aesthetic emotion.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Clive Bell,Aesthetic Emotion,,"A distinct feeling provoked solely by significant form.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Clement Greenberg,Formalism,,"Quality in modernist art resides in medium-specific formal qualities.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,DB,high
+Clement Greenberg,Medium Specificity,,"Each art should purify itself toward its essential medium.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Clement Greenberg,Flatness,,"Modernist painting affirms the two-dimensional picture plane.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Clement Greenberg,Kitsch versus Avant-Garde,,"Genuine avant-garde art opposes commercialized mass-produced kitsch.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Leo Tolstoy,Expression Theory of Art,,"Art transmits the artist's felt emotion to the audience.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,DB,high
+Leo Tolstoy,Art as Infection,,"Good art infects viewers with the feelings it conveys.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Leo Tolstoy,Universal Art,,"True art communicates feelings accessible to all humanity.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,med
+Benedetto Croce,Expression Theory of Art,,"Art is intuition expressed; beauty is successful expression.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,DB,high
+Benedetto Croce,Art as Intuition,,"Aesthetic knowledge is intuitive and prior to conceptual thought.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,high
+Benedetto Croce,Intuition-Expression Identity,,"To intuit is already to express; the two are inseparable.",ART,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,Modern,Knowledge,med
+Arnold Hauser,Social History of Art,,"Art evolves through its economic and class-based social conditions.",ART,Art History & Historiography,A. Iconology & Social History of Art,Modern,DB,high
+Arnold Hauser,Sociology of Art,,"Style and form are conditioned by social structures.",ART,Art History & Historiography,A. Iconology & Social History of Art,Modern,Knowledge,high
+Arnold Hauser,Art and Class Consciousness,,"Artistic movements reflect the worldviews of social classes.",ART,Art History & Historiography,A. Iconology & Social History of Art,Modern,Knowledge,med
+T.J. Clark,Social History of Art,,"Modern painting is read through its social and political contexts.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,DB,high
+T.J. Clark,Painting of Modern Life,,"Impressionism registers the contradictions of capitalist modernity.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,Knowledge,high
+T.J. Clark,Spectacle and Modernism,,"Modern art responds critically to the society of spectacle.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,Knowledge,med
+John Burke,Cultural History of Art,,"Art interpreted within broader patterns of cultural history.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,DB,med
+Jules Prown,Material Culture,,"Objects are evidence for the beliefs of their makers.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,DB,high
+Jules Prown,Object-Based Analysis,,"Systematic description and deduction reading meaning from artifacts.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,Knowledge,high
+Jules Prown,Mind in Matter,,"Material objects embody the cultural mind that produced them.",ART,Art History & Historiography,A. Iconology & Social History of Art,Contemporary,Knowledge,med
+Bertolt Brecht,Brechtian Alienation Effect (Verfremdungseffekt),Verfremdungseffekt,"Distancing techniques make the familiar strange to prompt critical thought.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Modern,DB,high
+Bertolt Brecht,Epic Theatre,,"Non-illusionistic theatre encouraging audience reflection over emotional immersion.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Modern,Knowledge,high
+Bertolt Brecht,Gestus,Gestus,"Socially revealing gesture exposing the attitudes behind action.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Modern,Knowledge,high
+Bertolt Brecht,Dialectical Theatre,,"Drama staging social contradictions to provoke political change.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Modern,Knowledge,med
+Augusto Boal,Theatre of the Oppressed,,"Theatre as rehearsal for social and political liberation.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Contemporary,DB,high
+Augusto Boal,Forum Theatre,,"Spectators intervene as actors to rehearse alternative outcomes.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Contemporary,Knowledge,high
+Augusto Boal,Spect-Actor,,"The passive spectator becomes an active participant in performance.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Contemporary,Knowledge,high
+Augusto Boal,Invisible Theatre,,"Staged interventions in public space without audience awareness.",ART,Performance Studies & Theatre,A. Performance Theory & Ritual,Contemporary,Knowledge,med
+Fred Lerdahl,Cognitive Musicology,,"Music perception follows generative grammatical structures in the mind.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Contemporary,DB,high
+Fred Lerdahl,Generative Theory of Tonal Music,,"Listeners parse music via hierarchical rule-based structures.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Contemporary,Knowledge,high
+Fred Lerdahl,Tonal Pitch Space,,"Geometric model of distances between pitches, chords, and keys.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Contemporary,Knowledge,med
+Stephen Davies,Theory of Musical Affect,,"How music expresses and arouses emotion in listeners.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Contemporary,DB,high
+Stephen Davies,Appearance Emotionalism,,"Music resembles emotional expression in human behavior and posture.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Contemporary,Knowledge,med
+Stephen Davies,Ontology of Musical Works,,"Inquiry into what kind of thing a musical work is.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Contemporary,Knowledge,med
+Jay Coakley,Sociology of Sport,,"Sport is a social construction reflecting power and culture.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+Jay Coakley,Sport Ethic,,"Athletes overconform to norms of sacrifice, risk, and dedication.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,high
+Jay Coakley,Positive Deviance in Sport,,"Excessive conformity to sport values causes harmful behavior.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Richard Gruneau,Commodification of Sport,,"Sport is transformed into a commodity under capitalism.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+Richard Gruneau,Class and Sport,,"Class relations shape access to and meaning of sport.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Richard Gruneau,Sport as Cultural Production,,"Sport is contested terrain of hegemony and resistance.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Shilling,Sociology of the Body (Sport),,"The body is socially shaped and a project of identity.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+Shilling,Body as Project,,"Late-modern bodies are reflexively constructed through individual choices.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,high
+Shilling,Physical Capital,,"Bodily form and skill convert into social and economic value.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Nicholas Mirzoeff,Visual Culture Theory,,"Modern life is increasingly organized around the visual.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Contemporary,DB,high
+Nicholas Mirzoeff,The Right to Look,,"Counter-claim to visuality's authority over what may be seen.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Contemporary,Knowledge,high
+Nicholas Mirzoeff,Visuality,,"Authority's regime of organizing and policing visibility.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Contemporary,Knowledge,med
+Christiane Paul,New Media Art Theory,,"Digital art's aesthetics emerge from computational and networked media.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Contemporary,DB,high
+Christiane Paul,Digital Materiality,,"Code and data have their own material and aesthetic logic.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Contemporary,Knowledge,med
+Christiane Paul,Curating Digital Art,,"Networked and processual artworks demand new curatorial models.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Contemporary,Knowledge,med
+Alfred Gell,Art and Ritual (Anthropological),,"Art objects act as agents within social and ritual relations.",ART,Anthropology & Sociology of Art,A. Anthropology of Art & Ritual,Contemporary,DB,high
+Alfred Gell,Art and Agency,,"Artworks function as social agents that distribute personhood.",ART,Anthropology & Sociology of Art,A. Anthropology of Art & Ritual,Contemporary,Knowledge,high
+Alfred Gell,Technology of Enchantment,,"Art captivates through dazzling, hard-to-grasp technical virtuosity.",ART,Anthropology & Sociology of Art,A. Anthropology of Art & Ritual,Contemporary,Knowledge,high
+Alfred Gell,The Enchantment of Technology,,"The power of art derives from enchanting technical skill.",ART,Anthropology & Sociology of Art,A. Anthropology of Art & Ritual,Contemporary,Knowledge,med
+Eduardo Kac,Bio Art Theory,,"Living organisms and biotechnology become the artist's medium.",ART,Posthumanism & Environmental Arts,A. Posthuman & Bio Art,Contemporary,DB,high
+Eduardo Kac,Transgenic Art,,"Art created by genetically modifying living organisms.",ART,Posthumanism & Environmental Arts,A. Posthuman & Bio Art,Contemporary,Knowledge,high
+Eduardo Kac,Telepresence Art,,"Art exploring remote embodied presence through telecommunication.",ART,Posthumanism & Environmental Arts,A. Posthuman & Bio Art,Contemporary,Knowledge,med
+Griselda Pollock,Feminist Art Criticism,,"Art history is reread to expose its gendered exclusions.",ART,"Race, Gender & Postcolonial Critique of Art",C. Feminist & Queer Art,Contemporary,DB,high
+Griselda Pollock,Spaces of Femininity,,"Modernity's gendered geography limited women artists' subject matter.",ART,"Race, Gender & Postcolonial Critique of Art",C. Feminist & Queer Art,Contemporary,Knowledge,high
+Griselda Pollock,The Virtual Feminist Museum,,"Reimagining art history through feminist re-curation and montage.",ART,"Race, Gender & Postcolonial Critique of Art",C. Feminist & Queer Art,Contemporary,Knowledge,med
+Griselda Pollock,Differencing the Canon,,"Reworking the art canon to inscribe sexual difference.",ART,"Race, Gender & Postcolonial Critique of Art",C. Feminist & Queer Art,Contemporary,Knowledge,med
+Raymonde Moulin,Art Market Theory,,"The art market constructs value through institutions and intermediaries.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Modern,DB,high
+Raymonde Moulin,Construction of Artistic Value,,"Worth of art is collectively produced, not intrinsic.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Modern,Knowledge,med
+Raymonde Moulin,Sociology of the Art Market,,"Market structures mediate between artists, dealers, and collectors.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Modern,Knowledge,med
+Adrian Hill,Art Therapy Theory,,"Making art aids recovery and psychological healing.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,DB,high
+Adrian Hill,Art Therapy (Term Coinage),,"Coined the term art therapy for healing through making.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,Knowledge,med
+Adrian Hill,Art as Distraction from Illness,,"Creative absorption diverts attention from suffering and convalescence.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,Knowledge,med
+Gustav Fechner,Psychology of Aesthetics,,"Aesthetic response can be measured experimentally and empirically.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,DB,high
+Gustav Fechner,Experimental Aesthetics,Ästhetik von unten,"Aesthetics built from the bottom up via empirical observation.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,Knowledge,high
+Gustav Fechner,Golden Section Preference,,"Empirical study of preference for proportional rectangles.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,Knowledge,med
+Daniel Berlyne,Psychology of Aesthetics,,"Arousal and curiosity govern aesthetic preference and exploration.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,DB,high
+Daniel Berlyne,Collative Variables,,"Novelty, complexity, and surprise drive aesthetic interest.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,Knowledge,high
+Daniel Berlyne,Inverted-U Arousal Model,,"Moderate arousal yields maximal aesthetic pleasure.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Modern,Knowledge,high
+Rosalyn Deutsche,Public Art Theory,,"Public art is bound up with urban politics and democracy.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,DB,high
+Rosalyn Deutsche,Agonistic Public Space,,"Democratic public space thrives on conflict, not consensus.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,high
+Rosalyn Deutsche,Evictions (Art and Urbanism),,"Public art can mask or contest urban displacement.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,med
+Miwon Kwon,Public Art Theory,,"Site-specific art is defined by its institutional and social siting.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,DB,high
+Miwon Kwon,Site-Specificity,,"Meaning of an artwork is inseparable from its location.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,high
+Miwon Kwon,One Place After Another,,"Site-specificity evolves from physical place to discursive community.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,med
+Roy Ascott,Interactive Art Theory,,"Art becomes a participatory, networked system of communication.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,DB,high
+Roy Ascott,Telematic Art,,"Art created through networked telecommunications and shared consciousness.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,high
+Roy Ascott,Cybernetic Art,,"Art conceived as a behavioral, feedback-driven system.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,med
+Joann Kealiinohomoku,Sociology of Dance,,"All dance, including ballet, is a culturally specific ethnic form.",ART,Dance & Embodiment Studies,A. Embodiment & Sociology of Dance,Contemporary,DB,high
+Joann Kealiinohomoku,Ballet as Ethnic Dance,,"Western ballet reflects its own ethnic and cultural assumptions.",ART,Dance & Embodiment Studies,A. Embodiment & Sociology of Dance,Contemporary,Knowledge,high
+Joann Kealiinohomoku,Anthropology of Dance,,"Dance studied as cultural expression across all societies.",ART,Dance & Embodiment Studies,A. Embodiment & Sociology of Dance,Contemporary,Knowledge,med
+Christian Norberg-Schulz,Genius Loci (Spirit of Place),Genius Loci,"Architecture should reveal and embody the spirit of place.",ART,Architecture & the Built Environment,A. Theory & Phenomenology of Space,Contemporary,DB,high
+Christian Norberg-Schulz,Phenomenology of Architecture,,"Built environment understood through lived, existential experience.",ART,Architecture & the Built Environment,A. Theory & Phenomenology of Space,Contemporary,Knowledge,high
+Christian Norberg-Schulz,Existential Space,,"Dwelling orients humans within meaningful spatial structures.",ART,Architecture & the Built Environment,A. Theory & Phenomenology of Space,Contemporary,Knowledge,med
+Fred Davis,Fashion Theory,,"Clothing communicates ambivalent and shifting social identities.",ART,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",Contemporary,DB,high
+Fred Davis,Identity Ambivalence in Fashion,,"Fashion expresses unresolved tensions in social identity.",ART,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",Contemporary,Knowledge,med
+Fred Davis,Fashion as Code,,"Clothing operates as an unstable, context-dependent sign system.",ART,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",Contemporary,Knowledge,med
+Paolo Freire,Critical Arts Education Theory,,"Education and art are tools for critical consciousness and liberation.",ART,Anthropology & Sociology of Art,B. Cultural Industries & Production,Contemporary,DB,high
+Paolo Freire,Banking Model of Education,,"Critique of education that merely deposits information in students.",ART,Anthropology & Sociology of Art,B. Cultural Industries & Production,Contemporary,Knowledge,high
+Paolo Freire,Conscientization,Conscientização,"Developing critical awareness to transform oppressive conditions.",ART,Anthropology & Sociology of Art,B. Cultural Industries & Production,Contemporary,Knowledge,high
+Paolo Freire,Dialogical Pedagogy,,"Learning through mutual dialogue between teacher and student.",ART,Anthropology & Sociology of Art,B. Cultural Industries & Production,Contemporary,Knowledge,high
+James E. Young,Art as Witness Theory,,"Memorials and art bear witness to trauma and atrocity.",ART,"Arts in Health, Therapy & Wellbeing","C. Art, Memory, Trauma & Witness",Contemporary,DB,high
+James E. Young,Counter-Monument,,"Anti-monumental memorials resist closure and provoke active remembrance.",ART,"Arts in Health, Therapy & Wellbeing","C. Art, Memory, Trauma & Witness",Contemporary,Knowledge,high
+James E. Young,Received History,,"Memory of events includes the history of their telling.",ART,"Arts in Health, Therapy & Wellbeing","C. Art, Memory, Trauma & Witness",Contemporary,Knowledge,med
+Eduard Hanslick,Music and Emotion Theory,,"Music's beauty lies in tonal forms, not represented emotions.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Modern,DB,high
+Eduard Hanslick,Tonally Moving Forms,Tönend bewegte Formen,"The content of music is sounding forms in motion.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Modern,Knowledge,high
+Eduard Hanslick,Musical Formalism (Autonomy),,"Music is autonomous and not a vehicle for feelings.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Modern,Knowledge,high
+Susanne Langer,Music and Emotion Theory,,"Music is a symbolic form articulating the dynamics of feeling.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Modern,DB,high
+Susanne Langer,Presentational Symbolism,,"Art presents meaning non-discursively, unlike verbal language.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Modern,Knowledge,high
+Susanne Langer,Art as Symbol of Feeling,,"Artworks symbolically express the morphology of human emotion.",ART,Music & Sound Studies,A. Sociology & Politics of Music,Modern,Knowledge,high
+RoseLee Goldberg,Performance Art Theory,,"Performance art is a vital, avant-garde live medium.",ART,Performance Studies & Theatre,C. Everyday & Restored Behavior,Contemporary,DB,high
+RoseLee Goldberg,Performance as Avant-Garde Catalyst,,"Live performance historically catalyzes radical artistic innovation.",ART,Performance Studies & Theatre,C. Everyday & Restored Behavior,Contemporary,Knowledge,med
+RoseLee Goldberg,Liveness in Art,,"The unrepeatable live event distinguishes performance art.",ART,Performance Studies & Theatre,C. Everyday & Restored Behavior,Contemporary,Knowledge,med
+Bruce Ogilvie,Sports Psychology,,"Athletic performance is shaped by personality and mental states.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,DB,high
+Bruce Ogilvie,Problem Athletes,,"Identifying personality types that hinder athletic success.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,Knowledge,med
+Bruce Ogilvie,Athletic Motivation Inventory,,"Psychological assessment predicting athletic potential.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,Knowledge,med
+Thomas Tutko,Sports Psychology,,"Mental training and personality assessment improve athletic performance.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,DB,high
+Thomas Tutko,Sport Personality Assessment,,"Tools measuring traits relevant to athletic performance.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,Knowledge,med
+Thomas Tutko,Winning Obsession Critique,,"Excessive emphasis on winning harms athlete wellbeing.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,Knowledge,med
+Yuriko Saito,Everyday Aesthetics Theory,,"Aesthetic experience pervades ordinary, mundane daily life.",ART,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,Contemporary,DB,high
+Yuriko Saito,Aesthetics of the Ordinary,,"Everyday objects and activities carry overlooked aesthetic value.",ART,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,Contemporary,Knowledge,high
+Yuriko Saito,Moral-Aesthetic Judgment,,"Everyday aesthetic responses carry ethical and environmental consequences.",ART,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,Contemporary,Knowledge,med
+Lucy R. Lippard,Eco-Art Theory,,"Art engages ecology, place, and environmental politics.",ART,Posthumanism & Environmental Arts,B. Eco-Art & Ecological Aesthetics,Contemporary,DB,high
+Lucy R. Lippard,Dematerialization of Art,,"Conceptual art shifts value from object to idea.",ART,Posthumanism & Environmental Arts,B. Eco-Art & Ecological Aesthetics,Contemporary,Knowledge,high
+Lucy R. Lippard,The Lure of the Local,,"Art rooted in sense of place and local belonging.",ART,Posthumanism & Environmental Arts,B. Eco-Art & Ecological Aesthetics,Contemporary,Knowledge,med
+Richard Lapchick,Race and Sport Theory,,"Sport reflects and can challenge racial inequality in society.",ART,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",Contemporary,DB,high
+Richard Lapchick,Racial and Gender Report Card,,"Quantitative auditing of diversity in sports organizations.",ART,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",Contemporary,Knowledge,med
+Richard Lapchick,Sport and Social Justice,,"Athletics as a platform for advancing civil rights.",ART,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",Contemporary,Knowledge,med
+Bill Verplank,Human-Computer Interaction (HCI) in Art Theory,,"Interaction design shapes how people experience digital systems.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,DB,high
+Bill Verplank,Interaction Design Framework,,"Designing what users do, feel, and know in interaction.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,med
+Bill Verplank,Sketching Interaction,,"Quick visual sketches explore and communicate interaction ideas.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,med
+Nicolas Bourriaud,Relational Aesthetics Theory,,"Art produces meaning through human encounters and social relations.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,DB,high
+Nicolas Bourriaud,Relational Form,,"The artwork is the social interaction it generates.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,high
+Nicolas Bourriaud,Postproduction,,"Artists rework existing cultural products as raw material.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,med
+Nicolas Bourriaud,Altermodern,,"Globalized, post-postmodern art of creolization and wandering.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,med
+Eilean Hooper-Greenhill,Museology Theory,,"Museums actively produce knowledge and shape visitor meaning.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Contemporary,DB,high
+Eilean Hooper-Greenhill,Post-Museum,,"The museum reimagined as participatory, dialogic, and inclusive.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Contemporary,Knowledge,high
+Eilean Hooper-Greenhill,Museum Pedagogy,,"Museums as sites of interpretive learning and meaning-making.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Contemporary,Knowledge,med
+Cesare Brandi,Conservation Ethics Theory,,"Restoration must respect both aesthetic and historical authenticity.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Modern,DB,high
+Cesare Brandi,Theory of Restoration,Teoria del restauro,"Foundational principles guiding the conservation of artworks.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Modern,Knowledge,high
+Cesare Brandi,Aesthetic and Historical Instances,,"Restoration balances the artwork's beauty against its history.",ART,Anthropology & Sociology of Art,C. Art Markets & Institutions,Modern,Knowledge,med
+André Lepecki,Dance and Politics Theory,,"Choreography is a political technology of bodily movement.",ART,Dance & Embodiment Studies,"B. Dance, Politics & Society",Contemporary,DB,high
+André Lepecki,Exhausting Dance,,"Contemporary dance uses stillness to critique modernity's mobility.",ART,Dance & Embodiment Studies,"B. Dance, Politics & Society",Contemporary,Knowledge,high
+André Lepecki,Choreopolitics,,"Movement as a contested field of freedom and control.",ART,Dance & Embodiment Studies,"B. Dance, Politics & Society",Contemporary,Knowledge,med
+Christian Metz,Spectatorship Theory,,"Cinema positions the viewer through psychoanalytic mechanisms of identification.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Modern,DB,high
+Christian Metz,The Imaginary Signifier,,"Film viewing reactivates imaginary identification rooted in the mirror stage.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Modern,Knowledge,high
+Christian Metz,Film Semiotics,,"Cinema analyzed as a structured language of signs.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Modern,Knowledge,high
+Christian Metz,Primary Cinematic Identification,,"Viewer identifies first with the camera's gaze itself.",ART,Visual Culture & Media Studies,A. Visual Culture & Spectacle,Modern,Knowledge,med
+Kenneth Bruscia,Music Therapy Theory,,"Music is systematically used to support health and development.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,DB,high
+Kenneth Bruscia,Definition of Music Therapy,,"Therapist uses musical experiences to promote client health.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,med
+Kenneth Bruscia,Improvisational Assessment Profiles,,"Clinical models for assessing improvised musical interaction.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,med
+William J. Morgan,Sports Ethics Theory,,"Sport is a moral practice with internal goods and values.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+William J. Morgan,Internal Goods of Sport,,"Sport's deepest value lies in goods only it provides.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+William J. Morgan,Leftist Theory of Sport,,"Critical analysis of sport's political and ideological functions.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Kate Fletcher,Sustainable Fashion Theory,,"Fashion can be redesigned for ecological and social sustainability.",ART,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,Contemporary,DB,high
+Kate Fletcher,Slow Fashion,,"Slower production and consumption resist fast-fashion's harms.",ART,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,Contemporary,Knowledge,high
+Kate Fletcher,Craft of Use,,"Value of clothing lies in its lived, ongoing use.",ART,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,Contemporary,Knowledge,med
+Jill Sonke,Arts in Health Theory,,"Arts participation measurably improves health and care outcomes.",ART,"Arts in Health, Therapy & Wellbeing",B. Arts in Health & Healthcare,Contemporary,Web,high
+Jill Sonke,Arts in Public Health,,"Cultural participation linked to population-level health outcomes.",ART,"Arts in Health, Therapy & Wellbeing",B. Arts in Health & Healthcare,Contemporary,Web,med
+Jill Sonke,Arts in Health Communication,,"Creative practice strengthens public health messaging and engagement.",ART,"Arts in Health, Therapy & Wellbeing",B. Arts in Health & Healthcare,Contemporary,Web,med
+Claire Bishop,Participatory Art Theory (Digital),,"Participation in art carries political and aesthetic stakes.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,DB,high
+Claire Bishop,Artificial Hells,,"Critical history of participatory and socially engaged art.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,high
+Claire Bishop,Antagonism and Relational Aesthetics,,"Good participatory art preserves conflict rather than easy harmony.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,med
+Alan Merriam,Ethnomusicology,,"Music must be studied as culture, not just sound.",ART,Music & Sound Studies,B. Ethnomusicology & Globalization,Modern,DB,high
+Alan Merriam,Sound-Behavior-Concept Model,,"Music analyzed through sound, behavior, and underlying concepts.",ART,Music & Sound Studies,B. Ethnomusicology & Globalization,Modern,Knowledge,high
+Alan Merriam,Functions of Music,,"Music serves enumerable social and cultural functions universally.",ART,Music & Sound Studies,B. Ethnomusicology & Globalization,Modern,Knowledge,med
+John Blacking,Ethnomusicology,,"Musical ability is humanly universal and socially organized.",ART,Music & Sound Studies,B. Ethnomusicology & Globalization,Modern,DB,high
+John Blacking,How Musical Is Man,,"All humans share an innate capacity for music.",ART,Music & Sound Studies,B. Ethnomusicology & Globalization,Modern,Knowledge,high
+John Blacking,Humanly Organized Sound,,"Music defined as sound organized by and for humans.",ART,Music & Sound Studies,B. Ethnomusicology & Globalization,Modern,Knowledge,high
+John W. Loy,Racial Stacking Theory (Sport),,"Athletes are sorted into positions along racial lines.",ART,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",Contemporary,DB,high
+John W. Loy,Centrality Hypothesis,,"Race correlates with positional centrality on sports teams.",ART,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",Contemporary,Knowledge,med
+John W. Loy,Nature of Sport Definition,,"Systematic conceptual analysis defining sport as a phenomenon.",ART,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",Contemporary,Knowledge,med
+Michael Thaut,Neurologic Music Therapy (NMT) Theory,,"Music's effect on the brain rehabilitates motor and cognitive functions.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,DB,high
+Michael Thaut,Rhythmic Auditory Stimulation,,"Rhythmic cues improve movement timing in motor rehabilitation.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,high
+Michael Thaut,Rhythmic Entrainment,,"The brain synchronizes motor activity to external rhythm.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,med
+Raymond Boyle,Media and Sport Theory,,"Sport and media are deeply interdependent cultural industries.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+Raymond Boyle,Sport and Mediatization,,"Media logic reshapes how sport is produced and consumed.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Raymond Boyle,Sports Journalism Culture,,"Examines the practices and pressures of sports reporting.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Richard Haynes,Media and Sport Theory,,"Digital media transform sport's communication, fandom, and economy.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+Richard Haynes,Digital Sport Media,,"Online platforms reorganize sport content and audience participation.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Richard Haynes,Football and Broadcasting Rights,,"Media rights reshape football's economy and governance.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Ken Yeang,Sustainable Architecture Theory,,"Buildings designed as ecologically integrated, energy-conscious systems.",ART,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,Contemporary,DB,high
+Ken Yeang,Bioclimatic Skyscraper,,"Tall buildings designed responsively to local climate.",ART,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,Contemporary,Knowledge,high
+Ken Yeang,Ecomimesis,,"Designing built systems to imitate ecosystem processes.",ART,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,Contemporary,Knowledge,med
+Elinor Ulman,Psychodynamic Art Therapy Theory,,"Art-making channels unconscious processes for psychological insight.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,DB,high
+Elinor Ulman,Art Therapy versus Art as Therapy,,"Distinguishing diagnostic art use from inherently healing creation.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,Knowledge,med
+Elinor Ulman,Ulman Personality Assessment Procedure,,"Projective art-based tool for psychological assessment.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,Knowledge,med
+Erika Doss,Public Art Controversy Theory,,"Public art ignites conflicts over memory, identity, and emotion.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,DB,high
+Erika Doss,Memorial Mania,,"A contemporary obsession with erecting public memorials.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,high
+Erika Doss,Affect and Public Memory,,"Public commemoration is driven by intense collective emotion.",ART,Visual Culture & Media Studies,C. Public Art & Spatial Practice,Contemporary,Knowledge,med
+Fred Ritchin,Photographic Ethics Theory,,"Digital manipulation transforms photography's truth claims and ethics.",ART,Visual Culture & Media Studies,B. Photography & the Image,Contemporary,DB,high
+Fred Ritchin,After Photography,,"The digital era redefines the meaning of the photograph.",ART,Visual Culture & Media Studies,B. Photography & the Image,Contemporary,Knowledge,med
+Fred Ritchin,Hyperphotography,,"Networked, interactive images expand photography beyond the frame.",ART,Visual Culture & Media Studies,B. Photography & the Image,Contemporary,Knowledge,med
+Marian Chace,Dance/Movement Therapy Theory,,"Movement expresses and heals psychological and emotional states.",ART,Dance & Embodiment Studies,C. Dance/Movement Therapy,Modern,DB,high
+Marian Chace,Movement as Communication,,"Bodily movement communicates feelings beyond words.",ART,Dance & Embodiment Studies,C. Dance/Movement Therapy,Modern,Knowledge,high
+Marian Chace,Therapeutic Movement Mirroring,,"Therapist reflects clients' movement to build empathic connection.",ART,Dance & Embodiment Studies,C. Dance/Movement Therapy,Modern,Knowledge,med
+Juhani Pallasmaa,Phenomenological Architecture Theory,,"Architecture is experienced through all the senses, not just sight.",ART,Architecture & the Built Environment,A. Theory & Phenomenology of Space,Contemporary,DB,high
+Juhani Pallasmaa,The Eyes of the Skin,,"Critique of ocularcentrism in favor of multisensory architecture.",ART,Architecture & the Built Environment,A. Theory & Phenomenology of Space,Contemporary,Knowledge,high
+Juhani Pallasmaa,Architecture of the Senses,,"Buildings engage touch, sound, and embodied perception.",ART,Architecture & the Built Environment,A. Theory & Phenomenology of Space,Contemporary,Knowledge,med
+Oliver Grau,Immersive Art Theory,,"Virtual environments produce immersion with a long art history.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,DB,high
+Oliver Grau,Virtual Art History,,"Immersive illusion runs from panoramas to virtual reality.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,high
+Oliver Grau,Immersion and Critical Distance,,"Immersion can suspend the viewer's reflective distance.",ART,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,Contemporary,Knowledge,med
+Daniel Wann,Psychology of Sport Fans Theory,,"Team identification shapes fan emotion, behavior, and wellbeing.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,DB,high
+Daniel Wann,Team Identification,,"Psychological connection fans form with their teams.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,Knowledge,high
+Daniel Wann,Team Identification-Social Psychological Health Model,,"Strong fan identification can enhance social and psychological health.",ART,Sport & Physical Culture,"B. Body, Health & Sport Psychology",Contemporary,Knowledge,med
+Arnold Berleant,Environmental Aesthetics Theory,,"Aesthetic experience is engaged immersion within environments.",ART,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,Contemporary,DB,high
+Arnold Berleant,Aesthetics of Engagement,,"Aesthetics rejects detached contemplation for participatory immersion.",ART,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,Contemporary,Knowledge,high
+Arnold Berleant,Aesthetic Field,,"Art experience involves an integrated field of relations.",ART,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,Contemporary,Knowledge,med
+Hans Belting,Global Art History Theory,,"Art history must move beyond Western frameworks to global perspectives.",ART,Art History & Historiography,C. Global & Postcolonial Art History,Contemporary,DB,high
+Hans Belting,End of Art History,,"The grand narrative of stylistic art history has closed.",ART,Art History & Historiography,C. Global & Postcolonial Art History,Contemporary,Knowledge,high
+Hans Belting,Image-Medium-Body,,"Images live through media and embodied human perception.",ART,Art History & Historiography,C. Global & Postcolonial Art History,Contemporary,Knowledge,med
+Hans Belting,Likeness and Presence,,"Images before art functioned as living religious presences.",ART,Art History & Historiography,C. Global & Postcolonial Art History,Contemporary,Knowledge,med
+James Keating,Ethics of Competition Theory (Sport),,"Distinguishing sport's playful spirit from win-at-all-costs athletics.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Modern,DB,high
+James Keating,Sport versus Athletics,,"Sport prizes mutual enjoyment; athletics prizes victory.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Modern,Knowledge,med
+James Keating,Sportsmanship as Ethic,,"Sportsmanship is a distinctive moral category of conduct.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Modern,Knowledge,med
+Lisa Hinz,Trauma-Informed Art Therapy Theory,,"Art therapy structured around the brain's expressive functions heals trauma.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,DB,med
+Lisa Hinz,Expressive Therapies Continuum,,"Hierarchy of media interactions mapping levels of expression.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,Knowledge,med
+Lisa Hinz,Media Dimension Variables,,"Properties of art materials influence therapeutic processing.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,Knowledge,med
+Oliver Sacks,Music and Healing Theory,,"Music can unlock memory, movement, and identity in neurological illness.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,DB,high
+Oliver Sacks,Musicophilia,,"The human brain is profoundly wired for music.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,high
+Oliver Sacks,Clinical Tales (Narrative Neurology),,"Neurological cases told as rich, humanizing narratives.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,med
+Semir Zeki,Neuroaesthetics,,"Beauty perception is grounded in measurable brain activity.",ART,Aesthetics & Philosophy of Art,C. Cognitive & Neuro Aesthetics,Contemporary,DB,high
+Semir Zeki,Neural Correlates of Beauty,,"Experiencing beauty activates specific brain reward regions.",ART,Aesthetics & Philosophy of Art,C. Cognitive & Neuro Aesthetics,Contemporary,Knowledge,high
+Semir Zeki,Artists as Neuroscientists,,"Artists intuitively probe the brain's visual processing rules.",ART,Aesthetics & Philosophy of Art,C. Cognitive & Neuro Aesthetics,Contemporary,Knowledge,med
+Richard Giulianotti,Global Sport Theory,,"Sport is shaped by globalization, identity, and political economy.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,DB,high
+Richard Giulianotti,Spectator Taxonomy,,"Fans classified from supporters to flâneurs by identification.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Richard Giulianotti,Globalization of Football,,"Football exemplifies cultural and economic globalization dynamics.",ART,Sport & Physical Culture,A. Sociology & Politics of Sport,Contemporary,Knowledge,med
+Ellen MacArthur Foundation,Circular Fashion Theory,,"Fashion redesigned to eliminate waste and recirculate materials.",ART,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,Contemporary,DB,high
+Ellen MacArthur Foundation,Circular Economy,,"Economy designed to keep products and materials in use.",ART,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,Contemporary,Knowledge,high
+Ellen MacArthur Foundation,Regenerative Design,,"Systems designed to restore rather than deplete resources.",ART,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,Contemporary,Knowledge,med
+Judith A. Rubin,Developmental Art Therapy Theory,,"Art therapy adapts to the client's developmental stage.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,DB,high
+Judith A. Rubin,Art Is the Therapy,,"The creative process itself carries therapeutic power.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,Knowledge,med
+Judith A. Rubin,Framework for Freedom,,"Structure and safety enable free creative expression in therapy.",ART,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,Contemporary,Knowledge,med
+Brynjulf Stige,Community Music Therapy Theory,,"Music therapy extends beyond clinics into community and culture.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,DB,high
+Brynjulf Stige,Culture-Centered Music Therapy,,"Music therapy practice is grounded in cultural context.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,med
+Brynjulf Stige,Health Musicking,,"Communal music-making promotes health and social participation.",ART,Music & Sound Studies,C. Music Therapy & Healing,Contemporary,Knowledge,med

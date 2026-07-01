@@ -1,0 +1,319 @@
+theorist,concept,native,one_liner,part,major,sub,era,source,confidence
+David Christian,Big History,,"History from the Big Bang to the present across all scales",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,DB,high
+David Christian,Thresholds of Increasing Complexity,,"Eight key moments where new forms of complexity emerge in cosmic history",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,high
+David Christian,Goldilocks Conditions,,"Specific conditions enabling emergence of greater complexity",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,high
+David Christian,Collective Learning,,"Humanity's unique capacity to accumulate and share knowledge across generations",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,high
+David Christian,Origin Story (Modern),,"Science-based universal narrative uniting all human knowledge",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,high
+William H. McNeill,World History,,"Integrated history of human societies through cross-cultural contact",History,"Political, Legal & Global History",C. Global & Transnational,20th c.,DB,high
+William H. McNeill,The Rise of the West,,"Western dominance explained through accumulated cross-cultural borrowing",History,"Political, Legal & Global History",C. Global & Transnational,20th c.,Knowledge,high
+William H. McNeill,Disease and History,,"Epidemics as decisive forces shaping civilizations and conquest",History,"Political, Legal & Global History",C. Global & Transnational,20th c.,Knowledge,high
+William H. McNeill,Web of Human Connections,,"History as expanding networks of communication and exchange",History,"Political, Legal & Global History",C. Global & Transnational,20th c.,Knowledge,high
+William H. McNeill,Macroparasitism,,"Ruling elites and armies as parasites extracting from producers",History,"Political, Legal & Global History",C. Global & Transnational,20th c.,Knowledge,med
+Sanjay Subrahmanyam,Connected Histories,,"Early modern world linked by circulating ideas, people, and goods",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,DB,high
+Sanjay Subrahmanyam,Critique of Comparative History,,"Comparison reifies units; connection reveals shared early modernity",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,high
+Sanjay Subrahmanyam,Global Early Modernity,,"Eurasia shared a connected early modern conjuncture, not isolated trajectories",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,med
+Paul John Eakin,Life Narratives (Historical),,"How autobiography constructs and performs the self",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,DB,high
+Paul John Eakin,Narrative Identity,,"Selfhood is constituted through the stories we tell about ourselves",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,Knowledge,high
+Paul John Eakin,Relational Self,,"Autobiographical identity is formed through relationships with others",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,Knowledge,med
+Alessandro Portelli,Oral History,,"Spoken testimony as a distinct source revealing meaning and subjectivity",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,DB,high
+Alessandro Portelli,The Death of Luigi Trastulli,,"Errors in memory reveal psychological and symbolic truths of events",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,Knowledge,high
+Alessandro Portelli,Orality and Subjectivity,,"Oral sources tell us what people wanted to do and believed they did",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,Knowledge,high
+Alessandro Portelli,Memory as Active Construction,,"Remembering reshapes the past to make present sense",History,Memory & Oral History,B. Oral History & Testimony,Contemporary,Knowledge,med
+Peter Stearns,Emotions and Historical Sources,,"Using documents to reconstruct historical emotional life",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,DB,high
+Peter Stearns,Emotionology,,"The collective emotional standards a society teaches and approves",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,high
+Peter Stearns,American Cool,,"Twentieth-century shift toward restrained, managed emotional style",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,high
+Peter Stearns,Emotional Standards vs. Experience,,"Distinguishing prescribed feeling-norms from actual lived emotion",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,med
+Joel Tarr,History of Urban Environments,,"Technology and waste shaping the environment of American cities",History,"Environmental, Science & Technology History",A. Environmental History,Contemporary,DB,high
+Joel Tarr,The Search for the Ultimate Sink,,"Pollution control merely shifts waste between air, water, and land",History,"Environmental, Science & Technology History",A. Environmental History,Contemporary,Web,high
+Joel Tarr,Sociotechnical Urban Systems,,"Cities as coupled technological and environmental infrastructure systems",History,"Environmental, Science & Technology History",A. Environmental History,Contemporary,Knowledge,med
+David Knight,History of Scientific Institutions,,"Development of organized science and its bodies",History,"Environmental, Science & Technology History",B. History of Science,20th c.,DB,high
+David Knight,History of Chemistry,,"Chemistry's emergence as a discipline and worldview",History,"Environmental, Science & Technology History",B. History of Science,20th c.,Knowledge,med
+David Knight,Science and Romanticism,,"Romantic-era science as cultural and imaginative enterprise",History,"Environmental, Science & Technology History",B. History of Science,20th c.,Knowledge,med
+Gary T. Marx,History of Surveillance,,"Historical development of monitoring and social control techniques",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,DB,high
+Gary T. Marx,The New Surveillance,,"Technological monitoring extending beyond traditional sight and reach",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,Knowledge,high
+Gary T. Marx,Surveillance Society,,"Routine data collection embedding monitoring into everyday life",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,Knowledge,med
+Giovanni Arrighi,History of Financialization,,"Recurring shift from production to finance at end of accumulation cycles",History,Marxist & Social History,B. Economic History,Contemporary,DB,high
+Giovanni Arrighi,Systemic Cycles of Accumulation,,"Successive hegemonic centers organizing world capitalism over long centuries",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,high
+Giovanni Arrighi,The Long Twentieth Century,,"US hegemony as the latest financial-expansion phase of capitalism",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,high
+Giovanni Arrighi,Hegemony and World Capitalism,,"Leadership grounded in capacity to organize the world economy",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,med
+Edward Ayers,Digital History,,"Using digital tools and archives to research and present history",History,Digital History,A. Digital Methods,Contemporary,DB,high
+Edward Ayers,The Valley of the Shadow,,"Digital archive comparing two Civil War communities side by side",History,Digital History,A. Digital Methods,Contemporary,Knowledge,high
+Edward Ayers,Deep Contingency,,"History as densely contingent, locally textured webs of causation",History,Digital History,A. Digital Methods,Contemporary,Knowledge,med
+Gerda Lerner,Women's History,,"Recovering women as historical agents and subjects",History,"Gender, Body & Emotions History",A. Gender & Sexuality,20th c.,DB,high
+Gerda Lerner,The Creation of Patriarchy,,"Male dominance as a historical institution with traceable origins",History,"Gender, Body & Emotions History",A. Gender & Sexuality,20th c.,Knowledge,high
+Gerda Lerner,Compensatory and Contribution History,,"Early phases of women's history adding women to existing frameworks",History,"Gender, Body & Emotions History",A. Gender & Sexuality,20th c.,Knowledge,high
+Gerda Lerner,Women's Consciousness,,"Women's collective awareness of their own subordination and agency",History,"Gender, Body & Emotions History",A. Gender & Sexuality,20th c.,Knowledge,med
+George Chauncey,Queer History,,"Historical recovery of gay life and sexual cultures",History,"Gender, Body & Emotions History",A. Gender & Sexuality,Contemporary,DB,high
+George Chauncey,Gay New York,,"Vibrant pre-WWII gay world preceding the closet",History,"Gender, Body & Emotions History",A. Gender & Sexuality,Contemporary,Knowledge,high
+George Chauncey,The Myth of the Closet,,"The closet as a postwar construct, not a timeless condition",History,"Gender, Body & Emotions History",A. Gender & Sexuality,Contemporary,Knowledge,high
+George Chauncey,"Fairy, Queer, and Trade",,"Historicizing sexual categories distinct from modern gay/straight binary",History,"Gender, Body & Emotions History",A. Gender & Sexuality,Contemporary,Knowledge,med
+Steve Woolgar,Laboratory Studies (Historical),,"Ethnographic study of scientific knowledge production in labs",History,"Environmental, Science & Technology History",B. History of Science,Contemporary,DB,high
+Steve Woolgar,Laboratory Life,,"Scientific facts as socially constructed through inscription practices",History,"Environmental, Science & Technology History",B. History of Science,Contemporary,Knowledge,high
+Steve Woolgar,Reflexivity,,"Turning sociological scrutiny back on the analyst's own methods",History,"Environmental, Science & Technology History",B. History of Science,Contemporary,Knowledge,high
+Steve Woolgar,Technology's Configured User,,"Designers inscribe and constrain who the user can be",History,"Environmental, Science & Technology History",B. History of Science,Contemporary,Knowledge,med
+Arthur O. Lovejoy,History of Ideas,,"Tracing persistent unit-ideas across philosophy and culture",History,Intellectual History,A. History of Ideas,20th c.,DB,high
+Arthur O. Lovejoy,Unit-Ideas,,"Basic recurring concepts that combine into larger doctrines",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Arthur O. Lovejoy,The Great Chain of Being,,"Hierarchical, plenitudinous order of all existence in Western thought",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Arthur O. Lovejoy,Principle of Plenitude,,"The conviction that all possible forms of being must exist",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,med
+Hastings Rashdall,History of Universities,,"Origins and growth of medieval European universities",History,Cultural History,"B. Book, Reading & Education",19th-20th c.,DB,high
+Hastings Rashdall,Studium Generale,,"Medieval universities as centers of higher learning open to all",History,Cultural History,"B. Book, Reading & Education",19th-20th c.,Knowledge,med
+Hastings Rashdall,Ideal Utilitarianism,,"Ethics combining consequences with intrinsically valuable goods",History,Cultural History,"B. Book, Reading & Education",19th-20th c.,Knowledge,med
+Harvey J. Graff,History of Literacy,,"Social history of reading and writing skills across populations",History,Cultural History,"B. Book, Reading & Education",Contemporary,DB,high
+Harvey J. Graff,The Literacy Myth,,"Literacy alone does not automatically bring progress or mobility",History,Cultural History,"B. Book, Reading & Education",Contemporary,Knowledge,high
+Harvey J. Graff,Interdisciplinarity (Historical),,"Critical history of the idea and practice of interdisciplinary inquiry",History,Cultural History,"B. Book, Reading & Education",Contemporary,Knowledge,med
+Lawrence Stone,History of Education,,"Social history of schooling and its role in society",History,Cultural History,"B. Book, Reading & Education",20th c.,DB,high
+Lawrence Stone,"The Family, Sex and Marriage",,"Long-term shift toward affective individualism in English families",History,Cultural History,"B. Book, Reading & Education",20th c.,Knowledge,high
+Lawrence Stone,Affective Individualism,,"Rise of emotional warmth and autonomy within the modern family",History,Cultural History,"B. Book, Reading & Education",20th c.,Knowledge,high
+Lawrence Stone,The Revival of Narrative,,"Call to return storytelling to social history after quantification",History,Cultural History,"B. Book, Reading & Education",20th c.,Knowledge,high
+Dori Laub,Testimony (Historical),,"Holocaust survivor testimony as witnessing to trauma",History,Memory & Oral History,C. Trauma & Post-Holocaust,Contemporary,DB,high
+Dori Laub,The Collapse of Witnessing,,"The Holocaust as an event without an internal witness",History,Memory & Oral History,C. Trauma & Post-Holocaust,Contemporary,Knowledge,high
+Dori Laub,Testimony as Co-Construction,,"Witnessing requires an empathic listener to make trauma speakable",History,Memory & Oral History,C. Trauma & Post-Holocaust,Contemporary,Knowledge,high
+Samuel P. Hays,History of Conservation,,"Politics and ideology of American conservation movements",History,"Environmental, Science & Technology History",A. Environmental History,20th c.,DB,high
+Samuel P. Hays,Gospel of Efficiency,,"Progressive conservation as rational, expert resource management",History,"Environmental, Science & Technology History",A. Environmental History,20th c.,Knowledge,high
+Samuel P. Hays,"Beauty, Health, and Permanence",,"Postwar environmentalism driven by quality-of-life and consumption values",History,"Environmental, Science & Technology History",A. Environmental History,20th c.,Knowledge,med
+David Rothman,History of Prisons,,"Origins and reform of asylums, prisons, and total institutions",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,DB,high
+David Rothman,The Discovery of the Asylum,,"Jacksonian-era institutions built to reform deviance through order",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,Knowledge,high
+David Rothman,Conscience and Convenience,,"Reform ideals repeatedly bending to institutional self-interest",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,Knowledge,med
+Marshall Berman,History of Modernity,,"Modernity as a shared lived experience of constant transformation",History,Intellectual History,A. History of Ideas,Contemporary,DB,high
+Marshall Berman,All That Is Solid Melts into Air,,"Modern experience as perpetual creative destruction and flux",History,Intellectual History,A. History of Ideas,Contemporary,Knowledge,high
+Marshall Berman,Modernism in the Streets,,"Everyday urban life as a site of modernist experience",History,Intellectual History,A. History of Ideas,Contemporary,Knowledge,med
+William Reddy,Affective Regimes,,"Politically enforced norms governing acceptable emotional expression",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,DB,high
+William Reddy,Emotives,,"Emotional utterances that perform and alter the feelings they describe",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,high
+William Reddy,Emotional Regime,,"A regime's required feelings and rituals sustaining political order",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,high
+William Reddy,Emotional Liberty,,"Freedom to revise emotional goals as a basis for political critique",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,med
+Barbara Rosenwein,Emotional Communities,,"Groups sharing norms about which emotions are valued and expressed",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,DB,high
+Barbara Rosenwein,Generations of Feeling,,"Tracing changing emotional communities across the medieval and modern past",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,high
+Barbara Rosenwein,Critique of the Hydraulic Model,,"Rejecting emotions as pressurized fluids needing release",History,"Gender, Body & Emotions History",B. History of Emotions,Contemporary,Knowledge,med
+Harold Innis,History of Communication,,"Media of communication as decisive forces shaping empires and culture",History,Cultural History,C. Art & Visual Culture,20th c.,DB,high
+Harold Innis,Bias of Communication,,"Each medium biases society toward time or space control",History,Cultural History,C. Art & Visual Culture,20th c.,Knowledge,high
+Harold Innis,Time-Biased vs. Space-Biased Media,,"Durable media favor tradition; portable media favor territorial expansion",History,Cultural History,C. Art & Visual Culture,20th c.,Knowledge,high
+Harold Innis,Staples Thesis,,"Canadian development shaped by export of raw staple commodities",History,Cultural History,C. Art & Visual Culture,20th c.,Knowledge,high
+Harold Innis,Monopolies of Knowledge,,"Control of dominant media creates monopolies over knowledge and power",History,Cultural History,C. Art & Visual Culture,20th c.,Knowledge,med
+Jürgen Osterhammel,Entangled History (Verflechtungsgeschichte),Verflechtungsgeschichte,"History of mutual entanglements across regions and societies",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,DB,high
+Jürgen Osterhammel,The Transformation of the World,,"Nineteenth century as the formative age of global modernity",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,high
+Jürgen Osterhammel,Global History as Connection,,"World history written through linkages rather than separate civilizations",History,"Political, Legal & Global History",C. Global & Transnational,Contemporary,Knowledge,med
+Jan Lucassen,Network Analysis,,"Mapping historical labor and migration relations as networks",History,Digital History,B. Spatial & Network Analysis,Contemporary,DB,high
+Jan Lucassen,Global Labour History,,"Worldwide history of work using the broadest definition of labor",History,Digital History,B. Spatial & Network Analysis,Contemporary,Web,high
+Jan Lucassen,The Story of Work,,"A new long-run history of human labor across millennia",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,med
+Anne Kelly Knowles,Geospatial History,,"Applying GIS and spatial analysis to historical questions",History,Digital History,B. Spatial & Network Analysis,Contemporary,DB,high
+Anne Kelly Knowles,Historical GIS,,"Mapping past landscapes and events with geographic information systems",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+Anne Kelly Knowles,Geographies of the Holocaust,,"Spatial analysis revealing the scales and processes of genocide",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,med
+J.A. Hobson,Imperialism (Historical Theory),,"Economic roots of empire in surplus capital seeking outlets",History,Postcolonial & Decolonial History,A. Empire & Imperialism,19th-20th c.,DB,high
+J.A. Hobson,Underconsumption,,"Maldistribution of income depresses domestic demand, driving expansion",History,Postcolonial & Decolonial History,A. Empire & Imperialism,19th-20th c.,Knowledge,high
+J.A. Hobson,Imperialism: A Study,,"Empire serving financier interests against the national good",History,Postcolonial & Decolonial History,A. Empire & Imperialism,19th-20th c.,Knowledge,high
+Emily Thompson,Auditory History,,"History of sound, listening, and acoustic environments",History,"Gender, Body & Emotions History","C. Body, Senses & Health",Contemporary,DB,high
+Emily Thompson,The Soundscape of Modernity,,"Modern acoustic spaces engineered into controlled, signal-like sound",History,"Gender, Body & Emotions History","C. Body, Senses & Health",Contemporary,Knowledge,high
+Emily Thompson,Architectural Acoustics,,"How buildings and technology reshaped the experience of sound",History,"Gender, Body & Emotions History","C. Body, Senses & Health",Contemporary,Knowledge,med
+J.B. Harley,History of Cartography,,"Maps as cultural texts embedding power and ideology",History,Digital History,B. Spatial & Network Analysis,20th c.,DB,high
+J.B. Harley,Deconstructing the Map,,"Maps as rhetorical instruments of power, not neutral mirrors",History,Digital History,B. Spatial & Network Analysis,20th c.,Knowledge,high
+J.B. Harley,The Silences of Maps,,"What maps omit reveals the interests they serve",History,Digital History,B. Spatial & Network Analysis,20th c.,Knowledge,high
+Matthew Edney,History of Cartography,,"Mapmaking as situated cultural and intellectual practice",History,Digital History,B. Spatial & Network Analysis,Contemporary,DB,high
+Matthew Edney,Cartography as Ideal,,"'Cartography' is a normative ideal, not a single coherent enterprise",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+Matthew Edney,Mapping an Empire,,"British survey of India as a tool of colonial knowledge and control",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,med
+Richard White,Spatial History,,"Using space and movement as analytic categories in history",History,Digital History,B. Spatial & Network Analysis,Contemporary,DB,high
+Richard White,The Middle Ground,,"Cross-cultural accommodation forged between natives and Europeans",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+Richard White,The Organic Machine,,"Nature and technology fused into a single energy system",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+Richard White,Railroaded,,"Transcontinental railroads as wasteful, corrupt, world-making infrastructure",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,med
+William Cronon,Spatial History,,"Reconstructing landscapes and ecological relations over time",History,Digital History,B. Spatial & Network Analysis,Contemporary,DB,high
+William Cronon,Changes in the Land,,"Colonial ecology transformed by property and commodity relations",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+William Cronon,Nature's Metropolis,,"Chicago and its hinterland bound by commodity flows",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+William Cronon,The Trouble with Wilderness,,"Wilderness as a cultural construct, not pristine untouched nature",History,Digital History,B. Spatial & Network Analysis,Contemporary,Knowledge,high
+Arnold Toynbee,Industrial Revolution (Historical),,"Naming and analysis of Britain's industrial transformation",History,Marxist & Social History,B. Economic History,19th c.,DB,high
+Arnold Toynbee,Coining the Industrial Revolution,,"Popularizing the term for Britain's economic transformation",History,Marxist & Social History,B. Economic History,19th c.,Knowledge,med
+Arnold Toynbee,Social Costs of Industrialization,,"Industrial growth bringing dislocation and hardship to workers",History,Marxist & Social History,B. Economic History,19th c.,Knowledge,med
+Daniel Roche,Consumer History,,"Material culture and consumption in early modern France",History,Marxist & Social History,B. Economic History,Contemporary,DB,high
+Daniel Roche,The Culture of Clothing,,"Dress and appearance as engines of consumption and identity",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,high
+Daniel Roche,A History of Everyday Things,,"Birth of consumption through ordinary material objects",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,med
+Lizabeth Cohen,Consumer History,,"Consumption as a force shaping American politics and society",History,Marxist & Social History,B. Economic History,Contemporary,DB,high
+Lizabeth Cohen,A Consumers' Republic,,"Postwar America organizing democracy around mass consumption",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,high
+Lizabeth Cohen,The Purchaser as Citizen,,"Consumer identity merging with citizenship in modern America",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,med
+Eric Hobsbawm,Labor History,,"History of working classes, movements, and labor formation",History,Marxist & Social History,B. Economic History,20th c.,DB,high
+Eric Hobsbawm,The Age of Revolution/Capital/Empire/Extremes,,"The long nineteenth and short twentieth centuries in four sweeping volumes",History,Marxist & Social History,B. Economic History,20th c.,Knowledge,high
+Eric Hobsbawm,The Invention of Tradition,,"Many 'ancient' traditions are recent deliberate constructions",History,Marxist & Social History,B. Economic History,20th c.,Knowledge,high
+Eric Hobsbawm,Primitive Rebels,,"Pre-political bandits and millenarians as early forms of protest",History,Marxist & Social History,B. Economic History,20th c.,Knowledge,high
+Eric Hobsbawm,The Dual Revolution,,"French political and British industrial revolutions remaking the world",History,Marxist & Social History,B. Economic History,20th c.,Knowledge,med
+Charles McIlwain,Constitutional History,,"Development of constitutional thought and limited government",History,"Political, Legal & Global History",A. Political & State,20th c.,DB,high
+Charles McIlwain,Constitutionalism: Ancient and Modern,,"Constitutionalism as the legal limitation of arbitrary power",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,high
+Charles McIlwain,Jurisdictio vs. Gubernaculum,,"Distinction between law-bound jurisdiction and discretionary governance",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,med
+Frank Chalk,History of Genocide,,"Comparative historical and sociological study of genocide",History,"Political, Legal & Global History",A. Political & State,Contemporary,DB,high
+Frank Chalk,Typology of Genocide by Motive,,"Genocides classified by perpetrator aims: threat, terror, wealth, ideology",History,"Political, Legal & Global History",A. Political & State,Contemporary,Web,high
+Frank Chalk,Broadened Genocide Definition,,"Including political and social groups as potential genocide victims",History,"Political, Legal & Global History",A. Political & State,Contemporary,Web,high
+Paul W. Schroeder,History of International Relations,,"Diplomatic history of the European states system",History,"Political, Legal & Global History",A. Political & State,20th c.,DB,high
+Paul W. Schroeder,The Transformation of European Politics,,"1815 as a systemic shift to a restraint-based European order",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,high
+Paul W. Schroeder,Political Equilibrium vs. Balance of Power,,"Stable order rested on shared rules, not mere power balancing",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,med
+John Keegan,Military History,,"History of warfare focused on the experience of combat",History,"Political, Legal & Global History",A. Political & State,20th c.,DB,high
+John Keegan,The Face of Battle,,"War seen from the soldier's-eye view of the battlefield",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,high
+John Keegan,A History of Warfare,,"War as cultural expression, not merely politics by other means",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,med
+Peter Laslett,History of the Family,,"Historical demography of household and family structures",History,Marxist & Social History,C. Social Structure & Class,20th c.,DB,high
+Peter Laslett,The World We Have Lost,,"Pre-industrial England reconstructed through household analysis",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,high
+Peter Laslett,Nuclear Family Hypothesis,,"Small nuclear households predate, not follow, industrialization in England",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,high
+Peter Laslett,Western European Marriage Pattern,,"Late marriage and many never marrying as a distinctive regime",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,med
+Lewis Mumford,Urban History,,"History and critique of the city and its technologies",History,Marxist & Social History,C. Social Structure & Class,20th c.,DB,high
+Lewis Mumford,The City in History,,"The city as humanity's greatest work, charting its rise and decline",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,high
+Lewis Mumford,Megamachine,,"Large-scale organization of humans as a power-machine",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,high
+Lewis Mumford,Technics and Civilization,,"Phases of technology shaping and shaped by human culture",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,high
+Lewis Mumford,Polytechnics vs. Monotechnics,,"Life-centered diverse technics versus power-centered authoritarian technics",History,Marxist & Social History,C. Social Structure & Class,20th c.,Knowledge,med
+Heinrich Wölfflin,Formalism,,"Analysis of art through formal visual properties and style",History,Cultural History,C. Art & Visual Culture,19th-20th c.,DB,high
+Heinrich Wölfflin,Principles of Art History,,"Five polar concepts charting the shift from Renaissance to Baroque",History,Cultural History,C. Art & Visual Culture,19th-20th c.,Knowledge,high
+Heinrich Wölfflin,Linear vs. Painterly,,"Contrasting modes of seeing structuring stylistic development",History,Cultural History,C. Art & Visual Culture,19th-20th c.,Knowledge,high
+Heinrich Wölfflin,Art History Without Names,,"History of style governed by visual logic, not individual genius",History,Cultural History,C. Art & Visual Culture,19th-20th c.,Knowledge,med
+Karen Armstrong,History of Christianity,,"Popular comparative history of religious traditions",History,"Political, Legal & Global History",A. Political & State,Contemporary,DB,high
+Karen Armstrong,A History of God,,"Evolving human conceptions of God across the monotheisms",History,"Political, Legal & Global History",A. Political & State,Contemporary,Knowledge,high
+Karen Armstrong,The Axial Age,,"Simultaneous emergence of major spiritual traditions worldwide",History,"Political, Legal & Global History",A. Political & State,Contemporary,Knowledge,high
+Karen Armstrong,Compassion as Religion's Core,,"Compassion as the shared ethical heart of world faiths",History,"Political, Legal & Global History",A. Political & State,Contemporary,Knowledge,med
+Marshall G.S. Hodgson,History of Islam,,"World-historical study of Islamic civilization",History,"Political, Legal & Global History",A. Political & State,20th c.,DB,high
+Marshall G.S. Hodgson,The Venture of Islam,,"Islamic civilization placed at the center of world history",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,high
+Marshall G.S. Hodgson,Islamicate,,"Cultural complex of Islam-influenced society beyond religion itself",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,high
+Marshall G.S. Hodgson,Oikoumene,,"The Afro-Eurasian zone of interregional civilization",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,med
+William G. McLoughlin,History of Religious Revival,,"History of American revivalism and religious awakenings",History,"Political, Legal & Global History",A. Political & State,20th c.,DB,high
+William G. McLoughlin,Great Awakenings,,"Periodic revivals reshaping American culture and reform",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,high
+William G. McLoughlin,Awakenings as Cultural Revitalization,,"Revivals as society-wide responses to cultural crisis",History,"Political, Legal & Global History",A. Political & State,20th c.,Knowledge,med
+Bertrand Russell,History of Western Philosophy,,"Sweeping narrative survey of Western philosophical thought",History,Intellectual History,A. History of Ideas,20th c.,DB,high
+Bertrand Russell,Theory of Descriptions,,"Logical analysis dissolving puzzles of denoting phrases",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Bertrand Russell,Russell's Paradox,,"Set of all sets not members of themselves yields contradiction",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Bertrand Russell,Logical Atomism,,"World composed of logically independent atomic facts",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Bertrand Russell,Philosophy as Logical Analysis,,"Philosophy advanced by clarifying language through logic",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,med
+Leo Strauss,History of Political Philosophy,,"Recovering the great questions of classical political thought",History,Intellectual History,A. History of Ideas,20th c.,DB,high
+Leo Strauss,Esoteric Writing,,"Persecuted thinkers hiding true teaching beneath exoteric surfaces",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Leo Strauss,Ancients vs. Moderns,,"A fundamental quarrel between classical and modern political philosophy",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Leo Strauss,Natural Right and History,,"Defending natural right against historicism and relativism",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,high
+Leo Strauss,The Theologico-Political Problem,,"Enduring tension between revelation and philosophy",History,Intellectual History,A. History of Ideas,20th c.,Knowledge,med
+Sir John Baker,Legal History,,"History of English common law and legal institutions",History,"Political, Legal & Global History",B. Legal & Human Rights,Contemporary,DB,high
+Sir John Baker,An Introduction to English Legal History,,"Standard account of the development of the common law",History,"Political, Legal & Global History",B. Legal & Human Rights,Contemporary,Knowledge,high
+Sir John Baker,The Forms of Action,,"Procedural writs as the historical framework of common law",History,"Political, Legal & Global History",B. Legal & Human Rights,Contemporary,Knowledge,med
+Michel-Rolph Trouillot,Structural Amnesia,,"How power systematically erases events from historical record",History,Memory & Oral History,A. Collective & Cultural Memory,Contemporary,DB,high
+Michel-Rolph Trouillot,Silencing the Past,,"Power producing silences at each stage of making history",History,Memory & Oral History,A. Collective & Cultural Memory,Contemporary,Knowledge,high
+Michel-Rolph Trouillot,Unthinkable History,,"The Haitian Revolution as inconceivable within Western categories",History,Memory & Oral History,A. Collective & Cultural Memory,Contemporary,Knowledge,high
+Michel-Rolph Trouillot,The Savage Slot,,"Anthropology's framing of the 'savage' as Western self-definition",History,Memory & Oral History,A. Collective & Cultural Memory,Contemporary,Knowledge,med
+Louis Gottschalk,Internal and External Criticism,,"Evaluating authenticity and reliability of historical sources",History,Historiography & Method,A. Source Criticism & Method,20th c.,DB,high
+Louis Gottschalk,Understanding History,,"Classic manual on the historical method and source evaluation",History,Historiography & Method,A. Source Criticism & Method,20th c.,Knowledge,high
+Louis Gottschalk,The Historical Method,,"Systematic procedures for selecting and testing evidence",History,Historiography & Method,A. Source Criticism & Method,20th c.,Knowledge,med
+Niall Ferguson,Counterfactual History,,"Disciplined exploration of plausible alternative pasts",History,Historiography & Method,A. Source Criticism & Method,Contemporary,DB,high
+Niall Ferguson,Virtual History,,"Counterfactuals as a tool for understanding contingency and causation",History,Historiography & Method,A. Source Criticism & Method,Contemporary,Knowledge,high
+Niall Ferguson,Niall Ferguson Networks vs. Hierarchies,,"History driven by tension between networks and hierarchical orders",History,Historiography & Method,A. Source Criticism & Method,Contemporary,Knowledge,med
+E.H. Carr,Historical Causation,,"How historians select and order causes of events",History,Historiography & Method,A. Source Criticism & Method,20th c.,DB,high
+E.H. Carr,What Is History?,,"History as a dialogue between the historian and the facts",History,Historiography & Method,A. Source Criticism & Method,20th c.,Knowledge,high
+E.H. Carr,The Historian and His Facts,,"Facts become historical only when historians select them",History,Historiography & Method,A. Source Criticism & Method,20th c.,Knowledge,high
+E.H. Carr,Hierarchy of Causes,,"Distinguishing significant causes from accidents in history",History,Historiography & Method,A. Source Criticism & Method,20th c.,Knowledge,med
+R.W. Connell,History of Masculinities,,"Historical formation of masculine identities and power",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+R.W. Connell,Hegemonic Masculinity,,"Dominant masculine ideal legitimating men's power over women",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+R.W. Connell,Gender Order,,"Society-wide patterning of gender relations and hierarchy",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+R.W. Connell,Southern Theory,,"Critique of social theory's neglect of the global South",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Douglas C. Baynton,Disability History,,"Recovering disability as a historical category and experience",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Douglas C. Baynton,Disability as Justification for Inequality,,"Disability invoked to justify denying rights to many groups",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Douglas C. Baynton,Defectives in the Land,,"Disability as a central lens in American immigration restriction",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Paul Thompson,Oral History,,"Pioneering use of oral testimony in social history",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Paul Thompson,The Voice of the Past,,"Foundational manifesto and method for oral history",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Paul Thompson,History from Below,,"Recovering the experience of ordinary and silenced people",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Kirk Savage,Public Memory,,"Monuments and public space as sites of collective memory",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Kirk Savage,"Standing Soldiers, Kneeling Slaves",,"Civil War monuments shaping the memory of race and emancipation",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Kirk Savage,Monument Wars,,"Contested making of the National Mall's commemorative landscape",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Spencer Weart,History of Climate Science,,"History of how scientists discovered global warming",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Spencer Weart,The Discovery of Global Warming,,"Century-long scientific path to understanding climate change",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Spencer Weart,Nuclear Fear,,"Cultural history of imagery and anxiety surrounding nuclear power",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Martin Campbell-Kelly,History of Computing,,"Business and institutional history of the computer industry",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Martin Campbell-Kelly,Computer: A History of the Information Machine,,"Computing as an evolving information-processing technology",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Martin Campbell-Kelly,From Airline Reservations to Sonic the Hedgehog,,"History of the software industry as a business",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+William Aspray,History of Computing,,"Intellectual and institutional history of computing",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+William Aspray,John von Neumann and Modern Computing,,"Von Neumann's role in shaping the stored-program computer",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+William Aspray,The Information Society (History),,"Long-run history of information handling and infrastructure",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Michael Werner,Histoire Croisée (Crossed History),Histoire croisée,"Method tracing mutual crossings and entanglements between units",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Michael Werner,Beyond Comparison,,"Crossed history surpassing static comparison and transfer studies",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Michael Werner,Reflexivity of Crossings,,"Observer and object jointly transformed in the analytic crossing",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Bénédicte Zimmermann,Histoire Croisée (Crossed History),Histoire croisée,"Co-developed method of studying intercrossing historical processes",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Bénédicte Zimmermann,Multi-Scalar Entanglement,,"Crossings analyzed across multiple intersecting scales and viewpoints",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Bénédicte Zimmermann,Pragmatics of Capabilities,,"Work and agency studied through a capability-based pragmatic lens",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Lincoln Paine,Ocean History / Maritime History,,"World history viewed from the sea and maritime connection",History,Specialized Social Histories,A. Childhood & Family,Contemporary,DB,high
+Lincoln Paine,The Sea and Civilization,,"Maritime networks as primary drivers of world history",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,high
+Lincoln Paine,Sea-Centered History,,"Reframing the human past around oceans rather than land",History,Specialized Social Histories,A. Childhood & Family,Contemporary,Knowledge,med
+Langdon Winner,History of Technology (as Actor),,"Artifacts as bearers of political and social order",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,DB,high
+Langdon Winner,Do Artifacts Have Politics?,,"Technologies can embody specific forms of power and authority",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,high
+Langdon Winner,Technological Somnambulism,,"Drifting unreflectively into the worlds our technologies build",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,high
+Langdon Winner,The Whale and the Reactor,,"Politics embedded in the very design of technical systems",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,med
+Harriet Ritvo,Animal History,,"History of human-animal relations and classification",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,DB,high
+Harriet Ritvo,The Animal Estate,,"Victorian Britain expressing power and order through animals",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,high
+Harriet Ritvo,The Platypus and the Mermaid,,"How classification struggled with anomalous and hybrid creatures",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,med
+Erica Fudge,Animal History,,"Early modern cultural history of animals and humanity",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,DB,high
+Erica Fudge,Brutal Reasoning,,"Animals defining the boundaries of the human in early modern thought",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,high
+Erica Fudge,A Left-Handed Blow,,"Writing animal history that takes the animal seriously",History,"Environmental, Science & Technology History",C. History of Technology & Things,Contemporary,Knowledge,med
+Geoffrey Bowker,History of Data,,"How classification and infrastructure shape knowledge",History,Digital History,C. Archives & Data,Contemporary,DB,high
+Geoffrey Bowker,Sorting Things Out,,"Classification systems as invisible but powerful infrastructure",History,Digital History,C. Archives & Data,Contemporary,Knowledge,high
+Geoffrey Bowker,Memory Practices in the Sciences,,"How sciences decide what to remember and forget",History,Digital History,C. Archives & Data,Contemporary,Knowledge,high
+Geoffrey Bowker,Infrastructural Inversion,,"Foregrounding the hidden infrastructures that support knowledge",History,Digital History,C. Archives & Data,Contemporary,Knowledge,med
+G.W.F. Hegel,Philosophy of History (Speculative),,"History as the rational unfolding of Spirit toward freedom",History,Philosophy of History,B. Analytic & Metahistory,19th c.,DB,high
+G.W.F. Hegel,Dialectic,,"Development through contradiction and its resolution in synthesis",History,Philosophy of History,B. Analytic & Metahistory,19th c.,Knowledge,high
+G.W.F. Hegel,Geist (World Spirit),Geist,"Collective rational mind realizing itself through world history",History,Philosophy of History,B. Analytic & Metahistory,19th c.,Knowledge,high
+G.W.F. Hegel,Cunning of Reason,List der Vernunft,"Reason using individual passions to achieve historical ends",History,Philosophy of History,B. Analytic & Metahistory,19th c.,Knowledge,high
+G.W.F. Hegel,Master-Slave Dialectic,,"Self-consciousness achieved through struggle for recognition",History,Philosophy of History,B. Analytic & Metahistory,19th c.,Knowledge,high
+Arnold J. Toynbee,Philosophy of History (Speculative),,"Comparative cyclical theory of the rise and fall of civilizations",History,Philosophy of History,B. Analytic & Metahistory,20th c.,DB,high
+Arnold J. Toynbee,Challenge and Response,,"Civilizations grow by responding successfully to challenges",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,high
+Arnold J. Toynbee,Creative Minority,,"Civilizations led by creative elites others imitate",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,high
+Arnold J. Toynbee,A Study of History,,"Twelve-volume comparative analysis of world civilizations",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,high
+Arnold J. Toynbee,Withdrawal and Return,,"Renewal through creative figures' retreat and re-engagement",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,med
+Arthur Danto,Philosophy of History (Analytic),,"Logical analysis of historical statements and narrative",History,Philosophy of History,B. Analytic & Metahistory,20th c.,DB,high
+Arthur Danto,Narrative Sentences,,"Statements describing events by reference to later ones",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,high
+Arthur Danto,The End of Art,,"Art's narrative reaching closure with its self-awareness",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,high
+Arthur Danto,The Artworld,,"Art status conferred by a theory-laden institutional context",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,med
+W.H. Walsh,Philosophy of History (Analytic),,"Critical examination of historical knowledge and explanation",History,Philosophy of History,B. Analytic & Metahistory,20th c.,DB,high
+W.H. Walsh,Colligation,,"Explaining events by grouping them under organizing concepts",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,high
+W.H. Walsh,An Introduction to Philosophy of History,,"Foundational survey distinguishing speculative and critical approaches",History,Philosophy of History,B. Analytic & Metahistory,20th c.,Knowledge,med
+Peter Novick,Historical Objectivity,,"Critical history of the ideal of objectivity in the profession",History,Philosophy of History,B. Analytic & Metahistory,Contemporary,DB,high
+Peter Novick,That Noble Dream,,"The objectivity question across the American historical profession",History,Philosophy of History,B. Analytic & Metahistory,Contemporary,Knowledge,high
+Peter Novick,The Holocaust in American Life,,"How the Holocaust became central to American memory",History,Philosophy of History,B. Analytic & Metahistory,Contemporary,Knowledge,med
+Jean Starobinski,History of Melancholy,,"History of melancholy across medicine, art, and literature",History,"Gender, Body & Emotions History",B. History of Emotions,20th c.,DB,high
+Jean Starobinski,The Living Eye,,"Criticism as a relationship between the gaze and the work",History,"Gender, Body & Emotions History",B. History of Emotions,20th c.,Knowledge,high
+Jean Starobinski,Transparency and Obstruction,,"Rousseau torn between desire for transparency and its barriers",History,"Gender, Body & Emotions History",B. History of Emotions,20th c.,Knowledge,med
+Frank M. Snowden,History of Epidemics,,"History of epidemic disease and its impact on society",History,"Gender, Body & Emotions History","C. Body, Senses & Health",Contemporary,DB,high
+Frank M. Snowden,Epidemics and Society,,"Sweeping history of disease from the plague to the present",History,"Gender, Body & Emotions History","C. Body, Senses & Health",Contemporary,Knowledge,high
+Frank M. Snowden,Disease as Historical Force,,"Epidemics shaping politics, culture, and the course of history",History,"Gender, Body & Emotions History","C. Body, Senses & Health",Contemporary,Knowledge,med
+Giovanni Levi,Microhistory vs. Macrohistory,,"Intensive small-scale analysis revealing larger structures",History,Historiography & Method,B. Schools of Historiography,Contemporary,DB,high
+Giovanni Levi,Inheriting Power,,"A village exorcist's career reconstructing early modern social logic",History,Historiography & Method,B. Schools of Historiography,Contemporary,Knowledge,high
+Giovanni Levi,Reduction of Scale,,"Microscopic observation exposing what large scales conceal",History,Historiography & Method,B. Schools of Historiography,Contemporary,Knowledge,high
+Christopher Breward,History of Consumer Society,,"Fashion and consumption in modern urban culture",History,Marxist & Social History,B. Economic History,Contemporary,DB,high
+Christopher Breward,The Hidden Consumer,,"Masculinity and fashion challenging the female-consumer assumption",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,high
+Christopher Breward,Fashion as Cultural History,,"Dress read as a serious source for cultural history",History,Marxist & Social History,B. Economic History,Contemporary,Knowledge,med
+Edward Peters,History of Torture,,"History of torture in law and society",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,DB,high
+Edward Peters,Torture,,"Survey of judicial torture from antiquity to the modern state",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,Knowledge,high
+Edward Peters,Inquisition,,"History of the medieval and early modern inquisitions",History,Specialized Social Histories,"B. Crime, Violence & Policing",Contemporary,Knowledge,med
+Paul Watzlawick,Communication Theory,,"Pragmatics of human communication in relational systems",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,DB,high
+Paul Watzlawick,One Cannot Not Communicate,,"All behavior in interaction conveys a message",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Paul Watzlawick,Content and Relationship Levels,,"Every message carries both report and command aspects",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Paul Watzlawick,Punctuation of Communication,,"Partners disagree on the cause-effect sequence of interaction",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Paul Watzlawick,First- and Second-Order Change,,"Change within a system versus change of the system itself",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,med
+Gregory Bateson,Double Bind Theory,,"Contradictory injunctions trapping a person with no escape",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,DB,high
+Gregory Bateson,Ecology of Mind,,"Mind as a relational pattern extending beyond the individual",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Gregory Bateson,Difference That Makes a Difference,,"Information defined as a perceptible difference",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Gregory Bateson,Schismogenesis,,"Self-reinforcing escalation in patterns of social interaction",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Gregory Bateson,Deutero-Learning,,"Learning to learn; acquiring the patterns of learning itself",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,med
+Carl Whitaker,Experiential Family Therapy,,"Therapy fostering growth through spontaneous emotional experience",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,DB,high
+Carl Whitaker,Therapy of the Absurd,,"Using absurdity and play to unsettle rigid family patterns",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,high
+Carl Whitaker,Symbolic-Experiential Approach,,"Accessing the family's symbolic emotional life in session",Family,가족체계·사이버네틱스 이론 (Family Systems & Cybernetics),B. 의사소통·구조적 가족치료 (Communication & Structural Therapy),20th c.,Knowledge,med
+Sarah Fenstermaker Berk,Doing Family,,"Family and gender enacted through everyday household practice",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,DB,high
+Sarah Fenstermaker Berk,The Gender Factory,,"Household labor producing gender as much as goods and services",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Web,high
+Sarah Fenstermaker Berk,Division of Household Labor,,"Apportionment of domestic work as symbolic gender affirmation",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Web,high
+Annette Lareau,Class and Family Theory,,"Social class shaping distinct childrearing logics",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,DB,high
+Annette Lareau,Concerted Cultivation,,"Middle-class parenting actively developing children's talents",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Knowledge,high
+Annette Lareau,Accomplishment of Natural Growth,,"Working-class parenting trusting children to grow on their own",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Knowledge,high
+Annette Lareau,Unequal Childhoods,,"Class differences in parenting reproducing inequality",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Knowledge,high
+Warren S. Thompson,Demographic Transition Theory,,"Populations shift from high to low birth and death rates",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),20th c.,DB,high
+Warren S. Thompson,"Population Groups A, B, C",,"Early classification of nations by demographic growth stage",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),20th c.,Knowledge,med
+Warren S. Thompson,Population Pressure and Conflict,,"Differential population growth as a source of international tension",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),20th c.,Knowledge,med
+Frank W. Notestein,Demographic Transition Theory,,"Modernization driving the shift from high to low fertility",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),20th c.,DB,high
+Frank W. Notestein,Three-Stage Transition Model,,"High stationary, expanding, and low stationary population phases",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),20th c.,Knowledge,high
+Frank W. Notestein,Fertility Decline and Modernization,,"Urban industrial life undermining motives for large families",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),20th c.,Knowledge,med
+Rosabeth Moss Kanter,Work-Family Conflict Theory,,"Tension between the demands of job and family roles",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,DB,high
+Rosabeth Moss Kanter,Myth of Separate Worlds,,"Work and family are interpenetrating, not separate spheres",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Knowledge,high
+Rosabeth Moss Kanter,Tokenism,,"Skewed ratios making solo minorities highly visible and pressured",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Knowledge,high
+Rosabeth Moss Kanter,Structural Opportunity and Power,,"Behavior at work shaped by structural position, not personality",Family,가족사회학·구조 (Family Sociology & Structure),B. 사회구성주의·포스트모던 (Social Construction & Postmodern),Contemporary,Knowledge,med
+Peggy Levitt,Transnational Families Theory,,"Families sustaining ties and identity across national borders",Family,"탈식민·초국가·교차성 가족이론 (Decolonial, Transnational & Intersectional)",A. 토착·탈식민 가족연구 (Indigenous & Decolonizing),Contemporary,DB,high
+Peggy Levitt,Social Remittances,,"Ideas, practices, and identities flowing back with migrants",Family,"탈식민·초국가·교차성 가족이론 (Decolonial, Transnational & Intersectional)",A. 토착·탈식민 가족연구 (Indigenous & Decolonizing),Contemporary,Knowledge,high
+Peggy Levitt,Transnational Villagers,,"Migrant communities living simultaneously in two societies",Family,"탈식민·초국가·교차성 가족이론 (Decolonial, Transnational & Intersectional)",A. 토착·탈식민 가족연구 (Indigenous & Decolonizing),Contemporary,Knowledge,high
+Parvati Raghuram,Transnational Families Theory,,"Migration, care, and gender across transnational space",Family,"탈식민·초국가·교차성 가족이론 (Decolonial, Transnational & Intersectional)",A. 토착·탈식민 가족연구 (Indigenous & Decolonizing),Contemporary,DB,high
+Parvati Raghuram,Global Care Chains,,"Care labor outsourced along chains of migrant women",Family,"탈식민·초국가·교차성 가족이론 (Decolonial, Transnational & Intersectional)",A. 토착·탈식민 가족연구 (Indigenous & Decolonizing),Contemporary,Knowledge,med
+Parvati Raghuram,Postcolonial Migration,,"Reading migration through colonial histories and power",Family,"탈식민·초국가·교차성 가족이론 (Decolonial, Transnational & Intersectional)",A. 토착·탈식민 가족연구 (Indigenous & Decolonizing),Contemporary,Knowledge,med
+Rosemary Radford Ruether,Ecofeminist Family Theory,,"Linking domination of women and nature in patriarchal systems",Family,"젠더·돌봄노동·페미니즘 가족이론 (Gender, Care Labor & Feminist)",C. 돌봄윤리·에코페미니즘 (Care Ethics & Ecofeminism),Contemporary,DB,high
+Rosemary Radford Ruether,Gaia and God,,"Ecofeminist theology reuniting spirituality and the Earth",Family,"젠더·돌봄노동·페미니즘 가족이론 (Gender, Care Labor & Feminist)",C. 돌봄윤리·에코페미니즘 (Care Ethics & Ecofeminism),Contemporary,Knowledge,high
+Rosemary Radford Ruether,Sexism and God-Talk,,"Feminist critique reconstructing patriarchal religious language",Family,"젠더·돌봄노동·페미니즘 가족이론 (Gender, Care Labor & Feminist)",C. 돌봄윤리·에코페미니즘 (Care Ethics & Ecofeminism),Contemporary,Knowledge,high
+Bruce Western,Incarceration and Family Theory,,"Mass incarceration reshaping families and inequality",Family,"젠더·돌봄노동·페미니즘 가족이론 (Gender, Care Labor & Feminist)",C. 돌봄윤리·에코페미니즘 (Care Ethics & Ecofeminism),Contemporary,DB,high
+Bruce Western,Punishment and Inequality in America,,"Imprisonment entrenching racial and class inequality",Family,"젠더·돌봄노동·페미니즘 가족이론 (Gender, Care Labor & Feminist)",C. 돌봄윤리·에코페미니즘 (Care Ethics & Ecofeminism),Contemporary,Knowledge,high
+Bruce Western,Invisible Inequality of Incarceration,,"Prison's effects hidden from standard measures of disadvantage",Family,"젠더·돌봄노동·페미니즘 가족이론 (Gender, Care Labor & Feminist)",C. 돌봄윤리·에코페미니즘 (Care Ethics & Ecofeminism),Contemporary,Knowledge,med

@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 분석 워크벤치 (운영시스템 시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+    --red:#E3120B; --reddim:#7a1410;
+    /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
+    --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    /* SHARED-STANDARD S2: 블라인드/공백 = gap amber (conquer red에서 분리). 빨강=정복했다, 앰버=아직 안 갔다 */
+    --blind:#E8B23A; --blindtx:#edc873; --forming:#C8922B; --masque:#9B8CF0;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --rail:212px; --insp:344px; --feed:286px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  a{color:inherit;text-decoration:none}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#34343a}::-webkit-scrollbar-track{background:transparent}
+
+  /* ───────── APP BAR ───────── */
+  .appbar{height:46px;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid var(--line2);background:var(--bg2);position:relative;z-index:30}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:11px;letter-spacing:.13em;padding:3px 7px;border-radius:2px}
+  .crumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .crumb b{color:var(--ink);font-weight:600;font-family:var(--ser);font-size:14px}
+  .crumb i.ti{font-size:13px;color:var(--faint)}
+  .cmdk{margin-left:8px;flex:0 1 320px;display:flex;align-items:center;gap:8px;background:var(--pnl);border:1px solid var(--line2);
+    border-radius:6px;padding:5px 9px;color:var(--sub);font-size:12px;cursor:text}
+  .cmdk:hover{border-color:var(--line3)}
+  .cmdk .kbd{margin-left:auto;font-family:var(--mono);font-size:10px;background:var(--pnl3);border:1px solid var(--line2);border-radius:3px;padding:1px 5px;color:var(--mut)}
+  .abright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .navchip{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:6px;padding:4px 11px}
+  .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
+  .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
+  .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+  .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+  .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+
+  /* ───────── LIVE TICKER ───────── */
+  .ticker{height:27px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg2);position:relative;z-index:20}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:9px;letter-spacing:.14em;padding:0 9px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .vp{overflow:hidden;flex:1}
+  .ticker .run{display:inline-flex;gap:30px;padding-left:22px;white-space:nowrap;animation:tick 46s linear infinite;font-size:11.5px;color:var(--mut)}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:7px;font-size:9px;vertical-align:1px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───────── SHELL ───────── */
+  .shell{display:flex;height:calc(100vh - 73px);overflow:hidden}
+  .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
+  .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
+
+  /* collapse handle */
+  .chv{cursor:pointer;color:var(--sub);font-size:15px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px}
+  .chv:hover{color:var(--ink);background:var(--pnl2)}
+
+  /* ── COL 1: NAV RAIL ── */
+  .rail{width:var(--rail);background:var(--bg2);border-right:1px solid var(--line2)}
+  .rail.collapsed{width:54px}
+  .railhd{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-bottom:1px solid var(--line);color:var(--sub)}
+  .railhd .eb{flex:1}
+  .rail.collapsed .railhd .eb{display:none}
+  .navsec{padding:8px 8px 4px}
+  .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
+  .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
+  .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
+  .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+  .nv:hover{background:var(--pnl2);color:var(--ink)}
+  .nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .nv i.lead{font-size:17px;width:20px;text-align:center;flex:0 0 auto}
+  .nv .tx{font-size:12.5px;flex:1;white-space:nowrap;overflow:hidden}
+  .nv .ct{font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rail.collapsed .nv .tx,.rail.collapsed .nv .ct{display:none}
+  .rail.collapsed .nv{justify-content:center;padding:8px 0}
+  .railft{margin-top:auto;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--faint)}
+  .rail.collapsed .railft{display:none}
+
+  /* ── COL 2: MAIN ── */
+  .main{flex:1 1 auto;background:var(--bg);min-width:0}
+  .mainpad{padding:14px 16px 40px}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;background:linear-gradient(180deg,var(--pnl),var(--bg2));
+    border:1px solid var(--line2);border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+  .navbig{display:flex;align-items:center;gap:16px}
+  .ring{position:relative;flex:0 0 auto}
+  .navnum{font-family:var(--mono);font-size:34px;font-weight:600;line-height:1}
+  .navmeta .lvl{font-size:12px;color:var(--canon);font-weight:600;letter-spacing:.04em;margin-top:5px}
+  .navmeta .pctl{font-size:11px;color:var(--mut);margin-top:3px}
+  .navmeta .pctl b{color:var(--safe);font-family:var(--mono)}
+  .components{display:flex;flex-direction:column;gap:7px;justify-content:center;border-left:1px solid var(--line);padding-left:18px}
+  .comp{display:grid;grid-template-columns:74px 1fr 38px;align-items:center;gap:10px}
+  .comp .cl{font-size:11px;color:var(--mut)}
+  .comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+  .comp .ct>i{display:block;height:100%;border-radius:4px}
+  .comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .explain{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);margin-top:12px;padding-top:9px;display:flex;gap:8px;align-items:center}
+  .explain .ti{color:var(--canon)}
+
+  /* lead: 말로 된 인사이트 요약 (그래서 뭘 알게 됐나) */
+  .lead{background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);border-radius:9px;padding:13px 16px;margin-bottom:13px}
+  .lead .lh{display:flex;align-items:center;gap:7px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:9px}
+  .lead .lh .ti{color:var(--reading);font-size:14px}
+  .leadrow{display:flex;gap:10px;align-items:flex-start;padding:7px 0;cursor:pointer;border-radius:6px;border:1px solid transparent;transition:.12s}
+  .leadrow:hover{background:var(--pnl2);border-color:var(--line);padding-left:8px;padding-right:8px}
+  .leadrow+.leadrow{border-top:1px solid var(--line)}
+  .leadrow:hover+.leadrow{border-top-color:transparent}
+  .leadrow .lic{flex:0 0 auto;width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .lic.alert{background:#260a08;color:#f2a39f;border:1px solid #7a1410}
+  .lic.move{background:#0c1c2e;color:#86b9ec;border:1px solid #234a72}
+  .lic.boost{background:#1f1808;color:#e0bb6e;border:1px solid #5b481f}
+  /* S2: 블라인드 의미색 = amber (conquer red 아님) */
+  .lic.blind{background:#211a08;color:var(--blindtx);border:1px solid #5e4d1d}
+  .leadrow .lt{flex:1;font-size:13px;line-height:1.5;font-family:var(--ser)}
+  .leadrow .lt b{font-style:normal}
+  .leadrow .lt .conq{color:#f2a39f;font-weight:700}
+  .leadrow .lt .drift{color:#86b9ec;font-weight:700}
+  .leadrow .lt .gapw{color:#e0bb6e;font-weight:700}
+  .leadrow .lcta{flex:0 0 auto;align-self:center;font-size:10.5px;color:var(--frontier);display:flex;align-items:center;gap:3px;opacity:0;transition:.12s;white-space:nowrap}
+  .leadrow:hover .lcta{opacity:1}
+
+  /* kpi */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:13px}
+  .kpi{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:default}
+  .kpi:hover{border-color:var(--line2)}
+  .kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
+  .kpi .v small{font-size:13px;color:var(--sub)}
+  .kpi .d{font-size:10.5px;margin-top:3px}
+  .kpi.alertkpi{border-color:#7a1410;background:linear-gradient(180deg,#1a0807,var(--pnl))}
+  .kpi.alertkpi .v{color:#f2a39f}
+  /* S2: 블라인드 KPI = amber 의미색 + 좌측 amber alert 액센트(red 재사용 안 함 → red≠안 감) */
+  .kpi.blindkpi{border-color:#5e4d1d;background:linear-gradient(180deg,#1a1407,var(--pnl));position:relative}
+  .kpi.blindkpi::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--blind)}
+  .kpi.blindkpi .v{color:var(--blindtx)}
+  .kpi.blindkpi .d{color:var(--blindtx)}
+  .kpi.jump{cursor:pointer}
+  .kpi.jump:hover{border-color:var(--line3)}
+  .up{color:var(--safe)} .dn{color:var(--red)} .flat{color:var(--mut)}
+
+  /* module panel */
+  .mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+  .modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+  .modh h3 .ti{color:var(--mut)}
+  .modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+  .modh .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden;margin-left:auto}
+  .modh .seg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);font-family:var(--ui);
+    font-size:10.5px;padding:3px 9px;cursor:pointer}
+  .modh .seg button:last-child{border-right:0}.modh .seg button.on{background:var(--ink);color:#0A0A0B}
+  .modbody{padding:11px 13px}
+
+  /* coverage matrix / lineage relevance rows */
+  .grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:10px 0 5px;display:flex;justify-content:space-between;align-items:center}
+  .grp:first-child{margin-top:0}
+  .lrow{display:grid;grid-template-columns:1fr 120px 78px 26px;align-items:center;gap:11px;padding:6px 7px;border-radius:5px;cursor:pointer;border:1px solid transparent}
+  .lrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .lrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .lname{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lname small{font-family:var(--ui);color:var(--sub);font-size:10.5px;margin-left:6px}
+  .barwrap{display:flex;align-items:center;gap:8px}
+  .track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+  .track>i{display:block;height:100%;border-radius:4px}
+  .pct{font-family:var(--mono);font-size:12px;width:34px;text-align:right}
+  /* S2: 저커버리지(gap/blind) = amber, conquer red 아님 */
+  .cov-lo>i{background:var(--blind)} .cov-mid>i{background:var(--canon)} .cov-hi>i{background:var(--safe)}
+  .cov-lo .pct{color:var(--blindtx)} .cov-mid .pct{color:#e0bb6e} .cov-hi .pct{color:#5fd0b2}
+  .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+  .tier{font-family:var(--mono);font-size:9px;padding:1px 5px;border:1px solid var(--line2);border-radius:3px;color:var(--mut);text-align:center}
+  .t1{color:#F2C9C7;border-color:#7a1410;background:#2a0c0a}
+
+  /* anchor / lineage reason chips */
+  .reasons{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+  .rsn{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:3px;display:flex;align-items:center;gap:4px;border:1px solid}
+  .rsn::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+  .rsn.safe{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .rsn.frontier{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .rsn.canon{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+  .rsn.gap{color:#edc873;border-color:#5e4d1d;background:#211a08}
+  .rsn.conquer{color:#f2a39f;border-color:#7a1410;background:#260a08}
+  .rsn.reading{color:#bda1f0;border-color:#4a3f86;background:#171430}
+
+  /* lineage relevance desk */
+  .rrow{display:grid;grid-template-columns:22px 1fr 132px 64px;gap:12px;align-items:center;padding:10px 8px;border-radius:6px;cursor:pointer;border:1px solid transparent}
+  .rrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .rrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .rk{font-family:var(--mono);color:var(--sub);font-size:13px;text-align:center}
+  .rt{font-family:var(--ser);font-size:15px}
+  .rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+  .rsub{font-size:11px;color:var(--mut);margin-top:2px}
+  .wwi{text-align:right}
+  .wwi .pv{font-family:var(--mono);font-size:22px;line-height:1}
+  .wwi .pl{font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+  .dlt{font-family:var(--mono);font-size:13px;color:var(--safe);text-align:right}
+  .dlt small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.08em}
+
+  /* axis coverage (decade bars + country/director) */
+  .axisgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:1180px){.axisgrid{grid-template-columns:1fr}}
+  .axsub{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:0 0 9px;display:flex;justify-content:space-between;align-items:center}
+  .decbars{display:flex;align-items:flex-end;gap:6px;height:118px;padding-top:6px}
+  .decol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;cursor:pointer}
+  .decol .stk{width:100%;display:flex;flex-direction:column-reverse;border-radius:3px;overflow:hidden;background:#1c1c20}
+  .decol .stk>i{display:block}
+  .decol .stk .mine{background:var(--ink)}
+  .decol .stk .canon{background:#3a3a40}
+  .decol.blind .stk .mine{background:var(--blind)}
+  .decol:hover .stk .mine{filter:brightness(1.15)}
+  .decol .n{font-family:var(--mono);font-size:11px;margin-top:5px}
+  .decol .lb{font-size:9.5px;color:var(--sub);font-family:var(--mono)}
+  .decol .n.bl{color:var(--blindtx)}
+
+  .cob{display:grid;grid-template-columns:64px 1fr 56px;gap:9px;align-items:center;padding:5px 0;cursor:default}
+  .cob .nm{font-size:12px;color:var(--mut)}
+  .cob.blind .nm{color:var(--blindtx)}
+  .ctk{height:9px;background:#24242a;border-radius:4px;overflow:hidden}.ctk>i{display:block;height:100%;border-radius:4px;background:var(--frontier)}
+  .cob.blind .ctk>i{background:var(--blind)}
+  .cob .v{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+
+  .dr{display:grid;grid-template-columns:1fr 96px 40px;gap:10px;align-items:center;padding:6px 7px;border-bottom:1px solid var(--line);border-radius:5px;cursor:pointer;border:1px solid transparent;border-bottom:1px solid var(--line)}
+  .dr:hover{background:var(--pnl2)}
+  .dr:last-child{border-bottom:0}
+  .dr .nm{font-family:var(--ser);font-size:13px}
+  .dr .nm .g{font-family:var(--mono);font-size:9px;color:var(--canon);border:1px solid #5b481f;border-radius:2px;padding:0 4px;margin-left:6px}
+  .dtk{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.dtk>i{display:block;height:100%;border-radius:4px;background:var(--reading)}
+  .dr .fr{font-family:var(--mono);font-size:10.5px;color:var(--mut);text-align:right}
+
+  /* gloss: 자명하지 않은 용어에 점선 밑줄 + hover 한국어 정의 (S5 용어집 정본) — 앵커·rel·cov·NAV·정전가·정복도·aw·블라인드 */
+  .gloss{border-bottom:1px dotted var(--line3);cursor:help;position:relative}
+  .gloss:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 7px);width:230px;
+    background:#1c1c20;border:1px solid var(--line3);border-radius:6px;padding:8px 10px;font-family:var(--ui);
+    font-size:11px;font-weight:400;line-height:1.5;color:var(--ink);letter-spacing:0;text-transform:none;
+    box-shadow:0 8px 22px rgba(0,0,0,.55);z-index:40;white-space:normal}
+  .gloss:hover::before{content:"";position:absolute;left:14px;bottom:calc(100% + 1px);border:5px solid transparent;border-top-color:var(--line3);z-index:40}
+  /* 상단 앱바 등 위쪽 여백이 없는 곳: 툴팁을 아래로 (clip 방지) */
+  .gloss.down:hover::after{bottom:auto;top:calc(100% + 7px)}
+  .gloss.down:hover::before{bottom:auto;top:calc(100% + 1px);border-top-color:transparent;border-bottom-color:var(--line3)}
+
+  /* graph / constellation */
+  svg text{font-family:var(--ui)}
+  .legend{display:flex;gap:13px;font-size:10px;color:var(--mut);margin-top:4px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+  .ginfo{border-left:3px solid var(--reading);padding:5px 0 6px 11px;margin-bottom:10px;min-height:46px}
+  .ginfo .t{font-family:var(--ser);font-size:15px}
+  .ginfo .t .g{font-size:9.5px;color:var(--canon)}
+  .ginfo .s{font-size:11px;color:var(--mut);margin-top:3px;line-height:1.45}
+  .ginfo .s b{color:var(--ink)}
+
+  /* ── COL 3: INSPECTOR ── */
+  .inspector{width:var(--insp);background:var(--bg2);border-left:1px solid var(--line2)}
+  .inspector.collapsed{width:40px}
+  .insphd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);background:var(--bg2);position:sticky;top:0;z-index:5}
+  .insphd .ti-tit{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden}
+  .inspector.collapsed .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .inspector.collapsed .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:140px;flex:0 0 auto}
+  .inspector.collapsed .inspbody{display:none}
+  .inspbody{padding:12px 12px 30px}
+  .icard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:11px;margin-bottom:11px}
+  .icard h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:6px}
+  .selhead{display:flex;gap:11px;margin-bottom:11px}
+  .poster{width:50px;height:72px;border-radius:3px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line)}
+  .seltitle{font-family:var(--ser);font-size:17px;line-height:1.15}
+  .selsub{font-size:11px;color:var(--mut);margin-top:3px}
+  .selflag{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap}
+  .bigscore{display:flex;align-items:baseline;gap:8px;margin:4px 0 10px}
+  .bigscore .n{font-family:var(--mono);font-size:30px;font-weight:600}
+  .bigscore .u{font-size:10px;color:var(--sub);letter-spacing:.1em}
+  .crow{display:grid;grid-template-columns:62px 1fr 34px;align-items:center;gap:9px;margin:6px 0}
+  .crow .cl{font-size:11px;color:var(--mut)}
+  .crow .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.crow .ct>i{display:block;height:100%;border-radius:4px}
+  .crow .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-family:var(--mono);color:var(--ink)}
+  .badge-val{font-size:10px;font-weight:600;padding:2px 7px;border-radius:3px;display:inline-block}
+  .bv-find{background:#0e221c;color:#5fd0b2;border:1px solid #1d4d40}
+  .bv-fit{background:var(--pnl2);color:var(--mut);border:1px solid var(--line2)}
+  .bv-over{background:#260a08;color:#f2a39f;border:1px solid #7a1410}
+  .availrow{display:flex;align-items:center;gap:7px;font-size:11.5px;margin:5px 0}
+  .availrow .dot{width:7px;height:7px;border-radius:50%}
+  .actbar{display:flex;gap:7px;margin-top:11px}
+  .actbtn{flex:1;text-align:center;padding:7px;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid var(--line2)}
+  .actbtn.pri{background:var(--red);color:#fff;border-color:var(--red)}
+  .actbtn.gho{background:transparent;color:var(--ink)}
+  .backlink{font-size:11px;color:var(--frontier);cursor:pointer;display:flex;align-items:center;gap:5px;margin-bottom:10px}
+  .backlink:hover{text-decoration:underline}
+  .anchorchip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block;margin:3px 3px 0 0}
+  .mini-scatter,.mini-bars{margin-top:4px}
+  .mvrow{display:grid;grid-template-columns:110px 1fr 26px;gap:8px;align-items:center;padding:3px 0;font-size:11.5px}
+  .mvrow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mvrow .nm.bl{color:var(--blindtx)}
+
+  /* ── COL 4: ACTIVITY ── */
+  .activity{width:var(--feed);background:var(--bg2);border-left:1px solid var(--line2)}
+  .activity.collapsed{width:40px}
+  .acthd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:5}
+  .acthd .t{font-size:11.5px;font-weight:600;letter-spacing:.04em;flex:1}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--safe);box-shadow:0 0 0 0 rgba(31,178,134,.6);animation:pl 2s infinite}
+  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(31,178,134,.5)}70%{box-shadow:0 0 0 6px rgba(31,178,134,0)}100%{box-shadow:0 0 0 0 rgba(31,178,134,0)}}
+  .activity.collapsed .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .activity.collapsed .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:110px;flex:0 0 auto}
+  .activity.collapsed .actbody{display:none}
+  .actbody{padding:10px 11px 30px}
+  .feeditem{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .feeditem .fi{flex:0 0 auto;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--pnl2)}
+  .feeditem .fb{flex:1;min-width:0}
+  .feeditem .fb .ft{font-size:11.5px;line-height:1.35}.feeditem .fb .ft b{color:var(--ink)}
+  .feeditem .fb .fm{font-size:9.5px;color:var(--faint);font-family:var(--mono);margin-top:2px}
+  .acard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px;margin:11px 0}
+  .acard h4{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+  .milestone{margin:7px 0}
+  .milestone .ml{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
+  .milestone .ml b{font-family:var(--ser)}
+  .milestone .mt{height:5px;background:#24242a;border-radius:3px;overflow:hidden}.milestone .mt>i{display:block;height:100%}
+  .stat{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+  .stat b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .demobar{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);margin-top:6px}
+  .sw{width:34px;height:18px;border-radius:10px;background:#2a2a2f;position:relative;cursor:pointer;transition:.15s;flex:0 0 auto}
+  .sw::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .sw.on{background:#0e4a3a}.sw.on::after{left:18px;background:var(--safe)}
+
+  /* command palette */
+  .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-start;justify-content:center;z-index:60;padding-top:13vh}
+  .palette.show{display:flex}
+  .palbox{width:540px;max-width:92vw;background:#161618;border:1px solid var(--line3);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .palin{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .palin input{flex:1;background:transparent;border:none;color:var(--ink);font-size:15px;font-family:var(--ui)}
+  .palin input:focus{outline:none}
+  .pallist{max-height:340px;overflow:auto;padding:7px}
+  .pi{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:6px;cursor:pointer;color:var(--mut)}
+  .pi:hover,.pi.on{background:var(--pnl2);color:var(--ink)}
+  .pi i.lead{font-size:16px;width:20px;text-align:center}
+  .pi .pk{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+
+  @media(max-width:1280px){ .inspector{width:40px} .inspector .inspbody{display:none}
+    .inspector .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+    .inspector .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);height:140px;flex:0 0 auto} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ APP BAR ═══════════ -->
+<div class="appbar">
+  <span class="logo">META TAKE</span>
+  <div class="crumb"><b>분석</b><i class="ti ti-chevron-right"></i><span>Analysis · 워크벤치</span><i class="ti ti-lock" style="font-size:11px"></i></div>
+  <div class="cmdk" onclick="openPalette()">
+    <i class="ti ti-search" style="font-size:14px"></i><span>영화 · 계보 · 감독 검색</span><span class="kbd">⌘K</span>
+  </div>
+  <div class="abright">
+    <div class="navchip"><div><div class="eb gloss down" data-tip="NAV — 내 영화 자산 총량(Net Asset Value). 보유작들의 가치를 합산한 포트폴리오 총액 지표.">NAV</div></div><span class="n" id="navchip">1,284</span>
+      <div><div class="l">ESTABLISHED</div><div class="up">▲ +38 · 30일</div></div></div>
+    <div class="iconbtn" title="새로고침"><i class="ti ti-refresh"></i></div>
+    <div class="iconbtn" title="공개 프로필 ↗" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-external-link"></i></div>
+    <div class="ava">W</div>
+  </div>
+</div>
+
+<!-- ═══════════ LIVE TICKER ═══════════ -->
+<div class="ticker">
+  <span class="tag">LIVE</span>
+  <div class="vp"><div class="run">
+    <span><i class="ti ti-point-filled dot"></i>취향 벡터 이동 감지 · <b>이란 뉴웨이브</b> 쪽으로 +6°</span>
+    <span><i class="ti ti-point-filled dot"></i>새 앵커 후보 <b>「절제된 응시」</b> w0.71 — 시그니처 편입 검토</span>
+    <span><i class="ti ti-point-filled dot"></i>블라인드 경보 · 라틴 축 <b>0%</b> · 1960년 이전 <b>9%</b></span>
+    <span><i class="ti ti-point-filled dot"></i>리니지 관련성 1위 · <b>프랑스 영성영화</b> rel 0.94 / cov 50%</span>
+    <span><i class="ti ti-point-filled dot"></i>상호추천 그래프 갱신 · 신규 간선 <b>+4</b> (감독↔감독)</span>
+    <span><i class="ti ti-point-filled dot"></i>취향 벡터 <b>형성 중 · 142편</b> — 안정화 88%</span>
+    <span><i class="ti ti-point-filled dot"></i>취향 벡터 이동 감지 · <b>이란 뉴웨이브</b> 쪽으로 +6°</span>
+    <span><i class="ti ti-point-filled dot"></i>새 앵커 후보 <b>「절제된 응시」</b> w0.71 — 시그니처 편입 검토</span>
+    <span><i class="ti ti-point-filled dot"></i>블라인드 경보 · 라틴 축 <b>0%</b> · 1960년 이전 <b>9%</b></span>
+    <span><i class="ti ti-point-filled dot"></i>리니지 관련성 1위 · <b>프랑스 영성영화</b> rel 0.94 / cov 50%</span>
+    <span><i class="ti ti-point-filled dot"></i>상호추천 그래프 갱신 · 신규 간선 <b>+4</b> (감독↔감독)</span>
+    <span><i class="ti ti-point-filled dot"></i>취향 벡터 <b>형성 중 · 142편</b> — 안정화 88%</span>
+  </div></div>
+</div>
+
+<!-- ═══════════ SHELL ═══════════ -->
+<div class="shell">
+
+  <!-- ── COL 1 · NAV RAIL ── -->
+  <aside class="col rail" id="rail">
+    <div class="col-scroll" style="display:flex;flex-direction:column">
+      <div class="railhd"><span class="eb">운영 메뉴</span><span class="chv" onclick="toggle('rail')"><i class="ti ti-layout-sidebar-left-collapse"></i></span></div>
+      <div class="navsec">
+        <div class="navlbl">자산 운영</div>
+        <div class="nv" onclick="location.href='mockup-me-command-center.html'"><i class="ti ti-dashboard lead"></i><span class="tx">현황 (커맨드센터)</span></div>
+        <div class="nv" onclick="location.href='mockup-me-collection-list-v2.html'"><i class="ti ti-list-details lead"></i><span class="tx">보유 영화</span><span class="ct">142</span></div>
+        <div class="nv" onclick="location.href='mockup-me-watchlist.html'"><i class="ti ti-target-arrow lead"></i><span class="tx">볼 영화 · 추천</span><span class="ct">28</span></div>
+        <div class="nv" onclick="location.href='mockup-me-asset-desk.html'"><i class="ti ti-briefcase lead"></i><span class="tx">운용 데스크</span></div>
+        <div class="nv on"><i class="ti ti-chart-arcs lead"></i><span class="tx">자산 분석</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">기록 · 교류</div>
+        <div class="nv" onclick="location.href='mockup-me-onboard-rate-v2.html'"><i class="ti ti-star lead"></i><span class="tx">기록 · 평가</span></div>
+        <div class="nv" onclick="location.href='mockup-me-library.html'"><i class="ti ti-books lead"></i><span class="tx">서재</span></div>
+        <div class="nv" onclick="location.href='mockup-me-write.html'"><i class="ti ti-feather lead"></i><span class="tx">노트 · 글쓰기</span></div>
+        <div class="nv" onclick="location.href='mockup-me-pair.html'"><i class="ti ti-users lead"></i><span class="tx">동행</span><span class="ct">1</span></div>
+        <div class="nv" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-id-badge lead"></i><span class="tx">공개 프로필</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">이 화면</div>
+        <div class="nv" onclick="jump('m-rel')"><i class="ti ti-route lead"></i><span class="tx">리니지 관련성</span></div>
+        <div class="nv" onclick="jump('m-axis')"><i class="ti ti-layout-grid lead"></i><span class="tx">축 커버리지</span></div>
+        <div class="nv" onclick="jump('m-graph')"><i class="ti ti-affiliate lead"></i><span class="tx">상호추천 그래프</span></div>
+        <div class="nv" onclick="jump('m-lens')"><i class="ti ti-stack-2 lead"></i><span class="tx">렌즈 · 앵커</span></div>
+      </div>
+      <div class="railft">계보 115 라인 · 160 감독 · 53 추천간선<br>취향 벡터 v1 · 142편</div>
+    </div>
+  </aside>
+
+  <!-- ── COL 2 · MAIN ── -->
+  <main class="col main">
+    <div class="col-scroll"><div class="mainpad">
+
+      <!-- HERO: 취향 벡터 형상 -->
+      <div class="hero" id="hero">
+        <div class="navbig">
+          <div class="ring">
+            <svg width="92" height="92" viewBox="0 0 92 92">
+              <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="46" cy="46" r="38" fill="none" stroke="var(--reading)" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="239" stroke-dashoffset="29" transform="rotate(-90 46 46)"/>
+              <text x="46" y="44" text-anchor="middle" font-size="17" fill="#ECEAE5" font-family="ui-monospace,monospace" font-weight="600">88%</text>
+              <text x="46" y="58" text-anchor="middle" font-size="8" fill="#6C6960" letter-spacing="1.2">벡터 안정화</text>
+            </svg>
+          </div>
+          <div class="navmeta">
+            <div class="eb">취향 시그니처 · Taste Vector v1</div>
+            <div class="lvl" style="color:var(--reading)">● 윤리적 응시 · 무의식의 전이</div>
+            <div class="pctl">142편 학습 · 앵커 <b style="color:#bda1f0">14</b> · 30일 새 앵커 <b>▲ +2</b></div>
+          </div>
+        </div>
+        <div class="components">
+          <div class="comp"><span class="cl">정전 친연</span><div class="ct"><i style="width:81%;background:var(--canon)"></i></div><span class="cv">0.81</span></div>
+          <div class="comp"><span class="cl">거장 집중</span><div class="ct"><i style="width:72%;background:var(--reading)"></i></div><span class="cv">0.72</span></div>
+          <div class="comp"><span class="cl">사조 다양성</span><div class="ct"><i style="width:38%;background:var(--safe)"></i></div><span class="cv">0.38</span></div>
+          <div class="comp"><span class="cl">발굴 성향</span><div class="ct"><i style="width:31%;background:var(--frontier)"></i></div><span class="cv">0.31</span></div>
+        </div>
+        <div class="explain"><i class="ti ti-info-circle"></i> 분석은 ①의 v_loved(취향 벡터)를 소비해 ③④⑥⑦로 펼친다 — <b style="color:var(--mut)">계보 관련성·축 커버리지·상호추천·해석 앵커</b>. 사조는 닮음(品質 아님)이라 <span class="gloss" data-tip="정전가 — 영화의 객관 시장가. 정전(canon) 권위·평단 합의로 매겨지는, 취향과 무관한 영화 자체의 시장 가치.">정전가</span>에서 제외, 다양성 축에만 반영.</div>
+      </div>
+
+      <!-- LEAD: 말로 된 인사이트 — "그래서 뭘 알게 됐나" 맨 위 -->
+      <div class="lead" id="lead">
+        <div class="lh"><i class="ti ti-bulb"></i> 이번 분석이 알려주는 것 · 가장 중요한 3가지</div>
+        <div class="leadrow" onclick="jump('m-axis')" title="축 커버리지로 이동">
+          <div class="lic blind"><i class="ti ti-eye-off"></i></div>
+          <div class="lt">가장 큰 <span class="gloss" data-tip="블라인드 — 정전 우주엔 두텁게 있는데 내가 아직 0~소수만 본 권위 계보·축. 빨강(정복)과 달리 앰버는 '아직 안 갔다'는 공백 신호.">블라인드</span>는 <span class="gapw">라틴아메리카·아프리카(둘 다 0%)와 1960년 이전(9%)</span>. 대륙 단위로 안 본 영화가 있다는 뜻 — 지금 분석에서 제일 시급한 보강 지점.</div>
+          <div class="lcta">축 커버리지 보기 <i class="ti ti-arrow-right"></i></div>
+        </div>
+        <div class="leadrow" onclick="window.sel('iran-newwave', document.querySelector('.rrow[data-id=&quot;iran-newwave&quot;]'))" title="이란 뉴웨이브 관련성 분해">
+          <div class="lic move"><i class="ti ti-trending-up"></i></div>
+          <div class="lt">당신의 취향이 <span class="drift">이란 뉴웨이브 쪽으로 +6° 이동 중</span>. 관련성은 높은데(0.81) 아직 12%만 봤으니, 지금 들어가기 가장 좋은 흐름. 입구는 키아로스타미.</div>
+          <div class="lcta">관련성 분해 <i class="ti ti-arrow-right"></i></div>
+        </div>
+        <div class="leadrow" onclick="window.sel('french-spiritual', document.querySelector('.rrow[data-id=&quot;french-spiritual&quot;]'))" title="프랑스 영성영화 관련성 분해">
+          <div class="lic boost"><i class="ti ti-route"></i></div>
+          <div class="lt">당신을 한 문장으로: <b style="color:#c6bcf7">사건이 아니라 응시의 윤리를 보는 사람</b>. 가장 맞는 계보는 <span class="gapw">프랑스 영성영화(관련성 0.94)</span>이고, 절반(50%)만 봤다 — 채울 가치가 가장 큰 계보.</div>
+          <div class="lcta">계보 보기 <i class="ti ti-arrow-right"></i></div>
+        </div>
+      </div>
+
+      <!-- KPI STRIP -->
+      <div class="kpis">
+        <div class="kpi jump" onclick="jump('m-rel')"><div class="eb">학습 표본</div><div class="v">142<small>편</small></div><div class="d up">▲ 6 · 7일</div></div>
+        <div class="kpi jump" onclick="jump('m-rel')"><div class="eb">관련 계보</div><div class="v">38<small>/115</small></div><div class="d flat">rel ≥ 0.5</div></div>
+        <div class="kpi jump" onclick="jump('m-lens')"><div class="eb">해석 앵커</div><div class="v">14</div><div class="d up">▲ 2 신규</div></div>
+        <div class="kpi blindkpi jump" onclick="jump('m-axis')" title="블라인드 = 정전 우주엔 두텁게 있는데 내가 거의 안 본 축 · 앰버=아직 안 갔다(정복 red와 분리)"><div class="eb">블라인드 축</div><div class="v">3</div><div class="d">라틴·60s·아프리카 →</div></div>
+        <div class="kpi jump" onclick="window.sel('iran-newwave', document.querySelector('.rrow[data-id=&quot;iran-newwave&quot;]'))"><div class="eb">벡터 이동</div><div class="v">+6<small>°</small></div><div class="d up">이란 뉴웨이브 →</div></div>
+      </div>
+
+      <!-- (1) LINEAGE RELEVANCE ③ -->
+      <div class="mod" id="m-rel">
+        <div class="modh"><h3><i class="ti ti-route"></i> 리니지 관련성 · 나에게 맞는 계보 <span style="color:var(--faint);font-weight:400">③</span></h3>
+          <span class="meta">rel = v_loved 코사인 · cov = 내 커버리지</span></div>
+        <div class="modbody">
+          <div class="grp"><span>관련성 순 · 당신 취향에 가장 가까운 계보</span><span style="display:flex;gap:34px"><span class="gloss" data-tip="내 커버리지 — 이 계보의 대표작 중 내가 본 비율. 낮을수록 더 채울 여지가 있다.">cov ⓘ</span><span class="gloss" data-tip="관련성 — 내 취향 벡터(v_loved)와 이 계보의 코사인 유사도. 높을수록 더 잘 맞는다.">REL ⓘ</span></span></div>
+          <div id="rellist"></div>
+          <div style="font-size:10.5px;color:var(--sub);margin-top:9px;font-style:italic"><b style="color:#e0bb6e;font-style:normal">관련성 높은데 커버리지 낮은 줄</b>이 가장 채울 가치가 큰 계보입니다. 아무 줄이나 클릭 → 관련성 분해 · 내 커버리지 · 대표작.</div>
+        </div>
+      </div>
+
+      <!-- (2) AXIS COVERAGE ⑦④ -->
+      <div class="mod" id="m-axis">
+        <div class="modh"><h3><i class="ti ti-layout-grid"></i> 축 커버리지 · 연대 · 국가 · 감독 <span style="color:var(--faint);font-weight:400">⑦④</span></h3>
+          <span class="meta">관람 vs 정전 우주 · 앰버 = 블라인드</span></div>
+        <div class="modbody">
+          <div class="axisgrid">
+            <!-- decade -->
+            <div>
+              <div class="axsub"><span><i class="ti ti-timeline" style="vertical-align:-1px"></i> 연대 (DECADE)</span><span>관람 ▮ / 정전 ▯</span></div>
+              <div class="decbars" id="decbars"></div>
+              <div style="font-size:10.5px;color:var(--sub);margin-top:8px">정점 <b style="color:var(--ink);font-style:normal">2010s</b> · <b style="color:var(--blindtx)">1960년 이전 9% — 얕음</b>. 무성·고전기 정전이 분석면에 표시됨.</div>
+            </div>
+            <!-- country -->
+            <div>
+              <div class="axsub"><span><i class="ti ti-world" style="vertical-align:-1px"></i> 국가 (COUNTRY)</span><span>가중 노출</span></div>
+              <div id="cobars"></div>
+              <div style="font-size:10.5px;color:var(--sub);margin-top:8px">한·일·프 축. <b style="color:var(--blindtx);font-style:normal">라틴아메리카 0% · 아프리카 0%</b> — 대륙 블라인드.</div>
+            </div>
+          </div>
+          <!-- director -->
+          <div style="margin-top:16px">
+            <div class="axsub"><span><i class="ti ti-user-star" style="vertical-align:-1px"></i> 감독 (DIRECTOR) · <span class="gloss" data-tip="정복도 — 이 감독의 대표작 중 내가 본 비율. 100%면 대표작 전부 관람(완파/도장깨기).">정복도</span></span><span>관람 / 대표작</span></div>
+            <div id="dirlist"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (3) MUTUAL-RECOMMENDATION GRAPH ⑥ -->
+      <div class="mod" id="m-graph">
+        <div class="modh"><h3><i class="ti ti-affiliate"></i> 상호추천 그래프 · 영화↔영화 · 감독↔감독 <span style="color:var(--faint);font-weight:400">⑥</span></h3>
+          <div class="seg"><button class="on" data-gmode="film">영화 affinity</button><button data-gmode="dir">감독 next</button></div></div>
+        <div class="modbody">
+          <div class="ginfo" id="ginfo">
+            <div class="t">상호추천 별자리</div>
+            <div class="s">채워진 노드는 <b>보유분</b>, 테두리 노드는 공유 리니지로 끌려오는 <b>미관람 추천</b>. 모드를 바꾸면 <b>감독들이 서로의 next로 가리키는</b> 감독 그래프가 펼쳐집니다. 노드를 클릭하세요.</div>
+          </div>
+          <svg id="agraph" viewBox="0 0 700 300" width="100%" role="img" aria-label="상호추천 그래프"></svg>
+          <div class="legend" id="glegend"></div>
+        </div>
+      </div>
+
+      <!-- (4) LENS · ANCHOR ① -->
+      <div class="mod" id="m-lens">
+        <div class="modh"><h3><i class="ti ti-stack-2"></i> <span class="gloss" data-tip="앵커 — 당신 영화들을 가로지르는 반복된 해석 패턴(예: 무력한 목격자, 절제된 응시). 장르가 아니라 당신이 영화를 보는 방식이다.">렌즈 · 형상 · 앵커</span> · 나의 해석 시그니처 <span style="color:var(--faint);font-weight:400">①</span></h3>
+          <div class="seg"><button class="on" data-lxmode="fig">형상 figure_type</button><button data-lxmode="read">오독 reading</button></div></div>
+        <div class="modbody">
+          <div style="font-size:11px;color:var(--mut);margin-bottom:9px;line-height:1.5;border-left:2px solid #4a3f86;padding-left:9px">앵커는 <b style="color:#c6bcf7">당신 영화들을 가로지르는 반복된 해석 패턴</b>입니다 — 장르가 아니라 당신이 영화를 보는 방식. 줄을 클릭하면 어떤 내 영화가 이 앵커를 띠는지, 인접 미관람작은 무엇인지 펼쳐집니다.</div>
+          <div id="anchorlist"></div>
+          <div style="font-size:10.5px;color:var(--sub);margin-top:10px;font-style:italic">기술적으로: meta_takes(kind=figure_type 트로프 / reading 오독) ∼ v_loved 코사인 상위 — <b style="color:var(--mut)">장르가 아닌 해석층</b>(Letterboxd와의 결정적 차이).</div>
+        </div>
+      </div>
+
+    </div></div>
+  </main>
+
+  <!-- ── COL 3 · INSPECTOR ── -->
+  <aside class="col inspector" id="inspector">
+    <div class="insphd">
+      <span class="chv" onclick="toggle('inspector')"><i class="ti ti-layout-sidebar-right-collapse"></i></span>
+      <span class="ti-tit" id="insp-title">인스펙터 · 분석</span>
+    </div>
+    <div class="col-scroll inspbody" id="inspbody"><!-- filled by JS --></div>
+  </aside>
+
+  <!-- ── COL 4 · ACTIVITY ── -->
+  <aside class="col activity" id="activity">
+    <div class="acthd"><span class="pulse"></span><span class="t">분석 인사이트</span>
+      <span class="chv" onclick="toggle('activity')"><i class="ti ti-layout-sidebar-right-collapse"></i></span></div>
+    <div class="col-scroll actbody">
+      <div class="feeditem"><div class="fi" style="color:var(--reading)"><i class="ti ti-trending-up"></i></div>
+        <div class="fb"><div class="ft">당신의 취향이 <b>이란 뉴웨이브</b>로 이동 중 — 벡터 +6°</div><div class="fm">방금 · taste_drift()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--blind)"><i class="ti ti-eye-off"></i></div>
+        <div class="fb"><div class="ft">블라인드 경보 · <b>라틴 축 0%</b> · 1960년 이전 9%</div><div class="fm">12분 전 · axis_coverage()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:#bda1f0"><i class="ti ti-fingerprint"></i></div>
+        <div class="fb"><div class="ft">새 앵커 감지 · <b>「절제된 응시」</b> w0.71 — 시그니처 편입 검토</div><div class="fm">1시간 전 · detect_anchor()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-route"></i></div>
+        <div class="fb"><div class="ft"><b>프랑스 영성영화</b> 관련성 0.94 — 가장 맞는 계보 1위</div><div class="fm">3시간 전 · lineage_rel()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--safe)"><i class="ti ti-affiliate"></i></div>
+        <div class="fb"><div class="ft">감독 상호추천 갱신 — <b>+4 간선</b> (브레송→드레이어 외)</div><div class="fm">오늘 · auteur_edges</div></div></div>
+
+      <div class="acard">
+        <h4>블라인드 경보 <span style="font-weight:400;color:var(--faint);letter-spacing:0;text-transform:none">· 앰버=아직 안 감</span></h4>
+        <div class="milestone"><div class="ml"><b>라틴아메리카</b><span class="mono" style="color:var(--blindtx)">0% · 대륙 공백</span></div>
+          <div class="mt"><i style="width:3%;background:var(--blind)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>1960년 이전</b><span class="mono" style="color:var(--blindtx)">9% · 얕음</span></div>
+          <div class="mt"><i style="width:9%;background:var(--blind)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>아프리카</b><span class="mono" style="color:var(--blindtx)">0% · 미진입</span></div>
+          <div class="mt"><i style="width:2%;background:var(--blind)"></i></div></div>
+      </div>
+
+      <div class="acard">
+        <h4>시스템 상태</h4>
+        <div class="stat"><span>취향 벡터</span><b style="color:#e0bb6e">형성 중 · 142편</b></div>
+        <div class="stat"><span>벡터 안정화</span><b style="color:var(--safe)">88%</b></div>
+        <div class="stat"><span>앵커 추출기</span><b>v2 · 정합</b></div>
+        <div class="stat"><span>계보 우주</span><b>275 라인 active</b></div>
+        <div class="demobar"><span>상태 데모</span><span class="sw" id="csw" onclick="coldStart()"></span><span id="cslabel">운영 모드</span></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="palette" id="palette" onclick="if(event.target===this)closePalette()">
+  <div class="palbox">
+    <div class="palin"><i class="ti ti-search" style="color:var(--sub)"></i>
+      <input id="palinput" placeholder="영화 · 계보 · 감독 · 페이지로 이동…" oninput="filterPalette()" onkeydown="palKey(event)"></div>
+    <div class="pallist" id="pallist"></div>
+  </div>
+</div>
+
+<!-- ═══════════ SHELL SCRIPT (커맨드센터 정본 로직) ═══════════ -->
+<script>
+(function(){
+  "use strict";
+  var LS = window.localStorage;
+
+  /* ───── collapsible columns (persisted) ───── */
+  function applyState(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var c = LS.getItem('mt_'+id)==='1';
+    el.classList.toggle('collapsed', c);
+  }
+  window.toggle = function(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('collapsed');
+    LS.setItem('mt_'+id, el.classList.contains('collapsed')?'1':'0');
+  };
+  ['rail','inspector','activity'].forEach(applyState);
+
+  function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  window.jump = jump;
+
+  /* ───── inspector content model ───── */
+  var bar = function(label,val,color){
+    return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
+  };
+
+  /* ── lineage relevance detail (③) ── */
+  var REL = {
+    'french-spiritual':{t:'프랑스 영성영화',s:'movement · rel 0.94 · 관련성 1위',rel:94,cov:50,relc:'#bda1f0',
+      comps:[['앵커 합치',96,'var(--reading)'],['감독 친연',88,'var(--reading)'],['형상 공유',74,'var(--safe)'],['연대 적합',62,'var(--frontier)']],
+      reasons:'<span class="rsn reading">anchor 절제된 응시</span> <span class="rsn safe">safe 0.94</span>',
+      why:'당신 시그니처 「무력한 목격자」·「절제된 응시」와 직결. 브레송 2편 보유 → 동일 계보 응시의 윤리. 관련성 최상위인데 커버리지 50% → 보강 가치 큼.',
+      films:[['Au Hasard Balthazar','1966 · 보유 ★4.8'],['Mouchette','1967 · 보유'],['Diary of a Country Priest','1951 · 미관람 ↑'],['Pickpocket','1959 · 미관람']]},
+    'slow-cinema':{t:'슬로우 시네마',s:'movement · rel 0.89 · 관련성 2위',rel:89,cov:42,relc:'#5fd0b2',
+      comps:[['앵커 합치',84,'var(--reading)'],['감독 친연',80,'var(--reading)'],['형상 공유',88,'var(--safe)'],['연대 적합',58,'var(--frontier)']],
+      reasons:'<span class="rsn safe">safe 0.89</span> <span class="rsn reading">reading 관조</span>',
+      why:'「풍경의 무관심」·「종말의 반복」 앵커와 합치. 타르·라이카트 보유 → 지속의 미학. 관조적 reading이 당신 평점과 강한 양의 상관.',
+      films:[['The Turin Horse','2011 · 보유'],['First Cow','2019 · 보유'],['Sátántangó','1994 · 미관람 ↑'],['Stalker','1979 · 추천 ↑']]},
+    tspdt:{t:'TSPDT 1000',s:'canon · rel 0.86 · 관련성 3위',rel:86,cov:19,relc:'#5fd0b2',
+      comps:[['앵커 합치',70,'var(--reading)'],['감독 친연',82,'var(--reading)'],['정전 권위',92,'var(--canon)'],['연대 적합',64,'var(--frontier)']],
+      reasons:'<span class="rsn canon"><span class="gloss" data-tip="aw — 계보 권위 가중(authority weight). 이 계보가 정전·평단에서 갖는 권위의 크기. 높을수록 정전 중심.">aw</span> 0.92</span> <span class="rsn gap">gap cov 19%</span>',
+      why:'정전 친연 0.81의 당신과 본질 친화. 그러나 cov 19% — 권위 높고 미답 큰, 가장 보강 가치 큰 canon 라인. 1960년 이전 항목이 블라인드와 겹침.',
+      films:[['Vertigo','#2 · 보유'],['Tokyo Story','#4 · 보유'],['Sátántangó','#36 · 미관람'],['Sunrise','#11 · 미관람']]},
+    'new-korean':{t:'뉴 코리안 시네마',s:'movement · rel 0.83 · 관련성 4위',rel:83,cov:64,relc:'#5fd0b2',
+      comps:[['앵커 합치',72,'var(--reading)'],['감독 친연',86,'var(--reading)'],['형상 공유',70,'var(--safe)'],['연대 적합',88,'var(--frontier)']],
+      reasons:'<span class="rsn safe">safe 0.83</span> <span class="rsn canon">canon KOFA</span>',
+      why:'봉·박·이 보유 → 가장 두꺼운 모국 계보. 「계급의 유령」·「전이된 죄」 앵커 다수. 관련성 높고 커버리지도 64% — 이미 강한 자산.',
+      films:[['Parasite','2019 · 보유 ★4.8'],['Burning','2018 · 보유'],['Oldboy','2003 · 보유'],['Peppermint Candy','1999 · 미관람']]},
+    'iran-newwave':{t:'이란 뉴웨이브',s:'movement · rel 0.81 · 관련성 5위 · 이동 중',rel:81,cov:12,relc:'#86b9ec',
+      comps:[['앵커 합치',82,'var(--reading)'],['감독 친연',58,'var(--reading)'],['형상 공유',76,'var(--safe)'],['벡터 이동',90,'var(--frontier)']],
+      reasons:'<span class="rsn frontier">drift +6°</span> <span class="rsn gap">gap cov 12%</span> <span class="rsn reading">reading 관조</span>',
+      why:'취향 벡터가 이쪽으로 이동 중(+6°). 「절제된 응시」 앵커와 강한 합치인데 cov 12% — 지금 가장 떠오르는 보강 라인. Kiarostami가 입구.',
+      films:[['The Wind Will Carry Us','1999 · 추천 ↑'],['Close-Up','1990 · 미관람'],['Taste of Cherry','1997 · 미관람'],['The House Is Black','1963 · 미관람']]}
+  };
+
+  /* ── anchor detail (①) ── */
+  var ANC = {
+    witness:{t:'무력한 목격자',s:'figure_type 트로프 · w0.86 · 시그니처 핵심',w:86,wc:'#bda1f0',mat:'정착',site:28,
+      comps:[['벡터 정렬',92,'var(--reading)'],['빈도(내 영화)',68,'var(--safe)'],['평점 상관',81,'var(--canon)']],
+      snip:'「발타자르」 — 당나귀의 무판단적 응시가 인간의 도덕적 추락을 거울처럼 비춘다.',
+      mine:[['Au Hasard Balthazar','★4.8'],['Mouchette','★4.5'],['A Brighter Summer Day','★4.6'],['Le Fils','★4.4']],
+      near:[['Diary of a Country Priest','1951 · 추천 ↑'],['The Sweet Hereafter','1997 · 미관람']]},
+    guilt:{t:'전이된 죄',s:'figure_type 트로프 · w0.79',w:79,wc:'#bda1f0',mat:'정착',site:41,
+      comps:[['벡터 정렬',86,'var(--reading)'],['빈도(내 영화)',74,'var(--safe)'],['평점 상관',70,'var(--canon)']],
+      snip:'「올드보이」 — 복수는 억압된 것의 회귀, 죄는 누군가에게로 전이된다.',
+      mine:[['Oldboy','★4.6'],['Drive My Car','★4.7'],['Le Fils','★4.4'],['Mouchette','★4.5']],
+      near:[['Crime and Punishment(브레송)','미관람'],['A Separation','2011 · 추천 ↑']]},
+    gaze:{t:'절제된 응시',s:'reading 오독 · w0.71 · 신규 감지',w:71,wc:'#86b9ec',mat:'태동',site:16,
+      comps:[['벡터 정렬',90,'var(--reading)'],['빈도(내 영화)',55,'var(--safe)'],['벡터 이동',88,'var(--frontier)']],
+      snip:'「토리노의 말」 — 관조가 판단을 유예하고, 카메라가 윤리를 떠맡는다.',
+      mine:[['The Turin Horse','★4.5'],['Tokyo Story','★4.6'],['First Cow','★4.3']],
+      near:[['The Wind Will Carry Us','1999 · 추천 ↑'],['Close-Up','1990 · 미관람']]},
+    landscape:{t:'풍경의 무관심',s:'figure_type 트로프 · w0.64',w:64,wc:'#bda1f0',mat:'태동',site:16,
+      comps:[['벡터 정렬',78,'var(--reading)'],['빈도(내 영화)',60,'var(--safe)'],['평점 상관',62,'var(--canon)']],
+      snip:'「퍼스트 카우」 — 자연은 무심히 펼쳐지고, 인간의 드라마를 흡수한다.',
+      mine:[['The Turin Horse','★4.5'],['First Cow','★4.3'],['Au Hasard Balthazar','★4.8']],
+      near:[['Stalker','1979 · 추천 ↑'],['Sátántangó','1994 · 미관람']]},
+    animal:{t:'동물의 응시',s:'figure_type 형상 · w0.58',w:58,wc:'#bda1f0',mat:'신선',site:9,
+      comps:[['벡터 정렬',74,'var(--reading)'],['빈도(내 영화)',50,'var(--safe)'],['희소도',82,'var(--canon)']],
+      snip:'당나귀·말·소의 눈이 인간을 대신해 본다 — 비인간 시점이 도덕을 떠안는다.',
+      mine:[['Au Hasard Balthazar','★4.8'],['The Turin Horse','★4.5'],['First Cow','★4.3']],
+      near:[['EO','2022 · 추천 ↑'],['White God','2014 · 미관람']]},
+    double:{t:'이중 자아',s:'reading 오독 · w0.52',w:52,wc:'#86b9ec',mat:'정착',site:34,
+      comps:[['벡터 정렬',66,'var(--reading)'],['빈도(내 영화)',58,'var(--safe)'],['평점 상관',60,'var(--canon)']],
+      snip:'「페르소나」 — 두 얼굴이 하나로 녹고, 거울이 자아를 삼킨다.',
+      mine:[['Persona','★4.7'],['Oldboy','★4.6'],['A Brighter Summer Day','★4.6']],
+      near:[['Mulholland Drive','2001 · 추천 ↑'],['The Double Life of Véronique','1991 · 미관람']]}
+  };
+
+  function relDetail(l){
+    var col=l.cov>=50?'var(--safe)':l.cov>=25?'var(--canon)':'var(--blind)';
+    var cb=l.comps.map(function(c){return bar(c[0],c[1],c[2]);}).join('');
+    var fl=l.films.map(function(x){return '<div class="kv"><span class="k" style="font-family:var(--ser);font-size:12.5px;color:var(--ink)">'+x[0]+'</span><span class="v" style="font-size:10.5px;color:var(--sub)">'+x[1]+'</span></div>';}).join('');
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>'+
+      '<div class="icard"><h4><i class="ti ti-route"></i> 계보 관련성 분해</h4>'+
+        '<div class="seltitle" style="font-size:16px">'+l.t+'</div><div class="selsub">'+l.s+'</div>'+
+        '<div class="bigscore" style="margin-top:10px"><span class="n" style="color:'+l.relc+'">'+l.rel+'</span><span class="u">/ 100 RELEVANCE</span></div>'+cb+
+        '<div style="margin-top:9px">'+l.reasons+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-layout-grid"></i> 내 커버리지</h4>'+
+        '<div class="crow"><span class="cl">커버리지</span><div class="ct"><i style="width:'+l.cov+'%;background:'+col+'"></i></div><span class="cv">'+l.cov+'</span></div>'+
+        '<div style="font-size:11px;color:var(--sub);margin-top:6px">관련성 '+l.rel+' · 커버리지 '+l.cov+'% — '+(l.rel-l.cov>=30?'<b style="color:#e0bb6e">보강 가치 큼(관련↑·커버↓)</b>':'이미 강한 자산')+'.</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-info-circle"></i> 왜 나에게 맞나</h4>'+
+        '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">'+l.why+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-list"></i> 이 계보의 대표작</h4>'+fl+'</div>';
+  }
+  function ancDetail(a){
+    var cb=a.comps.map(function(c){return bar(c[0],c[1],c[2]);}).join('');
+    var mn=a.mine.map(function(x){return '<div class="kv"><span class="k" style="font-family:var(--ser);font-size:12.5px;color:var(--ink)">'+x[0]+'</span><span class="v" style="font-size:11px;color:#e0bb6e">'+x[1]+'</span></div>';}).join('');
+    var nr=a.near.map(function(x){return '<div class="kv"><span class="k" style="font-family:var(--ser);font-size:12.5px;color:var(--ink)">'+x[0]+'</span><span class="v" style="font-size:10.5px;color:var(--sub)">'+x[1]+'</span></div>';}).join('');
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>'+
+      '<div class="icard"><h4><i class="ti ti-fingerprint"></i> 해석 앵커 분해</h4>'+
+        '<div class="seltitle" style="font-size:17px;font-family:var(--ser)">'+a.t+'</div><div class="selsub">'+a.s+'</div>'+
+        '<div class="bigscore" style="margin-top:10px"><span class="n" style="color:'+a.wc+'">'+a.w+'</span><span class="u">/ 100 ANCHOR WEIGHT</span></div>'+cb+
+        '<div style="font-size:11px;color:var(--sub);margin-top:8px">성숙도 <b style="color:#5fd0b2">'+a.mat+'</b> · 사이트 '+a.site+'편 · meta_takes(kind=figure_type/reading)</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-quote"></i> 이 앵커의 한 줄</h4>'+
+        '<div style="font-size:12.5px;font-family:var(--ser);font-style:italic;color:#c6bcf7;line-height:1.5">'+a.snip+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-eye"></i> 이 앵커를 띠는 내 영화</h4>'+mn+'</div>'+
+      '<div class="icard"><h4><i class="ti ti-arrows-shuffle"></i> 인접 미관람작</h4>'+nr+
+        '<div class="actbar"><span class="actbtn pri" onclick="location.href=\'mockup-me-watchlist.html\'">볼 영화에 담기</span></div></div>';
+  }
+
+  /* ── default analytical stack = 취향 시그니처 + 렌즈 분포 ── */
+  var DEFAULT = ''+
+    '<div class="icard"><h4><i class="ti ti-fingerprint"></i> 취향 시그니처</h4>'+
+      '<div style="font-size:13px;font-family:var(--ser);line-height:1.55;color:var(--ink)">당신의 영화들은 <b style="color:#e98a86">순결과 잔혹</b>의 충돌로 모인다. 무력한 목격자가 세상의 타락을 응시하고, 그 죄는 누군가에게로 전이된다. 당신은 사건이 아니라 <b style="color:#c6bcf7">응시의 윤리</b>를 보는 사람이다.</div>'+
+      '<div style="margin-top:10px"><span class="anchorchip">무력한 목격자</span><span class="anchorchip">전이된 죄</span><span class="anchorchip">절제된 응시</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:9px">앵커 = meta_takes(figure_type·reading) ∼ v_loved · 코사인 상위 — 장르가 아닌 해석층.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-chart-dots"></i> 렌즈 분포 · Prestige × Discovery</h4>'+
+      '<svg viewBox="0 0 320 180" width="100%">'+
+      '<line x1="34" y1="150" x2="305" y2="150" stroke="#2c2c30"/><line x1="34" y1="16" x2="34" y2="150" stroke="#2c2c30"/>'+
+      '<text x="305" y="166" text-anchor="end" font-size="9" fill="#6C6960">PRESTIGE →</text>'+
+      '<text x="20" y="18" font-size="9" fill="#6C6960" transform="rotate(-90 14 90)">DISCOVERY →</text>'+
+      '<g fill="#3a3a40"><circle cx="80" cy="120" r="3"/><circle cx="130" cy="92" r="3"/><circle cx="190" cy="70" r="3"/><circle cx="160" cy="115" r="3"/>'+
+      '<circle cx="230" cy="56" r="3"/><circle cx="110" cy="64" r="3"/><circle cx="260" cy="92" r="3"/><circle cx="285" cy="48" r="3"/>'+
+      '<circle cx="200" cy="130" r="3"/><circle cx="150" cy="48" r="3"/><circle cx="240" cy="116" r="3"/></g>'+
+      '<rect x="52" y="92" width="110" height="56" fill="none" stroke="var(--safe)" stroke-dasharray="4 4"/>'+
+      '<text x="58" y="105" font-size="8.5" fill="var(--safe)">기회 구역 · 발굴↑</text>'+
+      '<circle cx="242" cy="116" r="7" fill="var(--red)"/><text x="242" y="108" dy="-5" text-anchor="middle" font-size="9.5" fill="#ECEAE5">당신 평균</text></svg>'+
+      '<div style="font-size:11px;color:var(--sub);margin-top:4px">고권위·저발굴 상한 → <b style="color:var(--ink)">정전 추종형</b>. 좌상(발굴)으로 이동 시 Discovery↑·다양성↑.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-eye"></i> 반복 형상 클라우드 <span style="color:var(--faint);font-weight:400">· 내 영화를 가로지르는 것</span></h4>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">'+
+      '<span class="anchorchip" style="font-size:13px">동물의 응시 3</span><span class="anchorchip" style="font-size:13px">강·물 3</span>'+
+      '<span class="anchorchip" style="font-size:12px">거울 3</span><span class="anchorchip" style="font-size:11px">자동차 2</span>'+
+      '<span class="anchorchip" style="font-size:11px">길 2</span><span class="anchorchip" style="font-size:10px;opacity:.7">덫 1</span>'+
+      '<span class="anchorchip" style="font-size:10px;opacity:.7">우물 1</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:8px;font-style:italic">「강」은 당신의 3편(발타자르·무셰트·퍼스트 카우)에 흐른다 — 미처 의식 못한 선분.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-vector-triangle"></i> 사조 마스터리 <span style="color:var(--faint);font-weight:400">· 추천 다양성 축</span></h4>'+
+      '<div class="mvrow"><span class="nm">프랑스 영성영화</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:75%;background:var(--safe)"></i></div><span class="mono" style="color:#5fd0b2">75</span></div>'+
+      '<div class="mvrow"><span class="nm">슬로우 시네마</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:62%;background:var(--safe)"></i></div><span class="mono" style="color:#5fd0b2">62</span></div>'+
+      '<div class="mvrow"><span class="nm bl">이란 뉴웨이브</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:12%;background:var(--blind)"></i></div><span class="mono" style="color:var(--blindtx)">12</span></div>'+
+      '<div class="mvrow"><span class="nm bl">Cinema Novo</span><div class="ct" style="height:6px;background:#24242a;border-radius:4px;overflow:hidden"><i style="display:block;height:100%;width:0%;background:var(--blind)"></i></div><span class="mono" style="color:var(--blindtx)">0</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:8px">사조 = 품질 아닌 <b style="color:var(--mut)">닮음</b> → 정전가 제외, 추천 다양성에만(범주 오류 방지).</div></div>';
+
+  function setInsp(html,title){ document.getElementById('inspbody').innerHTML=html; document.getElementById('insp-title').textContent=title||'인스펙터 · 분석'; document.getElementById('inspbody').scrollTop=0; }
+  function resetInsp(){ setInsp(DEFAULT,'인스펙터 · 분석'); clearSel(); }
+  window.resetInsp = resetInsp;
+
+  function clearSel(){ document.querySelectorAll('.lrow.sel,.rrow.sel').forEach(function(e){e.classList.remove('sel');}); }
+  function openInsp(){ var insp=document.getElementById('inspector'); if(insp.classList.contains('collapsed')){insp.classList.remove('collapsed');LS.setItem('mt_inspector','0');} }
+  window.sel = function(id,node){
+    clearSel(); if(node) node.classList.add('sel');
+    openInsp();
+    if(REL[id]) setInsp(relDetail(REL[id]), REL[id].t);
+    else if(ANC[id]) setInsp(ancDetail(ANC[id]), ANC[id].t);
+  };
+
+  /* ── axis drill (decade / country / director → inspector) ── */
+  function axisDetail(kind,o){
+    clearSel(); openInsp();
+    var html='<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>', title='축 상세';
+    if(kind==='decade'){
+      title=o.d+'s · 연대 커버리지';
+      var pct=o.canon?Math.round(o.mine/Math.max(o.canon*0.06,1)*100):0; if(pct>100)pct=100;
+      html+='<div class="icard"><h4><i class="ti ti-timeline"></i> '+o.d+'s 연대</h4>'+
+        '<div class="bigscore"><span class="n" style="color:'+(o.blind?'var(--blindtx)':'#ECEAE5')+'">'+o.mine+'</span><span class="u">편 관람 · 정전 '+o.canon+'편</span></div>'+
+        bar('내 커버리지',pct,o.blind?'var(--blind)':'var(--frontier)')+
+        '<div style="font-size:11.5px;color:'+(o.blind?'var(--blindtx)':'var(--mut)')+';margin-top:9px;line-height:1.55">'+
+        (o.blind?'<b>블라인드 연대</b> — 정전 우주엔 두텁게(' +o.canon+ '편) 있는데 당신은 '+o.mine+'편만 봤습니다. 1960년 이전은 분석면에 노출만 되고 거의 비어 있어요.':'정전 우주 대비 어느 정도 채워진 연대입니다.')+'</div></div>'+
+        '<div class="icard"><h4><i class="ti ti-bulb"></i> 다음 행동</h4><div style="font-size:11.5px;color:var(--mut);line-height:1.55">이 연대의 정전작을 추천 데스크에서 받아보세요.</div>'+
+        '<div class="actbar"><span class="actbtn pri" onclick="location.href=\'mockup-me-watchlist.html\'">이 연대 추천 받기</span></div></div>';
+    } else if(kind==='country'){
+      title=o.name+' · 국가 노출';
+      html+='<div class="icard"><h4><i class="ti ti-world"></i> '+o.name+'</h4>'+
+        '<div class="bigscore"><span class="n" style="color:'+(o.blind?'var(--blindtx)':'#ECEAE5')+'">'+(o.blind?'0':o.pct)+'<small style="font-size:14px">%</small></span><span class="u">가중 노출</span></div>'+
+        '<div style="font-size:11.5px;color:'+(o.blind?'var(--blindtx)':'var(--mut)')+';margin-top:4px;line-height:1.55">'+
+        (o.blind?'<b>대륙 블라인드</b> — 이 지역 영화를 사실상 본 적이 없습니다. 취향이 한·일·프에 쏠려 있어, 여기를 열면 다양성 축이 가장 크게 올라갑니다.':'당신 관람의 핵심 축 중 하나입니다.')+'</div></div>'+
+        (o.blind?'<div class="icard"><h4><i class="ti ti-bulb"></i> 다음 행동</h4><div style="font-size:11.5px;color:var(--mut);line-height:1.55">입문작 한 편으로 대륙 공백을 시작할 수 있습니다.</div><div class="actbar"><span class="actbtn pri" onclick="location.href=\'mockup-me-watchlist.html\'">입문작 추천 받기</span></div></div>':'');
+    } else {
+      title=o.name+' · 감독 정복도';
+      html+='<div class="icard"><h4><i class="ti ti-user-star"></i> '+o.name+' <span style="font-family:var(--mono);font-size:9px;color:var(--canon);border:1px solid #5b481f;border-radius:2px;padding:0 4px">'+o.g+'</span></h4>'+
+        '<div class="bigscore"><span class="n" style="color:var(--reading)">'+o.pct+'<small style="font-size:14px">%</small></span><span class="u">정복도 · '+o.seen+'/'+o.rep+'편</span></div>'+
+        bar('정복도',o.pct,'var(--reading)')+
+        '<div style="font-size:11.5px;color:var(--mut);margin-top:9px;line-height:1.55">대표작 '+o.rep+'편 중 '+o.seen+'편 관람. '+(o.pct<50?'아직 절반 미만 — 남은 대표작에 더 깊이 들어갈 여지가 큽니다.':'이 감독은 상당히 깊게 보고 있습니다.')+'</div></div>';
+    }
+    setInsp(html,title);
+  }
+  window.axisDetail = axisDetail;
+
+  /* ════════ PAGE DATA (analysis workbench) ════════ */
+  // lineage relevance ranking (③) — rendered into #rellist
+  var RELRANK=[
+    {id:'french-spiritual',t:'프랑스 영성영화',sub:'movement · 브레송 계열 · 앵커 합치 최상',rel:94,cov:50,relc:'#bda1f0',sel:true,
+     reasons:'<span class="rsn reading">anchor 응시</span><span class="rsn safe">safe 0.94</span>'},
+    {id:'slow-cinema',t:'슬로우 시네마',sub:'movement · 「풍경의 무관심」 합치 · 타르·라이카트',rel:89,cov:42,relc:'#5fd0b2',
+     reasons:'<span class="rsn safe">safe 0.89</span><span class="rsn reading">reading 관조</span>'},
+    {id:'tspdt',t:'TSPDT 1000',sub:'canon · 권위↑ · 커버리지 19% — 가장 큰 보강 여지',rel:86,cov:19,relc:'#5fd0b2',
+     reasons:'<span class="rsn canon">canon 0.92</span><span class="rsn gap">gap 19%</span>'},
+    {id:'new-korean',t:'뉴 코리안 시네마',sub:'movement · 모국 계보 · 이미 강한 자산',rel:83,cov:64,relc:'#5fd0b2',
+     reasons:'<span class="rsn safe">safe 0.83</span><span class="rsn canon">KOFA</span>'},
+    {id:'iran-newwave',t:'이란 뉴웨이브',sub:'movement · 벡터 이동 중(+6°) · 커버리지 12%',rel:81,cov:12,relc:'#86b9ec',
+     reasons:'<span class="rsn frontier">drift +6°</span><span class="rsn gap">gap 12%</span>'}
+  ];
+  function relColor(c){ return c>=50?'var(--safe)':c>=25?'var(--canon)':'var(--blind)'; }
+  function renderRel(){
+    var box=document.getElementById('rellist'); box.innerHTML='';
+    RELRANK.forEach(function(r,i){
+      var el=document.createElement('div'); el.className='rrow'+(r.sel?' sel':''); el.setAttribute('data-id',r.id);
+      el.onclick=function(){ window.sel(r.id, el); };
+      el.innerHTML='<div class="rk">'+(i+1)+'</div>'+
+        '<div><div class="rt">'+r.t+'</div><div class="rsub">'+r.sub+'</div><div class="reasons">'+r.reasons+'</div></div>'+
+        '<div class="barwrap '+(r.cov>=50?'cov-hi':r.cov>=25?'cov-mid':'cov-lo')+'"><div class="track"><i style="width:'+r.cov+'%"></i></div><span class="pct">'+r.cov+'%</span></div>'+
+        '<div class="wwi"><div class="pv" style="color:'+r.relc+'">'+r.rel+'</div><div class="pl">REL</div></div>';
+      box.appendChild(el);
+    });
+  }
+
+  // axis: films (decade/country/director coverage vs canon universe)
+  var FILMS=[
+    {t:'Au Hasard Balthazar',y:1966,co:'FR',d:'bresson'},{t:'Mouchette',y:1967,co:'FR',d:'bresson'},
+    {t:'The Turin Horse',y:2011,co:'HU',d:'tarr'},{t:'Tokyo Story',y:1953,co:'JP',d:'ozu'},
+    {t:'Burning',y:2018,co:'KR',d:'lee'},{t:'Oldboy',y:2003,co:'KR',d:'park'},
+    {t:'Drive My Car',y:2021,co:'JP',d:'hama'},{t:'Parasite',y:2019,co:'KR',d:'bong'},
+    {t:'First Cow',y:2019,co:'US',d:'reich'},{t:'A Brighter Summer Day',y:1991,co:'TW',d:'yang'},
+    {t:'Persona',y:1966,co:'SE',d:'bergman'},{t:'Le Fils',y:2002,co:'BE',d:'dardenne'}
+  ];
+  // canon universe per decade (정전 우주 — 내 표본은 예시 포트폴리오로 정규화)
+  var CANON_DEC={1920:42,1930:64,1940:71,1950:96,1960:118,1970:104,1980:97,1990:122,2000:131,2010:118,2020:36};
+  var MINE_DEC ={1920:0, 1930:0, 1940:0, 1950:1, 1960:3, 1970:0, 1980:0, 1990:1, 2000:2, 2010:4, 2020:2};
+  function renderDecade(){
+    var decs=[1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020];
+    var box=document.getElementById('decbars'); box.innerHTML='';
+    var mxC=Math.max.apply(null,decs.map(function(d){return CANON_DEC[d];}));
+    decs.forEach(function(d){
+      var mine=MINE_DEC[d]||0, canon=CANON_DEC[d]||0;
+      var hC=Math.round(8+canon/mxC*100);
+      var hM=canon? Math.round(hC*Math.min(mine/Math.max(canon*0.06,1),1)) : 4;
+      if(mine&&hM<6)hM=6;
+      var blind=(d<1960)&&canon>40; // pre-1960 shallow → red
+      var el=document.createElement('div'); el.className='decol'+(blind?' blind':'');
+      el.title=String(d)+'s — 내 '+mine+'편 / 정전 우주 '+canon+'편'+(blind?' · 블라인드(얕음)':'');
+      el.onclick=function(){ axisDetail('decade',{d:d,mine:mine,canon:canon,blind:blind}); };
+      el.innerHTML='<div class="n'+(blind&&mine===0?' bl':'')+'">'+(mine||'')+'</div>'+
+        '<div class="stk" style="height:'+hC+'px"><i class="canon" style="height:'+Math.max(hC-hM,0)+'px"></i><i class="mine" style="height:'+hM+'px"></i></div>'+
+        '<div class="lb">'+String(d).slice(2)+'s</div>';
+      box.appendChild(el);
+    });
+  }
+  // country weighted exposure vs continent universe
+  var CON={KR:'한국',JP:'일본',FR:'프랑스',TW:'대만',SE:'스웨덴',HU:'헝가리',US:'미국',BE:'벨기에'};
+  function renderCountry(){
+    var rows=[
+      ['한국',46,false],['일본',38,false],['프랑스',34,false],['미국',22,false],
+      ['스칸디나비아',14,false],['중화권',12,false],['라틴아메리카',0,true],['아프리카',0,true]
+    ];
+    var box=document.getElementById('cobars'); box.innerHTML='';
+    var mx=46;
+    rows.forEach(function(r){
+      var el=document.createElement('div'); el.className='cob'+(r[2]?' blind':''); el.style.cursor='pointer';
+      el.title=r[0]+' — 가중 노출 '+(r[2]?'0% · 대륙 블라인드':r[1]+'%');
+      el.onclick=function(){ axisDetail('country',{name:r[0],pct:r[1],blind:r[2]}); };
+      el.innerHTML='<span class="nm">'+r[0]+'</span><div class="ctk"><i style="width:'+Math.max(Math.round(r[1]/mx*100),r[2]?2:4)+'%"></i></div>'+
+        '<span class="v">'+(r[2]?'0% ✕':r[1]+'%')+'</span>';
+      box.appendChild(el);
+    });
+  }
+  // director conquest
+  var DIR={
+    bresson:{n:'로베르 브레송',g:'G1',rep:6},dardenne:{n:'다르덴 형제',g:'G1',rep:6},tarr:{n:'벨라 타르',g:'G1',rep:5},
+    ozu:{n:'오즈 야스지로',g:'G1',rep:8},bong:{n:'봉준호',g:'G1',rep:7},bergman:{n:'잉마르 베리만',g:'G1',rep:9},
+    yang:{n:'에드워드 양',g:'G1',rep:7},park:{n:'박찬욱',g:'G2',rep:8},lee:{n:'이창동',g:'G2',rep:6},
+    reich:{n:'켈리 라이카트',g:'G2',rep:6},hama:{n:'하마구치 류스케',g:'G3',rep:6}
+  };
+  function renderDirectors(){
+    var m={}; FILMS.forEach(function(f){m[f.d]=(m[f.d]||0)+1;});
+    var arr=Object.keys(m).map(function(k){return [k,m[k]];}).sort(function(a,b){return b[1]-a[1]||DIR[b[0]].rep-DIR[a[0]].rep;});
+    var box=document.getElementById('dirlist'); box.innerHTML='';
+    arr.forEach(function(p){
+      var k=p[0],n=p[1],dd=DIR[k],pct=Math.round(n/dd.rep*100);
+      var el=document.createElement('div'); el.className='dr';
+      el.title=dd.n+' — '+dd.g+' · 정복도 '+n+'/'+dd.rep+'편 ('+pct+'%)';
+      el.onclick=function(){ axisDetail('director',{name:dd.n,g:dd.g,seen:n,rep:dd.rep,pct:pct}); };
+      el.innerHTML='<div><div class="nm">'+dd.n+'<span class="g">'+dd.g+'</span></div><div class="dtk" style="margin-top:5px"><i style="width:'+pct+'%"></i></div></div>'+
+        '<div class="fr">'+n+'/'+dd.rep+'</div><div class="fr" style="color:var(--reading)">'+pct+'%</div>';
+      box.appendChild(el);
+    });
+  }
+
+  /* ── mutual-recommendation graph (⑥) — film & director modes ── */
+  var GFILM={
+    nodes:[
+      {id:'parasite',t:'Parasite',x:350,y:150,k:'mine',big:1},
+      {id:'burning',t:'Burning',x:230,y:90,k:'mine'},{id:'drive',t:'Drive My Car',x:470,y:90,k:'mine'},
+      {id:'oldboy',t:'Oldboy',x:255,y:225,k:'mine'},{id:'tokyo',t:'Tokyo Story',x:460,y:220,k:'mine'},
+      {id:'balthazar',t:'Au Hasard Balthazar',x:130,y:150,k:'mine'},{id:'turin',t:'The Turin Horse',x:580,y:135,k:'mine'},
+      {id:'yiyi',t:'Yi Yi',x:60,y:100,k:'rec'},{id:'wind',t:'Wind Will Carry Us',x:642,y:90,k:'rec'},
+      {id:'satan',t:'Sátántangó',x:600,y:235,k:'rec'},{id:'priest',t:'Diary · Priest',x:80,y:235,k:'rec'}
+    ],
+    edges:[['parasite','burning'],['parasite','drive'],['parasite','oldboy'],['parasite','tokyo'],
+      ['burning','balthazar'],['drive','turin'],['oldboy','priest'],['tokyo','turin'],
+      ['balthazar','yiyi'],['turin','wind'],['turin','satan'],['balthazar','priest']],
+    recedge:[['balthazar','yiyi'],['turin','wind'],['turin','satan'],['balthazar','priest']]
+  };
+  var GDIR={
+    nodes:[
+      {id:'bresson',t:'브레송',x:230,y:150,k:'mine'},{id:'dardenne',t:'다르덴',x:160,y:215,k:'mine'},
+      {id:'tarr',t:'벨라 타르',x:420,y:140,k:'mine'},{id:'ozu',t:'오즈',x:470,y:240,k:'mine'},
+      {id:'bong',t:'봉준호',x:300,y:255,k:'mine'},{id:'bergman',t:'베리만',x:360,y:80,k:'mine'},
+      {id:'yang',t:'에드워드 양',x:120,y:120,k:'mine'},{id:'reich',t:'라이카트',x:110,y:280,k:'mine'},
+      {id:'dreyer',t:'드레이어',x:300,y:40,k:'rec'},{id:'tarkovsky',t:'타르콥스키',x:560,y:90,k:'rec'},
+      {id:'hou',t:'허우샤오시엔',x:60,y:185,k:'rec'},{id:'kiarostami',t:'키아로스타미',x:560,y:235,k:'rec'},
+      {id:'koreeda',t:'고레에다',x:560,y:170,k:'rec'}
+    ],
+    edges:[['bresson','dardenne'],['bresson','dreyer'],['bresson','reich'],['tarr','bergman'],
+      ['tarr','tarkovsky'],['tarr','kiarostami'],['ozu','hou'],['ozu','koreeda'],
+      ['bong','bresson'],['yang','hou'],['bergman','dreyer'],['dardenne','reich']],
+    recedge:[['bresson','dreyer'],['tarr','tarkovsky'],['tarr','kiarostami'],['ozu','hou'],['ozu','koreeda'],['yang','hou']]
+  };
+  var gmode='film';
+  function renderGraph(){
+    var G=gmode==='film'?GFILM:GDIR;
+    var pos={}; G.nodes.forEach(function(n){pos[n.id]=n;});
+    var svg=document.getElementById('agraph'); var edges='',nodes='';
+    var recset={}; (G.recedge||[]).forEach(function(e){recset[e.join('-')]=1;});
+    G.edges.forEach(function(e){
+      var a=pos[e[0]],b=pos[e[1]]; if(!a||!b)return;
+      var rec=recset[e.join('-')]||recset[[e[1],e[0]].join('-')];
+      edges+='<line x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'" stroke="'+(rec?'var(--red)':'#2c2c30')+'" stroke-width="1"'+(rec?' stroke-dasharray="3 3"':'')+'/>';
+    });
+    G.nodes.forEach(function(n){
+      var mine=n.k==='mine'; var r=n.big?9:(mine?6:6);
+      var fill=mine?(n.big?'var(--red)':'#ECEAE5'):'none';
+      var stroke=mine?'none':'var(--red)';
+      var tcol=mine?(n.big?'#ECEAE5':'#9A968D'):'#e98a86';
+      var deg=G.edges.filter(function(e){return e[0]===n.id||e[1]===n.id;}).length;
+      nodes+='<g class="gnode" style="cursor:pointer" onclick="graphNode(\''+n.id+'\','+deg+')">'+
+        '<circle cx="'+n.x+'" cy="'+n.y+'" r="'+(r+10)+'" fill="transparent"/>'+
+        '<circle cx="'+n.x+'" cy="'+n.y+'" r="'+r+'" fill="'+fill+'" '+(stroke!=='none'?'stroke="'+stroke+'" stroke-width="1.5"':'')+'/>'+
+        '<text x="'+n.x+'" y="'+(n.y-r-3)+'" text-anchor="middle" font-size="'+(n.big?11:9.5)+'" fill="'+tcol+'" font-family="PT Serif,serif">'+n.t+'</text></g>';
+    });
+    svg.innerHTML=edges+nodes;
+    var lg=document.getElementById('glegend');
+    if(gmode==='film'){
+      lg.innerHTML='<span><i style="background:var(--red)"></i>보유(중심)</span><span><i style="background:#ECEAE5"></i>보유 영화</span>'+
+        '<span><i style="background:transparent;border:1.5px solid var(--red)"></i>추천(미관람)</span><span><i style="background:#2c2c30"></i>공유 리니지 간선</span>'+
+        '<span><i style="background:var(--red);width:18px;border-radius:2px"></i>film_affinities</span>';
+    } else {
+      lg.innerHTML='<span><i style="background:#ECEAE5"></i>본 감독</span><span><i style="background:transparent;border:1.5px solid var(--red)"></i>추천 감독(미관람)</span>'+
+        '<span><i style="background:#2c2c30"></i>comparable</span><span><i style="background:var(--red);width:18px;border-radius:2px"></i>서로의 next로 추천</span>';
+    }
+    var info=document.getElementById('ginfo');
+    if(gmode==='film'){
+      info.innerHTML='<div class="t">영화 상호추천 · film_affinities</div><div class="s">채워진 노드는 <b>보유분</b>, 테두리는 공유 리니지로 끌려오는 <b>미관람 추천</b>. 적색 점선 = 보유작이 직접 끌어당기는 affinity 간선. <span style="color:var(--sub)">노드를 클릭하면 여기에 상세가 뜹니다.</span></div>';
+      info.style.borderColor='var(--reading)';
+    } else {
+      info.innerHTML='<div class="t">감독 상호추천 · auteur next</div><div class="s">채워진 노드는 <b>당신이 본 감독</b>, 테두리는 그들이 <b>서로의 next로 가리키는 미관람 감독</b>. 적색 점선 = 추천 간선(브레송→드레이어, 타르→타르콥스키 외). <span style="color:var(--sub)">노드를 클릭하면 여기에 상세가 뜹니다.</span></div>';
+      info.style.borderColor='var(--reading)';
+    }
+  }
+  document.querySelectorAll('[data-gmode]').forEach(function(b){
+    b.onclick=function(){ document.querySelectorAll('[data-gmode]').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); gmode=b.dataset.gmode; renderGraph(); };
+  });
+  // 노드 클릭 → ginfo 상단 요약 + (추천 노드면) 담기 동선
+  window.graphNode=function(id,deg){
+    var G=gmode==='film'?GFILM:GDIR;
+    var n=G.nodes.filter(function(x){return x.id===id;})[0]; if(!n)return;
+    var rec=n.k!=='mine'; var info=document.getElementById('ginfo');
+    var label=(gmode==='film'?'영화':'감독');
+    info.style.borderColor=rec?'var(--red)':'#ECEAE5';
+    info.innerHTML='<div class="t">'+n.t+(rec?' <span class="g" style="color:#e98a86">· 미관람 추천</span>':' <span class="g" style="color:#5fd0b2">· 보유 '+label+'</span>')+'</div>'+
+      '<div class="s">'+(rec
+        ? '공유 리니지로 끌려온 <b>추천 '+label+'</b> — 당신 보유작 '+deg+'개와 이어져 있습니다. '+(gmode==='film'?'담아두면 워치리스트로 들어갑니다.':'대표작부터 추천 데스크에서 받아보세요.')
+        : '당신이 보유한 '+label+' — 이 노드에서 '+deg+'개의 간선이 뻗어 추천을 끌어옵니다.')+
+        (rec?' <span style="color:var(--frontier);cursor:pointer;text-decoration:underline" onclick="location.href=\'mockup-me-watchlist.html\'">추천 데스크 ↗</span>':'')+'</div>';
+  };
+
+  /* ── lens / anchor list (①) — figure vs reading ── */
+  var ANCHORS={
+    fig:[
+      {id:'witness',w:86,mat:'정착'},{id:'guilt',w:79,mat:'정착'},
+      {id:'landscape',w:64,mat:'태동'},{id:'animal',w:58,mat:'신선'}
+    ],
+    read:[
+      {id:'gaze',w:71,mat:'태동'},{id:'double',w:52,mat:'정착'}
+    ]
+  };
+  var lxmode='fig';
+  function renderAnchors(){
+    var arr=ANCHORS[lxmode]; var box=document.getElementById('anchorlist'); box.innerHTML='';
+    arr.forEach(function(a,i){
+      var d=ANC[a.id]; var el=document.createElement('div'); el.className='rrow'; el.setAttribute('data-id',a.id);
+      el.onclick=function(){ window.sel(a.id, el); };
+      el.innerHTML='<div class="rk">'+(i+1)+'</div>'+
+        '<div><div class="rt" style="color:#c6bcf7">'+d.t+'</div><div class="rsub">'+d.s.split(' · ').slice(0,2).join(' · ')+'</div>'+
+          '<div class="reasons"><span class="rsn reading">'+(lxmode==='fig'?'figure_type':'reading')+'</span><span class="rsn safe">'+a.mat+'</span><span class="rsn canon">사이트 '+d.site+'</span></div></div>'+
+        '<div class="barwrap"><div class="track"><i style="width:'+a.w+'%;background:'+d.wc+'"></i></div><span class="pct" style="color:#bda1f0">'+a.w+'</span></div>'+
+        '<div class="wwi"><div class="pv" style="color:'+d.wc+'">'+(a.w/100).toFixed(2)+'</div><div class="pl">WEIGHT</div></div>';
+      box.appendChild(el);
+    });
+  }
+  document.querySelectorAll('[data-lxmode]').forEach(function(b){
+    b.onclick=function(){ document.querySelectorAll('[data-lxmode]').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); lxmode=b.dataset.lxmode; renderAnchors(); };
+  });
+
+  /* ── init renders ── */
+  renderRel(); renderDecade(); renderCountry(); renderDirectors(); renderGraph(); renderAnchors();
+
+  // init inspector: default 취향 시그니처 stack, top lineage selected
+  sel('french-spiritual', document.querySelector('.rrow[data-id="french-spiritual"]'));
+  // but default inspector card should be 취향 시그니처 — show DEFAULT, keep top row highlighted
+  resetInsp();
+  var top=document.querySelector('.rrow[data-id="french-spiritual"]'); if(top) top.classList.add('sel');
+
+  /* ───── cold-start demo ───── */
+  var cold=false;
+  window.coldStart = function(){
+    cold=!cold;
+    document.getElementById('csw').classList.toggle('on',cold);
+    document.getElementById('cslabel').textContent = cold?'형성 중(데모)':'운영 모드';
+    var navchip=document.getElementById('navchip');
+    var hero=document.getElementById('hero');
+    if(cold){
+      navchip.textContent='—';
+      hero.querySelector('.navbig').innerHTML='<div style="display:flex;align-items:center;gap:14px"><i class="ti ti-seedling" style="font-size:40px;color:#e0bb6e"></i><div><div class="eb">취향 시그니처 · Taste Vector</div><div class="lvl" style="color:#e0bb6e">● 형성 중</div><div class="pctl">7편 — 8편부터 앵커·관련성 산출 (NaN 0건)</div></div></div>';
+      hero.querySelectorAll('.components .cv').forEach(function(e){e.textContent='—';});
+      hero.querySelectorAll('.components .ct>i').forEach(function(e){e.style.width='0%';});
+    } else { location.reload(); }
+  };
+
+  /* ───── command palette ───── */
+  var PAGES=[
+    ['현황 · 커맨드센터','ti-dashboard','mockup-me-command-center.html','자산'],
+    ['보유 영화 · 가격표','ti-list-details','mockup-me-collection-list-v2.html','자산'],
+    ['볼 영화 · 추천 데스크','ti-target-arrow','mockup-me-watchlist.html','자산'],
+    ['운용 데스크','ti-briefcase','mockup-me-asset-desk.html','자산'],
+    ['자산 분석','ti-chart-arcs','mockup-me-analysis-v2.html','자산'],
+    ['기록 · 평가','ti-star','mockup-me-onboard-rate-v2.html','기록'],
+    ['서재','ti-books','mockup-me-library.html','기록'],
+    ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
+    ['동행','ti-users','mockup-me-pair.html','교류'],
+    ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['프랑스 영성영화 — 관련성 0.94','ti-route','#','계보'],
+    ['이란 뉴웨이브 — 벡터 이동 중','ti-route','#','계보'],
+    ['무력한 목격자 — 앵커 w0.86','ti-fingerprint','#','앵커'],
+    ['절제된 응시 — 신규 앵커 w0.71','ti-fingerprint','#','앵커']
+  ];
+  function renderPalette(q){
+    q=(q||'').toLowerCase();
+    var list=document.getElementById('pallist'); list.innerHTML='';
+    PAGES.filter(function(p){return p[0].toLowerCase().indexOf(q)>=0||p[3].toLowerCase().indexOf(q)>=0;}).forEach(function(p,i){
+      var d=document.createElement('div'); d.className='pi'+(i===0?' on':'');
+      d.innerHTML='<i class="ti '+p[1]+' lead"></i><span>'+p[0]+'</span><span class="pk">'+p[3]+'</span>';
+      d.onclick=function(){ if(p[2]&&p[2]!=='#') location.href=p[2]; else closePalette(); };
+      list.appendChild(d);
+    });
+  }
+  window.openPalette=function(){ document.getElementById('palette').classList.add('show'); var i=document.getElementById('palinput'); i.value=''; renderPalette(''); setTimeout(function(){i.focus();},30); };
+  window.closePalette=function(){ document.getElementById('palette').classList.remove('show'); };
+  window.filterPalette=function(){ renderPalette(document.getElementById('palinput').value); };
+  window.palKey=function(e){
+    if(e.key==='Escape'){closePalette();}
+    if(e.key==='Enter'){var on=document.querySelector('.pi.on')||document.querySelector('.pi'); if(on)on.click();}
+  };
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openPalette();}
+  });
+})();
+</script>
+</body>
+</html>

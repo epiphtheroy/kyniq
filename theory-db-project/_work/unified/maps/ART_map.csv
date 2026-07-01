@@ -1,0 +1,117 @@
+OldTrueMajor,NewMajorNo,NewMajorName,NewSub,Action,Note
+I. Aesthetics & Philosophy of Art,1,Aesthetics & Philosophy of Art,A. Classical & Philosophical Aesthetics,keep,"Backbone anchor (mimesis, catharsis, sublime, disinterest)"
+LI. Aesthetics (Evolutionary),1,Aesthetics & Philosophy of Art,C. Cognitive & Neuro Aesthetics,merge,Singleton high-number folded into backbone
+LXII. Aesthetics (Sensory),1,Aesthetics & Philosophy of Art,C. Cognitive & Neuro Aesthetics,merge,Singleton high-number folded into backbone
+LXXII. Aesthetics (Environmental),1,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,merge,Singleton high-number folded into backbone
+LXXXIII. Aesthetics (Neuroscience),1,Aesthetics & Philosophy of Art,C. Cognitive & Neuro Aesthetics,merge,Singleton high-number folded into backbone
+XXX. Aesthetics of the Everyday,1,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,reclassify,Variant of everyday aesthetics
+XCIV. Aesthetics (Everyday - Advanced),1,Aesthetics & Philosophy of Art,B. Everyday & Environmental Aesthetics,dedup,Duplicate of everyday-aesthetics school (Advanced variant)
+II. Art History,2,Art History & Historiography,A. Iconology & Social History of Art,keep,"Backbone anchor (iconology, social/cultural history of art)"
+II. Art History & Historiography of Art,2,Art History & Historiography,A. Iconology & Social History of Art,dedup,Duplicate Roman-II label for same school
+LII. Art History (Postcolonial),2,Art History & Historiography,C. Global & Postcolonial Art History,merge,Postcolonial curating; singleton high-number folded into backbone
+LXXIII. Art History (Global),2,Art History & Historiography,C. Global & Postcolonial Art History,merge,Singleton high-number folded into backbone
+LXXXIV. Art History (Gender),2,Art History & Historiography,B. Critical & Feminist Art Historiography,merge,Singleton high-number folded into backbone
+XCV. Art History (Materiality),2,Art History & Historiography,B. Critical & Feminist Art Historiography,merge,Singleton high-number folded into backbone
+XXXII. Digital Art History (Advanced),2,Art History & Historiography,C. Global & Postcolonial Art History,reclassify,Computational art history; method also relates to Digital Arts
+III. Performance Studies,3,Performance Studies & Theatre,A. Performance Theory & Ritual,keep,"Backbone anchor (social performance, ritual, Brecht, oppressed)"
+III. Performance Studies & Performing Arts,3,Performance Studies & Theatre,A. Performance Theory & Ritual,dedup,Duplicate Roman-III label for same school
+LIII. Performance Studies (Politics),3,Performance Studies & Theatre,B. Performance & Politics,merge,Singleton high-number folded into backbone
+LXXIV. Performance Studies (Everyday),3,Performance Studies & Theatre,C. Everyday & Restored Behavior,merge,Singleton high-number folded into backbone
+LXXXV. Performance Studies (Ethics),3,Performance Studies & Theatre,B. Performance & Politics,merge,Singleton high-number folded into backbone
+XCVI. Performance Studies (Restoration),3,Performance Studies & Theatre,C. Everyday & Restored Behavior,merge,Singleton high-number folded into backbone
+XXVII. History of Performance Art,3,Performance Studies & Theatre,C. Everyday & Restored Behavior,reclassify,Performance art history into performance backbone
+XV. Performance Art & Body,3,Performance Studies & Theatre,C. Everyday & Restored Behavior,reclassify,Body art / performance-as-research into performance backbone
+IV. Music,4,Music & Sound Studies,A. Sociology & Politics of Music,keep,"Backbone anchor (subcultural, political economy, power, cognitive musicology)"
+IV. Music & Society,4,Music & Sound Studies,A. Sociology & Politics of Music,dedup,Duplicate Roman-IV label for same school
+LIV. Music (Therapy - Advanced),4,Music & Sound Studies,C. Music Therapy & Healing,merge,Singleton high-number folded into backbone
+LX. Music (Digital),4,Music & Sound Studies,A. Sociology & Politics of Music,merge,"Digital musicology; method overlaps Digital Arts, kept in Music backbone"
+LXX. Music (Politics of Sound),4,Music & Sound Studies,A. Sociology & Politics of Music,merge,Singleton high-number folded into backbone
+LXXV. Music (Cultural Exchange),4,Music & Sound Studies,B. Ethnomusicology & Globalization,merge,Singleton high-number folded into backbone
+LXXXI. Music (Therapeutic Use),4,Music & Sound Studies,C. Music Therapy & Healing,merge,Singleton high-number folded into backbone
+LXXXVI. Music (Cultural Heritage),4,Music & Sound Studies,B. Ethnomusicology & Globalization,merge,Singleton high-number folded into backbone
+XXV. Philosophy of Music,4,Music & Sound Studies,A. Sociology & Politics of Music,reclassify,Music & emotion into music backbone
+XXVI. Sociology of Music,4,Music & Sound Studies,A. Sociology & Politics of Music,reclassify,Music & social class into music backbone
+XXXIII. Music and Politics (Advanced),4,Music & Sound Studies,A. Sociology & Politics of Music,merge,Music as propaganda; Advanced variant folded in
+XLIII. Music (Therapy),4,Music & Sound Studies,C. Music Therapy & Healing,reclassify,Core music therapy into therapy sub
+XLIX. Music (Global),4,Music & Sound Studies,B. Ethnomusicology & Globalization,reclassify,Ethnomusicology into globalization sub
+XCII. Music (Therapy - Social),4,Music & Sound Studies,C. Music Therapy & Healing,merge,Community music therapy folded in
+XCVII. Music (Cognitive Development),4,Music & Sound Studies,A. Sociology & Politics of Music,merge,Musical development folded into music backbone
+V. Literature,5,Literature & Literary Theory,A. Critical & Materialist Criticism,keep,"Backbone anchor (cultural materialism, feminist/queer/postcolonial criticism)"
+V. Literature & Society (Literary Theory),5,Literature & Literary Theory,B. Historicism & Society,dedup,New Historicism; duplicate Roman-V label
+VI. Sports,6,Sport & Physical Culture,A. Sociology & Politics of Sport,keep,"Backbone anchor (nationalism, commodification, body, ethics of enhancement)"
+VI. Sports & Physical Culture,6,Sport & Physical Culture,A. Sociology & Politics of Sport,dedup,Sociology of Sport; duplicate Roman-VI label
+XXIX. Sports (Body & Health),6,Sport & Physical Culture,"B. Body, Health & Sport Psychology",reclassify,"Biomechanics, sports psychology into body/health sub"
+XXXIV. Sports (Gender & Race),6,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",reclassify,Gender/race in sport into identity sub
+L. Sports (Race & Ethnicity),6,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",merge,Racial stacking folded in
+LV. Sports (Media),6,Sport & Physical Culture,A. Sociology & Politics of Sport,merge,Media and sport folded in
+LXI. Sports (Sociology of Race),6,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",merge,Racialized bodies folded in
+LXXI. Sports (Fan Behavior),6,Sport & Physical Culture,"B. Body, Health & Sport Psychology",merge,Sport-fan psychology folded in
+LXXVI. Sports (Ethics of Competition),6,Sport & Physical Culture,A. Sociology & Politics of Sport,merge,Ethics of competition folded into sport ethics
+LXXXII. Sports (Identity),6,Sport & Physical Culture,"C. Gender, Race & Identity in Sport",merge,Sport & identity folded in
+LXXXVII. Sports (Global),6,Sport & Physical Culture,A. Sociology & Politics of Sport,merge,Global sport folded in
+XCIII. Sports (Psychology of Performance),6,Sport & Physical Culture,"B. Body, Health & Sport Psychology",merge,Flow theory folded into sport psychology
+XCVIII. Sports (Ethics of Fair Play),6,Sport & Physical Culture,A. Sociology & Politics of Sport,merge,Fair play folded into sport ethics
+XLIV. Sports (Ethics),6,Sport & Physical Culture,A. Sociology & Politics of Sport,reclassify,Sports ethics into sociology/politics sub
+VII. Cultural Studies of Art & Media (Applied),7,Visual Culture & Media Studies,A. Visual Culture & Spectacle,keep,"Backbone anchor (visual culture, spectacle, media ecology, digital art theory)"
+XLII. Visual Culture (Advanced),7,Visual Culture & Media Studies,A. Visual Culture & Spectacle,merge,Spectatorship; Advanced variant folded into backbone
+XVII. Photography,7,Visual Culture & Media Studies,B. Photography & the Image,reclassify,Photographic gaze into image sub
+XVII. Photography & Society,7,Visual Culture & Media Studies,B. Photography & the Image,dedup,Theory of Photography; duplicate Roman-XVII label
+LXIV. Photography (Ethics),7,Visual Culture & Media Studies,B. Photography & the Image,merge,Photographic ethics folded in
+XVI. Public Art,7,Visual Culture & Media Studies,C. Public Art & Spatial Practice,reclassify,Street art into public-art sub
+XVI. Public Art & Urban Space,7,Visual Culture & Media Studies,C. Public Art & Spatial Practice,dedup,Public Art Theory; duplicate Roman-XVI label
+LXIII. Public Art (Controversy),7,Visual Culture & Media Studies,C. Public Art & Spatial Practice,merge,Public art controversy folded in
+XXXVIII. Public Art (Engagement),7,Visual Culture & Media Studies,C. Public Art & Spatial Practice,merge,Relational aesthetics folded into public/engaged art
+IX. Posthumanism,8,Posthumanism & Environmental Arts,A. Posthuman & Bio Art,keep,"Backbone anchor (Anthropocene art, posthuman art, bio art)"
+IX. Posthumanism & Environmental Arts,8,Posthumanism & Environmental Arts,A. Posthuman & Bio Art,dedup,Ecocriticism (Arts); duplicate Roman-IX label
+LIX. Art and Human Ecology,8,Posthumanism & Environmental Arts,B. Eco-Art & Ecological Aesthetics,merge,Art and ecology folded in
+XXXI. Art and Ecology (Deep Dive),8,Posthumanism & Environmental Arts,B. Eco-Art & Ecological Aesthetics,reclassify,Eco-Art into ecological sub
+VIII. Anthropology of Art,9,Anthropology & Sociology of Art,A. Anthropology of Art & Ritual,keep,"Backbone anchor (art & ritual, cultural production)"
+VIII. Anthropology of Art & Culture,9,Anthropology & Sociology of Art,A. Anthropology of Art & Ritual,dedup,Anthropology of Art; duplicate Roman-VIII label
+XII. Cultural Production,9,Anthropology & Sociology of Art,B. Cultural Industries & Production,reclassify,Cultural industries/policy; Bourdieu strand into sociology backbone
+XII. Cultural Production & Institutions,9,Anthropology & Sociology of Art,C. Art Markets & Institutions,dedup,Art Market Theory; duplicate Roman-XII label
+XXXIX. Museum Studies (Cultural),9,Anthropology & Sociology of Art,C. Art Markets & Institutions,reclassify,Museology into institutions sub
+XL. Conservation Ethics (Art),9,Anthropology & Sociology of Art,C. Art Markets & Institutions,merge,Conservation ethics into institutions sub
+XXIII. Critical Pedagogy in Arts Education,9,Anthropology & Sociology of Art,B. Cultural Industries & Production,reclassify,Critical arts education into production/institutional sub
+X. Critical Race,10,"Race, Gender & Postcolonial Critique of Art",A. Critical Race & Representation,keep,"Backbone anchor (postcolonial art, race & representation)"
+X. Critical Race & Postcolonial Approaches to Art,10,"Race, Gender & Postcolonial Critique of Art",B. Postcolonial & Decolonial Art,dedup,Decolonizing Art Theory; duplicate Roman-X label
+XI. Feminist,10,"Race, Gender & Postcolonial Critique of Art",C. Feminist & Queer Art,reclassify,Queer Art Theory into feminist/queer sub
+XI. Feminist & Queer Approaches to Art,10,"Race, Gender & Postcolonial Critique of Art",C. Feminist & Queer Art,dedup,Feminist Art Criticism; duplicate Roman-XI label
+XVIII. Digital Arts,11,"Digital, New Media & AI Arts",A. Algorithmic & Generative Art,keep,Backbone anchor for contemporary digital theory (algorithmic art)
+XVIII. Digital Arts & Interactive Media,11,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,dedup,Interactive Art Theory; duplicate Roman-XVIII label
+XLVIII. Digital Arts (Participatory),11,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,reclassify,Participatory digital art into interactive sub
+LXIX. Digital Arts (Immersive),11,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,merge,Immersive art folded in
+LXXX. Digital Arts (AI & Creativity),11,"Digital, New Media & AI Arts",C. AI & Computational Creativity,merge,AI Art Theory into AI sub
+XCI. Digital Arts (Generative),11,"Digital, New Media & AI Arts",A. Algorithmic & Generative Art,merge,Generative art folded into algorithmic sub
+XXXV. Art and Technology (Interaction),11,"Digital, New Media & AI Arts",B. Interactive & Immersive Media,reclassify,HCI in art into interactive sub
+XXII. Digital Humanities (Arts Focus),11,"Digital, New Media & AI Arts",C. AI & Computational Creativity,reclassify,Digital art history/musicology methods into computational sub
+XX. Architecture,12,Architecture & the Built Environment,A. Theory & Phenomenology of Space,keep,Backbone anchor (genius loci / spirit of place)
+XX. Architecture & Society,12,Architecture & the Built Environment,"B. Architecture, Society & Power",dedup,Architecture as Social Space; duplicate Roman-XX label
+XXXVI. Architecture (Sociology),12,Architecture & the Built Environment,"B. Architecture, Society & Power",reclassify,Sociology of architecture into society sub
+XLV. Architecture (Behavioral),12,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,reclassify,Behavioral architecture into sustainable/behavioral sub
+LXXVII. Architecture (Behavioral Economics),12,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,dedup,Behavioral Architecture Theory duplicate of XLV (different number)
+LVI. Architecture (Sustainability),12,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,merge,Sustainable architecture folded in
+LXVI. Architecture (Experience),12,Architecture & the Built Environment,A. Theory & Phenomenology of Space,merge,Phenomenological architecture folded in
+LXXXVIII. Architecture (Politics),12,Architecture & the Built Environment,"B. Architecture, Society & Power",merge,Architecture and power folded in
+XCIX. Architecture (Human Factors),12,Architecture & the Built Environment,C. Sustainable & Behavioral Architecture,merge,Environmental psychology in architecture folded in
+XXI. Fashion,13,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",keep,Backbone anchor (dress & identity)
+XXI. Fashion & Culture,13,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",dedup,Fashion Theory; duplicate Roman-XXI label
+C. Fashion (Body),13,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",reclassify,Fashion and the body into identity/systems sub
+LVII. Fashion (Ethical),13,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,merge,Ethical fashion folded in
+LXVII. Fashion (Performance),13,Fashion & Dress Studies,B. Fashion as Performance & Spectacle,merge,Fashion as performance folded in
+LXXVIII. Fashion (Cultural Production),13,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",merge,Fashion system theory folded in
+LXXXIX. Fashion (Sustainability),13,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,merge,Circular fashion folded in
+XLVI. Fashion (Sustainability),13,Fashion & Dress Studies,C. Sustainable & Ethical Fashion,dedup,Sustainable Fashion Theory duplicate of LXXXIX (different number)
+XXXVII. Fashion (Social Psychology),13,Fashion & Dress Studies,"A. Dress, Identity & Fashion Systems",reclassify,Social psychology of fashion into identity sub
+XIX. Dance Studies,14,Dance & Embodiment Studies,A. Embodiment & Sociology of Dance,keep,Backbone anchor (embodiment in dance)
+XIX. Dance Studies & Embodiment,14,Dance & Embodiment Studies,A. Embodiment & Sociology of Dance,dedup,Sociology of Dance; duplicate Roman-XIX label
+XLI. Dance (Politics),14,Dance & Embodiment Studies,"B. Dance, Politics & Society",reclassify,Dance and politics into politics sub
+LXV. Dance (Therapy),14,Dance & Embodiment Studies,C. Dance/Movement Therapy,merge,Dance/movement therapy folded in
+XIII. Art & Psychology (Applied),15,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,keep,"Backbone anchor (art therapy, psychology of aesthetics)"
+LVIII. Art Therapy (Specifics),15,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,merge,Psychodynamic art therapy folded in
+LXXIX. Art Therapy (Specific Populations),15,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,merge,Trauma-informed art therapy folded in
+XC. Art Therapy (Developmental),15,"Arts in Health, Therapy & Wellbeing",A. Art Therapy & Psychology of Art,merge,Developmental art therapy folded in
+XLVII. Arts and Health,15,"Arts in Health, Therapy & Wellbeing",B. Arts in Health & Healthcare,reclassify,Arts in Health into health sub
+LXVIII. Arts and Healing,15,"Arts in Health, Therapy & Wellbeing",B. Arts in Health & Healthcare,merge,Arts in healthcare environments folded in
+XIV. Art & Memory,15,"Arts in Health, Therapy & Wellbeing","C. Art, Memory, Trauma & Witness",reclassify,"Art & collective memory, trauma & art into memory/trauma sub"
+XXIV. Art and Trauma,15,"Arts in Health, Therapy & Wellbeing","C. Art, Memory, Trauma & Witness",reclassify,Art as witness into memory/trauma sub
+XXVIII. Art and Human Rights,15,"Arts in Health, Therapy & Wellbeing","C. Art, Memory, Trauma & Witness",reclassify,Art as human-rights advocacy into witness sub

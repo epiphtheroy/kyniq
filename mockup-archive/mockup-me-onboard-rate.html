@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 내가 본 영화 선택하기 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;--gold:#E8B23A;--good:#1FB286;--blue:#3E8FE0;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1500px;margin:0 auto;padding:14px 18px 50px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  .counters{display:flex;gap:10px;align-items:center;margin:13px 0}
+  .ctr{background:var(--pnl);border:1px solid var(--line);border-radius:3px;padding:9px 14px}
+  .ctr .v{font-family:var(--mono);font-size:22px}.ctr .l{font-size:10px;color:var(--sub);letter-spacing:.06em}
+  .ctr.sess .v{color:var(--good)}
+  .modetabs{display:flex;gap:6px;margin-left:auto}
+  .modetabs button{font-family:var(--ui);font-size:12px;padding:7px 13px;background:transparent;color:var(--mut);border:1px solid var(--line2);border-radius:14px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .modetabs button.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  /* search */
+  .searchbox{position:relative;margin-bottom:12px}
+  .searchbox input{width:100%;background:var(--pnl);border:1px solid var(--line2);border-radius:4px;padding:12px 14px 12px 38px;color:var(--ink);font-family:var(--ui);font-size:14px}
+  .searchbox input:focus{outline:none;border-color:var(--ink)}
+  .searchbox .si{position:absolute;left:13px;top:13px;color:var(--sub);font-size:16px}
+  .sugg{position:absolute;left:0;right:0;top:48px;background:#161618;border:1px solid var(--line2);border-radius:4px;z-index:9;max-height:300px;overflow:auto}
+  .sugg .sg{display:flex;align-items:center;gap:10px;padding:8px 12px;cursor:pointer;border-bottom:1px solid var(--line)}
+  .sugg .sg:hover{background:var(--pnl2)}
+  .sugg .sg .t{font-family:var(--ser);font-size:14px}.sugg .sg .m{font-size:10.5px;color:var(--sub);margin-left:auto}
+
+  .work{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px}
+  .secl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 9px;display:flex;align-items:center;gap:7px}
+  .secl b{color:var(--ink);font-weight:600}
+  .batch{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .bchip{font-size:11.5px;padding:5px 10px;border:1px dashed var(--line2);border-radius:14px;color:var(--mut);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .bchip:hover{border-color:var(--good);color:var(--ink)}
+  .bchip b{font-family:var(--mono);color:var(--good)}
+
+  .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+  .fcard{background:var(--pnl);border:1px solid var(--line);border-radius:5px;padding:10px 11px;display:flex;gap:11px;animation:flyin .32s ease both}
+  .fcard.leaving{animation:flyout .22s ease forwards}
+  @keyframes flyin{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+  @keyframes flyout{to{opacity:0;transform:translateX(26px) scale(.96)}}
+  .po{width:46px;height:66px;border-radius:2px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);position:relative}
+  .po .f{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:8px;color:var(--sub)}
+  .fc-b{min-width:0;flex:1}
+  .fc-t{font-family:var(--ser);font-size:14.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .fc-d{font-size:10.5px;color:var(--sub);margin-top:1px}
+  .stars{display:flex;gap:2px;margin-top:7px;font-size:18px;color:#3a3a40;cursor:pointer;width:max-content}
+  .stars span{transition:color .08s}
+  .stars span.on{color:var(--gold)}
+  .acts{display:flex;gap:8px;margin-top:7px;font-size:10.5px}
+  .acts a{color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:3px}
+  .acts a:hover{color:var(--ink)}
+  .acts a.add:hover{color:var(--good)}.acts a.no:hover{color:var(--red)}
+
+  .rail{background:var(--pnl);border:1px solid var(--line);border-radius:5px;padding:12px;align-self:start;position:sticky;top:10px}
+  .railhint{font-size:11px;color:var(--sub);font-style:italic;margin-bottom:10px}
+  .rcard{display:flex;gap:9px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);animation:flyinR .4s ease both}
+  .rcard:last-child{border-bottom:0}
+  @keyframes flyinR{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+  .rpo{width:34px;height:48px;border-radius:2px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618)}
+  .rc-t{font-family:var(--ser);font-size:12.5px;line-height:1.15}
+  .rc-d{font-size:9.5px;color:var(--sub)}
+  .rstars{display:flex;gap:1px;margin-top:4px;font-size:13px;color:#3a3a40;cursor:pointer;width:max-content}
+  .rstars span.on{color:var(--gold)}
+  .radd{margin-left:auto;font-size:15px;color:var(--sub);cursor:pointer}.radd:hover{color:var(--good)}
+  .pulse{animation:pulse 1.4s ease infinite}@keyframes pulse{50%{color:var(--good)}}
+
+  /* bulk */
+  .bulkwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  textarea{width:100%;min-height:200px;background:var(--pnl);border:1px solid var(--line2);border-radius:4px;color:var(--ink);font-family:var(--mono);font-size:12.5px;padding:11px;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--ink)}
+  .btn{background:var(--red);color:#fff;border:none;border-radius:3px;padding:9px 15px;font-family:var(--ui);font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line2)}
+  .drop{border:1px dashed var(--line2);border-radius:5px;padding:18px;text-align:center;color:var(--mut);margin-top:11px}
+  .matchhead{font-size:12px;color:var(--mut);margin-bottom:8px}.matchhead b{color:var(--good)}
+  .mrow{display:grid;grid-template-columns:18px 1fr 100px 64px;gap:9px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+  .mrow .raw{font-size:10.5px;color:var(--sub);font-family:var(--mono)}
+  .mrow .mt{font-family:var(--ser);font-size:13.5px}
+  .conf{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:2px;text-align:center}
+  .conf.hi{color:#8ee3cc;border:1px solid #1d5145}.conf.mid{color:#e6c884;border:1px solid #5b481f}.conf.lo{color:#f2b3b0;border:1px solid #7a1410}
+  .mstars{font-size:13px;color:#3a3a40;cursor:pointer;white-space:nowrap}.mstars span.on{color:var(--gold)}
+  .cbx{width:15px;height:15px;border:1px solid var(--line2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;cursor:pointer}
+  .cbx.on{background:var(--good);border-color:var(--good);color:#0B0B0C}
+
+  /* connect */
+  .svcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .svc{background:var(--pnl);border:1px solid var(--line);border-radius:5px;padding:15px}
+  .svc .h{font-family:var(--ser);font-size:16px;display:flex;align-items:center;gap:8px}
+  .svc .p{font-size:11.5px;color:var(--mut);margin:7px 0 12px;line-height:1.5}
+  .hide{display:none}
+  .note{font-size:10.5px;color:var(--sub);margin-top:11px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">내가 본 영화 선택하기</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-lock"></i> 비공개 · wonwoo</span>
+    <div class="tabs"><span class="on">기록</span><span>내 자산</span><span>볼 영화</span><span>서재</span><span>노트</span><span>동행</span><span>공개 ↗</span></div>
+  </div>
+
+  <div class="counters">
+    <div class="ctr"><div class="v" id="cTotal">142</div><div class="l">총 기록</div></div>
+    <div class="ctr sess"><div class="v" id="cSess">+0</div><div class="l">이번 세션</div></div>
+    <div class="ctr"><div class="v" id="cRated">0</div><div class="l">별점 매김</div></div>
+    <div class="modetabs">
+      <button data-mode="quick" class="on"><i class="ti ti-bolt"></i> 빠른 평가</button>
+      <button data-mode="bulk"><i class="ti ti-clipboard-text"></i> 붙여넣기 · 업로드</button>
+      <button data-mode="connect"><i class="ti ti-plug"></i> 서비스 연동</button>
+    </div>
+  </div>
+
+  <!-- QUICK MODE -->
+  <div id="mQuick">
+    <div class="searchbox">
+      <i class="ti ti-search si"></i>
+      <input id="search" placeholder="제목을 입력해 빠르게 추가 (퍼지 검색 — 오타·부분·한글도 인식)">
+      <div class="sugg hide" id="sugg"></div>
+    </div>
+
+    <div class="batch" id="batch"></div>
+
+    <div class="work">
+      <div>
+        <div class="secl"><i class="ti ti-stack-2"></i> <b>지금 평가하기</b> · 다 봤을 법한 작품부터 — 별 하나만 누르면 끝</div>
+        <div class="cgrid" id="cgrid"></div>
+      </div>
+      <div class="rail">
+        <div class="secl" style="margin-bottom:4px"><i class="ti ti-arrow-bounce"></i> <b>이것도 보셨나요?</b></div>
+        <div class="railhint" id="railhint">한 편 평가하면 비슷한 작품이 여기로 날아 들어옵니다.</div>
+        <div id="railbody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BULK MODE -->
+  <div id="mBulk" class="hide">
+    <div class="bulkwrap">
+      <div>
+        <div class="secl"><i class="ti ti-clipboard-text"></i> <b>리스트 붙여넣기</b> · 한 줄에 한 편 (평점 같이 써도 인식)</div>
+        <textarea id="paste">기생충 9
+올드보이 8.5
+Drive My Car ★★★★★
+타르콥스키 스토커
+In the Mood for Love 10
+센과 치히로 9
+1. There Will Be Blood 9/10
+Persona</textarea>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn" id="aiMatch"><i class="ti ti-sparkles"></i> AI 매칭</button>
+          <button class="btn ghost"><i class="ti ti-upload"></i> 엑셀 · CSV 업로드</button>
+        </div>
+        <div class="drop"><i class="ti ti-file-spreadsheet" style="font-size:22px"></i><div style="margin-top:6px">엑셀/CSV를 끌어다 놓으세요 — 제목·연도·평점 열을 AI가 자동 인식</div></div>
+        <div class="note">왓챠·레터박스 CSV를 그대로 떨궈도 됩니다. AI가 열 구조를 추론합니다.</div>
+      </div>
+      <div>
+        <div class="secl"><i class="ti ti-list-check"></i> <b>매칭 결과</b> · 확인 후 한 번에 담기</div>
+        <div id="matchhead" class="matchhead">왼쪽에 붙여넣고 <b>AI 매칭</b>을 누르세요.</div>
+        <div id="matchlist"></div>
+        <button class="btn hide" id="bulkAdd" style="margin-top:12px"><i class="ti ti-check"></i> 선택 항목 전부 담기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONNECT MODE -->
+  <div id="mConnect" class="hide">
+    <div class="secl"><i class="ti ti-plug"></i> <b>외부 서비스 연동</b> · 평점까지 통째로 가져오기</div>
+    <div class="svcgrid">
+      <div class="svc"><div class="h"><i class="ti ti-brand-letterboxd" style="color:#00b020"></i> Letterboxd</div>
+        <div class="p">계정을 연결하거나 내보내기 CSV를 올리면 본 영화·별점·관람일을 그대로 가져옵니다.</div>
+        <button class="btn ghost">연결 / CSV 가져오기</button></div>
+      <div class="svc"><div class="h"><i class="ti ti-movie" style="color:#ff0558"></i> 왓챠피디아</div>
+        <div class="p">왓챠 평가 내역을 동기화 — 별점 5점 척도를 MetaTake 10점으로 자동 변환.</div>
+        <button class="btn ghost">왓챠 연결</button></div>
+      <div class="svc"><div class="h"><i class="ti ti-brand-imdb" style="color:#f5c518"></i> IMDb · TMDb</div>
+        <div class="p">Ratings 내보내기 파일을 올리면 TMDb ID로 정확히 매칭합니다.</div>
+        <button class="btn ghost">파일 가져오기</button></div>
+    </div>
+    <div class="note">모든 경로(붙여넣기·파일·연동)는 동일한 AI 매칭 파이프라인으로 들어와 정전·계보 데이터에 정합됩니다.</div>
+  </div>
+
+</div>
+
+<script>
+const DN={bong:"봉준호",park:"박찬욱",lee:"이창동",bresson:"브레송",ozu:"오즈",kurosawa:"구로사와",miyazaki:"미야자키",
+ hama:"하마구치",tarkovsky:"타르콥스키",yang:"에드워드 양",wong:"왕가위",bergman:"베리만",fellini:"펠리니",
+ godard:"고다르",truffaut:"트뤼포",tarr:"벨라 타르",reich:"라이카트",weera:"아핏차퐁",farhadi:"파라디",
+ kiarostami:"키아로스타미",kubrick:"큐브릭",lynch:"린치",pta:"폴 토머스 앤더슨",coppola:"코폴라"};
+const DB=[
+ {id:'parasite',t:"Parasite",ko:"기생충",y:2019,d:'bong',mv:'newkorean',co:'KR',fame:10},
+ {id:'oldboy',t:"Oldboy",ko:"올드보이",y:2003,d:'park',mv:'newkorean',co:'KR',fame:9},
+ {id:'burning',t:"Burning",ko:"버닝",y:2018,d:'lee',mv:'newkorean',co:'KR',fame:8},
+ {id:'memories',t:"Memories of Murder",ko:"살인의 추억",y:2003,d:'bong',mv:'newkorean',co:'KR',fame:8},
+ {id:'handmaiden',t:"The Handmaiden",ko:"아가씨",y:2016,d:'park',mv:'newkorean',co:'KR',fame:8},
+ {id:'poetry',t:"Poetry",ko:"시",y:2010,d:'lee',mv:'newkorean',co:'KR',fame:6},
+ {id:'balthazar',t:"Au Hasard Balthazar",y:1966,d:'bresson',mv:'spiritual',co:'FR',fame:7},
+ {id:'mouchette',t:"Mouchette",y:1967,d:'bresson',mv:'spiritual',co:'FR',fame:6},
+ {id:'pickpocket',t:"Pickpocket",y:1959,d:'bresson',mv:'spiritual',co:'FR',fame:6},
+ {id:'largent',t:"L'Argent",y:1983,d:'bresson',mv:'spiritual',co:'FR',fame:6},
+ {id:'diary',t:"Diary of a Country Priest",y:1951,d:'bresson',mv:'spiritual',co:'FR',fame:5},
+ {id:'tokyo',t:"Tokyo Story",ko:"동경 이야기",y:1953,d:'ozu',mv:'jclassic',co:'JP',fame:8},
+ {id:'rashomon',t:"Rashomon",ko:"라쇼몽",y:1950,d:'kurosawa',mv:'jclassic',co:'JP',fame:8},
+ {id:'sevensamurai',t:"Seven Samurai",ko:"7인의 사무라이",y:1954,d:'kurosawa',mv:'jclassic',co:'JP',fame:9},
+ {id:'spirited',t:"Spirited Away",ko:"센과 치히로의 행방불명",y:2001,d:'miyazaki',mv:'anime',co:'JP',fame:10},
+ {id:'drive',t:"Drive My Car",ko:"드라이브 마이 카",y:2021,d:'hama',mv:'jcontemp',co:'JP',fame:8},
+ {id:'stalker',t:"Stalker",ko:"스토커",y:1979,d:'tarkovsky',mv:'slow',co:'SU',fame:8},
+ {id:'rublev',t:"Andrei Rublev",y:1966,d:'tarkovsky',mv:'slow',co:'SU',fame:7},
+ {id:'mirror',t:"Mirror",y:1975,d:'tarkovsky',mv:'slow',co:'SU',fame:7},
+ {id:'solaris',t:"Solaris",ko:"솔라리스",y:1972,d:'tarkovsky',mv:'slow',co:'SU',fame:7},
+ {id:'yiyi',t:"Yi Yi",y:2000,d:'yang',mv:'taiwanese',co:'TW',fame:8},
+ {id:'brighter',t:"A Brighter Summer Day",y:1991,d:'yang',mv:'taiwanese',co:'TW',fame:7},
+ {id:'mood',t:"In the Mood for Love",ko:"화양연화",y:2000,d:'wong',mv:'hkart',co:'HK',fame:9},
+ {id:'chungking',t:"Chungking Express",ko:"중경삼림",y:1994,d:'wong',mv:'hkart',co:'HK',fame:8},
+ {id:'persona',t:"Persona",y:1966,d:'bergman',mv:'euroart',co:'SE',fame:8},
+ {id:'seventhseal',t:"The Seventh Seal",ko:"제7의 봉인",y:1957,d:'bergman',mv:'euroart',co:'SE',fame:8},
+ {id:'eight',t:"8½",y:1963,d:'fellini',mv:'euroart',co:'IT',fame:9},
+ {id:'dolce',t:"La Dolce Vita",y:1960,d:'fellini',mv:'euroart',co:'IT',fame:8},
+ {id:'breathless',t:"Breathless",ko:"네 멋대로 해라",y:1960,d:'godard',mv:'frenchnw',co:'FR',fame:8},
+ {id:'400blows',t:"The 400 Blows",y:1959,d:'truffaut',mv:'frenchnw',co:'FR',fame:8},
+ {id:'turin',t:"The Turin Horse",y:2011,d:'tarr',mv:'slow',co:'HU',fame:7},
+ {id:'firstcow',t:"First Cow",y:2019,d:'reich',mv:'slow',co:'US',fame:7},
+ {id:'boonmee',t:"Uncle Boonmee",y:2010,d:'weera',mv:'slow',co:'TH',fame:6},
+ {id:'separation',t:"A Separation",ko:"씨민과 나데르의 별거",y:2011,d:'farhadi',mv:'iranian',co:'IR',fame:8},
+ {id:'taste',t:"Taste of Cherry",y:1997,d:'kiarostami',mv:'iranian',co:'IR',fame:7},
+ {id:'closeup',t:"Close-Up",y:1990,d:'kiarostami',mv:'iranian',co:'IR',fame:7},
+ {id:'2001',t:"2001: A Space Odyssey",ko:"2001 스페이스 오디세이",y:1968,d:'kubrick',mv:'canon',co:'US',fame:10},
+ {id:'mulholland',t:"Mulholland Drive",ko:"멀홀랜드 드라이브",y:2001,d:'lynch',mv:'canon',co:'US',fame:9},
+ {id:'twbb',t:"There Will Be Blood",y:2007,d:'pta',mv:'canon',co:'US',fame:9},
+ {id:'apocalypse',t:"Apocalypse Now",ko:"지옥의 묵시록",y:1979,d:'coppola',mv:'canon',co:'US',fame:9},
+];
+const BYID={};DB.forEach(f=>BYID[f.id]=f);
+let total=142, sess=0, ratedN=0;
+const rated={}, added={}, dismissed={};
+let lastRated=null;
+
+function sim(a,b){return (a.d===b.d?5:0)+(a.mv===b.mv?3:0)+(a.co===b.co?1:0)+(Math.abs(a.y-b.y)<12?1:0);}
+function avail(f){return !rated[f.id]&&!added[f.id]&&!dismissed[f.id];}
+function score(f){let s=f.fame;for(const id in rated)s+=sim(f,BYID[id])*0.7;for(const id in added)s+=sim(f,BYID[id])*0.4;return s;}
+function fuzzy(q,f){q=q.toLowerCase().trim();if(!q)return -1;const hay=(f.t+' '+(f.ko||'')+' '+(DN[f.d]||'')).toLowerCase();
+ if(hay.includes(q))return 100-hay.indexOf(q);
+ let i=0;for(const ch of q){i=hay.indexOf(ch,i);if(i<0)return -1;i++;}return 20;}
+
+function starRow(cls,id,val){let s=`<div class="${cls}" data-id="${id}">`;for(let i=1;i<=5;i++)s+=`<span data-id="${id}" data-star="${i}" class="${val>=i*2?'on':''}">★</span>`;s+='</div>';return s;}
+
+function renderQuick(){
+ cTotal.textContent=total;cSess.textContent='+'+sess;cRated.textContent=ratedN;
+ // center: top by score
+ const pool=DB.filter(avail).sort((a,b)=>score(b)-score(a)).slice(0,8);
+ cgrid.innerHTML=pool.map(f=>`<div class="fcard" data-card="${f.id}">
+   <div class="po"><span class="f">${f.co} ${("'"+String(f.y).slice(2))}</span></div>
+   <div class="fc-b"><div class="fc-t">${f.t}</div><div class="fc-d">${DN[f.d]||f.d}</div>
+     ${starRow('stars',f.id,0)}
+     <div class="acts"><a class="add" data-act="add" data-id="${f.id}"><i class="ti ti-bookmark"></i> 담기만</a>
+       <a class="no" data-act="dismiss" data-id="${f.id}"><i class="ti ti-x"></i> 안 봤어요</a></div></div></div>`).join('');
+ // batch chips: directors with >=3 available
+ const dc={};DB.filter(avail).forEach(f=>dc[f.d]=(dc[f.d]||0)+1);
+ batch.innerHTML='<span style="font-size:11px;color:var(--sub);align-self:center">일괄 담기 →</span>'+
+   Object.entries(dc).filter(([d,n])=>n>=3).sort((a,b)=>b[1]-a[1]).slice(0,5)
+   .map(([d,n])=>`<span class="bchip" data-act="director" data-d="${d}"><i class="ti ti-layers-subtract"></i> ${DN[d]} 전작 <b>${n}</b></span>`).join('');
+ // rail: neighbors of lastRated
+ if(lastRated){const X=BYID[lastRated];
+   const near=DB.filter(f=>avail(f)&&sim(f,X)>0).sort((a,b)=>sim(b,X)-sim(a,X)).slice(0,5);
+   railhint.innerHTML=`<b style="color:var(--ink)">${X.t}</b> 보셨다면 — 이것도?`;
+   railbody.innerHTML=near.length?near.map(f=>`<div class="rcard">
+     <div class="rpo"></div><div style="min-width:0"><div class="rc-t">${f.t}</div><div class="rc-d">${DN[f.d]||f.d} · ${f.y}</div>${starRow('rstars',f.id,0)}</div>
+     <i class="ti ti-bookmark-plus radd" data-act="add" data-id="${f.id}"></i></div>`).join('')
+     :'<div class="railhint">이 갈래는 다 담으셨네요.</div>';
+ }
+}
+function bump(id,where){total++;sess++;renderQuick();}
+function rate(id,stars){if(!avail(BYID[id]))return;rated[id]=stars;ratedN++;total++;sess++;lastRated=id;
+ const el=document.querySelector(`[data-card="${id}"]`);
+ if(el){el.classList.add('leaving');setTimeout(renderQuick,200);}else renderQuick();}
+function addOnly(id){if(!avail(BYID[id]))return;added[id]=1;total++;sess++;lastRated=id;
+ const el=document.querySelector(`[data-card="${id}"]`);if(el){el.classList.add('leaving');setTimeout(renderQuick,200);}else renderQuick();}
+function dismiss(id){dismissed[id]=1;const el=document.querySelector(`[data-card="${id}"]`);if(el){el.classList.add('leaving');setTimeout(renderQuick,200);}else renderQuick();}
+function batchDir(d){DB.filter(f=>avail(f)&&f.d===d).forEach(f=>{added[f.id]=1;total++;sess++;lastRated=f.id;});renderQuick();}
+
+// delegated star + action handlers
+document.addEventListener('mouseover',e=>{const s=e.target.closest('[data-star]');if(s){const row=s.closest('[data-id]');const v=+s.dataset.star;
+ row.querySelectorAll('span').forEach(x=>x.classList.toggle('on',+x.dataset.star<=v));}});
+document.addEventListener('mouseout',e=>{const s=e.target.closest('[data-star]');if(s){const row=s.closest('.stars,.rstars');if(row)row.querySelectorAll('span').forEach(x=>x.classList.remove('on'));}});
+document.addEventListener('click',e=>{
+ const s=e.target.closest('[data-star]');if(s){rate(s.dataset.id,(+s.dataset.star)*2);return;}
+ const a=e.target.closest('[data-act]');if(a){const act=a.dataset.act;
+   if(act==='add')addOnly(a.dataset.id);else if(act==='dismiss')dismiss(a.dataset.id);else if(act==='director')batchDir(a.dataset.d);return;}
+ const sg=e.target.closest('[data-pick]');if(sg){const f=BYID[sg.dataset.pick];rate(f.id,16);search.value='';sugg.classList.add('hide');return;}
+});
+
+// search
+const search=document.getElementById('search'),sugg=document.getElementById('sugg');
+search.oninput=()=>{const q=search.value;if(!q.trim()){sugg.classList.add('hide');return;}
+ const r=DB.filter(avail).map(f=>[f,fuzzy(q,f)]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,7);
+ if(!r.length){sugg.classList.add('hide');return;}
+ sugg.classList.remove('hide');
+ sugg.innerHTML=r.map(([f])=>`<div class="sg" data-pick="${f.id}"><div class="t">${f.t}</div><span class="m">${DN[f.d]||f.d} · ${f.y} · 클릭하면 ★ 평가</span></div>`).join('');
+};
+
+// MODE TABS
+document.querySelectorAll('.modetabs button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.modetabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ const m=b.dataset.mode;mQuick.classList.toggle('hide',m!=='quick');mBulk.classList.toggle('hide',m!=='bulk');mConnect.classList.toggle('hide',m!=='connect');});
+
+// BULK
+let matches=[];
+function parseLine(line){line=line.replace(/^\s*\d+[\.\)]\s*/,'').trim();
+ let rating=null,m;
+ if(m=line.match(/(★+)\s*$/)){rating=m[1].length*2;line=line.slice(0,m.index).trim();}
+ else if(m=line.match(/\b(10|\d(?:\.\d)?)\s*(?:점|\/\s*10|stars?)?\s*$/)){rating=Math.round(parseFloat(m[1])*(parseFloat(m[1])<=5?2:1)*10)/10;line=line.slice(0,m.index).trim();}
+ return {title:line,rating};
+}
+function bestMatch(title){let best=null,bs=0;DB.forEach(f=>{const sc=fuzzy(title,f);if(sc>bs){bs=sc;best=f;}});return {f:best,sc:bs};}
+function runMatch(){
+ const lines=document.getElementById('paste').value.split('\n').map(l=>l.trim()).filter(Boolean);
+ matches=lines.map(l=>{const {title,rating}=parseLine(l);const {f,sc}=bestMatch(title);
+   const conf=sc>=99?'hi':sc>=20?'mid':'lo';return {raw:l,f,rating,conf,on:f&&!avail(f)?false:true};});
+ const hi=matches.filter(x=>x.f&&x.conf==='hi').length;
+ document.getElementById('matchhead').innerHTML=`AI가 ${matches.length}줄 인식 · <b>${matches.filter(x=>x.f).length}편 매칭</b> (자신있음 ${hi})`;
+ document.getElementById('matchlist').innerHTML=matches.map((x,i)=>{
+   if(!x.f)return `<div class="mrow"><span class="cbx" data-mi="${i}"></span><div><div class="raw">${x.raw}</div><div class="mt" style="color:var(--sub)">매칭 실패 — 직접 검색 필요</div></div><span class="conf lo">?</span><span></span></div>`;
+   const st=x.rating||0;
+   return `<div class="mrow"><span class="cbx ${x.on?'on':''}" data-mi="${i}">${x.on?'<i class="ti ti-check"></i>':''}</span>
+     <div><div class="raw">${x.raw}</div><div class="mt">${x.f.t} <span style="color:var(--sub);font-size:11px">${x.f.y}</span></div></div>
+     <span class="mstars" data-mi="${i}">${[1,2,3,4,5].map(j=>`<span data-mstar="${j}" class="${st>=j*2?'on':''}">★</span>`).join('')}</span>
+     <span class="conf ${x.conf}">${x.conf==='hi'?'확실':x.conf==='mid'?'추정':'낮음'}</span></div>`;
+ }).join('');
+ document.getElementById('bulkAdd').classList.remove('hide');
+ document.getElementById('bulkAdd').textContent='';
+ document.getElementById('bulkAdd').innerHTML='<i class="ti ti-check"></i> 선택 '+matches.filter(x=>x.f&&x.on).length+'편 담기';
+}
+document.getElementById('aiMatch').onclick=runMatch;
+document.getElementById('matchlist').addEventListener('click',e=>{
+ const cb=e.target.closest('[data-mi]');const ms=e.target.closest('[data-mstar]');
+ if(ms){const row=ms.closest('.mstars');const i=+row.dataset.mi;const v=+ms.dataset.mstar;matches[i].rating=v*2;
+   row.querySelectorAll('span').forEach(x=>x.classList.toggle('on',+x.dataset.mstar<=v));return;}
+ if(cb&&cb.classList.contains('cbx')){const i=+cb.dataset.mi;if(!matches[i].f)return;matches[i].on=!matches[i].on;
+   cb.classList.toggle('on',matches[i].on);cb.innerHTML=matches[i].on?'<i class="ti ti-check"></i>':'';
+   document.getElementById('bulkAdd').innerHTML='<i class="ti ti-check"></i> 선택 '+matches.filter(x=>x.f&&x.on).length+'편 담기';}
+});
+document.getElementById('bulkAdd').onclick=()=>{let n=0;matches.forEach(x=>{if(x.f&&x.on&&avail(x.f)){if(x.rating){rated[x.f.id]=x.rating;ratedN++;}else added[x.f.id]=1;total++;sess++;lastRated=x.f.id;n++;}});
+ document.getElementById('matchhead').innerHTML=`<b style="color:var(--good)">${n}편 담겼습니다.</b> 빠른 평가 탭에서 계속 이어가세요.`;
+ document.getElementById('matchlist').innerHTML='';document.getElementById('bulkAdd').classList.add('hide');renderQuick();};
+
+renderQuick();
+</script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Au Hasard Balthazar (1966) — film detail (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFBF7; --paper-2:#F4F1E9; --ink:#1A1714; --ink-soft:#5C564E; --ink-faint:#8C857A;
+  --red:#C8102E; --red-deep:#9b0c23; --red-soft:#E8A7AF; --gold:#E8A100; --line:#E7E2D6; --line-strong:#D6CFBF;
+  --dark:#100D0A; --dark-2:#1b1712; --dark-3:#262019; --dline:rgba(255,255,255,.09);
+  --serif:"Newsreader",Georgia,serif; --text-serif:"Spectral","Newsreader",Georgia,serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--text-serif);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 26px}
+.kicker{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+.mockbar{background:#0b0907;color:#E9E4D8;font-family:var(--ui);font-size:12px;text-align:center;padding:7px 16px}
+.mockbar .tag{color:var(--red-soft);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+.mockbar b{color:#fff;font-weight:600}
+
+/* NAV (홈과 동일) */
+header.nav{position:sticky;top:0;z-index:90;background:var(--dark);border-bottom:1px solid var(--dline)}
+.navrow{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:7px 10px;border-radius:5px}
+.menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}
+.menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
+.menubtn .bars i{width:16px;height:2px;background:#EFEADD;display:block}
+.navsearch{flex:1;max-width:560px;display:flex;background:#fff;border-radius:7px;overflow:hidden;height:38px}
+.scope{display:flex;align-items:center;padding:0 12px;font-family:var(--ui);font-size:13px;color:#222;border-right:1px solid #e2e2e2;white-space:nowrap}
+.navsearch input{flex:1;border:0;outline:0;font-family:var(--text-serif);font-size:15px;padding:0 12px;color:#1a1714}
+.navsearch .go{width:46px;display:flex;align-items:center;justify-content:center;color:#444;font-size:17px}
+.navright{display:flex;align-items:center;gap:18px;margin-left:auto}
+.npro{font-family:var(--ui);font-size:13px;font-weight:700;color:#EFEADD;display:flex;align-items:center;gap:6px}
+.npro .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.nicon{color:#EFEADD;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:14px;font-weight:600}
+.nicon svg{width:22px;height:22px;stroke:#EFEADD;fill:none;stroke-width:1.6}
+.avatar{width:32px;height:32px;border-radius:50%;background:#fff;color:var(--red);font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD}
+
+/* MASTHEAD */
+.masthead{position:relative;background:var(--dark);color:#EFEADD;overflow:hidden}
+.mast-bg{position:absolute;inset:0;background:linear-gradient(155deg,#3a4452,#10141b 72%);opacity:.5}
+.mast-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,13,10,.96),rgba(16,13,10,.6) 60%,rgba(16,13,10,.85))}
+.masthead .wrap{position:relative;z-index:2;padding-top:22px;padding-bottom:30px}
+.crumb{font-family:var(--ui);font-size:12px;color:#a79b88;margin-bottom:18px}
+.crumb a:hover{color:#fff}.crumb .sep{margin:0 7px;color:#6a6253}
+.mast-grid{display:grid;grid-template-columns:212px 1fr;gap:30px;align-items:start}
+.poster{aspect-ratio:2/3;border-radius:10px;position:relative;overflow:hidden;border:1px solid var(--dline);background:linear-gradient(155deg,#46505c,#161b22 72%)}
+.poster .rib{position:absolute;top:0;left:13px;width:26px;height:38px;background:var(--red);clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);display:flex;align-items:flex-start;justify-content:center;padding-top:6px;color:#fff;font-size:13px;cursor:pointer}
+.poster .ph{position:absolute;inset:0;display:flex;align-items:flex-end;padding:14px;font-family:var(--ui);font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.mtitle{font-family:var(--serif);font-size:50px;font-weight:600;line-height:1.02;letter-spacing:-.02em;color:#fff}
+.mtitle .yr{font-weight:300;color:#cfc7b8}
+.mdir{font-family:var(--text-serif);font-style:italic;font-size:18px;color:#d9d1c1;margin-top:8px}
+.mmeta{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.mmeta .chip{font-family:var(--ui);font-size:12px;font-weight:600;color:#EFEADD;border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 11px}
+.movieslike{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--red-soft);margin-top:14px;display:inline-block}
+.ratings{display:flex;gap:22px;margin-top:20px;flex-wrap:wrap}
+.rb{display:flex;flex-direction:column;gap:2px}
+.rb .rl{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474}
+.rb .rv{font-family:var(--ui);font-size:18px;font-weight:700;color:#fff;display:flex;align-items:center;gap:5px}
+.rb .rv .st{color:var(--gold)}
+.rb .rv .sub{font-size:12px;font-weight:600;color:#9c9486}
+.rb .meta-box{font-family:var(--ui);font-weight:700;color:#0c0a08;background:#7ec27e;border-radius:5px;padding:2px 8px;font-size:16px}
+.rb .rt-box{font-family:var(--ui);font-weight:700;color:#fff;background:#d33;border-radius:5px;padding:2px 8px;font-size:16px}
+.statstrip{display:flex;gap:0;margin-top:24px;border:1px solid var(--dline);border-radius:11px;overflow:hidden;max-width:560px}
+.statstrip .s{flex:1;text-align:center;padding:14px 8px;border-right:1px solid var(--dline)}
+.statstrip .s:last-child{border-right:0}
+.statstrip .s .v{font-family:var(--serif);font-size:26px;font-weight:600;color:#fff}
+.statstrip .s .k{font-family:var(--ui);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8c8474;margin-top:3px}
+.mcta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.mcta .b{font-family:var(--ui);font-size:13px;font-weight:700;border-radius:8px;padding:11px 18px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.mcta .b.primary{background:var(--red);color:#fff}.mcta .b.primary:hover{background:var(--red-deep)}
+.mcta .b.ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:#EFEADD}.mcta .b.ghost:hover{background:rgba(255,255,255,.1)}
+
+/* STICKY SUBNAV */
+.subnav{position:sticky;top:60px;z-index:80;background:rgba(16,13,10,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--dline)}
+.subnav .wrap{display:flex;gap:22px;overflow-x:auto;height:48px;align-items:center;scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
+.subnav a{font-family:var(--ui);font-size:12.5px;font-weight:600;color:#9c9486;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.subnav a:hover{color:#EFEADD}
+.subnav a.on{color:#fff;border-bottom-color:var(--red)}
+
+/* SECTION FRAME */
+.band{padding:42px 0}
+.band.p2{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band.dark{background:var(--dark);color:#EFEADD}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:20px}
+.shead h2{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.05;position:relative;padding-left:15px;display:flex;align-items:center;gap:8px}
+.shead h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;background:var(--red);border-radius:2px}
+.shead .sub{font-family:var(--ui);font-size:12.5px;color:var(--ink-faint);margin-top:6px;padding-left:15px}
+.shead .seeall{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--red);white-space:nowrap}
+.band.dark .shead h2{color:#fff}
+
+/* INVITATION */
+.invite{max-width:820px}
+.invite p{font-family:var(--text-serif);font-size:18px;line-height:1.62;color:var(--ink)}
+.invite .drop::first-letter{font-family:var(--serif);font-size:62px;font-weight:600;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--red)}
+.invite .spoiler{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink-faint);margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+
+/* WHY WATCH */
+.whygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.whycard{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:#fff}
+.whycard .cat{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.whycard .pt{margin-bottom:13px}
+.whycard .pt .t{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.18}
+.whycard .pt .d{font-family:var(--text-serif);font-size:14px;color:var(--ink-soft);line-height:1.45;margin-top:3px}
+
+/* STRONG MISREADINGS */
+.rgroup{margin-bottom:14px}
+.rgroup-h{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin:26px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.readings{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.rcard{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:#fff}
+.rcard .top{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.rcard .fw{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);border:1px solid var(--line-strong);border-radius:20px;padding:3px 10px}
+.rcard .via{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink-faint)}
+.rcard .rt{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.16;margin-bottom:9px}
+.rcard .body{font-family:var(--text-serif);font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+.rcard .leap{margin-top:14px;border-left:3px solid var(--red);padding:4px 0 4px 13px}
+.rcard .leap .l{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--red);display:block;margin-bottom:3px}
+.rcard .leap .t{font-family:var(--text-serif);font-style:italic;font-size:14px;color:var(--ink);line-height:1.4}
+.morebtn{display:inline-block;margin-top:22px;font-family:var(--ui);font-size:13px;font-weight:700;color:#fff;background:var(--ink);padding:11px 20px;border-radius:8px;cursor:pointer}
+.morebtn:hover{background:var(--red)}
+
+/* FIGURES */
+.figgroup{margin-top:20px}
+.figgroup .gh{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.figgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.figcard{border:1px solid var(--line);border-radius:11px;padding:16px 17px;background:#fff;display:flex;flex-direction:column;gap:7px}
+.figcard .fn{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.15}
+.figcard .fd{font-family:var(--text-serif);font-size:13px;color:var(--ink-soft);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.figcard .fr{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px}
+.figcard .fr .n{font-family:var(--ui);font-size:11.5px;font-weight:700;color:var(--red)}
+.figcard .fr .o{font-family:var(--ui);font-size:12px;font-weight:600;color:var(--ink-soft)}
+
+/* CONNECTION MAP */
+.graphbox{position:relative;border:1px solid var(--dline);border-radius:14px;background:var(--dark-2);overflow:hidden;height:420px}
+.graphbox .gcap{position:absolute;left:18px;top:15px;z-index:4;font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474}
+.graphbox .gsub{position:absolute;left:18px;top:32px;z-index:4;font-family:var(--text-serif);font-style:italic;font-size:12px;color:#a79b88}
+.graphbox svg{position:absolute;inset:0;width:100%;height:100%}
+.gnode{cursor:pointer}.gnode text{font-family:var(--ui);font-size:10px;font-weight:600;fill:#EFEADD}
+.gnode:hover circle{stroke:#fff}
+.gedge{stroke:rgba(200,16,46,.3);stroke-width:1}
+@keyframes gin{from{opacity:0}to{opacity:1}}.gfade{animation:gin .6s ease}
+
+/* TROPES */
+.tropelist{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.troperow{display:flex;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--line)}
+.troperow .tn{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.15}
+.troperow .tv{font-family:var(--text-serif);font-style:italic;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.troperow .cnt{margin-left:auto;font-family:var(--ui);font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:20px;padding:2px 9px;flex:0 0 auto}
+
+/* ARCHETYPE */
+.archgroup{margin-bottom:18px}
+.archgroup .gh{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.archchips{display:flex;flex-wrap:wrap;gap:9px}
+.archchips .c{font-family:var(--text-serif);font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line-strong);border-radius:22px;padding:7px 14px;display:flex;align-items:center;gap:7px}
+.archchips .c:hover{border-color:var(--red);color:var(--red)}
+.archchips .c .b{font-family:var(--ui);font-size:10px;font-weight:700;color:#fff;background:var(--ink-faint);border-radius:10px;padding:1px 6px}
+
+/* CANONS / LINEAGE */
+.canonlist{max-width:840px}
+.canonrow{display:flex;align-items:center;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line)}
+.canonrow .rank{font-family:var(--serif);font-size:18px;font-weight:600;color:#fff;background:var(--ink);border-radius:8px;padding:6px 11px;white-space:nowrap}
+.canonrow .cn{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.12}
+.canonrow .cm{font-family:var(--ui);font-size:12px;color:var(--ink-faint);margin-top:3px}
+.canonrow .flag{margin-left:auto;font-family:var(--ui);font-size:12px;color:var(--ink-faint)}
+
+/* RECOMMENDED BY chips */
+.recby .lead{font-family:var(--text-serif);font-size:15px;color:var(--ink-soft);max-width:760px;margin-bottom:16px;line-height:1.5}
+.recby .lead b{color:var(--ink);font-weight:600}
+.recchips{display:flex;flex-wrap:wrap;gap:9px}
+.recchips a{font-family:var(--text-serif);font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line-strong);border-radius:7px;padding:7px 12px}
+.recchips a:hover{border-color:var(--red);color:var(--red)}
+.recchips a .y{color:var(--ink-faint);font-family:var(--ui);font-size:11px;margin-left:4px}
+.recchips .more{background:var(--paper-2);color:var(--ink-soft);font-weight:600;font-family:var(--ui);font-size:12px}
+
+/* RECEPTION */
+.revgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.revcard{border:1px solid var(--line);border-radius:11px;padding:18px 20px;background:#fff}
+.revcard .hl{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.18}
+.revcard .src{font-family:var(--ui);font-size:11.5px;font-weight:600;color:var(--ink-faint);margin-top:7px;letter-spacing:.02em}
+.revcard .q{font-family:var(--text-serif);font-style:italic;font-size:14px;color:var(--ink-soft);margin-top:10px;line-height:1.45}
+
+/* WATCH NEXT */
+.wngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wncard{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff;display:flex;gap:14px}
+.wncard .no{font-family:var(--serif);font-size:30px;font-weight:300;color:var(--line-strong);line-height:1;flex:0 0 auto}
+.wncard .wt{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.14}
+.wncard .wd{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint);margin:3px 0 8px}
+.wncard .wr{font-family:var(--text-serif);font-size:13px;color:var(--ink-soft);line-height:1.42}
+.wncard .tmdb{font-family:var(--ui);font-size:10px;font-weight:600;color:var(--ink-faint);margin-top:9px}
+
+/* CONNECTED rail */
+.rail{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px}
+.cfilm{flex:0 0 156px;width:156px}
+.cfilm .pp{aspect-ratio:2/3;border-radius:8px;border:1px solid var(--line-strong);background:linear-gradient(155deg,#46505c,#161b22 72%);position:relative;overflow:hidden}
+.cfilm .ct{font-family:var(--text-serif);font-size:14.5px;margin-top:8px;line-height:1.2}
+.cfilm .cy{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint)}
+
+/* FILM NAV / PROVENANCE */
+.filmnav{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin-top:10px}
+.filmnav .x{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.filmnav .t{font-family:var(--serif);font-size:18px;font-weight:600}
+.filmnav .mid{text-align:center}
+.prov{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink-faint);text-align:center;padding:22px 0 4px}
+
+/* FOOTER */
+footer{background:var(--dark);color:#C8BFB0;padding:48px 0 34px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:28px}
+.fbrand{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:8px 11px;border-radius:5px;width:max-content;margin-bottom:14px}
+.fabout{font-family:var(--text-serif);font-size:14px;color:#a79f90;line-height:1.5;max-width:290px}
+.fcol h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8c8474;margin-bottom:12px}
+.fcol a{display:block;font-family:var(--text-serif);font-size:14.5px;color:#C8BFB0;padding:5px 0}
+.fcol a:hover{color:#fff}
+.fbar{font-family:var(--ui);font-size:11.5px;color:#7d7568;margin-top:28px;border-top:1px solid var(--dline);padding-top:18px;display:flex;gap:18px;flex-wrap:wrap}
+.tmdb{font-style:italic;font-family:var(--text-serif)}
+
+@media(max-width:1020px){
+  .mast-grid{grid-template-columns:1fr}.poster{max-width:200px}
+  .whygrid,.readings,.revgrid,.tropelist{grid-template-columns:1fr}
+  .figgrid,.wngrid{grid-template-columns:repeat(2,1fr)}
+  .mtitle{font-size:38px}.fgrid{grid-template-columns:repeat(2,1fr)}
+  .navsearch{display:none}
+}
+@media(max-width:680px){.figgrid,.wngrid{grid-template-columns:1fr}.mtitle{font-size:32px}}
+</style>
+</head>
+<body>
+
+<div class="mockbar"><span class="tag">Mockup · Film detail</span> <b>/film/{slug}</b> — 새 홈 디자인 시스템 위에 라이브 콘텐츠 재구성. 데이터: Au Hasard Balthazar (실제). <b>(이미지는 TMDB backdrop/poster 자리, 톤 placeholder)</b></div>
+
+<!-- NAV -->
+<header class="nav"><div class="wrap navrow">
+  <a class="logo" href="#">Meta<br>take</a>
+  <div class="menubtn"><span class="bars"><i></i><i></i><i></i></span>Menu</div>
+  <div class="navsearch"><div class="scope">All ▾</div><input placeholder="Search films, directors, figures, tropes…"><div class="go">⌕</div></div>
+  <div class="navright">
+    <a class="npro" href="#"><span class="dot"></span>Ask&nbsp;AI</a>
+    <div class="nicon" title="Your Shelf"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Shelf</span></div>
+    <div class="avatar">＋</div>
+    <div class="lang">EN ▾</div>
+  </div>
+</div></header>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-bg"></div>
+  <div class="wrap">
+    <div class="crumb"><a href="#">Films</a><span class="sep">›</span><a href="#">Robert Bresson</a></div>
+    <div class="mast-grid">
+      <div class="poster"><div class="rib">＋</div><div class="ph">TMDB poster</div></div>
+      <div>
+        <div class="mtitle">Au Hasard Balthazar <span class="yr">1966</span></div>
+        <div class="mdir">dir. Robert Bresson</div>
+        <div class="mmeta"><span class="chip">Drama</span><span class="chip">96 min</span><span class="chip">NR</span><span class="chip">France</span></div>
+        <a class="movieslike" href="#">🎬 Movies like Au Hasard Balthazar →</a>
+
+        <div class="ratings">
+          <div class="rb"><span class="rl">IMDb</span><span class="rv"><span class="st">★</span>7.7 <span class="sub">23k</span></span></div>
+          <div class="rb"><span class="rl">Metascore</span><span class="rv"><span class="meta-box">98</span></span></div>
+          <div class="rb"><span class="rl">Rotten Tomatoes</span><span class="rv"><span class="rt-box">100%</span></span></div>
+        </div>
+
+        <div class="statstrip">
+          <div class="s"><div class="v">7</div><div class="k">Figures</div></div>
+          <div class="s"><div class="v">14</div><div class="k">Strong Misreadings</div></div>
+          <div class="s"><div class="v">12</div><div class="k">Tropes</div></div>
+          <div class="s"><div class="v">8</div><div class="k">Connected films</div></div>
+        </div>
+
+        <div class="mcta">
+          <a class="b primary" href="#">▶ Watch the trailer</a>
+          <button class="b ghost">＋ Add to Shelf</button>
+          <button class="b ghost">▦ Where to stream</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY SUBNAV -->
+<nav class="subnav"><div class="wrap" id="subnav">
+  <a href="#invitation" class="on">Invitation</a>
+  <a href="#why">Why watch</a>
+  <a href="#readings">Strong Misreadings</a>
+  <a href="#figures">Figures</a>
+  <a href="#map">Connection map</a>
+  <a href="#tropes">Tropes</a>
+  <a href="#archetype">Archetype</a>
+  <a href="#lineage">Lineage</a>
+  <a href="#recby">Recommended by</a>
+  <a href="#reception">Reception</a>
+  <a href="#watchnext">Watch next</a>
+  <a href="#connected">Films like</a>
+</div></nav>
+
+<!-- INVITATION -->
+<section class="band" id="invitation"><div class="wrap">
+  <div class="shead"><div><span class="kicker">An invitation</span><h2 style="margin-top:8px">Why this film is on the map</h2></div></div>
+  <div class="invite">
+    <p class="drop">Robert Bresson (b. 1901), the austere French Catholic ascetic whose 'cinematography' purged acting, score, and spectacle in favour of what he called models and the transcendental, here delivers the keystone of a lineage running from Diary of a Country Priest to Mouchette. At its centre is not a person but Balthazar, a donkey passed hand to hand — an animal protagonist cast as Holy Fool or suffering saint, yet stripped even of the consolation of self-knowledge. The title's invocation of <em>hasard</em> — chance, the throw of the dice — sits in unbearable tension with the saint's name Balthazar: if a life is governed purely by accident, can suffering still be holy?</p>
+    <p class="spoiler">○ Spoiler-free. The readings below do not hold back.</p>
+  </div>
+</div></section>
+
+<!-- WHY WATCH -->
+<section class="band p2" id="why"><div class="wrap">
+  <div class="shead"><div><h2>Why watch</h2><div class="sub">A spoiler-free brief — the director's vision, its craft and ideas, its place in film history</div></div></div>
+  <div class="whygrid">
+    <div class="whycard"><div class="cat">Auteur vision</div>
+      <div class="pt"><div class="t">Bresson's purest statement</div><div class="d">A donkey cast as protagonist to strip drama of psychology and ego — his most spiritually concentrated work.</div></div>
+      <div class="pt"><div class="t">Models, not actors</div><div class="d">Non-professionals directed toward the blank, withheld face Bresson called the 'model' — here, a beast incapable of acting at all.</div></div>
+    </div>
+    <div class="whycard"><div class="cat">Aesthetic innovation</div>
+      <div class="pt"><div class="t">The emptied face</div><div class="d">Expression suppressed so that grace registers without performed sentiment; the impassive countenance becomes an engine of meaning.</div></div>
+      <div class="pt"><div class="t">Animal as moral lens</div><div class="d">A mute creature who cannot judge becomes a radically decentred point of view onto human cruelty and tenderness.</div></div>
+    </div>
+    <div class="whycard"><div class="cat">Technical mastery</div>
+      <div class="pt"><div class="t">Cloquet's luminous restraint</div><div class="d">Crisp, unadorned black and white; framing that favours isolated gestures and faces over drama.</div></div>
+      <div class="pt"><div class="t">Sound as soul</div><div class="d">The donkey's braying against Schubert — a soundscape carrying the metaphysical weight performance withholds.</div></div>
+    </div>
+    <div class="whycard"><div class="cat">Philosophical inquiry</div>
+      <div class="pt"><div class="t">God on trial</div><div class="d">Divine justice put under examination as innocent suffering passes through a chain of human hands.</div></div>
+      <div class="pt"><div class="t">Sanctity through affliction</div><div class="d">Probing whether powerlessness can be a form of holiness, and whether moral witness requires no agency at all.</div></div>
+    </div>
+  </div>
+  <a class="morebtn" href="#">＋ 4 more lenses — Lineage, Space, Reception, Context</a>
+</div></section>
+
+<!-- STRONG MISREADINGS -->
+<section class="band" id="readings"><div class="wrap">
+  <div class="shead"><div><h2>Strong Misreadings</h2><div class="sub">14 bold readings across 14 critical frameworks — each a deliberate over-reading, a provocation rather than a verdict</div></div><a class="seeall" href="#">See all 14 →</a></div>
+
+  <div class="rgroup-h">Reading from within</div>
+  <div class="readings">
+    <div class="rcard"><div class="top"><span class="fw">Subtext</span><span class="via">via the blank Bressonian face</span></div>
+      <div class="rt">The Empty Mask as Engine of Grace</div>
+      <div class="body">The inexplicable flatness of Bresson's models is not impoverished acting but the deliberate evacuation of the ego-driven 'mask of the soul'; by suppressing the actor's expressive will, the face becomes a neutral surface onto which the spectator projects an interiority the model never performs.</div>
+      <div class="leap"><span class="l">The leap</span><span class="t">The blankness is not absence of feeling but the precondition for grace to appear unmediated by performance.</span></div>
+    </div>
+    <div class="rcard"><div class="top"><span class="fw">Ontology</span><span class="via">via Balthazar the donkey</span></div>
+      <div class="rt">A Theodicy Filmed From the Standpoint of the Innocent</div>
+      <div class="body">By placing a beast incapable of sin at the centre, Bresson constructs an experimental theology: the donkey is the pure test case of suffering that earns nothing and explains nothing — the universe's accounting laid bare.</div>
+      <div class="leap"><span class="l">The leap</span><span class="t">Not a parable about kindness to animals but a metaphysical proof-by-counterexample about the silence of God before innocent pain.</span></div>
+    </div>
+    <div class="rcard"><div class="top"><span class="fw">Semiotics</span><span class="via">via Balthazar the donkey</span></div>
+      <div class="rt">The Donkey as the Body of Labor Itself</div>
+      <div class="body">Passed from owner to owner, beaten, made to carry, exhibited for profit, then discarded when broken — Balthazar signifies the abstracted body of labour under the property system, each new master a new relation of exploitation.</div>
+      <div class="leap"><span class="l">The leap</span><span class="t">The saintly donkey is also a withering allegory of commodified labour: the worker as a beast of burden circulated as property.</span></div>
+    </div>
+    <div class="rcard"><div class="top"><span class="fw">Enigma</span><span class="via">via the braying on the soundtrack</span></div>
+      <div class="rt">The Bray as the Voice of the Unrepresentable</div>
+      <div class="body">The bray, erupting over human speech and against silence with the animal often offscreen, is the return of a witness who cannot be edited out of the moral frame — the only authentic 'score,' the conscience of the sound design.</div>
+      <div class="leap"><span class="l">The leap</span><span class="t">The offscreen bray is the film's true musical voice: the protest of innocence that cannot be silenced or seen.</span></div>
+    </div>
+  </div>
+
+  <div class="rgroup-h">Mind, ethics &amp; politics</div>
+  <div class="readings">
+    <div class="rcard"><div class="top"><span class="fw">Ethics</span><span class="via">via Balthazar the donkey</span></div>
+      <div class="rt">The Face That Commands Without Speaking</div>
+      <div class="body">Balthazar's unreadable face functions as the Levinasian Face of the Other — the silent, defenceless presence that issues the absolute command 'thou shalt not kill,' even from a being that cannot reciprocate.</div>
+      <div class="leap"><span class="l">The leap</span><span class="t">Ethics here is grounded not in the donkey's pain but in the naked, speechless exposure of his face.</span></div>
+    </div>
+    <div class="rcard"><div class="top"><span class="fw">Parallel</span><span class="via">via the dying donkey's final load</span></div>
+      <div class="rt">Dying Among the Sheep, Worth Less Than the Gold He Carries</div>
+      <div class="body">Balthazar shot for smuggled gold and left to expire among a flock resonates with Nietzsche, who collapsed in Turin weeping with his arms around a flogged horse — his last sane act an embrace of a beaten beast.</div>
+      <div class="leap"><span class="l">The leap</span><span class="t">The donkey's death stages exactly the tableau that broke Nietzsche, turning his contempt for pity into the film's whole theology.</span></div>
+    </div>
+  </div>
+  <a class="morebtn" href="#">See all 14 readings — Production, Location, Context, Reception, Psychoanalysis, Politics, Counterpart, Title →</a>
+</div></section>
+
+<!-- FIGURES -->
+<section class="band p2" id="figures"><div class="wrap">
+  <div class="shead"><div><h2>Figures</h2><div class="sub">The characters, objects, places and forms metatake singled out — each the anchor for one or more readings</div></div></div>
+  <div class="figgroup"><div class="gh">Characters</div>
+    <div class="figgrid">
+      <div class="figcard"><div class="fn">Balthazar the donkey</div><div class="fd">The title donkey passes from owner to owner, baptized, beaten, made to carry, exhibited as a circus calculator, finally left to die among sheep.</div><div class="fr"><span class="n">5 readings</span><span class="o">Open →</span></div></div>
+      <div class="figcard"><div class="fn">Marie</div><div class="fd">The farm girl who first loves the donkey, then drifts toward the brutal Gérard, is humiliated, and finally vanishes without resolution.</div><div class="fr"><span class="n">2 readings</span><span class="o">Open →</span></div></div>
+      <div class="figcard"><div class="fn">The blank Bressonian face</div><div class="fd">Non-professionals deliver lines flatly, faces held still and eyes downcast, suppressing all conventional acting.</div><div class="fr"><span class="n">2 readings</span><span class="o">Open →</span></div></div>
+    </div>
+  </div>
+  <div class="figgroup"><div class="gh">Objects &amp; symbols · Locations · Form</div>
+    <div class="figgrid">
+      <div class="figcard"><div class="fn">The smuggler's gold &amp; the final load</div><div class="fd">In the closing sequence the wounded animal carries smuggled gold before being shot and left to die in the meadow.</div><div class="fr"><span class="n">1 reading</span><span class="o">Open →</span></div></div>
+      <div class="figcard"><div class="fn">Gérard's transistor radio &amp; hands</div><div class="fd">The delinquent carries a radio playing pop as he commits petty cruelties; Bresson isolates hands in tight close-up.</div><div class="fr"><span class="n">1 reading</span><span class="o">Open →</span></div></div>
+      <div class="figcard"><div class="fn">The miller's farm &amp; country roads</div><div class="fd">A rural French region — hillside farm, dirt roads, a border for smuggling — through which the donkey is led.</div><div class="fr"><span class="n">1 reading</span><span class="o">Open →</span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CONNECTION MAP -->
+<section class="band dark" id="map"><div class="wrap">
+  <div class="shead"><div><h2>The map of Au Hasard Balthazar</h2><div class="sub">The film at the centre, its figures around it, the readings each reaches</div></div></div>
+  <div class="graphbox"><div class="gcap">Connection map · live</div><div class="gsub">Built from AI embeddings — click a node to travel</div><svg id="graph" viewBox="0 0 1180 420" preserveAspectRatio="xMidYMid meet"></svg></div>
+</div></section>
+
+<!-- TROPES -->
+<section class="band" id="tropes"><div class="wrap">
+  <div class="shead"><div><h2>Tropes it instantiates</h2><div class="sub">Cross-film figure-types this film shares — via = the figure that carries it</div></div><a class="seeall" href="#">All 12 →</a></div>
+  <div class="tropelist">
+    <div class="troperow"><div><div class="tn">Bresson's Donkey As Theological Touchstone</div><div class="tv">via the smuggler's gold, Balthazar</div></div><span class="cnt">2</span></div>
+    <div class="troperow"><div><div class="tn">The Face As Infinite Ethical Summons</div><div class="tv">via Balthazar the donkey</div></div><span class="cnt">61</span></div>
+    <div class="troperow"><div><div class="tn">Bresson's Withheld Performance as Method</div><div class="tv">via the blank Bressonian face</div></div><span class="cnt">8</span></div>
+    <div class="troperow"><div><div class="tn">The Donkey As Mute Moral Witness</div><div class="tv">via Balthazar the donkey</div></div><span class="cnt">4</span></div>
+    <div class="troperow"><div><div class="tn">France's Consumer Modernity Inscribed In Film</div><div class="tv">via Gérard's transistor radio</div></div><span class="cnt">9</span></div>
+    <div class="troperow"><div><div class="tn">The Saint Who Sanctified Affliction</div><div class="tv">via Marie</div></div><span class="cnt">6</span></div>
+    <div class="troperow"><div><div class="tn">The Film That Puts God On Trial</div><div class="tv">via Balthazar the donkey</div></div><span class="cnt">7</span></div>
+    <div class="troperow"><div><div class="tn">Desire That Requires Its Object Stay Missing</div><div class="tv">via Marie</div></div><span class="cnt">12</span></div>
+  </div>
+</div></section>
+
+<!-- ARCHETYPE -->
+<section class="band p2" id="archetype"><div class="wrap">
+  <div class="shead"><div><h2>Archetype</h2><div class="sub">What the figures are — catalog classification, each linking into the Archetype catalog</div></div></div>
+  <div class="archgroup"><div class="gh">Theme</div><div class="archchips">
+    <span class="c">Abandonment <span class="b">2</span></span><span class="c">The Animalistic (Non-Human Perspective) <span class="b">2</span></span><span class="c">Border Crossing</span><span class="c">Coming of Age</span><span class="c">Cruel Optimism</span><span class="c">Drift (Aimlessness)</span><span class="c">Objectification</span><span class="c">Provincialism</span><span class="c">The Scapegoat Mechanism</span><span class="c">The Spectacle</span><span class="c">Violence (Aestheticized)</span>
+  </div></div>
+  <div class="archgroup"><div class="gh">Identity · Complex · Place · Object</div><div class="archchips">
+    <span class="c">Circus Artist</span><span class="c">Foundling</span><span class="c">Herder</span><span class="c">Paramour</span><span class="c">The Caged Bird</span><span class="c">The Wandering Eye</span><span class="c">The Lonely Country Road</span><span class="c">The Smuggled Goods</span>
+  </div></div>
+</div></section>
+
+<!-- LINEAGE -->
+<section class="band" id="lineage"><div class="wrap">
+  <div class="shead"><div><h2>Lineage — canons &amp; lists</h2><div class="sub">Where this film sits in cinema's record — the canons it belongs to</div></div><a class="seeall" href="#">Full lineage →</a></div>
+  <div class="canonlist">
+    <div class="canonrow"><span class="rank">#25</span><div><div class="cn">Sight &amp; Sound Critics' Poll</div><div class="cm">of 100 · 2022</div></div><span class="flag">🇬🇧 GB</span></div>
+    <div class="canonrow"><span class="rank">#37</span><div><div class="cn">Sight &amp; Sound Directors' Poll</div><div class="cm">of 100 · 2022</div></div><span class="flag">🇬🇧 GB</span></div>
+    <div class="canonrow"><span class="rank">#32</span><div><div class="cn">They Shoot Pictures Don't They? — 1,000 Greatest Films</div><div class="cm">of 1000 · 2026</div></div><span class="flag">global</span></div>
+    <div class="canonrow"><span class="rank">#52</span><div><div class="cn">BBC: 100 Greatest Foreign-Language Films</div><div class="cm">of 100 · 2018</div></div><span class="flag">🇬🇧 GB</span></div>
+  </div>
+</div></section>
+
+<!-- RECOMMENDED BY -->
+<section class="band p2" id="recby"><div class="wrap">
+  <div class="shead"><div><h2>Recommended by</h2><div class="sub">Films whose viewers metatake points toward this one</div></div></div>
+  <div class="recby">
+    <p class="lead">These <b>43 films</b> name <b>Au Hasard Balthazar</b> among their nine “Watch next” picks — recommendation by neighbouring films, not by clicks.</p>
+    <div class="recchips">
+      <a href="#">EO <span class="y">'22</span></a><a href="#">A Hidden Life <span class="y">'19</span></a><a href="#">Silence <span class="y">'16</span></a><a href="#">Hunger <span class="y">'08</span></a><a href="#">Ratatouille <span class="y">'07</span></a><a href="#">The Color of Paradise <span class="y">'99</span></a><a href="#">Breaking the Waves <span class="y">'96</span></a><a href="#">Three Colors: Red <span class="y">'94</span></a><a href="#">L'Argent <span class="y">'83</span></a><a href="#">Cries and Whispers <span class="y">'72</span></a><a href="#">Mouchette <span class="y">'67</span></a><a href="#">Andrei Rublev <span class="y">'66</span></a><a href="#">Pickpocket <span class="y">'59</span></a><a href="#">A Man Escaped <span class="y">'56</span></a><a href="#">Diary of a Country Priest <span class="y">'51</span></a><a href="#">The Passion of Joan of Arc <span class="y">'28</span></a><a href="#" class="more">+ 27 more</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- RECEPTION -->
+<section class="band" id="reception"><div class="wrap">
+  <div class="shead"><div><h2>Reception</h2><div class="sub">What critics wrote — each headline links to the source; short quotes verbatim from publishers' link previews</div></div></div>
+  <div class="revgrid">
+    <div class="revcard"><div class="hl">Robert Bresson's Au Hasard Balthazar on Criterion DVD</div><div class="src">SLANT MAGAZINE · 1966</div><div class="q">“…bemused-unto-neigh-indifferent attitude…”</div></div>
+    <div class="revcard"><div class="hl">Au hasard Balthazar (1966)</div><div class="src">SIGHT AND SOUND · BFI · 1966</div></div>
+    <div class="revcard"><div class="hl">Au Hasard Balthazar</div><div class="src">THE CRITERION COLLECTION — CURRENT · 1966</div></div>
+    <div class="revcard"><div class="hl">Au Hasard Balthazar — movie review</div><div class="src">ROGEREBERT.COM · 1966</div></div>
+  </div>
+</div></section>
+
+<!-- WATCH NEXT -->
+<section class="band p2" id="watchnext"><div class="wrap">
+  <div class="shead"><div><h2>Watch next</h2><div class="sub">Nine films that continue its conversation — each chosen for a specific bridge. Curated, not algorithmic.</div></div></div>
+  <div class="wngrid">
+    <div class="wncard"><div class="no">1</div><div><div class="wt">Mouchette</div><div class="wd">1967 · Robert Bresson</div><div class="wr">Bresson's immediate follow-up maps the same theology of innocent suffering onto a human vessel with identical austerity.</div></div></div>
+    <div class="wncard"><div class="no">2</div><div><div class="wt">Pickpocket</div><div class="wd">1959 · Robert Bresson</div><div class="wr">The withheld-performance method and the emptied face reach their purest pre-Balthazar crystallisation here.</div></div></div>
+    <div class="wncard"><div class="no">3</div><div><div class="wt">The Gospel According to St. Matthew</div><div class="wd">1965 · Pier Paolo Pasolini</div><div class="wr">Another filmmaker putting God on trial through a non-professional face that commands without coaching.</div></div></div>
+    <div class="wncard"><div class="no">4</div><div><div class="wt">Umberto D.</div><div class="wd">1952 · Vittorio De Sica</div><div class="wr">An old man and his dog as mute moral witnesses to postwar indifference; Balthazar's grammar of powerless dignity.<div class="tmdb">not yet on metatake · TMDB ↗</div></div></div></div>
+    <div class="wncard"><div class="no">5</div><div><div class="wt">Winter Light</div><div class="wd">1963 · Ingmar Bergman</div><div class="wr">God's silence under suffering examined with similar severity; faith as affliction rather than consolation.<div class="tmdb">not yet on metatake · TMDB ↗</div></div></div></div>
+    <div class="wncard"><div class="no">6</div><div><div class="wt">The Turin Horse</div><div class="wd">2011 · Béla Tarr</div><div class="wr">A working horse anchors a theodicy of exhaustion and cosmic indifference; austerity at its terminal extreme.<div class="tmdb">not yet on metatake · TMDB ↗</div></div></div></div>
+  </div>
+  <a class="morebtn" href="#">See all 9 picks →</a>
+</div></section>
+
+<!-- CONNECTED -->
+<section class="band" id="connected"><div class="wrap">
+  <div class="shead"><div><h2>Films most connected</h2><div class="sub">Nearest neighbours in meaning-space — films metatake places closest to this one</div></div><a class="seeall" href="#">See all →</a></div>
+  <div class="rail">
+    <div class="cfilm"><div class="pp"></div><div class="ct">Diary of a Country Priest</div><div class="cy">1951 · Bresson</div></div>
+    <div class="cfilm"><div class="pp"></div><div class="ct">Flowers of Shanghai</div><div class="cy">1998 · Hou Hsiao-hsien</div></div>
+    <div class="cfilm"><div class="pp"></div><div class="ct">Time of the Wolf</div><div class="cy">2003 · Haneke</div></div>
+    <div class="cfilm"><div class="pp"></div><div class="ct">Suspicion</div><div class="cy">1941 · Hitchcock</div></div>
+    <div class="cfilm"><div class="pp"></div><div class="ct">Merry Christmas Mr. Lawrence</div><div class="cy">1983 · Ōshima</div></div>
+    <div class="cfilm"><div class="pp"></div><div class="ct">Of Gods and Men</div><div class="cy">2010 · Beauvois</div></div>
+    <div class="cfilm"><div class="pp"></div><div class="ct">Elephant</div><div class="cy">2003 · Van Sant</div></div>
+  </div>
+
+  <div class="filmnav">
+    <div><div class="x">‹ Prev</div><div class="t">Pickpocket</div></div>
+    <div class="mid"><div class="x">Index</div><div class="t">Robert Bresson</div></div>
+    <div style="text-align:right"><div class="x">Next ›</div><div class="t">Mouchette</div></div>
+  </div>
+  <div class="prov">Generated by the metatake editorial method (AI-drafted) · created Jun 17, 2026 · editor Wonwoo Yoon</div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="fbrand">Meta<br>take</div><p class="fabout">Read films closely — a critical map of cinema that links films through the meanings they share.</p></div>
+    <div class="fcol"><h4>Sections</h4><a href="#">Films</a><a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Lineage</a></div>
+    <div class="fcol"><h4>Your map</h4><a href="#">Your Shelf</a><a href="#">Saved Readings</a><a href="#">Following</a><a href="#">For You</a></div>
+    <div class="fcol"><h4>Metatake</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Community guidelines</a><a href="#">Blog</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">wonwoo@metatake.net</a></div>
+  </div>
+  <div class="fbar"><span>© 2026 Metatake. All rights reserved.</span><span>Seoul, Republic of Korea</span><span class="tmdb">This product uses the TMDB API but is not endorsed or certified by TMDB.</span></div>
+</div></footer>
+
+<script>
+/* CONNECTION MAP — film centre + figures + readings (live redraw) */
+const FIG=["Balthazar the donkey","Marie","The blank face","The braying","The smuggler's gold","Gérard's radio","The miller's farm"];
+const TRO=["The Face As Ethical Summons","Mute Moral Witness","God On Trial","Withheld Performance","Consumer Modernity"];
+const GSVG=document.getElementById('graph');
+function clip(s){return s.length>20?s.slice(0,19)+'…':s;}
+function graph(){
+ const W=1180,H=420,cx=W/2,cy=H/2;
+ let edges="",nodes="";
+ nodes+=`<a href="#" class="gnode"><title>Au Hasard Balthazar</title><circle cx="${cx}" cy="${cy}" r="13" fill="#C8102E"/><text x="${cx}" y="${cy-20}" text-anchor="middle" style="font-size:13px;fill:#fff">Au Hasard Balthazar</text></a>`;
+ const ring=FIG.map((f,i)=>{const a=(i/FIG.length)*Math.PI*2 + Math.random()*0.3;const r=150+Math.random()*40;return {l:f,x:cx+Math.cos(a)*r*1.7,y:cy+Math.sin(a)*r};});
+ ring.forEach(n=>{edges+=`<line class="gedge" x1="${cx}" y1="${cy}" x2="${n.x}" y2="${n.y}"/>`;});
+ const outer=TRO.map((t,i)=>{const src=ring[i%ring.length];const a=Math.random()*Math.PI*2;const r=70+Math.random()*40;return {l:t,x:src.x+Math.cos(a)*r,y:src.y+Math.sin(a)*r,sx:src.x,sy:src.y};});
+ outer.forEach(n=>{edges+=`<line class="gedge" x1="${n.sx}" y1="${n.sy}" x2="${n.x}" y2="${n.y}"/>`;});
+ ring.forEach(n=>{const anc=n.x>cx?'start':'end';const tx=anc==='start'?n.x+10:n.x-10;nodes+=`<a href="#" class="gnode"><title>Figure: ${n.l}</title><circle cx="${n.x}" cy="${n.y}" r="7" fill="#1b1712" stroke="#E8A7AF" stroke-width="1.6"/><text x="${tx}" y="${n.y+3.5}" text-anchor="${anc}">${clip(n.l)}</text></a>`;});
+ outer.forEach(n=>{const anc=n.x>cx?'start':'end';const tx=anc==='start'?n.x+9:n.x-9;nodes+=`<a href="#" class="gnode"><title>Reading: ${n.l}</title><circle cx="${n.x}" cy="${n.y}" r="5" fill="#C8102E" opacity=".8"/><text x="${tx}" y="${n.y+3}" text-anchor="${anc}" style="font-size:9px;fill:#a79b88">${clip(n.l)}</text></a>`;});
+ GSVG.innerHTML=edges+nodes;
+ GSVG.classList.remove('gfade');void GSVG.offsetWidth;GSVG.classList.add('gfade');
+}
+graph();setInterval(graph,4200);
+
+/* STICKY SUBNAV scrollspy */
+const links=[...document.querySelectorAll('#subnav a')];
+const map={};links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+const obs=new IntersectionObserver(es=>{
+ es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('on'));const a=map[e.target.id];if(a)a.classList.add('on');}});
+},{rootMargin:'-120px 0px -65% 0px',threshold:0});
+document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

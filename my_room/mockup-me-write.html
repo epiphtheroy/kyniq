@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 노트 · 글쓰기 (운영시스템 시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+    --red:#E3120B; --reddim:#7a1410;
+    /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
+    --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    /* SHARED-STANDARD S2 토큰 (suite 일관성) */
+    --blind:#E8B23A; --forming:#C8922B; --masque:#9B8CF0;
+    /* entity-type 색 (Phase 2) */
+    --film:#ECEAE5; --figure:#86b9ec; --trope:#1FB286; --misread:#E8B23A;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --rail:212px; --insp:344px; --feed:286px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  a{color:inherit;text-decoration:none}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#34343a}::-webkit-scrollbar-track{background:transparent}
+
+  /* ───────── APP BAR ───────── */
+  .appbar{height:46px;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid var(--line2);background:var(--bg2);position:relative;z-index:30}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:11px;letter-spacing:.13em;padding:3px 7px;border-radius:2px}
+  .crumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .crumb b{color:var(--ink);font-weight:600;font-family:var(--ser);font-size:14px}
+  .crumb i.ti{font-size:13px;color:var(--faint)}
+  .cmdk{margin-left:8px;flex:0 1 320px;display:flex;align-items:center;gap:8px;background:var(--pnl);border:1px solid var(--line2);
+    border-radius:6px;padding:5px 9px;color:var(--sub);font-size:12px;cursor:text}
+  .cmdk:hover{border-color:var(--line3)}
+  .cmdk .kbd{margin-left:auto;font-family:var(--mono);font-size:10px;background:var(--pnl3);border:1px solid var(--line2);border-radius:3px;padding:1px 5px;color:var(--mut)}
+  .abright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .navchip{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:6px;padding:4px 11px}
+  .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
+  .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
+  .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+  .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+  .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+
+  /* ───────── LIVE TICKER ───────── */
+  .ticker{height:27px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg2);position:relative;z-index:20}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:9px;letter-spacing:.14em;padding:0 9px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .vp{overflow:hidden;flex:1}
+  .ticker .run{display:inline-flex;gap:30px;padding-left:22px;white-space:nowrap;animation:tick 46s linear infinite;font-size:11.5px;color:var(--mut)}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:7px;font-size:9px;vertical-align:1px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───────── SHELL ───────── */
+  .shell{display:flex;height:calc(100vh - 73px);overflow:hidden}
+  .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
+  .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
+
+  /* collapse handle */
+  .chv{cursor:pointer;color:var(--sub);font-size:15px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px}
+  .chv:hover{color:var(--ink);background:var(--pnl2)}
+
+  /* ── COL 1: NAV RAIL ── */
+  .rail{width:var(--rail);background:var(--bg2);border-right:1px solid var(--line2)}
+  .rail.collapsed{width:54px}
+  .railhd{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-bottom:1px solid var(--line);color:var(--sub)}
+  .railhd .eb{flex:1}
+  .rail.collapsed .railhd .eb{display:none}
+  .navsec{padding:8px 8px 4px}
+  .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
+  .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
+  .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
+  .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+  .nv:hover{background:var(--pnl2);color:var(--ink)}
+  .nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .nv i.lead{font-size:17px;width:20px;text-align:center;flex:0 0 auto}
+  .nv .tx{font-size:12.5px;flex:1;white-space:nowrap;overflow:hidden}
+  .nv .ct{font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rail.collapsed .nv .tx,.rail.collapsed .nv .ct{display:none}
+  .rail.collapsed .nv{justify-content:center;padding:8px 0}
+  .railft{margin-top:auto;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--faint)}
+  .rail.collapsed .railft{display:none}
+
+  /* ── COL 2: MAIN (note-list + editor, 2-pane) ── */
+  .main{flex:1 1 auto;background:var(--bg);min-width:0}
+  .composer{display:grid;grid-template-columns:262px minmax(0,1fr);height:100%;min-height:0}
+
+  /* note list sub-pane */
+  .nlist{border-right:1px solid var(--line2);background:var(--bg2);display:flex;flex-direction:column;min-height:0}
+  .nlhd{display:flex;align-items:center;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line)}
+  .nlhd .srch{flex:1;position:relative}
+  .nlhd input{width:100%;background:var(--pnl);border:1px solid var(--line2);border-radius:5px;padding:6px 10px 6px 28px;color:var(--ink);font-size:12px;font-family:var(--ui)}
+  .nlhd input:focus{outline:none;border-color:var(--line3)}
+  .nlhd .srch i{position:absolute;left:8px;top:7px;color:var(--sub);font-size:13px}
+  .newbtn{background:var(--red);color:#fff;border:none;border-radius:5px;height:30px;padding:0 10px;cursor:pointer;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;justify-content:center;flex:0 0 auto;white-space:nowrap}
+  .newbtn i{font-size:15px}
+  .newbtn:hover{filter:brightness(1.08)}
+  .nlfilt{display:flex;gap:4px;padding:7px 9px;border-bottom:1px solid var(--line);font-size:10px}
+  .nlfilt button{background:transparent;border:1px solid var(--line2);color:var(--mut);border-radius:11px;padding:2px 9px;cursor:pointer;font-family:var(--ui);font-size:10px}
+  .nlfilt button.on{background:var(--ink);color:#0A0A0B;border-color:var(--ink)}
+  .nlitems{overflow:auto;flex:1;min-height:0}
+  .li{padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;position:relative}
+  .li:hover{background:var(--pnl2)}
+  .li.on{background:var(--pnl2)}
+  .li.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .li .lt{font-family:var(--ser);font-size:13.5px;line-height:1.25;display:flex;align-items:center;gap:6px}
+  .li .vis{font-size:11px;flex:0 0 auto}.vis.pub{color:var(--safe)}.vis.pri{color:var(--sub)}
+  .li .sn{font-size:11px;color:var(--sub);margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .li .lm{display:flex;gap:5px;align-items:center;margin-top:6px;flex-wrap:wrap}
+  .ttag{font-size:9px;font-family:var(--mono);padding:1px 6px;border-radius:3px;border:1px solid var(--line2);color:var(--mut)}
+  .ttag.mis{color:#edc873;border-color:#5e4d1d;background:#211a08}
+  .ttag.com{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .ttag.tro{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .ttag.boost{color:#f2a39f;border-color:#7a1410;background:#260a08}
+  .li .ld{font-size:9.5px;color:var(--faint);margin-left:auto;font-family:var(--mono)}
+
+  /* editor sub-pane */
+  .ed{display:flex;flex-direction:column;background:var(--bg);min-height:0}
+  .edbar{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap;background:var(--bg2)}
+  .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+  .seg button{background:transparent;color:var(--mut);border:none;border-right:1px solid var(--line);padding:5px 10px;font-family:var(--ui);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .seg button:last-child{border-right:none}.seg button.on{background:var(--ink);color:#0A0A0B}
+  /* S9 공개/비공개 토글 — 정본 pill (🌐 공개 중 / 🔒 비공개), 제자리 클릭, role=switch */
+  .pubpill{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:13px;cursor:pointer;
+    margin-left:auto;font-family:var(--ui);font-size:10.5px;font-weight:600;white-space:nowrap;border:1px solid var(--line2);
+    background:var(--pnl);color:var(--mut)}
+  .pubpill i{font-size:12px}
+  .pubpill:hover{border-color:var(--line3);color:var(--ink)}
+  /* 비공개(off) = 중립 회색 자물쇠 · 공개 중(on) = green 지구본 */
+  .pubpill.on{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .autosave{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--sub);font-family:var(--mono);white-space:nowrap}
+  .autosave i{font-size:12px;color:var(--safe)}
+  .autosave.saving i{color:var(--canon)}
+  .savebtn{background:var(--red);color:#fff;border:none;border-radius:5px;padding:6px 13px;font-size:11.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-weight:600}
+  .savebtn.pub{background:var(--safe);box-shadow:0 0 0 1px rgba(31,178,134,.3)}
+  .savebtn .where{font-size:9.5px;opacity:.85;font-weight:500}
+
+  .canvas{flex:1;overflow:auto;padding:24px 30px;min-height:0}
+  .canvas .inner{max-width:680px;margin:0 auto}
+  .hintbanner{font-size:11.5px;color:#edc873;background:#1c1708;border:1px solid #5e4d1d;border-radius:5px;padding:7px 11px;margin-bottom:16px;display:none}
+  .hintbanner.show{display:block}
+  .boostbanner{font-size:11.5px;color:#f2a39f;background:#1a0908;border:1px solid #7a1410;border-radius:5px;padding:8px 12px;margin-bottom:16px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+  .boostbanner i.flame{color:var(--red);font-size:14px;margin-top:1px;flex:0 0 auto}
+  .boostbanner b{color:#f2a39f}
+  .boostbanner .bx{margin-left:auto;cursor:pointer;color:var(--sub);font-size:14px;flex:0 0 auto}
+  .boostbanner .bx:hover{color:#f2a39f}
+  .boostbanner.dismissed{display:none}
+  .titlein{width:100%;background:transparent;border:none;color:var(--ink);font-family:var(--ser);font-size:29px;font-weight:700;line-height:1.2;padding:0;margin-bottom:8px}
+  .titlein:focus{outline:none}.titlein::placeholder{color:#3a3a40}
+  .fmtbar{display:flex;gap:3px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px;position:sticky;top:-24px;background:var(--bg);z-index:2}
+  .fmtbar button{background:transparent;color:var(--mut);border:none;width:30px;height:28px;border-radius:4px;cursor:pointer;font-size:15px}
+  .fmtbar button:hover{background:var(--pnl2);color:var(--ink)}
+  .bodyed{font-family:var(--ser);font-size:17px;line-height:1.72;color:#E4E2DC;min-height:240px;outline:none}
+  .bodyed:empty:before{content:attr(data-ph);color:#3a3a40}
+  .bodyed h2{font-size:22px;margin:1.2em 0 .4em}
+  .bodyed blockquote{border-left:2px solid var(--red);margin:1em 0;padding:2px 0 2px 16px;color:var(--mut);font-style:italic}
+  .bodyed .embed{border:1px solid var(--line2);border-radius:6px;padding:11px 13px;margin:1em 0;background:var(--pnl);font-family:var(--ui);font-size:13px}
+  .bodyed .embed .src{font-size:10.5px;color:var(--sub);font-family:var(--mono);margin-top:5px}
+
+  /* ── COL 3: INSPECTOR (첨부/연결 rail) ── */
+  .inspector{width:var(--insp);background:var(--bg2);border-left:1px solid var(--line2)}
+  .inspector.collapsed{width:40px}
+  .insphd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);background:var(--bg2);position:sticky;top:0;z-index:5}
+  .insphd .ti-tit{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden}
+  .inspector.collapsed .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .inspector.collapsed .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:140px;flex:0 0 auto}
+  .inspector.collapsed .inspbody{display:none}
+  .inspbody{padding:12px 12px 30px}
+  .icard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:11px;margin-bottom:11px}
+  .icard h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:6px}
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-family:var(--mono);color:var(--ink)}
+  .crow{display:grid;grid-template-columns:78px 1fr 34px;align-items:center;gap:9px;margin:6px 0}
+  .crow .cl{font-size:11px;color:var(--mut)}
+  .crow .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.crow .ct>i{display:block;height:100%;border-radius:4px}
+  .crow .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .anchorchip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block;margin:3px 3px 0 0}
+  .backlink{font-size:11px;color:var(--frontier);cursor:pointer;display:flex;align-items:center;gap:5px;margin-bottom:10px}
+  .backlink:hover{text-decoration:underline}
+
+  /* attach rows (entity-type pickers) */
+  .arow{margin-bottom:11px}
+  .arlbl{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--sub);margin-bottom:6px}
+  .arlbl .d{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+  .arlbl .ct{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .achips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;position:relative}
+  .achip{font-size:11.5px;border-radius:13px;padding:3px 5px 3px 9px;display:flex;align-items:center;gap:6px;font-family:var(--ser);border:1px solid}
+  .achip.film{background:var(--pnl2);border-color:var(--line2);color:var(--ink)}
+  .achip.figure{background:#0c1c2e;border-color:#234a72;color:#9cc8f3}
+  .achip.trope{background:#0e221c;border-color:#1d4d40;color:#8ee3cc}
+  .achip.misread{background:#211a08;border-color:#5e4d1d;color:#e6c884}
+  .achip .yr{color:var(--sub);font-size:10px;font-family:var(--ui)}
+  .achip .x{cursor:pointer;color:var(--sub);font-size:13px}.achip .x:hover{color:var(--red)}
+  .addbtn{font-size:11px;color:var(--mut);border:1px dashed var(--line2);border-radius:13px;padding:4px 10px;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .addbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .asrch{position:relative}
+  .asrch input{background:var(--pnl);border:1px solid var(--line3);border-radius:13px;padding:4px 10px;color:var(--ink);font-size:12px;width:170px;font-family:var(--ui)}
+  .asrch input:focus{outline:none}
+  .adrop{position:absolute;top:30px;left:0;background:#161618;border:1px solid var(--line3);border-radius:6px;z-index:9;min-width:236px;max-height:240px;overflow:auto;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+  .adrop .ai{padding:7px 11px;cursor:pointer;border-bottom:1px solid var(--line);font-size:12.5px}
+  .adrop .ai:last-child{border-bottom:0}
+  .adrop .ai:hover{background:var(--pnl2)}.adrop .ai .m{font-size:10.5px;color:var(--sub);margin-top:1px}
+  .adrop .ai.new{color:var(--safe)}
+  .legend-mini{display:flex;flex-wrap:wrap;gap:9px;font-size:10px;color:var(--mut);margin-top:8px}
+  .legend-mini i{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:-1px;margin-right:4px}
+
+  /* ── COL 4: ACTIVITY ── */
+  .activity{width:var(--feed);background:var(--bg2);border-left:1px solid var(--line2)}
+  .activity.collapsed{width:40px}
+  .acthd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:5}
+  .acthd .t{font-size:11.5px;font-weight:600;letter-spacing:.04em;flex:1}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--safe);box-shadow:0 0 0 0 rgba(31,178,134,.6);animation:pl 2s infinite}
+  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(31,178,134,.5)}70%{box-shadow:0 0 0 6px rgba(31,178,134,0)}100%{box-shadow:0 0 0 0 rgba(31,178,134,0)}}
+  .activity.collapsed .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .activity.collapsed .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:110px;flex:0 0 auto}
+  .activity.collapsed .actbody{display:none}
+  .actbody{padding:10px 11px 30px}
+  .feeditem{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .feeditem .fi{flex:0 0 auto;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--pnl2)}
+  .feeditem .fb{flex:1;min-width:0}
+  .feeditem .fb .ft{font-size:11.5px;line-height:1.35}.feeditem .fb .ft b{color:var(--ink)}
+  .feeditem .fb .fm{font-size:9.5px;color:var(--faint);font-family:var(--mono);margin-top:2px}
+  .acard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px;margin:11px 0}
+  .acard h4{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+  .milestone{margin:7px 0}
+  .milestone .ml{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
+  .milestone .ml b{font-family:var(--ser)}
+  .milestone .mt{height:5px;background:#24242a;border-radius:3px;overflow:hidden}.milestone .mt>i{display:block;height:100%}
+  .stat{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+  .stat b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .demobar{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);margin-top:6px}
+  .asw{width:34px;height:18px;border-radius:10px;background:#2a2a2f;position:relative;cursor:pointer;transition:.15s;flex:0 0 auto}
+  .asw::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .asw.on{background:#0e4a3a}.asw.on::after{left:18px;background:var(--safe)}
+
+  /* command palette */
+  .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-start;justify-content:center;z-index:60;padding-top:13vh}
+  .palette.show{display:flex}
+  .palbox{width:540px;max-width:92vw;background:#161618;border:1px solid var(--line3);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .palin{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .palin input{flex:1;background:transparent;border:none;color:var(--ink);font-size:15px;font-family:var(--ui)}
+  .palin input:focus{outline:none}
+  .pallist{max-height:340px;overflow:auto;padding:7px}
+  .pi{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:6px;cursor:pointer;color:var(--mut)}
+  .pi:hover,.pi.on{background:var(--pnl2);color:var(--ink)}
+  .pi i.lead{font-size:16px;width:20px;text-align:center}
+  .pi .pk{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+
+  /* reasons chips (shared with shell) */
+  .rsn{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:3px;display:inline-flex;align-items:center;gap:4px;border:1px solid}
+  .rsn::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+  .rsn.safe{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .rsn.frontier{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .rsn.canon{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+  .rsn.gap{color:#edc873;border-color:#5e4d1d;background:#211a08}
+  .rsn.conquer{color:#f2a39f;border-color:#7a1410;background:#260a08}
+  .rsn.reading{color:#bda1f0;border-color:#4a3f86;background:#171430}
+
+  @media(max-width:1280px){ .inspector{width:40px} .inspector .inspbody{display:none}
+    .inspector .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+    .inspector .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);height:140px;flex:0 0 auto} }
+  /* S10 인스펙터 반응형 예외 — write의 인스펙터는 첨부·연결 핵심 작성 도구이므로
+     좁은 폭(≤1280px)에서 공유 셸의 강제 접힘을 무력화하고 첨부 레일을 유지한다.
+     (단, 사용자가 직접 .collapsed로 접은 상태는 존중) */
+  @media(max-width:1280px){
+    body.keep-inspector .inspector:not(.collapsed){width:var(--insp)}
+    body.keep-inspector .inspector:not(.collapsed) .inspbody{display:block}
+    body.keep-inspector .inspector:not(.collapsed) .insphd{flex-direction:row;height:38px;padding:0 11px;gap:8px}
+    body.keep-inspector .inspector:not(.collapsed) .insphd .ti-tit{writing-mode:horizontal-tb;transform:none;height:auto}
+  }
+</style>
+</head>
+<body class="keep-inspector"><!-- S10: write 인스펙터(첨부·연결 레일)를 좁은 폭에서도 유지 -->
+
+<!-- ═══════════ APP BAR ═══════════ -->
+<div class="appbar">
+  <span class="logo">META TAKE</span>
+  <div class="crumb"><b>노트 · 글쓰기</b><i class="ti ti-chevron-right"></i><span>비평 컴포저</span><i class="ti ti-feather" style="font-size:11px"></i></div>
+  <div class="cmdk" onclick="openPalette()">
+    <i class="ti ti-search" style="font-size:14px"></i><span>영화 · figure · 트로프 검색</span><span class="kbd">⌘K</span>
+  </div>
+  <div class="abright">
+    <div class="navchip"><div><div class="eb">TAKES</div></div><span class="n" id="navchip">5</span>
+      <div><div class="l">취향 신호 최강</div><div class="up">▲ ×1.5 boost</div></div></div>
+    <div class="iconbtn" title="새로고침"><i class="ti ti-refresh"></i></div>
+    <div class="iconbtn" title="공개 프로필 ↗" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-external-link"></i></div>
+    <div class="ava">W</div>
+  </div>
+</div>
+
+<!-- ═══════════ LIVE TICKER ═══════════ -->
+<div class="ticker">
+  <span class="tag">LIVE</span>
+  <div class="vp"><div class="run">
+    <span><i class="ti ti-point-filled dot"></i>내가 쓴 take = 취향 벡터 <b>boost ×1.5</b> + 임베딩 직접 가산 — 가장 강한 신호</span>
+    <span><i class="ti ti-point-filled dot"></i><b>「풍경의 무관심」</b> 트로프 — 당신이 제안, 12명 채택</span>
+    <span><i class="ti ti-point-filled dot"></i>강한 오독 <b>「거울은 타자를 삼킨다」</b> — 비공개 초안</span>
+    <span><i class="ti ti-point-filled dot"></i>공개 take <b>3편</b> · 비공개 초안 <b>2편</b></span>
+    <span><i class="ti ti-point-filled dot"></i>figure <b>「당나귀의 응시」</b> 발타자르 — 강한 오독 신규 가능</span>
+    <span><i class="ti ti-point-filled dot"></i>이번 주 작성 take <b>+2</b> → 취향 임베딩 갱신</span>
+    <span><i class="ti ti-point-filled dot"></i>내가 쓴 take = 취향 벡터 <b>boost ×1.5</b> + 임베딩 직접 가산 — 가장 강한 신호</span>
+    <span><i class="ti ti-point-filled dot"></i><b>「풍경의 무관심」</b> 트로프 — 당신이 제안, 12명 채택</span>
+    <span><i class="ti ti-point-filled dot"></i>강한 오독 <b>「거울은 타자를 삼킨다」</b> — 비공개 초안</span>
+    <span><i class="ti ti-point-filled dot"></i>공개 take <b>3편</b> · 비공개 초안 <b>2편</b></span>
+    <span><i class="ti ti-point-filled dot"></i>figure <b>「당나귀의 응시」</b> 발타자르 — 강한 오독 신규 가능</span>
+    <span><i class="ti ti-point-filled dot"></i>이번 주 작성 take <b>+2</b> → 취향 임베딩 갱신</span>
+  </div></div>
+</div>
+
+<!-- ═══════════ SHELL ═══════════ -->
+<div class="shell">
+
+  <!-- ── COL 1 · NAV RAIL ── -->
+  <aside class="col rail" id="rail">
+    <div class="col-scroll" style="display:flex;flex-direction:column">
+      <div class="railhd"><span class="eb">운영 메뉴</span><span class="chv" onclick="toggle('rail')"><i class="ti ti-layout-sidebar-left-collapse"></i></span></div>
+      <div class="navsec">
+        <div class="navlbl">자산 운영</div>
+        <div class="nv" onclick="location.href='mockup-me-command-center.html'"><i class="ti ti-dashboard lead"></i><span class="tx">현황 (커맨드센터)</span></div>
+        <div class="nv" onclick="location.href='mockup-me-collection-list-v2.html'"><i class="ti ti-list-details lead"></i><span class="tx">보유 영화</span><span class="ct">142</span></div>
+        <div class="nv" onclick="location.href='mockup-me-watchlist.html'"><i class="ti ti-target-arrow lead"></i><span class="tx">볼 영화 · 추천</span><span class="ct">28</span></div>
+        <div class="nv" onclick="location.href='mockup-me-asset-desk.html'"><i class="ti ti-briefcase lead"></i><span class="tx">운용 데스크</span></div>
+        <div class="nv" onclick="location.href='mockup-me-analysis-v2.html'"><i class="ti ti-chart-arcs lead"></i><span class="tx">자산 분석</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">기록 · 교류</div>
+        <div class="nv" onclick="location.href='mockup-me-onboard-rate-v2.html'"><i class="ti ti-star lead"></i><span class="tx">기록 · 평가</span></div>
+        <div class="nv" onclick="location.href='mockup-me-library.html'"><i class="ti ti-books lead"></i><span class="tx">서재</span></div>
+        <div class="nv on"><i class="ti ti-feather lead"></i><span class="tx">노트 · 글쓰기</span></div>
+        <div class="nv" onclick="location.href='mockup-me-pair.html'"><i class="ti ti-users lead"></i><span class="tx">동행</span><span class="ct">1</span></div>
+        <div class="nv" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-id-badge lead"></i><span class="tx">공개 프로필</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">이 화면</div>
+        <div class="nv" onclick="jump('m-list')"><i class="ti ti-list lead"></i><span class="tx">노트 목록</span></div>
+        <div class="nv" onclick="jump('m-ed')"><i class="ti ti-writing lead"></i><span class="tx">에디터</span></div>
+        <div class="nv" onclick="toggle('inspector')"><i class="ti ti-paperclip lead"></i><span class="tx">첨부 · 연결</span></div>
+      </div>
+      <div class="railft">내가 쓴 take = 취향 신호 최강<br>boost ×1.5 + 임베딩 가산 · Phase 2</div>
+    </div>
+  </aside>
+
+  <!-- ── COL 2 · MAIN (note-list + editor) ── -->
+  <main class="col main">
+    <div class="composer">
+
+      <!-- note list sub-pane -->
+      <aside class="nlist" id="m-list">
+        <div class="nlhd">
+          <div class="srch"><i class="ti ti-search"></i><input id="lsearch" placeholder="내 take 검색"></div>
+          <button class="newbtn" id="newBtn" title="새 글 쓰기 (빈 자유 글)"><i class="ti ti-plus"></i> 새 글</button>
+        </div>
+        <div class="nlfilt" id="nlfilt">
+          <button data-f="all" class="on">전체</button>
+          <button data-f="pub">공개</button>
+          <button data-f="pri">초안</button>
+        </div>
+        <div class="nlitems" id="litems"></div>
+      </aside>
+
+      <!-- editor sub-pane -->
+      <section class="ed" id="m-ed">
+        <div class="edbar">
+          <div class="seg" id="typeSeg">
+            <button data-type="free" class="on" title="영화에 매이지 않는 자유로운 글"><i class="ti ti-note"></i> 자유 글</button>
+            <button data-type="comment" title="특정 영화 아래에 달리는 짧은 코멘트"><i class="ti ti-message"></i> 영화 코멘트</button>
+            <button data-type="misreading" title="figure(형상)을 의도적으로 다르게 읽는 해석"><i class="ti ti-quote"></i> 강한 오독</button>
+            <button data-type="trope" title="여러 영화를 가로지르는 트로프(패턴)에 기여"><i class="ti ti-affiliate"></i> 트로프 기여</button>
+          </div>
+          <span class="autosave" id="autosave" title="입력 시 자동 저장됩니다"><i class="ti ti-cloud-check"></i> 자동저장됨</span>
+          <span class="pubpill" id="visToggle" role="switch" aria-checked="false" tabindex="0" title="공개 시 프로필·영화 페이지에 노출됩니다 — 클릭으로 토글"><i class="ti ti-lock"></i><span id="visLbl">비공개</span></span>
+          <button class="savebtn" id="saveBtn"><i class="ti ti-check"></i> <span id="saveTxt">초안 저장</span></button>
+        </div>
+
+        <div class="canvas">
+          <div class="inner">
+            <div class="boostbanner" id="boostBanner"><i class="ti ti-flame flame"></i><span>내가 직접 쓴 해석은 <b>취향 신호 최강</b> — 이 글의 임베딩이 <b>취향 벡터에 ×1.5 boost로 가산</b>됩니다. 별점·관람보다 강하게 당신의 취향을 형성합니다.</span><i class="ti ti-x bx" id="boostBx" title="이 안내 접기"></i></div>
+            <div class="hintbanner" id="hint"></div>
+            <input class="titlein" id="titleIn" placeholder="제목 없는 글 — 여기서부터 바로 쓰기 시작">
+            <div class="fmtbar">
+              <button data-cmd="bold" title="굵게"><i class="ti ti-bold"></i></button>
+              <button data-cmd="italic" title="기울임"><i class="ti ti-italic"></i></button>
+              <button data-cmd="h2" title="제목"><i class="ti ti-heading"></i></button>
+              <button data-cmd="quote" title="인용"><i class="ti ti-blockquote"></i></button>
+              <button data-cmd="link" title="링크"><i class="ti ti-link"></i></button>
+              <button data-cmd="embed" title="외부 인용·임베드 붙여넣기"><i class="ti ti-clipboard-plus"></i></button>
+            </div>
+            <div class="bodyed" id="bodyEd" contenteditable="true" data-ph="여기에 take를 씁니다. 영화에 매이지 않아도 됩니다 — 쓰고 나서 오른쪽 첨부 레일에서 영화·figure·트로프를 엮으세요."></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ── COL 3 · INSPECTOR (첨부 · 연결 rail) ── -->
+  <aside class="col inspector" id="inspector">
+    <div class="insphd">
+      <span class="chv" onclick="toggle('inspector')"><i class="ti ti-layout-sidebar-right-collapse"></i></span>
+      <span class="ti-tit" id="insp-title">첨부 · 연결</span>
+    </div>
+    <div class="col-scroll inspbody" id="inspbody"><!-- filled by JS --></div>
+  </aside>
+
+  <!-- ── COL 4 · ACTIVITY ── -->
+  <aside class="col activity" id="activity">
+    <div class="acthd"><span class="pulse"></span><span class="t">최근 노트 · 취향 기여</span>
+      <span class="chv" onclick="toggle('activity')"><i class="ti ti-layout-sidebar-right-collapse"></i></span></div>
+    <div class="col-scroll actbody">
+      <div class="feeditem"><div class="fi" style="color:var(--gap)"><i class="ti ti-quote"></i></div>
+        <div class="fb"><div class="ft"><b>거울은 타자를 삼킨다</b> — 강한 오독 초안 (올드보이)</div><div class="fm">방금 · meta_takes</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--safe)"><i class="ti ti-world"></i></div>
+        <div class="fb"><div class="ft"><b>제안: 「풍경의 무관심」</b> 공개 — 트로프 기여 게시됨</div><div class="fm">2일 전 · publish()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--red)"><i class="ti ti-flame"></i></div>
+        <div class="fb"><div class="ft">take 임베딩 <b>×1.5 가산</b> — 취향 벡터 갱신됨</div><div class="fm">2일 전 · taste_vector()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-message"></i></div>
+        <div class="fb"><div class="ft"><b>기생충 재관람</b> 코멘트 — 「수직의 계단」 figure 연결</div><div class="fm">3일 전 · comment()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--canon)"><i class="ti ti-feather"></i></div>
+        <div class="fb"><div class="ft"><b>브레송의 손에 대하여</b> 공개 — 4편 엮임</div><div class="fm">6일 전 · publish()</div></div></div>
+
+      <div class="acard">
+        <h4>취향 기여 요약</h4>
+        <div class="milestone"><div class="ml"><b>공개 take</b><span class="mono" style="color:#5fd0b2">3 / 5</span></div>
+          <div class="mt"><i style="width:60%;background:var(--safe)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>비공개 초안</b><span class="mono" style="color:#9A968D">2 / 5</span></div>
+          <div class="mt"><i style="width:40%;background:#5a5a60"></i></div></div>
+        <div class="milestone"><div class="ml"><b>취향 임베딩 가산</b><span class="mono" style="color:#f2a39f">×1.5 · 5건</span></div>
+          <div class="mt"><i style="width:75%;background:var(--red)"></i></div></div>
+      </div>
+
+      <div class="acard">
+        <h4>엔티티 기여</h4>
+        <div class="stat"><span>엮은 영화</span><b>9편</b></div>
+        <div class="stat"><span>figure(형상)</span><b style="color:#86b9ec">3</b></div>
+        <div class="stat"><span>트로프 기여</span><b style="color:#5fd0b2">2 (제안 1)</b></div>
+        <div class="stat"><span>강한 오독</span><b style="color:#e0bb6e">1 초안</b></div>
+        <div class="demobar"><span>취향 boost 데모</span><span class="asw on" id="bsw" onclick="boostDemo()"></span><span id="bslabel">×1.5 적용</span></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="palette" id="palette" onclick="if(event.target===this)closePalette()">
+  <div class="palbox">
+    <div class="palin"><i class="ti ti-search" style="color:var(--sub)"></i>
+      <input id="palinput" placeholder="영화 · figure · 트로프 · 페이지로 이동…" oninput="filterPalette()" onkeydown="palKey(event)"></div>
+    <div class="pallist" id="pallist"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = window.localStorage;
+
+  /* ───── collapsible columns (persisted) ───── */
+  function applyState(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var c = LS.getItem('mt_'+id)==='1';
+    el.classList.toggle('collapsed', c);
+  }
+  window.toggle = function(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('collapsed');
+    LS.setItem('mt_'+id, el.classList.contains('collapsed')?'1':'0');
+  };
+  ['rail','inspector','activity'].forEach(applyState);
+
+  function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  window.jump = jump;
+
+  /* ═════════ COMPOSER DATA (Phase 2) ═════════ */
+  var FILMS=[
+   {id:'parasite',t:"Parasite",y:2019,d:"봉준호"},{id:'oldboy',t:"Oldboy",y:2003,d:"박찬욱"},
+   {id:'balthazar',t:"Au Hasard Balthazar",y:1966,d:"브레송"},{id:'mouchette',t:"Mouchette",y:1967,d:"브레송"},
+   {id:'pickpocket',t:"Pickpocket",y:1959,d:"브레송"},{id:'largent',t:"L'Argent",y:1983,d:"브레송"},
+   {id:'turin',t:"The Turin Horse",y:2011,d:"벨라 타르"},{id:'firstcow',t:"First Cow",y:2019,d:"라이카트"},
+   {id:'stalker',t:"Stalker",y:1979,d:"타르콥스키"},{id:'tokyo',t:"Tokyo Story",y:1953,d:"오즈"},
+   {id:'drive',t:"Drive My Car",y:2021,d:"하마구치"},{id:'mood',t:"In the Mood for Love",y:2000,d:"왕가위"},
+   {id:'yiyi',t:"Yi Yi",y:2000,d:"에드워드 양"},{id:'burning',t:"Burning",y:2018,d:"이창동"}
+  ];
+  var FIGURES=[
+   {id:'fg1',label:"당나귀의 응시",film:"발타자르"},{id:'fg2',label:"거울 속 타자",film:"올드보이"},
+   {id:'fg3',label:"수직의 계단",film:"기생충"},{id:'fg4',label:"흐르는 강",film:"무셰트"},
+   {id:'fg5',label:"늙은 말",film:"토리노의 말"},{id:'fg6',label:"카세트테이프",film:"드라이브 마이 카"},
+   {id:'fg7',label:"반지하 창",film:"기생충"},{id:'fg8',label:"빈 들판",film:"퍼스트 카우"}
+  ];
+  var TROPES=[
+   {id:'t1',label:"무력한 목격자"},{id:'t2',label:"전이된 죄"},{id:'t3',label:"풍경의 무관심"},
+   {id:'t4',label:"이중 자아"},{id:'t5',label:"계급의 유령"},{id:'t6',label:"갈망의 지연"}
+  ];
+  var TYPEMETA={free:["자유 글",""],comment:["영화 코멘트","com"],misreading:["강한 오독","mis"],trope:["트로프 기여","tro"]};
+  var notes=[
+   {id:1,type:'free',title:"브레송의 손에 대하여",pub:true,
+    body:"<p>브레송의 인물들은 얼굴보다 <b>손</b>으로 먼저 말한다. 〈소매치기〉의 손가락, 〈발타자르〉의 고삐를 쥔 손, 〈무셰트〉가 컵을 미는 손—.</p><blockquote>표정을 지운 자리에서, 행위가 영혼이 된다.</blockquote>",
+    films:['pickpocket','balthazar','mouchette','largent'],figure:null,trope:null,date:"06.20"},
+   {id:2,type:'misreading',title:"거울은 타자를 삼킨다",pub:false,
+    body:"<p>복수는 억압된 것의 회귀다. 〈올드보이〉의 거울은 자아와 타자의 경계를 무너뜨린다—이우진이 곧 오대수의 그림자였듯.</p>",
+    films:['oldboy'],figure:'fg2',trope:'t2',date:"06.22"},
+   {id:3,type:'comment',title:"기생충 재관람 — 계단의 안무",pub:false,
+    body:"<p>두 번째로 보니 계단이 먼저 보인다. 인물들은 늘 오르거나 내려간다. 수평의 대사 위로 수직의 운동이 흐른다.</p>",
+    films:['parasite'],figure:'fg3',trope:null,date:"06.23"},
+   {id:4,type:'trope',title:"제안: 「풍경의 무관심」",pub:true,
+    body:"<p>인간의 고통과 무관하게 펼쳐지는 풍경. 〈토리노의 말〉의 바람, 〈퍼스트 카우〉의 강, 〈발타자르〉의 들판이 한 갈래로 묶인다.</p>",
+    films:['turin','firstcow','balthazar'],figure:null,trope:'t3',date:"06.24"},
+   {id:5,type:'free',title:"느린 영화는 왜 윤리적인가",pub:true,
+    body:"<p>지속(duration)은 관객에게 판단을 유보하게 한다. 타르, 라이카트, 타르콥스키—시간을 견디게 함으로써 우리를 윤리적 주체로 만든다.</p>",
+    films:['turin','firstcow','stalker'],figure:null,trope:null,date:"06.18"}
+  ];
+  var nextNote=6,nextFig=99,nextTrope=99;
+  var curId=2,q='',filt='all';
+  var byF=function(id){return FILMS.find(function(f){return f.id===id;});};
+  var byFig=function(id){return FIGURES.find(function(f){return f.id===id;});};
+  var byT=function(id){return TROPES.find(function(t){return t.id===id;});};
+  function cur(){return notes.find(function(n){return n.id===curId;});}
+  function plain(html){return html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
+
+  var litems=document.getElementById('litems');
+  var titleIn=document.getElementById('titleIn');
+  var bodyEd=document.getElementById('bodyEd');
+
+  function renderList(){
+   var items=notes.filter(function(n){
+     if(filt==='pub'&&!n.pub)return false;
+     if(filt==='pri'&&n.pub)return false;
+     return !q||(n.title+plain(n.body)).toLowerCase().indexOf(q)>=0;
+   }).slice().reverse();
+   litems.innerHTML=items.map(function(n){var tm=TYPEMETA[n.type];
+     return '<div class="li '+(n.id===curId?'on':'')+'" data-note="'+n.id+'">'+
+       '<div class="lt"><span class="vis '+(n.pub?'pub':'pri')+'"><i class="ti ti-'+(n.pub?'world':'lock')+'"></i></span>'+(n.title||'제목 없는 글')+'</div>'+
+       '<div class="sn">'+(plain(n.body).slice(0,90)||'…')+'</div>'+
+       '<div class="lm">'+(tm[1]?'<span class="ttag '+tm[1]+'">'+tm[0]+'</span>':'<span class="ttag">자유</span>')+
+         (n.films.length?'<span class="ttag">영화 '+n.films.length+'</span>':'')+
+         '<span class="ttag boost">×1.5</span>'+
+         '<span class="ld">'+n.date+'</span></div></div>';}).join('')
+     ||'<div style="padding:24px 14px;color:var(--sub);font-size:11.5px;text-align:center">결과 없음</div>';
+  }
+  function renderEditor(){
+   var n=cur();if(!n)return;
+   document.querySelectorAll('#typeSeg button').forEach(function(b){b.classList.toggle('on',b.dataset.type===n.type);});
+   var vt=document.getElementById('visToggle');vt.classList.toggle('on',n.pub);vt.setAttribute('aria-checked',String(!!n.pub));
+   vt.innerHTML='<i class="ti '+(n.pub?'ti-world':'ti-lock')+'"></i><span id="visLbl">'+(n.pub?'공개 중':'비공개')+'</span>';
+   titleIn.value=n.title;bodyEd.innerHTML=n.body;
+   var hint=document.getElementById('hint');
+   if(n.type==='misreading'){hint.className='hintbanner show';hint.innerHTML='<b>강한 오독</b> — figure(형상)을 의도적으로 다르게 읽는 해석입니다. '+(n.figure?'이 글은 「<b>'+byFig(n.figure).label+'</b>」('+byFig(n.figure).film+') 아래 <b>강한 오독</b>으로 게시됩니다.':'게시하려면 오른쪽 첨부 레일에서 <b>figure(형상)</b>을 검색해 엮으세요.');}
+   else if(n.type==='comment'){hint.className='hintbanner show';hint.innerHTML='<b>영화 코멘트</b> — 특정 영화 아래 짧게 달립니다. '+(n.films.length?'이 글은 「<b>'+byF(n.films[0]).t+'</b>」 페이지에 노출됩니다.':'게시하려면 오른쪽 첨부 레일에서 <b>영화</b>를 엮으세요.');}
+   else if(n.type==='trope'){hint.className='hintbanner show';hint.innerHTML='<b>트로프 기여</b> — 여러 영화를 가로지르는 패턴(트로프)에 기여합니다. '+(n.trope?'이 글은 「<b>'+byT(n.trope).label+'</b>」 트로프 라인에 묶입니다.':'오른쪽에서 트로프를 <b>선택하거나 새로 제안</b>하세요.');}
+   else hint.className='hintbanner';
+   updatePlaceholder(n);
+   updateSaveBtn(n);
+   renderInsp();
+  }
+  function renderAll(){renderList();renderEditor();}
+
+  /* per-type body placeholder — 작성자에게 무엇을 쓰는지 자명하게 */
+  var PH={
+   free:"여기에 take를 씁니다. 영화에 매이지 않아도 됩니다 — 쓰고 나서 오른쪽 첨부 레일에서 영화·figure·트로프를 엮으세요.",
+   comment:"이 영화를 보고 떠오른 한 가지. 특정 영화 아래에 짧게 달립니다 — 오른쪽에서 영화를 엮으세요.",
+   misreading:"이 figure(형상)를 '틀리게' 읽어봅니다. 작품의 의도를 거슬러, 당신만의 해석을 밀어붙이세요. 예: 거울은 자아가 아니라 타자를 비춘다 —.",
+   trope:"여러 영화에서 반복되는 한 패턴을 짚습니다. 어떤 작품들이 한 갈래로 묶이는지 쓰고, 오른쪽에서 트로프를 선택·제안하세요."
+  };
+  function updatePlaceholder(n){ bodyEd.setAttribute('data-ph', PH[n.type]||PH.free); }
+
+  /* save/publish 버튼 — 결과를 예측 가능하게 (어디에 게시되나) */
+  function routeLabel(n){
+   if(n.type==='comment'&&n.films.length) return '· 「'+byF(n.films[0]).t+'」 페이지로';
+   if(n.type==='misreading'&&n.figure) return '· 「'+byFig(n.figure).label+'」 오독으로';
+   if(n.type==='trope'&&n.trope) return '· 「'+byT(n.trope).label+'」 트로프로';
+   return '· 내 프로필에 공개';
+  }
+  function updateSaveBtn(n){
+   var b=document.getElementById('saveBtn'), txt=document.getElementById('saveTxt');
+   if(!b||!txt) return;
+   if(n.pub){ b.classList.add('pub'); txt.innerHTML='게시 <span class="where">'+routeLabel(n)+'</span>'; b.querySelector('i').className='ti ti-world'; }
+   else{ b.classList.remove('pub'); txt.textContent='초안 저장'; b.querySelector('i').className='ti ti-check'; }
+  }
+
+  /* autosave 표시 — 입력 시 "저장 중 → 자동저장됨" */
+  var saveTimer=null;
+  function flashAutosave(){
+   var el=document.getElementById('autosave'); if(!el) return;
+   el.classList.add('saving'); el.innerHTML='<i class="ti ti-loader-2"></i> 저장 중…';
+   clearTimeout(saveTimer);
+   saveTimer=setTimeout(function(){ el.classList.remove('saving'); el.innerHTML='<i class="ti ti-cloud-check"></i> 자동저장됨'; },650);
+  }
+
+  /* ═════════ INSPECTOR · 첨부 · 연결 rail ═════════ */
+  function chip(cls,label,sub,onx){
+    return '<span class="achip '+cls+'">'+label+(sub?' <span class="yr">'+sub+'</span>':'')+'<i class="ti ti-x x" '+onx+'></i></span>';
+  }
+  function setInsp(html,title){ document.getElementById('inspbody').innerHTML=html; document.getElementById('insp-title').textContent=title||'첨부 · 연결'; }
+  function renderInsp(){
+   var n=cur();if(!n)return;
+   var filmChips=n.films.map(function(id){var f=byF(id);return chip('film',f.t,"'"+String(f.y).slice(2),'data-rmfilm="'+id+'"');}).join('')
+     +'<span class="addbtn" data-add="film"><i class="ti ti-plus"></i> 영화 엮기</span>';
+   var figChips=(n.figure?chip('figure',byFig(n.figure).label,byFig(n.figure).film,'data-rmfig="1"'):'')
+     +'<span class="addbtn" data-add="fig"><i class="ti ti-search"></i> figure 검색</span>';
+   var tropeChips=(n.trope?chip('trope',"「"+byT(n.trope).label+"」",'','data-rmtrope="1"'):'')
+     +'<span class="addbtn" data-add="trope"><i class="ti ti-plus"></i> 트로프 추가</span>';
+   var misChips=(n.type==='misreading'&&n.figure?chip('misread',"강한 오독 활성",byFig(n.figure).film,''):
+     '<span class="addbtn" data-add="fig"><i class="ti ti-quote"></i> figure로 강한 오독 만들기</span>');
+
+   var html=''+
+     '<div class="icard"><h4><i class="ti ti-paperclip"></i> 이 글에 엮은 엔티티</h4>'+
+       '<div class="arow"><div class="arlbl"><span class="d" style="background:var(--film)"></span>영화 (film)<span class="ct">'+n.films.length+'</span></div><div class="achips" id="filmChips">'+filmChips+'</div></div>'+
+       '<div class="arow"><div class="arlbl"><span class="d" style="background:var(--figure)"></span>형상 (figure)<span class="ct">'+(n.figure?1:0)+'</span></div><div class="achips" id="figChips">'+figChips+'</div></div>'+
+       '<div class="arow"><div class="arlbl"><span class="d" style="background:var(--trope)"></span>트로프 (trope)<span class="ct">'+(n.trope?1:0)+'</span></div><div class="achips" id="tropeChips">'+tropeChips+'</div></div>'+
+       '<div class="arow"><div class="arlbl"><span class="d" style="background:var(--misread)"></span>강한 오독 (misreading)</div><div class="achips" id="misChips">'+misChips+'</div></div>'+
+       '<div class="legend-mini"><span><i style="background:var(--film)"></i>영화</span><span><i style="background:var(--figure)"></i>형상</span><span><i style="background:var(--trope)"></i>트로프</span><span><i style="background:var(--misread)"></i>오독</span></div>'+
+     '</div>'+
+     '<div class="icard"><h4><i class="ti ti-flame" style="color:var(--red)"></i> 이 글의 취향 기여</h4>'+
+       '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">내가 직접 쓴 해석은 <b style="color:#f2a39f">취향 신호 최강</b>. 별점·관람보다 강하게 작동합니다.</div>'+
+       '<div class="kv" style="margin-top:8px"><span class="k">취향 벡터 boost</span><span class="v" style="color:#f2a39f">×1.5</span></div>'+
+       '<div class="kv"><span class="k">임베딩 직접 가산</span><span class="v" style="color:var(--safe)">+ 본문</span></div>'+
+       '<div class="kv"><span class="k">가시성</span><span class="v" style="color:'+(n.pub?'var(--safe)':'var(--sub)')+'">'+(n.pub?'공개':'비공개')+'</span></div>'+
+       '<div class="crow" style="margin-top:8px"><span class="cl">기여 강도</span><div class="ct"><i style="width:'+(n.pub?92:78)+'%;background:var(--red)"></i></div><span class="cv">'+(n.pub?92:78)+'</span></div>'+
+       '<div style="font-size:10.5px;color:var(--sub);margin-top:7px">taste_vector += 1.5 · embed(take) — meta_takes에서 직접 가산</div></div>';
+   setInsp(html,'첨부 · 연결');
+   renderReasons();
+  }
+  function renderReasons(){
+    var n=cur();var box=document.getElementById('inspbody');
+    var entExtra=document.createElement('div');entExtra.className='icard';
+    var rsn='';
+    if(n.figure)rsn+='<span class="rsn reading">figure '+byFig(n.figure).label+'</span> ';
+    if(n.trope)rsn+='<span class="rsn safe">trope '+byT(n.trope).label+'</span> ';
+    if(n.films.length)rsn+='<span class="rsn frontier">film '+n.films.length+'</span> ';
+    if(n.type==='misreading')rsn+='<span class="rsn gap">강한 오독</span> ';
+    if(!rsn)rsn='<span style="color:var(--sub);font-size:11px">아직 엮인 엔티티 없음 — 위에서 추가하세요.</span>';
+    entExtra.innerHTML='<h4><i class="ti ti-tags"></i> 게시 라우팅</h4>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:5px">'+rsn+'</div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:8px">유형·엔티티에 따라 글이 영화 페이지·figure·트로프 라인으로 라우팅됩니다.</div>';
+    box.appendChild(entExtra);
+  }
+
+  /* ═════════ entity search dropdown ═════════ */
+  function openSearch(kind,anchor){
+   closeSearch();
+   var wrap=document.createElement('span');wrap.className='asrch';wrap.id='asrchActive';
+   var ph={film:'영화 제목·감독',fig:'형상·영화',trope:'트로프 이름'}[kind];
+   wrap.innerHTML='<input placeholder="'+ph+'" autofocus><div class="adrop" id="adrop"></div>';
+   anchor.replaceWith(wrap);var inp=wrap.querySelector('input');inp.focus();
+   inp.oninput=function(){fillDrop(kind,inp.value);};fillDrop(kind,'');
+  }
+  function closeSearch(){var a=document.getElementById('asrchActive');if(a)renderInsp();}
+  function fillDrop(kind,v){var drop=document.getElementById('adrop');if(!drop)return;v=v.toLowerCase().trim();
+   var rows='';
+   if(kind==='film'){var r=FILMS.filter(function(f){return cur().films.indexOf(f.id)<0&&(f.t+f.d).toLowerCase().indexOf(v)>=0;}).slice(0,8);
+     rows=r.map(function(f){return '<div class="ai" data-pickfilm="'+f.id+'">'+f.t+'<div class="m">'+f.d+' · '+f.y+'</div></div>';}).join('');}
+   else if(kind==='fig'){var rg=FIGURES.filter(function(f){return (f.label+f.film).toLowerCase().indexOf(v)>=0;}).slice(0,8);
+     rows=rg.map(function(f){return '<div class="ai" data-pickfig="'+f.id+'">'+f.label+'<div class="m">'+f.film+'</div></div>';}).join('')
+       +(v?'<div class="ai new" data-newfig="'+v+'"><i class="ti ti-plus"></i> 「'+v+'」 새 figure 만들기</div>':'');}
+   else{var rt=TROPES.filter(function(t){return t.label.toLowerCase().indexOf(v)>=0;}).slice(0,8);
+     rows=rt.map(function(t){return '<div class="ai" data-picktrope="'+t.id+'">「'+t.label+'」</div>';}).join('')
+       +(v?'<div class="ai new" data-newtrope="'+v+'"><i class="ti ti-plus"></i> 「'+v+'」 새 트로프 제안</div>':'');}
+   drop.innerHTML=rows||'<div class="ai" style="color:var(--sub)">결과 없음</div>';
+  }
+
+  /* ═════════ click router ═════════ */
+  document.addEventListener('click',function(e){
+   var li=e.target.closest('[data-note]');if(li){curId=+li.dataset.note;renderAll();return;}
+   var fb=e.target.closest('#nlfilt button');if(fb){filt=fb.dataset.f;document.querySelectorAll('#nlfilt button').forEach(function(b){b.classList.toggle('on',b===fb);});renderList();return;}
+   var seg=e.target.closest('#typeSeg button');if(seg){cur().type=seg.dataset.type;renderAll();return;}
+   var rf=e.target.closest('[data-rmfilm]');if(rf){cur().films=cur().films.filter(function(x){return x!==rf.dataset.rmfilm;});renderInsp();renderList();return;}
+   if(e.target.closest('[data-rmfig]')){cur().figure=null;renderEditor();return;}
+   if(e.target.closest('[data-rmtrope]')){cur().trope=null;renderEditor();return;}
+   var ad=e.target.closest('[data-add]');if(ad){openSearch(ad.dataset.add==='fig'?'fig':ad.dataset.add,ad);return;}
+   var pf=e.target.closest('[data-pickfilm]');if(pf){cur().films.push(pf.dataset.pickfilm);renderInsp();renderList();return;}
+   var pg=e.target.closest('[data-pickfig]');if(pg){cur().figure=pg.dataset.pickfig;if(cur().type==='free')cur().type='misreading';renderEditor();return;}
+   var pt=e.target.closest('[data-picktrope]');if(pt){cur().trope=pt.dataset.picktrope;renderEditor();return;}
+   var nf=e.target.closest('[data-newfig]');if(nf){var idF='fg'+(nextFig++);FIGURES.push({id:idF,label:nf.dataset.newfig,film:"(새 형상)"});cur().figure=idF;if(cur().type==='free')cur().type='misreading';renderEditor();return;}
+   var nt=e.target.closest('[data-newtrope]');if(nt){var idT='t'+(nextTrope++);TROPES.push({id:idT,label:nt.dataset.newtrope});cur().trope=idT;cur().type='trope';renderEditor();return;}
+   var fc=e.target.closest('[data-cmd]');if(fc){applyCmd(fc.dataset.cmd);return;}
+  });
+  /* S9 공개/비공개 토글 — 제자리 pill (role=switch), 클릭·Enter·Space */
+  var visToggleEl=document.getElementById('visToggle');
+  function toggleVis(){cur().pub=!cur().pub;renderEditor();renderList();}
+  visToggleEl.onclick=toggleVis;
+  visToggleEl.onkeydown=function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();toggleVis();}};
+  titleIn.oninput=function(e){cur().title=e.target.value;flashAutosave();};
+  titleIn.onblur=renderList;
+  bodyEd.oninput=function(){cur().body=bodyEd.innerHTML;flashAutosave();};
+  bodyEd.onblur=function(){cur().body=bodyEd.innerHTML;renderList();};
+  document.getElementById('lsearch').oninput=function(e){q=e.target.value.toLowerCase().trim();renderList();};
+  document.getElementById('saveBtn').onclick=function(){cur().body=bodyEd.innerHTML;renderList();
+    var n=cur(),b=document.getElementById('saveBtn');
+    b.innerHTML='<i class="ti ti-check"></i> <span id="saveTxt">'+(n.pub?'게시됨':'저장됨')+'</span>';
+    setTimeout(function(){updateSaveBtn(cur());},1300);};
+  var bx=document.getElementById('boostBx');if(bx)bx.onclick=function(){document.getElementById('boostBanner').classList.add('dismissed');LS.setItem('mt_boostdismiss','1');};
+  if(LS.getItem('mt_boostdismiss')==='1'){var bb=document.getElementById('boostBanner');if(bb)bb.classList.add('dismissed');}
+  document.getElementById('newBtn').onclick=function(){var n={id:nextNote++,type:'free',title:'',pub:false,body:'',films:[],figure:null,trope:null,date:'오늘'};notes.push(n);curId=n.id;renderAll();titleIn.focus();};
+
+  function applyCmd(cmd){bodyEd.focus();
+   try{if(cmd==='bold')document.execCommand('bold');
+   else if(cmd==='italic')document.execCommand('italic');
+   else if(cmd==='h2')document.execCommand('formatBlock',false,'h2');
+   else if(cmd==='quote')document.execCommand('formatBlock',false,'blockquote');
+   else if(cmd==='link'){var u=prompt('링크 URL');if(u)document.execCommand('createLink',false,u);}
+   else if(cmd==='embed'){var ue=prompt('외부 인용/링크를 붙여넣기 (URL 또는 텍스트)');if(ue){
+     document.execCommand('insertHTML',false,'<div class="embed">'+(ue.indexOf('http')===0?'🔗 '+ue:ue)+'<div class="src">외부 임베드</div></div><p><br></p>');}}
+   }catch(err){}
+   cur().body=bodyEd.innerHTML;}
+
+  /* ───── boost demo ───── */
+  var boostOn=true;
+  window.boostDemo=function(){
+   boostOn=!boostOn;
+   document.getElementById('bsw').classList.toggle('on',boostOn);
+   document.getElementById('bslabel').textContent=boostOn?'×1.5 적용':'×1.0 (off)';
+   var chip=document.getElementById('navchip');
+   chip.parentElement.querySelector('.up').textContent=boostOn?'▲ ×1.5 boost':'— ×1.0';
+  };
+
+  /* ───── command palette ───── */
+  var PAGES=[
+    ['현황 · 커맨드센터','ti-dashboard','mockup-me-command-center.html','자산'],
+    ['보유 영화 · 가격표','ti-list-details','mockup-me-collection-list-v2.html','자산'],
+    ['볼 영화 · 추천 데스크','ti-target-arrow','mockup-me-watchlist.html','자산'],
+    ['운용 데스크','ti-briefcase','mockup-me-asset-desk.html','자산'],
+    ['자산 분석','ti-chart-arcs','mockup-me-analysis-v2.html','자산'],
+    ['기록 · 평가','ti-star','mockup-me-onboard-rate-v2.html','기록'],
+    ['서재','ti-books','mockup-me-library.html','기록'],
+    ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
+    ['동행','ti-users','mockup-me-pair.html','교류'],
+    ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['거울은 타자를 삼킨다 — 강한 오독','ti-quote','#','take'],
+    ['제안: 「풍경의 무관심」 — 트로프','ti-affiliate','#','트로프'],
+    ['당나귀의 응시 — figure','ti-eye','#','형상'],
+    ['브레송 — 손에 대하여','ti-feather','#','take']
+  ];
+  function renderPalette(q){
+    q=(q||'').toLowerCase();
+    var list=document.getElementById('pallist'); list.innerHTML='';
+    PAGES.filter(function(p){return p[0].toLowerCase().indexOf(q)>=0||p[3].toLowerCase().indexOf(q)>=0;}).forEach(function(p,i){
+      var d=document.createElement('div'); d.className='pi'+(i===0?' on':'');
+      d.innerHTML='<i class="ti '+p[1]+' lead"></i><span>'+p[0]+'</span><span class="pk">'+p[3]+'</span>';
+      d.onclick=function(){ if(p[2]&&p[2]!=='#') location.href=p[2]; else closePalette(); };
+      list.appendChild(d);
+    });
+  }
+  window.openPalette=function(){ document.getElementById('palette').classList.add('show'); var i=document.getElementById('palinput'); i.value=''; renderPalette(''); setTimeout(function(){i.focus();},30); };
+  window.closePalette=function(){ document.getElementById('palette').classList.remove('show'); };
+  window.filterPalette=function(){ renderPalette(document.getElementById('palinput').value); };
+  window.palKey=function(e){
+    if(e.key==='Escape'){closePalette();}
+    if(e.key==='Enter'){var on=document.querySelector('.pi.on')||document.querySelector('.pi'); if(on)on.click();}
+  };
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openPalette();}
+  });
+
+  /* init */
+  renderAll();
+})();
+</script>
+</body>
+</html>

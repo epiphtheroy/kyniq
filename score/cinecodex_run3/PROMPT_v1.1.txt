@@ -1,0 +1,97 @@
+CINECODEX RATER — FROZEN PROMPT v1.1. Apply MECHANICALLY and identically to all 50 films. Score from your own knowledge of these well-known films. Do NOT use web search or any external tool except the file Write tool.
+
+=== ROLE ===
+You assign rubric-anchored sub-scores estimating the DURABLE value a serious cinephile gains from a film, the PREREQUISITE cost to unlock it, and the RISK it disappoints. NOT popularity, box office, or personal enjoyment.
+
+=== HARD RULES ===
+1. Score ONLY the 13 sub-dimensions, each integer 0-100. Do not output V/C/R.
+2. Ignore IMDb/Metacritic/box-office/stars — they measure satisfaction, not durable value.
+3. Difficulty is a COST, never a virtue. Hard-but-empty = LOW value, HIGH cost.
+4. Anchor every score to the 5 reference films and band descriptors; when unsure, place RELATIVE to references.
+5. Be deterministic: band midpoints (0/25/50/75/100) are gravity wells; deviate only with reason.
+6. Output VALID JSON only into the file.
+7. CROSS-CHECK: high ambition/scale alone does NOT raise value. If INSINCERE or COWARD is moderate-high, treat claimed formal ambition skeptically — ambition is value only when achieved and integrated.
+
+=== THE 13 SUB-DIMENSIONS (0-100) ===
+Group V — Acquisition Value (what durably remains & transfers):
+- COG Cognitive yield: 0 nothing -> 25 mild -> 50 real ideas conventionally delivered -> 75 reorganizes how you see something -> 100 lasting conceptual/perceptual shift.
+- AFF Affective yield (durable, not momentary thrill): 0 forgettable -> 25 pleasant then gone -> 50 a few lingering moments -> 75 returns to you for weeks -> 100 indelible imprint. CRITICAL: accessibility/popularity is NOT a cap — a widely-loved film whose emotion genuinely lingers for weeks scores 70+.
+- FORM Formal yield (expands what cinema can do): 0 invisible/incompetent -> 25 competent-generic -> 50 distinct craft -> 75 distinctive AND disciplined authorial form that enlarges the medium -> 100 formally innovative. CRITICAL: reward ACHIEVED, integrated form, not scale or ambition. Ostentatious spectacle, maximalist excess, or style detached from / exhausting its subject caps at ~50-55 even if visually dazzling. Ambition attempted != value delivered.
+- MORAL Moral/existential yield: 0 none -> 25 gestures at a theme -> 50 sincere but safe -> 75 real moral complexity -> 100 profound ethical/existential reckoning.
+- DUR Durability (rewards rewatch, persists): 0 evaporates -> 25 one viewing suffices forever -> 50 holds up -> 75 deepens on rewatch -> 100 inexhaustible lifetime object. CRITICAL: crowd-pleasing != low durability — score the actual persistence of the images/feeling and rewatch reward, independent of popularity/accessibility.
+
+Group C — Access Cost (prerequisite to unlock value; NOT value):
+- ITX Intertextuality (film history/genre/theory needed): 0 none -> 100 encyclopedic.
+- FR Formal radicalism (distance from mainstream grammar): 0 classical/accessible -> 100 avant-garde/endurance-testing.
+- ETX Extratextuality (external history/politics/culture/philosophy needed): 0 universal -> 100 specialized field knowledge mandatory.
+- CTX Intratextuality (reliance on director's oeuvre): 0 standalone -> 100 sequential mastery of filmography required.
+
+Group R — Disappointment Risk (higher = worse):
+- BANK Intellectual bankruptcy (banality OR pretentious empty obscurity): 0 sound & substantive -> 100 insultingly hollow/incoherent.
+- INSINCERE Aesthetic insincerity (style-over-substance, pastiche, loss of control): 0 fully intentional & integrated -> 100 vulgar/derivative/incoherent.
+- COWARD Artistic cowardice (commercial compromise, emotional exploitation, safe pandering): 0 bold uncompromised -> 100 cynical/manipulative/soulless.
+- POLAR Polarization (how sharply INFORMED, ENGAGED viewers split): 0 near-consensus -> 100 violently divisive. Distinguish: strong critical consensus + vocal minority backlash = MODERATE (~35-45); genuine half-acclaim/half-dismissal critical split = HIGH (70+). Do not inflate polarization just because a film is famous or debated online.
+
+=== REFERENCE ANCHORS (fix your ruler; gold scores given) ===
+Tokyo Story (1953, Ozu): COG88 AFF96 FORM92 MORAL95 DUR95 | ITX50 FR55 ETX45 CTX55 | BANK4 INSINCERE4 COWARD4 POLAR12  (high value, accessible-quiet, near-zero risk)
+Stalker (1979, Tarkovsky): COG95 AFF80 FORM95 MORAL88 DUR95 | ITX70 FR92 ETX78 CTX75 | BANK8 INSINCERE6 COWARD5 POLAR70  (supreme value, demanding & somewhat divisive)
+Skyfall (2012, Mendes): COG35 AFF45 FORM55 MORAL35 DUR40 | ITX25 FR15 ETX18 CTX25 | BANK22 INSINCERE28 COWARD45 POLAR20  (fine craft, low durable value, low risk)
+mother! (2017, Aronofsky): COG70 AFF55 FORM78 MORAL62 DUR55 | ITX65 FR75 ETX68 CTX60 | BANK45 INSINCERE35 COWARD30 POLAR92  (real ambition, very polarizing)
+Transformers: Revenge of the Fallen (2009, Bay): COG6 AFF10 FORM18 MORAL5 DUR6 | ITX10 FR8 ETX10 CTX8 | BANK70 INSINCERE80 COWARD88 POLAR35  (empty, manipulative)
+
+=== INPUT FILMS (score all 50, keep order) ===
+1 Poetry (2010, Lee Chang-dong)
+2 La La Land (2016, Damien Chazelle)
+3 Seven Samurai (1954, Akira Kurosawa)
+4 In the Mood for Love (2000, Wong Kar-wai)
+5 Parasite (2019, Bong Joon-ho)
+6 City Lights (1931, Charlie Chaplin)
+7 Spirited Away (2001, Hayao Miyazaki)
+8 The Godfather (1972, Francis Ford Coppola)
+9 12 Angry Men (1957, Sidney Lumet)
+10 A Separation (2011, Asghar Farhadi)
+11 Portrait of a Lady on Fire (2019, Céline Sciamma)
+12 Moonlight (2016, Barry Jenkins)
+13 2001: A Space Odyssey (1968, Stanley Kubrick)
+14 The Tree of Life (2011, Terrence Malick)
+15 Mulholland Drive (2001, David Lynch)
+16 Synecdoche, New York (2008, Charlie Kaufman)
+17 Jeanne Dielman (1975, Chantal Akerman)
+18 Antichrist (2009, Lars von Trier)
+19 Holy Motors (2012, Leos Carax)
+20 Uncut Gems (2019, Safdie Brothers)
+21 Beau Is Afraid (2023, Ari Aster)
+22 Close-Up (1990, Abbas Kiarostami)
+23 Enemy (2013, Denis Villeneuve)
+24 Climax (2018, Gaspar Noé)
+25 Batman Returns (1992, Tim Burton)
+26 Top Gun: Maverick (2022, Joseph Kosinski)
+27 Ocean's Eleven (2001, Steven Soderbergh)
+28 Ant-Man (2015, Peyton Reed)
+29 John Wick (2014, Chad Stahelski)
+30 Crazy Rich Asians (2018, Jon M. Chu)
+31 The Hangover (2009, Todd Phillips)
+32 Jurassic World (2015, Colin Trevorrow)
+33 Knives Out (2019, Rian Johnson)
+34 The Intouchables (2011, Nakache/Toledano)
+35 Free Guy (2021, Shawn Levy)
+36 Babylon (2022, Damien Chazelle)
+37 Cloud Atlas (2012, Wachowskis/Tykwer)
+38 The Counselor (2013, Ridley Scott)
+39 Joker (2019, Todd Phillips)
+40 Don't Look Up (2021, Adam McKay)
+41 Star Wars: The Last Jedi (2017, Rian Johnson)
+42 Sucker Punch (2011, Zack Snyder)
+43 Spring Breakers (2012, Harmony Korine)
+44 The Fountain (2006, Darren Aronofsky)
+45 Southland Tales (2006, Richard Kelly)
+46 Suicide Squad (2016, David Ayer)
+47 Vox Lux (2018, Brady Corbet)
+48 Avatar: The Way of Water (2022, James Cameron)
+49 Mamma Mia! (2008, Phyllida Lloyd)
+50 Now You See Me (2013, Louis Leterrier)
+
+=== OUTPUT ===
+Write a JSON array of 50 objects (one per film, in order), each:
+{"title":"...","year":1234,"COG":0,"AFF":0,"FORM":0,"MORAL":0,"DUR":0,"ITX":0,"FR":0,"ETX":0,"CTX":0,"BANK":0,"INSINCERE":0,"COWARD":0,"POLAR":0,"note":"<=15 words"}
+The file content must be ONLY the valid JSON array. No markdown fences, no prose outside the JSON.

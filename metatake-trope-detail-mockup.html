@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Face As Infinite Ethical Summons — trope detail (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFBF7; --paper-2:#F4F1E9; --ink:#1A1714; --ink-soft:#5C564E; --ink-faint:#8C857A;
+  --red:#C8102E; --red-deep:#9b0c23; --red-soft:#E8A7AF; --gold:#E8A100; --line:#E7E2D6; --line-strong:#D6CFBF;
+  --dark:#100D0A; --dark-2:#1b1712; --dark-3:#262019; --dline:rgba(255,255,255,.09);
+  --serif:"Newsreader",Georgia,serif; --text-serif:"Spectral","Newsreader",Georgia,serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--text-serif);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 26px}
+section[id]{scroll-margin-top:112px}
+.kicker{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+.mockbar{background:#0b0907;color:#E9E4D8;font-family:var(--ui);font-size:12px;text-align:center;padding:7px 16px}
+.mockbar .tag{color:var(--red-soft);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+.mockbar b{color:#fff;font-weight:600}
+
+/* NAV (홈과 동일) */
+header.nav{position:sticky;top:0;z-index:90;background:var(--dark);border-bottom:1px solid var(--dline)}
+.navrow{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:7px 10px;border-radius:5px}
+.menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}
+.menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
+.menubtn .bars i{width:16px;height:2px;background:#EFEADD;display:block}
+.navsearch{flex:1;max-width:560px;display:flex;background:#fff;border-radius:7px;overflow:hidden;height:38px}
+.scope{display:flex;align-items:center;padding:0 12px;font-family:var(--ui);font-size:13px;color:#222;border-right:1px solid #e2e2e2;white-space:nowrap}
+.navsearch input{flex:1;border:0;outline:0;font-family:var(--text-serif);font-size:15px;padding:0 12px;color:#1a1714}
+.navsearch .go{width:46px;display:flex;align-items:center;justify-content:center;color:#444;font-size:17px}
+.navright{display:flex;align-items:center;gap:18px;margin-left:auto}
+.npro{font-family:var(--ui);font-size:13px;font-weight:700;color:#EFEADD;display:flex;align-items:center;gap:6px}
+.npro .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.nicon{color:#EFEADD;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:14px;font-weight:600}
+.nicon svg{width:22px;height:22px;stroke:#EFEADD;fill:none;stroke-width:1.6}
+.avatar{width:32px;height:32px;border-radius:50%;background:#fff;color:var(--red);font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD}
+
+/* MASTHEAD */
+.masthead{position:relative;background:var(--dark);color:#EFEADD;overflow:hidden}
+.mast-bg{position:absolute;inset:0;background:linear-gradient(155deg,#3a4452,#10141b 72%);opacity:.5}
+.mast-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,13,10,.96),rgba(16,13,10,.6) 60%,rgba(16,13,10,.85))}
+.masthead .wrap{position:relative;z-index:2;padding-top:22px;padding-bottom:34px}
+.crumb{font-family:var(--ui);font-size:12px;color:#a79b88;margin-bottom:20px}
+.crumb a:hover{color:#fff}.crumb .sep{margin:0 7px;color:#6a6253}
+.tlabel{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red-soft);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.tlabel .badge{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;color:#0c0a08;background:var(--gold);border-radius:5px;padding:3px 9px}
+.thead{max-width:920px}
+.mtitle{font-family:var(--serif);font-size:54px;font-weight:600;line-height:1.02;letter-spacing:-.02em;color:#fff}
+.tgloss{font-family:var(--text-serif);font-style:italic;font-size:20px;color:#d9d1c1;margin-top:16px;max-width:760px;line-height:1.4}
+.statstrip{display:flex;gap:0;margin-top:26px;border:1px solid var(--dline);border-radius:11px;overflow:hidden;max-width:560px}
+.statstrip .s{flex:1;text-align:center;padding:14px 8px;border-right:1px solid var(--dline)}
+.statstrip .s:last-child{border-right:0}
+.statstrip .s .v{font-family:var(--serif);font-size:26px;font-weight:600;color:#fff}
+.statstrip .s .k{font-family:var(--ui);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8c8474;margin-top:3px}
+.mcta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.mcta .b{font-family:var(--ui);font-size:13px;font-weight:700;border-radius:8px;padding:11px 18px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.mcta .b.primary{background:var(--red);color:#fff}.mcta .b.primary:hover{background:var(--red-deep)}
+.mcta .b.ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:#EFEADD}.mcta .b.ghost:hover{background:rgba(255,255,255,.1)}
+
+/* STICKY SUBNAV */
+.subnav{position:sticky;top:60px;z-index:80;background:rgba(16,13,10,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--dline)}
+.subnav .wrap{display:flex;gap:22px;overflow-x:auto;height:48px;align-items:center;scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
+.subnav a{font-family:var(--ui);font-size:12.5px;font-weight:600;color:#9c9486;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.subnav a:hover{color:#EFEADD}
+.subnav a.on{color:#fff;border-bottom-color:var(--red)}
+
+/* SECTION FRAME */
+.band{padding:42px 0}
+.band.p2{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band.dark{background:var(--dark);color:#EFEADD}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:20px}
+.shead h2{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.05;position:relative;padding-left:15px;display:flex;align-items:center;gap:8px}
+.shead h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;background:var(--red);border-radius:2px}
+.shead .sub{font-family:var(--ui);font-size:12.5px;color:var(--ink-faint);margin-top:6px;padding-left:15px}
+.shead .seeall{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--red);white-space:nowrap}
+.band.dark .shead h2{color:#fff}.band.dark .shead .sub{color:#a79b88}
+
+/* THESIS / ESSAY */
+.thesis{max-width:820px}
+.thesis p{font-family:var(--text-serif);font-size:18px;line-height:1.62;color:var(--ink)}
+.thesis p+p{margin-top:16px}
+.thesis .drop::first-letter{font-family:var(--serif);font-size:62px;font-weight:600;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--red)}
+.thesis em{font-style:italic;color:var(--ink)}
+.thesis .note{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink-faint);margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+
+/* THE PAIR */
+.pairwrap{position:relative;border:1px solid var(--dline);border-radius:14px;overflow:hidden;background:var(--dark-2)}
+.pairgrid{display:grid;grid-template-columns:1fr 1fr;min-height:300px}
+.pairside{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:26px 28px;overflow:hidden;min-height:300px}
+.pairside .pbg{position:absolute;inset:0;background:linear-gradient(155deg,#46505c,#161b22 72%)}
+.pairside.left .pbg{background:linear-gradient(150deg,#4a3d3a,#1a1310 74%)}
+.pairside.right .pbg{background:linear-gradient(150deg,#36424f,#11161d 74%)}
+.pairside .pbg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,13,10,.92),rgba(16,13,10,.25) 65%)}
+.pairside .pinner{position:relative;z-index:2}
+.pairside .ph{position:absolute;top:16px;left:28px;z-index:2;font-family:var(--ui);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.pairside .pt{font-family:var(--serif);font-size:25px;font-weight:600;color:#fff;line-height:1.08}
+.pairside .pt .yr{font-weight:300;color:#cfc7b8}
+.pairside .pd{font-family:var(--text-serif);font-style:italic;font-size:14px;color:#cbc3b4;margin-top:5px}
+.pairside .pv{font-family:var(--text-serif);font-style:italic;font-size:14px;color:var(--red-soft);margin-top:10px}
+.pairmed{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:236px;background:var(--dark);border:1px solid var(--red);border-radius:12px;padding:18px 20px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.pairmed .lk{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red-soft);margin-bottom:9px}
+.pairmed .gl{font-family:var(--text-serif);font-style:italic;font-size:14.5px;color:#EFEADD;line-height:1.4}
+.pairmed .ob{display:inline-block;margin-top:13px;font-family:var(--ui);font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:7px;padding:8px 14px}
+.pairmed .ob:hover{background:var(--red-deep)}
+
+/* FILMS GRID */
+.filmgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.fcard{display:flex;flex-direction:column}
+.fcard .pp{aspect-ratio:2/3;border-radius:9px;border:1px solid var(--line-strong);background:linear-gradient(155deg,#46505c,#161b22 72%);position:relative;overflow:hidden}
+.fcard .pp .lab{position:absolute;inset:0;display:flex;align-items:flex-end;padding:11px;font-family:var(--ui);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.fcard .ft{font-family:var(--serif);font-size:16px;font-weight:600;margin-top:9px;line-height:1.15}
+.fcard .fy{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+.fcard .fvia{font-family:var(--text-serif);font-style:italic;font-size:12.5px;color:var(--ink-soft);margin-top:7px;line-height:1.35}
+.fcard .fr{font-family:var(--ui);font-size:11.5px;font-weight:700;color:var(--red);margin-top:8px}
+
+/* FRAMEWORKS & THEORY */
+.fwgroup{margin-bottom:22px}
+.fwgroup .gh{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.fwchips{display:flex;flex-wrap:wrap;gap:9px}
+.fwchips .c{font-family:var(--text-serif);font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line-strong);border-radius:22px;padding:7px 14px;display:flex;align-items:center;gap:7px}
+.fwchips .c:hover{border-color:var(--red);color:var(--red)}
+.fwchips .c .b{font-family:var(--ui);font-size:10px;font-weight:700;color:#fff;background:var(--ink-faint);border-radius:10px;padding:1px 6px}
+.theorist{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;background:#fff;padding:22px 24px;max-width:760px;margin-top:6px}
+.theorist .av{flex:0 0 auto;width:58px;height:58px;border-radius:50%;background:linear-gradient(155deg,#46505c,#161b22 72%);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;font-weight:600;color:#EFEADD;border:1px solid var(--line-strong)}
+.theorist .tx .nm{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.1}
+.theorist .tx .cn{font-family:var(--text-serif);font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:4px}
+.theorist .tx .lk{font-family:var(--ui);font-size:12px;font-weight:700;color:var(--red);margin-top:10px;display:inline-block}
+
+/* CONNECTION MAP */
+.graphbox{position:relative;border:1px solid var(--dline);border-radius:14px;background:var(--dark-2);overflow:hidden;height:420px}
+.graphbox .gcap{position:absolute;left:18px;top:15px;z-index:4;font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474}
+.graphbox .gsub{position:absolute;left:18px;top:32px;z-index:4;font-family:var(--text-serif);font-style:italic;font-size:12px;color:#a79b88}
+.graphbox svg{position:absolute;inset:0;width:100%;height:100%}
+.gnode{cursor:pointer}.gnode text{font-family:var(--ui);font-size:10px;font-weight:600;fill:#EFEADD}
+.gnode:hover circle{stroke:#fff}
+.gedge{stroke:rgba(200,16,46,.3);stroke-width:1}
+@keyframes gin{from{opacity:0}to{opacity:1}}.gfade{animation:gin .6s ease}
+
+/* RELATED TROPES / CONCEPTS */
+.tropelist{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.troperow{display:flex;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--line)}
+.troperow .tn{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.15}
+.troperow .tv{font-family:var(--text-serif);font-style:italic;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.troperow .cnt{margin-left:auto;font-family:var(--ui);font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:20px;padding:2px 9px;flex:0 0 auto}
+.cgroup{margin-top:26px}
+.cgroup .gh{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.cchips{display:flex;flex-wrap:wrap;gap:9px}
+.cchips a{font-family:var(--text-serif);font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line-strong);border-radius:22px;padding:7px 14px;display:flex;align-items:center;gap:7px}
+.cchips a:hover{border-color:var(--red);color:var(--red)}
+.cchips a .b{font-family:var(--ui);font-size:10px;font-weight:700;color:#fff;background:var(--ink-faint);border-radius:10px;padding:1px 6px}
+
+/* PROVENANCE */
+.prov{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink-faint);text-align:center;padding:24px 0 4px;border-top:1px solid var(--line);margin-top:18px}
+
+/* FOOTER */
+footer{background:var(--dark);color:#C8BFB0;padding:48px 0 34px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:28px}
+.fbrand{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:8px 11px;border-radius:5px;width:max-content;margin-bottom:14px}
+.fabout{font-family:var(--text-serif);font-size:14px;color:#a79f90;line-height:1.5;max-width:290px}
+.fcol h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8c8474;margin-bottom:12px}
+.fcol a{display:block;font-family:var(--text-serif);font-size:14.5px;color:#C8BFB0;padding:5px 0}
+.fcol a:hover{color:#fff}
+.fbar{font-family:var(--ui);font-size:11.5px;color:#7d7568;margin-top:28px;border-top:1px solid var(--dline);padding-top:18px;display:flex;gap:18px;flex-wrap:wrap}
+.tmdb{font-style:italic;font-family:var(--text-serif)}
+
+@media(max-width:1020px){
+  .filmgrid{grid-template-columns:repeat(3,1fr)}
+  .tropelist{grid-template-columns:1fr}
+  .pairgrid{grid-template-columns:1fr}
+  .pairmed{position:static;transform:none;width:auto;margin:-1px;border-radius:0}
+  .mtitle{font-size:40px}.fgrid{grid-template-columns:repeat(2,1fr)}
+  .navsearch{display:none}
+}
+@media(max-width:680px){.filmgrid{grid-template-columns:repeat(2,1fr)}.mtitle{font-size:32px}}
+</style>
+</head>
+<body>
+
+<div class="mockbar"><span class="tag">Mockup · Trope detail</span> <b>/trope/{slug}</b> — 영화 상세와 동일한 디자인 시스템 위에 "트로프(figure-type)" 페이지 재구성. 데이터: The Face As Infinite Ethical Summons (실데이터). <b>(백드롭/포스터는 TMDB 자리, 톤 placeholder)</b></div>
+
+<!-- NAV -->
+<header class="nav"><div class="wrap navrow">
+  <a class="logo" href="#">Meta<br>take</a>
+  <div class="menubtn"><span class="bars"><i></i><i></i><i></i></span>Menu</div>
+  <div class="navsearch"><div class="scope">All ▾</div><input placeholder="Search films, directors, figures, tropes…"><div class="go">⌕</div></div>
+  <div class="navright">
+    <a class="npro" href="#"><span class="dot"></span>Ask&nbsp;AI</a>
+    <div class="nicon" title="Your Shelf"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Shelf</span></div>
+    <div class="avatar">＋</div>
+    <div class="lang">EN ▾</div>
+  </div>
+</div></header>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-bg"></div>
+  <div class="wrap">
+    <div class="crumb"><a href="#">Tropes</a></div>
+    <div class="thead">
+      <div class="tlabel">Trope · Figure-type <span class="badge">Established</span></div>
+      <div class="mtitle">The Face As Infinite Ethical Summons</div>
+      <div class="tgloss">Levinas's face issues an ethical demand — honored, refused, or annihilated.</div>
+
+      <div class="statstrip">
+        <div class="s"><div class="v">61</div><div class="k">Films</div></div>
+        <div class="s"><div class="v">61</div><div class="k">Figures</div></div>
+        <div class="s"><div class="v">14</div><div class="k">Critical frameworks</div></div>
+      </div>
+
+      <div class="mcta">
+        <button class="b primary">＋ Save reading</button>
+        <a class="b ghost" href="#map">⌖ Open the map</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY SUBNAV -->
+<nav class="subnav"><div class="wrap" id="subnav">
+  <a href="#thesis" class="on">Thesis</a>
+  <a href="#pair">The pair</a>
+  <a href="#films">Films</a>
+  <a href="#frameworks">Frameworks</a>
+  <a href="#map">Connection map</a>
+  <a href="#related">Related</a>
+</div></nav>
+
+<!-- THESIS -->
+<section class="band" id="thesis"><div class="wrap">
+  <div class="shead"><div><span class="kicker">The reading</span><h2 style="margin-top:8px">What this trope claims</h2></div></div>
+  <div class="thesis">
+    <p class="drop">A dense Levinasian cluster: the trope reframes the human — or non-human — face as Levinas's <em>visage</em>, a silent, defenceless presence that issues the absolute command <em>"thou shalt not kill"</em> before a single word is exchanged. The summons is not earned, deserved, or negotiated; it is conferred by the encounter itself. Across cinema the figure recurs whenever a held close-up obligates the viewer ethically rather than psychologically — when the screen stops asking us to understand a character and starts demanding that we answer for them.</p>
+    <p>Read this way, the face of the Other summons responsibility before reason, contract, or consent. Nearly every member reading turns on an obligation that the self did not choose: the donkey that cannot speak, the stranger's child, the refugee on the doorstep, the dying parent, the camera that turns away. The trope spans 61 films and three argued frameworks — and the same demand is honored in some, refused in others, and, at its darkest, annihilated. The films do not illustrate the idea; they each independently arrive at it.</p>
+    <p class="note">○ Built from AI embeddings; the reading is criticism, the AI is the instrument that finds it.</p>
+  </div>
+</div></section>
+
+<!-- THE PAIR -->
+<section class="band p2" id="pair"><div class="wrap">
+  <div class="shead"><div><h2>One reading, two films</h2><div class="sub">The two films that share this trope most strongly — an animal and a face that refuses the survey</div></div></div>
+  <div class="pairwrap"><div class="pairgrid">
+    <div class="pairside left">
+      <div class="pbg"></div>
+      <div class="ph">TMDB backdrop</div>
+      <div class="pinner">
+        <div class="pt">Au Hasard Balthazar <span class="yr">1966</span></div>
+        <div class="pd">dir. Robert Bresson</div>
+        <div class="pv">via Balthazar the donkey</div>
+      </div>
+    </div>
+    <div class="pairside right">
+      <div class="pbg"></div>
+      <div class="ph">TMDB backdrop</div>
+      <div class="pinner">
+        <div class="pt">Chronicle of a Summer <span class="yr">1961</span></div>
+        <div class="pd">dir. Jean Rouch</div>
+        <div class="pv">via the street interview: 'Are you happy?'</div>
+      </div>
+    </div>
+    <div class="pairmed">
+      <div class="lk">The shared reading</div>
+      <div class="gl">A face that cannot defend itself issues an ethical command the camera cannot refuse.</div>
+      <a class="ob" href="#">Open both readings →</a>
+    </div>
+  </div></div>
+</div></section>
+
+<!-- FILMS THAT INSTANTIATE IT -->
+<section class="band" id="films"><div class="wrap">
+  <div class="shead"><div><h2>Films that instantiate it</h2><div class="sub">Each film independently earns the reading — via = the figure that carries it</div></div><a class="seeall" href="#">See all 61 films →</a></div>
+  <div class="filmgrid">
+    <div class="fcard"><a href="/film/au-hasard-balthazar-1966"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Au Hasard Balthazar</div><div class="fy">1966 · Robert Bresson</div></a><div class="fvia">via Balthazar the donkey</div><a class="fr" href="/film/au-hasard-balthazar-1966">→ reading</a></div>
+    <div class="fcard"><a href="/film/chronicle-of-a-summer-1961"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Chronicle of a Summer</div><div class="fy">1961 · Jean Rouch</div></a><div class="fvia">via the street interview: 'Are you happy?'</div><a class="fr" href="/film/chronicle-of-a-summer-1961">→ reading</a></div>
+    <div class="fcard"><a href="/film/amour-2012"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Amour</div><div class="fy">2012 · Michael Haneke</div></a><div class="fvia">via the held hand</div><a class="fr" href="/film/amour-2012">→ reading</a></div>
+    <div class="fcard"><a href="/film/the-zone-of-interest-2023"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">The Zone of Interest</div><div class="fy">2023 · Jonathan Glazer</div></a><div class="fvia">via the garden wall</div><a class="fr" href="/film/the-zone-of-interest-2023">→ reading</a></div>
+    <div class="fcard"><a href="/film/still-the-water-2014"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Still the Water</div><div class="fy">2014 · Naomi Kawase</div></a><div class="fvia">via the slaughtered goat</div><a class="fr" href="/film/still-the-water-2014">→ reading</a></div>
+    <div class="fcard"><a href="/film/a-man-escaped-1956"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">A Man Escaped</div><div class="fy">1956 · Robert Bresson</div></a><div class="fvia">via the prisoner's gaze</div><a class="fr" href="/film/a-man-escaped-1956">→ reading</a></div>
+    <div class="fcard"><a href="/film/mouchette-1967"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Mouchette</div><div class="fy">1967 · Robert Bresson</div></a><div class="fvia">via Mouchette's withheld face</div><a class="fr" href="/film/mouchette-1967">→ reading</a></div>
+    <div class="fcard"><a href="/film/come-and-see-1985"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Come and See</div><div class="fy">1985 · Elem Klimov</div></a><div class="fvia">via Florya's face</div><a class="fr" href="/film/come-and-see-1985">→ reading</a></div>
+    <div class="fcard"><a href="/film/of-gods-and-men-2010"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Of Gods and Men</div><div class="fy">2010 · Xavier Beauvois</div></a><div class="fvia">via the monks who stay</div><a class="fr" href="/film/of-gods-and-men-2010">→ reading</a></div>
+    <div class="fcard"><a href="/film/diary-of-a-country-priest-1951"><div class="pp"><div class="lab">TMDB poster</div></div><div class="ft">Diary of a Country Priest</div><div class="fy">1951 · Robert Bresson</div></a><div class="fvia">via the dying priest's face</div><a class="fr" href="/film/diary-of-a-country-priest-1951">→ reading</a></div>
+  </div>
+</div></section>
+
+<!-- FRAMEWORKS & THEORY -->
+<section class="band p2" id="frameworks"><div class="wrap">
+  <div class="shead"><div><h2>Critical frameworks &amp; theory</h2><div class="sub">The frameworks this trope is argued through, and the theorist whose concept anchors it</div></div></div>
+  <div class="fwgroup"><div class="gh">Argued through</div><div class="fwchips">
+    <span class="c">Ethical–Philosophical <span class="b">53</span></span>
+    <span class="c">Phenomenon → Noumenon <span class="b">5</span></span>
+    <span class="c">Noumenon <span class="b">3</span></span>
+    <span class="c">Ethics</span>
+    <span class="c">Subtext</span>
+    <span class="c">Ontology</span>
+  </div></div>
+  <div class="fwgroup"><div class="gh">The theory it stands on</div>
+    <a class="theorist" href="/concept/the-face-of-the-other-le-visage">
+      <div class="av">EL</div>
+      <div class="tx">
+        <div class="nm">Emmanuel Levinas</div>
+        <div class="cn">the face of the Other (le visage) / infinite responsibility</div>
+        <span class="lk">Open the concept →</span>
+      </div>
+    </a>
+  </div>
+</div></section>
+
+<!-- CONNECTION MAP -->
+<section class="band dark" id="map"><div class="wrap">
+  <div class="shead"><div><h2>The map of this reading</h2><div class="sub">The trope at the centre, the films that instantiate it around it, related tropes at the edge</div></div></div>
+  <div class="graphbox"><div class="gcap">Connection map · live</div><div class="gsub">Built from AI embeddings — click a node to travel</div><svg id="graph" viewBox="0 0 1180 420" preserveAspectRatio="xMidYMid meet"></svg></div>
+</div></section>
+
+<!-- RELATED -->
+<section class="band" id="related"><div class="wrap">
+  <div class="shead"><div><h2>Related tropes &amp; concepts</h2><div class="sub">The codes nearest this one in meaning-space — computed from the readings each gathers, not hand-linked</div></div><a class="seeall" href="#">All neighbours →</a></div>
+  <div class="tropelist">
+    <div class="troperow"><div><div class="tn">The Face That Forbids The Kill</div><div class="tv">Levinas's Other: the human face commanding 'thou shalt not kill'</div></div><span class="cnt">6</span></div>
+    <div class="troperow"><div><div class="tn">The Bystander Indicted By The Face</div><div class="tv">the witness whose passivity becomes the crime</div></div><span class="cnt">11</span></div>
+    <div class="troperow"><div><div class="tn">Care For The Ungrateful Other</div><div class="tv">tending one who cannot or will not reciprocate</div></div><span class="cnt">11</span></div>
+    <div class="troperow"><div><div class="tn">The Refusal Of The Face</div><div class="tv">the gaze deliberately turned away</div></div><span class="cnt">4</span></div>
+    <div class="troperow"><div><div class="tn">The Held Shot As Ethical Witness</div><div class="tv">duration itself as moral obligation</div></div><span class="cnt">8</span></div>
+    <div class="troperow"><div><div class="tn">The Person Used Merely As Means</div><div class="tv">the Kantian inverse of the summons</div></div><span class="cnt">9</span></div>
+    <div class="troperow"><div><div class="tn">The Dead Conscript Us Into Duty</div><div class="tv">obligation conferred by the lost face</div></div><span class="cnt">7</span></div>
+    <div class="troperow"><div><div class="tn">The Donkey As Mute Moral Witness</div><div class="tv">via Balthazar the donkey</div></div><span class="cnt">4</span></div>
+  </div>
+
+  <div class="cgroup"><div class="gh">Concepts</div><div class="cchips">
+    <a href="/concept/the-face-of-the-other-le-visage">the face of the Other (le visage) <span class="b">31</span></a>
+    <a href="/concept/the-face-of-the-other-infinite-responsibility">the face of the Other / infinite responsibility <span class="b">29</span></a>
+    <a href="/concept/responsibility-for-the-other">responsibility for the Other <span class="b">11</span></a>
+    <a href="/concept/ethics-as-first-philosophy">ethics as first philosophy <span class="b">7</span></a>
+  </div></div>
+
+  <div class="prov">Generated by the metatake editorial method (AI-drafted) · created Jun 23, 2026 · editor Wonwoo Yoon</div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="fbrand">Meta<br>take</div><p class="fabout">Read films closely — a critical map of cinema that links films through the meanings they share.</p></div>
+    <div class="fcol"><h4>Sections</h4><a href="#">Films</a><a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Lineage</a></div>
+    <div class="fcol"><h4>Your map</h4><a href="#">Your Shelf</a><a href="#">Saved Readings</a><a href="#">Following</a><a href="#">For You</a></div>
+    <div class="fcol"><h4>Metatake</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Community guidelines</a><a href="#">Blog</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">wonwoo@metatake.net</a></div>
+  </div>
+  <div class="fbar"><span>© 2026 Metatake. All rights reserved.</span><span>Seoul, Republic of Korea</span><span class="tmdb">This product uses the TMDB API but is not endorsed or certified by TMDB.</span></div>
+</div></footer>
+
+<script>
+/* CONNECTION MAP — trope centre + member films + related tropes (live redraw) */
+const FILMS=["Au Hasard Balthazar","Chronicle of a Summer","Amour","The Zone of Interest","Still the Water","A Man Escaped","Come and See","Diary of a Country Priest"];
+const TRO=["The Face That Forbids The Kill","The Bystander Indicted By The Face","Care For The Ungrateful Other","The Refusal Of The Face","The Held Shot As Ethical Witness"];
+const GSVG=document.getElementById('graph');
+function clip(s){return s.length>22?s.slice(0,21)+'…':s;}
+function graph(){
+ const W=1180,H=420,cx=W/2,cy=H/2;
+ let edges="",nodes="";
+ nodes+=`<a href="#" class="gnode"><title>Trope: The Face As Infinite Ethical Summons</title><circle cx="${cx}" cy="${cy}" r="13" fill="#C8102E"/><text x="${cx}" y="${cy-20}" text-anchor="middle" style="font-size:13px;fill:#fff">The Face As Ethical Summons</text></a>`;
+ const ring=FILMS.map((f,i)=>{const a=(i/FILMS.length)*Math.PI*2 + Math.random()*0.3;const r=150+Math.random()*40;return {l:f,x:cx+Math.cos(a)*r*1.7,y:cy+Math.sin(a)*r};});
+ ring.forEach(n=>{edges+=`<line class="gedge" x1="${cx}" y1="${cy}" x2="${n.x}" y2="${n.y}"/>`;});
+ const outer=TRO.map((t,i)=>{const src=ring[i%ring.length];const a=Math.random()*Math.PI*2;const r=70+Math.random()*40;return {l:t,x:src.x+Math.cos(a)*r,y:src.y+Math.sin(a)*r,sx:src.x,sy:src.y};});
+ outer.forEach(n=>{edges+=`<line class="gedge" x1="${n.sx}" y1="${n.sy}" x2="${n.x}" y2="${n.y}"/>`;});
+ ring.forEach(n=>{const anc=n.x>cx?'start':'end';const tx=anc==='start'?n.x+10:n.x-10;nodes+=`<a href="#" class="gnode"><title>Film: ${n.l}</title><circle cx="${n.x}" cy="${n.y}" r="7" fill="#1b1712" stroke="#E8A7AF" stroke-width="1.6"/><text x="${tx}" y="${n.y+3.5}" text-anchor="${anc}">${clip(n.l)}</text></a>`;});
+ outer.forEach(n=>{const anc=n.x>cx?'start':'end';const tx=anc==='start'?n.x+9:n.x-9;nodes+=`<a href="#" class="gnode"><title>Related trope: ${n.l}</title><circle cx="${n.x}" cy="${n.y}" r="5" fill="#C8102E" opacity=".8"/><text x="${tx}" y="${n.y+3}" text-anchor="${anc}" style="font-size:9px;fill:#a79b88">${clip(n.l)}</text></a>`;});
+ GSVG.innerHTML=edges+nodes;
+ GSVG.classList.remove('gfade');void GSVG.offsetWidth;GSVG.classList.add('gfade');
+}
+graph();setInterval(graph,4200);
+
+/* STICKY SUBNAV scrollspy */
+const links=[...document.querySelectorAll('#subnav a')];
+const map={};links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+const obs=new IntersectionObserver(es=>{
+ es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('on'));const a=map[e.target.id];if(a)a.classList.add('on');}});
+},{rootMargin:'-120px 0px -65% 0px',threshold:0});
+document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>metatake — home (mockup v6)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFBF7; --paper-2:#F4F1E9; --ink:#1A1714; --ink-soft:#5C564E; --ink-faint:#8C857A;
+  --red:#C8102E; --red-deep:#9b0c23; --red-soft:#E8A7AF; --gold:#E8A100; --line:#E7E2D6; --line-strong:#D6CFBF;
+  --dark:#100D0A; --dark-2:#1b1712; --dark-3:#262019; --dline:rgba(255,255,255,.09);
+  --serif:"Newsreader",Georgia,serif; --text-serif:"Spectral","Newsreader",Georgia,serif;
+  --ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--text-serif);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 26px}
+.kicker{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+.mockbar{background:#0b0907;color:#E9E4D8;font-family:var(--ui);font-size:12px;text-align:center;padding:7px 16px}
+.mockbar .tag{color:var(--red-soft);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+.mockbar b{color:#fff;font-weight:600}
+
+/* NAV */
+header.nav{position:sticky;top:0;z-index:90;background:var(--dark);border-bottom:1px solid var(--dline)}
+.navrow{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:7px 10px;border-radius:5px}
+.menubtn{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:14px;font-weight:600;color:#EFEADD;cursor:pointer;padding:8px 6px;border-radius:6px}
+.menubtn:hover{background:rgba(255,255,255,.08)}
+.menubtn .bars{display:inline-flex;flex-direction:column;gap:3px}
+.menubtn .bars i{width:16px;height:2px;background:#EFEADD;display:block}
+.navsearch{flex:1;max-width:640px;display:flex;background:#fff;border-radius:7px;overflow:hidden;height:38px}
+.scope{display:flex;align-items:center;padding:0 12px;font-family:var(--ui);font-size:13px;color:#222;border-right:1px solid #e2e2e2;cursor:pointer;white-space:nowrap}
+.navsearch input{flex:1;border:0;outline:0;font-family:var(--text-serif);font-size:15px;padding:0 12px;color:#1a1714}
+.navsearch .go{width:46px;display:flex;align-items:center;justify-content:center;color:#444;font-size:17px;cursor:pointer}
+.navright{display:flex;align-items:center;gap:18px;margin-left:auto}
+.npro{font-family:var(--ui);font-size:13px;font-weight:700;color:#EFEADD;display:flex;align-items:center;gap:6px}
+.npro .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.nicon{color:#EFEADD;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:14px;font-weight:600;position:relative}
+.nicon svg{width:22px;height:22px;stroke:#EFEADD;fill:none;stroke-width:1.6}
+.nbadge{position:absolute;top:-7px;right:-10px;min-width:16px;height:16px;background:var(--red);color:#fff;border-radius:9px;font-family:var(--ui);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.acct{position:relative}
+.avatar{width:32px;height:32px;border-radius:50%;background:#fff;color:var(--red);font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD;cursor:pointer}
+.mega{position:absolute;left:0;top:60px;width:100%;background:var(--dark);border-bottom:1px solid var(--dline);display:none;z-index:88}
+.mega.open{display:block}
+.mega .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding-top:26px;padding-bottom:30px}
+.mcol h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474;margin-bottom:12px}
+.mcol a{display:flex;justify-content:space-between;font-family:var(--serif);font-size:18px;color:#EFEADD;padding:7px 0}
+.mcol a:hover{color:var(--red-soft)}
+.mcol a .ar{color:#6a6253;font-size:13px}
+.acctmenu{position:absolute;right:0;top:46px;width:312px;background:#fff;border-radius:13px;box-shadow:0 24px 60px -18px rgba(0,0,0,.5);padding:15px;display:none;z-index:95}
+.acctmenu.open{display:block}
+.acctmenu .me{display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.acctmenu .me .av{width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.acctmenu .me .nm{font-family:var(--serif);font-size:18px;line-height:1.1}
+.acctmenu .me .lk{font-family:var(--ui);font-size:12px;color:var(--red);font-weight:600}
+.prow{display:flex;align-items:center;justify-content:space-between;padding:10px 3px;border-bottom:1px solid var(--line)}
+.prow .l{display:flex;align-items:center;gap:11px}
+.prow .ico{width:28px;height:28px;border-radius:7px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:14px}
+.prow .t{font-family:var(--text-serif);font-size:15px}
+.prow .s{font-family:var(--ui);font-size:10.5px;color:var(--ink-faint);letter-spacing:.02em}
+.prow .n{font-family:var(--ui);font-size:13px;font-weight:700;background:var(--paper-2);border-radius:20px;padding:3px 10px}
+.acctfoot{display:flex;gap:16px;padding-top:11px;font-family:var(--ui);font-size:12.5px;color:var(--ink-soft)}
+
+/* VIDEO HERO */
+.hero{background:var(--dark);color:#EFEADD;padding-top:22px}
+.vh{display:grid;grid-template-columns:1.72fr 1fr;gap:22px;align-items:stretch}
+.vmain{position:relative;border-radius:10px;overflow:hidden;min-height:452px;cursor:pointer;border:1px solid var(--dline)}
+.vmain::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.55) 72%,rgba(0,0,0,.9))}
+.vbadge{position:absolute;top:0;left:0;z-index:4;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:13px;padding:10px 12px;border-bottom-right-radius:10px}
+.vplus{position:absolute;top:14px;right:14px;z-index:4;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:17px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.vplus:hover{background:var(--red)}
+.varr{position:absolute;top:42%;z-index:4;width:46px;height:46px;border-radius:6px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.varr.l{left:14px}.varr.r{right:14px}
+.varr:hover{background:rgba(0,0,0,.7)}
+.vplay{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:4;width:76px;height:76px;border-radius:50%;border:3px solid #fff;background:rgba(0,0,0,.32);color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.vplay:hover{background:var(--red);border-color:var(--red)}
+.vbottom{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:26px}
+.vbottom .vtitle{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1.04;color:#fff}
+.vbottom .vtitle .yr{font-weight:300;color:#cfc7b8}
+.vbottom .vwatch{font-family:var(--ui);font-size:13px;color:#dcd4c4;margin-top:7px;display:flex;align-items:center;gap:10px}
+.vbottom .vwatch .dur{color:#a79b88}
+.vbottom .vwatch .vstar{color:var(--gold);font-weight:700}
+.vbottom .vread{font-family:var(--text-serif);font-style:italic;font-size:15px;color:#efe7d8;margin-top:10px;max-width:560px}
+.vbottom .vread b{font-style:normal;font-family:var(--ui);font-size:9.5px;letter-spacing:.16em;color:#b0a795;margin-right:8px;font-weight:700}
+.vbottom .vchips{display:flex;gap:8px;margin-top:13px}
+.vbottom .vchips .mc{font-family:var(--ui);font-size:11.5px;font-weight:600;color:#EFEADD;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:5px 11px;display:flex;align-items:center;gap:6px}
+.vbottom .vchips .mc .lz{width:11px;height:11px;border:1.4px solid var(--red-soft);border-radius:50%;position:relative}
+.vbottom .vchips .mc .lz::after{content:"";position:absolute;inset:2.5px;background:var(--red-soft);border-radius:50%}
+.upnext .unh{font-family:var(--serif);font-size:18px;font-weight:600;color:#fff;margin-bottom:12px}
+.unv{display:flex;gap:13px;padding:11px;border-radius:10px;cursor:pointer}
+.unv:hover{background:var(--dark-2)}
+.unv .unt{flex:0 0 116px;width:116px;aspect-ratio:16/10;border-radius:7px;position:relative;overflow:hidden;border:1px solid var(--dline)}
+.unv .unt .pc{position:absolute;left:8px;bottom:8px;width:24px;height:24px;border-radius:50%;border:1.5px solid #fff;background:rgba(0,0,0,.35);color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center}
+.unv .unt .du{position:absolute;right:7px;bottom:7px;font-family:var(--ui);font-size:10px;font-weight:600;color:#fff;background:rgba(0,0,0,.6);padding:1px 5px;border-radius:3px}
+.unv .uni .un1{font-family:var(--serif);font-size:16px;font-weight:600;color:#fff;line-height:1.12}
+.unv .uni .un2{font-family:var(--ui);font-size:12px;color:#9c9486;margin-top:3px}
+.unv .uni .un3{font-family:var(--ui);font-size:11px;color:#a79b88;margin-top:6px}
+.upnext .browse{font-family:var(--serif);font-size:17px;font-weight:600;color:#fff;margin-top:8px;padding-left:11px;display:inline-block}
+.topicchips{display:flex;gap:12px;padding:20px 0 26px;flex-wrap:wrap;border-top:1px solid var(--dline);margin-top:22px}
+.topicchips .tc{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD;border:1px solid rgba(255,255,255,.22);border-radius:24px;padding:9px 17px;cursor:pointer;display:flex;align-items:center;gap:7px}
+.topicchips .tc:hover{background:rgba(255,255,255,.1)}
+.topicchips .tc .ch{color:#8c8474}
+
+/* SECTION FRAME */
+.band{padding:38px 0}
+.band.dark{background:var(--dark);color:#EFEADD}
+.band.p2{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}
+.shead h2{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.05;position:relative;padding-left:15px;display:flex;align-items:center;gap:8px}
+.shead h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;background:var(--red);border-radius:2px}
+.shead h2 .chev{color:var(--ink-faint);font-size:18px;font-weight:400}
+.shead h2 em{font-style:italic;color:var(--red)}
+.shead .sub{font-family:var(--ui);font-size:12.5px;color:var(--ink-faint);margin-top:6px;padding-left:15px}
+.shead .sub b{color:var(--ink-soft);font-weight:600}
+.shead .seeall{font-family:var(--ui);font-size:13px;font-weight:600;color:var(--red);white-space:nowrap}
+.band.dark .shead h2{color:#fff}
+.band.dark .shead h2 .chev{color:#8c8474}
+.band.dark .shead .sub{color:#9c9486}
+.band.dark .shead .seeall{color:var(--red-soft)}
+.railwrap{position:relative}
+.rail{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scroll-behavior:smooth;scrollbar-width:thin}
+.rail::-webkit-scrollbar{height:7px}
+.rail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:4px}
+.band.dark .rail::-webkit-scrollbar-thumb{background:#3a342b}
+.railcount{font-family:var(--ui);font-size:11px;color:var(--ink-faint);margin-top:4px;padding-left:2px}
+.band.dark .railcount{color:#8c8474}
+.scrollbtn{position:absolute;top:34%;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.94);border:1px solid var(--line-strong);box-shadow:0 6px 18px -8px rgba(0,0,0,.4);font-size:18px;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5}
+.scrollbtn.l{left:-14px}.scrollbtn.r{right:-14px}
+
+/* FILM CARD (light) */
+.tp{flex:0 0 196px;width:196px}
+.tp .pos{aspect-ratio:2/3;border-radius:10px;position:relative;overflow:hidden;border:1px solid var(--line-strong);cursor:pointer}
+.tp .addcirc{position:absolute;top:9px;left:9px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3}
+.tp .addcirc:hover{background:var(--red)}
+.tp .ptitle{position:absolute;left:0;right:0;bottom:0;padding:30px 11px 11px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));color:#fff;font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.08}
+.tp .body{padding:11px 2px 0}
+.tp .rateline{display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:12.5px}
+.tp .star{color:var(--gold);font-weight:700;display:flex;align-items:center;gap:3px}
+.tp .dotsep{color:var(--ink-faint)}
+.tp .catnum{color:var(--ink-soft);font-weight:600;display:flex;align-items:center;gap:5px}
+.tp .catnum .lz{width:11px;height:11px;border:1.4px solid var(--red);border-radius:50%;position:relative}
+.tp .catnum .lz::after{content:"";position:absolute;inset:2.5px;background:var(--red);border-radius:50%}
+.tp .save{margin-left:auto;color:var(--ink-faint);font-size:16px;cursor:pointer}
+.tp .save:hover{color:var(--red)}
+.tp .nm{font-family:var(--text-serif);font-size:15px;margin-top:8px;line-height:1.2;min-height:36px}
+.tp .nm .yr{color:var(--ink-faint);font-family:var(--ui);font-size:12px}
+.tp .wl{width:100%;margin-top:9px;font-family:var(--ui);font-size:12.5px;font-weight:700;color:var(--red);background:var(--paper-2);border:1px solid var(--line-strong);border-radius:22px;padding:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.tp .wl:hover{background:#fff;border-color:var(--red)}
+.tp .wl.saved{color:#fff;background:var(--red);border-color:var(--red)}
+.tp .row2{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
+.tp .row2 .tr{font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--ink-soft);cursor:pointer}
+.tp .row2 .tr:hover{color:var(--red)}
+.tp .row2 .inf{width:24px;height:24px;border:1px solid var(--line-strong);border-radius:50%;color:var(--ink-faint);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+/* TOP 10 */
+.t3grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:18px}
+.t3{display:flex;gap:14px;background:var(--dark-2);border:1px solid var(--dline);border-radius:11px;padding:14px}
+.t3 .pp{flex:0 0 96px;width:96px;aspect-ratio:2/3;border-radius:6px;position:relative;overflow:hidden}
+.t3 .pp .rk{position:absolute;top:0;left:0;background:var(--red);color:#fff;font-family:var(--ui);font-size:12px;font-weight:700;padding:3px 8px;border-bottom-right-radius:7px}
+.t3 .info{flex:1;min-width:0}
+.t3 .ti{font-family:var(--serif);font-size:19px;font-weight:600;color:#fff;line-height:1.1}
+.t3 .mt{font-family:var(--ui);font-size:11px;color:#9c9486;margin-top:5px}
+.t3 .rt{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-size:12.5px;color:#EFEADD;font-weight:600;margin-top:7px}
+.t3 .rt .star{color:var(--gold)}
+.t3 .watched{font-family:var(--ui);font-size:11.5px;color:var(--red-soft);font-weight:600;margin-top:8px}
+.t3 .syn{font-family:var(--text-serif);font-size:13px;color:#c3bbac;line-height:1.4;margin-top:10px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.tr10{flex:0 0 148px;width:148px}
+.tr10 .pp{aspect-ratio:2/3;border-radius:8px;position:relative;overflow:hidden;border:1px solid var(--dline);cursor:pointer}
+.tr10 .pp .rk{position:absolute;top:0;left:0;background:var(--red);color:#fff;font-family:var(--ui);font-size:12px;font-weight:700;padding:3px 8px;border-bottom-right-radius:7px}
+.tr10 .nm{font-family:var(--text-serif);font-size:14px;color:#EFEADD;margin-top:9px;line-height:1.2}
+.tr10 .rt{font-family:var(--ui);font-size:11.5px;color:#a79b88;margin-top:5px}
+.tr10 .rt .star{color:var(--gold);font-weight:700}
+
+/* WIDE */
+.wide{flex:0 0 372px;width:372px}
+.wide .bd{aspect-ratio:16/9;border-radius:10px;position:relative;overflow:hidden;border:1px solid var(--dline);cursor:pointer}
+.wide .bd::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.wide .play{position:absolute;left:14px;bottom:14px;z-index:3;display:flex;align-items:center;gap:9px}
+.wide .play .pc{width:34px;height:34px;border-radius:50%;border:2px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;background:rgba(0,0,0,.3)}
+.wide .play .lbl{font-family:var(--ui);font-size:11px;font-weight:700;color:#fff;background:rgba(0,0,0,.45);padding:4px 9px;border-radius:4px}
+.wide .trope{position:absolute;top:12px;left:12px;right:46px;z-index:3;font-family:var(--serif);font-size:15px;font-weight:600;color:#fff;line-height:1.12;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.wide .addcirc{position:absolute;top:11px;right:11px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:4}
+.wide .meta{display:flex;gap:11px;margin-top:11px}
+.wide .meta .addc{width:22px;height:30px;background:var(--dark-3);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);display:flex;align-items:flex-start;justify-content:center;padding-top:4px;color:#cfc7b8;font-size:12px;cursor:pointer;flex:0 0 22px}
+.wide .dt{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.12em;color:#8c8474;text-transform:uppercase}
+.wide .wt{font-family:var(--serif);font-size:18px;font-weight:600;color:#fff;line-height:1.08;margin-top:2px}
+.wide .react{font-family:var(--ui);font-size:12px;color:#a79b88;margin-top:8px;display:flex;gap:14px}
+.wide .react b{color:#EFEADD;font-weight:600}
+.wide .react .star{color:var(--gold);font-weight:700}
+
+/* TROPE LIST */
+.bo{display:grid;grid-template-columns:1fr 1fr;gap:2px 56px}
+.bo .li{display:flex;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid var(--line)}
+.bo .num{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--ink-faint);width:24px;text-align:center;flex:0 0 24px}
+.bo .addc{width:22px;height:30px;background:var(--paper-2);border:1px solid var(--line-strong);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);display:flex;align-items:flex-start;justify-content:center;padding-top:4px;color:var(--ink-faint);font-size:12px;cursor:pointer;flex:0 0 22px}
+.bo .bd2{flex:1;min-width:0}
+.bo .tt{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.1}
+.bo .tt em{font-style:italic;color:var(--red)}
+.bo .mt{font-family:var(--ui);font-size:12px;color:var(--ink-faint);margin-top:3px}
+.bo .delta{margin-left:auto;font-family:var(--ui);font-size:11px;font-weight:700;color:#2f7d4f;white-space:nowrap}
+.bo .delta.flat{color:var(--ink-faint)}
+
+/* TILES */
+.tile{flex:0 0 304px;width:304px}
+.tile .img{aspect-ratio:16/9;border-radius:10px;position:relative;overflow:hidden;border:1px solid var(--line-strong);cursor:pointer}
+.tile .img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6))}
+.tile .addcirc{position:absolute;left:11px;bottom:11px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3}
+.tile .lab{position:absolute;left:54px;bottom:14px;z-index:3;color:#fff}
+.tile .lab .l1{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.05}
+.tile .lab .l2{font-family:var(--ui);font-size:11px;color:#dcd4c4;margin-top:2px}
+
+/* LENS (dark film card) */
+.tabs{display:flex;gap:26px;border-bottom:1px solid var(--dline);margin-bottom:20px;overflow-x:auto}
+.tab{font-family:var(--ui);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9c9486;padding:0 0 13px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.tab.on{color:#fff;border-bottom-color:var(--red)}
+.lcard{flex:0 0 162px;width:162px}
+.lcard .pp{aspect-ratio:2/3;border-radius:8px;position:relative;overflow:hidden;border:1px solid var(--dline);cursor:pointer}
+.lcard .addc{position:absolute;top:0;left:11px;width:22px;height:30px;background:rgba(0,0,0,.55);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);display:flex;align-items:flex-start;justify-content:center;padding-top:4px;color:#fff;font-size:12px;cursor:pointer}
+.lcard .lrate{display:flex;align-items:center;gap:8px;margin-top:9px;font-family:var(--ui);font-size:12px}
+.lcard .lstar{color:var(--gold);font-weight:700}
+.lcard .lread{color:#9c9486;font-weight:600}
+.lcard .nm{font-family:var(--text-serif);font-size:14px;color:#EFEADD;margin-top:7px;line-height:1.2}
+.lcard .nm .ly{color:#8c8474;font-family:var(--ui);font-size:11px}
+.lcard .vi{font-family:var(--text-serif);font-style:italic;font-size:12px;color:#9c9486;margin-top:4px;line-height:1.25;min-height:30px}
+.lcard .lwl{width:100%;margin-top:8px;font-family:var(--ui);font-size:12px;font-weight:700;color:#EFEADD;background:transparent;border:1px solid rgba(255,255,255,.25);border-radius:22px;padding:8px;cursor:pointer}
+.lcard .lwl:hover{background:rgba(255,255,255,.1)}
+
+/* DIRECTORS */
+.dspot{display:grid;grid-template-columns:286px 1fr;gap:30px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:24px}
+.portrait{position:relative;min-height:380px}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.portrait .pin{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:78px;font-weight:300;color:rgba(255,255,255,.82);z-index:2}
+.portrait .pname{position:absolute;left:20px;bottom:18px;z-index:3;color:#fff}
+.portrait .pname .nm{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.05}
+.portrait .pname .pl{font-family:var(--ui);font-size:11px;color:#e0d8c8;margin-top:4px}
+.portrait .pchip{position:absolute;top:16px;left:16px;z-index:3;font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.28);padding:5px 10px;border-radius:4px}
+.dbody{padding:26px 30px 26px 0}
+.dbody .dmrow{display:flex;gap:26px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px;align-items:center}
+.dbody .dm .v{font-family:var(--serif);font-size:28px;font-weight:600}
+.dbody .dm .k{font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;margin-top:2px}
+.dbody .sk{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.sig{display:flex;align-items:baseline;gap:10px;margin-bottom:11px}
+.sig .st{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.15}
+.sig .sx{font-family:var(--ui);font-size:11px;font-weight:700;color:#fff;background:var(--red);border-radius:12px;padding:2px 8px;white-space:nowrap}
+.sig .sv{font-family:var(--text-serif);font-style:italic;font-size:13px;color:var(--ink-faint);display:block}
+.filmo{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 18px}
+.filmo .fl{font-family:var(--text-serif);font-size:13px;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line-strong);border-radius:6px;padding:5px 10px}
+.filmo .fl b{font-family:var(--ui);font-size:10px;color:var(--ink-faint);font-weight:600;margin-left:5px}
+.dopen{font-family:var(--ui);font-size:13px;font-weight:700;color:#fff;background:var(--ink);padding:10px 18px;border-radius:8px;display:inline-flex;gap:7px}
+.dopen:hover{background:var(--red)}
+.dcard{flex:0 0 158px;width:158px}
+.dpic{aspect-ratio:3/4;border-radius:10px;position:relative;overflow:hidden;border:1px solid var(--line-strong);cursor:pointer}
+.dpic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.5))}
+.dpic .di{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:44px;font-weight:300;color:rgba(255,255,255,.85);z-index:2}
+.dcard .dcn{font-family:var(--serif);font-size:16px;font-weight:600;margin-top:9px;line-height:1.15}
+.dcard .dcm{font-family:var(--ui);font-size:11px;color:var(--ink-faint);margin-top:3px}
+.dcard .dcs{font-family:var(--text-serif);font-style:italic;font-size:12.5px;color:var(--ink-soft);margin-top:7px;line-height:1.3}
+
+/* BORN TODAY */
+.born{display:flex;gap:26px;overflow-x:auto;padding-bottom:8px;scroll-behavior:smooth}
+.bp{flex:0 0 152px;text-align:center}
+.bp .av{width:150px;height:150px;border-radius:50%;position:relative;overflow:hidden;margin:0 auto;border:1px solid var(--dline)}
+.bp .av::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45))}
+.bp .av .di{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:46px;font-weight:300;color:rgba(255,255,255,.9);z-index:2}
+.bp .av .hrt{position:absolute;left:10px;bottom:10px;z-index:3;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.3);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
+.bp .nm{font-family:var(--serif);font-size:17px;font-weight:600;color:#fff;margin-top:12px;line-height:1.1}
+.bp .ag{font-family:var(--ui);font-size:12.5px;color:#9c9486;margin-top:4px}
+
+/* TOP NEWS + GRAPH */
+.news{display:grid;grid-template-columns:1.45fr .85fr;gap:42px}
+.lead{display:flex;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--line);cursor:pointer}
+.lead .th{flex:0 0 168px;width:168px;aspect-ratio:5/4;border-radius:9px;overflow:hidden;border:1px solid var(--line-strong)}
+.lead .hl{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15}
+.lead .hl em{font-style:italic;color:var(--red)}
+.lead .ex{font-family:var(--text-serif);font-size:14.5px;color:var(--ink-soft);line-height:1.45;margin-top:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.lead .src{font-family:var(--ui);font-size:11.5px;color:var(--ink-faint);margin-top:10px}
+.sub2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
+.na{display:flex;gap:13px;cursor:pointer}
+.na .th{flex:0 0 76px;width:76px;aspect-ratio:3/4;border-radius:7px;overflow:hidden;border:1px solid var(--line-strong)}
+.na .hl{font-family:var(--serif);font-size:15.5px;font-weight:600;line-height:1.15}
+.na .src{font-family:var(--ui);font-size:11px;color:var(--ink-faint);margin-top:6px}
+.graphbox{position:relative;border:1px solid var(--line);border-radius:14px;background:var(--dark);overflow:hidden;height:380px}
+.graphbox .gcap{position:absolute;left:16px;top:13px;z-index:4;font-family:var(--ui);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8c8474}
+.graphbox .gsub{position:absolute;left:16px;top:30px;z-index:4;font-family:var(--text-serif);font-style:italic;font-size:12px;color:#a79b88}
+.graphbox svg{position:absolute;inset:0;width:100%;height:100%}
+.gnode{cursor:pointer}
+.gnode text{font-family:var(--ui);font-size:10px;font-weight:600;fill:#EFEADD}
+.gnode:hover circle{stroke:#fff}
+.gedge{stroke:rgba(200,16,46,.32);stroke-width:1}
+@keyframes gin{from{opacity:0}to{opacity:1}}
+.gfade{animation:gin .6s ease}
+
+/* big search */
+.bigsearch .inner{max-width:760px;margin:0 auto;text-align:center}
+.bigsearch .kicker{justify-content:center;margin-bottom:14px}
+.bigsearch h2{font-family:var(--serif);font-size:40px;font-weight:600;letter-spacing:-.02em;line-height:1.08}
+.bigsearch h2 em{font-style:italic;color:var(--red)}
+.bigsearch .sb{display:flex;background:#fff;border:1px solid var(--line-strong);border-radius:12px;overflow:hidden;margin-top:24px;box-shadow:0 10px 30px -16px rgba(0,0,0,.25)}
+.bigsearch .sb .mag{display:flex;align-items:center;padding:0 6px 0 20px;color:var(--ink-faint);font-size:21px}
+.bigsearch .sb input{flex:1;border:0;outline:0;font-family:var(--text-serif);font-size:18px;padding:18px 12px;color:var(--ink)}
+.bigsearch .sb .ask{font-family:var(--ui);font-size:14px;font-weight:700;color:#fff;background:var(--ink);margin:8px;padding:0 22px;border-radius:8px;display:flex;align-items:center;gap:8px;cursor:pointer}
+.bigsearch .sb .ask .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.bigsearch .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.bigsearch .chip{font-family:var(--text-serif);font-size:14px;color:var(--ink-soft);background:#fff;border:1px solid var(--line-strong);border-radius:20px;padding:8px 16px;cursor:pointer}
+.bigsearch .facets{font-family:var(--ui);font-size:12.5px;color:var(--ink-faint);margin-top:20px}
+.bigsearch .facets a{color:var(--ink-soft);font-weight:600;margin:0 4px}
+
+/* SIX WAYS */
+.facetgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.facet{border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff;transition:.15s}
+.facet:hover{border-color:var(--ink);transform:translateY(-2px)}
+.facet .fk{font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+.facet h3{font-family:var(--serif);font-size:23px;font-weight:600;margin:7px 0 9px}
+.facet p{font-family:var(--text-serif);font-size:14px;color:var(--ink-soft);line-height:1.45;min-height:48px}
+.facet .go{display:block;margin-top:10px;font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--red)}
+
+footer{background:var(--dark);color:#C8BFB0;padding:48px 0 34px}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:28px}
+.fbrand{display:flex;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:17px;line-height:.92;padding:8px 11px;border-radius:5px;width:max-content;margin-bottom:14px}
+.fabout{font-family:var(--text-serif);font-size:14px;color:#a79f90;line-height:1.5;max-width:290px}
+.fcol h4{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8c8474;margin-bottom:12px}
+.fcol a{display:block;font-family:var(--text-serif);font-size:14.5px;color:#C8BFB0;padding:5px 0}
+.fcol a:hover{color:#fff}
+.fbar{font-family:var(--ui);font-size:11.5px;color:#7d7568;margin-top:28px;border-top:1px solid var(--dline);padding-top:18px;display:flex;gap:18px;flex-wrap:wrap}
+.tmdb{font-style:italic;font-family:var(--text-serif)}
+
+@media(max-width:1020px){
+  .vh{grid-template-columns:1fr}.t3grid{grid-template-columns:1fr}.bo{grid-template-columns:1fr}
+  .news{grid-template-columns:1fr}.sub2{grid-template-columns:1fr}
+  .dspot{grid-template-columns:1fr}.dbody{padding:0 24px 24px}
+  .mega .wrap,.fgrid{grid-template-columns:repeat(2,1fr)}.facetgrid{grid-template-columns:repeat(2,1fr)}
+  .npro .t,.lang{display:none}
+}
+@media(max-width:680px){.navsearch{display:none}.vbottom .vtitle{font-size:26px}.bigsearch h2{font-size:30px}.facetgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="mockbar"><span class="tag">Mockup v6</span> Six ways in · IMDb star + per-category numbers + Shelf button on every card · 30+ cards per rail · blog → live node graph. <b>(이미지·영상은 TMDB 자리, 톤 placeholder)</b></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap navrow">
+    <a class="logo" href="#">Meta<br>take</a>
+    <div class="menubtn" onclick="tog('mega')"><span class="bars"><i></i><i></i><i></i></span>Menu</div>
+    <div class="navsearch"><div class="scope">All ▾</div><input placeholder="Search films, directors, figures, tropes…"><div class="go">⌕</div></div>
+    <div class="navright">
+      <a class="npro" href="#"><span class="dot"></span><span class="t">Ask&nbsp;metatake&nbsp;AI</span></a>
+      <div class="nicon" title="Wander the map"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="13" cy="17" r="2"/><path d="M8 8l9 7M16 7l-7 8"/></svg></div>
+      <div class="nicon" title="Your Shelf"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Shelf</span><span class="nbadge">24</span></div>
+      <div class="acct"><div class="avatar" onclick="tog('am')">w</div>
+        <div class="acctmenu" id="am">
+          <div class="me"><div class="av">w</div><div><div class="nm">wonwoo</div><a class="lk" href="#">View your map →</a></div></div>
+          <div class="prow"><div class="l"><div class="ico">▦</div><div><div class="t">Your Shelf</div><div class="s">FILMS YOU SAVED</div></div></div><div class="n">24</div></div>
+          <div class="prow"><div class="l"><div class="ico">❝</div><div><div class="t">Saved Readings</div><div class="s">BOOKMARKED MISREADINGS</div></div></div><div class="n">11</div></div>
+          <div class="prow"><div class="l"><div class="ico">⌖</div><div><div class="t">Following</div><div class="s">DIRECTORS &amp; FIGURES</div></div></div><div class="n">6·9</div></div>
+          <div class="prow"><div class="l"><div class="ico">✦</div><div><div class="t">For You</div><div class="s">FILMS PICKED FOR YOU</div></div></div><div class="n">5</div></div>
+          <div class="acctfoot"><a href="#">Activity</a><a href="#">Settings</a><a href="#" style="margin-left:auto">Sign out</a></div>
+        </div>
+      </div>
+      <div class="lang">EN ▾</div>
+    </div>
+  </div>
+  <div class="mega" id="mega"><div class="wrap">
+    <div class="mcol"><h4>Browse the map</h4><a href="#">Films<span class="ar">1,935 →</span></a><a href="#">Directors<span class="ar">870 →</span></a><a href="#">Tropes<span class="ar">4,710 →</span></a><a href="#">Concepts<span class="ar">→</span></a></div>
+    <div class="mcol"><h4>Ways through</h4><a href="#">Lineage<span class="ar">→</span></a><a href="#">Archetype<span class="ar">→</span></a><a href="#">Strong Misreadings<span class="ar">→</span></a><a href="#">Wander the map<span class="ar">→</span></a></div>
+    <div class="mcol"><h4>Fresh</h4><a href="#">Latest<span class="ar">→</span></a><a href="#">Trending<span class="ar">→</span></a><a href="#">Just added<span class="ar">→</span></a><a href="#">Blog<span class="ar">→</span></a></div>
+    <div class="mcol"><h4>You</h4><a href="#">Your Shelf<span class="ar">24 →</span></a><a href="#">Saved Readings<span class="ar">11 →</span></a><a href="#">For You<span class="ar">→</span></a><a href="#">Ask metatake AI<span class="ar">→</span></a></div>
+  </div></div>
+</header>
+
+<!-- VIDEO HERO -->
+<div class="hero"><div class="wrap">
+  <div class="vh">
+    <div class="vmain" id="vmain"></div>
+    <div class="upnext"><div class="unh">Up next</div><div id="upnext"></div><a class="browse" href="#">Browse the map ›</a></div>
+  </div>
+  <div class="topicchips">
+    <span class="tc">Strong Misreadings <span class="ch">›</span></span>
+    <span class="tc">Films about grief <span class="ch">›</span></span>
+    <span class="tc">Auteur fingerprints <span class="ch">›</span></span>
+    <span class="tc">Most-mapped this week <span class="ch">›</span></span>
+    <span class="tc">The Real (le réel) <span class="ch">›</span></span>
+  </div>
+</div></div>
+
+<!-- PICKED -->
+<section class="band"><div class="wrap">
+  <div class="shead"><div><h2>Picked for you <span class="chev">›</span></h2><div class="sub">Films chosen from the readings you keep opening · per card: ★ rating · figures mapped</div></div><a class="seeall" href="#">Get more recommendations ›</a></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-picks" data-d="-1">‹</button><div class="rail" id="r-picks"></div><button class="scrollbtn r" data-t="r-picks" data-d="1">›</button></div>
+  <div class="railcount" id="c-picks"></div>
+</div></section>
+
+<!-- TOP 10 -->
+<section class="band dark"><div class="wrap">
+  <div class="shead"><div><h2>Top 10 films on metatake <span class="chev">›</span></h2><div class="sub">Most opened this week · June 19–26</div></div><a class="seeall" href="#">See the chart ›</a></div>
+  <div class="t3grid" id="t3"></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-top10" data-d="-1">‹</button><div class="rail" id="r-top10"></div><button class="scrollbtn r" data-t="r-top10" data-d="1">›</button></div>
+</div></section>
+
+<!-- NEWLY MAPPED -->
+<section class="band dark" style="padding-top:8px"><div class="wrap">
+  <div class="shead"><div><h2>Newly mapped <span class="chev">›</span></h2><div class="sub">Films just read closely · per card: ★ rating · readings added</div></div><a class="seeall" href="#">All just-added ›</a></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-wide" data-d="-1">‹</button><div class="rail" id="r-wide"></div><button class="scrollbtn r" data-t="r-wide" data-d="1">›</button></div>
+  <div class="railcount" id="c-wide"></div>
+</div></section>
+
+<!-- TOP TROPES -->
+<section class="band p2"><div class="wrap">
+  <div class="shead"><div><h2>Top tropes this week <span class="chev">›</span></h2><div class="sub">The lines the map is travelling most — by films connected</div></div><a class="seeall" href="#">All 4,710 tropes ›</a></div>
+  <div class="bo" id="bo"></div>
+</div></section>
+
+<!-- CONCEPTS -->
+<section class="band"><div class="wrap">
+  <div class="shead"><div><h2>Popular concepts <span class="chev">›</span></h2><div class="sub">The critical ideas cinema returns to · per tile: films embodying it</div></div><a class="seeall" href="#">All concepts ›</a></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-tiles" data-d="-1">‹</button><div class="rail" id="r-tiles"></div><button class="scrollbtn r" data-t="r-tiles" data-d="1">›</button></div>
+  <div class="railcount" id="c-tiles"></div>
+</div></section>
+
+<!-- LENS -->
+<section class="band dark"><div class="wrap">
+  <div class="shead"><div><h2>Explore by lens <span class="chev">›</span></h2><div class="sub">Pick a framework · per card: ★ rating · readings · the figure it reads through</div></div><a class="seeall" href="#">Edit your lenses ✎</a></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-lens" data-d="-1">‹</button><div class="rail" id="r-lens"></div><button class="scrollbtn r" data-t="r-lens" data-d="1">›</button></div>
+  <div class="railcount" id="c-lens"></div>
+</div></section>
+
+<!-- DIRECTORS -->
+<section class="band p2"><div class="wrap">
+  <div class="shead"><div><h2>Directors — an auteur's obsessions <span class="chev">›</span></h2><div class="sub">870 directors · per card: films · readings mapped</div></div><a class="seeall" href="#">All 870 directors ›</a></div>
+  <div class="dspot" id="dspot"></div>
+  <div class="shead" style="margin-bottom:14px"><div><h2 style="font-size:19px">Auteurs on the map</h2></div></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-dir" data-d="-1">‹</button><div class="rail" id="r-dir"></div><button class="scrollbtn r" data-t="r-dir" data-d="1">›</button></div>
+  <div class="railcount" id="c-dir"></div>
+</div></section>
+
+<!-- BORN TODAY -->
+<section class="band dark"><div class="wrap">
+  <div class="shead"><div><h2>Auteurs born today <span class="chev">›</span></h2><div class="sub">Directors born on June 26 — follow to track new readings</div></div><a class="seeall" href="#">See all ›</a></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="born" data-d="-1">‹</button><div class="born" id="born"></div><button class="scrollbtn r" data-t="born" data-d="1">›</button></div>
+</div></section>
+
+<!-- RHYME -->
+<section class="band"><div class="wrap">
+  <div class="shead"><div><h2>Films that <em>rhyme</em> <span class="chev">›</span></h2><div class="sub">Because you opened <b>The Zone of Interest</b> · per card: ★ rating · shared readings</div></div><a class="seeall" href="#">Wander further ›</a></div>
+  <div class="railwrap"><button class="scrollbtn l" data-t="r-rhyme" data-d="-1">‹</button><div class="rail" id="r-rhyme"></div><button class="scrollbtn r" data-t="r-rhyme" data-d="1">›</button></div>
+  <div class="railcount" id="c-rhyme"></div>
+</div></section>
+
+<!-- BLOG + GRAPH -->
+<section class="band p2"><div class="wrap">
+  <div class="shead"><div><h2>From the blog <span class="chev">›</span></h2><div class="sub">New tropes & essays — and the live map beside them</div></div><a class="seeall" href="#">All posts ›</a></div>
+  <div class="news">
+    <div class="newsmain"><div class="lead" id="lead"></div><div class="sub2" id="sub2"></div></div>
+    <div class="graphbox"><div class="gcap">Wander the map · live</div><div class="gsub">redraws every few seconds — click a node to travel in</div><svg id="graph" viewBox="0 0 360 380" preserveAspectRatio="xMidYMid meet"></svg></div>
+  </div>
+</div></section>
+
+<!-- SEARCH -->
+<section class="band p2 bigsearch" style="padding:56px 0"><div class="wrap inner">
+  <span class="kicker">However you arrived</span>
+  <h2>Search the map — <em>or ask it anything.</em></h2>
+  <div class="sb"><span class="mag">⌕</span><input placeholder="Search a film, a director, a figure, a feeling…"><div class="ask"><span class="dot"></span>Ask&nbsp;AI →</div></div>
+  <div class="chips"><span class="chip">The lingering close-up on a face</span><span class="chip">What recurs across films about grief?</span><span class="chip">Films that rhyme with Aftersun</span></div>
+  <div class="facets">Jump to · <a href="#">1,935 Films</a> · <a href="#">870 Directors</a> · <a href="#">4,710 Tropes</a> · <a href="#">26,975 Strong Misreadings</a></div>
+</div></section>
+
+<!-- SIX WAYS -->
+<section class="band"><div class="wrap">
+  <div class="shead"><div><span class="kicker">Start anywhere</span><h2 style="margin-top:8px">Six ways in</h2></div></div>
+  <div class="facetgrid">
+    <a class="facet" href="#"><div class="fk">1,935 films</div><h3>Films</h3><p>Every film, broken into the figures it keeps returning to.</p><span class="go">Browse films →</span></a>
+    <a class="facet" href="#"><div class="fk">870 auteurs</div><h3>Directors</h3><p>Signature readings and tropes that recur across a filmography.</p><span class="go">Browse directors →</span></a>
+    <a class="facet" href="#"><div class="fk">4,710 figure-types</div><h3>Tropes</h3><p>The shapes cinema keeps reaching for — the hubs of the map.</p><span class="go">Browse tropes →</span></a>
+    <a class="facet" href="#"><div class="fk">26,975 readings</div><h3>Strong Misreadings</h3><p>The bold close readings — one figure, argued through a critical framework.</p><span class="go">Browse readings →</span></a>
+    <a class="facet" href="#"><div class="fk">the theory</div><h3>Concepts</h3><p>The critical ideas every reading is built on, traced across cinema.</p><span class="go">Browse concepts →</span></a>
+    <a class="facet" href="#"><div class="fk">trace the thread</div><h3>Lineage</h3><p>Follow one reading as it travels from film to film across cinema.</p><span class="go">Follow a lineage →</span></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="fbrand">Meta<br>take</div><p class="fabout">Read films closely — a critical map of cinema that links films through the meanings they share. The readings are criticism; the AI is the instrument that finds them.</p></div>
+    <div class="fcol"><h4>Sections</h4><a href="#">Films</a><a href="#">Directors</a><a href="#">Tropes</a><a href="#">Concepts</a><a href="#">Lineage</a></div>
+    <div class="fcol"><h4>Your map</h4><a href="#">Your Shelf</a><a href="#">Saved Readings</a><a href="#">Following</a><a href="#">For You</a></div>
+    <div class="fcol"><h4>Metatake</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Community guidelines</a><a href="#">Blog</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">wonwoo@metatake.net</a></div>
+  </div>
+  <div class="fbar"><span>© 2026 Metatake. All rights reserved.</span><span>Seoul, Republic of Korea</span><span class="tmdb">This product uses the TMDB API but is not endorsed or certified by TMDB.</span></div>
+</div></footer>
+
+<script>
+const TONES=[["#2b3543","#10141b"],["#5c4a33","#241a12"],["#3a4a52","#121a1f"],["#4a3a52","#15101a"],["#7a3a2a","#2a100c"],["#3a5a4a","#0f201a"],["#6a5a2a","#241f0e"],["#46505c","#161b22"],["#5a2a3a","#1f0f17"],["#2a4a5a","#0e1c22"],["#7a6a4a","#28221a"],["#3a3a4a","#131318"]];
+function tone(i){const t=TONES[i%TONES.length];return `linear-gradient(155deg,${t[0]},${t[1]} 72%)`;}
+function initials(n){return n.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
+
+/* ===== FILM POOL (40) ===== */
+const POOL=[
+ {t:"The Zone of Interest",y:2023,d:"Glazer",r:7.4,fig:14,rd:14,tr:12,tn:0,vi:"the garden wall"},
+ {t:"The Favourite",y:2018,d:"Lanthimos",r:7.5,fig:14,rd:42,tr:16,tn:6,vi:"the court's favour"},
+ {t:"Black Swan",y:2010,d:"Aronofsky",r:8.0,fig:9,rd:31,tr:13,tn:3,vi:"Nina's mutations"},
+ {t:"Aftersun",y:2022,d:"Wells",r:7.7,fig:10,rd:22,tr:11,tn:7,vi:"the camcorder"},
+ {t:"2001: A Space Odyssey",y:1968,d:"Kubrick",r:8.3,fig:12,rd:24,tr:18,tn:9,vi:"the monolith"},
+ {t:"The Shining",y:1980,d:"Kubrick",r:8.4,fig:13,rd:29,tr:14,tn:1,vi:"Room 237"},
+ {t:"Amour",y:2012,d:"Haneke",r:7.9,fig:8,rd:27,tr:10,tn:8,vi:"the held hand"},
+ {t:"Hero",y:2002,d:"Zhang Yimou",r:7.9,fig:12,rd:35,tr:15,tn:4,vi:"'All Under Heaven'"},
+ {t:"Mulholland Drive",y:2001,d:"Lynch",r:8.0,fig:12,rd:28,tr:14,tn:5,vi:"the blue box"},
+ {t:"Vertigo",y:1958,d:"Hitchcock",r:8.3,fig:11,rd:26,tr:12,tn:11,vi:"Madeleine's spiral"},
+ {t:"The Cabinet of Dr. Caligari",y:1920,d:"Wiene",r:8.0,fig:9,rd:15,tr:13,tn:3,vi:"the painted sets"},
+ {t:"Parasite",y:2019,d:"Bong Joon Ho",r:8.5,fig:13,rd:38,tr:20,tn:5,vi:"the half-basement"},
+ {t:"Snowpiercer",y:2013,d:"Bong Joon Ho",r:7.1,fig:9,rd:19,tr:12,tn:0,vi:"the engine"},
+ {t:"Mother",y:2009,d:"Bong Joon Ho",r:7.8,fig:8,rd:17,tr:10,tn:10,vi:"the acupuncture needle"},
+ {t:"Memories of Murder",y:2003,d:"Bong Joon Ho",r:8.1,fig:10,rd:21,tr:13,tn:7,vi:"the rice paddy"},
+ {t:"Caché",y:2005,d:"Haneke",r:7.3,fig:9,rd:20,tr:11,tn:0,vi:"the surveillance tape"},
+ {t:"The White Ribbon",y:2009,d:"Haneke",r:7.8,fig:10,rd:22,tr:12,tn:8,vi:"the village"},
+ {t:"A Clockwork Orange",y:1971,d:"Kubrick",r:8.2,fig:11,rd:25,tr:14,tn:4,vi:"the Korova Milk Bar"},
+ {t:"Barry Lyndon",y:1975,d:"Kubrick",r:8.1,fig:10,rd:19,tr:12,tn:10,vi:"the candlelit room"},
+ {t:"Dr. Strangelove",y:1964,d:"Kubrick",r:8.4,fig:10,rd:17,tr:11,tn:7,vi:"the War Room"},
+ {t:"Paths of Glory",y:1957,d:"Kubrick",r:8.4,fig:9,rd:14,tr:10,tn:8,vi:"the trench"},
+ {t:"Full Metal Jacket",y:1987,d:"Kubrick",r:8.2,fig:9,rd:16,tr:11,tn:5,vi:"the drill"},
+ {t:"Psycho",y:1960,d:"Hitchcock",r:8.5,fig:11,rd:23,tr:12,tn:9,vi:"the shower"},
+ {t:"Rear Window",y:1954,d:"Hitchcock",r:8.5,fig:10,rd:21,tr:11,tn:6,vi:"the courtyard window"},
+ {t:"North by Northwest",y:1959,d:"Hitchcock",r:8.3,fig:9,rd:18,tr:10,tn:2,vi:"the crop-duster"},
+ {t:"Au Hasard Balthazar",y:1966,d:"Bresson",r:7.8,fig:9,rd:19,tr:12,tn:6,vi:"Balthazar the donkey"},
+ {t:"Crouching Tiger, Hidden Dragon",y:2000,d:"Ang Lee",r:7.9,fig:10,rd:29,tr:14,tn:4,vi:"the Green Destiny"},
+ {t:"The Grand Budapest Hotel",y:2014,d:"Anderson",r:8.1,fig:13,rd:38,tr:17,tn:8,vi:"M. Gustave"},
+ {t:"Minority Report",y:2002,d:"Spielberg",r:7.6,fig:11,rd:33,tr:13,tn:9,vi:"the pre-cogs"},
+ {t:"Aguirre, the Wrath of God",y:1972,d:"Herzog",r:7.8,fig:8,rd:16,tr:10,tn:5,vi:"the raft"},
+ {t:"After Hours",y:1985,d:"Scorsese",r:7.6,fig:7,rd:13,tr:9,tn:11,vi:"the night city"},
+ {t:"Adaptation",y:2002,d:"Jonze",r:7.7,fig:8,rd:15,tr:10,tn:6,vi:"the orchid"},
+ {t:"After Yang",y:2022,d:"Kogonada",r:6.8,fig:10,rd:16,tr:9,tn:2,vi:"the android's memory"},
+ {t:"About Dry Grasses",y:2023,d:"Ceylan",r:7.7,fig:11,rd:18,tr:10,tn:10,vi:"the winter steppe"},
+ {t:"Afire",y:2023,d:"Petzold",r:7.0,fig:9,rd:14,tr:8,tn:3,vi:"the forest fire"},
+ {t:"Akira",y:1988,d:"Otomo",r:8.0,fig:9,rd:17,tr:11,tn:4,vi:"Tetsuo's arm"},
+ {t:"Come and See",y:1985,d:"Klimov",r:8.3,fig:8,rd:16,tr:10,tn:1,vi:"Florya's face"},
+ {t:"Son of Saul",y:2015,d:"Nemes",r:7.5,fig:8,rd:15,tr:9,tn:8,vi:"the boy's body"},
+ {t:"Inglourious Basterds",y:2009,d:"Tarantino",r:8.4,fig:11,rd:24,tr:13,tn:4,vi:"the cinema fire"},
+ {t:"Ali: Fear Eats the Soul",y:1974,d:"Fassbinder",r:8.0,fig:9,rd:18,tr:11,tn:6,vi:"the staring diners"}
+];
+const STAR=r=>`<span class="star">★ ${r.toFixed(1)}</span>`;
+
+/* film card (light) — star + category number + Shelf */
+function fcard(f,catHtml,sub){
+ return `<div class="tp"><div class="pos" style="background:${tone(f.tn)}"><div class="addcirc">+</div><div class="ptitle">${f.t}</div></div>
+ <div class="body"><div class="rateline">${STAR(f.r)}<span class="dotsep">·</span><span class="catnum">${catHtml}</span><span class="save">☆</span></div>
+ <div class="nm">${f.t} <span class="yr">${f.y} · ${f.d}</span></div>
+ <button class="wl">＋ Shelf</button>
+ <div class="row2"><span class="tr">${sub||'❝ Top reading'}</span><span class="inf">i</span></div></div></div>`;
+}
+const lz='<span class="lz"></span>';
+function fillCount(id,n){const e=document.getElementById(id);if(e)e.textContent=n+' titles — scroll ›';}
+
+/* PICKED (40) */
+document.getElementById('r-picks').innerHTML=POOL.map(f=>fcard(f,`${lz}${f.fig} figures`)).join('');
+fillCount('c-picks',POOL.length);
+
+/* RHYME (40, shared) */
+const rsorted=[...POOL].sort((a,b)=>b.rd-a.rd);
+document.getElementById('r-rhyme').innerHTML=rsorted.map((f,i)=>fcard(f,`${lz}${Math.max(2,9-(i%8))} shared readings`,'❝ Why it rhymes')).join('');
+fillCount('c-rhyme',rsorted.length);
+
+/* VIDEO HERO */
+let cur=0;
+function renderHero(){
+ const f=POOL[cur];
+ document.getElementById('vmain').innerHTML=`<div style="position:absolute;inset:0;background:${tone(f.tn)}"></div>
+  <div class="vbadge">metatake · Today's Feature</div><div class="vplus">＋</div>
+  <div class="varr l" onclick="event.stopPropagation();hstep(-1)">‹</div><div class="varr r" onclick="event.stopPropagation();hstep(1)">›</div>
+  <div class="vplay" title="Play the trailer">▶</div>
+  <div class="vbottom"><div class="vtitle">${f.t} <span class="yr">${f.y}</span></div>
+  <div class="vwatch"><span class="vstar">★ ${f.r.toFixed(1)}</span><span>· Watch the trailer</span><span class="dur">2:18</span><span>· dir. ${f.d}</span></div>
+  <div class="vread"><b>READING</b>One of ${f.rd} readings — argued via ${f.vi}.</div>
+  <div class="vchips"><span class="mc"><span class="lz"></span>${f.fig} figures</span><span class="mc">${f.rd} readings</span><span class="mc">${f.tr} tropes</span></div></div>`;
+ const order=[1,2,3].map(k=>POOL[(cur+k)%POOL.length]);
+ document.getElementById('upnext').innerHTML=order.map(f=>{const i=POOL.indexOf(f);return `<div class="unv" onclick="hgoto(${i})"><div class="unt" style="background:${tone(f.tn)}"><span class="pc">▶</span><span class="du">2:0${(i%6)+1}</span></div><div class="uni"><div class="un1">${f.t}</div><div class="un2">★ ${f.r.toFixed(1)} · Watch the trailer</div><div class="un3">${f.rd} readings · ${f.fig} figures</div></div></div>`;}).join('');
+}
+function hstep(d){cur=(cur+d+POOL.length)%POOL.length;renderHero();}
+function hgoto(i){cur=i;renderHero();}
+renderHero();
+let auto=setInterval(()=>hstep(1),8000);
+document.getElementById('vmain').addEventListener('mouseenter',()=>clearInterval(auto));
+
+/* TOP 10 */
+const TOP3=[
+ {t:"The Zone of Interest",mt:"2023 · Drama, History · 105m · PG-13",r:7.4,rd:14,tn:0,syn:"Strong Misreading — Evil As Administration, Not Monstrosity: the camp runs on furnace efficiency and garden parties, atrocity reduced to logistics."},
+ {t:"The Favourite",mt:"2018 · Drama, History · 119m · R",r:7.5,rd:42,tn:6,syn:"Strong Misreading — The Person Used Merely As Means: every intimacy in the court is an instrument, affection indistinguishable from leverage."},
+ {t:"Black Swan",mt:"2010 · Drama, Thriller · 108m · R",r:8.0,rd:31,tn:3,syn:"Strong Misreading — The Flesh That Changes Shape: the body confesses what the self denies, in skin, quills and feathers."}
+];
+document.getElementById('t3').innerHTML=TOP3.map((f,i)=>`<div class="t3"><div class="pp" style="background:${tone(f.tn)}"><div class="rk">#${i+1}</div></div><div class="info"><div class="ti">${f.t}</div><div class="mt">${f.mt}</div><div class="rt"><span class="star">★ ${f.r.toFixed(1)}</span><span>· ${f.rd} readings</span></div><div class="watched">◉ Mark as read</div><div class="syn">${f.syn}</div></div></div>`).join('');
+const TOP10=POOL.slice(3,10);
+document.getElementById('r-top10').innerHTML=TOP10.map((f,i)=>`<div class="tr10"><div class="pp" style="background:${tone(f.tn)}"><div class="rk">#${i+4}</div></div><div class="nm">${f.t}</div><div class="rt"><span class="star">★ ${f.r.toFixed(1)}</span> · ${f.rd} readings</div></div>`).join('');
+
+/* NEWLY MAPPED (wide, 30+) */
+const FW=["ETHICS","RECEPTION","LOCATION","SUBTEXT","POLITICS","ONTOLOGY","PSYCHOANALYSIS"];
+const newly=[...POOL].reverse();
+document.getElementById('r-wide').innerHTML=newly.map((f,i)=>`<div class="wide"><div class="bd" style="background:${tone(f.tn)}"><div class="trope">One of ${f.tr} tropes — via ${f.vi}</div><div class="addcirc">+</div><div class="play"><span class="pc">▸</span><span class="lbl">READ · ${FW[i%FW.length]}</span></div></div><div class="meta"><div class="addc">+</div><div><div class="dt">JUST ADDED · ${f.y}</div><div class="wt">${f.t}</div><div class="react"><span class="star">★ ${f.r.toFixed(1)}</span><span><b>${f.rd}</b> readings</span><span>♡ <b>${40+i*7}</b></span></div></div></div></div>`).join('');
+fillCount('c-wide',newly.length);
+
+/* TROPES list */
+const TROPES=[
+ {t:"The Face As Infinite Ethical Summons",m:"47 films · psychoanalysis, ethics",d:"▲ 4"},{t:"The Compulsion To Repeat An Unmastered Wound",m:"129 films · psychoanalysis",d:"▲ 2"},
+ {t:"The Flesh That Changes Shape",m:"38 films · psychoanalysis",d:"▲ 9"},{t:"The Banality Of Evil, Administered",m:"26 films · politics, ethics",d:"— 0"},
+ {t:"The Object That Will Not Be Mourned",m:"31 films · psychoanalysis",d:"▲ 1"},{t:"The Held Shot As Ethical Witness",m:"22 films · ontology, ethics",d:"▲ 6"},
+ {t:"The Award As Society's Absolution Ritual",m:"19 films · reception",d:"▲ 3"},{t:"The West Crowned Its Own Appetite As Authenticity",m:"24 films · politics",d:"— 0"}
+];
+document.getElementById('bo').innerHTML=TROPES.map((t,i)=>{const em=t.t.replace(/(Ethical|Repeat|Flesh|Evil|Mourned|Witness|Ritual|Authenticity)/,'<em>$1</em>');return `<div class="li"><div class="num">${i+1}</div><div class="addc">+</div><div class="bd2"><div class="tt">${em}</div><div class="mt">${t.m}</div></div><div class="delta ${t.d.startsWith('—')?'flat':''}">${t.d}</div></div>`;}).join('');
+
+/* CONCEPTS tiles (30) */
+const CONCEPTS=[["repetition compulsion",129],["death drive",113],["the society of the spectacle",87],["bad faith",83],["the banality of evil",80],["the Real (le réel)",64],["return of the repressed",63],["commodity fetishism",58],["Orientalism",58],["the uncanny",44],["objet petit a",38],["being-toward-death",35],["non-place (non-lieu)",35],["the abject",31],["eternal recurrence",30],["durée",29],["necropolitics",29],["the alienation effect",29],["ethics of care",28],["mourning and melancholia",26],["bare life (homo sacer)",24],["the culture industry",24],["the face of the Other",24],["teleological suspension of the ethical",20],["simulacrum / hyperreality",19],["the categorical imperative",19],["panopticism",17],["involuntary memory",16],["the male gaze",14],["hauntology",11]];
+document.getElementById('r-tiles').innerHTML=CONCEPTS.map((c,i)=>`<div class="tile"><div class="img" style="background:${tone(i)}"><div class="addcirc">+</div><div class="lab"><div class="l1">${c[0]}</div><div class="l2">${c[1]} films</div></div></div></div>`).join('');
+fillCount('c-tiles',CONCEPTS.length);
+
+/* LENS (dark card, 30+ per tab) */
+function lcard(f){
+ return `<div class="lcard"><div class="pp" style="background:${tone(f.tn)}"><div class="addc">+</div></div>
+ <div class="lrate"><span class="lstar">★ ${f.r.toFixed(1)}</span><span class="lread">${f.rd} readings</span></div>
+ <div class="nm">${f.t} <span class="ly">${f.y}</span></div><div class="vi">via ${f.vi}</div>
+ <button class="lwl">＋ Shelf</button></div>`;
+}
+const LENS={"Psychoanalysis":0,"Ethics":1,"Politics":2,"Ontology":3,"Semiotics":4,"Reception":5};
+const tabsEl=document.getElementById('tabs'),lensEl=document.getElementById('r-lens');
+let curLens="Psychoanalysis";
+function renderLens(){
+ tabsEl.innerHTML=Object.keys(LENS).map(k=>`<div class="tab ${k===curLens?'on':''}" onclick="setLens('${k}')">${k}</div>`).join('');
+ const off=LENS[curLens];
+ const list=POOL.map((f,i)=>POOL[(i+off*7)%POOL.length]);
+ lensEl.innerHTML=list.map(lcard).join('');
+ fillCount('c-lens',list.length);
+}
+function setLens(k){curLens=k;renderLens();}
+renderLens();
+
+/* DIRECTORS spotlight */
+const DSPOT=[
+ {n:"Stanley Kubrick",pl:"New York City, USA · b.1928",films:10,rd:143,tr:87,tn:8,sig:[["The Lens That Becomes a Gaze","×4","via the wide-angle stare"],["The Machine Undone by Its Own Imperative","×2","via HAL 9000"],["The Cosmos Was Built In An English Shed","×2","via the Korova Milk Bar"]],filmo:[["The Killing","'56"],["Paths of Glory","'57"],["Lolita","'62"],["Dr. Strangelove","'64"],["2001","'68"],["A Clockwork Orange","'71"],["Barry Lyndon","'75"],["The Shining","'80"],["Full Metal Jacket","'87"]]},
+ {n:"Alfred Hitchcock",pl:"Leytonstone, UK · b.1899",films:22,rd:168,tr:104,tn:9,sig:[["The Look That Implicates the Watcher","×6","via the voyeur's window"],["The Innocent Made Guilty by the Frame","×4","via the wrong man"],["The Object That Will Not Be Mourned","×3","via the keepsake"]],filmo:[["Rebecca","'40"],["Rope","'48"],["Rear Window","'54"],["Vertigo","'58"],["North by Northwest","'59"],["Psycho","'60"],["The Birds","'63"]]},
+ {n:"Bong Joon Ho",pl:"Daegu, South Korea · b.1969",films:6,rd:74,tr:52,tn:5,sig:[["The Staircase As Class Diagram","×3","via the half-basement"],["The West Crowned Its Appetite As Authenticity","×2","via the benefactor"],["The Banality Of Evil, Administered","×2","via the system"]],filmo:[["Memories of Murder","'03"],["The Host","'06"],["Mother","'09"],["Snowpiercer","'13"],["Okja","'17"],["Parasite","'19"]]}
+];
+let dc=0;
+function renderDspot(){const d=DSPOT[dc];
+ document.getElementById('dspot').innerHTML=`<div class="portrait" style="background:${tone(d.tn)}"><div class="pchip">Director in focus</div><div class="pin">${initials(d.n)}</div><div class="pname"><div class="nm">${d.n}</div><div class="pl">${d.pl}</div></div></div>
+ <div class="dbody"><div class="dmrow"><div class="dm"><div class="v">${d.films}</div><div class="k">Films</div></div><div class="dm"><div class="v">${d.rd}</div><div class="k">Readings</div></div><div class="dm"><div class="v">${d.tr}</div><div class="k">Tropes</div></div><div style="margin-left:auto"><button onclick="dstep(1)" style="border:1px solid var(--line-strong);color:var(--ink-soft);background:transparent;font-family:var(--ui);font-size:12.5px;font-weight:600;border-radius:7px;padding:7px 13px;cursor:pointer">↻ Another auteur</button></div></div>
+ <div class="sk">Signature tropes — what recurs across the films</div>
+ ${d.sig.map(s=>`<div class="sig"><div><span class="st">${s[0]}</span> <span class="sx">${s[1]}</span><span class="sv">${s[2]}</span></div></div>`).join('')}
+ <div class="sk" style="margin-top:18px">Filmography</div><div class="filmo">${d.filmo.map(f=>`<span class="fl">${f[0]}<b>${f[1]}</b></span>`).join('')}</div>
+ <a class="dopen" href="#">Open the director →</a></div>`;}
+function dstep(x){dc=(dc+x+DSPOT.length)%DSPOT.length;renderDspot();}
+renderDspot();
+const DIRS=[["Akira Kurosawa","Japan",15,98,"The Rain That Washes Nothing Clean",7],["Alfred Hitchcock","United Kingdom",22,168,"The Look That Implicates the Watcher",9],["Steven Spielberg","United States",25,174,"The Object That Will Not Be Mourned",2],["Abbas Kiarostami","Iran",7,61,"The Road As The Only Honest Plot",6],["Bong Joon Ho","South Korea",6,74,"The Staircase As Class Diagram",5],["Ang Lee","Taiwan",3,42,"The West Crowned Its Own Appetite",0],["Asghar Farhadi","Iran",6,58,"The Truth Withheld As Moral Test",10],["Andrei Tarkovsky","USSR",3,49,"The Held Shot As Ethical Witness",3],["Bernardo Bertolucci","Italy",4,46,"The Body As Political Battleground",8],["Ari Aster","United States",4,38,"The Compulsion To Repeat A Wound",4],["Stanley Kubrick","United States",10,143,"The Machine Undone by Its Own Imperative",8],["Michael Haneke","Austria",6,71,"The Held Shot As Ethical Witness",1],["Yorgos Lanthimos","Greece",5,57,"The Person Used Merely As Means",6],["Darren Aronofsky","United States",6,52,"The Flesh That Changes Shape",3],["Charlotte Wells","United Kingdom",1,22,"The Compulsion To Repeat A Wound",7],["Nuri Bilge Ceylan","Turkey",4,44,"The Word As Withheld Confession",10],["Christian Petzold","Germany",6,49,"The Ghost That Will Not Settle",3],["David Lynch","United States",10,96,"The Dream Logic Of The Real",5],["Martin Scorsese","United States",25,182,"Grace Sought In Violence",11],["Werner Herzog","Germany",20,121,"Nature As Indifferent Sublime",5],["Rainer W. Fassbinder","Germany",20,118,"Love As Economic Transaction",6],["Pier Paolo Pasolini","Italy",12,88,"The Sacred In The Profane Body",4],["Kim Ki-duk","South Korea",15,77,"Cruelty As A Language Of Love",9],["Wong Kar-wai","Hong Kong",10,84,"The Clock That Refuses To Mourn",0],["Kogonada","United States",2,28,"Memory As An Object To Hold",2],["Nadav Lapid","Israel",4,33,"The Body As Political Refusal",6],["Elem Klimov","USSR",6,41,"The Face That Witnesses Atrocity",1],["László Nemes","Hungary",3,29,"The Blur At The Edge Of Horror",8],["Quentin Tarantino","United States",10,96,"Cinema As Vengeful Rewrite",4],["Robert Bresson","France",13,102,"The Model Over The Actor",6]];
+document.getElementById('r-dir').innerHTML=DIRS.map(d=>`<div class="dcard"><div class="dpic" style="background:${tone(d[5])}"><div class="di">${initials(d[0])}</div></div><div class="dcn">${d[0]}</div><div class="dcm">${d[1]} · ${d[2]} films · ${d[3]} readings</div><div class="dcs">“${d[4]}”</div></div>`).join('');
+fillCount('c-dir',DIRS.length);
+
+/* BORN TODAY */
+const BORN=[["Aaron Sorkin","age 64",8],["Charlotte Wells","age 38",7],["Ari Aster","age 39",4],["Christian Petzold","age 65",3],["Ang Lee","age 71",0],["Lynne Ramsay","age 55",9],["Bong Joon Ho","age 56",5],["Nadav Lapid","age 50",6]];
+document.getElementById('born').innerHTML=BORN.map(p=>`<div class="bp"><div class="av" style="background:${tone(p[2])}"><div class="di">${initials(p[0])}</div><div class="hrt">♡</div></div><div class="nm">${p[0]}</div><div class="ag">${p[1]}</div></div>`).join('');
+
+/* BLOG */
+document.getElementById('lead').innerHTML=`<div class="th" style="background:${tone(10)}"></div><div><div class="hl"><em>Oakland As Decaying Promised Land</em> — a new trope enters the map</div><div class="ex">The Bay Area filmed not as boomtown but as broken Eden: a promised land caught mid-decay, its monuments to the future already ruins. We trace the figure across six films and the readings that bind them.</div><div class="src">Jun 26 · metatake blog · Tropes</div></div>`;
+const SUB2=[["The Cut That Obeys The Beat — editing surrenders to rhythm","Jun 25 · Trope of the week",11],["The Praise That Indicts The Praised — when acclaim becomes a symptom","Jun 26 · Reception",6],["Reading Kubrick's wide-angle stare across ten films","Jun 24 · Auteur notes",8],["How a Strong Misreading earns its leap","Jun 23 · Concept essays",3]];
+document.getElementById('sub2').innerHTML=SUB2.map(a=>`<div class="na"><div class="th" style="background:${tone(a[2])}"></div><div><div class="hl">${a[0]}</div><div class="src">${a[1]}</div></div></div>`).join('');
+
+/* ===== LIVE NODE GRAPH ===== */
+const GP=[["The Zone of Interest","film"],["Evil As Administration","trope"],["Aftersun","film"],["The Compulsion To Repeat","trope"],["Black Swan","film"],["The Flesh That Changes Shape","trope"],["Amour","film"],["The Held Shot As Witness","trope"],["Hero","film"],["Duty Against Consequence","trope"],["The Favourite","film"],["The Person Used As Means","trope"],["2001: A Space Odyssey","film"],["The Machine Undone","trope"],["Parasite","film"],["The Staircase As Class Diagram","trope"],["Vertigo","film"],["The Object Not Mourned","trope"],["Mulholland Drive","film"],["The Dream Logic Of The Real","trope"]];
+const GSVG=document.getElementById('graph');
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function clip(s){return s.length>17?s.slice(0,16)+'…':s;}
+function graph(){
+ const pick=shuffle(GP).slice(0,9);
+ const cols=[70,180,290],rows=[80,185,300];
+ const nodes=pick.map((p,i)=>{const cx=cols[i%3]+(Math.random()*44-22),cy=rows[Math.floor(i/3)]+(Math.random()*40-20);return {l:p[0],t:p[1],x:cx,y:cy};});
+ let edges="";
+ nodes.forEach((n,i)=>{const j=(i+1)%nodes.length;edges+=`<line class="gedge" x1="${n.x}" y1="${n.y}" x2="${nodes[j].x}" y2="${nodes[j].y}"/>`;if(Math.random()>.5){const k=Math.floor(Math.random()*nodes.length);edges+=`<line class="gedge" x1="${n.x}" y1="${n.y}" x2="${nodes[k].x}" y2="${nodes[k].y}"/>`;}});
+ const gnodes=nodes.map(n=>{
+   const film=n.t==='film';
+   const circ=film?`<circle cx="${n.x}" cy="${n.y}" r="7" fill="#C8102E"/>`:`<circle cx="${n.x}" cy="${n.y}" r="6" fill="#1b1712" stroke="#C8102E" stroke-width="1.6"/>`;
+   const anchor=n.x>250?'end':'start';
+   const tx=anchor==='end'?n.x-11:n.x+11;
+   return `<a href="#" class="gnode"><title>Open: ${n.l}</title>${circ}<text x="${tx}" y="${n.y+3.5}" text-anchor="${anchor}">${clip(n.l)}</text></a>`;
+ }).join('');
+ GSVG.innerHTML=edges+gnodes;
+ GSVG.classList.remove('gfade');void GSVG.offsetWidth;GSVG.classList.add('gfade');
+}
+graph();setInterval(graph,3600);
+
+/* UI */
+function tog(id){const el=document.getElementById(id);const open=el.classList.contains('open');document.querySelectorAll('.open').forEach(x=>x.classList.remove('open'));if(!open)el.classList.add('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.acct')&&!e.target.closest('.menubtn')&&!e.target.closest('#mega')&&!e.target.closest('#am'))document.querySelectorAll('.open').forEach(x=>x.classList.remove('open'));});
+document.querySelectorAll('.scrollbtn').forEach(b=>{b.addEventListener('click',()=>{const r=document.getElementById(b.dataset.t);if(r)r.scrollBy({left:b.dataset.d*520,behavior:'smooth'});});});
+</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 볼 영화 분석 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;--good:#2E9E5B;--gold:#D9A441;
+    --safe:#1FB286;--frontier:#3E8FE0;--conquer:#E3120B;--gap:#C8922B;--reading:#9B8CF0;--canon:#D9A441;--avail:#2E9E5B;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1500px;margin:0 auto;padding:14px 18px 50px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  /* streaming registration strip */
+  .stream{background:var(--pnl);border:1px solid var(--line);border-radius:5px;padding:12px 14px;margin:13px 0}
+  .stream .sh{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+  .stream .sh .t{font-size:12px;font-weight:600;letter-spacing:.03em}
+  .stream .sh .n{margin-left:auto;font-size:12px;color:var(--mut)}.stream .sh .n b{font-family:var(--mono);color:var(--good)}
+  .svcs{display:flex;flex-wrap:wrap;gap:7px}
+  .svc{font-size:12px;padding:5px 11px;border:1px solid var(--line2);border-radius:14px;color:var(--mut);cursor:pointer;display:flex;align-items:center;gap:6px}
+  .svc.on{background:#0e211c;color:#8ee3cc;border-color:#1d5145}
+  .svc.on .dot{background:var(--good)}.svc .dot{width:7px;height:7px;border-radius:50%;background:#3a3a40}
+  .availtoggle{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:var(--mut);cursor:pointer}
+  .sw{width:38px;height:20px;border-radius:10px;background:#2a2a2f;position:relative;transition:.15s}
+  .sw::after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .availtoggle.on .sw{background:#0e4a3a}.availtoggle.on .sw::after{left:20px;background:var(--good)}.availtoggle.on{color:var(--good)}
+
+  .layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:13px}
+  .side{align-self:start;position:sticky;top:10px}
+  .fgrp{background:var(--pnl);border:1px solid var(--line);border-radius:3px;padding:10px 11px;margin-bottom:9px}
+  .fgrp h4{margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:.05em;display:flex;align-items:center;gap:6px}
+  .slideval{font-family:var(--mono);color:var(--red);font-size:12px;margin-left:auto}
+  input[type=range]{width:100%;accent-color:var(--red);height:4px}
+  .opt{display:flex;align-items:center;gap:8px;padding:3px 0;cursor:pointer;font-size:12px;color:var(--mut)}
+  .opt:hover{color:var(--ink)}
+  .opt .bx{width:13px;height:13px;border:1px solid var(--line2);border-radius:2px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:9px}
+  .opt.on .bx{background:var(--red);border-color:var(--red);color:#fff}.opt.on{color:var(--ink)}
+  .opt .ct{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rchips{display:flex;flex-wrap:wrap;gap:5px}
+  .rchip{font-size:10.5px;padding:3px 8px;border-radius:12px;border:1px solid var(--line2);color:var(--mut);cursor:pointer;display:flex;align-items:center;gap:5px}
+  .rchip.on{color:var(--ink)}.rchip .d{width:7px;height:7px;border-radius:50%}
+
+  .rhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .rhead .cnt{font-family:var(--ser);font-size:16px}.rhead .cnt b{color:var(--red)}
+  .sortsel{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  select{background:var(--pnl2);color:var(--ink);border:1px solid var(--line2);border-radius:3px;padding:5px 8px;font-size:12px}
+  .actchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;min-height:4px}
+  .ac{font-size:11px;background:var(--pnl2);border:1px solid var(--line2);border-radius:13px;padding:3px 9px;color:var(--ink);cursor:pointer}
+
+  .lst{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+  @media(max-width:1180px){.lst{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:720px){.lst{grid-template-columns:1fr}}
+  .row{position:relative;display:flex;flex-direction:column;gap:10px;background:var(--pnl);border:1px solid var(--line);border-radius:6px;padding:13px;transition:border-color .15s}
+  .row:hover{border-color:var(--line2)}
+  .chead{display:flex;gap:11px;align-items:flex-start}
+  .cti{flex:1;min-width:0}
+  .wbadge{text-align:right;flex:0 0 auto}
+  .wbadge .pv{font-family:var(--mono);font-size:25px;line-height:1}
+  .wbadge .pl{font-size:9px;letter-spacing:.1em;color:var(--sub)}
+  .wbadge .sub{font-size:9.5px;color:var(--sub);font-family:var(--mono);margin-top:2px}
+  .cfoot{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:9px;margin-top:auto}
+  .rankrow{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--sub)}
+  .rk{width:22px;height:22px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--mut);cursor:pointer}
+  .rk:hover{border-color:var(--ink);color:var(--ink)}
+  .rk.on{font-weight:600}
+  .rk.on.r1{background:#D9A441;border-color:#D9A441;color:#1a1408}
+  .rk.on.r2{background:#B9B5AC;border-color:#B9B5AC;color:#1a1a1a}
+  .rk.on.r3{background:#C08457;border-color:#C08457;color:#1a1008}
+  .pomedal{position:absolute;top:3px;right:3px;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.45)}
+  .pomedal.r1{background:#D9A441;color:#1a1408}.pomedal.r2{background:#B9B5AC;color:#1a1a1a}.pomedal.r3{background:#C08457;color:#1a1008}
+  .podium{display:flex;align-items:center;gap:11px;flex-wrap:wrap;background:var(--pnl);border:1px solid var(--line2);border-radius:5px;padding:9px 13px;margin-bottom:11px;font-size:12px}
+  .podium.hide{display:none}
+  .podium .pl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub)}
+  .podium .pit{display:flex;align-items:center;gap:6px;font-family:var(--ser);font-size:13.5px}
+  .podium .medal{width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600}
+  .podium .m1{background:#D9A441;color:#1a1408}.podium .m2{background:#B9B5AC;color:#1a1a1a}.podium .m3{background:#C08457;color:#1a1008}
+  .podium .x{cursor:pointer;color:var(--sub)}.podium .x:hover{color:var(--red)}
+  .po{width:58px;height:84px;border-radius:2px;background:linear-gradient(150deg,#2a2a30,#161618);position:relative}
+  .po .flag{position:absolute;top:4px;left:4px;font-size:8.5px;font-family:var(--mono);color:var(--ink);background:rgba(0,0,0,.5);padding:0 4px;border-radius:2px}
+  .po .yr{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:9px;color:var(--sub)}
+  .ttl{font-family:var(--ser);font-size:17px;line-height:1.18}
+  .meta{font-size:11px;color:var(--sub);margin-top:2px;display:flex;gap:9px;flex-wrap:wrap}
+  .reasons{margin-top:9px;border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:5px}
+  .reasons .rl{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:1px}
+  .rsn{display:grid;grid-template-columns:14px 1fr 64px 40px;gap:8px;align-items:center}
+  .rsn .d{width:8px;height:8px;border-radius:50%}
+  .rsn .tx{font-size:12px;color:var(--mut)}.rsn .tx b{color:var(--ink);font-weight:500}
+  .rsn .m{font-family:var(--mono);font-size:10.5px;text-align:right}
+  .rsn .bar{height:5px;background:#26262a;overflow:hidden}.rsn .bar>i{display:block;height:100%}
+  .more{font-size:10.5px;color:var(--sub);cursor:pointer;margin-top:2px}
+  .price{border-left:1px solid var(--line);padding-left:13px;display:flex;flex-direction:column;align-items:flex-end}
+  .price .pl{font-size:9px;letter-spacing:.1em;color:var(--sub)}
+  .price .pv{font-family:var(--mono);font-size:28px;line-height:1}
+  .price .sub{font-size:9.5px;color:var(--sub);font-family:var(--mono);margin-top:4px}
+  .availb{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-start}
+  .ab{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:2px;border:1px solid var(--line2);color:var(--sub)}
+  .ab.on{color:#8ee3cc;border-color:#1d5145;background:#0e211c}
+  .ab.exp{color:#e6c884;border-color:#5b481f}
+  .ab.none{color:var(--sub)}
+  .acts{display:flex;gap:6px;margin-top:9px}
+  .act{font-size:10.5px;padding:4px 8px;border-radius:3px;border:1px solid var(--line2);color:var(--mut);cursor:pointer}
+  .act.play:hover{border-color:var(--good);color:#8ee3cc}.act.seen:hover{border-color:var(--ink);color:var(--ink)}
+  .empty{text-align:center;color:var(--sub);padding:40px;font-style:italic}
+  .note{font-size:10.5px;color:var(--sub);font-style:italic;text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">볼 영화 · 워치리스트 분석</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-lock"></i> 비공개 · wonwoo</span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <!-- STREAMING REGISTRATION -->
+  <div class="stream">
+    <div class="sh"><i class="ti ti-device-tv" style="color:var(--good)"></i><span class="t">내 스트리밍 채널</span>
+      <span class="n">지금 볼 수 있는 것 <b id="availN">—</b> / <span id="totalN">—</span>편</span></div>
+    <div class="svcs" id="svcs"></div>
+    <div class="availtoggle" id="availToggle"><span class="sw"></span><span id="atl">내 채널에서 볼 수 있는 것만</span></div>
+  </div>
+
+  <div class="layout">
+    <aside class="side">
+      <div class="fgrp">
+        <h4><i class="ti ti-target-arrow"></i> WWI ≥ <span class="slideval" id="wwiOut">0</span></h4>
+        <input type="range" id="wwiMin" min="0" max="92" step="1" value="0">
+        <h4 style="margin-top:12px"><i class="ti ti-clock"></i> 러닝타임 ≤ <span class="slideval" id="rtOut">300분</span></h4>
+        <input type="range" id="rtMax" min="80" max="300" step="5" value="300">
+      </div>
+      <div class="fgrp"><h4><i class="ti ti-list-search"></i> 추천 이유</h4><div id="fReason" class="rchips"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-world"></i> 국가</h4><div id="fCountry"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-calendar"></i> 연대</h4><div id="fDecade"></div></div>
+    </aside>
+
+    <main>
+      <div class="rhead">
+        <div class="cnt"><b id="rcount">—</b>편 · 평균 WWI <span class="mono" id="ravg">—</span></div>
+        <div class="sortsel"><i class="ti ti-arrows-sort"></i>
+          <select id="sort">
+            <option value="wwi">WWI 높은순</option>
+            <option value="rank">내 순위순</option>
+            <option value="expiry">만료 임박순</option>
+            <option value="discovery">발굴 점수순</option>
+            <option value="runtime">짧은 밤(러닝타임)</option>
+            <option value="recent">최근 추가순</option>
+          </select>
+        </div>
+      </div>
+      <div class="actchips" id="actchips"></div>
+      <div class="podium hide" id="podium"></div>
+      <div class="lst" id="list"></div>
+    </main>
+  </div>
+
+  <div class="note">각 영화의 추천 이유를 <b style="color:var(--ink);font-style:normal">기여도 순</b>으로 펼칩니다 — 안전자산·새로운 도전·도장깨기·공백·Reading·정전·구독 가용이 합쳐져 WWI가 됩니다. 표시 수치는 예시 포트폴리오(wonwoo).</div>
+</div>
+
+<script>
+const RT={safe:["안전자산","#1FB286"],frontier:["새로운 도전","#3E8FE0"],conquer:["도장깨기","#E3120B"],
+ gap:["공백 충족","#C8922B"],reading:["Reading","#9B8CF0"],canon:["정전 위상","#D9A441"],avail:["구독 가용","#2E9E5B"]};
+const DN={mambety:"맘베티",yang:"에드워드 양",tarkovsky:"타르콥스키",kiarostami:"키아로스타미",rocha:"호샤",
+ mizoguchi:"미조구치",bresson:"브레송",erice:"에리세",saura:"사우라",bong:"봉준호"};
+const CON={SN:"세네갈",TW:"대만",SU:"소련/러시아",IR:"이란",BR:"브라질",JP:"일본",FR:"프랑스",ES:"스페인",KR:"한국"};
+const SERVICES=['MUBI','Criterion','Watcha','Netflix','Prime','Wavve'];
+let subscribed=new Set(['MUBI','Criterion','Watcha']);
+let availOnly=false;
+
+const C=[
+ {id:'touki',t:"Touki Bouki",y:1973,d:'mambety',co:'SN',rt:95,dc:94,added:9,
+  avail:[{s:'MUBI',d:5}],reasons:[{ty:'frontier',tx:"가장 먼 신대륙 — 세네갈, 정전 안전망",m:"발굴 94",c:30},{ty:'gap',tx:"아프리카 정전 0% → 첫 진입",m:"+대륙",c:26},{ty:'canon',tx:"S&S 2022 #66",m:"#66",c:18},{ty:'avail',tx:"MUBI에서 지금 — 만료 D-5",m:"D-5",c:14}]},
+ {id:'yiyi',t:"Yi Yi",y:2000,d:'yang',co:'TW',rt:173,dc:38,added:7,
+  avail:[{s:'Criterion'}],reasons:[{ty:'safe',tx:"당신 가족극 군집과 친연",m:"0.91",c:32},{ty:'canon',tx:"BBC 21세기 #8",m:"#8",c:20},{ty:'conquer',tx:"금마장 8% → +1",m:"8%",c:22},{ty:'reading',tx:"정치적 무의식 렌즈",m:"렌즈",c:14},{ty:'avail',tx:"Criterion 상시",m:"상시",c:12}]},
+ {id:'rublev',t:"Andrei Rublev",y:1966,d:'tarkovsky',co:'SU',rt:205,dc:44,added:6,
+  avail:[],reasons:[{ty:'gap',tx:"러시아 정전 공백 충족",m:"+공백",c:28},{ty:'safe',tx:"타르 인접(슬로우) 친연",m:"0.86",c:24},{ty:'canon',tx:"S&S·TSPDT 상위",m:"정전",c:20},{ty:'conquer',tx:"타르콥스키 1/7",m:"1/7",c:14}]},
+ {id:'taste',t:"Taste of Cherry",y:1997,d:'kiarostami',co:'IR',rt:99,dc:46,added:5,
+  avail:[{s:'MUBI'}],reasons:[{ty:'frontier',tx:"이란 뉴웨이브 입문",m:"발굴 46",c:26},{ty:'safe',tx:"절제된 응시 — 당신 시그니처",m:"0.88",c:24},{ty:'canon',tx:"칸 황금종려",m:"팔메",c:20},{ty:'avail',tx:"MUBI 상시",m:"상시",c:12}]},
+ {id:'blackgod',t:"Black God, White Devil",y:1964,d:'rocha',co:'BR',rt:120,dc:88,added:4,
+  avail:[{s:'MUBI',d:12}],reasons:[{ty:'frontier',tx:"Cinema Novo · 라틴 신대륙",m:"발굴 88",c:30},{ty:'gap',tx:"브라질 정전 6% → 진입",m:"+공백",c:24},{ty:'canon',tx:"칸 경쟁",m:"칸",c:14},{ty:'avail',tx:"MUBI 만료 D-12",m:"D-12",c:12}]},
+ {id:'brighter',t:"A Brighter Summer Day",y:1991,d:'yang',co:'TW',rt:237,dc:40,added:8,
+  avail:[{s:'Criterion'}],reasons:[{ty:'safe',tx:"에드워드 양 — 당신 신뢰 감독",m:"0.90",c:30},{ty:'conquer',tx:"금마장 + 양더창 2편째",m:"2편째",c:20},{ty:'canon',tx:"TSPDT #97",m:"#97",c:20},{ty:'reading',tx:"정치적 무의식",m:"렌즈",c:14},{ty:'avail',tx:"Criterion 상시",m:"상시",c:12}]},
+ {id:'sansho',t:"Sansho the Bailiff",y:1954,d:'mizoguchi',co:'JP',rt:124,dc:36,added:3,
+  avail:[{s:'Criterion'}],reasons:[{ty:'gap',tx:"블라인드 거장 미조구치 첫 편",m:"+거장",c:28},{ty:'safe',tx:"「무력한 목격자」 트로프 공유",m:"트로프",c:22},{ty:'canon',tx:"S&S·키네마준보",m:"정전",c:20},{ty:'avail',tx:"Criterion 상시",m:"상시",c:12}]},
+ {id:'largent',t:"L'Argent",y:1983,d:'bresson',co:'FR',rt:85,dc:30,added:9,
+  avail:[{s:'Criterion'}],reasons:[{ty:'conquer',tx:"브레송 도장깨기 — 1편 남음!",m:"5/6",c:32},{ty:'safe',tx:"당신 9★ 군집 직속",m:"0.96",c:28},{ty:'canon',tx:"칸·TSPDT",m:"정전",c:14},{ty:'avail',tx:"Criterion 상시",m:"상시",c:12}]},
+ {id:'stalker',t:"Stalker",y:1979,d:'tarkovsky',co:'SU',rt:162,dc:42,added:7,
+  avail:[{s:'MUBI'}],reasons:[{ty:'gap',tx:"존재론 렌즈 0편 → 정점",m:"+렌즈",c:28},{ty:'safe',tx:"슬로우 시네마 친연",m:"0.85",c:22},{ty:'canon',tx:"S&S·TSPDT",m:"정전",c:20},{ty:'avail',tx:"MUBI 상시",m:"상시",c:12}]},
+ {id:'closeup',t:"Close-Up",y:1990,d:'kiarostami',co:'IR',rt:98,dc:44,added:4,
+  avail:[{s:'MUBI'}],reasons:[{ty:'frontier',tx:"이란 뉴웨이브 정점",m:"발굴 44",c:26},{ty:'canon',tx:"S&S 2022 상위",m:"정전",c:22},{ty:'reading',tx:"수용·자기지시 렌즈",m:"렌즈",c:14},{ty:'avail',tx:"MUBI 상시",m:"상시",c:12}]},
+ {id:'spirit',t:"The Spirit of the Beehive",y:1973,d:'erice',co:'ES',rt:97,dc:42,added:5,
+  avail:[{s:'Criterion',d:8}],reasons:[{ty:'safe',tx:"「유년의 응시」 트로프 공유",m:"0.83",c:24},{ty:'gap',tx:"스페인 정전 진입",m:"+공백",c:22},{ty:'canon',tx:"TSPDT·S&S",m:"정전",c:20},{ty:'avail',tx:"Criterion D-8",m:"D-8",c:12}]},
+ {id:'memories',t:"Memories of Murder",y:2003,d:'bong',co:'KR',rt:131,dc:32,added:8,
+  avail:[{s:'Watcha'},{s:'Wavve'}],reasons:[{ty:'safe',tx:"봉준호 계보 — 보유 9★",m:"0.92",c:30},{ty:'conquer',tx:"봉준호 1/7 → 보강",m:"1/7",c:20},{ty:'avail',tx:"왓챠·웨이브 둘 다",m:"2채널",c:16},{ty:'canon',tx:"TSPDT",m:"정전",c:14}]},
+];
+C.forEach(f=>f.wwi=Math.min(95,f.reasons.reduce((s,r)=>s+r.c,0)));
+
+let st={wwiMin:0,rtMax:300,reasons:new Set(),cos:new Set(),decades:new Set(),sort:'wwi',expand:new Set()};
+let ranks={};  // filmId -> 1|2|3 (unique podium: one film per rank, one rank per film)
+function setRank(id,n){
+ if(ranks[id]===n){delete ranks[id];}
+ else{for(const k in ranks)if(ranks[k]===n)delete ranks[k]; delete ranks[id]; ranks[id]=n;}
+ renderAll();
+}
+const decadeOf=y=>Math.floor(y/10)*10;
+function availableToMe(f){return f.avail.some(a=>subscribed.has(a.s));}
+function pass(f){
+ if(f.wwi<st.wwiMin||f.rt>st.rtMax)return false;
+ if(availOnly&&!availableToMe(f))return false;
+ if(st.reasons.size&&!f.reasons.some(r=>st.reasons.has(r.ty)))return false;
+ if(st.cos.size&&!st.cos.has(f.co))return false;
+ if(st.decades.size&&!st.decades.has(decadeOf(f.y)))return false;
+ return true;
+}
+function minExpiry(f){const xs=f.avail.filter(a=>subscribed.has(a.s)&&a.d!=null).map(a=>a.d);return xs.length?Math.min(...xs):999;}
+function sortFn(a,b){switch(st.sort){
+ case'rank':return (ranks[a.id]||9)-(ranks[b.id]||9)||b.wwi-a.wwi;
+ case'expiry':return minExpiry(a)-minExpiry(b)||b.wwi-a.wwi;
+ case'discovery':return b.dc-a.dc;case'runtime':return a.rt-b.rt;case'recent':return b.added-a.added;
+ default:return b.wwi-a.wwi;}}
+function countBy(fn){const m={};C.forEach(f=>{const k=fn(f);(Array.isArray(k)?k:[k]).forEach(x=>m[x]=(m[x]||0)+1);});return m;}
+function optRow(l,c,on){return `<span class="bx">${on?'<i class="ti ti-check"></i>':''}</span><span>${l}</span><span class="ct">${c}</span>`;}
+
+function renderStream(){
+ document.getElementById('svcs').innerHTML=SERVICES.map(s=>{const n=C.filter(f=>f.avail.some(a=>a.s===s)).length;
+   return `<span class="svc ${subscribed.has(s)?'on':''}" data-svc="${s}"><span class="dot"></span>${s} <span style="color:var(--sub);font-family:var(--mono);font-size:10px">${n}</span></span>`;}).join('');
+ const an=C.filter(availableToMe).length;
+ document.getElementById('availN').textContent=an;document.getElementById('totalN').textContent=C.length;
+ document.getElementById('availToggle').classList.toggle('on',availOnly);
+}
+function renderFacets(){
+ fReason.innerHTML=Object.keys(RT).map(t=>{const n=C.filter(f=>f.reasons.some(r=>r.ty===t)).length;
+   return `<span class="rchip ${st.reasons.has(t)?'on':''}" data-r="${t}" style="${st.reasons.has(t)?`border-color:${RT[t][1]}`:''}"><span class="d" style="background:${RT[t][1]}"></span>${RT[t][0]} ${n}</span>`;}).join('');
+ const cm=countBy(f=>f.co);
+ fCountry.innerHTML=Object.entries(cm).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`<div class="opt ${st.cos.has(c)?'on':''}" data-co="${c}">${optRow(CON[c],n,st.cos.has(c))}</div>`).join('');
+ const dm=countBy(f=>decadeOf(f.y));
+ fDecade.innerHTML=Object.keys(dm).sort((a,b)=>b-a).map(d=>`<div class="opt ${st.decades.has(+d)?'on':''}" data-dec="${d}">${optRow(d.slice(0,4)+'년대',dm[d],st.decades.has(+d))}</div>`).join('');
+}
+function availBadges(f){
+ if(!f.avail.length)return '<span class="ab none">구독 없음 · 구매</span>';
+ return f.avail.map(a=>{const sub=subscribed.has(a.s);const exp=a.d!=null;
+   return `<span class="ab ${sub?(exp?'exp':'on'):''}">${a.s}${exp?` D-${a.d}`:''}</span>`;}).join('');
+}
+function renderList(){
+ const out=C.filter(pass).sort(sortFn);
+ rcount.textContent=out.length;ravg.textContent=out.length?Math.round(out.reduce((s,f)=>s+f.wwi,0)/out.length):'—';
+ if(!out.length){list.innerHTML='<div class="empty">조건에 맞는 후보가 없습니다 — 필터나 채널을 조정하세요.</div>';return;}
+ list.innerHTML=out.map(f=>{
+   const rs=f.reasons.slice().sort((a,b)=>b.c-a.c);const exp=st.expand.has(f.id);const show=exp?rs:rs.slice(0,3);const mx=Math.max(...rs.map(r=>r.c));
+   const rrows=show.map(r=>`<div class="rsn"><span class="d" style="background:${RT[r.ty][1]}"></span>
+     <span class="tx"><b style="color:${RT[r.ty][1]}">${RT[r.ty][0]}</b> · ${r.tx}</span>
+     <span class="m" style="color:${RT[r.ty][1]}">${r.m}</span>
+     <span class="bar"><i style="width:${Math.round(r.c/mx*100)}%;background:${RT[r.ty][1]}"></i></span></div>`).join('');
+   return `<div class="row">
+     <div class="chead">
+       <div class="po"><span class="flag">${f.co}</span>${ranks[f.id]?`<span class="pomedal r${ranks[f.id]}">${ranks[f.id]}</span>`:''}<span class="yr">${f.y}</span></div>
+       <div class="cti"><div class="ttl">${f.t}</div><div class="meta"><span>${DN[f.d]}</span><span>${CON[f.co]}</span><span>${f.rt}분</span></div></div>
+       <div class="wbadge"><div class="pv" style="color:${f.wwi>=85?'var(--red)':'var(--ink)'}">${f.wwi}</div><div class="pl">WWI</div><div class="sub">발굴 ${f.dc}</div></div>
+     </div>
+     <div class="reasons"><div class="rl">왜 추천되었나 · 기여도 순</div>${rrows}
+       ${rs.length>3?`<span class="more" data-exp="${f.id}">${exp?'접기':'+ '+(rs.length-3)+'개 이유 더'}</span>`:''}</div>
+     <div class="cfoot">
+       <div class="rankrow"><span>순위</span>
+         <span class="rk ${ranks[f.id]===1?'on r1':''}" data-rank="${f.id}|1">1</span>
+         <span class="rk ${ranks[f.id]===2?'on r2':''}" data-rank="${f.id}|2">2</span>
+         <span class="rk ${ranks[f.id]===3?'on r3':''}" data-rank="${f.id}|3">3</span></div>
+       <div class="availb">${availBadges(f)}</div>
+       <div class="acts"><span class="act play"><i class="ti ti-player-play"></i> 지금 보기</span><span class="act seen" style="cursor:pointer" onclick="location.href='mockup-me-collection-list-v2.html'" title="보유 리스트로 승격">봤어요</span></div>
+     </div></div>`;}).join('');
+}
+function renderChips(){
+ const c=[];if(st.wwiMin>0)c.push(['wwiMin','WWI ≥ '+st.wwiMin]);if(st.rtMax<300)c.push(['rtMax','≤ '+st.rtMax+'분']);
+ if(availOnly)c.push(['availOnly','내 채널 가용만']);
+ st.reasons.forEach(r=>c.push(['reasons:'+r,RT[r][0]]));st.cos.forEach(x=>c.push(['cos:'+x,CON[x]]));st.decades.forEach(d=>c.push(['decades:'+d,d+'년대']));
+ actchips.innerHTML=c.length?c.map(([id,l])=>`<span class="ac" data-id="${id}">${l} <i class="ti ti-x"></i></span>`).join('')+`<span class="ac" data-id="__all" style="color:var(--red)">전체 해제</span>`:'';
+ actchips.querySelectorAll('.ac').forEach(el=>el.onclick=()=>{const id=el.dataset.id;
+   if(id==='__all'){st.wwiMin=0;st.rtMax=300;st.reasons.clear();st.cos.clear();st.decades.clear();availOnly=false;
+     wwiMin.value=0;rtMax.value=300;wwiOut.textContent='0';rtOut.textContent='300분';renderAll();return;}
+   if(id==='wwiMin'){st.wwiMin=0;wwiMin.value=0;wwiOut.textContent='0';}
+   else if(id==='rtMax'){st.rtMax=300;rtMax.value=300;rtOut.textContent='300분';}
+   else if(id==='availOnly'){availOnly=false;}
+   else{const[g,k]=id.split(/:(.+)/);st[g].delete(g==='decades'?+k:k);}renderAll();});
+}
+function renderPodium(){
+ const p=document.getElementById('podium');
+ const entries=[1,2,3].map(n=>{const id=Object.keys(ranks).find(k=>ranks[k]===n);return id?[n,C.find(f=>f.id===id)]:null;}).filter(Boolean);
+ if(!entries.length){p.className='podium hide';p.innerHTML='';return;}
+ p.className='podium';
+ p.innerHTML='<span class="pl">내 순위</span>'+entries.map(([n,f])=>`<span class="pit"><span class="medal m${n}">${n}</span>${f.t}<i class="ti ti-x x" data-unrank="${f.id}"></i></span>`).join('');
+}
+function renderAll(){renderStream();renderFacets();renderPodium();renderList();renderChips();}
+
+document.addEventListener('click',e=>{
+ const rk=e.target.closest('[data-rank]');if(rk){const [id,n]=rk.dataset.rank.split('|');setRank(id,+n);return;}
+ const ur=e.target.closest('[data-unrank]');if(ur){delete ranks[ur.dataset.unrank];renderAll();return;}
+ const sv=e.target.closest('[data-svc]');if(sv){const s=sv.dataset.svc;subscribed.has(s)?subscribed.delete(s):subscribed.add(s);renderAll();return;}
+ const rr=e.target.closest('[data-r]');if(rr){const t=rr.dataset.r;st.reasons.has(t)?st.reasons.delete(t):st.reasons.add(t);renderAll();return;}
+ const co=e.target.closest('[data-co]');if(co){const k=co.dataset.co;st.cos.has(k)?st.cos.delete(k):st.cos.add(k);renderAll();return;}
+ const de=e.target.closest('[data-dec]');if(de){const k=+de.dataset.dec;st.decades.has(k)?st.decades.delete(k):st.decades.add(k);renderAll();return;}
+ const ex=e.target.closest('[data-exp]');if(ex){const id=ex.dataset.exp;st.expand.has(id)?st.expand.delete(id):st.expand.add(id);renderList();return;}
+});
+document.getElementById('availToggle').onclick=()=>{availOnly=!availOnly;renderAll();};
+wwiMin.oninput=e=>{st.wwiMin=+e.target.value;wwiOut.textContent=e.target.value;renderAll();};
+rtMax.oninput=e=>{st.rtMax=+e.target.value;rtOut.textContent=e.target.value+'분';renderAll();};
+sort.onchange=e=>{st.sort=e.target.value;renderList();};
+renderAll();
+</script>
+</body>
+</html>

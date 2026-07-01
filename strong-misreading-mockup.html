@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strong Misreadings — 목업</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fff; --surface-2:#F2F2F2; --ink:#0D0D0D; --ink-soft:#1F1F1F;
+    --muted:#6B6B6B; --subtle:#8F8F8F; --hairline:#D8D8D8; --hairline-2:#B9B9B9;
+    --accent:#E3120B; --accent-hover:#B80D05;
+    --font-display:"PT Serif",Georgia,serif; --font-body:"PT Serif",Georgia,serif;
+    --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --wrap-x:clamp(16px,5vw,26px);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);
+    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .ui{font-family:var(--font-ui)}
+  /* ---- top nav ---- */
+  .nav{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--hairline);
+    padding:12px var(--wrap-x);font-family:var(--font-ui);font-size:13px;position:sticky;top:0;background:#fff;z-index:20}
+  .nav .brand{font-family:var(--font-display);font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .nav nav{display:flex;gap:14px;flex-wrap:wrap}
+  .nav nav a{color:var(--muted);padding:2px 0;border-bottom:2px solid transparent;white-space:nowrap}
+  .nav nav a:hover{color:var(--ink)}
+  .nav nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .nav .right{margin-left:auto;color:var(--subtle);display:flex;gap:12px;align-items:center}
+  .nav .right input{font-family:var(--font-ui);font-size:12.5px;border:1px solid var(--hairline);
+    padding:5px 9px;width:130px;background:#fff}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 var(--wrap-x)}
+  .view{display:none}
+  .view.on{display:block}
+  /* ================= HUB ================= */
+  .hub-head{padding:34px 0 8px}
+  .hub-h1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5vw,46px);
+    line-height:1.08;margin:0 0 14px;letter-spacing:-.015em}
+  .hub-def{font-size:clamp(16px,2vw,18px);color:var(--ink-soft);max-width:62ch;margin:0 0 6px}
+  .hub-def .term{color:var(--accent);font-style:italic}
+  .hub-sub{font-family:var(--font-ui);font-size:13px;color:var(--subtle);max-width:64ch;margin:8px 0 0}
+  .hub-search{display:flex;gap:8px;align-items:center;margin:22px 0 6px;max-width:560px}
+  .hub-search input{flex:1;font-family:var(--font-ui);font-size:14px;border:1px solid var(--hairline-2);
+    padding:11px 13px;background:#fff}
+  .hub-search .go{font-family:var(--font-ui);font-size:13px;font-weight:600;color:#fff;background:var(--ink);
+    border:none;padding:11px 16px;cursor:pointer}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:14px;margin:18px 0 60px}
+  .card{position:relative;border:1px solid var(--hairline);padding:16px 16px 14px 19px;cursor:pointer;
+    background:#fff;transition:border-color .12s, transform .12s}
+  .card:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .card .bar{position:absolute;left:0;top:0;bottom:0;width:4px}
+  .card .fam{font-family:var(--font-ui);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle)}
+  .card h3{font-family:var(--font-display);font-weight:700;font-size:20px;margin:5px 0 6px;line-height:1.12}
+  .card p{font-size:14px;color:var(--muted);margin:0 0 12px;line-height:1.42;min-height:40px}
+  .card .nums{font-family:var(--font-ui);font-size:12px;color:var(--ink-soft);display:flex;gap:14px;
+    border-top:1px solid var(--hairline);padding-top:9px}
+  .card .nums b{font-weight:600}
+  .card.invite{border-style:dashed;background:#FAFAF8}
+  .fam-legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--font-ui);font-size:12px;color:var(--muted);margin:4px 0 0}
+  .fam-legend span{display:inline-flex;align-items:center;gap:6px}
+  .fam-legend i{width:11px;height:11px;display:inline-block;border-radius:50%}
+  /* ================= FRAMEWORK PAGE ================= */
+  .crumb{font-family:var(--font-ui);font-size:12.5px;color:var(--muted);padding:20px 0 0}
+  .crumb a{color:var(--accent)}
+  .fh{display:flex;gap:16px;padding:12px 0 6px;border-bottom:1px solid var(--hairline);margin-bottom:6px}
+  .fh .cbar{width:6px;flex:none;align-self:stretch}
+  .fh .fam{font-family:var(--font-ui);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle)}
+  .fh h1{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4vw,40px);margin:6px 0 4px;line-height:1.05}
+  .fh .short{font-size:17px;color:var(--ink-soft);font-style:italic;margin:0 0 8px}
+  .fh .gloss{font-size:14.5px;color:var(--muted);max-width:64ch;margin:0;line-height:1.5}
+  .stats{display:flex;gap:26px;font-family:var(--font-ui);margin:14px 0 4px}
+  .stats .s b{font-size:24px;font-weight:600;display:block;line-height:1}
+  .stats .s span{font-size:12px;color:var(--subtle);text-transform:uppercase;letter-spacing:.04em}
+  /* search bar */
+  .sbar{border:1px solid var(--hairline-2);margin:18px 0 0;background:#fff}
+  .sbar .row1{display:flex;gap:0;align-items:stretch}
+  .sbar input{flex:1;border:none;font-family:var(--font-ui);font-size:15px;padding:13px 15px;background:transparent}
+  .sbar input:focus{outline:none}
+  .sbar .clr{border:none;background:none;color:var(--subtle);font-size:18px;cursor:pointer;padding:0 12px}
+  .modes{display:flex;gap:0;border-top:1px solid var(--hairline);font-family:var(--font-ui);font-size:12.5px}
+  .modes button{flex:1;border:none;background:#fff;padding:9px 8px;cursor:pointer;color:var(--muted);
+    border-right:1px solid var(--hairline);display:flex;flex-direction:column;align-items:center;gap:2px}
+  .modes button:last-child{border-right:none}
+  .modes button.on{background:var(--ink);color:#fff}
+  .modes button small{font-size:10.5px;opacity:.7;font-weight:400}
+  .modes button.on small{opacity:.85}
+  /* controls */
+  .ctrls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-family:var(--font-ui);font-size:12.5px;
+    color:var(--muted);margin:14px 0 4px}
+  .ctrls select{font-family:var(--font-ui);font-size:12.5px;border:1px solid var(--hairline);padding:5px 7px;background:#fff}
+  .ctrls .seg{display:inline-flex;border:1px solid var(--hairline)}
+  .ctrls .seg button{border:none;background:#fff;padding:5px 10px;cursor:pointer;color:var(--muted);font-size:12px}
+  .ctrls .seg button.on{background:var(--ink);color:#fff}
+  .count{margin-left:auto;color:var(--subtle)}
+  /* list */
+  .list{list-style:none;margin:14px 0 18px;padding:0;border-top:1px solid var(--hairline)}
+  .item{border-bottom:1px solid var(--hairline);padding:15px 0;display:grid;
+    grid-template-columns:1fr auto;gap:4px 16px;cursor:pointer}
+  .item:hover{background:#FCFBF9}
+  .item .ttl{font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1.22;margin:0}
+  .item .meta{font-family:var(--font-ui);font-size:12.5px;color:var(--muted);margin:5px 0 0;display:flex;
+    flex-wrap:wrap;gap:4px 10px}
+  .item .meta .film{color:var(--ink-soft);font-weight:500}
+  .item .meta .fig{color:var(--muted)}
+  .item .prev{font-size:14px;color:var(--muted);margin:8px 0 0;line-height:1.45;
+    max-width:78ch;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .item.open .prev{-webkit-line-clamp:unset;overflow:visible}
+  .item .right{grid-row:1/4;align-self:start;text-align:right;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+  .chip{font-family:var(--font-ui);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;
+    padding:3px 8px;color:#fff;white-space:nowrap}
+  .badge{font-family:var(--font-ui);font-size:11px;color:var(--muted);border:1px solid var(--hairline);padding:2px 7px;white-space:nowrap}
+  .badge.sim{color:#2E7D4F;border-color:#bcdcc7;background:#f3faf5}
+  .badge.hit{color:var(--accent);border-color:#f0c3c1;background:#fdf3f3}
+  .conf{font-family:var(--font-ui);font-size:11px;color:var(--subtle)}
+  .expand-hint{font-family:var(--font-ui);font-size:11px;color:var(--accent);margin-top:6px;display:none}
+  .item:hover .expand-hint{display:block}
+  .thumb{width:46px;height:64px;background:var(--surface-2);flex:none;
+    display:flex;align-items:center;justify-content:center;color:var(--hairline-2);font-size:10px;font-family:var(--font-ui)}
+  /* compact */
+  .list.compact .prev,.list.compact .thumb,.list.compact .expand-hint{display:none}
+  .list.compact .item{padding:9px 0}
+  .list.compact .meta{margin-top:2px}
+  /* related */
+  .related{margin:30px 0 60px;border-top:1px solid var(--hairline);padding-top:18px}
+  .related h4{font-family:var(--font-ui);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--subtle);margin:0 0 12px}
+  .related .rg{display:flex;gap:10px;flex-wrap:wrap}
+  .related .rc{border:1px solid var(--hairline);padding:9px 13px 9px 15px;position:relative;cursor:pointer;min-width:170px}
+  .related .rc:hover{border-color:var(--ink)}
+  .related .rc .bar{position:absolute;left:0;top:0;bottom:0;width:3px}
+  .related .rc b{font-family:var(--font-display);font-size:15px;display:block}
+  .related .rc span{font-family:var(--font-ui);font-size:11.5px;color:var(--muted)}
+  .empty{font-family:var(--font-ui);color:var(--subtle);padding:26px 0;text-align:center}
+  .note{font-family:var(--font-ui);font-size:11px;color:var(--subtle);background:#FAFAF8;border:1px dashed var(--hairline-2);
+    padding:7px 11px;margin:14px 0 0;display:inline-block}
+  @media(max-width:600px){
+    .item{grid-template-columns:1fr}
+    .item .right{grid-row:auto;text-align:left;flex-direction:row;flex-wrap:wrap;align-items:center}
+    .nav .right{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a class="brand" href="#" onclick="show('hub');return false">metatake</a>
+  <nav>
+    <a class="active" href="#" onclick="show('hub');return false">Strong Misreadings</a>
+    <a>💬 Chat</a><a>Latest</a><a>Trending</a><a>Films</a><a>Directors</a><a>Tropes</a><a>Concepts</a><a>Blog</a>
+  </nav>
+  <span class="right ui"><input placeholder="Search…" disabled> ◇ ☰</span>
+</div>
+
+<!-- ================= HUB ================= -->
+<div id="hub" class="view on">
+  <div class="wrap">
+    <div class="hub-head">
+      <h1 class="hub-h1">Strong Misreadings</h1>
+      <p class="hub-def">한 영화가 얻어낸 <span class="term">대담한 한 줄의 독해</span> — 그 의미가
+        어떤 렌즈로 길어 올려졌는지에 따라 14개의 코드 중 하나로 분류된다. 관심 있는 렌즈 하나를 골라,
+        그 렌즈가 영화들을 가로질러 어떻게 되돌아오는지 본다.</p>
+      <p class="hub-sub">A strong misreading은 작품의 빤한 뜻을 충실히 복원하기보다 새로운 의미를 비틀어 얻어낸다.
+        아래 14개는 그 비틀기의 방식들이다.</p>
+      <div class="hub-search ui">
+        <input placeholder="모든 readings에서 검색 — 키워드 또는 비슷한 의미…">
+        <button class="go">검색</button>
+      </div>
+      <div class="fam-legend ui" id="legend"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<!-- ================= FRAMEWORK PAGE ================= -->
+<div id="fw" class="view">
+  <div class="wrap">
+    <div class="crumb ui"><a href="#" onclick="show('hub');return false">Strong Misreadings</a> › <span id="fwCrumb"></span></div>
+    <div class="fh">
+      <div class="cbar" id="fwBar"></div>
+      <div>
+        <div class="fam ui" id="fwFam"></div>
+        <h1 id="fwTitle"></h1>
+        <p class="short" id="fwShort"></p>
+        <p class="gloss" id="fwGloss"></p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="s ui"><b id="stReadings">—</b><span>readings</span></div>
+      <div class="s ui"><b id="stFilms">—</b><span>films</span></div>
+      <div class="s ui"><b id="stDirs">—</b><span>directors</span></div>
+    </div>
+
+    <!-- dual search -->
+    <div class="sbar">
+      <div class="row1">
+        <input id="q" class="ui" placeholder="이 렌즈 안에서 검색…">
+        <button class="clr ui" onclick="document.getElementById('q').value='';render()">×</button>
+      </div>
+      <div class="modes ui" id="modes">
+        <button data-m="hybrid" class="on">하이브리드<small>전문+유사 병합</small></button>
+        <button data-m="text">정확히 일치<small>키워드 · 오타허용</small></button>
+        <button data-m="semantic">비슷한 의미<small>임베딩 유사도</small></button>
+      </div>
+    </div>
+
+    <div class="ctrls ui">
+      <span>정렬</span>
+      <select id="sort" onchange="render()">
+        <option value="film">영화 제목 A–Z</option>
+        <option value="year">개봉연도</option>
+        <option value="dir">감독</option>
+        <option value="conf">confidence</option>
+      </select>
+      <span class="seg" id="density">
+        <button data-d="comfortable" class="on">Comfortable</button>
+        <button data-d="compact">Compact</button>
+      </span>
+      <span class="count" id="count"></span>
+    </div>
+
+    <ul class="list" id="list"></ul>
+    <div class="note ui">목업 — 검색·정렬은 샘플 데이터로 실제 동작합니다. "비슷한 의미"는 임베딩 유사도를 흉내 낸 점수로 표시됩니다.</div>
+
+    <div class="related">
+      <h4 class="ui">같은 family의 다른 렌즈</h4>
+      <div class="rg" id="related"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---- 14 frameworks (lib/frameworks.ts와 동일) ---- */
+const FAMILIES = {
+  interpretation:"Reading from within", form:"Form, making & context",
+  mind:"Mind, ethics & politics", parallel:"Existential parallels", title:"Title & invitation"
+};
+const FAM_COLOR = {interpretation:"#3E6DB5",form:"#2E8B7A",mind:"#A8434F",parallel:"#A9743B",title:"#8A6D3B"};
+const FW = [
+  {key:"phenomenon-noumenon",label:"Phenomenon → Noumenon",short:"표면 디테일에서 그것이 누설하는 사물 자체로.",family:"interpretation",color:"#3E6DB5",n:1180,films:880},
+  {key:"noumenon",label:"Noumenon",short:"영화가 은밀히 실재로 여기는 숨은 존재론.",family:"interpretation",color:"#5B4DAF",n:640,films:520},
+  {key:"signifier-signified",label:"Signifier → Signified",short:"기호를, 그것이 나르는 의미로 읽기.",family:"interpretation",color:"#2E86C1",n:1520,films:1090},
+  {key:"enigma",label:"Enigma",short:"풀리길 거부하는 디테일을 단서로.",family:"interpretation",color:"#5C6BC0",n:870,films:700},
+  {key:"process",label:"Process",short:"만들어진 방식을 의미로.",family:"form",color:"#2E8B7A",n:540,films:470},
+  {key:"location",label:"Location",short:"실제 장소, 그곳에서 찍는다는 것.",family:"form",color:"#2E7D5B",n:610,films:520},
+  {key:"context",label:"Context",short:"그것을 빚은 제작 환경.",family:"form",color:"#4E8C3F",n:720,films:610},
+  {key:"metacritic",label:"Metacritic",short:"그 수용사, 그리고 그것이 된 논쟁.",family:"form",color:"#159A8A",n:430,films:380},
+  {key:"psychoanalytic",label:"Psychoanalytic",short:"욕망 · 억압 · 영화의 무의식.",family:"mind",color:"#A8434F",n:1340,films:980},
+  {key:"ethical-philosophical",label:"Ethical–Philosophical",short:"그것이 거는 도덕 · 철학적 내기.",family:"mind",color:"#7E57C2",n:1110,films:860},
+  {key:"ethico-political",label:"Ethico-Political",short:"그것이 드러내는 정치적 판돈.",family:"mind",color:"#C0392B",n:900,films:720},
+  {key:"persona-parallel",label:"Persona Parallel",short:"한 인물을 한 실재 인물 곁에.",family:"parallel",color:"#A9743B",n:480,films:430},
+  {key:"juxtaposition",label:"Juxtaposition",short:"영화를, 결코 호명하지 않는 실제 삶 곁에.",family:"parallel",color:"#B8860B",n:560,films:500},
+  {key:"title",label:"Title",short:"제목을, 그것이 숨긴 뉘앙스로.",family:"title",color:"#8A6D3B",n:390,films:360},
+];
+const INVITE = {key:"invitation",label:"Invitation",short:"스포일러 없는 입구.",family:"title",color:"#444",n:2100,films:1400};
+
+/* ---- sample readings (Psychoanalytic) ---- */
+const READINGS = [
+  {t:"엄마의 부재가 욕망의 문법을 다시 쓴다",film:"Psycho",year:1960,dir:"Alfred Hitchcock",fig:"계단 위 어머니의 의자",conf:.91,
+   r:"노먼이 어머니의 목소리로 말할 때, 영화는 억압된 것이 결코 사라지지 않고 타인의 입을 빌려 돌아온다는 정신분석의 명제를 무대 위에 올린다. 의자는 비어 있으나 그 빈자리가 모든 행동을 지휘한다."},
+  {t:"회전하는 카메라는 응시의 불가능을 연기한다",film:"Vertigo",year:1958,dir:"Alfred Hitchcock",fig:"종탑 나선 계단",conf:.88,
+   r:"스코티의 현기증은 대상을 소유하려는 응시가 끝내 자기 자신에게로 추락하는 구조를 드러낸다. 나선은 욕망이 결코 목표에 도달하지 못하고 자기 주위를 맴도는 운동의 도형이다."},
+  {t:"거울 단계가 욕조 물 위에서 반복된다",film:"Black Swan",year:2010,dir:"Darren Aronofsky",fig:"분장실 거울의 균열",conf:.84,
+   r:"니나가 거울 속 자신을 타자로 오인하는 순간, 라캉의 거울 단계가 성인의 신체 위에서 파국적으로 재상연된다. 균열은 자아 이상과 실제 신체 사이의 봉합이 풀리는 지점이다."},
+  {t:"아버지의 이름은 전화선을 타고 도착한다",film:"The Conversation",year:1974,dir:"Francis Ford Coppola",fig:"도청 테이프의 잡음",conf:.79,
+   r:"해리가 듣지 못하는 한 문장이 그의 죄의식 전체를 조직한다. 들리지 않는 그 말이야말로 상징계가 주체에게 부과하는 금지의 자리, 곧 아버지의 이름이 머무는 공백이다."},
+  {t:"욕망은 늘 타자의 욕망을 욕망한다",film:"Phantom Thread",year:2017,dir:"Paul Thomas Anderson",fig:"드레스 안단에 꿰맨 메시지",conf:.86,
+   r:"레이놀즈가 독버섯을 먹는 쪽을 택할 때, 그는 자신의 욕망이 아니라 그를 무력하게 만드는 타자의 욕망에 자신을 내어준다. 바느질된 글귀는 그 종속의 계약서다."},
+  {t:"꿈 작업은 호텔 복도에서 압축된다",film:"The Shining",year:1980,dir:"Stanley Kubrick",fig:"237호실 문",conf:.82,
+   r:"오버룩 호텔의 불가능한 공간 배치는 꿈의 압축과 전치를 건축으로 번역한다. 문 너머의 장면은 해석을 요구하면서 동시에 거부하는, 전형적인 꿈-이미지다."},
+  {t:"증상은 반복되는 손 씻기로 말한다",film:"The Piano Teacher",year:2001,dir:"Michael Haneke",fig:"면도날과 세면대",conf:.80,
+   r:"에리카의 자해는 처벌이자 향유다. 정신분석이 증상이라 부르는 것 — 고통 속에 깃든 만족 — 이 욕실의 사적 의례 안에서 가장 또렷하게 드러난다."},
+  {t:"전이는 분석실 밖에서 일어난다",film:"A Dangerous Method",year:2011,dir:"David Cronenberg",fig:"매질에 쓰인 허리띠",conf:.77,
+   r:"슈필라인과 융의 관계는 치료가 전이를 통제할 수 있다는 믿음이 어떻게 무너지는지를 보여준다. 허리띠는 지식과 욕망이 결코 분리되지 않는다는 증거물이다."},
+  {t:"억압된 유년은 빨간 코트로 귀환한다",film:"Don't Look Now",year:1973,dir:"Nicolas Roeg",fig:"베네치아 운하의 붉은 형상",conf:.85,
+   r:"존이 딸의 죽음을 애도하지 못한 채 베네치아를 헤맬 때, 붉은 코트는 애도의 실패가 만들어내는 환각이다. 억압된 것은 늘 잘못된 장소에서 잘못된 형태로 돌아온다."},
+  {t:"오이디푸스적 삼각형이 식탁에 차려진다",film:"Festen",year:1998,dir:"Thomas Vinterberg",fig:"생일 만찬의 건배사",conf:.81,
+   r:"크리스티안의 폭로는 가족이라는 상징 질서가 어떤 외상 위에 세워졌는지를 드러낸다. 건배의 형식이 금지된 진실을 말할 수 있게 하는 유일한 통로가 된다."},
+  {t:"분신은 엘리베이터에서 마주친다",film:"Enemy",year:2013,dir:"Denis Villeneuve",fig:"천장의 거미",conf:.78,
+   r:"두 인물이 한 배우라는 사실은 자아가 결코 단일하지 않다는 것을 형식 자체로 증명한다. 거미는 주체를 옭아매는 어머니-타자의 형상으로 미끄러진다."},
+  {t:"물신은 발목의 사슬로 반짝인다",film:"Belle de Jour",year:1967,dir:"Luis Buñuel",fig:"마차의 방울 소리",conf:.83,
+   r:"세브린의 환상은 현실과 구별되지 않게 편집되어, 욕망이 어떻게 금지를 우회해 스스로를 무대화하는지 보여준다. 방울 소리는 환상의 막이 오를 때마다 울린다."},
+];
+
+/* ---- naive 'semantic' sim: keyword overlap weighting ---- */
+function simScore(q, item){
+  if(!q) return 0;
+  const toks = q.toLowerCase().split(/\s+/).filter(Boolean);
+  const hay = (item.t+" "+item.r+" "+item.film+" "+item.dir).toLowerCase();
+  let s=0; toks.forEach(tk=>{ if(hay.includes(tk)) s+=1; });
+  // pseudo cosine: base on overlap + a stable jitter per item so it always returns ranked list
+  const base = 0.55 + (item.conf-0.77)*0.6;
+  return Math.min(0.97, base + s*0.12);
+}
+function textHit(q,item){
+  if(!q) return null;
+  const ql=q.toLowerCase();
+  if(item.t.toLowerCase().includes(ql)) return "제목 일치";
+  if(item.film.toLowerCase().includes(ql)) return "영화 일치";
+  if(item.dir.toLowerCase().includes(ql)) return "감독 일치";
+  if(item.r.toLowerCase().includes(ql)) return "본문 일치";
+  return null;
+}
+
+let MODE="hybrid", DENSITY="comfortable", CUR=FW.find(f=>f.key==="psychoanalytic");
+
+/* ---- HUB render ---- */
+function renderHub(){
+  const g=document.getElementById('grid'); g.innerHTML="";
+  FW.forEach(f=>{
+    const el=document.createElement('div'); el.className="card";
+    el.onclick=()=>openFw(f.key);
+    el.innerHTML=`<span class="bar" style="background:${f.color}"></span>
+      <div class="fam ui">${FAMILIES[f.family]}</div>
+      <h3>${f.label}</h3><p>${f.short}</p>
+      <div class="nums ui"><span><b>${f.n.toLocaleString()}</b> readings</span><span><b>${f.films.toLocaleString()}</b> films</span></div>`;
+    g.appendChild(el);
+  });
+  // INVITATION as separate dashed card
+  const iv=document.createElement('div'); iv.className="card invite";
+  iv.innerHTML=`<span class="bar" style="background:${INVITE.color}"></span>
+    <div class="fam ui">여기서 시작 · 스포일러 없음</div><h3>${INVITE.label}</h3>
+    <p>${INVITE.short} 모든 영화 페이지의 입구로, 주제 렌즈와는 성격이 다릅니다.</p>
+    <div class="nums ui"><span><b>${INVITE.n.toLocaleString()}</b> readings</span><span><b>${INVITE.films.toLocaleString()}</b> films</span></div>`;
+  g.appendChild(iv);
+  const lg=document.getElementById('legend'); lg.innerHTML="";
+  Object.keys(FAMILIES).forEach(k=>{ const s=document.createElement('span');
+    s.innerHTML=`<i style="background:${FAM_COLOR[k]}"></i>${FAMILIES[k]}`; lg.appendChild(s); });
+}
+
+/* ---- FRAMEWORK page ---- */
+function openFw(key){
+  CUR=FW.find(f=>f.key===key)||CUR;
+  document.getElementById('q').value="";
+  document.getElementById('fwCrumb').textContent=CUR.label;
+  document.getElementById('fwFam').textContent=FAMILIES[CUR.family];
+  document.getElementById('fwTitle').textContent=CUR.label;
+  document.getElementById('fwShort').textContent=CUR.short;
+  document.getElementById('fwGloss').textContent=glossFor(CUR.key);
+  document.getElementById('fwBar').style.background=CUR.color;
+  document.getElementById('stReadings').textContent=CUR.n.toLocaleString();
+  document.getElementById('stFilms').textContent=CUR.films.toLocaleString();
+  document.getElementById('stDirs').textContent=Math.round(CUR.films*0.62).toLocaleString();
+  renderRelated();
+  render();
+  show('fw');
+  window.scrollTo(0,0);
+}
+function glossFor(k){
+  const m={psychoanalytic:"이 렌즈는 영화를 욕망 · 억압 · 무의식의 무대로 읽는다. 화면 위의 한 디테일이 인물도 관객도 의식하지 못한 충동을 어떻게 누설하는지를 좇는다. 아래 readings는 그 누설의 순간들을 영화별로 모은 것이다."};
+  return m[k]||"이 렌즈로 읽힌 readings를 영화들을 가로질러 모았다. 검색해서 관심 있는 영화·개념을 좁히거나, 비슷한 의미의 독해를 찾아보세요.";
+}
+function renderRelated(){
+  const sibs=FW.filter(f=>f.family===CUR.family && f.key!==CUR.key);
+  const c=document.getElementById('related'); c.innerHTML="";
+  sibs.forEach(f=>{ const el=document.createElement('div'); el.className="rc"; el.onclick=()=>openFw(f.key);
+    el.innerHTML=`<span class="bar" style="background:${f.color}"></span><b>${f.label}</b><span class="ui">${f.n.toLocaleString()} readings</span>`;
+    c.appendChild(el); });
+}
+function render(){
+  const q=document.getElementById('q').value.trim();
+  const sort=document.getElementById('sort').value;
+  let rows=READINGS.map(x=>Object.assign({},x));
+  let mode=MODE;
+
+  if(q){
+    if(mode==="text"){
+      rows=rows.filter(x=>textHit(q,x)).map(x=>(x._hit=textHit(q,x),x));
+    } else if(mode==="semantic"){
+      rows.forEach(x=>x._sim=simScore(q,x)); rows.sort((a,b)=>b._sim-a._sim); rows=rows.slice(0,8);
+    } else { // hybrid
+      const hits=new Set(rows.filter(x=>textHit(q,x)).map(x=>x.t));
+      rows.forEach(x=>{x._sim=simScore(q,x); x._hit=textHit(q,x);});
+      rows.sort((a,b)=> (hits.has(b.t)-hits.has(a.t)) || (b._sim-a._sim));
+      rows=rows.slice(0,9);
+    }
+  } else {
+    if(sort==="film") rows.sort((a,b)=>a.film.localeCompare(b.film));
+    if(sort==="year") rows.sort((a,b)=>a.year-b.year);
+    if(sort==="dir") rows.sort((a,b)=>a.dir.localeCompare(b.dir));
+    if(sort==="conf") rows.sort((a,b)=>b.conf-a.conf);
+  }
+
+  const list=document.getElementById('list'); list.className="list"+(DENSITY==="compact"?" compact":"");
+  list.innerHTML="";
+  if(!rows.length){ list.innerHTML=`<div class="empty ui">"${q}"에 맞는 reading이 없습니다. 모드를 "비슷한 의미"로 바꿔보세요.</div>`; }
+  rows.forEach(x=>{
+    const li=document.createElement('li'); li.className="item";
+    li.onclick=()=>li.classList.toggle('open');
+    let rightBadges="";
+    if(q && (mode==="semantic"||mode==="hybrid") && x._sim) rightBadges+=`<span class="badge sim ui">의미 유사 ${x._sim.toFixed(2)}</span>`;
+    if(q && x._hit) rightBadges+=`<span class="badge hit ui">${x._hit}</span>`;
+    li.innerHTML=`
+      <div>
+        <p class="ttl">${x.t}</p>
+        <div class="meta ui"><span class="film">${x.film} (${x.year})</span><span class="fig">▸ ${x.fig}</span><span>· ${x.dir}</span></div>
+        <p class="prev">${x.r}</p>
+        <div class="expand-hint ui">클릭하면 전체 독해를 여기서 펼쳐 읽기 ↓</div>
+      </div>
+      <div class="right">
+        <span class="thumb">poster</span>
+        <span class="chip" style="background:${CUR.color}">${CUR.label.split(' ')[0]}</span>
+        ${rightBadges}
+        <span class="conf ui">conf ${x.conf.toFixed(2)}</span>
+      </div>`;
+    list.appendChild(li);
+  });
+  document.getElementById('count').textContent =
+    q ? `${rows.length}개 결과 · ${mode==="text"?"전문":mode==="semantic"?"유사":"하이브리드"} 검색`
+      : `${CUR.n.toLocaleString()}개 중 ${rows.length}개 표시`;
+}
+
+/* ---- wiring ---- */
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('modes').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  MODE=b.dataset.m; [...document.querySelectorAll('#modes button')].forEach(x=>x.classList.toggle('on',x===b)); render();
+});
+document.getElementById('density').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  DENSITY=b.dataset.d; [...document.querySelectorAll('#density button')].forEach(x=>x.classList.toggle('on',x===b)); render();
+});
+function show(id){ document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById(id).classList.add('on'); }
+
+renderHub();
+openFw('psychoanalytic'); show('hub');
+</script>
+</body>
+</html>

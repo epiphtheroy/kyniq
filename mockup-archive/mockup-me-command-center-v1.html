@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 계보 커맨드센터 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C; --pnl:#141416; --pnl2:#1A1A1E; --line:rgba(255,255,255,.075); --line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --red:#E3120B; --reddim:#7a1410;
+    --gold:#C8922B; --teal:#1FB286; --blue:#3E8FE0; --pur:#8B7FE8;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1500px;margin:0 auto;padding:14px 18px 60px}
+  a{color:inherit;text-decoration:none}
+
+  /* command bar */
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .brand{display:flex;align-items:center;gap:9px}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  /* ticker */
+  .ticker{display:flex;align-items:center;gap:0;overflow:hidden;border:1px solid var(--line);border-left:3px solid var(--red);
+    background:var(--pnl);margin:12px 0;height:30px;white-space:nowrap}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:10px;letter-spacing:.14em;padding:0 10px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .run{display:inline-flex;gap:34px;padding-left:24px;animation:tick 38s linear infinite}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:8px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* KPI strip */
+  .kpis{display:grid;grid-template-columns:1.5fr repeat(5,1fr);gap:10px;margin-bottom:12px}
+  .card{background:var(--pnl);border:1px solid var(--line);border-radius:3px}
+  .kpi{padding:11px 13px}
+  .kpi .v{font-family:var(--mono);font-size:26px;line-height:1.05;margin-top:3px}
+  .kpi .d{font-size:11px;margin-top:3px}
+  .up{color:var(--teal)} .dn{color:var(--red)} .flat{color:var(--mut)}
+  .indexcard{display:flex;align-items:center;gap:14px;padding:11px 14px}
+  .gauge{flex:0 0 auto}
+  .lvl{font-size:11px;color:var(--gold);letter-spacing:.08em;font-weight:600}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+  .pnl{background:var(--pnl);border:1px solid var(--line);border-radius:3px;padding:12px 13px;min-width:0}
+  .ph{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+  .ph h3{margin:0;font-size:12px;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;gap:7px}
+  .ph .meta{font-size:10.5px;color:var(--sub);font-family:var(--mono)}
+  .span4{grid-column:span 4} .span5{grid-column:span 5} .span6{grid-column:span 6}
+  .span7{grid-column:span 7} .span8{grid-column:span 8} .span3{grid-column:span 3} .span12{grid-column:span 12}
+
+  /* coverage matrix */
+  .grp{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);margin:9px 0 5px;display:flex;justify-content:space-between}
+  .lrow{display:grid;grid-template-columns:1fr 92px 116px;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--line)}
+  .lrow:last-child{border-bottom:0}
+  .lname{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lname small{font-family:var(--ui);color:var(--sub);font-size:10.5px;margin-left:6px}
+  .tier{font-family:var(--mono);font-size:9.5px;padding:1px 5px;border:1px solid var(--line2);border-radius:2px;color:var(--mut)}
+  .t1{color:#F2C9C7;border-color:#7a1410;background:#2a0c0a}
+  .barwrap{display:flex;align-items:center;gap:8px}
+  .track{flex:1;height:7px;background:#26262a;border-radius:0;overflow:hidden}
+  .track>i{display:block;height:100%}
+  .pct{font-family:var(--mono);font-size:12px;width:38px;text-align:right}
+  .cov-lo>i{background:var(--red)} .cov-mid>i{background:var(--gold)} .cov-hi>i{background:var(--teal)}
+  .cov-lo .pct{color:#e98a86} .cov-mid .pct{color:#e0bb6e} .cov-hi .pct{color:#5fd0b2}
+  .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);width:60px;text-align:right}
+
+  /* blind spots */
+  .blind{display:flex;flex-direction:column;gap:0}
+  .brow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .brow:last-child{border-bottom:0}
+  .bopp{font-family:var(--mono);font-size:17px;width:34px;text-align:center;color:var(--red)}
+  .bmain{flex:1;min-width:0}
+  .bmain .n{font-family:var(--ser);font-size:13.5px}
+  .bmain .s{font-size:11px;color:var(--mut)}
+  .pill{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:2px;border:1px solid var(--line2);color:var(--mut)}
+  .pill.s3{color:#bda1f0;border-color:#4a3f86;background:#1c1730}
+  .pill.t1b{color:#F2C9C7;border-color:#7a1410;background:#2a0c0a}
+
+  /* recommendation table */
+  .rrow{display:grid;grid-template-columns:20px 1fr 70px 150px 56px;gap:11px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+  .rrow:last-child{border-bottom:0}
+  .rk{font-family:var(--mono);color:var(--sub);font-size:12px;text-align:center}
+  .rt{font-family:var(--ser);font-size:15px}
+  .rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+  .rsub{font-size:11px;color:var(--mut);margin-top:1px}
+  .badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+  .bdg{font-size:9.5px;font-family:var(--mono);padding:1px 5px;border-radius:2px;background:#222226;color:var(--mut);border:1px solid var(--line)}
+  .bdg.gold{color:#e0bb6e;border-color:#5b481f}.bdg.teal{color:#5fd0b2;border-color:#1d4d40}.bdg.blue{color:#86b9ec;border-color:#234a72}
+  .score{text-align:right}
+  .score .pv{font-family:var(--mono);font-size:21px;line-height:1}
+  .score .pl{font-size:9px;color:var(--sub);letter-spacing:.1em}
+  .delta{font-family:var(--mono);font-size:13px;color:var(--teal);text-align:right}
+  .why{font-size:11px;color:var(--mut);line-height:1.35}
+  .act{font-size:10px;letter-spacing:.06em;font-weight:600;padding:2px 7px;border-radius:2px;display:inline-block}
+  .buy{background:var(--red);color:#fff}.disc{background:#1c1730;color:#bda1f0;border:1px solid #4a3f86}
+
+  /* movement bars */
+  .mvrow{display:grid;grid-template-columns:120px 1fr 36px;gap:9px;align-items:center;padding:4px 0;font-size:12px}
+  .mvrow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mvrow .nm.blindx{color:var(--red)}
+  /* auteur tiers */
+  .gtiers{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:9px}
+  .gt{background:var(--pnl2);border:1px solid var(--line);border-radius:2px;padding:8px;text-align:center}
+  .gt .g{font-family:var(--mono);font-size:11px;color:var(--gold)}
+  .gt .f{font-family:var(--mono);font-size:16px;margin-top:2px}
+  .gt .p{font-size:9.5px;color:var(--sub)}
+  .mlist{font-size:11.5px;color:var(--mut)} .mlist b{color:var(--ink);font-weight:500}
+
+  svg text{font-family:var(--ui)}
+  .legend{display:flex;gap:14px;font-size:10.5px;color:var(--mut);margin-top:6px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+  .note{font-size:10.5px;color:var(--sub);margin-top:10px;font-style:italic}
+  @media(max-width:1100px){.kpis{grid-template-columns:repeat(3,1fr)}.span4,.span5,.span6,.span7,.span8,.span3{grid-column:span 12}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COMMAND BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <span class="logo">META TAKE</span>
+      <span class="ser" style="font-size:18px;font-weight:700">계보 커맨드센터</span>
+      <span class="eb" style="margin-left:6px"><i class="ti ti-lock"></i> 비공개 · wonwoo · 내 자산 〈현황〉</span>
+    </div>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <span class="tag">LIVE</span>
+    <div class="run" id="run">
+      <span><i class="ti ti-point-filled dot"></i>NFR 2025 신규 등재 <b>+25편</b> — 당신 미관람 <b>22</b></span>
+      <span><i class="ti ti-point-filled dot"></i>추천 갱신: <b>Touki Bouki</b> Discovery <b>94</b> ▲</span>
+      <span><i class="ti ti-point-filled dot"></i>블라인드 경보: 라틴아메리카 정전 <b>4%</b></span>
+      <span><i class="ti ti-point-filled dot"></i>칸 2026 황금종려 신규 라인 동기화</span>
+      <span><i class="ti ti-point-filled dot"></i>당신 인덱스 <b>+6</b> (지난 7일)</span>
+      <span><i class="ti ti-point-filled dot"></i>S&amp;S 2022 비평가 100 — 41% 달성</span>
+      <span><i class="ti ti-point-filled dot"></i>NFR 2025 신규 등재 <b>+25편</b> — 당신 미관람 <b>22</b></span>
+      <span><i class="ti ti-point-filled dot"></i>추천 갱신: <b>Touki Bouki</b> Discovery <b>94</b> ▲</span>
+      <span><i class="ti ti-point-filled dot"></i>블라인드 경보: 라틴아메리카 정전 <b>4%</b></span>
+      <span><i class="ti ti-point-filled dot"></i>칸 2026 황금종려 신규 라인 동기화</span>
+      <span><i class="ti ti-point-filled dot"></i>당신 인덱스 <b>+6</b> (지난 7일)</span>
+      <span><i class="ti ti-point-filled dot"></i>S&amp;S 2022 비평가 100 — 41% 달성</span>
+    </div>
+  </div>
+
+  <!-- KPI STRIP -->
+  <div class="kpis">
+    <div class="card indexcard">
+      <svg class="gauge" width="74" height="74" viewBox="0 0 74 74">
+        <circle cx="37" cy="37" r="31" fill="none" stroke="#26262a" stroke-width="6"/>
+        <circle cx="37" cy="37" r="31" fill="none" stroke="#E3120B" stroke-width="6" stroke-linecap="round"
+          stroke-dasharray="195" stroke-dashoffset="69" transform="rotate(-90 37 37)"/>
+        <text x="37" y="35" text-anchor="middle" font-size="15" fill="#ECEAE5" font-family="ui-monospace,monospace">1,284</text>
+        <text x="37" y="48" text-anchor="middle" font-size="8" fill="#6C6960" letter-spacing="1">NAV</text>
+      </svg>
+      <div>
+        <div class="eb">영화적 자산 NAV</div>
+        <div class="lvl">● LV. ESTABLISHED</div>
+        <div style="font-size:11px;color:var(--mut);margin-top:3px">상위 14% · ▲ +38 (30일)</div>
+      </div>
+    </div>
+    <div class="card kpi"><div class="eb">보유 영화</div><div class="v">142</div><div class="d up">▲ 6 · 7일</div></div>
+    <div class="card kpi"><div class="eb">진입 계보</div><div class="v">52<span style="font-size:14px;color:var(--sub)">/115</span></div><div class="d flat">45% 라인</div></div>
+    <div class="card kpi"><div class="eb">가중 커버리지</div><div class="v">23.4<span style="font-size:14px;color:var(--sub)">%</span></div><div class="d up">▲ 1.1</div></div>
+    <div class="card kpi"><div class="eb">Discovery 지수</div><div class="v">31</div><div class="d dn">▼ 정전추종형</div></div>
+    <div class="card kpi"><div class="eb">블라인드 계보</div><div class="v">63</div><div class="d dn">T1 블라인드 6</div></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- COVERAGE MATRIX -->
+    <div class="pnl span8">
+      <div class="ph"><h3><i class="ti ti-layout-grid"></i> 계보 커버리지 매트릭스</h3><span class="meta">관람 / 전체 · 등급순</span></div>
+
+      <div class="grp"><span>영화제 · 시상 (FESTIVAL / AWARD)</span><span>TIER</span></div>
+      <div class="lrow"><div class="lname">Palme d'Or <small>칸 황금종려상</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:27%"></i></div><span class="pct">27%</span></div>
+        <div class="barwrap"><span class="frac">21/77</span><span class="tier t1">T1</span></div></div>
+      <div class="lrow"><div class="lname">Golden Lion <small>베니스 황금사자</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:15%"></i></div><span class="pct">15%</span></div>
+        <div class="barwrap"><span class="frac">12/80</span><span class="tier t1">T1</span></div></div>
+      <div class="lrow"><div class="lname">Golden Bear <small>베를린 황금곰</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:7%"></i></div><span class="pct">7%</span></div>
+        <div class="barwrap"><span class="frac">5/74</span><span class="tier t1">T1</span></div></div>
+      <div class="lrow"><div class="lname">Academy · Best Picture <small>오스카 작품상</small></div>
+        <div class="barwrap cov-mid"><div class="track"><i style="width:29%"></i></div><span class="pct">29%</span></div>
+        <div class="barwrap"><span class="frac">28/97</span><span class="tier t1">T1</span></div></div>
+
+      <div class="grp" style="margin-top:12px"><span>정전 · 베스트 리스트 (CANON)</span><span>TIER</span></div>
+      <div class="lrow"><div class="lname">TSPDT 1000 <small>역대 위대한 영화</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:19%"></i></div><span class="pct">19%</span></div>
+        <div class="barwrap"><span class="frac">188/1000</span><span class="tier t1">T1</span></div></div>
+      <div class="lrow"><div class="lname">Sight &amp; Sound 2022 <small>비평가 100</small></div>
+        <div class="barwrap cov-mid"><div class="track"><i style="width:41%"></i></div><span class="pct">41%</span></div>
+        <div class="barwrap"><span class="frac">41/100</span><span class="tier t1">T1</span></div></div>
+      <div class="lrow"><div class="lname">AFI 100 <small>미국 정전</small></div>
+        <div class="barwrap cov-mid"><div class="track"><i style="width:33%"></i></div><span class="pct">33%</span></div>
+        <div class="barwrap"><span class="frac">33/100</span><span class="tier">T2</span></div></div>
+      <div class="lrow"><div class="lname">Cahiers 100 <small>가장 아름다운 영화</small></div>
+        <div class="barwrap cov-mid"><div class="track"><i style="width:38%"></i></div><span class="pct">38%</span></div>
+        <div class="barwrap"><span class="frac">38/100</span><span class="tier">T2</span></div></div>
+      <div class="lrow"><div class="lname">BBC 21세기 100 <small>21세기 베스트</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:24%"></i></div><span class="pct">24%</span></div>
+        <div class="barwrap"><span class="frac">24/100</span><span class="tier">T2</span></div></div>
+
+      <div class="grp" style="margin-top:12px"><span>국가 정전 (NATIONAL)</span><span>TIER</span></div>
+      <div class="lrow"><div class="lname">KOFA 100 <small>한국 정전</small></div>
+        <div class="barwrap cov-hi"><div class="track"><i style="width:52%"></i></div><span class="pct">52%</span></div>
+        <div class="barwrap"><span class="frac">52/100</span><span class="tier">T2</span></div></div>
+      <div class="lrow"><div class="lname">Kinema Junpo 올타임 <small>일본 정전</small></div>
+        <div class="barwrap cov-mid"><div class="track"><i style="width:29%"></i></div><span class="pct">29%</span></div>
+        <div class="barwrap"><span class="frac">29/99</span><span class="tier">T2</span></div></div>
+      <div class="lrow"><div class="lname">César · 작품상 <small>프랑스</small></div>
+        <div class="barwrap cov-mid"><div class="track"><i style="width:30%"></i></div><span class="pct">30%</span></div>
+        <div class="barwrap"><span class="frac">14/47</span><span class="tier">T3</span></div></div>
+      <div class="lrow"><div class="lname">金馬獎 100 <small>중화권 100대</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:8%"></i></div><span class="pct">8%</span></div>
+        <div class="barwrap"><span class="frac">8/100</span><span class="tier">T3</span></div></div>
+      <div class="lrow"><div class="lname">Silver Condor <small>아르헨티나</small></div>
+        <div class="barwrap cov-lo"><div class="track"><i style="width:3%"></i></div><span class="pct">3%</span></div>
+        <div class="barwrap"><span class="frac">1/40</span><span class="tier">T3</span></div></div>
+    </div>
+
+    <!-- BLIND SPOTS -->
+    <div class="pnl span4">
+      <div class="ph"><h3><i class="ti ti-eye-off"></i> 블라인드 스팟 · 등급별</h3><span class="meta">권위 × 미답</span></div>
+      <div class="blind">
+        <div class="brow"><div class="bopp">94</div><div class="bmain"><div class="n">베를린 황금곰</div><div class="s">최고권위 · 5/74 관람</div></div><span class="pill t1b">T1</span></div>
+        <div class="brow"><div class="bopp">91</div><div class="bmain"><div class="n">FESPACO · 범아프리카</div><div class="s">발굴 프론티어 · 0편</div></div><span class="pill s3">S3</span></div>
+        <div class="brow"><div class="bopp">88</div><div class="bmain"><div class="n">라틴아메리카 정전</div><div class="s">Ariel·Abraccine·Condor 평균 4%</div></div><span class="pill">대륙</span></div>
+        <div class="brow"><div class="bopp">82</div><div class="bmain"><div class="n">금마장 100 · 중화권</div><div class="s">8% · 대만/홍콩 거장 다수</div></div><span class="pill t1b">T2</span></div>
+        <div class="brow"><div class="bopp">79</div><div class="bmain"><div class="n">이란 뉴웨이브</div><div class="s">사조 · 12% · 키아로스타미 외</div></div><span class="pill s3">사조</span></div>
+        <div class="brow"><div class="bopp">75</div><div class="bmain"><div class="n">L.A. Rebellion</div><div class="s">사조 · 0% · 흑인 독립영화</div></div><span class="pill s3">사조</span></div>
+      </div>
+      <div class="ph" style="margin-top:14px"><h3><i class="ti ti-gauge"></i> 편향 게이지</h3></div>
+      <div style="font-size:11.5px;color:var(--mut);line-height:1.6">
+        서구·정전(칸/오스카) 노출 <b style="color:var(--ink)" class="mono">71%</b> · 비서구 프론티어 <b style="color:var(--red)" class="mono">9%</b><br>
+        <span style="color:var(--gold)">Discovery 보정 권유</span> — 추천 엔진이 S2·S3 라인을 우선 노출 중.
+      </div>
+    </div>
+
+    <!-- RECOMMENDATION ENGINE -->
+    <div class="pnl span12">
+      <div class="ph"><h3><i class="ti ti-target-arrow"></i> WHY-WATCH 추천 엔진 · 다음 한 편의 알파(α)</h3>
+        <span class="meta">미관람 · Δindex 순 · Prestige(P)/Discovery(D)</span></div>
+
+      <div class="rrow">
+        <div class="rk">1</div>
+        <div><div class="rt">Touki Bouki <small>1973 · Djibril Diop Mambéty</small></div>
+          <div class="rsub">세네갈 · 당신의 가장 큰 블라인드 두 개를 동시에 연다</div>
+          <div class="badges"><span class="bdg teal">FESPACO ★</span><span class="bdg">S&amp;S 2022 #66</span><span class="bdg blue">아프리카 정전</span></div></div>
+        <div class="score"><div class="pv" style="color:#5fd0b2">D 94</div><div class="pl">DISCOVERY</div></div>
+        <div class="why">FESPACO·아프리카 정전 <b style="color:var(--ink)">0% → 진입</b>. 희소도(selectivity) 최상위 → 발굴 가치 극대.</div>
+        <div><div class="delta">+6</div><div style="text-align:right;margin-top:3px"><span class="act disc" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">발굴</span></div></div>
+      </div>
+
+      <div class="rrow">
+        <div class="rk">2</div>
+        <div><div class="rt">Yi Yi <small>2000 · Edward Yang</small></div>
+          <div class="rsub">대만 · 금마장 블라인드 + 당신의 가족 드라마 군집과 친연</div>
+          <div class="badges"><span class="bdg gold">金馬獎 100</span><span class="bdg">BBC 21c #8</span><span class="bdg">S&amp;S 2022</span></div></div>
+        <div class="score"><div class="pv">P 90</div><div class="pl">PRESTIGE</div></div>
+        <div class="why">금馬獎 8%→보강, BBC 21세기 상위. 취향 벡터 코사인 <b style="color:var(--ink)">0.91</b>.</div>
+        <div><div class="delta">+5</div><div style="text-align:right;margin-top:3px"><span class="act buy" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">필람</span></div></div>
+      </div>
+
+      <div class="rrow">
+        <div class="rk">3</div>
+        <div><div class="rt">The Wind Will Carry Us <small>1999 · Abbas Kiarostami</small></div>
+          <div class="rsub">이란 · 사조 블라인드(이란 뉴웨이브) 정점 + 베니스 심사위원대상</div>
+          <div class="badges"><span class="bdg blue">이란 뉴웨이브</span><span class="bdg">베니스 은사자</span><span class="bdg">S&amp;S 2022</span></div></div>
+        <div class="score"><div class="pv">P 82</div><div class="pl">PRESTIGE</div></div>
+        <div class="why">이란 뉴웨이브 12%→확장. 절제된 응시 — 당신 시그니처와 직결.</div>
+        <div><div class="delta">+4</div><div style="text-align:right;margin-top:3px"><span class="act buy" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">필람</span></div></div>
+      </div>
+
+      <div class="rrow">
+        <div class="rk">4</div>
+        <div><div class="rt">Black God, White Devil <small>1964 · Glauber Rocha</small></div>
+          <div class="rsub">브라질 · 라틴아메리카 대륙 블라인드 + Cinema Novo 사조</div>
+          <div class="badges"><span class="bdg teal">Cinema Novo ★</span><span class="bdg gold">Abraccine 100</span><span class="bdg">칸 경쟁</span></div></div>
+        <div class="score"><div class="pv" style="color:#5fd0b2">D 88</div><div class="pl">DISCOVERY</div></div>
+        <div class="why">브라질 정전 6%→진입. 대륙 커버리지 가장 크게 끌어올림.</div>
+        <div><div class="delta">+5</div><div style="text-align:right;margin-top:3px"><span class="act disc" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">발굴</span></div></div>
+      </div>
+
+      <div class="rrow">
+        <div class="rk">5</div>
+        <div><div class="rt">Vengeance Is Mine <small>1979 · Shohei Imamura</small></div>
+          <div class="rsub">일본 · 키네마준보 보강 + 당신의 일본 70s 공백</div>
+          <div class="badges"><span class="bdg gold">Kinema Junpo #1</span><span class="bdg">일본 정전</span></div></div>
+        <div class="score"><div class="pv">P 79</div><div class="pl">PRESTIGE</div></div>
+        <div class="why">키네마준보 올타임 29%→보강. 연대 공백(1970년대 일본) 충족.</div>
+        <div><div class="delta">+4</div><div style="text-align:right;margin-top:3px"><span class="act buy" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">필람</span></div></div>
+      </div>
+    </div>
+
+    <!-- CONSTELLATION -->
+    <div class="pnl span7">
+      <div class="ph"><h3><i class="ti ti-affiliate"></i> 별자리 · 보유분 + 인접 추천</h3><span class="meta">공유 라인으로 연결</span></div>
+      <svg viewBox="0 0 700 270" width="100%" role="img" aria-label="보유 영화 별자리와 인접 추천 노드">
+        <g stroke="#2c2c30" stroke-width="1">
+          <line x1="350" y1="135" x2="220" y2="80"/><line x1="350" y1="135" x2="470" y2="80"/>
+          <line x1="350" y1="135" x2="250" y2="200"/><line x1="350" y1="135" x2="460" y2="195"/>
+          <line x1="220" y1="80" x2="120" y2="135"/><line x1="470" y1="80" x2="580" y2="120"/>
+          <line x1="250" y1="200" x2="160" y2="230"/><line x1="460" y1="195" x2="560" y2="220"/>
+          <line x1="220" y1="80" x2="350" y2="135"/><line x1="470" y1="80" x2="350" y2="135"/>
+        </g>
+        <g stroke="#E3120B" stroke-width="1" stroke-dasharray="3 3">
+          <line x1="120" y1="135" x2="60" y2="95"/><line x1="580" y1="120" x2="640" y2="85"/>
+          <line x1="160" y1="230" x2="95" y2="250"/>
+        </g>
+        <!-- watched (lit) -->
+        <circle cx="350" cy="135" r="9" fill="#E3120B"/><text x="350" y="118" text-anchor="middle" font-size="11" fill="#ECEAE5" font-family="PT Serif,serif">Parasite</text>
+        <circle cx="220" cy="80" r="6" fill="#ECEAE5"/><text x="220" y="66" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Burning</text>
+        <circle cx="470" cy="80" r="6" fill="#ECEAE5"/><text x="470" y="66" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Drive My Car</text>
+        <circle cx="250" cy="200" r="6" fill="#ECEAE5"/><text x="250" y="220" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Oldboy</text>
+        <circle cx="460" cy="195" r="6" fill="#ECEAE5"/><text x="460" y="215" text-anchor="middle" font-size="10" fill="#9A968D" font-family="PT Serif,serif">Tokyo Story</text>
+        <circle cx="120" cy="135" r="5" fill="#3E8FE0"/><text x="120" y="135" dy="-9" text-anchor="middle" font-size="9.5" fill="#3E8FE0">칸 팔메</text>
+        <circle cx="580" cy="120" r="5" fill="#1FB286"/><text x="580" y="120" dy="-9" text-anchor="middle" font-size="9.5" fill="#1FB286">S&amp;S 2022</text>
+        <!-- recommended (unlit) -->
+        <circle cx="60" cy="95" r="6" fill="none" stroke="#E3120B" stroke-width="1.5"/><text x="60" y="80" text-anchor="middle" font-size="10" fill="#e98a86" font-family="PT Serif,serif">Yi Yi</text>
+        <circle cx="640" cy="85" r="6" fill="none" stroke="#E3120B" stroke-width="1.5"/><text x="640" y="70" text-anchor="middle" font-size="10" fill="#e98a86" font-family="PT Serif,serif">Touki Bouki</text>
+        <circle cx="95" cy="250" r="6" fill="none" stroke="#E3120B" stroke-width="1.5"/><text x="95" y="266" text-anchor="middle" font-size="10" fill="#e98a86" font-family="PT Serif,serif">Wind Will…</text>
+      </svg>
+      <div class="legend">
+        <span><i style="background:#E3120B"></i>보유(중심)</span><span><i style="background:#ECEAE5"></i>보유 영화</span>
+        <span><i style="background:#3E8FE0"></i>계보 노드</span><span><i style="background:#1FB286"></i>정전 노드</span>
+        <span><i style="background:transparent;border:1.5px solid #E3120B"></i>추천(미점등)</span>
+      </div>
+    </div>
+
+    <!-- POSITIONING SCATTER -->
+    <div class="pnl span5">
+      <div class="ph"><h3><i class="ti ti-chart-dots"></i> 포트폴리오 포지셔닝</h3><span class="meta">Prestige × Discovery</span></div>
+      <svg viewBox="0 0 360 230" width="100%" role="img" aria-label="당신 보유분 평균의 권위-발굴 좌표">
+        <line x1="40" y1="195" x2="345" y2="195" stroke="#2c2c30"/><line x1="40" y1="20" x2="40" y2="195" stroke="#2c2c30"/>
+        <text x="345" y="212" text-anchor="end" font-size="9.5" fill="#6C6960">PRESTIGE →</text>
+        <text x="34" y="22" text-anchor="end" font-size="9.5" fill="#6C6960" transform="rotate(-90 12 110)">DISCOVERY →</text>
+        <g fill="#3a3a40">
+          <circle cx="90" cy="160" r="3"/><circle cx="140" cy="120" r="3"/><circle cx="200" cy="90" r="3"/><circle cx="170" cy="150" r="3"/>
+          <circle cx="240" cy="70" r="3"/><circle cx="120" cy="80" r="3"/><circle cx="280" cy="120" r="3"/><circle cx="300" cy="60" r="3"/>
+          <circle cx="210" cy="170" r="3"/><circle cx="160" cy="60" r="3"/><circle cx="260" cy="150" r="3"/><circle cx="100" cy="110" r="3"/>
+          <circle cx="320" cy="95" r="3"/><circle cx="230" cy="130" r="3"/><circle cx="185" cy="115" r="3"/>
+        </g>
+        <rect x="60" y="120" width="120" height="70" fill="none" stroke="#1FB286" stroke-dasharray="4 4" stroke-width="1"/>
+        <text x="66" y="134" font-size="9" fill="#1FB286">기회 구역 · 발굴↑</text>
+        <circle cx="262" cy="150" r="8" fill="#E3120B"/><text x="262" y="142" dy="-6" text-anchor="middle" font-size="10" fill="#ECEAE5">당신 평균</text>
+      </svg>
+      <div class="note" style="margin-top:2px">고권위·저발굴 상한 → <b style="color:var(--ink);font-style:normal">정전 추종형</b>. 발굴 구역(좌상)으로 이동 시 Discovery 지수·다양성 동반 상승.</div>
+    </div>
+
+    <!-- DECADE COVERAGE -->
+    <div class="pnl span6">
+      <div class="ph"><h3><i class="ti ti-timeline"></i> 연대 커버리지</h3><span class="meta">관람 / 정전 유니버스</span></div>
+      <svg viewBox="0 0 560 180" width="100%" role="img" aria-label="연대별 관람 대비 정전 유니버스">
+        <g font-size="9.5" fill="#6C6960" text-anchor="middle">
+          <text x="55" y="170">20s</text><text x="105" y="170">30s</text><text x="155" y="170">40s</text><text x="205" y="170">50s</text>
+          <text x="255" y="170">60s</text><text x="305" y="170">70s</text><text x="355" y="170">80s</text><text x="405" y="170">90s</text>
+          <text x="455" y="170">00s</text><text x="505" y="170">10s</text>
+        </g>
+        <g fill="#26262a">
+          <rect x="43" y="60" width="24" height="95"/><rect x="93" y="40" width="24" height="115"/><rect x="143" y="38" width="24" height="117"/>
+          <rect x="193" y="25" width="24" height="130"/><rect x="243" y="18" width="24" height="137"/><rect x="293" y="20" width="24" height="135"/>
+          <rect x="343" y="22" width="24" height="133"/><rect x="393" y="24" width="24" height="131"/><rect x="443" y="15" width="24" height="140"/><rect x="493" y="14" width="24" height="141"/>
+        </g>
+        <g fill="#E3120B">
+          <rect x="43" y="142" width="24" height="13"/><rect x="93" y="132" width="24" height="23"/><rect x="143" y="120" width="24" height="35"/>
+          <rect x="193" y="96" width="24" height="59"/><rect x="243" y="70" width="24" height="85"/><rect x="293" y="74" width="24" height="81"/>
+          <rect x="343" y="86" width="24" height="69"/><rect x="393" y="78" width="24" height="77"/><rect x="443" y="58" width="24" height="97"/><rect x="493" y="62" width="24" height="79"/>
+        </g>
+      </svg>
+      <div class="legend"><span><i style="background:#E3120B"></i>관람</span><span><i style="background:#26262a"></i>정전 유니버스(6,733편)</span><span style="color:var(--red)">1960년 이전 노출 얕음</span></div>
+    </div>
+
+    <!-- MOVEMENT MASTERY -->
+    <div class="pnl span6">
+      <div class="ph"><h3><i class="ti ti-vector-triangle"></i> 사조 마스터리</h3><span class="meta">SimilarityVector · 추천 전용</span></div>
+      <div class="mvrow"><span class="nm">이탈리아 네오리얼리즘</span><div class="track cov-hi" style="height:7px"><i style="width:75%;background:#1FB286"></i></div><span class="pct mono" style="color:#5fd0b2">75</span></div>
+      <div class="mvrow"><span class="nm">프랑스 누벨바그</span><div class="track" style="height:7px"><i style="width:62%;background:#1FB286"></i></div><span class="pct mono" style="color:#5fd0b2">62</span></div>
+      <div class="mvrow"><span class="nm">뉴 코리안 시네마</span><div class="track" style="height:7px"><i style="width:70%;background:#1FB286"></i></div><span class="pct mono" style="color:#5fd0b2">70</span></div>
+      <div class="mvrow"><span class="nm">슬로우 시네마</span><div class="track" style="height:7px"><i style="width:45%;background:#C8922B"></i></div><span class="pct mono" style="color:#e0bb6e">45</span></div>
+      <div class="mvrow"><span class="nm blindx">이란 뉴웨이브</span><div class="track" style="height:7px"><i style="width:12%;background:#E3120B"></i></div><span class="pct mono" style="color:#e98a86">12</span></div>
+      <div class="mvrow"><span class="nm blindx">Cinema Novo</span><div class="track" style="height:7px"><i style="width:0%;background:#E3120B"></i></div><span class="pct mono" style="color:#e98a86">0</span></div>
+      <div class="mvrow"><span class="nm blindx">L.A. Rebellion</span><div class="track" style="height:7px"><i style="width:0%;background:#E3120B"></i></div><span class="pct mono" style="color:#e98a86">0</span></div>
+      <div class="note">사조는 품질이 아니라 <b style="color:var(--ink);font-style:normal">닮음</b> — 총점 제외, 추천 다양성 축으로만 사용(범주 오류 방지).</div>
+    </div>
+
+    <!-- AUTEUR CONQUEST -->
+    <div class="pnl span12">
+      <div class="ph"><h3><i class="ti ti-user-star"></i> 감독 정복 · 거장 등급 G1–G5</h3><span class="meta">대표작 관람 / 전체 · 160명 레지스트리</span></div>
+      <div class="gtiers">
+        <div class="gt"><div class="g">G1 · 거장</div><div class="f">18/26</div><div class="p">정복률 69%</div></div>
+        <div class="gt"><div class="g">G2</div><div class="f">11/22</div><div class="p">50%</div></div>
+        <div class="gt"><div class="g">G3</div><div class="f">9/32</div><div class="p">28%</div></div>
+        <div class="gt"><div class="g">G4</div><div class="f">5/28</div><div class="p">18%</div></div>
+        <div class="gt"><div class="g">G5 · 발굴</div><div class="f">3/52</div><div class="p">6%</div></div>
+      </div>
+      <div class="mlist">
+        <b>블라인드 거장(G1):</b> 오즈 야스지로 <span class="mono">1/8</span> · 미조구치 겐지 <span class="mono">0/6</span> · 드레이어 <span class="mono">0/5</span> · 사티야지트 레이 <span class="mono">1/7</span>
+        &nbsp;·&nbsp; <b style="color:var(--gold)">근접 정복:</b> 브레송 <span class="mono">5/6</span> · 하네케 <span class="mono">6/7</span> · 다르덴 <span class="mono">5/6</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note" style="text-align:center;margin-top:18px">계보 데이터(115 라인 · 10,238 멤버십 · 160 감독) 기반 · 표시 수치는 예시 포트폴리오(wonwoo)입니다 · 점수 모델 v1 (PrestigeScore + γ·DiscoveryScore)</p>
+</div>
+
+<script>
+  var run = document.getElementById('run');
+  if (run) { var c = run.cloneNode(true); }
+</script>
+</body>
+</html>

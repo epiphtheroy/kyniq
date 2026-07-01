@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 내 영화 자산 분석 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;
+    --trope:#1FB286;--reading:#9B8CF0;--figure:#3E8FE0;--gold:#C8922B;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1500px;margin:0 auto;padding:14px 18px 60px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+  .card{background:var(--pnl);border:1px solid var(--line);border-radius:3px}
+  .pnl{background:var(--pnl);border:1px solid var(--line);border-radius:3px;padding:13px 14px;min-width:0}
+  .ph{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:11px}
+  .ph h3{margin:0;font-size:12px;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;gap:7px}
+  .ph .meta{font-size:10.5px;color:var(--sub);font-family:var(--mono)}
+
+  /* signature */
+  .siglead{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:10px;margin:12px 0}
+  .sigmain{padding:13px 15px}
+  .sigmain .q{font-family:var(--ser);font-size:18px;line-height:1.45;font-style:italic}
+  .sigmain .q b{color:var(--red);font-style:normal;font-weight:400}
+  .kp{padding:11px 13px}.kp .v{font-family:var(--mono);font-size:22px;margin-top:3px}.kp .d{font-size:10.5px;color:var(--mut);margin-top:2px}
+
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+  .span4{grid-column:span 4}.span5{grid-column:span 5}.span7{grid-column:span 7}.span8{grid-column:span 8}.span12{grid-column:span 12}
+
+  /* lens explorer */
+  .lensmodes{display:flex;gap:6px;margin-bottom:10px}
+  .lensmodes button{font-family:var(--ui);font-size:11.5px;padding:5px 11px;background:transparent;color:var(--mut);
+    border:1px solid var(--line2);border-radius:14px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .lensmodes button.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+  .dotc{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .lenslist{display:flex;flex-direction:column;gap:3px;max-height:430px;overflow:auto}
+  .lc{display:flex;align-items:center;gap:9px;padding:7px 8px;border:1px solid transparent;border-radius:3px;cursor:pointer}
+  .lc:hover{background:var(--pnl2)}
+  .lc.on{background:var(--pnl2);border-color:var(--line2)}
+  .lc .nm{flex:1;font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lc .ct{font-family:var(--mono);font-size:12px}
+  .lc .mat{font-size:9px;font-family:var(--mono);padding:1px 5px;border-radius:2px;border:1px solid var(--line2);color:var(--sub)}
+  .reset{font-size:11px;color:var(--mut);cursor:pointer;border:1px dashed var(--line2);border-radius:3px;padding:5px 0;text-align:center;margin-bottom:8px}
+
+  /* lens info + film grid */
+  .lensinfo{border-left:3px solid var(--sub);padding:4px 0 4px 11px;margin-bottom:12px;min-height:46px}
+  .lensinfo .t{font-family:var(--ser);font-size:16px}
+  .lensinfo .s{font-size:11.5px;color:var(--mut);margin-top:3px;line-height:1.45}
+  .lensinfo .snip{font-family:var(--ser);font-style:italic;color:var(--reading);font-size:12.5px;margin-top:6px}
+  .filmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+  .fcard{background:var(--pnl2);border:1px solid var(--line);border-radius:3px;padding:9px 10px;transition:opacity .18s,border-color .18s}
+  .fcard .ft{font-family:var(--ser);font-size:13.5px;line-height:1.25}
+  .fcard .fm{font-size:10.5px;color:var(--sub);font-family:var(--mono);margin-top:2px}
+  .fcard .tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:6px}
+  .fcard .tg{width:7px;height:7px;border-radius:50%}
+  .fcard.dim{opacity:.2}
+  .fcard.hit{border-color:var(--red)}
+
+  /* constellation */
+  .legend{display:flex;gap:14px;font-size:10.5px;color:var(--mut);margin-top:8px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+
+  /* figure cloud */
+  .cloud{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .fg{font-family:var(--ser);border:1px solid var(--line2);border-radius:16px;padding:4px 11px;color:var(--mut);cursor:pointer}
+  .fg b{color:var(--figure);font-family:var(--mono);font-size:11px;margin-left:5px}
+  .fg:hover{border-color:var(--figure);color:var(--ink)}
+
+  /* lineage clusters */
+  .clu{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+  .clu:last-child{border-bottom:0}
+  .clu .nm{flex:1;font-family:var(--ser);font-size:13.5px}
+  .clu .nm small{font-family:var(--ui);color:var(--sub);font-size:10.5px;margin-left:6px}
+  .clu .ct{font-family:var(--mono);font-size:12px;color:var(--mut)}
+
+  /* depth */
+  .depthbar{height:10px;background:#26262a;border-radius:0;overflow:hidden;display:flex}
+  .depthbar i{display:block;height:100%}
+  .dleg{display:flex;justify-content:space-between;font-size:10.5px;color:var(--mut);margin-top:5px}
+  .dstat{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:11px}
+  .dstat div{background:var(--pnl2);border:1px solid var(--line);border-radius:2px;padding:8px;text-align:center}
+  .dstat .v{font-family:var(--mono);font-size:16px}.dstat .l{font-size:9.5px;color:var(--sub);margin-top:1px}
+
+  .obs{font-family:var(--ser);font-size:14px;line-height:1.7;color:var(--mut)}
+  .obs b{color:var(--ink);font-weight:400}
+  .obs .th{color:var(--red)}
+  .note{font-size:10.5px;color:var(--sub);margin-top:9px;font-style:italic}
+  @media(max-width:1100px){.siglead{grid-template-columns:repeat(2,1fr)}.span4,.span5,.span7,.span8{grid-column:span 12}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">내 영화 자산 분석</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-lock"></i> 비공개 · wonwoo · 내가 본 영화 속에서</span>
+    <div class="tabs"><span>기록</span><span class="on">내 자산</span><span>볼 영화</span><span>서재</span><span>노트</span><span>동행</span><span>공개 ↗</span></div>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="siglead">
+    <div class="card sigmain">
+      <div class="eb">해석적 시그니처</div>
+      <div class="q" style="margin-top:6px">당신은 <b>윤리적 응시</b>와 <b>무의식의 전이</b>로 영화를 보는 관객 — <b>「무력한 목격자」</b>와 <b>「전이된 죄」</b>가 당신의 코드입니다.</div>
+    </div>
+    <div class="card kp"><div class="eb">활성 트로프</div><div class="v" style="color:#5fd0b2">23</div><div class="d">내 영화에 흐름</div></div>
+    <div class="card kp"><div class="eb">작동 렌즈</div><div class="v" style="color:#c6bcf7">9<span style="font-size:13px;color:var(--sub)">/14</span></div><div class="d">strong misreading</div></div>
+    <div class="card kp"><div class="eb">반복 형상</div><div class="v" style="color:#86b9ec">41</div><div class="d">2편 이상 등장</div></div>
+    <div class="card kp"><div class="eb">깊이 개입</div><div class="v">23<span style="font-size:13px;color:var(--sub)">%</span></div><div class="d">표면 너머로 읽음</div></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- LENS EXPLORER -->
+    <div class="pnl span4">
+      <div class="ph"><h3><i class="ti ti-stack-2"></i> 렌즈 선반</h3><span class="meta">클릭해 내 영화를 거른다</span></div>
+      <div class="lensmodes">
+        <button data-mode="tr" class="on"><span class="dotc" style="background:var(--trope)"></span>트로프</button>
+        <button data-mode="fr"><span class="dotc" style="background:var(--reading)"></span>Reading</button>
+        <button data-mode="fg"><span class="dotc" style="background:var(--figure)"></span>형상</button>
+      </div>
+      <div class="reset" id="reset"><i class="ti ti-arrow-back-up"></i> 전체 보기로</div>
+      <div class="lenslist" id="lenslist"></div>
+    </div>
+
+    <!-- FILM GRID + INFO -->
+    <div class="pnl span8">
+      <div class="ph"><h3><i class="ti ti-movie"></i> 이 렌즈 속 내 영화</h3><span class="meta" id="gridmeta">전체 12편</span></div>
+      <div class="lensinfo" id="lensinfo">
+        <div class="t">전체 보기</div>
+        <div class="s">왼쪽 선반에서 트로프·Reading 렌즈·형상을 고르면, 그 관점이 흐르는 <b style="color:var(--ink)">당신의 영화들만</b>이 점등됩니다. 안전한 울타리(본 영화) 안에서 마음 놓고 둘러보세요.</div>
+      </div>
+      <div class="filmgrid" id="filmgrid"></div>
+    </div>
+
+    <!-- INWARD CONSTELLATION -->
+    <div class="pnl span7">
+      <div class="ph"><h3><i class="ti ti-affiliate"></i> 내 영화 별자리</h3><span class="meta">공유 트로프로 묶인 보유분</span></div>
+      <svg id="constel" viewBox="0 0 680 320" width="100%" role="img" aria-label="내가 본 영화들이 공유 트로프로 연결된 별자리"></svg>
+      <div class="legend">
+        <span><i style="background:var(--red)"></i>선택 렌즈 점등</span><span><i style="background:#ECEAE5"></i>내 영화</span>
+        <span><i style="background:#2c2c30"></i>공유 트로프 선분</span>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="span5" style="display:flex;flex-direction:column;gap:12px">
+      <div class="pnl">
+        <div class="ph"><h3><i class="ti ti-eye"></i> 반복 형상 클라우드</h3><span class="meta">내 영화를 가로지르는 것</span></div>
+        <div class="cloud">
+          <span class="fg" style="font-size:16px">동물의 응시<b>3</b></span>
+          <span class="fg" style="font-size:16px">강·물<b>3</b></span>
+          <span class="fg" style="font-size:15px">거울<b>3</b></span>
+          <span class="fg" style="font-size:13px">계단<b>2</b></span>
+          <span class="fg" style="font-size:13px">기차<b>2</b></span>
+          <span class="fg" style="font-size:12px">손전등<b>1</b></span>
+          <span class="fg" style="font-size:14px">길<b>2</b></span>
+          <span class="fg" style="font-size:12px">덫<b>1</b></span>
+          <span class="fg" style="font-size:13px">자동차<b>2</b></span>
+          <span class="fg" style="font-size:12px">우물<b>1</b></span>
+          <span class="fg" style="font-size:12px">얼굴<b>1</b></span>
+        </div>
+        <div class="note">「강」은 당신의 3편(발타자르·무셰트·퍼스트 카우)에 흐른다 — 당신이 미처 의식하지 못한 선분.</div>
+      </div>
+
+      <div class="pnl">
+        <div class="ph"><h3><i class="ti ti-map-2"></i> 계보 속 내 군집</h3><span class="meta">보유분이 모이는 곳</span></div>
+        <div class="clu"><div class="nm">프랑스 영성 영화 <small>브레송 계보</small></div><span class="ct">4편</span></div>
+        <div class="clu"><div class="nm">뉴 코리안 시네마 <small>이창동·박찬욱·봉준호</small></div><span class="ct">3편</span></div>
+        <div class="clu"><div class="nm">슬로우 시네마 <small>타르·라이카트</small></div><span class="ct">3편</span></div>
+        <div class="clu"><div class="nm">일본 가족극 <small>오즈·하마구치</small></div><span class="ct">2편</span></div>
+        <div class="clu"><div class="nm">동물의 응시 <small>주제적 계보</small></div><span class="ct">3편</span></div>
+      </div>
+    </div>
+
+    <!-- DEPTH -->
+    <div class="pnl span7">
+      <div class="ph"><h3><i class="ti ti-stairs-down"></i> 깊이 현황 · 표면 너머</h3><span class="meta">얼마나 캐들어갔나</span></div>
+      <div class="depthbar">
+        <i style="width:77%;background:#34343a" title="표면 관람"></i>
+        <i style="width:16%;background:var(--reading)" title="오독 읽음"></i>
+        <i style="width:7%;background:var(--red)" title="오독 작성"></i>
+      </div>
+      <div class="dleg"><span>표면 관람 109편</span><span style="color:#c6bcf7">오독 읽음 23편</span><span style="color:#e98a86">내가 쓴 오독 10편</span></div>
+      <div class="dstat">
+        <div><div class="v">142</div><div class="l">관람</div></div>
+        <div><div class="v" style="color:#86b9ec">312</div><div class="l">형상 탐색</div></div>
+        <div><div class="v" style="color:#c6bcf7">540</div><div class="l">강한 오독 읽음</div></div>
+        <div><div class="v" style="color:#e98a86">19</div><div class="l">내가 쓴 오독</div></div>
+      </div>
+      <div class="note">당신 영화의 <b style="color:var(--ink);font-style:normal">23%</b>만 표면 너머로 읽혔습니다 — 다시 볼 가장 깊은 후보를 분석면이 제안합니다.</div>
+    </div>
+
+    <!-- SELF NARRATIVE -->
+    <div class="pnl span5">
+      <div class="ph"><h3><i class="ti ti-quote"></i> 당신의 강박 · 자기 서사</h3><span class="meta">반복되는 관통선</span></div>
+      <p class="obs">당신의 영화들은 <span class="th">순결과 잔혹</span>의 충돌로 모인다. <b>무력한 목격자</b>가 세상의 타락을 응시하고, 그 죄는 누군가에게로 <b>전이</b>된다. 풍경은 <b>무관심</b>하게 펼쳐지고, 동물의 눈이 인간을 대신해 본다. 당신은 사건이 아니라 <b>응시의 윤리</b>를 보는 사람이다.</p>
+      <div class="note">이 서사는 당신이 본 12편의 트로프·형상·오독에서 자동 생성됩니다.</div>
+    </div>
+
+  </div>
+
+  <p class="note" style="text-align:center;margin-top:18px">내가 본 영화를 거울 삼아 — 트로프·strong misreading·형상·계보를 안전한 울타리 안에서 탐험 · 표시 수치는 예시 포트폴리오(wonwoo)</p>
+</div>
+
+<script>
+const FILMS=[
+ {id:'balthazar',t:"Au Hasard Balthazar",y:1966,d:"Bresson",tr:['witness','guilt','landscape'],fr:['ethics','ontology'],fg:['animal','road','river']},
+ {id:'mouchette',t:"Mouchette",y:1967,d:"Bresson",tr:['witness','guilt'],fr:['ethics','psy'],fg:['river','trap']},
+ {id:'turin',t:"The Turin Horse",y:2011,d:"Tarr",tr:['landscape','repetition'],fr:['ontology','ethics'],fg:['animal','wind']},
+ {id:'tokyo',t:"Tokyo Story",y:1953,d:"Ozu",tr:['distance','time'],fr:['ethics','ontology'],fg:['train','laundry']},
+ {id:'burning',t:"Burning",y:2018,d:"Lee",tr:['class','vanish'],fr:['psy','politics'],fg:['greenhouse','well']},
+ {id:'oldboy',t:"Oldboy",y:2003,d:"Park",tr:['guilt','double'],fr:['psy','ethics'],fg:['corridor','mirror']},
+ {id:'drive',t:"Drive My Car",y:2021,d:"Hamaguchi",tr:['guilt','language'],fr:['psy','ethics'],fg:['car','tape']},
+ {id:'parasite',t:"Parasite",y:2019,d:"Bong",tr:['class','intruder'],fr:['politics','psy'],fg:['stair','basement']},
+ {id:'firstcow',t:"First Cow",y:2019,d:"Reichardt",tr:['landscape','friendship'],fr:['ethics','politics'],fg:['animal','river']},
+ {id:'brighter',t:"A Brighter Summer Day",y:1991,d:"Yang",tr:['class','double','witness'],fr:['politics','psy'],fg:['flashlight','mirror']},
+ {id:'persona',t:"Persona",y:1966,d:"Bergman",tr:['double','mask'],fr:['psy','ontology'],fg:['mirror','face']},
+ {id:'lefils',t:"Le Fils",y:2002,d:"Dardenne",tr:['guilt','witness'],fr:['ethics','psy'],fg:['car','road']},
+];
+const LBL={
+ witness:"무력한 목격자",guilt:"전이된 죄",landscape:"풍경의 무관심",repetition:"종말의 반복",distance:"세대의 거리",
+ time:"무심한 시간",class:"계급의 유령",vanish:"사라진 여자",double:"이중 자아",language:"말의 수행",intruder:"침입자",
+ friendship:"연약한 우정",mask:"가면",
+ ethics:"윤리",psy:"정신분석",ontology:"존재론",politics:"정치",
+ animal:"동물의 응시",river:"강·물",mirror:"거울",road:"길",train:"기차",laundry:"빨래",trap:"덫",wind:"바람",
+ greenhouse:"비닐하우스",well:"우물",corridor:"복도",car:"자동차",tape:"카세트",stair:"계단",basement:"반지하",
+ flashlight:"손전등",face:"얼굴"
+};
+const MAT={witness:'정착',guilt:'정착',landscape:'태동',class:'상투',double:'정착',repetition:'신선',distance:'태동',time:'태동',vanish:'신선',language:'신선',intruder:'태동',friendship:'신선',mask:'신선'};
+const SITE={witness:28,guilt:41,landscape:16,class:52,double:34,repetition:7,distance:11,time:9,vanish:6,language:5,intruder:14,friendship:8,mask:6};
+const SNIP={
+ ethics:"「발타자르」 — 당나귀의 무판단적 응시가 인간의 도덕적 추락을 거울처럼 비춘다.",
+ psy:"「올드보이」 — 복수는 억압된 것의 회귀, 거울 속 타자가 자아를 삼킨다.",
+ ontology:"「토리노의 말」 — 반복되는 일상의 소멸로 존재의 영도(零度)를 응시한다.",
+ politics:"「기생충」 — 계단은 계급의 수직성을 신체에 새기는 장치다."
+};
+const TYPEC={tr:'#1FB286',fr:'#9B8CF0',fg:'#3E8FE0'};
+let mode='tr', active=null;
+
+function counts(type){const m={};FILMS.forEach(f=>f[type].forEach(k=>m[k]=(m[k]||0)+1));
+  return Object.entries(m).sort((a,b)=>b[1]-a[1]);}
+
+function renderLens(){
+  const list=document.getElementById('lenslist');list.innerHTML='';
+  counts(mode).forEach(([k,n])=>{
+    const el=document.createElement('div');el.className='lc'+(active===k?' on':'');
+    let mat = mode==='tr' ? `<span class="mat">${MAT[k]||''} · 사이트 ${SITE[k]||''}</span>` : '';
+    el.innerHTML=`<span class="dotc" style="background:${TYPEC[mode]}"></span><span class="nm">${LBL[k]||k}</span>${mat}<span class="ct" style="color:${TYPEC[mode]}">${n}</span>`;
+    el.onclick=()=>{active=k;applyLens();};
+    list.appendChild(el);
+  });
+}
+function renderGrid(){
+  const g=document.getElementById('filmgrid');g.innerHTML='';
+  FILMS.forEach(f=>{
+    const hit = active && f[mode].includes(active);
+    const c=document.createElement('div');
+    c.className='fcard'+(active?(hit?' hit':' dim'):'');
+    const dots=[...f.tr.map(()=>TYPEC.tr).slice(0,1),...f.fr.map(()=>TYPEC.fr).slice(0,1),...f.fg.map(()=>TYPEC.fg).slice(0,1)];
+    c.innerHTML=`<div class="ft">${f.t}</div><div class="fm">${f.y} · ${f.d}</div>
+      <div class="tags">${f.tr.map(k=>`<span class="tg" style="background:${TYPEC.tr}" title="${LBL[k]}"></span>`).join('')}
+      ${f.fr.map(k=>`<span class="tg" style="background:${TYPEC.fr}" title="${LBL[k]}"></span>`).join('')}</div>`;
+    g.appendChild(c);
+  });
+}
+function renderInfo(){
+  const box=document.getElementById('lensinfo');const meta=document.getElementById('gridmeta');
+  if(!active){box.innerHTML='<div class="t">전체 보기</div><div class="s">왼쪽 선반에서 트로프·Reading 렌즈·형상을 고르면, 그 관점이 흐르는 <b style="color:var(--ink)">당신의 영화들만</b>이 점등됩니다.</div>';
+    meta.textContent='전체 12편';return;}
+  const n=FILMS.filter(f=>f[mode].includes(active)).length;
+  let body='';
+  if(mode==='tr') body=`<div class="s">당신 <b style="color:var(--ink)">${n}편</b>에 흐르는 트로프 · 성숙도 <b style="color:#5fd0b2">${MAT[active]}</b> · 사이트 전체 ${SITE[active]}편. 이 관점으로 묶인 영화가 점등되었습니다.</div>`;
+  else if(mode==='fr') body=`<div class="s">이 렌즈로 읽힌 당신의 영화 <b style="color:var(--ink)">${n}편</b> · 강한 오독 다수.</div><div class="snip">${SNIP[active]||''}</div>`;
+  else body=`<div class="s">이 형상이 등장하는 당신의 영화 <b style="color:var(--ink)">${n}편</b> — 작품을 가로지르는 물질적 선분.</div>`;
+  box.innerHTML=`<div class="t">${LBL[active]||active}</div>${body}`;
+  box.style.borderColor=TYPEC[mode];
+  meta.textContent=`${n}편 점등 / 12편`;
+}
+// constellation
+const POS={};
+(function(){const cx=340,cy=160,R=128,r=64;
+ FILMS.forEach((f,i)=>{const ang=(i/FILMS.length)*Math.PI*2-Math.PI/2;const rad=i%2?R:r+58;
+  POS[f.id]={x:cx+Math.cos(ang)*(i%2?R:R*0.62)*(i%3?1:0.9),y:cy+Math.sin(ang)*(i%2?115:74)};});
+})();
+function renderConstel(){
+  const svg=document.getElementById('constel');let e='',nodes='';
+  for(let i=0;i<FILMS.length;i++)for(let j=i+1;j<FILMS.length;j++){
+    const sh=FILMS[i].tr.filter(k=>FILMS[j].tr.includes(k));
+    if(sh.length){const a=POS[FILMS[i].id],b=POS[FILMS[j].id];
+      e+=`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#2c2c30" stroke-width="1"/>`;}
+  }
+  FILMS.forEach(f=>{const p=POS[f.id];const hit=active&&f[mode].includes(active);
+    const fill=active?(hit?'#E3120B':'#3a3a40'):'#ECEAE5';const rds=active&&hit?7:5;
+    const tcol=active?(hit?'#ECEAE5':'#55534d'):'#9A968D';
+    nodes+=`<circle cx="${p.x}" cy="${p.y}" r="${rds}" fill="${fill}"/>
+     <text x="${p.x}" y="${p.y-10}" text-anchor="middle" font-size="9.5" fill="${tcol}" font-family="PT Serif,serif">${f.t.length>16?f.t.slice(0,15)+'…':f.t}</text>`;});
+  svg.innerHTML=e+nodes;
+}
+function applyLens(){renderLens();renderGrid();renderInfo();renderConstel();}
+document.querySelectorAll('.lensmodes button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.lensmodes button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');mode=b.dataset.mode;active=null;applyLens();
+});
+document.getElementById('reset').onclick=()=>{active=null;applyLens();};
+applyLens();
+</script>
+</body>
+</html>

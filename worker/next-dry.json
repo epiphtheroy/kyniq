@@ -1,0 +1,356 @@
+[
+  {
+    "slug": "black-swan-2010",
+    "recs": [
+      {
+        "title": "The Red Shoes",
+        "year": 1948,
+        "director": "Michael Powell, Emeric Pressburger",
+        "reason": "Aronofsky's direct intertextual template: art as fatal possession, the male auteur extracting genius through a woman's destruction."
+      },
+      {
+        "title": "Repulsion",
+        "year": 1965,
+        "director": "Roman Polanski",
+        "reason": "Same handheld-body camera rendering female interiority as horror; the apartment-as-psyche mirrors Nina's pink bedroom womb."
+      },
+      {
+        "title": "Persona",
+        "year": 1966,
+        "director": "Ingmar Bergman",
+        "reason": "The double as returning repressed self; identity dissolution between two women examined with equal formal severity."
+      },
+      {
+        "title": "Perfect Blue",
+        "year": 1997,
+        "director": "Satoshi Kon",
+        "reason": "Animated precursor Aronofsky literally sampled: surveillance, the double, and the performer policed by her own projected image."
+      },
+      {
+        "title": "Suspiria",
+        "year": 1977,
+        "director": "Dario Argento",
+        "reason": "The dance academy as panopticon-horror space; aesthetic surface weaponized against the female body seeking mastery."
+      },
+      {
+        "title": "Whiplash",
+        "year": 2014,
+        "director": "Damien Chazelle",
+        "reason": "The auteur-teacher's coercive pedagogy reframed as liberation; perfection-as-self-annihilation in a different performance discipline."
+      },
+      {
+        "title": "Possessor",
+        "year": 2020,
+        "director": "Brandon Cronenberg",
+        "reason": "Body-horror as epistemological rupture; the self erased from inside through externally-demanded performance, shot with kinetic physicality."
+      },
+      {
+        "title": "Neon Demon",
+        "year": 2016,
+        "director": "Nicolas Winding Refn",
+        "reason": "The neoliberal subject who polices herself until consumed; beauty industries as predatory panopticon devouring female competitors."
+      },
+      {
+        "title": "The Piano Teacher",
+        "year": 2001,
+        "director": "Michael Haneke",
+        "reason": "The blade as proof where testimony fails; repressed desire, maternal suffocation, and self-mutilation in a high-art institution."
+      }
+    ]
+  },
+  {
+    "slug": "drive-my-car-2021",
+    "recs": [
+      {
+        "title": "Certified Copy",
+        "year": 2010,
+        "director": "Abbas Kiarostami",
+        "reason": "A couple performs roles that may be real — the rehearsal method dissolves the line between script and grief."
+      },
+      {
+        "title": "Happy Hour",
+        "year": 2015,
+        "director": "Ryūsuke Hamaguchi",
+        "reason": "Hamaguchi's five-hour table-read method exposed raw: the unfinished utterance as the only honest language between women."
+      },
+      {
+        "title": "Scenes from a Marriage",
+        "year": 1973,
+        "director": "Ingmar Bergman",
+        "reason": "The withheld word as moral failure across a long marriage — cowardice disguised as consideration, grief deferred into silence."
+      },
+      {
+        "title": "Uncle Vanya",
+        "year": 1970,
+        "director": "Andrei Konchalovsky",
+        "reason": "The source Chekhov text filmed: the coward as truer moralist, desire as slow self-destruction, directly illuminating Kafuku's stage work."
+      },
+      {
+        "title": "Yi Yi",
+        "year": 2000,
+        "director": "Edward Yang",
+        "reason": "A three-hour still life of buried catastrophe — the real landscape of Taiwan as wound, ordinary cowardice as moral reckoning."
+      },
+      {
+        "title": "The Wailing",
+        "year": 2016,
+        "director": "Na Hong-jin",
+        "reason": "A Korean landscape as buried catastrophe where silence and the voiceless body outweigh every spoken explanation."
+      },
+      {
+        "title": "In the Mood for Love",
+        "year": 2000,
+        "director": "Wong Kar-wai",
+        "reason": "The unconfronted infidelity mourned through pure formal repetition — desire named only by its refusal, slowness as ethical stance."
+      },
+      {
+        "title": "Wings of Desire",
+        "year": 1987,
+        "director": "Wim Wenders",
+        "reason": "The recorder that holds what no person can — an eternal witness attuned to interior monologue, the flattened voice releasing feeling."
+      },
+      {
+        "title": "The Remains of the Day",
+        "year": 1993,
+        "director": "James Ivory",
+        "reason": "The cowardice of the withheld word as lifelong moral failure — a man who never possessed what he could not mourn."
+      }
+    ]
+  },
+  {
+    "slug": "spirited-away-2001",
+    "recs": [
+      {
+        "title": "Hausu",
+        "year": 1977,
+        "director": "Nobuhiko Obayashi",
+        "reason": "A house that devours girls enacts the same logic of domestic space as predatory contract consuming the feminine body."
+      },
+      {
+        "title": "Pan's Labyrinth",
+        "year": 2006,
+        "director": "Guillermo del Toro",
+        "reason": "A child navigates a mythic underworld where obedience and resistance are tests of selfhood under fascist erasure of identity."
+      },
+      {
+        "title": "Alice",
+        "year": 1988,
+        "director": "Jan Švankmajer",
+        "reason": "Wonderland rendered as uncanny puppet taxidermy — Carroll's original folk terror of the vanished child made viscerally material."
+      },
+      {
+        "title": "The Tale of Princess Kaguya",
+        "year": 2013,
+        "director": "Isao Takahata",
+        "reason": "Ghibli's own formal antithesis: watercolour dissolution against Miyazaki's saturated world-building, both locate the soul in what capitalism cannot name."
+      },
+      {
+        "title": "Welfare",
+        "year": 1975,
+        "director": "Frederick Wiseman",
+        "reason": "The bureaucratic institution that renames and processes bodies — the bathhouse contract made documentary flesh."
+      },
+      {
+        "title": "Cleo from 5 to 7",
+        "year": 1962,
+        "director": "Agnès Varda",
+        "reason": "Identity located entirely in the name one inhabits; a woman's selfhood held hostage by forces that would reduce her to a diagnosis."
+      },
+      {
+        "title": "Belladonna of Sadness",
+        "year": 1973,
+        "director": "Eiichi Yamamoto",
+        "reason": "Japanese animation as psychedelic folk cosmology where the feminine body becomes the last refuge the market and church colonize."
+      },
+      {
+        "title": "The Exterminating Angel",
+        "year": 1962,
+        "director": "Luis Buñuel",
+        "reason": "Bourgeois guests trapped by invisible contract in a space they cannot leave — the bathhouse's inexplicable captivity as surrealist capitalism."
+      },
+      {
+        "title": "Fantastic Planet",
+        "year": 1973,
+        "director": "René Laloux",
+        "reason": "An alien cosmology built entirely from labour hierarchy and the erasure of the subordinate species' inner name and culture."
+      }
+    ]
+  },
+  {
+    "slug": "no-country-for-old-men-2007",
+    "recs": [
+      {
+        "title": "Blood Simple",
+        "year": 1984,
+        "director": "Joel Coen",
+        "reason": "The Coens' debut shares No Country's Texas noir fatalism and characters undone by incomplete knowledge of lethal consequences."
+      },
+      {
+        "title": "There Will Be Blood",
+        "year": 2007,
+        "director": "Paul Thomas Anderson",
+        "reason": "Parallel American myth: a monstrous sovereign figure whose principled ruthlessness exposes capitalism as the hidden violent order."
+      },
+      {
+        "title": "Sicario",
+        "year": 2015,
+        "director": "Denis Villeneuve",
+        "reason": "The drug war as hidden sovereign, rendered through landscape silence and institutional violence that exceeds any moral framework."
+      },
+      {
+        "title": "The Proposition",
+        "year": 2005,
+        "director": "John Hillcoat",
+        "reason": "A dying frontier genre mourning its own obsolescence, scored through silence and landscape rather than generic convention."
+      },
+      {
+        "title": "Badlands",
+        "year": 1973,
+        "director": "Terrence Malick",
+        "reason": "Landscape cinematography as moral register and a killer whose detachment from consequence anticipates Chigurh's categorical indifference."
+      },
+      {
+        "title": "A Prophet",
+        "year": 2009,
+        "director": "Jacques Audiard",
+        "reason": "The symbolic order collapsing into pure predatory logic, where institutional structures reveal themselves as competing violent sovereignties."
+      },
+      {
+        "title": "Bring Me the Head of Alfredo Garcia",
+        "year": 1974,
+        "director": "Sam Peckinpah",
+        "reason": "A career director's formal refusal and elegy for a West already dead, with violence stripped of any redemptive grammar."
+      },
+      {
+        "title": "The Assassination of Jesse James by the Coward Robert Ford",
+        "year": 2007,
+        "director": "Andrew Dominik",
+        "reason": "The obsolescence of a mythic figure rendered through voiceover and vast silence, mourning cinema's own lost iconographies."
+      },
+      {
+        "title": "Wise Blood",
+        "year": 1979,
+        "director": "John Huston",
+        "reason": "A figure of terrifying Kantian consistency pursuing a self-legislated moral law through a landscape that has outlasted meaning."
+      }
+    ]
+  },
+  {
+    "slug": "in-the-mood-for-love-2000",
+    "recs": [
+      {
+        "title": "2046",
+        "year": "2004",
+        "director": "Wong Kar-wai",
+        "reason": "Direct continuation tracing Chow Mo-wan's grief into a future where desire solidifies into obsessive fiction."
+      },
+      {
+        "title": "Chungking Express",
+        "year": 1994,
+        "director": "Wong Kar-wai",
+        "reason": "Hong Kong filmed as emotional displacement; longing crystallised into objects and routines rather than confessions."
+      },
+      {
+        "title": "Brief Encounter",
+        "year": 1945,
+        "director": "David Lean",
+        "reason": "The ur-text of desire refusing consummation; the maxim 'we will not be like them' spoken entirely through restraint."
+      },
+      {
+        "title": "The Umbrellas of Cherbourg",
+        "year": 1964,
+        "director": "Jacques Demy",
+        "reason": "Love memorialised through saturated colour and costume; the season named only from its end structures both films identically."
+      },
+      {
+        "title": "Letter from an Unknown Woman",
+        "year": 1948,
+        "director": "Max Ophüls",
+        "reason": "Desire as fidelity to an impossible maxim; the beloved never fully perceives the love that has organised an entire life."
+      },
+      {
+        "title": "Certified Copy",
+        "year": 2010,
+        "director": "Abbas Kiarostami",
+        "reason": "Rehearsal standing in for living; a couple performs intimacy until the performance becomes indistinguishable from the real."
+      },
+      {
+        "title": "A City of Sadness",
+        "year": 1989,
+        "director": "Hou Hsiao-hsien",
+        "reason": "Shanghainese refugee bourgeoisie in postwar diaspora; history as atmosphere pressing silently on domestic interiors."
+      },
+      {
+        "title": "The Scent of Green Papaya",
+        "year": 1993,
+        "director": "Tran Anh Hung",
+        "reason": "A Southeast Asian past reconstructed entirely on a French studio stage; the city filmed in a stand-in city as formal premise."
+      },
+      {
+        "title": "Hiroshima Mon Amour",
+        "year": 1959,
+        "director": "Alain Resnais",
+        "reason": "The unspoken word that anchors desire; memory as architecture of grief where the past inhabits the present body."
+      }
+    ]
+  },
+  {
+    "slug": "the-terminator",
+    "recs": [
+      {
+        "title": "Blade Runner",
+        "year": 1982,
+        "director": "Ridley Scott",
+        "reason": "Body-machine boundary dissolves identically; both films ask whether flesh authenticates personhood."
+      },
+      {
+        "title": "La Jetée",
+        "year": 1962,
+        "director": "Chris Marker",
+        "reason": "The photograph as buried first cause: a single image seeds an inescapable causal loop."
+      },
+      {
+        "title": "RoboCop",
+        "year": 1987,
+        "director": "Paul Verhoeven",
+        "reason": "Capital made flesh; the corporation owns the cyborg body, literalizing what Cameron implies."
+      },
+      {
+        "title": "Predestination",
+        "year": 2014,
+        "director": "Michael Spierig",
+        "reason": "Pushes Cameron's predestination paradox to its purest, most vertiginous logical extreme."
+      },
+      {
+        "title": "Possessor",
+        "year": 2020,
+        "director": "Brandon Cronenberg",
+        "reason": "The organic-mechanical border dissolves through corporate assassination; body is colonized hardware."
+      },
+      {
+        "title": "Hardware",
+        "year": 1990,
+        "director": "Richard Stanley",
+        "reason": "Poverty-budget synth score and unstoppable killing machine in claustrophobic urban ruin; direct formal echo."
+      },
+      {
+        "title": "The Hidden",
+        "year": 1987,
+        "director": "Jack Sholder",
+        "reason": "An implacable, body-hopping killer that cannot be reasoned with; Reese-figure pursues across L.A. streets."
+      },
+      {
+        "title": "Westworld",
+        "year": 1973,
+        "director": "Michael Crichton",
+        "reason": "The machine that learns to govern turns lethal; Schwarzenegger's T-800 inherits this android's murderous logic."
+      },
+      {
+        "title": "Alita: Battle Angel",
+        "year": 2019,
+        "director": "Robert Rodriguez",
+        "reason": "Cameron's own screenplay; reproductive futurism and cyborg identity revisited with his evolved digital threshold."
+      }
+    ]
+  }
+]

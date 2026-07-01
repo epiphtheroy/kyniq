@@ -1,0 +1,78 @@
+hub_slug,hub_type,label,strategic_tier,status,films
+country-jp,country,Japanese cinema,T1,live,264
+country-kr,country,Korean cinema,T1,live,250
+country-in,country,Indian cinema,T1,live,170
+country-de,country,German cinema,T1,live,165
+country-it,country,Italian cinema,T1,live,155
+country-mx,country,Mexican cinema,T1,live,155
+country-es,country,Spanish cinema,T1,live,134
+country-br,country,Brazilian cinema,T1,live,119
+country-gb,country,British cinema,T1,live,108
+country-ar,country,Argentine cinema,T1,live,95
+country-dk,country,Danish cinema,T1,live,89
+country-se,country,Swedish cinema,T1,live,85
+country-us,country,American cinema,T1,live,75
+country-ca,country,Canadian cinema,T1,live,72
+country-au,country,Australian cinema,T1,live,71
+country-pl,country,Polish cinema,T1,live,71
+country-ir,country,Iranian cinema,T1,live,60
+country-ru,country,Russian cinema,T1,live,59
+country-fr,country,French cinema,T1,live,58
+country-cn,country,Chinese cinema,T1,live,57
+country-hk,country,Hong Kong cinema,T1,live,44
+country-ro,country,Romanian cinema,T1,live,20
+country-no,country,Norwegian cinema,T2,planned,11
+country-gr,country,Greek cinema,T2,planned,10
+country-tr,country,Turkish cinema,T2,planned,10
+country-at,country,Austrian cinema,T2,planned,9
+country-pt,country,Portuguese cinema,T2,planned,9
+country-tw,country,Taiwanese cinema,T1,planned,9
+country-be,country,Belgian cinema,T2,planned,7
+country-fi,country,Finnish cinema,T2,planned,7
+country-hu,country,Hungarian cinema,T2,planned,6
+country-il,country,Israeli cinema,T2,planned,6
+country-nl,country,Dutch cinema,T2,planned,6
+country-cz,country,Czech cinema,T2,planned,3
+country-ch,country,Swiss cinema,T2,planned,2
+country-eg,country,Egyptian cinema,T2,planned,2
+movement-iranian-new-wave,movement,Iranian New Wave,movement,live,28
+movement-japanese-golden-age,movement,Japanese Golden Age,movement,live,24
+movement-french-new-wave,movement,French New Wave (Nouvelle Vague),movement,live,22
+movement-new-hollywood,movement,New Hollywood,movement,live,21
+movement-new-german-cinema,movement,New German Cinema,movement,live,20
+movement-chinese-sixth-generation,movement,Chinese Sixth Generation,movement,live,18
+movement-korean-new-wave,movement,Korean New Wave,movement,live,17
+movement-nuevo-cine-mexicano,movement,Nuevo Cine Mexicano,movement,live,17
+movement-hong-kong-new-wave,movement,Hong Kong New Wave,movement,live,13
+movement-taiwan-new-cinema,movement,Taiwan New Cinema,movement,live,13
+movement-surrealist-film,movement,Surrealist Film,movement,live,12
+movement-chinese-fifth-generation,movement,Chinese Fifth Generation,movement,live,11
+movement-parallel-cinema,movement,Parallel Cinema,movement,live,11
+movement-slow-cinema,movement,Slow Cinema,movement,live,11
+movement-elevated-horror,movement,Elevated Horror,movement,live,10
+movement-romanian-new-wave,movement,Romanian New Wave,movement,live,10
+movement-german-expressionism,movement,German Expressionism,movement,live,9
+movement-berlin-school,movement,Berlin School,movement,live,8
+movement-japanese-new-wave,movement,Japanese New Wave (Nuberu Bagu),movement,live,7
+movement-new-queer-cinema,movement,New Queer Cinema,movement,live,6
+movement-greek-weird-wave,movement,Greek Weird Wave,movement,live,5
+movement-left-bank,movement,Left Bank (Rive Gauche),movement,live,5
+movement-poetic-realism,movement,Poetic Realism,movement,live,5
+movement-dogme-95,movement,Dogme 95,movement,live,4
+movement-cinema-du-look,movement,Cinema du Look,movement,live,3
+movement-italian-neorealism,movement,Italian Neorealism,movement,live,3
+movement-new-argentine-cinema,movement,New Argentine Cinema,movement,live,3
+movement-spaghetti-western,movement,Spaghetti Western,movement,planned,2
+movement-cinema-novo,movement,Cinema Novo,movement,planned,1
+movement-czechoslovak-new-wave,movement,Czechoslovak New Wave,movement,planned,1
+movement-giallo,movement,Giallo,movement,planned,1
+movement-new-french-extremity,movement,New French Extremity,movement,planned,1
+movement-polish-school,movement,Polish Film School,movement,planned,1
+movement-soviet-montage,movement,Soviet Montage,movement,planned,1
+region-west-africa,region,West African cinema,regional,planned,0
+region-maghreb,region,Maghreb cinema,regional,planned,0
+region-southeast-asia,region,Southeast Asian cinema,regional,planned,0
+region-caucasus,region,Caucasus cinema,regional,planned,0
+region-balkans,region,Balkan cinema,regional,planned,0
+region-central-asia,region,Central Asian cinema,regional,planned,0
+region-nordic-minor,region,Nordic (minor) cinema,regional,planned,0

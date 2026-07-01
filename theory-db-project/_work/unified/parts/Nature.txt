@@ -1,0 +1,163 @@
+PART: Nature   (총 192개 이론, 현행 Major 160개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[11] II. Evolutionary Psychology  ::  Evolutionary Psychology (General) / Massive Modularity Hypothesis / Environment of Evolutionary Adaptedness (EEA) / Sexual Strategies Theory (Evolutionary)
+[8] III. Neurobiology  ::  Reward System Theory / Mirror Neuron System Theory / Polyvagal Theory / Social Neuroscience (General)
+[5] I. Evolutionary Biology & Anthropology  ::  Theory of Natural Selection (Human Application) / Sexual Selection Theory (Human Application) / Kin Selection Theory / Reciprocal Altruism Theory
+[4] I. Evolutionary Biology  ::  Out of Africa Theory (Human Origin) / Human Behavioral Ecology / Gene-Culture Coevolution Theory / Dual Inheritance Theory (DIT)
+[2] IV. Behavioral Genetics  ::  Epigenetics (Human Behavior) / Gene-Environment Correlation Theory (rGE)
+[2] V. Ethology  ::  Innate Releasing Mechanisms (Human) / Nonverbal Communication (Biological Basis)
+[2] VII. Behavioral Economics  ::  Ultimatum Game (Neuroeconomics) / Social Preference Theory (Neuroeconomics)
+[2] VIII. Psychoneuroimmunology (PNI)  ::  Psychoneuroimmunology (PNI) / Allostasis and Allostatic Load (PNI)
+[2] X. Biological Anthropology  ::  Primate Social Behavior (Human Analogues) / Theory of Mind in Primates (Human Roots)
+[2] XII. Behavioral Endocrinology  ::  Hormonal Influences on Social Behavior / Oxytocin Theory of Bonding
+[2] XV. Developmental Neuroscience  ::  Social Brain Hypothesis / Critical Periods in Brain Development (Human)
+[2] XXII. Biological Basis of Stress  ::  General Adaptation Syndrome (Biological) / Fight-or-Flight Response (Biological)
+[1] C. Biological Anthropology (Cooperation)  ::  Costly Signaling Theory (Biological)
+[1] CI. Neurobiology of Memory (Types)  ::  Declarative vs. Non-Declarative Memory Systems
+[1] CII. Evolutionary Psychology (Gender Roles)  ::  Division of Labor (Evolutionary Psychology)
+[1] CIII. Human Ecology (Cultural Adaptation)  ::  Cultural Ecology (Human)
+[1] CIV. Behavioral Genetics (Social Behavior)  ::  Genetics of Prosocial Behavior
+[1] CIX. Human Microbiome (Immunity)  ::  Microbiome and Immune System Development Theory
+[1] CL. Human Ecological Theory (Health & Disease)  ::  Co-Evolution of Humans and Pathogens
+[1] CV. Neurobiology of Language (Development)  ::  Language Lateralization Theory
+[1] CVI. Biological Basis of Sleep (Functions)  ::  Sleep for Memory Consolidation Theory
+[1] CVII. Evolutionary Aesthetics (Sexual Selection)  ::  Handicap Principle (Aesthetics)
+[1] CVIII. Biological Basis of Stress (Early Life)  ::  Early Life Stress and Brain Development Theory
+[1] CX. Neurobiology of Emotion (Appraisal)  ::  Appraisal Theory (Neurobiological)
+[1] CXI. Biological Basis of Attachment  ::  Social Bonding Hormones Theory
+[1] CXII. Evolutionary Psychology (Health)  ::  Sickness Behavior as Adaptation Theory
+[1] CXIII. Neurobiology of Morality (Empathy)  ::  Empathy-Based Morality (Neurobiological)
+[1] CXIV. Human Behavioral Ecology (Reproduction)  ::  Optimal Reproductive Strategies (Human)
+[1] CXIX. Biological Basis of Personality (Big Five)  ::  Biological Big Five Personality Theory
+[1] CXL. Evolutionary Psychology (Cognitive Biases)  ::  Adaptive Biases (Evolutionary Psychology)
+[1] CXLI. Biological Basis of Language (Genes)  ::  Specific Language Impairment (SLI) Genetics
+[1] CXLII. Human Ethology (Play)  ::  Play Behavior (Evolutionary Ethology)
+[1] CXLIII. Neurobiology of Learning (Fear)  ::  Fear Conditioning (Neurobiological)
+[1] CXLIV. Human Reproductive Biology (Mating Systems)  ::  Mating Systems (Human Evolutionary Biology)
+[1] CXLIX. Evolutionary Psychology (Aesthetics)  ::  Evolutionary Theory of Art
+[1] CXLV. Behavioral Endocrinology (Stress)  ::  Cortisol and Stress Response Theory
+[1] CXLVI. Evolutionary Genetics (Human Traits)  ::  Recent Human Evolution Theory
+[1] CXLVII. Biological Basis of Social Behavior (Gene Expression)  ::  Gene Expression and Social Behavior
+[1] CXLVIII. Neurobiology of Memory (Long-Term)  ::  Long-Term Memory Formation (Neurobiological)
+[1] CXV. Biological Basis of Memory (Emotional)  ::  Amygdala and Emotional Memory Theory
+[1] CXVI. Evolutionary Anthropology (Cooperation)  ::  Group Cooperation (Evolutionary Anthropology)
+[1] CXVII. Neurobiology of Social Learning (Imitation)  ::  Imitation and Learning (Neurobiological)
+[1] CXVIII. Human Microbiome & Mental Disorders  ::  Gut Dysbiosis and Mental Health Theory
+[1] CXX. Evolutionary Psychology (Decision Making)  ::  Bounded Rationality (Evolutionary Psychology)
+[1] CXXI. Neurobiology of Self  ::  Self-Referential Processing (Neurobiological)
+[1] CXXII. Human Reproductive Biology (Sexual Behavior)  ::  Sexual Plasticity (Biological)
+[1] CXXIII. Evolutionary Developmental Psychology  ::  Evolutionary Developmental Psychology
+[1] CXXIV. Biological Basis of Addiction (Learning)  ::  Reinforcement Learning (Addiction Neurobiology)
+[1] CXXIX. Neurobiology of Social Bonding (Parental)  ::  Parental Brain Networks Theory
+[1] CXXV. Neurobiology of Language (Acquisition)  ::  Critical Period Hypothesis (Language Neurobiology)
+[1] CXXVI. Human Ethology (Social Signals)  ::  Gaze Following (Human Ethology)
+[1] CXXVII. Biological Basis of Stress Resilience  ::  Resilience Neurobiology (Stress)
+[1] CXXVIII. Evolutionary Psychology (Cooperation)  ::  Indirect Reciprocity Theory (Evolutionary)
+[1] CXXX. Biological Basis of Aggression (Genetic)  ::  Genetic Predisposition to Aggression Theory
+[1] CXXXI. Human Chronobiology (Health)  ::  Chronotype and Health Theory
+[1] CXXXII. Evolutionary Medicine (Pathogen Evolution)  ::  Pathogen Evolution and Human Health
+[1] CXXXIII. Neurobiology of Reward (Social)  ::  Social Reward System Theory (Neurobiological)
+[1] CXXXIV. Human Ecological Theory (Health)  ::  Epidemiological Transition Theory (Human Ecology)
+[1] CXXXIX. Neurobiology of Self (Social)  ::  Social Self (Neurobiological)
+[1] CXXXV. Biological Basis of Emotion Regulation  ::  Prefrontal Cortex and Emotion Regulation Theory
+[1] CXXXVI. Evolutionary Developmental Biology (Evo-Devo)  ::  Developmental Plasticity (Human)
+[1] CXXXVII. Biological Basis of Decision Making (Uncertainty)  ::  Neural Basis of Uncertainty (Decision Making)
+[1] CXXXVIII. Human Microbiome (Early Development)  ::  Maternal Microbiome and Offspring Health Theory
+[1] III. Neurobiology & Neuroscience  ::  Neuroplasticity (General)
+[1] IV. Behavioral Genetics & Epigenetics  ::  Gene-Environment Interaction Theory (GxE)
+[1] IX. Human Ecology  ::  Sociobiology
+[1] IX. Human Ecology & Sociobiology  ::  Human Ecological Theory
+[1] L. Biological Basis of Social Learning  ::  Social Contagion Theory (Biological)
+[1] LI. Neurobiology of Language  ::  Broca's Area and Wernicke's Area Theory
+[1] LII. Biological Basis of Empathy  ::  Empathy-Mirroring Systems Theory
+[1] LIII. Human Olfactory Perception  ::  Olfactory Acuity and Discrimination (Human)
+[1] LIV. Chrono-Psychology  ::  Circadian Rhythm and Mood Disorders Theory
+[1] LIX. Evolutionary Basis of Morality  ::  Moral Foundations Theory (Evolutionary)
+[1] LV. Behavioral Genetics (Specific Traits)  ::  Genetic Basis of Intelligence Theory
+[1] LVI. Human Microbiome & Mental Health  ::  Psychobiotic Theory
+[1] LVII. Neuroanthropology  ::  Neuroanthropology
+[1] LVIII. Biological Basis of Decision Making  ::  Somatic Marker Hypothesis
+[1] LX. Human Pheromone Research (Social)  ::  Pheromones and Social Signaling (Human)
+[1] LXI. Biological Basis of Sleep  ::  Sleep Homeostasis Theory
+[1] LXII. Neurobiology of Stress  ::  Amygdala and Fear Circuitry Theory
+[1] LXIII. Evolutionary Perspectives on Group Conflict  ::  In-Group/Out-Group Bias (Evolutionary)
+[1] LXIV. Human Development (Biological)  ::  Life History Theory (Developmental)
+[1] LXIX. Human Reproductive Ecology (Fertility)  ::  Caldwell's Wealth Flows Theory (Biological Link)
+[1] LXV. Neurobiology of Social Cognition  ::  Theory of Mind (Neurobiological)
+[1] LXVI. Biological Basis of Personality Disorders  ::  Neurodevelopmental Models of Personality Disorders
+[1] LXVII. Psychoneuroimmunology (Social Connections)  ::  Social Support and Immunity Theory
+[1] LXVIII. Biological Basis of Learning (Reward)  ::  Dopamine and Learning Theory
+[1] LXX. Neurobiology of Decision Making (Social)  ::  Neurobiology of Social Decision Making
+[1] LXXI. Biological Basis of Stress (Chronic)  ::  Allostatic Load and Disease Theory
+[1] LXXII. Evolutionary Ethics  ::  Evolved Morality Theory
+[1] LXXIII. Human Chronobiology (Social Impact)  ::  Social Jetlag Theory
+[1] LXXIV. Biological Basis of Social Bonds  ::  Vasopressin and Monogamy (Biological)
+[1] LXXIX. Evolutionary Anthropology (Culture)  ::  Costly Signaling Theory (Culture)
+[1] LXXV. Neurobiology of Prejudice  ::  Amygdala and Threat in Prejudice Theory
+[1] LXXVI. Evolutionary Economics  ::  Behavioral Ecology of Consumption
+[1] LXXVII. Biological Basis of Risk-Taking  ::  Sensation Seeking Theory (Biological)
+[1] LXXVIII. Human Gut Microbiome (Social Behavior)  ::  Microbiota-Gut-Brain-Social Axis Theory
+[1] LXXX. Biological Basis of Learning (Memory)  ::  Consolidation Theory (Memory)
+[1] LXXXI. Neurobiology of Pain  ::  Neuromatrix Theory of Pain
+[1] LXXXII. Human Biological Variation  ::  Human Genetic Diversity Theory
+[1] LXXXIII. Evolutionary Approaches to Mental Health  ::  Evolutionary Psychiatry
+[1] LXXXIV. Biological Basis of Social Learning (Mirroring)  ::  Embodied Simulation (Neuroscience)
+[1] LXXXIX. Biological Basis of Social Hierarchies  ::  Dominance Hierarchies (Human Biological Basis)
+[1] LXXXV. Evolutionary Perspectives on Family  ::  Alloparenting Theory (Evolutionary)
+[1] LXXXVI. Neurobiology of Sleep (Dreams)  ::  Activation-Synthesis Hypothesis (Dreams)
+[1] LXXXVII. Biological Basis of Learning (Classical Conditioning)  ::  Long-Term Depression (LTD) Theory
+[1] LXXXVIII. Human Ecology (Disease Ecology)  ::  Disease Ecology (Human)
+[1] V. Ethology & Animal Behavior (Human Application)  ::  Human Ethology
+[1] VI. Cognitive Science  ::  Universal Grammar Theory (Biological)
+[1] VI. Cognitive Science (Biological Basis)  ::  Embodied Cognition (Biological)
+[1] VII. Behavioral Economics & Neuroeconomics  ::  Prospect Theory (Neuroeconomics)
+[1] XC. Neurobiology of Reward & Addiction  ::  Incentive Salience Theory (Addiction)
+[1] XCI. Evolutionary Perspectives on Culture  ::  Cultural Group Selection Theory
+[1] XCII. Biological Basis of Stress (Social)  ::  Social Evaluative Threat Theory (Biological)
+[1] XCIII. Neurobiology of Fear Extinction  ::  Fear Extinction Learning (Neurobiological)
+[1] XCIV. Human Evolution (Diet)  ::  Paleodiet Hypothesis (Human Evolution)
+[1] XCIX. Neurobiology of Decision Making (Addiction)  ::  Dual-System Model of Addiction Decision-Making
+[1] XCV. Neurobiology of Morality  ::  Moral Brain Networks Theory
+[1] XCVI. Biological Basis of Personality (Molecular Genetics)  ::  Molecular Genetics of Personality
+[1] XCVII. Human Microbiome & Development  ::  Early Life Microbiome Theory (Human Development)
+[1] XCVIII. Evolutionary Demography  ::  Senescence (Evolutionary Demography)
+[1] XI. Chronobiology  ::  Sleep-Wake Regulation (Biological)
+[1] XI. Chronobiology & Circadian Rhythms  ::  Circadian Rhythm Theory (Human)
+[1] XIII. Sensory Biology  ::  Pain Gate Theory
+[1] XIII. Sensory Biology & Perception  ::  Sensory Processing Theory (Human)
+[1] XIV. Genetics  ::  Polygenic Inheritance (Human Traits)
+[1] XIV. Genetics & Society  ::  Heritability Theory (Human Behavior)
+[1] XIX. Biological Rhythms & Society  ::  Sleep Deprivation Theory (Human)
+[1] XL. Biosemiotics  ::  Biosemiotics (Human Interpretation)
+[1] XLI. Neurobiology of Social Pain  ::  Social Pain Theory (Neurobiological)
+[1] XLII. Human Reproductive Ecology  ::  Demographic Transition Theory (Biological Factors)
+[1] XLIII. Biological Basis of Stress Response  ::  HPA Axis Theory (Stress)
+[1] XLIV. Human Socio-Sexual Systems  ::  Pair Bonding Theory (Human)
+[1] XLIX. Biological Basis of Memory  ::  Long-Term Potentiation (LTP) Theory
+[1] XLV. Behavioral Economics (Neurobiological)  ::  Neurobiology of Self-Control
+[1] XLVI. Biological Basis of Personality  ::  Temperament Theory (Biological)
+[1] XLVII. Human Ecology (Disease)  ::  Zoonotic Disease Theory (Human Impact)
+[1] XLVIII. Biological Basis of Aggression (Advanced)  ::  Serotonin-Aggression Hypothesis
+[1] XVI. Human Microbiome Research  ::  Gut-Brain Axis Theory (Human)
+[1] XVII. Environmental Health Sciences  ::  Environmental Toxins and Neurodevelopment
+[1] XVIII. Nutritional Science (Human Impact)  ::  Nutritional Neuroscience
+[1] XX. Sensory Ecology (Human Perception)  ::  Olfactory Communication (Human)
+[1] XXI. Human-Animal Interaction Science  ::  Human-Animal Bond Theory (Biological)
+[1] XXIII. Evolutionary Aesthetics  ::  Evolutionary Aesthetics (Human)
+[1] XXIV. Human Reproductive Biology  ::  Life History Theory (Human)
+[1] XXIX. Biological Basis of Addiction  ::  Reward Deficiency Syndrome Theory
+[1] XXV. Biological Basis of Aggression  ::  Testosterone and Aggression Theory
+[1] XXVI. Biological Basis of Cooperation  ::  Prosociality (Biological Basis)
+[1] XXVII. Biological Basis of Learning  ::  Hebbian Theory (Learning)
+[1] XXVIII. Human Pheromone Research  ::  Human Pheromone Hypothesis
+[1] XXX. Biological Basis of Mental Illness  ::  Neurotransmitter Imbalance Theory (Mental Illness)
+[1] XXXI. Biological Basis of Gender Identity  ::  Brain Sex Theory
+[1] XXXII. Biological Basis of Consciousness  ::  Global Workspace Theory (Consciousness)
+[1] XXXIII. Biological Basis of Language  ::  FOXP2 Gene Theory (Language)
+[1] XXXIV. Evolutionary Medicine  ::  Mismatch Theory (Evolutionary Medicine)
+[1] XXXIX. Olfactory Neurobiology  ::  Olfactory Memory Theory (Biological)
+[1] XXXV. Neurophilosophy  ::  Identity Theory (Mind-Brain)
+[1] XXXVI. Behavioral Immunology  ::  Immune System and Behavior Theory
+[1] XXXVII. Biological Basis of Morality  ::  Moral Grammar Theory (Biological)
+[1] XXXVIII. Human Microbiome & Society  ::  Microbiome-Gut-Brain Axis (Societal Impact)

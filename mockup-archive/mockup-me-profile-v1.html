@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 프로필 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#FFFFFF;--paper:#FAF8F3;--s2:#F1EFE8;--ink:#14110D;--mut:#6B675F;--sub:#9A958C;--line:#E0DBD1;--line2:#CFC9BC;
+    --accent:#E3120B;--good:#2E7D4F;--gold:#9A6A1E;--teal:#0F6E56;--violet:#5B4AB7;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);font-size:13.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .ser{font-family:var(--ser)}.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:780px;margin:0 auto;padding:14px 22px 60px}
+  .top{display:flex;align-items:center;gap:12px;padding:9px 0 13px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--accent);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .top .rt{font-size:12px;color:var(--mut)}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* owner control strip */
+  .ctrl{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--s2);border:1px solid var(--line);border-radius:4px;padding:9px 13px;margin:14px 0 22px;font-size:12px;color:var(--mut)}
+  .ctrl .leg{display:flex;align-items:center;gap:6px}
+  .prev{margin-left:auto;display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--ink)}
+  .sw{width:38px;height:20px;border-radius:10px;background:#cfc9bc;position:relative;transition:.15s}
+  .sw::after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;left:2px;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+  .prev.on .sw{background:var(--accent)}.prev.on .sw::after{left:20px}
+
+  /* identity */
+  .ident{display:flex;gap:18px;align-items:flex-start;margin-bottom:8px}
+  .ava{width:84px;height:84px;flex:0 0 auto;border:1px solid var(--line2);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+  .ava.photo{background:linear-gradient(150deg,#ddd6c8,#c8c0b0)}
+  .ava .pc{position:absolute;bottom:-2px;right:-2px;background:#fff;border:1px solid var(--line2);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--mut);cursor:pointer}
+  .iname{flex:1;min-width:0}
+  .handle{font-family:var(--ser);font-size:27px;line-height:1.1;display:flex;align-items:center;gap:9px}
+  .lvl{font-size:11px;font-family:var(--mono);color:var(--gold);border:1px solid #d8c79a;background:#f7f0df;border-radius:3px;padding:1px 7px}
+  .rulerow{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);margin-top:6px}
+  .rulerow .r{display:flex;align-items:center;gap:5px}
+  .sig{font-family:var(--ser);font-style:italic;font-size:16px;color:var(--ink);margin-top:11px;line-height:1.5}
+  .emailrow{margin-top:9px;font-size:12px;color:var(--mut);display:flex;align-items:center;gap:8px}
+  .tg{cursor:pointer;color:var(--sub);font-size:16px}.tg.on{color:var(--accent)}
+  .mini{font-size:11px;color:var(--sub);border:1px solid var(--line2);border-radius:12px;padding:2px 9px;cursor:pointer}
+
+  /* module */
+  .mod{margin-top:24px}
+  .mod.priv .body{opacity:.4}
+  .mh{display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:13px}
+  .mh h2{margin:0;font-family:var(--ser);font-size:17px;font-weight:700}
+  .mh .vis{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--sub)}
+  .mh .vis .tg{font-size:17px}
+  .privtag{font-size:10px;font-family:var(--mono);color:var(--mut);border:1px solid var(--line2);border-radius:3px;padding:1px 6px}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:9px}
+  .st{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:11px 12px}
+  .st .v{font-family:var(--mono);font-size:22px}.st .l{font-size:10.5px;color:var(--sub);margin-top:2px}
+
+  .badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+  .bd{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:9px 11px}
+  .bd .ic{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;flex:0 0 auto;border:1px solid}
+  .bd .n{font-size:12.5px;font-weight:500;line-height:1.25}.bd .s{font-size:10px;color:var(--sub)}
+  .b-gold .ic{color:var(--gold);border-color:#d8c79a;background:#f7f0df}
+  .b-red .ic{color:var(--accent);border-color:#f0c2c0;background:#fcecec}
+  .b-teal .ic{color:var(--teal);border-color:#a9d8c9;background:#e6f4ee}
+  .b-violet .ic{color:var(--violet);border-color:#c5bdef;background:#efecfb}
+  .b-base .ic{color:var(--mut);border-color:var(--line2);background:var(--s2)}
+
+  .lin{display:flex;flex-direction:column;gap:9px}
+  .lrow{display:grid;grid-template-columns:160px 1fr 40px;align-items:center;gap:11px;font-size:13px}
+  .lrow .nm{font-family:var(--ser);font-size:14px}
+  .track{height:7px;background:var(--s2);border-radius:0;overflow:hidden}.track>i{display:block;height:100%;background:var(--accent)}
+  .lrow .pct{font-family:var(--mono);font-size:12px;text-align:right;color:var(--mut)}
+
+  .wlist{display:flex;flex-direction:column}
+  .wi{padding:10px 0;border-bottom:1px solid var(--line)}
+  .wi:last-child{border-bottom:0}
+  .wi .t{font-family:var(--ser);font-size:15.5px}
+  .wi .m{font-size:11px;color:var(--sub);margin-top:2px;display:flex;gap:8px;align-items:center}
+  .wi .ex{font-size:13px;color:var(--mut);margin-top:5px;max-width:62ch}
+
+  .posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+  .pcard{text-align:center}
+  .po{width:100%;aspect-ratio:2/3;border-radius:2px;background:linear-gradient(150deg,#ddd6c8,#c5bdac);position:relative;border:1px solid var(--line)}
+  .po .yr{position:absolute;bottom:4px;left:0;right:0;font-family:var(--mono);font-size:9px;color:#5b5547}
+  .pcard .pt{font-family:var(--ser);font-size:11px;margin-top:4px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .seemore{font-size:12px;color:var(--accent);margin-top:10px;display:inline-block;cursor:pointer}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .col{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:13px}
+  .col .ct{font-family:var(--ser);font-size:15px;display:flex;align-items:center;gap:7px}
+  .col .cm{font-size:11px;color:var(--sub);margin-top:3px}
+  .col .cs{font-size:11.5px;color:var(--mut);margin-top:8px;border-top:1px solid var(--line);padding-top:7px}
+  .pubdot{font-size:10px;color:var(--good);margin-left:auto}
+
+  .footnote{font-size:11px;color:var(--sub);font-style:italic;text-align:center;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .hidden{display:none!important}
+  @media(max-width:620px){.cols{grid-template-columns:1fr}.lrow{grid-template-columns:120px 1fr 36px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:17px;font-weight:700">프로필</span>
+    <span class="rt"><span id="ownerChrome">내 프로필 · 편집 중</span></span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <div class="ctrl" id="ctrl">
+    <span class="leg"><i class="ti ti-eye" style="color:var(--accent)"></i> 켜진 칸만 남들이 봅니다</span>
+    <span class="leg" style="color:var(--sub)">· 끄면 나만 보관</span>
+    <span class="prev" id="prev"><span class="sw"></span><span id="prevLbl">공개 미리보기</span></span>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="ident">
+    <div class="ava" id="ava">
+      <svg width="56" height="56" viewBox="0 0 56 56" id="emblem"><circle cx="28" cy="28" r="22" fill="none" stroke="#9A6A1E" stroke-width="1.4"/>
+        <path d="M28 10 L28 46 M10 28 L46 28" stroke="#CFC9BC" stroke-width="1"/><circle cx="28" cy="28" r="7" fill="#E3120B"/></svg>
+      <span class="pc" id="photoToggle" title="사진 올리기/숨기기"><i class="ti ti-camera"></i></span>
+    </div>
+    <div class="iname">
+      <div class="handle">@lantern_kr <span class="lvl">LV. Established</span></div>
+      <div class="rulerow">
+        <span class="r"><i class="ti ti-lock"></i> 실명 미사용 · 핸들로만 활동</span>
+        <span class="r"><i class="ti ti-map-pin-off"></i> 위치 비공개</span>
+      </div>
+      <div class="sig">절제된 응시와 존재론적 견딤 — 느린 어둠을 믿는 관객.</div>
+      <div class="emailrow"><i class="ti ti-mail tg" id="emailTg"></i> <span id="emailVal">이메일 비공개</span>
+        <span class="mini" id="emailEdit">공개로 바꾸기</span></div>
+    </div>
+  </div>
+
+  <!-- MODULES -->
+  <div id="modules"></div>
+
+  <div class="footnote">프로필에는 <b>트로프·미스리딩</b>이 노출되지 않습니다 — 해석의 내부는 사적으로 둡니다. 리니지·수치·뱃지·공개 글·리스트만 선택 공개됩니다.</div>
+</div>
+
+<script>
+let preview=false, photoOn=false, emailPub=false;
+const mods=[
+ {key:'stats',title:'수치',pub:true},
+ {key:'badges',title:'업적',pub:true},
+ {key:'lineage',title:'리니지',pub:true},
+ {key:'writings',title:'공개한 글',pub:true},
+ {key:'watched',title:'내가 본 영화',pub:true},
+ {key:'collections',title:'내가 만든 리스트',pub:true},
+ {key:'watchlist',title:'볼 영화',pub:false},
+];
+const STATS=[['보유','142'],['평균 별점','7.8'],['정전 커버리지','38/250'],['진입 계보','52'],['공개 글','6'],['동행','7']];
+const BADGES=[
+ ['ti-flag','브레송 완파','감독 6/6','b-gold'],['ti-stack-2','100편 돌파','보유','b-base'],
+ ['ti-award','정전 38/250','커버리지','b-base'],['ti-flame','30일 연속','기록','b-red'],
+ ['ti-compass','발굴가','상위 9%','b-teal'],['ti-clock-hour-3','슬로우 마스터','사조','b-violet'],
+ ['ti-pencil','첫 공개 글','쓰기','b-base'],['ti-masks-theater','동행 7회','이중 노출','b-base'],
+];
+const LIN=[['칸 황금종려',27],['S&S 2022 비평가 100',41],['KOFA 100 · 한국',52],['슬로우 시네마',70]];
+const WRIT=[
+ ['브레송의 손에 대하여','06.20','얼굴보다 손으로 먼저 말하는 인물들 — 표정을 지운 자리에서 행위가 영혼이 된다.'],
+ ['느린 영화는 왜 윤리적인가','06.18','지속(duration)은 판단을 유보하게 한다. 시간을 견디게 함으로써 우리를 윤리적 주체로 만든다.'],
+ ['풍경의 무관심, 한 갈래로','06.24','인간의 고통과 무관하게 펼쳐지는 풍경 — 타르의 바람과 라이카트의 강이 만나는 곳.'],
+];
+const WATCHED=[['Parasite','19'],['Au Hasard Balthazar','66'],['Tokyo Story','53'],['Yi Yi','00'],['Stalker','79'],['In the Mood for Love','00'],['The Turin Horse','11'],['Persona','66']];
+const COLLS=[['느린 영화의 윤리','9개 · 영화·감독·리니지'],['입문자를 위한 12편','12개 · 큐레이션']];
+const WATCHLIST=[['Touki Bouki',"'73 · 맘베티"],['Yi Yi',"'00 · 에드워드 양"],['Andrei Rublev',"'66 · 타르콥스키"]];
+
+function modBody(k){
+ if(k==='stats')return `<div class="stats">${STATS.map(([l,v])=>`<div class="st"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('')}</div>`;
+ if(k==='badges')return `<div class="badges">${BADGES.map(([i,n,s,c])=>`<div class="bd ${c}"><div class="ic"><i class="ti ${i}"></i></div><div><div class="n">${n}</div><div class="s">${s}</div></div></div>`).join('')}</div>`;
+ if(k==='lineage')return `<div class="lin">${LIN.map(([n,p])=>`<div class="lrow"><span class="nm">${n}</span><div class="track"><i style="width:${p}%"></i></div><span class="pct">${p}%</span></div>`).join('')}</div>`;
+ if(k==='writings')return `<div class="wlist">${WRIT.map(([t,d,e])=>`<div class="wi"><div class="t">${t}</div><div class="m"><i class="ti ti-world" style="color:var(--good)"></i> 공개 · ${d}</div><div class="ex">${e}</div></div>`).join('')}</div>`;
+ if(k==='watched')return `<div class="posters">${WATCHED.map(([t,y])=>`<div class="pcard"><div class="po"><span class="yr">'${y}</span></div><div class="pt">${t}</div></div>`).join('')}</div><span class="seemore" onclick="location.href='mockup-me-collection-list-v2.html'">내가 본 142편 전체 보기 →</span>`;
+ if(k==='collections')return `<div class="cols">${COLLS.map(([t,m])=>`<div class="col"><div class="ct"><i class="ti ti-folder" style="color:var(--mut)"></i> ${t}<span class="pubdot">● 공개</span></div><div class="cm">${m}</div><div class="cs" style="cursor:pointer" onclick="location.href='mockup-me-library.html'">미리보기 →</div></div>`).join('')}</div>`;
+ if(k==='watchlist')return `<div class="wlist">${WATCHLIST.map(([t,m])=>`<div class="wi"><div class="t">${t}</div><div class="m">${m}</div></div>`).join('')}</div>`;
+ return '';
+}
+function render(){
+ // identity chrome
+ document.getElementById('ctrl').classList.toggle('hidden',preview);
+ document.getElementById('ownerChrome').textContent=preview?'공개된 모습 (방문자 시점)':'내 프로필 · 편집 중';
+ document.getElementById('ava').classList.toggle('photo',photoOn);
+ document.getElementById('emblem').style.display=photoOn?'none':'';
+ document.getElementById('photoToggle').classList.toggle('hidden',preview);
+ // email
+ document.getElementById('emailTg').classList.toggle('on',emailPub);
+ document.getElementById('emailVal').textContent=emailPub?'thinkartist1@gmail.com':'이메일 비공개';
+ document.getElementById('emailEdit').classList.toggle('hidden',preview);
+ document.querySelector('.emailrow').classList.toggle('hidden',preview&&!emailPub);
+ // modules
+ const box=document.getElementById('modules');
+ box.innerHTML=mods.map(m=>{
+   if(preview&&!m.pub)return '';
+   const privCls=(!preview&&!m.pub)?' priv':'';
+   const visCtrl=preview?'':`<span class="vis">${m.pub?'공개':'<span class="privtag">비공개</span>'} <i class="ti ti-${m.pub?'eye':'eye-off'} tg ${m.pub?'on':''}" data-mod="${m.key}"></i></span>`;
+   return `<section class="mod${privCls}"><div class="mh"><h2>${m.title}</h2>${visCtrl}</div><div class="body">${modBody(m.key)}</div></section>`;
+ }).join('');
+}
+document.getElementById('prev').onclick=()=>{preview=!preview;document.getElementById('prev').classList.toggle('on',preview);
+ document.getElementById('prevLbl').textContent=preview?'편집으로 돌아가기':'공개 미리보기';render();};
+document.getElementById('photoToggle').onclick=()=>{photoOn=!photoOn;render();};
+document.getElementById('emailTg').onclick=()=>{emailPub=!emailPub;render();};
+document.getElementById('emailEdit').onclick=()=>{emailPub=!emailPub;render();};
+document.getElementById('modules').addEventListener('click',e=>{const t=e.target.closest('[data-mod]');if(t){const m=mods.find(x=>x.key===t.dataset.mod);m.pub=!m.pub;render();}});
+render();
+</script>
+</body>
+</html>

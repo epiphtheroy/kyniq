@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 글쓰기 · 노트 (시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;--good:#1FB286;--gold:#E8B23A;
+    --film:#ECEAE5;--figure:#86b9ec;--trope:#1FB286;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .ser{font-family:var(--ser)}.mono{font-family:var(--mono)}
+  .eb{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1440px;margin:0 auto;padding:14px 18px 40px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  .layout{display:grid;grid-template-columns:288px minmax(0,1fr);gap:0;margin-top:13px;border:1px solid var(--line2);border-radius:6px;overflow:hidden;min-height:74vh}
+  /* note list */
+  .list{border-right:1px solid var(--line2);background:#0F0F11;display:flex;flex-direction:column}
+  .lhead{display:flex;align-items:center;gap:8px;padding:12px;border-bottom:1px solid var(--line)}
+  .lhead .srch{flex:1;position:relative}
+  .lhead input{width:100%;background:var(--pnl);border:1px solid var(--line2);border-radius:5px;padding:7px 10px 7px 30px;color:var(--ink);font-size:12.5px}
+  .lhead input:focus{outline:none;border-color:var(--ink)}.lhead .srch i{position:absolute;left:9px;top:8px;color:var(--sub);font-size:14px}
+  .newbtn{background:var(--red);color:#fff;border:none;border-radius:5px;width:32px;height:32px;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center}
+  .litems{overflow:auto;flex:1}
+  .li{padding:11px 13px;border-bottom:1px solid var(--line);cursor:pointer}
+  .li:hover{background:var(--pnl2)}.li.on{background:var(--pnl2);box-shadow:inset 3px 0 0 var(--red)}
+  .li .lt{font-family:var(--ser);font-size:14.5px;line-height:1.25;display:flex;align-items:center;gap:6px}
+  .li .vis{font-size:11px;flex:0 0 auto}.vis.pub{color:var(--good)}.vis.pri{color:var(--sub)}
+  .li .sn{font-size:11.5px;color:var(--sub);margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .li .lm{display:flex;gap:6px;align-items:center;margin-top:6px}
+  .ttag{font-size:9px;font-family:var(--mono);padding:1px 6px;border-radius:2px;border:1px solid var(--line2);color:var(--mut)}
+  .ttag.mis{color:#e6c884;border-color:#5b481f}.ttag.com{color:#9cc8f3;border-color:#234a72}.ttag.tro{color:#8ee3cc;border-color:#1d5145}
+  .li .ld{font-size:10px;color:var(--sub);margin-left:auto;font-family:var(--mono)}
+
+  /* editor */
+  .ed{display:flex;flex-direction:column;background:#0D0D0E}
+  .edbar{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+  .seg button{background:transparent;color:var(--mut);border:none;border-right:1px solid var(--line);padding:6px 11px;font-family:var(--ui);font-size:11.5px;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .seg button:last-child{border-right:none}.seg button.on{background:var(--ink);color:#0B0B0C}
+  .vistoggle{display:flex;align-items:center;gap:8px;margin-left:auto;font-size:12px;color:var(--mut);cursor:pointer}
+  .sw{width:38px;height:20px;border-radius:10px;background:#2a2a2f;position:relative;transition:background .15s}
+  .sw::after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .vistoggle.pub .sw{background:#0e4a3a}.vistoggle.pub .sw::after{left:20px;background:var(--good)}
+  .vistoggle.pub{color:var(--good)}
+  .btn{background:transparent;color:var(--ink);border:1px solid var(--line2);border-radius:5px;padding:6px 11px;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .btn.save{background:var(--red);color:#fff;border:none}
+
+  .canvas{flex:1;overflow:auto;padding:24px 30px}
+  .canvas .inner{max-width:680px;margin:0 auto}
+  .hintbanner{font-size:11.5px;color:#e6c884;background:#1c1708;border:1px solid #5b481f;border-radius:5px;padding:7px 11px;margin-bottom:16px;display:none}
+  .hintbanner.show{display:block}
+  .titlein{width:100%;background:transparent;border:none;color:var(--ink);font-family:var(--ser);font-size:30px;font-weight:700;line-height:1.2;padding:0;margin-bottom:8px}
+  .titlein:focus{outline:none}.titlein::placeholder{color:#3a3a40}
+  .fmtbar{display:flex;gap:3px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px;position:sticky;top:-24px;background:#0D0D0E;z-index:2}
+  .fmtbar button{background:transparent;color:var(--mut);border:none;width:30px;height:28px;border-radius:4px;cursor:pointer;font-size:15px}
+  .fmtbar button:hover{background:var(--pnl2);color:var(--ink)}
+  .body{font-family:var(--ser);font-size:17px;line-height:1.72;color:#E4E2DC;min-height:240px;outline:none}
+  .body:empty:before{content:attr(data-ph);color:#3a3a40}
+  .body h2{font-size:22px;margin:1.2em 0 .4em}.body blockquote{border-left:2px solid var(--red);margin:1em 0;padding:2px 0 2px 16px;color:var(--mut);font-style:italic}
+  .body .embed{border:1px solid var(--line2);border-radius:6px;padding:11px 13px;margin:1em 0;background:var(--pnl);font-family:var(--ui);font-size:13px}
+  .body .embed .src{font-size:10.5px;color:var(--sub);font-family:var(--mono);margin-top:5px}
+
+  /* attach rail */
+  .attach{border-top:1px solid var(--line);padding:13px 30px;background:#0F0F11}
+  .attach .inner{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .arow{display:flex;align-items:flex-start;gap:11px}
+  .arow .albl{width:118px;flex:0 0 auto;font-size:11px;color:var(--sub);padding-top:6px;display:flex;align-items:center;gap:6px}
+  .arow .albl .d{width:8px;height:8px;border-radius:50%}
+  .achips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex:1;position:relative}
+  .achip{font-size:12px;background:var(--pnl2);border:1px solid var(--line2);border-radius:13px;padding:3px 5px 3px 10px;display:flex;align-items:center;gap:6px;font-family:var(--ser)}
+  .achip .x{cursor:pointer;color:var(--sub);font-size:13px}.achip .x:hover{color:var(--red)}
+  .addbtn{font-size:11.5px;color:var(--mut);border:1px dashed var(--line2);border-radius:13px;padding:4px 10px;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .addbtn:hover{color:var(--ink);border-color:var(--ink)}
+  .asrch{position:relative}
+  .asrch input{background:var(--pnl);border:1px solid var(--ink);border-radius:13px;padding:4px 10px;color:var(--ink);font-size:12px;width:180px}
+  .asrch input:focus{outline:none}
+  .adrop{position:absolute;top:30px;left:0;background:#161618;border:1px solid var(--line2);border-radius:5px;z-index:9;min-width:240px;max-height:240px;overflow:auto}
+  .adrop .ai{padding:7px 11px;cursor:pointer;border-bottom:1px solid var(--line);font-size:12.5px}
+  .adrop .ai:hover{background:var(--pnl2)}.adrop .ai .m{font-size:10.5px;color:var(--sub)}
+  .adrop .ai.new{color:var(--good)}
+  .note{font-size:10.5px;color:var(--sub);font-style:italic;text-align:center;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">글쓰기 · 노트</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-writing"></i> 쓰고, 영화를 엮다</span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <div class="layout">
+    <!-- LIST -->
+    <aside class="list">
+      <div class="lhead">
+        <div class="srch"><i class="ti ti-search"></i><input id="lsearch" placeholder="내 글 검색"></div>
+        <button class="newbtn" id="newBtn"><i class="ti ti-plus"></i></button>
+      </div>
+      <div class="litems" id="litems"></div>
+    </aside>
+
+    <!-- EDITOR -->
+    <section class="ed">
+      <div class="edbar">
+        <div class="seg" id="typeSeg">
+          <button data-type="free" class="on"><i class="ti ti-note"></i> 자유 글</button>
+          <button data-type="comment"><i class="ti ti-message"></i> 영화 코멘트</button>
+          <button data-type="misreading"><i class="ti ti-quote"></i> 강한 오독</button>
+          <button data-type="trope"><i class="ti ti-affiliate"></i> 트로프 기여</button>
+        </div>
+        <div class="vistoggle" id="visToggle"><span class="sw"></span><span id="visLbl">비공개</span></div>
+        <button class="btn save" id="saveBtn"><i class="ti ti-check"></i> 저장</button>
+      </div>
+
+      <div class="canvas">
+        <div class="inner">
+          <div class="hintbanner" id="hint"></div>
+          <input class="titlein" id="titleIn" placeholder="제목 없는 글">
+          <div class="fmtbar">
+            <button data-cmd="bold" title="굵게"><i class="ti ti-bold"></i></button>
+            <button data-cmd="italic" title="기울임"><i class="ti ti-italic"></i></button>
+            <button data-cmd="h2" title="제목"><i class="ti ti-heading"></i></button>
+            <button data-cmd="quote" title="인용"><i class="ti ti-blockquote"></i></button>
+            <button data-cmd="link" title="링크"><i class="ti ti-link"></i></button>
+            <button data-cmd="embed" title="외부 인용·임베드 붙여넣기"><i class="ti ti-clipboard-plus"></i></button>
+          </div>
+          <div class="body" id="bodyEd" contenteditable="true" data-ph="여기에 글을 씁니다. 영화에 매이지 않아도 됩니다 — 쓰고 나서 아래에서 영화를 엮으면 관련영화가 됩니다."></div>
+        </div>
+      </div>
+
+      <!-- ATTACH RAIL -->
+      <div class="attach">
+        <div class="inner">
+          <div class="arow">
+            <div class="albl"><span class="d" style="background:var(--film)"></span>엮은 영화</div>
+            <div class="achips" id="filmChips"></div>
+          </div>
+          <div class="arow" id="figRow">
+            <div class="albl"><span class="d" style="background:var(--figure)"></span>형상 · 강한 오독</div>
+            <div class="achips" id="figChips"></div>
+          </div>
+          <div class="arow">
+            <div class="albl"><span class="d" style="background:var(--trope)"></span>트로프</div>
+            <div class="achips" id="tropeChips"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="note">하나의 글이 곧 — 자유 메모 · 영화 밑 코멘트 · 형상의 강한 오독 · 트로프 기여가 될 수 있습니다. 공개로 바꾸면 외부 페이지로 나갑니다.</div>
+</div>
+
+<script>
+const FILMS=[
+ {id:'parasite',t:"Parasite",y:2019,d:"봉준호"},{id:'oldboy',t:"Oldboy",y:2003,d:"박찬욱"},
+ {id:'balthazar',t:"Au Hasard Balthazar",y:1966,d:"브레송"},{id:'mouchette',t:"Mouchette",y:1967,d:"브레송"},
+ {id:'pickpocket',t:"Pickpocket",y:1959,d:"브레송"},{id:'largent',t:"L'Argent",y:1983,d:"브레송"},
+ {id:'turin',t:"The Turin Horse",y:2011,d:"벨라 타르"},{id:'firstcow',t:"First Cow",y:2019,d:"라이카트"},
+ {id:'stalker',t:"Stalker",y:1979,d:"타르콥스키"},{id:'tokyo',t:"Tokyo Story",y:1953,d:"오즈"},
+ {id:'drive',t:"Drive My Car",y:2021,d:"하마구치"},{id:'mood',t:"In the Mood for Love",y:2000,d:"왕가위"},
+ {id:'yiyi',t:"Yi Yi",y:2000,d:"에드워드 양"},{id:'burning',t:"Burning",y:2018,d:"이창동"},
+];
+const FIGURES=[
+ {id:'fg1',label:"당나귀의 응시",film:"발타자르"},{id:'fg2',label:"거울 속 타자",film:"올드보이"},
+ {id:'fg3',label:"수직의 계단",film:"기생충"},{id:'fg4',label:"흐르는 강",film:"무셰트"},
+ {id:'fg5',label:"늙은 말",film:"토리노의 말"},{id:'fg6',label:"카세트테이프",film:"드라이브 마이 카"},
+ {id:'fg7',label:"반지하 창",film:"기생충"},{id:'fg8',label:"빈 들판",film:"퍼스트 카우"},
+];
+const TROPES=[
+ {id:'t1',label:"무력한 목격자"},{id:'t2',label:"전이된 죄"},{id:'t3',label:"풍경의 무관심"},
+ {id:'t4',label:"이중 자아"},{id:'t5',label:"계급의 유령"},{id:'t6',label:"갈망의 지연"},
+];
+const TYPEMETA={free:["자유 글",""],comment:["영화 코멘트","com"],misreading:["강한 오독","mis"],trope:["트로프 기여","tro"]};
+let notes=[
+ {id:1,type:'free',title:"브레송의 손에 대하여",pub:true,
+  body:"<p>브레송의 인물들은 얼굴보다 <b>손</b>으로 먼저 말한다. 〈소매치기〉의 손가락, 〈발타자르〉의 고삐를 쥔 손, 〈무셰트〉가 컵을 미는 손—.</p><blockquote>표정을 지운 자리에서, 행위가 영혼이 된다.</blockquote>",
+  films:['pickpocket','balthazar','mouchette','largent'],figure:null,trope:null,date:"06.20"},
+ {id:2,type:'misreading',title:"거울은 타자를 삼킨다",pub:false,
+  body:"<p>복수는 억압된 것의 회귀다. 〈올드보이〉의 거울은 자아와 타자의 경계를 무너뜨린다—이우진이 곧 오대수의 그림자였듯.</p>",
+  films:['oldboy'],figure:'fg2',trope:'t2',date:"06.22"},
+ {id:3,type:'comment',title:"기생충 재관람 — 계단의 안무",pub:false,
+  body:"<p>두 번째로 보니 계단이 먼저 보인다. 인물들은 늘 오르거나 내려간다. 수평의 대사 위로 수직의 운동이 흐른다.</p>",
+  films:['parasite'],figure:null,trope:null,date:"06.23"},
+ {id:4,type:'trope',title:"제안: 「풍경의 무관심」",pub:true,
+  body:"<p>인간의 고통과 무관하게 펼쳐지는 풍경. 〈토리노의 말〉의 바람, 〈퍼스트 카우〉의 강, 〈발타자르〉의 들판이 한 갈래로 묶인다.</p>",
+  films:['turin','firstcow','balthazar'],figure:null,trope:'t3',date:"06.24"},
+ {id:5,type:'free',title:"느린 영화는 왜 윤리적인가",pub:true,
+  body:"<p>지속(duration)은 관객에게 판단을 유보하게 한다. 타르, 라이카트, 타르콥스키—시간을 견디게 함으로써 우리를 윤리적 주체로 만든다.</p>",
+  films:['turin','firstcow','stalker'],figure:null,trope:null,date:"06.18"},
+];
+let nextNote=6,nextFig=99,nextTrope=99;
+let curId=1,q='';
+const byF=id=>FILMS.find(f=>f.id===id),byFig=id=>FIGURES.find(f=>f.id===id),byT=id=>TROPES.find(t=>t.id===id);
+function cur(){return notes.find(n=>n.id===curId);}
+function plain(html){return html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
+
+function renderList(){
+ const items=notes.filter(n=>!q||(n.title+plain(n.body)).toLowerCase().includes(q)).slice().reverse();
+ litems.innerHTML=items.map(n=>{const tm=TYPEMETA[n.type];
+   return `<div class="li ${n.id===curId?'on':''}" data-note="${n.id}">
+     <div class="lt"><span class="vis ${n.pub?'pub':'pri'}"><i class="ti ti-${n.pub?'world':'lock'}"></i></span>${n.title||'제목 없는 글'}</div>
+     <div class="sn">${plain(n.body).slice(0,90)||'…'}</div>
+     <div class="lm">${tm[1]?`<span class="ttag ${tm[1]}">${tm[0]}</span>`:'<span class="ttag">자유</span>'}
+       ${n.films.length?`<span class="ttag">영화 ${n.films.length}</span>`:''}
+       <span class="ld">${n.date}</span></div></div>`;}).join('');
+}
+function renderEditor(){
+ const n=cur();if(!n)return;
+ document.querySelectorAll('#typeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.type===n.type));
+ const vt=document.getElementById('visToggle');vt.classList.toggle('pub',n.pub);document.getElementById('visLbl').textContent=n.pub?'공개':'비공개';
+ titleIn.value=n.title;bodyEd.innerHTML=n.body;
+ // hint by type
+ const hint=document.getElementById('hint');
+ if(n.type==='misreading'){hint.className='hintbanner show';hint.innerHTML=n.figure?`이 글은 「<b>${byFig(n.figure).label}</b>」(${byFig(n.figure).film})의 <b>강한 오독</b>으로 게시됩니다.`:'강한 오독으로 게시하려면 아래에서 <b>형상</b>을 검색해 엮으세요.';}
+ else if(n.type==='comment'){hint.className='hintbanner show';hint.style.cssText='';hint.innerHTML=n.films.length?`이 글은 「<b>${byF(n.films[0]).t}</b>」 아래 <b>코멘트</b>로 달립니다.`:'영화 코멘트로 게시하려면 아래에서 <b>영화</b>를 엮으세요.';}
+ else if(n.type==='trope'){hint.className='hintbanner show';hint.innerHTML=n.trope?`이 글은 트로프 「<b>${byT(n.trope).label}</b>」에 <b>기여</b>됩니다.`:'트로프를 <b>선택하거나 새로 제안</b>하세요.';}
+ else hint.className='hintbanner';
+ document.getElementById('figRow').style.opacity=n.type==='misreading'?'1':'.55';
+ renderChips();
+}
+function chip(label,sub,onx){return `<span class="achip">${label}${sub?` <span style="color:var(--sub);font-size:10px;font-family:var(--ui)">${sub}</span>`:''}<i class="ti ti-x x" ${onx}></i></span>`;}
+function renderChips(){
+ const n=cur();
+ filmChips.innerHTML=n.films.map(id=>{const f=byF(id);return chip(f.t,"'"+String(f.y).slice(2),`data-rmfilm="${id}"`);}).join('')
+   +`<span class="addbtn" data-add="film"><i class="ti ti-plus"></i> 영화 엮기</span>`;
+ figChips.innerHTML=(n.figure?chip(byFig(n.figure).label,byFig(n.figure).film,`data-rmfig="1"`):'')
+   +`<span class="addbtn" data-add="fig"><i class="ti ti-search"></i> 형상 검색</span>`;
+ tropeChips.innerHTML=(n.trope?chip("「"+byT(n.trope).label+"」","",`data-rmtrope="1"`):'')
+   +`<span class="addbtn" data-add="trope"><i class="ti ti-plus"></i> 트로프 추가</span>`;
+}
+function renderAll(){renderList();renderEditor();}
+
+// search dropdown
+function openSearch(kind,anchor){
+ closeSearch();
+ const wrap=document.createElement('span');wrap.className='asrch';wrap.id='asrchActive';
+ const ph={film:'영화 제목·감독',fig:'형상·영화',trope:'트로프 이름'}[kind];
+ wrap.innerHTML=`<input placeholder="${ph}" autofocus><div class="adrop" id="adrop"></div>`;
+ anchor.replaceWith(wrap);const inp=wrap.querySelector('input');inp.focus();
+ inp.oninput=()=>fillDrop(kind,inp.value);fillDrop(kind,'');
+}
+function closeSearch(){const a=document.getElementById('asrchActive');if(a)renderChips();}
+function fillDrop(kind,v){const drop=document.getElementById('adrop');if(!drop)return;v=v.toLowerCase().trim();
+ let rows='';
+ if(kind==='film'){const r=FILMS.filter(f=>!cur().films.includes(f.id)&&(f.t+f.d).toLowerCase().includes(v)).slice(0,8);
+   rows=r.map(f=>`<div class="ai" data-pickfilm="${f.id}">${f.t}<div class="m">${f.d} · ${f.y}</div></div>`).join('');}
+ else if(kind==='fig'){const r=FIGURES.filter(f=>(f.label+f.film).toLowerCase().includes(v)).slice(0,8);
+   rows=r.map(f=>`<div class="ai" data-pickfig="${f.id}">${f.label}<div class="m">${f.film}</div></div>`).join('')
+     +(v?`<div class="ai new" data-newfig="${v}"><i class="ti ti-plus"></i> 「${v}」 새 형상 만들기</div>`:'');}
+ else{const r=TROPES.filter(t=>t.label.toLowerCase().includes(v)).slice(0,8);
+   rows=r.map(t=>`<div class="ai" data-picktrope="${t.id}">「${t.label}」</div>`).join('')
+     +(v?`<div class="ai new" data-newtrope="${v}"><i class="ti ti-plus"></i> 「${v}」 새 트로프 제안</div>`:'');}
+ drop.innerHTML=rows||'<div class="ai" style="color:var(--sub)">결과 없음</div>';
+}
+
+document.addEventListener('click',e=>{
+ const li=e.target.closest('[data-note]');if(li){curId=+li.dataset.note;renderAll();return;}
+ const seg=e.target.closest('#typeSeg button');if(seg){cur().type=seg.dataset.type;renderAll();return;}
+ const rf=e.target.closest('[data-rmfilm]');if(rf){cur().films=cur().films.filter(x=>x!==rf.dataset.rmfilm);renderChips();renderList();return;}
+ if(e.target.closest('[data-rmfig]')){cur().figure=null;renderEditor();return;}
+ if(e.target.closest('[data-rmtrope]')){cur().trope=null;renderEditor();return;}
+ const ad=e.target.closest('[data-add]');if(ad){openSearch(ad.dataset.add==='fig'?'fig':ad.dataset.add,ad);return;}
+ const pf=e.target.closest('[data-pickfilm]');if(pf){cur().films.push(pf.dataset.pickfilm);renderChips();renderList();return;}
+ const pg=e.target.closest('[data-pickfig]');if(pg){cur().figure=pg.dataset.pickfig;if(cur().type==='free')cur().type='misreading';renderEditor();return;}
+ const pt=e.target.closest('[data-picktrope]');if(pt){cur().trope=pt.dataset.picktrope;renderEditor();return;}
+ const nf=e.target.closest('[data-newfig]');if(nf){const id='fg'+(nextFig++);FIGURES.push({id,label:nf.dataset.newfig,film:"(새 형상)"});cur().figure=id;if(cur().type==='free')cur().type='misreading';renderEditor();return;}
+ const nt=e.target.closest('[data-newtrope]');if(nt){const id='t'+(nextTrope++);TROPES.push({id,label:nt.dataset.newtrope});cur().trope=id;cur().type='trope';renderEditor();return;}
+ const fc=e.target.closest('[data-cmd]');if(fc){applyCmd(fc.dataset.cmd);return;}
+});
+document.getElementById('visToggle').onclick=()=>{cur().pub=!cur().pub;renderEditor();renderList();};
+document.getElementById('titleIn').oninput=e=>{cur().title=e.target.value;};
+document.getElementById('titleIn').onblur=renderList;
+document.getElementById('bodyEd').oninput=()=>{cur().body=bodyEd.innerHTML;};
+document.getElementById('bodyEd').onblur=()=>{cur().body=bodyEd.innerHTML;renderList();};
+document.getElementById('lsearch').oninput=e=>{q=e.target.value.toLowerCase().trim();renderList();};
+document.getElementById('saveBtn').onclick=()=>{cur().body=bodyEd.innerHTML;renderList();const b=document.getElementById('saveBtn');b.innerHTML='<i class="ti ti-check"></i> 저장됨';setTimeout(()=>b.innerHTML='<i class="ti ti-check"></i> 저장',1200);};
+document.getElementById('newBtn').onclick=()=>{const n={id:nextNote++,type:'free',title:'',pub:false,body:'',films:[],figure:null,trope:null,date:'오늘'};notes.push(n);curId=n.id;renderAll();titleIn.focus();};
+
+function applyCmd(cmd){bodyEd.focus();
+ try{if(cmd==='bold')document.execCommand('bold');
+ else if(cmd==='italic')document.execCommand('italic');
+ else if(cmd==='h2')document.execCommand('formatBlock',false,'h2');
+ else if(cmd==='quote')document.execCommand('formatBlock',false,'blockquote');
+ else if(cmd==='link'){const u=prompt('링크 URL');if(u)document.execCommand('createLink',false,u);}
+ else if(cmd==='embed'){const u=prompt('외부 인용/링크를 붙여넣기 (URL 또는 텍스트)');if(u){
+   document.execCommand('insertHTML',false,`<div class="embed">${u.startsWith('http')?'🔗 '+u:u}<div class="src">외부 임베드</div></div><p><br></p>`);}}
+ }catch(err){}
+ cur().body=bodyEd.innerHTML;}
+
+renderAll();
+</script>
+</body>
+</html>

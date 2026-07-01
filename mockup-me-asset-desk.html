@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 운용 데스크 (운영시스템 시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+    --red:#E3120B; --reddim:#7a1410;
+    /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
+    --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    /* SHARED-STANDARD S11 · 엔진 ⑨ Cinecodex 위험색 — 완파 --red(정복 전용)와 반드시 구분 */
+    --risk:#D64518; --riskdim:#5e2413; --riskbg:#26120b;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --rail:212px; --insp:344px; --feed:286px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  a{color:inherit;text-decoration:none}
+
+  /* SHARED-STANDARD S5: 용어집 hover (analysis/command-center .gloss 패턴 재사용) */
+  .gloss{border-bottom:1px dotted var(--line3);cursor:help;position:relative}
+  .gloss:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 7px);width:230px;
+    background:#1c1c20;border:1px solid var(--line3);border-radius:6px;padding:8px 10px;font-family:var(--ui);
+    font-size:11px;font-weight:400;line-height:1.5;color:var(--ink);letter-spacing:0;text-transform:none;
+    box-shadow:0 8px 22px rgba(0,0,0,.55);z-index:40;white-space:normal}
+  .gloss:hover::before{content:"";position:absolute;left:14px;bottom:calc(100% + 1px);border:5px solid transparent;border-top-color:var(--line3);z-index:40}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#34343a}::-webkit-scrollbar-track{background:transparent}
+
+  /* ───────── APP BAR ───────── */
+  .appbar{height:46px;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid var(--line2);background:var(--bg2);position:relative;z-index:30}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:11px;letter-spacing:.13em;padding:3px 7px;border-radius:2px}
+  .crumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .crumb b{color:var(--ink);font-weight:600;font-family:var(--ser);font-size:14px}
+  .crumb i.ti{font-size:13px;color:var(--faint)}
+  .cmdk{margin-left:8px;flex:0 1 320px;display:flex;align-items:center;gap:8px;background:var(--pnl);border:1px solid var(--line2);
+    border-radius:6px;padding:5px 9px;color:var(--sub);font-size:12px;cursor:text}
+  .cmdk:hover{border-color:var(--line3)}
+  .cmdk .kbd{margin-left:auto;font-family:var(--mono);font-size:10px;background:var(--pnl3);border:1px solid var(--line2);border-radius:3px;padding:1px 5px;color:var(--mut)}
+  .abright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .navchip{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:6px;padding:4px 11px}
+  .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
+  .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
+  .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+  .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+  .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+
+  /* ───────── LIVE TICKER ───────── */
+  .ticker{height:27px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg2);position:relative;z-index:20}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:9px;letter-spacing:.14em;padding:0 9px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .vp{overflow:hidden;flex:1}
+  .ticker .run{display:inline-flex;gap:30px;padding-left:22px;white-space:nowrap;animation:tick 46s linear infinite;font-size:11.5px;color:var(--mut)}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:7px;font-size:9px;vertical-align:1px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───────── SHELL ───────── */
+  .shell{display:flex;height:calc(100vh - 73px);overflow:hidden}
+  .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
+  .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
+
+  /* collapse handle */
+  .chv{cursor:pointer;color:var(--sub);font-size:15px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px}
+  .chv:hover{color:var(--ink);background:var(--pnl2)}
+
+  /* ── COL 1: NAV RAIL ── */
+  .rail{width:var(--rail);background:var(--bg2);border-right:1px solid var(--line2)}
+  .rail.collapsed{width:54px}
+  .railhd{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-bottom:1px solid var(--line);color:var(--sub)}
+  .railhd .eb{flex:1}
+  .rail.collapsed .railhd .eb{display:none}
+  .navsec{padding:8px 8px 4px}
+  .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
+  .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
+  .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
+  .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+  .nv:hover{background:var(--pnl2);color:var(--ink)}
+  .nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .nv i.lead{font-size:17px;width:20px;text-align:center;flex:0 0 auto}
+  .nv .tx{font-size:12.5px;flex:1;white-space:nowrap;overflow:hidden}
+  .nv .ct{font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rail.collapsed .nv .tx,.rail.collapsed .nv .ct{display:none}
+  .rail.collapsed .nv{justify-content:center;padding:8px 0}
+  .railft{margin-top:auto;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--faint)}
+  .rail.collapsed .railft{display:none}
+
+  /* ── COL 2: MAIN ── */
+  .main{flex:1 1 auto;background:var(--bg);min-width:0}
+  .mainpad{padding:14px 16px 40px}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:18px;background:linear-gradient(180deg,var(--pnl),var(--bg2));
+    border:1px solid var(--line2);border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+  .navbig{display:flex;align-items:center;gap:16px}
+  .ring{position:relative;flex:0 0 auto}
+  .navnum{font-family:var(--mono);font-size:34px;font-weight:600;line-height:1}
+  .navmeta .lvl{font-size:12px;color:var(--canon);font-weight:600;letter-spacing:.04em;margin-top:5px}
+  .navmeta .pctl{font-size:11px;color:var(--mut);margin-top:3px}
+  .navmeta .pctl b{color:var(--safe);font-family:var(--mono)}
+  .components{display:flex;flex-direction:column;gap:7px;justify-content:center;border-left:1px solid var(--line);padding-left:18px}
+  .comp{display:grid;grid-template-columns:74px 1fr 38px;align-items:center;gap:10px}
+  .comp .cl{font-size:11px;color:var(--mut)}
+  .comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+  .comp .ct>i{display:block;height:100%;border-radius:4px}
+  .comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .explain{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);margin-top:12px;padding-top:9px;display:flex;gap:8px;align-items:center}
+  .explain .ti{color:var(--canon)}
+
+  /* kpi */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:13px}
+  .kpi{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:default}
+  .kpi:hover{border-color:var(--line2)}
+  .kpi-go{cursor:pointer;border-color:#5b1410;background:linear-gradient(180deg,#1a1311,var(--pnl))}
+  .kpi-go:hover{border-color:var(--red)}
+  .kpi-go .d{color:var(--red)!important}
+  .kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
+  .kpi .v small{font-size:13px;color:var(--sub)}
+  .kpi .d{font-size:10.5px;margin-top:3px}
+  .up{color:var(--safe)} .dn{color:var(--red)} .flat{color:var(--mut)}
+
+  /* module panel */
+  .mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+  .modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+  .modh h3 .ti{color:var(--mut)}
+  .modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+  .modh .seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden;margin-left:auto}
+  .modh .seg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);font-family:var(--ui);
+    font-size:10.5px;padding:3px 9px;cursor:pointer}
+  .modh .seg button:last-child{border-right:0}.modh .seg button.on{background:var(--ink);color:#0A0A0B}
+  .modbody{padding:11px 13px}
+
+  /* coverage matrix */
+  .grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:10px 0 5px;display:flex;justify-content:space-between;align-items:center}
+  .grp:first-child{margin-top:0}
+  .lrow{display:grid;grid-template-columns:1fr 120px 78px 26px;align-items:center;gap:11px;padding:6px 7px;border-radius:5px;cursor:pointer;border:1px solid transparent}
+  .lrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .lrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .lname{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lname small{font-family:var(--ui);color:var(--sub);font-size:10.5px;margin-left:6px}
+  .barwrap{display:flex;align-items:center;gap:8px}
+  .track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+  .track>i{display:block;height:100%;border-radius:4px}
+  .pct{font-family:var(--mono);font-size:12px;width:34px;text-align:right}
+  .cov-lo>i{background:var(--red)} .cov-mid>i{background:var(--canon)} .cov-hi>i{background:var(--safe)}
+  .cov-lo .pct{color:#e98a86} .cov-mid .pct{color:#e0bb6e} .cov-hi .pct{color:#5fd0b2}
+  .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+  .tier{font-family:var(--mono);font-size:9px;padding:1px 5px;border:1px solid var(--line2);border-radius:3px;color:var(--mut);text-align:center}
+  .t1{color:#F2C9C7;border-color:#7a1410;background:#2a0c0a}
+
+  /* recommendation desk */
+  .rrow{display:grid;grid-template-columns:22px 1fr 132px 64px;gap:12px;align-items:center;padding:10px 8px;border-radius:6px;cursor:pointer;border:1px solid transparent}
+  .rrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .rrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .rk{font-family:var(--mono);color:var(--sub);font-size:13px;text-align:center}
+  .rt{font-family:var(--ser);font-size:15px}
+  .rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+  .rsub{font-size:11px;color:var(--mut);margin-top:2px}
+  .reasons{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+  .rsn{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:3px;display:flex;align-items:center;gap:4px;border:1px solid}
+  .rsn::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+  .rsn.safe{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .rsn.frontier{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .rsn.canon{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+  .rsn.gap{color:#edc873;border-color:#5e4d1d;background:#211a08}
+  .rsn.conquer{color:#f2a39f;border-color:#7a1410;background:#260a08}
+  .rsn.reading{color:#bda1f0;border-color:#4a3f86;background:#171430}
+  .wwi{text-align:right}
+  .wwi .pv{font-family:var(--mono);font-size:22px;line-height:1}
+  .wwi .pl{font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+  .dlt{font-family:var(--mono);font-size:13px;color:var(--safe);text-align:right}
+  .dlt small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.08em}
+
+  /* strategy desk (5 mini-columns) */
+  .strat{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .stcol{background:var(--bg2);border:1px solid var(--line);border-radius:7px;overflow:hidden;min-width:0}
+  .sthd{padding:8px 10px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px}
+  .sthd .sd{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .sthd .snm{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sthd .sct{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--sub)}
+  .stsub{font-size:9.5px;color:var(--sub);padding:5px 10px 0;line-height:1.35;min-height:30px}
+  .stbody{padding:6px 8px 9px}
+  .pcard{padding:7px 7px;border-radius:5px;cursor:pointer;border:1px solid transparent;margin-bottom:3px}
+  .pcard:hover{background:var(--pnl2);border-color:var(--line)}
+  .pcard.sel{background:var(--pnl2);border-color:var(--line2)}
+  .pcard .pt{font-family:var(--ser);font-size:12.5px;line-height:1.2;display:flex;align-items:baseline;justify-content:space-between;gap:6px}
+  .pcard .pt .wn{font-family:var(--mono);font-size:12px;flex:0 0 auto}
+  .pcard .pyr{font-size:9.5px;color:var(--sub);margin-top:1px}
+  .pcard .pft{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+  .pcard .rsn{font-size:8.5px;padding:1px 5px}
+  .pcard .pdl{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+
+  /* primary-module emphasis: the strategy desk is the page's MAIN job */
+  .mod.prime{border-color:var(--line2);box-shadow:0 0 0 1px rgba(227,18,11,.18),0 6px 26px rgba(0,0,0,.30)}
+  .mod.prime .modh{background:linear-gradient(180deg,#1a1311,var(--bg2))}
+  .mod.prime .modh h3 .ti{color:var(--red)}
+  .prime-hint{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mut);
+    padding:7px 13px;background:rgba(227,18,11,.05);border-bottom:1px solid var(--line)}
+  .prime-hint i{color:var(--red)} .prime-hint b{color:var(--ink);font-weight:600}
+
+  /* inline 담기 (hover-reveal) — add to watchlist without inspector round-trip */
+  .pcard{position:relative}
+  .pcard .padd{position:absolute;top:6px;right:6px;display:flex;align-items:center;gap:3px;
+    font-size:9px;font-weight:600;font-family:var(--ui);padding:2px 6px;border-radius:4px;
+    background:var(--red);color:#fff;border:1px solid var(--red);cursor:pointer;
+    opacity:0;transform:translateY(-2px);transition:.13s;z-index:2}
+  .pcard:hover .padd{opacity:1;transform:translateY(0)}
+  .pcard .padd:hover{filter:brightness(1.12)}
+  .pcard .padd.added{background:transparent;color:var(--safe);border-color:#1d4d40}
+
+  /* top-alpha flag: the single best Δindex card the eye should land on */
+  .pcard.alpha{border-color:#5b481f;background:linear-gradient(180deg,#1f1808,transparent)}
+  .alphatag{display:inline-flex;align-items:center;gap:3px;font-size:8px;font-weight:600;letter-spacing:.06em;
+    color:#e0bb6e;border:1px solid #5b481f;background:#1f1808;border-radius:3px;padding:0 5px;margin-bottom:4px}
+  .alphatag i{font-size:9px}
+
+  /* ───── 엔진 ⑨ Cinecodex · 위험조정 (S11) ───── */
+  /* λ 위험회피 다이얼 — 보수↔중립↔모험, U=V−λR 재정렬(개념) */
+  .lam{display:flex;align-items:center;gap:9px;margin-right:12px;font-size:10.5px;color:var(--mut)}
+  .lam .llab{display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .lam .llab i{color:var(--risk);font-size:12px}
+  .lamseg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+  .lamseg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);
+    font-family:var(--ui);font-size:10px;padding:3px 8px;cursor:pointer;white-space:nowrap;line-height:1.2}
+  .lamseg button:last-child{border-right:0}
+  .lamseg button .lv{display:block;font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:.04em}
+  .lamseg button.on{background:var(--risk);color:#fff}
+  .lamseg button.on .lv{color:rgba(255,255,255,.82)}
+  .lamnote{font-size:9.5px;color:var(--sub);font-family:var(--mono);white-space:nowrap}
+
+  /* 위험 배지 R (--risk) · 완파 red와 구분 */
+  .rbadge{display:inline-flex;align-items:center;gap:3px;font-size:8.5px;font-family:var(--mono);font-weight:600;
+    padding:1px 5px;border-radius:3px;color:#f0a58c;border:1px solid var(--riskdim);background:var(--riskbg);vertical-align:1px;letter-spacing:.02em}
+  .rbadge::before{content:"R";opacity:.6;font-size:7.5px;margin-right:1px}
+  .rbadge.hi{color:#ff8f6b;border-color:var(--risk);background:#341206;box-shadow:0 0 5px rgba(214,69,24,.32)}
+  .sbadge{font-size:8.5px;font-family:var(--mono);color:#7fbfa8;letter-spacing:.02em}
+  .sbadge::before{content:"S";opacity:.55;font-size:7.5px;margin-right:2px}
+  /* per-card S/R meta row under the reason chips */
+  .pcard .crisk{display:flex;align-items:center;gap:6px;margin-top:5px}
+  /* high-risk downgrade dim on the card (only in S-sort/모험 lens) */
+  .pcard.hirisk-flag{position:relative}
+  .pcard.hirisk-flag::after{content:"고위험";position:absolute;bottom:6px;right:7px;font-size:7.5px;font-family:var(--mono);
+    color:#ff8f6b;border:1px solid var(--riskdim);background:var(--riskbg);border-radius:3px;padding:0 4px;letter-spacing:.04em}
+
+  /* P&L 고위험 매수 경고 note (regret과 구분 — regret=이미 저평점, risk=Cinecodex R) */
+  .riskwarn{background:var(--riskbg);border:1px solid var(--riskdim);border-radius:7px;padding:10px 12px;margin-top:11px}
+  .riskwarn h5{margin:0 0 7px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#f0a58c;font-weight:600;display:flex;align-items:center;gap:6px}
+  .riskwarn h5 i{color:var(--risk)}
+  .rwrow{display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center;padding:6px 0;border-bottom:1px solid var(--riskdim);font-size:11.5px}
+  .rwrow:last-of-type{border-bottom:0}
+  .rwrow .rwnm{font-family:var(--ser);font-size:12.5px;cursor:pointer;color:var(--ink)}
+  .rwrow .rwnm:hover{text-decoration:underline}
+  .rwrow .rwnm small{font-family:var(--ui);font-size:10px;color:var(--sub);margin-left:5px}
+  .rwrow .rwu{font-family:var(--mono);font-size:10.5px;color:var(--mut)}
+  .rwfoot{font-size:10px;color:var(--sub);margin-top:8px;line-height:1.45;display:flex;gap:6px;align-items:flex-start}
+  .rwfoot i{color:var(--risk);flex:0 0 auto;margin-top:1px}
+  .rwfoot b{color:#f0a58c;font-weight:600}
+
+  /* Inspector Cinecodex 카드 — 3축 V/C/R + U/S + 미적 단계 + 나란히 + 신뢰도 */
+  .cc-card{background:var(--riskbg);border:1px solid var(--riskdim);border-radius:7px;padding:11px;margin-bottom:11px}
+  .cc-card h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:#f0a58c;font-weight:600;display:flex;align-items:center;gap:6px}
+  .cc-card h4 i{color:var(--risk)}
+  .cc-card h4 .tier{margin-left:auto;font-family:var(--ui);font-size:9px;letter-spacing:.05em;color:#e0bb6e;border-color:#5b481f;background:#1f1808;padding:1px 6px}
+  .cc-us{display:flex;gap:14px;margin:0 0 9px}
+  .cc-us .cell{flex:1}
+  .cc-us .cell .k{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)}
+  .cc-us .cell .v{font-family:var(--mono);font-size:23px;font-weight:600;line-height:1.1}
+  .cc-us .cell .sub{font-size:9.5px;color:var(--sub);font-family:var(--mono)}
+  .cc-axis{display:grid;grid-template-columns:44px 1fr 30px;align-items:center;gap:8px;margin:5px 0}
+  .cc-axis .al{font-size:10.5px;color:var(--mut)}
+  .cc-axis .at{height:6px;background:#2a1710;border-radius:4px;overflow:hidden}.cc-axis .at>i{display:block;height:100%;border-radius:4px}
+  .cc-axis .av{font-family:var(--mono);font-size:10.5px;text-align:right;color:var(--sub)}
+  /* 나란히(never-blend) 3분할 — 우리/외부/정전 분리 칸 */
+  .cc-side{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:9px 0 3px}
+  .cc-side .col3{background:var(--pnl);border:1px solid var(--line2);border-radius:5px;padding:6px 7px;text-align:center}
+  .cc-side .col3 .cl3{font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-bottom:4px}
+  .cc-side .col3 .cn3{font-family:var(--mono);font-size:13px;line-height:1.35}
+  .cc-side .col3 .cn3 span{display:block;font-size:11px}
+  .cc-conf{font-size:10px;color:var(--sub);margin-top:8px;line-height:1.45;border-top:1px solid var(--riskdim);padding-top:8px;display:flex;gap:6px;align-items:flex-start}
+  .cc-conf i{flex:0 0 auto;margin-top:1px;color:var(--mut)}
+  .cc-polar{display:inline-flex;align-items:center;gap:3px;font-size:8px;font-family:var(--mono);color:#c6a0f0;
+    border:1px solid #4a3f86;background:#171430;border-radius:3px;padding:0 5px;margin-left:5px;letter-spacing:.02em}
+
+  /* pnl panel */
+  .pnlgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:13px}
+  .pnlcard{background:var(--bg2);border:1px solid var(--line);border-radius:7px;padding:11px 13px}
+  .pnlcard h5{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-weight:600;display:flex;align-items:center;gap:6px}
+  .hitbig{display:flex;align-items:baseline;gap:8px;margin:2px 0 8px}
+  .hitbig .n{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--safe)}
+  .hitbig .u{font-size:10px;color:var(--sub);letter-spacing:.08em}
+  .pstat{display:flex;justify-content:space-between;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .pstat:last-child{border-bottom:0}.pstat .k{color:var(--mut)}.pstat .v{font-family:var(--mono);color:var(--ink)}
+  .regret{display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:11.5px}
+  .regret:last-child{border-bottom:0}
+  .regret .rgnm{font-family:var(--ser);font-size:12.5px;cursor:pointer}
+  .regret .rgnm:hover{text-decoration:underline}
+  .regret .rgnm small{font-family:var(--ui);font-size:10px;color:var(--sub);margin-left:5px}
+  .regret .rgst{font-family:var(--mono);font-size:10.5px;color:#e98a86}
+  .regret .rgpl{font-family:var(--mono);font-size:11.5px;color:#e98a86;text-align:right}
+  .navguard{font-size:10.5px;color:var(--sub);margin-top:9px;display:flex;gap:7px;align-items:flex-start;line-height:1.45;
+    border-top:1px solid var(--line);padding-top:9px}
+  .navguard i{color:var(--safe);flex:0 0 auto;margin-top:1px}
+  .navguard b{color:var(--ink);font-weight:600}
+
+  /* completion bars */
+  .conqrow{display:grid;grid-template-columns:1fr 150px 56px;gap:11px;align-items:center;padding:8px 7px;border-radius:5px;cursor:pointer;border:1px solid transparent}
+  .conqrow:hover{background:var(--pnl2);border-color:var(--line)}
+  .conqrow.sel{background:var(--pnl2);border-color:var(--line2)}
+  .conqnm{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .conqnm small{font-family:var(--ui);font-size:10px;color:var(--sub);margin-left:6px}
+  .conqbar{display:flex;align-items:center;gap:8px}
+  .conqtr{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden;position:relative}
+  .conqtr>i{display:block;height:100%;border-radius:4px;background:var(--canon)}
+  .conqtr>span.mk{position:absolute;top:-1px;bottom:-1px;width:1.5px;background:var(--ink);opacity:.45}
+  .conqdl{font-family:var(--mono);font-size:11px;color:var(--safe);text-align:right}
+  .conqleft{font-family:var(--mono);font-size:10.5px;color:#e0bb6e;text-align:right}
+  /* SHARED-STANDARD S4: 완파 4-state (잠금<50 / 진행50–74 / 근접75–99 / 완파100), Phase 4 마일스톤 일치 */
+  .cq-locked>i{background:var(--sub)} .cq-prog>i{background:var(--canon)}
+  .cq-near>i{background:var(--canon);box-shadow:0 0 7px rgba(200,146,43,.55)}
+  .cq-done>i{background:var(--conquer)}
+  .cqstate{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;padding:1px 5px;border-radius:3px;border:1px solid;margin-left:6px;vertical-align:1px}
+  .cqstate.locked{color:var(--sub);border-color:var(--line2)}
+  .cqstate.prog{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+  .cqstate.near{color:#e0bb6e;border-color:#5b481f;background:#211a08}
+  .cqstate.done{color:#f2a39f;border-color:#7a1410;background:#260a08}
+
+  /* reading bars */
+  .rdrow{display:grid;grid-template-columns:96px 1fr 30px;gap:9px;align-items:center;padding:4px 0;font-size:12px}
+  .rdrow .nm.blind{color:#e98a86}
+  .rdt{height:7px;background:#24242a;border-radius:4px;overflow:hidden}.rdt>i{display:block;height:100%;border-radius:4px;background:var(--reading)}
+
+  /* ── COL 3: INSPECTOR ── */
+  .inspector{width:var(--insp);background:var(--bg2);border-left:1px solid var(--line2)}
+  .inspector.collapsed{width:40px}
+  .insphd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);background:var(--bg2);position:sticky;top:0;z-index:5}
+  .insphd .ti-tit{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--ink);flex:1;white-space:nowrap;overflow:hidden}
+  .inspector.collapsed .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .inspector.collapsed .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:140px;flex:0 0 auto}
+  .inspector.collapsed .inspbody{display:none}
+  .inspbody{padding:12px 12px 30px}
+  .icard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:11px;margin-bottom:11px}
+  .icard h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:6px}
+  .selhead{display:flex;gap:11px;margin-bottom:11px}
+  .poster{width:50px;height:72px;border-radius:3px;flex:0 0 auto;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line)}
+  .seltitle{font-family:var(--ser);font-size:17px;line-height:1.15}
+  .selsub{font-size:11px;color:var(--mut);margin-top:3px}
+  .selflag{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap}
+  .bigscore{display:flex;align-items:baseline;gap:8px;margin:4px 0 10px}
+  .bigscore .n{font-family:var(--mono);font-size:30px;font-weight:600}
+  .bigscore .u{font-size:10px;color:var(--sub);letter-spacing:.1em}
+  .crow{display:grid;grid-template-columns:62px 1fr 34px;align-items:center;gap:9px;margin:6px 0}
+  .crow .cl{font-size:11px;color:var(--mut)}
+  .crow .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.crow .ct>i{display:block;height:100%;border-radius:4px}
+  .crow .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-family:var(--mono);color:var(--ink)}
+  .badge-val{font-size:10px;font-weight:600;padding:2px 7px;border-radius:3px;display:inline-block}
+  .bv-find{background:#0e221c;color:#5fd0b2;border:1px solid #1d4d40}
+  .bv-fit{background:var(--pnl2);color:var(--mut);border:1px solid var(--line2)}
+  .bv-over{background:#260a08;color:#f2a39f;border:1px solid #7a1410}
+  .availrow{display:flex;align-items:center;gap:7px;font-size:11.5px;margin:5px 0}
+  .availrow .dot{width:7px;height:7px;border-radius:50%}
+  .actbar{display:flex;gap:7px;margin-top:11px}
+  .actbtn{flex:1;text-align:center;padding:7px;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid var(--line2)}
+  .actbtn.pri{background:var(--red);color:#fff;border-color:var(--red)}
+  .actbtn.gho{background:transparent;color:var(--ink)}
+  .backlink{font-size:11px;color:var(--frontier);cursor:pointer;display:flex;align-items:center;gap:5px;margin-bottom:10px}
+  .backlink:hover{text-decoration:underline}
+  .anchorchip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block;margin:3px 3px 0 0}
+  .regretbox{background:#1a0d0c;border:1px solid #7a1410;border-radius:7px;padding:11px;margin-bottom:11px}
+  .regretbox .rn{font-family:var(--mono);font-size:26px;font-weight:600;color:#f2a39f;line-height:1}
+  .regretbox .navsafe{font-size:11px;color:#5fd0b2;margin-top:5px;display:flex;align-items:center;gap:5px}
+  .mini-scatter,.mini-bars{margin-top:4px}
+  .mvrow{display:grid;grid-template-columns:110px 1fr 26px;gap:8px;align-items:center;padding:3px 0;font-size:11.5px}
+  .mvrow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mvrow .nm.bl{color:#e98a86}
+  .stratmix{display:flex;gap:5px;margin-top:4px}
+  .smcell{flex:1;text-align:center}
+  .smcell .smt{height:38px;background:#24242a;border-radius:3px;overflow:hidden;display:flex;flex-direction:column-reverse}
+  .smcell .smt>i{display:block;width:100%}
+  .smcell .sml{font-size:8px;color:var(--sub);margin-top:3px}
+  .smcell .smv{font-family:var(--mono);font-size:9.5px;color:var(--mut)}
+
+  /* ── COL 4: ACTIVITY ── */
+  .activity{width:var(--feed);background:var(--bg2);border-left:1px solid var(--line2)}
+  .activity.collapsed{width:40px}
+  .acthd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:5}
+  .acthd .t{font-size:11.5px;font-weight:600;letter-spacing:.04em;flex:1}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--safe);box-shadow:0 0 0 0 rgba(31,178,134,.6);animation:pl 2s infinite}
+  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(31,178,134,.5)}70%{box-shadow:0 0 0 6px rgba(31,178,134,0)}100%{box-shadow:0 0 0 0 rgba(31,178,134,0)}}
+  .activity.collapsed .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .activity.collapsed .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:110px;flex:0 0 auto}
+  .activity.collapsed .actbody{display:none}
+  .actbody{padding:10px 11px 30px}
+  .feeditem{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .feeditem .fi{flex:0 0 auto;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--pnl2)}
+  .feeditem .fb{flex:1;min-width:0}
+  .feeditem .fb .ft{font-size:11.5px;line-height:1.35}.feeditem .fb .ft b{color:var(--ink)}
+  .feeditem .fb .fm{font-size:9.5px;color:var(--faint);font-family:var(--mono);margin-top:2px}
+  .acard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px;margin:11px 0}
+  .acard h4{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+  .milestone{margin:7px 0}
+  .milestone .ml{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px}
+  .milestone .ml b{font-family:var(--ser)}
+  .milestone .mt{height:5px;background:#24242a;border-radius:3px;overflow:hidden}.milestone .mt>i{display:block;height:100%}
+  .oppline{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:11px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .oppline:last-child{border-bottom:0}
+  .oppline .on{font-family:var(--ser);font-size:12px}
+  .oppline .od{font-family:var(--mono);font-size:11px;color:var(--safe)}
+  .stat{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+  .stat b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .demobar{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);margin-top:6px}
+  .sw{width:34px;height:18px;border-radius:10px;background:#2a2a2f;position:relative;cursor:pointer;transition:.15s;flex:0 0 auto}
+  .sw::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#888;top:2px;left:2px;transition:.15s}
+  .sw.on{background:#0e4a3a}.sw.on::after{left:18px;background:var(--safe)}
+
+  /* command palette */
+  .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-start;justify-content:center;z-index:60;padding-top:13vh}
+  .palette.show{display:flex}
+  .palbox{width:540px;max-width:92vw;background:#161618;border:1px solid var(--line3);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .palin{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .palin input{flex:1;background:transparent;border:none;color:var(--ink);font-size:15px;font-family:var(--ui)}
+  .palin input:focus{outline:none}
+  .pallist{max-height:340px;overflow:auto;padding:7px}
+  .pi{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:6px;cursor:pointer;color:var(--mut)}
+  .pi:hover,.pi.on{background:var(--pnl2);color:var(--ink)}
+  .pi i.lead{font-size:16px;width:20px;text-align:center}
+  .pi .pk{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+
+  @media(max-width:1280px){ .inspector{width:40px} .inspector .inspbody{display:none}
+    .inspector .insphd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+    .inspector .insphd .ti-tit{writing-mode:vertical-rl;transform:rotate(180deg);height:140px;flex:0 0 auto}
+    .strat{grid-template-columns:repeat(2,1fr)} .pnlgrid{grid-template-columns:1fr} }
+  @media(max-width:1000px){ .strat{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ APP BAR ═══════════ -->
+<div class="appbar">
+  <span class="logo">META TAKE</span>
+  <div class="crumb"><b>운용 · Asset Desk</b><i class="ti ti-chevron-right"></i><span>5전략 추천 · <span class="gloss" data-tip="P&amp;L(손익): 추천 적중과 저평점 regret을 분리 기록하는 손익 장부. NAV(보유 자산)와 별개 — 저평점은 P&amp;L에만 남고 NAV는 불변.">P&amp;L</span></span><i class="ti ti-lock" style="font-size:11px"></i></div>
+  <div class="cmdk" onclick="openPalette()">
+    <i class="ti ti-search" style="font-size:14px"></i><span>영화 · 전략 · 계보 검색</span><span class="kbd">⌘K</span>
+  </div>
+  <div class="abright">
+    <div class="navchip"><div><div class="eb"><span class="gloss" data-tip="NAV(Net Asset Value): 내 영화 자산의 총량. 관람으로 절대 내려가지 않는 단조 증가 지표.">NAV</span></div></div><span class="n" id="navchip">1,284</span>
+      <div><div class="l">ESTABLISHED</div><div class="up">▲ +38 · 30일</div></div></div>
+    <div class="iconbtn" title="새로고침"><i class="ti ti-refresh"></i></div>
+    <div class="iconbtn" title="공개 프로필 ↗" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-external-link"></i></div>
+    <div class="ava">W</div>
+  </div>
+</div>
+
+<!-- ═══════════ LIVE TICKER ═══════════ -->
+<div class="ticker">
+  <span class="tag">DESK</span>
+  <div class="vp"><div class="run">
+    <span><i class="ti ti-point-filled dot"></i>오늘의 5전략 · 안전 <b>3</b> · 모험 <b>4</b> · 도장깨기 <b>2</b> · 공백 <b>3</b> · 정전 <b>2</b></span>
+    <span><i class="ti ti-point-filled dot"></i>Δindex 최대 기회 · <b>Touki Bouki +6 → NAV</b></span>
+    <span><i class="ti ti-point-filled dot"></i>적중률 <b>78%</b> · 내가 높게 준 추천 비율 ▲</span>
+    <span><i class="ti ti-point-filled dot"></i>완파 근접 · <b>S&amp;S 2022 41%→50%</b> 9편 · 브레송 <b>5/6</b></span>
+    <span><i class="ti ti-point-filled dot"></i>P&amp;L regret 발생 · <b>13 Moons ★2.5</b> — NAV 불변</span>
+    <span><i class="ti ti-point-filled dot"></i>관람은 NAV를 깎지 않는다 · 저평점만 P&amp;L regret</span>
+    <span><i class="ti ti-point-filled dot"></i>오늘의 5전략 · 안전 <b>3</b> · 모험 <b>4</b> · 도장깨기 <b>2</b> · 공백 <b>3</b> · 정전 <b>2</b></span>
+    <span><i class="ti ti-point-filled dot"></i>Δindex 최대 기회 · <b>Touki Bouki +6 → NAV</b></span>
+    <span><i class="ti ti-point-filled dot"></i>적중률 <b>78%</b> · 내가 높게 준 추천 비율 ▲</span>
+    <span><i class="ti ti-point-filled dot"></i>완파 근접 · <b>S&amp;S 2022 41%→50%</b> 9편 · 브레송 <b>5/6</b></span>
+    <span><i class="ti ti-point-filled dot"></i>P&amp;L regret 발생 · <b>13 Moons ★2.5</b> — NAV 불변</span>
+    <span><i class="ti ti-point-filled dot"></i>관람은 NAV를 깎지 않는다 · 저평점만 P&amp;L regret</span>
+  </div></div>
+</div>
+
+<!-- ═══════════ SHELL ═══════════ -->
+<div class="shell">
+
+  <!-- ── COL 1 · NAV RAIL ── -->
+  <aside class="col rail" id="rail">
+    <div class="col-scroll" style="display:flex;flex-direction:column">
+      <div class="railhd"><span class="eb">운영 메뉴</span><span class="chv" onclick="toggle('rail')"><i class="ti ti-layout-sidebar-left-collapse"></i></span></div>
+      <div class="navsec">
+        <div class="navlbl">자산 운영</div>
+        <div class="nv" onclick="location.href='mockup-me-command-center.html'"><i class="ti ti-dashboard lead"></i><span class="tx">현황 (커맨드센터)</span></div>
+        <div class="nv" onclick="location.href='mockup-me-collection-list-v2.html'"><i class="ti ti-list-details lead"></i><span class="tx">보유 영화</span><span class="ct">142</span></div>
+        <div class="nv" onclick="location.href='mockup-me-watchlist.html'"><i class="ti ti-target-arrow lead"></i><span class="tx">볼 영화 · 추천</span><span class="ct">28</span></div>
+        <div class="nv on"><i class="ti ti-briefcase lead"></i><span class="tx">운용 데스크</span></div>
+        <div class="nv" onclick="location.href='mockup-me-analysis-v2.html'"><i class="ti ti-chart-arcs lead"></i><span class="tx">자산 분석</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">기록 · 교류</div>
+        <div class="nv" onclick="location.href='mockup-me-onboard-rate-v2.html'"><i class="ti ti-star lead"></i><span class="tx">기록 · 평가</span></div>
+        <div class="nv" onclick="location.href='mockup-me-library.html'"><i class="ti ti-books lead"></i><span class="tx">서재</span></div>
+        <div class="nv" onclick="location.href='mockup-me-write.html'"><i class="ti ti-feather lead"></i><span class="tx">노트 · 글쓰기</span></div>
+        <div class="nv" onclick="location.href='mockup-me-pair.html'"><i class="ti ti-users lead"></i><span class="tx">동행</span><span class="ct">1</span></div>
+        <div class="nv" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-id-badge lead"></i><span class="tx">공개 프로필</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">이 화면</div>
+        <div class="nv" onclick="jump('m-strat')"><i class="ti ti-layout-board lead"></i><span class="tx">추천 데스크 · 5전략</span></div>
+        <div class="nv" onclick="jump('m-pnl')"><i class="ti ti-chart-line lead"></i><span class="tx">P&amp;L · 적중률</span></div>
+        <div class="nv" onclick="jump('m-conq')"><i class="ti ti-flag lead"></i><span class="tx">완파 진행</span></div>
+        <div class="nv" onclick="jump('m-read')"><i class="ti ti-book-2 lead"></i><span class="tx">Reading 성향</span></div>
+      </div>
+      <div class="railft">5전략 데스크 · 모델 v2<br>NAV 단조 · P&amp;L regret 분리</div>
+    </div>
+  </aside>
+
+  <!-- ── COL 2 · MAIN ── -->
+  <main class="col main">
+    <div class="col-scroll"><div class="mainpad">
+
+      <!-- HERO: NAV + P&L split -->
+      <div class="hero" id="hero">
+        <div class="navbig">
+          <div class="ring">
+            <svg width="92" height="92" viewBox="0 0 92 92">
+              <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="46" cy="46" r="38" fill="none" stroke="var(--red)" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="239" stroke-dashoffset="86" transform="rotate(-90 46 46)"/>
+              <text x="46" y="44" text-anchor="middle" font-size="19" fill="#ECEAE5" font-family="ui-monospace,monospace" font-weight="600">1,284</text>
+              <text x="46" y="58" text-anchor="middle" font-size="8.5" fill="#6C6960" letter-spacing="1.5">NAV</text>
+            </svg>
+          </div>
+          <div class="navmeta">
+            <div class="eb">운용 데스크 · 포트폴리오 NAV</div>
+            <div class="lvl">● LV. ESTABLISHED</div>
+            <div class="pctl">30일 <b>▲ +38</b> · 적중 <b>11</b> · <span style="color:#e98a86">regret 3</span> (P&amp;L 별도)</div>
+          </div>
+        </div>
+        <div class="components">
+          <div class="comp"><span class="cl">안전자산</span><div class="ct"><i style="width:81%;background:var(--safe)"></i></div><span class="cv">3</span></div>
+          <div class="comp"><span class="cl">모험·공백</span><div class="ct"><i style="width:66%;background:var(--frontier)"></i></div><span class="cv">7</span></div>
+          <div class="comp"><span class="cl">도장깨기</span><div class="ct"><i style="width:42%;background:var(--conquer)"></i></div><span class="cv">2</span></div>
+          <div class="comp"><span class="cl">적중률</span><div class="ct"><i style="width:78%;background:var(--canon)"></i></div><span class="cv">78%</span></div>
+        </div>
+        <div class="explain"><i class="ti ti-shield-check" style="color:var(--safe)"></i> <b style="color:var(--ink)">NAV는 단조 증가 — 관람으로 절대 내려가지 않는다.</b> <span style="color:#e98a86">저평점만</span> 아래 P&amp;L에 regret으로 분리 기록(NAV 불변).</div>
+      </div>
+
+      <!-- KPI STRIP -->
+      <div class="kpis">
+        <div class="kpi kpi-go" onclick="jump('m-strat')" title="추천 데스크로 이동">
+          <div class="eb" style="color:var(--red)">오늘의 한 편</div>
+          <div class="v" style="color:var(--safe)">+6<small> Δ→NAV</small></div>
+          <div class="d flat">Touki Bouki · 최대 알파 · 골라 담기 →</div></div>
+        <div class="kpi"><div class="eb">적중률 Hit</div><div class="v up">78<small>%</small></div><div class="d flat">높게 준 추천 비율</div></div>
+        <div class="kpi"><div class="eb">P&amp;L regret · 분기</div><div class="v dn">−3</div><div class="d dn">저평점 영화 · NAV 불변</div></div>
+        <div class="kpi"><div class="eb">확신 추천 대기</div><div class="v" style="color:var(--red)">12</div><div class="d flat">이유 3+ 종목</div></div>
+        <div class="kpi"><div class="eb"><span class="gloss" data-tip="완파(도장깨기): 한 계보·감독 라인을 100% 관람해 정복하는 것. 잠금&lt;50 · 진행50–74 · 근접75–99 · 완파100 4단계.">완파</span> 근접</div><div class="v">3</div><div class="d up">▲ 도장깨기 임박</div></div>
+      </div>
+
+      <!-- STRATEGY DESK · 5 전략 -->
+      <div class="mod prime" id="m-strat">
+        <div class="modh"><h3><i class="ti ti-layout-board"></i> 다음 한 편을 고르세요 · 5 전략 추천</h3>
+          <!-- λ 위험회피 다이얼 (엔진 ⑨) — U=V−λR 로 추천 재정렬(개념). 보수↔모험 -->
+          <div class="lam">
+            <span class="llab"><i class="ti ti-adjustments-horizontal"></i><span class="gloss" data-tip="λ 위험회피 다이얼: 영화 순가치 U=V−λR 의 위험 벌점 계수. 보수(λ2)는 고위험작을 강하게 강등, 모험(λ0.5)은 위험을 거의 무시하고 획득가치 V를 우선.">λ</span></span>
+            <div class="lamseg" id="lamseg">
+              <button data-lam="2" onclick="setLam(2,this)">보수<span class="lv">λ2</span></button>
+              <button data-lam="1" class="on" onclick="setLam(1,this)">중립<span class="lv">λ1</span></button>
+              <button data-lam="0.5" onclick="setLam(0.5,this)">모험<span class="lv">λ.5</span></button>
+            </div>
+            <span class="lamnote" id="lamnote">U = V − 1·R</span>
+          </div>
+          <!-- S(샤프) 위험조정 정렬 토글 -->
+          <div class="seg" id="sortseg" style="margin-left:0">
+            <button class="on" data-sort="wwi" onclick="setSort('wwi',this)">WWI 순</button>
+            <button data-sort="s" onclick="setSort('s',this)"><span class="gloss" data-tip="S 샤프: (V−50)/max(R,1). 위험 대비 획득가치 효율 — 위험조정 정렬 기준. 매수 전 후보 효율(≠보유 후 P&amp;L).">S 샤프</span> 순</button>
+          </div></div>
+        <div class="prime-hint"><i class="ti ti-hand-finger"></i> 이 데스크가 오늘의 <b>주 작업</b>입니다 — 카드를 누르면 <b>Cinecodex(⑨)</b> 분석, <b>+ 담기</b>로 볼 영화에 추가. λ·S로 위험조정 정렬.</div>
+        <div class="modbody">
+          <div class="strat">
+
+            <!-- 1 · 안전자산 safe -->
+            <div class="stcol">
+              <div class="sthd"><span class="sd" style="background:var(--safe)"></span><span class="snm">안전자산</span><span class="sct">safe</span></div>
+              <div class="stsub">취향 벡터와 가장 가까운 of-course 우량주 — 하방 거의 없음.</div>
+              <div class="stbody">
+                <div class="pcard sel" data-id="yiyi" data-r="10" data-s="3.57" onclick="sel('yiyi',this)">
+                  <span class="padd" onclick="addPick(event,this,'Yi Yi')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Yi Yi<span class="wn" style="color:#5fd0b2">86</span></div>
+                  <div class="pyr">2000 · Edward Yang · 대만</div>
+                  <div class="pft"><span class="rsn safe">safe 0.91</span><span class="pdl">→ NAV +5</span></div>
+                  <div class="crisk"><span class="rbadge">10</span><span class="sbadge">3.57</span></div>
+                </div>
+                <div class="pcard" data-id="tokyo" data-r="7" data-s="6.00" onclick="sel('tokyo',this)">
+                  <span class="padd" onclick="addPick(event,this,'Tokyo Story')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Tokyo Story<span class="wn" style="color:#5fd0b2">82</span></div>
+                  <div class="pyr">1953 · Ozu Yasujirō · 일본</div>
+                  <div class="pft"><span class="rsn safe">safe 0.89</span><span class="pdl">→ NAV +3</span></div>
+                  <div class="crisk"><span class="rbadge">7</span><span class="sbadge">6.00</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2 · 안전한 모험 frontier -->
+            <div class="stcol">
+              <div class="sthd"><span class="sd" style="background:var(--frontier)"></span><span class="snm">안전한 모험</span><span class="sct">frontier</span></div>
+              <div class="stsub">미답 사조이되 신뢰하는 감독·정전 닻이 하방을 받친 다리.</div>
+              <div class="stbody">
+                <div class="pcard" data-id="absd" data-r="13" data-s="2.80" onclick="sel('absd',this)">
+                  <span class="padd" onclick="addPick(event,this,'A Brighter Summer Day')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">A Brighter Summer Day<span class="wn" style="color:#86b9ec">84</span></div>
+                  <div class="pyr">1991 · Edward Yang · 대만</div>
+                  <div class="pft"><span class="rsn frontier">frontier 88</span><span class="pdl">→ NAV +6</span></div>
+                  <div class="crisk"><span class="rbadge">13</span><span class="sbadge">2.80</span></div>
+                </div>
+                <div class="pcard" data-id="wind" data-r="19" data-s="1.45" onclick="sel('wind',this)">
+                  <span class="padd" onclick="addPick(event,this,'The Wind Will Carry Us')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Wind Will Carry Us<span class="wn" style="color:#bda1f0">83</span></div>
+                  <div class="pyr">1999 · Abbas Kiarostami · 이란</div>
+                  <div class="pft"><span class="rsn reading">reading 관조</span><span class="pdl">→ NAV +4</span></div>
+                  <div class="crisk"><span class="rbadge">19</span><span class="sbadge">1.45</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 · 도장깨기 conquer -->
+            <div class="stcol">
+              <div class="sthd"><span class="sd" style="background:var(--conquer)"></span><span class="snm">도장깨기</span><span class="sct">conquer</span></div>
+              <div class="stsub">계보·감독 라인 완파를 한 편으로 진척 — 마일스톤 직격.</div>
+              <div class="stbody">
+                <div class="pcard" data-id="largent" data-r="" data-s="" onclick="sel('largent',this)">
+                  <span class="padd" onclick="addPick(event,this,'L&#39;Argent')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">L'Argent<span class="wn" style="color:#f2a39f">85</span></div>
+                  <div class="pyr">1983 · Robert Bresson · 프랑스</div>
+                  <div class="pft"><span class="rsn conquer">브레송 5/6</span><span class="pdl">→ NAV +5</span></div>
+                  <div class="crisk"><span class="rbadge" style="color:var(--sub);border-color:var(--line2);background:transparent;opacity:.6">미평가</span></div>
+                </div>
+                <div class="pcard" data-id="vengeance" data-r="19" data-s="1.47" onclick="sel('vengeance',this)">
+                  <span class="padd" onclick="addPick(event,this,'Vengeance Is Mine')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Vengeance Is Mine<span class="wn">78</span></div>
+                  <div class="pyr">1979 · Shohei Imamura · 일본</div>
+                  <div class="pft"><span class="rsn canon">canon 79</span><span class="pdl">→ NAV +4</span></div>
+                  <div class="crisk"><span class="rbadge">19</span><span class="sbadge">1.47</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 · 공백 충족 gap -->
+            <div class="stcol">
+              <div class="sthd"><span class="sd" style="background:var(--gap)"></span><span class="snm">공백 충족</span><span class="sct">gap</span></div>
+              <div class="stsub">0% 대륙·연대 블라인드를 처음 여는 한 편 — 폭 증분 최대.</div>
+              <div class="stbody">
+                <div class="pcard alpha" data-id="touki" onclick="sel('touki',this)">
+                  <span class="padd" onclick="addPick(event,this,'Touki Bouki')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="alphatag"><i class="ti ti-star-filled"></i>오늘의 한 편 · 최대 Δ → NAV +6</div>
+                  <div class="pt">Touki Bouki<span class="wn" style="color:#86b9ec">88</span></div>
+                  <div class="pyr">1973 · D.D. Mambéty · 세네갈</div>
+                  <div class="pft"><span class="rsn gap">gap 0%→진입</span><span class="pdl">→ NAV +6</span></div>
+                </div>
+                <div class="pcard" data-id="bgwd" onclick="sel('bgwd',this)">
+                  <span class="padd" onclick="addPick(event,this,'Black God, White Devil')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Black God, White Devil<span class="wn" style="color:#86b9ec">81</span></div>
+                  <div class="pyr">1964 · Glauber Rocha · 브라질</div>
+                  <div class="pft"><span class="rsn gap">gap 라틴 0%</span><span class="pdl">→ NAV +5</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5 · 정전 위상 canon -->
+            <div class="stcol">
+              <div class="sthd"><span class="sd" style="background:var(--canon)"></span><span class="snm">정전 위상</span><span class="sct">canon</span></div>
+              <div class="stsub">권위·정전 위상이 높은 미관람 — prestige 증분과 안전망을 동시에.</div>
+              <div class="stbody">
+                <div class="pcard" data-id="jeanne" onclick="sel('jeanne',this)">
+                  <span class="padd" onclick="addPick(event,this,'Jeanne Dielman')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Jeanne Dielman<span class="wn" style="color:#e0bb6e">87</span></div>
+                  <div class="pyr">1975 · C. Akerman · S&amp;S #1</div>
+                  <div class="pft"><span class="rsn canon">canon 98</span><span class="pdl">→ NAV +5</span></div>
+                </div>
+                <div class="pcard" data-id="satantango" onclick="sel('satantango',this)">
+                  <span class="padd" onclick="addPick(event,this,'Sátántangó')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
+                  <div class="pt">Sátántangó<span class="wn" style="color:#e0bb6e">80</span></div>
+                  <div class="pyr">1994 · Béla Tarr · TSPDT #36</div>
+                  <div class="pft"><span class="rsn canon">canon 92</span><span class="pdl">→ NAV +4</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- P&L / NAV PANEL -->
+      <div class="mod" id="m-pnl">
+        <div class="modh"><h3><i class="ti ti-chart-line"></i> P&amp;L · 자산곡선 · 적중률 · regret</h3>
+          <span class="meta">관람 ≠ NAV drawdown · 저평점만 regret</span></div>
+        <div class="modbody">
+          <div class="pnlgrid">
+
+            <!-- asset curve -->
+            <div class="pnlcard">
+              <h5><i class="ti ti-trending-up"></i> 자산곡선 · NAV (12개월 · 단조 증가)</h5>
+              <svg viewBox="0 0 440 200" width="100%" role="img" aria-label="12개월 영화적 자산 NAV 곡선 — 단조 증가, 관람으로 절대 하락하지 않음">
+                <line x1="40" y1="168" x2="425" y2="168" stroke="#2c2c30"/><line x1="40" y1="14" x2="40" y2="168" stroke="#2c2c30"/>
+                <polyline points="40,160 75,152 110,150 145,140 180,138 215,122 250,120 285,100 320,98 355,72 390,70 422,46"
+                  fill="none" stroke="#1FB286" stroke-width="2"/>
+                <polygon points="40,160 75,152 110,150 145,140 180,138 215,122 250,120 285,100 320,98 355,72 390,70 422,46 422,168 40,168" fill="rgba(31,178,134,.07)"/>
+                <!-- LOW ratings happened here but NAV did NOT dip -->
+                <circle cx="145" cy="140" r="3.5" fill="none" stroke="#E3120B" stroke-width="1.4"/>
+                <circle cx="285" cy="100" r="3.5" fill="none" stroke="#E3120B" stroke-width="1.4"/>
+                <circle cx="320" cy="98" r="3.5" fill="none" stroke="#E3120B" stroke-width="1.4"/>
+                <text x="285" y="100" dy="-7" text-anchor="middle" font-size="8" fill="#e98a86">저평점(NAV 불변)</text>
+                <circle cx="422" cy="46" r="4" fill="#1FB286"/><text x="418" y="40" text-anchor="end" font-size="9" fill="#8ee3cc">NAV 1,284</text>
+                <g font-size="8.5" fill="#6C6960"><text x="40" y="184">7월</text><text x="215" y="184">12월</text><text x="390" y="184">6월</text></g>
+              </svg>
+              <div class="navguard"><i class="ti ti-shield-check"></i><span><b>관람은 NAV를 깎지 않는다.</b> 빨간 ○는 관람 후 저평점을 준 시점 — 곡선은 그래도 단조 상승. 저평점은 아래 P&amp;L regret에만 기록되고 NAV는 불변.</span></div>
+            </div>
+
+            <!-- hit rate + regret -->
+            <div style="display:flex;flex-direction:column;gap:13px">
+              <div class="pnlcard">
+                <h5><i class="ti ti-target"></i> 적중률 Hit Rate</h5>
+                <div class="hitbig"><span class="n">78<span style="font-size:15px">%</span></span><span class="u">내가 높게 준 추천 비율</span></div>
+                <div class="pstat"><span class="k">관람 추천 (분기)</span><span class="v">14</span></div>
+                <div class="pstat"><span class="k">★3.5+ 적중</span><span class="v" style="color:#5fd0b2">11</span></div>
+                <div class="pstat"><span class="k">저평점 regret</span><span class="v" style="color:#e98a86">3</span></div>
+              </div>
+
+              <div class="pnlcard">
+                <h5><i class="ti ti-mood-sad"></i> P&amp;L Regret · 저평점 영화</h5>
+                <div class="regret">
+                  <span class="rgnm" onclick="sel('rg-13moons',this)">In a Year with 13 Moons <small>1978 · Fassbinder</small></span>
+                  <span class="rgst">★2.5</span><span class="rgpl">−2</span>
+                </div>
+                <div class="regret">
+                  <span class="rgnm" onclick="sel('rg-roma',this)">Roma <small>2018 · Cuarón</small></span>
+                  <span class="rgst">★2.5</span><span class="rgpl">−1</span>
+                </div>
+                <div class="navguard"><i class="ti ti-shield-check"></i><span>이 −3은 <b>시간 기회비용</b>일 뿐 — <b style="color:#5fd0b2">NAV 1,284 불변</b>.</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 완파 진행 · 도장깨기 -->
+      <div class="mod" id="m-conq">
+        <div class="modh"><h3><i class="ti ti-flag"></i> 완파 진행 · 도장깨기</h3>
+          <span class="meta">마일스톤 직전 라인 · Δindex 환산</span></div>
+        <div class="modbody">
+          <div class="conqrow" data-id="ss22" onclick="sel('ss22',this)">
+            <div class="conqnm">Sight &amp; Sound 2022 <small>비평가 100 · 50% 임박</small><span class="cqstate locked">잠금 &lt;50</span></div>
+            <div class="conqbar"><div class="conqtr cq-locked"><i style="width:41%"></i><span class="mk" style="left:50%"></span></div></div>
+            <div><div class="conqdl">41% → 50%</div><div class="conqleft">9편 남음</div></div>
+          </div>
+          <div class="conqrow" data-id="kofa" onclick="sel('kofa',this)">
+            <div class="conqnm">KOFA 100 <small>한국 정전 · 75% 임박</small><span class="cqstate prog">진행 50–74</span></div>
+            <div class="conqbar"><div class="conqtr cq-prog"><i style="width:52%"></i><span class="mk" style="left:75%"></span></div></div>
+            <div><div class="conqdl">52% → 75%</div><div class="conqleft">23편 남음</div></div>
+          </div>
+          <div class="conqrow" data-id="bresson" onclick="sel('bresson',this)">
+            <div class="conqnm">로베르 브레송 <small>G1 거장 · 완파 1편 남음</small><span class="cqstate near">근접 75–99</span></div>
+            <div class="conqbar"><div class="conqtr cq-near"><i style="width:83%"></i><span class="mk" style="left:100%"></span></div></div>
+            <div><div class="conqdl">5/6 → 6/6</div><div class="conqleft">L'Argent</div></div>
+          </div>
+          <div class="conqrow" data-id="palme" onclick="sel('palme',this)">
+            <div class="conqnm">Palme d'Or <small>칸 황금종려 · 타이틀 완파</small><span class="cqstate locked">잠금 &lt;50</span></div>
+            <div class="conqbar"><div class="conqtr cq-locked"><i style="width:27%"></i><span class="mk" style="left:50%"></span></div></div>
+            <div><div class="conqdl">27% → 50%</div><div class="conqleft">18편 남음</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reading 성향 -->
+      <div class="mod" id="m-read">
+        <div class="modh"><h3><i class="ti ti-book-2"></i> Reading 성향 · 오독 / framework 분포</h3>
+          <span class="meta">reading anchors · 데스크가 이 렌즈 강한 영화를 가산</span></div>
+        <div class="modbody">
+          <div class="rdrow"><span class="nm">정신분석</span><div class="rdt"><i style="width:88%"></i></div><span class="mono" style="color:#c6bcf7;font-size:11px">강</span></div>
+          <div class="rdrow"><span class="nm">윤리적 응시</span><div class="rdt"><i style="width:74%"></i></div><span class="mono" style="color:#c6bcf7;font-size:11px">강</span></div>
+          <div class="rdrow"><span class="nm">기호학</span><div class="rdt"><i style="width:52%"></i></div><span class="mono" style="color:var(--mut);font-size:11px">중</span></div>
+          <div class="rdrow"><span class="nm blind">존재론</span><div class="rdt"><i style="width:6%;background:var(--red)"></i></div><span class="mono" style="color:#e98a86;font-size:11px">0</span></div>
+          <div class="note" style="font-size:10.5px;color:var(--sub);margin-top:9px;font-style:italic">당신은 <b style="color:var(--ink);font-style:normal">정신분석·윤리</b> 오독에 가장 반응 → 데스크가 이 reading 닻 강한 영화(13 Moons·Wind…)를 추천 상단으로 가산한다.</div>
+        </div>
+      </div>
+
+    </div></div>
+  </main>
+
+  <!-- ── COL 3 · INSPECTOR ── -->
+  <aside class="col inspector" id="inspector">
+    <div class="insphd">
+      <span class="chv" onclick="toggle('inspector')"><i class="ti ti-layout-sidebar-right-collapse"></i></span>
+      <span class="ti-tit" id="insp-title">인스펙터 · 포지션</span>
+    </div>
+    <div class="col-scroll inspbody" id="inspbody"><!-- filled by JS --></div>
+  </aside>
+
+  <!-- ── COL 4 · ACTIVITY ── -->
+  <aside class="col activity" id="activity">
+    <div class="acthd"><span class="pulse"></span><span class="t">데스크 피드</span>
+      <span class="chv" onclick="toggle('activity')"><i class="ti ti-layout-sidebar-right-collapse"></i></span></div>
+    <div class="col-scroll actbody">
+      <div class="feeditem"><div class="fi" style="color:var(--canon)"><i class="ti ti-flag"></i></div>
+        <div class="fb"><div class="ft"><b>S&amp;S 2022</b> 50% 완파까지 <b>9편</b> — 도장깨기 임박</div><div class="fm">방금 · 완파 alert</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--safe)"><i class="ti ti-arrow-up-right"></i></div>
+        <div class="fb"><div class="ft">Δindex 최대 기회 · <b>Touki Bouki +6 → NAV</b></div><div class="fm">7분 전 · 다음 한 편</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--red)"><i class="ti ti-mood-sad"></i></div>
+        <div class="fb"><div class="ft">regret 발생 · <b>13 Moons ★2.5</b> — P&amp;L −2 <b style="color:#5fd0b2">(NAV 불변)</b></div><div class="fm">1시간 전 · 저평점</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--conquer)"><i class="ti ti-user-star"></i></div>
+        <div class="fb"><div class="ft"><b>브레송</b> 완파 1편 남음 — 〈L'Argent〉 구독 가용</div><div class="fm">3시간 전 · 도장깨기</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-target"></i></div>
+        <div class="fb"><div class="ft">적중률 <b>78%</b> 갱신 — 내가 높게 준 추천 비율 ▲</div><div class="fm">오늘 · hit_rate()</div></div></div>
+
+      <div class="acard">
+        <h4>완파 근접 alert</h4>
+        <div class="milestone"><div class="ml"><b>S&amp;S 2022 비평가</b><span class="mono" style="color:#e0bb6e">41% → 50%</span></div>
+          <div class="mt"><i style="width:82%;background:var(--canon)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>KOFA 한국 정전</b><span class="mono" style="color:#5fd0b2">52% → 75%</span></div>
+          <div class="mt"><i style="width:69%;background:var(--safe)"></i></div></div>
+        <div class="milestone"><div class="ml"><b>브레송 정복</b><span class="mono" style="color:#e0bb6e">5/6 · 1편</span></div>
+          <div class="mt"><i style="width:83%;background:var(--canon)"></i></div></div>
+      </div>
+
+      <div class="acard">
+        <h4>Δindex 상위 후보 · 오늘의 한 편 외</h4>
+        <div class="oppline"><span class="on">Touki Bouki</span><span class="od">+6 → NAV</span></div>
+        <div class="oppline"><span class="on">A Brighter Summer Day</span><span class="od">+6 → NAV</span></div>
+        <div class="oppline"><span class="on">L'Argent</span><span class="od">+5 → NAV</span></div>
+        <div class="oppline"><span class="on">Jeanne Dielman</span><span class="od">+5 → NAV</span></div>
+      </div>
+
+      <div class="acard">
+        <h4>시스템 상태</h4>
+        <div class="stat"><span>NAV 정합</span><b style="color:var(--safe)">단조 · OK</b></div>
+        <div class="stat"><span>P&amp;L regret</span><b style="color:#e98a86">3 · NAV 분리</b></div>
+        <div class="stat"><span><span class="gloss" data-tip="정전가(Standing): 영화의 객관적 시장가 — 정전 위상·권위·수상 등으로 매긴 표준 가격.">정전가</span> 모델</span><b>v2 · 정합</b></div>
+        <div class="stat"><span>제공자 신선도</span><b style="color:var(--safe)">KR · 4일</b></div>
+        <div class="demobar"><span>상태 데모</span><span class="sw" id="csw" onclick="coldStart()"></span><span id="cslabel">운영 모드</span></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="palette" id="palette" onclick="if(event.target===this)closePalette()">
+  <div class="palbox">
+    <div class="palin"><i class="ti ti-search" style="color:var(--sub)"></i>
+      <input id="palinput" placeholder="영화 · 전략 · 계보 · 페이지로 이동…" oninput="filterPalette()" onkeydown="palKey(event)"></div>
+    <div class="pallist" id="pallist"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = window.localStorage;
+
+  /* ───── collapsible columns (persisted) ───── */
+  function applyState(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var c = LS.getItem('mt_'+id)==='1';
+    el.classList.toggle('collapsed', c);
+  }
+  window.toggle = function(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('collapsed');
+    LS.setItem('mt_'+id, el.classList.contains('collapsed')?'1':'0');
+  };
+  ['rail','inspector','activity'].forEach(applyState);
+
+  function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  window.jump = jump;
+
+  /* ───── inspector content model ───── */
+  var bar = function(label,val,color){
+    return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
+  };
+
+  // candidate / position detail (films) — each carries WWI breakdown, why, Δindex→NAV, availability
+  var FILM = {
+    yiyi:{t:'Yi Yi',s:'2000 · Edward Yang · 대만',strat:'안전자산 (safe)',wwi:86,wc:'#5fd0b2',pre:90,dis:18,
+      comps:[['taste 친연',91,'var(--safe)'],['lineage',64,'var(--frontier)'],['gap 공백',55,'var(--gap)'],['canon',90,'var(--canon)']],
+      reasons:'<span class="rsn safe">safe 0.91</span> <span class="rsn canon">canon 90</span> <span class="rsn gap">gap 금마 8%</span>',
+      why:'취향 벡터 코사인 0.91 — 당신의 가족 드라마 군집과 직결된 of-course 안전자산. 하방 거의 없는 우량주 매수.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5},
+    tokyo:{t:'Tokyo Story',s:'1953 · Ozu Yasujirō · 일본',strat:'안전자산 (safe)',wwi:82,wc:'#5fd0b2',pre:96,dis:9,
+      comps:[['taste 친연',89,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',40,'var(--gap)'],['canon',96,'var(--canon)']],
+      reasons:'<span class="rsn safe">safe 0.89</span> <span class="rsn canon">canon 96</span>',
+      why:'정전 위상 최상위 + 당신 일본 거장 군집과 친연. 안전망이 두꺼운 클래식 안전자산.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:3},
+    absd:{t:'A Brighter Summer Day',s:'1991 · Edward Yang · 대만',strat:'안전한 모험 (frontier)',wwi:84,wc:'#86b9ec',pre:88,dis:54,
+      comps:[['taste 친연',80,'var(--safe)'],['lineage',86,'var(--frontier)'],['gap 공백',74,'var(--gap)'],['canon',88,'var(--canon)']],
+      reasons:'<span class="rsn frontier">frontier 88</span> <span class="rsn conquer">금마 8%</span> <span class="rsn reading">reading 정치적 무의식</span>',
+      why:'신대륙이되 신뢰하는 양더창 닻에 묶인 모험 — 상방 큼, 하방 제한. 정전(S&S·TSPDT) 안전망. Δindex 최상위급.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:6},
+    wind:{t:'The Wind Will Carry Us',s:'1999 · Abbas Kiarostami · 이란',strat:'안전한 모험 (frontier)',wwi:83,wc:'#bda1f0',pre:82,dis:44,
+      comps:[['taste 친연',88,'var(--safe)'],['lineage',60,'var(--frontier)'],['gap 공백',62,'var(--gap)'],['canon',82,'var(--canon)']],
+      reasons:'<span class="rsn reading">reading 관조</span> <span class="rsn safe">safe 0.88</span> <span class="rsn gap">gap 이란 12%</span>',
+      why:'당신 시그니처 「절제된 응시」와 reading 합치. 이란 뉴웨이브 12%→확장. 베니스 심사위원대상이 하방을 받친다.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4},
+    largent:{t:"L'Argent",s:'1983 · Robert Bresson · 프랑스',strat:'도장깨기 (conquer)',wwi:85,wc:'#f2a39f',pre:84,dis:38,
+      comps:[['taste 친연',82,'var(--safe)'],['lineage',90,'var(--frontier)'],['gap 공백',30,'var(--gap)'],['canon',84,'var(--canon)']],
+      reasons:'<span class="rsn conquer">브레송 5/6→6/6</span> <span class="rsn safe">safe 9+ 군집</span> <span class="rsn canon">canon 84</span>',
+      why:'당신이 9점 이상 준 6편 중 5편이 브레송 — 사랑한 계보의 마지막 한 편이자 지금 무비용 취득 가능. 거의 확정적 자산.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5},
+    vengeance:{t:'Vengeance Is Mine',s:'1979 · Shohei Imamura · 일본',strat:'도장깨기 (conquer)',wwi:78,wc:'#ECEAE5',pre:79,dis:36,
+      comps:[['taste 친연',70,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',79,'var(--canon)']],
+      reasons:'<span class="rsn canon">canon 79</span> <span class="rsn gap">gap 70s 일본</span>',
+      why:'키네마준보 올타임 #1급. 연대 공백(1970년대 일본) 충족 + 당신 일본 거장 군집과 친연.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4},
+    touki:{t:'Touki Bouki',s:'1973 · Djibril Diop Mambéty · 세네갈',strat:'공백 충족 (gap)',wwi:88,wc:'#86b9ec',pre:71,dis:94,
+      comps:[['taste 친연',62,'var(--safe)'],['lineage',70,'var(--frontier)'],['gap 공백',96,'var(--gap)'],['canon',71,'var(--canon)']],
+      reasons:'<span class="rsn gap">gap 0%→진입</span> <span class="rsn frontier">frontier 94</span> <span class="rsn conquer">FESPACO</span>',
+      why:'FESPACO·아프리카 정전 0% → 동시 진입. 희소도 최상위 → 발굴 가치 극대. Δindex가 모든 후보 중 최대.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR'],['Criterion','var(--sub)','정보 없음']],delta:6},
+    bgwd:{t:'Black God, White Devil',s:'1964 · Glauber Rocha · 브라질',strat:'공백 충족 (gap)',wwi:81,wc:'#86b9ec',pre:74,dis:88,
+      comps:[['taste 친연',58,'var(--safe)'],['lineage',66,'var(--frontier)'],['gap 공백',92,'var(--gap)'],['canon',74,'var(--canon)']],
+      reasons:'<span class="rsn gap">gap 라틴 0%</span> <span class="rsn conquer">Cinema Novo</span> <span class="rsn frontier">frontier 88</span>',
+      why:'라틴 대륙 정전 0% → 진입. 대륙 커버리지를 가장 크게 끌어올림(Δbreadth 최상위급).',
+      avail:[['정보 없음','var(--sub)','이 지역 제공자 정보 없음']],delta:5},
+    jeanne:{t:'Jeanne Dielman',s:'1975 · Chantal Akerman · 벨기에',strat:'정전 위상 (canon)',wwi:87,wc:'#e0bb6e',pre:98,dis:42,
+      comps:[['taste 친연',74,'var(--safe)'],['lineage',68,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',98,'var(--canon)']],
+      reasons:'<span class="rsn canon">canon 98 · S&S #1</span> <span class="rsn reading">reading 일상의 시간</span>',
+      why:'S&S 2022 비평가 #1 — 정전 위상 정점. prestige 증분이 가장 크고, 정전이 하방을 강하게 받친다.',
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5},
+    satantango:{t:'Sátántangó',s:'1994 · Béla Tarr · 헝가리',strat:'정전 위상 (canon)',wwi:80,wc:'#e0bb6e',pre:92,dis:60,
+      comps:[['taste 친연',66,'var(--safe)'],['lineage',62,'var(--frontier)'],['gap 공백',64,'var(--gap)'],['canon',92,'var(--canon)']],
+      reasons:'<span class="rsn canon">canon 92 · TSPDT #36</span> <span class="rsn frontier">frontier 헝가리</span>',
+      why:'TSPDT #36 · 7시간 모더니즘 정전. prestige 증분 크고, 동유럽 라인 보강.',
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4}
+  };
+
+  // P&L regret items — these are the critical "watched + low-rated" positions: NAV unchanged
+  var REGRET = {
+    'rg-13moons':{t:'In a Year with 13 Moons',s:'1978 · R.W. Fassbinder · 독일',rating:'★2.5',pl:-2,
+      note:'reading 닻(정신분석)이 가장 강해 추천 상단에 올랐으나, 관람 후 당신이 낮게 평가. 시간 기회비용 −2가 P&L regret으로 기록.'},
+    'rg-roma':{t:'Roma',s:'2018 · Alfonso Cuarón · 멕시코',rating:'★2.5',pl:-1,
+      note:'정전·수상 안전망에도 당신의 반응이 낮았다. P&L regret −1 — 보유 자산 NAV는 영향 없음.'}
+  };
+
+  // lineage / conquer detail
+  var LIN = {
+    ss22:{t:'Sight & Sound 2022',s:'비평가 100 · canon · aw 0.98 · T1',watched:41,total:100,opp:0.58,next:'50% 완파까지 9편 · 도장깨기',
+      films:[['Jeanne Dielman','#1 · 추천 ↑'],['Vertigo','#2 · 보유 ★4.6'],['Tokyo Story','#4 · 추천'],['In the Mood for Love','#5 · 보유']]},
+    kofa:{t:'KOFA 100',s:'한국 정전 · national · aw 0.74 · T2',watched:52,total:100,opp:0.36,next:'75% 완파까지 23편',
+      films:[['The Housemaid','1960 · 보유'],['Aimless Bullet','1961 · 보유'],['Madame Freedom','1956 · 미관람']]},
+    palme:{t:"Palme d'Or",s:'칸 황금종려 · award · aw 0.97 · T1',watched:21,total:77,opp:0.70,next:'50% 완파까지 18편',
+      films:[['Parasite','2019 · 보유 ★4.8'],['Taste of Cherry','1997 · 미관람'],['The Tree of Life','2011 · 보유']]},
+    bresson:{t:'로베르 브레송',s:'G1 거장 · 감독 정복 · 완파 1편 남음',watched:5,total:6,opp:0.50,next:'완파까지 1편 · L\'Argent',
+      films:[['Pickpocket','1959 · 보유 ★4.7'],['Au Hasard Balthazar','1966 · 보유'],['Mouchette','1967 · 보유'],["L'Argent","1983 · 추천 ↑"]]}
+  };
+
+  function filmDetail(f){
+    var av = f.avail.map(function(a){return '<div class="availrow"><span class="dot" style="background:'+a[1]+'"></span><b style="font-family:var(--mono);font-size:11px">'+a[0]+'</b><span style="color:var(--sub);font-size:10.5px">'+a[2]+'</span></div>';}).join('');
+    var cb = f.comps.map(function(c){return bar(c[0],c[1],c[2]);}).join('');
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 데스크 요약으로</div>'+
+      '<div class="selhead"><div class="poster"></div><div><div class="seltitle">'+f.t+'</div><div class="selsub">'+f.s+'</div>'+
+        '<div class="selflag"><span class="rsn frontier" style="cursor:default">미관람</span><span class="badge-val bv-fit" style="cursor:default">'+f.strat+'</span></div></div></div>'+
+      '<div class="icard"><h4><i class="ti ti-bolt"></i> WWI · 적합도 분해</h4>'+
+        '<div class="bigscore"><span class="n" style="color:'+f.wc+'">'+f.wwi+'</span><span class="u">/ 100 WHY-WATCH</span></div>'+cb+
+        '<div style="margin-top:9px">'+f.reasons+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-info-circle"></i> 왜 이 포지션인가</h4>'+
+        '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">'+f.why+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-coin"></i> 자산 지표 · Δindex → NAV</h4>'+
+        '<div class="kv"><span class="k">정전가 (Standing)</span><span class="v">'+f.pre+'</span></div>'+
+        '<div class="kv"><span class="k">Discovery</span><span class="v">'+f.dis+'</span></div>'+
+        '<div class="kv"><span class="k">Δindex · 다음 한 편</span><span class="v" style="color:var(--safe)">+'+f.delta+' → NAV</span></div>'+
+        '<div style="font-size:10.5px;color:var(--sub);margin-top:7px"><i class="ti ti-shield-check" style="color:var(--safe)"></i> 매수해도 NAV는 오르기만 한다 — 저평점이 나와도 regret(P&L)일 뿐 NAV drawdown 아님.</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-device-tv"></i> 지금 볼 수 있나 · 가용</h4>'+av+'</div>'+
+      '<div class="actbar"><span class="actbtn pri" onclick="addPickInsp(this,\''+f.t.replace(/'/g,"\\'")+'\')">+ 볼 영화에 담기</span>'+
+        '<span class="actbtn gho" onclick="markWatched(this,\''+f.t.replace(/'/g,"\\'")+'\')">봤어요</span></div>';
+  }
+  function regretDetail(r){
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 데스크 요약으로</div>'+
+      '<div class="selhead"><div class="poster"></div><div><div class="seltitle">'+r.t+'</div><div class="selsub">'+r.s+'</div>'+
+        '<div class="selflag"><span class="badge-val bv-over" style="cursor:default">관람 · '+r.rating+'</span></div></div></div>'+
+      '<div class="regretbox"><h4 style="margin:0 0 6px;font-size:11px;letter-spacing:.04em;color:#f2a39f;font-weight:600">P&L REGRET</h4>'+
+        '<div class="rn">'+r.pl+'</div>'+
+        '<div class="navsafe"><i class="ti ti-shield-check"></i> NAV 불변 · 1,284 — 자산 평가절하 없음</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-info-circle"></i> regret ≠ NAV drawdown</h4>'+
+        '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">'+r.note+'</div>'+
+        '<div style="font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5"><b style="color:var(--ink)">관람은 NAV를 깎지 않는다.</b> engagement는 처벌되지 않는다. 명시적 저평점만 시간 기회비용(P&L regret)으로 기록되며, 보유 NAV는 단조 보존된다.</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-bulb"></i> 데스크 학습</h4>'+
+        '<div class="kv"><span class="k">reading 닻 가중</span><span class="v" style="color:#e98a86">↓ 재보정</span></div>'+
+        '<div class="kv"><span class="k">유사 추천 신뢰</span><span class="v">−1 단계</span></div>'+
+        '<div style="font-size:10.5px;color:var(--sub);margin-top:6px">이 regret으로 데스크는 동일 reading 군집의 추천 확신을 낮춘다.</div></div>';
+  }
+  function linDetail(l){
+    var pct = Math.round(100*l.watched/l.total);
+    var col = pct>=50?'var(--safe)':pct>=25?'var(--canon)':'var(--red)';
+    var fl = l.films.map(function(x){return '<div class="kv"><span class="k" style="font-family:var(--ser);font-size:12.5px;color:var(--ink)">'+x[0]+'</span><span class="v" style="font-size:10.5px;color:var(--sub)">'+x[1]+'</span></div>';}).join('');
+    var ms = [50,75,100].map(function(m){var on=pct>=m;return '<span class="rsn '+(on?'safe':'')+'" style="'+(on?'':'opacity:.4')+'">'+m+'%</span>';}).join(' ');
+    return ''+
+      '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 데스크 요약으로</div>'+
+      '<div class="icard"><h4><i class="ti ti-flag"></i> 완파 진행 상세</h4>'+
+        '<div class="seltitle" style="font-size:16px">'+l.t+'</div><div class="selsub">'+l.s+'</div>'+
+        '<div class="bigscore" style="margin-top:10px"><span class="n" style="color:'+col+'">'+pct+'%</span><span class="u">'+l.watched+' / '+l.total+' 관람</span></div>'+
+        '<div class="crow"><span class="cl">커버리지</span><div class="ct"><i style="width:'+pct+'%;background:'+col+'"></i></div><span class="cv">'+pct+'</span></div>'+
+        '<div style="font-size:11px;color:var(--mut);margin-top:8px">완파 마일스톤 &nbsp;'+ms+'</div>'+
+        '<div style="font-size:11px;color:var(--canon);margin-top:7px"><i class="ti ti-flag"></i> '+l.next+'</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-target"></i> 기회 점수 · Δindex</h4>'+
+        '<div class="kv"><span class="k">opportunity = aw × 미답</span><span class="v">'+l.opp.toFixed(2)+'</span></div>'+
+        '<div style="font-size:11px;color:var(--sub);margin-top:6px">권위 높은 미답 라인일수록 다음 한 편의 Δindex가 크다 → 데스크 상단으로.</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-list"></i> 이 라인의 영화</h4>'+fl+'</div>';
+  }
+
+  // default desk summary — 오늘의 5전략 mix, hit rate, 다음 완파
+  var DEFAULT = ''+
+    '<div class="icard"><h4><i class="ti ti-layout-board"></i> 오늘의 5전략 mix</h4>'+
+      '<div class="stratmix">'+
+        '<div class="smcell"><div class="smt"><i style="height:75%;background:var(--safe)"></i></div><div class="smv">3</div><div class="sml">안전</div></div>'+
+        '<div class="smcell"><div class="smt"><i style="height:92%;background:var(--frontier)"></i></div><div class="smv">4</div><div class="sml">모험</div></div>'+
+        '<div class="smcell"><div class="smt"><i style="height:50%;background:var(--conquer)"></i></div><div class="smv">2</div><div class="sml">도장깨기</div></div>'+
+        '<div class="smcell"><div class="smt"><i style="height:70%;background:var(--gap)"></i></div><div class="smv">3</div><div class="sml">공백</div></div>'+
+        '<div class="smcell"><div class="smt"><i style="height:55%;background:var(--canon)"></i></div><div class="smv">2</div><div class="sml">정전</div></div>'+
+      '</div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:10px">한 영화는 다중 이유를 보유 — 같은 후보가 여러 전략 칼럼에 등장할 수 있다. 행을 클릭해 포지션을 분석하세요.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-chart-line"></i> P&L 요약 · 적중 vs regret</h4>'+
+      '<div class="bigscore" style="margin:0 0 8px"><span class="n" style="color:var(--safe);font-size:26px">78<span style="font-size:14px">%</span></span><span class="u">적중률 · 높게 준 추천 비율</span></div>'+
+      '<div class="kv"><span class="k">NAV (포트폴리오)</span><span class="v" style="color:var(--safe)">1,284 · 단조</span></div>'+
+      '<div class="kv"><span class="k">★3.5+ 적중</span><span class="v" style="color:#5fd0b2">11</span></div>'+
+      '<div class="kv"><span class="k">P&L regret</span><span class="v" style="color:#e98a86">−3 · NAV 불변</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5"><i class="ti ti-shield-check" style="color:var(--safe)"></i> <b style="color:var(--ink)">관람은 NAV를 깎지 않는다.</b> 저평점만 P&L regret으로 분리 기록 — NAV drawdown이 아니다.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-flag"></i> 다음 완파 · 도장깨기</h4>'+
+      '<div class="kv"><span class="k" style="color:#e0bb6e">S&S 2022 → 50%</span><span class="v">9편 남음</span></div>'+
+      '<div class="kv"><span class="k" style="color:#e0bb6e">브레송 완파</span><span class="v">1편 · L\'Argent</span></div>'+
+      '<div class="kv"><span class="k">KOFA → 75%</span><span class="v">23편 남음</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:7px">완파 직전 라인의 다음 한 편이 가장 큰 Δindex를 만든다.</div></div>'+
+    '<div class="icard"><h4><i class="ti ti-book-2"></i> Reading 닻</h4>'+
+      '<div style="margin-top:2px"><span class="anchorchip">정신분석 강</span><span class="anchorchip">윤리적 응시 강</span><span class="anchorchip">절제된 응시</span></div>'+
+      '<div style="font-size:10.5px;color:var(--sub);margin-top:9px">데스크는 이 reading 닻이 강한 영화의 추천 확신을 가산한다.</div></div>';
+
+  function setInsp(html,title){ document.getElementById('inspbody').innerHTML=html; document.getElementById('insp-title').textContent=title||'인스펙터 · 포지션'; document.getElementById('inspbody').scrollTop=0; }
+  function resetInsp(){ setInsp(DEFAULT,'인스펙터 · 데스크 요약'); clearSel(); }
+  window.resetInsp = resetInsp;
+
+  function clearSel(){ document.querySelectorAll('.pcard.sel,.conqrow.sel,.lrow.sel,.rrow.sel').forEach(function(e){e.classList.remove('sel');}); }
+  window.sel = function(id,node){
+    clearSel(); if(node) node.classList.add('sel');
+    // auto-expand inspector if collapsed
+    var insp=document.getElementById('inspector'); if(insp.classList.contains('collapsed')){insp.classList.remove('collapsed');LS.setItem('mt_inspector','0');}
+    if(FILM[id]) setInsp(filmDetail(FILM[id]), FILM[id].t);
+    else if(REGRET[id]) setInsp(regretDetail(REGRET[id]), REGRET[id].t);
+    else if(LIN[id]) setInsp(linDetail(LIN[id]), LIN[id].t);
+  };
+
+  /* ───── inline 담기 (add to watchlist, no inspector round-trip) ───── */
+  window.addPick = function(ev,node,title){
+    ev.stopPropagation();
+    if(node.classList.contains('added')) return;
+    node.classList.add('added');
+    node.innerHTML='<i class="ti ti-check" style="font-size:10px"></i>담김';
+    toast(title+' · 볼 영화에 담음');
+  };
+  var _toastEl=null,_toastT=null;
+  function toast(msg){
+    if(!_toastEl){
+      _toastEl=document.createElement('div');
+      _toastEl.style.cssText='position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);'+
+        'background:#1a1a1e;border:1px solid var(--line3);border-left:3px solid var(--red);color:var(--ink);'+
+        'font-size:12px;padding:9px 15px;border-radius:7px;z-index:80;box-shadow:0 10px 30px rgba(0,0,0,.5);'+
+        'opacity:0;transition:.18s;font-family:var(--ui);display:flex;align-items:center;gap:8px';
+      document.body.appendChild(_toastEl);
+    }
+    _toastEl.innerHTML='<i class="ti ti-circle-check" style="color:var(--safe);font-size:15px"></i>'+msg;
+    requestAnimationFrame(function(){_toastEl.style.opacity='1';_toastEl.style.transform='translateX(-50%) translateY(0)';});
+    clearTimeout(_toastT);
+    _toastT=setTimeout(function(){_toastEl.style.opacity='0';_toastEl.style.transform='translateX(-50%) translateY(8px)';},1900);
+  }
+  window.addPickInsp = function(btn,title){
+    if(btn.classList.contains('added')) return;
+    btn.classList.add('added');
+    btn.style.background='transparent'; btn.style.color='var(--safe)'; btn.style.borderColor='#1d4d40';
+    btn.textContent='✓ 담김 · 볼 영화';
+    toast(title+' · 볼 영화에 담음');
+  };
+  /* 봤어요 = 보유로 이동 (제자리 마킹 + 별점 입력 유도, 페이지 이동 없음) */
+  window.markWatched = function(btn,title){
+    if(btn.classList.contains('watched')) return;
+    btn.classList.add('watched');
+    btn.style.background='transparent'; btn.style.color='var(--safe)'; btn.style.borderColor='#1d4d40';
+    btn.textContent='✓ 보유로 이동';
+    toast(title+' · 보유로 이동 — 평점을 주면 자동으로 「봤어요」');
+  };
+
+  // init inspector: desk summary by default; preselect top safe candidate row
+  resetInsp();
+
+  /* ───── cold-start demo ───── */
+  var cold=false;
+  window.coldStart = function(){
+    cold=!cold;
+    document.getElementById('csw').classList.toggle('on',cold);
+    document.getElementById('cslabel').textContent = cold?'형성 중(데모)':'운영 모드';
+    var navchip=document.getElementById('navchip');
+    var hero=document.getElementById('hero');
+    if(cold){
+      navchip.textContent='—';
+      hero.querySelector('.navbig').innerHTML='<div style="display:flex;align-items:center;gap:14px"><i class="ti ti-seedling" style="font-size:40px;color:#e0bb6e"></i><div><div class="eb">운용 데스크 · NAV</div><div class="lvl" style="color:#e0bb6e">● 형성 중</div><div class="pctl">7편 — 8편부터 NAV·전략 데스크 산출 (NaN 0건)</div></div></div>';
+      hero.querySelectorAll('.components .cv').forEach(function(e){e.textContent='—';});
+      hero.querySelectorAll('.components .ct>i').forEach(function(e){e.style.width='0%';});
+    } else { location.reload(); }
+  };
+
+  /* ───── command palette ───── */
+  var PAGES=[
+    ['현황 · 커맨드센터','ti-dashboard','mockup-me-command-center.html','자산'],
+    ['보유 영화 · 가격표','ti-list-details','mockup-me-collection-list-v2.html','자산'],
+    ['볼 영화 · 추천 데스크','ti-target-arrow','mockup-me-watchlist.html','자산'],
+    ['운용 데스크','ti-briefcase','mockup-me-asset-desk.html','자산'],
+    ['자산 분석','ti-chart-arcs','mockup-me-analysis-v2.html','자산'],
+    ['기록 · 평가','ti-star','mockup-me-onboard-rate-v2.html','기록'],
+    ['서재','ti-books','mockup-me-library.html','기록'],
+    ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
+    ['동행','ti-users','mockup-me-pair.html','교류'],
+    ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Touki Bouki — 공백 충족 +6','ti-movie','#','영화'],
+    ['Yi Yi — 안전자산 +5','ti-movie','#','영화'],
+    ['L\'Argent — 도장깨기 +5','ti-movie','#','영화'],
+    ['Sight & Sound 2022 — 50% 임박','ti-flag','#','계보'],
+    ['브레송 — 완파 5/6','ti-user-star','#','감독']
+  ];
+  function renderPalette(q){
+    q=(q||'').toLowerCase();
+    var list=document.getElementById('pallist'); list.innerHTML='';
+    PAGES.filter(function(p){return p[0].toLowerCase().indexOf(q)>=0||p[3].toLowerCase().indexOf(q)>=0;}).forEach(function(p,i){
+      var d=document.createElement('div'); d.className='pi'+(i===0?' on':'');
+      d.innerHTML='<i class="ti '+p[1]+' lead"></i><span>'+p[0]+'</span><span class="pk">'+p[3]+'</span>';
+      d.onclick=function(){ if(p[2]&&p[2]!=='#') location.href=p[2]; else closePalette(); };
+      list.appendChild(d);
+    });
+  }
+  window.openPalette=function(){ document.getElementById('palette').classList.add('show'); var i=document.getElementById('palinput'); i.value=''; renderPalette(''); setTimeout(function(){i.focus();},30); };
+  window.closePalette=function(){ document.getElementById('palette').classList.remove('show'); };
+  window.filterPalette=function(){ renderPalette(document.getElementById('palinput').value); };
+  window.palKey=function(e){
+    if(e.key==='Escape'){closePalette();}
+    if(e.key==='Enter'){var on=document.querySelector('.pi.on')||document.querySelector('.pi'); if(on)on.click();}
+  };
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openPalette();}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+{
+  "method": "LLM+web search obscure stress test (real search domains)",
+  "movie_count": 6,
+  "tier_distribution": {
+    "verified": 12,
+    "probable": 4,
+    "weak": 3,
+    "quarantined_legal": 1
+  },
+  "movies": [
+    {
+      "title": "Wake in Fright",
+      "year": 1971,
+      "location_count": 5,
+      "locations": [
+        {
+          "real_name": "Sulphide Street Railway Station",
+          "narrative_setting": "'Bundanyabba' station",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Where the protagonist arrives by train",
+          "address": "",
+          "filming_area": "Broken Hill, NSW",
+          "country": "Australia",
+          "granularity": "venue",
+          "sources": [
+            "en.wikipedia.org",
+            "reelstreets.com",
+            "imdb.com"
+          ],
+          "source_domains": [
+            "en.wikipedia.org",
+            "imdb.com",
+            "reelstreets.com"
+          ],
+          "source_count": 3,
+          "confidence": "verified",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Old Broken Hill Hospital",
+          "narrative_setting": "'Bundanyabba'",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Town hospital glimpsed in the film",
+          "address": "",
+          "filming_area": "Broken Hill, NSW",
+          "country": "Australia",
+          "granularity": "venue",
+          "sources": [
+            "en.wikipedia.org"
+          ],
+          "source_domains": [
+            "en.wikipedia.org"
+          ],
+          "source_count": 1,
+          "confidence": "probable",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Silverton, NSW",
+          "narrative_setting": "outback town",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Outback exterior scenes",
+          "address": "",
+          "filming_area": "Silverton, NSW",
+          "country": "Australia",
+          "granularity": "area",
+          "sources": [
+            "en.wikipedia.org",
+            "imdb.com"
+          ],
+          "source_domains": [
+            "en.wikipedia.org",
+            "imdb.com"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Menindee Lakes",
+          "narrative_setting": "outback",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Lake/outback scenes",
+          "address": "",
+          "filming_area": "Menindee, NSW",
+          "country": "Australia",
+          "granularity": "area",
+          "sources": [
+            "en.wikipedia.org"
+          ],
+          "source_domains": [
+            "en.wikipedia.org"
+          ],
+          "source_count": 1,
+          "confidence": "probable",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Ajax Studios, Bondi",
+          "narrative_setting": "interiors",
+          "built_set": true,
+          "set_host": "Ajax Studios, Bondi (Sydney)",
+          "scene_role": "Interior sets",
+          "address": "Bondi",
+          "filming_area": "Sydney",
+          "country": "Australia",
+          "granularity": "set",
+          "sources": [
+            "en.wikipedia.org"
+          ],
+          "source_domains": [
+            "en.wikipedia.org"
+          ],
+          "source_count": 1,
+          "confidence": "probable",
+          "top_tier": "A"
+        }
+      ]
+    },
+    {
+      "title": "Save the Green Planet!",
+      "year": 2003,
+      "location_count": 2,
+      "locations": [
+        {
+          "real_name": "Unnamed coal-mining town",
+          "narrative_setting": "Byeong-gu's retro house area",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Retro mining-town setting (no specific place named)",
+          "address": "",
+          "filming_area": "South Korea",
+          "country": "South Korea",
+          "granularity": "region",
+          "sources": [
+            "grokipedia.com"
+          ],
+          "source_domains": [
+            "grokipedia.com"
+          ],
+          "source_count": 1,
+          "confidence": "weak",
+          "top_tier": "C"
+        },
+        {
+          "real_name": "Seoul streets",
+          "narrative_setting": "urban chase",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "City chase sequences (unspecified streets)",
+          "address": "",
+          "filming_area": "Seoul",
+          "country": "South Korea",
+          "granularity": "area",
+          "sources": [
+            "grokipedia.com"
+          ],
+          "source_domains": [
+            "grokipedia.com"
+          ],
+          "source_count": 1,
+          "confidence": "weak",
+          "top_tier": "C"
+        }
+      ]
+    },
+    {
+      "title": "Spoorloos (The Vanishing)",
+      "year": 1988,
+      "location_count": 2,
+      "locations": [
+        {
+          "real_name": "Rest stop near Nimes",
+          "narrative_setting": "the vanishing spot",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Service station where Saskia disappears",
+          "address": "",
+          "filming_area": "Nimes, Languedoc",
+          "country": "France",
+          "granularity": "area",
+          "sources": [
+            "en.wikipedia.org"
+          ],
+          "source_domains": [
+            "en.wikipedia.org"
+          ],
+          "source_count": 1,
+          "confidence": "probable",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Gas station, Place du General Tessier de Marguerittes",
+          "narrative_setting": "roadside stop",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Identified filming gas station",
+          "address": "Marguerittes 30320",
+          "filming_area": "Marguerittes",
+          "country": "France",
+          "granularity": "address",
+          "sources": [
+            "filmap.tumblr.com"
+          ],
+          "source_domains": [
+            "filmap.tumblr.com"
+          ],
+          "source_count": 1,
+          "confidence": "weak",
+          "top_tier": "C"
+        }
+      ]
+    },
+    {
+      "title": "Withnail and I",
+      "year": 1987,
+      "location_count": 5,
+      "locations": [
+        {
+          "real_name": "Sleddale Hall ('Crow Crag')",
+          "narrative_setting": "Monty's cottage",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Monty's remote cottage",
+          "address": "near Shap",
+          "filming_area": "Cumbria",
+          "country": "England, UK",
+          "granularity": "venue",
+          "sources": [
+            "almostginger.com",
+            "en.wikipedia.org",
+            "movie-locations.com"
+          ],
+          "source_domains": [
+            "almostginger.com",
+            "en.wikipedia.org",
+            "movie-locations.com"
+          ],
+          "source_count": 3,
+          "confidence": "verified",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "River Lowther bridge",
+          "narrative_setting": "fishing scene",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Shotgun-fishing bridge",
+          "address": "",
+          "filming_area": "Cumbria",
+          "country": "England, UK",
+          "granularity": "venue",
+          "sources": [
+            "almostginger.com",
+            "movie-locations.com"
+          ],
+          "source_domains": [
+            "almostginger.com",
+            "movie-locations.com"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "B"
+        },
+        {
+          "real_name": "57 Chepstow Place, Bayswater",
+          "narrative_setting": "Camden flat",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Withnail & Marwood's flat",
+          "address": "57 Chepstow Place, W2",
+          "filming_area": "London",
+          "country": "England, UK",
+          "granularity": "address",
+          "sources": [
+            "en.wikipedia.org",
+            "almostginger.com"
+          ],
+          "source_domains": [
+            "almostginger.com",
+            "en.wikipedia.org"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Stony Stratford market square",
+          "narrative_setting": "'Penrith' pub & tea rooms",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "King Henry pub / tea-room scenes",
+          "address": "Stony Stratford, Milton Keynes",
+          "filming_area": "Buckinghamshire",
+          "country": "England, UK",
+          "granularity": "area",
+          "sources": [
+            "almostginger.com",
+            "en.wikipedia.org"
+          ],
+          "source_domains": [
+            "almostginger.com",
+            "en.wikipedia.org"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "London Zoo wolf enclosure",
+          "narrative_setting": "closing monologue",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Final speech by the wolves",
+          "address": "Regent's Park",
+          "filming_area": "London",
+          "country": "England, UK",
+          "granularity": "venue",
+          "sources": [
+            "en.wikipedia.org",
+            "almostginger.com"
+          ],
+          "source_domains": [
+            "almostginger.com",
+            "en.wikipedia.org"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "A"
+        }
+      ]
+    },
+    {
+      "title": "Aguirre, the Wrath of God",
+      "year": 1972,
+      "location_count": 2,
+      "locations": [
+        {
+          "real_name": "Huayna Picchu stairway, Machu Picchu",
+          "narrative_setting": "opening descent",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Procession down the Inca stairway",
+          "address": "Machu Picchu",
+          "filming_area": "Cusco",
+          "country": "Peru",
+          "granularity": "venue",
+          "sources": [
+            "en.wikipedia.org",
+            "bfi.org.uk",
+            "movie-locations.com"
+          ],
+          "source_domains": [
+            "bfi.org.uk",
+            "en.wikipedia.org",
+            "movie-locations.com"
+          ],
+          "source_count": 3,
+          "confidence": "verified",
+          "top_tier": "A"
+        },
+        {
+          "real_name": "Huallaga & Nanay rivers, Ucayali",
+          "narrative_setting": "Amazon river journey",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Raft journey down the river",
+          "address": "Ucayali region",
+          "filming_area": "Loreto",
+          "country": "Peru",
+          "granularity": "area",
+          "sources": [
+            "en.wikipedia.org",
+            "imdb.com"
+          ],
+          "source_domains": [
+            "en.wikipedia.org",
+            "imdb.com"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "A"
+        }
+      ]
+    },
+    {
+      "title": "The Long Good Friday",
+      "year": 1980,
+      "location_count": 4,
+      "locations": [
+        {
+          "real_name": "North Quay, West India Dock",
+          "narrative_setting": "Harold's yacht mooring",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Yacht moored in docklands (now Canary Wharf)",
+          "address": "West India Dock",
+          "filming_area": "London",
+          "country": "England, UK",
+          "granularity": "venue",
+          "sources": [
+            "bfi.org.uk",
+            "movie-locations.com"
+          ],
+          "source_domains": [
+            "bfi.org.uk",
+            "movie-locations.com"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "C"
+        },
+        {
+          "real_name": "St George in the East Church, Wapping",
+          "narrative_setting": "car-bomb church",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Church where the car bomb explodes",
+          "address": "14 Cannon Street Road, E1",
+          "filming_area": "London",
+          "country": "England, UK",
+          "granularity": "address",
+          "sources": [
+            "movie-locations.com",
+            "bfi.org.uk"
+          ],
+          "source_domains": [
+            "bfi.org.uk",
+            "movie-locations.com"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "C"
+        },
+        {
+          "real_name": "Waterman's Arms pub, Isle of Dogs",
+          "narrative_setting": "gangland pub",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Pub appearing in the film",
+          "address": "1 Glenaffric Ave, E14",
+          "filming_area": "London",
+          "country": "England, UK",
+          "granularity": "address",
+          "sources": [
+            "movie-locations.com"
+          ],
+          "source_domains": [
+            "movie-locations.com"
+          ],
+          "source_count": 1,
+          "confidence": "quarantined_legal",
+          "top_tier": "X"
+        },
+        {
+          "real_name": "Bethnal Green Town Hall",
+          "narrative_setting": "Councillor's office",
+          "built_set": false,
+          "set_host": "",
+          "scene_role": "Art-deco town hall office",
+          "address": "Patriot Square, E2",
+          "filming_area": "London",
+          "country": "England, UK",
+          "granularity": "venue",
+          "sources": [
+            "movie-locations.com",
+            "londononlocation.co.uk"
+          ],
+          "source_domains": [
+            "londononlocation.co.uk",
+            "movie-locations.com"
+          ],
+          "source_count": 2,
+          "confidence": "verified",
+          "top_tier": "C"
+        }
+      ]
+    }
+  ]
+}

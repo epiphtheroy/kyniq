@@ -1,0 +1,15 @@
+key,category,definition,value
+cohort.mapping,provenance,created_at date to cohort,"06-13=seed_567, 06-17=exp_405, 06-18=exp_1000, 06-25=atlas_4744, 06-02/03=pilot"
+authority_flag,segmentation,cinephile authority gate,"on a canon/auteur facet list OR list authority_weight>=0.85"
+demand_flag,segmentation,demand gate,"total_score>=32 OR imdb_votes>=25000"
+quadrant.A,segmentation,high authority + high demand,analyze_now (Wave 1)
+quadrant.B,segmentation,high authority + low demand,wave2 (cinephile deep-cut core)
+quadrant.C,segmentation,low authority + high demand,selective (only if it fits editorial voice)
+quadrant.D,segmentation,low authority + low demand,park (keep noindex in DB)
+score_tier,segmentation,total_score band,"T1>=42, T2 32-42, T3 20-32, T4<20"
+should_index,publish,search indexing,true when analysis_status=analyzed (else noindex)
+hub.standalone,atlas,standalone country hub rule,"authoritative canon exists AND (>=12 films OR high cinephile salience)"
+hub.regional,atlas,regional hub,"countries below the film floor are grouped into region-* hubs"
+manual_override,ops,protect manual classification,"if true, curation.reclassify() will not overwrite the row"
+country_code.source,atlas,country code provenance,"derived only from national-canon membership; conflates origin with foreign-canonization; provisional"
+country_code.todo,atlas,country refinement,"Phase 0: backfill original_language/production_country for atlas_4744, then recompute country_code"

@@ -1,0 +1,37 @@
+PART: Politics   (총 111개 이론, 현행 Major 34개)
+형식: [현재행수] TrueMajor  ::  샘플이론들
+
+[17] Q. Political Philosophy (Contemporary)  ::  Cosmopolitanism (Political) / Republican Liberty (Neo-Republicanism) / Deliberative Democracy (Advanced) / Critical Theory of Race (Political)
+[5] C. Post-Structuralism & Postmodern Politics  ::  Governmentality (Political Theory) / Biopolitics (Political Theory) / Power/Knowledge (Political Theory) / The Spectacle (Political Theory)
+[5] J. International Relations  ::  Constructivism (IR) / Liberal Internationalism / Realism (IR) / Dependency Theory (IR)
+[5] M. Political Sociology (Advanced)  ::  Resource Mobilization Theory (Political Sociology) / Political Process Theory (Political Sociology) / New Social Movement Theory (Political Sociology) / State Autonomy Theory
+[4] A. Social Contract Theory  ::  State of Nature (Politics) / Leviathan (Political Theory) / Consent of the Governed / General Will (Political Theory)
+[4] L. Political Economy (Advanced)  ::  Regulation Theory (Political Economy) / Varieties of Capitalism (VOC) / Disembedding (Political Economy) / Fictitious Commodities
+[4] N. Public Policy & Administration  ::  Agenda Setting (Public Policy) / Policy Streams (Policy Process) / Punctuated Equilibrium Theory (Policy) / Garbage Can Model (Policy)
+[4] O. Comparative Politics  ::  Comparative Historical Analysis / Electoral Systems Theory / Modernization Theory (Political) / Authoritarian Regimes Theory
+[3] A. Ancient Greek Philosophy  ::  Theory of Forms (Politics) / Politics as the Art of the Possible / Politeia (Mixed Constitution)
+[3] A. Critical Theory & Neo-Marxism  ::  Hegemony (Political Theory) / Frankfurt School (Political Theory) / One-Dimensional Man (Politics)
+[3] A. Marxism & Socialism  ::  Historical Materialism (Politics) / Dictatorship of the Proletariat / Imperialism as the Highest Stage of Capitalism
+[3] B. Enlightenment & Liberalism  ::  Separation of Powers / Liberalism (Political Theory) / Utilitarianism (Political Theory)
+[3] C. Elitism & Realism  ::  Iron Law of Oligarchy / The Ruling Class (Political Theory) / Circulation of Elites
+[3] C. Political Economy & Neoliberalism  ::  Neoliberalism (Political Theory) / Financialization / Austerity (Political Theory)
+[3] D. Environmental Politics & Justice  ::  Ecocentrism (Political Theory) / Environmental Justice (Political) / Climate Justice
+[3] D. Liberalism & Justice  ::  Theory of Justice (Political Theory) / Original Position & Veil of Ignorance / Capability Approach (Political Theory)
+[3] F. Democratic Theory (Advanced)  ::  Agonistic Pluralism / Associative Democracy / Post-Democracy
+[3] F. Postcolonial & Decolonial Politics  ::  Orientalism (Political Theory) / The Wretched of the Earth (Politics) / Subaltern Studies (Political)
+[3] G. Feminism & Gender in Politics  ::  The Second Sex (Political Theory) / Gender as Performance (Politics) / Intersectionality (Politics)
+[2] A. Deliberative & Participatory Democracy  ::  Deliberative Polling / Participatory Budgeting
+[2] B. Anarchism & Syndicalism  ::  Mutual Aid (Anarchism) / Propaganda of the Deed
+[2] B. Populism & Post-Politics  ::  Populism (Political Theory) / Post-Politics
+[2] B. Roman and Medieval Thought  ::  Natural Law Theory (Politics) / Two Swords Theory (Political Theology)
+[2] B. Totalitarianism & Authoritarianism  ::  The Origins of Totalitarianism / State of Exception (Political Theory)
+[2] C. Republicanism & Civic Humanism  ::  Civic Virtue (Political Theory) / Mixed Government (Republicanism)
+[2] D. Conservatism & Counter-Enlightenment  ::  Reflections on the Revolution in France / Organic Society (Political Theory)
+[2] D. Early Democratic Theory  ::  Deliberative Democracy / Pluralism (Political Theory)
+[2] E. Communitarianism & Civic Republicanism  ::  Spheres of Justice / Politics of Recognition
+[2] E. Critical Security Studies  ::  Securitization Theory / Human Security
+[2] G. Digital Politics & Governance  ::  Digital Citizenship Theory / Algorithmic Governance (Political)
+[2] H. Political Psychology  ::  Political Socialization Theory / Groupthink (Political)
+[2] I. Identity Politics  ::  Identity Politics (Theory) / Recognition Politics
+[2] K. Philosophy of Law & Justice  ::  Restorative Justice / Transitional Justice
+[2] P. Post-Soviet & Transition Studies  ::  Transitology / End of History (Political)

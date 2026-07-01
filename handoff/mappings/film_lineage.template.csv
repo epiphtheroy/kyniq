@@ -1,0 +1,9 @@
+tmdb_id,list_slug,edition_year,result,rank,value,confidence,source
+62,sight-and-sound-directors,2022,,1,{},1.0,bfi
+62,tspdt-1000,2024,,,{},0.9,tspdt
+1398,sight-and-sound-critics,2022,,,{},1.0,bfi
+843,cannes-competition,2000,selected,,{},1.0,wikidata
+843,cannes-palme-dor,2000,nominated,,{},1.0,wikidata
+496243,cannes-palme-dor,2019,won,,{},1.0,wikidata
+496243,cannes-competition,2019,selected,,{},1.0,wikidata
+843,hk-new-wave,,,,{},0.8,editorial

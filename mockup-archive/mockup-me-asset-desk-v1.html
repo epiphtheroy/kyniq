@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 영화적 자산운용 데스크 (시안 v2)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;
+    --safe:#1FB286;--frontier:#3E8FE0;--conquer:#E3120B;--avail:#C8922B;--reading:#9B8CF0;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1500px;margin:0 auto;padding:14px 18px 60px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+  .card{background:var(--pnl);border:1px solid var(--line);border-radius:3px}
+
+  /* NAV header */
+  .navstrip{display:grid;grid-template-columns:1.6fr repeat(4,1fr) 1.2fr;gap:10px;margin:12px 0}
+  .nv{padding:11px 13px}
+  .nv .v{font-family:var(--mono);font-size:24px;line-height:1.05;margin-top:3px}
+  .nv .d{font-size:11px;margin-top:3px}
+  .up{color:var(--safe)}.dn{color:var(--red)}.flat{color:var(--mut)}
+  .navmain{display:flex;align-items:center;gap:14px;padding:10px 14px}
+  .spark{flex:0 0 auto}
+  .budget .bar{height:6px;background:#26262a;margin-top:6px;border-radius:0;overflow:hidden}
+  .budget .bar>i{display:block;height:100%;background:var(--ink)}
+
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+  .pnl{background:var(--pnl);border:1px solid var(--line);border-radius:3px;padding:12px 13px;min-width:0}
+  .ph{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+  .ph h3{margin:0;font-size:12px;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;gap:7px}
+  .ph .meta{font-size:10.5px;color:var(--sub);font-family:var(--mono)}
+  .span4{grid-column:span 4}.span8{grid-column:span 8}.span6{grid-column:span 6}.span12{grid-column:span 12}
+
+  /* strategy lenses */
+  .lenses{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;font-size:11.5px}
+  .lens{padding:4px 9px;border:1px solid var(--line2);border-radius:14px;color:var(--mut);display:flex;align-items:center;gap:6px;cursor:default}
+  .lens.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+  .dotc{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+  /* desk feed */
+  .drow{display:grid;grid-template-columns:18px 1fr 84px 92px 60px;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+  .drow:last-child{border-bottom:0}
+  .rk{font-family:var(--mono);color:var(--sub);font-size:12px;text-align:center;padding-top:3px}
+  .rt{font-family:var(--ser);font-size:16px}
+  .rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+  .theses{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0 5px}
+  .th{font-size:10px;font-family:var(--mono);padding:2px 7px;border-radius:2px;border:1px solid;display:flex;align-items:center;gap:5px;line-height:1.3}
+  .th.safe{color:#8ee3cc;border-color:#1d5145;background:#0e211c}
+  .th.frontier{color:#9cc8f3;border-color:#234a72;background:#0d1c2c}
+  .th.conquer{color:#f2b3b0;border-color:#7a1410;background:#240b09}
+  .th.avail{color:#e6c884;border-color:#5b481f;background:#211a0c}
+  .th.reading{color:#c6bcf7;border-color:#463c84;background:#161230}
+  .syn{font-size:11.5px;color:var(--mut);line-height:1.4;max-width:62ch}
+  .conv{text-align:center;padding-top:2px}
+  .convdots{letter-spacing:1px;font-size:11px}
+  .convdots .on{color:var(--red)} .convdots .off{color:#34343a}
+  .convn{font-family:var(--mono);font-size:11px;color:var(--mut);margin-top:2px}
+  .er{font-size:10px;color:var(--sub);padding-top:2px}
+  .er .row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+  .erbar{flex:1;height:5px;background:#26262a;overflow:hidden}.erbar>i{display:block;height:100%}
+  .e>i{background:var(--safe)}.rsk>i{background:var(--avail)}
+  .erlab{width:10px;font-family:var(--mono);color:var(--sub)}
+  .act{font-size:10px;letter-spacing:.05em;font-weight:600;padding:3px 0;border-radius:2px;display:block;text-align:center}
+  .a-buy{background:var(--red);color:#fff}.a-disc{background:#0d1c2c;color:#9cc8f3;border:1px solid #234a72}
+  .a-conq{background:#240b09;color:#f2b3b0;border:1px solid #7a1410}
+  .delta{font-family:var(--mono);font-size:12px;color:var(--safe);text-align:center;margin-top:4px}
+
+  /* completion board */
+  .crow{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--line)}
+  .crow:last-child{border-bottom:0}
+  .cn{flex:1;min-width:0}.cn .nm{font-family:var(--ser);font-size:13.5px}
+  .cn .nm .left{color:var(--red);font-family:var(--ui);font-size:10.5px;font-weight:600;margin-left:6px}
+  .ctrack{height:6px;background:#26262a;margin-top:5px;overflow:hidden}.ctrack>i{display:block;height:100%;background:var(--conquer)}
+  .cfrac{font-family:var(--mono);font-size:11px;color:var(--mut);width:42px;text-align:right}
+  .alert{background:#240b09;border:1px solid #7a1410;border-radius:2px;padding:6px 9px;font-size:11px;color:#f2b3b0;margin-bottom:9px;display:flex;gap:7px;align-items:center}
+
+  /* reading bars */
+  .rdrow{display:grid;grid-template-columns:92px 1fr 28px;gap:9px;align-items:center;padding:4px 0;font-size:12px}
+  .rdrow .nm.blind{color:var(--red)}
+  .rdt{height:7px;background:#26262a;overflow:hidden}.rdt>i{display:block;height:100%;background:var(--reading)}
+
+  /* availability */
+  .svc{margin-bottom:9px}
+  .svc .h{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--avail);margin-bottom:3px;font-weight:600}
+  .svc .li{font-family:var(--ser);font-size:12.5px;color:var(--mut);padding:1px 0}
+  .svc .li b{color:var(--ink);font-weight:400}
+
+  svg text{font-family:var(--ui)}
+  .legend{display:flex;gap:14px;font-size:10.5px;color:var(--mut);margin-top:6px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+  .note{font-size:10.5px;color:var(--sub);margin-top:9px;font-style:italic}
+  @media(max-width:1100px){.navstrip{grid-template-columns:repeat(2,1fr)}.span4,.span8,.span6{grid-column:span 12}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">영화적 자산운용 데스크</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-lock"></i> 비공개 · wonwoo · 내 자산 〈운용〉</span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <!-- NAV / FINITE-CAPITAL HEADER -->
+  <div class="navstrip">
+    <div class="card navmain">
+      <svg class="spark" width="92" height="48" viewBox="0 0 92 48">
+        <polyline points="2,40 12,38 22,39 32,33 40,35 42,42 52,30 62,26 70,28 72,34 82,18 90,12" fill="none" stroke="#1FB286" stroke-width="2"/>
+        <circle cx="42" cy="42" r="2.5" fill="#E3120B"/><circle cx="72" cy="34" r="2.5" fill="#E3120B"/>
+        <circle cx="90" cy="12" r="2.5" fill="#1FB286"/>
+      </svg>
+      <div>
+        <div class="eb">영화적 자산 NAV</div>
+        <div style="margin-top:2px"><span class="mono" style="font-size:25px;line-height:1.05">1,284</span><span style="font-size:12px;color:#D9A441;margin-left:7px">· LV. Established</span></div>
+        <div class="up" style="font-size:11px">▲ +38 (30일) · 적중 11 · <span class="dn">실망 3</span></div>
+      </div>
+    </div>
+    <div class="card nv budget">
+      <div class="eb">관람 예산 · 올해</div>
+      <div class="v">42<span style="font-size:13px;color:var(--sub)">/60</span></div>
+      <div class="bar"><i style="width:70%"></i></div>
+    </div>
+    <div class="card nv">
+      <div class="eb">생애 잔여(추정)</div>
+      <div class="v">≈1,820</div>
+      <div class="d flat">연 50편 · 유한 자본</div>
+    </div>
+    <div class="card nv">
+      <div class="eb">적중률 (Hit)</div>
+      <div class="v up">78<span style="font-size:13px;color:var(--sub)">%</span></div>
+      <div class="d up">▲ 우량주 매수</div>
+    </div>
+    <div class="card nv">
+      <div class="eb">후회 손실 · 분기</div>
+      <div class="v dn">−3</div>
+      <div class="d dn">실망 = 시간 drawdown</div>
+    </div>
+    <div class="card nv">
+      <div class="eb">확신 추천 대기</div>
+      <div class="v" style="color:var(--red)">12</div>
+      <div class="d flat">논거 3+ 종목</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- RECOMMENDATION DESK -->
+    <div class="pnl span8">
+      <div class="ph"><h3><i class="ti ti-arrow-big-up-lines"></i> 지속 추천 데스크 · 다음 매수 종목</h3>
+        <span class="meta">확신도(논거 수) 순 · 매일 갱신</span></div>
+
+      <div class="lenses">
+        <span class="lens on">전체</span>
+        <span class="lens"><i class="dotc" style="background:var(--safe)"></i>안전자산</span>
+        <span class="lens"><i class="dotc" style="background:var(--frontier)"></i>안전한 모험</span>
+        <span class="lens"><i class="dotc" style="background:var(--conquer)"></i>리니지 완파</span>
+        <span class="lens"><i class="dotc" style="background:var(--avail)"></i>구독 가용</span>
+        <span class="lens"><i class="dotc" style="background:var(--reading)"></i>Reading</span>
+      </div>
+
+      <div class="drow">
+        <div class="rk">1</div>
+        <div>
+          <div class="rt">L'Argent <small>1983 · Robert Bresson</small></div>
+          <div class="theses">
+            <span class="th conquer"><i class="ti ti-flag"></i>완파 · 브레송 1편 남음</span>
+            <span class="th safe"><i class="ti ti-shield-check"></i>안전자산 · 평점 9+ 군집</span>
+            <span class="th avail"><i class="ti ti-player-play"></i>구독 가용 · Criterion</span>
+          </div>
+          <div class="syn">당신이 9점 이상 준 6편 중 5편이 브레송 — <b style="color:var(--ink)">사랑한 계보의 마지막 한 편</b>이자 지금 무비용 취득 가능. 거의 확정적 자산.</div>
+        </div>
+        <div class="conv"><div class="convdots"><span class="on">●</span><span class="on">●</span><span class="on">●</span><span class="off">●</span></div><div class="convn">확신 3</div></div>
+        <div class="er">
+          <div class="row"><span class="erlab">E</span><div class="erbar e"><i style="width:92%"></i></div></div>
+          <div class="row"><span class="erlab">R</span><div class="erbar rsk"><i style="width:18%"></i></div></div>
+        </div>
+        <div><span class="act a-conq" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">완파</span><div class="delta">+5</div></div>
+      </div>
+
+      <div class="drow">
+        <div class="rk">2</div>
+        <div>
+          <div class="rt">A Brighter Summer Day <small>1991 · Edward Yang</small></div>
+          <div class="theses">
+            <span class="th frontier"><i class="ti ti-compass"></i>안전한 모험 · 대만, 닻=양더창</span>
+            <span class="th conquer"><i class="ti ti-flag"></i>완파 · 금마장 8%</span>
+            <span class="th reading"><i class="ti ti-book"></i>Reading · 정치적 무의식</span>
+            <span class="th avail"><i class="ti ti-player-play"></i>Criterion</span>
+          </div>
+          <div class="syn">신대륙이되 당신이 신뢰하는 양더창의 닻에 묶인 모험 — 상방 큼, 하방 제한. 정전(S&amp;S·TSPDT) + 무비용. <b style="color:var(--ink)">논거 4개로 가장 높은 확신.</b></div>
+        </div>
+        <div class="conv"><div class="convdots"><span class="on">●</span><span class="on">●</span><span class="on">●</span><span class="on">●</span></div><div class="convn">확신 4</div></div>
+        <div class="er">
+          <div class="row"><span class="erlab">E</span><div class="erbar e"><i style="width:96%"></i></div></div>
+          <div class="row"><span class="erlab">R</span><div class="erbar rsk"><i style="width:34%"></i></div></div>
+        </div>
+        <div><span class="act a-buy" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">필람</span><div class="delta">+6</div></div>
+      </div>
+
+      <div class="drow">
+        <div class="rk">3</div>
+        <div>
+          <div class="rt">The Wind Will Carry Us <small>1999 · Abbas Kiarostami</small></div>
+          <div class="theses">
+            <span class="th safe"><i class="ti ti-shield-check"></i>안전자산 · 절제된 응시</span>
+            <span class="th frontier"><i class="ti ti-compass"></i>안전한 모험 · 이란 뉴웨이브</span>
+            <span class="th avail"><i class="ti ti-player-play"></i>MUBI</span>
+          </div>
+          <div class="syn">당신 시그니처(절제된 응시)의 연장이면서 미답 사조로 안전하게 건너가는 다리. 베니스 은사자 + 지금 MUBI 가용.</div>
+        </div>
+        <div class="conv"><div class="convdots"><span class="on">●</span><span class="on">●</span><span class="on">●</span><span class="off">●</span></div><div class="convn">확신 3</div></div>
+        <div class="er">
+          <div class="row"><span class="erlab">E</span><div class="erbar e"><i style="width:84%"></i></div></div>
+          <div class="row"><span class="erlab">R</span><div class="erbar rsk"><i style="width:30%"></i></div></div>
+        </div>
+        <div><span class="act a-buy" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">필람</span><div class="delta">+4</div></div>
+      </div>
+
+      <div class="drow">
+        <div class="rk">4</div>
+        <div>
+          <div class="rt">Touki Bouki <small>1973 · Djibril Diop Mambéty</small></div>
+          <div class="theses">
+            <span class="th frontier"><i class="ti ti-compass"></i>안전한 모험 · 발굴 프론티어</span>
+            <span class="th reading"><i class="ti ti-book"></i>Reading · 탈식민 기호</span>
+          </div>
+          <div class="syn">가장 먼 신대륙(세네갈) — 단, S&amp;S 2022 #66이라는 정전의 안전망이 하방을 받친다. 최고 발굴가치(Discovery 94).</div>
+        </div>
+        <div class="conv"><div class="convdots"><span class="on">●</span><span class="on">●</span><span class="off">●</span><span class="off">●</span></div><div class="convn">확신 2</div></div>
+        <div class="er">
+          <div class="row"><span class="erlab">E</span><div class="erbar e"><i style="width:72%"></i></div></div>
+          <div class="row"><span class="erlab">R</span><div class="erbar rsk"><i style="width:52%"></i></div></div>
+        </div>
+        <div><span class="act a-disc" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">발굴</span><div class="delta">+6</div></div>
+      </div>
+
+      <div class="drow">
+        <div class="rk">5</div>
+        <div>
+          <div class="rt">In a Year with 13 Moons <small>1978 · R.W. Fassbinder</small></div>
+          <div class="theses">
+            <span class="th reading"><i class="ti ti-book"></i>Reading · 정신분석 ★ 당신 반응 축</span>
+            <span class="th frontier"><i class="ti ti-compass"></i>안전한 모험 · 뉴 저먼</span>
+          </div>
+          <div class="syn">당신이 가장 반응한 오독 렌즈(정신분석)가 가장 강하게 작동하는 영화 — 취향이 아니라 <b style="color:var(--ink)">읽는 방식</b>을 좇는 추천.</div>
+        </div>
+        <div class="conv"><div class="convdots"><span class="on">●</span><span class="on">●</span><span class="off">●</span><span class="off">●</span></div><div class="convn">확신 2</div></div>
+        <div class="er">
+          <div class="row"><span class="erlab">E</span><div class="erbar e"><i style="width:70%"></i></div></div>
+          <div class="row"><span class="erlab">R</span><div class="erbar rsk"><i style="width:46%"></i></div></div>
+        </div>
+        <div><span class="act a-disc" style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">Reading</span><div class="delta">+3</div></div>
+      </div>
+
+      <div class="legend">
+        <span><i style="background:var(--safe)"></i>안전자산</span><span><i style="background:var(--frontier)"></i>안전한 모험</span>
+        <span><i style="background:var(--conquer)"></i>완파</span><span><i style="background:var(--avail)"></i>구독 가용</span>
+        <span><i style="background:var(--reading)"></i>Reading</span>
+        <span style="margin-left:auto"><b style="color:var(--ink)">E</b> 기대 미적수익 · <b style="color:var(--ink)">R</b> 리스크(실망 확률)</span>
+      </div>
+    </div>
+
+    <!-- RIGHT RAIL -->
+    <div class="span4" style="display:flex;flex-direction:column;gap:12px">
+
+      <div class="pnl">
+        <div class="ph"><h3><i class="ti ti-flag-2"></i> 리니지 완파 보드</h3><span class="meta">완파 임박 3</span></div>
+        <div class="alert"><i class="ti ti-alert-triangle"></i><span><b>브레송 — 1편 남음.</b> 〈L'Argent〉 하나로 G1 거장 완파.</span></div>
+        <div class="crow"><div class="cn"><div class="nm">로베르 브레송 <span class="left">1편 남음</span></div><div class="ctrack"><i style="width:83%"></i></div></div><span class="cfrac">5/6</span></div>
+        <div class="crow"><div class="cn"><div class="nm">다르덴 형제 <span class="left">1편 남음</span></div><div class="ctrack"><i style="width:83%"></i></div></div><span class="cfrac">5/6</span></div>
+        <div class="crow"><div class="cn"><div class="nm">미하엘 하네케</div><div class="ctrack"><i style="width:86%"></i></div></div><span class="cfrac">6/7</span></div>
+        <div class="crow"><div class="cn"><div class="nm">에드워드 양</div><div class="ctrack"><i style="width:29%"></i></div></div><span class="cfrac">2/7</span></div>
+        <div class="crow"><div class="cn"><div class="nm">한국 · 청룡 작품상</div><div class="ctrack"><i style="width:52%"></i></div></div><span class="cfrac">52%</span></div>
+      </div>
+
+      <div class="pnl">
+        <div class="ph"><h3><i class="ti ti-book-2"></i> Reading 성향</h3><span class="meta">strong misreading</span></div>
+        <div class="rdrow"><span class="nm">정신분석</span><div class="rdt"><i style="width:88%"></i></div><span class="mono" style="color:#c6bcf7;font-size:11px">강</span></div>
+        <div class="rdrow"><span class="nm">윤리</span><div class="rdt"><i style="width:74%"></i></div><span class="mono" style="color:#c6bcf7;font-size:11px">강</span></div>
+        <div class="rdrow"><span class="nm">기호학</span><div class="rdt"><i style="width:52%"></i></div><span class="mono" style="color:var(--mut);font-size:11px">중</span></div>
+        <div class="rdrow"><span class="nm blind">존재론</span><div class="rdt"><i style="width:6%;background:var(--red)"></i></div><span class="mono" style="color:#e98a86;font-size:11px">0</span></div>
+        <div class="note" style="margin-top:7px">당신은 <b style="color:var(--ink);font-style:normal">정신분석·윤리</b> 오독에 가장 반응 → 데스크가 이 렌즈 강한 영화를 가산.</div>
+      </div>
+
+      <div class="pnl">
+        <div class="ph"><h3><i class="ti ti-device-tv"></i> 구독 가용 자산</h3><span class="meta">무비용 취득 · 9편</span></div>
+        <div class="svc"><div class="h">Criterion Channel · 5</div>
+          <div class="li"><b>L'Argent</b> · A Brighter Summer Day · Mouchette …</div></div>
+        <div class="svc"><div class="h">MUBI · 3</div>
+          <div class="li"><b>The Wind Will Carry Us</b> · Tropical Malady …</div></div>
+        <div class="svc"><div class="h">Netflix · 1</div>
+          <div class="li"><b>Roma</b></div></div>
+        <div class="note" style="margin-top:2px">지금 보지 않으면 만료될 수 있는 우량작 <b style="color:var(--ink);font-style:normal">2편</b> — 데스크 상단 가산.</div>
+      </div>
+
+    </div>
+
+    <!-- RISK-RETURN FRONTIER -->
+    <div class="pnl span6">
+      <div class="ph"><h3><i class="ti ti-chart-arrows-vertical"></i> 리스크–리턴 프론티어</h3><span class="meta">유한 시간당 미적수익</span></div>
+      <svg viewBox="0 0 440 250" width="100%" role="img" aria-label="추천 종목의 기대 미적수익 대 리스크 분포">
+        <line x1="44" y1="210" x2="425" y2="210" stroke="#2c2c30"/><line x1="44" y1="20" x2="44" y2="210" stroke="#2c2c30"/>
+        <text x="425" y="228" text-anchor="end" font-size="9.5" fill="#6C6960">리스크(실망 확률) →</text>
+        <text x="20" y="20" font-size="9.5" fill="#6C6960" transform="rotate(-90 20 120)">기대 미적수익 →</text>
+        <path d="M60,180 C120,70 250,52 410,40" fill="none" stroke="#1FB286" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <text x="300" y="62" font-size="9" fill="#1FB286">효율적 경계</text>
+        <rect x="48" y="60" width="120" height="120" fill="none" stroke="#1d5145" stroke-dasharray="3 3"/>
+        <text x="54" y="74" font-size="9" fill="#8ee3cc">안전자산 구역</text>
+        <!-- recs -->
+        <circle cx="92" cy="78" r="7" fill="#1FB286"/><text x="92" y="78" dy="-11" text-anchor="middle" font-size="9" fill="#8ee3cc">L'Argent</text>
+        <circle cx="170" cy="70" r="7" fill="#3E8FE0"/><text x="170" y="70" dy="-11" text-anchor="middle" font-size="9" fill="#9cc8f3">A Brighter…</text>
+        <circle cx="150" cy="96" r="6" fill="#1FB286"/><text x="150" y="96" dy="14" text-anchor="middle" font-size="9" fill="#8ee3cc">Wind…</text>
+        <circle cx="300" cy="118" r="7" fill="#3E8FE0"/><text x="300" y="118" dy="-11" text-anchor="middle" font-size="9" fill="#9cc8f3">Touki Bouki</text>
+        <circle cx="250" cy="134" r="6" fill="#9B8CF0"/><text x="250" y="134" dy="16" text-anchor="middle" font-size="9" fill="#c6bcf7">13 Moons</text>
+      </svg>
+      <div class="note">안전자산은 좌상(저위험·고수익) — 즉시 매수. 모험은 우측이되 정전·감독 닻이 하방을 받쳐 <b style="color:var(--ink);font-style:normal">제한된 리스크</b>로 끌어온 종목.</div>
+    </div>
+
+    <!-- P&L / NAV CURVE -->
+    <div class="pnl span6">
+      <div class="ph"><h3><i class="ti ti-chart-line"></i> 자산 곡선 · 적중 &amp; 손실</h3><span class="meta">12개월 · 적중11 / 실망3</span></div>
+      <svg viewBox="0 0 440 250" width="100%" role="img" aria-label="12개월 영화적 자산 NAV 곡선과 실망 구간">
+        <line x1="40" y1="210" x2="425" y2="210" stroke="#2c2c30"/>
+        <polyline points="40,200 75,188 110,192 145,170 180,176 215,150 250,156 285,128 320,134 355,98 390,104 422,64"
+          fill="none" stroke="#1FB286" stroke-width="2"/>
+        <!-- drawdowns -->
+        <circle cx="145" cy="170" r="3.5" fill="#E3120B"/><text x="145" y="166" dy="-6" text-anchor="middle" font-size="8.5" fill="#e98a86">실망 −2</text>
+        <circle cx="215" cy="150" r="3.5" fill="#E3120B"/>
+        <circle cx="320" cy="134" r="3.5" fill="#E3120B"/><text x="320" y="130" dy="-6" text-anchor="middle" font-size="8.5" fill="#e98a86">실망 −1</text>
+        <circle cx="422" cy="64" r="4" fill="#1FB286"/><text x="418" y="58" text-anchor="end" font-size="9" fill="#8ee3cc">NAV 1,284</text>
+        <g font-size="8.5" fill="#6C6960"><text x="40" y="224">7월</text><text x="215" y="224">12월</text><text x="390" y="224">6월</text></g>
+      </svg>
+      <div class="legend"><span><i style="background:var(--safe)"></i>자산 증식(적중)</span><span><i style="background:var(--red)"></i>drawdown(실망)</span>
+        <span style="margin-left:auto">분기 순증 <b class="mono" style="color:var(--safe)">+8</b></span></div>
+    </div>
+
+    <!-- RESEARCH STRIP (compact coverage) -->
+    <div class="pnl span12">
+      <div class="ph"><h3><i class="ti ti-database-search"></i> 리서치 피드 · 계보 커버리지(요약)</h3><span class="meta">완파/블라인드가 데스크 논거로 환산</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;font-size:12px">
+        <div><div style="display:flex;justify-content:space-between"><span class="ser">칸 황금종려</span><span class="mono" style="color:#e98a86">27%</span></div><div class="rdt" style="margin-top:4px"><i style="width:27%;background:#E3120B"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between"><span class="ser">S&amp;S 2022 100</span><span class="mono" style="color:#e0bb6e">41%</span></div><div class="rdt" style="margin-top:4px"><i style="width:41%;background:#C8922B"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between"><span class="ser">KOFA 100 한국</span><span class="mono" style="color:#5fd0b2">52%</span></div><div class="rdt" style="margin-top:4px"><i style="width:52%;background:#1FB286"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between"><span class="ser">금마장 100</span><span class="mono" style="color:#e98a86">8%</span></div><div class="rdt" style="margin-top:4px"><i style="width:8%;background:#E3120B"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between"><span class="ser">라틴 정전</span><span class="mono" style="color:#e98a86">4%</span></div><div class="rdt" style="margin-top:4px"><i style="width:4%;background:#E3120B"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between"><span class="ser">TSPDT 1000</span><span class="mono" style="color:#e98a86">19%</span></div><div class="rdt" style="margin-top:4px"><i style="width:19%;background:#E3120B"></i></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note" style="text-align:center;margin-top:18px">유한 관람 생애 = 자본 · 적중=우량주 저가 매수, 실망=시간 drawdown · 5심리=5전략, 한 영화는 다중 논거를 보유 · 표시 수치는 예시 포트폴리오(wonwoo)</p>
+</div>
+</body>
+</html>

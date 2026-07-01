@@ -1,0 +1,3854 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "count": 124,
+  "source": "movie_locations_FINAL.json",
+  "note": "address-first geocoding, knowledge-based"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     126.9425,
+     37.5128
+    ]
+   },
+   "properties": {
+    "movie": "Parasite",
+    "year": 2019,
+    "real_name": "Sky Pizza",
+    "narrative": "Kim family's pizza job",
+    "scene_role": "Pizzeria whose boxes the father folds",
+    "address": "86 Noryangjin-ro 6-gil, Dongjak-gu",
+    "filming_area": "Seoul",
+    "country": "South Korea",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "cnn.com, creatrip.com, english.visitkorea.or.kr",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "86 Noryangjin-ro 6-gil, Dongjak-gu, Seoul, South Korea",
+    "lat": 37.5128,
+    "lng": 126.9425,
+    "id": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     126.9558,
+     37.5506
+    ]
+   },
+   "properties": {
+    "movie": "Parasite",
+    "year": 2019,
+    "real_name": "Doijissal (Pig Rice) Supermarket",
+    "narrative": "'Woori Supermarket'",
+    "scene_role": "Store where the son hears of the tutoring job",
+    "address": "32 Songijeong-ro, Mapo-gu",
+    "filming_area": "Seoul",
+    "country": "South Korea",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "cnn.com, creatrip.com, klook.com",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "32 Songijeong-ro, Mapo-gu, Seoul, South Korea",
+    "lat": 37.5506,
+    "lng": 126.9558,
+    "id": 1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     126.9555,
+     37.553
+    ]
+   },
+   "properties": {
+    "movie": "Parasite",
+    "year": 2019,
+    "real_name": "Stairs & alleys of Ahyeon-dong / Changsin-dong",
+    "narrative": "Kim family's low-lying district",
+    "scene_role": "Steep stairways marking the family's descent",
+    "address": "",
+    "filming_area": "Seoul",
+    "country": "South Korea",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "cnn.com, english.visitkorea.or.kr, klook.com",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Stairs & alleys of Ahyeon-dong / Changsin-dong, Seoul, South Korea",
+    "lat": 37.553,
+    "lng": 126.9555,
+    "id": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     127.1469,
+     35.8662
+    ]
+   },
+   "properties": {
+    "movie": "Parasite",
+    "year": 2019,
+    "real_name": "Park family mansion",
+    "narrative": "wealthy Seoul home",
+    "scene_role": "Purpose-built set, not a real residence",
+    "address": "near Jeonju Film Studio Complex",
+    "filming_area": "Jeonju",
+    "country": "South Korea",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Jeonju Film Studio Complex (set + CGI)",
+    "sources": "dezeen.com, filmoblivion.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "set",
+    "resolved_query": "near Jeonju Film Studio Complex, Jeonju, South Korea",
+    "lat": 35.8662,
+    "lng": 127.1469,
+    "id": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.3004,
+     34.1184
+    ]
+   },
+   "properties": {
+    "movie": "La La Land",
+    "year": 2016,
+    "real_name": "Griffith Observatory",
+    "narrative": "Los Angeles",
+    "scene_role": "Planetarium 'floating' dance",
+    "address": "2800 E Observatory Rd",
+    "filming_area": "Los Angeles",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, socalpulse.com, thecinemaholic.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "2800 E Observatory Rd, Los Angeles, USA",
+    "lat": 34.1184,
+    "lng": -118.3004,
+    "id": 4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.1637,
+     34.1397
+    ]
+   },
+   "properties": {
+    "movie": "La La Land",
+    "year": 2016,
+    "real_name": "Colorado Street Bridge",
+    "narrative": "Los Angeles",
+    "scene_role": "1913 bridge backdrop",
+    "address": "532 W Colorado Blvd, Pasadena",
+    "filming_area": "Pasadena",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "socalpulse.com, thecinemaholic.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "532 W Colorado Blvd, Pasadena, Pasadena, USA",
+    "lat": 34.1397,
+    "lng": -118.1637,
+    "id": 5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.2495,
+     34.051
+    ]
+   },
+   "properties": {
+    "movie": "La La Land",
+    "year": 2016,
+    "real_name": "Angels Flight Railway",
+    "narrative": "Los Angeles",
+    "scene_role": "Funicular the couple ride",
+    "address": "351 S Hill St",
+    "filming_area": "Downtown Los Angeles",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "livelybylaura.com, socalpulse.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "351 S Hill St, Downtown Los Angeles, USA",
+    "lat": 34.051,
+    "lng": -118.2495,
+    "id": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.4011,
+     33.8615
+    ]
+   },
+   "properties": {
+    "movie": "La La Land",
+    "year": 2016,
+    "real_name": "Lighthouse Cafe",
+    "narrative": "LA jazz club",
+    "scene_role": "Jazz club the pianist plays",
+    "address": "30 Pier Ave, Hermosa Beach",
+    "filming_area": "Hermosa Beach",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "socalpulse.com, thecinemaholic.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "30 Pier Ave, Hermosa Beach, Hermosa Beach, USA",
+    "lat": 33.8615,
+    "lng": -118.4011,
+    "id": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.95,
+     -22.68
+    ]
+   },
+   "properties": {
+    "movie": "Mad Max: Fury Road",
+    "year": 2015,
+    "real_name": "Namib Desert near Swakopmund",
+    "narrative": "the Wasteland",
+    "scene_role": "Primary desert filming base",
+    "address": "",
+    "filming_area": "Swakopmund",
+    "country": "Namibia",
+    "granularity": "region",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, nomadicnotes.com, npr.org",
+    "geocode_basis": "real_place",
+    "precision": "region",
+    "resolved_query": "Namib Desert near Swakopmund, Swakopmund, Namibia",
+    "lat": -22.68,
+    "lng": 14.95,
+    "id": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.5,
+     -22.99
+    ]
+   },
+   "properties": {
+    "movie": "Mad Max: Fury Road",
+    "year": 2015,
+    "real_name": "Salt plains near Walvis Bay",
+    "narrative": "the Wasteland",
+    "scene_role": "Where the War Rig breaks down",
+    "address": "",
+    "filming_area": "Walvis Bay",
+    "country": "Namibia",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "nomadicnotes.com, orbitzfeatures.waveinteractive.com",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Salt plains near Walvis Bay, Walvis Bay, Namibia",
+    "lat": -22.99,
+    "lng": 14.5,
+    "id": 9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.55,
+     -22.55
+    ]
+   },
+   "properties": {
+    "movie": "Mad Max: Fury Road",
+    "year": 2015,
+    "real_name": "Dorob National Park",
+    "narrative": "the Wasteland",
+    "scene_role": "Relocated main filming area",
+    "address": "",
+    "filming_area": "Erongo Region",
+    "country": "Namibia",
+    "granularity": "region",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "nomadicnotes.com, npr.org",
+    "geocode_basis": "real_place",
+    "precision": "region",
+    "resolved_query": "Dorob National Park, Erongo Region, Namibia",
+    "lat": -22.55,
+    "lng": 14.55,
+    "id": 10
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.9036,
+     56.6431
+    ]
+   },
+   "properties": {
+    "movie": "Skyfall",
+    "year": 2012,
+    "real_name": "Glencoe (A82, Buachaille Etive Mor)",
+    "narrative": "Scottish Highlands",
+    "scene_role": "Bond and M drive into the Highlands",
+    "address": "A82, Glencoe",
+    "filming_area": "Glencoe",
+    "country": "Scotland, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, huntingbond.com, thejamesbonddossier.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "A82, Glencoe, Glencoe, Scotland, UK",
+    "lat": 56.6431,
+    "lng": -4.9036,
+    "id": 11
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.683,
+     51.168
+    ]
+   },
+   "properties": {
+    "movie": "Skyfall",
+    "year": 2012,
+    "real_name": "Skyfall Lodge",
+    "narrative": "Bond's Scottish ancestral home",
+    "scene_role": "A built set, not a real Scottish house",
+    "address": "Hankley Common, Elstead",
+    "filming_area": "Surrey",
+    "country": "England, UK",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Hankley Common, Surrey (plywood/plaster set, blown up)",
+    "sources": "007.info, getsurrey.co.uk, visitsurrey.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Hankley Common, Elstead, Surrey, England, UK",
+    "lat": 51.168,
+    "lng": -0.683,
+    "id": 12
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.968,
+     41.0108
+    ]
+   },
+   "properties": {
+    "movie": "Skyfall",
+    "year": 2012,
+    "real_name": "Grand Bazaar & Eminonu Square",
+    "narrative": "Istanbul",
+    "scene_role": "Opening rooftop & market chase",
+    "address": "Eminonu, Fatih",
+    "filming_area": "Istanbul",
+    "country": "Turkey",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "huntingbond.com, imdb.com, media.hopper.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Eminonu, Fatih, Istanbul, Turkey",
+    "lat": 41.0108,
+    "lng": 28.968,
+    "id": 13
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.113,
+     51.501
+    ]
+   },
+   "properties": {
+    "movie": "Skyfall",
+    "year": 2012,
+    "real_name": "Old Vic Tunnels (Waterloo)",
+    "narrative": "MI6 underground",
+    "scene_role": "Disused railway vaults as MI6 tunnels",
+    "address": "beneath Waterloo Station",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, tokyofox.net",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "beneath Waterloo Station, London, England, UK",
+    "lat": 51.501,
+    "lng": -0.113,
+    "id": 14
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.2879,
+     48.8556
+    ]
+   },
+   "properties": {
+    "movie": "Inception",
+    "year": 2010,
+    "real_name": "Pont de Bir-Hakeim",
+    "narrative": "Paris dream",
+    "scene_role": "Bridge where Cobb teaches Ariadne",
+    "address": "",
+    "filming_area": "Paris",
+    "country": "France",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, nolanlocations.com, screenrant.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Pont de Bir-Hakeim, Paris, France",
+    "lat": 48.8556,
+    "lng": 2.2879,
+    "id": 15
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.2,
+     50.83
+    ]
+   },
+   "properties": {
+    "movie": "Inception",
+    "year": 2010,
+    "real_name": "Fortress Mountain ski resort",
+    "narrative": "snow-fortress level",
+    "scene_role": "Mountain fortress assault",
+    "address": "Kananaskis",
+    "filming_area": "Alberta",
+    "country": "Canada",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "nolanlocations.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Kananaskis, Alberta, Canada",
+    "lat": 50.83,
+    "lng": -115.2,
+    "id": 16
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.4189,
+     52.1043
+    ]
+   },
+   "properties": {
+    "movie": "Inception",
+    "year": 2010,
+    "real_name": "Cardington hangars",
+    "narrative": "rotating-corridor & hotel sets",
+    "scene_role": "Rotating corridor / hotel built as sets",
+    "address": "Cardington",
+    "filming_area": "Bedfordshire",
+    "country": "England, UK",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Cardington Studios, Bedfordshire",
+    "sources": "jerrygarrett.wordpress.com, nolanlocations.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Cardington, Bedfordshire, England, UK",
+    "lat": 52.1043,
+    "lng": -0.4189,
+    "id": 17
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.249,
+     34.0588
+    ]
+   },
+   "properties": {
+    "movie": "Inception",
+    "year": 2010,
+    "real_name": "John Ferraro Building (LADWP)",
+    "narrative": "Los Angeles",
+    "scene_role": "City department-of-water-and-power exterior",
+    "address": "111 N Hope St",
+    "filming_area": "Los Angeles",
+    "country": "USA",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, seeing-stars.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "111 N Hope St, Los Angeles, USA",
+    "lat": 34.0588,
+    "lng": -118.249,
+    "id": 18
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.639,
+     41.8744
+    ]
+   },
+   "properties": {
+    "movie": "The Dark Knight",
+    "year": 2008,
+    "real_name": "Chicago Main Post Office",
+    "narrative": "Gotham National Bank",
+    "scene_role": "Opening bank robbery",
+    "address": "404 W Harrison St",
+    "filming_area": "Chicago",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, imdb.com, legendarytrips.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "404 W Harrison St, Chicago, USA",
+    "lat": 41.8744,
+    "lng": -87.639,
+    "id": 19
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.63,
+     41.884
+    ]
+   },
+   "properties": {
+    "movie": "The Dark Knight",
+    "year": 2008,
+    "real_name": "Richard J Daley Center",
+    "narrative": "Wayne Enterprises HQ",
+    "scene_role": "Wayne Enterprises tower",
+    "address": "Washington St",
+    "filming_area": "Chicago",
+    "country": "USA",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, legendarytrips.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Washington St, Chicago, USA",
+    "lat": 41.884,
+    "lng": -87.63,
+    "id": 20
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.627,
+     41.8888
+    ]
+   },
+   "properties": {
+    "movie": "The Dark Knight",
+    "year": 2008,
+    "real_name": "IBM Building (AMA Plaza)",
+    "narrative": "Wayne Enterprises offices",
+    "scene_role": "Dent/Commissioner/boardroom interiors",
+    "address": "330 N Wabash Ave",
+    "filming_area": "Chicago",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, legendarytrips.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "330 N Wabash Ave, Chicago, USA",
+    "lat": 41.8888,
+    "lng": -87.627,
+    "id": 21
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.6359,
+     41.8789
+    ]
+   },
+   "properties": {
+    "movie": "The Dark Knight",
+    "year": 2008,
+    "real_name": "Willis (Sears) Tower",
+    "narrative": "Gotham skyline",
+    "scene_role": "Batman overlooks the city",
+    "address": "233 S Wacker Dr",
+    "filming_area": "Chicago",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, legendarytrips.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "233 S Wacker Dr, Chicago, USA",
+    "lat": 41.8789,
+    "lng": -87.6359,
+    "id": 22
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.854,
+     19.042
+    ]
+   },
+   "properties": {
+    "movie": "Slumdog Millionaire",
+    "year": 2008,
+    "real_name": "Dharavi",
+    "narrative": "Mumbai slums",
+    "scene_role": "Jamal's childhood neighbourhood",
+    "address": "",
+    "filming_area": "Mumbai",
+    "country": "India",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, qantas.com, sceneloc8.com",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Dharavi, Mumbai, India",
+    "lat": 19.042,
+    "lng": 72.854,
+    "id": 23
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8355,
+     18.9398
+    ]
+   },
+   "properties": {
+    "movie": "Slumdog Millionaire",
+    "year": 2008,
+    "real_name": "Chhatrapati Shivaji Terminus (CST)",
+    "narrative": "Mumbai station",
+    "scene_role": "Abduction scene & 'Jai Ho' finale",
+    "address": "",
+    "filming_area": "Mumbai",
+    "country": "India",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, jayatravel.com, qantas.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Chhatrapati Shivaji Terminus (CST), Mumbai, India",
+    "lat": 18.9398,
+    "lng": 72.8355,
+    "id": 24
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     78.0421,
+     27.1751
+    ]
+   },
+   "properties": {
+    "movie": "Slumdog Millionaire",
+    "year": 2008,
+    "real_name": "Taj Mahal",
+    "narrative": "Agra (hustling flashback)",
+    "scene_role": "Boys hustle tourists",
+    "address": "",
+    "filming_area": "Agra",
+    "country": "India",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "itv.com, jayatravel.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Taj Mahal, Agra, India",
+    "lat": 27.1751,
+    "lng": 78.0421,
+    "id": 25
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     175.6837,
+     -37.8721
+    ]
+   },
+   "properties": {
+    "movie": "The Lord of the Rings: Fellowship",
+    "year": 2001,
+    "real_name": "Hobbiton movie set, Alexander Farm",
+    "narrative": "the Shire",
+    "scene_role": "The Shire village built on a sheep farm",
+    "address": "",
+    "filming_area": "Matamata",
+    "country": "New Zealand",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Built set on Alexander Farm, Matamata (now tourable)",
+    "sources": "findingtheuniverse.com, firstlighttravel.com, newzealand.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Hobbiton movie set, Alexander Farm, Matamata, New Zealand",
+    "lat": -37.8721,
+    "lng": 175.6837,
+    "id": 26
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     175.632,
+     -39.1564
+    ]
+   },
+   "properties": {
+    "movie": "The Lord of the Rings: Fellowship",
+    "year": 2001,
+    "real_name": "Mount Ngauruhoe, Tongariro NP",
+    "narrative": "Mount Doom",
+    "scene_role": "Stand-in for Mount Doom",
+    "address": "",
+    "filming_area": "Tongariro National Park",
+    "country": "New Zealand",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "firstlighttravel.com, newzealand.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Mount Ngauruhoe, Tongariro NP, Tongariro National Park, New Zealand",
+    "lat": -39.1564,
+    "lng": 175.632,
+    "id": 27
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     175.18,
+     -41.05
+    ]
+   },
+   "properties": {
+    "movie": "The Lord of the Rings: Fellowship",
+    "year": 2001,
+    "real_name": "Kaitoke Regional Park",
+    "narrative": "Rivendell",
+    "scene_role": "Elvish realm where the Fellowship forms",
+    "address": "near Upper Hutt",
+    "filming_area": "Wellington region",
+    "country": "New Zealand",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "firstlighttravel.com, newzealand.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "near Upper Hutt, Wellington region, New Zealand",
+    "lat": -41.05,
+    "lng": 175.18,
+    "id": 28
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     170.97,
+     -43.63
+    ]
+   },
+   "properties": {
+    "movie": "The Lord of the Rings: Fellowship",
+    "year": 2001,
+    "real_name": "Mount Sunday",
+    "narrative": "Edoras",
+    "scene_role": "Hilltop city of Rohan",
+    "address": "Canterbury",
+    "filming_area": "South Island",
+    "country": "New Zealand",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "firstlighttravel.com, newzealand.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Canterbury, South Island, New Zealand",
+    "lat": -43.63,
+    "lng": 170.97,
+    "id": 29
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.4186,
+     51.6906
+    ]
+   },
+   "properties": {
+    "movie": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "real_name": "Leavesden Studios",
+    "narrative": "Hogwarts Great Hall & interiors",
+    "scene_role": "Great Hall and many interior sets built here",
+    "address": "",
+    "filming_area": "Leavesden",
+    "country": "England, UK",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Warner Bros Studios Leavesden (sets)",
+    "sources": "en.wikipedia.org, ricksteves.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Leavesden Studios, Leavesden, England, UK",
+    "lat": 51.6906,
+    "lng": -0.4186,
+    "id": 30
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.706,
+     55.4156
+    ]
+   },
+   "properties": {
+    "movie": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "real_name": "Alnwick Castle",
+    "narrative": "Hogwarts exterior",
+    "scene_role": "Flying-lesson courtyard / castle exterior",
+    "address": "Alnwick, Northumberland",
+    "filming_area": "Northumberland",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, findingtheuniverse.com, scottishtours.co.uk",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Alnwick, Northumberland, Northumberland, England, UK",
+    "lat": 55.4156,
+    "lng": -1.706,
+    "id": 31
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -2.2466,
+     51.8674
+    ]
+   },
+   "properties": {
+    "movie": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "real_name": "Gloucester Cathedral",
+    "narrative": "Hogwarts corridors",
+    "scene_role": "Cloister corridors",
+    "address": "",
+    "filming_area": "Gloucester",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, ricksteves.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Gloucester Cathedral, Gloucester, England, UK",
+    "lat": 51.8674,
+    "lng": -2.2466,
+    "id": 32
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.0836,
+     51.5128
+    ]
+   },
+   "properties": {
+    "movie": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "real_name": "Leadenhall Market",
+    "narrative": "Diagon Alley / Leaky Cauldron entrance",
+    "scene_role": "Entrance to the wizard pub",
+    "address": "42 Bull's Head Passage",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, findingtheuniverse.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "42 Bull's Head Passage, London, England, UK",
+    "lat": 51.5128,
+    "lng": -0.0836,
+    "id": 33
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.708,
+     51.408
+    ]
+   },
+   "properties": {
+    "movie": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "real_name": "12 Picket Post Close",
+    "narrative": "4 Privet Drive",
+    "scene_role": "The Dursleys' house",
+    "address": "Martins Heron, Bracknell, Berkshire",
+    "filming_area": "Berkshire",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, latlong.net",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "Martins Heron, Bracknell, Berkshire, Berkshire, England, UK",
+    "lat": 51.408,
+    "lng": -0.708,
+    "id": 34
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     98.766,
+     7.678
+    ]
+   },
+   "properties": {
+    "movie": "The Beach",
+    "year": 2000,
+    "real_name": "Maya Bay, Ko Phi Phi Leh",
+    "narrative": "the secret island lagoon",
+    "scene_role": "The hidden beach community",
+    "address": "Ko Phi Phi Leh",
+    "filming_area": "Krabi",
+    "country": "Thailand",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, giggster.com, timeout.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Ko Phi Phi Leh, Krabi, Thailand",
+    "lat": 7.678,
+    "lng": 98.766,
+    "id": 35
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     101.387,
+     14.438
+    ]
+   },
+   "properties": {
+    "movie": "The Beach",
+    "year": 2000,
+    "real_name": "Haew Suwat Waterfall, Khao Yai NP",
+    "narrative": "jungle waterfall",
+    "scene_role": "Waterfall the characters leap from",
+    "address": "Khao Yai National Park",
+    "filming_area": "Nakhon Ratchasima",
+    "country": "Thailand",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, backpackbob.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Khao Yai National Park, Nakhon Ratchasima, Thailand",
+    "lat": 14.438,
+    "lng": 101.387,
+    "id": 36
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.6905,
+     35.6855
+    ]
+   },
+   "properties": {
+    "movie": "Lost in Translation",
+    "year": 2003,
+    "real_name": "Park Hyatt Tokyo",
+    "narrative": "the hotel",
+    "scene_role": "Bar/room/pool where the leads meet",
+    "address": "3-7-1-2 Nishi-Shinjuku",
+    "filming_area": "Tokyo",
+    "country": "Japan",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "filmoblivion.com, focusfeatures.com, imdb.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "3-7-1-2 Nishi-Shinjuku, Tokyo, Japan",
+    "lat": 35.6855,
+    "lng": 139.6905,
+    "id": 37
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7004,
+     35.6595
+    ]
+   },
+   "properties": {
+    "movie": "Lost in Translation",
+    "year": 2003,
+    "real_name": "Shibuya Crossing",
+    "narrative": "Tokyo streets",
+    "scene_role": "The famous scramble crossing",
+    "address": "Shibuya",
+    "filming_area": "Tokyo",
+    "country": "Japan",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "focusfeatures.com, tokyofox.net",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Shibuya, Tokyo, Japan",
+    "lat": 35.6595,
+    "lng": 139.7004,
+    "id": 38
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.698,
+     35.661
+    ]
+   },
+   "properties": {
+    "movie": "Lost in Translation",
+    "year": 2003,
+    "real_name": "Karaoke Kan, Shibuya",
+    "narrative": "karaoke night",
+    "scene_role": "Private karaoke rooms 601/602",
+    "address": "Shibuya",
+    "filming_area": "Tokyo",
+    "country": "Japan",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "filmoblivion.com, tokyofox.net",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Shibuya, Tokyo, Japan",
+    "lat": 35.661,
+    "lng": 139.698,
+    "id": 39
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.334,
+     48.8842
+    ]
+   },
+   "properties": {
+    "movie": "Amelie",
+    "year": 2001,
+    "real_name": "Cafe des Deux Moulins",
+    "narrative": "Amelie's workplace",
+    "scene_role": "Art-deco cafe where Amelie waitresses",
+    "address": "15 rue Lepic",
+    "filming_area": "Paris (Montmartre)",
+    "country": "France",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "completefrance.com, coolstuffinparis.com, theculturetrip.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "15 rue Lepic, Paris (Montmartre), France",
+    "lat": 48.8842,
+    "lng": 2.334,
+    "id": 40
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3431,
+     48.8867
+    ]
+   },
+   "properties": {
+    "movie": "Amelie",
+    "year": 2001,
+    "real_name": "Sacre-Coeur steps",
+    "narrative": "Montmartre",
+    "scene_role": "Treasure-hunt blue-arrow steps",
+    "address": "Montmartre",
+    "filming_area": "Paris",
+    "country": "France",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "theculturetrip.com, worldofwanderlust.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Montmartre, Paris, France",
+    "lat": 48.8867,
+    "lng": 2.3431,
+    "id": 41
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.365,
+     48.871
+    ]
+   },
+   "properties": {
+    "movie": "Amelie",
+    "year": 2001,
+    "real_name": "Canal Saint-Martin",
+    "narrative": "Paris canal",
+    "scene_role": "Where Amelie skips stones",
+    "address": "10th arrondissement",
+    "filming_area": "Paris",
+    "country": "France",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, theculturetrip.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "10th arrondissement, Paris, France",
+    "lat": 48.871,
+    "lng": 2.365,
+    "id": 42
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.359,
+     48.8767
+    ]
+   },
+   "properties": {
+    "movie": "Amelie",
+    "year": 2001,
+    "real_name": "Gare de l'Est",
+    "narrative": "train station",
+    "scene_role": "Photo-booth scene",
+    "address": "Gare de l'Est",
+    "filming_area": "Paris",
+    "country": "France",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, coolstuffinparis.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Gare de l'Est, Paris, France",
+    "lat": 48.8767,
+    "lng": 2.359,
+    "id": 43
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.9886,
+     51.1519
+    ]
+   },
+   "properties": {
+    "movie": "The Grand Budapest Hotel",
+    "year": 2014,
+    "real_name": "Goerlitzer Warenhaus",
+    "narrative": "the hotel lobby",
+    "scene_role": "1913 department store; lobby sets built inside",
+    "address": "Demianplatz",
+    "filming_area": "Goerlitz",
+    "country": "Germany",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "atlasofwonders.com, cnn.com, locationshub.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Demianplatz, Goerlitz, Germany",
+    "lat": 51.1519,
+    "lng": 14.9886,
+    "id": 44
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.7626,
+     51.0686
+    ]
+   },
+   "properties": {
+    "movie": "The Grand Budapest Hotel",
+    "year": 2014,
+    "real_name": "Molkerei Pfund, Dresden",
+    "narrative": "Mendl's patisserie interior",
+    "scene_role": "19th-c creamery as the cake-shop interior",
+    "address": "Dresden",
+    "filming_area": "Saxony",
+    "country": "Germany",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "johnthego.com, locationshub.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Dresden, Saxony, Germany",
+    "lat": 51.0686,
+    "lng": 13.7626,
+    "id": 45
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.97,
+     51.162
+    ]
+   },
+   "properties": {
+    "movie": "The Grand Budapest Hotel",
+    "year": 2014,
+    "real_name": "Freisebad bathhouse",
+    "narrative": "the hotel baths",
+    "scene_role": "1887 bathhouse used as the spa",
+    "address": "Goerlitz",
+    "filming_area": "Saxony",
+    "country": "Germany",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "johnthego.com, locationshub.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Goerlitz, Saxony, Germany",
+    "lat": 51.162,
+    "lng": 14.97,
+    "id": 46
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.201,
+     51.517
+    ]
+   },
+   "properties": {
+    "movie": "Notting Hill",
+    "year": 1999,
+    "real_name": "280 Westbourne Park Road",
+    "narrative": "the Blue Door flat",
+    "scene_role": "William's front door (interior was a studio set)",
+    "address": "280 Westbourne Park Rd",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "britmovietours.com, qantas.com, thetrainline.com",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "280 Westbourne Park Rd, London, England, UK",
+    "lat": 51.517,
+    "lng": -0.201,
+    "id": 47
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.205,
+     51.5165
+    ]
+   },
+   "properties": {
+    "movie": "Notting Hill",
+    "year": 1999,
+    "real_name": "142 Portobello Road",
+    "narrative": "the travel bookshop",
+    "scene_role": "William's bookshop storefront",
+    "address": "142 Portobello Rd",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "britmovietours.com, thetrainline.com",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "142 Portobello Rd, London, England, UK",
+    "lat": 51.5165,
+    "lng": -0.205,
+    "id": 48
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.1968,
+     51.5093
+    ]
+   },
+   "properties": {
+    "movie": "Notting Hill",
+    "year": 1999,
+    "real_name": "The Coronet",
+    "narrative": "Notting Hill cinema",
+    "scene_role": "Cinema where William watches Anna's film",
+    "address": "Notting Hill Gate",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "thetrainline.com, underlondonlights.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Notting Hill Gate, London, England, UK",
+    "lat": 51.5093,
+    "lng": -0.1968,
+    "id": 49
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.1206,
+     51.5101
+    ]
+   },
+   "properties": {
+    "movie": "Notting Hill",
+    "year": 1999,
+    "real_name": "The Savoy Hotel",
+    "narrative": "press-conference hotel",
+    "scene_role": "Anna's press conference",
+    "address": "Strand",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "britmovietours.com, countryandtownhouse.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Strand, London, England, UK",
+    "lat": 51.5101,
+    "lng": -0.1206,
+    "id": 50
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -5.03,
+     56.77
+    ]
+   },
+   "properties": {
+    "movie": "Braveheart",
+    "year": 1995,
+    "real_name": "Glen Nevis",
+    "narrative": "Highland village",
+    "scene_role": "'Lanark' village built in the glen",
+    "address": "near Fort William",
+    "filming_area": "Highland",
+    "country": "Scotland, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, imdb.com, thetrainline.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "near Fort William, Highland, Scotland, UK",
+    "lat": 56.77,
+    "lng": -5.03,
+    "id": 51
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -5.1,
+     56.68
+    ]
+   },
+   "properties": {
+    "movie": "Braveheart",
+    "year": 1995,
+    "real_name": "Glen Coe",
+    "narrative": "Highland landscape",
+    "scene_role": "Sweeping Highland scenery",
+    "address": "Glencoe",
+    "filming_area": "Highland",
+    "country": "Scotland, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, thetrainline.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Glencoe, Highland, Scotland, UK",
+    "lat": 56.68,
+    "lng": -5.1,
+    "id": 52
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -6.79,
+     53.555
+    ]
+   },
+   "properties": {
+    "movie": "Braveheart",
+    "year": 1995,
+    "real_name": "Trim Castle",
+    "narrative": "'York'",
+    "scene_role": "English-held town of York",
+    "address": "Trim, Co Meath",
+    "filming_area": "Leinster",
+    "country": "Ireland",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, giggster.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Trim, Co Meath, Leinster, Ireland",
+    "lat": 53.555,
+    "lng": -6.79,
+    "id": 53
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -6.82,
+     53.16
+    ]
+   },
+   "properties": {
+    "movie": "Braveheart",
+    "year": 1995,
+    "real_name": "Curragh Plains",
+    "narrative": "Battle of Stirling Bridge",
+    "scene_role": "Major battle field",
+    "address": "Co Kildare",
+    "filming_area": "Leinster",
+    "country": "Ireland",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, outono.net",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Co Kildare, Leinster, Ireland",
+    "lat": 53.16,
+    "lng": -6.82,
+    "id": 54
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -6.11,
+     53.201
+    ]
+   },
+   "properties": {
+    "movie": "Braveheart",
+    "year": 1995,
+    "real_name": "Ardmore Studios",
+    "narrative": "interiors",
+    "scene_role": "Interior sets",
+    "address": "Bray, Co Wicklow",
+    "filming_area": "Leinster",
+    "country": "Ireland",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Ardmore Studios, Bray, Ireland",
+    "sources": "giggster.com, imdb.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Bray, Co Wicklow, Leinster, Ireland",
+    "lat": 53.201,
+    "lng": -6.11,
+    "id": 55
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -84.555,
+     33.486
+    ]
+   },
+   "properties": {
+    "movie": "Black Panther",
+    "year": 2018,
+    "real_name": "Pinewood Atlanta Studios",
+    "narrative": "Wakanda",
+    "scene_role": "Wakanda built on soundstages",
+    "address": "",
+    "filming_area": "Atlanta, GA",
+    "country": "USA",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Pinewood Atlanta Studios (sets + green screen)",
+    "sources": "en.wikipedia.org, filmoblivion.com, giggster.com",
+    "geocode_basis": "real_place",
+    "precision": "set",
+    "resolved_query": "Pinewood Atlanta Studios, Atlanta, GA, USA",
+    "lat": 33.486,
+    "lng": -84.555,
+    "id": 56
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     129.118,
+     35.153
+    ]
+   },
+   "properties": {
+    "movie": "Black Panther",
+    "year": 2018,
+    "real_name": "Gwangan Bridge & Gwangalli Beach",
+    "narrative": "Busan car chase",
+    "scene_role": "150-car chase sequence",
+    "address": "Busan",
+    "filming_area": "Busan",
+    "country": "South Korea",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "atlasofwonders.com, en.wikipedia.org, giggster.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Busan, Busan, South Korea",
+    "lat": 35.153,
+    "lng": 129.118,
+    "id": 57
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -84.3856,
+     33.79
+    ]
+   },
+   "properties": {
+    "movie": "Black Panther",
+    "year": 2018,
+    "real_name": "High Museum of Art",
+    "narrative": "'Museum of Great Britain'",
+    "scene_role": "Museum heist scene",
+    "address": "1280 Peachtree St NE, Atlanta",
+    "filming_area": "Atlanta, GA",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, travelnoire.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "1280 Peachtree St NE, Atlanta, Atlanta, GA, USA",
+    "lat": 33.79,
+    "lng": -84.3856,
+    "id": 58
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -84.372,
+     33.755
+    ]
+   },
+   "properties": {
+    "movie": "Black Panther",
+    "year": 2018,
+    "real_name": "Sweet Auburn district",
+    "narrative": "'Oakland'",
+    "scene_role": "Doubles for Oakland flashbacks",
+    "address": "Atlanta, GA",
+    "filming_area": "USA",
+    "country": "USA",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "filmoblivion.com, giggster.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Atlanta, GA, USA, USA",
+    "lat": 33.755,
+    "lng": -84.372,
+    "id": 59
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.756,
+     59.445
+    ]
+   },
+   "properties": {
+    "movie": "Tenet",
+    "year": 2020,
+    "real_name": "Linnahall",
+    "narrative": "'Kyiv Opera House'",
+    "scene_role": "Opening opera-house siege",
+    "address": "Kalasadama 4",
+    "filming_area": "Tallinn",
+    "country": "Estonia",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, mensjournal.com, theartsshelf.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Kalasadama 4, Tallinn, Estonia",
+    "lat": 59.445,
+    "lng": 24.756,
+    "id": 60
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.83,
+     59.438
+    ]
+   },
+   "properties": {
+    "movie": "Tenet",
+    "year": 2020,
+    "real_name": "Laagna Road",
+    "narrative": "Tallinn highway",
+    "scene_role": "Inverted car chase",
+    "address": "Laagna tee",
+    "filming_area": "Tallinn",
+    "country": "Estonia",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "mensjournal.com, theculturetrip.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Laagna tee, Tallinn, Estonia",
+    "lat": 59.438,
+    "lng": 24.83,
+    "id": 61
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     14.612,
+     40.647
+    ]
+   },
+   "properties": {
+    "movie": "Tenet",
+    "year": 2020,
+    "real_name": "Villa Cimbrone, Ravello",
+    "narrative": "Amalfi meeting",
+    "scene_role": "Protagonist meets Kat",
+    "address": "Ravello",
+    "filming_area": "Amalfi Coast",
+    "country": "Italy",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "atlasofwonders.com, mensjournal.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Ravello, Amalfi Coast, Italy",
+    "lat": 40.647,
+    "lng": 14.612,
+    "id": 62
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     72.8347,
+     18.922
+    ]
+   },
+   "properties": {
+    "movie": "Tenet",
+    "year": 2020,
+    "real_name": "Gateway of India & Taj Mahal Palace Hotel",
+    "narrative": "Mumbai",
+    "scene_role": "Mumbai infiltration sequence",
+    "address": "Colaba",
+    "filming_area": "Mumbai",
+    "country": "India",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, thecinemaholic.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Colaba, Mumbai, India",
+    "lat": 18.922,
+    "lng": 72.8347,
+    "id": 63
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.6043,
+     40.6664
+    ]
+   },
+   "properties": {
+    "movie": "No Time to Die",
+    "year": 2021,
+    "real_name": "Matera",
+    "narrative": "old Italian town",
+    "scene_role": "Opening car chase & hideaway",
+    "address": "Matera, Basilicata",
+    "filming_area": "Matera",
+    "country": "Italy",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "huntingbond.com, onthetracksof007.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Matera, Basilicata, Matera, Italy",
+    "lat": 40.6664,
+    "lng": 16.6043,
+    "id": 64
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.415,
+     40.815
+    ]
+   },
+   "properties": {
+    "movie": "No Time to Die",
+    "year": 2021,
+    "real_name": "Gravina aqueduct bridge",
+    "narrative": "Italian gorge",
+    "scene_role": "Bridge crossing",
+    "address": "Gravina in Puglia",
+    "filming_area": "Puglia",
+    "country": "Italy",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "onthetracksof007.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Gravina in Puglia, Puglia, Italy",
+    "lat": 40.815,
+    "lng": 16.415,
+    "id": 65
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.3105,
+     63.0128
+    ]
+   },
+   "properties": {
+    "movie": "No Time to Die",
+    "year": 2021,
+    "real_name": "Atlantic Ocean Road",
+    "narrative": "Norway coast",
+    "scene_role": "Bond pursues Madeleine",
+    "address": "More og Romsdal",
+    "filming_area": "Norway",
+    "country": "Norway",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "huntingbond.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "More og Romsdal, Norway, Norway",
+    "lat": 63.0128,
+    "lng": 7.3105,
+    "id": 66
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -6.72,
+     62.3
+    ]
+   },
+   "properties": {
+    "movie": "No Time to Die",
+    "year": 2021,
+    "real_name": "Kalsoy",
+    "narrative": "Safin's island",
+    "scene_role": "Villain's island (facility added in CGI)",
+    "address": "Kalsoy, Faroe Islands",
+    "filming_area": "Faroe Islands",
+    "country": "Denmark",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "huntingbond.com, wonderfulwanderings.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Kalsoy, Faroe Islands, Faroe Islands, Denmark",
+    "lat": 62.3,
+    "lng": -6.72,
+    "id": 67
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.41,
+     18.17
+    ]
+   },
+   "properties": {
+    "movie": "No Time to Die",
+    "year": 2021,
+    "real_name": "San San Beach, Port Antonio",
+    "narrative": "Bond's Jamaica home",
+    "scene_role": "Bond's retirement beach house (built then removed)",
+    "address": "Port Antonio",
+    "filming_area": "Portland",
+    "country": "Jamaica",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "huntingbond.com, mensjournal.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Port Antonio, Portland, Jamaica",
+    "lat": 18.17,
+    "lng": -76.41,
+    "id": 68
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.39,
+     51.048
+    ]
+   },
+   "properties": {
+    "movie": "Dunkirk",
+    "year": 2017,
+    "real_name": "Plage de Malo-les-Bains",
+    "narrative": "Dunkirk beach",
+    "scene_role": "Beach evacuation scenes on the real site",
+    "address": "Digue de Mer, Dunkerque",
+    "filming_area": "Dunkerque",
+    "country": "France",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "completefrance.com, en.wikipedia.org, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Digue de Mer, Dunkerque, Dunkerque, France",
+    "lat": 51.048,
+    "lng": 2.39,
+    "id": 69
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.37,
+     51.05
+    ]
+   },
+   "properties": {
+    "movie": "Dunkirk",
+    "year": 2017,
+    "real_name": "Replica East Mole (jetty)",
+    "narrative": "the evacuation mole",
+    "scene_role": "Reconstructed jetty for the evacuation",
+    "address": "Malo-les-Bains",
+    "filming_area": "Dunkerque",
+    "country": "France",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Replica built on the real Malo-les-Bains site",
+    "sources": "almostginger.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "set",
+    "resolved_query": "Malo-les-Bains, Dunkerque, France",
+    "lat": 51.05,
+    "lng": 2.37,
+    "id": 70
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.8,
+     51.2
+    ]
+   },
+   "properties": {
+    "movie": "1917",
+    "year": 2019,
+    "real_name": "Salisbury Plain",
+    "narrative": "'Northern France'",
+    "scene_role": "Trenches dug for the no-man's-land battle",
+    "address": "Wiltshire",
+    "filming_area": "Wiltshire",
+    "country": "England, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, imdb.com, visitwiltshire.co.uk",
+    "geocode_basis": "address",
+    "precision": "region",
+    "resolved_query": "Wiltshire, Wiltshire, England, UK",
+    "lat": 51.2,
+    "lng": -1.8,
+    "id": 71
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.09,
+     51.62
+    ]
+   },
+   "properties": {
+    "movie": "1917",
+    "year": 2019,
+    "real_name": "Ambrose Quarry",
+    "narrative": "ruined-town/quarry",
+    "scene_role": "Disused quarry sequence",
+    "address": "near Ewelme, Oxfordshire",
+    "filming_area": "Oxfordshire",
+    "country": "England, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "movie-locations.com, thecinemaholic.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "near Ewelme, Oxfordshire, Oxfordshire, England, UK",
+    "lat": 51.62,
+    "lng": -1.09,
+    "id": 72
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.221,
+     50.534
+    ]
+   },
+   "properties": {
+    "movie": "Interstellar",
+    "year": 2014,
+    "real_name": "Ranch near Longview",
+    "narrative": "Cooper's farm",
+    "scene_role": "Farmhouse built; 500 acres of corn planted",
+    "address": "near Longview",
+    "filming_area": "Alberta",
+    "country": "Canada",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, screenrant.com, setjetters.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "near Longview, Alberta, Canada",
+    "lat": 50.534,
+    "lng": -114.221,
+    "id": 73
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -16.88,
+     64.0
+    ]
+   },
+   "properties": {
+    "movie": "Interstellar",
+    "year": 2014,
+    "real_name": "Svinafellsjokull glacier",
+    "narrative": "the ice planet",
+    "scene_role": "Mann's frozen planet",
+    "address": "near Skaftafell",
+    "filming_area": "South Iceland",
+    "country": "Iceland",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "legendarytrips.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "near Skaftafell, South Iceland, Iceland",
+    "lat": 64.0,
+    "lng": -16.88,
+    "id": 74
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -18.2,
+     63.68
+    ]
+   },
+   "properties": {
+    "movie": "Interstellar",
+    "year": 2014,
+    "real_name": "Eldhraun lava field (Orrustuholl)",
+    "narrative": "the water planet",
+    "scene_role": "Miller's planet surface",
+    "address": "Eldhraun",
+    "filming_area": "South Iceland",
+    "country": "Iceland",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "legendarytrips.com, screenrant.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Eldhraun, South Iceland, Iceland",
+    "lat": 63.68,
+    "lng": -18.2,
+    "id": 75
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.257,
+     34.052
+    ]
+   },
+   "properties": {
+    "movie": "Interstellar",
+    "year": 2014,
+    "real_name": "Westin Bonaventure Hotel",
+    "narrative": "NASA facility",
+    "scene_role": "Secret NASA base interior",
+    "address": "404 S Figueroa St",
+    "filming_area": "Los Angeles",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "screenrant.com, setjetters.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "404 S Figueroa St, Los Angeles, USA",
+    "lat": 34.052,
+    "lng": -118.257,
+    "id": 76
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     118.29,
+     29.9
+    ]
+   },
+   "properties": {
+    "movie": "Crouching Tiger, Hidden Dragon",
+    "year": 2000,
+    "real_name": "Mukeng Bamboo Forest",
+    "narrative": "bamboo treetop duel",
+    "scene_role": "Treetop fight backdrop",
+    "address": "Mukeng, Huangshan",
+    "filming_area": "Anhui",
+    "country": "China",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "chinaadvent.com, chinadiscovery.com, imdb.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Mukeng, Huangshan, Anhui, China",
+    "lat": 29.9,
+    "lng": 118.29,
+    "id": 77
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     119.56,
+     30.52
+    ]
+   },
+   "properties": {
+    "movie": "Crouching Tiger, Hidden Dragon",
+    "year": 2000,
+    "real_name": "Anji Bamboo Sea",
+    "narrative": "bamboo sea duel",
+    "scene_role": "Flying bamboo-grove fight",
+    "address": "Anji, Huzhou",
+    "filming_area": "Zhejiang",
+    "country": "China",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "chinaadvent.com, chinaservicesinfo.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Anji, Huzhou, Zhejiang, China",
+    "lat": 30.52,
+    "lng": 119.56,
+    "id": 78
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.08,
+     37.93
+    ]
+   },
+   "properties": {
+    "movie": "Crouching Tiger, Hidden Dragon",
+    "year": 2000,
+    "real_name": "Cangyan Shan (Cangyan Mountain)",
+    "narrative": "warrior temple",
+    "scene_role": "Hanging temple scenes",
+    "address": "SW of Shijiazhuang",
+    "filming_area": "Hebei",
+    "country": "China",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, movie-locations.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "SW of Shijiazhuang, Hebei, China",
+    "lat": 37.93,
+    "lng": 114.08,
+    "id": 79
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.28,
+     29.145
+    ]
+   },
+   "properties": {
+    "movie": "Crouching Tiger, Hidden Dragon",
+    "year": 2000,
+    "real_name": "Hengdian World Studios",
+    "narrative": "palace interiors",
+    "scene_role": "Elaborate palace sets",
+    "address": "Hengdian",
+    "filming_area": "Zhejiang",
+    "country": "China",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Hengdian World Studios, Zhejiang",
+    "sources": "imdb.com, movie-locations.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Hengdian, Zhejiang, China",
+    "lat": 29.145,
+    "lng": 120.28,
+    "id": 80
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4828,
+     41.906
+    ]
+   },
+   "properties": {
+    "movie": "Roman Holiday",
+    "year": 1953,
+    "real_name": "Spanish Steps",
+    "narrative": "Rome",
+    "scene_role": "Princess eats gelato",
+    "address": "Scalinata di Trinita dei Monti",
+    "filming_area": "Rome",
+    "country": "Italy",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, giggster.com, thetrainline.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Scalinata di Trinita dei Monti, Rome, Italy",
+    "lat": 41.906,
+    "lng": 12.4828,
+    "id": 81
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.4815,
+     41.8882
+    ]
+   },
+   "properties": {
+    "movie": "Roman Holiday",
+    "year": 1953,
+    "real_name": "Bocca della Verita (Mouth of Truth)",
+    "narrative": "Rome",
+    "scene_role": "The hand-in-the-mouth scene",
+    "address": "Santa Maria in Cosmedin",
+    "filming_area": "Rome",
+    "country": "Italy",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "americanclubrome.org, giggster.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Santa Maria in Cosmedin, Rome, Italy",
+    "lat": 41.8882,
+    "lng": 12.4815,
+    "id": 82
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.479,
+     41.908
+    ]
+   },
+   "properties": {
+    "movie": "Roman Holiday",
+    "year": 1953,
+    "real_name": "Via Margutta 51",
+    "narrative": "Bradley's apartment",
+    "scene_role": "Reporter's apartment",
+    "address": "Via Margutta 51",
+    "filming_area": "Rome",
+    "country": "Italy",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, thetrainline.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Via Margutta 51, Rome, Italy",
+    "lat": 41.908,
+    "lng": 12.479,
+    "id": 83
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.483,
+     41.8975
+    ]
+   },
+   "properties": {
+    "movie": "Roman Holiday",
+    "year": 1953,
+    "real_name": "Palazzo Colonna",
+    "narrative": "royal press hall",
+    "scene_role": "The film's farewell finale",
+    "address": "Piazza SS Apostoli 66",
+    "filming_area": "Rome",
+    "country": "Italy",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "giggster.com, nomadepicureans.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Piazza SS Apostoli 66, Rome, Italy",
+    "lat": 41.8975,
+    "lng": 12.483,
+    "id": 84
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.568,
+     41.851
+    ]
+   },
+   "properties": {
+    "movie": "Roman Holiday",
+    "year": 1953,
+    "real_name": "Cinecitta Studios",
+    "narrative": "interiors",
+    "scene_role": "Studio interiors ('Hollywood on the Tiber')",
+    "address": "Rome",
+    "filming_area": "Lazio",
+    "country": "Italy",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Cinecitta Studios, Rome",
+    "sources": "en.wikipedia.org, giggster.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Rome, Lazio, Italy",
+    "lat": 41.851,
+    "lng": 12.568,
+    "id": 85
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.033,
+     47.782
+    ]
+   },
+   "properties": {
+    "movie": "The Sound of Music",
+    "year": 1965,
+    "real_name": "Schloss Leopoldskron",
+    "narrative": "von Trapp villa (lake side)",
+    "scene_role": "Lakeside terrace; boat-tipping scene",
+    "address": "Leopoldskronstrasse",
+    "filming_area": "Salzburg",
+    "country": "Austria",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "panoramatours.com, salzburg.info, salzburgerland.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Leopoldskronstrasse, Salzburg, Austria",
+    "lat": 47.782,
+    "lng": 13.033,
+    "id": 86
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.056,
+     47.777
+    ]
+   },
+   "properties": {
+    "movie": "The Sound of Music",
+    "year": 1965,
+    "real_name": "Schloss Frohnburg",
+    "narrative": "von Trapp villa (gates/front)",
+    "scene_role": "Villa front gate and entrance",
+    "address": "Hellbrunner Allee",
+    "filming_area": "Salzburg",
+    "country": "Austria",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "panoramatours.com, salzburg.info",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Hellbrunner Allee, Salzburg, Austria",
+    "lat": 47.777,
+    "lng": 13.056,
+    "id": 87
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.049,
+     47.795
+    ]
+   },
+   "properties": {
+    "movie": "The Sound of Music",
+    "year": 1965,
+    "real_name": "Nonnberg Abbey",
+    "narrative": "Maria's abbey",
+    "scene_role": "Exterior of the convent",
+    "address": "Nonnberggasse",
+    "filming_area": "Salzburg",
+    "country": "Austria",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "roadaffair.com, salzburg.info",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Nonnberggasse, Salzburg, Austria",
+    "lat": 47.795,
+    "lng": 13.049,
+    "id": 88
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.042,
+     47.805
+    ]
+   },
+   "properties": {
+    "movie": "The Sound of Music",
+    "year": 1965,
+    "real_name": "Mirabell Gardens",
+    "narrative": "'Do-Re-Mi'",
+    "scene_role": "Pegasus-fountain dance",
+    "address": "Mirabellgarten",
+    "filming_area": "Salzburg",
+    "country": "Austria",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "panoramatours.com, salzburg.info",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Mirabellgarten, Salzburg, Austria",
+    "lat": 47.805,
+    "lng": 13.042,
+    "id": 89
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.042,
+     47.798
+    ]
+   },
+   "properties": {
+    "movie": "The Sound of Music",
+    "year": 1965,
+    "real_name": "Felsenreitschule",
+    "narrative": "festival stage",
+    "scene_role": "Family's final performance before fleeing",
+    "address": "Hofstallgasse",
+    "filming_area": "Salzburg",
+    "country": "Austria",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "roadaffair.com, salzburg.info",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Hofstallgasse, Salzburg, Austria",
+    "lat": 47.798,
+    "lng": 13.042,
+    "id": 90
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.349,
+     47.856
+    ]
+   },
+   "properties": {
+    "movie": "The Sound of Music",
+    "year": 1965,
+    "real_name": "Basilica St Michael, Mondsee",
+    "narrative": "the wedding",
+    "scene_role": "Maria & Georg's wedding",
+    "address": "Mondsee",
+    "filming_area": "Upper Austria",
+    "country": "Austria",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "roadaffair.com, salzburg.info",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Mondsee, Upper Austria, Austria",
+    "lat": 47.856,
+    "lng": 13.349,
+    "id": 91
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -159.55,
+     21.99
+    ]
+   },
+   "properties": {
+    "movie": "Jurassic Park",
+    "year": 1993,
+    "real_name": "Manawaiopuna Falls",
+    "narrative": "'Jurassic Falls'",
+    "scene_role": "Helicopter arrival waterfall",
+    "address": "Hanapepe Valley, Kauai",
+    "filming_area": "Kauai, Hawaii",
+    "country": "USA",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "beatofhawaii.com, hawaiiactivities.com, makanacharters.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Hanapepe Valley, Kauai, Kauai, Hawaii, USA",
+    "lat": 21.99,
+    "lng": -159.55,
+    "id": 92
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -159.503,
+     21.895
+    ]
+   },
+   "properties": {
+    "movie": "Jurassic Park",
+    "year": 1993,
+    "real_name": "Allerton Garden",
+    "narrative": "park grounds",
+    "scene_role": "Moreton Bay figs; maintenance shed",
+    "address": "4425 Lawai Rd, Koloa, Kauai",
+    "filming_area": "Kauai, Hawaii",
+    "country": "USA",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "beatofhawaii.com, makanacharters.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "4425 Lawai Rd, Koloa, Kauai, Kauai, Hawaii, USA",
+    "lat": 21.895,
+    "lng": -159.503,
+    "id": 93
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -157.84,
+     21.517
+    ]
+   },
+   "properties": {
+    "movie": "Jurassic Park",
+    "year": 1993,
+    "real_name": "Kualoa Ranch, Ka'a'awa Valley",
+    "narrative": "Gallimimus stampede",
+    "scene_role": "Stampede & fallen-tree scene",
+    "address": "Kamehameha Hwy, Oahu",
+    "filming_area": "Oahu, Hawaii",
+    "country": "USA",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "beatofhawaii.com, set-jetter.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Kamehameha Hwy, Oahu, Oahu, Hawaii, USA",
+    "lat": 21.517,
+    "lng": -157.84,
+    "id": 94
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -159.65,
+     22.17
+    ]
+   },
+   "properties": {
+    "movie": "Jurassic Park",
+    "year": 1993,
+    "real_name": "Na Pali Coast",
+    "narrative": "island entrance",
+    "scene_role": "Dramatic island fly-in cliffs",
+    "address": "Kauai",
+    "filming_area": "Kauai, Hawaii",
+    "country": "USA",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "hawaiiactivities.com, makanacharters.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Kauai, Kauai, Hawaii, USA",
+    "lat": 22.17,
+    "lng": -159.65,
+    "id": 95
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.198,
+     55.952
+    ]
+   },
+   "properties": {
+    "movie": "Trainspotting",
+    "year": 1996,
+    "real_name": "Former John Menzies, Princes Street",
+    "narrative": "Edinburgh",
+    "scene_role": "Opening shoplifting & street run",
+    "address": "107-109 Princes St",
+    "filming_area": "Edinburgh",
+    "country": "Scotland, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, imdb.com, tokyofox.net",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "107-109 Princes St, Edinburgh, Scotland, UK",
+    "lat": 55.952,
+    "lng": -3.198,
+    "id": 96
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.22,
+     55.865
+    ]
+   },
+   "properties": {
+    "movie": "Trainspotting",
+    "year": 1996,
+    "real_name": "WD & HO Wills tobacco factory",
+    "narrative": "various interiors",
+    "scene_role": "~30 of the film's interiors",
+    "address": "Alexandra Parade",
+    "filming_area": "Glasgow",
+    "country": "Scotland, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, glasgowworld.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Alexandra Parade, Glasgow, Scotland, UK",
+    "lat": 55.865,
+    "lng": -4.22,
+    "id": 97
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.287,
+     55.881
+    ]
+   },
+   "properties": {
+    "movie": "Trainspotting",
+    "year": 1996,
+    "real_name": "Cafe D'Jaconelli",
+    "narrative": "milkshake cafe",
+    "scene_role": "Spud & Renton before the job interview",
+    "address": "570 Maryhill Rd",
+    "filming_area": "Glasgow",
+    "country": "Scotland, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, glasgowworld.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "570 Maryhill Rd, Glasgow, Scotland, UK",
+    "lat": 55.881,
+    "lng": -4.287,
+    "id": 98
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.31,
+     55.805
+    ]
+   },
+   "properties": {
+    "movie": "Trainspotting",
+    "year": 1996,
+    "real_name": "Rouken Glen Park",
+    "narrative": "park scene",
+    "scene_role": "Renton & Sick Boy's air-rifle scene",
+    "address": "Thornliebank",
+    "filming_area": "Glasgow",
+    "country": "Scotland, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, imdb.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Thornliebank, Glasgow, Scotland, UK",
+    "lat": 55.805,
+    "lng": -4.31,
+    "id": 99
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.5878,
+     56.6856
+    ]
+   },
+   "properties": {
+    "movie": "Trainspotting",
+    "year": 1996,
+    "real_name": "Rannoch Moor station",
+    "narrative": "Highland day-out",
+    "scene_role": "'Great outdoors' railway stop",
+    "address": "Rannoch Moor",
+    "filming_area": "Highland",
+    "country": "Scotland, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, tokyofox.net",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Rannoch Moor, Highland, Scotland, UK",
+    "lat": 56.6856,
+    "lng": -4.5878,
+    "id": 100
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     129.04,
+     35.115
+    ]
+   },
+   "properties": {
+    "movie": "Oldboy",
+    "year": 2003,
+    "real_name": "Chinese restaurant, Busan Chinatown",
+    "narrative": "dumpling restaurant",
+    "scene_role": "Where Oh Dae-su eats his fried dumplings",
+    "address": "Chinatown, Busan",
+    "filming_area": "Busan",
+    "country": "South Korea",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "imdb.com, legendarytrips.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Chinatown, Busan, Busan, South Korea",
+    "lat": 35.115,
+    "lng": 129.04,
+    "id": 101
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     173.3,
+     -42.82
+    ]
+   },
+   "properties": {
+    "movie": "Oldboy",
+    "year": 2003,
+    "real_name": "Mount Lyford",
+    "narrative": "snowy ending",
+    "scene_role": "Final scene in the snow",
+    "address": "Southern Alps",
+    "filming_area": "Canterbury",
+    "country": "New Zealand",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, imdb.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Southern Alps, Canterbury, New Zealand",
+    "lat": -42.82,
+    "lng": 173.3,
+    "id": 102
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.555,
+     51.725
+    ]
+   },
+   "properties": {
+    "movie": "Bohemian Rhapsody",
+    "year": 2018,
+    "real_name": "Bovingdon Airfield",
+    "narrative": "Live Aid (Wembley 1985)",
+    "scene_role": "Wembley Live Aid stage recreated (Wembley demolished 2002)",
+    "address": "Bovingdon, Hemel Hempstead",
+    "filming_area": "Hertfordshire",
+    "country": "England, UK",
+    "granularity": "set",
+    "confidence": "verified_set_not_real",
+    "built_set": true,
+    "set_host": "Bovingdon Airfield, Hertfordshire (Wembley stage rebuilt)",
+    "sources": "en.wikipedia.org, screenglobalproduction.com, variety.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Bovingdon, Hemel Hempstead, Hertfordshire, England, UK",
+    "lat": 51.725,
+    "lng": -0.555,
+    "id": 103
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     141.467,
+     -31.962
+    ]
+   },
+   "properties": {
+    "movie": "Wake in Fright",
+    "year": 1971,
+    "real_name": "Sulphide Street Railway Station",
+    "narrative": "'Bundanyabba' station",
+    "scene_role": "Where the protagonist arrives by train",
+    "address": "",
+    "filming_area": "Broken Hill, NSW",
+    "country": "Australia",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, reelstreets.com, imdb.com",
+    "geocode_basis": "real_place",
+    "precision": "exact",
+    "resolved_query": "Sulphide Street Railway Station, Broken Hill, NSW, Australia",
+    "lat": -31.962,
+    "lng": 141.467,
+    "id": 104
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     141.46,
+     -31.954
+    ]
+   },
+   "properties": {
+    "movie": "Wake in Fright",
+    "year": 1971,
+    "real_name": "Old Broken Hill Hospital",
+    "narrative": "'Bundanyabba'",
+    "scene_role": "Town hospital glimpsed in the film",
+    "address": "",
+    "filming_area": "Broken Hill, NSW",
+    "country": "Australia",
+    "granularity": "venue",
+    "confidence": "probable",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Old Broken Hill Hospital, Broken Hill, NSW, Australia",
+    "lat": -31.954,
+    "lng": 141.46,
+    "id": 105
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     141.22,
+     -31.9
+    ]
+   },
+   "properties": {
+    "movie": "Wake in Fright",
+    "year": 1971,
+    "real_name": "Silverton, NSW",
+    "narrative": "outback town",
+    "scene_role": "Outback exterior scenes",
+    "address": "",
+    "filming_area": "Silverton, NSW",
+    "country": "Australia",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, imdb.com",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Silverton, NSW, Silverton, NSW, Australia",
+    "lat": -31.9,
+    "lng": 141.22,
+    "id": 106
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     142.4,
+     -32.35
+    ]
+   },
+   "properties": {
+    "movie": "Wake in Fright",
+    "year": 1971,
+    "real_name": "Menindee Lakes",
+    "narrative": "outback",
+    "scene_role": "Lake/outback scenes",
+    "address": "",
+    "filming_area": "Menindee, NSW",
+    "country": "Australia",
+    "granularity": "area",
+    "confidence": "probable",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Menindee Lakes, Menindee, NSW, Australia",
+    "lat": -32.35,
+    "lng": 142.4,
+    "id": 107
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     151.27,
+     -33.89
+    ]
+   },
+   "properties": {
+    "movie": "Wake in Fright",
+    "year": 1971,
+    "real_name": "Ajax Studios, Bondi",
+    "narrative": "interiors",
+    "scene_role": "Interior sets",
+    "address": "Bondi",
+    "filming_area": "Sydney",
+    "country": "Australia",
+    "granularity": "set",
+    "confidence": "probable",
+    "built_set": true,
+    "set_host": "Ajax Studios, Bondi (Sydney)",
+    "sources": "en.wikipedia.org",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Bondi, Sydney, Australia",
+    "lat": -33.89,
+    "lng": 151.27,
+    "id": 108
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.985,
+     37.164
+    ]
+   },
+   "properties": {
+    "movie": "Save the Green Planet!",
+    "year": 2003,
+    "real_name": "Unnamed coal-mining town",
+    "narrative": "Byeong-gu's retro house area",
+    "scene_role": "Retro mining-town setting (no specific place named)",
+    "address": "",
+    "filming_area": "South Korea",
+    "country": "South Korea",
+    "granularity": "region",
+    "confidence": "weak",
+    "built_set": false,
+    "set_host": "",
+    "sources": "grokipedia.com",
+    "geocode_basis": "real_place",
+    "precision": "region",
+    "resolved_query": "Unnamed coal-mining town, South Korea, South Korea",
+    "lat": 37.164,
+    "lng": 128.985,
+    "id": 109
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     126.978,
+     37.5665
+    ]
+   },
+   "properties": {
+    "movie": "Save the Green Planet!",
+    "year": 2003,
+    "real_name": "Seoul streets",
+    "narrative": "urban chase",
+    "scene_role": "City chase sequences (unspecified streets)",
+    "address": "",
+    "filming_area": "Seoul",
+    "country": "South Korea",
+    "granularity": "area",
+    "confidence": "weak",
+    "built_set": false,
+    "set_host": "",
+    "sources": "grokipedia.com",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Seoul streets, Seoul, South Korea",
+    "lat": 37.5665,
+    "lng": 126.978,
+    "id": 110
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.36,
+     43.837
+    ]
+   },
+   "properties": {
+    "movie": "Spoorloos (The Vanishing)",
+    "year": 1988,
+    "real_name": "Rest stop near Nimes",
+    "narrative": "the vanishing spot",
+    "scene_role": "Service station where Saskia disappears",
+    "address": "",
+    "filming_area": "Nimes, Languedoc",
+    "country": "France",
+    "granularity": "area",
+    "confidence": "probable",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "Rest stop near Nimes, Nimes, Languedoc, France",
+    "lat": 43.837,
+    "lng": 4.36,
+    "id": 111
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.435,
+     43.852
+    ]
+   },
+   "properties": {
+    "movie": "Spoorloos (The Vanishing)",
+    "year": 1988,
+    "real_name": "Gas station, Place du General Tessier de Marguerittes",
+    "narrative": "roadside stop",
+    "scene_role": "Identified filming gas station",
+    "address": "Marguerittes 30320",
+    "filming_area": "Marguerittes",
+    "country": "France",
+    "granularity": "address",
+    "confidence": "weak",
+    "built_set": false,
+    "set_host": "",
+    "sources": "filmap.tumblr.com",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "Marguerittes 30320, Marguerittes, France",
+    "lat": 43.852,
+    "lng": 4.435,
+    "id": 112
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -2.74,
+     54.507
+    ]
+   },
+   "properties": {
+    "movie": "Withnail and I",
+    "year": 1987,
+    "real_name": "Sleddale Hall ('Crow Crag')",
+    "narrative": "Monty's cottage",
+    "scene_role": "Monty's remote cottage",
+    "address": "near Shap",
+    "filming_area": "Cumbria",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, en.wikipedia.org, movie-locations.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "near Shap, Cumbria, England, UK",
+    "lat": 54.507,
+    "lng": -2.74,
+    "id": 113
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -2.72,
+     54.56
+    ]
+   },
+   "properties": {
+    "movie": "Withnail and I",
+    "year": 1987,
+    "real_name": "River Lowther bridge",
+    "narrative": "fishing scene",
+    "scene_role": "Shotgun-fishing bridge",
+    "address": "",
+    "filming_area": "Cumbria",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, movie-locations.com",
+    "geocode_basis": "real_place",
+    "precision": "area",
+    "resolved_query": "River Lowther bridge, Cumbria, England, UK",
+    "lat": 54.56,
+    "lng": -2.72,
+    "id": 114
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.193,
+     51.514
+    ]
+   },
+   "properties": {
+    "movie": "Withnail and I",
+    "year": 1987,
+    "real_name": "57 Chepstow Place, Bayswater",
+    "narrative": "Camden flat",
+    "scene_role": "Withnail & Marwood's flat",
+    "address": "57 Chepstow Place, W2",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, almostginger.com",
+    "geocode_basis": "address",
+    "precision": "street",
+    "resolved_query": "57 Chepstow Place, W2, London, England, UK",
+    "lat": 51.514,
+    "lng": -0.193,
+    "id": 115
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.854,
+     52.057
+    ]
+   },
+   "properties": {
+    "movie": "Withnail and I",
+    "year": 1987,
+    "real_name": "Stony Stratford market square",
+    "narrative": "'Penrith' pub & tea rooms",
+    "scene_role": "King Henry pub / tea-room scenes",
+    "address": "Stony Stratford, Milton Keynes",
+    "filming_area": "Buckinghamshire",
+    "country": "England, UK",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "almostginger.com, en.wikipedia.org",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "Stony Stratford, Milton Keynes, Buckinghamshire, England, UK",
+    "lat": 52.057,
+    "lng": -0.854,
+    "id": 116
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.153,
+     51.5353
+    ]
+   },
+   "properties": {
+    "movie": "Withnail and I",
+    "year": 1987,
+    "real_name": "London Zoo wolf enclosure",
+    "narrative": "closing monologue",
+    "scene_role": "Final speech by the wolves",
+    "address": "Regent's Park",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, almostginger.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Regent's Park, London, England, UK",
+    "lat": 51.5353,
+    "lng": -0.153,
+    "id": 117
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -72.545,
+     -13.1547
+    ]
+   },
+   "properties": {
+    "movie": "Aguirre, the Wrath of God",
+    "year": 1972,
+    "real_name": "Huayna Picchu stairway, Machu Picchu",
+    "narrative": "opening descent",
+    "scene_role": "Procession down the Inca stairway",
+    "address": "Machu Picchu",
+    "filming_area": "Cusco",
+    "country": "Peru",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, bfi.org.uk, movie-locations.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Machu Picchu, Cusco, Peru",
+    "lat": -13.1547,
+    "lng": -72.545,
+    "id": 118
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -73.5,
+     -4.5
+    ]
+   },
+   "properties": {
+    "movie": "Aguirre, the Wrath of God",
+    "year": 1972,
+    "real_name": "Huallaga & Nanay rivers, Ucayali",
+    "narrative": "Amazon river journey",
+    "scene_role": "Raft journey down the river",
+    "address": "Ucayali region",
+    "filming_area": "Loreto",
+    "country": "Peru",
+    "granularity": "area",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "en.wikipedia.org, imdb.com",
+    "geocode_basis": "address",
+    "precision": "region",
+    "resolved_query": "Ucayali region, Loreto, Peru",
+    "lat": -4.5,
+    "lng": -73.5,
+    "id": 119
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.022,
+     51.507
+    ]
+   },
+   "properties": {
+    "movie": "The Long Good Friday",
+    "year": 1980,
+    "real_name": "North Quay, West India Dock",
+    "narrative": "Harold's yacht mooring",
+    "scene_role": "Yacht moored in docklands (now Canary Wharf)",
+    "address": "West India Dock",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "bfi.org.uk, movie-locations.com",
+    "geocode_basis": "address",
+    "precision": "area",
+    "resolved_query": "West India Dock, London, England, UK",
+    "lat": 51.507,
+    "lng": -0.022,
+    "id": 120
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.061,
+     51.511
+    ]
+   },
+   "properties": {
+    "movie": "The Long Good Friday",
+    "year": 1980,
+    "real_name": "St George in the East Church, Wapping",
+    "narrative": "car-bomb church",
+    "scene_role": "Church where the car bomb explodes",
+    "address": "14 Cannon Street Road, E1",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "movie-locations.com, bfi.org.uk",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "14 Cannon Street Road, E1, London, England, UK",
+    "lat": 51.511,
+    "lng": -0.061,
+    "id": 121
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.019,
+     51.488
+    ]
+   },
+   "properties": {
+    "movie": "The Long Good Friday",
+    "year": 1980,
+    "real_name": "Waterman's Arms pub, Isle of Dogs",
+    "narrative": "gangland pub",
+    "scene_role": "Pub appearing in the film",
+    "address": "1 Glenaffric Ave, E14",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "address",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "movie-locations.com, isleofdogslife.wordpress.com",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "1 Glenaffric Ave, E14, London, England, UK",
+    "lat": 51.488,
+    "lng": -0.019,
+    "id": 122
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.056,
+     51.53
+    ]
+   },
+   "properties": {
+    "movie": "The Long Good Friday",
+    "year": 1980,
+    "real_name": "Bethnal Green Town Hall",
+    "narrative": "Councillor's office",
+    "scene_role": "Art-deco town hall office",
+    "address": "Patriot Square, E2",
+    "filming_area": "London",
+    "country": "England, UK",
+    "granularity": "venue",
+    "confidence": "verified",
+    "built_set": false,
+    "set_host": "",
+    "sources": "movie-locations.com, londononlocation.co.uk",
+    "geocode_basis": "address",
+    "precision": "exact",
+    "resolved_query": "Patriot Square, E2, London, England, UK",
+    "lat": 51.53,
+    "lng": -0.056,
+    "id": 123
+   }
+  }
+ ]
+}

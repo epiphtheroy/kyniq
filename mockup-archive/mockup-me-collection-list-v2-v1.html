@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · 내가 본 영화 리스트 3단 (시안 v2)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;--pnl:#141416;--pnl2:#1A1A1E;--line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.15);
+    --ink:#ECEAE5;--mut:#9A968D;--sub:#6C6960;--red:#E3120B;
+    --canon:#C8922B;--award:#E3120B;--national:#3E8FE0;--movement:#1FB286;--auteur:#9B8CF0;
+    --safe:#1FB286;--frontier:#3E8FE0;--conquer:#E3120B;
+    --ser:"PT Serif",Georgia,serif;--ui:"Inter",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.ser{font-family:var(--ser)}
+  .eb{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub)}
+  .wrap{max-width:1560px;margin:0 auto;padding:14px 18px 60px}
+  .topbar{display:flex;align-items:center;gap:14px;padding:10px 4px 12px;border-bottom:1px solid var(--line2)}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:12px;letter-spacing:.12em;padding:3px 7px}
+  .tabs{display:flex;gap:5px;margin-left:auto;font-size:12px}
+  .tabs span{padding:5px 10px;border:1px solid var(--line2);color:var(--mut);border-radius:2px}
+  .tabs span.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  .layout{display:grid;grid-template-columns:206px minmax(0,1fr) 332px;gap:13px;margin-top:13px}
+  .side{align-self:start;position:sticky;top:10px}
+  .fgrp{background:var(--pnl);border:1px solid var(--line);border-radius:3px;padding:10px 11px;margin-bottom:9px}
+  .fgrp h4{margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:.05em;color:var(--ink);display:flex;align-items:center;gap:6px}
+  .slideval{font-family:var(--mono);color:var(--red);font-size:12px;margin-left:auto}
+  input[type=range]{width:100%;accent-color:var(--red);height:4px}
+  .opt{display:flex;align-items:center;gap:8px;padding:3px 0;cursor:pointer;font-size:12px;color:var(--mut)}
+  .opt:hover{color:var(--ink)}
+  .opt .bx{width:13px;height:13px;border:1px solid var(--line2);border-radius:2px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:9px}
+  .opt.on .bx{background:var(--red);border-color:var(--red);color:#fff}.opt.on{color:var(--ink)}
+  .opt .ct{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .chips{display:flex;flex-wrap:wrap;gap:5px}
+  .chip{font-size:11px;padding:3px 8px;border:1px solid var(--line2);border-radius:13px;color:var(--mut);cursor:pointer}
+  .chip.on{background:var(--ink);color:#0B0B0C;border-color:var(--ink)}
+
+  .rhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:9px}
+  .rhead .cnt{font-family:var(--ser);font-size:16px}.rhead .cnt b{color:var(--red)}
+  .sortsel{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  select{background:var(--pnl2);color:var(--ink);border:1px solid var(--line2);border-radius:3px;padding:5px 8px;font-family:var(--ui);font-size:12px}
+  .actchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;min-height:4px}
+  .ac{font-size:11px;background:var(--pnl2);border:1px solid var(--line2);border-radius:13px;padding:3px 9px;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:5px}
+
+  .lst{display:flex;flex-direction:column;gap:8px}
+  .row{display:grid;grid-template-columns:56px 1fr 132px;gap:11px;background:var(--pnl);border:1px solid var(--line);border-radius:4px;padding:10px 11px;cursor:pointer;transition:border-color .15s}
+  .row:hover{border-color:var(--line2)}
+  .row.sel{border-color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+  .po{width:56px;height:80px;border-radius:2px;background:linear-gradient(150deg,#2a2a30,#161618);display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden}
+  .po .yr{font-family:var(--mono);font-size:9.5px;color:var(--sub);padding-bottom:4px}
+  .po .flag{position:absolute;top:4px;left:4px;font-size:8.5px;font-family:var(--mono);color:var(--ink);background:rgba(0,0,0,.5);padding:0 4px;border-radius:2px}
+  .info .tt{font-family:var(--ser);font-size:16px;line-height:1.2}
+  .info .dr{font-size:11px;color:var(--mut);margin-top:2px}
+  .info .dr .g{font-family:var(--mono);font-size:9px;color:var(--canon);border:1px solid #5b481f;border-radius:2px;padding:0 4px;margin-left:5px}
+  .bds{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+  .bd{font-size:9.5px;font-family:var(--mono);padding:2px 6px;border-radius:2px;border:1px solid var(--line);color:var(--mut);display:flex;align-items:center;gap:4px}
+  .bd.canon{color:#e6c884;border-color:#5b481f;background:#1c1708}.bd.award{color:#f2b3b0;border-color:#7a1410;background:#220a08}
+  .bd.national{color:#9cc8f3;border-color:#234a72}.bd.movement{color:#8ee3cc;border-color:#1d5145}
+  .bd.reading{color:#c6bcf7;border-color:#463c84}.bd.trope{color:var(--mut)}.bd.depth{color:#f2b3b0;border-color:#7a1410}
+  .spec{font-size:10.5px;color:var(--sub);margin-top:6px;display:flex;gap:11px;flex-wrap:wrap}.spec b{color:var(--mut);font-weight:400}
+  .price{border-left:1px solid var(--line);padding-left:11px;display:flex;flex-direction:column;align-items:flex-end}
+  .price .pl{font-size:9px;letter-spacing:.1em;color:var(--sub)}
+  .price .pv{font-family:var(--mono);font-size:27px;line-height:1;color:var(--ink)}
+  .price .sub{display:flex;gap:7px;margin-top:5px;font-size:9.5px;color:var(--sub);font-family:var(--mono)}
+  .price .sub b{color:var(--canon)}.price .sub .d{color:var(--movement)}
+  .stars{margin-top:7px;font-size:12px;color:var(--canon);letter-spacing:1px}.stars .me{font-family:var(--mono);font-size:10.5px;color:var(--mut);margin-left:3px}
+  .val{margin-top:6px;font-size:9.5px;font-weight:600;padding:2px 6px;border-radius:2px}
+  .val.find{background:#0e211c;color:#8ee3cc;border:1px solid #1d5145}.val.fit{background:var(--pnl2);color:var(--mut);border:1px solid var(--line2)}.val.over{background:#220a08;color:#f2b3b0;border:1px solid #7a1410}
+  .empty{text-align:center;color:var(--sub);padding:40px;font-style:italic}
+
+  /* RECOMMENDATION COLUMN */
+  .recs{align-self:start;position:sticky;top:10px}
+  .selbar{background:var(--pnl);border:1px solid var(--line2);border-radius:3px;padding:10px 12px;margin-bottom:11px}
+  .selbar .eb2{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub)}
+  .selbar .st{font-family:var(--ser);font-size:16px;margin-top:2px}
+  .selbar .ss{font-size:11px;color:var(--mut);margin-top:2px}
+  .recsec{margin-bottom:13px}
+  .rsh{display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:9px}
+  .rsh .ic{width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto}
+  .rsh .nm{font-size:12.5px;font-weight:600}
+  .rsh .sb{font-size:10px;color:var(--sub);margin-top:1px}
+  .rsh .prog{margin-left:auto;font-family:var(--mono);font-size:11px;text-align:right}
+  .reccard{display:grid;grid-template-columns:38px 1fr auto;gap:9px;align-items:center;background:var(--pnl);border:1px solid var(--line);border-radius:4px;padding:9px 10px;margin-bottom:7px;position:relative;overflow:hidden}
+  .reccard .ad{position:absolute;top:0;right:0;font-size:8px;letter-spacing:.1em;color:var(--sub);background:var(--pnl2);padding:1px 5px;border-bottom-left-radius:3px}
+  .rpo{width:38px;height:54px;border-radius:2px;background:linear-gradient(150deg,#2a2a30,#161618);position:relative}
+  .rpo .f{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:7.5px;color:var(--sub)}
+  .rc-t{font-family:var(--ser);font-size:13.5px;line-height:1.2}
+  .rc-d{font-size:10px;color:var(--sub);margin-top:1px}
+  .rc-why{font-size:10.5px;color:var(--mut);margin-top:4px;line-height:1.35}
+  .rc-why b{color:var(--ink);font-weight:500}
+  .rc-metric{text-align:right;padding-left:6px}
+  .rc-metric .mv{font-family:var(--mono);font-size:20px;line-height:1}
+  .rc-metric .ml{font-size:8px;letter-spacing:.08em;color:var(--sub)}
+  .rc-cta{grid-column:1/-1;display:flex;justify-content:flex-end;margin-top:2px}
+  .rc-cta button{font-family:var(--ui);font-size:10.5px;color:var(--ink);background:var(--pnl2);border:1px solid var(--line2);border-radius:3px;padding:3px 10px;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .rc-cta button:hover{border-color:var(--ink)}
+  .safe .rc-metric .mv{color:var(--safe)} .frontier .rc-metric .mv{color:var(--frontier)} .conquer .rc-metric .mv{color:var(--conquer)}
+  .safe{border-left:2px solid var(--safe)} .frontier{border-left:2px solid var(--frontier)} .conquer{border-left:2px solid var(--conquer)}
+  .note{font-size:10.5px;color:var(--sub);margin-top:8px;font-style:italic}
+  @media(max-width:1180px){.layout{grid-template-columns:1fr}.side,.recs{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="logo">META TAKE</span>
+    <span class="ser" style="font-size:18px;font-weight:700">내가 본 영화 · 보유 리스트 + 추천</span>
+    <span class="eb" style="margin-left:6px"><i class="ti ti-lock"></i> 비공개 · wonwoo</span>
+    <div class="tabs"><span style="cursor:pointer" onclick="location.href='mockup-me-onboard-rate-v2.html'">기록</span><span style="cursor:pointer" class="on" onclick="location.href='mockup-me-command-center.html'">내 자산</span><span style="cursor:pointer" onclick="location.href='mockup-me-watchlist.html'">볼 영화</span><span style="cursor:pointer" onclick="location.href='mockup-me-library.html'">서재</span><span style="cursor:pointer" onclick="location.href='mockup-me-write.html'">노트</span><span style="cursor:pointer" onclick="location.href='mockup-me-pair.html'">동행</span><span style="cursor:pointer" onclick="location.href='mockup-me-profile.html'">공개 ↗</span></div>
+  </div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <div class="fgrp">
+        <h4><i class="ti ti-coin"></i> 정전가 ≥ <span class="slideval" id="scoreOut">0</span></h4>
+        <input type="range" id="scoreMin" min="0" max="95" step="1" value="0">
+        <h4 style="margin-top:12px"><i class="ti ti-star"></i> 내 별점 ≥ <span class="slideval" id="rateOut">0.0</span></h4>
+        <input type="range" id="rateMin" min="0" max="9.5" step="0.5" value="0">
+      </div>
+      <div class="fgrp"><h4><i class="ti ti-diamonds"></i> 가치 평가</h4><div id="fVal" class="chips"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-calendar"></i> 연대</h4><div id="fDecade"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-world"></i> 국가</h4><div id="fCountry"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-user-star"></i> 감독 등급</h4><div id="fGtier" class="chips"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-award"></i> 리니지 · 정전</h4><div id="fLin"></div></div>
+      <div class="fgrp"><h4><i class="ti ti-stairs-down"></i> 깊이 · 가용</h4><div id="fDepth"></div></div>
+    </aside>
+
+    <!-- LIST -->
+    <main>
+      <div class="rhead">
+        <div class="cnt"><b id="rcount">15</b>편 · 평균 <span class="mono" id="ravg">—</span></div>
+        <div class="sortsel"><i class="ti ti-arrows-sort"></i>
+          <select id="sort">
+            <option value="score">정전가 높은순</option><option value="value">저평가 발굴순</option>
+            <option value="rating">내 별점순</option><option value="recent">최근 관람순</option>
+            <option value="discovery">발굴 점수순</option><option value="year">최신 연도순</option><option value="scoreAsc">정전가 낮은순</option>
+          </select>
+        </div>
+      </div>
+      <div class="actchips" id="actchips"></div>
+      <div class="lst" id="list"></div>
+    </main>
+
+    <!-- RECOMMENDATIONS -->
+    <aside class="recs">
+      <div class="selbar">
+        <div class="eb2"><i class="ti ti-target"></i> 이 영화를 중심으로</div>
+        <div class="st" id="selTitle">—</div>
+        <div class="ss" id="selSub">왼쪽에서 보유 영화를 선택하면 추천이 갱신됩니다.</div>
+      </div>
+      <div id="recSafe" class="recsec"></div>
+      <div id="recFront" class="recsec"></div>
+      <div id="recConq" class="recsec"></div>
+      <div class="note">한 영화에 여러 이유가 있을 수 있습니다 — 수치는 그 이유의 근거입니다.</div>
+    </aside>
+
+  </div>
+</div>
+
+<script>
+const G={bresson:'G1',dardenne:'G1',tarr:'G1',ozu:'G1',bong:'G1',bergman:'G1',yang:'G1',wong:'G1',
+ park:'G2',lee:'G2',reich:'G2',mungiu:'G2',farhadi:'G2',hama:'G3',
+ tarkovsky:'G1',kiarostami:'G1',mizoguchi:'G1',mambety:'G3',rocha:'G2',saura:'G2',erice:'G2'};
+const DN={bresson:"브레송",dardenne:"다르덴",tarr:"벨라 타르",ozu:"오즈",bong:"봉준호",bergman:"베리만",yang:"에드워드 양",
+ wong:"왕가위",park:"박찬욱",lee:"이창동",reich:"라이카트",mungiu:"문지우",farhadi:"파라디",hama:"하마구치",
+ tarkovsky:"타르콥스키",kiarostami:"키아로스타미",mizoguchi:"미조구치",mambety:"맘베티",rocha:"호샤",saura:"사우라",erice:"에리세"};
+const REP={bresson:6,bong:7,yang:7,tarkovsky:7,kiarostami:8,mizoguchi:6,mambety:3,rocha:5,saura:6,erice:3};
+const CON={FR:"프랑스",KR:"한국",JP:"일본",HU:"헝가리",US:"미국",TW:"대만",SE:"스웨덴",BE:"벨기에",HK:"홍콩",RO:"루마니아",IR:"이란",SU:"소련/러시아",SN:"세네갈",BR:"브라질",ES:"스페인"};
+const LIN={
+ palme:["칸 황금종려",'award'],'oscar-bp':["오스카 작품상",'award'],'oscar-intl':["오스카 국제장편",'award'],
+ 'cannes-gp':["칸 그랑프리",'award'],'cannes-comp':["칸 경쟁",'award'],berlin:["베를린 황금곰",'award'],
+ 'golden-horse':["금마장",'national'],kinema:["키네마준보",'national'],
+ sands:["S&S 2022",'canon'],tspdt:["TSPDT",'canon'],bbc21:["BBC 21c",'canon'],
+ 'french-spiritual':["프랑스 영성",'movement'],slow:["슬로우 시네마",'movement'],'new-korean':["뉴 코리안",'movement'],
+ 'romanian-nw':["루마니아 뉴웨이브",'movement'],iranian:["이란 뉴웨이브",'movement'],
+ 'taiwanese-nw':["대만 뉴웨이브",'movement'],african:["아프리카 영화",'movement'],'cinema-novo':["시네마 노부",'movement'],
+ spanish:["스페인 영화",'movement'],'japanese-classic':["일본 고전",'movement']};
+const TR={witness:"무력한 목격자",guilt:"전이된 죄",landscape:"풍경의 무관심",class:"계급의 유령",double:"이중 자아",
+ vanish:"사라진 여자",intruder:"침입자",friendship:"연약한 우정",distance:"세대의 거리",time:"무심한 시간",
+ language:"말의 수행",mask:"가면",longing:"갈망의 지연",truth:"은폐된 진실",repetition:"종말의 반복",
+ faith:"신앙의 시험",family:"가족의 시간",childhood:"유년의 응시",memory:"기억의 미로",violence:"폭력의 연쇄",
+ maternal:"모성의 광기",journey:"이탈의 여정",procedural:"수사의 미궁",suffering:"수난의 견딤"};
+const RD={ethics:"윤리",psy:"정신분석",ontology:"존재론",politics:"정치",semiotics:"기호학"};
+const SVC={Criterion:"Criterion",MUBI:"MUBI",Netflix:"Netflix",Prime:"Prime"};
+const FCOL={award:'#E3120B',canon:'#C8922B',national:'#3E8FE0',movement:'#1FB286'};
+const MV={bresson:'french-spiritual',tarr:'slow',reich:'slow',tarkovsky:'slow',yang:'taiwanese-nw',
+ kiarostami:'iranian',farhadi:'iranian',mambety:'african',rocha:'cinema-novo',saura:'spanish',erice:'spanish',
+ mizoguchi:'japanese-classic',bong:'new-korean',lee:'new-korean',park:'new-korean',mungiu:'romanian-nw'};
+const MYCOV={sands:41,tspdt:19,bbc21:24,kinema:29,'golden-horse':8};
+
+const FILMS=[
+ {id:'balthazar',t:"Au Hasard Balthazar",y:1966,co:'FR',d:'bresson',pr:84,dc:30,sc:86,rt:9.4,wd:'2024-03',vn:'theater',rw:2,wrote:1,read:1,av:'Criterion',lin:[['tspdt',16],['sands'],['french-spiritual']],tr:['witness','guilt'],rd:['ethics','ontology']},
+ {id:'mouchette',t:"Mouchette",y:1967,co:'FR',d:'bresson',pr:72,dc:28,sc:74,rt:8.8,wd:'2024-04',vn:'streaming',rw:0,wrote:0,read:1,av:'Criterion',lin:[['tspdt',183],['french-spiritual']],tr:['witness','guilt'],rd:['ethics','psy']},
+ {id:'turin',t:"The Turin Horse",y:2011,co:'HU',d:'tarr',pr:78,dc:40,sc:82,rt:9.0,wd:'2023-11',vn:'theater',rw:0,wrote:0,read:1,av:'MUBI',lin:[['berlin'],['slow'],['tspdt',420]],tr:['landscape','repetition'],rd:['ontology']},
+ {id:'tokyo',t:"Tokyo Story",y:1953,co:'JP',d:'ozu',pr:88,dc:22,sc:89,rt:9.6,wd:'2023-08',vn:'physical',rw:1,wrote:1,read:1,av:'Criterion',lin:[['sands',4],['tspdt',3],['kinema']],tr:['distance','time'],rd:['ethics']},
+ {id:'burning',t:"Burning",y:2018,co:'KR',d:'lee',pr:70,dc:35,sc:73,rt:8.2,wd:'2024-01',vn:'streaming',rw:0,wrote:0,read:0,av:'Netflix',lin:[['cannes-comp'],['new-korean']],tr:['class','vanish'],rd:['psy','politics']},
+ {id:'oldboy',t:"Oldboy",y:2003,co:'KR',d:'park',pr:74,dc:30,sc:76,rt:8.5,wd:'2022-12',vn:'streaming',rw:1,wrote:0,read:1,av:'Prime',lin:[['cannes-gp'],['new-korean']],tr:['guilt','double'],rd:['psy']},
+ {id:'drive',t:"Drive My Car",y:2021,co:'JP',d:'hama',pr:80,dc:28,sc:82,rt:8.0,wd:'2023-02',vn:'theater',rw:0,wrote:0,read:1,av:'MUBI',lin:[['oscar-intl'],['cannes-comp']],tr:['guilt','language'],rd:['psy','ethics']},
+ {id:'parasite',t:"Parasite",y:2019,co:'KR',d:'bong',pr:92,dc:25,sc:93,rt:8.4,wd:'2019-06',vn:'theater',rw:1,wrote:1,read:1,av:'Netflix',lin:[['palme'],['oscar-bp'],['new-korean']],tr:['class','intruder'],rd:['politics']},
+ {id:'firstcow',t:"First Cow",y:2019,co:'US',d:'reich',pr:62,dc:38,sc:67,rt:9.1,wd:'2024-05',vn:'streaming',rw:0,wrote:0,read:1,av:'MUBI',lin:[['slow']],tr:['landscape','friendship'],rd:['ethics']},
+ {id:'brighter',t:"A Brighter Summer Day",y:1991,co:'TW',d:'yang',pr:85,dc:40,sc:88,rt:9.2,wd:'2023-06',vn:'physical',rw:0,wrote:0,read:0,av:'Criterion',lin:[['golden-horse'],['tspdt',97]],tr:['class','double'],rd:['politics']},
+ {id:'persona',t:"Persona",y:1966,co:'SE',d:'bergman',pr:86,dc:30,sc:87,rt:8.7,wd:'2022-09',vn:'streaming',rw:0,wrote:0,read:1,av:'Criterion',lin:[['sands',23],['tspdt',20]],tr:['double','mask'],rd:['psy','ontology']},
+ {id:'lefils',t:"Le Fils",y:2002,co:'BE',d:'dardenne',pr:66,dc:32,sc:70,rt:8.9,wd:'2024-02',vn:'streaming',rw:0,wrote:0,read:1,av:'MUBI',lin:[['cannes-comp']],tr:['guilt','witness'],rd:['ethics']},
+ {id:'mood',t:"In the Mood for Love",y:2000,co:'HK',d:'wong',pr:90,dc:28,sc:91,rt:9.5,wd:'2023-03',vn:'theater',rw:2,wrote:1,read:1,av:'Criterion',lin:[['sands',5],['tspdt',24],['bbc21',2]],tr:['longing','time'],rd:['semiotics']},
+ {id:'fourmonths',t:"4 Months, 3 Weeks and 2 Days",y:2007,co:'RO',d:'mungiu',pr:76,dc:45,sc:81,rt:8.6,wd:'2024-04',vn:'streaming',rw:0,wrote:0,read:0,av:'MUBI',lin:[['palme'],['romanian-nw']],tr:['class','truth'],rd:['politics','ethics']},
+ {id:'separation',t:"A Separation",y:2011,co:'IR',d:'farhadi',pr:82,dc:38,sc:85,rt:9.0,wd:'2023-10',vn:'streaming',rw:0,wrote:0,read:0,av:'Prime',lin:[['berlin'],['oscar-intl'],['iranian']],tr:['guilt','truth'],rd:['ethics']},
+];
+const POOL=[
+ {id:'largent',t:"L'Argent",y:1983,co:'FR',d:'bresson',pr:82,dc:30,lin:['tspdt'],tr:['guilt','witness']},
+ {id:'diary',t:"Diary of a Country Priest",y:1951,co:'FR',d:'bresson',pr:80,dc:28,lin:['tspdt','sands'],tr:['witness','faith']},
+ {id:'stalker',t:"Stalker",y:1979,co:'SU',d:'tarkovsky',pr:88,dc:42,lin:['tspdt','sands'],tr:['landscape','faith']},
+ {id:'rublev',t:"Andrei Rublev",y:1966,co:'SU',d:'tarkovsky',pr:86,dc:44,lin:['tspdt','sands'],tr:['witness','faith']},
+ {id:'yiyi',t:"Yi Yi",y:2000,co:'TW',d:'yang',pr:90,dc:38,lin:['golden-horse','bbc21','sands'],tr:['time','distance']},
+ {id:'taste',t:"Taste of Cherry",y:1997,co:'IR',d:'kiarostami',pr:84,dc:46,lin:['palme','tspdt'],tr:['guilt','landscape']},
+ {id:'wind',t:"The Wind Will Carry Us",y:1999,co:'IR',d:'kiarostami',pr:82,dc:44,lin:['sands'],tr:['landscape','time']},
+ {id:'touki',t:"Touki Bouki",y:1973,co:'SN',d:'mambety',pr:76,dc:94,lin:['sands'],tr:['journey']},
+ {id:'blackgod',t:"Black God, White Devil",y:1964,co:'BR',d:'rocha',pr:74,dc:88,lin:['cannes-comp'],tr:['class','violence']},
+ {id:'cria',t:"Cría Cuervos",y:1976,co:'ES',d:'saura',pr:72,dc:40,lin:['cannes-gp'],tr:['double','memory']},
+ {id:'memories',t:"Memories of Murder",y:2003,co:'KR',d:'bong',pr:80,dc:32,lin:['tspdt'],tr:['truth','class']},
+ {id:'mother',t:"Mother",y:2009,co:'KR',d:'bong',pr:76,dc:34,lin:['cannes-comp'],tr:['guilt','maternal']},
+ {id:'sansho',t:"Sansho the Bailiff",y:1954,co:'JP',d:'mizoguchi',pr:86,dc:36,lin:['sands','tspdt','kinema'],tr:['witness','suffering']},
+ {id:'spirit',t:"The Spirit of the Beehive",y:1973,co:'ES',d:'erice',pr:84,dc:42,lin:['tspdt','sands'],tr:['witness','childhood']},
+];
+const MYCO=new Set(FILMS.map(f=>f.co));
+function decadeOf(y){return Math.floor(y/10)*10;}
+function valClass(f){const gap=f.rt*10-f.pr;if(gap>=12)return'find';if(gap<=-9)return'over';return'fit';}
+const VALN={find:"저평가 발굴",fit:"정전 합치",over:"고평가 실망"};
+let st={scoreMin:0,rateMin:0,vals:new Set(),decades:new Set(),cos:new Set(),gt:new Set(),lins:new Set(),depth:new Set(),sort:'score'};
+let selId='balthazar';
+
+function pass(f){
+ if(f.sc<st.scoreMin||f.rt<st.rateMin)return false;
+ if(st.vals.size&&!st.vals.has(valClass(f)))return false;
+ if(st.decades.size&&!st.decades.has(decadeOf(f.y)))return false;
+ if(st.cos.size&&!st.cos.has(f.co))return false;
+ if(st.gt.size&&!st.gt.has(G[f.d]))return false;
+ if(st.lins.size&&!f.lin.some(l=>st.lins.has(l[0])))return false;
+ if(st.depth.has('wrote')&&!f.wrote)return false;
+ if(st.depth.has('read')&&!f.read)return false;
+ if(st.depth.has('rewatch')&&!f.rw)return false;
+ for(const s of st.depth)if(s.startsWith('av:')&&f.av!==s.slice(3))return false;
+ return true;
+}
+function sortFn(a,b){switch(st.sort){
+ case'value':return(b.rt*10-b.pr)-(a.rt*10-a.pr);case'rating':return b.rt-a.rt;
+ case'recent':return b.wd<a.wd?-1:1;case'discovery':return b.dc-a.dc;case'year':return b.y-a.y;
+ case'scoreAsc':return a.sc-b.sc;default:return b.sc-a.sc;}}
+function countBy(fn){const m={};FILMS.forEach(f=>{const k=fn(f);(Array.isArray(k)?k:[k]).forEach(x=>m[x]=(m[x]||0)+1);});return m;}
+function optRow(l,c,on){return `<span class="bx">${on?'<i class="ti ti-check"></i>':''}</span><span>${l}</span><span class="ct">${c}</span>`;}
+
+function renderFacets(){
+ const vm=countBy(f=>valClass(f));
+ fVal.innerHTML=['find','fit','over'].map(v=>`<span class="chip ${st.vals.has(v)?'on':''}" data-g="vals" data-k="${v}">${VALN[v]} ${vm[v]||0}</span>`).join('');
+ const dm=countBy(f=>decadeOf(f.y));
+ fDecade.innerHTML=Object.keys(dm).sort((a,b)=>b-a).map(d=>`<div class="opt ${st.decades.has(+d)?'on':''}" data-g="decades" data-k="${d}" data-num="1">${optRow(d.slice(0,4)+'년대',dm[d],st.decades.has(+d))}</div>`).join('');
+ const cm=countBy(f=>f.co);
+ fCountry.innerHTML=Object.entries(cm).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`<div class="opt ${st.cos.has(c)?'on':''}" data-g="cos" data-k="${c}">${optRow(CON[c],n,st.cos.has(c))}</div>`).join('');
+ const gm=countBy(f=>G[f.d]);
+ fGtier.innerHTML=['G1','G2','G3','G4','G5'].filter(g=>gm[g]).map(g=>`<span class="chip ${st.gt.has(g)?'on':''}" data-g="gt" data-k="${g}">${g} ${gm[g]}</span>`).join('');
+ const lm=countBy(f=>f.lin.map(l=>l[0]));const order=['canon','award','national','movement'];
+ fLin.innerHTML=Object.keys(lm).sort((a,b)=>order.indexOf(LIN[a][1])-order.indexOf(LIN[b][1])||lm[b]-lm[a]).map(k=>`<div class="opt ${st.lins.has(k)?'on':''}" data-g="lins" data-k="${k}">${optRow(`<span style="color:${FCOL[LIN[k][1]]}">●</span> ${LIN[k][0]}`,lm[k],st.lins.has(k))}</div>`).join('');
+ const wrote=FILMS.filter(f=>f.wrote).length,read=FILMS.filter(f=>f.read).length,rew=FILMS.filter(f=>f.rw).length;const am=countBy(f=>'av:'+f.av);
+ let dh=`<div class="opt ${st.depth.has('wrote')?'on':''}" data-g="depth" data-k="wrote">${optRow('내 오독 작성',wrote,st.depth.has('wrote'))}</div>
+  <div class="opt ${st.depth.has('read')?'on':''}" data-g="depth" data-k="read">${optRow('오독 읽음',read,st.depth.has('read'))}</div>
+  <div class="opt ${st.depth.has('rewatch')?'on':''}" data-g="depth" data-k="rewatch">${optRow('다시 본 작품',rew,st.depth.has('rewatch'))}</div>`;
+ dh+=Object.keys(am).sort((a,b)=>am[b]-am[a]).map(k=>`<div class="opt ${st.depth.has(k)?'on':''}" data-g="depth" data-k="${k}">${optRow('▸ '+SVC[k.slice(3)],am[k],st.depth.has(k))}</div>`).join('');
+ fDepth.innerHTML=dh;
+ document.querySelectorAll('[data-g]').forEach(el=>el.onclick=()=>{const g=el.dataset.g,k=el.dataset.num?+el.dataset.k:el.dataset.k;const s=st[g];s.has(k)?s.delete(k):s.add(k);renderAll();});
+}
+function stars(rt){const full=Math.round(rt/2);let s='';for(let i=0;i<5;i++)s+=i<full?'★':'☆';return s;}
+function renderList(){
+ const out=FILMS.filter(pass).sort(sortFn);
+ rcount.textContent=out.length;ravg.textContent=out.length?Math.round(out.reduce((s,f)=>s+f.sc,0)/out.length):'—';
+ if(!out.length){list.innerHTML='<div class="empty">조건에 맞는 보유 영화가 없습니다 · 필터를 완화하세요.</div>';return;}
+ list.innerHTML=out.map(f=>{const vc=valClass(f);
+   const linb=f.lin.map(l=>{const[k,r]=l;return `<span class="bd ${LIN[k][1]}">${LIN[k][0]}${r?' #'+r:''}</span>`;}).join('');
+   const trb=f.tr.slice(0,2).map(k=>`<span class="bd trope">「${TR[k]}」</span>`).join('');
+   const rdb=f.rd.slice(0,1).map(k=>`<span class="bd reading">${RD[k]}</span>`).join('');
+   const dep=f.wrote?'<span class="bd depth"><i class="ti ti-pencil"></i>내 오독</span>':'';
+   const vn={theater:'극장',streaming:'스트리밍',physical:'블루레이'}[f.vn];
+   return `<div class="row ${f.id===selId?'sel':''}" data-id="${f.id}">
+     <div class="po"><span class="flag">${f.co}</span><span class="yr">${f.y}</span></div>
+     <div class="info"><div class="tt">${f.t}</div><div class="dr">${DN[f.d]||f.d}<span class="g">${G[f.d]}</span> · ${CON[f.co]}</div>
+       <div class="bds">${linb}${rdb}${trb}${dep}</div>
+       <div class="spec"><span><b>관람</b> ${f.wd.replace('-','.')}</span><span><b>${vn}</b></span>${f.rw?`<span><b>다시</b> ${f.rw}회</span>`:''}<span><b>${SVC[f.av]}</b></span></div></div>
+     <div class="price"><div class="pl">정전가</div><div class="pv">${f.sc}</div>
+       <div class="sub"><span>P <b>${f.pr}</b></span><span class="d">D ${f.dc}</span></div>
+       <div class="stars">${stars(f.rt)}<span class="me">${f.rt.toFixed(1)}</span></div>
+       <div class="val ${vc}">${VALN[vc]}</div></div></div>`;}).join('');
+ list.querySelectorAll('.row').forEach(el=>el.onclick=()=>{selId=el.dataset.id;renderList();renderRecs();});
+}
+function shared(a,b){return a.filter(x=>b.includes(x));}
+function affinity(X,c){let a=55;if(c.d===X.d)a+=34;if(MV[c.d]&&MV[c.d]===MV[X.d])a+=12;
+ a+=7*shared(X.tr,c.tr).length;a+=6*shared(X.lin.map(l=>l[0]),c.lin).length;return Math.min(99,a);}
+function recCard(cls,c,metricVal,metricLab,why){
+ return `<div class="reccard ${cls}"><span class="ad">추천</span>
+   <div class="rpo"><span class="f">${c.co}</span></div>
+   <div><div class="rc-t">${c.t}</div><div class="rc-d">${c.y} · ${DN[c.d]||c.d} ${G[c.d]||''}</div><div class="rc-why">${why}</div></div>
+   <div class="rc-metric"><div class="mv">${metricVal}</div><div class="ml">${metricLab}</div></div>
+   <div class="rc-cta"><button onclick="location.href='mockup-me-watchlist.html'"><i class="ti ti-plus"></i> 워치리스트</button></div></div>`;
+}
+function renderRecs(){
+ const X=FILMS.find(f=>f.id===selId);
+ selTitle.textContent=X.t;selSub.textContent=`${DN[X.d]} · ${CON[X.co]} · ${X.y} · 내 ★${X.rt.toFixed(1)}`;
+ const Xlin=X.lin.map(l=>l[0]);
+ // SAFE ASSET
+ const safe=POOL.map(c=>[c,affinity(X,c)]).sort((a,b)=>b[1]-a[1]).slice(0,3);
+ recSafe.innerHTML=`<div class="rsh"><div class="ic" style="background:#0e211c;color:#8ee3cc"><i class="ti ti-shield-check"></i></div>
+   <div><div class="nm" style="color:#8ee3cc">안전자산</div><div class="sb">검증된 감동의 연장 · 안전자산 확보</div></div></div>`+
+   safe.map(([c,a])=>{const sd=c.d===X.d;const why=sd?`<b>${DN[c.d]} 계보</b> 직속 — 같은 결의 만족이 보증됩니다.`
+     :`공유 ${MV[c.d]===MV[X.d]?'사조':'트로프'} · <b>${shared(X.tr,c.tr).map(k=>TR[k]).join('·')||'근접 미학'}</b>`;
+     return recCard('safe',c,a,'친연도',why);}).join('');
+ // FRONTIER (새로운 도전)
+ const front=POOL.filter(c=>!MYCO.has(c.co)).sort((a,b)=>b.dc-a.dc).slice(0,3);
+ recFront.innerHTML=`<div class="rsh"><div class="ic" style="background:#0d1c2c;color:#9cc8f3"><i class="ti ti-compass"></i></div>
+   <div><div class="nm" style="color:#9cc8f3">안전한 모험</div><div class="sb">새로운 도전 · 미답 영역 + 안전망</div></div></div>`+
+   front.map(c=>{const anc=shared(Xlin,c.lin).filter(k=>LIN[k][1]==='canon');
+     const why=`새 영역 <b>${CON[c.co]}</b> · 안전망 ${anc.length?LIN[anc[0]][0]:'높은 정전 위상'}`;
+     return recCard('frontier',c,c.dc,'발굴',why);}).join('');
+ // CONQUER (도장깨기)
+ const seenDir=FILMS.filter(f=>f.d===X.d).length;const sameDir=POOL.filter(c=>c.d===X.d);
+ let head,items;
+ if(sameDir.length&&REP[X.d]){head=`${DN[X.d]} · <b style="color:var(--conquer)">${seenDir}/${REP[X.d]}</b> · 잔여 ${REP[X.d]-seenDir}`;
+   items=sameDir.sort((a,b)=>b.pr-a.pr);}
+ else{const ck=Xlin.filter(k=>MYCOV[k]!=null).sort((a,b)=>MYCOV[b]-MYCOV[a])[0]||'sands';
+   head=`${LIN[ck][0]} · <b style="color:var(--conquer)">${MYCOV[ck]||0}%</b> 달성`;
+   items=POOL.filter(c=>c.lin.includes(ck)).sort((a,b)=>b.pr-a.pr).slice(0,3);}
+ recConq.innerHTML=`<div class="rsh"><div class="ic" style="background:#220a08;color:#f2b3b0"><i class="ti ti-flag"></i></div>
+   <div><div class="nm" style="color:#f2b3b0">리니지 완파</div><div class="sb">도장깨기 · 계보를 끝까지</div></div><div class="prog">${head}</div></div>`+
+   (items.length?items.slice(0,3).map(c=>recCard('conquer',c,'+1','도장',
+     `이 계보의 다음 도장 — <b>${c.t}</b> 하나로 진척.`)).join(''):'<div class="note">이 계보는 이미 완파했습니다.</div>');
+}
+function renderChips(){
+ const c=[];if(st.scoreMin>0)c.push(['scoreMin','정전가 ≥ '+st.scoreMin]);if(st.rateMin>0)c.push(['rateMin','별점 ≥ '+st.rateMin.toFixed(1)]);
+ st.vals.forEach(v=>c.push(['vals:'+v,VALN[v]]));st.decades.forEach(d=>c.push(['decades:'+d,d+'년대']));
+ st.cos.forEach(x=>c.push(['cos:'+x,CON[x]]));st.gt.forEach(x=>c.push(['gt:'+x,x]));st.lins.forEach(x=>c.push(['lins:'+x,LIN[x][0]]));
+ st.depth.forEach(x=>c.push(['depth:'+x,x.startsWith('av:')?SVC[x.slice(3)]:({wrote:'내 오독',read:'오독 읽음',rewatch:'다시 본'}[x])]));
+ actchips.innerHTML=c.length?c.map(([id,l])=>`<span class="ac" data-id="${id}">${l} <i class="ti ti-x"></i></span>`).join('')+`<span class="ac" data-id="__all" style="color:var(--red)">전체 해제</span>`:'';
+ actchips.querySelectorAll('.ac').forEach(el=>el.onclick=()=>{const id=el.dataset.id;
+   if(id==='__all'){st={scoreMin:0,rateMin:0,vals:new Set(),decades:new Set(),cos:new Set(),gt:new Set(),lins:new Set(),depth:new Set(),sort:st.sort};
+     scoreMin.value=0;rateMin.value=0;scoreOut.textContent='0';rateOut.textContent='0.0';renderAll();return;}
+   if(id==='scoreMin'){st.scoreMin=0;scoreMin.value=0;scoreOut.textContent='0';}
+   else if(id==='rateMin'){st.rateMin=0;rateMin.value=0;rateOut.textContent='0.0';}
+   else{const[g,k]=id.split(/:(.+)/);st[g].delete(g==='decades'?+k:k);}renderAll();});
+}
+function renderAll(){renderFacets();renderList();renderChips();renderRecs();}
+scoreMin.oninput=e=>{st.scoreMin=+e.target.value;scoreOut.textContent=e.target.value;renderAll();};
+rateMin.oninput=e=>{st.rateMin=+e.target.value;rateOut.textContent=(+e.target.value).toFixed(1);renderAll();};
+sort.onchange=e=>{st.sort=e.target.value;renderList();};
+renderAll();
+</script>
+</body>
+</html>

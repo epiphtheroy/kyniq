@@ -1,0 +1,1001 @@
+Film_TMDB_ID,Film_Title,Film_Director_Name
+,Before Midnight,Richard Linklater
+,1917,Sam Mendes
+,Dunkirk,Christopher Nolan
+,The Dark Knight Rises,Christopher Nolan
+,12 Years a Slave,Steve McQueen
+,Mother,Bong Joon Ho
+,Before Sunset,Richard Linklater
+,Rushmore,Wes Anderson
+,Malcolm X,Spike Lee
+,The Birds,Alfred Hitchcock
+,Star Wars: The Last Jedi,Rian Johnson
+,The Prestige,Christopher Nolan
+,The Hurt Locker,Kathryn Bigelow
+,Eddington,Ari Aster
+,Nosferatu,Robert Eggers
+,Killers of the Flower Moon,Martin Scorsese
+,The Northman,Robert Eggers
+,BlacKkKlansman,Spike Lee
+,Isle of Dogs,Wes Anderson
+,Walk Up,Hong Sang-soo
+,In Front of Your Face,Hong Sang-soo
+,Grass,Hong Sang-soo
+,If Beale Street Could Talk,Barry Jenkins
+,Bring Her Back,Danny Philippou
+,Weapons,Zach Cregger
+,Look Back,Kiyotaka Oshiyama
+,All Quiet on the Western Front,Edward Berger
+,Barbarian,Zach Cregger
+,The Invisible Man,Leigh Whannell
+,Apollo 11,Todd Douglas Miller
+,Eighth Grade,Bo Burnham
+,A Dangerous Method,David Cronenberg
+,Shutter Island,Martin Scorsese
+,No Other Land,Basel Adra
+,20 Days in Mariupol,Mstyslav Chernov
+,All the Beauty and the Bloodshed,Laura Poitras
+,Undine,Christian Petzold
+,For Sama,Waad Al-Kateab
+,Synonyms,Nadav Lapid
+,3 Faces,Jafar Panahi
+,Dogman,Matteo Garrone
+,Leave No Trace,Debra Granik
+,Claire's Camera,Hong Sang-soo
+,The Day After,Hong Sang-soo
+,Paterson,Jim Jarmusch
+,Silence,Martin Scorsese
+,Louder Than Bombs,Joachim Trier
+,"Two Days, One Night",Jean-Pierre Dardenne
+,In Another Country,Hong Sang-soo
+,Like Someone in Love,Abbas Kiarostami
+,Alps,Yorgos Lanthimos
+,"Oslo, August 31st",Joachim Trier
+,Play,Ruben Ostlund
+,Tomboy,Celine Sciamma
+,Certified Copy,Abbas Kiarostami
+,The Death of Stalin,Armando Iannucci
+,Hell or High Water,David Mackenzie
+,Sing Street,John Carney
+,Amy,Asif Kapadia
+,The Raid 2,Gareth Evans
+,When Marnie Was There,Hiromasa Yonebayashi
+,Blue Is the Warmest Color,Abdellatif Kechiche
+,New World,Park Hoon-jung
+,Looper,Rian Johnson
+,Prometheus,Ridley Scott
+,The Place Beyond the Pines,Derek Cianfrance
+,Zero Dark Thirty,Kathryn Bigelow
+,Exit Through the Gift Shop,Banksy
+,Polytechnique,Denis Villeneuve
+,5 Centimeters per Second,Makoto Shinkai
+,The Darjeeling Limited,Wes Anderson
+,A Bittersweet Life,Kim Jee-woon
+,The Life Aquatic with Steve Zissou,Wes Anderson
+,Gangs of New York,Martin Scorsese
+,Spider,David Cronenberg
+,Joint Security Area,Park Chan-wook
+,"O Brother, Where Art Thou?",Joel Coen
+,Traffic,Steven Soderbergh
+,Bringing Out the Dead,Martin Scorsese
+,The Virgin Suicides,Sofia Coppola
+,Following,Christopher Nolan
+,Amistad,Steven Spielberg
+,Hard Eight,Paul Thomas Anderson
+,The Flower of My Secret,Pedro Almodovar
+,The Hudsucker Proxy,Joel Coen
+,The Age of Innocence,Martin Scorsese
+,High Heels,Pedro Almodovar
+,Tie Me Up! Tie Me Down!,Pedro Almodovar
+,Matador,Pedro Almodovar
+,After Hours,Martin Scorsese
+,The Elephant Man,David Lynch
+,Alice Doesn't Live Here Anymore,Martin Scorsese
+,Duel,Steven Spielberg
+,Spartacus,Stanley Kubrick
+,Demon Slayer: Infinity Castle,Haruo Sotozaki
+,KPop Demon Hunters,Maggie Kang
+,Thunderbolts,Jake Schreier
+,Alien: Romulus,Fede Alvarez
+,Deadpool & Wolverine,Shawn Levy
+,Gladiator II,Ridley Scott
+,Wicked,Jon M. Chu
+,Godzilla Minus One,Takashi Yamazaki
+,John Wick: Chapter 4,Chad Stahelski
+,Mission: Impossible - Dead Reckoning Part One,Christopher McQuarrie
+,The Super Mario Bros. Movie,Aaron Horvath
+,Wonka,Paul King
+,Avatar: The Way of Water,James Cameron
+,Black Panther: Wakanda Forever,Ryan Coogler
+,Glass Onion: A Knives Out Mystery,Rian Johnson
+,No Time to Die,Cary Joji Fukunaga
+,Shang-Chi and the Legend of the Ten Rings,Destin Daniel Cretton
+,Spider-Man: No Way Home,Jon Watts
+,The Suicide Squad,James Gunn
+,Demon Slayer: Mugen Train,Haruo Sotozaki
+,Captain Marvel,Anna Boden
+,Frozen II,Chris Buck
+,John Wick: Chapter 3 - Parabellum,Chad Stahelski
+,Terminator: Dark Fate,Tim Miller
+,Toy Story 4,Josh Cooley
+,Aquaman,James Wan
+,Creed II,Steven Caple Jr.
+,Incredibles 2,Brad Bird
+,Mission: Impossible - Fallout,Christopher McQuarrie
+,First Reformed,Paul Schrader
+,Good Time,Benny Safdie
+,I Am Not Your Negro,Raoul Peck
+,"I, Daniel Blake",Ken Loach
+,In This Corner of the World,Sunao Katabuchi
+,Arabian Nights,Miguel Gomes
+,A Pigeon Sat on a Branch Reflecting on Existence,Roy Andersson
+,Leviathan,Andrey Zvyagintsev
+,The Kindergarten Teacher,Nadav Lapid
+,Borgman,Alex van Warmerdam
+,Omar,Hany Abu-Assad
+,Stray Dogs,Tsai Ming-liang
+,Pieta,Kim Ki-duk
+,Tabu,Miguel Gomes
+,Wadjda,Haifaa al-Mansour
+,Attenberg,Athina Rachel Tsangari
+,Nostalgia for the Light,Patricio Guzman
+,Antichrist,Lars von Trier
+,Dogtooth,Yorgos Lanthimos
+,24 City,Jia Zhangke
+,Reprise,Joachim Trier
+,Cache,Michael Haneke
+,Manderlay,Lars von Trier
+,Three Times,Hou Hsiao-hsien
+,The World,Jia Zhangke
+,Elephant,Gus Van Sant
+,Time of the Wolf,Michael Haneke
+,25th Hour,Spike Lee
+,Far from Heaven,Todd Haynes
+,Punch-Drunk Love,Paul Thomas Anderson
+,Ten,Abbas Kiarostami
+,Unknown Pleasures,Jia Zhangke
+,Millennium Mambo,Hou Hsiao-hsien
+,The Piano Teacher,Michael Haneke
+,Barking Dogs Never Bite,Bong Joon Ho
+,Dancer in the Dark,Lars von Trier
+,Not One Less,Zhang Yimou
+,Peppermint Candy,Lee Chang-dong
+,The Road Home,Zhang Yimou
+,The Wind Will Carry Us,Abbas Kiarostami
+,The Idiots,Lars von Trier
+,Green Fish,Lee Chang-dong
+,Lost Highway,David Lynch
+,Crash,David Cronenberg
+,Dead Man,Jim Jarmusch
+,Maborosi,Hirokazu Kore-eda
+,Safe,Todd Haynes
+,Ashes of Time,Wong Kar-wai
+,Lessons of Darkness,Werner Herzog
+,The Story of Qiu Ju,Zhang Yimou
+,Europa,Lars von Trier
+,My Own Private Idaho,Gus Van Sant
+,The Double Life of Veronique,Krzysztof Kieslowski
+,Until the End of the World,Wim Wenders
+,Close-Up,Abbas Kiarostami
+,Dekalog,Krzysztof Kieslowski
+,The Seventh Continent,Michael Haneke
+,A Short Film About Killing,Krzysztof Kieslowski
+,As Tears Go By,Wong Kar-wai
+,Red Sorghum,Zhang Yimou
+,Where Is the Friend's House?,Abbas Kiarostami
+,Dust in the Wind,Hou Hsiao-hsien
+,A Time to Live and a Time to Die,Hou Hsiao-hsien
+,Stranger Than Paradise,Jim Jarmusch
+,The Element of Crime,Lars von Trier
+,L'Argent,Robert Bresson
+,The King of Comedy,Martin Scorsese
+,Veronika Voss,Rainer Werner Fassbinder
+,Berlin Alexanderplatz,Rainer Werner Fassbinder
+,Kagemusha,Akira Kurosawa
+,The Last Metro,Francois Truffaut
+,Nosferatu the Vampyre,Werner Herzog
+,Autumn Sonata,Ingmar Bergman
+,In a Year of 13 Moons,Rainer Werner Fassbinder
+,Stroszek,Werner Herzog
+,That Obscure Object of Desire,Luis Bunuel
+,The American Friend,Wim Wenders
+,Heart of Glass,Werner Herzog
+,Kings of the Road,Wim Wenders
+,Dersu Uzala,Akira Kurosawa
+,Fox and His Friends,Rainer Werner Fassbinder
+,The Passenger,Michelangelo Antonioni
+,The Story of Adele H.,Francois Truffaut
+,Alice in the Cities,Wim Wenders
+,Effi Briest,Rainer Werner Fassbinder
+,Lancelot du Lac,Robert Bresson
+,The Enigma of Kaspar Hauser,Werner Herzog
+,The Phantom of Liberty,Luis Bunuel
+,Amarcord,Federico Fellini
+,Day for Night,Francois Truffaut
+,World on a Wire,Rainer Werner Fassbinder
+,Frenzy,Alfred Hitchcock
+,The Bitter Tears of Petra von Kant,Rainer Werner Fassbinder
+,Even Dwarfs Started Small,Werner Herzog
+,The Wild Child,Francois Truffaut
+,Tristana,Luis Bunuel
+,Zabriskie Point,Michelangelo Antonioni
+,Satyricon,Federico Fellini
+,Hour of the Wolf,Ingmar Bergman
+,Shame,Ingmar Bergman
+,Stolen Kisses,Francois Truffaut
+,La Chinoise,Jean-Luc Godard
+,Mouchette,Robert Bresson
+,Weekend,Jean-Luc Godard
+,Masculin Feminin,Jean-Luc Godard
+,Alphaville,Jean-Luc Godard
+,Juliet of the Spirits,Federico Fellini
+,Red Beard,Akira Kurosawa
+,Simon of the Desert,Luis Bunuel
+,Marnie,Alfred Hitchcock
+,Sanjuro,Akira Kurosawa
+,The Exterminating Angel,Luis Bunuel
+,Vivre sa vie,Jean-Luc Godard
+,La Notte,Michelangelo Antonioni
+,Une Femme est une Femme,Jean-Luc Godard
+,Shoot the Piano Player,Francois Truffaut
+,The Bad Sleep Well,Akira Kurosawa
+,The Virgin Spring,Ingmar Bergman
+,Good Morning,Yasujiro Ozu
+,Nazarin,Luis Bunuel
+,Equinox Flower,Yasujiro Ozu
+,The Magician,Ingmar Bergman
+,Il Grido,Michelangelo Antonioni
+,Tokyo Twilight,Yasujiro Ozu
+,A Man Escaped,Robert Bresson
+,The Killing,Stanley Kubrick
+,The Man Who Knew Too Much,Alfred Hitchcock
+,To Catch a Thief,Alfred Hitchcock
+,Dial M for Murder,Alfred Hitchcock
+,I Vitelloni,Federico Fellini
+,Summer with Monika,Ingmar Bergman
+,Diary of a Country Priest,Robert Bresson
+,Early Summer,Yasujiro Ozu
+,Strangers on a Train,Alfred Hitchcock
+,Los Olvidados,Luis Bunuel
+,Stray Dog,Akira Kurosawa
+,Drunken Angel,Akira Kurosawa
+,Rope,Alfred Hitchcock
+,Notorious,Alfred Hitchcock
+,Spellbound,Alfred Hitchcock
+,Lifeboat,Alfred Hitchcock
+,Shadow of a Doubt,Alfred Hitchcock
+,There Was a Father,Yasujiro Ozu
+,Suspicion,Alfred Hitchcock
+,Foreign Correspondent,Alfred Hitchcock
+,Rebecca,Alfred Hitchcock
+,The Lady Vanishes,Alfred Hitchcock
+,Sabotage,Alfred Hitchcock
+,The 39 Steps,Alfred Hitchcock
+,"I Was Born, But...",Yasujiro Ozu
+,L'Age d'Or,Luis Bunuel
+,The Chaser,Na Hong-jin
+,Once,John Carney
+,Sunshine,Danny Boyle
+,Mystic River,Clint Eastwood
+,Lagaan,Ashutosh Gowariker
+,Contact,Robert Zemeckis
+,Whisper of the Heart,Yoshifumi Kondo
+,Cinema Paradiso,Giuseppe Tornatore
+,Evil Dead II,Sam Raimi
+,Carrie,Brian De Palma
+,The Omen,Richard Donner
+,Alien: Covenant,Ridley Scott
+,Baahubali 2: The Conclusion,S.S. Rajamouli
+,Guardians of the Galaxy Vol. 2,James Gunn
+,John Wick: Chapter 2,Chad Stahelski
+,Spider-Man: Homecoming,Jon Watts
+,Thor: Ragnarok,Taika Waititi
+,Captain America: Civil War,Anthony Russo
+,Dangal,Nitesh Tiwari
+,Fantastic Beasts and Where to Find Them,David Yates
+,Finding Dory,Andrew Stanton
+,Rogue One: A Star Wars Story,Gareth Edwards
+,Baahubali: The Beginning,S.S. Rajamouli
+,Jurassic World,Colin Trevorrow
+,Mission: Impossible - Rogue Nation,Christopher McQuarrie
+,Spectre,Sam Mendes
+,Star Wars: The Force Awakens,J.J. Abrams
+,Man of Steel,Zack Snyder
+,Monsters University,Dan Scanlon
+,The Hobbit: The Desolation of Smaug,Peter Jackson
+,The Hobbit: An Unexpected Journey,Peter Jackson
+,Fast Five,Justin Lin
+,Harry Potter and the Deathly Hallows: Part 2,David Yates
+,The Lost World: Jurassic Park,Steven Spielberg
+,Everyone Else,Maren Ade
+,The Time That Remains,Elia Suleiman
+,Gomorrah,Matteo Garrone
+,Il Divo,Paolo Sorrentino
+,Love Exposure,Sion Sono
+,Tokyo Sonata,Kiyoshi Kurosawa
+,The Assassination of Jesse James by the Coward Robert Ford,Andrew Dominik
+,The Edge of Heaven,Fatih Akin
+,Yella,Christian Petzold
+,"You, the Living",Roy Andersson
+,Colossal Youth,Pedro Costa
+,Offside,Jafar Panahi
+,Summer Palace,Lou Ye
+,Paradise Now,Hany Abu-Assad
+,3-Iron,Kim Ki-duk
+,Head-On,Fatih Akin
+,Mind Game,Masaaki Yuasa
+,Moolaade,Ousmane Sembene
+,Turtles Can Fly,Bahman Ghobadi
+,"Goodbye, Dragon Inn",Tsai Ming-liang
+,The Fog of War,Errol Morris
+,Divine Intervention,Elia Suleiman
+,Russian Ark,Aleksandr Sokurov
+,Beijing Bicycle,Wang Xiaoshuai
+,Pulse,Kiyoshi Kurosawa
+,What Time Is It There?,Tsai Ming-liang
+,A Time for Drunken Horses,Bahman Ghobadi
+,Chunhyang,Im Kwon-taek
+,Devils on the Doorstep,Jiang Wen
+,Songs from the Second Floor,Roy Andersson
+,Suzhou River,Lou Ye
+,The Circle,Jafar Panahi
+,The Gleaners and I,Agnes Varda
+,The Isle,Kim Ki-duk
+,Kikujiro,Takeshi Kitano
+,The Color of Paradise,Majid Majidi
+,Eternity and a Day,Theo Angelopoulos
+,The Apple,Samira Makhmalbaf
+,The Celebration,Thomas Vinterberg
+,Children of Heaven,Majid Majidi
+,Cure,Kiyoshi Kurosawa
+,The Eel,Shohei Imamura
+,A Moment of Innocence,Mohsen Makhmalbaf
+,Gabbeh,Mohsen Makhmalbaf
+,La Ceremonie,Claude Chabrol
+,The White Balloon,Jafar Panahi
+,Ulysses' Gaze,Theo Angelopoulos
+,In the Heat of the Sun,Jiang Wen
+,Vive L'Amour,Tsai Ming-liang
+,Sonatine,Takeshi Kitano
+,Sopyonje,Im Kwon-taek
+,The Blue Kite,Tian Zhuangzhuang
+,Center Stage,Stanley Kwan
+,La Belle Noiseuse,Jacques Rivette
+,Black Rain,Shohei Imamura
+,Landscape in the Mist,Theo Angelopoulos
+,Salaam Bombay!,Mira Nair
+,A Chinese Ghost Story,Ching Siu-tung
+,A Taxing Woman,Juzo Itami
+,Rouge,Stanley Kwan
+,The Green Ray,Eric Rohmer
+,The Terrorizers,Edward Yang
+,Taipei Story,Edward Yang
+,Vagabond,Agnes Varda
+,Yellow Earth,Chen Kaige
+,A nos amours,Maurice Pialat
+,El Sur,Victor Erice
+,Pauline at the Beach,Eric Rohmer
+,The Fourth Man,Paul Verhoeven
+,Being There,Hal Ashby
+,Vengeance Is Mine,Shohei Imamura
+,Soldier of Orange,Paul Verhoeven
+,The Chess Players,Satyajit Ray
+,Cria Cuervos,Carlos Saura
+,Grey Gardens,Albert Maysles
+,"Jeanne Dielman, 23 quai du Commerce",Chantal Akerman
+,The Lost Honour of Katharina Blum,Volker Schlondorff
+,The Travelling Players,Theo Angelopoulos
+,Celine and Julie Go Boating,Jacques Rivette
+,We All Loved Each Other So Much,Ettore Scola
+,The Mother and the Whore,Jean Eustache
+,Turkish Delight,Paul Verhoeven
+,Death in Venice,Luchino Visconti
+,Harold and Maude,Hal Ashby
+,Trafic,Jacques Tati
+,Claire's Knee,Eric Rohmer
+,Days and Nights in the Forest,Satyajit Ray
+,Investigation of a Citizen Above Suspicion,Elio Petri
+,Le Boucher,Claude Chabrol
+,The Spider's Stratagem,Bernardo Bertolucci
+,Boy,Nagisa Oshima
+,Funeral Parade of Roses,Toshio Matsumoto
+,Kes,Ken Loach
+,My Night at Maud's,Eric Rohmer
+,The Cow,Dariush Mehrjui
+,Death by Hanging,Nagisa Oshima
+,Kuroneko,Kaneto Shindo
+,Teorema,Pier Paolo Pasolini
+,Samurai Rebellion,Masaki Kobayashi
+,The Young Girls of Rochefort,Jacques Demy
+,Nayak,Satyajit Ray
+,The Sword of Doom,Kihachi Okamoto
+,Young Torless,Volker Schlondorff
+,Le Bonheur,Agnes Varda
+,Subarnarekha,Ritwik Ghatak
+,Before the Revolution,Bernardo Bertolucci
+,Gertrud,Carl Theodor Dreyer
+,Pale Flower,Masahiro Shinoda
+,The Gospel According to St. Matthew,Pier Paolo Pasolini
+,An Actor's Revenge,Kon Ichikawa
+,The Big City,Satyajit Ray
+,The Insect Woman,Shohei Imamura
+,Il Sorpasso,Dino Risi
+,La Jetee,Chris Marker
+,Le Doulos,Jean-Pierre Melville
+,Mamma Roma,Pier Paolo Pasolini
+,Accattone,Pier Paolo Pasolini
+,Aimless Bullet,Yu Hyun-mok
+,Divorce Italian Style,Pietro Germi
+,"Leon Morin, Priest",Jean-Pierre Melville
+,Pigs and Battleships,Shohei Imamura
+,Le Trou,Jacques Becker
+,Mughal-e-Azam,K. Asif
+,Purple Noon,Rene Clement
+,The Cloud-Capped Star,Ritwik Ghatak
+,The Housemaid,Kim Ki-young
+,The Naked Island,Kaneto Shindo
+,When a Woman Ascends the Stairs,Mikio Naruse
+,Fires on the Plain,Kon Ichikawa
+,Kaagaz Ke Phool,Guru Dutt
+,Cairo Station,Youssef Chahine
+,Mother India,Mehboob Khan
+,Pyaasa,Guru Dutt
+,The Burmese Harp,Kon Ichikawa
+,Floating Clouds,Mikio Naruse
+,French Cancan,Jean Renoir
+,Senso,Luchino Visconti
+,Twenty-Four Eyes,Keisuke Kinoshita
+,Do Bigha Zamin,Bimal Roy
+,Mr. Hulot's Holiday,Jacques Tati
+,Casque d'Or,Jacques Becker
+,Forbidden Games,Rene Clement
+,Le Plaisir,Max Ophuls
+,Orpheus,Jean Cocteau
+,Spring in a Small Town,Fei Mu
+,Day of Wrath,Carl Theodor Dreyer
+,Le Corbeau,Henri-Georges Clouzot
+,Ossessione,Luchino Visconti
+,Aniki Bobo,Manoel de Oliveira
+,La Bete Humaine,Jean Renoir
+,Street Angel,Yuan Muzhi
+,The Goddess,Wu Yonggang
+,The Testament of Dr. Mabuse,Fritz Lang
+,Boudu Saved from Drowning,Jean Renoir
+,Vampyr,Carl Theodor Dreyer
+,Pandora's Box,G.W. Pabst
+,Spies,Fritz Lang
+,Faust,F.W. Murnau
+,The General,Buster Keaton
+,Master of the House,Carl Theodor Dreyer
+,Die Nibelungen,Fritz Lang
+,The Last Laugh,F.W. Murnau
+,Dr. Mabuse the Gambler,Fritz Lang
+,The Phantom Carriage,Victor Sjostrom
+,Nouvelle Vague,Richard Linklater
+,Babylon,Damien Chazelle
+,Crimes of the Future,David Cronenberg
+,Kimi,Steven Soderbergh
+,The Fabelmans,Steven Spielberg
+,Licorice Pizza,Paul Thomas Anderson
+,Nightmare Alley,Guillermo del Toro
+,Red Rocket,Sean Baker
+,Spencer,Pablo Larrain
+,The Tragedy of Macbeth,Joel Coen
+,Da 5 Bloods,Spike Lee
+,Summer of 85,Francois Ozon
+,The Man Who Sold His Skin,Kaouther Ben Hania
+,Young Ahmed,Jean-Pierre Dardenne
+,By the Grace of God,Francois Ozon
+,First Man,Damien Chazelle
+,High Life,Claire Denis
+,Shadow,Zhang Yimou
+,The Ballad of Buster Scruggs,Joel Coen
+,The Phoenician Scheme,Wes Anderson
+,Tenet,Christopher Nolan
+,3 Idiots,Rajkumar Hirani
+,Harry Potter and the Half-Blood Prince,David Yates
+,Harry Potter and the Order of the Phoenix,David Yates
+,Harry Potter and the Goblet of Fire,Mike Newell
+,Star Wars: Episode III - Revenge of the Sith,George Lucas
+,Pirates of the Caribbean: The Curse of the Black Pearl,Gore Verbinski
+,Harry Potter and the Chamber of Secrets,Chris Columbus
+,GoldenEye,Martin Campbell
+,Rocky III,Sylvester Stallone
+,Rocky II,Sylvester Stallone
+,From Russia with Love,Terence Young
+,Die My Love,Lynne Ramsay
+,If I Had Legs I'd Kick You,Mary Bronstein
+,Materialists,Celine Song
+,"Sorry, Baby",Eva Victor
+,Black Box Diaries,Shiori Ito
+,Love Lies Bleeding,Rose Glass
+,MaXXXine,Ti West
+,Queer,Luca Guadagnino
+,Santosh,Sandhya Suri
+,Sugarcane,Julian Brave NoiseCat
+,The First Omen,Arkasha Stevenson
+,Afire,Christian Petzold
+,American Fiction,Cord Jefferson
+,Beyond Utopia,Madeleine Gavin
+,Close Your Eyes,Victor Erice
+,Dream Scenario,Kristoffer Borgli
+,Late Night with the Devil,Cameron Cairnes
+,The Old Oak,Ken Loach
+,"Argentina, 1985",Santiago Mitre
+,Armageddon Time,James Gray
+,Bones and All,Luca Guadagnino
+,Fire of Love,Sara Dosa
+,Annette,Leos Carax
+,Happening,Audrey Diwan
+,Judas and the Black Messiah,Shaka King
+,Passing,Rebecca Hall
+,Pig,Michael Sarnoski
+,The Card Counter,Paul Schrader
+,The Hand of God,Paolo Sorrentino
+,Dick Johnson Is Dead,Kirsten Johnson
+,Ma Rainey's Black Bottom,George C. Wolfe
+,Never Rarely Sometimes Always,Eliza Hittman
+,One Night in Miami,Regina King
+,Time,Garrett Bradley
+,Ad Astra,James Gray
+,American Factory,Steven Bognar
+,It Must Be Heaven,Elia Suleiman
+,Les Miserables,Ladj Ly
+,Monos,Alejandro Landes
+,Saint Maud,Rose Glass
+,The Last Black Man in San Francisco,Joe Talbot
+,Mid90s,Jonah Hill
+,Non-Fiction,Olivier Assayas
+,Rafiki,Wanuri Kahiu
+,The Spy Gone North,Yoon Jong-bin
+,Transit,Christian Petzold
+,Tumbbad,Rahi Anil Barve
+,Vox Lux,Brady Corbet
+,Wildlife,Paul Dano
+,Let the Sunshine In,Claire Denis
+,The Meyerowitz Stories,Noah Baumbach
+,The Square,Ruben Ostlund
+,Thelma,Joachim Trier
+,Everybody Wants Some!!,Richard Linklater
+,Julieta,Pedro Almodovar
+,Neruda,Pablo Larrain
+,Mistress America,Noah Baumbach
+,Mountains May Depart,Jia Zhangke
+,Tangerine,Sean Baker
+,Girlhood,Celine Sciamma
+,Enemy,Denis Villeneuve
+,Nymphomaniac,Lars von Trier
+,Only Lovers Left Alive,Jim Jarmusch
+,Stoker,Park Chan-wook
+,The Grandmaster,Wong Kar-wai
+,The Past,Asghar Farhadi
+,In the House,Francois Ozon
+,Lincoln,Steven Spielberg
+,No,Pablo Larrain
+,Bernie,Richard Linklater
+,Greenberg,Noah Baumbach
+,Chainsaw Man - The Movie: Reze Arc,Tatsuya Yoshihara
+,Mission: Impossible - The Final Reckoning,Christopher McQuarrie
+,The Monkey,Osgood Perkins
+,Warfare,Alex Garland
+,A Quiet Place: Day One,Michael Sarnoski
+,Abigail,Matt Bettinelli-Olpin
+,Exhuma,Jang Jae-hyun
+,Heretic,Scott Beck
+,Joker: Folie a Deux,Todd Phillips
+,Rebel Ridge,Jeremy Saulnier
+,Terrifier 3,Damien Leone
+,We Live in Time,John Crowley
+,12.12: The Day,Kim Sung-su
+,Guardians of the Galaxy Vol. 3,James Gunn
+,Nimona,Nick Bruno
+,Navalny,Daniel Roher
+,Scream,Matt Bettinelli-Olpin
+,Smile,Parker Finn
+,Terrifier 2,Damien Leone
+,The First Slam Dunk,Takehiko Inoue
+,Don't Look Up,Adam McKay
+,Jujutsu Kaisen 0,Sunghoo Park
+,The Black Phone,Scott Derrickson
+,The Matrix Resurrections,Lana Wachowski
+,The Mitchells vs. the Machines,Mike Rianda
+,A Quiet Place Part II,John Krasinski
+,Palm Springs,Max Barbakow
+,Booksmart,Olivia Wilde
+,Children of the Sea,Ayumu Watanabe
+,Doctor Sleep,Mike Flanagan
+,Extreme Job,Lee Byeong-heon
+,Gully Boy,Zoya Akhtar
+,Hustlers,Lorene Scafaria
+,It Chapter Two,Andy Muschietti
+,Klaus,Sergio Pablos
+,Ride Your Wave,Masaaki Yuasa
+,Rocketman,Dexter Fletcher
+,Andhadhun,Sriram Raghavan
+,Game Night,John Francis Daley
+,Halloween,David Gordon Green
+,Maquia: When the Promised Flower Blooms,Mari Okada
+,Mirai,Mamoru Hosoda
+,Stree,Amar Kaushik
+,Three Identical Strangers,Tim Wardle
+,Won't You Be My Neighbor?,Morgan Neville
+,Pacific Rim,Guillermo del Toro
+,The Garden of Words,Makoto Shinkai
+,The World's End,Edgar Wright
+,The Girl with the Dragon Tattoo,David Fincher
+,True Grit,Joel Coen
+,The Woman Who Ran,Hong Sang-soo
+,120 BPM (Beats per Minute),Robin Campillo
+,A Fantastic Woman,Sebastian Lelio
+,Beach Rats,Eliza Hittman
+,Custody,Xavier Legrand
+,Faces Places,Agnes Varda
+,Foxtrot,Samuel Maoz
+,God's Own Country,Francis Lee
+,Ingrid Goes West,Matt Spicer
+,Lean on Pete,Andrew Haigh
+,Mudbound,Dee Rees
+,The Insult,Ziad Doueiri
+,"The Night Is Short, Walk On Girl",Masaaki Yuasa
+,Thoroughbreds,Cory Finley
+,Elle,Paul Verhoeven
+,Personal Shopper,Olivier Assayas
+,The Lost City of Z,James Gray
+,Weiner,Josh Kriegman
+,45 Years,Andrew Haigh
+,Beasts of No Nation,Cary Joji Fukunaga
+,Cartel Land,Matthew Heineman
+,Embrace of the Serpent,Ciro Guerra
+,Green Room,Jeremy Saulnier
+,Masaan,Neeraj Ghaywan
+,Mustang,Deniz Gamze Erguven
+,Taxi,Jafar Panahi
+,"Black Coal, Thin Ice",Diao Yinan
+,Clouds of Sils Maria,Olivier Assayas
+,Phoenix,Christian Petzold
+,Still the Water,Naomi Kawase
+,Blue Ruin,Jeremy Saulnier
+,The Great Beauty,Paolo Sorrentino
+,The Lunchbox,Ritesh Batra
+,Beasts of the Southern Wild,Benh Zeitlin
+,Gangs of Wasseypur,Anurag Kashyap
+,The Imposter,Bart Layton
+,Weekend,Andrew Haigh
+,Blue Valentine,Derek Cianfrance
+,Carlos,Olivier Assayas
+,Of Gods and Men,Xavier Beauvois
+,The Yellow Sea,Na Hong-jin
+,Winter's Bone,Debra Granik
+,Che: Part One,Steven Soderbergh
+,Medicine for Melancholy,Barry Jenkins
+,Milk,Gus Van Sant
+,Three Monkeys,Nuri Bilge Ceylan
+,Eastern Promises,David Cronenberg
+,I'm Not There,Todd Haynes
+,Paranoid Park,Gus Van Sant
+,Water Lilies,Celine Sciamma
+,A Scanner Darkly,Richard Linklater
+,Fireworks Wednesday,Asghar Farhadi
+,Marie Antoinette,Sofia Coppola
+,The Fountain,Darren Aronofsky
+,Lady Vengeance,Park Chan-wook
+,Munich,Steven Spielberg
+,The Beat That My Heart Skipped,Jacques Audiard
+,The Squid and the Whale,Noah Baumbach
+,21 Grams,Alejandro Gonzalez Inarritu
+,Sympathy for Mr. Vengeance,Park Chan-wook
+,Read My Lips,Jacques Audiard
+,The Devil's Backbone,Guillermo del Toro
+,The Man Who Wasn't There,Joel Coen
+,Waking Life,Richard Linklater
+,Under the Sand,Francois Ozon
+,Ghost Dog: The Way of the Samurai,Jim Jarmusch
+,The Limey,Steven Soderbergh
+,The Straight Story,David Lynch
+,eXistenZ,David Cronenberg
+,Pi,Darren Aronofsky
+,Velvet Goldmine,Todd Haynes
+,Bottle Rocket,Wes Anderson
+,Pom Poko,Isao Takahata
+,Cronos,Guillermo del Toro
+,Twin Peaks: Fire Walk with Me,David Lynch
+,Jungle Fever,Spike Lee
+,Night on Earth,Jim Jarmusch
+,Mo' Better Blues,Spike Lee
+,Slacker,Richard Linklater
+,Wild at Heart,David Lynch
+,Drugstore Cowboy,Gus Van Sant
+,Mystery Train,Jim Jarmusch
+,"Sex, Lies, and Videotape",Steven Soderbergh
+,Empire of the Sun,Steven Spielberg
+,A Better Tomorrow,John Woo
+,Down by Law,Jim Jarmusch
+,She's Gotta Have It,Spike Lee
+,The Color Purple,Steven Spielberg
+,"I, Tonya",Craig Gillespie
+,The Disaster Artist,James Franco
+,Wind River,Taylor Sheridan
+,Hacksaw Ridge,Mel Gibson
+,Shin Godzilla,Hideaki Anno
+,The Conjuring 2,James Wan
+,Creed,Ryan Coogler
+,The Boy and the Beast,Mamoru Hosoda
+,Veteran,Ryoo Seung-wan
+,American Sniper,Clint Eastwood
+,Edge of Tomorrow,Doug Liman
+,PK,Rajkumar Hirani
+,The Imitation Game,Morten Tyldum
+,Iron Man 3,Shane Black
+,21 Jump Street,Phil Lord
+,Argo,Ben Affleck
+,Sinister,Scott Derrickson
+,The Perks of Being a Wallflower,Stephen Chbosky
+,From Up on Poppy Hill,Goro Miyazaki
+,Source Code,Duncan Jones
+,Harry Potter and the Deathly Hallows: Part 1,David Yates
+,Insidious,James Wan
+,The King's Speech,Tom Hooper
+,The Man from Nowhere,Lee Jeong-beom
+,The Secret World of Arrietty,Hiromasa Yonebayashi
+,The Town,Ben Affleck
+,Burn After Reading,Joel Coen
+,The Curious Case of Benjamin Button,David Fincher
+,Inside Man,Spike Lee
+,War of the Worlds,Steven Spielberg
+,The Aviator,Martin Scorsese
+,Erin Brockovich,Steven Soderbergh
+,Alien 3,David Fincher
+,April,Dea Kulumbegashvili
+,Inside the Yellow Cocoon Shell,Pham Thien An
+,The Disciple,Chaitanya Tamhane
+,Vitalina Varela,Pedro Costa
+,The Rider,Chloe Zhao
+,Certain Women,Kelly Reichardt
+,"Right Now, Wrong Then",Hong Sang-soo
+,The Club,Pablo Larrain
+,Once Upon a Time in Anatolia,Nuri Bilge Ceylan
+,The Day He Arrives,Hong Sang-soo
+,Meek's Cutoff,Kelly Reichardt
+,I Killed My Mother,Xavier Dolan
+,Departures,Yojiro Takita
+,The Class,Laurent Cantet
+,Two Lovers,James Gray
+,Gone Baby Gone,Ben Affleck
+,Michael Clayton,Tony Gilroy
+,Letters from Iwo Jima,Clint Eastwood
+,The Wind That Shakes the Barley,Ken Loach
+,Ghost in the Shell 2: Innocence,Mamoru Oshii
+,Capturing the Friedmans,Andrew Jarecki
+,"Spring, Summer, Fall, Winter... and Spring",Kim Ki-duk
+,The Return,Andrey Zvyagintsev
+,Metropolis,Rintaro
+,American Movie,Chris Smith
+,Jin-Roh: The Wolf Brigade,Hiroyuki Okiura
+,Dil Se,Mani Ratnam
+,Hana-bi,Takeshi Kitano
+,Irma Vep,Olivier Assayas
+,Underground,Emir Kusturica
+,Crumb,Terry Zwigoff
+,Once Upon a Time in China,Tsui Hark
+,The Vanishing,George Sluizer
+,Withnail and I,Bruce Robinson
+,Re-Animator,Stuart Gordon
+,Tampopo,Juzo Itami
+,Repo Man,Alex Cox
+,Merry Christmas Mr. Lawrence,Nagisa Oshima
+,House,Nobuhiko Obayashi
+,Gimme Shelter,Albert Maysles
+,Dont Look Back,D.A. Pennebaker
+,Shock Corridor,Samuel Fuller
+,The Man Who Shot Liberty Valance,John Ford
+,Imitation of Life,Douglas Sirk
+,Rio Bravo,Howard Hawks
+,Giant,George Stevens
+,Written on the Wind,Douglas Sirk
+,All That Heaven Allows,Douglas Sirk
+,East of Eden,Elia Kazan
+,Kiss Me Deadly,Robert Aldrich
+,Johnny Guitar,Nicholas Ray
+,Pickup on South Street,Samuel Fuller
+,The Band Wagon,Vincente Minnelli
+,The Big Heat,Fritz Lang
+,A Place in the Sun,George Stevens
+,An American in Paris,Vincente Minnelli
+,The Lavender Hill Mob,Charles Crichton
+,The Man in the White Suit,Alexander Mackendrick
+,Gun Crazy,Joseph H. Lewis
+,In a Lonely Place,Nicholas Ray
+,The Asphalt Jungle,John Huston
+,Kind Hearts and Coronets,Robert Hamer
+,White Heat,Raoul Walsh
+,Letter from an Unknown Woman,Max Ophuls
+,Red River,Howard Hawks
+,The Treasure of the Sierra Madre,John Huston
+,Gilda,Charles Vidor
+,My Darling Clementine,John Ford
+,The Best Years of Our Lives,William Wyler
+,The Big Sleep,Howard Hawks
+,The Killers,Robert Siodmak
+,Detour,Edgar G. Ulmer
+,Scarlet Street,Fritz Lang
+,Laura,Otto Preminger
+,Meet Me in St. Louis,Vincente Minnelli
+,To Be or Not to Be,Ernst Lubitsch
+,How Green Was My Valley,John Ford
+,Sullivan's Travels,Preston Sturges
+,The Lady Eve,Preston Sturges
+,His Girl Friday,Howard Hawks
+,The Grapes of Wrath,John Ford
+,The Philadelphia Story,George Cukor
+,The Shop Around the Corner,Ernst Lubitsch
+,Mr. Smith Goes to Washington,Frank Capra
+,Ninotchka,Ernst Lubitsch
+,Top Hat,Mark Sandrich
+,It Happened One Night,Frank Capra
+,Trouble in Paradise,Ernst Lubitsch
+,Highest 2 Lowest,Spike Lee
+,Jay Kelly,Noah Baumbach
+,Maria,Pablo Larrain
+,Presence,Steven Soderbergh
+,Hit Man,Richard Linklater
+,Priscilla,Sofia Coppola
+,White Noise,Noah Baumbach
+,"Paris, 13th District",Jacques Audiard
+,West Side Story,Steven Spielberg
+,Dark Waters,Todd Haynes
+,Summer Wars,Mamoru Hosoda
+,Pineapple Express,David Gordon Green
+,Step Brothers,Adam McKay
+,Tropic Thunder,Ben Stiller
+,Knocked Up,Judd Apatow
+,Idiocracy,Mike Judge
+,Mission: Impossible III,J.J. Abrams
+,Fahrenheit 9/11,Michael Moore
+,Ong-Bak,Prachya Pinkaew
+,The Matrix Reloaded,Lana Wachowski
+,Bowling for Columbine,Michael Moore
+,Chicago,Rob Marshall
+,Devdas,Sanjay Leela Bhansali
+,The Cat Returns,Hiroyuki Morita
+,Moulin Rouge!,Baz Luhrmann
+,Shaolin Soccer,Stephen Chow
+,Ocean Waves,Tomomi Mochizuki
+,Mad Max Beyond Thunderdome,George Miller
+,Poltergeist,Tobe Hooper
+,Friday the 13th,Sean S. Cunningham
+,The Rocky Horror Picture Show,Jim Sharman
+,Goldfinger,Guy Hamilton
+,Dr. No,Terence Young
+,Zama,Lucrecia Martel
+,Court,Chaitanya Tamhane
+,35 Shots of Rum,Claire Denis
+,Wendy and Lucy,Kelly Reichardt
+,Climates,Nuri Bilge Ceylan
+,Distant,Nuri Bilge Ceylan
+,The Son,Jean-Pierre Dardenne
+,La Promesse,Jean-Pierre Dardenne
+,Caught by the Tides,Jia Zhangke
+,After the Hunt,Luca Guadagnino
+,Hedda,Nia DaCosta
+,Roofman,Derek Cianfrance
+,The Ballad of a Small Player,Edward Berger
+,Babygirl,Halina Reijn
+,Cuckoo,Tilman Singer
+,Friendship,Andrew DeYoung
+,Immaculate,Michael Mohan
+,In a Violent Nature,Chris Nash
+,Megalopolis,Francis Ford Coppola
+,September 5,Tim Fehlbaum
+,The Order,Justin Kurzel
+,Concrete Utopia,Um Tae-hwa
+,Origin,Ava DuVernay
+,The Promised Land,Nikolaj Arcel
+,Blonde,Andrew Dominik
+,Bodies Bodies Bodies,Halina Reijn
+,Malignant,James Wan
+,The Medium,Banjong Pisanthanakun
+,Ammonite,Francis Lee
+,Boys State,Amanda McBaine
+,Honey Boy,Alma Har'el
+,I'm No Longer Here,Fernando Frias
+,La Llorona,Jayro Bustamante
+,"The Gangster, the Cop, the Devil",Lee Won-tae
+,The Two Popes,Fernando Meirelles
+,Gonjiam: Haunted Asylum,Jung Bum-shik
+,The Witch: Part 1,Park Hoon-jung
+,Vice,Adam McKay
+,The Beguiled,Sofia Coppola
+,The Post,Steven Spielberg
+,Frantz,Francois Ozon
+,Bridge of Spies,Steven Spielberg
+,Crimson Peak,Guillermo del Toro
+,While We're Young,Noah Baumbach
+,The Bling Ring,Sofia Coppola
+,Magic Mike,Steven Soderbergh
+,Hugo,Martin Scorsese
+,Somewhere,Sofia Coppola
+,Doctor Strange,Scott Derrickson
+,Angel's Egg,Mamoru Oshii
+,Harlan County USA,Barbara Kopple
+,The Sorrow and the Pity,Marcel Ophuls
+,Titicut Follies,Frederick Wiseman
+,The Up Series,Michael Apted
+,Chronicle of a Summer,Jean Rouch
+,Kontinental 25,Radu Jude
+,Resurrection,Bi Gan
+,Black Dog,Guan Hu
+,Grand Tour,Miguel Gomes
+,On Becoming a Guinea Fowl,Rungano Nyoni
+,Sujo,Astrid Rondero
+,Universal Language,Matthew Rankin
+,Vermiglio,Maura Delpero
+,Earth Mama,Savanah Leaf
+,Green Border,Agnieszka Holland
+,The Eternal Memory,Maite Alberdi
+,R.M.N.,Cristian Mungiu
+,Ahed's Knee,Nadav Lapid
+,Nitram,Justin Kurzel
+,Prayers for the Stolen,Tatiana Huezo
+,The Souvenir Part II,Joanna Hogg
+,Beginning,Dea Kulumbegashvili
+,Shirley,Josephine Decker
+,Jallikattu,Lijo Jose Pellissery
+,Martin Eden,Pietro Marcello
+,The Painted Bird,Vaclav Marhoul
+,House of Hummingbird,Kim Bora
+,Rojo,Benjamin Naishtat
+,Beauty and the Dogs,Kaouther Ben Hania
+,Gerald's Game,Mike Flanagan
+,Tigers Are Not Afraid,Issa Lopez
+,Colossal,Nacho Vigalondo
+,Divines,Houda Benyamina
+,The Attorney,Yang Woo-suk
+,The Spectacular Now,James Ponsoldt
+,Tucker and Dale vs. Evil,Eli Craig
+,Red Cliff,John Woo
+,Broken Flowers,Jim Jarmusch
+,8 Women,Francois Ozon
+,Insomnia,Christopher Nolan
+,Panic Room,David Fincher
+,Out of Sight,Steven Soderbergh
+,The Game,David Fincher
+,To Die For,Gus Van Sant
+,Jawan,Atlee
+,K.G.F: Chapter 2,Prashanth Neel
+,The Roundup,Lee Sang-yong
+,The Conjuring: The Devil Made Me Do It,Michael Chaves
+,Wonder Woman 1984,Patty Jenkins
+,Spider-Man: Far From Home,Jon Watts
+,Star Wars: The Rise of Skywalker,J.J. Abrams
+,Jurassic World: Fallen Kingdom,J.A. Bayona
+,Solo: A Star Wars Story,Ron Howard
+,The Nun,Corin Hardy
+,Star Wars: Episode I - The Phantom Menace,George Lucas
+,Ixcanul,Jayro Bustamante
+,Kaili Blues,Bi Gan
+,Sweet Bean,Naomi Kawase
+,The Childhood of a Leader,Brady Corbet
+,Blind Massage,Lou Ye
+,Laurence Anyways,Xavier Dolan
+,Ship of Theseus,Anand Gandhi
+,Snowtown,Justin Kurzel
+,White Material,Claire Denis
+,Inland Empire,David Lynch
+,Old Joy,Kelly Reichardt
+,Trouble Every Day,Claire Denis
+,Redline,Takeshi Koike
+,We Own the Night,James Gray
+,Steamboy,Katsuhiro Otomo
+,Vampire Hunter D: Bloodlust,Yoshiaki Kawajiri
+,Drunken Master II,Lau Kar-leung
+,Say Anything...,Cameron Crowe
+,The Howling,Joe Dante
+,The Fog,John Carpenter
+,The Spy Who Loved Me,Lewis Gilbert
+,Woodstock,Michael Wadleigh
+,Along with the Gods: The Two Worlds,Kim Yong-hwa
+,Annabelle: Creation,David F. Sandberg
+,Lebanon,Samuel Maoz
+,Spring Fever,Lou Ye
+,Summer Hours,Olivier Assayas
+,Sir,Rohena Gera
