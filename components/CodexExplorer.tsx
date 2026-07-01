@@ -1,8 +1,10 @@
 "use client";
 
-/** Metatake Score explorer — server-paginated over ALL scored films.
- *  Top control panel (sort chips, decade chip-bar, country, λ dial + explainer),
- *  compact rows that expand IN PLACE (curtain) to show the sub-scores, load-more. */
+/** TakeScore explorer — server-paginated over ALL scored films.
+ *  Control panel: sort, decade chips, country, λ dial, and a collapsible
+ *  table of RANGE filters for every one of the thirteen sub-dimensions.
+ *  Rows are compact with a big TS box on the right and expand IN PLACE
+ *  (curtain) to show the sub-scores. Load-more pagination. */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
@@ -22,16 +24,40 @@ type Detail = {
 };
 
 const SORTS = [
-  { id: "u", label: "Net (MTS)" }, { id: "v", label: "Value" },
-  { id: "sharpe", label: "Efficiency" }, { id: "lowrisk", label: "Lowest risk" },
-  { id: "newest", label: "Newest" }, { id: "oldest", label: "Oldest" },
+  { id: "u", label: "TakeScore" }, { id: "v", label: "Value" },
+  { id: "c", label: "Lowest cost" }, { id: "lowrisk", label: "Lowest risk" },
+  { id: "sharpe", label: "Efficiency" }, { id: "newest", label: "Newest" }, { id: "oldest", label: "Oldest" },
 ];
-const VALUE = ["Cognitive", "Affective", "Formal", "Moral", "Durability"];
-const COST = ["Intertextual", "Formal radicalism", "Extratextual", "Auteur oeuvre"];
-const RISK = ["Bankruptcy", "Insincerity", "Cowardice", "Polarization"];
+
+// key ↔ readable label, grouped by axis. Keys match cinecodex.scores columns.
+const DIMS: { group: string; tone: string; items: { key: string; label: string }[] }[] = [
+  { group: "Value", tone: "cx-lv", items: [
+    { key: "cog", label: "Cognitive" }, { key: "aff", label: "Affective" }, { key: "form", label: "Formal" },
+    { key: "moral", label: "Moral" }, { key: "dur", label: "Durability" } ] },
+  { group: "Cost", tone: "cx-lc", items: [
+    { key: "itx", label: "Intertextual" }, { key: "fr", label: "Formal radicalism" },
+    { key: "etx", label: "Extratextual" }, { key: "ctx", label: "Auteur oeuvre" } ] },
+  { group: "Risk", tone: "cx-lr", items: [
+    { key: "bank", label: "Hollowness" }, { key: "insincere", label: "Insincerity" },
+    { key: "coward", label: "Cowardice" }, { key: "polar", label: "Polarization" } ] },
+];
+const VALUE_L = DIMS[0].items.map((i) => i.label);
+const COST_L = DIMS[1].items.map((i) => i.label);
+const RISK_L = DIMS[2].items.map((i) => i.label);
 
 let RN: Intl.DisplayNames | null = null;
 const cname = (cc: string) => { try { RN = RN || new Intl.DisplayNames(["en"], { type: "region" }); return RN.of(cc.toUpperCase()) || cc.toUpperCase(); } catch { return cc.toUpperCase(); } };
+
+/** Dual-thumb range 0–100. */
+function DualRange({ lo, hi, onChange }: { lo: number; hi: number; onChange: (lo: number, hi: number) => void }) {
+  return (
+    <div className="cxr">
+      <div className="cxr-track"><div className="cxr-fill" style={{ left: `${lo}%`, right: `${100 - hi}%` }} /></div>
+      <input type="range" min={0} max={100} value={lo} onChange={(e) => onChange(Math.min(+e.target.value, hi), hi)} />
+      <input type="range" min={0} max={100} value={hi} onChange={(e) => onChange(lo, Math.max(+e.target.value, lo))} />
+    </div>
+  );
+}
 
 function SubGroup({ label, names, sub, tone }: { label: string; names: string[]; sub: Record<string, number>; tone: string }) {
   return (
@@ -67,15 +93,15 @@ function Curtain({ slug }: { slug: string }) {
   return (
     <div className="cxd">
       <div className="cxd-cols">
-        <SubGroup label="Value" names={VALUE} sub={d.sub} tone="cx-lv" />
-        <SubGroup label="Cost" names={COST} sub={d.sub} tone="cx-lc" />
-        <SubGroup label="Risk" names={RISK} sub={d.sub} tone="cx-lr" />
+        <SubGroup label="Value" names={VALUE_L} sub={d.sub} tone="cx-lv" />
+        <SubGroup label="Cost" names={COST_L} sub={d.sub} tone="cx-lc" />
+        <SubGroup label="Risk" names={RISK_L} sub={d.sub} tone="cx-lr" />
       </div>
       {(ext.imdb || ext.rt || ext.metascore) ? (
         <div className="cxd-ext">
           <span className="cxd-extl">Alongside — not part of the score:</span>
           {ext.imdb ? <span className="cxd-chip">IMDb {ext.imdb}</span> : null}
-          {ext.rt ? <span className="cxd-chip">RT {ext.rt}%</span> : null}
+          {ext.rt ? <span className="cxd-chip">Rotten Tomatoes {ext.rt}%</span> : null}
           {ext.metascore ? <span className="cxd-chip">Metascore {ext.metascore}</span> : null}
         </div>
       ) : null}
@@ -93,6 +119,8 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
   const [q, setQ] = useState("");
   const [country, setCountry] = useState("");
   const [decade, setDecade] = useState("");
+  const [ranges, setRanges] = useState<Record<string, [number, number]>>({});
+  const [showDims, setShowDims] = useState(false);
   const [rows, setRows] = useState<CodexRow[]>(initialRows);
   const [total, setTotal] = useState(initialTotal);
   const [offset, setOffset] = useState(initialRows.length);
@@ -102,23 +130,29 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
 
   const years = decade ? { min: parseInt(decade), max: parseInt(decade) + 9 } : { min: null as number | null, max: null as number | null };
 
+  // build p_sub jsonb from any dimension whose range narrowed from [0,100]
+  const subFilter = useMemo(() => {
+    const o: Record<string, { min: number; max: number }> = {};
+    for (const [k, [lo, hi]] of Object.entries(ranges)) if (lo > 0 || hi < 100) o[k] = { min: lo, max: hi };
+    return o;
+  }, [ranges]);
+  const activeDims = Object.keys(subFilter).length;
+
   const fetchPage = useCallback(async (reset: boolean) => {
     setLoading(true);
     const off = reset ? 0 : offset;
     const { data } = await sb.rpc("cinecodex_ranked", {
       p_sort: sort, p_lambda: lam, p_q: q || null,
       p_year_min: years.min, p_year_max: years.max, p_country: country || null,
-      p_max_cost: 100, p_limit: PAGE, p_offset: off,
+      p_sub: subFilter, p_max_cost: 100, p_limit: PAGE, p_offset: off,
     });
     const res = (data as { total: number; rows: CodexRow[] } | null) ?? { total: 0, rows: [] };
     setTotal(res.total);
     setRows((prev) => reset ? res.rows : [...prev, ...res.rows]);
     setOffset(off + res.rows.length);
     setLoading(false);
-  }, [sort, lam, q, country, decade, offset]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sort, lam, q, country, decade, subFilter, offset]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // refetch (reset) when any filter changes (debounced); self-heal if the
-  // server render came back empty (e.g. stale ISR built before data landed).
   useEffect(() => {
     if (first.current) {
       first.current = false;
@@ -126,15 +160,16 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
       return;
     }
     setOpen(null);
-    const t = setTimeout(() => fetchPage(true), 280);
+    const t = setTimeout(() => fetchPage(true), 300);
     return () => clearTimeout(t);
-  }, [sort, lam, q, country, decade]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sort, lam, q, country, decade, subFilter]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const decades = useMemo(() => { const a: string[] = []; for (let d = 2020; d >= 1910; d -= 10) a.push(String(d)); return a; }, []);
+  const setRange = (k: string, lo: number, hi: number) => setRanges((p) => ({ ...p, [k]: [lo, hi] }));
 
   return (
     <>
-      {/* ── Control panel: everything you can tune, up top ── */}
+      {/* ── Control panel ── */}
       <div className="cx-panel">
         <input className="cx-search" placeholder="Search a film by title…" value={q} onChange={(e) => setQ(e.target.value)} />
 
@@ -169,22 +204,49 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
           </div>
           <span className="cx-hint">
             {sort === "u"
-              ? "MTS = Value − λ·Risk. Raise λ to punish risky films; lower it to reward ambition."
-              : "λ only shapes the Net (MTS) ranking. Switch Sort to “Net” to use it."}
+              ? "TakeScore = Value − λ·Risk. Raise λ to punish risky films; lower it to reward ambition."
+              : "λ only shapes the TakeScore ranking. Switch Sort to “TakeScore” to use it."}
           </span>
         </div>
+
+        {/* range table over all thirteen sub-dimensions */}
+        <div className="cx-ctl cx-ctl--dims">
+          <button className="cx-dimtoggle" onClick={() => setShowDims((s) => !s)} aria-expanded={showDims}>
+            {showDims ? "▾" : "▸"} Filter by dimension — set a range on any of the thirteen{activeDims ? ` · ${activeDims} active` : ""}
+          </button>
+          {activeDims ? <button className="cx-dimclear" onClick={() => setRanges({})}>Reset ranges</button> : null}
+        </div>
+        {showDims ? (
+          <div className="cx-dims">
+            {DIMS.map((g) => (
+              <div className="cx-dimg" key={g.group}>
+                <div className={`cx-dimgl ${g.tone}`}>{g.group}</div>
+                {g.items.map((it) => {
+                  const [lo, hi] = ranges[it.key] ?? [0, 100];
+                  return (
+                    <div className="cx-dimrow" key={it.key}>
+                      <span className="cx-dimn">{it.label}</span>
+                      <DualRange lo={lo} hi={hi} onChange={(a, b) => setRange(it.key, a, b)} />
+                      <span className="cx-dimv">{lo}–{hi}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        ) : null}
       </div>
 
       <div className="cx-legend2">
-        <span><b>MTS</b> net value</span><span className="cx-lv">V value ↑</span><span className="cx-lc">C cost</span><span className="cx-lr">R risk ↓</span>
-        <Link className="cx-help" href="/score/about">How the Metatake Score works →</Link>
+        <span><b>TS</b> TakeScore</span><span className="cx-lv">Value ↑</span><span className="cx-lc">Cost</span><span className="cx-lr">Risk ↓</span>
+        <Link className="cx-help" href="/takescore/about">How the TakeScore works →</Link>
         <span className="cx-total">{total.toLocaleString()} films</span>
       </div>
 
       <div className="cx-grid">
         {rows.map((f, i) => {
           const isOpen = open === f.slug + i;
-          const mts = sort === "u" ? Math.round(f.v - lam * f.r) : f.u;
+          const ts = Math.round(f.v - lam * f.r);
           return (
             <div className={`cx-item${isOpen ? " open" : ""}`} key={f.slug + i}>
               <button className="cx-row" onClick={() => setOpen(isOpen ? null : f.slug + i)} aria-expanded={isOpen}>
@@ -194,8 +256,9 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
                   : <div className="cx-th cx-th--e" />}
                 <div className="cx-info">
                   <div className="cx-t">{f.title} <span className="cx-sub">({f.year ?? "?"}{f.director ? `, ${f.director}` : ""})</span></div>
-                  <div className="cx-nums"><b>MTS {mts}</b><span className="cx-lv">V{f.v}</span><span className="cx-lc">C{f.c}</span><span className="cx-lr">R{f.r}</span></div>
+                  <div className="cx-nums"><span className="cx-lv">Value {Math.round(f.v)}</span><span className="cx-lc">Cost {Math.round(f.c)}</span><span className="cx-lr">Risk {Math.round(f.r)}</span></div>
                 </div>
+                <span className="cx-tsbox"><b>{ts}</b><i>TS</i></span>
                 <span className="cx-chev" aria-hidden>{isOpen ? "▾" : "▸"}</span>
               </button>
               {isOpen ? <Curtain slug={f.slug} /> : null}
