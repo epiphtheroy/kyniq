@@ -1,76 +1,105 @@
 "use client";
 
-/** Site-wide TakeScore (TS) poster badges.
- *  Mounted once in the root layout. Scans the page for poster images that sit
- *  inside a link to /film/<slug>, batch-loads each film's TS, and overlays a
- *  badge in the poster's top-left corner. Re-runs on DOM changes (route nav,
- *  infinite scroll). Purely additive — no layout edits in dozens of components. */
+/** Site-wide TakeScore (TS) poster badges — SAFE overlay.
+ *  Badges are rendered into a single fixed layer appended to <body> (outside the
+ *  React root) and positioned over each poster via getBoundingClientRect. We never
+ *  insert nodes into React-managed elements, so React reconciliation is untouched
+ *  (this avoids the "insertBefore … not a child" crash that a child-injection
+ *  approach caused). Purely visual; pointer-events:none so clicks pass through. */
 import { useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const cache = new Map<string, number | null>(); // slug -> TS (null = no score)
 
-function slugFromAnchor(a: HTMLAnchorElement): string | null {
+function slugFrom(img: HTMLImageElement): string | null {
+  const a = img.closest<HTMLAnchorElement>('a[href*="/film/"]');
+  if (!a) return null;
   const href = a.getAttribute("href") || "";
   const i = href.indexOf("/film/");
   if (i < 0) return null;
-  const rest = href.slice(i + 6);
-  const slug = rest.split(/[/?#]/)[0];
-  return slug || null;
+  return href.slice(i + 6).split(/[/?#]/)[0] || null;
 }
 
 export default function TakeScoreBadges() {
   useEffect(() => {
+    const layer = document.createElement("div");
+    layer.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:60";
+    document.body.appendChild(layer);
+
+    const badges = new Map<HTMLImageElement, HTMLElement>();
     let raf = 0;
 
-    async function paint(pairs: { img: HTMLImageElement; slug: string }[]) {
-      const need = [...new Set(pairs.map((p) => p.slug).filter((s) => !cache.has(s)))];
+    async function loadScores(slugs: string[]) {
+      const need = [...new Set(slugs)].filter((s) => !cache.has(s));
       for (let i = 0; i < need.length; i += 200) {
         const chunk = need.slice(i, i + 200);
-        const { data } = await sb.rpc("takescore_for_slugs", { p_slugs: chunk });
-        const rows = (data as { slug: string; ts: number }[] | null) ?? [];
-        const got = new Set<string>();
-        for (const r of rows) { cache.set(r.slug, r.ts); got.add(r.slug); }
-        for (const s of chunk) if (!got.has(s)) cache.set(s, null); // remember misses
-      }
-      for (const { img, slug } of pairs) {
-        const ts = cache.get(slug);
-        if (ts == null) continue;
-        const parent = img.parentElement;
-        if (!parent) continue;
-        if (parent.querySelector(":scope > .ts-badge")) continue;
-        const cs = getComputedStyle(parent);
-        if (cs.position === "static") parent.style.position = "relative";
-        const b = document.createElement("span");
-        b.className = "ts-badge";
-        b.innerHTML = `<b>${ts}</b><i>TS</i>`;
-        b.title = "TakeScore — durable value minus risk. Click the poster for detail.";
-        parent.appendChild(b);
+        try {
+          const { data } = await sb.rpc("takescore_for_slugs", { p_slugs: chunk });
+          const rows = (data as { slug: string; ts: number }[] | null) ?? [];
+          const got = new Set<string>();
+          for (const r of rows) { cache.set(r.slug, r.ts); got.add(r.slug); }
+          for (const s of chunk) if (!got.has(s)) cache.set(s, null);
+        } catch { for (const s of chunk) cache.set(s, null); }
       }
     }
 
-    function scan() {
+    function reposition() {
+      const vh = window.innerHeight, vw = window.innerWidth;
+      for (const [img, b] of badges) {
+        if (!img.isConnected) { b.remove(); badges.delete(img); continue; }
+        const r = img.getBoundingClientRect();
+        if (r.width < 26 || r.height < 40 || r.bottom < 0 || r.top > vh || r.right < 0 || r.left > vw) { b.style.display = "none"; continue; }
+        b.style.display = "flex";
+        b.style.left = `${Math.round(r.left + 6)}px`;
+        b.style.top = `${Math.round(r.top + 6)}px`;
+      }
+    }
+
+    async function scan() {
       const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="image.tmdb.org"]'));
-      const pairs: { img: HTMLImageElement; slug: string }[] = [];
+      const fresh: { img: HTMLImageElement; slug: string }[] = [];
       for (const img of imgs) {
-        if (img.dataset.tsDone) continue;
-        if (img.closest(".fmap")) { img.dataset.tsDone = "1"; continue; } // Atlas maps manage their own visuals
-        const a = img.closest<HTMLAnchorElement>('a[href*="/film/"]');
-        if (!a) continue;
-        const slug = slugFromAnchor(a);
+        if (img.dataset.tsSeen) continue;
+        if (img.closest(".fmap")) { img.dataset.tsSeen = "1"; continue; } // Atlas maps handle their own visuals
+        const slug = slugFrom(img);
         if (!slug) continue;
-        img.dataset.tsDone = "1";
-        pairs.push({ img, slug });
+        img.dataset.tsSeen = "1";
+        fresh.push({ img, slug });
       }
-      if (pairs.length) void paint(pairs);
+      if (fresh.length) {
+        await loadScores(fresh.map((f) => f.slug));
+        for (const { img, slug } of fresh) {
+          const ts = cache.get(slug);
+          if (ts == null || badges.has(img)) continue;
+          const b = document.createElement("span");
+          b.className = "ts-badge";
+          b.innerHTML = `<b>${ts}</b><i>TS</i>`;
+          layer.appendChild(b);
+          badges.set(img, b);
+        }
+      }
+      reposition();
     }
 
+    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(reposition); };
     const kick = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(scan); };
+
     kick();
-    const mo = new MutationObserver(kick);
+    const mo = new MutationObserver(() => kick());
     mo.observe(document.body, { childList: true, subtree: true });
-    return () => { mo.disconnect(); cancelAnimationFrame(raf); };
+    window.addEventListener("scroll", onScroll, true);
+    window.addEventListener("resize", onScroll);
+    const iv = window.setInterval(reposition, 600); // catch async image loads / layout shifts
+
+    return () => {
+      mo.disconnect();
+      window.removeEventListener("scroll", onScroll, true);
+      window.removeEventListener("resize", onScroll);
+      window.clearInterval(iv);
+      cancelAnimationFrame(raf);
+      layer.remove();
+    };
   }, []);
 
   return null;
