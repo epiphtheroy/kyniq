@@ -125,21 +125,21 @@ export default function FilmMap({
       m.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");
       m.on("error", () => {});
 
-      const dimOthers = !!(filmSlug && scope === "all");
       const addPoints = () => {
-        if (m.getSource("pts")) return;
-        m.addSource("pts", { type: "geojson", data: fcOf(layerRows), cluster: true, clusterRadius: 44, clusterMaxZoom: 9 });
-        m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26] } });
-        m.addLayer({
-          id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]],
-          paint: {
-            "circle-color": dimOthers
-              ? ["case", ["==", ["get", "mine"], "1"], "#C8102E", "#b9b1a6"]
-              : ["match", ["get", "layer"], "filmed", "#0F6E56", "#C8102E"],
-            "circle-radius": dimOthers ? ["case", ["==", ["get", "mine"], "1"], 8, 5] : 7,
-            "circle-stroke-color": "#fff", "circle-stroke-width": 1.6,
-          },
-        });
+        if (!m.getStyle() || m.getSource("pts")) return;
+        try {
+          m.addSource("pts", { type: "geojson", data: fcOf(layerRows), cluster: true, clusterRadius: 44, clusterMaxZoom: 9 });
+          m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26] } });
+          m.addLayer({
+            id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]],
+            paint: {
+              // every dot the same — setting vs filmed by colour, no dimming
+              "circle-color": ["match", ["get", "layer"], "filmed", "#0F6E56", "#C8102E"],
+              "circle-radius": 7,
+              "circle-stroke-color": "#fff", "circle-stroke-width": 1.6,
+            },
+          });
+        } catch { /* style mid-swap */ }
       };
       const updateInView = () => {
         try { const b = m.getBounds(); const w = b.getWest(), e = b.getEast(), s = b.getSouth(), n = b.getNorth();
