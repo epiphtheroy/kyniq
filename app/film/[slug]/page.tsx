@@ -258,6 +258,7 @@ export default async function FilmPage({ params }: Props) {
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 
+          <CinecodexPanel data={codex as Codex | null} title={f.title} />
           <FilmLineageSection lineage={lineage} title={f.title} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
