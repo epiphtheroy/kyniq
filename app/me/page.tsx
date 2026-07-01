@@ -13,8 +13,6 @@ type PB = {
   director?: Record<string, number>; trope?: Record<string, number>;
   canon?: Array<{ label: string; seen: number; total: number }>;
 };
-type WL = { slug: string; title: string; year: number | null; wwi: number; canon: number; lineage: number; gap: number; reason: string };
-
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "My dashboard — Metatake",
@@ -188,23 +186,8 @@ export default async function MeDashboard() {
         </section>
 
         <section style={{ marginTop: 26 }}>
-          <div className="seclbl">＋ Watchlist · {watchlist.length}{wl.length ? " · ranked by Why-Watch" : ""}</div>
-          {wl.length > 0 ? (
-            <ul className="me-list" style={{ listStyle: "none", padding: 0, margin: "10px 0 0" }}>
-              {wl.map((w) => (
-                <li key={w.slug} className="me-wl">
-                  <span className="me-wwi">{Math.round(Number(w.wwi))}</span>
-                  <div className="me-wl-b">
-                    <Link href={`/film/${w.slug}`} style={{ fontSize: 16 }}>{w.title}</Link>
-                    {w.year ? <span className="ui muted" style={{ fontSize: 13, marginLeft: 6 }}>({w.year})</span> : null}
-                    <div className="me-wl-sub">{w.reason} · <span className="ui muted">canon {Math.round(Number(w.canon))} · link {Math.round(Number(w.lineage))} · gap {Math.round(Number(w.gap))}</span></div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <MovieList rows={watchlist} />
-          )}
+          <div className="seclbl">＋ Watchlist · {watchlist.length}{wlScored.some((w) => w.v != null) ? " · ranked by TakeScore" : ""}</div>
+          {wlScored.length > 0 ? <WatchlistPipeline rows={wlScored} /> : <MovieList rows={watchlist} />}
         </section>
 
         {savedCount > 0 && (
