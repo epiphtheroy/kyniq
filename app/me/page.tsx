@@ -8,6 +8,7 @@ import WatchlistPipeline, { type WLRow } from "@/components/WatchlistPipeline";
 import PortfolioQuality, { type MeSummary } from "@/components/PortfolioQuality";
 import WatchedScored, { type WatchedRow } from "@/components/WatchedScored";
 import TasteRail, { type TasteRow } from "@/components/TasteRail";
+import WWIRail, { type WwiRow } from "@/components/WWIRail";
 import PortfolioNav, { type NavData } from "@/components/PortfolioNav";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
@@ -91,15 +92,17 @@ export default async function MeDashboard() {
     supabase.rpc("portfolio_breakdown"),
     supabase.rpc("me_watchlist_scored"),
   ]);
-  const [{ data: tsSummaryRaw }, { data: watchedScoredRaw }, { data: tasteRaw }] = await Promise.all([
+  const [{ data: tsSummaryRaw }, { data: watchedScoredRaw }, { data: tasteRaw }, { data: wwiRaw }] = await Promise.all([
     supabase.rpc("me_takescore_summary"),
     supabase.rpc("me_watched_scored"),
     supabase.rpc("me_taste_neighbors", { p_limit: 8 }),
+    supabase.rpc("me_recommend_wwi", { p_lambda: 1.0, p_limit: 12 }),
   ]);
   const { data: navRaw } = await supabase.rpc("me_portfolio_nav");
   const tsSummary = (tsSummaryRaw as MeSummary | null) ?? null;
   const watchedScored = (watchedScoredRaw as WatchedRow[] | null) ?? [];
   const taste = (tasteRaw as TasteRow[] | null) ?? [];
+  const wwi = (wwiRaw as WwiRow[] | null) ?? [];
   const navData = (navRaw as NavData | null) ?? null;
 
   // Saved (user_saves): readings/directors/lineage lists the user bookmarked
@@ -191,13 +194,22 @@ export default async function MeDashboard() {
           </section>
         )}
 
-        {taste.length > 0 && (
+        {wwi.length > 0 ? (
+          <section style={{ marginTop: 22 }}>
+            <div className="seclbl">✦ Recommended for you · the balanced call</div>
+            <p className="ui muted" style={{ fontSize: 12.5, margin: "2px 0 0" }}>
+              WWI ranks unseen films by <b>confidence × (utility · taste · standing)</b> — your taste, weighed against
+              our TakeScore and each film&rsquo;s critical standing, and gated by how well-grounded the score is.
+            </p>
+            <WWIRail rows={wwi} />
+          </section>
+        ) : taste.length > 0 ? (
           <section style={{ marginTop: 22 }}>
             <div className="seclbl">✦ Recommended for you · by taste</div>
             <p className="ui muted" style={{ fontSize: 12.5, margin: "2px 0 0" }}>Nearest to the films you rated highly — by shared readings, shown with their TakeScore.</p>
             <TasteRail rows={taste} />
           </section>
-        )}
+        ) : null}
 
         <section style={{ marginTop: 22 }}>
           <div className="seclbl">＋ Add a film</div>
