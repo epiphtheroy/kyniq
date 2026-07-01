@@ -55,6 +55,7 @@ export default function TakeScoreBadges() {
       const pairs: { img: HTMLImageElement; slug: string }[] = [];
       for (const img of imgs) {
         if (img.dataset.tsDone) continue;
+        if (img.closest(".fmap")) { img.dataset.tsDone = "1"; continue; } // Atlas maps manage their own visuals
         const a = img.closest<HTMLAnchorElement>('a[href*="/film/"]');
         if (!a) continue;
         const slug = slugFromAnchor(a);

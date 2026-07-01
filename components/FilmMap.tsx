@@ -200,7 +200,7 @@ export default function FilmMap({
 
   const flyTo = (r: Row) => { setActive(r.id); const m = map.current; if (!m) return; m.flyTo({ center: [r.lng, r.lat], zoom: Math.max(m.getZoom(), 11), duration: 700 }); };
 
-  if (rows && rows.length === 0 && scope === "film") return null;
+  if (rows && rows.length === 0 && filmSlug && scope === "film") return null; // film page with no locations
   const shown = layerRows.filter((r) => !inView || inView.has(r.id));
 
   return (
@@ -208,14 +208,15 @@ export default function FilmMap({
       <div className="fmap-head">
         {search ? (
           <div className="fmap-search">
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search a film → open its page…" />
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={focus ? "Search another film…" : "Search a film → show it on the map…"} />
+            {focus ? <span className="fmap-focus">Showing <b>{focus.title}</b><button onClick={() => { setFocus(null); setActive(null); }} aria-label="Show all films">✕</button></span> : null}
             {sugs.length ? (
               <div className="fmap-sug">
                 {sugs.map((s) => (
-                  <a key={s.slug} href={`/film/${s.slug}`} className="fmap-sug__i">
+                  <button key={s.slug} type="button" className="fmap-sug__i" onClick={() => { setFocus({ slug: s.slug, title: s.title }); setQ(""); setSugs([]); }}>
                     {s.poster_path ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={`${IMG}${s.poster_path}`} alt="" /> : <span className="fmap-sug__e" />}
                     <span className="fmap-sug__t">{s.title} <i>({s.year ?? "?"}{s.director ? `, ${s.director}` : ""})</i></span>
-                  </a>
+                  </button>
                 ))}
               </div>
             ) : null}
