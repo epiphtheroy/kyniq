@@ -4,7 +4,7 @@
  *  (all sections stacked; the sticky tab bar scrolls to each). */
 import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
-import { codeToFlag } from "@/lib/lineageBodies";
+import { codeToFlag, awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
 import type { MvHub } from "@/app/movements/page";
 
 const IMG = "https://image.tmdb.org/t/p/w154";
@@ -26,15 +26,31 @@ function HubCard({ h, flag }: { h: MvHub; flag: boolean }) {
     </Link>
   );
 }
+// resolve the awarding/organising body so a row like "Best Actress" reads "Academy Awards · Best Actress"
+function bodyOf(r: IdxRow): string | null {
+  const b = awardBody(r.slug);
+  if (b?.name) return b.name;
+  if (r.parent_label && r.parent_label !== r.label) return r.parent_label;
+  return null;
+}
+function emblemOf(r: IdxRow): string {
+  return awardBody(r.slug)?.emblem ?? (r.facet === "canon" ? canonEmblem(r.slug) : r.facet === "auteur" ? "🎬" : "🏆");
+}
 function ListRows({ rows }: { rows: IdxRow[] }) {
   return (
     <div className="lh-list">
-      {rows.map((r) => (
-        <Link className="lh-row" href={`/lineage/${r.slug}`} key={r.slug}>
-          <span className="lh-name">{r.country ? `${codeToFlag(r.country)} ` : ""}{r.label}</span>
-          <span className="lh-n">{r.film_count}</span>
-        </Link>
-      ))}
+      {rows.map((r) => {
+        const body = bodyOf(r);
+        return (
+          <Link className="lh-row" href={`/lineage/${r.slug}`} key={r.slug}>
+            <span className="lh-em" aria-hidden="true">{emblemOf(r)}</span>
+            {body ? <span className="lh-body">{body} · </span> : null}
+            <span className="lh-name">{awardBody(r.slug) ? awardLabel(r.label, r.slug) : r.label}</span>
+            {r.country ? <span className="lh-meta"> · {codeToFlag(r.country)} {r.country.toUpperCase()}</span> : null}
+            <span className="lh-n">{r.film_count}</span>
+          </Link>
+        );
+      })}
     </div>
   );
 }
