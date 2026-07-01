@@ -87,13 +87,6 @@ function contOf(country: string | null): Continent | null {
   return COUNTRY_CONT[country] ?? null;
 }
 
-/* rough centroid lat/lng per continent for the blind-spot inspector marker */
-const CONT_CENTER: Record<Continent, { lat: number; lng: number }> = {
-  Asia: { lat: 34, lng: 100 }, Europe: { lat: 52, lng: 15 }, Africa: { lat: 2, lng: 20 },
-  "N.America": { lat: 40, lng: -100 }, "S.America": { lat: -15, lng: -60 }, Oceania: { lat: -25, lng: 140 },
-  기타: { lat: -75, lng: 0 },
-};
-
 /* Regional-indicator flag emoji from a small country→ISO2 map (best-effort; falls back to a pin). */
 const ISO2: Record<string, string> = {
   "United States": "US", "China": "CN", "Japan": "JP", "Italy": "IT", "Canada": "CA",
