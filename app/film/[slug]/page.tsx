@@ -203,6 +203,15 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
+  const { data: mvRows } = await db().rpc("film_movements", { p_slug: slug });
+  const movements = (mvRows as { slug: string; label: string; kind: string; country_code: string | null }[] | null) ?? [];
+  const mvChips = movements.length ? (
+    <div className="df-movements">
+      {movements.map((m) => (
+        <Link key={m.slug} className={`df-mv${m.kind === "movement" ? " df-mv--mov" : ""}`} href={`/movements/${m.slug}`}>{m.label}</Link>
+      ))}
+    </div>
+  ) : null;
   if ("minimal" in data && data.minimal) {
     const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null };
     const { lineage, recommendedBy, ratings, watch } = data;
@@ -232,6 +241,7 @@ export default async function FilmPage({ params }: Props) {
                   {f.director ? (f.director_slug ? <Link href={`/director/${f.director_slug}`}>{f.director}</Link> : <span>{f.director}</span>) : null}
                   {f.genres?.length ? <><span className="df-d" />{f.genres.slice(0, 3).join(" · ")}</> : null}
                 </div>
+                {mvChips}
                 <div className="df-hactions">
                   <MovieListActions filmId={f.id} />
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
@@ -340,6 +350,7 @@ export default async function FilmPage({ params }: Props) {
                 {cert ? <><span className="df-d" />{cert}</> : null}
                 {country ? <><span className="df-d" />{country}</> : null}
               </div>
+              {mvChips}
               <div className="df-hactions">
                 <MovieListActions filmId={film.id} />
                 <EntityActions entityType="film" entityId={film.id} />

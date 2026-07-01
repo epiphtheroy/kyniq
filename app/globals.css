@@ -3819,6 +3819,12 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .mvh-aut:hover{border-color:var(--ink)}
 .mvh-aut span{color:var(--muted); margin-left:6px; font-size:11px}
 .mvh-maplink{font-family:var(--font-ui); font-size:14px; color:var(--accent,#C8102E); text-decoration:none}
+
+/* Film-page Movements chips (reciprocal) */
+.df-movements{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 2px}
+.df-mv{font-family:var(--font-ui); font-size:12px; text-decoration:none; color:var(--ink); background:rgba(0,0,0,.05); border:1px solid var(--hairline-2); border-radius:999px; padding:3px 10px}
+.df-mv:hover{border-color:var(--ink)}
+.df-mv--mov{color:#0F6E56; border-color:rgba(15,110,86,.35); background:rgba(15,110,86,.07)}
 @media(max-width:640px){ .fmap-body{grid-template-columns:1fr} .fmap-list{max-height:150px; border-right:0; border-bottom:1px solid var(--hairline)} }
 .emap-actions{display:flex; align-items:center; gap:14px}
 .emap-exp{font-family:var(--font-ui); font-size:12px; color:var(--ink2); background:transparent; border:1px solid var(--hairline); border-radius:7px; padding:5px 11px; cursor:pointer}
