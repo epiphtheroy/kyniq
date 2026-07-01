@@ -205,6 +205,7 @@ export default async function FilmPage({ params }: Props) {
   if (!data) notFound();
   const { data: mvRows } = await db().rpc("film_movements", { p_slug: slug });
   const movements = (mvRows as { slug: string; label: string; kind: string; country_code: string | null }[] | null) ?? [];
+  const { data: codex } = await db().rpc("cinecodex_for", { p_slug: slug });
   const mvChips = movements.length ? (
     <div className="df-movements">
       {movements.map((m) => (
