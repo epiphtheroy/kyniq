@@ -3780,6 +3780,10 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 /* film search box on the map head */
 .fmap-search{position:relative; flex:1; min-width:200px; max-width:420px}
 .fmap-search input{width:100%; font-family:var(--font-ui); font-size:13px; padding:7px 11px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
+.fmap-focus{display:inline-flex; align-items:center; gap:6px; margin-top:6px; font-family:var(--font-ui); font-size:12px; color:var(--muted)}
+.fmap-focus b{color:var(--ink)}
+.fmap-focus button{border:0; background:var(--hairline); color:var(--ink); border-radius:50%; width:18px; height:18px; line-height:1; cursor:pointer; font-size:12px}
+.fmap-sug__i{width:100%; text-align:left; background:#fff; border:0; border-bottom:1px solid var(--hairline); cursor:pointer}
 .fmap-sug{position:absolute; z-index:20; top:calc(100% + 4px); left:0; right:0; background:#fff; border:1px solid var(--hairline-2); border-radius:8px; box-shadow:0 6px 24px rgba(0,0,0,.12); overflow:hidden; max-height:340px; overflow-y:auto}
 .fmap-sug__i{display:flex; gap:9px; align-items:center; padding:7px 10px; text-decoration:none; color:var(--ink); border-bottom:1px solid var(--hairline)}
 .fmap-sug__i:hover{background:#faf7f2}

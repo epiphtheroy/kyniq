@@ -10,7 +10,7 @@
  *   player (bottom-left) so playback continues; the player is never re-created (uninterrupted).
  * Uses the YouTube IFrame Player API (needed to detect "ended" and seek the next clip to `start`).
  */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 
 type Vid = { id: string; title: string };
 
@@ -51,7 +51,7 @@ export default function FilmHeroReel({ videos, poster, start = 7 }: { videos: Vi
   };
 
   // drag the floating player by its handle
-  const onDragDown = (e: React.PointerEvent) => {
+  const onDragDown = (e: ReactPointerEvent) => {
     const el = frameRef.current; if (!el) return;
     const r = el.getBoundingClientRect();
     drag.current = { dx: e.clientX - r.left, dy: e.clientY - r.top };
@@ -112,7 +112,7 @@ export default function FilmHeroReel({ videos, poster, start = 7 }: { videos: Vi
   if (!videos.length) return null;
 
   const isFloat = floating && !dismissed;
-  const frameStyle: React.CSSProperties = { ...(poster ? { backgroundImage: `url(${poster})` } : {}) };
+  const frameStyle: CSSProperties = { ...(poster ? { backgroundImage: `url(${poster})` } : {}) };
   if (isFloat && pos) { frameStyle.left = pos.x; frameStyle.top = pos.y; frameStyle.right = "auto"; frameStyle.bottom = "auto"; }
 
   return (
