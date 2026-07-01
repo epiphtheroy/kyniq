@@ -59,7 +59,8 @@
 @keyframes room-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── SHELL ── */
-.room-root .shell{display:flex;flex:1 1 auto;min-height:0;overflow:hidden}
+/* NOTE: globals.css has a bare `.shell{max-width;margin:0 auto;padding}` — override it here. */
+.room-root .shell{display:flex;flex:1 1 auto;min-height:0;overflow:hidden;max-width:none;margin:0;padding:0;width:100%}
 .room-root .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
 .room-root .col.main{flex:1 1 auto;background:var(--bg)}
 .room-root .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
@@ -76,7 +77,8 @@
 .room-root .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
 .room-root .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
 .room-root .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
-.room-root .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+/* globals.css has a bare `.nv{border;margin;background:var(--ink);flex-wrap}` — neutralize it. */
+.room-root .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative;margin:0;border:none;background:transparent;flex-wrap:nowrap}
 .room-root .nv:hover{background:var(--pnl2);color:var(--ink)}
 .room-root .nv.on{background:var(--pnl2);color:var(--ink)}
 .room-root .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
