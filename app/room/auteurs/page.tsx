@@ -1,3 +1,4 @@
+import "./auteurs.css";
 import { createClient } from "@/lib/supabase/server";
 import AuteursWorkspace, { type AuteurRow } from "@/components/room/AuteursWorkspace";
 
