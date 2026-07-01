@@ -31,7 +31,7 @@ export default function CinecodexPanel({ data, title }: { data: Codex | null; ti
   const { ext } = data;
   return (
     <section className="df-sec ccx" id="df-codex">
-      <h2 className="df-h2">Metatake Score <a className="ccx-how" href="/score/about">how it works →</a></h2>
+      <h2 className="df-h2">TakeScore <a className="ccx-how" href="/takescore/about">how it works →</a></h2>
       <p className="df-sub">
         Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
         the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
@@ -43,7 +43,7 @@ export default function CinecodexPanel({ data, title }: { data: Codex | null; ti
         <div className="ccx-axis"><div className="ccx-al">Risk <span>higher = more likely to disappoint</span></div><Bar v={data.r} tone="ccx-r" /><b>{data.r}</b></div>
       </div>
       <div className="ccx-net">
-        <div><span className="ccx-big">{data.u}</span><span className="ccx-nl">Net value (V − R)</span></div>
+        <div><span className="ccx-big">{data.u}</span><span className="ccx-nl">TakeScore (Value − Risk)</span></div>
         <div><span className="ccx-big">{data.sharpe}</span><span className="ccx-nl">Efficiency (value per risk)</span></div>
       </div>
 
@@ -58,9 +58,9 @@ export default function CinecodexPanel({ data, title }: { data: Codex | null; ti
 
       {(ext.imdb || ext.rt || ext.metascore) ? (
         <div className="ccx-ext">
-          <span className="ccx-extl">Shown alongside — not part of the Codex score:</span>
+          <span className="ccx-extl">Shown alongside — not part of the TakeScore:</span>
           {ext.imdb ? <span className="ccx-chip">IMDb {ext.imdb}</span> : null}
-          {ext.rt ? <span className="ccx-chip">RT {ext.rt}%</span> : null}
+          {ext.rt ? <span className="ccx-chip">Rotten Tomatoes {ext.rt}%</span> : null}
           {ext.metascore ? <span className="ccx-chip">Metascore {ext.metascore}</span> : null}
         </div>
       ) : null}
