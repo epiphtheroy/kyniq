@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import MovieSearchAdd from "@/components/MovieSearchAdd";
 import WatchlistPipeline, { type WLRow } from "@/components/WatchlistPipeline";
 import PortfolioQuality, { type MeSummary } from "@/components/PortfolioQuality";
+import WatchedScored, { type WatchedRow } from "@/components/WatchedScored";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
 type PB = {
@@ -88,8 +89,12 @@ export default async function MeDashboard() {
     supabase.rpc("portfolio_breakdown"),
     supabase.rpc("me_watchlist_scored"),
   ]);
-  const { data: tsSummaryRaw } = await supabase.rpc("me_takescore_summary");
+  const [{ data: tsSummaryRaw }, { data: watchedScoredRaw }] = await Promise.all([
+    supabase.rpc("me_takescore_summary"),
+    supabase.rpc("me_watched_scored"),
+  ]);
   const tsSummary = (tsSummaryRaw as MeSummary | null) ?? null;
+  const watchedScored = (watchedScoredRaw as WatchedRow[] | null) ?? [];
 
   // Saved (user_saves): readings/directors/lineage lists the user bookmarked
   const { data: savesRaw } = await supabase
@@ -185,8 +190,8 @@ export default async function MeDashboard() {
         </section>
 
         <section style={{ marginTop: 22 }}>
-          <div className="seclbl">✓ Watched · {watched.length}</div>
-          <MovieList rows={watched} />
+          <div className="seclbl">✓ Watched · {watched.length}{watchedScored.some((w) => w.v != null) ? " · by TakeScore" : ""}</div>
+          {watchedScored.length > 0 ? <WatchedScored rows={watchedScored} /> : <MovieList rows={watched} />}
         </section>
 
         <section style={{ marginTop: 26 }}>
