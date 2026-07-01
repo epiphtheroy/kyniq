@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import SiteNav from "@/components/home2/SiteNav";
 import MovieSearchAdd from "@/components/MovieSearchAdd";
+import WatchlistPipeline, { type WLRow } from "@/components/WatchlistPipeline";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
 type PB = {
@@ -86,7 +87,7 @@ export default async function MeDashboard() {
       .order("created_at", { ascending: false })
       .limit(40),
     supabase.rpc("portfolio_breakdown"),
-    supabase.rpc("score_watchlist"),
+    supabase.rpc("me_watchlist_scored"),
   ]);
 
   // Saved (user_saves): readings/directors/lineage lists the user bookmarked
@@ -112,7 +113,7 @@ export default async function MeDashboard() {
   const savedTrps = (savedTrpsRes.data as Array<{ slug: string; title: string }> | null) ?? [];
   const savedCount = savedTakes.length + savedDirs.length + savedLins.length + savedTrps.length;
   const pb = (pbRaw ?? {}) as PB;
-  const wl = (wlRaw as WL[] | null) ?? [];
+  const wlScored = (wlRaw as WLRow[] | null) ?? [];
   const seenFw = new Set(Object.keys(pb.framework ?? {}));
   const blindFw = FRAMEWORKS.filter((f) => f.key !== "INVITATION" && !seenFw.has(f.key)).slice(0, 6);
 
