@@ -153,9 +153,9 @@ function RecInsp({ f, lam }: { f: Rec; lam: number }) {
 
       <div className="icard"><h4><i className="ti ti-device-tv" /> 지금 볼 수 있나 · 가용</h4>
         {on ? (
-          <div className="availrow"><span className="dot" style={{ background: "var(--avail)" }} /><b style={{ fontFamily: "var(--mono)", fontSize: 11 }}>{f.avail?.provider ?? "가능"}</b><span style={{ color: "var(--sub)", fontSize: 10.5 }}>지금 볼 수 있음 · KR</span></div>
+          <div className="dk-availrow"><span className="dot" style={{ background: "var(--avail)" }} /><b style={{ fontFamily: "var(--mono)", fontSize: 11 }}>{f.avail?.provider ?? "가능"}</b><span style={{ color: "var(--sub)", fontSize: 10.5 }}>지금 볼 수 있음 · KR</span></div>
         ) : (
-          <div className="availrow"><span className="dot" style={{ background: "var(--sub)" }} /><b style={{ fontFamily: "var(--mono)", fontSize: 11 }}>미확인</b><span style={{ color: "var(--sub)", fontSize: 10.5 }}>가용성 정보 없음 ≠ 안 됨</span></div>
+          <div className="dk-availrow"><span className="dot" style={{ background: "var(--sub)" }} /><b style={{ fontFamily: "var(--mono)", fontSize: 11 }}>미확인</b><span style={{ color: "var(--sub)", fontSize: 10.5 }}>가용성 정보 없음 ≠ 안 됨</span></div>
         )}
       </div>
 
@@ -304,7 +304,7 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
       <div>
         <div className="icard"><h4><i className="ti ti-layout-board" /> 오늘의 5전략 mix</h4>
           {mix.map((m) => (
-            <div className="kv" key={m.key}><span><span className="dk-rsn" style={{ borderColor: "transparent", background: "transparent", paddingLeft: 0 }}>{m.name}</span></span><b>{m.count}</b></div>
+            <div className="kv" key={m.key}><span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: m.color, display: "inline-block", flex: "0 0 auto" }} />{m.name} <span style={{ color: "var(--sub)", fontSize: 9.5 }}>{m.code}</span></span><b>{m.count}</b></div>
           ))}
           <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 8, lineHeight: 1.5 }}>한 영화는 다중 이유를 보유 — 같은 후보가 여러 전략 칼럼에 등장할 수 있습니다. 카드를 클릭해 포지션을 분석하세요.</div>
         </div>
