@@ -55,7 +55,7 @@ function ListRows({ rows }: { rows: IdxRow[] }) {
   );
 }
 
-type Uni = { key: string; label: string; kind: string; href: string; count: number; country?: string | null };
+type Uni = { key: string; label: string; kind: string; href: string; count: number; country?: string | null; sub?: string | null };
 
 export default function LineageTabsClient({ national, movements, lists }: { national: MvHub[]; movements: MvHub[]; lists: IdxRow[] }) {
   const [q, setQ] = useState("");
@@ -73,7 +73,7 @@ export default function LineageTabsClient({ national, movements, lists }: { nati
     const u: Uni[] = [];
     for (const h of nat) u.push({ key: "n" + h.slug, label: h.label, kind: "national", href: `/movements/${h.slug}`, count: h.film_count, country: h.country_code });
     for (const h of mov) u.push({ key: "m" + h.slug, label: h.label, kind: "movement", href: `/movements/${h.slug}`, count: h.film_count });
-    for (const r of lists) if (r.film_count > 0) u.push({ key: "l" + r.slug, label: r.label, kind: r.facet, href: `/lineage/${r.slug}`, count: r.film_count, country: r.country });
+    for (const r of lists) if (r.film_count > 0) u.push({ key: "l" + r.slug, label: awardBody(r.slug) ? awardLabel(r.label, r.slug) : r.label, kind: r.facet, href: `/lineage/${r.slug}`, count: r.film_count, country: r.country, sub: bodyOf(r) });
     return u;
   }, [nat, mov, lists]);
 
@@ -105,6 +105,7 @@ export default function LineageTabsClient({ national, movements, lists }: { nati
             {results.map((r) => (
               <Link className="lh-row" href={r.href} key={r.key}>
                 <span className="lin-kind">{KIND_LABEL[r.kind] ?? r.kind}</span>
+                {r.sub ? <span className="lh-body">{r.sub} · </span> : null}
                 <span className="lh-name">{r.country ? `${codeToFlag(r.country)} ` : ""}{r.label}</span>
                 <span className="lh-n">{r.count}</span>
               </Link>

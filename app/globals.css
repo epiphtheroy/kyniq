@@ -3788,6 +3788,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .lin-tabs button.on{background:var(--ink); color:#fff; border-color:var(--ink)}
 .lin-tabs button span{opacity:.55; margin-left:6px; font-size:11px}
 .lin-kind{display:inline-block; min-width:96px; font-family:var(--font-ui); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-right:8px}
+.lh-em{margin-right:6px}
+.lh-body{color:var(--muted); font-family:var(--font-ui); font-size:12.5px}
 .mv-search{flex:1; min-width:180px; font-family:var(--font-ui); font-size:14px; padding:8px 12px; border:1px solid var(--hairline-2); border-radius:8px}
 .mv-sel{font-family:var(--font-ui); font-size:13px; padding:8px 10px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
 .mv-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px}
