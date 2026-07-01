@@ -3779,6 +3779,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .mv-seg button:first-child{border-left:0}
 .mv-seg button.on{background:var(--ink); color:#fff}
 .mv-seg button span{opacity:.6; margin-left:5px; font-size:11px}
+.mv-onegroup{font-family:var(--font-ui); font-size:14px; font-weight:600; color:var(--ink)}
+.mv-onegroup span{opacity:.5; margin-left:6px; font-weight:400; font-size:12px}
 .mv-search{flex:1; min-width:180px; font-family:var(--font-ui); font-size:14px; padding:8px 12px; border:1px solid var(--hairline-2); border-radius:8px}
 .mv-sel{font-family:var(--font-ui); font-size:13px; padding:8px 10px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
 .mv-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px}

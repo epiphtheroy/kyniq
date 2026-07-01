@@ -40,13 +40,14 @@ function Card({ h, national }: { h: MvHub; national: boolean }) {
 }
 
 export default function MovementsIndexClient({ national, movements }: { national: MvHub[]; movements: MvHub[] }) {
-  const [tab, setTab] = useState<Tab>("national");
+  const nat = useMemo(() => national.filter((h) => h.film_count > 0), [national]);
+  const mov = useMemo(() => movements.filter((h) => h.film_count > 0), [movements]);
+
+  const [tab, setTab] = useState<Tab>(nat.length ? "national" : "movements");
   const [q, setQ] = useState("");
   const [region, setRegion] = useState("");
   const [sort, setSort] = useState<Sort>("covered");
-
-  const nat = useMemo(() => national.filter((h) => h.film_count > 0), [national]);
-  const mov = useMemo(() => movements.filter((h) => h.film_count > 0), [movements]);
+  const bothGroups = nat.length > 0 && mov.length > 0;
 
   const regions = useMemo(() => {
     const m = new Map<string, number>();
@@ -68,10 +69,14 @@ export default function MovementsIndexClient({ national, movements }: { national
   return (
     <>
       <div className="mv-controls">
-        <div className="mv-seg">
-          <button className={tab === "national" ? "on" : ""} onClick={() => setTab("national")}>National cinemas <span>{nat.length}</span></button>
-          <button className={tab === "movements" ? "on" : ""} onClick={() => setTab("movements")}>Waves &amp; movements <span>{mov.length}</span></button>
-        </div>
+        {bothGroups ? (
+          <div className="mv-seg">
+            <button className={tab === "national" ? "on" : ""} onClick={() => setTab("national")}>National cinemas <span>{nat.length}</span></button>
+            <button className={tab === "movements" ? "on" : ""} onClick={() => setTab("movements")}>Waves &amp; movements <span>{mov.length}</span></button>
+          </div>
+        ) : (
+          <div className="mv-onegroup">{tab === "national" ? "National cinemas" : "Waves & movements"} <span>{(tab === "national" ? nat : mov).length}</span></div>
+        )}
         <input className="mv-search" placeholder={tab === "national" ? "Search a country…" : "Search a movement…"} value={q} onChange={(e) => setQ(e.target.value)} />
         {tab === "national" && regions.length ? (
           <select className="mv-sel" value={region} onChange={(e) => setRegion(e.target.value)}>
