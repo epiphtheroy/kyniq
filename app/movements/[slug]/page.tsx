@@ -30,8 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const d = await load(slug);
   if (!d) return { title: "Not found" };
   const t = `${d.hub.label} — ${d.kind === "national" ? "national cinema" : "film movement"} · Metatake`;
-  // National hubs stay noindex until Phase-0 origins are final; movement hubs are safe to index.
-  return { title: t, description: `The canon, auteurs and where to start with ${d.hub.label} on Metatake.`, robots: d.kind === "national" ? { index: false, follow: true } : undefined };
+  // Phase-0 origins final. Index hubs with enough films; keep thin hubs (<8) out of the index.
+  const thin = (d.films?.length ?? 0) < 8;
+  return { title: t, description: `The canon, auteurs and where to start with ${d.hub.label} on Metatake.`, robots: thin ? { index: false, follow: true } : undefined };
 }
 
 export default async function MovementHub({ params }: Props) {

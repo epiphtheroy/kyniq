@@ -5,13 +5,11 @@ import MovementsIndexClient from "@/components/MovementsIndexClient";
 
 export const revalidate = 1800;
 
-// PREVIEW: national hubs depend on the Phase-0 origin finalizer. Keep noindex + out of nav until
-// origins are final; then flip to indexable and add the nav entry (data-driven, no rework).
+// Phase-0 origins finalized → indexable.
 export const metadata: Metadata = {
   title: "Movements — national cinemas & film movements · Metatake",
   description:
     "Browse cinema by where it comes from and the tradition it belongs to: national cinemas (Korean, Iranian, Japanese…) and the waves & movements (Neorealism, the Nouvelle Vague, Dogme 95…).",
-  robots: { index: false, follow: false },
 };
 
 function db() {
