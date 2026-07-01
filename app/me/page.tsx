@@ -8,6 +8,7 @@ import WatchlistPipeline, { type WLRow } from "@/components/WatchlistPipeline";
 import PortfolioQuality, { type MeSummary } from "@/components/PortfolioQuality";
 import WatchedScored, { type WatchedRow } from "@/components/WatchedScored";
 import TasteRail, { type TasteRow } from "@/components/TasteRail";
+import PortfolioNav, { type NavData } from "@/components/PortfolioNav";
 import { FRAMEWORKS, fw } from "@/lib/frameworks";
 
 type PB = {
@@ -95,9 +96,11 @@ export default async function MeDashboard() {
     supabase.rpc("me_watched_scored"),
     supabase.rpc("me_taste_neighbors", { p_limit: 8 }),
   ]);
+  const { data: navRaw } = await supabase.rpc("me_portfolio_nav");
   const tsSummary = (tsSummaryRaw as MeSummary | null) ?? null;
   const watchedScored = (watchedScoredRaw as WatchedRow[] | null) ?? [];
   const taste = (tasteRaw as TasteRow[] | null) ?? [];
+  const navData = (navRaw as NavData | null) ?? null;
 
   // Saved (user_saves): readings/directors/lineage lists the user bookmarked
   const { data: savesRaw } = await supabase
@@ -161,6 +164,7 @@ export default async function MeDashboard() {
         {(watched.length > 0) && (
           <section style={{ marginTop: 22 }}>
             <div className="seclbl">Portfolio</div>
+            {navData ? <PortfolioNav nav={navData} /> : null}
             {tsSummary ? <PortfolioQuality s={tsSummary} /> : null}
             {pb.canon && pb.canon.length > 0 ? (
               <div className="me-cov">
