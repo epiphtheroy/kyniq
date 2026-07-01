@@ -474,12 +474,16 @@
     <span><i class="ti ti-point-filled dot"></i>Vertigo 정전가 <b>40→84</b> — 발굴(find)→<b>합치(fit)</b> 자가 보정</span>
     <span><i class="ti ti-point-filled dot"></i>발굴 3편 · Dark Knight <b>+37</b> · Stalker <b>+19</b> · Burning <b>+17</b></span>
     <span><i class="ti ti-point-filled dot"></i>고평가 주의 · Citizen Kane <b>−14</b> · La La Land <b>−15</b></span>
+    <span><i class="ti ti-point-filled dot"></i>Cinecodex ⑨ 나란히 · <b>V·U·R</b> 별도 칸 · 6,701편 실측</span>
+    <span><i class="ti ti-point-filled dot"></i>분석 divergence · La La Land <b>정전 85 vs V 57·R 39</b> — 분석은 위험</span>
     <span><i class="ti ti-point-filled dot"></i>취향 벡터 형성 중 · <b>142편</b> 적재</span>
     <span><i class="ti ti-point-filled dot"></i>정전가 합치(fit) <b>7편</b> · 컬렉션 중심 군집 안정</span>
     <span><i class="ti ti-point-filled dot"></i>보유 <b>142편</b> · 정전가 모델 v2 · 가치뱃지 재산정</span>
     <span><i class="ti ti-point-filled dot"></i>Vertigo 정전가 <b>40→84</b> — 발굴(find)→<b>합치(fit)</b> 자가 보정</span>
     <span><i class="ti ti-point-filled dot"></i>발굴 3편 · Dark Knight <b>+37</b> · Stalker <b>+19</b> · Burning <b>+17</b></span>
     <span><i class="ti ti-point-filled dot"></i>고평가 주의 · Citizen Kane <b>−14</b> · La La Land <b>−15</b></span>
+    <span><i class="ti ti-point-filled dot"></i>Cinecodex ⑨ 나란히 · <b>V·U·R</b> 별도 칸 · 6,701편 실측</span>
+    <span><i class="ti ti-point-filled dot"></i>분석 divergence · La La Land <b>정전 85 vs V 57·R 39</b> — 분석은 위험</span>
     <span><i class="ti ti-point-filled dot"></i>취향 벡터 형성 중 · <b>142편</b> 적재</span>
     <span><i class="ti ti-point-filled dot"></i>정전가 합치(fit) <b>7편</b> · 컬렉션 중심 군집 안정</span>
   </div></div>
@@ -515,7 +519,7 @@
         <div class="nv" onclick="setFilter('fit')"><i class="ti ti-circle-check lead"></i><span class="tx">정전 합치 (fit)</span><span class="ct">7</span></div>
         <div class="nv" onclick="setFilter('over')"><i class="ti ti-alert-triangle lead"></i><span class="tx">고평가 (over)</span><span class="ct">2</span></div>
       </div>
-      <div class="railft">정전가 모델 v2 · Fix-A<br>가치뱃지 = rating_pct − prestige</div>
+      <div class="railft">정전가 v2 (②) · Cinecodex (⑨)<br>가치뱃지 2축 · 시장(정전) + 분석(V)</div>
     </div>
   </aside>
 
@@ -743,9 +747,18 @@
 
   var FCN = {canon:'#e0bb6e', award:'#f2a39f', national:'#9cc8f3'};
   var VALN = {find:'저평가 발굴', fit:'정전 합치', over:'고평가 실망'};
-  // 가치뱃지: gap = rating*20 - pre; find ≥ +12 (and rating ≥ 3.5), over ≤ -9, else fit
+  // 가치뱃지 2축 어휘 — 시장축(정전) vs 분석축(Cinecodex V)
+  var MKTN = {find:'시장 발굴', fit:'시장 합치', over:'시장 실망'};   // 별점 vs 정전가(②)
+  var ANLN = {find:'분석 발굴', fit:'분석 합치', over:'분석 실망'};   // 별점 vs Cinecodex V(⑨)
+
+  // ── 축 1 (시장): gap = rating*20 − pre; find ≥ +12 (rating ≥ 3.5) · over ≤ −9 · else fit
   function gapOf(f){ return Math.round(f.rating*20 - f.pre); }
   function valClass(f){ var g=gapOf(f); if(g>=12 && f.rating>=3.5) return 'find'; if(g<=-9) return 'over'; return 'fit'; }
+  // ── 축 2 (분석): agap = rating*20 − Cinecodex V; 같은 임계 규칙으로 별점이 V와 합치/발굴/이탈
+  function agapOf(f){ return f.cc ? Math.round(f.rating*20 - f.cc.V) : null; }
+  function valClassA(f){ if(!f.cc) return null; var g=agapOf(f); if(g>=12 && f.rating>=3.5) return 'find'; if(g<=-9) return 'over'; return 'fit'; }
+  // 두 축이 갈리면 divergence — 시장과 분석이 다른 결론(정전은 높은데 V는 낮다 등)
+  function diverges(f){ if(!f.cc) return false; return valClass(f)!==valClassA(f); }
   function stars(rt){ var full=Math.round(rt); var s=''; for(var i=0;i<5;i++) s+= i<full?'★':'☆'; return s; }
   function gapStr(g){ return (g>=0?'+':'')+g; }
   // 행 인라인 별점 — 1~5 칸 클릭 위젯 (보존: 0.5–5 스케일은 반올림 표시, 데모용 정수 입력)
@@ -791,7 +804,27 @@
       var pubCls = isPub ? ' on' : '';
       var pubIco = isPub ? 'ti-world' : 'ti-lock';
       var pubTxt = isPub ? '공개 중' : '비공개';
-      return '<div class="xrow'+(f.id===selId?' sel':'')+' is-'+vc+'" data-id="'+f.id+'">'+
+      // ── ⑨ Cinecodex 별도 칸 (V·U + 위험 R 배지 · --risk) — 정전가와 절대 안 섞음
+      var ccCell;
+      if(f.cc){
+        var hiRisk = f.cc.R>=30 ? ' hi' : '';
+        ccCell = '<div class="xcc" title="Cinecodex(⑨) 실측 · 정전가와 별도 객관축">'+
+          '<div class="vrow"><span class="vv">'+f.cc.V+'</span><span class="vl">V</span></div>'+
+          '<div class="urow">U <b>'+f.cc.U+'</b></div>'+
+          '<span class="rbd'+hiRisk+'" title="위험 R (--risk · 완파 red 아님)">R '+f.cc.R+'</span></div>';
+      } else {
+        ccCell = '<div class="xcc unrated" title="Cinecodex 미평가 · 분석 대기 (NaN 금지)">'+
+          '<div class="vrow"><span class="vv">·</span></div><div class="urow">미평가</div></div>';
+      }
+      // ── 가치뱃지 2축: 시장(별점 vs 정전) + 분석(별점 vs V) — 별도 mini-badge
+      var ax2 = '';
+      var va = valClassA(f), ga = agapOf(f);
+      if(f.cc){
+        var aCls = va==='over' ? 'a-over' : va==='find' ? 'a-find' : 'fit';
+        ax2 = '<span class="xmini '+aCls+'"><span class="axl">분석</span>'+ANLN[va].replace('분석 ','')+' '+gapStr(ga)+'</span>';
+      }
+      var mktMini = '<span class="xmini '+vc+'"><span class="axl">시장</span>'+MKTN[vc].replace('시장 ','')+' '+gapStr(g)+'</span>';
+      return '<div class="xrow'+(f.id===selId?' sel':'')+' is-'+vc+(diverges(f)?' diverge':'')+'" data-id="'+f.id+'">'+
         '<div class="xquick">'+
           '<span class="xqbtn" data-act="note" title="노트 쓰기"><i class="ti ti-feather"></i></span>'+
           '<span class="pubpill'+pubCls+'" data-act="pub" role="switch" aria-checked="'+isPub+'" tabindex="0" title="공개 프로필 노출 토글">'+
@@ -800,11 +833,11 @@
         '<div><div class="xtt">'+f.t+'</div><div class="xdr">'+f.dk+' · '+f.d+' · '+f.y+'</div>'+
           '<div class="xfacetline">'+fac+'</div></div>'+
         '<div class="xprice"><div class="pv">'+f.pre+'</div><div class="pl">정전가</div></div>'+
+        ccCell+
         '<div class="xstars"><span class="st" data-id="'+f.id+'">'+starCells(f)+'</span>'+
           '<span class="me">'+f.rating.toFixed(1)+'</span><span class="scalehint">0.5–5</span>'+
           '<span class="edithint">평점을 주면 자동 \'봤어요\'</span></div>'+
-        '<div class="xval"><span class="xbadge '+vc+'">'+VALN[vc]+'</span>'+
-          '<span class="xgap '+(g>=0?'pos':'neg')+'">gap '+gapStr(g)+'</span></div>'+
+        '<div class="xval"><div class="ax">'+mktMini+ax2+'</div></div>'+
         '</div>';
     }).join('');
     // row click → inspector (별점/빠른액션 클릭은 행 선택과 분리)
@@ -883,6 +916,51 @@
     return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
   }
 
+  // ── ⑨ Cinecodex 인스펙터 카드: 3축 V/C/R + U/S 큰 숫자 + 미적 단계 + 나란히 3분할 + 신뢰도
+  function ccCard(f){
+    if(!f.cc){
+      return '<div class="icard cc-card"><h4><i class="ti ti-atom-2"></i> Cinecodex ⑨ · 펀더멘털</h4>'+
+        '<div style="opacity:.5;font-size:11.5px;color:var(--sub)">「Cinecodex 미평가 · 분석 대기」 — 신규 유입작. (NaN 금지)</div></div>';
+    }
+    var c=f.cc;
+    var rColor = c.R>=30 ? 'var(--risk)' : '#f0a288';
+    var e=c.ext;
+    var extRow = function(l,v){ return '<div class="sl"><span>'+l+'</span><b>'+(v===undefined||v===''||v==='—'?'—':v)+'</b></div>'; };
+    // 재현성/신뢰도 (접이) — 분열성(고POLAR)은 흐리지 말고 별도 배지
+    var polarHi = c.rel.polar>=40;
+    return '<div class="icard cc-card">'+
+      '<h4><i class="ti ti-atom-2"></i> Cinecodex ⑨ · 펀더멘털 등급'+
+        '<span class="tierbadge" style="margin-left:auto"><i class="ti ti-stairs-up" style="font-size:11px"></i>미적 단계 <span class="tn">'+c.tier[0]+'</span> '+c.tier[1]+'</span></h4>'+
+      '<div class="ccaxes">'+
+        '<div class="ccbig"><div class="u">'+c.U+'</div><div class="ul">U 순가치</div><div class="s">S '+c.S.toFixed(1)+'</div></div>'+
+        '<div class="ccbars">'+
+          '<div class="ccbar"><span class="bl">V 획득가치</span><div class="bt"><i style="width:'+c.V+'%;background:#e0bb6e"></i></div><span class="bv">'+c.V+'</span></div>'+
+          '<div class="ccbar"><span class="bl">C 진입비용</span><div class="bt"><i style="width:'+c.C+'%;background:#8fb8d6"></i></div><span class="bv">'+c.C+'</span></div>'+
+          '<div class="ccbar risk"><span class="bl">R 위험</span><div class="bt"><i style="width:'+c.R+'%;background:'+rColor+'"></i></div><span class="bv">'+c.R+'</span></div>'+
+        '</div></div>'+
+      '<div class="mathbox" style="margin-top:2px">U = V − λ·R = <b>'+c.V+'</b> − 1.0·<b>'+c.R+'</b> = <b>'+c.U+'</b> <span class="arr">(λ=1)</span></div>'+
+      // 나란히 3분할 — 우리 / 외부 / 정전 (절대 한 숫자로 안 합침)
+      '<div class="sbs">'+
+        '<div class="sc ours"><div class="sh">우리 ⑨</div>'+
+          '<div class="sl"><span>V</span><b>'+c.V+'</b></div><div class="sl"><span>R</span><b class="rk">'+c.R+'</b></div><div class="sl"><span>U</span><b>'+c.U+'</b></div></div>'+
+        '<div class="sc ext"><div class="sh">외부</div>'+
+          extRow('IMDb',e.imdb)+extRow('RT',e.rt+(e.rt==='—'?'':'%'))+extRow('Meta',e.meta==='—'?'—':e.meta)+'</div>'+
+        '<div class="sc canon"><div class="sh">정전 ②</div>'+
+          '<div class="sl"><span>Standing</span><b>'+f.pre+'</b></div><div class="sl"><span>내 ★%</span><b>'+Math.round(f.rating*20)+'</b></div></div>'+
+      '</div>'+
+      // 신뢰도 · 재현성 (접이)
+      '<span class="ccmore" onclick="var r=this.nextElementSibling;r.style.display=r.style.display===\'block\'?\'none\':\'block\';"><i class="ti ti-chevron-down"></i> 신뢰도 · 재현성</span>'+
+      '<div class="relcard" style="display:none">'+
+        '<div class="relrow"><span>model</span><b>sonnet · cinecodex-prod-v2</b></div>'+
+        '<div class="relrow"><span>n_samples · sd</span><b>'+c.rel.n+' · '+c.rel.sd+'</b></div>'+
+        '<div class="relrow"><span>POLAR 분열성</span><span>'+(polarHi?'<span class="polarbadge">분열 '+c.rel.polar+' · ≠불신뢰</span>':'<b>'+c.rel.polar+'</b>')+'</span></div>'+
+        '<div class="relrow"><span>flag</span>'+(c.rel.flagged?'<span class="flagchip"><i class="ti ti-flag" style="font-size:10px"></i> N=1 · Pass2 대기</span>':'<b>—</b>')+'</div>'+
+        '<div style="font-size:10px;color:var(--sub);margin-top:6px">Pass1 N=1 → 런 노이즈(sd) 미측정 flagged. 분열성(고POLAR)은 흐리지 않음 — 옹호 진영이 강한 것이지 오류 아님.</div>'+
+      '</div>'+
+      '<div style="margin-top:9px;text-align:right"><a onclick="location.href=&#39;mockup-me-film-cinecodex.html&#39;" style="font-size:10.5px;color:var(--frontier);cursor:pointer">Cinecodex 평가 전체 →</a></div>'+
+    '</div>';
+  }
+
   function filmDetail(f){
     var vc = valClass(f), g = gapOf(f), rp = Math.round(f.rating*20);
     var col = vc==='find'?'#5fd0b2':vc==='over'?'#f2a39f':'var(--mut)';
@@ -899,17 +977,34 @@
     var comps = f.comps.map(function(c){return '<span class="anchorchip">'+c[0]+'</span>';}).join('');
     var fac = f.facets.map(function(x){return '<span class="xbd '+x[1]+'">'+x[2]+'</span>';}).join(' ');
     var mathArrow = vc==='find'?'정전 대비 저평가 → 발굴(find)':vc==='over'?'정전 대비 고평가 → 고평가(over)':'정전 합치(fit)';
+    // 축 2 (분석 = 별점 vs Cinecodex V)
+    var va = valClassA(f), ga = agapOf(f);
+    var aArrow = va==='find'?'V 대비 저평가 → 발굴':va==='over'?'V 대비 고평가 → 실망 경고':'V 합치';
+    var badge2 = '';
+    if(f.cc){
+      var aBv = va==='over'?'over':va==='find'?'find':'fit';
+      badge2 = '<div class="mathbox" style="margin-top:9px">rating_pct <b>'+rp+'</b> − Cinecodex V <b>'+f.cc.V+'</b> = agap <b>'+gapStr(ga)+'</b><br>'+
+          '<span class="arr">→ '+aArrow+'</span></div>'+
+        '<div style="margin-top:9px"><span class="badge-val bv-'+aBv+'">'+ANLN[va]+' · agap '+gapStr(ga)+'</span></div>';
+      if(diverges(f)){
+        badge2 += '<div class="correctnote" style="background:#2a1006;border-color:#8a3416;color:#f0b89a"><i class="ti ti-bolt"></i> <b>시장 ≠ 분석 divergence</b> — 시장축(정전 '+f.pre+')과 분석축(V '+f.cc.V+'·R '+f.cc.R+')이 다른 결론. '+
+          (va==='over'?'시장은 정전이나 분석은 위험 경고(R '+f.cc.R+').':'시장·분석이 갈림 — 두 축을 나란히 보라.')+'</div>';
+      }
+    }
     return ''+
       '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 포트폴리오로</div>'+
       '<div class="selhead"><div class="poster"></div><div><div class="seltitle">'+f.t+'</div><div class="selsub">'+f.dk+' · '+f.d+' · '+f.y+' · '+f.co+'</div>'+
         '<div class="selflag">'+fac+'</div></div></div>'+
-      '<div class="icard"><h4><i class="ti ti-coin"></i> 정전가 · Standing</h4>'+
+      '<div class="icard"><h4><i class="ti ti-coin"></i> 정전가 · Standing <span style="margin-left:auto;font-size:9px;color:var(--sub)">② 시장가</span></h4>'+
         '<div class="bigscore"><span class="n">'+f.pre+'</span><span class="u">/ 100 STANDING</span></div>'+
         '<div style="font-size:11px;color:var(--mut);margin-bottom:7px">계보 멤버십 합성:</div>'+comps+'</div>'+
-      '<div class="icard"><h4><i class="ti ti-diamonds"></i> 가치뱃지 · 계산</h4>'+
+      ccCard(f)+
+      '<div class="icard"><h4><i class="ti ti-diamonds"></i> 가치뱃지 · 2축 계산 <span style="margin-left:auto;font-size:9px;color:var(--sub)">시장 / 분석</span></h4>'+
+        '<div style="font-size:9.5px;letter-spacing:.06em;color:var(--sub);text-transform:uppercase;margin-bottom:5px">① 시장축 · 별점 vs 정전가</div>'+
         '<div class="mathbox">rating_pct <b>'+rp+'</b> − 정전가 <b>'+f.pre+'</b> = gap <b>'+gapStr(g)+'</b><br>'+
           '<span class="arr">→ '+mathArrow+'</span></div>'+
-        '<div style="margin-top:9px"><span class="badge-val bv-'+(vc==='find'?'find':vc==='over'?'over':'fit')+'">'+VALN[vc]+' · gap '+gapStr(g)+'</span></div>'+
+        '<div style="margin-top:9px"><span class="badge-val bv-'+(vc==='find'?'find':vc==='over'?'over':'fit')+'">'+MKTN[vc]+' · gap '+gapStr(g)+'</span></div>'+
+        (f.cc?'<div style="font-size:9.5px;letter-spacing:.06em;color:var(--sub);text-transform:uppercase;margin:12px 0 5px;border-top:1px solid var(--line);padding-top:9px">② 분석축 · 별점 vs Cinecodex V</div>'+badge2:'')+
         '<div class="reasoning" style="margin-top:10px">'+f.reason+'</div>'+
         (f.vfix?'<div class="correctnote"><i class="ti ti-refresh-alert"></i> <b>자가 보정</b> — 구 모델(정전가 40)에선 "저평가 발굴(find)"로 오판. Fix-A(정전가 84)로 <b>정전 합치(fit)</b> 정정. 정전 정점 작품이 발굴로 새던 버그 해소.</div>':'')+'</div>'+
       '<div class="icard"><h4><i class="ti ti-star"></i> 내 평가 · Discovery</h4>'+
@@ -933,6 +1028,11 @@
       '<div class="topfind"><span class="tn">Stalker <small style="color:var(--sub);font-family:var(--ui)">Tarkovsky 1979</small></span><span class="tg">gap +19</span></div>'+
       '<div class="topfind"><span class="tn">Burning <small style="color:var(--sub);font-family:var(--ui)">Lee 2018</small></span><span class="tg">gap +17</span></div>'+
       '<div style="font-size:10.5px;color:var(--sub);margin-top:8px">내 평가가 정전가를 가장 크게 앞선 자산 — 컬렉션의 알파.</div></div>'+
+    '<div class="icard cc-card"><h4><i class="ti ti-bolt"></i> 시장 ≠ 분석 · Cinecodex divergence</h4>'+
+      '<div style="font-size:10.5px;color:var(--mut);margin-bottom:8px">2축(정전 ② / Cinecodex V ⑨)이 갈리는 자산 — 시장이 인정해도 분석은 위험을 경고할 수 있다.</div>'+
+      '<div class="topfind" style="border-color:#8a3416"><span class="tn">La La Land <small style="color:var(--sub);font-family:var(--ui)">정전 85 · V 57 · R 39</small></span><span class="tg" style="color:#f0a288">시장은 정전, 분석은 위험</span></div>'+
+      '<div class="topfind"><span class="tn">The Dark Knight <small style="color:var(--sub);font-family:var(--ui)">정전 53 · V 57</small></span><span class="tg" style="color:#8fb8d6">분석이 정전보다 높음</span></div>'+
+      '<div style="font-size:10px;color:var(--sub);margin-top:8px">La La Land = 시장 실망이지만 분석축은 <b style="color:var(--risk)">R 39 분열 위험</b>까지 노출. 정전가가 못 잡는 실망을 V·R이 잡는다.</div></div>'+
     '<div class="icard"><h4><i class="ti ti-refresh-alert"></i> 모델 자가 보정</h4>'+
       '<div class="correctnote"><b>Vertigo</b> — 구 모델 정전가 <b>40</b>에서 "저평가 발굴(find)"로 오판되던 것을, Fix-A 정전가 <b>84</b>로 <b>정전 합치(fit)</b> 정정. 정전 정점이 발굴로 새던 버그가 해소됨.</div>'+
       '<div style="font-size:10.5px;color:var(--sub);margin-top:8px">시스템이 스스로 가격을 교정했다 — 컬렉션은 신뢰 가능한 거래소.</div></div>'+
@@ -987,6 +1087,7 @@
     ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
     ['동행','ti-users','mockup-me-pair.html','교류'],
     ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Cinecodex 평가 · 밀양','ti-microscope','mockup-me-film-cinecodex.html','평가'],
     ['The Dark Knight — 발굴 gap +37','ti-diamond','#','영화'],
     ['Vertigo — 자가 보정 find→fit','ti-refresh-alert','#','영화'],
     ['Citizen Kane — 고평가 −14','ti-alert-triangle','#','영화'],

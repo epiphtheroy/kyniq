@@ -39,6 +39,27 @@ security-definer bridge).
 
 Test data seeded on thinkartist1@gmail.com: 21 watched (rated) + 5 watchlist.
 
+## Shipped — Slice 5: Eval card · Pass-2 confidence · WWI (2026-07-01)
+- **Cinecodex Pass 2 (reliability)** — `public.cinecodex_confidence` (film_id pk): a MEASURED,
+  limits-stated confidence, not luck. conf = 0.62·Evidence + 0.20·Attention + 0.18·Sample − flag,
+  where Evidence = log(critical-take corpus depth), Attention = log(imdb votes), Sample = panel/pass
+  strength (single-pass sonnet-n1 = 0.40). Tiers High ≥65 / Moderate 40–64 / Limited <40. Result:
+  1,879 High (avg 76, ~38 takes), 4,763 Limited (avg 9, 0 takes — corpus-less single-pass judgments).
+  Honest: only the corpus-grounded films earn High; the visible catalogue is all High/Moderate
+  (Limited films are the hidden thin-content batch). Exposed via `cinecodex_for` (+conf,conf_tier,n_takes).
+- **Evaluation card** (`CinecodexPanel` rewrite) — the 13 sub-scores are now ALWAYS visible
+  (Value/Cost/Risk grid, no `<details>`), plus a **Confidence meter** (tier + /100 bar + a plain
+  grounding note: "grounded in N critical takes"). External metrics still alongside, never blended.
+  Verified live: Parasite High 89/100, 13 subs, no crash.
+- **WWI (Worth-Weighted Index) — the formal recommendation** — `me_recommend_wwi(λ,limit)`:
+  a DASHBOARD combiner ranking unseen films by **Confidence · (0.45 Utility + 0.35 Taste + 0.20 Standing)**;
+  Utility = TakeScore (Value−λ·Risk), Taste = loved-signature cosine, Standing = Prestige, gated by
+  confidence so shaky scores never recommend with false certainty. One-way: taste/standing shape the
+  RECOMMENDATION only, never TakeScore itself. `/me` "Recommended for you · the balanced call" rail
+  (`WWIRail`, three mini-bars + TS/taste chips + confidence dot). Verified live (thinkartist1): Passion
+  of Joan of Arc WWI 64 (TS 84), Third Man, Chinatown, Barry Lyndon, Citizen Kane — all High confidence.
+  The pure-taste rail remains as a cold-start fallback.
+
 ## Next slices (not yet built)
 2. **Portfolio quality panel** (watched films): median TS, your value/risk lean,
    best & riskiest seen, **value gap** (your ★ vs our Value = 가치뱃지), a NAV-lite headline.

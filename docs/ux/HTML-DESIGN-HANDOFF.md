@@ -18,7 +18,7 @@
 | 노트 Write | `mockup-me-write.html` | 비평 컴포저 — take/오독 작성(취향 boost ×1.5) | ① |
 | 동행 Pair | `mockup-me-pair.html` | 슬로우 SNS — 가면무도회 싱크율 | 동행(①) |
 | 공개 프로필 | `mockup-me-profile.html` | *라이트* 공개 쇼케이스 — 화이트리스트 투영 | ⑦⑧②③ |
-| **(신규) 평가 카드** | `mockup-film-cinecodex.html` | 영화별 Cinecodex 풀 평가(V·C·R·U·S·미적단계·13서브) | ⑨ |
+| **(신규) 평가 카드** | `mockup-me-film-cinecodex.html` | 영화별 Cinecodex 풀 평가(V·C·R·U·S·미적단계·13서브) | ⑨ |
 
 **강약의 대원칙:** ★★★ = 정전가 정확 · WWI 위험 거르기 · **Cinecodex 나란히(비섞임)** · NAV 단조 · 설명가능 인스펙터. 이 다섯은 *로직의 약속*이라 화면에서 어기면 신뢰가 무너진다. ★ = 별자리 SVG·티커·데모 토글(있으면 좋은 결).
 
@@ -69,7 +69,7 @@
 - **command-center ★★** — KPI/헤더에 **U·R 경량 요약** + 라이브 피드 "고위험 경보". 추천 행에 위험 점.
 - **asset-desk ★★** — **S(샤프) 위험조정 정렬** + **λ 다이얼** + P&L에 위험(고위험 매수 경고).
 - **inspector(전 페이지) ★★★** — 영화 선택 시 **Cinecodex 요약 카드**: 3축 미니(V/C/R) + U/S + 미적 단계 배지 + 나란히(우리/외부/정전) + 신뢰도. 이게 설명가능성의 완성.
-- **신규 `mockup-film-cinecodex.html` ★★** — 풀 평가 카드(§5 하단).
+- **신규 `mockup-me-film-cinecodex.html` ★★** — 풀 평가 카드(§5 하단).
 
 **실 Cinecodex 값(목업에 이 숫자 사용 — 진정성 ★★★):**
 
@@ -149,7 +149,7 @@
 ### 공개 프로필 ★★ (라이트 유지)
 - 화이트리스트 투영. **Cinecodex 노출 금지**(13서브·신뢰도·prompt_sha 비공개). 단 *총평 V·미적 단계*는 공개 가능(정책 결정 — 지금은 비노출 안전). 라이트 스킨 절대 유지.
 
-### (신규) 평가 카드 `mockup-film-cinecodex.html` ★★
+### (신규) 평가 카드 `mockup-me-film-cinecodex.html` ★★
 - **존재 이유:** 한 영화의 Cinecodex 풀 분해 — 다른 페이지 인스펙터의 "더 보기" 목적지.
 - **구성(위·의미):** 히어로(3축 도넛 V/C/R + U/S 큰 숫자 + **미적 단계** 배지 L1–L10) → 13 서브점수(접이, 각 레벨·근거 1줄·비교작 3) → **나란히 3분할**(우리 V/R/U | 외부 imdb/rt/meta | 정전가) → 신뢰도 카드(접이: model·prompt_sha·n·sd·flagged). 다크 셸 인스펙터 어휘 재사용.
 - **강약:** 나란히 3분할·미적 단계 ★★★ / 13서브 접이 ★.

@@ -96,7 +96,7 @@ export default async function MeDashboard() {
     supabase.rpc("me_takescore_summary"),
     supabase.rpc("me_watched_scored"),
     supabase.rpc("me_taste_neighbors", { p_limit: 8 }),
-    supabase.rpc("me_recommend_wwi", { p_lambda: 1.0, p_limit: 12 }),
+    supabase.rpc("me_recommend_wwi", { p_lambda: 1.0, p_limit: 48 }),
   ]);
   const { data: navRaw } = await supabase.rpc("me_portfolio_nav");
   const tsSummary = (tsSummaryRaw as MeSummary | null) ?? null;
@@ -201,7 +201,7 @@ export default async function MeDashboard() {
               WWI ranks unseen films by <b>confidence × (utility · taste · standing)</b> — your taste, weighed against
               our TakeScore and each film&rsquo;s critical standing, and gated by how well-grounded the score is.
             </p>
-            <WWIRail rows={wwi} />
+            <WWIRail rows={wwi} top={12} />
           </section>
         ) : taste.length > 0 ? (
           <section style={{ marginTop: 22 }}>

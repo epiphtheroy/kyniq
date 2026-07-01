@@ -16,6 +16,8 @@
     --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
     /* SHARED-STANDARD S2: 블라인드/공백 = gap amber (conquer red에서 분리). 빨강=정복했다, 앰버=아직 안 갔다 */
     --blind:#E8B23A; --blindtx:#edc873; --forming:#C8922B; --masque:#9B8CF0;
+    /* S11 Cinecodex: 위험(R) 신토큰 — 완파 red(--red)와 분리(빨강=정복 전용) */
+    --risk:#D64518; --risktx:#f0937a;
     --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
     --rail:212px; --insp:344px; --feed:286px;
@@ -264,6 +266,31 @@
   .ginfo .s{font-size:11px;color:var(--mut);margin-top:3px;line-height:1.45}
   .ginfo .s b{color:var(--ink)}
 
+  /* ── μ–σ 위험평면 · Cinecodex (V 세로 × R 가로) ── */
+  .ccwrap{display:grid;grid-template-columns:1fr 226px;gap:14px}
+  @media(max-width:1180px){.ccwrap{grid-template-columns:1fr}}
+  .ccplane{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:6px}
+  #ccsvg{display:block;width:100%;height:auto}
+  #ccsvg .ccdot{cursor:pointer;transition:.12s}
+  #ccsvg .ccdot:hover circle{stroke:var(--ink);stroke-width:1.4}
+  .ccside .grp{margin-top:0}
+  .cclead{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:var(--mut);line-height:1.5;
+    border-left:2px solid var(--risk);padding-left:9px;margin-bottom:11px}
+  .cclead i.ti{color:var(--risktx);flex:0 0 auto}
+  .cclead b.ideal{color:#5fd0b2;font-style:normal} .cclead b.riskw{color:var(--risktx);font-style:normal}
+  .ccstat{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .ccstat:last-of-type{border-bottom:0}
+  .ccstat .k{color:var(--mut)} .ccstat .v{font-family:var(--mono);color:var(--ink);text-align:right}
+  .ccstat .v.rk{color:var(--risktx)} .ccstat .v.ok{color:#5fd0b2}
+  .cclegend{display:flex;flex-direction:column;gap:6px;font-size:10.5px;color:var(--mut);margin-top:9px}
+  .cclegend .lg{display:flex;align-items:center;gap:7px}
+  .cclegend .lg i{flex:0 0 auto;width:10px;height:10px;border-radius:50%;display:inline-block}
+  .cclegend .lg i.mine{background:var(--ink)} .cclegend .lg i.riskd{background:var(--risk)}
+  .cclegend .lg i.ideald{background:#5fd0b2}
+  .cclegend .lg i.avg{width:11px;height:11px;border-radius:2px;background:none;border:1.5px solid var(--frontier);transform:rotate(45deg)}
+  .ccnote{font-size:10px;color:var(--sub);margin-top:9px;line-height:1.5}
+  .ccquad{font-size:9px;fill:var(--sub);letter-spacing:.04em}
+
   /* ── COL 3: INSPECTOR ── */
   .inspector{width:var(--insp);background:var(--bg2);border-left:1px solid var(--line2)}
   .inspector.collapsed{width:40px}
@@ -418,6 +445,7 @@
         <div class="nv" onclick="jump('m-rel')"><i class="ti ti-route lead"></i><span class="tx">리니지 관련성</span></div>
         <div class="nv" onclick="jump('m-axis')"><i class="ti ti-layout-grid lead"></i><span class="tx">축 커버리지</span></div>
         <div class="nv" onclick="jump('m-graph')"><i class="ti ti-affiliate lead"></i><span class="tx">상호추천 그래프</span></div>
+        <div class="nv" onclick="jump('m-cc')"><i class="ti ti-chart-scatter lead"></i><span class="tx">μ–σ 위험평면</span></div>
         <div class="nv" onclick="jump('m-lens')"><i class="ti ti-stack-2 lead"></i><span class="tx">렌즈 · 앵커</span></div>
       </div>
       <div class="railft">계보 115 라인 · 160 감독 · 53 추천간선<br>취향 벡터 v1 · 142편</div>
@@ -472,6 +500,11 @@
           <div class="lic boost"><i class="ti ti-route"></i></div>
           <div class="lt">당신을 한 문장으로: <b style="color:#c6bcf7">사건이 아니라 응시의 윤리를 보는 사람</b>. 가장 맞는 계보는 <span class="gapw">프랑스 영성영화(관련성 0.94)</span>이고, 절반(50%)만 봤다 — 채울 가치가 가장 큰 계보.</div>
           <div class="lcta">계보 보기 <i class="ti ti-arrow-right"></i></div>
+        </div>
+        <div class="leadrow" onclick="jump('m-cc')" title="μ–σ 위험평면으로 이동">
+          <div class="lic" style="background:#2a0f07;color:var(--risktx);border:1px solid #6a2611"><i class="ti ti-alert-triangle"></i></div>
+          <div class="lt"><b style="color:var(--risktx)">Cinecodex 인사이트</b> · 내 포트폴리오 <span class="gloss" data-tip="위험 R — Cinecodex(엔진 ⑨) 펀더멘털 등급의 위험도(지적파산·미적불성실·예술적비겁·분열성). 완파 빨강과 무관 — 작품 자체가 얼마나 실망·위험한지.">평균 위험 R≈25</span>(정전 우주 중앙값과 유사). <b style="color:var(--risktx)">분열작 2편</b>(La La Land R39·Oldboy R28)이 우측에 떠 있다 — 저위험 고가치(좌상)가 이상향.</div>
+          <div class="lcta">위험평면 보기 <i class="ti ti-arrow-right"></i></div>
         </div>
       </div>
 
@@ -533,6 +566,39 @@
           </div>
           <svg id="agraph" viewBox="0 0 700 300" width="100%" role="img" aria-label="상호추천 그래프"></svg>
           <div class="legend" id="glegend"></div>
+        </div>
+      </div>
+
+      <!-- (3b) μ–σ 위험평면 · Cinecodex ⑨ (V 세로 × R 가로) -->
+      <div class="mod" id="m-cc">
+        <div class="modh"><h3><i class="ti ti-chart-scatter"></i> <span class="gloss" data-tip="Cinecodex(엔진 ⑨) — 정전가(시장가) 옆에 서는 두 번째 객관 점수. 작품 자체의 획득가치 V·진입비용 C·위험 R을 13 미학차원으로 채점. 외부지표/정전가와 안 섞음(나란히).">μ–σ 위험평면</span> · Cinecodex <span style="color:var(--faint);font-weight:400">⑨</span></h3>
+          <span class="meta">V 획득가치 ↑ · R 위험 → · 정전가·외부와 안 섞음</span></div>
+        <div class="modbody">
+          <div class="cclead">
+            <i class="ti ti-info-circle"></i>
+            <div>좌상 <b class="ideal">고V·저R = 이상향</b>(Tokyo Story·Yi Yi·밀양) — 작품 자체가 많이 돌려주고 실망 위험이 낮다. 우측 <b class="riskw">고R = 위험</b>(La La Land·Tree of Life·Babylon)은 <span class="gloss" data-tip="분열성 POLAR — 옹호/혹평 진영이 갈리는 정도. 분열적 ≠ 오류. La La Land R39는 분열이지 파산이 아니다.">분열</span>·실패 위험. <b style="color:var(--ink)">저위험 고가치가 이상향; 우측 분열 위험.</b></div>
+          </div>
+          <div class="ccwrap">
+            <div class="ccplane">
+              <svg id="ccsvg" viewBox="0 0 560 340" role="img" aria-label="μ–σ 위험평면 · V 획득가치 세로 × R 위험 가로 산점도"></svg>
+            </div>
+            <div class="ccside">
+              <div class="grp" style="margin-top:0"><span>내 포트폴리오 · μ–σ</span></div>
+              <div class="ccstat"><span class="k">평균 획득가치 V̄</span><span class="v ok">78.4</span></div>
+              <div class="ccstat"><span class="k">평균 위험 R̄</span><span class="v rk">24.6</span></div>
+              <div class="ccstat"><span class="k">위험 표준편차 σ<sub>R</sub></span><span class="v">11.2</span></div>
+              <div class="ccstat"><span class="k">이상향(좌상) 편수</span><span class="v ok">6 / 13</span></div>
+              <div class="ccstat"><span class="k">분열작(R≥28)</span><span class="v rk">2편</span></div>
+              <div class="cclegend">
+                <div class="lg"><i class="mine"></i>보유·후보(저·중 위험)</div>
+                <div class="lg"><i class="ideald"></i>이상향 (고V·저R)</div>
+                <div class="lg"><i class="riskd"></i>분열·고위험 (R↑)</div>
+                <div class="lg"><i class="avg"></i>내 평균 (V̄ 78 · R̄ 25)</div>
+              </div>
+              <div class="ccnote">점 = 실측 Cinecodex (R,V). 위험 색 <b style="color:var(--risktx)">--risk</b>는 완파 빨강과 별개(빨강=정복 전용). 클릭 → V/C/R 분해.</div>
+            </div>
+          </div>
+          <div style="font-size:10.5px;color:var(--sub);margin-top:9px;font-style:italic">6,701편 Pass1 실측(2026-07-01) · V=(COG+AFF+FORM+MORAL+DUR)/5 · R=0.6·(파산·불성실·비겁)+0.4·분열성. 정전가·외부지표는 <b style="color:var(--mut);font-style:normal">입력 아님</b>(비섞임 단방향).</div>
         </div>
       </div>
 
@@ -1024,8 +1090,125 @@
     b.onclick=function(){ document.querySelectorAll('[data-lxmode]').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); lxmode=b.dataset.lxmode; renderAnchors(); };
   });
 
+  /* ── μ–σ 위험평면 · Cinecodex (⑨) — V 세로 × R 가로 산점도 ── */
+  /* 실측 Cinecodex 값 (HANDOFF §4 · 6,701편 Pass1, 2026-07-01). λ=1. own=보유/후보. */
+  var CCFILMS=[
+    {id:'tokyo',   t:'Tokyo Story',           V:93,C:51,R:7, U:86,S:6.0, k:'ideal',lab:'Tokyo Story',   note:'최고가·최저위험'},
+    {id:'yiyi',    t:'Yi Yi',                  V:86,C:50,R:10,U:76,S:3.6, k:'ideal',lab:'Yi Yi',         note:'안전한 걸작'},
+    {id:'milyang', t:'밀양 Secret Sunshine',   V:84,C:38,R:13,U:72,S:2.7, k:'ideal',lab:'밀양',          note:'저비용 걸작'},
+    {id:'imflove', t:'In the Mood for Love',   V:84,C:48,R:11,U:73,S:3.0, k:'own',                       note:''},
+    {id:'brighter',t:'A Brighter Summer Day',  V:86,C:55,R:13,U:73,S:2.8, k:'own',                       note:''},
+    {id:'vertigo', t:'Vertigo',                V:86,C:50,R:17,U:69,S:2.1, k:'own',  lab:'Vertigo',        note:''},
+    {id:'closeup', t:'Close-Up',               V:86,C:59,R:15,U:71,S:2.4, k:'own',                       note:'고난도'},
+    {id:'2001',    t:'2001: A Space Odyssey',  V:88,C:60,R:21,U:67,S:1.8, k:'own',  lab:'2001',           note:'난해'},
+    {id:'poetry',  t:'Poetry',                 V:81,C:43,R:15,U:66,S:2.1, k:'own',                       note:''},
+    {id:'parasite',t:'Parasite',               V:67,C:33,R:18,U:49,S:1.0, k:'own',  lab:'Parasite',       note:'접근성↑'},
+    {id:'oldboy',  t:'Oldboy',                 V:70,C:36,R:28,U:42,S:0.7, k:'risk', lab:'Oldboy',         note:'폭력·분열'},
+    {id:'treeoflife',t:'Tree of Life',         V:85,C:62,R:38,U:47,S:0.9, k:'risk', lab:'Tree of Life',   note:'분열'},
+    {id:'lalaland',t:'La La Land',             V:57,C:35,R:39,U:19,S:0.2, k:'risk', lab:'La La Land',      note:'분열적 대중작'},
+    {id:'babylon', t:'Babylon',                V:55,C:49,R:51,U:4, S:0.1, k:'risk', lab:'Babylon',        note:'야심·실패 위험'}
+  ];
+  var CCMEAN={V:78.4,R:24.6}; // 좌상 이상향 중심 근방
+  /* 미적 단계 라벨(간단 표기) */
+  function ccTier(V){ return V>=90?'L9 숭고':V>=84?'L8 초월적':V>=78?'L7 형식적':V>=66?'L6 심화':V>=54?'L5 능동':'L4 몰입'; }
+  /* R→x, V→y 좌표계 (R:0–60 → 가로, V:30–100 → 세로 뒤집힘) */
+  var CCX0=54,CCX1=520,CCY0=30,CCY1=298, RMAX=60,VMIN=30,VMAX=100;
+  function ccX(R){ return CCX0+(R/RMAX)*(CCX1-CCX0); }
+  function ccY(V){ return CCY1-((V-VMIN)/(VMAX-VMIN))*(CCY1-CCY0); }
+  function renderCC(){
+    var svg=document.getElementById('ccsvg'); if(!svg)return;
+    var s='';
+    // gridlines + axes
+    s+='<rect x="'+CCX0+'" y="'+CCY0+'" width="'+(CCX1-CCX0)+'" height="'+(CCY1-CCY0)+'" fill="#111114" stroke="#2c2c30"/>';
+    // quadrant split: 이상향(고V·저R) 좌상 vs 위험 우측 — V=70 가로선, R=28 세로선
+    var yMid=ccY(70), xMid=ccX(28);
+    s+='<line x1="'+CCX0+'" y1="'+yMid+'" x2="'+CCX1+'" y2="'+yMid+'" stroke="#2c2c30" stroke-dasharray="3 4"/>';
+    s+='<line x1="'+xMid+'" y1="'+CCY0+'" x2="'+xMid+'" y2="'+CCY1+'" stroke="#3a1a10" stroke-dasharray="3 4"/>';
+    // 좌상 이상향 shade
+    s+='<rect x="'+CCX0+'" y="'+CCY0+'" width="'+(xMid-CCX0)+'" height="'+(yMid-CCY0)+'" fill="rgba(31,178,134,.05)"/>';
+    // 우측 위험 shade
+    s+='<rect x="'+xMid+'" y="'+CCY0+'" width="'+(CCX1-xMid)+'" height="'+(CCY1-CCY0)+'" fill="rgba(214,69,24,.055)"/>';
+    // quadrant labels
+    s+='<text x="'+(CCX0+8)+'" y="'+(CCY0+15)+'" class="ccquad" fill="#5fd0b2">좌상 · 고V·저R = 이상향</text>';
+    s+='<text x="'+(CCX1-8)+'" y="'+(CCY0+15)+'" text-anchor="end" class="ccquad" fill="'+'#f0937a'+'">우측 · 고R = 위험/분열</text>';
+    // axis ticks/labels
+    [30,50,70,90].forEach(function(v){ var y=ccY(v);
+      s+='<line x1="'+(CCX0-4)+'" y1="'+y+'" x2="'+CCX0+'" y2="'+y+'" stroke="#3a3a40"/>';
+      s+='<text x="'+(CCX0-8)+'" y="'+(y+3)+'" text-anchor="end" font-size="8.5" fill="#6C6960">'+v+'</text>'; });
+    [0,15,30,45,60].forEach(function(r){ var x=ccX(r);
+      s+='<line x1="'+x+'" y1="'+CCY1+'" x2="'+x+'" y2="'+(CCY1+4)+'" stroke="#3a3a40"/>';
+      s+='<text x="'+x+'" y="'+(CCY1+15)+'" text-anchor="middle" font-size="8.5" fill="#6C6960">'+r+'</text>'; });
+    s+='<text x="'+((CCX0+CCX1)/2)+'" y="'+(CCY1+29)+'" text-anchor="middle" font-size="9.5" fill="#9A968D">R 위험 →</text>';
+    s+='<text x="16" y="'+((CCY0+CCY1)/2)+'" text-anchor="middle" font-size="9.5" fill="#9A968D" transform="rotate(-90 16 '+((CCY0+CCY1)/2)+')">V 획득가치 ↑</text>';
+    // 내 평균 marker (diamond)
+    var mx=ccX(CCMEAN.R),my=ccY(CCMEAN.V),ms=6;
+    s+='<g class="ccdot" onclick="ccInsp(\'__mean\')"><circle cx="'+mx+'" cy="'+my+'" r="16" fill="transparent"/>'+
+       '<path d="M'+mx+' '+(my-ms)+' L'+(mx+ms)+' '+my+' L'+mx+' '+(my+ms)+' L'+(mx-ms)+' '+my+' Z" fill="none" stroke="var(--frontier)" stroke-width="1.6"/>'+
+       '<text x="'+(mx+9)+'" y="'+(my+3)+'" font-size="8.5" fill="#86b9ec">내 평균</text></g>';
+    // dots
+    CCFILMS.forEach(function(f){
+      var x=ccX(f.R),y=ccY(f.V), r=(f.k==='ideal')?6:5;
+      var fill=f.k==='ideal'?'#5fd0b2':f.k==='risk'?'var(--risk)':'#ECEAE5';
+      var stroke=f.k==='risk'?'#f0937a':'none';
+      s+='<g class="ccdot" onclick="ccInsp(\''+f.id+'\')">'+
+         '<circle cx="'+x+'" cy="'+y+'" r="13" fill="transparent"/>'+
+         '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+fill+'"'+(stroke!=='none'?' stroke="'+stroke+'" stroke-width="1"':'')+'/>';
+      if(f.lab){ var lx=x+9, anc='start'; if(x>CCX1-90){lx=x-9;anc='end';}
+        s+='<text x="'+lx+'" y="'+(y+3)+'" text-anchor="'+anc+'" font-size="8.5" fill="'+(f.k==='risk'?'#f0937a':f.k==='ideal'?'#5fd0b2':'#9A968D')+'" font-family="PT Serif,serif">'+f.lab+'</text>'; }
+      s+='</g>';
+    });
+    svg.innerHTML=s;
+  }
+  /* ── Cinecodex 인스펙터 상세 (V/C/R 분해) ── */
+  function ccBar(label,val,max,color){
+    var w=Math.round(val/max*100); if(w>100)w=100;
+    return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+w+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
+  }
+  window.ccInsp=function(id){
+    openInsp(); clearSel();
+    document.querySelectorAll('.rrow.sel,.lrow.sel').forEach(function(e){e.classList.remove('sel');});
+    if(id==='__mean'){
+      var html='<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>'+
+        '<div class="icard"><h4><i class="ti ti-crosshair"></i> 내 포트폴리오 평균 · μ–σ</h4>'+
+        '<div class="bigscore"><span class="n" style="color:var(--frontier)">V̄ 78</span><span class="u">· R̄ 25</span></div>'+
+        ccBar('평균 획득가치 V̄',78,100,'#5fd0b2')+ccBar('평균 위험 R̄',25,60,'var(--risk)')+
+        '<div style="font-size:11.5px;color:var(--mut);margin-top:9px;line-height:1.55">내 평균은 <b style="color:#5fd0b2">고가치·저위험(좌상 이상향)</b>에 가깝습니다. 정전 우주 위험 중앙값(R≈23)과 유사 — 무리한 분열작 편중은 없음. σ<sub>R</sub> 11.2로 위험 분산은 좁은 편.</div></div>'+
+        '<div class="icard"><h4><i class="ti ti-alert-triangle"></i> 우측(고위험) 견제</h4>'+
+        '<div style="font-size:11.5px;color:var(--mut);line-height:1.55"><b style="color:var(--risktx)">분열작 2편</b>(La La Land R39·Oldboy R28)이 R=28 경계 우측. 이상향(좌상) 6편이 이를 상쇄. λ 다이얼로 위험회피를 높이면 우측 후보가 강등됩니다.</div></div>';
+      setInsp(html,'내 평균 · μ–σ'); return;
+    }
+    var f=null; for(var i=0;i<CCFILMS.length;i++){if(CCFILMS[i].id===id){f=CCFILMS[i];break;}}
+    if(!f)return;
+    var klabel=f.k==='ideal'?'<span class="badge-val bv-find">이상향 · 고V·저R</span>':
+               f.k==='risk'?'<span class="badge-val bv-over" style="background:#2a0f07;color:var(--risktx);border-color:#6a2611">분열/고위험 · R↑</span>':
+               '<span class="badge-val bv-fit">보유·후보</span>';
+    var rcol=f.R>=28?'var(--risk)':f.R>=15?'#e0bb6e':'#5fd0b2';
+    var html='<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 분석으로</div>'+
+      '<div class="icard"><h4><i class="ti ti-stack-2"></i> Cinecodex 평가 · 엔진 ⑨</h4>'+
+        '<div class="seltitle" style="font-size:17px">'+f.t+'</div>'+
+        '<div class="selsub">미적 단계 <b style="color:#c6bcf7">'+ccTier(f.V)+'</b>'+(f.note?' · '+f.note:'')+'</div>'+
+        '<div class="selflag" style="margin-top:7px">'+klabel+'</div>'+
+        '<div style="display:flex;gap:10px;margin:12px 0 4px">'+
+          '<div style="flex:1"><div class="eb" style="color:var(--sub)">V 획득가치</div><div class="mono" style="font-size:24px;color:#5fd0b2;line-height:1.1">'+f.V+'</div></div>'+
+          '<div style="flex:1"><div class="eb" style="color:var(--sub)">R 위험</div><div class="mono" style="font-size:24px;color:'+rcol+';line-height:1.1">'+f.R+'</div></div>'+
+          '<div style="flex:1"><div class="eb" style="color:var(--sub)">U 순가치</div><div class="mono" style="font-size:24px;color:var(--ink);line-height:1.1">'+f.U+'</div></div>'+
+        '</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-chart-bar"></i> V · C · R 분해</h4>'+
+        ccBar('V 획득가치',f.V,100,'#5fd0b2')+
+        ccBar('C 진입비용',f.C,100,'var(--frontier)')+
+        ccBar('R 위험',f.R,60,'var(--risk)')+
+        '<div style="font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5">U = V − λ·R (λ1) = '+f.V+' − '+f.R+' = <b style="color:var(--ink);font-style:normal">'+f.U+'</b> · S(샤프) '+f.S.toFixed(1)+' = (V−50)/max(R,1)</div></div>'+
+      '<div class="icard"><h4><i class="ti ti-columns-3"></i> 나란히 · 안 섞음 <span style="font-weight:400;color:var(--faint);letter-spacing:0;text-transform:none">(비섞임)</span></h4>'+
+        '<div class="kv"><span class="k">우리 (Cinecodex V/R)</span><span class="v" style="color:#5fd0b2">V'+f.V+' · <span style="color:'+rcol+'">R'+f.R+'</span></span></div>'+
+        '<div class="kv"><span class="k">외부 (IMDb/RT/Meta)</span><span class="v" style="color:var(--sub)">별도 칸</span></div>'+
+        '<div class="kv"><span class="k">정전가 (시장가)</span><span class="v" style="color:var(--sub)">별도 칸</span></div>'+
+        '<div style="font-size:10.5px;color:var(--sub);margin-top:7px;line-height:1.5">외부·정전가는 <b style="color:var(--mut);font-style:normal">입력 아님</b> — 표시·검증 전용(순환성 회피). 위험색 <b style="color:var(--risktx);font-style:normal">--risk</b>≠완파 red.</div>'+
+        '<div style="margin-top:9px;text-align:right"><a onclick="location.href=&#39;mockup-me-film-cinecodex.html&#39;" style="font-size:10.5px;color:var(--frontier);cursor:pointer">Cinecodex 평가 전체 →</a></div></div>';
+    setInsp(html, f.t+' · Cinecodex');
+  };
+
   /* ── init renders ── */
-  renderRel(); renderDecade(); renderCountry(); renderDirectors(); renderGraph(); renderAnchors();
+  renderRel(); renderDecade(); renderCountry(); renderDirectors(); renderGraph(); renderCC(); renderAnchors();
 
   // init inspector: default 취향 시그니처 stack, top lineage selected
   sel('french-spiritual', document.querySelector('.rrow[data-id="french-spiritual"]'));
@@ -1061,6 +1244,8 @@
     ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
     ['동행','ti-users','mockup-me-pair.html','교류'],
     ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Cinecodex 평가 · 밀양','ti-microscope','mockup-me-film-cinecodex.html','평가'],
+    ['μ–σ 위험평면 — Cinecodex V×R','ti-chart-scatter','#','분석'],
     ['프랑스 영성영화 — 관련성 0.94','ti-route','#','계보'],
     ['이란 뉴웨이브 — 벡터 이동 중','ti-route','#','계보'],
     ['무력한 목격자 — 앵커 w0.86','ti-fingerprint','#','앵커'],

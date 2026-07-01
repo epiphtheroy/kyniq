@@ -14,6 +14,8 @@
     --red:#E3120B; --reddim:#7a1410;
     /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
     --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    /* SHARED-STANDARD S11 · 엔진 ⑨ Cinecodex 위험색 — 완파 --red(정복 전용)와 반드시 구분 */
+    --risk:#D64518; --riskdim:#5e2413; --riskbg:#26120b;
     --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
     --rail:212px; --insp:344px; --feed:286px;
@@ -230,6 +232,73 @@
     color:#e0bb6e;border:1px solid #5b481f;background:#1f1808;border-radius:3px;padding:0 5px;margin-bottom:4px}
   .alphatag i{font-size:9px}
 
+  /* ───── 엔진 ⑨ Cinecodex · 위험조정 (S11) ───── */
+  /* λ 위험회피 다이얼 — 보수↔중립↔모험, U=V−λR 재정렬(개념) */
+  .lam{display:flex;align-items:center;gap:9px;margin-right:12px;font-size:10.5px;color:var(--mut)}
+  .lam .llab{display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .lam .llab i{color:var(--risk);font-size:12px}
+  .lamseg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+  .lamseg button{background:transparent;border:none;border-right:1px solid var(--line);color:var(--mut);
+    font-family:var(--ui);font-size:10px;padding:3px 8px;cursor:pointer;white-space:nowrap;line-height:1.2}
+  .lamseg button:last-child{border-right:0}
+  .lamseg button .lv{display:block;font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:.04em}
+  .lamseg button.on{background:var(--risk);color:#fff}
+  .lamseg button.on .lv{color:rgba(255,255,255,.82)}
+  .lamnote{font-size:9.5px;color:var(--sub);font-family:var(--mono);white-space:nowrap}
+
+  /* 위험 배지 R (--risk) · 완파 red와 구분 */
+  .rbadge{display:inline-flex;align-items:center;gap:3px;font-size:8.5px;font-family:var(--mono);font-weight:600;
+    padding:1px 5px;border-radius:3px;color:#f0a58c;border:1px solid var(--riskdim);background:var(--riskbg);vertical-align:1px;letter-spacing:.02em}
+  .rbadge::before{content:"R";opacity:.6;font-size:7.5px;margin-right:1px}
+  .rbadge.hi{color:#ff8f6b;border-color:var(--risk);background:#341206;box-shadow:0 0 5px rgba(214,69,24,.32)}
+  .sbadge{font-size:8.5px;font-family:var(--mono);color:#7fbfa8;letter-spacing:.02em}
+  .sbadge::before{content:"S";opacity:.55;font-size:7.5px;margin-right:2px}
+  /* per-card S/R meta row under the reason chips */
+  .pcard .crisk{display:flex;align-items:center;gap:6px;margin-top:5px}
+  /* high-risk downgrade dim on the card (only in S-sort/모험 lens) */
+  .pcard.hirisk-flag{position:relative}
+  .pcard.hirisk-flag::after{content:"고위험";position:absolute;bottom:6px;right:7px;font-size:7.5px;font-family:var(--mono);
+    color:#ff8f6b;border:1px solid var(--riskdim);background:var(--riskbg);border-radius:3px;padding:0 4px;letter-spacing:.04em}
+
+  /* P&L 고위험 매수 경고 note (regret과 구분 — regret=이미 저평점, risk=Cinecodex R) */
+  .riskwarn{background:var(--riskbg);border:1px solid var(--riskdim);border-radius:7px;padding:10px 12px;margin-top:11px}
+  .riskwarn h5{margin:0 0 7px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#f0a58c;font-weight:600;display:flex;align-items:center;gap:6px}
+  .riskwarn h5 i{color:var(--risk)}
+  .rwrow{display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center;padding:6px 0;border-bottom:1px solid var(--riskdim);font-size:11.5px}
+  .rwrow:last-of-type{border-bottom:0}
+  .rwrow .rwnm{font-family:var(--ser);font-size:12.5px;cursor:pointer;color:var(--ink)}
+  .rwrow .rwnm:hover{text-decoration:underline}
+  .rwrow .rwnm small{font-family:var(--ui);font-size:10px;color:var(--sub);margin-left:5px}
+  .rwrow .rwu{font-family:var(--mono);font-size:10.5px;color:var(--mut)}
+  .rwfoot{font-size:10px;color:var(--sub);margin-top:8px;line-height:1.45;display:flex;gap:6px;align-items:flex-start}
+  .rwfoot i{color:var(--risk);flex:0 0 auto;margin-top:1px}
+  .rwfoot b{color:#f0a58c;font-weight:600}
+
+  /* Inspector Cinecodex 카드 — 3축 V/C/R + U/S + 미적 단계 + 나란히 + 신뢰도 */
+  .cc-card{background:var(--riskbg);border:1px solid var(--riskdim);border-radius:7px;padding:11px;margin-bottom:11px}
+  .cc-card h4{margin:0 0 9px;font-size:11px;letter-spacing:.04em;color:#f0a58c;font-weight:600;display:flex;align-items:center;gap:6px}
+  .cc-card h4 i{color:var(--risk)}
+  .cc-card h4 .tier{margin-left:auto;font-family:var(--ui);font-size:9px;letter-spacing:.05em;color:#e0bb6e;border-color:#5b481f;background:#1f1808;padding:1px 6px}
+  .cc-us{display:flex;gap:14px;margin:0 0 9px}
+  .cc-us .cell{flex:1}
+  .cc-us .cell .k{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub)}
+  .cc-us .cell .v{font-family:var(--mono);font-size:23px;font-weight:600;line-height:1.1}
+  .cc-us .cell .sub{font-size:9.5px;color:var(--sub);font-family:var(--mono)}
+  .cc-axis{display:grid;grid-template-columns:44px 1fr 30px;align-items:center;gap:8px;margin:5px 0}
+  .cc-axis .al{font-size:10.5px;color:var(--mut)}
+  .cc-axis .at{height:6px;background:#2a1710;border-radius:4px;overflow:hidden}.cc-axis .at>i{display:block;height:100%;border-radius:4px}
+  .cc-axis .av{font-family:var(--mono);font-size:10.5px;text-align:right;color:var(--sub)}
+  /* 나란히(never-blend) 3분할 — 우리/외부/정전 분리 칸 */
+  .cc-side{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:9px 0 3px}
+  .cc-side .col3{background:var(--pnl);border:1px solid var(--line2);border-radius:5px;padding:6px 7px;text-align:center}
+  .cc-side .col3 .cl3{font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-bottom:4px}
+  .cc-side .col3 .cn3{font-family:var(--mono);font-size:13px;line-height:1.35}
+  .cc-side .col3 .cn3 span{display:block;font-size:11px}
+  .cc-conf{font-size:10px;color:var(--sub);margin-top:8px;line-height:1.45;border-top:1px solid var(--riskdim);padding-top:8px;display:flex;gap:6px;align-items:flex-start}
+  .cc-conf i{flex:0 0 auto;margin-top:1px;color:var(--mut)}
+  .cc-polar{display:inline-flex;align-items:center;gap:3px;font-size:8px;font-family:var(--mono);color:#c6a0f0;
+    border:1px solid #4a3f86;background:#171430;border-radius:3px;padding:0 5px;margin-left:5px;letter-spacing:.02em}
+
   /* pnl panel */
   .pnlgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:13px}
   .pnlcard{background:var(--bg2);border:1px solid var(--line);border-radius:7px;padding:11px 13px}
@@ -410,6 +479,7 @@
     <span><i class="ti ti-point-filled dot"></i>완파 근접 · <b>S&amp;S 2022 41%→50%</b> 9편 · 브레송 <b>5/6</b></span>
     <span><i class="ti ti-point-filled dot"></i>P&amp;L regret 발생 · <b>13 Moons ★2.5</b> — NAV 불변</span>
     <span><i class="ti ti-point-filled dot"></i>관람은 NAV를 깎지 않는다 · 저평점만 P&amp;L regret</span>
+    <span><i class="ti ti-point-filled dot"></i>Cinecodex ⑨ 위험 경보 · <b>Babylon R51</b> · <b>La La Land R39</b> — λ 다이얼로 강등</span>
     <span><i class="ti ti-point-filled dot"></i>오늘의 5전략 · 안전 <b>3</b> · 모험 <b>4</b> · 도장깨기 <b>2</b> · 공백 <b>3</b> · 정전 <b>2</b></span>
     <span><i class="ti ti-point-filled dot"></i>Δindex 최대 기회 · <b>Touki Bouki +6 → NAV</b></span>
     <span><i class="ti ti-point-filled dot"></i>적중률 <b>78%</b> · 내가 높게 준 추천 비율 ▲</span>
@@ -499,8 +569,22 @@
       <!-- STRATEGY DESK · 5 전략 -->
       <div class="mod prime" id="m-strat">
         <div class="modh"><h3><i class="ti ti-layout-board"></i> 다음 한 편을 고르세요 · 5 전략 추천</h3>
-          <span class="meta">전략 = 6이유 정본 매핑 · 후보 = <span class="gloss" data-tip="WWI(Why-Watch Index): 이 영화가 나에게 맞는 정도 0–100. 취향 친연·계보·공백·정전 위상을 합친 적합도.">WWI</span> + <span class="gloss" data-tip="Δindex: 이 한 편을 보면 NAV가 +N 오르는 증분. 후보를 순위 매기는 핵심 지표.">Δindex</span> → NAV</span></div>
-        <div class="prime-hint"><i class="ti ti-hand-finger"></i> 이 데스크가 오늘의 <b>주 작업</b>입니다 — 카드를 누르면 분석, <b>+ 담기</b>로 바로 볼 영화에 추가됩니다.</div>
+          <!-- λ 위험회피 다이얼 (엔진 ⑨) — U=V−λR 로 추천 재정렬(개념). 보수↔모험 -->
+          <div class="lam">
+            <span class="llab"><i class="ti ti-adjustments-horizontal"></i><span class="gloss" data-tip="λ 위험회피 다이얼: 영화 순가치 U=V−λR 의 위험 벌점 계수. 보수(λ2)는 고위험작을 강하게 강등, 모험(λ0.5)은 위험을 거의 무시하고 획득가치 V를 우선.">λ</span></span>
+            <div class="lamseg" id="lamseg">
+              <button data-lam="2" onclick="setLam(2,this)">보수<span class="lv">λ2</span></button>
+              <button data-lam="1" class="on" onclick="setLam(1,this)">중립<span class="lv">λ1</span></button>
+              <button data-lam="0.5" onclick="setLam(0.5,this)">모험<span class="lv">λ.5</span></button>
+            </div>
+            <span class="lamnote" id="lamnote">U = V − 1·R</span>
+          </div>
+          <!-- S(샤프) 위험조정 정렬 토글 -->
+          <div class="seg" id="sortseg" style="margin-left:0">
+            <button class="on" data-sort="wwi" onclick="setSort('wwi',this)">WWI 순</button>
+            <button data-sort="s" onclick="setSort('s',this)"><span class="gloss" data-tip="S 샤프: (V−50)/max(R,1). 위험 대비 획득가치 효율 — 위험조정 정렬 기준. 매수 전 후보 효율(≠보유 후 P&amp;L).">S 샤프</span> 순</button>
+          </div></div>
+        <div class="prime-hint"><i class="ti ti-hand-finger"></i> 이 데스크가 오늘의 <b>주 작업</b>입니다 — 카드를 누르면 <b>Cinecodex(⑨)</b> 분석, <b>+ 담기</b>로 볼 영화에 추가. λ·S로 위험조정 정렬.</div>
         <div class="modbody">
           <div class="strat">
 
@@ -509,17 +593,19 @@
               <div class="sthd"><span class="sd" style="background:var(--safe)"></span><span class="snm">안전자산</span><span class="sct">safe</span></div>
               <div class="stsub">취향 벡터와 가장 가까운 of-course 우량주 — 하방 거의 없음.</div>
               <div class="stbody">
-                <div class="pcard sel" data-id="yiyi" onclick="sel('yiyi',this)">
+                <div class="pcard sel" data-id="yiyi" data-r="10" data-s="3.57" onclick="sel('yiyi',this)">
                   <span class="padd" onclick="addPick(event,this,'Yi Yi')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Yi Yi<span class="wn" style="color:#5fd0b2">86</span></div>
                   <div class="pyr">2000 · Edward Yang · 대만</div>
                   <div class="pft"><span class="rsn safe">safe 0.91</span><span class="pdl">→ NAV +5</span></div>
+                  <div class="crisk"><span class="rbadge">10</span><span class="sbadge">3.57</span></div>
                 </div>
-                <div class="pcard" data-id="tokyo" onclick="sel('tokyo',this)">
+                <div class="pcard" data-id="tokyo" data-r="7" data-s="6.00" onclick="sel('tokyo',this)">
                   <span class="padd" onclick="addPick(event,this,'Tokyo Story')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Tokyo Story<span class="wn" style="color:#5fd0b2">82</span></div>
                   <div class="pyr">1953 · Ozu Yasujirō · 일본</div>
                   <div class="pft"><span class="rsn safe">safe 0.89</span><span class="pdl">→ NAV +3</span></div>
+                  <div class="crisk"><span class="rbadge">7</span><span class="sbadge">6.00</span></div>
                 </div>
               </div>
             </div>
@@ -529,17 +615,19 @@
               <div class="sthd"><span class="sd" style="background:var(--frontier)"></span><span class="snm">안전한 모험</span><span class="sct">frontier</span></div>
               <div class="stsub">미답 사조이되 신뢰하는 감독·정전 닻이 하방을 받친 다리.</div>
               <div class="stbody">
-                <div class="pcard" data-id="absd" onclick="sel('absd',this)">
+                <div class="pcard" data-id="absd" data-r="13" data-s="2.80" onclick="sel('absd',this)">
                   <span class="padd" onclick="addPick(event,this,'A Brighter Summer Day')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">A Brighter Summer Day<span class="wn" style="color:#86b9ec">84</span></div>
                   <div class="pyr">1991 · Edward Yang · 대만</div>
                   <div class="pft"><span class="rsn frontier">frontier 88</span><span class="pdl">→ NAV +6</span></div>
+                  <div class="crisk"><span class="rbadge">13</span><span class="sbadge">2.80</span></div>
                 </div>
-                <div class="pcard" data-id="wind" onclick="sel('wind',this)">
+                <div class="pcard" data-id="wind" data-r="19" data-s="1.45" onclick="sel('wind',this)">
                   <span class="padd" onclick="addPick(event,this,'The Wind Will Carry Us')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Wind Will Carry Us<span class="wn" style="color:#bda1f0">83</span></div>
                   <div class="pyr">1999 · Abbas Kiarostami · 이란</div>
                   <div class="pft"><span class="rsn reading">reading 관조</span><span class="pdl">→ NAV +4</span></div>
+                  <div class="crisk"><span class="rbadge">19</span><span class="sbadge">1.45</span></div>
                 </div>
               </div>
             </div>
@@ -549,17 +637,19 @@
               <div class="sthd"><span class="sd" style="background:var(--conquer)"></span><span class="snm">도장깨기</span><span class="sct">conquer</span></div>
               <div class="stsub">계보·감독 라인 완파를 한 편으로 진척 — 마일스톤 직격.</div>
               <div class="stbody">
-                <div class="pcard" data-id="largent" onclick="sel('largent',this)">
+                <div class="pcard" data-id="largent" data-r="" data-s="" onclick="sel('largent',this)">
                   <span class="padd" onclick="addPick(event,this,'L&#39;Argent')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">L'Argent<span class="wn" style="color:#f2a39f">85</span></div>
                   <div class="pyr">1983 · Robert Bresson · 프랑스</div>
                   <div class="pft"><span class="rsn conquer">브레송 5/6</span><span class="pdl">→ NAV +5</span></div>
+                  <div class="crisk"><span class="rbadge" style="color:var(--sub);border-color:var(--line2);background:transparent;opacity:.6">미평가</span></div>
                 </div>
-                <div class="pcard" data-id="vengeance" onclick="sel('vengeance',this)">
+                <div class="pcard" data-id="vengeance" data-r="19" data-s="1.47" onclick="sel('vengeance',this)">
                   <span class="padd" onclick="addPick(event,this,'Vengeance Is Mine')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Vengeance Is Mine<span class="wn">78</span></div>
                   <div class="pyr">1979 · Shohei Imamura · 일본</div>
                   <div class="pft"><span class="rsn canon">canon 79</span><span class="pdl">→ NAV +4</span></div>
+                  <div class="crisk"><span class="rbadge">19</span><span class="sbadge">1.47</span></div>
                 </div>
               </div>
             </div>
@@ -569,18 +659,20 @@
               <div class="sthd"><span class="sd" style="background:var(--gap)"></span><span class="snm">공백 충족</span><span class="sct">gap</span></div>
               <div class="stsub">0% 대륙·연대 블라인드를 처음 여는 한 편 — 폭 증분 최대.</div>
               <div class="stbody">
-                <div class="pcard alpha" data-id="touki" onclick="sel('touki',this)">
+                <div class="pcard alpha" data-id="touki" data-r="22" data-s="1.25" onclick="sel('touki',this)">
                   <span class="padd" onclick="addPick(event,this,'Touki Bouki')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="alphatag"><i class="ti ti-star-filled"></i>오늘의 한 편 · 최대 Δ → NAV +6</div>
                   <div class="pt">Touki Bouki<span class="wn" style="color:#86b9ec">88</span></div>
                   <div class="pyr">1973 · D.D. Mambéty · 세네갈</div>
                   <div class="pft"><span class="rsn gap">gap 0%→진입</span><span class="pdl">→ NAV +6</span></div>
+                  <div class="crisk"><span class="rbadge">22</span><span class="sbadge">1.25</span></div>
                 </div>
-                <div class="pcard" data-id="bgwd" onclick="sel('bgwd',this)">
+                <div class="pcard" data-id="bgwd" data-r="29" data-s="1.10" onclick="sel('bgwd',this)">
                   <span class="padd" onclick="addPick(event,this,'Black God, White Devil')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Black God, White Devil<span class="wn" style="color:#86b9ec">81</span></div>
                   <div class="pyr">1964 · Glauber Rocha · 브라질</div>
                   <div class="pft"><span class="rsn gap">gap 라틴 0%</span><span class="pdl">→ NAV +5</span></div>
+                  <div class="crisk"><span class="rbadge hi">29</span><span class="sbadge">1.10</span></div>
                 </div>
               </div>
             </div>
@@ -590,17 +682,19 @@
               <div class="sthd"><span class="sd" style="background:var(--canon)"></span><span class="snm">정전 위상</span><span class="sct">canon</span></div>
               <div class="stsub">권위·정전 위상이 높은 미관람 — prestige 증분과 안전망을 동시에.</div>
               <div class="stbody">
-                <div class="pcard" data-id="jeanne" onclick="sel('jeanne',this)">
+                <div class="pcard" data-id="jeanne" data-r="" data-s="" onclick="sel('jeanne',this)">
                   <span class="padd" onclick="addPick(event,this,'Jeanne Dielman')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Jeanne Dielman<span class="wn" style="color:#e0bb6e">87</span></div>
                   <div class="pyr">1975 · C. Akerman · S&amp;S #1</div>
                   <div class="pft"><span class="rsn canon">canon 98</span><span class="pdl">→ NAV +5</span></div>
+                  <div class="crisk"><span class="rbadge" style="color:var(--sub);border-color:var(--line2);background:transparent;opacity:.6">미평가</span></div>
                 </div>
-                <div class="pcard" data-id="satantango" onclick="sel('satantango',this)">
+                <div class="pcard" data-id="satantango" data-r="" data-s="" onclick="sel('satantango',this)">
                   <span class="padd" onclick="addPick(event,this,'Sátántangó')"><i class="ti ti-plus" style="font-size:10px"></i>담기</span>
                   <div class="pt">Sátántangó<span class="wn" style="color:#e0bb6e">80</span></div>
                   <div class="pyr">1994 · Béla Tarr · TSPDT #36</div>
                   <div class="pft"><span class="rsn canon">canon 92</span><span class="pdl">→ NAV +4</span></div>
+                  <div class="crisk"><span class="rbadge" style="color:var(--sub);border-color:var(--line2);background:transparent;opacity:.6">미평가</span></div>
                 </div>
               </div>
             </div>
@@ -656,6 +750,24 @@
                   <span class="rgst">★2.5</span><span class="rgpl">−1</span>
                 </div>
                 <div class="navguard"><i class="ti ti-shield-check"></i><span>이 −3은 <b>시간 기회비용</b>일 뿐 — <b style="color:#5fd0b2">NAV 1,284 불변</b>.</span></div>
+
+                <!-- 엔진 ⑨ · 고위험 매수 경고 (Cinecodex R) — regret과 다름: regret=이미 저평점, risk=매수 전 R 예보 -->
+                <div class="riskwarn">
+                  <h5><i class="ti ti-alert-triangle"></i> 고위험 매수 경고 · Cinecodex R</h5>
+                  <div class="rwrow" data-id="babylon" onclick="sel('babylon',this)">
+                    <span class="rwnm">Babylon <small>2022 · Chazelle · 후보</small></span>
+                    <span class="rbadge hi">51</span><span class="rwu">U 4 · S 0.1</span>
+                  </div>
+                  <div class="rwrow" data-id="lalaland" onclick="sel('lalaland',this)">
+                    <span class="rwnm">La La Land <small>2016 · Chazelle · 후보</small></span>
+                    <span class="rbadge hi">39</span><span class="rwu">U 19 · S 0.2</span>
+                  </div>
+                  <div class="rwrow" data-id="stalker" onclick="sel('stalker',this)">
+                    <span class="rwnm">Stalker <small>1979 · Tarkovsky · 보유</small></span>
+                    <span class="rbadge">32</span><span class="rwu">S 1.28 · 분열</span>
+                  </div>
+                  <div class="rwfoot"><i class="ti ti-info-circle"></i><span><b>regret ≠ 위험(R).</b> Regret은 <i>이미 관람 후 저평점</i>, 이 경고는 <i>매수 전</i> Cinecodex 위험(R)이 높은 종목의 사전 예보. Babylon R51은 <b>분열적 실패</b>, Stalker R32는 <b>분열(POLAR)</b> — 둘 다 위험 배지 <span class="rbadge" style="vertical-align:0">·</span> (완파 red ≠ 위험 <span style="color:var(--risk)">orange</span>).</span></div>
+                </div>
               </div>
             </div>
 
@@ -727,6 +839,8 @@
         <div class="fb"><div class="ft">Δindex 최대 기회 · <b>Touki Bouki +6 → NAV</b></div><div class="fm">7분 전 · 다음 한 편</div></div></div>
       <div class="feeditem"><div class="fi" style="color:var(--red)"><i class="ti ti-mood-sad"></i></div>
         <div class="fb"><div class="ft">regret 발생 · <b>13 Moons ★2.5</b> — P&amp;L −2 <b style="color:#5fd0b2">(NAV 불변)</b></div><div class="fm">1시간 전 · 저평점</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--risk)"><i class="ti ti-alert-triangle"></i></div>
+        <div class="fb"><div class="ft">고위험 매수 경고 · <b>Babylon R51</b> · U 4 — Cinecodex ⑨ (regret 아님 · 매수 전 예보)</div><div class="fm">2시간 전 · risk gate</div></div></div>
       <div class="feeditem"><div class="fi" style="color:var(--conquer)"><i class="ti ti-user-star"></i></div>
         <div class="fb"><div class="ft"><b>브레송</b> 완파 1편 남음 — 〈L'Argent〉 구독 가용</div><div class="fm">3시간 전 · 도장깨기</div></div></div>
       <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-target"></i></div>
@@ -794,6 +908,53 @@
   function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
   window.jump = jump;
 
+  /* ───── 엔진 ⑨ · λ 위험회피 다이얼 + S(샤프) 위험조정 정렬 ───── */
+  var LAM = 1;          // 위험회피 계수 λ — U=V−λR (보수2 / 중립1 / 모험0.5)
+  var SORTMODE = 'wwi'; // 'wwi' | 's' (샤프 위험조정)
+  // λ 다이얼: U=V−λR 재정렬(개념) + 고위험 강등 표시 + 열린 인스펙터 U 갱신
+  window.setLam = function(v,btn){
+    LAM = +v;
+    document.querySelectorAll('#lamseg button').forEach(function(b){b.classList.toggle('on',b===btn);});
+    var note=document.getElementById('lamnote');
+    note.textContent = 'U = V − '+ (LAM===1?'1':LAM) +'·R';
+    resortStrat();
+    var cl=document.getElementById('ccLam'); if(cl) cl.textContent=LAM;
+    // 열려 있는 후보 인스펙터가 있으면 U/S 재계산 반영
+    var open=document.querySelector('.pcard.sel,.rwrow.sel'); var id=open&&open.getAttribute('data-id');
+    if(id&&FILM[id]) setInsp(filmDetail(FILM[id]),FILM[id].t);
+    toast('λ='+LAM+' · '+(LAM>=2?'보수 — 고위험 강등 강화':LAM<=0.5?'모험 — 위험 벌점 축소':'중립')+' · U=V−λR 재정렬');
+  };
+  // S 위험조정 정렬 토글
+  window.setSort = function(mode,btn){
+    SORTMODE = mode;
+    document.querySelectorAll('#sortseg button').forEach(function(b){b.classList.toggle('on',b===btn);});
+    resortStrat();
+    var cs=document.getElementById('ccSort'); if(cs) cs.textContent=(mode==='s'?'S 샤프':'WWI');
+    toast(mode==='s'?'S(샤프) 위험조정 정렬 — 위험 대비 효율순':'WWI 적합도 정렬');
+  };
+  // 각 전략 칼럼 안에서 카드를 정렬 기준으로 재배치 + 고위험(R≥25 & 모험/보수 조건) 강등 플래그
+  function resortStrat(){
+    document.querySelectorAll('.stcol .stbody').forEach(function(body){
+      var cards=[].slice.call(body.querySelectorAll('.pcard'));
+      cards.forEach(function(c){
+        var r=parseFloat(c.getAttribute('data-r'));
+        var s=parseFloat(c.getAttribute('data-s'));
+        var wn=c.querySelector('.wn'); var wwi=wn?parseFloat(wn.textContent):0;
+        var V=isNaN(r)?null:wwi; // (근사) 표시용
+        // 정렬 키: S모드=샤프, 아니면 λ 반영 U=V−λR (V는 WWI 근사, 미평가는 후순위)
+        var key;
+        if(SORTMODE==='s') key = isNaN(s)?-999:s;
+        else key = isNaN(r)?-999:(wwi - LAM*r); // λ 반영 U 근사
+        c.setAttribute('data-key', key);
+        // 고위험 강등 플래그: R 있는 카드 중 R≥25 이고 (S정렬 또는 λ≥2)일 때
+        var hi = (!isNaN(r) && r>=25 && (SORTMODE==='s' || LAM>=2));
+        c.classList.toggle('hirisk-flag', hi);
+      });
+      cards.sort(function(a,b){return (+b.getAttribute('data-key')) - (+a.getAttribute('data-key'));});
+      cards.forEach(function(c){body.appendChild(c);}); // 재부착 = 재정렬
+    });
+  }
+
   /* ───── inspector content model ───── */
   var bar = function(label,val,color){
     return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
@@ -805,52 +966,81 @@
       comps:[['taste 친연',91,'var(--safe)'],['lineage',64,'var(--frontier)'],['gap 공백',55,'var(--gap)'],['canon',90,'var(--canon)']],
       reasons:'<span class="rsn safe">safe 0.91</span> <span class="rsn canon">canon 90</span> <span class="rsn gap">gap 금마 8%</span>',
       why:'취향 벡터 코사인 0.91 — 당신의 가족 드라마 군집과 직결된 of-course 안전자산. 하방 거의 없는 우량주 매수.',
-      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5},
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5,
+      cc:{V:86,C:50,R:10,U:76,S:3.57,tier:'L8 · 통찰',polar:false,ext:['8.1','92','94'],conf:'단일 샘플(N=1) · sd 미측정 · 안전한 걸작 — 저위험 고신뢰'}},
     tokyo:{t:'Tokyo Story',s:'1953 · Ozu Yasujirō · 일본',strat:'안전자산 (safe)',wwi:82,wc:'#5fd0b2',pre:96,dis:9,
       comps:[['taste 친연',89,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',40,'var(--gap)'],['canon',96,'var(--canon)']],
       reasons:'<span class="rsn safe">safe 0.89</span> <span class="rsn canon">canon 96</span>',
       why:'정전 위상 최상위 + 당신 일본 거장 군집과 친연. 안전망이 두꺼운 클래식 안전자산.',
-      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:3},
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:3,
+      cc:{V:93,C:51,R:7,U:86,S:6.00,tier:'L9 · 초월 근접',polar:false,ext:['8.2','100','—'],conf:'최고가·최저위험 기준 바스켓 상단 — R 7.2 전체 최저급'}},
     absd:{t:'A Brighter Summer Day',s:'1991 · Edward Yang · 대만',strat:'안전한 모험 (frontier)',wwi:84,wc:'#86b9ec',pre:88,dis:54,
       comps:[['taste 친연',80,'var(--safe)'],['lineage',86,'var(--frontier)'],['gap 공백',74,'var(--gap)'],['canon',88,'var(--canon)']],
       reasons:'<span class="rsn frontier">frontier 88</span> <span class="rsn conquer">금마 8%</span> <span class="rsn reading">reading 정치적 무의식</span>',
       why:'신대륙이되 신뢰하는 양더창 닻에 묶인 모험 — 상방 큼, 하방 제한. 정전(S&S·TSPDT) 안전망. Δindex 최상위급.',
-      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:6},
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:6,
+      cc:{V:86,C:55,R:13,U:73,S:2.80,tier:'L8 · 통찰',polar:false,ext:['8.1','—','—'],conf:'단일 샘플(N=1) · 진입비용 C 55(4시간 러닝타임) — 난이도이지 위험 아님'}},
     wind:{t:'The Wind Will Carry Us',s:'1999 · Abbas Kiarostami · 이란',strat:'안전한 모험 (frontier)',wwi:83,wc:'#bda1f0',pre:82,dis:44,
       comps:[['taste 친연',88,'var(--safe)'],['lineage',60,'var(--frontier)'],['gap 공백',62,'var(--gap)'],['canon',82,'var(--canon)']],
       reasons:'<span class="rsn reading">reading 관조</span> <span class="rsn safe">safe 0.88</span> <span class="rsn gap">gap 이란 12%</span>',
       why:'당신 시그니처 「절제된 응시」와 reading 합치. 이란 뉴웨이브 12%→확장. 베니스 심사위원대상이 하방을 받친다.',
-      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4},
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4,
+      cc:{V:78,C:57,R:19,U:59,S:1.45,tier:'L7 · 관조',polar:false,ext:['7.5','93','—'],conf:'단일 샘플(N=1) · 관조적 페이스 → 진입비용 C 57 · 위험 R은 중간'}},
     largent:{t:"L'Argent",s:'1983 · Robert Bresson · 프랑스',strat:'도장깨기 (conquer)',wwi:85,wc:'#f2a39f',pre:84,dis:38,
       comps:[['taste 친연',82,'var(--safe)'],['lineage',90,'var(--frontier)'],['gap 공백',30,'var(--gap)'],['canon',84,'var(--canon)']],
       reasons:'<span class="rsn conquer">브레송 5/6→6/6</span> <span class="rsn safe">safe 9+ 군집</span> <span class="rsn canon">canon 84</span>',
       why:'당신이 9점 이상 준 6편 중 5편이 브레송 — 사랑한 계보의 마지막 한 편이자 지금 무비용 취득 가능. 거의 확정적 자산.',
-      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5},
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5,
+      cc:null},
     vengeance:{t:'Vengeance Is Mine',s:'1979 · Shohei Imamura · 일본',strat:'도장깨기 (conquer)',wwi:78,wc:'#ECEAE5',pre:79,dis:36,
       comps:[['taste 친연',70,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',79,'var(--canon)']],
       reasons:'<span class="rsn canon">canon 79</span> <span class="rsn gap">gap 70s 일본</span>',
       why:'키네마준보 올타임 #1급. 연대 공백(1970년대 일본) 충족 + 당신 일본 거장 군집과 친연.',
-      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4},
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4,
+      cc:{V:79,C:57,R:19,U:59,S:1.47,tier:'L7 · 관조',polar:false,ext:['7.9','—','—'],conf:'단일 샘플(N=1) · 폭력·냉소 톤 → R 중간대, 분열성 낮음'}},
     touki:{t:'Touki Bouki',s:'1973 · Djibril Diop Mambéty · 세네갈',strat:'공백 충족 (gap)',wwi:88,wc:'#86b9ec',pre:71,dis:94,
       comps:[['taste 친연',62,'var(--safe)'],['lineage',70,'var(--frontier)'],['gap 공백',96,'var(--gap)'],['canon',71,'var(--canon)']],
       reasons:'<span class="rsn gap">gap 0%→진입</span> <span class="rsn frontier">frontier 94</span> <span class="rsn conquer">FESPACO</span>',
       why:'FESPACO·아프리카 정전 0% → 동시 진입. 희소도 최상위 → 발굴 가치 극대. Δindex가 모든 후보 중 최대.',
-      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR'],['Criterion','var(--sub)','정보 없음']],delta:6},
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR'],['Criterion','var(--sub)','정보 없음']],delta:6,
+      cc:{V:78,C:59,R:22,U:56,S:1.25,tier:'L7 · 관조',polar:false,ext:['7.7','96','—'],conf:'단일 샘플(N=1) · 프론티어 형식급진 → C 59 · R 22(진입 위험이지 파산 아님)'}},
     bgwd:{t:'Black God, White Devil',s:'1964 · Glauber Rocha · 브라질',strat:'공백 충족 (gap)',wwi:81,wc:'#86b9ec',pre:74,dis:88,
       comps:[['taste 친연',58,'var(--safe)'],['lineage',66,'var(--frontier)'],['gap 공백',92,'var(--gap)'],['canon',74,'var(--canon)']],
       reasons:'<span class="rsn gap">gap 라틴 0%</span> <span class="rsn conquer">Cinema Novo</span> <span class="rsn frontier">frontier 88</span>',
       why:'라틴 대륙 정전 0% → 진입. 대륙 커버리지를 가장 크게 끌어올림(Δbreadth 최상위급).',
-      avail:[['정보 없음','var(--sub)','이 지역 제공자 정보 없음']],delta:5},
+      avail:[['정보 없음','var(--sub)','이 지역 제공자 정보 없음']],delta:5,
+      cc:{V:81,C:75,R:29,U:53,S:1.10,tier:'L8 · 통찰',polar:true,ext:['7.4','—','—'],conf:'단일 샘플(N=1) · 급진(C 75) · R 29 중 분열성(POLAR) 기여 — 흐림 아님, 별도 분열 배지'}},
     jeanne:{t:'Jeanne Dielman',s:'1975 · Chantal Akerman · 벨기에',strat:'정전 위상 (canon)',wwi:87,wc:'#e0bb6e',pre:98,dis:42,
       comps:[['taste 친연',74,'var(--safe)'],['lineage',68,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',98,'var(--canon)']],
       reasons:'<span class="rsn canon">canon 98 · S&S #1</span> <span class="rsn reading">reading 일상의 시간</span>',
       why:'S&S 2022 비평가 #1 — 정전 위상 정점. prestige 증분이 가장 크고, 정전이 하방을 강하게 받친다.',
-      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5},
+      avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR']],delta:5,
+      cc:null},
     satantango:{t:'Sátántangó',s:'1994 · Béla Tarr · 헝가리',strat:'정전 위상 (canon)',wwi:80,wc:'#e0bb6e',pre:92,dis:60,
       comps:[['taste 친연',66,'var(--safe)'],['lineage',62,'var(--frontier)'],['gap 공백',64,'var(--gap)'],['canon',92,'var(--canon)']],
       reasons:'<span class="rsn canon">canon 92 · TSPDT #36</span> <span class="rsn frontier">frontier 헝가리</span>',
       why:'TSPDT #36 · 7시간 모더니즘 정전. prestige 증분 크고, 동유럽 라인 보강.',
-      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4}
+      avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR']],delta:4,
+      cc:null},
+    // 고위험 매수 경고 대상 — Cinecodex R이 높은 후보/보유작 (regret과 구분: 매수 전 R 예보)
+    babylon:{t:'Babylon',s:'2022 · Damien Chazelle · 미국',strat:'고위험 후보 (R 경고)',wwi:44,wc:'#f0a58c',pre:49,dis:52,
+      comps:[['taste 친연',40,'var(--safe)'],['lineage',30,'var(--frontier)'],['gap 공백',22,'var(--gap)'],['canon',49,'var(--canon)']],
+      reasons:'<span class="rsn conquer" style="color:#ff8f6b;border-color:var(--riskdim);background:var(--riskbg)">R 51 · 최고 위험</span>',
+      why:'Cinecodex R 50.8 — 전체 최고 위험. 야심적 스펙터클이지만 FORM 상한(과시적 스펙터클)에 걸린 <b>분열적 실패</b>. U 4.2로 순가치 최하위 — λ 아무 값에서도 강등. 정전가(시장)와 정면 배치되는 경고 사례.',
+      avail:[['정보 없음','var(--sub)','제공자 정보 없음']],delta:1,
+      cc:{V:55,C:49,R:51,U:4,S:0.10,tier:'L4 · 자극',polar:true,ext:['7.5','56','60'],conf:'단일 샘플(N=1) · R 50.8 = BANK/INSINCERE/COWARD 기여 큼 → 진짜 고위험(분열성만이 아님)'}},
+    lalaland:{t:'La La Land',s:'2016 · Damien Chazelle · 미국',strat:'고위험 후보 (R 경고)',wwi:52,wc:'#f0a58c',pre:35,dis:44,
+      comps:[['taste 친연',48,'var(--safe)'],['lineage',34,'var(--frontier)'],['gap 공백',30,'var(--gap)'],['canon',35,'var(--canon)']],
+      reasons:'<span class="rsn conquer" style="color:#ff8f6b;border-color:var(--riskdim);background:var(--riskbg)">R 39 · 분열</span>',
+      why:'Cinecodex R 39 — <b>분열적 대중작</b>. R의 상당분이 POLAR(분열성)에서 옴 = <i>옹호 진영이 강하다</i>는 뜻이지 오류(파산)가 아님. 그러나 U 19로 순가치 낮음 → 위험조정에서 강등. 흐림(불신뢰) 아님, 별도 분열 배지.',
+      avail:[['Netflix','var(--avail)','지금 볼 수 있음 · KR']],delta:2,
+      cc:{V:57,C:35,R:39,U:19,S:0.20,tier:'L4 · 자극',polar:true,ext:['8.0','91','81'],conf:'단일 샘플(N=1) · R 39 중 POLAR 기여 높음 → 분열이지 불신뢰 아님(분열 배지 부착)'}},
+    stalker:{t:'Stalker',s:'1979 · Andrei Tarkovsky · 소련',strat:'보유 · 고위험(분열)',wwi:82,wc:'#e0bb6e',pre:91,dis:70,
+      comps:[['taste 친연',78,'var(--safe)'],['lineage',72,'var(--frontier)'],['gap 공백',40,'var(--gap)'],['canon',94,'var(--canon)']],
+      reasons:'<span class="rsn canon">canon 91</span> <span class="rsn conquer" style="color:#ff8f6b;border-color:var(--riskdim);background:var(--riskbg)">R 32 · 분열</span>',
+      why:'보유작. 최고 난도(C 79 · 전체 최고) + R 32의 분열성 — 그러나 V 91로 획득가치 최상위급. 위험(R)은 어려움/분열이지 저품질이 아니다. S 1.28로 위험조정 효율은 여전히 양호. 완파 red(정복)와 다른 --risk 경고로 표시.',
+      avail:[['Criterion','var(--avail)','보유 · 관람 완료']],delta:0,
+      cc:{V:91,C:79,R:32,U:59,S:1.28,tier:'L9 · 초월 근접',polar:true,ext:['8.1','100','—'],conf:'단일 샘플(N=1) · C 79 최고 난도 · R 32는 분열(POLAR) 중심 → 별도 분열 배지, 흐림 아님'}}
   };
 
   // P&L regret items — these are the critical "watched + low-rated" positions: NAV unchanged
@@ -873,9 +1063,37 @@
       films:[['Pickpocket','1959 · 보유 ★4.7'],['Au Hasard Balthazar','1966 · 보유'],['Mouchette','1967 · 보유'],["L'Argent","1983 · 추천 ↑"]]}
   };
 
+  // 엔진 ⑨ Cinecodex 카드 — 3축(V/C/R) + U/S + 미적 단계 + 나란히(never-blend) + 신뢰도
+  function ccCard(cc){
+    if(!cc){
+      return '<div class="cc-card" style="opacity:.62"><h4><i class="ti ti-hexagon"></i> Cinecodex · 미평가</h4>'+
+        '<div style="font-size:11px;color:var(--sub);line-height:1.5">이 영화는 아직 Cinecodex(⑨) 점수가 없습니다 — <b style="color:var(--mut)">분석 대기</b>. 신규 유입작. 점수 생성 후 V·C·R·U·S·미적 단계가 여기 표시됩니다.</div></div>';
+    }
+    var axis = function(l,v,mx){var w=Math.min(100,Math.round(100*v/(mx||100)));return '<div class="cc-axis"><span class="al">'+l+'</span><div class="at"><i style="width:'+w+'%;background:var(--risk)"></i></div><span class="av">'+v+'</span></div>';};
+    // U는 λ에 따라 재계산 (V − λ·R), S는 (V−50)/max(R,1)
+    var u = Math.round(cc.V - LAM*cc.R);
+    var polar = cc.polar?'<span class="cc-polar"><i class="ti ti-arrows-split-2" style="font-size:8px"></i>분열성</span>':'';
+    return '<div class="cc-card"><h4><i class="ti ti-hexagon"></i> Cinecodex · 펀더멘털 등급 '+polar+'<span class="tier cqstate">'+cc.tier+'</span></h4>'+
+      '<div class="cc-us">'+
+        '<div class="cell"><div class="k">U 영화 순가치 <span style="color:var(--sub)">(λ'+LAM+')</span></div><div class="v" style="color:'+(u>=50?'#5fd0b2':u>=25?'#e0bb6e':'#ff8f6b')+'">'+u+'</div><div class="sub">= V − '+LAM+'·R</div></div>'+
+        '<div class="cell"><div class="k">S 샤프</div><div class="v" style="color:'+(cc.S>=1?'#7fbfa8':'#ff8f6b')+'">'+cc.S.toFixed(2)+'</div><div class="sub">(V−50)/R</div></div>'+
+      '</div>'+
+      axis('V 가치',cc.V)+axis('C 비용',cc.C)+
+      '<div class="cc-axis"><span class="al">R 위험</span><div class="at"><i style="width:'+Math.min(100,cc.R*2)+'%;background:var(--risk)"></i></div><span class="av" style="color:#ff8f6b">'+cc.R+'</span></div>'+
+      // 나란히 3분할 — 절대 안 섞음
+      '<div class="cc-side">'+
+        '<div class="col3"><div class="cl3">우리 (⑨)</div><div class="cn3" style="color:#f0a58c">V '+cc.V+'<span style="color:#ff8f6b">R '+cc.R+'</span></div></div>'+
+        '<div class="col3"><div class="cl3">외부</div><div class="cn3" style="color:var(--mut)">imdb '+cc.ext[0]+'<span>rt '+cc.ext[1]+' · mc '+cc.ext[2]+'</span></div></div>'+
+        '<div class="col3"><div class="cl3">정전</div><div class="cn3" style="color:#e0bb6e">'+(f_pre||'—')+'</div></div>'+
+      '</div>'+
+      '<div class="cc-conf"><i class="ti ti-flask"></i><span><b style="color:var(--mut)">신뢰도</b> · '+cc.conf+' · <span style="color:var(--faint);font-family:var(--mono)">sonnet-n1 · cinecodex-prod-v2</span></span></div>'+
+      '<div style="margin-top:9px;text-align:right"><a onclick="location.href=&#39;mockup-me-film-cinecodex.html&#39;" style="font-size:10.5px;color:var(--frontier);cursor:pointer">Cinecodex 평가 전체 →</a></div></div>';
+  }
+  var f_pre=null; // shared: pass 정전가 into ccCard 나란히 칸
   function filmDetail(f){
     var av = f.avail.map(function(a){return '<div class="availrow"><span class="dot" style="background:'+a[1]+'"></span><b style="font-family:var(--mono);font-size:11px">'+a[0]+'</b><span style="color:var(--sub);font-size:10.5px">'+a[2]+'</span></div>';}).join('');
     var cb = f.comps.map(function(c){return bar(c[0],c[1],c[2]);}).join('');
+    f_pre = f.pre;
     return ''+
       '<div class="backlink" onclick="resetInsp()"><i class="ti ti-arrow-left"></i> 데스크 요약으로</div>'+
       '<div class="selhead"><div class="poster"></div><div><div class="seltitle">'+f.t+'</div><div class="selsub">'+f.s+'</div>'+
@@ -883,6 +1101,7 @@
       '<div class="icard"><h4><i class="ti ti-bolt"></i> WWI · 적합도 분해</h4>'+
         '<div class="bigscore"><span class="n" style="color:'+f.wc+'">'+f.wwi+'</span><span class="u">/ 100 WHY-WATCH</span></div>'+cb+
         '<div style="margin-top:9px">'+f.reasons+'</div></div>'+
+      ccCard(f.cc)+
       '<div class="icard"><h4><i class="ti ti-info-circle"></i> 왜 이 포지션인가</h4>'+
         '<div style="font-size:11.5px;color:var(--mut);line-height:1.55">'+f.why+'</div></div>'+
       '<div class="icard"><h4><i class="ti ti-coin"></i> 자산 지표 · Δindex → NAV</h4>'+
@@ -946,6 +1165,14 @@
       '<div class="kv"><span class="k">★3.5+ 적중</span><span class="v" style="color:#5fd0b2">11</span></div>'+
       '<div class="kv"><span class="k">P&L regret</span><span class="v" style="color:#e98a86">−3 · NAV 불변</span></div>'+
       '<div style="font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5"><i class="ti ti-shield-check" style="color:var(--safe)"></i> <b style="color:var(--ink)">관람은 NAV를 깎지 않는다.</b> 저평점만 P&L regret으로 분리 기록 — NAV drawdown이 아니다.</div></div>'+
+    '<div class="cc-card"><h4><i class="ti ti-hexagon"></i> Cinecodex ⑨ · 위험조정 렌즈</h4>'+
+      '<div style="font-size:10.5px;color:var(--sub);line-height:1.55">정전가(②)와 <b style="color:#f0a58c">나란히</b> 서는 두 번째 객관축 — 절대 안 섞음. 후보 카드에 <span class="rbadge" style="vertical-align:0">R</span> 위험·<span class="sbadge" style="color:#7fbfa8">S</span> 샤프. 상단 <b style="color:var(--risk)">λ 다이얼</b>이 U=V−λR로 재정렬합니다.</div>'+
+      '<div class="cc-side" style="margin-top:9px">'+
+        '<div class="col3"><div class="cl3">λ 현재</div><div class="cn3" style="color:var(--risk)" id="ccLam">1</div></div>'+
+        '<div class="col3"><div class="cl3">정렬</div><div class="cn3" style="color:var(--mut)" id="ccSort">WWI</div></div>'+
+        '<div class="col3"><div class="cl3">고위험</div><div class="cn3" style="color:#ff8f6b">2건</div></div>'+
+      '</div>'+
+      '<div class="cc-conf"><i class="ti ti-alert-triangle"></i><span>고위험(R≥25) 경고: <b style="color:#ff8f6b">Babylon R51 · La La Land R39</b> — regret과 다름(매수 전 R 예보). 보유 Stalker R32는 <b style="color:#c6a0f0">분열</b>(흐림 아님).</span></div></div>'+
     '<div class="icard"><h4><i class="ti ti-flag"></i> 다음 완파 · 도장깨기</h4>'+
       '<div class="kv"><span class="k" style="color:#e0bb6e">S&S 2022 → 50%</span><span class="v">9편 남음</span></div>'+
       '<div class="kv"><span class="k" style="color:#e0bb6e">브레송 완파</span><span class="v">1편 · L\'Argent</span></div>'+
@@ -959,7 +1186,7 @@
   function resetInsp(){ setInsp(DEFAULT,'인스펙터 · 데스크 요약'); clearSel(); }
   window.resetInsp = resetInsp;
 
-  function clearSel(){ document.querySelectorAll('.pcard.sel,.conqrow.sel,.lrow.sel,.rrow.sel').forEach(function(e){e.classList.remove('sel');}); }
+  function clearSel(){ document.querySelectorAll('.pcard.sel,.conqrow.sel,.lrow.sel,.rrow.sel,.rwrow.sel').forEach(function(e){e.classList.remove('sel');}); }
   window.sel = function(id,node){
     clearSel(); if(node) node.classList.add('sel');
     // auto-expand inspector if collapsed
@@ -1010,6 +1237,8 @@
 
   // init inspector: desk summary by default; preselect top safe candidate row
   resetInsp();
+  // init Cinecodex risk-adjust: flag high-risk cards under current λ/sort (no reorder at λ1/WWI)
+  resortStrat();
 
   /* ───── cold-start demo ───── */
   var cold=false;
@@ -1039,6 +1268,7 @@
     ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
     ['동행','ti-users','mockup-me-pair.html','교류'],
     ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Cinecodex 평가 · 밀양','ti-microscope','mockup-me-film-cinecodex.html','평가'],
     ['Touki Bouki — 공백 충족 +6','ti-movie','#','영화'],
     ['Yi Yi — 안전자산 +5','ti-movie','#','영화'],
     ['L\'Argent — 도장깨기 +5','ti-movie','#','영화'],

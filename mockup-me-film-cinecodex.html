@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetaTake · Cinecodex 평가 카드 · 밀양 (운영시스템 시안)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg2:#0E0E10; --pnl:#141416; --pnl2:#1A1A1E; --pnl3:#202024;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14); --line3:rgba(255,255,255,.22);
+    --ink:#ECEAE5; --mut:#9A968D; --sub:#6C6960; --faint:#48463F;
+    --red:#E3120B; --reddim:#7a1410;
+    /* 6+가용 이유 정본 색 (MASTER-INDEX §4) */
+    --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
+    /* SHARED-STANDARD S2: 블라인드/공백 amber (conquer red에서 분리) · 형성중 골드 */
+    --blind:#E8B23A; --forming:#C8922B;
+    /* SHARED-STANDARD S11: 위험(R) 전용 신토큰 — 완파 red(--conquer)와 절대 구분 (오렌지 · suite 통일) */
+    --risk:#D64518; --riskdim:#5e2413;
+    --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --rail:212px; --feed:286px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .ser{font-family:var(--ser)}
+  .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+  a{color:inherit;text-decoration:none}
+  ::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#26262b;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#34343a}::-webkit-scrollbar-track{background:transparent}
+
+  /* ───────── APP BAR ───────── */
+  .appbar{height:46px;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid var(--line2);background:var(--bg2);position:relative;z-index:30}
+  .logo{background:var(--red);color:#fff;font-weight:600;font-size:11px;letter-spacing:.13em;padding:3px 7px;border-radius:2px}
+  .crumb{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .crumb b{color:var(--ink);font-weight:600;font-family:var(--ser);font-size:14px}
+  .crumb i.ti{font-size:13px;color:var(--faint)}
+  .cmdk{margin-left:8px;flex:0 1 320px;display:flex;align-items:center;gap:8px;background:var(--pnl);border:1px solid var(--line2);
+    border-radius:6px;padding:5px 9px;color:var(--sub);font-size:12px;cursor:text}
+  .cmdk:hover{border-color:var(--line3)}
+  .cmdk .kbd{margin-left:auto;font-family:var(--mono);font-size:10px;background:var(--pnl3);border:1px solid var(--line2);border-radius:3px;padding:1px 5px;color:var(--mut)}
+  .abright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .navchip{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:6px;padding:4px 11px}
+  .navchip .n{font-family:var(--mono);font-size:15px;font-weight:600}
+  .navchip .l{font-size:9.5px;color:var(--canon);font-weight:600;letter-spacing:.05em}
+  .navchip .up{font-family:var(--mono);font-size:10.5px;color:var(--safe)}
+  .iconbtn{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);color:var(--mut);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+  .iconbtn:hover{color:var(--ink);border-color:var(--line3)}
+  .ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ser);font-size:13px;color:var(--mut)}
+
+  /* ───────── LIVE TICKER ───────── */
+  .ticker{height:27px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg2);position:relative;z-index:20}
+  .ticker .tag{flex:0 0 auto;background:var(--red);color:#fff;font-size:9px;letter-spacing:.14em;padding:0 9px;height:100%;display:flex;align-items:center;font-weight:600}
+  .ticker .vp{overflow:hidden;flex:1}
+  .ticker .run{display:inline-flex;gap:30px;padding-left:22px;white-space:nowrap;animation:tick 46s linear infinite;font-size:11.5px;color:var(--mut)}
+  .ticker .run b{color:var(--ink);font-weight:500}
+  .ticker i.dot{color:var(--red);margin-right:7px;font-size:9px;vertical-align:1px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ───────── SHELL ───────── */
+  .shell{display:flex;height:calc(100vh - 73px);overflow:hidden}
+  .col{position:relative;transition:width .18s cubic-bezier(.4,0,.2,1);flex:0 0 auto;min-width:0}
+  .col-scroll{height:100%;overflow-y:auto;overflow-x:hidden}
+  .chv{cursor:pointer;color:var(--sub);font-size:15px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px}
+  .chv:hover{color:var(--ink);background:var(--pnl2)}
+
+  /* ── COL 1: NAV RAIL ── */
+  .rail{width:var(--rail);background:var(--bg2);border-right:1px solid var(--line2)}
+  .rail.collapsed{width:54px}
+  .railhd{display:flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-bottom:1px solid var(--line);color:var(--sub)}
+  .railhd .eb{flex:1}
+  .rail.collapsed .railhd .eb{display:none}
+  .navsec{padding:8px 8px 4px}
+  .navlbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);padding:6px 8px 4px}
+  .rail.collapsed .navlbl{text-align:center;font-size:0;padding:6px 0 2px}
+  .rail.collapsed .navlbl::before{content:"·";font-size:14px;color:var(--faint)}
+  .nv{display:flex;align-items:center;gap:11px;padding:7px 9px;border-radius:6px;color:var(--mut);cursor:pointer;position:relative}
+  .nv:hover{background:var(--pnl2);color:var(--ink)}
+  .nv.on{background:var(--pnl2);color:var(--ink)}
+  .nv.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+  .nv i.lead{font-size:17px;width:20px;text-align:center;flex:0 0 auto}
+  .nv .tx{font-size:12.5px;flex:1;white-space:nowrap;overflow:hidden}
+  .nv .ct{font-family:var(--mono);font-size:10px;color:var(--sub)}
+  .rail.collapsed .nv .tx,.rail.collapsed .nv .ct{display:none}
+  .rail.collapsed .nv{justify-content:center;padding:8px 0}
+  .railft{margin-top:auto;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--faint)}
+  .rail.collapsed .railft{display:none}
+
+  /* ── COL 2: MAIN ── */
+  .main{flex:1 1 auto;background:var(--bg);min-width:0}
+  .mainpad{padding:14px 16px 48px;max-width:1080px}
+
+  /* module panel */
+  .mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+  .modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+  .modh h3 .ti{color:var(--mut)}
+  .modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+  .modbody{padding:13px}
+  /* collapsible mod header (chevron toggles body) */
+  .modh.clk{cursor:pointer;user-select:none}
+  .modh.clk:hover{background:var(--pnl2)}
+  .modh .cx{margin-left:auto;color:var(--sub);font-size:16px;transition:transform .15s}
+  .mod.closed .modbody{display:none}
+  .mod.closed .modh .cx{transform:rotate(-90deg)}
+
+  /* ───────── HERO ───────── */
+  .fhero{display:grid;grid-template-columns:78px 1fr;gap:16px;background:linear-gradient(180deg,var(--pnl),var(--bg2));
+    border:1px solid var(--line2);border-radius:10px;padding:16px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+  .fhero::after{content:"";position:absolute;right:-50px;top:-50px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(31,178,134,.09),transparent 70%)}
+  .fposter{width:78px;height:112px;border-radius:4px;background:linear-gradient(150deg,#2b2b31,#161618);border:1px solid var(--line2);
+    display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;color:var(--faint);font-family:var(--ser);font-size:11px}
+  .fmeta{min-width:0}
+  .ftitle{font-family:var(--ser);font-size:24px;line-height:1.1}
+  .ftitle small{font-family:var(--ui);color:var(--mut);font-size:13px;margin-left:8px;font-weight:400}
+  .fsub{font-size:11.5px;color:var(--mut);margin-top:3px}
+  .fbadges{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;align-items:center}
+  .tierbadge{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(180deg,#1f1808,#171205);
+    border:1px solid #5b481f;color:#e0bb6e;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600}
+  .tierbadge .lv{font-family:var(--mono);font-size:14px}
+  .tierbadge .of{font-size:9.5px;color:var(--sub);font-weight:400}
+  .polarbadge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line2);background:var(--pnl2);
+    color:var(--mut);border-radius:20px;padding:4px 10px;font-size:10.5px}
+  .flagchip{display:inline-flex;align-items:center;gap:5px;border:1px solid #5e4d1d;background:#211a08;color:#edc873;
+    border-radius:4px;padding:3px 8px;font-size:10px;font-family:var(--mono)}
+
+  /* hero 3-axis + U/S grid */
+  .axisgrid{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:14px;margin-top:14px;
+    border-top:1px solid var(--line);padding-top:14px}
+  .donutcell{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;position:relative}
+  .donutcell .cap{font-size:10px;color:var(--mut)}
+  .donutcell .cap b{color:var(--ink);font-weight:600}
+  .donutcell .note{font-size:9.5px;color:var(--sub)}
+  .uscell{border-left:1px solid var(--line);padding-left:14px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .usbig{display:flex;align-items:baseline;gap:8px}
+  .usbig .n{font-family:var(--mono);font-size:38px;font-weight:600;line-height:.9}
+  .usbig .lab{display:flex;flex-direction:column;gap:1px}
+  .usbig .lab .k{font-size:11px;color:var(--ink);font-weight:600}
+  .usbig .lab .d{font-size:10px;color:var(--sub)}
+  .usrow{display:flex;align-items:baseline;gap:8px}
+  .usrow .n{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--safe)}
+  .usrow .lab{font-size:10.5px;color:var(--mut)}
+  .verdict{grid-column:1/-1;display:flex;align-items:center;gap:9px;margin-top:13px;border-top:1px solid var(--line);
+    padding-top:11px;font-size:12.5px}
+  .verdict i{color:var(--safe);font-size:16px}
+  .verdict b{font-family:var(--ser);font-size:14px;color:var(--ink)}
+
+  /* ───────── 13 SUBSCORES ───────── */
+  .grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:13px 0 6px;
+    display:flex;align-items:center;gap:8px}
+  .grp:first-child{margin-top:0}
+  .grp .ax{font-family:var(--mono);font-size:10px;padding:1px 7px;border-radius:3px;border:1px solid}
+  .grp .ax.v{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+  .grp .ax.c{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+  .grp .ax.r{color:#e3a3cf;border-color:#5a3049;background:#22101b}
+  .grp .line{flex:1;height:1px;background:var(--line)}
+  .sub{display:grid;grid-template-columns:180px 1fr 46px;align-items:start;gap:12px;padding:9px 8px;border-radius:6px;
+    border:1px solid transparent}
+  .sub:hover{background:var(--pnl2);border-color:var(--line)}
+  .sub .snm{min-width:0}
+  .sub .snm .code{font-family:var(--mono);font-size:9px;color:var(--sub);letter-spacing:.06em}
+  .sub .snm .nm{font-size:12.5px;color:var(--ink);margin-top:1px}
+  .sub .snm .lv{font-size:10.5px;color:var(--mut);margin-top:2px}
+  .sub .rsn2{font-size:11.5px;color:var(--mut);line-height:1.5}
+  .sub .comps{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+  .sub .comps .cmp{font-size:9.5px;font-family:var(--ser);background:var(--pnl2);border:1px solid var(--line2);
+    color:var(--sub);border-radius:11px;padding:2px 8px}
+  .sub .lvcell{text-align:right}
+  .sub .lvcell .lvn{font-family:var(--mono);font-size:16px;font-weight:600}
+  .sub .lvcell .lvd{font-size:8px;color:var(--sub);letter-spacing:.08em}
+  /* level heat: low=good(safe) for V, but for R low-level=good(safe), high=risk */
+  .lvn.g{color:#5fd0b2}.lvn.m{color:#e0bb6e}.lvn.b{color:var(--risk)}.lvn.n{color:var(--mut)}
+
+  /* ───────── 나란히 3분할 (never-blend) ───────── */
+  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .tcol{background:var(--pnl2);border:1px solid var(--line2);border-radius:8px;padding:12px;position:relative}
+  .tcol.ours{border-color:#1d4d40}
+  .tcol .thd{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.03em;margin-bottom:10px;
+    padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .tcol.ours .thd{color:#5fd0b2}
+  .tcol.ext .thd{color:#86b9ec}
+  .tcol.canon .thd{color:#e0bb6e}
+  .tcol .thd .tag{margin-left:auto;font-family:var(--mono);font-size:8.5px;color:var(--sub);letter-spacing:.06em;
+    text-transform:uppercase;font-weight:400}
+  .tmetric{display:flex;align-items:baseline;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+  .tmetric:last-child{border-bottom:0}
+  .tmetric .mk{font-size:11px;color:var(--mut)}
+  .tmetric .mv{font-family:var(--mono);font-size:18px;font-weight:600}
+  .tmetric .mv small{font-size:10px;color:var(--sub);font-weight:400}
+  .tcol .foot{font-size:9.5px;color:var(--sub);margin-top:9px;line-height:1.45}
+  .nomerge{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--sub);margin-top:11px;
+    padding:7px 10px;border:1px dashed var(--line2);border-radius:6px}
+  .nomerge i{color:var(--risk)}
+
+  /* ───────── 신뢰도 카드 ───────── */
+  .kv{display:flex;justify-content:space-between;font-size:11.5px;padding:5px 0;border-bottom:1px solid var(--line)}
+  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-family:var(--mono);color:var(--ink)}
+  .kv .v.warn{color:#edc873}
+  .relgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+  .honest{font-size:11px;color:var(--sub);line-height:1.55;margin-top:11px;border-top:1px solid var(--line);padding-top:10px}
+  .honest b{color:var(--mut)}
+  .pass2{display:flex;align-items:center;gap:7px;margin-top:10px;font-size:11px;color:#edc873;
+    background:#211a08;border:1px solid #5e4d1d;border-radius:6px;padding:8px 11px}
+
+  /* SHARED-STANDARD S5: 용어집 hover */
+  .gloss{border-bottom:1px dotted var(--line3);cursor:help;position:relative}
+  .gloss:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 7px);width:236px;
+    background:#1c1c20;border:1px solid var(--line3);border-radius:6px;padding:8px 10px;font-family:var(--ui);
+    font-size:11px;font-weight:400;line-height:1.5;color:var(--ink);letter-spacing:0;text-transform:none;
+    box-shadow:0 8px 22px rgba(0,0,0,.55);z-index:40;white-space:normal}
+  .gloss:hover::before{content:"";position:absolute;left:14px;bottom:calc(100% + 1px);border:5px solid transparent;border-top-color:var(--line3);z-index:40}
+
+  /* ── COL 4: ACTIVITY ── */
+  .activity{width:var(--feed);background:var(--bg2);border-left:1px solid var(--line2)}
+  .activity.collapsed{width:40px}
+  .acthd{display:flex;align-items:center;gap:8px;height:38px;padding:0 11px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:5}
+  .acthd .t{font-size:11.5px;font-weight:600;letter-spacing:.04em;flex:1}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--safe);box-shadow:0 0 0 0 rgba(31,178,134,.6);animation:pl 2s infinite}
+  @keyframes pl{0%{box-shadow:0 0 0 0 rgba(31,178,134,.5)}70%{box-shadow:0 0 0 6px rgba(31,178,134,0)}100%{box-shadow:0 0 0 0 rgba(31,178,134,0)}}
+  .activity.collapsed .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+  .activity.collapsed .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);color:var(--mut);height:110px;flex:0 0 auto}
+  .activity.collapsed .actbody{display:none}
+  .actbody{padding:10px 11px 30px}
+  .feeditem{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .feeditem .fi{flex:0 0 auto;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--pnl2)}
+  .feeditem .fb{flex:1;min-width:0}
+  .feeditem .fb .ft{font-size:11.5px;line-height:1.35}.feeditem .fb .ft b{color:var(--ink)}
+  .feeditem .fb .fm{font-size:9.5px;color:var(--faint);font-family:var(--mono);margin-top:2px}
+  .acard{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px;margin:11px 0}
+  .acard h4{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+  .stat{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--mut)}
+  .stat b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .baskrow{display:grid;grid-template-columns:1fr 34px 30px;gap:7px;align-items:center;font-size:11px;padding:3px 0}
+  .baskrow .nm{font-family:var(--ser);color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .baskrow .u{font-family:var(--mono);color:var(--safe);text-align:right}
+  .baskrow .r{font-family:var(--mono);color:var(--risk);text-align:right}
+  .baskrow.hi .r{color:#e98a86}
+
+  /* command palette */
+  .palette{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-start;justify-content:center;z-index:60;padding-top:13vh}
+  .palette.show{display:flex}
+  .palbox{width:540px;max-width:92vw;background:#161618;border:1px solid var(--line3);border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+  .palin{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+  .palin input{flex:1;background:transparent;border:none;color:var(--ink);font-size:15px;font-family:var(--ui)}
+  .palin input:focus{outline:none}
+  .pallist{max-height:340px;overflow:auto;padding:7px}
+  .pi{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:6px;cursor:pointer;color:var(--mut)}
+  .pi:hover,.pi.on{background:var(--pnl2);color:var(--ink)}
+  .pi i.lead{font-size:16px;width:20px;text-align:center}
+  .pi .pk{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+
+  @media(max-width:1180px){ .activity{width:40px} .activity .actbody{display:none}
+    .activity .acthd{flex-direction:column;height:auto;padding:9px 0;gap:9px}
+    .activity .acthd .t{writing-mode:vertical-rl;transform:rotate(180deg);height:110px;flex:0 0 auto} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ APP BAR ═══════════ -->
+<div class="appbar">
+  <span class="logo">META TAKE</span>
+  <div class="crumb"><b>Cinecodex 평가</b><i class="ti ti-chevron-right"></i><span>밀양 · Secret Sunshine</span><i class="ti ti-lock" style="font-size:11px"></i></div>
+  <div class="cmdk" onclick="openPalette()">
+    <i class="ti ti-search" style="font-size:14px"></i><span>영화 · 계보 · 감독 검색</span><span class="kbd">⌘K</span>
+  </div>
+  <div class="abright">
+    <div class="navchip"><div><div class="eb">NAV</div></div><span class="n" id="navchip">1,284</span>
+      <div><div class="l">ESTABLISHED</div><div class="up">▲ +38 · 30일</div></div></div>
+    <div class="iconbtn" title="새로고침"><i class="ti ti-refresh"></i></div>
+    <div class="iconbtn" title="공개 프로필 ↗" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-external-link"></i></div>
+    <div class="ava">W</div>
+  </div>
+</div>
+
+<!-- ═══════════ LIVE TICKER ═══════════ -->
+<div class="ticker">
+  <span class="tag">LIVE</span>
+  <div class="vp"><div class="run">
+    <span><i class="ti ti-point-filled dot"></i>Cinecodex 채점 완료 <b>6,701편</b> · Pass1 N=1 (2026-07-01)</span>
+    <span><i class="ti ti-point-filled dot"></i>밀양 · U <b>72</b> · S <b>2.70</b> — 안전한 걸작 티어</span>
+    <span><i class="ti ti-point-filled dot"></i>고위험 경보 · Babylon R <b>51</b> — 분열적 실패</span>
+    <span><i class="ti ti-point-filled dot"></i>Pass2 N=3 대기 · flagged <b>4,289편</b> (신뢰도 보강)</span>
+    <span><i class="ti ti-point-filled dot"></i>기준 바스켓 정렬 검증 · Tokyo Story U 86 ▲ 최상위</span>
+    <span><i class="ti ti-point-filled dot"></i>Cinecodex 채점 완료 <b>6,701편</b> · Pass1 N=1 (2026-07-01)</span>
+    <span><i class="ti ti-point-filled dot"></i>밀양 · U <b>72</b> · S <b>2.70</b> — 안전한 걸작 티어</span>
+    <span><i class="ti ti-point-filled dot"></i>고위험 경보 · Babylon R <b>51</b> — 분열적 실패</span>
+    <span><i class="ti ti-point-filled dot"></i>Pass2 N=3 대기 · flagged <b>4,289편</b> (신뢰도 보강)</span>
+    <span><i class="ti ti-point-filled dot"></i>기준 바스켓 정렬 검증 · Tokyo Story U 86 ▲ 최상위</span>
+  </div></div>
+</div>
+
+<!-- ═══════════ SHELL ═══════════ -->
+<div class="shell">
+
+  <!-- ── COL 1 · NAV RAIL ── -->
+  <aside class="col rail" id="rail">
+    <div class="col-scroll" style="display:flex;flex-direction:column">
+      <div class="railhd"><span class="eb">운영 메뉴</span><span class="chv" onclick="toggle('rail')"><i class="ti ti-layout-sidebar-left-collapse"></i></span></div>
+      <div class="navsec">
+        <div class="navlbl">자산 운영</div>
+        <div class="nv" onclick="location.href='mockup-me-command-center.html'"><i class="ti ti-dashboard lead"></i><span class="tx">현황 (커맨드센터)</span></div>
+        <div class="nv" onclick="location.href='mockup-me-collection-list-v2.html'"><i class="ti ti-list-details lead"></i><span class="tx">보유 영화</span><span class="ct">142</span></div>
+        <div class="nv" onclick="location.href='mockup-me-watchlist.html'"><i class="ti ti-target-arrow lead"></i><span class="tx">볼 영화 · 추천</span><span class="ct">28</span></div>
+        <div class="nv" onclick="location.href='mockup-me-asset-desk.html'"><i class="ti ti-briefcase lead"></i><span class="tx">운용 데스크</span></div>
+        <div class="nv" onclick="location.href='mockup-me-analysis-v2.html'"><i class="ti ti-chart-arcs lead"></i><span class="tx">자산 분석</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">기록 · 교류</div>
+        <div class="nv" onclick="location.href='mockup-me-onboard-rate-v2.html'"><i class="ti ti-star lead"></i><span class="tx">기록 · 평가</span></div>
+        <div class="nv" onclick="location.href='mockup-me-library.html'"><i class="ti ti-books lead"></i><span class="tx">서재</span></div>
+        <div class="nv" onclick="location.href='mockup-me-write.html'"><i class="ti ti-feather lead"></i><span class="tx">노트 · 글쓰기</span></div>
+        <div class="nv" onclick="location.href='mockup-me-pair.html'"><i class="ti ti-users lead"></i><span class="tx">동행</span><span class="ct">1</span></div>
+        <div class="nv" onclick="location.href='mockup-me-profile.html'"><i class="ti ti-id-badge lead"></i><span class="tx">공개 프로필</span></div>
+      </div>
+      <div class="navsec">
+        <div class="navlbl">이 화면</div>
+        <div class="nv on"><i class="ti ti-microscope lead"></i><span class="tx">Cinecodex 평가</span></div>
+        <div class="nv" onclick="jump('m-sub')"><i class="ti ti-list-numbers lead"></i><span class="tx">13 서브점수</span></div>
+        <div class="nv" onclick="jump('m-tri')"><i class="ti ti-columns-3 lead"></i><span class="tx">나란히 3분할</span></div>
+        <div class="nv" onclick="jump('m-rel')"><i class="ti ti-shield-check lead"></i><span class="tx">신뢰도 · 재현성</span></div>
+      </div>
+      <div class="railft">엔진 ⑨ 내재가치 · Cinecodex<br>6,701편 · sonnet-n1 · prod-v2</div>
+    </div>
+  </aside>
+
+  <!-- ── COL 2 · MAIN ── -->
+  <main class="col main">
+    <div class="col-scroll"><div class="mainpad">
+
+      <!-- ═══ HERO ═══ -->
+      <div class="fhero">
+        <div class="fposter">밀양</div>
+        <div class="fmeta">
+          <div class="ftitle">밀양 <small>Secret Sunshine</small></div>
+          <div class="fsub">2007 · 이창동 (Lee Chang-dong) · 대한민국 · 142분 · 칸 여우주연상(전도연)</div>
+          <div class="fbadges">
+            <span class="tierbadge"><i class="ti ti-award"></i><span class="lv">L8</span> Provoked Contemplation <span class="of">/ 10 미적 단계</span></span>
+            <span class="polarbadge"><i class="ti ti-git-branch" style="font-size:11px"></i> 분열성 낮음 · POLAR 저</span>
+            <span class="flagchip"><i class="ti ti-flag"></i> flagged · n=1</span>
+          </div>
+        </div>
+
+        <!-- 3-axis donuts + U/S -->
+        <div class="axisgrid">
+          <!-- V 획득가치 -->
+          <div class="donutcell">
+            <svg width="86" height="86" viewBox="0 0 86 86" aria-label="V 획득가치 84">
+              <circle cx="43" cy="43" r="34" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="43" cy="43" r="34" fill="none" stroke="var(--safe)" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="213.6" stroke-dashoffset="34.2" transform="rotate(-90 43 43)"/>
+              <text x="43" y="40" text-anchor="middle" font-size="20" fill="#ECEAE5" font-family="ui-monospace,monospace" font-weight="600">84</text>
+              <text x="43" y="54" text-anchor="middle" font-size="8" fill="#6C6960" letter-spacing="1">/100</text>
+            </svg>
+            <div class="cap"><b>V</b> 획득가치</div>
+            <div class="note">돌려주는 것 · 높을수록 ↑</div>
+          </div>
+          <!-- C 진입비용 -->
+          <div class="donutcell">
+            <svg width="86" height="86" viewBox="0 0 86 86" aria-label="C 진입비용 38">
+              <circle cx="43" cy="43" r="34" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="43" cy="43" r="34" fill="none" stroke="var(--frontier)" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="213.6" stroke-dashoffset="132.4" transform="rotate(-90 43 43)"/>
+              <text x="43" y="40" text-anchor="middle" font-size="20" fill="#ECEAE5" font-family="ui-monospace,monospace" font-weight="600">38</text>
+              <text x="43" y="54" text-anchor="middle" font-size="8" fill="#6C6960" letter-spacing="1">/100</text>
+            </svg>
+            <div class="cap"><b>C</b> 진입비용</div>
+            <div class="note">난이도 · 가치 아님</div>
+          </div>
+          <!-- R 위험 (--risk 토큰) -->
+          <div class="donutcell">
+            <svg width="86" height="86" viewBox="0 0 86 86" aria-label="R 위험 13">
+              <circle cx="43" cy="43" r="34" fill="none" stroke="#24242a" stroke-width="7"/>
+              <circle cx="43" cy="43" r="34" fill="none" stroke="var(--risk)" stroke-width="7" stroke-linecap="round"
+                stroke-dasharray="213.6" stroke-dashoffset="185.8" transform="rotate(-90 43 43)"/>
+              <text x="43" y="40" text-anchor="middle" font-size="20" fill="#ECEAE5" font-family="ui-monospace,monospace" font-weight="600">13</text>
+              <text x="43" y="54" text-anchor="middle" font-size="8" fill="#6C6960" letter-spacing="1">/100</text>
+            </svg>
+            <div class="cap"><b>R</b> <span class="gloss" data-tip="위험(R) = 실망 가능성. 0.6·(지적파산+미적불성실+예술적비겁)/3 + 0.4·분열성. --risk 토큰(완파 red와 구분).">위험도</span></div>
+            <div class="note" style="color:#e3a3cf">저위험 · 안전</div>
+          </div>
+          <!-- U / S -->
+          <div class="uscell">
+            <div class="usbig">
+              <span class="n" style="color:var(--safe)">72</span>
+              <span class="lab"><span class="k"><span class="gloss" data-tip="영화 순가치 U = V − λ·R (λ 기본 1.0). 후보 정렬 기준. 내 NAV와는 다른 값.">U 영화 순가치</span></span><span class="d">= V 84 − λ·R (λ 1.0)</span></span>
+            </div>
+            <div class="usrow">
+              <span class="n">2.70</span>
+              <span class="lab"><span class="gloss" data-tip="샤프 S = (V−50)/max(R,1). 위험 대비 효율. 높을수록 위험 대비 가치가 크다.">S 샤프</span> · 위험 대비 효율</span>
+            </div>
+          </div>
+
+          <!-- one-line verdict -->
+          <div class="verdict">
+            <i class="ti ti-shield-check"></i>
+            <div>한 줄 판정 · <b>높은 가치 · 낮은 위험 — 안전한 걸작.</b>
+              <span style="color:var(--sub)"> L8 「촉발된 사색」 단계 · 준비 부담(C 38) 적어 접근성도 양호.
+              미적 단계는 V의 더 풍부한 질적 레이어 — 점수와 별개로 읽을 것.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 13 SUBSCORES (collapsible) ═══ -->
+      <div class="mod" id="m-sub">
+        <div class="modh clk" onclick="toggleMod(this)">
+          <h3><i class="ti ti-list-numbers"></i> 13 서브점수 · 차원 분해</h3>
+          <span class="meta" style="margin-left:auto">각 레벨 + 근거(≤12 words) + 비교작 3</span>
+          <i class="ti ti-chevron-down cx"></i>
+        </div>
+        <div class="modbody">
+
+          <!-- ── V축: COG/AFF/FORM/MORAL/DUR ── -->
+          <div class="grp"><span class="ax v">→ V 획득가치</span><span>Cognition · Affect · Form · Moral · Duration</span><span class="line"></span></div>
+
+          <div class="sub">
+            <div class="snm"><div class="code">COG · 인지</div><div class="nm">인지적 자극</div><div class="lv">L4 · Deep Engagement</div></div>
+            <div><div class="rsn2">Grief and faith interrogated without cheap consolation or answers.</div>
+              <div class="comps"><span class="cmp">In the Mood for Love</span><span class="cmp">A Separation</span><span class="cmp">Ordet</span></div></div>
+            <div class="lvcell"><div class="lvn g">4</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">AFF · 정서</div><div class="nm">정서적 강도</div><div class="lv">L5 · Psychological Melding</div></div>
+            <div><div class="rsn2">Jeon Do-yeon's collapse becomes the viewer's own devastation.</div>
+              <div class="comps"><span class="cmp">Mother</span><span class="cmp">Rosetta</span><span class="cmp">The Son</span></div></div>
+            <div class="lvcell"><div class="lvn g">5</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">FORM · 형식</div><div class="nm">형식적 성취</div><div class="lv">L4 · Captivating Control</div></div>
+            <div><div class="rsn2">Restrained naturalist camera; sunlight motif quietly structures the whole.</div>
+              <div class="comps"><span class="cmp">Poetry</span><span class="cmp">Still Walking</span><span class="cmp">Winter Light</span></div></div>
+            <div class="lvcell"><div class="lvn g">4</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">MORAL · 도덕</div><div class="nm">도덕적 진지성</div><div class="lv">L5 · Uncompromising Inquiry</div></div>
+            <div><div class="rsn2">Refuses forgiveness as tidy resolution; ethics stay genuinely open.</div>
+              <div class="comps"><span class="cmp">Breaking the Waves</span><span class="cmp">Ida</span><span class="cmp">Diary of a Country Priest</span></div></div>
+            <div class="lvcell"><div class="lvn g">5</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">DUR · 지속</div><div class="nm">지속적 잔상</div><div class="lv">L4 · Enduring Afterimage</div></div>
+            <div><div class="rsn2">The final patch of sunlight lingers for weeks after.</div>
+              <div class="comps"><span class="cmp">Tokyo Story</span><span class="cmp">Cries and Whispers</span><span class="cmp">Uzak</span></div></div>
+            <div class="lvcell"><div class="lvn g">4</div><div class="lvd">/5</div></div>
+          </div>
+
+          <!-- ── C축: ITX/FR/ETX/CTX ── -->
+          <div class="grp"><span class="ax c">→ C 진입비용</span><span>Intertext · Formal Radicalism · Extratext · Director Oeuvre</span><span class="line"></span></div>
+
+          <div class="sub">
+            <div class="snm"><div class="code">ITX · 영화사</div><div class="nm">상호텍스트성</div><div class="lv">L1 · Foundational</div></div>
+            <div><div class="rsn2">Works fully without film-history knowledge; no homage dependence.</div>
+              <div class="comps"><span class="cmp">Nobody Knows</span><span class="cmp">A Separation</span><span class="cmp">Two Days, One Night</span></div></div>
+            <div class="lvcell"><div class="lvn g">1</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">FR · 형식급진</div><div class="nm">형식적 급진성</div><div class="lv">L2 · Intermediate</div></div>
+            <div><div class="rsn2">Linear, accessible; stylized restraint within conventional narrative frame.</div>
+              <div class="comps"><span class="cmp">Poetry</span><span class="cmp">Oasis</span><span class="cmp">The Kid with a Bike</span></div></div>
+            <div class="lvcell"><div class="lvn n">2</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">ETX · 외부지식</div><div class="nm">외부텍스트성</div><div class="lv">L2 · Intermediate</div></div>
+            <div><div class="rsn2">Korean Protestant grief context helps but universal themes carry.</div>
+              <div class="comps"><span class="cmp">Silence</span><span class="cmp">Ida</span><span class="cmp">Calvary</span></div></div>
+            <div class="lvcell"><div class="lvn n">2</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">CTX · 오에브르</div><div class="nm">감독 오에브르</div><div class="lv">L2 · Intermediate</div></div>
+            <div><div class="rsn2">Standalone; Lee's Poetry / Peppermint Candy enrich but unneeded.</div>
+              <div class="comps"><span class="cmp">Poetry</span><span class="cmp">Peppermint Candy</span><span class="cmp">Burning</span></div></div>
+            <div class="lvcell"><div class="lvn n">2</div><div class="lvd">/5</div></div>
+          </div>
+
+          <!-- ── R축: BANK/INSINCERE/COWARD/POLAR ── -->
+          <div class="grp"><span class="ax r">→ R 위험도</span><span>Intellectual Bankruptcy · Aesthetic Insincerity · Artistic Cowardice · Polarization</span><span class="line"></span></div>
+
+          <div class="sub">
+            <div class="snm"><div class="code">BANK · 지적파산</div><div class="nm">지적 파산</div><div class="lv">L1 · Zero Bankruptcy</div></div>
+            <div><div class="rsn2">Narrative logically sound; complexity fully matched by internal rigor.</div>
+              <div class="comps"><span class="cmp">Tokyo Story</span><span class="cmp">A Separation</span><span class="cmp">Winter Light</span></div></div>
+            <div class="lvcell"><div class="lvn g">1</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">INSINCERE · 불성실</div><div class="nm">미적 불성실</div><div class="lv">L1 · Zero Insincerity</div></div>
+            <div><div class="rsn2">Every aesthetic choice intentional; form and content fully integrated.</div>
+              <div class="comps"><span class="cmp">Poetry</span><span class="cmp">Still Walking</span><span class="cmp">Ordet</span></div></div>
+            <div class="lvcell"><div class="lvn g">1</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">COWARD · 비겁</div><div class="nm">예술적 비겁</div><div class="lv">L1 · Zero Cowardice</div></div>
+            <div><div class="rsn2">Bold, uncompromising vision; refuses melodrama's easy emotional payoff.</div>
+              <div class="comps"><span class="cmp">Breaking the Waves</span><span class="cmp">Rosetta</span><span class="cmp">Silence</span></div></div>
+            <div class="lvcell"><div class="lvn g">1</div><div class="lvd">/5</div></div>
+          </div>
+          <div class="sub">
+            <div class="snm"><div class="code">POLAR · 분열성</div><div class="nm">분열성 <span style="color:var(--sub)">(분열≠불신뢰)</span></div><div class="lv">L2 · Low Polarization</div></div>
+            <div><div class="rsn2">Broadly esteemed; devastating tone divides some, but consensus holds.</div>
+              <div class="comps"><span class="cmp">Poetry</span><span class="cmp">A Separation</span><span class="cmp">Ida</span></div></div>
+            <div class="lvcell"><div class="lvn n">2</div><div class="lvd">/5</div></div>
+          </div>
+
+          <div style="font-size:10.5px;color:var(--sub);margin-top:12px;border-top:1px solid var(--line);padding-top:9px;line-height:1.5">
+            <i class="ti ti-function" style="color:var(--canon)"></i>
+            V = mean(COG·AFF·FORM·MORAL·DUR) → <b style="color:#5fd0b2">84</b> ·
+            C = mean(ITX·FR·ETX·CTX) → <b style="color:#86b9ec">38</b> ·
+            R = 0.6·mean(BANK·INSINCERE·COWARD) + 0.4·POLAR → <b style="color:#e3a3cf">13</b>.
+            난이도(C)는 <b style="color:var(--mut)">비용이지 가치 아님</b> · 분열성(POLAR)은 <b style="color:var(--mut)">위험이지 불신뢰 아님</b>.
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 나란히 3분할 (★★★ never-blend) ═══ -->
+      <div class="mod" id="m-tri">
+        <div class="modh"><h3><i class="ti ti-columns-3"></i> 나란히 · 세 개의 기둥 <span style="color:var(--sub);font-weight:400">(★★★ 절대 안 섞음)</span></h3>
+          <span class="meta">우리 ≠ 외부 ≠ 정전 · 분리 칸</span></div>
+        <div class="modbody">
+          <div class="triptych">
+            <!-- 우리 (Cinecodex) -->
+            <div class="tcol ours">
+              <div class="thd"><i class="ti ti-microscope" style="font-size:13px"></i> 우리 · Cinecodex <span class="tag">펀더멘털</span></div>
+              <div class="tmetric"><span class="mk">V 획득가치</span><span class="mv" style="color:#5fd0b2">84</span></div>
+              <div class="tmetric"><span class="mk">R 위험도</span><span class="mv" style="color:var(--risk)">13</span></div>
+              <div class="tmetric"><span class="mk">U 영화 순가치</span><span class="mv" style="color:#5fd0b2">72</span></div>
+              <div class="foot">LLM이 13차원 루브릭으로 채점한 <b style="color:var(--mut)">작품 펀더멘털</b>. 외부지표·정전가를 공식에 넣지 않음(비섞임 단방향).</div>
+            </div>
+            <!-- 외부 -->
+            <div class="tcol ext">
+              <div class="thd"><i class="ti ti-world" style="font-size:13px"></i> 외부 지표 <span class="tag">집계</span></div>
+              <div class="tmetric"><span class="mk">IMDb</span><span class="mv" style="color:#86b9ec">7.5<small>/10</small></span></div>
+              <div class="tmetric"><span class="mk">Metacritic</span><span class="mv" style="color:#86b9ec">84<small>/100</small></span></div>
+              <div class="tmetric"><span class="mk">Rotten Tomatoes</span><span class="mv" style="color:#86b9ec">94<small>%</small></span></div>
+              <div class="foot">대중·평단 <b style="color:var(--mut)">집계 지표</b>. 참고·검증용 — 우리 점수 산출에 절대 미입력.</div>
+            </div>
+            <!-- 정전 (Standing) -->
+            <div class="tcol canon">
+              <div class="thd"><i class="ti ti-building-bank" style="font-size:13px"></i> 정전 · Standing <span class="tag">시장가</span></div>
+              <div class="tmetric"><span class="mk"><span class="gloss" data-tip="정전가 = 이 영화의 객관적 시장가(정전 등재·수상·권위 기반). 세상이 인정했나를 잰다.">정전가</span></span><span class="mv" style="color:#e0bb6e">59</span></div>
+              <div class="tmetric"><span class="mk">등재 · 수상</span><span class="mv" style="color:var(--mut);font-size:12px">칸 여우주연</span></div>
+              <div class="tmetric"><span class="mk">티어</span><span class="mv" style="color:var(--mut);font-size:12px">국가정전</span></div>
+              <div class="foot">엔진 ② <b style="color:var(--mut)">시장가</b> — "세상이 인정했나". 우리 V(펀더멘털)와 별개 축.</div>
+            </div>
+          </div>
+          <div class="nomerge"><i class="ti ti-arrows-diff"></i>
+            세 칸은 <b style="color:var(--ink)">절대 한 숫자로 합치지 않는다.</b> 정전 59 &lt; 우리 V 84 —
+            시장이 아직 저평가한 걸작을 펀더멘털이 포착(비서구·최근작 시간편향 보정).</div>
+        </div>
+      </div>
+
+      <!-- ═══ 신뢰도 · 재현성 (collapsible) ═══ -->
+      <div class="mod closed" id="m-rel">
+        <div class="modh clk" onclick="toggleMod(this)">
+          <h3><i class="ti ti-shield-check"></i> 신뢰도 · 재현성 카드</h3>
+          <span class="meta" style="margin-left:auto">비결정성 정직 공개</span>
+          <i class="ti ti-chevron-down cx"></i>
+        </div>
+        <div class="modbody">
+          <div class="relgrid">
+            <div>
+              <div class="kv"><span class="k">model_id</span><span class="v">claude-sonnet-4-6</span></div>
+              <div class="kv"><span class="k">prompt_sha</span><span class="v">cinecodex-prod-v2</span></div>
+              <div class="kv"><span class="k">panel</span><span class="v">sonnet-n1</span></div>
+              <div class="kv"><span class="k">scored_at</span><span class="v">2026-07-01</span></div>
+            </div>
+            <div>
+              <div class="kv"><span class="k">n_samples</span><span class="v warn">1</span></div>
+              <div class="kv"><span class="k">sd_v / sd_r</span><span class="v warn">미측정 (N=1)</span></div>
+              <div class="kv"><span class="k">panel_disagree</span><span class="v">N/A</span></div>
+              <div class="kv"><span class="k">flagged</span><span class="v warn">true</span></div>
+            </div>
+          </div>
+          <div class="honest">
+            <b>정직한 비결정성 노트.</b> 이 점수는 상용 LLM의 단일 샘플(Pass1 N=1)이라
+            <b>런 노이즈(sd)를 측정하지 못했고</b>, 그래서 <b>flagged</b> 상태다. 재채점 시 각 서브점수는
+            ±수 점 흔들릴 수 있다 — 이는 오류가 아니라 생성 모델의 본성이다.
+            <b>계산(HOW)은 숨기되 근거(WHY)·신뢰도(HOW-RELIABLE)는 공개</b>한다는 원칙에 따라 여기 그대로 드러낸다.
+            단 <b>flagged ≠ 저품질</b>이며, 밀양의 낮은 분열성(POLAR L2)은 흐림 사유가 아니다(분열 ≠ 불신뢰).
+          </div>
+          <div class="pass2"><i class="ti ti-repeat"></i>
+            <span><b>Pass2 N=3 권장.</b> flagged 4,289편 대상 3-샘플 재채점으로 median 안정화 + sd 확보.
+            고위험 5%는 Pass3 Opus 감사 권장. 현재 미실행.</span></div>
+        </div>
+      </div>
+
+      <div style="font-size:10.5px;color:var(--faint);margin-top:2px;text-align:center">
+        엔진 ⑨ 내재가치 · Cinecodex — 정전가(②)와 나란히 서는 두 번째 객관 축 · 비섞임 단방향
+      </div>
+
+    </div></div>
+  </main>
+
+  <!-- ── COL 4 · ACTIVITY ── -->
+  <aside class="col activity" id="activity">
+    <div class="acthd"><span class="pulse"></span><span class="t">라이브 피드</span>
+      <span class="chv" onclick="toggle('activity')"><i class="ti ti-layout-sidebar-right-collapse"></i></span></div>
+    <div class="col-scroll actbody">
+      <div class="feeditem"><div class="fi" style="color:var(--safe)"><i class="ti ti-microscope"></i></div>
+        <div class="fb"><div class="ft"><b>밀양</b> Cinecodex 활성 — U 72 · S 2.70 · 안전한 걸작</div><div class="fm">방금 · cinecodex_aggregate</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--risk)"><i class="ti ti-alert-triangle"></i></div>
+        <div class="fb"><div class="ft">고위험 경보 · <b>Babylon R 51</b> — 분열적 실패(--risk)</div><div class="fm">3분 전 · risk_gate()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--canon)"><i class="ti ti-flag"></i></div>
+        <div class="fb"><div class="ft"><b>flagged 4,289편</b> — Pass2 N=3 재채점 대기</div><div class="fm">1시간 전 · review_queue</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-arrow-up-right"></i></div>
+        <div class="fb"><div class="ft">채점 완료 <b>6,701편</b> Pass1 — 기준 바스켓 정렬 검증</div><div class="fm">오늘 · cinecodex_write_runs</div></div></div>
+
+      <div class="acard">
+        <h4>기준 바스켓 · U 순위 <span style="color:var(--faint);font-weight:400;letter-spacing:0;text-transform:none">· 밀양 위치</span></h4>
+        <div class="baskrow"><span class="nm">Tokyo Story</span><span class="u">86</span><span class="r">7</span></div>
+        <div class="baskrow"><span class="nm">Yi Yi</span><span class="u">76</span><span class="r">10</span></div>
+        <div class="baskrow" style="background:var(--pnl2);border-radius:5px;padding:4px 6px"><span class="nm" style="color:#5fd0b2">밀양 Secret Sunshine</span><span class="u">72</span><span class="r">13</span></div>
+        <div class="baskrow"><span class="nm">Parasite</span><span class="u">49</span><span class="r">18</span></div>
+        <div class="baskrow hi"><span class="nm">Babylon</span><span class="u" style="color:var(--sub)">4</span><span class="r">51</span></div>
+        <div style="font-size:9.5px;color:var(--sub);margin-top:7px">U 상위 · R 저위험 — <b style="color:var(--mut)">좌상 이상향</b>에 근접.</div>
+      </div>
+
+      <div class="acard">
+        <h4>시스템 상태</h4>
+        <div class="stat"><span>Cinecodex 채점</span><b style="color:var(--safe)">6,701편 · 완료</b></div>
+        <div class="stat"><span>모델 · 프롬프트</span><b>sonnet-4-6 · prod-v2</b></div>
+        <div class="stat"><span>Pass2 N=3</span><b style="color:var(--forming)">권장 · 미실행</b></div>
+        <div class="stat"><span>비섞임 불변식</span><b style="color:var(--safe)">단방향 정합</b></div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="palette" id="palette" onclick="if(event.target===this)closePalette()">
+  <div class="palbox">
+    <div class="palin"><i class="ti ti-search" style="color:var(--sub)"></i>
+      <input id="palinput" placeholder="영화 · 계보 · 감독 · 페이지로 이동…" oninput="filterPalette()" onkeydown="palKey(event)"></div>
+    <div class="pallist" id="pallist"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LS = window.localStorage;
+
+  /* ───── collapsible columns (persisted) ───── */
+  function applyState(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var c = LS.getItem('mt_'+id)==='1';
+    el.classList.toggle('collapsed', c);
+  }
+  window.toggle = function(id){
+    var el = document.getElementById(id);
+    el.classList.toggle('collapsed');
+    LS.setItem('mt_'+id, el.classList.contains('collapsed')?'1':'0');
+  };
+  ['rail','activity'].forEach(applyState);
+
+  function jump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  window.jump = jump;
+
+  /* ───── collapsible mod panels ───── */
+  window.toggleMod = function(hd){ hd.parentNode.classList.toggle('closed'); };
+
+  /* ───── command palette ───── */
+  var PAGES=[
+    ['현황 · 커맨드센터','ti-dashboard','mockup-me-command-center.html','자산'],
+    ['보유 영화 · 가격표','ti-list-details','mockup-me-collection-list-v2.html','자산'],
+    ['볼 영화 · 추천 데스크','ti-target-arrow','mockup-me-watchlist.html','자산'],
+    ['운용 데스크','ti-briefcase','mockup-me-asset-desk.html','자산'],
+    ['자산 분석','ti-chart-arcs','mockup-me-analysis-v2.html','자산'],
+    ['Cinecodex 평가 · 밀양','ti-microscope','mockup-me-film-cinecodex.html','평가'],
+    ['기록 · 평가','ti-star','mockup-me-onboard-rate-v2.html','기록'],
+    ['서재','ti-books','mockup-me-library.html','기록'],
+    ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
+    ['동행','ti-users','mockup-me-pair.html','교류'],
+    ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['밀양 Secret Sunshine — U 72 · S 2.70','ti-movie','#','영화'],
+    ['Tokyo Story — U 86 · 최상위','ti-movie','#','영화'],
+    ['Babylon — R 51 · 고위험','ti-movie','#','영화'],
+    ['이창동 — 오에브르','ti-user-star','#','감독']
+  ];
+  function renderPalette(q){
+    q=(q||'').toLowerCase();
+    var list=document.getElementById('pallist'); list.innerHTML='';
+    PAGES.filter(function(p){return p[0].toLowerCase().indexOf(q)>=0||p[3].toLowerCase().indexOf(q)>=0;}).forEach(function(p,i){
+      var d=document.createElement('div'); d.className='pi'+(i===0?' on':'');
+      d.innerHTML='<i class="ti '+p[1]+' lead"></i><span>'+p[0]+'</span><span class="pk">'+p[3]+'</span>';
+      d.onclick=function(){ if(p[2]&&p[2]!=='#') location.href=p[2]; else closePalette(); };
+      list.appendChild(d);
+    });
+  }
+  window.openPalette=function(){ document.getElementById('palette').classList.add('show'); var i=document.getElementById('palinput'); i.value=''; renderPalette(''); setTimeout(function(){i.focus();},30); };
+  window.closePalette=function(){ document.getElementById('palette').classList.remove('show'); };
+  window.filterPalette=function(){ renderPalette(document.getElementById('palinput').value); };
+  window.palKey=function(e){
+    if(e.key==='Escape'){closePalette();}
+    if(e.key==='Enter'){var on=document.querySelector('.pi.on')||document.querySelector('.pi'); if(on)on.click();}
+  };
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openPalette();}
+  });
+})();
+</script>
+</body>
+</html>

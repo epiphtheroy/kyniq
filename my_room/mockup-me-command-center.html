@@ -16,6 +16,8 @@
     --safe:#1FB286; --frontier:#3E8FE0; --canon:#C8922B; --gap:#E8B23A; --conquer:#E3120B; --reading:#8B7FE8; --avail:#34A853;
     /* SHARED-STANDARD S2: 블라인드/공백 amber (conquer red에서 분리) · 형성중 골드 */
     --blind:#E8B23A; --forming:#C8922B;
+    /* SHARED-STANDARD S11 · 엔진 ⑨ Cinecodex 위험색 (완파 --red / --conquer 와 반드시 분리 — 빨강=정복 전용) */
+    --risk:#D64518;
     --ser:"PT Serif",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
     --rail:212px; --insp:344px; --feed:286px;
@@ -233,6 +235,60 @@
     box-shadow:0 8px 22px rgba(0,0,0,.55);z-index:40;white-space:normal}
   .gloss:hover::before{content:"";position:absolute;left:14px;bottom:calc(100% + 1px);border:5px solid transparent;border-top-color:var(--line3);z-index:40}
 
+  /* ───────── CINECODEX (엔진 ⑨ · S11) — 경량 표면화: U/R strip · 위험 점 · 인스펙터 미니카드 ───────── */
+  /* U/R 미니 strip (히어로 옆 · NAV/WWI 보조 — 대시보드는 스캔가능 유지) */
+  .urstrip{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,rgba(214,69,24,.045),var(--pnl));
+    border:1px solid #4a2416;border-radius:9px;padding:10px 14px;margin-bottom:13px}
+  .urstrip .urhd{display:flex;flex-direction:column;gap:2px;padding-right:14px;border-right:1px solid var(--line2);flex:0 0 auto}
+  .urstrip .urhd .k{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#e6a382;font-weight:600}
+  .urstrip .urhd .h{font-size:10px;color:var(--sub)}
+  .urstrip .urm{display:flex;align-items:baseline;gap:6px}
+  .urstrip .urm .n{font-family:var(--mono);font-size:22px;font-weight:600;line-height:1}
+  .urstrip .urm .n.uu{color:#8fb8d6} .urstrip .urm .n.rr{color:var(--risk)}
+  .urstrip .urm .l{font-size:9px;color:var(--sub);letter-spacing:.08em}
+  .urstrip .urdiv{width:1px;height:26px;background:var(--line2)}
+  .urstrip .urnote{margin-left:auto;font-size:10.5px;color:var(--sub);text-align:right;line-height:1.4}
+  .urstrip .urnote b{color:var(--risk);font-family:var(--mono)}
+  /* 추천 행 위험 점 (R · --risk 신토큰 · 완파 red 아님) */
+  .rdot{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px;font-weight:600;
+    padding:1px 6px;border-radius:3px;border:1px solid var(--risk);color:var(--risk);background:rgba(214,69,24,.09);letter-spacing:.02em;vertical-align:1px}
+  .rdot.lo{border-color:#1d4d40;color:#5fd0b2;background:#0e221c}   /* R≤15 저위험 = teal */
+  .rdot.mid{border-color:#5b481f;color:#e6c884;background:#1f1808}  /* R 16–25 중위험 = amber */
+  .rdot::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.9}
+  /* 인스펙터 Cinecodex 미니카드 — 3축 V/C/R + U/S + 미적 단계 + 나란히 3칸 (NEVER blend) + 신뢰도 */
+  .icard.cc-card{border-color:#5a2a18;background:linear-gradient(180deg,rgba(214,69,24,.05),var(--pnl))}
+  .icard.cc-card h4{color:#e6a382}
+  .tierbadge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;
+    color:#c9a6f0;border:1px solid #4a3f86;background:#171430;font-family:var(--ui)}
+  .tierbadge .tn{font-family:var(--mono);letter-spacing:.02em}
+  .ccaxes{display:flex;gap:9px;align-items:center;margin:9px 0 4px}
+  .ccbig{flex:0 0 auto;text-align:center;padding-right:11px;border-right:1px solid var(--line2)}
+  .ccbig .u{font-family:var(--mono);font-size:26px;font-weight:600;line-height:1;color:#8fb8d6}
+  .ccbig .ul{font-size:8px;letter-spacing:.1em;color:var(--sub);text-transform:uppercase;margin-top:2px}
+  .ccbig .s{font-family:var(--mono);font-size:10.5px;color:var(--mut);margin-top:4px}
+  .ccbars{flex:1;min-width:0}
+  .ccbar{display:grid;grid-template-columns:46px 1fr 30px;align-items:center;gap:8px;margin:4px 0}
+  .ccbar .bl{font-size:10px;color:var(--mut)}
+  .ccbar .bt{height:6px;background:#24242a;border-radius:4px;overflow:hidden}.ccbar .bt>i{display:block;height:100%;border-radius:4px}
+  .ccbar .bv{font-family:var(--mono);font-size:10.5px;text-align:right;color:var(--sub)}
+  .ccbar.risk .bt>i{background:var(--risk)} .ccbar.risk .bv{color:#f0a288}
+  /* 나란히 3분할 — 우리(V/R/U) | 외부(imdb/rt/meta) | 정전 (절대 안 합침) */
+  .sbs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:10px}
+  .sbs .sc{border:1px solid var(--line2);border-radius:6px;padding:7px 8px;background:var(--bg)}
+  .sbs .sc .sh{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px;font-weight:600}
+  .sbs .sc.ours .sh{color:#e6a382} .sbs .sc.ext .sh{color:var(--mut)} .sbs .sc.canon .sh{color:#e0bb6e}
+  .sbs .sc .sl{display:flex;justify-content:space-between;font-size:10px;padding:2px 0;color:var(--sub)}
+  .sbs .sc .sl b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .sbs .sc .sl b.rk{color:#f0a288}
+  /* 신뢰도 카드 (재현성) — 분열성(고POLAR)은 흐리지 말 것(별도 배지) */
+  .relcard{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}
+  .relrow{display:flex;justify-content:space-between;font-size:10.5px;padding:3px 0;color:var(--mut)}
+  .relrow b{font-family:var(--mono);color:var(--ink);font-weight:500}
+  .polarbadge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:600;padding:1px 6px;border-radius:3px;
+    color:#c9a6f0;border:1px solid #4a3f86;background:#171430;font-family:var(--ui)}
+  .flagchip{display:inline-flex;align-items:center;gap:4px;font-size:9px;padding:1px 6px;border-radius:3px;
+    color:#e6c884;border:1px solid #5b481f;background:#1f1808;font-family:var(--mono)}
+
   /* SHARED-STANDARD S3: 가용성 3-상태 (가능 solid green / 미확인 hollow ring / 만료 D-N pill) */
   .av-on{background:var(--avail)}
   .av-unk{background:transparent;border:1.5px solid var(--sub);box-sizing:border-box}
@@ -439,6 +495,20 @@
         <div class="explain"><i class="ti ti-info-circle"></i> NAV = 100·(0.35·breadth + 0.35·prestige + 0.20·depth + 0.10·disc) / C — <b style="color:var(--mut)">관람은 절대 NAV를 깎지 않는다</b>(저평점은 P&amp;L regret에만). 단조 보장.</div>
       </div>
 
+      <!-- ⑨ CINECODEX U/R 미니 strip (S11 · NAV/WWI 보조 · 나란히 안 섞음) -->
+      <div class="urstrip" id="urstrip" title="Cinecodex(⑨) 실측 · 정전가·NAV와 별도 객관축 — 절대 한 숫자로 안 섞음">
+        <div class="urhd">
+          <span class="k"><span class="gloss" data-tip="Cinecodex = 정전가(시장가) 옆 두 번째 객관 점수. 영화가 무엇을 돌려주고(V) 얼마나 위험한지(R)를 분해. NAV·정전가와 안 섞음.">내재가치 (Cinecodex)</span></span>
+          <span class="h">포트폴리오 펀더멘털 · ⑨</span>
+        </div>
+        <div class="urm"><span class="n uu">55</span><span class="l">평균 U</span></div>
+        <div class="urdiv"></div>
+        <div class="urm"><span class="n rr">24</span><span class="l">평균 R</span></div>
+        <div class="urdiv"></div>
+        <div class="urm"><span class="n" style="color:var(--ink)">3</span><span class="l"><span class="gloss" data-tip="분열작 = POLAR 분열성 높은 작품(고 R). 옹호 진영이 강한 야심작 — 불신뢰 아님. La La Land R39 · Babylon R51 등.">분열작 (고 R)</span></span></div>
+        <div class="urnote">Tokyo Story <b style="color:#5fd0b2">R7</b> 최저 · Babylon <b>R51</b> 최고<br>U = V − λ·R · λ 1.0 · 정전가와 별도</div>
+      </div>
+
       <!-- TODAY · 오늘 할 일 (primary action surfaced) -->
       <div class="today" id="today">
         <div class="tlead">
@@ -477,7 +547,7 @@
           <div class="rrow sel" data-id="touki" onclick="sel('touki',this)">
             <div class="rk">1</div>
             <div><div class="rt">Touki Bouki <small>1973 · Djibril Diop Mambéty</small></div>
-              <div class="rsub">세네갈 · 당신의 가장 큰 블라인드 두 개를 동시에 연다</div>
+              <div class="rsub">세네갈 · 당신의 가장 큰 블라인드 두 개를 동시에 연다 <span class="rdot mid" title="Cinecodex 위험 R 22 (--risk · 완파 red 아님) · 프론티어 중위험">R 22</span></div>
               <div class="reasons"><span class="rsn frontier">frontier 94</span><span class="rsn gap">gap 0%→진입</span><span class="rsn conquer">conquer FESPACO</span></div></div>
             <div class="wwi"><div class="pv" style="color:#86b9ec">88</div><div class="pl">WWI</div></div>
             <div class="dlt">+6<small>→ NAV</small></div>
@@ -486,7 +556,7 @@
           <div class="rrow" data-id="yiyi" onclick="sel('yiyi',this)">
             <div class="rk">2</div>
             <div><div class="rt">Yi Yi <small>2000 · Edward Yang</small></div>
-              <div class="rsub">대만 · 금마장 블라인드 + 당신의 가족 드라마 군집과 친연</div>
+              <div class="rsub">대만 · 금마장 블라인드 + 당신의 가족 드라마 군집과 친연 <span class="rdot lo" title="Cinecodex 위험 R 10 (--risk) · 안전한 걸작 · 저위험">R 10</span></div>
               <div class="reasons"><span class="rsn safe">safe 0.91</span><span class="rsn canon">canon 90</span><span class="rsn gap">gap 금마 8%</span></div></div>
             <div class="wwi"><div class="pv" style="color:#5fd0b2">86</div><div class="pl">WWI</div></div>
             <div class="dlt">+5<small>→ NAV</small></div>
@@ -495,7 +565,7 @@
           <div class="rrow" data-id="wind" onclick="sel('wind',this)">
             <div class="rk">3</div>
             <div><div class="rt">The Wind Will Carry Us <small>1999 · Abbas Kiarostami</small></div>
-              <div class="rsub">이란 · 이란 뉴웨이브 정점 + 당신 시그니처 「절제된 응시」</div>
+              <div class="rsub">이란 · 이란 뉴웨이브 정점 + 당신 시그니처 「절제된 응시」 <span class="rdot mid" title="Cinecodex 위험 R 19 (--risk) · 관조적 · 중위험">R 19</span></div>
               <div class="reasons"><span class="rsn reading">reading 관조</span><span class="rsn safe">safe 0.88</span><span class="rsn gap">gap 이란 12%</span></div></div>
             <div class="wwi"><div class="pv" style="color:#bda1f0">83</div><div class="pl">WWI</div></div>
             <div class="dlt">+4<small>→ NAV</small></div>
@@ -504,7 +574,7 @@
           <div class="rrow" data-id="bgwd" onclick="sel('bgwd',this)">
             <div class="rk">4</div>
             <div><div class="rt">Black God, White Devil <small>1964 · Glauber Rocha</small></div>
-              <div class="rsub">브라질 · 라틴 대륙 블라인드 + Cinema Novo 사조</div>
+              <div class="rsub">브라질 · 라틴 대륙 블라인드 + Cinema Novo 사조 <span class="rdot" title="Cinecodex 위험 R 29 (--risk · 완파 red 아님) · 급진 · 고위험(불신뢰 아님)">R 29</span></div>
               <div class="reasons"><span class="rsn gap">gap 라틴 0%</span><span class="rsn conquer">conquer Cinema Novo</span><span class="rsn frontier">frontier 88</span></div></div>
             <div class="wwi"><div class="pv" style="color:#86b9ec">81</div><div class="pl">WWI</div></div>
             <div class="dlt">+5<small>→ NAV</small></div>
@@ -513,7 +583,7 @@
           <div class="rrow" data-id="vengeance" onclick="sel('vengeance',this)">
             <div class="rk">5</div>
             <div><div class="rt">Vengeance Is Mine <small>1979 · Shohei Imamura</small></div>
-              <div class="rsub">일본 · 키네마준보 보강 + 당신의 일본 70s 연대 공백</div>
+              <div class="rsub">일본 · 키네마준보 보강 + 당신의 일본 70s 연대 공백 <span class="rdot mid" title="Cinecodex 위험 R 19 (--risk) · 중위험">R 19</span></div>
               <div class="reasons"><span class="rsn canon">canon 79</span><span class="rsn gap">gap 70s 일본</span></div></div>
             <div class="wwi"><div class="pv">78</div><div class="pl">WWI</div></div>
             <div class="dlt">+4<small>→ NAV</small></div>
@@ -615,6 +685,8 @@
     <div class="col-scroll actbody">
       <div class="feeditem"><div class="fi" style="color:var(--frontier)"><i class="ti ti-sparkles"></i></div>
         <div class="fb"><div class="ft"><b>Touki Bouki</b> Discovery 94 — 추천 1위로 진입</div><div class="fm">방금 · recommend()</div></div></div>
+      <div class="feeditem"><div class="fi" style="color:var(--risk)"><i class="ti ti-alert-triangle"></i></div>
+        <div class="fb"><div class="ft"><b>고위험 경보</b> · 관심작 <b>Babylon</b> <span class="rdot" style="vertical-align:baseline">R 51</span> — 실망 위험 높음</div><div class="fm">방금 · cinecodex.risk_gate() · R≥26 강등</div></div></div>
       <div class="feeditem"><div class="fi" style="color:var(--blind)"><i class="ti ti-eye-off"></i></div>
         <div class="fb"><div class="ft">블라인드 경보 · <b>라틴 정전 0%</b> (Abraccine·Somos·Encuesta)</div><div class="fm">12분 전 · my_blind_spots()</div></div></div>
       <div class="feeditem"><div class="fi" style="color:var(--canon)"><i class="ti ti-trophy"></i></div>
@@ -688,29 +760,71 @@
     return '<div class="crow"><span class="cl">'+label+'</span><div class="ct"><i style="width:'+val+'%;background:'+color+'"></i></div><span class="cv">'+val+'</span></div>';
   };
 
+  /* ───── ⑨ Cinecodex 미니카드 (인스펙터) — 3축 V/C/R + U/S + 미적단계 + 나란히 3칸(NEVER blend) + 신뢰도
+     비섞임 철칙: 우리(V/R/U)·외부(imdb/rt/meta)·정전가를 절대 한 숫자로 안 합침. 위험 = --risk(완파 red 아님).
+     분열적(고POLAR) ≠ 불신뢰 — 흐리지 말고 별도 「분열성」 배지. */
+  function ccCard(f){
+    if(!f.cc){ /* 콜드스타트 빈 상태 · NaN 금지 */
+      return '<div class="icard cc-card"><h4><i class="ti ti-diamond"></i> Cinecodex · 내재가치 (⑨)</h4>'+
+        '<div style="font-size:11px;color:var(--sub);opacity:.75">「Cinecodex 미평가 · 분석 대기」 — 신규 유입작. 정전가와 별도 객관축, 준비되면 표시.</div></div>';
+    }
+    var cc=f.cc, ax=[['V 획득가치',cc.V,'#8fb8d6',''],['C 진입비용',cc.C,'var(--mut)',''],['R 위험',cc.R,'var(--risk)',' risk']];
+    var axb=ax.map(function(a){return '<div class="ccbar'+a[3]+'"><span class="bl">'+a[0]+'</span><div class="bt"><i style="width:'+a[1]+'%;background:'+a[2]+'"></i></div><span class="bv">'+a[1]+'</span></div>';}).join('');
+    var e=cc.ext;
+    return '<div class="icard cc-card">'+
+      '<h4><i class="ti ti-diamond"></i> Cinecodex · 내재가치 (⑨) <span class="tierbadge" style="margin-left:auto" title="미적 단계 L1–L10 (영화 · ≠ 사용자 레벨밴드)"><i class="ti ti-stairs-up" style="font-size:11px"></i><span class="tn">'+cc.tier[0]+'</span> '+cc.tier[1]+'</span></h4>'+
+      '<div class="ccaxes">'+
+        '<div class="ccbig"><div class="u">'+cc.U+'</div><div class="ul">U 순가치</div><div class="s">S '+cc.S.toFixed(1)+'</div></div>'+
+        '<div class="ccbars">'+axb+'</div></div>'+
+      '<div style="font-size:9.5px;color:var(--sub);margin-top:2px">U = V − λ·R (λ 1.0) · <span class="gloss" data-tip="V 획득가치 = 영화가 돌려주는 것. C 진입비용 = 난이도(가치 아님). R 위험 = 실망·분열 위험. 높을수록 나쁨 — 완파 red와 무관.">3축</span> 분해 · 정전가·외부지표와 안 섞음</div>'+
+      /* 나란히 3분할 — 우리 / 외부 / 정전 */
+      '<div class="sbs">'+
+        '<div class="sc ours"><div class="sh">우리 (⑨)</div>'+
+          '<div class="sl"><span>V</span><b>'+cc.V+'</b></div><div class="sl"><span>R</span><b class="rk">'+cc.R+'</b></div><div class="sl"><span>U</span><b>'+cc.U+'</b></div></div>'+
+        '<div class="sc ext"><div class="sh">외부 (표시)</div>'+
+          '<div class="sl"><span>IMDb</span><b>'+e.imdb+'</b></div><div class="sl"><span>RT</span><b>'+(e.rt==='—'?'—':e.rt+'%')+'</b></div><div class="sl"><span>Meta</span><b>'+e.meta+'</b></div></div>'+
+        '<div class="sc canon"><div class="sh">정전 (②)</div>'+
+          '<div class="sl"><span>정전가</span><b>'+f.pre+'</b></div><div class="sl" style="color:var(--faint)"><span>시장가</span><b style="color:var(--faint)">market</b></div></div>'+
+      '</div>'+
+      /* 신뢰도 · 재현성 — 분열성은 흐리지 않고 별도 배지 */
+      '<div class="relcard">'+
+        '<div class="relrow"><span><span class="gloss" data-tip="분열성(POLAR) = 옹호 진영이 강한 야심작(고 R). 오류/불신뢰가 아니라 분열적 — 흐리지 않고 별도 표시.">분열성</span> · 신뢰도</span>'+
+          '<span>'+(cc.polar||cc.rel.polar>=30?'<span class="polarbadge" title="POLAR 분열성 높음 — 불신뢰 아님">분열 '+cc.rel.polar+'</span> ':'')+
+          (cc.rel.flagged?'<span class="flagchip" title="Pass1 N=1 · 런 노이즈 미측정 → flagged (신뢰도 확보용 Pass2 대기)"><i class="ti ti-flag" style="font-size:9px"></i> flagged</span>':'')+'</span></div>'+
+        '<div class="relrow"><span>n 샘플 · sd</span><b>N='+cc.rel.n+' · sd '+cc.rel.sd+'</b></div>'+
+        '<div class="relrow"><span>model · prompt</span><b>sonnet · cinecodex-prod-v2</b></div></div>'+
+      '<div style="margin-top:9px;text-align:right"><a onclick="location.href=&#39;mockup-me-film-cinecodex.html&#39;" style="font-size:10.5px;color:var(--frontier);cursor:pointer">Cinecodex 평가 전체 →</a></div>'+
+    '</div>';
+  }
+
   // recommendation detail (films)
   var FILM = {
     touki:{t:'Touki Bouki',s:'1973 · Djibril Diop Mambéty · 세네갈',wwi:88,wc:'#86b9ec',pre:71,dis:94,rating:null,
+      cc:{V:78,C:59,R:22,U:56,S:1.3,tier:['L8','심오'],ext:{imdb:7.6,rt:96,meta:'—'},rel:{n:1,sd:'—',polar:24,flagged:true}},
       comps:[['taste 친연',62,'var(--safe)'],['lineage',70,'var(--frontier)'],['gap 공백',96,'var(--gap)'],['canon',71,'var(--canon)']],
       reasons:'<span class="rsn frontier">frontier 94</span> <span class="rsn gap">gap 0%→진입</span> <span class="rsn conquer">conquer FESPACO</span>',
       why:'FESPACO·아프리카 정전 0% → 동시 진입. 희소도(selectivity) 최상위 → 발굴 가치 극대. Δindex가 모든 후보 중 최대.',
       avail:[['MUBI','var(--avail)','지금 볼 수 있음 · KR','on'],['Criterion','var(--sub)','','unk']],delta:6,badge:null},
     yiyi:{t:'Yi Yi',s:'2000 · Edward Yang · 대만',wwi:86,wc:'#5fd0b2',pre:90,dis:18,rating:null,
+      cc:{V:86,C:50,R:10,U:76,S:3.6,tier:['L9','초월적'],ext:{imdb:8.1,rt:97,meta:94},rel:{n:1,sd:'—',polar:10,flagged:true}},
       comps:[['taste 친연',91,'var(--safe)'],['lineage',64,'var(--frontier)'],['gap 공백',55,'var(--gap)'],['canon',90,'var(--canon)']],
       reasons:'<span class="rsn safe">safe 0.91</span> <span class="rsn canon">canon 90</span> <span class="rsn gap">gap 금마 8%</span>',
       why:'취향 벡터 코사인 0.91 — 당신의 가족 드라마 군집과 직결("of-course" 안전자산). 금마장 8%→보강.',
       avail:[['Criterion','var(--avail)','지금 볼 수 있음 · KR','on']],delta:5,badge:null},
     wind:{t:'The Wind Will Carry Us',s:'1999 · Abbas Kiarostami · 이란',wwi:83,wc:'#bda1f0',pre:82,dis:44,rating:null,
+      cc:{V:78,C:57,R:19,U:59,S:1.5,tier:['L8','심오'],ext:{imdb:7.5,rt:94,meta:85},rel:{n:1,sd:'—',polar:20,flagged:true}},
       comps:[['taste 친연',88,'var(--safe)'],['lineage',60,'var(--frontier)'],['gap 공백',62,'var(--gap)'],['canon',82,'var(--canon)']],
       reasons:'<span class="rsn reading">reading 관조</span> <span class="rsn safe">safe 0.88</span> <span class="rsn gap">gap 이란 12%</span>',
       why:'당신 시그니처 「절제된 응시」와 reading 합치. 이란 뉴웨이브 12%→확장. 베니스 심사위원대상.',
       avail:[['MUBI','var(--avail)','D-9','exp']],delta:4,badge:null},
     bgwd:{t:'Black God, White Devil',s:'1964 · Glauber Rocha · 브라질',wwi:81,wc:'#86b9ec',pre:74,dis:88,rating:null,
+      cc:{V:81,C:75,R:29,U:53,S:1.1,tier:['L8','심오'],ext:{imdb:7.5,rt:95,meta:90},rel:{n:1,sd:'—',polar:38,flagged:true}},
       comps:[['taste 친연',58,'var(--safe)'],['lineage',66,'var(--frontier)'],['gap 공백',92,'var(--gap)'],['canon',74,'var(--canon)']],
       reasons:'<span class="rsn gap">gap 라틴 0%</span> <span class="rsn conquer">conquer Cinema Novo</span> <span class="rsn frontier">frontier 88</span>',
       why:'라틴 대륙 정전 0% → 진입. 대륙 커버리지를 가장 크게 끌어올림(Δbreadth 최상위급).',
       avail:[['이 지역 제공자','var(--sub)','','unk']],delta:5,badge:null},
     vengeance:{t:'Vengeance Is Mine',s:'1979 · Shohei Imamura · 일본',wwi:78,wc:'#ECEAE5',pre:79,dis:36,rating:null,
+      cc:{V:79,C:57,R:19,U:59,S:1.5,tier:['L8','심오'],ext:{imdb:7.9,rt:100,meta:'—'},rel:{n:1,sd:'—',polar:22,flagged:true}},
       comps:[['taste 친연',70,'var(--safe)'],['lineage',58,'var(--frontier)'],['gap 공백',58,'var(--gap)'],['canon',79,'var(--canon)']],
       reasons:'<span class="rsn canon">canon 79</span> <span class="rsn gap">gap 70s 일본</span>',
       why:'키네마준보 올타임 #1급. 연대 공백(1970년대 일본) 충족 + 당신 일본 거장 군집과 친연.',
@@ -754,6 +868,7 @@
         '<div class="kv"><span class="k"><span class="gloss" data-tip="정전가 = 이 영화의 객관적 시장가(정전·평단·권위 기반). 내 취향과 무관한 영화 자체의 standing.">정전가</span> (Standing)</span><span class="v">'+f.pre+'</span></div>'+
         '<div class="kv"><span class="k">Discovery</span><span class="v">'+f.dis+'</span></div>'+
         '<div class="kv"><span class="k">Δindex → NAV</span><span class="v" style="color:var(--safe)">+'+f.delta+'</span></div></div>'+
+      ccCard(f)+
       '<div class="icard"><h4><i class="ti ti-device-tv"></i> 지금 볼 수 있나</h4>'+av+'</div>'+
       '<div class="actbar"><span class="actbtn pri" onclick="location.href=\'mockup-me-watchlist.html\'">볼 영화에 담기</span>'+
         '<span class="actbtn gho">봤어요</span></div>';
@@ -885,6 +1000,7 @@
     ['노트 · 글쓰기','ti-feather','mockup-me-write.html','기록'],
     ['동행','ti-users','mockup-me-pair.html','교류'],
     ['공개 프로필','ti-id-badge','mockup-me-profile.html','교류'],
+    ['Cinecodex 평가 · 밀양','ti-microscope','mockup-me-film-cinecodex.html','평가'],
     ['Touki Bouki — 추천 1위','ti-movie','#','영화'],
     ['Yi Yi — 추천 2위','ti-movie','#','영화'],
     ['Sight & Sound 2022 — 41%','ti-layout-grid','#','계보'],

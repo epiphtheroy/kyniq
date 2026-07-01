@@ -5,7 +5,7 @@ export type Codex = {
   v: number; c: number; r: number; u: number; sharpe: number;
   sub: Record<string, number>;
   n_samples: number | null; sd_v: number | null; panel: string; flagged: boolean;
-  conf: number | null; conf_tier: string | null; n_takes: number | null;
+  conf: number | null; conf_tier: string | null; n_takes: number | null; votes: number | null;
   ext: { imdb: number | null; rt: number | null; metascore: number | null };
 };
 
@@ -24,6 +24,70 @@ function Sub({ names, sub, tone }: { names: string[]; sub: Record<string, number
           <span className="ccx-subn">{n}</span><Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
         </div>
       ))}
+    </div>
+  );
+}
+
+/** Value vs Popularity 2×2 — the divergence IS the product. Our durable Value (y) against
+ *  the crowd's attention (x, from log votes). The gap tells the story: high value + low reach
+ *  = a hidden gem; high reach + low value = popular but thin. Never blended into the score. */
+function ValuePop({ v, votes }: { v: number; votes: number | null }) {
+  if (votes == null || votes < 50) return null;
+  const val = Math.round(v);
+  const pop = Math.round(Math.max(0, Math.min(1, (Math.log10(Math.max(votes, 1)) - 3.5) / 3)) * 100);
+  const gap = val - pop;
+
+  let head: string, note: string;
+  if (val >= 60 && pop < 45) { head = "Hidden gem"; note = `high durable value (${val}) well above its audience reach (${pop}) — a cinephile's find.`; }
+  else if (val >= 58 && pop >= 55) { head = "Consensus classic"; note = `widely seen and it holds up — value ${val}, reach ${pop}.`; }
+  else if (val < 50 && pop >= 58) { head = "Popular, lighter harvest"; note = `enjoyed widely (reach ${pop}) but less durable value (${val}) to re-mine.`; }
+  else if (val < 48 && pop < 45) { head = "A quiet minor work"; note = `modest reach (${pop}) and a modest durable payoff (${val}).`; }
+  else if (gap >= 15) { head = "Under-seen for its value"; note = `durable value ${val} outruns audience reach ${pop}.`; }
+  else if (gap <= -15) { head = "Loved beyond its durable value"; note = `audience reach ${pop} outruns durable value ${val}.`; }
+  else { head = "Value and reach aligned"; note = `durable value ${val} and audience reach ${pop} track closely.`; }
+
+  // plot geometry (viewBox 0 0 260 190). plot area x:34..248, y:14..150
+  const px = 34 + (pop / 100) * (248 - 34);
+  const py = 150 - (val / 100) * (150 - 14);
+  const cx = 34 + 0.5 * (248 - 34); // center vertical (pop 50)
+  const cy = 150 - 0.5 * (150 - 14); // center horizontal (value 50)
+
+  return (
+    <div className="ccx-vp">
+      <div className="ccx-vp-head"><b>{head}</b><span>Value × Popularity</span></div>
+      <div className="ccx-vp-body">
+        <svg className="ccx-vp-svg" viewBox="0 0 260 190" role="img" aria-label={`${head}: ${note}`}>
+          {/* quadrant tints */}
+          <rect x="34" y="14" width={cx - 34} height={cy - 14} fill="#0F6E56" opacity="0.06" />
+          <rect x={cx} y="14" width={248 - cx} height={cy - 14} fill="#0F6E56" opacity="0.13" />
+          <rect x={cx} y={cy} width={248 - cx} height={150 - cy} fill="#C8102E" opacity="0.07" />
+          <rect x="34" y={cy} width={cx - 34} height={150 - cy} fill="#9AA0A6" opacity="0.08" />
+          {/* axes */}
+          <line x1="34" y1="150" x2="248" y2="150" stroke="var(--hairline-2,#ccc)" strokeWidth="1" />
+          <line x1="34" y1="14" x2="34" y2="150" stroke="var(--hairline-2,#ccc)" strokeWidth="1" />
+          <line x1={cx} y1="14" x2={cx} y2="150" stroke="var(--hairline,#e6e6e6)" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="34" y1={cy} x2="248" y2={cy} stroke="var(--hairline,#e6e6e6)" strokeWidth="1" strokeDasharray="3 3" />
+          {/* corner labels */}
+          <text className="ccx-vp-q" x="40" y="26">Hidden gem</text>
+          <text className="ccx-vp-q" x="244" y="26" textAnchor="end">Consensus classic</text>
+          <text className="ccx-vp-q" x="244" y="146" textAnchor="end">Popular · lighter</text>
+          <text className="ccx-vp-q" x="40" y="146">Minor</text>
+          {/* the film */}
+          <circle cx={px} cy={py} r="9" fill="#0F6E56" opacity="0.16" />
+          <circle cx={px} cy={py} r="5" fill="#0F6E56" stroke="#fff" strokeWidth="1.5" />
+          {/* axis titles */}
+          <text className="ccx-vp-ax" x="141" y="172" textAnchor="middle">Popularity — audience reach →</text>
+          <text className="ccx-vp-ax" x="14" y="82" textAnchor="middle" transform="rotate(-90 14 82)">Durable value →</text>
+        </svg>
+        <div className="ccx-vp-side">
+          <div className="ccx-vp-nums">
+            <span><b>{val}</b> our Value</span>
+            <span><b>{pop}</b> audience reach</span>
+          </div>
+          <p className="ccx-vp-note">{note}</p>
+          <p className="ccx-vp-cap">The gap is the point — our durable Value versus the crowd&rsquo;s attention. Never blended into the score.</p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -56,6 +120,8 @@ export default function CinecodexPanel({ data, title }: { data: Codex | null; ti
         <div><span className="ccx-big">{data.u}</span><span className="ccx-nl">TakeScore (Value − Risk)</span></div>
         <div><span className="ccx-big">{data.sharpe}</span><span className="ccx-nl">Efficiency (value per risk)</span></div>
       </div>
+
+      <ValuePop v={data.v} votes={data.votes} />
 
       {conf != null ? (
         <div className={`ccx-cf ${tierClass}`}>
