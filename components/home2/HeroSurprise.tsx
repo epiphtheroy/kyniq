@@ -38,6 +38,7 @@ export default function HeroSurprise() {
   const [hist, setHist] = useState<Card[]>([]);
   const [idx, setIdx] = useState(-1);
   const [loading, setLoading] = useState(true);
+  const [muted, setMuted] = useState(true);
   const busy = useRef(false);
   const card = idx >= 0 ? hist[idx] : null;
 
@@ -73,7 +74,7 @@ export default function HeroSurprise() {
   }, [draw]);
 
   const clipSrc = card?.clip
-    ? `https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=1&controls=0&loop=1&playlist=${card.clip}&start=7&playsinline=1&modestbranding=1&rel=0`
+    ? `https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${card.clip}&start=7&playsinline=1&modestbranding=1&rel=0`
     : null;
 
   const filmLine = card
@@ -88,11 +89,16 @@ export default function HeroSurprise() {
             <div className="hs-stage">
               <div className={`hs-main${loading ? " is-load" : ""}`} onClick={() => { if (card?.href) window.location.href = card.href; }}>
                 {clipSrc ? (
-                  <iframe key={card!.clip} className="hs-media" src={clipSrc} title={card?.film_title ?? "clip"} allow="autoplay; encrypted-media; picture-in-picture" />
+                  <iframe key={`${card!.clip}-${muted ? "m" : "s"}`} className="hs-media" src={clipSrc} title={card?.film_title ?? "clip"} allow="autoplay; encrypted-media; picture-in-picture" />
                 ) : card?.backdrop ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img className="hs-media" src={`${IMG}/w1280${card.backdrop}`} alt="" />
                 ) : <div className="hs-media hs-media--empty" aria-hidden="true" />}
+                {clipSrc ? (
+                  <button type="button" className={`hs-mute${muted ? "" : " on"}`} onClick={(e) => { e.stopPropagation(); setMuted((v) => !v); }} aria-label={muted ? "Unmute" : "Mute"}>
+                    {muted ? "🔇 Sound off" : "🔊 Sound on"}
+                  </button>
+                ) : null}
               </div>
               <div className="hs-cap">
                 <div className="hs-cap__film">
