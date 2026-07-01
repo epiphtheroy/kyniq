@@ -209,9 +209,9 @@ export default async function FilmPage({ params }: Props) {
   const { data: codex } = await db().rpc("cinecodex_for", { p_slug: slug });
   const _cx = codex as Codex | null;
   const codexBadge = _cx ? (
-    <a className="df-mts" href="#df-codex" title="Metatake Score — durable value (V), cost (C), risk (R). Click for detail.">
-      <span className="df-mts-n">{Math.round(_cx.v)}</span>
-      <span className="df-mts-l"><b>Metatake Score</b><i>value · cost {Math.round(_cx.c)} · risk {Math.round(_cx.r)}</i></span>
+    <a className="df-mts" href="#df-codex" title="TakeScore — durable value minus risk. Click for the full breakdown.">
+      <span className="df-mts-n">{Math.round(_cx.v - _cx.r)}</span>
+      <span className="df-mts-l"><b>TakeScore</b><i>value {Math.round(_cx.v)} · cost {Math.round(_cx.c)} · risk {Math.round(_cx.r)}</i></span>
     </a>
   ) : null;
   const mvChips = movements.length ? (
@@ -225,7 +225,7 @@ export default async function FilmPage({ params }: Props) {
     const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null };
     const { lineage, recommendedBy, ratings, watch } = data;
     const mTabs = ([
-      codex ? { id: "df-codex", label: "Codex" } : null,
+      codex ? { id: "df-codex", label: "TakeScore" } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
