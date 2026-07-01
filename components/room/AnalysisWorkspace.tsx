@@ -8,7 +8,7 @@
  *   - me_taste_neighbors  → 상호추천 (nearest unseen w/ sim)
  *  Scatter plots hand-rolled as inline SVG (no chart libs), mirroring EvalCard's donuts.
  *  Inspector-swap mirrors CollectionWorkspace (setDefault in useEffect, insp.select on click). */
-import { useMemo, useState, useEffect, type ReactNode } from "react";
+import { useMemo, useEffect, type ReactNode } from "react";
 import { useInspector } from "./InspectorContext";
 import CinecodexCard from "./CinecodexCard";
 
