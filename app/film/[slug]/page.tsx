@@ -207,6 +207,13 @@ export default async function FilmPage({ params }: Props) {
   const { data: mvRows } = await db().rpc("film_movements", { p_slug: slug });
   const movements = (mvRows as { slug: string; label: string; kind: string; country_code: string | null }[] | null) ?? [];
   const { data: codex } = await db().rpc("cinecodex_for", { p_slug: slug });
+  const _cx = codex as Codex | null;
+  const codexBadge = _cx ? (
+    <a className="df-mts" href="#df-codex" title="Metatake Score — durable value (V), cost (C), risk (R). Click for detail.">
+      <span className="df-mts-n">{Math.round(_cx.v)}</span>
+      <span className="df-mts-l"><b>Metatake Score</b><i>value · cost {Math.round(_cx.c)} · risk {Math.round(_cx.r)}</i></span>
+    </a>
+  ) : null;
   const mvChips = movements.length ? (
     <div className="df-movements">
       {movements.map((m) => (
@@ -244,6 +251,7 @@ export default async function FilmPage({ params }: Props) {
                   {f.director ? (f.director_slug ? <Link href={`/director/${f.director_slug}`}>{f.director}</Link> : <span>{f.director}</span>) : null}
                   {f.genres?.length ? <><span className="df-d" />{f.genres.slice(0, 3).join(" · ")}</> : null}
                 </div>
+                {codexBadge}
                 {mvChips}
                 <div className="df-hactions">
                   <MovieListActions filmId={f.id} />
@@ -355,6 +363,7 @@ export default async function FilmPage({ params }: Props) {
                 {cert ? <><span className="df-d" />{cert}</> : null}
                 {country ? <><span className="df-d" />{country}</> : null}
               </div>
+              {codexBadge}
               {mvChips}
               <div className="df-hactions">
                 <MovieListActions filmId={film.id} />
