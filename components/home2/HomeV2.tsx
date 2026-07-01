@@ -16,6 +16,7 @@ import Rhyme from "./Rhyme";
 import Canon from "./Canon";
 import BlogGraph from "./BlogGraph";
 import HomeMap from "./HomeMap";
+import HomeAtlas from "./HomeAtlas";
 import BigSearch from "./BigSearch";
 import SixWays from "./SixWays";
 import SiteFooter from "./SiteFooter";
@@ -46,6 +47,8 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
       <LensRail data={data} />
       {/* 8b — The living map of cinema (paper-2) */}
       <HomeMap />
+      {/* 8c — The geographic Atlas (satellite) */}
+      <HomeAtlas />
       {/* 9 — Directors spotlight + cards (paper-2) */}
       <Directors data={data} />
       {/* 10 — Auteurs to explore (dark) */}
