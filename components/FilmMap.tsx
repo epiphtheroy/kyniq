@@ -61,6 +61,7 @@ export default function FilmMap({
   const [inView, setInView] = useState<Set<string> | null>(null);
   const [lf, setLf] = useState<"all" | "setting" | "filmed">("all");
   const [scope, setScope] = useState<"film" | "all">("film"); // film pages only
+  const [focus, setFocus] = useState<{ slug: string; title: string } | null>(null); // atlas: search-focused film
   const [q, setQ] = useState("");
   const [sugs, setSugs] = useState<Sug[]>([]);
   const mapEl = useRef<HTMLDivElement>(null);
@@ -71,8 +72,11 @@ export default function FilmMap({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hoverPop = useRef<any>(null);
 
-  const globalMode = !filmSlug || scope === "all";
-  const effEndpoint = filmSlug && scope === "all" ? "/api/geo" : endpoint;
+  const effFilm = filmSlug ?? focus?.slug ?? undefined;   // the film currently framed
+  const globalMode = !effFilm || (!!filmSlug && scope === "all");
+  const effEndpoint = focus ? `/api/geo?film=${focus.slug}`
+    : filmSlug && scope === "all" ? "/api/geo"
+    : endpoint;
 
   useEffect(() => {
     let alive = true;
@@ -103,7 +107,7 @@ export default function FilmMap({
     features: rs.map((r) => ({
       type: "Feature", geometry: { type: "Point", coordinates: [r.lng, r.lat] },
       properties: {
-        id: r.id, name: r.name, href: hrefFor(r, filmSlug) ?? "", layer: r.layer ?? "setting",
+        id: r.id, name: r.name, href: hrefFor(r, effFilm) ?? "", layer: r.layer ?? "setting",
         mine: filmSlug && scope === "all" ? (isMine(r) ? "1" : "") : "1",
         role: roleOf(r).slice(0, 300), film: filmLabel(r),
         tier: r.tier ?? "", built: r.built_set ? "1" : "", host: r.set_host ?? "", src: (r.sources && r.sources[0]) || "",
@@ -240,7 +244,7 @@ export default function FilmMap({
         <div className="fmap-canvas" ref={mapEl} style={{ height }} />
         <ul className="fmap-list" style={{ maxHeight: height }}>
           {shown.map((r) => {
-            const href = hrefFor(r, filmSlug);
+            const href = hrefFor(r, effFilm);
             const role = roleOf(r);
             const big = globalMode ? filmLabel(r) || r.name : r.name;
             const small = globalMode ? r.name : filmLabel(r);
