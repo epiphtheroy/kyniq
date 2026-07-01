@@ -255,7 +255,7 @@ export default async function FilmPage({ params }: Props) {
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 
-          <FilmLineageSection lineage={lineage} title={f.title} />
+          <FilmLineageSection lineage={lineage} title={f.title} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
           <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
@@ -411,7 +411,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} />
+        <FilmLineageSection lineage={lineage} title={film.title} movements={movements} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
         <FilmRecommendedBy rows={recommendedBy} title={film.title} />
