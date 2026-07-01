@@ -3992,6 +3992,14 @@ a.pq-fact:hover{border-color:var(--ink)}
 .pq-fact-t{font-family:var(--font-serif,Georgia,serif); font-size:15px; color:var(--ink); line-height:1.2}
 .pq-fact-m{font-family:var(--font-ui); font-size:11.5px; color:var(--muted)}
 
+/* /me — watched scored list controls */
+.mw-sort{display:inline-flex; flex-wrap:wrap; gap:6px; margin:2px 0 10px}
+.mw-sort button{font-family:var(--font-ui); font-size:12px; padding:5px 11px; background:#fff; border:1px solid var(--hairline-2); border-radius:999px; color:var(--muted); cursor:pointer}
+.mw-sort button:hover{border-color:var(--ink); color:var(--ink)}
+.mw-sort button.on{background:var(--ink); color:#fff; border-color:var(--ink)}
+.mw-gap{font-family:var(--font-ui); font-size:11px; color:var(--muted)}
+.mw-gap--up{color:#0F6E56} .mw-gap--dn{color:#C8102E}
+
 /* MTS badge on the film hero */
 .df-mts{display:inline-flex; align-items:center; gap:9px; margin:8px 0 2px; padding:5px 11px 5px 8px; border:1px solid var(--hairline-2); border-radius:8px; text-decoration:none; color:inherit; background:var(--paper-2,#fafafa)}
 .df-mts:hover{border-color:var(--ink)}
