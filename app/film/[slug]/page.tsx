@@ -8,6 +8,7 @@ import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
 import FilmTopInfo from "@/components/FilmTopInfo";
 import FilmLineageSection from "@/components/FilmLineageSection";
+import CinecodexPanel, { type Codex } from "@/components/CinecodexPanel";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import FilmHeroReel from "@/components/FilmHeroReel";
@@ -217,6 +218,7 @@ export default async function FilmPage({ params }: Props) {
     const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null };
     const { lineage, recommendedBy, ratings, watch } = data;
     const mTabs = ([
+      codex ? { id: "df-codex", label: "Codex" } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
@@ -289,6 +291,7 @@ export default async function FilmPage({ params }: Props) {
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
+    codex ? { id: "df-codex", label: "Codex" } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
@@ -412,6 +415,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
+        <CinecodexPanel data={codex as Codex | null} title={film.title} />
         <FilmLineageSection lineage={lineage} title={film.title} movements={movements} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
