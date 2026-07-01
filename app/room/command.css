@@ -1,0 +1,165 @@
+/* /room (root) — 현황 커맨드센터 page CSS.
+   Ported from mockup-me-command-center.html <style>. FULLY SCOPED under .room-root
+   so it never leaks, and every page class is prefixed `cc-` to avoid collisions with
+   room.css (which owns .rrow/.wwi/.dlt/.mod for other pages). Reuses shared tokens
+   (--bg,--pnl,--ink,--red,--canon,--safe,--frontier,--gap,--conquer,--reading,--blind,
+    --forming,--risk,--ser,--ui,--mono …). */
+
+/* ── HERO: NAV + components ── */
+.room-root .cc-hero{display:grid;grid-template-columns:auto 1fr;gap:18px;
+  background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);
+  border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
+.room-root .cc-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
+  border-radius:50%;background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+.room-root .cc-navbig{display:flex;align-items:center;gap:16px}
+.room-root .cc-ring{position:relative;flex:0 0 auto}
+.room-root .cc-navmeta .cc-lvl{font-size:12px;color:var(--canon);font-weight:600;letter-spacing:.04em;margin-top:5px}
+.room-root .cc-navmeta .cc-lvl.forming{color:var(--forming)}
+.room-root .cc-navmeta .cc-pctl{font-size:11px;color:var(--mut);margin-top:3px}
+.room-root .cc-navmeta .cc-pctl b{color:var(--safe);font-family:var(--mono)}
+.room-root .cc-components{display:flex;flex-direction:column;gap:7px;justify-content:center;
+  border-left:1px solid var(--line);padding-left:18px}
+.room-root .cc-comp{display:grid;grid-template-columns:96px 1fr 42px;align-items:center;gap:10px}
+.room-root .cc-comp .cl{font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .cc-comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .cc-comp .ct>i{display:block;height:100%;border-radius:4px}
+.room-root .cc-comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+.room-root .cc-explain{grid-column:1/-1;font-size:11px;color:var(--sub);border-top:1px solid var(--line);
+  margin-top:12px;padding-top:9px;display:flex;gap:8px;align-items:center;line-height:1.5}
+.room-root .cc-explain .ti{color:var(--canon);flex:0 0 auto}
+.room-root .cc-explain b{color:var(--mut);font-style:normal}
+
+/* forming (cold-start) hero */
+.room-root .cc-forming{display:flex;align-items:center;gap:14px}
+.room-root .cc-forming .ti{font-size:40px;color:var(--forming);flex:0 0 auto}
+
+/* ── KPI STRIP ── */
+.room-root .cc-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:13px}
+.room-root .cc-kpi{background:var(--pnl);border:1px solid var(--line);border-radius:7px;padding:10px 12px}
+.room-root .cc-kpi:hover{border-color:var(--line2)}
+.room-root .cc-kpi .eb{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+.room-root .cc-kpi .v{font-family:var(--mono);font-size:23px;line-height:1.05;margin-top:4px}
+.room-root .cc-kpi .v small{font-size:13px;color:var(--sub)}
+.room-root .cc-kpi .d{font-size:10.5px;margin-top:3px;color:var(--mut)}
+.room-root .cc-kpi .d.up{color:var(--safe)}
+.room-root .cc-kpi .d.dn{color:var(--red)}
+.room-root .cc-kpi .d.flat{color:var(--mut)}
+.room-root .cc-kpi .d.blind{color:var(--blind)}
+
+/* ── module panel (page-local; room.css .mod owns other pages) ── */
+.room-root .cc-mod{background:var(--pnl);border:1px solid var(--line);border-radius:8px;margin-bottom:13px;overflow:hidden}
+.room-root .cc-modh{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.room-root .cc-modh h3{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.room-root .cc-modh h3 .ti{color:var(--mut)}
+.room-root .cc-modh h3 .ix{color:var(--faint);font-weight:400}
+.room-root .cc-modh .meta{margin-left:auto;font-size:10px;color:var(--sub);font-family:var(--mono)}
+.room-root .cc-modbody{padding:11px 13px}
+
+/* ── coverage matrix ── */
+.room-root .cc-grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);
+  margin:10px 0 5px;display:flex;justify-content:space-between;align-items:center}
+.room-root .cc-grp:first-child{margin-top:0}
+.room-root .cc-lrow{display:grid;grid-template-columns:1fr 150px 92px;align-items:center;gap:11px;
+  padding:7px 8px;border-radius:5px;cursor:pointer;border:1px solid transparent}
+.room-root .cc-lrow:hover{background:var(--pnl2);border-color:var(--line)}
+.room-root .cc-lrow.sel{background:var(--pnl2);border-color:var(--line2)}
+.room-root .cc-lname{font-family:var(--ser);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  display:flex;align-items:center;gap:6px}
+.room-root .cc-lname small{font-family:var(--ui);color:var(--sub);font-size:10.5px;font-weight:400}
+.room-root .cc-barwrap{display:flex;align-items:center;gap:8px}
+.room-root .cc-track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .cc-track>i{display:block;height:100%;border-radius:4px}
+.room-root .cc-pct{font-family:var(--mono);font-size:12px;width:38px;text-align:right}
+.room-root .cc-frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+/* S4 완파 4-state coverage colors (잠금<50 gray · 진행50-74 canon · 근접75-99 canon glow · 완파100 conquer) */
+.room-root .cc-lrow.st-lock  .cc-track>i{background:var(--sub)}       .room-root .cc-lrow.st-lock  .cc-pct{color:var(--mut)}
+.room-root .cc-lrow.st-prog  .cc-track>i{background:var(--canon)}     .room-root .cc-lrow.st-prog  .cc-pct{color:#e0bb6e}
+.room-root .cc-lrow.st-near  .cc-track>i{background:var(--canon);box-shadow:0 0 6px rgba(200,146,43,.7)} .room-root .cc-lrow.st-near .cc-pct{color:#e6c884}
+.room-root .cc-lrow.st-done  .cc-track>i{background:var(--conquer)}   .room-root .cc-lrow.st-done  .cc-pct{color:#f2a39f}
+.room-root .cc-statetag{font-family:var(--mono);font-size:9px;padding:1px 5px;border:1px solid var(--line2);
+  border-radius:3px;color:var(--mut)}
+.room-root .cc-lrow.st-done .cc-statetag{color:#f2a39f;border-color:#7a1410;background:#260a08}
+
+/* ── blind spots (S2 amber — never red/conquer) ── */
+.room-root .cc-blindwrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.room-root .cc-blindchip{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  font-size:11.5px;color:#edc873;border:1px solid #5e4d1d;background:#211a08;border-radius:6px;padding:5px 10px}
+.room-root .cc-blindchip:hover{border-color:var(--blind);background:#2a2109}
+.room-root .cc-blindchip i{font-size:13px;color:var(--blind)}
+.room-root .cc-blindchip b{font-family:var(--mono);font-size:10.5px;color:var(--blind)}
+.room-root .cc-blindchip small{font-family:var(--ui);color:var(--sub);font-size:10px}
+
+/* ── recommendation desk (오늘의 한 편 hero + ranked list) ── */
+.room-root .cc-today{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
+  background:linear-gradient(180deg,var(--pnl2),var(--pnl));border:1px solid var(--line2);
+  border-left:2.5px solid var(--red);border-radius:9px;padding:11px 14px;margin-bottom:13px;cursor:pointer}
+.room-root .cc-today:hover{border-color:var(--line3);border-left-color:var(--red)}
+.room-root .cc-tlead{display:flex;align-items:center;gap:12px;min-width:0}
+.room-root .cc-tnum{font-family:var(--mono);font-size:20px;color:var(--sub);flex:0 0 auto}
+.room-root .cc-tbody{min-width:0}
+.room-root .cc-tk{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600;display:flex;align-items:center;gap:5px}
+.room-root .cc-tt{font-family:var(--ser);font-size:16px;line-height:1.2;margin-top:1px}
+.room-root .cc-tt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:6px}
+.room-root .cc-ts{font-size:11px;color:var(--mut);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-root .cc-ts b{color:var(--safe);font-family:var(--mono)}
+.room-root .cc-tact{display:flex;gap:7px;flex:0 0 auto}
+.room-root .cc-tbtn{display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:7px;font-size:12px;
+  font-weight:600;border:1px solid var(--line2);white-space:nowrap;color:var(--ink)}
+.room-root .cc-tbtn i{font-size:14px}
+.room-root .cc-tbtn.pri{background:var(--red);color:#fff;border-color:var(--red)}
+
+.room-root .cc-rrow{display:grid;grid-template-columns:22px 1fr 148px 72px 64px;gap:12px;align-items:center;
+  padding:10px 8px;border-radius:6px;cursor:pointer;border:1px solid transparent}
+.room-root .cc-rrow:hover{background:var(--pnl2);border-color:var(--line)}
+.room-root .cc-rrow.sel{background:var(--pnl2);border-color:var(--line2)}
+.room-root .cc-rk{font-family:var(--mono);color:var(--sub);font-size:13px;text-align:center}
+.room-root .cc-rt{font-family:var(--ser);font-size:15px}
+.room-root .cc-rt small{font-family:var(--ui);color:var(--sub);font-size:11px;margin-left:5px}
+.room-root .cc-rsub{font-size:11px;color:var(--mut);margin-top:2px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.room-root .cc-reasons{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.room-root .cc-rsn{font-size:9.5px;font-family:var(--mono);padding:1px 6px;border-radius:3px;display:flex;
+  align-items:center;gap:4px;border:1px solid}
+.room-root .cc-rsn::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9}
+.room-root .cc-rsn.safe{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+.room-root .cc-rsn.frontier{color:#86b9ec;border-color:#234a72;background:#0c1c2e}
+.room-root .cc-rsn.canon{color:#e0bb6e;border-color:#5b481f;background:#1f1808}
+.room-root .cc-rsn.gap{color:#edc873;border-color:#5e4d1d;background:#211a08}
+.room-root .cc-rsn.conquer{color:#f2a39f;border-color:#7a1410;background:#260a08}
+.room-root .cc-rsn.reading{color:#bda1f0;border-color:#4a3f86;background:#171430}
+.room-root .cc-wwi{text-align:right}
+.room-root .cc-wwi .pv{font-family:var(--mono);font-size:22px;line-height:1}
+.room-root .cc-wwi .pl{font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+.room-root .cc-dlt{font-family:var(--mono);font-size:13px;color:var(--safe);text-align:right}
+.room-root .cc-dlt small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.08em}
+/* R risk dot on rec rows (--risk · never conquer red) */
+.room-root .cc-rdot{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:9px;font-weight:600;
+  padding:1px 6px;border-radius:3px;border:1px solid var(--risk);color:var(--risk);background:rgba(214,69,24,.09);letter-spacing:.02em}
+.room-root .cc-rdot.lo{border-color:#1d4d40;color:#5fd0b2;background:#0e221c}
+.room-root .cc-rdot.mid{border-color:#5b481f;color:#e6c884;background:#1f1808}
+.room-root .cc-rdot::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.9}
+/* availability dot */
+.room-root .cc-avdot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:0 0 auto}
+.room-root .cc-avdot.on{background:var(--avail)}
+.room-root .cc-avdot.unk{background:transparent;border:1.5px solid var(--sub)}
+
+/* ── constellation ── */
+.room-root .cc-consvg text{font-family:var(--ui)}
+.room-root .cc-consvg .cc-node{cursor:pointer}
+.room-root .cc-legend{display:flex;gap:13px;font-size:10px;color:var(--mut);margin-top:6px;flex-wrap:wrap}
+.room-root .cc-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+
+/* ── inspector helpers unique to command center ── */
+.room-root .cc-msrow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:11.5px;padding:4px 0}
+.room-root .cc-ms{display:flex;gap:5px;margin-top:7px}
+.room-root .cc-availrow{display:flex;align-items:center;gap:7px;font-size:11.5px;margin:5px 0}
+.room-root .cc-availrow .dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+.room-root .cc-availrow .dot.on{background:var(--avail)}
+.room-root .cc-availrow .dot.unk{background:transparent;border:1.5px solid var(--sub)}
+.room-root .cc-availrow b{font-family:var(--mono);font-size:11px;color:var(--ink)}
+.room-root .cc-availrow span.n{color:var(--sub);font-size:10.5px}
+
+@media(max-width:1200px){
+  .room-root .cc-kpis{grid-template-columns:repeat(3,1fr)}
+  .room-root .cc-hero{grid-template-columns:1fr}
+  .room-root .cc-components{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px}
+}
