@@ -1,16 +1,17 @@
 "use client";
 
-/** Site-wide TakeScore (TS) poster badges — SAFE overlay.
- *  Badges are rendered into a single fixed layer appended to <body> (outside the
- *  React root) and positioned over each poster via getBoundingClientRect. We never
- *  insert nodes into React-managed elements, so React reconciliation is untouched
- *  (this avoids the "insertBefore … not a child" crash that a child-injection
- *  approach caused). Purely visual; pointer-events:none so clicks pass through. */
-import { useEffect } from "react";
+/** Site-wide TakeScore (TS) poster badges — React-safe overlay.
+ *  The overlay layer is a React-rendered leaf <div> (returned below). Badges are
+ *  appended imperatively INTO that div only — the same safe pattern used for
+ *  MapLibre/YouTube containers. We never append into <body> or any node React
+ *  reconciles around, so React's child bookkeeping is never corrupted (this is
+ *  what caused the "insertBefore … not a child" crash). Purely visual;
+ *  pointer-events:none so clicks pass through to the poster. */
+import { useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-const cache = new Map<string, number | null>(); // slug -> TS (null = no score)
+const cache = new Map<string, number | null>();
 
 function slugFrom(img: HTMLImageElement): string | null {
   const a = img.closest<HTMLAnchorElement>('a[href*="/film/"]');
@@ -22,11 +23,11 @@ function slugFrom(img: HTMLImageElement): string | null {
 }
 
 export default function TakeScoreBadges() {
-  useEffect(() => {
-    const layer = document.createElement("div");
-    layer.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:60";
-    document.body.appendChild(layer);
+  const layerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const layer = layerRef.current;
+    if (!layer) return;
     const badges = new Map<HTMLImageElement, HTMLElement>();
     let raf = 0;
 
@@ -45,6 +46,7 @@ export default function TakeScoreBadges() {
     }
 
     function reposition() {
+      if (!layerRef.current) return;
       const vh = window.innerHeight, vw = window.innerWidth;
       for (const [img, b] of badges) {
         if (!img.isConnected) { b.remove(); badges.delete(img); continue; }
@@ -57,11 +59,12 @@ export default function TakeScoreBadges() {
     }
 
     async function scan() {
+      if (!layerRef.current) return;
       const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('img[src*="image.tmdb.org"]'));
       const fresh: { img: HTMLImageElement; slug: string }[] = [];
       for (const img of imgs) {
         if (img.dataset.tsSeen) continue;
-        if (img.closest(".fmap")) { img.dataset.tsSeen = "1"; continue; } // Atlas maps handle their own visuals
+        if (img.closest(".fmap")) { img.dataset.tsSeen = "1"; continue; }
         const slug = slugFrom(img);
         if (!slug) continue;
         img.dataset.tsSeen = "1";
@@ -75,7 +78,7 @@ export default function TakeScoreBadges() {
           const b = document.createElement("span");
           b.className = "ts-badge";
           b.innerHTML = `<b>${ts}</b><i>TS</i>`;
-          layer.appendChild(b);
+          layer.appendChild(b); // into our own React-leaf div — safe
           badges.set(img, b);
         }
       }
@@ -86,11 +89,12 @@ export default function TakeScoreBadges() {
     const kick = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(scan); };
 
     kick();
+    // observe only the app content for new posters; never mutates React nodes
     const mo = new MutationObserver(() => kick());
     mo.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("scroll", onScroll, true);
     window.addEventListener("resize", onScroll);
-    const iv = window.setInterval(reposition, 600); // catch async image loads / layout shifts
+    const iv = window.setInterval(reposition, 600);
 
     return () => {
       mo.disconnect();
@@ -98,9 +102,9 @@ export default function TakeScoreBadges() {
       window.removeEventListener("resize", onScroll);
       window.clearInterval(iv);
       cancelAnimationFrame(raf);
-      layer.remove();
+      badges.clear();
     };
   }, []);
 
-  return null;
+  return <div ref={layerRef} aria-hidden style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 60 }} />;
 }
