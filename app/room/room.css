@@ -162,7 +162,7 @@
 .room-root .ria:hover{color:var(--ink);border-color:var(--line3)}
 .room-root .ria.add.done{color:var(--safe);border-color:var(--safe)}
 .room-root .exppill{display:inline-block;font-family:var(--mono);font-size:9.5px;color:var(--gap);border:1px solid rgba(232,178,58,.4);border-radius:3px;padding:0 5px;border-left:2px solid var(--gap)}
-.room-root .availdot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.room-root .availdot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-left:6px;vertical-align:middle}
 .room-root .availdot.on{background:var(--avail)}
 .room-root .availdot.unk{background:transparent;border:1.5px solid var(--sub)}
 

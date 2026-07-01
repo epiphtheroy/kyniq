@@ -45,6 +45,8 @@ function Insp({ f, lam }: { f: WwiRow; lam: number }) {
         <div className="crow"><span className="cl">정전 Standing</span><span className="cbar"><i style={{ width: `${f.s_standing}%`, background: "#8a6d3b" }} /></span><span className="cvv">{f.s_standing}</span></div>
         <div className="kv" style={{ marginTop: 6 }}><span>WWI 종합</span><b>{f.wwi}</b></div>
         <div className="kv"><span>취향 근접</span><b>{Math.round(f.sim * 100)}%</b></div>
+        <div className="kv"><span>Δindex · 이 한 편 보면</span><b style={{ color: "var(--safe)" }}>→ NAV +{f.delta ?? 0}</b></div>
+        <div className="kv"><span>지금 볼 수 있나 (KR)</span><b>{f.avail?.state === "on" ? `● ${f.avail.provider ?? "가능"}` : "○ 미확인"}</b></div>
       </div>
       <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
       <div className="actbar">

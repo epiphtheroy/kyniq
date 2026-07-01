@@ -9,6 +9,12 @@ export type CollRow = {
   rating: number | null; v: number | null; c: number | null; r: number | null; u: number | null;
   prestige: number | null; discovery: number | null; conf: number | null; tier: string | null;
   imdb: number | null; rt: number | null; meta: number | null; votes: number | null;
+  facets: string[] | null;
+};
+
+const FACET_LABEL: Record<string, { cls: string; label: string }> = {
+  canon: { cls: "canon", label: "정전" }, award: { cls: "award", label: "수상" },
+  national: { cls: "national", label: "국가" }, auteur: { cls: "canon", label: "작가" },
 };
 
 const IMG = "https://image.tmdb.org/t/p/w92";
@@ -111,7 +117,13 @@ export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
               <span className="xpo" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}}>
                 {f.year ? <span className="yr">{f.year}</span> : null}
               </span>
-              <div><div className="xtt">{f.title}</div><div className="xdr">{f.director ?? ""}</div></div>
+              <div>
+                <div className="xtt">{f.title}</div>
+                <div className="xdr">{f.director ?? ""}{f.year ? ` · ${f.year}` : ""}</div>
+                {f.facets && f.facets.length ? (
+                  <div className="xfacetline">{f.facets.map((ft) => { const m = FACET_LABEL[ft]; return m ? <span key={ft} className={`xbd ${m.cls}`}>{m.label}</span> : null; })}</div>
+                ) : null}
+              </div>
               <div className="xprice"><div className="pv">{f.prestige != null ? Math.round(f.prestige) : "—"}</div><div className="pl">정전가</div></div>
               <div className={`xcc${f.v == null ? " unrated" : ""}`}>
                 <div className="vrow"><span className="vv">{f.v != null ? Math.round(f.v) : "·"}</span><span className="vl">V</span></div>
