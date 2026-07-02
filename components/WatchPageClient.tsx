@@ -172,8 +172,14 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
     parts.push(spine ? `Available on disc (Criterion #${spine}).` : "Disc search links below.");
   }
   if (!freeWw.length && !freeLocal.length && freeChecked && !(r?.free_sources ?? []).length) {
-    parts.push("No free or archive source anywhere we've checked.");
-    if (r?.verdict_note) parts.push(r.verdict_note);
+    if (offers.freeAds.length) {
+      // JustWatch/TMDB lists a free tier here but our verified layer found none —
+      // frame it as a verified caution instead of contradicting the headline.
+      if (r?.verdict_note) parts.push(`Verified note: ${r.verdict_note}`);
+    } else {
+      parts.push("No free or archive source anywhere we've checked.");
+      if (r?.verdict_note) parts.push(r.verdict_note);
+    }
   }
   if (r?.confidence === "low") parts.push("Low-confidence record — treat as a lead, not a confirmation.");
 
