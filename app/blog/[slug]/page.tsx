@@ -29,7 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = await load(slug);
   if (!p) return { title: "Edition not found — metatake blog" };
-  const title = `Between Film and the World · ${mon(p.edition_date)} — metatake`;
+  const title = p.title
+    ? `${p.title} — Between Film and the World`
+    : `Between Film and the World · ${mon(p.edition_date)}`;
   const description = p.dek ?? undefined;
   return { title, description, openGraph: { title, ...(description ? { description } : {}), type: "article" }, alternates: { canonical: `/blog/${slug}` } };
 }
@@ -39,8 +41,22 @@ export default async function BlogPost({ params }: Props) {
   const p = await load(slug);
   if (!p) notFound();
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: p.title || `Between Film and the World · ${mon(p.edition_date)}`,
+    ...(p.dek ? { description: p.dek } : {}),
+    datePublished: p.edition_date,
+    url: `${siteUrl}/blog/${slug}`,
+    isPartOf: { "@type": "Blog", name: "Between Film and the World", url: `${siteUrl}/blog` },
+    author: { "@type": "Organization", name: "Metatake", url: siteUrl },
+    publisher: { "@type": "Organization", name: "Metatake", url: siteUrl },
+  };
+
   return (
     <div className="mt">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteNav />
       <div className="blg">
         <div className="blg-bar">
