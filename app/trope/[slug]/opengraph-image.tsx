@@ -13,32 +13,18 @@ async function loadMinimal(slug: string) {
   const supabase = db();
   const { data: t } = await supabase
     .from("meta_takes")
-    .select("id, title, laconic")
+    .select("id, title, laconic, film_count, member_count")
     .eq("slug", slug)
     .eq("kind", "figure_type")
     .eq("status", "published")
     .maybeSingle();
   if (!t) return null;
 
-  const { data: rd } = await supabase
-    .from("takes")
-    .select("figure:figures!inner(film:films!inner(slug))")
-    .eq("trope_id", t.id)
-    .eq("status", "published");
-
-  const filmSlugs = new Set<string>();
-  let readingCount = 0;
-  for (const r of (rd ?? []) as unknown[]) {
-    readingCount++;
-    const row = r as { figure: { film: { slug: string } } };
-    if (row.figure?.film?.slug) filmSlugs.add(row.figure.film.slug);
-  }
-
   return {
     title: t.title as string,
     laconic: t.laconic as string | null,
-    filmCount: filmSlugs.size,
-    readingCount,
+    filmCount: (t.film_count as number | null) ?? 0,
+    readingCount: (t.member_count as number | null) ?? 0,
   };
 }
 
