@@ -21,10 +21,10 @@ export default function WhereToWatchPage() {
           (via JustWatch &amp; TMDB), plus MetaTake-verified free archives, MUBI country
           differences, disc editions and subtitle links. Start typing a title or director.
         </p>
-        <div className="wtw-search">
+        <div style={{ maxWidth: "560px", margin: "18px 0 6px" }}>
           <SearchTypeahead autoFocus />
         </div>
-        <p className="lh-note">
+        <p className="df-src">
           Every film page ends with a <b>Where&nbsp;to&nbsp;watch</b> tab. Streaming availability
           provided by JustWatch · TMDB; free-archive, disc and subtitle sources are verified by MetaTake.
         </p>
