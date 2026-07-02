@@ -261,10 +261,12 @@ export default async function FilmPage({ params }: Props) {
   if ("minimal" in data && data.minimal) {
     const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null; tmdb_id: number | null };
     const { lineage, recommendedBy, ratings, watch } = data;
+    const mAccessRec = accessRecordFor(f.tmdb_id);
     const mTabs = ([
       codex ? { id: "df-codex", label: "TakeScore" } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
+      mAccessRec ? { id: "df-watch", label: "Where to watch" } : null,
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
     ].filter(Boolean)) as { id: string; label: string; href?: string }[];
     return (
@@ -302,14 +304,19 @@ export default async function FilmPage({ params }: Props) {
 
           <AccessCountryProvider>
             <FilmTopInfo ratings={ratings} watch={watch} imdbId={f.imdb_id} />
-            <AccessEnrichment record={accessRecordFor(f.tmdb_id)} tmdbId={f.tmdb_id} />
-          </AccessCountryProvider>
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} />
           <FilmLineageSection lineage={lineage} title={f.title} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+
+          {mAccessRec ? (
+            <section className="df-sec" id="df-watch">
+              <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} />
+            </section>
+          ) : null}
+          </AccessCountryProvider>
 
           <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
         </div>
