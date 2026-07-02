@@ -482,10 +482,10 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
         <h2 className="axw-h2">Subtitles — {film.title}{film.year ? ` (${film.year})` : ""}</h2>
         <div className="axw-h2s">Official subtitles on the streaming service are always best. These are third-party community sites.</div>
         <div className="axw-linkrow">
-          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title })} target="_blank" rel="noopener noreferrer">OpenSubtitles <span className="axw-lbtn-s">English</span></a>
-          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title, lang: "all" })} target="_blank" rel="noopener noreferrer">OpenSubtitles <span className="axw-lbtn-s">all languages</span></a>
-          <a className="axw-lbtn" href={subdlSearchUrl(film.title)} target="_blank" rel="noopener noreferrer">SUBDL <span className="axw-lbtn-s">title search</span></a>
-          <a className="axw-lbtn" href={podnapisiSearchUrl(film.title, film.year)} target="_blank" rel="noopener noreferrer">Podnapisi <span className="axw-lbtn-s">title search</span></a>
+          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title })} target="_blank" rel="noopener noreferrer">OpenSubtitles — {film.title} <span className="axw-lbtn-s">English</span></a>
+          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title, lang: "all" })} target="_blank" rel="noopener noreferrer">OpenSubtitles — {film.title} <span className="axw-lbtn-s">all languages</span></a>
+          <a className="axw-lbtn" href={subdlSearchUrl(film.title)} target="_blank" rel="noopener noreferrer">SUBDL — {film.title} <span className="axw-lbtn-s">title search</span></a>
+          <a className="axw-lbtn" href={podnapisiSearchUrl(film.title, film.year)} target="_blank" rel="noopener noreferrer">Podnapisi — {film.title} <span className="axw-lbtn-s">title search</span></a>
         </div>
         <div className="axw-tinynote">Links open search results only — pick the file that matches your copy&apos;s runtime and language.</div>
       </section>
