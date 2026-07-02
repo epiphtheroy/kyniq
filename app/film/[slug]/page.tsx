@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
@@ -72,7 +73,7 @@ type Watch = { results: Record<string, WatchCountry>; countries: string[] };
 type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
 
-async function load(slug: string) {
+async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
@@ -184,7 +185,40 @@ async function load(slug: string) {
   const { data: geoRows } = await supabase.rpc("film_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
 
-  return { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount };
+  // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
+  // so return it as a plain object. Consumers read it with bracket access.
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount };
+}
+
+// The full film load is ~20 Supabase round-trips and generateStaticParams
+// returns [] (nothing prebuilt), so without caching every film view re-ran the
+// whole query set dynamically. Cache the result per slug in the Data Cache so
+// the route becomes ISR-cached; tagged film:<slug> for on-demand refresh.
+function load(slug: string) {
+  return unstable_cache(() => loadUncached(slug), ["film-load", slug], {
+    revalidate: 300,
+    tags: [`film:${slug}`],
+  })();
+}
+
+// The two page-chrome RPCs (movements + TakeScore) were also uncached, which on
+// their own would keep the route dynamic — cache them per slug as well.
+function loadChrome(slug: string) {
+  return unstable_cache(
+    async () => {
+      const supabase = db();
+      const [{ data: mvRows }, { data: codexRow }] = await Promise.all([
+        supabase.rpc("film_movements", { p_slug: slug }),
+        supabase.rpc("cinecodex_for", { p_slug: slug }),
+      ]);
+      return {
+        movements: (mvRows as { slug: string; label: string; kind: string; country_code: string | null }[] | null) ?? [],
+        codex: (codexRow as Codex | null),
+      };
+    },
+    ["film-chrome", slug],
+    { revalidate: 300, tags: [`film:${slug}`] },
+  )();
 }
 
 // order + cap for the film-page Archetype section
@@ -242,10 +276,8 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { data: mvRows } = await db().rpc("film_movements", { p_slug: slug });
-  const movements = (mvRows as { slug: string; label: string; kind: string; country_code: string | null }[] | null) ?? [];
-  const { data: codex } = await db().rpc("cinecodex_for", { p_slug: slug });
-  const _cx = codex as Codex | null;
+  const { movements, codex } = await loadChrome(slug);
+  const _cx = codex;
   const codexBadge = _cx ? (
     <a className="df-mts" href="#df-codex" title="TakeScore — durable value minus risk. Click for the full breakdown.">
       <span className="df-mts-n">{Math.round(_cx.v - _cx.r)}</span>
