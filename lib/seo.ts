@@ -45,6 +45,9 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    then adversarially verified (83/233 candidates killed), all with QAPage
  *    JSON-LD. Pipeline: worker/qa-seed/. Published questions: 61 → 211.
  *    Next Q&A waves: ~25–50 films/week, same gate, watch GSC between waves.
+ *  - 2026-07-02 (held-stock audit): the 89 legacy gemini 'held' Q&A were run
+ *    through the same verifier — 71 published (metadata fixed), 18 rejected
+ *    for fabrications/duplicates. Published questions: 211 → 282.
  */
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
