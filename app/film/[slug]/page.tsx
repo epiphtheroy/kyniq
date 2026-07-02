@@ -338,6 +338,7 @@ export default async function FilmPage({ params }: Props) {
     .map((axis) => ({ axis, items: archetypes.filter((a) => a.axis === axis).slice(0, ARCH_CAP[axis] ?? 999) }))
     .filter((g) => g.items.length > 0);
   const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
+  const accessRec = accessRecordFor(film.tmdb_id);
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
@@ -354,6 +355,7 @@ export default async function FilmPage({ params }: Props) {
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
+    accessRec ? { id: "df-watch", label: "Where to watch" } : null,
     film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
   ].filter(Boolean)) as { id: string; label: string; href?: string }[];
@@ -447,8 +449,6 @@ export default async function FilmPage({ params }: Props) {
             AccessCountryProvider keeps the JustWatch band and the verified access layer on one country. */}
         <AccessCountryProvider>
           <FilmTopInfo ratings={ratings} watch={watch} imdbId={film.imdb_id} />
-          <AccessEnrichment record={accessRecordFor(film.tmdb_id)} tmdbId={film.tmdb_id} />
-        </AccessCountryProvider>
 
         {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
         {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
@@ -738,6 +738,14 @@ export default async function FilmPage({ params }: Props) {
             </div>
           </details>
         ) : null}
+
+        {/* WHERE TO WATCH — verified access layer, moved to the final tab */}
+        {accessRec ? (
+          <section className="df-sec" id="df-watch">
+            <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} />
+          </section>
+        ) : null}
+        </AccessCountryProvider>
 
         <div className="df-seq">
           <SeqNav kind="film" id={film.id} />

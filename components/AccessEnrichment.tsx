@@ -121,7 +121,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
 
   return (
     <section className="ax">
-      <h2 className="ax-h2">Beyond streaming — verified access</h2>
+      <h2 className="ax-h2">Where to watch — verified beyond streaming</h2>
       <div className="ax-h2s">Free &amp; archive sources, MUBI country differences, disc editions and subtitles — checked by MetaTake, not scraped.</div>
 
       {headline ? (
