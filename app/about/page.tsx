@@ -158,12 +158,14 @@ export default function AboutPage() {
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         Metatake is founded, edited, and run by{" "}
         <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, a
-        writer on cinema based in Seoul. He was trained as a management scholar — a Ph.D. on social capital,
-        six books on Peter Drucker — and serves as global strategy officer of a healthcare-technology
-        company. That training is not a detour from the method here; it is the method. Social capital is the
-        study of how value lives in relations rather than in things, and Metatake asks the same question of
-        cinema: not &ldquo;what is this film worth?&rdquo; but &ldquo;what does it connect to?&rdquo; Every
-        reading on the site publishes under his review, and he answers for what stands.
+        writer on cinema based in Seoul. He was trained as a management scholar — a Ph.D. in business
+        administration, with doctoral research on shared leadership and social capital — is the lead author
+        of a six-volume series on Peter Drucker&apos;s management thought, and serves as global strategy
+        officer of a healthcare-technology company. That training is not a detour from the method here; it
+        is the method. Social capital is the study of how value lives in relations rather than in things,
+        and Metatake asks the same question of cinema: not &ldquo;what is this film worth?&rdquo; but
+        &ldquo;what does it connect to?&rdquo; Every reading on the site publishes under his review, and he
+        answers for what stands.
       </p>
 
       <hr className="rule" />

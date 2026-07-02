@@ -6,19 +6,23 @@ import { pageRobots } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Wonwoo Yoon — Founder & Editor · Metatake",
   description:
-    "Wonwoo Yoon is the founder and editor of Metatake. Writer on cinema in Seoul; management scholar with a Ph.D. on social capital; author of six books on Peter Drucker. Every reading on Metatake publishes under his review.",
+    "Wonwoo Yoon (pen name of Wonwoo Je, 제원우) is the founder and editor of Metatake. Ph.D. in business administration (Kyung Hee University); lead author of the six-volume series The Doctors Peter Drucker Saved. Every reading on Metatake publishes under his review.",
   alternates: { canonical: "/editor" },
   robots: pageRobots(true),
 };
 
+const KYOBO_AUTHOR_URL =
+  "https://search.kyobobook.co.kr/search?keyword=%EC%A0%9C%EC%9B%90%EC%9A%B0&chrcCode=1115945501";
+const RISS_THESIS_URL =
+  "https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=a449fa46c284353fffe0bdc3ef48d419";
+
 const BIO =
-  "Wonwoo Yoon is the founder and editor of Metatake, an independent platform for critical thinking through film, based in Seoul. Trained as a management scholar, with a Ph.D. on social capital, he is the author of six books on Peter Drucker and serves as global strategy officer of a healthcare-technology company. His writing sits at the intersection of those two lives: how an art survives its economics.";
+  "Wonwoo Yoon is the pen name under which Wonwoo Je (제원우) writes on film. He is the founder and editor of Metatake, an independent platform for critical thinking through film, based in Seoul. A management scholar with a Ph.D. in business administration from Kyung Hee University, he is the lead author of the six-volume hospital-management series The Doctors Peter Drucker Saved and serves as global strategy officer of a healthcare-technology company. His writing sits at the intersection of those two lives: how an art survives its economics.";
 
 export default function EditorPage() {
   // ProfilePage + Person is Google's documented markup for author/profile
-  // pages. When external profiles exist (publisher pages for the books,
-  // LinkedIn, Substack), add them to `sameAs` below — it's the strongest
-  // entity-verification signal we can send.
+  // pages. sameAs points at external records that verify the credentials
+  // (publisher author page, doctoral thesis record).
   const jsonld = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -26,6 +30,7 @@ export default function EditorPage() {
       "@type": "Person",
       "@id": "https://metatake.net/editor#person",
       name: "Wonwoo Yoon",
+      alternateName: ["Wonwoo Je", "제원우"],
       url: "https://metatake.net/editor",
       email: "mailto:wonwoo@metatake.net",
       jobTitle: "Founder & Editor",
@@ -35,8 +40,13 @@ export default function EditorPage() {
         name: "Metatake",
         url: "https://metatake.net",
       },
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Kyung Hee University",
+      },
       homeLocation: { "@type": "Place", name: "Seoul, Republic of Korea" },
       description: BIO,
+      sameAs: [KYOBO_AUTHOR_URL, RISS_THESIS_URL],
       knowsAbout: [
         "Film criticism",
         "Film interpretation",
@@ -79,17 +89,37 @@ export default function EditorPage() {
         <h2 className="mt-h2">Background</h2>
         <p>
           Wonwoo&rsquo;s path to film criticism runs through management scholarship rather than a film
-          school, and Metatake&rsquo;s method comes directly out of that training. His doctoral work was on
-          social capital — the study of how value lives in relations between people and institutions rather
-          than in any single node — and Metatake asks the same question of cinema: not &ldquo;what is this
-          film worth?&rdquo; but &ldquo;what does it connect to?&rdquo; The site&rsquo;s core design
-          decision — reading 1,900+ films as one connected map of meanings instead of a shelf of separate
-          reviews — is that research instinct applied to a different corpus.
+          school, and Metatake&rsquo;s method comes directly out of that training. His{" "}
+          <a href={RISS_THESIS_URL} target="_blank" rel="noopener noreferrer">doctoral research</a> — a
+          Ph.D. in business administration from Kyung Hee University (2022) — examined shared leadership
+          and linking social capital: how people grow through the relations that connect them across
+          organizational lines. Social capital is the study of how value lives in relations rather than in
+          any single node, and Metatake asks the same question of cinema: not &ldquo;what is this film
+          worth?&rdquo; but &ldquo;what does it connect to?&rdquo; The site&rsquo;s core design decision —
+          reading 1,900+ films as one connected map of meanings instead of a shelf of separate reviews — is
+          that research instinct applied to a different corpus.
         </p>
         <p>
-          Alongside Metatake he has written six books on Peter Drucker and works as global strategy officer
-          of a healthcare-technology company. The question that runs underneath his current writing — and
-          underneath this whole project — is how an art survives its economics.
+          Alongside Metatake he works as global strategy officer of a healthcare-technology company. The
+          question that runs underneath his current writing — and underneath this whole project — is how an
+          art survives its economics.
+        </p>
+
+        <h2 className="mt-h2">Selected work</h2>
+        <p>
+          As <span lang="ko">제원우</span>, he is the lead author of{" "}
+          <a href={KYOBO_AUTHOR_URL} target="_blank" rel="noopener noreferrer">
+            <em>The Doctors Peter Drucker Saved</em>
+          </a>{" "}
+          (<span lang="ko">피터 드러커가 살린 의사들</span>), a six-volume series on hospital management
+          through Peter Drucker&rsquo;s thought, published between 2013 and 2022, and a co-author of{" "}
+          <em>Happy Management Stories for Hospital People</em> (<span lang="ko">병원 사람들을 위한 행복한
+          경영이야기</span>, Gimm-Young, 2019). His doctoral thesis,{" "}
+          <a href={RISS_THESIS_URL} target="_blank" rel="noopener noreferrer">
+            <em>A Study on the Effect of Shared Leadership on the Organizational Career Growth: Linking
+            Social Capital as a Moderating Variable</em>
+          </a>
+          , is held in the Korean national research archive, RISS.
         </p>
 
         <h2 className="mt-h2">Contact</h2>
