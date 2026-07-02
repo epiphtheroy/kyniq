@@ -4,6 +4,14 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // The home page ("/") is fully public and client-driven — it has no
+  // server-side auth gating. Skip the supabase.auth.getUser() round-trip here so
+  // logged-in visitors don't pay an auth-server hop on the most-visited, now
+  // edge-cached page. Session cookies still refresh on any authed navigation.
+  if (pathname === "/") {
+    return NextResponse.next({ request: { headers: request.headers } });
+  }
+
   let response = NextResponse.next({
     request: { headers: request.headers },
   });
