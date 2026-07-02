@@ -266,7 +266,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const templatedDescription = data.misreadings.length
     ? `${data.film.title} read closely: ${data.figures.length} figures and ${data.misreadings.length} strong misreadings across 14 critical frameworks.`
     : undefined;
-  const description = (data.invitation ? descriptionFromInvitation(data.invitation) : null) ?? templatedDescription;
+  const fromInvitation = data.invitation ? descriptionFromInvitation(data.invitation) : null;
+  // A mid-sentence cut ("…") reads as a broken sentence in search snippets, so a
+  // truncated extraction only ships when there is no complete-sentence fallback.
+  const description = fromInvitation && (!fromInvitation.endsWith("…") || !templatedDescription)
+    ? fromInvitation
+    : templatedDescription;
   return {
     title,
     ...(description ? { description } : {}),
@@ -481,7 +486,7 @@ export default async function FilmPage({ params }: Props) {
             <section className={`df-invite${false && trailer ? " df-invite--vid" : ""}`} id="df-invitation">
               <div className="df-invite__txt">
                 <div className="df-invite__head">
-                  <div className="df-invite__k">An invitation</div>
+                  <h2 className="df-invite__k">An invitation to {film.title}</h2>
                   <span className="df-invite__badge">Spoiler-free</span>
                 </div>
                 <p className="df-invite__p">{invitation}</p>

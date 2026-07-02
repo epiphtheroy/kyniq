@@ -3008,7 +3008,7 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
    so there is no dead space to the right of the 68ch paragraph. */
 .df-invite{margin:26px 0 0; max-width:760px; border:1px solid var(--hairline); border-left:4px solid #444; background:var(--surface-2); padding:20px 22px}
 .df-invite__head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:0 0 10px}
-.df-invite__k{font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0}
+.df-invite__k{font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0; line-height:1.5}
 .df-invite__badge{font-family:var(--font-ui); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border:1px solid var(--hairline); border-radius:999px; padding:3px 10px; white-space:nowrap}
 .df-invite__p{font-family:var(--font-display); font-size:17px; line-height:1.7; color:var(--ink); margin:0; max-width:68ch}
 .df-invite__foot{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:6px 16px; margin-top:14px}
