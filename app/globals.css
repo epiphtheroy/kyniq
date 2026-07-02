@@ -4256,3 +4256,129 @@ a.ax-offer:hover{border-color:var(--ink)}
 .wtw-card__t{font-family:var(--font-serif,Georgia,serif);font-size:14.5px;line-height:1.2;margin-top:8px}
 .wtw-card__teaser{font-family:var(--font-ui);font-size:11.5px;color:var(--muted);margin-top:3px}
 @media(min-width:600px){.wtw-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
+
+/* ============================================================
+   axw- — full-page Where-to-Watch (/film/[slug]/watch)
+   Ported from 세계 영화/film_access_page_v3.html. Tier colors:
+   free #0F6E56 · library #0F6E78 · stream #3B4B8A · rent #B8860B · buy #6B4A8A
+   mobile-first breakpoints: 600 / 900 / 1180
+   ============================================================ */
+.axw-wrap{max-width:1080px;margin:0 auto;padding:0 16px;font-family:var(--font-ui);font-size:15px;line-height:1.5;color:var(--ink)}
+.axw-eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--subtle);margin-top:20px}
+.axw-hero{display:flex;gap:20px;padding:24px 0 6px;flex-wrap:wrap}
+.axw-poster{width:120px;aspect-ratio:2/3;overflow:hidden;background:#1B1B1B;flex:none;box-shadow:0 6px 22px rgba(0,0,0,.12)}
+.axw-poster img{width:100%;height:100%;object-fit:cover;display:block}
+.axw-poster-fallback{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;background:linear-gradient(160deg,#2A2A2A,#111);color:#EFE9DD}
+.axw-pf-t{font-family:var(--font-display);font-size:16px;line-height:1.18}
+.axw-pf-y{font-size:11px;opacity:.7;margin-top:4px}
+.axw-hmeta{flex:1;min-width:230px}
+.axw-h1{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.1;margin:.2em 0 .1em}
+.axw-credits{color:var(--muted);font-size:13.5px}
+.axw-lede{margin-top:10px;font-size:13.5px;color:var(--ink-soft)}
+.axw-back{display:inline-block;margin-top:10px;font-size:13px;color:var(--accent);text-decoration:none}
+.axw-back:hover{text-decoration:underline}
+.axw-bar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding:13px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-top:14px}
+.axw-fld{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.axw-k{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle)}
+.axw-select{font-family:var(--font-ui);font-size:14px;padding:8px 11px;border:1px solid var(--hairline-2);border-radius:7px;background:#fff;color:var(--ink)}
+.axw-switch{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:13px;color:var(--muted)}
+.axw-switch input{display:none}
+.axw-track{width:36px;height:21px;border-radius:999px;background:#DCD8D0;position:relative;transition:.15s;flex:none}
+.axw-knob{position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:.15s}
+.axw-switch input:checked + .axw-track{background:#0F6E56}
+.axw-switch input:checked + .axw-track .axw-knob{left:17px}
+.axw-answer{margin:18px 0 4px;padding:16px 18px;border:1px solid var(--hairline);background:#fff;border-left:4px solid var(--muted)}
+.axw-answer--free{border-left-color:#0F6E56;background:#F0F7F3}
+.axw-answer--sub{border-left-color:#0F6E78;background:#EEF6F7}
+.axw-answer--rent{border-left-color:#B8860B;background:#FAF6EA}
+.axw-answer--neutral{border-left-color:var(--hairline-2);background:#F6F5F1}
+.axw-answer--stale{opacity:.75}
+.axw-ak{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle)}
+.axw-am{font-family:var(--font-display);font-size:19px;margin:5px 0 4px;line-height:1.28}
+.axw-at{font-size:13px;color:var(--muted)}
+.axw-at b{color:var(--ink)}
+.axw-section{padding:22px 0 4px}
+.axw-h2{font-family:var(--font-display);font-weight:700;font-size:19px;margin:0 0 3px}
+.axw-h2--dim{color:var(--subtle);font-size:16px}
+.axw-h2s{font-size:13px;color:var(--muted);margin-bottom:13px}
+.axw-row{display:flex;flex-direction:column;gap:6px;padding:11px 0;border-bottom:1px solid var(--hairline)}
+.axw-row-k{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.axw-row-items{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.axw-offer{display:inline-flex;flex-direction:column;justify-content:center;gap:2px;min-width:96px;max-width:100%;border:1px solid var(--hairline);border-radius:9px;padding:8px 11px;background:#fff;text-decoration:none;transition:.12s;color:inherit}
+.axw-offer:hover{border-color:var(--ink)}
+.axw-offer--dim{opacity:.62;background:#F6F5F1}
+.axw-offer--free{border-color:#BFDCCF}
+.axw-offer-n{font-size:13px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.axw-plogo{width:20px;height:20px;border-radius:5px;object-fit:cover}
+.axw-offer-p{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.axw-offer-note{font-size:11.5px;color:var(--muted)}
+.axw-kind{display:inline-block;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:#0F6E56;border:1px solid #BFDCCF;border-radius:3px;padding:0 4px;vertical-align:middle}
+.axw-badge{font-size:10.5px;font-weight:600;margin-top:2px}
+.axw-badge--ok{color:#0F6E56}
+.axw-badge--geo{color:#B8860B}
+.axw-badge--pay{color:#6B4A8A}
+.axw-none{font-size:13px;color:var(--muted);padding:2px 0}
+.axw-rownote{font-size:12px;color:var(--muted);flex-basis:100%}
+.axw-unverified{font-size:13px;color:var(--muted);background:#F6F5F1;border:1px dashed var(--hairline-2);border-radius:8px;padding:10px 12px;margin-top:12px}
+.axw-stale-note{font-size:12.5px;color:#8A6A00;background:#FAF6EA;border:1px solid #EADFBE;border-radius:8px;padding:8px 11px;margin-bottom:10px}
+.axw-attr{font-size:11.5px;color:var(--subtle);margin-top:12px}
+.axw-attr a{color:var(--accent);text-decoration:none}
+.axw-attr a:hover{text-decoration:underline}
+.axw-world{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:9px}
+.axw-cell{border:1px solid var(--hairline);background:#fff;padding:10px 11px;cursor:pointer;transition:.12s}
+.axw-cell:hover{border-color:var(--hairline-2)}
+.axw-cell--on{border-color:var(--ink)}
+.axw-cc{font-size:12.5px;font-weight:600}
+.axw-cb{display:inline-block;font-size:9.5px;font-weight:700;color:#fff;padding:2px 7px;border-radius:999px;margin:5px 0 3px}
+.axw-b-FREE{background:#0F6E56}.axw-b-LIBRARY{background:#0F6E78}.axw-b-SUBSCRIPTION{background:#3B4B8A}
+.axw-b-RENT{background:#B8860B}.axw-b-BUY{background:#6B4A8A}.axw-b-NONE{background:var(--subtle)}
+.axw-cn{font-size:11px;color:var(--muted)}
+.axw-freetip{font-size:10.5px;color:#0F6E56;font-weight:600;margin-top:2px}
+.axw-mubi-line{font-size:12.5px;color:var(--muted);margin-top:12px}
+.axw-mubistrip{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.axw-mtag{font-size:12px;border:1px solid var(--hairline);border-radius:999px;padding:4px 10px;background:#fff}
+.axw-mtag--stale{opacity:.55}
+.axw-y{color:#0F6E56;font-weight:700}
+.axw-n{color:var(--subtle)}
+.axw-cinemas{color:var(--subtle)}
+.axw-cinemas-line{font-size:13px;color:var(--subtle);margin:2px 0 0}
+.axw-disc-hero{border:1px solid var(--hairline);background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;max-width:560px}
+.axw-disc-label{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--subtle)}
+.axw-disc-title{font-family:var(--font-display);font-size:17px;margin:4px 0 3px}
+.axw-disc-sub{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.axw-linkrow{display:flex;flex-wrap:wrap;gap:8px}
+.axw-lbtn{display:inline-flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--hairline-2);border-radius:8px;padding:8px 12px;background:#fff;text-decoration:none;color:var(--ink)}
+.axw-lbtn:hover{border-color:var(--ink)}
+.axw-lbtn-s{font-size:11px;color:var(--muted)}
+.axw-tinynote{font-size:12px;color:var(--muted);margin-top:9px;flex-basis:100%}
+.axw-footer{margin:28px 0 46px;padding-top:16px;border-top:1px solid var(--hairline);color:var(--subtle);font-size:11.5px;line-height:1.7}
+.axw-footer p{margin:0 0 8px}
+.axw-footer a{color:var(--accent);text-decoration:none}
+@media (min-width:600px){
+  .axw-wrap{padding:0 22px}
+  .axw-poster{width:148px}
+  .axw-h1{font-size:32px}
+}
+@media (min-width:900px){
+  .axw-poster{width:168px}
+  .axw-h1{font-size:38px}
+  .axw-am{font-size:22px}
+  .axw-row{flex-direction:row;align-items:flex-start;gap:12px}
+  .axw-row-k{flex:0 0 92px;padding-top:9px}
+  .axw-row-items{flex:1}
+}
+@media (min-width:1180px){
+  .axw-wrap{max-width:1120px;padding:0 26px}
+}
+
+/* ax- (film-page embedded section) — v3-level polish upgrades */
+.ax-answer{border-left-width:4px}
+.ax-akick{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ax-safe,#0F6E56);margin-bottom:2px}
+.ax-answer--rent .ax-akick{color:var(--ax-rentc,#B8860B)}
+.ax-answer--neutral .ax-akick{color:var(--subtle)}
+.ax-offer:hover{border-color:var(--ink)}
+.ax-offer--free:hover{border-color:var(--ax-safe,#0F6E56);box-shadow:0 0 0 1px var(--ax-safe,#0F6E56) inset}
+.ax-mubistrip .ax-mtag{display:inline-flex;align-items:center;gap:5px}
+.ax-mflag{font-size:13px;line-height:1}
+.ax-guide-link{display:inline-block;margin-top:12px;font-family:var(--font-ui);font-size:13.5px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--hairline-2);border-radius:8px;padding:8px 13px;background:#fff}
+.ax-guide-link:hover{border-color:var(--accent)}

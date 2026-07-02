@@ -314,6 +314,7 @@ export default async function FilmPage({ params }: Props) {
           {mAccessRec ? (
             <section className="df-sec" id="df-watch">
               <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} />
+              <Link className="ax-guide-link" href={`/film/${f.slug}/watch`}>Full where-to-watch guide →</Link>
             </section>
           ) : null}
           </AccessCountryProvider>
@@ -750,6 +751,7 @@ export default async function FilmPage({ params }: Props) {
         {accessRec ? (
           <section className="df-sec" id="df-watch">
             <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} />
+            <Link className="ax-guide-link" href={`/film/${film.slug}/watch`}>Full where-to-watch guide →</Link>
           </section>
         ) : null}
         </AccessCountryProvider>

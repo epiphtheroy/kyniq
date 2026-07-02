@@ -52,6 +52,10 @@ function countryName(code: string): string {
     return regionNames.of(code) || code;
   } catch { return code; }
 }
+function flagOf(cc: string): string {
+  if (!/^[A-Z]{2}$/.test(cc)) return "";
+  return cc.replace(/./g, (c) => String.fromCodePoint(127397 + c.charCodeAt(0)));
+}
 /** Prose form — English needs "the" before some country names. */
 function proseName(code: string): string {
   const n = countryName(code);
@@ -126,7 +130,8 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
 
       {headline ? (
         <div className={`ax-answer ax-answer--${cls}${stale ? " ax-answer--stale" : ""}`}>
-          <div className="ax-ak">{countryName(country)}{stale ? ` · last checked ${r.checked_at} · needs re-check` : ""}</div>
+          <div className="ax-akick">Where to watch — verified</div>
+          <div className="ax-ak">{flagOf(country)} {countryName(country)}{stale ? ` · last checked ${r.checked_at} · needs re-check` : ""}</div>
           <div className="ax-am">{headline}</div>
           {parts.length ? <div className="ax-at">{parts.join(" ")}</div> : null}
         </div>
@@ -211,6 +216,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
               const m = MUBI_MARK[v] ?? ["·", v];
               return (
                 <span key={cc} className={`ax-mtag${stale ? " ax-mtag--stale" : ""}`}>
+                  <span className="ax-mflag" aria-hidden="true">{flagOf(cc)}</span>
                   {countryName(cc)} <span className={v === "yes" ? "ax-y" : "ax-n"}>{m[0]} {m[1]}</span>
                 </span>
               );

@@ -18,7 +18,16 @@ type DirectorResult = { director: string; director_slug: string; film_count: num
 export default function SearchTypeahead({
   autoFocus = false,
   onNavigate,
-}: { autoFocus?: boolean; onNavigate?: () => void } = {}) {
+  filmPath = "/film/{slug}",
+}: {
+  autoFocus?: boolean;
+  onNavigate?: () => void;
+  /** Film-result destination template — "{slug}" is replaced (serializable, so server
+   *  components can pass it). Default keeps the historic /film/{slug} routing;
+   *  /where-to-watch passes "/film/{slug}/watch". */
+  filmPath?: string;
+} = {}) {
+  const filmHref = (slug: string) => filmPath.replace("{slug}", slug);
   const [query, setQuery] = useState("");
   const [films, setFilms] = useState<FilmResult[]>([]);
   const [questions, setQuestions] = useState<QuestionResult[]>([]);
@@ -100,7 +109,7 @@ export default function SearchTypeahead({
 
   // Build flat list for keyboard nav
   const allItems: { href: string; label: string }[] = [];
-  films.forEach((f) => allItems.push({ href: `/film/${f.slug}`, label: f.title }));
+  films.forEach((f) => allItems.push({ href: filmHref(f.slug), label: f.title }));
   directors.forEach((d) => allItems.push({ href: `/director/${d.director_slug}`, label: d.director }));
   questions.forEach((q) => allItems.push({ href: `/film/${q.film_slug}/q/${q.slug}`, label: q.title }));
 
@@ -181,12 +190,12 @@ export default function SearchTypeahead({
                 return (
                   <a
                     key={f.id}
-                    href={`/film/${f.slug}`}
+                    href={filmHref(f.slug)}
                     className="search-result"
                     data-active={activeIdx === idx ? "true" : undefined}
                     onClick={(e) => {
                       e.preventDefault();
-                      router.push(`/film/${f.slug}`);
+                      router.push(filmHref(f.slug));
                       setOpen(false);
                       setQuery("");
                       onNavigate?.();

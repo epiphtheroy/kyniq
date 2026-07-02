@@ -1,36 +1,470 @@
 {
   "films": {
-    "643": {
-      "title": "Battleship Potemkin",
-      "year": 1925,
-      "imdb_id": "tt0015648",
-      "free_sources": [
-        {
-          "platform": "Internet Archive",
-          "kind": "pd",
-          "url": "https://archive.org/details/BattleshipPotemkin1925HD",
-          "scope": "worldwide",
-          "note": "Public domain (1925)"
-        }
-      ],
+    "15": {
+      "title": "Citizen Kane",
+      "year": 1941,
+      "imdb_id": null,
+      "free_sources": [],
       "free_checked": true,
       "sources_checked": [
-        "archive.org"
+        "archive.org(비공식 업로드만 존재, 저작권 표기 미확인)",
+        "위키피디아 저작권 상태",
+        "Warner Bros/WBD 배급 확인",
+        "coinbooks.org 저작권 만료 예정작 목록"
       ],
       "kr_overrides": [],
       "mubi_by_country": {},
       "rotation": [],
       "elsewhere_stream": [],
       "disc": null,
-      "verdict_note": "Restored editions exist on disc (Kino) — restoration transfers differ from the public-domain copy.",
+      "verdict_note": "저작권 유효(Warner Bros Discovery 관리), PD 아님, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "19": {
+      "title": "Metropolis",
+      "year": 1927,
+      "imdb_id": null,
+      "free_sources": [
+        {
+          "country": "DE",
+          "platform": "Internet Archive",
+          "kind": "pd",
+          "url": "https://archive.org/details/Metropolis1927EnglishVersion",
+          "scope": "worldwide",
+          "note": "PD 확인: 1927년작으로 95년 저작권 만료 후 2023년 1월 1일 미국 PD 진입(Rolling Stone, Internet Archive Blog 등 교차검증), 원본 필름 자체가 PD이며 신규 복원판의 새 인터타이틀만 별도 저작권 존재"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "blog.archive.org 2023 PD 환영 게시물",
+        "Rolling Stone Public Domain Day 2023 기사",
+        "Wikisource Metropolis (film)",
+        "plagiarismtoday.com Copyright and Metropolis"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {
+        "BR": "yes",
+        "DE": "yes"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/Metropolis1927EnglishVersion",
+          "note": "전편 재생 페이지 확인, 1927년 원본판 PD 표기"
+        },
+        {
+          "url": "https://mubifinder.com/movie/metropolis/",
+          "note": "meta-mubi-finder-meta-movie-countries-available: TR,BR,MX,DE,IT,AR,AT,BZ,BO,CL,CO,CR,EC,SV,GT,GY,HN,NI,PA,PY,PE,SM,SR,CH,UY,VA,VE — CORE10 중 BR,DE 해당"
+        }
+      ]
+    },
+    "28": {
+      "title": "Apocalypse Now",
+      "year": 1979,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "Wikipedia",
+        "Library of Congress 자료",
+        "Google 검색 copyright status"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/md6YlgO",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {
+        "DE": "yes",
+        "AU": "yes"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Zoetrope Corporation/American Zoetrope가 저작권 보유, 1979년작으로 PD까지 장기간 남음, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/md6YlgO",
+          "note": "검색결과 타이틀 '지옥의 묵시록 | 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인(pickle.plus는 옵션없음으로 상충, 왓챠 자체 우선 신뢰)"
+        },
+        {
+          "url": "https://mubifinder.com/movie/apocalypse-now/",
+          "note": "meta-mubi-finder-meta-movie-countries-available 필드: TR,DE,IT,AU,AT,... 중 CORE10인 DE,AU 확인"
+        }
+      ]
+    },
+    "62": {
+      "title": "2001: A Space Odyssey",
+      "year": 1968,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Wikipedia",
+        "stanleykubrick.de 저작권 고지",
+        "Google 검색 public domain status"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Warner Bros. Entertainment Inc.가 현재 저작권 보유, PD 아님, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "80": {
+      "title": "Before Sunset",
+      "year": 2004,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Warner Bros archive listing"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/m2WyrYO",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org에 'Before_Sunset' 항목 존재하나 PD 명시 없음(비공식 업로드로 추정), 저작권 유효. AVOD(Tubi/Plex)는 수집금지 대상이라 제외. 합법 무료 경로 없음",
       "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/m2WyrYO",
+          "note": "왓챠 실제 콘텐츠 상세페이지 fetch 확인, 줄거리/러닝타임(1시간 20분) 노출됨"
+        }
+      ]
+    },
+    "185": {
+      "title": "A Clockwork Orange",
+      "year": 1971,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "Wikipedia",
+        "Google 검색 public domain status",
+        "Warner Bros 배급 확인"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mdEwkbW",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Kubrick 유족 및 Warner Bros가 저작권 보유, PD 아님, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mdEwkbW",
+          "note": "검색결과 타이틀 '시계태엽 오렌지 | 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인"
+        }
+      ]
+    },
+    "269": {
+      "title": "Breathless",
+      "year": 1960,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "위키피디아 Breathless (1960 film)",
+        "StudioCanal UK 공식 페이지",
+        "Rialto Pictures catalogue",
+        "archive.org 저작권 표기 확인"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {
+        "FR": "yes",
+        "AU": "yes"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "URAA로 저작권 복원됨(GATT/URAA 등록, 저작권자 Pretty Pictures), StudioCanal이 현재 활발히 배급·복원 중(2020년 4K 복원판 출시). PD 아니며 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://mubifinder.com/movie/breathless/",
+          "note": "meta-mubi-finder-meta-movie-countries-available: FR,AU,CX,CC,CK,FJ,GF,PF,TF,GP,HM,KI,LU,MQ,YT,MC,NR,NC,NZ,NU,NF,PG,RE,BL,MF,PM,WS,SB,TK,TO,TV,VU,WF — CORE10 중 FR,AU 해당"
+        }
+      ]
+    },
+    "289": {
+      "title": "Casablanca",
+      "year": 1943,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": false,
+      "sources_checked": [],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "389": {
+      "title": "12 Angry Men",
+      "year": 1957,
+      "imdb_id": null,
+      "free_sources": [
+        {
+          "country": "US",
+          "platform": "Internet Archive",
+          "kind": "pd",
+          "url": "https://archive.org/details/12-angry-men-1957",
+          "scope": "worldwide",
+          "note": "저작권 갱신(renewal) 미확인으로 PD 진입, 아카이브 페이지에 Public Domain 명시 및 전편 업로드"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org 복수 업로드본 확인",
+        "Duke Law 공공도메인 자료",
+        "Wikipedia 12 Angry Men (1957 film)",
+        "저작권 갱신 관련 자료"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mdBzxzd",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/12-angry-men-1957",
+          "note": "전편 스트리밍/다운로드 가능 확인, Public Domain 표기 확인"
+        },
+        {
+          "url": "https://watcha.com/ko-KR/contents/mdBzxzd",
+          "note": "검색결과 타이틀 '12명의 성난 사람들 | 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인(단 pickle.plus는 스트리밍옵션 없음으로 상충 표기, 왓챠 자체를 우선 신뢰)"
+        }
+      ]
+    },
+    "422": {
+      "title": "8½",
+      "year": 1963,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "Wikipedia",
+        "List of films in the public domain in the United States",
+        "Hollywood Reporter Fellini 저작권 분쟁 기사",
+        "Paramount 소송 관련 기사",
+        "Google 검색 public domain status"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mOljbA5",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Paramount이 Fellini 작품군 저작권 복원(URAA)/소유 주장 중, PD 명시 확인 안됨, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mOljbA5",
+          "note": "검색결과에 watcha.com/ko-KR/contents/mOljbA5 실서비스 URL 및 왓챠 안내문구 확인"
+        }
+      ]
+    },
+    "439": {
+      "title": "La Dolce Vita",
+      "year": 1960,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "Hollywood Reporter Paramount 소송 승소 기사",
+        "criterioncast.com 판결 기사",
+        "위키피디아 La Dolce Vita",
+        "archive.org 업로드 확인(비공식)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {
+        "FR": "yes"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "2013년 뉴욕 연방법원이 Paramount의 저작권 소유를 최종 인정(장기 소유권 분쟁 이후), 현재 저작권 유효, 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://mubifinder.com/movie/la-dolce-vita/",
+          "note": "meta-mubi-finder-meta-movie-countries-available: FR,DK,FI,GF,PF,TF,GP,MQ,YT,NC,NO,RE,BL,MF,PM,SE,WF — CORE10 중 FR만 해당"
+        }
+      ]
+    },
+    "571": {
+      "title": "The Birds",
+      "year": 1963,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Hitchcock Wiki copyright status page",
+        "US Copyright Office renewal records reference"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "미국작(Universal Pictures), Hitchcock 영화 중 저작권 등록·갱신이 확인된 작품으로 PD 아님. 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "643": {
+      "title": "Battleship Potemkin",
+      "year": 1925,
+      "imdb_id": "tt0015648",
+      "free_sources": [
+        {
+          "country": "RU",
+          "platform": "Internet Archive",
+          "kind": "pd",
+          "url": "https://archive.org/details/BattleshipPotemkin1925",
+          "scope": "worldwide",
+          "note": "1925년 소련작, 미국 및 다수 국가에서 PD 확인, Public Domain Review에서도 PD로 소개 및 소장"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org 복수 업로드본 확인",
+        "publicdomainreview.org",
+        "publicdomainmovie.net",
+        "위키피디아 저작권 상태"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mJO1rYd",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Restored editions exist on disc (Kino) — restoration transfers differ from the public-domain copy.",
+      "confidence": "medium",
       "checked_at": "2026-07-02",
       "evidence": [
         {
           "url": "https://archive.org/details/BattleshipPotemkin1925HD",
           "note": "Public-domain collection item — verified streamable in the 2026 pilot"
+        },
+        {
+          "url": "https://archive.org/details/BattleshipPotemkin1925",
+          "note": "영어 자막본 전편 재생 가능 확인, Public Domain 명시"
+        },
+        {
+          "url": "https://watcha.com/ko-KR/contents/mJO1rYd",
+          "note": "검색결과 타이틀 '전함 포템킨 | 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인"
         }
       ]
+    },
+    "829": {
+      "title": "Chinatown",
+      "year": 1974,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "위키피디아 Chinatown (1974 film)",
+        "Paramount Pictures 배급 확인",
+        "MoMA 상영 정보 페이지",
+        "archive.org 검색(정식 업로드 없음 확인)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Paramount Pictures가 현재도 배급권 보유, 저작권 유효(1974년작으로 PD 대상 아님), 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "832": {
+      "title": "M",
+      "year": 1931,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "위키피디아 M (1931 film) Talk 페이지 갱신 미비 논의",
+        "criterioncast.com Kino Lorber 복원 배급 기사",
+        "durnmoosemovies 재개봉 투어 기사",
+        "archive.org 업로드 확인(비공식)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "1959년 갱신 실패로 한때 PD였으나 URAA(GATT)로 저작권 복원됨(Notice of Intent 등록 확인), Kino Lorber가 현재도 2K/4K 복원판을 극장 투어·상업 배급 중, 합법 무료 경로 없음. 2027년 재차 PD 예정이나 아직 미도래",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
     },
     "843": {
       "title": "In the Mood for Love",
@@ -79,6 +513,460 @@
         }
       ]
     },
+    "895": {
+      "title": "Andrei Rublev",
+      "year": 1966,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org 복수 업로드본 확인(PD 명시 없음)",
+        "Janus Films 공식 페이지",
+        "Criterion Collection 페이지",
+        "Mosfilm YouTube 채널 확인(Criterion 요청으로 내려간 이력)",
+        "Google 검색 copyright status"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/contents/mWyVeKO",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Janus Films/Criterion(Steven Rales 소유)이 현재 배급권 보유 및 신규 복원판 배급 중, Archive.org 업로드본들은 PD 명시 없이 올라온 비공식 업로드로 판단, PD 확정 불가",
+      "confidence": "low",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/contents/mWyVeKO",
+          "note": "검색결과에 watcha.com/contents/mWyVeKO 실서비스 URL 확인(왓챠피디아와 별도 도메인)"
+        }
+      ]
+    },
+    "901": {
+      "title": "City Lights",
+      "year": 1931,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "CBS News 2026년 PD 진입작 목록",
+        "charliechaplin.com 공식 저작권 안내",
+        "Library of Congress 국립영화보존위원회 문서",
+        "filmconcert.charliechaplin.com FAQ"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Roy Export SAS(Chaplin 재단)가 저작권 관리 중, 1931년작으로 2027년 PD 예정이나 아직 미도래(2026-07-02 기준), 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "935": {
+      "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+      "year": 1964,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "위키피디아 Dr. Strangelove",
+        "stanleykubrick.de 공식 저작권 고지",
+        "archive.org 업로드 저작권 표기 확인(비공식)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Sony Pictures(Columbia 후신)가 저작권 보유, PD 아님, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "947": {
+      "title": "Lawrence of Arabia",
+      "year": 1962,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "Duke Law Public Domain Day 2019 pre-1976 자료",
+        "위키피디아 관련 자료",
+        "archive.org 업로드 확인(비공식, 예고편/스틸 위주)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Horizon Pictures가 1962년 등록, 1990년 갱신 확인, 현행법상 2058년까지 저작권 보호, 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "996": {
+      "title": "Double Indemnity",
+      "year": 1944,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "universalpicturesathome.com 공식 페이지(저작권 표기 확인)",
+        "위키피디아 Double Indemnity",
+        "Library of Congress 항목",
+        "archive.org 업로드 저작권 표기 확인(비공식)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Universal Pictures 공식 페이지에 '© 1944 Universal Studios. All Rights Reserved' 명시 및 현재도 상업 배급 중. 일부 소스에 갱신 누락 주장 있으나 권리자가 저작권을 현재도 주장/행사 중이므로 합법 무료 경로 인정 불가",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "1124": {
+      "title": "The Prestige",
+      "year": 2006,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "CBS/Paramount rights info"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/85e1a394-ff3a-4c27-81d4-52c8d49c464b",
+          "note": "쿠팡플레이 개별구매 카탈로그 등록 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "상업영화, 저작권 유효. 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.coupangplay.com/content/85e1a394-ff3a-4c27-81d4-52c8d49c464b",
+          "note": "검색엔진 색인으로 쿠팡플레이 콘텐츠 페이지 URL 확인, 직접 fetch는 접근제한으로 실패"
+        }
+      ]
+    },
+    "1396": {
+      "title": "Mirror",
+      "year": 1975,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": false,
+      "sources_checked": [],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "1883": {
+      "title": "Malcolm X",
+      "year": 1992,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Warner Bros / 40 Acres and a Mule Filmworks rights info"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {
+        "GB": "yes",
+        "US": "no",
+        "CA": "no",
+        "AU": "no",
+        "FR": "no",
+        "DE": "no",
+        "JP": "no",
+        "IN": "no",
+        "KR": "no",
+        "BR": "no"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org 항목들은 원작 책, 리뷰, VHS 오프닝 등 부속자료뿐 영화 본편 아님. 저작권 유효, 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://mubifinder.com/movie/malcolm-x/",
+          "note": "meta-mubi-finder-meta-movie-countries-available 필드에서 GB,GI,GG,IE,IM,JE,MT,PN,SH 확인. CORE10 중 GB만 해당"
+        }
+      ]
+    },
+    "3082": {
+      "title": "Modern Times",
+      "year": 1936,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "charliechaplinarchive.org 저작권 인증서 컬렉션",
+        "charliechaplin.com 공식 저작권 안내",
+        "위키피디아 Modern Times",
+        "CBS News 2026 PD 목록(1936년작 미포함 확인)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "1936년 2월 5일 정식 등록, Roy Export SAS가 현재까지 저작권 관리, 1918년 이후 Chaplin 작품은 PD 아님을 공식 사이트에서 명시. 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "3175": {
+      "title": "Barry Lyndon",
+      "year": 1975,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "Wikipedia",
+        "stanleykubrick.de 저작권 고지",
+        "Google 검색 copyright status"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/m15GRvd",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Warner Bros. Entertainment Inc.가 저작권 보유, PD 아님(원작 소설은 PD이나 영화 자체는 아님), 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/m15GRvd",
+          "note": "검색결과 타이틀 '배리 린든 | 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인"
+        }
+      ]
+    },
+    "3782": {
+      "title": "Ikiru",
+      "year": 1952,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "akirakurosawa.info 지적재산고등재판소 판결 기사",
+        "위키피디아 Ikiru",
+        "archive.org 업로드(비공식, PD 근거 불명확)",
+        "Apple TV 유료 배급 확인"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "일본 지적재산고등재판소가 '1953년 이전 일본영화 PD' 이론을 뒤집고 구로사와 작품 저작권 유효 판결(감독 사후 38년/개정법 70년 보호), archive.org의 PD 표기 업로드는 이 판례 이전의 낡은 주장에 근거한 비공식 업로드로 신뢰 불가. 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "5156": {
+      "title": "Bicycle Thieves",
+      "year": 1948,
+      "imdb_id": null,
+      "free_sources": [
+        {
+          "country": "IT",
+          "platform": "Internet Archive",
+          "kind": "pd",
+          "url": "https://archive.org/details/bicycle-thieves-1948-restored-movie-720p-hd",
+          "scope": "worldwide",
+          "note": "PD 확인: 1985년 미국 법원 판결(저작권 갱신 실패)로 PD 확정, 2015년 Corinth Films v. Netflix 소송에서도 원본 필름 자체는 PD로 재확인(더빙/자막판만 별도 저작권 분쟁)"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "위키피디아 Bicycle Thieves",
+        "Hollywood Reporter Corinth Films v Netflix 소송 기사",
+        "Francine Ward legal blog",
+        "1985 판결 관련 기사"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {
+        "AU": "yes"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/bicycle-thieves-1948-restored-movie-720p-hd",
+          "note": "복원판 전편 재생 페이지 확인, PD 마크 표기"
+        },
+        {
+          "url": "https://mubifinder.com/movie/bicycle-thieves/",
+          "note": "meta-mubi-finder-meta-movie-countries-available: AU,CX,CC,CK,FJ,HM,KI,NR,NZ,NU,NF,PG,WS,SB,TK,TO,TV,VU — CORE10 중 AU만 해당"
+        }
+      ]
+    },
+    "5165": {
+      "title": "L'Avventura",
+      "year": 1960,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "위키피디아 L'Avventura",
+        "criterion.com 공식 배급 페이지",
+        "Harvard Film Archive 상영정보",
+        "archive.org 업로드 확인(비공식, 저작권 근거 없음)"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Criterion Collection이 현재도 정식 라이선스 배급 중, PD 확인 근거 없음, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "11545": {
+      "title": "Rushmore",
+      "year": 1998,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Criterion Collection listing"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org에 업로드 존재하나 PD 아님(저작권 유효, 비공식 업로드). Plex 무료 옵션은 수집금지 대상이라 제외. 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "12162": {
+      "title": "The Hurt Locker",
+      "year": 2008,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "US national archive"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "TVING",
+          "tier": "stream",
+          "url": "https://www.tving.com/contents/M000359760",
+          "note": "티빙 실 콘텐츠 페이지 fetch로 직접 확인"
+        },
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mwWLm0O",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {
+        "US": "no",
+        "GB": "no",
+        "CA": "no",
+        "AU": "no",
+        "FR": "no",
+        "DE": "no",
+        "JP": "no",
+        "IN": "no",
+        "KR": "no",
+        "BR": "no"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org에 예고편만 존재, 영화 본편 아님. 상업영화, 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.tving.com/contents/M000359760",
+          "note": "티빙 실제 상세페이지 fetch 확인: 전쟁 장르, 125분, 크리에이터 캐서린 비글로우, 출연 제레미 레너/앤서니 매키 노출됨"
+        },
+        {
+          "url": "https://mubifinder.com/movie/the-hurt-locker/",
+          "note": "meta-mubi-finder-meta-movie-countries-available 필드에서 CY,GR(키프로스, 그리스)만 확인. CORE10 국가는 어디에도 해당 없음"
+        }
+      ]
+    },
+    "20108": {
+      "title": "Au Hasard Balthazar",
+      "year": 1966,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org 복수 업로드본 확인(PD 명시 없음)",
+        "Criterion Collection 페이지",
+        "Janus Films 페이지",
+        "Google 검색 copyright status"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {
+        "JP": "yes",
+        "BR": "yes",
+        "DE": "yes",
+        "KR": "yes",
+        "IN": "yes"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Criterion/Janus Films가 현재 배급권 보유, Archive.org 업로드본들은 PD 명시 없는 비공식 업로드로 판단, PD 확정 불가, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://mubifinder.com/movie/au-hasard-balthazar/",
+          "note": "meta-mubi-finder-meta-movie-countries-available 필드: TR,JP,BR,MX,DE,KR,CN,...IN 등 다수 국가 중 CORE10인 JP,BR,DE,KR,IN 확인"
+        }
+      ]
+    },
     "26317": {
       "title": "Man with a Movie Camera",
       "year": 1929,
@@ -108,6 +996,40 @@
         {
           "url": "https://archive.org/details/man-with-a-movie-camera-1929-by-dziga-vertov",
           "note": "Public-domain collection item — verified streamable in the 2026 pilot"
+        }
+      ]
+    },
+    "30018": {
+      "title": "Mother",
+      "year": 2009,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "kmdb.or.kr/vod/main",
+        "koreafilm.or.kr",
+        "kofa.or.kr",
+        "archive.org"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mQO8XVO",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "KMDb VOD는 일제강점기~1980-90년대 한국고전영화 약350편만 무료 제공하는 정책(2018.9.1부터 전면 무료화 확인). 2009년 CJ엔터테인먼트 제작 상업영화 '마더'는 이 고전영화 범위에 해당하지 않아 목록 포함 가능성 낮음. KMDb VOD 검색 페이지는 JS 렌더링으로 직접 카탈로그 조회 실패(rate limit), 개별 작품 존재 여부 완전 확정은 못했으나 정책상 미포함 가능성이 높아 found:false로 보수적 기록",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mQO8XVO",
+          "note": "왓챠 실제 콘텐츠 상세페이지 fetch 확인, 줄거리/러닝타임(2시간 9분) 노출됨"
         }
       ]
     },
@@ -203,6 +1125,44 @@
         }
       ]
     },
+    "49026": {
+      "title": "The Dark Knight Rises",
+      "year": 2012,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "US national archive"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mW4rmed",
+          "note": "Service in receivership — catalog may change"
+        },
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/4729af94-33e1-4818-bc57-cf1beeb01eac",
+          "note": "쿠팡플레이 개별구매 카탈로그 등록 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org 내 업로드 항목은 access-restricted 비공식 업로드로 합법 PD 아님. 상업 대작, 무료 합법 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mW4rmed",
+          "note": "검색엔진에 색인된 왓챠 실스트리밍 콘텐츠 URL 확인, 직접 fetch는 접근제한으로 실패"
+        }
+      ]
+    },
     "70909": {
       "title": "Aimless Bullet",
       "year": 1961,
@@ -235,6 +1195,539 @@
           "note": "KOFA official upload with English subtitles — verified playable in the 2026 pilot"
         }
       ]
+    },
+    "76203": {
+      "title": "12 Years a Slave",
+      "year": 2013,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "US national archive"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mdRmmbO",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {
+        "BR": "yes",
+        "US": "no",
+        "GB": "no",
+        "CA": "no",
+        "AU": "no",
+        "FR": "no",
+        "DE": "no",
+        "JP": "no",
+        "IN": "no",
+        "KR": "no"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "상업영화, 합법 무료 경로 없음(예상대로)",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mdRmmbO",
+          "note": "왓챠 실제 콘텐츠 상세페이지 fetch 확인, 제목/줄거리/러닝타임(2시간 14분) 노출됨"
+        },
+        {
+          "url": "https://mubifinder.com/movie/12-years-a-slave/",
+          "note": "meta-mubi-finder-meta-movie-countries-available 필드에서 BR,MX,AR,BZ,BO,CL,CO,CR,EC,SV,GT,GY,HN,NI,PA,PY,PE,SR,UY,VE 확인. CORE10 중 BR만 해당, 나머지 남미/중미 국가는 CORE10 미포함"
+        }
+      ]
+    },
+    "132344": {
+      "title": "Before Midnight",
+      "year": 2013,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "BFI player",
+        "Internet Archive full-text search"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mOlgreW",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org에 관련 잡지(Sight and Sound) 기사만 존재, 영화 본편 없음. 상업영화로 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mOlgreW",
+          "note": "왓챠 실제 콘텐츠 상세페이지 fetch 확인, 제목/줄거리/러닝타임(1시간 48분) 노출됨"
+        }
+      ]
+    },
+    "181808": {
+      "title": "Star Wars: The Last Jedi",
+      "year": 2017,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Lucasfilm/Disney rights info"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org에 사운드트랙·리뷰·팬대본 등 부속자료뿐 영화 본편 아님. 상업 대작, 합법 무료 경로 없음",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "374720": {
+      "title": "Dunkirk",
+      "year": 2017,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "BFI player free section",
+        "UK national archive"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/contents/m5NVjDa",
+          "note": "Service in receivership — catalog may change"
+        },
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/fc3b9e85-8205-4976-9a37-7cac8c188ab7",
+          "note": "쿠팡플레이 개별구매 카탈로그 등록 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "상업 대작, 합법 무료 경로 없음(예상대로)",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/contents/m5NVjDa",
+          "note": "검색엔진에 색인된 왓챠 실콘텐츠 URL 확인(별점 3.9 노출), 직접 fetch는 접근제한으로 실패"
+        }
+      ]
+    },
+    "399174": {
+      "title": "Isle of Dogs",
+      "year": 2018,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Google 검색 free legal streaming",
+        "JustWatch",
+        "Wikipedia"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "현재 무료 스트리밍 옵션 없음, 대여/구매만 가능",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "426063": {
+      "title": "Nosferatu",
+      "year": 2024,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Focus Features rights info"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/2b019fb2-d4f4-4948-9df2-7264ed94965d",
+          "note": "쿠팡플레이 개별구매 카탈로그 등록 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "2024년 Robert Eggers 리메이크작으로 저작권 유효, PD 아님. 1922년 F.W.Murnau 오리지널(PD)과 혼동 주의 — 본 레코드는 2024년작 기준. 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.asiatoday.co.kr/kn/view.php?key=20250711010006549",
+          "note": "2025.7.11 언론보도(아시아투데이/네이트연예)로 쿠팡플레이 '노스페라투' 공개 확인, 쿠팡플레이 콘텐츠 URL도 검색엔진에 색인됨"
+        },
+        {
+          "url": "https://mubifinder.com/movie/nosferatu/",
+          "note": "해당 슬러그는 1922년 F.W.무르나우 원작(Nosferatu – Eine Symphonie des Grauens, Max Schreck 주연)으로 확인됨. 2024년 로버트 에거스 리메이크와는 다른 작품이므로 이 데이터는 사용하지 않음. 2024년판 전용 슬러그를 찾지 못함(Focus Features/Universal 배급작으로 MUBI 카탈로그 미포함 추정)"
+        }
+      ]
+    },
+    "465914": {
+      "title": "If Beale Street Could Talk",
+      "year": 2018,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Google 검색 free legal streaming",
+        "JustWatch",
+        "Reelgood"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/m5m1YZA",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Tubi·Kanopy·Fawesome에서만 확인, Tubi·Kanopy는 절대 수집 금지 목록에 해당하여 제외, 그 외 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/m5m1YZA",
+          "note": "검색결과 타이틀 '빌 스트리트가 말할 수 있다면(2018) :: 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인"
+        }
+      ]
+    },
+    "466420": {
+      "title": "Killers of the Flower Moon",
+      "year": 2023,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Apple Studios rights info"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "TVING",
+          "tier": "stream",
+          "url": "https://www.tving.com/contents/M000377976",
+          "note": "티빙 콘텐츠 페이지 검색엔진 색인 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "상업 대작(Apple TV+ 독점), 합법 무료 경로 없음(예상대로)",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.tving.com/contents/M000377976",
+          "note": "검색엔진 색인으로 티빙 '플라워 킬링 문' 콘텐츠 페이지 URL 확인, 직접 fetch는 rate limit으로 실패"
+        }
+      ]
+    },
+    "487558": {
+      "title": "BlacKkKlansman",
+      "year": 2018,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Google 검색 free legal streaming",
+        "JustWatch",
+        "위키피디아"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/mdBz7Jq",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Kanopy·Tubi에서만 확인되며 둘 다 절대 수집 금지 목록에 해당, 그 외 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/mdBz7Jq",
+          "note": "왓챠 콘텐츠 상세페이지(og:title '블랙클랜스맨 | 왓챠', WatchaPlay 앱딥링크 포함) 로드 확인"
+        }
+      ]
+    },
+    "499255": {
+      "title": "Grass",
+      "year": 2018,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "KMDb VOD 검색",
+        "KMDb 홍상수 필모그래피",
+        "한국영상자료원",
+        "Google 검색"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/m5eJwbo",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "KMDb VOD 고전영화 목록에서 확인 안됨, 상시 무료 합법 시청 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://watcha.com/ko-KR/contents/m5eJwbo",
+          "note": "검색결과 타이틀 '풀잎들(2018) :: 왓챠'로 왓챠 실서비스 콘텐츠 페이지 확인"
+        }
+      ]
+    },
+    "530915": {
+      "title": "1917",
+      "year": 2019,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "BFI player free section",
+        "UK national archive",
+        "IWM film archive"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/155870e1-6b65-4cd0-bce3-cf9ed25fa05a",
+          "note": "쿠팡플레이 개별구매(대여/소장) 카탈로그 등록 확인"
+        },
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "url": "https://watcha.com/ko-KR/contents/m5xw62g",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "상업 대작, 합법 무료 경로 없음(예상대로)",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.coupangplay.com/content/155870e1-6b65-4cd0-bce3-cf9ed25fa05a",
+          "note": "검색엔진 색인 및 이용자 커뮤니티(hygall.com) 글에서 쿠팡플레이 등록 확인, 직접 fetch는 사이트 접근제한으로 실패"
+        }
+      ]
+    },
+    "639933": {
+      "title": "The Northman",
+      "year": 2022,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "Focus Features/Universal rights info"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/b0bc0011-2918-41fc-944f-707dd6f2f2af",
+          "note": "쿠팡플레이 개별구매 카탈로그 등록 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "archive.org에 예고편·비하인드·리뷰만 존재, 영화 본편 아님. 상업영화, 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.coupangplay.com/content/b0bc0011-2918-41fc-944f-707dd6f2f2af",
+          "note": "검색엔진 색인으로 쿠팡플레이 콘텐츠 URL 확인, 직접 fetch는 접근제한으로 실패. 티빙에는 판매종료 표기된 동명이인 영화(2016년작)만 존재하여 KR 배제"
+        }
+      ]
+    },
+    "648878": {
+      "title": "Eddington",
+      "year": 2025,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org",
+        "A24 official distribution info"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Coupang Play",
+          "tier": "rent",
+          "url": "https://www.coupangplay.com/content/10f0ca2a-68dc-46ee-80f8-8253364c5f58",
+          "note": "쿠팡플레이 개별구매 카탈로그 등록 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "2025년 최신 A24 상업영화, 유료 스트리밍(HBO Max)만 확인됨. 합법 무료 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.coupangplay.com/content/10f0ca2a-68dc-46ee-80f8-8253364c5f58",
+          "note": "검색엔진 색인으로 쿠팡플레이 콘텐츠 페이지 URL 확인(2025년작 에딩턴, 뉴멕시코 배경 시놉시스 일치), 직접 fetch는 접근제한으로 실패"
+        }
+      ]
+    },
+    "820517": {
+      "title": "In Front of Your Face",
+      "year": 2021,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "KMDb VOD 검색",
+        "KOFA 시네마테크 페이지",
+        "한국영상자료원",
+        "Google 검색"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "KOFA 시네마테크에서 지난 프로그램으로 상영된 이력만 확인, KMDb VOD 상시 무료 스트리밍 목록에는 없음, MUBI 등 유료 플랫폼만 확인",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "1002470": {
+      "title": "Walk Up",
+      "year": 2022,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "KMDb VOD 검색",
+        "KMDb 홍상수 필모그래피 페이지",
+        "한국영상자료원(KOFA)",
+        "Google 검색"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "KMDb VOD는 고전 한국영화(약 680편, 주로 오래된 작품) 중심 서비스로 2022년작 최신 상업영화는 목록에서 확인되지 않음, KOFA 시네마테크 상영 이력만 확인되며 상시 무료 온라인 시청 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
+    },
+    "1078605": {
+      "title": "Weapons",
+      "year": 2025,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "JustWatch",
+        "Wikipedia",
+        "Google 검색 free legal streaming"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Coupang Play",
+          "tier": "stream",
+          "url": "https://www.coupangplay.com/content/c53a0c5c-4126-485d-982e-0a1f0b89c944",
+          "note": "2025-10-15 한국 극장 개봉작, 쿠팡플레이 카탈로그 등재 확인"
+        }
+      ],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "2025년 신작, Prime Video/Apple TV 대여·구매만 가능, 무료 합법 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.coupangplay.com/content/c53a0c5c-4126-485d-982e-0a1f0b89c944",
+          "note": "검색결과 타이틀 '웨폰'으로 쿠팡플레이 콘텐츠 상세페이지 URL 확인"
+        }
+      ]
+    },
+    "1151031": {
+      "title": "Bring Her Back",
+      "year": 2025,
+      "imdb_id": null,
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "JustWatch",
+        "StreamSafely",
+        "Google 검색 free legal streaming"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "2025년 신작, HBO Max 등 유료 구독 서비스에서만 확인, 무료 합법 경로 없음",
+      "confidence": "medium",
+      "checked_at": "2026-07-02",
+      "evidence": []
     }
   }
 }
