@@ -5,6 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import ReadingFeed, { type FeedRow, type Facets } from "@/components/ReadingFeed";
 import { fwBySlug } from "@/lib/frameworks";
+import { FRAMEWORK_INTROS } from "@/lib/frameworkIntros";
 
 export const revalidate = 600;
 export async function generateStaticParams() { return []; }
@@ -21,7 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const f = fwBySlug(slug);
   if (!f) return { title: "Strong Misreadings — Metatake" };
   const title = `${f.label} — Strong Misreadings`;
-  const description = `${f.short} Every ${f.label} Strong Misreading across cinema, searchable on Metatake.`;
+  const introText = FRAMEWORK_INTROS[f.slug];
+  const firstSentence = introText ? (introText.match(/^[^.!?]+[.!?]/)?.[0] ?? "").trim() : "";
+  const description = firstSentence && firstSentence.length <= 160
+    ? firstSentence
+    : `${f.short} Every ${f.label} Strong Misreading across cinema, searchable on Metatake.`;
   return {
     title,
     description,
@@ -55,6 +60,11 @@ export default async function FrameworkPage({ params }: Props) {
         <p className="smb-fw__short">
           {isAll ? "Every Strong Misreading on Metatake, across all 14 frameworks." : f!.short}
         </p>
+        {!isAll && FRAMEWORK_INTROS[f!.slug] ? (
+          <p className="body reading" style={{ fontSize: 17, lineHeight: 1.62, margin: "10px 0 22px", maxWidth: "70ch", opacity: 0.92 }}>
+            {FRAMEWORK_INTROS[f!.slug]}
+          </p>
+        ) : null}
         <ReadingFeed fwSlug={isAll ? "all" : f!.slug} isAll={isAll} initial={initial} facets={facets} />
       </div>
     </div>
