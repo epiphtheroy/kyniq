@@ -21,10 +21,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+// Plain client — caching is governed entirely by the unstable_cache wrapper
+// below, so no per-fetch cache override is needed here (and `no-store` inside
+// unstable_cache only triggers Next warnings).
 function db() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
-    global: { fetch: (input: RequestInfo | URL, init?: RequestInit) => fetch(input, { ...init, cache: "no-store" }) },
-  });
+  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
 // Real home bundle from home_v2_bundle_v2(). Throws on total failure so a
