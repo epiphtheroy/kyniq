@@ -136,7 +136,7 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
     cls = "free";
     const o = freeWw[0];
     headline = `Free on ${o.platform} — available worldwide${o.answer_note ? `, ${o.answer_note}` : ""}.`;
-    const alsoHere = [...names(offers.stream), ...localElsewhere.map((e) => e.name)];
+    const alsoHere = Array.from(new Set([...names(offers.stream), ...localElsewhere.map((e) => e.name)]));
     if (alsoHere.length) parts.push(`Also streaming here on ${joinAnd(alsoHere)}.`);
     if (elsewhere.length) parts.push(`Elsewhere: ${elsewhere.map((e) => `${e.name} (${scopeNames(e.scope)} only)`).join(" · ")}.`);
   } else if (freeLocal.length) {
