@@ -16,6 +16,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
+  // Supabase's API caps every response at 1,000 rows (even with .range()), so
+  // any table that can exceed that must be fetched in pages or the sitemap
+  // silently drops URLs.
+  const PAGE = 1000;
+  async function fetchAll<T>(
+    run: (from: number, to: number) => PromiseLike<{ data: T[] | null }>,
+    cap = Number.POSITIVE_INFINITY
+  ): Promise<T[]> {
+    const out: T[] = [];
+    for (let from = 0; from < cap; from += PAGE) {
+      const to = Math.min(from + PAGE, cap) - 1;
+      const { data } = await run(from, to);
+      if (!data?.length) break;
+      out.push(...data);
+      if (data.length < to - from + 1) break;
+    }
+    return out;
+  }
+
   const entries: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
@@ -34,15 +53,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Published readings (/take) + tropes (/trope) — the core interpretive corpus.
   // Released to search engines in deterministic cohorts (see lib/seo.ts,
   // INDEX_COHORT_*): oldest-first so raising the cap only appends URLs.
-  const { data: readings } = await supabase
-    .from("meta_takes")
-    .select("slug, updated_at, created_at")
-    .eq("status", "published")
-    .eq("kind", "reading")
-    .order("created_at", { ascending: true })
-    .order("slug", { ascending: true })
-    .range(0, INDEX_COHORT_READINGS - 1);
-  for (const m of readings ?? []) {
+  const readings = await fetchAll<{ slug: string; updated_at: string | null; created_at: string }>(
+    (from, to) =>
+      supabase
+        .from("meta_takes")
+        .select("slug, updated_at, created_at")
+        .eq("status", "published")
+        .eq("kind", "reading")
+        .order("created_at", { ascending: true })
+        .order("slug", { ascending: true })
+        .range(from, to),
+    INDEX_COHORT_READINGS
+  );
+  for (const m of readings) {
     entries.push({
       url: `${siteUrl}/take/${m.slug}`,
       lastModified: new Date(m.updated_at || m.created_at),
@@ -50,15 +73,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.85,
     });
   }
-  const { data: tropes } = await supabase
-    .from("meta_takes")
-    .select("slug, updated_at, created_at")
-    .eq("status", "published")
-    .eq("kind", "figure_type")
-    .order("created_at", { ascending: true })
-    .order("slug", { ascending: true })
-    .range(0, INDEX_COHORT_TROPES - 1);
-  for (const m of tropes ?? []) {
+  const tropes = await fetchAll<{ slug: string; updated_at: string | null; created_at: string }>(
+    (from, to) =>
+      supabase
+        .from("meta_takes")
+        .select("slug, updated_at, created_at")
+        .eq("status", "published")
+        .eq("kind", "figure_type")
+        .order("created_at", { ascending: true })
+        .order("slug", { ascending: true })
+        .range(from, to),
+    INDEX_COHORT_TROPES
+  );
+  for (const m of tropes) {
     entries.push({
       url: `${siteUrl}/trope/${m.slug}`,
       lastModified: new Date(m.updated_at || m.created_at),
@@ -70,8 +97,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Films — only those with real content (>=3 figures). Just-added films with no
   // figures yet are NOT advertised to search engines (thin-content guard); they
   // enter the sitemap automatically once film-extract populates them.
-  const { data: films } = await supabase.from("films").select("slug, created_at").eq("visible", true);
-  for (const f of films ?? []) {
+  const films = await fetchAll<{ slug: string; created_at: string }>((from, to) =>
+    supabase.from("films").select("slug, created_at").eq("visible", true).order("slug").range(from, to)
+  );
+  for (const f of films) {
     entries.push({
       url: `${siteUrl}/film/${f.slug}`,
       lastModified: new Date(f.created_at),
@@ -110,13 +139,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Director hubs (unique director_slugs)
-  const { data: directors } = await supabase
-    .from("films")
-    .select("director_slug")
-    .eq("visible", true)
-    .not("director_slug", "is", null);
-
-  const uniqueDirectors = new Set((directors ?? []).map((d) => d.director_slug).filter(Boolean));
+  const directors = await fetchAll<{ director_slug: string | null }>((from, to) =>
+    supabase
+      .from("films")
+      .select("director_slug")
+      .eq("visible", true)
+      .not("director_slug", "is", null)
+      .order("slug")
+      .range(from, to)
+  );
+  const uniqueDirectors = new Set(directors.map((d) => d.director_slug).filter(Boolean));
   for (const ds of uniqueDirectors) {
     entries.push({
       url: `${siteUrl}/director/${ds}`,
