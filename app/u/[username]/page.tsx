@@ -1,10 +1,15 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 
-export const dynamic = "force-dynamic";
+// Public (noindex) portfolio: the two RPCs only change when the user logs
+// activity, so serve an edge-cached page (ISR) and cache the fetch per username
+// in the Data Cache. Tagged portfolio:<username> so a profile update can bust it
+// on demand via /api/revalidate; also refreshes at most every 5 minutes.
+export const revalidate = 300;
 
 const W342 = "https://image.tmdb.org/t/p/w342";
 
@@ -21,11 +26,28 @@ type Film = { film_id: string; slug: string; title: string; year: number | null;
 
 interface Props { params: Promise<{ username: string }> }
 
+// One cache entry per username, shared by generateMetadata and the page render.
+function loadPortfolio(username: string) {
+  return unstable_cache(
+    async () => {
+      const supabase = supabaseAnon();
+      const [{ data: metaRaw }, { data: filmsRaw }] = await Promise.all([
+        supabase.rpc("public_portfolio_meta", { p_username: username }),
+        supabase.rpc("public_portfolio", { p_username: username }),
+      ]);
+      return {
+        meta: (metaRaw as Meta | null),
+        films: ((filmsRaw as Film[] | null) ?? []),
+      };
+    },
+    ["public-portfolio", username],
+    { revalidate: 300, tags: [`portfolio:${username}`] },
+  )();
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { username } = await params;
-  const supabase = supabaseAnon();
-  const { data } = await supabase.rpc("public_portfolio_meta", { p_username: username });
-  const m = data as Meta | null;
+  const { meta: m } = await loadPortfolio(username);
   const name = m?.display_name || username;
   return {
     title: `${name} — film portfolio · Metatake`,
@@ -37,16 +59,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PortfolioPage({ params }: Props) {
   const { username } = await params;
-  const supabase = supabaseAnon();
 
-  const [{ data: metaRaw }, { data: filmsRaw }] = await Promise.all([
-    supabase.rpc("public_portfolio_meta", { p_username: username }),
-    supabase.rpc("public_portfolio", { p_username: username }),
-  ]);
-
-  const meta = metaRaw as Meta | null;
+  const { meta, films } = await loadPortfolio(username);
   if (!meta) notFound();
-  const films = (filmsRaw as Film[] | null) ?? [];
 
   const name = meta.display_name || meta.username;
   const initial = (name || "?").charAt(0).toUpperCase();

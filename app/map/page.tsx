@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import MapExplorer from "@/components/MapExplorer";
 
-export const dynamic = "force-dynamic";
+// Static shell: MapExplorer is a client component that fetches its own data at
+// runtime, so the page is prerendered and served from the edge.
 
 export const metadata: Metadata = {
   title: "The Map — Metatake",

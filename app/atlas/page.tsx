@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
 
-export const dynamic = "force-dynamic";
+// Static shell: all data loads client-side from /api/geo, so the page itself
+// is prerendered and served from the edge (no per-request SSR needed).
 
 export const metadata: Metadata = {
   title: "Atlas — the real-world map of cinema · Metatake",

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-// Force SSR: a pre-launch prerender of this route (with noindex) was stuck in
-// Vercel's cache across deployments. Rendering at request time bypasses it.
-export const dynamic = "force-dynamic";
+// Fully static: this page has no server data. It's prerendered at build and
+// served from the edge (regenerated on every deploy). The old stale-prerender
+// issue this used to force-SSR around is now handled by /api/revalidate.
 
 export const metadata: Metadata = {
   title: "About — Metatake",
