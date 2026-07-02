@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -22,12 +23,20 @@ type Reading = {
   film_title: string; film_slug: string; film_year: number | null; backdrop_path: string | null;
 };
 
-async function load(slug: string) {
-  const supabase = db();
-  const { data: th } = await supabase.from("theorists").select("name, blurb").eq("slug", slug).maybeSingle();
-  if (!th) return null;
-  const { data: rd } = await supabase.rpc("theorist_readings", { p_slug: slug });
-  return { name: (th as { name: string }).name, blurb: (th as { blurb: string | null }).blurb, readings: (rd as Reading[] | null) ?? [] };
+// Cached per slug so the page is ISR-cached instead of re-querying on every
+// request (uncached Supabase calls otherwise force dynamic rendering).
+function load(slug: string) {
+  return unstable_cache(
+    async () => {
+      const supabase = db();
+      const { data: th } = await supabase.from("theorists").select("name, blurb").eq("slug", slug).maybeSingle();
+      if (!th) return null;
+      const { data: rd } = await supabase.rpc("theorist_readings", { p_slug: slug });
+      return { name: (th as { name: string }).name, blurb: (th as { blurb: string | null }).blurb, readings: (rd as Reading[] | null) ?? [] };
+    },
+    ["theorist", slug],
+    { revalidate: 1800, tags: [`theorist:${slug}`] },
+  )();
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

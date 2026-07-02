@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -22,20 +23,28 @@ type Reading = {
   film_title: string; film_slug: string; film_year: number | null; backdrop_path: string | null;
 };
 
-async function load(slug: string) {
-  const supabase = db();
-  // sm_concepts has RLS on with no anon policy, so read via a security-definer RPC.
-  // It resolves a variant slug OR a canonical slug → representative member + clean name.
-  const { data: head } = await supabase.rpc("sm_concept_head", { p_slug: slug });
-  const h = (head as { resolved_slug: string; name: string; native: string | null }[] | null)?.[0];
-  if (!h) return null;
-  const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
-  // Editorial intro (sm_concepts.intro via lightweight RPC). Defensive: stays
-  // null until the sm_concept_intro migration has run — page renders fine without it.
-  let intro: string | null = null;
-  const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
-  if (typeof it === "string" && it.trim()) intro = it.trim();
-  return { name: h.name, intro, readings: (rd as Reading[] | null) ?? [] };
+// Cached per slug so the page is ISR-cached instead of re-querying on every
+// request (uncached Supabase calls otherwise force dynamic rendering).
+function load(slug: string) {
+  return unstable_cache(
+    async () => {
+      const supabase = db();
+      // sm_concepts has RLS on with no anon policy, so read via a security-definer RPC.
+      // It resolves a variant slug OR a canonical slug → representative member + clean name.
+      const { data: head } = await supabase.rpc("sm_concept_head", { p_slug: slug });
+      const h = (head as { resolved_slug: string; name: string; native: string | null }[] | null)?.[0];
+      if (!h) return null;
+      const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
+      // Editorial intro (sm_concepts.intro via lightweight RPC). Defensive: stays
+      // null until the sm_concept_intro migration has run — page renders fine without it.
+      let intro: string | null = null;
+      const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
+      if (typeof it === "string" && it.trim()) intro = it.trim();
+      return { name: h.name, intro, readings: (rd as Reading[] | null) ?? [] };
+    },
+    ["idea", slug],
+    { revalidate: 1800, tags: [`idea:${slug}`] },
+  )();
 }
 
 // First 1–2 sentences of the intro as a plain-text meta description (≤155 chars).
