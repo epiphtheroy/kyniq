@@ -159,7 +159,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  const title = `${data.director} — portrait, filmography & where to start — Metatake`;
+  const title = `${data.director} — Films, Style & Where to Start`;
   const bioProse = data.portrait?.body || (data.dir as { bio?: string | null } | null)?.bio || null;
   const description = bioProse
     ? metaDescription(bioProse)

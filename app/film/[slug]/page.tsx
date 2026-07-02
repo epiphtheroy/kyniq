@@ -234,10 +234,15 @@ function descriptionFromInvitation(invitation: string): string | null {
     .replace(/\s+/g, " ")
     .trim();
   if (!plain) return null;
-  const sentences = plain.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [plain];
-  let text = (sentences[0] ?? "").trim();
-  if (sentences.length > 1 && (text + (sentences[1] ?? "")).trim().length <= 155) {
-    text = (text + " " + sentences[1]).trim();
+  // Split only where a sentence end is followed by a capital/quote, so
+  // abbreviations like "(b. 1958)" or "Dr. Strangelove" don't end a sentence.
+  const sentences = plain.split(/(?<=[.!?])\s+(?=["'“A-Z])/);
+  let text = "";
+  for (const s of sentences) {
+    const next = text ? `${text} ${s}` : s;
+    if (text.length >= 60 && next.length > 155) break;
+    text = next;
+    if (text.length >= 80) break;
   }
   if (!text) text = plain;
   if (text.length <= 155) return text;
@@ -257,7 +262,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: t, robots: pageRobots(false) };
   }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
-  const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & strong misreadings`;
+  const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — Analysis, Themes & Symbols`;
   const templatedDescription = data.misreadings.length
     ? `${data.film.title} read closely: ${data.figures.length} figures and ${data.misreadings.length} strong misreadings across 14 critical frameworks.`
     : undefined;
