@@ -34,6 +34,13 @@ export type WatchFilm = {
 type Prov = { provider_id: number; provider_name: string; logo_path: string | null };
 type CountryOffers = { link?: string; flatrate?: Prov[]; rent?: Prov[]; buy?: Prov[]; free?: Prov[]; ads?: Prov[] };
 export type WatchData = { results: Record<string, CountryOffers>; countries: string[] } | null;
+export type WatchRatings = { imdb_rating: number | null; imdb_votes: number | null; metascore: number | null; rt_tomatometer: number | null } | null;
+
+function fmtVotes(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
+  if (n >= 1_000) return `${Math.round(n / 1_000)}k`;
+  return String(n);
+}
 
 let regionNames: Intl.DisplayNames | null = null;
 function countryName(code: string): string {
@@ -81,7 +88,10 @@ function splitOffers(o: CountryOffers | undefined) {
   };
 }
 
-export default function WatchPageClient({ film, watch, record }: { film: WatchFilm; watch: WatchData; record: AccessRecord | null }) {
+export default function WatchPageClient({ film, watch, record, ratings, takeScore }: {
+  film: WatchFilm; watch: WatchData; record: AccessRecord | null;
+  ratings?: WatchRatings; takeScore?: number | null;
+}) {
   const ctx = useAccessCountry();
   const [localCountry, setLocalCountry] = useState("US");
   const [lib, setLib] = useState(false);
@@ -207,6 +217,18 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
         <div className="axw-hmeta">
           <h1 className="axw-h1">{film.title}</h1>
           <div className="axw-credits">{[film.year, film.director, film.runtime ? `${film.runtime} min` : null].filter(Boolean).join(" · ")}</div>
+          {(ratings && (ratings.imdb_rating || ratings.rt_tomatometer != null || ratings.metascore != null)) || takeScore != null ? (
+            <div className="axw-ratings">
+              {ratings?.imdb_rating ? (
+                film.imdb_id
+                  ? <a className="axw-rt" href={`https://www.imdb.com/title/${film.imdb_id}/`} target="_blank" rel="noopener noreferrer"><b>IMDb</b> {ratings.imdb_rating}{ratings.imdb_votes ? ` (${fmtVotes(ratings.imdb_votes)})` : ""}</a>
+                  : <span className="axw-rt"><b>IMDb</b> {ratings.imdb_rating}{ratings.imdb_votes ? ` (${fmtVotes(ratings.imdb_votes)})` : ""}</span>
+              ) : null}
+              {ratings?.rt_tomatometer != null ? <span className="axw-rt"><b>RT</b> {ratings.rt_tomatometer}%</span> : null}
+              {ratings?.metascore != null ? <span className="axw-rt"><b>Metascore</b> {ratings.metascore}</span> : null}
+              {takeScore != null ? <Link className="axw-rt axw-rt--mt" href={`/film/${film.slug}#df-codex`}><b>MetaTake</b> TakeScore {takeScore}</Link> : null}
+            </div>
+          ) : null}
           <div className="axw-lede">Pick your country — we show every legal way to watch, free sources first.</div>
           <Link className="axw-back" href={`/film/${film.slug}`}>← Back to the film</Link>
         </div>
@@ -420,7 +442,7 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
 
       {/* 7 · on disc */}
       <section className="axw-section">
-        <h2 className="axw-h2">On disc</h2>
+        <h2 className="axw-h2">On disc — {film.title}{film.year ? ` (${film.year})` : ""}</h2>
         <div className="axw-h2s">The edition matters: restoration source, transfer and extras differ by label — not just by store.</div>
         {spine ? (
           <div className="axw-disc-hero">
@@ -446,7 +468,7 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
         <div className="axw-linkrow">
           {(["blu-ray", "dvd"] as const).map((fmt) => {
             const u = amazonDiscSearchUrl(cc, film.title, film.year, fmt);
-            return u ? <a key={fmt} className="axw-lbtn" href={u} target="_blank" rel="noopener noreferrer">Amazon — {fmt === "dvd" ? "DVD" : "Blu-ray"} <span className="axw-lbtn-s">search</span></a> : null;
+            return u ? <a key={fmt} className="axw-lbtn" href={u} target="_blank" rel="noopener noreferrer">Amazon — &lsquo;{film.title}&rsquo; {fmt === "dvd" ? "DVD" : "Blu-ray"} <span className="axw-lbtn-s">search</span></a> : null;
           })}
           {!spine && !editions.length ? (
             <a className="axw-lbtn" href={criterionSearchUrl(film.title)} target="_blank" rel="noopener noreferrer">criterion.com <span className="axw-lbtn-s">search</span></a>
@@ -457,7 +479,7 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
 
       {/* 8 · subtitles */}
       <section className="axw-section">
-        <h2 className="axw-h2">Subtitles</h2>
+        <h2 className="axw-h2">Subtitles — {film.title}{film.year ? ` (${film.year})` : ""}</h2>
         <div className="axw-h2s">Official subtitles on the streaming service are always best. These are third-party community sites.</div>
         <div className="axw-linkrow">
           <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title })} target="_blank" rel="noopener noreferrer">OpenSubtitles <span className="axw-lbtn-s">English</span></a>
