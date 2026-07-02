@@ -85,6 +85,7 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
   const ctx = useAccessCountry();
   const [localCountry, setLocalCountry] = useState("US");
   const [lib, setLib] = useState(false);
+  const [worldOpen, setWorldOpen] = useState(false);
   const country = ctx ? ctx.country : localCountry;
   const setCountry = ctx ? ctx.setCountry : setLocalCountry;
 
@@ -358,7 +359,11 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
         <h2 className="axw-h2">Around the world</h2>
         <div className="axw-h2s">Tap a country to see the page from there. Free sources are highlighted.</div>
         <div className="axw-world">
-          {countries.map((k) => {
+          {(worldOpen ? countries : (() => {
+            const head = countries.slice(0, 9);
+            if (!head.includes(cc) && countries.includes(cc)) head[head.length - 1] = cc;
+            return head;
+          })()).map((k) => {
             const t = tierFor(k);
             const o = splitOffers(watch?.results?.[k]);
             let note = "";
@@ -384,6 +389,11 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
             );
           })}
         </div>
+        {countries.length > 9 ? (
+          <button type="button" className="axw-worldtoggle" onClick={() => setWorldOpen((v) => !v)}>
+            {worldOpen ? "Show fewer countries ▴" : `Show all ${countries.length} countries ▾`}
+          </button>
+        ) : null}
         {mubiKeys.length ? (
           <>
             <div className="axw-mubi-line">Subscribed to MUBI? Its catalogue differs by country — here&apos;s where this film is:</div>
@@ -457,6 +467,11 @@ export default function WatchPageClient({ film, watch, record }: { film: WatchFi
         </div>
         <div className="axw-tinynote">Links open search results only — pick the file that matches your copy&apos;s runtime and language.</div>
       </section>
+
+      {/* film-page button */}
+      <div className="axw-filmlink">
+        <Link className="axw-filmbtn" href={`/film/${film.slug}`}>Read the film page — figures &amp; misreadings →</Link>
+      </div>
 
       {/* 9 · footer disclosures — v3 copy */}
       <footer className="axw-footer">

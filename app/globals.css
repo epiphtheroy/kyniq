@@ -4275,8 +4275,13 @@ a.ax-offer:hover{border-color:var(--ink)}
 .axw-h1{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.1;margin:.2em 0 .1em}
 .axw-credits{color:var(--muted);font-size:13.5px}
 .axw-lede{margin-top:10px;font-size:13.5px;color:var(--ink-soft)}
-.axw-back{display:inline-block;margin-top:10px;font-size:13px;color:var(--accent);text-decoration:none}
-.axw-back:hover{text-decoration:underline}
+.axw-back{display:inline-block;margin-top:10px;font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--hairline-2);border-radius:8px;padding:7px 12px;background:#fff}
+.axw-back:hover{border-color:var(--accent)}
+.axw-worldtoggle{display:block;margin:12px auto 0;font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--ink-soft);background:#fff;border:1px solid var(--hairline-2);border-radius:8px;padding:8px 16px;cursor:pointer}
+.axw-worldtoggle:hover{border-color:var(--accent);color:var(--accent)}
+.axw-filmlink{margin:26px 0 6px;text-align:center}
+.axw-filmbtn{display:inline-block;font-family:var(--font-ui);font-size:14px;font-weight:600;color:#fff;background:var(--ink);border-radius:9px;padding:11px 18px;text-decoration:none}
+.axw-filmbtn:hover{background:var(--accent)}
 .axw-bar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding:13px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-top:14px}
 .axw-fld{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .axw-k{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle)}

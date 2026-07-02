@@ -266,7 +266,7 @@ export default async function FilmPage({ params }: Props) {
       codex ? { id: "df-codex", label: "TakeScore" } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
-      mAccessRec ? { id: "df-watch", label: "Where to watch" } : null,
+      { id: "df-watch", label: "Where to watch" },
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
     ].filter(Boolean)) as { id: string; label: string; href?: string }[];
     return (
@@ -311,12 +311,10 @@ export default async function FilmPage({ params }: Props) {
           <FilmLineageSection lineage={lineage} title={f.title} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
-          {mAccessRec ? (
-            <section className="df-sec" id="df-watch">
-              <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} />
-              <Link className="ax-guide-link" href={`/film/${f.slug}/watch`}>Full where-to-watch guide →</Link>
-            </section>
-          ) : null}
+          <section className="df-sec" id="df-watch">
+            {mAccessRec ? <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} /> : null}
+            <Link className="ax-guide-link" href={`/film/${f.slug}/watch`}>Where to watch — streaming, free archives, disc &amp; subtitles →</Link>
+          </section>
           </AccessCountryProvider>
 
           <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
@@ -363,7 +361,7 @@ export default async function FilmPage({ params }: Props) {
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
-    accessRec ? { id: "df-watch", label: "Where to watch" } : null,
+    { id: "df-watch", label: "Where to watch" },
     film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
   ].filter(Boolean)) as { id: string; label: string; href?: string }[];
@@ -748,12 +746,10 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* WHERE TO WATCH — verified access layer, moved to the final tab */}
-        {accessRec ? (
-          <section className="df-sec" id="df-watch">
-            <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} />
-            <Link className="ax-guide-link" href={`/film/${film.slug}/watch`}>Full where-to-watch guide →</Link>
-          </section>
-        ) : null}
+        <section className="df-sec" id="df-watch">
+          {accessRec ? <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} /> : null}
+          <Link className="ax-guide-link" href={`/film/${film.slug}/watch`}>Where to watch — streaming, free archives, disc &amp; subtitles →</Link>
+        </section>
         </AccessCountryProvider>
 
         <div className="df-seq">
