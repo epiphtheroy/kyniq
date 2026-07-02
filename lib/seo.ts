@@ -40,6 +40,11 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    1,500). All recovered pages are Tier-1 quality-gated (visible +
  *    is_analyzed; on-page noindex below the ≥3-figure / ≥3-recs bars).
  *    NEXT REVIEW: 2026-07-16 — until then, freeze both cohort caps.
+ *  - 2026-07-02 (same day, separate content wave): +150 featured Q&A pages
+ *    (/film/x/q/y) across 25 top-prestige films — corpus-grounded, generated
+ *    then adversarially verified (83/233 candidates killed), all with QAPage
+ *    JSON-LD. Pipeline: worker/qa-seed/. Published questions: 61 → 211.
+ *    Next Q&A waves: ~25–50 films/week, same gate, watch GSC between waves.
  */
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
