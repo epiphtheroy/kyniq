@@ -196,7 +196,7 @@ export default async function DirectorPage({ params }: Props) {
   const posterBySlug = new Map<string, string | null>((films as FilmArt[]).map((f) => [f.slug, f.poster_path || f.backdrop_path || null]));
 
   // Dynamic tabs: Portrait + Filmography always; others when their data exists.
-  const tabs: { id: string; label: string }[] = [
+  const tabs: { id: string; label: string; href?: string }[] = [
     { id: "dr-portrait", label: "Portrait" },
     { id: "dr-filmography", label: "Filmography" },
   ];
@@ -208,6 +208,7 @@ export default async function DirectorPage({ params }: Props) {
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
   tabs.push({ id: "dr-map", label: "Connections" });
   if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas" });
+  tabs.push({ id: "dr-credits", label: "Credits", href: `/credits?d=${encodeURIComponent(director)}` });
 
   return (
     <div className="mt">

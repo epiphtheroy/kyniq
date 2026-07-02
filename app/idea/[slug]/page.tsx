@@ -30,7 +30,25 @@ async function load(slug: string) {
   const h = (head as { resolved_slug: string; name: string; native: string | null }[] | null)?.[0];
   if (!h) return null;
   const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
-  return { name: h.name, readings: (rd as Reading[] | null) ?? [] };
+  // Editorial intro (sm_concepts.intro via lightweight RPC). Defensive: stays
+  // null until the sm_concept_intro migration has run — page renders fine without it.
+  let intro: string | null = null;
+  const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
+  if (typeof it === "string" && it.trim()) intro = it.trim();
+  return { name: h.name, intro, readings: (rd as Reading[] | null) ?? [] };
+}
+
+// First 1–2 sentences of the intro as a plain-text meta description (≤155 chars).
+function introDescription(intro: string): string {
+  const plain = intro.replace(/\s+/g, " ").trim();
+  const sentences = plain.match(/[^.!?]+[.!?]+(\s+|$)/g);
+  let out = sentences ? sentences.slice(0, 2).join("").trim() : plain;
+  if (out.length > 155) {
+    const cut = out.slice(0, 155);
+    const sp = cut.lastIndexOf(" ");
+    out = (sp > 0 ? cut.slice(0, sp) : cut).trimEnd() + "…";
+  }
+  return out;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -39,7 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Concept — Metatake" };
   return {
     title: `${data.name} in film — readings that stage it`,
-    description: `${data.name} in cinema: ${data.readings.length} Strong Misreadings that read films through ${data.name}.`,
+    description: data.intro
+      ? introDescription(data.intro)
+      : `${data.name} in cinema: ${data.readings.length} Strong Misreadings that read films through ${data.name}.`,
     alternates: { canonical: `/idea/${slug}` },
   };
 }
@@ -48,7 +68,7 @@ export default async function IdeaPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { name, readings } = data;
+  const { name, intro, readings } = data;
 
   return (
     <div className="mt">
@@ -57,6 +77,9 @@ export default async function IdeaPage({ params }: Props) {
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/idea">Concepts</Link></div>
         <h1 className="th-h1">{name}</h1>
         <p className="th-sub">{readings.length} film{readings.length !== 1 ? "s" : ""} read through <em>{name}</em> — each a Strong Misreading that turns on this idea.</p>
+        {intro ? (
+          <p className="body reading" style={{ fontSize: 17, margin: "14px 0 0", maxWidth: "68ch" }}>{intro}</p>
+        ) : null}
 
         <div className="th-readings">
           {readings.map((r) => {

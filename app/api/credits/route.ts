@@ -10,6 +10,7 @@ export const runtime = "nodejs";
  */
 const ALLOW: RegExp[] = [
   /^\/search\/movie$/,
+  /^\/search\/person$/,
   /^\/movie\/\d+$/,
   /^\/movie\/\d+\/credits$/,
   /^\/person\/\d+$/,
@@ -26,7 +27,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "TMDB not configured" }, { status: 503 });
   }
 
-  const isSearch = p === "/search/movie";
+  const isSearch = p.startsWith("/search/");
   const params = new URLSearchParams();
   if (isSearch) {
     const q = (req.nextUrl.searchParams.get("query") || "").trim().slice(0, 200);

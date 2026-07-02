@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useReducer, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useReducer, useRef, useState, type ReactNode } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArtistData, Award, Collab, CraftKey, CrewEntry, CreditsPayload, TFilm,
@@ -60,7 +60,7 @@ function persistSeen() {
 export default function CreditsExplorer() {
   const router = useRouter();
   const sp = useSearchParams();
-  const fParam = sp.get("f"), pParam = sp.get("p"), cParam = sp.get("c");
+  const fParam = sp.get("f"), pParam = sp.get("p"), cParam = sp.get("c"), dParam = sp.get("d");
 
   const [nav, setNav] = useState<NavState | null>(null);
   const [artist, setArtist] = useState<ArtistData | null>(null);
@@ -115,6 +115,19 @@ export default function CreditsExplorer() {
           if (seq !== seqRef.current) return;
           setStatus(null);
           if ("empty" in S) setEmptyMsg(S.empty); else setArtist(S);
+        } else if (dParam) {
+          // Director-page entry: resolve a name to a TMDB person, then canonicalise the URL.
+          setNav(null); setArtist(null); setStatus("Finding them in the credits…");
+          const j = (await api("/search/person", { query: dParam })) as { results?: Array<{ id: number; name: string; known_for_department?: string | null }> };
+          if (seq !== seqRef.current) return;
+          const rs = j.results || [];
+          const hit = rs.find((r) => r.known_for_department === "Directing") || rs[0];
+          if (!hit) {
+            setStatus(null);
+            setEmptyMsg(`No one by that name in the credits on TMDB. That's the archive, not the person.`);
+            return;
+          }
+          router.replace(`/credits?p=${hit.id}&c=dir`);
         } else {
           setNav(null); setArtist(null); setStatus(null);
         }
@@ -126,12 +139,13 @@ export default function CreditsExplorer() {
       }
     };
     void run();
-    if (fParam || pParam) window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [fParam, pParam, cParam]);
+    if (fParam || pParam || dParam) window.scrollTo({ top: 0, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fParam, pParam, cParam, dParam]);
 
   return (
     <div className="cr-wrap">
-      {!fParam && !pParam ? (
+      {!fParam && !pParam && !dParam ? (
         <header className="cr-hero">
           <div className="cr-eyebrow">A Metatake experiment · 크레딧 탐험</div>
           <h1 className="cr-h1">Follow the credits.</h1>
@@ -143,7 +157,7 @@ export default function CreditsExplorer() {
         </header>
       ) : null}
 
-      <SearchBox onPick={navFilm} />
+      <SearchBox onPick={navFilm} onPickPerson={(pid, craft) => navArtist(pid, craft, null)} />
 
       {nav ? <FilmTabs nav={nav} onTab={(craft, pid) => navArtist(pid, craft, nav.film.id)} /> : null}
       {status ? <div className="cr-status"><span className="cr-spin" aria-hidden />{status}</div> : null}
@@ -174,11 +188,45 @@ export default function CreditsExplorer() {
   );
 }
 
-/* ============ search ============ */
-interface SearchRow { id: number; title: string; year: string; poster: string | null; }
+/* ============ search — films + people, with fuzzy fallback ============ */
+type SearchRow =
+  | { kind: "film"; id: number; title: string; year: string; poster: string | null }
+  | { kind: "person"; id: number; name: string; craft: CraftKey; img: string | null };
 const SAMPLES = ["In the Mood for Love", "Blade Runner 2049", "Parasite", "There Will Be Blood", "Raging Bull", "The Grand Budapest Hotel", "Oldboy", "The Tree of Life"];
+const DEPT2CRAFT: Partial<Record<string, CraftKey>> = {
+  Directing: "dir", Writing: "writer", Camera: "dp", Editing: "editor", Sound: "composer", Art: "pd",
+};
+const cleanQuery = (s: string) => s.replace(/['’´`".,:;!?()[\]]/g, " ").replace(/\s+/g, " ").trim();
 
-function SearchBox({ onPick }: { onPick: (id: number) => void }) {
+async function searchBoth(q: string): Promise<SearchRow[]> {
+  const [mv, pp] = await Promise.all([
+    api("/search/movie", { query: q }) as Promise<{ results?: Array<{ id: number; title: string; release_date?: string; poster_path: string | null }> }>,
+    api("/search/person", { query: q }) as Promise<{ results?: Array<{ id: number; name: string; known_for_department?: string | null; profile_path: string | null }> }>,
+  ]);
+  const films: SearchRow[] = (mv.results || []).slice(0, 6)
+    .map((m) => ({ kind: "film" as const, id: m.id, title: m.title, year: (m.release_date || "").slice(0, 4), poster: m.poster_path }));
+  const people: SearchRow[] = (pp.results || [])
+    .filter((p) => p.known_for_department && DEPT2CRAFT[p.known_for_department])
+    .slice(0, 4)
+    .map((p) => ({ kind: "person" as const, id: p.id, name: p.name, craft: DEPT2CRAFT[p.known_for_department as string] as CraftKey, img: p.profile_path }));
+  return [...films, ...people];
+}
+
+/* Progressive fuzzy fallback: exact → punctuation-stripped → last-token dropped (typo tolerance). */
+async function searchFuzzy(s: string): Promise<SearchRow[]> {
+  let out = await searchBoth(s);
+  if (!out.length) {
+    const c = cleanQuery(s);
+    if (c && c.toLowerCase() !== s.toLowerCase()) out = await searchBoth(c);
+  }
+  if (!out.length) {
+    const toks = cleanQuery(s).split(" ");
+    if (toks.length >= 2) out = await searchBoth(toks.slice(0, -1).join(" "));
+  }
+  return out;
+}
+
+function SearchBox({ onPick, onPickPerson }: { onPick: (id: number) => void; onPickPerson: (pid: number, craft: CraftKey) => void }) {
   const [q, setQ] = useState("");
   const [rows, setRows] = useState<SearchRow[] | null>(null);
   const [sel, setSel] = useState(-1);
@@ -192,9 +240,9 @@ function SearchBox({ onPick }: { onPick: (id: number) => void }) {
     const seq = ++seqRef.current;
     const t = setTimeout(async () => {
       try {
-        const j = (await api("/search/movie", { query: s })) as { results?: Array<{ id: number; title: string; release_date?: string; poster_path: string | null }> };
+        const out = await searchFuzzy(s);
         if (seq !== seqRef.current) return;
-        setRows((j.results || []).slice(0, 8).map((m) => ({ id: m.id, title: m.title, year: (m.release_date || "").slice(0, 4), poster: m.poster_path })));
+        setRows(out);
       } catch { if (seq === seqRef.current) setRows([]); }
     }, 280);
     return () => clearTimeout(t);
@@ -206,7 +254,10 @@ function SearchBox({ onPick }: { onPick: (id: number) => void }) {
     return () => document.removeEventListener("click", close);
   }, []);
 
-  const pick = (id: number) => { setRows(null); setQ(""); onPick(id); };
+  const pick = (row: SearchRow) => {
+    setRows(null); setQ("");
+    if (row.kind === "film") onPick(row.id); else onPickPerson(row.id, row.craft);
+  };
   const pickSample = async (title: string) => {
     try {
       const j = (await api("/search/movie", { query: title })) as { results?: Array<{ id: number }> };
@@ -214,30 +265,44 @@ function SearchBox({ onPick }: { onPick: (id: number) => void }) {
     } catch { /* ignore */ }
   };
 
+  const firstPersonIdx = rows ? rows.findIndex((r) => r.kind === "person") : -1;
+
   return (
     <div className="cr-search">
       <div className="cr-searchbox" ref={boxRef}>
         <input
           value={q} onChange={(e) => setQ(e.target.value)}
-          placeholder="Search the film you just watched… (e.g. In the Mood for Love, 기생충)"
-          aria-label="Film search" autoComplete="off"
+          placeholder="Search a film — or a cinematographer, editor, composer…"
+          aria-label="Film or person search" autoComplete="off"
           onKeyDown={(e) => {
             if (!rows?.length) return;
             if (e.key === "ArrowDown") { e.preventDefault(); setSel((s) => Math.min(s + 1, rows.length - 1)); }
             else if (e.key === "ArrowUp") { e.preventDefault(); setSel((s) => Math.max(s - 1, 0)); }
-            else if (e.key === "Enter" && sel >= 0) { e.preventDefault(); pick(rows[sel].id); }
+            else if (e.key === "Enter" && sel >= 0) { e.preventDefault(); pick(rows[sel]); }
             else if (e.key === "Escape") setRows(null);
           }}
         />
         {rows ? (
           <div className="cr-dd" role="listbox">
-            {rows.length ? rows.map((m, i) => (
-              <button key={m.id} type="button" role="option" aria-selected={i === sel}
-                className={`cr-drow${i === sel ? " is-sel" : ""}`} onClick={() => pick(m.id)}>
-                {m.poster ? <img alt="" src={img(m.poster, "w92") || undefined} /> : <span className="cr-drow-ph" />}
-                <span><b>{m.title}</b> <span className="cr-dim">{m.year}</span></span>
-              </button>
-            )) : <div className="cr-drow cr-dim">No results.</div>}
+            {rows.length ? rows.map((r, i) => (
+              <Fragment key={`${r.kind}-${r.id}`}>
+                {i === 0 && r.kind === "film" ? <div className="cr-dd-h" role="presentation">Films</div> : null}
+                {i === firstPersonIdx ? <div className="cr-dd-h" role="presentation">People · 사람으로 바로</div> : null}
+                {r.kind === "film" ? (
+                  <button type="button" role="option" aria-selected={i === sel}
+                    className={`cr-drow${i === sel ? " is-sel" : ""}`} onClick={() => pick(r)}>
+                    {r.poster ? <img alt="" src={img(r.poster, "w92") || undefined} /> : <span className="cr-drow-ph" />}
+                    <span><b>{r.title}</b> <span className="cr-dim">{r.year}</span></span>
+                  </button>
+                ) : (
+                  <button type="button" role="option" aria-selected={i === sel}
+                    className={`cr-drow is-p${i === sel ? " is-sel" : ""}`} onClick={() => pick(r)}>
+                    {r.img ? <img alt="" src={img(r.img, "w185") || undefined} /> : <span className="cr-drow-ph is-p" />}
+                    <span><b>{r.name}</b> <span className="cr-dim">{CRAFTS[r.craft].label}</span></span>
+                  </button>
+                )}
+              </Fragment>
+            )) : <div className="cr-drow cr-dim" role="presentation">No results — try fewer words or the original title.</div>}
           </div>
         ) : null}
       </div>
@@ -453,24 +518,29 @@ function ArtistView({ S, nav, onFilm, onArtist, onDossier, isSeen, toggleSeen }:
         </div>
       </section>
 
-      <SecHead en="Where to begin" kr="입문" sub="The consensus door into the filmography." />
-      <div className="cr-begin" role="link" tabIndex={0}
-        onClick={() => onFilm(startHere.id)}
-        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onFilm(startHere.id); } }}>
-        {startHere.poster ? <img alt={startHere.title} src={img(startHere.poster, "w342") || undefined} /> : <div className="cr-po" style={{ width: 76 }} />}
-        <div>
-          <div className="cr-begin-t">{startHere.title} <span className="cr-dim">{startHere.year}</span></div>
-          <div className="cr-begin-why">
-            {startHere.WR != null
-              ? <>High consensus with enough eyes on it to trust — weighted {startHere.WR.toFixed(2)} across {fmtV(startHere.v)} ratings.</>
-              : <>The most visible entry in a thinly-rated filmography.</>}
+      {/* Directors already have "Where to Start" on their Metatake director page — no duplication here. */}
+      {!isDir ? (
+        <>
+          <SecHead en="Where to begin" kr="입문" sub="The consensus door into the filmography." />
+          <div className="cr-begin" role="link" tabIndex={0}
+            onClick={() => onFilm(startHere.id)}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onFilm(startHere.id); } }}>
+            {startHere.poster ? <img alt={startHere.title} src={img(startHere.poster, "w342") || undefined} /> : <div className="cr-po" style={{ width: 76 }} />}
+            <div>
+              <div className="cr-begin-t">{startHere.title} <span className="cr-dim">{startHere.year}</span></div>
+              <div className="cr-begin-why">
+                {startHere.WR != null
+                  ? <>High consensus with enough eyes on it to trust — weighted {startHere.WR.toFixed(2)} across {fmtV(startHere.v)} ratings.</>
+                  : <>The most visible entry in a thinly-rated filmography.</>}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      {notStart ? (
-        <div className="cr-notstart">
-          Where <b>not</b> to start: <i>{notStart.title}</i> ({notStart.year}) — the consensus is unkind. Save it for the completist phase.
-        </div>
+          {notStart ? (
+            <div className="cr-notstart">
+              Where <b>not</b> to start: <i>{notStart.title}</i> ({notStart.year}) — the consensus is unkind. Save it for the completist phase.
+            </div>
+          ) : null}
+        </>
       ) : null}
 
       <SecHead en="The Essentials" kr="정본" sub="The films the consensus keeps returning to." />

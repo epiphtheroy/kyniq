@@ -29,7 +29,9 @@
 .cr-drow:last-child { border-bottom: 0; }
 .cr-drow:hover, .cr-drow.is-sel { background: var(--surface-2); }
 .cr-drow img, .cr-drow-ph { width: 26px; height: 38px; object-fit: cover; background: var(--surface-2); flex: 0 0 auto; }
+.cr-drow.is-p img, .cr-drow-ph.is-p { width: 28px; height: 28px; border-radius: 50%; }
 .cr-drow b { font-weight: 600; }
+.cr-dd-h { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--subtle); padding: 7px 12px 3px; border-bottom: 1px solid var(--hairline); background: var(--surface-2); }
 
 .cr-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: var(--sp-3); align-items: center; }
 .cr-chips-lbl { font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--subtle); margin-right: 2px; }
