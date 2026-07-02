@@ -416,6 +416,19 @@ export default async function FilmPage({ params }: Props) {
     ...(film.imdb_id ? { sameAs: `https://www.imdb.com/title/${film.imdb_id}/` } : {}),
   };
 
+  // Page-level provenance (E-E-A-T): mirrors the figure page — the readings and the
+  // invitation are editorial work, drafted in-house and signed by the human editor.
+  const pageJsonld = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    url: `https://metatake.net/film/${film.slug}`,
+    name: `${film.title}${film.year ? ` (${film.year})` : ""} — Metatake`,
+    about: { "@type": "Movie", name: film.title },
+    author: { "@type": "Organization", name: "Metatake" },
+    editor: { "@type": "Person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", name: "Metatake" },
+    ...(film.created_at ? { datePublished: film.created_at } : {}),
+  };
+
   return (
     <div className="mt">
       <SiteNav />
@@ -466,9 +479,15 @@ export default async function FilmPage({ params }: Props) {
           {invitation ? (
             <section className={`df-invite${false && trailer ? " df-invite--vid" : ""}`} id="df-invitation">
               <div className="df-invite__txt">
-                <div className="df-invite__k">An invitation</div>
+                <div className="df-invite__head">
+                  <div className="df-invite__k">An invitation</div>
+                  <span className="df-invite__badge">Spoiler-free</span>
+                </div>
                 <p className="df-invite__p">{invitation}</p>
-                <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
+                <div className="df-invite__foot">
+                  <div className="df-invite__note">The readings below do not hold back.</div>
+                  <div className="df-invite__by">— <Link href="/editor">Wonwoo Yoon</Link>, Editor</div>
+                </div>
               </div>
               {/* PRESERVED: the trailer now plays in the hero, so this duplicate is disabled.
                   To bring it back, remove the `false && ` here and on the section's df-invite--vid class above. */}
