@@ -433,6 +433,7 @@ export default async function FilmPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonld) }} />
       <div className="df-wrap">
         <div className="df-crumb">
           <Link href="/film">Films</Link>
