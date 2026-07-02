@@ -143,9 +143,13 @@ function plainText(text: string): string {
   return text.replace(/\{\{(?:film|meta_take|take):([^}]+)\}\}/g, (_m, id: string) => id.replace(/-/g, " "));
 }
 
-// Prefix a figure label with "The " for search-query framing, unless it already starts with an article.
-function withThe(label: string): string {
-  return /^the\s/i.test(label) ? label : `The ${label}`;
+// Prefix a figure label with "The " for search-query framing — but only for
+// lowercase common-noun labels ("mirror" → "The mirror"). Characters ("Anna")
+// and capitalized proper nouns ("Rosebud") keep their label verbatim.
+function withThe(label: string, kind?: string | null): string {
+  if (/^the\s/i.test(label)) return label;
+  if (kind && /char/i.test(kind)) return label;
+  return /^[a-z]/.test(label) ? `The ${label}` : label;
 }
 
 // First 1–2 sentences of prose, plain text, ≤155 chars, truncated at a word boundary with "…".
@@ -167,8 +171,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Not found" };
   // Search-query framing targets long-tail "{figure} meaning" / "{figure} symbolism in {film}" queries.
   const yearPart = data.film.year ? ` (${data.film.year})` : "";
-  const titleFull = `${withThe(data.figure.label)} in ${data.film.title}${yearPart} — meaning & readings · Metatake`;
-  const titleNoBrand = `${withThe(data.figure.label)} in ${data.film.title}${yearPart} — meaning & readings`;
+  const titleFull = `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings · Metatake`;
+  const titleNoBrand = `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings`;
   const title = titleFull.length > 155 ? titleNoBrand : titleFull;
   const description = data.figure.description ? metaDescription(data.figure.description) : undefined;
   return {
@@ -208,7 +212,7 @@ export default async function FigurePage({ params }: Props) {
   const faqLd = figure.description ? {
     "@context": "https://schema.org", "@type": "FAQPage",
     mainEntity: [{
-      "@type": "Question", name: `What does ${withThe(figure.label).replace(/^The\b/, "the")} mean in ${film.title}?`,
+      "@type": "Question", name: `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`,
       acceptedAnswer: { "@type": "Answer", text: String(figure.description) },
     }],
   } : null;
