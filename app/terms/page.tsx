@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service — Metatake",
   description: "Metatake terms of service and contribution content license.",
+  alternates: { canonical: "/terms" },
 };
 
 /* ⚠ DRAFT — NEEDS LEGAL REVIEW BEFORE LAUNCH */

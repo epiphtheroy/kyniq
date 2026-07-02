@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "About — Metatake",
   description: "A large-scale AI project that uses embeddings to map the unconscious lines between films — and between film and the world.",
+  alternates: { canonical: "/about" },
+  robots: { index: true, follow: true },
 };
 
 export default function AboutPage() {

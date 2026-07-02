@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return { title: "Edition not found — metatake blog" };
   const title = `Between Film and the World · ${mon(p.edition_date)} — metatake`;
   const description = p.dek ?? undefined;
-  return { title, description, openGraph: { title, ...(description ? { description } : {}), type: "article" } };
+  return { title, description, openGraph: { title, ...(description ? { description } : {}), type: "article" }, alternates: { canonical: `/blog/${slug}` } };
 }
 
 export default async function BlogPost({ params }: Props) {

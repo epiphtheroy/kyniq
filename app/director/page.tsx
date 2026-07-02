@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Directors — the recurring obsessions of a filmography",
   description:
     "Not a filmography list. On Metatake a director is the sum of their obsessions — the signature readings and tropes that recur across a whole body of work.",
+  alternates: { canonical: "/director" },
 };
 
 function db() {

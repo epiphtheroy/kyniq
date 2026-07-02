@@ -13,7 +13,7 @@ function unslug(s: string) { return s.replace(/-/g, " "); }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  return { title: `${unslug(slug)} — films` };
+  return { title: `${unslug(slug)} — films`, alternates: { canonical: `/genre/${slug}` } };
 }
 
 export default async function GenrePage({ params }: Props) {

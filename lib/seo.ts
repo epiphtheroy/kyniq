@@ -18,3 +18,18 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
   if (SITE_INDEXABLE && meetsBar) return undefined; // default = indexable
   return { index: false, follow: true };
 }
+
+/**
+ * INDEX COHORTS — scaled-content-abuse guard (2026-07-02).
+ * A brand-new domain (indexable since 2026-06-17, ~0 backlinks) advertising
+ * 25k+ AI-written pages at once fits Google's scaled-content detection pattern.
+ * So the sitemap releases the interpretive corpus in cohorts: oldest-first,
+ * deterministic, capped by the constants below. Pages NOT in the cohort stay
+ * indexable (no noindex) — they are simply not advertised yet.
+ *
+ * RAISE these numbers gradually (e.g. weekly ×1.5–2) while GSC shows the
+ * indexed-page count and impressions keeping up. Order is stable (created_at
+ * asc, then slug), so raising a cap only APPENDS URLs — never reshuffles.
+ */
+export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
+export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap

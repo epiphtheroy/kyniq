@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Films — read closely through their figures",
   description:
     "Not a movie database. Every film on Metatake is broken into its figures and the readings & tropes they carry, then wired to every other film that shares them.",
+  alternates: { canonical: "/film" },
 };
 
 function db() {

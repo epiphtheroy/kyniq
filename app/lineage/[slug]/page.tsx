@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(slug);
   if (!data) return { title: "Not found" };
   const title = `${data.list.label} — films in this lineage — Metatake`;
-  return { title, description: `Films that belong to ${data.list.label}: ${data.list.film_count} on Metatake, with results and rankings.` };
+  return { title, description: `Films that belong to ${data.list.label}: ${data.list.film_count} on Metatake, with results and rankings.`, alternates: { canonical: `/lineage/${slug}` } };
 }
 
 export default async function LineagePage({ params }: Props) {

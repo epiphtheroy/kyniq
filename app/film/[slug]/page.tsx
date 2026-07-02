@@ -196,6 +196,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     ...(description ? { description } : {}),
     openGraph: { title, ...(description ? { description } : {}) },
+    alternates: { canonical: `/film/${slug}` },
     robots: pageRobots(meetsBar),
   };
 }

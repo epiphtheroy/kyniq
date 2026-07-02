@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { seg } = await params;
   const s = sectionBySeg(seg);
   if (!s) return { title: "Catalog — Metatake" };
-  return { title: `${s.label} — Catalog | Metatake`, description: s.blurb };
+  return { title: `${s.label} — Catalog | Metatake`, description: s.blurb, alternates: { canonical: `/catalog/${seg}` } };
 }
 
 export default async function CatalogSection({ params }: Props) {

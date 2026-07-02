@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Tropes — figure-types that recur across cinema",
   description:
     "Recurring figure-types — the devices, situations and objects that return across films. Where a meta take is a recurring reading, a trope is a recurring kind of thing.",
+  alternates: { canonical: "/tropes" },
 };
 
 function db() {

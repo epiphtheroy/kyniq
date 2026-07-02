@@ -17,7 +17,7 @@ interface Props { params: Promise<{ fw: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { fw: slug } = await params;
-  if (slug === "all") return { title: "All Strong Misreadings — every critical reading on Metatake" };
+  if (slug === "all") return { title: "All Strong Misreadings — every critical reading on Metatake", alternates: { canonical: "/strong-misreadings/all" } };
   const f = fwBySlug(slug);
   if (!f) return { title: "Strong Misreadings — Metatake" };
   const title = `${f.label} — Strong Misreadings`;

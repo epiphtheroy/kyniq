@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Strong Misreadings — the 14 ways Metatake reads a film",
   description:
     "Browse every Strong Misreading by critical framework — psychoanalytic, ethical, semiotic, formal and more. Bold close readings across all of cinema, searchable lens by lens.",
+  alternates: { canonical: "/strong-misreadings" },
 };
 
 function db() {

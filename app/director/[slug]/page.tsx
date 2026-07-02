@@ -129,7 +129,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  return { title: `${data.director} — portrait, filmography & where to start — Metatake` };
+  return {
+    title: `${data.director} — portrait, filmography & where to start — Metatake`,
+    alternates: { canonical: `/director/${slug}` },
+  };
 }
 
 const SIG_LIMIT = 12;

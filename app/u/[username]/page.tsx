@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${name} — film portfolio · Metatake`,
     description: m ? `${name} has logged ${m.seen_count} films on Metatake — a portfolio worth ${m.nav ?? 0} in cumulative prestige.` : `${username} on Metatake.`,
+    alternates: { canonical: `/u/${username}` },
     robots: { index: false, follow: false },
   };
 }

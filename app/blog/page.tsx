@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Between Film and the World — the Metatake blog",
   description:
     "Metatake's daily: five things that happened, and the films that already knew. The day's events read for the figure underneath — every film and reading confirmed in the live corpus.",
+  alternates: { canonical: "/blog" },
 };
 
 function db() {

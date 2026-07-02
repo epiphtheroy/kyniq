@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { km, detail } = data;
   const title = `${detail.label} — ${km.label} | Metatake`;
   const description = detail.definition ?? `${detail.member_count} figures classified as ${detail.label}.`;
-  return { title, description, openGraph: { title, description }, robots: pageRobots(detail.member_count >= 1) };
+  return { title, description, openGraph: { title, description }, alternates: { canonical: `/catalog/${seg}/${slug}` }, robots: pageRobots(detail.member_count >= 1) };
 }
 
 export default async function CatalogNode({ params }: Props) {

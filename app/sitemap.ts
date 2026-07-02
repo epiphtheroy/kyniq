@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
-import { SITE_INDEXABLE } from "@/lib/seo";
+import { SITE_INDEXABLE, INDEX_COHORT_READINGS, INDEX_COHORT_TROPES } from "@/lib/seo";
 import { BROWSABLE } from "@/lib/frameworks";
 
 /**
@@ -31,17 +31,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Published readings (/take) + tropes (/trope) — the core interpretive corpus.
-  const { data: metas } = await supabase
+  // Released to search engines in deterministic cohorts (see lib/seo.ts,
+  // INDEX_COHORT_*): oldest-first so raising the cap only appends URLs.
+  const { data: readings } = await supabase
     .from("meta_takes")
-    .select("slug, kind, updated_at, created_at")
+    .select("slug, updated_at, created_at")
     .eq("status", "published")
-    .in("kind", ["reading", "figure_type"]);
-  for (const m of metas ?? []) {
+    .eq("kind", "reading")
+    .order("created_at", { ascending: true })
+    .order("slug", { ascending: true })
+    .range(0, INDEX_COHORT_READINGS - 1);
+  for (const m of readings ?? []) {
     entries.push({
-      url: `${siteUrl}/${m.kind === "figure_type" ? "trope" : "take"}/${m.slug}`,
+      url: `${siteUrl}/take/${m.slug}`,
       lastModified: new Date(m.updated_at || m.created_at),
       changeFrequency: "weekly",
-      priority: m.kind === "figure_type" ? 0.7 : 0.85,
+      priority: 0.85,
+    });
+  }
+  const { data: tropes } = await supabase
+    .from("meta_takes")
+    .select("slug, updated_at, created_at")
+    .eq("status", "published")
+    .eq("kind", "figure_type")
+    .order("created_at", { ascending: true })
+    .order("slug", { ascending: true })
+    .range(0, INDEX_COHORT_TROPES - 1);
+  for (const m of tropes ?? []) {
+    entries.push({
+      url: `${siteUrl}/trope/${m.slug}`,
+      lastModified: new Date(m.updated_at || m.created_at),
+      changeFrequency: "weekly",
+      priority: 0.7,
     });
   }
 

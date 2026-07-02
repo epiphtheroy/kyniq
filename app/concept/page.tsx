@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Critical concepts in film — meaning & examples",
   description: "Recurring critical ideas in cinema — the uncanny, the gaze, commodity fetishism, unreliable narration and more — each with the films and readings that embody it.",
   openGraph: { title: "Critical concepts in film — meaning & examples", description: "Recurring critical ideas in cinema, each with the films that embody it." },
+  alternates: { canonical: "/concept" },
   robots: pageRobots(true),
 };
 

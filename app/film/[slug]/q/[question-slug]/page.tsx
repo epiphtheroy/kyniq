@@ -27,7 +27,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { "question-slug": qSlug } = await params;
+  const { slug, "question-slug": qSlug } = await params;
   const supabase = supabaseAnon();
 
   const { data: question } = await supabase
@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${question.title} — ${film.title}${yearStr}`,
     description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on Metatake.`,
+    alternates: { canonical: `/film/${slug}/q/${qSlug}` },
   };
 }
 

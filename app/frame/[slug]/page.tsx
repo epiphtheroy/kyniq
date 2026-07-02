@@ -118,6 +118,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${data.frame.label} — ${data.instances.length} films, ranked`,
     description: `${data.frame.definition ?? ""} The films where this question matters most, ranked and answered on Metatake.`,
+    alternates: { canonical: `/frame/${slug}` },
   };
 }
 
