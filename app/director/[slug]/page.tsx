@@ -120,13 +120,26 @@ async function loadUncached(slug: string) {
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
 
   return {
-    director, dir, films, sigTropes, perFilmReadings, total: films.length, readingCount, tropeCount: tropeFilms.size,
+    // perFilmReadings is a Map; the Data Cache can't serialize Maps, so return
+    // a plain object. Consumers read it with bracket access.
+    director, dir, films, sigTropes, perFilmReadings: Object.fromEntries(perFilmReadings), total: films.length, readingCount, tropeCount: tropeFilms.size,
     portrait: portrait as { body: string; source: string } | null,
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
     recBy, misreadings, archGroups, geoCount,
   };
+}
+
+// generateStaticParams returns [] (nothing prebuilt) and load() is a large
+// multi-query fetch, so without caching every director view re-ran the whole
+// set dynamically. Cache per slug in the Data Cache so the route is ISR-cached;
+// tagged director:<slug> for on-demand refresh.
+function load(slug: string) {
+  return unstable_cache(() => loadUncached(slug), ["director-load", slug], {
+    revalidate: 300,
+    tags: [`director:${slug}`],
+  })();
 }
 
 // First 1–2 sentences of prose, plain text, ≤155 chars, truncated at a word boundary with "…".
@@ -435,7 +448,7 @@ export default async function DirectorPage({ params }: Props) {
             {films.map((f) => {
               const film = f as { slug: string; title: string; year: number | null; backdrop_path?: string | null; poster_path?: string | null };
               const art = film.backdrop_path ? `${IMG}/w500${film.backdrop_path}` : film.poster_path ? `${IMG}/w342${film.poster_path}` : null;
-              const count = perFilmReadings.get(f.id) ?? 0;
+              const count = perFilmReadings[f.id] ?? 0;
               return (
                 <Link className="dr-fcard" href={`/film/${film.slug}`} key={film.slug}>
                   <div className="dr-bdwrap">
