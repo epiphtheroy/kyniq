@@ -4231,3 +4231,28 @@ a.ax-offer:hover{border-color:var(--ink)}
   .ax-row-items{flex:1}
   .ax-am{font-size:20px}
 }
+
+/* ── Where to watch — landing (/where-to-watch): featured random film + sample cards ── */
+.wtw{margin:22px 0 8px}
+.wtw-kicker{display:block;font-family:var(--font-ui);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);margin-bottom:8px}
+.wtw-featwrap{margin-bottom:26px}
+.wtw-feat{display:flex;gap:18px;align-items:stretch;text-decoration:none;color:inherit;border:1px solid var(--hairline);border-radius:12px;padding:14px;background:#fff;max-width:620px;transition:border-color .12s, box-shadow .12s}
+.wtw-feat:hover{border-color:var(--ink);box-shadow:0 6px 22px rgba(0,0,0,.08)}
+.wtw-feat__pi{width:118px;height:177px;object-fit:cover;border-radius:8px;flex:0 0 auto;background:var(--hairline)}
+.wtw-feat__pi--empty{background:var(--hairline)}
+.wtw-feat__tx{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.wtw-feat__t{font-family:var(--font-serif,Georgia,serif);font-size:22px;line-height:1.15}
+.wtw-feat__yr{font-family:var(--font-ui);font-size:14px;color:var(--muted)}
+.wtw-feat__dir{font-family:var(--font-ui);font-size:13px;color:var(--muted);margin-top:3px}
+.wtw-feat__teaser{font-family:var(--font-ui);font-size:13.5px;color:var(--safe,#0F6E56);font-weight:600;margin-top:10px}
+.wtw-feat__cta{font-family:var(--font-ui);font-size:13.5px;color:var(--accent);margin-top:8px}
+.wtw-shuffle{margin-top:12px;font-family:var(--font-ui);font-size:12.5px;color:var(--muted);background:none;border:1px solid var(--hairline-2);border-radius:999px;padding:6px 13px;cursor:pointer}
+.wtw-shuffle:hover{border-color:var(--ink);color:var(--ink)}
+.wtw-sub{font-family:var(--font-ui);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--subtle);margin:4px 0 12px}
+.wtw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px}
+.wtw-card{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.wtw-card__pi{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:8px;background:var(--hairline);border:1px solid var(--hairline);transition:border-color .12s, transform .12s}
+.wtw-card:hover .wtw-card__pi{border-color:var(--ink);transform:translateY(-2px)}
+.wtw-card__t{font-family:var(--font-serif,Georgia,serif);font-size:14.5px;line-height:1.2;margin-top:8px}
+.wtw-card__teaser{font-family:var(--font-ui);font-size:11.5px;color:var(--muted);margin-top:3px}
+@media(min-width:600px){.wtw-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
