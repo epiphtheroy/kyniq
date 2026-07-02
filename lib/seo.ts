@@ -30,6 +30,16 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  * RAISE these numbers gradually (e.g. weekly ×1.5–2) while GSC shows the
  * indexed-page count and impressions keeping up. Order is stable (created_at
  * asc, then slug), so raising a cap only APPENDS URLs — never reshuffles.
+ *
+ * RELEASE LOG — treat each entry as one weekly step; do NOT raise again
+ * before the "next review" date, and only if GSC indexed count + impressions
+ * kept climbing since the previous step:
+ *  - 2026-07-02: sitemap 4,163 → 6,841. Not a cap raise — fixed Supabase's
+ *    1,000-row response cap silently truncating films (1,000→1,935),
+ *    movies-like (→1,935), directors (→~860) and tropes (1,000→the intended
+ *    1,500). All recovered pages are Tier-1 quality-gated (visible +
+ *    is_analyzed; on-page noindex below the ≥3-figure / ≥3-recs bars).
+ *    NEXT REVIEW: 2026-07-16 — until then, freeze both cohort caps.
  */
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
