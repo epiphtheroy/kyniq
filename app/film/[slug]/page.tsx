@@ -361,7 +361,7 @@ export default async function FilmPage({ params }: Props) {
   const hasLineage = lineage.length > 0;
 
   // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
-  const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount.get(f.id) ?? 0) > 0);
+  const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount[f.id] ?? 0) > 0);
   const grouped = KIND_ORDER.filter((k) => k !== "film" && k !== "title")
     .map((k) => ({ kind: k, items: catalogue.filter((f) => (f.kind ?? "trope") === k) })).filter((g) => g.items.length > 0);
 
@@ -580,7 +580,7 @@ export default async function FilmPage({ params }: Props) {
               <div key={g.kind} className="df-fgroup">
                 <div className="df-flabel">{KIND_LABEL[g.kind] ?? g.kind}</div>
                 {g.items.map((f) => {
-                  const n = takeCount.get(f.id) ?? 0;
+                  const n = takeCount[f.id] ?? 0;
                   return (
                     <div key={f.id} className="df-fig">
                       <div className="df-figL">
