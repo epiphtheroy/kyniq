@@ -37,6 +37,12 @@ export default function AboutPage() {
         <em> figures</em> a film keeps returning to: an object, a gesture, a color, a particular kind of silence.
         Each figure opens onto other films that share it, and the connections are yours to follow.
       </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        The map is already substantial — 1,900+ films, 870+ directors, 4,700+ tropes and 26,000+ readings, growing
+        daily — which makes it one of the largest structured, interconnected bodies of film interpretation anywhere.
+        But the scale is the means, not the point: every reading lives in one embedding space, so what the database
+        really stores is <em>relations</em> — which meanings sit close to which — rather than rows about titles.
+      </p>
 
       <hr className="rule" />
 
@@ -169,9 +175,11 @@ export default function AboutPage() {
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         The readings are drafted by{" "}
         <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span> — an AI system built for close film
-        analysis — and published under the editor&apos;s name. They draw on the language and concepts of film criticism
-        and theory, but each reading is an <em>interpretation, not a citation</em>, and it&apos;s published directly
-        rather than passing a separate human sign-off. Quality is kept up by an ongoing audit-and-revision loop: we and
+        analysis — and every reading is reviewed and edited by{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, the human editor,
+        who signs off on what stands on the site. They draw on the language and concepts of film criticism
+        and theory, but each reading is an <em>interpretation, not a citation</em>. Quality is kept up by that
+        editorial pass and an ongoing audit-and-revision loop: we and
         our readers flag errors, and pages are corrected as issues surface. We fix factual mistakes; interpretations
         stay open — a film sustains many readings, so logged-in readers can add their own beneath any figure (no
         downvotes). Film stills and posters come from TMDB. Spot something off? Corrections are welcome at the address
@@ -186,8 +194,8 @@ export default function AboutPage() {
         Metatake is made and edited by{" "}
         <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> — a cinephile in
         Seoul, trained as a management scholar, who started Metatake to give the after-film feeling somewhere to go.
-        The readings are drafted by Metatake Editorial and published under his name. Questions, corrections, and
-        disagreements are all welcome.
+        The readings are drafted by Metatake Editorial, then reviewed, edited and published under his name. Questions,
+        corrections, and disagreements are all welcome.
       </p>
 
       <hr className="rule" />
