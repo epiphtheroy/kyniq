@@ -1,10 +1,25 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import TrendingSections, { type TrendPool } from "@/components/TrendingSections";
 
+// Reading ?window forces this route to render dynamically, so `revalidate`
+// alone can't cache it — every request re-ran the ~1.3s trending_pool RPC.
+// Cache the RPC result per window value (only "week" | "all") in the Data
+// Cache instead; tagged "trending" for on-demand refresh via /api/revalidate.
 export const revalidate = 600;
+
+const getTrendingPool = (win: "week" | "all") =>
+  unstable_cache(
+    async () => {
+      const { data } = await db().rpc("trending_pool", { p_window: win });
+      return (data as TrendPool | null) ?? { metas: [], takes: [], tropes: [], films: [] };
+    },
+    ["trending-pool", win],
+    { revalidate: 600, tags: ["trending"] },
+  )();
 
 export const metadata: Metadata = {
   title: "Trending — the readings drawing the most attention",
@@ -18,10 +33,8 @@ function db() {
 
 export default async function TrendingPage({ searchParams }: { searchParams: Promise<{ window?: string }> }) {
   const sp = await searchParams;
-  const win = sp.window === "week" ? "week" : "all";
-  const supabase = db();
-  const { data } = await supabase.rpc("trending_pool", { p_window: win });
-  const pool = (data as TrendPool | null) ?? { metas: [], takes: [], tropes: [], films: [] };
+  const win: "week" | "all" = sp.window === "week" ? "week" : "all";
+  const pool = await getTrendingPool(win);
 
   const now = new Date();
   const TZ = "Asia/Seoul";
