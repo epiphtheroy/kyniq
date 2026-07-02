@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -27,7 +28,7 @@ type Pick = { pos: number; film_slug: string | null; film_title: string | null; 
 type Fact = { n: number; text: string; source?: string | null };
 type Next = { pos: number; rec_name: string; reason: string; target_slug: string | null; tmdb_person_id: number | null; profile_path: string | null };
 
-async function load(slug: string) {
+async function loadUncached(slug: string) {
   const supabase = db();
   const { data: films } = await supabase
     .from("films").select("id, title, slug, year, director, backdrop_path, poster_path").eq("director_slug", slug).eq("visible", true).order("year");
@@ -101,7 +102,9 @@ async function load(slug: string) {
   }
   const sigTropes = [...tropeFilms.values()]
     .filter((m) => m.films.size >= 2).sort((a, b) => b.films.size - a.films.size)
-    .map((m) => ({ ...m, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
+    // Drop the `films` Set from the returned shape — the Data Cache can't
+    // serialize Sets, and consumers only read `filmList`.
+    .map((m) => ({ slug: m.slug, title: m.title, filmList: [...m.films].map((id) => filmById.get(id)!).filter(Boolean) }));
 
   // Who's Next photos: matched directors (target_slug set) have their photo in `directors`,
   // not in director_next — pull it so the circles aren't grey.
