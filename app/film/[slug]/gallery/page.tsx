@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
@@ -6,6 +7,8 @@ import GalleryViewer from "@/components/GalleryViewer";
 
 // Images change rarely; cache the TMDB call for a day (ISR).
 export const revalidate = 86400;
+// Enables the on-demand Full Route Cache (ISR HIT) instead of dynamic renders.
+export async function generateStaticParams() { return []; }
 
 const TMDB = process.env.TMDB_READ_TOKEN;
 
@@ -17,9 +20,16 @@ interface Props { params: Promise<{ slug: string }> }
 
 type Img = { file_path: string; width: number; height: number; iso_639_1: string | null; vote_count?: number };
 
-async function filmBySlug(slug: string) {
-  const { data } = await db().from("films").select("id, title, slug, year, tmdb_id").eq("slug", slug).maybeSingle();
-  return data as { id: string; title: string; slug: string; year: number | null; tmdb_id: number | null } | null;
+// Cached per slug so the uncached Supabase lookup doesn't force dynamic rendering.
+function filmBySlug(slug: string) {
+  return unstable_cache(
+    async () => {
+      const { data } = await db().from("films").select("id, title, slug, year, tmdb_id").eq("slug", slug).maybeSingle();
+      return data as { id: string; title: string; slug: string; year: number | null; tmdb_id: number | null } | null;
+    },
+    ["gallery-film", slug],
+    { revalidate: 86400, tags: [`film:${slug}`] },
+  )();
 }
 
 async function tmdbImages(tmdbId: number): Promise<{ backdrops: Img[]; posters: Img[] } | null> {

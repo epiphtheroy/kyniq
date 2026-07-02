@@ -201,12 +201,9 @@ export default function FilmMap({
         const f = ev.features?.[0]; if (!f) return;
         m.getCanvas().style.cursor = "pointer";
         const p = f.properties;
-        const h = [`<b style="font-size:13px">${esc(p.name)}</b>`];
-        if (p.film) h.push(`<div style="color:#8a8278;font-size:11px;margin-top:1px">${esc(p.film)}</div>`);
-        if (p.role) h.push(`<div style="color:#55504a;margin-top:4px;line-height:1.4">${esc(p.role.slice(0, 150))}${p.role.length > 150 ? "…" : ""}</div>`);
         hoverPop.current?.remove();
-        hoverPop.current = new ml.Popup({ closeButton: false, closeOnClick: false, offset: 12, maxWidth: "240px" })
-          .setLngLat(f.geometry.coordinates as number[]).setHTML(`<div style="font-family:sans-serif;font-size:12px">${h.join("")}</div>`).addTo(m);
+        hoverPop.current = new ml.Popup({ closeButton: false, closeOnClick: false, offset: 14, maxWidth: "270px" })
+          .setLngLat(f.geometry.coordinates as number[]).setHTML(popupHTML(p, false)).addTo(m);
       });
       m.on("mouseleave", "pt", () => { m.getCanvas().style.cursor = ""; hoverPop.current?.remove(); hoverPop.current = null; });
       m.on("mouseenter", "clusters", () => { m.getCanvas().style.cursor = "pointer"; });
@@ -215,19 +212,10 @@ export default function FilmMap({
       m.on("click", "pt", (ev: { features?: { properties: Record<string, string>; geometry: { coordinates: number[] } }[] }) => {
         const f = ev.features?.[0]; if (!f) return;
         setActive(f.properties.id);
-        const p = f.properties; const filmed = p.layer === "filmed";
-        const parts = [`<b style="font-size:14px">${esc(p.name)}</b>`];
-        if (p.film) parts.push(`<div style="color:#8a8278;font-size:11.5px;margin-top:1px">${esc(p.film)}</div>`);
-        if (filmed) {
-          const tag = p.built ? `Built set${p.host ? `: ${esc(p.host)}` : ""}` : "Filming location";
-          parts.push(`<div style="color:#0F6E56;font-weight:700;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;margin-top:7px">${tag}${p.tier ? ` · ${esc(p.tier)}` : ""}</div>`);
-        }
-        if (p.role) parts.push(`<div style="color:#55504a;margin-top:5px;line-height:1.45">${esc(p.role)}${p.role.length >= 300 ? "…" : ""}</div>`);
-        if (filmed && p.src) parts.push(`<a href="${p.src}" target="_blank" rel="noopener" style="color:#0F6E56;font-weight:600;display:inline-block;margin-top:7px;margin-right:12px">Source ↗</a>`);
-        if (p.href) parts.push(`<a href="${p.href}" style="color:#C8102E;font-weight:600;display:inline-block;margin-top:7px">${filmed ? "Open the film ↗" : "Read this in the film ↗"}</a>`);
+        const p = f.properties;
         hoverPop.current?.remove();
         popup.current?.remove();
-        popup.current = new ml.Popup({ closeButton: true, offset: 12, maxWidth: "280px" }).setLngLat(f.geometry.coordinates as number[]).setHTML(`<div style="font-family:sans-serif;font-size:12.5px">${parts.join("")}</div>`).addTo(m);
+        popup.current = new ml.Popup({ closeButton: true, offset: 14, maxWidth: "300px" }).setLngLat(f.geometry.coordinates as number[]).setHTML(popupHTML(p, true)).addTo(m);
       });
     }).catch(() => {});
     return () => { alive = false; try { map.current?.remove(); } catch {} map.current = null; };
