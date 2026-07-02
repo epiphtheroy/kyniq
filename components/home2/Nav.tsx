@@ -24,6 +24,7 @@ function buildGroups(c: NavCounts): Group[] {
       { t: "Lineage", h: "/lineage" },
       { t: "Atlas", h: "/atlas" },
       { t: "Connections", h: "/map" },
+      { t: "Credits", h: "/credits" },
       { t: "Surprise me", h: "/random" },
       { t: "Blog", h: "/blog" },
     ] },

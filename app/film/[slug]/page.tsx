@@ -64,7 +64,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_extra, created_at, visible, is_analyzed")
+    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, tmdb_extra, created_at, visible, is_analyzed")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
   if (film.is_analyzed === false) {
@@ -248,7 +248,7 @@ export default async function FilmPage({ params }: Props) {
     </div>
   ) : null;
   if ("minimal" in data && data.minimal) {
-    const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null };
+    const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null; tmdb_id: number | null };
     const { lineage, recommendedBy, ratings, watch } = data;
     const mTabs = ([
       codex ? { id: "df-codex", label: "TakeScore" } : null,
@@ -281,6 +281,7 @@ export default async function FilmPage({ params }: Props) {
                 {mvChips}
                 <div className="df-hactions">
                   <MovieListActions filmId={f.id} />
+                  {f.tmdb_id ? <Link className="df-like" href={`/credits?f=${f.tmdb_id}`}>🎞 Follow the credits →</Link> : null}
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
                 </div>
                 <p className="df-catnote">Catalog entry — not yet deeply analyzed on Metatake. Track it in your lists; the films most readers add are the ones we analyze next.</p>
@@ -339,6 +340,7 @@ export default async function FilmPage({ params }: Props) {
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
+    film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
   ].filter(Boolean)) as { id: string; label: string; href?: string }[];
 

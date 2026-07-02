@@ -7,6 +7,7 @@
  * to Netflix/Amazon are not available under the license, so each block links to the TMDB watch page.
  */
 import { useEffect, useMemo, useState } from "react";
+import { useAccessCountry } from "@/components/AccessCountryProvider";
 
 const LOGO = "https://image.tmdb.org/t/p/w45";
 type Prov = { provider_id: number; provider_name: string; logo_path: string | null };
@@ -44,19 +45,26 @@ export default function WatchProviders({ results, countries }: { results: Record
     return [...pref, ...rest];
   }, [countries]);
 
-  const [country, setCountry] = useState<string>(sorted[0] || "US");
+  // Country state: shared context when an AccessCountryProvider wraps us (film page),
+  // internal state + localStorage fallback everywhere else (unchanged behaviour).
+  const ctx = useAccessCountry();
+  const [localCountry, setLocalCountry] = useState<string>(sorted[0] || "US");
 
   useEffect(() => {
+    if (ctx) return; // provider owns localStorage/locale initialisation
     let initial = "";
     try { initial = localStorage.getItem("mt_country") || ""; } catch {}
     if (!initial) {
       try { initial = (new Intl.DateTimeFormat().resolvedOptions().locale.split("-")[1] || "").toUpperCase(); } catch {}
     }
-    if (initial && sorted.includes(initial)) setCountry(initial);
-  }, [sorted]);
+    if (initial && sorted.includes(initial)) setLocalCountry(initial);
+  }, [sorted, ctx]);
+
+  const country = ctx && sorted.includes(ctx.country) ? ctx.country : (sorted.includes(localCountry) ? localCountry : (sorted[0] || "US"));
 
   function pick(c: string) {
-    setCountry(c);
+    setLocalCountry(c);
+    if (ctx) { ctx.setCountry(c); return; }
     try { localStorage.setItem("mt_country", c); } catch {}
   }
 
