@@ -258,7 +258,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Not found" };
   if ("minimal" in data && data.minimal) {
     const f = data.film as { title: string; year: number | null };
-    const t = `${f.title}${f.year ? ` (${f.year})` : ""} — Metatake`;
+    const t = `${f.title}${f.year ? ` (${f.year})` : ""}`;
     return { title: t, robots: pageRobots(false) };
   }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
