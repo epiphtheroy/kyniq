@@ -37,7 +37,7 @@ export default function WhereToWatchLanding({ films }: { films: WtwFilm[] }) {
     <div className="wtw">
       <div className="wtw-featwrap">
         <span className="wtw-kicker">Try one now</span>
-        <Link className="wtw-feat" href={`/film/${feat.slug}/watch`}>
+        <Link className="wtw-feat" href={`/whereto/${feat.slug}`}>
           {feat.poster_path ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img className="wtw-feat__pi" src={`${IMG}/w342${feat.poster_path}`} alt={feat.title} />
@@ -69,7 +69,7 @@ export default function WhereToWatchLanding({ films }: { films: WtwFilm[] }) {
           <div className="wtw-sub">Or start with one of these</div>
           <div className="wtw-grid">
             {rest.map((f) => (
-              <Link key={f.slug} className="wtw-card" href={`/film/${f.slug}/watch`}>
+              <Link key={f.slug} className="wtw-card" href={`/whereto/${f.slug}`}>
                 {f.poster_path ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img className="wtw-card__pi" src={`${IMG}/w185${f.poster_path}`} alt={f.title} loading="lazy" />

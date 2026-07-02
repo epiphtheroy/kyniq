@@ -58,7 +58,7 @@ export default async function WhereToWatchPage() {
           differences, disc editions and subtitle links. Start typing a title or director.
         </p>
         <div style={{ maxWidth: "560px", margin: "18px 0 6px" }}>
-          <SearchTypeahead autoFocus filmPath="/film/{slug}/watch" />
+          <SearchTypeahead autoFocus filmPath="/whereto/{slug}" />
         </div>
 
         <WhereToWatchLanding films={films} />

@@ -9,6 +9,7 @@ import SaveChip from "@/components/SaveChip";
 import FilmTopInfo from "@/components/FilmTopInfo";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
 import AccessEnrichment, { type AccessRecord } from "@/components/AccessEnrichment";
+import AccessSummary from "@/components/AccessSummary";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import FilmLineageSection from "@/components/FilmLineageSection";
 import CinecodexPanel, { type Codex } from "@/components/CinecodexPanel";
@@ -312,8 +313,8 @@ export default async function FilmPage({ params }: Props) {
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
           <section className="df-sec" id="df-watch">
+            <AccessSummary watch={watch} record={mAccessRec} slug={f.slug} title={f.title} />
             {mAccessRec ? <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} /> : null}
-            <Link className="ax-guide-link" href={`/film/${f.slug}/watch`}>Where to watch — streaming, free archives, disc &amp; subtitles →</Link>
           </section>
           </AccessCountryProvider>
 
@@ -747,8 +748,8 @@ export default async function FilmPage({ params }: Props) {
 
         {/* WHERE TO WATCH — verified access layer, moved to the final tab */}
         <section className="df-sec" id="df-watch">
+          <AccessSummary watch={watch} record={accessRec} slug={film.slug} title={film.title} />
           {accessRec ? <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} /> : null}
-          <Link className="ax-guide-link" href={`/film/${film.slug}/watch`}>Where to watch — streaming, free archives, disc &amp; subtitles →</Link>
         </section>
         </AccessCountryProvider>
 
