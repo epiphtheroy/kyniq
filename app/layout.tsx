@@ -65,11 +65,14 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteUrl}/#org`,
   name: "Metatake",
   url: siteUrl,
   logo: `${siteUrl}/og-image.png`,
+  foundingLocation: { "@type": "Place", name: "Seoul, Republic of Korea" },
   founder: {
     "@type": "Person",
+    "@id": `${siteUrl}/editor#person`,
     name: "Wonwoo Yoon",
     url: `${siteUrl}/editor`,
   },

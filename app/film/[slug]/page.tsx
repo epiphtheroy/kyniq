@@ -428,9 +428,9 @@ export default async function FilmPage({ params }: Props) {
     url: `https://metatake.net/film/${film.slug}`,
     name: `${film.title}${film.year ? ` (${film.year})` : ""} — Metatake`,
     about: { "@type": "Movie", name: film.title },
-    author: { "@type": "Organization", name: "Metatake" },
-    editor: { "@type": "Person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
-    publisher: { "@type": "Organization", name: "Metatake" },
+    author: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
     ...(film.created_at ? { datePublished: film.created_at } : {}),
   };
 
