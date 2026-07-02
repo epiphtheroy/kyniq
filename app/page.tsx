@@ -9,7 +9,7 @@ import "@/app/home2.css";
 // home_v2_bundle_v2 RPC (311 KB payload) on every request. Serve a statically
 // prerendered, edge-cached page and refresh it via ISR. Freshness is covered
 // three ways: hourly time-based revalidation, every deploy (frequent), and the
-// nightly publisher calling /api/revalidate with "/" (see revalidateHome tag).
+// nightly publisher hitting /api/revalidate with path "/" + tag "home-v2".
 // The RPC is a POST, which Next's fetch cache never caches, so we wrap the call
 // in unstable_cache to persist the result in the Data Cache across requests.
 export const revalidate = 3600;
