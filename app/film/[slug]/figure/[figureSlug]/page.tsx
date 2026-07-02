@@ -9,6 +9,7 @@ import EntityMap from "@/components/EntityMap";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
+import Byline from "@/components/Byline";
 import { FigureStats } from "@/components/detail/FigureDetailBits";
 import { renderTokens } from "@/lib/mtTokens";
 import { fw } from "@/lib/frameworks";
@@ -136,17 +137,37 @@ const CATALOG_ORDER = [
 ] as const;
 const CATALOG_CAP: Record<string, number> = { theme: 5, char_identity: 4, char_complex: 3 };
 
+// Strip stored {{film:slug}} / {{meta_take:slug}} tokens down to plain, human-readable text
+// (metadata contexts have no renderer, so tokens must not leak as literal braces).
+function plainText(text: string): string {
+  return text.replace(/\{\{(?:film|meta_take|take):([^}]+)\}\}/g, (_m, id: string) => id.replace(/-/g, " "));
+}
+
+// First 1–2 sentences of prose, plain text, ≤155 chars, truncated at a word boundary with "…".
+function metaDescription(text: string, maxLen = 155): string {
+  const plain = plainText(text).replace(/\s+/g, " ").trim();
+  const sentences = plain.match(/[^.!?]+[.!?]+(\s+|$)/g);
+  let out = sentences ? sentences.slice(0, 2).join("").trim() : plain;
+  if (out.length > maxLen) {
+    const cut = out.slice(0, maxLen);
+    const lastSpace = cut.lastIndexOf(" ");
+    out = (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trimEnd() + "…";
+  }
+  return out;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) return { title: "Not found" };
   // Question/"explained" framing targets long-tail "{element} in {film} meaning" queries.
   const title = `${data.figure.label} in ${data.film.title}${data.film.year ? ` (${data.film.year})` : ""}, explained`;
-  const description = data.figure.description ?? undefined;
+  const description = data.figure.description ? metaDescription(data.figure.description) : undefined;
   return {
     title,
     description,
     openGraph: { title, ...(description ? { description } : {}) },
+    twitter: { card: "summary_large_image", title, ...(description ? { description } : {}) },
     alternates: { canonical: `/film/${slug}/figure/${figureSlug}` },
     robots: pageRobots(data.takes.length >= 3 && (data.film as { visible?: boolean }).visible !== false),
   };
@@ -200,6 +221,7 @@ export default async function FigurePage({ params }: Props) {
         <section className="fg-head">
           <div className="fg-kindtag">Figure</div>
           <h1 className="fg-h1">{figure.label}</h1>
+          <Byline created={figure.created_at} updated={figure.updated_at} />
 
           <div className="fg-fromfilm">
             {film.poster_path ? (

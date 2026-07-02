@@ -7,6 +7,7 @@ import EntityActions from "@/components/EntityActions";
 import SaveButton from "@/components/SaveButton";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
+import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
 import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
@@ -54,17 +55,38 @@ async function load(slug: string) {
   return { t, readings, filmCount: films.size };
 }
 
+// Extracts the first 1–2 sentences of a prose field as a plain-text meta
+// description: strips markdown/newlines, then truncates to <=155 chars on a
+// word boundary with an ellipsis. Falls back to the raw text if no sentence
+// boundary is found within the limit.
+function descriptionFromThesis(thesis: string | null | undefined): string | null {
+  if (!thesis) return null;
+  const plain = thesis.replace(/[*_`#>[\]]/g, "").replace(/\s+/g, " ").trim();
+  if (!plain) return null;
+  const sentences = plain.match(/[^.!?]+[.!?]+/g) ?? [plain];
+  let out = sentences[0].trim();
+  if (sentences[1] && (out + " " + sentences[1]).length <= 155) {
+    out = (out + " " + sentences[1]).trim();
+  }
+  if (out.length <= 155) return out;
+  const truncated = out.slice(0, 155);
+  const lastSpace = truncated.lastIndexOf(" ");
+  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trim() + "…";
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Trope — Metatake" };
   const phrase = (data.t as { seo_phrase?: string | null }).seo_phrase;
   const title = phrase ? `${phrase} — ${data.filmCount} films` : `${data.t.title} — a trope across ${data.filmCount} films`;
-  const description = data.t.thesis ?? data.t.laconic ?? undefined;
+  const fallbackDescription = data.t.thesis ?? data.t.laconic ?? undefined;
+  const description = descriptionFromThesis(data.t.thesis) ?? fallbackDescription;
   return {
     title,
     description,
     openGraph: { title, ...(description ? { description } : {}) },
+    twitter: { card: "summary_large_image", title, ...(description ? { description } : {}) },
     alternates: { canonical: `/trope/${slug}` },
     robots: pageRobots(true),
   };
@@ -107,6 +129,7 @@ export default async function TropePage({ params }: Props) {
           </div>
           <h1 className="tp-h1">{t.title}</h1>
           {t.laconic ? <p className="tp-laconic">{t.laconic}</p> : null}
+          <Byline created={t.created_at} updated={t.updated_at} />
           <div className="tp-actions">
             <EntityActions entityType="meta_take" entityId={t.id} />
             <SaveButton entityType="trope" entityRef={slug} label="Save" labelOn="Saved" variant="bookmark" />

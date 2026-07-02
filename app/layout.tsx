@@ -52,14 +52,27 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metatake — A Critical Map of Cinema",
-    description:
-      "Read films closely. A critical map of cinema that links films through the readings and meanings they share.",
     images: ["/og-image.png"],
   },
   other: {
     "theme-color": "#FFFFFF",
   },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Metatake",
+  url: siteUrl,
+  logo: `${siteUrl}/og-image.png`,
+  founder: {
+    "@type": "Person",
+    name: "Wonwoo Yoon",
+    url: `${siteUrl}/editor`,
+  },
+  description:
+    "A critical map of cinema — 1,900+ films linked through 26,000+ close readings in one embedding space.",
+  email: "wonwoo@metatake.net",
 };
 
 export default function RootLayout({
@@ -80,6 +93,10 @@ export default function RootLayout({
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300..700&display=swap"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <UserFilmsProvider><UserSavesProvider>{children}</UserSavesProvider></UserFilmsProvider>
         <TakeScoreBadges />

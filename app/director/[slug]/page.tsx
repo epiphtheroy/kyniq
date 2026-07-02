@@ -7,6 +7,7 @@ import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
 import EntityMap from "@/components/EntityMap";
 import FilmMap from "@/components/FilmMap";
+import Byline from "@/components/Byline";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import SaveButton from "@/components/SaveButton";
@@ -125,12 +126,33 @@ async function load(slug: string) {
   };
 }
 
+// First 1–2 sentences of prose, plain text, ≤155 chars, truncated at a word boundary with "…".
+function metaDescription(text: string, maxLen = 155): string {
+  const plain = text.replace(/\s+/g, " ").trim();
+  const sentences = plain.match(/[^.!?]+[.!?]+(\s+|$)/g);
+  let out = sentences ? sentences.slice(0, 2).join("").trim() : plain;
+  if (out.length > maxLen) {
+    const cut = out.slice(0, maxLen);
+    const lastSpace = cut.lastIndexOf(" ");
+    out = (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trimEnd() + "…";
+  }
+  return out;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
+  const title = `${data.director} — portrait, filmography & where to start — Metatake`;
+  const bioProse = data.portrait?.body || (data.dir as { bio?: string | null } | null)?.bio || null;
+  const description = bioProse
+    ? metaDescription(bioProse)
+    : metaDescription(`${data.total} films by ${data.director}, read closely — signature readings, tropes and where to start.`);
   return {
-    title: `${data.director} — portrait, filmography & where to start — Metatake`,
+    title,
+    description,
+    openGraph: { title, description },
+    twitter: { card: "summary_large_image", title, description },
     alternates: { canonical: `/director/${slug}` },
   };
 }
@@ -205,6 +227,7 @@ export default async function DirectorPage({ params }: Props) {
           <div className="dr-txt">
             <div className="dr-role">Director</div>
             <h1 className="dr-h1">{director}</h1>
+            <Byline />
             {(bornLabel || d?.place_of_birth) && (
               <div className="dr-born">
                 {bornLabel && <span>Born {bornLabel}</span>}

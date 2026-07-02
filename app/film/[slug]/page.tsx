@@ -20,6 +20,7 @@ import EntityActions from "@/components/EntityActions";
 import MovieListActions from "@/components/MovieListActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
+import Byline from "@/components/Byline";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
@@ -178,6 +179,28 @@ async function load(slug: string) {
 const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
 const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
 
+// Builds a clean, spoiler-free meta description from the invitation prose:
+// strips markdown/newlines, keeps the first 1-2 sentences, truncates at
+// <=155 chars on a word boundary with an ellipsis if cut.
+function descriptionFromInvitation(invitation: string): string | null {
+  const plain = invitation
+    .replace(/[*_`>#[\]]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!plain) return null;
+  const sentences = plain.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [plain];
+  let text = (sentences[0] ?? "").trim();
+  if (sentences.length > 1 && (text + (sentences[1] ?? "")).trim().length <= 155) {
+    text = (text + " " + sentences[1]).trim();
+  }
+  if (!text) text = plain;
+  if (text.length <= 155) return text;
+  const cut = text.slice(0, 154);
+  const lastSpace = cut.lastIndexOf(" ");
+  const trimmed = (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trim();
+  return `${trimmed}…`;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
@@ -189,13 +212,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
   const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — figures & strong misreadings`;
-  const description = data.misreadings.length
+  const templatedDescription = data.misreadings.length
     ? `${data.film.title} read closely: ${data.figures.length} figures and ${data.misreadings.length} strong misreadings across 14 critical frameworks.`
     : undefined;
+  const description = (data.invitation ? descriptionFromInvitation(data.invitation) : null) ?? templatedDescription;
   return {
     title,
     ...(description ? { description } : {}),
     openGraph: { title, ...(description ? { description } : {}) },
+    twitter: { card: "summary_large_image", title, ...(description ? { description } : {}) },
     alternates: { canonical: `/film/${slug}` },
     robots: pageRobots(meetsBar),
   };
@@ -357,6 +382,7 @@ export default async function FilmPage({ params }: Props) {
             <div className="df-htxt">
               <h1>{film.title} <span className="df-yr">({film.year ?? "?"})</span></h1>
               {film.tagline ? <div className="df-tagline">{film.tagline}</div> : null}
+              <Byline created={film.created_at} />
               <div className="df-facts">
                 {film.director ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : null}
                 {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).join(" · ")}</> : null}
@@ -374,6 +400,24 @@ export default async function FilmPage({ params }: Props) {
             </div>
           </div>
 
+          {/* INVITATION — spoiler-free way in; renders right after the headline, before the stat strip */}
+          {invitation ? (
+            <section className={`df-invite${false && trailer ? " df-invite--vid" : ""}`} id="df-invitation">
+              <div className="df-invite__txt">
+                <div className="df-invite__k">An invitation</div>
+                <p className="df-invite__p">{invitation}</p>
+                <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
+              </div>
+              {/* PRESERVED: the trailer now plays in the hero, so this duplicate is disabled.
+                  To bring it back, remove the `false && ` here and on the section's df-invite--vid class above. */}
+              {false && trailer ? (
+                <div className="df-invite__vid">
+                  <InviteVideo videoId={trailer.external_id} title={trailer.title ?? `${film.title} trailer`} poster={trailer.thumbnail_url ?? undefined} />
+                </div>
+              ) : null}
+            </section>
+          ) : null}
+
           {/* STAT STRIP — clickable jump links */}
           <div className="df-stats">
             <Link className="df-stat" href="#df-figures"><span className="df-n">{catalogue.length}</span><span className="df-k">Figures</span></Link>
@@ -388,24 +432,6 @@ export default async function FilmPage({ params }: Props) {
 
         {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
         {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
-
-        {/* INVITATION — spoiler-free way in */}
-        {invitation ? (
-          <section className={`df-invite${false && trailer ? " df-invite--vid" : ""}`} id="df-invitation">
-            <div className="df-invite__txt">
-              <div className="df-invite__k">An invitation</div>
-              <p className="df-invite__p">{invitation}</p>
-              <div className="df-invite__note">Spoiler-free. The readings below do not hold back.</div>
-            </div>
-            {/* PRESERVED: the trailer now plays in the hero, so this duplicate is disabled.
-                To bring it back, remove the `false && ` here and on the section's df-invite--vid class above. */}
-            {false && trailer ? (
-              <div className="df-invite__vid">
-                <InviteVideo videoId={trailer.external_id} title={trailer.title ?? `${film.title} trailer`} poster={trailer.thumbnail_url ?? undefined} />
-              </div>
-            ) : null}
-          </section>
-        ) : null}
 
         {/* WHY WATCH — spoiler-free dossier of what the film offers, across 7 lenses */}
         {whyWatch.length > 0 ? (

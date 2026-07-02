@@ -9,6 +9,7 @@ import ScholarHeader from "@/components/ScholarHeader";
 import EntityActions from "@/components/EntityActions";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
+import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 import { MetatakeStats } from "@/components/detail/MetatakeDetailBits";
@@ -98,17 +99,38 @@ async function load(slug: string) {
   return { mt, family, theorist, defining, unexpected, related, all: withRank, filmCount: filmSet.size, registers };
 }
 
+// Extracts the first 1–2 sentences of a prose field as a plain-text meta
+// description: strips markdown/newlines, then truncates to <=155 chars on a
+// word boundary with an ellipsis. Falls back to the raw text if no sentence
+// boundary is found within the limit.
+function descriptionFromThesis(thesis: string | null | undefined): string | null {
+  if (!thesis) return null;
+  const plain = thesis.replace(/[*_`#>[\]]/g, "").replace(/\s+/g, " ").trim();
+  if (!plain) return null;
+  const sentences = plain.match(/[^.!?]+[.!?]+/g) ?? [plain];
+  let out = sentences[0].trim();
+  if (sentences[1] && (out + " " + sentences[1]).length <= 155) {
+    out = (out + " " + sentences[1]).trim();
+  }
+  if (out.length <= 155) return out;
+  const truncated = out.slice(0, 155);
+  const lastSpace = truncated.lastIndexOf(" ");
+  return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trim() + "…";
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
   const phrase = (data.mt as { seo_phrase?: string | null }).seo_phrase;
   const title = phrase ? `${phrase} — ${data.filmCount} films` : `${data.mt.title} — ${data.filmCount} films`;
-  const description = data.mt.thesis ?? data.mt.laconic ?? undefined;
+  const fallbackDescription = data.mt.thesis ?? data.mt.laconic ?? undefined;
+  const description = descriptionFromThesis(data.mt.thesis) ?? fallbackDescription;
   return {
     title,
     description,
     openGraph: { title, ...(description ? { description } : {}) },
+    twitter: { card: "summary_large_image", title, ...(description ? { description } : {}) },
     alternates: { canonical: `/take/${slug}` },
     robots: pageRobots(true),
   };
@@ -240,6 +262,7 @@ export default async function TakePage({ params }: Props) {
           <div className="mk-role">Meta take · the hub</div>
           <h1 className="mk-h1">{mt.title}</h1>
           {mt.laconic ? <p className="mk-laconic">{mt.laconic}</p> : null}
+          <Byline created={mt.created_at} updated={mt.updated_at} />
           {(theorist || familyName) ? (
             <p className="mk-after">
               {familyName ? <>{familyName}</> : <>Theory</>}
