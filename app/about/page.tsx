@@ -183,7 +183,8 @@ export default function AboutPage() {
         our readers flag errors, and pages are corrected as issues surface. We fix factual mistakes; interpretations
         stay open — a film sustains many readings, so logged-in readers can add their own beneath any figure (no
         downvotes). Film stills and posters come from TMDB. Spot something off? Corrections are welcome at the address
-        below.
+        below. For the full pipeline, step by step, see{" "}
+        <Link href="/methodology" className="accent" style={{ textDecoration: "none" }}>Methodology</Link>.
       </p>
 
       <hr className="rule" />

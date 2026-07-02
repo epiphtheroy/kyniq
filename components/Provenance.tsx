@@ -21,6 +21,7 @@ export default function Provenance({ created, updated }: { created?: string | nu
       {c ? <> · created {c}</> : null}
       {u && u !== c ? <> · updated {u}</> : null}
       {" · "}editor <Link href="/editor">Wonwoo Yoon</Link>
+      {" · "}<Link href="/methodology">how this is made</Link>
     </div>
   );
 }
