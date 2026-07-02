@@ -8,6 +8,10 @@ import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
 
 export const revalidate = 1800;
+// Empty list = nothing prebuilt at build, but its presence enables the
+// on-demand Full Route Cache so generated pages are ISR-cached (HIT), not
+// re-rendered dynamically on every request.
+export async function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";
 

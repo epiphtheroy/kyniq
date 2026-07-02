@@ -23,9 +23,22 @@ type Row = {
 };
 type Sug = { slug: string; title: string; year: number | null; poster_path: string | null; director: string | null };
 
-const STYLE_MAP = "https://tiles.openfreemap.org/styles/liberty";
+// Base map: Carto Voyager — keyless, fast CDN, rich place-name labels. Replaces the slower OpenFreeMap community tiles.
+const STYLE_MAP = "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json";
 const SAT_TILE = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
-const STYLE_SAT = { version: 8, sources: { esri: { type: "raster", tiles: [SAT_TILE], tileSize: 256, attribution: "© Esri" } }, layers: [{ id: "esri", type: "raster", source: "esri" }] };
+// Transparent Esri reference overlay → keeps place-name labels + boundaries visible ON the satellite imagery.
+const SAT_LABELS = "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}";
+const STYLE_SAT = {
+  version: 8,
+  sources: {
+    esri: { type: "raster", tiles: [SAT_TILE], tileSize: 256, attribution: "© Esri, Maxar, Earthstar Geographics" },
+    esriRef: { type: "raster", tiles: [SAT_LABELS], tileSize: 256, attribution: "© Esri" },
+  },
+  layers: [
+    { id: "esri", type: "raster", source: "esri" },
+    { id: "esriRef", type: "raster", source: "esriRef" },
+  ],
+};
 const IMG = "https://image.tmdb.org/t/p/w92";
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
@@ -50,6 +63,32 @@ function filmLabel(r: Row): string { return r.film_title ? `${r.film_title}${r.f
 function hrefFor(r: Row, filmSlug?: string): string | null {
   const fs = r.film_slug ?? filmSlug; if (!fs) return null;
   return r.fig_slug ? `/film/${fs}/figure/${r.fig_slug}` : `/film/${fs}`;
+}
+
+// Shared popup card (hover = compact, click = detailed). The FILM sits on the top line,
+// with its poster thumbnail beside it; the place name becomes the secondary line.
+function popupHTML(p: Record<string, string>, detailed: boolean): string {
+  const film = p.film, filmed = p.layer === "filmed";
+  const title = film || p.name;            // film first
+  const sub = film ? p.name : "";          // place name → sub-line when a film is present
+  const roleMax = detailed ? 300 : 150;
+  const parts: string[] = [`<b style="font-size:12.5px;line-height:1.25;color:#1a1a1a;display:block">${esc(title)}</b>`];
+  if (sub) parts.push(`<div style="color:#8a8278;font-size:11px;font-weight:600;margin-top:2px">${esc(sub)}</div>`);
+  if (filmed) {
+    const tag = p.built ? `Built set${p.host ? `: ${esc(p.host)}` : ""}` : "Filming location";
+    parts.push(`<div style="color:#0F6E56;font-weight:700;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;margin-top:5px">${tag}${p.tier ? ` · ${esc(p.tier)}` : ""}</div>`);
+  }
+  if (p.role) parts.push(`<div style="color:#55504a;font-size:11px;margin-top:4px;line-height:1.4">${esc(p.role.slice(0, roleMax))}${p.role.length > roleMax ? "…" : ""}</div>`);
+  if (detailed) {
+    const links: string[] = [];
+    if (filmed && p.src) links.push(`<a href="${p.src}" target="_blank" rel="noopener" style="color:#0F6E56;font-weight:600;margin-right:12px">Source ↗</a>`);
+    if (p.href) links.push(`<a href="${p.href}" style="color:#C8102E;font-weight:600">${filmed ? "Open the film ↗" : "Read this in the film ↗"}</a>`);
+    if (links.length) parts.push(`<div style="margin-top:7px">${links.join("")}</div>`);
+  }
+  const poster = p.poster
+    ? `<img src="${IMG}${p.poster}" alt="" style="width:46px;height:69px;object-fit:cover;border-radius:4px;flex:none;background:#eee" />`
+    : "";
+  return `<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;display:flex;gap:9px;align-items:flex-start">${poster}<div style="min-width:0;flex:1">${parts.join("")}</div></div>`;
 }
 
 export default function FilmMap({

@@ -8,6 +8,9 @@ import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
 
 export const revalidate = 1800;
+// Empty list enables the on-demand Full Route Cache (ISR HIT) without
+// prebuilding anything at build time.
+export async function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";
 

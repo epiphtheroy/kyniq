@@ -10,6 +10,9 @@ import SiteNav from "@/components/home2/SiteNav";
 // in the Data Cache. Tagged portfolio:<username> so a profile update can bust it
 // on demand via /api/revalidate; also refreshes at most every 5 minutes.
 export const revalidate = 300;
+// Empty list enables the on-demand Full Route Cache (ISR HIT) without
+// prebuilding anything at build time.
+export async function generateStaticParams() { return []; }
 
 const W342 = "https://image.tmdb.org/t/p/w342";
 

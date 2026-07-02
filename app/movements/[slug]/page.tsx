@@ -7,6 +7,9 @@ import SiteNav from "@/components/home2/SiteNav";
 import MovementHubClient from "@/components/MovementHubClient";
 
 export const revalidate = 1800;
+// Empty list enables the on-demand Full Route Cache (ISR HIT) without
+// prebuilding anything at build time.
+export async function generateStaticParams() { return []; }
 type Props = { params: Promise<{ slug: string }> };
 
 function db() {
