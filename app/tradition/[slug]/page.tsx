@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -26,15 +27,23 @@ function clean(title: string): string {
   return title.replace(/\s*\([^)]*\)\s*$/, "").trim() || title;
 }
 
-async function load(slug: string) {
-  const supabase = db();
-  const { data: c } = await supabase
-    .from("theory_canon")
-    .select("title, sub_category, major_category, part, theorist")
-    .eq("slug", slug).maybeSingle();
-  if (!c) return null;
-  const { data: rd } = await supabase.rpc("canon_readings", { p_slug: slug });
-  return { canon: c as Canon, readings: (rd as Reading[] | null) ?? [] };
+// Cached per slug so the page is ISR-cached instead of re-querying on every
+// request (uncached Supabase calls otherwise force dynamic rendering).
+function load(slug: string) {
+  return unstable_cache(
+    async () => {
+      const supabase = db();
+      const { data: c } = await supabase
+        .from("theory_canon")
+        .select("title, sub_category, major_category, part, theorist")
+        .eq("slug", slug).maybeSingle();
+      if (!c) return null;
+      const { data: rd } = await supabase.rpc("canon_readings", { p_slug: slug });
+      return { canon: c as Canon, readings: (rd as Reading[] | null) ?? [] };
+    },
+    ["tradition", slug],
+    { revalidate: 1800, tags: [`tradition:${slug}`] },
+  )();
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

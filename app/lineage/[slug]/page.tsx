@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -21,15 +22,23 @@ const FACET_LABEL: Record<string, string> = {
   award: "Award", canon: "Canon / list", national: "National honour", festival: "Festival", section: "Festival section", auteur: "Auteur line", movement: "Movement", style: "Style",
 };
 
-async function load(slug: string) {
-  const supabase = db();
-  const { data: list } = await supabase
-    .from("lineage_lists")
-    .select("label, facet, description, country, tier, film_count")
-    .eq("slug", slug).maybeSingle();
-  if (!list) return null;
-  const { data: films } = await supabase.rpc("lineage_list_films", { p_slug: slug });
-  return { list: list as unknown as ListRow, films: (films as FilmRow[] | null) ?? [] };
+// Cached per slug so the page is ISR-cached instead of re-querying on every
+// request (uncached Supabase calls otherwise force dynamic rendering).
+function load(slug: string) {
+  return unstable_cache(
+    async () => {
+      const supabase = db();
+      const { data: list } = await supabase
+        .from("lineage_lists")
+        .select("label, facet, description, country, tier, film_count")
+        .eq("slug", slug).maybeSingle();
+      if (!list) return null;
+      const { data: films } = await supabase.rpc("lineage_list_films", { p_slug: slug });
+      return { list: list as unknown as ListRow, films: (films as FilmRow[] | null) ?? [] };
+    },
+    ["lineage", slug],
+    { revalidate: 1800, tags: [`lineage:${slug}`] },
+  )();
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
