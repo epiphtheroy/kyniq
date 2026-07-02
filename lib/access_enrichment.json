@@ -1,0 +1,240 @@
+{
+  "films": {
+    "643": {
+      "title": "Battleship Potemkin",
+      "year": 1925,
+      "imdb_id": "tt0015648",
+      "free_sources": [
+        {
+          "platform": "Internet Archive",
+          "kind": "pd",
+          "url": "https://archive.org/details/BattleshipPotemkin1925HD",
+          "scope": "worldwide",
+          "note": "Public domain (1925)"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": "Restored editions exist on disc (Kino) — restoration transfers differ from the public-domain copy.",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/BattleshipPotemkin1925HD",
+          "note": "Public-domain collection item — verified streamable in the 2026 pilot"
+        }
+      ]
+    },
+    "843": {
+      "title": "In the Mood for Love",
+      "year": 2000,
+      "imdb_id": "tt0118694",
+      "free_sources": [],
+      "free_checked": true,
+      "sources_checked": [
+        "KOFA",
+        "archive.org",
+        "cinepub.ro",
+        "Hong Kong Film Archive",
+        "Plex",
+        "Shout! Factory TV"
+      ],
+      "kr_overrides": [
+        {
+          "platform": "Watcha",
+          "tier": "stream",
+          "note": "Service in receivership — catalog may change"
+        }
+      ],
+      "mubi_by_country": {
+        "IN": "yes",
+        "BR": "yes",
+        "US": "rot",
+        "GB": "rot",
+        "FR": "no",
+        "DE": "no",
+        "JP": "no",
+        "KR": "no"
+      },
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": {
+        "criterion_spine": 147,
+        "editions": []
+      },
+      "verdict_note": "July 2026 pilot re-check: earlier US free listings (Plex / Shout! Factory TV) did not hold up — best free tier is a US library card (Kanopy), which is outside this layer.",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://mubi.com/en/films/in-the-mood-for-love",
+          "note": "MUBI availability measured per country in the July 2026 pilot: IN·BR yes, US·GB rotates, FR·DE·JP·KR no"
+        }
+      ]
+    },
+    "26317": {
+      "title": "Man with a Movie Camera",
+      "year": 1929,
+      "imdb_id": "tt0019760",
+      "free_sources": [
+        {
+          "platform": "Internet Archive",
+          "kind": "pd",
+          "url": "https://archive.org/details/man-with-a-movie-camera-1929-by-dziga-vertov",
+          "scope": "worldwide",
+          "note": "Public domain (1929)"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "archive.org"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://archive.org/details/man-with-a-movie-camera-1929-by-dziga-vertov",
+          "note": "Public-domain collection item — verified streamable in the 2026 pilot"
+        }
+      ]
+    },
+    "31032": {
+      "title": "The Death of Mr. Lazarescu",
+      "year": 2005,
+      "imdb_id": "tt0456149",
+      "free_sources": [
+        {
+          "platform": "CINEPUB",
+          "kind": "national",
+          "url": "https://cinepub.ro/movie/moartea-domnului-lazarescu-film-lungmetraj/",
+          "scope": "worldwide",
+          "note": "Run by a Romanian cultural nonprofit · English subtitles",
+          "answer_note": "with English subtitles"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "cinepub.ro",
+        "criterionchannel.com",
+        "unlimited.tiff.ro"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [
+        {
+          "name": "Criterion Channel",
+          "scope": "geo:US+CA",
+          "url": "https://www.criterionchannel.com/the-death-of-mr-lazarescu",
+          "paid": false
+        },
+        {
+          "name": "TIFF Unlimited",
+          "scope": "geo:RO",
+          "url": "https://unlimited.tiff.ro",
+          "paid": true
+        }
+      ],
+      "disc": {
+        "criterion_spine": null,
+        "editions": []
+      },
+      "verdict_note": "criterion.com checked 2026-07-02: only a Criterion Channel streaming entry exists — no Criterion Collection disc edition (no spine).",
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://cinepub.ro/movie/moartea-domnului-lazarescu-film-lungmetraj/",
+          "note": "Full film streams worldwide with English subtitles — verified in the July 2026 pilot"
+        }
+      ]
+    },
+    "42506": {
+      "title": "The Housemaid",
+      "year": 1960,
+      "imdb_id": "tt0150980",
+      "free_sources": [
+        {
+          "platform": "KOFA — Korean Classic Film (YouTube)",
+          "kind": "national",
+          "url": "https://www.youtube.com/watch?v=aSKb2XC61_o",
+          "scope": "worldwide",
+          "note": "Official Korean Film Archive channel · English subtitles",
+          "answer_note": "with English subtitles"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "KOFA YouTube",
+        "criterionchannel.com"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [
+        {
+          "name": "Criterion Channel",
+          "scope": "geo:US+CA",
+          "url": "https://www.criterionchannel.com/the-housemaid",
+          "paid": false
+        }
+      ],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.youtube.com/watch?v=aSKb2XC61_o",
+          "note": "KOFA official upload with English subtitles — verified playable in the 2026 pilot"
+        }
+      ]
+    },
+    "70909": {
+      "title": "Aimless Bullet",
+      "year": 1961,
+      "imdb_id": "tt0053577",
+      "free_sources": [
+        {
+          "platform": "KOFA — Korean Classic Film (YouTube)",
+          "kind": "national",
+          "url": "https://www.youtube.com/watch?v=XX1hLqr01-w",
+          "scope": "worldwide",
+          "note": "Official Korean Film Archive channel · English subtitles",
+          "answer_note": "with English subtitles"
+        }
+      ],
+      "free_checked": true,
+      "sources_checked": [
+        "KOFA YouTube"
+      ],
+      "kr_overrides": [],
+      "mubi_by_country": {},
+      "rotation": [],
+      "elsewhere_stream": [],
+      "disc": null,
+      "verdict_note": null,
+      "confidence": "high",
+      "checked_at": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://www.youtube.com/watch?v=XX1hLqr01-w",
+          "note": "KOFA official upload with English subtitles — verified playable in the 2026 pilot"
+        }
+      ]
+    }
+  }
+}
