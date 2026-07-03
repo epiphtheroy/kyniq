@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (slug === "all") return { title: "All Strong Misreadings — every critical reading on Metatake", alternates: { canonical: "/strong-misreadings/all" } };
   const f = fwBySlug(slug);
   if (!f) return { title: "Strong Misreadings — Metatake" };
-  const title = `${f.label} — Strong Misreadings`;
+  // Lead with the search phrase, keep the brand term in the description.
+  const title = f.seoTitle;
   const introText = FRAMEWORK_INTROS[f.slug];
   const firstSentence = introText ? (introText.match(/^[^.!?]+[.!?]/)?.[0] ?? "").trim() : "";
   const description = firstSentence && firstSentence.length <= 160
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    authors: [{ name: "Wonwoo Yoon", url: "https://metatake.net/editor" }],
     alternates: { canonical: `https://metatake.net/strong-misreadings/${f.slug}` },
     openGraph: { title, description, type: "website", url: `https://metatake.net/strong-misreadings/${f.slug}` },
   };
@@ -49,9 +51,21 @@ export default async function FrameworkPage({ params }: Props) {
   const facets = (facetsRaw as Facets | null) ?? { total: 0, decades: [], top_tropes: [] };
   const initial = (initRaw as { total: number; rows: FeedRow[] } | null) ?? { total: 0, rows: [] };
 
+  const hubJsonld = isAll ? null : {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: f!.seoTitle,
+    url: `https://metatake.net/strong-misreadings/${f!.slug}`,
+    description: f!.short,
+    about: { "@type": "Thing", name: `${f!.label} film analysis` },
+    author: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      {hubJsonld ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(hubJsonld) }} /> : null}
       <div className="mt-wrap smb-fw">
         <div className="smb-crumb"><Link href="/strong-misreadings">Strong Misreadings</Link></div>
         <h1 className="smb-fw__h" style={isAll ? undefined : { color: f!.color }}>
