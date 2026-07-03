@@ -509,13 +509,13 @@ export default function FilmMap({
     fitRows(rs.length ? rs : rowsRef.current, 11);
   }, [fitRows, filmSlug]);
 
-  // focus (search / panel click) → frame that film; clearing → frame everything
-  const prevFocus = useRef<string | null>(null);
+  // Focus = selected film. Panel clicks select WITHOUT moving the camera (the user
+  // keeps their region); only search picks and the explicit ⌖ buttons re-frame.
+  const fitOnFocus = useRef(false);
   useEffect(() => {
-    if (!mapReady) return;
-    if (focus) fitFilm(focus.slug);
-    else if (prevFocus.current) fitRows(rowsRef.current);
-    prevFocus.current = focus?.slug ?? null;
+    if (!mapReady || !focus || !fitOnFocus.current) return;
+    fitFilm(focus.slug);
+    if (focusRows) fitOnFocus.current = false; // refit once the film's full rows land, then stop
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focus, focusRows, mapReady]);
 
@@ -546,14 +546,20 @@ export default function FilmMap({
     openDetail(r);
   }, [openDetail]);
 
-  const focusFilm = useCallback((slug: string, title: string) => {
+  const focusFilm = useCallback((slug: string, title: string, fit = false) => {
+    fitOnFocus.current = fit;
     setFocus({ slug, title });
     setExpanded((s) => new Set(s).add(slug));
     setView("list");
   }, []);
 
-  // panel group click → make sure ALL of that film's pins are loaded, then frame it
-  const ensureFilm = useCallback((slug: string) => {
+  // load a film's full pins into the map without touching the camera
+  const loadFilm = useCallback((slug: string) => {
+    fetchGeo(`/api/geo?film=${slug}`).then(mergeWorld);
+  }, [mergeWorld]);
+
+  // the explicit "⌖" action: frame ALL of the film's places
+  const fitWholeFilm = useCallback((slug: string) => {
     fetchGeo(`/api/geo?film=${slug}`).then((rs) => {
       mergeWorld(rs);
       if (rs.length) fitRows(rs, 11); else fitFilm(slug);
@@ -640,7 +646,7 @@ export default function FilmMap({
             {sugs.length ? (
               <div className="fmap-sug">
                 {sugs.map((s) => (
-                  <button key={s.slug} type="button" className="fmap-sug__i" onClick={() => { focusFilm(s.slug, s.title); setQ(""); setSugs([]); }}>
+                  <button key={s.slug} type="button" className="fmap-sug__i" onClick={() => { focusFilm(s.slug, s.title, true); setQ(""); setSugs([]); }}>
                     {s.poster_path ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={`${IMG}${s.poster_path}`} alt="" /> : <span className="fmap-sug__e" />}
                     <span className="fmap-sug__t">{s.title} <i>({s.year ?? "?"}{s.director ? `, ${s.director}` : ""})</i></span>
                   </button>
@@ -652,7 +658,13 @@ export default function FilmMap({
           <span className="fmap-hint">{loading ? "Loading the map…" : `${layerRows.length.toLocaleString()} place${layerRows.length !== 1 ? "s" : ""} loaded${globalish ? ` · ${filmCount.toLocaleString()} films` : ""}${worldOn ? " · zoom in for more" : ""}`}</span>
         )}
         <div className="fmap-ctrls">
-          {focus ? <span className="fmap-focus">Framing <b>{focus.title}</b><button onClick={() => { setFocus(null); setActive(null); }} aria-label="Show all films">✕</button></span> : null}
+          {focus ? (
+            <span className="fmap-focus">
+              <b>{focus.title}</b>
+              <button onClick={() => fitWholeFilm(focus.slug)} title="Zoom to all its places" aria-label={`Zoom to all places of ${focus.title}`}>⌖</button>
+              <button onClick={() => { setFocus(null); setActive(null); }} title="Clear selection" aria-label="Clear selection">✕</button>
+            </span>
+          ) : null}
           {filmSlug ? (
             <span className="fmap-seg">
               <button className={scope === "film" ? "on" : ""} onClick={() => setScope("film")}>This film</button>
