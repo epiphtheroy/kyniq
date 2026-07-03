@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tradition" },
   title: "Traditions — the canon a reading leans on",
   description:
     "The scholarly traditions Metatake's Strong Misreadings lean on — the uncanny, the gaze, commodity fetishism, the state of exception and hundreds more — each linked to the films and the thinkers that carry it.",

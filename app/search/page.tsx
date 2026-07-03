@@ -7,6 +7,7 @@ import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 60;
 export const metadata: Metadata = {
+  alternates: { canonical: "/search" },
   title: "Search — Metatake",
   description: "Search films, figures, meta takes, and directors on Metatake.",
   robots: pageRobots(true),

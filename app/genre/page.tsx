@@ -4,7 +4,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 
 export const revalidate = 600;
-export const metadata: Metadata = { title: "Genres" };
+export const metadata: Metadata = { title: "Genres", alternates: { canonical: "/genre" } };
 
 function slugifyGenre(g: string) { return g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 

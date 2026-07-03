@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/theorist" },
   title: "Theorists — the thinkers cinema is read through",
   description:
     "Every theorist Metatake reads films through — Freud, Lacan, Foucault, Arendt and hundreds more — each linked to the Strong Misreadings that invoke them.",

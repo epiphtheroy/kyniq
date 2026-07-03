@@ -7,6 +7,7 @@ import CodexExplorer, { type CodexRow } from "@/components/CodexExplorer";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/takescore" },
   title: "TakeScore — films ranked by durable value, not popularity · Metatake",
   description:
     "The TakeScore (TS): our own estimate of the durable value a serious viewer gains from a film, the cost to unlock it, and the risk it disappoints. Search, filter by country, decade and by any of the thirteen sub-dimensions, and dial your risk-aversion.",

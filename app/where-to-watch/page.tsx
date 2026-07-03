@@ -8,6 +8,7 @@ import accessEnrichment from "@/lib/access_enrichment.json";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/where-to-watch" },
   title: "Where to watch — find any film's streaming, rental, disc & subtitles · Metatake",
   description:
     "Search any film and see where to watch it — streaming, rent and buy by country (via JustWatch & TMDB), plus MetaTake-verified free archives, MUBI country differences, disc editions and subtitle links.",

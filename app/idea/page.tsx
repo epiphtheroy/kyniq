@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/idea" },
   title: "Concepts — the ideas cinema is read through",
   description:
     "The concepts Metatake's Strong Misreadings turn on — ressentiment, the gaze, bare life, the uncanny and a thousand more — each linked to the films that stage them.",

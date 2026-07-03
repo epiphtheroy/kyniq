@@ -7,6 +7,7 @@ import type { MvHub } from "@/app/movements/page";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/lineage" },
   title: "Lineage — national cinemas, movements, awards & canons · Metatake",
   description:
     "Where a film comes from and where it sits in cinema's record: national cinemas and movements, the awards it won and the canons it entered. Browse any tradition to see the films that belong to it.",
