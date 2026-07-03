@@ -785,6 +785,9 @@ function Dossier({ o, S, onClose, onFilm, onArtist }: {
   const first = shared[0], last = shared[shared.length - 1];
   const craft = GRP2CRAFT[o.grp];
   const G = FAM[o.grp];
+  const isDirCollab = o.grp === "director";
+  const dirLinks = useMetaLinks(isDirCollab ? `person=${encodeURIComponent(o.name)}` : null);
+  const detailHref = personHref(o.name, o.id, isDirCollab, dirLinks?.directorSlug ?? null);
 
   return (
     <div className="cr-modalback" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
@@ -821,9 +824,14 @@ function Dossier({ o, S, onClose, onFilm, onArtist }: {
           ))}
         </div>
         <div className="cr-mfoot">
+          {detailHref ? (
+            <a className="cr-btn" href={detailHref} style={{ textDecoration: "none" }}>
+              Their Metatake page →
+            </a>
+          ) : null}
           {craft ? (
             <button type="button" className="cr-btn" onClick={() => { onClose(); onArtist(o.id, craft, null); }}>
-              Open their page →
+              Explore here ↓
             </button>
           ) : null}
           <a className="cr-dim" href={`https://www.themoviedb.org/person/${o.id}`} target="_blank" rel="noopener nofollow">TMDB ↗</a>
