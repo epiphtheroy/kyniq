@@ -169,6 +169,7 @@ export default function FilmMap({
   const [pq, setPq] = useState("");                                // panel place/film filter
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [mapReady, setMapReady] = useState(false);
+  const [lang, setLang] = useState("en");                          // basemap label language (EN default)
 
   const mapEl = useRef<HTMLDivElement>(null);
   const listEl = useRef<HTMLDivElement>(null);
@@ -188,6 +189,7 @@ export default function FilmMap({
   const worldExtra = useRef<globalThis.Map<string, Row>>(new globalThis.Map());
   const worldBaseIds = useRef<Set<string>>(new Set());
   const worldOnRef = useRef(false);
+  const langRef = useRef("en");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const bboxTimer = useRef<any>(null);
 
@@ -289,6 +291,36 @@ export default function FilmMap({
     return () => { alive = false; clearTimeout(t); };
   }, [q, search]);
 
+  // Basemap label language: rewrite every name-bearing symbol layer to the chosen
+  // language (vector tiles carry name:en / name:ko / … per feature), falling back
+  // to English and then the local name when a translation is missing.
+  const applyLang = useCallback(() => {
+    const m = map.current; if (!m) return;
+    const lg = langRef.current;
+    const field = lg === "local"
+      ? ["coalesce", ["get", "name"], ["get", "name:en"]]
+      : ["coalesce", ["get", `name:${lg}`], ["get", "name:en"], ["get", "name"]];
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      for (const l of (m.getStyle().layers ?? []) as any[]) {
+        if (l.type !== "symbol" || l.id === "cluster-count") continue;
+        let tf: unknown;
+        try { tf = m.getLayoutProperty(l.id, "text-field"); } catch { continue; }
+        if (!tf || !JSON.stringify(tf).includes("name")) continue; // skip refs, house numbers, …
+        try { m.setLayoutProperty(l.id, "text-field", field); } catch {}
+      }
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    try { const saved = localStorage.getItem("mt-atlas-lang"); if (saved) setLang(saved); } catch {}
+  }, []);
+  useEffect(() => {
+    langRef.current = lang;
+    try { localStorage.setItem("mt-atlas-lang", lang); } catch {}
+    applyLang();
+  }, [lang, applyLang]);
+
   // ---------- map (created once) ----------
   const fcOf = useCallback((rs: Row[]) => ({
     type: "FeatureCollection",
@@ -351,7 +383,7 @@ export default function FilmMap({
           }
         } catch {}
       };
-      m.on("style.load", densify);
+      m.on("style.load", () => { densify(); applyLang(); });
 
       // cluster-count text needs a font that exists on the active glyph server —
       // borrow the first font stack the current style itself uses.
@@ -634,6 +666,16 @@ export default function FilmMap({
               <button className={lf === "filmed" ? "on" : ""} onClick={() => setLf("filmed")}><i className="fmap-dot fmap-dot--f" />Filmed at</button>
             </span>
           ) : null}
+          <select className="fmap-sort fmap-lang" value={lang} onChange={(e) => setLang(e.target.value)} aria-label="Map label language" title="Map label language">
+            <option value="en">Labels · English</option>
+            <option value="ko">한국어</option>
+            <option value="local">Local names</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="es">Español</option>
+          </select>
           <button type="button" className="fmap-sat" onClick={() => setSat((v) => !v)}>{sat ? "Map" : "Satellite"}</button>
         </div>
       </div>
