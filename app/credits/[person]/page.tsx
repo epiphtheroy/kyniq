@@ -5,7 +5,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "../CreditsExplorer";
-import { CRAFTS, type CraftKey, img } from "../credits-logic";
+import { CRAFTS, type CraftKey, img, personSlug } from "../credits-logic";
 import { resolveNative } from "@/lib/nativeName";
 import { pageRobots } from "@/lib/seo";
 import "../credits.css";
@@ -88,6 +88,22 @@ async function catalogFilms(tmdbIds: number[]): Promise<CatFilm[]> {
   return out;
 }
 
+// Entity stitching — is this person also a /director hub? Exact name match
+// against films.director, then verified against their own TMDB directing
+// credits so a namesake never links. Ambiguous names resolve to null silently.
+async function directorHubFor(p: TmdbPerson): Promise<{ slug: string; n: number } | null> {
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  const { data } = await supabase
+    .from("films").select("tmdb_id, director_slug")
+    .eq("director", p.name).eq("visible", true).not("director_slug", "is", null);
+  const rows = (data ?? []) as { tmdb_id: number | null; director_slug: string }[];
+  const slugs = new Set(rows.map((r) => r.director_slug));
+  if (slugs.size !== 1) return null;
+  const directed = new Set((p.movie_credits?.crew ?? []).filter((c) => c.job === "Director").map((c) => c.id));
+  if (!rows.some((r) => r.tmdb_id != null && directed.has(r.tmdb_id))) return null;
+  return { slug: [...slugs][0], n: rows.length };
+}
+
 // The name-drop antidote: turn collaboration counts into sentences.
 function leadSentence(name: string, native: string | null, crafts: { key: CraftKey; films: { year: number }[] }[], cat: CatFilm[], topDirector: { name: string; slug: string | null; n: number } | null): string {
   const main = crafts[0];
@@ -121,8 +137,11 @@ async function load(personSlug: string) {
     byDir.set(f.director, cur);
   }
   const company = [...byDir.values()].sort((a, b) => b.n - a.n);
-  const native = await resolveNative({ tmdbId: id, name: p.name, aliases: p.also_known_as, place: p.place_of_birth });
-  return { id, p, crafts, cat, company, native };
+  const [native, directorHub] = await Promise.all([
+    resolveNative({ tmdbId: id, name: p.name, aliases: p.also_known_as, place: p.place_of_birth }),
+    directorHubFor(p),
+  ]);
+  return { id, p, crafts, cat, company, native, directorHub };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -152,7 +171,7 @@ export default async function CrewPersonPage({ params }: Props) {
   const { person } = await params;
   const data = await load(person);
   if (!data) notFound();
-  const { id, p, crafts, cat, company, native } = data;
+  const { id, p, crafts, cat, company, native, directorHub } = data;
   const mainCraft = crafts[0].key;
   const catByTmdb = new Map(cat.map((f) => [f.tmdb_id, f]));
   const repertory = company.filter((d) => d.n >= 2).slice(0, 8);

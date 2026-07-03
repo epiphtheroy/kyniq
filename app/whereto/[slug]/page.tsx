@@ -71,14 +71,60 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function WhereToPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) notFound();
-  const { film, watch, record, ratings, takeScore } = data;
+  if (!data) {
+    const alias = await resolveAlias(`/whereto/${slug}`);
+    if (alias) permanentRedirect(alias);
+    notFound();
+  }
+  const { film, watch, record, ratings, takeScore, figures, questions } = data;
+  const titleYear = `${film.title}${film.year ? ` (${film.year})` : ""}`;
   return (
     <div className="mt">
       <SiteNav />
+      {/* The Movie @id points at /film/[slug] — the canonical entity home; this page is one surface of it. */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
+        { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+          { "@type": "ListItem", position: 2, name: "Where to watch", item: "https://metatake.net/where-to-watch" },
+          { "@type": "ListItem", position: 3, name: titleYear, item: `https://metatake.net/whereto/${film.slug}` },
+        ] },
+        { "@context": "https://schema.org", "@type": "Movie", "@id": `https://metatake.net/film/${film.slug}`,
+          name: film.title, url: `https://metatake.net/whereto/${film.slug}`,
+          ...(film.imdb_id ? { sameAs: [`https://www.imdb.com/title/${film.imdb_id}/`] } : {}) },
+      ]) }} />
       <AccessCountryProvider>
         <WatchPageClient film={film} watch={watch} record={record} ratings={ratings} takeScore={takeScore} />
       </AccessCountryProvider>
+
+      {/* Server-rendered corpus links — the crawlable HTML under the client watch UI. */}
+      <div className="axw-wrap">
+        <section className="axw-section">
+          <h2 className="axw-h2">Read closely on Metatake</h2>
+          <div className="axw-h2s">Once you know where to watch {titleYear} — what it means. Figures, Q&amp;A and close readings behind the film.</div>
+          <div className="rcp-list">
+            <div className="rcp-row">
+              <a className="rcp-h" href={`/film/${film.slug}`}>{titleYear} — the film page</a>
+              <div className="rcp-m">Strong Misreadings, figures and the codex</div>
+            </div>
+            <div className="rcp-row">
+              <a className="rcp-h" href={`/movies-like/${film.slug}`}>Movies like {film.title}</a>
+              <div className="rcp-m">What to watch next</div>
+            </div>
+            {figures.map((f) => (
+              <div className="rcp-row" key={f.slug}>
+                <a className="rcp-h" href={`/film/${film.slug}/figure/${f.slug}`}>{f.label}</a>
+                <div className="rcp-m">Figure · {film.title}</div>
+              </div>
+            ))}
+            {questions.map((q) => (
+              <div className="rcp-row" key={q.slug}>
+                <a className="rcp-h" href={`/film/${film.slug}/q/${q.slug}`}>{q.title_spoiler && q.display_title ? q.display_title : q.title}</a>
+                <div className="rcp-m">Q&amp;A · {film.title}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
