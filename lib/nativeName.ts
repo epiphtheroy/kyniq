@@ -110,7 +110,10 @@ export function directorNative(name: string): Promise<string | null> {
         return null;
       }
     },
-    ["director-native", name],
+    // v2: key bumped 2026-07-03 — v1 cached foreign-market transliterations
+    // (e.g. "미카엘 하네케") for Latin-script directors before the
+    // expected-script guard landed.
+    ["director-native-v2", name],
     { revalidate: 604800 },
   )();
 }
