@@ -7,7 +7,7 @@ import crewIndex from "@/lib/crew_index.json";
 import "./credits.css";
 
 export const metadata: Metadata = {
-  title: "Credits — follow the credits | Metatake",
+  title: "Credits — follow the credits",
   description:
     "Every film is signed by more than its director. Follow the cinematographer, editor, composer or designer of a film you loved through their whole body of work — where to begin, the essentials, the deep cuts, and the repertory company they keep.",
   alternates: { canonical: "/credits" },
