@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "@/app/credits/CreditsExplorer";
+import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
+import { directorRepertory } from "@/lib/filmCrew";
 import "@/app/credits/credits.css";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
@@ -34,7 +36,7 @@ type Next = { pos: number; rec_name: string; reason: string; target_slug: string
 async function loadUncached(slug: string) {
   const supabase = db();
   const { data: films } = await supabase
-    .from("films").select("id, title, slug, year, director, backdrop_path, poster_path").eq("director_slug", slug).eq("visible", true).order("year");
+    .from("films").select("id, title, slug, year, director, backdrop_path, poster_path, tmdb_id").eq("director_slug", slug).eq("visible", true).order("year");
   if (!films || films.length === 0) return null;
   const director = films[0].director ?? slug.replace(/-/g, " ");
   const filmIds = films.map((f) => f.id);
@@ -183,6 +185,11 @@ export default async function DirectorPage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount } = data;
+  // Repertory company — the SEO-crawlable credits copy: recurring key-craft
+  // collaborators across this director's catalog films, each linking to their
+  // /credits/[person] read page. Per-film crew is 24h-cached (shared cache).
+  const crewTmdbIds = (films as { tmdb_id?: number | null }[]).map((f) => f.tmdb_id).filter((x): x is number => !!x);
+  const repertory = crewTmdbIds.length ? await directorRepertory(crewTmdbIds) : [];
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   const jsonld = {

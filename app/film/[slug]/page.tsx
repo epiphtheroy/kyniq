@@ -27,7 +27,8 @@ import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
-import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
+import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
+import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 
@@ -226,38 +227,6 @@ function loadChrome(slug: string) {
   )();
 }
 
-// Key-craft crew for the on-page Credits block — the crawlable answer to
-// "who shot / edited / scored this film" (the /credits explorer is client-only
-// and invisible to search). Names link to /credits/[person] read pages.
-const CREW_KEYS: CraftKey[] = ["writer", "dp", "editor", "composer", "pd"];
-function loadCrew(tmdbId: number) {
-  return unstable_cache(
-    async () => {
-      const token = process.env.TMDB_READ_TOKEN;
-      if (!token) return [];
-      const v4 = token.length > 40;
-      const r = await fetch(
-        `https://api.themoviedb.org/3/movie/${tmdbId}/credits${v4 ? "" : `?api_key=${token}`}`,
-        { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" } },
-      ).catch(() => null);
-      if (!r || !r.ok) return [];
-      const d = (await r.json()) as { crew?: { id: number; name: string; job?: string; department?: string }[] };
-      const out: { craft: CraftKey; people: { id: number; name: string }[] }[] = [];
-      for (const key of CREW_KEYS) {
-        const cf = CRAFTS[key];
-        const seen = new Map<number, { id: number; name: string }>();
-        for (const c of d.crew ?? []) {
-          if (c.job && cf.jobs.has(c.job) && c.department && cf.depts.includes(c.department)) seen.set(c.id, { id: c.id, name: c.name });
-        }
-        if (seen.size) out.push({ craft: key, people: [...seen.values()].slice(0, 4) });
-      }
-      return out;
-    },
-    ["film-crew", String(tmdbId)],
-    { revalidate: 86400 },
-  )();
-}
-
 // order + cap for the film-page Archetype section
 const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
 const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
@@ -324,7 +293,7 @@ export default async function FilmPage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   const { movements, codex } = await loadChrome(slug);
-  const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await loadCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
+  const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
   const codexBadge = _cx ? (
     <a className="df-mts" href="#df-codex" title="TakeScore — durable value minus risk. Click for the full breakdown.">
