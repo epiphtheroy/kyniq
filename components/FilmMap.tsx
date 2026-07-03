@@ -23,6 +23,7 @@ type Row = {
   layer?: string; built_set?: boolean | null; set_host?: string | null; tier?: string | null;
   sources?: string[] | null; fig_slug?: string | null; fig_label?: string | null; fig_desc?: string | null;
   film_slug?: string | null; film_title?: string | null; film_year?: number | null; poster_path?: string | null;
+  film_places?: number | null; // total located places of the film (overview pins only)
 };
 type Sug = { slug: string; title: string; year: number | null; poster_path: string | null; director: string | null };
 type SortKey = "inview" | "places" | "az" | "year";
@@ -488,7 +489,7 @@ export default function FilmMap({
   const matches = useCallback((r: Row) =>
     !pql || r.name.toLowerCase().includes(pql) || (r.film_title ?? "").toLowerCase().includes(pql) || (r.country ?? "").toLowerCase().includes(pql), [pql]);
 
-  type Group = { slug: string; title: string; year: number | null; poster: string | null; rows: Row[]; inViewCount: number };
+  type Group = { slug: string; title: string; year: number | null; poster: string | null; rows: Row[]; inViewCount: number; total: number };
   const groups = useMemo<Group[]>(() => {
     if (!globalish) return [];
     const by = new Map<string, Group>();
@@ -496,13 +497,15 @@ export default function FilmMap({
       if (!matches(r)) continue;
       const slug = r.film_slug ?? "—";
       let g = by.get(slug);
-      if (!g) { g = { slug, title: r.film_title ?? r.name, year: r.film_year ?? null, poster: r.poster_path ?? null, rows: [], inViewCount: 0 }; by.set(slug, g); }
+      if (!g) { g = { slug, title: r.film_title ?? r.name, year: r.film_year ?? null, poster: r.poster_path ?? null, rows: [], inViewCount: 0, total: 0 }; by.set(slug, g); }
       g.rows.push(r);
+      if (r.film_places && r.film_places > g.total) g.total = r.film_places;
       if (!inView || inView.has(r.id)) g.inViewCount++;
     }
     let gs = [...by.values()];
-    if (sort === "inview") gs = gs.filter((g) => g.inViewCount > 0).sort((a, b) => b.inViewCount - a.inViewCount);
-    else if (sort === "places") gs.sort((a, b) => b.rows.length - a.rows.length);
+    gs.forEach((g) => { if (g.rows.length > g.total) g.total = g.rows.length; });
+    if (sort === "inview") gs = gs.filter((g) => g.inViewCount > 0).sort((a, b) => b.inViewCount - a.inViewCount || b.total - a.total);
+    else if (sort === "places") gs.sort((a, b) => b.total - a.total);
     else if (sort === "az") gs.sort((a, b) => a.title.localeCompare(b.title));
     else gs.sort((a, b) => (b.year ?? -1) - (a.year ?? -1));
     const top = focus?.slug ?? filmSlug;
@@ -610,9 +613,9 @@ export default function FilmMap({
             view === "grid" ? (
               <div className="fmap-grid">
                 {groups.map((g) => (
-                  <button key={g.slug} type="button" className={`fmap-card${(focus?.slug ?? filmSlug) === g.slug ? " on" : ""}`} onClick={() => focusFilm(g.slug, g.title)} title={`${g.title} — ${g.rows.length} places`}>
+                  <button key={g.slug} type="button" className={`fmap-card${(focus?.slug ?? filmSlug) === g.slug ? " on" : ""}`} onClick={() => focusFilm(g.slug, g.title)} title={`${g.title} — ${g.total} places`}>
                     {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={`${IMG}${g.poster}`} alt={g.title} loading="lazy" /> : <span className="fmap-card__e">{g.title}</span>}
-                    <span className="fmap-badge">{g.rows.length}</span>
+                    <span className="fmap-badge">{g.total}</span>
                   </button>
                 ))}
                 {groups.length === 0 ? <div className="fmap-empty">No films here — move the map or clear the filter.</div> : null}
@@ -631,7 +634,7 @@ export default function FilmMap({
                         {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="fmap-grp__thumb" src={`${IMG}${g.poster}`} alt="" loading="lazy" /> : <span className="fmap-grp__thumb fmap-grp__thumb--e" />}
                         <span className="fmap-grp__tx">
                           <span className="fmap-grp__ttl">{g.title}{g.year ? <i> ({g.year})</i> : null}</span>
-                          <span className="fmap-grp__meta">{g.rows.length} place{g.rows.length !== 1 ? "s" : ""}{sort === "inview" && g.inViewCount !== g.rows.length ? ` · ${g.inViewCount} in view` : ""}</span>
+                          <span className="fmap-grp__meta">{g.total} place{g.total !== 1 ? "s" : ""}{sort === "inview" && g.inViewCount !== g.total ? ` · ${g.inViewCount} in view` : ""}</span>
                         </span>
                         <span className={`fmap-grp__car${open ? " open" : ""}`}>›</span>
                       </button>
