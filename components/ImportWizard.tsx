@@ -46,7 +46,7 @@ export default function ImportWizard() {
 
   const runMatch = useCallback(async (parsed: NormalizedRow[]) => {
     setBusy("영화 매칭 중…");
-    const st: RowState[] = parsed.map((r) => ({ ...r, matchStatus: r.to_watchlist || !r.to_watchlist ? "pending" : "pending" }));
+    const st: RowState[] = parsed.map((r) => ({ ...r, matchStatus: "pending" as const }));
     setRows(st); setStep("review");
     for (let p = 0; p < st.length; p += MATCH_BATCH) {
       const batch = st.slice(p, p + MATCH_BATCH).map((r) => ({ i: r.i, title: r.title, year: r.year, tmdb_id: r.tmdb_id, imdb_id: r.imdb_id }));
