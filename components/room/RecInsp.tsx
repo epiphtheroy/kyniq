@@ -9,13 +9,13 @@ import Stars from "./Stars";
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 
-const REASONS: Record<string, { cls: string; label: string; sent: string }> = {
-  safe: { cls: "safe", label: "안전자산", sent: "실망 위험이 낮고" },
-  reading: { cls: "reading", label: "취향 적중", sent: "당신의 취향에 가깝고" },
-  canon: { cls: "canon", label: "정전 위상", sent: "영화사적 위상이 높고" },
-  gap: { cls: "gap", label: "공백 충족", sent: "아직 안 밟은 계보를 열고" },
-  frontier: { cls: "frontier", label: "안전한 모험", sent: "낯설지만 하방이 받쳐져 있고" },
-  conquer: { cls: "conquer", label: "도장깨기", sent: "계보 완파를 진척시키고" },
+const REASONS: Record<string, { cls: string; label: string; mid: string; last: string }> = {
+  safe: { cls: "safe", label: "안전자산", mid: "실망 위험이 낮고", last: "실망 위험이 낮은" },
+  reading: { cls: "reading", label: "취향 적중", mid: "당신의 취향에 가깝고", last: "당신의 취향에 가까운" },
+  canon: { cls: "canon", label: "정전 위상", mid: "영화사적 위상이 높고", last: "영화사적 위상이 높은" },
+  gap: { cls: "gap", label: "공백 충족", mid: "안 밟은 계보를 열고", last: "아직 안 밟은 계보를 여는" },
+  frontier: { cls: "frontier", label: "안전한 모험", mid: "낯설지만 하방이 받쳐져 있고", last: "낯설지만 하방이 받쳐진" },
+  conquer: { cls: "conquer", label: "도장깨기", mid: "계보 완파를 진척시키고", last: "계보 완파를 진척시키는" },
 };
 
 export type RecFilm = {
@@ -38,7 +38,7 @@ export default function RecInsp({ f, onKeep, onSeen, onDismiss, onRate }: {
   const [localKept, setLocalKept] = useState(false);
   const chips = (f.reasons ?? []).map((c) => REASONS[c]).filter(Boolean);
   const why = chips.length
-    ? chips.map((c) => c.sent).join(", ").replace(/고,([^,]*)$/, "고$1").replace(/고$/, "은") + " 작품입니다."
+    ? [...chips.slice(0, -1).map((c) => c.mid), chips[chips.length - 1].last].join(", ") + " 작품입니다."
     : "이 후보의 추천 이유 데이터가 아직 없습니다 — 아래 펀더멘털을 직접 확인하세요.";
 
   return (

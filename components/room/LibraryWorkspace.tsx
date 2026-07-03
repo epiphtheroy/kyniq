@@ -232,7 +232,7 @@ export default function LibraryWorkspace({ rows }: { rows: LibRow[] }) {
             <svg width="92" height="92" viewBox="0 0 92 92">
               <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" strokeWidth="7" />
               <circle cx="46" cy="46" r="38" fill="none" stroke="var(--lineage)" strokeWidth="7" strokeLinecap="round"
-                strokeDasharray="239" strokeDashoffset={total ? Math.max(0, 239 * (1 - Math.min(1, total / 21))) : 239} transform="rotate(-90 46 46)" />
+                strokeDasharray="239" strokeDashoffset={total ? 0 : 239} transform="rotate(-90 46 46)" />
               <text x="46" y="44" textAnchor="middle" fontSize="22" fill="#ECEAE5" fontFamily="ui-monospace,monospace" fontWeight="600">{total}</text>
               <text x="46" y="58" textAnchor="middle" fontSize="8.5" fill="#6C6960" letterSpacing="1.5">SAVED</text>
             </svg>
