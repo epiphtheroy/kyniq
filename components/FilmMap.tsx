@@ -383,7 +383,23 @@ export default function FilmMap({
           }
         } catch {}
       };
-      m.on("style.load", () => { densify(); applyLang(); });
+      // Re-tune whenever the active style actually changes. setStyle() may apply a
+      // DIFF without ever firing "style.load", so we key off a style signature and
+      // check on every style/idle event instead.
+      let tuned = "";
+      const tune = () => {
+        try {
+          const st = m.getStyle(); if (!st) return;
+          const sig = st.name ?? Object.keys(st.sources ?? {}).join(",");
+          if (sig === tuned || !m.isStyleLoaded()) return;
+          tuned = sig;
+          densify();
+          applyLang();
+        } catch {}
+      };
+      m.on("style.load", tune);
+      m.on("styledata", tune);
+      m.on("idle", tune);
 
       // cluster-count text needs a font that exists on the active glyph server —
       // borrow the first font stack the current style itself uses.
