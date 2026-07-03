@@ -6,7 +6,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "@/app/credits/CreditsExplorer";
-import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
+import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
+import crewIndex from "@/lib/crew_index.json";
 import { directorRepertory } from "@/lib/filmCrew";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/credits/credits.css";
@@ -226,8 +227,19 @@ export default async function DirectorPage({ params }: Props) {
   ).filter((r) => r.name.toLowerCase() !== director.toLowerCase());
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
+  // Entity stitching — same human as a /credits crew page? Exact, unique name
+  // match against the crew index; namesakes (0 or >1 hits) are skipped silently.
+  const crewPeople = (crewIndex as unknown as { people: { id: number; name: string; n: number; c: string[] }[] }).people;
+  const crewMatches = crewPeople.filter((c) => c.name === director);
+  const crewMatch = crewMatches.length === 1 ? crewMatches[0] : null;
+  const crewHref = crewMatch ? `/credits/${personSlug(crewMatch.name, crewMatch.id)}` : null;
+  const crewRoles = crewMatch
+    ? crewMatch.c.filter((k): k is CraftKey => k in CRAFTS).map((k) => CRAFTS[k].role.toLowerCase()).join(", ")
+    : null;
+
   const jsonld = {
     "@context": "https://schema.org", "@type": "Person", name: director, jobTitle: "Film director",
+    ...(crewHref ? { sameAs: [`https://metatake.net${crewHref}`] } : {}),
     ...(native ? { alternateName: native } : {}),
     ...(d?.profile_path ? { image: `${IMG}/w342${d.profile_path}` } : {}),
     ...(d?.birthday ? { birthDate: d.birthday } : {}),
@@ -592,6 +604,12 @@ export default async function DirectorPage({ params }: Props) {
             /credits/[person] read page), then the interactive map below it. */}
         <section className="dr-sec" id="dr-credits" style={{ marginTop: 44, borderTop: "2px solid #16233F", paddingTop: 6 }}>
           <h2 className="dr-h2" style={{ marginTop: 18 }}>Credits</h2>
+          {crewMatch && crewHref ? (
+            <p style={{ fontSize: 16.5, lineHeight: 1.6, maxWidth: "68ch", margin: "6px 0 14px" }}>
+              {director} also signs other filmmakers&apos; work — {crewMatch.n} catalog film{crewMatch.n === 1 ? "" : "s"} as {crewRoles}.{" "}
+              <Link className="rcp-h" style={{ display: "inline" }} href={crewHref}>See the crew page →</Link>
+            </p>
+          ) : null}
           {repertory.length > 0 ? (
             <>
               <p style={{ fontSize: 16.5, lineHeight: 1.6, maxWidth: "68ch", margin: "6px 0 14px" }}>

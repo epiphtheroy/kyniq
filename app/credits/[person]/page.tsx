@@ -183,6 +183,7 @@ export default async function CrewPersonPage({ params }: Props) {
     dateModified: updated,
     mainEntity: {
       "@type": "Person",
+      "@id": `https://metatake.net/credits/${personSlug(p.name, id)}`,
       name: p.name,
       ...((p.also_known_as?.length || native)
         ? { alternateName: [...new Set([...(native ? [native] : []), ...(p.also_known_as ?? [])])].slice(0, 8) }
@@ -191,6 +192,7 @@ export default async function CrewPersonPage({ params }: Props) {
       ...(p.birthday ? { birthDate: p.birthday } : {}),
       ...(p.profile_path ? { image: `https://image.tmdb.org/t/p/w342${p.profile_path}` } : {}),
       sameAs: [
+        ...(directorHub ? [`https://metatake.net/director/${directorHub.slug}`] : []),
         `https://www.themoviedb.org/person/${id}`,
         ...(p.external_ids?.imdb_id ? [`https://www.imdb.com/name/${p.external_ids.imdb_id}/`] : []),
       ],
@@ -234,6 +236,13 @@ export default async function CrewPersonPage({ params }: Props) {
             <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "62ch", margin: 0 }}>
               {leadSentence(p.name, native, crafts, cat, company[0] ?? null)}
             </p>
+            {directorHub ? (
+              <p style={{ margin: "10px 0 0", fontSize: 15.5 }}>
+                <Link className="rcp-h" style={{ display: "inline" }} href={`/director/${directorHub.slug}`}>
+                  Directed {directorHub.n} film{directorHub.n === 1 ? "" : "s"} in the catalog → see the director hub
+                </Link>
+              </p>
+            ) : null}
             <a
               href="#explorer"
               style={{
