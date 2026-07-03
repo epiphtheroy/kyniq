@@ -81,6 +81,23 @@ const organizationJsonLd = {
   email: "wonwoo@metatake.net",
 };
 
+// WebSite schema: qualifies the site-name display in SERPs and the sitelinks
+// search box (SearchAction → /search?q=).
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: "Metatake",
+  alternateName: "Metatake — A Critical Map of Cinema",
+  url: siteUrl,
+  publisher: { "@id": `${siteUrl}/#org` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${siteUrl}/search?q={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -103,6 +120,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         <UserFilmsProvider><UserSavesProvider>{children}</UserSavesProvider></UserFilmsProvider>
         <TakeScoreBadges />
