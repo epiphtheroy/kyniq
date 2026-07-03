@@ -61,22 +61,28 @@ export default function CreditsExplorer({
   embed = false,
   initialP,
   initialC,
+  initialD,
 }: {
-  // Embed mode (person pages): navigation is component state instead of the
-  // URL, so following the credits never leaves the page underneath.
+  // Embed mode (person/director pages): navigation is component state instead
+  // of the URL, so following the credits never leaves the page underneath.
+  // initialD seeds by name (director pages); initialP/initialC by TMDB id.
   embed?: boolean;
   initialP?: number;
   initialC?: CraftKey;
+  initialD?: string;
 } = {}) {
   const router = useRouter();
   const sp = useSearchParams();
-  const [local, setLocal] = useState<{ f: number | null; p: number | null; c: CraftKey | null }>(
-    { f: null, p: initialP ?? null, c: initialC ?? null },
+  const [local, setLocal] = useState<{ f: number | null; p: number | null; c: CraftKey | null; d: string | null }>(
+    { f: null, p: initialP ?? null, c: initialC ?? null, d: initialP ? null : initialD ?? null },
   );
+  // The page's own subject — their profile box is redundant with the server
+  // header above the embed, so ArtistView hides it for this id only.
+  const homePidRef = useRef<number | null>(initialP ?? null);
   const fParam = embed ? (local.f != null ? String(local.f) : null) : sp.get("f");
   const pParam = embed ? (local.p != null ? String(local.p) : null) : sp.get("p");
   const cParam = embed ? local.c : sp.get("c");
-  const dParam = embed ? null : sp.get("d");
+  const dParam = embed ? local.d : sp.get("d");
 
   const [nav, setNav] = useState<NavState | null>(null);
   const [artist, setArtist] = useState<ArtistData | null>(null);
@@ -90,11 +96,11 @@ export default function CreditsExplorer({
   useEffect(() => { hydrateSeen(); bump(); }, []);
 
   const navFilm = (id: number) => {
-    if (embed) setLocal({ f: id, p: null, c: null });
+    if (embed) setLocal({ f: id, p: null, c: null, d: null });
     else router.push(`/credits?f=${id}`);
   };
   const navArtist = (pid: number, craft: CraftKey, fid?: number | null) => {
-    if (embed) setLocal({ f: fid ?? null, p: pid, c: craft });
+    if (embed) setLocal({ f: fid ?? null, p: pid, c: craft, d: null });
     else router.push(`/credits?p=${pid}&c=${craft}${fid ? `&f=${fid}` : ""}`);
   };
   const toggleSeen = (id: number) => {
@@ -148,7 +154,10 @@ export default function CreditsExplorer({
             setEmptyMsg(`No one by that name in the credits on TMDB. That's the archive, not the person.`);
             return;
           }
-          router.replace(`/credits?p=${hit.id}&c=dir`);
+          if (embed) {
+            if (homePidRef.current == null) homePidRef.current = hit.id;
+            setLocal({ f: null, p: hit.id, c: "dir", d: null });
+          } else router.replace(`/credits?p=${hit.id}&c=dir`);
         } else {
           setNav(null); setArtist(null); setStatus(null);
         }
@@ -188,6 +197,7 @@ export default function CreditsExplorer({
       {artist && !status ? (
         <ArtistView
           S={artist} nav={nav}
+          hideProfile={embed && homePidRef.current != null && artist.person.id === homePidRef.current}
           onFilm={navFilm} onArtist={navArtist} onDossier={setDossier}
           isSeen={(id) => SEEN.has(id)} toggleSeen={toggleSeen}
         />
@@ -373,6 +383,7 @@ function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid:
 /* ============ artist page ============ */
 interface ViewProps {
   S: ArtistData; nav: NavState | null;
+  hideProfile?: boolean;
   onFilm: (id: number) => void;
   onArtist: (pid: number, craft: CraftKey, fid?: number | null) => void;
   onDossier: (o: Collab) => void;
@@ -469,7 +480,7 @@ function SecHead({ en, kr, sub }: { en: string; kr: string; sub?: ReactNode }) {
   );
 }
 
-function ArtistView({ S, nav, onFilm, onArtist, onDossier, isSeen, toggleSeen }: ViewProps) {
+function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, isSeen, toggleSeen }: ViewProps) {
   const { person, craftKey, films, byWR, essentials, deep, further, startHere, notStart, partners, partnerIds, troupe, topCollab, totalWorks, corpus, failed, gTop, isDir } = S;
   const cf = CRAFTS[craftKey];
   const yr0 = films[0].year, yr1 = films[films.length - 1].year;
