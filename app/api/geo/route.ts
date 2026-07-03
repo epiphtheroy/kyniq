@@ -13,6 +13,10 @@ export async function GET(req: Request) {
   let rows: unknown = [];
   if (film) rows = (await db.rpc("film_geo", { p_slug: film })).data;
   else if (director) rows = (await db.rpc("director_geo", { p_slug: director })).data;
-  else rows = (await db.rpc("geo_overview", { p_limit: 5000 })).data;
+  else {
+    // jsonb-aggregating RPC → single row, so PostgREST's 1000-row cap can't truncate the atlas
+    rows = (await db.rpc("geo_overview_json", { p_limit: 20000 })).data;
+    if (!Array.isArray(rows)) rows = (await db.rpc("geo_overview", { p_limit: 5000 })).data; // fallback
+  }
   return NextResponse.json(rows ?? [], { headers: { "cache-control": "public, max-age=300, s-maxage=600, stale-while-revalidate=3600" } });
 }

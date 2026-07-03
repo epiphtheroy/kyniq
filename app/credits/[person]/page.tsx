@@ -1,8 +1,10 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import CreditsExplorer from "../CreditsExplorer";
 import { CRAFTS, type CraftKey, img } from "../credits-logic";
 import { pageRobots } from "@/lib/seo";
 import "../credits.css";
@@ -331,10 +333,17 @@ export default async function CrewPersonPage({ params }: Props) {
           </section>
         ))}
 
-        <p style={{ margin: "30px 0 6px" }}>
-          <Link href={`/credits?p=${id}&c=${mainCraft}`} className="rcp-h">Explore {p.name} in the interactive Credits explorer →</Link>
-        </p>
-        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 18 }}>
+        <section id="explorer" style={{ margin: "44px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
+          <h2 className="df-h2" style={{ marginTop: 18 }}>The interactive layer</h2>
+          <p className="df-sub">
+            {p.name}&apos;s whole network, live — click any film or collaborator to keep following the credits without leaving this page.
+          </p>
+          <Suspense fallback={<div style={{ padding: "30px 0", opacity: 0.6 }}>Loading the map…</div>}>
+            <CreditsExplorer embed initialP={id} initialC={mainCraft} />
+          </Suspense>
+        </section>
+
+        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Metatake Editorial · Filmography data from TMDB · Catalog readings by Metatake · Updated {updated}
         </p>
       </div>

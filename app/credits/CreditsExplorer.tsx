@@ -57,10 +57,26 @@ function persistSeen() {
 
 /* ============================================================ */
 
-export default function CreditsExplorer() {
+export default function CreditsExplorer({
+  embed = false,
+  initialP,
+  initialC,
+}: {
+  // Embed mode (person pages): navigation is component state instead of the
+  // URL, so following the credits never leaves the page underneath.
+  embed?: boolean;
+  initialP?: number;
+  initialC?: CraftKey;
+} = {}) {
   const router = useRouter();
   const sp = useSearchParams();
-  const fParam = sp.get("f"), pParam = sp.get("p"), cParam = sp.get("c"), dParam = sp.get("d");
+  const [local, setLocal] = useState<{ f: number | null; p: number | null; c: CraftKey | null }>(
+    { f: null, p: initialP ?? null, c: initialC ?? null },
+  );
+  const fParam = embed ? (local.f != null ? String(local.f) : null) : sp.get("f");
+  const pParam = embed ? (local.p != null ? String(local.p) : null) : sp.get("p");
+  const cParam = embed ? local.c : sp.get("c");
+  const dParam = embed ? null : sp.get("d");
 
   const [nav, setNav] = useState<NavState | null>(null);
   const [artist, setArtist] = useState<ArtistData | null>(null);
@@ -73,9 +89,14 @@ export default function CreditsExplorer() {
 
   useEffect(() => { hydrateSeen(); bump(); }, []);
 
-  const navFilm = (id: number) => router.push(`/credits?f=${id}`);
-  const navArtist = (pid: number, craft: CraftKey, fid?: number | null) =>
-    router.push(`/credits?p=${pid}&c=${craft}${fid ? `&f=${fid}` : ""}`);
+  const navFilm = (id: number) => {
+    if (embed) setLocal({ f: id, p: null, c: null });
+    else router.push(`/credits?f=${id}`);
+  };
+  const navArtist = (pid: number, craft: CraftKey, fid?: number | null) => {
+    if (embed) setLocal({ f: fid ?? null, p: pid, c: craft });
+    else router.push(`/credits?p=${pid}&c=${craft}${fid ? `&f=${fid}` : ""}`);
+  };
   const toggleSeen = (id: number) => {
     if (SEEN.has(id)) SEEN.delete(id); else SEEN.add(id);
     persistSeen(); bump();
@@ -139,7 +160,7 @@ export default function CreditsExplorer() {
       }
     };
     void run();
-    if (fParam || pParam || dParam) window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!embed && (fParam || pParam || dParam)) window.scrollTo({ top: 0, behavior: "smooth" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fParam, pParam, cParam, dParam]);
 
