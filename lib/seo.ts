@@ -68,7 +68,11 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    for non-English names. Film pages gained a crawlable Credits block.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
-export const SOCIAL_PROFILES: string[] = [];
+export const SOCIAL_PROFILES: string[] = [
+  "https://wonwooyoon.substack.com/",
+  "https://letterboxd.com/wonwoo_metatake/",
+  "https://x.com/wonwooyoonje",
+];
 
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
