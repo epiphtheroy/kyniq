@@ -522,12 +522,19 @@ export default function FilmMap({
         <div className="fmap-side" ref={listEl} style={{ maxHeight: height }}>
           <div className="fmap-tools">
             <input className="fmap-filter" value={pq} onChange={(e) => setPq(e.target.value)} placeholder="Filter places…" aria-label="Filter places" />
-            <select className="fmap-sort" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
-              <option value="inview">In view</option>
-              <option value="places">Most places</option>
-              <option value="az">Title A–Z</option>
-              <option value="year">Newest</option>
-            </select>
+            {globalish ? (
+              <select className="fmap-sort" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
+                <option value="inview">In view</option>
+                <option value="places">Most places</option>
+                <option value="az">Title A–Z</option>
+                <option value="year">Newest</option>
+              </select>
+            ) : (
+              <span className="fmap-seg">
+                <button className={sort === "inview" ? "on" : ""} onClick={() => setSort("inview")}>In view</button>
+                <button className={sort !== "inview" ? "on" : ""} onClick={() => setSort("places")}>All</button>
+              </span>
+            )}
             {globalish ? (
               <span className="fmap-seg fmap-view">
                 <button className={view === "list" ? "on" : ""} onClick={() => setView("list")} aria-label="List view">☰</button>
