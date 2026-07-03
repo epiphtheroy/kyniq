@@ -277,9 +277,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fromInvitation = data.invitation ? descriptionFromInvitation(data.invitation) : null;
   // A mid-sentence cut ("…") reads as a broken sentence in search snippets, so a
   // truncated extraction only ships when there is no complete-sentence fallback.
-  const description = fromInvitation && (!fromInvitation.endsWith("…") || !templatedDescription)
+  const picked = fromInvitation && (!fromInvitation.endsWith("…") || !templatedDescription)
     ? fromInvitation
     : templatedDescription;
+  // Numbers are a CTR signal — append the corpus counts when the prose
+  // description has room (the templated fallback already carries them).
+  const stats = ` ${data.figures.length} figures · ${data.misreadings.length} readings inside.`;
+  const description = picked && picked === fromInvitation && data.misreadings.length && (picked + stats).length <= 168
+    ? picked + stats
+    : picked;
   return {
     title,
     ...(description ? { description } : {}),
