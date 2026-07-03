@@ -11,6 +11,8 @@ import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { FigureStats } from "@/components/detail/FigureDetailBits";
+import RelatedBoxes from "@/components/RelatedBoxes";
+import { relatedForFigure } from "@/lib/related";
 import { renderTokens } from "@/lib/mtTokens";
 import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
@@ -190,6 +192,16 @@ export default async function FigurePage({ params }: Props) {
   if (!data) notFound();
   const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition } = data;
   if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
+  // Related-boxes sections (SEO module) — deterministic, per-figure mix.
+  const relatedSections = await relatedForFigure({
+    filmId: film.id as string,
+    figureId: figure.id as string,
+    figureSlug,
+    figureLabel: figure.label as string,
+    filmSlug: film.slug as string,
+    filmTitle: film.title as string,
+    year: (film.year as number | null) ?? null,
+  });
   const resolver = { film: { [film.slug]: { title: film.title } } };
 
   // distinct published meta takes reached by this figure's takes
@@ -405,6 +417,11 @@ export default async function FigurePage({ params }: Props) {
         )}
 
         <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
+
+        {/* Related boxes — appended after the main content, before footer-ish elements */}
+        {relatedSections.map((s) => (
+          <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
+        ))}
 
         <SeqNav kind="figure" id={figure.id} />
 

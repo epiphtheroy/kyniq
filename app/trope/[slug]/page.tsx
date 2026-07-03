@@ -12,6 +12,8 @@ import { pageRobots } from "@/lib/seo";
 import { resolveAlias } from "@/lib/aliases";
 import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
+import RelatedBoxes from "@/components/RelatedBoxes";
+import { relatedForMetaTake } from "@/lib/related";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -116,7 +118,11 @@ export default async function TropePage({ params }: Props) {
     notFound();
   }
   const { t, readings, filmCount } = data;
-  const { data: relRaw } = await db().rpc("trope_related", { p_slug: slug, p_n: 9 });
+  const [{ data: relRaw }, relatedSections] = await Promise.all([
+    db().rpc("trope_related", { p_slug: slug, p_n: 9 }),
+    // Related-boxes sections (SEO module) — deterministic, per-trope mix.
+    relatedForMetaTake({ metaTakeId: t.id, kind: "figure_type", slug: t.slug }),
+  ]);
   const related = (relRaw as Related[] | null) ?? [];
   const tt = t as typeof t & { maturity: string | null };
   const sorted = [...readings].sort((a, b) => a.figure.film.title.localeCompare(b.figure.film.title));
@@ -263,6 +269,11 @@ export default async function TropePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* Related boxes — appended after the main content, before footer-ish elements */}
+        {relatedSections.map((s) => (
+          <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
+        ))}
 
         <Provenance created={t.created_at} updated={t.updated_at} />
       </div>

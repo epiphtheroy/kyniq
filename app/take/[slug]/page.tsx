@@ -14,6 +14,8 @@ import { pageRobots } from "@/lib/seo";
 import { resolveAlias } from "@/lib/aliases";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 import { MetatakeStats } from "@/components/detail/MetatakeDetailBits";
+import RelatedBoxes from "@/components/RelatedBoxes";
+import { relatedForMetaTake } from "@/lib/related";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -161,6 +163,9 @@ export default async function TakePage({ params }: Props) {
     notFound();
   }
   const { mt, family, theorist, defining, unexpected, related, all, filmCount, registers } = data;
+
+  // Related-boxes sections (SEO module) — deterministic, per-reading mix.
+  const relatedSections = await relatedForMetaTake({ metaTakeId: mt.id, kind: "reading", slug: mt.slug });
 
   const familyName = family?.name ?? null;
 
@@ -339,6 +344,11 @@ export default async function TakePage({ params }: Props) {
             ? related.map((r, i) => <span key={r.slug}>{i > 0 ? " · " : ""}<Link href={`/take/${r.slug}`}>{r.title}</Link></span>)
             : <span className="mk-compare__none">no linked meta takes yet — this hub stands alone for now.</span>}
         </p>
+
+        {/* Related boxes — appended after the main content, before footer-ish elements */}
+        {relatedSections.map((s) => (
+          <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
+        ))}
 
         <SeqNav kind="meta_take" id={mt.id} />
 

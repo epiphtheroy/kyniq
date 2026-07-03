@@ -7,6 +7,8 @@ import MediaGallery from "@/components/MediaGallery";
 import ShareRow from "@/components/ShareRow";
 import SpoilerShield from "@/components/SpoilerShield";
 import LightboxImage from "@/components/LightboxImage";
+import RelatedBoxes from "@/components/RelatedBoxes";
+import { relatedForQuestion } from "@/lib/related";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 // ISR: edge-cached, background-refreshed (was force-dynamic).
@@ -120,8 +122,8 @@ export default async function QuestionPage({ params }: Props) {
     title: string | null; attribution: string | null;
     duration: string | null; channel_name: string | null;
   };
-  // Media + film question count — independent, fetched in parallel
-  const [{ data: mediaRows }, { count: filmQuestionCount }] = await Promise.all([
+  // Media + film question count + related-boxes sections — independent, fetched in parallel
+  const [{ data: mediaRows }, { count: filmQuestionCount }, relatedSections] = await Promise.all([
     supabase
       .from("media")
       .select("id, kind, source, external_id, url, thumbnail_url, title, attribution, duration, channel_name")
@@ -134,6 +136,14 @@ export default async function QuestionPage({ params }: Props) {
       .select("id", { count: "exact", head: true })
       .eq("film_id", film.id)
       .eq("status", "published"),
+    relatedForQuestion({
+      filmId: film.id,
+      filmSlug: film.slug,
+      filmTitle: film.title,
+      year: film.year ?? null,
+      questionId: question.id,
+      questionSlug: qSlug,
+    }),
   ]);
 
   const media = (mediaRows ?? []) as MediaItem[];
@@ -402,6 +412,11 @@ export default async function QuestionPage({ params }: Props) {
             </div>
             <MoreFeed filmId={film.id} excludeId={question.id} />
           </section>
+
+          {/* Related boxes — appended after the main content, before footer-ish elements */}
+          {relatedSections.map((s) => (
+            <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
+          ))}
         </div>
       </main>
     </>
