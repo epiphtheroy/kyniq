@@ -183,8 +183,17 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
   }, [data.points]);
 
   const countries = useMemo(() =>
-    (data.by_country ?? []).map((c) => ({ country: c.country, films: n0(c.films), pins: n0(c.pins) })),
+    (data.by_country ?? []).map((c) => ({ country: c.country, films: n0(c.films), pins: n0(c.pins), cont: normCont(c.continent) })),
     [data.by_country]);
+
+  /* country → continent — DB 참조테이블 값 (by_country.continent) */
+  const contByCountry = useMemo(() => {
+    const m = new Map<string, Continent | null>();
+    for (const c of countries) m.set(c.country, c.cont);
+    return m;
+  }, [countries]);
+  const contOf = (country: string | null): Continent | null =>
+    country ? (contByCountry.get(country) ?? null) : null;
 
   const t = data.totals;
   const locatedFilms = n0(t?.located_films);
@@ -195,11 +204,11 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
   const filmedN = useMemo(() => pts.filter((p) => p.layer === "filmed").length, [pts]);
   const settingN = pts.length - filmedN;
 
-  /* 지리 커버리지 % — countries seen vs a reference of ~50 major film nations (honest denominator). */
-  const REF_NATIONS = 50;
-  const coveragePct = Math.round((countryCount / REF_NATIONS) * 100);
+  /* 지리 커버리지 % — 분모 = film_locations에 실제 등장하는 전 국가 수 (실측, 매직넘버 제거) */
+  const refNations = n0(t?.countries_total) || 50;
+  const coveragePct = Math.round((countryCount / refNations) * 100);
 
-  /* ── continents: seen counts + blind (④) ── */
+  /* ── continents: seen counts + blind (④) — 대륙 매핑은 DB 참조테이블 파생 ── */
   const contFilms = useMemo(() => {
     const m = new Map<Continent, Set<string>>();
     for (const p of pts) {
@@ -209,7 +218,8 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
       m.get(cont)!.add(p.slug);
     }
     return m;
-  }, [pts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pts, contByCountry]);
 
   const contStats = useMemo(() =>
     CONTINENTS.map((cont) => ({ cont, films: contFilms.get(cont)?.size ?? 0 })), [contFilms]);
@@ -221,11 +231,17 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
   const lngLines = useMemo(() => { const a: number[] = []; for (let l = -150; l <= 150; l += 30) a.push(l); return a; }, []);
   const latLines = useMemo(() => { const a: number[] = []; for (let l = -60; l <= 60; l += 30) a.push(l); return a; }, []);
 
-  /* size dots by how many pins share that country (bigger = more) */
-  const countryPinCount = useMemo(() => {
-    const m = new Map<string, number>();
-    for (const p of pts) { const k = p.country ?? "미상"; m.set(k, (m.get(k) ?? 0) + 1); }
-    return m;
+  /* ── 동일 좌표 dedup (P2): 같은 (lat,lng,layer)를 공유하는 핀은 한 점으로 — n편 배지 ── */
+  type Cluster = { key: string; x: number; y: number; layer: "filmed" | "setting"; films: Pt[] };
+  const clusters = useMemo<Cluster[]>(() => {
+    const m = new Map<string, Cluster>();
+    for (const p of pts) {
+      const key = `${p.lat.toFixed(3)},${p.lng.toFixed(3)},${p.layer}`;
+      const c = m.get(key);
+      if (c) c.films.push(p);
+      else m.set(key, { key, x: p.x, y: p.y, layer: p.layer, films: [p] });
+    }
+    return [...m.values()];
   }, [pts]);
 
   const topCountry = countries[0] ?? null;
