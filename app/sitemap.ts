@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
-import { SITE_INDEXABLE, INDEX_COHORT_READINGS, INDEX_COHORT_TROPES, INDEX_COHORT_FIGURES } from "@/lib/seo";
+import { SITE_INDEXABLE, INDEX_COHORT_READINGS, INDEX_COHORT_TROPES, INDEX_COHORT_FIGURES, INDEX_COHORT_CREW } from "@/lib/seo";
 import { BROWSABLE } from "@/lib/frameworks";
+import { personSlug } from "@/app/credits/credits-logic";
+import crewIndex from "@/lib/crew_index.json";
 
 /**
  * Dynamic sitemap — SPEC §8.5
@@ -139,6 +141,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/film/${filmSlugById.get(g.film_id)}/figure/${g.slug}`,
       changeFrequency: "monthly",
       priority: 0.65,
+    });
+  }
+
+  // Crew person pages — key-craft people (writer/dp/editor/composer/pd) with
+  // ≥3 films in the visible catalog (lib/crew_index.json; the page itself
+  // noindexes below the same bar). Ordered by TMDB id: stable, append-only.
+  for (const person of (crewIndex.people as { id: number; name: string }[]).slice(0, INDEX_COHORT_CREW)) {
+    entries.push({
+      url: `${siteUrl}/credits/${personSlug(person.name, person.id)}`,
+      changeFrequency: "monthly",
+      priority: 0.6,
     });
   }
 
