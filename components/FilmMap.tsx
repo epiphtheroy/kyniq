@@ -176,6 +176,7 @@ export default function FilmMap({
   const [clip, setClip] = useState<{ id: string; title: string; slug: string } | null>(null);
   const [clipHidden, setClipHidden] = useState(false);             // user closed THIS clip (a new film re-opens)
   const [clipMuted, setClipMuted] = useState(true);
+  const [clipBig, setClipBig] = useState(false);                   // enlarged size (controls hidden until hover)
 
   const mapEl = useRef<HTMLDivElement>(null);
   const listEl = useRef<HTMLDivElement>(null);
@@ -738,7 +739,7 @@ export default function FilmMap({
         <div className="fmap-stage">
           <div className="fmap-canvas" ref={mapEl} style={{ height }} />
           {clipOpen ? (
-            <div className="fmap-float" role="dialog" aria-label={`Now playing: ${clip!.title}`}>
+            <div className={`fmap-float${clipBig ? " fmap-float--big" : ""}`} role="dialog" aria-label={`Now playing: ${clip!.title}`}>
               <div className="fmap-float__frame">
                 <iframe
                   key={`${clip!.id}-${clipMuted ? "m" : "s"}`}
@@ -746,13 +747,14 @@ export default function FilmMap({
                   title={clip!.title}
                   allow="autoplay; encrypted-media; picture-in-picture"
                 />
-              </div>
-              <div className="fmap-float__bar">
-                <a className="fmap-float__ttl" href={`/film/${clip!.slug}`} title={clip!.title}>{clip!.title}</a>
-                <button type="button" className={`fmap-float__mute${clipMuted ? "" : " on"}`} onClick={() => setClipMuted((v) => !v)} aria-label={clipMuted ? "Unmute" : "Mute"}>
-                  {clipMuted ? "🔇" : "🔊"}
-                </button>
-                <button type="button" className="fmap-float__x" onClick={() => setClipHidden(true)} aria-label="Close video">✕</button>
+                {/* controls stay hidden until hover/focus — the default is just the video */}
+                <div className="fmap-float__ov">
+                  <a className="fmap-float__ttl" href={`/film/${clip!.slug}`} title={clip!.title}>{clip!.title}</a>
+                  <span className="fmap-float__sp" />
+                  <button type="button" className={`fmap-float__btn${clipMuted ? "" : " on"}`} onClick={() => setClipMuted((v) => !v)} aria-label={clipMuted ? "Unmute" : "Mute"}>{clipMuted ? "🔇" : "🔊"}</button>
+                  <button type="button" className="fmap-float__btn" onClick={() => setClipBig((v) => !v)} aria-label={clipBig ? "Shrink video" : "Enlarge video"} title={clipBig ? "Shrink" : "Enlarge"}>{clipBig ? "⤡" : "⤢"}</button>
+                  <button type="button" className="fmap-float__btn" onClick={() => setClipHidden(true)} aria-label="Close video">✕</button>
+                </div>
               </div>
             </div>
           ) : null}
