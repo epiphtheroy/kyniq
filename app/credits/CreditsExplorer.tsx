@@ -187,7 +187,8 @@ export default function CreditsExplorer({
         </header>
       ) : null}
 
-      <SearchBox onPick={navFilm} onPickPerson={(pid, craft) => navArtist(pid, craft, null)} />
+      {/* Embed: the host page is the entry point — no search chrome. */}
+      {!embed ? <SearchBox onPick={navFilm} onPickPerson={(pid, craft) => navArtist(pid, craft, null)} /> : null}
 
       {nav ? <FilmTabs nav={nav} onTab={(craft, pid) => navArtist(pid, craft, nav.film.id)} /> : null}
       {status ? <div className="cr-status"><span className="cr-spin" aria-hidden />{status}</div> : null}
@@ -503,6 +504,10 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
 
   return (
     <div className="cr-artist">
+      {/* Identity header — redundant for the host page's own subject (their
+          server-rendered header sits right above); shown again the moment
+          exploration moves to someone else. */}
+      {!hideProfile ? (
       <section className="cr-arthead">
         {bg ? <div className="cr-arthead-bg" style={{ backgroundImage: `url('${bg}')` }} aria-hidden /> : null}
         <div className="cr-arthead-in">
@@ -527,6 +532,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
           </div>
         </div>
       </section>
+      ) : null}
 
       {siblings.length && nav ? (
         <div className="cr-also">
