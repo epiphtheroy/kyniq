@@ -271,3 +271,6 @@ as $$
   left join films ff       on pn.entity_type='figure'    and ff.id  = fig.film_id
   order by pn.created_at desc;
 $$;
+
+-- (추가 적용 2026-07-03) advisor WARN 해소 — sanitize_user_html search_path 고정
+alter function public.sanitize_user_html(text) set search_path = public;
