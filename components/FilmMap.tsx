@@ -265,10 +265,10 @@ export default function FilmMap({
     if (!focus) { setClip(null); return; }
     let alive = true;
     setClipHidden(false);
-    const slug = focus.slug;
+    const { slug, title } = focus;
     fetch(`/api/film-clip?slug=${encodeURIComponent(slug)}`)
       .then((r) => r.json())
-      .then((j) => { if (alive) setClip(j?.clip ? { id: j.clip as string, title: focus.title, slug } : null); })
+      .then((j) => { if (alive) setClip(j?.clip ? { id: j.clip as string, title, slug } : null); })
       .catch(() => { if (alive) setClip(null); });
     return () => { alive = false; };
   }, [focus]);
