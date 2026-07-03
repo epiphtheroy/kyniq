@@ -28,7 +28,13 @@ type Row = {
 type Sug = { slug: string; title: string; year: number | null; poster_path: string | null; director: string | null };
 type SortKey = "inview" | "places" | "az" | "year";
 
-const STYLE_MAP = "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json";
+// MapTiler (keyed) is preferred when NEXT_PUBLIC_MAPTILER_KEY is set: crisper 512px
+// vector tiles, denser multilingual labels, and an official satellite-hybrid style.
+// Without a key everything falls back to the keyless Carto/Esri stack below.
+const MT_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY || "";
+const STYLE_CARTO = "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json";
+const STYLE_MAP = MT_KEY ? `https://api.maptiler.com/maps/streets-v2/style.json?key=${MT_KEY}` : STYLE_CARTO;
+const STYLE_SAT_MT = MT_KEY ? `https://api.maptiler.com/maps/hybrid/style.json?key=${MT_KEY}` : "";
 const SAT_TILE = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
 const SAT_LABELS = "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}";
 // Raster fallback if the hybrid (vector labels over imagery) style can't be built.
@@ -68,7 +74,7 @@ let hybridPromise: Promise<any> | null = null;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function buildHybridStyle(): Promise<any> {
   if (hybridPromise) return hybridPromise;
-  hybridPromise = fetch(STYLE_MAP)
+  hybridPromise = fetch(STYLE_CARTO)
     .then((r) => r.json())
     .then((st) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -311,7 +317,24 @@ export default function FilmMap({
       m.addControl(new mll.NavigationControl({ showCompass: false }), "top-right");
       if (mll.FullscreenControl) m.addControl(new mll.FullscreenControl(), "top-right");
       m.on("error", () => {});
-      if (satelliteDefault) buildHybridStyle().then((st) => { try { if (alive) m.setStyle(st); } catch {} });
+      const applySat = () => {
+        if (STYLE_SAT_MT) { try { m.setStyle(STYLE_SAT_MT); } catch {} }
+        else buildHybridStyle().then((st) => { try { if (alive) m.setStyle(st); } catch {} });
+      };
+      if (satelliteDefault) applySat();
+
+      // cluster-count text needs a font that exists on the active glyph server —
+      // borrow the first font stack the current style itself uses.
+      const fontOf = (): string[] => {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          for (const l of (m.getStyle().layers ?? []) as any[]) {
+            const f = l.layout?.["text-font"];
+            if (Array.isArray(f) && f.length && f.every((x: unknown) => typeof x === "string")) return f as string[];
+          }
+        } catch {}
+        return ["Noto Sans Regular"];
+      };
 
       const addPoints = () => {
         if (!m.getStyle() || m.getSource("pts")) return;
@@ -319,7 +342,7 @@ export default function FilmMap({
           m.addSource("pts", { type: "geojson", data: fcRef.current, cluster: true, clusterRadius: 44, clusterMaxZoom: 11 });
           m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26], "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } });
           // count labels need glyphs — may be absent in the raster fallback style, so keep separate
-          try { m.addLayer({ id: "cluster-count", type: "symbol", source: "pts", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 11, "text-font": ["Montserrat Medium"], "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } }); } catch {}
+          try { m.addLayer({ id: "cluster-count", type: "symbol", source: "pts", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 11, "text-font": fontOf(), "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } }); } catch {}
           m.addLayer({
             id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]],
             paint: {
@@ -394,8 +417,10 @@ export default function FilmMap({
   // basemap toggle
   useEffect(() => {
     const m = map.current; if (!m) return;
-    if (sat) buildHybridStyle().then((st) => { try { m.setStyle(st); } catch {} });
-    else { try { m.setStyle(STYLE_MAP); } catch {} }
+    if (sat) {
+      if (STYLE_SAT_MT) { try { m.setStyle(STYLE_SAT_MT); } catch {} }
+      else buildHybridStyle().then((st) => { try { m.setStyle(st); } catch {} });
+    } else { try { m.setStyle(STYLE_MAP); } catch {} }
   }, [sat]);
 
   // ---------- camera ----------
@@ -544,7 +569,7 @@ export default function FilmMap({
 
   return (
     <div className="fmap">
-      <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+      <link rel="preconnect" href={MT_KEY ? "https://api.maptiler.com" : "https://basemaps.cartocdn.com"} />
       <link rel="preconnect" href="https://unpkg.com" />
       <div className="fmap-head">
         {search ? (
