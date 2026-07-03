@@ -251,15 +251,15 @@ L0 ①·② (병렬) → L1 ⑦·⑥ → L2 ③·④ → L3 ⑧·⑤(가장 많�
 
 **P1 — 기능 완성 + 프라이버시:**
 6. ✅ **`nav_snapshots` + `me_nav_history()`** — RLS(본인 select), `rate_film`/`me_mark_seen`이 스냅샷 적재, 데스크 자산곡선 실렌더(스냅샷+오늘 라이브, 단조 어서션 포함, 합성 없음).
-7. **동행 `pair_matches` + `me_today_pair()` + consent** — 싱크율·교집합 앵커만 RPC 레벨에서 노출(실명·개별평점·전체취향 금지). *(잔여)*
+7. ✅ **동행 `pair_matches` + `me_today_pair()`/`me_pair_reveal()`/`me_pair_history()`** (0031) — 일자별 결정적 페어링(md5(day‖uid) 정렬 인접쌍, 양방향 일관, 홀수=휴장), eligibility loved(★4.5+)≥8, 싱크율=두 loved centroid 코사인(표본<3 → null). **pair_matches RLS 정책 0(default-deny)** — 부분노출(싱크율·교집합 앵커·공통 계보만)을 RPC 레벨에서 강제, 파트너 uuid·실명·개별평점·전체취향 미반환. 가면 벗기=상호 consent + 상대 portfolio_public일 때만 username 공개. PairWorkspace 실배선(매칭/휴장/형성 3상태 + 히스토리).
 8. ✅ **노트 `save_take()` + HTML sanitize** — 완료(4번에 포함). 단, 영화 첨부→페이지 라우팅은 형성 중(UI 명시).
-9. **`/api/geo` 스코프·레이트리밋 · Atlas 대륙매핑 DB화** *(잔여)* · ✅ **`/u/me` 404 수정**(`app/u/me/route.ts` 302 → `/u/{username}`).
+9. ✅ **`/api/geo` 스코프·레이트리밋**(slug 정규식·bbox 범위·mode 화이트리스트, 위반=400, IP 분당 30회 토큰버킷) · ✅ **Atlas 대륙매핑 DB화**(`country_continents` 156개국 참조테이블 + `me_geo_coverage` v2가 continent·실측 분모 countries_total 반환 — 프론트 사전 삭제, REF=50 매직넘버 제거, SVG 동일 좌표 dedup + n편 배지) (0032) · ✅ **`/u/me` 404 수정**(`app/u/me/route.ts` 302 → `/u/{username}`).
 
 **P2/P3:** 서재 `user_pins.visibility` 컬럼 · 컬렉션 "최근순"·"발견" 배선 · auteurs "DB 기준" 카피 · SVG 점 dedup · per-sub 비평 rationale(fake 금지) · CmdK 링크 룸 통일.
 
 **엔진 빌드 관점(BUILD-ORDER):** 룸의 현재 `me_*`는 **W0–W4의 단순화 프로토타입**이다. 정식 엔진(취향벡터 앵커·정전가 재캘리브레이션·커버리지·WWI 6이유·NAV 4축 분해)은 [`docs/logic/`](../logic/)에 완전 명세돼 있으나 아직 **substrate만 준비**(예: ① 앵커 없이 출시 금지 규칙 미충족). 정식화 순서 = **W0 ② 재캘리브레이션 ∥ W1 ① 취향벡터 → W2 ⑦ → W3 ⑤ → W4 ⑧③④.**
 
-**구조:** room RPC 20종 + Cinecodex DDL을 **마이그레이션으로 역커밋**(리뷰·롤백·재현). *(부분 진행: 이번 신설·개정분은 전부 `supabase/migrations/0027–0030`으로 커밋됨 — me_coverage·me_blindspots·me_recommend_wwi v2·쓰기 mutation 6종·sanitize_user_html·me_library v2·me_system_status·nav_snapshots·me_nav_history·rate_film v2. 기존 20종 역커밋은 잔여.)*
+**구조: ✅ 완료(RPC 층)** — room RPC 전량이 마이그레이션에 존재: 신설·개정분 `0027–0032` + **기존 18종 바이트 정확 스냅샷 `0033_room_rpc_snapshot.sql`**(pg_get_functiondef 덤프, me_* 14종 + cinecodex_card·film_room_context·film_search·takescore_for_slugs). *잔여: cinecodex 스키마 DDL(scores/confidence 테이블·인덱스) 역커밋.*
 
 ---
 
@@ -308,5 +308,6 @@ L0 ①·② (병렬) → L1 ⑦·⑥ → L2 ③·④ → L3 ⑧·⑤(가장 많�
 ---
 
 ## 11. 개정 로그
+- **2026-07-03 (2차)** §8 P1 완결 + P2 소화: 동행 실구현(0031 — pair_matches default-deny·me_today_pair/reveal/history·PairWorkspace 배선), /api/geo 스코프·레이트리밋, Atlas 대륙매핑 DB화(0032 — country_continents 156국·me_geo_coverage v2·실측 분모·점 dedup), 기존 RPC 18종 스냅샷 역커밋(0033), 컬렉션 최근순 정렬·CinecodexCard 정전 "발견" 칸 실배선(전 호출부 discovery 전달)·auteurs "우리 DB 기준" 카피·CmdK 룸 통일(/room/film + PAGES 12종)·데스크 best/riskiest 배선. **§8 잔여 = P3(per-sub rationale·미니맵·self-host 타일) + cinecodex DDL 역커밋 + 정식 엔진 W0–W4.**
 - **2026-07-03** §8 P0 전항 + P1 6·8·9(/u/me) 완료 반영. 신설: `me_coverage`⑦·`me_blindspots`④(생산성 게이트)·`me_system_status`·`nav_snapshots`/`me_nav_history`/`me_snapshot_nav`·mutation 6종(`me_set_watchlist`/`me_mark_seen`/`me_dismiss`/`set_pin_visibility`/`me_toggle_fav`/`save_take`+`sanitize_user_html`). 개정: `me_recommend_wwi` v2(conquer/gap 실태깅·in_watchlist·제외규칙 정밀화)·`me_library` v2(visibility)·`rate_film`(스냅샷). DDL: `user_movies.dismissed`·`user_pins.visibility`·`takes.figure_id` NULL 허용·`nav_snapshots`(RLS). 전부 `supabase/migrations/0027–0030` 역커밋. 프론트: 커맨드센터/분석(⑦④ 실배선)·워치리스트/데스크(쓰기+자산곡선)·서재(공개토글·즐겨찾기 영구화)·노트(save_take)·셸(티커/시스템카드 실데이터)·`/u/me` 리다이렉트.
 - **2026-07-02** 최초 작성. HTML-DESIGN-HANDOFF·SHARED-STANDARD·00-UX-REVIEW-GUIDE·CONFLICTS·10 페이지 UX 의도·9 로직 엔진·ROOM-LOGIC-AUDIT를 단일 인수인계로 통합. 의도(디테일 포함) + 파일 링크 인덱스 + 풀어야 할 숙제(P0–P3 + 엔진 W0–W4) 확립.
