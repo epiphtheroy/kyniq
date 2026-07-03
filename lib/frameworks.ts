@@ -44,7 +44,7 @@ export const FRAMEWORKS: Framework[] = [
 
 const BY_KEY = new Map(FRAMEWORKS.map((f) => [f.key, f]));
 const BY_SLUG = new Map(FRAMEWORKS.map((f) => [f.slug, f]));
-const FALLBACK: Framework = { key: "", slug: "", label: "Reading", short: "", family: "interpretation", color: "#8F8F8F" };
+const FALLBACK: Framework = { key: "", slug: "", label: "Reading", short: "", family: "interpretation", color: "#8F8F8F", seoTitle: "" };
 
 export function fw(key: string | null | undefined): Framework {
   return (key && BY_KEY.get(key)) || FALLBACK;
@@ -60,5 +60,5 @@ export const BROWSABLE: Framework[] = FRAMEWORKS.filter((f) => f.key !== "INVITA
 // Order index for sorting a film's misreadings by family then framework.
 const ORDER = new Map(FRAMEWORKS.map((f, i) => [f.key, i]));
 export function fwOrder(key: string | null | undefined): number {
-  return (key && ORDER.get(key)) ?? 999;
+  return (key ? ORDER.get(key) : undefined) ?? 999;
 }
