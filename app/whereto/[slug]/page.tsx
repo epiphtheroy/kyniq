@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
 import WatchPageClient, { type WatchFilm, type WatchData, type WatchRatings } from "@/components/WatchPageClient";
 import type { AccessRecord } from "@/components/AccessEnrichment";
 import accessEnrichment from "@/lib/access_enrichment.json";
+import { resolveAlias } from "@/lib/aliases";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -22,6 +23,9 @@ function accessRecordFor(tmdbId: number | null | undefined): AccessRecord | null
   return films[String(tmdbId)] ?? null;
 }
 
+type FigLink = { slug: string; label: string };
+type QLink = { slug: string; title: string; display_title: string | null; title_spoiler: boolean | null };
+
 async function load(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
@@ -29,10 +33,12 @@ async function load(slug: string) {
     .select("id, title, slug, year, director, runtime, poster_path, imdb_id, tmdb_id")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
-  const [{ data: wpRow }, { data: ratRow }, { data: codex }] = await Promise.all([
+  const [{ data: wpRow }, { data: ratRow }, { data: codex }, { data: figRows }, { data: qRows }] = await Promise.all([
     supabase.from("film_watch_providers").select("results, countries").eq("film_id", film.id).maybeSingle(),
     supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer").eq("film_id", film.id).maybeSingle(),
     supabase.rpc("cinecodex_for", { p_slug: slug }),
+    supabase.from("figures").select("slug, label").eq("film_id", film.id).eq("status", "approved").not("slug", "is", null).limit(6),
+    supabase.from("questions").select("slug, title, display_title, title_spoiler").eq("film_id", film.id).eq("status", "published").order("published_at", { ascending: false }).limit(3),
   ]);
   const cx = codex as { v: number; c: number; r: number } | null;
   return {
@@ -41,6 +47,8 @@ async function load(slug: string) {
     ratings: (ratRow as WatchRatings) ?? null,
     takeScore: cx ? Math.round(cx.v - cx.r) : null,
     record: accessRecordFor((film as { tmdb_id: number | null }).tmdb_id),
+    figures: (figRows ?? []) as FigLink[],
+    questions: (qRows ?? []) as QLink[],
   };
 }
 
