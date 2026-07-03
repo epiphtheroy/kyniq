@@ -110,12 +110,6 @@ function fetchGeo(url: string): Promise<Row[]> {
   return geoCache.get(url)!;
 }
 
-// TEMP debug breadcrumbs for the viewport loader (window.__atlasDbg) — remove after verifying prod.
-function dbg(msg: string) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  try { const w = window as any; (w.__atlasDbg = w.__atlasDbg || []).push(msg); } catch {}
-}
-
 const esc = (x: string) => (x || "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string));
 function roleOf(r: Row): string { return (r.scene_role || r.narrative_setting || (r.fig_desc ?? "")).toString(); }
 function filmLabel(r: Row): string { return r.film_title ? `${r.film_title}${r.film_year ? ` (${r.film_year})` : ""}` : ""; }
@@ -224,24 +218,21 @@ export default function FilmMap({
 
   // viewport detail: after the camera settles, pull every pin inside the (snapped) bbox
   const requestBbox = useCallback(() => {
-    dbg(`rb on=${String(worldOnRef.current)} m=${String(!!map.current)}`);
     if (!worldOnRef.current) return;
     const m = map.current; if (!m) return;
     clearTimeout(bboxTimer.current);
     bboxTimer.current = setTimeout(() => {
       try {
         const mm = map.current; if (!mm || !worldOnRef.current) return;
-        const z = mm.getZoom();
-        dbg(`tick z=${z.toFixed(2)}`);
-        if (z < 3) return; // world view = overview pins only
+        const z = mm.getZoom(); if (z < 2.5) return; // world view = overview pins only
         const step = z >= 9 ? 0.25 : z >= 6.5 ? 1 : 4; // snap → repeatable URLs → CDN/browser cache hits
         const b = mm.getBounds();
         const w = Math.floor(b.getWest() / step) * step;
         const e = Math.ceil(b.getEast() / step) * step;
         const s = Math.max(-85, Math.floor(b.getSouth() / step) * step);
         const n = Math.min(85, Math.ceil(b.getNorth() / step) * step);
-        fetchGeo(`/api/geo?bbox=${w},${s},${e},${n}`).then((rs) => { dbg(`got ${rs.length}`); mergeWorld(rs); });
-      } catch (err) { dbg(`err ${String(err)}`); }
+        fetchGeo(`/api/geo?bbox=${w},${s},${e},${n}`).then(mergeWorld);
+      } catch {}
     }, 350);
   }, [mergeWorld]);
 
