@@ -1,10 +1,10 @@
 "use client";
 /** 서재 Library — 담아둔 모든 것의 아카이브. 영화·감독·트로프·미스리딩·리니지·형상을 한 곳에.
- *  REAL data via me_library() (user_pins normalized). Ported from mockup-me-library.html.
- *  Note: user_pins has no per-pin visibility column and there are no director/lineage pins yet,
- *  so the 공개/비공개 pill + ★ 즐겨찾기 are in-session UI toggles (S9) — persistence is 형성 중;
- *  director·lineage type chips render an honest empty state (no such saves exist). */
-import { useEffect, useMemo, useState } from "react";
+ *  REAL data via me_library() (user_pins normalized, per-pin visibility 포함).
+ *  공개/비공개 pill(S9) → set_pin_visibility · ★ 즐겨찾기 → me_toggle_fav — 둘 다 실 mutation
+ *  (auth.uid 스코프 DEFINER, 낙관적 UI + 토스트). director·lineage 칩은 저장이 아직 없어 정직 empty. */
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { useInspector } from "./InspectorContext";
 
 export type LibRow = {
@@ -20,6 +20,7 @@ export type LibRow = {
   rating: number | null;
   seen: boolean | null;
   fav: boolean;
+  visibility: string | null;
   created_at: string;
 };
 
@@ -36,7 +37,7 @@ const ORDER: TypeKey[] = ["film", "director", "trope", "misreading", "lineage", 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const isType = (t: string): t is TypeKey => t in TYPES;
 
-// local overlay state (S9 UI toggles — persistence 형성 중)
+// overlay state (S9) — 서버값(fav·visibility)으로 시딩, 토글 시 mutation RPC로 즉시 저장
 type Ov = { fav: boolean; pub: boolean };
 
 function DetailInsp({
@@ -114,7 +115,7 @@ function DetailInsp({
           <span className={`actbtn${ov.fav ? " pri" : ""}`} onClick={onToggleFav}><i className="ti ti-star" /> {ov.fav ? "즐겨찾기됨" : "즐겨찾기"}</span>
         </div>
         <div style={{ fontSize: 10, color: "var(--sub)", marginTop: 9, lineHeight: 1.5 }}>
-          <i className="ti ti-info-circle" /> 공개/비공개·즐겨찾기 전환은 현재 세션 표시입니다 — 저장 파이프라인 형성 중.
+          <i className="ti ti-info-circle" /> 공개/비공개·즐겨찾기는 즉시 저장됩니다. 공개 항목의 프로필 노출 표면은 다음 단계에서 붙습니다.
         </div>
       </div>
     </div>
@@ -125,16 +126,41 @@ export default function LibraryWorkspace({ rows }: { rows: LibRow[] }) {
   const insp = useInspector();
   const { setDefault } = insp;
 
-  // overlays keyed by entity_type|slug — fav seeded from real pin (like), pub default private
+  const supabase = useMemo(() => createClient(), []);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const say = useCallback((msg: string) => {
+    setToast(msg);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 2600);
+  }, []);
+
+  // overlays keyed by entity_type|slug — fav·pub 둘 다 서버값으로 시딩 (me_library)
   const keyOf = (r: LibRow) => `${r.entity_type}|${r.slug ?? r.title ?? ""}`;
   const [ovs, setOvs] = useState<Record<string, Ov>>(() => {
     const o: Record<string, Ov> = {};
-    for (const r of rows) o[keyOf(r)] = { fav: r.fav, pub: false };
+    for (const r of rows) o[keyOf(r)] = { fav: r.fav, pub: r.visibility === "public" };
     return o;
   });
-  const ov = (r: LibRow): Ov => ovs[keyOf(r)] ?? { fav: r.fav, pub: false };
-  const setPub = (r: LibRow) => setOvs((p) => { const k = keyOf(r); const cur = p[k] ?? { fav: r.fav, pub: false }; return { ...p, [k]: { ...cur, pub: !cur.pub } }; });
-  const setFav = (r: LibRow) => setOvs((p) => { const k = keyOf(r); const cur = p[k] ?? { fav: r.fav, pub: false }; return { ...p, [k]: { ...cur, fav: !cur.fav } }; });
+  const ov = (r: LibRow): Ov => ovs[keyOf(r)] ?? { fav: r.fav, pub: r.visibility === "public" };
+
+  // 공개토글 → set_pin_visibility (낙관적 UI, 실패 시 토스트)
+  const setPub = (r: LibRow) => {
+    const next = !ov(r).pub;
+    setOvs((p) => { const k = keyOf(r); const cur = p[k] ?? { fav: r.fav, pub: r.visibility === "public" }; return { ...p, [k]: { ...cur, pub: next } }; });
+    if (!r.slug) { say("이 항목은 식별자가 없어 세션에서만 표시됩니다"); return; }
+    supabase.rpc("set_pin_visibility", { p_entity_type: r.entity_type, p_slug: r.slug, p_public: next })
+      .then(({ error }) => say(error ? `저장 실패 — ${error.message}` : next ? `「${r.title}」 공개로 저장됨` : `「${r.title}」 비공개로 저장됨`));
+  };
+
+  // 즐겨찾기 → me_toggle_fav (kind='like' 핀 생성/삭제)
+  const setFav = (r: LibRow) => {
+    const next = !ov(r).fav;
+    setOvs((p) => { const k = keyOf(r); const cur = p[k] ?? { fav: r.fav, pub: r.visibility === "public" }; return { ...p, [k]: { ...cur, fav: next } }; });
+    if (!r.slug) { say("이 항목은 식별자가 없어 세션에서만 표시됩니다"); return; }
+    supabase.rpc("me_toggle_fav", { p_entity_type: r.entity_type, p_slug: r.slug })
+      .then(({ error }) => say(error ? `저장 실패 — ${error.message}` : next ? `★ 즐겨찾기 저장됨` : `즐겨찾기 해제됨`));
+  };
 
   const [tfilter, setTfilter] = useState<Set<TypeKey>>(new Set());
   const [pubFilter, setPubFilter] = useState<"all" | "public" | "private">("all");
@@ -369,6 +395,14 @@ export default function LibraryWorkspace({ rows }: { rows: LibRow[] }) {
           }) : <div style={{ fontSize: 11.5, color: "var(--sub)", padding: "6px 2px" }}>공개로 전환한 항목이 아직 없습니다 — 항목의 <i className="ti ti-lock" /> 배지를 눌러 공개하세요.</div>}
         </div>
       </div>
+
+      {toast ? (
+        <div role="status" style={{
+          position: "fixed", bottom: 22, left: "50%", transform: "translateX(-50%)", zIndex: 90,
+          background: "#1c1c20", border: "1px solid #3a3a40", color: "var(--ink, #ECEAE5)",
+          padding: "9px 16px", borderRadius: 8, fontSize: 12, boxShadow: "0 6px 22px rgba(0,0,0,.5)",
+        }}>{toast}</div>
+      ) : null}
     </div>
   );
 }

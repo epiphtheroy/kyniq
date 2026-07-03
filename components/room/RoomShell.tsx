@@ -9,6 +9,7 @@ import CmdK from "./CmdK";
 
 export type NavChip = { nav: number | null; tier: string; up?: string | null };
 export type RailCounts = { collection?: number; watchlist?: number; pair?: number };
+export type SystemStatus = { scored: number | null; model: string | null; taste: number | null };
 
 const NAV: { sec: string; items: { label: string; icon: string; href: string; key?: keyof RailCounts }[] }[] = [
   { sec: "자산 운영", items: [
@@ -66,10 +67,11 @@ const CRUMB: Record<string, string> = {
 };
 
 export default function RoomShell({
-  children, chip, counts, ticker,
+  children, chip, counts, ticker, system,
 }: {
   children: ReactNode; chip: NavChip; counts: RailCounts;
   ticker: { icon?: string; text: string }[];
+  system?: SystemStatus;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -154,9 +156,9 @@ export default function RoomShell({
                 <div className="feeditem" key={i}><span className="fi"><i className={`ti ${t.icon ?? "ti-point-filled"}`} /></span><div className="fb"><div className="ft">{t.text}</div></div></div>
               ))}
               <div className="acard"><h4>시스템 상태</h4>
-                <div className="stat"><span>Cinecodex 채점</span><b>6,701편</b></div>
-                <div className="stat"><span>정전가 모델</span><b>v2-fixA</b></div>
-                <div className="stat"><span>취향 벡터</span><b>활성</b></div>
+                <div className="stat"><span>Cinecodex 채점</span><b>{system?.scored != null ? `${system.scored.toLocaleString("ko-KR")}편` : "—"}</b></div>
+                <div className="stat"><span>정전가 모델</span><b>{system?.model ?? "—"}</b></div>
+                <div className="stat"><span>취향 벡터</span><b>{system?.taste != null ? `${system.taste.toLocaleString("ko-KR")}편` : "—"}</b></div>
               </div>
             </div></div>
           </aside>

@@ -1,10 +1,10 @@
 "use client";
 /** 노트 · 글쓰기 — 비평 컴포저. Ported from mockup-me-write.html.
- *  REAL data: drafts list = me_authored_takes() (the user's own written takes; currently none →
- *  honest empty state). Attach search = film_search() RPC (live). Framework picker = lib/frameworks
- *  FRAMEWORKS (the 14 Strong-Misreading frameworks). The composer edits an in-session draft; there is
- *  no user-authorship insert path into `takes` yet, so save/publish is a local draft action and this
- *  is stated in the UI (저장 파이프라인 형성 중). "취향 boost ×1.5" note preserved (Phase 2). */
+ *  REAL data: drafts list = me_authored_takes(). Attach search = film_search() RPC (live).
+ *  Framework picker = lib/frameworks FRAMEWORKS (14 Strong-Misreadings).
+ *  저장/게시 = save_take() 실 mutation — author_id=auth.uid()·source='human' 강제,
+ *  본문은 서버측 HTML 화이트리스트 새니타이즈(sanitize_user_html) 후 takes에 영구 저장.
+ *  제목·본문·framework·공개상태 저장. 영화 첨부의 페이지 라우팅은 형성 중(UI에 명시). */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useInspector } from "./InspectorContext";
@@ -84,8 +84,16 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
   const [listFilt, setListFilt] = useState<"all" | "pub" | "pri">("all");
   const [saveState, setSaveState] = useState<"idle" | "saving">("idle");
   const [boostDismissed, setBoostDismissed] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const bodyRef = useRef<HTMLDivElement>(null);
+
+  const say = useCallback((msg: string) => {
+    setToast(msg);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 2800);
+  }, []);
 
   // The full merged list of note items: real authored takes + any new in-session drafts.
   const listItems = useMemo(() => {
@@ -125,6 +133,28 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
 
   // keep contenteditable in sync when switching drafts
   useEffect(() => { if (bodyRef.current && cur) bodyRef.current.innerHTML = cur.body || ""; }, [curId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  /* ── 저장/게시 = save_take 실 mutation (서버측 sanitize · author_id=auth.uid 강제) ── */
+  const doSave = useCallback(async () => {
+    if (!cur) return;
+    const body = bodyRef.current ? bodyRef.current.innerHTML : cur.body;
+    patchCur({ body });
+    setSaveState("saving");
+    const { data, error } = await supabase.rpc("save_take", {
+      p_take_id: cur.fromTakeId,
+      p_title: cur.title || null,
+      p_body_html: body,
+      p_framework: cur.framework,
+      p_publish: cur.pub,
+    });
+    setSaveState("idle");
+    if (error) { say(`저장 실패 — ${error.message}`); return; }
+    const row = ((data as { take_id: string; status: string }[] | null) ?? [])[0];
+    if (row?.take_id) {
+      setDrafts((ds) => ds.map((d) => (d.id === cur.id ? { ...d, fromTakeId: row.take_id } : d)));
+      say(cur.pub ? "게시됨 — 서버에 영구 저장 (published)" : "초안 저장됨 — 서버에 영구 저장 (draft)");
+    }
+  }, [cur, supabase, patchCur, say]);
 
   const applyCmd = (cmd: string) => {
     bodyRef.current?.focus();
@@ -213,7 +243,7 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
             ))}
           </div>
           <span className={`autosave${saveState === "saving" ? " saving" : ""}`}>
-            <i className={`ti ${saveState === "saving" ? "ti-loader-2" : "ti-cloud-check"}`} /> {saveState === "saving" ? "저장 중…" : "자동저장됨(세션)"}
+            <i className={`ti ${saveState === "saving" ? "ti-loader-2" : "ti-cloud-check"}`} /> {saveState === "saving" ? "저장 중…" : cur?.fromTakeId ? "서버 저장됨" : "자동저장(세션)"}
           </span>
           <span className={`wr-pubpill${cur?.pub ? " on" : ""}`} role="switch" aria-checked={!!cur?.pub} tabIndex={0}
             onClick={() => cur && patchCur({ pub: !cur.pub })}
@@ -221,7 +251,7 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
             title="공개 시 프로필·영화 페이지에 노출됩니다">
             <i className={`ti ${cur?.pub ? "ti-world" : "ti-lock"}`} />{cur?.pub ? "공개 중" : "비공개"}
           </span>
-          <button className={`savebtn${cur?.pub ? " pub" : ""}`} onClick={() => { if (bodyRef.current && cur) patchCur({ body: bodyRef.current.innerHTML }); }}>
+          <button className={`savebtn${cur?.pub ? " pub" : ""}`} onClick={doSave} disabled={!cur}>
             <i className={`ti ${cur?.pub ? "ti-world" : "ti-check"}`} />
             {cur?.pub ? <>게시 <span className="where">{cur ? routeLabel(cur) : ""}</span></> : "초안 저장"}
           </button>
@@ -257,7 +287,7 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
                   data-ph={PH[cur.type]}
                   onInput={(e) => patchCur({ body: (e.target as HTMLDivElement).innerHTML })} />
                 <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 18, borderTop: "1px solid var(--line)", paddingTop: 10, lineHeight: 1.5 }}>
-                  <i className="ti ti-info-circle" /> 편집은 현재 세션에 유지됩니다 — 사용자 take를 영구 저장·게시하는 파이프라인은 형성 중입니다.
+                  <i className="ti ti-info-circle" /> 「초안 저장/게시」를 누르면 서버에 영구 저장됩니다(본문은 서버측 화이트리스트 새니타이즈). 저장 전 편집은 세션에만 유지됩니다. 영화 첨부의 페이지 라우팅은 형성 중.
                 </div>
               </>
             ) : (
@@ -269,6 +299,14 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
           </div>
         </div>
       </section>
+
+      {toast ? (
+        <div role="status" style={{
+          position: "fixed", bottom: 22, left: "50%", transform: "translateX(-50%)", zIndex: 90,
+          background: "#1c1c20", border: "1px solid #3a3a40", color: "var(--ink, #ECEAE5)",
+          padding: "9px 16px", borderRadius: 8, fontSize: 12, boxShadow: "0 6px 22px rgba(0,0,0,.5)",
+        }}>{toast}</div>
+      ) : null}
     </div>
   );
 }

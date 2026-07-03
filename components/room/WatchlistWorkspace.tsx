@@ -1,7 +1,10 @@
 "use client";
 /** 볼 영화 Watchlist — 매수 후보 데스크. WWI 적합도 + 위험(R) 거르기 + λ 다이얼(보수↔모험).
- *  WWI = Confidence·(0.45 Utility + 0.35 Taste + 0.20 Standing). Utility = V − λ·R. */
-import { useMemo, useState, useEffect } from "react";
+ *  WWI = Confidence·(0.45 Utility + 0.35 Taste + 0.20 Standing). Utility = V − λ·R.
+ *  쓰기 배선 (P0-4): 담기→me_set_watchlist · 봤어요→me_mark_seen(NAV 스냅샷) · 관심없음→me_dismiss.
+ *  전부 auth.uid() 스코프 DEFINER mutation — 낙관적 UI + 토스트, 새로고침에도 유지(in_watchlist 시딩). */
+import { useMemo, useState, useEffect, useCallback, useRef } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { useInspector } from "./InspectorContext";
 import CinecodexCard from "./CinecodexCard";
 
@@ -10,7 +13,8 @@ export type WwiRow = {
   v: number | null; r: number | null; ts: number | null; prestige: number | null;
   conf: number | null; tier: string | null; sim: number;
   u_util: number; t_taste: number; s_standing: number; wwi: number;
-  disc: number | null; reasons: string[] | null; avail: { state: string; provider?: string } | null; delta: number | null;
+  disc: number | null; reasons: string[] | null; avail: { state: string; provider?: string } | null;
+  delta: number | null; in_watchlist?: boolean | null;
 };
 
 const IMG = "https://image.tmdb.org/t/p/w92";
@@ -31,7 +35,10 @@ function reasonsOf(f: WwiRow): { cls: string; label: string }[] {
 
 function riskClass(r: number | null) { return r == null ? "" : r <= 15 ? "lo" : r <= 25 ? "mid" : "hi"; }
 
-function Insp({ f, lam }: { f: WwiRow; lam: number }) {
+function Insp({ f, lam, isKept, onKeep, onSeen }: {
+  f: WwiRow; lam: number; isKept: boolean;
+  onKeep: (f: WwiRow) => void; onSeen: (f: WwiRow) => void;
+}) {
   const u = f.v != null && f.r != null ? Math.round(f.v - lam * f.r) : f.ts;
   return (
     <div>
@@ -50,8 +57,8 @@ function Insp({ f, lam }: { f: WwiRow; lam: number }) {
       </div>
       <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
       <div className="actbar">
-        <div className="actbtn pri">담기</div>
-        <div className="actbtn">봤어요</div>
+        <div className={`actbtn pri`} onClick={() => onKeep(f)}>{isKept ? "✓ 담김" : "담기"}</div>
+        <div className="actbtn" onClick={() => onSeen(f)}>봤어요</div>
       </div>
     </div>
   );
@@ -60,13 +67,42 @@ function Insp({ f, lam }: { f: WwiRow; lam: number }) {
 export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
   const insp = useInspector();
   const { setDefault } = insp;
+  const supabase = useMemo(() => createClient(), []);
   const [lam, setLam] = useState(1.0);
   const [hideRisk, setHideRisk] = useState(false);
   const [sort, setSort] = useState<"wwi" | "u" | "risk">("wwi");
   const [q, setQ] = useState("");
   const [sel, setSel] = useState<string | null>(null);
-  const [kept, setKept] = useState<Set<string>>(new Set());
+  // 담김/제거는 낙관적 UI — 서버 상태(in_watchlist)로 시딩되어 새로고침에도 유지
+  const [kept, setKept] = useState<Set<string>>(() => new Set(rows.filter((r) => r.in_watchlist).map((r) => r.slug)));
   const [gone, setGone] = useState<Set<string>>(new Set());
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const say = useCallback((msg: string) => {
+    setToast(msg);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 2600);
+  }, []);
+
+  /* ── 쓰기 경로 (real mutations · 낙관적 UI) ── */
+  const doKeep = useCallback(async (f: WwiRow) => {
+    setKept((s) => new Set(s).add(f.slug));
+    const { error } = await supabase.rpc("me_set_watchlist", { p_slug: f.slug, p_on: true });
+    say(error ? `저장 실패 — ${error.message}` : `「${f.title}」 볼 영화에 담김 · 저장됨`);
+  }, [supabase, say]);
+
+  const doSeen = useCallback(async (f: WwiRow) => {
+    setGone((s) => new Set(s).add(f.slug));
+    const { error } = await supabase.rpc("me_mark_seen", { p_slug: f.slug });
+    say(error ? `기록 실패 — ${error.message}` : `「${f.title}」 관람 기록됨 · NAV 스냅샷 적재`);
+  }, [supabase, say]);
+
+  const doDismiss = useCallback(async (f: WwiRow) => {
+    setGone((s) => new Set(s).add(f.slug));
+    const { error } = await supabase.rpc("me_dismiss", { p_slug: f.slug });
+    say(error ? `저장 실패 — ${error.message}` : `「${f.title}」 관심없음 — 다시 추천하지 않습니다`);
+  }, [supabase, say]);
 
   const ranked = useMemo(() => {
     let a = rows.filter((f) => !gone.has(f.slug));
@@ -89,14 +125,15 @@ export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
       <div>
         <div className="icard"><h4><i className="ti ti-adjustments" /> 후보 데스크 요약</h4>
           <div className="kv"><span>후보(미관람)</span><b>{rows.length}</b></div>
+          <div className="kv"><span>담김 (워치리스트)</span><b style={{ color: "var(--safe)" }}>{kept.size}</b></div>
           <div className="kv"><span>안전자산 (R≤15)</span><b>{safe}</b></div>
           <div className="kv"><span>고위험 (R≥26)</span><b>{bold}</b></div>
           <div className="kv"><span>위험선호 λ</span><b>{lam.toFixed(1)}</b></div>
         </div>
-        <div className="emptyins">후보를 클릭하면 WWI 분해 · Cinecodex(왜 안전/위험)가 열립니다.</div>
+        <div className="emptyins">후보를 클릭하면 WWI 분해 · Cinecodex(왜 안전/위험)가 열립니다. 담기·봤어요·관심없음은 즉시 저장됩니다.</div>
       </div>
     );
-  }, [rows, lam, setDefault]);
+  }, [rows, lam, kept.size, setDefault]);
 
   return (
     <div className="mainpad">
@@ -120,7 +157,7 @@ export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
       <div className="mod"><div className="modbody" style={{ padding: 0 }}>
         {ranked.map(({ f, wwi, u, hi }, i) => (
           <div key={f.slug} className={`rrow${sel === f.slug ? " sel" : ""}${hi ? " hirisk" : ""}${kept.has(f.slug) ? " kept" : ""}`}
-            onClick={() => { setSel(f.slug); insp.select(<Insp f={f} lam={lam} />, "인스펙터 · 후보"); }}>
+            onClick={() => { setSel(f.slug); insp.select(<Insp f={f} lam={lam} isKept={kept.has(f.slug)} onKeep={doKeep} onSeen={doSeen} />, "인스펙터 · 후보"); }}>
             <span className="rk">{i + 1}</span>
             <div>
               <div className="rt ser">{f.title} <small>{f.year ?? ""}{f.director ? ` · ${f.director}` : ""}</small>
@@ -134,14 +171,22 @@ export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
             <div className="ucol"><div className="uv">{u}</div><div className="ul">U 순가치</div><div className="rrisk">{f.r != null ? <span className={`riskbadge ${riskClass(f.r)}`}>R {Math.round(f.r)}</span> : null}</div></div>
             <div className="dlt">+{f.delta ?? 0}<small>→ NAV</small></div>
             <div className="rowact">
-              <span className={`ria add${kept.has(f.slug) ? " done" : ""}`} title="담기" onClick={(e) => { e.stopPropagation(); setKept((s) => new Set(s).add(f.slug)); }}><i className="ti ti-bookmark-plus" /></span>
-              <span className="ria seen" title="봤어요" onClick={(e) => { e.stopPropagation(); setGone((s) => new Set(s).add(f.slug)); }}><i className="ti ti-check" /></span>
-              <span className="ria skip" title="관심없음" onClick={(e) => { e.stopPropagation(); setGone((s) => new Set(s).add(f.slug)); }}><i className="ti ti-x" /></span>
+              <span className={`ria add${kept.has(f.slug) ? " done" : ""}`} title="담기 (워치리스트 저장)" onClick={(e) => { e.stopPropagation(); doKeep(f); }}><i className="ti ti-bookmark-plus" /></span>
+              <span className="ria seen" title="봤어요 (관람 기록)" onClick={(e) => { e.stopPropagation(); doSeen(f); }}><i className="ti ti-check" /></span>
+              <span className="ria skip" title="관심없음 (다시 추천 안 함)" onClick={(e) => { e.stopPropagation(); doDismiss(f); }}><i className="ti ti-x" /></span>
             </div>
           </div>
         ))}
         {ranked.length === 0 ? <div style={{ padding: 24, color: "var(--sub)", fontSize: 13 }}>후보가 없습니다. 영화를 더 평가하면 취향 기반 후보가 채워집니다(≥3편 필요).</div> : null}
       </div></div>
+
+      {toast ? (
+        <div role="status" style={{
+          position: "fixed", bottom: 22, left: "50%", transform: "translateX(-50%)", zIndex: 90,
+          background: "#1c1c20", border: "1px solid #3a3a40", color: "var(--ink, #ECEAE5)",
+          padding: "9px 16px", borderRadius: 8, fontSize: 12, boxShadow: "0 6px 22px rgba(0,0,0,.5)",
+        }}>{toast}</div>
+      ) : null}
     </div>
   );
 }

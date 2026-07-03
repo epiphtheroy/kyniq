@@ -1,6 +1,8 @@
 # STATE — Metatake (living snapshot)
 
-**Last verified:** 2026-06-24 (counts) · **2026-06-27** (discovery layer added: The Map, home "Surprise me", home v2, newsletter/editions — see `FRONTEND-DISCOVERY-AND-DECISIONS.md`). This is the single "where are we" file; update it in place each session. Replaces `docs/STATE-2026-06-17.md` (kept only as history).
+**Last verified:** 2026-07-02 (DB counts + route tree + function inventory re-snapshotted live). This is the single "where are we" file; update it in place each session. Prior: 2026-06-24. Replaces `docs/STATE-2026-06-17.md` (history only).
+
+> **Big shifts since 2026-06-24:** (1) the entire **`/room`** dark "operating-system" terminal shipped (personal cinema-asset OS — 12 routes); (2) **Cinecodex → TakeScore** value/cost/risk index is live sitewide (`/takescore`, poster TS badges, `/me` portfolio); (3) **정전가(Standing) + taste-vector personalization** shipped (`/me`, `/room`); (4) **Geographic Atlas** filled out (`film_locations` 9,731 located · `geo_cache` 3,951 — was ~empty); (5) **Lineage(계보)**, **Movements**, **Theory/Theorist/Tradition**, **Concept(/idea)** browse axes all shipped. Several items STATE previously listed as "pending" (personalization portfolio, lineage, atlas) are now **live**.
 
 ---
 
@@ -12,6 +14,10 @@
 
 Figures are also classified into the **Catalog / Archetype** taxonomy (`taxonomy_nodes` + `figure_taxonomy`, 5 sections: objects, characters, locations, themes, theory).
 
+**Two objective quality axes sit beside the critical layer (never blended into it):**
+- **Cinecodex / TakeScore (TS)** — intrinsic **Value / Cost / Risk → U / S** (+13 sub-scores) in the **isolated `cinecodex` schema**, keyed to `public.films.id`. Surfaced as **TS poster badges**, `/takescore`, and the `/room` eval card. External metrics (`film_ratings`) are shown side-by-side, never merged. (S11 "never-blend".)
+- **정전가 (Standing) + Discovery** — `film_scores` (prestige/discovery), the "market price" axis for portfolio/NAV.
+
 **Retired layer:** the old "meta-take / reading hub / register" model is gone. `meta_takes.kind='reading'` hubs survive only as *unpublished candidates* — do not surface them. Every published hub today is a trope.
 
 ### Terminology (old → new)
@@ -19,79 +25,117 @@ Figures are also classified into the **Catalog / Archetype** taxonomy (`taxonomy
 |---|---|
 | meta-take / reading hub | retired → **Trope** hub + **Strong-Misreading** framework |
 | register (10) | **framework** (14 Strong Misreadings) |
-| "Frames" (Q&A) | *separate system*, not frameworks — community Q&A taxonomy |
+| "Frames" (Q&A) | *separate system* — community Q&A taxonomy, not frameworks |
 | "films like" / 인근값 | `film_affinities` |
+| Codex / `/codex` · `/score` | **TakeScore** / `/takescore` (current canonical; `/codex`,`/score` earlier names) |
+| World Cinema Atlas | **Movements** (`/movements`) — origin/tradition axis (≠ geographic Atlas) |
 
-> ⚠️ Two easily-confused systems: **frameworks** (14 strong-misreading angles, `lib/frameworks.ts`) vs **frames** (community-Q&A classification, `frames`/`question_frames` tables). And `meta_takes` is **polymorphic** via `kind` (it backs trope hubs *and* the legacy reading hubs).
+> ⚠️ Easily-confused pairs: **frameworks** (14 strong-misreading angles) vs **frames** (community-Q&A). **Movements** (`/movements`, national cinemas + waves) vs **Atlas** (`/atlas`, geographic filming map) vs **Map** (`/map`, node connection graph). `meta_takes` is **polymorphic** via `kind` (trope hubs + legacy reading hubs).
 
 ---
 
-## 2. Live counts (2026-06-24)
+## 2. Live counts (2026-07-02, live DB `jvgarcqrtsmgfimdcwgo`)
 
 | Entity | Count | Note |
 |---|---|---|
-| films | **1,957** | visible **1,935** · 22 hidden (thin-content <3 figures) · is_analyzed all 1,957 (Tier-1) |
+| **films** | **6,701** total · **1,935 visible** | visible=Tier-1 editorial pages. The other ~4,766 rows exist for **Cinecodex/TakeScore scoring + Tier-2 imports**, not full pages. (Was 1,957 total on 06-24 — table expanded to the full scored universe.) |
 | figures | **18,168** | all approved |
 | takes | 73,478 total · **26,975 published** | rest retired/candidate |
-| hubs published | **4,710** | **all `kind=figure_type` (tropes)** |
-| reading-kind hubs | 4,883 candidate | legacy, unpublished — not surfaced |
-| retired hubs | 1,446 figure_type + 935 reading | from re-form/consolidation |
+| meta_takes (hubs) | 11,974 rows | published hubs are **tropes** (`kind=figure_type`, ~4.7k); `kind=reading` = legacy unpublished, not surfaced |
 | figure_type_members | 19,186 | figure ↔ trope |
-| figure_tags | 39,944 | trope-tag output |
-| taxonomy_nodes | 2,928 | Catalog archetypes |
-| figure_taxonomy | 42,958 | figure ↔ archetype |
-| theory_canon | 2,587 | concepts |
+| figure_taxonomy | 42,958 | figure ↔ Catalog archetype (`taxonomy_nodes` 2,928) |
+| figure_tags / trope_tags | 39,749 / 35,508 | trope-tag output |
 | film_affinities | 38,800 | "films like" |
-| film_reception | **8,884** | Reception tab (critics) |
-| film_next | 17,095 | Watch next (+ reverse = Recommended-by) |
-| **film_asset** | **1,957** | Why-watch — now LOADED (live) |
-| director_picks | 1,019 | "Where to start" (Surprise + director page) |
-| director_next | 1,011 | "Who's next" (Surprise + director page) |
-| director_embedding | 873 | director-similarity for the director map |
-| film_features | 59 | LLM reception/pitch essays |
-| magazine_passages | 80 | RAG sources |
-| user_movies | 0 | watchlists just shipped |
-| user_pins | 4 | follow/like |
+| **directors** | **862** | (was 754) · director_embedding 873, portrait/facts 208, picks 1,019, next 1,011 |
+| **Cinecodex (`cinecodex.scores`)** | **6,701** | + `cinecodex_confidence` 6,701 · `scoring_runs` 6,535. TakeScore live for all. |
+| **film_scores (정전가)** | **5,977** | prestige/discovery — portfolio "market price" |
+| **film_taste_vector** | **1,941** | per-film taste embedding (personalization) |
+| **user_movies** | **26** | watched/watchlist + rating (personalization live; small user base) |
+| film_reception | 8,884 | Reception tab (critics) |
+| film_next | 17,095 | Watch-next (+ reverse Recommended-by) |
+| film_asset | 1,957 | Why-watch lenses |
+| film_ratings / film_watch_providers | 6,665 / 6,700 | external ratings + where-to-watch |
+| **film_locations** | **9,731** (all located) · **2,613 films** | Geographic Atlas — `geo_cache` **3,951** (was ~0) |
+| **film_lineage / lineage_lists / lineage_editions** | 10,551 / 398 / 4,735 | 계보 layer (canon/awards/festivals) — **shipped** |
+| theory_canon / theorists / theory_families / canon_theorist | 2,587 / 1,840 / 1,394 / 981 | theory + tradition browse |
+| sm_concepts | 1,227 | Strong-Misreading concept intros (`/idea`, `/concept`) |
+| magazines / magazine_passages | 137 / 40 | RAG sources |
+| _bak_* tables | (several) | cleanup backups from boldtake/trope/consolidation — safe to archive |
 
 ---
 
 ## 3. Site map (routes → data)
 
-- **Home/discovery:** `/` (home v7 = `components/home2/HomeV2.tsx`; **Surprise me hero** `HeroSurprise` ← `surprise_home()` via `/api/surprise/home`; mid-page **HomeMap**; **NewsletterCard** + editions `BlogGraph` ← `posts`), `/latest`, `/trending`, `/random/*` (legacy Surprise, `surprise()`/`surprise_set()`).
-- **The Map:** `/map` (`MapExplorer`, 3 modes) + embedded `EntityMap` on every entity page & in the Surprise panel. Engine `components/EntityGraph.tsx`; routes `/api/map`, `/api/map/search`. See `FRONTEND-DISCOVERY-AND-DECISIONS.md`.
-- **Film:** `/film` (index), `/film/[slug]` (hub: figures/takes, tropes, reception, why-watch, watch-next, affinities — via `film_catalog`, `film_reception`, `film_asset`, `film_next(_reverse)`, `film_affinities`), `/film/[slug]/figure/[figureSlug]`, `/film/[slug]/q/[q-slug]` (Q&A), `/genre[/slug]`.
-- **Director:** `/director` (`directors_catalogue/_featured`), `/director/[slug]`.
-- **Strong Misreadings:** `/strong-misreadings` (`frameworks_overview`), `/strong-misreadings/[fw]` (`readings_by_framework`, `framework_facets`).
-- **Tropes:** `/tropes` (`tropes_catalogue/_featured`), `/trope/[slug]` (`trope_related`).
-- **Catalog/Archetype:** `/catalog` (`catalog_kind_counts`, `catalog_top_nodes`, `concept_index`), `/catalog/[seg]`, `/catalog/[seg]/[slug]`.
-- **Concept/theory:** `/concept`, `/concept/[slug]`.
-- **Search/Ask/RAG:** `/search` (`search_site`), `/ask`,`/chat`,`/rag` → `api/ask*`,`api/rag` (`ask_retrieve`, `magazine_retrieve`).
-- **Account:** `/me` (`get_my_pins`, `user_movies`), `/u/[username]`, `/settings`, auth pages.
-- **Watchlists (new):** Seen/Watchlist + rating on film pages (`user_movies`), `/me` lists, `/api/tmdb-search` + `/api/track` (lazy Tier-2 import), Tier-2 minimal page `/film/tmdb-<id>` (noindex).
-- **Blog/static:** `/blog[/slug]`, `/about`,`/contact`,`/privacy`,`/terms`,`/guidelines`. **Admin:** `/admin/*`, `/editor`.
-- **Legacy still mounted:** `/meta-takes`, `/take/[slug]`, `/frames`,`/frame/[slug]` (Q&A frames), `/movies-like/[slug]`.
+### Discovery / home
+- `/` home v7 (`components/home2/HomeV2.tsx`; **Surprise me** hero ← `surprise_home()` via `/api/surprise/home`; mid-page HomeMap; NewsletterCard + editions), `/latest`, `/trending`, `/random/*` (`surprise()`/`surprise_set()`), `/manifesto`, `/home2-app`.
+- **The Map (node graph):** `/map` (`MapExplorer`, 3 modes) + embedded `EntityMap` on entity pages. RPCs `map_overview`/`map_ego`/`map_film_*`/`map_director_*`/`map_search`; routes `/api/map`,`/api/map/search`.
+
+### Film & people
+- **Film:** `/film` (index), `/film/[slug]` (hub tabs: Invitation, Figures/Takes, Tropes, Archetype, Reception, Why-watch, Watch-next/Recommended-by, Films-like, Atlas, Information — via `film_catalog`,`film_reception`,`film_asset`,`film_next(_reverse)`,`film_affinities`,`film_geo`), `/film/[slug]/figure/[figureSlug]`, `/film/[slug]/q/[q-slug]`, **`/film/[slug]/watch`** (dedicated where-to-watch v3), **`/film/[slug]/gallery`**, `/genre[/slug]`.
+- **Where-to-watch:** `/where-to-watch`, `/whereto/[slug]`.
+- **Director:** `/director` (`directors_catalogue/_featured`), `/director/[slug]` (portrait/picks/facts/next + `director_geo`).
+
+### Critical layer
+- **Strong Misreadings:** `/strong-misreadings` (`frameworks_overview`), `/strong-misreadings/[fw]` (`readings_by_framework`,`framework_facets`,`readings_semantic`).
+- **Tropes:** `/tropes` (`tropes_catalogue/_featured`), `/trope/[slug]` (`trope_related`,`trope_readings`).
+- **Catalog/Archetype:** `/catalog`, `/catalog/[seg]`, `/catalog/[seg]/[slug]` (`catalog_*`).
+- **Concept/theory:** `/concept`,`/concept/[slug]`, **`/idea`,`/idea/[slug]`** (v7 concept detail, `concept_detail`/`sm_concept_*`), **`/theorist`,`/theorist/[slug]`** (`theorist_index/_readings`), **`/tradition`,`/tradition/[slug]`** (`take_traditions`).
+
+### Objective axes (NEW since 06-24)
+- **TakeScore (Cinecodex):** **`/takescore`**,`/takescore/about` (13-dim range table + λ dial; `cinecodex_ranked`,`takescore_for_slugs`) — canonical. Earlier names **`/score`**,`/score/about`,**`/codex`**,`/codex/about` also mounted. Sitewide **TS poster badges** (`components/TakeScoreBadges.tsx`; skips `.room-root`).
+- **Geographic Atlas:** **`/atlas`** (`geo_overview`) + film/director Atlas tabs (`FilmMap` MapLibre ← `/api/geo` → `film_geo`/`director_geo`/`geo_overview`).
+- **Lineage (계보):** **`/lineage`**,`/lineage/[slug]` (`lineage_index`,`lineage_list_films`,`lineage_add_watchlist`).
+- **Movements:** **`/movements`**,`/movements/[slug]` (`movements_index`,`movement_detail`,`film_movements`) — national cinemas + waves.
+
+### `/room` — personal cinema-asset OS (dark terminal, login-required) — **NEW, MAJOR**
+Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app/room/layout.tsx` (auth guard, `.room-root` scoped CSS). Routes + backing RPCs:
+- `/room` command center (`me_portfolio_nav`,`portfolio_breakdown`,`me_recommend_wwi`,`me_taste_neighbors`,`me_collection`)
+- `/room/collection` (`me_collection`) · `/room/watchlist` (`me_recommend_wwi`) · `/room/desk` (`me_watched_scored`,`me_takescore_summary`) · `/room/analysis` (`me_taste_signature`,`me_figure_cloud`,…)
+- `/room/atlas` (`me_geo_coverage`) · `/room/auteurs` (`me_auteur_conquest`)
+- `/room/rate` (`rate_film`,`me_rate_stats`,`me_recent_ratings`) · `/room/library` (`me_library`) · `/room/write` (`me_authored_takes`) · `/room/pair` (`me_pair_state`)
+- `/room/film/[slug]` full eval card (`cinecodex_card`) + `film_room_context`
+> **Audit:** section-by-section logic/privacy audit + reinforcement roadmap in **`docs/ux/ROOM-LOGIC-AUDIT.md`** (P0–P3). Key open items: `me_coverage`/`me_blindspots` RPCs don't exist yet (⑦④ derived from `portfolio_breakdown.canon`); write actions (담기/봤어요/서재토글/노트) are local-only except `rate_film`; pair = stub; ticker partly hardcoded.
+
+### Search / Ask / account / static
+- `/search` (`search_site`), `/ask`,`/ask/new`,`/chat`,`/rag` → `/api/ask`,`/api/ask/v2`,`/api/rag` (`ask_retrieve`,`magazine_retrieve`).
+- **Account:** `/me` (personalization dashboard — pins + `user_movies` + TakeScore portfolio), `/u/[username]` (public portfolio, `public_portfolio(_meta)`), `/settings`,`/login`,`/signup`,`/reset`,`/auth/*`.
+- **Static:** `/about`,`/methodology`,`/credits`,`/contact`,`/privacy`,`/terms`,`/guidelines`,`/blog[/slug]`,`/blog/subscribe`. **Admin:** `/admin/*`,`/editor`. **Legacy mounted:** `/meta-takes`,`/take/[slug]`,`/frames`,`/frame/[slug]`,`/movies-like/[slug]`.
+- **API (new):** `/api/geo`,`/api/map(/search)`,`/api/surprise(/home|/set)`,`/api/tmdb-search`,`/api/track`,`/api/films/search`,`/api/films/backfill`,`/api/readings(/featured|/suggest)`,`/api/account/delete`,`/api/revalidate`,`/api/feed`,`/api/credits`. Plus `/llms.txt`, IndexNow.
 
 ---
 
 ## 4. Data model (core)
 
-- **films** (`id uuid` PK, `slug`/`tmdb_id` unique, year, director(+slug), genres[], poster/backdrop, tmdb_extra, **visible**, **is_analyzed**) → parent of figures, film_features, film_affinities, film_reception/next/asset.
-- **figures** (`id uuid`, film_id, kind∈character/object/location/trope/form, label, slug, description, embedding) → parent of takes; linked to trope hubs via `figure_type_members`, to catalog via `figure_taxonomy`.
-- **takes** (`id uuid`, figure_id, meta_take_id, **framework**, register, rationale, theorist, embedding, status) — HNSW index in `build-takes-hnsw.sql`.
-- **meta_takes** (`id uuid`, slug, title/laconic/thesis/essay, embedding, **kind** [figure_type=trope | reading=legacy], status, merged_into) + `figure_type_members`, `meta_take_rankings`, `meta_take_edges`, `slug_history` (redirects).
-- **Catalog:** `taxonomy_nodes` (kind-discriminated) + `figure_taxonomy` (figure↔node). SSOT `lib/catalog.ts`.
-- **Per-film extras:** `film_features` (pitch/record/reception/experience), `film_reception` (critics), `film_next`, `film_asset` (why-watch lenses), `film_affinities` (films-like).
-- **Users:** `profiles`, `user_pins` (follow/like, polymorphic), `user_movies` (watched/watchlist + rating).
-- **RAG/Q&A:** `magazines`/`magazine_passages`, `questions`/`canonical_answers`/`contributions`/`votes`/`flags`, `frames`/`question_frames`.
-- **Embeddings** (1536-d, OpenAI) on figures/takes/meta_takes/frames/canonical_tags/magazine_passages. **Search:** pg_trgm GIN; `search_site` via similarity().
+- **films** (`id uuid` PK, `slug`/`tmdb_id` unique, year, director(+slug), genres[], poster/backdrop, tmdb_extra, **visible**, **is_analyzed**). Now spans the full **6,701-film Cinecodex universe**; only **1,935 visible** (Tier-1 editorial). Parent of figures + all per-film extras.
+- **figures** (`id`, film_id, kind∈character/object/location/trope/form, label, slug, description, embedding) → parent of takes; linked to trope hubs (`figure_type_members`) + catalog (`figure_taxonomy`).
+- **takes** (`id`, figure_id, meta_take_id, **framework**, register, rationale, theorist, embedding, status) — HNSW index.
+- **meta_takes** (`id`, slug, title/laconic/thesis/essay, embedding, **kind** [figure_type=trope | reading=legacy], status, merged_into) + `figure_type_members`, `meta_take_rankings`, `meta_take_edges`, `slug_history`.
+- **Objective axes:** `cinecodex.scores`/`cinecodex_confidence` (V/C/R/U/S + 13 subs, isolated schema, DEFINER RPCs `cinecodex_*`); `film_scores` (정전가 prestige/discovery); `film_taste_vector` (personal taste embedding).
+- **Personalization:** `user_movies` (watched/watchlist/rating), `user_pins` (follow/like), `profiles` (+ `portfolio_public`); ~20 `me_*` DEFINER RPCs scoped by `auth.uid()`.
+- **Geo:** `film_locations` (lat/lng/layer filmed|setting/precision), `geo_cache`, `geo_progress`/`geo_filmed_progress`. RPCs `film_geo`/`director_geo`/`geo_overview`/`me_geo_coverage`. (RLS on `film_locations`/`geo_cache` = enabled, **0 policies** → DEFINER-RPC-only access.)
+- **Lineage/Movements:** `lineage_lists`/`film_lineage`/`lineage_editions`/`lineage_sources`; movements via `film_movements`/`movements_index`.
+- **Theory:** `theory_canon`/`theorists`/`theory_families`/`canon_theorist`/`sm_concepts`.
+- **Per-film extras:** `film_features`,`film_reception`,`film_next`,`film_asset`,`film_affinities`,`film_ratings`,`film_watch_providers`.
+- **RAG/Q&A:** `magazines`/`magazine_passages`; `questions`/`canonical_answers`/`contributions`/`votes`/`flags`; `frames`/`question_frames`.
+- **Embeddings** (1536-d) on figures/takes/meta_takes/directors/canon/magazine_passages. Search: pg_trgm GIN + `search_site`.
 
-> ⚠️ Schema-in-VCS gap: migrations `0001–0026` cover the base. Much of the catalog/trope/strong-misreadings/reception/watch-next/ask layer (incl. `films.visible/is_analyzed`, the visible-trigger, many RPCs) was applied **directly to the live DB** and is **not** in `supabase/migrations/`. See BACKLOG "schema capture".
+> ⚠️ **Schema-in-VCS gap (widened):** `supabase/migrations/` is frozen at **0001–0026**. Everything since — the entire Cinecodex/TakeScore layer, all ~20 `me_*` room RPCs, `map_*`, `movements_*`, `sm_concept_*`, `theorist_*`, lineage/geo RPCs, `films.visible` expansion — was applied **directly to the live DB** and is **not** version-controlled. **240+ functions live; only `is_admin`/`handle_new_user` are in `.sql`.** See BACKLOG "schema capture" — highest structural-risk item.
 
 ---
 
 ## 5. Shipped vs pending
 
-**Shipped & live:** Strong-Misreadings model + 14 frameworks; tropes (re-formed); Catalog/Archetype; film page tabs (Invitation, Why-watch UI, Recommended-by, Strong Misreadings, Figures, Tropes, Archetype, Reception, Watch-next, Films-like, Information); Reception (8,884); Watch-next (17,095) + Recommended-by; Watchlists Phase 1+2 (Seen/Watchlist/rating, lazy TMDB import, Tier-2 page); Ask/RAG; search; blog; mobile-first.
-**Discovery layer (2026-06-27, shipped):** The Map — `/map` explorer (Films/Directors/Grouped) + embedded recenter-in-place `EntityMap` on all 6 entity pages (RPCs `map_overview`/`map_ego`/`map_film_*`/`map_director_*`/`map_search`, `director_embedding`). Home v7 — **Surprise me** hero (`surprise_home()`, ≥⅓ Strong Misreading + film/director map·watch-next·recommended-by·why-watch·where-to-start·who's-next·archetype/trope/idea chip cards), mid-page HomeMap, **Newsletter card + real-edition blog cards**. Sticky top nav. Director layer (portrait/picks/facts/next). See `FRONTEND-DISCOVERY-AND-DECISIONS.md`.
+**Shipped & live (as of 2026-07-02):**
+- Critical layer: Strong-Misreadings (14 frameworks) · Tropes (re-formed) · Catalog/Archetype · Theory/Theorist/Tradition/Concept(`/idea`).
+- Film page full tab set; Reception (8,884); Watch-next (17,095)+Recommended-by; Films-like; **Where-to-watch dedicated page**; Gallery.
+- **TakeScore/Cinecodex** — all 6,701 films scored; `/takescore`; sitewide TS badges; confidence (Pass 2).
+- **정전가 + taste-vector personalization** — `/me` portfolio, taste neighbors, NAV, WWI λ recommender.
+- **`/room` OS** — 12 routes (command center/collection/watchlist/desk/analysis/atlas/auteurs/rate/library/write/pair/eval-card).
+- **Geographic Atlas** — `/atlas`, film/director Atlas tabs, filmed+setting layers (9,731 pins).
+- **Lineage(계보)** — `/lineage`. **Movements** — `/movements`.
+- Discovery: The Map (`/map` + embedded) · Home v7 Surprise-me · Newsletter/editions · sticky nav. Watchlists P1+2 (lazy TMDB import, Tier-2). Ask/RAG · search · blog · mobile-first · IndexNow.
 
-**Pending (see BACKLOG):** Watchlists Phase 3 (promotion); Catalog Concepts→Theory absorption; personalization portfolio `/me`; lineage (계보) tag layer; per-page SEO head-copy; figure aliases; node-graph calc; tradition-match automation; **schema capture (now incl. `map_*`/`surprise_home`/`director_embedding`)**; **`refresh_director_embeddings()` RPC + auto director-generation trigger for new directors**; new-trope formation (gardening); doc archival.
+**Pending (see BACKLOG + `docs/ux/ROOM-LOGIC-AUDIT.md`):**
+- **/room reinforcement — P0 DONE (2026-07-03):** `me_coverage`⑦/`me_blindspots`④ shipped+wired; write-actions (담기/봤어요/관심없음/서재 공개토글·즐겨찾기/노트 save_take+sanitize) all real mutations; conquer/gap WWI reasons real-tagged; ticker/system card de-hardcoded (`me_system_status`); `nav_snapshots`+`me_nav_history` asset curve live; `/u/me` 302 fixed. New DB objects committed as `supabase/migrations/0027–0030`. **Remaining:** pair partner/consent tables (P1), `/api/geo` scope/rate-limit + Atlas continent-map DB화, P2/P3 items.
+- **Schema capture** — reverse-commit the ~200 out-of-band RPCs + DDL into migrations (structural risk).
+- Watchlists Phase 3 (promotion); Catalog Concepts→Theory absorption; per-page SEO head-copy; figure aliases; tradition-match automation; `refresh_director_embeddings()` + auto director-gen trigger; new-trope gardening; legacy-doc archival; `_bak_*` table cleanup.

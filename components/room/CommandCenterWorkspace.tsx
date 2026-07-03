@@ -28,6 +28,17 @@ export type Breakdown = {
   canon?: Canon[];
 } | null;
 
+/* 엔진⑦ me_coverage · 엔진④ me_blindspots — 전용 RPC 실측 rows */
+export type CovRow = {
+  list_id: string; slug: string; label: string; facet: string; aw: number | string | null;
+  seen: number; total: number; pct: number; state: string;
+};
+export type BlindRow = {
+  list_id: string; slug: string; label: string; facet: string; aw: number | string | null;
+  seen: number; total: number; ratio: number | string | null;
+  productivity: number | string | null; opportunity: number | string | null; gap_reason: string;
+};
+
 export type Avail = { state: string; provider?: string } | null;
 export type WwiRow = {
   slug: string; title: string; year: number | null; poster_path: string | null; director: string | null;
@@ -35,7 +46,7 @@ export type WwiRow = {
   prestige: number | string | null; conf: number | string | null; tier: string | null;
   sim: number | string | null; u_util: number | string | null; t_taste: number | string | null;
   s_standing: number | string | null; wwi: number | string | null; disc: number | string | null;
-  reasons: string[] | null; avail: Avail; delta: number | string | null;
+  reasons: string[] | null; avail: Avail; delta: number | string | null; in_watchlist?: boolean | null;
 };
 
 export type NeighborRow = {
@@ -48,6 +59,8 @@ export type CommandData = {
   breakdown: Breakdown;
   recs: WwiRow[];
   neighbors: NeighborRow[];
+  coverage: CovRow[];  // 엔진⑦ me_coverage — 전 facet 실측 분모
+  blinds: BlindRow[];  // 엔진④ me_blindspots — 생산성 게이트 통과
   avgDiscovery: number | null; // computed server-side from me_collection() discovery avg
 };
 
@@ -171,9 +184,25 @@ function NeighborInsp({ n }: { n: Nb }) {
   );
 }
 
-/** Lineage coverage row → 도장깨기 상세. */
-function LineageInsp({ c }: { c: Canon }) {
-  const pct = c.total ? Math.round((c.seen / c.total) * 100) : 0;
+/* facet 한국어 라벨 (me_coverage 실 facet) */
+const FACET_LABEL: Record<string, string> = {
+  canon: "정전", award: "수상", national: "국가", auteur: "감독",
+  festival: "영화제", movement: "사조", section: "섹션", style: "스타일",
+};
+const FACET_GROUP: Record<string, string> = {
+  canon: "정전 · 권위 계보 (CANON)", award: "수상 · 시상 (AWARD)",
+  national: "국가 · 지역 (NATIONAL)", auteur: "감독 오이브르 (AUTEUR)",
+};
+
+type Cov = { label: string; facet: string; seen: number; total: number; pct: number; state: string; aw: number | null };
+type Blind = {
+  label: string; facet: string; seen: number; total: number;
+  ratio: number | null; productivity: number | null; opportunity: number | null; gap_reason: string; aw: number | null;
+};
+
+/** Lineage coverage row → 도장깨기 상세 (엔진⑦ 실측). */
+function LineageInsp({ c }: { c: Cov }) {
+  const pct = c.pct;
   const st = covState(pct);
   const remain = Math.max(0, Math.ceil(c.total * 0.5) - c.seen);
   const isBlind = pct === 0 || c.seen / Math.max(1, c.total) < 0.03;
@@ -181,7 +210,7 @@ function LineageInsp({ c }: { c: Canon }) {
     <div>
       <div className="icard"><h4><i className="ti ti-layout-grid" /> 계보 상세 · 커버리지</h4>
         <div className="seltitle ser" style={{ fontSize: 16 }}>{c.label}</div>
-        <div className="selsub">정전 · 권위 계보 {isBlind ? "· 블라인드" : ""}</div>
+        <div className="selsub">{FACET_LABEL[c.facet] ?? c.facet} 계보 {isBlind ? "· 블라인드" : ""}</div>
         <div className="bigscore" style={{ marginTop: 10, color: st.col }}>{pct}%<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>{c.seen} / {c.total} 관람 · {st.label}</span></div>
         <div className="crow" style={{ marginTop: 8 }}><span className="cl"><span className="gloss" title="커버리지 = 이 계보 목록 중 내가 본 비율(%).">커버리지</span></span><span className="cbar"><i style={{ width: `${Math.max(pct, pct > 0 ? 3 : 1)}%`, background: st.col }} /></span><span className="cvv">{pct}</span></div>
         <div className="cc-ms">
@@ -198,6 +227,29 @@ function LineageInsp({ c }: { c: Canon }) {
           {isBlind
             ? <>아직 거의 밟지 않은 <b style={{ color: "var(--blind)" }}>블라인드</b> 권위 계보 — 첫 진입이 커버리지·다양성을 가장 크게 끌어올립니다.</>
             : <>권위 있는 정전 목록. 남은 편수를 채울수록 breadth(계보 폭)와 depth(깊이)가 함께 오릅니다.</>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Blind spot → 왜 이 공백인가 (엔진④ opportunity 분해 — 설명가능 인스펙터). */
+function BlindInsp({ b }: { b: Blind }) {
+  const covPct = b.total ? Math.round((b.seen / b.total) * 100) : 0;
+  return (
+    <div>
+      <div className="icard"><h4><i className="ti ti-eye-off" style={{ color: "var(--blind)" }} /> 블라인드 상세</h4>
+        <div className="seltitle ser" style={{ fontSize: 16 }}>{b.label}</div>
+        <div className="selsub">{FACET_LABEL[b.facet] ?? b.facet} 계보 · {b.gap_reason === "untouched" ? "미답 (0편)" : "얕음 (<3%)"}</div>
+        <div className="bigscore" style={{ marginTop: 10, color: "var(--blind)" }}>{b.seen}/{b.total}<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>관람 · {covPct}%</span></div>
+      </div>
+      <div className="icard"><h4><i className="ti ti-scale" /> 기회값 분해 · 왜 이 공백인가</h4>
+        <div className="kv"><span>권위 (authority)</span><b>{b.aw != null ? b.aw.toFixed(2) : "—"}</b></div>
+        <div className="kv"><span>미답률 (1 − coverage)</span><b>{b.ratio != null ? (1 - b.ratio).toFixed(2) : "—"}</b></div>
+        <div className="kv"><span><span className="gloss" title="생산성 = 내 취향 벡터와 이 계보 앵커의 코사인 근접(0.35–1 클립). 취향에 인접한 '안전한 모험'만 권유하는 엔진④ 게이트.">생산성 게이트</span></span><b style={{ color: "var(--safe)" }}>{b.productivity != null ? b.productivity.toFixed(2) : "—"}</b></div>
+        <div className="kv"><span>기회값 (opportunity)</span><b style={{ color: "var(--blind)" }}>{b.opportunity != null ? b.opportunity.toFixed(2) : "—"}</b></div>
+        <div style={{ fontSize: 11, color: "var(--mut)", marginTop: 8, lineHeight: 1.55 }}>
+          기회값 = 권위 × 미답률 × <b style={{ color: "var(--ink)" }}>생산성</b> — 단순 결핍을 다 들이밀지 않고, 내 취향에 인접해 <b>실제로 밟을 만한</b> 공백만 순위에 올립니다. 게이지는 고발이 아니라 권유입니다.
         </div>
       </div>
     </div>
@@ -238,23 +290,29 @@ export default function CommandCenterWorkspace({ data }: { data: CommandData }) 
   const RING_C = 2 * Math.PI * 38;
   const ringFrac = nav != null ? clamp01(nav / 100) : 0;
 
-  /* ── coverage rows (S4 4-state) sorted by % desc ── */
-  const canon = useMemo(() => (data.breakdown?.canon ?? []).map((c) => ({
-    ...c, pct: c.total ? Math.round((c.seen / c.total) * 100) : 0,
-  })), [data.breakdown]);
-  const covRows = useMemo(() => [...canon].sort((a, b) => b.pct - a.pct), [canon]);
+  /* ── 엔진⑦ me_coverage: 전 facet 실측 rows (portfolio_breakdown.canon 파생 제거) ── */
+  const covAll = useMemo<Cov[]>(() => data.coverage.map((c) => ({
+    label: c.label, facet: c.facet, seen: c.seen, total: c.total, pct: c.pct, state: c.state, aw: num(c.aw),
+  })), [data.coverage]);
 
-  /* overall weighted coverage % (seen/total across authoritative lineages) */
+  /* facet별 그룹 (RPC가 pct desc 정렬 — 그룹 안 순서 유지, 그룹당 상위 6) */
+  const covByFacet = useMemo(() => (["canon", "award", "national", "auteur"] as const)
+    .map((f) => ({ facet: f as string, rows: covAll.filter((c) => c.facet === f).slice(0, 6) }))
+    .filter((g) => g.rows.length), [covAll]);
+
+  /* 전체 커버리지 % = Σseen/Σtotal (전 facet, 실측 분모) */
   const overall = useMemo(() => {
-    const tot = canon.reduce((a, c) => a + c.total, 0);
-    const seen = canon.reduce((a, c) => a + c.seen, 0);
+    const tot = covAll.reduce((a, c) => a + c.total, 0);
+    const seen = covAll.reduce((a, c) => a + c.seen, 0);
     return tot ? (seen / tot) * 100 : null;
-  }, [canon]);
+  }, [covAll]);
 
-  /* ── blind spots (④ S2): authoritative lineages with seen=0 or ratio<0.03, by total desc ── */
-  const blind = useMemo(() =>
-    canon.filter((c) => c.seen === 0 || c.seen / Math.max(1, c.total) < 0.03)
-      .sort((a, b) => b.total - a.total), [canon]);
+  /* ── 엔진④ me_blindspots: 생산성 게이트 통과한 블라인드 (기회값 순) ── */
+  const blind = useMemo<Blind[]>(() => data.blinds.map((b) => ({
+    label: b.label, facet: b.facet, seen: b.seen, total: b.total,
+    ratio: num(b.ratio), productivity: num(b.productivity), opportunity: num(b.opportunity),
+    gap_reason: b.gap_reason, aw: num(b.aw),
+  })), [data.blinds]);
 
   /* ── recommendations ── */
   const recs = useMemo(() => data.recs.map(normRec), [data.recs]);
@@ -299,7 +357,8 @@ export default function CommandCenterWorkspace({ data }: { data: CommandData }) 
 
   const openRec = (f: Rec) => insp.select(<RecInsp f={f} />, `${f.title} · 추천`);
   const openNeighbor = (n: Nb) => insp.select(<NeighborInsp n={n} />, `${n.title} · 별자리`);
-  const openLineage = (c: Canon) => insp.select(<LineageInsp c={c} />, `${c.label} · 계보`);
+  const openLineage = (c: Cov) => insp.select(<LineageInsp c={c} />, `${c.label} · 계보`);
+  const openBlind = (b: Blind) => insp.select(<BlindInsp b={b} />, `${b.label} · 블라인드`);
 
   /* ── default inspector = 커맨드센터 요약 (mirrors AnalysisWorkspace setDefault) ── */
   useEffect(() => {
@@ -435,50 +494,54 @@ export default function CommandCenterWorkspace({ data }: { data: CommandData }) 
 
       {/* ═══ 커버리지 매트릭스 (⑦ S4) ═══ */}
       <div className="cc-mod">
-        <div className="cc-modh"><h3><i className="ti ti-layout-grid" /> 계보 <span className="gloss" title="커버리지 = 권위 계보 목록 중 내가 본 비율(%).">커버리지</span> 매트릭스 <span className="ix">⑦</span></h3>
-          <span className="meta">관람 / 정전 우주 · 잠금&lt;50 진행50–74 근접75–99 완파100</span></div>
+        <div className="cc-modh"><h3><i className="ti ti-layout-grid" /> 계보 <span className="gloss" title="커버리지 = 계보 목록 중 내가 본 비율(%). 전 facet(정전·수상·국가·감독) 실측 분모.">커버리지</span> 매트릭스 <span className="ix">⑦</span></h3>
+          <span className="meta">전 facet 실측 (me_coverage) · 잠금&lt;50 진행50–74 근접75–99 완파100</span></div>
         <div className="cc-modbody">
-          {covRows.length ? (
+          {covByFacet.length ? (
             <>
-              <div className="cc-grp"><span>정전 · 권위 계보 (CANON)</span><span>관람 · %</span></div>
-              {covRows.map((c) => {
-                const st = covState(c.pct);
-                return (
-                  <div key={c.label} className={`cc-lrow ${st.cls}`} onClick={() => openLineage(c)} title={`${c.label} — ${c.seen}/${c.total}`}>
-                    <div className="cc-lname">{c.label}</div>
-                    <div className="cc-barwrap"><div className="cc-track"><i style={{ width: `${Math.max(c.pct, c.pct > 0 ? 3 : 1)}%` }} /></div><span className="cc-pct">{c.pct}%</span></div>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 8 }}>
-                      <span className="cc-frac">{c.seen}/{c.total}</span>
-                      <span className="cc-statetag">{st.label}</span>
-                    </div>
-                  </div>
-                );
-              })}
+              {covByFacet.map((g) => (
+                <div key={g.facet}>
+                  <div className="cc-grp"><span>{FACET_GROUP[g.facet] ?? g.facet}</span><span>관람 · %</span></div>
+                  {g.rows.map((c) => {
+                    const st = covState(c.pct);
+                    return (
+                      <div key={`${g.facet}-${c.label}`} className={`cc-lrow ${st.cls}`} onClick={() => openLineage(c)} title={`${c.label} — ${c.seen}/${c.total}`}>
+                        <div className="cc-lname">{c.label}</div>
+                        <div className="cc-barwrap"><div className="cc-track"><i style={{ width: `${Math.max(c.pct, c.pct > 0 ? 3 : 1)}%` }} /></div><span className="cc-pct">{c.pct}%</span></div>
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 8 }}>
+                          <span className="cc-frac">{c.seen}/{c.total}</span>
+                          <span className="cc-statetag">{st.label}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
               <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 9, fontStyle: "italic" }}>
-                대형 목록은 실제 관람%가 낮게 나옵니다 — 정직한 상태입니다(seen/total 표시). 커버리지가 낮은 계보일수록 채울 가치가 큽니다.
+                분모는 계보별 실제 등재 편수(실측)입니다 — 대형 목록의 낮은 %는 정직한 상태. facet별 상위 6개 표시, 전체 커버리지 KPI는 전 계보 합산.
               </div>
             </>
-          ) : <div className="emptyins">정전 계보 커버리지 데이터가 아직 없습니다. 관람 표본이 계보에 매칭되면 커버리지 바가 나타납니다.</div>}
+          ) : <div className="emptyins">계보 커버리지 데이터가 아직 없습니다. 관람 표본이 계보에 매칭되면 커버리지 바가 나타납니다.</div>}
         </div>
       </div>
 
       {/* ═══ 블라인드 (④ S2 amber) ═══ */}
       <div className="cc-mod">
         <div className="cc-modh"><h3><i className="ti ti-eye-off" style={{ color: "var(--blind)" }} /> <span className="gloss" title="블라인드 = 아직 0~소수만 본 권위 있는 계보. 정복하지 못한 영역.">블라인드</span> · 아직 안 간 권위 계보 <span className="ix">④</span></h3>
-          <span className="meta">seen 0 · 첫 진입 가치 최상위</span></div>
+          <span className="meta">미답·얕음(&lt;3%) · 생산성 게이트 통과 · 기회값 순</span></div>
         <div className="cc-modbody">
           {blind.length ? (
             <div className="cc-blindwrap">
-              {blind.map((c) => (
-                <div key={c.label} className="cc-blindchip" onClick={() => openLineage(c)} title={`${c.label} — ${c.seen}/${c.total}`}>
+              {blind.map((b) => (
+                <div key={`${b.facet}-${b.label}`} className="cc-blindchip" onClick={() => openBlind(b)} title={`${b.label} — ${b.seen}/${b.total} · 기회값 ${b.opportunity != null ? b.opportunity.toFixed(2) : "—"}`}>
                   <i className="ti ti-eye-off" />
-                  <span>{c.label}</span>
-                  <b>{c.seen}/{c.total}</b>
-                  <small>{c.pct}%</small>
+                  <span>{b.label}</span>
+                  <b>{b.seen}/{b.total}</b>
+                  <small>{FACET_LABEL[b.facet] ?? b.facet}</small>
                 </div>
               ))}
             </div>
-          ) : <div className="emptyins">블라인드 계보가 없습니다 — 모든 권위 계보에 이미 진입했습니다.</div>}
+          ) : <div className="emptyins">블라인드 계보가 없습니다 — 취향 인접한 권위 계보에 모두 진입했습니다.</div>}
         </div>
       </div>
 

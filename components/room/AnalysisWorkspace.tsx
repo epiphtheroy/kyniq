@@ -31,6 +31,11 @@ export type Breakdown = {
   framework?: Record<string, number>;
   canon?: { label: string; seen: number; total: number }[];
 } | null;
+/* 엔진⑦ me_coverage — 축 커버리지 실측 (전 facet) */
+export type CovRow = {
+  list_id: string; slug: string; label: string; facet: string; aw: number | string | null;
+  seen: number; total: number; pct: number; state: string;
+};
 
 export type AnalysisData = {
   signature: SigRow[];
@@ -38,6 +43,7 @@ export type AnalysisData = {
   collection: CollRow[];
   figures: FigureRow[];
   neighbors: NeighborRow[];
+  coverage: CovRow[];
 };
 
 const IMG = "https://image.tmdb.org/t/p/w92";
@@ -290,7 +296,12 @@ export default function AnalysisWorkspace({ data }: { data: AnalysisData }) {
     </div>, "내 평균 · μ–σ");
 
   const watched = data.breakdown?.watched ?? coll.length;
-  const canonRows = (data.breakdown?.canon ?? []).map((c) => ({ ...c, pct: c.total ? Math.round((c.seen / c.total) * 100) : 0 }));
+  /* 엔진⑦ me_coverage 실측 rows — facet 라벨 포함 (portfolio_breakdown.canon 파생 제거) */
+  const FACET_KO: Record<string, string> = { canon: "정전", award: "수상", national: "국가", auteur: "감독" };
+  const covRows = data.coverage.map((c) => ({
+    label: c.label, facet: c.facet, facetKo: FACET_KO[c.facet] ?? c.facet,
+    seen: c.seen, total: c.total, pct: c.pct,
+  }));
 
   return (
     <div className="mainpad">
@@ -356,12 +367,12 @@ export default function AnalysisWorkspace({ data }: { data: AnalysisData }) {
             <div className="an-lt"><b style={{ color: "var(--an-risktx)" }}>μ–σ 위험평면</b> · 내 포트폴리오 평균 획득가치 <b>V̄ {r0(vBar)}</b> · <span className="riskw">평균 위험 R̄ {r0(rBar)}</span>. 이상향(좌상 고V·저R) <b>{idealCount}편</b>, 분열/고위험(R≥28) <b className="riskw">{riskCount}편</b>.</div>
           </div>
         ) : null}
-        {canonRows.length ? (() => {
-          const lowest = [...canonRows].sort((a, b) => a.pct - b.pct)[0];
+        {covRows.length ? (() => {
+          const lowest = [...covRows].sort((a, b) => a.pct - b.pct || b.total - a.total)[0];
           return (
             <div className="an-leadrow">
               <div className="an-lic blind"><i className="ti ti-eye-off" /></div>
-              <div className="an-lt">가장 얕은 축은 <span className="gapw">{lowest.label} ({lowest.pct}%)</span> — {lowest.seen}/{lowest.total}편. 채울 가치가 가장 큰 계보입니다.</div>
+              <div className="an-lt">가장 얕은 축은 <span className="gapw">{lowest.label} ({lowest.pct}%)</span> — {lowest.facetKo} 계보 · {lowest.seen}/{lowest.total}편. 채울 가치가 가장 큰 계보입니다.</div>
             </div>
           );
         })() : null}
@@ -497,26 +508,26 @@ export default function AnalysisWorkspace({ data }: { data: AnalysisData }) {
 
       {/* ═══ (4) 축 커버리지 · 계보 ═══ */}
       <div className="mod" id="an-axis">
-        <div className="modh"><h3><i className="ti ti-layout-grid" /> 축 커버리지 · 정전 계보 <span style={{ color: "var(--faint)", fontWeight: 400 }}>④⑦</span></h3>
-          <span className="meta">관람 / 정전 우주 · 낮을수록 블라인드</span></div>
+        <div className="modh"><h3><i className="ti ti-layout-grid" /> 축 커버리지 · 계보 (전 facet) <span style={{ color: "var(--faint)", fontWeight: 400 }}>④⑦</span></h3>
+          <span className="meta">me_coverage 실측 · 낮을수록 블라인드</span></div>
         <div className="modbody">
-          {canonRows.length ? (
+          {covRows.length ? (
             <>
-              {[...canonRows].sort((a, b) => b.pct - a.pct).map((c) => {
+              {[...covRows].sort((a, b) => b.pct - a.pct || b.total - a.total).slice(0, 16).map((c) => {
                 const cls = c.pct >= 50 ? "hi" : c.pct >= 25 ? "mid" : "lo";
                 return (
-                  <div key={c.label} className={`an-cov ${cls}`} title={`${c.label} — ${c.seen}/${c.total}`}>
-                    <div className="cn">{c.label}</div>
+                  <div key={`${c.facet}-${c.label}`} className={`an-cov ${cls}`} title={`${c.label} — ${c.seen}/${c.total} (${c.facetKo})`}>
+                    <div className="cn">{c.label} <span style={{ color: "var(--sub)", fontSize: 9.5 }}>{c.facetKo}</span></div>
                     <div className="track"><i style={{ width: `${Math.max(c.pct, c.pct > 0 ? 3 : 1)}%` }} /></div>
                     <div className="frac">{c.seen}/{c.total} · {c.pct}%</div>
                   </div>
                 );
               })}
               <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 8, fontStyle: "italic" }}>
-                커버리지 낮은 계보(<b style={{ color: "var(--an-blindtx)", fontStyle: "normal" }}>블라인드</b>)가 채울 가치가 가장 큽니다. 정전 우주 대비 관람 비율.
+                분모는 계보별 실제 등재 편수(전 facet 실측 · 상위 16 표시). 커버리지 낮은 계보(<b style={{ color: "var(--an-blindtx)", fontStyle: "normal" }}>블라인드</b>)가 채울 가치가 가장 큽니다.
               </div>
             </>
-          ) : <div className="an-empty">정전 계보 커버리지 데이터가 아직 없습니다. 관람 표본이 계보에 매칭되면 커버리지 바가 나타납니다.</div>}
+          ) : <div className="an-empty">계보 커버리지 데이터가 아직 없습니다. 관람 표본이 계보에 매칭되면 커버리지 바가 나타납니다.</div>}
         </div>
       </div>
 

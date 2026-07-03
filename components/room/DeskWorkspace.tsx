@@ -5,11 +5,13 @@
  *     + S1 「오늘의 한 편」 = 최대 Δ. λ 다이얼 recomputes U=V−λ·R & re-sorts; S(샤프) sort toggle.
  *   - me_watched_scored()   → P&L 적중률(★3.5+) · regret(★≤2.0 = 회수 실패) · 평균 별점 · 관람 수
  *   - me_takescore_summary() → avg_v/avg_r/best/riskiest (자산 요약)
- *  자산곡선(NAV over time): NO nav-snapshot table yet → HONEST 형성 중 empty state (flat baseline), no fabrication.
+ *   - me_nav_history()       → 자산곡선 (nav_snapshots 실측 + 오늘 라이브 NAV — 합성 없음, 단조 어서션)
+ *  담기/봤어요 = me_set_watchlist/me_mark_seen 실 mutation (auth.uid 스코프, 낙관적 UI + 토스트).
  *  Inspector-swap mirrors WatchlistWorkspace/CommandCenterWorkspace (setDefault in useEffect deps
  *  [data,setDefault]; insp.select on click; reuse CinecodexCard for films). PostgREST numerics arrive
  *  as strings → coerced with num() before any .toFixed()/+. */
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useCallback, useRef } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { useInspector } from "./InspectorContext";
 import CinecodexCard from "./CinecodexCard";
 
@@ -21,7 +23,7 @@ export type WwiRow = {
   prestige: number | string | null; conf: number | string | null; tier: string | null;
   sim: number | string | null; u_util: number | string | null; t_taste: number | string | null;
   s_standing: number | string | null; wwi: number | string | null; disc: number | string | null;
-  reasons: string[] | null; avail: Avail; delta: number | string | null;
+  reasons: string[] | null; avail: Avail; delta: number | string | null; in_watchlist?: boolean | null;
 };
 
 export type WatchedRow = {
@@ -36,10 +38,14 @@ export type TakeSummary = {
   riskiest?: { slug: string; title: string; r?: number | string | null } | null;
 } | null;
 
+/* me_nav_history — 과거 스냅샷 + 오늘 라이브 NAV (실측만, 합성 없음) */
+export type NavPoint = { day: string; nav: number | string | null; n_watched: number | string | null };
+
 export type DeskData = {
   recs: WwiRow[];
   watched: WatchedRow[];
   summary: TakeSummary;
+  navHistory: NavPoint[];
 };
 
 const IMG = "https://image.tmdb.org/t/p/w92";
@@ -117,7 +123,10 @@ const riskBadgeCls = (r: number | null) => (r != null && r >= 29 ? " hi" : "");
 /* ═══════════ inspector nodes ═══════════ */
 
 /** WWI recommendation → WWI 분해 + Cinecodex + 자산 지표 + 가용. Mirrors WatchlistWorkspace.Insp. */
-function RecInsp({ f, lam }: { f: Rec; lam: number }) {
+function RecInsp({ f, lam, onKeep, onSeen }: {
+  f: Rec; lam: number;
+  onKeep?: (f: Rec) => void; onSeen?: (f: Rec) => void;
+}) {
   const u = utilityU(f, lam);
   const s = sharpeS(f);
   const chips = reasonChips(f.reasons);
@@ -159,7 +168,10 @@ function RecInsp({ f, lam }: { f: Rec; lam: number }) {
         )}
       </div>
 
-      <div className="actbar"><span className="actbtn pri">+ 볼 영화에 담기</span><span className="actbtn">봤어요</span></div>
+      <div className="actbar">
+        <span className="actbtn pri" onClick={() => onKeep?.(f)}>+ 볼 영화에 담기</span>
+        <span className="actbtn" onClick={() => onSeen?.(f)}>봤어요</span>
+      </div>
     </div>
   );
 }
@@ -232,13 +244,46 @@ function RiskInsp({ f, lam }: { f: Rec; lam: number }) {
 export default function DeskWorkspace({ data }: { data: DeskData }) {
   const insp = useInspector();
   const { setDefault } = insp;
+  const supabase = useMemo(() => createClient(), []);
 
   const [lam, setLam] = useState(1.0);                       // 위험회피 계수 λ — U=V−λR
   const [sort, setSort] = useState<"wwi" | "u" | "s" | "delta">("wwi"); // 정렬 기준
   const [sel, setSel] = useState<string | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const say = useCallback((msg: string) => {
+    setToast(msg);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 2600);
+  }, []);
+
+  /* ── 쓰기 경로 (real mutations — watchlist와 동일 RPC) ── */
+  const doKeep = useCallback(async (f: Rec) => {
+    const { error } = await supabase.rpc("me_set_watchlist", { p_slug: f.slug, p_on: true });
+    say(error ? `저장 실패 — ${error.message}` : `「${f.title}」 볼 영화에 담김 · 저장됨`);
+  }, [supabase, say]);
+
+  const doSeen = useCallback(async (f: Rec) => {
+    const { error } = await supabase.rpc("me_mark_seen", { p_slug: f.slug });
+    say(error ? `기록 실패 — ${error.message}` : `「${f.title}」 관람 기록됨 · NAV 스냅샷 적재`);
+  }, [supabase, say]);
 
   const recs = useMemo(() => data.recs.map(normRec), [data.recs]);
   const watched = useMemo(() => data.watched.map(normWatched), [data.watched]);
+
+  /* ── 자산곡선 실데이터 (me_nav_history — 스냅샷 + 오늘 라이브) ── */
+  const navPts = useMemo(() => data.navHistory
+    .map((p) => ({ day: p.day, nav: num(p.nav) }))
+    .filter((p): p is { day: string; nav: number } => p.nav != null), [data.navHistory]);
+  // NAV 단조 어서션 — 관람은 NAV를 깎지 않는다(공식이 단조). 위반은 렌더 전 개발 경고.
+  useEffect(() => {
+    for (let i = 1; i < navPts.length; i++) {
+      if (navPts[i].nav < navPts[i - 1].nav) {
+        console.warn("[desk] NAV monotonicity violated in snapshots:", navPts[i - 1], navPts[i]);
+      }
+    }
+  }, [navPts]);
 
   /* ── S1 「오늘의 한 편」 = 최대 Δ overall (tie → 최대 wwi) ── */
   const today = useMemo(() => {
@@ -294,7 +339,7 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
   /* ── strategy mix counts (real; a film may appear in several) ── */
   const mix = useMemo(() => STRATS.map((s) => ({ ...s, count: recs.filter((r) => r.reasons.includes(s.code)).length })), [recs]);
 
-  const openRec = (f: Rec) => { setSel(f.slug); insp.select(<RecInsp f={f} lam={lam} />, `${f.title} · 추천`); };
+  const openRec = (f: Rec) => { setSel(f.slug); insp.select(<RecInsp f={f} lam={lam} onKeep={doKeep} onSeen={doSeen} />, `${f.title} · 추천`); };
   const openRegret = (w: Watched) => { setSel(w.slug); insp.select(<RegretInsp w={w} />, `${w.title} · regret`); };
   const openRisk = (f: Rec) => { setSel(f.slug); insp.select(<RiskInsp f={f} lam={lam} />, `${f.title} · 고위험`); };
 
@@ -434,23 +479,65 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
         <div className="dk-modbody">
           <div className="dk-pnlgrid">
 
-            {/* asset curve — HONEST empty (no nav-snapshot table yet) */}
+            {/* asset curve — me_nav_history 실데이터 (nav_snapshots + 오늘 라이브, 합성 없음) */}
             <div className="dk-pnlcard">
               <h5><i className="ti ti-trending-up" /> 자산곡선 · NAV over time</h5>
-              <div className="dk-curveempty">
-                <svg viewBox="0 0 440 200" width="100%" role="img" aria-label="NAV 자산곡선 — 스냅샷 누적 시작 전, 형성 중">
-                  <line x1="40" y1="168" x2="425" y2="168" stroke="#2c2c30" />
-                  <line x1="40" y1="14" x2="40" y2="168" stroke="#2c2c30" />
-                  {/* flat baseline only — no fabricated trajectory */}
-                  <line x1="40" y1="140" x2="422" y2="140" stroke="#3a3a40" strokeWidth="1.5" strokeDasharray="5 5" />
-                  <g fontSize="8.5" fill="#6C6960"><text x="40" y="184">—</text><text x="215" y="184">시간</text><text x="390" y="184">—</text></g>
-                </svg>
-                <div className="badge">
-                  <span className="fm"><i className="ti ti-seedling" style={{ fontSize: 10 }} />형성 중 · NAV 스냅샷 누적 시작 전</span>
-                  <span className="sub">자산곡선은 시점별 NAV 스냅샷을 누적한 뒤에야 정직하게 그릴 수 있습니다 — 아직 스냅샷 테이블이 없어 곡선을 지어내지 않고 평평한 기준선만 둡니다.</span>
+              {navPts.length >= 2 ? (() => {
+                const X0 = 40, X1 = 422, Y0 = 14, Y1 = 168;
+                const n = navPts.length;
+                const xAt = (i: number) => X0 + (i / (n - 1)) * (X1 - X0);
+                const yAt = (v: number) => Y1 - (Math.max(0, Math.min(100, v)) / 100) * (Y1 - Y0);
+                const pts = navPts.map((p, i) => `${xAt(i).toFixed(1)},${yAt(p.nav).toFixed(1)}`).join(" ");
+                const last = navPts[n - 1];
+                const fmtD = (d: string) => d.slice(5).replace("-", ".");
+                return (
+                  <div className="dk-curveempty">
+                    <svg viewBox="0 0 440 200" width="100%" role="img" aria-label={`NAV 자산곡선 — ${n}개 실측 스냅샷`}>
+                      <line x1={X0} y1={Y1} x2="425" y2={Y1} stroke="#2c2c30" />
+                      <line x1={X0} y1={Y0} x2={X0} y2={Y1} stroke="#2c2c30" />
+                      {[25, 50, 75, 100].map((g) => (
+                        <g key={g}>
+                          <line x1={X0} y1={yAt(g)} x2={X1} y2={yAt(g)} stroke="#232327" strokeDasharray="3 5" />
+                          <text x={X0 - 5} y={yAt(g) + 3} textAnchor="end" fontSize="8" fill="#6C6960">{g}</text>
+                        </g>
+                      ))}
+                      <polyline points={pts} fill="none" stroke="var(--safe)" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+                      {navPts.map((p, i) => (
+                        <circle key={p.day} cx={xAt(i)} cy={yAt(p.nav)} r={i === n - 1 ? 4 : 2.5} fill="var(--safe)">
+                          <title>{p.day} · NAV {Math.round(p.nav)}</title>
+                        </circle>
+                      ))}
+                      <text x={xAt(n - 1) - 6} y={yAt(last.nav) - 9} textAnchor="end" fontSize="10" fill="#ECEAE5" fontFamily="ui-monospace,monospace">NAV {Math.round(last.nav)}</text>
+                      <g fontSize="8.5" fill="#6C6960">
+                        <text x={X0} y="184">{fmtD(navPts[0].day)}</text>
+                        <text x="215" y="184" textAnchor="middle">시간</text>
+                        <text x="390" y="184" textAnchor="end">{fmtD(last.day)}</text>
+                      </g>
+                    </svg>
+                  </div>
+                );
+              })() : (
+                <div className="dk-curveempty">
+                  <svg viewBox="0 0 440 200" width="100%" role="img" aria-label="NAV 자산곡선 — 스냅샷 누적 시작, 형성 중">
+                    <line x1="40" y1="168" x2="425" y2="168" stroke="#2c2c30" />
+                    <line x1="40" y1="14" x2="40" y2="168" stroke="#2c2c30" />
+                    {navPts.length === 1 ? (
+                      <>
+                        <circle cx="231" cy={168 - (Math.max(0, Math.min(100, navPts[0].nav)) / 100) * 154} r="4" fill="var(--safe)" />
+                        <text x="231" y={168 - (Math.max(0, Math.min(100, navPts[0].nav)) / 100) * 154 - 10} textAnchor="middle" fontSize="10" fill="#ECEAE5" fontFamily="ui-monospace,monospace">NAV {Math.round(navPts[0].nav)}</text>
+                      </>
+                    ) : (
+                      <line x1="40" y1="140" x2="422" y2="140" stroke="#3a3a40" strokeWidth="1.5" strokeDasharray="5 5" />
+                    )}
+                    <g fontSize="8.5" fill="#6C6960"><text x="40" y="184">—</text><text x="215" y="184">시간</text><text x="390" y="184">—</text></g>
+                  </svg>
+                  <div className="badge">
+                    <span className="fm"><i className="ti ti-seedling" style={{ fontSize: 10 }} />형성 중 · 스냅샷 누적 시작</span>
+                    <span className="sub">평가·관람이 기록될 때마다 그날의 NAV 스냅샷이 쌓입니다 — 점이 2개 이상 모이면 실측 곡선이 그려집니다(지어내지 않음).</span>
+                  </div>
                 </div>
-              </div>
-              <div className="dk-navguard"><i className="ti ti-shield-check" /><span><b>관람은 NAV를 깎지 않는다.</b> 곡선이 생기면 단조 상승만 그려집니다 — 저평점은 아래 regret에만 기록되고 NAV는 불변.</span></div>
+              )}
+              <div className="dk-navguard"><i className="ti ti-shield-check" /><span><b>관람은 NAV를 깎지 않는다.</b> 곡선은 실측 스냅샷만 — 저평점은 아래 regret에만 기록되고 NAV는 불변(단조 어서션 포함).</span></div>
             </div>
 
             {/* hit rate + regret (REAL from me_watched_scored) */}
@@ -506,6 +593,14 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           </div>
         </div>
       </div>
+
+      {toast ? (
+        <div role="status" style={{
+          position: "fixed", bottom: 22, left: "50%", transform: "translateX(-50%)", zIndex: 90,
+          background: "#1c1c20", border: "1px solid #3a3a40", color: "var(--ink, #ECEAE5)",
+          padding: "9px 16px", borderRadius: 8, fontSize: 12, boxShadow: "0 6px 22px rgba(0,0,0,.5)",
+        }}>{toast}</div>
+      ) : null}
     </div>
   );
 }
