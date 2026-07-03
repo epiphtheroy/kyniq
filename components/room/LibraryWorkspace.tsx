@@ -216,7 +216,7 @@ export default function LibraryWorkspace({ rows }: { rows: LibRow[] }) {
   const openDetail = (r: LibRow) => {
     setSel(keyOf(r));
     insp.select(
-      <DetailInsp it={r} ov={ov(r)} onTogglePub={() => setPub(r)} onToggleFav={() => setFav(r)} onBack={() => { setSel(null); insp.reset(); }} />,
+      <DetailInsp it={r} ov={ov(r)} onTogglePub={() => setPub(r)} onToggleFav={() => setFav(r)} onBack={() => { setSel(null); insp.openDefault(); }} />,
       r.title ?? "항목"
     );
   };

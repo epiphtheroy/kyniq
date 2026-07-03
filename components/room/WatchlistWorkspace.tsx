@@ -1,26 +1,29 @@
 "use client";
-/** 볼 영화 Watchlist — 매수 후보 데스크. WWI 적합도 + 위험(R) 거르기 + λ 다이얼(보수↔모험).
- *  WWI = Confidence·(0.45 Utility + 0.35 Taste + 0.20 Standing). Utility = V − λ·R.
- *  쓰기 배선 (P0-4): 담기→me_set_watchlist · 봤어요→me_mark_seen(NAV 스냅샷) · 관심없음→me_dismiss.
- *  전부 auth.uid() 스코프 DEFINER mutation — 낙관적 UI + 토스트, 새로고침에도 유지(in_watchlist 시딩). */
-import { useMemo, useState, useEffect, useCallback, useRef } from "react";
-import { createClient } from "@/lib/supabase/client";
+/** 볼 영화 (v2 데일리 루프) — 담아둔 것 먼저, 그 아래 추천.
+ *  연계 3원칙: 같은 행(FilmRow) · 같은 인스펙터(RecInsp) · 같은 mutation(useRoomActions).
+ *  서버 정렬(me_recommend_wwi)을 그대로 신뢰 — 클라 재계산 없음, 적합도(wwi)만 표시.
+ *  담김은 in_watchlist 시딩 + 세션 낙관적 추가, 봤어요/관심없음/평점⟹봤어요는 gone으로 즉시 제거. */
+import { useMemo, useState, useEffect, useCallback } from "react";
 import { useInspector } from "./InspectorContext";
-import CinecodexCard from "./CinecodexCard";
+import RecInsp, { type RecFilm } from "./RecInsp";
+import FilmRow from "./FilmRow";
+import { useRoomActions } from "./useRoomActions";
 
+/* RPC row (PostgREST numerics may arrive as strings → num() 코어스 필수) */
 export type WwiRow = {
   slug: string; title: string; year: number | null; poster_path: string | null; director: string | null;
-  v: number | null; r: number | null; ts: number | null; prestige: number | null;
-  conf: number | null; tier: string | null; sim: number;
-  u_util: number; t_taste: number; s_standing: number; wwi: number;
-  disc: number | null; reasons: string[] | null; avail: { state: string; provider?: string } | null;
-  delta: number | null; in_watchlist?: boolean | null;
+  v: number | string | null; r: number | string | null; ts: number | string | null;
+  prestige: number | string | null; conf: number | string | null; tier: string | null;
+  sim: number | string | null; u_util: number | string | null; t_taste: number | string | null;
+  s_standing: number | string | null; wwi: number | string | null; disc: number | string | null;
+  reasons: string[] | null; avail: { state: string; provider?: string } | null;
+  delta: number | string | null; in_watchlist?: boolean | null;
 };
 
-const IMG = "https://image.tmdb.org/t/p/w92";
-const clamp = (x: number) => Math.max(0, Math.min(1, x));
+const num = (x: number | string | null | undefined): number | null =>
+  x == null ? null : typeof x === "number" ? x : Number.isNaN(Number(x)) ? null : Number(x);
 
-// 6+가용 이유 정본 (engine ⑤): safe·frontier·canon·gap·conquer·reading
+/* 6+가용 이유 정본 (칩 라벨) — reasons 없으면 칩 미표시, fallback 지어내지 않음 */
 const REASON_MAP: Record<string, { cls: string; label: string }> = {
   safe: { cls: "safe", label: "안전자산" },
   reading: { cls: "reading", label: "취향 적중" },
@@ -29,164 +32,148 @@ const REASON_MAP: Record<string, { cls: string; label: string }> = {
   frontier: { cls: "frontier", label: "안전한 모험" },
   conquer: { cls: "conquer", label: "도장깨기" },
 };
-function reasonsOf(f: WwiRow): { cls: string; label: string }[] {
-  return (f.reasons ?? ["frontier"]).map((c) => REASON_MAP[c] ?? { cls: "frontier", label: c }).slice(0, 3);
+function firstChip(reasons: string[] | null): { cls: string; label: string } | null {
+  const c = reasons?.[0];
+  return c ? REASON_MAP[c] ?? null : null;
 }
 
-function riskClass(r: number | null) { return r == null ? "" : r <= 15 ? "lo" : r <= 25 ? "mid" : "hi"; }
-
-function Insp({ f, lam, isKept, onKeep, onSeen }: {
-  f: WwiRow; lam: number; isKept: boolean;
-  onKeep: (f: WwiRow) => void; onSeen: (f: WwiRow) => void;
-}) {
-  const u = f.v != null && f.r != null ? Math.round(f.v - lam * f.r) : f.ts;
-  return (
-    <div>
-      <div className="selhead">
-        <span className="po" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
-        <div><div className="seltitle ser">{f.title}</div><div className="selsub">{f.year ?? "?"}{f.director ? ` · ${f.director}` : ""}</div></div>
-      </div>
-      <div className="icard"><h4><i className="ti ti-target-arrow" /> WWI 분해 · 왜 이 추천</h4>
-        <div className="crow"><span className="cl">효용 Utility</span><span className="cbar"><i style={{ width: `${f.u_util}%` }} /></span><span className="cvv">{f.u_util}</span></div>
-        <div className="crow"><span className="cl">취향 Taste</span><span className="cbar"><i style={{ width: `${f.t_taste}%`, background: "#3B5BA5" }} /></span><span className="cvv">{f.t_taste}</span></div>
-        <div className="crow"><span className="cl">정전 Standing</span><span className="cbar"><i style={{ width: `${f.s_standing}%`, background: "#8a6d3b" }} /></span><span className="cvv">{f.s_standing}</span></div>
-        <div className="kv" style={{ marginTop: 6 }}><span>WWI 종합</span><b>{f.wwi}</b></div>
-        <div className="kv"><span>취향 근접</span><b>{Math.round(f.sim * 100)}%</b></div>
-        <div className="kv"><span>Δindex · 이 한 편 보면</span><b style={{ color: "var(--safe)" }}>→ NAV +{f.delta ?? 0}</b></div>
-        <div className="kv"><span>지금 볼 수 있나 (KR)</span><b>{f.avail?.state === "on" ? `● ${f.avail.provider ?? "가능"}` : "○ 미확인"}</b></div>
-      </div>
-      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, discovery: f.disc, conf: f.conf, tier: f.tier }} slug={f.slug} />
-      <div className="actbar">
-        <div className={`actbtn pri`} onClick={() => onKeep(f)}>{isKept ? "✓ 담김" : "담기"}</div>
-        <div className="actbtn" onClick={() => onSeen(f)}>봤어요</div>
-      </div>
-    </div>
-  );
+function toRecFilm(f: WwiRow, kept: boolean): RecFilm {
+  return {
+    slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
+    reasons: f.reasons,
+    v: num(f.v), r: num(f.r),
+    prestige: num(f.prestige), discovery: num(f.disc), conf: num(f.conf), tier: f.tier,
+    kept,
+  };
 }
 
 export default function WatchlistWorkspace({ rows }: { rows: WwiRow[] }) {
   const insp = useInspector();
   const { setDefault } = insp;
-  const supabase = useMemo(() => createClient(), []);
-  const [lam, setLam] = useState(1.0);
-  const [hideRisk, setHideRisk] = useState(false);
-  const [sort, setSort] = useState<"wwi" | "u" | "risk">("wwi");
+  const { doKeep, doSeen, doDismiss, doRate, toast } = useRoomActions();
+
   const [q, setQ] = useState("");
-  const [sel, setSel] = useState<string | null>(null);
+  const [hideRisk, setHideRisk] = useState(false);
   // 담김/제거는 낙관적 UI — 서버 상태(in_watchlist)로 시딩되어 새로고침에도 유지
   const [kept, setKept] = useState<Set<string>>(() => new Set(rows.filter((r) => r.in_watchlist).map((r) => r.slug)));
   const [gone, setGone] = useState<Set<string>>(new Set());
-  const [toast, setToast] = useState<string | null>(null);
-  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const say = useCallback((msg: string) => {
-    setToast(msg);
-    if (toastTimer.current) clearTimeout(toastTimer.current);
-    toastTimer.current = setTimeout(() => setToast(null), 2600);
-  }, []);
-
-  /* ── 쓰기 경로 (real mutations · 낙관적 UI) ── */
-  const doKeep = useCallback(async (f: WwiRow) => {
+  /* ── 같은 mutation (useRoomActions) + 낙관적 Set (실패 시 롤백 — 토스트가 실패를 알림) ── */
+  const handleKeep = useCallback(async (f: WwiRow) => {
     setKept((s) => new Set(s).add(f.slug));
-    const { error } = await supabase.rpc("me_set_watchlist", { p_slug: f.slug, p_on: true });
-    say(error ? `저장 실패 — ${error.message}` : `「${f.title}」 볼 영화에 담김 · 저장됨`);
-  }, [supabase, say]);
-
-  const doSeen = useCallback(async (f: WwiRow) => {
+    const ok = await doKeep(f.slug, f.title);
+    if (!ok) setKept((s) => { const n = new Set(s); n.delete(f.slug); return n; });
+  }, [doKeep]);
+  const handleSeen = useCallback(async (f: WwiRow) => {
     setGone((s) => new Set(s).add(f.slug));
-    const { error } = await supabase.rpc("me_mark_seen", { p_slug: f.slug });
-    say(error ? `기록 실패 — ${error.message}` : `「${f.title}」 관람 기록됨 · NAV 스냅샷 적재`);
-  }, [supabase, say]);
-
-  const doDismiss = useCallback(async (f: WwiRow) => {
+    insp.close();
+    const ok = await doSeen(f.slug, f.title);
+    if (!ok) setGone((s) => { const n = new Set(s); n.delete(f.slug); return n; });
+  }, [doSeen, insp]);
+  const handleDismiss = useCallback(async (f: WwiRow) => {
     setGone((s) => new Set(s).add(f.slug));
-    const { error } = await supabase.rpc("me_dismiss", { p_slug: f.slug });
-    say(error ? `저장 실패 — ${error.message}` : `「${f.title}」 관심없음 — 다시 추천하지 않습니다`);
-  }, [supabase, say]);
+    insp.close();
+    const ok = await doDismiss(f.slug, f.title);
+    if (!ok) setGone((s) => { const n = new Set(s); n.delete(f.slug); return n; });
+  }, [doDismiss, insp]);
+  const handleRate = useCallback(async (f: WwiRow, v: number) => {
+    const row = await doRate(f.slug, f.title, v);
+    if (row) setGone((s) => new Set(s).add(f.slug)); // 평점 ⟹ 봤어요 → 목록에서 제거
+  }, [doRate]);
 
-  const ranked = useMemo(() => {
-    let a = rows.filter((f) => !gone.has(f.slug));
-    if (q.trim()) { const t = q.toLowerCase(); a = a.filter((f) => f.title.toLowerCase().includes(t) || (f.director ?? "").toLowerCase().includes(t)); }
-    const withCalc = a.map((f) => {
-      const u01 = f.v != null && f.r != null ? clamp((f.v - lam * f.r) / 100) : f.u_util / 100;
-      const c01 = (f.conf ?? 40) / 100;
-      const wwi = Math.round(100 * c01 * (0.45 * u01 + 0.35 * f.t_taste / 100 + 0.20 * f.s_standing / 100));
-      const u = f.v != null && f.r != null ? Math.round(f.v - lam * f.r) : (f.ts ?? 0);
-      return { f, wwi, u, hi: (f.r ?? 0) >= 26 };
-    });
-    withCalc.sort((x, y) => sort === "u" ? y.u - x.u : sort === "risk" ? (x.f.r ?? 99) - (y.f.r ?? 99) : y.wwi - x.wwi);
-    return withCalc.filter((x) => !(hideRisk && x.hi)).slice(0, 20);
-  }, [rows, lam, hideRisk, sort, q, gone]);
+  /* ── 담아둔 영화 (서버 정렬 유지) ── */
+  const keptList = useMemo(
+    () => rows.filter((f) => kept.has(f.slug) && !gone.has(f.slug)),
+    [rows, kept, gone],
+  );
 
+  /* ── 추천 후보: kept·gone 제외 → 검색/고위험 필터 → wwi desc 상위 20 ── */
+  const pool = useMemo(() => rows.filter((f) => !kept.has(f.slug) && !gone.has(f.slug)), [rows, kept, gone]);
+  const candidates = useMemo(() => {
+    let a = pool;
+    if (q.trim()) {
+      const t = q.toLowerCase();
+      a = a.filter((f) => f.title.toLowerCase().includes(t) || (f.director ?? "").toLowerCase().includes(t));
+    }
+    if (hideRisk) a = a.filter((f) => (num(f.r) ?? 0) < 26);
+    return [...a].sort((x, y) => (num(y.wwi) ?? -1) - (num(x.wwi) ?? -1)).slice(0, 20);
+  }, [pool, q, hideRisk]);
+
+  const openFilm = useCallback((f: WwiRow, isKept: boolean) => {
+    insp.select(
+      <RecInsp f={toRecFilm(f, isKept)}
+        onKeep={isKept ? undefined : () => handleKeep(f)}
+        onSeen={() => handleSeen(f)}
+        onDismiss={() => handleDismiss(f)}
+        onRate={(_r, v) => { void handleRate(f, v); }} />,
+      f.title,
+    );
+  }, [insp, handleKeep, handleSeen, handleDismiss, handleRate]);
+
+  /* ── 앱바 「요약」용 기본 인스펙터 (자동으로 열리지 않음) ── */
+  const hiCount = useMemo(() => pool.filter((f) => (num(f.r) ?? 0) >= 26).length, [pool]);
   useEffect(() => {
-    const safe = rows.filter((f) => (f.r ?? 99) <= 15).length;
-    const bold = rows.filter((f) => (f.r ?? 0) >= 26).length;
     setDefault(
       <div>
-        <div className="icard"><h4><i className="ti ti-adjustments" /> 후보 데스크 요약</h4>
-          <div className="kv"><span>후보(미관람)</span><b>{rows.length}</b></div>
-          <div className="kv"><span>담김 (워치리스트)</span><b style={{ color: "var(--safe)" }}>{kept.size}</b></div>
-          <div className="kv"><span>안전자산 (R≤15)</span><b>{safe}</b></div>
-          <div className="kv"><span>고위험 (R≥26)</span><b>{bold}</b></div>
-          <div className="kv"><span>위험선호 λ</span><b>{lam.toFixed(1)}</b></div>
+        <div className="icard"><h4><i className="ti ti-list-check" /> 볼 영화 요약</h4>
+          <div className="kv"><span>추천 후보</span><b>{pool.length}</b></div>
+          <div className="kv"><span>담아둔 영화</span><b style={{ color: "var(--safe)" }}>{keptList.length}</b></div>
+          <div className="kv"><span>실망 위험 높음</span><b style={{ color: "var(--risk)" }}>{hiCount}</b></div>
         </div>
-        <div className="emptyins">후보를 클릭하면 WWI 분해 · Cinecodex(왜 안전/위험)가 열립니다. 담기·봤어요·관심없음은 즉시 저장됩니다.</div>
+        <div className="emptyins">영화를 클릭하면 왜 이 추천인지가 열립니다. 담기·봤어요·관심없음은 즉시 저장됩니다.</div>
       </div>
     );
-  }, [rows, lam, kept.size, setDefault]);
+  }, [pool.length, keptList.length, hiCount, setDefault]);
 
   return (
-    <div className="mainpad">
-      <h1 className="secttl">볼 영화 · 추천 데스크</h1>
-      <p className="secsub"><span className="gloss" title="이 영화가 나에게 맞는 정도 0–100">WWI</span> 적합도 + <span className="gloss" title="실망 위험 — 완파 빨강과 다른 색">위험(R)</span> 거르기. λ 다이얼로 보수↔모험을 조절 — <b>효용 = 가치 − λ·위험</b>.</p>
-
-      <div className="toolbar">
-        <div className="lambda">
-          <span className="lbl">위험선호 λ</span>
-          {[[2, "λ2"], [1, "λ1"], [0.5, "λ0.5"]].map(([v, l]) => (
-            <span key={l} className={`seg${lam === v ? " on" : ""}`} onClick={() => setLam(v as number)}>{l}</span>
-          ))}
-        </div>
-        <div className={`qtoggle${hideRisk ? " on" : ""}`} onClick={() => setHideRisk((v) => !v)}><span className="dot" style={{ background: "var(--risk)" }} /> 고위험 숨기기</div>
-        <select className="select" value={sort} onChange={(e) => setSort(e.target.value as "wwi" | "u" | "risk")}>
-          <option value="wwi">정렬 · WWI</option><option value="u">정렬 · 순가치 U</option><option value="risk">정렬 · 저위험</option>
-        </select>
-        <div className="srch"><i className="ti ti-search" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="후보 검색" /></div>
+    <div className="v2wrap">
+      <div>
+        <h1 className="v2title">볼 영화</h1>
+        <p className="v2sub">담아둔 것 먼저, 그 아래 추천 — 이유는 클릭하면 열립니다.</p>
       </div>
 
-      <div className="mod"><div className="modbody" style={{ padding: 0 }}>
-        {ranked.map(({ f, wwi, u, hi }, i) => (
-          <div key={f.slug} className={`rrow${sel === f.slug ? " sel" : ""}${hi ? " hirisk" : ""}${kept.has(f.slug) ? " kept" : ""}`}
-            onClick={() => { setSel(f.slug); insp.select(<Insp f={f} lam={lam} isKept={kept.has(f.slug)} onKeep={doKeep} onSeen={doSeen} />, "인스펙터 · 후보"); }}>
-            <span className="rk">{i + 1}</span>
-            <div>
-              <div className="rt ser">{f.title} <small>{f.year ?? ""}{f.director ? ` · ${f.director}` : ""}</small>
-                {f.avail ? (f.avail.state === "on"
-                  ? <span className="availdot on" title={`지금 볼 수 있음 · ${f.avail.provider ?? ""} (KR)`} />
-                  : <span className="availdot unk" title="가용성 미확인 (≠ 안 됨)" />) : null}
-                {kept.has(f.slug) ? <span className="keptflag">담음</span> : null}</div>
-              <div className="reasons">{reasonsOf(f).map((rn, j) => <span key={j} className={`rsn ${rn.cls}`}>{rn.label}</span>)}</div>
-            </div>
-            <div className="wwi"><div className="pv" style={{ color: "#86b9ec" }}>{wwi}</div><div className="pl">WWI</div></div>
-            <div className="ucol"><div className="uv">{u}</div><div className="ul">U 순가치</div><div className="rrisk">{f.r != null ? <span className={`riskbadge ${riskClass(f.r)}`}>R {Math.round(f.r)}</span> : null}</div></div>
-            <div className="dlt">+{f.delta ?? 0}<small>→ NAV</small></div>
-            <div className="rowact">
-              <span className={`ria add${kept.has(f.slug) ? " done" : ""}`} title="담기 (워치리스트 저장)" onClick={(e) => { e.stopPropagation(); doKeep(f); }}><i className="ti ti-bookmark-plus" /></span>
-              <span className="ria seen" title="봤어요 (관람 기록)" onClick={(e) => { e.stopPropagation(); doSeen(f); }}><i className="ti ti-check" /></span>
-              <span className="ria skip" title="관심없음 (다시 추천 안 함)" onClick={(e) => { e.stopPropagation(); doDismiss(f); }}><i className="ti ti-x" /></span>
-            </div>
-          </div>
-        ))}
-        {ranked.length === 0 ? <div style={{ padding: 24, color: "var(--sub)", fontSize: 13 }}>후보가 없습니다. 영화를 더 평가하면 취향 기반 후보가 채워집니다(≥3편 필요).</div> : null}
-      </div></div>
-
-      {toast ? (
-        <div role="status" style={{
-          position: "fixed", bottom: 22, left: "50%", transform: "translateX(-50%)", zIndex: 90,
-          background: "#1c1c20", border: "1px solid #3a3a40", color: "var(--ink, #ECEAE5)",
-          padding: "9px 16px", borderRadius: 8, fontSize: 12, boxShadow: "0 6px 22px rgba(0,0,0,.5)",
-        }}>{toast}</div>
+      {/* ═══ 담아둔 영화 ═══ */}
+      {keptList.length ? (
+        <section>
+          <div className="v2h"><h3>담아둔 영화 ({keptList.length})</h3></div>
+          {keptList.map((f) => (
+            <FilmRow key={f.slug}
+              f={{
+                slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
+                chip: firstChip(f.reasons), fit: num(f.wwi), risk: num(f.r), kept: true,
+              }}
+              onOpen={() => openFilm(f, true)}
+              onSeen={() => handleSeen(f)}
+              onDismiss={() => handleDismiss(f)} />
+          ))}
+        </section>
       ) : null}
+
+      {/* ═══ 추천 후보 ═══ */}
+      <section>
+        <div className="v2h"><h3>추천 후보</h3></div>
+        <div className="toolbar">
+          <div className="srch"><i className="ti ti-search" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="제목·감독 검색" /></div>
+          <div className={`qtoggle${hideRisk ? " on" : ""}`} onClick={() => setHideRisk((v) => !v)}>
+            <span className="dot" style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--risk)" }} /> 고위험 숨기기
+          </div>
+        </div>
+        {candidates.length ? candidates.map((f) => (
+          <FilmRow key={f.slug}
+            f={{
+              slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
+              chip: firstChip(f.reasons), fit: num(f.wwi), avail: f.avail, risk: num(f.r),
+            }}
+            onOpen={() => openFilm(f, false)}
+            onKeep={() => handleKeep(f)}
+            onSeen={() => handleSeen(f)}
+            onDismiss={() => handleDismiss(f)} />
+        )) : (
+          <div className="emptyins">후보가 없습니다 — 영화를 더 평가하면 채워집니다(★3.5+ 3편부터).</div>
+        )}
+      </section>
+
+      {toast}
     </div>
   );
 }

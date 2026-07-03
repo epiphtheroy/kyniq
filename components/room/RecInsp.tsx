@@ -3,7 +3,7 @@
  *  카드 계약(3개 고정): ① 왜 이 영화(칩 + 자연어 1줄 — 설명가능성 불변식)
  *                      ② Cinecodex 카드(우리/외부/정전 분리 표기 — never-blend 정본 위치)
  *                      ③ 바로 하기(담기·봤어요·관심없음 + 반별점 = 평점⟹봤어요). */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CinecodexCard from "./CinecodexCard";
 import Stars from "./Stars";
 
@@ -36,6 +36,8 @@ export default function RecInsp({ f, onKeep, onSeen, onDismiss, onRate }: {
 }) {
   const [localRating, setLocalRating] = useState<number | null>(null);
   const [localKept, setLocalKept] = useState(false);
+  // 키 없이 연속 select되면 React가 같은 인스턴스를 재사용 — 영화가 바뀌면 로컬 상태 초기화
+  useEffect(() => { setLocalRating(null); setLocalKept(false); }, [f.slug]);
   const chips = (f.reasons ?? []).map((c) => REASONS[c]).filter(Boolean);
   const why = chips.length
     ? [...chips.slice(0, -1).map((c) => c.mid), chips[chips.length - 1].last].join(", ") + " 작품입니다."

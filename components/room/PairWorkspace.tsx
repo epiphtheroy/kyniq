@@ -113,7 +113,7 @@ export default function PairWorkspace({ initial, sig, hist }: { initial: TodayPa
   const showSignature = useCallback(() => {
     insp.select(
       <div>
-        <div className="backlink" onClick={() => insp.reset()}><i className="ti ti-arrow-left" /> 동행 안내로</div>
+        <div className="backlink" onClick={() => insp.openDefault()}><i className="ti ti-arrow-left" /> 동행 안내로</div>
         <div className="icard"><h4><i className="ti ti-fingerprint" /> 내 취향 앵커 <span style={{ color: "var(--faint)", fontWeight: 400 }}>· 실측</span></h4>
           {anchors.length ? <div>{anchors.map((a) => <span key={a.label} className="anchorchip" title={`${a.films}편에서 반복`}>{a.label}</span>)}</div>
             : <div style={{ fontSize: 11.5, color: "var(--sub)", fontStyle: "italic" }}>앵커 형성 중 — ★4.5+ 작품을 더 평가하세요.</div>}

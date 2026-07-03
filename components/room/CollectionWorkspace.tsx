@@ -1,8 +1,11 @@
 "use client";
-/** 보유 Collection — 내 영화 자산 거래소. 정전가(시장가) + Cinecodex(V/U) 나란히 + 2축 가치뱃지. */
+/** 보유 Collection v2 — 가벼운 보유 목록. 행 = 판단 1개(발굴 칩) + 숫자 2개(정전가·내 별점).
+ *  상세 숫자는 전부 공용 인스펙터(RecInsp)로. 50행/페이지, 검색·필터는 전체 rows에 적용 후 페이지 나눔. */
 import { useMemo, useState, useEffect } from "react";
 import { useInspector } from "./InspectorContext";
-import CinecodexCard from "./CinecodexCard";
+import RecInsp, { type RecFilm } from "./RecInsp";
+import Stars from "./Stars";
+import { useRoomActions } from "./useRoomActions";
 
 export type CollRow = {
   slug: string; title: string; year: number | null; poster_path: string | null; director: string | null;
@@ -13,138 +16,139 @@ export type CollRow = {
   facets: string[] | null;
 };
 
-const FACET_LABEL: Record<string, { cls: string; label: string }> = {
-  canon: { cls: "canon", label: "정전" }, award: { cls: "award", label: "수상" },
-  national: { cls: "national", label: "국가" }, auteur: { cls: "canon", label: "작가" },
-};
-
 const IMG = "https://image.tmdb.org/t/p/w92";
-const pct = (rt: number | null) => (rt == null ? null : Math.round(rt * 20));
-const gapM = (f: CollRow) => (f.rating != null && f.prestige != null ? Math.round(pct(f.rating)! - f.prestige) : null);
-const gapA = (f: CollRow) => (f.rating != null && f.v != null ? Math.round(pct(f.rating)! - f.v) : null);
-const stars = (rt: number | null) => {
-  if (rt == null) return "─────";
-  const full = Math.floor(rt); const half = rt - full >= 0.5;
-  return "★".repeat(full) + (half ? "½" : "") + "☆".repeat(Math.max(0, 5 - full - (half ? 1 : 0)));
+const PAGE = 50;
+// PostgREST numeric은 string으로 올 수 있음 — 반드시 코어스
+const num = (x: unknown): number | null => x == null ? null : typeof x === "number" ? x : Number.isNaN(Number(x)) ? null : Number(x);
+// 발굴 = 내 별점(×20)이 정전가보다 +12 이상 높음 (실데이터로만 계산 — 지어내지 않음)
+const gap = (f: CollRow): number | null => {
+  const rt = num(f.rating), p = num(f.prestige);
+  return rt != null && p != null ? Math.round(rt * 20 - p) : null;
 };
+const isFind = (f: CollRow) => (gap(f) ?? -99) >= 12;
 
-function Insp({ f }: { f: CollRow }) {
-  const rp = f.rating != null ? pct(f.rating) : null;
-  const m = gapM(f), a = gapA(f);
-  return (
-    <div>
-      <div className="selhead">
-        <span className="po" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
-        <div><div className="seltitle ser">{f.title}</div><div className="selsub">{f.year ?? "?"}{f.director ? ` · ${f.director}` : ""}</div></div>
-      </div>
-      <div className="icard"><h4><i className="ti ti-building-bank" /> 정전가 · 시장가</h4>
-        <div className="bigscore">{f.prestige != null ? Math.round(f.prestige) : "—"}</div>
-        <div className="kv"><span>Discovery(숨은가치)</span><b>{f.discovery != null ? Math.round(f.discovery) : "—"}</b></div>
-        <div className="kv"><span>내 별점</span><b>{f.rating != null ? Number(f.rating).toFixed(1) : "—"}</b></div>
-      </div>
-      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, discovery: f.discovery, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
-      {(m != null || a != null) ? (
-        <div className="icard"><h4><i className="ti ti-arrows-diff" /> 가치뱃지 2축</h4>
-          <div className="kv"><span>시장 합치 (별점−정전가)</span><b style={{ color: m != null && m >= 12 ? "var(--safe)" : m != null && m <= -9 ? "var(--reading)" : "var(--ink)" }}>{m != null ? (m > 0 ? "+" : "") + m : "—"}</b></div>
-          <div className="kv"><span>분석 합치 (별점−V)</span><b style={{ color: a != null && a >= 12 ? "var(--safe)" : a != null && a <= -9 ? "var(--reading)" : "var(--ink)" }}>{a != null ? (a > 0 ? "+" : "") + a : "—"}</b></div>
-        </div>
-      ) : null}
-    </div>
-  );
-}
+const GRID = { display: "grid", gridTemplateColumns: "44px minmax(0,1fr) 90px 120px" } as const;
 
 export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
   const insp = useInspector();
   const { setDefault } = insp;
+  const { doRate, toast } = useRoomActions();
   const [q, setQ] = useState("");
-  const [sort, setSort] = useState<"score" | "rating" | "gap" | "recent">("score");
+  const [sort, setSort] = useState<"recent" | "rating" | "prestige">("recent");
   const [findOnly, setFindOnly] = useState(false);
-  const [sel, setSel] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+  const [over, setOver] = useState<Record<string, number>>({}); // 재평가 낙관 반영 (서버 확정값)
+
+  // 재평가 오버라이드 적용본 — 이후 모든 계산은 이걸 쓴다
+  const eff = useMemo(
+    () => rows.map((r) => (over[r.slug] != null ? { ...r, rating: over[r.slug] } : r)),
+    [rows, over]
+  );
+
+  const rated = eff.filter((r) => num(r.rating) != null).length;
+  const findCount = eff.filter(isFind).length;
 
   useEffect(() => {
-    const scored = rows.filter((r) => r.v != null);
-    const medV = scored.length ? [...scored].map((r) => r.v!).sort((a, b) => a - b)[Math.floor(scored.length / 2)] : null;
     setDefault(
       <div>
-        <div className="icard"><h4><i className="ti ti-chart-pie" /> 포트폴리오 분포</h4>
-          <div className="kv"><span>보유(관람)</span><b>{rows.length}</b></div>
-          <div className="kv"><span>Cinecodex 평가됨</span><b>{scored.length}</b></div>
-          <div className="kv"><span>중앙 V(획득가치)</span><b>{medV ?? "—"}</b></div>
+        <div className="icard"><h4><i className="ti ti-library" /> 보유 요약</h4>
+          <div className="kv"><span>보유(관람)</span><b>{eff.length}</b></div>
+          <div className="kv"><span>평가됨</span><b>{rated}</b></div>
+          <div className="kv"><span>발굴</span><b>{findCount}</b></div>
         </div>
-        <div className="emptyins">행을 클릭하면 정전가 분해 · Cinecodex · 2축 뱃지가 열립니다.</div>
+        <div className="emptyins">행을 클릭하면 상세 숫자와 재평가가 열립니다.</div>
       </div>
     );
-  }, [rows, setDefault]);
+  }, [eff, rated, findCount, setDefault]);
 
+  // 검색·필터·정렬은 전체 rows 대상 → 그 다음 페이지 나눔
   const view = useMemo(() => {
-    let a = rows;
+    let a = eff;
     if (q.trim()) { const t = q.toLowerCase(); a = a.filter((r) => r.title.toLowerCase().includes(t) || (r.director ?? "").toLowerCase().includes(t)); }
-    if (findOnly) a = a.filter((r) => (gapM(r) ?? -99) >= 12);
+    if (findOnly) a = a.filter(isFind);
     const s = [...a];
-    if (sort === "score") s.sort((x, y) => (y.prestige ?? -1) - (x.prestige ?? -1));
-    else if (sort === "rating") s.sort((x, y) => (y.rating ?? -1) - (x.rating ?? -1));
-    else if (sort === "gap") s.sort((x, y) => (gapM(y) ?? -99) - (gapM(x) ?? -99));
+    if (findOnly) s.sort((x, y) => (gap(y) ?? -99) - (gap(x) ?? -99));
     else if (sort === "recent") s.sort((x, y) => (y.added_at ?? "").localeCompare(x.added_at ?? ""));
+    else if (sort === "rating") s.sort((x, y) => (num(y.rating) ?? -1) - (num(x.rating) ?? -1));
+    else s.sort((x, y) => (num(y.prestige) ?? -1) - (num(x.prestige) ?? -1));
     return s;
-  }, [rows, q, sort, findOnly]);
+  }, [eff, q, sort, findOnly]);
 
-  const findCount = rows.filter((r) => (gapM(r) ?? -99) >= 12).length;
+  useEffect(() => { setPage(1); }, [q, sort, findOnly]);
+
+  const pages = Math.max(1, Math.ceil(view.length / PAGE));
+  const cur = Math.min(page, pages);
+  const slice = view.slice((cur - 1) * PAGE, cur * PAGE);
+
+  const openRow = (f: CollRow) => {
+    const rf: RecFilm = {
+      slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
+      rating: num(f.rating), v: num(f.v), c: num(f.c), r: num(f.r), u: num(f.u),
+      prestige: num(f.prestige), discovery: num(f.discovery), conf: num(f.conf), tier: f.tier,
+    };
+    insp.select(
+      <RecInsp f={rf} onRate={async (x, v) => {
+        const row = await doRate(x.slug, x.title, v);
+        if (row) setOver((o) => ({ ...o, [x.slug]: row.rating }));
+      }} />,
+      "보유작 상세"
+    );
+  };
 
   return (
-    <div className="mainpad">
-      <h1 className="secttl">보유 영화 · 자산 거래소</h1>
-      <p className="secsub">각 보유작은 <span className="gloss" title="영화가 나와 무관하게 받은 인정 = 객관 시장가">정전가</span>(시장가)를 갖고, 내 평가와의 차익이 <span className="gloss" title="별점과 정전가/V의 차이">가치뱃지</span>. Cinecodex(V·U)는 옆에 나란히 — 절대 안 섞음.</p>
-
-      <div className="xtoolbar">
-        <div className="xsearch"><i className="ti ti-search" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="보유작 검색" /></div>
-        <div className="xseg">
-          {([["score", "정전가순"], ["rating", "내 별점순"], ["gap", "발굴순"], ["recent", "최근순"]] as const).map(([k, l]) => (
-            <button key={k} className={sort === k ? "on" : ""} onClick={() => setSort(k)}>{l}</button>
-          ))}
-        </div>
-        <div className={`findtoggle${findOnly ? " on" : ""}`} onClick={() => setFindOnly((v) => !v)}><i className="ti ti-diamond" /> 발굴만 <span className="ct">{findCount}</span></div>
+    <div className="v2wrap">
+      <div>
+        <h1 className="v2title">보유 영화</h1>
+        <p className="v2sub">{eff.length}편 · 평가 {rated}편</p>
       </div>
 
-      <div className="mod">
-        <div className="xhead">
-          <span /><span>영화 · 감독</span><span className="r">정전가</span><span className="cc-h">Cinecodex V·U</span><span className="r">내 ★</span><span className="r">가치 2축</span>
+      <div>
+        <div className="xtoolbar">
+          <div className="xsearch"><i className="ti ti-search" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="보유작 검색" /></div>
+          <div className="xseg">
+            {([["recent", "최근순"], ["rating", "내 별점순"], ["prestige", "정전가순"]] as const).map(([k, l]) => (
+              <button key={k} className={sort === k && !findOnly ? "on" : ""} onClick={() => setSort(k)}>{l}</button>
+            ))}
+          </div>
+          <div className={`findtoggle${findOnly ? " on" : ""}`} onClick={() => setFindOnly((v) => !v)}><i className="ti ti-diamond" /> 발굴만 <span className="ct">{findCount}</span></div>
         </div>
-        {view.map((f) => {
-          const m = gapM(f), a = gapA(f);
-          const isFind = (m ?? -99) >= 12, isOver = (m ?? 99) <= -9;
-          const rClass = f.r == null ? "" : f.r >= 30 ? "hi" : "";
+
+        {slice.map((f) => {
+          const rt = num(f.rating), p = num(f.prestige);
           return (
-            <div key={f.slug} className={`xrow${sel === f.slug ? " sel" : ""}${isFind ? " is-find" : isOver ? " is-over" : ""}`}
-              onClick={() => { setSel(f.slug); insp.select(<Insp f={f} />, "인스펙터 · 자산"); }}>
-              <span className="xpo" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}}>
-                {f.year ? <span className="yr">{f.year}</span> : null}
-              </span>
-              <div>
-                <div className="xtt">{f.title}</div>
-                <div className="xdr">{f.director ?? ""}{f.year ? ` · ${f.year}` : ""}</div>
-                {f.facets && f.facets.length ? (
-                  <div className="xfacetline">{f.facets.map((ft) => { const m = FACET_LABEL[ft]; return m ? <span key={ft} className={`xbd ${m.cls}`}>{m.label}</span> : null; })}</div>
-                ) : null}
+            <div key={f.slug} className="frow" style={GRID} onClick={() => openRow(f)}>
+              <span className="fpo" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
+              <div style={{ minWidth: 0 }}>
+                <div className="ft">{f.title}<small>{f.year ?? ""}{f.director ? ` · ${f.director}` : ""}</small></div>
+                {isFind(f) ? <div className="fm"><span className="rsn safe">발굴</span></div> : null}
               </div>
-              <div className="xprice"><div className="pv">{f.prestige != null ? Math.round(f.prestige) : "—"}</div><div className="pl">정전가</div></div>
-              <div className={`xcc${f.v == null ? " unrated" : ""}`}>
-                <div className="vrow"><span className="vv">{f.v != null ? Math.round(f.v) : "·"}</span><span className="vl">V</span></div>
-                <div className="urow">U <b>{f.u ?? "—"}</b></div>
-                {f.r != null ? <div className={`rbd ${rClass}`}>R {Math.round(f.r)}</div> : null}
+              <div className="mono" style={{ fontSize: 15, color: "var(--ink)", textAlign: "right" }}>{p != null ? Math.round(p) : "—"}</div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 6 }}>
+                {rt != null ? (
+                  <><Stars value={rt} size={13} /><span className="mono" style={{ fontSize: 12, color: "var(--sub)" }}>{rt.toFixed(1)}</span></>
+                ) : <span style={{ fontSize: 11.5, color: "var(--mut)" }}>—</span>}
               </div>
-              <div className="xstars">
-                <div className="st" title={f.rating != null ? `${f.rating}` : ""}>{stars(f.rating)}</div>
-                <div className="me">{f.rating != null ? Number(f.rating).toFixed(1) : "미평가"}</div>
-              </div>
-              <div className="xval"><div className="ax">
-                {m != null ? <span className={`xmini ${isFind ? "find" : isOver ? "over" : ""}`}>시장 {m > 0 ? "+" : ""}{m}</span> : null}
-                {a != null ? <span className={`xmini ${a >= 12 ? "a-find" : a <= -9 ? "a-over" : ""}`}>분석 {a > 0 ? "+" : ""}{a}</span> : null}
-              </div></div>
             </div>
           );
         })}
-        {view.length === 0 ? <div style={{ padding: 24, color: "var(--sub)", fontSize: 13 }}>보유작이 없습니다. 영화를 &quot;봤어요&quot;로 표시하면 여기에 자산으로 나타납니다.</div> : null}
+
+        {view.length === 0 ? (
+          <div style={{ padding: 24, color: "var(--sub)", fontSize: 13 }}>
+            {rows.length === 0
+              ? <>보유작이 없습니다. 영화를 &quot;봤어요&quot;로 표시하면 여기에 나타납니다.</>
+              : <>조건에 맞는 보유작이 없습니다 — 검색어나 필터를 조정해 보세요.</>}
+          </div>
+        ) : (
+          <div className="pgn">
+            <button disabled={cur <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>←</button>
+            <span className="pc">{cur}/{pages}</span>
+            <button disabled={cur >= pages} onClick={() => setPage((p) => Math.min(pages, p + 1))}>→</button>
+            <span className="pc">{view.length}편 중 {(cur - 1) * PAGE + 1}–{Math.min(cur * PAGE, view.length)}</span>
+          </div>
+        )}
       </div>
+
+      {toast}
     </div>
   );
 }

@@ -179,15 +179,25 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
     />;
   }, [supabase]);
 
-  useEffect(() => {
-    if (cur) insp.select(InspRail(cur), "첨부 · 연결");
+  /* v2: 인스펙터는 온디맨드 — 첨부 레일은 「첨부」 버튼 클릭 시에만 열고,
+     패널이 열려 있는 동안만 draft 변경(영화 엮기 등)을 라이브 갱신한다(자동 오픈 없음). */
+  const [railFor, setRailFor] = useState<string | null>(null);
+  const openRail = useCallback(() => {
+    if (!cur) return;
+    setRailFor(cur.id);
+    insp.select(InspRail(cur), "첨부 · 연결");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cur, InspRail]);
+  useEffect(() => {
+    if (railFor && insp.open && cur && cur.id === railFor) insp.select(InspRail(cur), "첨부 · 연결");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cur?.films, cur?.framework, cur?.type]);
+  useEffect(() => { if (!insp.open) setRailFor(null); }, [insp.open]);
 
   useEffect(() => {
     setDefault(
       <div className="icard"><h4><i className="ti ti-paperclip" /> 첨부 · 연결</h4>
-        <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.6 }}>글을 선택하거나 새로 시작하면 여기서 영화·framework·트로프를 엮을 수 있습니다.</div>
+        <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.6 }}>에디터 상단의 「첨부」 버튼으로 영화·framework·트로프를 엮을 수 있습니다.</div>
       </div>
     );
   }, [setDefault]);
@@ -242,6 +252,9 @@ export default function WriteWorkspace({ takes }: { takes: TakeRow[] }) {
               </button>
             ))}
           </div>
+          <button className="newbtn" onClick={openRail} disabled={!cur} title="영화 · framework 엮기">
+            <i className="ti ti-paperclip" /> 첨부
+          </button>
           <span className={`autosave${saveState === "saving" ? " saving" : ""}`}>
             <i className={`ti ${saveState === "saving" ? "ti-loader-2" : "ti-cloud-check"}`} /> {saveState === "saving" ? "저장 중…" : cur?.fromTakeId ? "서버 저장됨" : "자동저장(세션)"}
           </span>

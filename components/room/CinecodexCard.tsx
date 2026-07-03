@@ -17,7 +17,7 @@ export default function CinecodexCard({ d, showBadge = false, slug }: { d: CcDat
   if (d.v == null || d.r == null) {
     return <div className="icard cc-card"><h4><i className="ti ti-diamond" /> Cinecodex</h4><div className="ccempty">Cinecodex 미평가 · 분석 대기</div></div>;
   }
-  const v = d.v, c = d.c ?? 0, r = d.r;
+  const v = d.v, c = d.c, r = d.r; // C(진입비용)는 null이면 미측정 — 0으로 지어내지 않는다
   const u = d.u ?? Math.round(v - r);
   const s = ((v - 50) / Math.max(r, 1)).toFixed(1);
   const riskCls = r <= 15 ? "lo" : r <= 25 ? "mid" : "hi";
@@ -35,7 +35,7 @@ export default function CinecodexCard({ d, showBadge = false, slug }: { d: CcDat
         <div className="ccbig"><div className="u">{u}</div><div className="ul">영화 순가치 U</div><div className="s mono">S {s}</div></div>
         <div className="ccbars">
           <div className="ccbar"><span className="cl">V</span><Bar v={v} /><span className="vv">{v}</span></div>
-          <div className="ccbar cost"><span className="cl">C</span><Bar v={c} /><span className="vv">{c}</span></div>
+          <div className="ccbar cost"><span className="cl">C</span><Bar v={c ?? 0} /><span className="vv">{c ?? "—"}</span></div>
           <div className="ccbar risk"><span className="cl">R</span><Bar v={r} /><span className="vv">{r}</span></div>
         </div>
       </div>

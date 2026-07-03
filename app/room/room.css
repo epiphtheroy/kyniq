@@ -515,3 +515,5 @@
 .room-root .pgn button:hover{color:var(--ink)}
 .room-root .pgn button:disabled{opacity:.35;cursor:default}
 .room-root .pgn .pc{font-family:var(--mono);font-size:12px;color:var(--sub)}
+/* ⌘K 팔레트는 인스펙터(80/81)보다 위 — 열린 슬라이드오버 위에서도 검색 가능 */
+.room-root .palette{z-index:95}
