@@ -18,7 +18,12 @@ export const metadata: Metadata = {
   title: "Metatake — a critical map of cinema",
   description:
     "Read films closely — a critical map of cinema that links films through the readings they share. Strong Misreadings, tropes, directors, concepts and the canon, all on one map.",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    // Page-level alternates shallow-replace the layout's, so the RSS
+    // autodiscovery link must be repeated here or the homepage loses it.
+    types: { "application/rss+xml": [{ url: "/feed.xml", title: "Between Film and the World — Metatake" }] },
+  },
 };
 
 // Plain client — caching is governed entirely by the unstable_cache wrapper
