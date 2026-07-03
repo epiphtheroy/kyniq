@@ -671,6 +671,13 @@ export default function FilmMap({
     );
   };
 
+  // youtube-nocookie embed identical to the home hero: muted autoplay, looping,
+  // seeked to the 7s mark, chrome stripped. Re-keyed on mute so the toggle takes.
+  const clipSrc = clip
+    ? `https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&mute=${clipMuted ? 1 : 0}&controls=0&loop=1&playlist=${clip.id}&start=7&playsinline=1&modestbranding=1&rel=0`
+    : null;
+  const clipOpen = !!clipSrc && !clipHidden;
+
   return (
     <div className="fmap">
       <link rel="preconnect" href={MT_KEY ? "https://api.maptiler.com" : "https://basemaps.cartocdn.com"} />
@@ -728,7 +735,28 @@ export default function FilmMap({
         </div>
       </div>
       <div className={`fmap-body${panelSide === "left" ? " fmap-body--left" : ""}`}>
-        <div className="fmap-canvas" ref={mapEl} style={{ height }} />
+        <div className="fmap-stage">
+          <div className="fmap-canvas" ref={mapEl} style={{ height }} />
+          {clipOpen ? (
+            <div className="fmap-float" role="dialog" aria-label={`Now playing: ${clip!.title}`}>
+              <div className="fmap-float__frame">
+                <iframe
+                  key={`${clip!.id}-${clipMuted ? "m" : "s"}`}
+                  src={clipSrc!}
+                  title={clip!.title}
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                />
+              </div>
+              <div className="fmap-float__bar">
+                <a className="fmap-float__ttl" href={`/film/${clip!.slug}`} title={clip!.title}>{clip!.title}</a>
+                <button type="button" className={`fmap-float__mute${clipMuted ? "" : " on"}`} onClick={() => setClipMuted((v) => !v)} aria-label={clipMuted ? "Unmute" : "Mute"}>
+                  {clipMuted ? "🔇" : "🔊"}
+                </button>
+                <button type="button" className="fmap-float__x" onClick={() => setClipHidden(true)} aria-label="Close video">✕</button>
+              </div>
+            </div>
+          ) : null}
+        </div>
         <div className="fmap-side" ref={listEl} style={{ maxHeight: height }}>
           <div className="fmap-tools">
             <input className="fmap-filter" value={pq} onChange={(e) => setPq(e.target.value)} placeholder="Filter places…" aria-label="Filter places" />
