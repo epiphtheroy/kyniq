@@ -537,18 +537,23 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
         </div>
       ) : null}
 
-      <section className="cr-profile">
-        <div className="cr-facts">
-          <div className="cr-frow"><span className="cr-fk">Field 분야</span><span>{person.known_for_department || "—"}</span></div>
-          <div className="cr-frow"><span className="cr-fk">Credits 참여작</span><span>{totalWorks} works <span className="cr-dim">({films.length} as {cf.role.toLowerCase()})</span></span></div>
-          <div className="cr-frow"><span className="cr-fk">Born 출생</span><span>{person.birthday || "—"}{person.deathday ? ` — ${person.deathday}` : ""}</span></div>
-          <div className="cr-frow"><span className="cr-fk">From 출신</span><span>{person.place_of_birth || "—"}</span></div>
-        </div>
-        <div className="cr-awards">
-          <div className="cr-awhdr">Awards 수상 · Wikidata</div>
-          <AwardsBox imdbId={person.imdb_id} />
-        </div>
-      </section>
+      {/* Redundant when embedded under a page that already carries the same
+          subject's header — hidden for the page's own person, shown again the
+          moment exploration moves to someone else. */}
+      {!hideProfile ? (
+        <section className="cr-profile">
+          <div className="cr-facts">
+            <div className="cr-frow"><span className="cr-fk">Field 분야</span><span>{person.known_for_department || "—"}</span></div>
+            <div className="cr-frow"><span className="cr-fk">Credits 참여작</span><span>{totalWorks} works <span className="cr-dim">({films.length} as {cf.role.toLowerCase()})</span></span></div>
+            <div className="cr-frow"><span className="cr-fk">Born 출생</span><span>{person.birthday || "—"}{person.deathday ? ` — ${person.deathday}` : ""}</span></div>
+            <div className="cr-frow"><span className="cr-fk">From 출신</span><span>{person.place_of_birth || "—"}</span></div>
+          </div>
+          <div className="cr-awards">
+            <div className="cr-awhdr">Awards 수상 · Wikidata</div>
+            <AwardsBox imdbId={person.imdb_id} />
+          </div>
+        </section>
+      ) : null}
 
       {/* Directors already have "Where to Start" on their Metatake director page — no duplication here. */}
       {!isDir ? (
@@ -575,12 +580,18 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
         </>
       ) : null}
 
-      <SecHead en="The Essentials" kr="정본" sub="The films the consensus keeps returning to." />
-      {essentials.length ? (
-        <div className="cr-posters">
-          {essentials.map((f, i) => <PCard key={f.id} f={f} num={i + 1} onFilm={onFilm} isSeen={isSeen} toggleSeen={toggleSeen} />)}
-        </div>
-      ) : <div className="cr-empty">Too thinly rated to call essentials — the full filmography below is the honest view.</div>}
+      {/* Directors: the Metatake director page already curates the filmography
+          ("Where to Start", picks) — consensus rankings would compete with it. */}
+      {!isDir ? (
+        <>
+          <SecHead en="The Essentials" kr="정본" sub="The films the consensus keeps returning to." />
+          {essentials.length ? (
+            <div className="cr-posters">
+              {essentials.map((f, i) => <PCard key={f.id} f={f} num={i + 1} onFilm={onFilm} isSeen={isSeen} toggleSeen={toggleSeen} />)}
+            </div>
+          ) : <div className="cr-empty">Too thinly rated to call essentials — the full filmography below is the honest view.</div>}
+        </>
+      ) : null}
 
       {partners.length ? (
         <>
@@ -590,10 +601,14 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
         </>
       ) : null}
 
-      <SecHead en="Deep Cuts" kr="B면" sub="B-sides and wayward experiments — credible work the crowds haven't found." />
-      {deep.length ? (
-        <div className="cr-posters">{deep.map((f) => <PCard key={f.id} f={f} onFilm={onFilm} isSeen={isSeen} toggleSeen={toggleSeen} />)}</div>
-      ) : <div className="cr-empty">No B-sides here — a filmography that&apos;s all essentials.</div>}
+      {!isDir ? (
+        <>
+          <SecHead en="Deep Cuts" kr="B면" sub="B-sides and wayward experiments — credible work the crowds haven't found." />
+          {deep.length ? (
+            <div className="cr-posters">{deep.map((f) => <PCard key={f.id} f={f} onFilm={onFilm} isSeen={isSeen} toggleSeen={toggleSeen} />)}</div>
+          ) : <div className="cr-empty">No B-sides here — a filmography that&apos;s all essentials.</div>}
+        </>
+      ) : null}
 
       <SecHead en="The Repertory Company" kr="사단"
         sub={<>

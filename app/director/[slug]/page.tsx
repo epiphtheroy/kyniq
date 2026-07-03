@@ -1,9 +1,12 @@
+import { Suspense } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import CreditsExplorer from "@/app/credits/CreditsExplorer";
+import "@/app/credits/credits.css";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
 import EntityMap from "@/components/EntityMap";
@@ -224,7 +227,7 @@ export default async function DirectorPage({ params }: Props) {
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
   tabs.push({ id: "dr-map", label: "Connections" });
   if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas" });
-  tabs.push({ id: "dr-credits", label: "Credits", href: `/credits?d=${encodeURIComponent(director)}` });
+  tabs.push({ id: "dr-credits", label: "Credits" });
 
   return (
     <div className="mt">
