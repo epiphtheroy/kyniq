@@ -15,11 +15,11 @@ export default function AtlasPage() {
   return (
     <div className="mt">
       <SiteNav />
-      <div className="mt-wrap" style={{ maxWidth: 1180 }}>
+      <div className="mt-wrap" style={{ maxWidth: 1320 }}>
         <div className="mt-crumb">Atlas</div>
         <h1 className="th-h1">The Atlas of cinema</h1>
-        <p className="th-sub">Every place our films are set in and name, geolocated. Move the map; click a pin to read what the place means in its film. (This is the world map — for the critical web of figures &amp; ideas, see <a href="/map">Connections</a>.)</p>
-        <FilmMap endpoint="/api/geo" height={640} search satelliteDefault />
+        <p className="th-sub">Every place our films are set in and name, geolocated. Browse films in the panel, click one to frame it on the map, click a pin to read what the place means in its film. (This is the world map — for the critical web of figures &amp; ideas, see <a href="/map">Connections</a>.)</p>
+        <FilmMap endpoint="/api/geo" height={700} search panelSide="left" />
       </div>
     </div>
   );

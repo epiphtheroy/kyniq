@@ -3,9 +3,9 @@
 import FilmMap from "@/components/FilmMap";
 
 /**
- * Home — the geographic Atlas (satellite by default). Every place our films are
- * set in or filmed at, on a real-world map. Search a film to jump to its page;
- * hover a pin to read what the place means.
+ * Home — the geographic Atlas. Every place our films are set in or filmed at,
+ * on a real-world map (crisp vector basemap; satellite one click away).
+ * Search a film to frame it; hover a pin to read what the place means.
  */
 export default function HomeAtlas() {
   return (
@@ -19,7 +19,7 @@ export default function HomeAtlas() {
           <a className="seeall" href="/atlas">Open the full Atlas ›</a>
         </div>
         <div className="homeatlas">
-          <FilmMap endpoint="/api/geo" height={460} search satelliteDefault />
+          <FilmMap endpoint="/api/geo" height={460} search />
         </div>
       </div>
     </section>
