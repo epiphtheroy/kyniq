@@ -502,6 +502,20 @@ export default async function DirectorPage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* CREDITS — the interactive collaboration map, embedded in place.
+            Client-only layer: adds nothing to (and takes nothing from) the
+            server-rendered content above that search engines read. */}
+        <section className="dr-sec" id="dr-credits" style={{ marginTop: 44, borderTop: "2px solid #16233F", paddingTop: 6 }}>
+          <h2 className="dr-h2" style={{ marginTop: 18 }}>Credits — the company they keep</h2>
+          <p style={{ opacity: 0.75, maxWidth: "70ch", margin: "4px 0 14px" }}>
+            {director}&apos;s whole collaboration network, live — the crew they keep bringing back, the long
+            partnerships, the repertory company. Click anyone to keep following the credits without leaving this page.
+          </p>
+          <Suspense fallback={<div style={{ padding: "30px 0", opacity: 0.6 }}>Loading the map…</div>}>
+            <CreditsExplorer embed initialD={director} />
+          </Suspense>
+        </section>
       </div>
     </div>
   );
