@@ -36,19 +36,14 @@ function parseId(slug: string): number | null {
 
 // Native-script alias — the name people in that language actually search.
 // One alias, shown once in the title/lead; the full list goes to JSON-LD only.
-// Preference: Hangul (Koreans are searched in hangul, not hanja) → Japanese
-// kana → any other non-Latin script (CJK ideographs, Cyrillic, Arabic, …).
+// Preference: Hangul first (Koreans are searched in hangul; TMDB often lists
+// hanja earlier), else the first non-Latin alias in TMDB's order (kanji stage
+// names, Cyrillic, Arabic, …) — kana is deliberately not preferred over kanji.
 const HANGUL = /[가-힣]/;
-const KANA = /[぀-ヿ]/;
 const NON_LATIN = /[Ѐ-ӿ֐-׿؀-ۿऀ-ॿ฀-๿぀-ヿ㐀-䶿一-鿿가-힯]/;
 function nativeAlias(p: TmdbPerson): string | null {
   const aliases = (p.also_known_as ?? []).map((a) => a.trim()).filter((a) => a && a !== p.name);
-  return (
-    aliases.find((a) => HANGUL.test(a)) ??
-    aliases.find((a) => KANA.test(a)) ??
-    aliases.find((a) => NON_LATIN.test(a)) ??
-    null
-  );
+  return aliases.find((a) => HANGUL.test(a)) ?? aliases.find((a) => NON_LATIN.test(a)) ?? null;
 }
 
 async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
