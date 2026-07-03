@@ -161,6 +161,25 @@ function metaDescription(text: string, maxLen = 155): string {
   return out;
 }
 
+// The no-portrait fallback: our own numbers as prose — unique text with real
+// counts instead of TMDB boilerplate. Deterministic; no LLM in the path.
+function editorialSummary(d: {
+  director: string; total: number; readingCount: number;
+  films: { year?: number | null }[];
+  sigTropes: { title: string }[];
+  picks: { film_title?: string | null }[];
+}): string {
+  const years = d.films.map((f) => f.year).filter((y): y is number => typeof y === "number");
+  const span = years.length > 1 ? ` (${Math.min(...years)}–${Math.max(...years)})` : "";
+  const parts = [
+    `On Metatake, ${d.director}'s ${d.total} film${d.total === 1 ? "" : "s"}${span} ${d.total === 1 ? "carries" : "carry"} ${d.readingCount} original critical readings.`,
+  ];
+  if (d.sigTropes.length) parts.push(`The shapes that recur across the work: ${d.sigTropes.slice(0, 3).map((t) => t.title).join(" · ")}.`);
+  const first = d.picks?.[0]?.film_title;
+  if (first) parts.push(`New here? Start with ${first}.`);
+  return parts.join(" ");
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
@@ -292,18 +311,22 @@ export default async function DirectorPage({ params }: Props) {
       <div className="dr-wrap">
         <FilmTabBar tabs={tabs} />
 
-        {/* PORTRAIT */}
+        {/* PORTRAIT — our portrait when written; otherwise our numbers as
+            prose. TMDB's bio is never shown (third-party duplicate text). */}
         <section className="dr-sec" id="dr-portrait">
-          <h2 className="dr-h2">Portrait</h2>
+          <h2 className="dr-h2">{portraitText ? <>{director} — a Metatake Portrait</> : <>{director} on Metatake</>}</h2>
           <div className={`dr-portrait-row${hasArt ? "" : " dr-portrait-row--solo"}`}>
             <div className="dr-portrait-main">
               {portraitText ? (
                 <div className="dr-portrait-body">
                   {portraitText.split(/\n\s*\n/).map((para, i) => <p key={i}>{para}</p>)}
-                  <div className="dr-src">{portrait?.body ? "Metatake editorial method (AI-drafted)." : "Biography via TMDB — Metatake portrait coming soon."}</div>
+                  <Byline />
                 </div>
               ) : (
-                <p className="dr-gloss">A portrait of {director} is coming soon.</p>
+                <div className="dr-portrait-body">
+                  <p>{summaryText}</p>
+                  <div className="dr-src">A Metatake editorial summary, computed from the live corpus — the full portrait is being written.</div>
+                </div>
               )}
             </div>
             {hasArt && (
