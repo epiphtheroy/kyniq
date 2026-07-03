@@ -510,15 +510,34 @@ export default async function DirectorPage({ params }: Props) {
           </section>
         )}
 
-        {/* CREDITS — the interactive collaboration map, embedded in place.
-            Client-only layer: adds nothing to (and takes nothing from) the
-            server-rendered content above that search engines read. */}
+        {/* CREDITS — server-rendered repertory company (the SEO copy: who this
+            director keeps bringing back, each name linking to their
+            /credits/[person] read page), then the interactive map below it. */}
         <section className="dr-sec" id="dr-credits" style={{ marginTop: 44, borderTop: "2px solid #16233F", paddingTop: 6 }}>
-          <h2 className="dr-h2" style={{ marginTop: 18 }}>Credits — the company they keep</h2>
-          <p style={{ opacity: 0.75, maxWidth: "70ch", margin: "4px 0 14px" }}>
-            {director}&apos;s whole collaboration network, live — the crew they keep bringing back, the long
-            partnerships, the repertory company. Click anyone to keep following the credits without leaving this page.
-          </p>
+          <h2 className="dr-h2" style={{ marginTop: 18 }}>Credits</h2>
+          {repertory.length > 0 ? (
+            <>
+              <p style={{ fontSize: 16.5, lineHeight: 1.6, maxWidth: "68ch", margin: "6px 0 14px" }}>
+                Across {films.length} films on Metatake, {director} keeps returning to{" "}
+                {repertory.slice(0, 3).map((r, i) => (
+                  <span key={r.id}>
+                    {i > 0 ? (i === Math.min(repertory.length, 3) - 1 ? " and " : ", ") : ""}
+                    <Link href={`/credits/${personSlug(r.name, r.id)}`}>{r.name}</Link>
+                    {` (${CRAFTS[r.craft].role.toLowerCase()}, ${r.n} films)`}
+                  </span>
+                ))}
+                {" — the repertory company behind the work."}
+              </p>
+              <div className="rcp-list" style={{ marginBottom: 20 }}>
+                {repertory.slice(0, 10).map((r) => (
+                  <div key={r.id} className="rcp-row">
+                    <Link className="rcp-h" href={`/credits/${personSlug(r.name, r.id)}`}>{r.name}</Link>
+                    <div className="rcp-m">{CRAFTS[r.craft].label} · {r.n} films together</div>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : null}
           <Suspense fallback={<div style={{ padding: "30px 0", opacity: 0.6 }}>Loading the map…</div>}>
             <CreditsExplorer embed initialD={director} />
           </Suspense>
