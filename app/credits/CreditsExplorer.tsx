@@ -36,6 +36,25 @@ function personHref(name: string, id: number, isDirector: boolean, directorSlug:
   return `/credits/${personSlug(name, id)}`;
 }
 
+/* Exit buttons from the explorer to Metatake's own pages — deliberately
+   button-shaped, not text links: the generated views must always offer a
+   visible way out to the real (indexable) pages. */
+const PILL: React.CSSProperties = {
+  display: "inline-flex", alignItems: "center", gap: 6, background: "#16233F", color: "#FBF8F1",
+  padding: "7px 14px", borderRadius: 999, fontSize: 13, fontWeight: 600, textDecoration: "none", lineHeight: 1,
+};
+const PILL_OUTLINE: React.CSSProperties = {
+  ...PILL, background: "transparent", color: "#16233F", boxShadow: "inset 0 0 0 1.5px #16233F",
+};
+function ExitPill({ href, children, outline = false }: { href: string; children: ReactNode; outline?: boolean }) {
+  return (
+    <a href={href} style={outline ? PILL_OUTLINE : PILL}>
+      <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
+      {children}
+    </a>
+  );
+}
+
 /* ---------- proxy fetcher ---------- */
 async function api(path: string, params?: Record<string, string>): Promise<unknown> {
   const u = new URLSearchParams({ p: path, ...(params || {}) });
