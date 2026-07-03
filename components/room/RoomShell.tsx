@@ -1,7 +1,11 @@
 "use client";
-/** The operating-system shell (HANDOFF §2). 4 columns — rail / main / inspector / activity —
- *  invariant across every /room page; only the center + inspector content change.
- *  Collapse persists per-column in localStorage. Provides InspectorProvider. */
+/** v2 셸 (2026-07-03 리뉴얼 — 데일리 루프 셸).
+ *  4단(레일·본문·상시 인스펙터·라이브피드) → 레일 + 본문 + 온디맨드 인스펙터(슬라이드오버).
+ *  - 라이브피드/LIVE 티커/시스템카드 삭제 (실데이터 감사: 정보가치 0)
+ *  - 인스펙터: select() 호출 시에만 우측 슬라이드-인(<900px 바텀시트) · ESC/백드롭/X 닫기.
+ *    setDefault 요약은 앱바 「요약」 버튼으로 열람(자동 오픈 없음 — 본문과 중복이므로).
+ *  - 레일 12→9항목·3그룹(오늘/자산/기록실). desk는 /room에 흡수(redirect), 동행은 ⌘K로만,
+ *    공개 프로필은 아바타로 이동. NAV chip · 카운트 뱃지 · ⌘K는 유지(자산 0클릭 확인). */
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { InspectorProvider, useInspector } from "./InspectorContext";
@@ -9,29 +13,27 @@ import CmdK from "./CmdK";
 
 export type NavChip = { nav: number | null; tier: string; up?: string | null };
 export type RailCounts = { collection?: number; watchlist?: number; pair?: number };
-export type SystemStatus = { scored: number | null; model: string | null; taste: number | null };
 
 const NAV: { sec: string; items: { label: string; icon: string; href: string; key?: keyof RailCounts }[] }[] = [
-  { sec: "자산 운영", items: [
-    { label: "현황 · 커맨드센터", icon: "ti-dashboard", href: "/room" },
-    { label: "보유 영화", icon: "ti-list-details", href: "/room/collection", key: "collection" },
+  { sec: "오늘", items: [
+    { label: "오늘 · 홈", icon: "ti-sun", href: "/room" },
     { label: "볼 영화 · 추천", icon: "ti-target-arrow", href: "/room/watchlist", key: "watchlist" },
-    { label: "운용 데스크", icon: "ti-briefcase", href: "/room/desk" },
-    { label: "자산 분석", icon: "ti-chart-arcs", href: "/room/analysis" },
-    { label: "지리 Atlas", icon: "ti-map-2", href: "/room/atlas" },
-    { label: "감독 정복", icon: "ti-crown", href: "/room/auteurs" },
-  ]},
-  { sec: "기록 · 교류", items: [
     { label: "기록 · 평가", icon: "ti-star", href: "/room/rate" },
+  ]},
+  { sec: "자산", items: [
+    { label: "보유 영화", icon: "ti-list-details", href: "/room/collection", key: "collection" },
+    { label: "감독 정복", icon: "ti-crown", href: "/room/auteurs" },
+    { label: "지리 Atlas", icon: "ti-map-2", href: "/room/atlas" },
+    { label: "자산 분석", icon: "ti-chart-arcs", href: "/room/analysis" },
+  ]},
+  { sec: "기록실", items: [
     { label: "서재", icon: "ti-books", href: "/room/library" },
     { label: "노트 · 글쓰기", icon: "ti-feather", href: "/room/write" },
-    { label: "동행", icon: "ti-users", href: "/room/pair", key: "pair" },
-    { label: "공개 프로필", icon: "ti-id-badge", href: "/u/me" },
   ]},
 ];
 
 // Collapsed state persists in localStorage; if unset, auto-collapse when the
-// viewport is narrower than `collapseBelow` so all columns fit on first load.
+// viewport is narrower than `collapseBelow` so the workspace fits on first load.
 function useSticky(key: string, collapseBelow = 0) {
   const [v, setV] = useState(false);
   useEffect(() => {
@@ -43,42 +45,57 @@ function useSticky(key: string, collapseBelow = 0) {
   return [v, toggle] as const;
 }
 
-function InspectorCol({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => void }) {
+/** 온디맨드 인스펙터 — 슬라이드오버(백드롭·ESC·X 닫기). */
+function InspectorPanel() {
   const insp = useInspector();
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => { if (e.key === "Escape") insp.close(); };
+    window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
+  }, [insp]);
   return (
-    <aside className={`col inspector${collapsed ? " collapsed" : ""}`}>
-      <div className="insphd">
-        <span className="chv" onClick={onToggle}><i className="ti ti-layout-sidebar-right-collapse" /></span>
-        <span className="ti-tit">{insp.title}</span>
-      </div>
-      <div className="col-scroll">
-        <div className="inspbody">
-          {insp.content ?? <div className="emptyins">항목을 선택하면 상세와 근거가 여기 표시됩니다.</div>}
+    <>
+      <div className={`insp-overlay${insp.open ? " on" : ""}`} onClick={insp.close} />
+      <aside className={`insp-panel${insp.open ? " on" : ""}`} role="dialog" aria-modal="true" aria-label={insp.title}>
+        <div className="insphd">
+          <span className="ti-tit">{insp.title}</span>
+          <span className="chv" onClick={insp.close} title="닫기 (ESC)"><i className="ti ti-x" /></span>
         </div>
-      </div>
-    </aside>
+        <div className="col-scroll">
+          <div className="inspbody">
+            {insp.content ?? <div className="emptyins">항목을 클릭하면 상세와 「왜」가 여기 열립니다.</div>}
+          </div>
+        </div>
+      </aside>
+    </>
+  );
+}
+
+/** 앱바 「요약」 버튼 — setDefault로 등록된 페이지 요약을 온디맨드로 연다. */
+function SummaryButton() {
+  const insp = useInspector();
+  if (!insp.hasDefault) return null;
+  return (
+    <span className="iconbtn" onClick={insp.openDefault} title="이 페이지 요약">
+      <i className="ti ti-layout-sidebar-right-expand" />
+    </span>
   );
 }
 
 const CRUMB: Record<string, string> = {
-  "/room": "현황 · 커맨드센터", "/room/collection": "보유 영화", "/room/watchlist": "볼 영화 · 추천",
-  "/room/desk": "운용 데스크", "/room/analysis": "자산 분석", "/room/atlas": "지리 Atlas", "/room/auteurs": "감독 정복", "/room/rate": "기록 · 평가",
+  "/room": "오늘 · 홈", "/room/collection": "보유 영화", "/room/watchlist": "볼 영화 · 추천",
+  "/room/analysis": "자산 분석", "/room/atlas": "지리 Atlas", "/room/auteurs": "감독 정복", "/room/rate": "기록 · 평가",
   "/room/library": "서재", "/room/write": "노트", "/room/pair": "동행",
 };
 
 export default function RoomShell({
-  children, chip, counts, ticker, system,
+  children, chip, counts,
 }: {
   children: ReactNode; chip: NavChip; counts: RailCounts;
-  ticker: { icon?: string; text: string }[];
-  system?: SystemStatus;
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const crumb = CRUMB[pathname] ?? (pathname.startsWith("/room/film") ? "평가 카드" : "커맨드센터");
-  const [railC, toggleRail] = useSticky("mt_rail", 820);
-  const [inspC, toggleInsp] = useSticky("mt_inspector", 1180);
-  const [actC, toggleAct] = useSticky("mt_activity", 1440);
+  const crumb = CRUMB[pathname] ?? (pathname.startsWith("/room/film") ? "평가 카드" : "오늘 · 홈");
+  const [railC, toggleRail] = useSticky("mt_rail", 900);
   const [cmdk, setCmdk] = useState(false);
 
   useEffect(() => {
@@ -101,24 +118,14 @@ export default function RoomShell({
               <span className="l">{chip.tier}</span>
               {chip.up ? <span className="up">{chip.up}</span> : null}
             </div>
-            <span className="iconbtn" onClick={() => router.refresh()}><i className="ti ti-refresh" /></span>
-            <span className="ava ser">나</span>
+            <SummaryButton />
+            <span className="iconbtn" onClick={() => router.refresh()} title="새로고침"><i className="ti ti-refresh" /></span>
+            <a className="ava ser" href="/u/me" title="공개 프로필">나</a>
           </div>
         </div>
 
-        {/* TICKER */}
-        <div className="ticker">
-          <span className="tag">LIVE</span>
-          <div className="vp"><div className="run">
-            {[...ticker, ...ticker].map((t, i) => (
-              <span key={i}><i className="ti dot ti-point-filled" />{t.text}</span>
-            ))}
-          </div></div>
-        </div>
-
-        {/* SHELL */}
+        {/* SHELL — 레일 + 본문 (인스펙터는 온디맨드 오버레이) */}
         <div className="shell">
-          {/* RAIL */}
           <nav className={`col rail${railC ? " collapsed" : ""}`}>
             <div className="col-scroll" style={{ display: "flex", flexDirection: "column" }}>
               <div className="railhd"><span className="eb">운영 메뉴</span><span className="chv" onClick={toggleRail}><i className="ti ti-layout-sidebar-left-collapse" /></span></div>
@@ -142,28 +149,10 @@ export default function RoomShell({
             </div>
           </nav>
 
-          {/* MAIN */}
           <main className="col main"><div className="col-scroll">{children}</div></main>
-
-          {/* INSPECTOR */}
-          <InspectorCol collapsed={inspC} onToggle={toggleInsp} />
-
-          {/* ACTIVITY */}
-          <aside className={`col activity${actC ? " collapsed" : ""}`}>
-            <div className="acthd"><span className="pulse" /><span className="t">라이브 피드</span><span className="chv" onClick={toggleAct}><i className="ti ti-layout-sidebar-right-collapse" /></span></div>
-            <div className="col-scroll"><div className="actbody">
-              {ticker.map((t, i) => (
-                <div className="feeditem" key={i}><span className="fi"><i className={`ti ${t.icon ?? "ti-point-filled"}`} /></span><div className="fb"><div className="ft">{t.text}</div></div></div>
-              ))}
-              <div className="acard"><h4>시스템 상태</h4>
-                <div className="stat"><span>Cinecodex 채점</span><b>{system?.scored != null ? `${system.scored.toLocaleString("ko-KR")}편` : "—"}</b></div>
-                <div className="stat"><span>정전가 모델</span><b>{system?.model ?? "—"}</b></div>
-                <div className="stat"><span>취향 벡터</span><b>{system?.taste != null ? `${system.taste.toLocaleString("ko-KR")}편` : "—"}</b></div>
-              </div>
-            </div></div>
-          </aside>
         </div>
 
+        <InspectorPanel />
         <CmdK open={cmdk} onClose={() => setCmdk(false)} />
       </div>
     </InspectorProvider>
