@@ -19,10 +19,11 @@ export type GeoPoint = {
   country: string | null; name: string | null; narrative_setting: string | null;
   layer: string | null; kind: string | null;
 };
-export type CountryRow = { country: string; films: number | string | null; pins: number | string | null };
+export type CountryRow = { country: string; films: number | string | null; pins: number | string | null; continent?: string | null };
 export type GeoTotals = {
   located_films: number | string | null; total_watched: number | string | null;
   countries: number | string | null; total_pins: number | string | null;
+  countries_total?: number | string | null;
 } | null;
 export type GeoData = { points: GeoPoint[]; by_country: CountryRow[]; totals: GeoTotals };
 
@@ -30,9 +31,9 @@ const num = (x: number | string | null | undefined): number | null =>
   x == null ? null : typeof x === "number" ? x : Number.isNaN(Number(x)) ? null : Number(x);
 const n0 = (x: number | string | null | undefined) => num(x) ?? 0;
 
-/* ── country → continent map (compact; covers every country that can appear in film_locations).
-   6 continents (Asia · Europe · Africa · N.America · S.America · Oceania). Antarctica folded
-   into a 7th "특수/기타" bucket so it never counts as a blind continent by itself. ── */
+/* ── country → continent: DB 참조테이블(country_continents)에서 옴 — me_geo_coverage.by_country가
+   행마다 continent를 실어 보낸다(프론트 하드코딩 사전 제거 → 블라인드가 진짜 데이터 파생).
+   6 continents + DB 'Other'(극지 등)는 "기타" 버킷 — 블라인드 판정에서 제외. ── */
 const CONTINENTS = ["Asia", "Europe", "Africa", "N.America", "S.America", "Oceania"] as const;
 type Continent = (typeof CONTINENTS)[number] | "기타";
 const CONT_KO: Record<Continent, string> = {
@@ -43,48 +44,10 @@ const CONT_ICON: Record<Continent, string> = {
   Asia: "ti-building-pagoda", Europe: "ti-building-castle", Africa: "ti-tree",
   "N.America": "ti-building-skyscraper", "S.America": "ti-mountain", Oceania: "ti-beach", 기타: "ti-snowflake",
 };
-const COUNTRY_CONT: Record<string, Continent> = {
-  // Asia
-  "Afghanistan": "Asia", "Armenia": "Asia", "Cambodia": "Asia", "China": "Asia", "Georgia": "Asia",
-  "Hong Kong": "Asia", "India": "Asia", "Indonesia": "Asia", "Iran": "Asia", "Iraq": "Asia",
-  "Israel": "Asia", "Japan": "Asia", "Jordan": "Asia", "Korea": "Asia", "Kuwait": "Asia",
-  "Laos": "Asia", "Lebanon": "Asia", "Macau": "Asia", "Malaysia": "Asia", "Maldives": "Asia",
-  "Myanmar": "Asia", "Nepal": "Asia", "Oman": "Asia", "Pakistan": "Asia", "Palestine": "Asia",
-  "Palestinian Territory": "Asia", "Philippines": "Asia", "Saudi Arabia": "Asia", "Singapore": "Asia",
-  "South Korea": "Asia", "Southeast Asia": "Asia", "Sri Lanka": "Asia", "Syria": "Asia",
-  "Taiwan": "Asia", "Thailand": "Asia", "Turkey": "Asia", "Türkiye": "Asia",
-  "United Arab Emirates": "Asia", "Vietnam": "Asia",
-  // Europe
-  "Albania": "Europe", "Austria": "Europe", "Belarus": "Europe", "Belgium": "Europe",
-  "Bosnia and Herzegovina": "Europe", "Bulgaria": "Europe", "Croatia": "Europe", "Czech Republic": "Europe",
-  "Denmark": "Europe", "Estonia": "Europe", "Finland": "Europe", "France": "Europe", "Germany": "Europe",
-  "Greece": "Europe", "Hungary": "Europe", "Iceland": "Europe", "Ireland": "Europe", "Italy": "Europe",
-  "Latvia": "Europe", "Malta": "Europe", "Monaco": "Europe", "Montenegro": "Europe", "Netherlands": "Europe",
-  "Norway": "Europe", "Poland": "Europe", "Portugal": "Europe", "Romania": "Europe", "Russia": "Europe",
-  "Serbia": "Europe", "Slovakia": "Europe", "Spain": "Europe", "Sweden": "Europe", "Switzerland": "Europe",
-  "Ukraine": "Europe", "United Kingdom": "Europe", "Vatican City": "Europe",
-  // Africa
-  "Algeria": "Africa", "Benin": "Africa", "Burkina Faso": "Africa", "Cameroon": "Africa",
-  "Cape Verde": "Africa", "Democratic Republic of the Congo": "Africa", "Djibouti": "Africa",
-  "Egypt": "Africa", "Ghana": "Africa", "Guinea-Bissau": "Africa", "Kenya": "Africa", "Mali": "Africa",
-  "Mauritania": "Africa", "Morocco": "Africa", "Namibia": "Africa", "Senegal": "Africa",
-  "South Africa": "Africa", "Tunisia": "Africa", "Zambia": "Africa",
-  // North & Central America + Caribbean
-  "Bahamas": "N.America", "Canada": "N.America", "Central America": "N.America", "Cuba": "N.America",
-  "Dominican Republic": "N.America", "Guatemala": "N.America", "Jamaica": "N.America", "Mexico": "N.America",
-  "Panama": "N.America", "Saint Vincent and the Grenadines": "N.America", "United States": "N.America",
-  // South America
-  "Argentina": "S.America", "Brazil": "S.America", "Chile": "S.America", "Colombia": "S.America",
-  "Peru": "S.America", "Venezuela": "S.America",
-  // Oceania
-  "Australia": "Oceania", "Cook Islands": "Oceania", "Fiji": "Oceania", "New Zealand": "Oceania",
-  "Solomon Islands": "Oceania",
-  // Other / polar
-  "Antarctica": "기타",
-};
-function contOf(country: string | null): Continent | null {
-  if (!country) return null;
-  return COUNTRY_CONT[country] ?? null;
+function normCont(c: string | null | undefined): Continent | null {
+  if (!c) return null;
+  if (c === "Other") return "기타";
+  return (CONTINENTS as readonly string[]).includes(c) ? (c as Continent) : "기타";
 }
 
 /* Regional-indicator flag emoji from a small country→ISO2 map (best-effort; falls back to a pin). */
