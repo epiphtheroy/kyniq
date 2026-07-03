@@ -62,6 +62,35 @@ function nativeAlias(p: TmdbPerson): string | null {
   return aliases.find((a) => HANGUL.test(a)) ?? aliases.find((a) => NON_LATIN.test(a)) ?? null;
 }
 
+// TMDB's alias coverage is spotty (e.g. Hong Kyung-pyo has hanja but no
+// hangul; Bong Joon Ho has neither). When the birthplace tells us which
+// script to expect and TMDB lacks it, ask Wikidata for the native label
+// (P4985 = TMDB person ID). Cached a week; fails soft to null.
+function expectedLang(place: string | null | undefined): string | null {
+  if (!place) return null;
+  const p = place.toLowerCase();
+  if (p.includes("korea")) return "ko";
+  if (p.includes("japan")) return "ja";
+  if (/china|taiwan|hong kong/.test(p)) return "zh";
+  if (/russia|ukraine|belarus|kazakh|soviet|ussr/.test(p)) return "ru";
+  return null;
+}
+async function wikidataNative(tmdbId: number, lang: string): Promise<string | null> {
+  try {
+    const q = `SELECT ?l WHERE { ?item wdt:P4985 "${tmdbId}" . ?item rdfs:label ?l . FILTER(LANG(?l)="${lang}") } LIMIT 1`;
+    const r = await fetch(`https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(q)}`, {
+      headers: { "User-Agent": "Metatake/1.0 (wonwoo@metatake.net)", accept: "application/json" },
+      next: { revalidate: 604800 },
+    });
+    if (!r.ok) return null;
+    const d = (await r.json()) as { results?: { bindings?: { l?: { value?: string } }[] } };
+    const v = d.results?.bindings?.[0]?.l?.value?.trim() ?? null;
+    return v && NON_LATIN.test(v) ? v : null;
+  } catch {
+    return null;
+  }
+}
+
 async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
   const token = process.env.TMDB_READ_TOKEN;
   if (!token) return null;
@@ -141,15 +170,19 @@ async function load(personSlug: string) {
     byDir.set(f.director, cur);
   }
   const company = [...byDir.values()].sort((a, b) => b.n - a.n);
-  return { id, p, crafts, cat, company };
+  let native = nativeAlias(p);
+  if (!native) {
+    const lang = expectedLang(p.place_of_birth);
+    if (lang) native = await wikidataNative(id, lang);
+  }
+  return { id, p, crafts, cat, company, native };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { person } = await params;
   const data = await load(person);
   if (!data) return { title: "Not found" };
-  const { p, crafts, cat, company } = data;
-  const native = nativeAlias(p);
+  const { p, crafts, cat, company, native } = data;
   const role = CRAFTS[crafts[0].key].label;
   const title = `${p.name}${native ? ` (${native})` : ""} — ${role}: Films & Collaborations`;
   const description = leadSentence(p.name, native, crafts, cat, company[0] ?? null);
@@ -172,8 +205,7 @@ export default async function CrewPersonPage({ params }: Props) {
   const { person } = await params;
   const data = await load(person);
   if (!data) notFound();
-  const { id, p, crafts, cat, company } = data;
-  const native = nativeAlias(p);
+  const { id, p, crafts, cat, company, native } = data;
   const mainCraft = crafts[0].key;
   const catByTmdb = new Map(cat.map((f) => [f.tmdb_id, f]));
   const repertory = company.filter((d) => d.n >= 2).slice(0, 8);
@@ -186,7 +218,9 @@ export default async function CrewPersonPage({ params }: Props) {
     mainEntity: {
       "@type": "Person",
       name: p.name,
-      ...(p.also_known_as?.length ? { alternateName: p.also_known_as.slice(0, 8) } : {}),
+      ...((p.also_known_as?.length || native)
+        ? { alternateName: [...new Set([...(native ? [native] : []), ...(p.also_known_as ?? [])])].slice(0, 8) }
+        : {}),
       jobTitle: CRAFTS[mainCraft].role,
       ...(p.birthday ? { birthDate: p.birthday } : {}),
       ...(p.profile_path ? { image: `https://image.tmdb.org/t/p/w342${p.profile_path}` } : {}),
@@ -234,6 +268,17 @@ export default async function CrewPersonPage({ params }: Props) {
             <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "62ch", margin: 0 }}>
               {leadSentence(p.name, native, crafts, cat, company[0] ?? null)}
             </p>
+            <a
+              href="#explorer"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8, marginTop: 14,
+                background: "#16233F", color: "#FBF8F1", padding: "9px 18px", borderRadius: 999,
+                fontSize: 14, fontWeight: 600, textDecoration: "none", boxShadow: "0 1px 0 rgba(0,0,0,.15)",
+              }}
+            >
+              <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
+              Play the collaboration map — live on this page ↓
+            </a>
           </div>
         </header>
 
