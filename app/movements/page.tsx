@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 // Movements is now a section of Lineage (National cinemas + Movements tabs). Redirect the old index.
 // MvHub type kept here as the shared shape for movements_index() consumers.
@@ -9,5 +9,5 @@ export type MvHub = {
 };
 
 export default function MovementsIndex() {
-  redirect("/lineage");
+  permanentRedirect("/lineage");
 }

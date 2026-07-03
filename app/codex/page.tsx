@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 export default function CodexRedirect() {
-  redirect("/takescore");
+  permanentRedirect("/takescore");
 }
