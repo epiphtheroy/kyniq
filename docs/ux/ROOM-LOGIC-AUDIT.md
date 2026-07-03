@@ -312,5 +312,6 @@
 
 ## 9. 개정 로그
 
+- **2026-07-03 (2차)** **P1 전항 완료 + P2 소화 + 구조(RPC 스냅샷) 완료.** 동행 실구현(0031: `pair_matches` RLS 정책 0 default-deny — 파트너 uuid 직접 노출 차단, `me_today_pair`/`me_pair_reveal`/`me_pair_history` 부분노출 RPC 강제, 일자별 결정적 페어링·상호동의·공개프로필 게이트). `/api/geo` 파라미터 화이트리스트+400+IP 레이트리밋. Atlas 대륙매핑 DB화(0032: `country_continents` 156국 — 미매핑 0 실측, `me_geo_coverage` v2 continent·countries_total) + SVG 점 dedup(n편 배지) + REF=50 제거. 기존 RPC 18종 바이트 정확 스냅샷(0033). P2: 컬렉션 "최근순"·CinecodexCard "발견" 배선(전 호출부 discovery)·auteurs DB기준 카피·CmdK 룸 통일·desk best/riskiest 배선. **잔여 = P3 + cinecodex DDL 역커밋.**
 - **2026-07-03** **P0 1–4 전부 + P1 5·7·9(/u/me) 해소** (마이그레이션 0027–0030 + 프론트 배선; 상세는 `ROOM-HANDOVER-MASTER.md` §8·§11). ⑦`me_coverage`·④`me_blindspots`(생산성 게이트) 신설·배선, `me_recommend_wwi` v2(conquer/gap 실태깅·in_watchlist·seen/dismissed만 제외), 쓰기 6종 mutation(`me_set_watchlist`/`me_mark_seen`/`me_dismiss`/`set_pin_visibility`/`me_toggle_fav`/`save_take`+서버측 sanitize), `me_system_status` 티커/시스템카드 실데이터, `nav_snapshots`+`me_nav_history` 자산곡선 실렌더(단조 어서션), `/u/me` 302. **잔여**: 동행(P1-6§5), `/api/geo` 스코프·대륙매핑(P1-8), P2/P3, 기존 RPC 20종 역커밋.
 - **2026-07-01** 최초 작성. 4개 병렬 감사 에이전트(자산운영/지도·감독/개인정보·교류/셸·RPC) + 라이브 DB 실측 통합. 상태 대시보드·개인정보 흐름표·지도/커넥션 세부·P0–P3 로드맵 확립.
