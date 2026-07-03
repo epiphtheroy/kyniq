@@ -165,6 +165,7 @@ export default async function QuestionPage({ params }: Props) {
       name: question.title,
       text: question.body || question.title,
       dateCreated: question.created_at,
+      datePublished: question.published_at ?? question.created_at,
       answerCount: canonical ? 1 : 0,
       ...(canonical && {
         acceptedAnswer: {

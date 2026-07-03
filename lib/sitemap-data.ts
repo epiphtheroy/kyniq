@@ -9,6 +9,8 @@ import {
 import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
 import crewIndex from "@/lib/crew_index.json";
+import accessEnrichment from "@/lib/access_enrichment.json";
+import { whereToUrl, genreUrl } from "@/lib/urls";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -65,6 +67,13 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/blog/curious` },
     { url: `${siteUrl}/concept` },
     { url: `${siteUrl}/director` },
+    { url: `${siteUrl}/genre` },
+    { url: `${siteUrl}/tradition` },
+    { url: `${siteUrl}/lineage` },
+    { url: `${siteUrl}/frames` },
+    { url: `${siteUrl}/trending` },
+    { url: `${siteUrl}/where-to-watch` },
+    { url: `${siteUrl}/map` },
   ];
   // Strong Misreadings — the 14 framework hubs.
   for (const f of BROWSABLE) {
@@ -107,6 +116,56 @@ export async function moviesLikeEntries(): Promise<SitemapEntry[]> {
     supabase.from("films").select("slug").eq("visible", true).order("slug").range(from, to)
   );
   return films.map((f) => ({ url: `${siteUrl}/movies-like/${f.slug}` }));
+}
+
+/**
+ * /whereto/* availability pages — only films that actually HAVE watch data,
+ * so the sitemap never advertises an empty page. A film qualifies if it has a
+ * film_watch_providers row (TMDB/JustWatch) OR a MetaTake access-enrichment
+ * record (lib/access_enrichment.json, keyed by tmdb_id). No lastmod: provider
+ * data refreshes wholesale, which would just churn the field.
+ */
+export async function whereToEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const films = await fetchAll<{ id: string; slug: string; tmdb_id: number | null }>((from, to) =>
+    supabase.from("films").select("id, slug, tmdb_id").eq("visible", true).order("slug").range(from, to)
+  );
+  const providerRows = await fetchAll<{ film_id: string }>((from, to) =>
+    supabase.from("film_watch_providers").select("film_id").order("film_id").range(from, to)
+  );
+  const hasProviders = new Set(providerRows.map((r) => r.film_id));
+  const enriched = (accessEnrichment as unknown as { films: Record<string, unknown> }).films;
+  return films
+    .filter((f) => hasProviders.has(f.id) || (f.tmdb_id != null && String(f.tmdb_id) in enriched))
+    .map((f) => ({ url: `${siteUrl}${whereToUrl(f.slug)}` }));
+}
+
+// Genre slugs are derived from films.genres labels exactly the way
+// app/genre/page.tsx links them (there is no genres table).
+function slugifyGenre(g: string) {
+  return g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+/** /genre/* — one entry per genre slug with ≥5 visible films (the hub page
+ * itself lives in the core section). */
+export async function genreEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const films = await fetchAll<{ genres: string[] | null }>((from, to) =>
+    supabase.from("films").select("genres").eq("visible", true).not("genres", "is", null).order("slug").range(from, to)
+  );
+  const counts = new Map<string, number>();
+  for (const f of films) {
+    for (const g of f.genres ?? []) {
+      const slug = slugifyGenre(g);
+      if (slug) counts.set(slug, (counts.get(slug) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .filter(([, n]) => n >= 5)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([slug]) => ({ url: `${siteUrl}${genreUrl(slug)}` }));
 }
 
 /**

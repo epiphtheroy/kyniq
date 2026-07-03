@@ -6,7 +6,8 @@ import MapExplorer from "@/components/MapExplorer";
 // runtime, so the page is prerendered and served from the edge.
 
 export const metadata: Metadata = {
-  title: "The Map — Metatake",
+  // No brand suffix here — the root layout template appends "· Metatake".
+  title: "The Map — films, directors & ideas, all connected",
   description: "The whole critical web of cinema — films, figures, tropes, ideas, directors and theorists, all interlinked. Click any node to dive three levels deeper.",
   alternates: { canonical: "/map" },
 };

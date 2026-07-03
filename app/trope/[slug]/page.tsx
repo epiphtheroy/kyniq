@@ -9,6 +9,7 @@ import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
+import { resolveAlias } from "@/lib/aliases";
 import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
 
@@ -109,6 +110,9 @@ export default async function TropePage({ params }: Props) {
         if (tgt?.slug) permanentRedirect(`/${tgt.kind === "figure_type" ? "trope" : "take"}/${tgt.slug}`);
       }
     }
+    // Last resort before 404: the URL-permanence ledger (renamed/merged paths).
+    const alias = await resolveAlias(`/trope/${slug}`);
+    if (alias) permanentRedirect(alias);
     notFound();
   }
   const { t, readings, filmCount } = data;
@@ -131,6 +135,7 @@ export default async function TropePage({ params }: Props) {
         ] },
         { "@context": "https://schema.org", "@type": "Article", headline: t.title,
           ...(t.thesis || t.laconic ? { description: t.thesis ?? t.laconic } : {}),
+          ...(t.created_at ? { datePublished: t.created_at, dateModified: t.updated_at ?? t.created_at } : {}),
           author: { "@type": "Organization", name: "Metatake" },
           publisher: { "@type": "Organization", name: "Metatake" } },
       ]) }} />

@@ -11,6 +11,7 @@ import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
+import { resolveAlias } from "@/lib/aliases";
 import EntityGraphLoader from "@/components/EntityGraphLoader";
 import { MetatakeStats } from "@/components/detail/MetatakeDetailBits";
 
@@ -153,7 +154,12 @@ export default async function TakePage({ params }: Props) {
     }
   }
   const data = await load(slug);
-  if (!data) notFound();
+  if (!data) {
+    // Last resort before 404: the URL-permanence ledger (renamed/merged paths).
+    const alias = await resolveAlias(`/take/${slug}`);
+    if (alias) permanentRedirect(alias);
+    notFound();
+  }
   const { mt, family, theorist, defining, unexpected, related, all, filmCount, registers } = data;
 
   const familyName = family?.name ?? null;
@@ -247,6 +253,7 @@ export default async function TakePage({ params }: Props) {
         ] },
         { "@context": "https://schema.org", "@type": "Article", headline: mt.title,
           ...(mt.thesis || mt.laconic ? { description: mt.thesis ?? mt.laconic } : {}),
+          ...(mt.created_at ? { datePublished: mt.created_at, dateModified: mt.updated_at ?? mt.created_at } : {}),
           author: { "@type": "Organization", name: "Metatake" },
           publisher: { "@type": "Organization", name: "Metatake" } },
       ]) }} />

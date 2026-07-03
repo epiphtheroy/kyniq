@@ -82,7 +82,7 @@ async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, tmdb_extra, created_at, visible, is_analyzed")
+    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, wikidata_id, tmdb_extra, created_at, visible, is_analyzed")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
   if (film.is_analyzed === false) {
@@ -427,8 +427,14 @@ export default async function FilmPage({ params }: Props) {
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
   ].filter(Boolean)) as { id: string; label: string; href?: string }[];
 
+  // Entity anchors (§8.2 film-entity recognition): canonical @id + external IDs.
+  const movieSameAs = [
+    film.imdb_id ? `https://www.imdb.com/title/${film.imdb_id}/` : null,
+    film.wikidata_id ? `https://www.wikidata.org/wiki/${film.wikidata_id}` : null,
+  ].filter(Boolean);
+
   const jsonld = {
-    "@context": "https://schema.org", "@type": "Movie", name: film.title,
+    "@context": "https://schema.org", "@type": "Movie", "@id": `https://metatake.net/film/${film.slug}`, name: film.title,
     ...(film.release_date ? { datePublished: film.release_date } : film.year ? { datePublished: String(film.year) } : {}),
     ...(film.genres?.length ? { genre: film.genres } : {}),
     ...(film.runtime ? { duration: `PT${film.runtime}M` } : {}),
@@ -436,7 +442,7 @@ export default async function FilmPage({ params }: Props) {
     ...(cast.length ? { actor: cast.map((c) => ({ "@type": "Person", name: c.name })) } : {}),
     ...(film.poster_path ? { image: `${IMG}/w500${film.poster_path}` } : {}),
     ...(film.overview ? { description: film.overview } : {}),
-    ...(film.imdb_id ? { sameAs: `https://www.imdb.com/title/${film.imdb_id}/` } : {}),
+    ...(movieSameAs.length ? { sameAs: movieSameAs } : {}),
   };
 
   const breadcrumbLd = {

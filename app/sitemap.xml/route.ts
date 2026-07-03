@@ -19,6 +19,8 @@ const SECTIONS = [
   "directors",
   "concepts",
   "profiles",
+  "whereto",
+  "genres",
 ];
 
 export async function GET() {

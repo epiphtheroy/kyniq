@@ -221,6 +221,8 @@ export default async function FigurePage({ params }: Props) {
 
   const faqLd = figure.description ? {
     "@context": "https://schema.org", "@type": "FAQPage",
+    ...(figure.created_at ? { datePublished: figure.created_at as string } : {}),
+    ...(figure.updated_at ? { dateModified: figure.updated_at as string } : {}),
     mainEntity: [{
       "@type": "Question", name: `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`,
       acceptedAnswer: { "@type": "Answer", text: String(figure.description) },
