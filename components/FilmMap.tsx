@@ -4,14 +4,17 @@
  * FilmMap — the geographic "Atlas".
  *   • setting (red) — places a film is set in / names
  *   • filmed (teal) — real, sourced filming locations
- * Keyless MapLibre GL (CDN) + OpenFreeMap vector ↔ Esri satellite.
- * Right-hand panel is film-centric (poster + big film title + place + role).
- * Pins show a popup on hover (no click needed); click opens the detailed card.
- * `search` shows a film search box that jumps to a film's page.
- * On a film page, a "This film / All films" toggle overlays the whole Atlas.
+ * Keyless MapLibre GL (CDN). Basemaps:
+ *   • Map — Carto Voyager vector (crisp on retina, dense place-name labels)
+ *   • Satellite — Esri World Imagery + the Voyager *vector label* layers on top
+ *     (a Google-style hybrid: sharp text and many more names than raster overlays)
+ * The map is created ONCE per mount; scope/focus/layer changes only update the
+ * GeoJSON source and the camera, so toggles never rebuild or reset the view.
+ * Side panel groups places by film (sortable, filterable, list/grid) and every
+ * click in the panel moves the map: film → fit its pins, place → fly + card.
  */
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 type Row = {
@@ -22,16 +25,16 @@ type Row = {
   film_slug?: string | null; film_title?: string | null; film_year?: number | null; poster_path?: string | null;
 };
 type Sug = { slug: string; title: string; year: number | null; poster_path: string | null; director: string | null };
+type SortKey = "inview" | "places" | "az" | "year";
 
-// Base map: Carto Voyager — keyless, fast CDN, rich place-name labels. Replaces the slower OpenFreeMap community tiles.
 const STYLE_MAP = "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json";
 const SAT_TILE = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
-// Transparent Esri reference overlay → keeps place-name labels + boundaries visible ON the satellite imagery.
 const SAT_LABELS = "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}";
-const STYLE_SAT = {
+// Raster fallback if the hybrid (vector labels over imagery) style can't be built.
+const STYLE_SAT_FALLBACK = {
   version: 8,
   sources: {
-    esri: { type: "raster", tiles: [SAT_TILE], tileSize: 256, attribution: "© Esri, Maxar, Earthstar Geographics" },
+    esri: { type: "raster", tiles: [SAT_TILE], tileSize: 256, maxzoom: 19, attribution: "© Esri, Maxar, Earthstar Geographics" },
     esriRef: { type: "raster", tiles: [SAT_LABELS], tileSize: 256, attribution: "© Esri" },
   },
   layers: [
@@ -57,6 +60,55 @@ function loadMapLibre(): Promise<any> {
   return mlPromise;
 }
 
+// Hybrid satellite: Esri imagery + Voyager's vector label/boundary layers restyled
+// for a dark background — crisp retina text, far denser naming than raster refs.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let hybridPromise: Promise<any> | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildHybridStyle(): Promise<any> {
+  if (hybridPromise) return hybridPromise;
+  hybridPromise = fetch(STYLE_MAP)
+    .then((r) => r.json())
+    .then((st) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const overlay = (st.layers as any[])
+        .filter((l) => l.type === "symbol" || /admin|boundary/.test(l.id))
+        .map((l) => {
+          const paint = { ...(l.paint ?? {}) };
+          if (l.type === "symbol") {
+            paint["text-color"] = "#ffffff";
+            paint["text-halo-color"] = "rgba(10,14,18,.85)";
+            paint["text-halo-width"] = 1.3;
+          } else {
+            paint["line-color"] = "rgba(255,255,255,.55)";
+          }
+          return { ...l, paint };
+        });
+      return {
+        version: 8, glyphs: st.glyphs, sprite: st.sprite,
+        sources: {
+          ...st.sources,
+          esri: { type: "raster", tiles: [SAT_TILE], tileSize: 256, maxzoom: 19, attribution: "© Esri, Maxar, Earthstar Geographics" },
+        },
+        layers: [{ id: "esri", type: "raster", source: "esri" }, ...overlay],
+      };
+    })
+    .catch(() => STYLE_SAT_FALLBACK);
+  return hybridPromise;
+}
+
+// Small client cache so This film ↔ All films / repeated visits are instant.
+const geoCache = new Map<string, Promise<Row[]>>();
+function fetchGeo(url: string): Promise<Row[]> {
+  if (!geoCache.has(url)) {
+    geoCache.set(url, fetch(url)
+      .then((r) => r.json())
+      .then((j) => (Array.isArray(j) ? (j as Row[]) : []))
+      .catch(() => { geoCache.delete(url); return []; }));
+  }
+  return geoCache.get(url)!;
+}
+
 const esc = (x: string) => (x || "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string));
 function roleOf(r: Row): string { return (r.scene_role || r.narrative_setting || (r.fig_desc ?? "")).toString(); }
 function filmLabel(r: Row): string { return r.film_title ? `${r.film_title}${r.film_year ? ` (${r.film_year})` : ""}` : ""; }
@@ -65,12 +117,11 @@ function hrefFor(r: Row, filmSlug?: string): string | null {
   return r.fig_slug ? `/film/${fs}/figure/${r.fig_slug}` : `/film/${fs}`;
 }
 
-// Shared popup card (hover = compact, click = detailed). The FILM sits on the top line,
-// with its poster thumbnail beside it; the place name becomes the secondary line.
+// Shared popup card (hover = compact, click = detailed).
 function popupHTML(p: Record<string, string>, detailed: boolean): string {
   const film = p.film, filmed = p.layer === "filmed";
-  const title = film || p.name;            // film first
-  const sub = film ? p.name : "";          // place name → sub-line when a film is present
+  const title = film || p.name;
+  const sub = film ? p.name : "";
   const roleMax = detailed ? 300 : 150;
   const parts: string[] = [`<b style="font-size:12.5px;line-height:1.25;color:#1a1a1a;display:block">${esc(title)}</b>`];
   if (sub) parts.push(`<div style="color:#8a8278;font-size:11px;font-weight:600;margin-top:2px">${esc(sub)}</div>`);
@@ -92,37 +143,81 @@ function popupHTML(p: Record<string, string>, detailed: boolean): string {
 }
 
 export default function FilmMap({
-  endpoint, height = 460, filmSlug, search = false, satelliteDefault = false,
-}: { endpoint: string; height?: number; filmSlug?: string; search?: boolean; satelliteDefault?: boolean }) {
-  const [rows, setRows] = useState<Row[] | null>(null);
+  endpoint, height = 460, filmSlug, search = false, satelliteDefault = false, panelSide = "right",
+}: { endpoint: string; height?: number; filmSlug?: string; search?: boolean; satelliteDefault?: boolean; panelSide?: "left" | "right" }) {
+  const [primary, setPrimary] = useState<Row[] | null>(null);      // rows from `endpoint`
+  const [world, setWorld] = useState<Row[] | null>(null);          // all-films rows (film page, scope=all)
+  const [focusRows, setFocusRows] = useState<Row[] | null>(null);  // richer rows for a searched/clicked film
   const [sat, setSat] = useState(satelliteDefault);
   const [active, setActive] = useState<string | null>(null);
   const [inView, setInView] = useState<Set<string> | null>(null);
   const [lf, setLf] = useState<"all" | "setting" | "filmed">("all");
-  const [scope, setScope] = useState<"film" | "all">("film"); // film pages only
-  const [focus, setFocus] = useState<{ slug: string; title: string } | null>(null); // atlas: search-focused film
+  const [scope, setScope] = useState<"film" | "all">("film");      // film pages only
+  const [focus, setFocus] = useState<{ slug: string; title: string } | null>(null);
   const [q, setQ] = useState("");
   const [sugs, setSugs] = useState<Sug[]>([]);
+  const [sort, setSort] = useState<SortKey>("inview");
+  const [view, setView] = useState<"list" | "grid">("list");
+  const [pq, setPq] = useState("");                                // panel place/film filter
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [mapReady, setMapReady] = useState(false);
+
   const mapEl = useRef<HTMLDivElement>(null);
+  const listEl = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const map = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ml = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const popup = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hoverPop = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const fcRef = useRef<any>({ type: "FeatureCollection", features: [] });
+  const rowsRef = useRef<Row[]>([]);
+  const activeRef = useRef<string | null>(null);
+  const didFit = useRef(false);
 
-  const effFilm = filmSlug ?? focus?.slug ?? undefined;   // the film currently framed
-  const globalMode = !effFilm || (!!filmSlug && scope === "all");
-  const effEndpoint = focus ? `/api/geo?film=${focus.slug}`
-    : filmSlug && scope === "all" ? "/api/geo"
-    : endpoint;
+  const globalish = !filmSlug || scope === "all";                  // panel shows many films
+  const dimSlug = focus?.slug ?? (filmSlug && scope === "all" ? filmSlug : null);
 
+  // ---------- data ----------
   useEffect(() => {
     let alive = true;
-    setRows(null);
-    (async () => { try { const r = await fetch(effEndpoint, { cache: "no-store" }); const j = await r.json(); if (alive) setRows(Array.isArray(j) ? j : []); } catch { if (alive) setRows([]); } })();
+    fetchGeo(endpoint).then((rs) => { if (alive) setPrimary(rs); });
     return () => { alive = false; };
-  }, [effEndpoint]);
+  }, [endpoint]);
+
+  useEffect(() => {
+    if (!(filmSlug && scope === "all")) return;
+    let alive = true;
+    fetchGeo("/api/geo").then((rs) => { if (alive) setWorld(rs); });
+    return () => { alive = false; };
+  }, [filmSlug, scope]);
+
+  useEffect(() => {
+    if (!focus) { setFocusRows(null); return; }
+    let alive = true;
+    fetchGeo(`/api/geo?film=${focus.slug}`).then((rs) => { if (alive) setFocusRows(rs); });
+    return () => { alive = false; };
+  }, [focus]);
+
+  const combined = useMemo(() => {
+    let base = primary ?? [];
+    if (filmSlug && scope === "all" && world) {
+      const ids = new Set(base.map((r) => r.id));
+      base = [...base, ...world.filter((r) => !ids.has(r.id))];
+    }
+    if (focus && focusRows) {
+      const ids = new Set(focusRows.map((r) => r.id));
+      base = [...base.filter((r) => !ids.has(r.id)), ...focusRows];
+    }
+    return base;
+  }, [primary, world, focusRows, focus, filmSlug, scope]);
+
+  const hasFilmed = useMemo(() => combined.some((r) => r.layer === "filmed"), [combined]);
+  const hasSetting = useMemo(() => combined.some((r) => (r.layer ?? "setting") === "setting"), [combined]);
+  const layerRows = useMemo(() => combined.filter((r) => lf === "all" || (r.layer ?? "setting") === lf), [combined, lf]);
 
   // film search typeahead
   useEffect(() => {
@@ -136,57 +231,62 @@ export default function FilmMap({
     return () => { alive = false; clearTimeout(t); };
   }, [q, search]);
 
-  const hasFilmed = useMemo(() => (rows ?? []).some((r) => r.layer === "filmed"), [rows]);
-  const hasSetting = useMemo(() => (rows ?? []).some((r) => (r.layer ?? "setting") === "setting"), [rows]);
-  const layerRows = useMemo(() => (rows ?? []).filter((r) => lf === "all" || (r.layer ?? "setting") === lf), [rows, lf]);
-  const isMine = (r: Row) => !!(filmSlug && (r.film_slug ?? filmSlug) === filmSlug);
-
-  const fcOf = (rs: Row[]) => ({
+  // ---------- map (created once) ----------
+  const fcOf = useCallback((rs: Row[]) => ({
     type: "FeatureCollection",
     features: rs.map((r) => ({
       type: "Feature", geometry: { type: "Point", coordinates: [r.lng, r.lat] },
       properties: {
-        id: r.id, name: r.name, href: hrefFor(r, effFilm) ?? "", layer: r.layer ?? "setting",
-        mine: filmSlug && scope === "all" ? (isMine(r) ? "1" : "") : "1",
+        id: r.id, name: r.name, href: hrefFor(r, filmSlug ?? focus?.slug ?? undefined) ?? "", layer: r.layer ?? "setting",
+        mine: dimSlug ? ((r.film_slug ?? filmSlug) === dimSlug ? "1" : "") : "1",
         role: roleOf(r).slice(0, 300), film: filmLabel(r),
         tier: r.tier ?? "", built: r.built_set ? "1" : "", host: r.set_host ?? "", src: (r.sources && r.sources[0]) || "",
       },
     })),
-  });
+  }), [dimSlug, filmSlug, focus]);
 
   useEffect(() => {
-    if (!rows || rows.length === 0 || !mapEl.current) return;
+    if (!mapEl.current) return;
     let alive = true;
-    loadMapLibre().then((ml) => {
-      if (!alive || !mapEl.current) return;
-      const m = new ml.Map({ container: mapEl.current, style: sat ? STYLE_SAT : STYLE_MAP, attributionControl: true });
+    loadMapLibre().then((mll) => {
+      if (!alive || !mapEl.current || map.current) return;
+      ml.current = mll;
+      const m = new mll.Map({
+        container: mapEl.current, style: STYLE_MAP, attributionControl: true,
+        center: [12, 25], zoom: 1.4,
+      });
       map.current = m;
-      m.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");
+      m.addControl(new mll.NavigationControl({ showCompass: false }), "top-right");
+      if (mll.FullscreenControl) m.addControl(new mll.FullscreenControl(), "top-right");
       m.on("error", () => {});
+      if (satelliteDefault) buildHybridStyle().then((st) => { try { if (alive) m.setStyle(st); } catch {} });
 
       const addPoints = () => {
         if (!m.getStyle() || m.getSource("pts")) return;
         try {
-          m.addSource("pts", { type: "geojson", data: fcOf(layerRows), cluster: true, clusterRadius: 44, clusterMaxZoom: 9 });
-          m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26] } });
+          m.addSource("pts", { type: "geojson", data: fcRef.current, cluster: true, clusterRadius: 44, clusterMaxZoom: 11 });
+          m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26], "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } });
+          m.addLayer({ id: "cluster-count", type: "symbol", source: "pts", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 11, "text-font": ["Montserrat Medium"], "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } });
           m.addLayer({
             id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]],
             paint: {
-              // every dot the same — setting vs filmed by colour, no dimming
               "circle-color": ["match", ["get", "layer"], "filmed", "#0F6E56", "#C8102E"],
-              "circle-radius": 7,
-              "circle-stroke-color": "#fff", "circle-stroke-width": 1.6,
+              "circle-radius": ["case", ["==", ["get", "id"], activeRef.current ?? ""], 10, ["==", ["get", "mine"], "1"], 7, 5.5],
+              "circle-opacity": ["case", ["==", ["get", "mine"], "1"], 1, 0.55],
+              "circle-stroke-color": "#fff",
+              "circle-stroke-width": ["case", ["==", ["get", "id"], activeRef.current ?? ""], 2.4, 1.6],
             },
           });
         } catch { /* style mid-swap */ }
       };
       const updateInView = () => {
-        try { const b = m.getBounds(); const w = b.getWest(), e = b.getEast(), s = b.getSouth(), n = b.getNorth();
-          setInView(new Set(rows.filter((r) => r.lat >= s && r.lat <= n && (e >= w ? (r.lng >= w && r.lng <= e) : (r.lng >= w || r.lng <= e))).map((r) => r.id))); } catch {}
+        try {
+          const b = m.getBounds(); const w = b.getWest(), e = b.getEast(), s = b.getSouth(), n = b.getNorth();
+          setInView(new Set(rowsRef.current.filter((r) => r.lat >= s && r.lat <= n && (e >= w ? (r.lng >= w && r.lng <= e) : (r.lng >= w || r.lng <= e))).map((r) => r.id)));
+        } catch {}
       };
-      const fit = () => { try { const b = new ml.LngLatBounds(); (filmSlug && scope === "all" ? rows.filter(isMine) : rows).forEach((r) => b.extend([r.lng, r.lat])); m.fitBounds(b, { padding: 56, maxZoom: 9, duration: 0 }); } catch {} };
 
-      m.on("load", () => { addPoints(); fit(); updateInView(); });
+      m.on("load", () => { addPoints(); updateInView(); setMapReady(true); });
       m.on("styledata", addPoints);
       m.on("moveend", updateInView);
 
@@ -196,14 +296,12 @@ export default function FilmMap({
         (m.getSource("pts") as any).getClusterExpansionZoom(f.properties.cluster_id, (_e: unknown, zoom: number) => m.easeTo({ center: f.geometry.coordinates, zoom: zoom ?? m.getZoom() + 2 }));
       });
 
-      // hover popup — no click needed
       m.on("mousemove", "pt", (ev: { features?: { properties: Record<string, string>; geometry: { coordinates: number[] } }[] }) => {
         const f = ev.features?.[0]; if (!f) return;
         m.getCanvas().style.cursor = "pointer";
-        const p = f.properties;
         hoverPop.current?.remove();
-        hoverPop.current = new ml.Popup({ closeButton: false, closeOnClick: false, offset: 14, maxWidth: "270px" })
-          .setLngLat(f.geometry.coordinates as number[]).setHTML(popupHTML(p, false)).addTo(m);
+        hoverPop.current = new mll.Popup({ closeButton: false, closeOnClick: false, offset: 14, maxWidth: "270px" })
+          .setLngLat(f.geometry.coordinates as number[]).setHTML(popupHTML(f.properties, false)).addTo(m);
       });
       m.on("mouseleave", "pt", () => { m.getCanvas().style.cursor = ""; hoverPop.current?.remove(); hoverPop.current = null; });
       m.on("mouseenter", "clusters", () => { m.getCanvas().style.cursor = "pointer"; });
@@ -212,35 +310,184 @@ export default function FilmMap({
       m.on("click", "pt", (ev: { features?: { properties: Record<string, string>; geometry: { coordinates: number[] } }[] }) => {
         const f = ev.features?.[0]; if (!f) return;
         setActive(f.properties.id);
-        const p = f.properties;
         hoverPop.current?.remove();
         popup.current?.remove();
-        popup.current = new ml.Popup({ closeButton: true, offset: 14, maxWidth: "300px" }).setLngLat(f.geometry.coordinates as number[]).setHTML(popupHTML(p, true)).addTo(m);
+        popup.current = new mll.Popup({ closeButton: true, offset: 14, maxWidth: "300px" }).setLngLat(f.geometry.coordinates as number[]).setHTML(popupHTML(f.properties, true)).addTo(m);
       });
     }).catch(() => {});
-    return () => { alive = false; try { map.current?.remove(); } catch {} map.current = null; };
+    return () => { alive = false; try { map.current?.remove(); } catch {} map.current = null; setMapReady(false); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rows]);
+  }, []);
 
-  useEffect(() => { const m = map.current; if (!m) return; try { const s = m.getSource("pts"); if (s) s.setData(fcOf(layerRows)); } catch {} /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [lf]);
-  useEffect(() => { const m = map.current; if (!m) return; try { m.setStyle(sat ? STYLE_SAT : STYLE_MAP); } catch {} }, [sat]);
+  // data → source (no map rebuild)
+  useEffect(() => {
+    rowsRef.current = layerRows;
+    fcRef.current = fcOf(layerRows);
+    const m = map.current; if (!m) return;
+    try { const s = m.getSource("pts"); if (s) s.setData(fcRef.current); } catch {}
+  }, [layerRows, fcOf]);
 
-  const flyTo = (r: Row) => { setActive(r.id); const m = map.current; if (!m) return; m.flyTo({ center: [r.lng, r.lat], zoom: Math.max(m.getZoom(), 11), duration: 700 }); };
+  // active pin emphasis
+  useEffect(() => {
+    activeRef.current = active;
+    const m = map.current; if (!m) return;
+    try {
+      m.setPaintProperty("pt", "circle-radius", ["case", ["==", ["get", "id"], active ?? ""], 10, ["==", ["get", "mine"], "1"], 7, 5.5]);
+      m.setPaintProperty("pt", "circle-stroke-width", ["case", ["==", ["get", "id"], active ?? ""], 2.4, 1.6]);
+    } catch {}
+  }, [active]);
 
-  if (rows && rows.length === 0 && filmSlug && scope === "film") return null; // film page with no locations
-  const shown = layerRows.filter((r) => !inView || inView.has(r.id));
+  // basemap toggle
+  useEffect(() => {
+    const m = map.current; if (!m) return;
+    if (sat) buildHybridStyle().then((st) => { try { m.setStyle(st); } catch {} });
+    else { try { m.setStyle(STYLE_MAP); } catch {} }
+  }, [sat]);
+
+  // ---------- camera ----------
+  const fitRows = useCallback((rs: Row[], maxZoom = 9) => {
+    const m = map.current, mll = ml.current; if (!m || !mll || rs.length === 0) return;
+    try {
+      const b = new mll.LngLatBounds();
+      rs.forEach((r) => b.extend([r.lng, r.lat]));
+      m.fitBounds(b, { padding: 64, maxZoom, duration: didFit.current ? 800 : 0 });
+    } catch {}
+  }, []);
+
+  // initial fit once both map and data are ready
+  useEffect(() => {
+    if (!mapReady || didFit.current || !primary || primary.length === 0) return;
+    fitRows(primary);
+    didFit.current = true;
+  }, [mapReady, primary, fitRows]);
+
+  const fitFilm = useCallback((slug: string) => {
+    const rs = rowsRef.current.filter((r) => (r.film_slug ?? filmSlug) === slug);
+    fitRows(rs.length ? rs : rowsRef.current, 11);
+  }, [fitRows, filmSlug]);
+
+  // focus (search / panel click) → frame that film; clearing → frame everything
+  const prevFocus = useRef<string | null>(null);
+  useEffect(() => {
+    if (!mapReady) return;
+    if (focus) fitFilm(focus.slug);
+    else if (prevFocus.current) fitRows(rowsRef.current);
+    prevFocus.current = focus?.slug ?? null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focus, focusRows, mapReady]);
+
+  // scope back to "film" → re-frame this film; to "all" → keep the camera where it is
+  const prevScope = useRef(scope);
+  useEffect(() => {
+    if (prevScope.current !== scope && scope === "film" && filmSlug) fitFilm(filmSlug);
+    prevScope.current = scope;
+  }, [scope, filmSlug, fitFilm]);
+
+  // ---------- panel actions ----------
+  const openDetail = useCallback((r: Row) => {
+    const m = map.current, mll = ml.current; if (!m || !mll) return;
+    const props: Record<string, string> = {
+      id: r.id, name: r.name, layer: r.layer ?? "setting", role: roleOf(r).slice(0, 300), film: filmLabel(r),
+      tier: r.tier ?? "", built: r.built_set ? "1" : "", host: r.set_host ?? "", src: (r.sources && r.sources[0]) || "",
+      href: hrefFor(r, filmSlug ?? focus?.slug ?? undefined) ?? "", poster: r.poster_path ?? "",
+    };
+    hoverPop.current?.remove();
+    popup.current?.remove();
+    popup.current = new mll.Popup({ closeButton: true, offset: 14, maxWidth: "300px" }).setLngLat([r.lng, r.lat]).setHTML(popupHTML(props, true)).addTo(m);
+  }, [filmSlug, focus]);
+
+  const flyTo = useCallback((r: Row) => {
+    setActive(r.id);
+    const m = map.current; if (!m) return;
+    m.flyTo({ center: [r.lng, r.lat], zoom: Math.max(m.getZoom(), 11), duration: 700 });
+    openDetail(r);
+  }, [openDetail]);
+
+  const focusFilm = useCallback((slug: string, title: string) => {
+    setFocus({ slug, title });
+    setExpanded((s) => new Set(s).add(slug));
+    setView("list");
+  }, []);
+
+  // pin click → reveal + scroll the matching panel row
+  useEffect(() => {
+    if (!active) return;
+    const r = combined.find((x) => x.id === active);
+    if (r?.film_slug) setExpanded((s) => (s.has(r.film_slug!) ? s : new Set(s).add(r.film_slug!)));
+    const t = setTimeout(() => {
+      listEl.current?.querySelector(`[data-id="${CSS.escape(active)}"]`)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }, 60);
+    return () => clearTimeout(t);
+  }, [active, combined]);
+
+  // ---------- panel data ----------
+  const pql = pq.trim().toLowerCase();
+  const matches = useCallback((r: Row) =>
+    !pql || r.name.toLowerCase().includes(pql) || (r.film_title ?? "").toLowerCase().includes(pql) || (r.country ?? "").toLowerCase().includes(pql), [pql]);
+
+  type Group = { slug: string; title: string; year: number | null; poster: string | null; rows: Row[]; inViewCount: number };
+  const groups = useMemo<Group[]>(() => {
+    if (!globalish) return [];
+    const by = new Map<string, Group>();
+    for (const r of layerRows) {
+      if (!matches(r)) continue;
+      const slug = r.film_slug ?? "—";
+      let g = by.get(slug);
+      if (!g) { g = { slug, title: r.film_title ?? r.name, year: r.film_year ?? null, poster: r.poster_path ?? null, rows: [], inViewCount: 0 }; by.set(slug, g); }
+      g.rows.push(r);
+      if (!inView || inView.has(r.id)) g.inViewCount++;
+    }
+    let gs = [...by.values()];
+    if (sort === "inview") gs = gs.filter((g) => g.inViewCount > 0).sort((a, b) => b.inViewCount - a.inViewCount);
+    else if (sort === "places") gs.sort((a, b) => b.rows.length - a.rows.length);
+    else if (sort === "az") gs.sort((a, b) => a.title.localeCompare(b.title));
+    else gs.sort((a, b) => (b.year ?? -1) - (a.year ?? -1));
+    const top = focus?.slug ?? filmSlug;
+    if (top) gs.sort((a, b) => (a.slug === top ? -1 : 0) - (b.slug === top ? -1 : 0));
+    return gs;
+  }, [globalish, layerRows, matches, inView, sort, focus, filmSlug]);
+
+  const flatRows = useMemo(() => {
+    if (globalish) return [];
+    let rs = layerRows.filter(matches);
+    if (sort === "inview" && inView) rs = rs.filter((r) => inView.has(r.id));
+    return rs;
+  }, [globalish, layerRows, matches, sort, inView]);
+
+  const filmCount = useMemo(() => new Set(layerRows.map((r) => r.film_slug ?? "—")).size, [layerRows]);
+  const loading = primary === null;
+  const worldLoading = !!(filmSlug && scope === "all" && world === null);
+
+  if (primary && primary.length === 0 && filmSlug && scope === "film") return null;
+
+  const placeRow = (r: Row, showFilm: boolean) => {
+    const href = hrefFor(r, filmSlug ?? focus?.slug ?? undefined);
+    const role = roleOf(r);
+    return (
+      <li key={r.id} data-id={r.id} className={`fmap-li${active === r.id ? " on" : ""}`} onClick={() => flyTo(r)}>
+        <span className={`fmap-dot ${r.layer === "filmed" ? "fmap-dot--f" : "fmap-dot--s"}`} />
+        <div className="fmap-li__tx">
+          <span className="fmap-li__ttl">{r.name}</span>
+          {showFilm && filmLabel(r) ? <span className="fmap-li__place">{filmLabel(r)}</span> : null}
+          {role ? <span className="fmap-li__role">{role}</span> : null}
+          {href ? <a className="fmap-li__open" href={href} onClick={(e) => e.stopPropagation()}>Read in the film →</a> : null}
+        </div>
+      </li>
+    );
+  };
 
   return (
     <div className="fmap">
+      <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+      <link rel="preconnect" href="https://unpkg.com" />
       <div className="fmap-head">
         {search ? (
           <div className="fmap-search">
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={focus ? "Search another film…" : "Search a film → show it on the map…"} />
-            {focus ? <span className="fmap-focus">Showing <b>{focus.title}</b><button onClick={() => { setFocus(null); setActive(null); }} aria-label="Show all films">✕</button></span> : null}
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={focus ? "Search another film…" : "Search a film → frame it on the map…"} />
             {sugs.length ? (
               <div className="fmap-sug">
                 {sugs.map((s) => (
-                  <button key={s.slug} type="button" className="fmap-sug__i" onClick={() => { setFocus({ slug: s.slug, title: s.title }); setQ(""); setSugs([]); }}>
+                  <button key={s.slug} type="button" className="fmap-sug__i" onClick={() => { focusFilm(s.slug, s.title); setQ(""); setSugs([]); }}>
                     {s.poster_path ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={`${IMG}${s.poster_path}`} alt="" /> : <span className="fmap-sug__e" />}
                     <span className="fmap-sug__t">{s.title} <i>({s.year ?? "?"}{s.director ? `, ${s.director}` : ""})</i></span>
                   </button>
@@ -249,46 +496,89 @@ export default function FilmMap({
             ) : null}
           </div>
         ) : (
-          <span className="fmap-hint">{rows ? `${shown.length} place${shown.length !== 1 ? "s" : ""} in view · drag / zoom to explore` : "Loading the map…"}</span>
+          <span className="fmap-hint">{loading ? "Loading the map…" : `${layerRows.length.toLocaleString()} place${layerRows.length !== 1 ? "s" : ""}${globalish ? ` · ${filmCount.toLocaleString()} films` : ""}`}</span>
         )}
         <div className="fmap-ctrls">
+          {focus ? <span className="fmap-focus">Framing <b>{focus.title}</b><button onClick={() => { setFocus(null); setActive(null); }} aria-label="Show all films">✕</button></span> : null}
           {filmSlug ? (
             <span className="fmap-seg">
               <button className={scope === "film" ? "on" : ""} onClick={() => setScope("film")}>This film</button>
-              <button className={scope === "all" ? "on" : ""} onClick={() => setScope("all")}>All films</button>
+              <button className={scope === "all" ? "on" : ""} onClick={() => setScope("all")}>+ All films{worldLoading ? "…" : ""}</button>
             </span>
           ) : null}
           {hasFilmed && hasSetting ? (
             <span className="fmap-seg">
               <button className={lf === "all" ? "on" : ""} onClick={() => setLf("all")}>All</button>
-              <button className={lf === "setting" ? "on" : ""} onClick={() => setLf("setting")}>Set in</button>
-              <button className={lf === "filmed" ? "on" : ""} onClick={() => setLf("filmed")}>Filmed at</button>
+              <button className={lf === "setting" ? "on" : ""} onClick={() => setLf("setting")}><i className="fmap-dot fmap-dot--s" />Set in</button>
+              <button className={lf === "filmed" ? "on" : ""} onClick={() => setLf("filmed")}><i className="fmap-dot fmap-dot--f" />Filmed at</button>
             </span>
           ) : null}
           <button type="button" className="fmap-sat" onClick={() => setSat((v) => !v)}>{sat ? "Map" : "Satellite"}</button>
         </div>
       </div>
-      <div className="fmap-body">
+      <div className={`fmap-body${panelSide === "left" ? " fmap-body--left" : ""}`}>
         <div className="fmap-canvas" ref={mapEl} style={{ height }} />
-        <ul className="fmap-list" style={{ maxHeight: height }}>
-          {shown.map((r) => {
-            const href = hrefFor(r, effFilm);
-            const role = roleOf(r);
-            const big = globalMode ? filmLabel(r) || r.name : r.name;
-            const small = globalMode ? r.name : filmLabel(r);
-            return (
-              <li key={r.id} className={`fmap-li${active === r.id ? " on" : ""}${filmSlug && scope === "all" && !isMine(r) ? " fmap-li--other" : ""}`} onClick={() => flyTo(r)}>
-                {r.poster_path ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="fmap-li__thumb" src={`${IMG}${r.poster_path}`} alt="" loading="lazy" /> : <span className="fmap-li__thumb fmap-li__thumb--e" />}
-                <div className="fmap-li__tx">
-                  <span className="fmap-li__ttl">{r.layer === "filmed" ? <span className="fmap-dot fmap-dot--f" /> : null}{big}</span>
-                  {small ? <span className="fmap-li__place">{small}</span> : null}
-                  {role ? <span className="fmap-li__role">{role}</span> : null}
-                  {href ? <a className="fmap-li__open" href={href} onClick={(e) => e.stopPropagation()}>{globalMode ? "Open the film →" : "Read in the film →"}</a> : null}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="fmap-side" ref={listEl} style={{ maxHeight: height }}>
+          <div className="fmap-tools">
+            <input className="fmap-filter" value={pq} onChange={(e) => setPq(e.target.value)} placeholder="Filter places…" aria-label="Filter places" />
+            <select className="fmap-sort" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
+              <option value="inview">In view</option>
+              <option value="places">Most places</option>
+              <option value="az">Title A–Z</option>
+              <option value="year">Newest</option>
+            </select>
+            {globalish ? (
+              <span className="fmap-seg fmap-view">
+                <button className={view === "list" ? "on" : ""} onClick={() => setView("list")} aria-label="List view">☰</button>
+                <button className={view === "grid" ? "on" : ""} onClick={() => setView("grid")} aria-label="Poster grid">▦</button>
+              </span>
+            ) : null}
+          </div>
+          {loading ? (
+            <div className="fmap-empty">Loading places…</div>
+          ) : globalish ? (
+            view === "grid" ? (
+              <div className="fmap-grid">
+                {groups.map((g) => (
+                  <button key={g.slug} type="button" className={`fmap-card${(focus?.slug ?? filmSlug) === g.slug ? " on" : ""}`} onClick={() => focusFilm(g.slug, g.title)} title={`${g.title} — ${g.rows.length} places`}>
+                    {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={`${IMG}${g.poster}`} alt={g.title} loading="lazy" /> : <span className="fmap-card__e">{g.title}</span>}
+                    <span className="fmap-badge">{g.rows.length}</span>
+                  </button>
+                ))}
+                {groups.length === 0 ? <div className="fmap-empty">No films here — move the map or clear the filter.</div> : null}
+              </div>
+            ) : (
+              <ul className="fmap-list">
+                {groups.map((g) => {
+                  const open = expanded.has(g.slug);
+                  const mine = (focus?.slug ?? filmSlug) === g.slug;
+                  return (
+                    <li key={g.slug} className={`fmap-grp${mine ? " fmap-grp--mine" : ""}`}>
+                      <button type="button" className="fmap-grp__hd" onClick={() => {
+                        setExpanded((s) => { const n = new Set(s); if (n.has(g.slug)) n.delete(g.slug); else n.add(g.slug); return n; });
+                        if (!open) fitFilm(g.slug);
+                      }}>
+                        {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="fmap-grp__thumb" src={`${IMG}${g.poster}`} alt="" loading="lazy" /> : <span className="fmap-grp__thumb fmap-grp__thumb--e" />}
+                        <span className="fmap-grp__tx">
+                          <span className="fmap-grp__ttl">{g.title}{g.year ? <i> ({g.year})</i> : null}</span>
+                          <span className="fmap-grp__meta">{g.rows.length} place{g.rows.length !== 1 ? "s" : ""}{sort === "inview" && g.inViewCount !== g.rows.length ? ` · ${g.inViewCount} in view` : ""}</span>
+                        </span>
+                        <span className={`fmap-grp__car${open ? " open" : ""}`}>›</span>
+                      </button>
+                      {open ? <ul className="fmap-list fmap-list--sub">{g.rows.map((r) => placeRow(r, false))}</ul> : null}
+                    </li>
+                  );
+                })}
+                {groups.length === 0 ? <li className="fmap-empty">No films here — move the map or clear the filter.</li> : null}
+              </ul>
+            )
+          ) : (
+            <ul className="fmap-list">
+              {flatRows.map((r) => placeRow(r, false))}
+              {flatRows.length === 0 ? <li className="fmap-empty">No places here — move the map or clear the filter.</li> : null}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );
