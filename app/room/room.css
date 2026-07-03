@@ -427,3 +427,91 @@
 .room-root .fh-locdot.filmed{background:#0F6E56}
 .room-root .fh-locdot.setting{background:var(--frontier)}
 .room-root .fh-locn{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ═══════════ v2 셸 (2026-07-03 데일리 루프 리뉴얼) — 온디맨드 인스펙터 · 워크스페이스 정돈 · 공용 행 ═══════════ */
+.room-root .mainpad{max-width:880px;margin:0 auto}
+/* 온디맨드 인스펙터 (슬라이드오버 · <900px 바텀시트) */
+.room-root .insp-overlay{position:fixed;inset:0;background:rgba(6,6,8,.55);z-index:80;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.room-root .insp-overlay.on{opacity:1;pointer-events:auto}
+.room-root .insp-panel{position:fixed;top:0;right:0;bottom:0;width:min(432px,94vw);background:var(--bg2);border-left:1px solid var(--line2);z-index:81;transform:translateX(103%);transition:transform .22s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(0,0,0,.45)}
+.room-root .insp-panel.on{transform:none}
+.room-root .insp-panel .col-scroll{flex:1}
+@media (max-width:900px){
+  .room-root .insp-panel{top:auto;left:0;right:0;bottom:0;width:100%;height:min(78vh,640px);border-left:none;border-top:1px solid var(--line2);border-radius:14px 14px 0 0;transform:translateY(103%)}
+  .room-root .insp-panel.on{transform:none}
+}
+/* v2 페이지 골격 — 숫자 예산·대활자 */
+.room-root .v2wrap{display:flex;flex-direction:column;gap:34px;padding:26px 22px 70px}
+.room-root .v2title{margin:0;font-family:var(--ser);font-size:22px;font-weight:600;color:var(--ink)}
+.room-root .v2sub{margin:4px 0 0;font-size:12.5px;color:var(--sub)}
+.room-root .v2h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.room-root .v2h h3{margin:0;font-family:var(--ser);font-size:16px;font-weight:600;color:var(--ink)}
+.room-root .v2h .all{margin-left:auto;font-size:11.5px;color:var(--sub);cursor:pointer;text-decoration:none}
+.room-root .v2h .all:hover{color:var(--ink)}
+/* 공용 필름 행 (홈·워치리스트 동일 판단 단위) */
+.room-root .frow{display:grid;grid-template-columns:44px minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:9px 10px;border:1px solid transparent;border-bottom:1px solid var(--line);cursor:pointer;border-radius:8px}
+.room-root .frow:hover{background:var(--pnl);border-color:var(--line2)}
+.room-root .frow .fpo{width:44px;height:64px;border-radius:4px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .frow .ft{font-family:var(--ser);font-size:15px;color:var(--ink);line-height:1.3}
+.room-root .frow .ft small{color:var(--sub);font-family:inherit;font-size:11.5px;margin-left:6px}
+.room-root .frow .fm{margin-top:4px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--sub);flex-wrap:wrap}
+.room-root .frow .fit{font-family:var(--mono);font-size:17px;color:#86b9ec;text-align:right}
+.room-root .frow .fit small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+.room-root .frow .fact{display:flex;gap:6px;opacity:0;transition:opacity .12s}
+.room-root .frow:hover .fact,.room-root .frow .fact:focus-within{opacity:1}
+.room-root .frow .fact .fb{width:30px;height:30px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:14px;cursor:pointer}
+.room-root .frow .fact .fb:hover{color:var(--ink);border-color:var(--line3)}
+.room-root .frow .fact .fb.done{color:var(--safe);border-color:#1d5145}
+.room-root .avdot{width:7px;height:7px;border-radius:50%;background:var(--avail);display:inline-block;flex:0 0 auto}
+/* 오늘의 한 편 */
+.room-root .today{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:16px;border:1px solid var(--line2);border-radius:12px;background:linear-gradient(160deg,#17171b,#101013)}
+.room-root .today .tpo{width:132px;height:192px;border-radius:8px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .today .tt{font-family:var(--ser);font-size:24px;color:var(--ink);line-height:1.25;margin:2px 0 4px}
+.room-root .today .tsub{font-size:12.5px;color:var(--sub)}
+.room-root .today .twhy{margin-top:9px;font-size:13px;color:var(--mut);line-height:1.55;font-family:var(--ser)}
+.room-root .today .tact{display:flex;gap:8px;margin-top:14px;max-width:420px}
+@media (max-width:640px){.room-root .today{grid-template-columns:96px minmax(0,1fr)}.room-root .today .tpo{width:96px;height:140px}.room-root .today .tt{font-size:19px}}
+/* 퀵 기록 바 */
+.room-root .qrate{position:relative}
+.room-root .qrate .qin{display:flex;align-items:center;gap:9px;background:var(--pnl);border:1px solid var(--line2);border-radius:10px;padding:11px 14px}
+.room-root .qrate .qin:focus-within{border-color:var(--line3)}
+.room-root .qrate input{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font-size:14.5px;min-width:0}
+.room-root .qdrop{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--bg2);border:1px solid var(--line2);border-radius:10px;z-index:40;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.room-root .qhit{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.room-root .qhit:last-child{border-bottom:none}
+.room-root .qhit .qpo{width:34px;height:48px;border-radius:3px;background:linear-gradient(145deg,#26262c,#151517) center/cover;flex:0 0 auto}
+.room-root .qhit .qt{flex:1;min-width:0;font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .qhit .qt small{color:var(--sub);margin-left:6px}
+/* 공용 별점 (v2 — rate.css 비의존, 반별점) */
+.room-root .v2stars{display:inline-flex;line-height:1}
+.room-root .v2stars .s{position:relative;display:inline-block;color:#3a3a40;padding:0 1px;user-select:none}
+.room-root .v2stars .s.lit{color:var(--canon)}
+.room-root .v2stars .s.hf::before{content:"★";position:absolute;left:1px;top:0;width:52%;overflow:hidden;color:var(--canon)}
+.room-root .v2stars .s .hz{position:absolute;inset:0;display:flex;cursor:pointer}
+.room-root .v2stars .s .hz i{flex:1}
+/* 최근 본 포스터 스트립 */
+.room-root .postrip{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+.room-root .postrip .pcard{flex:0 0 auto;width:86px;cursor:pointer}
+.room-root .postrip .ppo{width:86px;height:126px;border-radius:6px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .postrip .pcard:hover .ppo{border-color:var(--line3)}
+.room-root .postrip .pst{margin-top:4px;font-size:10.5px;color:var(--canon);font-family:var(--mono);text-align:center}
+/* 완파 임박 행 */
+.room-root .covrow2{display:grid;grid-template-columns:minmax(0,1fr) 130px auto;gap:12px;align-items:center;padding:10px;border-bottom:1px solid var(--line);cursor:pointer;border-radius:8px}
+.room-root .covrow2:hover{background:var(--pnl)}
+.room-root .covrow2 .cn{font-size:13.5px;color:var(--ink);font-family:var(--ser)}
+.room-root .covrow2 .cn small{display:block;font-family:var(--sans,inherit);font-size:10.5px;color:var(--sub);margin-top:2px}
+.room-root .covrow2 .track{height:6px;border-radius:4px;background:#1d1d22;overflow:hidden}
+.room-root .covrow2 .track i{display:block;height:100%;background:var(--canon)}
+.room-root .covrow2 .rem{font-family:var(--mono);font-size:12px;color:var(--canon);white-space:nowrap}
+/* 자산 한 줄 */
+.room-root .vline{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 16px;border:1px solid var(--line2);border-radius:10px;background:var(--pnl);cursor:pointer;font-size:13px;color:var(--mut)}
+.room-root .vline b{font-family:var(--mono);font-size:17px;color:var(--ink)}
+.room-root .vline .tier{color:var(--canon);letter-spacing:.08em;font-size:11px;font-weight:600}
+.room-root .vline:hover{border-color:var(--line3)}
+/* 공용 토스트 · 페이지네이션 */
+.room-root .v2toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:90;background:#1c1c20;border:1px solid #3a3a40;color:var(--ink);padding:9px 16px;border-radius:8px;font-size:12px;box-shadow:0 6px 22px rgba(0,0,0,.5)}
+.room-root .pgn{display:flex;align-items:center;gap:8px;justify-content:center;padding:14px 0}
+.room-root .pgn button{border:1px solid var(--line2);background:var(--pnl);color:var(--mut);border-radius:6px;padding:5px 12px;font-size:12px;cursor:pointer}
+.room-root .pgn button:hover{color:var(--ink)}
+.room-root .pgn button:disabled{opacity:.35;cursor:default}
+.room-root .pgn .pc{font-family:var(--mono);font-size:12px;color:var(--sub)}
