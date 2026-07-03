@@ -606,7 +606,7 @@ export default async function DirectorPage({ params }: Props) {
           <h2 className="dr-h2" style={{ marginTop: 18 }}>Credits</h2>
           {crewMatch && crewHref ? (
             <p style={{ fontSize: 16.5, lineHeight: 1.6, maxWidth: "68ch", margin: "6px 0 14px" }}>
-              {director} also signs other filmmakers&apos; work — {crewMatch.n} catalog film{crewMatch.n === 1 ? "" : "s"} as {crewRoles}.{" "}
+              {director} also signs the credits beyond directing — {crewMatch.n} catalog film{crewMatch.n === 1 ? "" : "s"} as {crewRoles}.{" "}
               <Link className="rcp-h" style={{ display: "inline" }} href={crewHref}>See the crew page →</Link>
             </p>
           ) : null}
