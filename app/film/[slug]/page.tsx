@@ -734,6 +734,27 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
+        {/* CURIOUS — the blog's question desk: titles only, reading happens on the Q&A page */}
+        {questions.length > 0 ? (
+          <section className="df-sec" id="df-curious">
+            <h2 className="df-h2">Curious</h2>
+            <p className="df-sub">The questions viewers keep asking about {film.title} — answered in full on <Link href="/blog/curious">Curious</Link>, the Metatake blog&apos;s question desk. Spoiler-heavy titles are masked.</p>
+            <div className="rcp-list">
+              {questions.map((q) => (
+                <div key={q.slug} className="rcp-row">
+                  <Link className="rcp-h" href={`/film/${film.slug}/q/${q.slug}`}>
+                    {(q.title_spoiler && q.display_title) ? q.display_title : q.title}
+                  </Link>
+                  <div className="rcp-m">
+                    {q.question_type ? q.question_type : "question"}
+                    {q.spoiler_level === "major" ? " · discusses the ending" : ""}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {/* WATCH NEXT — curated 9 next films (LLM, with the bridge), linked if in our DB */}
         {watchNext.length > 0 ? (
           <section className="df-sec" id="df-watchnext">
