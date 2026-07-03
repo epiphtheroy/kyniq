@@ -8,6 +8,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "@/app/credits/CreditsExplorer";
 import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { directorRepertory } from "@/lib/filmCrew";
+import { directorNative } from "@/lib/nativeName";
 import "@/app/credits/credits.css";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
@@ -164,7 +165,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  const title = `${data.director} — Films, Style & Where to Start`;
+  const native = await directorNative(data.director);
+  const title = `${data.director}${native ? ` (${native})` : ""} — Films, Style & Where to Start`;
   const bioProse = data.portrait?.body || (data.dir as { bio?: string | null } | null)?.bio || null;
   const description = bioProse
     ? metaDescription(bioProse)
@@ -185,6 +187,7 @@ export default async function DirectorPage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount } = data;
+  const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
   // /credits/[person] read page. Per-film crew is 24h-cached (shared cache).
@@ -197,6 +200,7 @@ export default async function DirectorPage({ params }: Props) {
 
   const jsonld = {
     "@context": "https://schema.org", "@type": "Person", name: director, jobTitle: "Film director",
+    ...(native ? { alternateName: native } : {}),
     ...(d?.profile_path ? { image: `${IMG}/w342${d.profile_path}` } : {}),
     ...(d?.birthday ? { birthDate: d.birthday } : {}),
     ...(d?.place_of_birth ? { birthPlace: d.place_of_birth } : {}),
@@ -256,7 +260,10 @@ export default async function DirectorPage({ params }: Props) {
           ) : (<div className="dr-photo dr-photo--empty" aria-hidden="true" />)}
           <div className="dr-txt">
             <div className="dr-role">Director</div>
-            <h1 className="dr-h1">{director}</h1>
+            <h1 className="dr-h1">
+              {director}
+              {native ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({native})</span> : null}
+            </h1>
             <Byline />
             {(bornLabel || d?.place_of_birth) && (
               <div className="dr-born">

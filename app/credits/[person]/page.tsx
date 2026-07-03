@@ -39,60 +39,8 @@ function parseId(slug: string): number | null {
 
 // Native-script alias — the name people in that language actually search.
 // One alias, shown once in the title/lead; the full list goes to JSON-LD only.
-// The alias shown in the title must be the script that person is actually
-// searched in — a Korean director with only a Cyrillic alias on TMDB should
-// show none (the full alias list still goes to JSON-LD alternateName). When
-// the birthplace names an expected script, only that script qualifies;
-// otherwise fall back to hangul-first, then any non-Latin alias.
-const HANGUL = /[가-힣]/;
-const CJK = /[㐀-䶿一-鿿]/;
-const KANA_CJK = /[぀-ヿ㐀-䶿一-鿿]/;
-const CYRILLIC = /[Ѐ-ӿ]/;
-const NON_LATIN = /[Ѐ-ӿ֐-׿؀-ۿऀ-ॿ฀-๿぀-ヿ㐀-䶿一-鿿가-힯]/;
-function expectedScript(place: string | null | undefined): RegExp | null {
-  if (!place) return null;
-  const p = place.toLowerCase();
-  if (p.includes("korea")) return HANGUL;
-  if (p.includes("japan")) return KANA_CJK;
-  if (/china|taiwan|hong kong/.test(p)) return CJK;
-  if (/russia|ukraine|belarus|kazakh|soviet|ussr/.test(p)) return CYRILLIC;
-  return null;
-}
-function nativeAlias(p: TmdbPerson): string | null {
-  const aliases = (p.also_known_as ?? []).map((a) => a.trim()).filter((a) => a && a !== p.name);
-  const expected = expectedScript(p.place_of_birth);
-  if (expected) return aliases.find((a) => expected.test(a)) ?? null;
-  return aliases.find((a) => HANGUL.test(a)) ?? aliases.find((a) => NON_LATIN.test(a)) ?? null;
-}
-
-// TMDB's alias coverage is spotty (e.g. Hong Kyung-pyo has hanja but no
-// hangul; Bong Joon Ho has neither). When the birthplace tells us which
-// script to expect and TMDB lacks it, ask Wikidata for the native label
-// (P4985 = TMDB person ID). Cached a week; fails soft to null.
-function expectedLang(place: string | null | undefined): string | null {
-  if (!place) return null;
-  const p = place.toLowerCase();
-  if (p.includes("korea")) return "ko";
-  if (p.includes("japan")) return "ja";
-  if (/china|taiwan|hong kong/.test(p)) return "zh";
-  if (/russia|ukraine|belarus|kazakh|soviet|ussr/.test(p)) return "ru";
-  return null;
-}
-async function wikidataNative(tmdbId: number, lang: string): Promise<string | null> {
-  try {
-    const q = `SELECT ?l WHERE { ?item wdt:P4985 "${tmdbId}" . ?item rdfs:label ?l . FILTER(LANG(?l)="${lang}") } LIMIT 1`;
-    const r = await fetch(`https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(q)}`, {
-      headers: { "User-Agent": "Metatake/1.0 (wonwoo@metatake.net)", accept: "application/json" },
-      next: { revalidate: 604800 },
-    });
-    if (!r.ok) return null;
-    const d = (await r.json()) as { results?: { bindings?: { l?: { value?: string } }[] } };
-    const v = d.results?.bindings?.[0]?.l?.value?.trim() ?? null;
-    return v && NON_LATIN.test(v) ? v : null;
-  } catch {
-    return null;
-  }
-}
+// Native-name resolution (TMDB alias by expected script → Wikidata label
+// fallback) lives in lib/nativeName.
 
 async function tmdbPerson(id: number): Promise<TmdbPerson | null> {
   const token = process.env.TMDB_READ_TOKEN;
