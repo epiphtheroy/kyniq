@@ -239,7 +239,7 @@ export default function FilmMap({
       properties: {
         id: r.id, name: r.name, href: hrefFor(r, filmSlug ?? focus?.slug ?? undefined) ?? "", layer: r.layer ?? "setting",
         mine: dimSlug ? ((r.film_slug ?? filmSlug) === dimSlug ? "1" : "") : "1",
-        role: roleOf(r).slice(0, 300), film: filmLabel(r),
+        role: roleOf(r).slice(0, 300), film: filmLabel(r), poster: r.poster_path ?? "",
         tier: r.tier ?? "", built: r.built_set ? "1" : "", host: r.set_host ?? "", src: (r.sources && r.sources[0]) || "",
       },
     })),
@@ -266,7 +266,8 @@ export default function FilmMap({
         try {
           m.addSource("pts", { type: "geojson", data: fcRef.current, cluster: true, clusterRadius: 44, clusterMaxZoom: 11 });
           m.addLayer({ id: "clusters", type: "circle", source: "pts", filter: ["has", "point_count"], paint: { "circle-color": "#C8102E", "circle-opacity": 0.85, "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 26], "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } });
-          m.addLayer({ id: "cluster-count", type: "symbol", source: "pts", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 11, "text-font": ["Montserrat Medium"], "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } });
+          // count labels need glyphs — may be absent in the raster fallback style, so keep separate
+          try { m.addLayer({ id: "cluster-count", type: "symbol", source: "pts", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 11, "text-font": ["Montserrat Medium"], "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } }); } catch {}
           m.addLayer({
             id: "pt", type: "circle", source: "pts", filter: ["!", ["has", "point_count"]],
             paint: {
