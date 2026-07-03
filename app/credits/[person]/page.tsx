@@ -36,13 +36,29 @@ function parseId(slug: string): number | null {
 
 // Native-script alias — the name people in that language actually search.
 // One alias, shown once in the title/lead; the full list goes to JSON-LD only.
-// Preference: Hangul first (Koreans are searched in hangul; TMDB often lists
-// hanja earlier), else the first non-Latin alias in TMDB's order (kanji stage
-// names, Cyrillic, Arabic, …) — kana is deliberately not preferred over kanji.
+// The alias shown in the title must be the script that person is actually
+// searched in — a Korean director with only a Cyrillic alias on TMDB should
+// show none (the full alias list still goes to JSON-LD alternateName). When
+// the birthplace names an expected script, only that script qualifies;
+// otherwise fall back to hangul-first, then any non-Latin alias.
 const HANGUL = /[가-힣]/;
+const CJK = /[㐀-䶿一-鿿]/;
+const KANA_CJK = /[぀-ヿ㐀-䶿一-鿿]/;
+const CYRILLIC = /[Ѐ-ӿ]/;
 const NON_LATIN = /[Ѐ-ӿ֐-׿؀-ۿऀ-ॿ฀-๿぀-ヿ㐀-䶿一-鿿가-힯]/;
+function expectedScript(place: string | null | undefined): RegExp | null {
+  if (!place) return null;
+  const p = place.toLowerCase();
+  if (p.includes("korea")) return HANGUL;
+  if (p.includes("japan")) return KANA_CJK;
+  if (/china|taiwan|hong kong/.test(p)) return CJK;
+  if (/russia|ukraine|belarus|kazakh|soviet|ussr/.test(p)) return CYRILLIC;
+  return null;
+}
 function nativeAlias(p: TmdbPerson): string | null {
   const aliases = (p.also_known_as ?? []).map((a) => a.trim()).filter((a) => a && a !== p.name);
+  const expected = expectedScript(p.place_of_birth);
+  if (expected) return aliases.find((a) => expected.test(a)) ?? null;
   return aliases.find((a) => HANGUL.test(a)) ?? aliases.find((a) => NON_LATIN.test(a)) ?? null;
 }
 
