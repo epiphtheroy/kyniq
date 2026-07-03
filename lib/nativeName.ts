@@ -35,10 +35,13 @@ export function expectedLang(place: string | null | undefined): string | null {
 }
 
 export function pickNativeAlias(name: string, aliases: string[] | null | undefined, place: string | null | undefined): string | null {
-  const list = (aliases ?? []).map((a) => a.trim()).filter((a) => a && a !== name);
+  // Only when the birthplace names a non-Latin script. Without that anchor,
+  // non-Latin aliases on TMDB are usually foreign-market transliterations
+  // (e.g. "미카엘 하네케" on Michael Haneke) — not native names.
   const expected = expectedScript(place);
-  if (expected) return list.find((a) => expected.test(a)) ?? null;
-  return list.find((a) => HANGUL.test(a)) ?? list.find((a) => NON_LATIN.test(a)) ?? null;
+  if (!expected) return null;
+  const list = (aliases ?? []).map((a) => a.trim()).filter((a) => a && a !== name);
+  return list.find((a) => expected.test(a)) ?? null;
 }
 
 export async function wikidataNativeByTmdb(tmdbId: number, lang: string): Promise<string | null> {
