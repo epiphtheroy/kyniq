@@ -74,7 +74,9 @@ type WatchCountry = { link?: string; flatrate?: WatchProv[]; rent?: WatchProv[];
 type Watch = { results: Record<string, WatchCountry>; countries: string[] };
 type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 type QRow = { slug: string; title: string; display_title: string | null; title_spoiler: boolean | null; spoiler_level: string | null; question_type: string | null };
-const WW_TITLE: Record<string, string> = { auteur_vision: "AUTEUR_VISION", aesthetic_innovation: "AESTHETIC_INNOVATION", technical_mastery: "TECHNICAL_MASTERY", philosophical_inquiry: "PHILOSOPHICAL_INQUIRY", cinematic_lineage: "CINEMATIC_LINEAGE", spatial_aesthetics: "SPATIAL_AESTHETICS", critical_reception: "CRITICAL_RECEPTION", context_discourse: "CONTEXT_&_DISCOURSE" };
+// Human phrasing — the CSS uppercases these anyway; the raw system keys
+// ("AUTEUR_VISION") used to leak into the page and read as machine output.
+const WW_TITLE: Record<string, string> = { auteur_vision: "The auteur's vision", aesthetic_innovation: "Aesthetic innovation", technical_mastery: "Technical mastery", philosophical_inquiry: "Philosophical inquiry", cinematic_lineage: "Cinematic lineage", spatial_aesthetics: "Space & place", critical_reception: "Critical reception", context_discourse: "Context & discourse" };
 
 async function loadUncached(slug: string) {
   const supabase = db();
@@ -540,7 +542,7 @@ export default async function FilmPage({ params }: Props) {
             <div className="ww-grid">
               {whyWatch.map((L, i) => (
                 <div key={i} className="ww-lens">
-                  <div className="ww-h">{WW_TITLE[L.key] ?? L.key}</div>
+                  <h3 className="ww-h">{WW_TITLE[L.key] ?? L.key.replace(/_/g, " ").toLowerCase()}</h3>
                   <ul className="ww-pts">
                     {(L.points ?? []).map((p, j) => <li key={j}>{p.label ? <b className="ww-lab">{p.label}</b> : null}{p.label ? " — " : ""}{p.text}</li>)}
                   </ul>
@@ -591,7 +593,7 @@ export default async function FilmPage({ params }: Props) {
                         <SaveChip entityType="take" entityRef={m.id} />
                       </div>
                       {m.take_title ? (
-                        <div className="sm-row__title">{href ? <Link href={href}>{m.take_title}</Link> : m.take_title}</div>
+                        <h3 className="sm-row__title">{href ? <Link href={href}>{m.take_title}</Link> : m.take_title}</h3>
                       ) : null}
                       {m.thesis ? <p className="sm-row__thesis sm-row__thesis--full">{m.thesis}</p> : null}
                       {m.leap ? <p className="sm-row__leap"><span className="sm-leap__l">The leap</span> {m.leap}</p> : null}
