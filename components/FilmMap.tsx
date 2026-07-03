@@ -145,8 +145,9 @@ function popupHTML(p: Record<string, string>, detailed: boolean): string {
 export default function FilmMap({
   endpoint, height = 460, filmSlug, search = false, satelliteDefault = false, panelSide = "right",
 }: { endpoint: string; height?: number; filmSlug?: string; search?: boolean; satelliteDefault?: boolean; panelSide?: "left" | "right" }) {
-  const [primary, setPrimary] = useState<Row[] | null>(null);      // rows from `endpoint`
-  const [world, setWorld] = useState<Row[] | null>(null);          // all-films rows (film page, scope=all)
+  const [primary, setPrimary] = useState<Row[] | null>(null);      // rows from `endpoint` (film/director pages)
+  const [worldBase, setWorldBase] = useState<Row[] | null>(null);  // overview: one pin per film
+  const [worldVer, setWorldVer] = useState(0);                     // bumped when viewport detail arrives
   const [focusRows, setFocusRows] = useState<Row[] | null>(null);  // richer rows for a searched/clicked film
   const [sat, setSat] = useState(satelliteDefault);
   const [active, setActive] = useState<string | null>(null);
@@ -177,23 +178,64 @@ export default function FilmMap({
   const rowsRef = useRef<Row[]>([]);
   const activeRef = useRef<string | null>(null);
   const didFit = useRef(false);
+  const worldExtra = useRef<globalThis.Map<string, Row>>(new globalThis.Map());
+  const worldBaseIds = useRef<Set<string>>(new Set());
+  const worldOnRef = useRef(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const bboxTimer = useRef<any>(null);
 
   const globalish = !filmSlug || scope === "all";                  // panel shows many films
   const dimSlug = focus?.slug ?? (filmSlug && scope === "all" ? filmSlug : null);
+  const worldMode = !filmSlug && !endpoint.includes("?");          // the standalone Atlas
+  const worldOn = worldMode || (!!filmSlug && scope === "all");    // world layer wanted
+  worldOnRef.current = worldOn;
 
   // ---------- data ----------
   useEffect(() => {
+    if (worldMode) return; // atlas loads via overview + viewport instead
     let alive = true;
     fetchGeo(endpoint).then((rs) => { if (alive) setPrimary(rs); });
     return () => { alive = false; };
-  }, [endpoint]);
+  }, [endpoint, worldMode]);
 
   useEffect(() => {
-    if (!(filmSlug && scope === "all")) return;
+    if (!worldOn) return;
     let alive = true;
-    fetchGeo("/api/geo").then((rs) => { if (alive) setWorld(rs); });
+    fetchGeo("/api/geo?mode=overview").then((rs) => { if (alive) setWorldBase(rs); });
     return () => { alive = false; };
-  }, [filmSlug, scope]);
+  }, [worldOn]);
+
+  useEffect(() => { worldBaseIds.current = new Set((worldBase ?? []).map((r) => r.id)); }, [worldBase]);
+
+  const mergeWorld = useCallback((rs: Row[]) => {
+    let added = 0;
+    for (const r of rs) {
+      if (!worldBaseIds.current.has(r.id) && !worldExtra.current.has(r.id)) { worldExtra.current.set(r.id, r); added++; }
+    }
+    if (added) setWorldVer((v) => v + 1);
+  }, []);
+
+  // viewport detail: after the camera settles, pull every pin inside the (snapped) bbox
+  const requestBbox = useCallback(() => {
+    if (!worldOnRef.current) return;
+    const m = map.current; if (!m) return;
+    clearTimeout(bboxTimer.current);
+    bboxTimer.current = setTimeout(() => {
+      try {
+        const mm = map.current; if (!mm || !worldOnRef.current) return;
+        const z = mm.getZoom(); if (z < 3) return; // world view = overview pins only
+        const step = z >= 9 ? 0.25 : z >= 6.5 ? 1 : 4; // snap → repeatable URLs → CDN/browser cache hits
+        const b = mm.getBounds();
+        const w = Math.floor(b.getWest() / step) * step;
+        const e = Math.ceil(b.getEast() / step) * step;
+        const s = Math.max(-85, Math.floor(b.getSouth() / step) * step);
+        const n = Math.min(85, Math.ceil(b.getNorth() / step) * step);
+        fetchGeo(`/api/geo?bbox=${w},${s},${e},${n}`).then(mergeWorld);
+      } catch {}
+    }, 350);
+  }, [mergeWorld]);
+
+  useEffect(() => { if (worldOn) requestBbox(); }, [worldOn, requestBbox]);
 
   useEffect(() => {
     if (!focus) { setFocusRows(null); return; }
@@ -202,18 +244,27 @@ export default function FilmMap({
     return () => { alive = false; };
   }, [focus]);
 
+  const worldAll = useMemo(() => {
+    if (!worldOn || !worldBase) return null;
+    const m = new globalThis.Map<string, Row>();
+    worldBase.forEach((r) => m.set(r.id, r));
+    worldExtra.current.forEach((r, id) => { if (!m.has(id)) m.set(id, r); });
+    return [...m.values()];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [worldOn, worldBase, worldVer]);
+
   const combined = useMemo(() => {
     let base = primary ?? [];
-    if (filmSlug && scope === "all" && world) {
+    if (worldAll) {
       const ids = new Set(base.map((r) => r.id));
-      base = [...base, ...world.filter((r) => !ids.has(r.id))];
+      base = [...base, ...worldAll.filter((r) => !ids.has(r.id))];
     }
     if (focus && focusRows) {
       const ids = new Set(focusRows.map((r) => r.id));
       base = [...base.filter((r) => !ids.has(r.id)), ...focusRows];
     }
     return base;
-  }, [primary, world, focusRows, focus, filmSlug, scope]);
+  }, [primary, worldAll, focusRows, focus]);
 
   const hasFilmed = useMemo(() => combined.some((r) => r.layer === "filmed"), [combined]);
   const hasSetting = useMemo(() => combined.some((r) => (r.layer ?? "setting") === "setting"), [combined]);
