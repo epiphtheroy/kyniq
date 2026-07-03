@@ -48,7 +48,7 @@ async function api(path: string, params?: Record<string, string>): Promise<unkno
 }
 
 /* ---------- film nav ---------- */
-interface FilmMeta { id: number; title: string; year: string; poster: string | null; backdrop: string | null; }
+interface FilmMeta { id: number; title: string; year: string; poster: string | null; backdrop: string | null; director: string | null; }
 interface Tab { craft: CraftKey; people: CrewEntry[]; }
 interface NavState { film: FilmMeta; tabs: Tab[]; active: CraftKey; }
 
@@ -62,8 +62,9 @@ async function loadFilmNav(fid: number): Promise<{ film: FilmMeta; tabs: Tab[] }
   };
   const credits = d.credits || {};
   primeCredits(fid, credits);
+  const director = (credits.crew || []).find((c) => c.job === "Director")?.name ?? null;
   const out = {
-    film: { id: fid, title: d.title, year: (d.release_date || "").slice(0, 4), poster: d.poster_path, backdrop: d.backdrop_path },
+    film: { id: fid, title: d.title, year: (d.release_date || "").slice(0, 4), poster: d.poster_path, backdrop: d.backdrop_path, director },
     tabs: buildTabs(credits.crew || []),
   };
   filmNavCache.set(fid, out);
@@ -379,6 +380,13 @@ function SearchBox({ onPick, onPickPerson }: { onPick: (id: number) => void; onP
 function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid: number) => void }) {
   const f = nav.film;
   const links = useMetaLinks(`film=${f.id}`);
+  // Film not in the catalog (or missing a director slug)? The director may
+  // still have a Metatake page — resolve by the name TMDB's credits carry.
+  const dirFallback = useMetaLinks(
+    links && !links.directorSlug && f.director ? `person=${encodeURIComponent(f.director)}` : null,
+  );
+  const directorSlug = links?.directorSlug ?? dirFallback?.directorSlug ?? null;
+  const directorName = links?.directorName ?? dirFallback?.directorName ?? f.director;
   return (
     <div className="cr-filmnav">
       <div className="cr-fhead">
@@ -386,10 +394,10 @@ function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid:
         <div>
           <h2 className="cr-ftitle">{f.title} <span className="cr-dim">{f.year}</span></h2>
           <div className="cr-fsub">Whose film was it, for you? Follow that credit.</div>
-          {links?.filmSlug || links?.directorSlug ? (
+          {links?.filmSlug || directorSlug ? (
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 6, fontSize: 13.5 }}>
-              {links.filmSlug ? <a href={`/film/${links.filmSlug}`} style={{ fontWeight: 600 }}>Read {f.title} on Metatake →</a> : null}
-              {links.directorSlug ? <a href={`/director/${links.directorSlug}`} style={{ fontWeight: 600 }}>Director: {links.directorName} →</a> : null}
+              {links?.filmSlug ? <a href={`/film/${links.filmSlug}`} style={{ fontWeight: 600 }}>Read {f.title} on Metatake →</a> : null}
+              {directorSlug ? <a href={`/director/${directorSlug}`} style={{ fontWeight: 600 }}>Director: {directorName} →</a> : null}
             </div>
           ) : null}
         </div>
