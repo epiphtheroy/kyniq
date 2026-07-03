@@ -41,6 +41,12 @@ See `RUNBOOK-new-film-ingestion.md` §6 for the design.
 - 🟢 **Personalization portfolio `/me`** (Bloomberg-style film-asset terminal) — `docs/PLAN-personalization-portfolio.md`. *(Large.)*
 - 🟢 **Lineage (계보) tag layer** — canon/awards/festivals; self-contained spec in `handoff/`. *(Large; separate sub-project.)*
 - 🟢 **takes HNSW** speed refinement (roadmap R1). *(Low.)*
+- **`/me/import` 후속 (기능 자체는 SHIPPED 2026-07-03 — `docs/HANDOFF-IMPORT.md`):**
+  - 🔴 **마감 확인**: 로그인 브라우저에서 위저드 클릭스루(§7 A~F) + 커밋 후 DB 무손실 검증. 서버사이드는 전부 검증 완료. *(Small — 사용자 로그인 필요.)*
+  - 🟢 임포트 이력 화면 (`user_import_jobs` 목록). *(Small.)*
+  - 🟢 실행 취소 — `import_job_id` 단위 `user_watch_log` 삭제 + `user_movies` 재집계. *(Medium.)*
+  - 🟢 `/u/[username]` 공개 프로필에 관람 이력 반영. *(Small.)*
+  - 🟢 왓챠 공식 CSV 백업 포맷 대응 강화. *(Small.)*
 
 ## F. Doc hygiene (needs your OK — destructive)
 ~150 .md files; the model migrated (meta-take/register/frames → Strong-Misreadings/trope/catalog), so many docs teach the *wrong* model.

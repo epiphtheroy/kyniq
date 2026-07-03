@@ -60,6 +60,18 @@ Test data seeded on thinkartist1@gmail.com: 21 watched (rated) + 5 watchlist.
   of Joan of Arc WWI 64 (TS 84), Third Man, Chinatown, Barry Lyndon, Citizen Kane — all High confidence.
   The pure-taste rail remains as a cold-start fallback.
 
+## Shipped — Slice 6: WWI λ dial · Value×Popularity 2×2 (2026-07-01)
+- **WWI λ dial** — `WWIRail` is now a client component with a **risk-appetite (λ) slider**.
+  It recomputes Utility = (Value − λ·Risk)/100, then WWI = Confidence·(0.45·U + 0.35·Taste +
+  0.20·Standing), and re-sorts the top 12 live from a 48-film λ-neutral pool (`me_recommend_wwi`
+  now orders the pool by confidence·(taste+standing+best-case value) so the dial has room).
+  Low λ = adventurous (bold high-value), high λ = cautious (low-risk rises). TS chip updates too.
+- **Value × Popularity 2×2** — eval card gains a divergence plot: our durable **Value** (y) vs the
+  crowd's **attention** (x = normalized log IMDb votes; `cinecodex_for` now returns `votes`). Four
+  quadrants (Hidden gem / Consensus classic / Popular·lighter / Minor) with the film's dot and a
+  one-line verdict. "The gap is the point" — never blended into the score.
+  (Slices 5–6 deployed via auto-deploy.)
+
 ## Next slices (not yet built)
 2. **Portfolio quality panel** (watched films): median TS, your value/risk lean,
    best & riskiest seen, **value gap** (your ★ vs our Value = 가치뱃지), a NAV-lite headline.

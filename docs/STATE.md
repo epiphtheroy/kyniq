@@ -98,9 +98,9 @@ Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app
 
 ### Search / Ask / account / static
 - `/search` (`search_site`), `/ask`,`/ask/new`,`/chat`,`/rag` → `/api/ask`,`/api/ask/v2`,`/api/rag` (`ask_retrieve`,`magazine_retrieve`).
-- **Account:** `/me` (personalization dashboard — pins + `user_movies` + TakeScore portfolio), `/u/[username]` (public portfolio, `public_portfolio(_meta)`), `/settings`,`/login`,`/signup`,`/reset`,`/auth/*`.
+- **Account:** `/me` (personalization dashboard — pins + `user_movies` + TakeScore portfolio; 상단 📥 가져오기 버튼), **`/me/import`** (관람기록 통합 임포트 위저드 — Letterboxd ZIP/IMDb CSV/엑셀/왓챠/텍스트 붙여넣기 자동감지 → TMDB 매칭 검수 → 무손실 저장; `docs/HANDOFF-IMPORT.md`), `/u/[username]` (public portfolio, `public_portfolio(_meta)`), `/settings`,`/login`,`/signup`,`/reset`,`/auth/*`.
 - **Static:** `/about`,`/methodology`,`/credits`,`/contact`,`/privacy`,`/terms`,`/guidelines`,`/blog[/slug]`,`/blog/subscribe`. **Admin:** `/admin/*`,`/editor`. **Legacy mounted:** `/meta-takes`,`/take/[slug]`,`/frames`,`/frame/[slug]`,`/movies-like/[slug]`.
-- **API (new):** `/api/geo`,`/api/map(/search)`,`/api/surprise(/home|/set)`,`/api/tmdb-search`,`/api/track`,`/api/films/search`,`/api/films/backfill`,`/api/readings(/featured|/suggest)`,`/api/account/delete`,`/api/revalidate`,`/api/feed`,`/api/credits`. Plus `/llms.txt`, IndexNow.
+- **API (new):** `/api/geo`,`/api/map(/search)`,`/api/surprise(/home|/set)`,`/api/tmdb-search`,`/api/track`,**`/api/import/parse|match|commit`** (임포트 파이프라인, SSR 세션 필수·쓰기는 service role),`/api/films/search`,`/api/films/backfill`,`/api/readings(/featured|/suggest)`,`/api/account/delete`,`/api/revalidate`,`/api/feed`,`/api/credits`. Plus `/llms.txt`, IndexNow.
 
 ---
 
@@ -111,7 +111,7 @@ Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app
 - **takes** (`id`, figure_id, meta_take_id, **framework**, register, rationale, theorist, embedding, status) — HNSW index.
 - **meta_takes** (`id`, slug, title/laconic/thesis/essay, embedding, **kind** [figure_type=trope | reading=legacy], status, merged_into) + `figure_type_members`, `meta_take_rankings`, `meta_take_edges`, `slug_history`.
 - **Objective axes:** `cinecodex.scores`/`cinecodex_confidence` (V/C/R/U/S + 13 subs, isolated schema, DEFINER RPCs `cinecodex_*`); `film_scores` (정전가 prestige/discovery); `film_taste_vector` (personal taste embedding).
-- **Personalization:** `user_movies` (watched/watchlist/rating), `user_pins` (follow/like), `profiles` (+ `portfolio_public`); ~20 `me_*` DEFINER RPCs scoped by `auth.uid()`.
+- **Personalization:** `user_movies` (watched/watchlist/rating — 영화당 1행 "현재 상태"), `user_pins` (follow/like), `profiles` (+ `portfolio_public`); ~20 `me_*` DEFINER RPCs scoped by `auth.uid()`. **Import (2026-07-03):** `user_watch_log` (관람 1회=1행, 재관람 포함 무손실 로그, `raw` jsonb에 원본 보존) + `user_import_jobs` (임포트 1회=1행, stats 누적) — 둘 다 RLS 본인 select만, 쓰기는 API의 service role 경유 (마이그레이션 `watch_history_import`).
 - **Geo:** `film_locations` (lat/lng/layer filmed|setting/precision), `geo_cache`, `geo_progress`/`geo_filmed_progress`. RPCs `film_geo`/`director_geo`/`geo_overview`/`me_geo_coverage`. (RLS on `film_locations`/`geo_cache` = enabled, **0 policies** → DEFINER-RPC-only access.)
 - **Lineage/Movements:** `lineage_lists`/`film_lineage`/`lineage_editions`/`lineage_sources`; movements via `film_movements`/`movements_index`.
 - **Theory:** `theory_canon`/`theorists`/`theory_families`/`canon_theorist`/`sm_concepts`.
@@ -134,8 +134,10 @@ Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app
 - **Geographic Atlas** — `/atlas`, film/director Atlas tabs, filmed+setting layers (9,731 pins).
 - **Lineage(계보)** — `/lineage`. **Movements** — `/movements`.
 - Discovery: The Map (`/map` + embedded) · Home v7 Surprise-me · Newsletter/editions · sticky nav. Watchlists P1+2 (lazy TMDB import, Tier-2). Ask/RAG · search · blog · mobile-first · IndexNow.
+- **관람기록 통합 임포트 `/me/import` (2026-07-03)** — 파일(Letterboxd ZIP·IMDb CSV·XLSX·왓챠)/텍스트 붙여넣기 자동감지 → 규칙 파서(+Gemini 폴백) → TMDB 매칭 검수 위저드 → `user_watch_log`(무손실)+`user_movies`(집계) 저장. 파서 셀프테스트 `scripts/import-selftest.ts` 26/26. 상세: `docs/HANDOFF-IMPORT.md`(진행상황 포함) + `docs/IMPORT-watch-history-design.md`(설계).
 
 **Pending (see BACKLOG + `docs/ux/ROOM-LOGIC-AUDIT.md`):**
 - **/room reinforcement — P0+P1 DONE (2026-07-03):** `me_coverage`⑦/`me_blindspots`④ shipped+wired; write-actions (담기/봤어요/관심없음/서재 공개토글·즐겨찾기/노트 save_take+sanitize) all real mutations; conquer/gap WWI reasons real-tagged; ticker/system card de-hardcoded (`me_system_status`); `nav_snapshots`+`me_nav_history` asset curve live; `/u/me` 302 fixed; **pair 실구현** (`pair_matches` default-deny + `me_today_pair`/`me_pair_reveal`/`me_pair_history`, 부분노출 RPC 강제); `/api/geo` param whitelist+rate-limit; Atlas continent map DB화 (`country_continents` 156국 + `me_geo_coverage` v2) + dot dedup; 기존 room RPC 18종 스냅샷 역커밋. Migrations `0027–0033`. **Remaining:** cinecodex DDL 역커밋, P3 (per-sub rationale·미니맵·self-host 타일), 정식 엔진 W0–W4 (docs/logic).
 - **Schema capture** — reverse-commit the ~200 out-of-band RPCs + DDL into migrations (structural risk).
+- **/me/import 마감 확인** — 남은 것은 로그인된 브라우저에서 위저드 클릭스루(§7 A~F)와 커밋 후 DB 무손실 검증뿐 (서버사이드는 전부 검증 완료). ⚠️ 테스트 계정 세션 자동 생성은 권한 분류기가 거부 — 사용자가 직접 로그인 필요. `docs/HANDOFF-IMPORT.md` ⭐섹션 참고.
 - Watchlists Phase 3 (promotion); Catalog Concepts→Theory absorption; per-page SEO head-copy; figure aliases; tradition-match automation; `refresh_director_embeddings()` + auto director-gen trigger; new-trope gardening; legacy-doc archival; `_bak_*` table cleanup.
