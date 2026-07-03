@@ -189,7 +189,10 @@ export default async function DirectorPage({ params }: Props) {
   // collaborators across this director's catalog films, each linking to their
   // /credits/[person] read page. Per-film crew is 24h-cached (shared cache).
   const crewTmdbIds = (films as { tmdb_id?: number | null }[]).map((f) => f.tmdb_id).filter((x): x is number => !!x);
-  const repertory = crewTmdbIds.length ? await directorRepertory(crewTmdbIds) : [];
+  // Directors who write/edit their own films would top their own list — the
+  // company they keep is everyone else.
+  const repertory = (crewTmdbIds.length ? await directorRepertory(crewTmdbIds) : [])
+    .filter((r) => r.name.toLowerCase() !== director.toLowerCase());
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   const jsonld = {
