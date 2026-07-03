@@ -340,7 +340,7 @@ export default function FilmMap({
 
       m.on("load", () => { addPoints(); updateInView(); setMapReady(true); });
       m.on("styledata", addPoints);
-      m.on("moveend", updateInView);
+      m.on("moveend", () => { updateInView(); requestBbox(); });
 
       m.on("click", "clusters", (ev: { features?: { properties: Record<string, unknown>; geometry: { coordinates: number[] } }[] }) => {
         const f = ev.features?.[0]; if (!f) return;
@@ -408,11 +408,13 @@ export default function FilmMap({
   }, []);
 
   // initial fit once both map and data are ready
+  const fitBase = primary ?? worldAll;
   useEffect(() => {
-    if (!mapReady || didFit.current || !primary || primary.length === 0) return;
-    fitRows(primary);
+    if (!mapReady || didFit.current || !fitBase || fitBase.length === 0) return;
+    fitRows(fitBase);
     didFit.current = true;
-  }, [mapReady, primary, fitRows]);
+    requestBbox();
+  }, [mapReady, fitBase, fitRows, requestBbox]);
 
   const fitFilm = useCallback((slug: string) => {
     const rs = rowsRef.current.filter((r) => (r.film_slug ?? filmSlug) === slug);
@@ -462,6 +464,14 @@ export default function FilmMap({
     setView("list");
   }, []);
 
+  // panel group click → make sure ALL of that film's pins are loaded, then frame it
+  const ensureFilm = useCallback((slug: string) => {
+    fetchGeo(`/api/geo?film=${slug}`).then((rs) => {
+      mergeWorld(rs);
+      if (rs.length) fitRows(rs, 11); else fitFilm(slug);
+    });
+  }, [mergeWorld, fitRows, fitFilm]);
+
   // pin click → reveal + scroll the matching panel row
   useEffect(() => {
     if (!active) return;
@@ -508,8 +518,8 @@ export default function FilmMap({
   }, [globalish, layerRows, matches, sort, inView]);
 
   const filmCount = useMemo(() => new Set(layerRows.map((r) => r.film_slug ?? "—")).size, [layerRows]);
-  const loading = primary === null;
-  const worldLoading = !!(filmSlug && scope === "all" && world === null);
+  const loading = worldMode ? worldBase === null : primary === null;
+  const worldLoading = !!(filmSlug && scope === "all" && worldBase === null);
 
   if (primary && primary.length === 0 && filmSlug && scope === "film") return null;
 
@@ -616,7 +626,7 @@ export default function FilmMap({
                     <li key={g.slug} className={`fmap-grp${mine ? " fmap-grp--mine" : ""}`}>
                       <button type="button" className="fmap-grp__hd" onClick={() => {
                         setExpanded((s) => { const n = new Set(s); if (n.has(g.slug)) n.delete(g.slug); else n.add(g.slug); return n; });
-                        if (!open) fitFilm(g.slug);
+                        if (!open) { if (worldOn && g.slug !== "—") ensureFilm(g.slug); else fitFilm(g.slug); }
                       }}>
                         {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="fmap-grp__thumb" src={`${IMG}${g.poster}`} alt="" loading="lazy" /> : <span className="fmap-grp__thumb fmap-grp__thumb--e" />}
                         <span className="fmap-grp__tx">
