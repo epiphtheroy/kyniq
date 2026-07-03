@@ -155,6 +155,13 @@ export default async function MeDashboard() {
           {" "}· <Link href="/settings" className="mt-link">settings</Link>
         </p>
 
+        <div style={{ margin: "14px 0 2px" }}>
+          <Link href="/me/import" className="btn">📥 관람 기록 가져오기</Link>
+          <span className="ui muted" style={{ fontSize: 12.5, marginLeft: 10 }}>
+            Letterboxd ZIP · IMDb CSV · 왓챠 · 엑셀 · 텍스트 붙여넣기
+          </span>
+        </div>
+
         {/* KPI strip */}
         <div className="me-kpi">
           <div className="me-k"><b>{pb.watched ?? watched.length}</b><span>Watched</span></div>
