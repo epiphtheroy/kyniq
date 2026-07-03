@@ -21,18 +21,31 @@ const dryRun = args.includes("--dry-run");
 const useSitemap = args.includes("--sitemap");
 const cliUrls = args.filter((a) => !a.startsWith("--"));
 
-async function fetchSitemapUrls() {
-  const sitemapUrl = `${SITE}/sitemap.xml`;
-  console.log(`Fetching sitemap: ${sitemapUrl}`);
-  const res = await fetch(sitemapUrl);
+async function fetchXmlLocs(url) {
+  const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`Failed to fetch sitemap: HTTP ${res.status}`);
+    throw new Error(`Failed to fetch sitemap: HTTP ${res.status} (${url})`);
   }
   const xml = await res.text();
   const locs = [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map((m) =>
     m[1].trim()
   );
-  return locs;
+  return { xml, locs };
+}
+
+async function fetchSitemapUrls() {
+  const sitemapUrl = `${SITE}/sitemap.xml`;
+  console.log(`Fetching sitemap: ${sitemapUrl}`);
+  const { xml, locs } = await fetchXmlLocs(sitemapUrl);
+  // /sitemap.xml is a sitemapindex: its <loc>s are child sitemaps, not pages.
+  if (!xml.includes("<sitemapindex")) return locs;
+  const pages = [];
+  for (const child of locs) {
+    const { locs: childLocs } = await fetchXmlLocs(child);
+    console.log(`  ${child}: ${childLocs.length} URLs`);
+    pages.push(...childLocs);
+  }
+  return [...new Set(pages)];
 }
 
 function chunk(arr, size) {
