@@ -212,9 +212,10 @@ export default async function FigurePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Films", item: "https://metatake.net/film" },
-      { "@type": "ListItem", position: 2, name: film.title, item: `https://metatake.net/film/${film.slug}` },
-      { "@type": "ListItem", position: 3, name: figure.label },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+      { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
+      { "@type": "ListItem", position: 3, name: film.title, item: `https://metatake.net/film/${film.slug}` },
+      { "@type": "ListItem", position: 4, name: figure.label, item: `https://metatake.net/film/${film.slug}/figure/${figureSlug}` },
     ],
   };
 
@@ -249,7 +250,7 @@ export default async function FigurePage({ params }: Props) {
             {film.poster_path ? (
               // eslint-disable-next-line @next/next/no-img-element
               <Link href={`/film/${film.slug}`} className="fg-pp">
-                <img src={`${IMG}/w185${film.poster_path}`} alt={`${film.title} poster`} loading="lazy" />
+                <img src={`${IMG}/w185${film.poster_path}`} alt={`${film.title} poster`} width={185} height={278} loading="lazy" />
               </Link>
             ) : null}
             <div className="fg-ff">

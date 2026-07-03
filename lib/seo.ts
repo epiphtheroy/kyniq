@@ -67,6 +67,9 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    On-page noindex below the same ≥3 bar; native-script aliases surfaced
  *    for non-English names. Film pages gained a crawlable Credits block.
  */
+// Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
+export const SOCIAL_PROFILES: string[] = [];
+
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
 export const INDEX_COHORT_FIGURES = 2000; // /film/*/figure/* pages in sitemap (added 2026-07-03)

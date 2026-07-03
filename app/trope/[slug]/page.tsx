@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
@@ -95,7 +95,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TropePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) redirect("/tropes");   // retired/old trope slug (e.g. a stale cached link) → index, not a 404
+  if (!data) {
+    // Not a published trope. Resolve mis-kinded / merged slugs (permanent) —
+    // mirrors /take/[slug] — but a slug with no row at all is a real 404
+    // (redirecting unknown slugs to /tropes reads as a soft-404).
+    const sup = db();
+    const { data: row } = await sup
+      .from("meta_takes").select("kind, status, merged_into").eq("slug", slug).maybeSingle();
+    if (row) {
+      if (row.kind === "reading" && row.status === "published") permanentRedirect(`/take/${slug}`);
+      if (row.merged_into) {
+        const { data: tgt } = await sup.from("meta_takes").select("slug, kind").eq("id", row.merged_into).maybeSingle();
+        if (tgt?.slug) permanentRedirect(`/${tgt.kind === "figure_type" ? "trope" : "take"}/${tgt.slug}`);
+      }
+    }
+    notFound();
+  }
   const { t, readings, filmCount } = data;
   const { data: relRaw } = await db().rpc("trope_related", { p_slug: slug, p_n: 9 });
   const related = (relRaw as Related[] | null) ?? [];

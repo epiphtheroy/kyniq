@@ -73,6 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? introDescription(data.intro)
       : `${data.name} in cinema: ${data.readings.length} Strong Misreadings that read films through ${data.name}.`,
     alternates: { canonical: `/idea/${slug}` },
+    robots: { index: false, follow: true },
   };
 }
 

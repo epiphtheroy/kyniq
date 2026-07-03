@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import TakeScoreBadges from "@/components/TakeScoreBadges";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
-import { pageRobots } from "@/lib/seo";
+import { pageRobots, SOCIAL_PROFILES } from "@/lib/seo";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
@@ -79,6 +79,7 @@ const organizationJsonLd = {
   description:
     "A critical map of cinema — 1,900+ films linked through 26,000+ close readings in one embedding space.",
   email: "wonwoo@metatake.net",
+  ...(SOCIAL_PROFILES.length > 0 ? { sameAs: SOCIAL_PROFILES } : {}),
 };
 
 // WebSite schema: qualifies the site-name display in SERPs and the sitelinks

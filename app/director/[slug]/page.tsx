@@ -253,8 +253,9 @@ export default async function DirectorPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Directors", item: "https://metatake.net/director" },
-      { "@type": "ListItem", position: 2, name: director },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+      { "@type": "ListItem", position: 2, name: "Directors", item: "https://metatake.net/director" },
+      { "@type": "ListItem", position: 3, name: director, item: `https://metatake.net/director/${slug}` },
     ],
   };
 
@@ -312,7 +313,7 @@ export default async function DirectorPage({ params }: Props) {
         <div className="dr-head">
           {d?.profile_path ? (
             <div className="dr-photo">
-              <LightboxImage src={`${IMG}/w185${d.profile_path}`} fullUrl={`${IMG}/w342${d.profile_path}`} alt={director} caption={director} />
+              <LightboxImage src={`${IMG}/w185${d.profile_path}`} fullUrl={`${IMG}/w342${d.profile_path}`} alt={director} caption={director} width={185} height={278} />
             </div>
           ) : (<div className="dr-photo dr-photo--empty" aria-hidden="true" />)}
           <div className="dr-txt">

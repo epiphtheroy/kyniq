@@ -6,7 +6,11 @@
  * folder are the API route (app/api/rag/route.ts — Next.js requires API routes
  * under app/api/) and the one shared nav link in components/MetatakeNav.tsx.
  */
+import type { Metadata } from "next";
 import "./rag.css";
+
+// Interactive research tool — noindex (page is a client component).
+export const metadata: Metadata = { robots: { index: false, follow: true } };
 
 export default function RagLayout({ children }: { children: React.ReactNode }) {
   return children;

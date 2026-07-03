@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Concepts — the ideas cinema is read through",
   description:
     "The concepts Metatake's Strong Misreadings turn on — ressentiment, the gaze, bare life, the uncanny and a thousand more — each linked to the films that stage them.",
+  robots: { index: false, follow: true },
 };
 
 function db() {

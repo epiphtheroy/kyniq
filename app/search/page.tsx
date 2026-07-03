@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/search" },
   title: "Search — Metatake",
   description: "Search films, figures, meta takes, and directors on Metatake.",
-  robots: pageRobots(true),
+  robots: pageRobots(false), // search results — never index
 };
 
 function db() {

@@ -15,6 +15,7 @@ interface Props {
   width?: number;
   height?: number;
   loading?: "lazy" | "eager";
+  fetchPriority?: "high" | "low" | "auto";
   style?: CSSProperties;
   className?: string;
   caption?: string | null;
@@ -27,6 +28,7 @@ export default function LightboxImage({
   width,
   height,
   loading,
+  fetchPriority,
   style,
   className,
   caption,
@@ -58,6 +60,7 @@ export default function LightboxImage({
         width={width}
         height={height}
         loading={loading}
+        fetchPriority={fetchPriority}
         className={className}
         style={{ cursor: "zoom-in", ...style }}
         onClick={() => setOpen(true)}

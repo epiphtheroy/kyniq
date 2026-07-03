@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "Contact Metatake: corrections, press, partnerships, and general inquiries. Every correction is reviewed by the editor.",
   alternates: { canonical: "/contact" },
+  robots: { index: false, follow: true },
 };
 
 export default function ContactPage() {

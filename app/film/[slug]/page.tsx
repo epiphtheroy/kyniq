@@ -335,12 +335,12 @@ export default async function FilmPage({ params }: Props) {
           <section className="df-hero">
             {f.backdrop_path ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="df-backdrop" src={`${IMG}/w780${f.backdrop_path}`} alt={`${f.title} backdrop`} />
+              <img className="df-backdrop" src={`${IMG}/w780${f.backdrop_path}`} alt={`${f.title} backdrop`} width={780} height={439} />
             ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
             <div className="df-headrow">
               {f.poster_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img className="df-poster" src={`${IMG}/w342${f.poster_path}`} alt={`${f.title} poster`} />
+                <img className="df-poster" src={`${IMG}/w342${f.poster_path}`} alt={`${f.title} poster`} width={342} height={513} fetchPriority="high" />
               ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
               <div className="df-htxt">
                 <h1>{f.title} <span className="df-yr">({f.year ?? "?"})</span></h1>
@@ -443,11 +443,9 @@ export default async function FilmPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Films", item: "https://metatake.net/film" },
-      ...(film.director && film.director_slug
-        ? [{ "@type": "ListItem", position: 2, name: film.director, item: `https://metatake.net/director/${film.director_slug}` }]
-        : []),
-      { "@type": "ListItem", position: film.director && film.director_slug ? 3 : 2, name: film.title },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+      { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
+      { "@type": "ListItem", position: 3, name: `${film.title}${film.year ? ` (${film.year})` : ""}`, item: `https://metatake.net/film/${film.slug}` },
     ],
   };
 
@@ -482,13 +480,14 @@ export default async function FilmPage({ params }: Props) {
             <FilmHeroReel videos={videos} poster={heroPoster ?? undefined} start={7} />
           ) : film.backdrop_path ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} />
+            <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} width={780} height={439} />
           ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
           <div className="df-headrow">
             {film.poster_path ? (
               <LightboxImage
                 src={`${IMG}/w342${film.poster_path}`} fullUrl={`${IMG}/w500${film.poster_path}`}
                 alt={`${film.title} poster`} className="df-poster" caption={film.title}
+                width={342} height={513} fetchPriority="high"
               />
             ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
             <div className="df-htxt">
