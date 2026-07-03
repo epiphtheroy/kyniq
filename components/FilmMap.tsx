@@ -326,6 +326,7 @@ export default function FilmMap({
     fcRef.current = fcOf(layerRows);
     const m = map.current; if (!m) return;
     try { const s = m.getSource("pts"); if (s) s.setData(fcRef.current); } catch {}
+    try { m.fire("moveend"); } catch {} // refresh the "in view" set for the panel
   }, [layerRows, fcOf]);
 
   // active pin emphasis
