@@ -8,8 +8,8 @@ import type { RelatedBox } from "@/lib/related";
  *
  * Rules encoded: plain HTML only (no client component, no lazy loading),
  * plain <a> links, renders nothing when boxes is empty. Reuses the global
- * axw-*/rcp-* classes from the /whereto "Read closely on Metatake" block so
- * typography follows the site vars (--font-display / --font-ui).
+ * axw- and rcp- classes from the /whereto "Read closely on Metatake" block
+ * so typography follows the site vars (--font-display / --font-ui).
  *
  * Variants:
  *  - "cards" (default): responsive grid — badge line, title, full excerpt.
