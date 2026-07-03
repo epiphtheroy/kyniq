@@ -414,9 +414,9 @@ function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid:
           <h2 className="cr-ftitle">{f.title} <span className="cr-dim">{f.year}</span></h2>
           <div className="cr-fsub">Whose film was it, for you? Follow that credit.</div>
           {links?.filmSlug || directorSlug ? (
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 6, fontSize: 13.5 }}>
-              {links?.filmSlug ? <a href={`/film/${links.filmSlug}`} style={{ fontWeight: 600 }}>Read {f.title} on Metatake →</a> : null}
-              {directorSlug ? <a href={`/director/${directorSlug}`} style={{ fontWeight: 600 }}>Director: {directorName} →</a> : null}
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 8 }}>
+              {links?.filmSlug ? <ExitPill href={`/film/${links.filmSlug}`}>Read {f.title} on Metatake →</ExitPill> : null}
+              {directorSlug ? <ExitPill href={`/director/${directorSlug}`} outline>Director: {directorName} →</ExitPill> : null}
             </div>
           ) : null}
         </div>
@@ -578,8 +578,8 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
           {person.profile_path ? <img className="cr-artface" alt="" src={img(person.profile_path, "w185") || undefined} /> : null}
           <div className="cr-arthead-txt">
             <h1 className="cr-artname">
-              {person.name}{" "}
-              {metaHref ? <a className="cr-ext" href={metaHref} style={{ fontWeight: 700 }}>Metatake page →</a> : null}{" "}
+              {person.name}
+              {nativeInfo?.native ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.68em" }}> ({nativeInfo.native})</span> : null}{" "}
               <a className="cr-ext" href={`https://www.themoviedb.org/person/${person.id}`} target="_blank" rel="noopener nofollow">TMDB ↗</a>
             </h1>
             <div className="cr-artrole">{cf.label} · {cf.kr}</div>
@@ -588,6 +588,11 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
               {films.length} films as {cf.role.toLowerCase()} · {yrsFmt(yr0, yr1)}
               {seenCount ? <span className="cr-seen-ct"> · seen {seenCount} of {films.length}</span> : null}
             </div>
+            {metaHref ? (
+              <div style={{ marginTop: 10 }}>
+                <ExitPill href={metaHref}>{isDir ? `${person.name} — director page →` : `${person.name} — full Metatake profile →`}</ExitPill>
+              </div>
+            ) : null}
             {gTop.length ? (
               <div className="cr-gline">
                 <span className="cr-gbar">{gTop.map((g) => <i key={g.name} style={{ width: `${g.pct}%`, background: g.color }} />)}</span>
