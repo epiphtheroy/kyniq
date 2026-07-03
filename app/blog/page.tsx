@@ -25,6 +25,11 @@ const full = (d: string) => new Date(d + "T00:00:00").toLocaleDateString("en-US"
 const mon = (d: string) => new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
 const wdyr = (d: string) => { const dt = new Date(d + "T00:00:00"); return dt.toLocaleDateString("en-US", { weekday: "long" }) + ", " + dt.getFullYear(); };
 
+type CuriousRow = {
+  slug: string; title: string; display_title: string | null; title_spoiler: boolean | null;
+  film: { slug: string; title: string; year: number | null };
+};
+
 export default async function BlogIndex() {
   const supabase = db();
   // Resilient fetch: never let a slow/overloaded DB hang the build (this page is
@@ -42,6 +47,21 @@ export default async function BlogIndex() {
     posts = (data as Post[] | null) ?? [];
   } catch {
     posts = [];
+  }
+  // Curious corner — the question desk's latest (separate from the daily editions).
+  let curious: CuriousRow[] = [];
+  try {
+    const { data } = await supabase
+      .from("questions")
+      .select("slug, title, display_title, title_spoiler, film:films!inner(slug, title, year, visible)")
+      .eq("status", "published")
+      .eq("film.visible", true)
+      .order("published_at", { ascending: false })
+      .limit(8)
+      .abortSignal(AbortSignal.timeout(4500));
+    curious = ((data ?? []) as unknown as CuriousRow[]);
+  } catch {
+    curious = [];
   }
   const today = posts[0];
   const recent = posts.slice(1);
@@ -93,6 +113,21 @@ export default async function BlogIndex() {
                     <div className="strip">{p.entries.slice(0, 5).map((e, i) => <span key={i}>{e.bd && <img src={`${W342}${e.bd}`} alt="" loading="lazy" />}</span>)}</div>
                     {p.dek && <div className="lead">{p.dek}</div>}
                   </div>
+                  <span className="go">Read →</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {curious.length > 0 && (
+          <section className="blg-sec">
+            <div className="blg-wrap">
+              <div className="blg-sechd"><h3>Curious — the question desk</h3><Link className="more" href="/blog/curious">All questions →</Link></div>
+              {curious.map((q) => (
+                <Link className="blg-edrow" key={q.slug} href={`/film/${q.film.slug}/q/${q.slug}`}>
+                  <div className="d"><b>{q.film.title}</b>{q.film.year ?? ""}</div>
+                  <div><div className="lead">{(q.title_spoiler && q.display_title) ? q.display_title : q.title}</div></div>
                   <span className="go">Read →</span>
                 </Link>
               ))}

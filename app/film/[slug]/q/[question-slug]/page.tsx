@@ -223,6 +223,8 @@ export default async function QuestionPage({ params }: Props) {
           {/* ── Kicker: film | year · director ── */}
           <header className="article-head">
             <p className="kicker">
+              <Link href="/blog/curious" style={{ color: "#c0392b" }}>Curious</Link>
+              <span className="sep">|</span>
               <Link href={`/film/${film.slug}`}>{film.title}</Link>
               <span className="sep">|</span>
               <span className="topic">
