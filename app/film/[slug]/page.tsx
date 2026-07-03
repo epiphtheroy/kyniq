@@ -535,8 +535,8 @@ export default async function FilmPage({ params }: Props) {
         {/* WHY WATCH — spoiler-free dossier of what the film offers, across 7 lenses */}
         {whyWatch.length > 0 ? (
           <section className="df-sec" id="df-whywatch">
-            <h2 className="df-h2">Why watch</h2>
-            <p className="df-sub">A spoiler-free brief on what {film.title} offers — the director&apos;s vision, its craft and ideas, its space and its place in film history.</p>
+            <h2 className="df-h2">Why watch {film.title}?</h2>
+            <p className="df-sub">A spoiler-free brief on what {film.title} offers — the director&apos;s vision, its craft and ideas, its space and its place in film history. Written for this film by Metatake Editorial (edited by <Link href="/editor">Wonwoo Yoon</Link>), not aggregated from reviews.</p>
             <div className="ww-grid">
               {whyWatch.map((L, i) => (
                 <div key={i} className="ww-lens">
@@ -570,9 +570,9 @@ export default async function FilmPage({ params }: Props) {
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
           <section className="df-sec" id="df-readings">
-            <h2 className="df-h2">Strong Misreadings!</h2>
+            <h2 className="df-h2">Strong Misreadings of {film.title}</h2>
             <p className="df-sub">
-              Bold readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">critical frameworks</Link> — each a deliberate over-reading, a provocation rather than a verdict.
+              {misreadings.length} original critical readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">frameworks</Link> — each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
             {smByFamily.map(({ fam, items }) => (
               <div key={fam.key} className="df-smfam">

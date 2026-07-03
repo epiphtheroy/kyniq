@@ -167,10 +167,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Not found" };
   const native = await directorNative(data.director);
   const title = `${data.director}${native ? ` (${native})` : ""} — Films, Style & Where to Start`;
-  const bioProse = data.portrait?.body || (data.dir as { bio?: string | null } | null)?.bio || null;
-  const description = bioProse
-    ? metaDescription(bioProse)
-    : metaDescription(`${data.total} films by ${data.director}, read closely — signature readings, tropes and where to start.`);
+  // TMDB bio is never used as our description — our portrait when it exists,
+  // otherwise the deterministic editorial summary (unique text, real numbers).
+  const description = data.portrait?.body
+    ? metaDescription(data.portrait.body)
+    : metaDescription(editorialSummary(data));
   return {
     title,
     description,
@@ -204,8 +205,10 @@ export default async function DirectorPage({ params }: Props) {
     ...(d?.profile_path ? { image: `${IMG}/w342${d.profile_path}` } : {}),
     ...(d?.birthday ? { birthDate: d.birthday } : {}),
     ...(d?.place_of_birth ? { birthPlace: d.place_of_birth } : {}),
-    ...(portrait?.body ? { description: portrait.body.slice(0, 500) } : d?.bio ? { description: d.bio.slice(0, 500) } : {}),
+    ...(portrait?.body ? { description: portrait.body.slice(0, 500) } : { description: editorialSummary(data) }),
   };
+
+  const summaryText = portrait?.body ? null : editorialSummary(data);
 
   let bornLabel: string | null = null;
   if (d?.birthday) {
@@ -214,7 +217,9 @@ export default async function DirectorPage({ params }: Props) {
   }
 
   const tropesShown = sigTropes.slice(0, SIG_LIMIT);
-  const portraitText = portrait?.body || d?.bio || null;
+  // TMDB bio deliberately dropped from display: third-party boilerplate reads
+  // worse than our own numbers, and duplicates text Google has seen elsewhere.
+  const portraitText = portrait?.body || null;
 
   // Portrait art: 2 wide stills (backdrops) over 3 tall posters — seeded shuffle → stable per ISR.
   type FilmArt = { id: string; slug: string; title: string; year: number | null; poster_path?: string | null; backdrop_path?: string | null };
@@ -389,8 +394,8 @@ export default async function DirectorPage({ params }: Props) {
         {/* THE LIFE */}
         {facts && Array.isArray(facts.facts) && facts.facts.length > 0 && (
           <section className="dr-sec" id="dr-life">
-            <h2 className="dr-h2">The Life</h2>
-            <p className="dr-gloss">The person behind the films — {facts.facts.length} things worth knowing about {director}.</p>
+            <h2 className="dr-h2">The Life of {director}</h2>
+            <p className="dr-gloss">The person behind the films — {facts.facts.length} researched moments, compiled by Metatake Editorial and edited by <Link href="/editor">Wonwoo Yoon</Link>.</p>
             {facts.name_meaning ? (
               <div className="dr-namemean"><span className="dr-nm-k">The name</span><p>{facts.name_meaning}</p></div>
             ) : null}
