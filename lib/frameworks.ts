@@ -10,6 +10,10 @@ export type Framework = {
   short: string;   // one-line gloss
   family: FamilyKey;
   color: string;
+  // <title> for the hub page — leads with the phrases people actually search
+  // ("psychoanalytic film analysis", "movie title meanings"), keeps the brand
+  // term second. The root layout template appends "· Metatake".
+  seoTitle: string;
 };
 
 export const FAMILIES: { key: FamilyKey; label: string }[] = [
