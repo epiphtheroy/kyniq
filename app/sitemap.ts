@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
-import { SITE_INDEXABLE, INDEX_COHORT_READINGS, INDEX_COHORT_TROPES } from "@/lib/seo";
+import { SITE_INDEXABLE, INDEX_COHORT_READINGS, INDEX_COHORT_TROPES, INDEX_COHORT_FIGURES } from "@/lib/seo";
 import { BROWSABLE } from "@/lib/frameworks";
 
 /**
@@ -99,8 +99,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Films — only those with real content (>=3 figures). Just-added films with no
   // figures yet are NOT advertised to search engines (thin-content guard); they
   // enter the sitemap automatically once film-extract populates them.
-  const films = await fetchAll<{ slug: string; created_at: string }>((from, to) =>
-    supabase.from("films").select("slug, created_at").eq("visible", true).order("slug").range(from, to)
+  const films = await fetchAll<{ id: string; slug: string; created_at: string }>((from, to) =>
+    supabase.from("films").select("id, slug, created_at").eq("visible", true).order("slug").range(from, to)
   );
   for (const f of films) {
     entries.push({
@@ -113,6 +113,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteUrl}/movies-like/${f.slug}`,
       changeFrequency: "weekly",
       priority: 0.6,
+    });
+  }
+
+  // Figure pages — the entity-query surface ("the feather in Forrest Gump —
+  // meaning & readings"). Advertise only figures that clear the same bar the
+  // page's own robots gate uses: ≥3 published takes, on a visible film.
+  // PostgREST aggregates are disabled for this project, so tally the published
+  // takes' figure_ids here; build-time only (~45 paged requests total).
+  const filmSlugById = new Map(films.map((f) => [f.id, f.slug]));
+  const takeFigRows = await fetchAll<{ figure_id: string }>((from, to) =>
+    supabase.from("takes").select("figure_id").eq("status", "published").order("id").range(from, to)
+  );
+  const takesPerFigure = new Map<string, number>();
+  for (const t of takeFigRows) takesPerFigure.set(t.figure_id, (takesPerFigure.get(t.figure_id) ?? 0) + 1);
+  const allFigures = await fetchAll<{ id: string; slug: string | null; film_id: string }>((from, to) =>
+    supabase.from("figures").select("id, slug, film_id").eq("status", "approved")
+      .order("created_at", { ascending: true }).order("slug", { ascending: true }).range(from, to)
+  );
+  const eligibleFigures = allFigures
+    .filter((g) => g.slug && (takesPerFigure.get(g.id) ?? 0) >= 3 && filmSlugById.has(g.film_id))
+    .slice(0, INDEX_COHORT_FIGURES);
+  for (const g of eligibleFigures) {
+    entries.push({
+      url: `${siteUrl}/film/${filmSlugById.get(g.film_id)}/figure/${g.slug}`,
+      changeFrequency: "monthly",
+      priority: 0.65,
     });
   }
 

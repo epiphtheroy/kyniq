@@ -48,9 +48,16 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *  - 2026-07-02 (held-stock audit): the 89 legacy gemini 'held' Q&A were run
  *    through the same verifier — 71 published (metadata fixed), 18 rejected
  *    for fabrications/duplicates. Published questions: 211 → 282.
+ *  - 2026-07-03: figure pages enter the sitemap for the first time
+ *    (INDEX_COHORT_FIGURES=2000; only figures with ≥3 published takes on
+ *    visible films — mirrors the on-page noindex bar). These are the
+ *    entity-query surface ("the feather in Forrest Gump meaning"). Framework
+ *    hub <title>s rewritten to search phrases the same day. Raise this cohort
+ *    on the same evidence rule as the others.
  */
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
+export const INDEX_COHORT_FIGURES = 2000; // /film/*/figure/* pages in sitemap (added 2026-07-03)
 
 
 
