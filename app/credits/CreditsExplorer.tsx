@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { Fragment, useEffect, useReducer, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useReducer, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArtistData, Award, Collab, CraftKey, CrewEntry, CreditsPayload, TFilm,
@@ -10,7 +10,7 @@ import {
 } from "./credits-logic";
 
 /* ---------- bridges to Metatake's own pages (film/director slugs) ---------- */
-type MetaLinks = { filmSlug: string | null; filmTitle: string | null; directorSlug: string | null; directorName: string | null };
+type MetaLinks = { filmSlug: string | null; filmTitle: string | null; directorSlug: string | null; directorName: string | null; native?: string | null };
 const linksCache = new Map<string, MetaLinks | null>();
 function useMetaLinks(query: string | null): MetaLinks | null {
   const [links, setLinks] = useState<MetaLinks | null>(query ? linksCache.get(query) ?? null : null);
@@ -39,11 +39,11 @@ function personHref(name: string, id: number, isDirector: boolean, directorSlug:
 /* Exit buttons from the explorer to Metatake's own pages — deliberately
    button-shaped, not text links: the generated views must always offer a
    visible way out to the real (indexable) pages. */
-const PILL: React.CSSProperties = {
+const PILL: CSSProperties = {
   display: "inline-flex", alignItems: "center", gap: 6, background: "#16233F", color: "#FBF8F1",
   padding: "7px 14px", borderRadius: 999, fontSize: 13, fontWeight: 600, textDecoration: "none", lineHeight: 1,
 };
-const PILL_OUTLINE: React.CSSProperties = {
+const PILL_OUTLINE: CSSProperties = {
   ...PILL, background: "transparent", color: "#16233F", boxShadow: "inset 0 0 0 1.5px #16233F",
 };
 function ExitPill({ href, children, outline = false }: { href: string; children: ReactNode; outline?: boolean }) {
@@ -546,6 +546,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
   const { person, craftKey, films, byWR, essentials, deep, further, startHere, notStart, partners, partnerIds, troupe, topCollab, totalWorks, corpus, failed, gTop, isDir } = S;
   const dirLinks = useMetaLinks(isDir ? `person=${encodeURIComponent(person.name)}` : null);
   const metaHref = personHref(person.name, person.id, isDir, dirLinks?.directorSlug ?? null);
+  const nativeInfo = useMetaLinks(`native=${person.id}`);
   const cf = CRAFTS[craftKey];
   const yr0 = films[0].year, yr1 = films[films.length - 1].year;
   const bg = startHere?.backdrop ? img(startHere.backdrop, "w780") : null;
