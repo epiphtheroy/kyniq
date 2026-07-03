@@ -424,7 +424,7 @@ export default async function DirectorPage({ params }: Props) {
             ) : null}
             {facts.intro ? <p className="dr-life-intro">{facts.intro}</p> : null}
             <ol className="dr-life-list">
-              {facts.facts.slice().sort((a, b) => a.n - b.n).map((f) => {
+              {facts.facts.slice().sort((a, b) => a.n - b.n).slice(0, 6).map((f) => {
                 let host = "";
                 try { if (f.source) host = new URL(f.source).hostname.replace(/^www\./, ""); } catch {}
                 return (
@@ -435,6 +435,11 @@ export default async function DirectorPage({ params }: Props) {
                 );
               })}
             </ol>
+            {facts.facts.length > 6 ? (
+              <p style={{ margin: "10px 0 0" }}>
+                <Link className="rcp-h" href={`/director/${slug}/life`}>Who is {director}? — all {facts.facts.length} researched moments →</Link>
+              </p>
+            ) : null}
             <div className="dr-src">Each fact is written freely, then verified against a live web source (English &amp; native-language). Source link per fact.</div>
           </section>
         )}

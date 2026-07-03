@@ -545,6 +545,14 @@ export default async function FilmPage({ params }: Props) {
           <section className="df-sec" id="df-whywatch">
             <h2 className="df-h2">Why watch {film.title}?</h2>
             <p className="df-sub">A spoiler-free brief on what {film.title} offers — the director&apos;s vision, its craft and ideas, its space and its place in film history. Written for this film by Metatake Editorial (edited by <Link href="/editor">Wonwoo Yoon</Link>), not aggregated from reviews.</p>
+            {(() => {
+              const ww = questions.find((q) => q.question_type === "why-watch");
+              return ww ? (
+                <p style={{ margin: "0 0 14px" }}>
+                  <Link className="rcp-h" href={`/film/${film.slug}/q/${ww.slug}`}>The case in one read: Why should you watch {film.title}? →</Link>
+                </p>
+              ) : null;
+            })()}
             <div className="ww-grid">
               {whyWatch.map((L, i) => (
                 <div key={i} className="ww-lens">

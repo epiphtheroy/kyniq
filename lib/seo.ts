@@ -54,6 +54,13 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    entity-query surface ("the feather in Forrest Gump meaning"). Framework
  *    hub <title>s rewritten to search phrases the same day. Raise this cohort
  *    on the same evidence rule as the others.
+ *  - 2026-07-03 (own-URL waves for buried editorial): (1) why-watch lenses →
+ *    "Why should you watch X?" Curious pages, 300 top-prestige films —
+ *    claude-haiku-4-5 realtime weaves the existing film_asset prose (no new
+ *    facts allowed), worker/qa-seed/whywatch_gen.py. (2) The Life →
+ *    /director/[slug]/life "Who is X?" pages (~208, ≥4-facts gate); director
+ *    page keeps a 6-fact teaser. Next why-watch waves: ~300/week on the
+ *    standard GSC evidence rule.
  *  - 2026-07-03 (crew read-layer): /credits/[person] server pages shipped —
  *    1,065 key-craft people (writer/dp/editor/composer/pd) with ≥3 catalog
  *    films (lib/crew_index.json, rebuilt by worker/crew-index-build.py).

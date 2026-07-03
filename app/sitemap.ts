@@ -144,6 +144,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
+  // Director life pages — "Who is X?" (director_facts; ~208 rows, gate ≥4 facts
+  // mirrors the page's own robots bar).
+  const { data: lifeRows } = await supabase.from("director_facts").select("director_slug, facts");
+  for (const r of lifeRows ?? []) {
+    if (Array.isArray(r.facts) && r.facts.length >= 4) {
+      entries.push({ url: `${siteUrl}/director/${r.director_slug}/life`, changeFrequency: "monthly", priority: 0.6 });
+    }
+  }
+
   // Crew person pages — key-craft people (writer/dp/editor/composer/pd) with
   // ≥3 films in the visible catalog (lib/crew_index.json; the page itself
   // noindexes below the same bar). Ordered by TMDB id: stable, append-only.
