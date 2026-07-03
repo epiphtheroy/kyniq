@@ -171,9 +171,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "Not found" };
   // Search-query framing targets long-tail "{figure} meaning" / "{figure} symbolism in {film}" queries.
   const yearPart = data.film.year ? ` (${data.film.year})` : "";
-  const titleFull = `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings · Metatake`;
-  const titleNoBrand = `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings`;
-  const title = titleFull.length > 155 ? titleNoBrand : titleFull;
+  // No brand suffix here — the root layout template appends "· Metatake".
+  const title = `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings`;
   const description = data.figure.description ? metaDescription(data.figure.description) : undefined;
   return {
     title,
