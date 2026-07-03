@@ -559,7 +559,7 @@ export default function FilmMap({
             ) : null}
           </div>
         ) : (
-          <span className="fmap-hint">{loading ? "Loading the map…" : `${layerRows.length.toLocaleString()} place${layerRows.length !== 1 ? "s" : ""}${globalish ? ` · ${filmCount.toLocaleString()} films` : ""}`}</span>
+          <span className="fmap-hint">{loading ? "Loading the map…" : `${layerRows.length.toLocaleString()} place${layerRows.length !== 1 ? "s" : ""} loaded${globalish ? ` · ${filmCount.toLocaleString()} films` : ""}${worldOn ? " · zoom in for more" : ""}`}</span>
         )}
         <div className="fmap-ctrls">
           {focus ? <span className="fmap-focus">Framing <b>{focus.title}</b><button onClick={() => { setFocus(null); setActive(null); }} aria-label="Show all films">✕</button></span> : null}
