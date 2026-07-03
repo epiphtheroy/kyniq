@@ -439,6 +439,18 @@ export default async function FilmPage({ params }: Props) {
     ...(film.imdb_id ? { sameAs: `https://www.imdb.com/title/${film.imdb_id}/` } : {}),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Films", item: "https://metatake.net/film" },
+      ...(film.director && film.director_slug
+        ? [{ "@type": "ListItem", position: 2, name: film.director, item: `https://metatake.net/director/${film.director_slug}` }]
+        : []),
+      { "@type": "ListItem", position: film.director && film.director_slug ? 3 : 2, name: film.title },
+    ],
+  };
+
   // Page-level provenance (E-E-A-T): mirrors the figure page — the readings and the
   // invitation are editorial work, drafted in-house and signed by the human editor.
   const pageJsonld = {
@@ -456,6 +468,7 @@ export default async function FilmPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonld) }} />
       <div className="df-wrap">
         <div className="df-crumb">

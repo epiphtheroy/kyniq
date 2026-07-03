@@ -37,16 +37,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return out;
   }
 
+  // Static hubs: no lastModified — a lastmod that changes every build teaches
+  // Google to distrust the field sitewide, which is worse than omitting it.
   const entries: MetadataRoute.Sitemap = [
-    { url: siteUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
-    { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${siteUrl}/film`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
-    { url: `${siteUrl}/strong-misreadings`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
-    { url: `${siteUrl}/tropes`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
-    { url: `${siteUrl}/latest`, lastModified: new Date(), changeFrequency: "daily", priority: 0.6 },
-    { url: `${siteUrl}/credits`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${siteUrl}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.7 },
-    { url: `${siteUrl}/blog/curious`, lastModified: new Date(), changeFrequency: "daily", priority: 0.7 },
+    { url: siteUrl, changeFrequency: "daily", priority: 1 },
+    { url: `${siteUrl}/about`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/film`, changeFrequency: "daily", priority: 0.8 },
+    { url: `${siteUrl}/strong-misreadings`, changeFrequency: "daily", priority: 0.9 },
+    { url: `${siteUrl}/tropes`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${siteUrl}/latest`, changeFrequency: "daily", priority: 0.6 },
+    { url: `${siteUrl}/credits`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${siteUrl}/blog`, changeFrequency: "daily", priority: 0.7 },
+    { url: `${siteUrl}/blog/curious`, changeFrequency: "daily", priority: 0.7 },
   ];
 
   // Strong Misreadings — the 14 framework hubs.
@@ -101,13 +103,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Films — only those with real content (>=3 figures). Just-added films with no
   // figures yet are NOT advertised to search engines (thin-content guard); they
   // enter the sitemap automatically once film-extract populates them.
-  const films = await fetchAll<{ id: string; slug: string; created_at: string }>((from, to) =>
-    supabase.from("films").select("id, slug, created_at").eq("visible", true).order("slug").range(from, to)
+  const films = await fetchAll<{ id: string; slug: string; created_at: string; last_processed_at: string | null }>((from, to) =>
+    supabase.from("films").select("id, slug, created_at, last_processed_at").eq("visible", true).order("slug").range(from, to)
   );
   for (const f of films) {
+    // This catalog grows by ENRICHING existing films (figures, Q&A) — lastmod
+    // must reflect the latest content event, not the row's birth, or enriched
+    // pages never earn a recrawl. last_processed_at is bumped by the content
+    // pipelines (Q&A loaders etc.).
+    const lastMod = f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at;
     entries.push({
       url: `${siteUrl}/film/${f.slug}`,
-      lastModified: new Date(f.created_at),
+      lastModified: new Date(lastMod),
       changeFrequency: "weekly",
       priority: 0.8,
     });
