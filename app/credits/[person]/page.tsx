@@ -6,6 +6,7 @@ import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "../CreditsExplorer";
 import { CRAFTS, type CraftKey, img } from "../credits-logic";
+import { resolveNative } from "@/lib/nativeName";
 import { pageRobots } from "@/lib/seo";
 import "../credits.css";
 
@@ -172,11 +173,7 @@ async function load(personSlug: string) {
     byDir.set(f.director, cur);
   }
   const company = [...byDir.values()].sort((a, b) => b.n - a.n);
-  let native = nativeAlias(p);
-  if (!native) {
-    const lang = expectedLang(p.place_of_birth);
-    if (lang) native = await wikidataNative(id, lang);
-  }
+  const native = await resolveNative({ tmdbId: id, name: p.name, aliases: p.also_known_as, place: p.place_of_birth });
   return { id, p, crafts, cat, company, native };
 }
 
