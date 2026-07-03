@@ -170,6 +170,12 @@ export default function FilmMap({
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [mapReady, setMapReady] = useState(false);
   const [lang, setLang] = useState("en");                          // basemap label language (EN default)
+  // Floating mini-player: the selected film's YouTube clip, autoplayed over the
+  // map's bottom-left corner. Start time + mute toggle mirror the home "Surprise
+  // me" hero, so you watch the film while browsing where it's set.
+  const [clip, setClip] = useState<{ id: string; title: string; slug: string } | null>(null);
+  const [clipHidden, setClipHidden] = useState(false);             // user closed THIS clip (a new film re-opens)
+  const [clipMuted, setClipMuted] = useState(true);
 
   const mapEl = useRef<HTMLDivElement>(null);
   const listEl = useRef<HTMLDivElement>(null);
@@ -250,6 +256,20 @@ export default function FilmMap({
     if (!focus) { setFocusRows(null); return; }
     let alive = true;
     fetchGeo(`/api/geo?film=${focus.slug}`).then((rs) => { if (alive) setFocusRows(rs); });
+    return () => { alive = false; };
+  }, [focus]);
+
+  // Selected film → its clip for the floating mini-player. Each new film reveals
+  // the player again (a prior close only hid the film you'd since moved off).
+  useEffect(() => {
+    if (!focus) { setClip(null); return; }
+    let alive = true;
+    setClipHidden(false);
+    const slug = focus.slug;
+    fetch(`/api/film-clip?slug=${encodeURIComponent(slug)}`)
+      .then((r) => r.json())
+      .then((j) => { if (alive) setClip(j?.clip ? { id: j.clip as string, title: focus.title, slug } : null); })
+      .catch(() => { if (alive) setClip(null); });
     return () => { alive = false; };
   }, [focus]);
 
