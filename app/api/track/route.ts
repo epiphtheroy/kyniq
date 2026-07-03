@@ -51,9 +51,13 @@ export async function POST(req: NextRequest) {
   if (remove) {
     await admin.from("user_movies").delete().eq("user_id", user.id).eq("film_id", film.id);
   } else {
-    await admin.from("user_movies").upsert(
-      { user_id: user.id, film_id: film.id, status, rating: body.rating ?? null },
-      { onConflict: "user_id,film_id" });
+    // schema uses seen/watchlist booleans (no `status` column)
+    const patch: Record<string, unknown> = { user_id: user.id, film_id: film.id };
+    if (status === "watched") patch.seen = true;
+    if (status === "watchlist") patch.watchlist = true;
+    if (body.rating != null) patch.rating = body.rating;
+    const { error: upErr } = await admin.from("user_movies").upsert(patch, { onConflict: "user_id,film_id" });
+    if (upErr) return NextResponse.json({ error: "upsert" }, { status: 500 });
   }
   return NextResponse.json({ film_id: film.id, slug: film.slug });
 }
