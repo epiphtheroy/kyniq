@@ -6,8 +6,35 @@ import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArtistData, Award, Collab, CraftKey, CrewEntry, CreditsPayload, TFilm,
   CRAFTS, FAM, GRP2CRAFT,
-  buildTabs, computeArtist, fmtV, img, primeCredits, styleFor, wdAwards, yrsFmt,
+  buildTabs, computeArtist, fmtV, img, personSlug, primeCredits, styleFor, wdAwards, yrsFmt,
 } from "./credits-logic";
+
+/* ---------- bridges to Metatake's own pages (film/director slugs) ---------- */
+type MetaLinks = { filmSlug: string | null; filmTitle: string | null; directorSlug: string | null; directorName: string | null };
+const linksCache = new Map<string, MetaLinks | null>();
+function useMetaLinks(query: string | null): MetaLinks | null {
+  const [links, setLinks] = useState<MetaLinks | null>(query ? linksCache.get(query) ?? null : null);
+  useEffect(() => {
+    let dead = false;
+    if (!query) { setLinks(null); return; }
+    const hit = linksCache.get(query);
+    if (hit !== undefined) { setLinks(hit); return; }
+    setLinks(null);
+    fetch(`/api/credits/links?${query}`)
+      .then((r) => (r.ok ? (r.json() as Promise<MetaLinks>) : null))
+      .then((j) => { linksCache.set(query, j); if (!dead) setLinks(j); })
+      .catch(() => { if (!dead) setLinks(null); });
+    return () => { dead = true; };
+  }, [query]);
+  return links;
+}
+// The canonical Metatake page for a person seen in the explorer: directors go
+// to /director/[slug] (their editorial home); every key-craft person has a
+// /credits/[person] read page.
+function personHref(name: string, id: number, isDirector: boolean, directorSlug: string | null): string | null {
+  if (isDirector) return directorSlug ? `/director/${directorSlug}` : null;
+  return `/credits/${personSlug(name, id)}`;
+}
 
 /* ---------- proxy fetcher ---------- */
 async function api(path: string, params?: Record<string, string>): Promise<unknown> {
@@ -351,6 +378,7 @@ function SearchBox({ onPick, onPickPerson }: { onPick: (id: number) => void; onP
 /* ============ film tabs ============ */
 function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid: number) => void }) {
   const f = nav.film;
+  const links = useMetaLinks(`film=${f.id}`);
   return (
     <div className="cr-filmnav">
       <div className="cr-fhead">
@@ -358,6 +386,12 @@ function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid:
         <div>
           <h2 className="cr-ftitle">{f.title} <span className="cr-dim">{f.year}</span></h2>
           <div className="cr-fsub">Whose film was it, for you? Follow that credit.</div>
+          {links?.filmSlug || links?.directorSlug ? (
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 6, fontSize: 13.5 }}>
+              {links.filmSlug ? <a href={`/film/${links.filmSlug}`} style={{ fontWeight: 600 }}>Read {f.title} on Metatake →</a> : null}
+              {links.directorSlug ? <a href={`/director/${links.directorSlug}`} style={{ fontWeight: 600 }}>Director: {links.directorName} →</a> : null}
+            </div>
+          ) : null}
         </div>
       </div>
       <div className="cr-tabs" role="tablist">
@@ -483,6 +517,8 @@ function SecHead({ en, kr, sub }: { en: string; kr: string; sub?: ReactNode }) {
 
 function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, isSeen, toggleSeen }: ViewProps) {
   const { person, craftKey, films, byWR, essentials, deep, further, startHere, notStart, partners, partnerIds, troupe, topCollab, totalWorks, corpus, failed, gTop, isDir } = S;
+  const dirLinks = useMetaLinks(isDir ? `person=${encodeURIComponent(person.name)}` : null);
+  const metaHref = personHref(person.name, person.id, isDir, dirLinks?.directorSlug ?? null);
   const cf = CRAFTS[craftKey];
   const yr0 = films[0].year, yr1 = films[films.length - 1].year;
   const bg = startHere?.backdrop ? img(startHere.backdrop, "w780") : null;
@@ -515,6 +551,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
           <div className="cr-arthead-txt">
             <h1 className="cr-artname">
               {person.name}{" "}
+              {metaHref ? <a className="cr-ext" href={metaHref} style={{ fontWeight: 700 }}>Metatake page →</a> : null}{" "}
               <a className="cr-ext" href={`https://www.themoviedb.org/person/${person.id}`} target="_blank" rel="noopener nofollow">TMDB ↗</a>
             </h1>
             <div className="cr-artrole">{cf.label} · {cf.kr}</div>
