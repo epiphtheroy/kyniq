@@ -722,7 +722,7 @@ export default function FilmMap({
             view === "grid" ? (
               <div className="fmap-grid">
                 {groups.map((g) => (
-                  <button key={g.slug} type="button" className={`fmap-card${(focus?.slug ?? filmSlug) === g.slug ? " on" : ""}`} onClick={() => focusFilm(g.slug, g.title)} title={`${g.title} — ${g.total} places`}>
+                  <button key={g.slug} type="button" className={`fmap-card${(focus?.slug ?? filmSlug) === g.slug ? " on" : ""}`} onClick={() => { if (worldOn) loadFilm(g.slug); focusFilm(g.slug, g.title); }} title={`${g.title} — ${g.total} places`}>
                     {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={`${IMG}${g.poster}`} alt={g.title} loading="lazy" /> : <span className="fmap-card__e">{g.title}</span>}
                     <span className="fmap-badge">{g.total}</span>
                   </button>
@@ -736,17 +736,26 @@ export default function FilmMap({
                   const mine = (focus?.slug ?? filmSlug) === g.slug;
                   return (
                     <li key={g.slug} className={`fmap-grp${mine ? " fmap-grp--mine" : ""}`}>
-                      <button type="button" className="fmap-grp__hd" onClick={() => {
-                        setExpanded((s) => { const n = new Set(s); if (n.has(g.slug)) n.delete(g.slug); else n.add(g.slug); return n; });
-                        if (!open) { if (worldOn && g.slug !== "—") ensureFilm(g.slug); else fitFilm(g.slug); }
-                      }}>
+                      <div className="fmap-grp__hd" role="button" tabIndex={0}
+                        onClick={() => {
+                          setExpanded((s) => { const n = new Set(s); if (n.has(g.slug)) n.delete(g.slug); else n.add(g.slug); return n; });
+                          if (!open && g.slug !== "—") {
+                            if (worldOn) loadFilm(g.slug); // pins appear in place — the camera stays put
+                            focusFilm(g.slug, g.title, false);
+                          }
+                        }}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") (e.currentTarget as HTMLElement).click(); }}>
                         {g.poster ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="fmap-grp__thumb" src={`${IMG}${g.poster}`} alt="" loading="lazy" /> : <span className="fmap-grp__thumb fmap-grp__thumb--e" />}
                         <span className="fmap-grp__tx">
                           <span className="fmap-grp__ttl">{g.title}{g.year ? <i> ({g.year})</i> : null}</span>
                           <span className="fmap-grp__meta">{g.total} place{g.total !== 1 ? "s" : ""}{sort === "inview" && g.inViewCount !== g.total ? ` · ${g.inViewCount} in view` : ""}</span>
                         </span>
+                        {g.slug !== "—" ? (
+                          <button type="button" className="fmap-grp__fit" title="Zoom to all its places" aria-label={`Zoom to all places of ${g.title}`}
+                            onClick={(e) => { e.stopPropagation(); fitWholeFilm(g.slug); }}>⌖</button>
+                        ) : null}
                         <span className={`fmap-grp__car${open ? " open" : ""}`}>›</span>
-                      </button>
+                      </div>
                       {open ? <ul className="fmap-list fmap-list--sub">{g.rows.map((r) => placeRow(r, false))}</ul> : null}
                     </li>
                   );
