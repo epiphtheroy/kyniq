@@ -323,6 +323,36 @@ export default function FilmMap({
       };
       if (satelliteDefault) applySat();
 
+      // Denser naming: surface place/POI labels ~1.5 zoom levels earlier and admit
+      // lower-ranked names (basemap styles hide most labels behind rank filters).
+      // Runs once per style load, so re-styling (map ↔ satellite) re-applies it.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const loosenRank = (f: any): any => {
+        let changed = false;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const walk = (n: any): any => {
+          if (!Array.isArray(n)) return n;
+          const [op, a, b] = n;
+          const isRank = a === "rank" || (Array.isArray(a) && a[0] === "get" && a[1] === "rank");
+          if ((op === "<=" || op === "<") && isRank && typeof b === "number") { changed = true; return [op, a, b * 2 + 6]; }
+          return n.map(walk);
+        };
+        const out = walk(f);
+        return changed ? out : null;
+      };
+      const densify = () => {
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          for (const l of (m.getStyle().layers ?? []) as any[]) {
+            if (l.type !== "symbol" || l.id === "cluster-count") continue;
+            if (!/place|poi|label|housenum|station|town|village|city|suburb/i.test(l.id)) continue;
+            if (typeof l.minzoom === "number") { try { m.setLayerZoomRange(l.id, Math.max(2, l.minzoom - 1.5), l.maxzoom ?? 24); } catch {} }
+            try { const lf = loosenRank(m.getFilter(l.id)); if (lf) m.setFilter(l.id, lf); } catch {}
+          }
+        } catch {}
+      };
+      m.on("style.load", densify);
+
       // cluster-count text needs a font that exists on the active glyph server —
       // borrow the first font stack the current style itself uses.
       const fontOf = (): string[] => {
