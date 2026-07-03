@@ -158,7 +158,7 @@ function RecInsp({ f, lam, onKeep, onSeen }: {
         <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 7 }}><i className="ti ti-shield-check" style={{ color: "var(--safe)" }} /> 매수해도 NAV는 오르기만 한다 — 저평점이 나와도 regret(P&amp;L)일 뿐 NAV drawdown 아님.</div>
       </div>
 
-      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
+      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, discovery: f.disc, conf: f.conf, tier: f.tier }} slug={f.slug} />
 
       <div className="icard"><h4><i className="ti ti-device-tv" /> 지금 볼 수 있나 · 가용</h4>
         {on ? (
@@ -235,7 +235,7 @@ function RiskInsp({ f, lam }: { f: Rec; lam: number }) {
           위험(R)은 <span style={{ color: "var(--risk)" }}>--risk 오렌지</span>로, 완파(정복) <span style={{ color: "var(--red)" }}>red</span>와 반드시 구분합니다.
         </div>
       </div>
-      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
+      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, discovery: f.disc, conf: f.conf, tier: f.tier }} slug={f.slug} />
     </div>
   );
 }
@@ -327,9 +327,11 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
     ? scored.reduce((a, w) => a + (w.rating ?? 0), 0) / nWatched
     : null;
 
-  /* ── summary (avg_v/avg_r etc.) ── */
+  /* ── summary (avg_v/avg_r + best/riskiest 배선) ── */
   const avgV = num(data.summary?.avg_v);
   const avgR = num(data.summary?.avg_r);
+  const best = data.summary?.best ?? null;
+  const riskiest = data.summary?.riskiest ?? null;
 
   /* ── 고위험 매수 경고 = 후보 중 R 높은 상위 (매수 전 예보, regret과 구분) ── */
   const riskWarn = useMemo(() =>
@@ -359,6 +361,8 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
           <div className="kv"><span>관람 · 평가</span><b>{nWatched}</b></div>
           <div className="kv"><span>★3.5+ 적중</span><b style={{ color: "#5fd0b2" }}>{hits.length}</b></div>
           <div className="kv"><span>저평점 regret (★≤2.0)</span><b style={{ color: "#e98a86" }}>{regrets.length}</b></div>
+          {best ? <div className="kv"><span>최고 순가치 보유 (TS {num(best.ts) ?? "—"})</span><b style={{ color: "#5fd0b2" }}>{best.title}</b></div> : null}
+          {riskiest ? <div className="kv"><span>최고 위험 보유 (R {num(riskiest.r) ?? "—"})</span><b style={{ color: "var(--risk)" }}>{riskiest.title}</b></div> : null}
           <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 8, lineHeight: 1.5 }}><i className="ti ti-shield-check" style={{ color: "var(--safe)" }} /> <b style={{ color: "var(--ink)" }}>관람은 NAV를 깎지 않는다.</b> 저평점만 P&amp;L regret으로 분리 기록 — NAV drawdown이 아닙니다.</div>
         </div>
         <div className="icard cc-card"><h4><i className="ti ti-hexagon" /> Cinecodex ⑨ · 위험조정 렌즈</h4>

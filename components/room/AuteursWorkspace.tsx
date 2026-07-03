@@ -119,7 +119,7 @@ function AuteurInsp({ a, onFilm }: { a: Auteur; onFilm: (f: Unseen, dir: string)
         </div>
         <div className="kv" style={{ marginTop: 8 }}><span>내 평균 ★</span><b>{a.avg_rating != null ? a.avg_rating.toFixed(2) : "—"}</b></div>
         <div style={{ fontSize: 11, color: "var(--canon)", marginTop: 6 }}>
-          <i className="ti ti-flag" /> {a.pct >= 100 ? "완파 완료 — 전 작품 정복" : `완파까지 ${remain}편 남음`}
+          <i className="ti ti-flag" /> {a.pct >= 100 ? "완파 완료 — 우리 DB 기준 전작" : `완파까지 ${remain}편 남음`}
         </div>
       </div>
 

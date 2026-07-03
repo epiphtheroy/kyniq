@@ -146,7 +146,7 @@ function RecInsp({ f }: { f: Rec }) {
         <div className="kv"><span><span className="gloss" title="Δindex = 이 한 편을 보면 내 NAV가 +N 오른다는 예측 증가분.">Δindex</span> · 이 한 편 보면</span><b style={{ color: "var(--safe)" }}>→ NAV +{f.delta ?? 0}</b></div>
       </div>
 
-      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
+      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, discovery: f.disc, conf: f.conf, tier: f.tier }} slug={f.slug} />
 
       <div className="icard"><h4><i className="ti ti-device-tv" /> 지금 볼 수 있나</h4>
         {av && av.state === "on" ? (

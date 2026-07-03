@@ -4,7 +4,7 @@ import FilmContentHub from "./FilmContentHub";
  *  Risk uses --risk (never --red). Confidence dims low-reliability (but divisive ≠ unreliable). */
 export type CcData = {
   v: number | null; c: number | null; r: number | null; u?: number | null;
-  prestige?: number | null; conf?: number | null; tier?: string | null;
+  prestige?: number | null; discovery?: number | null; conf?: number | null; tier?: string | null;
   imdb?: number | null; rt?: number | null; meta?: number | null; votes?: number | null;
   ratingPct?: number | null; // for 2-axis value badge (my ★ / 5 * 100)
 };
@@ -59,7 +59,7 @@ export default function CinecodexCard({ d, showBadge = false, slug }: { d: CcDat
         </div>
         <div className="sc canon"><h5>정전</h5>
           <div className="r"><span>정전가</span><b>{d.prestige != null ? Math.round(d.prestige) : "—"}</b></div>
-          <div className="r"><span>발견</span><b>{"—"}</b></div>
+          <div className="r"><span>발견</span><b>{d.discovery != null ? Math.round(d.discovery) : "—"}</b></div>
         </div>
       </div>
 

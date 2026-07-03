@@ -5,12 +5,20 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 type Hit = { kind: "film" | "page"; label: string; sub?: string; href: string };
+/* NAV(레일)와 동기화 — 전 룸 라우트 점프 가능 */
 const PAGES: Hit[] = [
   { kind: "page", label: "현황 · 커맨드센터", href: "/room" },
   { kind: "page", label: "보유 영화", href: "/room/collection" },
   { kind: "page", label: "볼 영화 · 추천", href: "/room/watchlist" },
   { kind: "page", label: "운용 데스크", href: "/room/desk" },
   { kind: "page", label: "자산 분석", href: "/room/analysis" },
+  { kind: "page", label: "지리 Atlas", href: "/room/atlas" },
+  { kind: "page", label: "감독 정복", href: "/room/auteurs" },
+  { kind: "page", label: "기록 · 평가", href: "/room/rate" },
+  { kind: "page", label: "서재", href: "/room/library" },
+  { kind: "page", label: "노트 · 글쓰기", href: "/room/write" },
+  { kind: "page", label: "동행", href: "/room/pair" },
+  { kind: "page", label: "공개 프로필", href: "/u/me" },
 ];
 
 export default function CmdK({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -31,7 +39,7 @@ export default function CmdK({ open, onClose }: { open: boolean; onClose: () => 
       const { data } = await supabase.rpc("film_search", { p_q: term, p_limit: 8 });
       if (!alive) return;
       const films: Hit[] = ((data as Array<{ slug: string; title: string; year: number | null }> | null) ?? [])
-        .map((f) => ({ kind: "film" as const, label: f.title, sub: f.year ? String(f.year) : undefined, href: `/film/${f.slug}` }));
+        .map((f) => ({ kind: "film" as const, label: f.title, sub: f.year ? String(f.year) : undefined, href: `/room/film/${f.slug}` }));
       setHits([...pageHits, ...films]);
     })();
     return () => { alive = false; };

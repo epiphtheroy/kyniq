@@ -55,7 +55,7 @@ function Insp({ f, lam, isKept, onKeep, onSeen }: {
         <div className="kv"><span>Δindex · 이 한 편 보면</span><b style={{ color: "var(--safe)" }}>→ NAV +{f.delta ?? 0}</b></div>
         <div className="kv"><span>지금 볼 수 있나 (KR)</span><b>{f.avail?.state === "on" ? `● ${f.avail.provider ?? "가능"}` : "○ 미확인"}</b></div>
       </div>
-      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, conf: f.conf, tier: f.tier }} slug={f.slug} />
+      <CinecodexCard d={{ v: f.v, c: null, r: f.r, u, prestige: f.prestige, discovery: f.disc, conf: f.conf, tier: f.tier }} slug={f.slug} />
       <div className="actbar">
         <div className={`actbtn pri`} onClick={() => onKeep(f)}>{isKept ? "✓ 담김" : "담기"}</div>
         <div className="actbtn" onClick={() => onSeen(f)}>봤어요</div>

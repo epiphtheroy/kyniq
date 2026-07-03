@@ -9,6 +9,7 @@ export type CollRow = {
   rating: number | null; v: number | null; c: number | null; r: number | null; u: number | null;
   prestige: number | null; discovery: number | null; conf: number | null; tier: string | null;
   imdb: number | null; rt: number | null; meta: number | null; votes: number | null;
+  added_at: string | null;
   facets: string[] | null;
 };
 
@@ -41,7 +42,7 @@ function Insp({ f }: { f: CollRow }) {
         <div className="kv"><span>Discovery(숨은가치)</span><b>{f.discovery != null ? Math.round(f.discovery) : "—"}</b></div>
         <div className="kv"><span>내 별점</span><b>{f.rating != null ? Number(f.rating).toFixed(1) : "—"}</b></div>
       </div>
-      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
+      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, discovery: f.discovery, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
       {(m != null || a != null) ? (
         <div className="icard"><h4><i className="ti ti-arrows-diff" /> 가치뱃지 2축</h4>
           <div className="kv"><span>시장 합치 (별점−정전가)</span><b style={{ color: m != null && m >= 12 ? "var(--safe)" : m != null && m <= -9 ? "var(--reading)" : "var(--ink)" }}>{m != null ? (m > 0 ? "+" : "") + m : "—"}</b></div>
@@ -83,6 +84,7 @@ export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
     if (sort === "score") s.sort((x, y) => (y.prestige ?? -1) - (x.prestige ?? -1));
     else if (sort === "rating") s.sort((x, y) => (y.rating ?? -1) - (x.rating ?? -1));
     else if (sort === "gap") s.sort((x, y) => (gapM(y) ?? -99) - (gapM(x) ?? -99));
+    else if (sort === "recent") s.sort((x, y) => (y.added_at ?? "").localeCompare(x.added_at ?? ""));
     return s;
   }, [rows, q, sort, findOnly]);
 
@@ -96,7 +98,7 @@ export default function CollectionWorkspace({ rows }: { rows: CollRow[] }) {
       <div className="xtoolbar">
         <div className="xsearch"><i className="ti ti-search" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="보유작 검색" /></div>
         <div className="xseg">
-          {([["score", "정전가순"], ["rating", "내 별점순"], ["gap", "발굴순"]] as const).map(([k, l]) => (
+          {([["score", "정전가순"], ["rating", "내 별점순"], ["gap", "발굴순"], ["recent", "최근순"]] as const).map(([k, l]) => (
             <button key={k} className={sort === k ? "on" : ""} onClick={() => setSort(k)}>{l}</button>
           ))}
         </div>

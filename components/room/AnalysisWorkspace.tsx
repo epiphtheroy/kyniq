@@ -68,7 +68,7 @@ function FilmInsp({ f }: { f: { slug: string; title: string; year: number | null
         <div className="kv"><span>Discovery (숨은가치)</span><b>{f.discovery != null ? Math.round(f.discovery) : "—"}</b></div>
         <div className="kv"><span>내 별점</span><b>{f.rating != null ? f.rating.toFixed(1) : "—"}</b></div>
       </div>
-      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
+      <CinecodexCard d={{ v: f.v, c: f.c, r: f.r, u: f.u, prestige: f.prestige, discovery: f.discovery, conf: f.conf, tier: f.tier, imdb: f.imdb, rt: f.rt, meta: f.meta, votes: f.votes, ratingPct: rp }} showBadge slug={f.slug} />
     </div>
   );
 }
