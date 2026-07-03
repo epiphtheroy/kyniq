@@ -50,6 +50,18 @@ export type Api = (path: string, params?: Record<string, string>) => Promise<unk
 
 export const IMG = "https://image.tmdb.org/t/p/";
 export const img = (p: string | null | undefined, s: string) => (p ? IMG + s + p : null);
+
+// URL slug for the server-rendered person page (/credits/[person]).
+// The trailing TMDB id is authoritative; the name part is for humans/SEO.
+export function personSlug(name: string, id: number): string {
+  const base = name
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return `${base || "person"}-${id}`;
+}
 export const fmtV = (v: number) =>
   v >= 1e6 ? (v / 1e6).toFixed(1) + "M" : v >= 1000 ? (v / 1000 >= 100 ? String(Math.round(v / 1000)) : (v / 1000).toFixed(1)) + "k" : String(v);
 export const yrsFmt = (a: number, b: number) => (b && b !== a ? `${a}–${b}` : `${a}`);

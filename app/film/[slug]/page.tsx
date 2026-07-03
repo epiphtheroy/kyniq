@@ -27,6 +27,7 @@ import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { fw, fwOrder, FAMILIES } from "@/lib/frameworks";
+import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 
@@ -225,6 +226,38 @@ function loadChrome(slug: string) {
   )();
 }
 
+// Key-craft crew for the on-page Credits block — the crawlable answer to
+// "who shot / edited / scored this film" (the /credits explorer is client-only
+// and invisible to search). Names link to /credits/[person] read pages.
+const CREW_KEYS: CraftKey[] = ["writer", "dp", "editor", "composer", "pd"];
+function loadCrew(tmdbId: number) {
+  return unstable_cache(
+    async () => {
+      const token = process.env.TMDB_READ_TOKEN;
+      if (!token) return [];
+      const v4 = token.length > 40;
+      const r = await fetch(
+        `https://api.themoviedb.org/3/movie/${tmdbId}/credits${v4 ? "" : `?api_key=${token}`}`,
+        { headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" } },
+      ).catch(() => null);
+      if (!r || !r.ok) return [];
+      const d = (await r.json()) as { crew?: { id: number; name: string; job?: string; department?: string }[] };
+      const out: { craft: CraftKey; people: { id: number; name: string }[] }[] = [];
+      for (const key of CREW_KEYS) {
+        const cf = CRAFTS[key];
+        const seen = new Map<number, { id: number; name: string }>();
+        for (const c of d.crew ?? []) {
+          if (c.job && cf.jobs.has(c.job) && c.department && cf.depts.includes(c.department)) seen.set(c.id, { id: c.id, name: c.name });
+        }
+        if (seen.size) out.push({ craft: key, people: [...seen.values()].slice(0, 4) });
+      }
+      return out;
+    },
+    ["film-crew", String(tmdbId)],
+    { revalidate: 86400 },
+  )();
+}
+
 // order + cap for the film-page Archetype section
 const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
 const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
@@ -291,6 +324,7 @@ export default async function FilmPage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   const { movements, codex } = await loadChrome(slug);
+  const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await loadCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
   const codexBadge = _cx ? (
     <a className="df-mts" href="#df-codex" title="TakeScore — durable value minus risk. Click for the full breakdown.">
@@ -410,7 +444,9 @@ export default async function FilmPage({ params }: Props) {
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
     { id: "df-watch", label: "Where to watch" },
-    film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
+    crew.length
+      ? { id: "df-crew", label: "Credits" }
+      : film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
   ].filter(Boolean)) as { id: string; label: string; href?: string }[];
 
@@ -803,6 +839,38 @@ export default async function FilmPage({ params }: Props) {
                 </div>
               ))}
             </div>
+          </section>
+        ) : null}
+
+        {/* CREDITS — key crafts, crawlable, linking to /credits/[person] read pages */}
+        {crew.length > 0 ? (
+          <section className="df-sec" id="df-crew">
+            <h2 className="df-h2">Credits — who made {film.title}</h2>
+            <p className="df-sub">The key crafts behind the film. Each name opens their body of work: the directors they keep returning to, and where their films are read on Metatake.</p>
+            <div className="rcp-list">
+              {film.director ? (
+                <div className="rcp-row">
+                  <span className="rcp-m" style={{ minWidth: 150 }}>Director</span>
+                  {film.director_slug ? <Link className="rcp-h" href={`/director/${film.director_slug}`}>{film.director}</Link> : <span className="rcp-h">{film.director}</span>}
+                </div>
+              ) : null}
+              {crew.map((c) => (
+                <div key={c.craft} className="rcp-row">
+                  <span className="rcp-m" style={{ minWidth: 150 }}>{CRAFTS[c.craft].label}</span>
+                  <span>
+                    {c.people.map((pp, i) => (
+                      <span key={pp.id}>
+                        {i > 0 ? ", " : ""}
+                        <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              ))}
+            </div>
+            {film.tmdb_id ? (
+              <div className="df-src"><Link href={`/credits?f=${film.tmdb_id}`}>Open in the interactive Credits explorer →</Link> · Credits data from TMDB</div>
+            ) : null}
           </section>
         ) : null}
 
