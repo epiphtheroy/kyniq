@@ -252,6 +252,27 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
   const openCountry = (c: { country: string; films: number; pins: number }) =>
     insp.select(<CountryInsp c={c} cont={contOf(c.country)} pts={pts} />, `${c.country} · 커버리지`);
   const openBlind = (cont: Continent) => insp.select(<BlindInsp cont={cont} />, `${CONT_KO[cont]} · 블라인드 ④`);
+  const openCluster = (c: Cluster) => {
+    const uniq = [...new Map(c.films.map((p) => [p.slug, p])).values()];
+    const first = c.films[0];
+    insp.select(
+      <div>
+        <div className="icard"><h4><i className="ti ti-map-pin" /> 같은 좌표 · {uniq.length}편</h4>
+          <div className="seltitle ser" style={{ fontSize: 15 }}>{first.name ?? first.country ?? "이름 없는 지점"}</div>
+          <div className="selsub">{first.country ?? "미상"} · {c.layer === "filmed" ? "촬영지" : "무대"} · ({first.lat.toFixed(2)}, {first.lng.toFixed(2)})</div>
+        </div>
+        <div className="icard"><h4><i className="ti ti-movie" /> 이 지점을 공유하는 영화</h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {uniq.map((p) => (
+              <a key={p.slug} href={`/room/film/${p.slug}`} className="fh-loc" style={{ textDecoration: "none" }}>
+                <span className={`fh-locdot ${p.layer}`} />
+                <span className="fh-locn">{p.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>, `${first.name ?? "지점"} · ${uniq.length}편 공유`);
+  };
 
   /* ── default inspector = atlas summary (mirrors Analysis/CommandCenter setDefault) ── */
   useEffect(() => {
@@ -302,7 +323,7 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
               <div className="at-ring">
                 <svg width="92" height="92" viewBox="0 0 92 92">
                   <circle cx="46" cy="46" r="38" fill="none" stroke="#24242a" strokeWidth="7" />
-                  {(() => { const C = 2 * Math.PI * 38; const frac = Math.min(1, countryCount / REF_NATIONS); return (
+                  {(() => { const C = 2 * Math.PI * 38; const frac = Math.min(1, countryCount / refNations); return (
                     <circle cx="46" cy="46" r="38" fill="none" stroke="var(--frontier)" strokeWidth="7" strokeLinecap="round"
                       strokeDasharray={C.toFixed(1)} strokeDashoffset={(C * (1 - frac)).toFixed(1)} transform="rotate(-90 46 46)" />
                   ); })()}
@@ -313,7 +334,7 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
               <div className="at-navmeta">
                 <div className="eb">지리 커버리지 · Geographic Reach</div>
                 <div className="at-lvl">● {seenConts.length}/6 대륙 · {countryCount}개국</div>
-                <div className="at-pctl">지도 위 <b>{locatedFilms}</b>편 · <b>{totalPins}</b> 지점 · 참조 {REF_NATIONS}개국 대비 <b>{coveragePct}%</b></div>
+                <div className="at-pctl">지도 위 <b>{locatedFilms}</b>편 · <b>{totalPins}</b> 지점 · 실측 {refNations}개국 대비 <b>{coveragePct}%</b></div>
               </div>
             </div>
             <div className="at-components">
@@ -334,7 +355,7 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                 <>당신의 영화가 가장 많이 벌어지는 무대는 <span className="em">{topCountry.country}</span>({topCountry.films}편). 6개 대륙 중 <b>{seenConts.length}개</b>를 밟았고, {blindConts.length ? <>아직 <b style={{ color: "var(--at-blindtx, #edc873)" }}>{blindConts.map((c) => CONT_KO[c]).join(" · ")}</b>는 지도 위 공백입니다.</> : <>6개 대륙 모두 지도에 올랐습니다.</>}</>
               ) : <>지도에 오른 국가가 아직 없습니다.</>}
             </div>
-            <div className="at-foot"><i className="ti ti-map-pin" style={{ color: "var(--frontier)" }} /> 점 = <b>film_locations</b>(lat/lng 실측) ∼ 내 관람작(seen). <b style={{ color: "var(--at-filmed, #0F6E56)" }}>촬영지</b>(filmed)·<b style={{ color: "var(--frontier)" }}>무대</b>(setting)를 색으로 구분. 대륙 매핑은 등장 국가 기준.</div>
+            <div className="at-foot"><i className="ti ti-map-pin" style={{ color: "var(--frontier)" }} /> 점 = <b>film_locations</b>(lat/lng 실측) ∼ 내 관람작(seen). <b style={{ color: "var(--at-filmed, #0F6E56)" }}>촬영지</b>(filmed)·<b style={{ color: "var(--frontier)" }}>무대</b>(setting)를 색으로 구분. 대륙 매핑 = DB 참조테이블(country_continents) · 동일 좌표는 한 점(n편 배지).</div>
           </div>
 
           {/* ═══ KPI STRIP ═══ */}
@@ -368,16 +389,22 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                     <line x1={0} y1={projY(0)} x2={MAP_W} y2={projY(0)} stroke="rgba(255,255,255,.10)" strokeWidth={1} />
                     <line x1={projX(0)} y1={0} x2={projX(0)} y2={MAP_H} stroke="rgba(255,255,255,.10)" strokeWidth={1} />
                     <rect x={0.5} y={0.5} width={MAP_W - 1} height={MAP_H - 1} fill="none" stroke="#2c2c30" />
-                    {/* dots */}
-                    {pts.map((p, i) => {
-                      const cnt = countryPinCount.get(p.country ?? "미상") ?? 1;
-                      const rr = 3.2 + Math.min(3, Math.log2(cnt + 1));
-                      const fill = p.layer === "filmed" ? "#0F6E56" : "var(--frontier)";
+                    {/* dots — 동일 좌표는 한 점으로 dedup (n편 배지) */}
+                    {clusters.map((c) => {
+                      const uniq = [...new Map(c.films.map((p) => [p.slug, p])).values()];
+                      const first = c.films[0];
+                      const rr = 3.2 + Math.min(3, Math.log2(uniq.length + 1));
+                      const fill = c.layer === "filmed" ? "#0F6E56" : "var(--frontier)";
                       return (
-                        <g key={`${p.slug}-${i}`} className="at-dot" onClick={() => openPoint(p)}>
-                          <title>{p.title} · {p.name ?? p.country ?? ""}</title>
-                          <circle className="hit" cx={p.x} cy={p.y} r={11} fill="transparent" />
-                          <circle cx={p.x} cy={p.y} r={rr} fill={fill} fillOpacity={0.82} stroke="#0a0a0b" strokeWidth={0.8} />
+                        <g key={c.key} className="at-dot" onClick={() => (uniq.length === 1 ? openPoint(first) : openCluster(c))}>
+                          <title>{uniq.length === 1
+                            ? `${first.title} · ${first.name ?? first.country ?? ""}`
+                            : `${first.name ?? first.country ?? "같은 좌표"} · ${uniq.length}편 공유`}</title>
+                          <circle className="hit" cx={c.x} cy={c.y} r={11} fill="transparent" />
+                          <circle cx={c.x} cy={c.y} r={rr} fill={fill} fillOpacity={0.82} stroke="#0a0a0b" strokeWidth={0.8} />
+                          {uniq.length > 1 ? (
+                            <text x={c.x} y={c.y - rr - 2.5} textAnchor="middle" fontSize="7.5" fill="#9A968D">{uniq.length}</text>
+                          ) : null}
                         </g>
                       );
                     })}
@@ -394,7 +421,7 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                   <div className="at-legend">
                     <div className="lg"><i className="filmed" />촬영지 (filmed)</div>
                     <div className="lg"><i className="setting" />무대 (setting)</div>
-                    <div className="lg" style={{ color: "var(--sub)" }}>점 크기 = 그 나라의 지점 수</div>
+                    <div className="lg" style={{ color: "var(--sub)" }}>점 크기·숫자 = 그 좌표를 공유하는 편수</div>
                   </div>
                   <div className="at-note">점 = 실측 (lat, lng) · 등거리 원통도법. 클릭 → 영화 · Cinecodex.</div>
                 </div>
@@ -431,7 +458,7 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
           {/* ═══ 지리적 블라인드 (④) ═══ */}
           <div className="mod" id="at-blind">
             <div className="modh"><h3><i className="ti ti-eye-off" style={{ color: "var(--blind)" }} /> 지리적 블라인드 · 아직 한 편도 안 본 대륙 <span style={{ color: "var(--faint)", fontWeight: 400 }}>④</span></h3>
-              <span className="meta">seen 0 · 대륙 매핑 = 등장 국가 기준</span></div>
+              <span className="meta">seen 0 · 대륙 매핑 = country_continents 참조테이블</span></div>
             <div className="modbody">
               {blindConts.length ? (
                 <div className="at-blindwrap">
