@@ -214,8 +214,16 @@ export default async function DirectorPage({ params }: Props) {
   const crewTmdbIds = (films as { tmdb_id?: number | null }[]).map((f) => f.tmdb_id).filter((x): x is number => !!x);
   // Directors who write/edit their own films would top their own list — the
   // company they keep is everyone else.
-  const repertory = (crewTmdbIds.length ? await directorRepertory(crewTmdbIds) : [])
-    .filter((r) => r.name.toLowerCase() !== director.toLowerCase());
+  // The repertory fan-out (≤40 TMDB credit fetches on a cold cache) was the
+  // page's TTFB bottleneck — cache the aggregated result per director.
+  const repertory = (crewTmdbIds.length
+    ? await unstable_cache(
+        () => directorRepertory(crewTmdbIds),
+        ["director-repertory", slug],
+        { revalidate: 86400, tags: [`director:${slug}`] },
+      )()
+    : []
+  ).filter((r) => r.name.toLowerCase() !== director.toLowerCase());
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   const jsonld = {
@@ -225,6 +233,29 @@ export default async function DirectorPage({ params }: Props) {
     ...(d?.birthday ? { birthDate: d.birthday } : {}),
     ...(d?.place_of_birth ? { birthPlace: d.place_of_birth } : {}),
     ...(portrait?.body ? { description: portrait.body.slice(0, 500) } : { description: editorialSummary(data) }),
+  };
+
+  // Filmography as ItemList — the machine-readable answer to "[director] films",
+  // the highest-volume query class a director page can win.
+  const filmographyLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Films by ${director}`,
+    numberOfItems: films.length,
+    itemListElement: (films as { slug: string; title: string; year: number | null }[]).map((f, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: { "@type": "Movie", name: f.title, url: `https://metatake.net/film/${f.slug}`, ...(f.year ? { datePublished: String(f.year) } : {}) },
+    })),
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Directors", item: "https://metatake.net/director" },
+      { "@type": "ListItem", position: 2, name: director },
+    ],
   };
 
   const summaryText = portrait?.body ? null : editorialSummary(data);
@@ -271,6 +302,8 @@ export default async function DirectorPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(filmographyLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <div className="dr-wrap">
         <div className="dr-crumb"><Link href="/director">Directors</Link></div>

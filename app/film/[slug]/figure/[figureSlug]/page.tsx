@@ -208,6 +208,16 @@ export default async function FigurePage({ params }: Props) {
     ...(figure.updated_at ? { dateModified: figure.updated_at as string } : {}),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Films", item: "https://metatake.net/film" },
+      { "@type": "ListItem", position: 2, name: film.title, item: `https://metatake.net/film/${film.slug}` },
+      { "@type": "ListItem", position: 3, name: figure.label },
+    ],
+  };
+
   const faqLd = figure.description ? {
     "@context": "https://schema.org", "@type": "FAQPage",
     mainEntity: [{
@@ -220,6 +230,7 @@ export default async function FigurePage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       {faqLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} /> : null}
 
       <div className="fg-wrap">
