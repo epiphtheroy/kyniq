@@ -273,6 +273,7 @@ export default function MapExplorer() {
         </div>
         <EntityGraph data={data} height={h} onNodeClick={recenter} onOpen={openNode} className="map-canvas" />
       </div>
+      )}
 
       <div className="map-legend">{legend}</div>
     </div>
