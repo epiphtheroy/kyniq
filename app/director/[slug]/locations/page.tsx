@@ -11,8 +11,9 @@ import {
   DIRECTOR_LOCATIONS_MIN_PINS,
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
+  countryListPhrase,
+  countryPhrase,
   countrySlug,
-  listWords,
   loadDirectorGeo,
   mergeCells,
   mergePins,
@@ -78,12 +79,12 @@ function leadText(director: string, films: FilmGroup[], pins: GeoPin[]): string 
   const countries = pinCountries(pins);
   const top = countries[0];
   const share = top ? Math.round((top.pins / pins.length) * 100) : 0;
-  const where = listWords(countries.slice(0, 3).map((c) => c.name));
-  const first = `${director}'s ${films.length} films on Metatake were shot across ${pins.length} mapped locations${where ? ` in ${where}` : ""}${countries.length > 3 ? ` and ${countries.length - 3} more countries` : ""}.`;
+  const where = countryListPhrase(countries.slice(0, 3).map((c) => c.name), Math.max(0, countries.length - 3));
+  const first = `${director}'s ${films.length} films on Metatake were shot across ${pins.length} mapped locations${where ? ` in ${where}` : ""}.`;
   const second = top && share >= 55 && countries.length > 1
-    ? ` ${share}% of them stand in ${top.name} — the geography is part of the signature.`
+    ? ` ${share}% of them stand in ${countryPhrase(top.name)} — the geography is part of the signature.`
     : top && countries.length === 1
-      ? ` All of them stand in ${top.name}.`
+      ? ` All of them stand in ${countryPhrase(top.name)}.`
       : "";
   return `${first}${second} Every location below links back to the film it belongs to.`;
 }

@@ -5,7 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
 import { pageRobots } from "@/lib/seo";
-import { FILM_LOCATIONS_MIN, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
+import { FILM_LOCATIONS_MIN, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
 
 /**
  * /atlas/[slug] — country hub, the READ layer for "movies filmed in X"
@@ -34,7 +34,7 @@ function leadText(c: AtlasCountry): string {
   const span = c.films.map((f) => f.year).filter((y): y is number => !!y);
   const years = span.length > 1 ? ` (${Math.min(...span)}–${Math.max(...span)})` : "";
   const sentences = [
-    `${c.films.length} films on Metatake were shot on location in ${c.country}${years} — ${c.pins} mapped places in all.`,
+    `${c.films.length} films on Metatake were shot on location in ${countryPhrase(c.country)}${years} — ${c.pins} mapped places in all.`,
   ];
   if (marks.length) sentences.push(`Filmmakers keep returning to ${listWords(marks)}.`);
   sentences.push("Each film below links to its own location page, with the scene every place carries.");
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const c = await load(slug);
   if (!c) return { title: "Not found" };
-  const title = `Movies Filmed in ${c.country} — ${c.films.length} Films, ${c.pins} Locations`;
+  const title = `Movies Filmed in ${countryPhrase(c.country)} — ${c.films.length} Films, ${c.pins} Locations`;
   const description = leadText(c);
   return {
     title,
@@ -129,7 +129,7 @@ export default async function AtlasCountryPage({ params }: Props) {
           <span className="df-sep">›</span><span>{c.country}</span>
         </div>
 
-        <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {c.country}</h1>
+        <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {countryPhrase(c.country)}</h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
         <a
           href="#map"
@@ -146,7 +146,7 @@ export default async function AtlasCountryPage({ params }: Props) {
         {returnedTo.length > 0 && (
           <section style={{ margin: "30px 0" }}>
           <h2 className="df-h2">The places filmmakers return to</h2>
-            <p className="df-sub">Locations in {c.country} that appear in more than one film on Metatake.</p>
+            <p className="df-sub">Locations in {countryPhrase(c.country)} that appear in more than one film on Metatake.</p>
             <ul style={{ margin: "8px 0 0", paddingLeft: 18, lineHeight: 1.8 }}>
               {returnedTo.slice(0, 12).map((m) => (
                 <li key={m.name}>
@@ -159,7 +159,7 @@ export default async function AtlasCountryPage({ params }: Props) {
 
         <section style={{ margin: "30px 0" }}>
           <h2 className="df-h2">The films — decade by decade</h2>
-          <p className="df-sub">Every film on Metatake with at least one mapped location in {c.country}, newest first.</p>
+          <p className="df-sub">Every film on Metatake with at least one mapped location in {countryPhrase(c.country)}, newest first.</p>
           {shelfOrder.map((decade) => (
             <div key={decade} style={{ margin: "18px 0 6px" }}>
               <h3 style={{ fontSize: 14, letterSpacing: ".04em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 2px" }}>{decade}</h3>
@@ -183,8 +183,8 @@ export default async function AtlasCountryPage({ params }: Props) {
         </section>
 
         <section id="map" style={{ margin: "44px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
-          <h2 className="df-h2" style={{ marginTop: 18 }}>{c.country} — every location on one map</h2>
-          <p className="df-sub">All mapped places in {c.country}, live. Click a pin to read what it means in its film.</p>
+          <h2 className="df-h2" style={{ marginTop: 18 }}>See {countryPhrase(c.country)} on the map</h2>
+          <p className="df-sub">All mapped places in {countryPhrase(c.country)}, live. Click a pin to read what it means in its film.</p>
           <FilmMap endpoint={`/api/geo?country=${slug}`} height={560} />
         </section>
 

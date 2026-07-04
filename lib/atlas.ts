@@ -161,6 +161,26 @@ export function listWords(words: string[]): string {
   return `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`;
 }
 
+// Country names that read wrong mid-sentence without an article.
+const THE_COUNTRIES = new Set([
+  "United States", "United Kingdom", "Netherlands", "Philippines",
+  "United Arab Emirates", "Dominican Republic", "Czech Republic", "Bahamas",
+  "Maldives", "Marshall Islands", "Cayman Islands", "Isle of Man",
+  "Democratic Republic of the Congo", "Republic of the Congo",
+]);
+
+/** "United States" → "the United States" for running prose (not headings-only contexts). */
+export function countryPhrase(name: string): string {
+  return THE_COUNTRIES.has(name) ? `the ${name}` : name;
+}
+
+/** "the United States, France and Italy" / "…, France and 15 more countries". */
+export function countryListPhrase(names: string[], extra = 0): string {
+  const phr = names.map(countryPhrase);
+  if (extra > 0) return `${phr.join(", ")} and ${extra} more ${extra === 1 ? "country" : "countries"}`;
+  return listWords(phr);
+}
+
 export async function loadFilmGeo(slug: string): Promise<GeoPin[]> {
   const { data } = await db().rpc("film_geo", { p_slug: slug });
   return Array.isArray(data) ? (data as GeoPin[]) : [];

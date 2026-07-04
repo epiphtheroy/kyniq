@@ -9,6 +9,8 @@ import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
+  countryListPhrase,
+  countryPhrase,
   countrySlug,
   listWords,
   loadFilmGeo,
@@ -96,8 +98,8 @@ function leadText(film: FilmRow, filmed: GeoPin[], setting: GeoPin[]): string {
   const sentences: string[] = [];
   if (filmed.length) {
     const countries = pinCountries(filmed);
-    const where = listWords(countries.slice(0, 3).map((c) => c.name));
-    sentences.push(`${film.title}${year} was filmed across ${filmed.length} real location${filmed.length === 1 ? "" : "s"}${where ? ` in ${where}` : ""}${countries.length > 3 ? ` and ${countries.length - 3} more countr${countries.length - 3 === 1 ? "y" : "ies"}` : ""}.`);
+    const where = countryListPhrase(countries.slice(0, 3).map((c) => c.name), Math.max(0, countries.length - 3));
+    sentences.push(`${film.title}${year} was filmed across ${filmed.length} real location${filmed.length === 1 ? "" : "s"}${where ? ` in ${where}` : ""}.`);
     if (builtSets) sentences.push(`${builtSets} of its worlds ${builtSets === 1 ? "was" : "were"} built as sets rather than found.`);
   }
   if (setting.length) {
@@ -298,7 +300,7 @@ export default async function FilmLocationsPage({ params }: Props) {
               <><br /><Link href={`/director/${film.director_slug}/locations`}>Where does {film.director} film? Every location across the filmography →</Link></>
             ) : null}
             {countries.filter((c) => hubCountries.has(countrySlug(c.name))).slice(0, 3).map((c) => (
-              <span key={c.name}><br /><Link href={`/atlas/${countrySlug(c.name)}`}>Movies filmed in {c.name} →</Link></span>
+              <span key={c.name}><br /><Link href={`/atlas/${countrySlug(c.name)}`}>Movies filmed in {countryPhrase(c.name)} →</Link></span>
             ))}
           </p>
         </section>
