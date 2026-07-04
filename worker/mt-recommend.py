@@ -1,68 +1,67 @@
 #!/usr/bin/env python3
-"""Film recommendations (build step 4c) — film_affinities via TF-IDF.
+"""Film recommendations (build step 4c) — film_affinities hybrid rebuild.
 
-Reads published meta takes + their takes' films, computes film-film affinity
-weighted by meta-take rarity, stores top-20 per film with the shared meta
-takes (the explainable reason). Re-runnable (clears film_affinities first).
-Usage: python3 mt-recommend.py [--dry]
+2026-07-04 REWRITE (connections overhaul, docs/PLAN-connections-overhaul.md):
+The old version computed TF-IDF over takes.meta_take_id, which has been dead
+since the trope reformation (all rows point at unpublished hubs) — re-running
+it wiped film_affinities and wrote 0 rows. The rebuild now lives in SQL
+(supabase/rpc/conn_rebuild.sql, applied as migration conn_rebuild_rpcs):
+
+  score = RRF( trope TF-IDF rank  [figure_type_members, published tropes],
+               embedding cosine rank [film_taste_vector, top-30/film] ),
+  top-24 per film; shared_meta_take_ids = shared trope ids (rarest first).
+
+This script just drives the chunked RPCs (each call < REST 8s timeout):
+  conn_rebuild_stage_truncate → conn_stage_tfidf_chunk* → conn_stage_knn_chunk*
+  → conn_affinities_swap (atomic truncate+insert).
+Idempotent — safe to re-run. Requires SUPABASE_SERVICE_ROLE_KEY.
+Usage: python3 mt-recommend.py
 """
-import os, sys, json, urllib.request, urllib.error, urllib.parse
-from collections import defaultdict
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from mt_recommend_core import affinities
-HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
+import os, sys, json, urllib.request, urllib.error
+
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
+
 def load_env(p):
     if not os.path.exists(p): return
-    for line in open(p,encoding="utf-8"):
-        line=line.strip()
+    for line in open(p, encoding="utf-8"):
+        line = line.strip()
         if line and not line.startswith("#") and "=" in line:
-            k,_,v=line.partition("="); os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
-load_env(os.path.join(ROOT,".env.local"))
-URL=os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY=os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+            k, _, v = line.partition("="); os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+load_env(os.path.join(ROOT, ".env.local"))
+URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
 if not (URL and KEY): print("Missing env"); sys.exit(1)
-DRY="--dry" in sys.argv[1:]
-def http(method,url,body=None,prefer=None):
-    h={"apikey":KEY,"Authorization":f"Bearer {KEY}","Content-Type":"application/json"}
-    if prefer: h["Prefer"]=prefer
-    req=urllib.request.Request(url,method=method,data=json.dumps(body).encode() if body is not None else None)
-    for k,v in h.items(): req.add_header(k,v)
+
+def rpc(name, body=None):
+    req = urllib.request.Request(f"{URL}/rest/v1/rpc/{name}", method="POST",
+                                 data=json.dumps(body or {}).encode())
+    for k, v in {"apikey": KEY, "Authorization": f"Bearer {KEY}", "Content-Type": "application/json"}.items():
+        req.add_header(k, v)
     try:
-        with urllib.request.urlopen(req,timeout=120) as r: return r.status, r.read().decode()
+        with urllib.request.urlopen(req, timeout=120) as r: return r.status, r.read().decode()
     except urllib.error.HTTPError as e: return e.code, e.read().decode()[:300]
-def sb(method,path,body=None,prefer=None): return http(method,f"{URL}/rest/v1/{path}",body,prefer)
-def fetch_all(path):
-    rows=[]; off=0
+
+def run_chunks(fn, chunk=250):
+    total = 0; off = 0
     while True:
-        st,tx=sb("GET",f"{path}&limit=1000&offset={off}")
-        if st!=200: raise RuntimeError(f"{st}: {tx[:200]}")
-        b=json.loads(tx); rows+=b
-        if len(b)<1000: break
-        off+=1000
-    return rows
+        st, tx = rpc(fn, {"p_offset": off, "p_limit": chunk})
+        if st >= 300: print(f"[recommend] {fn} offset={off} -> {st}: {tx}"); sys.exit(1)
+        n = int(tx)
+        total += n; off += chunk
+        print(f"[recommend] {fn} offset={off - chunk}: +{n} rows", flush=True)
+        if n == 0: break
+    return total
+
 def main():
-    sel="meta_take_id,figure:figures!inner(film_id),meta_take:meta_takes!inner(status)"
-    rows=fetch_all(f"takes?select={urllib.parse.quote(sel,safe='!,():*')}&meta_take_id=not.is.null&meta_take.status=eq.published")
-    film_meta=defaultdict(set)
-    for r in rows:
-        film_meta[r["figure"]["film_id"]].add(r["meta_take_id"])
-    print(f"[recommend] {len(film_meta)} films across published meta takes")
-    aff=affinities(film_meta, top_n=20)
-    total=sum(len(v) for v in aff.values())
-    print(f"[recommend] {total} affinity pairs (top-20/film)")
-    if DRY:
-        ex=next(iter(aff.items())) if aff else None
-        print("  sample:", ex[0] if ex else None, "->", [(b,s) for b,s,_ in (ex[1][:3] if ex else [])])
-        return
-    # per-film replace — one global DELETE of ~30k rows times out at the 8s limit.
-    total_w=0; nf=0
-    for f, lst in aff.items():
-        nf+=1
-        sb("DELETE",f"film_affinities?film_id=eq.{f}",prefer="return=minimal")
-        rows_f=[{"film_id":f,"related_film_id":b,"score":s,"shared_meta_take_ids":shared} for b,s,shared in lst]
-        for i in range(0,len(rows_f),300):
-            st,tx=sb("POST","film_affinities",rows_f[i:i+300],prefer="return=minimal")
-            if st>=300: print(f"[recommend] insert {st}: {tx[:160]}"); sys.exit(1)
-        total_w+=len(rows_f)
-        if nf%200==0: print(f"[recommend] …{nf} films, {total_w} rows", flush=True)
-    print(f"[recommend] done: {total_w} rows written across {nf} films")
-if __name__=="__main__": main()
+    st, tx = rpc("conn_rebuild_stage_truncate")
+    if st >= 300: print(f"[recommend] truncate -> {st}: {tx}"); sys.exit(1)
+    print("[recommend] staging truncated")
+    t = run_chunks("conn_stage_tfidf_chunk")
+    print(f"[recommend] tfidf pairs: {t}")
+    k = run_chunks("conn_stage_knn_chunk")
+    print(f"[recommend] knn rows: {k}")
+    st, tx = rpc("conn_affinities_swap")
+    if st >= 300: print(f"[recommend] swap -> {st}: {tx}"); sys.exit(1)
+    print(f"[recommend] done: film_affinities rows = {tx}")
+
+if __name__ == "__main__": main()
