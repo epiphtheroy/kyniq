@@ -247,7 +247,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Location data compiled and geolocated by Metatake · Updated {updated}
+          Metatake Editorial · Location data researched, compiled and geolocated by Metatake · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
     </div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
 import { pageRobots } from "@/lib/seo";
-import { FILM_LOCATIONS_MIN, citiesForCountry, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
+import { FILM_LOCATIONS_MIN, cachedAtlasEligibility, cachedAtlasMeta, citiesForCountry, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
 
 /**
  * /atlas/[slug] — country hub, the READ layer for "movies filmed in X"
@@ -24,7 +24,9 @@ function load(slug: string) {
       if (!c || c.films.length < 3 || c.pins < 3) return null;
       return c;
     },
-    ["atlas-country", slug],
+    // Key bumped (2) when film posters joined the RPC payload — the Data
+    // Cache outlives deploys.
+    ["atlas-country2", slug],
     { revalidate: 86400 },
   )();
 }
@@ -63,10 +65,21 @@ export default async function AtlasCountryPage({ params }: Props) {
   const { slug } = await params;
   const c = await load(slug);
   if (!c) notFound();
-  const updated = new Date().toISOString().slice(0, 10);
+  const [meta, elig] = await Promise.all([cachedAtlasMeta(), cachedAtlasEligibility()]);
+  const updated = meta.updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(c);
   const returnedTo = c.landmarks.filter((m) => m.films >= 2);
   const cities = citiesForCountry(slug);
+  // Directors with ≥2 films shot here — link into their own location pages.
+  const locDirectors = new Set(elig.directors.map((d) => d.slug));
+  const byDirector = new Map<string, { name: string; slug: string | null; films: number }>();
+  for (const f of c.films) {
+    if (!f.director) continue;
+    const e = byDirector.get(f.director) ?? { name: f.director, slug: f.director_slug, films: 0 };
+    e.films += 1;
+    byDirector.set(f.director, e);
+  }
+  const returningDirectors = [...byDirector.values()].filter((d) => d.films >= 2).sort((a, b) => b.films - a.films).slice(0, 8);
 
   // Decade shelves, newest first; undated films sit at the end.
   const decades = new Map<string, AtlasCountry["films"]>();
@@ -158,6 +171,24 @@ export default async function AtlasCountryPage({ params }: Props) {
           </section>
         )}
 
+        {returningDirectors.length > 0 && (
+          <section style={{ margin: "30px 0" }}>
+            <h2 className="df-h2">The directors who keep coming back</h2>
+            <p className="df-sub">Filmmakers with more than one film shot in {countryPhrase(c.country)} on Metatake.</p>
+            <p style={{ lineHeight: 2, margin: "6px 0 0" }}>
+              {returningDirectors.map((d, i) => (
+                <span key={d.name}>
+                  {i > 0 ? " · " : ""}
+                  {d.slug
+                    ? <Link href={locDirectors.has(d.slug) ? `/director/${d.slug}/locations` : `/director/${d.slug}`}>{d.name}</Link>
+                    : d.name}
+                  <span style={{ opacity: 0.6, fontSize: 13.5 }}> ({d.films} films)</span>
+                </span>
+              ))}
+            </p>
+          </section>
+        )}
+
         {cities.length > 0 && (
           <section style={{ margin: "30px 0" }}>
             <h2 className="df-h2">Cities &amp; regions</h2>
@@ -179,18 +210,26 @@ export default async function AtlasCountryPage({ params }: Props) {
             <div key={decade} style={{ margin: "18px 0 6px" }}>
               <h3 style={{ fontSize: 14, letterSpacing: ".04em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 2px" }}>{decade}</h3>
               {decades.get(decade)!.map((f) => (
-                <div key={f.slug} style={{ padding: "9px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
-                  <Link href={`/film/${f.slug}`} style={{ fontWeight: 600 }}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
-                  <span style={{ fontSize: 13.5, opacity: 0.7 }}>
-                    {f.director ? <> — dir. {f.director_slug ? <Link href={`/director/${f.director_slug}`}>{f.director}</Link> : f.director}</> : null}
-                    {f.top_location ? <> · {f.top_location}</> : null}
-                  </span>
-                  {f.pins >= FILM_LOCATIONS_MIN ? (
-                    <span style={{ fontSize: 13.5 }}>
-                      {" · "}
-                      <Link href={`/film/${f.slug}/locations`}>{f.pins} locations →</Link>
-                    </span>
+                <div key={f.slug} style={{ display: "flex", gap: 12, alignItems: "flex-start", padding: "9px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
+                  {f.poster_path ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <Link href={`/film/${f.slug}`} style={{ flexShrink: 0 }}>
+                      <img src={`https://image.tmdb.org/t/p/w92${f.poster_path}`} alt={`${f.title} poster`} width={40} height={60} style={{ borderRadius: 5, objectFit: "cover", display: "block" }} loading="lazy" />
+                    </Link>
                   ) : null}
+                  <div>
+                    <Link href={`/film/${f.slug}`} style={{ fontWeight: 600 }}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
+                    <span style={{ fontSize: 13.5, opacity: 0.7 }}>
+                      {f.director ? <> — dir. {f.director_slug ? <Link href={`/director/${f.director_slug}`}>{f.director}</Link> : f.director}</> : null}
+                      {f.top_location ? <> · {f.top_location}</> : null}
+                    </span>
+                    {f.pins >= FILM_LOCATIONS_MIN ? (
+                      <span style={{ fontSize: 13.5 }}>
+                        {" · "}
+                        <Link href={`/film/${f.slug}/locations`}>{f.pins} locations →</Link>
+                      </span>
+                    ) : null}
+                  </div>
                 </div>
               ))}
             </div>
@@ -211,7 +250,7 @@ export default async function AtlasCountryPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Location data compiled and geolocated by Metatake · Updated {updated}
+          Metatake Editorial · Location data researched, compiled and geolocated by Metatake · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
     </div>
