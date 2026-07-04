@@ -581,6 +581,34 @@ export default async function DirectorPage({ params }: Props) {
               );
             })}
           </div>
+          {/* Layer 2 — complete the filmography: hidden catalog films by this
+              director. Server-rendered plain <a> list; their own pages stay
+              out of the index. */}
+          {hiddenFilms.length > 0 && (
+            <div style={{ marginTop: 28 }}>
+              <h3 className="dr-h2" style={{ fontSize: 18 }}>Not yet read closely</h3>
+              <p className="dr-gloss">
+                The rest of {director}&apos;s filmography on Metatake — {hiddenTotal} catalog entr{hiddenTotal === 1 ? "y" : "ies"}, each with its own film page. The close readings are still to come.
+              </p>
+              <div className="mvh-films">
+                {hiddenFilms.map((f) => (
+                  <a className="mvh-film" key={f.slug} href={`/film/${f.slug}`}>
+                    {f.poster_path ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img className="mvh-poster" src={`${IMG}/w185${f.poster_path}`} alt="" width={185} height={278} loading="lazy" />
+                    ) : <div className="mvh-poster mvh-poster--empty" aria-hidden="true" />}
+                    <div className="mvh-fmeta">
+                      <div className="mvh-ftitle">{f.title}{f.year ? <span className="mvh-yr"> ({f.year})</span> : null}</div>
+                      {f.original_title && f.original_title !== f.title ? <div className="mvh-fdir">{f.original_title}</div> : null}
+                    </div>
+                  </a>
+                ))}
+              </div>
+              {hiddenTotal > hiddenFilms.length ? (
+                <p className="dr-gloss" style={{ marginTop: 12 }}>+ {hiddenTotal - hiddenFilms.length} more in the archive.</p>
+              ) : null}
+            </div>
+          )}
           <div className="dr-prov">Director fingerprint computed from the live corpus — signatures recur across two or more films. Bio &amp; images via TMDB.</div>
         </section>
 
