@@ -6,10 +6,15 @@ import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "
 
 export const revalidate = 600;
 
+const SITE = "https://metatake.net";
+const TITLE = "Archetypes — what each figure is";
+const DESC =
+  "A controlled vocabulary for every figure in the archive — objects, characters, places, themes, theory. Browse cinema by what its elements are, not only what they mean.";
+
 export const metadata: Metadata = {
-  title: "Archetype — what each figure is | Metatake",
-  description:
-    "A controlled vocabulary for every figure in the archive — objects, characters, places, themes, theory. Browse cinema by what its elements are, not only what they mean.",
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/catalog" },
 };
 
 function db() {
@@ -37,9 +42,25 @@ export default async function CatalogHub() {
   const conceptCount = concepts.length;
   topBySection["theory"] = concepts.slice(0, 4).map((c) => ({ slug: c.slug, label: c.title, code: null, n: c.n }));
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": `${SITE}/catalog`, url: `${SITE}/catalog`, name: TITLE, description: DESC },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "Archetypes", item: `${SITE}/catalog` },
+      ] },
+      { "@type": "ItemList", numberOfItems: SECTIONS.length,
+        itemListElement: SECTIONS.map((s, i) => ({
+          "@type": "ListItem", position: i + 1, name: s.cardTitle, url: `${SITE}${sectionHref(s.key)}`,
+        })) },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="cat-wrap">
         <div className="cat-kick">Archetype</div>
         <h1 className="cat-h1">What each figure <em>is</em></h1>
