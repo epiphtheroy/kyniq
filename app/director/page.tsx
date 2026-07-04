@@ -2,13 +2,17 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import DirectorsIndex, { type DirFeat, type DirCat } from "@/components/indexes/DirectorsIndex";
+import { directorUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
 
+const TITLE = "Directors — the recurring obsessions of a filmography";
+const DESC =
+  "Not a filmography list. On Metatake a director is the sum of their obsessions — the signature readings and tropes that recur across a whole body of work.";
+
 export const metadata: Metadata = {
-  title: "Directors — the recurring obsessions of a filmography",
-  description:
-    "Not a filmography list. On Metatake a director is the sum of their obsessions — the signature readings and tropes that recur across a whole body of work.",
+  title: TITLE,
+  description: DESC,
   alternates: { canonical: "/director" },
 };
 
@@ -26,9 +30,40 @@ export default async function DirectorIndexPage() {
   const featured = ((featuredRes.data as DirFeat[] | null) ?? []).filter((d) => d && d.tropesList?.length);
   const catalogue = (catRes.data as DirCat[] | null) ?? [];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://metatake.net/director",
+        name: TITLE,
+        description: DESC,
+        isPartOf: { "@type": "WebSite", "@id": "https://metatake.net" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+          { "@type": "ListItem", position: 2, name: "Directors", item: "https://metatake.net/director" },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        numberOfItems: catalogue.length,
+        itemListElement: featured.map((d, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: d.name,
+          url: `https://metatake.net${directorUrl(d.slug)}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
         <h1 className="idx-h1">Directors</h1>
 

@@ -2,13 +2,17 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmsIndex, { type FilmFeat, type FilmCat } from "@/components/indexes/FilmsIndex";
+import { filmUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
 
+const TITLE = "Films — read closely through their figures";
+const DESC =
+  "Not a movie database. Every film on Metatake is broken into its figures and the readings & tropes they carry, then wired to every other film that shares them.";
+
 export const metadata: Metadata = {
-  title: "Films — read closely through their figures",
-  description:
-    "Not a movie database. Every film on Metatake is broken into its figures and the readings & tropes they carry, then wired to every other film that shares them.",
+  title: TITLE,
+  description: DESC,
   alternates: { canonical: "/film" },
 };
 
@@ -26,9 +30,40 @@ export default async function FilmIndexPage() {
   const featured = ((featuredRes.data as FilmFeat[] | null) ?? []).filter((f) => f && f.readingList?.length);
   const catalogue = (catRes.data as FilmCat[] | null) ?? [];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://metatake.net/film",
+        name: TITLE,
+        description: DESC,
+        isPartOf: { "@type": "WebSite", "@id": "https://metatake.net" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+          { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        numberOfItems: catalogue.length,
+        itemListElement: featured.map((f, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: f.year ? `${f.title} (${f.year})` : f.title,
+          url: `https://metatake.net${filmUrl(f.slug)}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
         <h1 className="idx-h1">Films</h1>
 

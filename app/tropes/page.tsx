@@ -2,13 +2,17 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import IndexPattern, { type IdxCase, type IdxFeature, type IdxItem } from "@/components/IndexPattern";
+import { tropeUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
 
+const TITLE = "Tropes — figure-types that recur across cinema";
+const DESC =
+  "Recurring figure-types — the devices, situations and objects that return across films. Where a meta take is a recurring reading, a trope is a recurring kind of thing.";
+
 export const metadata: Metadata = {
-  title: "Tropes — figure-types that recur across cinema",
-  description:
-    "Recurring figure-types — the devices, situations and objects that return across films. Where a meta take is a recurring reading, a trope is a recurring kind of thing.",
+  title: TITLE,
+  description: DESC,
   alternates: { canonical: "/tropes" },
 };
 
@@ -33,9 +37,40 @@ export default async function TropesIndex() {
     }));
   const catalogue = (catRes.data as IdxItem[] | null) ?? [];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://metatake.net/tropes",
+        name: TITLE,
+        description: DESC,
+        isPartOf: { "@type": "WebSite", "@id": "https://metatake.net" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+          { "@type": "ListItem", position: 2, name: "Tropes", item: "https://metatake.net/tropes" },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        numberOfItems: catalogue.length,
+        itemListElement: featured.map((r, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: r.title,
+          url: `https://metatake.net${tropeUrl(r.slug)}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx idx--teal">
         <h1 className="idx-h1">Tropes</h1>
 
