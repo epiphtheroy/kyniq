@@ -1,6 +1,9 @@
 /** TakeScore evaluation card — durable Value, entry Cost, Risk, TakeScore (Value − Risk),
  *  Efficiency, the 13 sub-scores (always shown), and a MEASURED confidence (not luck).
  *  AI-estimated with stated limits. External metrics shown ALONGSIDE, never blended. */
+import type { CSSProperties } from "react";
+import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
+
 export type Codex = {
   v: number; c: number; r: number; u: number; sharpe: number;
   sub: Record<string, number>;
@@ -9,9 +12,40 @@ export type Codex = {
   ext: { imdb: number | null; rt: number | null; metascore: number | null };
 };
 
+/** Payload of public.cinecodex_film_subscores — raw sub-scores plus each dimension's
+ *  percentile against all scored films. Null for unscored films. */
+export type FilmSubscores = {
+  scores: Record<string, number>;
+  pct: Record<string, number>;
+  v: number; c: number; r: number;
+  takescore: number; n_samples: number | null;
+  flagged: boolean; total_scored: number;
+};
+
 const VALUE = ["Cognitive", "Affective", "Formal", "Moral", "Durability"];
 const COST = ["Intertextual", "Formal radicalism", "Extratextual", "Auteur oeuvre"];
 const RISK = ["Bankruptcy", "Insincerity", "Cowardice", "Polarization"];
+
+// Panel display names → cinecodex.scores keys (registry: lib/cinecodex_dims.ts).
+// "Bankruptcy" is this panel's historical label for the registry's "Hollowness" (key `bank`).
+const NAME_KEY: Record<string, string> = {
+  Cognitive: "cog", Affective: "aff", Formal: "form", Moral: "moral", Durability: "dur",
+  Intertextual: "itx", "Formal radicalism": "fr", Extratextual: "etx", "Auteur oeuvre": "ctx",
+  Bankruptcy: "bank", Insincerity: "insincere", Cowardice: "coward", Polarization: "polar",
+};
+
+// Neutral, honest percentile phrasing per dimension group. Cost is a prerequisite
+// (steeper), risk a hazard (riskier) — only value dims read as "higher is better".
+function pctPhrase(group: "value" | "cost" | "risk", pct: number, total: number): string {
+  if (group === "value") return `higher than ${pct}% of ${total.toLocaleString("en-US")} films`;
+  if (group === "cost") return `steeper than ${pct}%`;
+  return `riskier than ${pct}%`;
+}
+
+const PCT_STYLE: React.CSSProperties = {
+  fontFamily: "var(--font-ui)", fontSize: "10px", color: "var(--muted)",
+  lineHeight: 1.35, margin: "-2px 0 8px",
+};
 
 function Bar({ v, tone }: { v: number; tone: string }) {
   return <span className="ccx-bar"><i className={tone} style={{ width: `${Math.max(0, Math.min(100, v))}%` }} /></span>;
