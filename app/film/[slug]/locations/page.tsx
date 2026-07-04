@@ -63,7 +63,9 @@ async function loadUncached(slug: string) {
 }
 
 function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["film-locations", slug], {
+  // Key bumped (locations2) when name-fusion joined the merge — the Data
+  // Cache outlives deploys.
+  return unstable_cache(() => loadUncached(slug), ["film-locations2", slug], {
     revalidate: 86400,
     tags: [`film:${slug}`],
   })();
