@@ -39,6 +39,7 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 2. `node worker/tier2-backfill/backfill.mjs` 재실행(멱등) → 원제·감독·장르·시청처 채움. 완료 후 커밋(worker/는 워처 밖 — 수동 커밋).
 3. 정독 완료(figures ≥3, visible=true) 시 → films.xml·whereto.xml·모듈·CineCodex 노출 **전부 자동 편입**. 할 일 없음.
 4. 대량 추가 후: `node scripts/indexnow-ping.mjs --sitemap`.
+5. **아틀라스(촬영지) 층**: 핀 수집(`GEO_운영-신규영화-증분처리.md`) 후 필름/감독 locations·국가 허브·사이트맵 자격은 **자동**(RPC+ISR). 수동 2가지 — ① `python3 worker/atlas-cities-build.py`(도시 로스터 재빌드, lib/는 자동 배포), ② locations 코호트 캡은 B 규칙. 전체 파일맵·불변식(게이트=mergeCells 등): `HANDOFF-아틀라스-SEO-읽는층.md` §2~3.
 
 ### B. 코호트 캡을 올릴 때 (주간 규칙)
 1. GSC에서 섹션별 색인 수·노출이 **전 스텝 이후 계속 상승**했는지 확인 (다음 리뷰일: lib/seo.ts 릴리즈 로그 참조 — 현재 2026-07-16).
