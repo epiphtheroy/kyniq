@@ -4,6 +4,8 @@
 
 > **Big shifts since 2026-06-24:** (1) the entire **`/room`** dark "operating-system" terminal shipped (personal cinema-asset OS — 12 routes); (2) **Cinecodex → TakeScore** value/cost/risk index is live sitewide (`/takescore`, poster TS badges, `/me` portfolio); (3) **정전가(Standing) + taste-vector personalization** shipped (`/me`, `/room`); (4) **Geographic Atlas** filled out (`film_locations` 9,731 located · `geo_cache` 3,951 — was ~empty); (5) **Lineage(계보)**, **Movements**, **Theory/Theorist/Tradition**, **Concept(/idea)** browse axes all shipped. Several items STATE previously listed as "pending" (personalization portfolio, lineage, atlas) are now **live**.
 
+> **Big shift 2026-07-04 — the SEO layer** (full record: `docs/HANDOFF-SEO-마스터.md`): GSC went live and the entire search-facing architecture was built in one day — sitemap split into an index + **18 per-section children** (~13k URLs, section-level dashboards/rollback), www→apex 308, `slug_aliases` permanence ledger, IndexNow, sameAs profiles; **Tier-2** (5,040 hidden films) got TMDB backfill + noindex funnel template + "not yet read closely" collection sections; **related-boxes module system** on figure/trope/take/Q&A; portal hubs standardized (CollectionPage/ItemList schema); head-term landings (Film Tropes / Film Archetypes); theorists.xml (358, Wikidata QID 299) + catalog.xml Phase A (504); **CineCodex surfaced**: 13 dimension landing pages (/takescore/{dim}, essays + 8-anchor ruler + Top-25) + film-page dimension link lattice + Movie.review schema. First GSC signal: impressions 14→46, first 2 clicks, "movie tropes" cluster at positions 44–63.
+
 ---
 
 ## 1. The model (current, canonical)

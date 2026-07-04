@@ -13,6 +13,9 @@
 ## Reference — current & accurate
 | Doc | Purpose |
 |---|---|
+| `docs/HANDOFF-SEO-마스터.md` | **SEO 운영 정본 (2026-07-04)** — sitemap 18분할·코호트·IndexNow·slug_aliases·Tier-2·CineCodex 노출층의 전 시스템 파일 위치 + 상황별 런북(새 영화/캡 증량/표면 개방/개명) + GSC 판독 로그. SEO 관련 변경 전 필독. |
+| `GEO_운영-신규영화-증분처리.md` | **촬영지 파이프라인 상시 운영** — 새 영화 추가 시 이 문서 하나로 배치 추출→적재→지오코딩 자동 실행 (Claude Code에 붙이면 됨). |
+| `HANDOFF-종합현황-지리촬영지.md` | 촬영지(film_locations) 파이프라인 이력·현황. §0 = 2026-07-03 완료 스냅샷(20,073행/4,334편), §12 = 수정·검증 로그. |
 | `figure-page-KEPT.md` | Parking-lot + the most up-to-date pipeline notes: §G scale (1k-film), §H embeddings, §J tropes, §K scholar header, **§L the big-bang checklist**. |
 | `meta-take-architecture.md` | The spine spec (entities, pipeline, decisions) — annotated with the 2026-06-14 figure-page reversal. |
 | `figure-page-design.md` | Figure page + contribution spec; §6.6 output contract for figure-enrich. |
