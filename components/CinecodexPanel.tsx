@@ -47,6 +47,20 @@ const PCT_STYLE: CSSProperties = {
   lineHeight: 1.35, margin: "-2px 0 8px",
 };
 
+// Compact circled "?" — an explicit "what is this?" affordance per dimension row,
+// linking to the /takescore/[dim] explanation page. Muted palette; hover darkens
+// via the .ccx-qm rule injected in the panel (server component — no JS handlers).
+const QM_STYLE: CSSProperties = {
+  display: "inline-flex", alignItems: "center", justifyContent: "center",
+  width: "14px", height: "14px", borderRadius: "50%", boxSizing: "border-box",
+  border: "1px solid var(--hairline)", color: "var(--muted)",
+  fontFamily: "var(--font-ui)", fontSize: "9.5px", fontWeight: 600, lineHeight: 1,
+  textDecoration: "none", justifySelf: "end",
+};
+
+// Tier-1 rows get a 4th 16px column for the "?" circle (base grid is 112px 1fr 26px).
+const SUBROW_QM_STYLE: CSSProperties = { gridTemplateColumns: "112px 1fr 26px 16px" };
+
 function Bar({ v, tone }: { v: number; tone: string }) {
   return <span className="ccx-bar"><i className={tone} style={{ width: `${Math.max(0, Math.min(100, v))}%` }} /></span>;
 }
@@ -62,17 +76,22 @@ function Sub({ names, sub, tone, pct, total }: { names: string[]; sub: Record<st
             </div>
           );
         }
-        // Crawlable layer: the label links to its /takescore/[dim] page, and a
+        // Crawlable layer: the label links to its /takescore/[dim] page, a circled
+        // "?" makes the explanation page an explicit affordance, and a
         // server-rendered percentile line sits under the row (same muted voice).
         const dim = dimByKey.get(NAME_KEY[n] ?? "");
         const p = dim ? pct[dim.key] : undefined;
+        const qm = dim ? `What is ${dim.label}? — full explanation and ranking` : "";
         return (
           <div key={n}>
-            <div className="ccx-subrow">
+            <div className="ccx-subrow" style={dim ? SUBROW_QM_STYLE : undefined}>
               {dim
                 ? <a className="ccx-subn" href={takescoreDimUrl(dim.slug)} title={dim.question}>{n}</a>
                 : <span className="ccx-subn">{n}</span>}
               <Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
+              {dim
+                ? <a className="ccx-qm" href={takescoreDimUrl(dim.slug)} aria-label={qm} title={qm} style={QM_STYLE}>?</a>
+                : null}
             </div>
             {dim && typeof p === "number" ? <div style={PCT_STYLE}>{pctPhrase(dim.group, p, total)}</div> : null}
           </div>
@@ -191,7 +210,25 @@ export default function CinecodexPanel({ data, title, subscores }: { data: Codex
       ) : null}
 
       <div className="ccx-eval">
-        <div className="ccx-eval-h">The 13 sub-scores</div>
+        {/* Explicit CTA to the dimension index — the h2's "how it works" goes to /takescore/about,
+            and the /takescore link above is buried in prose. Tier-1 only; hover rule for the
+            circled "?" lives here too (server component, so no event handlers). */}
+        {subscores ? <style>{`.ccx-qm:hover{color:var(--ink);border-color:var(--muted)}`}</style> : null}
+        <div className="ccx-eval-h" style={subscores ? { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "8px" } : undefined}>
+          The 13 sub-scores
+          {subscores ? (
+            <a
+              href="/takescore"
+              style={{
+                fontFamily: "var(--font-ui)", fontSize: "10.5px", fontWeight: 400,
+                color: "var(--accent,#C8102E)", textDecoration: "none",
+                textTransform: "none", letterSpacing: 0,
+              }}
+            >
+              What do these mean? →
+            </a>
+          ) : null}
+        </div>
         <div className="ccx-cols">
           <div><div className="ccx-gl ccx-glv">Value</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" pct={subscores?.pct} total={subscores?.total_scored} /></div>
           <div><div className="ccx-gl ccx-glc">Cost</div><Sub names={COST} sub={data.sub} tone="ccx-c" pct={subscores?.pct} total={subscores?.total_scored} /></div>
