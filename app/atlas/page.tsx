@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
+import { cachedAtlasEligibility } from "@/lib/atlas";
 
-// Static shell: all data loads client-side from /api/geo, so the page itself
-// is prerendered and served from the edge (no per-request SSR needed).
+// The map loads client-side from /api/geo (the play layer); the country grid
+// below it is server-rendered at revalidation time (the read layer), so the
+// page gives crawlers a real index of the country hubs.
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Atlas — the real-world map of cinema · Metatake",
-  description: "Every place Metatake's films are set in and name, geolocated on a world map. Move the map and click a pin to read what the place means in its film.",
+  description: "Every place Metatake's films are set in and name, geolocated on a world map — and browsable by country, from the United States to South Korea. Click a pin to read what the place means in its film.",
   alternates: { canonical: "/atlas" },
 };
 
-export default function AtlasPage() {
+export default async function AtlasPage() {
+  const { countries } = await cachedAtlasEligibility();
   return (
     <div className="mt">
       <SiteNav />
@@ -20,6 +25,18 @@ export default function AtlasPage() {
         <h1 className="th-h1">The Atlas of cinema</h1>
         <p className="th-sub">Every place our films are set in and name, geolocated. Browse films in the panel, click one to frame it on the map, click a pin to read what the place means in its film. (This is the world map — for the critical web of figures &amp; ideas, see <a href="/map">Connections</a>.)</p>
         <FilmMap endpoint="/api/geo" height={700} search panelSide="left" />
+
+        <section style={{ margin: "40px 0 30px" }}>
+          <h2 className="df-h2">Movies filmed in — country by country</h2>
+          <p className="df-sub">The same atlas as readable pages: every country with at least three located films, each with its films, its returned-to landmarks and its own map.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))", gap: "6px 18px", marginTop: 12 }}>
+            {countries.map((c) => (
+              <Link key={c.slug} href={`/atlas/${c.slug}`} style={{ padding: "7px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
+                {c.name} <span style={{ opacity: 0.6, fontSize: 13 }}>— {c.films} films</span>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

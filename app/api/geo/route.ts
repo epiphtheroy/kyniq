@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-// GET /api/geo?film=slug | ?director=slug | ?mode=overview (1 pin/film)
+// GET /api/geo?film=slug | ?director=slug | ?country=slug | ?mode=overview (1 pin/film)
 //   | ?bbox=w,s,e,n (viewport detail) | (none → full dump, kept as fallback)
 // Returns located pins (lat/lng present) for the geographic Atlas.
 // All jsonb-aggregating RPCs return one row, so PostgREST's 1000-row cap can't truncate them.
@@ -46,18 +46,21 @@ export async function GET(req: Request) {
   const u = new URL(req.url);
   const film = u.searchParams.get("film");
   const director = u.searchParams.get("director");
+  const country = u.searchParams.get("country");
   const bbox = u.searchParams.get("bbox");
   const mode = u.searchParams.get("mode");
 
   // 파라미터 화이트리스트 — 검증 실패는 조용한 빈 배열이 아니라 400
   if (film && !SLUG_RE.test(film)) return bad("invalid film slug");
   if (director && !SLUG_RE.test(director)) return bad("invalid director slug");
+  if (country && !SLUG_RE.test(country)) return bad("invalid country slug");
   if (mode && mode !== "overview") return bad("invalid mode");
 
   const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   let rows: unknown = [];
   if (film) rows = (await db.rpc("film_geo", { p_slug: film })).data;
   else if (director) rows = (await db.rpc("director_geo", { p_slug: director })).data;
+  else if (country) rows = (await db.rpc("country_geo", { p_slug: country })).data;
   else if (bbox) {
     const parts = bbox.split(",").map(Number);
     if (parts.length !== 4 || !parts.every(Number.isFinite)) return bad("invalid bbox");
