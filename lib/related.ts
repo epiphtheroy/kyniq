@@ -1,17 +1,20 @@
 /**
  * lib/related.ts — "related boxes" module system for thin detail pages
  * (figure / trope / take / Q&A). Each page ends with THEMED SECTIONS of
- * server-rendered boxes (kind badge + title + real excerpt) so readers keep
- * reading without hunting and crawlers see every leaf open onto the graph.
+ * server-rendered boxes (kind badge + title + excerpt, optionally a poster)
+ * so readers keep reading without hunting and crawlers see every leaf open
+ * onto the graph. Owner's principle: every DB node type reachable from the
+ * current page surfaces as a module, strongest relevance first.
  *
  * SEO rules ENCODED here — do not relax:
  *  - Deterministic selection only. Every query orders by stable keys
  *    (confidence DESC NULLS LAST → created_at ASC → id ASC, or
- *    published_at DESC NULLS LAST → id ASC). No randomness, no per-request
- *    rotation — freshness comes from each page's existing ISR revalidate.
+ *    published_at/year sorted with NULLS LAST → slug/id ASC). No randomness,
+ *    no per-request rotation — freshness comes from each page's existing
+ *    ISR revalidate.
  *  - Selection is relevance-driven per entity (this figure's takes, this
- *    film's questions…), so every page gets a DIFFERENT mix — never a
- *    global "top N" list repeated site-wide.
+ *    film's questions, this director's films…), so every page gets a
+ *    DIFFERENT mix — never a global "top N" list repeated site-wide.
  *  - The current page's href is always excluded, and boxes are deduped by
  *    href across ALL sections: a box appears in at most one section.
  *  - Excerpts are plain text ≤ EXCERPT_MAX chars, truncated at a word
@@ -21,14 +24,31 @@
  * takes.trope_id (19.5k rows); takes.meta_take_id is currently empty and
  * meta_takes kind='reading' has 0 published rows. Both columns are honoured
  * (trope_id first) so restored readings light up without a code change.
+ * meta_takes.tradition exists but is currently all-null — the Tradition box
+ * activates automatically once the column is populated.
  */
 import { createClient } from "@supabase/supabase-js";
-import { figureUrl, questionUrl, takeUrl, tropeUrl, moviesLikeUrl, whereToUrl } from "@/lib/urls";
+import {
+  figureUrl, questionUrl, takeUrl, tropeUrl, moviesLikeUrl, whereToUrl,
+  filmUrl, directorUrl, genreUrl, theoristUrl,
+} from "@/lib/urls";
+import { fw, BROWSABLE } from "@/lib/frameworks";
 
-export type RelatedBox = { kind: string; title: string; excerpt: string; href: string };
-export type RelatedSection = { heading: string; variant: "cards" | "rows"; boxes: RelatedBox[] };
+export type RelatedBox = {
+  kind: string; title: string; excerpt: string; href: string;
+  /** TMDB poster URL (w185) for the "posters" variant. */
+  image?: string;
+  /** One-line meta, e.g. "2019 · Bong Joon Ho". */
+  meta?: string;
+};
+export type RelatedSection = { heading: string; variant: "cards" | "rows" | "posters"; boxes: RelatedBox[] };
 
 const EXCERPT_MAX = 220;
+const IMG = "https://image.tmdb.org/t/p/w185";
+
+// No helper in lib/urls.ts for these two hubs yet; keep the literals in ONE place.
+const strongMisreadingsUrl = (slug: string) => `/strong-misreadings/${slug}`;
+const TRADITION_HUB = "/tradition";
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -65,7 +85,10 @@ function relCmp(a: Ranked, b: Ranked): number {
   return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
 }
 
-type TakeEdge = Ranked & { trope_id: string | null; meta_take_id: string | null };
+type TakeEdge = Ranked & {
+  trope_id: string | null; meta_take_id: string | null;
+  framework?: string | null; theorist_id?: string | null;
+};
 
 const edgeTarget = (e: TakeEdge) => e.trope_id ?? e.meta_take_id;
 
@@ -103,6 +126,35 @@ function uniqueInOrder<T>(items: T[]): T[] {
   return out;
 }
 
+/* ── raw take-edge fetchers (edges feed several node sources at once:
+      tropes/readings, frameworks and theorists) ──────────────────────────── */
+
+async function figureTakeEdges(figureId: string): Promise<TakeEdge[]> {
+  const { data } = await db()
+    .from("takes")
+    .select("id, confidence, created_at, trope_id, meta_take_id, framework, theorist_id")
+    .eq("figure_id", figureId)
+    .eq("status", "published")
+    .order("confidence", { ascending: false, nullsFirst: false })
+    .order("created_at", { ascending: true })
+    .order("id", { ascending: true })
+    .limit(40);
+  return ((data ?? []) as TakeEdge[]).sort(relCmp);
+}
+
+async function filmTakeEdges(filmId: string): Promise<TakeEdge[]> {
+  const { data } = await db()
+    .from("takes")
+    .select("id, confidence, created_at, trope_id, meta_take_id, framework, theorist_id, figure:figures!inner(film_id)")
+    .eq("figure.film_id", filmId)
+    .eq("status", "published")
+    .order("confidence", { ascending: false, nullsFirst: false })
+    .order("created_at", { ascending: true })
+    .order("id", { ascending: true })
+    .limit(80);
+  return ((data ?? []) as unknown as TakeEdge[]).sort(relCmp);
+}
+
 /* ── meta_takes (tropes + readings) ─────────────────────────────────────── */
 
 type MetaTakeRow = {
@@ -138,36 +190,14 @@ async function metaTakesByIds(orderedIds: string[]): Promise<RelatedBox[]> {
   return out;
 }
 
-/* ── source: readings/tropes citing one figure ──────────────────────────── */
+/* ── source: readings/tropes citing one figure or one film ──────────────── */
 
 export async function readingsCitingFigure(figureId: string, cap = 12): Promise<RelatedBox[]> {
-  const { data } = await db()
-    .from("takes")
-    .select("id, confidence, created_at, trope_id, meta_take_id")
-    .eq("figure_id", figureId)
-    .eq("status", "published")
-    .order("confidence", { ascending: false, nullsFirst: false })
-    .order("created_at", { ascending: true })
-    .order("id", { ascending: true })
-    .limit(40);
-  const edges = ((data ?? []) as TakeEdge[]).sort(relCmp);
-  return metaTakesByIds(orderedTargets(edges).slice(0, cap));
+  return metaTakesByIds(orderedTargets(await figureTakeEdges(figureId)).slice(0, cap));
 }
 
-/* ── source: tropes/readings a whole film feeds (2-hop via its figures) ─── */
-
 export async function readingsCitingFilm(filmId: string, cap = 12): Promise<RelatedBox[]> {
-  const { data } = await db()
-    .from("takes")
-    .select("id, confidence, created_at, trope_id, meta_take_id, figure:figures!inner(film_id)")
-    .eq("figure.film_id", filmId)
-    .eq("status", "published")
-    .order("confidence", { ascending: false, nullsFirst: false })
-    .order("created_at", { ascending: true })
-    .order("id", { ascending: true })
-    .limit(80);
-  const edges = ((data ?? []) as unknown as TakeEdge[]).sort(relCmp);
-  return metaTakesByIds(rankedTargets(edges).slice(0, cap));
+  return metaTakesByIds(rankedTargets(await filmTakeEdges(filmId)).slice(0, cap));
 }
 
 /* ── source: sibling figures of a film (only those with published takes, so
@@ -202,17 +232,21 @@ export async function siblingFigures(
 
 /* ── source: figures cited by a meta take (trope members / reading cases) ── */
 
-type CitedFigureRow = Ranked & {
+type CitedFilm = {
+  id: string; slug: string; title: string; year: number | null; visible: boolean | null;
+  poster_path: string | null; director: string | null; overview: string | null;
+};
+type CitedFigureRow = TakeEdge & {
   figure: {
     id: string; slug: string | null; label: string; description: string | null; status: string;
-    film: { id: string; slug: string; title: string; year: number | null; visible: boolean | null };
+    film: CitedFilm;
   };
 };
 
 async function citedFigures(metaTakeId: string): Promise<CitedFigureRow[]> {
   const { data } = await db()
     .from("takes")
-    .select("id, confidence, created_at, figure:figures!inner(id, slug, label, description, status, film:films!inner(id, slug, title, year, visible))")
+    .select("id, confidence, created_at, framework, theorist_id, figure:figures!inner(id, slug, label, description, status, film:films!inner(id, slug, title, year, visible, poster_path, director, overview))")
     .or(`trope_id.eq.${metaTakeId},meta_take_id.eq.${metaTakeId}`)
     .eq("status", "published")
     .order("confidence", { ascending: false, nullsFirst: false })
@@ -243,6 +277,154 @@ function citedFigureBoxes(rows: CitedFigureRow[], cap: number): RelatedBox[] {
 
 export async function figuresCitedByMetaTake(metaTakeId: string, cap = 12): Promise<RelatedBox[]> {
   return citedFigureBoxes(await citedFigures(metaTakeId), cap);
+}
+
+/* ── source: film boxes (posters variant) ───────────────────────────────── */
+
+function filmBox(f: {
+  slug: string; title: string; year: number | null;
+  poster_path: string | null; director: string | null; overview: string | null;
+}): RelatedBox {
+  const meta = [f.year ? String(f.year) : null, f.director].filter(Boolean).join(" · ");
+  return {
+    kind: "Film",
+    title: f.title,
+    excerpt: excerptOf(f.overview),
+    href: filmUrl(f.slug),
+    ...(f.poster_path ? { image: `${IMG}${f.poster_path}` } : {}),
+    ...(meta ? { meta } : {}),
+  };
+}
+
+/** Member films of a meta take, unique, in relevance order (posters section). */
+function memberFilmBoxes(rows: CitedFigureRow[], cap: number): RelatedBox[] {
+  const seen = new Set<string>();
+  const out: RelatedBox[] = [];
+  for (const r of rows) {
+    const f = r.figure.film;
+    if (seen.has(f.id)) continue;
+    seen.add(f.id);
+    out.push(filmBox(f));
+    if (out.length >= cap) break;
+  }
+  return out;
+}
+
+/** The director's OTHER visible films (posters section). */
+export async function directorFilms(directorSlug: string, excludeFilmId: string, cap = 4): Promise<RelatedBox[]> {
+  const { data } = await db()
+    .from("films")
+    .select("id, slug, title, year, poster_path, director, overview")
+    .eq("director_slug", directorSlug)
+    .eq("visible", true)
+    .neq("id", excludeFilmId)
+    .order("year", { ascending: true, nullsFirst: false })
+    .order("slug", { ascending: true })
+    .limit(cap);
+  return ((data ?? []) as {
+    id: string; slug: string; title: string; year: number | null;
+    poster_path: string | null; director: string | null; overview: string | null;
+  }[]).map(filmBox);
+}
+
+/* ── source: frameworks / theorists / tradition (the theory layer) ──────── */
+
+const BROWSABLE_SLUGS = new Set(BROWSABLE.map((f) => f.slug));
+
+/** Strong-Misreading lenses used by the given takes → /strong-misreadings/{fw}.
+ *  takes.framework stores the framework KEY; fw() maps key → slug/label/short,
+ *  and only BROWSABLE slugs are linked (INVITATION and unknowns are skipped). */
+function frameworkBoxesFromEdges(edges: TakeEdge[], cap = 4): RelatedBox[] {
+  const keys = uniqueInOrder(edges.map((e) => e.framework).filter((k): k is string => !!k));
+  const out: RelatedBox[] = [];
+  for (const k of keys) {
+    const f = fw(k);
+    if (!f.slug || !BROWSABLE_SLUGS.has(f.slug)) continue;
+    out.push({
+      kind: "Framework",
+      title: `${f.label} — Strong Misreadings`,
+      excerpt: f.short,
+      href: strongMisreadingsUrl(f.slug),
+    });
+    if (out.length >= cap) break;
+  }
+  return out;
+}
+
+type TheoristRow = { id: string; slug: string | null; name: string; blurb: string | null };
+
+/** Theorists behind the given takes → /theorist/{slug}. Matched by theorist_id
+ *  and only linked when the theorists row has a slug (resolvable page). */
+async function theoristBoxesFromEdges(edges: TakeEdge[], cap = 4): Promise<RelatedBox[]> {
+  const ids = uniqueInOrder(edges.map((e) => e.theorist_id).filter((t): t is string => !!t)).slice(0, 8);
+  if (ids.length === 0) return [];
+  const { data } = await db().from("theorists").select("id, slug, name, blurb").in("id", ids);
+  const byId = new Map(((data ?? []) as TheoristRow[]).map((r) => [r.id, r]));
+  const out: RelatedBox[] = [];
+  for (const id of ids) {
+    const t = byId.get(id);
+    if (!t || !t.slug) continue;
+    out.push({ kind: "Theorist", title: t.name, excerpt: excerptOf(t.blurb), href: theoristUrl(t.slug) });
+    if (out.length >= cap) break;
+  }
+  return out;
+}
+
+/** Tradition teaser → /tradition hub (activates once meta_takes.tradition is populated). */
+function traditionBox(tradition: string | null | undefined, aboutTitle: string): RelatedBox[] {
+  if (!tradition) return [];
+  return [{
+    kind: "Tradition",
+    title: `The ${tradition} tradition`,
+    excerpt: `${aboutTitle} leans on ${tradition} — explore the critical traditions Metatake's readings draw from.`,
+    href: TRADITION_HUB,
+  }];
+}
+
+/* ── source: director hub + genres (the film's surroundings) ────────────── */
+
+function directorHubBox(name: string, slug: string): RelatedBox {
+  return {
+    kind: "Director",
+    title: `${name} — the director hub`,
+    excerpt: `${name} on Metatake: every film, with its figures, readings and questions gathered on one page.`,
+    href: directorUrl(slug),
+  };
+}
+
+// Same derivation as lib/sitemap-data.ts slugifyGenre / app/genre links
+// (genre slugs come from films.genres labels; there is no genres table).
+function slugifyGenre(g: string): string {
+  return g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function genreBoxes(genres: string[] | null | undefined, cap = 2): RelatedBox[] {
+  const out: RelatedBox[] = [];
+  const seen = new Set<string>();
+  for (const g of genres ?? []) {
+    const slug = slugifyGenre(g);
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    out.push({
+      kind: "Genre",
+      title: `${g} films`,
+      excerpt: `The ${g.toLowerCase()} films on Metatake — every title in the genre, with the readings and questions each one carries.`,
+      href: genreUrl(slug),
+    });
+    if (out.length >= cap) break;
+  }
+  return out;
+}
+
+/** Director + genre facts for a film (one indexed row lookup). */
+async function filmMeta(filmId: string): Promise<{ director: string | null; directorSlug: string | null; genres: string[] }> {
+  const { data } = await db()
+    .from("films")
+    .select("director, director_slug, genres")
+    .eq("id", filmId)
+    .maybeSingle();
+  const r = (data ?? null) as { director: string | null; director_slug: string | null; genres: string[] | null } | null;
+  return { director: r?.director ?? null, directorSlug: r?.director_slug ?? null, genres: r?.genres ?? [] };
 }
 
 /* ── source: cousins of a meta take (2-hop: its figures → their other takes) ── */
@@ -352,7 +534,7 @@ export function moviesLikeBox(filmSlug: string, filmTitle: string): RelatedBox {
 
 /* ── section assembler ──────────────────────────────────────────────────── */
 
-type SectionDef = { heading: string; variant: "cards" | "rows"; boxes: RelatedBox[]; cap: number };
+type SectionDef = { heading: string; variant: "cards" | "rows" | "posters"; boxes: RelatedBox[]; cap: number };
 
 /** Builds themed sections in priority order with a GLOBAL seen-set: the
  *  current page (excludeHrefs) never appears, and no href repeats across
@@ -373,18 +555,29 @@ function sectionize(defs: SectionDef[], excludeHrefs: string[]): RelatedSection[
   return out;
 }
 
-/* ── per-page recipes ───────────────────────────────────────────────────── */
+/* ── per-page recipes (priority: direct citations → siblings → film-level →
+      director posters → frameworks/theorists/tradition → genres → utilities) ── */
 
 export async function relatedForFigure(args: {
   filmId: string; figureId: string; figureSlug: string; figureLabel: string;
   filmSlug: string; filmTitle: string; year: number | null;
 }): Promise<RelatedSection[]> {
-  const [citing, siblings, filmFeeds, questions] = await Promise.all([
-    readingsCitingFigure(args.figureId),
+  // Wave 1 — independent fetches (edges feed tropes + frameworks + theorists).
+  const [figEdges, siblings, filmEdges, questions, meta] = await Promise.all([
+    figureTakeEdges(args.figureId),
     siblingFigures(args.filmId, args.filmSlug, args.filmTitle, args.figureId),
-    readingsCitingFilm(args.filmId),
+    filmTakeEdges(args.filmId),
     filmQuestions(args.filmId, args.filmSlug),
+    filmMeta(args.filmId),
   ]);
+  // Wave 2 — lookups derived from wave 1.
+  const [citing, filmFeeds, theorists, dirFilms] = await Promise.all([
+    metaTakesByIds(orderedTargets(figEdges).slice(0, 12)),
+    metaTakesByIds(rankedTargets(filmEdges).slice(0, 12)),
+    theoristBoxesFromEdges(figEdges),
+    meta.directorSlug ? directorFilms(meta.directorSlug, args.filmId) : Promise.resolve([] as RelatedBox[]),
+  ]);
+  const frameworks = frameworkBoxesFromEdges(figEdges);
   const yearPart = args.year ? ` (${args.year})` : "";
   return sectionize(
     [
@@ -392,6 +585,17 @@ export async function relatedForFigure(args: {
       { heading: `More figures from ${args.filmTitle}${yearPart}`, variant: "cards", boxes: siblings, cap: 6 },
       { heading: `The tropes ${args.filmTitle} feeds`, variant: "cards", boxes: filmFeeds, cap: 6 },
       { heading: `Questions about ${args.filmTitle}`, variant: "rows", boxes: questions, cap: 5 },
+      ...(meta.director && meta.directorSlug
+        ? [{ heading: `More from ${meta.director}`, variant: "posters" as const, boxes: dirFilms, cap: 4 }]
+        : []),
+      { heading: `The frameworks and theorists reading ${args.figureLabel}`, variant: "cards", boxes: [...frameworks, ...theorists], cap: 6 },
+      {
+        heading: `Around ${args.filmTitle}: director & genres`, variant: "rows", cap: 3,
+        boxes: [
+          ...(meta.director && meta.directorSlug ? [directorHubBox(meta.director, meta.directorSlug)] : []),
+          ...genreBoxes(meta.genres),
+        ],
+      },
       {
         heading: `Watch ${args.filmTitle}`, variant: "rows", cap: 2,
         boxes: [wheretoBox(args.filmSlug, args.filmTitle, args.year), moviesLikeBox(args.filmSlug, args.filmTitle)],
@@ -404,23 +608,38 @@ export async function relatedForFigure(args: {
 export async function relatedForMetaTake(args: {
   metaTakeId: string; kind: "reading" | "figure_type"; slug: string;
 }): Promise<RelatedSection[]> {
-  const cited = await citedFigures(args.metaTakeId);
+  // Wave 1 — the meta take's own row (title + tradition) and its cited scenes.
+  const [{ data: mtRow }, cited] = await Promise.all([
+    db().from("meta_takes").select("title, tradition").eq("id", args.metaTakeId).maybeSingle(),
+    citedFigures(args.metaTakeId),
+  ]);
+  const mt = (mtRow ?? null) as { title: string; tradition: string | null } | null;
+  const title = mt?.title ?? "this pattern";
   const figureBoxes = citedFigureBoxes(cited, 12);
+  const filmBoxes = memberFilmBoxes(cited, 6);
   const memberFigureIds = uniqueInOrder(cited.map((r) => r.figure.id));
   const memberFilms = uniqueInOrder(cited.map((r) => r.figure.film.id)).map((id) => {
     const film = cited.find((r) => r.figure.film.id === id)!.figure.film;
     return { id: film.id, slug: film.slug, title: film.title };
   });
-  const [cousins, questions] = await Promise.all([
+  // Wave 2 — 2-hop lookups derived from wave 1.
+  const [cousins, questions, theorists] = await Promise.all([
     cousinsOfMetaTake(args.metaTakeId, memberFigureIds),
     questionsForFilms(memberFilms),
+    theoristBoxesFromEdges(cited),
   ]);
+  const frameworks = frameworkBoxesFromEdges(cited);
   const noun = args.kind === "figure_type" ? "trope" : "reading";
   return sectionize(
     [
       { heading: `Scenes that carry this ${noun}`, variant: "cards", boxes: figureBoxes, cap: 6 },
+      { heading: `The films of ${title}`, variant: "posters", boxes: filmBoxes, cap: 5 },
       { heading: "Neighboring readings", variant: "cards", boxes: cousins, cap: 6 },
       { heading: "Questions from these films", variant: "rows", boxes: questions, cap: 6 },
+      {
+        heading: `The frameworks and theorists behind ${title}`, variant: "cards", cap: 6,
+        boxes: [...frameworks, ...theorists, ...traditionBox(mt?.tradition, title)],
+      },
     ],
     // Exclude both URL forms of this meta take — /trope/* and /take/* — so a
     // cousin edge can never link the page to itself under the other route.
@@ -432,16 +651,36 @@ export async function relatedForQuestion(args: {
   filmId: string; filmSlug: string; filmTitle: string; year: number | null;
   questionId: string; questionSlug: string;
 }): Promise<RelatedSection[]> {
-  const [figures, questions, readings] = await Promise.all([
+  // Wave 1 — independent fetches.
+  const [figures, questions, filmEdges, meta] = await Promise.all([
     siblingFigures(args.filmId, args.filmSlug, args.filmTitle),
     filmQuestions(args.filmId, args.filmSlug, args.questionId),
-    readingsCitingFilm(args.filmId),
+    filmTakeEdges(args.filmId),
+    filmMeta(args.filmId),
   ]);
+  // Wave 2 — lookups derived from wave 1.
+  const [readings, theorists, dirFilms] = await Promise.all([
+    metaTakesByIds(rankedTargets(filmEdges).slice(0, 12)),
+    theoristBoxesFromEdges(filmEdges),
+    meta.directorSlug ? directorFilms(meta.directorSlug, args.filmId) : Promise.resolve([] as RelatedBox[]),
+  ]);
+  const frameworks = frameworkBoxesFromEdges(filmEdges);
   return sectionize(
     [
       { heading: "The scenes behind this question", variant: "cards", boxes: figures, cap: 6 },
       { heading: `More questions about ${args.filmTitle}`, variant: "rows", boxes: questions, cap: 6 },
       { heading: `How Metatake reads ${args.filmTitle}`, variant: "cards", boxes: readings, cap: 6 },
+      ...(meta.director && meta.directorSlug
+        ? [{ heading: `More from ${meta.director}`, variant: "posters" as const, boxes: dirFilms, cap: 4 }]
+        : []),
+      { heading: `The frameworks and theorists reading ${args.filmTitle}`, variant: "cards", boxes: [...frameworks, ...theorists], cap: 5 },
+      {
+        heading: `Around ${args.filmTitle}: director & genres`, variant: "rows", cap: 3,
+        boxes: [
+          ...(meta.director && meta.directorSlug ? [directorHubBox(meta.director, meta.directorSlug)] : []),
+          ...genreBoxes(meta.genres),
+        ],
+      },
       {
         heading: `Watch ${args.filmTitle}`, variant: "rows", cap: 2,
         boxes: [wheretoBox(args.filmSlug, args.filmTitle, args.year), moviesLikeBox(args.filmSlug, args.filmTitle)],
