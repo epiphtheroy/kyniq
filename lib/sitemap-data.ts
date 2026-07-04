@@ -5,7 +5,9 @@ import {
   INDEX_COHORT_TROPES,
   INDEX_COHORT_FIGURES,
   INDEX_COHORT_CREW,
+  INDEX_COHORT_CATALOG,
 } from "@/lib/seo";
+import { KINDS, nodeHref, sectionHref, type SectionKey } from "@/lib/catalog";
 import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
 import crewIndex from "@/lib/crew_index.json";
@@ -324,6 +326,32 @@ export async function theoristEntries(): Promise<SitemapEntry[]> {
     .filter((t) => t.slug && (t.n ?? 0) >= 3)
     .sort((a, b) => a.slug!.localeCompare(b.slug!))
     .map((t) => ({ url: `${siteUrl}${theoristUrl(t.slug!)}` }));
+}
+
+/**
+ * Archetype catalog — Phase A (2026-07-04): named-archetype kinds only
+ * (object / place / character / theme; tier taxonomies wait for Phase B),
+ * nodes with ≥3 member figures (the site-wide non-thin bar), plus the four
+ * section pages. Stable order (kind then slug) under the cohort cap.
+ */
+export async function catalogEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const sections: SectionKey[] = ["objects", "characters", "locations", "themes"];
+  const entries: SitemapEntry[] = sections.map((s) => ({ url: `${siteUrl}${sectionHref(s)}` }));
+  const namedKinds = KINDS.filter((k) => !k.tier && k.kind !== "theory");
+  const nodes: { kind: string; slug: string }[] = [];
+  for (const k of namedKinds) {
+    const { data } = await supabase.rpc("catalog_browse", { p_kind: k.kind });
+    for (const n of (data ?? []) as { slug: string | null; n: number | null }[]) {
+      if (n.slug && (n.n ?? 0) >= 3) nodes.push({ kind: k.kind, slug: n.slug });
+    }
+  }
+  nodes.sort((a, b) => a.kind.localeCompare(b.kind) || a.slug.localeCompare(b.slug));
+  for (const n of nodes.slice(0, INDEX_COHORT_CATALOG)) {
+    entries.push({ url: `${siteUrl}${nodeHref(n.kind, n.slug)}` });
+  }
+  return entries;
 }
 
 /** Public profiles. */

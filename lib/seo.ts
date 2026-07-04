@@ -78,6 +78,13 @@ export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
 export const INDEX_COHORT_FIGURES = 2000; // /film/*/figure/* pages in sitemap (added 2026-07-03)
 export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (added 2026-07-03)
+// 2026-07-04 (surface expansion, docs/PLAN-seo-surface-expansion.md): sitemap
+// split into per-section children; whereto (1,934) + genres (18) + theorists
+// (358, ≥3 readings) + catalog Phase A opened the same day. Catalog Phase A =
+// named-archetype nodes (object/place/character/theme) with ≥3 member figures
+// (917 eligible); Phase B (tier taxonomies, ≥5 members, ~+590) waits on GSC
+// evidence. Raise on the standard weekly evidence rule.
+export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype nodes in sitemap (added 2026-07-04)
 
 
 
