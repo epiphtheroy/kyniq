@@ -9,6 +9,7 @@ import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
+  cachedAtlasMeta,
   countryListPhrase,
   countryPhrase,
   countrySlug,
@@ -135,9 +136,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// The pin's on-file citations (URLs collected during research) — shown as
+// per-location source links, the receipts behind "compiled by Metatake".
+function sourceUrls(sources: unknown): string[] {
+  if (!Array.isArray(sources)) return [];
+  return (sources as unknown[]).filter((s): s is string => typeof s === "string" && s.startsWith("http")).slice(0, 2);
+}
+function sourceHost(u: string): string {
+  try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return "source"; }
+}
+
 function LocationItem({ p }: { p: GeoPin }) {
   const prose = pinProse(p);
   const badge = p.precision ? PRECISION_LABEL[p.precision] ?? p.precision : null;
+  const srcs = sourceUrls(p.sources);
   return (
     <div style={{ padding: "13px 0", borderBottom: "1px solid rgba(22,35,63,.1)" }}>
       <h3 style={{ margin: "0 0 3px", fontSize: 16.5, lineHeight: 1.35 }}>{p.name}</h3>
@@ -146,9 +158,18 @@ function LocationItem({ p }: { p: GeoPin }) {
           .filter(Boolean).join(" · ")}
       </div>
       {prose ? <p style={{ margin: 0, lineHeight: 1.6, maxWidth: "70ch" }}>{prose}</p> : null}
-      {p.fig_slug && p.film_slug ? (
-        <p style={{ margin: "5px 0 0", fontSize: 14 }}>
-          <Link href={`/film/${p.film_slug}/figure/${p.fig_slug}`}>Read this place as a figure in the film →</Link>
+      {(p.fig_slug && p.film_slug) || srcs.length ? (
+        <p style={{ margin: "5px 0 0", fontSize: 13.5 }}>
+          {p.fig_slug && p.film_slug ? (
+            <Link href={`/film/${p.film_slug}/figure/${p.fig_slug}`}>Read this place as a figure in the film →</Link>
+          ) : null}
+          {srcs.map((u, i) => (
+            <span key={u} style={{ opacity: 0.75 }}>
+              {p.fig_slug || i > 0 ? " · " : ""}
+              {i === 0 ? "Source: " : ""}
+              <a href={u} target="_blank" rel="noopener noreferrer">{sourceHost(u)} ↗</a>
+            </span>
+          ))}
         </p>
       ) : null}
     </div>
@@ -165,7 +186,8 @@ export default async function FilmLocationsPage({ params }: Props) {
   const setting = sortPins(pins.filter((p) => p.layer === "setting"));
   const countries = pinCountries(filmed);
   const groupByCountry = countries.length > 1;
-  const updated = new Date().toISOString().slice(0, 10);
+  // The dataset's real last-change date — not the render date.
+  const updated = (await cachedAtlasMeta()).updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(film, filmed, setting);
   const yearLabel = film.year ? ` (${film.year})` : "";
 
@@ -306,7 +328,7 @@ export default async function FilmLocationsPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Location data compiled and geolocated by Metatake · Updated {updated}
+          Metatake Editorial · Location data researched, compiled and geolocated by Metatake — sources cited per location where on file · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
     </div>
