@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
 
 export const revalidate = 3600;
 export const metadata: Metadata = {
@@ -35,16 +36,23 @@ export default function TakeScoreAbout() {
 
         <h2 className="ab-h2">The three axes</h2>
         <Row k="Value" tone="ab-v">
-          What you keep — cognitive, emotional, formal, moral and lasting yield. Higher is better. Legibility is not
-          penalised: a clear, accessible film can score very high.
+          What you keep — <Link href={takescoreDimUrl("cognitive")}>cognitive</Link>,{" "}
+          <Link href={takescoreDimUrl("affective")}>emotional</Link>, <Link href={takescoreDimUrl("formal")}>formal</Link>,{" "}
+          <Link href={takescoreDimUrl("moral")}>moral</Link> and <Link href={takescoreDimUrl("durability")}>lasting</Link>{" "}
+          yield. Higher is better. Legibility is not penalised: a clear, accessible film can score very high.
         </Row>
         <Row k="Cost" tone="ab-c">
-          The prerequisite to unlock it — film-history literacy, formal difficulty, outside knowledge, a director&apos;s
-          back-catalogue. A cost, <em>not</em> a virtue; difficulty never raises value.
+          The prerequisite to unlock it — <Link href={takescoreDimUrl("intertextual")}>film-history literacy</Link>,{" "}
+          <Link href={takescoreDimUrl("formal-radicalism")}>formal difficulty</Link>,{" "}
+          <Link href={takescoreDimUrl("extratextual")}>outside knowledge</Link>, a director&apos;s{" "}
+          <Link href={takescoreDimUrl("auteur-oeuvre")}>back-catalogue</Link>. A cost, <em>not</em> a virtue; difficulty
+          never raises value.
         </Row>
         <Row k="Risk" tone="ab-r">
-          How likely it is to disappoint a serious viewer — hollowness, style-over-substance, commercial cowardice, and
-          how sharply informed audiences split on it.
+          How likely it is to disappoint a serious viewer — <Link href={takescoreDimUrl("hollowness")}>hollowness</Link>,{" "}
+          <Link href={takescoreDimUrl("insincerity")}>style-over-substance</Link>,{" "}
+          <Link href={takescoreDimUrl("cowardice")}>commercial cowardice</Link>, and{" "}
+          <Link href={takescoreDimUrl("polarization")}>how sharply informed audiences split</Link> on it.
         </Row>
 
         <h2 className="ab-h2">Two summary numbers</h2>
@@ -59,9 +67,41 @@ export default function TakeScoreAbout() {
         <h2 className="ab-h2">Thirteen sub-dimensions</h2>
         <p className="ab-p">
           Value, Cost and Risk are each built from finer readings — thirteen in all. On the TakeScore page you can set a
-          range on any of them (for example: high Cognitive value, low Polarization) to find exactly the kind of film you
-          want.
+          range on any of them (for example: high <Link href={takescoreDimUrl("cognitive")}>Cognitive</Link> value, low{" "}
+          <Link href={takescoreDimUrl("polarization")}>Polarization</Link>) to find exactly the kind of film you want.
+          Each dimension also has its own essay explaining what it measures and which films define its scale.
         </p>
+        <style>{`
+          .ab-dimnav{margin:12px 0 4px; padding:12px 14px 6px; border:1px solid var(--hairline-2); border-radius:10px; background:var(--paper-2,#fafafa)}
+          .ab-dimnav-t{font-family:var(--font-ui); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:4px}
+          .ab-dimnav-g{display:grid; grid-template-columns:64px 1fr; gap:12px; padding:8px 0; border-top:1px solid var(--hairline)}
+          .ab-dimnav-g:first-of-type{border-top:0}
+          .ab-dimnav-k{font-family:var(--font-ui); font-size:12px; font-weight:600; padding-top:2px}
+          .ab-dimnav-l{list-style:none; margin:0; padding:0}
+          .ab-dimnav-l li{margin:3px 0}
+          .ab-dimnav-l a{font-size:13.5px; line-height:1.5; color:var(--ink); text-decoration:none}
+          .ab-dimnav-l a strong{font-weight:600}
+          .ab-dimnav-l a:hover strong{text-decoration:underline}
+          .ab-dimnav-q{color:var(--muted)}
+          @media(max-width:560px){.ab-dimnav-g{grid-template-columns:1fr; gap:2px}}
+        `}</style>
+        <nav className="ab-dimnav" aria-label="Read each dimension in depth">
+          <div className="ab-dimnav-t">Read each dimension in depth</div>
+          {([["value", "Value", "ab-v"], ["cost", "Cost", "ab-c"], ["risk", "Risk", "ab-r"]] as const).map(([g, label, tone]) => (
+            <div className="ab-dimnav-g" key={g}>
+              <span className={`ab-dimnav-k ${tone}`}>{label}</span>
+              <ul className="ab-dimnav-l">
+                {CODEX_DIMS.filter((d) => d.group === g).map((d) => (
+                  <li key={d.key}>
+                    <Link href={takescoreDimUrl(d.slug)}>
+                      <strong>{d.label}</strong> <span className="ab-dimnav-q">— {d.question}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
 
         <h2 className="ab-h2">How to read a number</h2>
         <p className="ab-p">

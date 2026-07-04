@@ -1042,6 +1042,42 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
+        {/* COUNTERPOINTS — same trope, most distant readings. Every sentence is derived
+            from entity_edges + takes at render time, so it changes when the data does. */}
+        {counterpoints.length > 0 ? (
+          <section className="df-sec" id="df-counterpoints">
+            <h2 className="df-h2">Counterpoints — same shape, opposite meaning</h2>
+            <p className="df-sub">
+              Films that stage one of <b>{film.title}</b>&apos;s own tropes but read it against the grain.
+              Kinship maps can find lookalikes; only a reading-level graph can find arguments.
+            </p>
+            <div className="df-conn">
+              {counterpoints.map((c) => (
+                <div key={`${c.film.slug}-${c.trope.slug}`} className="df-crow">
+                  <Link className="df-ti" href={`/film/${c.film.slug}`}>{c.film.title}</Link>{" "}
+                  <span className="df-cyr">({c.film.year ?? "?"}{c.film.director ? `, ${c.film.director}` : ""})</span>
+                  <p className="wn-why">
+                    Both stage <Link href={`/trope/${c.trope.slug}`}>{c.trope.title}</Link>
+                    {c.here?.take && c.there?.take ? (
+                      <>
+                        {" "}— here it becomes{" "}
+                        {c.here.figure
+                          ? <Link href={`/film/${film.slug}/figure/${c.here.figure}`}>&ldquo;{c.here.take}&rdquo;</Link>
+                          : <>&ldquo;{c.here.take}&rdquo;</>}
+                        , there{" "}
+                        {c.there.figure
+                          ? <Link href={`/film/${c.film.slug}/figure/${c.there.figure}`}>&ldquo;{c.there.take}&rdquo;</Link>
+                          : <>&ldquo;{c.there.take}&rdquo;</>}
+                        .
+                      </>
+                    ) : "."}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {/* CREDITS — key crafts, crawlable, linking to /credits/[person] read pages */}
         {crew.length > 0 ? (
           <section className="df-sec" id="df-crew">
