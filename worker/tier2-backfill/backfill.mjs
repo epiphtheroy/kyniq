@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Tier-2 factual backfill for hidden films (films.visible = false).
-// Fill-only: original_title (when null AND differs from title), overview (when null).
+// Fill-only: original_title (when null AND differs from title), overview, genres,
+// runtime, release_date, tagline (each only when currently null).
 // Probes for an original_language column; fills it only if it exists (never alters schema).
 //
 // Usage:
@@ -89,7 +90,7 @@ async function probeHasLanguageColumn() {
 async function fetchHiddenFilms() {
   const films = [];
   for (let offset = 0; ; offset += PAGE_SIZE) {
-    const url = `${SUPA_URL}/rest/v1/films?select=id,tmdb_id,title,original_title,overview&visible=is.false&order=id.asc&offset=${offset}&limit=${PAGE_SIZE}`;
+    const url = `${SUPA_URL}/rest/v1/films?select=id,tmdb_id,title,original_title,overview,genres,runtime,release_date,tagline&visible=is.false&order=id.asc&offset=${offset}&limit=${PAGE_SIZE}`;
     const res = await fetchRetry(url, { headers: SUPA_HEADERS }, { label: `films page offset=${offset}` });
     if (!res.ok) throw new Error(`films page offset=${offset}: HTTP ${res.status} ${await res.text()}`);
     const page = await res.json();
@@ -121,6 +122,9 @@ async function tmdbMovie(tmdbId) {
     original_language: d.original_language ?? null,
     overview: (d.overview || '').trim() || null,
     tagline: (d.tagline || '').trim() || null,
+    genres: Array.isArray(d.genres) ? d.genres.map((g) => g.name).filter(Boolean) : [],
+    runtime: typeof d.runtime === 'number' && d.runtime > 0 ? d.runtime : null,
+    release_date: (d.release_date || '').trim() || null,
   };
 }
 
@@ -155,6 +159,10 @@ async function main() {
     otSkippedIdentical: 0,
     otAlreadyPresent: 0,
     ovSet: 0,
+    gSet: 0,
+    rtSet: 0,
+    rdSet: 0,
+    tgSet: 0,
     langSet: 0,
     noChange: 0,
     patchErrors: 0,
@@ -215,6 +223,23 @@ async function main() {
         stats.ovSet++;
       }
 
+      if (film.genres == null && data.genres.length) {
+        payload.genres = data.genres;
+        stats.gSet++;
+      }
+      if (film.runtime == null && data.runtime != null) {
+        payload.runtime = data.runtime;
+        stats.rtSet++;
+      }
+      if (film.release_date == null && data.release_date) {
+        payload.release_date = data.release_date;
+        stats.rdSet++;
+      }
+      if (film.tagline == null && data.tagline) {
+        payload.tagline = data.tagline;
+        stats.tgSet++;
+      }
+
       if (hasLang && film.original_language == null && data.original_language) {
         payload.original_language = data.original_language;
         stats.langSet++;
@@ -250,6 +275,10 @@ async function main() {
   console.log(`original_title skipped (identical to title): ${stats.otSkippedIdentical}`);
   console.log(`original_title already present:              ${stats.otAlreadyPresent}`);
   console.log(`overview ${DRY_RUN ? 'would set' : 'set'}:            ${stats.ovSet}`);
+  console.log(`genres ${DRY_RUN ? 'would set' : 'set'}:              ${stats.gSet}`);
+  console.log(`runtime ${DRY_RUN ? 'would set' : 'set'}:             ${stats.rtSet}`);
+  console.log(`release_date ${DRY_RUN ? 'would set' : 'set'}:        ${stats.rdSet}`);
+  console.log(`tagline ${DRY_RUN ? 'would set' : 'set'}:             ${stats.tgSet}`);
   console.log(`original_language ${DRY_RUN ? 'would set' : 'set'}:   ${hasLang ? stats.langSet : 'n/a (column absent)'}`);
   console.log(`rows with no change needed:  ${stats.noChange}`);
   console.log(`patch errors:                ${stats.patchErrors}`);
