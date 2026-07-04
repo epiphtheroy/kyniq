@@ -8,6 +8,7 @@ import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
+  cachedAtlasMeta,
   cachedCountryGeo,
   cityMemberPins,
   countryPhrase,
@@ -65,11 +66,13 @@ async function loadUncached(countrySlug: string, citySlug: string) {
   return {
     city, pins, films, returnedTo,
     eligibleFilmSlugs: elig.films.map((f) => f.slug),
+    eligibleDirectorSlugs: elig.directors.map((d) => d.slug),
   };
 }
 
 function load(countrySlug: string, citySlug: string) {
-  return unstable_cache(() => loadUncached(countrySlug, citySlug), ["atlas-city", countrySlug, citySlug], {
+  // Key bumped (2) when director fields/posters joined the pin payload.
+  return unstable_cache(() => loadUncached(countrySlug, citySlug), ["atlas-city2", countrySlug, citySlug], {
     revalidate: 86400,
   })();
 }
@@ -111,10 +114,21 @@ export default async function AtlasCityPage({ params }: Props) {
   const { slug, city: citySlug } = await params;
   const data = await load(slug, citySlug);
   if (!data) notFound();
-  const { city, pins, films, returnedTo, eligibleFilmSlugs } = data;
+  const { city, pins, films, returnedTo, eligibleFilmSlugs, eligibleDirectorSlugs } = data;
   const eligible = new Set(eligibleFilmSlugs);
-  const updated = new Date().toISOString().slice(0, 10);
+  const locDirectors = new Set(eligibleDirectorSlugs);
+  const updated = (await cachedAtlasMeta()).updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(city, films, pins.length, returnedTo);
+  // Directors with ≥2 films shot here — the anti-catalog editorial layer.
+  const byDirector = new Map<string, { name: string; slug: string | null; films: number }>();
+  for (const f of films) {
+    const d = f.pins[0]?.director;
+    if (!d) continue;
+    const e = byDirector.get(d) ?? { name: d, slug: f.pins[0]?.director_slug ?? null, films: 0 };
+    e.films += 1;
+    byDirector.set(d, e);
+  }
+  const returningDirectors = [...byDirector.values()].filter((d) => d.films >= 2).sort((a, b) => b.films - a.films).slice(0, 8);
   // Map scope: the members' own bounding box, padded.
   const lats = pins.map((p) => p.lat), lngs = pins.map((p) => p.lng);
   const bbox = [
@@ -191,6 +205,24 @@ export default async function AtlasCityPage({ params }: Props) {
           <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
           See {city.name} on the map ↓
         </a>
+
+        {returningDirectors.length > 0 && (
+          <section style={{ margin: "30px 0" }}>
+            <h2 className="df-h2">The directors who keep coming back</h2>
+            <p className="df-sub">Filmmakers with more than one film shot in {city.name} on Metatake.</p>
+            <p style={{ lineHeight: 2, margin: "6px 0 0" }}>
+              {returningDirectors.map((d, i) => (
+                <span key={d.name}>
+                  {i > 0 ? " · " : ""}
+                  {d.slug
+                    ? <Link href={locDirectors.has(d.slug) ? `/director/${d.slug}/locations` : `/director/${d.slug}`}>{d.name}</Link>
+                    : d.name}
+                  <span style={{ opacity: 0.6, fontSize: 13.5 }}> ({d.films} films)</span>
+                </span>
+              ))}
+            </p>
+          </section>
+        )}
 
         {returnedTo.length > 0 && (
           <section style={{ margin: "30px 0" }}>

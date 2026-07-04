@@ -300,9 +300,10 @@ export async function loadCountryGeo(countrySlugValue: string): Promise<GeoPin[]
 }
 
 /** Country pin dump, shared through the Data Cache — every city page in a
- * country filters the same dump, so it must not cost one RPC per city. */
+ * country filters the same dump, so it must not cost one RPC per city.
+ * Key bumped (2) when director fields joined the RPC payload. */
 export function cachedCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
-  return unstable_cache(() => loadCountryGeo(countrySlugValue), ["country-pins", countrySlugValue], {
+  return unstable_cache(() => loadCountryGeo(countrySlugValue), ["country-pins2", countrySlugValue], {
     revalidate: 86400,
   })();
 }
