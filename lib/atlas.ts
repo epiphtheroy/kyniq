@@ -33,6 +33,8 @@ export type GeoPin = {
   film_title?: string | null;
   film_year?: number | null;
   poster_path?: string | null;
+  director?: string | null;
+  director_slug?: string | null;
 };
 
 export type AtlasCountry = {
@@ -41,6 +43,7 @@ export type AtlasCountry = {
   films: {
     slug: string; title: string; year: number | null;
     director: string | null; director_slug: string | null;
+    poster_path: string | null;
     pins: number; top_location: string | null;
   }[];
   landmarks: { name: string; films: number; note: string | null }[];
@@ -209,6 +212,23 @@ export async function loadAtlasEligibility(): Promise<AtlasEligibility> {
  * RPC per page render. */
 export function cachedAtlasEligibility(): Promise<AtlasEligibility> {
   return unstable_cache(loadAtlasEligibility, ["atlas-eligibility"], { revalidate: 3600 })();
+}
+
+export type AtlasMeta = { updated: string; pins: number; films: number };
+
+/** Dataset-level facts: the TRUE last-updated date (max created_at of the
+ * location rows) and corpus size. Pages print this instead of the render
+ * date — a date that changes every regeneration reads as fake freshness. */
+export function cachedAtlasMeta(): Promise<AtlasMeta> {
+  return unstable_cache(
+    async () => {
+      const { data } = await db().rpc("atlas_meta_json");
+      const m = (data ?? {}) as Partial<AtlasMeta>;
+      return { updated: m.updated ?? "", pins: m.pins ?? 0, films: m.films ?? 0 };
+    },
+    ["atlas-meta"],
+    { revalidate: 86400 },
+  )();
 }
 
 // ---------------------------------------------------------------------------
