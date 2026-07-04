@@ -23,9 +23,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function GenrePage({ params }: Props) {
   const { slug } = await params;
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-  const { data: films } = await supabase.from("films").select("title, slug, year, genres").eq("visible", true).limit(5000);
+  // PostgREST caps every response at 1,000 rows regardless of .limit(), and the
+  // catalog holds 1,900+ visible films — page through with .range() (same
+  // pattern as fetchAll in lib/sitemap-data.ts) so genre lists don't undercount.
+  type FilmRow = { title: string; slug: string; year: number | null; genres: string[] | null };
+  const PAGE = 1000;
+  const films: FilmRow[] = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data } = await supabase
+      .from("films").select("title, slug, year, genres")
+      .eq("visible", true).order("slug").range(from, from + PAGE - 1);
+    if (!data?.length) break;
+    films.push(...(data as FilmRow[]));
+    if (data.length < PAGE) break;
+  }
   const want = slug.toLowerCase();
-  const inGenre = (films ?? []).filter((f) =>
+  const inGenre = films.filter((f) =>
     ((f.genres ?? []) as string[]).some((g) => slugifyGenre(g) === want)
   ).sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
   if (inGenre.length === 0) notFound();
@@ -34,7 +47,7 @@ export default async function GenrePage({ params }: Props) {
   // slugify matching: the exact genre strings that map to this slug (taken
   // from the visible rows above) are matched against films.genres.
   const genreNames = [...new Set(
-    (films ?? []).flatMap((f) => (f.genres ?? []) as string[]).filter((g) => slugifyGenre(g) === want)
+    films.flatMap((f) => (f.genres ?? []) as string[]).filter((g) => slugifyGenre(g) === want)
   )];
   let hidden: HiddenFilm[] = [];
   let hiddenTotal = 0;
