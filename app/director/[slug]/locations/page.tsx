@@ -14,6 +14,7 @@ import {
   countrySlug,
   listWords,
   loadDirectorGeo,
+  mergeCells,
   mergePins,
   pinCountries,
   precisionRank,
@@ -40,7 +41,17 @@ async function loadUncached(slug: string) {
     .from("films").select("director").eq("director_slug", slug).eq("visible", true).limit(1).maybeSingle();
   const director = (nameRow as { director: string | null } | null)?.director;
   if (!director) return null;
-  const pins = mergePins(await loadDirectorGeo(slug)); // visible films only (RPC filters)
+  const raw = await loadDirectorGeo(slug); // visible films only (RPC filters)
+  // Gate on the coordinate-cell counts (mirrors the sitemap's SQL rule
+  // exactly, so an advertised URL can never 404); render the fused list.
+  const cells = mergeCells(raw);
+  const cellFilms = new Set(cells.map((p) => p.film_slug).filter(Boolean));
+  if (cellFilms.size < DIRECTOR_LOCATIONS_MIN_FILMS || cells.length < DIRECTOR_LOCATIONS_MIN_PINS) return null;
+  const cellsByFilm = new Map<string, number>();
+  for (const p of cells) {
+    if (p.film_slug) cellsByFilm.set(p.film_slug, (cellsByFilm.get(p.film_slug) ?? 0) + 1);
+  }
+  const pins = mergePins(raw);
   const byFilm = new Map<string, FilmGroup>();
   for (const p of pins) {
     if (!p.film_slug) continue;
@@ -49,9 +60,8 @@ async function loadUncached(slug: string) {
     byFilm.set(p.film_slug, g);
   }
   const films = [...byFilm.values()].sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
-  if (films.length < DIRECTOR_LOCATIONS_MIN_FILMS || pins.length < DIRECTOR_LOCATIONS_MIN_PINS) return null;
   const elig = await cachedAtlasEligibility();
-  return { director, slug, pins, films, hubCountrySlugs: elig.countries.map((c) => c.slug) };
+  return { director, slug, pins, films, cellsByFilm: Object.fromEntries(cellsByFilm), hubCountrySlugs: elig.countries.map((c) => c.slug) };
 }
 
 function load(slug: string) {
@@ -91,7 +101,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/director/${slug}/locations` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(films.length >= DIRECTOR_LOCATIONS_MIN_FILMS && pins.length >= DIRECTOR_LOCATIONS_MIN_PINS),
+    robots: pageRobots(true), // load() already 404s below the gate
   };
 }
 
@@ -101,7 +111,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, pins, films, hubCountrySlugs } = data;
+  const { director, pins, films, cellsByFilm, hubCountrySlugs } = data;
   const hubCountries = new Set(hubCountrySlugs);
   const countries = pinCountries(pins);
   const updated = new Date().toISOString().slice(0, 10);
@@ -177,7 +187,8 @@ export default async function DirectorLocationsPage({ params }: Props) {
           <p className="df-sub">Most recent first. Films with three or more mapped places link to their full location page.</p>
           {films.map((f) => {
             const shown = [...f.pins].sort((a, b) => precisionRank(a.precision) - precisionRank(b.precision)).slice(0, PER_FILM_SHOWN);
-            const hasOwnPage = f.pins.length >= FILM_LOCATIONS_MIN;
+            // Same cell-count gate as /film/x/locations itself — never link a 404.
+            const hasOwnPage = (cellsByFilm[f.slug] ?? 0) >= FILM_LOCATIONS_MIN;
             return (
               <div key={f.slug} style={{ padding: "14px 0", borderBottom: "1px solid rgba(22,35,63,.1)" }}>
                 <h3 style={{ margin: "0 0 4px", fontSize: 17.5 }}>

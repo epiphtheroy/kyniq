@@ -74,14 +74,32 @@ export function precisionRank(p: string | null | undefined): number {
 const longer = (a: string | null | undefined, b: string | null | undefined) =>
   (b ?? "").length > (a ?? "").length ? (b ?? null) : (a ?? null);
 
+function mergeTwo<T extends GeoPin>(cur: T, p: T): T {
+  const winner = precisionRank(p.precision) < precisionRank(cur.precision) ? p : cur;
+  return {
+    ...winner,
+    narrative_setting: longer(cur.narrative_setting, p.narrative_setting),
+    scene_role: longer(cur.scene_role, p.scene_role),
+    fig_slug: cur.fig_slug ?? p.fig_slug,
+    fig_label: cur.fig_label ?? p.fig_label,
+    built_set: cur.built_set || p.built_set,
+    set_host: cur.set_host ?? p.set_host,
+  };
+}
+
 /**
- * Merge near-duplicate pins. Two collectors (agent-search / agent-filmed) often
- * logged the same place twice with slightly different names — ~8.7% of pins as
- * of 2026-07-04. Cell key = layer + film + lat/lng rounded to 3 decimals
- * (~110 m); the more precise row wins the name, prose merges by length, and a
- * figure link survives from either row. Order of first appearance is kept.
+ * Pass 1 — coordinate-cell merge. Two collectors (agent-search / agent-filmed)
+ * often logged the same place twice — ~8.7% of pins as of 2026-07-04. Cell key
+ * = layer + film + lat/lng rounded to 3 decimals (~110 m); the more precise
+ * row wins the name, prose merges by length, a figure link survives from
+ * either row. Order of first appearance is kept.
+ *
+ * This is the GATE rule: it is exactly what atlas_eligibility_json counts in
+ * SQL, so every ≥N eligibility check (sitemap, tabs, 404s) MUST use this
+ * count, not mergePins() — the name-fusion pass below can drop a film under
+ * its bar and desync the sitemap from the page.
  */
-export function mergePins<T extends GeoPin>(pins: T[]): T[] {
+export function mergeCells<T extends GeoPin>(pins: T[]): T[] {
   const byCell = new Map<string, T>();
   const order: string[] = [];
   for (const p of pins) {
@@ -93,19 +111,37 @@ export function mergePins<T extends GeoPin>(pins: T[]): T[] {
       order.push(key);
       continue;
     }
-    const winner = precisionRank(p.precision) < precisionRank(cur.precision) ? p : cur;
-    const merged: T = {
-      ...winner,
-      narrative_setting: longer(cur.narrative_setting, p.narrative_setting),
-      scene_role: longer(cur.scene_role, p.scene_role),
-      fig_slug: cur.fig_slug ?? p.fig_slug,
-      fig_label: cur.fig_label ?? p.fig_label,
-      built_set: cur.built_set || p.built_set,
-      set_host: cur.set_host ?? p.set_host,
-    };
-    byCell.set(key, merged);
+    byCell.set(key, mergeTwo(cur, p));
   }
   return order.map((k) => byCell.get(k)!);
+}
+
+const NAME_FUSE_DEG = 0.02; // ~2 km — same-name rows geocoded apart by the two collectors
+
+/**
+ * Full DISPLAY merge: pass 1 above, then pass 2 fuses rows in the same film +
+ * layer + country whose first name segment matches ("110 Longfellow Avenue,
+ * …") and that sit within ~2 km — different geocodes of one address. Same
+ * name far apart (chain locations, common street names) stays separate.
+ */
+export function mergePins<T extends GeoPin>(pins: T[]): T[] {
+  const out: T[] = [];
+  const idxByKey = new Map<string, number>();
+  for (const p of mergeCells(pins)) {
+    const seg = (p.name ?? "").split(",")[0].trim().toLowerCase();
+    const key = seg ? `${p.layer}:${p.film_slug ?? ""}:${(p.country ?? "").trim()}:${seg}` : "";
+    const at = key ? idxByKey.get(key) : undefined;
+    if (at !== undefined) {
+      const cur = out[at];
+      if (Math.abs(cur.lat - p.lat) < NAME_FUSE_DEG && Math.abs(cur.lng - p.lng) < NAME_FUSE_DEG) {
+        out[at] = mergeTwo(cur, p);
+        continue;
+      }
+    }
+    if (key && at === undefined) idxByKey.set(key, out.length);
+    out.push(p);
+  }
+  return out;
 }
 
 /** Countries present in a pin list, largest first — for lead sentences. */

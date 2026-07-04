@@ -12,6 +12,7 @@ import {
   countrySlug,
   listWords,
   loadFilmGeo,
+  mergeCells,
   mergePins,
   pinCountries,
   precisionRank,
@@ -48,8 +49,11 @@ async function loadUncached(slug: string) {
     .maybeSingle();
   // film_geo does not filter on visibility, so the read page must.
   if (!film || (film as FilmRow).visible === false) return null;
-  const pins = mergePins(await loadFilmGeo(slug));
-  if (pins.length < FILM_LOCATIONS_MIN) return null;
+  const raw = await loadFilmGeo(slug);
+  // Gate on the coordinate-cell count (mirrors the sitemap's SQL rule exactly,
+  // so an advertised URL can never 404); render the fully fused list.
+  if (mergeCells(raw).length < FILM_LOCATIONS_MIN) return null;
+  const pins = mergePins(raw);
   // Only link to sibling pages that clear their own gates (no 404 links).
   const elig = await cachedAtlasEligibility();
   const f = film as FilmRow;
@@ -123,7 +127,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/film/${slug}/locations` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(pins.length >= FILM_LOCATIONS_MIN),
+    robots: pageRobots(true), // load() already 404s below the gate
   };
 }
 

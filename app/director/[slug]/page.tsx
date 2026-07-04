@@ -18,7 +18,7 @@ import FilmMap from "@/components/FilmMap";
 import Byline from "@/components/Byline";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
-import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergePins, type GeoPin } from "@/lib/atlas";
+import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
 import SaveButton from "@/components/SaveButton";
 import PosterActions from "@/components/PosterActions";
 
@@ -141,11 +141,13 @@ async function loadUncached(slug: string) {
 
   const { data: geoRows } = await supabase.rpc("director_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
-  // Merged pins + located-film count — the /director/x/locations read page's
-  // gate (≥2 films, ≥6 pins), so the tab/link never points at a 404.
-  const geoPins = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]) : [];
-  const geoMerged = geoPins.length;
-  const geoFilms = new Set(geoPins.map((p) => p.film_slug)).size;
+  // geoCells/geoFilms gate the Locations tab/link (the read page's own 404
+  // rule and the sitemap SQL count the same cells); geoMerged is the fused
+  // display count.
+  const geoCellsArr = Array.isArray(geoRows) ? mergeCells(geoRows as GeoPin[]) : [];
+  const geoCells = geoCellsArr.length;
+  const geoFilms = new Set(geoCellsArr.map((p) => p.film_slug)).size;
+  const geoMerged = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]).length : 0;
 
   return {
     // perFilmReadings is a Map; the Data Cache can't serialize Maps, so return
@@ -155,7 +157,7 @@ async function loadUncached(slug: string) {
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
-    recBy, misreadings, archGroups, geoCount, geoMerged, geoFilms,
+    recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms,
     hiddenFilms, hiddenTotal,
   };
 }
@@ -165,9 +167,9 @@ async function loadUncached(slug: string) {
 // set dynamically. Cache per slug in the Data Cache so the route is ISR-cached;
 // tagged director:<slug> for on-demand refresh.
 function load(slug: string) {
-  // Cache key bumped (load3) when geoMerged/geoFilms joined the payload — the
-  // Data Cache outlives deploys, so a shape change needs a new key.
-  return unstable_cache(() => loadUncached(slug), ["director-load3", slug], {
+  // Cache key bumped (load4) when geoCells/geoMerged/geoFilms joined the
+  // payload — the Data Cache outlives deploys, so a shape change needs a new key.
+  return unstable_cache(() => loadUncached(slug), ["director-load4", slug], {
     revalidate: 300,
     tags: [`director:${slug}`],
   })();
@@ -231,7 +233,7 @@ export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0 } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0 } = data;
   const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
@@ -333,7 +335,7 @@ export default async function DirectorPage({ params }: Props) {
   if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
   tabs.push({ id: "dr-map", label: "Connections" });
   if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas" });
-  const hasLocationsPage = geoFilms >= DIRECTOR_LOCATIONS_MIN_FILMS && geoMerged >= DIRECTOR_LOCATIONS_MIN_PINS;
+  const hasLocationsPage = geoFilms >= DIRECTOR_LOCATIONS_MIN_FILMS && geoCells >= DIRECTOR_LOCATIONS_MIN_PINS;
   if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations` });
   tabs.push({ id: "dr-credits", label: "Credits" });
 
