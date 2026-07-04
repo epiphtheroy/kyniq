@@ -10,16 +10,17 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import EntityGraph, { type GraphData, type GraphNode } from "@/components/EntityGraph";
+import GalaxyMap from "@/components/GalaxyMap";
 
-type Mode = "films" | "directors" | "critical";
+type Mode = "films" | "directors" | "critical" | "galaxy";
 type EgoParams = { type: string; key: string; key2?: string };
 type Filt = { yr?: number | null; imdb?: number | null; rt?: number | null };
 type Target = { mode: Mode; ego?: EgoParams | null; key?: string | null; filt?: Filt };
 type Crumb = { id: string; label: string; target: Target };
 type SearchHit = { type: string; key: string; key2: string | null; label: string; sub: string | null; score: number };
 
-const MODES: [Mode, string][] = [["films", "Films"], ["directors", "Directors"], ["critical", "Grouped"]];
-const ALL_LABEL: Record<Mode, string> = { films: "All films", directors: "All directors", critical: "All" };
+const MODES: [Mode, string][] = [["films", "Films"], ["directors", "Directors"], ["critical", "Grouped"], ["galaxy", "Galaxy"]];
+const ALL_LABEL: Record<Mode, string> = { films: "All films", directors: "All directors", critical: "All", galaxy: "Galaxy" };
 const PREFIX: Record<string, string> = { film: "film", fig: "figure", trope: "trope", idea: "idea", dir: "director", theo: "theorist" };
 const TYPE_LABEL: Record<string, string> = { film: "Film", figure: "Figure", trope: "Trope", idea: "Idea", director: "Director", theorist: "Theorist" };
 const YEARS = [null, 1970, 1980, 1990, 2000, 2010, 2020];
@@ -88,6 +89,11 @@ export default function MapExplorer() {
       const sp = new URLSearchParams(window.location.search);
       const m = sp.get("m"); const t = sp.get("t"); const k = sp.get("k"); const k2 = sp.get("k2");
       busy.current = true; setLoading(true);
+      if (m === "galaxy") {
+        setMode("galaxy"); modeRef.current = "galaxy";
+        setLoading(false); busy.current = false;
+        return;
+      }
       if (k && m === "directors") {
         setMode("directors"); modeRef.current = "directors";
         const target: Target = { mode: "directors", key: k };
@@ -126,6 +132,7 @@ export default function MapExplorer() {
 
   const switchMode = useCallback((m: Mode) => {
     if (busy.current || m === modeRef.current) return;
+    if (m === "galaxy") { setMode(m); setLoading(false); return; }  // galaxy fetches its own payload
     setMode(m); loadOverview(m, filt);
   }, [loadOverview, filt]);
 
@@ -174,7 +181,9 @@ export default function MapExplorer() {
     await goTarget(target, { id: `${hit.type}:${hit.key}`, label: hit.label, target });
   }, [goTarget]);
 
-  const legend = mode === "films"
+  const legend = mode === "galaxy"
+    ? (<span className="map-hint">Every dot is one film, placed by its taste vector — colours are neighbourhoods. Scroll to zoom, drag to pan, click a dot to open the film.</span>)
+    : mode === "films"
     ? (<><span><i style={{ background: "#3a3a3a" }} />Film</span><span className="map-ek"><b style={{ background: "#C8102E" }} />→ Watch next</span><span className="map-ek"><b style={{ background: "#1F6FB2" }} />→ Recommended by</span><span className="map-ek"><b style={{ background: "rgba(0,0,0,.28)" }} />Film like</span></>)
     : mode === "directors"
     ? (<><span><i style={{ background: "#B5642A" }} />Director</span><span className="map-ek"><b style={{ background: "#C8102E" }} />→ Who&rsquo;s next</span><span className="map-ek"><b style={{ background: "#1F6FB2" }} />→ Recommended by</span><span className="map-ek"><b style={{ background: "rgba(0,0,0,.28)" }} />Similar (embedding)</span></>)
@@ -188,7 +197,7 @@ export default function MapExplorer() {
         ))}
       </div>
 
-      {mode !== "critical" && (
+      {(mode === "films" || mode === "directors") && (
         <div className="map-filters">
           <label>Year
             <select value={filt.yr ?? ""} onChange={(e) => setFilt({ ...filt, yr: e.target.value ? Number(e.target.value) : null })}>
@@ -213,6 +222,7 @@ export default function MapExplorer() {
         </div>
       )}
 
+      {mode !== "galaxy" && (
       <div className="map-bar">
         <nav className="map-crumbs" aria-label="Map trail">
           {stack.map((c, i) => (
@@ -233,7 +243,13 @@ export default function MapExplorer() {
           )}
         </div>
       </div>
+      )}
 
+      {mode === "galaxy" ? (
+        <div className="map-graphwrap">
+          <GalaxyMap height={h} />
+        </div>
+      ) : (
       <div className="map-graphwrap">
         <div className="map-search">
           <input
