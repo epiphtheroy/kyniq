@@ -42,7 +42,7 @@ function pctPhrase(group: "value" | "cost" | "risk", pct: number, total: number)
   return `riskier than ${pct}%`;
 }
 
-const PCT_STYLE: React.CSSProperties = {
+const PCT_STYLE: CSSProperties = {
   fontFamily: "var(--font-ui)", fontSize: "10px", color: "var(--muted)",
   lineHeight: 1.35, margin: "-2px 0 8px",
 };
@@ -50,14 +50,34 @@ const PCT_STYLE: React.CSSProperties = {
 function Bar({ v, tone }: { v: number; tone: string }) {
   return <span className="ccx-bar"><i className={tone} style={{ width: `${Math.max(0, Math.min(100, v))}%` }} /></span>;
 }
-function Sub({ names, sub, tone }: { names: string[]; sub: Record<string, number>; tone: string }) {
+function Sub({ names, sub, tone, pct, total }: { names: string[]; sub: Record<string, number>; tone: string; pct?: Record<string, number>; total?: number }) {
   return (
     <div className="ccx-sub">
-      {names.map((n) => (
-        <div className="ccx-subrow" key={n}>
-          <span className="ccx-subn">{n}</span><Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
-        </div>
-      ))}
+      {names.map((n) => {
+        // Legacy (no percentile data passed): markup unchanged for existing callers.
+        if (!pct || total == null) {
+          return (
+            <div className="ccx-subrow" key={n}>
+              <span className="ccx-subn">{n}</span><Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
+            </div>
+          );
+        }
+        // Crawlable layer: the label links to its /takescore/[dim] page, and a
+        // server-rendered percentile line sits under the row (same muted voice).
+        const dim = dimByKey.get(NAME_KEY[n] ?? "");
+        const p = dim ? pct[dim.key] : undefined;
+        return (
+          <div key={n}>
+            <div className="ccx-subrow">
+              {dim
+                ? <a className="ccx-subn" href={takescoreDimUrl(dim.slug)} title={dim.question}>{n}</a>
+                : <span className="ccx-subn">{n}</span>}
+              <Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
+            </div>
+            {dim && typeof p === "number" ? <div style={PCT_STYLE}>{pctPhrase(dim.group, p, total)}</div> : null}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -126,7 +146,7 @@ function ValuePop({ v, votes }: { v: number; votes: number | null }) {
   );
 }
 
-export default function CinecodexPanel({ data, title }: { data: Codex | null; title: string }) {
+export default function CinecodexPanel({ data, title, subscores }: { data: Codex | null; title: string; subscores?: FilmSubscores | null }) {
   if (!data) return null;
   const { ext } = data;
   const tier = data.conf_tier ?? null;
@@ -143,6 +163,7 @@ export default function CinecodexPanel({ data, title }: { data: Codex | null; ti
       <p className="df-sub">
         Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
         the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
+        {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">CineCodex dimensions</a> against a fixed anchor ruler.</> : null}
       </p>
 
       <div className="ccx-axes">
