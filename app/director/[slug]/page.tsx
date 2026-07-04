@@ -43,6 +43,21 @@ async function loadUncached(slug: string) {
   const director = films[0].director ?? slug.replace(/-/g, " ");
   const filmIds = films.map((f) => f.id);
 
+  // Layer 2 — the rest of the filmography: hidden catalog films by this
+  // director. Matched by director_slug where backfilled, else by the exact
+  // TMDB director name (most hidden rows carry only the name).
+  type HiddenFilm = { slug: string; title: string; original_title: string | null; year: number | null; poster_path: string | null };
+  const { data: hiddenRows, count: hiddenCount } = await supabase
+    .from("films")
+    .select("slug, title, original_title, year, poster_path", { count: "exact" })
+    .eq("visible", false)
+    .or(`director_slug.eq.${slug},director.eq."${director.replace(/"/g, '\\"')}"`)
+    .order("year", { ascending: false, nullsFirst: false })
+    .order("slug")
+    .limit(24);
+  const hiddenFilms = (hiddenRows as HiddenFilm[] | null) ?? [];
+  const hiddenTotal = hiddenCount ?? hiddenFilms.length;
+
   const [{ data: dir }, { data: portrait }, { data: facts }, { data: picks }, { data: next }, { data: recByRaw }, { data: misRows }, { data: archRows }] = await Promise.all([
     supabase.from("directors").select("name, profile_path, bio, birthday, place_of_birth").eq("slug", slug).maybeSingle(),
     supabase.from("director_portrait").select("body, source").eq("director_slug", slug).maybeSingle(),
@@ -135,6 +150,7 @@ async function loadUncached(slug: string) {
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
     recBy, misreadings, archGroups, geoCount,
+    hiddenFilms, hiddenTotal,
   };
 }
 
@@ -143,7 +159,7 @@ async function loadUncached(slug: string) {
 // set dynamically. Cache per slug in the Data Cache so the route is ISR-cached;
 // tagged director:<slug> for on-demand refresh.
 function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["director-load", slug], {
+  return unstable_cache(() => loadUncached(slug), ["director-load2", slug], {
     revalidate: 300,
     tags: [`director:${slug}`],
   })();
@@ -207,7 +223,7 @@ export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, hiddenFilms = [], hiddenTotal = 0 } = data;
   const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
@@ -253,7 +269,7 @@ export default async function DirectorPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: `Films by ${director}`,
-    numberOfItems: films.length,
+    numberOfItems: films.length + hiddenTotal,
     itemListElement: (films as { slug: string; title: string; year: number | null }[]).map((f, i) => ({
       "@type": "ListItem",
       position: i + 1,
