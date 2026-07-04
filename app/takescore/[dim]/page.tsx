@@ -348,14 +348,60 @@ export default async function DimensionPage({ params }: Props) {
         <section aria-labelledby="dim-top" style={{ marginTop: 44 }}>
           <h2 className="df-h2" id="dim-top">{copy.listTitle}</h2>
           <p className="df-sub">{GROUP_LIST_SUB[dim.group]}</p>
-          <div className="th-grid">
-            {rows.map((r, i) => (
-              <a className="th-row" key={r.slug} href={filmUrl(r.slug)}>
-                <span className="th-n" style={{ marginLeft: 0 }}>{i + 1}</span>
-                <span className="th-name">{r.title}{r.year ? ` (${r.year})` : ""}</span>
-                <span className="th-n">{r.score}</span>
-              </a>
-            ))}
+          <div className="mvh-films" style={{ marginTop: 14 }}>
+            {rows.map((r, i) => {
+              const secondary: Array<[string, number | null]> = [
+                ["TS", r.takescore],
+                ["V", r.v],
+                ["C", r.c],
+                ["R", r.r],
+              ];
+              const secondaryTxt = secondary
+                .filter(([, n]) => n != null)
+                .map(([k, n]) => `${k} ${n}`)
+                .join(" · ");
+              return (
+                <a className="mvh-film" key={r.slug} href={filmUrl(r.slug)}>
+                  <div style={{ position: "relative" }}>
+                    {r.poster_path ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        className="mvh-poster"
+                        src={`${IMG}/w185${r.poster_path}`}
+                        alt={`${r.title} poster`}
+                        width={185}
+                        height={278}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="mvh-poster mvh-poster--empty" aria-hidden="true" />
+                    )}
+                    <PosterActions slug={r.slug} compact rating={false} />
+                  </div>
+                  <div className="mvh-fmeta">
+                    <div className="mvh-ftitle">
+                      <span style={{ fontFamily: "var(--font-ui)", fontSize: 11.5, fontWeight: 700, color: "var(--muted)" }}>
+                        {i + 1}
+                      </span>{" "}
+                      {r.title}
+                      {r.year ? <span className="mvh-yr"> ({r.year})</span> : null}
+                    </div>
+                    {r.original_title && r.original_title !== r.title ? (
+                      <div className="mvh-fdir">{r.original_title}</div>
+                    ) : null}
+                    <div style={{ marginTop: 5, fontFamily: "var(--font-ui)", lineHeight: 1 }}>
+                      <span style={{ fontSize: 19, fontWeight: 700, color: "var(--accent)", fontVariantNumeric: "tabular-nums" }}>
+                        {r.score}
+                      </span>
+                      <span style={{ fontSize: 11, color: "var(--muted)", marginLeft: 6 }}>{dim.label}</span>
+                    </div>
+                    {secondaryTxt ? (
+                      <div className="mvh-fdir" style={{ fontVariantNumeric: "tabular-nums" }}>{secondaryTxt}</div>
+                    ) : null}
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </section>
 
