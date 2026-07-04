@@ -184,7 +184,7 @@ export default function MapExplorer() {
   const legend = mode === "galaxy"
     ? (<span className="map-hint">Every dot is one film, placed by its taste vector — colours are neighbourhoods. Scroll to zoom, drag to pan, click a dot to open the film.</span>)
     : mode === "films"
-    ? (<><span><i style={{ background: "#3a3a3a" }} />Film</span><span className="map-ek"><b style={{ background: "#C8102E" }} />→ Watch next</span><span className="map-ek"><b style={{ background: "#1F6FB2" }} />→ Recommended by</span><span className="map-ek"><b style={{ background: "rgba(0,0,0,.28)" }} />Film like</span></>)
+    ? (<><span><i style={{ background: "#3a3a3a" }} />Film</span><span className="map-ek"><b style={{ background: "#C8102E" }} />→ Watch next</span><span className="map-ek"><b style={{ background: "#1F6FB2" }} />→ Recommended by</span><span className="map-ek"><b style={{ background: "rgba(0,0,0,.28)" }} />Film like</span><span className="map-ek"><b style={{ background: "#E67E22" }} />⇄ Counterpoint</span></>)
     : mode === "directors"
     ? (<><span><i style={{ background: "#B5642A" }} />Director</span><span className="map-ek"><b style={{ background: "#C8102E" }} />→ Who&rsquo;s next</span><span className="map-ek"><b style={{ background: "#1F6FB2" }} />→ Recommended by</span><span className="map-ek"><b style={{ background: "rgba(0,0,0,.28)" }} />Similar (embedding)</span></>)
     : (<><span><i style={{ background: "#3a3a3a" }} />Film</span><span><i style={{ background: "#1F6FB2" }} />Figure</span><span><i style={{ background: "#0F6E56" }} />Trope</span><span><i style={{ background: "#6D4AAE" }} />Idea</span><span><i style={{ background: "#B5642A" }} />Director</span><span><i style={{ background: "#B23A8F" }} />Theorist</span></>);

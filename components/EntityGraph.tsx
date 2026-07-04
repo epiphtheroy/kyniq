@@ -25,7 +25,7 @@ export type GraphNode = {
   img?: string | null;   // poster (film) or profile photo (director)
   dim?: string | null;   // faint inline suffix — film year / director birth year
 };
-export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" | "next" | "like"; arrow?: boolean };
+export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" | "next" | "recby" | "like" | "counter"; arrow?: boolean };
 export type GraphData = { nodes: GraphNode[]; links: GraphLink[] };
 
 // Light theme — readable on a white canvas. Dots carry the category colour;
@@ -47,8 +47,9 @@ const EDGE = {
   next: "rgba(200,16,46,0.40)",
   recby: "rgba(31,111,178,0.42)",
   like: "rgba(0,0,0,0.13)",
+  counter: "rgba(230,126,34,0.42)",
 };
-const EDGE_HI = { struct: "rgba(0,0,0,0.42)", reading: "#C0392B", trope: "#0F6E56", next: "#C8102E", recby: "#1F6FB2", like: "rgba(0,0,0,0.45)" };
+const EDGE_HI = { struct: "rgba(0,0,0,0.42)", reading: "#C0392B", trope: "#0F6E56", next: "#C8102E", recby: "#1F6FB2", like: "rgba(0,0,0,0.45)", counter: "#E67E22" };
 
 type SimNode = GraphNode & {
   x: number; y: number; vx: number; vy: number;
