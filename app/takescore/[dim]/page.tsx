@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import PosterActions from "@/components/PosterActions";
 import { CODEX_DIMS, dimBySlug, takescoreDimUrl, type CodexDim } from "@/lib/cinecodex_dims";
 import { CODEX_ANCHORS, type AnchorGold } from "@/lib/cinecodex_anchors";
 import { filmUrl } from "@/lib/urls";
@@ -14,6 +15,12 @@ export function generateStaticParams() {
 
 const SITE = "https://metatake.net";
 const SCORED = "6,701";
+const IMG = "https://image.tmdb.org/t/p";
+
+// E-E-A-T byline constants — bump DATE_MODIFIED only on substantive edits.
+const DATE_PUBLISHED = "2026-07-04";
+const DATE_MODIFIED = "2026-07-04";
+const DATE_PUBLISHED_HUMAN = "July 4, 2026";
 
 interface Props {
   params: Promise<{ dim: string }>;
@@ -27,6 +34,9 @@ type TopRow = {
   poster_path: string | null;
   score: number;
   takescore: number | null;
+  v: number | null;
+  c: number | null;
+  r: number | null;
 };
 
 function db() {
@@ -240,6 +250,18 @@ export default async function DimensionPage({ params }: Props) {
         ],
       },
       {
+        "@type": "Article",
+        "@id": `${canonical}#article`,
+        headline: copy.title,
+        mainEntityOfPage: canonical,
+        about: { "@id": canonical },
+        author: { "@type": "Person", name: "Wonwoo Yoon", url: `${SITE}/editor` },
+        publisher: { "@type": "Organization", name: "Metatake", url: SITE },
+        datePublished: DATE_PUBLISHED,
+        dateModified: DATE_MODIFIED,
+        isPartOf: { "@type": "CollectionPage", "@id": `${SITE}/takescore`, name: "TakeScore", url: `${SITE}/takescore` },
+      },
+      {
         "@type": "ItemList",
         itemListOrder: "https://schema.org/ItemListOrderDescending",
         numberOfItems: rows.length,
@@ -281,6 +303,19 @@ export default async function DimensionPage({ params }: Props) {
         </p>
         <p className="ab-p" style={{ fontFamily: "var(--font-ui)", fontWeight: 600 }}>{dim.scale}</p>
         <p className="ab-p">{copy.bands}</p>
+
+        <section
+          aria-labelledby="dim-method"
+          style={{ margin: "40px 0 4px", padding: "14px 18px", border: "1px solid var(--hairline)", borderRadius: 10 }}
+        >
+          <h2 className="ab-h2" id="dim-method" style={{ marginTop: 0, fontSize: 15 }}>About this methodology</h2>
+          <p className="ab-p" style={{ marginBottom: 0, fontSize: 14 }}>
+            CineCodex is Metatake&apos;s own scoring system — designed and calibrated by{" "}
+            <Link href="/editor">Wonwoo Yoon</Link>, founder &amp; editor of Metatake. Every score on this page comes
+            from a frozen rubric (cinecodex-prod-v2) calibrated against eight fixed anchor films; {SCORED} films scored
+            to date. Published {DATE_PUBLISHED_HUMAN}.
+          </p>
+        </section>
 
         <h2 className="ab-h2">The eight anchors</h2>
         <p className="ab-p">
