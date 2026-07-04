@@ -6,9 +6,9 @@ import { tropeUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
 
-const TITLE = "Tropes — figure-types that recur across cinema";
+const TITLE = "Film Tropes — the figure-types that recur across cinema";
 const DESC =
-  "Recurring figure-types — the devices, situations and objects that return across films. Where a meta take is a recurring reading, a trope is a recurring kind of thing.";
+  "Film tropes catalogued by close reading — the devices, situations and objects that return across cinema, each tied to the exact figures that carry it and the readings that say what the recurrence means.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -46,6 +46,12 @@ export default async function TropesIndex() {
         name: TITLE,
         description: DESC,
         isPartOf: { "@type": "WebSite", "@id": "https://metatake.net" },
+        about: {
+          "@type": "DefinedTerm",
+          name: "film trope",
+          description:
+            "A figure cinema keeps reaching for — an object, situation, character-type or piece of staging that returns across films and accumulates meaning through that recurrence.",
+        },
       },
       {
         "@type": "BreadcrumbList",
@@ -101,6 +107,34 @@ export default async function TropesIndex() {
           filterPlaceholder="Filter tropes…"
           emptyText="No trope matches that."
         />
+
+        {/* Definitional landing block — the head-term surface ("film tropes",
+            "movie tropes") Google is already testing this page against. */}
+        <section aria-labelledby="what-is-a-film-trope" style={{ marginTop: 56, maxWidth: 760 }}>
+          <h2 id="what-is-a-film-trope" className="df-h2">What is a film trope?</h2>
+          <p className="idx-intro">
+            A film trope is a figure cinema keeps reaching for — an object, a situation, a kind of character or a
+            piece of staging that returns, film after film, because it does dependable dramatic work:{" "}
+            <a href="/trope/the-ambushed-convoy">the ambushed convoy</a>,{" "}
+            <a href="/trope/the-contested-heirloom">the contested heirloom</a>,{" "}
+            <a href="/trope/the-refuge-that-is-secretly-a-border">the refuge that is secretly a border</a>. Calling
+            something a trope is not an accusation. A cliché is a figure used without thought; a trope is a figure
+            with a history — and that history is exactly what makes it readable.
+          </p>
+          <p className="idx-intro">
+            Most catalogues of movie tropes stop at spotting: name the device, list the films, move on. Metatake
+            starts where spotting ends. Every trope here is documented at the level of the <em>figure</em> — the
+            exact scene, object or character that carries it — and wired to the close readings that say what the
+            recurrence <em>means</em>. Each trope page is less a trivia entry than a map: the films that share the
+            figure, and the interpretive traditions that have fought over it.
+          </p>
+          <p className="idx-intro">
+            A trope is also not an <a href="/catalog">archetype</a>. An archetype says what a figure <em>is</em> — a
+            mentor, a threshold, an heirloom — while a trope tracks how a kind of thing <em>recurs</em> and
+            accumulates meaning across cinema. The two catalogues cross-reference each other; start from whichever
+            end of the question you hold.
+          </p>
+        </section>
       </div>
     </div>
   );
