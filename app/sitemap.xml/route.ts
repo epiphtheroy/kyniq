@@ -25,6 +25,7 @@ const SECTIONS = [
   "catalog",
   "locations",
   "atlas",
+  "cities",
 ];
 
 export async function GET() {

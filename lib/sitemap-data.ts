@@ -8,7 +8,7 @@ import {
   INDEX_COHORT_CATALOG,
   INDEX_COHORT_FILM_LOCATIONS,
 } from "@/lib/seo";
-import { loadAtlasEligibility } from "@/lib/atlas";
+import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
 import { KINDS, nodeHref, sectionHref, type SectionKey } from "@/lib/catalog";
 import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
@@ -383,6 +383,19 @@ export async function atlasEntries(): Promise<SitemapEntry[]> {
     ...[...countries].sort((a, b) => a.slug.localeCompare(b.slug)).map((c) => ({ url: `${siteUrl}/atlas/${c.slug}` })),
     ...directors.map((d) => ({ url: `${siteUrl}/director/${d.slug}/locations` })),
   ];
+}
+
+/**
+ * City & region hubs /atlas/{country}/{city} — the roster is the frozen
+ * lib/atlas_cities.json artifact (worker/atlas-cities-build.py; ≥3 films +
+ * geographic coherence). Stable order (country, city); the page itself
+ * re-checks the ≥3-film bar via robots as drift protection.
+ */
+export async function cityEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  return [...allAtlasCities()]
+    .sort((a, b) => a.countrySlug.localeCompare(b.countrySlug) || a.slug.localeCompare(b.slug))
+    .map((c) => ({ url: `${siteUrl}/atlas/${c.countrySlug}/${c.slug}` }));
 }
 
 /** Public profiles. */

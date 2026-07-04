@@ -5,7 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
 import { pageRobots } from "@/lib/seo";
-import { FILM_LOCATIONS_MIN, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
+import { FILM_LOCATIONS_MIN, citiesForCountry, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
 
 /**
  * /atlas/[slug] — country hub, the READ layer for "movies filmed in X"
@@ -66,6 +66,7 @@ export default async function AtlasCountryPage({ params }: Props) {
   const updated = new Date().toISOString().slice(0, 10);
   const lead = leadText(c);
   const returnedTo = c.landmarks.filter((m) => m.films >= 2);
+  const cities = citiesForCountry(slug);
 
   // Decade shelves, newest first; undated films sit at the end.
   const decades = new Map<string, AtlasCountry["films"]>();
@@ -154,6 +155,20 @@ export default async function AtlasCountryPage({ params }: Props) {
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {cities.length > 0 && (
+          <section style={{ margin: "30px 0" }}>
+            <h2 className="df-h2">Cities &amp; regions</h2>
+            <p className="df-sub">Where in {countryPhrase(c.country)} the cameras stood — each with its own films, landmarks and map.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "6px 18px", marginTop: 10 }}>
+              {cities.map((ct) => (
+                <Link key={ct.slug} href={`/atlas/${slug}/${ct.slug}`} style={{ padding: "7px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
+                  {ct.name} <span style={{ opacity: 0.6, fontSize: 13 }}>— {ct.films} films</span>
+                </Link>
+              ))}
+            </div>
           </section>
         )}
 

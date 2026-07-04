@@ -75,6 +75,14 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    cohort) + sitemaps/atlas.xml (countries + directors). Gates mirror the
  *    pages' own 404/robots bars (lib/atlas.ts). Raise the film cohort on the
  *    standard weekly GSC evidence rule.
+ *  - 2026-07-04 (Atlas Phase 3, same evening, user-directed): city/region
+ *    hubs /atlas/{country}/{city} — 511 pages (439 city + 72 region) from
+ *    the frozen lib/atlas_cities.json roster (worker/atlas-cities-build.py:
+ *    locality terms from pin names, ≥3 visible films, p90 spread ≤150 km —
+ *    ambiguous terms like "Washington" self-drop; variants like "New York
+ *    City"/"New York" merge). New child sitemaps/cities.xml (no cohort —
+ *    the artifact IS the release set, capped 1000). Pages re-check the
+ *    ≥3-film bar via robots as drift protection.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
