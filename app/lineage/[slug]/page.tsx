@@ -25,6 +25,13 @@ const FACET_LABEL: Record<string, string> = {
   award: "Award", canon: "Canon / list", national: "National honour", festival: "Festival", section: "Festival section", auteur: "Auteur line", movement: "Movement", style: "Style",
 };
 
+// Hidden members (catalog entries) in deterministic order: year desc, then slug.
+function hiddenOf(films: FilmRow[]): FilmRow[] {
+  return films
+    .filter((f) => !f.visible)
+    .sort((a, b) => (b.film_year ?? 0) - (a.film_year ?? 0) || a.film_slug.localeCompare(b.film_slug));
+}
+
 // Cached per slug so the page is ISR-cached instead of re-querying on every
 // request (uncached Supabase calls otherwise force dynamic rendering).
 function load(slug: string) {
@@ -37,9 +44,21 @@ function load(slug: string) {
         .eq("slug", slug).maybeSingle();
       if (!list) return null;
       const { data: films } = await supabase.rpc("lineage_list_films", { p_slug: slug });
-      return { list: list as unknown as ListRow, films: (films as FilmRow[] | null) ?? [] };
+      const rows = (films as FilmRow[] | null) ?? [];
+      // Native titles for the hidden-member cards (top 24 only — keeps the
+      // extra query one cheap .in() inside this cache wrapper).
+      let hiddenNative: Record<string, string | null> = {};
+      const hiddenTop = hiddenOf(rows).slice(0, 24).map((f) => f.film_slug);
+      if (hiddenTop.length) {
+        const { data: nat } = await supabase.from("films").select("slug, title, original_title").in("slug", hiddenTop);
+        hiddenNative = Object.fromEntries(
+          ((nat ?? []) as { slug: string; title: string; original_title: string | null }[])
+            .map((r) => [r.slug, r.original_title && r.original_title !== r.title ? r.original_title : null])
+        );
+      }
+      return { list: list as unknown as ListRow, films: rows, hiddenNative };
     },
-    ["lineage", slug],
+    ["lineage2", slug],
     { revalidate: 1800, tags: [`lineage:${slug}`] },
   )();
 }
@@ -57,6 +76,9 @@ export default async function LineagePage({ params }: Props) {
   const data = await load(slug);
   if (!data) notFound();
   const { list, films } = data;
+  const hiddenNative = data.hiddenNative ?? {};
+  const visibleFilms = films.filter((f) => f.visible);
+  const hiddenFilms = hiddenOf(films);
   const isCanon = list.facet === "canon" || films.some((f) => f.rank != null);
 
   return (
@@ -74,7 +96,7 @@ export default async function LineagePage({ params }: Props) {
         <LineageActions slug={slug} />
 
         <div className="lh-films">
-          {films.map((f, i) => (
+          {visibleFilms.map((f, i) => (
             <div className="lh-film" key={i}>
               {f.poster_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
