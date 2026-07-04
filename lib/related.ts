@@ -394,7 +394,7 @@ function directorHubBox(name: string, slug: string): RelatedBox {
 
 // Same derivation as lib/sitemap-data.ts slugifyGenre / app/genre links
 // (genre slugs come from films.genres labels; there is no genres table).
-function slugifyGenre(g: string): string {
+export function slugifyGenre(g: string): string {
   return g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
