@@ -6,10 +6,14 @@ import { personSlug } from "./credits-logic";
 import crewIndex from "@/lib/crew_index.json";
 import "./credits.css";
 
+const SITE = "https://metatake.net";
+const TITLE = "Credits — follow the credits";
+const DESC =
+  "Every film is signed by more than its director. Follow the cinematographer, editor, composer or designer of a film you loved through their whole body of work — where to begin, the essentials, the deep cuts, and the repertory company they keep.";
+
 export const metadata: Metadata = {
-  title: "Credits — follow the credits",
-  description:
-    "Every film is signed by more than its director. Follow the cinematographer, editor, composer or designer of a film you loved through their whole body of work — where to begin, the essentials, the deep cuts, and the repertory company they keep.",
+  title: TITLE,
+  description: DESC,
   alternates: { canonical: "/credits" },
 };
 
@@ -33,9 +37,38 @@ function azGroups(): [string, CrewPerson[]][] {
 export default function CreditsPage() {
   const groups = azGroups();
   const total = groups.reduce((s, [, ppl]) => s + ppl.length, 0);
+  const people = (crewIndex as unknown as { people: CrewPerson[] }).people;
+  const top = [...people].sort((a, b) => b.n - a.n).slice(0, 25);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": `${SITE}/credits`, url: `${SITE}/credits`, name: TITLE, description: DESC },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "Credits", item: `${SITE}/credits` },
+      ] },
+      { "@type": "ItemList", numberOfItems: total,
+        itemListElement: top.map((p, i) => ({
+          "@type": "ListItem", position: i + 1, name: p.name, url: `${SITE}/credits/${personSlug(p.name, p.id)}`,
+        })) },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {/* Server-rendered page header — the explorer below is a client island,
+          so the h1 must live here (styled like the other hub headers). */}
+      <div className="mt-wrap lh" style={{ paddingBottom: 0 }}>
+        <h1 className="lh-h1">Credits — follow the credits</h1>
+        <p className="lh-def">
+          Every film is signed by more than its director. Follow the cinematographer, editor, composer or designer of
+          a film you loved through their whole body of work — where to begin, the essentials, the deep cuts, and the
+          repertory company they keep.
+        </p>
+      </div>
       <Suspense fallback={<div style={{ padding: "48px 24px", color: "#6B6B6B" }}>Loading…</div>}>
         <CreditsExplorer />
       </Suspense>
