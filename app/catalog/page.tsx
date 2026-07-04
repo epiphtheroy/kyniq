@@ -7,9 +7,9 @@ import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "
 export const revalidate = 600;
 
 const SITE = "https://metatake.net";
-const TITLE = "Archetypes — what each figure is";
+const TITLE = "Film Archetypes — what each figure is";
 const DESC =
-  "A controlled vocabulary for every figure in the archive — objects, characters, places, themes, theory. Browse cinema by what its elements are, not only what they mean.";
+  "The film archetypes catalogue — a controlled vocabulary for every figure in the archive: character archetypes, objects, places, themes and theory. Browse cinema by what its elements are, not only what they mean.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -45,7 +45,19 @@ export default async function CatalogHub() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CollectionPage", "@id": `${SITE}/catalog`, url: `${SITE}/catalog`, name: TITLE, description: DESC },
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE}/catalog`,
+        url: `${SITE}/catalog`,
+        name: TITLE,
+        description: DESC,
+        about: {
+          "@type": "DefinedTerm",
+          name: "film archetype",
+          description:
+            "A named answer to what a figure is — the character-type, object, place or theme a figure on screen instantiates, held in a controlled vocabulary so the same name means the same thing across every film.",
+        },
+      },
       { "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE },
         { "@type": "ListItem", position: 2, name: "Archetypes", item: `${SITE}/catalog` },
@@ -104,6 +116,33 @@ export default async function CatalogHub() {
             );
           })}
         </div>
+
+        {/* Definitional landing block — the head-term surface ("film archetypes",
+            "character archetypes in film") this hub is aligned to. Mirrors /tropes. */}
+        <section aria-labelledby="what-is-a-film-archetype" style={{ marginTop: 56, maxWidth: 760 }}>
+          <h2 id="what-is-a-film-archetype" className="df-h2">What is a film archetype?</h2>
+          <p className="idx-intro">
+            A film archetype names what a figure <em>is</em>. Character archetypes are the familiar half of the
+            vocabulary — <a href="/catalog/character/tragic-hero">the tragic hero</a> alone accounts for hundreds of
+            figures in this archive — but characters are only one section. Objects have archetypes too (
+            <a href="/catalog/object/symbolic-animal">the symbolic animal</a>), and so do places (
+            <a href="/catalog/place/noir-city">the noir city</a>) and themes. An archetype is not a judgment about
+            quality or originality; it is a classification, the noun a figure answers to.
+          </p>
+          <p className="idx-intro">
+            Most lists of movie archetypes stop at a dozen character labels borrowed from screenwriting manuals.
+            Metatake treats the vocabulary as controlled: every archetype here is a node in a taxonomy, and every
+            node is backed by the actual figures classified under it — the exact character, object or place, in the
+            exact film, each linked to its close reading. Open any archetype and you get its members, not an essay
+            about heroes in general.
+          </p>
+          <p className="idx-intro">
+            An archetype is also not a <a href="/tropes">trope</a>. An archetype says what a figure <em>is</em> — a
+            mentor, a threshold, an heirloom — while a trope tracks how a kind of thing <em>recurs</em> and
+            accumulates meaning across cinema. The two catalogues cross-reference each other; start from whichever
+            end of the question you hold.
+          </p>
+        </section>
       </div>
     </div>
   );
