@@ -77,6 +77,22 @@ export default function MethodologyPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl">The Atlas — location data</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        The <Link href="/atlas" className="accent" style={{ textDecoration: "none" }}>Atlas</Link> — the map layer
+        behind &ldquo;where was this filmed?&rdquo; pages — is compiled, not scraped. Metatake Editorial researches
+        each film&apos;s shooting places from public sources and production records, geolocates them, and files every
+        pin with the scene it carries, a precision label (exact spot, venue, area, or city level), its source, and a
+        confidence score. Filmed places and the places a story merely <em>claims</em> to be set in are kept apart —
+        the map tells you which is which. Locations are collected through two independent passes and fused before
+        display; where the record is thin, the pin says city level rather than pretending to an address. Location
+        facts sit under the same correction loop as everything else on this page — if we&apos;ve put a pin in the
+        wrong place, tell us and we&apos;ll move it.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl">Corrections</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
