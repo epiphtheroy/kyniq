@@ -1030,7 +1030,7 @@ export default async function FilmPage({ params }: Props) {
         {recs.length > 0 ? (
           <section className="df-sec" id="df-connected">
             <h2 className="df-h2">Films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>see all →</Link></h2>
-            <p className="df-sub">Nearest neighbours in meaning-space — films Metatake places closest to this one.</p>
+            <p className="df-sub">Nearest neighbours in meaning-space — films Metatake places closest to this one, by shared tropes and taste distance. <Link href="/methodology#connections">How connections are computed →</Link></p>
             <div className="df-conn">
               {recs.map((r) => (
                 <div key={r.slug} className="df-crow">

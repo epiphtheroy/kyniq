@@ -99,7 +99,11 @@ export default async function MoviesLikePage({ params }: Props) {
         </div>
         <h1 className="mt-h1">Movies like {film.title}{film.year ? ` (${film.year})` : ""}</h1>
         <p className="mt-laconic">
-          {recs.length} films Metatake places near {film.title} — matched not by genre or era but by the critical ideas they share. Each one lists what makes it kin.
+          {recs.length} films Metatake places near {film.title} — matched not by genre or era but by shared{" "}
+          <Link href="/tropes">tropes</Link> and closeness in meaning-space. Each one lists what makes it kin, and the
+          inverse list — films that share the shape but fight over the meaning — lives under{" "}
+          <Link href={`/film/${film.slug}#df-counterpoints`}>Counterpoints</Link> on the film page.{" "}
+          <Link href="/methodology#connections">How connections are computed →</Link>
         </p>
 
         {recs.length === 0 ? (

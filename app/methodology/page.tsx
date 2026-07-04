@@ -77,6 +77,29 @@ export default function MethodologyPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl" id="connections">How connections are computed</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Every &ldquo;films most connected&rdquo; list on the site is computed, not curated, and it recomputes as the
+        corpus grows — so the lists you see change as new readings are published. Two signals are fused. First,{" "}
+        <strong>shared tropes</strong>: when two films&apos; figures belong to the same{" "}
+        <Link href="/tropes" className="accent" style={{ textDecoration: "none" }}>trope</Link>, that&apos;s a
+        connection, and rarer tropes count for more than common ones. Second, <strong>taste distance</strong>: each
+        film&apos;s readings are averaged into one vector, and films whose vectors sit close are neighbours even when
+        they share no trope at all. The two rankings are blended, and the strongest two dozen kin are kept per film —
+        always with the shared tropes shown, so a connection can be checked, not just believed.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        <strong>Counterpoints</strong> are the inverse, and they&apos;re the connection only a reading-level database
+        can make: two films that stage the <em>same</em> trope, whose readings of it point in opposite directions.
+        Similarity engines can find lookalikes; they can&apos;t find arguments. We keep the pair whose readings are
+        farthest apart in meaning and show both takes side by side, so the disagreement is legible on the page. All of
+        it — kinship, counterpoints, the <Link href="/map" className="accent" style={{ textDecoration: "none" }}>map</Link>,
+        the galaxy view — reads from the same computed ledger, and none of it is hand-weighted.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl">The Atlas — location data</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
