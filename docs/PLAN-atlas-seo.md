@@ -1,6 +1,6 @@
 # PLAN — Atlas SEO 읽는 층 구축 (촬영지 페이지)
 
-**상태: Phase 1 + 2 + 2.5 실행 완료 (2026-07-04 배포·라이브 검증). Phase 3(도시 허브)만 남음.**
+**상태: 전 Phase 실행 완료 (2026-07-04 배포·라이브 검증) — Phase 3 도시·지역 허브 포함.**
 작성 2026-07-03 · 갱신 2026-07-04 (재실측 → 당일 실행).
 배경: `/atlas`·필름/감독 Atlas 탭은 MapLibre 클라이언트 렌더링이라 검색엔진에 빈 페이지. credits에서 검증한 "읽는 층(서버) + 노는 층(임베드)" 공식을 재적용한다.
 
@@ -12,7 +12,16 @@
 - **내비**: 필름/감독 페이지에 Locations 탭(href)+Atlas 섹션 인라인 링크, locations→figure/국가허브/감독 순환 링크. unstable_cache 키 범프(film-load3/director-load4/…locations2).
 - **사이트맵**: 자식 `locations.xml`(1,000)·`atlas.xml`(404 URL) + 인덱스 17분할. `INDEX_COHORT_FILM_LOCATIONS=1000`, lib/seo.ts RELEASE LOG 기록.
 - **/methodology**에 "The Atlas — location data" 섹션 추가(수집·정밀도·confidence·교정 루프 — 참인 표기만).
-- 실행 담당 AI는 이 문서만으로 Phase 3에 착수 가능해야 한다.
+
+## 실행 로그 — Phase 3 (2026-07-04 저녁, 사용자 지시 "1000개까지")
+
+- **접근**: geo_cache에 구조화 주소 없음 → 핀 이름 콤마 세그먼트에서 지명 추출(venue 첫 세그먼트 제외, kind='city'는 포함) + 기하 응집도 검증. §5의 name_norm 경로는 폐기.
+- **게이트**: 필름 ≥3 + p90 산포 ≤150km — "Washington"(p90 2,373km) 같은 모호어와 주(州) 단위가 자동 탈락. 결과 **511개**(도시 439/지역 72, 캡 1000 미달 — 게이트가 실질 상한).
+- **파이프라인**: `atlas_city_candidates_json` RPC(SQL 추출·집계) → `worker/atlas-cities-build.py`(변형 병합: 부분문자열+50km 또는 필름셋 0.9/0.9 → "New York"+"New York City"=184편 통합; slug; 캡) → `lib/atlas_cities.json`(동결 아티팩트).
+- **페이지** `/atlas/[country]/[city]`: 멤버십 = 지명 세그먼트 매칭(lib/atlas.ts `pinLocalityTerms` — RPC SQL과 동기 필수) + 중심 250km 이내(할리우드 FL 누출 차단) + 국가 일치. 데이터는 `cachedCountryGeo`(국가당 1회 캐시) 공유. 지도 임베드는 멤버 bbox로 `/api/geo?bbox=`.
+- **연결**: 국가 허브에 "Cities & regions" 그리드, 도시→필름 locations(자격 필름만)·국가 허브 순환.
+- **사이트맵**: 자식 `cities.xml`(511) — 인덱스 18분할. 코호트 없음(아티팩트가 릴리즈 셋).
+- 지구(맨해튼·브루클린·버뱅크 등)는 상위 도시와 의도적으로 공존 — 검색 수요가 별개이고 필름셋이 충분히 다름(0.9 중첩만 병합).
 
 ---
 
