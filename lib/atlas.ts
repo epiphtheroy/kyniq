@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
+import atlasCitiesJson from "@/lib/atlas_cities.json";
 
 /**
  * Atlas read layer — shared data helpers (docs/PLAN-atlas-seo.md).
@@ -208,4 +209,80 @@ export async function loadAtlasEligibility(): Promise<AtlasEligibility> {
  * RPC per page render. */
 export function cachedAtlasEligibility(): Promise<AtlasEligibility> {
   return unstable_cache(loadAtlasEligibility, ["atlas-eligibility"], { revalidate: 3600 })();
+}
+
+// ---------------------------------------------------------------------------
+// City / region hubs (Phase 3) — roster frozen in lib/atlas_cities.json
+// (rebuilt by worker/atlas-cities-build.py; ≥3 films + p90 ≤ 150 km gates).
+
+export type AtlasCity = {
+  slug: string; name: string; country: string; countrySlug: string;
+  terms: string[]; lat: number; lng: number;
+  films: number; pins: number; scale: "city" | "region";
+};
+
+export function allAtlasCities(): AtlasCity[] {
+  return (atlasCitiesJson as { cities: AtlasCity[] }).cities;
+}
+
+export function citiesForCountry(countrySlugValue: string): AtlasCity[] {
+  return allAtlasCities().filter((c) => c.countrySlug === countrySlugValue);
+}
+
+export function findAtlasCity(countrySlugValue: string, citySlug: string): AtlasCity | null {
+  return allAtlasCities().find((c) => c.countrySlug === countrySlugValue && c.slug === citySlug) ?? null;
+}
+
+// MUST STAY IN SYNC with the SQL in atlas_city_candidates_json (same exclusions).
+const LOCALITY_SKIP = new Set([
+  "usa", "u.s.a.", "u.s.", "uk", "u.k.", "united states",
+  "united states of america", "united kingdom", "czech republic",
+  "holland", "republic of ireland", "republic of korea",
+]);
+
+/** Locality terms a pin's name carries — comma segments minus the
+ * venue-specific head (kept when the pin IS a city) and minus country-level
+ * words. Mirrors the extraction in the atlas_city_candidates_json RPC. */
+export function pinLocalityTerms(name: string, kind: string | null | undefined, country: string | null | undefined): string[] {
+  const parts = name.split(",").map((s) => s.trim()).filter(Boolean);
+  const segs = kind !== "city" && parts.length > 1 ? parts.slice(1) : parts;
+  const c = (country ?? "").toLowerCase();
+  return segs
+    .map((s) => s.toLowerCase())
+    .filter((t) => t.length >= 3 && !/[0-9]/.test(t) && t !== c && !LOCALITY_SKIP.has(t));
+}
+
+export function kmBetween(aLat: number, aLng: number, bLat: number, bLng: number): number {
+  const dLat = (aLat - bLat) * 111.0;
+  const dLng = (aLng - bLng) * 111.0 * Math.cos((aLat * Math.PI) / 180);
+  return Math.sqrt(dLat * dLat + dLng * dLng);
+}
+
+// A stray same-named place on another coast (Hollywood FL vs Hollywood CA)
+// must not leak into a city page — membership needs the name AND proximity.
+const CITY_MEMBER_KM = 250;
+
+/** Pins belonging to a city/region hub: same country, a matching locality
+ * term, and within ~250 km of the roster centroid. */
+export function cityMemberPins<T extends GeoPin>(pins: T[], city: AtlasCity): T[] {
+  const terms = new Set(city.terms);
+  return pins.filter((p) => {
+    if ((p.country ?? "") !== city.country) return false;
+    if (typeof p.lat !== "number" || typeof p.lng !== "number") return false;
+    if (kmBetween(p.lat, p.lng, city.lat, city.lng) > CITY_MEMBER_KM) return false;
+    return pinLocalityTerms(p.name, p.kind, p.country).some((t) => terms.has(t));
+  });
+}
+
+export async function loadCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
+  const { data } = await db().rpc("country_geo", { p_slug: countrySlugValue });
+  return Array.isArray(data) ? (data as GeoPin[]) : [];
+}
+
+/** Country pin dump, shared through the Data Cache — every city page in a
+ * country filters the same dump, so it must not cost one RPC per city. */
+export function cachedCountryGeo(countrySlugValue: string): Promise<GeoPin[]> {
+  return unstable_cache(() => loadCountryGeo(countrySlugValue), ["country-pins", countrySlugValue], {
+    revalidate: 86400,
+  })();
 }
