@@ -31,6 +31,8 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
+import RelatedBoxes from "@/components/RelatedBoxes";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -82,7 +84,7 @@ async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, wikidata_id, tmdb_extra, created_at, visible, is_analyzed")
+    .select("id, title, original_title, slug, year, director, director_slug, genres, poster_path, backdrop_path, tagline, runtime, release_date, certification, overview, imdb_id, tmdb_id, wikidata_id, tmdb_extra, created_at, visible, is_analyzed")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
   if (film.is_analyzed === false) {
@@ -229,6 +231,19 @@ function loadChrome(slug: string) {
   )();
 }
 
+// Tier-2 "keep reading" modules (lib/related.ts recipe) — cached per slug like
+// the main load, so the catalog route stays ISR-cached.
+function loadTier2Related(slug: string, args: {
+  filmId: string; filmSlug: string; filmTitle: string; year: number | null;
+  director: string | null; directorSlug: string | null;
+  genres: string[] | null; lineageListSlugs: string[];
+}) {
+  return unstable_cache(() => relatedForTier2Film(args), ["film-t2-related", slug], {
+    revalidate: 300,
+    tags: [`film:${slug}`],
+  })();
+}
+
 // order + cap for the film-page Archetype section
 const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
 const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
@@ -265,9 +280,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(slug);
   if (!data) return { title: "Not found" };
   if ("minimal" in data && data.minimal) {
-    const f = data.film as { title: string; year: number | null };
-    const t = `${f.title}${f.year ? ` (${f.year})` : ""}`;
-    return { title: t, robots: pageRobots(false) };
+    // Full catalog-record head: Tier-1's pattern minus the analysis claim —
+    // no readings exist yet, so the title promises cast/watch/context only.
+    const f = data.film as { title: string; original_title: string | null; year: number | null; director: string | null; genres: string[] | null; overview: string | null };
+    const native = f.original_title && f.original_title !== f.title ? ` (${f.original_title})` : "";
+    const title = `${f.title}${f.year ? ` (${f.year})` : ""} — Cast, Where to Watch & Context`;
+    const fromOverview = f.overview ? descriptionFromInvitation(f.overview) : null;
+    const formula = [
+      `${f.title}${native}${f.year ? ` (${f.year})` : ""}`,
+      f.director ? `directed by ${f.director}` : null,
+    ].filter(Boolean).join(", ")
+      + (f.genres?.length ? ` — ${f.genres.slice(0, 3).join(", ")}.` : ".")
+      + " Cast, context and where to watch on Metatake.";
+    const description = fromOverview ?? formula;
+    return {
+      title,
+      description,
+      openGraph: { title, description },
+      twitter: { card: "summary_large_image", title, description },
+      alternates: { canonical: `/film/${slug}` },
+      robots: pageRobots(false),
+    };
   }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
   const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — Analysis, Themes & Symbols`;

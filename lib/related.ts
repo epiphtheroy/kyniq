@@ -647,6 +647,134 @@ export async function relatedForMetaTake(args: {
   );
 }
 
+/* ── Tier-2 catalog film page (no figures/readings — the modules ARE the page's
+      funnel into worked content). Sources follow the same SEO rules as above:
+      deterministic ordering, visible (Tier-1) films favoured, global dedupe. ── */
+
+type T2FilmRow = {
+  id: string; slug: string; title: string; year: number | null;
+  poster_path: string | null; director: string | null; director_slug: string | null;
+  overview: string | null; visible: boolean | null; genres?: string[] | null;
+};
+
+/** Overview excerpts on Tier-2 modules are capped tighter (~200) than the
+ *  default so the poster grids stay scannable. */
+function t2FilmBox(f: T2FilmRow): RelatedBox {
+  return { ...filmBox(f), excerpt: excerptOf(f.overview, 200) };
+}
+
+/** The director's OTHER films across BOTH tiers — visible (Tier-1) first, then
+ *  other catalog records — matched by director name (Tier-2 rows often lack
+ *  director_slug), falling back to slug. Also surfaces the director-hub slug
+ *  carried by any sibling row, so a Tier-2 page whose own director_slug is
+ *  null can still link the hub. */
+async function directorFilmsAllTiers(args: {
+  director: string | null; directorSlug: string | null; excludeFilmId: string; cap?: number;
+}): Promise<{ boxes: RelatedBox[]; hubSlug: string | null }> {
+  if (!args.director && !args.directorSlug) return { boxes: [], hubSlug: args.directorSlug ?? null };
+  let q = db()
+    .from("films")
+    .select("id, slug, title, year, poster_path, director, director_slug, overview, visible")
+    .neq("id", args.excludeFilmId)
+    .order("visible", { ascending: false })
+    .order("year", { ascending: true, nullsFirst: false })
+    .order("slug", { ascending: true })
+    .limit(args.cap ?? 6);
+  q = args.director ? q.eq("director", args.director) : q.eq("director_slug", args.directorSlug as string);
+  const { data } = await q;
+  const rows = (data ?? []) as T2FilmRow[];
+  const hubSlug = args.directorSlug ?? rows.find((r) => r.director_slug)?.director_slug ?? null;
+  return { boxes: rows.map(t2FilmBox), hubSlug };
+}
+
+/** Tier-1 films sharing this film's lineage membership (canon/award/festival/
+ *  movement/national lists from film_lineage — the same source the page's
+ *  Lineage section renders). Ranked by shared-list count DESC → year ASC →
+ *  slug ASC. */
+async function lineageTraditionFilms(listSlugs: string[], excludeFilmId: string, cap = 6): Promise<RelatedBox[]> {
+  const slugs = uniqueInOrder(listSlugs.filter(Boolean)).slice(0, 8);
+  if (slugs.length === 0) return [];
+  const { data } = await db()
+    .from("film_lineage")
+    .select("list:lineage_lists!inner(slug), film:films!inner(id, slug, title, year, poster_path, director, overview, visible)")
+    .in("list.slug", slugs)
+    .eq("film.visible", true)
+    .neq("film_id", excludeFilmId)
+    .limit(120);
+  const rows = ((data ?? []) as unknown as { list: { slug: string }; film: T2FilmRow }[]).filter((r) => r.film);
+  const byId = new Map<string, { film: T2FilmRow; n: number }>();
+  for (const r of rows) {
+    const cur = byId.get(r.film.id);
+    if (cur) cur.n += 1;
+    else byId.set(r.film.id, { film: r.film, n: 1 });
+  }
+  return [...byId.values()]
+    .sort((a, b) => (b.n - a.n)
+      || ((a.film.year ?? 9999) - (b.film.year ?? 9999))
+      || (a.film.slug < b.film.slug ? -1 : a.film.slug > b.film.slug ? 1 : 0))
+    .slice(0, cap)
+    .map((x) => t2FilmBox(x.film));
+}
+
+/** Top Tier-1 films sharing ≥2 of this film's genres, ranked by shared-genre
+ *  count DESC → year DESC → slug ASC (pool bounded deterministically). */
+async function sharedGenreFilms(genres: string[] | null | undefined, excludeFilmId: string, cap = 6): Promise<RelatedBox[]> {
+  const gs = uniqueInOrder((genres ?? []).filter(Boolean));
+  if (gs.length < 2) return [];
+  const { data } = await db()
+    .from("films")
+    .select("id, slug, title, year, poster_path, director, director_slug, overview, visible, genres")
+    .overlaps("genres", gs)
+    .eq("visible", true)
+    .neq("id", excludeFilmId)
+    .order("year", { ascending: false, nullsFirst: false })
+    .order("slug", { ascending: true })
+    .limit(120);
+  const set = new Set(gs);
+  return ((data ?? []) as T2FilmRow[])
+    .map((f) => ({ f, n: (f.genres ?? []).filter((g) => set.has(g)).length }))
+    .filter((x) => x.n >= 2)
+    .sort((a, b) => (b.n - a.n)
+      || ((b.f.year ?? -1) - (a.f.year ?? -1))
+      || (a.f.slug < b.f.slug ? -1 : a.f.slug > b.f.slug ? 1 : 0))
+    .slice(0, cap)
+    .map((x) => t2FilmBox(x.f));
+}
+
+export async function relatedForTier2Film(args: {
+  filmId: string; filmSlug: string; filmTitle: string; year: number | null;
+  director: string | null; directorSlug: string | null;
+  genres: string[] | null; lineageListSlugs: string[];
+}): Promise<{ sections: RelatedSection[]; directorHubSlug: string | null }> {
+  const [dir, tradition, genreFilms] = await Promise.all([
+    directorFilmsAllTiers({ director: args.director, directorSlug: args.directorSlug, excludeFilmId: args.filmId }),
+    lineageTraditionFilms(args.lineageListSlugs, args.filmId),
+    sharedGenreFilms(args.genres, args.filmId),
+  ]);
+  const sections = sectionize(
+    [
+      ...(args.director
+        ? [{ heading: `More from ${args.director} on Metatake`, variant: "posters" as const, boxes: dir.boxes, cap: 6 }]
+        : []),
+      { heading: "Read closely in the same tradition", variant: "posters", boxes: tradition, cap: 6 },
+      { heading: "In the same genres", variant: "posters", boxes: genreFilms, cap: 6 },
+      {
+        heading: `Around ${args.filmTitle}: director & genres`, variant: "rows", cap: 3,
+        boxes: [
+          ...(args.director && dir.hubSlug ? [directorHubBox(args.director, dir.hubSlug)] : []),
+          ...genreBoxes(args.genres),
+        ],
+      },
+      {
+        heading: `Watch ${args.filmTitle}`, variant: "rows", cap: 1,
+        boxes: [wheretoBox(args.filmSlug, args.filmTitle, args.year)],
+      },
+    ],
+    [filmUrl(args.filmSlug)],
+  );
+  return { sections, directorHubSlug: dir.hubSlug };
+}
+
 export async function relatedForQuestion(args: {
   filmId: string; filmSlug: string; filmTitle: string; year: number | null;
   questionId: string; questionSlug: string;
