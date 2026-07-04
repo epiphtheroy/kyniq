@@ -6,7 +6,7 @@ import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
 export const revalidate = 3600;
 export const metadata: Metadata = {
   alternates: { canonical: "/takescore/about" },
-  title: "How the TakeScore works — value, cost & risk · Metatake",
+  title: "How the TakeScore works — value, cost & risk",
   description:
     "What the TakeScore measures and how to read it: durable value, entry cost, risk of disappointment, net value and efficiency. A rubric-anchored AI estimate with measured reliability.",
 };
