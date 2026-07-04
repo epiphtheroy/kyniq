@@ -15,6 +15,7 @@ import { personSlug } from "@/app/credits/credits-logic";
 import crewIndex from "@/lib/crew_index.json";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
+import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -86,6 +87,11 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
   // Strong Misreadings — the 14 framework hubs.
   for (const f of BROWSABLE) {
     entries.push({ url: `${siteUrl}/strong-misreadings/${f.slug}` });
+  }
+  // CineCodex — the 13 dimension landing pages (/takescore/[dim]). Static
+  // editorial hubs; no lastmod (no content-event source).
+  for (const d of CODEX_DIMS) {
+    entries.push({ url: `${siteUrl}${takescoreDimUrl(d.slug)}` });
   }
   // Blog editions — edition_date is the publish date (slugs ARE dates).
   const { data: posts } = await db()
