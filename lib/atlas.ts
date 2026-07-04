@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 
 /**
  * Atlas read layer — shared data helpers (docs/PLAN-atlas-seo.md).
@@ -144,4 +145,11 @@ export async function loadAtlasEligibility(): Promise<AtlasEligibility> {
   const { data } = await db().rpc("atlas_eligibility_json");
   const d = (data ?? {}) as Partial<AtlasEligibility>;
   return { films: d.films ?? [], directors: d.directors ?? [], countries: d.countries ?? [] };
+}
+
+/** Eligibility roster, shared through the Data Cache — every locations page
+ * needs it to avoid linking to a gated (404) sibling, so it must not cost one
+ * RPC per page render. */
+export function cachedAtlasEligibility(): Promise<AtlasEligibility> {
+  return unstable_cache(loadAtlasEligibility, ["atlas-eligibility"], { revalidate: 3600 })();
 }
