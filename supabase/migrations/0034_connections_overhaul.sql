@@ -73,3 +73,21 @@ create table if not exists public.conn_film_trope_vec (
 alter table public.conn_film_trope_vec enable row level security;
 
 -- 6. counterpoint edges + film_counterpoints() read RPC -> ../rpc/counterpoints.sql
+
+-- 7. Follow-up decisions (applied same day as migrations film_next_demand_view,
+--    map_film_ego_counterpoints, galaxy_labels_dedupe):
+--    - film_next.target_film_id backfilled where tmdb_id already in catalog (3,577 rows,
+--      internal resolution 58% -> 79%). Data update, not schema.
+--    - film_next_demand view: ingest priority queue (most-demanded missing films).
+create or replace view public.film_next_demand
+with (security_invoker = true) as
+select fn.tmdb_id,
+       max(fn.rec_title) as rec_title,
+       max(fn.rec_year) as rec_year,
+       max(fn.rec_director) as rec_director,
+       count(distinct fn.source_film_id) as demanded_by
+from public.film_next fn
+where fn.target_film_id is null
+group by fn.tmdb_id, lower(fn.rec_title), fn.rec_year;
+--    - map_film_ego: counterpoint edges added -> ../rpc/map_film_ego.sql
+--    - galaxy_refresh_cluster_labels: duplicate genre-pair labels extended to 3 genres.

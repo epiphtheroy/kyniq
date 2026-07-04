@@ -25,7 +25,11 @@
 3. counterpoint 재빌드 — supabase/rpc/counterpoints.sql 주석의 2개 SQL 블록 실행
 4. `python3 worker/galaxy-build.py` — 좌표+라벨 (분기 1회 정도; 좌표 전면 이동 = 새 판)
 
-**남은 결정(원우)**: ① reading 허브 재출판 ② film_next 미해결 42% TMDB 편입 활용 ③ Galaxy 클러스터 라벨 톤(현재 장르쌍) ④ counterpoint를 /map 엣지로도 노출할지.
+**후속 결정 4건 — 원우 위임으로 확정·실행 완료 (2026-07-04 밤)**:
+1. **reading 허브 재출판: 안 함(확정)** — 트롭 개편으로 은퇴한 자산(5,818건, published 0). 그 역할(독해 수준 연결)은 counterpoint + concept_map이 대체. 재출판은 LLM 산문 5,818페이지 일괄 추가 = scaled-content 리스크만 큼. 데이터는 보존(삭제 안 함).
+2. **film_next 미해결분: 백필 + 수요 큐(실행)** — tmdb_id가 카탈로그와 일치하는 3,577건 target_film_id 백필 → 내부 해결 **58%→79%**(13,423/17,095), Watch next 카드 3,577개가 외부 TMDB 링크→내부 링크로 전환. 잔여 3,672건은 `film_next_demand` 뷰(demanded_by 순 = 가장 많이 지목된 미보유 영화)로 인제스트 우선순위 큐 제공 — RUNBOOK-new-film-ingestion에서 `select * from film_next_demand order by demanded_by desc` 사용.
+3. **Galaxy 라벨: 장르쌍 유지 + 중복만 3장르로 확장(실행)** — `galaxy_refresh_cluster_labels` 갱신(migration galaxy_labels_dedupe). 트롭 라벨은 호버 툴팁 유지.
+4. **counterpoint /map 노출: 실행** — `map_film_ego`에 kind='counter' 엣지 top-4 추가(migration map_film_ego_counterpoints, 본문 supabase/rpc/map_film_ego.sql), EntityGraph 색(#E67E22) + films 모드 범례 "⇄ Counterpoint".
 
 ---
 
