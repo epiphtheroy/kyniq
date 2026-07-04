@@ -23,6 +23,16 @@
 - **사이트맵**: 자식 `cities.xml`(511) — 인덱스 18분할. 코호트 없음(아티팩트가 릴리즈 셋).
 - 지구(맨해튼·브루클린·버뱅크 등)는 상위 도시와 의도적으로 공존 — 검색 수요가 별개이고 필름셋이 충분히 다름(0.9 중첩만 병합).
 
+## 실행 로그 — E-E-A-T 보강 + 시각 개선 (2026-07-04 밤)
+
+- **출처 인용**: film_locations.sources에 실 URL 4,443핀(위키피디아·프레스킷 등) 확인 → 필름 locations 페이지가 위치별 "Source: en.wikipedia.org ↗" 링크 렌더(최대 2개, 있는 것만 — "where on file" 문구로 과장 없음).
+- **날짜 정직화**: 모든 아틀라스 푸터/dateModified가 렌더 날짜 대신 `atlas_meta_json` RPC의 **실제 데이터 갱신일**(max created_at, 현재 2026-07-03) 사용 — 매 재생성마다 바뀌는 날짜는 가짜 신선도로 읽힘. `cachedAtlasMeta()`.
+- **Dataset 스키마**: /atlas에 schema.org Dataset(1차 데이터셋 선언 — creator/publisher Org, 규모, dateModified). "우리가 고유 조사·편찬했다"의 공식 신호.
+- **반카탈로그 편집 레이어**: 국가·도시 허브에 "The directors who keep coming back" 섹션(≥2편 감독, locations 페이지 링크) — 데이터에서 도출한 편집적 관찰 + 내부 링크.
+- **썸네일**: 감독 locations(films 테이블 조회)·국가 허브(atlas_country_json에 poster_path 추가)·도시 허브(country_geo에 director/poster 추가) 필름 목록에 TMDB w92 포스터.
+- **RPC 변경**: country_geo·atlas_country_json 본문 확장(jsonb라 시그니처 불변), atlas_meta_json 신설. 캐시 키 범프: country-pins2, atlas-city2, atlas-country2, director-locations3.
+- 푸터 문구 통일: "Location data researched, compiled and geolocated by Metatake · Data updated {date} · Corrections: methodology".
+
 ---
 
 ## 0. 실측 현황 (2026-07-04 재실측 — 완료)
