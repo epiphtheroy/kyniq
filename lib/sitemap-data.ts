@@ -6,7 +6,9 @@ import {
   INDEX_COHORT_FIGURES,
   INDEX_COHORT_CREW,
   INDEX_COHORT_CATALOG,
+  INDEX_COHORT_FILM_LOCATIONS,
 } from "@/lib/seo";
+import { loadAtlasEligibility } from "@/lib/atlas";
 import { KINDS, nodeHref, sectionHref, type SectionKey } from "@/lib/catalog";
 import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
@@ -79,6 +81,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/trending` },
     { url: `${siteUrl}/where-to-watch` },
     { url: `${siteUrl}/map` },
+    { url: `${siteUrl}/atlas` },
   ];
   // Strong Misreadings — the 14 framework hubs.
   for (const f of BROWSABLE) {
@@ -352,6 +355,34 @@ export async function catalogEntries(): Promise<SitemapEntry[]> {
     entries.push({ url: `${siteUrl}${nodeHref(n.kind, n.slug)}` });
   }
   return entries;
+}
+
+/**
+ * /film/x/locations read pages (docs/PLAN-atlas-seo.md Phase 1) — films with
+ * ≥3 merged pins (same bar as the page's own 404 gate; lib/atlas.ts). The
+ * eligibility RPC returns slug-ascending order, so the cohort cap only ever
+ * appends. No lastmod: location data refreshes wholesale.
+ */
+export async function filmLocationsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { films } = await loadAtlasEligibility();
+  return films
+    .slice(0, INDEX_COHORT_FILM_LOCATIONS)
+    .map((f) => ({ url: `${siteUrl}/film/${f.slug}/locations` }));
+}
+
+/**
+ * Atlas hubs: /atlas/[country] (≥3 films & ≥3 pins, ~73 — small set, no
+ * cohort) + /director/x/locations (≥2 located films & ≥6 merged pins, ~331).
+ * Both gates mirror the pages' own 404 bars.
+ */
+export async function atlasEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { countries, directors } = await loadAtlasEligibility();
+  return [
+    ...[...countries].sort((a, b) => a.slug.localeCompare(b.slug)).map((c) => ({ url: `${siteUrl}/atlas/${c.slug}` })),
+    ...directors.map((d) => ({ url: `${siteUrl}/director/${d.slug}/locations` })),
+  ];
 }
 
 /** Public profiles. */

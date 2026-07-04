@@ -66,6 +66,15 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    films (lib/crew_index.json, rebuilt by worker/crew-index-build.py).
  *    On-page noindex below the same ≥3 bar; native-script aliases surfaced
  *    for non-English names. Film pages gained a crawlable Credits block.
+ *  - 2026-07-04 (Atlas read layer, docs/PLAN-atlas-seo.md): the geo corpus
+ *    (25k pins, ~100% with narrative prose) gets server pages — /film/x/
+ *    locations ("where was X filmed", 1,707 eligible at ≥3 merged pins,
+ *    cohort 1000 below), /director/x/locations (331 at ≥2 films & ≥6 pins)
+ *    and /atlas/[country] hubs (73 at ≥3 films & ≥3 pins; all advertised,
+ *    no cohort — small set). New children: sitemaps/locations.xml (film
+ *    cohort) + sitemaps/atlas.xml (countries + directors). Gates mirror the
+ *    pages' own 404/robots bars (lib/atlas.ts). Raise the film cohort on the
+ *    standard weekly GSC evidence rule.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
@@ -85,6 +94,7 @@ export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (ad
 // (917 eligible); Phase B (tier taxonomies, ≥5 members, ~+590) waits on GSC
 // evidence. Raise on the standard weekly evidence rule.
 export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype nodes in sitemap (added 2026-07-04)
+export const INDEX_COHORT_FILM_LOCATIONS = 1000; // /film/*/locations pages in sitemap (added 2026-07-04; 1,707 eligible)
 
 
 
