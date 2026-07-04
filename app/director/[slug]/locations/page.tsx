@@ -11,6 +11,7 @@ import {
   DIRECTOR_LOCATIONS_MIN_PINS,
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
+  cachedAtlasMeta,
   countryListPhrase,
   countryPhrase,
   countrySlug,
@@ -38,10 +39,12 @@ function db() {
 type FilmGroup = { slug: string; title: string; year: number | null; pins: GeoPin[] };
 
 async function loadUncached(slug: string) {
-  const { data: nameRow } = await db()
-    .from("films").select("director").eq("director_slug", slug).eq("visible", true).limit(1).maybeSingle();
-  const director = (nameRow as { director: string | null } | null)?.director;
+  const { data: filmRows } = await db()
+    .from("films").select("director, slug, poster_path").eq("director_slug", slug).eq("visible", true).limit(200);
+  const rows = (filmRows ?? []) as { director: string | null; slug: string; poster_path: string | null }[];
+  const director = rows[0]?.director;
   if (!director) return null;
+  const posterBySlug = Object.fromEntries(rows.filter((r) => r.poster_path).map((r) => [r.slug, r.poster_path as string]));
   const raw = await loadDirectorGeo(slug); // visible films only (RPC filters)
   // Gate on the coordinate-cell counts (mirrors the sitemap's SQL rule
   // exactly, so an advertised URL can never 404); render the fused list.
@@ -62,13 +65,13 @@ async function loadUncached(slug: string) {
   }
   const films = [...byFilm.values()].sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
   const elig = await cachedAtlasEligibility();
-  return { director, slug, pins, films, cellsByFilm: Object.fromEntries(cellsByFilm), hubCountrySlugs: elig.countries.map((c) => c.slug) };
+  return { director, slug, pins, films, posterBySlug, cellsByFilm: Object.fromEntries(cellsByFilm), hubCountrySlugs: elig.countries.map((c) => c.slug) };
 }
 
 function load(slug: string) {
-  // Key bumped (locations2) when name-fusion joined the merge — the Data
+  // Key bumped (locations3) when posters joined the payload — the Data
   // Cache outlives deploys.
-  return unstable_cache(() => loadUncached(slug), ["director-locations2", slug], {
+  return unstable_cache(() => loadUncached(slug), ["director-locations3", slug], {
     revalidate: 86400,
     tags: [`director:${slug}`],
   })();
@@ -114,10 +117,10 @@ export default async function DirectorLocationsPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { director, pins, films, cellsByFilm, hubCountrySlugs } = data;
+  const { director, pins, films, posterBySlug, cellsByFilm, hubCountrySlugs } = data;
   const hubCountries = new Set(hubCountrySlugs);
   const countries = pinCountries(pins);
-  const updated = new Date().toISOString().slice(0, 10);
+  const updated = (await cachedAtlasMeta()).updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(director, films, pins);
 
   const itemListLd = {
@@ -192,27 +195,36 @@ export default async function DirectorLocationsPage({ params }: Props) {
             const shown = [...f.pins].sort((a, b) => precisionRank(a.precision) - precisionRank(b.precision)).slice(0, PER_FILM_SHOWN);
             // Same cell-count gate as /film/x/locations itself — never link a 404.
             const hasOwnPage = (cellsByFilm[f.slug] ?? 0) >= FILM_LOCATIONS_MIN;
+            const poster = posterBySlug[f.slug];
             return (
-              <div key={f.slug} style={{ padding: "14px 0", borderBottom: "1px solid rgba(22,35,63,.1)" }}>
-                <h3 style={{ margin: "0 0 4px", fontSize: 17.5 }}>
-                  <Link href={`/film/${f.slug}`}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
-                  <span style={{ fontWeight: 400, fontSize: 13.5, opacity: 0.65 }}> — {f.pins.length} location{f.pins.length === 1 ? "" : "s"}</span>
-                </h3>
-                <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.65 }}>
-                  {shown.map((p) => (
-                    <li key={p.id}>
-                      {p.name}
-                      {p.narrative_setting ? <span style={{ opacity: 0.75 }}> — {p.narrative_setting}</span> : null}
-                    </li>
-                  ))}
-                </ul>
-                {hasOwnPage ? (
-                  <p style={{ margin: "5px 0 0", fontSize: 14 }}>
-                    <Link href={`/film/${f.slug}/locations`}>
-                      {f.pins.length > PER_FILM_SHOWN ? `All ${f.pins.length} locations, with the scene each carries →` : "Where was it filmed? The full location page →"}
-                    </Link>
-                  </p>
+              <div key={f.slug} style={{ display: "flex", gap: 14, padding: "14px 0", borderBottom: "1px solid rgba(22,35,63,.1)" }}>
+                {poster ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <Link href={`/film/${f.slug}`} style={{ flexShrink: 0 }}>
+                    <img src={`https://image.tmdb.org/t/p/w92${poster}`} alt={`${f.title} poster`} width={48} height={72} style={{ borderRadius: 6, objectFit: "cover", display: "block" }} loading="lazy" />
+                  </Link>
                 ) : null}
+                <div>
+                  <h3 style={{ margin: "0 0 4px", fontSize: 17.5 }}>
+                    <Link href={`/film/${f.slug}`}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
+                    <span style={{ fontWeight: 400, fontSize: 13.5, opacity: 0.65 }}> — {f.pins.length} location{f.pins.length === 1 ? "" : "s"}</span>
+                  </h3>
+                  <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.65 }}>
+                    {shown.map((p) => (
+                      <li key={p.id}>
+                        {p.name}
+                        {p.narrative_setting ? <span style={{ opacity: 0.75 }}> — {p.narrative_setting}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                  {hasOwnPage ? (
+                    <p style={{ margin: "5px 0 0", fontSize: 14 }}>
+                      <Link href={`/film/${f.slug}/locations`}>
+                        {f.pins.length > PER_FILM_SHOWN ? `All ${f.pins.length} locations, with the scene each carries →` : "Where was it filmed? The full location page →"}
+                      </Link>
+                    </p>
+                  ) : null}
+                </div>
               </div>
             );
           })}
