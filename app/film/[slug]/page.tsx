@@ -31,6 +31,7 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { FILM_LOCATIONS_MIN, mergePins, type GeoPin } from "@/lib/atlas";
 import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
 import RelatedBoxes from "@/components/RelatedBoxes";
 
@@ -194,10 +195,13 @@ async function loadUncached(slug: string) {
 
   const { data: geoRows } = await supabase.rpc("film_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
+  // Near-duplicate-merged count — the /film/x/locations read page's ≥3 gate,
+  // so the tab/link below never points at a 404.
+  const geoMerged = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]).length : 0;
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, questions };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoMerged, questions };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -205,7 +209,9 @@ async function loadUncached(slug: string) {
 // whole query set dynamically. Cache the result per slug in the Data Cache so
 // the route becomes ISR-cached; tagged film:<slug> for on-demand refresh.
 function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["film-load", slug], {
+  // Cache key bumped (load2) when geoMerged joined the payload — the Data
+  // Cache outlives deploys, so a shape change needs a new key.
+  return unstable_cache(() => loadUncached(slug), ["film-load2", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
@@ -535,7 +541,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, questions } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoMerged, questions } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -563,6 +569,7 @@ export default async function FilmPage({ params }: Props) {
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
     codex ? { id: "df-codex", label: "TakeScore" } : null,
     geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
+    geoMerged >= FILM_LOCATIONS_MIN ? { id: "df-locations", label: "Locations", href: `/film/${film.slug}/locations` } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
@@ -746,6 +753,11 @@ export default async function FilmPage({ params }: Props) {
           <section className="df-sec" id="df-atlas">
             <h2 className="df-h2">{film.title} — on the map</h2>
             <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
+            {geoMerged >= FILM_LOCATIONS_MIN ? (
+              <p style={{ margin: "2px 0 10px", fontSize: 15 }}>
+                <Link href={`/film/${film.slug}/locations`}>Where was {film.title} filmed? All {geoMerged} locations, with the scene each one carries →</Link>
+              </p>
+            ) : null}
             <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={460} />
           </section>
         ) : null}
