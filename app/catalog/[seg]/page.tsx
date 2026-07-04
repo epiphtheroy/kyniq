@@ -39,9 +39,33 @@ export default async function CatalogSection({ params }: Props) {
   );
   const live = blocks.filter((b) => b.nodes.length > 0);
 
+  const SITE = "https://metatake.net";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE}/catalog/${seg}`,
+        url: `${SITE}/catalog/${seg}`,
+        name: `${s.label} — Film Archetypes`,
+        description: s.blurb,
+        isPartOf: { "@type": "CollectionPage", "@id": `${SITE}/catalog` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+          { "@type": "ListItem", position: 2, name: "Film Archetypes", item: `${SITE}/catalog` },
+          { "@type": "ListItem", position: 3, name: s.label, item: `${SITE}/catalog/${seg}` },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="cat-wrap">
         <div className="cat-crumb"><Link href="/catalog">Archetype</Link> <span>›</span> {s.label}</div>
         <h1 className="cat-h1">{s.label}</h1>

@@ -14,6 +14,7 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 const img = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w185${p}` : null);
+const SITE = "https://metatake.net";
 
 interface Props { params: Promise<{ seg: string; slug: string }> }
 type Detail = { id: string; slug: string; label: string; code: string | null; definition: string | null; kind: string;
@@ -72,9 +73,50 @@ export default async function CatalogNode({ params }: Props) {
   const n = detail.member_count;
   const figLabel = n === 1 ? "figure" : "figures";
 
+  // JSON-LD — built entirely from data already fetched above (no extra queries).
+  const nodeUrl = `${SITE}${nodeHref(km.kind, detail.slug)}`;
+  const def =
+    detail.definition && detail.definition.length > 300
+      ? `${detail.definition.slice(0, 297).trimEnd()}…`
+      : detail.definition;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "DefinedTerm",
+        "@id": nodeUrl,
+        name: detail.label,
+        ...(def ? { description: def } : {}),
+        inDefinedTermSet: { "@type": "DefinedTermSet", name: "Metatake Film Archetypes", url: `${SITE}/catalog` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+          { "@type": "ListItem", position: 2, name: "Film Archetypes", item: `${SITE}/catalog` },
+          ...(section
+            ? [{ "@type": "ListItem", position: 3, name: section.label, item: `${SITE}${sectionHref(section.key)}` }]
+            : []),
+          { "@type": "ListItem", position: section ? 4 : 3, name: detail.label, item: nodeUrl },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        numberOfItems: n,
+        itemListElement: members.slice(0, 25).map((m, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: `${m.figure_label} — ${m.film_title}${m.yr ? ` (${m.yr})` : ""}`,
+          url: `${SITE}${m.figure_slug ? `/film/${m.film_slug}/figure/${m.figure_slug}` : `/film/${m.film_slug}`}`,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="cat-wrap cat-node">
         <div className="cat-crumb">
           <Link href="/catalog">Archetype</Link> <span>›</span>{" "}
