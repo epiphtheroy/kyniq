@@ -81,6 +81,15 @@ type QRow = { slug: string; title: string; display_title: string | null; title_s
 // ("AUTEUR_VISION") used to leak into the page and read as machine output.
 const WW_TITLE: Record<string, string> = { auteur_vision: "The auteur's vision", aesthetic_innovation: "Aesthetic innovation", technical_mastery: "Technical mastery", philosophical_inquiry: "Philosophical inquiry", cinematic_lineage: "Cinematic lineage", spatial_aesthetics: "Space & place", critical_reception: "Critical reception", context_discourse: "Context & discourse" };
 
+type CpSide = { take: string | null; figure: string | null; figureLabel: string | null } | null;
+type CpRow = {
+  sim: number;
+  film: { slug: string; title: string; year: number | null; director: string | null };
+  trope: { slug: string; title: string };
+  here: CpSide;
+  there: CpSide;
+};
+
 async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
@@ -105,7 +114,7 @@ async function loadUncached(slug: string) {
     };
   }
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }, { data: cpJson }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -120,6 +129,7 @@ async function loadUncached(slug: string) {
     supabase.from("film_watch_providers").select("results, countries").eq("film_id", film.id).maybeSingle(),
     supabase.from("questions").select("slug, title, display_title, title_spoiler, spoiler_level, question_type")
       .eq("film_id", film.id).eq("status", "published").order("published_at", { ascending: false }),
+    supabase.rpc("film_counterpoints", { p_slug: slug, p_n: 6 }),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
@@ -192,6 +202,7 @@ async function loadUncached(slug: string) {
     : { data: [] as { id: string; title: string; slug: string; year: number | null }[] };
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
   const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
+  const counterpoints = (Array.isArray(cpJson) ? cpJson : []) as CpRow[];
 
   const { data: geoRows } = await supabase.rpc("film_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
@@ -202,7 +213,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -548,7 +559,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -588,6 +599,7 @@ export default async function FilmPage({ params }: Props) {
     questions.length ? { id: "df-curious", label: "Curious" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
+    counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints" } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
     { id: "df-watch", label: "Where to watch" },
     crew.length

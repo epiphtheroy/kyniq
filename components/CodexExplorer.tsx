@@ -9,6 +9,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { codeToFlag } from "@/lib/lineageBodies";
+import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const PAGE = 60;
@@ -120,7 +121,7 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
   const [country, setCountry] = useState("");
   const [decade, setDecade] = useState("");
   const [ranges, setRanges] = useState<Record<string, [number, number]>>({});
-  const [showDims, setShowDims] = useState(false);
+  const [showDims, setShowDims] = useState(true);
   const [rows, setRows] = useState<CodexRow[]>(initialRows);
   const [total, setTotal] = useState(initialTotal);
   const [offset, setOffset] = useState(initialRows.length);
@@ -169,6 +170,18 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
 
   return (
     <>
+      {/* dimension "?" tooltip — scoped here so the popover escapes .cx-dimn's overflow:hidden */}
+      <style>{`
+        .cx-dimn2{display:flex; align-items:center; gap:5px; min-width:0}
+        .cx-dimn-t{font-family:var(--font-ui); font-size:11.5px; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+        .cx-qwrap{position:relative; display:inline-flex; flex:0 0 auto}
+        .cx-q{display:inline-flex; align-items:center; justify-content:center; width:13px; height:13px; border:1px solid var(--hairline-2); border-radius:50%; font-family:var(--font-ui); font-size:9px; line-height:1; color:var(--muted); text-decoration:none}
+        .cx-qwrap:hover .cx-q, .cx-qwrap:focus-within .cx-q{border-color:var(--ink); color:var(--ink)}
+        .cx-qtip{position:absolute; left:-8px; top:100%; z-index:60; padding-top:7px; display:none; width:min(250px,74vw)}
+        .cx-qwrap:hover .cx-qtip, .cx-qwrap:focus-within .cx-qtip{display:block}
+        .cx-qtip-in{display:block; padding:8px 10px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff; box-shadow:0 4px 14px rgba(0,0,0,.1); font-family:var(--font-ui); font-size:11.5px; line-height:1.45; color:var(--ink); white-space:normal}
+        .cx-qmore{color:var(--accent,#C8102E); text-decoration:none; white-space:nowrap}
+      `}</style>
       {/* ── Control panel ── */}
       <div className="cx-panel">
         <input className="cx-search" placeholder="Search a film by title…" value={q} onChange={(e) => setQ(e.target.value)} />
@@ -223,9 +236,30 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
                 <div className={`cx-dimgl ${g.tone}`}>{g.group}</div>
                 {g.items.map((it) => {
                   const [lo, hi] = ranges[it.key] ?? [0, 100];
+                  const dim = dimByKey.get(it.key);
                   return (
                     <div className="cx-dimrow" key={it.key}>
-                      <span className="cx-dimn">{it.label}</span>
+                      <span className="cx-dimn2">
+                        <span className="cx-dimn-t">{it.label}</span>
+                        {dim ? (
+                          <span className="cx-qwrap">
+                            <Link
+                              href={takescoreDimUrl(dim.slug)}
+                              className="cx-q"
+                              aria-label={`About ${it.label}`}
+                              aria-describedby={`cx-qtip-${it.key}`}
+                            >
+                              ?
+                            </Link>
+                            <span className="cx-qtip" role="tooltip" id={`cx-qtip-${it.key}`}>
+                              <span className="cx-qtip-in">
+                                {dim.question}{" "}
+                                <Link className="cx-qmore" href={takescoreDimUrl(dim.slug)}>Read more →</Link>
+                              </span>
+                            </span>
+                          </span>
+                        ) : null}
+                      </span>
                       <DualRange lo={lo} hi={hi} onChange={(a, b) => setRange(it.key, a, b)} />
                       <span className="cx-dimv">{lo}–{hi}</span>
                     </div>
