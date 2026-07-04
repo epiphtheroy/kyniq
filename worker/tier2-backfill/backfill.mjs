@@ -109,8 +109,8 @@ async function fetchHiddenFilms() {
 const TMDB_IS_V4 = TMDB_TOKEN.startsWith('eyJ');
 async function tmdbMovie(tmdbId) {
   const url = TMDB_IS_V4
-    ? `https://api.themoviedb.org/3/movie/${tmdbId}`
-    : `https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_TOKEN}`;
+    ? `https://api.themoviedb.org/3/movie/${tmdbId}?append_to_response=credits`
+    : `https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_TOKEN}&append_to_response=credits`;
   const headers = { accept: 'application/json' };
   if (TMDB_IS_V4) headers.Authorization = `Bearer ${TMDB_TOKEN}`;
   const res = await fetchRetry(url, { headers }, { label: `tmdb ${tmdbId}` });
@@ -125,6 +125,9 @@ async function tmdbMovie(tmdbId) {
     genres: Array.isArray(d.genres) ? d.genres.map((g) => g.name).filter(Boolean) : [],
     runtime: typeof d.runtime === 'number' && d.runtime > 0 ? d.runtime : null,
     release_date: (d.release_date || '').trim() || null,
+    // Site convention (verified on Tier-1 rows): a single director name — first
+    // Director-job crew credit. director_slug stays pipeline-owned; never written here.
+    director: (d.credits?.crew || []).find((c) => c.job === 'Director')?.name || null,
   };
 }
 
@@ -163,6 +166,7 @@ async function main() {
     rtSet: 0,
     rdSet: 0,
     tgSet: 0,
+    dirSet: 0,
     langSet: 0,
     noChange: 0,
     patchErrors: 0,
@@ -239,6 +243,10 @@ async function main() {
         payload.tagline = data.tagline;
         stats.tgSet++;
       }
+      if (film.director == null && data.director) {
+        payload.director = data.director;
+        stats.dirSet++;
+      }
 
       if (hasLang && film.original_language == null && data.original_language) {
         payload.original_language = data.original_language;
@@ -279,6 +287,7 @@ async function main() {
   console.log(`runtime ${DRY_RUN ? 'would set' : 'set'}:             ${stats.rtSet}`);
   console.log(`release_date ${DRY_RUN ? 'would set' : 'set'}:        ${stats.rdSet}`);
   console.log(`tagline ${DRY_RUN ? 'would set' : 'set'}:             ${stats.tgSet}`);
+  console.log(`director ${DRY_RUN ? 'would set' : 'set'}:            ${stats.dirSet}`);
   console.log(`original_language ${DRY_RUN ? 'would set' : 'set'}:   ${hasLang ? stats.langSet : 'n/a (column absent)'}`);
   console.log(`rows with no change needed:  ${stats.noChange}`);
   console.log(`patch errors:                ${stats.patchErrors}`);
