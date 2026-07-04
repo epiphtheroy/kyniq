@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
-import { cachedAtlasEligibility } from "@/lib/atlas";
+import { cachedAtlasEligibility, cachedAtlasMeta } from "@/lib/atlas";
 
 // The map loads client-side from /api/geo (the play layer); the country grid
 // below it is server-rendered at revalidation time (the read layer), so the
@@ -16,10 +16,24 @@ export const metadata: Metadata = {
 };
 
 export default async function AtlasPage() {
-  const { countries } = await cachedAtlasEligibility();
+  const [{ countries }, meta] = await Promise.all([cachedAtlasEligibility(), cachedAtlasMeta()]);
+  // First-party dataset declaration — this atlas is compiled by Metatake, not
+  // syndicated; Dataset markup states that formally (name, size, freshness).
+  const datasetLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Metatake Film Locations Atlas",
+    url: "https://metatake.net/atlas",
+    description: `${meta.pins.toLocaleString()} geolocated film locations across ${meta.films.toLocaleString()} films, researched and compiled by Metatake Editorial from public sources (production records, press kits, encyclopedic references). Each location carries the scene it hosts, a precision label, and its source where on file; filmed places are kept distinct from the places a story claims as its setting.`,
+    creator: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    ...(meta.updated ? { dateModified: meta.updated } : {}),
+    isAccessibleForFree: true,
+  };
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetLd) }} />
       <div className="mt-wrap" style={{ maxWidth: 1320 }}>
         <div className="mt-crumb">Atlas</div>
         <h1 className="th-h1">The Atlas of cinema</h1>

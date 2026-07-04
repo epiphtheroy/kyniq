@@ -241,21 +241,31 @@ export default async function AtlasCityPage({ params }: Props) {
           <p className="df-sub">Every film on Metatake with a mapped location in {city.name}, and where in the city it stood.</p>
           {films.map((f) => {
             const shown = [...f.pins].sort((a, b) => precisionRank(a.precision) - precisionRank(b.precision)).slice(0, PER_FILM_SHOWN);
+            const poster = f.pins[0]?.poster_path;
             return (
-              <div key={f.slug} style={{ padding: "12px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
-                <h3 style={{ margin: "0 0 3px", fontSize: 16.5 }}>
-                  <Link href={`/film/${f.slug}`}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
-                </h3>
-                <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, opacity: 0.85 }}>
-                  {shown.map((p, i) => (
-                    <span key={p.id}>{i > 0 ? " · " : ""}{p.name.split(",")[0].trim()}{p.narrative_setting ? ` (${p.narrative_setting.split(".")[0]})` : ""}</span>
-                  ))}
-                </p>
-                {eligible.has(f.slug) ? (
-                  <p style={{ margin: "3px 0 0", fontSize: 13.5 }}>
-                    <Link href={`/film/${f.slug}/locations`}>Where was {f.title} filmed? All locations →</Link>
-                  </p>
+              <div key={f.slug} style={{ display: "flex", gap: 12, alignItems: "flex-start", padding: "12px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
+                {poster ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <Link href={`/film/${f.slug}`} style={{ flexShrink: 0 }}>
+                    <img src={`https://image.tmdb.org/t/p/w92${poster}`} alt={`${f.title} poster`} width={44} height={66} style={{ borderRadius: 5, objectFit: "cover", display: "block" }} loading="lazy" />
+                  </Link>
                 ) : null}
+                <div>
+                  <h3 style={{ margin: "0 0 3px", fontSize: 16.5 }}>
+                    <Link href={`/film/${f.slug}`}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
+                    {f.pins[0]?.director ? <span style={{ fontWeight: 400, fontSize: 13.5, opacity: 0.65 }}> — dir. {f.pins[0].director}</span> : null}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, opacity: 0.85 }}>
+                    {shown.map((p, i) => (
+                      <span key={p.id}>{i > 0 ? " · " : ""}{p.name.split(",")[0].trim()}{p.narrative_setting ? ` (${p.narrative_setting.split(".")[0]})` : ""}</span>
+                    ))}
+                  </p>
+                  {eligible.has(f.slug) ? (
+                    <p style={{ margin: "3px 0 0", fontSize: 13.5 }}>
+                      <Link href={`/film/${f.slug}/locations`}>Where was {f.title} filmed? All locations →</Link>
+                    </p>
+                  ) : null}
+                </div>
               </div>
             );
           })}
@@ -276,7 +286,7 @@ export default async function AtlasCityPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Location data compiled and geolocated by Metatake · Updated {updated}
+          Metatake Editorial · Location data researched, compiled and geolocated by Metatake · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
     </div>
