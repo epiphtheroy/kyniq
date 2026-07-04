@@ -394,6 +394,11 @@ export default async function QuestionPage({ params }: Props) {
             </section>
           )}
 
+          {/* Related boxes — before the endless feeds so readers actually reach them */}
+          {relatedSections.map((s) => (
+            <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
+          ))}
+
           {/* ── Contributions ── */}
           <section className="secmod">
             <div className="secmod__head">
@@ -413,10 +418,6 @@ export default async function QuestionPage({ params }: Props) {
             <MoreFeed filmId={film.id} excludeId={question.id} />
           </section>
 
-          {/* Related boxes — appended after the main content, before footer-ish elements */}
-          {relatedSections.map((s) => (
-            <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
-          ))}
         </div>
       </main>
     </>

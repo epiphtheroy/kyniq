@@ -416,12 +416,12 @@ export default async function FigurePage({ params }: Props) {
           </section>
         )}
 
-        <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
-
-        {/* Related boxes — appended after the main content, before footer-ish elements */}
+        {/* Related boxes — before the contribute CTA so readers actually reach them */}
         {relatedSections.map((s) => (
           <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
         ))}
+
+        <FigureContribute figureId={figure.id} metaTakes={metaTakes} />
 
         <SeqNav kind="figure" id={figure.id} />
 
