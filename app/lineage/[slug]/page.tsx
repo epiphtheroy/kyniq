@@ -112,12 +112,55 @@ export default async function LineagePage({ params }: Props) {
                   {f.result === "won" ? "Won" : f.result === "listed" ? "Listed" : f.result ? f.result : ""}
                   {f.edition_year ? `${f.result ? " · " : ""}${f.edition_year}` : ""}
                   {f.rep_type ? `${(f.result || f.edition_year) ? " · " : ""}${f.rep_type === "both" ? "defining & recent" : f.rep_type} work` : ""}
-                  {!f.visible ? <span className="lh-stub"> · catalog entry</span> : null}
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Layer 2 — the hidden catalog as members of this lineage. Server-rendered
+            plain <a> list; these films' own pages stay out of the index. */}
+        {hiddenFilms.length > 0 && (
+          <section className="mvh-sec">
+            <h2 className="lh-h2" style={{ fontSize: 22 }}>
+              Also in this lineage — not yet read closely <span className="lh-cnt">{hiddenFilms.length}</span>
+            </h2>
+            <p className="mvh-note">
+              The rest of {list.label} on Metatake — catalog entries, each with its own film page. The close readings are still to come.
+            </p>
+            <div className="mvh-films">
+              {hiddenFilms.slice(0, 24).map((f) => (
+                <a className="mvh-film" key={f.film_slug} href={`/film/${f.film_slug}`}>
+                  {f.poster_path ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img className="mvh-poster" src={`${IMG}/w185${f.poster_path}`} alt="" width={185} height={278} loading="lazy" />
+                  ) : <div className="mvh-poster mvh-poster--empty" aria-hidden="true" />}
+                  <div className="mvh-fmeta">
+                    <div className="mvh-ftitle">
+                      {isCanon && f.rank ? <span className="lh-rank">#{f.rank} </span> : null}
+                      {f.film_title}
+                      {f.film_year ? <span className="mvh-yr"> ({f.film_year})</span> : null}
+                    </div>
+                    {hiddenNative[f.film_slug] ? <div className="mvh-fdir">{hiddenNative[f.film_slug]}</div> : null}
+                  </div>
+                </a>
+              ))}
+            </div>
+            {hiddenFilms.length > 24 ? (
+              <>
+                <p className="mvh-note" style={{ marginTop: 16 }}>+ {hiddenFilms.length - 24} more in this lineage:</p>
+                <ul className="mt-list">
+                  {hiddenFilms.slice(24).map((f) => (
+                    <li key={f.film_slug}>
+                      <a href={`/film/${f.film_slug}`}>{isCanon && f.rank ? `#${f.rank} ` : ""}{f.film_title}</a>{" "}
+                      <span className="meta">({f.film_year ?? "?"})</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+          </section>
+        )}
       </div>
     </div>
   );
