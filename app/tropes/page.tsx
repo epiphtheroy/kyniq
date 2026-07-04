@@ -115,8 +115,8 @@ export default async function TropesIndex() {
           <p className="idx-intro">
             A film trope is a figure cinema keeps reaching for — an object, a situation, a kind of character or a
             piece of staging that returns, film after film, because it does dependable dramatic work:{" "}
-            <a href="/trope/the-ambushed-convoy">the ambushed convoy</a>,{" "}
-            <a href="/trope/the-contested-heirloom">the contested heirloom</a>,{" "}
+            <a href="/trope/the-object-that-will-not-be-mourned">the object that will not be mourned</a>,{" "}
+            <a href="/trope/the-held-shot-as-ethical-witness">the held shot as ethical witness</a>,{" "}
             <a href="/trope/the-refuge-that-is-secretly-a-border">the refuge that is secretly a border</a>. Calling
             something a trope is not an accusation. A cliché is a figure used without thought; a trope is a figure
             with a history — and that history is exactly what makes it readable.
