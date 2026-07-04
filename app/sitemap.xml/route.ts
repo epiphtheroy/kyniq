@@ -21,6 +21,7 @@ const SECTIONS = [
   "profiles",
   "whereto",
   "genres",
+  "theorists",
 ];
 
 export async function GET() {

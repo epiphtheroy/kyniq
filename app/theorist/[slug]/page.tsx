@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
+import theoristQid from "@/lib/theorist_qid.json";
 
 export const revalidate = 1800;
 // Empty list = nothing prebuilt at build, but its presence enables the
@@ -14,6 +15,7 @@ export const revalidate = 1800;
 export async function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";
+const SITE = "https://metatake.net";
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -60,9 +62,26 @@ export default async function TheoristPage({ params }: Props) {
   if (!data) notFound();
   const { name, blurb, readings } = data;
 
+  // Person + BreadcrumbList JSON-LD (trope-page inline pattern). sameAs anchors
+  // the theorist to Wikidata when the slug has a machine-verified QID
+  // (lib/theorist_qid.json, built by worker/theorist-qid/match.mjs).
+  const canonical = `${SITE}/theorist/${slug}`;
+  const qid = (theoristQid as Record<string, string>)[slug];
+  const jsonLd = [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+      { "@type": "ListItem", position: 2, name: "Theorists", item: `${SITE}/theorist` },
+      { "@type": "ListItem", position: 3, name, item: canonical },
+    ] },
+    { "@context": "https://schema.org", "@type": "Person", "@id": canonical, name, url: canonical,
+      ...(blurb ? { description: blurb } : {}),
+      ...(qid ? { sameAs: [`https://www.wikidata.org/wiki/${qid}`] } : {}) },
+  ];
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/concept">Theory</Link> › <Link href="/theorist">Theorists</Link></div>
         <h1 className="th-h1">{name}</h1>

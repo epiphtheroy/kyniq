@@ -10,7 +10,7 @@ import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
 import crewIndex from "@/lib/crew_index.json";
 import accessEnrichment from "@/lib/access_enrichment.json";
-import { whereToUrl, genreUrl } from "@/lib/urls";
+import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -306,6 +306,24 @@ export async function conceptEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const { data: concepts } = await db().rpc("concept_index");
   return ((concepts ?? []) as { slug: string }[]).map((c) => ({ url: `${siteUrl}/concept/${c.slug}` }));
+}
+
+/**
+ * Theorist lens pages (/theorist/[slug]) — the thinkers films are read
+ * through. Source = the same theorist_index RPC the /theorist hub renders.
+ * Advertise only theorists with ≥3 readings and a slug (the same non-thin
+ * bar the figure/crew sections use; the page itself has no robots gate yet).
+ * CAUTION: PostgREST caps RPC responses at 1,000 rows (~898 today) — if the
+ * roster approaches 1,000, this must switch to a paged/jsonb_agg fetch or
+ * URLs will be silently dropped.
+ */
+export async function theoristEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { data } = await db().rpc("theorist_index");
+  return ((data ?? []) as { slug: string | null; n: number | null }[])
+    .filter((t) => t.slug && (t.n ?? 0) >= 3)
+    .sort((a, b) => a.slug!.localeCompare(b.slug!))
+    .map((t) => ({ url: `${siteUrl}${theoristUrl(t.slug!)}` }));
 }
 
 /** Public profiles. */
