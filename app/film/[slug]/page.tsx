@@ -350,21 +350,75 @@ export default async function FilmPage({ params }: Props) {
     </div>
   ) : null;
   if ("minimal" in data && data.minimal) {
-    const f = data.film as { id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; genres: string[] | null; poster_path: string | null; backdrop_path: string | null; imdb_id: string | null; tmdb_id: number | null };
+    const f = data.film as {
+      id: string; title: string; original_title: string | null; slug: string; year: number | null;
+      director: string | null; director_slug: string | null; genres: string[] | null;
+      poster_path: string | null; backdrop_path: string | null; tagline: string | null;
+      overview: string | null; runtime: number | null; release_date: string | null;
+      certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
+    };
     const { lineage, recommendedBy, ratings, watch } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
+    // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
+    // director_slug even when the hub exists on a visible sibling — the recipe
+    // surfaces whichever sibling carries it. Auteur lists are excluded from
+    // the tradition source (the director module already owns that shelf).
+    const { sections: t2Sections, directorHubSlug } = await loadTier2Related(slug, {
+      filmId: f.id, filmSlug: f.slug, filmTitle: f.title, year: f.year,
+      director: f.director, directorSlug: f.director_slug, genres: f.genres,
+      lineageListSlugs: lineage.filter((l) => l.facet !== "auteur").map((l) => l.list_slug),
+    });
+    const dirSlug = f.director_slug ?? directorHubSlug;
+    // Native-script title, mirroring how director/credits pages show native names.
+    const nativeTitle = f.original_title && f.original_title !== f.title ? f.original_title : null;
+    const mRuntime = f.runtime ? `${f.runtime} min` : null;
+    const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
+    const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle);
+    const mSameAs = [
+      f.imdb_id ? `https://www.imdb.com/title/${f.imdb_id}/` : null,
+      f.wikidata_id ? `https://www.wikidata.org/wiki/${f.wikidata_id}` : null,
+    ].filter(Boolean);
+    const mJsonld = {
+      "@context": "https://schema.org", "@type": "Movie", "@id": `https://metatake.net/film/${f.slug}`, name: f.title,
+      ...(nativeTitle ? { alternateName: nativeTitle } : {}),
+      ...(f.release_date ? { datePublished: f.release_date } : f.year ? { datePublished: String(f.year) } : {}),
+      ...(f.genres?.length ? { genre: f.genres } : {}),
+      ...(f.runtime ? { duration: `PT${f.runtime}M` } : {}),
+      ...(f.director ? { director: { "@type": "Person", name: f.director } } : {}),
+      ...(f.poster_path ? { image: `${IMG}/w500${f.poster_path}` } : {}),
+      ...(f.overview ? { description: f.overview } : {}),
+      ...(mSameAs.length ? { sameAs: mSameAs } : {}),
+    };
+    const mBreadcrumbLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+        { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
+        { "@type": "ListItem", position: 3, name: `${f.title}${f.year ? ` (${f.year})` : ""}`, item: `https://metatake.net/film/${f.slug}` },
+      ],
+    };
     const mTabs = ([
+      hasInfo ? { id: "df-information", label: "About" } : null,
       codex ? { id: "df-codex", label: "TakeScore" } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
+      crew.length
+        ? { id: "df-crew", label: "Credits" }
+        : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}` } : null,
       { id: "df-watch", label: "Where to watch" },
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
     ].filter(Boolean)) as { id: string; label: string; href?: string }[];
     return (
       <div className="mt">
         <SiteNav />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mJsonld) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mBreadcrumbLd) }} />
         <div className="df-wrap">
-          <div className="df-crumb"><Link href="/film">Films</Link></div>
+          <div className="df-crumb">
+            <Link href="/film">Films</Link>
+            {f.director && dirSlug ? <><span className="df-sep">›</span><Link href={`/director/${dirSlug}`}>{f.director}</Link></> : null}
+          </div>
           <section className="df-hero">
             {f.backdrop_path ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -372,14 +426,25 @@ export default async function FilmPage({ params }: Props) {
             ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
             <div className="df-headrow">
               {f.poster_path ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img className="df-poster" src={`${IMG}/w342${f.poster_path}`} alt={`${f.title} poster`} width={342} height={513} fetchPriority="high" />
+                <LightboxImage
+                  src={`${IMG}/w342${f.poster_path}`} fullUrl={`${IMG}/w500${f.poster_path}`}
+                  alt={`${f.title} poster`} className="df-poster" caption={f.title}
+                  width={342} height={513} fetchPriority="high"
+                />
               ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
               <div className="df-htxt">
-                <h1>{f.title} <span className="df-yr">({f.year ?? "?"})</span></h1>
+                <h1>
+                  {f.title} <span className="df-yr">({f.year ?? "?"})</span>
+                  {nativeTitle ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({nativeTitle})</span> : null}
+                </h1>
+                {f.tagline ? <div className="df-tagline">{f.tagline}</div> : null}
                 <div className="df-facts">
-                  {f.director ? (f.director_slug ? <Link href={`/director/${f.director_slug}`}>{f.director}</Link> : <span>{f.director}</span>) : null}
-                  {f.genres?.length ? <><span className="df-d" />{f.genres.slice(0, 3).join(" · ")}</> : null}
+                  {f.director ? (dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : <span>{f.director}</span>) : null}
+                  {f.genres?.length ? <><span className="df-d" />{f.genres.slice(0, 3).map((g, i) => (
+                    <span key={g}>{i > 0 ? " · " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>
+                  ))}</> : null}
+                  {mRuntime ? <><span className="df-d" />{mRuntime}</> : null}
+                  {mCert ? <><span className="df-d" />{mCert}</> : null}
                 </div>
                 {codexBadge}
                 {mvChips}
@@ -398,15 +463,72 @@ export default async function FilmPage({ params }: Props) {
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 
+          {/* ABOUT — overview + the ambient facts we hold. original_title/overview
+              are being backfilled from TMDB: every field is null-safe, so this
+              section lights up as the data lands. */}
+          {hasInfo ? (
+            <section className="df-sec" id="df-information">
+              <h2 className="df-h2">About {f.title}</h2>
+              {f.overview ? <p className="df-ov">{f.overview}</p> : null}
+              <dl className="df-dl">
+                {f.director ? <><dt>Director</dt><dd>{dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director}</dd></> : null}
+                {nativeTitle ? <><dt>Original title</dt><dd>{nativeTitle}</dd></> : null}
+                {f.release_date ? <><dt>Released</dt><dd>{f.release_date}</dd></> : null}
+                {mRuntime ? <><dt>Runtime</dt><dd>{mRuntime}</dd></> : null}
+                {f.genres?.length ? <><dt>Genre</dt><dd>{f.genres.map((g, i) => (
+                  <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>
+                ))}</dd></> : null}
+                {mCert ? <><dt>Rated</dt><dd>{mCert}</dd></> : null}
+              </dl>
+            </section>
+          ) : null}
+
           <CinecodexPanel data={codex as Codex | null} title={f.title} />
           <FilmLineageSection lineage={lineage} title={f.title} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+
+          {/* CREDITS — the same crawlable key-craft block Tier-1 carries */}
+          {crew.length > 0 ? (
+            <section className="df-sec" id="df-crew">
+              <h2 className="df-h2">Credits — who made {f.title}</h2>
+              <p className="df-sub">The key crafts behind the film. Each name opens their body of work: the directors they keep returning to, and where their films are read on Metatake.</p>
+              <div className="rcp-list">
+                {f.director ? (
+                  <div className="rcp-row">
+                    <span className="rcp-m" style={{ minWidth: 150 }}>Director</span>
+                    {dirSlug ? <Link className="rcp-h" href={`/director/${dirSlug}`}>{f.director}</Link> : <span className="rcp-h">{f.director}</span>}
+                  </div>
+                ) : null}
+                {crew.map((c) => (
+                  <div key={c.craft} className="rcp-row">
+                    <span className="rcp-m" style={{ minWidth: 150 }}>{CRAFTS[c.craft].label}</span>
+                    <span>
+                      {c.people.map((pp, i) => (
+                        <span key={pp.id}>
+                          {i > 0 ? ", " : ""}
+                          <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {f.tmdb_id ? (
+                <div className="df-src"><Link href={`/credits?f=${f.tmdb_id}`}>Open in the interactive Credits explorer →</Link> · Credits data from TMDB</div>
+              ) : null}
+            </section>
+          ) : null}
 
           <section className="df-sec" id="df-watch">
             <AccessSummary watch={watch} record={mAccessRec} slug={f.slug} title={f.title} />
             {mAccessRec ? <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} /> : null}
           </section>
           </AccessCountryProvider>
+
+          {/* KEEP READING — the funnel from this catalog record into worked content */}
+          {t2Sections.map((s) => (
+            <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
+          ))}
 
           <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
         </div>
