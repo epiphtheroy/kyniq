@@ -4,6 +4,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import CodexExplorer, { type CodexRow } from "@/components/CodexExplorer";
 import { filmUrl } from "@/lib/urls";
+import { CODEX_DIMS, takescoreDimUrl, type CodexDimGroup } from "@/lib/cinecodex_dims";
 
 export const revalidate = 300;
 
@@ -65,6 +66,36 @@ export default async function TakeScorePage() {
           <Link href="/takescore/about">How it works →</Link>
         </p>
         <CodexExplorer initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries} />
+
+        {/* The 13 dimension landing pages — each answers one search-shaped
+            question with an essay, the 8-anchor ruler and a top-25 list. */}
+        <section aria-labelledby="ts-dims" style={{ marginTop: 56 }}>
+          <h2 className="df-h2" id="ts-dims">The thirteen dimensions</h2>
+          <p className="df-sub">
+            Every TakeScore is built from thirteen sub-scores in three groups — what a film gives back (Value), what
+            it takes to unlock (Cost), and how it can go wrong (Risk). Each dimension has its own page: what it
+            measures, the eight-anchor calibration ruler, and the catalog&apos;s top 25.
+          </p>
+          {(
+            [
+              ["value", "Value — what you keep"],
+              ["cost", "Cost — what it takes"],
+              ["risk", "Risk — what can go wrong"],
+            ] as [CodexDimGroup, string][]
+          ).map(([g, heading]) => (
+            <div key={g} style={{ marginBottom: 14 }}>
+              <h3 className="ab-h2" style={{ fontSize: 16, margin: "12px 0 4px" }}>{heading}</h3>
+              <ul style={{ margin: 0, paddingLeft: 18 }}>
+                {CODEX_DIMS.filter((d) => d.group === g).map((d) => (
+                  <li key={d.slug} className="ab-p" style={{ margin: "3px 0" }}>
+                    <Link href={takescoreDimUrl(d.slug)}>{d.question}</Link>{" "}
+                    <span style={{ fontFamily: "var(--font-ui)", fontSize: 12.5, color: "var(--muted)" }}>{d.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
 
         {/* Crawlable ranking — the explorer above is client-paginated, so this
             plain server-rendered list is the crawl backbone (same model as the

@@ -13,7 +13,7 @@ import AccessEnrichment, { type AccessRecord } from "@/components/AccessEnrichme
 import AccessSummary from "@/components/AccessSummary";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import FilmLineageSection from "@/components/FilmLineageSection";
-import CinecodexPanel, { type Codex } from "@/components/CinecodexPanel";
+import CinecodexPanel, { type Codex, type FilmSubscores } from "@/components/CinecodexPanel";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import FilmHeroReel from "@/components/FilmHeroReel";
@@ -218,22 +218,28 @@ function load(slug: string) {
   })();
 }
 
-// The two page-chrome RPCs (movements + TakeScore) were also uncached, which on
+// The page-chrome RPCs (movements + TakeScore) were also uncached, which on
 // their own would keep the route dynamic — cache them per slug as well.
+// cinecodex_film_subscores adds per-dimension percentiles vs all scored films
+// (one indexed lookup + one aggregate pass; null for unscored films).
 function loadChrome(slug: string) {
+  // Cache key bumped (film-chrome2) when subscores joined the payload — the
+  // Data Cache outlives deploys, so a shape change needs a new key.
   return unstable_cache(
     async () => {
       const supabase = db();
-      const [{ data: mvRows }, { data: codexRow }] = await Promise.all([
+      const [{ data: mvRows }, { data: codexRow }, { data: subRow }] = await Promise.all([
         supabase.rpc("film_movements", { p_slug: slug }),
         supabase.rpc("cinecodex_for", { p_slug: slug }),
+        supabase.rpc("cinecodex_film_subscores", { p_slug: slug }),
       ]);
       return {
         movements: (mvRows as { slug: string; label: string; kind: string; country_code: string | null }[] | null) ?? [],
         codex: (codexRow as Codex | null),
+        subscores: (subRow as FilmSubscores | null),
       };
     },
-    ["film-chrome", slug],
+    ["film-chrome2", slug],
     { revalidate: 300, tags: [`film:${slug}`] },
   )();
 }
@@ -340,7 +346,7 @@ export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { movements, codex } = await loadChrome(slug);
+  const { movements, codex, subscores } = await loadChrome(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
   const codexBadge = _cx ? (
@@ -606,6 +612,17 @@ export default async function FilmPage({ params }: Props) {
     ...(film.poster_path ? { image: `${IMG}/w500${film.poster_path}` } : {}),
     ...(film.overview ? { description: film.overview } : {}),
     ...(movieSameAs.length ? { sameAs: movieSameAs } : {}),
+    // TakeScore as a schema.org Review — Tier-1 + scored films only. ratingValue
+    // must equal the TakeScore visibly rendered on the page (Google requires
+    // correspondence): subscores.takescore == Math.round(v − r), the badge number.
+    ...(codex && subscores ? {
+      review: {
+        "@type": "Review",
+        author: { "@type": "Organization", name: "Metatake", url: "https://metatake.net" },
+        name: "TakeScore",
+        reviewRating: { "@type": "Rating", ratingValue: subscores.takescore, worstRating: -100, bestRating: 100 },
+      },
+    } : {}),
   };
 
   const breadcrumbLd = {
@@ -747,7 +764,7 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        <CinecodexPanel data={codex as Codex | null} title={film.title} />
+        <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (

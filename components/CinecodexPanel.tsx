@@ -193,9 +193,9 @@ export default function CinecodexPanel({ data, title, subscores }: { data: Codex
       <div className="ccx-eval">
         <div className="ccx-eval-h">The 13 sub-scores</div>
         <div className="ccx-cols">
-          <div><div className="ccx-gl ccx-glv">Value</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" /></div>
-          <div><div className="ccx-gl ccx-glc">Cost</div><Sub names={COST} sub={data.sub} tone="ccx-c" /></div>
-          <div><div className="ccx-gl ccx-glr">Risk</div><Sub names={RISK} sub={data.sub} tone="ccx-r" /></div>
+          <div><div className="ccx-gl ccx-glv">Value</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" pct={subscores?.pct} total={subscores?.total_scored} /></div>
+          <div><div className="ccx-gl ccx-glc">Cost</div><Sub names={COST} sub={data.sub} tone="ccx-c" pct={subscores?.pct} total={subscores?.total_scored} /></div>
+          <div><div className="ccx-gl ccx-glr">Risk</div><Sub names={RISK} sub={data.sub} tone="ccx-r" pct={subscores?.pct} total={subscores?.total_scored} /></div>
         </div>
       </div>
 

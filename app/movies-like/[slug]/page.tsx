@@ -38,7 +38,7 @@ async function load(slug: string) {
   const [{ data: relFilms }, { data: sharedMts }] = await Promise.all([
     relIds.length ? supabase.from("films").select("id, title, slug, year, director, backdrop_path").in("id", relIds).eq("visible", true)
       : Promise.resolve({ data: [] as { id: string; title: string; slug: string; year: number | null; director: string | null; backdrop_path: string | null }[] }),
-    sharedIds.length ? supabase.from("meta_takes").select("id, slug, title").in("id", sharedIds).eq("status", "published").eq("kind", "reading")
+    sharedIds.length ? supabase.from("meta_takes").select("id, slug, title").in("id", sharedIds).eq("status", "published").eq("kind", "figure_type")
       : Promise.resolve({ data: [] as { id: string; slug: string; title: string }[] }),
   ]);
   const relMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
@@ -121,7 +121,7 @@ export default async function MoviesLikePage({ params }: Props) {
                     {r.film.director ? <span className="ml-dir"> · {r.film.director}</span> : null}
                     {r.reasons.length ? (
                       <p className="ml-why">Shares: {r.reasons.slice(0, 4).map((m, i) => (
-                        <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/take/${m.slug}`}>{m.title}</Link></span>
+                        <span key={m.slug}>{i > 0 ? ", " : ""}<Link href={`/trope/${m.slug}`}>{m.title}</Link></span>
                       ))}{r.reasons.length > 4 ? ` +${r.reasons.length - 4}` : ""}</p>
                     ) : null}
                   </div>
