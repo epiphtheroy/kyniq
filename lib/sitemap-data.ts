@@ -418,15 +418,16 @@ export async function lineageEntries(): Promise<SitemapEntry[]> {
 }
 
 /**
- * /film/x/honors — a film's complete sourced lineage record. Eligible: ≥3
- * film_lineage rows, ANY visibility (honours are facts about the film, so
- * Tier-2 catalog films qualify too). Slug-asc order under the cohort cap so
- * raising it only appends.
+ * /film/lineage/[slug] — a film's complete sourced lineage record (moved
+ * 2026-07-06 from /film/x/honors; old route 308s). Eligible: ≥3 film_lineage
+ * rows, ANY visibility (honours are facts about the film, so Tier-2 catalog
+ * films qualify too). Slug-asc order under the cohort cap so raising it only
+ * appends.
  */
 export async function honorsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const { films } = await cachedLineageEligibility();
-  return films.slice(0, INDEX_COHORT_FILM_HONORS).map((f) => ({ url: `${siteUrl}/film/${f.slug}/honors` }));
+  return films.slice(0, INDEX_COHORT_FILM_HONORS).map((f) => ({ url: `${siteUrl}/film/lineage/${f.slug}` }));
 }
 
 /** Public profiles. */
