@@ -112,13 +112,13 @@ declare v_n int;
 begin
   truncate film_affinities;
   with ins as (
-    insert into film_affinities (film_id, related_film_id, score, shared_meta_take_ids)
-    select f, r, round(score::numeric, 6), coalesce(shared, '{}')
+    insert into film_affinities (film_id, related_film_id, score, shared_meta_take_ids, cos, tfidf, updated_at)
+    select f, r, round(score::numeric, 6), coalesce(shared, '{}'), cos, w, now()
     from (
       select coalesce(t.film_id, k.film_id) as f,
              coalesce(t.related_film_id, k.related_film_id) as r,
              coalesce(1.0/(60+t.rt), 0) + coalesce(1.0/(60+k.rk), 0) as score,
-             t.shared,
+             t.shared, k.cos, t.w,
              row_number() over (
                partition by coalesce(t.film_id, k.film_id)
                order by coalesce(1.0/(60+t.rt), 0) + coalesce(1.0/(60+k.rk), 0) desc,
@@ -133,6 +133,11 @@ begin
     returning 1
   )
   select count(*) into v_n from ins;
+  -- evidence backfill: pairs from the TF-IDF leg only still get a taste cosine
+  update film_affinities fa
+  set cos = (1 - (a.embedding <=> b.embedding))::real
+  from film_taste_vector a, film_taste_vector b
+  where fa.cos is null and a.film_id = fa.film_id and b.film_id = fa.related_film_id;
   return v_n;
 end $$;
 

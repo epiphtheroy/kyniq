@@ -25,6 +25,16 @@
 3. counterpoint 재빌드 — supabase/rpc/counterpoints.sql 주석의 2개 SQL 블록 실행
 4. `python3 worker/galaxy-build.py` — 좌표+라벨 (분기 1회 정도; 좌표 전면 이동 = 새 판)
 
+## ✅ 세부 수정 7건 (2026-07-05, 원우 지시)
+
+1. **근거 수치 영구화** — film_affinities에 `cos`(취향 코사인)·`tfidf` 컬럼 추가, swap 함수가 기록 + TF-IDF 단독 쌍은 cos 백필(46,440행 전수 보유). migration `affinities_evidence_columns` + `affinities_swap_cos_backfill`.
+2. **/movies-like 기사화** — 제목 "…{n} Closest Films, Ranked", 랭킹 넘버(1~3 강조), 원본 영화 포스터 헤더(나란히 비교감), 항목별 근거 칩("taste match 90%" + "N shared tropes"), 바이라인(By Metatake Editorial · Edited by Wonwoo Yoon · Updated {ledger 날짜—파생}), 지표 정의+ⓒ 전권 보유 푸터, JSON-LD @graph(ItemList+WebPage author/editor/dateModified).
+3. **film 페이지 Connected** — 톱5로 축소(전체 랭킹은 movies-like로 "full ranking →"), 포스터 썸네일+넘버링+근거 칩, 출처 라인(엔진·편집자·Updated 파생).
+4. **Counterpoints** — 항목별 "readings diverge N%"(1−sim) 칩 + 지표 정의·인장 푸터.
+5. **/concept** — 상세: concept_detail 스탯 칩(films/readings/tropes)+native 병기+주 이론가 문장+인장 라인+DefinedTerm·WebPage(author/editor) JSON-LD; 인덱스: 개념 수 볼드+인장 라인.
+6. **/methodology** — 라이브 수치 타일 9개("The corpus, in numbers", RPC `methodology_stats_json`, revalidate 3600, 각 수치에 의미 캡션) + 연결 섹션 산문에 원장 규모 수치 파생 삽입.
+7. **Galaxy** — 좌측 패널 행: 본문 클릭=지도에서 위치(줌·선택 링), ↗=페이지 이동(버튼 분리); 노드 클릭=우측 정보 카드(포스터/연도/감독/클러스터+Open ↗·◎ Zoom, iframe 대신 경량 카드—모바일은 기존 직행 유지); **Directors 갤럭시 신설**(director_embedding 873, t-SNE k=10, `director_map_xy`+라벨, `galaxy_directors_json`, `/api/map/galaxy?mode=directors`, 패널 Films/Directors 토글, 딥링크 `?m=galaxy&g=directors`). migration `director_galaxy`; 빌더 `galaxy-build.py --directors`.
+
 **후속 결정 4건 — 원우 위임으로 확정·실행 완료 (2026-07-04 밤)**:
 1. **reading 허브 재출판: 안 함(확정)** — 트롭 개편으로 은퇴한 자산(5,818건, published 0). 그 역할(독해 수준 연결)은 counterpoint + concept_map이 대체. 재출판은 LLM 산문 5,818페이지 일괄 추가 = scaled-content 리스크만 큼. 데이터는 보존(삭제 안 함).
 2. **film_next 미해결분: 백필 + 수요 큐(실행)** — tmdb_id가 카탈로그와 일치하는 3,577건 target_film_id 백필 → 내부 해결 **58%→79%**(13,423/17,095), Watch next 카드 3,577개가 외부 TMDB 링크→내부 링크로 전환. 잔여 3,672건은 `film_next_demand` 뷰(demanded_by 순 = 가장 많이 지목된 미보유 영화)로 인제스트 우선순위 큐 제공 — RUNBOOK-new-film-ingestion에서 `select * from film_next_demand order by demanded_by desc` 사용.
