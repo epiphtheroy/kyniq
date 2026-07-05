@@ -264,8 +264,9 @@ export default async function FigurePage({ params }: Props) {
         acceptedAnswer: { "@type": "Answer", text: plainText(String(figure.description)) },
       },
       // Mirrors the visible "Connected figures" section (films sharing the top trope).
+      // Trope titles often begin with "The …" — don't double the article.
       ...(topConn ? [{
-        "@type": "Question", name: `Which other films share the ${topConn.title} trope with ${film.title}?`,
+        "@type": "Question", name: `Which other films share ${/^the\b/i.test(topConn.title) ? "" : "the "}${topConn.title} trope with ${film.title}?`,
         acceptedAnswer: { "@type": "Answer", text: `${topConn.total} other ${topConn.total === 1 ? "figure carries" : "figures carry"} ${topConn.title} on Metatake, in films such as ${topConn.siblings.slice(0, 6).map((s) => `${s.filmTitle}${s.year ? ` (${s.year})` : ""}`).join(", ")}.` },
       }] : []),
     ],
