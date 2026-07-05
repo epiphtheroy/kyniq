@@ -1,6 +1,6 @@
 # Metatake — DOC INDEX (start here)
 
-*Map of the project's docs. Updated 2026-06-17 after the redesign sprint. Read the three "authoritative now" docs first; treat the rest as reference or history.*
+*Map of the project's docs. Updated 2026-06-17 after the redesign sprint; ★-table refreshed 2026-07-06 (Tier-2 정본 등재). Read the "authoritative now" docs first; treat the rest as reference or history.*
 
 ## ★ Authoritative now (read these)
 | Doc | What it is |
@@ -8,7 +8,7 @@
 | `docs/STATE-2026-06-17.md` | **Where we are** — live counts, entity model, pages, homepage, graph, Ask, migrations, RPCs, known gaps. The single source of truth for current state. |
 | `docs/RUNBOOK-bigbang.md` | **How to add +405 films without mistakes** — the 3 pre-start blockers, pre-flight, safety rules, the exact ordered pipeline with commands/params/models/gotchas/verification/rollback. Use this for the next big bang. |
 | `MASTER.md` | Original consolidation of logic + design + the 567-seed runbook. Still useful for concepts; its §4 *sequence* is superseded by RUNBOOK §3 and figure-page-KEPT §L.3 where they differ. |
-| `docs/REMEMBER-thin-content-gate.md` | **ACTIVE temporary state** — thin/figure-less films are hidden + noindexed until they have ≥3 figures (auto-reverses per film). Post-big-bang visibility check + full-revert recipe. Delete once resolved. |
+| `docs/PLAN-tier2-almanac.md` | **Tier-2 5,041편 활용 정본 (2026-07-06)** — 3트랙 전략 + §7 실행 기록(Editor's digest·검색 v2·Full catalogue·credits·Atlas 핀 개방·slug 274 개명 전부 라이브). 남은 것: Track B 선별 색인(7/16)·Track C 엔진 웨이브. Tier-2/씬 콘텐츠 작업은 여기서 시작. `docs/REMEMBER-thin-content-gate.md`는 "숨김" 시절 기록으로 **대체됨**(자동 승격 트리거 ≥3 figures 메커니즘 설명만 여전히 유효). |
 
 ## Reference — current & accurate
 | Doc | Purpose |

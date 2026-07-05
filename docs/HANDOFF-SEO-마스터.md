@@ -56,7 +56,7 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 3. 배포 검증 → GSC sitemap.xml 재제출(선택) + IndexNow. 섹션 계기판 관찰.
 
 ### D. URL을 바꾸거나 병합할 때
-- **개별 slug 개명·병합**: `insert into slug_aliases(old_path,new_path,reason) values(...)` — 이것만 하면 옛 링크 영구 308. sitemap에 old_path 절대 금지. 라우트가 신설 라우트면 miss 경로에 resolveAlias 배선 확인(`lib/aliases.ts` 패턴, take/trope/whereto 참조).
+- **개별 slug 개명·병합**: `insert into slug_aliases(old_path,new_path,reason) values(...)` — 이것만 하면 옛 링크 영구 308. sitemap에 old_path 절대 금지. 라우트가 신설 라우트면 miss 경로에 resolveAlias 배선 확인(`lib/aliases.ts` 패턴, take/trope/whereto/film 참조). 대량 사례: 2026-07-06 stub 274편 일괄 개명(aliases 548건, SQL은 `docs/PLAN-tier2-almanac.md` §7).
 - **라우트 패턴 전체 이전**(사례 2건, 2026-07-06: /film/x/locations→/film/atlas/x, /film/x/honors→/film/lineage/x): 구 라우트의 page.tsx를 `permanentRedirect()` 한 줄 컴포넌트로 교체 — slug_aliases 불요. 체크리스트: 새 페이지 canonical/breadcrumb/JSON-LD url 갱신 → 내부 링크 전수 grep(`/구경로\``) → sitemap entries 함수 URL 갱신 → 배포 후 구 308/신 200 확인 → IndexNow에 새 URL 전량 재제출. GSC 자식 사이트맵 파일 주소는 불변이라 재제출 불요.
 
 ### E. 제목 규칙 (반복 실수 — 하루에 7건 발견)
@@ -93,6 +93,7 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 5. **필름 하위 URL 체계 확정**(07-06, 원우 결정): 기록 페이지→`/film/lineage/[slug]`, 촬영지→`/film/atlas/[slug]` — 구 경로 전 패턴 308(런북 D-2), 필름 페이지 별도 탭 제거(Atlas 필 버튼/Lineage 섹션이 진입로), 양방향 내비 보강.
 6. **site_content/ 스펙 팩 적용**(07-06): QID 20건 검증(전부 기 백필 확인), bare-wikidata 인용 버그 수정, Movie 노드 정합(@id 공유 페이지 간 date/sameAs/award 일치), /lineage Dataset, "N of M matched" 완전성 노트(KNOWN_TRUE_SIZE — 정의상 크기만), /methodology Lineage 섹션(수치 검증 후 게재).
 7. **My Films 렌즈**(07-06, 별도 세션): 3단 개인화 오버레이 → `HANDOFF-마이필름-렌즈.md`.
+8. **Tier-2 개방 배치**(07-06, 별도 세션): Tier-2 페이지 **Editor's digest**(DB 결정론 조합, 바이라인 Wonwoo Yoon+실데이터 갱신일, WebPage LD dateModified/editor, About 격하, 캐시 키 film-load5) + Atlas 미니맵 · 검색 `search_site` v2(Tier-2 포함, is_catalog+0.8 디스카운트, "catalog" 칩) · /film Full catalogue 뷰 · credits 인물 페이지 Tier-2 링크 승격 · **/whereto robots 게이트 명시**(visible만 색인 — 기존 무게이트 우연 상태 종료) · Atlas 표시 RPC 6종 핀 개방(17,307→25,029, 자격 게이트 불변) · director_slug 백필 22→1,022 · **stub slug 274편 일괄 개명**(aliases 548, /film miss 경로 resolveAlias 신설 배선) → 정본 `docs/PLAN-tier2-almanac.md` §7. **robots/색인 코호트 변화 없음**(Tier-2 전원 noindex 유지, Track B는 7/16 리뷰 대기).
 
 ## 4. GSC 판독 로그 (추기식)
 

@@ -1,5 +1,10 @@
 # REMEMBER — thin-content gate (temporary hide of figure-less films)
 
+> **⚠️ 2026-07-06 SUPERSEDED — 정본은 `docs/PLAN-tier2-almanac.md`.** 이 문서의 "숨김(hidden from UI)" 정책은
+> 폐기됨: Tier-2는 이제 검색·Full catalogue·credits·Atlas·digest 페이지로 **이용자에게 전면 노출**되며
+> noindex 퍼널만 유지된다. 아래에서 여전히 유효한 것은 **자동 승격 메커니즘뿐**(approved figures ≥3 →
+> trigger가 visible=true → 색인·사이트맵 자동 편입). 나머지 수치·절차는 역사 기록으로만 읽을 것.
+
 *Created 2026-06-18, during the +405 big bang. Read this before deciding the films are "done".*
 
 ## What's hidden, and why
