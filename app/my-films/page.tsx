@@ -46,7 +46,7 @@ export default function MyFilmsPage() {
           <p className="mfl-lede">
             Metatake maps cinema — films linked by the readings they share, placed in a galaxy,
             pinned on a world atlas. The <b>My Films</b> lens turns that whole map into <i>your</i> map:
-            flip the <b>◎</b> toggle in the top bar and every page answers to what you&rsquo;ve watched.
+            flip the <b>◎&nbsp;My&nbsp;films</b> toggle in the top bar and every page answers to what you&rsquo;ve watched.
           </p>
         </header>
 
