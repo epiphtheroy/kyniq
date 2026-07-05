@@ -48,8 +48,12 @@ export type FilmLineageRow = {
  * listed fall back to the raw code (never invent).
  */
 const LINEAGE_SOURCES: Record<string, { name: string; url?: string }> = {
-  wikidata: { name: "Wikidata", url: "https://www.wikidata.org" },
-  wikipedia: { name: "Wikipedia", url: "https://en.wikipedia.org" },
+  // No url for wikidata/wikipedia on purpose: a bare wikidata.org link (no
+  // QID) is a broken citation — the QID link comes from external_ref via
+  // wikidataUrl(), and when a list has no QID the name renders as plain text
+  // (site_content/SEO_LINEAGE_SPEC.md §4a).
+  wikidata: { name: "Wikidata" },
+  wikipedia: { name: "Wikipedia" },
   bfi: { name: "BFI (Sight & Sound)", url: "https://www.bfi.org.uk" },
   tspdt: { name: "They Shoot Pictures, Don't They?", url: "https://www.theyshootpictures.com" },
   afi: { name: "American Film Institute", url: "https://www.afi.com" },
@@ -84,6 +88,25 @@ export function lineageSource(code: string | null | undefined): { name: string; 
 export function wikidataUrl(ref: LineageListMeta["external_ref"]): string | null {
   const qid = ref?.wikidata;
   return qid && /^Q\d+$/.test(qid) ? `https://www.wikidata.org/wiki/${qid}` : null;
+}
+
+/**
+ * True published sizes for lists whose length is DEFINITIONAL (in the name /
+ * fixed by the publisher) — used for the honest "N of M matched" note when
+ * our membership rows fall short. Only add entries whose size is a public
+ * fact; lineage_lists.film_count is NOT reliable for this.
+ */
+export const KNOWN_TRUE_SIZE: Record<string, number> = {
+  "tspdt-1000": 1000,
+  "1001-movies": 1001,
+};
+
+/** Unambiguous, machine-readable honour text for Movie.award — full body +
+ * category + year, e.g. "Academy Awards — Best Picture (2025)". */
+export function honorText(l: FilmLineageRow): string {
+  const body = l.parent_label && l.parent_label !== l.list_label ? `${l.parent_label} — ` : "";
+  const year = l.edition_year ? ` (${l.edition_year})` : "";
+  return `${body}${l.list_label}${year}`;
 }
 
 export const FACET_LABEL: Record<string, string> = {

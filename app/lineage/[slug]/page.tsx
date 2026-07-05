@@ -8,6 +8,7 @@ import LineageActions from "@/components/LineageActions";
 import { pageRobots } from "@/lib/seo";
 import {
   FACET_LABEL,
+  KNOWN_TRUE_SIZE,
   LINEAGE_LIST_MIN,
   cachedLineageEligibility,
   cachedLineageMeta,
@@ -156,11 +157,16 @@ export default async function LineagePage({ params }: Props) {
   const eligible = new Map(elig.lists.map((l) => [l.slug, l.n]));
   const related = sibs.filter((s) => eligible.has(s.slug)).slice(0, 8).map((s) => ({ ...s, n: eligible.get(s.slug)! }));
 
+  // True published size where definitional (TSPDT = 1,000 by name) — lets the
+  // page disclose a shortfall instead of hiding it, and lets numberOfItems
+  // state the real list length (partial itemListElement is valid schema).
+  const trueSize = KNOWN_TRUE_SIZE[slug];
+  const ranked = films.some((f) => f.rank != null);
   const itemListLd = {
-    "@context": "https://schema.org",
     "@type": "ItemList",
     name: listTitle(list, films),
-    numberOfItems: films.length,
+    numberOfItems: trueSize ?? films.length,
+    itemListOrder: ranked ? "https://schema.org/ItemListOrderAscending" : "https://schema.org/ItemListOrderDescending",
     itemListElement: films.slice(0, 100).map((f, i) => ({
       "@type": "ListItem",
       position: f.rank ?? i + 1,
@@ -187,6 +193,7 @@ export default async function LineagePage({ params }: Props) {
     url: `https://metatake.net/lineage/${slug}`,
     name: listTitle(list, films),
     ...(list.description ? { description: list.description } : {}),
+    isPartOf: { "@id": "https://metatake.net/lineage#dataset" },
     about: {
       "@type": "Thing",
       name: list.label,
@@ -196,14 +203,14 @@ export default async function LineagePage({ params }: Props) {
     editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
     publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
     dateModified: updated,
+    mainEntity: itemListLd,
   };
 
   return (
     <div className="mt">
       <SiteNav />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...pageLd }) }} />
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/lineage">Lineage</Link></div>
         <h1 className="lh-h1">{list.label}</h1>
