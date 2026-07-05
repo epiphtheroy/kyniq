@@ -419,8 +419,10 @@ export default function GalaxyMap({ height }: { height: number }) {
     else if (sort === "hood") arr.sort((a, b) => a.c - b.c || a.title.localeCompare(b.title));
     else if (sort === "films-desc") arr.sort((a, b) => (b.n ?? 0) - (a.n ?? 0) || a.title.localeCompare(b.title));
     else arr.sort((a, b) => (b.year ?? -1) - (a.year ?? -1) || a.title.localeCompare(b.title));
+    // My Films lens: seen films band to the top; the chosen sort holds within bands
+    if (lensOn && !lensOnly) arr.sort((a, b) => (lens!.seen(b.slug) ? 1 : 0) - (lens!.seen(a.slug) ? 1 : 0));
     return arr;
-  }, [visible, sort]);
+  }, [visible, sort, lensOn, lensOnly, lens]);
 
   const hoverFromPanel = useCallback((p: GPoint) => {
     const { sx, sy } = toScreen(p);
@@ -499,7 +501,8 @@ export default function GalaxyMap({ height }: { height: number }) {
           </div>
           <div style={{ padding: "6px 12px 5px", fontSize: 12, fontWeight: 700, opacity: .75 }}>
             {visible.length} {kind === "films" ? "films" : "directors"} in view
-            {lensOnly ? <span style={{ color: "#E3120B" }}> · yours only</span> : null}
+            {lensOnly ? <span style={{ color: "#E3120B" }}> · yours only</span>
+              : lensOn ? <span style={{ color: "#E3120B" }}> · yours first</span> : null}
             <span style={{ fontWeight: 400, opacity: .75 }}> · click a row to locate it, ↗ opens the page</span>
           </div>
           <div style={{ overflowY: "auto", flex: 1, padding: "2px 0 6px" }}>

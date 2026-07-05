@@ -665,10 +665,13 @@ export default function FilmMap({
     else if (sort === "places") gs.sort((a, b) => b.total - a.total);
     else if (sort === "az") gs.sort((a, b) => a.title.localeCompare(b.title));
     else gs.sort((a, b) => (b.year ?? -1) - (a.year ?? -1));
+    // My Films lens: seen films band to the top; the chosen sort holds within bands
+    // (only-mode already filters, so banding matters in highlight)
+    if (lensMode === "highlight" && lens) gs.sort((a, b) => (lens.seen(b.slug) ? 1 : 0) - (lens.seen(a.slug) ? 1 : 0));
     const top = focus?.slug ?? filmSlug;
     if (top) gs.sort((a, b) => (a.slug === top ? -1 : 0) - (b.slug === top ? -1 : 0));
     return gs;
-  }, [globalish, layerRows, matches, inView, sort, focus, filmSlug]);
+  }, [globalish, layerRows, matches, inView, sort, focus, filmSlug, lensMode, lens]);
 
   const flatRows = useMemo(() => {
     if (globalish) return [];
@@ -786,7 +789,7 @@ export default function FilmMap({
             </div>
           ) : null}
         </div>
-        <div className="fmap-side" ref={listEl} style={{ maxHeight: height }}>
+        <div className="fmap-side" ref={listEl} style={{ maxHeight: height }} data-mtl-no-order>
           <div className="fmap-tools">
             <input className="fmap-filter" value={pq} onChange={(e) => setPq(e.target.value)} placeholder="Filter places…" aria-label="Filter places" />
             {globalish ? (
