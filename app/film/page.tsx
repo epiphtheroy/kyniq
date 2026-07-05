@@ -11,12 +11,33 @@ export const revalidate = 1800;
 const TITLE = "Films — read closely through their figures";
 const DESC =
   "Not a movie database. Every film on Metatake is broken into its figures and the readings & tropes they carry, then wired to every other film that shares them.";
+const ALL_DESC =
+  "Every film in the Metatake database, newest first — the read-closely catalogue plus the catalog tier still waiting for its close reading.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESC,
-  alternates: { canonical: "/film" },
-};
+interface Props { searchParams: Promise<{ view?: string; page?: string }> }
+
+// Each ?view=all page is its own indexable surface: unique title, self-canonical,
+// crawlable prev/next links in the body. Never noindex past page 1.
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { view, page } = await searchParams;
+  if (view === "all") {
+    const p = Math.max(1, Number.parseInt(page ?? "1", 10) || 1);
+    const title = p <= 1 ? "All films — the full catalogue" : `All films — page ${p}`;
+    const canonical = p <= 1 ? "/film?view=all" : `/film?view=all&page=${p}`;
+    return {
+      title,
+      description: ALL_DESC,
+      alternates: { canonical },
+      openGraph: { title, description: ALL_DESC, url: canonical },
+    };
+  }
+  return {
+    title: TITLE,
+    description: DESC,
+    alternates: { canonical: "/film" },
+    openGraph: { title: TITLE, description: DESC, url: "/film" },
+  };
+}
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -98,20 +119,26 @@ async function AllFilmsView({ pageParam }: { pageParam?: string }) {
   );
 }
 
-interface Props { searchParams: Promise<{ view?: string; page?: string }> }
+type FilmCatalogue = { total: number; items: FilmCat[] };
 
 export default async function FilmIndexPage({ searchParams }: Props) {
   const { view, page } = await searchParams;
   if (view === "all") return <AllFilmsView pageParam={page} />;
 
   const supabase = db();
-  const [featuredRes, catRes] = await Promise.all([
+  const [featuredRes, catRes, invRes] = await Promise.all([
     supabase.rpc("films_featured", { p_n: 12 }),
-    supabase.rpc("films_catalogue"),
+    // v2 returns one jsonb row {total, items} — the TABLE-returning v1 was
+    // silently truncated to 1,000 of 1,935 visible films by PostgREST's row cap.
+    supabase.rpc("films_catalogue_v2"),
+    // Whole-inventory count (both tiers) for the "browse all" pointer below.
+    supabase.from("films").select("slug", { count: "exact", head: true }).not("slug", "like", "tmdb-%"),
   ]);
 
   const featured = ((featuredRes.data as FilmFeat[] | null) ?? []).filter((f) => f && f.readingList?.length);
-  const catalogue = (catRes.data as FilmCat[] | null) ?? [];
+  const cat = (catRes.data as FilmCatalogue | null) ?? { total: 0, items: [] };
+  const catalogue = cat.items;
+  const inventoryTotal = invRes.count ?? 0;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -131,9 +158,11 @@ export default async function FilmIndexPage({ searchParams }: Props) {
         ],
       },
       {
+        // Representative of the catalogue, not just the featured deck:
+        // numberOfItems is the DB-real total; the elements are the first 100 A–Z.
         "@type": "ItemList",
-        numberOfItems: catalogue.length,
-        itemListElement: featured.map((f, i) => ({
+        numberOfItems: cat.total,
+        itemListElement: catalogue.slice(0, 100).map((f, i) => ({
           "@type": "ListItem",
           position: i + 1,
           name: f.year ? `${f.title} (${f.year})` : f.title,
@@ -167,6 +196,14 @@ export default async function FilmIndexPage({ searchParams }: Props) {
         <LensQuickBar />
 
         <FilmsIndex featured={featured} catalogue={catalogue} />
+
+        {inventoryTotal > cat.total && (
+          <div className="idx-tabs" style={{ marginTop: 18 }}>
+            <Link className="vtab" href="/film?view=all">
+              Browse the full inventory — all {inventoryTotal.toLocaleString()} films →
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

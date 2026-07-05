@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type SyntheticEvent } from "react";
 import Link from "next/link";
+import { foldDiacritics } from "@/lib/slug";
 
 /* ---- shared types (reused by /film, /tropes, /director indexes in W2) ---- */
 export type IdxCase = {
@@ -49,7 +50,7 @@ function sortKey(t: string): string {
   return t.toLowerCase().replace(/^(the|a|an)\s+/i, "").trim();
 }
 function letterOf(t: string): string {
-  const c = sortKey(t).charAt(0).toUpperCase();
+  const c = foldDiacritics(sortKey(t)).charAt(0).toUpperCase();
   return c >= "A" && c <= "Z" ? c : "#";
 }
 const AZ = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("");

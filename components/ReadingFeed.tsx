@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
 import SaveChip from "@/components/SaveChip";
+import { useLens } from "@/components/LensProvider";
 
 const W185 = "https://image.tmdb.org/t/p/w185";
 
@@ -67,6 +68,12 @@ export default function ReadingFeed(
   const debTimer = useRef<number | undefined>(undefined);
   const searching = q.trim().length > 0;
 
+  // My Films lens, only-mode: the whole endless feed swaps its data source to
+  // the authed per-user endpoint — every page of scroll is readings of films
+  // you've seen. (Search stays global; highlight-mode keeps the visual overlay.)
+  const lens = useLens();
+  const mine = !!lens && lens.mode === "only" && lens.seenCount > 0;
+
   const buildUrl = useCallback((off: number) => {
     const p = new URLSearchParams();
     p.set("fw", fwSlug);
@@ -75,8 +82,8 @@ export default function ReadingFeed(
     if (decade != null) p.set("decade", String(decade));
     p.set("limit", String(LIMIT));
     p.set("offset", String(off));
-    return `/api/readings?${p.toString()}`;
-  }, [fwSlug, q, sort, decade]);
+    return `${mine && !q ? "/api/lens/readings" : "/api/readings"}?${p.toString()}`;
+  }, [fwSlug, q, sort, decade, mine]);
 
   // featured rotator — fetch a batch once, cycle 3 at a time
   useEffect(() => {
@@ -89,9 +96,10 @@ export default function ReadingFeed(
     return () => window.clearInterval(t);
   }, [featured]);
 
-  // results: refetch page 0 on query/sort/decade change (skip first render — SSR seeded)
+  // results: refetch page 0 on query/sort/decade change (skip first render —
+  // SSR seeded — unless the lens is already in only-mode, whose rows are per-user)
   useEffect(() => {
-    if (pristine.current) { pristine.current = false; return; }
+    if (pristine.current) { pristine.current = false; if (!mine) return; }
     let cancelled = false;
     setLoading(true);
     fetch(buildUrl(0)).then((r) => r.json()).then((d) => {
@@ -213,6 +221,8 @@ export default function ReadingFeed(
       <div className="smb-count">
         {searching
           ? <>Closest matches for <b>“{q}”</b></>
+          : mine
+          ? <><b>{total.toLocaleString()}</b> {total === 1 ? "reading" : "readings"} from films you&rsquo;ve seen{decade != null ? ` · ${decade}s` : ""}</>
           : <><b>{total.toLocaleString()}</b> {total === 1 ? "reading" : "readings"}{decade != null ? ` · ${decade}s` : ""}</>}
       </div>
 
@@ -246,7 +256,9 @@ export default function ReadingFeed(
         })}
       </ul>
 
-      {rows.length === 0 && !loading ? <p className="smb-empty">No readings match that.</p> : null}
+      {rows.length === 0 && !loading ? (
+        <p className="smb-empty">{mine && !searching ? "No readings from your films here yet — switch the lens to All to browse everything." : "No readings match that."}</p>
+      ) : null}
       {!done ? <div className="smb-loader" ref={sentinel}>{loading ? "Loading…" : "Scroll for more"}</div>
              : rows.length > 0 && !searching ? <div className="smb-end">— all {total.toLocaleString()} shown —</div> : null}
     </>

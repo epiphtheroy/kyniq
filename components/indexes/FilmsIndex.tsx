@@ -5,6 +5,7 @@ import Link from "next/link";
 import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
 import PosterActions from "@/components/PosterActions";
+import { foldDiacritics } from "@/lib/slug";
 
 export type FilmFeat = {
   slug: string; title: string; year: number | null; dir: string | null; genre: string | null;
@@ -19,7 +20,7 @@ export type FilmCat = { slug: string; title: string; year: number | null; direct
 const HERO = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w780${p}` : null);
 
 function sortKey(t: string) { return t.toLowerCase().replace(/^(the|a|an)\s+/i, "").trim(); }
-function letterOf(t: string) { const c = sortKey(t).charAt(0).toUpperCase(); return c >= "A" && c <= "Z" ? c : "#"; }
+function letterOf(t: string) { const c = foldDiacritics(sortKey(t)).charAt(0).toUpperCase(); return c >= "A" && c <= "Z" ? c : "#"; }
 function decadeOf(y: number | null) { return y ? `${Math.floor(y / 10) * 10}s` : "Undated"; }
 
 const fadeRef = (el: HTMLImageElement | null) => { if (el && el.complete) el.classList.add("idx-on"); };
@@ -73,10 +74,11 @@ function FilmCard(d: FilmFeat) {
             <div className="idx-seclbl">🎬 Movies like {d.title} <span className="hint">linked by shared readings, not genre</span></div>
             <div className="idx-kin">
               {d.kin.map((x, i) => (
-                <Link key={i} href={`/movies-like/${d.slug}`} className="idx-kinchip">
+                <Link key={i} href={`/film/${x.slug}`} className="idx-kinchip">
                   {x.t} {x.y ? <span className="ky">’{String(x.y).slice(2)}</span> : null}<span className="kn">{x.n}</span>
                 </Link>
               ))}
+              <Link href={`/movies-like/${d.slug}`} className="idx-kinchip">See all similar →</Link>
             </div>
           </>
         )}

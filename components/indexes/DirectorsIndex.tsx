@@ -4,6 +4,7 @@ import { type SyntheticEvent } from "react";
 import Link from "next/link";
 import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
+import { foldDiacritics } from "@/lib/slug";
 
 type DirSig = { t: string; slug: string; n: number; fig: string };
 export type DirFeat = {
@@ -13,12 +14,12 @@ export type DirFeat = {
   tropesList: DirSig[];
   filmography: { t: string; y: number | null; s: string }[];
 };
-export type DirCat = { slug: string; name: string; country: string; films: number };
+export type DirCat = { slug: string; name: string; country: string | null; films: number; sig: string | null };
 
 const PHOTO = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w185${p}` : null);
 const BACKDROP = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w500${p}` : null);
 
-function firstLetter(s: string) { const c = (s || "").charAt(0).toUpperCase(); return c >= "A" && c <= "Z" ? c : "#"; }
+function firstLetter(s: string) { const c = foldDiacritics(s || "").charAt(0).toUpperCase(); return c >= "A" && c <= "Z" ? c : "#"; }
 
 const fadeRef = (el: HTMLImageElement | null) => { if (el && el.complete) el.classList.add("idx-on"); };
 const onImgLoad = (e: SyntheticEvent<HTMLImageElement>) => e.currentTarget.classList.add("idx-on");
@@ -94,6 +95,8 @@ export default function DirectorsIndex({ featured, catalogue }: { featured: DirF
         rollLabel="↻ reshuffle"
         tall
       />
+      {/* country=null directors don't appear in the Nationality view (no
+          "Unknown" group is ever exhibited); they stay reachable in A–Z. */}
       <Catalogue<DirCat>
         items={catalogue}
         modes={MODES}
@@ -111,8 +114,14 @@ export default function DirectorsIndex({ featured, catalogue }: { featured: DirF
         cell={(it) => ({
           href: `/director/${it.slug}`,
           title: it.name,
-          meta: `${it.films} ${it.films === 1 ? "film" : "films"} · ${it.country}`,
-          text: `${it.name} ${it.country}`.toLowerCase(),
+          meta: (
+            <>
+              {it.films} {it.films === 1 ? "film" : "films"}
+              {it.country ? <> · {it.country}</> : null}
+              {it.sig ? <> — <em>{it.sig}</em></> : null}
+            </>
+          ),
+          text: `${it.name} ${it.country ?? ""} ${it.sig ?? ""}`.toLowerCase(),
         })}
         title="The full catalogue of directors"
         sub="Every director on Metatake. Click any name to open their filmography, signature readings and tropes."

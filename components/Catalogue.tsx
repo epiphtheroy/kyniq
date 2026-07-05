@@ -32,7 +32,9 @@ export default function Catalogue<T>({
   items: T[];
   modes: CatMode[];
   defaultMode?: string;
-  groupOf: (it: T, mode: string) => string;
+  /** null = the item has no group in this mode and is omitted from it
+   *  (e.g. unknown nationality — never exhibit an "Unknown" group). */
+  groupOf: (it: T, mode: string) => string | null;
   orderGroups: (keys: string[], mode: string, groups: Record<string, T[]>) => string[];
   orderItems: (mode: string) => (a: T, b: T) => number;
   headerOf?: (key: string, mode: string) => string;
@@ -56,6 +58,7 @@ export default function Catalogue<T>({
     const m: Record<string, T[]> = {};
     for (const it of filtered) {
       const k = groupOf(it, mode);
+      if (k == null) continue;
       (m[k] ||= []).push(it);
     }
     const keys = orderGroups(Object.keys(m), mode, m);

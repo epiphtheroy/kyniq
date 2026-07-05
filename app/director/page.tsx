@@ -14,21 +14,26 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/director" },
+  openGraph: { title: TITLE, description: DESC, url: "/director" },
 };
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+type DirCatalogue = { total: number; items: DirCat[] };
+
 export default async function DirectorIndexPage() {
   const supabase = db();
   const [featuredRes, catRes] = await Promise.all([
     supabase.rpc("directors_featured", { p_n: 12 }),
-    supabase.rpc("directors_catalogue"),
+    supabase.rpc("directors_catalogue_v2"),
   ]);
 
   const featured = ((featuredRes.data as DirFeat[] | null) ?? []).filter((d) => d && d.tropesList?.length);
-  const catalogue = (catRes.data as DirCat[] | null) ?? [];
+  const cat = (catRes.data as DirCatalogue | null) ?? { total: 0, items: [] };
+  const catalogue = cat.items;
+  const total = cat.total;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -48,9 +53,11 @@ export default async function DirectorIndexPage() {
         ],
       },
       {
+        // Representative of the catalogue, not just the featured deck:
+        // numberOfItems is the DB-real total; the elements are the first 100 A–Z.
         "@type": "ItemList",
-        numberOfItems: catalogue.length,
-        itemListElement: featured.map((d, i) => ({
+        numberOfItems: total,
+        itemListElement: catalogue.slice(0, 100).map((d, i) => ({
           "@type": "ListItem",
           position: i + 1,
           name: d.name,
@@ -75,7 +82,7 @@ export default async function DirectorIndexPage() {
         </p>
 
         <p className="idx-intro">
-          <strong>{catalogue.length.toLocaleString()} directors.</strong> Each signature is shown with the{" "}
+          <strong>{total.toLocaleString()} directors.</strong> Each signature is shown with the{" "}
           <em>figure</em> that carries it — the concrete thing on screen, traced through one of the director&apos;s films.
           Start with one at random, then browse the catalogue below.
         </p>
