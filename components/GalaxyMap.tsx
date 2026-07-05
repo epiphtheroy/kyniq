@@ -6,11 +6,12 @@
  * director placed by their figure-embedding centroid (worker/galaxy-build.py).
  * Colour = taste neighbourhood (KMeans cluster).
  *
- * Canvas-rendered, event-driven draws (no rAF loop). Wheel zooms at the cursor,
- * drag pans. Left panel lists what's in the viewport (sortable); a row's text
- * locates the dot on the map, its ↗ opens the page. Clicking a dot opens a
- * right-side info card (poster, credits, open/zoom buttons) — on narrow screens
- * it navigates directly instead.
+ * Rendering: canvas. Zoomed out, points are coloured dots with decluttered
+ * always-on name labels (importance-first, grid collision). Zoomed in, dots
+ * become poster thumbnails (films) / circular faces (directors). A gentle
+ * sinusoidal drift keeps the field alive (rAF, paused on hidden tabs).
+ * Left panel lists the viewport (thumbnails, sortable; row text locates the
+ * dot, ↗ opens the page). Clicking a dot opens a right info card.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -19,7 +20,7 @@ type GPoint = {
   slug: string; title: string; x: number; y: number; c: number;
   year?: number | null;      // films
   d?: string | null;         // films: director name
-  p?: string | null;         // films: poster_path
+  p?: string | null;         // films: poster_path · directors: profile_path
   n?: number | null;         // directors: visible film count
 };
 type GCluster = { c: number; n: number; genre: string | null; trope?: string | null };
@@ -31,11 +32,21 @@ const PALETTE = [
   "#C8102E", "#1F6FB2", "#0F6E56", "#6D4AAE", "#B5642A", "#B23A8F", "#2E7D32",
   "#8D6E63", "#00838F", "#F9A825", "#5D4037", "#7B1FA2", "#455A64", "#AD1457",
 ];
-const LABEL_MAX = 70;   // draw titles on canvas when this few dots are visible
-const PANEL_CAP = 400;  // rows rendered in the side panel at once
+const PANEL_CAP = 400;   // rows rendered in the side panel at once
+const LABEL_CAP = 240;   // decluttered labels per view
+const THUMB_MIN = 16;    // px node height at which dots become thumbnails
 const IMG = "https://image.tmdb.org/t/p";
 
 const hrefOf = (kind: Kind, p: GPoint) => (kind === "films" ? `/film/${p.slug}` : `/director/${p.slug}`);
+const thumbUrl = (kind: Kind, p: GPoint) =>
+  p.p ? `${IMG}/${kind === "films" ? "w92" : "w185"}${p.p}` : null;
+
+// stable per-point phase for the drift animation
+function phase(slug: string) {
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) | 0;
+  return (h % 628) / 100; // 0..~6.28
+}
 
 export default function GalaxyMap({ height }: { height: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -52,6 +63,10 @@ export default function GalaxyMap({ height }: { height: number }) {
   const view = useRef({ cx: 0, cy: 0, scale: 0 });
   const drag = useRef<{ x: number; y: number; moved: boolean } | null>(null);
   const visTimer = useRef<number | null>(null);
+  const imgCache = useRef<Map<string, HTMLImageElement | "err">>(new Map());
+  const labelCache = useRef<{ key: string; slugs: Set<string> }>({ key: "", slugs: new Set() });
+  const drawRef = useRef<() => void>(() => {});
+  const rafOn = useRef(false);
 
   // deep link: /map?m=galaxy&g=directors
   useEffect(() => {
@@ -68,6 +83,8 @@ export default function GalaxyMap({ height }: { height: number }) {
         const j = (await r.json()) as Payload;
         if (!dead) {
           view.current = { cx: 0, cy: 0, scale: 0 }; // refit on next draw
+          imgCache.current = new Map();
+          labelCache.current = { key: "", slugs: new Set() };
           setData({ points: j.points ?? [], clusters: j.clusters ?? [] });
         }
       } catch { if (!dead) setData({ points: [], clusters: [] }); }
@@ -117,6 +134,24 @@ export default function GalaxyMap({ height }: { height: number }) {
     visTimer.current = window.setTimeout(computeVisible, 150);
   }, [computeVisible]);
 
+  const ensureImg = useCallback((p: GPoint) => {
+    const url = thumbUrl(kind, p);
+    if (!url) return null;
+    const got = imgCache.current.get(p.slug);
+    if (got === "err") return null;
+    if (got) return got.complete && got.naturalWidth > 0 ? got : null;
+    const im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = () => drawRef.current();
+    im.onerror = () => { imgCache.current.set(p.slug, "err"); };
+    im.src = url;
+    imgCache.current.set(p.slug, im);
+    return null;
+  }, [kind]);
+
+  const importance = useCallback((p: GPoint) =>
+    kind === "films" ? (p.p ? 10000 : 0) + (p.year ?? 0) : (p.n ?? 0), [kind]);
+
   const draw = useCallback(() => {
     const cv = canvasRef.current; if (!cv) return;
     const w = cv.clientWidth, h = cv.clientHeight;
@@ -127,59 +162,146 @@ export default function GalaxyMap({ height }: { height: number }) {
     ctx.clearRect(0, 0, w, h);
     if (!view.current.scale) view.current.scale = Math.min(w, h) / 230; // fit [-100,100] + margin
     const { cx, cy, scale } = view.current;
-    const r = Math.max(1.6, Math.min(4.5, scale * 0.9));
 
-    const onScreen: { p: GPoint; sx: number; sy: number }[] = [];
+    const t = performance.now() * 0.001;
+    const ampW = 1.7 / scale;                       // ~1.7px drift regardless of zoom
+    const thumbH = Math.min(52, scale * 2.0);
+    const useThumbs = thumbH >= THUMB_MIN;
+    const dotR = Math.max(1.6, Math.min(4.5, scale * 0.9));
+
+    // collect on-screen points at BASE coords (labels/pick stay stable under drift)
+    const onScreen: { p: GPoint; bx: number; by: number; sx: number; sy: number }[] = [];
     for (const p of data.points) {
-      const sx = (p.x - cx) * scale + w / 2;
-      const sy = (p.y - cy) * scale + h / 2;
-      if (sx < -6 || sy < -6 || sx > w + 6 || sy > h + 6) continue;
-      if (onScreen.length <= LABEL_MAX) onScreen.push({ p, sx, sy });
-      ctx.beginPath();
-      ctx.fillStyle = PALETTE[p.c % PALETTE.length] + "B8";
-      ctx.arc(sx, sy, r, 0, Math.PI * 2);
-      ctx.fill();
+      const bx = (p.x - cx) * scale + w / 2;
+      const by = (p.y - cy) * scale + h / 2;
+      if (bx < -40 || by < -40 || bx > w + 40 || by > h + 40) continue;
+      const ph = phase(p.slug);
+      const sx = bx + Math.sin(t * 0.45 + ph) * ampW * scale;
+      const sy = by + Math.cos(t * 0.34 + ph * 1.7) * ampW * scale;
+      onScreen.push({ p, bx, by, sx, sy });
     }
 
-    // titles beside the dots once the view is tight enough to read them
-    if (onScreen.length > 0 && onScreen.length <= LABEL_MAX) {
-      ctx.font = "500 11px var(--font-display, sans-serif)";
-      ctx.textAlign = "left";
-      for (const { p, sx, sy } of onScreen) {
-        const label = p.title.length > 26 ? p.title.slice(0, 25) + "…" : p.title;
-        ctx.lineWidth = 3; ctx.strokeStyle = "rgba(255,255,255,.85)";
-        ctx.strokeText(label, sx + r + 4, sy + 3.5);
-        ctx.fillStyle = "rgba(25,25,25,.92)";
-        ctx.fillText(label, sx + r + 4, sy + 3.5);
+    // nodes
+    for (const o of onScreen) {
+      const { p, sx, sy } = o;
+      const col = PALETTE[p.c % PALETTE.length];
+      const im = useThumbs ? ensureImg(p) : null;
+      if (im) {
+        if (kind === "films") {
+          const th = thumbH, tw = th * (2 / 3);
+          ctx.save();
+          ctx.beginPath();
+          if ("roundRect" in ctx) (ctx as CanvasRenderingContext2D).roundRect(sx - tw / 2, sy - th / 2, tw, th, 3);
+          else ctx.rect(sx - tw / 2, sy - th / 2, tw, th);
+          ctx.clip();
+          ctx.drawImage(im, sx - tw / 2, sy - th / 2, tw, th);
+          ctx.restore();
+          ctx.lineWidth = 1.4; ctx.strokeStyle = col;
+          ctx.strokeRect(sx - tw / 2, sy - th / 2, tw, th);
+        } else {
+          const rr = thumbH / 2;
+          ctx.save();
+          ctx.beginPath(); ctx.arc(sx, sy, rr, 0, Math.PI * 2); ctx.clip();
+          ctx.drawImage(im, sx - rr, sy - rr, rr * 2, rr * 2);
+          ctx.restore();
+          ctx.beginPath(); ctx.arc(sx, sy, rr, 0, Math.PI * 2);
+          ctx.lineWidth = 1.6; ctx.strokeStyle = col; ctx.stroke();
+        }
+      } else {
+        const r = useThumbs ? Math.max(dotR, thumbH * 0.22) : dotR;
+        ctx.beginPath();
+        ctx.fillStyle = col + "B8";
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
 
-    // cluster labels — genre pair, faint halo for legibility
-    ctx.font = "600 12px var(--font-display, sans-serif)";
-    ctx.textAlign = "center";
-    for (const c of centroids) {
-      const info = clusterInfo.get(c.c);
-      if (!info?.genre) continue;
-      const sx = (c.x - cx) * scale + w / 2;
-      const sy = (c.y - cy) * scale + h / 2;
-      if (sx < 0 || sy < 0 || sx > w || sy > h) continue;
-      ctx.lineWidth = 3; ctx.strokeStyle = "rgba(255,255,255,.82)";
-      ctx.strokeText(info.genre, sx, sy);
-      ctx.fillStyle = "rgba(20,20,20,.85)";
-      ctx.fillText(info.genre, sx, sy);
+    // always-on decluttered labels: decide WHICH points get labels once per view,
+    // then draw them at drifted positions each frame
+    const viewKey = `${kind}:${Math.round(cx * 10)}:${Math.round(cy * 10)}:${Math.round(scale * 10)}:${data.points.length}`;
+    if (labelCache.current.key !== viewKey) {
+      const taken = new Set<string>();
+      const slugs = new Set<string>();
+      const sorted = [...onScreen].sort((a, b) => importance(b.p) - importance(a.p));
+      const GX = 68, GY = 15;
+      for (const o of sorted) {
+        if (slugs.size >= LABEL_CAP) break;
+        const label = o.p.title.length > 24 ? o.p.title.slice(0, 23) + "…" : o.p.title;
+        const lw = 8 + label.length * 6.2;
+        const x0 = o.bx + 6, x1 = o.bx + 6 + lw, yr = Math.round(o.by / GY);
+        let free = true;
+        for (let gx = Math.floor(x0 / GX); gx <= Math.floor(x1 / GX); gx++) {
+          if (taken.has(`${gx}:${yr}`)) { free = false; break; }
+        }
+        if (!free) continue;
+        for (let gx = Math.floor(x0 / GX); gx <= Math.floor(x1 / GX); gx++) taken.add(`${gx}:${yr}`);
+        slugs.add(o.p.slug);
+      }
+      labelCache.current = { key: viewKey, slugs };
+    }
+    ctx.font = "500 11px var(--font-display, sans-serif)";
+    ctx.textAlign = "left";
+    const labelSet = labelCache.current.slugs;
+    for (const o of onScreen) {
+      if (!labelSet.has(o.p.slug)) continue;
+      const label = o.p.title.length > 24 ? o.p.title.slice(0, 23) + "…" : o.p.title;
+      const off = useThumbs ? (kind === "films" ? thumbH / 3 + 4 : thumbH / 2 + 4) : dotR + 4;
+      ctx.lineWidth = 3; ctx.strokeStyle = "rgba(255,255,255,.85)";
+      ctx.strokeText(label, o.sx + off, o.sy + 3.5);
+      ctx.fillStyle = "rgba(25,25,25,.92)";
+      ctx.fillText(label, o.sx + off, o.sy + 3.5);
     }
 
+    // cluster genre labels — only in dot mode (thumbnails carry their own info)
+    if (!useThumbs) {
+      ctx.font = "700 12.5px var(--font-display, sans-serif)";
+      ctx.textAlign = "center";
+      for (const c of centroids) {
+        const info = clusterInfo.get(c.c);
+        if (!info?.genre) continue;
+        const sx = (c.x - cx) * scale + w / 2;
+        const sy = (c.y - cy) * scale + h / 2;
+        if (sx < 0 || sy < 0 || sx > w || sy > h) continue;
+        ctx.lineWidth = 4; ctx.strokeStyle = "rgba(255,255,255,.88)";
+        ctx.strokeText(info.genre, sx, sy);
+        ctx.fillStyle = "rgba(20,20,20,.9)";
+        ctx.fillText(info.genre, sx, sy);
+      }
+    }
+
+    // hover / selected highlight
     const ring = (p: GPoint, color: string) => {
-      const sx = (p.x - cx) * scale + w / 2;
-      const sy = (p.y - cy) * scale + h / 2;
-      ctx.beginPath();
-      ctx.lineWidth = 2; ctx.strokeStyle = color;
-      ctx.arc(sx, sy, r + 2.5, 0, Math.PI * 2);
-      ctx.stroke();
+      const o = onScreen.find((q) => q.p.slug === p.slug);
+      const sx = o ? o.sx : (p.x - cx) * scale + w / 2;
+      const sy = o ? o.sy : (p.y - cy) * scale + h / 2;
+      ctx.lineWidth = 2.2; ctx.strokeStyle = color;
+      if (useThumbs && kind === "films") {
+        const th = thumbH, tw = th * (2 / 3);
+        ctx.strokeRect(sx - tw / 2 - 2.5, sy - th / 2 - 2.5, tw + 5, th + 5);
+      } else {
+        const rr = useThumbs ? thumbH / 2 + 2.5 : dotR + 2.5;
+        ctx.beginPath(); ctx.arc(sx, sy, rr, 0, Math.PI * 2); ctx.stroke();
+      }
     };
     if (selected) ring(selected, "#E3120B");
     if (hover && hover.p.slug !== selected?.slug) ring(hover.p, "#111");
-  }, [data.points, centroids, clusterInfo, hover, selected]);
+  }, [data.points, centroids, clusterInfo, hover, selected, kind, ensureImg, importance]);
+
+  useEffect(() => { drawRef.current = draw; }, [draw]);
+
+  // gentle drift loop — ~30fps, paused when the tab is hidden
+  useEffect(() => {
+    let raf = 0; let tick = 0;
+    rafOn.current = true;
+    const loop = () => {
+      if (!rafOn.current) return;
+      tick++;
+      if (tick % 2 === 0 && !document.hidden) drawRef.current();
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => { rafOn.current = false; cancelAnimationFrame(raf); };
+  }, []);
 
   useEffect(() => { draw(); }, [draw, height, narrow]);
   useEffect(() => { if (data.points.length) { draw(); scheduleVisible(); } }, [data.points, draw, scheduleVisible, narrow]);
@@ -193,6 +315,7 @@ export default function GalaxyMap({ height }: { height: number }) {
     const cv = canvasRef.current; if (!cv) return null;
     const w = cv.clientWidth, h = cv.clientHeight;
     const { cx, cy, scale } = view.current;
+    const tol = Math.max(10, Math.min(52, scale * 2.0) / 2 + 3);
     let best: GPoint | null = null; let bd = 9e9;
     for (const p of data.points) {
       const sx = (p.x - cx) * scale + w / 2;
@@ -200,7 +323,7 @@ export default function GalaxyMap({ height }: { height: number }) {
       const d = (sx - mx) * (sx - mx) + (sy - my) * (sy - my);
       if (d < bd) { bd = d; best = p; }
     }
-    return bd <= 100 ? best : null; // within 10px
+    return bd <= tol * tol ? best : null;
   }, [data.points]);
 
   const locate = useCallback((p: GPoint) => {
@@ -219,7 +342,6 @@ export default function GalaxyMap({ height }: { height: number }) {
     const v = view.current;
     const factor = Math.exp(-e.deltaY * 0.0015);
     const ns = Math.max(1, Math.min(60, v.scale * factor));
-    // keep the world point under the cursor fixed
     const wx = (mx - cv.clientWidth / 2) / v.scale + v.cx;
     const wy = (my - cv.clientHeight / 2) / v.scale + v.cy;
     v.cx = wx - (mx - cv.clientWidth / 2) / ns;
@@ -293,14 +415,34 @@ export default function GalaxyMap({ height }: { height: number }) {
     </span>
   );
 
-  const meta = (p: GPoint) =>
-    kind === "films" ? String(p.year ?? "") : `${p.n ?? 0}`;
+  const rowThumb = (p: GPoint) => {
+    const u = thumbUrl(kind, p);
+    if (!u) return (
+      <span aria-hidden="true" style={{
+        flex: "0 0 auto", width: kind === "films" ? 22 : 24, height: kind === "films" ? 33 : 24,
+        borderRadius: kind === "films" ? 3 : "50%", background: PALETTE[p.c % PALETTE.length] + "33",
+        display: "inline-grid", placeItems: "center", fontSize: 10, fontWeight: 800,
+        color: PALETTE[p.c % PALETTE.length],
+      }}>{p.title.slice(0, 1)}</span>
+    );
+    return (
+      /* eslint-disable-next-line @next/next/no-img-element */
+      <img src={u} alt="" loading="lazy" width={kind === "films" ? 22 : 24} height={kind === "films" ? 33 : 24}
+        style={{
+          flex: "0 0 auto", width: kind === "films" ? 22 : 24, height: kind === "films" ? 33 : 24,
+          objectFit: "cover", borderRadius: kind === "films" ? 3 : "50%",
+          border: `1.5px solid ${PALETTE[p.c % PALETTE.length]}55`,
+        }} />
+    );
+  };
+
+  const meta = (p: GPoint) => kind === "films" ? String(p.year ?? "") : `${p.n ?? 0}`;
 
   return (
     <div style={{ display: "flex", gap: 10, alignItems: "stretch" }}>
       {!narrow && (
         <div style={{
-          flex: "0 0 272px", width: 272, height, display: "flex", flexDirection: "column",
+          flex: "0 0 288px", width: 288, height, display: "flex", flexDirection: "column",
           border: "1px solid rgba(0,0,0,.08)", borderRadius: 10, background: "rgba(255,255,255,.72)", overflow: "hidden",
         }}>
           <div style={{ padding: "9px 12px 7px", borderBottom: "1px solid rgba(0,0,0,.07)", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 6 }}>
@@ -333,11 +475,11 @@ export default function GalaxyMap({ height }: { height: number }) {
                 onMouseEnter={() => hoverFromPanel(p)}
                 onMouseLeave={() => setHover(null)}
                 style={{
-                  display: "flex", gap: 7, alignItems: "baseline", padding: "3px 12px", fontSize: 12.5, lineHeight: 1.35,
+                  display: "flex", gap: 8, alignItems: "center", padding: "3px 12px", fontSize: 12.5, lineHeight: 1.3,
                   background: selected?.slug === p.slug ? "rgba(227,18,11,.07)" : "transparent",
                 }}
               >
-                <span style={{ color: PALETTE[p.c % PALETTE.length], fontSize: 9, flex: "0 0 auto" }}>●</span>
+                {rowThumb(p)}
                 <button
                   onClick={() => locate(p)}
                   title="Locate on the map"
@@ -405,10 +547,17 @@ export default function GalaxyMap({ height }: { height: number }) {
             boxShadow: "0 6px 24px rgba(0,0,0,.14)", overflow: "hidden",
           }}>
             <button onClick={() => setSelected(null)} aria-label="Close"
-              style={{ position: "absolute", top: 6, right: 8, border: 0, background: "none", fontSize: 15, fontWeight: 800, cursor: "pointer", opacity: .55, zIndex: 2 }}>×</button>
-            {kind === "films" && selected.p ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img src={`${IMG}/w342${selected.p}`} alt={`${selected.title} poster`} style={{ width: "100%", display: "block", aspectRatio: "2/3", objectFit: "cover" }} loading="lazy" />
+              style={{ position: "absolute", top: 6, right: 8, border: 0, background: "rgba(255,255,255,.8)", borderRadius: 999, width: 22, height: 22, fontSize: 13, fontWeight: 800, cursor: "pointer", opacity: .8, zIndex: 2 }}>×</button>
+            {selected.p ? (
+              kind === "films" ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={`${IMG}/w342${selected.p}`} alt={`${selected.title} poster`} style={{ width: "100%", display: "block", aspectRatio: "2/3", objectFit: "cover" }} loading="lazy" />
+              ) : (
+                <div style={{ display: "grid", placeItems: "center", padding: "16px 0 4px" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`${IMG}/w185${selected.p}`} alt={selected.title} style={{ width: 108, height: 108, borderRadius: "50%", objectFit: "cover", border: `3px solid ${PALETTE[selected.c % PALETTE.length]}` }} loading="lazy" />
+                </div>
+              )
             ) : (
               <div style={{ height: 64, display: "grid", placeItems: "center", background: PALETTE[selected.c % PALETTE.length] + "22", fontSize: 26, fontWeight: 800, color: PALETTE[selected.c % PALETTE.length] }}>
                 {selected.title.slice(0, 1)}
