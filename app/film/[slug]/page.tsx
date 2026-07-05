@@ -1038,19 +1038,40 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        {/* CONNECTED FILMS */}
+        {/* CONNECTED FILMS — top-5 kin with evidence; full ranked list lives on /movies-like */}
         {recs.length > 0 ? (
           <section className="df-sec" id="df-connected">
-            <h2 className="df-h2">Films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>see all →</Link></h2>
-            <p className="df-sub">Nearest neighbours in meaning-space — films Metatake places closest to this one, by shared tropes and taste distance. <Link href="/methodology#connections">How connections are computed →</Link></p>
+            <h2 className="df-h2">The 5 films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>full ranking →</Link></h2>
+            <p className="df-sub">Nearest neighbours in meaning-space, ranked by shared tropes and taste-vector proximity. <Link href="/methodology#connections">How connections are computed →</Link></p>
             <div className="df-conn">
-              {recs.map((r) => (
-                <div key={r.slug} className="df-crow">
-                  <Link className="df-ti" href={`/film/${r.slug}`}>{r.title}</Link>{" "}
-                  <span className="df-cyr">({r.year ?? "?"})</span>
+              {recs.map((r, i) => (
+                <div key={r.slug} className="df-crow" style={{ display: "flex", gap: 12, alignItems: "center", padding: "7px 0" }}>
+                  <span aria-hidden="true" style={{ flex: "0 0 22px", textAlign: "right", fontWeight: 800, fontSize: 15, opacity: i === 0 ? .95 : .45, fontVariantNumeric: "tabular-nums" }}>{i + 1}</span>
+                  {r.poster_path ? (
+                    <Link href={`/film/${r.slug}`} aria-label={r.title} style={{ flex: "0 0 40px" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`${IMG}/w92${r.poster_path}`} alt="" width={40} height={60} loading="lazy" style={{ width: 40, height: 60, objectFit: "cover", borderRadius: 5, display: "block" }} />
+                    </Link>
+                  ) : <span style={{ flex: "0 0 40px", height: 60, borderRadius: 5, background: "rgba(0,0,0,.06)" }} aria-hidden="true" />}
+                  <span style={{ minWidth: 0 }}>
+                    <Link className="df-ti" href={`/film/${r.slug}`}>{r.title}</Link>{" "}
+                    <span className="df-cyr">({r.year ?? "?"})</span>
+                    <span style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
+                      {r.cos != null ? (
+                        <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(31,111,178,.10)", color: "#1a4e7a" }}>taste match {Math.round(r.cos * 100)}%</span>
+                      ) : null}
+                      <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(15,110,86,.10)", color: "#0b5343" }}>
+                        {r.sharedN > 0 ? `${r.sharedN} shared trope${r.sharedN > 1 ? "s" : ""}` : "taste neighbour"}
+                      </span>
+                    </span>
+                  </span>
                 </div>
               ))}
             </div>
+            <p style={{ fontSize: 11.5, opacity: .6, margin: "12px 0 0" }}>
+              Computed by Metatake&apos;s connection engine · Edited by <Link href="/editor">Wonwoo Yoon</Link>
+              {recsUpdated ? <> · Updated {new Date(recsUpdated).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</> : null}
+            </p>
           </section>
         ) : null}
 
@@ -1067,7 +1088,10 @@ export default async function FilmPage({ params }: Props) {
               {counterpoints.map((c) => (
                 <div key={`${c.film.slug}-${c.trope.slug}`} className="df-crow">
                   <Link className="df-ti" href={`/film/${c.film.slug}`}>{c.film.title}</Link>{" "}
-                  <span className="df-cyr">({c.film.year ?? "?"}{c.film.director ? `, ${c.film.director}` : ""})</span>
+                  <span className="df-cyr">({c.film.year ?? "?"}{c.film.director ? `, ${c.film.director}` : ""})</span>{" "}
+                  <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(230,126,34,.12)", color: "#9a4d0c", whiteSpace: "nowrap" }}>
+                    readings diverge {Math.round((1 - c.sim) * 100)}%
+                  </span>
                   <p className="wn-why">
                     Both stage <Link href={`/trope/${c.trope.slug}`}>{c.trope.title}</Link>
                     {c.here?.take && c.there?.take ? (
@@ -1087,6 +1111,10 @@ export default async function FilmPage({ params }: Props) {
                 </div>
               ))}
             </div>
+            <p style={{ fontSize: 11.5, opacity: .6, margin: "12px 0 0" }}>
+              <b>readings diverge N%</b> = distance between the two films&apos; reading vectors on the shared trope
+              (100% = opposite readings). Computed by Metatake&apos;s connection engine · Edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology#connections">How it works →</Link>
+            </p>
           </section>
         ) : null}
 
