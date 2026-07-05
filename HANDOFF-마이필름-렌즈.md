@@ -43,7 +43,9 @@
 - **딥링크 분류 확장**: `FILM_HREF`가 `/film/x/figure/y` 등 하위 경로도 영화 x 귀속으로 매칭 — 스트롱 미스리딩 카드가 렌즈·정렬 대상이 됨.
 - **갤럭시 패널**: sortedVisible에 seen-first 밴드(하이라이트 모드), 헤더에 "· yours first" 표시.
 - **FilmMap 패널**: groups에 seen-first 밴드(하이라이트 모드; only는 이미 필터라 무의미), focus 영화는 여전히 최상단.
-- **한계**: 페이지네이션/무한스크롤 표면은 로드된 범위 안에서만 정렬(서버 쿼리는 건드리지 않음 — 캐시 원칙). 블록형(비 flex/grid) 리스트는 엔진 정렬 미적용.
+- **블록 리스트 옵트인**: 행 스택 컨테이너를 `display:flex;flex-direction:column`으로 바꾸면(시각 동일) 행 단위 정렬이 활성화됨 — `.smb-list`(스트롱 미스리딩 유형 페이지), `.df-conn`(film 상세 connected/counterpoints)에 적용. 새 행형 리스트도 같은 방식으로 옵트인.
+- **counterpoint 특례**: seen 영화 페이지의 counterpoint 행은 자기 영화 figure 링크 때문에 전부 seen 판정 → 가드(전원 seen이면 스킵)로 무해하게 no-op. unseen 영화 페이지에선 정상 정렬.
+- **한계**: 페이지네이션/무한스크롤 표면은 로드된 범위 안에서만 정렬(서버 쿼리는 건드리지 않음 — 캐시 원칙). 블록형(비 flex/grid) 리스트는 옵트인 전까지 엔진 정렬 미적용.
 
 ## 엔티티별 렌즈 규칙 (기획 결정)
 
