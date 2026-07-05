@@ -80,10 +80,14 @@ export function LensProvider({ children }: { children: React.ReactNode }) {
           (() => { const m = FILM_HREF.exec(el.getAttribute("href") ?? ""); return m ? decodeURIComponent(m[1]) : null; })();
         if (!slug) return;
         const isSeen = seenSlugs.has(slug);
-        // cards carry a poster <img> (or are bespoke data-lens-film nodes);
-        // icon-only anchors ("↗") are left unmarked to avoid ✓ noise.
-        const isCard = !!el.dataset.lensFilm || !!el.querySelector("img");
-        const isInline = !isCard && (el.textContent ?? "").trim().length >= 3;
+        // classification: poster/bespoke/block anchors are "cards" (border on
+        // their img when seen; ghosted whole in only-mode). Only true inline
+        // text links get the ✓ — block anchors would render it in odd spots,
+        // and icon-only anchors ("↗") stay unmarked to avoid noise.
+        const hasImg = !!el.dataset.lensFilm || !!el.querySelector("img");
+        const hasText = (el.textContent ?? "").trim().length >= 3;
+        const isInline = !hasImg && hasText && getComputedStyle(el).display.startsWith("inline");
+        const isCard = hasImg || (hasText && !isInline);
         el.classList.toggle("mtl-card", isCard);
         el.classList.toggle("mtl-inline", isInline);
         el.classList.toggle("mtl-seen", (isCard || isInline) && isSeen);
