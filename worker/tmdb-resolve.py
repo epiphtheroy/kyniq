@@ -84,8 +84,11 @@ def tmdb(path):
     except Exception: return None
 
 # ---------- normalize ----------
+# Letters with no NFKD decomposition (ł ø đ ß …) would be dropped by the
+# ascii-ignore pass ("Paweł"→"pawe") — transliterate them first.
+_TRANSLIT = str.maketrans({"ł":"l","Ł":"L","ø":"o","Ø":"O","đ":"d","Đ":"D","ß":"ss","æ":"ae","Æ":"AE","œ":"oe","Œ":"OE","ð":"d","Ð":"D","þ":"th","Þ":"Th","ı":"i","ħ":"h","ŋ":"n"})
 def deaccent(s):  # "Almodóvar"→"Almodovar", "Cléo"→"Cleo", "8½"→"812"
-    return unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode("ascii")
+    return unicodedata.normalize("NFKD", (s or "").translate(_TRANSLIT)).encode("ascii", "ignore").decode("ascii")
 def norm(s):  # title key (accent-insensitive)
     return re.sub(r"[^a-z0-9]", "", deaccent(s).lower())
 def slugify(s):

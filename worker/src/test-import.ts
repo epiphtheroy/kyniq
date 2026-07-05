@@ -57,11 +57,15 @@ function extractDirector(movie: Record<string, unknown>): string {
   return credits.crew.find((c) => c.job === "Director")?.name ?? "";
 }
 
+// Mirrors lib/slug.ts (worker builds don't share the app's path aliases):
+// NFKD-fold diacritics so "Kaurismäki" → "kaurismaki", never "kaurism-ki".
+const TRANSLIT: Record<string, string> = { "ł": "l", "ø": "o", "đ": "d", "ß": "ss", "æ": "ae", "œ": "oe", "ð": "d", "þ": "th", "ı": "i" };
 function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+  let folded = "";
+  for (const ch of text.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")) {
+    folded += ch.charCodeAt(0) > 127 ? TRANSLIT[ch] ?? ch : ch;
+  }
+  return folded.replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
 // ── Main test ───────────────────────────────────────────────────

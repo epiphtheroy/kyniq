@@ -98,14 +98,8 @@ async function tmdbGet<T>(path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-export function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "") // strip diacritics
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+import { slugify } from "@/lib/slug";
+export { slugify };
 
 export function filmSlug(title: string, year: number): string {
   return `${slugify(title)}-${year}`;

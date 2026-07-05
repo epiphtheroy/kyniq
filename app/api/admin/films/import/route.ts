@@ -69,12 +69,7 @@ function extractDirector(movie: Record<string, unknown>): string {
   return director?.name ?? "";
 }
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+import { slugify } from "@/lib/slug";
 
 function parseCsvBody(body: string): ImportRow[] {
   const lines = body

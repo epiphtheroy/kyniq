@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
@@ -10,6 +10,7 @@ import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
 import crewIndex from "@/lib/crew_index.json";
 import { directorRepertory } from "@/lib/filmCrew";
 import { directorNative } from "@/lib/nativeName";
+import { resolveAlias } from "@/lib/aliases";
 import "@/app/credits/credits.css";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
@@ -233,7 +234,13 @@ const SIG_LIMIT = 12;
 export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) notFound();
+  if (!data) {
+    // Renamed/merged director slugs live in the slug_aliases ledger — honor
+    // them as permanent redirects before 404ing (same pattern as /film, /take).
+    const alias = await resolveAlias(`/director/${slug}`);
+    if (alias) permanentRedirect(alias);
+    notFound();
+  }
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0 } = data;
   const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft

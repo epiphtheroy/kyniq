@@ -17,7 +17,7 @@ Usage:
   python3 tmdb-fetch.py --film forrest-gump-1994 --persist
   python3 tmdb-fetch.py --persist            # all films with a tmdb_id
 """
-import os, sys, json, re, time, urllib.request, urllib.error, urllib.parse
+import os, sys, json, re, time, unicodedata, urllib.request, urllib.error, urllib.parse
 HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
 def load_env(p):
     if not os.path.exists(p): return
@@ -67,8 +67,13 @@ def fetch_all(path):
         if len(b)<1000: break
         off+=1000
     return rows
+# Mirrors tmdb-resolve.py: NFKD + translit so diacritics fold instead of
+# vanishing ("Kaurismäki"→"kaurismaki", never "kaurism-ki").
+_TRANSLIT = str.maketrans({"ł":"l","Ł":"L","ø":"o","Ø":"O","đ":"d","Đ":"D","ß":"ss","æ":"ae","Æ":"AE","œ":"oe","Œ":"OE","ð":"d","Ð":"D","þ":"th","Þ":"Th","ı":"i","ħ":"h","ŋ":"n"})
+def deaccent(s):
+    return unicodedata.normalize("NFKD", (s or "").translate(_TRANSLIT)).encode("ascii","ignore").decode("ascii")
 def slugify(s):
-    s=re.sub(r"[^a-z0-9]+","-",(s or "").lower()).strip("-"); return s[:80] or "x"
+    s=re.sub(r"[^a-z0-9]+","-",deaccent(s).lower()).strip("-"); return s[:80] or "x"
 
 def cert_of(rd):
     """Pick a recognizable certification: US first, then KR, then any non-empty."""

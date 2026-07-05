@@ -5,6 +5,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import LensQuickBar from "@/components/LensQuickBar";
+import { slugify } from "@/lib/slug";
 import type { MvDetail, MvFilm } from "@/app/movements/[slug]/page";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -99,7 +100,7 @@ export default function MovementHubClient({ d }: { d: MvDetail }) {
           <h2 className="mvh-h2">Key auteurs</h2>
           <div className="mvh-auteurs">
             {d.auteurs.map((a) => (
-              <Link key={a.director} className="mvh-aut" href={`/director/${a.director.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}>
+              <Link key={a.director} className="mvh-aut" href={`/director/${slugify(a.director)}`}>
                 {a.director}<span>{a.n}</span>
               </Link>
             ))}
