@@ -250,14 +250,25 @@ export default async function FigurePage({ params }: Props) {
     ],
   };
 
+  // The lead question — rendered verbatim as the visible H2 above the
+  // description, so the FAQ markup always mirrors on-page content.
+  const leadQuestion = `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`;
+  const topConn = connections.length > 0 ? connections[0] : null;
   const faqLd = figure.description ? {
     "@context": "https://schema.org", "@type": "FAQPage",
     ...(figure.created_at ? { datePublished: figure.created_at as string } : {}),
     ...(figure.updated_at ? { dateModified: figure.updated_at as string } : {}),
-    mainEntity: [{
-      "@type": "Question", name: `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`,
-      acceptedAnswer: { "@type": "Answer", text: String(figure.description) },
-    }],
+    mainEntity: [
+      {
+        "@type": "Question", name: leadQuestion,
+        acceptedAnswer: { "@type": "Answer", text: plainText(String(figure.description)) },
+      },
+      // Mirrors the visible "Connected figures" section (films sharing the top trope).
+      ...(topConn ? [{
+        "@type": "Question", name: `Which other films share the ${topConn.title} trope with ${film.title}?`,
+        acceptedAnswer: { "@type": "Answer", text: `${topConn.total} other ${topConn.total === 1 ? "figure carries" : "figures carry"} ${topConn.title} on Metatake, in films such as ${topConn.siblings.slice(0, 6).map((s) => `${s.filmTitle}${s.year ? ` (${s.year})` : ""}`).join(", ")}.` },
+      }] : []),
+    ],
   } : null;
 
   return (
@@ -304,7 +315,11 @@ export default async function FigurePage({ params }: Props) {
               <span className="fg-type">
                 Type{" "}
                 {tropes.map((t, i) => (
-                  <span key={t.slug}>{i > 0 ? ", " : ""}<Link href={`/trope/${t.slug}`}>{t.title}</Link></span>
+                  <span key={t.slug}>
+                    {i > 0 ? ", " : ""}
+                    <Link href={`/trope/${t.slug}`}>{t.title}</Link>
+                    {t.filmCount != null && t.filmCount > 1 ? <span className="fg-type__n"> (in {t.filmCount} films)</span> : null}
+                  </span>
                 ))}
               </span>
             ) : null}
@@ -332,7 +347,12 @@ export default async function FigurePage({ params }: Props) {
           ) : null}
 
           {figure.description ? (
-            <p className="fg-desc">{renderTokens(figure.description, resolver)}</p>
+            <>
+              {/* Visible twin of the FAQ question — film title + figure in one
+                  query-shaped heading, so the figure never reads film-less. */}
+              <h2 className="fg-qh">{leadQuestion}</h2>
+              <p className="fg-desc">{renderTokens(figure.description, resolver)}</p>
+            </>
           ) : null}
 
           <div className="fg-search">
