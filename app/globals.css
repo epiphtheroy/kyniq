@@ -1859,6 +1859,10 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .idx-tabs button[data-on]{color:#fff;background:var(--ink);border-color:var(--ink);font-weight:600}
 .idx-tabs button:hover{border-color:var(--ink);color:var(--ink)}.idx-tabs button[data-on]:hover{color:#fff}
 .idx-tabs .tot{margin-left:auto;color:var(--subtle)}
+/* link-based tabs (server-rendered view switch / pagination) — same look as the buttons */
+.idx-tabs a.vtab{border:1px solid var(--hairline-2);border-radius:3px;font-size:12.5px;color:var(--muted);padding:3px 11px}
+.idx-tabs a.vtab[data-on]{color:#fff;background:var(--ink);border-color:var(--ink);font-weight:600}
+.idx-tabs a.vtab:hover{border-color:var(--ink);color:var(--ink)}.idx-tabs a.vtab[data-on]:hover{color:#fff}
 .idx-filter{width:100%;font-family:var(--font-ui);font-size:14px;border:1px solid var(--hairline-2);border-radius:3px;padding:9px 12px;margin:8px 0;color:var(--ink)}
 .idx-filter:focus{outline:none;border-color:var(--ink)}
 .idx-azbar{position:sticky;top:55px;z-index:50;background:var(--bg);display:flex;flex-wrap:wrap;gap:1px;padding:7px 0;margin:0 0 4px;border-bottom:1px solid var(--hairline)}
@@ -2483,6 +2487,12 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .df-via .df-via__lab { color:var(--faint); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; margin-right:4px; }
 .df-via .df-f { color:var(--accent); font-weight:600; }
 .df-via .df-f:hover { text-decoration:underline; }
+/* this film's own reading of the trope — take_title line under the trope row */
+.df-ttl { width:100%; font-family:var(--font-ui); font-size:12.5px; color:var(--ink2); }
+.df-ttl a { color:var(--ink2); font-weight:600; }
+.df-ttl a:hover { color:var(--accent); }
+.df-ttl .df-ttl__lab { color:var(--faint); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; margin-right:4px; }
+.df-ttl .df-ttl__arr { color:var(--hairline-2); }
 .df-mrow.df-top .df-t:after { content:"central"; font-family:var(--font-ui); font-size:9px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); padding:1px 4px; margin-left:8px; vertical-align:middle; }
 .df-tcol .df-mrow .df-t:hover { color:var(--teal); }
 .df-tcol .df-via .df-f { color:var(--teal); }
@@ -3603,6 +3613,9 @@ a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .msa-t{flex:1; font-family:var(--font-display); font-size:14px; line-height:1.3}
 .msa-y{color:var(--subtle)}
 .msa-badge{font-family:var(--font-ui); font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); border:1px solid var(--accent); border-radius:4px; padding:0 5px; margin-left:7px}
+/* Tier-2 "Catalog" marker — the film is in the database but not yet read closely.
+   Shared by /credits/[person], /film ?view=all and site search results. */
+.t2-chip{font-family:var(--font-ui); font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); border:1px solid var(--hairline-2); border-radius:4px; padding:1px 5px; margin-left:7px; vertical-align:1px; white-space:nowrap}
 .msa-acts{display:flex; gap:6px}
 .msa-acts button{font-family:var(--font-ui); font-size:12px; padding:4px 9px; border:1px solid var(--hairline-2); border-radius:6px; background:#fff; cursor:pointer}
 .msa-acts button:hover{border-color:var(--ink)}

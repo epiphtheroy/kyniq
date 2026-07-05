@@ -62,9 +62,9 @@ const KIND_ORDER = ["film", "character", "object", "location", "form", "trope", 
 
 type Fig = { id: string; kind: string | null; label: string; slug: string | null; description: string | null };
 type FigRef = { label: string; slug: string | null };
-type FilmLink = { slug: string; title: string; figs: FigRef[] };
+type FilmLink = { slug: string; title: string; figs: FigRef[]; takeTitle: string | null; takeHref: string | null };
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
-type TakeRow = { id: string; figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null };
+type TakeRow = { id: string; figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null; trope_id: string | null };
 type SM = { id: string; framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
 type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null };
 type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string };
@@ -156,16 +156,26 @@ async function loadUncached(slug: string) {
   let invitation: string | null = null;
   const misreadings: SM[] = [];
   const takeCount = new Map<string, number>();
+  // trope_id → this film's own reading of that trope (title + carrying figure).
+  const tropeTake = new Map<string, { title: string; figSlug: string | null; strength: number; takeId: string }>();
   if (figIds.length) {
     const { data: takeRows } = await supabase
       .from("takes")
-      .select("id, figure_id, framework, take_title, rationale, leap, strength, is_invitation")
+      .select("id, figure_id, framework, take_title, rationale, leap, strength, is_invitation, trope_id")
       .in("figure_id", figIds).eq("status", "published");
     for (const t of (takeRows ?? []) as TakeRow[]) {
       if (t.is_invitation) { if (!invitation) invitation = t.rationale; continue; }
       const f = figById.get(t.figure_id);
       misreadings.push({ id: t.id, framework: t.framework, take_title: t.take_title, thesis: t.rationale, leap: t.leap, strength: t.strength, figLabel: f?.label ?? "", figSlug: f?.slug ?? null });
       takeCount.set(t.figure_id, (takeCount.get(t.figure_id) ?? 0) + 1);
+      // Per-trope: THIS film's reading title (strongest take wins; ties → take id, deterministic).
+      if (t.trope_id && t.take_title) {
+        const cur = tropeTake.get(t.trope_id);
+        const s = t.strength ?? 0;
+        if (!cur || s > cur.strength || (s === cur.strength && t.id < cur.takeId)) {
+          tropeTake.set(t.trope_id, { title: t.take_title, figSlug: f?.slug ?? null, strength: s, takeId: t.id });
+        }
+      }
     }
   }
   misreadings.sort((a, b) => fwOrder(a.framework) - fwOrder(b.framework));
@@ -187,7 +197,15 @@ async function loadUncached(slug: string) {
         if (!arr.some((x) => x.label === fg.label)) arr.push(fg);
         tFigs.set(r.meta_take_id, arr);
       }
-      tropes = [...tFigs.entries()].map(([id, figs]) => { const m = tmMap.get(id)!; return { slug: m.slug, title: m.title, figs }; })
+      tropes = [...tFigs.entries()].map(([id, figs]) => {
+        const m = tmMap.get(id)!;
+        const bt = tropeTake.get(id);
+        return {
+          slug: m.slug, title: m.title, figs,
+          takeTitle: bt?.title ?? null,
+          takeHref: bt?.figSlug ? `/film/${film.slug}/figure/${bt.figSlug}` : null,
+        };
+      })
         .sort((a, b) => b.figs.length - a.figs.length || a.title.localeCompare(b.title));
     }
   }
@@ -928,6 +946,14 @@ export default async function FilmPage({ params }: Props) {
                           : <span className="df-f">{fg.label}</span>}
                       </span>
                     ))}{t.figs.length > 3 ? ` +${t.figs.length - 3}` : ""}</span>
+                  ) : null}
+                  {t.takeTitle ? (
+                    <span className="df-ttl">
+                      <span className="df-ttl__lab">reading</span>
+                      {t.takeHref
+                        ? <Link href={t.takeHref}>{t.takeTitle}<span className="df-ttl__arr"> →</span></Link>
+                        : t.takeTitle}
+                    </span>
                   ) : null}
                 </div>
               ))}
