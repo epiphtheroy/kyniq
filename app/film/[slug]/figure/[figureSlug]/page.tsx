@@ -82,12 +82,31 @@ async function load(slug: string, figureSlug: string) {
   });
   const { data: tropeRows } = await supabase
     .from("figure_type_members")
-    .select("meta_take:meta_takes!inner(id, slug, title, kind, status)")
+    .select("meta_take:meta_takes!inner(id, slug, title, kind, status, film_count)")
     .eq("figure_id", figure.id);
   const tropes = ((tropeRows ?? []) as unknown[])
-    .map((r) => (r as { meta_take: { id: string; slug: string; title: string; kind: string; status: string } }).meta_take)
+    .map((r) => (r as { meta_take: { id: string; slug: string; title: string; kind: string; status: string; film_count: number | null } }).meta_take)
     .filter((m) => m && m.kind === "figure_type" && m.status === "published")
-    .map((m) => ({ id: m.id, slug: m.slug, title: m.title }));
+    .map((m) => ({ id: m.id, slug: m.slug, title: m.title, filmCount: m.film_count ?? null }));
+
+  // Nearest figures by embedding (surface kinship) — live cosine, cross-film only.
+  // figure_neighbors returns no slugs, so a second lookup resolves link targets.
+  type Neighbor = { id: string; label: string; slug: string | null; sim: number; filmTitle: string; filmSlug: string; year: number | null };
+  let neighbors: Neighbor[] = [];
+  const { data: nbRaw } = await supabase.rpc("figure_neighbors", { p_figure: figure.id, p_k: 12, p_min: 0.5 });
+  const nbRows = ((nbRaw ?? []) as { id: string; label: string; film: string; sim: number }[]);
+  if (nbRows.length) {
+    const { data: nbFigs } = await supabase
+      .from("figures").select("id, label, slug, film:films!inner(title, slug, year, visible)")
+      .in("id", nbRows.map((r) => r.id));
+    const bySim = new Map(nbRows.map((r) => [r.id, r.sim]));
+    neighbors = ((nbFigs ?? []) as unknown[])
+      .map((r) => r as { id: string; label: string; slug: string | null; film: { title: string; slug: string; year: number | null; visible: boolean | null } })
+      .filter((x) => x.film.slug !== film.slug && x.film.visible !== false)
+      .map((x) => ({ id: x.id, label: x.label, slug: x.slug, sim: bySim.get(x.id) ?? 0, filmTitle: x.film.title, filmSlug: x.film.slug, year: x.film.year }))
+      .sort((a, b) => b.sim - a.sim || a.filmTitle.localeCompare(b.filmTitle))
+      .slice(0, 8);
+  }
 
   // Catalog classification — what this figure IS (taxonomy layer), spelled out per axis.
   const { data: catRows } = await supabase
@@ -129,7 +148,7 @@ async function load(slug: string, figureSlug: string) {
     }
   }
 
-  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition };
+  return { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition, neighbors };
 }
 
 // Display order for the figure-page "Classified as" line (named archetype first, then tiers, then themes).
@@ -190,7 +209,7 @@ export default async function FigurePage({ params }: Props) {
   const { slug, figureSlug } = await params;
   const data = await load(slug, figureSlug);
   if (!data) notFound();
-  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition } = data;
+  const { film, figure, takes, metaTakes, tropes, connections, catalog, conceptSlugs, tradition, neighbors } = data;
   if (takes.length === 0) redirect(`/film/${film.slug}`);   // unanchored old figure (no readings) → film page, not an empty shell
   // Related-boxes sections (SEO module) — deterministic, per-figure mix.
   const relatedSections = await relatedForFigure({
