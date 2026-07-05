@@ -108,6 +108,14 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    permanentRedirect, no slug_aliases rows). Film pages: separate Honors
  *    tab removed — the Lineage tab/section itself now carries the honours
  *    presentation (per-row source tags via lnListMeta).
+ *  - 2026-07-06 (user decision, mirror of the honours move): the per-film
+ *    locations page moved to /film/atlas/[slug]; old /film/x/locations 308s
+ *    (whole-pattern permanentRedirect). Film pages: separate Locations tab
+ *    removed — the Atlas section's pill button links out instead. Spec pack
+ *    site_content/ (SEO_LINEAGE_SPEC etc.) applied the same day: bare-QID
+ *    citation fix, Movie-node parity (@id/date/sameAs/award on film + record
+ *    pages), Dataset on /lineage, "N of M matched" completeness notes
+ *    (KNOWN_TRUE_SIZE, definitional sizes only), methodology Lineage section.
  *  - 2026-07-06 (film-page trope depth, follow-up to the 07-05 upgrade):
  *    each Tropes row on /film/[slug] now carries this film's own reading
  *    title (strongest published take via takes.trope_id) linking to the
