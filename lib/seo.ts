@@ -83,6 +83,17 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    City"/"New York" merge). New child sitemaps/cities.xml (no cohort —
  *    the artifact IS the release set, capped 1000). Pages re-check the
  *    ≥3-film bar via robots as drift protection.
+ *  - 2026-07-05 (figure/trope/archetype on-page upgrade — no sitemap change):
+ *    /trope/[slug] members now RANKED live via new RPC trope_members_ranked
+ *    (cosine take↔trope embedding; figure_type_members.sim is constant per
+ *    trope = cohesion, unusable) with % match badges, listicle titles
+ *    ("… — N films that stage this trope, ranked"), ItemList + FAQPage
+ *    JSON-LD, coherence stat. Figure pages: visible lead-question H2 (twin
+ *    of FAQ), trope Type counts, NEW nearest-figures section (figure_neighbors
+ *    RPC, cross-film only). /catalog nodes: double-brand title fix, count+
+ *    ranked titles, rank №s + confidence %, kindred sim %, Byline/Provenance
+ *    + CollectionPage dates/editor, FAQPage. /methodology#rankings explains
+ *    every % — all numbers render-derived, nothing baked.
  *  - 2026-07-05 (Lineage read layer): the awards/canons corpus (398 lists,
  *    10,551 sourced memberships, 300 Wikidata QIDs) surfaces — /lineage/[slug]
  *    pages upgraded (search-phrase titles, double-brand fix, robots ≥3
