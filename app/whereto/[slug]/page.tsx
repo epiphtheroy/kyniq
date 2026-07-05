@@ -7,6 +7,7 @@ import WatchPageClient, { type WatchFilm, type WatchData, type WatchRatings } fr
 import type { AccessRecord } from "@/components/AccessEnrichment";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { resolveAlias } from "@/lib/aliases";
+import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -30,7 +31,7 @@ async function load(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, runtime, poster_path, imdb_id, tmdb_id")
+    .select("id, title, slug, year, director, runtime, poster_path, imdb_id, tmdb_id, visible")
     .eq("slug", slug).maybeSingle();
   if (!film) return null;
   const [{ data: wpRow }, { data: ratRow }, { data: codex }, { data: figRows }, { data: qRows }] = await Promise.all([
@@ -42,7 +43,7 @@ async function load(slug: string) {
   ]);
   const cx = codex as { v: number; c: number; r: number } | null;
   return {
-    film: film as WatchFilm & { id: string },
+    film: film as WatchFilm & { id: string; visible: boolean | null },
     watch: (wpRow as WatchData) ?? null,
     ratings: (ratRow as WatchRatings) ?? null,
     takeScore: cx ? Math.round(cx.v - cx.r) : null,
@@ -65,6 +66,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title, description },
     twitter: { card: "summary", title, description },
     alternates: { canonical: `/whereto/${slug}` },
+    // Same gate as the film page: hidden (Tier-2) films' watch pages stay
+    // crawlable but out of the index.
+    robots: pageRobots(film.visible !== false),
   };
 }
 

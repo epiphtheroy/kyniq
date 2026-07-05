@@ -12,7 +12,8 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
 type Kind = "film" | "reading" | "figure" | "director" | "trope";
-interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number }
+// is_catalog: optional — set (true) on Tier-2 catalog film rows once the RPC ships it; absent today.
+interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number; is_catalog?: boolean | null }
 
 const KIND_LABEL: Record<Kind, string> = { film: "Film", reading: "Reading", figure: "Figure", director: "Director", trope: "Trope" };
 function hrefOf(r: Row): string {
@@ -96,7 +97,7 @@ export default function SearchBox({ variant = "nav" }: { variant?: "nav" | "hero
                   onClick={() => go(r)}
                 >
                   <span className={`sb-kind sb-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span>
-                  <span className="sb-title">{r.title}</span>
+                  <span className="sb-title">{r.title}{r.is_catalog === true ? <span className="t2-chip">catalog</span> : null}</span>
                   {r.sub ? <span className="sb-sub">{r.sub}</span> : null}
                 </button>
               ))}

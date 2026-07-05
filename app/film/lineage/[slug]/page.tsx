@@ -299,7 +299,7 @@ export default async function FilmHonorsPage({ params }: Props) {
           <p style={{ lineHeight: 1.9, margin: "6px 0 0" }}>
             <Link href={`/film/${film.slug}`}>{film.title} — the film page →</Link>
             {hasLocationsPage ? (
-              <><br /><Link href={`/film/${film.slug}/locations`}>Where was {film.title} filmed? Every location, mapped →</Link></>
+              <><br /><Link href={`/film/atlas/${film.slug}`}>Where was {film.title} filmed? Every location, mapped →</Link></>
             ) : null}
             {film.director_slug ? (
               <><br /><Link href={`/director/${film.director_slug}`}>{film.director} — the director hub →</Link></>

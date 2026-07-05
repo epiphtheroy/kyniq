@@ -262,7 +262,7 @@ export default async function AtlasCityPage({ params }: Props) {
                   </p>
                   {eligible.has(f.slug) ? (
                     <p style={{ margin: "3px 0 0", fontSize: 13.5 }}>
-                      <Link href={`/film/${f.slug}/locations`}>Where was {f.title} filmed? All locations →</Link>
+                      <Link href={`/film/atlas/${f.slug}`}>Where was {f.title} filmed? All locations →</Link>
                     </p>
                   ) : null}
                 </div>

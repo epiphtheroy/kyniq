@@ -70,7 +70,7 @@ export async function GET(req: Request) {
   } else if (mode === "overview") {
     rows = (await db.rpc("geo_overview_sample_json")).data;
   } else {
-    rows = (await db.rpc("geo_overview_json", { p_limit: 20000 })).data;
+    rows = (await db.rpc("geo_overview_json", { p_limit: 30000 })).data;
     if (!Array.isArray(rows)) rows = (await db.rpc("geo_overview", { p_limit: 5000 })).data; // fallback
   }
   return NextResponse.json(rows ?? [], { headers: { "cache-control": "public, max-age=300, s-maxage=600, stale-while-revalidate=3600" } });

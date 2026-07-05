@@ -376,7 +376,7 @@ export async function filmLocationsEntries(): Promise<SitemapEntry[]> {
   const { films } = await loadAtlasEligibility();
   return films
     .slice(0, INDEX_COHORT_FILM_LOCATIONS)
-    .map((f) => ({ url: `${siteUrl}/film/${f.slug}/locations` }));
+    .map((f) => ({ url: `${siteUrl}/film/atlas/${f.slug}` }));
 }
 
 /**

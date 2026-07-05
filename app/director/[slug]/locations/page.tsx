@@ -219,7 +219,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
                   </ul>
                   {hasOwnPage ? (
                     <p style={{ margin: "5px 0 0", fontSize: 14 }}>
-                      <Link href={`/film/${f.slug}/locations`}>
+                      <Link href={`/film/atlas/${f.slug}`}>
                         {f.pins.length > PER_FILM_SHOWN ? `All ${f.pins.length} locations, with the scene each carries →` : "Where was it filmed? The full location page →"}
                       </Link>
                     </p>

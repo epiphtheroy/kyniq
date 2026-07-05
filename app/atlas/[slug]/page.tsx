@@ -226,7 +226,7 @@ export default async function AtlasCountryPage({ params }: Props) {
                     {f.pins >= FILM_LOCATIONS_MIN ? (
                       <span style={{ fontSize: 13.5 }}>
                         {" · "}
-                        <Link href={`/film/${f.slug}/locations`}>{f.pins} locations →</Link>
+                        <Link href={`/film/atlas/${f.slug}`}>{f.pins} locations →</Link>
                       </span>
                     ) : null}
                   </div>

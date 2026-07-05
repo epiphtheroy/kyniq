@@ -18,7 +18,8 @@ function db() {
 }
 
 type Kind = "film" | "meta_take" | "figure" | "director" | "trope";
-interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number }
+// is_catalog: optional — set (true) on Tier-2 catalog film rows once the RPC ships it; absent today.
+interface Row { kind: Kind; slug: string; film_slug: string | null; title: string; sub: string; score: number; is_catalog?: boolean | null }
 
 const GROUPS: { kind: Kind; label: string }[] = [
   { kind: "meta_take", label: "Meta takes" },
@@ -74,6 +75,7 @@ export default async function SearchPage({ searchParams }: Props) {
                     {items.map((r, i) => (
                       <li key={`${r.slug}:${i}`}>
                         <Link href={hrefOf(r)} className={kind === "meta_take" ? undefined : kind === "figure" ? "mt-fig" : undefined}>{r.title}</Link>
+                        {r.is_catalog === true ? <span className="t2-chip">catalog</span> : null}
                         {r.sub ? <span className="meta"> — {r.sub}</span> : null}
                       </li>
                     ))}

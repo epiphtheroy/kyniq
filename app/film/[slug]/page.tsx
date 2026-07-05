@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { unstable_cache } from "next/cache";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
+import { resolveAlias } from "@/lib/aliases";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
@@ -32,7 +33,7 @@ import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
-import { honorText, loadLineageListMeta } from "@/lib/lineage";
+import { FILM_HONORS_MIN, honorText, loadLineageListMeta } from "@/lib/lineage";
 import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
 import RelatedBoxes from "@/components/RelatedBoxes";
 
@@ -71,7 +72,13 @@ type RcpRow = { kind: string; outlet: string; critic: string | null; year: numbe
 type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_director: string | null; reason: string; target_slug: string | null; target_title: string | null; target_year: number | null; target_poster: string | null; tmdb_id: number | null; poster_path: string | null };
 type WwPoint = { label?: string; text: string };
 type WwLens = { key: string; points: WwPoint[] };
-type RevRow = { source_slug: string; source_title: string; source_year: number | null };
+// rpc film_next_reverse also returns source_poster + the editorial `reason` prose
+// (quoted in the Tier-2 digest); the Tier-1 section only reads the first three fields.
+type RevRow = { source_slug: string; source_title: string; source_year: number | null; source_poster?: string | null; reason?: string | null };
+// film_scores (one row per film, track='all'): prestige = standing in the canon,
+// discovery = under-seen value — same numbers /u portfolios rank by. PostgREST
+// may emit numeric as string, so values are widened and rounded at render.
+type ScoreRow = { prestige_score: number | string | null; discovery_score: number | string | null; total_score: number | string | null; computed_at: string | null };
 type Ratings = { imdb_rating: number | null; imdb_votes: number | null; metascore: number | null; rt_tomatometer: number | null };
 type WatchProv = { provider_id: number; provider_name: string; logo_path: string | null };
 type WatchCountry = { link?: string; flatrate?: WatchProv[]; rent?: WatchProv[]; buy?: WatchProv[]; free?: WatchProv[]; ads?: WatchProv[] };
@@ -91,6 +98,44 @@ type CpRow = {
   there: CpSide;
 };
 
+// "A, B and C" — prose list join for the Tier-2 digest's composed sentences.
+function joinProse(xs: string[]): string {
+  if (xs.length <= 1) return xs[0] ?? "";
+  return `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+}
+
+// One calm phrase per honour for the digest: "a Best Picture win",
+// "They Shoot Pictures Don't They? 1,000 Greatest Films #314".
+function digestHonorLabel(l: LinRow): string {
+  const body = l.parent_label && l.parent_label !== l.list_label ? `${l.parent_label} — ` : "";
+  if (l.result === "won") return `a ${body}${l.list_label} win`;
+  if (l.result === "nominated") return `a ${body}${l.list_label} nomination`;
+  return `${body}${l.list_label}${l.rank != null ? ` #${l.rank}` : ""}`;
+}
+
+// The digest cites up to 3 honours, one per list, fully deterministic:
+// at most 2 wins, then ranked canon placements (best rank first) — so a
+// TSPDT/AFI position isn't crowded out by an awards sweep — then the rest.
+function digestNotableHonors(lineage: LinRow[]): LinRow[] {
+  const byLabel = (a: LinRow, b: LinRow) => a.list_label.localeCompare(b.list_label);
+  const dedupe = (rows: LinRow[]) => {
+    const seen = new Set<string>();
+    return rows.filter((l) => (seen.has(l.list_slug) ? false : (seen.add(l.list_slug), true)));
+  };
+  const wins = dedupe(lineage.filter((l) => l.result === "won").sort(byLabel)).slice(0, 2);
+  const ranked = dedupe(lineage.filter((l) => l.rank != null).sort((a, b) => (a.rank! - b.rank!) || byLabel(a, b)));
+  const rest = dedupe(lineage.filter((l) => l.result !== "won" && l.rank == null).sort(byLabel));
+  const seen = new Set<string>();
+  const out: LinRow[] = [];
+  for (const l of [...wins, ...ranked, ...rest]) {
+    if (seen.has(l.list_slug)) continue;
+    seen.add(l.list_slug);
+    out.push(l);
+    if (out.length === 3) break;
+  }
+  return out;
+}
+
 async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
@@ -100,22 +145,52 @@ async function loadUncached(slug: string) {
   if (!film) return null;
   if (film.is_analyzed === false) {
     // Tier-2 catalog record: still surface the ambient data we DO have (no figures/readings).
-    const [{ data: lnRows }, { data: revRows }, { data: ratRow }, { data: wpRow }] = await Promise.all([
+    // fetched_at / created_at / computed_at columns feed the digest's "Record updated"
+    // date — the max of the source rows actually composed, never today's date.
+    const [{ data: lnRows }, { data: revRows }, { data: ratRow }, { data: wpRow }, { data: mGeoRows }, { data: scoreRow }, { data: lnStampRow }, { data: fnStampRow }] = await Promise.all([
       supabase.rpc("film_lineage_for", { p_film_id: film.id }),
       supabase.rpc("film_next_reverse", { p_film_id: film.id }),
-      supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer").eq("film_id", film.id).maybeSingle(),
-      supabase.from("film_watch_providers").select("results, countries").eq("film_id", film.id).maybeSingle(),
+      supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer, fetched_at").eq("film_id", film.id).maybeSingle(),
+      supabase.from("film_watch_providers").select("results, countries, fetched_at").eq("film_id", film.id).maybeSingle(),
+      // film_geo is SECURITY DEFINER and not gated on visibility, so it works for Tier-2.
+      supabase.rpc("film_geo", { p_slug: slug }),
+      supabase.from("film_scores").select("prestige_score, discovery_score, total_score, computed_at").eq("film_id", film.id).maybeSingle(),
+      // Newest membership/recommendation row = when that part of the record last moved.
+      // (film_locations can't be read directly by anon — RLS with no policy — so the
+      // geo layer contributes pins via the RPC but no timestamp.)
+      supabase.from("film_lineage").select("created_at").eq("film_id", film.id).order("created_at", { ascending: false }).limit(1).maybeSingle(),
+      supabase.from("film_next").select("created_at").eq("target_film_id", film.id).order("created_at", { ascending: false }).limit(1).maybeSingle(),
     ]);
     const mLineage = (lnRows ?? []) as LinRow[];
     // Per-list source/QID for the Lineage section's citation tags.
     const mListMeta = Object.fromEntries(await loadLineageListMeta([...new Set(mLineage.map((l) => l.list_slug))]));
+    const mRatings = (ratRow as (Ratings & { fetched_at: string | null }) | null) ?? null;
+    const mWatch = (wpRow as (Watch & { fetched_at: string | null }) | null) ?? null;
+    const mGeo = (Array.isArray(mGeoRows) ? mGeoRows : []) as GeoPin[];
+    const mGeoCountries = [...new Set(mGeo.map((g) => (g.country ?? "").trim()).filter(Boolean))];
+    const mScores = (scoreRow as ScoreRow | null) ?? null;
+    // Record date = max timestamp of the sources composed into the digest;
+    // films.created_at is the floor. PostgREST emits one ISO format, so the
+    // lexical max is the chronological max.
+    const mStamps = [
+      mRatings?.fetched_at, mWatch?.fetched_at,
+      (lnStampRow as { created_at: string | null } | null)?.created_at,
+      (fnStampRow as { created_at: string | null } | null)?.created_at,
+      mScores?.computed_at,
+      (film as { created_at?: string | null }).created_at,
+    ].filter((s): s is string => !!s);
+    const mRecordUpdated = mStamps.length ? mStamps.reduce((a, b) => (a > b ? a : b)) : null;
     return {
       minimal: true as const, film,
       lineage: mLineage,
       lnListMeta: mListMeta,
       recommendedBy: (revRows ?? []) as RevRow[],
-      ratings: (ratRow as Ratings | null) ?? null,
-      watch: (wpRow as Watch | null) ?? null,
+      ratings: mRatings,
+      watch: mWatch,
+      geoCount: mGeo.length,
+      geoCountries: mGeoCountries,
+      scores: mScores,
+      recordUpdated: mRecordUpdated,
     };
   }
 
@@ -258,9 +333,10 @@ async function loadUncached(slug: string) {
 // whole query set dynamically. Cache the result per slug in the Data Cache so
 // the route becomes ISR-cached; tagged film:<slug> for on-demand refresh.
 function load(slug: string) {
-  // Cache key bumped (load4) when lnListMeta joined the payload — the
-  // Data Cache outlives deploys, so a shape change needs a new key.
-  return unstable_cache(() => loadUncached(slug), ["film-load4", slug], {
+  // Cache key bumped (load5) when the Tier-2 digest fields (geo/scores/timestamps)
+  // joined the minimal payload — the Data Cache outlives deploys, so a shape
+  // change needs a new key. (load4 was the lnListMeta join.)
+  return unstable_cache(() => loadUncached(slug), ["film-load5", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
@@ -393,7 +469,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function FilmPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) notFound();
+  if (!data) {
+    const alias = await resolveAlias(`/film/${slug}`);
+    if (alias) permanentRedirect(alias);
+    notFound();
+  }
   const { movements, codex, subscores } = await loadChrome(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
@@ -418,7 +498,7 @@ export default async function FilmPage({ params }: Props) {
       overview: string | null; runtime: number | null; release_date: string | null;
       certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
     };
-    const { lineage, lnListMeta, recommendedBy, ratings, watch } = data;
+    const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -435,6 +515,37 @@ export default async function FilmPage({ params }: Props) {
     const mRuntime = f.runtime ? `${f.runtime} min` : null;
     const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
     const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle);
+
+    // ---- EDITOR'S DIGEST — a deterministic record composed from the loader's
+    // data. No LLM, no invented facts: every sentence renders only when its
+    // source rows exist, and the record date is computed in the loader from
+    // those rows' own timestamps. ----
+    const prestigeN = scores?.prestige_score != null && Number.isFinite(Number(scores.prestige_score)) ? Math.round(Number(scores.prestige_score)) : null;
+    const discoveryN = scores?.discovery_score != null && Number.isFinite(Number(scores.discovery_score)) ? Math.round(Number(scores.discovery_score)) : null;
+    const ratingBits: string[] = [];
+    if (ratings?.imdb_rating != null) ratingBits.push(`an IMDb rating of ${ratings.imdb_rating}${ratings.imdb_votes != null ? ` from ${Number(ratings.imdb_votes).toLocaleString("en-US")} votes` : ""}`);
+    if (ratings?.metascore != null) ratingBits.push(`a Metascore of ${ratings.metascore}`);
+    if (ratings?.rt_tomatometer != null) {
+      const rt = ratings.rt_tomatometer;
+      // "an 89% / an 8% / an 11% / an 18%" — every other 0-100 reading takes "a".
+      const art = rt === 8 || rt === 11 || rt === 18 || (rt >= 80 && rt <= 89) ? "an" : "a";
+      ratingBits.push(`${art} ${rt}% Tomatometer`);
+    }
+    const notableHonors = digestNotableHonors(lineage);
+    const lineageListN = new Set(lineage.map((l) => l.list_slug)).size;
+    // Mirrors /film/lineage/[slug]'s own publication gate (≥ FILM_HONORS_MIN rows;
+    // that page is deliberately NOT gated on films.visible, so Tier-2 qualifies).
+    const hasLineageRecord = lineage.length >= FILM_HONORS_MIN;
+    const recSources = recommendedBy.slice(0, 3);
+    // ONE verbatim editorial reason (our own prose) — the first that passes a
+    // deterministic cleanliness gate: some film_next.reason rows carry pipeline
+    // directives ("No — REPLACE. Use: …"), which must never be quoted.
+    const digestQuote = recommendedBy
+      .map((r) => (r.reason ?? "").trim())
+      .find((r) => r.length >= 20 && !/\b(REPLACE|TODO|FIXME)\b/.test(r)) ?? null;
+    const watchRegionN = watch?.countries?.length ?? 0;
+    const hasDigest = lineage.length > 0 || ratingBits.length > 0 || recommendedBy.length > 0 || geoCount > 0 || watchRegionN > 0 || prestigeN != null || discoveryN != null;
+    const recordDateFmt = recordUpdated ? new Date(recordUpdated).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) : null;
     const mSameAs = [
       f.imdb_id ? `https://www.imdb.com/title/${f.imdb_id}/` : null,
       f.wikidata_id ? `https://www.wikidata.org/wiki/${f.wikidata_id}` : null,
@@ -459,22 +570,60 @@ export default async function FilmPage({ params }: Props) {
         { "@type": "ListItem", position: 3, name: `${f.title}${f.year ? ` (${f.year})` : ""}`, item: `https://metatake.net/film/${f.slug}` },
       ],
     };
+    // Page-level provenance for the catalog record: the WebPage (not the Movie)
+    // is edited by the human editor, and dateModified is the digest's computed
+    // record date. Robots stay noindex — this node changes nothing about gating.
+    const mPageJsonld = {
+      "@context": "https://schema.org", "@type": "WebPage",
+      url: `https://metatake.net/film/${f.slug}`,
+      ...(recordUpdated ? { dateModified: new Date(recordUpdated).toISOString() } : {}),
+      editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+      about: { "@id": `https://metatake.net/film/${f.slug}` },
+    };
+    // Tab order mirrors the section order below. With digest data the record
+    // leads (Digest → Codex/Lineage/Recommended-by → Atlas → About); with none
+    // the page falls back to the old About-first layout.
     const mTabs = ([
-      hasInfo ? { id: "df-information", label: "About" } : null,
+      hasDigest ? { id: "df-digest", label: "Digest" } : null,
+      !hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
       codex ? { id: "df-codex", label: "TakeScore" } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
+      geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
+      hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
       crew.length
         ? { id: "df-crew", label: "Credits" }
         : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}` } : null,
       { id: "df-watch", label: "Where to watch" },
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
     ].filter(Boolean)) as { id: string; label: string; href?: string }[];
+    // ABOUT — overview + the ambient facts we hold. original_title/overview are
+    // being backfilled from TMDB: every field is null-safe, so this section
+    // lights up as the data lands. When the digest exists it leads and About is
+    // demoted below the Codex/Lineage/Recommended-by cluster; with no digest
+    // data the record falls back to the old About-first layout.
+    const aboutSection = hasInfo ? (
+      <section className="df-sec" id="df-information">
+        <h2 className="df-h2">About {f.title}</h2>
+        {f.overview ? <p className="df-ov">{f.overview}</p> : null}
+        <dl className="df-dl">
+          {f.director ? <><dt>Director</dt><dd>{dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director}</dd></> : null}
+          {nativeTitle ? <><dt>Original title</dt><dd>{nativeTitle}</dd></> : null}
+          {f.release_date ? <><dt>Released</dt><dd>{f.release_date}</dd></> : null}
+          {mRuntime ? <><dt>Runtime</dt><dd>{mRuntime}</dd></> : null}
+          {f.genres?.length ? <><dt>Genre</dt><dd>{f.genres.map((g, i) => (
+            <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>
+          ))}</dd></> : null}
+          {mCert ? <><dt>Rated</dt><dd>{mCert}</dd></> : null}
+        </dl>
+      </section>
+    ) : null;
     return (
       <div className="mt">
         <SiteNav />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mJsonld) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mBreadcrumbLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mPageJsonld) }} />
         <div className="df-wrap">
           <div className="df-crumb">
             <Link href="/film">Films</Link>
@@ -514,7 +663,7 @@ export default async function FilmPage({ params }: Props) {
                   {f.tmdb_id ? <Link className="df-like" href={`/credits?f=${f.tmdb_id}`}>🎞 Follow the credits →</Link> : null}
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
                 </div>
-                <p className="df-catnote">Catalog entry — not yet deeply analyzed on Metatake. Track it in your lists; the films most readers add are the ones we analyze next.</p>
+                <p className="df-catnote">Catalog record — the deep analysis (figures &amp; readings) is still pending. Track it in your lists; the films most readers add are the ones we analyze next.</p>
               </div>
             </div>
           </section>
@@ -524,29 +673,75 @@ export default async function FilmPage({ params }: Props) {
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 
-          {/* ABOUT — overview + the ambient facts we hold. original_title/overview
-              are being backfilled from TMDB: every field is null-safe, so this
-              section lights up as the data lands. */}
-          {hasInfo ? (
-            <section className="df-sec" id="df-information">
-              <h2 className="df-h2">About {f.title}</h2>
-              {f.overview ? <p className="df-ov">{f.overview}</p> : null}
-              <dl className="df-dl">
-                {f.director ? <><dt>Director</dt><dd>{dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director}</dd></> : null}
-                {nativeTitle ? <><dt>Original title</dt><dd>{nativeTitle}</dd></> : null}
-                {f.release_date ? <><dt>Released</dt><dd>{f.release_date}</dd></> : null}
-                {mRuntime ? <><dt>Runtime</dt><dd>{mRuntime}</dd></> : null}
-                {f.genres?.length ? <><dt>Genre</dt><dd>{f.genres.map((g, i) => (
-                  <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>
-                ))}</dd></> : null}
-                {mCert ? <><dt>Rated</dt><dd>{mCert}</dd></> : null}
-              </dl>
+          {/* EDITOR'S DIGEST — the lead section: a data-composed editorial record.
+              Every sentence is deterministic (no LLM, no invented facts); a film
+              with no ambient data renders no digest and About leads instead. */}
+          {hasDigest ? (
+            <section className="df-sec df-digest" id="df-digest">
+              <h2 className="df-h2">The Metatake record on {f.title}</h2>
+              {lineage.length > 0 || ratingBits.length > 0 ? (
+                <p className="df-digest__p">
+                  {lineage.length > 0 ? (
+                    <>
+                      In the canon, {f.title} holds {lineage.length} listing{lineage.length === 1 ? "" : "s"}{lineageListN < lineage.length ? ` across ${lineageListN} list${lineageListN === 1 ? "" : "s"}` : ""} tracked by Metatake — including {joinProse(notableHonors.map(digestHonorLabel))}.
+                      {hasLineageRecord ? <> <Link href={`/film/lineage/${f.slug}`}>See the full lineage record →</Link></> : null}{" "}
+                    </>
+                  ) : null}
+                  {ratingBits.length > 0 ? <>On the aggregators it holds {joinProse(ratingBits)}.</> : null}
+                </p>
+              ) : null}
+              {recSources.length > 0 ? (
+                <p className="df-digest__p">
+                  Within Metatake, it is the next step after{" "}
+                  {recSources.map((r, i) => (
+                    <span key={`${r.source_slug}-${i}`}>
+                      {i > 0 ? (i === recSources.length - 1 ? " and " : ", ") : ""}
+                      <Link href={`/film/${r.source_slug}`}>{r.source_title}</Link>
+                      {r.source_year ? ` (${r.source_year})` : ""}
+                    </span>
+                  ))}
+                  {recommendedBy.length > recSources.length ? ` and ${recommendedBy.length - recSources.length} more film${recommendedBy.length - recSources.length === 1 ? "" : "s"}` : ""}.
+                  {digestQuote ? <> <span className="df-digest__q">&ldquo;{digestQuote}&rdquo;</span> <span className="df-digest__att">— Metatake Editorial</span></> : null}
+                </p>
+              ) : null}
+              {geoCount > 0 || watchRegionN > 0 ? (
+                <p className="df-digest__p">
+                  {geoCount > 0 ? (
+                    <>Its geography is charted on <a href="#df-atlas">the Atlas below</a> — {geoCount} located place{geoCount === 1 ? "" : "s"}{geoCountries.length === 1 ? ` in ${geoCountries[0]}` : geoCountries.length > 1 ? ` across ${geoCountries.length} countries` : ""}.{" "}</>
+                  ) : null}
+                  {watchRegionN > 0 ? <>Streaming availability is <a href="#df-watch">tracked in {watchRegionN} region{watchRegionN === 1 ? "" : "s"}</a>.</> : null}
+                </p>
+              ) : null}
+              {prestigeN != null || discoveryN != null ? (
+                <div className="df-digest__chips">
+                  {prestigeN != null ? <Link className="df-chip" href="/score/about" title="Prestige — the film's standing in the canon, on Metatake's scoring">Prestige {prestigeN}</Link> : null}
+                  {discoveryN != null ? <Link className="df-chip" href="/score/about" title="Discovery — under-seen value relative to that standing">Discovery {discoveryN}</Link> : null}
+                </div>
+              ) : null}
+              <footer className="df-digest__by">
+                Compiled from the Metatake database · Edited by <Link href="/editor">Wonwoo Yoon</Link>
+                {recordDateFmt ? <> · Record updated {recordDateFmt}</> : null}
+              </footer>
             </section>
           ) : null}
+
+          {!hasDigest ? aboutSection : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+
+          {/* ATLAS — same lazy MapLibre module the Tier-1 branch renders;
+              film_geo is not gated on visibility, so Tier-2 pins load fine. */}
+          {geoCount > 0 ? (
+            <section className="df-sec" id="df-atlas">
+              <h2 className="df-h2">{f.title} — on the map</h2>
+              <p className="cmap-intro">The real places {f.title} is set in, was filmed at, or names — geolocated on the Metatake Atlas.</p>
+              <FilmMap endpoint={`/api/geo?film=${f.slug}`} filmSlug={f.slug} height={460} />
+            </section>
+          ) : null}
+
+          {hasDigest ? aboutSection : null}
 
           {/* CREDITS — the same crawlable key-craft block Tier-1 carries */}
           {crew.length > 0 ? (
@@ -624,7 +819,6 @@ export default async function FilmPage({ params }: Props) {
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
     codex ? { id: "df-codex", label: "TakeScore" } : null,
     geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
-    geoCells >= FILM_LOCATIONS_MIN ? { id: "df-locations", label: "Locations", href: `/film/${film.slug}/locations` } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
@@ -832,8 +1026,18 @@ export default async function FilmPage({ params }: Props) {
             <h2 className="df-h2">{film.title} — on the map</h2>
             <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
             {geoCells >= FILM_LOCATIONS_MIN ? (
-              <p style={{ margin: "2px 0 10px", fontSize: 15 }}>
-                <Link href={`/film/${film.slug}/locations`}>Where was {film.title} filmed? All {geoMerged} locations, with the scene each one carries →</Link>
+              <p style={{ margin: "4px 0 14px" }}>
+                <Link
+                  href={`/film/atlas/${film.slug}`}
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    background: "#16233F", color: "#FBF8F1", padding: "9px 18px", borderRadius: 999,
+                    fontSize: 14, fontWeight: 600, textDecoration: "none", boxShadow: "0 1px 0 rgba(0,0,0,.15)",
+                  }}
+                >
+                  <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
+                  Where was {film.title} filmed? All {geoMerged} locations, with the scene each one carries →
+                </Link>
               </p>
             ) : null}
             <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={460} />

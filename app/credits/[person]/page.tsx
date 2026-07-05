@@ -30,7 +30,7 @@ type TmdbPerson = {
   movie_credits?: { crew?: { id: number; title: string; release_date?: string; job?: string; department?: string; poster_path?: string | null }[] };
 };
 
-type CatFilm = { tmdb_id: number; slug: string; title: string; year: number | null; director: string | null; director_slug: string | null; poster_path: string | null };
+type CatFilm = { tmdb_id: number; slug: string; title: string; year: number | null; director: string | null; director_slug: string | null; poster_path: string | null; visible: boolean | null };
 
 function parseId(slug: string): number | null {
   const m = slug.match(/-(\d+)$/);
@@ -73,6 +73,8 @@ function craftCredits(p: TmdbPerson) {
     .sort((a, b) => b.films.length - a.films.length);
 }
 
+// Both tiers: visible=true films are read closely; visible=false rows are
+// Tier-2 catalog stubs — still linked (crawlable funnels), marked "catalog".
 async function catalogFilms(tmdbIds: number[]): Promise<CatFilm[]> {
   if (!tmdbIds.length) return [];
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -80,13 +82,14 @@ async function catalogFilms(tmdbIds: number[]): Promise<CatFilm[]> {
   for (let i = 0; i < tmdbIds.length; i += 150) {
     const { data } = await supabase
       .from("films")
-      .select("tmdb_id, slug, title, year, director, director_slug, poster_path")
-      .eq("visible", true)
+      .select("tmdb_id, slug, title, year, director, director_slug, poster_path, visible")
       .in("tmdb_id", tmdbIds.slice(i, i + 150));
     out.push(...((data ?? []) as CatFilm[]));
   }
   return out;
 }
+
+const isRead = (f: CatFilm) => f.visible !== false;
 
 // Entity stitching — is this person also a /director hub? Exact name match
 // against films.director, then verified against their own TMDB directing
@@ -113,7 +116,8 @@ function leadSentence(name: string, native: string | null, crafts: { key: CraftK
   const parts = [
     `${name}${native ? ` (${native})` : ""} — ${role.toLowerCase()}${crafts.length > 1 ? ` and ${crafts.slice(1).map((c) => CRAFTS[c.key].role.toLowerCase()).join(", ")}` : ""}, ${main.films.length} feature credit${main.films.length === 1 ? "" : "s"}${span ? ` (${span})` : ""}.`,
   ];
-  if (cat.length) parts.push(`${cat.length} of them are read closely on Metatake${topDirector && topDirector.n >= 2 ? ` — including ${topDirector.n} with ${topDirector.name}` : ""}.`);
+  const read = cat.filter(isRead).length;
+  if (read) parts.push(`${read} of them are read closely on Metatake${topDirector && topDirector.n >= 2 ? ` — including ${topDirector.n} with ${topDirector.name}` : ""}.`);
   return parts.join(" ");
 }
 
@@ -128,9 +132,9 @@ async function load(personSlug: string) {
   if (!crafts.length) return null; // not a key-craft person → no read page
   const allIds = [...new Set(crafts.flatMap((c) => c.films.map((f) => f.id)))];
   const cat = await catalogFilms(allIds);
-  // Repertory company — directors they keep working with, from OUR catalog rows.
+  // Repertory company — directors they keep working with, from OUR closely-read rows.
   const byDir = new Map<string, { name: string; slug: string | null; n: number }>();
-  for (const f of cat) {
+  for (const f of cat.filter(isRead)) {
     if (!f.director) continue;
     const cur = byDir.get(f.director) ?? { name: f.director, slug: f.director_slug, n: 0 };
     cur.n += 1;
@@ -160,8 +164,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title, description, type: "profile" },
     twitter: { card: "summary", title, description },
     // Same thin-content bar as figures/Q&A: index only when the catalog can
-    // actually say something (≥3 closely-read films by this person).
-    robots: pageRobots(cat.length >= 3),
+    // actually say something (≥3 closely-read films by this person —
+    // Tier-2 catalog stubs don't count toward the bar).
+    robots: pageRobots(cat.filter(isRead).length >= 3),
   };
 }
 
@@ -173,6 +178,7 @@ export default async function CrewPersonPage({ params }: Props) {
   if (!data) notFound();
   const { id, p, crafts, cat, company, native, directorHub } = data;
   const mainCraft = crafts[0].key;
+  const readN = cat.filter(isRead).length;
   const catByTmdb = new Map(cat.map((f) => [f.tmdb_id, f]));
   const repertory = company.filter((d) => d.n >= 2).slice(0, 8);
   const updated = new Date().toISOString().slice(0, 10);
@@ -275,11 +281,17 @@ export default async function CrewPersonPage({ params }: Props) {
         {cat.length > 0 && (
           <section style={{ margin: "26px 0" }}>
             <h2 className="df-h2">In the Metatake catalog</h2>
-            <p className="df-sub">{cat.length} of their films read closely — figures, strong misreadings and Q&A behind each link.</p>
+            <p className="df-sub">
+              {readN > 0 ? `${readN} of their films read closely — figures, strong misreadings and Q&A behind each link.` : ""}
+              {cat.length > readN ? `${readN > 0 ? " " : ""}${cat.length - readN} more in the catalog, not yet read closely — marked “catalog”.` : ""}
+            </p>
             <div className="rcp-list">
               {[...cat].sort((a, b) => (b.year ?? 0) - (a.year ?? 0)).map((f) => (
                 <div key={f.slug} className="rcp-row">
-                  <Link className="rcp-h" href={`/film/${f.slug}`}>{f.title}{f.year ? ` (${f.year})` : ""}</Link>
+                  <Link className="rcp-h" href={`/film/${f.slug}`}>
+                    {f.title}{f.year ? ` (${f.year})` : ""}
+                    {!isRead(f) && <span className="t2-chip">catalog</span>}
+                  </Link>
                   <div className="rcp-m">{f.director ? `dir. ${f.director}` : ""}</div>
                 </div>
               ))}
@@ -298,6 +310,7 @@ export default async function CrewPersonPage({ params }: Props) {
                     {i > 0 ? " · " : ""}
                     {catF ? <Link href={`/film/${catF.slug}`}>{f.title}</Link> : f.title}
                     {f.year ? ` (${f.year})` : ""}
+                    {catF && !isRead(catF) ? <span className="t2-chip">catalog</span> : null}
                   </span>
                 );
               })}
