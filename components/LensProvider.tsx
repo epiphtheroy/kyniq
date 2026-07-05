@@ -95,30 +95,24 @@ export function LensProvider({ children }: { children: React.ReactNode }) {
         if (!d) { d = getComputedStyle(el).display; dispCache.set(el, d); }
         return d;
       };
-      // card → the direct child ("item") of the nearest flex/grid container
-      const items = new Map<HTMLElement, boolean>(); // item → any seen card inside
-      for (const [card, seenCard] of marked) {
-        let item: HTMLElement = card;
-        let parent = item.parentElement as HTMLElement | null;
-        for (let i = 0; i < 6 && parent && parent !== document.body; i++) {
-          if (parent.dataset.mtlNoOrder !== undefined) { parent = null; break; }
-          const d = disp(parent);
-          if (d.includes("flex") || d.includes("grid")) break;
-          item = parent; parent = parent.parentElement as HTMLElement | null;
-        }
-        if (!parent || parent === document.body) continue;
-        const d = disp(parent);
-        if (!d.includes("flex") && !d.includes("grid")) continue;
-        items.set(item, (items.get(item) ?? false) || seenCard);
-      }
-      // group items per container and apply guards
+      // every flex/grid ancestor (≤6 levels up) is a candidate container; the
+      // guards below reject a card's own internal layout (too few children /
+      // no seen+unseen mix) and page-level grids (coverage too low), leaving
+      // the actual list container.
       const byContainer = new Map<HTMLElement, Map<HTMLElement, boolean>>();
-      for (const [item, seenItem] of items) {
-        const c = item.parentElement as HTMLElement | null;
-        if (!c) continue;
-        let g = byContainer.get(c);
-        if (!g) { g = new Map(); byContainer.set(c, g); }
-        g.set(item, seenItem);
+      for (const [card, seenCard] of marked) {
+        let node: HTMLElement = card;
+        let parent = node.parentElement as HTMLElement | null;
+        for (let i = 0; i < 6 && parent && parent !== document.body; i++) {
+          if (parent.dataset.mtlNoOrder !== undefined) break;
+          const d = disp(parent);
+          if (d.includes("flex") || d.includes("grid")) {
+            let g = byContainer.get(parent);
+            if (!g) { g = new Map(); byContainer.set(parent, g); }
+            g.set(node, (g.get(node) ?? false) || seenCard);
+          }
+          node = parent; parent = parent.parentElement as HTMLElement | null;
+        }
       }
       for (const [c, g] of byContainer) {
         const total = c.children.length;
