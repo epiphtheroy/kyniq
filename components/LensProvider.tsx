@@ -76,8 +76,63 @@ export function LensProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.setAttribute("data-mtlens", mode);
 
+    // clear a previous pass's mine-first ordering (inline styles can't be CSS-gated)
+    const clearOrder = () => {
+      document.querySelectorAll<HTMLElement>("[data-mtl-ordered]").forEach((c) => {
+        for (const child of Array.from(c.children)) (child as HTMLElement).style.removeProperty("order");
+        delete c.dataset.mtlOrdered;
+      });
+    };
+
+    // mine-first: inside homogeneous flex/grid film containers, float seen items
+    // to the front via CSS order — no DOM moves, so React reconciliation is safe.
+    // Bespoke panels opt out with data-mtl-no-order (they band-sort in state).
+    const applyOrder = (marked: Map<HTMLElement, boolean>) => {
+      clearOrder();
+      const dispCache = new Map<HTMLElement, string>();
+      const disp = (el: HTMLElement) => {
+        let d = dispCache.get(el);
+        if (!d) { d = getComputedStyle(el).display; dispCache.set(el, d); }
+        return d;
+      };
+      // card → the direct child ("item") of the nearest flex/grid container
+      const items = new Map<HTMLElement, boolean>(); // item → any seen card inside
+      for (const [card, seenCard] of marked) {
+        let item: HTMLElement = card;
+        let parent = item.parentElement as HTMLElement | null;
+        for (let i = 0; i < 6 && parent && parent !== document.body; i++) {
+          if (parent.dataset.mtlNoOrder !== undefined) { parent = null; break; }
+          const d = disp(parent);
+          if (d.includes("flex") || d.includes("grid")) break;
+          item = parent; parent = parent.parentElement as HTMLElement | null;
+        }
+        if (!parent || parent === document.body) continue;
+        const d = disp(parent);
+        if (!d.includes("flex") && !d.includes("grid")) continue;
+        items.set(item, (items.get(item) ?? false) || seenCard);
+      }
+      // group items per container and apply guards
+      const byContainer = new Map<HTMLElement, Map<HTMLElement, boolean>>();
+      for (const [item, seenItem] of items) {
+        const c = item.parentElement as HTMLElement | null;
+        if (!c) continue;
+        let g = byContainer.get(c);
+        if (!g) { g = new Map(); byContainer.set(c, g); }
+        g.set(item, seenItem);
+      }
+      for (const [c, g] of byContainer) {
+        const total = c.children.length;
+        let seenN = 0; for (const s of g.values()) if (s) seenN++;
+        if (total < ORDER_MIN_ITEMS || g.size / total < ORDER_MIN_COVERAGE) continue;
+        if (seenN === 0 || seenN === g.size) continue; // nothing to float
+        for (const [item, seenItem] of g) if (seenItem) item.style.order = "-1";
+        c.dataset.mtlOrdered = "1";
+      }
+    };
+
     const apply = () => {
       const els = document.querySelectorAll<HTMLElement>('a[href^="/film/"], [data-lens-film]');
+      const markedCards = new Map<HTMLElement, boolean>();
       els.forEach((el) => {
         const slug =
           el.dataset.lensFilm ??
@@ -96,11 +151,13 @@ export function LensProvider({ children }: { children: React.ReactNode }) {
         el.classList.toggle("mtl-inline", isInline);
         el.classList.toggle("mtl-seen", (isCard || isInline) && isSeen);
         el.classList.toggle("mtl-unseen", (isCard || isInline) && !isSeen);
+        if (isCard && !el.dataset.lensFilm) markedCards.set(el, isSeen);
       });
+      applyOrder(markedCards);
     };
     applyRef.current = apply;
 
-    if (mode === "off") return; // CSS is gated on the html attr — no sweep needed
+    if (mode === "off") { clearOrder(); return; }
 
     apply();
     let timer: number | null = null;
