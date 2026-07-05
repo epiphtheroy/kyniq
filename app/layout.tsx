@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/Footer";
-import TakeScoreBadges from "@/components/TakeScoreBadges";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { pageRobots, SOCIAL_PROFILES } from "@/lib/seo";
@@ -127,7 +126,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         <UserFilmsProvider><UserSavesProvider>{children}</UserSavesProvider></UserFilmsProvider>
-        <TakeScoreBadges />
         <Footer />
         <Analytics />
       </body>

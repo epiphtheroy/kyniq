@@ -7,7 +7,7 @@ import { posterUrl, hashTone, tone, filmHref } from "./helpers";
 /**
  * Light film card (.tp). `cat` renders the category-number metric (with the
  * lens dot when `lens`). IMDb star and the "Top reading" row were removed;
- * the TakeScore badge is overlaid on the poster site-wide (TakeScoreBadges).
+ * the TakeScore poster-overlay badge was retired site-wide (2026-07-05).
  */
 export default function FilmCard({
   f,
