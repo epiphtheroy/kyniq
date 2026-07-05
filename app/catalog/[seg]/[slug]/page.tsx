@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import ListFilter from "@/components/ListFilter";
+import Provenance from "@/components/Provenance";
+import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
 import { kindBySeg, sectionByKey, axisLabel, nodeHref, sectionHref } from "@/lib/catalog";
 
@@ -23,6 +25,7 @@ type Member = { figure_label: string; figure_slug: string | null; film_title: st
   yr: number | null; poster: string | null; backdrop: string | null; confidence: number | null };
 type Kin = { slug: string; label: string; sim: number; n: number };
 type Theme = { slug: string; label: string; n: number };
+type Dates = { created_at: string | null; updated_at: string | null };
 
 function maturity(n: number): [string, string] | null {
   if (n >= 26) return ["cliche", "Cliché"];
@@ -40,16 +43,20 @@ async function load(seg: string, slug: string) {
   const { data: d } = await supabase.rpc("catalog_node_detail", { p_kind: km.kind, p_slug: slug });
   const detail = ((d as Detail[]) ?? [])[0];
   if (!detail) return null;
-  const [mem, kin, thm] = await Promise.all([
+  const [mem, kin, thm, nd] = await Promise.all([
+    // catalog_node_members orders by ft.confidence desc — the list IS the ranking.
     supabase.rpc("catalog_node_members", { p_kind: km.kind, p_slug: slug, p_limit: 120, p_offset: 0 }),
     supabase.rpc("catalog_node_kindred", { p_kind: km.kind, p_slug: slug, p_n: 8 }),
     supabase.rpc("catalog_node_themes", { p_kind: km.kind, p_slug: slug, p_n: 10 }),
+    // Node timestamps for the byline/provenance + dateModified (public read RLS).
+    supabase.from("taxonomy_nodes").select("created_at, updated_at").eq("kind", km.kind).eq("slug", slug).maybeSingle(),
   ]);
   return {
     km, detail,
     members: (mem.data as Member[]) ?? [],
     kindred: (kin.data as Kin[]) ?? [],
     themes: ((thm.data as Theme[]) ?? []).filter((t) => !(km.kind === "theme" && t.slug === slug)),
+    dates: (nd.data as Dates | null) ?? null,
   };
 }
 
@@ -58,8 +65,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(seg, slug);
   if (!data) return { title: "Catalog — Metatake" };
   const { km, detail } = data;
-  const title = `${detail.label} — ${km.label} | Metatake`;
-  const description = detail.definition ?? `${detail.member_count} figures classified as ${detail.label}.`;
+  const n = detail.member_count;
+  // Listicle-shaped title with the live count; the root layout appends "· Metatake".
+  const title = `${detail.label} — ${km.label.toLowerCase()}: ${n} film ${n === 1 ? "example" : "examples"}${n >= 4 ? ", ranked" : ""}`;
+  const description = detail.definition
+    ?? `${n} figures across cinema classified as ${detail.label}, each tied to the exact film and close reading that carries it — ranked by classification confidence.`;
   return { title, description, openGraph: { title, description }, alternates: { canonical: `/catalog/${seg}/${slug}` }, robots: pageRobots(detail.member_count >= 1) };
 }
 
@@ -67,11 +77,12 @@ export default async function CatalogNode({ params }: Props) {
   const { seg, slug } = await params;
   const data = await load(seg, slug);
   if (!data) notFound();
-  const { km, detail, members, kindred, themes } = data;
+  const { km, detail, members, kindred, themes, dates } = data;
   const section = sectionByKey(km.section);
   const mat = maturity(detail.member_count);
   const n = detail.member_count;
   const figLabel = n === 1 ? "figure" : "figures";
+  const topFilms = Array.from(new Map(members.map((m) => [m.film_slug, m])).values()).slice(0, 5);
 
   // JSON-LD — built entirely from data already fetched above (no extra queries).
   const nodeUrl = `${SITE}${nodeHref(km.kind, detail.slug)}`;
@@ -89,6 +100,19 @@ export default async function CatalogNode({ params }: Props) {
         ...(def ? { description: def } : {}),
         inDefinedTermSet: { "@type": "DefinedTermSet", name: "Metatake Film Archetypes", url: `${SITE}/catalog` },
       },
+      // The page as a dated, edited collection — carries E-E-A-T signals the
+      // DefinedTerm (not a CreativeWork) cannot.
+      {
+        "@type": "CollectionPage",
+        url: nodeUrl,
+        name: `${detail.label} — ${km.label}`,
+        about: { "@id": nodeUrl },
+        ...(dates?.created_at ? { datePublished: dates.created_at } : {}),
+        ...(dates?.updated_at ? { dateModified: dates.updated_at } : {}),
+        author: { "@type": "Organization", name: "Metatake" },
+        editor: { "@type": "Person", name: "Wonwoo Yoon", url: `${SITE}/editor` },
+        publisher: { "@type": "Organization", name: "Metatake" },
+      },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -102,6 +126,7 @@ export default async function CatalogNode({ params }: Props) {
       },
       {
         "@type": "ItemList",
+        name: `Films that feature ${detail.label}, ranked`,
         numberOfItems: n,
         itemListElement: members.slice(0, 25).map((m, i) => ({
           "@type": "ListItem",
@@ -110,6 +135,16 @@ export default async function CatalogNode({ params }: Props) {
           url: `${SITE}${m.figure_slug ? `/film/${m.film_slug}/figure/${m.figure_slug}` : `/film/${m.film_slug}`}`,
         })),
       },
+      // Mirrors the visible members section (question H2 + film list).
+      ...(members.length > 0 ? [{
+        "@type": "FAQPage",
+        ...(dates?.created_at ? { datePublished: dates.created_at } : {}),
+        ...(dates?.updated_at ? { dateModified: dates.updated_at } : {}),
+        mainEntity: [{
+          "@type": "Question", name: `Which films feature ${detail.label}?`,
+          acceptedAnswer: { "@type": "Answer", text: `Metatake classifies ${n} ${figLabel} as ${detail.label}, in films such as ${topFilms.map((m) => `${m.film_title}${m.yr ? ` (${m.yr})` : ""}`).join(", ")} — each linked to its close reading.` },
+        }],
+      }] : []),
     ],
   };
 
@@ -130,6 +165,7 @@ export default async function CatalogNode({ params }: Props) {
             {mat ? <> · <span className={`tp-mat tp-mat--${mat[0]}`}>{mat[1]}</span></> : null}
           </div>
           <h1 className="cat-h1">{detail.label}</h1>
+          <Byline created={dates?.created_at} updated={dates?.updated_at} />
           {detail.parent_slug && detail.parent_kind ? (
             <div className="cat-parent">
               {axisLabel(detail.parent_kind)}:{" "}
@@ -141,8 +177,12 @@ export default async function CatalogNode({ params }: Props) {
 
         <section className="cat-sec" id="members">
           <h2 className="cat-h2">
-            {n.toLocaleString()} {figLabel} classified as this
+            Which films feature {detail.label}? <span className="cat-h2__n">— {n.toLocaleString()} {figLabel}, ranked</span>
           </h2>
+          <p className="cat-gloss">
+            Ranked by classification confidence — how surely each figure belongs here, recomputed as the archive grows
+            (<Link href="/methodology#rankings">how ranking works</Link>).
+          </p>
           {members.length === 0 ? (
             <p className="cat-empty">No figures yet.</p>
           ) : (
@@ -159,12 +199,20 @@ export default async function CatalogNode({ params }: Props) {
                 return (
                   <Link key={`${m.film_slug}-${i}`} href={href} className="cat-mrow"
                     data-filter-item data-filter-text={`${m.figure_label} ${m.film_title}`.toLowerCase()}>
+                    <span className="cat-mrank" aria-hidden="true">{i + 1}</span>
                     <div className="cat-mrthumb">
                       {src ? <img src={src} alt="" loading="lazy" /> : <i className="ti ti-movie" aria-hidden="true" />}
                     </div>
                     <div className="cat-mrtext">
                       <div className="cat-mrfig">{m.figure_label}</div>
-                      <div className="cat-mrfilm">{m.film_title}{m.yr ? ` · ${m.yr}` : ""}</div>
+                      <div className="cat-mrfilm">
+                        {m.film_title}{m.yr ? ` · ${m.yr}` : ""}
+                        {m.confidence != null ? (
+                          <span className="cat-mconf" title="classification confidence — how surely this figure belongs to this archetype (see /methodology#rankings)">
+                            {" "}· {Math.round(m.confidence * 100)}%
+                          </span>
+                        ) : null}
+                      </div>
                     </div>
                   </Link>
                 );
@@ -183,8 +231,10 @@ export default async function CatalogNode({ params }: Props) {
               <h2 className="cat-h3">Kindred {axisLabel(km.kind).toLowerCase()}s <span className="cat-h2__n">by embedding</span></h2>
               <div className="cat-pills">
                 {kindred.map((k) => (
-                  <Link key={k.slug} href={nodeHref(km.kind, k.slug)} className="cat-pill">
+                  <Link key={k.slug} href={nodeHref(km.kind, k.slug)} className="cat-pill"
+                    title="embedding kinship — cosine similarity of the two archetypes (see /methodology#rankings)">
                     {k.label}<span className="cat-pill__n">{k.n}</span>
+                    {k.sim != null ? <span className="cat-pill__sim">{Math.round(k.sim * 100)}%</span> : null}
                   </Link>
                 ))}
               </div>
@@ -204,6 +254,8 @@ export default async function CatalogNode({ params }: Props) {
             </section>
           ) : null}
         </div>
+
+        <Provenance created={dates?.created_at} updated={dates?.updated_at} />
       </div>
     </div>
   );

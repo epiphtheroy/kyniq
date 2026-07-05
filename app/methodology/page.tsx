@@ -149,6 +149,31 @@ export default async function MethodologyPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl" id="rankings">The numbers on ranked lists</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Wherever the site shows a percentage or a ranked list — a trope page ranking its films, an archetype page
+        ordering its figures, a &ldquo;% match&rdquo; badge — the number is computed the same way and never typed in
+        by hand. Every reading, figure and trope on Metatake has an embedding: a position in meaning-space derived
+        from its actual text. A <strong>match&nbsp;%</strong> is the cosine similarity between two of those positions.
+        On a trope page, it measures how centrally a film&apos;s reading sits in that trope&apos;s meaning — the #1
+        film isn&apos;t the most famous one, it&apos;s the one whose reading is most purely <em>about</em> what the
+        trope is about. A <strong>kin&nbsp;%</strong> between two tropes, or between two figures, is the same cosine
+        applied to their own embeddings.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Two other numbers appear alongside. <strong>Confidence</strong>, on archetype pages, is how surely a figure
+        belongs to its classification — assigned when the figure is classified, on a 0–100% scale, and used to order
+        the member list. <strong>Coherence</strong>, on trope pages, is how tightly a trope&apos;s readings cluster in
+        meaning-space: a high-coherence trope is a sharp idea, a low-coherence one is still finding its edges. The
+        maturity badges (Fresh → Emerging → Established → Cliché) are plain member-count tiers, nothing more. All of
+        these recompute as the corpus grows — a ranking you see today can legitimately change next month, because a
+        new film&apos;s reading moved the space. Same input, same output: nothing is shuffled, nothing is promoted by
+        hand, and no ranking is ever frozen into the page.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl">The Atlas — location data</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
