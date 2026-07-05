@@ -3264,6 +3264,16 @@ a.df-rt:hover{border-color:var(--ink)}
 .tp-mvia{font-family:var(--font-ui); font-size:12px; color:var(--muted)}
 .tp-mvia a{color:var(--teal); font-weight:600}
 .tp-mvia a:hover{text-decoration:underline}
+/* ranked trope member rows — rank №, poster thumb, live match % */
+.tp-mrow{display:flex;gap:12px;align-items:flex-start}
+.tp-rank{flex:0 0 24px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--faint);font-variant-numeric:tabular-nums;line-height:1.7;text-align:right}
+.tp-mthumb{flex:0 0 46px}
+.tp-mthumb img{display:block;width:46px;height:69px;object-fit:cover;border-radius:3px;border:1px solid var(--hairline)}
+.tp-mbody{flex:1;min-width:0}
+.tp-mh3{display:inline;font-size:inherit;font-weight:inherit;margin:0;line-height:inherit}
+.tp-in{color:var(--muted);font-size:14px;font-style:italic;font-weight:400}
+.tp-match{margin-left:auto}
+.tp-mexc{font-family:var(--font-body);font-size:13.5px;line-height:1.55;color:var(--muted);margin:4px 0 3px;max-width:72ch}
 
 /* film-page Strong Misreadings: full reading + the leap (shown first, above figures) */
 .sm-row__thesis--full{color:var(--ink); font-size:15.5px; line-height:1.62; max-width:74ch}
