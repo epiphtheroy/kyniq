@@ -12,7 +12,7 @@
 
 | 표면 | URL | 규모 | 타깃 쿼리 |
 |---|---|---|---|
-| 필름 | `/film/[slug]/locations` | 자격 1,714 (사이트맵 코호트 1,000) | "where was X filmed" |
+| 필름 | `/film/atlas/[slug]` (2026-07-06 `/film/[slug]/locations`에서 이전 — 구 라우트 308 permanentRedirect) | 자격 1,714 (사이트맵 코호트 1,000) | "where was X filmed" |
 | 감독 | `/director/[slug]/locations` | 331 | "where does X film" |
 | 국가 | `/atlas/[slug]` | 73 | "movies filmed in Japan" |
 | 도시·지역 | `/atlas/[slug]/[city]` | 511 (도시 439/지역 72) | "movies filmed in Paris/Manhattan" |
@@ -26,12 +26,12 @@
 ### 페이지 (app/ — 자동 배포 워처 대상)
 | 파일 | 역할 |
 |---|---|
-| `app/film/[slug]/locations/page.tsx` | 필름 읽는층. film_geo RPC → 병합 → 국가별 목록 + 위치별 산문·출처링크 + FilmMap 임베드. ISR 86400, 캐시키 `film-locations2` |
+| `app/film/atlas/[slug]/page.tsx` | 필름 읽는층 (구 라우트 `app/film/[slug]/locations/page.tsx`는 308 리다이렉트). film_geo RPC → 병합 → 국가별 목록 + 위치별 산문·출처링크 + FilmMap 임베드. ISR 86400, 캐시키 `film-locations2` |
 | `app/director/[slug]/locations/page.tsx` | 감독 읽는층. director_geo → 필름별 그룹(포스터 썸네일) + 지리 시그니처 리드. 캐시키 `director-locations3` |
 | `app/atlas/page.tsx` | 인덱스: 지도 + 국가 그리드(서버) + **Dataset JSON-LD**(1차 데이터셋 선언) |
 | `app/atlas/[slug]/page.tsx` | 국가 허브: 리드 + 돌아오는 감독들 + 도시 그리드 + 랜드마크 + 연대별 필름(포스터) + 지도. 캐시키 `atlas-country2` |
 | `app/atlas/[slug]/[city]/page.tsx` | 도시·지역 허브: 로스터(JSON)에서 찾고 멤버십은 라이브 계산. 캐시키 `atlas-city2` |
-| `app/film/[slug]/page.tsx` | Locations 탭(href) + Atlas 섹션 인라인 링크. geoCells(게이트)/geoMerged(표시) 분리. 캐시키 `film-load3` |
+| `app/film/[slug]/page.tsx` | 별도 Locations 탭 없음(07-06 삭제) — Atlas 앵커 탭 + 섹션 내 필 버튼(◉ Where was X filmed?)이 /film/atlas/[slug]로 연결. geoCells(게이트)/geoMerged(표시) 분리. 캐시키 `film-load3` |
 | `app/director/[slug]/page.tsx` | 동일 패턴. 캐시키 `director-load4` |
 | `app/api/geo/route.ts` | `?country=` 파라미터 추가(country_geo RPC) — 국가/도시 지도 임베드용 |
 | `app/methodology/page.tsx` | "The Atlas — location data" 섹션(수집·정밀도·confidence·교정 루프) |
