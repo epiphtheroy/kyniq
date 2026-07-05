@@ -19,6 +19,7 @@
 | `HANDOFF-아틀라스-SEO-읽는층.md` | 촬영지 데이터의 **SEO 읽는층**(2026-07-04 전 Phase 라이브: film/director locations 1,000+331 · 국가 73 · 도시 511) — 파일맵·DB RPC·불변식(게이트=mergeCells 동기 규칙)·신규영화 운영절차(§3). 설계·실행 로그는 `docs/PLAN-atlas-seo.md`. |
 | `HANDOFF-계보-SEO-읽는층.md` | lineage(상·정전·국가별 정전·감독 계보)의 **SEO 읽는층**(2026-07-05~06: /lineage/[slug] 업그레이드 ~202 + /film/lineage/[slug] 신설 895 — Tier-2 367편 포함, 구 /film/x/honors 308) — 출처 표면화(코드맵+QID)·불변식(film_count 게이트 금지 등)·운영절차. |
 | `HANDOFF-연결엔진-커넥션.md` | **연결 엔진 정본 (2026-07-05)** — 친족(film_affinities, RRF)·counterpoint(entity_edges)·개념(concept_map)·갤럭시(film/director_map_xy)의 파일맵·데이터 객체·**불변식 6조**(meta_take_id 회귀 금지 등)·상황별 재실행 절차·인제스트 수요 큐(film_next_demand). movies-like/Connected/Counterpoints/map/galaxy 작업은 여기서 시작. 진단·실행 이력: `docs/PLAN-connections-overhaul.md`. |
+| `HANDOFF-트로프피겨아키타입-순위표면.md` | **트로프·피겨·아키타입 순위 표면 정본 (2026-07-05~06)** — /trope 멤버 라이브 랭킹(`trope_members_ranked`, take↔trope 코사인)·% match·리스티클 타이틀·ItemList/FAQ, 피겨 질문 H2+nearest figures(figure_neighbors), /catalog 순번·confidence %·날짜/EEAT, 필름 Tropes 독해제목 라인, /methodology#rankings. **함정 기록**: ftm.sim=트로프별 상수, 피겨 임베딩=표면축, reading 허브 0출판. 이 네 페이지 작업은 여기서 시작. |
 | `figure-page-KEPT.md` | Parking-lot + the most up-to-date pipeline notes: §G scale (1k-film), §H embeddings, §J tropes, §K scholar header, **§L the big-bang checklist**. |
 | `meta-take-architecture.md` | The spine spec (entities, pipeline, decisions) — annotated with the 2026-06-14 figure-page reversal. |
 | `figure-page-design.md` | Figure page + contribution spec; §6.6 output contract for figure-enrich. |

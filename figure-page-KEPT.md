@@ -96,6 +96,7 @@
   교차영화로는 스타일/국적으로 뭉침 → 순수 임베딩으론 트로프 안 나옴. 그래서 **유형 태깅(추상화)** 필수.
 - **교차링크:** `trope_readings`(트로프→읽기) + `meta_take_tropes`(읽기→트로프) RPC. 양쪽 페이지에 `.xbox`.
 - **UI:** nav Genres→Tropes, `/tropes` 인덱스, `/trope/[slug]` 허브, figure 페이지 "Type" 줄.
+- **(2026-07-05~06 순위 표면)** /trope 멤버 라이브 랭킹·% match·질문형 부제·FAQ/ItemList, 피겨 nearest-figures, /catalog 순번·confidence %, 필름 Tropes 독해제목 라인 — 정본 `HANDOFF-트로프피겨아키타입-순위표면.md` (★함정: ftm.sim=상수, 피겨 임베딩=표면축 → 랭킹은 take↔trope 코사인).
 
 ## K. 메타테이크 "학술 헤더" — 2026-06-17 구축 (학자·학생·연구자·창작자용)
 - **무엇:** 메타테이크(reading) 페이지에 `ScholarHeader` — ① 정식 이론용어(`raw_concept`) + 계보

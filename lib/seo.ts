@@ -108,6 +108,12 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    permanentRedirect, no slug_aliases rows). Film pages: separate Honors
  *    tab removed — the Lineage tab/section itself now carries the honours
  *    presentation (per-row source tags via lnListMeta).
+ *  - 2026-07-06 (film-page trope depth, follow-up to the 07-05 upgrade):
+ *    each Tropes row on /film/[slug] now carries this film's own reading
+ *    title (strongest published take via takes.trope_id) linking to the
+ *    carrying figure — per-film unique text under every trope link.
+ *    Canonical doc for the whole ranked-surfaces layer:
+ *    HANDOFF-트로프피겨아키타입-순위표면.md.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
