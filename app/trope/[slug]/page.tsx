@@ -42,8 +42,6 @@ type Related = {
   sample: { film: string; year: number | null; fw: string | null; tt: string | null } | null;
 };
 
-type TropeReading = { slug: string; title: string; n: number };
-
 const MATURITY: Record<string, [string, string]> = {
   // label, blurb
   fresh: ["Fresh", "a pattern just beginning to be shared — only these films, so far"],
@@ -150,16 +148,12 @@ export default async function TropePage({ params }: Props) {
     notFound();
   }
   const { t, members, filmCount } = data;
-  const [{ data: relRaw }, { data: readsRaw }, relatedSections] = await Promise.all([
+  const [{ data: relRaw }, relatedSections] = await Promise.all([
     db().rpc("trope_related", { p_slug: slug, p_n: 9 }),
-    // Hidden cross-axis join: the published *readings* (meta-takes) that this
-    // trope's member figures keep provoking — trope (what it is) → idea (what it means).
-    db().rpc("trope_readings", { p_slug: slug, p_limit: 8 }),
     // Related-boxes sections (SEO module) — deterministic, per-trope mix.
     relatedForMetaTake({ metaTakeId: t.id, kind: "figure_type", slug: t.slug }),
   ]);
   const related = (relRaw as Related[] | null) ?? [];
-  const tropeReadings = (readsRaw as TropeReading[] | null) ?? [];
   const tt = t as typeof t & { maturity: string | null; cohesion: number | null };
   const filmLabel = filmCount === 1 ? "film" : "films";
   const n = members.length;
@@ -360,25 +354,6 @@ export default async function TropePage({ params }: Props) {
                   </Link>
                 );
               })}
-            </div>
-          </section>
-        )}
-
-        {tropeReadings.length > 0 && (
-          <section className="tp-sec" aria-labelledby="tp-reads-h">
-            <h2 className="tp-h2" id="tp-reads-h">
-              What does {t.title} keep meaning? <span className="tp-h2__n">— the ideas its figures provoke</span>
-            </h2>
-            <p className="tp-gloss">
-              A trope is a recurring <em>thing</em>; these are the recurring <em>readings</em> its figures gather across
-              the archive — the other axis of the map.
-            </p>
-            <div className="cat-pills">
-              {tropeReadings.map((r) => (
-                <Link key={r.slug} href={`/take/${r.slug}`} className="cat-pill">
-                  {r.title}<span className="cat-pill__n">{r.n}</span>
-                </Link>
-              ))}
             </div>
           </section>
         )}
