@@ -221,10 +221,24 @@ export default async function LineagePage({ params }: Props) {
         </div>
         {list.description ? <p className="lh-def">{list.description}</p> : null}
         <p className="lh-def" style={{ fontSize: 14, opacity: 0.7 }}>
-          {src ? <>Compiled from {src.url ? <a href={src.url} target="_blank" rel="noopener noreferrer">{src.name} ↗</a> : src.name}</> : "Compiled from public records"}
-          {wd ? <> · <a href={wd} target="_blank" rel="noopener noreferrer">Wikidata ↗</a></> : null}
+          {/* One citation link, never a bare wikidata.org: QID link when the
+              list has one; the source's own site otherwise; plain text last. */}
+          Compiled from{" "}
+          {wd ? <a href={wd} target="_blank" rel="noopener noreferrer">{src?.name ?? "Wikidata"} ↗</a>
+            : src?.url ? <a href={src.url} target="_blank" rel="noopener noreferrer">{src.name} ↗</a>
+            : (src?.name ?? "public records")}
+          , resolved to TMDb identities
           {" · "}{visibleFilms.length} of {films.length} read closely on Metatake
         </p>
+        {trueSize && films.length < trueSize ? (
+          <p className="lh-def" style={{ fontSize: 13.5, opacity: 0.65 }}>
+            <b>{films.length} of {trueSize} films matched to a film page.</b>{" "}
+            {trueSize - films.length > trueSize * 0.2
+              ? "This canon is still being ingested — more titles are matched with each data update."
+              : `The remaining ${trueSize - films.length} are on the published list but not yet matched — usually a title or year mismatch still being reconciled.`}{" "}
+            The count in the title reflects what is on record here.
+          </p>
+        ) : null}
         <LineageActions slug={slug} />
 
         <div className="lh-films">
