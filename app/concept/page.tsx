@@ -26,7 +26,10 @@ export default async function ConceptIndex() {
       <div className="mt-wrap">
         <h1 className="mt-h1">Concepts in film</h1>
         <p className="mt-laconic">
-          Recurring critical ideas across cinema — each gathering the films and readings that embody it. The vocabulary critics actually use, mapped onto the movies that show it.
+          {items.length ? <><b>{items.length} critical concepts</b>, each</> : "Recurring critical ideas across cinema — each"} gathering the films and readings that embody it. The vocabulary critics actually use, mapped onto the movies that show it.
+        </p>
+        <p style={{ fontSize: 12, opacity: .68, margin: "8px 0 0" }}>
+          Canonicalised and mapped by Metatake&apos;s connection engine · Edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology#connections">How it&apos;s computed →</Link>
         </p>
         {items.length === 0 ? (
           <p className="mt-see" style={{ fontStyle: "italic" }}>No concepts yet.</p>
