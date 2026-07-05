@@ -23,6 +23,10 @@
 - **사이트맵**: 자식 `cities.xml`(511) — 인덱스 18분할. 코호트 없음(아티팩트가 릴리즈 셋).
 - 지구(맨해튼·브루클린·버뱅크 등)는 상위 도시와 의도적으로 공존 — 검색 수요가 별개이고 필름셋이 충분히 다름(0.9 중첩만 병합).
 
+## 실행 로그 — URL 이전 (2026-07-06, 원우 결정)
+
+- 필름 촬영지 페이지 `/film/[slug]/locations` → **`/film/atlas/[slug]`** (구 라우트는 permanentRedirect 308). 필름 페이지의 별도 Locations 탭 삭제 — Atlas 섹션 내 필 버튼(◉)이 진입로. 별도 페이지에 필름 복귀 필 + /atlas 허브 링크(양방향). 내부 링크 7곳·locations.xml 갱신, IndexNow 1,000 재제출. 운영 상세: `HANDOFF-아틀라스-SEO-읽는층.md`.
+
 ## 실행 로그 — E-E-A-T 보강 + 시각 개선 (2026-07-04 밤)
 
 - **출처 인용**: film_locations.sources에 실 URL 4,443핀(위키피디아·프레스킷 등) 확인 → 필름 locations 페이지가 위치별 "Source: en.wikipedia.org ↗" 링크 렌더(최대 2개, 있는 것만 — "where on file" 문구로 과장 없음).
