@@ -25,6 +25,15 @@
 3. counterpoint 재빌드 — supabase/rpc/counterpoints.sql 주석의 2개 SQL 블록 실행
 4. `python3 worker/galaxy-build.py` — 좌표+라벨 (분기 1회 정도; 좌표 전면 이동 = 새 판)
 
+## ✅ 갤럭시 비주얼 2차 + TS 배지 제거 (2026-07-05 오후, 원우 지시)
+
+- **노드 썸네일화**: 줌 임계(노드 높이 ≥16px)부터 영화=포스터 라운드렉트, 감독=원형 얼굴(클러스터색 테두리). 이미지 lazy 캐시, 미보유는 색점 폴백.
+- **감독 사진 백필**: `worker/director-profiles.py` — TMDB person search, known_for 작품 대조 검증(verified 749) → `director_profile` 테이블 **850/870 사진**; `galaxy_directors_json`에 'p' 추가(migration director_profiles). 우측 카드에 원형 얼굴 표시.
+- **드리프트**: 사인파 미세 부유(~1.7px, 점별 위상=slug 해시), rAF ~30fps, hidden 탭 정지. 라벨 배치는 기본 좌표 기준이라 드리프트에도 안정.
+- **상시 라벨**: 충돌 회피 그리드(중요도순: 영화=포스터有+연도, 감독=작품수; 캡 240)로 기본 줌에서도 이름 표시, 줌인할수록 증가. 클러스터 장르 라벨은 점 모드에서만.
+- **좌측 패널 썸네일**: 영화 22×33 포스터 / 감독 24px 원형, 무사진은 이니셜 블록.
+- **TS 배지 전면 제거**: `TakeScoreBadges`(layout.tsx 전역 주입기) 제거+컴포넌트 삭제 — 사이트 전체 포스터 오버레이 소멸. /takescore 등 전용 대시보드의 표 형태 수치는 유지(오버레이 아님).
+
 ## ✅ 세부 수정 7건 (2026-07-05, 원우 지시)
 
 1. **근거 수치 영구화** — film_affinities에 `cos`(취향 코사인)·`tfidf` 컬럼 추가, swap 함수가 기록 + TF-IDF 단독 쌍은 cos 백필(46,440행 전수 보유). migration `affinities_evidence_columns` + `affinities_swap_cos_backfill`.

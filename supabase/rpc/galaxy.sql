@@ -30,6 +30,7 @@ language sql stable security definer set search_path to 'public' as $$
         'slug', dx.slug,
         'title', coalesce((select max(f.director) from films f where f.director_slug = dx.slug), dx.slug),
         'n', (select count(*) from films f where f.director_slug = dx.slug and f.visible),
+        'p', (select dp.profile_path from director_profile dp where dp.slug = dx.slug),
         'x', dx.x, 'y', dx.y, 'c', dx.cluster) order by dx.slug)
       from director_map_xy dx), '[]'::jsonb),
     'clusters', coalesce((select jsonb_agg(jsonb_build_object(
