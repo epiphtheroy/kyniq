@@ -66,28 +66,32 @@ function load(slug: string) {
             .map((r) => [r.slug, r.original_title && r.original_title !== r.title ? r.original_title : null])
         );
       }
-      // Sibling lists in the same facet — internal links, gated to lists that
-      // themselves clear the ≥3-member bar (no links into noindex shells).
-      const [{ data: sibs }, elig] = await Promise.all([
-        supabase
-          .from("lineage_lists")
-          .select("slug, label, film_count")
-          .eq("facet", (list as LineageListMeta).facet)
-          .eq("status", "active")
-          .neq("slug", slug)
-          .order("authority_weight", { ascending: false, nullsFirst: false })
-          .limit(24),
-        cachedLineageEligibility(),
-      ]);
-      const eligible = new Map(elig.lists.map((l) => [l.slug, l.n]));
-      const related = ((sibs ?? []) as { slug: string; label: string }[])
-        .filter((s) => eligible.has(s.slug))
-        .slice(0, 8)
-        .map((s) => ({ ...s, n: eligible.get(s.slug)! }));
-      return { list: list as unknown as LineageListMeta, films: rows, hiddenNative, related };
+      return { list: list as unknown as LineageListMeta, films: rows, hiddenNative };
     },
     ["lineage3", slug],
     { revalidate: 1800, tags: [`lineage:${slug}`] },
+  )();
+}
+
+// Sibling lists in the same facet — internal links, gated to lists that
+// themselves clear the ≥3-member bar (no links into noindex shells).
+// Computed at component level, NOT inside load(): calling one unstable_cache
+// (the eligibility roster) from inside another returns empty on cold fills.
+function cachedSiblings(facet: string, slug: string) {
+  return unstable_cache(
+    async () => {
+      const { data } = await db()
+        .from("lineage_lists")
+        .select("slug, label")
+        .eq("facet", facet)
+        .eq("status", "active")
+        .neq("slug", slug)
+        .order("authority_weight", { ascending: false, nullsFirst: false })
+        .limit(24);
+      return (data ?? []) as { slug: string; label: string }[];
+    },
+    ["lineage-sibs", facet, slug],
+    { revalidate: 86400 },
   )();
 }
 
@@ -136,14 +140,21 @@ export default async function LineagePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { list, films, related } = data;
+  const { list, films } = data;
   const hiddenNative = data.hiddenNative ?? {};
   const visibleFilms = films.filter((f) => f.visible);
   const hiddenFilms = hiddenOf(films);
   const isCanon = list.facet === "canon" || films.some((f) => f.rank != null);
   const src = lineageSource(list.source);
   const wd = wikidataUrl(list.external_ref);
-  const updated = (await cachedLineageMeta()).updated || new Date().toISOString().slice(0, 10);
+  const [meta, elig, sibs] = await Promise.all([
+    cachedLineageMeta(),
+    cachedLineageEligibility(),
+    cachedSiblings(list.facet, slug),
+  ]);
+  const updated = meta.updated || new Date().toISOString().slice(0, 10);
+  const eligible = new Map(elig.lists.map((l) => [l.slug, l.n]));
+  const related = sibs.filter((s) => eligible.has(s.slug)).slice(0, 8).map((s) => ({ ...s, n: eligible.get(s.slug)! }));
 
   const itemListLd = {
     "@context": "https://schema.org",
