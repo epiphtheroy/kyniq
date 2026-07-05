@@ -210,7 +210,7 @@ export default async function LineagePage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...pageLd }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/lineage">Lineage</Link></div>
         <h1 className="lh-h1">{list.label}</h1>
