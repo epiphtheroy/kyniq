@@ -10,6 +10,7 @@ import { cachedAtlasEligibility } from "@/lib/atlas";
 import {
   FILM_HONORS_MIN,
   cachedLineageMeta,
+  honorText,
   lineageSource,
   loadLineageListMeta,
   wikidataUrl,
@@ -41,13 +42,15 @@ type FilmRow = {
   id: string; title: string; slug: string; year: number | null;
   director: string | null; director_slug: string | null;
   poster_path: string | null; visible: boolean | null;
+  release_date: string | null; imdb_id: string | null;
+  tmdb_id: number | null; wikidata_id: string | null;
 };
 
 async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, poster_path, visible")
+    .select("id, title, slug, year, director, director_slug, poster_path, visible, release_date, imdb_id, tmdb_id, wikidata_id")
     .eq("slug", slug)
     .maybeSingle();
   if (!film) return null;
@@ -65,7 +68,9 @@ async function loadUncached(slug: string) {
 }
 
 function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["film-honors", slug], {
+  // Key bumped (2) when the entity ids joined the payload — the Data Cache
+  // outlives deploys.
+  return unstable_cache(() => loadUncached(slug), ["film-honors2", slug], {
     revalidate: 86400,
     tags: [`film:${slug}`],
   })();
