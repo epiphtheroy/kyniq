@@ -49,6 +49,15 @@
 - **counterpoint 특례**: seen 영화 페이지의 counterpoint 행은 자기 영화 figure 링크 때문에 전부 seen 판정 → 가드(전원 seen이면 스킵)로 무해하게 no-op. unseen 영화 페이지에선 정상 정렬.
 - **한계**: 페이지네이션/무한스크롤 표면은 로드된 범위 안에서만 정렬(서버 쿼리는 건드리지 않음 — 캐시 원칙). 블록형(비 flex/grid) 리스트는 옵트인 전까지 엔진 정렬 미적용.
 
+## v1.3 — 엔드리스 피드의 데이터 레벨 렌즈 (2026-07-06)
+
+스트롱 미스리딩 피드(ReadingFeed)는 페이지네이션이라 클라 정렬로는 로드된 창만 처리됨 → **only 모드일 때 피드의 데이터 소스 자체를 교체**:
+
+- DB: `readings_mine(p_user, p_fw, p_sort, p_trope, p_decade, p_limit, p_offset)` — `readings_by_framework` 미러 + user_movies seen 조인. **anon/authenticated 실행권 REVOKE, service_role만** (p_user 스푸핑으로 타 유저 시청기록이 새는 것 방지). 마이그레이션명 readings_mine_lens.
+- API: `app/api/lens/readings/route.ts` — 세션 검증(ssr getUser) → admin 클라이언트로 RPC 호출, `Cache-Control: private, no-store`.
+- ReadingFeed: `mine = lens.mode==="only" && seenCount>0`일 때 buildUrl이 `/api/lens/readings`로 스위치(검색 q 있으면 전역 유지), only 모드로 첫 진입 시 SSR 시드 무시하고 refetch, 카운트 문구 "N readings from films you've seen". 정렬·연대 파셋 파라미터 동일하게 통과.
+- 패턴 일반화: 다른 엔드리스 표면(InfiniteScrollFeed 등)도 같은 3단(미러 RPC + authed 라우트 + 소스 스위치)으로 확장 가능. **원칙 유지: 캐시되는 서버 HTML은 불변, 개인화는 로그인 전용 동적 API로만.**
+
 ## 엔티티별 렌즈 규칙 (기획 결정)
 
 - 포스터/백드롭 카드(img 포함 앵커): highlight=이미지 안쪽 2px 액센트 아웃라인, only=고스트+클릭 차단
