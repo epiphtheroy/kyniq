@@ -335,9 +335,9 @@ export default function GalaxyMap({ height }: { height: number }) {
   }, []);
 
   useEffect(() => { draw(); }, [draw, height, narrow]);
+  // lens only-mode toggles change `points` identity/length, so labels (keyed on
+  // points.length in viewKey) and the side panel recompute without extra wiring
   useEffect(() => { if (points.length) { draw(); scheduleVisible(); } }, [points, draw, scheduleVisible, narrow]);
-  // lens mode change → recompute labels + panel for the new point set
-  useEffect(() => { labelCache.current = { key: "", slugs: new Set() }; draw(); scheduleVisible(); }, [lensOnly, draw, scheduleVisible]);
   useEffect(() => {
     const onResize = () => { draw(); scheduleVisible(); };
     window.addEventListener("resize", onResize);
