@@ -32,6 +32,7 @@ import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
+import { loadLineageListMeta } from "@/lib/lineage";
 import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
 import RelatedBoxes from "@/components/RelatedBoxes";
 
@@ -105,9 +106,13 @@ async function loadUncached(slug: string) {
       supabase.from("film_ratings").select("imdb_rating, imdb_votes, metascore, rt_tomatometer").eq("film_id", film.id).maybeSingle(),
       supabase.from("film_watch_providers").select("results, countries").eq("film_id", film.id).maybeSingle(),
     ]);
+    const mLineage = (lnRows ?? []) as LinRow[];
+    // Per-list source/QID for the Lineage section's citation tags.
+    const mListMeta = Object.fromEntries(await loadLineageListMeta([...new Set(mLineage.map((l) => l.list_slug))]));
     return {
       minimal: true as const, film,
-      lineage: (lnRows ?? []) as LinRow[],
+      lineage: mLineage,
+      lnListMeta: mListMeta,
       recommendedBy: (revRows ?? []) as RevRow[],
       ratings: (ratRow as Ratings | null) ?? null,
       watch: (wpRow as Watch | null) ?? null,
@@ -137,6 +142,8 @@ async function loadUncached(slug: string) {
   const whyWatch = (Array.isArray(waRows) ? waRows : []) as WwLens[];
   const recommendedBy = (revRows ?? []) as RevRow[];
   const lineage = (lnRows ?? []) as LinRow[];
+  // Per-list source/QID for the Lineage section's citation tags.
+  const lnListMeta = Object.fromEntries(await loadLineageListMeta([...new Set(lineage.map((l) => l.list_slug))]));
   const ratings = (ratRow as Ratings | null) ?? null;
   const watch = (wpRow as Watch | null) ?? null;
   const questions = (qRows ?? []) as QRow[];
@@ -225,7 +232,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -233,9 +240,9 @@ async function loadUncached(slug: string) {
 // whole query set dynamically. Cache the result per slug in the Data Cache so
 // the route becomes ISR-cached; tagged film:<slug> for on-demand refresh.
 function load(slug: string) {
-  // Cache key bumped (load3) when geoCells/geoMerged joined the payload — the
+  // Cache key bumped (load4) when lnListMeta joined the payload — the
   // Data Cache outlives deploys, so a shape change needs a new key.
-  return unstable_cache(() => loadUncached(slug), ["film-load3", slug], {
+  return unstable_cache(() => loadUncached(slug), ["film-load4", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
@@ -393,7 +400,7 @@ export default async function FilmPage({ params }: Props) {
       overview: string | null; runtime: number | null; release_date: string | null;
       certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
     };
-    const { lineage, recommendedBy, ratings, watch } = data;
+    const { lineage, lnListMeta, recommendedBy, ratings, watch } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -520,7 +527,7 @@ export default async function FilmPage({ params }: Props) {
           ) : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} />
-          <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} movements={movements} />
+          <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
           {/* CREDITS — the same crawlable key-craft block Tier-1 carries */}
@@ -571,7 +578,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -601,7 +608,6 @@ export default async function FilmPage({ params }: Props) {
     geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
     geoCells >= FILM_LOCATIONS_MIN ? { id: "df-locations", label: "Locations", href: `/film/${film.slug}/locations` } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
-    lineage.length >= 3 ? { id: "df-honors", label: "Honors", href: `/film/${film.slug}/honors` } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
@@ -806,7 +812,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} movements={movements} />
+        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
         <FilmRecommendedBy rows={recommendedBy} title={film.title} />
