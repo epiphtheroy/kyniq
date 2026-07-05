@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import LineageTabsClient, { type IdxRow } from "@/components/LineageTabsClient";
 import type { MvHub } from "@/app/movements/page";
+import { cachedLineageMeta } from "@/lib/lineage";
 
 export const revalidate = 1800;
 
@@ -33,6 +34,30 @@ export default async function LineageIndex() {
   // Mirror the hub cards LineageTabsClient renders: national + movement hubs
   // with at least one film, linked to /movements/{slug}.
   const hubs = [...(mvd.national ?? []), ...(mvd.movements ?? [])].filter((h) => h.film_count > 0);
+  // Dataset framing (SEO_LINEAGE_SPEC §2d) — live counts only, never baked.
+  const meta = await cachedLineageMeta();
+  const facetCount = (facet: string) => lists.filter((l) => l.facet === facet && l.film_count > 0).length;
+  const datasetLd = {
+    "@type": "Dataset",
+    "@id": "https://metatake.net/lineage#dataset",
+    name: "Metatake Film Lineage Dataset",
+    description: `A curated dataset of film-lineage memberships — which films belong to which national cinemas, movements, awards and canons. ${meta.memberships.toLocaleString()} memberships across ${meta.lists} lineages, each compiled from official records and Wikipedia/Wikidata, resolved to a TMDb-backed Metatake film page.`,
+    url: "https://metatake.net/lineage",
+    keywords: ["film awards", "film canons", "national cinema", "film movements", "auteur", "cinema lineage"],
+    isAccessibleForFree: true,
+    creator: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    ...(meta.updated ? { dateModified: meta.updated } : {}),
+    measurementTechnique: "Membership compiled from official award/festival records and Wikipedia/Wikidata; each film matched to a TMDb-backed Metatake film page; unmatched titles held rather than guessed.",
+    hasPart: [
+      { "@type": "Dataset", name: "National cinemas", description: `${(mvd.national ?? []).filter((h) => h.film_count > 0).length} national-cinema lineages` },
+      { "@type": "Dataset", name: "Movements", description: `${(mvd.movements ?? []).filter((h) => h.film_count > 0).length} film-movement lineages` },
+      { "@type": "Dataset", name: "Awards", description: `${facetCount("award")} award lineages` },
+      { "@type": "Dataset", name: "Canons", description: `${facetCount("canon")} canon lineages` },
+      { "@type": "Dataset", name: "Auteur lines", description: `${facetCount("auteur")} auteur-line lineages` },
+    ],
+  };
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -42,7 +67,9 @@ export default async function LineageIndex() {
         name: TITLE,
         description: DESC,
         isPartOf: { "@type": "WebSite", "@id": "https://metatake.net" },
+        mainEntity: { "@id": "https://metatake.net/lineage#dataset" },
       },
+      datasetLd,
       {
         "@type": "BreadcrumbList",
         itemListElement: [
