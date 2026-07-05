@@ -46,7 +46,7 @@ export default function MyFilmsPage() {
           <p className="mfl-lede">
             Metatake maps cinema — films linked by the readings they share, placed in a galaxy,
             pinned on a world atlas. The <b>My Films</b> lens turns that whole map into <i>your</i> map:
-            flip the <b>◎&nbsp;My&nbsp;films</b> toggle in the top bar and every page answers to what you&rsquo;ve watched.
+            flip the <b>◎&nbsp;My&nbsp;films</b>{" toggle in the top bar and every page answers to what you’ve watched."}
           </p>
         </header>
 
@@ -79,9 +79,9 @@ export default function MyFilmsPage() {
         <section className="mfl-sec">
           <h2>How to start</h2>
           <ol className="mfl-steps">
-            <li><b>Sign in</b> — or <Link href="/signup?next=%2Fmy-films">create a free account</Link>.</li>
-            <li><b>Tell the site what you&rsquo;ve seen</b> — mark films <b>Seen ✓</b> as you browse, or <Link href="/me/import">import your Letterboxd / IMDb history</Link> in one file.</li>
-            <li><b>Flip the toggle</b> — the <b>◎ My films</b> control in the top bar, on every page.</li>
+            <li><b>Sign in</b>{" — or "}<Link href="/signup?next=%2Fmy-films">create a free account</Link>.</li>
+            <li><b>Tell the site what you&rsquo;ve seen</b>{" — mark films "}<b>Seen&nbsp;✓</b>{" as you browse, or "}<Link href="/me/import">import your Letterboxd / IMDb history</Link>{" in one file."}</li>
+            <li><b>Flip the toggle</b>{" — the "}<b>◎&nbsp;My&nbsp;films</b>{" control in the top bar, on every page."}</li>
           </ol>
         </section>
 

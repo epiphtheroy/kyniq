@@ -82,8 +82,7 @@ export default function LensToggle() {
           <>
             <div className="mtl-head">My Films lens</div>
             <p className="mtl-p">
-              Mark films as <b>Seen ✓</b> — or import your Letterboxd / IMDb history — and the whole
-              site can re-centre on what you&rsquo;ve watched.
+              {"Mark films as "}<b>Seen&nbsp;✓</b>{" — or import your Letterboxd / IMDb history — and the whole site can re-centre on what you’ve watched."}
             </p>
             <div className="mtl-foot">
               <Link href="/me/import" onClick={() => setOpen(false)}>Import your films →</Link>

@@ -36,8 +36,8 @@ export default function LensCta() {
     return (
       <div className="mfl-cta">
         <p className="mfl-note">
-          You&rsquo;re signed in — now give the lens something to work with. Mark films as
-          <b> Seen ✓</b> anywhere on the site, or import your whole history in one go.
+          {"You’re signed in — now give the lens something to work with. Mark films as "}
+          <b>Seen&nbsp;✓</b>{" anywhere on the site, or import your whole history in one go."}
         </p>
         <div className="mfl-btns">
           <Link className="mfl-btn mfl-btn--red" href="/me/import">Import from Letterboxd / IMDb</Link>
@@ -50,8 +50,8 @@ export default function LensCta() {
   return (
     <div className="mfl-cta">
       <p className="mfl-note">
-        Your lens covers <b>{lens.seenCount.toLocaleString()}</b> films. Switch it here — or any
-        time from the <b>◎ My films</b> toggle in the top bar.
+        {"Your lens covers "}<b>{lens.seenCount.toLocaleString()}</b>{" films. Switch it here — or any time from the "}
+        <b>◎&nbsp;My&nbsp;films</b>{" toggle in the top bar."}
       </p>
       <div className="mfl-modes">
         {MODES.map((o) => (
