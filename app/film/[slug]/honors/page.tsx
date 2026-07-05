@@ -1,0 +1,299 @@
+import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Link from "next/link";
+import SiteNav from "@/components/home2/SiteNav";
+import { pageRobots } from "@/lib/seo";
+import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
+import { cachedAtlasEligibility } from "@/lib/atlas";
+import {
+  FILM_HONORS_MIN,
+  cachedLineageMeta,
+  lineageSource,
+  loadLineageListMeta,
+  wikidataUrl,
+  type FilmLineageRow,
+  type LineageListMeta,
+} from "@/lib/lineage";
+
+/**
+ * /film/[slug]/honors — the film's complete lineage record (awards, canons,
+ * national honours, auteur line), each entry linking to the list it belongs
+ * to WITH its source. The film page keeps its compact Lineage section; this
+ * is the read page for "X awards" / "is X in the canon" queries.
+ *
+ * Deliberately NOT gated on films.visible: a Tier-2 catalog film with three
+ * sourced honours carries a real record — the honours are facts about the
+ * film, not editorial that needs the ≥3-figure bar. Gate: ≥3 lineage rows.
+ */
+export const revalidate = 86400;
+export async function generateStaticParams() { return []; }
+
+const IMG = "https://image.tmdb.org/t/p";
+
+function db() {
+  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+}
+
+type FilmRow = {
+  id: string; title: string; slug: string; year: number | null;
+  director: string | null; director_slug: string | null;
+  poster_path: string | null; visible: boolean | null;
+};
+
+async function loadUncached(slug: string) {
+  const supabase = db();
+  const { data: film } = await supabase
+    .from("films")
+    .select("id, title, slug, year, director, director_slug, poster_path, visible")
+    .eq("slug", slug)
+    .maybeSingle();
+  if (!film) return null;
+  const { data: rows } = await supabase.rpc("film_lineage_for", { p_film_id: (film as FilmRow).id });
+  const lineage = ((rows ?? []) as FilmLineageRow[]);
+  if (lineage.length < FILM_HONORS_MIN) return null;
+  const listMeta = await loadLineageListMeta([...new Set(lineage.map((l) => l.list_slug))]);
+  const atlasElig = await cachedAtlasEligibility();
+  return {
+    film: film as FilmRow,
+    lineage,
+    listMeta: Object.fromEntries(listMeta), // Data Cache can't serialize Maps
+    hasLocationsPage: atlasElig.films.some((f) => f.slug === slug),
+  };
+}
+
+function load(slug: string) {
+  return unstable_cache(() => loadUncached(slug), ["film-honors", slug], {
+    revalidate: 86400,
+    tags: [`film:${slug}`],
+  })();
+}
+
+function splitRows(lineage: FilmLineageRow[]) {
+  const awards = lineage
+    .filter((l) => l.facet !== "auteur" && l.result !== "listed" && l.result)
+    .sort((a, b) => (b.edition_year ?? 0) - (a.edition_year ?? 0));
+  const canons = lineage
+    .filter((l) => l.facet === "canon" && l.result === "listed")
+    .sort((a, b) => (a.rank ?? 9e9) - (b.rank ?? 9e9) || a.list_label.localeCompare(b.list_label));
+  const national = lineage
+    .filter((l) => l.facet === "national" && l.result === "listed")
+    .sort((a, b) => a.list_label.localeCompare(b.list_label));
+  const auteur = lineage.filter((l) => l.facet === "auteur");
+  const rest = lineage.filter((l) => !awards.includes(l) && !canons.includes(l) && !national.includes(l) && !auteur.includes(l));
+  return { awards, canons: [...canons, ...rest], national, auteur };
+}
+
+function leadText(film: FilmRow, lineage: FilmLineageRow[]): string {
+  const { awards, canons, national, auteur } = splitRows(lineage);
+  const year = film.year ? ` (${film.year})` : "";
+  const parts: string[] = [];
+  if (awards.length) {
+    const top = awards[0];
+    parts.push(`${awards.length} award result${awards.length === 1 ? "" : "s"} — most recently ${top.result === "won" ? "winning" : top.result ?? ""} the ${awardLabel(top.list_label, top.list_slug)}${top.edition_year ? ` in ${top.edition_year}` : ""}`);
+  }
+  if (canons.length) {
+    const ranked = canons.find((c) => c.rank != null);
+    parts.push(`${canons.length} canon appearance${canons.length === 1 ? "" : "s"}${ranked ? ` (ranked #${ranked.rank}${ranked.rank_max ? ` of ${ranked.rank_max}` : ""} in ${ranked.list_label})` : ""}`);
+  }
+  if (national.length) parts.push(`${national.length} national canon${national.length === 1 ? "" : "s"}`);
+  if (auteur.length) parts.push(`an auteur line`);
+  const body = parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}` : parts[0] ?? "";
+  return `${film.title}${year} carries ${lineage.length} entries in Metatake's lineage record: ${body}. Every entry links to the complete list it belongs to, with the source it was compiled from.`;
+}
+
+interface Props { params: Promise<{ slug: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await load(slug);
+  if (!data) return { title: "Not found" };
+  const { film, lineage } = data;
+  const year = film.year ? ` (${film.year})` : "";
+  // No brand suffix — the root layout template appends "· Metatake".
+  const title = `${film.title}${year} — Awards, Canons & Honors: the Complete Record`;
+  const description = leadText(film, lineage);
+  return {
+    title,
+    description,
+    alternates: { canonical: `/film/${slug}/honors` },
+    openGraph: { title, description },
+    twitter: { card: "summary_large_image", title, description },
+    robots: pageRobots(lineage.length >= FILM_HONORS_MIN),
+  };
+}
+
+function SourceTag({ meta }: { meta: LineageListMeta | undefined }) {
+  if (!meta) return null;
+  const src = lineageSource(meta.source);
+  const wd = wikidataUrl(meta.external_ref);
+  if (!src && !wd) return null;
+  return (
+    <span className="lin-meta" style={{ opacity: 0.65 }}>
+      {" · via "}
+      {wd ? <a href={wd} target="_blank" rel="noopener noreferrer">{src?.name ?? "Wikidata"} ↗</a>
+        : src?.url ? <a href={src.url} target="_blank" rel="noopener noreferrer">{src.name} ↗</a>
+        : src?.name}
+    </span>
+  );
+}
+
+export default async function FilmHonorsPage({ params }: Props) {
+  const { slug } = await params;
+  const data = await load(slug);
+  if (!data) notFound();
+  const { film, lineage, listMeta, hasLocationsPage } = data;
+  const metaOf = (s: string) => (listMeta as Record<string, LineageListMeta>)[s];
+  const { awards, canons, national, auteur } = splitRows(lineage);
+  const updated = (await cachedLineageMeta()).updated || new Date().toISOString().slice(0, 10);
+  const lead = leadText(film, lineage);
+  const yearLabel = film.year ? ` (${film.year})` : "";
+
+  const movieLd = {
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    "@id": `https://metatake.net/film/${film.slug}`,
+    name: film.title,
+    ...(film.year ? { datePublished: String(film.year) } : {}),
+    ...(film.director ? { director: { "@type": "Person", name: film.director } } : {}),
+    ...(film.poster_path ? { image: `${IMG}/w500${film.poster_path}` } : {}),
+    ...(awards.filter((a) => a.result === "won").length
+      ? { award: awards.filter((a) => a.result === "won").map((a) => `${awardLabel(a.list_label, a.list_slug)}${a.edition_year ? ` (${a.edition_year})` : ""}`) }
+      : {}),
+  };
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${film.title}${yearLabel} — awards, canons and honors`,
+    numberOfItems: lineage.length,
+    itemListElement: [...awards, ...canons, ...national, ...auteur].map((l, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${l.list_label}${l.result && l.result !== "listed" ? ` — ${l.result}` : ""}${l.edition_year ? ` (${l.edition_year})` : ""}${l.rank ? ` — ranked #${l.rank}` : ""}`,
+      url: `https://metatake.net/lineage/${l.list_slug}`,
+    })),
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+      { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
+      { "@type": "ListItem", position: 3, name: `${film.title}${yearLabel}`, item: `https://metatake.net/film/${film.slug}` },
+      { "@type": "ListItem", position: 4, name: "Awards & honors", item: `https://metatake.net/film/${film.slug}/honors` },
+    ],
+  };
+  const pageLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: `https://metatake.net/film/${film.slug}/honors`,
+    name: `${film.title}${yearLabel} — awards, canons & honors`,
+    about: { "@type": "Movie", "@id": `https://metatake.net/film/${film.slug}`, name: film.title },
+    author: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    dateModified: updated,
+  };
+
+  const Row = ({ l, emblem }: { l: FilmLineageRow; emblem: string }) => (
+    <div className="lin-row">
+      <span className="lin-em" aria-hidden="true">{emblem}</span>
+      {l.parent_label && l.parent_label !== l.list_label
+        ? <><span className="lin-body">{l.parent_label}</span><span className="lin-sep">·</span></>
+        : null}
+      <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{awardLabel(l.list_label, l.list_slug)}</Link>
+      {l.result && l.result !== "listed" ? <span className="lin-res"> · {l.result}</span> : null}
+      {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
+      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
+      <SourceTag meta={metaOf(l.list_slug)} />
+    </div>
+  );
+
+  return (
+    <div className="mt">
+      <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(movieLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 60px" }}>
+        <div className="df-crumb" style={{ marginBottom: 14 }}>
+          <Link href="/film">Films</Link>
+          {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
+          <span className="df-sep">›</span><Link href={`/film/${film.slug}`}>{film.title}</Link>
+          <span className="df-sep">›</span><span>Honors</span>
+        </div>
+
+        <header style={{ display: "flex", gap: 22, alignItems: "flex-start", marginBottom: 8 }}>
+          {film.poster_path ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <Link href={`/film/${film.slug}`} style={{ flexShrink: 0 }}>
+              <img src={`${IMG}/w185${film.poster_path}`} alt={`${film.title} poster`} width={110} height={165} style={{ borderRadius: 8, objectFit: "cover" }} loading="lazy" />
+            </Link>
+          ) : null}
+          <div>
+            <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>
+              {film.title}{yearLabel} — awards, canons &amp; honors
+            </h1>
+            <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
+          </div>
+        </header>
+
+        {awards.length > 0 && (
+          <section style={{ margin: "28px 0" }}>
+            <h2 className="df-h2">Awards &amp; honours — {awards.length}</h2>
+            <div className="lin-list">
+              {awards.map((l, i) => <Row key={`a${i}`} l={l} emblem={awardBody(l.list_slug)?.emblem ?? "🏆"} />)}
+            </div>
+          </section>
+        )}
+
+        {canons.length > 0 && (
+          <section style={{ margin: "28px 0" }}>
+            <h2 className="df-h2">Canons &amp; rankings — {canons.length}</h2>
+            <div className="lin-list">
+              {canons.map((l, i) => <Row key={`c${i}`} l={l} emblem={canonEmblem(l.list_slug)} />)}
+            </div>
+          </section>
+        )}
+
+        {national.length > 0 && (
+          <section style={{ margin: "28px 0" }}>
+            <h2 className="df-h2">National canons — {national.length}</h2>
+            <div className="lin-list">
+              {national.map((l, i) => <Row key={`n${i}`} l={l} emblem="🏛️" />)}
+            </div>
+          </section>
+        )}
+
+        {auteur.length > 0 && (
+          <section style={{ margin: "28px 0" }}>
+            <h2 className="df-h2">Auteur line — {auteur.length}</h2>
+            <div className="lin-list">
+              {auteur.map((l, i) => <Row key={`u${i}`} l={l} emblem="🎬" />)}
+            </div>
+          </section>
+        )}
+
+        <section style={{ margin: "30px 0 0" }}>
+          <h2 className="df-h2">Keep reading</h2>
+          <p style={{ lineHeight: 1.9, margin: "6px 0 0" }}>
+            <Link href={`/film/${film.slug}`}>{film.title} — the film page →</Link>
+            {hasLocationsPage ? (
+              <><br /><Link href={`/film/${film.slug}/locations`}>Where was {film.title} filmed? Every location, mapped →</Link></>
+            ) : null}
+            {film.director_slug ? (
+              <><br /><Link href={`/director/${film.director_slug}`}>{film.director} — the director hub →</Link></>
+            ) : null}
+            <br /><Link href="/lineage">All lineages — awards, canons and national honours →</Link>
+          </p>
+        </section>
+
+        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
+          Metatake Editorial · Lineage record compiled from public sources — cited per entry · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
+        </p>
+      </div>
+    </div>
+  );
+}
