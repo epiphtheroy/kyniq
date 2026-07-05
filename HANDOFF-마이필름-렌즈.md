@@ -1,6 +1,6 @@
 # HANDOFF — My Films 렌즈 (전 사이트 개인화 오버레이)
 
-작성: 2026-07-06 · 상태: 구현 완료, 로컬 검증 완료, 프로덕션 로그인 E2E 대기
+작성: 2026-07-06 · 상태: v1 라이브 + 로그인 E2E 완료(702편 계정, 갤럭시 "320 films · yours only" 확인) · v1.1 mine-first 정렬 추가
 
 ## 개요
 
@@ -34,6 +34,16 @@
 | `components/FilmMap.tsx` | globalish(아틀라스·감독맵·world scope)에서만: only=소스 필터(클러스터 카운트 정확), highlight=unseen 핀 페이드(`lensOpacityExpr`, 스타일 스왑 후에도 ref로 재적용) |
 | `components/EntityGraph.tsx` | 필름 노드 `data-lens-film` 옵트인(2줄) |
 | CSS | `app/globals.css` 말미(엔진 클래스·/my-films·커버리지), `app/home2.css` 말미(토글·리본) |
+
+## v1.1 — mine-first 정렬 (2026-07-06)
+
+렌즈 활성 시 **본 영화가 리스트 앞으로 밴드 정렬**되고, 각 표면의 기존 정렬은 밴드 안에서 유지된다.
+
+- **전역 엔진**: flex/grid 컨테이너에서 CSS `order:-1`로 seen 아이템을 앞으로(DOM 이동 없음 → React 안전). 가드: 자식 ≥4, 영화카드 커버리지 ≥70%, seen·unseen 혼재 시에만. 컨테이너에 `data-mtl-ordered` 마킹, off 전환 시 sweep. 자체 정렬을 가진 패널은 `data-mtl-no-order`로 옵트아웃(FilmMap 패널이 사용).
+- **딥링크 분류 확장**: `FILM_HREF`가 `/film/x/figure/y` 등 하위 경로도 영화 x 귀속으로 매칭 — 스트롱 미스리딩 카드가 렌즈·정렬 대상이 됨.
+- **갤럭시 패널**: sortedVisible에 seen-first 밴드(하이라이트 모드), 헤더에 "· yours first" 표시.
+- **FilmMap 패널**: groups에 seen-first 밴드(하이라이트 모드; only는 이미 필터라 무의미), focus 영화는 여전히 최상단.
+- **한계**: 페이지네이션/무한스크롤 표면은 로드된 범위 안에서만 정렬(서버 쿼리는 건드리지 않음 — 캐시 원칙). 블록형(비 flex/grid) 리스트는 엔진 정렬 미적용.
 
 ## 엔티티별 렌즈 규칙 (기획 결정)
 
