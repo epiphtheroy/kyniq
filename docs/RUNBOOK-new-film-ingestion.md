@@ -69,7 +69,7 @@ Two double-click scripts chain the corpus-wide middle safely; the ends are manua
 - **Risk (the fragile core):** generates **new hub slugs** and re-links takes across the *whole* corpus. recluster/dedupe/retitle **rename live hub titles/slugs** and null `seo_phrase`. URL integrity depends on `merged_into` + `slug_history` redirects.
 
 ### Stage 6 — Author → Rank → Recommend  ·  CORPUS-WIDE, P5a/b/c
-- **Scripts:** `mt-author.py` (Opus; publishes hubs with ≥5 films, publish-then-audit), `mt-rank.py` (rankings), `mt-recommend.py` (`film_affinities` = "films like" / 인근값, TF-IDF rarity-weighted).
+- **Scripts:** `mt-author.py` (Opus; publishes hubs with ≥5 films, publish-then-audit), `mt-rank.py` (rankings), `mt-recommend.py` (**2026-07-04 rewritten** — `film_affinities` = trope TF-IDF + `film_taste_vector` cosine fused by RRF, top-24/film, evidence columns `cos`/`tfidf`/shared trope ids; drives /movies-like, film-page Connected, /map 'like' edges. Runs via chunked `conn_*` RPCs. **정본/불변식: `HANDOFF-연결엔진-커넥션.md`**).
 - **Risk:** hubs that never reach 5 films stay unpublished candidates forever.
 
 ### Stage 7 — Tropes: tag → build  ·  ⚠️ CORPUS-WIDE FRAGILE, P6
@@ -133,6 +133,12 @@ These surfaces are **derived and mostly automatic** — see `FRONTEND-DISCOVERY-
 
 1. **figure slug backfill** — extract/import don't always fill `figures.slug`; missing → figures render as dead text. Verify `count(*) from figures where slug is null = 0`.
 2. **film genres/overview/media** — `run-tmdb-fetch-all.command`. Missing → genre "Other" collapse.
+3. **Connection engine refresh** (after tropes/takes land — full recipe in `HANDOFF-연결엔진-커넥션.md`):
+   a. `python3 worker/mt-recommend.py` — rebuilds `film_affinities` (movies-like·Connected·map 'like'까지 즉시 반영).
+   b. counterpoint rebuild — the 2 SQL blocks in `supabase/rpc/counterpoints.sql` header (conn_film_trope_vec → entity_edges).
+   c. new raw concepts? `python3 worker/concept-embed.py`(report) → `--write 0.70`.
+   d. film_next 백필 1줄 — `update film_next fn set target_film_id=f.id from films f where fn.target_film_id is null and f.tmdb_id=fn.tmdb_id;` (새 영화가 기존 레코의 target이 됐을 때).
+   e. galaxy 좌표(`worker/galaxy-build.py` / `--directors`)는 **분기 1회 정도만** — 재빌드=좌표 전면 이동(새 판). 새 감독 사진: `worker/director-profiles.py`.
 
 ---
 
