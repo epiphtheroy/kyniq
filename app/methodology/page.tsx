@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { pageRobots } from "@/lib/seo";
+import { cachedLineageMeta } from "@/lib/lineage";
 
 export const revalidate = 3600;
 
@@ -36,6 +37,11 @@ export default async function MethodologyPage() {
     [s.counterpoints, "counterpoints", "pairs that share a trope but read it in opposite directions"],
     [s.locations, "mapped locations", "geocoded shooting and setting places behind the Atlas"],
   ] : [];
+  // Lineage counts live in their own layer (film_lineage) — same live-count rule.
+  const lm = await cachedLineageMeta();
+  if (tiles.length && lm.memberships) {
+    tiles.push([lm.memberships, "lineage memberships", "films filed to awards, canons and national cinemas — lists enumerated whole, resolved to TMDb"]);
+  }
 
   return (
     <main className="shell">
@@ -190,7 +196,48 @@ export default async function MethodologyPage() {
 
       <hr className="rule" />
 
-      <div className="seclbl">Corrections</div>
+      <div className="seclbl">Lineage — the awards, canons and national record</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Alongside the readings, Metatake keeps a second, plainer kind of knowledge about each film: where it sits in
+        cinema&apos;s public record. <Link href="/lineage" className="accent" style={{ textDecoration: "none" }}>Lineage</Link>{" "}
+        is a separate structured layer — not embeddings, not close readings — that files a film against the
+        traditions it belongs to: national cinemas, film movements, award histories, ranked canons, and auteur lines.
+        Across more than a hundred populated award, canon and national lists it holds over ten thousand film-to-list
+        memberships spanning nearly six thousand films. Where a reading tells you what a film is thinking about,
+        lineage tells you what company it keeps.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        The method is <strong>complete enumeration, not sampling</strong>. When we add the Palme d&apos;Or we add
+        every Palme d&apos;Or; a ranked canon goes in whole and in order, not as a hand-picked highlight reel. Every
+        entry is then <strong>resolved to the film&apos;s TMDb identity</strong> — the same identity the rest of the
+        site is built on — so a lineage membership and a close reading point at the same film. Where a title
+        can&apos;t be matched with confidence it is <strong>held rather than guessed</strong>: a list may honestly
+        read &ldquo;N of M matched&rdquo; instead of pretending to be complete. A short count is a real count, not a
+        rounded one.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Every entry names where it came from. Lists are compiled from <strong>official records — award bodies and
+        festival archives — and from Wikipedia/Wikidata</strong>, cross-read against the canon-owners&apos; own
+        published lists; each list page cites the specific source it was drawn from, linked to the award&apos;s
+        Wikidata entity where one exists. Where a list has a known published length, ours is checked against it and
+        any shortfall is disclosed on the page. The occasional list for which no clean public source exists is held
+        back — hidden — pending verification rather than shown as authoritative. Lineage sits under the same{" "}
+        <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop as
+        everything else: if a film is filed under the wrong award or missing from a canon it belongs to, tell us and
+        we&apos;ll fix the row.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        A word on limits. These are <strong>winners and ranked members, not full nominee slates</strong> — a Best
+        Picture list holds the film that won, not the four it beat. And box office and audience ratings aren&apos;t
+        kept here; those live where they belong, on{" "}
+        <a href="https://www.themoviedb.org/" className="accent" style={{ textDecoration: "none" }}>TMDb</a>, not in
+        the lineage layer.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl" id="corrections">Corrections</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         If something on Metatake is factually wrong — a date, a credit, a plot detail, a mischaracterized scholarly
