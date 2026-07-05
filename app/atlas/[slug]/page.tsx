@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
+import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
 import { FILM_LOCATIONS_MIN, cachedAtlasEligibility, cachedAtlasMeta, citiesForCountry, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
 
@@ -156,6 +157,7 @@ export default async function AtlasCountryPage({ params }: Props) {
           <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
           See {c.country} on the map ↓
         </a>
+        <LensQuickBar />
 
         {returnedTo.length > 0 && (
           <section style={{ margin: "30px 0" }}>
@@ -209,6 +211,7 @@ export default async function AtlasCountryPage({ params }: Props) {
           {shelfOrder.map((decade) => (
             <div key={decade} style={{ margin: "18px 0 6px" }}>
               <h3 style={{ fontSize: 14, letterSpacing: ".04em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 2px" }}>{decade}</h3>
+              <div className="mtl-rows">
               {decades.get(decade)!.map((f) => (
                 <div key={f.slug} style={{ display: "flex", gap: 12, alignItems: "flex-start", padding: "9px 0", borderBottom: "1px solid rgba(22,35,63,.08)" }}>
                   {f.poster_path ? (
@@ -232,6 +235,7 @@ export default async function AtlasCountryPage({ params }: Props) {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
           ))}
         </section>

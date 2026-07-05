@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityActions from "@/components/EntityActions";
 import SaveButton from "@/components/SaveButton";
 import ListFilter from "@/components/ListFilter";
+import LensQuickBar from "@/components/LensQuickBar";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
@@ -221,6 +222,8 @@ export default async function TropePage({ params }: Props) {
           </div>
         </header>
 
+        <LensQuickBar />
+
         <div className="tp-stats">
           <a className="tp-stat" href="#members">
             <div className="tp-stat__n">{n}</div>
@@ -264,7 +267,7 @@ export default async function TropePage({ params }: Props) {
           ) : (
             <>
               <ListFilter targetId="trope-members" placeholder={`Search ${n} ${readLabel}…`} total={n} />
-              <ol className="tp-mlist" id="trope-members">
+              <ol className="tp-mlist mtl-rows" id="trope-members">
                 {members.map((m, i) => {
                   const href = figHref(m);
                   const F = fw(m.framework);

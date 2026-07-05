@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
+import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
@@ -205,6 +206,7 @@ export default async function AtlasCityPage({ params }: Props) {
           <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
           See {city.name} on the map ↓
         </a>
+        <LensQuickBar />
 
         {returningDirectors.length > 0 && (
           <section style={{ margin: "30px 0" }}>
@@ -239,6 +241,7 @@ export default async function AtlasCityPage({ params }: Props) {
         <section style={{ margin: "30px 0" }}>
           <h2 className="df-h2">The films — newest first</h2>
           <p className="df-sub">Every film on Metatake with a mapped location in {city.name}, and where in the city it stood.</p>
+          <div className="mtl-rows">
           {films.map((f) => {
             const shown = [...f.pins].sort((a, b) => precisionRank(a.precision) - precisionRank(b.precision)).slice(0, PER_FILM_SHOWN);
             const poster = f.pins[0]?.poster_path;
@@ -269,6 +272,7 @@ export default async function AtlasCityPage({ params }: Props) {
               </div>
             );
           })}
+          </div>
         </section>
 
         <section id="map" style={{ margin: "44px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>

@@ -4,6 +4,7 @@
  *  + auteurs + deep cuts + on-the-map. Fed by movement_detail(). */
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import LensQuickBar from "@/components/LensQuickBar";
 import type { MvDetail, MvFilm } from "@/app/movements/[slug]/page";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -58,6 +59,8 @@ export default function MovementHubClient({ d }: { d: MvDetail }) {
         {kindLabel}{d.hub.region ? ` · ${d.hub.region}` : ""}<span className="lh-cnt">{films.length} films</span>
       </div>
       {d.hub.description ? <p className="lh-def">{d.hub.description}</p> : null}
+
+      <LensQuickBar />
 
       <div className="mvh-tabs">
         {TABS.map(([id, label]) => {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import PosterActions from "@/components/PosterActions";
+import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -151,6 +152,8 @@ export default async function MoviesLikePage({ params }: Props) {
             </p>
           </div>
         </div>
+
+        <LensQuickBar />
 
         {recs.length === 0 ? (
           <p className="mt-see" style={{ fontStyle: "italic", marginTop: 24 }}>No similar films yet — this film&apos;s readings are still being connected.</p>

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import ListFilter from "@/components/ListFilter";
+import LensQuickBar from "@/components/LensQuickBar";
 
 export const revalidate = 600;
 export async function generateStaticParams() { return []; }
@@ -69,10 +70,11 @@ export default async function GenrePage({ params }: Props) {
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/genre">Genres</Link></div>
         <h1 className="mt-h1" style={{ textTransform: "capitalize" }}>{unslug(slug)}</h1>
+        <LensQuickBar />
         <ListFilter targetId="genre-list" total={inGenre.length} placeholder="Filter these films…" />
-        <ul className="mt-list" id="genre-list" style={{ marginTop: 12 }}>
+        <ul className="mt-list mtl-rows" id="genre-list" style={{ marginTop: 12 }}>
           {inGenre.map((f) => (
-            <li key={f.slug} data-filter-item data-filter-text={`${f.title} ${f.year ?? ""}`.toLowerCase()}><Link href={`/film/${f.slug}`}>{f.title}</Link> <span className="meta">({f.year ?? "?"})</span></li>
+            <li key={f.slug} data-lens-film={f.slug} data-filter-item data-filter-text={`${f.title} ${f.year ?? ""}`.toLowerCase()}><Link href={`/film/${f.slug}`}>{f.title}</Link> <span className="meta">({f.year ?? "?"})</span></li>
           ))}
         </ul>
 

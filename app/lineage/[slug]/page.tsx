@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteNav from "@/components/home2/SiteNav";
 import LineageActions from "@/components/LineageActions";
+import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
 import {
   FACET_LABEL,
@@ -240,10 +241,11 @@ export default async function LineagePage({ params }: Props) {
           </p>
         ) : null}
         <LineageActions slug={slug} />
+        <LensQuickBar />
 
         <div className="lh-films">
           {visibleFilms.map((f, i) => (
-            <div className="lh-film" key={i}>
+            <div className="lh-film" key={i} data-lens-film={f.film_slug}>
               {f.poster_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img className="lh-poster" src={`${IMG}/w92${f.poster_path}`} alt="" loading="lazy" />

@@ -145,7 +145,9 @@ export function LensProvider({ children }: { children: React.ReactNode }) {
         el.classList.toggle("mtl-inline", isInline);
         el.classList.toggle("mtl-seen", (isCard || isInline) && isSeen);
         el.classList.toggle("mtl-unseen", (isCard || isInline) && !isSeen);
-        if (isCard && !el.dataset.lensFilm) markedCards.set(el, isSeen);
+        // data-lens-film rows (genre/lineage rows, graph nodes) join ordering too;
+        // graph nodes are unaffected because their parent is never flex/grid
+        if (isCard) markedCards.set(el, isSeen);
       });
       applyOrder(markedCards);
     };

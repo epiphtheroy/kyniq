@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import ReadingFeed, { type FeedRow, type Facets } from "@/components/ReadingFeed";
+import LensQuickBar from "@/components/LensQuickBar";
 import { fwBySlug } from "@/lib/frameworks";
 import { FRAMEWORK_INTROS } from "@/lib/frameworkIntros";
 
@@ -79,6 +80,7 @@ export default async function FrameworkPage({ params }: Props) {
             {FRAMEWORK_INTROS[f!.slug]}
           </p>
         ) : null}
+        <LensQuickBar />
         <ReadingFeed fwSlug={isAll ? "all" : f!.slug} isAll={isAll} initial={initial} facets={facets} />
       </div>
     </div>

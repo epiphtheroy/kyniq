@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
@@ -174,6 +175,8 @@ export default async function CatalogNode({ params }: Props) {
           ) : null}
           {detail.definition ? <p className="cat-ndef">{detail.definition}</p> : null}
         </header>
+
+        <LensQuickBar />
 
         <section className="cat-sec" id="members">
           <h2 className="cat-h2">

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
 
 // Public (noindex) portfolio: the two RPCs only change when the user logs
 // activity, so serve an edge-cached page (ISR) and cache the fetch per username
@@ -82,6 +83,8 @@ export default async function PortfolioPage({ params }: Props) {
             {meta.bio && <p className="body" style={{ fontSize: 15.5, lineHeight: 1.55, margin: "9px 0 0", maxWidth: "58ch" }}>{meta.bio}</p>}
           </div>
         </div>
+
+        <LensQuickBar />
 
         {/* NAV-style KPI strip */}
         <div className="me-kpi">

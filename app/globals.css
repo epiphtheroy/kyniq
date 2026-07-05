@@ -4561,8 +4561,17 @@ a.mtl-card, a.mtl-card img { transition: opacity .25s ease, filter .25s ease; }
 
 /* mine-first ordering needs a flex/grid formatting context to reorder rows.
    These row-list wrappers are visually identical as flex columns; the lens
-   engine can then float rows holding seen films (CSS order, no DOM moves). */
-.smb-list, .df-conn { display: flex; flex-direction: column; }
+   engine can then float rows holding seen films (CSS order, no DOM moves).
+   .mtl-rows is the generic opt-in class for any block row list. */
+.smb-list, .df-conn, .mtl-rows { display: flex; flex-direction: column; }
+
+/* inline lens quick bar on list pages */
+.mtl-qb{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 8px;font-family:var(--font-ui,ui-sans-serif)}
+.mtl-qb__lb{font-size:12.5px;font-weight:800}
+.mtl-qb__b{font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--hairline-2,#cfc9bc);background:transparent;cursor:pointer;color:inherit;font-family:inherit}
+.mtl-qb__b.on{background:var(--accent,#E3120B);border-color:var(--accent,#E3120B);color:#fff}
+.mtl-qb__n{font-size:12px;color:var(--muted,#777)}
+.mtl-qb--intro a{font-size:13px;color:var(--accent,#E3120B);text-decoration:none;font-weight:600}
 
 /* ---- My Films: director coverage line ---- */
 .mtl-cov{display:flex;align-items:center;gap:10px;margin:2px 0 14px;font-family:var(--font-ui,ui-sans-serif);font-size:13.5px;color:var(--ink-soft,#4a4a4a)}

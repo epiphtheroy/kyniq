@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmsIndex, { type FilmFeat, type FilmCat } from "@/components/indexes/FilmsIndex";
+import LensQuickBar from "@/components/LensQuickBar";
 import { filmUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
@@ -69,6 +70,7 @@ async function AllFilmsView({ pageParam }: { pageParam?: string }) {
         </p>
 
         <ViewTabs all />
+        <LensQuickBar />
 
         <section className="idx-grp">
           <div className="idx-grph">All films <span className="gc">{total.toLocaleString()}</span></div>
@@ -162,6 +164,7 @@ export default async function FilmIndexPage({ searchParams }: Props) {
         </p>
 
         <ViewTabs all={false} />
+        <LensQuickBar />
 
         <FilmsIndex featured={featured} catalogue={catalogue} />
       </div>
