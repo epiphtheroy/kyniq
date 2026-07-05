@@ -13,9 +13,9 @@ lineage 데이터(리스트 398개 · **전량 출처 보유 멤버십 10,551건
 | 표면 | 내용 | 규모 |
 |---|---|---|
 | `/lineage/[slug]` **업그레이드** | 검색형 제목("Palme d'Or Winners — the Complete List (1946–2025)"), robots 게이트(멤버 ≥3), 출처 블록(소스명+위키데이터 링크), ItemList(Movie) + CollectionPage(about.sameAs=QID) JSON-LD, 관련 리스트 섹션 | 자격 ~202 (전체 398 중) |
-| `/film/[slug]/honors` **신설** | 한 영화의 전체 수상·정전 기록 — 그룹별(수상/정전 랭킹/국가별 정전/감독 계보) + 행마다 출처 표기 + Movie.award JSON-LD | 자격 895 (**Tier-2 367편 포함** — 사용자 지시 "1,900편 한정 금지") |
+| `/film/lineage/[slug]` **신설** | 한 영화의 전체 수상·정전 기록 — 그룹별(수상/정전 랭킹/국가별 정전/감독 계보) + 행마다 출처 표기 + Movie.award JSON-LD | 자격 895 (**Tier-2 367편 포함** — 사용자 지시 "1,900편 한정 금지") |
 | 사이트맵 | 자식 `lineage.xml`(~202) + `honors.xml`(코호트 500/895) — 인덱스 **20분할** | |
-| 내비 | 필름 페이지 Honors 탭(≥3) + FilmLineageSection 하단 "complete record →" 링크(Tier-2 템플릿 포함) | |
+| 내비 | 필름 페이지 **Lineage 탭/섹션이 honors 콘텐츠 담당**(2026-07-06 사용자 결정 — 별도 Honors 탭 삭제): 섹션 자체가 국가별 정전 분리 + 행별 출처 태그로 교체, 하단 "complete record →" → /film/lineage/[slug] (Tier-2 템플릿 포함) | |
 
 **핵심 판단**: honors 페이지는 `films.visible`에 게이트하지 않는다 — 수상·정전 멤버십은 편집물이 아니라 **사실**이라 ≥3-figures 승급제와 무관하게 자립한다. Tier-2 카탈로그 영화도 기록이 3건 이상이면 색인 가능한 페이지를 가진다.
 
@@ -25,9 +25,9 @@ lineage 데이터(리스트 398개 · **전량 출처 보유 멤버십 10,551건
 |---|---|
 | `lib/lineage.ts` | **핵심 모듈.** 게이트 상수(LINEAGE_LIST_MIN=3·FILM_HONORS_MIN=3), 출처 코드→표시명 맵(`LINEAGE_SOURCES` — **lineage_sources 테이블은 빈 테이블(0행)이라 코드 내 맵이 정본**), `wikidataUrl`, 타입, `loadLineageListMeta`, `cachedLineageMeta`(실제 최종 인제스트일 = max created_at, 현재 2026-06-25), `cachedLineageEligibility`(사이트맵·링크 게이트의 원천 — film_lineage 실측 집계; **lineage_lists.film_count는 공식 리스트 크기지 우리 커버리지가 아님**, 절대 게이트에 쓰지 말 것) |
 | `app/lineage/[slug]/page.tsx` | 리스트 읽는 페이지(업그레이드). 캐시키 `lineage3` · tag `lineage:{slug}` |
-| `app/film/[slug]/honors/page.tsx` | 필름 기록 페이지(신설). 캐시키 `film-honors` · tag `film:{slug}` |
-| `components/FilmLineageSection.tsx` | slug prop 추가, ≥3이면 honors 링크, 출처 문장 보강. HONORS_MIN=3 은 lib와 동기 |
-| `app/film/[slug]/page.tsx` | Honors href 탭(`lineage.length >= 3`), 두 템플릿(풀·Tier-2) 모두 slug 전달 |
+| `app/film/lineage/[slug]/page.tsx` | 필름 기록 페이지(신설; 2026-07-06 /film/[slug]/honors에서 이전 — 구 라우트는 `app/film/[slug]/honors/page.tsx`가 308 permanentRedirect) · 캐시키 `film-honors` · tag `film:{slug}` |
+| `components/FilmLineageSection.tsx` | **honors 방식으로 교체됨(07-06)**: 그룹 4종(수상/정전 랭킹/국가별 정전/감독 계보) + 행별 SourceTag(listMeta prop) + ≥3이면 /film/lineage/[slug] 링크. HONORS_MIN=3 은 lib와 동기 |
+| `app/film/[slug]/page.tsx` | 별도 Honors 탭 없음(07-06 삭제) — Lineage 앵커 탭이 담당. 두 템플릿(풀·Tier-2) 모두 slug+listMeta(`loadLineageListMeta`) 전달. 캐시키 film-load4 |
 | `app/sitemaps/{lineage,honors}.xml/route.ts` + `app/sitemap.xml/route.ts` | 자식 2개 신설, SECTIONS 20 |
 | `lib/sitemap-data.ts` | `lineageEntries`/`honorsEntries` |
 | `lib/seo.ts` | `INDEX_COHORT_FILM_HONORS=500` + RELEASE LOG(2026-07-05 항목) |
