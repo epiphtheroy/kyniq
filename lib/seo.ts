@@ -83,6 +83,15 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    City"/"New York" merge). New child sitemaps/cities.xml (no cohort —
  *    the artifact IS the release set, capped 1000). Pages re-check the
  *    ≥3-film bar via robots as drift protection.
+ *  - 2026-07-05 (Lineage read layer): the awards/canons corpus (398 lists,
+ *    10,551 sourced memberships, 300 Wikidata QIDs) surfaces — /lineage/[slug]
+ *    pages upgraded (search-phrase titles, double-brand fix, robots ≥3
+ *    members, per-list source + QID sameAs, ItemList JSON-LD) and NEW
+ *    /film/x/honors pages (≥3 lineage rows, 895 eligible INCLUDING Tier-2
+ *    catalog films — honours are facts, not editorial, so they stand without
+ *    the ≥3-figure bar). Children: sitemaps/lineage.xml (~202, no cohort) +
+ *    sitemaps/honors.xml (cohort 500 below). Raise on the standard weekly
+ *    GSC evidence rule.
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
@@ -103,6 +112,7 @@ export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (ad
 // evidence. Raise on the standard weekly evidence rule.
 export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype nodes in sitemap (added 2026-07-04)
 export const INDEX_COHORT_FILM_LOCATIONS = 1000; // /film/*/locations pages in sitemap (added 2026-07-04; 1,707 eligible)
+export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 
 
 

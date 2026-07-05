@@ -7,8 +7,10 @@ import {
   INDEX_COHORT_CREW,
   INDEX_COHORT_CATALOG,
   INDEX_COHORT_FILM_LOCATIONS,
+  INDEX_COHORT_FILM_HONORS,
 } from "@/lib/seo";
 import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
+import { cachedLineageEligibility } from "@/lib/lineage";
 import { KINDS, nodeHref, sectionHref, type SectionKey } from "@/lib/catalog";
 import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
@@ -402,6 +404,29 @@ export async function cityEntries(): Promise<SitemapEntry[]> {
   return [...allAtlasCities()]
     .sort((a, b) => a.countrySlug.localeCompare(b.countrySlug) || a.slug.localeCompare(b.slug))
     .map((c) => ({ url: `${siteUrl}/atlas/${c.countrySlug}/${c.slug}` }));
+}
+
+/**
+ * /lineage/[slug] list pages — awards, canons, national honours, auteur lines
+ * with ≥3 member films (the page's own robots bar; lib/lineage.ts). Small,
+ * stable set (~202) — no cohort. lastmod omitted (memberships land in waves).
+ */
+export async function lineageEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { lists } = await cachedLineageEligibility();
+  return lists.map((l) => ({ url: `${siteUrl}/lineage/${l.slug}` }));
+}
+
+/**
+ * /film/x/honors — a film's complete sourced lineage record. Eligible: ≥3
+ * film_lineage rows, ANY visibility (honours are facts about the film, so
+ * Tier-2 catalog films qualify too). Slug-asc order under the cohort cap so
+ * raising it only appends.
+ */
+export async function honorsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { films } = await cachedLineageEligibility();
+  return films.slice(0, INDEX_COHORT_FILM_HONORS).map((f) => ({ url: `${siteUrl}/film/${f.slug}/honors` }));
 }
 
 /** Public profiles. */

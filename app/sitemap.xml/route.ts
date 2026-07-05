@@ -26,6 +26,8 @@ const SECTIONS = [
   "locations",
   "atlas",
   "cities",
+  "lineage",
+  "honors",
 ];
 
 export async function GET() {

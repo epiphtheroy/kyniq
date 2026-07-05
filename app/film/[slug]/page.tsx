@@ -520,7 +520,7 @@ export default async function FilmPage({ params }: Props) {
           ) : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} />
-          <FilmLineageSection lineage={lineage} title={f.title} movements={movements} />
+          <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
           {/* CREDITS — the same crawlable key-craft block Tier-1 carries */}
@@ -601,6 +601,7 @@ export default async function FilmPage({ params }: Props) {
     geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
     geoCells >= FILM_LOCATIONS_MIN ? { id: "df-locations", label: "Locations", href: `/film/${film.slug}/locations` } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
+    lineage.length >= 3 ? { id: "df-honors", label: "Honors", href: `/film/${film.slug}/honors` } : null,
     recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
     grouped.length ? { id: "df-figures", label: "Figures" } : null,
@@ -805,7 +806,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} movements={movements} />
+        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} movements={movements} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
         <FilmRecommendedBy rows={recommendedBy} title={film.title} />
