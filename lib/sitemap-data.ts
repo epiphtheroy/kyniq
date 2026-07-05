@@ -304,10 +304,12 @@ export async function directorEntries(): Promise<SitemapEntry[]> {
     entries.push({ url: `${siteUrl}/director/${ds}` });
   }
   // Director life pages — "Who is X?" (director_facts; ~208 rows, gate ≥4 facts
-  // mirrors the page's own robots bar).
+  // mirrors the page's own robots bar). Gate on uniqueDirectors too: merged
+  // slugs can leave orphaned facts rows behind (slug repair keeps them for
+  // losslessness), and a sitemap must never list an old_path.
   const { data: lifeRows } = await supabase.from("director_facts").select("director_slug, facts");
   for (const r of lifeRows ?? []) {
-    if (Array.isArray(r.facts) && r.facts.length >= 4) {
+    if (Array.isArray(r.facts) && r.facts.length >= 4 && uniqueDirectors.has(r.director_slug)) {
       entries.push({ url: `${siteUrl}/director/${r.director_slug}/life` });
     }
   }
