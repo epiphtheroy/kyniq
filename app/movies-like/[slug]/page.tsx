@@ -159,10 +159,10 @@ export default async function MoviesLikePage({ params }: Props) {
             {recs.map((r, i) => (
               <li key={r.film.slug} className="ml-item">
                 <div className="ml-row" style={{ position: "relative" }}>
-                  <div aria-hidden="true" style={{
+                  <div style={{
                     flex: "0 0 34px", fontSize: i < 3 ? 22 : 17, fontWeight: 800, lineHeight: "1",
                     paddingTop: 6, textAlign: "right", opacity: i < 3 ? .95 : .45, fontVariantNumeric: "tabular-nums",
-                  }}>{i + 1}</div>
+                  }}><span style={{ fontSize: "0.6em", verticalAlign: "0.25em", opacity: .7 }}>#</span>{i + 1}</div>
                   {r.film.backdrop_path ? (
                     <Link href={`/film/${r.film.slug}`} className="ml-thumb" aria-label={r.film.title}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -185,9 +185,12 @@ export default async function MoviesLikePage({ params }: Props) {
                       </span>
                     </p>
                     {r.reasons.length ? (
-                      <p className="ml-why">Shares: {r.reasons.slice(0, 4).map((m, j) => (
-                        <span key={m.slug}>{j > 0 ? ", " : ""}<Link href={`/trope/${m.slug}`}>{m.title}</Link></span>
-                      ))}{r.reasons.length > 4 ? ` +${r.reasons.length - 4}` : ""}</p>
+                      <p className="ml-why">
+                        <b>{r.film.title}</b> and <b>{film.title}</b> share:{" "}
+                        {r.reasons.slice(0, 4).map((m, j) => (
+                          <span key={m.slug}>{j > 0 ? ", " : ""}<Link href={`/trope/${m.slug}`}>{m.title}</Link></span>
+                        ))}{r.reasons.length > 4 ? ` +${r.reasons.length - 4}` : ""}
+                      </p>
                     ) : null}
                   </div>
                 </div>

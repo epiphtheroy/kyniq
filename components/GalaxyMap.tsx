@@ -181,6 +181,18 @@ export default function GalaxyMap({ height }: { height: number }) {
       onScreen.push({ p, bx, by, sx, sy });
     }
 
+    // aspect-preserving cover crop: draw the centre of the source into a w×h box
+    // (faces crop from the upper third — that's where faces live in portraits)
+    const drawCover = (im: HTMLImageElement, dx: number, dy: number, dw: number, dh: number, faceBias = false) => {
+      const nw = im.naturalWidth, nh = im.naturalHeight;
+      if (!nw || !nh) return;
+      const srcAspect = nw / nh, dstAspect = dw / dh;
+      let sw = nw, sh = nh, sx0 = 0, sy0 = 0;
+      if (srcAspect > dstAspect) { sw = nh * dstAspect; sx0 = (nw - sw) / 2; }
+      else { sh = nw / dstAspect; sy0 = (nh - sh) * (faceBias ? 0.18 : 0.5); }
+      ctx.drawImage(im, sx0, sy0, sw, sh, dx, dy, dw, dh);
+    };
+
     // nodes
     for (const o of onScreen) {
       const { p, sx, sy } = o;
@@ -194,7 +206,7 @@ export default function GalaxyMap({ height }: { height: number }) {
           if ("roundRect" in ctx) (ctx as CanvasRenderingContext2D).roundRect(sx - tw / 2, sy - th / 2, tw, th, 3);
           else ctx.rect(sx - tw / 2, sy - th / 2, tw, th);
           ctx.clip();
-          ctx.drawImage(im, sx - tw / 2, sy - th / 2, tw, th);
+          drawCover(im, sx - tw / 2, sy - th / 2, tw, th);
           ctx.restore();
           ctx.lineWidth = 1.4; ctx.strokeStyle = col;
           ctx.strokeRect(sx - tw / 2, sy - th / 2, tw, th);
@@ -202,7 +214,7 @@ export default function GalaxyMap({ height }: { height: number }) {
           const rr = thumbH / 2;
           ctx.save();
           ctx.beginPath(); ctx.arc(sx, sy, rr, 0, Math.PI * 2); ctx.clip();
-          ctx.drawImage(im, sx - rr, sy - rr, rr * 2, rr * 2);
+          drawCover(im, sx - rr, sy - rr, rr * 2, rr * 2, true);
           ctx.restore();
           ctx.beginPath(); ctx.arc(sx, sy, rr, 0, Math.PI * 2);
           ctx.lineWidth = 1.6; ctx.strokeStyle = col; ctx.stroke();

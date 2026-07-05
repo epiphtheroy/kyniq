@@ -1046,7 +1046,7 @@ export default async function FilmPage({ params }: Props) {
             <div className="df-conn">
               {recs.map((r, i) => (
                 <div key={r.slug} className="df-crow" style={{ display: "flex", gap: 12, alignItems: "center", padding: "7px 0" }}>
-                  <span aria-hidden="true" style={{ flex: "0 0 22px", textAlign: "right", fontWeight: 800, fontSize: 15, opacity: i === 0 ? .95 : .45, fontVariantNumeric: "tabular-nums" }}>{i + 1}</span>
+                  <span style={{ flex: "0 0 26px", textAlign: "right", fontWeight: 800, fontSize: 15, opacity: i === 0 ? .95 : .45, fontVariantNumeric: "tabular-nums" }}><span style={{ fontSize: "0.65em", opacity: .7 }}>#</span>{i + 1}</span>
                   {r.poster_path ? (
                     <Link href={`/film/${r.slug}`} aria-label={r.title} style={{ flex: "0 0 40px" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
