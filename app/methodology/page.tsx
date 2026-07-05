@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createClient } from "@supabase/supabase-js";
 import { pageRobots } from "@/lib/seo";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Methodology — Metatake",
@@ -10,7 +13,30 @@ export const metadata: Metadata = {
   robots: pageRobots(true),
 };
 
-export default function MethodologyPage() {
+type Stats = {
+  films: number; figures: number; readings: number; tropes: number; concepts: number;
+  concept_links: number; theorists: number; kin_edges: number; counterpoints: number; locations: number;
+} | null;
+
+const nf = (n: number) => n.toLocaleString("en-US");
+
+export default async function MethodologyPage() {
+  const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  const { data } = await db.rpc("methodology_stats_json");
+  const s = (data ?? null) as Stats;
+
+  const tiles: [number, string, string][] = s ? [
+    [s.films, "films read closely", "every one broken into figures and readings — no stub pages"],
+    [s.figures, "figures", "the objects, gestures and devices we read — the unit of analysis"],
+    [s.readings, "close readings", "each drafted under a named framework, human-reviewed before publishing"],
+    [s.tropes, "cross-film tropes", "recurring patterns that connect figures across films"],
+    [s.theorists, "theorists cited", "the scholarship our anchored readings point back to"],
+    [s.concepts, "canonical concepts", `${nf(s.concept_links)} phrasing variants resolved onto them`],
+    [s.kin_edges, "kinship connections", "film-to-film edges, each carrying its shared-trope evidence"],
+    [s.counterpoints, "counterpoints", "pairs that share a trope but read it in opposite directions"],
+    [s.locations, "mapped locations", "geocoded shooting and setting places behind the Atlas"],
+  ] : [];
+
   return (
     <main className="shell">
       <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>Methodology</h1>
@@ -18,6 +44,26 @@ export default function MethodologyPage() {
         How a reading on Metatake actually gets made — the pipeline, what the AI does and doesn&apos;t do, and how to
         flag it when we get something wrong.
       </p>
+
+      {tiles.length > 0 ? (
+        <>
+          <hr className="rule" />
+          <div className="seclbl">The corpus, in numbers</div>
+          <div className="tick" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 10, margin: 0 }}>
+            {tiles.map(([n, label, meaning]) => (
+              <div key={label} style={{ border: "1px solid rgba(0,0,0,.08)", borderRadius: 10, padding: "14px 14px 12px", background: "rgba(0,0,0,.015)" }}>
+                <div className="disp" style={{ fontSize: 26, fontWeight: 800, lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{nf(n)}</div>
+                <div style={{ fontSize: 13, fontWeight: 700, margin: "6px 0 2px" }}>{label}</div>
+                <div style={{ fontSize: 12, opacity: .62, lineHeight: 1.45 }}>{meaning}</div>
+              </div>
+            ))}
+          </div>
+          <p className="ui muted" style={{ fontSize: 12, marginTop: 10 }}>
+            Counts are read live from the database — they grow as the corpus does.
+          </p>
+        </>
+      ) : null}
 
       <hr className="rule" />
 
@@ -96,6 +142,9 @@ export default function MethodologyPage() {
         farthest apart in meaning and show both takes side by side, so the disagreement is legible on the page. All of
         it — kinship, counterpoints, the <Link href="/map" className="accent" style={{ textDecoration: "none" }}>map</Link>,
         the galaxy view — reads from the same computed ledger, and none of it is hand-weighted.
+        {s ? <> As of today that ledger holds <strong>{nf(s.kin_edges)} kinship edges</strong> and{" "}
+        <strong>{nf(s.counterpoints)} counterpoints</strong> across {nf(s.films)} films, and it is rebuilt as the
+        corpus grows.</> : null}
       </p>
 
       <hr className="rule" />
