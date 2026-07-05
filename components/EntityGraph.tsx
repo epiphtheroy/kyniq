@@ -163,6 +163,9 @@ export default function EntityGraph({
     const trunc = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1) + "…" : s);
     nodes.forEach((n) => {
       const el = document.createElement("div");
+      // film nodes opt into the My Films lens (LensProvider's DOM engine marks
+      // [data-lens-film] elements; CSS rings seen posters / dims unseen in only-mode)
+      if (n.type === "film" && n.id.startsWith("film:")) el.dataset.lensFilm = n.id.slice(5);
       const r = radius(n);
       const col = n.center ? CENTER_COL : COLORS[n.type] || COLORS.figure;
       const big = !!n.center;

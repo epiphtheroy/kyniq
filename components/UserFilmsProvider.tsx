@@ -19,6 +19,8 @@ type Ctx = {
   toggleSeen: (key: FilmKey) => void;
   toggleWatch: (key: FilmKey) => void;
   rate: (key: FilmKey, n: number) => void;
+  /** slugs of every film marked Seen — powers the My Films lens */
+  seenSlugs: ReadonlySet<string>;
 };
 const EMPTY: FilmState = { seen: false, watchlist: false, rating: 0 };
 const UserFilms = createContext<Ctx | null>(null);
@@ -42,10 +44,24 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
       const user = auth?.user;
       if (alive && user) {
         setUid(user.id);
-        const { data } = await c.from("user_movies").select("film_id, seen, watchlist, rating, film:films!inner(slug)").eq("user_id", user.id);
-        if (alive && data) {
+        // Page through user_movies: PostgREST caps any single response at 1000
+        // rows, and a Letterboxd import easily exceeds that.
+        type Row = { film_id: string; seen: boolean; watchlist: boolean; rating: number | null; film: { slug: string } | null };
+        const PAGE = 1000;
+        const rows: Row[] = [];
+        for (let from = 0; alive; from += PAGE) {
+          const { data, error } = await c
+            .from("user_movies")
+            .select("film_id, seen, watchlist, rating, film:films!inner(slug)")
+            .eq("user_id", user.id)
+            .range(from, from + PAGE - 1);
+          if (error || !data) break;
+          rows.push(...(data as unknown as Row[]));
+          if (data.length < PAGE) break;
+        }
+        if (alive && rows.length) {
           const m: Record<string, FilmState> = {};
-          for (const r of data as Array<{ film_id: string; seen: boolean; watchlist: boolean; rating: number | null; film: { slug: string } | null }>) {
+          for (const r of rows) {
             m[r.film_id] = { seen: !!r.seen, watchlist: !!r.watchlist, rating: Number(r.rating) || 0 };
             if (r.film?.slug) idBySlug.current[r.film.slug] = r.film_id;
           }
@@ -84,8 +100,17 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
     });
   }, [uid, router, resolveId, persist]);
 
+  // idBySlug is a ref, but it is always populated before the setMap that makes a
+  // film seen (initial load and lazy resolve both write the index first), so a
+  // memo keyed on `map` sees a complete slug index.
+  const seenSlugs = useMemo(() => {
+    const s = new Set<string>();
+    for (const [slug, id] of Object.entries(idBySlug.current)) if (map[id]?.seen) s.add(slug);
+    return s as ReadonlySet<string>;
+  }, [map]);
+
   const value = useMemo<Ctx>(() => ({
-    ready, uid,
+    ready, uid, seenSlugs,
     get: (key) => {
       const id = key.id ?? (key.slug ? idBySlug.current[key.slug] : null);
       return (id && map[id]) || EMPTY;
@@ -93,7 +118,7 @@ export function UserFilmsProvider({ children }: { children: React.ReactNode }) {
     toggleSeen: (key) => apply(key, (c) => ({ ...c, seen: !c.seen, rating: c.seen ? 0 : c.rating })),
     toggleWatch: (key) => apply(key, (c) => ({ ...c, watchlist: !c.watchlist })),
     rate: (key, n) => apply(key, (c) => ({ ...c, rating: c.rating === n ? 0 : n, seen: c.rating === n ? c.seen : true })),
-  }), [ready, uid, apply, map]);
+  }), [ready, uid, apply, map, seenSlugs]);
 
   return <UserFilms.Provider value={value}>{children}</UserFilms.Provider>;
 }

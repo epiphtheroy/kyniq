@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/Footer";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
+import { LensProvider } from "@/components/LensProvider";
 import { pageRobots, SOCIAL_PROFILES } from "@/lib/seo";
 import "./globals.css";
 
@@ -125,7 +126,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
-        <UserFilmsProvider><UserSavesProvider>{children}</UserSavesProvider></UserFilmsProvider>
+        <UserFilmsProvider><UserSavesProvider><LensProvider>{children}</LensProvider></UserSavesProvider></UserFilmsProvider>
         <Footer />
         <Analytics />
       </body>

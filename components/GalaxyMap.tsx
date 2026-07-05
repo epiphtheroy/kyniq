@@ -15,6 +15,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useLens } from "@/components/LensProvider";
 
 type GPoint = {
   slug: string; title: string; x: number; y: number; c: number;
@@ -52,6 +53,7 @@ export default function GalaxyMap({ height }: { height: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const [kind, setKind] = useState<Kind>("films");
+  const lens = useLens();
   const [data, setData] = useState<Payload>({ points: [], clusters: [] });
   const [loading, setLoading] = useState(true);
   const [hover, setHover] = useState<{ p: GPoint; sx: number; sy: number } | null>(null);
@@ -99,14 +101,23 @@ export default function GalaxyMap({ height }: { height: number }) {
     return () => window.removeEventListener("resize", fit);
   }, []);
 
+  // My Films lens: "only" filters the starfield down to seen films; "highlight"
+  // keeps everything and rings the seen ones. Directors mode is untouched.
+  const lensOn = kind === "films" && !!lens && lens.mode !== "off";
+  const lensOnly = lensOn && lens!.mode === "only";
+  const points = useMemo(
+    () => (lensOnly ? data.points.filter((p) => lens!.seen(p.slug)) : data.points),
+    [data.points, lensOnly, lens],
+  );
+
   const centroids = useMemo(() => {
     const acc = new Map<number, { x: number; y: number; n: number }>();
-    for (const p of data.points) {
+    for (const p of points) {
       const a = acc.get(p.c) ?? { x: 0, y: 0, n: 0 };
       a.x += p.x; a.y += p.y; a.n += 1; acc.set(p.c, a);
     }
     return [...acc.entries()].map(([c, a]) => ({ c, x: a.x / a.n, y: a.y / a.n }));
-  }, [data.points]);
+  }, [points]);
   const clusterInfo = useMemo(() => new Map(data.clusters.map((c) => [c.c, c])), [data.clusters]);
 
   const toScreen = useCallback((p: GPoint) => {
@@ -121,13 +132,13 @@ export default function GalaxyMap({ height }: { height: number }) {
     const w = cv.clientWidth, h = cv.clientHeight;
     const { cx, cy, scale } = view.current;
     const out: GPoint[] = [];
-    for (const p of data.points) {
+    for (const p of points) {
       const sx = (p.x - cx) * scale + w / 2;
       const sy = (p.y - cy) * scale + h / 2;
       if (sx >= 0 && sy >= 0 && sx <= w && sy <= h) out.push(p);
     }
     setVisible(out);
-  }, [data.points]);
+  }, [points]);
 
   const scheduleVisible = useCallback(() => {
     if (visTimer.current) window.clearTimeout(visTimer.current);
@@ -171,7 +182,7 @@ export default function GalaxyMap({ height }: { height: number }) {
 
     // collect on-screen points at BASE coords (labels/pick stay stable under drift)
     const onScreen: { p: GPoint; bx: number; by: number; sx: number; sy: number }[] = [];
-    for (const p of data.points) {
+    for (const p of points) {
       const bx = (p.x - cx) * scale + w / 2;
       const by = (p.y - cy) * scale + h / 2;
       if (bx < -40 || by < -40 || bx > w + 40 || by > h + 40) continue;
@@ -197,6 +208,8 @@ export default function GalaxyMap({ height }: { height: number }) {
     for (const o of onScreen) {
       const { p, sx, sy } = o;
       const col = PALETTE[p.c % PALETTE.length];
+      // highlight mode: seen films trade the cluster-coloured border for the accent
+      const lensSeen = lensOn && !lensOnly && lens!.seen(p.slug);
       const im = useThumbs ? ensureImg(p) : null;
       if (im) {
         if (kind === "films") {
@@ -208,7 +221,7 @@ export default function GalaxyMap({ height }: { height: number }) {
           ctx.clip();
           drawCover(im, sx - tw / 2, sy - th / 2, tw, th);
           ctx.restore();
-          ctx.lineWidth = 1.4; ctx.strokeStyle = col;
+          ctx.lineWidth = lensSeen ? 2.4 : 1.4; ctx.strokeStyle = lensSeen ? "#E3120B" : col;
           ctx.strokeRect(sx - tw / 2, sy - th / 2, tw, th);
         } else {
           const rr = thumbH / 2;
@@ -225,12 +238,18 @@ export default function GalaxyMap({ height }: { height: number }) {
         ctx.fillStyle = col + "B8";
         ctx.arc(sx, sy, r, 0, Math.PI * 2);
         ctx.fill();
+        if (lensSeen) {
+          ctx.beginPath();
+          ctx.lineWidth = 1.5; ctx.strokeStyle = "#E3120B";
+          ctx.arc(sx, sy, r + 2, 0, Math.PI * 2);
+          ctx.stroke();
+        }
       }
     }
 
     // always-on decluttered labels: decide WHICH points get labels once per view,
     // then draw them at drifted positions each frame
-    const viewKey = `${kind}:${Math.round(cx * 10)}:${Math.round(cy * 10)}:${Math.round(scale * 10)}:${data.points.length}`;
+    const viewKey = `${kind}:${Math.round(cx * 10)}:${Math.round(cy * 10)}:${Math.round(scale * 10)}:${points.length}`;
     if (labelCache.current.key !== viewKey) {
       const taken = new Set<string>();
       const slugs = new Set<string>();
@@ -297,7 +316,7 @@ export default function GalaxyMap({ height }: { height: number }) {
     };
     if (selected) ring(selected, "#E3120B");
     if (hover && hover.p.slug !== selected?.slug) ring(hover.p, "#111");
-  }, [data.points, centroids, clusterInfo, hover, selected, kind, ensureImg, importance]);
+  }, [points, centroids, clusterInfo, hover, selected, kind, ensureImg, importance, lensOn, lensOnly, lens]);
 
   useEffect(() => { drawRef.current = draw; }, [draw]);
 
@@ -316,7 +335,9 @@ export default function GalaxyMap({ height }: { height: number }) {
   }, []);
 
   useEffect(() => { draw(); }, [draw, height, narrow]);
-  useEffect(() => { if (data.points.length) { draw(); scheduleVisible(); } }, [data.points, draw, scheduleVisible, narrow]);
+  useEffect(() => { if (points.length) { draw(); scheduleVisible(); } }, [points, draw, scheduleVisible, narrow]);
+  // lens mode change → recompute labels + panel for the new point set
+  useEffect(() => { labelCache.current = { key: "", slugs: new Set() }; draw(); scheduleVisible(); }, [lensOnly, draw, scheduleVisible]);
   useEffect(() => {
     const onResize = () => { draw(); scheduleVisible(); };
     window.addEventListener("resize", onResize);
@@ -329,14 +350,14 @@ export default function GalaxyMap({ height }: { height: number }) {
     const { cx, cy, scale } = view.current;
     const tol = Math.max(10, Math.min(52, scale * 2.0) / 2 + 3);
     let best: GPoint | null = null; let bd = 9e9;
-    for (const p of data.points) {
+    for (const p of points) {
       const sx = (p.x - cx) * scale + w / 2;
       const sy = (p.y - cy) * scale + h / 2;
       const d = (sx - mx) * (sx - mx) + (sy - my) * (sy - my);
       if (d < bd) { bd = d; best = p; }
     }
     return bd <= tol * tol ? best : null;
-  }, [data.points]);
+  }, [points]);
 
   const locate = useCallback((p: GPoint) => {
     const v = view.current;
@@ -478,6 +499,7 @@ export default function GalaxyMap({ height }: { height: number }) {
           </div>
           <div style={{ padding: "6px 12px 5px", fontSize: 12, fontWeight: 700, opacity: .75 }}>
             {visible.length} {kind === "films" ? "films" : "directors"} in view
+            {lensOnly ? <span style={{ color: "#E3120B" }}> · yours only</span> : null}
             <span style={{ fontWeight: 400, opacity: .75 }}> · click a row to locate it, ↗ opens the page</span>
           </div>
           <div style={{ overflowY: "auto", flex: 1, padding: "2px 0 6px" }}>
@@ -497,6 +519,9 @@ export default function GalaxyMap({ height }: { height: number }) {
                   title="Locate on the map"
                   style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "left", background: "none", border: 0, padding: 0, font: "inherit", color: "inherit", cursor: "pointer" }}
                 >{p.title}</button>
+                {lensOn && lens!.seen(p.slug) ? (
+                  <span style={{ color: "#E3120B", fontWeight: 800, fontSize: 11, flex: "0 0 auto" }} title="Seen">✓</span>
+                ) : null}
                 <span style={{ opacity: .55, fontSize: 11.5, flex: "0 0 auto" }}>{meta(p)}</span>
                 <a href={hrefOf(kind, p)} title={kind === "films" ? "Open film page" : "Open director page"}
                    style={{ flex: "0 0 auto", fontSize: 12, fontWeight: 800, color: "#C8102E", textDecoration: "none" }}>↗</a>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import LensToggle from "@/components/LensToggle";
 
 export type NavCounts = {
   films?: number; directors?: number; tropes?: number; concepts?: number;
@@ -133,6 +134,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
             </svg>
             <span>Shelf</span>
           </Link>
+          <LensToggle />
           <div className="acct">
             <div className="avatar" onClick={() => tog("am")}>
               ＋

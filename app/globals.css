@@ -3623,6 +3623,19 @@ a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .msa-ok{font-family:var(--font-ui); font-size:12px; color:var(--accent)}
 .msa-foot{font-family:var(--font-ui); font-size:11px; color:var(--faint); padding:7px 10px}
 .df-catnote{font-family:var(--font-display); font-size:14px; color:var(--ink2); margin:12px 0 0; max-width:60ch}
+/* Tier-2 Editor's digest — the catalog page's lead: a compact, data-composed
+   editorial record (canon standing · numbers · recommended-by · geography ·
+   availability). A record, not a hero banner: quiet prose + one byline rule. */
+.df-digest__p{font-family:var(--font-display); font-size:15.5px; line-height:1.7; color:var(--ink2); margin:0 0 10px; max-width:72ch}
+.df-digest__p a{color:var(--accent); font-weight:600}
+.df-digest__q{font-style:italic; color:var(--ink)}
+.df-digest__att{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); white-space:nowrap}
+.df-digest__chips{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 12px}
+.df-chip{font-family:var(--font-ui); font-size:12px; font-weight:600; letter-spacing:.02em; padding:3px 10px; border:1px solid var(--hairline-2); border-radius:999px; color:var(--ink2); background:#fff; text-decoration:none; font-variant-numeric:tabular-nums}
+.df-chip:hover{border-color:var(--accent); color:var(--accent)}
+.df-digest__by{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); border-top:1px solid var(--hairline); padding-top:10px; margin-top:14px}
+.df-digest__by a{color:inherit; border-bottom:1px solid var(--hairline); text-decoration:none}
+.df-digest__by a:hover{border-bottom-color:currentColor}
 /* Director page — Portrait / Where to Start / The Life / Who's Next */
 .dr-portrait-body p{font-family:var(--font-display); font-size:17px; line-height:1.65; max-width:68ch; margin:0 0 14px}
 /* Portrait: text + a small grid of the director's own film images */
@@ -4501,3 +4514,88 @@ a.ax-sum-btn:hover{color:#fff;background:var(--accent);text-decoration:none}
 .ax-guide-link{display:inline-block;margin-top:12px;font-family:var(--font-ui);font-size:13.5px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--hairline-2);border-radius:8px;padding:8px 13px;background:#fff}
 .ax-guide-link:hover{border-color:var(--accent)}
 
+
+/* ============================================================
+   My Films lens — client-only overlay driven by LensProvider.
+   Gated on <html data-mtlens="highlight|only">; classes are set
+   by the DOM engine on a[href^="/film/"] and [data-lens-film].
+   ============================================================ */
+
+/* seen poster/thumbnail cards: accent border on the artwork itself
+   (inset outline — never clipped by overflow, follows border-radius) */
+html[data-mtlens="highlight"] .mtl-card.mtl-seen img,
+html[data-mtlens="only"] .mtl-card.mtl-seen img {
+  outline: 2px solid var(--accent, #E3120B);
+  outline-offset: -2px;
+}
+
+/* seen text links: a small superscript check */
+html[data-mtlens="highlight"] a.mtl-inline.mtl-seen::after,
+html[data-mtlens="only"] a.mtl-inline.mtl-seen::after {
+  content: "\2713";
+  color: var(--accent, #E3120B);
+  font-size: .68em;
+  font-weight: 800;
+  vertical-align: super;
+  margin-left: 2px;
+  line-height: 0;
+}
+
+/* only-mode: unseen cards ghost out (layout-safe — grids keep their rhythm) */
+html[data-mtlens="only"] a.mtl-card.mtl-unseen {
+  opacity: .06;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+html[data-mtlens="only"] a.mtl-inline.mtl-unseen { opacity: .45; }
+
+/* bespoke graph nodes (EntityGraph film nodes without a poster img) */
+html[data-mtlens="highlight"] [data-lens-film].mtl-seen > div:first-child,
+html[data-mtlens="only"] [data-lens-film].mtl-seen > div:first-child {
+  box-shadow: 0 0 0 2px var(--accent, #E3120B), 0 0 10px rgba(227, 18, 11, .25);
+  border-radius: 50%;
+}
+html[data-mtlens="only"] [data-lens-film].mtl-unseen { opacity: .15; }
+
+a.mtl-card, a.mtl-card img { transition: opacity .25s ease, filter .25s ease; }
+
+/* ---- My Films: director coverage line ---- */
+.mtl-cov{display:flex;align-items:center;gap:10px;margin:2px 0 14px;font-family:var(--font-ui,ui-sans-serif);font-size:13.5px;color:var(--ink-soft,#4a4a4a)}
+.mtl-cov b{color:var(--accent,#E3120B)}
+.mtl-cov a{color:var(--accent,#E3120B);text-decoration:none;font-weight:600}
+.mtl-covbar{flex:0 0 120px;height:6px;border-radius:999px;background:var(--hairline,#e4e0d6);overflow:hidden}
+.mtl-covfill{display:block;height:100%;background:var(--accent,#E3120B);border-radius:999px}
+
+/* ---- My Films landing (/my-films) ---- */
+.mfl-page{max-width:880px;margin:0 auto;padding:40px 20px 80px}
+.mfl-hero{padding:14px 0 6px}
+.mfl-kicker{font-family:var(--font-ui,ui-sans-serif);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,#E3120B);margin:0 0 10px}
+.mfl-hero h1{font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;letter-spacing:-.01em}
+.mfl-lede{font-size:17.5px;line-height:1.6;color:var(--ink-soft,#3b3b3b);max-width:64ch;margin:0}
+.mfl-sec{margin-top:44px}
+.mfl-sec h2{font-size:22px;margin:0 0 14px}
+.mfl-body{font-size:15.5px;line-height:1.65;color:var(--ink-soft,#3b3b3b);max-width:66ch;margin:0}
+.mfl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.mfl-card{border:1px solid var(--hairline,#e4e0d6);border-radius:12px;padding:16px 16px 14px;background:var(--surface,#fff)}
+.mfl-card h3{margin:0 0 7px;font-size:15.5px}
+.mfl-card p{margin:0;font-size:13.5px;line-height:1.55;color:var(--ink-soft,#4a4a4a)}
+a.mfl-card--link{text-decoration:none;color:inherit;transition:border-color .15s}
+a.mfl-card--link:hover{border-color:var(--accent,#E3120B)}
+a.mfl-card--link h3{color:var(--accent,#E3120B)}
+.mfl-steps{margin:0;padding-left:22px;font-size:15.5px;line-height:1.7;color:var(--ink-soft,#3b3b3b)}
+.mfl-steps li{margin-bottom:8px}
+.mfl-steps a{color:var(--accent,#E3120B)}
+.mfl-cta{margin-top:30px;border:1.5px solid var(--accent,#E3120B);border-radius:14px;padding:20px 22px;background:var(--surface,#fff)}
+.mfl-note{margin:0 0 14px;font-size:15px;line-height:1.6;color:var(--ink,#1a1a1a)}
+.mfl-btns{display:flex;gap:10px;flex-wrap:wrap}
+.mfl-btn{display:inline-block;font-family:var(--font-ui,ui-sans-serif);font-size:14px;font-weight:700;padding:10px 18px;border-radius:9px;border:1px solid var(--hairline-2,#cfc9bc);color:var(--ink,#1a1a1a);text-decoration:none}
+.mfl-btn--red{background:var(--accent,#E3120B);border-color:var(--accent,#E3120B);color:#fff}
+.mfl-btn:hover{border-color:var(--accent,#E3120B)}
+.mfl-modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mfl-mode{text-align:left;border:1.5px solid var(--hairline,#e4e0d6);border-radius:11px;padding:13px 14px;background:none;cursor:pointer;font-family:inherit}
+.mfl-mode.on{border-color:var(--accent,#E3120B);box-shadow:0 0 0 1px var(--accent,#E3120B) inset}
+.mfl-mt{display:block;font-size:14.5px;font-weight:800;margin-bottom:5px}
+.mfl-mode.on .mfl-mt{color:var(--accent,#E3120B)}
+.mfl-ms{display:block;font-size:12.5px;line-height:1.5;color:var(--ink-soft,#4a4a4a)}
+.mfl-small{margin:12px 0 0;font-size:13px;color:var(--ink-soft,#4a4a4a)}
+.mfl-small a{color:var(--accent,#E3120B)}

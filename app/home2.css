@@ -419,3 +419,44 @@
   .mthome .navrow .menubtn{display:none}
   .mthome .navgroups{display:flex}
 }
+
+/* ---- My Films lens toggle (nav) ---- */
+.mthome .mtl-navwrap{position:relative}
+.mthome .mtl-nav{display:flex;align-items:center;gap:7px;background:none;border:0;padding:0;color:#EFEADD;cursor:pointer;font-family:var(--ui);font-size:14px;font-weight:600}
+.mthome .mtl-nav svg{width:22px;height:22px;stroke:#EFEADD;fill:none;stroke-width:1.6;color:#EFEADD}
+.mthome .mtl-nav.on{color:#fff}
+.mthome .mtl-nav.on svg{stroke:var(--red);color:var(--red)}
+.mthome .mtl-nav .st{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--red);border-radius:999px;padding:2px 6px;line-height:1}
+.mthome .mtlmenu{position:absolute;right:0;top:46px;width:296px;background:#fff;border-radius:13px;box-shadow:0 24px 60px -18px rgba(0,0,0,.5);padding:13px;display:none;z-index:95;color:#1a1a1a}
+.mthome .mtlmenu.open{display:block}
+.mthome .mtl-head{font-family:var(--serif);font-size:16.5px;font-weight:700;padding:2px 4px 10px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.mthome .mtl-n{font-family:var(--ui);font-size:11px;font-weight:600;color:var(--red);white-space:nowrap}
+.mthome .mtl-opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:9px 4px;border-bottom:1px solid var(--line);font-family:var(--ui)}
+.mthome .mtl-opt:last-of-type{border-bottom:0}
+.mthome .mtl-radio{flex:0 0 auto;width:14px;height:14px;margin-top:2px;border-radius:50%;border:1.6px solid #b8b2a6}
+.mthome .mtl-opt.on .mtl-radio{border-color:var(--red);background:radial-gradient(circle,var(--red) 0 45%,transparent 50%)}
+.mthome .mtl-opt .mtl-t{display:block;font-size:13.5px;font-weight:700;color:#1a1a1a}
+.mthome .mtl-opt.on .mtl-t{color:var(--red)}
+.mthome .mtl-opt .mtl-s{display:block;font-size:11.5px;color:#6f6a5f;margin-top:1px;line-height:1.35}
+.mthome .mtl-p{font-family:var(--ui);font-size:12.5px;color:#4a463d;line-height:1.5;padding:10px 4px 2px;margin:0}
+.mthome .mtl-foot{display:flex;justify-content:space-between;gap:10px;padding:11px 4px 2px;font-family:var(--ui);font-size:12px;font-weight:600}
+.mthome .mtl-foot a{color:var(--red);text-decoration:none}
+@media(max-width:1020px){
+.mthome .mtl-nav .t{display:none}
+}
+@media(max-width:680px){
+.mthome .mtlmenu{right:-60px;width:272px}
+}
+
+/* ---- My Films ribbon (home, sits between hero and Picked) ---- */
+.mthome .mflband{background:#F6F2E9;border-bottom:1px solid var(--line)}
+.mthome .mflrow{display:flex;align-items:center;gap:14px;padding:11px 0}
+.mthome .mflnew{flex:0 0 auto;font-family:var(--ui);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--red);border-radius:999px;padding:3px 8px}
+.mthome .mflp{margin:0;font-family:var(--ui);font-size:13.5px;line-height:1.45;color:#3b372e}
+.mthome .mflp b{color:#1a1a1a}
+.mthome .mflme b{color:var(--red)}
+.mthome .mflcta{flex:0 0 auto;margin-left:auto;font-family:var(--ui);font-size:13px;font-weight:800;color:var(--red);text-decoration:none;white-space:nowrap}
+@media(max-width:680px){
+.mthome .mflrow{flex-wrap:wrap;gap:8px}
+.mthome .mflcta{margin-left:0}
+}

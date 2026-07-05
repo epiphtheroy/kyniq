@@ -16,6 +16,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
+import { useLens } from "@/components/LensProvider";
 
 type Row = {
   id: string; name: string; narrative_setting?: string | null; scene_role?: string | null;
@@ -202,6 +203,13 @@ export default function FilmMap({
 
   const globalish = !filmSlug || scope === "all";                  // panel shows many films
   const dimSlug = focus?.slug ?? (filmSlug && scope === "all" ? filmSlug : null);
+  // My Films lens: applies to multi-film views (Atlas, director maps, world scope)
+  // — never to a single film's own location map. only → pins filter down (cluster
+  // counts stay honest); highlight → unseen pins fade.
+  const lens = useLens();
+  const lensMode = lens && globalish ? lens.mode : "off";
+  const lensHi = lensMode === "highlight";
+  const lensHiRef = useRef(false);
   const worldMode = !filmSlug && !endpoint.includes("?");          // the standalone Atlas
   const worldOn = worldMode || (!!filmSlug && scope === "all");    // world layer wanted
   worldOnRef.current = worldOn;
@@ -298,7 +306,11 @@ export default function FilmMap({
 
   const hasFilmed = useMemo(() => combined.some((r) => r.layer === "filmed"), [combined]);
   const hasSetting = useMemo(() => combined.some((r) => (r.layer ?? "setting") === "setting"), [combined]);
-  const layerRows = useMemo(() => combined.filter((r) => lf === "all" || (r.layer ?? "setting") === lf), [combined, lf]);
+  const layerRows = useMemo(() => {
+    const base = combined.filter((r) => lf === "all" || (r.layer ?? "setting") === lf);
+    if (lensMode !== "only" || !lens) return base;
+    return base.filter((r) => { const s = r.film_slug ?? filmSlug; return !!s && lens.seen(s); });
+  }, [combined, lf, lensMode, lens, filmSlug]);
 
   // film search typeahead
   useEffect(() => {
@@ -350,11 +362,26 @@ export default function FilmMap({
       properties: {
         id: r.id, name: r.name, href: hrefFor(r, filmSlug ?? focus?.slug ?? undefined) ?? "", layer: r.layer ?? "setting",
         mine: dimSlug ? ((r.film_slug ?? filmSlug) === dimSlug ? "1" : "") : "1",
+        seen: lensMode !== "off" && lens?.seen(r.film_slug ?? filmSlug) ? "1" : "",
         role: roleOf(r).slice(0, 300), film: filmLabel(r), poster: r.poster_path ?? "",
         tier: r.tier ?? "", built: r.built_set ? "1" : "", host: r.set_host ?? "", src: (r.sources && r.sources[0]) || "",
       },
     })),
-  }), [dimSlug, filmSlug, focus]);
+  }), [dimSlug, filmSlug, focus, lensMode, lens]);
+
+  // pin opacity honours the lens; a ref-driven expression so addPoints re-applies
+  // it after basemap style swaps (which rebuild the layers with fresh paint)
+  const lensOpacityExpr = useCallback(() => (
+    lensHiRef.current
+      ? ["case", ["!=", ["get", "mine"], "1"], 0.4, ["==", ["get", "seen"], "1"], 1, 0.3]
+      : ["case", ["==", ["get", "mine"], "1"], 1, 0.55]
+  ), []);
+
+  useEffect(() => {
+    lensHiRef.current = lensHi;
+    const m = map.current; if (!m) return;
+    try { m.setPaintProperty("pt", "circle-opacity", lensOpacityExpr()); } catch {}
+  }, [lensHi, mapReady, lensOpacityExpr]);
 
   useEffect(() => {
     if (!mapEl.current) return;
@@ -447,7 +474,7 @@ export default function FilmMap({
             paint: {
               "circle-color": ["match", ["get", "layer"], "filmed", "#0F6E56", "#C8102E"],
               "circle-radius": ["case", ["==", ["get", "id"], activeRef.current ?? ""], 10, ["==", ["get", "mine"], "1"], 7, 5.5],
-              "circle-opacity": ["case", ["==", ["get", "mine"], "1"], 1, 0.55],
+              "circle-opacity": lensOpacityExpr(),
               "circle-stroke-color": "#fff",
               "circle-stroke-width": ["case", ["==", ["get", "id"], activeRef.current ?? ""], 2.4, 1.6],
             },

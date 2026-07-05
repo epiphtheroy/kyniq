@@ -4,6 +4,7 @@ import type { HomeV2 as HomeV2Data } from "@/lib/home2";
 
 import Nav from "./Nav";
 import HeroSurprise from "./HeroSurprise";
+import MyFilmsRibbon from "./MyFilmsRibbon";
 import Picked from "./Picked";
 import Top10 from "./EssentialTen";
 import Newly from "./Newly";
@@ -33,6 +34,8 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
       <Nav counts={data.stats} />
       {/* 2 — Surprise me hero (dark): random draw + red space-bar + text panel */}
       <HeroSurprise />
+      {/* 2b — My Films lens ribbon (client-personalised, server HTML identical) */}
+      <MyFilmsRibbon />
       {/* 3 — Recommended by the map (paper) */}
       <Picked data={data} />
       {/* 4 — The essential 10 (dark) */}

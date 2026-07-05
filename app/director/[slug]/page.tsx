@@ -21,6 +21,7 @@ import { axisLabel, nodeHref } from "@/lib/catalog";
 import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
 import SaveButton from "@/components/SaveButton";
 import PosterActions from "@/components/PosterActions";
+import LensDirectorCoverage from "@/components/LensDirectorCoverage";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -576,6 +577,7 @@ export default async function DirectorPage({ params }: Props) {
           <p className="dr-gloss">
             {total === 1 ? "One film" : `${total} films`} on Metatake — each read closely. The count is the number of Strong Misreadings written for each film.
           </p>
+          <LensDirectorCoverage slugs={films.map((f) => (f as { slug: string }).slug)} />
           <div className="dr-films-grid">
             {films.map((f) => {
               const film = f as { slug: string; title: string; year: number | null; backdrop_path?: string | null; poster_path?: string | null };
