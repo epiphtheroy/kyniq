@@ -455,6 +455,32 @@ export default async function FigurePage({ params }: Props) {
           </section>
         )}
 
+        {/* NEAREST FIGURES — embedding kinship (surface axis), live cosine */}
+        {neighbors.length > 0 && (
+          <section className="fg-sec" id="nearest">
+            <h2 className="fg-h2">Which figures across cinema are nearest {figure.label} in {film.title}?</h2>
+            <p className="fg-gloss">
+              The figures whose descriptions sit closest to this one in meaning-space — computed from embeddings,
+              not hand-picked, and recomputed as the archive grows (<Link href="/methodology#rankings">how the % works</Link>).
+            </p>
+            <ul className="fg-nblist">
+              {neighbors.map((s) => (
+                <li key={s.id}>
+                  <span className="tp-rel-kin" title="cosine similarity between the two figures' embeddings — see /methodology#rankings">
+                    {Math.round(s.sim * 100)}<span className="u">%</span>
+                  </span>{" "}
+                  {s.slug
+                    ? <Link href={`/film/${s.filmSlug}/figure/${s.slug}`} className="fg-conn__fg">{s.label}</Link>
+                    : <span className="fg-conn__fg">{s.label}</span>}{" "}
+                  <span className="fg-nb__in">in</span>{" "}
+                  <Link href={`/film/${s.filmSlug}`} className="fg-conn__fl">{s.filmTitle}</Link>{" "}
+                  <span className="fg-conn__yr">({s.year ?? "?"})</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* Related boxes — before the contribute CTA so readers actually reach them */}
         {relatedSections.map((s) => (
           <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
