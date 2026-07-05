@@ -1,23 +1,31 @@
 "use client";
 
 /**
- * GalaxyMap — the whole catalogue as one starfield. Each dot is a film placed by
- * t-SNE over its taste vector (worker/galaxy-build.py); colour = taste
- * neighbourhood (KMeans cluster). Canvas-rendered (one draw per state change, no
- * rAF loop — hidden tabs stay cheap). Wheel zooms at the cursor, drag pans,
- * hover names the film, click opens its page.
+ * GalaxyMap — the whole catalogue as one starfield. Films mode: each dot is a
+ * film placed by t-SNE over its taste vector; Directors mode: each dot is a
+ * director placed by their figure-embedding centroid (worker/galaxy-build.py).
+ * Colour = taste neighbourhood (KMeans cluster).
  *
- * Side panel (Atlas-style): lists the films currently in the viewport, sortable
- * by year/title/neighbourhood; hovering a row rings its dot, clicking opens the
- * film. When few enough dots are on screen, titles are drawn on the canvas too.
+ * Canvas-rendered, event-driven draws (no rAF loop). Wheel zooms at the cursor,
+ * drag pans. Left panel lists what's in the viewport (sortable); a row's text
+ * locates the dot on the map, its ↗ opens the page. Clicking a dot opens a
+ * right-side info card (poster, credits, open/zoom buttons) — on narrow screens
+ * it navigates directly instead.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-type GPoint = { slug: string; title: string; year: number | null; x: number; y: number; c: number };
-type GCluster = { c: number; n: number; genre: string | null; trope: string | null };
+type GPoint = {
+  slug: string; title: string; x: number; y: number; c: number;
+  year?: number | null;      // films
+  d?: string | null;         // films: director name
+  p?: string | null;         // films: poster_path
+  n?: number | null;         // directors: visible film count
+};
+type GCluster = { c: number; n: number; genre: string | null; trope?: string | null };
 type Payload = { points: GPoint[]; clusters: GCluster[] };
-type Sort = "year-desc" | "year-asc" | "title" | "hood";
+type Kind = "films" | "directors";
+type Sort = "year-desc" | "year-asc" | "title" | "hood" | "films-desc";
 
 const PALETTE = [
   "#C8102E", "#1F6FB2", "#0F6E56", "#6D4AAE", "#B5642A", "#B23A8F", "#2E7D32",
@@ -25,13 +33,18 @@ const PALETTE = [
 ];
 const LABEL_MAX = 70;   // draw titles on canvas when this few dots are visible
 const PANEL_CAP = 400;  // rows rendered in the side panel at once
+const IMG = "https://image.tmdb.org/t/p";
+
+const hrefOf = (kind: Kind, p: GPoint) => (kind === "films" ? `/film/${p.slug}` : `/director/${p.slug}`);
 
 export default function GalaxyMap({ height }: { height: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
+  const [kind, setKind] = useState<Kind>("films");
   const [data, setData] = useState<Payload>({ points: [], clusters: [] });
   const [loading, setLoading] = useState(true);
   const [hover, setHover] = useState<{ p: GPoint; sx: number; sy: number } | null>(null);
+  const [selected, setSelected] = useState<GPoint | null>(null);
   const [visible, setVisible] = useState<GPoint[]>([]);
   const [sort, setSort] = useState<Sort>("year-desc");
   const [narrow, setNarrow] = useState(false);
@@ -40,16 +53,28 @@ export default function GalaxyMap({ height }: { height: number }) {
   const drag = useRef<{ x: number; y: number; moved: boolean } | null>(null);
   const visTimer = useRef<number | null>(null);
 
+  // deep link: /map?m=galaxy&g=directors
   useEffect(() => {
-    (async () => {
-      try {
-        const r = await fetch("/api/map/galaxy");
-        const j = (await r.json()) as Payload;
-        setData({ points: j.points ?? [], clusters: j.clusters ?? [] });
-      } catch { /* leave empty */ }
-      setLoading(false);
-    })();
+    const g = new URLSearchParams(window.location.search).get("g");
+    if (g === "directors") { setKind("directors"); setSort("films-desc"); }
   }, []);
+
+  useEffect(() => {
+    let dead = false;
+    (async () => {
+      setLoading(true); setSelected(null); setHover(null);
+      try {
+        const r = await fetch(`/api/map/galaxy${kind === "directors" ? "?mode=directors" : ""}`);
+        const j = (await r.json()) as Payload;
+        if (!dead) {
+          view.current = { cx: 0, cy: 0, scale: 0 }; // refit on next draw
+          setData({ points: j.points ?? [], clusters: j.clusters ?? [] });
+        }
+      } catch { if (!dead) setData({ points: [], clusters: [] }); }
+      if (!dead) setLoading(false);
+    })();
+    return () => { dead = true; };
+  }, [kind]);
 
   useEffect(() => {
     const fit = () => setNarrow(window.innerWidth < 760);
@@ -116,7 +141,7 @@ export default function GalaxyMap({ height }: { height: number }) {
       ctx.fill();
     }
 
-    // film titles beside the dots once the view is tight enough to read them
+    // titles beside the dots once the view is tight enough to read them
     if (onScreen.length > 0 && onScreen.length <= LABEL_MAX) {
       ctx.font = "500 11px var(--font-display, sans-serif)";
       ctx.textAlign = "left";
@@ -143,18 +168,21 @@ export default function GalaxyMap({ height }: { height: number }) {
       ctx.fillStyle = "rgba(20,20,20,.85)";
       ctx.fillText(info.genre, sx, sy);
     }
-    if (hover) {
-      const sx = (hover.p.x - cx) * scale + w / 2;
-      const sy = (hover.p.y - cy) * scale + h / 2;
+
+    const ring = (p: GPoint, color: string) => {
+      const sx = (p.x - cx) * scale + w / 2;
+      const sy = (p.y - cy) * scale + h / 2;
       ctx.beginPath();
-      ctx.lineWidth = 2; ctx.strokeStyle = "#111";
+      ctx.lineWidth = 2; ctx.strokeStyle = color;
       ctx.arc(sx, sy, r + 2.5, 0, Math.PI * 2);
       ctx.stroke();
-    }
-  }, [data.points, centroids, clusterInfo, hover]);
+    };
+    if (selected) ring(selected, "#E3120B");
+    if (hover && hover.p.slug !== selected?.slug) ring(hover.p, "#111");
+  }, [data.points, centroids, clusterInfo, hover, selected]);
 
   useEffect(() => { draw(); }, [draw, height, narrow]);
-  useEffect(() => { if (data.points.length) scheduleVisible(); }, [data.points, scheduleVisible, narrow]);
+  useEffect(() => { if (data.points.length) { draw(); scheduleVisible(); } }, [data.points, draw, scheduleVisible, narrow]);
   useEffect(() => {
     const onResize = () => { draw(); scheduleVisible(); };
     window.addEventListener("resize", onResize);
@@ -174,6 +202,14 @@ export default function GalaxyMap({ height }: { height: number }) {
     }
     return bd <= 100 ? best : null; // within 10px
   }, [data.points]);
+
+  const locate = useCallback((p: GPoint) => {
+    const v = view.current;
+    v.cx = p.x; v.cy = p.y;
+    v.scale = Math.max(v.scale, 22);
+    setSelected(p);
+    draw(); scheduleVisible();
+  }, [draw, scheduleVisible]);
 
   const onWheel = useCallback((e: React.WheelEvent) => {
     e.preventDefault();
@@ -216,14 +252,17 @@ export default function GalaxyMap({ height }: { height: number }) {
     const cv = canvasRef.current; if (!cv) return;
     const rect = cv.getBoundingClientRect();
     const p = pick(e.clientX - rect.left, e.clientY - rect.top);
-    if (p) window.location.assign(`/film/${p.slug}`);
-  }, [pick, scheduleVisible]);
+    if (!p) { setSelected(null); return; }
+    if (narrow) { window.location.assign(hrefOf(kind, p)); return; }
+    setSelected(p);
+  }, [pick, narrow, kind]);
 
   const sortedVisible = useMemo(() => {
     const arr = [...visible];
     if (sort === "title") arr.sort((a, b) => a.title.localeCompare(b.title));
     else if (sort === "year-asc") arr.sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999) || a.title.localeCompare(b.title));
     else if (sort === "hood") arr.sort((a, b) => a.c - b.c || a.title.localeCompare(b.title));
+    else if (sort === "films-desc") arr.sort((a, b) => (b.n ?? 0) - (a.n ?? 0) || a.title.localeCompare(b.title));
     else arr.sort((a, b) => (b.year ?? -1) - (a.year ?? -1) || a.title.localeCompare(b.title));
     return arr;
   }, [visible, sort]);
@@ -233,37 +272,81 @@ export default function GalaxyMap({ height }: { height: number }) {
     setHover({ p, sx, sy });
   }, [toScreen]);
 
+  const switchKind = useCallback((k: Kind) => {
+    if (k === kind) return;
+    setKind(k);
+    setSort(k === "directors" ? "films-desc" : "year-desc");
+  }, [kind]);
+
   const hoverInfo = hover ? clusterInfo.get(hover.p.c) : null;
+  const selInfo = selected ? clusterInfo.get(selected.c) : null;
+
+  const kindToggle = (
+    <span style={{ display: "inline-flex", gap: 4 }}>
+      {(["films", "directors"] as Kind[]).map((k) => (
+        <button key={k} onClick={() => switchKind(k)} style={{
+          fontSize: 11.5, fontWeight: 700, padding: "3px 9px", borderRadius: 999, cursor: "pointer",
+          border: "1px solid rgba(0,0,0,.14)",
+          background: kind === k ? "#1a1a1a" : "transparent", color: kind === k ? "#fff" : "inherit",
+        }}>{k === "films" ? "Films" : "Directors"}</button>
+      ))}
+    </span>
+  );
+
+  const meta = (p: GPoint) =>
+    kind === "films" ? String(p.year ?? "") : `${p.n ?? 0}`;
 
   return (
     <div style={{ display: "flex", gap: 10, alignItems: "stretch" }}>
       {!narrow && (
         <div style={{
-          flex: "0 0 264px", width: 264, height, display: "flex", flexDirection: "column",
+          flex: "0 0 272px", width: 272, height, display: "flex", flexDirection: "column",
           border: "1px solid rgba(0,0,0,.08)", borderRadius: 10, background: "rgba(255,255,255,.72)", overflow: "hidden",
         }}>
-          <div style={{ padding: "10px 12px 8px", borderBottom: "1px solid rgba(0,0,0,.07)", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 12.5, fontWeight: 700 }}>{visible.length} films in view</span>
-            <select value={sort} onChange={(e) => setSort(e.target.value as Sort)} style={{ fontSize: 12, padding: "2px 4px" }} aria-label="Sort films in view">
-              <option value="year-desc">Year ↓</option>
-              <option value="year-asc">Year ↑</option>
-              <option value="title">Title A–Z</option>
-              <option value="hood">Neighbourhood</option>
+          <div style={{ padding: "9px 12px 7px", borderBottom: "1px solid rgba(0,0,0,.07)", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 6 }}>
+            {kindToggle}
+            <select value={sort} onChange={(e) => setSort(e.target.value as Sort)} style={{ fontSize: 12, padding: "2px 4px", maxWidth: 118 }} aria-label="Sort">
+              {kind === "films" ? (
+                <>
+                  <option value="year-desc">Year ↓</option>
+                  <option value="year-asc">Year ↑</option>
+                  <option value="title">Title A–Z</option>
+                  <option value="hood">Neighbourhood</option>
+                </>
+              ) : (
+                <>
+                  <option value="films-desc">Films ↓</option>
+                  <option value="title">Name A–Z</option>
+                  <option value="hood">Neighbourhood</option>
+                </>
+              )}
             </select>
           </div>
-          <div style={{ overflowY: "auto", flex: 1, padding: "5px 0" }}>
+          <div style={{ padding: "6px 12px 5px", fontSize: 12, fontWeight: 700, opacity: .75 }}>
+            {visible.length} {kind === "films" ? "films" : "directors"} in view
+            <span style={{ fontWeight: 400, opacity: .75 }}> · click a row to locate it, ↗ opens the page</span>
+          </div>
+          <div style={{ overflowY: "auto", flex: 1, padding: "2px 0 6px" }}>
             {sortedVisible.slice(0, PANEL_CAP).map((p) => (
-              <a
+              <div
                 key={p.slug}
-                href={`/film/${p.slug}`}
                 onMouseEnter={() => hoverFromPanel(p)}
                 onMouseLeave={() => setHover(null)}
-                style={{ display: "flex", gap: 8, alignItems: "baseline", padding: "3px 12px", textDecoration: "none", color: "inherit", fontSize: 12.5, lineHeight: 1.35 }}
+                style={{
+                  display: "flex", gap: 7, alignItems: "baseline", padding: "3px 12px", fontSize: 12.5, lineHeight: 1.35,
+                  background: selected?.slug === p.slug ? "rgba(227,18,11,.07)" : "transparent",
+                }}
               >
                 <span style={{ color: PALETTE[p.c % PALETTE.length], fontSize: 9, flex: "0 0 auto" }}>●</span>
-                <span style={{ flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.title}</span>
-                <span style={{ opacity: .55, fontSize: 11.5, flex: "0 0 auto" }}>{p.year ?? ""}</span>
-              </a>
+                <button
+                  onClick={() => locate(p)}
+                  title="Locate on the map"
+                  style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "left", background: "none", border: 0, padding: 0, font: "inherit", color: "inherit", cursor: "pointer" }}
+                >{p.title}</button>
+                <span style={{ opacity: .55, fontSize: 11.5, flex: "0 0 auto" }}>{meta(p)}</span>
+                <a href={hrefOf(kind, p)} title={kind === "films" ? "Open film page" : "Open director page"}
+                   style={{ flex: "0 0 auto", fontSize: 12, fontWeight: 800, color: "#C8102E", textDecoration: "none" }}>↗</a>
+              </div>
             ))}
             {sortedVisible.length > PANEL_CAP ? (
               <div style={{ padding: "7px 12px", fontSize: 11.5, opacity: .6 }}>
@@ -278,6 +361,9 @@ export default function GalaxyMap({ height }: { height: number }) {
       )}
 
       <div ref={wrapRef} style={{ position: "relative", flex: 1, minWidth: 0 }}>
+        {narrow ? (
+          <div style={{ position: "absolute", top: 8, left: 8, zIndex: 6 }}>{kindToggle}</div>
+        ) : null}
         <canvas
           ref={canvasRef}
           style={{ width: "100%", height, display: "block", cursor: hover ? "pointer" : "grab", touchAction: "none" }}
@@ -292,21 +378,66 @@ export default function GalaxyMap({ height }: { height: number }) {
             charting the galaxy…
           </div>
         ) : null}
-        {hover ? (
+        {hover && hover.p.slug !== selected?.slug ? (
           <div style={{
             position: "absolute", left: Math.min(hover.sx + 14, (wrapRef.current?.clientWidth ?? 300) - 240), top: Math.min(hover.sy + 14, height - 70),
             background: "rgba(255,255,255,.96)", border: "1px solid rgba(0,0,0,.12)", borderRadius: 8,
             padding: "8px 10px", maxWidth: 230, pointerEvents: "none", boxShadow: "0 4px 18px rgba(0,0,0,.12)", zIndex: 5,
           }}>
             <div style={{ fontWeight: 700, fontSize: 13.5, lineHeight: 1.25 }}>
-              {hover.p.title} <span style={{ fontWeight: 400, opacity: .6 }}>({hover.p.year ?? "?"})</span>
+              {hover.p.title}{" "}
+              <span style={{ fontWeight: 400, opacity: .6 }}>
+                {kind === "films" ? `(${hover.p.year ?? "?"})` : `· ${hover.p.n ?? 0} films`}
+              </span>
             </div>
             {hoverInfo?.genre ? (
               <div style={{ fontSize: 12, opacity: .65, marginTop: 2 }}>
                 <span style={{ color: PALETTE[hover.p.c % PALETTE.length] }}>●</span> {hoverInfo.genre}
-                {hoverInfo.trope ? <> · near “{hoverInfo.trope}”</> : null}
               </div>
             ) : null}
+          </div>
+        ) : null}
+
+        {selected && !narrow ? (
+          <div style={{
+            position: "absolute", top: 10, right: 10, width: 216, zIndex: 6,
+            background: "rgba(255,255,255,.97)", border: "1px solid rgba(0,0,0,.12)", borderRadius: 10,
+            boxShadow: "0 6px 24px rgba(0,0,0,.14)", overflow: "hidden",
+          }}>
+            <button onClick={() => setSelected(null)} aria-label="Close"
+              style={{ position: "absolute", top: 6, right: 8, border: 0, background: "none", fontSize: 15, fontWeight: 800, cursor: "pointer", opacity: .55, zIndex: 2 }}>×</button>
+            {kind === "films" && selected.p ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={`${IMG}/w342${selected.p}`} alt={`${selected.title} poster`} style={{ width: "100%", display: "block", aspectRatio: "2/3", objectFit: "cover" }} loading="lazy" />
+            ) : (
+              <div style={{ height: 64, display: "grid", placeItems: "center", background: PALETTE[selected.c % PALETTE.length] + "22", fontSize: 26, fontWeight: 800, color: PALETTE[selected.c % PALETTE.length] }}>
+                {selected.title.slice(0, 1)}
+              </div>
+            )}
+            <div style={{ padding: "10px 12px 12px" }}>
+              <div style={{ fontWeight: 800, fontSize: 14, lineHeight: 1.25 }}>{selected.title}</div>
+              <div style={{ fontSize: 12, opacity: .7, marginTop: 3 }}>
+                {kind === "films"
+                  ? <>{selected.year ?? "?"}{selected.d ? <> · {selected.d}</> : null}</>
+                  : <>{selected.n ?? 0} films on Metatake</>}
+              </div>
+              {selInfo?.genre ? (
+                <div style={{ fontSize: 11.5, marginTop: 6 }}>
+                  <span style={{ color: PALETTE[selected.c % PALETTE.length] }}>●</span>{" "}
+                  <span style={{ opacity: .72 }}>{selInfo.genre} neighbourhood{selInfo.n ? ` · ${selInfo.n} ${kind}` : ""}</span>
+                </div>
+              ) : null}
+              <div style={{ display: "flex", gap: 6, marginTop: 10 }}>
+                <a href={hrefOf(kind, selected)} style={{
+                  flex: 1, textAlign: "center", fontSize: 12, fontWeight: 800, padding: "6px 0", borderRadius: 8,
+                  background: "#1a1a1a", color: "#fff", textDecoration: "none",
+                }}>Open {kind === "films" ? "film" : "director"} ↗</a>
+                <button onClick={() => locate(selected)} title="Zoom to this dot" style={{
+                  flex: "0 0 auto", fontSize: 12, fontWeight: 800, padding: "6px 10px", borderRadius: 8,
+                  border: "1px solid rgba(0,0,0,.16)", background: "transparent", cursor: "pointer",
+                }}>◎</button>
+              </div>
+            </div>
           </div>
         ) : null}
       </div>
