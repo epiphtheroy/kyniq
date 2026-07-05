@@ -36,7 +36,11 @@ type LensCtx = {
 
 const Lens = createContext<LensCtx | null>(null);
 const LS_KEY = "mt-lens-mode";
-const FILM_HREF = /^\/film\/([^/?#]+)\/?(?:[?#].*)?$/;
+// deep paths count too: /film/x/figure/y (a reading card) belongs to film x
+const FILM_HREF = /^\/film\/([^/?#]+)/;
+// mine-first ordering guards: only reorder homogeneous film containers
+const ORDER_MIN_ITEMS = 4;
+const ORDER_MIN_COVERAGE = 0.7;
 
 function readStoredMode(): LensMode {
   try {
