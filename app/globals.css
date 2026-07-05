@@ -4559,6 +4559,11 @@ html[data-mtlens="only"] [data-lens-film].mtl-unseen { opacity: .15; }
 
 a.mtl-card, a.mtl-card img { transition: opacity .25s ease, filter .25s ease; }
 
+/* mine-first ordering needs a flex/grid formatting context to reorder rows.
+   These row-list wrappers are visually identical as flex columns; the lens
+   engine can then float rows holding seen films (CSS order, no DOM moves). */
+.smb-list, .df-conn { display: flex; flex-direction: column; }
+
 /* ---- My Films: director coverage line ---- */
 .mtl-cov{display:flex;align-items:center;gap:10px;margin:2px 0 14px;font-family:var(--font-ui,ui-sans-serif);font-size:13.5px;color:var(--ink-soft,#4a4a4a)}
 .mtl-cov b{color:var(--accent,#E3120B)}
