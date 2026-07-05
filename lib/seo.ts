@@ -103,6 +103,11 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    the ≥3-figure bar). Children: sitemaps/lineage.xml (~202, no cohort) +
  *    sitemaps/honors.xml (cohort 500 below). Raise on the standard weekly
  *    GSC evidence rule.
+ *  - 2026-07-06 (user decision): the honours record moved to
+ *    /film/lineage/[slug]; the old /film/x/honors route 308s (whole-pattern
+ *    permanentRedirect, no slug_aliases rows). Film pages: separate Honors
+ *    tab removed — the Lineage tab/section itself now carries the honours
+ *    presentation (per-row source tags via lnListMeta).
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
