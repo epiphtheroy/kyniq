@@ -5,7 +5,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteNav from "@/components/home2/SiteNav";
 import LineageActions from "@/components/LineageActions";
+import { pageRobots } from "@/lib/seo";
+import {
+  FACET_LABEL,
+  LINEAGE_LIST_MIN,
+  cachedLineageEligibility,
+  cachedLineageMeta,
+  lineageSource,
+  wikidataUrl,
+  type LineageFilmRow,
+  type LineageListMeta,
+} from "@/lib/lineage";
 
+/**
+ * /lineage/[slug] — one list's READ page: what the list is, who compiles it
+ * (source + Wikidata entity), and every member film on Metatake — the read
+ * layer for "palme d'or winners list" / "sight and sound top 100" queries.
+ * robots gate: ≥3 member films (same non-thin bar as the sitemap).
+ */
 export const revalidate = 1800;
 // Empty list enables the on-demand Full Route Cache (ISR HIT) without
 // prebuilding anything at build time.
@@ -18,35 +35,28 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-type ListRow = { label: string; facet: string; description: string | null; country: string | null; tier: string | null; film_count: number };
-type FilmRow = { film_slug: string; film_title: string; film_year: number | null; poster_path: string | null; visible: boolean; analyzed: boolean; result: string | null; rank: number | null; edition_year: number | null; rep_type: string | null };
-
-const FACET_LABEL: Record<string, string> = {
-  award: "Award", canon: "Canon / list", national: "National honour", festival: "Festival", section: "Festival section", auteur: "Auteur line", movement: "Movement", style: "Style",
-};
-
 // Hidden members (catalog entries) in deterministic order: year desc, then slug.
-function hiddenOf(films: FilmRow[]): FilmRow[] {
+function hiddenOf(films: LineageFilmRow[]): LineageFilmRow[] {
   return films
     .filter((f) => !f.visible)
     .sort((a, b) => (b.film_year ?? 0) - (a.film_year ?? 0) || a.film_slug.localeCompare(b.film_slug));
 }
 
 // Cached per slug so the page is ISR-cached instead of re-querying on every
-// request (uncached Supabase calls otherwise force dynamic rendering).
+// request. Key bumped (lineage3) when source/related joined the payload —
+// the Data Cache outlives deploys.
 function load(slug: string) {
   return unstable_cache(
     async () => {
       const supabase = db();
       const { data: list } = await supabase
         .from("lineage_lists")
-        .select("label, facet, description, country, tier, film_count")
+        .select("slug, label, facet, description, country, tier, film_count, source, external_ref")
         .eq("slug", slug).maybeSingle();
       if (!list) return null;
       const { data: films } = await supabase.rpc("lineage_list_films", { p_slug: slug });
-      const rows = (films as FilmRow[] | null) ?? [];
-      // Native titles for the hidden-member cards (top 24 only — keeps the
-      // extra query one cheap .in() inside this cache wrapper).
+      const rows = (films as LineageFilmRow[] | null) ?? [];
+      // Native titles for the hidden-member cards (top 24 only).
       let hiddenNative: Record<string, string | null> = {};
       const hiddenTop = hiddenOf(rows).slice(0, 24).map((f) => f.film_slug);
       if (hiddenTop.length) {
@@ -56,43 +66,147 @@ function load(slug: string) {
             .map((r) => [r.slug, r.original_title && r.original_title !== r.title ? r.original_title : null])
         );
       }
-      return { list: list as unknown as ListRow, films: rows, hiddenNative };
+      // Sibling lists in the same facet — internal links, gated to lists that
+      // themselves clear the ≥3-member bar (no links into noindex shells).
+      const [{ data: sibs }, elig] = await Promise.all([
+        supabase
+          .from("lineage_lists")
+          .select("slug, label, film_count")
+          .eq("facet", (list as LineageListMeta).facet)
+          .eq("status", "active")
+          .neq("slug", slug)
+          .order("authority_weight", { ascending: false, nullsFirst: false })
+          .limit(24),
+        cachedLineageEligibility(),
+      ]);
+      const eligible = new Map(elig.lists.map((l) => [l.slug, l.n]));
+      const related = ((sibs ?? []) as { slug: string; label: string }[])
+        .filter((s) => eligible.has(s.slug))
+        .slice(0, 8)
+        .map((s) => ({ ...s, n: eligible.get(s.slug)! }));
+      return { list: list as unknown as LineageListMeta, films: rows, hiddenNative, related };
     },
-    ["lineage2", slug],
+    ["lineage3", slug],
     { revalidate: 1800, tags: [`lineage:${slug}`] },
   )();
+}
+
+// Search-phrase titles, by facet. The root layout appends "· Metatake" — no
+// brand suffix here (the old hardcoded one double-branded every list page).
+function listTitle(list: LineageListMeta, films: LineageFilmRow[]): string {
+  const n = films.length;
+  const years = films.map((f) => f.edition_year).filter((y): y is number => !!y);
+  const span = years.length > 1 ? ` (${Math.min(...years)}–${Math.max(...years)})` : "";
+  const ranked = films.some((f) => f.rank != null);
+  const allWon = n > 0 && films.every((f) => f.result === "won");
+  if (list.facet === "award") return allWon ? `${list.label} Winners — the Complete List${span}` : `${list.label} — the Complete Record${span}`;
+  if (list.facet === "canon") return `${list.label} — All ${n} Films${ranked ? ", Ranked" : ""}`;
+  if (list.facet === "national") return `${list.label} — the Complete List`;
+  if (list.facet === "auteur") return `${list.label} — the Essential Films`;
+  return `${list.label} — ${n} Films`;
+}
+
+function listDescription(list: LineageListMeta, films: LineageFilmRow[]): string {
+  const n = films.length;
+  const read = films.filter((f) => f.visible).length;
+  const src = lineageSource(list.source);
+  const base = list.description
+    ? (/[.!?]$/.test(list.description.trim()) ? list.description.trim() : `${list.description.trim()}.`)
+    : `${list.label} — ${FACET_LABEL[list.facet]?.toLowerCase() ?? list.facet}.`;
+  return `${base} ${n} film${n === 1 ? "" : "s"} on record${src ? `, compiled from ${src.name}` : ""}${read ? ` — ${read} read closely on Metatake` : ""}.`;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Not found" };
-  const title = `${data.list.label} — films in this lineage — Metatake`;
-  return { title, description: `Films that belong to ${data.list.label}: ${data.list.film_count} on Metatake, with results and rankings.`, alternates: { canonical: `/lineage/${slug}` } };
+  const title = listTitle(data.list, data.films);
+  const description = listDescription(data.list, data.films);
+  return {
+    title,
+    description,
+    alternates: { canonical: `/lineage/${slug}` },
+    openGraph: { title, description },
+    twitter: { card: "summary_large_image", title, description },
+    robots: pageRobots(data.films.length >= LINEAGE_LIST_MIN),
+  };
 }
 
 export default async function LineagePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { list, films } = data;
+  const { list, films, related } = data;
   const hiddenNative = data.hiddenNative ?? {};
   const visibleFilms = films.filter((f) => f.visible);
   const hiddenFilms = hiddenOf(films);
   const isCanon = list.facet === "canon" || films.some((f) => f.rank != null);
+  const src = lineageSource(list.source);
+  const wd = wikidataUrl(list.external_ref);
+  const updated = (await cachedLineageMeta()).updated || new Date().toISOString().slice(0, 10);
+
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: listTitle(list, films),
+    numberOfItems: films.length,
+    itemListElement: films.slice(0, 100).map((f, i) => ({
+      "@type": "ListItem",
+      position: f.rank ?? i + 1,
+      item: {
+        "@type": "Movie",
+        name: f.film_title,
+        ...(f.film_year ? { datePublished: String(f.film_year) } : {}),
+        url: `https://metatake.net/film/${f.film_slug}`,
+      },
+    })),
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
+      { "@type": "ListItem", position: 2, name: "Lineage", item: "https://metatake.net/lineage" },
+      { "@type": "ListItem", position: 3, name: list.label, item: `https://metatake.net/lineage/${slug}` },
+    ],
+  };
+  const pageLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    url: `https://metatake.net/lineage/${slug}`,
+    name: listTitle(list, films),
+    ...(list.description ? { description: list.description } : {}),
+    about: {
+      "@type": "Thing",
+      name: list.label,
+      ...(wd ? { sameAs: [wd] } : {}),
+    },
+    author: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
+    dateModified: updated,
+  };
 
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/lineage">Lineage</Link></div>
         <h1 className="lh-h1">{list.label}</h1>
         <div className="lh-kick">
           {FACET_LABEL[list.facet] ?? list.facet}
           {list.country ? ` · ${list.country.toUpperCase()}` : ""}
-          <span className="lh-cnt">{list.film_count} films</span>
+          <span className="lh-cnt">{films.length} films</span>
         </div>
         {list.description ? <p className="lh-def">{list.description}</p> : null}
+        <p className="lh-def" style={{ fontSize: 14, opacity: 0.7 }}>
+          {src ? <>Compiled from {src.url ? <a href={src.url} target="_blank" rel="noopener noreferrer">{src.name} ↗</a> : src.name}</> : "Compiled from public records"}
+          {wd ? <> · <a href={wd} target="_blank" rel="noopener noreferrer">Wikidata ↗</a></> : null}
+          {" · "}{visibleFilms.length} of {films.length} read closely on Metatake
+        </p>
         <LineageActions slug={slug} />
 
         <div className="lh-films">
@@ -161,6 +275,24 @@ export default async function LineagePage({ params }: Props) {
             ) : null}
           </section>
         )}
+
+        {related.length > 0 && (
+          <section className="mvh-sec">
+            <h2 className="lh-h2" style={{ fontSize: 22 }}>More {FACET_LABEL[list.facet]?.toLowerCase() ?? list.facet}s</h2>
+            <ul className="mt-list">
+              {related.map((r) => (
+                <li key={r.slug}>
+                  <Link href={`/lineage/${r.slug}`}>{r.label}</Link>{" "}
+                  <span className="meta">— {r.n} films</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
+          Metatake Editorial · Lineage data compiled from public records — source above · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
+        </p>
       </div>
     </div>
   );

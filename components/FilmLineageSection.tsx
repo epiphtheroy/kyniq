@@ -11,7 +11,9 @@ function CC({ country }: { country?: string | null }) {
   return <span className="lin-cc"> · {f ? `${f} ` : ""}{country.toUpperCase()}</span>;
 }
 
-export default function FilmLineageSection({ lineage, title, movements = [] }: { lineage: LinRow[]; title: string; movements?: MvChip[] }) {
+const HONORS_MIN = 3; // mirrors FILM_HONORS_MIN in lib/lineage.ts — /film/x/honors 404 bar
+
+export default function FilmLineageSection({ lineage, title, slug, movements = [] }: { lineage: LinRow[]; title: string; slug?: string; movements?: MvChip[] }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linCanons = lineage.filter((l) => l.facet !== "auteur" && l.result === "listed");
   const linAuteur = lineage.filter((l) => l.facet === "auteur");
@@ -92,7 +94,12 @@ export default function FilmLineageSection({ lineage, title, movements = [] }: {
           </div>
         </div>
       ) : null}
-      <div className="df-src">Origin from TMDB; awards &amp; canons from public records and critics&apos;/institutional polls; movements from auteur rosters.</div>
+      {slug && lineage.length >= HONORS_MIN ? (
+        <p style={{ margin: "12px 0 0", fontSize: 15 }}>
+          <Link href={`/film/${slug}/honors`}>The complete record — every award, canon and ranking, with sources →</Link>
+        </p>
+      ) : null}
+      <div className="df-src">Origin from TMDB; awards &amp; canons from public records and critics&apos;/institutional polls; movements from auteur rosters. Each list page cites its source.</div>
     </section>
   );
 }
