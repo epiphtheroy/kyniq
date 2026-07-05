@@ -43,7 +43,9 @@
 - **딥링크 분류 확장**: `FILM_HREF`가 `/film/x/figure/y` 등 하위 경로도 영화 x 귀속으로 매칭 — 스트롱 미스리딩 카드가 렌즈·정렬 대상이 됨.
 - **갤럭시 패널**: sortedVisible에 seen-first 밴드(하이라이트 모드), 헤더에 "· yours first" 표시.
 - **FilmMap 패널**: groups에 seen-first 밴드(하이라이트 모드; only는 이미 필터라 무의미), focus 영화는 여전히 최상단.
-- **블록 리스트 옵트인**: 행 스택 컨테이너를 `display:flex;flex-direction:column`으로 바꾸면(시각 동일) 행 단위 정렬이 활성화됨 — `.smb-list`(스트롱 미스리딩 유형 페이지), `.df-conn`(film 상세 connected/counterpoints)에 적용. 새 행형 리스트도 같은 방식으로 옵트인.
+- **블록 리스트 옵트인**: 행 스택 컨테이너를 `display:flex;flex-direction:column`으로 바꾸면(시각 동일) 행 단위 정렬이 활성화됨 — `.smb-list`(스트롱 미스리딩 유형 페이지), `.df-conn`(film 상세 connected/counterpoints)에 적용. **범용 옵트인 클래스 `.mtl-rows`** 도입: 트롭 `ol.tp-mlist`, 장르 `ul#genre-list`, 아틀라스 국가(십년대 셸 내부 래퍼)·도시(films 래퍼)에 적용. 헤딩(h2/h3)이 행들과 같은 컨테이너에 있으면 행만 감싸는 래퍼를 새로 두어야 헤딩 위로 행이 떠오르지 않음.
+- **행 단위 카드 마킹**: 포스터가 앵커 밖에 있는 행(장르 li, 계보 .lh-film)은 행 요소에 `data-lens-film={slug}`를 달아 카드로 승격 — 보더(내부 img)·고스트(.15)·정렬 모두 적용됨. 엔진은 data-lens-film 요소도 정렬 대상에 포함(그래프 노드는 부모가 flex/grid가 아니라 자연 배제).
+- **LensQuickBar**(components/LensQuickBar.tsx): 리스트 페이지 상단 인라인 3단 스위처(All/Highlight mine/Only mine + seen 카운트; 비로그인/0편은 /my-films 링크 한 줄). 삽입된 곳: atlas 국가·도시, genre, movements(MovementHubClient), catalog, trope, lineage, movies-like, strong-misreadings/[fw], film 인덱스(기본+all 뷰), u/[username]. 새 리스트 페이지엔 h1 아래 `<LensQuickBar />` 한 줄.
 - **counterpoint 특례**: seen 영화 페이지의 counterpoint 행은 자기 영화 figure 링크 때문에 전부 seen 판정 → 가드(전원 seen이면 스킵)로 무해하게 no-op. unseen 영화 페이지에선 정상 정렬.
 - **한계**: 페이지네이션/무한스크롤 표면은 로드된 범위 안에서만 정렬(서버 쿼리는 건드리지 않음 — 캐시 원칙). 블록형(비 flex/grid) 리스트는 옵트인 전까지 엔진 정렬 미적용.
 
