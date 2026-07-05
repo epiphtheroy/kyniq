@@ -32,7 +32,7 @@ import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
-import { loadLineageListMeta } from "@/lib/lineage";
+import { honorText, loadLineageListMeta } from "@/lib/lineage";
 import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
 import RelatedBoxes from "@/components/RelatedBoxes";
 
@@ -628,13 +628,18 @@ export default async function FilmPage({ params }: Props) {
   ].filter(Boolean)) as { id: string; label: string; href?: string }[];
 
   // Entity anchors (§8.2 film-entity recognition): canonical @id + external IDs.
+  // Field set must stay consistent with /film/lineage/[slug]'s Movie node
+  // (shared @id — contradictions suppress rich results; SEO_LINEAGE_SPEC §1b-2).
   const movieSameAs = [
-    film.imdb_id ? `https://www.imdb.com/title/${film.imdb_id}/` : null,
     film.wikidata_id ? `https://www.wikidata.org/wiki/${film.wikidata_id}` : null,
+    film.tmdb_id ? `https://www.themoviedb.org/movie/${film.tmdb_id}` : null,
+    film.imdb_id ? `https://www.imdb.com/title/${film.imdb_id}/` : null,
   ].filter(Boolean);
+  const wonHonors = lineage.filter((l) => l.result && l.result !== "listed" && l.facet !== "auteur");
 
   const jsonld = {
-    "@context": "https://schema.org", "@type": "Movie", "@id": `https://metatake.net/film/${film.slug}`, name: film.title,
+    "@context": "https://schema.org", "@type": "Movie", "@id": `https://metatake.net/film/${film.slug}`,
+    url: `https://metatake.net/film/${film.slug}`, name: film.title,
     ...(film.release_date ? { datePublished: film.release_date } : film.year ? { datePublished: String(film.year) } : {}),
     ...(film.genres?.length ? { genre: film.genres } : {}),
     ...(film.runtime ? { duration: `PT${film.runtime}M` } : {}),
@@ -643,6 +648,9 @@ export default async function FilmPage({ params }: Props) {
     ...(film.poster_path ? { image: `${IMG}/w500${film.poster_path}` } : {}),
     ...(film.overview ? { description: film.overview } : {}),
     ...(movieSameAs.length ? { sameAs: movieSameAs } : {}),
+    ...(wonHonors.filter((l) => l.result === "won").length
+      ? { award: wonHonors.filter((l) => l.result === "won").map(honorText) }
+      : {}),
     // TakeScore as a schema.org Review — Tier-1 + scored films only. ratingValue
     // must equal the TakeScore visibly rendered on the page (Google requires
     // correspondence): subscores.takescore == Math.round(v − r), the badge number.
@@ -656,13 +664,16 @@ export default async function FilmPage({ params }: Props) {
     } : {}),
   };
 
+  // Mirrors the visible trail (Films › director › film).
+  const hasDirCrumb = !!(film.director && film.director_slug);
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
       { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
-      { "@type": "ListItem", position: 3, name: `${film.title}${film.year ? ` (${film.year})` : ""}`, item: `https://metatake.net/film/${film.slug}` },
+      ...(hasDirCrumb ? [{ "@type": "ListItem", position: 3, name: film.director, item: `https://metatake.net/director/${film.director_slug}` }] : []),
+      { "@type": "ListItem", position: hasDirCrumb ? 4 : 3, name: `${film.title}${film.year ? ` (${film.year})` : ""}`, item: `https://metatake.net/film/${film.slug}` },
     ],
   };
 

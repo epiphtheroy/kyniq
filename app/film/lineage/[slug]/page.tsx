@@ -156,16 +156,25 @@ export default async function FilmHonorsPage({ params }: Props) {
   const lead = leadText(film, lineage);
   const yearLabel = film.year ? ` (${film.year})` : "";
 
+  // Same @id as the base film page's Movie node — the two must never
+  // contradict (full ISO date + full sameAs on both; SEO_LINEAGE_SPEC §1b-2).
+  const movieSameAs = [
+    film.wikidata_id ? `https://www.wikidata.org/wiki/${film.wikidata_id}` : null,
+    film.tmdb_id ? `https://www.themoviedb.org/movie/${film.tmdb_id}` : null,
+    film.imdb_id ? `https://www.imdb.com/title/${film.imdb_id}/` : null,
+  ].filter(Boolean);
   const movieLd = {
     "@context": "https://schema.org",
     "@type": "Movie",
     "@id": `https://metatake.net/film/${film.slug}`,
+    url: `https://metatake.net/film/${film.slug}`,
     name: film.title,
-    ...(film.year ? { datePublished: String(film.year) } : {}),
+    ...(film.release_date ? { datePublished: film.release_date } : film.year ? { datePublished: String(film.year) } : {}),
     ...(film.director ? { director: { "@type": "Person", name: film.director } } : {}),
     ...(film.poster_path ? { image: `${IMG}/w500${film.poster_path}` } : {}),
+    ...(movieSameAs.length ? { sameAs: movieSameAs } : {}),
     ...(awards.filter((a) => a.result === "won").length
-      ? { award: awards.filter((a) => a.result === "won").map((a) => `${awardLabel(a.list_label, a.list_slug)}${a.edition_year ? ` (${a.edition_year})` : ""}`) }
+      ? { award: awards.filter((a) => a.result === "won").map(honorText) }
       : {}),
   };
   const itemListLd = {
@@ -180,14 +189,17 @@ export default async function FilmHonorsPage({ params }: Props) {
       url: `https://metatake.net/lineage/${l.list_slug}`,
     })),
   };
+  // Mirrors the visible trail, director crumb included.
+  const hasDirCrumb = !!(film.director && film.director_slug);
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
       { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
-      { "@type": "ListItem", position: 3, name: `${film.title}${yearLabel}`, item: `https://metatake.net/film/${film.slug}` },
-      { "@type": "ListItem", position: 4, name: "Awards & honors", item: `https://metatake.net/film/lineage/${film.slug}` },
+      ...(hasDirCrumb ? [{ "@type": "ListItem", position: 3, name: film.director!, item: `https://metatake.net/director/${film.director_slug}` }] : []),
+      { "@type": "ListItem", position: hasDirCrumb ? 4 : 3, name: `${film.title}${yearLabel}`, item: `https://metatake.net/film/${film.slug}` },
+      { "@type": "ListItem", position: hasDirCrumb ? 5 : 4, name: "Awards & honors", item: `https://metatake.net/film/lineage/${film.slug}` },
     ],
   };
   const pageLd = {
