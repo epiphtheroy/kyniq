@@ -116,7 +116,7 @@ async function loadUncached(slug: string) {
 
   const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }, { data: cpJson }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
-    supabase.from("film_affinities").select("related_film_id, score").eq("film_id", film.id).order("score", { ascending: false }).limit(8),
+    supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids, cos, updated_at").eq("film_id", film.id).order("score", { ascending: false }).limit(5),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
     supabase.rpc("film_catalog", { p_film_id: film.id }),
@@ -195,13 +195,25 @@ async function loadUncached(slug: string) {
   const videos = orderedVids.map((m) => ({ id: m.external_id, title: m.title ?? "" }));
   const heroPoster = orderedVids[0]?.thumbnail_url ?? null;
 
-  // Connected films — nearest neighbours by affinity (reasons layer retired with old readings).
+  // Connected films — top-5 kin with their evidence (taste cosine + shared-trope count).
   const relIds = (aff ?? []).map((a) => a.related_film_id);
   const { data: relFilms } = relIds.length
-    ? await supabase.from("films").select("id, title, slug, year").in("id", relIds)
-    : { data: [] as { id: string; title: string; slug: string; year: number | null }[] };
+    ? await supabase.from("films").select("id, title, slug, year, poster_path").in("id", relIds).eq("visible", true)
+    : { data: [] as { id: string; title: string; slug: string; year: number | null; poster_path: string | null }[] };
   const relFilmMap = new Map((relFilms ?? []).map((f) => [f.id, f]));
-  const recs = (aff ?? []).map((a) => relFilmMap.get(a.related_film_id)).filter(Boolean) as { title: string; slug: string; year: number | null }[];
+  const recs = (aff ?? []).map((a) => {
+    const f = relFilmMap.get(a.related_film_id);
+    if (!f) return null;
+    return {
+      title: f.title, slug: f.slug, year: f.year, poster_path: f.poster_path,
+      cos: a.cos == null ? null : Number(a.cos),
+      sharedN: ((a.shared_meta_take_ids ?? []) as string[]).length,
+    };
+  }).filter(Boolean) as { title: string; slug: string; year: number | null; poster_path: string | null; cos: number | null; sharedN: number }[];
+  const recsUpdated = (aff ?? []).reduce<string | null>((m, a) => {
+    const u = (a as { updated_at?: string }).updated_at ?? null;
+    return u && (!m || u > m) ? u : m;
+  }, null);
   const counterpoints = (Array.isArray(cpJson) ? cpJson : []) as CpRow[];
 
   const { data: geoRows } = await supabase.rpc("film_geo", { p_slug: slug });
@@ -213,7 +225,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -559,7 +571,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
