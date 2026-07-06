@@ -58,6 +58,17 @@
 - ReadingFeed: `mine = lens.mode==="only" && seenCount>0`일 때 buildUrl이 `/api/lens/readings`로 스위치(검색 q 있으면 전역 유지), only 모드로 첫 진입 시 SSR 시드 무시하고 refetch, 카운트 문구 "N readings from films you've seen". 정렬·연대 파셋 파라미터 동일하게 통과.
 - 패턴 일반화: 다른 엔드리스 표면(InfiniteScrollFeed 등)도 같은 3단(미러 RPC + authed 라우트 + 소스 스위치)으로 확장 가능. **원칙 유지: 캐시되는 서버 HTML은 불변, 개인화는 로그인 전용 동적 API로만.**
 
+## v1.4 — 엔티티 인덱스의 "내 것" 뷰 + TakeScore 스왑 (2026-07-06)
+
+트롭/콘셉트/이론가/전통/감독 인덱스는 행이 집계 카운트만 실어 클라 계산 불가 → **only 모드에서 리스트 자체를 per-user 랭킹으로 교체**:
+
+- DB: `tropes_mine · concepts_mine · theorists_mine · traditions_mine · directors_mine (p_user,p_limit,p_offset)` — 각 인덱스 RPC 미러 + user_movies seen 조인, "내 영화 몇 편에 닿는가(n)" 내림차순. `cinecodex_ranked_mine`은 TakeScore 전 파라미터 미러. **전부 service_role 전용**(마이그레이션 lens_entity_mine_rpcs).
+- 콘셉트 경로: takes.concept(text) → concept_map(raw_l) → sm_concepts — sm_concepts 자체엔 영화 링크 없음.
+- API: `/api/lens/entities?kind=` (5종 스위치), `/api/lens/takescore` (필터 패스스루) — 세션 검증+admin.
+- UI: `components/MineEntityIndex.tsx` — only 모드에서만 fetch·렌더(.th-grid 재사용). 퍼블릭 리스트는 `.mtl-swap-out`으로 감싸면 CSS(`html[data-mtlens="only"] .mtl-swap-out{display:none}`)가 숨김. 적용: /tropes(IndexPattern 전체 스왑) /idea /theorist /tradition /director(DirectorsIndex 스왑) + /takescore(CodexExplorer가 fetchPage에서 소스 스위치, 서버 풀랭킹 섹션도 스왑아웃).
+- 퀵바 추가: 위 6곳 + /trending(오버레이만으로 충분) + /catalog(허브).
+- **미적용·이유**: /catalog 허브의 mine 노드 랭킹(축별 top_nodes 미러 필요 — 후속), /credits(TMDB id 공간 + 자체 SEEN localStorage 시스템 — 렌즈 slug와 브리지 필요, /api/credits/links 활용 가능), /latest(이종 그리드 <70%), film 질문 피드 /api/feed(커서 기반 — 3단 패턴 후속 후보).
+
 ## 엔티티별 렌즈 규칙 (기획 결정)
 
 - 포스터/백드롭 카드(img 포함 앵커): highlight=이미지 안쪽 2px 액센트 아웃라인, only=고스트+클릭 차단
