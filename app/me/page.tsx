@@ -145,8 +145,12 @@ export default async function MeDashboard() {
   }>) ?? [];
 
   return (
-    <main className="mt-wrap">
+    <>
+      {/* Nav lives outside .mt-wrap so it spans full width — inside the 760px
+          wrap it collapsed to just the hamburger (the 5 groups only expand at
+          ≥1060px), which is why the menu looked cramped. */}
       <SiteNav />
+      <main className="mt-wrap">
       <div className="mt">
         <h1 className="disp" style={{ fontSize: 26, margin: "18px 0 2px" }}>My dashboard</h1>
         <p className="ui muted" style={{ fontSize: 13, margin: 0 }}>
@@ -155,10 +159,21 @@ export default async function MeDashboard() {
           {" "}· <Link href="/settings" className="mt-link">settings</Link>
         </p>
 
+        {/* My Room — the personal workspace where the whole library becomes
+            playable (rate, write, collection, atlas). Auth-gated already. */}
+        <Link href="/room" className="me-room">
+          <span className="me-room-ic" aria-hidden="true">✦</span>
+          <span className="me-room-tx">
+            <span className="me-room-t">Enter My Room</span>
+            <span className="me-room-s">Your private workspace — rate, write, and explore your whole library</span>
+          </span>
+          <span className="me-room-go" aria-hidden="true">→</span>
+        </Link>
+
         <div style={{ margin: "14px 0 2px" }}>
-          <Link href="/me/import" className="btn">📥 관람 기록 가져오기</Link>
+          <Link href="/me/import" className="btn">📥 Import your watch history</Link>
           <span className="ui muted" style={{ fontSize: 12.5, marginLeft: 10 }}>
-            Letterboxd ZIP · IMDb CSV · 왓챠 · 엑셀 · 텍스트 붙여넣기
+            Letterboxd ZIP · IMDb CSV · Trakt · Excel · paste any text
           </span>
         </div>
 
@@ -303,6 +318,7 @@ export default async function MeDashboard() {
           )}
         </section>
       </div>
-    </main>
+      </main>
+    </>
   );
 }
