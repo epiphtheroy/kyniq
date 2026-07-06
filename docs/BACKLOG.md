@@ -56,7 +56,7 @@ See `RUNBOOK-new-film-ingestion.md` §6 for the design.
 
 ## G. Discovery layer (Map / Surprise / Home / Newsletter) — shipped 2026-06-27
 Full design in `FRONTEND-DISCOVERY-AND-DECISIONS.md`. Remaining:
-- 🔴 **Capture discovery schema into VCS.** `map_overview`, `map_ego`, `map_film_*`, `map_director_*`, `map_search`, `surprise_home`, `director_embedding` (+ HNSW) live only in the live DB. Dump to migrations (folds into §B schema capture). *(Medium.)*
+- 🔴 **Capture discovery schema into VCS.** `map_overview`, `map_ego`, `map_film_*`, `map_director_*`, `surprise_home`, `director_embedding` (+ HNSW) live only in the live DB. Dump to migrations (folds into §B schema capture). *(Medium.)* — *(search RPCs `search_all`/`search_semantic`/`film_search` now committed in `0040`/`0041`; `map_search` retired, no capture needed.)*
 - 🟡 **`refresh_director_embeddings()` RPC + button.** `director_embedding` (avg of figure embeddings/director) was built by ad-hoc SQL; needs a re-runnable RPC so new directors get a similarity ring. *(Low–medium.)*
 - 🟡 **Auto director-generation for new auteurs.** When ingest adds a film by a director with no `director_portrait/picks/facts/next`, trigger Stage 15 + Stage 16 (RUNBOOK). Today it's manual. *(Medium.)*
 - 🟢 **Figure-map density.** `map_ego` figure branch is 3-level (figure→trope→film); recenter unfolds more. Optionally raise `hf` limits / add idea-shared films for richer first view. *(Low.)*

@@ -44,5 +44,5 @@
 ## 5. 남은 결정·확장 여지
 
 - reading 허브(5,818건 미출판)는 **재출판 안 함으로 확정**(counterpoint+concept_map이 대체) — 뒤집으려면 콘텐츠 판단부터.
-- counterpoint의 감독 버전, Galaxy 검색 연동(map_search→locate), entity_edges로 kin 이관(현재 film_affinities가 kin 정본) 등은 미착수 아이디어.
+- counterpoint의 감독 버전, Galaxy 검색 연동(통합 `/api/search`→locate; map_search는 2026-07-06 은퇴, `HANDOFF-검색엔진-통합.md`), entity_edges로 kin 이관(현재 film_affinities가 kin 정본) 등은 미착수 아이디어.
 - TS 포스터 오버레이 배지는 2026-07-05 전면 철거(`TakeScoreBadges` 삭제) — 재도입하려면 새로 만들 것.

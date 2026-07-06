@@ -122,7 +122,7 @@ Powers the **Atlas** tab (film + director pages) and the global **`/atlas`** map
 ## 3b. Discovery layer (Map · Surprise · Home · Newsletter)
 
 These surfaces are **derived and mostly automatic** — see `FRONTEND-DISCOVERY-AND-DECISIONS.md §7` for the full "what lights up automatically vs needs a step" matrix. Short version:
-- **Automatic** once a film has figures/takes/tropes/ideas + TMDB media: every Map view, the film/figure/trope/idea connection maps, `map_search`, and the Surprise modes `misreading`/`film_map`/`figure_links`/`film_tropes`/`film_ideas`.
+- **Automatic** once a film has figures/takes/tropes/ideas + TMDB media: every Map view, the film/figure/trope/idea connection maps, **unified site search** (`search_all`; semantic once embeddings land), and the Surprise modes `misreading`/`film_map`/`figure_links`/`film_tropes`/`film_ideas`.
 - **Needs the pipeline tables filled:** Surprise `watch_next`/`recommended_by`/`why_watch` ← Stages 12–13 (`film_next`, `film_asset`).
 - **Needs Stages 15–16:** all *director* surfaces for a new director.
 - The Map/Surprise RPCs (`map_*`, `surprise_home`) are **read-only over the existing corpus** — they never need a per-film write, but they DO assume the above tables are populated.
@@ -183,5 +183,5 @@ When A–D land, the flow becomes: drop `titles.csv` → `ingest-new.command` (f
 - `film_next` / `film_reception` / `film_asset` rows exist for new films
 - no live hub/trope URL changed slug without a `slug_history`/`merged_into` redirect
 - deploy build READY on Vercel; spot-check 2–3 new film pages
-- **discovery:** new film appears in `map_search`; its `/film/[slug]` connection map renders (>1 node); a new director has Stage-15 rows + a `director_embedding` row (else director map similarity ring is empty)
+- **discovery:** new film appears in **unified search** (`/api/search` → `search_all`, immediately; semantic leg once `takes.embedding`/`film_taste_vector` land); its `/film/[slug]` connection map renders (>1 node); a new director has Stage-15 rows + a `director_embedding` row (else director map similarity ring is empty)
 - **surprise:** `/api/surprise/home` returns new-film cards across modes (it's random — sample a few); `film_asset`/`film_next` present so `why_watch`/`watch_next` cards aren't always falling back to misreading

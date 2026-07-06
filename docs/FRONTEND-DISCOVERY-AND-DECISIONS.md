@@ -26,7 +26,7 @@ Custom force-directed renderer (no library). Key facts:
 - **GOTCHA (do not remove):** the global `img{max-width:100%}` reset in globals.css collapses absolutely-positioned node images to width 0. Every node `<img>` sets `max-width:none` inline. If posters/faces ever vanish from the graph, this is why.
 
 ### Surface A — full explorer `/map` (`components/MapExplorer.tsx`)
-Full-screen. Three tab **modes**: **Films** (default), **Directors**, **Grouped** (the whole critical web). Per-mode filters (Year / IMDb / RT) with an **Apply** button; an in-map **fuzzy search** box (top-left) → `/api/map/search` → click a hit to jump; a breadcrumb stack of where you've been. Deep-linkable: `?m=&t=&k=&k2=` focuses the map on load. Nav "The Map" points here.
+Full-screen. Three tab **modes**: **Films** (default), **Directors**, **Grouped** (the whole critical web). Per-mode filters (Year / IMDb / RT) with an **Apply** button; an in-map **fuzzy search** box (top-left) → **unified `/api/search`** (`mode=lex&kinds=film,director,trope,idea,theorist,figure`, catalog films excluded) → click a hit to jump; a breadcrumb stack of where you've been. Deep-linkable: `?m=&t=&k=&k2=` focuses the map on load. Nav "The Map" points here. *(2026-07-06: was `/api/map/search`+`map_search` RPC, retired for the unified engine — see `HANDOFF-검색엔진-통합.md`.)*
 
 ### Surface B — embedded map `components/EntityMap.tsx`
 The same engine dropped into a page as a section/tab. Props `{ api, full, height }`.
@@ -44,12 +44,12 @@ Embedded on every entity page **and** inside the home Surprise panel (map modes)
 | `map_ego(p_type, p_key, p_key2)` | depth-3 ego for film / figure / trope / idea / director / theorist. Figure branch already surfaces films (figure→trope→film). |
 | `map_film_overview(min_year,min_imdb,min_rt)` / `map_film_ego(slug)` | Films-mode cloud / a film's next·recby·like neighborhood (3 levels) |
 | `map_director_overview(min_year)` / `map_director_ego(slug)` | Directors-mode cloud / a director's who's-next + embedding-similar + ring2 |
-| `map_search(q,n)` | films/directors/tropes/ideas/theorists/figures, ILIKE+similarity; figures down-weighted so non-figures rank first |
+| ~~`map_search(q,n)`~~ | **RETIRED 2026-07-06** — map search now calls unified `/api/search`; RPC still in DB but unused (`HANDOFF-검색엔진-통합.md`) |
 | `director_embedding` (table: slug, embedding vector(1536), nfig + HNSW) | powers director similarity in the director map. **Must be (re)built when directors are added.** |
 
 `enrich()` in `app/api/map/route.ts` post-processes payloads: for `film:` nodes it attaches `poster_path` (w185) + year; for `dir:` nodes it attaches `profile_path` (w185) + birth year.
 
-**Routes:** `app/api/map/route.ts` (GET `mode=films|directors` overview/ego, else `map_ego`/`map_overview`), `app/api/map/search/route.ts`.
+**Routes:** `app/api/map/route.ts` (GET `mode=films|directors` overview/ego, else `map_ego`/`map_overview`). *(In-map search: unified `app/api/search/route.ts`; the old `app/api/map/search/route.ts` was deleted 2026-07-06.)*
 
 ---
 
@@ -153,7 +153,7 @@ All of these now recenter-in-place on node click (§1, EntityMap).
 (Full pipeline in `RUNBOOK-new-film-ingestion.md`. This is the discovery-specific view.)
 
 **Lights up automatically** (derived, no per-film step) once the film has figures/takes/tropes/ideas + TMDB media:
-- The Map (all modes), the film/figure/trope/idea connection maps, `map_search`.
+- The Map (all modes), the film/figure/trope/idea connection maps, and **unified site search** (`search_all` picks up new films automatically; semantic once their embeddings land).
 - Surprise modes: `misreading`, `film_map`, `figure_links`, `film_tropes`, `film_ideas` (and `watch_next`/`recommended_by`/`why_watch` once those per-film tables are filled by the pipeline).
 - Home middle map, latest-editions cards (if a blog edition references it).
 
