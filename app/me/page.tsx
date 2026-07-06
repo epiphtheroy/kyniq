@@ -237,7 +237,7 @@ export default async function MeDashboard() {
           <div className="seclbl">＋ Add a film</div>
           <MovieSearchAdd />
           <p className="ui muted" style={{ fontSize: 13, margin: "8px 0 0" }}>
-            여러 편을 한 번에? <Link href="/me/import">관람 기록 가져오기</Link> — Letterboxd·IMDb·왓챠·엑셀·텍스트 붙여넣기 지원.
+            Many films at once? <Link href="/me/import">Import your watch history</Link> — Letterboxd, IMDb, Trakt, Excel, or paste any text.
           </p>
         </section>
 
