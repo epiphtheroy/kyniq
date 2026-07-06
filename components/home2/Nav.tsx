@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { createBrowserClient } from "@supabase/ssr";
 import LensToggle from "@/components/LensToggle";
 
 export type NavCounts = {
@@ -12,7 +14,18 @@ export type NavCounts = {
 type Item = { t: string; h: string; c?: number };
 type Group = { id: string; label: string; items: Item[] };
 
-function buildGroups(c: NavCounts): Group[] {
+function sb() {
+  return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+}
+
+/** Client-side auth state for the nav. Server HTML stays non-personalized
+ *  (pages are edge-cached); the account control hydrates after mount. */
+type Acct =
+  | { state: "loading" }
+  | { state: "out" }
+  | { state: "in"; name: string; username: string | null };
+
+function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
     { id: "watch", label: "Watch", items: [
       { t: "Films", h: "/film", c: c.films },
@@ -46,6 +59,11 @@ function buildGroups(c: NavCounts): Group[] {
       { t: "Your Shelf", h: "/me" },
       { t: "Import your films", h: "/me/import" },
       { t: "Ask metatake AI", h: "/ask" },
+      ...(acct.state === "in"
+        ? [{ t: "Settings", h: "/settings" }]
+        : acct.state === "out"
+          ? [{ t: "Sign in", h: "/login" }, { t: "Create account", h: "/signup" }]
+          : []),
     ] },
   ];
 }
@@ -53,7 +71,9 @@ function buildGroups(c: NavCounts): Group[] {
 const arrow = (c?: number) => (c != null ? `${c.toLocaleString()} →` : "→");
 
 export default function Nav({ counts = {} }: { counts?: NavCounts }) {
-  const groups = buildGroups(counts);
+  const router = useRouter();
+  const [acct, setAcct] = useState<Acct>({ state: "loading" });
+  const groups = buildGroups(counts, acct);
   const [open, setOpen] = useState<"mega" | "am" | null>(null);
   const [grp, setGrp] = useState<string | null>(null); // open dropdown group (desktop)
   const rootRef = useRef<HTMLElement>(null);
@@ -70,6 +90,40 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
     document.addEventListener("click", onDoc);
     return () => document.removeEventListener("click", onDoc);
   }, []);
+
+  useEffect(() => {
+    let alive = true;
+    const c = sb();
+    async function refresh() {
+      const { data } = await c.auth.getUser();
+      const user = data?.user;
+      if (!alive) return;
+      if (!user) { setAcct({ state: "out" }); return; }
+      const { data: p } = await c.from("profiles").select("username, display_name").eq("id", user.id).maybeSingle();
+      if (!alive) return;
+      setAcct({
+        state: "in",
+        name: (p?.display_name as string) || (p?.username as string) || user.email?.split("@")[0] || "Account",
+        username: (p?.username as string) ?? null,
+      });
+    }
+    refresh();
+    // Re-resolve on sign-in/out so client-side navigations (router.push after
+    // password login, signOut elsewhere) update the header without a reload.
+    // setTimeout: never call supabase inside the callback synchronously (deadlock).
+    const { data: sub } = c.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_OUT") setAcct({ state: "out" });
+      else if (event === "SIGNED_IN" || event === "USER_UPDATED") setTimeout(refresh, 0);
+    });
+    return () => { alive = false; sub.subscription.unsubscribe(); };
+  }, []);
+
+  async function logout() {
+    await sb().auth.signOut();
+    setAcct({ state: "out" });
+    setOpen(null);
+    router.refresh();
+  }
 
   return (
     <header className="nav" ref={rootRef}>
