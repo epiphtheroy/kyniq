@@ -69,7 +69,11 @@
 - 퀵바 추가: 위 6곳 + /trending(오버레이만으로 충분) + /catalog(허브).
 - **미적용·이유**: /catalog 허브의 mine 노드 랭킹(축별 top_nodes 미러 필요 — 후속), /credits(TMDB id 공간 + 자체 SEEN localStorage 시스템 — 렌즈 slug와 브리지 필요, /api/credits/links 활용 가능), /latest(이종 그리드 <70%), film 질문 피드 /api/feed(커서 기반 — 3단 패턴 후속 후보).
 
-## 엔티티별 렌즈 규칙 (기획 결정)
+## v1.5 — /film only-mode 연속 리스트 + 미디어 행 디자인 (2026-07-06)
+
+- `films_mine(p_user)` 추가(최신순, poster_path 포함), `directors_mine`에 profile_path(img) 추가 — 둘 다 service_role 전용(마이그레이션 lens_films_mine_and_director_faces).
+- /film 기본·전체 뷰 모두 only 모드에서 FilmsIndex/idx-grp를 `.mtl-swap-out`으로 숨기고 MineEntityIndex(kind=films, imgShape=poster)로 교체 — A–Z 고스트 공백 없이 내 702편이 최신순 연속 나열.
+- MineEntityIndex `imgShape` 도입: "poster"(영화 28×42 썸네일+연도), "round"(감독 34px 원형 얼굴+N of yours). 한 줄 고정(ellipsis), 반응형 2–3단(minmax 300px auto-fill), 모바일 1단. 이미지 없는 kind는 기존 th-grid 유지.
 
 - 포스터/백드롭 카드(img 포함 앵커): highlight=이미지 안쪽 2px 액센트 아웃라인, only=고스트+클릭 차단
 - img 없는 블록 앵커(bg-image 카드·리딩 블록): highlight=무표시(오탐 방지), only=고스트
