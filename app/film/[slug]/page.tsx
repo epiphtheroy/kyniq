@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import type { CSSProperties } from "react";
 import { unstable_cache } from "next/cache";
 import { notFound, permanentRedirect } from "next/navigation";
 import { resolveAlias } from "@/lib/aliases";
@@ -1083,7 +1084,7 @@ export default async function FilmPage({ params }: Props) {
                   const href = m.figSlug ? `/film/${film.slug}/figure/${m.figSlug}` : null;
                   const fwHref = F.slug && m.framework !== "INVITATION" ? `/strong-misreadings/${F.slug}` : null;
                   return (
-                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color, ["--fw-color" as string]: F.color }}>
+                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color, "--fw-color": F.color } as CSSProperties}>
                       <div className="sm-row__top">
                         {fwHref
                           ? <Link className="sm-fw" href={fwHref} style={{ color: F.color }}>{F.label}</Link>
