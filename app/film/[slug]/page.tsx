@@ -1077,12 +1077,13 @@ export default async function FilmPage({ params }: Props) {
             {smByFamily.map(({ fam, items }) => (
               <div key={fam.key} className="df-smfam">
                 <div className="df-smfam__h">{fam.label}</div>
+                <div className="sm-grid">
                 {items.map((m, i) => {
                   const F = fw(m.framework);
                   const href = m.figSlug ? `/film/${film.slug}/figure/${m.figSlug}` : null;
                   const fwHref = F.slug && m.framework !== "INVITATION" ? `/strong-misreadings/${F.slug}` : null;
                   return (
-                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color }}>
+                    <div key={i} className="sm-row" style={{ borderLeftColor: F.color, ["--fw-color" as string]: F.color }}>
                       <div className="sm-row__top">
                         {fwHref
                           ? <Link className="sm-fw" href={fwHref} style={{ color: F.color }}>{F.label}</Link>
@@ -1098,6 +1099,7 @@ export default async function FilmPage({ params }: Props) {
                     </div>
                   );
                 })}
+                </div>
               </div>
             ))}
           </section>
