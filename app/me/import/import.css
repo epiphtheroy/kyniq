@@ -1,0 +1,152 @@
+/* Import wizard — scoped styling for the /me/import surface.
+   Process stepper (patience-building diagram), Claude-style live progress,
+   dropzone, and the "what you unlock" + trust panels. */
+
+.iw { font-family: var(--font-ui); }
+
+/* ── Process stepper / diagram ─────────────────────────────── */
+.iw-steps {
+  display: flex;
+  align-items: flex-start;
+  margin: 4px 0 26px;
+  padding: 0;
+  list-style: none;
+}
+.iw-step {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 36px;
+  min-width: 0;
+}
+/* connector line into each step from the previous one */
+.iw-step::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--hairline);
+  z-index: 0;
+  transition: background 0.3s;
+}
+.iw-step:first-child::before { display: none; }
+.iw-step .dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--hairline-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--subtle);
+  z-index: 1;
+  transition: all 0.25s;
+}
+.iw-step .lbl { font-size: 12px; font-weight: 600; color: var(--subtle); line-height: 1.25; }
+.iw-step .sub { font-size: 10.5px; color: var(--subtle); opacity: 0.8; margin-top: 2px; line-height: 1.2; }
+
+.iw-step.done .dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.iw-step.done::before { background: var(--accent); }
+.iw-step.done .lbl { color: var(--ink); }
+
+.iw-step.active .dot {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(227, 18, 11, 0.13);
+}
+.iw-step.active .lbl { color: var(--accent); }
+
+/* ── Live progress panel (work-status style) ───────────────── */
+.iw-prog {
+  border: 1px solid var(--hairline);
+  border-radius: 11px;
+  padding: 15px 18px 17px;
+  margin: 4px 0 18px;
+  background: var(--surface-2);
+}
+.iw-prog-head { display: flex; align-items: center; gap: 10px; }
+.iw-spin {
+  width: 15px; height: 15px; flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--hairline-2);
+  border-top-color: var(--accent);
+  animation: iw-spin 0.7s linear infinite;
+}
+@keyframes iw-spin { to { transform: rotate(360deg); } }
+.iw-prog-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+.iw-prog-note { font-size: 12.5px; color: var(--subtle); margin: 3px 0 0 25px; font-variant-numeric: tabular-nums; }
+.iw-bar { height: 6px; border-radius: 99px; background: var(--hairline); overflow: hidden; margin: 13px 0 0; }
+.iw-bar > i { display: block; height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.35s ease; }
+.iw-log { margin: 12px 0 0 25px; padding: 0; list-style: none; }
+.iw-log li { font-size: 12px; color: var(--ink-soft); padding: 1.5px 0; }
+.iw-log li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+/* ── Dropzone ──────────────────────────────────────────────── */
+.iw-drop {
+  border: 2px dashed var(--hairline-2);
+  border-radius: 12px;
+  padding: 26px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+.iw-drop.drag { border-color: var(--accent); background: rgba(227, 18, 11, 0.03); }
+.iw-drop .ico { font-size: 22px; line-height: 1; opacity: 0.5; }
+.iw-drop .lead { margin: 8px 0 4px; font-size: 14.5px; color: var(--ink); }
+.iw-drop .sub { font-size: 12.5px; color: var(--subtle); }
+.iw-linkbtn { color: var(--accent-text); font-weight: 600; text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; }
+
+/* ── "What you unlock" benefit panel ───────────────────────── */
+.iw-benefit {
+  border: 1px solid var(--hairline);
+  border-radius: 11px;
+  padding: 16px 18px;
+  margin: 0 0 22px;
+  background: var(--surface);
+}
+.iw-benefit h3 { font-family: var(--font-ui); font-size: 13px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink); margin: 0 0 10px; }
+.iw-benefit ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.iw-benefit li { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); }
+.iw-benefit li .b { flex: none; width: 22px; height: 22px; border-radius: 6px; background: var(--surface-2); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+.iw-benefit b { color: var(--ink); }
+
+/* ── Trust / reassurance line ──────────────────────────────── */
+.iw-trust {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  border-radius: 0 8px 8px 0;
+  padding: 11px 14px;
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.iw-trust .ico { flex: none; font-size: 14px; }
+
+/* ── Buttons row / misc ────────────────────────────────────── */
+.iw-actions { margin-top: 12px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.iw-textarea {
+  width: 100%; min-height: 172px; font-size: 14px; padding: 12px;
+  border: 1px solid var(--hairline-2); border-radius: 8px;
+  font-family: var(--font-ui); line-height: 1.55; color: var(--ink); background: var(--surface);
+  box-sizing: border-box; resize: vertical;
+}
+.iw-textarea:focus { outline: none; border-color: var(--ink); }
+.iw-note { font-size: 12px; color: var(--subtle); margin-top: 14px; line-height: 1.55; }
+
+@media (max-width: 560px) {
+  .iw-step .sub { display: none; }
+  .iw-step .lbl { font-size: 11px; }
+}
