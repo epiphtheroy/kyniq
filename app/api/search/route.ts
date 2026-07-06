@@ -16,12 +16,22 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const hits = new Map<string, number[]>();
+const RATE_KEYS_MAX = 5000; // cap distinct-IP keys — XFF is client-influencable
 function rateLimited(ip: string): boolean {
   const now = Date.now();
+  if (!hits.has(ip) && hits.size >= RATE_KEYS_MAX) {
+    for (const [k, arr] of hits) {
+      if (!arr.length || now - arr[arr.length - 1] > 60_000) hits.delete(k);
+      if (hits.size < RATE_KEYS_MAX) break;
+    }
+    if (hits.size >= RATE_KEYS_MAX) hits.clear(); // rotating-IP flood — reset
+  }
   const arr = (hits.get(ip) ?? []).filter((t) => now - t < 60_000);
   arr.push(now);
   hits.set(ip, arr);
-  return arr.length > 120; // typeahead-friendly: 2 req/s sustained
+  // Generous: the two-stage typeahead sends 2 requests per settled keystroke,
+  // and dev/office NATs can share one IP bucket.
+  return arr.length > 240;
 }
 
 export async function GET(req: NextRequest) {

@@ -25,7 +25,9 @@ export default function QuickRate({ onRate, placeholder }: {
     const t = setTimeout(async () => {
       const { data } = await supabase.rpc("film_search", { p_q: term, p_limit: 6 });
       if (!alive) return;
-      setHits((data as QuickHit[] | null) ?? []);
+      // room = Tier-1 only: catalog films have no cinecodex scores and their
+      // /room/film pages 404 (film_search v2 now returns them, flagged)
+      setHits(((data as (QuickHit & { is_catalog?: boolean })[] | null) ?? []).filter((h) => h.is_catalog !== true));
       setBusy(false);
     }, 220);
     return () => { alive = false; clearTimeout(t); };

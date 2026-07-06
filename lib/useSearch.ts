@@ -13,32 +13,10 @@
  */
 
 import { useEffect, useRef, useState } from "react";
-import type { SearchHit, SearchKind } from "@/lib/search";
+import type { SearchHit, SearchKind } from "@/lib/search-shared";
 
 export type { SearchHit, SearchKind };
-
-export const KIND_LABEL: Record<SearchKind, string> = {
-  film: "Film",
-  director: "Director",
-  trope: "Trope",
-  reading: "Reading",
-  figure: "Figure",
-  theorist: "Theorist",
-  idea: "Idea",
-  tradition: "Tradition",
-  lineage: "List",
-  movement: "Movement",
-  archetype: "Archetype",
-  country: "Place",
-  city: "Place",
-  genre: "Genre",
-};
-
-export const TMDB_IMG = "https://image.tmdb.org/t/p";
-/** hit.poster is a TMDB-relative path (poster_path / profile_path) */
-export function tmdbUrl(poster: string | null, size: "w92" | "w185" = "w92"): string | null {
-  return poster ? `${TMDB_IMG}/${size}${poster}` : null;
-}
+export { KIND_LABEL, TMDB_IMG, tmdbUrl } from "@/lib/search-shared";
 
 interface ApiResult {
   hits?: SearchHit[];
@@ -64,38 +42,66 @@ export function useSearchTypeahead(q: string, limit = 9, debounceMs = 180) {
     }
     setLoading(true);
 
+    let hybridDone = false;
+    let lexFailed = false;
+    const HYBRID_MIN_LEN = 4;
+    const hybridScheduled = term.length >= HYBRID_MIN_LEN;
+
     const t = setTimeout(() => {
       if (id !== reqId.current) return;
       const base = `/api/search?q=${encodeURIComponent(term)}&limit=${limit}`;
       const lexCtrl = new AbortController();
-      const hybCtrl = new AbortController();
-      ctrls.current = [lexCtrl, hybCtrl];
-      let hybridDone = false;
+      ctrls.current.push(lexCtrl);
 
+      const lexFail = () => {
+        lexFailed = true;
+        if (!hybridScheduled && id === reqId.current) {
+          setHits([]); // no hybrid coming — don't leave the previous query's hits up
+          setLoading(false);
+        }
+      };
       // Stage 1 — lexical only: fast path, shown while meaning search runs.
       fetch(`${base}&mode=lex`, { signal: lexCtrl.signal })
         .then((r) => (r.ok ? (r.json() as Promise<ApiResult>) : null))
         .then((d) => {
-          if (d && id === reqId.current && !hybridDone) setHits(d.hits ?? []);
-        })
-        .catch(() => {});
-
-      // Stage 2 — hybrid (adds embedding matches): replaces stage 1 on arrival.
-      fetch(base, { signal: hybCtrl.signal })
-        .then((r) => (r.ok ? (r.json() as Promise<ApiResult>) : null))
-        .then((d) => {
-          if (id !== reqId.current) return;
-          hybridDone = true;
+          if (id !== reqId.current || hybridDone) return;
           if (d) setHits(d.hits ?? []);
-          setLoading(false);
+          else lexFail();
         })
         .catch(() => {
-          if (id === reqId.current) setLoading(false); // keep lex results on failure
+          if (id === reqId.current) lexFail();
         });
     }, debounceMs);
 
+    // Stage 2 — hybrid (adds embedding matches): replaces stage 1 on arrival.
+    // Gated behind a longer idle and a minimum length: embedding mid-word
+    // prefixes ("grief th", "grief that ref") wastes an OpenAI call + a
+    // 6-leg pgvector query per keystroke for results nobody sees.
+    const t2 = hybridScheduled
+      ? setTimeout(() => {
+          if (id !== reqId.current) return;
+          const hybCtrl = new AbortController();
+          ctrls.current.push(hybCtrl);
+          fetch(`/api/search?q=${encodeURIComponent(term)}&limit=${limit}`, { signal: hybCtrl.signal })
+            .then((r) => (r.ok ? (r.json() as Promise<ApiResult>) : null))
+            .then((d) => {
+              if (id !== reqId.current) return;
+              hybridDone = true;
+              if (d) setHits(d.hits ?? []);
+              else if (lexFailed) setHits([]); // both legs failed — don't show stale hits
+              setLoading(false);
+            })
+            .catch(() => {
+              if (id !== reqId.current) return;
+              if (lexFailed) setHits([]); // both legs failed for this query
+              setLoading(false); // otherwise keep lex results
+            });
+        }, debounceMs + 320)
+      : (setLoading(false), null);
+
     return () => {
       clearTimeout(t);
+      if (t2) clearTimeout(t2);
       ctrls.current.forEach((c) => c.abort());
       ctrls.current = [];
     };

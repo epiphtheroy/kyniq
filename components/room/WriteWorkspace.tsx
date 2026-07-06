@@ -348,7 +348,8 @@ function AttachRail({
     setLoading(true);
     const h = setTimeout(async () => {
       const { data } = await supabase.rpc("film_search", { p_q: term, p_limit: 8 });
-      if (alive) { setHits((data as FilmHit[] | null) ?? []); setLoading(false); }
+      // room = Tier-1 only (film_search v2 returns Tier-2 catalog rows, flagged)
+      if (alive) { setHits(((data as (FilmHit & { is_catalog?: boolean })[] | null) ?? []).filter((h) => h.is_catalog !== true)); setLoading(false); }
     }, 220);
     return () => { alive = false; clearTimeout(h); };
   }, [q, searching, supabase]);

@@ -71,6 +71,10 @@ export default function SearchBox({ variant = "nav" }: { variant?: "nav" | "hero
     else setOpen(false);
   }, [q]);
 
+  // The hybrid stage can replace/reorder the list under the cursor — a kept
+  // index would point at a different (or missing) row, so re-anchor.
+  useEffect(() => { setActive(-1); }, [hits]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const tag = (document.activeElement as HTMLElement | null)?.tagName;
@@ -90,6 +94,9 @@ export default function SearchBox({ variant = "nav" }: { variant?: "nav" | "hero
   const submitAll = () => { const t = q.trim(); if (t) { setOpen(false); router.push(`/search?q=${encodeURIComponent(t)}`); } };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Committing a Hangul/CJK syllable fires Enter with isComposing — that
+    // keystroke belongs to the IME, not to us.
+    if (e.nativeEvent.isComposing || e.keyCode === 229) return;
     if (e.key === "ArrowDown") { e.preventDefault(); setActive((a) => Math.min(a + 1, hits.length - 1)); }
     else if (e.key === "ArrowUp") { e.preventDefault(); setActive((a) => Math.max(a - 1, -1)); }
     else if (e.key === "Enter") { if (active >= 0 && hits[active]) go(hits[active]); else submitAll(); }

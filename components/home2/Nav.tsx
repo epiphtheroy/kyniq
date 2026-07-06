@@ -126,6 +126,13 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
           <span className="nsph">Search films, ideas, people…</span>
           <kbd className="nskbd" aria-hidden="true">⌘K</kbd>
         </button>
+        {/* the palette needs JS; keep a native path to /search without it */}
+        <noscript>
+          <form className="navsearch" action="/search" method="get">
+            <input name="q" placeholder="Search films, ideas, people…" aria-label="Search Metatake" />
+            <button type="submit" className="go" aria-label="Search" style={{ border: 0, background: "transparent", cursor: "pointer" }}>⌕</button>
+          </form>
+        </noscript>
 
         <div className="navright">
           <Link className="npro" href="/ask">

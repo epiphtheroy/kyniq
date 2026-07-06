@@ -16,28 +16,12 @@
  */
 import { createClient } from "@supabase/supabase-js";
 import { nodeHref } from "@/lib/catalog";
+import { slugifyGenre } from "@/lib/related";
+import type { SearchHit, SearchKind } from "@/lib/search-shared";
 import atlas from "@/lib/atlas_cities.json";
 
-export type SearchKind =
-  | "film" | "director" | "trope" | "reading" | "figure" | "theorist"
-  | "idea" | "tradition" | "lineage" | "movement" | "archetype"
-  | "country" | "city" | "genre";
-
-export interface SearchHit {
-  kind: SearchKind;
-  slug: string;
-  /** figure/reading: parent film slug · archetype: taxonomy kind · city: country slug */
-  film_slug: string | null;
-  title: string;
-  sub: string;
-  /** TMDB poster_path / profile_path (relative) — UI prefixes the image host */
-  poster: string | null;
-  year: number | null;
-  score: number;
-  is_catalog: boolean;
-  match: "text" | "meaning" | "both";
-  href: string;
-}
+export type { SearchHit, SearchKind } from "@/lib/search-shared";
+export { KIND_LABEL, tmdbUrl } from "@/lib/search-shared";
 
 export interface SearchResult {
   q: string;
@@ -78,7 +62,7 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-async function embedQuery(q: string, timeoutMs = 1500): Promise<number[] | null> {
+async function embedQuery(q: string, timeoutMs = 2000): Promise<number[] | null> {
   if (!process.env.OPENAI_API_KEY) return null;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), timeoutMs);
@@ -120,7 +104,6 @@ const GENRES = [
   "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance",
   "Science Fiction", "Thriller", "TV Movie", "War", "Western",
 ];
-const genreSlug = (g: string) => g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 function textScore(hay: string, needle: string): number {
   const h = hay.toLowerCase();
@@ -158,7 +141,7 @@ function localHits(q: string): RpcRow[] {
     const s = textScore(g, n);
     if (s > 0.6) {
       out.push({
-        kind: "genre", slug: genreSlug(g), film_slug: null, title: g,
+        kind: "genre", slug: slugifyGenre(g), film_slug: null, title: g,
         sub: "genre", poster: null, year: null, score: s, is_catalog: false,
       });
     }
@@ -175,7 +158,11 @@ function fuse(lex: RpcRow[], sem: RpcRow[], limit: number): SearchHit[] {
   lex.forEach((row, i) => {
     const k = keyOf(row);
     const cur = acc.get(k) ?? { row, rrf: 0, inLex: false, inSem: false };
-    cur.rrf += 1 / (RRF_K + i + 1);
+    // Navigational bonus: an exact/prefix title match must beat items that
+    // merely appear in both legs (pure RRF ranks a double-appearance ~0.031
+    // above an exact match's single 1/61 ≈ 0.016 — wrong for "parasite").
+    const nav = row.score >= 0.95 ? 0.06 : row.score >= 0.8 ? 0.03 : row.score >= 0.7 ? 0.015 : 0;
+    cur.rrf += 1 / (RRF_K + i + 1) + nav;
     cur.inLex = true;
     acc.set(k, cur);
   });
@@ -221,18 +208,30 @@ export interface SearchOptions {
   kinds?: SearchKind[];
 }
 
+// Adaptive semantic floors (measured 2026-07-06 against EMBED_MODEL above):
+// English concept queries land at cosine ~0.55+, cross-lingual (Korean)
+// concept queries at ~0.28-0.30, noise at ≤0.31. A third, permissive floor
+// (0.15) lives in search_semantic itself (supabase/migrations/0040). If the
+// embedding model ever changes, re-measure all three.
+const SEM_FLOOR_STRICT = 0.35;   // when real lexical results exist
+const SEM_FLOOR_FALLBACK = 0.27; // no lexical results — semantic is the only path
+const FUSE_MAX = 120; // fused pool size cached per query; callers slice below
+
 export async function runSearch(rawQ: string, opts: SearchOptions = {}): Promise<SearchResult> {
   const q = rawQ.trim().replace(/\s+/g, " ").slice(0, 200);
-  const limit = Math.min(Math.max(opts.limit ?? 60, 1), 120);
+  const limit = Math.min(Math.max(opts.limit ?? 60, 1), FUSE_MAX);
   const wantSemantic = opts.semantic !== false;
   const t0 = Date.now();
 
   if (q.length < 2) return { q, semantic: false, hits: [], took: 0 };
 
-  const cacheKey = `${q.toLowerCase()}|${limit}|${wantSemantic ? 1 : 0}`;
+  // Cache the FULL fused pool keyed by query alone, so the nav typeahead
+  // (limit 9), the palette (10), and the /search page (60) all share one
+  // embedding + RPC round for the same query; kinds/limit shaping is per-call.
+  const cacheKey = `${q.toLowerCase()}|${wantSemantic ? 1 : 0}`;
   const hit = cache.get(cacheKey);
   if (hit && Date.now() - hit.ts < CACHE_TTL) {
-    return filterKinds(hit.data, opts.kinds);
+    return shape(hit.data, limit, opts.kinds);
   }
 
   const sb = db();
@@ -245,33 +244,35 @@ export async function runSearch(rawQ: string, opts: SearchOptions = {}): Promise
       : Promise.resolve(null),
   ]);
 
-  const lex: RpcRow[] = [...((lexRes.data as RpcRow[]) ?? []), ...localHits(q)]
-    .sort((a, b) => b.score - a.score);
-  // Adaptive semantic floor (measured 2026-07-06): English concept queries land
-  // at cosine ~0.55+, cross-lingual (Korean) concept queries at ~0.28-0.30, and
-  // noise at ≤0.31. With lexical results present, weak semantic rows only add
-  // noise — cut at 0.35. With no lexical results they're the only path to an
-  // answer — allow down to 0.27 and let the UI label them "closest by meaning".
+  // Gate the semantic floor on RPC rows only — local city/genre matches must
+  // not count as "lexical results", or a query like "몸의 공포" that happens to
+  // graze a city name would lose its cross-lingual fallback.
+  const lexRpc: RpcRow[] = (lexRes.data as RpcRow[]) ?? [];
+  const lex: RpcRow[] = [...lexRpc, ...localHits(q)].sort((a, b) => b.score - a.score);
   const semRaw: RpcRow[] = ((semRes?.data as RpcRow[]) ?? []);
-  const sem: RpcRow[] = semRaw.filter((r) => r.score >= (lex.length >= 3 ? 0.35 : 0.27));
+  const sem: RpcRow[] = semRaw.filter(
+    (r) => r.score >= (lexRpc.length >= 3 ? SEM_FLOOR_STRICT : SEM_FLOOR_FALLBACK),
+  );
 
   const result: SearchResult = {
     q,
     semantic: sem.length > 0,
-    hits: fuse(lex, sem, limit),
+    hits: fuse(lex, sem, FUSE_MAX),
     took: Date.now() - t0,
   };
 
-  if (cache.size >= CACHE_MAX) {
+  if (!cache.has(cacheKey) && cache.size >= CACHE_MAX) {
     const oldest = cache.keys().next().value;
     if (oldest !== undefined) cache.delete(oldest);
   }
   cache.set(cacheKey, { data: result, ts: Date.now() });
-  return filterKinds(result, opts.kinds);
+  return shape(result, limit, opts.kinds);
 }
 
-function filterKinds(r: SearchResult, kinds?: SearchKind[]): SearchResult {
-  if (!kinds || kinds.length === 0) return r;
-  const set = new Set(kinds);
-  return { ...r, hits: r.hits.filter((h) => set.has(h.kind)) };
+/** kinds filter FIRST, then limit — so a kinds-restricted caller (e.g. the map)
+ *  still gets its full quota even when other kinds dominate the fused top. */
+function shape(r: SearchResult, limit: number, kinds?: SearchKind[]): SearchResult {
+  const set = kinds && kinds.length ? new Set(kinds) : null;
+  const hits = (set ? r.hits.filter((h) => set.has(h.kind)) : r.hits).slice(0, limit);
+  return { ...r, hits };
 }

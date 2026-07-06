@@ -19,7 +19,7 @@ type Target = { mode: Mode; ego?: EgoParams | null; key?: string | null; filt?: 
 type Crumb = { id: string; label: string; target: Target };
 type SearchHit = { type: string; key: string; key2: string | null; label: string; sub: string | null; score: number };
 // /api/search hit fields we consume (see lib/search.ts SearchHit for the full shape)
-type ApiHit = { kind: string; slug: string; film_slug: string | null; title: string; sub: string; score: number };
+type ApiHit = { kind: string; slug: string; film_slug: string | null; title: string; sub: string; score: number; is_catalog?: boolean };
 
 const MODES: [Mode, string][] = [["films", "Films"], ["directors", "Directors"], ["critical", "Grouped"], ["galaxy", "Galaxy"]];
 const ALL_LABEL: Record<Mode, string> = { films: "All films", directors: "All directors", critical: "All", galaxy: "Galaxy" };
@@ -123,19 +123,28 @@ export default function MapExplorer() {
 
   // debounced fuzzy search — unified /api/search. Figure hits: map_ego wants
   // p_key=film slug, p_key2=figure slug, so key←film_slug and key2←slug there.
+  // mode=lex: map queries are names, and the lexical path answers in ~100ms
+  // where hybrid would wait on an OpenAI embedding per keystroke.
+  // Catalog (Tier-2) films are dropped: they have no connection edges, so
+  // jumping to one renders a single-node dead-end graph.
+  const searchReq = useRef(0);
   useEffect(() => {
     const t = query.trim();
+    const rid = ++searchReq.current; // a slow older response must not overwrite a newer query
     if (t.length < 2) { setHits([]); setSel(-1); return; }
     const id = setTimeout(async () => {
       try {
-        const r = await fetch(`/api/search?q=${encodeURIComponent(t)}&limit=10&mode=hybrid&kinds=film,director,trope,idea,theorist,figure`, { cache: "no-store" });
+        const r = await fetch(`/api/search?q=${encodeURIComponent(t)}&limit=10&mode=lex&kinds=film,director,trope,idea,theorist,figure`, { cache: "no-store" });
         const j = await r.json();
+        if (rid !== searchReq.current) return;
         const rows: ApiHit[] = Array.isArray(j?.hits) ? j.hits : [];
-        setHits(rows.map((h) => (h.kind === "figure"
-          ? { type: h.kind, key: h.film_slug ?? h.slug, key2: h.slug, label: h.title, sub: h.sub || null, score: h.score }
-          : { type: h.kind, key: h.slug, key2: null, label: h.title, sub: h.sub || null, score: h.score })));
+        setHits(rows
+          .filter((h) => !(h.kind === "film" && h.is_catalog === true))
+          .map((h) => (h.kind === "figure"
+            ? { type: h.kind, key: h.film_slug ?? h.slug, key2: h.slug, label: h.title, sub: h.sub || null, score: h.score }
+            : { type: h.kind, key: h.slug, key2: null, label: h.title, sub: h.sub || null, score: h.score })));
         setSel(-1);
-      } catch { setHits([]); setSel(-1); }
+      } catch { if (rid === searchReq.current) { setHits([]); setSel(-1); } }
     }, 200);
     return () => clearTimeout(id);
   }, [query]);
@@ -269,6 +278,7 @@ export default function MapExplorer() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
+              if (e.nativeEvent.isComposing || e.keyCode === 229) return; // IME composition (Hangul etc.)
               if (!hits.length) return;
               if (e.key === "ArrowDown") { e.preventDefault(); setSel((s) => (s + 1) % hits.length); }
               else if (e.key === "ArrowUp") { e.preventDefault(); setSel((s) => (s <= 0 ? hits.length - 1 : s - 1)); }

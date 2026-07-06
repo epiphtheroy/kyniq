@@ -37,7 +37,9 @@ export default function CmdK({ open, onClose }: { open: boolean; onClose: () => 
     (async () => {
       const { data } = await supabase.rpc("film_search", { p_q: term, p_limit: 8 });
       if (!alive) return;
-      const films: Hit[] = ((data as Array<{ slug: string; title: string; year: number | null }> | null) ?? [])
+      // room = Tier-1 only: unscored catalog films 404 at /room/film/{slug}
+      const films: Hit[] = ((data as Array<{ slug: string; title: string; year: number | null; is_catalog?: boolean }> | null) ?? [])
+        .filter((f) => f.is_catalog !== true)
         .map((f) => ({ kind: "film" as const, label: f.title, sub: f.year ? String(f.year) : undefined, href: `/room/film/${f.slug}` }));
       setHits([...pageHits, ...films]);
     })();

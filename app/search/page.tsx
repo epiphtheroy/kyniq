@@ -3,7 +3,8 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import SearchBox from "@/components/SearchBox";
 import { pageRobots } from "@/lib/seo";
-import { runSearch, type SearchHit, type SearchKind } from "@/lib/search";
+import { runSearch } from "@/lib/search";
+import { KIND_LABEL, TMDB_IMG, type SearchHit, type SearchKind } from "@/lib/search-shared";
 
 export const revalidate = 60;
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   robots: pageRobots(false), // search results — never index
 };
 
-const IMG = "https://image.tmdb.org/t/p";
+const IMG = TMDB_IMG;
 
 const PITCH =
   "6,900 films · 27,000 close readings · 4,700 tropes · ideas, people, places — searched by meaning, not just titles, in any language.";
@@ -43,13 +44,6 @@ const GROUPS: Group[] = [
   { id: "places", label: "Places", kinds: ["country", "city"], render: "places" },
   { id: "lists", label: "Lists & Movements", kinds: ["lineage", "movement"], render: "lists" },
 ];
-
-const KIND_LABEL: Record<SearchKind, string> = {
-  film: "Film", director: "Director", trope: "Trope", reading: "Reading",
-  figure: "Figure", theorist: "Theorist", idea: "Idea", tradition: "Tradition",
-  lineage: "List", movement: "Movement", archetype: "Archetype",
-  country: "Place", city: "Place", genre: "Genre",
-};
 
 const keyOf = (h: SearchHit) => `${h.kind}:${h.slug}:${h.film_slug ?? ""}`;
 

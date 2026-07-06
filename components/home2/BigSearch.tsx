@@ -22,6 +22,9 @@ export default function BigSearch({ data }: { data: HomeV2 }) {
     setOpen(term.length >= 2);
   }, [term]);
 
+  // Hybrid stage can replace/reorder the list — re-anchor the keyboard cursor.
+  useEffect(() => { setActive(-1); }, [hits]);
+
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
@@ -39,6 +42,12 @@ export default function BigSearch({ data }: { data: HomeV2 }) {
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // IME composition commits (Hangul/CJK) fire Enter/arrow keydowns that
+    // belong to the IME, not to us — and Enter would also submit the form.
+    if (e.nativeEvent.isComposing || e.keyCode === 229) {
+      if (e.key === "Enter") e.preventDefault();
+      return;
+    }
     if (e.key === "ArrowDown") { e.preventDefault(); setOpen(true); setActive((a) => Math.min(a + 1, hits.length - 1)); }
     else if (e.key === "ArrowUp") { e.preventDefault(); setActive((a) => Math.max(a - 1, -1)); }
     else if (e.key === "Escape") { setOpen(false); }

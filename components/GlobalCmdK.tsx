@@ -12,13 +12,12 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import type { SearchHit, SearchKind, SearchResult } from "@/lib/search";
+import { KIND_LABEL, tmdbUrl, type SearchHit } from "@/lib/search-shared";
+import { useSearchTypeahead } from "@/lib/useSearch";
 
 const OPEN_EVENT = "metatake:cmdk";
 const RECENT_KEY = "mt:recent-searches";
 const RECENT_MAX = 5;
-const DEBOUNCE_MS = 160;
-const POSTER = "https://image.tmdb.org/t/p/w92";
 
 const PAGES: { label: string; href: string }[] = [
   { label: "Films", href: "/film" },
@@ -43,11 +42,6 @@ const PAGES: { label: string; href: string }[] = [
   { label: "Ask metatake AI", href: "/ask" },
   { label: "Blog", href: "/blog" },
 ];
-
-/** Site-facing names where they differ from the engine's kind ids. */
-const KIND_LABEL: Partial<Record<SearchKind, string>> = {
-  idea: "concept",
-};
 
 type Row =
   | { type: "hit"; hit: SearchHit }
@@ -85,14 +79,16 @@ export default function GlobalCmdK() {
 
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [hits, setHits] = useState<SearchHit[]>([]);
-  const [pending, setPending] = useState(false);
   const [recent, setRecent] = useState<string[]>([]);
   const [activeIdx, setActiveIdx] = useState(0);
 
+  // Shared progressive lex→hybrid fetch — same engine, same race guards as
+  // SearchBox/BigSearch (components/SearchBox.tsx). `loading` stays true
+  // until the meaning leg settles.
+  const { hits, loading: pending } = useSearchTypeahead(open ? query : "", 10, 160);
+
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
-  const reqIdRef = useRef(0);
 
   /* ---------------------------------------------------------- open/close */
 
@@ -130,48 +126,8 @@ export default function GlobalCmdK() {
   }, [open]);
 
   const close = useCallback(() => {
-    reqIdRef.current += 1; // invalidate in-flight responses
-    setOpen(false);
-    setPending(false);
+    setOpen(false); // the hook aborts in-flight fetches when `open ? query : ""` flips
   }, []);
-
-  /* ------------------------------------------------- progressive fetching */
-
-  useEffect(() => {
-    if (!open) return;
-    const q = query.trim();
-    if (q.length < 2) {
-      setHits([]);
-      setPending(false);
-      return;
-    }
-    const id = ++reqIdRef.current;
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => {
-      setPending(true);
-      let hybridLanded = false;
-      const fire = (mode: "lex" | "hybrid") =>
-        fetch(`/api/search?q=${encodeURIComponent(q)}&limit=10&mode=${mode}`, { signal: ctrl.signal })
-          .then((r) => (r.ok ? (r.json() as Promise<SearchResult>) : null))
-          .catch(() => null);
-      // Both legs in parallel: lex paints first, hybrid upgrades when it lands.
-      fire("hybrid").then((d) => {
-        if (!d || reqIdRef.current !== id) return;
-        hybridLanded = true;
-        setHits(d.hits);
-        setPending(false);
-      });
-      fire("lex").then((d) => {
-        if (!d || reqIdRef.current !== id || hybridLanded) return;
-        setHits(d.hits);
-        setPending(false);
-      });
-    }, DEBOUNCE_MS);
-    return () => {
-      clearTimeout(timer);
-      ctrl.abort();
-    };
-  }, [query, open]);
 
   /* ------------------------------------------------------------ row model */
 
@@ -184,11 +140,13 @@ export default function GlobalCmdK() {
       ];
     }
     const ql = q.toLowerCase();
+    // "See all results" leads the actions: Enter before hits land must go to
+    // /search (the old nav form's muscle memory), never surprise-route to /ask.
     return [
       ...hits.map<Row>((hit) => ({ type: "hit", hit })),
       ...PAGES.filter((p) => p.label.toLowerCase().includes(ql)).map<Row>((p) => ({ type: "page", ...p })),
-      { type: "action", label: `Ask metatake AI: “${q}”`, href: `/ask?q=${encodeURIComponent(q)}` },
       { type: "action", label: `See all results for “${q}”`, href: `/search?q=${encodeURIComponent(q)}` },
+      { type: "action", label: `Ask metatake AI: “${q}”`, href: `/ask?q=${encodeURIComponent(q)}` },
     ];
   }, [query, hits, recent]);
 
@@ -196,7 +154,7 @@ export default function GlobalCmdK() {
 
   useEffect(() => {
     setActiveIdx(0);
-  }, [query]);
+  }, [query, hits]); // hybrid swap can reorder the list — re-anchor the cursor
 
   useEffect(() => {
     listRef.current?.querySelector('[data-active="true"]')?.scrollIntoView({ block: "nearest" });
@@ -223,6 +181,9 @@ export default function GlobalCmdK() {
   );
 
   const onKeyDown = (e: React.KeyboardEvent) => {
+    // Hangul/CJK IME: the keydown that commits a composed syllable belongs to
+    // the IME — acting on it would navigate away mid-word.
+    if (e.nativeEvent.isComposing || e.keyCode === 229) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setActiveIdx((i) => (rows.length ? (i + 1) % rows.length : 0));
@@ -269,14 +230,14 @@ export default function GlobalCmdK() {
   const renderRow = (row: Row, i: number) => {
     if (row.type === "hit") {
       const h = row.hit;
-      const kindLabel = KIND_LABEL[h.kind] ?? h.kind;
+      const kindLabel = KIND_LABEL[h.kind];
       return rowBtn(
         i,
         "gcmdk-row",
         () => go(row),
         <>
           {h.poster ? (
-            <img className="gcmdk-thumb" src={`${POSTER}${h.poster}`} alt="" loading="lazy" width={24} height={36} />
+            <img className="gcmdk-thumb" src={tmdbUrl(h.poster) ?? undefined} alt="" loading="lazy" width={24} height={36} />
           ) : (
             <span className="gcmdk-mono" aria-hidden="true">
               {h.kind.charAt(0).toUpperCase()}
@@ -340,9 +301,11 @@ export default function GlobalCmdK() {
     );
   };
 
-  const pageRows = rows.map((r, i) => [r, i] as const).filter(([r]) => r.type === "page");
-  const recentRows = rows.map((r, i) => [r, i] as const).filter(([r]) => r.type === "recent");
-  const actionStart = rows.length - 2; // the two action rows are always last in search mode
+  const indexed = rows.map((r, i) => [r, i] as const);
+  const pageRows = indexed.filter(([r]) => r.type === "page");
+  const recentRows = indexed.filter(([r]) => r.type === "recent");
+  const mainRows = indexed.filter(([r]) => r.type !== "action");
+  const actionRows = indexed.filter(([r]) => r.type === "action");
 
   return (
     <div className="gcmdk-overlay" role="presentation" onMouseDown={close}>
@@ -396,8 +359,8 @@ export default function GlobalCmdK() {
               {hits.length === 0 && !pending ? (
                 <div className="gcmdk-none">No direct matches — try asking, or see all results below.</div>
               ) : null}
-              {rows.slice(0, actionStart).map((r, i) => renderRow(r, i))}
-              <div className="gcmdk-actions">{rows.slice(actionStart).map((r, i) => renderRow(r, actionStart + i))}</div>
+              {mainRows.map(([r, i]) => renderRow(r, i))}
+              <div className="gcmdk-actions">{actionRows.map(([r, i]) => renderRow(r, i))}</div>
             </>
           )}
         </div>
