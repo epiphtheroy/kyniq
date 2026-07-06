@@ -2,6 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
+import MineEntityIndex from "@/components/MineEntityIndex";
 
 export const revalidate = 1800;
 
@@ -56,7 +58,9 @@ export default async function TheoristIndex() {
           Open any one to see every film read in their light. (See also the <Link href="/idea">concepts</Link> they think
           and the <Link href="/tradition">traditions</Link> they belong to.)
         </p>
-        <div className="th-grid">
+        <LensQuickBar />
+        <MineEntityIndex kind="theorists" hrefBase="/theorist/" noun="theorists" />
+        <div className="th-grid mtl-swap-out">
           {rows.map((r) => (
             <Link className="th-row" href={`/theorist/${r.slug}`} key={r.slug}>
               <span className="th-name">{r.name}</span>

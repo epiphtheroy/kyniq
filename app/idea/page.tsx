@@ -2,6 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
+import MineEntityIndex from "@/components/MineEntityIndex";
 
 export const revalidate = 1800;
 
@@ -35,7 +37,9 @@ export default async function IdeaIndex() {
           recur across {total.toLocaleString()} readings; open any to see every film that stages it. (Paired with the{" "}
           <Link href="/theorist">theorists</Link> who think them and the <Link href="/tradition">traditions</Link> they belong to.)
         </p>
-        <div className="th-grid">
+        <LensQuickBar />
+        <MineEntityIndex kind="concepts" hrefBase="/idea/" noun="concepts" />
+        <div className="th-grid mtl-swap-out">
           {rows.map((r) => (
             <Link className="th-row" href={`/idea/${r.slug}`} key={r.slug}>
               <span className="th-name">{r.name}</span>

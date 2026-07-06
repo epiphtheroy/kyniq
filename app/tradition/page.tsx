@@ -2,6 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
+import MineEntityIndex from "@/components/MineEntityIndex";
 
 export const revalidate = 1800;
 
@@ -42,7 +44,9 @@ export default async function TraditionIndex() {
           <Link href="/theorist">thinkers</Link> who carry it. (Paired with the looser <Link href="/idea">concepts</Link>{" "}
           critics actually name.)
         </p>
-        <div className="th-grid">
+        <LensQuickBar />
+        <MineEntityIndex kind="traditions" hrefBase="/tradition/" noun="traditions" />
+        <div className="th-grid mtl-swap-out">
           {rows.map((r) => (
             <Link className="th-row" href={`/tradition/${r.slug}`} key={r.slug}>
               <span className="th-name">

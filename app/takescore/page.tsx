@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
 import CodexExplorer, { type CodexRow } from "@/components/CodexExplorer";
 import { filmUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl, type CodexDimGroup } from "@/lib/cinecodex_dims";
@@ -65,6 +66,7 @@ export default async function TakeScorePage() {
           set a range on any dimension, dial your risk-aversion, and click any film to open its scores in place.{" "}
           <Link href="/takescore/about">How it works →</Link>
         </p>
+        <LensQuickBar />
         <CodexExplorer initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries} />
 
         {/* The 13 dimension landing pages — each answers one search-shaped
@@ -100,7 +102,7 @@ export default async function TakeScorePage() {
         {/* Crawlable ranking — the explorer above is client-paginated, so this
             plain server-rendered list is the crawl backbone (same model as the
             credits A–Z). */}
-        <section aria-labelledby="ts-full" style={{ marginTop: 56 }}>
+        <section aria-labelledby="ts-full" style={{ marginTop: 56 }} className="mtl-swap-out">
           <h2 className="df-h2" id="ts-full">The full ranking</h2>
           <p className="df-sub">
             The top {ranked.length.toLocaleString()} films by TakeScore

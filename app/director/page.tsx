@@ -2,6 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import DirectorsIndex, { type DirFeat, type DirCat } from "@/components/indexes/DirectorsIndex";
+import LensQuickBar from "@/components/LensQuickBar";
+import MineEntityIndex from "@/components/MineEntityIndex";
 import { directorUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
@@ -73,6 +75,8 @@ export default async function DirectorIndexPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
         <h1 className="idx-h1">Directors</h1>
+        <LensQuickBar />
+        <MineEntityIndex kind="directors" hrefBase="/director/" noun="directors" filmsNoun="of your films" />
 
         <p className="idx-def">
           <b>Not a filmography list.</b> On Metatake a director is the sum of their obsessions. We break every film into
@@ -87,7 +91,9 @@ export default async function DirectorIndexPage() {
           Start with one at random, then browse the catalogue below.
         </p>
 
-        <DirectorsIndex featured={featured} catalogue={catalogue} />
+        <div className="mtl-swap-out">
+          <DirectorsIndex featured={featured} catalogue={catalogue} />
+        </div>
       </div>
     </div>
   );

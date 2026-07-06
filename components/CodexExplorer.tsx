@@ -10,6 +10,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { codeToFlag } from "@/lib/lineageBodies";
 import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
+import { useLens } from "@/components/LensProvider";
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const PAGE = 60;
@@ -139,31 +140,50 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
   }, [ranges]);
   const activeDims = Object.keys(subFilter).length;
 
+  // My Films lens, only-mode: the ranking (and its load-more pagination) swaps
+  // to the authed per-user endpoint — TakeScore over the films you've seen,
+  // with every filter passing through. SSR-seeded rows are global, so entering
+  // in only-mode refetches page 0.
+  const lens = useLens();
+  const mine = !!lens && lens.mode === "only" && lens.seenCount > 0;
+
   const fetchPage = useCallback(async (reset: boolean) => {
     setLoading(true);
     const off = reset ? 0 : offset;
-    const { data } = await sb.rpc("cinecodex_ranked", {
-      p_sort: sort, p_lambda: lam, p_q: q || null,
-      p_year_min: years.min, p_year_max: years.max, p_country: country || null,
-      p_sub: subFilter, p_max_cost: 100, p_limit: PAGE, p_offset: off,
-    });
-    const res = (data as { total: number; rows: CodexRow[] } | null) ?? { total: 0, rows: [] };
+    let res: { total: number; rows: CodexRow[] };
+    if (mine) {
+      const p = new URLSearchParams({ sort, lambda: String(lam), limit: String(PAGE), offset: String(off) });
+      if (q) p.set("q", q);
+      if (years.min != null) p.set("year_min", String(years.min));
+      if (years.max != null) p.set("year_max", String(years.max));
+      if (country) p.set("country", country);
+      if (activeDims) p.set("sub", JSON.stringify(subFilter));
+      const d = await fetch(`/api/lens/takescore?${p.toString()}`).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      res = (d as { total: number; rows: CodexRow[] } | null) ?? { total: 0, rows: [] };
+    } else {
+      const { data } = await sb.rpc("cinecodex_ranked", {
+        p_sort: sort, p_lambda: lam, p_q: q || null,
+        p_year_min: years.min, p_year_max: years.max, p_country: country || null,
+        p_sub: subFilter, p_max_cost: 100, p_limit: PAGE, p_offset: off,
+      });
+      res = (data as { total: number; rows: CodexRow[] } | null) ?? { total: 0, rows: [] };
+    }
     setTotal(res.total);
     setRows((prev) => reset ? res.rows : [...prev, ...res.rows]);
     setOffset(off + res.rows.length);
     setLoading(false);
-  }, [sort, lam, q, country, decade, subFilter, offset]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sort, lam, q, country, decade, subFilter, offset, mine]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (first.current) {
       first.current = false;
-      if (initialRows.length === 0) fetchPage(true);
+      if (initialRows.length === 0 || mine) fetchPage(true);
       return;
     }
     setOpen(null);
     const t = setTimeout(() => fetchPage(true), 300);
     return () => clearTimeout(t);
-  }, [sort, lam, q, country, decade, subFilter]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sort, lam, q, country, decade, subFilter, mine]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const decades = useMemo(() => { const a: string[] = []; for (let d = 2020; d >= 1910; d -= 10) a.push(String(d)); return a; }, []);
   const setRange = (k: string, lo: number, hi: number) => setRanges((p) => ({ ...p, [k]: [lo, hi] }));

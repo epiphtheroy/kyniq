@@ -2,6 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import IndexPattern, { type IdxCase, type IdxFeature, type IdxItem } from "@/components/IndexPattern";
+import LensQuickBar from "@/components/LensQuickBar";
+import MineEntityIndex from "@/components/MineEntityIndex";
 import { tropeUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
@@ -79,6 +81,8 @@ export default async function TropesIndex() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx idx--teal">
         <h1 className="idx-h1">Tropes</h1>
+        <LensQuickBar />
+        <MineEntityIndex kind="tropes" hrefBase="/trope/" noun="tropes" />
 
         <p className="idx-def">
           Recurring <span className="term">figure-types</span> — the dramatic devices, situations and objects that
@@ -93,6 +97,7 @@ export default async function TropesIndex() {
           catalogue below.
         </p>
 
+        <div className="mtl-swap-out">
         <IndexPattern
           featured={featured}
           catalogue={catalogue}
@@ -107,6 +112,7 @@ export default async function TropesIndex() {
           filterPlaceholder="Filter tropes…"
           emptyText="No trope matches that."
         />
+        </div>
 
         {/* Definitional landing block — the head-term surface ("film tropes",
             "movie tropes") Google is already testing this page against. */}

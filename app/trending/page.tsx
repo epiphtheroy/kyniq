@@ -3,6 +3,7 @@ import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
 import TrendingSections, { type TrendPool } from "@/components/TrendingSections";
 
 // Reading ?window forces this route to render dynamically, so `revalidate`
@@ -58,6 +59,7 @@ export default async function TrendingPage({ searchParams }: { searchParams: Pro
           </span>
         </div>
         <p className="lt-subline">The readings and tropes drawing the most attention — shown through the films and figures that carry them.</p>
+        <LensQuickBar />
 
         <div className="tg-twin">
           <span className="lbl">Window</span>

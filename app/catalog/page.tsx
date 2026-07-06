@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import LensQuickBar from "@/components/LensQuickBar";
 import { SECTIONS, sectionCounts, sectionHref, nodeHref, type KindCount } from "@/lib/catalog";
 
 export const revalidate = 600;
@@ -76,6 +77,7 @@ export default async function CatalogHub() {
       <div className="cat-wrap">
         <div className="cat-kick">Archetype</div>
         <h1 className="cat-h1">What each figure <em>is</em></h1>
+        <LensQuickBar />
         <p className="cat-intro">
           A controlled vocabulary for every figure in the archive — its <strong>objects</strong>,{" "}
           <strong>characters</strong>, <strong>places</strong>, <strong>themes</strong>, and{" "}
