@@ -115,8 +115,11 @@ export default function SignupPage() {
         className="field"
         style={{ display: "block", width: "100%", textAlign: "center", cursor: "pointer", background: "var(--surface)", boxSizing: "border-box" }}
       >
-        Continue with Google
+        Sign up with Google
       </button>
+      <p className="ui muted" style={{ fontSize: 11.5, textAlign: "center", margin: "8px 0 0" }}>
+        One click — no email verification needed.
+      </p>
 
       <p className="ui muted" style={{ fontSize: 11.5, lineHeight: 1.6, textAlign: "center", margin: "18px 0 0" }}>
         By joining you agree to our{" "}

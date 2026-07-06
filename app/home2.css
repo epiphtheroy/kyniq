@@ -35,8 +35,23 @@
 .mthome .nicon{color:#EFEADD;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:var(--ui);font-size:14px;font-weight:600;position:relative}
 .mthome .nicon svg{width:22px;height:22px;stroke:#EFEADD;fill:none;stroke-width:1.6}
 .mthome .nbadge{position:absolute;top:-7px;right:-10px;min-width:16px;height:16px;background:var(--red);color:#fff;border-radius:9px;font-family:var(--ui);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
-.mthome .acct{position:relative}
+.mthome .acct{position:relative;display:flex;align-items:center;gap:8px}
 .mthome .avatar{width:32px;height:32px;border-radius:50%;background:#fff;color:var(--red);font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.mthome .avatar--ph{background:rgba(255,255,255,.14);color:transparent;cursor:default}
+.mthome .avatar--join{background:rgba(255,255,255,.14);color:#EFEADD;font-weight:400}
+.mthome .avatar--join:hover{background:rgba(255,255,255,.24)}
+.mthome .avatar--in{box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.mthome .signin-pill{display:flex;align-items:center;height:32px;padding:0 14px;border-radius:20px;background:#fff;color:var(--red);font-family:var(--ui);font-size:13px;font-weight:700;line-height:1;white-space:nowrap;text-decoration:none}
+.mthome .signin-pill:hover{background:var(--red);color:#fff}
+.mthome .acctmenu .authbtns{display:flex;gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}
+.mthome .acctmenu .ab{flex:1;text-align:center;font-family:var(--ui);font-size:13px;font-weight:700;padding:9px 0;border-radius:8px;border:1px solid var(--line);color:var(--ink)}
+.mthome .acctmenu .ab:hover{border-color:var(--red);color:var(--red)}
+.mthome .acctmenu .ab--primary{background:var(--red);border-color:var(--red);color:#fff}
+.mthome .acctmenu .ab--primary:hover{background:#a8231b;color:#fff}
+.mthome .acctmenu .mrow{display:flex;justify-content:space-between;align-items:center;font-family:var(--text-serif);font-size:15px;color:var(--ink);padding:10px 3px;border-bottom:1px solid var(--line)}
+.mthome .acctmenu .mrow:hover{color:var(--red)}
+.mthome .acctmenu .mrow .ar{font-family:var(--ui);font-size:12px;color:var(--ink-faint)}
+.mthome .acctfoot .logout{margin-left:auto;background:none;border:0;padding:0;font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--red);cursor:pointer}
 .mthome .lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD;cursor:pointer}
 .mthome .mega{position:absolute;left:0;top:60px;width:100%;background:var(--dark);border-bottom:1px solid var(--dline);display:none;z-index:88}
 .mthome .mega.open{display:block}

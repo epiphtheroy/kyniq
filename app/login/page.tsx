@@ -78,7 +78,7 @@ function LoginForm() {
       <div className="ui muted" style={{ textAlign: "center", fontSize: 12, margin: "16px 0" }}>or</div>
 
       <button onClick={handleGoogleLogin} className="field" style={{ display: "block", width: "100%", textAlign: "center", cursor: "pointer", background: "var(--surface)", boxSizing: "border-box" }}>
-        Continue with Google
+        Sign in with Google
       </button>
 
       <p className="ui" style={{ fontSize: 13, textAlign: "center", marginTop: 20 }}>

@@ -201,57 +201,121 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
           </Link>
           <LensToggle />
           <div className="acct">
-            <div className="avatar" onClick={() => tog("am")}>
-              ＋
-            </div>
-            <div className={`acctmenu${open === "am" ? " open" : ""}`} id="am">
-              <div className="me">
-                <div className="av">✦</div>
-                <div>
-                  <div className="nm">Start your map</div>
-                  <Link className="lk" href="/login">
-                    Sign in · Create account →
+            {acct.state === "loading" && (
+              <div className="avatar avatar--ph" aria-hidden="true" />
+            )}
+            {acct.state === "out" && (
+              <>
+                <Link className="signin-pill" href="/login">Sign in</Link>
+                <div className="avatar avatar--join" title="Create account · what you get" onClick={() => tog("am")}>
+                  ＋
+                </div>
+              </>
+            )}
+            {acct.state === "in" && (
+              <div
+                className="avatar avatar--in"
+                title={acct.name}
+                role="button"
+                aria-haspopup="menu"
+                aria-expanded={open === "am"}
+                onClick={() => tog("am")}
+              >
+                {acct.name.charAt(0).toUpperCase()}
+              </div>
+            )}
+
+            {acct.state === "out" && (
+              <div className={`acctmenu${open === "am" ? " open" : ""}`} id="am">
+                <div className="me">
+                  <div className="av">✦</div>
+                  <div>
+                    <div className="nm">Start your map</div>
+                    <div className="lk">Free account · save films &amp; readings</div>
+                  </div>
+                </div>
+                <div className="authbtns">
+                  <Link className="ab ab--primary" href="/signup" onClick={() => setOpen(null)}>
+                    Create account
+                  </Link>
+                  <Link className="ab" href="/login" onClick={() => setOpen(null)}>
+                    Sign in
+                  </Link>
+                </div>
+                <div className="prow">
+                  <div className="l">
+                    <div className="ico">▦</div>
+                    <div>
+                      <div className="t">Your Shelf</div>
+                      <div className="s">SAVE FILMS AS YOU WANDER</div>
+                    </div>
+                  </div>
+                  <div className="n">+</div>
+                </div>
+                <div className="prow">
+                  <div className="l">
+                    <div className="ico">❝</div>
+                    <div>
+                      <div className="t">Saved Readings</div>
+                      <div className="s">BOOKMARK A STRONG MISREADING</div>
+                    </div>
+                  </div>
+                  <div className="n">+</div>
+                </div>
+                <div className="prow">
+                  <div className="l">
+                    <div className="ico">⌖</div>
+                    <div>
+                      <div className="t">Follow directors &amp; figures</div>
+                      <div className="s">NEW READINGS COME TO YOU</div>
+                    </div>
+                  </div>
+                  <div className="n">+</div>
+                </div>
+                <div className="acctfoot">
+                  <Link href="/about">About</Link>
+                  <Link href="/blog/subscribe">Newsletter</Link>
+                  <Link href="/login" style={{ marginLeft: "auto" }}>
+                    Sign in
                   </Link>
                 </div>
               </div>
-              <div className="prow">
-                <div className="l">
-                  <div className="ico">▦</div>
+            )}
+
+            {acct.state === "in" && (
+              <div className={`acctmenu${open === "am" ? " open" : ""}`} id="am" role="menu">
+                <div className="me">
+                  <div className="av">{acct.name.charAt(0).toUpperCase()}</div>
                   <div>
-                    <div className="t">Your Shelf</div>
-                    <div className="s">SAVE FILMS AS YOU WANDER</div>
+                    <div className="nm">{acct.name}</div>
+                    <Link className="lk" href="/me" onClick={() => setOpen(null)}>
+                      Signed in · My dashboard →
+                    </Link>
                   </div>
                 </div>
-                <div className="n">+</div>
-              </div>
-              <div className="prow">
-                <div className="l">
-                  <div className="ico">❝</div>
-                  <div>
-                    <div className="t">Saved Readings</div>
-                    <div className="s">BOOKMARK A STRONG MISREADING</div>
-                  </div>
-                </div>
-                <div className="n">+</div>
-              </div>
-              <div className="prow">
-                <div className="l">
-                  <div className="ico">⌖</div>
-                  <div>
-                    <div className="t">Follow directors &amp; figures</div>
-                    <div className="s">NEW READINGS COME TO YOU</div>
-                  </div>
-                </div>
-                <div className="n">+</div>
-              </div>
-              <div className="acctfoot">
-                <Link href="/about">About</Link>
-                <Link href="/blog/subscribe">Newsletter</Link>
-                <Link href="/login" style={{ marginLeft: "auto" }}>
-                  Sign in
+                <Link className="mrow" href="/me" role="menuitem" onClick={() => setOpen(null)}>
+                  Your Shelf<span className="ar">→</span>
                 </Link>
+                {acct.username && (
+                  <Link className="mrow" href={`/u/${acct.username}`} role="menuitem" onClick={() => setOpen(null)}>
+                    Public profile<span className="ar">→</span>
+                  </Link>
+                )}
+                <Link className="mrow" href="/me/import" role="menuitem" onClick={() => setOpen(null)}>
+                  Import your films<span className="ar">→</span>
+                </Link>
+                <Link className="mrow" href="/settings" role="menuitem" onClick={() => setOpen(null)}>
+                  Settings<span className="ar">→</span>
+                </Link>
+                <div className="acctfoot">
+                  <Link href="/about">About</Link>
+                  <Link href="/blog/subscribe">Newsletter</Link>
+                  <button type="button" className="logout" role="menuitem" onClick={logout}>
+                    Log out
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <div className="lang">EN ▾</div>
         </div>
