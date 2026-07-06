@@ -167,7 +167,10 @@ export default function ImportWizard() {
 
   /* ---------------- shared pieces ---------------- */
 
-  const Stepper = () => (
+  // Rendered via {stepper()} / {progressPanel()} (plain calls, not <Stepper/>)
+  // so the progress bar updates the same DOM node and its width transition
+  // animates smoothly instead of remounting on every batch tick.
+  const stepper = () => (
     <ol className="iw-steps" aria-label="Import steps">
       {STAGES.map((s, i) => {
         const cls = i < doneIdx ? "done" : i === stageIdx && activeStage !== "done" ? "active" : "";
@@ -182,7 +185,7 @@ export default function ImportWizard() {
     </ol>
   );
 
-  const ProgressPanel = () =>
+  const progressPanel = () =>
     busy ? (
       <div className="iw-prog" role="status" aria-live="polite">
         <div className="iw-prog-head">
@@ -202,7 +205,7 @@ export default function ImportWizard() {
   if (step === "done" && summary) {
     return (
       <div className="iw">
-        <Stepper />
+        {stepper()}
         <h2 style={{ margin: "0 0 12px" }}>Import complete</h2>
         <p style={{ fontSize: 15, lineHeight: 1.7 }}>
           <b>{summary.added}</b> added · <b>{summary.updated}</b> updated · <b>{summary.logged}</b> watch record{summary.logged === 1 ? "" : "s"} logged
@@ -232,8 +235,8 @@ export default function ImportWizard() {
     for (const r of rows) if (!r.excluded) st[r.matchStatus ?? "pending"]++;
     return (
       <div className="iw">
-        <Stepper />
-        <ProgressPanel />
+        {stepper()}
+        {progressPanel()}
         <p style={{ fontSize: 14 }} className="muted">
           Detected format: <b>{SOURCE_LABEL[source] ?? source}</b>{filename ? ` · ${filename}` : ""} · {rows.length} rows
         </p>
@@ -308,7 +311,7 @@ export default function ImportWizard() {
   // input step
   return (
     <div className="iw">
-      <Stepper />
+      {stepper()}
 
       <div className="iw-benefit">
         <h3>Why import your history</h3>
@@ -319,7 +322,7 @@ export default function ImportWizard() {
         </ul>
       </div>
 
-      <ProgressPanel />
+      {progressPanel()}
 
       {!busy && (
         <>
