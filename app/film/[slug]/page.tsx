@@ -67,7 +67,7 @@ type FilmLink = { slug: string; title: string; figs: FigRef[]; takeTitle: string
 type MediaRow = { id: string; kind: string; source: string; external_id: string; url: string; thumbnail_url: string | null; title: string | null; attribution: string | null };
 type TakeRow = { id: string; figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null; trope_id: string | null };
 type SM = { id: string; framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
-type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null };
+type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null; figs?: FigRef[] | null };
 type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string };
 type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_director: string | null; reason: string; target_slug: string | null; target_title: string | null; target_year: number | null; target_poster: string | null; tmdb_id: number | null; poster_path: string | null };
 type WwPoint = { label?: string; text: string };
@@ -1191,19 +1191,28 @@ export default async function FilmPage({ params }: Props) {
               <div key={g.axis} className="df-archgrp">
                 <div className="df-flabel">{axisLabel(g.axis)}</div>
                 <div className="df-mlist df-mlist--wide">
-                  {g.items.map((a) => (
-                    <div key={a.slug} className="df-mrow">
-                      <Link className="df-t" href={nodeHref(g.axis, a.slug)}>{a.label}</Link>
-                      {a.n > 1 ? <span className="df-cnt">{a.n}</span> : null}
-                      {a.fig_label ? (
-                        <span className="df-via"><span className="df-via__lab">via</span>{" "}
-                          {a.fig_slug
-                            ? <Link href={`/film/${film.slug}/figure/${a.fig_slug}`} className="df-f">{a.fig_label}</Link>
-                            : <span className="df-f">{a.fig_label}</span>}
-                        </span>
-                      ) : null}
-                    </div>
-                  ))}
+                  {g.items.map((a) => {
+                    // Show every figure that carries this archetype (like Tropes' "via").
+                    // Falls back to the single fig_label when the RPC hasn't shipped `figs` yet.
+                    const figs = (a.figs && a.figs.length)
+                      ? a.figs
+                      : (a.fig_label ? [{ label: a.fig_label, slug: a.fig_slug }] : []);
+                    return (
+                      <div key={a.slug} className="df-mrow">
+                        <Link className="df-t" href={nodeHref(g.axis, a.slug)}>{a.label}</Link>
+                        {a.n > 1 ? <span className="df-cnt">{a.n}</span> : null}
+                        {figs.length ? (
+                          <span className="df-via"><span className="df-via__lab">via</span>{figs.slice(0, 3).map((fg, i) => (
+                            <span key={i}>{i > 0 ? ", " : " "}
+                              {fg.slug
+                                ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="df-f">{fg.label}</Link>
+                                : <span className="df-f">{fg.label}</span>}
+                            </span>
+                          ))}{figs.length > 3 ? ` +${figs.length - 3}` : ""}</span>
+                        ) : null}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             ))}
