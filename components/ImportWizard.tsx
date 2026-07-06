@@ -4,6 +4,9 @@
  * ImportWizard — bulk watch-history import.
  * One input surface (paste anything / drop a file) → auto format detection →
  * TMDB match review with candidate picking → chunked commit with progress.
+ *
+ * The flow is shown as a 5-stage process diagram + a live, work-status-style
+ * progress panel so people understand the wait and stay patient.
  */
 import { useCallback, useMemo, useRef, useState } from "react";
 import type { MatchCandidate, MatchResult, NormalizedRow } from "@/lib/import/types";
@@ -13,13 +16,16 @@ const MATCH_BATCH = 25;
 const COMMIT_BATCH = 50;
 
 const SOURCE_LABEL: Record<string, string> = {
-  letterboxd_zip: "Letterboxd 내보내기(ZIP)",
+  letterboxd_zip: "Letterboxd export (ZIP)",
   letterboxd_csv: "Letterboxd CSV",
-  imdb_csv: "IMDb 평가 CSV",
-  sheet: "엑셀/CSV 표",
-  watcha_text: "텍스트(규칙 해석)",
-  freeform_llm: "텍스트(AI 해석)",
+  imdb_csv: "IMDb ratings CSV",
+  sheet: "Spreadsheet (Excel / CSV)",
+  watcha_text: "Text list (rule-parsed)",
+  freeform_llm: "Text list (AI-parsed)",
 };
+
+/** Which stage of the pipeline is live — drives the stepper + progress copy. */
+type Phase = "idle" | "reading" | "matching" | "saving";
 
 type RowState = NormalizedRow & {
   excluded?: boolean;
@@ -29,9 +35,21 @@ type RowState = NormalizedRow & {
 };
 type Summary = { added: number; updated: number; logged: number; skipped_dupes: number; failed: string[] };
 
+/* Process diagram stages, in order. */
+const STAGES = [
+  { key: "add", lbl: "Add", sub: "paste or drop" },
+  { key: "read", lbl: "Read", sub: "detect format" },
+  { key: "match", lbl: "Match", sub: "find on TMDB" },
+  { key: "review", lbl: "Review", sub: "check & fix" },
+  { key: "save", lbl: "Save", sub: "to your library" },
+] as const;
+
 export default function ImportWizard() {
   const [step, setStep] = useState<"input" | "review" | "done">("input");
-  const [busy, setBusy] = useState<string | null>(null);
+  const [phase, setPhase] = useState<Phase>("idle");
+  const [progress, setProgress] = useState(0);
+  const [progNote, setProgNote] = useState("");
+  const [log, setLog] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [source, setSource] = useState<string>("sheet");
   const [warnings, setWarnings] = useState<string[]>([]);
@@ -39,16 +57,37 @@ export default function ImportWizard() {
   const [text, setText] = useState("");
   const [filename, setFilename] = useState<string | null>(null);
   const [overwrite, setOverwrite] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [summary, setSummary] = useState<Summary | null>(null);
   const [drag, setDrag] = useState(false);
   const fileRef = useRef<HTMLInputElement | null>(null);
 
-  const runMatch = useCallback(async (parsed: NormalizedRow[]) => {
-    setBusy("영화 매칭 중…");
+  const busy = phase !== "idle";
+  const addLog = (line: string) => setLog((l) => [...l, line]);
+
+  /** Current stage for the diagram, derived from step + phase. */
+  const activeStage: string = (() => {
+    if (step === "done") return "done";
+    if (step === "input") return phase === "reading" ? "read" : "add";
+    return phase === "matching" ? "match" : phase === "saving" ? "save" : "review";
+  })();
+  const stageIdx = STAGES.findIndex((s) => s.key === activeStage);
+  const doneIdx = activeStage === "done" ? STAGES.length : stageIdx;
+
+  const progTitle =
+    phase === "reading" ? "Reading your list…" :
+    phase === "matching" ? "Matching your films to TMDB" :
+    phase === "saving" ? "Saving to your library" : "";
+
+  const runMatch = useCallback(async (parsed: NormalizedRow[], srcLabel: string) => {
+    setPhase("matching"); setProgress(0);
+    addLog(`Detected ${srcLabel} — ${parsed.length} title${parsed.length === 1 ? "" : "s"}`);
     const st: RowState[] = parsed.map((r) => ({ ...r, matchStatus: "pending" as const }));
     setRows(st); setStep("review");
+    const nb = Math.max(1, Math.ceil(st.length / MATCH_BATCH));
     for (let p = 0; p < st.length; p += MATCH_BATCH) {
+      const b = Math.floor(p / MATCH_BATCH) + 1;
+      const done = Math.min(st.length, p + MATCH_BATCH);
+      setProgNote(`Batch ${b} of ${nb} · ${done} of ${st.length} titles checked`);
       const batch = st.slice(p, p + MATCH_BATCH).map((r) => ({ i: r.i, title: r.title, year: r.year, tmdb_id: r.tmdb_id, imdb_id: r.imdb_id }));
       try {
         const res = await fetch("/api/import/match", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ rows: batch }) });
@@ -58,62 +97,67 @@ export default function ImportWizard() {
           const m = map.get(r.i);
           return m ? { ...r, matchStatus: m.status, match: m.match ?? null, candidates: m.candidates } : r;
         }));
-        setProgress(Math.min(100, Math.round(((p + MATCH_BATCH) / st.length) * 100)));
+        setProgress(Math.round((done / st.length) * 100));
       } catch { /* leave batch as pending → shown as unmatched */ }
     }
-    setBusy(null); setProgress(0);
+    addLog(`Matched ${st.length} title${st.length === 1 ? "" : "s"} against TMDB`);
+    setPhase("idle"); setProgress(0); setProgNote("");
   }, []);
 
   const parseText = async () => {
     if (!text.trim()) return;
-    setBusy("해독 중…"); setError(null);
+    setPhase("reading"); setProgress(0); setProgNote("Detecting format from your text…"); setError(null); setLog([]);
     try {
       const r = await fetch("/api/import/parse", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text }) });
       const d = await r.json();
-      if (!r.ok) { setError(d.error === "no rows" ? "인식된 영화가 없습니다. 형식을 확인해주세요." : "해석에 실패했습니다."); setBusy(null); return; }
+      if (!r.ok) { setError(d.error === "no rows" ? "No films recognized — check the format and try again." : "Couldn't read that. Try pasting a plain list of titles."); setPhase("idle"); return; }
       setSource(d.source); setWarnings(d.warnings || []); setFilename(null);
-      await runMatch(d.rows);
-    } catch { setError("서버 오류가 발생했습니다."); setBusy(null); }
+      await runMatch(d.rows, SOURCE_LABEL[d.source] ?? d.source);
+    } catch { setError("Something went wrong on our end. Please try again."); setPhase("idle"); }
   };
 
   const parseFile = async (f: File) => {
-    setBusy(`${f.name} 해독 중…`); setError(null);
+    setPhase("reading"); setProgress(0); setProgNote(`Reading ${f.name}…`); setError(null); setLog([]);
     try {
       const fd = new FormData(); fd.append("file", f);
       const r = await fetch("/api/import/parse", { method: "POST", body: fd });
       const d = await r.json();
-      if (!r.ok) { setError(d.error === "no rows" ? "파일에서 영화를 찾지 못했습니다." : `파일 해석 실패: ${d.error || ""}`); setBusy(null); return; }
+      if (!r.ok) { setError(d.error === "no rows" ? "No films found in that file." : `Couldn't read the file: ${d.error || ""}`); setPhase("idle"); return; }
       setSource(d.source); setWarnings(d.warnings || []); setFilename(f.name);
-      await runMatch(d.rows);
-    } catch { setError("서버 오류가 발생했습니다."); setBusy(null); }
+      await runMatch(d.rows, SOURCE_LABEL[d.source] ?? d.source);
+    } catch { setError("Something went wrong on our end. Please try again."); setPhase("idle"); }
   };
 
   const included = useMemo(() => rows.filter((r) => !r.excluded && r.match?.tmdb_id), [rows]);
   const unmatched = useMemo(() => rows.filter((r) => !r.excluded && !r.match?.tmdb_id), [rows]);
 
   const commit = async () => {
-    setBusy("저장 중…"); setError(null); setProgress(0);
+    setPhase("saving"); setProgress(0); setError(null);
     let jobId: string | undefined;
     const acc: Summary = { added: 0, updated: 0, logged: 0, skipped_dupes: 0, failed: [] };
     const payload = included.map((r) => ({
       tmdb_id: r.match!.tmdb_id, title: r.title, year: r.year, rating: r.rating, watched_at: r.watched_at,
       note: r.note, tags: r.tags, rewatch: r.rewatch, to_watchlist: r.to_watchlist, raw: r.raw,
     }));
+    const nb = Math.max(1, Math.ceil(payload.length / COMMIT_BATCH));
     for (let p = 0; p < payload.length; p += COMMIT_BATCH) {
+      const b = Math.floor(p / COMMIT_BATCH) + 1;
+      const done = Math.min(payload.length, p + COMMIT_BATCH);
+      setProgNote(`Batch ${b} of ${nb} · ${done} of ${payload.length} films`);
       try {
         const r = await fetch("/api/import/commit", {
           method: "POST", headers: { "content-type": "application/json" },
           body: JSON.stringify({ job_id: jobId, source, filename, overwrite, rows: payload.slice(p, p + COMMIT_BATCH) }),
         });
         const d = await r.json();
-        if (!r.ok) { setError("일부 저장에 실패했습니다."); break; }
+        if (!r.ok) { setError("Some films couldn't be saved. Please try again."); break; }
         jobId = d.job_id;
         acc.added += d.added; acc.updated += d.updated; acc.logged += d.logged; acc.skipped_dupes += d.skipped_dupes;
         acc.failed.push(...(d.failed || []));
-        setProgress(Math.min(100, Math.round(((p + COMMIT_BATCH) / payload.length) * 100)));
-      } catch { setError("서버 오류로 중단되었습니다."); break; }
+        setProgress(Math.round((done / payload.length) * 100));
+      } catch { setError("A server error interrupted the save."); break; }
     }
-    setSummary(acc); setBusy(null); setStep("done");
+    setSummary(acc); setPhase("idle"); setProgNote(""); setStep("done");
   };
 
   const pick = (i: number, c: MatchCandidate | null) =>
@@ -121,22 +165,63 @@ export default function ImportWizard() {
   const toggle = (i: number) =>
     setRows((prev) => prev.map((r) => (r.i === i ? { ...r, excluded: !r.excluded } : r)));
 
+  /* ---------------- shared pieces ---------------- */
+
+  const Stepper = () => (
+    <ol className="iw-steps" aria-label="Import steps">
+      {STAGES.map((s, i) => {
+        const cls = i < doneIdx ? "done" : i === stageIdx && activeStage !== "done" ? "active" : "";
+        return (
+          <li key={s.key} className={`iw-step ${cls}`}>
+            <span className="dot">{i < doneIdx ? "✓" : i + 1}</span>
+            <span className="lbl">{s.lbl}</span>
+            <span className="sub">{s.sub}</span>
+          </li>
+        );
+      })}
+    </ol>
+  );
+
+  const ProgressPanel = () =>
+    busy ? (
+      <div className="iw-prog" role="status" aria-live="polite">
+        <div className="iw-prog-head">
+          <span className="iw-spin" aria-hidden="true" />
+          <span className="iw-prog-title">{progTitle}</span>
+        </div>
+        {progNote && <div className="iw-prog-note">{progNote}{progress > 0 ? ` · ${progress}%` : ""}</div>}
+        <div className="iw-bar"><i style={{ width: `${progress}%` }} /></div>
+        {log.length > 0 && (
+          <ul className="iw-log">{log.map((l, k) => <li key={k}>{l}</li>)}</ul>
+        )}
+      </div>
+    ) : null;
+
   /* ---------------- render ---------------- */
 
   if (step === "done" && summary) {
     return (
       <div className="iw">
-        <h2 style={{ margin: "0 0 12px" }}>가져오기 완료</h2>
+        <Stepper />
+        <h2 style={{ margin: "0 0 12px" }}>Import complete</h2>
         <p style={{ fontSize: 15, lineHeight: 1.7 }}>
-          새로 추가 <b>{summary.added}</b>편 · 갱신 <b>{summary.updated}</b>편 · 관람 이력 기록 <b>{summary.logged}</b>건
-          {summary.skipped_dupes > 0 && <> · 중복 스킵 {summary.skipped_dupes}건</>}
+          <b>{summary.added}</b> added · <b>{summary.updated}</b> updated · <b>{summary.logged}</b> watch record{summary.logged === 1 ? "" : "s"} logged
+          {summary.skipped_dupes > 0 && <> · {summary.skipped_dupes} duplicate{summary.skipped_dupes === 1 ? "" : "s"} skipped</>}
         </p>
         {summary.failed.length > 0 && (
-          <p className="muted" style={{ fontSize: 13 }}>처리 실패: {summary.failed.join(", ")}</p>
+          <p className="muted" style={{ fontSize: 13 }}>Couldn&apos;t process: {summary.failed.join(", ")}</p>
         )}
-        <p style={{ marginTop: 16 }}>
-          <a href="/me" style={{ marginRight: 16 }}>← 내 대시보드로</a>
-          <button type="button" onClick={() => { setStep("input"); setRows([]); setSummary(null); setText(""); }}>추가로 가져오기</button>
+        <div className="iw-benefit" style={{ marginTop: 18 }}>
+          <h3>What just changed</h3>
+          <ul>
+            <li><span className="b">◑</span><span>Every film you&apos;ve seen now carries a <b>red border</b> across the whole site — posters, the galaxy, the atlas.</span></li>
+            <li><span className="b">✦</span><span><b>My Room</b> is now unlocked in your navigation — your personal workspace for rating, writing, and organizing.</span></li>
+            <li><span className="b">◎</span><span>Recommendations and lists re-center on <b>your</b> history instead of the global map.</span></li>
+          </ul>
+        </div>
+        <p style={{ marginTop: 18, display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <a className="btn" href="/me">Go to My Room →</a>
+          <button type="button" className="btn-ghost" onClick={() => { setStep("input"); setRows([]); setSummary(null); setText(""); setLog([]); }}>Import more</button>
         </p>
       </div>
     );
@@ -147,29 +232,30 @@ export default function ImportWizard() {
     for (const r of rows) if (!r.excluded) st[r.matchStatus ?? "pending"]++;
     return (
       <div className="iw">
+        <Stepper />
+        <ProgressPanel />
         <p style={{ fontSize: 14 }} className="muted">
-          감지된 형식: <b>{SOURCE_LABEL[source] ?? source}</b>{filename ? ` · ${filename}` : ""} · 총 {rows.length}행
-          {busy && <> · {busy} {progress > 0 && `${progress}%`}</>}
+          Detected format: <b>{SOURCE_LABEL[source] ?? source}</b>{filename ? ` · ${filename}` : ""} · {rows.length} rows
         </p>
         {warnings.map((w, k) => <p key={k} className="muted" style={{ fontSize: 13, margin: "2px 0" }}>⚠ {w}</p>)}
         <p style={{ fontSize: 14 }}>
-          매칭 확정 <b>{st.matched}</b> · 후보 선택 필요 <b style={{ color: st.ambiguous ? "#b45309" : undefined }}>{st.ambiguous}</b> · 미매칭 <b style={{ color: st.none ? "#b91c1c" : undefined }}>{st.none}</b>
+          Confirmed <b>{st.matched}</b> · needs a pick <b style={{ color: st.ambiguous ? "#b45309" : undefined }}>{st.ambiguous}</b> · no match <b style={{ color: st.none ? "#b91c1c" : undefined }}>{st.none}</b>
         </p>
 
         <div style={{ maxHeight: 480, overflowY: "auto", border: "1px solid var(--hairline)", borderRadius: 8 }}>
           <table style={{ width: "100%", fontSize: 13, borderCollapse: "collapse" }}>
             <thead>
-              <tr style={{ textAlign: "left", position: "sticky", top: 0, background: "var(--bg, #fff)" }}>
-                <th style={{ padding: 6 }}></th><th>제목</th><th>년도</th><th>별점</th><th>관람일</th><th>메모</th><th style={{ minWidth: 220 }}>TMDB 매칭</th>
+              <tr style={{ textAlign: "left", position: "sticky", top: 0, background: "var(--surface, #fff)" }}>
+                <th style={{ padding: 6 }}></th><th>Title</th><th>Year</th><th>Rating</th><th>Watched</th><th>Note</th><th style={{ minWidth: 220 }}>TMDB match</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
                 <tr key={r.i} style={{ borderTop: "1px solid var(--hairline)", opacity: r.excluded ? 0.4 : 1 }}>
                   <td style={{ padding: 6 }}>
-                    <input type="checkbox" checked={!r.excluded} onChange={() => toggle(r.i)} aria-label="포함" />
+                    <input type="checkbox" checked={!r.excluded} onChange={() => toggle(r.i)} aria-label="Include" />
                   </td>
-                  <td style={{ padding: 6 }}>{r.title}{r.to_watchlist && <span className="muted"> (왓치리스트)</span>}{r.rewatch && <span className="muted"> ↻</span>}</td>
+                  <td style={{ padding: 6 }}>{r.title}{r.to_watchlist && <span className="muted"> (watchlist)</span>}{r.rewatch && <span className="muted"> ↻</span>}</td>
                   <td>{r.year ?? ""}</td>
                   <td>{r.rating != null ? `★${r.rating}` : ""}</td>
                   <td>{r.watched_at ?? ""}</td>
@@ -183,12 +269,12 @@ export default function ImportWizard() {
                         )}
                         ✓ {r.match.title} ({r.match.year})
                         {(r.candidates?.length ?? 0) > 0 && (
-                          <button type="button" style={{ marginLeft: 6, fontSize: 12 }} onClick={() => pick(r.i, null)}>변경</button>
+                          <button type="button" style={{ marginLeft: 6, fontSize: 12 }} onClick={() => pick(r.i, null)}>change</button>
                         )}
                       </span>
                     ) : r.matchStatus === "ambiguous" && r.candidates?.length ? (
                       <select defaultValue="" onChange={(e) => { const c = r.candidates?.[Number(e.target.value)]; if (c) pick(r.i, c); }}>
-                        <option value="" disabled>후보 선택…</option>
+                        <option value="" disabled>Choose a match…</option>
                         {r.candidates.map((c, ci) => <option key={c.tmdb_id} value={ci}>{c.title} ({c.year})</option>)}
                       </select>
                     ) : r.matchStatus === "none" ? (
@@ -203,16 +289,16 @@ export default function ImportWizard() {
           </table>
         </div>
 
-        <div style={{ marginTop: 14, display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
+        <div className="iw-actions">
           <label style={{ fontSize: 13 }}>
             <input type="checkbox" checked={overwrite} onChange={(e) => setOverwrite(e.target.checked)} />{" "}
-            기존 별점/메모를 가져온 값으로 덮어쓰기
+            Overwrite existing ratings/notes with imported values
           </label>
-          <button type="button" disabled={!!busy || included.length === 0} onClick={commit} style={{ fontWeight: 600 }}>
-            {included.length}편 가져오기
+          <button type="button" className="btn" disabled={busy || included.length === 0} onClick={commit}>
+            Import {included.length} film{included.length === 1 ? "" : "s"}
           </button>
-          {unmatched.length > 0 && <span className="muted" style={{ fontSize: 13 }}>매칭 안 된 {unmatched.length}행은 제외됩니다</span>}
-          <button type="button" disabled={!!busy} onClick={() => { setStep("input"); setRows([]); }}>처음으로</button>
+          {unmatched.length > 0 && <span className="muted" style={{ fontSize: 13 }}>{unmatched.length} unmatched row{unmatched.length === 1 ? "" : "s"} will be skipped</span>}
+          <button type="button" className="btn-ghost" disabled={busy} onClick={() => { setStep("input"); setRows([]); setLog([]); }}>Start over</button>
         </div>
         {error && <p style={{ color: "#b91c1c", fontSize: 14 }}>{error}</p>}
       </div>
@@ -222,35 +308,61 @@ export default function ImportWizard() {
   // input step
   return (
     <div className="iw">
-      <div
-        onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
-        onDragLeave={() => setDrag(false)}
-        onDrop={(e) => { e.preventDefault(); setDrag(false); const f = e.dataTransfer.files?.[0]; if (f) parseFile(f); }}
-        style={{ border: `2px dashed ${drag ? "#333" : "var(--hairline, #ccc)"}`, borderRadius: 10, padding: 18, marginBottom: 14, textAlign: "center" }}
-      >
-        <p style={{ margin: "4px 0 8px", fontSize: 14 }}>
-          파일을 끌어다 놓거나{" "}
-          <button type="button" onClick={() => fileRef.current?.click()} style={{ textDecoration: "underline" }}>선택</button>
-          {" "}— Letterboxd 내보내기 ZIP, 엑셀(.xlsx), CSV(IMDb·왓챠 백업 등)
-        </p>
-        <input ref={fileRef} type="file" accept=".zip,.csv,.tsv,.xlsx,.xls,.txt" style={{ display: "none" }}
-          onChange={(e) => { const f = e.target.files?.[0]; if (f) parseFile(f); e.target.value = ""; }} />
+      <Stepper />
+
+      <div className="iw-benefit">
+        <h3>Why import your history</h3>
+        <ul>
+          <li><span className="b">◑</span><span>Every film you&apos;ve seen gets a <b>red border</b> everywhere on the site, so you always know what&apos;s new to you.</span></li>
+          <li><span className="b">✦</span><span>Unlocks <b>My Room</b> in your navigation — a private workspace to rate, write, and organize what you&apos;ve watched.</span></li>
+          <li><span className="b">◎</span><span>The whole map — recommendations, galaxy, atlas, lists — <b>re-centers on your taste</b>.</span></li>
+        </ul>
       </div>
 
-      <p style={{ fontSize: 14, margin: "0 0 6px" }}>또는 아무 텍스트나 붙여넣기 — 왓챠 프로필 화면 복사, 메모장 목록 등 형식 무관:</p>
-      <textarea
-        value={text} onChange={(e) => setText(e.target.value)}
-        placeholder={"예)\n기생충\n2019 · 평가함 ★ 5.0\n\n헤어질 결심 (2022) ★4.5 — 미결로 남기고 싶은 마음\n올드보이 2003년 별점 5"}
-        style={{ width: "100%", minHeight: 180, fontSize: 14, padding: 10, border: "1px solid var(--hairline, #ccc)", borderRadius: 8, fontFamily: "inherit" }}
-      />
-      <div style={{ marginTop: 10, display: "flex", gap: 12, alignItems: "center" }}>
-        <button type="button" disabled={!!busy || !text.trim()} onClick={parseText} style={{ fontWeight: 600 }}>해독하기</button>
-        {busy && <span className="muted" style={{ fontSize: 13 }}>{busy}</span>}
-      </div>
-      {error && <p style={{ color: "#b91c1c", fontSize: 14 }}>{error}</p>}
-      <p className="muted" style={{ fontSize: 12, marginTop: 14 }}>
-        별점은 자동으로 5점 척도(0.5 단위)로 변환됩니다. 저장 전 검수 화면에서 확인·수정할 수 있고, 원본 데이터는 관람 이력에 손실 없이 보관됩니다.
-      </p>
+      <ProgressPanel />
+
+      {!busy && (
+        <>
+          <div
+            className={`iw-drop${drag ? " drag" : ""}`}
+            onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
+            onDragLeave={() => setDrag(false)}
+            onDrop={(e) => { e.preventDefault(); setDrag(false); const f = e.dataTransfer.files?.[0]; if (f) parseFile(f); }}
+          >
+            <div className="ico">⤓</div>
+            <p className="lead">
+              Drag a file here, or{" "}
+              <button type="button" className="iw-linkbtn" onClick={() => fileRef.current?.click()}>browse</button>
+            </p>
+            <p className="sub">Letterboxd export (ZIP), IMDb ratings (CSV), Trakt, Excel (.xlsx), or any CSV</p>
+            <input ref={fileRef} type="file" accept=".zip,.csv,.tsv,.xlsx,.xls,.txt" style={{ display: "none" }}
+              onChange={(e) => { const f = e.target.files?.[0]; if (f) parseFile(f); e.target.value = ""; }} />
+          </div>
+
+          <p style={{ fontSize: 14, margin: "0 0 6px" }}>Or paste any text — a Letterboxd diary, a notes-app list, anything. Format doesn&apos;t matter:</p>
+          <textarea
+            className="iw-textarea"
+            value={text} onChange={(e) => setText(e.target.value)}
+            placeholder={"e.g.\nParasite\n2019 · watched ★5.0\n\nEverything Everywhere All at Once (2022) ★4.5 — the bagel got me\nThe Godfather 1972 rated 5\nPortrait of a Lady on Fire — want to watch"}
+          />
+          <div className="iw-actions">
+            <button type="button" className="btn" disabled={!text.trim()} onClick={parseText}>Decode my list →</button>
+          </div>
+          {error && <p style={{ color: "#b91c1c", fontSize: 14 }}>{error}</p>}
+
+          <div className="iw-trust">
+            <span className="ico" aria-hidden="true">🔒</span>
+            <span>
+              <b>Go ahead — this is safe.</b> Your list is private to your account, and nothing is saved until you review and confirm on the next screen.
+              We keep your original entries intact, and you can edit or delete anything anytime.
+            </span>
+          </div>
+
+          <p className="iw-note">
+            Ratings are normalized to a 5-star scale (0.5 steps). You&apos;ll confirm and fix every match before anything is written to your library.
+          </p>
+        </>
+      )}
     </div>
   );
 }
@@ -276,9 +388,9 @@ function ManualSearch({ onPick }: { onPick: (c: MatchCandidate) => void }) {
   };
   return (
     <span style={{ position: "relative" }}>
-      <input type="search" value={q} placeholder="직접 검색…" onChange={(e) => onChange(e.target.value)} style={{ fontSize: 12, width: 140 }} />
+      <input type="search" value={q} placeholder="Search…" onChange={(e) => onChange(e.target.value)} style={{ fontSize: 12, width: 140 }} />
       {hits.length > 0 && (
-        <span style={{ position: "absolute", zIndex: 5, top: "100%", left: 0, background: "var(--bg, #fff)", border: "1px solid var(--hairline, #ccc)", borderRadius: 6, minWidth: 220, display: "block", maxHeight: 200, overflowY: "auto" }}>
+        <span style={{ position: "absolute", zIndex: 5, top: "100%", left: 0, background: "var(--surface, #fff)", border: "1px solid var(--hairline, #ccc)", borderRadius: 6, minWidth: 220, display: "block", maxHeight: 200, overflowY: "auto" }}>
           {hits.map((h) => (
             <button key={h.tmdb_id} type="button" style={{ display: "block", width: "100%", textAlign: "left", padding: "4px 8px", fontSize: 12 }}
               onClick={() => { onPick(h); setHits([]); setQ(""); }}>
