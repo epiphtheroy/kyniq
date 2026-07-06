@@ -15,6 +15,7 @@ const KINDS: Record<string, string> = {
   theorists: "theorists_mine",
   traditions: "traditions_mine",
   directors: "directors_mine",
+  films: "films_mine",
 };
 
 export async function GET(request: Request) {
@@ -26,7 +27,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const fn = KINDS[searchParams.get("kind") ?? ""];
   if (!fn) return NextResponse.json({ error: "unknown kind" }, { status: 400 });
-  const limit = Math.min(Math.max(parseInt(searchParams.get("limit") || "500", 10) || 500, 1), 500);
+  const limit = Math.min(Math.max(parseInt(searchParams.get("limit") || "500", 10) || 500, 1), 1000);
   const offset = Math.max(parseInt(searchParams.get("offset") || "0", 10) || 0, 0);
 
   const admin = createAdminClient();
