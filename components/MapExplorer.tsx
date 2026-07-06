@@ -18,6 +18,8 @@ type Filt = { yr?: number | null; imdb?: number | null; rt?: number | null };
 type Target = { mode: Mode; ego?: EgoParams | null; key?: string | null; filt?: Filt };
 type Crumb = { id: string; label: string; target: Target };
 type SearchHit = { type: string; key: string; key2: string | null; label: string; sub: string | null; score: number };
+// /api/search hit fields we consume (see lib/search.ts SearchHit for the full shape)
+type ApiHit = { kind: string; slug: string; film_slug: string | null; title: string; sub: string; score: number };
 
 const MODES: [Mode, string][] = [["films", "Films"], ["directors", "Directors"], ["critical", "Grouped"], ["galaxy", "Galaxy"]];
 const ALL_LABEL: Record<Mode, string> = { films: "All films", directors: "All directors", critical: "All", galaxy: "Galaxy" };
@@ -65,6 +67,7 @@ export default function MapExplorer() {
   const [filt, setFilt] = useState<Filt>({ yr: null, imdb: null, rt: null });   // pending (selects)
   const [query, setQuery] = useState("");
   const [hits, setHits] = useState<SearchHit[]>([]);
+  const [sel, setSel] = useState(-1);
   const busy = useRef(false);
   const modeRef = useRef<Mode>(mode); modeRef.current = mode;
 
@@ -118,12 +121,21 @@ export default function MapExplorer() {
     })();
   }, []);
 
-  // debounced fuzzy search
+  // debounced fuzzy search — unified /api/search. Figure hits: map_ego wants
+  // p_key=film slug, p_key2=figure slug, so key←film_slug and key2←slug there.
   useEffect(() => {
     const t = query.trim();
-    if (t.length < 2) { setHits([]); return; }
+    if (t.length < 2) { setHits([]); setSel(-1); return; }
     const id = setTimeout(async () => {
-      try { const r = await fetch(`/api/map/search?q=${encodeURIComponent(t)}`, { cache: "no-store" }); const j = await r.json(); setHits(Array.isArray(j) ? j : []); } catch { setHits([]); }
+      try {
+        const r = await fetch(`/api/search?q=${encodeURIComponent(t)}&limit=10&mode=hybrid&kinds=film,director,trope,idea,theorist,figure`, { cache: "no-store" });
+        const j = await r.json();
+        const rows: ApiHit[] = Array.isArray(j?.hits) ? j.hits : [];
+        setHits(rows.map((h) => (h.kind === "figure"
+          ? { type: h.kind, key: h.film_slug ?? h.slug, key2: h.slug, label: h.title, sub: h.sub || null, score: h.score }
+          : { type: h.kind, key: h.slug, key2: null, label: h.title, sub: h.sub || null, score: h.score })));
+        setSel(-1);
+      } catch { setHits([]); setSel(-1); }
     }, 200);
     return () => clearTimeout(id);
   }, [query]);
@@ -172,7 +184,7 @@ export default function MapExplorer() {
 
   // jump from a search hit → set the right mode and recenter the map on it
   const jumpTo = useCallback(async (hit: SearchHit) => {
-    setQuery(""); setHits([]);
+    setQuery(""); setHits([]); setSel(-1);
     let m: Mode; let target: Target;
     if (hit.type === "film") { m = "films"; target = { mode: "films", key: hit.key }; }
     else if (hit.type === "director") { m = "directors"; target = { mode: "directors", key: hit.key }; }
@@ -256,13 +268,27 @@ export default function MapExplorer() {
             className="map-sinput"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (!hits.length) return;
+              if (e.key === "ArrowDown") { e.preventDefault(); setSel((s) => (s + 1) % hits.length); }
+              else if (e.key === "ArrowUp") { e.preventDefault(); setSel((s) => (s <= 0 ? hits.length - 1 : s - 1)); }
+              else if (e.key === "Enter") { e.preventDefault(); jumpTo(hits[sel >= 0 ? sel : 0]); }
+              else if (e.key === "Escape") { setHits([]); setSel(-1); }
+            }}
             placeholder="Search the map — films, directors, ideas…"
             spellCheck={false}
           />
           {hits.length > 0 && (
             <div className="map-sresults">
               {hits.map((hit, i) => (
-                <button key={hit.type + hit.key + i} className="map-shit" onClick={() => jumpTo(hit)}>
+                <button
+                  key={hit.type + hit.key + i}
+                  className="map-shit"
+                  aria-selected={i === sel}
+                  style={i === sel ? { background: "var(--surface-2)" } : undefined}
+                  onMouseEnter={() => setSel(i)}
+                  onClick={() => jumpTo(hit)}
+                >
                   <span className={`map-stype map-stype--${hit.type}`}>{TYPE_LABEL[hit.type] || hit.type}</span>
                   <span className="map-slabel">{hit.label}</span>
                   {hit.sub ? <span className="map-ssub">{hit.sub}</span> : null}

@@ -781,6 +781,23 @@ export default async function FilmPage({ params }: Props) {
           </section>
           </AccessCountryProvider>
 
+          {/* EXPLORE FROM HERE — outbound trails composed from data already on
+              the row, so a catalog record is never a dead-end. No extra queries. */}
+          <section className="df-sec" id="df-explore">
+            <h2 className="df-h2">Explore from here</h2>
+            <div className="df-digest__chips">
+              {f.director && dirSlug ? (
+                <Link className="df-chip" href={`/director/${dirSlug}`}>Director: {f.director}</Link>
+              ) : f.tmdb_id ? (
+                <Link className="df-chip" href={`/credits?f=${f.tmdb_id}`}>Full credits{f.director ? ` — ${f.director}` : ""}</Link>
+              ) : null}
+              {(f.genres ?? []).map((g) => (
+                <Link key={g} className="df-chip" href={`/genre/${slugifyGenre(g)}`}>{g}</Link>
+              ))}
+              <Link className="df-chip" href={`/search?q=${encodeURIComponent(f.title)}`}>Find similar: search &ldquo;{f.title}&rdquo; →</Link>
+            </div>
+          </section>
+
           {/* KEEP READING — the funnel from this catalog record into worked content */}
           {t2Sections.map((s) => (
             <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />

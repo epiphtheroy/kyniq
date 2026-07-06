@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Footer from "@/components/Footer";
+import GlobalCmdK from "@/components/GlobalCmdK";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
@@ -128,6 +129,7 @@ export default function RootLayout({
         />
         <UserFilmsProvider><UserSavesProvider><LensProvider>{children}</LensProvider></UserSavesProvider></UserFilmsProvider>
         <Footer />
+        <GlobalCmdK />
         <Analytics />
       </body>
     </html>

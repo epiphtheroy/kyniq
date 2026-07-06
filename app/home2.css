@@ -460,3 +460,22 @@
 .mthome .mflrow{flex-wrap:wrap;gap:8px}
 .mthome .mflcta{margin-left:0}
 }
+
+/* ---- ⌘K search triggers (Nav) ----
+   .navsearch is now a <button> that opens the global palette (GlobalCmdK)
+   via CustomEvent "metatake:cmdk"; it keeps the original .navsearch geometry
+   (flex:1, max-width:640px, white pill, h38) defined above. */
+.mthome button.navsearch{align-items:center;gap:10px;border:0;padding:0 8px 0 13px;cursor:pointer;text-align:left}
+.mthome .navsearch .nsico{flex:0 0 auto;color:#444;font-size:17px;line-height:1}
+.mthome .navsearch .nsph{flex:1;min-width:0;font-family:var(--text-serif);font-size:15px;color:#6f695f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mthome button.navsearch:hover .nsph{color:#1a1714}
+.mthome .navsearch .nskbd{flex:0 0 auto;font-family:var(--ui);font-size:11px;font-weight:600;color:#555;background:#f1efe8;border:1px solid #dcd7ca;border-radius:5px;padding:2px 6px;margin-right:5px}
+
+/* Search row at the top of the hamburger mega (the only trigger ≤680px, where .navsearch is hidden) */
+.mthome .mega .megasearchwrap{display:block;padding-top:18px;padding-bottom:0}
+.mthome .megasearch{display:flex;align-items:center;gap:10px;width:100%;max-width:640px;background:rgba(255,255,255,.07);border:1px solid var(--dline);border-radius:8px;color:#bdb5a4;font-family:var(--ui);font-size:14px;padding:10px 12px;cursor:pointer;text-align:left}
+.mthome .megasearch:hover{background:rgba(255,255,255,.12)}
+.mthome .megasearch .nsico{flex:0 0 auto;color:#EFEADD;font-size:16px;line-height:1}
+.mthome .megasearch .nsph{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mthome .megasearch:hover .nsph{color:#EFEADD}
+.mthome .megasearch .nskbd{flex:0 0 auto;font-family:var(--ui);font-size:11px;font-weight:600;color:#bdb5a4;background:transparent;border:1px solid var(--dline);border-radius:5px;padding:2px 6px}

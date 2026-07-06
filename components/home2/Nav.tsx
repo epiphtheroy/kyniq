@@ -24,6 +24,7 @@ function buildGroups(c: NavCounts): Group[] {
       { t: "TakeScore", h: "/takescore" },
       { t: "Lineage", h: "/lineage" },
       { t: "Atlas", h: "/atlas" },
+      { t: "Movements", h: "/movements" },
       { t: "Connections", h: "/map" },
       { t: "Where to watch", h: "/where-to-watch" },
       { t: "Credits", h: "/credits" },
@@ -34,6 +35,7 @@ function buildGroups(c: NavCounts): Group[] {
       { t: "Concepts", h: "/idea", c: c.concepts },
       { t: "Theorists", h: "/theorist", c: c.theorists },
       { t: "Traditions", h: "/tradition", c: c.traditions },
+      { t: "Methodology", h: "/methodology" },
     ] },
     { id: "lenses", label: "Lenses", items: [
       { t: "Tropes", h: "/tropes", c: c.tropes },
@@ -42,8 +44,7 @@ function buildGroups(c: NavCounts): Group[] {
     ] },
     { id: "you", label: "You", items: [
       { t: "Your Shelf", h: "/me" },
-      { t: "Saved Readings", h: "/me" },
-      { t: "For You", h: "/me" },
+      { t: "Import your films", h: "/me/import" },
       { t: "Ask metatake AI", h: "/ask" },
     ] },
   ];
@@ -115,13 +116,16 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
           ))}
         </nav>
 
-        <form className="navsearch" action="/search" method="get">
-          <div className="scope">All ▾</div>
-          <input name="q" placeholder="Search films, directors, ideas…" />
-          <button type="submit" className="go" aria-label="Search" style={{ border: 0, background: "transparent", cursor: "pointer" }}>
-            ⌕
-          </button>
-        </form>
+        <button
+          type="button"
+          className="navsearch navsearch--cmdk"
+          aria-label="Search Metatake (Cmd+K)"
+          onClick={() => window.dispatchEvent(new CustomEvent("metatake:cmdk"))}
+        >
+          <span className="nsico" aria-hidden="true">⌕</span>
+          <span className="nsph">Search films, ideas, people…</span>
+          <kbd className="nskbd" aria-hidden="true">⌘K</kbd>
+        </button>
 
         <div className="navright">
           <Link className="npro" href="/ask">
@@ -194,6 +198,21 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
 
       {/* Hamburger mega (narrow / overflow) — same five groups */}
       <div className={`mega${open === "mega" ? " open" : ""}`} id="mega">
+        <div className="wrap megasearchwrap">
+          <button
+            type="button"
+            className="megasearch"
+            aria-label="Search Metatake (Cmd+K)"
+            onClick={() => {
+              setOpen(null);
+              window.dispatchEvent(new CustomEvent("metatake:cmdk"));
+            }}
+          >
+            <span className="nsico" aria-hidden="true">⌕</span>
+            <span className="nsph">Search films, ideas, people…</span>
+            <kbd className="nskbd" aria-hidden="true">⌘K</kbd>
+          </button>
+        </div>
         <div className="wrap">
           {groups.map((g) => (
             <div className="mcol" key={g.id}>
