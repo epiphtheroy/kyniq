@@ -15,7 +15,9 @@ export function ruleFigureQuestion(label: string, kind: string | null, filmTitle
   if (/^the film as a whole$/i.test(lab)) {
     q = `What is ${filmTitle} really about?`;
   } else if (kind && /char/i.test(kind)) {
-    q = `Who is ${lab} in ${filmTitle}?`;
+    // "The character of Monsieur Merde" → "Who is Monsieur Merde in …?"
+    const name = lab.replace(/^the character of\s+/i, "");
+    q = `Who is ${name} in ${filmTitle}?`;
   } else {
     let core = lab;
     if (/^The\s/.test(core)) core = `the ${core.slice(4)}`;
