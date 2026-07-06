@@ -33,6 +33,7 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { ruleFigureQuestion } from "@/lib/figureSeo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
 import { FILM_HONORS_MIN, honorText, loadLineageListMeta } from "@/lib/lineage";
 import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
@@ -1124,13 +1125,16 @@ export default async function FilmPage({ params }: Props) {
                 <div className="df-flabel">{KIND_LABEL[g.kind] ?? g.kind}</div>
                 {g.items.map((f) => {
                   const n = takeCount[f.id] ?? 0;
+                  // Query-shaped anchor to the figure page (clean labels only) —
+                  // puts search phrasing on this page and aligns the link signal.
+                  const fq = ruleFigureQuestion(f.label, f.kind, film.title);
                   return (
                     <div key={f.id} className="df-fig">
                       <div className="df-figL">
                         <div className="df-lab">{f.label}</div>
                         <div className="df-figmeta">
                           <span className={`df-rc${n === 0 ? " df-rc--zero" : ""}`}>{n} reading{n === 1 ? "" : "s"}</span>
-                          {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>Open →</Link> : null}
+                          {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>{fq ? `${fq} →` : "Open →"}</Link> : null}
                         </div>
                       </div>
                       <div className="df-figR">

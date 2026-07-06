@@ -17,6 +17,7 @@ import { renderTokens } from "@/lib/mtTokens";
 import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 import { axisLabel, nodeHref } from "@/lib/catalog";
+import { ruleFigureQuestion } from "@/lib/figureSeo";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -193,7 +194,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Search-query framing targets long-tail "{figure} meaning" / "{figure} symbolism in {film}" queries.
   const yearPart = data.film.year ? ` (${data.film.year})` : "";
   // No brand suffix here — the root layout template appends "· Metatake".
-  const title = `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings`;
+  // Clean labels get a question-form title (matches real query phrasing);
+  // messy labels keep the descriptive pattern until an editorial question exists.
+  const rq = ruleFigureQuestion(data.figure.label as string, data.figure.kind as string | null, data.film.title as string);
+  const title = rq
+    ? rq.replace(/\?$/, `${yearPart}?`)
+    : `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings`;
   const description = data.figure.description ? metaDescription(data.figure.description) : undefined;
   return {
     title,
@@ -250,9 +256,11 @@ export default async function FigurePage({ params }: Props) {
     ],
   };
 
-  // The lead question — rendered verbatim as the visible H2 above the
-  // description, so the FAQ markup always mirrors on-page content.
-  const leadQuestion = `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`;
+  // The lead question — the query-shaped SUBTITLE. Entity identity (H1, cross-page
+  // references, JSON-LD headline) always stays the label; the question appears only
+  // in <title> and as the visible H2, mirrored by the FAQ markup.
+  const ruleQ = ruleFigureQuestion(figure.label as string, figure.kind as string | null, film.title as string);
+  const leadQuestion = ruleQ ?? `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`;
   const topConn = connections.length > 0 ? connections[0] : null;
   const faqLd = figure.description ? {
     "@context": "https://schema.org", "@type": "FAQPage",
@@ -288,6 +296,8 @@ export default async function FigurePage({ params }: Props) {
 
         <section className="fg-head">
           <div className="fg-kindtag">Figure</div>
+          {/* H1 stays the entity name — figures are cross-referenced site-wide as
+              noun phrases. The question lives in <title> and the lead H2 only. */}
           <h1 className="fg-h1">{figure.label}</h1>
           <Byline created={figure.created_at} updated={figure.updated_at} />
 
@@ -349,8 +359,8 @@ export default async function FigurePage({ params }: Props) {
 
           {figure.description ? (
             <>
-              {/* Visible twin of the FAQ question — film title + figure in one
-                  query-shaped heading, so the figure never reads film-less. */}
+              {/* Visible twin of the FAQ question — the query-shaped subtitle
+                  under the entity H1 (rule-improved when the label is clean). */}
               <h2 className="fg-qh">{leadQuestion}</h2>
               <p className="fg-desc">{renderTokens(figure.description, resolver)}</p>
             </>
