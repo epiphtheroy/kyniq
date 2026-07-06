@@ -3050,7 +3050,13 @@ a.df-rt:hover{border-color:var(--ink)}
 .sm-row__title{font-family:var(--font-display); font-size:16.5px; font-weight:700; line-height:1.32; letter-spacing:-.01em; margin:0 0 5px}
 .sm-row__title a:hover{color:var(--accent)}
 .sm-row__thesis{font-family:var(--font-display); font-size:14.5px; line-height:1.6; color:var(--muted); margin:0; max-width:72ch}
-.df-mlist--wide{border-top:1px solid var(--hairline)}
+/* Tropes & Archetype lists — 2-column + tighter rows so the section reads at
+   roughly half the vertical scroll (no content removed, only re-flowed). */
+.df-mlist--wide{border-top:1px solid var(--hairline); column-count:2; column-gap:38px}
+.df-mlist--wide .df-mrow{break-inside:avoid; -webkit-column-break-inside:avoid; padding:8px 4px; gap:2px 9px}
+.df-mlist--wide .df-mrow .df-t{font-size:15.5px; line-height:1.28}
+.df-mlist--wide .df-via,.df-mlist--wide .df-ttl{line-height:1.42}
+@media(max-width:640px){.df-mlist--wide{column-count:1}}
 
 /* ====== TROPE hub — maturity + Strong-Misreading readings ====== */
 /* maturity — a shiny pill badge, not plain text */
@@ -3188,6 +3194,26 @@ a.df-rt:hover{border-color:var(--ink)}
 .sm-row__thesis--full{color:var(--ink); font-size:15.5px; line-height:1.62; max-width:74ch}
 .sm-row__leap{font-family:var(--font-ui); font-size:13px; line-height:1.55; color:var(--muted); margin:8px 0 0; max-width:74ch}
 .sm-row__leap .sm-leap__l{font-weight:700; text-transform:uppercase; letter-spacing:.07em; font-size:10px; color:var(--accent); margin-right:6px}
+
+/* Strong Misreadings — 2-column card grid: cuts the section to ~half height and
+   turns each reading into a framework-tinted card (impact without losing text). */
+.sm-grid{column-count:2; column-gap:34px; margin-top:2px}
+.sm-grid .sm-row{break-inside:avoid; -webkit-column-break-inside:avoid;
+  border-left:3px solid var(--fw-color,#8f8f8f);
+  background:color-mix(in srgb, var(--fw-color,#8f8f8f) 5%, transparent);
+  border-radius:0 9px 9px 0; padding:11px 15px 13px; margin:0 0 15px}
+.sm-grid .sm-row__top{margin-bottom:6px; gap:8px}
+/* framework label → colored pill (inherits the per-framework inline color) */
+.sm-grid .sm-fw{display:inline-block; font-size:9.5px; font-weight:800; letter-spacing:.07em;
+  text-transform:uppercase; line-height:1.5; padding:2px 9px; border-radius:999px;
+  border:1px solid currentColor; background:color-mix(in srgb, currentColor 12%, transparent)}
+.sm-grid .sm-row__title{font-size:15.5px; line-height:1.3; margin:0 0 4px}
+.sm-grid .sm-row__thesis--full{font-size:14px; line-height:1.56}
+.sm-grid .sm-row__leap{font-size:12px; line-height:1.5; margin:7px 0 0}
+@media(max-width:720px){.sm-grid{column-count:1}}
+/* director page: match the film-page framework-pill look for consistency */
+.dr-mr-fw{display:inline-block; font-size:9.5px; letter-spacing:.07em; padding:2px 9px;
+  border-radius:999px; border:1px solid currentColor; background:color-mix(in srgb, currentColor 12%, transparent)}
 
 /* ===== Catalog (taxonomy layer) ===== */
 .cat-wrap{--teal:#167C6B; max-width:1080px; margin:0 auto; padding:24px 20px 80px}
