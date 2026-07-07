@@ -1,11 +1,9 @@
-import { createClient } from "@/lib/supabase/server";
-import WatchlistWorkspace, { type WwiRow } from "@/components/room/WatchlistWorkspace";
+import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-
-export default async function RoomWatchlistPage() {
-  const supabase = await createClient();
-  const { data } = await supabase.rpc("me_recommend_wwi", { p_lambda: 1.0, p_limit: 40 });
-  const rows = (data as WwiRow[] | null) ?? [];
-  return <WatchlistWorkspace rows={rows} />;
+/** v3: the old watchlist split into Screener (pure discovery, /room/screener)
+ *  and Slate (kept films, /room/slate). Old bookmarks land on the Screener.
+ *  Page-stub redirect only — next.config/middleware are off-limits (the
+ *  auto-deploy watcher stages app/components/lib only). */
+export default function RoomWatchlistRedirect() {
+  redirect("/room/screener");
 }

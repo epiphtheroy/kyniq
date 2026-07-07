@@ -1,0 +1,83 @@
+/* /room/lens — theory-lens instrument (page CSS island).
+   FULLY SCOPED under .room-root so it never leaks. Shared tokens from room.css.
+   The screen is client-fetch-first: every panel carries its own skeleton. */
+
+/* ── tab bar ── */
+.room-root .lx-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.room-root .lx-tab{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);
+  background:var(--pnl);border-radius:999px;padding:6px 13px;font-size:12px;color:var(--mut);
+  cursor:pointer;font-family:var(--ui)}
+.room-root .lx-tab:hover{color:var(--ink);border-color:var(--line3)}
+.room-root .lx-tab.on{color:var(--ink);background:var(--pnl2);border-color:var(--line3)}
+.room-root .lx-tab i{font-size:14px}
+.room-root .lx-tab .n{font-family:var(--mono);font-size:10px;color:var(--sub)}
+
+/* ── ranking table (entity tabs) ── */
+.room-root .lx-count{font-size:11.5px;color:var(--sub);margin:0 0 10px}
+.room-root .lx-count b{color:var(--ink);font-family:var(--mono)}
+.room-root .lx-row{display:grid;grid-template-columns:26px minmax(0,1fr) 150px 44px 30px;gap:10px;
+  align-items:center;padding:8px;border-radius:6px;border:1px solid transparent;
+  border-bottom:1px solid var(--line);cursor:pointer}
+.room-root .lx-row:hover{background:var(--pnl);border-color:var(--line2)}
+.room-root .lx-rk{font-family:var(--mono);font-size:11px;color:var(--sub);text-align:right}
+.room-root .lx-lb{font-family:var(--ser);font-size:14px;color:var(--ink)}
+.room-root .lx-sub{font-size:10.5px;color:var(--sub);margin-left:7px}
+.room-root .lx-bar{height:6px;border-radius:3px;background:var(--pnl3);overflow:hidden}
+.room-root .lx-bar i{display:block;height:100%;border-radius:3px;background:var(--reading)}
+.room-root .lx-n{font-family:var(--mono);font-size:12px;text-align:right;color:var(--ink)}
+.room-root .lx-out{display:flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:5px;color:var(--sub);font-size:14px}
+.room-root .lx-out:hover{color:var(--ink);background:var(--pnl2)}
+@media(max-width:640px){
+  .room-root .lx-row{grid-template-columns:22px minmax(0,1fr) 44px 26px}
+  .room-root .lx-bar{display:none}
+}
+
+/* ── readings controls ── */
+.room-root .lx-controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:0 0 12px}
+.room-root .lx-fwchips{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 10px}
+.room-root .lx-fw{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;border:1px solid var(--line2);
+  border-radius:999px;padding:3px 9px;color:var(--mut);cursor:pointer;background:var(--pnl);font-family:var(--ui)}
+.room-root .lx-fw::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.room-root .lx-fw:hover{border-color:var(--line3)}
+.room-root .lx-fw.on{border-color:currentColor;background:var(--pnl2)}
+.room-root .lx-fw.all::before{background:var(--mut)}
+/* trope search (suggestions come from the tropes-that-cross-my-films index) */
+.room-root .lx-tsearch{position:relative}
+.room-root .lx-sugs{position:absolute;top:calc(100% + 5px);left:0;min-width:250px;max-height:260px;
+  overflow-y:auto;background:var(--bg2);border:1px solid var(--line2);border-radius:8px;z-index:40;
+  box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.room-root .lx-sug{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;
+  padding:7px 11px;font-size:12px;color:var(--mut);cursor:pointer;background:transparent;border:0;
+  text-align:left;font-family:var(--ui)}
+.room-root .lx-sug:hover{background:var(--pnl2);color:var(--ink)}
+.room-root .lx-sug .n{font-family:var(--mono);font-size:10px;color:var(--sub)}
+.room-root .lx-tchip{display:inline-flex;align-items:center;gap:6px;font-size:11px;border:1px solid rgba(139,127,232,.5);
+  border-radius:999px;padding:3px 10px;color:var(--reading);background:var(--pnl)}
+.room-root .lx-tchip button{background:transparent;border:0;color:var(--sub);cursor:pointer;padding:0;font-size:12px;line-height:1}
+.room-root .lx-tchip button:hover{color:var(--ink)}
+
+/* ── readings cards ── */
+.room-root .lx-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.room-root .lx-cards{grid-template-columns:1fr}}
+.room-root .lx-card{display:grid;grid-template-columns:92px minmax(0,1fr);gap:11px;border:1px solid var(--line);
+  border-radius:9px;background:var(--pnl);padding:10px}
+.room-root .lx-card:hover{border-color:var(--line2);background:var(--pnl2)}
+.room-root .lx-cimg{width:92px;height:64px;border-radius:5px;object-fit:cover;background:var(--pnl3);display:block}
+.room-root .lx-cimg--blank{display:block}
+.room-root .lx-cbody{min-width:0}
+.room-root .lx-cfw{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+.room-root .lx-ctt{display:block;font-family:var(--ser);font-size:13.5px;color:var(--ink);line-height:1.35;margin-top:2px}
+.room-root .lx-ctt:hover{text-decoration:underline}
+.room-root .lx-cfilm{display:block;font-size:11px;color:var(--mut);margin-top:2px}
+.room-root .lx-csnip{font-size:11px;color:var(--sub);line-height:1.45;margin-top:4px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.room-root .lx-ctrope{font-size:10px;color:var(--reading);margin-top:5px;display:inline-block}
+.room-root .lx-ctrope:hover{text-decoration:underline}
+
+/* ── v2 placeholder slot (TakeScore Explorer) ── */
+.room-root .lx-v2{border-style:dashed}
+.room-root .lx-v2 .modbody{font-size:12px;color:var(--mut);line-height:1.6}
+
+/* honest empties */
+.room-root .lx-empty{padding:26px 14px;color:var(--sub);font-size:12.5px;text-align:center;line-height:1.6}

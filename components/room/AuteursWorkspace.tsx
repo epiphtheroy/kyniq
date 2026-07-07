@@ -1,17 +1,26 @@
 "use client";
-/** 감독 정복 (Auteur Conquest) — /room/auteurs.
- *  REAL data via me_auteur_conquest(): for every director the user has started (seen ≥1
- *  VISIBLE film of), show OEUVRE COMPLETION (seen / total films in our DB) with the 완파
- *  4-state bar (잠금<50 · 진행50–74 · 근접75–99 · 완파100), avg ★, and surface the unseen
- *  essential films (highest prestige, with TakeScore U=V−R) as 도장깨기(conquer) candidates.
- *
- *  Inspector-swap mirrors CommandCenterWorkspace/CollectionWorkspace: setDefault in a
- *  useEffect with [data,setDefault]-style deps; insp.select on director / film click.
- *  Unseen films pass a slug to CinecodexCard so the film content hub opens.
+/** Auteurs — /room/auteurs (v3 upgrade of the Auteur Conquest instrument).
+ *  REAL data via me_auteur_conquest(p_limit): for every director the user has
+ *  started (seen >=1 visible film of), show OEUVRE COMPLETION (seen / total
+ *  films in our catalog — the denominator is our catalog, disclosed honestly)
+ *  with the 4-state bar (Locked<50 · In progress 50–74 · Near 75–99 ·
+ *  Complete 100), the average of my stars (shared read-only <Stars>), and the
+ *  unseen essentials (highest Standing, with TakeScore U = V−R) as conquest
+ *  candidates. v3 fixes the read/write asymmetry: every conquest candidate
+ *  gets Keep / Seen / Rate through useRoomActions, and films acted on this
+ *  session drop out of the candidate lists via SessionStore.
  *  PostgREST numerics arrive as strings → coerce with num() before any math. */
-import { useMemo, useState, useEffect, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useInspector } from "./InspectorContext";
+import { useRoomActions } from "./useRoomActions";
 import CinecodexCard from "./CinecodexCard";
+import Stars from "./Stars";
+import ICard from "./insp/ICard";
+import KV from "./insp/KV";
+import SelHead from "./insp/SelHead";
+import ActBar, { type Act } from "./insp/ActBar";
+import { num, IMG, REASON_MAP } from "@/lib/room/format";
+import { STR } from "./strings";
 
 /* ── typed RPC shape (numerics may arrive as strings from PostgREST) ── */
 export type UnseenFilm = {
@@ -24,22 +33,17 @@ export type AuteurRow = {
   avg_rating: number | string | null; unseen_top: UnseenFilm[] | null;
 };
 
-const IMG = "https://image.tmdb.org/t/p/w92";
-const num = (x: number | string | null | undefined): number | null =>
-  x == null ? null : typeof x === "number" ? x : Number.isNaN(Number(x)) ? null : Number(x);
+/* Honest-denominator gloss (spec §3.8.4) — shown wherever completion renders. */
+const DENOM_GLOSS = "% of this director's films in our catalog that you've seen — the denominator is our catalog, not the full filmography.";
+const STATE_GLOSS = "Locked <50 · In progress 50-74 · Near 75-99 · Complete 100";
 
-const stars = (rt: number | null) => {
-  if (rt == null) return "─────";
-  const full = Math.floor(rt); const half = rt - full >= 0.5;
-  return "★".repeat(full) + (half ? "½" : "") + "☆".repeat(Math.max(0, 5 - full - (half ? 1 : 0)));
-};
-
-/* 완파 4-state (S4): 잠금<50 gray · 진행50–74 --canon · 근접75–99 --canon(glow) · 완파100 --conquer */
+/* 4-state completion (spec §3.8.2): Locked<50 gray · In progress 50–74 --canon ·
+   Near 75–99 --canon(glow) · Complete 100 --conquer. */
 function covState(pct: number): { cls: string; label: string; col: string } {
-  if (pct >= 100) return { cls: "st-done", label: "완파", col: "var(--conquer)" };
-  if (pct >= 75) return { cls: "st-near", label: "근접", col: "var(--canon)" };
-  if (pct >= 50) return { cls: "st-prog", label: "진행", col: "var(--canon)" };
-  return { cls: "st-lock", label: "잠금", col: "var(--sub)" };
+  if (pct >= 100) return { cls: "st-done", label: "Complete", col: "var(--conquer)" };
+  if (pct >= 75) return { cls: "st-near", label: "Near", col: "var(--canon)" };
+  if (pct >= 50) return { cls: "st-prog", label: "In progress", col: "var(--canon)" };
+  return { cls: "st-lock", label: "Locked", col: "var(--sub)" };
 }
 
 /* ── derived normalizers ── */
@@ -49,7 +53,8 @@ type Unseen = {
 };
 type Auteur = {
   slug: string; name: string; profile_path: string | null;
-  seen: number; total: number; pct: number; avg_rating: number | null; unseen: Unseen[];
+  seen: number; total: number; pct: number; remaining: number;
+  avg_rating: number | null; unseen: Unseen[];
 };
 function normUnseen(f: UnseenFilm): Unseen {
   return {
@@ -63,50 +68,78 @@ function normAuteur(r: AuteurRow): Auteur {
   const pct = num(r.pct) ?? (total ? Math.round((seen / total) * 100) : 0);
   return {
     slug: r.slug, name: r.name ?? r.slug, profile_path: r.profile_path,
-    seen, total, pct, avg_rating: num(r.avg_rating),
-    unseen: (r.unseen_top ?? []).map(normUnseen),
+    seen, total, pct, remaining: Math.max(0, total - seen),
+    avg_rating: num(r.avg_rating), unseen: (r.unseen_top ?? []).map(normUnseen),
   };
 }
 
-/* ── inspector: 도장깨기 후보 하나 (Cinecodex + film hub via slug) ── */
-function ConquerInsp({ f, dir }: { f: Unseen; dir?: string }) {
+/* ── shared avg-star cell (read-only shared <Stars>, no unicode string builders) ── */
+function AvgStars({ value, size = 12 }: { value: number | null; size?: number }) {
+  if (value == null) return <div className="au-stars"><div className="me">Unrated</div></div>;
   return (
-    <div>
-      <div className="selhead">
-        <span className="po" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
-        <div>
-          <div className="seltitle ser">{f.title}</div>
-          <div className="selsub">{f.year ?? "?"}{dir ? ` · ${dir}` : ""} · 도장깨기 후보</div>
-        </div>
-      </div>
-      <div className="icard"><h4><i className="ti ti-target-arrow" /> 정복 대상 · 미관람 필수작</h4>
-        <div className="bigscore" style={{ color: "var(--canon)" }}>{f.prestige != null ? Math.round(f.prestige) : "—"}<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>정전가 · Standing</span></div>
-        <div className="kv" style={{ marginTop: 8 }}><span><span className="gloss" title="TakeScore U = V(획득가치) − R(위험). 높을수록 볼 값어치.">TakeScore U</span> (V−R)</span><b style={{ color: f.u != null && f.u >= 40 ? "var(--safe)" : "var(--ink)" }}>{f.u != null ? f.u : "—"}</b></div>
-        <div className="au-rsn-line"><span className="rsn conquer"><i className="ti ti-flag" /> 도장깨기</span></div>
-      </div>
-      <CinecodexCard d={{ v: null, c: null, r: null, prestige: f.prestige }} slug={f.slug} />
+    <div className="au-stars" title={`My average ★ ${value.toFixed(2)}`}>
+      <Stars value={value} size={size} />
+      <div className="me">{value.toFixed(1)}</div>
     </div>
   );
 }
 
-/* ── inspector: 감독 정복 상세 (oeuvre + 도장깨기 rows) ── */
-function AuteurInsp({ a, onFilm }: { a: Auteur; onFilm: (f: Unseen, dir: string) => void }) {
-  const st = covState(a.pct);
-  const remain = Math.max(0, a.total - a.seen);
+/* ── inspector: one conquest candidate — now with verbs (spec §3.8.3).
+ *  A client component with its own hooks so mutations re-render it live. ── */
+function ConquerInsp({ f, dir }: { f: Unseen; dir?: string }) {
+  const { session, doKeep, doSeen, doRate } = useRoomActions();
+  const [rating, setRating] = useState<number | null>(null);
+  // React reuses the instance across consecutive select() calls — reset on film change.
+  useEffect(() => { setRating(null); }, [f.slug]);
+
+  const kept = session.kept.has(f.slug);
+  const seen = session.gone.has(f.slug);
+  const conquer = REASON_MAP.conquer;
+
+  const acts: Act[] = [
+    { label: kept ? `✓ ${STR.row.kept}` : STR.row.keep, primary: !kept, disabled: kept, onClick: () => { void doKeep(f.slug, f.title); } },
+    { label: seen ? `✓ ${STR.row.seen}` : STR.row.seen, disabled: seen, onClick: () => { void doSeen(f.slug, f.title); } },
+  ];
+
   return (
     <div>
-      <div className="selhead">
-        <span className="po" style={a.profile_path ? { backgroundImage: `url(${IMG}${a.profile_path})` } : {}} />
-        <div>
-          <div className="seltitle ser">{a.name}</div>
-          <div className="selsub">감독 · 정복도 {a.pct}% · {st.label}</div>
+      <SelHead title={f.title} sub={<>{f.year ?? "?"}{dir ? ` · ${dir}` : ""} · Conquest candidate</>} posterPath={f.poster_path} />
+      <ICard icon="ti-target-arrow" title="Conquest target · unseen essential">
+        <div className="bigscore" style={{ color: "var(--canon)" }}>
+          {f.prestige != null ? Math.round(f.prestige) : "—"}
+          <span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>Standing</span>
         </div>
-      </div>
+        <div style={{ marginTop: 8 }}>
+          <KV k={<span className="gloss" title="TakeScore U = V (earned value) - R (risk). Higher = more worth watching.">TakeScore U (V−R)</span>}
+            v={<span style={{ color: f.u != null && f.u >= 40 ? "var(--safe)" : "var(--ink)" }}>{f.u != null ? f.u : "—"}</span>} />
+        </div>
+        <div className="au-rsn-line"><span className={`rsn ${conquer.cls}`}><i className="ti ti-flag" /> {conquer.label}</span></div>
+      </ICard>
+      <CinecodexCard d={{ v: null, c: null, r: null, prestige: f.prestige }} slug={f.slug} />
+      <ICard icon="ti-player-play" title={STR.insp.actNow}>
+        <ActBar acts={acts} style={{ marginTop: 0, marginBottom: 10 }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Stars value={rating ?? 0} onPick={(v) => { setRating(v); void doRate(f.slug, f.title, v); }} title={STR.insp.myRating} />
+          <span style={{ fontSize: 10.5, color: "var(--sub)" }}>{STR.insp.ratingHint}</span>
+        </div>
+      </ICard>
+    </div>
+  );
+}
 
-      <div className="icard"><h4><i className="ti ti-crown" /> 오이브르 정복도 · OEUVRE</h4>
-        <div className="bigscore" style={{ color: st.col }}>{a.pct}%<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>{a.seen} / {a.total} 관람 · {st.label}</span></div>
+/* ── inspector: one director (oeuvre + conquest rows) ── */
+function AuteurInsp({ a, onFilm }: { a: Auteur; onFilm: (f: Unseen, dir: string) => void }) {
+  const st = covState(a.pct);
+  return (
+    <div>
+      <SelHead title={a.name} sub={<>Director · {a.pct}% complete · {st.label}</>} posterPath={a.profile_path} />
+
+      <ICard icon="ti-crown" title="Oeuvre completion">
+        <div className="bigscore" style={{ color: st.col }}>
+          {a.pct}%<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>{a.seen} / {a.total} seen · {st.label}</span>
+        </div>
         <div className="crow" style={{ marginTop: 8 }}>
-          <span className="cl"><span className="gloss" title="정복도 = 우리 DB의 이 감독 전 작품 중 내가 본 비율(%).">정복도</span></span>
+          <span className="cl"><span className="gloss" title={DENOM_GLOSS}>Completion</span></span>
           <span className="cbar"><i style={{ width: `${Math.max(a.pct, a.pct > 0 ? 3 : 1)}%`, background: st.col }} /></span>
           <span className="cvv">{a.pct}</span>
         </div>
@@ -114,16 +147,19 @@ function AuteurInsp({ a, onFilm }: { a: Auteur; onFilm: (f: Unseen, dir: string)
           {[50, 75, 100].map((m) => {
             const on = a.pct >= m;
             const cls = on ? (m === 100 ? "conquer" : "canon") : "";
-            return <span key={m} className={`rsn ${cls}`} style={on ? {} : { opacity: 0.4 }}>{m === 100 ? "완파" : `${m}%`}</span>;
+            return <span key={m} className={`rsn ${cls}`} style={on ? {} : { opacity: 0.4 }}>{m === 100 ? "Complete" : `${m}%`}</span>;
           })}
         </div>
-        <div className="kv" style={{ marginTop: 8 }}><span>내 평균 ★</span><b>{a.avg_rating != null ? a.avg_rating.toFixed(2) : "—"}</b></div>
-        <div style={{ fontSize: 11, color: "var(--canon)", marginTop: 6 }}>
-          <i className="ti ti-flag" /> {a.pct >= 100 ? "완파 완료 — 우리 DB 기준 전작" : `완파까지 ${remain}편 남음`}
+        <div style={{ marginTop: 8, display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 11.5 }}>
+          <span style={{ color: "var(--mut)" }}>My average ★</span>
+          <AvgStars value={a.avg_rating} />
         </div>
-      </div>
+        <div style={{ fontSize: 11, color: "var(--canon)", marginTop: 6 }}>
+          <i className="ti ti-flag" /> {a.pct >= 100 ? "Complete — every film of this director in our catalog" : `${a.remaining} film${a.remaining === 1 ? "" : "s"} to complete`}
+        </div>
+      </ICard>
 
-      <div className="icard"><h4><i className="ti ti-target-arrow" /> 도장깨기 · 미관람 필수작 {a.unseen.length ? `(${a.unseen.length})` : ""}</h4>
+      <ICard icon="ti-target-arrow" title={<>Conquest candidates {a.unseen.length ? `(${a.unseen.length})` : ""}</>}>
         {a.unseen.length ? (
           <div className="au-conqlist">
             {a.unseen.map((f) => (
@@ -133,82 +169,113 @@ function AuteurInsp({ a, onFilm }: { a: Auteur; onFilm: (f: Unseen, dir: string)
                   <div className="au-ctt">{f.title}</div>
                   <div className="au-csub">{f.year ?? "?"}</div>
                 </div>
-                <div className="au-cnum"><div className="pv" style={{ color: "var(--canon)" }}>{f.prestige != null ? Math.round(f.prestige) : "—"}</div><div className="pl">정전가</div></div>
+                <div className="au-cnum"><div className="pv" style={{ color: "var(--canon)" }}>{f.prestige != null ? Math.round(f.prestige) : "—"}</div><div className="pl">Standing</div></div>
                 <div className="au-cnum"><div className="pv" style={{ color: f.u != null && f.u >= 40 ? "var(--safe)" : "var(--ink)" }}>{f.u != null ? f.u : "—"}</div><div className="pl">U</div></div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="emptyins">미관람 후보가 없습니다 — 이 감독은 이미 완파했거나 남은 작품이 DB에 없습니다.</div>
+          <div className="emptyins">No unseen candidates — this director is either complete or has no further films in our catalog.</div>
         )}
-      </div>
+      </ICard>
     </div>
   );
 }
 
 /* ═══════════ main ═══════════ */
-type SortKey = "pct" | "seen" | "name";
+type SortKey = "seen" | "pct" | "remain" | "name";
+const LIST_FIRST = 30;
 
 export default function AuteursWorkspace({ rows }: { rows: AuteurRow[] }) {
   const insp = useInspector();
   const { setDefault } = insp;
+  const { session } = useRoomActions();
   const [sort, setSort] = useState<SortKey>("seen");
   const [sel, setSel] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const auteurs = useMemo(() => rows.map(normAuteur), [rows]);
 
-  /* ── KPI ── */
-  const started = auteurs.length;
-  const conquered = useMemo(() => auteurs.filter((a) => a.pct >= 100).length, [auteurs]);
-  const avgPct = useMemo(() => {
-    if (!auteurs.length) return null;
-    return Math.round(auteurs.reduce((s, a) => s + a.pct, 0) / auteurs.length);
-  }, [auteurs]);
-  const conquerCount = useMemo(() => auteurs.reduce((s, a) => s + a.unseen.length, 0), [auteurs]);
+  /* Session overlay: candidates acted on this session (Seen / rated) drop out of
+     the conquest lists. Server completion numbers stay untouched (no fake math —
+     they refresh on the next load). */
+  const live = useMemo(
+    () => auteurs.map((a) => ({ ...a, unseen: a.unseen.filter((f) => !session.gone.has(f.slug)) })),
+    [auteurs, session.gone],
+  );
 
-  /* ── 도장깨기 데스크: flat cross-director list of top unseen essentials, prestige desc ── */
+  /* ── KPI ── */
+  const started = live.length;
+  const conquered = useMemo(() => live.filter((a) => a.pct >= 100).length, [live]);
+  const avgPct = useMemo(() => {
+    if (!live.length) return null;
+    return Math.round(live.reduce((s, a) => s + a.pct, 0) / live.length);
+  }, [live]);
+  const conquerCount = useMemo(() => live.reduce((s, a) => s + a.unseen.length, 0), [live]);
+
+  /* ── conquest desk: flat cross-director list of top unseen essentials, Standing desc ── */
   const conquerDesk = useMemo(() => {
     const flat: (Unseen & { dir: string })[] = [];
-    for (const a of auteurs) for (const f of a.unseen) flat.push({ ...f, dir: a.name });
+    for (const a of live) for (const f of a.unseen) flat.push({ ...f, dir: a.name });
     return flat.sort((x, y) => (y.prestige ?? -1) - (x.prestige ?? -1)).slice(0, 12);
-  }, [auteurs]);
+  }, [live]);
 
-  /* ── sorted director list ── */
-  const view = useMemo(() => {
-    const s = [...auteurs];
+  /* ── sorted director list (v3 adds "Closest to complete" = remaining asc;
+        complete directors sink to the end — nothing left to close there) ── */
+  const sorted = useMemo(() => {
+    const s = [...live];
     if (sort === "pct") s.sort((x, y) => y.pct - x.pct || y.seen - x.seen);
-    else if (sort === "seen") s.sort((x, y) => y.seen - x.seen || y.pct - x.pct);
-    else s.sort((x, y) => x.name.localeCompare(y.name));
+    else if (sort === "remain") s.sort((x, y) => {
+      const doneX = x.remaining <= 0 ? 1 : 0, doneY = y.remaining <= 0 ? 1 : 0;
+      return doneX - doneY || x.remaining - y.remaining || y.pct - x.pct;
+    });
+    else if (sort === "name") s.sort((x, y) => x.name.localeCompare(y.name));
+    else s.sort((x, y) => y.seen - x.seen || y.pct - x.pct);
     return s;
-  }, [auteurs, sort]);
+  }, [live, sort]);
+  const view = showAll ? sorted : sorted.slice(0, LIST_FIRST);
+  const hiddenCount = sorted.length - view.length;
 
-  const openFilm = (f: Unseen, dir: string) => { setSel(f.slug); insp.select(<ConquerInsp f={f} dir={dir} />, `${f.title} · 도장깨기`); };
-  const openAuteur = (a: Auteur) => { setSel(a.slug); insp.select(<AuteurInsp a={a} onFilm={openFilm} />, `${a.name} · 정복`); };
+  const openFilm = (f: Unseen, dir: string) => { setSel(f.slug); insp.select(<ConquerInsp f={f} dir={dir} />, `${f.title} · Conquest`); };
+  const openAuteur = (a: Auteur) => { setSel(a.slug); insp.select(<AuteurInsp a={a} onFilm={openFilm} />, `${a.name} · Conquest`); };
 
-  /* ── default inspector = 정복 요약 (mirrors setDefault pattern) ── */
+  /* ── page brief (opened by the app-bar Brief button) ── */
   useEffect(() => {
-    const summary: ReactNode = (
+    const brief: ReactNode = (
       <div>
-        <div className="icard"><h4><i className="ti ti-crown" /> 감독 정복 요약</h4>
-          <div className="kv"><span>시작한 감독</span><b>{started}</b></div>
-          <div className="kv"><span>완파한 감독 (100%)</span><b style={{ color: conquered ? "var(--conquer)" : "var(--ink)" }}>{conquered}</b></div>
-          <div className="kv"><span>평균 정복도</span><b>{avgPct != null ? `${avgPct}%` : "—"}</b></div>
-          <div className="kv"><span>도장깨기 후보</span><b>{conquerCount}</b></div>
-        </div>
-        <div className="emptyins">감독 행이나 도장깨기 후보를 클릭하면 여기에 오이브르 정복도 · 미관람 필수작이 열립니다.</div>
+        <ICard icon="ti-crown" title="Auteurs — conquest summary">
+          <KV k="Directors started" v={started} />
+          <KV k="Complete (100%)" v={<span style={{ color: conquered ? "var(--conquer)" : "var(--ink)" }}>{conquered}</span>} />
+          <KV k="Avg completion" v={avgPct != null ? `${avgPct}%` : "—"} />
+          <KV k="Conquest candidates" v={conquerCount} />
+        </ICard>
+        <ICard icon="ti-info-circle" title="How to read this">
+          <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.55 }}>
+            Completion is the share of this director&apos;s films <b style={{ color: "var(--ink)" }}>in our catalog</b> that
+            you&apos;ve seen — not the full filmography. States: {STATE_GLOSS}. Click a director or a conquest candidate;
+            every candidate can be kept, logged as seen, or rated right from the inspector.
+          </div>
+        </ICard>
       </div>
     );
-    setDefault(summary);
-  }, [rows, started, conquered, avgPct, conquerCount, setDefault]);
+    setDefault(brief);
+  }, [started, conquered, avgPct, conquerCount, setDefault]);
 
-  /* ── honest empty state ── */
+  /* ── honest empty state (unlocks at the first seen film with a director) ── */
   if (!auteurs.length) {
     return (
       <div className="mainpad">
-        <h1 className="secttl">감독 정복 · Auteur Conquest</h1>
-        <p className="secsub">감독 한 명의 필모그래피를 얼마나 정복했는지 — <span className="gloss" title="정복도 = 우리 DB의 이 감독 전 작품 중 내가 본 비율(%).">정복도</span>(seen / total)와 <span className="gloss" title="아직 안 본 그 감독의 정전급 필수작.">도장깨기</span> 후보.</p>
-        <div className="mod"><div className="emptyins" style={{ padding: 40 }}>
-          아직 시작한 감독이 없습니다. 영화를 &quot;봤어요&quot;로 표시하면, 그 감독의 필모그래피 정복도가 여기에 나타납니다.
+        <h1 className="secttl">Auteurs</h1>
+        <p className="secsub">
+          Oeuvre <span className="gloss" title={DENOM_GLOSS}>completion</span> for every director you&apos;ve started —
+          with the unseen essentials queued as conquest targets.
+        </p>
+        <div className="mod"><div className="modbody">
+          <div className="emptyins" style={{ padding: "32px 12px 16px" }}>{STR.empty.auteurs}</div>
+          <ActBar acts={[
+            { label: STR.forming.defaultCta, href: "/room/ledger" },
+            { label: STR.forming.importCta, href: "/me/import" },
+          ]} style={{ marginBottom: 10 }} />
         </div></div>
       </div>
     );
@@ -216,25 +283,28 @@ export default function AuteursWorkspace({ rows }: { rows: AuteurRow[] }) {
 
   return (
     <div className="mainpad">
-      <h1 className="secttl">감독 정복 · Auteur Conquest</h1>
+      <h1 className="secttl">Auteurs</h1>
       <p className="secsub">
-        내가 시작한 감독마다 <span className="gloss" title="정복도 = 우리 DB의 이 감독 전 작품 중 내가 본 비율(%).">정복도</span>(seen / total)를 <span className="gloss" title="잠금<50 · 진행50–74 · 근접75–99 · 완파100">완파 4-state</span> 바로 — 아직 안 본 정전급 필수작이 <span className="gloss" title="도장깨기 = 아직 안 본 그 감독의 필수작. 다음 정복 대상.">도장깨기</span> 후보. 모든 숫자는 실측.
+        Oeuvre <span className="gloss" title={DENOM_GLOSS}>completion</span> for every director you&apos;ve started,
+        on the <span className="gloss" title={STATE_GLOSS}>4-state</span> track — the unseen essentials are your{" "}
+        <span className="gloss" title="Conquest candidate = an unseen essential of a director you've started. The next target.">conquest</span> candidates.
+        Every number is measured.
       </p>
 
       {/* ═══ KPI STRIP ═══ */}
       <div className="au-kpis">
-        <div className="kpi"><div className="kl">시작한 감독</div><div className="kn">{started}</div><div className="ks">seen ≥ 1편</div></div>
-        <div className="kpi"><div className="kl">완파한 감독</div><div className="kn" style={{ color: conquered ? "var(--conquer)" : "var(--ink)" }}>{conquered}</div><div className="ks">정복도 100%</div></div>
-        <div className="kpi"><div className="kl">평균 정복도</div><div className="kn">{avgPct != null ? avgPct : "—"}<small>%</small></div><div className="ks">전 감독 평균</div></div>
-        <div className="kpi"><div className="kl">도장깨기 후보</div><div className="kn" style={{ color: "var(--canon)" }}>{conquerCount}</div><div className="ks">다음 정복 대상</div></div>
+        <div className="kpi"><div className="kl">Directors started</div><div className="kn">{started}</div><div className="ks">seen ≥ 1 film</div></div>
+        <div className="kpi"><div className="kl">Complete</div><div className="kn" style={{ color: conquered ? "var(--conquer)" : "var(--ink)" }}>{conquered}</div><div className="ks">100% of catalog</div></div>
+        <div className="kpi"><div className="kl">Avg completion</div><div className="kn">{avgPct != null ? avgPct : "—"}<small>%</small></div><div className="ks">across all started</div></div>
+        <div className="kpi"><div className="kl">Conquest candidates</div><div className="kn" style={{ color: "var(--canon)" }}>{conquerCount}</div><div className="ks">next targets</div></div>
       </div>
 
-      {/* ═══ 감독 정복 리스트 ═══ */}
+      {/* ═══ CONQUEST BOARD (directors) ═══ */}
       <div className="mod">
         <div className="au-modh">
-          <h3><i className="ti ti-crown" /> 감독 정복 리스트</h3>
+          <h3><i className="ti ti-crown" /> Conquest board</h3>
           <div className="xseg">
-            {([["pct", "정복도순"], ["seen", "관람수순"], ["name", "이름순"]] as const).map(([k, l]) => (
+            {([["seen", "Most seen"], ["pct", "Completion"], ["remain", "Closest to complete"], ["name", "A–Z"]] as const).map(([k, l]) => (
               <button key={k} className={sort === k ? "on" : ""} onClick={() => setSort(k)}>{l}</button>
             ))}
           </div>
@@ -247,43 +317,52 @@ export default function AuteursWorkspace({ rows }: { rows: AuteurRow[] }) {
                 <span className="au-thumb" style={a.profile_path ? { backgroundImage: `url(${IMG}${a.profile_path})` } : {}} />
                 <div className="au-name">
                   <div className="au-nm">{a.name}</div>
-                  <div className="au-sub">{a.seen}/{a.total} 관람 · {a.unseen.length ? `도장깨기 ${a.unseen.length}` : "완파"}</div>
+                  <div className="au-sub">{a.seen}/{a.total} seen · {a.unseen.length ? `${a.unseen.length} candidate${a.unseen.length === 1 ? "" : "s"}` : a.pct >= 100 ? "complete" : `${a.remaining} to go`}</div>
                 </div>
                 <div className="au-barwrap">
                   <div className="au-track"><i style={{ width: `${Math.max(a.pct, a.pct > 0 ? 3 : 1)}%`, background: st.col }} /></div>
                   <span className="au-pct" style={{ color: st.col }}>{a.pct}%</span>
                 </div>
-                <div className="au-stars" title={a.avg_rating != null ? `${a.avg_rating}` : ""}>
-                  <div className="st">{stars(a.avg_rating)}</div>
-                  <div className="me">{a.avg_rating != null ? a.avg_rating.toFixed(1) : "미평가"}</div>
-                </div>
+                <AvgStars value={a.avg_rating} />
                 <span className="au-statetag">{st.label}</span>
               </div>
             );
           })}
         </div>
+        {hiddenCount > 0 ? (
+          <div className="pgn">
+            <button onClick={() => setShowAll(true)}>{STR.common.showAll} ({sorted.length})</button>
+          </div>
+        ) : null}
       </div>
 
-      {/* ═══ 도장깨기 데스크 ═══ */}
+      {/* ═══ CONQUEST DESK (flat next-target list) ═══ */}
       <div className="mod">
         <div className="au-modh">
-          <h3><i className="ti ti-target-arrow" /> 도장깨기 데스크 · 다음 정복 대상</h3>
-          <span className="au-meta">사랑하는 감독의 미관람 정전작 · 정전가순</span>
+          <h3><i className="ti ti-target-arrow" /> Conquest desk · next targets</h3>
+          <span className="au-meta">unseen essentials of directors you love · by Standing</span>
         </div>
         <div>
-          {conquerDesk.length ? conquerDesk.map((f, i) => (
-            <div key={`${f.slug}-${f.dir}`} className="au-conqdesk-row" onClick={() => openFilm(f, f.dir)}>
-              <div className="au-rk">{i + 1}</div>
-              <span className="au-cpo" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
-              <div className="au-cbody">
-                <div className="au-ctt">{f.title} <small>{f.year ?? ""}</small></div>
-                <div className="au-csub">{f.dir}</div>
-                <div className="au-rsn-line"><span className="rsn conquer"><i className="ti ti-flag" /> 도장깨기</span></div>
+          {conquerDesk.length ? conquerDesk.map((f, i) => {
+            const kept = session.kept.has(f.slug);
+            const conquer = REASON_MAP.conquer;
+            return (
+              <div key={`${f.slug}-${f.dir}`} className="au-conqdesk-row" onClick={() => openFilm(f, f.dir)}>
+                <div className="au-rk">{i + 1}</div>
+                <span className="au-cpo" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
+                <div className="au-cbody">
+                  <div className="au-ctt">{f.title} <small>{f.year ?? ""}</small></div>
+                  <div className="au-csub">{f.dir}</div>
+                  <div className="au-rsn-line">
+                    <span className={`rsn ${conquer.cls}`}><i className="ti ti-flag" /> {conquer.label}</span>
+                    {kept ? <span className="rsn safe"><i className="ti ti-check" /> {STR.row.kept}</span> : null}
+                  </div>
+                </div>
+                <div className="au-cnum"><div className="pv" style={{ color: "var(--canon)" }}>{f.prestige != null ? Math.round(f.prestige) : "—"}</div><div className="pl">Standing</div></div>
+                <div className="au-cnum"><div className="pv" style={{ color: f.u != null && f.u >= 40 ? "var(--safe)" : "var(--ink)" }}>{f.u != null ? f.u : "—"}</div><div className="pl">U</div></div>
               </div>
-              <div className="au-cnum"><div className="pv" style={{ color: "var(--canon)" }}>{f.prestige != null ? Math.round(f.prestige) : "—"}</div><div className="pl">정전가</div></div>
-              <div className="au-cnum"><div className="pv" style={{ color: f.u != null && f.u >= 40 ? "var(--safe)" : "var(--ink)" }}>{f.u != null ? f.u : "—"}</div><div className="pl">U</div></div>
-            </div>
-          )) : <div className="emptyins">도장깨기 후보가 없습니다 — 시작한 모든 감독을 이미 완파했습니다.</div>}
+            );
+          }) : <div className="emptyins">No conquest candidates left — every director you&apos;ve started is complete.</div>}
         </div>
       </div>
     </div>

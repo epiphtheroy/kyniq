@@ -1,0 +1,59 @@
+/* /room/slate — Slate island (My Room v3, spec §3.3).
+   Shared tokens and classes (kpis, toolbar, xseg, qtoggle, agebd, pgn, icard,
+   errcard, ghline) come from room.css; only screen-local classes live here.
+   Every selector is scoped under .room-root. */
+
+.room-root .sl-bar button{font-family:var(--ui)}
+.room-root .sl-staledot{width:7px;height:7px;border-radius:50%;background:var(--risk)}
+.room-root .sl-resorted{font-size:10px;color:var(--sub);border:1px dashed var(--line2);border-radius:999px;padding:1px 8px}
+.room-root .sl-kpis{grid-template-columns:repeat(2,minmax(150px,220px))}
+
+/* Two columns ≥1180px: deal-flow table + streaming rollup rail; stacked below. */
+.room-root .sl-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+@media (min-width:1180px){.room-root .sl-cols{grid-template-columns:minmax(0,1fr) 240px;align-items:start}}
+
+/* Deal-flow row: poster · title/added · V/C/R microbars · age badge · actions. */
+.room-root .sl-row{display:grid;grid-template-columns:40px minmax(0,1fr) 150px auto auto;gap:12px;align-items:center;padding:8px 10px;border:1px solid transparent;border-bottom:1px solid var(--line);border-radius:8px;cursor:pointer}
+.room-root .sl-row:hover{background:var(--pnl);border-color:var(--line2)}
+.room-root .sl-po{width:40px;height:58px;border-radius:4px;background:linear-gradient(145deg,#26262c,#151517) center/cover;border:1px solid var(--line2)}
+.room-root .sl-t{font-family:var(--ser);font-size:14.5px;color:var(--ink);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-root .sl-t small{color:var(--sub);font-size:11px;margin-left:6px}
+.room-root .sl-m{margin-top:3px;display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--sub)}
+.room-root .sl-added{font-family:var(--mono)}
+
+/* V/C/R microbars — ours only, never blended with ★ or external signals. */
+.room-root .sl-vcr{display:flex;flex-direction:column;gap:3px}
+.room-root .sl-vcr .b{display:grid;grid-template-columns:10px 1fr 24px;gap:6px;align-items:center}
+.room-root .sl-vcr .b .k{font-family:var(--mono);font-size:8.5px;color:var(--sub)}
+.room-root .sl-vcr .b .tr{height:4px;border-radius:2px;background:var(--pnl3);overflow:hidden}
+.room-root .sl-vcr .b .tr i{display:block;height:100%;border-radius:2px}
+.room-root .sl-vcr .b.v .tr i{background:var(--safe)}
+.room-root .sl-vcr .b.c .tr i{background:var(--mut)}
+.room-root .sl-vcr .b.r .tr i{background:var(--risk)}
+.room-root .sl-vcr .b .n{font-family:var(--mono);font-size:9px;text-align:right;color:var(--mut)}
+.room-root .sl-unscored{font-size:10px;color:var(--sub);font-style:italic}
+
+/* Row actions — hover cluster (Rate stars · Seen · Release); row click = inspector. */
+.room-root .sl-act{display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .12s}
+.room-root .sl-row:hover .sl-act,.room-root .sl-row .sl-act:focus-within{opacity:1}
+.room-root .sl-act .ab{width:28px;height:28px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer}
+.room-root .sl-act .ab:hover{color:var(--ink);border-color:var(--line3)}
+
+/* Streaming rollup rail — honest placeholder copy until §8-R6. */
+.room-root .sl-rail .sl-railcopy{margin:0;font-size:12px;color:var(--ink);line-height:1.55}
+.room-root .sl-rail .sl-railnote{margin:8px 0 0;font-size:10.5px;color:var(--sub);line-height:1.5}
+
+/* Empty slate — honest copy + door back to the Screener. */
+.room-root .sl-empty{border:1px dashed var(--line2);border-radius:10px;background:var(--pnl);padding:16px;font-size:13px;color:var(--mut);line-height:1.6}
+.room-root .sl-empty a{color:var(--ink);border:1px solid var(--line2);border-radius:6px;padding:5px 11px;display:inline-block;margin-top:10px;font-size:12px;background:var(--pnl2)}
+.room-root .sl-empty a:hover{border-color:var(--line3)}
+
+/* Responsive: microbars fold first, then the age badge moves out of its own cell. */
+@media (max-width:900px){
+  .room-root .sl-row{grid-template-columns:40px minmax(0,1fr) auto auto}
+  .room-root .sl-vcr,.room-root .sl-unscored{display:none}
+}
+@media (max-width:640px){
+  .room-root .sl-row{grid-template-columns:40px minmax(0,1fr) auto}
+  .room-root .sl-agecell{display:none}
+}

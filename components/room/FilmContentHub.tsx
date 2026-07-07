@@ -1,10 +1,12 @@
 "use client";
 /** ⑥ Film content hub — turns any film inspector into a launchpad into the site's content graph:
  *  watch-next chain + movies-like + Atlas filming locations + availability. Fetched by slug,
- *  reused everywhere via CinecodexCard. Real data from film_room_context RPC. */
+ *  reused everywhere via CinecodexCard. Real data from the film_room_context RPC.
+ *  Honest empties: an unknown availability is "unknown (≠ unavailable)", never a fake "off". */
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+import { STR } from "./strings";
 
 type Next = { position: number; title: string; yr: number | null; slug: string | null; poster_path: string | null; reason: string | null };
 type Like = { slug: string; title: string; yr: number | null; poster_path: string | null; score: number };
@@ -26,26 +28,26 @@ export default function FilmContentHub({ slug }: { slug: string }) {
     return () => { alive = false; };
   }, [slug]);
 
-  if (loading) return <div className="fh"><div className="fh-load">콘텐츠 그래프 불러오는 중…</div></div>;
+  if (loading) return <div className="fh"><div className="fh-load">Loading the content graph…</div></div>;
   if (!d) return null;
   const wn = d.watch_next ?? [], ml = d.movies_like ?? [], loc = d.locations ?? [];
   if (!wn.length && !ml.length && !loc.length && !d.avail) return null;
 
   return (
     <div className="fh">
-      <div className="fh-h"><i className="ti ti-arrow-ramp-right" /> 이 영화에서 →</div>
+      <div className="fh-h"><i className="ti ti-arrow-ramp-right" /> From this film →</div>
 
       {d.avail ? (
         <div className="fh-avail">
           {d.avail.state === "on"
-            ? <><span className="availdot on" /> 지금 볼 수 있음 · <b>{d.avail.provider}</b> <span className="fh-dim">(KR)</span></>
-            : <><span className="availdot unk" /> 가용성 미확인 <span className="fh-dim">(≠ 안 됨)</span></>}
+            ? <><span className="availdot on" /> {STR.row.streaming} · <b>{d.avail.provider}</b> <span className="fh-dim">(KR)</span></>
+            : <><span className="availdot unk" /> {STR.common.availUnknown}</>}
         </div>
       ) : null}
 
       {wn.length ? (
         <div className="fh-sec">
-          <div className="fh-lbl">이어보기 · Watch next</div>
+          <div className="fh-lbl">Watch next</div>
           {wn.slice(0, 3).map((n, i) => {
             const inner = (
               <>
@@ -63,7 +65,7 @@ export default function FilmContentHub({ slug }: { slug: string }) {
 
       {ml.length ? (
         <div className="fh-sec">
-          <div className="fh-lbl">비슷한 영화 · Movies like</div>
+          <div className="fh-lbl">Movies like</div>
           <div className="fh-strip">
             {ml.map((m, i) => (
               <Link key={i} className="fh-poster" href={`/room/film/${m.slug}`} title={`${m.title} (${m.yr ?? "?"})`}>
@@ -76,7 +78,7 @@ export default function FilmContentHub({ slug }: { slug: string }) {
 
       {loc.length ? (
         <div className="fh-sec">
-          <div className="fh-lbl"><i className="ti ti-map-pin" /> 촬영지 · Atlas <span className="fh-dim">{d.loc_count}곳</span></div>
+          <div className="fh-lbl"><i className="ti ti-map-pin" /> Filming locations · Atlas <span className="fh-dim">{d.loc_count}</span></div>
           {loc.slice(0, 3).map((l, i) => (
             <div className="fh-loc" key={i}>
               <span className={`fh-locdot ${l.layer === "filmed" ? "filmed" : "setting"}`} />
