@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, type ReactNode } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -334,7 +334,7 @@ export default async function CrewPersonPage({ params }: Props) {
             if (t >= 11 && t <= 13) return `${n}th`;
             return `${n}${["th", "st", "nd", "rd"][Math.min(n % 10, 4) % 4] ?? "th"}`;
           };
-          const andList = (xs: React.ReactNode[]) =>
+          const andList = (xs: ReactNode[]) =>
             xs.map((x, i) => <span key={i}>{i > 0 ? (i === xs.length - 1 ? " and " : ", ") : ""}{x}</span>);
           const FilmT = ({ f }: { f: TFilm }) => {
             const c = catByTmdb.get(f.id);
@@ -454,7 +454,7 @@ export default async function CrewPersonPage({ params }: Props) {
                         ) : null}
                         {[...byGrp.entries()].map(([g, members]) => {
                           const sorted = members.slice().sort((a, b) => a.y0 - b.y0);
-                          const succ: React.ReactNode[] = [];
+                          const succ: ReactNode[] = [];
                           for (let i = 1; i < sorted.length; i++) {
                             if (sorted[i - 1].y1 < sorted[i].y0) {
                               succ.push(
@@ -517,26 +517,46 @@ export default async function CrewPersonPage({ params }: Props) {
           );
         })()}
 
-        {crafts.map((c) => (
-          <section key={c.key} style={{ margin: "26px 0" }}>
-            <h2 className="df-h2">{CRAFTS[c.key].label} — {c.films.length} films</h2>
-            <p className="df-sub">Every {CRAFTS[c.key].role.toLowerCase()} credit on file, newest first. Linked titles are in the Metatake catalog; the rest are TMDB-only.</p>
-            <p style={{ lineHeight: 1.8, maxWidth: "70ch" }}>
-              {c.films.slice(0, 40).map((f, i) => {
-                const catF = catByTmdb.get(f.id);
-                return (
-                  <span key={f.id}>
-                    {i > 0 ? " · " : ""}
-                    {catF ? <Link href={`/film/${catF.slug}`}>{f.title}</Link> : f.title}
-                    {f.year ? ` (${f.year})` : ""}
-                    {catF && !isRead(catF) ? <span className="t2-chip">catalog</span> : null}
-                  </span>
-                );
-              })}
-              {c.films.length > 40 ? ` · and ${c.films.length - 40} more` : ""}
-            </p>
-          </section>
-        ))}
+        {crafts.map((c) => {
+          const dated = c.films.filter((f) => f.year > 1880).sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
+          const undated = c.films.filter((f) => !(f.year > 1880)).sort((a, b) => a.title.localeCompare(b.title));
+          const ordered = [...dated, ...undated];
+          const ord = (n: number) => {
+            const t = n % 100;
+            if (t >= 11 && t <= 13) return `${n}th`;
+            const u = n % 10;
+            return `${n}${u === 1 ? "st" : u === 2 ? "nd" : u === 3 ? "rd" : "th"}`;
+          };
+          const noun = CRAFTS[c.key].label.toLowerCase();
+          const Sentence = ({ f, i }: { f: (typeof ordered)[number]; i: number }) => {
+            const catF = catByTmdb.get(f.id);
+            const isLastDated = f.year > 1880 && i === dated.length - 1;
+            return (
+              <li>
+                {p.name}&apos;s {ord(i + 1)}{isLastDated ? " and most recent" : ""} {noun} credit was{" "}
+                {catF ? <Link href={`/film/${catF.slug}`}>{f.title}</Link> : <i>{f.title}</i>}
+                {f.year > 1880 ? ` (${f.year})` : " — release year not on file"}.
+              </li>
+            );
+          };
+          return (
+            <section key={c.key} style={{ margin: "26px 0" }}>
+              <h2 className="df-h2">{CRAFTS[c.key].label} — {c.films.length} films</h2>
+              <p className="df-sub">The full run, first credit to latest, one sentence per film. Linked titles are in the Metatake catalog; the rest are TMDB-only.</p>
+              <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+                {ordered.slice(0, 8).map((f, i) => <Sentence key={f.id} f={f} i={i} />)}
+              </ul>
+              {ordered.length > 8 ? (
+                <details className="crd-more" style={{ marginTop: 10 }}>
+                  <summary>All {ordered.length} credits, spelled out</summary>
+                  <ul style={{ margin: 0, padding: "12px 2px 8px 20px", lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+                    {ordered.slice(8).map((f, i) => <Sentence key={f.id} f={f} i={i + 8} />)}
+                  </ul>
+                </details>
+              ) : null}
+            </section>
+          );
+        })}
 
         <section id="explorer" style={{ margin: "44px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
           <h2 className="df-h2" style={{ marginTop: 18 }}>The interactive layer</h2>
