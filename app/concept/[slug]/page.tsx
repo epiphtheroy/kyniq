@@ -285,25 +285,31 @@ export default async function ConceptPage({ params }: Props) {
         <div className="mt-wrap">
           <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
           <div className="ccard">
-            <div className="ccard__kicker">Concept</div>
-            <h1 className="th-h1">{cap(tc.concept)}{tc.native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.6em" }}> · {tc.native}</span> : null}</h1>
-            {tc.one_liner && <p className="ccard__tag">{tc.one_liner}</p>}
-            <div className="ccard__meta">
-              {theorists.map((t) => (
-                <span className="ccard__chip" key={t.name}>
-                  {t.slug ? <Link href={`/theorist/${t.slug}`}>{t.name}</Link> : t.name}
-                </span>
-              ))}
-              {[tc.part, tc.major, tc.sub].filter(Boolean).map((x) => (
-                <span key={x as string} className="ccard__chip" style={{ opacity: .75 }}>{x}</span>
-              ))}
-            </div>
-            {(() => { const n = listicle(tc.concept, null, [...desks, ...canonReadings]).n; return n > 0 ? (
-              <div className="ccard__stat"><b>{n}</b><span>film{n !== 1 ? "s" : ""}</span></div>
-            ) : null; })()}
+            <div className="ccard__kicker">Concepts on Screen</div>
+            <h1 className="th-h1">{cap(tc.concept)}</h1>
+            {tc.native ? <span className="ccard__native">{tc.native}</span> : null}
           </div>
-          {desks.length + canonReadings.length >= 3 && (
-            <p className="th-sub">{listicle(tc.concept, theorists[0]?.name ?? null, [...desks, ...canonReadings]).n} films that can be read through <em>{tc.concept}</em> — the readings and essays below put it to work.</p>
+          {(() => { const n = listicle(tc.concept, null, [...desks, ...canonReadings]).n; return (
+            <p className="th-sub">
+              This is not a dictionary entry. The concept desk tracks where {tc.concept} actually surfaces on
+              screen{n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}.
+            </p>
+          ); })()}
+          <div className="cmeta">
+            {theorists.map((t) => (
+              <span className="ccard__chip" key={t.name}>
+                {t.slug ? <Link href={`/theorist/${t.slug}`}>{t.name}</Link> : t.name}
+              </span>
+            ))}
+            {[tc.part, tc.major, tc.sub].filter(Boolean).map((x) => (
+              <span key={x as string} className="ccard__chip" style={{ opacity: .75 }}>{x}</span>
+            ))}
+          </div>
+          {tc.one_liner && (
+            <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
+              <b style={{ fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", opacity: .55 }}>The idea in brief</b>{" "}
+              — {tc.one_liner}
+            </p>
           )}
           {canonReadings.length > 0 && (
             <section style={{ margin: "30px 0 0" }} id="concept-readings">
@@ -339,11 +345,16 @@ export default async function ConceptPage({ params }: Props) {
           }
           const top = [...freq.entries()].sort((a, b) => b[1].c - a[1].c).slice(0, 2);
           return (
-            <div className="ccard">
-              <div className="ccard__kicker">Concept</div>
-              <h1 className="th-h1">{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
-              {intro ? <p className="ccard__tag">{intro}</p> : null}
-              <div className="ccard__meta">
+            <>
+              <div className="ccard">
+                <div className="ccard__kicker">Concepts on Screen</div>
+                <h1 className="th-h1">{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
+              </div>
+              <p className="th-sub">
+                This is not a dictionary entry. The concept desk tracks where {name} actually surfaces on
+                screen{n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}.
+              </p>
+              <div className="cmeta">
                 {top.map(([nm, e]) => (
                   <span className="ccard__chip" key={nm}>
                     {e.t.theorist_slug ? <Link href={`/theorist/${e.t.theorist_slug}`}>{nm}</Link> : nm}
@@ -351,11 +362,15 @@ export default async function ConceptPage({ params }: Props) {
                 ))}
                 <span className="ccard__chip" style={{ opacity: .75 }}>{readings.length} reading{readings.length !== 1 ? "s" : ""}</span>
               </div>
-              {n > 0 ? <div className="ccard__stat"><b>{n}</b><span>film{n !== 1 ? "s" : ""}</span></div> : null}
-            </div>
+              {intro ? (
+                <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
+                  <b style={{ fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", opacity: .55 }}>The idea in brief</b>{" "}
+                  — {intro}
+                </p>
+              ) : null}
+            </>
           );
         })()}
-        <p className="th-sub">{listicle(name, null, [...readings, ...desks]).n} film{readings.length !== 1 ? "s" : ""} that can be read through <em>{name}</em> — each a Strong Misreading that turns on this idea.</p>
 
         <ReadingsExplorer readings={readings} about={name} />
 
