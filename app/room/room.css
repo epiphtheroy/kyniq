@@ -399,8 +399,10 @@
 .room-root .vline b{font-family:var(--mono);font-size:17px;color:var(--ink)}
 .room-root .vline .tier{color:var(--canon);letter-spacing:.08em;font-size:11px;font-weight:600}
 .room-root .vline:hover{border-color:var(--line3)}
-/* 공용 토스트 · 페이지네이션 */
-.room-root .v2toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:90;background:#1c1c20;border:1px solid #3a3a40;color:var(--ink);padding:9px 16px;border-radius:8px;font-size:12px;box-shadow:0 6px 22px rgba(0,0,0,.5)}
+/* Single toast host (Toast.tsx) — with optional action slot (Undo) */
+.room-root .v2toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#1c1c20;border:1px solid #3a3a40;color:var(--ink);padding:9px 16px;border-radius:8px;font-size:12px;box-shadow:0 6px 22px rgba(0,0,0,.5)}
+.room-root .v2toast .tact{background:transparent;border:0;padding:0;margin:0;color:var(--safe);font-family:var(--ui);font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.02em}
+.room-root .v2toast .tact:hover{text-decoration:underline}
 .room-root .pgn{display:flex;align-items:center;gap:8px;justify-content:center;padding:14px 0}
 .room-root .pgn button{border:1px solid var(--line2);background:var(--pnl);color:var(--mut);border-radius:6px;padding:5px 12px;font-size:12px;cursor:pointer}
 .room-root .pgn button:hover{color:var(--ink)}
