@@ -9,7 +9,7 @@ export const revalidate = 1800;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/tradition" },
-  title: "Traditions — the canon a reading leans on",
+  title: "Traditions — the schools of thought behind the readings",
   description:
     "The scholarly traditions Metatake's Strong Misreadings lean on — the uncanny, the gaze, commodity fetishism, the state of exception and hundreds more — each linked to the films and the thinkers that carry it.",
 };
@@ -39,7 +39,7 @@ export default async function TraditionIndex() {
         </div>
         <h1 className="lh-h1">Traditions</h1>
         <p className="lh-def">
-          The canonical theory a Strong Misreading leans on — the recognised tradition behind the lens. These {rows.length}{" "}
+          The canonical theory a Strong Misreading leans on — the recognised school of thought behind the reading. These {rows.length}{" "}
           traditions anchor {total.toLocaleString()} readings; open any to see every film that leans on it, and the{" "}
           <Link href="/theorist">thinkers</Link> who carry it. (Paired with the looser <Link href="/concept">concepts</Link>{" "}
           critics actually name.)
