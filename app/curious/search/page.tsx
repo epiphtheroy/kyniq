@@ -105,7 +105,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const { q } = await searchParams;
   const query = (q ?? "").trim();
   return {
-    title: query ? `${query} — search · Curious · Metatake` : "Search Curious · Metatake",
+    title: query ? `${query} — search · Curious` : "Search Curious",
     robots: { index: false, follow: true },
   };
 }

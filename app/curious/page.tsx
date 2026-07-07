@@ -16,7 +16,7 @@ import { Card, SectionHead, monDate, thumbUrl, type FilmArt } from "@/components
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Curious — questions the films keep raising · Metatake",
+  title: "Curious — questions the films keep raising",
   description:
     "The Metatake question desk: what actually happens at the end, what the recurring image means, why a character does what they do — answered in full, film by film.",
   alternates: { canonical: "/curious" },

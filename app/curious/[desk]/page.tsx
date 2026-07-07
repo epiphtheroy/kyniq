@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!desk) return { title: "Not found" };
   const data = await load(deskKey);
   const n = data?.rows.length ?? 0;
-  const title = `${desk.label} — ${desk.deskName} · Curious · Metatake`;
+  const title = `${desk.label} — ${desk.deskName} · Curious`;
   const description = `${desk.blurb} ${n.toLocaleString()} films and counting — every essay fact-checked and verified.`;
   return {
     title,
