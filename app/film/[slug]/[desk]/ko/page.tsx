@@ -52,7 +52,7 @@ const loadDict = unstable_cache(
     }
     return { concepts: [], theorists: [] };
   },
-  ["desk-link-dict-2"],
+  ["desk-link-dict-3"],
   { revalidate: 86400 }
 );
 

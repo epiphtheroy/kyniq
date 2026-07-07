@@ -30,17 +30,29 @@ export function bandWord(group: CodexDimGroup, score: number): string {
 /**
  * Quadrant sentence + what U = V − R means for this film.
  * Thresholds match the private Appraisal: high value ≥ 72, low risk ≤ 20.
+ * Optional `title` weaves the film's name into the FIRST sentence only
+ * (entity mention for SERP snippets); the quadrant vocabulary and every
+ * following sentence are byte-identical with or without it. Omitting
+ * `title` keeps the old signature and the old output exactly.
  */
-export function verdictSentence(v: number, c: number, r: number, u: number): string {
+export function verdictSentence(v: number, c: number, r: number, u: number, title?: string): string {
   const V = Math.round(v), C = Math.round(c), R = Math.round(r), U = Math.round(u);
   const hiV = V >= 72, loR = R <= 20;
   const quadrant = hiV && loR
-    ? "High value · low risk — a safe masterpiece."
+    ? title
+      ? `${title} sits at high value · low risk — a safe masterpiece.`
+      : "High value · low risk — a safe masterpiece."
     : hiV && !loR
-      ? "High value · high risk — ambitious but divisive."
+      ? title
+        ? `${title} sits at high value · high risk — ambitious but divisive.`
+        : "High value · high risk — ambitious but divisive."
       : !hiV && loR
-        ? "Solid but not peak — a stable choice."
-        : "Mid value, mid risk — approach with care.";
+        ? title
+          ? `${title} is solid but not peak — a stable choice.`
+          : "Solid but not peak — a stable choice."
+        : title
+          ? `${title} sits at mid value, mid risk — approach with care.`
+          : "Mid value, mid risk — approach with care.";
   const net = U >= 70
     ? "one of the safest high-yield propositions in the catalog"
     : U >= 50

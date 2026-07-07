@@ -131,20 +131,20 @@ function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, 
 /** Value vs Popularity 2×2 — the divergence IS the product. Our durable Value (y) against
  *  the crowd's attention (x, from log votes). The gap tells the story: high value + low reach
  *  = a hidden gem; high reach + low value = popular but thin. Never blended into the score. */
-function ValuePop({ v, votes }: { v: number; votes: number | null }) {
+function ValuePop({ v, votes, title }: { v: number; votes: number | null; title: string }) {
   if (votes == null || votes < 50) return null;
   const val = Math.round(v);
   const pop = Math.round(Math.max(0, Math.min(1, (Math.log10(Math.max(votes, 1)) - 3.5) / 3)) * 100);
   const gap = val - pop;
 
   let head: string, note: string;
-  if (val >= 60 && pop < 45) { head = "Hidden gem"; note = `high durable value (${val}) well above its audience reach (${pop}) — a cinephile's find.`; }
-  else if (val >= 58 && pop >= 55) { head = "Consensus classic"; note = `widely seen and it holds up — value ${val}, reach ${pop}.`; }
-  else if (val < 50 && pop >= 58) { head = "Popular, lighter harvest"; note = `enjoyed widely (reach ${pop}) but less durable value (${val}) to re-mine.`; }
-  else if (val < 48 && pop < 45) { head = "A quiet minor work"; note = `modest reach (${pop}) and a modest durable payoff (${val}).`; }
-  else if (gap >= 15) { head = "Under-seen for its value"; note = `durable value ${val} outruns audience reach ${pop}.`; }
-  else if (gap <= -15) { head = "Loved beyond its durable value"; note = `audience reach ${pop} outruns durable value ${val}.`; }
-  else { head = "Value and reach aligned"; note = `durable value ${val} and audience reach ${pop} track closely.`; }
+  if (val >= 60 && pop < 45) { head = "Hidden gem"; note = `${title} holds durable value ${val} well above its audience reach ${pop} — a cinephile's find.`; }
+  else if (val >= 58 && pop >= 55) { head = "Consensus classic"; note = `${title} is widely seen and it holds up — value ${val}, reach ${pop}.`; }
+  else if (val < 50 && pop >= 58) { head = "Popular, lighter harvest"; note = `${title} is enjoyed widely (reach ${pop}) but holds less durable value (${val}) to re-mine.`; }
+  else if (val < 48 && pop < 45) { head = "A quiet minor work"; note = `${title} pairs modest reach (${pop}) with a modest durable payoff (${val}).`; }
+  else if (gap >= 15) { head = "Under-seen for its value"; note = `${title}'s durable value ${val} outruns its audience reach ${pop}.`; }
+  else if (gap <= -15) { head = "Loved beyond its durable value"; note = `${title}'s audience reach ${pop} outruns its durable value ${val}.`; }
+  else { head = "Value and reach aligned"; note = `${title}'s durable value ${val} and audience reach ${pop} track closely.`; }
 
   // plot geometry (viewBox 0 0 260 190). plot area x:34..248, y:14..150
   const px = 34 + (pop / 100) * (248 - 34);
@@ -263,11 +263,11 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
 
   return (
     <section className="df-sec ccx" id="df-codex">
-      <h2 className="df-h2">TakeScore <a className="ccx-how" href="/takescore/about">how it works →</a></h2>
+      <h2 className="df-h2">TakeScore™ <a className="ccx-how" href="/takescore/about">how it works →</a></h2>
       <p className="df-sub">
         Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
         the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
-        {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">CineCodex dimensions</a> against a fixed anchor ruler.</> : null}
+        {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">TakeScore dimensions</a> against a fixed anchor ruler.</> : null}
       </p>
 
       {/* The three central scores as ring gauges — the same <ScoreDonut> instrument
@@ -302,7 +302,7 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
         </div>
         {/* The verdict — the full deterministic interpretation (same sentence the
             appraisal page leads with), so the card reads before it counts. */}
-        <p className="ccx-gverdict">{verdictSentence(data.v, data.c, data.r, data.u)}</p>
+        <p className="ccx-gverdict">{verdictSentence(data.v, data.c, data.r, data.u, title)}</p>
       </div>
 
       <ValuePop v={data.v} votes={data.votes} />
@@ -313,7 +313,7 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
       {hasRank ? (
         <div className="ccx-rank">
           <div className="ccx-rank-head">
-            <span className="ccx-rank-lbl">Where it ranks</span>
+            <span className="ccx-rank-lbl">Where {title} ranks</span>
             <span className="ccx-rank-n">#{rank.toLocaleString("en-US")} of {rankTotal.toLocaleString("en-US")} by TakeScore</span>
             <span className="ccx-rank-pct">{rankShare}</span>
           </div>
@@ -334,7 +334,7 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
             circled "?" lives here too (server component, so no event handlers). */}
         {subscores ? <style>{`.ccx-qm:hover{color:var(--ink);border-color:var(--muted)}`}</style> : null}
         <div className="ccx-eval-h" style={subscores ? { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "8px" } : undefined}>
-          The 13 sub-scores
+          How {title} scores on the thirteen dimensions
           {subscores ? (
             <a
               href="/takescore"
@@ -365,7 +365,7 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
       ) : null}
 
       <div className="df-src">
-        AI-estimated (Cinecodex rubric, {data.panel}{data.n_samples ? `, n=${data.n_samples}` : ""}
+        AI-estimated (TakeScore rubric, {data.panel}{data.n_samples ? `, n=${data.n_samples}` : ""}
         {data.sd_v != null ? `, ±${Math.round(Number(data.sd_v))}` : ""}). A rubric-anchored judgment, not an objective fact;
         popularity metrics above are for comparison only.
         {conf != null ? (
