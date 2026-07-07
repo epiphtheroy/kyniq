@@ -1,0 +1,45 @@
+/* Reading-page detail chrome (desk essays, misreadings, Q&A plates) —
+   2026-07-08 redesign. Dark film hero on top (fixes the dark-nav→white-page
+   jump: the headline now lives in its own dark band), TMDB stills mid-article,
+   and the dark "More on {film}" plate row at the bottom. Tokens come from
+   app/curious/curious.css (.cur scope) — import both. */
+
+.rd-hero.cur { min-height: 0; border-bottom: 3px solid var(--cur-accent); }
+.rd-hero__in {
+  max-width: 1180px; margin: 0 auto; padding: 22px 20px 30px;
+  display: grid; grid-template-columns: 1fr 460px; gap: 34px; align-items: center;
+}
+.rd-crumb { display: flex; gap: 8px; font-size: 12px; color: #8f8d8e; flex-wrap: wrap; }
+.rd-crumb a:hover { color: var(--cur-accent-soft); }
+.rd-chiprow { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+.rd-chip {
+  font-family: var(--cur-display); font-weight: 600; font-size: 13.5px; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--cur-accent-hi);
+}
+.rd-chip a:hover { color: var(--cur-accent-soft); }
+.rd-meta { font-size: 12px; color: var(--cur-meta); }
+.rd-h1 {
+  font-family: var(--cur-display); font-weight: 700; font-size: 38px; line-height: 1.06;
+  color: #fff; margin: 8px 0 0;
+}
+.rd-dek { font-size: 15px; line-height: 1.55; color: var(--cur-meta); margin: 10px 0 0; max-width: 60ch; }
+.rd-dek a { color: var(--cur-accent-soft); }
+.rd-hero__media { position: relative; }
+.rd-hero__bd { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; display: block; background: #000; }
+.rd-hero__cap { font-size: 11.5px; color: #8f8d8e; margin-top: 7px; text-align: right; }
+.rd-hero__cap a { color: var(--cur-meta); }
+.rd-hero__cap a:hover { color: var(--cur-accent-soft); }
+
+/* Mid-article stills (injected server-side; see lib/read-media.ts) */
+.rd-fig { margin: 30px 0; }
+.rd-fig img { width: 100%; height: auto; border-radius: 6px; display: block; background: #0c0c0c; }
+.rd-fig figcaption { font-size: 12px; color: #8a857b; margin-top: 7px; }
+.rd-fig--inset { max-width: 82%; margin-left: auto; margin-right: auto; }
+
+/* Bottom plates — full-bleed dark band */
+.rd-plates.cur { min-height: 0; margin-top: 48px; border-top: 3px solid var(--cur-accent); padding: 4px 0 46px; }
+
+@media (max-width: 940px) {
+  .rd-hero__in { grid-template-columns: 1fr; gap: 20px; }
+  .rd-h1 { font-size: 30px; }
+}
