@@ -4,7 +4,7 @@
 import type { CSSProperties } from "react";
 import ScoreDonut from "@/components/ScoreDonut";
 import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
-import { bandWord } from "@/lib/takescore_prose";
+import { bandWord, verdictSentence } from "@/lib/takescore_prose";
 
 export type Codex = {
   v: number; c: number; r: number; u: number; sharpe: number;
@@ -12,6 +12,9 @@ export type Codex = {
   n_samples: number | null; sd_v: number | null; panel: string; flagged: boolean;
   conf: number | null; conf_tier: string | null; n_takes: number | null; votes: number | null;
   ext: { imdb: number | null; rt: number | null; metascore: number | null };
+  /** Overall U-rank among all visible scored films (migration 0047) — optional:
+   *  edge-cached pre-0047 payloads omit them; the rank strip renders only when present. */
+  rank?: number | null; rank_total?: number | null;
 };
 
 /** Payload of public.cinecodex_film_subscores — raw sub-scores plus each dimension's
@@ -36,17 +39,29 @@ const NAME_KEY: Record<string, string> = {
   Bankruptcy: "bank", Insincerity: "insincere", Cowardice: "coward", Polarization: "polar",
 };
 
-// Neutral, honest percentile phrasing per dimension group. Cost is a prerequisite
-// (steeper), risk a hazard (riskier) — only value dims read as "higher is better".
-function pctPhrase(group: "value" | "cost" | "risk", pct: number, total: number): string {
-  if (group === "value") return `higher than ${pct}% of ${total.toLocaleString("en-US")} films`;
-  if (group === "cost") return `steeper than ${pct}%`;
-  return `riskier than ${pct}%`;
-}
+// What each category IS — fixed one-line definitions distilled from the
+// registry's `question` + `scale` texts (lib/cinecodex_dims.ts), keyed by
+// registry key. Deterministic, no LLM; each row appends the film's own band
+// phrase (bandWord) so the category's meaning is tied to this film's number.
+const DEF: Record<string, string> = {
+  cog: "How much the film changes how you think — live ideas and perceptual shifts, not trivia.",
+  aff: "Whether the emotional imprint endures — durable feeling, not a momentary thrill.",
+  form: "How formally achieved it is — disciplined authorial craft, not spectacle.",
+  moral: "Whether it stages a real moral or existential reckoning, held open rather than settled cheaply.",
+  dur: "Whether it deepens on rewatch or spends itself on first contact.",
+  itx: "How much film history you need before the film opens — quotation, tradition, canon.",
+  fr: "How far from mainstream film grammar it asks you to travel — pacing, shape, story logic.",
+  etx: "How much outside knowledge — history, politics, philosophy — the film assumes you bring.",
+  ctx: "How much of the director's other work you must know before this one fully opens.",
+  bank: "The hazard the film is intellectually hollow — banal, or pretentious with nothing behind it.",
+  insincere: "The hazard style detaches from substance — pastiche and display doing the work of meaning.",
+  coward: "The hazard it panders — safe choices, commercial calculation, emotion extracted by formula.",
+  polar: "How sharply informed, engaged viewers split on it — acclaim against dismissal.",
+};
 
-const PCT_STYLE: CSSProperties = {
+const DEF_STYLE: CSSProperties = {
   fontFamily: "var(--font-ui)", fontSize: "10px", color: "var(--muted)",
-  lineHeight: 1.35, margin: "-2px 0 8px",
+  lineHeight: 1.4, margin: "-2px 0 9px",
 };
 
 // Compact circled "?" — an explicit "what is this?" affordance per dimension row,

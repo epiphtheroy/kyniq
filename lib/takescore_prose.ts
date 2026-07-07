@@ -3,15 +3,17 @@
  * into English sentences for the public /takescore/film/[slug] page.
  * No randomness, no LLM calls: same numbers in, same sentences out.
  * Band index = clamp(1..5, round(score/20)) — the same lvOf step the private
- * Appraisal (components/room/EvalCard.tsx) uses, so public and private
- * vocabulary stay aligned (Faint→Exceptional / Easy entry→Expert / None→Severe).
+ * Appraisal (components/room/EvalCard.tsx) uses, so public and private bands
+ * stay aligned. Public vocabulary is 2–3-word interpretive phrases that state
+ * what the band MEANS (value: what you keep / cost: what entry takes /
+ * risk: how it can go wrong) — honest and terse, no hype.
  */
 import type { CodexDimGroup } from "@/lib/cinecodex_dims";
 
 export const BAND_WORDS: Record<CodexDimGroup, [string, string, string, string, string]> = {
-  value: ["Faint", "Fair", "Solid", "Strong", "Exceptional"],
-  cost: ["Easy entry", "Intermediate", "Demanding", "Advanced", "Expert"],
-  risk: ["None", "Low", "Some", "High", "Severe"],
+  value: ["Faint traces", "Fair returns", "Solid, not peak", "Strong, lasting", "Exceptional — canon-grade"],
+  cost: ["Walk right in", "Some homework", "Real preparation", "Advanced viewing", "Expert terrain"],
+  risk: ["Nearly riskless", "Low downside", "Some hazard", "High letdown risk", "Severe — a gamble"],
 };
 
 /** 1..5 band step, identical to EvalCard's lvOf. */
