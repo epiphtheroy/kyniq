@@ -408,5 +408,67 @@
 .room-root .pgn button:hover{color:var(--ink)}
 .room-root .pgn button:disabled{opacity:.35;cursor:default}
 .room-root .pgn .pc{font-family:var(--mono);font-size:12px;color:var(--sub)}
-/* ⌘K 팔레트는 인스펙터(80/81)보다 위 — 열린 슬라이드오버 위에서도 검색 가능 */
+/* CmdK palette sits above the inspector (80/81) — searchable over an open slide-over */
 .room-root .palette{z-index:95}
+
+/* ═══════════ v3 shell & shared (2026-07-07 My Room redesign) ═══════════ */
+/* NAV chip — clickable, with 30-day micro sparkline */
+.room-root .navchip.clk{cursor:pointer}
+.room-root .navchip.clk:hover{border-color:var(--line3)}
+.room-root .navchip .spk{display:block;flex:0 0 auto;opacity:.9}
+@media (max-width:640px){.room-root .navchip .spk{display:none}}
+/* Brief button — text label ≥1180px, icon-only below */
+.room-root .briefbtn{width:auto;padding:0 9px;gap:6px}
+.room-root .briefbtn .tx{font-size:11.5px;font-weight:500}
+@media (max-width:1179px){.room-root .briefbtn .tx{display:none}.room-root .briefbtn{width:30px;padding:0}}
+/* Rail footer import link */
+.room-root .railft .rimp{display:inline-flex;align-items:center;gap:6px;color:var(--mut);font-size:11px;margin-bottom:6px}
+.room-root .railft .rimp:hover{color:var(--ink)}
+.room-root .rail.collapsed .railft{display:none}
+/* Inspector card header right-side annotation (insp/ICard) */
+.room-root .icard h4 .ihr{margin-left:auto;font-size:9px;letter-spacing:.05em;color:var(--sub);text-transform:none}
+/* Disabled action button (honest gating — e.g. "Unpinning ships soon.") */
+.room-root .actbtn.dis{opacity:.4;cursor:default;pointer-events:none}
+/* FormingCard — one voice for every cold start */
+.room-root .fcard{border:1px dashed var(--line2);border-radius:10px;background:var(--pnl);padding:14px 16px;margin:0 0 16px}
+.room-root .fcard .fcline{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--ink);line-height:1.5}
+.room-root .fcard .fcline i{color:var(--forming);font-size:16px;flex:0 0 auto;margin-top:1px}
+.room-root .fcard .fcmeter{height:6px;border-radius:3px;background:var(--pnl3);overflow:hidden;margin:10px 0 0}
+.room-root .fcard .fcmeter i{display:block;height:100%;border-radius:3px;background:var(--forming)}
+.room-root .fcard .fcnote{font-size:11.5px;color:var(--mut);margin-top:8px;line-height:1.5}
+.room-root .fcard .fcacts{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:11px}
+.room-root .fcard .fccta{font-size:12px;color:var(--ink);border:1px solid var(--line2);border-radius:6px;padding:6px 12px;background:var(--pnl2)}
+.room-root .fcard .fccta:hover{border-color:var(--line3)}
+.room-root .fcard .fcimp{font-size:11.5px;color:var(--sub)}
+.room-root .fcard .fcimp:hover{color:var(--ink)}
+/* FilmRow expander variant (Screener score anatomy) */
+.room-root .frowg{min-width:0}
+.room-root .frow.xp{grid-template-columns:44px minmax(0,1fr) auto auto 26px}
+.room-root .frow .fx{width:26px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--sub);cursor:pointer;flex:0 0 auto}
+.room-root .frow .fx:hover{color:var(--ink);background:var(--pnl2)}
+.room-root .frow .fx i{transition:transform .15s}
+.room-root .frow .fx.on i{transform:rotate(90deg)}
+.room-root .fexp{border-bottom:1px solid var(--line);background:var(--pnl);border-radius:0 0 8px 8px;padding:10px 12px 12px 66px}
+.room-root .fexp .bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px 16px}
+@media (max-width:640px){.room-root .fexp{padding-left:12px}.room-root .fexp .bars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Verdict chips (my ★ vs Standing — Holdings, Appraisal). --risk ≠ --red. */
+.room-root .vchip{display:inline-flex;align-items:center;font-size:9.5px;border-radius:4px;padding:1px 6px;border:1px solid var(--line2);color:var(--mut)}
+.room-root .vchip.find{color:var(--safe);border-color:rgba(31,178,134,.4)}
+.room-root .vchip.letdown{color:var(--risk);border-color:rgba(214,69,24,.5)}
+.room-root .vchip.aligned{color:var(--mut)}
+/* Age badges (Slate decay) */
+.room-root .agebd{display:inline-flex;align-items:center;font-family:var(--mono);font-size:9.5px;border-radius:4px;padding:1px 6px;border:1px solid var(--line2);color:var(--mut)}
+.room-root .agebd.aging{color:var(--gap);border-color:rgba(232,178,58,.4)}
+.room-root .agebd.stale{color:var(--risk);border-color:rgba(214,69,24,.5)}
+/* Shared error card — RPC failures say so ("Couldn't load — retry") */
+.room-root .errcard{border:1px solid rgba(214,69,24,.4);border-radius:9px;background:var(--pnl);padding:14px 16px;margin:0 0 16px;font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:10px}
+.room-root .errcard i{color:var(--risk);font-size:16px}
+/* Skeleton ghosts for loading.tsx (.mod ghost / standalone .ghost blocks) */
+@keyframes room-ghost{0%{opacity:.45}50%{opacity:.85}100%{opacity:.45}}
+.room-root .mod.ghost{border-style:solid;min-height:120px;animation:room-ghost 1.4s ease-in-out infinite}
+.room-root .mod.ghost .modbody{min-height:80px}
+.room-root .ghline{height:12px;border-radius:4px;background:var(--pnl3);animation:room-ghost 1.4s ease-in-out infinite;margin:8px 0}
+.room-root .ghline.w40{width:40%}
+.room-root .ghline.w60{width:60%}
+.room-root .ghline.w80{width:80%}
+.room-root .ghblock{border-radius:8px;background:var(--pnl);border:1px solid var(--line);animation:room-ghost 1.4s ease-in-out infinite}
