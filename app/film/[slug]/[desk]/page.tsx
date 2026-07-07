@@ -9,7 +9,6 @@ import {
   DESKS,
   DESK_KEYS,
   deskByKey,
-  deskByMode,
   essayMdToHtml,
   linkifyEntities,
   mdToPlain,
