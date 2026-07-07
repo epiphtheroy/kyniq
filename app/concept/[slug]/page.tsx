@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import { pageRobots } from "@/lib/seo";
