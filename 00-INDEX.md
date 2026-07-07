@@ -13,7 +13,8 @@
 ## Reference — current & accurate
 | Doc | Purpose |
 |---|---|
-| `docs/HANDOFF-SEO-마스터.md` | **SEO 운영 정본 (2026-07-04, 갱신 07-06)** — sitemap **20분할**·코호트·IndexNow·slug_aliases/라우트 이전·Tier-2·CineCodex의 전 시스템 파일 위치 + 상황별 런북(새 영화/캡 증량/표면 개방/개명·이전) + 층별 정본 색인(§3b) + GSC 판독 로그. SEO 관련 변경 전 필독. |
+| `docs/HANDOFF-SEO-마스터.md` | **SEO 운영 정본 (2026-07-04, 갱신 07-07)** — sitemap **20분할**·코호트·IndexNow·slug_aliases/라우트 이전·Tier-2·CineCodex·**figure 질문 title 레이어**(§1 표·§3b-9)의 전 시스템 파일 위치 + 상황별 런북(새 영화/캡 증량/표면 개방/개명·이전) + 층별 정본 색인(§3b) + GSC 판독 로그. SEO 관련 변경 전 필독. |
+| `OUTREACH-2주-실행플랜.md` + `OUTREACH-실행현황-2026-07-04.md` | **백링크 아웃리치 정본(플랜)과 실행 원장(현황)** — 복붙 초안(HN/Reddit/Substack/이메일)·타깃 리스트·금지사항 / Gmail 초안 18건·LibGuides 22곳 검증·매체 티어·휴면 타깃 기록. 발송 전 중복 확인은 현황 문서+Gmail 보낸함. 연락처 DB: `data/sources/magazine-contacts.csv`. |
 | `GEO_운영-신규영화-증분처리.md` | **촬영지 파이프라인 상시 운영** — 새 영화 추가 시 이 문서 하나로 배치 추출→적재→지오코딩 자동 실행 (Claude Code에 붙이면 됨). |
 | `HANDOFF-종합현황-지리촬영지.md` | 촬영지(film_locations) 파이프라인 이력·현황. §0 = 2026-07-03 완료 스냅샷(20,073행/4,334편), §12 = 수정·검증 로그. |
 | `HANDOFF-아틀라스-SEO-읽는층.md` | 촬영지 데이터의 **SEO 읽는층**(2026-07-04 전 Phase 라이브: film/director locations 1,000+331 · 국가 73 · 도시 511) — 파일맵·DB RPC·불변식(게이트=mergeCells 동기 규칙)·신규영화 운영절차(§3). 설계·실행 로그는 `docs/PLAN-atlas-seo.md`. |

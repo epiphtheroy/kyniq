@@ -27,6 +27,8 @@ See `RUNBOOK-new-film-ingestion.md` §6 for the design.
 - 🟡 **Per-page head-copy / intros.** Per-**film** dossiers and per-**framework** intro copy for `<title>`/meta/H1 are thin or missing (hub `seo_phrase` exists via `mt-seo-batch`, but films + frameworks need their own). Design a head-copy generator (Haiku/Sonnet batch) writing a `seo_*` field per film + framework. *(Medium.)*
 - 🟡 **Re-run hub seo_phrase after renames** (recluster nulls it). Fold into the garden pass. *(Low.)*
 - 🟡 **strong-misreadings sitemap + canonical/og** completeness; **S2 perf** (materialize counts, home_bundle cache, tz) — carried from roadmap. *(Medium.)*
+- 🟢 **figure LLM 폴리싱 2단계 (순수 선택, 2026-07-07 격하).** figure title은 이미 18,168页 전량 규칙으로 질문형 라이브(`lib/figureSeo.ts`) — 남은 것은 지저분한 라벨 7,862건의 "더 짧은 압축 질문+short_label"뿐(축소 배치 ~$20, Opus). 선행: GSC 효과 2~4주 관찰 + Supabase MCP 재연결(0035 마이그레이션 파일 커밋·**미적용** — 적용 전 seo_question select 금지). 재개 절차·파이프라인: `Outputs/figure_seo/RUNBOOK.md`. **18k 전량 배치 재제출 금지**(57% 낭비). *(Small; 조건부.)*
+- 🟡 **Curious 질문 커버리지 15%** (507문항/291편) — film 페이지 질문 블록이 85%에서 미표시. figure title 레이어와 별개 트랙(질문+답 콘텐츠 생성, 편당 3~4문항). 2026-07-06 진단에서 확인. *(Medium; 원우 결정 대기.)*
 
 ## D. Quality / refinement (your examples: figure aliases, node-graph calc)
 - 🟡 **Figure aliases (별칭).** Same figure/character recurs across films under different labels; no alias layer. Add `figure_aliases` (or reuse `meta_take_aliases` pattern) so search + cross-film linking resolve synonyms. Needs a design: manual seed vs embedding-clustered candidates. *(Medium; needs design.)*

@@ -32,8 +32,9 @@
 | **계보 층** | `lib/lineage.ts`(출처맵·게이트·KNOWN_TRUE_SIZE·honorText) | 정본: `HANDOFF-계보-SEO-읽는층.md` — film_count 게이트 금지, lineage_sources 테이블은 빈 테이블 |
 | 이론가 QID | `lib/theorist_qid.json`(검증 299) + `worker/theorist-qid/match.mjs` | 미해결 59명 CSV는 세션 스크래치에 있었음 — 재생성 가능(스크립트 재실행) |
 | 스키마 공통 | 각 페이지 인라인 JSON-LD(트로프 페이지 패턴) | 포털=CollectionPage+ItemList+Breadcrumb, 노드=DefinedTerm, film=Movie(@id·sameAs wikidata·review) |
+| **figure 질문 title 레이어** | `lib/figureSeo.ts`(ruleFigureQuestion·messyFigureTitle) → figure 페이지 `<title>`·리드 H2(fg-qh)·film 페이지 figure 앵커 | **18,168页 전량 렌더 타임 규칙 — DB·LLM 불요.** 불변식: H1·상호참조·JSON-LD headline은 label(엔티티) 유지, 질문은 title·부제에만. 정본: `Outputs/figure_seo/RUNBOOK.md` |
 
-DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `movement_hidden_films`, `cinecodex_dimension_top`, `cinecodex_film_subscores` — 전부 2026-07-04.
+DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `movement_hidden_films`, `cinecodex_dimension_top`, `cinecodex_film_subscores` — 전부 2026-07-04. **주의: `0035_figures_seo_fields.sql`은 파일만 커밋되고 프로덕션 미적용**(2단계 LLM 폴리싱 전용 컬럼 — 적용 전까지 어떤 코드도 seo_question/seo_short_label을 select하면 안 됨).
 
 ## 2. 런북 — 상황별 절차
 
@@ -84,7 +85,7 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 11. **CineCodex 노출층**: 13차원 랜딩(에세이+앵커 8편 자+Top25 포스터+하트+TS·V·C·R 보조점수+Wonwoo Yoon 바이라인+Article/DefinedTerm), film 패널 링크 격자+백분위+? 버튼+Movie.review, 허브 그리드 기본 펼침+툴팁, about 연결.
 12. **GSC 추이**: 7/3 노출 14 → 7/4 노출 46·첫 클릭 2. 쿼리 3클래스(인명→트로프 헤드텀→영화 제목).
 
-## 3b. 2026-07-05~06 작업 이력 (층별 정본 문서에 상세 — 여기는 색인)
+## 3b. 2026-07-05~07 작업 이력 (층별 정본 문서에 상세 — 여기는 색인)
 
 1. **Atlas 마무리**(07-04 밤~05): 도시·지역 허브 511(cities.xml), E-E-A-T 보강(위치별 출처 링크·실제 갱신일·/atlas Dataset·돌아오는 감독들·포스터) → `HANDOFF-아틀라스-SEO-읽는층.md`.
 2. **연결 엔진 재건**(07-05, 별도 세션): 친족·counterpoint·개념·갤럭시 → `HANDOFF-연결엔진-커넥션.md`.
@@ -94,6 +95,7 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 6. **site_content/ 스펙 팩 적용**(07-06): QID 20건 검증(전부 기 백필 확인), bare-wikidata 인용 버그 수정, Movie 노드 정합(@id 공유 페이지 간 date/sameAs/award 일치), /lineage Dataset, "N of M matched" 완전성 노트(KNOWN_TRUE_SIZE — 정의상 크기만), /methodology Lineage 섹션(수치 검증 후 게재).
 7. **My Films 렌즈**(07-06, 별도 세션): 3단 개인화 오버레이 → `HANDOFF-마이필름-렌즈.md`.
 8. **Tier-2 개방 배치**(07-06, 별도 세션): Tier-2 페이지 **Editor's digest**(DB 결정론 조합, 바이라인 Wonwoo Yoon+실데이터 갱신일, WebPage LD dateModified/editor, About 격하, 캐시 키 film-load5) + Atlas 미니맵 · 검색 `search_site` v2(Tier-2 포함, is_catalog+0.8 디스카운트, "catalog" 칩) · /film Full catalogue 뷰 · credits 인물 페이지 Tier-2 링크 승격 · **/whereto robots 게이트 명시**(visible만 색인 — 기존 무게이트 우연 상태 종료) · Atlas 표시 RPC 6종 핀 개방(17,307→25,029, 자격 게이트 불변) · director_slug 백필 22→1,022 · **stub slug 274편 일괄 개명**(aliases 548, /film miss 경로 resolveAlias 신설 배선) → 정본 `docs/PLAN-tier2-almanac.md` §7. **robots/색인 코호트 변화 없음**(Tier-2 전원 noindex 유지, Track B는 7/16 리뷰 대기).
+9. **figure 질문 title 레이어**(07-07): figure 18,168页 `<title>` 전량 질문형 전환 — **전부 렌더 타임 규칙, LLM·DB 무사용/$0** (`lib/figureSeo.ts`). 깨끗한 라벨 57%=완전 질문형("Who is Monsieur Merde in Holy Motors (2012)?"), 지저분한 43%=대시-suffix("{label} in {film} — what does it mean?", 원우 아이디어). 부수 수정: 끝마침표 title 깨짐 1,333页·라벨 내 영화명 중복 2,353页. film 페이지 figure 카드 "Open →"→질문 앵커(깨끗한 라벨만). **불변식: H1·상호참조·JSON-LD headline은 label(엔티티) 유지 — 질문은 title·리드 H2(fg-qh)·앵커에만**(원우 확정). LLM 파이프라인(파일럿 30/30 합격, 배치는 큐 적체 24h 0건으로 취소)은 `Outputs/figure_seo/RUNBOOK.md`에 보존 — 2단계 폴리싱은 §5-7. URL·색인 정책 변화 없음.
 
 ## 4. GSC 판독 로그 (추기식)
 
@@ -107,5 +109,6 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 4. **CineCodex 근거 텍스트 배치** — 영화별 13차원 근거 1줄은 DB에 없음(스펙만). 생성 시 Tier-1 1,935편 Message Batches ~$100-150.
 5. **7/16 코호트 리뷰** — 전 캡 동결 해제 여부 + Tier-2 수요 기반 승급 루프 부착. 증량 후보: locations 1,000→1,714 · honors 500→895.
 6. **GSC 자식 제출**(원우) — locations/atlas/cities/lineage/honors.xml 5개. 제출 직후 "가져올 수 없음"은 첫 크롤 전 정상.
+7. **figure LLM 폴리싱 2단계(순수 선택)** — 지저분한 라벨 7,862건의 압축 질문+short_label(축소 배치 ~$20). 선행: ① GSC에서 07-07 title 레이어 효과 2~4주 관찰 ② Supabase MCP 재연결 후 0035 적용. 재개 절차·폴백 체인은 `Outputs/figure_seo/RUNBOOK.md`. **18k 전량 배치 재제출 금지**(57%는 규칙으로 이미 커버 — 낭비).
 7. **계보 데이터 카드**(별도 결정): lineage_editions 4,735 노출 여부 · lineage_sources 테이블 채우기 · 플래그십 정전 꼬리 수복(TSPDT+6, NFR+11) · films.wikidata_id 백필(Movie sameAs 자동 강화, theorist QID 매처 재사용).
 8. **도시 엔티티 앵커**: 도시 허브에 Wikidata QID sameAs + 현지어 alternateName(서울/東京).
