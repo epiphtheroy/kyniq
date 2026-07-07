@@ -2976,54 +2976,29 @@ a.df-rt:hover{border-color:var(--ink)}
 .df-rt--imdb b{color:#C7A008}
 .df-rt--rt b{color:#FA320A}
 .df-rt--meta b{color:#2E6F2E}
-/* ===== "The Record, at a glance" — facts + numbers band under the hero.
-   Replaces the old ratings+JustWatch strip; token-based so it tracks the theme. ===== */
-.df-glance{border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); padding:18px 0 20px; margin-top:2px}
-.df-glance__kick{font-family:var(--font-ui); font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--subtle); margin:0 0 15px; display:flex; align-items:center; gap:10px}
-.df-glance__kick::after{content:""; flex:1; height:1px; background:var(--hairline)}
-.df-glance__grid{display:grid; grid-template-columns:1.02fr 0.98fr; gap:34px}
-.df-vital{display:grid; grid-template-columns:96px 1fr; gap:9px 16px; align-items:baseline; margin:0}
-.df-vital dt{font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); padding-top:2px}
-.df-vital dd{margin:0; font-family:var(--font-display); font-size:15px; color:var(--ink2); line-height:1.4}
-.df-vital dd a{color:var(--accent)}
-.df-vital dd a:hover{text-decoration:underline}
-.df-vital__more{color:var(--muted); font-size:13px}
-.df-stands{display:flex; flex-direction:column; gap:18px}
-.df-rail__lab{font-family:var(--font-ui); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-bottom:8px}
-.df-rail{display:flex; flex-wrap:wrap; gap:6px}
-.df-rchip{display:inline-flex; align-items:baseline; gap:5px; font-family:var(--font-ui); font-size:12px; line-height:1; padding:5px 9px; border:1px solid var(--hairline); border-radius:7px; color:var(--ink2); background:var(--paper); text-decoration:none}
-.df-rchip b{font-size:10px; letter-spacing:.03em; text-transform:uppercase; font-weight:700}
-.df-rchip .n{font-variant-numeric:tabular-nums; font-weight:600}
-.df-rchip .v{color:var(--subtle); font-size:11px}
-a.df-rchip:hover{border-color:var(--ink2)}
-.df-rchip--imdb b,.df-rchip--imdb .star{color:#C7A008}
-.df-rchip--rt b{color:#FA320A}
-.df-rchip--meta b{color:#2E6F2E}
-.df-rchip--tmdb b{color:var(--teal)}
-.df-rail__note{font-family:var(--font-ui); font-size:11.5px; color:var(--muted); margin:9px 0 0; line-height:1.4}
-.df-rail__note a{color:var(--accent); font-weight:600; white-space:nowrap}
-.df-mtnums{font-family:var(--font-ui); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#0F6E56; margin-bottom:11px; display:flex; align-items:center; gap:8px}
-.df-mtnums::after{content:""; flex:1; height:1px; background:var(--hairline)}
-.df-numgrid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hairline); border:1px solid var(--hairline); border-radius:10px; overflow:hidden}
-.df-ncell{background:var(--bg); padding:11px 13px 10px; display:flex; flex-direction:column; gap:3px; text-decoration:none; transition:background .12s}
-.df-ncell:hover{background:var(--paper)}
-.df-ncell .n{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace; font-size:25px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; line-height:1}
-.df-ncell .k{font-family:var(--font-ui); font-size:11px; font-weight:600; color:var(--muted); letter-spacing:.01em; line-height:1.25}
-.df-ncell .k .arr{color:var(--accent); opacity:0; transition:opacity .12s}
-.df-ncell:hover .k .arr{opacity:1}
-.df-ncell--wide{grid-column:1 / -1; flex-direction:row; align-items:baseline; gap:11px}
-.df-ncell--wide .n{color:var(--accent)}
-.df-ncell--wide .k{padding-top:5px}
-.df-nrank{margin-top:12px; padding:11px 13px 13px; border:1px solid var(--hairline); border-radius:9px; background:var(--paper)}
-.df-nrank__head{display:flex; align-items:baseline; gap:9px; flex-wrap:wrap}
-.df-nrank__lbl{font-family:var(--font-ui); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted)}
-.df-nrank__n{font-family:var(--font-ui); font-size:12.5px; font-weight:600; color:var(--ink)}
-.df-nrank__pct{margin-left:auto; font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:12px; font-weight:600; color:#0F6E56; font-variant-numeric:tabular-nums}
-.df-nrank__track{position:relative; height:4px; border-radius:2px; background:var(--hairline); margin-top:20px}
-.df-nrank__track i{position:absolute; top:50%; transform:translate(-50%,-50%); width:11px; height:11px; border-radius:50%; background:#0F6E56; border:2px solid var(--bg); box-shadow:0 0 0 1px var(--hairline-2)}
-.df-nrank__mark{position:absolute; bottom:9px; transform:translateX(-50%); font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:9.5px; font-weight:600; color:#0F6E56; white-space:nowrap}
-.df-nrank__ends{display:flex; justify-content:space-between; font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:9.5px; color:var(--faint); margin-top:6px}
-@media (max-width:760px){ .df-glance__grid{grid-template-columns:1fr; gap:24px} }
+/* ===== "By the numbers" — a live scoreboard of the film's counted sections.
+   Deep-navy ground (the atlas-button navy) so the per-section coloured numerals
+   carry the energy; the client component counts them up on scroll-in. ===== */
+.fnum{margin:16px 0 6px; padding:20px 22px 22px; border-radius:14px; color:#FBF8F1; position:relative; overflow:hidden; background:linear-gradient(135deg,#16233F 0%,#1D3055 100%)}
+.fnum::after{content:""; position:absolute; top:-42%; right:-8%; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle,rgba(224,146,42,.16),transparent 68%); pointer-events:none}
+.fnum__kick{position:relative; font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9DB0D0; margin:0 0 15px; display:flex; align-items:center; gap:12px}
+.fnum__kick::after{content:""; flex:1; height:1px; background:rgba(255,255,255,.14)}
+.fnum__grid{position:relative; display:grid; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); gap:1px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.10); border-radius:11px; overflow:hidden}
+.fnum__tile{background:#182741; padding:16px 15px 14px; display:flex; flex-direction:column; gap:6px; text-decoration:none; position:relative; isolation:isolate; transition:background .16s}
+.fnum__tile::before{content:""; position:absolute; inset:0; z-index:-1; background:var(--c); opacity:0; transition:opacity .16s}
+.fnum__tile::after{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--c); opacity:.5; transition:opacity .16s}
+.fnum__tile:hover{background:#1E2F4E}
+.fnum__tile:hover::before{opacity:.12}
+.fnum__tile:hover::after{opacity:1}
+.fnum__n{font-size:34px; font-weight:600; line-height:.92; color:var(--c); font-variant-numeric:tabular-nums; letter-spacing:-.02em; text-shadow:0 0 22px color-mix(in srgb, var(--c) 45%, transparent)}
+.fnum__lab{font-family:var(--font-ui); font-size:11px; font-weight:600; color:#C7D2E6; letter-spacing:.01em; line-height:1.25; display:flex; align-items:baseline; gap:5px}
+.fnum__arr{color:var(--c); font-weight:700; opacity:0; transform:translateX(-4px); transition:opacity .16s, transform .16s}
+.fnum__tile:hover .fnum__arr{opacity:1; transform:translateX(0)}
+.fnum__tile--hero{grid-column:span 2}
+.fnum__tile--hero .fnum__n{font-size:50px}
+@media (prefers-reduced-motion:no-preference){ .fnum__tile{animation:fnumIn .55s cubic-bezier(.2,.7,.2,1) backwards} }
+@keyframes fnumIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
+@media (max-width:560px){ .fnum__tile--hero .fnum__n{font-size:40px} }
 /* ===== Where to watch (TMDB / JustWatch) ===== */
 .wp{margin-top:10px}
 .wp-head{display:flex; align-items:center; gap:9px; margin-bottom:12px}
