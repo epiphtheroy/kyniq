@@ -98,7 +98,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const card = await load(slug);
   if (!card) return {};
   const ts = Math.round(card.u);
-  const verdict = verdictSentence(card.v, card.c, card.r, card.u);
+  // Title-bearing verdict: the film's name in the first sentence makes a
+  // stronger SERP snippet (entity mention in the meta description).
+  const verdict = verdictSentence(card.v, card.c, card.r, card.u, card.title);
   const title = `${card.title}${card.year ? ` (${card.year})` : ""} TakeScore ${ts} — value, cost and risk, scored | Metatake`;
   return {
     // Absolute: the spec title already carries the brand; the root layout
@@ -137,7 +139,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
 
   const ts = Math.round(card.u);
   const v = Math.round(card.v), c = Math.round(card.c), r = Math.round(card.r);
-  const verdict = verdictSentence(card.v, card.c, card.r, card.u);
+  const verdict = verdictSentence(card.v, card.c, card.r, card.u, card.title);
   const rel = card.reliability;
   const confLine = confidenceSentence(card.conf, card.tier, rel?.n_samples ?? null, rel?.sd_v ?? null, rel?.flagged ?? null);
   const standLine = standingSentence(card.standing?.prestige ?? null, card.standing?.labels ?? null);
@@ -203,7 +205,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
             <div className="tsf-poster--e" aria-hidden="true" />
           )}
           <div className="tsf-hmeta">
-            <div className="tsf-kicker tsf-kicker--tight">TakeScore appraisal</div>
+            <div className="tsf-kicker tsf-kicker--tight">TakeScore™ appraisal</div>
             <div className="tsf-ftitle">{card.title}{card.year ? <small>{card.year}</small> : null}</div>
             {card.director ? <p className="tsf-dir">Directed by {card.director}{card.year ? ` · ${card.year}` : ""}</p> : null}
             <p style={{ margin: 0 }}>
@@ -228,9 +230,9 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         {/* ── Side by side · three pillars — V / C / R ring gauges + sub-scores ── */}
         <section aria-labelledby="tsf-dims-h">
           <div className="tsf-kicker">Scorecard</div>
-          <h2 className="tsf-h2" id="tsf-dims-h">How we scored it</h2>
+          <h2 className="tsf-h2" id="tsf-dims-h">How {card.title} was scored</h2>
           <p className="tsf-sub">
-            Thirteen sub-scores in three groups, each 0–100 against the fixed CineCodex rubric. Every dimension links
+            Thirteen sub-scores in three groups, each 0–100 against the fixed TakeScore rubric. Every dimension links
             to its own page — what it measures, the calibration ruler, the catalog&apos;s extremes. The comparison
             titles are this film&apos;s three measured nearest neighbors on that axis.
           </p>
@@ -356,12 +358,9 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         {basket.length ? (
           <section aria-labelledby="tsf-basket-h">
             <div className="tsf-kicker">Where it ranks</div>
-            <h2 className="tsf-h2" id="tsf-basket-h">
-              {rank != null && rankTotal != null
-                ? <>Rank #{rank} of {rankTotal} by TakeScore</>
-                : <>The reference basket</>}
-            </h2>
+            <h2 className="tsf-h2" id="tsf-basket-h">Where {card.title} ranks</h2>
             <p className="tsf-sub">
+              {rank != null && rankTotal != null ? <><b>#{rank} of {rankTotal} by TakeScore.</b>{" "}</> : null}
               A 20-film window of the TakeScore ranking around this film — U = Value − λ·Risk at λ = 1; lower Risk is safer.
             </p>
             {rank != null && rankTotal != null && rankTotal > 1 ? (

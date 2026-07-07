@@ -59,7 +59,7 @@ export default async function TakeScorePage() {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap lh">
-        <h1 className="lh-h1">TakeScore</h1>
+        <h1 className="lh-h1">TakeScore™</h1>
         <p className="lh-def">
           Every film gets a <span className="term">TakeScore</span> (TS) — our estimate of the durable value a serious
           viewer gains, the cost to unlock it and the risk it disappoints. Ranked by TakeScore, not popularity. Search,

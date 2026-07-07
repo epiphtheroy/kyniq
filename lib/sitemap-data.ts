@@ -8,6 +8,7 @@ import {
   INDEX_COHORT_CATALOG,
   INDEX_COHORT_FILM_LOCATIONS,
   INDEX_COHORT_FILM_HONORS,
+  INDEX_COHORT_ESSAYS,
 } from "@/lib/seo";
 import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
 import { cachedLineageEligibility } from "@/lib/lineage";
@@ -18,7 +19,7 @@ import crewIndex from "@/lib/crew_index.json";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
-import { DESKS, DESK_KEYS } from "@/lib/desks";
+import { DESKS, DESK_KEYS, deskByMode } from "@/lib/desks";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -118,6 +119,40 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     entries.push({ url: `${siteUrl}/blog/${p.slug}`, lastmod: p.edition_date });
   }
   return entries;
+}
+
+/**
+ * /film/[slug]/[desk] essay pages — Engine Room cohort 1 (SPEC: 배치전략 v2 §10).
+ * Oldest-first + cap so raising INDEX_COHORT_ESSAYS only appends URLs; waves
+ * were commissioned strongest-films-first, so oldest ≈ highest-value pages.
+ */
+export async function essaysEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  type Row = { mode: string; published_at: string | null; created_at: string; film: { slug: string } };
+  const rows = await fetchAll<Row>(
+    (from, to) =>
+      supabase
+        .from("essays")
+        .select("mode, published_at, created_at, film:films!inner(slug, visible)")
+        .eq("lang", "en")
+        .eq("status", "verified")
+        .eq("film.visible", true)
+        .order("created_at", { ascending: true })
+        .range(from, to) as unknown as PromiseLike<{ data: Row[] | null }>,
+    INDEX_COHORT_ESSAYS
+  );
+  const out: SitemapEntry[] = [];
+  const seen = new Set<string>();
+  for (const r of rows) {
+    const desk = deskByMode(r.mode);
+    if (!desk || !r.film?.slug) continue;
+    const url = `${siteUrl}/film/${r.film.slug}/${desk.key}`;
+    if (seen.has(url)) continue;
+    seen.add(url);
+    out.push({ url, lastmod: isoDate(r.published_at ?? r.created_at) });
+  }
+  return out;
 }
 
 /** Films — every visible film. */

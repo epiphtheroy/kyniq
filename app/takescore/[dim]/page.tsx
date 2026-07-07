@@ -211,7 +211,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     alternates: { canonical: takescoreDimUrl(dim.slug) },
     title: copy.title,
-    description: `${dim.question} The ${dim.label} dimension of the CineCodex — scale: ${dim.scale}. ${SCORED} films scored against eight fixed anchor films.`,
+    description: `${dim.question} The ${dim.label} dimension of the TakeScore — scale: ${dim.scale}. ${SCORED} films scored against eight fixed anchor films.`,
   };
 }
 
@@ -237,9 +237,9 @@ export default async function DimensionPage({ params }: Props) {
         "@type": "DefinedTerm",
         "@id": canonical,
         url: canonical,
-        name: `${dim.label} (CineCodex dimension)`,
+        name: `${dim.label} (TakeScore dimension)`,
         description: `${dim.question} Scale: ${dim.scale}.`,
-        inDefinedTermSet: { "@type": "DefinedTermSet", name: "CineCodex — the TakeScore dimensions", url: `${SITE}/takescore` },
+        inDefinedTermSet: { "@type": "DefinedTermSet", name: "The thirteen TakeScore dimensions", url: `${SITE}/takescore` },
       },
       {
         "@type": "BreadcrumbList",
@@ -286,7 +286,7 @@ export default async function DimensionPage({ params }: Props) {
         <h1 className="lh-h1">{copy.title}</h1>
         <p className="lh-def">
           {dim.question} This page answers it with <span className="term">{dim.label}</span> — {GROUP_PHRASE[dim.group]} —
-          one of the thirteen CineCodex axes behind the TakeScore, scored 0–100 for all {SCORED} films in the catalog
+          one of the thirteen axes behind the TakeScore, scored 0–100 for all {SCORED} films in the catalog
           against a fixed, version-locked rubric. <Link href="/takescore/about">How the system works →</Link>
         </p>
 
@@ -310,7 +310,7 @@ export default async function DimensionPage({ params }: Props) {
         >
           <h2 className="ab-h2" id="dim-method" style={{ marginTop: 0, fontSize: 15 }}>About this methodology</h2>
           <p className="ab-p" style={{ marginBottom: 0, fontSize: 14 }}>
-            CineCodex is Metatake&apos;s own scoring system — designed and calibrated by{" "}
+            TakeScore™ is Metatake&apos;s own scoring system — designed and calibrated by{" "}
             <Link href="/editor">Wonwoo Yoon</Link>, founder &amp; editor of Metatake. Every score on this page comes
             from a frozen rubric (cinecodex-prod-v2) calibrated against eight fixed anchor films; {SCORED} films scored
             to date. Published {DATE_PUBLISHED_HUMAN}.
@@ -319,7 +319,7 @@ export default async function DimensionPage({ params }: Props) {
 
         <h2 className="ab-h2">The eight anchors</h2>
         <p className="ab-p">
-          CineCodex scores are not free-floating opinions: every film in the catalog is measured against the same
+          TakeScore&apos;s numbers are not free-floating opinions: every film in the catalog is measured against the same
           fixed calibration ruler — eight reference films with hand-set gold scores frozen into the scoring rubric.
           Here is that ruler on the {dim.label} axis, highest to lowest.
         </p>

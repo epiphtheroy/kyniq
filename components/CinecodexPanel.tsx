@@ -305,7 +305,7 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
         <p className="ccx-gverdict">{verdictSentence(data.v, data.c, data.r, data.u, title)}</p>
       </div>
 
-      <ValuePop v={data.v} votes={data.votes} />
+      <ValuePop v={data.v} votes={data.votes} title={title} />
 
       {/* Where it ranks — overall position by TakeScore among all scored films.
           Real numbers from the RPC or nothing; confidence now lives in the
