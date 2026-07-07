@@ -26,7 +26,9 @@ type TakesRow = { slug: string; title: string; n: number };
 type LiveRow = { slug: string; name: string; films: number; theorist: string | null };
 type DomainCount = { part: string; concepts: number; live: number };
 
-const normName = (s: string) => s.toLowerCase().replace(/^the\s+/, "").replace(/[^a-z0-9]/g, "");
+// Parenthetical glosses ("Repetition compulsion (Wiederholungszwang)") collapse
+// onto the bare term so the index never shows the same concept twice.
+const normName = (s: string) => s.toLowerCase().replace(/\s*\([^)]*\)/g, "").replace(/^the\s+/, "").replace(/[^a-z0-9]/g, "");
 
 async function loadRows() {
   const supabase = db();
