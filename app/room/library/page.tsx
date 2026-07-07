@@ -1,12 +1,8 @@
-import { createClient } from "@/lib/supabase/server";
-import LibraryWorkspace, { type LibRow } from "@/components/room/LibraryWorkspace";
-import "./library.css";
+import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-
-export default async function RoomLibraryPage() {
-  const supabase = await createClient();
-  const { data } = await supabase.rpc("me_library");
-  const rows = (data as LibRow[] | null) ?? [];
-  return <LibraryWorkspace rows={rows} />;
+/** v3: the Library became the Shelf — /room/shelf (spec §6 route map).
+ *  Bookmark-compat page-stub redirect ONLY: no next.config/middleware rules
+ *  (the auto-deploy watcher stages app/components/lib, nothing else). */
+export default function RoomLibraryRedirect() {
+  redirect("/room/shelf");
 }

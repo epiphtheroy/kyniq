@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { loadWwi, loadCollection } from "@/lib/room/loadCollection";
-import type { WwiRow, CollRow } from "@/lib/room/format";
-import type { NavHistRow } from "@/lib/room/format";
+import type { WwiRow, CollRow, NavHistRow } from "@/lib/room/format";
 import PerformanceWorkspace, {
   type PerformanceData, type NavJson, type AlphaJson,
 } from "@/components/room/PerformanceWorkspace";

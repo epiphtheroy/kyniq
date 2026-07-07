@@ -1,12 +1,8 @@
-import { createClient } from "@/lib/supabase/server";
-import WriteWorkspace, { type TakeRow } from "@/components/room/WriteWorkspace";
-import "./write.css";
+import { redirect } from "next/navigation";
 
-export const dynamic = "force-dynamic";
-
-export default async function RoomWritePage() {
-  const supabase = await createClient();
-  const { data } = await supabase.rpc("me_authored_takes");
-  const takes = (data as TakeRow[] | null) ?? [];
-  return <WriteWorkspace takes={takes} />;
+/** v3: Write became Takes — /room/takes (spec §6 route map).
+ *  Bookmark-compat page-stub redirect ONLY: no next.config/middleware rules
+ *  (the auto-deploy watcher stages app/components/lib, nothing else). */
+export default function RoomWriteRedirect() {
+  redirect("/room/takes");
 }
