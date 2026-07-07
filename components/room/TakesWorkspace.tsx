@@ -110,10 +110,14 @@ const plain = (html: string) => html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi
 const wordsOf = (html: string) => { const t = plain(html); return t ? t.split(" ").length : 0; };
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 
-export default function TakesWorkspace({ takes }: { takes: TakeRow[] }) {
+export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: string }) {
   const insp = useInspector();
   const { setDefault } = insp;
   const { supabase, say } = useRoomActions();
+
+  /* Draft keys are uid-scoped (mt_take_draft:{uid}:{draftId}) so a shared
+     browser never restores another account's drafts. */
+  const lsPrefix = `${LS_PREFIX}${uid}:`;
 
   const [drafts, setDrafts] = useState<Draft[]>(() => (takes.length ? [] : [newDraft()]));
   const [curId, setCurId] = useState<string | null>(() => (takes.length ? null : drafts[0]?.id ?? null));
@@ -130,9 +134,12 @@ export default function TakesWorkspace({ takes }: { takes: TakeRow[] }) {
     restoredRef.current = true;
     const restored: Draft[] = [];
     try {
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (!k || !k.startsWith(LS_PREFIX)) continue;
+      /* Snapshot the keys first — removeItem inside the loop would shift live
+         indices and skip the next key. Legacy unscoped and other users' keys
+         are skipped, never restored. */
+      const keys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i));
+      for (const k of keys) {
+        if (!k || !k.startsWith(lsPrefix)) continue;
         const raw = localStorage.getItem(k);
         if (!raw) continue;
         const v = JSON.parse(raw) as Partial<Draft>;
@@ -169,7 +176,7 @@ export default function TakesWorkspace({ takes }: { takes: TakeRow[] }) {
     if (!cur || cur.localSaved || !isDirty(cur)) return;
     const t = setTimeout(() => {
       try {
-        localStorage.setItem(LS_PREFIX + cur.id, JSON.stringify({
+        localStorage.setItem(lsPrefix + cur.id, JSON.stringify({
           id: cur.id, fromTakeId: cur.fromTakeId, type: cur.type, title: cur.title,
           body: cur.body, framework: cur.framework, films: cur.films, savedAt: Date.now(),
         }));
@@ -177,7 +184,7 @@ export default function TakesWorkspace({ takes }: { takes: TakeRow[] }) {
       } catch { /* quota/unavailable → pill stays "Unsaved" (honest) */ }
     }, 600);
     return () => clearTimeout(t);
-  }, [cur]);
+  }, [cur, lsPrefix]);
 
   /* ── beforeunload guard while any draft is dirty (spec §3.13-1) ── */
   const dirtyAny = drafts.some(isDirty);
@@ -208,6 +215,7 @@ export default function TakesWorkspace({ takes }: { takes: TakeRow[] }) {
   const persist = useCallback(async (publish: boolean, doneMsg: string) => {
     if (!cur) return;
     setSaving(true);
+    const sent = snapOf(cur); // exact content shipped to the server
     const { data, error } = await supabase.rpc("save_take", {
       p_take_id: cur.fromTakeId,
       p_title: cur.title || null,

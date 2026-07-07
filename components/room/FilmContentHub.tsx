@@ -7,13 +7,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { STR } from "./strings";
+import { IMG } from "@/lib/room/format";
 
 type Next = { position: number; title: string; yr: number | null; slug: string | null; poster_path: string | null; reason: string | null };
 type Like = { slug: string; title: string; yr: number | null; poster_path: string | null; score: number };
 type Loc = { name: string; country: string | null; kind: string | null; narrative_setting: string | null; lat: number; lng: number; layer: string | null };
 type Ctx = { watch_next: Next[] | null; movies_like: Like[] | null; locations: Loc[] | null; loc_count: number; avail: { state: string; provider?: string } | null };
-
-const IMG = "https://image.tmdb.org/t/p/w92";
 
 export default function FilmContentHub({ slug }: { slug: string }) {
   const [d, setD] = useState<Ctx | null>(null);

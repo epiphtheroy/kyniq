@@ -69,8 +69,8 @@ export default function CinecodexCard({ d, showBadge = false, slug }: { d: CcDat
 
       {showBadge && rp != null ? (
         <div className="vpq">
-          <div className="b"><div className="bn" style={{ color: mkt != null && mkt >= 12 ? "var(--safe)" : mkt != null && mkt <= -9 ? "var(--reading)" : "var(--mut)" }}>{mkt != null ? (mkt > 0 ? "+" : "") + mkt : "—"}</div><div className="bl">{STR.cc.market} {badge(mkt)} (★ − {STR.cc.standing})</div></div>
-          <div className="b"><div className="bn" style={{ color: ana != null && ana >= 12 ? "var(--safe)" : ana != null && ana <= -9 ? "var(--reading)" : "var(--mut)" }}>{ana != null ? (ana > 0 ? "+" : "") + ana : "—"}</div><div className="bl">{STR.cc.analysis} {badge(ana)} (★ − V)</div></div>
+          <div className="b"><div className="bn" style={{ color: mkt != null && mkt >= 12 ? "var(--safe)" : mkt != null && mkt <= -9 ? "var(--risk)" : "var(--mut)" }}>{mkt != null ? (mkt > 0 ? "+" : "") + mkt : "—"}</div><div className="bl">{STR.cc.market} {badge(mkt)} (★ − {STR.cc.standing})</div></div>
+          <div className="b"><div className="bn" style={{ color: ana != null && ana >= 12 ? "var(--safe)" : ana != null && ana <= -9 ? "var(--risk)" : "var(--mut)" }}>{ana != null ? (ana > 0 ? "+" : "") + ana : "—"}</div><div className="bl">{STR.cc.analysis} {badge(ana)} (★ − V)</div></div>
         </div>
       ) : null}
 

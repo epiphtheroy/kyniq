@@ -125,11 +125,11 @@ export default function ScreenerWorkspace({ initialRows, formingHave, initialRea
   const dial = useCallback(async (l: number, force = false) => {
     setLambda(l);
     setDialError(null);
+    const req = ++dialReq.current; // invalidate any in-flight dial, cache hit included
     if (!force) {
       const hit = session.getCache<WwiRow[]>(wwiKey(l));
       if (hit) { setRows(hit); setDialing(false); return; }
     }
-    const req = ++dialReq.current;
     setDialing(true);
     const { data, error } = await supabase.rpc("me_recommend_wwi", { p_lambda: l, p_limit: LIMIT });
     if (req !== dialReq.current) return; // a newer dial superseded this one

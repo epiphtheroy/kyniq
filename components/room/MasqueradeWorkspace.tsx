@@ -47,12 +47,13 @@ function kstCountdown(): string {
 }
 
 const MidnightCountdown = memo(function MidnightCountdown() {
-  const [txt, setTxt] = useState(kstCountdown);
+  const [txt, setTxt] = useState<string | null>(null);
   useEffect(() => {
+    setTxt(kstCountdown()); // first tick immediately — interval alone would leave the placeholder up for 1s
     const t = setInterval(() => setTxt(kstCountdown()), 1000);
     return () => clearInterval(t);
   }, []);
-  return <span className="mq-cd">{txt}</span>;
+  return <span className="mq-cd">{txt ?? "--:--:--"}</span>;
 });
 
 /* ── mask glyphs ── */

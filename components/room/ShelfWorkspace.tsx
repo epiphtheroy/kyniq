@@ -155,30 +155,45 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
     [ovs],
   );
 
-  /* public toggle → set_pin_visibility (optimistic; toast via the shared provider) */
+  /* public toggle → set_pin_visibility (optimistic; rolls back on RPC failure) */
   const setPub = useCallback((r: ShelfRow) => {
     const next = !ov(r).pub;
-    setOvs((p) => { const k = keyOf(r); const cur = p[k] ?? { fav: r.fav, pub: r.visibility === "public" }; return { ...p, [k]: { ...cur, pub: next } }; });
+    const k = keyOf(r);
+    setOvs((p) => { const cur = p[k] ?? { fav: r.fav, pub: r.visibility === "public" }; return { ...p, [k]: { ...cur, pub: next } }; });
     if (!r.slug) { say("This item has no identifier — the change lives in this session only"); return; }
     supabase.rpc("set_pin_visibility", { p_entity_type: r.entity_type, p_slug: r.slug, p_public: next })
-      .then(({ error }) => say(error ? STR.toast.saveFail(error.message) : next ? `"${r.title}" is now public` : `"${r.title}" is now private`));
+      .then(({ error }) => {
+        if (error) { setOvs((p) => ({ ...p, [k]: { ...p[k], pub: !next } })); say(STR.toast.saveFail(error.message)); }
+        else say(next ? `"${r.title}" is now public` : `"${r.title}" is now private`);
+      });
   }, [ov, supabase, say]);
 
-  /* favorite → me_toggle_fav (creates/removes the kind='like' pin) */
+  /* favorite → me_toggle_fav (creates/removes the kind='like' pin; optimistic,
+     rolls back on failure; a like-only pin unfavorited is unpinned server-side,
+     so the card drops when the server says nothing remains pinned) */
   const setFav = useCallback((r: ShelfRow) => {
     const next = !ov(r).fav;
-    setOvs((p) => { const k = keyOf(r); const cur = p[k] ?? { fav: r.fav, pub: r.visibility === "public" }; return { ...p, [k]: { ...cur, fav: next } }; });
+    const k = keyOf(r);
+    setOvs((p) => { const cur = p[k] ?? { fav: r.fav, pub: r.visibility === "public" }; return { ...p, [k]: { ...cur, fav: next } }; });
     if (!r.slug) { say("This item has no identifier — the change lives in this session only"); return; }
     supabase.rpc("me_toggle_fav", { p_entity_type: r.entity_type, p_slug: r.slug })
-      .then(({ error }) => say(error ? STR.toast.saveFail(error.message) : next ? "★ Favorited" : "Favorite removed"));
-  }, [ov, supabase, say]);
+      .then(({ data, error }) => {
+        if (error) { setOvs((p) => ({ ...p, [k]: { ...p[k], fav: !next } })); say(STR.toast.saveFail(error.message)); return; }
+        if (!next && (data as { still_pinned?: boolean }[] | null)?.[0]?.still_pinned === false) {
+          setGone((p) => { const n = new Set(p); n.add(k); return n; });
+          if (selKey === k) setSelKey(null);
+          say(`"${r.title}" was a favorite-only pin — removed from your shelf`);
+        } else {
+          say(next ? "★ Favorited" : "Favorite removed");
+        }
+      });
+  }, [ov, supabase, say, selKey]);
 
   const [tfilter, setTfilter] = useState<Set<TypeKey>>(new Set());
   const [pubFilter, setPubFilter] = useState<"all" | "public" | "private">("all");
   const [q, setQ] = useState("");
   const [sort, setSort] = useState<SortKey>("new");
   const [shown, setShown] = useState(PAGE);
-  const [selKey, setSelKey] = useState<string | null>(null);
 
   const cnt = useCallback((t: TypeKey) => rows.filter((r) => r.entity_type === t).length, [rows]);
   const total = rows.length;

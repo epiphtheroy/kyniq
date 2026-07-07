@@ -7,7 +7,7 @@
  *  (inline ★, Keep/Seen, verdict vs Standing); basket rows and comparison chips are links. */
 import { useState } from "react";
 import Link from "next/link";
-import { verdictOf, VERDICT_FIND, VERDICT_LETDOWN } from "@/lib/room/format";
+import { verdictOf, VERDICT_FIND, VERDICT_LETDOWN, IMG185 } from "@/lib/room/format";
 import { STR } from "./strings";
 import { useRoomActions } from "./useRoomActions";
 import Stars from "./Stars";
@@ -27,7 +27,6 @@ export type CardData = {
 /** My position for this film (server-read once; optimistic after that). */
 export type MyPosition = { rating: number | null; kept: boolean; seen: boolean };
 
-const IMG = "https://image.tmdb.org/t/p/w185";
 /** 10-step aesthetic ladder (defined rubric — §5 verbatim). */
 const AES = ["Fundamentals", "Solid craft", "Considered work", "Achieved work", "Distinct vision", "Sustained achievement", "Major work", "Provoked thought", "Transcendent", "Apex of the canon"];
 const BAND = {
@@ -206,7 +205,7 @@ export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
 
       {/* HERO */}
       <div className="fhero">
-        <div className="fposter" style={d.poster_path ? { backgroundImage: `url(${IMG}${d.poster_path})` } : {}} />
+        <div className="fposter" style={d.poster_path ? { backgroundImage: `url(${IMG185}${d.poster_path})` } : {}} />
         <div className="fmeta">
           <div className="ftitle">{d.title} {d.year ? <small>{d.year}</small> : null}</div>
           <div className="fsub">{[d.year, d.director, ...(d.standing.labels ?? [])].filter(Boolean).join(" · ")}</div>

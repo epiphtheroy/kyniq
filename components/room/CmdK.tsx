@@ -100,6 +100,7 @@ export default function CmdK({ open, onClose }: { open: boolean; onClose: () => 
           placeholder={STR.cmdk.placeholder}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => {
+            if (e.nativeEvent.isComposing || e.keyCode === 229) return; // IME composition (Hangul etc.)
             if (e.key === "Escape") onClose();
             else if (e.key === "ArrowDown") { e.preventDefault(); setIdx((i) => Math.min(i + 1, flat.length - 1)); }
             else if (e.key === "ArrowUp") { e.preventDefault(); setIdx((i) => Math.max(i - 1, 0)); }
