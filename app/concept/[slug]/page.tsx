@@ -186,8 +186,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   if (data.kind === "theory") {
-    const { tc, theorists, desks } = data;
-    const L = listicle(tc.concept, theorists[0]?.name ?? null, desks);
+    const { tc, theorists, desks, canonReadings } = data;
+    const L = listicle(tc.concept, theorists[0]?.name ?? null, [...desks, ...canonReadings]);
     const title = L.n >= 3
       ? `${L.n} Films That Can Be Read Through ${L.poss}`
       : `${tc.concept} — meaning, origin & the films that stage it`;
@@ -200,7 +200,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title, description,
       openGraph: { title, description },
       alternates: { canonical: `/concept/${slug}` },
-      robots: pageRobots(desks.length >= 1),
+      robots: pageRobots(desks.length + canonReadings.length >= 1),
     };
   }
   const Lsm = listicle(data.name, data.readings[0]?.theorist_name ?? null, [...data.readings, ...data.desks]);
@@ -279,7 +279,7 @@ export default async function ConceptPage({ params }: Props) {
   }
 
   if (data.kind === "theory") {
-    const { tc, theorists, desks } = data;
+    const { tc, theorists, desks, canonReadings } = data;
     const jsonld = [
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Concepts", item: "https://metatake.net/concept" },
@@ -297,8 +297,8 @@ export default async function ConceptPage({ params }: Props) {
         <div className="mt-wrap">
           <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
           <h1 className="th-h1">{tc.concept}{tc.native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.6em" }}> · {tc.native}</span> : null}</h1>
-          {desks.length >= 3 && (
-            <p className="th-sub">{listicle(tc.concept, theorists[0]?.name ?? null, desks).n} film{desks.length !== 1 ? "s" : ""} that can be read through <em>{tc.concept}</em> — the essays below put it to work.</p>
+          {desks.length + canonReadings.length >= 3 && (
+            <p className="th-sub">{listicle(tc.concept, theorists[0]?.name ?? null, [...desks, ...canonReadings]).n} films that can be read through <em>{tc.concept}</em> — the readings and essays below put it to work.</p>
           )}
           {(tc.part || tc.major) && (
             <p style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 0" }}>
