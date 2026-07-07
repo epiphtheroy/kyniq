@@ -7,6 +7,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
 import { pageRobots } from "@/lib/seo";
+import { listicle } from "@/lib/listicle";
 
 /**
  * Concept — the canonical page for a single named theoretical concept.
@@ -174,11 +175,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   if (data.kind === "theory") {
-    const { tc, desks } = data;
-    const title = `${tc.concept} — meaning, origin & the films that stage it`;
+    const { tc, theorists, desks } = data;
+    const L = listicle(tc.concept, theorists[0]?.name ?? null, desks);
+    const title = L.n >= 3
+      ? `${L.n} Films That Can Be Read Through ${L.poss}`
+      : `${tc.concept} — meaning, origin & the films that stage it`;
     const description = tc.one_liner
       ? `${tc.one_liner} How ${tc.concept} shows up on screen, with the essays that put it to work.`
-      : `${tc.concept} in cinema — definition, the thinkers behind it, and the film essays that use it.`;
+      : L.n >= 3 && L.f1 && L.f2
+        ? `From ${L.f1} to ${L.f2}: ${L.n} films whose essays put ${tc.concept} to work — every reading in one place.`
+        : `${tc.concept} in cinema — definition, the thinkers behind it, and the film essays that use it.`;
     return {
       title, description,
       openGraph: { title, description },
@@ -186,10 +192,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       robots: pageRobots(desks.length >= 1),
     };
   }
-  const title = `${data.name} in film — readings that stage it`;
+  const Lsm = listicle(data.name, data.readings[0]?.theorist_name ?? null, [...data.readings, ...data.desks]);
+  const title = Lsm.n >= 3
+    ? `${Lsm.n} Films That Can Be Read Through ${Lsm.poss}`
+    : `${data.name} in film — readings that stage it`;
   const description = data.intro
     ? introDescription(data.intro)
-    : `${data.name} in cinema: ${data.readings.length} readings that turn on ${data.name}, plus the desk essays that put it to work.`;
+    : Lsm.n >= 3 && Lsm.f1 && Lsm.f2
+      ? `From ${Lsm.f1} to ${Lsm.f2}: ${Lsm.n} films read through ${data.name} — every Strong Misreading that turns on it.`
+      : `${data.name} in cinema: ${data.readings.length} readings that turn on ${data.name}, plus the desk essays that put it to work.`;
   return {
     title, description,
     alternates: { canonical: `/concept/${data.resolved}` },

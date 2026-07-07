@@ -95,16 +95,23 @@ async function loadUncached(slug: string) {
     const oa = FAMILIES.findIndex((x) => x.key === fa.family), ob = FAMILIES.findIndex((x) => x.key === fb.family);
     return oa - ob || fa.label.localeCompare(fb.label) || (b.strength ?? 0) - (a.strength ?? 0);
   });
+  const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[]).filter((v) => v.external_id);
+  const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
+  const videos = [...vids.filter((v) => !isTrailerTitle(v.title)), ...vids.filter((v) => isTrailerTitle(v.title))]
+    .map((v) => ({ id: v.external_id as string, title: v.title ?? "" }));
+
   return {
-    film: { title: film.title, slug: film.slug, year: film.year, director: film.director, director_slug: film.director_slug },
+    film: { title: film.title, slug: film.slug, year: film.year, director: film.director, director_slug: film.director_slug, backdrop_path: film.backdrop_path, poster_path: film.poster_path, tmdb_id: film.tmdb_id },
     invitation,
     readings,
+    videos,
     latest: latest ? latest.slice(0, 10) : null,
   };
 }
 
 function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["film-misreadings-1", slug], {
+  // v2: payload gained film art/tmdb_id + hero videos (2026-07-08 redesign)
+  return unstable_cache(() => loadUncached(slug), ["film-misreadings-2", slug], {
     revalidate: 3600,
     tags: [`film:${slug}`],
   })();
@@ -145,9 +152,16 @@ export default async function FilmMisreadingsPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, invitation, readings, latest } = data;
+  const { film, invitation, readings, latest, videos } = data;
   const groups = familyGroups(readings);
   const anchors = new Map(readings.map((r, i) => [r.id, `r${i + 1}`]));
+
+  // TMDB gallery stills — one between each pair of family sections, the rest
+  // vary the bottom plates. Deterministic per film+surface.
+  const gallery = await filmBackdropPaths(film.tmdb_id);
+  const artPicks = pickStills(gallery, `${film.slug}:misreadings`, 8);
+  const sectionArt = artPicks.slice(0, Math.max(0, groups.length - 1));
+  const plateArt = [...artPicks.slice(sectionArt.length), ...(film.backdrop_path ? [film.backdrop_path] : [])];
 
   const headline = `${film.title}${yStr(film.year)} Meaning & Interpretations — ${readings.length} Strong Misreadings`;
   const jsonLd = {
@@ -176,36 +190,29 @@ export default async function FilmMisreadingsPage({ params }: Props) {
   return (
     <div className="mt">
       <SiteNav />
-      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 60px" }}>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-        <div className="df-crumb">
-          <Link href="/film">Films</Link>
-          <span className="df-sep">›</span>
-          <Link href={`/film/${film.slug}`}>{film.title}</Link>
-          <span className="df-sep">›</span>
-          <span>Strong Misreadings</span>
-        </div>
-
-        <article className="essay">
-          <div className="essay-kicker">
-            <span className="essay-chip">
-              <Link href="/curious/misreadings" style={{ color: "inherit", textDecoration: "none" }}>Strong Misreadings</Link>
-              {" · "}film by film
-            </span>
-            <span className="essay-meta">
-              {readings.length} readings{latest ? ` · latest filed ${latest}` : ""}
-            </span>
-          </div>
-
-          <h1 className="essay-h1">Strong Misreadings of {film.title}{yStr(film.year)}</h1>
-          <Byline created={latest ?? undefined} />
-          <p className="essay-dek">
+      <ReadHero
+        film={film}
+        crumbTail="Strong Misreadings"
+        chip={<><Link href="/curious/misreadings" style={{ color: "inherit", textDecoration: "none" }}>Strong Misreadings</Link>{" · "}film by film</>}
+        meta={<>{readings.length} readings{latest ? ` · latest filed ${latest}` : ""}</>}
+        title={<>Strong Misreadings of {film.title}{yStr(film.year)}</>}
+        dek={
+          <>
             {readings.length} ways to read {film.title}
             {film.director ? <> — {film.director_slug ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : film.director}&apos;s film</> : null}
             {" "}— against the grain: every one an argument with a thesis, not a summary.
-          </p>
+          </>
+        }
+        videos={videos}
+        backdropPath={film.backdrop_path}
+      />
+
+      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 40px" }}>
+        <article className="essay">
+          <Byline created={latest ?? undefined} />
 
           <div className="essay-body">
             {invitation ? <p><em>{invitation}</em></p> : null}
@@ -228,8 +235,15 @@ export default async function FilmMisreadingsPage({ params }: Props) {
               ))}
             </p>
 
-            {groups.map(({ fam, items }) => (
+            {groups.map(({ fam, items }, gi) => (
               <section key={fam.key}>
+                {gi > 0 && sectionArt[gi - 1] ? (
+                  <figure className={`rd-fig${gi % 2 === 0 ? " rd-fig--inset" : ""}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`https://image.tmdb.org/t/p/w780${sectionArt[gi - 1]}`} alt={`${film.title} still`} loading="lazy" width={780} height={439} />
+                    <figcaption>{film.title}{yStr(film.year)} · via TMDB</figcaption>
+                  </figure>
+                ) : null}
                 <h2>{fam.label}</h2>
                 {items.map((m) => {
                   const F = fw(m.framework);
@@ -267,6 +281,8 @@ export default async function FilmMisreadingsPage({ params }: Props) {
           </p>
         </article>
       </div>
+
+      <ReadPlates slug={film.slug} exclude="misreadings" artPaths={plateArt} />
     </div>
   );
 }
