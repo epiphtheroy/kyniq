@@ -159,6 +159,29 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
 }
 
 /**
+ * Films whose /film/[slug]/misreadings article actually renders — i.e. at
+ * least one published, non-invitation take (a handful of is_analyzed films
+ * have none and the article 404s; never advertise or link those). ~25k take
+ * rows paged once a day, reduced to a slug set. Shared by the sitemap and
+ * the /curious/misreadings index.
+ */
+export const misreadingsEligibleSlugs = unstable_cache(
+  async (): Promise<string[]> => {
+    const supabase = db();
+    const rows = await fetchAll<{ figure: { film: { slug: string } } }>((from, to) =>
+      supabase.from("takes")
+        .select("figure:figures!inner(film:films!inner(slug, visible))")
+        .eq("status", "published").eq("is_invitation", false)
+        .eq("figure.film.visible", true)
+        .range(from, to) as unknown as PromiseLike<{ data: { figure: { film: { slug: string } } }[] | null }>
+    );
+    return [...new Set(rows.map((r) => r.figure?.film?.slug).filter(Boolean))] as string[];
+  },
+  ["misreadings-eligible-1"],
+  { revalidate: 86400 }
+);
+
+/**
  * /film/[slug]/misreadings articles (added 2026-07-07) — every analyzed film's
  * Strong Misreadings assembled as one article (9–15 readings each, LLM-free).
  * Oldest-first + cap so raising the cohort only appends URLs. The index hub is
@@ -167,24 +190,7 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
 export async function misreadingsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  // Eligibility = at least one published, non-invitation take (a handful of
-  // is_analyzed films have none and their article 404s — never advertise
-  // those). ~25k take rows paged once a day, reduced to a slug set.
-  const eligible = await unstable_cache(
-    async () => {
-      const rows = await fetchAll<{ figure: { film: { slug: string } } }>((from, to) =>
-        supabase.from("takes")
-          .select("figure:figures!inner(film:films!inner(slug, visible))")
-          .eq("status", "published").eq("is_invitation", false)
-          .eq("figure.film.visible", true)
-          .range(from, to) as unknown as PromiseLike<{ data: { figure: { film: { slug: string } } }[] | null }>
-      );
-      return [...new Set(rows.map((r) => r.figure?.film?.slug).filter(Boolean))] as string[];
-    },
-    ["misreadings-eligible-1"],
-    { revalidate: 86400 }
-  )();
-  const eligibleSet = new Set(eligible);
+  const eligibleSet = new Set(await misreadingsEligibleSlugs());
   const films = await fetchAll<{ slug: string; created_at: string; last_processed_at: string | null }>(
     (from, to) =>
       supabase.from("films").select("slug, created_at, last_processed_at")

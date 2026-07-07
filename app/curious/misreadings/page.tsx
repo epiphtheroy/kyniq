@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHead } from "@/components/curious/ui";
 import { BROWSABLE, FAMILIES } from "@/lib/frameworks";
+import { misreadingsEligibleSlugs } from "@/lib/sitemap-data";
 
 /**
  * Strong Misreadings, film by film — the Curious-side index of the
@@ -50,7 +51,9 @@ const loadFilms = unstable_cache(
 );
 
 export default async function CuriousMisreadingsIndex() {
-  const films = await loadFilms();
+  const [all, eligible] = await Promise.all([loadFilms(), misreadingsEligibleSlugs()]);
+  const eligibleSet = new Set(eligible);
+  const films = all.filter((f) => eligibleSet.has(f.slug));
 
   return (
     <div className="cur-wrap">
