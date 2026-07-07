@@ -412,8 +412,13 @@ function FilmTabs({ nav }: { nav: NavState }) {
       <div className="cr-tabs">
         {nav.tabs.map((t) => {
           const cf = CRAFTS[t.craft]; const p = t.people[0];
+          // Directors go to their editorial hub; a director with no hub keeps
+          // the legacy explorer view (their /credits read page may not exist).
+          const href = t.craft === "dir"
+            ? (directorSlug ? `/director/${directorSlug}` : `/credits?p=${p.id}&c=dir`)
+            : `/credits/${personSlug(p.name, p.id)}`;
           return (
-            <a key={t.craft} className="cr-tab" href={`/credits/${personSlug(p.name, p.id)}`}>
+            <a key={t.craft} className="cr-tab" href={href}>
               {p.profile_path
                 ? <img alt="" src={img(p.profile_path, "w185") || undefined} />
                 : <span className="cr-tab-ph">{cf.role[0]}</span>}
