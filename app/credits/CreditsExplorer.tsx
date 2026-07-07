@@ -224,7 +224,7 @@ export default function CreditsExplorer({
     <div className="cr-wrap">
       {!fParam && !pParam && !dParam ? (
         <header className="cr-hero">
-          <div className="cr-eyebrow">A Metatake experiment · 크레딧 탐험</div>
+          <div className="cr-eyebrow">A Metatake experiment</div>
           <h1 className="cr-h1">Follow the credits.</h1>
           <p className="cr-lede">
             Every film is signed by more than its director. Pick the craft that moved you — the light, the cut,
@@ -366,7 +366,7 @@ function SearchBox({ onPick, onPickPerson }: { onPick: (id: number) => void; onP
             {rows.length ? rows.map((r, i) => (
               <Fragment key={`${r.kind}-${r.id}`}>
                 {i === 0 && r.kind === "film" ? <div className="cr-dd-h" role="presentation">Films</div> : null}
-                {i === firstPersonIdx ? <div className="cr-dd-h" role="presentation">People · 사람으로 바로</div> : null}
+                {i === firstPersonIdx ? <div className="cr-dd-h" role="presentation">People</div> : null}
                 {r.kind === "film" ? (
                   <button type="button" role="option" aria-selected={i === sel}
                     className={`cr-drow${i === sel ? " is-sel" : ""}`} onClick={() => pick(r)}>
@@ -533,10 +533,10 @@ function AwardsBox({ imdbId }: { imdbId: string | null | undefined }) {
   );
 }
 
-function SecHead({ en, kr, sub }: { en: string; kr: string; sub?: ReactNode }) {
+function SecHead({ en, sub }: { en: string; sub?: ReactNode }) {
   return (
     <div className="cr-sechead">
-      <div className="cr-eyebrow">{en}<span className="cr-eyebrow-kr">{kr}</span></div>
+      <div className="cr-eyebrow">{en}</div>
       {sub ? <div className="cr-secsub">{sub}</div> : null}
     </div>
   );
@@ -619,13 +619,13 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
       {!hideProfile ? (
         <section className="cr-profile">
           <div className="cr-facts">
-            <div className="cr-frow"><span className="cr-fk">Field 분야</span><span>{person.known_for_department || "—"}</span></div>
-            <div className="cr-frow"><span className="cr-fk">Credits 참여작</span><span>{totalWorks} works <span className="cr-dim">({films.length} as {cf.role.toLowerCase()})</span></span></div>
-            <div className="cr-frow"><span className="cr-fk">Born 출생</span><span>{person.birthday || "—"}{person.deathday ? ` — ${person.deathday}` : ""}</span></div>
-            <div className="cr-frow"><span className="cr-fk">From 출신</span><span>{person.place_of_birth || "—"}</span></div>
+            <div className="cr-frow"><span className="cr-fk">Field</span><span>{person.known_for_department || "—"}</span></div>
+            <div className="cr-frow"><span className="cr-fk">Credits</span><span>{totalWorks} works <span className="cr-dim">({films.length} as {cf.role.toLowerCase()})</span></span></div>
+            <div className="cr-frow"><span className="cr-fk">Born</span><span>{person.birthday || "—"}{person.deathday ? ` — ${person.deathday}` : ""}</span></div>
+            <div className="cr-frow"><span className="cr-fk">From</span><span>{person.place_of_birth || "—"}</span></div>
           </div>
           <div className="cr-awards">
-            <div className="cr-awhdr">Awards 수상 · Wikidata</div>
+            <div className="cr-awhdr">Awards · Wikidata</div>
             <AwardsBox imdbId={person.imdb_id} />
           </div>
         </section>
@@ -634,7 +634,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
       {/* Directors already have "Where to Start" on their Metatake director page — no duplication here. */}
       {!isDir ? (
         <>
-          <SecHead en="Where to begin" kr="입문" sub="The consensus door into the filmography." />
+          <SecHead en="Where to begin" sub="The consensus door into the filmography." />
           <div className="cr-begin" role="link" tabIndex={0}
             onClick={() => onFilm(startHere.id)}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onFilm(startHere.id); } }}>
@@ -660,7 +660,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
           ("Where to Start", picks) — consensus rankings would compete with it. */}
       {!isDir ? (
         <>
-          <SecHead en="The Essentials" kr="정본" sub="The films the consensus keeps returning to." />
+          <SecHead en="The Essentials" sub="The films the consensus keeps returning to." />
           {essentials.length ? (
             <div className="cr-posters">
               {essentials.map((f, i) => <PCard key={f.id} f={f} num={i + 1} onFilm={onFilm} isSeen={isSeen} toggleSeen={toggleSeen} />)}
@@ -671,7 +671,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
 
       {partners.length ? (
         <>
-          <SecHead en="The Long Collaborations" kr="오랜 협업"
+          <SecHead en="The Long Collaborations"
             sub={isDir ? "The crew this director keeps bringing back. Click a card for the dossier." : "The directors this artist keeps returning to — the partnership is where the signature lives. Click a card for the dossier."} />
           <div className="cr-collabs">{partners.map((p) => <CollabCard key={p.id} o={p} onDossier={onDossier} />)}</div>
         </>
@@ -679,14 +679,14 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
 
       {!isDir ? (
         <>
-          <SecHead en="Deep Cuts" kr="B면" sub="B-sides and wayward experiments — credible work the crowds haven't found." />
+          <SecHead en="Deep Cuts" sub="B-sides and wayward experiments — credible work the crowds haven't found." />
           {deep.length ? (
             <div className="cr-posters">{deep.map((f) => <PCard key={f.id} f={f} onFilm={onFilm} isSeen={isSeen} toggleSeen={toggleSeen} />)}</div>
           ) : <div className="cr-empty">No B-sides here — a filmography that&apos;s all essentials.</div>}
         </>
       ) : null}
 
-      <SecHead en="The Repertory Company" kr="사단"
+      <SecHead en="The Repertory Company"
         sub={<>
           The people who recur across {corpus.length === films.length ? `all ${films.length} films` : <b>{corpus.length} of {films.length} films analysed</b>} (≥2 together; ≥3 for producers and cast).{" "}
           <span className="cr-warn">reunited</span> = the artist made films without them, then brought them back.
@@ -697,7 +697,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
           <div key={g}>
             <div className="cr-grphead">
               <span className="cr-dot" style={{ background: FAM[g as keyof typeof FAM].color }} />
-              {FAM[g as keyof typeof FAM].label} <span className="cr-eyebrow-kr">{FAM[g as keyof typeof FAM].kr}</span>
+              {FAM[g as keyof typeof FAM].label}
               <span className="cr-dim">({arr.length})</span>
             </div>
             <div className="cr-collabs">{arr.slice(0, 9).map((o) => <CollabCard key={o.id} o={o} onDossier={onDossier} />)}</div>
@@ -707,7 +707,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
 
       {mrows.length >= 2 && corpus.length >= 4 ? (
         <>
-          <SecHead en="The Repertory Timeline" kr="시간축"
+          <SecHead en="The Repertory Timeline"
             sub="Rows are the company; columns are the films in order. Streaks are long partnerships — broken streaks that resume are reunions." />
           <Matrix rows={mrows} corpus={corpus} curFilmId={nav ? nav.film.id : null} />
         </>
@@ -715,7 +715,7 @@ function ArtistView({ S, nav, hideProfile = false, onFilm, onArtist, onDossier, 
 
       {further.length ? (
         <>
-          <SecHead en="Further Viewing" kr="더 보기" sub="Widely seen, ranked below the essentials." />
+          <SecHead en="Further Viewing" sub="Widely seen, ranked below the essentials." />
           <div className="cr-further">
             {further.map((f) => (
               <button key={f.id} type="button" className="cr-fv" onClick={() => onFilm(f.id)}>
@@ -826,7 +826,7 @@ function Dossier({ o, S, onClose, onFilm, onArtist }: {
     <div className="cr-modalback" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="cr-modal" role="dialog" aria-modal="true" aria-label="Collaboration dossier">
         <button type="button" className="cr-modal-x" aria-label="Close" onClick={onClose}>✕</button>
-        <div className="cr-eyebrow">Collaboration dossier<span className="cr-eyebrow-kr">협업 기록</span></div>
+        <div className="cr-eyebrow">Collaboration dossier</div>
         <h3 className="cr-modal-h">{S.person.name} × {o.name}</h3>
         <div className="cr-modal-sub">
           <b style={{ color: G.color }}>×{o.count} films</b> · {o.primary} · {yrsFmt(o.y0, o.y1)}
