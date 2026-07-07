@@ -21,9 +21,9 @@
 .cur-datekick .sub { color: var(--cur-label); letter-spacing: 1.2px; }
 .cur-datekick .d { width: 5px; height: 5px; border-radius: 50%; background: #4a4a4a; }
 
-/* Edition byline row (dark) */
-.cur-edby { font-size: 12.5px; color: var(--cur-meta); margin-top: 10px; }
-.cur-edby b { color: #d7d5d6; font-weight: 500; }
+/* Edition byline row (dark) — .cur-prefixed to outrank generic .mt rules */
+.cur .cur-edby { font-size: 12.5px; color: var(--cur-meta); margin-top: 10px; }
+.cur .cur-edby b { color: #d7d5d6; font-weight: 500; }
 
 /* ── Past-edition rows: the date block leads ─────────────────────── */
 .cur-edrow {
