@@ -222,22 +222,10 @@ export default function CreditsExplorer({
 
   return (
     <div className="cr-wrap">
-      {!fParam && !pParam && !dParam ? (
-        <header className="cr-hero">
-          <div className="cr-eyebrow">A Metatake experiment</div>
-          <h1 className="cr-h1">Follow the credits.</h1>
-          <p className="cr-lede">
-            Every film is signed by more than its director. Pick the craft that moved you — the light, the cut,
-            the score, the rooms — and follow its author through a whole body of work: where to begin, the
-            essentials, the B-sides, and the repertory company they keep.
-          </p>
-        </header>
-      ) : null}
-
       {/* Embed: the host page is the entry point — no search chrome. */}
       {!embed ? <SearchBox onPick={navFilm} onPickPerson={(pid, craft) => navArtist(pid, craft, null)} /> : null}
 
-      {nav ? <FilmTabs nav={nav} onTab={(craft, pid) => navArtist(pid, craft, nav.film.id)} /> : null}
+      {nav ? <FilmTabs nav={nav} /> : null}
       {status ? <div className="cr-status"><span className="cr-spin" aria-hidden />{status}</div> : null}
       {error ? <div className="cr-error">{error}</div> : null}
       {emptyMsg ? <div className="cr-empty">{emptyMsg}</div> : null}
@@ -396,7 +384,7 @@ function SearchBox({ onPick, onPickPerson }: { onPick: (id: number) => void; onP
 }
 
 /* ============ film tabs ============ */
-function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid: number) => void }) {
+function FilmTabs({ nav }: { nav: NavState }) {
   const f = nav.film;
   const links = useMetaLinks(`film=${f.id}`);
   // Film not in the catalog (or missing a director slug)? The director may
@@ -421,20 +409,19 @@ function FilmTabs({ nav, onTab }: { nav: NavState; onTab: (craft: CraftKey, pid:
           ) : null}
         </div>
       </div>
-      <div className="cr-tabs" role="tablist">
+      <div className="cr-tabs">
         {nav.tabs.map((t) => {
-          const cf = CRAFTS[t.craft]; const p = t.people[0]; const on = t.craft === nav.active;
+          const cf = CRAFTS[t.craft]; const p = t.people[0];
           return (
-            <button key={t.craft} type="button" role="tab" aria-selected={on} className={`cr-tab${on ? " is-on" : ""}`}
-              onClick={() => onTab(t.craft, p.id)}>
+            <a key={t.craft} className="cr-tab" href={`/credits/${personSlug(p.name, p.id)}`}>
               {p.profile_path
                 ? <img alt="" src={img(p.profile_path, "w185") || undefined} />
                 : <span className="cr-tab-ph">{cf.role[0]}</span>}
               <span className="cr-tab-txt">
-                <span className="cr-tab-l">{cf.label} {cf.kr}</span>
+                <span className="cr-tab-l">{cf.label}</span>
                 <span className="cr-tab-n">{p.name}{t.people.length > 1 ? <span className="cr-tab-plus">+{t.people.length - 1}</span> : null}</span>
               </span>
-            </button>
+            </a>
           );
         })}
       </div>
