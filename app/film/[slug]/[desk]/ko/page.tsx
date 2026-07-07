@@ -118,7 +118,7 @@ async function loadUncached(slug: string, deskKey: string) {
 function load(slug: string, deskKey: string) {
   return unstable_cache(
     () => loadUncached(slug, deskKey),
-    ["desk-essay-ko-2", slug, deskKey],
+    ["desk-essay-ko-3", slug, deskKey],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }

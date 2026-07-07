@@ -277,15 +277,18 @@ export function linkifyEntities(html: string, dict: LinkDict, maxLinks = 10): st
     for (const e of entries) {
       if (links >= maxLinks) break;
       if (linked.has(e.href)) continue;
-      const idx = text.indexOf(e.name);
+      // case-insensitive match (dictionary names are lowercase; essays capitalize),
+      // but the anchor text keeps the essay's original casing.
+      const idx = text.toLowerCase().indexOf(e.name.toLowerCase());
       if (idx === -1) continue;
       const before = text[idx - 1];
       const after = text[idx + e.name.length];
       const boundary = (ch: string | undefined) => ch === undefined || !/[A-Za-z0-9]/.test(ch);
       if (!boundary(before) || !boundary(after)) continue;
+      const original = text.slice(idx, idx + e.name.length);
       text =
         text.slice(0, idx) +
-        `<a href="${e.href}">${e.name}</a>` +
+        `<a href="${e.href}">${original}</a>` +
         text.slice(idx + e.name.length);
       linked.add(e.href);
       links++;
