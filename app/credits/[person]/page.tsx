@@ -211,9 +211,7 @@ export default async function CrewPersonPage({ params }: Props) {
   if (!data) notFound();
   const { id, p, crafts, cat, company, native, directorHub } = data;
   const mainCraft = crafts[0].key;
-  const readN = cat.filter(isRead).length;
   const catByTmdb = new Map(cat.map((f) => [f.tmdb_id, f]));
-  const repertory = company.filter((d) => d.n >= 2).slice(0, 8);
   const updated = new Date().toISOString().slice(0, 10);
 
   const jsonLd = {
@@ -426,7 +424,10 @@ export default async function CrewPersonPage({ params }: Props) {
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Filmography data from TMDB · Catalog readings by Metatake · Updated {updated}
+          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · filmography data from{" "}
+          <a href={`https://www.themoviedb.org/person/${id}`} target="_blank" rel="noopener noreferrer">TMDB ↗</a>
+          {p.external_ids?.imdb_id ? <> · <a href={`https://www.imdb.com/name/${p.external_ids.imdb_id}/`} target="_blank" rel="noopener noreferrer">IMDb ↗</a></> : null}
+          {" "}· Updated {updated}
         </p>
       </div>
     </div>
