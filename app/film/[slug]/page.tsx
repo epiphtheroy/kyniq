@@ -880,6 +880,28 @@ export default async function FilmPage({ params }: Props) {
     .filter((g) => g.items.length > 0);
   const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
   const accessRec = accessRecordFor(film.tmdb_id);
+
+  // "At a glance" band — the vital record (left) and our own numbers (right).
+  const glanceFacts: GlanceFact[] = ([
+    film.director ? { k: "Director", v: film.director_slug ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : film.director } : null,
+    cast.length ? { k: "Starring", v: <>{cast.slice(0, 2).map((c) => c.name).join(", ")}{cast.length > 2 ? <span className="df-vital__more"> +{cast.length - 2}</span> : null}</> } : null,
+    extra.writers?.length ? { k: "Written by", v: extra.writers.slice(0, 3).join(", ") } : null,
+    film.release_date ? { k: "Released", v: fmtReleaseDate(film.release_date) } : null,
+    runtimeFmt ? { k: "Runtime", v: runtimeFmt } : null,
+    extra.country?.length ? { k: "Country", v: extra.country.slice(0, 3).map(regionName).join(" · ") } : null,
+    extra.original_language ? { k: "Language", v: langName(extra.original_language) } : null,
+    film.genres?.length ? { k: "Genre", v: <>{film.genres.slice(0, 3).map((g, i) => <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>)}</> } : null,
+    cert ? { k: "Rated", v: cert } : null,
+  ].filter(Boolean)) as GlanceFact[];
+  const glancePlaces = geoMerged || geoCount;
+  const glanceStats: GlanceStat[] = ([
+    misreadings.length ? { n: misreadings.length, k: "Strong misreadings", href: "#df-readings" } : null,
+    lineage.length ? { n: lineage.length, k: "Canon & award listings", href: "#df-lineage" } : null,
+    glancePlaces > 0 ? { n: glancePlaces, k: "Real places mapped", href: "#df-atlas" } : null,
+    reception.length ? { n: reception.length, k: "Critical sources", href: "#df-reception" } : null,
+    recommendedBy.length ? { n: recommendedBy.length, k: "films point here as their “watch next”", href: "#df-recby", wide: true } : null,
+  ].filter(Boolean)) as GlanceStat[];
+
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
     whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
@@ -1051,10 +1073,19 @@ export default async function FilmPage({ params }: Props) {
           </div>
         </section>
 
-        {/* TOP INFO BAND — ratings + where to watch, directly under the poster/hero.
-            AccessCountryProvider keeps the JustWatch band and the verified access layer on one country. */}
+        {/* AT A GLANCE — the vital record + our own numbers, directly under the hero.
+            (JustWatch moved to the Where-to-watch section below.) AccessCountryProvider
+            still wraps down to that section to keep it and the access layer on one country. */}
         <AccessCountryProvider>
-          <FilmTopInfo ratings={ratings} watch={watch} imdbId={film.imdb_id} />
+          <FilmGlance
+            facts={glanceFacts}
+            ratings={ratings}
+            tmdbVote={extra.vote_average ?? null}
+            imdbId={film.imdb_id}
+            takeScore={codex ? Math.round(codex.u) : null}
+            stats={glanceStats}
+            rank={codex && codex.rank != null && codex.rank_total != null ? { rank: codex.rank, total: codex.rank_total } : null}
+          />
 
         {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
         {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}

@@ -13,6 +13,25 @@ import { listicle } from "@/lib/listicle";
 /** Display convention: concept names lead with a capital; no quotes in headings. */
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
+const fmtDate = (iso: string | null) => {
+  if (!iso) return null;
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? null : d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+};
+
+/** E-E-A-T provenance line: byline · revision date · methodology link. */
+function Provenance({ updated }: { updated: string | null }) {
+  const date = fmtDate(updated);
+  return (
+    <p style={{ margin: "10px 0 0", fontSize: 12.5, opacity: 0.62, display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      <span>By the Metatake concept desk</span>
+      {date ? <><span aria-hidden>·</span><span>Revised {date}</span></> : null}
+      <span aria-hidden>·</span>
+      <Link href="/methodology" style={{ textDecoration: "underline" }}>How we read films →</Link>
+    </p>
+  );
+}
+
 /**
  * Concept — the canonical page for a single named theoretical concept.
  * Unified 2026-07-07 (terminology charter): the SM registry (sm_concepts,
@@ -88,6 +107,13 @@ function load(slug: string) {
         const { data: cr } = await supabase.rpc("concept_canon_readings", { p_slug: slug });
         canonReadings = (cr as Reading[] | null) ?? [];
       } catch { canonReadings = []; }
+
+      // E-E-A-T: revision date = latest linked essay.
+      let updated: string | null = null;
+      try {
+        const { data: lu } = await supabase.rpc("concept_last_updated", { p_slug: slug });
+        if (typeof lu === "string") updated = lu;
+      } catch { updated = null; }
 
       if (!h) {
         if (tropes.length > 0) {
