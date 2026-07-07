@@ -61,8 +61,52 @@ function load(slug: string) {
       const takesDetail = (td ?? null) as TakesDetail;
 
       if (!h) {
-        if (tropes.length === 0) return null;
-        return { kind: "takes" as const, concept: tropes[0].concept, tropes, takesDetail };
+        if (tropes.length > 0) {
+          return { kind: "takes" as const, concept: tropes[0].concept, tropes, takesDetail };
+        }
+        // Theory-DB branch: concepts from the cross-disciplinary registry
+        // (theory_concepts) that have no SM registry entry yet — the concepts
+        // the Decoder desk actually deploys (e.g. amae, hamartia).
+        const { data: tcRows } = await supabase
+          .from("theory_concepts")
+          .select("id, concept, concept_slug, native, one_liner, part, major, sub")
+          .eq("concept_slug", slug)
+          .limit(1);
+        const tc = (tcRows ?? [])[0] as
+          | { id: number; concept: string; concept_slug: string; native: string | null; one_liner: string | null; part: string | null; major: string | null; sub: string | null }
+          | undefined;
+        if (!tc) return null;
+        const [{ data: thRows }, dl] = await Promise.all([
+          supabase
+            .from("theorist_concepts")
+            .select("theorist_id, theorist_name, role, theorists(slug, name)")
+            .eq("concept_id", tc.id)
+            .limit(12),
+          supabase
+            .from("essay_entity_links")
+            .select("film_slug, film_title, film_year, desk_key, essay_title")
+            .eq("entity_type", "concept")
+            .eq("entity_slug", slug)
+            .limit(36),
+        ]);
+        const theorists: { name: string; slug: string | null }[] = [];
+        const seenTh = new Set<string>();
+        for (const r of (thRows ?? []) as { theorist_name: string | null; theorists: { slug: string; name: string } | null }[]) {
+          const nm = r.theorists?.name ?? r.theorist_name;
+          if (!nm || seenTh.has(nm)) continue;
+          seenTh.add(nm);
+          theorists.push({ name: nm, slug: r.theorists?.slug ?? null });
+        }
+        const desks: DeskLink[] = [];
+        const seenD = new Set<string>();
+        for (const d of ((dl.data ?? []) as DeskLink[])) {
+          const key = `${d.film_slug}/${d.desk_key}`;
+          if (seenD.has(key)) continue;
+          seenD.add(key);
+          desks.push(d);
+          if (desks.length >= 12) break;
+        }
+        return { kind: "theory" as const, tc, theorists, desks };
       }
 
       const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
@@ -98,7 +142,7 @@ function load(slug: string) {
         tropes,
       };
     },
-    ["concept-unified-1", slug],
+    ["concept-unified-2", slug],
     { revalidate: 1800, tags: [`idea:${slug}`, `concept:${slug}`] },
   )();
 }
@@ -127,6 +171,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: { title, description },
       alternates: { canonical: `/concept/${slug}` },
       robots: pageRobots(data.tropes.length >= 3),
+    };
+  }
+  if (data.kind === "theory") {
+    const { tc, desks } = data;
+    const title = `${tc.concept} — meaning, origin & the films that stage it`;
+    const description = tc.one_liner
+      ? `${tc.one_liner} How ${tc.concept} shows up on screen, with the essays that put it to work.`
+      : `${tc.concept} in cinema — definition, the thinkers behind it, and the film essays that use it.`;
+    return {
+      title, description,
+      openGraph: { title, description },
+      alternates: { canonical: `/concept/${slug}` },
+      robots: pageRobots(desks.length >= 1),
     };
   }
   const title = `${data.name} in film — readings that stage it`;

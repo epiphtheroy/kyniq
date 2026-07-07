@@ -12,7 +12,12 @@ type Entry = { ehead?: string; event?: string; film_title?: string; bd?: string 
 type Post = { slug: string; title: string; edition_date: string; dek: string | null; intro: string | null; read_min: number | null; entries: Entry[] };
 
 const mon = (d: string) => new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
-const headOf = (p: Post) => p.entries?.[0]?.ehead || p.title;
+// The edition's own headline (recipe lever 5) leads; item-1's head is the
+// fallback for legacy rows that still carry the bare series name.
+const headOf = (p: Post) =>
+  (p.title && p.title.toLowerCase() !== "between film and the world" ? p.title : "") ||
+  p.entries?.[0]?.ehead ||
+  p.title;
 const relOf = (p: Post) => { const e = p.entries?.[0]; return e ? [e.event, e.film_title].filter(Boolean).join(" → ") : ""; };
 
 // "Between Film and the World" — the daily column rendered as specific edition

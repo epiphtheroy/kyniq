@@ -16,6 +16,7 @@ import {
   mdToPlain,
   metaDescription,
   readingMinutes,
+  loadFullLinkDict,
   type LinkDict,
 } from "@/lib/desks";
 
@@ -54,16 +55,8 @@ type EssayRow = {
 };
 
 const loadDict = unstable_cache(
-  async (): Promise<LinkDict> => {
-    try {
-      const { data } = await db().rpc("desk_link_dictionary");
-      if (data && typeof data === "object") return data as LinkDict;
-    } catch {
-      /* dictionary is an enhancement, never a blocker */
-    }
-    return { concepts: [], theorists: [] };
-  },
-  ["desk-link-dict-3"],
+  async (): Promise<LinkDict> => loadFullLinkDict(db() as never),
+  ["desk-link-dict-4"],
   { revalidate: 86400 }
 );
 
@@ -139,7 +132,7 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
 function load(slug: string, deskKey: string, lang: "en" | "ko" = "en") {
   return unstable_cache(
     () => loadUncached(slug, deskKey, lang),
-    ["desk-essay-3", slug, deskKey, lang],
+    ["desk-essay-4", slug, deskKey, lang],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }
