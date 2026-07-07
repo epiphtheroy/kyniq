@@ -78,6 +78,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/theorist` },
     { url: `${siteUrl}/blog` },
     { url: `${siteUrl}/curious` },
+    { url: `${siteUrl}/curious/misreadings` },
     { url: `${siteUrl}/concept` },
     { url: `${siteUrl}/director` },
     { url: `${siteUrl}/genre` },

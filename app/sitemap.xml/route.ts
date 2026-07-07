@@ -30,6 +30,7 @@ const SECTIONS = [
   "honors",
   "takescore-films",
   "essays",
+  "misreadings",
 ];
 
 export async function GET() {
