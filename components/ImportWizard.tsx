@@ -223,7 +223,7 @@ export default function ImportWizard() {
           </ul>
         </div>
         <p style={{ marginTop: 18, display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <a className="btn" href="/me">Go to My Room →</a>
+          <a className="btn" href="/room">Go to My Room →</a>
           <button type="button" className="btn-ghost" onClick={() => { setStep("input"); setRows([]); setSummary(null); setText(""); setLog([]); }}>Import more</button>
         </p>
       </div>

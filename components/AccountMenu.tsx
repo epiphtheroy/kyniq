@@ -66,7 +66,7 @@ export default function AccountMenu() {
       </button>
       {open && (
         <div className="acct-menu" role="menu">
-          <Link href="/me" role="menuitem" onClick={() => setOpen(false)}>My dashboard</Link>
+          <Link href="/room" role="menuitem" onClick={() => setOpen(false)}>My Room</Link>
           {username && <Link href={`/u/${username}`} role="menuitem" onClick={() => setOpen(false)}>Public profile</Link>}
           <Link href="/settings" role="menuitem" onClick={() => setOpen(false)}>Settings</Link>
           <button type="button" role="menuitem" className="acct-logout" onClick={logout}>Log out</button>

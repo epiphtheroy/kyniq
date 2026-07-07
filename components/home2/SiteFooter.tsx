@@ -28,10 +28,10 @@ export default function SiteFooter() {
           </div>
           <div className="fcol">
             <h4>Your map</h4>
-            <Link href="/me">Your Shelf</Link>
-            <Link href="/me">Saved Readings</Link>
-            <Link href="/me">Following</Link>
-            <Link href="/me">For You</Link>
+            <Link href="/room">My Room</Link>
+            <Link href="/room/screener">Screener</Link>
+            <Link href="/room/shelf">Shelf</Link>
+            <Link href="/room/takes">My Takes</Link>
           </div>
           <div className="fcol">
             <h4>Metatake</h4>
