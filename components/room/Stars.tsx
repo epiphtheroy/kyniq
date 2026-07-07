@@ -1,14 +1,20 @@
 "use client";
-/** v2 공용 반별점 (0.5–5) — rate.css 비의존(.v2stars). 호버 미리보기 + 반/전체 클릭존. */
+/** Shared half-star widget (0.5–5) — .v2stars, no rate.css dependency.
+ *  Hover preview + half/full click zones. Read-only variant: omit onPick
+ *  (used for averages, e.g. the Auteurs oeuvre mean). */
 import { useState } from "react";
 
-export default function Stars({ value, onPick, size = 19 }: {
-  value: number; onPick?: (v: number) => void; size?: number;
+export default function Stars({ value, onPick, size = 19, title }: {
+  value: number;
+  /** Omit for read-only display. */
+  onPick?: (v: number) => void;
+  size?: number;
+  title?: string;
 }) {
   const [hover, setHover] = useState<number | null>(null);
   const v = hover ?? value;
   return (
-    <span className="v2stars" style={{ fontSize: size }} onMouseLeave={() => setHover(null)}>
+    <span className="v2stars" style={{ fontSize: size }} onMouseLeave={() => setHover(null)} title={title}>
       {[1, 2, 3, 4, 5].map((i) => {
         const lit = v >= i;
         const hf = !lit && v >= i - 0.5;
