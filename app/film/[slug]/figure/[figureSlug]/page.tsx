@@ -17,7 +17,7 @@ import { renderTokens } from "@/lib/mtTokens";
 import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 import { axisLabel, nodeHref } from "@/lib/catalog";
-import { ruleFigureQuestion } from "@/lib/figureSeo";
+import { ruleFigureQuestion, messyFigureTitle } from "@/lib/figureSeo";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -194,12 +194,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Search-query framing targets long-tail "{figure} meaning" / "{figure} symbolism in {film}" queries.
   const yearPart = data.film.year ? ` (${data.film.year})` : "";
   // No brand suffix here — the root layout template appends "· Metatake".
-  // Clean labels get a question-form title (matches real query phrasing);
-  // messy labels keep the descriptive pattern until an editorial question exists.
+  // Clean labels get a full question-form title (matches real query phrasing);
+  // messy labels get the dash-suffix question — grammatical with any noun phrase,
+  // strips trailing periods, and skips "in {film}" when the label names the film.
   const rq = ruleFigureQuestion(data.figure.label as string, data.figure.kind as string | null, data.film.title as string);
   const title = rq
     ? rq.replace(/\?$/, `${yearPart}?`)
-    : `${withThe(data.figure.label, data.figure.kind)} in ${data.film.title}${yearPart} — meaning & readings`;
+    : messyFigureTitle(data.figure.label as string, data.film.title as string, yearPart);
   const description = data.figure.description ? metaDescription(data.figure.description) : undefined;
   return {
     title,

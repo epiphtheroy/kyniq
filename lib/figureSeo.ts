@@ -26,3 +26,16 @@ export function ruleFigureQuestion(label: string, kind: string | null, filmTitle
   }
   return q.length <= MAX_Q_LEN ? q : null;
 }
+
+// Messy labels (long / clausey / trailing period / film title inside) can't be
+// embedded in a question sentence, but a dash-suffix question works with ANY
+// noun-phrase label: "{label} in {film} — what does it mean?". Fixes the two
+// real defects of the old pattern (trailing-period punctuation break, film-title
+// duplication) and makes every figure <title> query-shaped.
+export function messyFigureTitle(label: string, filmTitle: string, yearPart: string): string {
+  const lab = label.trim().replace(/\.+$/, "");
+  const hasTitle = lab.toLowerCase().includes(filmTitle.toLowerCase());
+  return hasTitle
+    ? `${lab}${yearPart} — what does it mean?`
+    : `${lab} in ${filmTitle}${yearPart} — what does it mean?`;
+}
