@@ -1,0 +1,394 @@
+"use client";
+/** Desk — /room (My Room v3 §3.1). The 3-second daily loop: one desktop screen,
+ *  five bands, no scroll.
+ *    ① Log bar      — QuickRate + session line (me_rate_stats)
+ *    ② Tonight hero — one pick from me_recommend_wwi(1.0, 24); the rotation
+ *                     cursor persists in localStorage("mt_tonight"), keyed by
+ *                     local date (fixes the v2 refresh-reset bug)
+ *    ③ Session tape — me_recent_ratings(12) poster strip (★ · loved flame ·
+ *                     date on hover)
+ *    ④ NAV line     — me_portfolio_nav + 90-day sparkline (me_nav_history);
+ *                     the summary inspector links ONLY to Performance
+ *    ⑤ Open jobs    — one-line link tiles: doors only, no modules behind them
+ *  Invariants: reason chips render only server-sent codes; no fake numbers
+ *  (honest empty copy instead); NAV surfaces never link to the Ledger. */
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
+import Link from "next/link";
+import { useInspector } from "./InspectorContext";
+import RecInsp, { type RecFilm } from "./RecInsp";
+import QuickRate, { type QuickHit } from "./QuickRate";
+import FormingCard from "./FormingCard";
+import ICard from "./insp/ICard";
+import KV from "./insp/KV";
+import { useRoomActions } from "./useRoomActions";
+import { STR } from "./strings";
+import { NAV_ITEMS } from "@/lib/room/nav";
+import { num, IMG185, IMG342, tierOf, chipsOf, type WwiRow, type NavHistRow } from "@/lib/room/format";
+
+/* ── RPC row types (PostgREST numerics may arrive as strings → coerce with num()) ── */
+export type RateStats = {
+  rated: number | string | null; loved: number | string | null; seen: number | string | null;
+  watchlist: number | string | null; session_new: number | string | null;
+  forming: boolean | null; loved_target: number | string | null;
+};
+export type RecentRow = {
+  slug: string; title: string; year: number | null; poster_path: string | null; director: string | null;
+  rating: number | string | null; loved: boolean | null; watched_at: string | null; added_at: string | null;
+  v: number | string | null; r: number | string | null; prestige: number | string | null;
+};
+export type NavJson = {
+  nav: number | string | null; n_watched: number | string | null; n_scored: number | string | null;
+  essentials: number | string | null; avg_standing: number | string | null; lines: number | string | null;
+} | null;
+/** me_pair_state — verified LANGUAGE sql STABLE with zero write side effects
+ *  (0033_room_rpc_snapshot.sql), so the Masquerade teaser ships WITH numbers. */
+export type PairState = { candidates: number | string | null; loved_n: number | string | null; forming: boolean | null };
+/** Nearest-conquest tile, precomputed by the server page from me_coverage. */
+export type ConquestTile = { label: string; rem: number; ms: number };
+/** Top blind spot (me_blindspots row 1 — label + gap reason only). */
+export type BlindTile = { label: string; gap_reason: string };
+
+export type DeskData = {
+  /** me_recommend_wwi(1.0, 24); null = RPC failed → errcard. */
+  recs: WwiRow[] | null;
+  /** me_rate_stats single row; null = failed/missing → session line hidden. */
+  stats: RateStats | null;
+  /** me_recent_ratings(12); null = RPC failed → errcard. */
+  recent: RecentRow[] | null;
+  nav: NavJson;
+  navErr: boolean;
+  /** me_nav_history(90); null = failed → no sparkline (never fake one). */
+  hist: NavHistRow[] | null;
+  conquest: ConquestTile | null;
+  blind: BlindTile | null;
+  pair: PairState | null;
+  /** me_pair_state failed → numberless teaser tile (spec §3.1 fallback). */
+  pairErr: boolean;
+  /** Count of films rated ★3.5+ (server-computed only when recs is empty — FormingCard meter). */
+  ratedHigh: number;
+};
+
+/* ── route lookups (nav.ts is the single source — never hardcode /room/* here) ── */
+const hrefOf = (label: string) => NAV_ITEMS.find((x) => x.label === label)?.href ?? "/room";
+const HREF = {
+  screener: hrefOf("Screener"),
+  ledger: hrefOf("Ledger"),
+  masquerade: hrefOf("Masquerade"),
+  performance: hrefOf("Performance"),
+  coverage: hrefOf("Coverage"),
+};
+
+/* WwiRow → shared inspector input. λ=1.0 fixed on this screen, so U = V − R. */
+function toRecFilm(f: WwiRow, kept: boolean): RecFilm {
+  const v = num(f.v), r = num(f.r);
+  return {
+    slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
+    reasons: f.reasons, v, c: null, r,
+    u: v != null && r != null ? Math.round(v - r) : num(f.ts),
+    prestige: num(f.prestige), discovery: num(f.disc), conf: num(f.conf), tier: f.tier, kept,
+  };
+}
+
+/** 90-day NAV sparkline — real snapshots only; under 2 points renders nothing. */
+function Spark({ rows }: { rows: NavHistRow[] }) {
+  const pts = rows.map((r) => num(r.nav)).filter((v): v is number => v != null);
+  if (pts.length < 2) return null;
+  const w = 150, h = 26;
+  const min = Math.min(...pts), max = Math.max(...pts);
+  const span = max - min || 1;
+  const d = pts.map((v, i) =>
+    `${i === 0 ? "M" : "L"}${(1 + (i / (pts.length - 1)) * (w - 2)).toFixed(1)},${(h - 2 - ((v - min) / span) * (h - 4)).toFixed(1)}`,
+  ).join(" ");
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true" style={{ display: "block", flex: "0 0 auto" }}>
+      <path d={d} fill="none" stroke="var(--canon)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+const conquestLine = (c: ConquestTile) =>
+  c.ms === 100
+    ? `${c.rem} film${c.rem === 1 ? "" : "s"} from finishing ${c.label}`
+    : `${c.rem} film${c.rem === 1 ? "" : "s"} to ${c.ms}% of ${c.label}`;
+
+function pairLine(d: DeskData): string {
+  if (d.pairErr || !d.pair) return "A masked partner may be waiting";
+  const lovedN = num(d.pair.loved_n) ?? 0;
+  if (d.pair.forming) return STR.empty.masquerade(lovedN);
+  const cand = num(d.pair.candidates) ?? 0;
+  return `${cand} masked partner${cand === 1 ? "" : "s"} in the pool`;
+}
+
+/* Open-jobs tiles reuse .vline (hover + hairline) as compact one-line links. */
+const jobStyle: CSSProperties = { fontSize: 12, padding: "10px 12px", gap: 8, flexWrap: "nowrap", textDecoration: "none", minWidth: 0 };
+const jobText: CSSProperties = { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0, color: "var(--ink)" };
+const jobDest: CSSProperties = { marginLeft: "auto", flex: "0 0 auto", fontSize: 11, color: "var(--sub)" };
+
+/** Session tape card (server rows + optimistic prepends from the log bar). */
+type TapeCard = {
+  slug: string; title: string; year: number | null; poster_path: string | null; director: string | null;
+  rating: number | null; date: string | null;
+  v?: number | null; r?: number | null; prestige?: number | null;
+};
+
+export default function DeskWorkspace({ data }: { data: DeskData }) {
+  const insp = useInspector();
+  const { setDefault } = insp;
+  const { session, doKeep, doSeen, doDismiss, doRate } = useRoomActions();
+
+  const [cursor, setCursor] = useState(0);           // tonight rotation position
+  const [extra, setExtra] = useState<TapeCard[]>([]); // optimistic tape prepends
+
+  const dayKey = useMemo(() => new Date().toLocaleDateString("en-CA"), []); // local YYYY-MM-DD
+
+  /* Restore today's rotation cursor after mount — localStorage is client-only,
+     so reading it during render would break SSR hydration. Stale (yesterday's)
+     entries reset to 0. */
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("mt_tonight");
+      if (!raw) return;
+      const s = JSON.parse(raw) as { d?: string; i?: number };
+      if (s.d === dayKey && typeof s.i === "number" && Number.isInteger(s.i) && s.i > 0) setCursor(s.i);
+    } catch { /* corrupt storage — start at 0 */ }
+  }, [dayKey]);
+
+  const another = useCallback(() => {
+    setCursor((c) => {
+      const n = c + 1;
+      try { localStorage.setItem("mt_tonight", JSON.stringify({ d: dayKey, i: n })); } catch { /* storage blocked */ }
+      return n;
+    });
+  }, [dayKey]);
+
+  /* ── mutations — useRoomActions records into SessionStore on success, which
+        re-renders this tree (kept/gone/reRated are context state). ── */
+  const keep = useCallback((f: { slug: string; title: string }) => { void doKeep(f.slug, f.title); }, [doKeep]);
+  const seen = useCallback((f: { slug: string; title: string }) => { insp.close(); void doSeen(f.slug, f.title); }, [doSeen, insp]);
+  const dismiss = useCallback((f: { slug: string; title: string }) => { insp.close(); void doDismiss(f.slug, f.title); }, [doDismiss, insp]);
+  /* Rating a candidate: optimistic prepend onto the tape, rolled back on failure. */
+  const rateNew = useCallback(async (f: TapeCard, v: number) => {
+    setExtra((a) => [{ ...f, rating: v, date: f.date ?? dayKey }, ...a.filter((x) => x.slug !== f.slug)]);
+    const row = await doRate(f.slug, f.title, v);
+    if (!row) setExtra((a) => a.filter((x) => x.slug !== f.slug));
+  }, [doRate, dayKey]);
+  const reRate = useCallback((f: { slug: string; title: string }, v: number) => { void doRate(f.slug, f.title, v); }, [doRate]);
+
+  /* ── ② Tonight rotation — session-gone filtered out; reasons + streaming
+        first (Fit desc), then the rest (Fit desc); "Another" cycles. ── */
+  const alive = useMemo(() => (data.recs ?? []).filter((f) => !session.gone.has(f.slug)), [data.recs, session.gone]);
+  const rotation = useMemo(() => {
+    const w = (f: WwiRow) => num(f.wwi) ?? -1;
+    const prime = alive.filter((f) => (f.reasons?.length ?? 0) > 0 && f.avail?.state === "on").sort((a, b) => w(b) - w(a));
+    const ids = new Set(prime.map((f) => f.slug));
+    const rest = alive.filter((f) => !ids.has(f.slug)).sort((a, b) => w(b) - w(a));
+    return [...prime, ...rest];
+  }, [alive]);
+  const today = rotation.length ? rotation[((cursor % rotation.length) + rotation.length) % rotation.length] : null;
+  const todayKept = today ? today.in_watchlist === true || session.kept.has(today.slug) : false;
+
+  const openRec = useCallback((f: WwiRow, kept: boolean) => {
+    insp.select(
+      <RecInsp f={toRecFilm(f, kept)}
+        onKeep={() => keep(f)} onSeen={() => seen(f)} onDismiss={() => dismiss(f)}
+        onRate={(_, v) => void rateNew({
+          slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, director: f.director,
+          rating: null, date: null, v: num(f.v), r: num(f.r), prestige: num(f.prestige),
+        }, v)} />,
+    );
+  }, [insp, keep, seen, dismiss, rateNew]);
+
+  /* ── ③ Session tape — server 12 + optimistic prepends (dedup by slug) ── */
+  const tape = useMemo(() => {
+    const ids = new Set<string>();
+    const rows: TapeCard[] = [];
+    const server: TapeCard[] = (data.recent ?? []).map((r) => ({
+      slug: r.slug, title: r.title, year: r.year, poster_path: r.poster_path, director: r.director,
+      rating: num(r.rating), date: r.watched_at ?? (r.added_at ? r.added_at.slice(0, 10) : null),
+      v: num(r.v), r: num(r.r), prestige: num(r.prestige),
+    }));
+    for (const f of [...extra, ...server]) {
+      if (ids.has(f.slug)) continue;
+      ids.add(f.slug); rows.push(f);
+    }
+    return rows.slice(0, 12);
+  }, [extra, data.recent]);
+
+  const openTape = useCallback((f: TapeCard) => {
+    insp.select(
+      <RecInsp f={{
+        slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
+        v: f.v ?? null, r: f.r ?? null, prestige: f.prestige ?? null,
+        rating: session.reRated[f.slug] ?? f.rating,
+      }} onRate={(_, v) => reRate(f, v)} />,
+    );
+  }, [insp, session.reRated, reRate]);
+
+  /* ── ④ NAV line → Performance-summary inspector (Performance is the ONLY link) ── */
+  const navV = num(data.nav?.nav);
+  const tier = tierOf(navV);
+  const avgStanding = num(data.nav?.avg_standing);
+  const openNav = useCallback(() => {
+    insp.select(
+      <div>
+        <ICard icon="ti-chart-line" title={STR.shell.navSummaryTitle}>
+          <KV k="NAV" v={navV ?? "—"} />
+          <KV k="Tier" v={tier} />
+          <KV k="Watched" v={num(data.nav?.n_watched) ?? "—"} />
+          <KV k="Scored" v={num(data.nav?.n_scored) ?? "—"} />
+          <KV k="Essentials" v={num(data.nav?.essentials) ?? "—"} />
+          <KV k="Avg standing" v={avgStanding != null ? Math.round(avgStanding) : "—"} />
+          <KV k="Lineage lines" v={num(data.nav?.lines) ?? "—"} />
+          <div style={{ marginTop: 10 }}>
+            <Link href={HREF.performance} style={{ fontSize: 12, color: "var(--sub)" }}>{STR.shell.openPerformance}</Link>
+          </div>
+        </ICard>
+        <div className="emptyins">{STR.common.navCovenant}</div>
+      </div>,
+      STR.shell.navSummaryTitle,
+    );
+  }, [insp, data.nav, navV, tier, avgStanding]);
+
+  /* ── page brief (app-bar Brief button — registered, never auto-opened) ── */
+  useEffect(() => {
+    setDefault(
+      <ICard icon="ti-sun" title="Desk — the daily loop">
+        <KV k="Tonight" v={today?.title ?? "—"} />
+        <KV k="Pool" v={alive.length} />
+        <KV k="NAV" v={navV ?? "Forming"} />
+        <div style={{ fontSize: 11.5, color: "var(--mut)", marginTop: 8, lineHeight: 1.5 }}>
+          Log what you just watched, take tonight&apos;s pick, glance at NAV — three seconds, done.
+        </div>
+      </ICard>,
+    );
+  }, [setDefault, today?.title, alive.length, navV]);
+
+  /* ── ① session line under the log bar ── */
+  const sNew = num(data.stats?.session_new) ?? 0;
+  const loved = num(data.stats?.loved) ?? 0;
+  const lovedTarget = num(data.stats?.loved_target) ?? 8;
+  const lovedLeft = Math.max(0, lovedTarget - loved);
+  const sessionLine = data.stats
+    ? `${sNew} rating${sNew === 1 ? "" : "s"} today${data.stats.forming
+      ? ` · ${lovedLeft} more loved film${lovedLeft === 1 ? "" : "s"} to unlock Masquerade`
+      : " · Masquerade unlocked"}`
+    : null;
+
+  const todayChips = today ? chipsOf(today.reasons).slice(0, 2) : [];
+  const todayFit = today ? num(today.wwi) : null;
+  const todayDelta = today ? num(today.delta) : null;
+
+  return (
+    <div className="v2wrap" style={{ gap: 22, paddingBottom: 40 }}>
+      {/* ① Log bar */}
+      <div>
+        <QuickRate onRate={(h: QuickHit, v: number) => void rateNew({ ...h, rating: null, date: null }, v)} />
+        {sessionLine ? <div style={{ fontSize: 11.5, color: "var(--sub)", marginTop: 8 }}>{sessionLine}</div> : null}
+      </div>
+
+      {/* ② Tonight hero */}
+      {data.recs == null ? (
+        <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
+      ) : data.recs.length === 0 ? (
+        <FormingCard feature="Recommendations" need={3} have={data.ratedHigh} unit="films rated ★3.5+">
+          {STR.empty.desk}
+        </FormingCard>
+      ) : today ? (
+        <div className="today" role="button" tabIndex={0} onClick={() => openRec(today, todayKept)}
+          onKeyDown={(e) => { if (e.key === "Enter") openRec(today, todayKept); }}>
+          <span className="tpo" style={today.poster_path ? { backgroundImage: `url(${IMG342}${today.poster_path})` } : {}} />
+          <div style={{ minWidth: 0 }}>
+            <div style={{ fontSize: 10.5, letterSpacing: ".12em", color: "var(--sub)" }}>TONIGHT</div>
+            <div className="tt ser">{today.title}</div>
+            <div className="tsub">{today.year ?? "?"}{today.director ? ` · ${today.director}` : ""}</div>
+            <div className="twhy" style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+              {todayChips.map((c, i) => c.href
+                ? <Link key={i} className={`rsn ${c.cls}`} href={c.href} onClick={(e) => e.stopPropagation()}>{c.label}</Link>
+                : <span key={i} className={`rsn ${c.cls}`}>{c.label}</span>)}
+              {todayFit != null ? <span className="mono" style={{ fontSize: 11.5, color: "var(--sub)" }}>{STR.row.fit} {Math.round(todayFit)}</span> : null}
+              {todayDelta != null && todayDelta >= 2 ? <span className="mono" style={{ fontSize: 11.5, color: "var(--canon)" }}>+{Math.round(todayDelta)} NAV</span> : null}
+              {today.avail?.state === "on" ? <span style={{ fontSize: 11.5, color: "var(--sub)" }}><span className="availdot on" /> {today.avail.provider ?? STR.row.streaming}</span> : null}
+            </div>
+            <div className="tact" onClick={(e) => e.stopPropagation()}>
+              <span className="actbtn pri" onClick={() => keep(today)}>{todayKept ? `✓ ${STR.row.kept}` : STR.row.keep}</span>
+              <span className="actbtn" onClick={() => seen(today)}>{STR.row.seen}</span>
+              <span className="actbtn" onClick={another}>Another</span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="emptyins">
+          Tonight&apos;s pool is cleared — <Link href={HREF.screener} style={{ color: "var(--mut)" }}>the Screener has more →</Link>
+        </div>
+      )}
+
+      {/* ③ Session tape */}
+      <div>
+        <div className="v2h"><h3>Session tape</h3><Link className="all" href={HREF.ledger}>Full ledger →</Link></div>
+        {data.recent == null ? (
+          <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
+        ) : tape.length ? (
+          <div className="postrip">
+            {tape.map((f) => {
+              const shown = session.reRated[f.slug] ?? f.rating;
+              const isLoved = shown != null && shown >= 4.5;
+              return (
+                <div className="pcard" key={f.slug} onClick={() => openTape(f)}
+                  title={f.date ? `${f.title} · ${f.date}` : f.title}>
+                  <span className="ppo" style={{ display: "block", ...(f.poster_path ? { backgroundImage: `url(${IMG185}${f.poster_path})` } : {}) }} />
+                  <div className="pst">★{shown ?? "—"}{isLoved ? <i className="ti ti-flame" style={{ color: "var(--red)", marginLeft: 3 }} /> : null}</div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="emptyins">Nothing on the tape yet — a star above starts it.</div>
+        )}
+      </div>
+
+      {/* ④ NAV line */}
+      {data.navErr ? (
+        <div className="errcard"><i className="ti ti-alert-triangle" />{STR.common.errorLoad}</div>
+      ) : (
+        <div className="vline" role="button" tabIndex={0} title={STR.shell.navChipTitle} onClick={openNav}
+          onKeyDown={(e) => { if (e.key === "Enter") openNav(); }}>
+          NAV <b>{navV ?? "—"}</b> <span className="tier">{tier}</span>
+          <span>· <b style={{ fontSize: 13 }}>{num(data.nav?.n_watched) ?? 0}</b> watched</span>
+          {data.stats ? <span>· <b style={{ fontSize: 13 }}>{loved}</b> loved</span> : null}
+          {data.hist ? <span style={{ marginLeft: "auto" }}><Spark rows={data.hist} /></span> : null}
+        </div>
+      )}
+
+      {/* ⑤ Open jobs — link tiles only (doors, no modules) */}
+      <div>
+        <div className="v2h"><h3>Open jobs</h3></div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
+          {data.conquest ? (
+            <Link className="vline" style={jobStyle} href={HREF.coverage}>
+              <i className="ti ti-flag" style={{ color: "var(--sub)" }} />
+              <span style={jobText}>{conquestLine(data.conquest)}</span>
+              <span style={jobDest}>→ Coverage</span>
+            </Link>
+          ) : null}
+          {data.blind ? (
+            <Link className="vline" style={jobStyle} href={HREF.coverage}>
+              <i className="ti ti-chart-arcs" style={{ color: "var(--sub)" }} />
+              <span style={jobText}>{data.blind.label}: {data.blind.gap_reason}</span>
+              <span style={jobDest}>→ Coverage</span>
+            </Link>
+          ) : null}
+          <Link className="vline" style={jobStyle} href={HREF.masquerade}>
+            <i className="ti ti-masks-theater" style={{ color: "var(--sub)" }} />
+            <span style={jobText}>{pairLine(data)}</span>
+            <span style={jobDest}>→ Masquerade</span>
+          </Link>
+          <Link className="vline" style={jobStyle} href={HREF.screener}>
+            <i className="ti ti-target-arrow" style={{ color: "var(--sub)" }} />
+            <span style={jobText}>Full screener</span>
+            <span style={jobDest}>→</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

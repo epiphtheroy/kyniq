@@ -1,0 +1,43 @@
+/* /room/screener — Screener island (My Room v3, spec §3.2).
+   Shared tokens and classes (toolbar, lambda, stratchip, qtoggle, xseg, frow/fexp,
+   errcard, ghline) come from room.css; only screen-local classes live here.
+   Every selector is scoped under .room-root. */
+
+/* Control-bar chips are real <button>s (focusable) — normalize button font. */
+.room-root .scr-bar button{font-family:var(--ui)}
+.room-root .scr-riskdot{width:7px;height:7px;border-radius:50%;background:var(--risk)}
+
+/* First-release banner — kept films moved to the Slate. */
+.room-root .scr-banner{display:flex;align-items:center;gap:10px;border:1px solid var(--line2);border-left:3px solid var(--frontier);border-radius:8px;background:var(--pnl);padding:9px 12px;font-size:12px;color:var(--mut)}
+.room-root .scr-banner i{color:var(--frontier);font-size:15px;flex:0 0 auto}
+.room-root .scr-banner a{color:var(--ink)}
+.room-root .scr-banner a:hover{text-decoration:underline}
+.room-root .scr-banner .bx{margin-left:auto;background:none;border:none;color:var(--sub);cursor:pointer;font-size:13px;padding:2px;display:flex}
+.room-root .scr-banner .bx:hover{color:var(--ink)}
+
+/* Results header — count · sort segments · honest re-sort label. */
+.room-root .scr-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 10px}
+.room-root .scr-head button{font-family:var(--ui)}
+.room-root .scr-count{font-family:var(--mono);font-size:11px;color:var(--sub)}
+.room-root .scr-resorted{font-size:10px;color:var(--sub);border:1px dashed var(--line2);border-radius:999px;padding:1px 8px}
+
+/* Score-anatomy expander footer — WWI formula gloss + NAV chip (links to Performance only). */
+.room-root .scr-xfoot{display:flex;align-items:center;gap:12px;margin-top:9px;font-size:10.5px;color:var(--sub)}
+.room-root .scr-xfoot .wwi{font-family:var(--mono)}
+.room-root .scr-navchip{font-family:var(--mono);font-size:10.5px;color:var(--safe);border:1px solid rgba(31,178,134,.4);border-radius:4px;padding:1px 7px}
+.room-root .scr-navchip:hover{border-color:var(--safe)}
+
+/* Inline buttons inside empty/error states. */
+.room-root .scr-reset,.room-root .scr-retry{margin-left:10px;background:var(--pnl2);border:1px solid var(--line2);border-radius:6px;color:var(--ink);font-size:11.5px;padding:3px 10px;cursor:pointer;font-family:var(--ui)}
+.room-root .scr-reset:hover,.room-root .scr-retry:hover{border-color:var(--line3)}
+
+/* Passed-on strip — session dismissals with Restore (no RPC history yet, §8-R1). */
+.room-root .scr-passed{border-top:1px dashed var(--line2);padding-top:12px}
+.room-root .scr-passed .pline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mut)}
+.room-root .scr-passed .pline i{color:var(--sub);font-size:14px}
+.room-root .scr-passed .prev{background:none;border:none;color:var(--frontier);font-size:11.5px;cursor:pointer;padding:0;font-family:var(--ui)}
+.room-root .scr-passed .prev:hover{text-decoration:underline}
+.room-root .scr-passed .plist{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.room-root .scr-pass{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:3px 6px 3px 11px;font-size:11.5px;color:var(--mut);background:var(--pnl)}
+.room-root .scr-pass button{background:var(--pnl2);border:1px solid var(--line2);border-radius:999px;color:var(--ink);font-size:10.5px;padding:2px 9px;cursor:pointer;font-family:var(--ui)}
+.room-root .scr-pass button:hover{border-color:var(--line3)}

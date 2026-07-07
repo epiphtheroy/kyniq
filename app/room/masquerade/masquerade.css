@@ -1,0 +1,65 @@
+/* /room/masquerade — Masquerade (slow pair). Ported from the v2 pair.css and
+   trimmed to the v3 single-card layout (spec §3.14). Every selector scoped
+   under .room-root. Masquerade violet tokens stay local to this route. */
+
+.room-root {
+  --masque: #9B8CF0;       /* masquerade violet */
+  --masque-bd: #4a3f86;    /* violet border */
+  --masque-tx: #bda1f0;    /* violet text */
+  --masque-bg: #2a2440;    /* violet fill */
+  --masque-deep: #16121f;  /* deep card background */
+  --masque-iris: #221d36;  /* mask iris fill */
+}
+
+/* single card */
+.room-root .mq-card{background:linear-gradient(160deg,var(--masque-deep),var(--bg2));border:1px solid var(--masque-bg);border-radius:10px;padding:18px 20px 14px;position:relative;overflow:hidden;max-width:620px;margin:0 auto}
+.room-root .mq-card::after{content:"";position:absolute;left:-30px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(155,140,240,.08),transparent 70%);pointer-events:none}
+
+/* two masks + sync */
+.room-root .mq-pair{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
+.room-root .mq-mask{text-align:center}
+.room-root .mq-mask .nm{font-family:var(--ser);font-size:15px;margin-top:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-root .mq-mask .rl{font-size:10.5px;color:var(--sub);margin-top:2px}
+.room-root .mq-sync{text-align:center}
+.room-root .mq-sync .pv{font-family:var(--mono);font-size:42px;font-weight:600;color:var(--safe);line-height:1}
+.room-root .mq-sync .pv.empty{font-size:18px;color:var(--masque-tx);font-style:italic}
+.room-root .mq-sync .pl{font-size:9px;letter-spacing:.16em;color:var(--sub);margin-top:4px}
+.room-root .mq-sync .fm{font-size:9px;color:var(--faint);font-family:var(--mono);margin-top:3px}
+
+/* intersection */
+.room-root .mq-ident{margin-top:16px;border-top:1px solid var(--line);padding-top:13px}
+.room-root .mq-ident .lbl{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);text-align:center;margin-bottom:8px}
+.room-root .mq-ident .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.room-root .anchorchip{font-size:12px;font-family:var(--ser);background:var(--pnl2);border:1px solid var(--masque-bd);color:var(--masque-tx);border-radius:13px;padding:3px 11px;display:inline-block}
+.room-root .anchorchip .n{color:var(--sub);font-family:var(--mono);font-size:10.5px}
+.room-root .mq-none{font-size:11.5px;color:var(--sub);font-style:italic;text-align:center;padding:2px 0}
+.room-root .mq-row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11.5px;padding:4px 0;border-bottom:1px solid var(--line)}
+.room-root .mq-row:last-child{border-bottom:0}
+.room-root .mq-row .nm{font-family:var(--ser);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-root .mq-row .ct{font-family:var(--mono);font-size:10.5px;color:var(--sub);flex:0 0 auto}
+
+/* 30-day sync trend */
+.room-root .mq-trend{display:flex;align-items:center;gap:10px;margin-top:13px;padding-top:11px;border-top:1px solid var(--line);flex-wrap:wrap;justify-content:center}
+.room-root .mq-trend .lbl{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+.room-root .mq-trend .none{font-size:11px;color:var(--sub);font-style:italic}
+.room-root .mq-trend .rng{font-family:var(--mono);font-size:10.5px;color:var(--mut)}
+
+/* no-partner empty — one dashed mask + one line */
+.room-root .mq-empty{text-align:center;padding:10px 4px 2px}
+.room-root .mq-empty .line{font-size:12px;color:var(--mut);line-height:1.6;max-width:440px;margin:10px auto 0}
+
+/* card footer: veil chips + rotation countdown */
+.room-root .mq-foot{margin-top:14px;border-top:1px solid var(--line);padding-top:11px}
+.room-root .mq-veil{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.room-root .mq-veil .vc{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;padding:3px 9px;border-radius:13px;border:1px solid var(--line2)}
+.room-root .mq-veil .vc.show{color:#8ee3cc;border-color:#1d5145;background:rgba(31,178,134,.06)}
+.room-root .mq-veil .vc.hide{color:var(--sub);border-color:var(--line2)}
+.room-root .mq-veil .vc i{font-size:12px}
+.room-root .mq-rotate{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:10px;font-size:10.5px;color:var(--sub)}
+.room-root .mq-rotate i{color:var(--canon);font-size:13px}
+.room-root .mq-cd{font-family:var(--mono);font-size:13px;color:var(--canon);letter-spacing:.04em}
+
+@media (max-width: 560px) {
+  .room-root .mq-pair{gap:8px}
+  .room-root .mq-sync .pv{font-size:32px}
+}

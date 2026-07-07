@@ -1,0 +1,117 @@
+/* /room/signature — taste-identity instrument (page CSS island).
+   Carried over from the retired analysis.css (risk plane, figure cloud, kindred
+   rows) and rescoped sg-*. FULLY SCOPED under .room-root so it never leaks.
+   Shared tokens (--ink, --pnl, --risk, …) come from room.css. */
+.room-root{
+  --sg-risktx:#f0937a;
+}
+
+/* ── hero: signature ── */
+.room-root .sg-hero{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:18px;
+  background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);
+  border-radius:9px;padding:16px 18px;margin-bottom:14px;position:relative;overflow:hidden}
+.room-root .sg-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
+  border-radius:50%;background:radial-gradient(circle,rgba(227,18,11,.10),transparent 70%)}
+.room-root .sg-hl{font-family:var(--ser);font-size:24px;line-height:1.2;margin-top:6px;color:var(--ink)}
+.room-root .sg-prose{font-size:13px;font-family:var(--ser);line-height:1.55;color:var(--ink);margin-top:9px}
+.room-root .sg-prose b{font-style:normal;color:#c6bcf7}
+.room-root .sg-prose .em{color:#e98a86;font-weight:700}
+.room-root .sg-anchorchips{margin-top:11px;display:flex;flex-wrap:wrap;gap:5px}
+.room-root .sg-chip{font-size:11px;font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;
+  color:#bda1f0;border-radius:13px;padding:3px 10px;display:inline-block}
+.room-root .sg-chip .n{color:var(--sub);font-family:var(--mono);margin-left:4px}
+.room-root .sg-foot{font-size:10.5px;color:var(--sub);margin-top:10px;line-height:1.5}
+.room-root .sg-foot b{color:var(--mut);font-style:normal}
+.room-root .sg-meterbox{border-left:1px solid var(--line);padding-left:18px;display:flex;
+  flex-direction:column;justify-content:center;gap:8px;min-width:0}
+.room-root .sg-meter{height:7px;border-radius:4px;background:var(--pnl3);overflow:hidden}
+.room-root .sg-meter i{display:block;height:100%;border-radius:4px;background:var(--forming)}
+.room-root .sg-meterline{font-size:11.5px;color:var(--mut);line-height:1.5}
+.room-root .sg-meterline b{font-family:var(--mono);color:var(--ink)}
+.room-root .sg-meternote{font-size:10.5px;color:var(--sub);line-height:1.5}
+@media(max-width:900px){
+  .room-root .sg-hero{grid-template-columns:1fr}
+  .room-root .sg-meterbox{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:12px}
+}
+
+/* ── theory teaser (one-line band → Lens) ── */
+.room-root .sg-teaser{display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:12px 16px;
+  border:1px solid var(--line2);border-radius:10px;background:var(--pnl);margin-bottom:14px;
+  font-size:12.5px;color:var(--mut);line-height:1.5}
+.room-root .sg-teaser i.ti{color:var(--reading);font-size:16px;flex:0 0 auto}
+.room-root .sg-teaser b{color:var(--ink);font-family:var(--ser)}
+.room-root .sg-teaser a.go{margin-left:auto;color:var(--reading);white-space:nowrap}
+.room-root .sg-teaser a.go:hover{text-decoration:underline}
+
+/* ── risk plane (V × R scatter) ── */
+.room-root .sg-scatterwrap{display:grid;grid-template-columns:1fr 226px;gap:14px}
+@media(max-width:1180px){.room-root .sg-scatterwrap{grid-template-columns:1fr}}
+.room-root .sg-plane{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:6px}
+.room-root .sg-scatter{display:block;width:100%;height:auto}
+.room-root .sg-scatter .sg-dot{cursor:pointer;transition:.12s}
+.room-root .sg-scatter .sg-dot:hover circle{stroke:var(--ink);stroke-width:1.4}
+/* labels only on hover / selection (overplot fix — spec §3.10) */
+.room-root .sg-scatter .sg-dot text{opacity:0;pointer-events:none;transition:opacity .12s}
+.room-root .sg-scatter .sg-dot:hover text,.room-root .sg-scatter .sg-dot.sel text{opacity:1}
+.room-root .sg-quad{font-size:9px;fill:var(--sub);letter-spacing:.04em}
+.room-root .sg-side .sg-lead2{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:var(--mut);
+  line-height:1.5;border-left:2px solid var(--risk);padding-left:9px;margin-bottom:11px}
+.room-root .sg-side .sg-lead2 i.ti{color:var(--sg-risktx);flex:0 0 auto}
+.room-root .sg-side .sg-lead2 b.ideal{color:#5fd0b2;font-style:normal}
+.room-root .sg-side .sg-lead2 b.riskw{color:var(--sg-risktx);font-style:normal}
+.room-root .sg-grp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sub);margin:0 0 8px}
+.room-root .sg-stat{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:11.5px;padding:4px 0;
+  border-bottom:1px solid var(--line)}
+.room-root .sg-stat:last-of-type{border-bottom:0}
+.room-root .sg-stat .k{color:var(--mut)}
+.room-root .sg-stat .v{font-family:var(--mono);color:var(--ink);text-align:right}
+.room-root .sg-stat .v.rk{color:var(--sg-risktx)} .room-root .sg-stat .v.ok{color:#5fd0b2}
+.room-root .sg-legend{display:flex;flex-direction:column;gap:6px;font-size:10.5px;color:var(--mut);margin-top:9px}
+.room-root .sg-legend .lg{display:flex;align-items:center;gap:7px}
+.room-root .sg-legend .lg i{flex:0 0 auto;width:10px;height:10px;border-radius:50%;display:inline-block}
+.room-root .sg-legend .lg i.mine{background:var(--ink)} .room-root .sg-legend .lg i.riskd{background:var(--risk)}
+.room-root .sg-legend .lg i.ideald{background:#5fd0b2}
+.room-root .sg-legend .lg i.avg{width:11px;height:11px;border-radius:2px;background:none;border:1.5px solid var(--red);transform:rotate(45deg)}
+.room-root .sg-note{font-size:10px;color:var(--sub);margin-top:9px;line-height:1.5}
+.room-root .sg-note b{font-style:normal;color:var(--mut)}
+.room-root .sg-formula{font-size:10.5px;color:var(--sub);margin-top:9px;font-style:italic;line-height:1.5}
+.room-root .sg-formula b{color:var(--mut);font-style:normal}
+
+/* ── figure cloud ── */
+.room-root .sg-cloud{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.room-root .sg-cloud .sg-fc{font-family:var(--ser);background:var(--pnl2);border:1px solid #4a3f86;color:#bda1f0;
+  border-radius:13px;padding:3px 10px;cursor:pointer;transition:.12s;line-height:1.3}
+.room-root .sg-cloud .sg-fc:hover{border-color:var(--line3);background:var(--pnl3)}
+.room-root .sg-cloud .sg-fc b{font-weight:700;color:#c6bcf7;margin-left:5px;font-family:var(--mono)}
+
+/* ── kindred films (taste neighbors) ── */
+.room-root .sg-rrow{display:grid;grid-template-columns:22px minmax(0,1fr) 132px 64px auto;gap:12px;align-items:center;
+  padding:10px 8px;border-radius:6px;cursor:pointer;border:1px solid transparent}
+.room-root .sg-rrow:hover{background:var(--pnl2);border-color:var(--line)}
+.room-root .sg-rk{font-family:var(--mono);color:var(--sub);font-size:13px;text-align:center}
+.room-root .sg-rt{font-family:var(--ser);font-size:15px;color:var(--ink)}
+.room-root .sg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
+.room-root .sg-barwrap{display:flex;align-items:center;gap:8px}
+.room-root .sg-barwrap .track{flex:1;height:7px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .sg-barwrap .track>i{display:block;height:100%;border-radius:4px;background:var(--reading)}
+.room-root .sg-barwrap .pct{font-family:var(--mono);font-size:12px;width:38px;text-align:right;color:var(--reading)}
+.room-root .sg-sim{text-align:right}
+.room-root .sg-sim .pv{font-family:var(--mono);font-size:22px;line-height:1;color:var(--reading)}
+.room-root .sg-sim .pl{font-size:8.5px;color:var(--sub);letter-spacing:.1em}
+.room-root .sg-ract{display:flex;gap:6px;opacity:0;transition:opacity .12s}
+.room-root .sg-rrow:hover .sg-ract,.room-root .sg-rrow .sg-ract:focus-within{opacity:1}
+.room-root .sg-ract .fb{width:28px;height:28px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);
+  display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer}
+.room-root .sg-ract .fb:hover{color:var(--ink);border-color:var(--line3)}
+.room-root .sg-ract .fb.done{color:var(--safe);border-color:#1d5145}
+@media(max-width:640px){.room-root .sg-rrow{grid-template-columns:22px minmax(0,1fr) 64px auto}.room-root .sg-barwrap{display:none}}
+
+/* ── framework fingerprint bars ── */
+.room-root .sg-comp{display:grid;grid-template-columns:132px 1fr 34px;align-items:center;gap:10px;margin-bottom:7px}
+.room-root .sg-comp .cl{font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .sg-comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
+.room-root .sg-comp .ct>i{display:block;height:100%;border-radius:4px}
+.room-root .sg-comp .cv{font-family:var(--mono);font-size:11px;text-align:right;color:var(--sub)}
+
+/* honest empties */
+.room-root .sg-empty{padding:22px 14px;color:var(--sub);font-size:12.5px;text-align:center;line-height:1.6}
