@@ -6,10 +6,9 @@ import { resolveAlias } from "@/lib/aliases";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
-import FilmTabBar from "@/components/FilmTabBar";
+import FilmTabBar, { type FilmTab } from "@/components/FilmTabBar";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
-import FilmNumbers, { type FilmNumber } from "@/components/FilmNumbers";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
 import AccessEnrichment, { type AccessRecord } from "@/components/AccessEnrichment";
 import AccessSummary from "@/components/AccessSummary";
@@ -872,51 +871,39 @@ export default async function FilmPage({ params }: Props) {
   const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
   const accessRec = accessRecordFor(film.tmdb_id);
 
-  // "By the numbers" — a scoreboard of every counted section on this page,
-  // each figure lit in its section's colour and linking to that tab.
+  // Section tabs — each carries its own count as a badge (TakeScore carries the
+  // score itself). The counts that used to sit in a separate panel now live in
+  // the navigation, on the two-row FilmTabBar.
+  const tsScore = codex ? Math.round(codex.u) : null;
   const nPlaces = geoMerged || geoCount;
   const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
-  const filmNumbers: FilmNumber[] = (([
-    misreadings.length ? { n: misreadings.length, label: "Strong misreadings", href: "#df-readings", color: "#FF6F61" } : null,
-    catalogue.length ? { n: catalogue.length, label: "Figures", href: "#df-figures", color: "#F0C674" } : null,
-    tropes.length ? { n: tropes.length, label: "Tropes", href: "#df-tropes", color: "#3FD0B4" } : null,
-    recs.length ? { n: recs.length, label: "Connected films", href: "#df-connected", color: "#6FB2F0" } : null,
-    lineage.length ? { n: lineage.length, label: "Canon & award listings", href: "#df-lineage", color: "#E8A33D" } : null,
-    nPlaces > 0 ? { n: nPlaces, label: "Places mapped", href: "#df-atlas", color: "#7ED9A0" } : null,
-    reception.length ? { n: reception.length, label: "Critical sources", href: "#df-reception", color: "#B8C6DF" } : null,
-    recommendedBy.length ? { n: recommendedBy.length, label: "Recommended by", href: "#df-recby", color: "#E58AC0" } : null,
-    questions.length ? { n: questions.length, label: "Reader questions", href: "#df-curious", color: "#F2A65A" } : null,
-    counterpoints.length ? { n: counterpoints.length, label: "Counterpoints", href: "#df-counterpoints", color: "#EF8B6A" } : null,
-    nArch > 0 ? { n: nArch, label: "Archetype tags", href: "#df-archetype", color: "#B79CEB" } : null,
-    watchNext.length ? { n: watchNext.length, label: "Watch-next picks", href: "#df-watchnext", color: "#86D6B4" } : null,
-  ].filter(Boolean)) as FilmNumber[]);
-  if (filmNumbers.length) filmNumbers[0] = { ...filmNumbers[0], hero: true };
-
+  const nCurious = questions.length + deskEssays.length;
+  const nWatchRegions = watch?.countries?.length ?? 0;
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
-    whyWatch.length ? { id: "df-whywatch", label: "Why watch" } : null,
-    codex ? { id: "df-codex", label: "TakeScore" } : null,
-    geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
-    hasLineage ? { id: "df-lineage", label: "Lineage" } : null,
-    recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
-    misreadings.length ? { id: "df-readings", label: "Strong Misreadings!" } : null,
-    grouped.length ? { id: "df-figures", label: "Figures" } : null,
-    tropes.length ? { id: "df-tropes", label: "Tropes" } : null,
+    whyWatch.length ? { id: "df-whywatch", label: "Why watch", badge: whyWatch.length } : null,
+    codex ? { id: "df-codex", label: "TakeScore", badge: tsScore ?? undefined, badgeTone: "score" as const } : null,
+    nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces } : null,
+    hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
+    recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
+    misreadings.length ? { id: "df-readings", label: "Strong Misreadings!", badge: misreadings.length } : null,
+    grouped.length ? { id: "df-figures", label: "Figures", badge: catalogue.length } : null,
+    tropes.length ? { id: "df-tropes", label: "Tropes", badge: tropes.length } : null,
     { id: "df-map", label: "Connections" },
-    archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
-    reception.length ? { id: "df-reception", label: "Reception" } : null,
-    questions.length || deskEssays.length ? { id: "df-curious", label: "Curious" } : null,
-    dailyRefs.length ? { id: "df-daily", label: "The Daily" } : null,
-    watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
-    recs.length ? { id: "df-connected", label: "Films like" } : null,
-    counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints" } : null,
+    archGroups.length ? { id: "df-archetype", label: "Archetype", badge: nArch } : null,
+    reception.length ? { id: "df-reception", label: "Reception", badge: reception.length } : null,
+    nCurious ? { id: "df-curious", label: "Curious", badge: nCurious } : null,
+    dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length } : null,
+    watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length } : null,
+    recs.length ? { id: "df-connected", label: "Films like", badge: recs.length } : null,
+    counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints", badge: counterpoints.length } : null,
     filmInfoPresent ? { id: "df-information", label: "Information" } : null,
-    { id: "df-watch", label: "Where to watch" },
+    { id: "df-watch", label: "Where to watch", badge: nWatchRegions || undefined },
     crew.length
-      ? { id: "df-crew", label: "Credits" }
+      ? { id: "df-crew", label: "Credits", badge: crew.length }
       : film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
-  ].filter(Boolean)) as { id: string; label: string; href?: string }[];
+  ].filter(Boolean)) as FilmTab[];
 
   // Entity anchors (§8.2 film-entity recognition): canonical @id + external IDs.
   // Field set must stay consistent with /film/lineage/[slug]'s Movie node
