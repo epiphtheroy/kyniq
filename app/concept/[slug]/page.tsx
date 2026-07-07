@@ -37,7 +37,41 @@ type Reading = {
   film_title: string; film_slug: string; film_year: number | null; backdrop_path: string | null;
 };
 
-type DeskLink = { film_slug: string; film_title: string; film_year: number | null; desk_key: string; essay_title: string };
+type DeskLink = {
+  film_slug: string; film_title: string; film_year: number | null; backdrop_path: string | null;
+  desk_key: string; essay_title: string; excerpt: string | null; mode: string | null;
+};
+
+const DESK_META: Record<string, { label: string; color: string }> = {
+  decoder: { label: "Decoder", color: "#8A5A2B" },
+  theories: { label: "Fan Theories", color: "#5B4DAF" },
+  debates: { label: "Debates", color: "#B03A48" },
+  contested: { label: "Contested", color: "#8C3B6E" },
+  "reception-story": { label: "Reception", color: "#2E7D6B" },
+  "parallel-lives": { label: "Parallel Lives", color: "#3E6DB5" },
+  "field-test": { label: "Field Test", color: "#71701F" },
+  exegesis: { label: "Exegesis", color: "#4A4A8F" },
+};
+const deskMeta = (k: string) => DESK_META[k] ?? { label: "Essay", color: "#666" };
+const mdStrip = (s: string) => s.replace(/\*\*?|__|`/g, "").trim();
+
+async function fetchDeskEssays(supabase: ReturnType<typeof db>, slugs: string[]): Promise<DeskLink[]> {
+  const seen = new Set<string>();
+  const out: DeskLink[] = [];
+  for (const s of [...new Set(slugs)]) {
+    try {
+      const { data } = await supabase.rpc("concept_desk_essays", { p_slug: s, p_limit: 24 });
+      for (const d of ((data ?? []) as DeskLink[])) {
+        const key = `${d.film_slug}/${d.desk_key}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(d);
+        if (out.length >= 12) return out;
+      }
+    } catch { /* enhancement only */ }
+  }
+  return out;
+}
 
 type TropeRow = { concept: string; slug: string; title: string; laconic: string | null; films: number; bd: string | null };
 
@@ -88,18 +122,13 @@ function load(slug: string) {
           | { id: number; concept: string; concept_slug: string; native: string | null; one_liner: string | null; part: string | null; major: string | null; sub: string | null }
           | undefined;
         if (!tc) return null;
-        const [{ data: thRows }, dl] = await Promise.all([
+        const [{ data: thRows }, desks] = await Promise.all([
           supabase
             .from("theorist_concepts")
             .select("theorist_id, theorist_name, role, theorists(slug, name)")
             .eq("concept_id", tc.id)
             .limit(12),
-          supabase
-            .from("essay_entity_links")
-            .select("film_slug, film_title, film_year, desk_key, essay_title")
-            .eq("entity_type", "concept")
-            .eq("entity_slug", slug)
-            .limit(36),
+          fetchDeskEssays(supabase, [slug]),
         ]);
         const theorists: { name: string; slug: string | null }[] = [];
         const seenTh = new Set<string>();
@@ -108,15 +137,6 @@ function load(slug: string) {
           if (!nm || seenTh.has(nm)) continue;
           seenTh.add(nm);
           theorists.push({ name: nm, slug: r.theorists?.slug ?? null });
-        }
-        const desks: DeskLink[] = [];
-        const seenD = new Set<string>();
-        for (const d of ((dl.data ?? []) as DeskLink[])) {
-          const key = `${d.film_slug}/${d.desk_key}`;
-          if (seenD.has(key)) continue;
-          seenD.add(key);
-          desks.push(d);
-          if (desks.length >= 12) break;
         }
         return { kind: "theory" as const, tc, theorists, desks, canonReadings };
       }
@@ -128,25 +148,7 @@ function load(slug: string) {
       let intro: string | null = null;
       const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
       if (typeof it === "string" && it.trim()) intro = it.trim();
-      let desks: DeskLink[] = [];
-      try {
-        const { data: dl } = await supabase
-          .from("essay_entity_links")
-          .select("film_slug, film_title, film_year, desk_key, essay_title")
-          .in("entity_type", ["idea", "concept"])
-          .in("entity_slug", [...new Set([slug, h.resolved_slug])])
-          .limit(36);
-        const seen = new Set<string>();
-        for (const d of (dl ?? []) as DeskLink[]) {
-          const key = `${d.film_slug}/${d.desk_key}`;
-          if (seen.has(key)) continue;
-          seen.add(key);
-          desks.push(d);
-          if (desks.length >= 12) break;
-        }
-      } catch {
-        desks = [];
-      }
+      const desks = await fetchDeskEssays(supabase, [slug, h.resolved_slug]);
       return {
         kind: "sm" as const,
         name: h.name,

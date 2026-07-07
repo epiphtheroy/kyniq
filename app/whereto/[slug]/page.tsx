@@ -127,7 +127,14 @@ function buildReport(watch: (WatchData & { fetched_at?: string | null }) | null,
     editions: record?.disc?.editions?.length ?? 0,
     leaving: (record?.rotation ?? []).filter((r) => r.status === "leaving" || r.leaving_at)
       .map((r) => ({ service: r.service, country: countryName(r.country), leaving_at: r.leaving_at ?? null })),
-    verdict: record?.verdict_note ?? null,
+    // verdict_note is sometimes an internal Korean research memo — only
+    // surface it on this English page when it reads as English.
+    verdict: (() => {
+      const v = record?.verdict_note ?? null;
+      if (!v) return null;
+      const nonAscii = [...v].filter((ch) => ch.charCodeAt(0) > 127).length;
+      return nonAscii / v.length < 0.1 ? v : null;
+    })(),
     updated: dates.length ? dates.sort().reverse()[0].slice(0, 10) : null,
   };
 }
