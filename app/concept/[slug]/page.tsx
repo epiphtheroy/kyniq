@@ -256,6 +256,66 @@ export default async function ConceptPage({ params }: Props) {
     );
   }
 
+  if (data.kind === "theory") {
+    const { tc, theorists, desks } = data;
+    const jsonld = [
+      { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Concepts", item: "https://metatake.net/concept" },
+        { "@type": "ListItem", position: 2, name: tc.concept, item: `https://metatake.net/concept/${tc.concept_slug}` },
+      ] },
+      { "@context": "https://schema.org", "@type": "DefinedTerm", "@id": `https://metatake.net/concept/${tc.concept_slug}#term`,
+        name: tc.concept, ...(tc.native ? { alternateName: tc.native } : {}),
+        ...(tc.one_liner ? { description: tc.one_liner } : {}),
+        url: `https://metatake.net/concept/${tc.concept_slug}` },
+    ];
+    return (
+      <div className="mt">
+        <SiteNav />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+        <div className="mt-wrap">
+          <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
+          <h1 className="th-h1">{tc.concept}{tc.native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.6em" }}> · {tc.native}</span> : null}</h1>
+          {(tc.part || tc.major) && (
+            <p style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 0" }}>
+              {[tc.part, tc.major, tc.sub].filter(Boolean).map((x) => (
+                <span key={x as string} style={{ fontSize: 12, fontWeight: 700, padding: "3px 10px", borderRadius: 999, background: "rgba(0,0,0,.055)" }}>{x}</span>
+              ))}
+            </p>
+          )}
+          {tc.one_liner && (
+            <p className="body reading" style={{ fontSize: 17, margin: "14px 0 0", maxWidth: "68ch" }}>{tc.one_liner}</p>
+          )}
+          {theorists.length > 0 && (
+            <p style={{ margin: "14px 0 0", fontSize: 15 }}>
+              Thought by:{" "}
+              {theorists.map((t, i) => (
+                <span key={t.name}>
+                  {i > 0 && ", "}
+                  {t.slug ? <Link href={`/theorist/${t.slug}`}>{t.name}</Link> : t.name}
+                </span>
+              ))}
+            </p>
+          )}
+          {desks.length > 0 && (
+            <section style={{ margin: "30px 0 0" }} id="concept-desks">
+              <h2 className="cmap-h2">From the desks — essays that put {tc.concept} to work</h2>
+              <ul className="essay-desklist" style={{ marginTop: 10 }}>
+                {desks.map((d) => (
+                  <li key={`${d.film_slug}/${d.desk_key}`}>
+                    <Link href={`/film/${d.film_slug}/${d.desk_key}`}>
+                      {d.film_title}{d.film_year ? ` (${d.film_year})` : ""} — {d.essay_title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+          <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
+        </div>
+      </div>
+    );
+  }
+
   const { name, intro, readings, desks, tropes } = data;
   return (
     <div className="mt">
