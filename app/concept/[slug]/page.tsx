@@ -164,6 +164,34 @@ function load(slug: string) {
   )();
 }
 
+/** Desk (curious) essays rendered with the same care as the readings: image + excerpt. */
+function DeskCards({ desks }: { desks: DeskLink[] }) {
+  return (
+    <div className="th-readings">
+      {desks.map((d) => {
+        const M = deskMeta(d.desk_key);
+        const href = `/film/${d.film_slug}/${d.desk_key}`;
+        return (
+          <article className="thr" key={`${d.film_slug}/${d.desk_key}`}>
+            {d.backdrop_path ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <Link href={href} className="thr-th"><img src={`${IMG}/w300${d.backdrop_path}`} alt="" loading="lazy" /></Link>
+            ) : null}
+            <div className="thr-body">
+              <div className="thr-top">
+                <span className="thr-fw" style={{ color: M.color }}>{M.label}</span>
+                <Link className="thr-film" href={`/film/${d.film_slug}`}>{d.film_title}{d.film_year ? ` (${d.film_year})` : ""}</Link>
+              </div>
+              <Link className="thr-title" href={href}>{mdStrip(d.essay_title)}</Link>
+              {d.excerpt ? <p className="thr-thesis">{mdStrip(d.excerpt)}</p> : null}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
 function introDescription(intro: string): string {
   const plain = intro.replace(/\s+/g, " ").trim();
   const sentences = plain.match(/[^.!?]+[.!?]+(\s+|$)/g);
@@ -331,15 +359,7 @@ export default async function ConceptPage({ params }: Props) {
           {desks.length > 0 && (
             <section style={{ margin: "30px 0 0" }} id="concept-desks">
               <h2 className="cmap-h2">From the desks — essays that put {tc.concept} to work</h2>
-              <ul className="essay-desklist" style={{ marginTop: 10 }}>
-                {desks.map((d) => (
-                  <li key={`${d.film_slug}/${d.desk_key}`}>
-                    <Link href={`/film/${d.film_slug}/${d.desk_key}`}>
-                      {d.film_title}{d.film_year ? ` (${d.film_year})` : ""} — {d.essay_title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <DeskCards desks={desks} />
             </section>
           )}
           <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
