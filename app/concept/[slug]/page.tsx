@@ -320,7 +320,7 @@ export default async function ConceptPage({ params }: Props) {
           {desks.length > 0 && (
             <section style={{ margin: "30px 0 0" }} id="concept-desks">
               <h2 className="cmap-h2">From the desks — essays that put {tc.concept} to work</h2>
-              <DeskCards desks={desks} />
+              <DeskExplorer desks={desks} about={tc.concept} />
             </section>
           )}
           <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
@@ -397,7 +397,7 @@ export default async function ConceptPage({ params }: Props) {
         {desks.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="concept-desks">
             <h2 className="cmap-h2">From the desks — essays that put {name} to work</h2>
-            <DeskCards desks={desks} />
+            <DeskExplorer desks={desks} about={name} />
           </section>
         )}
 
