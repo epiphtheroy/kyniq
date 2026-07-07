@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 /** "By the numbers" — a live scoreboard of every counted section on the film
  *  page. Each tile is a jump-link to its tab, its number lit in that section's
@@ -62,7 +62,7 @@ export default function FilmNumbers({ title, items }: { title: string; items: Fi
             key={it.label}
             className={`fnum__tile${it.hero ? " fnum__tile--hero" : ""}`}
             href={it.href}
-            style={{ "--c": it.color, animationDelay: `${i * 45}ms` } as React.CSSProperties}
+            style={{ "--c": it.color, animationDelay: `${i * 45}ms` } as CSSProperties}
           >
             <span className="fnum__n" data-target={it.n} style={{ fontFamily: MONO }}>{it.n}</span>
             <span className="fnum__lab">{it.label}<span className="fnum__arr">→</span></span>

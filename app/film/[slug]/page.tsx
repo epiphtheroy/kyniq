@@ -709,15 +709,7 @@ export default async function FilmPage({ params }: Props) {
           </section>
 
           <AccessCountryProvider>
-            <FilmGlance
-              facts={mGlanceFacts}
-              ratings={ratings}
-              tmdbVote={mExtra.vote_average ?? null}
-              imdbId={f.imdb_id}
-              takeScore={codex ? Math.round(codex.u) : null}
-              stats={mGlanceStats}
-              rank={codex && codex.rank != null && codex.rank_total != null ? { rank: codex.rank, total: codex.rank_total } : null}
-            />
+            <FilmNumbers title={f.title} items={mFilmNumbers} />
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 
