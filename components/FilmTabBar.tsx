@@ -137,7 +137,7 @@ export default function FilmTabBar({ tabs, twoRow = false }: { tabs: FilmTab[]; 
 
   const renderTab = (t: FilmTab) => {
     const bc = t.color ?? TAB_COLOR[t.id] ?? DEFAULT_TAB_COLOR;
-    const style = { ["--bc"]: bc } as CSSProperties;
+    const style = { "--bc": bc } as CSSProperties;
     const badge = t.badge != null && t.badge !== "" ? (
       <span className={`df-tab__b${t.badgeTone === "score" ? " df-tab__b--score" : ""}`}>{t.badge}</span>
     ) : null;

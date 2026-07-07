@@ -3228,26 +3228,39 @@ a.df-rt:hover{border-color:var(--ink)}
 .cat-wrap .lf-input:focus{border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}
 .cat-wrap .lf-count{font-size:12px}
 
-/* film page section tabs — sticky scroll-nav */
+/* film page section tabs — sticky scroll-nav (single-row default, e.g. director page) */
 .df-tabs{position:sticky; z-index:45; background:var(--bg); border-bottom:1px solid var(--hairline); margin:0 0 8px}
 .df-tabs__in{display:flex; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
 .df-tabs__in::-webkit-scrollbar{display:none}
 .df-tab{flex:0 0 auto; display:inline-flex; align-items:center; white-space:nowrap; font-family:var(--font-ui); font-size:13.5px; font-weight:600; letter-spacing:-.01em; color:var(--muted); text-decoration:none; padding:11px 13px; border-bottom:2px solid transparent}
 .df-tab:hover{color:var(--ink)}
 .df-tab.active{color:var(--accent); border-bottom-color:var(--accent)}
-/* per-tab count badge (TakeScore carries the score) */
-.df-tab__b{display:inline-flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 5px; margin-left:6px; border-radius:999px; background:var(--paper); border:1px solid var(--hairline); font-size:10.5px; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums; line-height:1; transition:background .14s, color .14s, border-color .14s}
-.df-tab:hover .df-tab__b{border-color:var(--hairline-2)}
-.df-tab.active .df-tab__b{background:var(--accent); border-color:var(--accent); color:#fff}
-.df-tab__b--score,.df-tab.active .df-tab__b--score{background:#0F6E56; border-color:#0F6E56; color:#fff}
-/* two-row layout — each rail scrolls left/right independently; the lower rail is
-   offset so the two rows read as slightly staggered brickwork */
-.df-tabs--two{padding-top:3px}
-.df-tabs--two .df-tabs__row{display:flex; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-behavior:smooth}
-.df-tabs--two .df-tabs__row::-webkit-scrollbar{display:none}
-.df-tabs--two .df-tabs__row--b{padding-left:34px}
-.df-tabs--two .df-tab{padding:8px 11px; font-size:13px}
-@media (max-width:560px){ .df-tabs--two .df-tabs__row--b{padding-left:22px} }
+.df-tab__b{display:inline-flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 5px; margin-left:6px; border-radius:999px; background:var(--paper); border:1px solid var(--hairline); font-size:10.5px; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums; line-height:1}
+
+/* ===== FILM SECTION MENU — a light, colour-coded bar on two offset rails, kept
+   deliberately unlike the dark global nav above it. Each rail has a visible,
+   draggable scroll track; each tab's badge is tinted in its section's colour
+   (var --bc, set per-tab) and fills solid on hover/active. ===== */
+.df-tabs--menu{background:linear-gradient(180deg,#F4F1E9,#FCFBF7); border-top:1px solid var(--hairline-2); border-bottom:1px solid var(--hairline); box-shadow:inset 0 1px 0 rgba(255,255,255,.7); padding:7px 0 4px}
+.df-tabs--menu .df-tabs__rail{position:relative}
+.df-tabs--menu .df-tabs__rail--b{margin-top:2px}
+.df-tabs--menu .df-tabs__row{display:flex; gap:4px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-behavior:smooth; padding:1px 2px}
+.df-tabs--menu .df-tabs__rail--b .df-tabs__row{padding-left:36px}
+.df-tabs--menu .df-tabs__row::-webkit-scrollbar{display:none}
+.df-tabs--menu .df-tab{--bc:#5A6B86; flex:0 0 auto; display:inline-flex; align-items:center; white-space:nowrap; border:0; border-radius:8px; padding:6px 9px 6px 11px; font-family:var(--font-ui); font-size:12.5px; font-weight:600; letter-spacing:-.01em; color:var(--ink2); text-decoration:none; transition:background .14s, color .14s}
+.df-tabs--menu .df-tab:hover{background:color-mix(in srgb, var(--bc) 12%, transparent); color:var(--bc)}
+.df-tabs--menu .df-tab.active{background:color-mix(in srgb, var(--bc) 17%, transparent); color:var(--bc); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--bc) 32%, transparent)}
+.df-tabs--menu .df-tab__b{min-width:20px; height:20px; margin-left:7px; padding:0 5px; border-radius:999px; background:color-mix(in srgb, var(--bc) 15%, #fff); border:1px solid color-mix(in srgb, var(--bc) 42%, transparent); color:var(--bc); font-size:11px; font-weight:800; transition:background .14s, color .14s, border-color .14s, transform .14s, box-shadow .14s}
+.df-tabs--menu .df-tab:hover .df-tab__b{transform:translateY(-1px) scale(1.06)}
+.df-tabs--menu .df-tab:hover .df-tab__b,.df-tabs--menu .df-tab.active .df-tab__b{background:var(--bc); border-color:var(--bc); color:#fff}
+.df-tabs--menu .df-tab__b--score,.df-tabs--menu .df-tab.active .df-tab__b--score{background:var(--bc); border-color:var(--bc); color:#fff; box-shadow:0 1px 5px color-mix(in srgb, var(--bc) 45%, transparent)}
+/* visible + draggable scroll rail */
+.df-tabs--menu .df-tabs__track{position:relative; height:3px; margin:3px 4px 1px; border-radius:2px; background:color-mix(in srgb, var(--ink) 9%, transparent)}
+.df-tabs--menu .df-tabs__rail--b .df-tabs__track{margin-left:38px}
+.df-tabs--menu .df-tabs__thumb{position:absolute; top:-1.5px; left:0; height:6px; min-width:26px; border-radius:3px; background:color-mix(in srgb, var(--ink) 32%, transparent); cursor:grab; touch-action:none; transition:background .14s}
+.df-tabs--menu .df-tabs__thumb:hover{background:color-mix(in srgb, var(--ink) 52%, transparent)}
+.df-tabs--menu .df-tabs__thumb:active{background:var(--accent); cursor:grabbing}
+@media (max-width:560px){ .df-tabs--menu .df-tabs__rail--b .df-tabs__row{padding-left:24px} .df-tabs--menu .df-tabs__rail--b .df-tabs__track{margin-left:26px} }
 .df-archgrp{margin:0 0 14px}
 .df-sec, .df-invite, .df-finfo{scroll-margin-top:140px}
 .cat-sections{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
