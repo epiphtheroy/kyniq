@@ -1103,7 +1103,7 @@ export default async function FilmPage({ params }: Props) {
           <section className="df-sec" id="df-readings">
             <h2 className="df-h2">Strong Misreadings of {film.title}</h2>
             <p className="df-sub">
-              {misreadings.length} original critical readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">frameworks</Link> — each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>.
+              {misreadings.length} original critical readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">frameworks</Link> — each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>. Also readable as one piece: <Link href={`/film/${film.slug}/misreadings`}>the full misreadings article →</Link>
             </p>
             {smByFamily.map(({ fam, items }) => (
               <div key={fam.key} className="df-smfam">

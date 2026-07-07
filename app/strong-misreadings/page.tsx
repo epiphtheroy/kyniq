@@ -35,7 +35,9 @@ export default async function StrongMisreadingsHub() {
           <b>A Strong Misreading is the boldest defensible thing a film lets you say through one figure.</b>{" "}
           Metatake reads every film through <strong>14 critical frameworks</strong>, then gathers all{" "}
           {total.toLocaleString()} readings here — so you can follow a single lens across the whole of cinema.{" "}
-          <Link href="/about#strong-misreadings">What is a Strong Misreading? →</Link>
+          <Link href="/about#strong-misreadings">What is a Strong Misreading? →</Link>{" "}
+          Prefer one film at a time? Every film&apos;s readings are also assembled into a single article —{" "}
+          <Link href="/curious/misreadings">browse them film by film →</Link>
         </p>
 
         <form className="sm-search" action="/strong-misreadings/all" method="get" role="search">

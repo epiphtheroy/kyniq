@@ -31,6 +31,8 @@ export default function CuriousLayout({ children }: { children: React.ReactNode 
                 <Link href={`/curious/${k}`}>{DESKS[k].label}</Link>
               </span>
             ))}
+            <span className="d" />
+            <Link href="/curious/misreadings">Misreadings</Link>
           </div>
         </nav>
       </div>
