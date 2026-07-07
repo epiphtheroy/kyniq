@@ -3232,9 +3232,22 @@ a.df-rt:hover{border-color:var(--ink)}
 .df-tabs{position:sticky; z-index:45; background:var(--bg); border-bottom:1px solid var(--hairline); margin:0 0 8px}
 .df-tabs__in{display:flex; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
 .df-tabs__in::-webkit-scrollbar{display:none}
-.df-tab{flex:0 0 auto; white-space:nowrap; font-family:var(--font-ui); font-size:13.5px; font-weight:600; letter-spacing:-.01em; color:var(--muted); text-decoration:none; padding:11px 13px; border-bottom:2px solid transparent}
+.df-tab{flex:0 0 auto; display:inline-flex; align-items:center; white-space:nowrap; font-family:var(--font-ui); font-size:13.5px; font-weight:600; letter-spacing:-.01em; color:var(--muted); text-decoration:none; padding:11px 13px; border-bottom:2px solid transparent}
 .df-tab:hover{color:var(--ink)}
 .df-tab.active{color:var(--accent); border-bottom-color:var(--accent)}
+/* per-tab count badge (TakeScore carries the score) */
+.df-tab__b{display:inline-flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 5px; margin-left:6px; border-radius:999px; background:var(--paper); border:1px solid var(--hairline); font-size:10.5px; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums; line-height:1; transition:background .14s, color .14s, border-color .14s}
+.df-tab:hover .df-tab__b{border-color:var(--hairline-2)}
+.df-tab.active .df-tab__b{background:var(--accent); border-color:var(--accent); color:#fff}
+.df-tab__b--score,.df-tab.active .df-tab__b--score{background:#0F6E56; border-color:#0F6E56; color:#fff}
+/* two-row layout — each rail scrolls left/right independently; the lower rail is
+   offset so the two rows read as slightly staggered brickwork */
+.df-tabs--two{padding-top:3px}
+.df-tabs--two .df-tabs__row{display:flex; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-behavior:smooth}
+.df-tabs--two .df-tabs__row::-webkit-scrollbar{display:none}
+.df-tabs--two .df-tabs__row--b{padding-left:34px}
+.df-tabs--two .df-tab{padding:8px 11px; font-size:13px}
+@media (max-width:560px){ .df-tabs--two .df-tabs__row--b{padding-left:22px} }
 .df-archgrp{margin:0 0 14px}
 .df-sec, .df-invite, .df-finfo{scroll-margin-top:140px}
 .cat-sections{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
