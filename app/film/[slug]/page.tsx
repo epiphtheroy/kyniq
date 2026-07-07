@@ -565,6 +565,27 @@ export default async function FilmPage({ params }: Props) {
     const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
     const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle);
 
+    // "At a glance" band — same component as Tier-1, on the ambient data we hold
+    // (facts from tmdb_extra; numbers from lineage / geo / recommended-by).
+    const mExtra = (f as { tmdb_extra?: { cast?: { name: string }[]; writers?: string[]; country?: string[]; original_language?: string; vote_average?: number } }).tmdb_extra ?? {};
+    const mCast = mExtra.cast ?? [];
+    const mGlanceFacts: GlanceFact[] = ([
+      f.director ? { k: "Director", v: dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director } : null,
+      mCast.length ? { k: "Starring", v: <>{mCast.slice(0, 2).map((c) => c.name).join(", ")}{mCast.length > 2 ? <span className="df-vital__more"> +{mCast.length - 2}</span> : null}</> } : null,
+      mExtra.writers?.length ? { k: "Written by", v: mExtra.writers.slice(0, 3).join(", ") } : null,
+      f.release_date ? { k: "Released", v: fmtReleaseDate(f.release_date) } : null,
+      mRuntime ? { k: "Runtime", v: mRuntime } : null,
+      mExtra.country?.length ? { k: "Country", v: mExtra.country.slice(0, 3).map(regionName).join(" · ") } : null,
+      mExtra.original_language ? { k: "Language", v: langName(mExtra.original_language) } : null,
+      f.genres?.length ? { k: "Genre", v: <>{f.genres.slice(0, 3).map((g, i) => <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>)}</> } : null,
+      mCert ? { k: "Rated", v: mCert } : null,
+    ].filter(Boolean)) as GlanceFact[];
+    const mGlanceStats: GlanceStat[] = ([
+      lineage.length ? { n: lineage.length, k: "Canon & award listings", href: "#df-lineage" } : null,
+      geoCount > 0 ? { n: geoCount, k: "Real places mapped", href: "#df-atlas" } : null,
+      recommendedBy.length ? { n: recommendedBy.length, k: "films point here as their “watch next”", href: "#df-recby", wide: true } : null,
+    ].filter(Boolean)) as GlanceStat[];
+
     // ---- EDITOR'S DIGEST — a deterministic record composed from the loader's
     // data. No LLM, no invented facts: every sentence renders only when its
     // source rows exist, and the record date is computed in the loader from
@@ -718,7 +739,15 @@ export default async function FilmPage({ params }: Props) {
           </section>
 
           <AccessCountryProvider>
-            <FilmTopInfo ratings={ratings} watch={watch} imdbId={f.imdb_id} />
+            <FilmGlance
+              facts={mGlanceFacts}
+              ratings={ratings}
+              tmdbVote={mExtra.vote_average ?? null}
+              imdbId={f.imdb_id}
+              takeScore={codex ? Math.round(codex.u) : null}
+              stats={mGlanceStats}
+              rank={codex && codex.rank != null && codex.rank_total != null ? { rank: codex.rank, total: codex.rank_total } : null}
+            />
 
           {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
 

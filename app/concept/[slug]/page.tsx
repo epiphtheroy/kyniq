@@ -147,7 +147,7 @@ function load(slug: string) {
           seenTh.add(nm);
           theorists.push({ name: nm, slug: r.theorists?.slug ?? null });
         }
-        return { kind: "theory" as const, tc, theorists, desks, canonReadings };
+        return { kind: "theory" as const, tc, theorists, desks, canonReadings, updated };
       }
 
       const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
@@ -160,6 +160,7 @@ function load(slug: string) {
       const desks = await fetchDeskEssays(supabase, [slug, h.resolved_slug]);
       return {
         kind: "sm" as const,
+        updated,
         name: h.name,
         resolved: h.resolved_slug,
         intro,
@@ -293,8 +294,13 @@ export default async function ConceptPage({ params }: Props) {
   }
 
   if (data.kind === "theory") {
-    const { tc, theorists, desks, canonReadings } = data;
+    const { tc, theorists, desks, canonReadings, updated } = data;
     const jsonld = [
+      { "@context": "https://schema.org", "@type": "WebPage",
+        url: `https://metatake.net/concept/${tc.concept_slug}`,
+        ...(updated ? { dateModified: updated } : {}),
+        author: { "@type": "Organization", name: "Metatake", url: "https://metatake.net/methodology" },
+        mainEntity: { "@id": `https://metatake.net/concept/${tc.concept_slug}#term` } },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Concepts", item: "https://metatake.net/concept" },
         { "@type": "ListItem", position: 2, name: tc.concept, item: `https://metatake.net/concept/${tc.concept_slug}` },
@@ -321,6 +327,7 @@ export default async function ConceptPage({ params }: Props) {
               screen{n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}.
             </p>
           ); })()}
+          <Provenance updated={updated} />
           <div className="cmeta">
             {theorists.map((t) => (
               <span className="ccard__chip" key={t.name}>
@@ -355,7 +362,7 @@ export default async function ConceptPage({ params }: Props) {
     );
   }
 
-  const { name, intro, readings, desks, tropes } = data;
+  const { name, intro, readings, desks, tropes, updated } = data;
   return (
     <div className="mt">
       <SiteNav />
@@ -380,6 +387,7 @@ export default async function ConceptPage({ params }: Props) {
                 This is not a dictionary entry. The concept desk tracks where {name} actually surfaces on
                 screen{n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}.
               </p>
+              <Provenance updated={updated} />
               <div className="cmeta">
                 {top.map(([nm, e]) => (
                   <span className="ccard__chip" key={nm}>
