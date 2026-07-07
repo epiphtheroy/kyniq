@@ -701,9 +701,8 @@ export default async function FilmPage({ params }: Props) {
           </section>
 
           <AccessCountryProvider>
-            <FilmNumbers title={f.title} items={mFilmNumbers} />
 
-          {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} /> : null}
+          {mTabs.length > 1 ? <FilmTabBar tabs={mTabs} twoRow /> : null}
 
           {/* EDITOR'S DIGEST — the lead section: a data-composed editorial record.
               Every sentence is deterministic (no LLM, no invented facts); a film
