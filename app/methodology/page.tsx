@@ -180,7 +180,7 @@ export default async function MethodologyPage() {
 
       <hr className="rule" />
 
-      <div className="seclbl">The Atlas — location data</div>
+      <div className="seclbl" id="atlas">The Atlas — location data</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         The <Link href="/atlas" className="accent" style={{ textDecoration: "none" }}>Atlas</Link> — the map layer
