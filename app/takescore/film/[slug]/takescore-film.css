@@ -1,76 +1,96 @@
 /* /takescore/film/[slug] — public per-film TakeScore appraisal.
-   Rebuilt in the anatomy of the private Appraisal card (components/room/EvalCard.tsx
-   + app/room/room.css): film hero with the big mono net-value box, three pillars
-   side by side, confidence / standing / external as separated cards, and the
-   reference-basket ladder — but on the LIGHT public palette: paper surfaces,
-   hairline borders, the cx-* axis colors (green #0F6E56 = value, grey = cost,
-   red #C8102E = risk), mono/tabular numerals for every score. */
+   The anatomy of the private Appraisal card (components/room/EvalCard.tsx +
+   app/room/room.css) on the LIGHT public palette — v2 "full/dense" pass:
+   shared ScoreDonut ring gauges for TS + the three pillars, comps always
+   visible with poster thumbnails, and the 20-row "Where it ranks" ladder with
+   the film's own position marked. Paper surfaces, hairline separations,
+   edge-to-edge grids, uppercase micro-kickers, the cx-*/tsf-* axis colors
+   (green #0F6E56 = value, gray #8a8f98 = cost, red #C8102E = risk), and
+   mono/tabular numerals for every score. NO dark shell. */
 
 .tsf{--tsf-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
 
-/* ── section headings ── */
-.tsf-h2{font-family:var(--font-serif,Georgia,serif); font-size:20px; color:var(--ink); margin:32px 0 8px}
-.tsf-sub{font-size:14.5px; line-height:1.55; color:var(--muted); margin:0 0 16px; max-width:70ch}
+/* full-width read: widen the shared wrap for this surface only */
+.mt-wrap.tsf{max-width:1080px}
 
-/* ── film hero (EvalCard .fhero, light) ── */
-.tsf-hero{display:grid; grid-template-columns:110px minmax(0,1fr) auto; gap:18px; align-items:center; margin:18px 0 4px; padding:16px 18px; border:1px solid var(--hairline-2); border-radius:12px; background:var(--paper-2,#fafafa)}
-.tsf-poster{width:110px; height:165px; object-fit:cover; border-radius:6px; background:var(--hairline); border:1px solid var(--hairline)}
+/* ── kickers + section headings — tightened vertical rhythm ── */
+.tsf-kicker{font-family:var(--font-ui); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent,#C8102E); margin:28px 0 3px}
+.tsf-kicker--tight{margin:0 0 5px}
+.tsf-h2{font-family:var(--font-serif,Georgia,serif); font-size:21px; color:var(--ink); margin:0 0 6px}
+.tsf-kicker + .tsf-h2{margin-top:0}
+.tsf-sub{font-size:13.5px; line-height:1.5; color:var(--muted); margin:0 0 12px; max-width:76ch}
+
+/* donut band/sub captions (ScoreDonut) — read as micro-labels on this surface */
+.tsf .sdonut-note{text-transform:uppercase; letter-spacing:.07em; font-weight:600}
+.tsf-tscell .sdonut-note{text-transform:none; letter-spacing:0; font-weight:400; font-family:var(--tsf-mono)}
+
+/* ── film hero (EvalCard .fhero, light) — framed poster + big TS ring ── */
+.tsf-hero{display:grid; grid-template-columns:110px minmax(0,1fr) auto; gap:20px; align-items:center; margin:16px 0 2px; padding:16px 20px; border:1px solid var(--hairline-2); border-radius:12px; background:var(--paper-2,#fafafa)}
+.tsf-poster{width:110px; height:165px; object-fit:cover; border-radius:6px; background:var(--hairline); border:1px solid rgba(0,0,0,.10); box-shadow:0 1px 2px rgba(0,0,0,.14), 0 8px 22px rgba(0,0,0,.12)}
 .tsf-poster--e{width:110px; height:165px; border-radius:6px; background:var(--hairline)}
 .tsf-hmeta{min-width:0}
-.tsf-ftitle{font-family:var(--font-serif,Georgia,serif); font-size:25px; line-height:1.12; color:var(--ink)}
+.tsf-ftitle{font-family:var(--font-serif,Georgia,serif); font-size:26px; line-height:1.1; color:var(--ink)}
 .tsf-ftitle small{font-family:var(--font-ui); font-size:13px; color:var(--muted); margin-left:8px; font-weight:400}
 .tsf-dir{font-family:var(--font-ui); font-size:13px; color:var(--muted); margin:4px 0 12px}
-.tsf-openfilm{display:inline-block; font-family:var(--font-ui); font-size:13.5px; font-weight:600; color:var(--accent,#C8102E); text-decoration:none; padding:7px 14px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
+.tsf-openfilm{display:inline-block; font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--accent,#C8102E); text-decoration:none; padding:6px 13px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
 .tsf-openfilm:hover{border-color:var(--accent,#C8102E)}
 
-/* the big mono net-value box — EvalCard's .usbig, light */
-.tsf-ubox{display:flex; align-items:baseline; gap:10px; padding-left:18px; border-left:1px solid var(--hairline)}
-.tsf-ubox .n{font-family:var(--tsf-mono); font-size:46px; font-weight:600; line-height:.9; color:#0F6E56; font-variant-numeric:tabular-nums}
-.tsf-ubox .lab{display:flex; flex-direction:column; gap:3px}
-.tsf-ubox .k{font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink)}
-.tsf-ubox .d{font-family:var(--tsf-mono); font-size:10.5px; color:var(--muted)}
+/* the hero TS ring — the shared donut instrument, boxed off by a hairline */
+.tsf-tscell{display:flex; align-items:center; padding-left:22px; border-left:1px solid var(--hairline)}
 
 /* ── verdict + formula (EvalCard .formula / .honest idiom, light) ── */
-.tsf-verdict{margin-top:2px}
-.tsf-verdict-p{font-size:15.5px; line-height:1.55; margin:6px 0 0; color:var(--ink)}
-.tsf-formula{font-family:var(--tsf-mono); font-size:11.5px; line-height:1.6; color:var(--muted); margin:12px 0 0; padding-top:9px; border-top:1px solid var(--hairline)}
+.tsf-verdict{margin-top:0}
+.tsf-verdict-p{font-size:15.5px; line-height:1.55; margin:4px 0 0; color:var(--ink)}
+.tsf-formula{font-family:var(--tsf-mono); font-size:11.5px; line-height:1.6; color:var(--muted); margin:10px 0 0; padding-top:8px; border-top:1px solid var(--hairline)}
 .tsf-formula b{color:#0F6E56; font-weight:600}
 
-/* ── shared score bar ── */
+/* ── shared score bar (sub-dimensions + confidence meter) ── */
 .tsf-bar{display:block; height:6px; border-radius:3px; background:var(--hairline); overflow:hidden}
 .tsf-bar i{display:block; height:100%; border-radius:3px}
-.tsf-bar i.tsf-v{background:#0F6E56} .tsf-bar i.tsf-c{background:#9ca3af} .tsf-bar i.tsf-r{background:#C8102E}
+.tsf-bar i.tsf-v{background:#0F6E56} .tsf-bar i.tsf-c{background:#8a8f98} .tsf-bar i.tsf-r{background:#C8102E}
 
-/* ── side by side · three pillars (EvalCard triptych discipline) ── */
-.tsf-pillars{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:14px; align-items:start}
-.tsf-pillar{border:1px solid var(--hairline); border-radius:10px; padding:13px 14px; background:#fff}
-.tsf-pil-h{display:flex; align-items:baseline; gap:8px; margin-bottom:7px}
+/* ── three pillars — one bordered slab, edge-to-edge cells, hairline seams ── */
+.tsf-pillars{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:10px; border:1px solid var(--hairline-2); border-radius:12px; overflow:hidden; background:#fff}
+.tsf-pillar{padding:15px 18px 12px; border-left:1px solid var(--hairline); min-width:0}
+.tsf-pillar:first-child{border-left:0}
+.tsf-pil-h{display:flex; align-items:baseline; gap:8px; margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid var(--hairline)}
 .tsf-pil-ax{font-family:var(--tsf-mono); font-size:11px; font-weight:600; padding:1px 7px; border-radius:4px; border:1px solid}
 .tsf-pil-ax.tsf-v{color:#0F6E56; border-color:#B9D8CC; background:#EDF6F2}
 .tsf-pil-ax.tsf-c{color:#4B5563; border-color:#CBD0D8; background:#F3F4F6}
 .tsf-pil-ax.tsf-r{color:#C8102E; border-color:#EBBEC6; background:#FBEFF1}
-.tsf-pil-name{font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--ink)}
-.tsf-pil-score{margin-left:auto; font-family:var(--tsf-mono); font-size:24px; font-weight:600; line-height:1; color:var(--ink); font-variant-numeric:tabular-nums}
-.tsf-pil-band{font-family:var(--font-ui); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 7px}
-.tsf-pil-sub{font-family:var(--font-ui); font-size:11px; line-height:1.5; color:var(--muted); margin:9px 0 2px; padding-bottom:9px; border-bottom:1px solid var(--hairline)}
+.tsf-pil-name{font-family:var(--font-ui); font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink)}
+/* pillar ring gauge — donut left, axis one-liner right */
+.tsf-pil-gauge{display:flex; align-items:center; gap:14px; padding:2px 0 10px; border-bottom:1px solid var(--hairline)}
+.tsf-pil-gauge .sdonut{flex:0 0 auto}
+.tsf-pil-sub{font-family:var(--font-ui); font-size:11px; line-height:1.5; color:var(--muted); margin:0; min-width:0}
 
 /* sub-dimension rows inside a pillar */
-.tsf-dim{padding:10px 0; border-bottom:1px solid var(--hairline)}
+.tsf-dim{padding:9px 0; border-bottom:1px solid var(--hairline)}
 .tsf-dim:last-child{border-bottom:0; padding-bottom:2px}
-.tsf-dim-t{display:flex; align-items:baseline; gap:8px; margin-bottom:6px}
+.tsf-dim-t{display:flex; align-items:baseline; gap:8px; margin-bottom:5px}
 .tsf-dim-name{font-family:var(--font-ui); font-size:12.5px; font-weight:600; color:var(--ink); text-decoration:none}
 .tsf-dim-name:hover{text-decoration:underline}
 .tsf-dim-n{margin-left:auto; font-family:var(--tsf-mono); font-size:13px; color:var(--ink); font-variant-numeric:tabular-nums}
-.tsf-dim-band{font-family:var(--font-ui); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:5px}
-.tsf-dim-s{font-size:12.5px; line-height:1.5; margin:5px 0 0; color:var(--ink)}
-.tsf-dim-comps{margin-top:5px; font-family:var(--font-ui); font-size:11px; color:var(--muted)}
-.tsf-dim-comps summary{cursor:pointer; font-family:var(--tsf-mono); font-size:10px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
-.tsf-dim-comps summary:hover{color:var(--ink)}
-.tsf-dim-comps-list{margin-top:3px; line-height:1.5}
+.tsf-dim-band{font-family:var(--font-ui); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:4px}
+.tsf-dim-s{font-size:12.5px; line-height:1.5; margin:4px 0 0; color:var(--ink)}
 
-/* ── confidence / standing / external — separated cards ── */
-.tsf-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:14px; align-items:start}
-.tsf-card{border:1px solid var(--hairline); border-radius:10px; padding:13px 15px; background:#fff}
+/* comps — always visible, dense inline chips with w92 poster thumbnails */
+.tsf-dim-comps{margin-top:7px}
+.tsf-comps-k{display:block; font-family:var(--tsf-mono); font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin-bottom:5px}
+.tsf-comps-row{display:flex; flex-wrap:wrap; gap:5px}
+.tsf-comp{display:inline-flex; align-items:center; gap:7px; max-width:100%; font-family:var(--font-ui); font-size:11px; line-height:1.25; color:var(--ink); text-decoration:none; padding:3px 9px 3px 3px; border:1px solid var(--hairline); border-radius:6px; background:#fff}
+a.tsf-comp:hover{border-color:var(--hairline-2); background:var(--paper-2,#fafafa)}
+.tsf-comp--txt{color:var(--muted)}
+.tsf-comp-t{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+
+/* shared micro poster thumbnail (comps + rank ladder) */
+.tsf-thumb{flex:0 0 auto; width:28px; height:42px; object-fit:cover; border-radius:3px; border:1px solid var(--hairline-2); background:var(--hairline); display:inline-block}
+.tsf-thumb--e{border-style:dashed}
+
+/* ── confidence / standing / external — one slab, hairline-separated cells ── */
+.tsf-cards{display:flex; margin-top:8px; border:1px solid var(--hairline-2); border-radius:12px; overflow:hidden; background:#fff}
+.tsf-card{flex:1 1 0; min-width:0; padding:14px 17px; border-left:1px solid var(--hairline)}
+.tsf-card:first-child{border-left:0}
 .tsf-card-h{font-family:var(--font-ui); font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--ink); margin:0 0 4px}
 .tsf-aside{font-family:var(--tsf-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--hairline)}
 .tsf-conf{margin:0 0 8px}
@@ -91,31 +111,51 @@
 .tsf-box-p{font-size:12.5px; line-height:1.55; margin:10px 0 0; color:var(--ink)}
 .tsf-note{font-family:var(--font-ui); font-size:11.5px; color:var(--muted); line-height:1.5; margin:8px 0 0; padding-top:8px; border-top:1px solid var(--hairline)}
 
-/* ── reference basket ladder (EvalCard .baskrow, light) ── */
-.tsf-basket{width:100%; border-collapse:collapse; margin-top:8px}
-.tsf-basket caption{caption-side:top; text-align:left; font-family:var(--font-ui); font-size:12px; color:var(--muted); padding-bottom:8px}
-.tsf-basket th{font-family:var(--tsf-mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:600; text-align:right; padding:4px 8px 6px; border-bottom:1px solid var(--hairline-2)}
-.tsf-basket th:first-child{text-align:left}
-.tsf-basket td{padding:7px 8px; border-bottom:1px solid var(--hairline); font-size:14px; font-family:var(--font-serif,Georgia,serif)}
-.tsf-basket td.tsf-num{font-family:var(--tsf-mono); font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); width:56px}
-.tsf-basket td.tsf-num b{color:#0F6E56; font-weight:600}
-.tsf-basket td.tsf-num.tsf-rk{color:#C8102E}
-.tsf-basket a{color:var(--ink); text-decoration:none}
-.tsf-basket a:hover{text-decoration:underline}
-.tsf-self td{background:var(--paper-2,#fafafa); font-weight:600}
-.tsf-self td:first-child{color:#0F6E56; border-left:3px solid #0F6E56}
+/* ── "Where it ranks" — position track + 20-row U-rank ladder ── */
+.tsf-track{display:flex; align-items:center; gap:9px; margin:2px 0 12px; font-family:var(--tsf-mono); font-size:10px; color:var(--muted); font-variant-numeric:tabular-nums}
+.tsf-track-bar{position:relative; flex:1; height:4px; border-radius:2px; background:var(--hairline)}
+.tsf-track-bar i{position:absolute; top:50%; transform:translate(-50%,-50%); width:11px; height:11px; border-radius:50%; background:#0F6E56; border:2px solid #fff; box-shadow:0 0 0 1px var(--hairline-2)}
+
+.tsf-ladder{border:1px solid var(--hairline-2); border-radius:12px; overflow:hidden; background:#fff}
+.tsf-lrow{display:grid; grid-template-columns:40px 28px minmax(0,1fr) 52px 52px; gap:11px; align-items:center; padding:6px 14px; border-top:1px solid var(--hairline); text-decoration:none; color:var(--ink)}
+.tsf-lrow:first-child{border-top:0}
+a.tsf-lrow:hover{background:var(--paper-2,#fafafa)}
+a.tsf-lrow:hover .tsf-ltitle{text-decoration:underline}
+.tsf-lhead{padding:7px 14px 6px; background:var(--paper-2,#fafafa)}
+.tsf-lhead span{font-family:var(--tsf-mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600}
+.tsf-lrank{font-family:var(--tsf-mono); font-size:11.5px; color:var(--muted); text-align:right; font-variant-numeric:tabular-nums}
+.tsf-ltitle{font-family:var(--font-serif,Georgia,serif); font-size:14px; line-height:1.3; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.tsf-ltitle small{font-family:var(--font-ui); font-size:11px; color:var(--muted)}
+.tsf-lu,.tsf-lr{font-family:var(--tsf-mono); font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums}
+.tsf-lu{color:#0F6E56; font-weight:600}
+.tsf-lr{color:#C8102E}
+.tsf-lhead .tsf-lu,.tsf-lhead .tsf-lr{color:var(--muted); font-weight:600}
+/* the film itself — accent left rule, paper bg, micro-chip, a touch larger */
+.tsf-lself{background:var(--paper-2,#fafafa); border-left:3px solid #0F6E56; padding-left:11px; padding-top:9px; padding-bottom:9px}
+.tsf-lself .tsf-ltitle{font-size:15px; font-weight:600; color:#0F6E56}
+.tsf-lself .tsf-lrank{color:var(--ink); font-weight:600}
+.tsf-lchip{display:inline-block; vertical-align:2px; margin-left:8px; font-family:var(--font-ui); font-size:8.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:#0F6E56; border-radius:3px; padding:2px 6px}
 
 /* ── byline footer (EvalCard .foot feel) ── */
-.tsf-byline{margin:32px 0 8px; padding-top:12px; border-top:1px solid var(--hairline); font-family:var(--font-ui); font-size:12px; color:var(--muted); line-height:1.7}
+.tsf-byline{margin:30px 0 8px; padding-top:12px; border-top:1px solid var(--hairline); font-family:var(--font-ui); font-size:12px; color:var(--muted); line-height:1.7}
 .tsf-byline a{color:var(--ink)}
 .tsf-byline a.tsf-how{color:var(--accent,#C8102E); font-weight:600; text-decoration:none}
 .tsf-byline a.tsf-how:hover{text-decoration:underline}
 
 /* ── responsive ── */
+@media (max-width: 900px) {
+  .tsf-pillars{grid-template-columns:1fr}
+  .tsf-pillar{border-left:0; border-top:1px solid var(--hairline)}
+  .tsf-pillar:first-child{border-top:0}
+  .tsf-cards{flex-direction:column}
+  .tsf-card{border-left:0; border-top:1px solid var(--hairline)}
+  .tsf-card:first-child{border-top:0}
+}
 @media (max-width: 760px) {
   .tsf-hero{grid-template-columns:96px minmax(0,1fr); gap:14px}
   .tsf-poster,.tsf-poster--e{width:96px; height:144px}
-  .tsf-ubox{grid-column:1/-1; border-left:0; padding-left:0; border-top:1px solid var(--hairline); padding-top:12px}
-  .tsf-pillars{grid-template-columns:1fr}
-  .tsf-cards{grid-template-columns:1fr}
+  .tsf-tscell{grid-column:1/-1; border-left:0; padding-left:0; border-top:1px solid var(--hairline); padding-top:12px; justify-content:center}
+  .tsf-lrow{grid-template-columns:30px 28px minmax(0,1fr) 40px 40px; gap:8px; padding:6px 10px}
+  .tsf-lself{padding-left:7px}
+  .tsf-ltitle{white-space:normal}
 }
