@@ -85,6 +85,9 @@ export default async function ReadPlates({
   const plates: Plate[] = [];
   plates.push({ key: "hub", href: `/film/${film.slug}`, tag: "The film", title: `Everything on ${film.title}${film.year ? ` (${film.year})` : ""}` });
   plates.push({ key: "takescore", href: `/takescore/film/${film.slug}`, tag: "TakeScore", title: `The TakeScore verdict on ${film.title}` });
+  if (exclude !== "whereto") {
+    plates.push({ key: "whereto", href: `/whereto/${film.slug}`, tag: "Where to Watch", title: `Where to watch ${film.title} — free options & every service` });
+  }
   if (film.is_analyzed && exclude !== "misreadings") {
     plates.push({ key: "misreadings", href: `/film/${film.slug}/misreadings`, tag: "Strong Misreadings", title: `${film.title}, read against the grain — the misreadings article` });
   }
