@@ -22,6 +22,13 @@
     "components/room/**/*.ts",
     "lib/room/*.ts",
     "app/me/**/*.tsx",
-    "components/home2/Nav.tsx"
+    "components/home2/Nav.tsx",
+    "app/takescore/**/*.tsx",
+    "app/sitemap.xml/route.ts",
+    "app/sitemaps/takescore-films.xml/route.ts",
+    "components/CodexExplorer.tsx",
+    "components/CinecodexPanel.tsx",
+    "lib/takescore_prose.ts",
+    "lib/sitemap-data.ts"
   ]
 }
