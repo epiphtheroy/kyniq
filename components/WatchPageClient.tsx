@@ -215,7 +215,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
           )}
         </div>
         <div className="axw-hmeta">
-          <h1 className="axw-h1">{film.title}</h1>
+          <div className="axw-h1">{film.title}</div>
           <div className="axw-credits">{[film.year, film.director, film.runtime ? `${film.runtime} min` : null].filter(Boolean).join(" · ")}</div>
           {(ratings && (ratings.imdb_rating || ratings.rt_tomatometer != null || ratings.metascore != null)) || takeScore != null ? (
             <div className="axw-ratings">
