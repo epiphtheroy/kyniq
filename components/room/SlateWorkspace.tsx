@@ -135,8 +135,16 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
   const pageRows = useMemo(() => sorted.slice(p * PAGE, (p + 1) * PAGE), [sorted, p]);
 
   /* ── conversion verbs (same-mutation principle: useRoomActions only) ── */
-  const handleSeen = useCallback((f: SlateRow) => { insp.close(); void doSeen(f.slug, f.title); }, [doSeen, insp]);
-  const handleRate = useCallback((f: SlateRow, v: number) => { insp.close(); void doRate(f.slug, f.title, v); }, [doRate, insp]);
+  const handleSeen = useCallback(async (f: SlateRow) => {
+    insp.close();
+    const ok = await doSeen(f.slug, f.title);
+    if (ok) void doRelease(f.slug, f.title, { quiet: true }); // conversion is real: seen leaves the slate on the server too
+  }, [doSeen, doRelease, insp]);
+  const handleRate = useCallback(async (f: SlateRow, v: number) => {
+    insp.close();
+    const row = await doRate(f.slug, f.title, v);
+    if (row) void doRelease(f.slug, f.title, { quiet: true }); // rating implies seen → same conversion
+  }, [doRate, doRelease, insp]);
   const handleRelease = useCallback(async (f: SlateRow) => {
     insp.close();
     setReleased((s) => new Set(s).add(f.slug)); // optimistic — rolls back on failure

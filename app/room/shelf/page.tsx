@@ -13,7 +13,7 @@ export default async function RoomShelfPage() {
   const supabase = await createClient();
   let rows: ShelfRow[];
   try {
-    rows = await loadRanged<ShelfRow>(supabase, "me_library");
+    rows = await loadRanged<ShelfRow>(supabase, "me_library", {}, 20000, (r) => `${r.entity_type}:${r.slug}`);
   } catch {
     return (
       <div className="mainpad">

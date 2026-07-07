@@ -15,7 +15,7 @@ export default async function RoomSlatePage() {
 
   let rows: SlateRow[];
   try {
-    rows = await loadRanged<SlateRow>(supabase, "me_watchlist_scored");
+    rows = await loadRanged<SlateRow>(supabase, "me_watchlist_scored", {}, 20000, (r) => r.slug);
   } catch {
     return (
       <div className="v2wrap">

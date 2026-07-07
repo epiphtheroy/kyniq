@@ -28,12 +28,13 @@ export function useRoomActions() {
     return true;
   }, [supabase, toast, session]);
 
-  /** Release from the slate (watchlist off). */
-  const doRelease = useCallback(async (slug: string, title: string) => {
+  /** Release from the slate (watchlist off). quiet: no toasts — for conversions
+   *  (Seen/Rate off the slate) that already toast their own verb. */
+  const doRelease = useCallback(async (slug: string, title: string, opts?: { quiet?: boolean }) => {
     const { error } = await supabase.rpc("me_set_watchlist", { p_slug: slug, p_on: false });
-    if (error) { toast(STR.toast.saveFail(error.message)); return false; }
+    if (error) { if (!opts?.quiet) toast(STR.toast.saveFail(error.message)); return false; }
     session.recordRelease(slug);
-    toast(STR.toast.released(title));
+    if (!opts?.quiet) toast(STR.toast.released(title));
     return true;
   }, [supabase, toast, session]);
 

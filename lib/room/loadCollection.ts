@@ -13,21 +13,30 @@ type ServerClient = Awaited<ReturnType<typeof createClient>>;
 
 /** Pull an RPC's full result through .range() chunks (1000/page, hard stop at maxRows).
  *  Throws on RPC error — surface it as the shared "Couldn't load — retry" card,
- *  never swallow it into `?? []` (spec §4 Loading/Error). */
+ *  never swallow it into `?? []` (spec §4 Loading/Error).
+ *  keyOf (natural key) dedupes rows that straddle a chunk boundary — each chunk
+ *  re-executes the RPC, so ties in its ORDER BY can re-order between requests
+ *  (0043 adds deterministic tiebreakers; this guard covers races on top). */
 export async function loadRanged<T>(
   supabase: ServerClient,
   fn: string,
   args: Record<string, unknown> = {},
   maxRows = 20000,
+  keyOf?: (row: T) => string,
 ): Promise<T[]> {
   const CHUNK = 1000;
   const rows: T[] = [];
+  const seen = new Set<string>();
   for (let i = 0; i * CHUNK < maxRows; i++) {
     const { data, error } = await supabase.rpc(fn, args).range(i * CHUNK, i * CHUNK + CHUNK - 1);
     if (error) throw new Error(`${fn}: ${error.message}`);
     const chunk = (data as T[] | null) ?? [];
-    rows.push(...chunk);
-    if (chunk.length < CHUNK) break;
+    for (const row of chunk) {
+      const k = keyOf?.(row);
+      if (k !== undefined) { if (seen.has(k)) continue; seen.add(k); }
+      rows.push(row);
+    }
+    if (chunk.length < CHUNK) break; // raw chunk length — dedupe must not terminate the loop early
   }
   return rows;
 }
@@ -36,7 +45,7 @@ export async function loadRanged<T>(
  *  Signature can all call this in one request and pay for one fetch. */
 export const loadCollection = cache(async (): Promise<CollRow[]> => {
   const supabase = await createClient();
-  return loadRanged<CollRow>(supabase, "me_collection");
+  return loadRanged<CollRow>(supabase, "me_collection", {}, 20000, (r) => r.slug);
 });
 
 /** me_recommend_wwi, deduped per request (Desk + Screener + Performance share one

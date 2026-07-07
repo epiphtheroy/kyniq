@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createBrowserClient } from "@supabase/ssr";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { clearLocalTakeDrafts } from "@/lib/room/drafts";
 
 function getSupabase() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -68,6 +69,7 @@ export default function SettingsPage() {
   async function handleSignOut() {
     const supabase = getSupabase();
     await supabase.auth.signOut();
+    clearLocalTakeDrafts();
     router.push("/");
     router.refresh();
   }
@@ -79,6 +81,7 @@ export default function SettingsPage() {
     if (res.ok) {
       const supabase = getSupabase();
       await supabase.auth.signOut();
+      clearLocalTakeDrafts();
       router.push("/");
     } else {
       setMessage("Failed to delete account.");

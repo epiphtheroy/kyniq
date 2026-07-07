@@ -227,13 +227,15 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
     if (error) { say(STR.toast.saveFail(error.message)); return; }
     const row = ((data as { take_id: string; status: string }[] | null) ?? [])[0];
     if (row?.take_id) {
-      setDrafts((ds) => ds.map((d) => (d.id === cur.id
-        ? { ...d, fromTakeId: row.take_id, status: publish ? "published" : "draft", serverSnap: snapOf(d), localSaved: true }
-        : d)));
-      try { localStorage.removeItem(LS_PREFIX + cur.id); } catch { /* fine */ }
+      setDrafts((ds) => ds.map((d) => {
+        if (d.id !== cur.id) return d;
+        const clean = snapOf(d) === sent; // no keystrokes arrived mid-flight
+        if (clean) { try { localStorage.removeItem(lsPrefix + cur.id); } catch { /* fine */ } }
+        return { ...d, fromTakeId: row.take_id, status: publish ? "published" : "draft", serverSnap: sent, localSaved: clean ? true : d.localSaved };
+      }));
       say(doneMsg);
     }
-  }, [cur, supabase, say]);
+  }, [cur, supabase, say, lsPrefix]);
 
   const saveDraft = () => persist(false, "Draft saved to the server");
   const publish = () => persist(true, "Published — live on your profile");
@@ -330,7 +332,6 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
   }, [setDefault]);
 
   const routeLabel = (d: Draft) => {
-    if (d.type === "comment" && d.films.length) return `· to the "${d.films[0].title}" page`;
     if (d.type === "misreading" && d.framework) return `· as a ${fw(d.framework).label} misreading`;
     return "· to your public profile";
   };
@@ -432,7 +433,7 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
                   {cur.type === "misreading"
                     ? <><b>Strong misreading</b> — pick a framework and read against the intent. {cur.framework ? <>Publishing under the <b>{fw(cur.framework).label}</b> frame.</> : "Pick a framework in the attach rail."}</>
                     : cur.type === "comment"
-                      ? <><b>Film comment</b> — docks under one film. {cur.films.length ? <>Appears on the <b>{cur.films[0].title}</b> page.</> : "Attach the film in the rail."}</>
+                      ? <><b>Film comment</b> — docks under one film. {cur.films.length ? <>Will dock under <b>{cur.films[0].title}</b> once film attachments persist — for now it publishes to your profile.</> : "Attach the film in the rail."}</>
                       : <><b>Trope note</b> — a pattern across films. Attach the films it crosses in the rail.</>}
                 </div>
               ) : null}

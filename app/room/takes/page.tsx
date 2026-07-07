@@ -12,9 +12,10 @@ export const dynamic = "force-dynamic";
  *  over these rows until §8-R8 me_takes_stats ships. */
 export default async function RoomTakesPage() {
   const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
   let takes: TakeRow[];
   try {
-    takes = await loadRanged<TakeRow>(supabase, "me_authored_takes");
+    takes = await loadRanged<TakeRow>(supabase, "me_authored_takes", {}, 20000, (r) => r.take_id);
   } catch {
     return (
       <div className="mainpad">
@@ -22,5 +23,5 @@ export default async function RoomTakesPage() {
       </div>
     );
   }
-  return <TakesWorkspace takes={takes} />;
+  return <TakesWorkspace takes={takes} uid={user?.id ?? ""} />;
 }

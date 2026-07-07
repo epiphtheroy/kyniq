@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createBrowserClient } from "@supabase/ssr";
+import { clearLocalTakeDrafts } from "@/lib/room/drafts";
 
 function sb() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -51,6 +52,7 @@ export default function AccountMenu() {
 
   async function logout() {
     await sb().auth.signOut();
+    clearLocalTakeDrafts();
     setName(null); setUsername(null); setOpen(false);
     router.push("/"); router.refresh();
   }

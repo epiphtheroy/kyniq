@@ -15,7 +15,10 @@ export const dynamic = "force-dynamic";
  *  NOTE: the deployed me_blindspots signature is (p_limit, p_min_total,
  *  p_min_aw) per migration 0027 — the spec's `p_max_pct` name does not exist in
  *  the DB; 0.55 is the authority floor. */
-export default async function RoomCoveragePage() {
+export default async function RoomCoveragePage({ searchParams }: {
+  searchParams: Promise<{ facet?: string }>;
+}) {
+  const { facet } = await searchParams;
   const supabase = await createClient();
 
   const [covRes, bsRes, wwi] = await Promise.all([
@@ -30,5 +33,5 @@ export default async function RoomCoveragePage() {
     wwi,
   };
 
-  return <CoverageWorkspace data={data} />;
+  return <CoverageWorkspace data={data} initialFacet={facet} />;
 }

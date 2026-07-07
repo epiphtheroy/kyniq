@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
 import LensToggle from "@/components/LensToggle";
+import { clearLocalTakeDrafts } from "@/lib/room/drafts";
 
 export type NavCounts = {
   films?: number; directors?: number; tropes?: number; concepts?: number;
@@ -112,7 +113,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
     // password login, signOut elsewhere) update the header without a reload.
     // setTimeout: never call supabase inside the callback synchronously (deadlock).
     const { data: sub } = c.auth.onAuthStateChange((event) => {
-      if (event === "SIGNED_OUT") setAcct({ state: "out" });
+      if (event === "SIGNED_OUT") { clearLocalTakeDrafts(); setAcct({ state: "out" }); }
       else if (event === "SIGNED_IN" || event === "USER_UPDATED") setTimeout(refresh, 0);
     });
     return () => { alive = false; sub.subscription.unsubscribe(); };
@@ -120,6 +121,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
 
   async function logout() {
     await sb().auth.signOut();
+    clearLocalTakeDrafts();
     setAcct({ state: "out" });
     setOpen(null);
     router.refresh();

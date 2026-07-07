@@ -112,12 +112,16 @@ function CandRow({ f, keptInit, onOpen, onKeep }: {
   );
 }
 
-export default function CoverageWorkspace({ data }: { data: CoverageData }) {
+export default function CoverageWorkspace({ data, initialFacet }: { data: CoverageData; initialFacet?: string }) {
   const insp = useInspector();
   const { setDefault } = insp;
   const { session, doKeep, doSeen, doDismiss, doRate } = useRoomActions();
 
-  const [tab, setTab] = useState<TabKey>("all");
+  /* ?facet= deep link (Atlas country/blind-continent doors) — validated against
+     FACET_TABS so an invalid/absent param falls back to "all". */
+  const [tab, setTab] = useState<TabKey>(
+    () => (FACET_TABS.some((t) => t.key === initialFacet) ? (initialFacet as TabKey) : "all"),
+  );
   const [doneOpen, setDoneOpen] = useState(false);
   const [lockAll, setLockAll] = useState(false);
 
