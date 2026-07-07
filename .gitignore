@@ -50,3 +50,6 @@ worker/figure-enrich*.json
 .autodeploy.log
 .autodeploy.out.log
 .autodeploy.err.log
+
+# figure_seo 파이프라인 대용량 산출물
+outputs/figure_seo/*.jsonl
