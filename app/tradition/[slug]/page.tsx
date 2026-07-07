@@ -30,6 +30,25 @@ function clean(title: string): string {
   return title.replace(/\s*\([^)]*\)\s*$/, "").trim() || title;
 }
 
+/**
+ * Deterministic ScreenRant-style listicle headline — no LLM, built purely
+ * from data: distinct film count + first theorist's surname + entity name.
+ * "49 Films That Can Be Read Through Kant's Sublime"
+ */
+export function listicle(name: string, theorist: string | null, readings: { film_slug: string; film_title: string }[]) {
+  const slugs = new Set<string>();
+  const titles: string[] = [];
+  for (const r of readings) {
+    if (!slugs.has(r.film_slug)) { slugs.add(r.film_slug); if (titles.length < 2) titles.push(r.film_title); }
+  }
+  const n = slugs.size;
+  const first = (theorist ?? "").split(/,|&|\band\b/)[0]?.trim() ?? "";
+  const surname = first && !/^N\/A/i.test(first) ? (first.replace(/\([^)]*\)/g, "").trim().split(/\s+/).pop() ?? "") : "";
+  const bare = surname ? name.replace(/^The\s+/i, "") : name;
+  const poss = surname ? `${surname}’s ${bare}` : name;
+  return { n, poss, f1: titles[0], f2: titles[1] };
+}
+
 // Cached per slug so the page is ISR-cached instead of re-querying on every
 // request (uncached Supabase calls otherwise force dynamic rendering).
 function load(slug: string) {
@@ -54,9 +73,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(slug);
   if (!data) return { title: "Tradition — Metatake" };
   const name = clean(data.canon.title);
+  const { n, poss, f1, f2 } = listicle(name, data.canon.theorist, data.readings);
+  const title = n >= 3
+    ? `${n} Films That Can Be Read Through ${poss}`
+    : `${name} in film — readings that lean on it`;
+  const description = n >= 3 && f1 && f2
+    ? `From ${f1} to ${f2}: ${n} films whose Strong Misreadings lean on ${name}${data.canon.theorist ? ` (${data.canon.theorist})` : ""} — every reading in one place.`
+    : `${name} in cinema: ${data.readings.length} Strong Misreadings that lean on the tradition of ${name}${data.canon.theorist ? ` (${data.canon.theorist})` : ""}.`;
   return {
-    title: `${name} in film — readings that lean on it`,
-    description: `${name} in cinema: ${data.readings.length} Strong Misreadings that lean on the tradition of ${name}${data.canon.theorist ? ` (${data.canon.theorist})` : ""}.`,
+    title, description,
+    openGraph: { title, description },
     alternates: { canonical: `/tradition/${slug}` },
   };
 }
@@ -79,7 +105,7 @@ export default async function TraditionPage({ params }: Props) {
           {domain ? <span className="th-domain">{domain}</span> : null}
           {canon.theorist ? <> · <span className="th-by2">{canon.theorist}</span></> : null}
         </p>
-        <p className="th-sub">{readings.length} film{readings.length !== 1 ? "s" : ""} read through the tradition of <em>{name}</em> — each a Strong Misreading that leans on it.</p>
+        <p className="th-sub">{listicle(name, canon.theorist, readings).n} film{readings.length !== 1 ? "s" : ""} that can be read through <em>{name}</em> — each a Strong Misreading that leans on it.</p>
 
         <div className="th-readings">
           {readings.map((r) => {

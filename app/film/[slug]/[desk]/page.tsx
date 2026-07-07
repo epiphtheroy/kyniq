@@ -161,7 +161,8 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
 function load(slug: string, deskKey: string, lang: "en" | "ko" = "en") {
   return unstable_cache(
     () => loadUncached(slug, deskKey, lang),
-    ["desk-essay-4", slug, deskKey, lang],
+    // v5: payload gained film art/tmdb_id + hero videos (2026-07-08 redesign)
+    ["desk-essay-5", slug, deskKey, lang],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }
@@ -201,8 +202,15 @@ export default async function DeskEssayPage({ params }: Props) {
   if (!desk) notFound();
   const data = await load(slug, deskKey);
   if (!data) notFound();
-  const { film, essay, html, otherDesks, hasKo } = data;
+  const { film, essay, html, otherDesks, hasKo, videos } = data;
   const yearStr = film.year ? ` (${film.year})` : "";
+
+  // TMDB gallery stills: 3 into the article (ScreenRant-style), the rest vary
+  // the bottom plates. Deterministic per film+desk (stable across renders).
+  const gallery = await filmBackdropPaths(film.tmdb_id);
+  const artPicks = pickStills(gallery, `${film.slug}:${desk.key}`, 6);
+  const bodyHtml = injectFigures(html, artPicks.slice(0, 3), `${film.title}${yearStr}`);
+  const plateArt = [...artPicks.slice(3), ...(film.backdrop_path ? [film.backdrop_path] : [])];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -233,41 +241,23 @@ export default async function DeskEssayPage({ params }: Props) {
   return (
     <div className="mt">
       <SiteNav />
-      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 60px" }}>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-        <div className="df-crumb">
-          <Link href="/film">Films</Link>
-          <span className="df-sep">›</span>
-          <Link href={`/film/${film.slug}`}>{film.title}</Link>
-          <span className="df-sep">›</span>
-          <span>{desk.label}</span>
-        </div>
+      <ReadHero
+        film={film}
+        crumbTail={desk.label}
+        chip={<><Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>Curious</Link>{" · "}{desk.deskName}</>}
+        meta={<>{essay.minutes} min read · verified {essay.date}{hasKo && <>{" · "}<Link href={`/film/${film.slug}/${desk.key}/ko`} style={{ color: "inherit", textDecoration: "underline" }}>한국어</Link></>}</>}
+        title={essay.title}
+        dek={essay.dek ?? undefined}
+        videos={videos}
+        backdropPath={film.backdrop_path}
+      />
 
+      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 40px" }}>
         <article className="essay">
-          <div className="essay-kicker">
-            <span className="essay-chip">
-              <Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>
-                Curious
-              </Link>
-              {" · "}
-              {desk.deskName}
-            </span>
-            <span className="essay-meta">
-              {essay.minutes} min read · verified {essay.date}
-              {hasKo && (
-                <>
-                  {" · "}
-                  <Link href={`/film/${film.slug}/${desk.key}/ko`}>한국어</Link>
-                </>
-              )}
-            </span>
-          </div>
-
-          <h1 className="essay-h1">{essay.title}</h1>
           <Byline created={essay.date} />
-          {essay.dek && <p className="essay-dek">{essay.dek}</p>}
 
           {essay.spoiler >= 2 && (
             <p className="essay-spoiler">
@@ -276,7 +266,7 @@ export default async function DeskEssayPage({ params }: Props) {
             </p>
           )}
 
-          <div className="essay-body" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="essay-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
 
           <div className="essay-plaque">
             <p>
@@ -311,6 +301,8 @@ export default async function DeskEssayPage({ params }: Props) {
           </p>
         </article>
       </div>
+
+      <ReadPlates slug={film.slug} exclude={`desk:${desk.key}`} artPaths={plateArt} />
     </div>
   );
 }

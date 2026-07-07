@@ -7,8 +7,13 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
+import ReadHero from "@/components/read/ReadHero";
+import ReadPlates from "@/components/read/ReadPlates";
+import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
 import { FAMILIES, fw } from "@/lib/frameworks";
+import "@/app/curious/curious.css";
+import "../read.css";
 
 /**
  * Strong Misreadings of one film, read as a single article (2026-07-07).
@@ -38,9 +43,9 @@ async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, visible")
+    .select("id, title, slug, year, director, director_slug, visible, backdrop_path, poster_path, tmdb_id")
     .eq("slug", slug)
-    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; visible: boolean }>();
+    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; visible: boolean; backdrop_path: string | null; poster_path: string | null; tmdb_id: number | null }>();
   if (!film || !film.visible) return null;
 
   const { data: figRows } = await supabase
@@ -52,11 +57,21 @@ async function loadUncached(slug: string) {
   const figIds = [...figById.keys()];
   if (!figIds.length) return null;
 
-  const { data: takeRows } = await supabase
-    .from("takes")
-    .select("id, figure_id, framework, take_title, rationale, leap, strength, is_invitation, created_at")
-    .in("figure_id", figIds)
-    .eq("status", "published");
+  const [{ data: takeRows }, { data: vidRows }] = await Promise.all([
+    supabase
+      .from("takes")
+      .select("id, figure_id, framework, take_title, rationale, leap, strength, is_invitation, created_at")
+      .in("figure_id", figIds)
+      .eq("status", "published"),
+    supabase
+      .from("media")
+      .select("kind, external_id, title")
+      .eq("entity_type", "film")
+      .eq("entity_id", film.id)
+      .eq("status", "published")
+      .eq("kind", "video")
+      .order("position"),
+  ]);
 
   let invitation: string | null = null;
   let latest: string | null = null;
