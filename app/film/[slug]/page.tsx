@@ -89,6 +89,7 @@ type Watch = { results: Record<string, WatchCountry>; countries: string[] };
 type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 type QRow = { slug: string; title: string; display_title: string | null; title_spoiler: boolean | null; spoiler_level: string | null; question_type: string | null };
 type DeskEssay = { desk: DeskKey; label: string; title: string; spoiler: number };
+type DailyRef = { slug: string; title: string; edition_date: string; ehead: string; event: string };
 // Human phrasing — the CSS uppercases these anyway; the raw system keys
 // ("AUTEUR_VISION") used to leak into the page and read as machine output.
 const WW_TITLE: Record<string, string> = { auteur_vision: "The auteur's vision", aesthetic_innovation: "Aesthetic innovation", technical_mastery: "Technical mastery", philosophical_inquiry: "Philosophical inquiry", cinematic_lineage: "Cinematic lineage", spatial_aesthetics: "Space & place", critical_reception: "Critical reception", context_discourse: "Context & discourse" };
@@ -198,7 +199,7 @@ async function loadUncached(slug: string) {
     };
   }
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }, { data: cpJson }, { data: essRows }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }, { data: cpJson }, { data: essRows }, { data: dailyRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids, cos, updated_at").eq("film_id", film.id).order("score", { ascending: false }).limit(5),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -217,6 +218,9 @@ async function loadUncached(slug: string) {
     supabase.from("essays").select("mode, title, spoiler_level")
       .eq("film_id", film.id).eq("lang", "en").eq("status", "verified")
       .order("published_at", { ascending: false, nullsFirst: false }),
+    supabase.from("posts").select("slug, title, edition_date, entries")
+      .eq("status", "published").contains("entries", JSON.stringify([{ film_slug: slug }]))
+      .order("edition_date", { ascending: false }).limit(12),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
@@ -240,6 +244,13 @@ async function loadUncached(slug: string) {
     .map((k) => {
       const e = essayByMode.get(DESKS[k].mode)!;
       return { desk: k, label: DESKS[k].label, title: mdToPlain(e.title), spoiler: e.spoiler_level ?? 0 };
+    });
+  // The Daily — editions of "Between Film and the World" that filed this film
+  // against the day's news (posts.entries jsonb containment on film_slug).
+  const dailyRefs: DailyRef[] = ((dailyRows ?? []) as { slug: string; title: string; edition_date: string; entries: { film_slug: string; ehead: string; event: string }[] }[])
+    .flatMap((p) => {
+      const e = (p.entries ?? []).find((en) => en.film_slug === slug);
+      return e ? [{ slug: p.slug, title: p.title, edition_date: p.edition_date, ehead: e.ehead, event: e.event }] : [];
     });
 
   const figures = (figRows ?? []) as Fig[];

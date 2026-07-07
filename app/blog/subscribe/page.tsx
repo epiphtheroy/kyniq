@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import SiteNav from "@/components/home2/SiteNav";
 import SubscribeForm from "@/components/SubscribeForm";
 
 export const metadata: Metadata = {
@@ -10,28 +9,27 @@ export const metadata: Metadata = {
 
 export default function SubscribePage() {
   return (
-    <div className="mt">
-      <SiteNav />
-      <div className="blg">
-        <section className="blg-hero">
-          <div className="blg-wrap" style={{ maxWidth: 720 }}>
-            <p className="blg-kick"><span className="dot" /> Between Film and the World</p>
-            <h1>The day&apos;s news,<br /><span className="red">read as cinema.</span></h1>
-            <p className="dek">One short edition, almost every morning — five events and the films that already knew them.</p>
+    <div className="cur-wrap" style={{ maxWidth: 720 }}>
+      <header className="cur-head" style={{ paddingTop: 34 }}>
+        <div className="cur-datekick">
+          <span>Between Film and the World</span>
+          <span className="d" />
+          <span className="sub">Metatake&apos;s daily</span>
+        </div>
+        <h1 style={{ marginTop: 10 }}>The day&apos;s news,<br />read as cinema<span className="q">.</span></h1>
+        <p className="dek">One short edition, almost every morning — five events and the films that already knew them.</p>
+      </header>
 
-            <div className="blg-sub-box" style={{ textAlign: "left", marginTop: 26 }}>
-              <p className="k">Subscribe — it&apos;s free</p>
-              <h3>Five events, five films, in your inbox.</h3>
-              <p style={{ margin: "0 0 16px" }}>Every film and reading is confirmed in the live corpus before we send it. Retrieved, not remembered. No spam, unsubscribe anytime.</p>
-              <SubscribeForm source="subscribe-page" />
-              <p className="fine">We&apos;ll only ever email you the edition.</p>
-            </div>
+      <div className="cur-subpanel" style={{ margin: "22px 0 0" }}>
+        <p className="k">Subscribe — it&apos;s free</p>
+        <h3>Five events, five films, in your inbox.</h3>
+        <p>Every film and reading is confirmed in the live corpus before we send it. Retrieved, not remembered. No spam, unsubscribe anytime.</p>
+        <SubscribeForm source="subscribe-page" />
+        <p className="fine">We&apos;ll only ever email you the edition.</p>
+      </div>
 
-            <p className="intro" style={{ marginTop: 26 }}>
-              Prefer to browse first? Read <Link className="lk-in" href="/blog">today&apos;s edition</Link>, or <Link className="lk-in" href="/">wander the map</Link>.
-            </p>
-          </div>
-        </section>
+      <div className="cur-foot">
+        Prefer to browse first? Read <Link href="/blog">today&apos;s edition</Link>, or <Link href="/curious">visit the question desk</Link>.
       </div>
     </div>
   );
