@@ -49,16 +49,16 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Curious", h: "/curious" },
       { t: "Newsletter", h: "/blog/subscribe" },
     ] },
-    { id: "ideas", label: "Ideas", items: [
-      { t: "Concepts", h: "/idea", c: c.concepts },
+    { id: "ideas", label: "Theory", items: [
+      { t: "Concepts", h: "/concept", c: c.concepts },
       { t: "Theorists", h: "/theorist", c: c.theorists },
       { t: "Traditions", h: "/tradition", c: c.traditions },
+      { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
       { t: "Methodology", h: "/methodology" },
     ] },
-    { id: "lenses", label: "Lenses", items: [
+    { id: "lenses", label: "Patterns", items: [
       { t: "Tropes", h: "/tropes", c: c.tropes },
       { t: "Archetypes", h: "/catalog" },
-      { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
     ] },
     { id: "you", label: "You", items: [
       { t: "My Room", h: "/room" },

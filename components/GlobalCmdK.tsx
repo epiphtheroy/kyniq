@@ -25,7 +25,7 @@ const PAGES: { label: string; href: string }[] = [
   { label: "Tropes", href: "/tropes" },
   { label: "Archetypes", href: "/catalog" },
   { label: "Strong Misreadings", href: "/strong-misreadings" },
-  { label: "Concepts", href: "/idea" },
+  { label: "Concepts", href: "/concept" },
   { label: "Theorists", href: "/theorist" },
   { label: "Traditions", href: "/tradition" },
   { label: "Lineage", href: "/lineage" },

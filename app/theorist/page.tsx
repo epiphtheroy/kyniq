@@ -50,12 +50,12 @@ export default async function TheoristIndex() {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap lh">
-        <div className="mt-crumb">Theory › <Link href="/idea">Concepts</Link> · <Link href="/tradition">Traditions</Link></div>
+        <div className="mt-crumb">Theory › <Link href="/concept">Concepts</Link> · <Link href="/tradition">Traditions</Link></div>
         <h1 className="lh-h1">Theorists</h1>
         <p className="lh-def">
           The thinkers Metatake reads films <em>through</em>. Each Strong Misreading borrows a lens — a theorist and a
           concept — and this is the roll of those minds, {rows.length} of them across {total.toLocaleString()} readings.
-          Open any one to see every film read in their light. (See also the <Link href="/idea">concepts</Link> they think
+          Open any one to see every film read in their light. (See also the <Link href="/concept">concepts</Link> they think
           and the <Link href="/tradition">traditions</Link> they belong to.)
         </p>
         <LensQuickBar />

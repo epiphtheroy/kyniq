@@ -410,7 +410,7 @@ export default async function FigurePage({ params }: Props) {
                         ? <Link className="sm-tag sm-tag--link" href={`/theorist/${t.theorist.slug}`}>{t.theorist_name}</Link>
                         : <span className="sm-tag">{t.theorist_name}</span>) : null}
                       {t.concept ? (conceptSlugs[(t.concept ?? "").trim().toLowerCase()]
-                        ? <Link className="sm-tag sm-tag--c sm-tag--link" href={`/idea/${conceptSlugs[(t.concept ?? "").trim().toLowerCase()]}`}>{t.concept}</Link>
+                        ? <Link className="sm-tag sm-tag--c sm-tag--link" href={`/concept/${conceptSlugs[(t.concept ?? "").trim().toLowerCase()]}`}>{t.concept}</Link>
                         : <span className="sm-tag sm-tag--c">{t.concept}</span>) : null}
                       {t.real_person ? <span className="sm-tag sm-tag--p">{t.real_person}</span> : null}
                     </div>

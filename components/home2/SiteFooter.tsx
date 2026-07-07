@@ -23,7 +23,7 @@ export default function SiteFooter() {
             <Link href="/film">Films</Link>
             <Link href="/director">Directors</Link>
             <Link href="/tropes">Tropes</Link>
-            <Link href="/idea">Concepts</Link>
+            <Link href="/concept">Concepts</Link>
             <Link href="/lineage">Lineage</Link>
           </div>
           <div className="fcol">

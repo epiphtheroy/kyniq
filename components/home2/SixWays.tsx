@@ -39,7 +39,7 @@ export default function SixWays({ data }: { data: HomeV2 }) {
             <p>The bold close readings — one figure, argued through a critical framework.</p>
             <span className="go">Browse readings →</span>
           </Link>
-          <Link className="facet" href="/idea">
+          <Link className="facet" href="/concept">
             <div className="fk">{stats.concepts.toLocaleString()} concepts</div>
             <h3>Concepts</h3>
             <p>The critical ideas every reading is built on, traced across cinema.</p>

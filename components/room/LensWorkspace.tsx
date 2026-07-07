@@ -44,7 +44,7 @@ const READ_PAGE = 24;
 
 const KIND_META: Record<EntityKind, { label: string; one: string; icon: string; pub: string }> = {
   tropes: { label: "Tropes", one: "Trope", icon: "ti-hash", pub: "/trope" },
-  concepts: { label: "Concepts", one: "Concept", icon: "ti-bulb", pub: "/idea" },
+  concepts: { label: "Concepts", one: "Concept", icon: "ti-bulb", pub: "/concept" },
   theorists: { label: "Theorists", one: "Theorist", icon: "ti-user-circle", pub: "/theorist" },
   traditions: { label: "Traditions", one: "Tradition", icon: "ti-building-bank", pub: "/tradition" },
   directors: { label: "Directors", one: "Director", icon: "ti-video", pub: "/director" },

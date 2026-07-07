@@ -151,7 +151,7 @@ export default function Hero({ data }: { data: HomeV2 }) {
           <Link className="tc" href="/strong-misreadings">
             Most-shared readings <span className="ch">›</span>
           </Link>
-          <Link className="tc" href="/idea">
+          <Link className="tc" href="/concept">
             The Real (le réel) <span className="ch">›</span>
           </Link>
         </div>

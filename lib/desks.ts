@@ -248,7 +248,7 @@ type DictEntry = { name: string; href: string };
 export function linkifyEntities(html: string, dict: LinkDict, maxLinks = 10): string {
   const entries: DictEntry[] = [];
   for (const c of dict.concepts ?? []) {
-    if (c?.name && c?.slug && c.name.length >= 5) entries.push({ name: c.name, href: `/idea/${c.slug}` });
+    if (c?.name && c?.slug && c.name.length >= 5) entries.push({ name: c.name, href: `/concept/${c.slug}` });
   }
   for (const t of dict.theorists ?? []) {
     if (t?.name && t?.slug && t.name.length >= 5) entries.push({ name: t.name, href: `/theorist/${t.slug}` });

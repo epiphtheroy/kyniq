@@ -45,5 +45,5 @@ export const figureHref = (slug: string, figureSlug?: string | null) =>
   figureSlug ? `/film/${slug}/figure/${figureSlug}` : `/film/${slug}`;
 export const directorHref = (slug: string) => `/director/${slug}`;
 export const tropeHref = (slug: string) => (slug ? `/trope/${slug}` : "/tropes");
-export const conceptHref = (slug: string) => (slug ? `/idea/${slug}` : "/idea");
+export const conceptHref = (slug: string) => (slug ? `/concept/${slug}` : "/concept");
 export const blogHref = (slug: string) => (slug ? `/blog/${slug}` : "/blog");

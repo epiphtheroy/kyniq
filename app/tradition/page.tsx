@@ -35,13 +35,13 @@ export default async function TraditionIndex() {
       <SiteNav />
       <div className="mt-wrap lh">
         <div className="mt-crumb">
-          <Link href="/theorist">Theory</Link> › <Link href="/idea">Concepts</Link> · <Link href="/theorist">Theorists</Link>
+          <Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link> · <Link href="/theorist">Theorists</Link>
         </div>
         <h1 className="lh-h1">Traditions</h1>
         <p className="lh-def">
           The canonical theory a Strong Misreading leans on — the recognised tradition behind the lens. These {rows.length}{" "}
           traditions anchor {total.toLocaleString()} readings; open any to see every film that leans on it, and the{" "}
-          <Link href="/theorist">thinkers</Link> who carry it. (Paired with the looser <Link href="/idea">concepts</Link>{" "}
+          <Link href="/theorist">thinkers</Link> who carry it. (Paired with the looser <Link href="/concept">concepts</Link>{" "}
           critics actually name.)
         </p>
         <LensQuickBar />

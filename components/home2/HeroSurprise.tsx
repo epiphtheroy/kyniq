@@ -222,7 +222,7 @@ export default function HeroSurprise() {
           <Link className="tc" href="/search?q=grief">Films about grief <span className="ch">›</span></Link>
           <Link className="tc" href="/director">Auteur fingerprints <span className="ch">›</span></Link>
           <Link className="tc" href="/map">The whole map <span className="ch">›</span></Link>
-          <Link className="tc" href="/idea">The Real (le réel) <span className="ch">›</span></Link>
+          <Link className="tc" href="/concept">The Real (le réel) <span className="ch">›</span></Link>
         </div>
       </div>
     </div>
