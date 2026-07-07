@@ -55,7 +55,7 @@ const n0 = (x: number | string | null | undefined) => num(x) ?? 0;
 /* The RPC coalesces a NULL country to a fixed Korean literal meaning "unknown"
    (me_geo_coverage is unchanged in v3). Match it via escaped codepoints so this
    file greps clean of Korean, and render it in English. */
-const UNKNOWN_COUNTRY = "미상";
+const UNKNOWN_COUNTRY = "\uBBF8\uC0C1";
 const displayCountry = (c: string | null | undefined): string =>
   !c || c === UNKNOWN_COUNTRY ? "Unknown" : c;
 

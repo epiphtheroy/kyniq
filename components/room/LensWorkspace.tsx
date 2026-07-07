@@ -1,7 +1,7 @@
 "use client";
 /** Lens (/room/lens) — my collection refracted through the theory spine (spec §3.11).
  *
- *  COUPLED TO PUBLIC LENS APIs — any change to app/api/lens/** requires
+ *  Coupled to public lens APIs — any change to app/api/lens/** requires
  *  regression-testing this screen.
  *
  *  DATA CONTRACT (inviolable):

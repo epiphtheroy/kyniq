@@ -135,7 +135,7 @@ function NeighborInsp({ n, kept, onKeep, onSeen }: {
         <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.55 }}>
           Cosine similarity <b style={{ color: "var(--reading)" }}>{n.sim != null ? n.sim.toFixed(3) : "—"}</b> to
           the centroid of your loved films — the nearest film you haven&rsquo;t seen.
-          V·R are Cinecodex fundamentals ({STR.cc.neverBlend.toLowerCase()})
+          V·R are Cinecodex fundamentals, never blended with Standing or external signals.
         </div>
       </ICard>
       <ICard icon="ti-player-play" title={STR.insp.actNow}>

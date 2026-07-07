@@ -1,18 +1,20 @@
-/* /room/atlas — 지리 Atlas 포트폴리오 page CSS.
-   Hand-rolled equirectangular world map + coverage + geographic blind spots (④).
+/* Atlas — /room/atlas (v3) page CSS.
+   Low-poly world land (static inline SVG paths from lib/room/world_paths.ts) +
+   measured film dots + per-country coverage + geographic blind spots.
    FULLY SCOPED under .room-root so it never leaks. Reuses shared room.css tokens
-   (--bg,--pnl,--ink,--frontier,--blind,--safe,--risk,…). Page-only tints defined here. */
+   (--bg,--pnl,--ink,--frontier,--blind,--safe,--risk,…). Page-only tints below. */
 .room-root{
-  --at-filmed:#0F6E56; --at-setting:#3E8FE0; --at-ocean:#0d0d10; --at-graticule:rgba(255,255,255,.05);
-  --at-blindtx:#edc873;
+  --at-filmed:#0F6E56; --at-setting:#3E8FE0; --at-ocean:#0d0d10;
+  --at-land:#17171c; --at-landline:#2a2a31; --at-blindtx:#edc873;
 }
 
-/* ── hero: 지리 커버리지 ── */
+/* ── hero: geographic reach ── */
 .room-root .at-hero{display:grid;grid-template-columns:auto 1fr;gap:18px;
   background:linear-gradient(180deg,var(--pnl),var(--bg2));border:1px solid var(--line2);
   border-radius:9px;padding:15px 18px;margin-bottom:13px;position:relative;overflow:hidden}
 .room-root .at-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
   border-radius:50%;background:radial-gradient(circle,rgba(62,143,224,.10),transparent 70%)}
+@media(max-width:900px){.room-root .at-hero{grid-template-columns:1fr}}
 .room-root .at-navbig{display:flex;align-items:center;gap:16px}
 .room-root .at-ring{position:relative;flex:0 0 auto}
 .room-root .at-navmeta .at-lvl{font-size:12px;color:var(--frontier);font-weight:600;letter-spacing:.04em;margin-top:5px}
@@ -22,12 +24,13 @@
   color:var(--ink);border-top:1px solid var(--line);margin-top:12px;padding-top:11px}
 .room-root .at-sig-prose b{font-style:normal;color:#86b9ec}
 .room-root .at-sig-prose .em{color:var(--at-blindtx);font-weight:700}
-.room-root .at-foot{font-size:10.5px;color:var(--sub);margin-top:9px;line-height:1.5}
+.room-root .at-foot{grid-column:1/-1;font-size:10.5px;color:var(--sub);margin-top:9px;line-height:1.5}
 .room-root .at-foot b{color:var(--mut);font-style:normal}
 
-/* continent-strip inside hero right col */
+/* continent strip inside hero right col */
 .room-root .at-components{display:flex;flex-direction:column;gap:7px;justify-content:center;
   border-left:1px solid var(--line);padding-left:18px}
+@media(max-width:900px){.room-root .at-components{border-left:0;padding-left:0}}
 .room-root .at-comp{display:grid;grid-template-columns:118px 1fr 44px;align-items:center;gap:10px}
 .room-root .at-comp .cl{font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .room-root .at-comp .ct{height:6px;background:#24242a;border-radius:4px;overflow:hidden}
@@ -53,8 +56,20 @@
 @media(max-width:1180px){.room-root .at-mapwrap{grid-template-columns:1fr}}
 .room-root .at-plane{background:var(--at-ocean);border:1px solid var(--line);border-radius:8px;padding:6px}
 .room-root .at-map{display:block;width:100%;height:auto}
+.room-root .at-map .at-land path{fill:var(--at-land);stroke:var(--at-landline);stroke-width:.5;vector-effect:non-scaling-stroke}
 .room-root .at-map .at-dot{cursor:pointer;transition:.12s}
 .room-root .at-map .at-dot:hover circle.hit{stroke:var(--ink);stroke-width:1.6}
+
+/* layer toggle chips (Filmed / Setting) in the map module header */
+.room-root .at-lyrs{margin-left:auto;display:flex;gap:6px}
+.room-root .at-lyr{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-family:var(--ui);
+  color:var(--sub);background:var(--pnl);border:1px solid var(--line2);border-radius:13px;padding:3px 10px;cursor:pointer}
+.room-root .at-lyr i{width:8px;height:8px;border-radius:50%;background:var(--line3);flex:0 0 auto}
+.room-root .at-lyr.on{color:var(--ink);border-color:var(--line3)}
+.room-root .at-lyr.filmed.on i{background:var(--at-filmed)}
+.room-root .at-lyr.setting.on i{background:var(--frontier)}
+.room-root .at-lyr:hover{border-color:var(--line3)}
+
 .room-root .at-side .at-lead2{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:var(--mut);
   line-height:1.5;border-left:2px solid var(--frontier);padding-left:9px;margin-bottom:11px}
 .room-root .at-side .at-lead2 i.ti{color:var(--frontier);flex:0 0 auto}
@@ -66,6 +81,7 @@
 .room-root .at-stat .k{color:var(--mut)} .room-root .at-stat .v{font-family:var(--mono);color:var(--ink);text-align:right}
 .room-root .at-legend{display:flex;flex-direction:column;gap:6px;font-size:10.5px;color:var(--mut);margin-top:9px}
 .room-root .at-legend .lg{display:flex;align-items:center;gap:7px}
+.room-root .at-legend .lg.off{opacity:.45}
 .room-root .at-legend .lg i{flex:0 0 auto;width:10px;height:10px;border-radius:50%;display:inline-block}
 .room-root .at-legend .lg i.filmed{background:var(--at-filmed)}
 .room-root .at-legend .lg i.setting{background:var(--at-setting)}
@@ -73,7 +89,7 @@
 .room-root .at-note b{font-style:normal}
 
 /* ── country coverage bars ── */
-.room-root .at-cov{display:grid;grid-template-columns:1fr 150px 78px;align-items:center;gap:11px;
+.room-root .at-cov{display:grid;grid-template-columns:1fr 150px 110px;align-items:center;gap:11px;
   padding:6px 7px;border-radius:5px;border:1px solid transparent;cursor:pointer}
 .room-root .at-cov:hover{background:var(--pnl2);border-color:var(--line)}
 .room-root .at-cov .cn{font-family:var(--ser);font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
@@ -83,13 +99,15 @@
 .room-root .at-cov .track>i{display:block;height:100%;border-radius:4px;background:var(--frontier)}
 .room-root .at-cov.top .track>i{background:var(--safe)}
 .room-root .at-cov .frac{font-family:var(--mono);font-size:10.5px;color:var(--sub);text-align:right}
+@media(max-width:640px){.room-root .at-cov{grid-template-columns:1fr 90px}.room-root .at-cov .track{display:none}}
 
-/* ── geographic blind spots (④) ── */
+/* ── geographic blind spots ── */
 .room-root .at-blindwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
 .room-root .at-blindchip{display:flex;flex-direction:column;gap:3px;background:linear-gradient(180deg,#1a1407,var(--pnl));
-  border:1px solid #5e4d1d;border-radius:8px;padding:11px 12px;position:relative;overflow:hidden}
+  border:1px solid #5e4d1d;border-radius:8px;padding:11px 12px;position:relative;overflow:hidden;cursor:pointer}
 .room-root .at-blindchip::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;
   border-radius:2px;background:var(--blind)}
+.room-root .at-blindchip:hover{border-color:#7a6526}
 .room-root .at-blindchip .bc-c{display:flex;align-items:center;gap:6px;font-family:var(--ser);font-size:14px;color:var(--at-blindtx)}
 .room-root .at-blindchip .bc-c i{font-size:15px}
 .room-root .at-blindchip .bc-d{font-size:10.5px;color:var(--mut);line-height:1.4}
@@ -99,5 +117,14 @@
 .room-root .at-seenchip i{color:var(--safe);font-size:12px}
 .room-root .at-seenchip b{color:var(--ink);font-family:var(--mono)}
 
-/* ── continent inspector helpers ── */
+/* ── blind-continent inspector: territory list ── */
+.room-root .at-terr{display:flex;flex-direction:column;max-height:320px;overflow-y:auto}
+.room-root .at-terrow{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:4px 2px;border-bottom:1px solid var(--line);font-size:11.5px}
+.room-root .at-terrow:last-child{border-bottom:0}
+.room-root .at-terrn{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .at-terrlink{flex:0 0 auto;font-size:10.5px;color:var(--frontier);text-decoration:none}
+.room-root .at-terrlink:hover{color:var(--ink)}
+
+/* ── misc ── */
 .room-root .at-empty{padding:22px 14px;color:var(--sub);font-size:12.5px;text-align:center;line-height:1.6}
