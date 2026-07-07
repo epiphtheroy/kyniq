@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import GrowStill from "@/components/read/GrowStill";
 import CreditsExplorer from "../CreditsExplorer";
 import {
   CRAFTS, FAM, type Api, type ArtistData, type Collab, type CraftKey, type GrpKey, type TFilm,
@@ -236,6 +237,26 @@ export default async function CrewPersonPage({ params }: Props) {
   const { id, p, crafts, cat, company, native, directorHub, artist } = data;
   const mainCraft = crafts[0].key;
   const catByTmdb = new Map(cat.map((f) => [f.tmdb_id, f]));
+  // Representative stills — the subject's films with backdrops, catalog-read
+  // films first, spread across the years (deterministic; no ratings involved).
+  const STILL_VERB: Record<string, string> = { dp: "shot by", editor: "cut by", composer: "scored by", pd: "production design by", writer: "written by" };
+  const stills = (() => {
+    if (!artist) return [] as { src: string; alt: string; caption: string }[];
+    const cands = artist.films.filter((f) => f.backdrop && f.year > 1880);
+    const isReadFilm = (fid: number) => { const c = catByTmdb.get(fid); return !!c && isRead(c); };
+    const readC = cands.filter((f) => isReadFilm(f.id)).sort((a, b) => a.year - b.year);
+    const rest = cands.filter((f) => !isReadFilm(f.id)).sort((a, b) => a.year - b.year);
+    const spread = <T,>(arr: T[], n: number): T[] =>
+      arr.length <= n ? arr : n === 1 ? [arr[0]] : n === 2 ? [arr[0], arr[arr.length - 1]] : [arr[0], arr[Math.floor(arr.length / 2)], arr[arr.length - 1]];
+    const picked = [...spread(readC, 3)];
+    if (picked.length < 3) picked.push(...spread(rest, 3 - picked.length));
+    const verb = STILL_VERB[mainCraft] ?? "by";
+    return picked.map((f) => ({
+      src: `https://image.tmdb.org/t/p/w1280${f.backdrop}`,
+      alt: `${f.title} still`,
+      caption: `${f.title}${f.year ? ` (${f.year})` : ""} — ${verb} ${p.name} · via TMDB`,
+    }));
+  })();
   const updated = new Date().toISOString().slice(0, 10);
 
   const jsonLd = {
@@ -317,6 +338,8 @@ export default async function CrewPersonPage({ params }: Props) {
             </a>
           </div>
         </header>
+
+        {stills[0] ? <GrowStill {...stills[0]} /> : null}
 
         {(() => {
           /* ── Verbalization engine (credits-verbalization-spec.md, 2026-07-08).
@@ -517,6 +540,8 @@ export default async function CrewPersonPage({ params }: Props) {
           );
         })()}
 
+        {stills[1] ? <GrowStill {...stills[1]} /> : null}
+
         {crafts.map((c) => {
           const dated = c.films.filter((f) => f.year > 1880).sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
           const undated = c.films.filter((f) => !(f.year > 1880)).sort((a, b) => a.title.localeCompare(b.title));
@@ -557,6 +582,8 @@ export default async function CrewPersonPage({ params }: Props) {
             </section>
           );
         })}
+
+        {stills[2] ? <GrowStill {...stills[2]} /> : null}
 
         <section id="explorer" style={{ margin: "44px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
           <h2 className="df-h2" style={{ marginTop: 18 }}>The interactive layer</h2>
