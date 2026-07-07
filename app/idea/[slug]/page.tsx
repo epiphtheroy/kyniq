@@ -26,6 +26,8 @@ type Reading = {
   film_title: string; film_slug: string; film_year: number | null; backdrop_path: string | null;
 };
 
+type DeskLink = { film_slug: string; film_title: string; film_year: number | null; desk_key: string; essay_title: string };
+
 // Cached per slug so the page is ISR-cached instead of re-querying on every
 // request (uncached Supabase calls otherwise force dynamic rendering).
 function load(slug: string) {
@@ -43,9 +45,31 @@ function load(slug: string) {
       let intro: string | null = null;
       const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
       if (typeof it === "string" && it.trim()) intro = it.trim();
-      return { name: h.name, intro, readings: (rd as Reading[] | null) ?? [] };
+      // Reverse links: desk essays whose body uses this concept (precomputed,
+      // worker/build-entity-links.py). Defensive — renders fine while the
+      // table doesn't exist yet.
+      let desks: DeskLink[] = [];
+      try {
+        const { data: dl } = await supabase
+          .from("essay_entity_links")
+          .select("film_slug, film_title, film_year, desk_key, essay_title")
+          .eq("entity_type", "idea")
+          .in("entity_slug", [...new Set([slug, h.resolved_slug])])
+          .limit(36);
+        const seen = new Set<string>();
+        for (const d of (dl ?? []) as DeskLink[]) {
+          const key = `${d.film_slug}/${d.desk_key}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          desks.push(d);
+          if (desks.length >= 12) break;
+        }
+      } catch {
+        desks = [];
+      }
+      return { name: h.name, intro, readings: (rd as Reading[] | null) ?? [], desks };
     },
-    ["idea", slug],
+    ["idea-2", slug],
     { revalidate: 1800, tags: [`idea:${slug}`] },
   )();
 }
@@ -81,7 +105,7 @@ export default async function IdeaPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { name, intro, readings } = data;
+  const { name, intro, readings, desks } = data;
 
   return (
     <div className="mt">
@@ -120,6 +144,20 @@ export default async function IdeaPage({ params }: Props) {
             );
           })}
         </div>
+        {desks.length > 0 && (
+          <section style={{ margin: "34px 0 0" }} id="idea-desks">
+            <h2 className="cmap-h2">From the desks — essays that put {name} to work</h2>
+            <ul className="essay-desklist" style={{ marginTop: 10 }}>
+              {desks.map((d) => (
+                <li key={`${d.film_slug}/${d.desk_key}`}>
+                  <Link href={`/film/${d.film_slug}/${d.desk_key}`}>
+                    {d.film_title}{d.film_year ? ` (${d.film_year})` : ""} — {d.essay_title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         <section className="cmap-sec" id="idea-map">
           <h2 className="cmap-h2">{name} — connection map</h2>
           <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>

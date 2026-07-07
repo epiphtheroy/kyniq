@@ -29,6 +29,8 @@ type Reading = {
   film_title: string; film_slug: string; film_year: number | null; backdrop_path: string | null;
 };
 
+type DeskLink = { film_slug: string; film_title: string; film_year: number | null; desk_key: string; essay_title: string };
+
 // Cached per slug so the page is ISR-cached instead of re-querying on every
 // request (uncached Supabase calls otherwise force dynamic rendering).
 function load(slug: string) {
@@ -38,9 +40,30 @@ function load(slug: string) {
       const { data: th } = await supabase.from("theorists").select("name, blurb").eq("slug", slug).maybeSingle();
       if (!th) return null;
       const { data: rd } = await supabase.rpc("theorist_readings", { p_slug: slug });
-      return { name: (th as { name: string }).name, blurb: (th as { blurb: string | null }).blurb, readings: (rd as Reading[] | null) ?? [] };
+      // Reverse links: desk essays that cite this theorist (precomputed,
+      // worker/build-entity-links.py). Defensive while the table is absent.
+      let desks: DeskLink[] = [];
+      try {
+        const { data: dl } = await supabase
+          .from("essay_entity_links")
+          .select("film_slug, film_title, film_year, desk_key, essay_title")
+          .eq("entity_type", "theorist")
+          .eq("entity_slug", slug)
+          .limit(36);
+        const seen = new Set<string>();
+        for (const d of (dl ?? []) as DeskLink[]) {
+          const key = `${d.film_slug}/${d.desk_key}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          desks.push(d);
+          if (desks.length >= 12) break;
+        }
+      } catch {
+        desks = [];
+      }
+      return { name: (th as { name: string }).name, blurb: (th as { blurb: string | null }).blurb, readings: (rd as Reading[] | null) ?? [], desks };
     },
-    ["theorist", slug],
+    ["theorist-2", slug],
     { revalidate: 1800, tags: [`theorist:${slug}`] },
   )();
 }
