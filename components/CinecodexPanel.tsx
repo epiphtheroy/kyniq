@@ -214,6 +214,18 @@ const GAUGE_CSS = `
 .ccx-gnet-lab .d{font-family:${MONO}; font-size:10px; color:var(--muted)}
 .ccx-gnet-eff{font-family:var(--font-ui); font-size:10.5px; color:var(--muted); padding-top:8px; border-top:1px solid var(--hairline)}
 .ccx-gnet-eff b{font-family:${MONO}; font-size:14px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; margin-right:5px}
+.ccx-gverdict{margin:12px 0 0; padding-top:11px; border-top:1px solid var(--hairline); font-family:var(--font-serif,Georgia,serif); font-size:14.5px; line-height:1.6; color:var(--ink)}
+/* "Where it ranks" — overall-rank instrument strip; the position track echoes
+   the appraisal page's .tsf-track (hairline bar, green dot, mono #labels). */
+.ccx-rank{margin:2px 0 14px; padding:11px 13px 13px; border:1px solid var(--hairline); border-radius:8px; background:var(--paper,#fafafa)}
+.ccx-rank-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
+.ccx-rank-lbl{font-family:var(--font-ui); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted)}
+.ccx-rank-n{font-family:var(--font-ui); font-size:12.5px; font-weight:600; color:var(--ink)}
+.ccx-rank-pct{margin-left:auto; font-family:${MONO}; font-size:12px; font-weight:600; color:#0F6E56; font-variant-numeric:tabular-nums}
+.ccx-rank-track{display:flex; align-items:center; gap:9px; padding-top:19px; font-family:${MONO}; font-size:10px; color:var(--muted); font-variant-numeric:tabular-nums}
+.ccx-rank-bar{position:relative; flex:1; height:4px; border-radius:2px; background:var(--hairline)}
+.ccx-rank-bar i{position:absolute; top:50%; transform:translate(-50%,-50%); width:11px; height:11px; border-radius:50%; background:#0F6E56; border:2px solid #fff; box-shadow:0 0 0 1px var(--hairline-2,#ddd)}
+.ccx-rank-mark{position:absolute; bottom:9px; transform:translateX(-50%); font-family:${MONO}; font-size:9.5px; font-weight:600; color:#0F6E56; white-space:nowrap}
 @media (max-width:600px){
   .ccx-grow{justify-content:center}
   .ccx-gnet{flex-direction:row; align-items:baseline; gap:16px; width:100%; margin-left:0; padding-left:0; border-left:0; padding-top:10px; border-top:1px solid var(--hairline)}
@@ -226,11 +238,24 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
   const { ext } = data;
   const tier = data.conf_tier ?? null;
   const conf = data.conf ?? null;
-  const tierClass = tier === "High" ? "ccx-cf--hi" : tier === "Moderate" ? "ccx-cf--mid" : "ccx-cf--lo";
   const takes = data.n_takes ?? 0;
   const evidence = takes >= 1
     ? `grounded in ${takes} critical take${takes === 1 ? "" : "s"} we hold on this film`
     : `no written-criticism corpus yet — a single-pass model judgment`;
+
+  // Overall U-rank (migration 0047) — rendered only when the RPC provides both
+  // numbers; never fabricated. "top N%" when in the upper half, else an honest
+  // "bottom X%" (share of films at or below this one).
+  const rank = data.rank ?? null;
+  const rankTotal = data.rank_total ?? null;
+  const hasRank = rank != null && rankTotal != null && rank >= 1 && rankTotal > 1;
+  const rankPos = hasRank ? ((rank - 1) / (rankTotal - 1)) * 100 : 0;
+  const topPct = hasRank ? Math.max(1, Math.round((rank / rankTotal) * 100)) : 0;
+  const rankShare = hasRank
+    ? topPct <= 50
+      ? `top ${topPct}%`
+      : `bottom ${Math.max(1, Math.round(((rankTotal - rank + 1) / rankTotal) * 100))}%`
+    : "";
 
   return (
     <section className="df-sec ccx" id="df-codex">
@@ -271,6 +296,9 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
             <div className="ccx-gnet-eff"><b>{data.sharpe}</b>Efficiency (value per risk)</div>
           </div>
         </div>
+        {/* The verdict — the full deterministic interpretation (same sentence the
+            appraisal page leads with), so the card reads before it counts. */}
+        <p className="ccx-gverdict">{verdictSentence(data.v, data.c, data.r, data.u)}</p>
       </div>
 
       <ValuePop v={data.v} votes={data.votes} />
