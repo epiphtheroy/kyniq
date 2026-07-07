@@ -2,7 +2,9 @@
  *  Efficiency, the 13 sub-scores (always shown), and a MEASURED confidence (not luck).
  *  AI-estimated with stated limits. External metrics shown ALONGSIDE, never blended. */
 import type { CSSProperties } from "react";
+import ScoreDonut from "@/components/ScoreDonut";
 import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
+import { bandWord } from "@/lib/takescore_prose";
 
 export type Codex = {
   v: number; c: number; r: number; u: number; sharpe: number;
@@ -164,6 +166,39 @@ function ValuePop({ v, votes }: { v: number; votes: number | null }) {
     </div>
   );
 }
+
+// Axis hexes shared with the appraisal page (tsf-*) and the ccx-v/c/r bar fills
+// in globals.css — value green / cost neutral gray / risk red, public light theme.
+const AXIS_HEX = { v: "#0F6E56", c: "#8a8f98", r: "#C8102E" } as const;
+const MONO = 'ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace';
+
+/* Ring-gauge instrument card — scoped styles injected by the server component
+ * (same idiom as the .ccx-qm hover rule below; this file owns no stylesheet).
+ * Hairline card edge, uppercase micro-kickers, mono numerals — the TakeScore
+ * design language of /takescore/film/[slug]. */
+const GAUGE_CSS = `
+.ccx-gauges{margin:6px 0 14px; padding:13px 16px 12px; border:1px solid var(--hairline-2,#ddd); border-radius:12px; background:var(--paper-2,#fafafa)}
+.ccx-gk{display:flex; align-items:baseline; gap:10px; font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--hairline)}
+.ccx-gk span{margin-left:auto; font-family:${MONO}; font-size:9.5px; font-weight:400; letter-spacing:.05em; color:var(--muted); text-transform:none}
+.ccx-grow{display:flex; flex-wrap:wrap; align-items:stretch; gap:8px 20px}
+.ccx-gcell{display:flex; flex-direction:column; align-items:center; gap:3px; flex:0 0 auto; min-width:96px}
+.ccx-gcell .sdonut-cap{text-transform:uppercase; letter-spacing:.08em}
+.ccx-gcell .sdonut-note{text-transform:uppercase; letter-spacing:.06em}
+.ccx-ghint{font-family:var(--font-ui); font-size:9.5px; line-height:1.3; color:var(--muted); text-align:center; max-width:120px}
+.ccx-gnet{display:flex; flex-direction:column; justify-content:center; gap:9px; margin-left:auto; padding-left:20px; border-left:1px solid var(--hairline); min-width:158px}
+.ccx-gnet-row{display:flex; align-items:baseline; gap:10px}
+.ccx-gnet-n{font-family:${MONO}; font-size:40px; font-weight:600; line-height:.9; color:${AXIS_HEX.v}; font-variant-numeric:tabular-nums}
+.ccx-gnet-lab{display:flex; flex-direction:column; gap:2px}
+.ccx-gnet-lab .k{font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink)}
+.ccx-gnet-lab .d{font-family:${MONO}; font-size:10px; color:var(--muted)}
+.ccx-gnet-eff{font-family:var(--font-ui); font-size:10.5px; color:var(--muted); padding-top:8px; border-top:1px solid var(--hairline)}
+.ccx-gnet-eff b{font-family:${MONO}; font-size:14px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; margin-right:5px}
+@media (max-width:600px){
+  .ccx-grow{justify-content:center}
+  .ccx-gnet{flex-direction:row; align-items:baseline; gap:16px; width:100%; margin-left:0; padding-left:0; border-left:0; padding-top:10px; border-top:1px solid var(--hairline)}
+  .ccx-gnet-eff{padding-top:0; border-top:0; margin-left:auto}
+}
+`;
 
 export default function CinecodexPanel({ data, title, subscores, slug }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null }) {
   if (!data) return null;
