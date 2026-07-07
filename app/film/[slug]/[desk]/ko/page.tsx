@@ -174,7 +174,7 @@ export default async function DeskEssayKoPage({ params }: Props) {
         <article className="essay">
           <div className="essay-kicker">
             <span className="essay-chip">
-              <Link href="/blog/curious" style={{ color: "inherit", textDecoration: "none" }}>
+              <Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>
                 Curious
               </Link>
               {" · "}
