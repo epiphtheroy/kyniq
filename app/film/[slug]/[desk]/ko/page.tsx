@@ -6,6 +6,11 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
+import ReadHero from "@/components/read/ReadHero";
+import ReadPlates from "@/components/read/ReadPlates";
+import { filmBackdropPaths, pickStills, injectFigures } from "@/lib/read-media";
+import "@/app/curious/curious.css";
+import "../../read.css";
 import { pageRobots } from "@/lib/seo";
 import {
   DESKS,
@@ -55,9 +60,9 @@ async function loadUncached(slug: string, deskKey: string) {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, visible")
+    .select("id, title, slug, year, visible, backdrop_path, poster_path, tmdb_id")
     .eq("slug", slug)
-    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; visible: boolean }>();
+    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; visible: boolean; backdrop_path: string | null; poster_path: string | null; tmdb_id: number | null }>();
   if (!film || !film.visible) return null;
 
   const { data: essay } = await supabase
@@ -81,20 +86,36 @@ async function loadUncached(slug: string, deskKey: string) {
     }>();
   if (!essay || !essay.body_md) return null;
 
-  const { data: modeRows } = await supabase
-    .from("essays")
-    .select("mode")
-    .eq("film_id", film.id)
-    .eq("lang", "ko")
-    .eq("status", "verified");
+  const [{ data: modeRows }, { data: vidRows }] = await Promise.all([
+    supabase
+      .from("essays")
+      .select("mode")
+      .eq("film_id", film.id)
+      .eq("lang", "ko")
+      .eq("status", "verified"),
+    supabase
+      .from("media")
+      .select("kind, external_id, title")
+      .eq("entity_type", "film")
+      .eq("entity_id", film.id)
+      .eq("status", "published")
+      .eq("kind", "video")
+      .order("position"),
+  ]);
   const koModes = new Set((modeRows ?? []).map((r) => r.mode));
   const otherDesks = DESK_KEYS.filter((k) => k !== desk.key && koModes.has(DESKS[k].mode));
 
   const dict = await loadDict();
   const html = linkifyEntities(essayMdToHtml(essay.body_md), dict);
 
+  const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[]).filter((v) => v.external_id);
+  const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
+  const videos = [...vids.filter((v) => !isTrailerTitle(v.title)), ...vids.filter((v) => isTrailerTitle(v.title))]
+    .map((v) => ({ id: v.external_id as string, title: v.title ?? "" }));
+
   return {
-    film: { title: film.title, slug: film.slug, year: film.year },
+    film: { title: film.title, slug: film.slug, year: film.year, backdrop_path: film.backdrop_path, poster_path: film.poster_path, tmdb_id: film.tmdb_id },
+    videos,
     essay: {
       title: mdToPlain(essay.title),
       dek: essay.dek ? mdToPlain(essay.dek) : null,
@@ -111,7 +132,8 @@ async function loadUncached(slug: string, deskKey: string) {
 function load(slug: string, deskKey: string) {
   return unstable_cache(
     () => loadUncached(slug, deskKey),
-    ["desk-essay-ko-4", slug, deskKey],
+    // v5: payload gained film art/tmdb_id + hero videos (2026-07-08 redesign)
+    ["desk-essay-ko-5", slug, deskKey],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }
