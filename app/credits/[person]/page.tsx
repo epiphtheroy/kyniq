@@ -298,125 +298,101 @@ export default async function CrewPersonPage({ params }: Props) {
 
         {(() => {
           const facts = careerFacts(crafts);
-          if (!facts) return null;
           const role = CRAFTS[mainCraft].role.toLowerCase();
-          const startAge = p.birthday && facts.first ? facts.first - Number(p.birthday.slice(0, 4)) : null;
-          const collabs = company.filter((d) => d.n >= 2).slice(0, 5).map((d) => {
-            const their = cat.filter((f) => isRead(f) && f.director === d.name && f.year).sort((a, b) => (a.year ?? 0) - (b.year ?? 0));
-            return { ...d, first: their[0], last: their[their.length - 1] };
-          });
+          const VERB: Record<string, string> = { writer: "wrote", dp: "shot", editor: "cut", composer: "scored", pd: "designed" };
+          const verb = VERB[mainCraft] ?? "made";
+          const startAge = facts && p.birthday && facts.first ? facts.first - Number(p.birthday.slice(0, 4)) : null;
+          // Partnerships across the whole catalog, newest data model: per
+          // director, every catalog film with years — self excluded upstream.
+          const byName = new Map<string, CatFilm[]>();
+          for (const f of cat) {
+            if (!f.director || f.director === p.name) continue;
+            byName.set(f.director, [...(byName.get(f.director) ?? []), f]);
+          }
+          const partnerships = [...byName.entries()]
+            .map(([name, films]) => ({
+              name,
+              slug: films.find((f) => f.director_slug)?.director_slug ?? null,
+              films: [...films].sort((a, b) => (a.year ?? 0) - (b.year ?? 0)),
+            }))
+            .sort((a, b) => b.films.length - a.films.length || a.name.localeCompare(b.name));
+          const multi = partnerships.filter((x) => x.films.length >= 2);
+          const singles = partnerships.filter((x) => x.films.length === 1 && isRead(x.films[0]));
+
+          const Bullet = ({ pr }: { pr: (typeof multi)[number] }) => {
+            const years = pr.films.map((f) => f.year).filter(Boolean) as number[];
+            const span = years.length > 1 && Math.min(...years) !== Math.max(...years) ? `${Math.min(...years)}–${Math.max(...years)}` : years[0] ? String(years[0]) : "";
+            const shown = pr.films.slice(0, 4);
+            return (
+              <li style={{ margin: "0 0 10px" }}>
+                <b>{p.name}</b> {verb} <b>{pr.films.length}</b> film{pr.films.length === 1 ? "" : "s"} for{" "}
+                {pr.slug ? <Link href={`/director/${pr.slug}`}><b>{pr.name}</b></Link> : <b>{pr.name}</b>}
+                {span ? ` (${span})` : ""}:{" "}
+                {shown.map((f, i) => (
+                  <span key={f.slug}>
+                    {i > 0 ? ", " : ""}
+                    <Link href={`/film/${f.slug}`}>{f.title}</Link>
+                    {f.year ? ` (${f.year})` : ""}
+                  </span>
+                ))}
+                {pr.films.length > shown.length ? `, and ${pr.films.length - shown.length} more` : ""}.
+              </li>
+            );
+          };
+
           return (
-            <section style={{ margin: "22px 0" }}>
-              {/* At a glance — always visible; the full analysis unfolds below. */}
-              <p style={{ fontSize: 15.5, lineHeight: 1.65, maxWidth: "72ch", margin: "0 0 10px" }}>
-                <b>At a glance.</b> {facts.dated} dated credit{facts.dated === 1 ? "" : "s"} across{" "}
-                {facts.decades.length} decade{facts.decades.length === 1 ? "" : "s"}, from{" "}
-                <FilmRef f={facts.firstFilm} catByTmdb={catByTmdb} /> to <FilmRef f={facts.lastFilm} catByTmdb={catByTmdb} />
-                {startAge && startAge > 10 && startAge < 80 ? <> — a career begun at {startAge}</> : null}.
-                The {facts.peak[0]}s were the densest stretch: <b>{facts.peak[1].length}</b> of the {facts.dated} credits.
-                {collabs[0] ? <> The defining partnership in our catalog: <b>{collabs[0].name}</b>, {collabs[0].n} films together.</> : null}
-              </p>
+            <>
+              {facts ? (
+                <p style={{ fontSize: 15.5, lineHeight: 1.65, maxWidth: "72ch", margin: "22px 0 10px" }}>
+                  <b>At a glance.</b> {facts.dated} dated credit{facts.dated === 1 ? "" : "s"} across{" "}
+                  {facts.decades.length} decade{facts.decades.length === 1 ? "" : "s"}, from{" "}
+                  <FilmRef f={facts.firstFilm} catByTmdb={catByTmdb} /> to <FilmRef f={facts.lastFilm} catByTmdb={catByTmdb} />
+                  {startAge && startAge > 10 && startAge < 80 ? <> — a career begun at {startAge}</> : null}.
+                  The {facts.peak[0]}s were the densest stretch: <b>{facts.peak[1].length}</b> of the {facts.dated} credits.
+                  {multi[0] ? <> The defining partnership: <b>{multi[0].name}</b>, {multi[0].films.length} films together.</> : null}
+                </p>
+              ) : null}
 
-              <details className="crd-more">
-                <summary>The full analysis — every number, spelled out</summary>
-                <div style={{ padding: "14px 2px 4px", lineHeight: 1.7, fontSize: 15 }}>
-                  <h3 style={{ fontSize: 16, margin: "0 0 6px" }}>The career, decade by decade</h3>
-                  <table style={{ borderCollapse: "collapse", width: "100%", maxWidth: 640, fontSize: 14.5 }}>
-                    <thead>
-                      <tr style={{ textAlign: "left", borderBottom: "2px solid #16233F" }}>
-                        <th style={{ padding: "6px 10px 6px 0" }}>Decade</th>
-                        <th style={{ padding: "6px 10px" }}>Credits</th>
-                        <th style={{ padding: "6px 0" }}>Among them</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {facts.decades.map(([d, films]) => {
-                        const notable = [...films].sort((a, b) => Number(!!catByTmdb.get(b.id)) - Number(!!catByTmdb.get(a.id)) || a.year - b.year).slice(0, 2);
-                        return (
-                          <tr key={d} style={{ borderBottom: "1px solid rgba(22,35,63,.12)", verticalAlign: "top" }}>
-                            <td style={{ padding: "6px 10px 6px 0", whiteSpace: "nowrap" }}><b>{d}s</b></td>
-                            <td style={{ padding: "6px 10px" }}>{films.length}</td>
-                            <td style={{ padding: "6px 0" }}>
-                              {notable.map((f, i) => <span key={f.id}>{i > 0 ? " · " : ""}<FilmRef f={f} catByTmdb={catByTmdb} /></span>)}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                  <p style={{ fontSize: 12.5, opacity: 0.65, margin: "6px 0 16px" }}>
-                    How to read this: dated {role} credits from the TMDB filmography, grouped by release decade;
-                    &ldquo;among them&rdquo; prefers films that are in the Metatake catalog (linked).
+              {(multi.length > 0 || singles.length > 0) && (
+                <section style={{ margin: "26px 0" }}>
+                  <h2 className="df-h2">The collaborations, counted</h2>
+                  <p className="df-sub">
+                    Every partnership on file in the Metatake catalog, {role}-side — counted from our film records,
+                    so the true totals may run larger. Analysis by Metatake; filmography via TMDB.
                   </p>
-
-                  {collabs.length > 0 ? (
-                    <>
-                      <h3 style={{ fontSize: 16, margin: "14px 0 6px" }}>The collaborations, counted</h3>
-                      {collabs.map((d) => (
-                        <p key={d.name} style={{ margin: "0 0 8px" }}>
-                          With {d.slug ? <Link href={`/director/${d.slug}`}><b>{d.name}</b></Link> : <b>{d.name}</b>}:{" "}
-                          {d.n} film{d.n === 1 ? "" : "s"} in the catalog
-                          {d.first && d.last && d.first !== d.last ? (
-                            <> across {d.first.year}–{d.last.year}, from <Link href={`/film/${d.first.slug}`}>{d.first.title}</Link> to <Link href={`/film/${d.last.slug}`}>{d.last.title}</Link></>
-                          ) : d.first ? (
-                            <> — <Link href={`/film/${d.first.slug}`}>{d.first.title}</Link>{d.first.year ? ` (${d.first.year})` : ""}</>
-                          ) : null}
-                          .
-                        </p>
-                      ))}
-                      <p style={{ fontSize: 12.5, opacity: 0.65, margin: "6px 0 16px" }}>
-                        Counted across closely-read catalog films only — the real filmography together may be larger.
-                      </p>
-                    </>
-                  ) : null}
-
-                  <h3 style={{ fontSize: 16, margin: "14px 0 6px" }}>Where the work lives on Metatake</h3>
-                  <p style={{ margin: 0 }}>
-                    {readN} of {p.name}&apos;s films are read closely — figures, Strong Misreadings and Q&amp;A behind
-                    each — and {cat.length - readN > 0 ? `${cat.length - readN} more sit in the catalog awaiting a close read` : "the rest of the filmography is tracked in the catalog"}.
-                    {crafts.length > 1 ? <> Beyond {role}, the file also holds {crafts.slice(1).map((c, i) => <span key={c.key}>{i > 0 ? " and " : ""}{c.films.length} credit{c.films.length === 1 ? "" : "s"} as {CRAFTS[c.key].role.toLowerCase()}</span>)}.</> : null}
-                  </p>
-                </div>
-              </details>
-            </section>
+                  <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.65, fontSize: 15, maxWidth: "76ch" }}>
+                    {multi.slice(0, 10).map((pr) => <Bullet key={pr.name} pr={pr} />)}
+                  </ul>
+                  {(multi.length > 10 || singles.length > 0) && (
+                    <details className="crd-more" style={{ marginTop: 10 }}>
+                      <summary>Every partnership, spelled out</summary>
+                      <div style={{ padding: "12px 2px 8px" }}>
+                        {multi.length > 10 ? (
+                          <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.65, fontSize: 15, maxWidth: "76ch" }}>
+                            {multi.slice(10).map((pr) => <Bullet key={pr.name} pr={pr} />)}
+                          </ul>
+                        ) : null}
+                        {singles.length > 0 ? (
+                          <p style={{ margin: multi.length > 10 ? "10px 0 0" : 0, lineHeight: 1.8, fontSize: 15, maxWidth: "76ch" }}>
+                            One film apiece:{" "}
+                            {singles.slice(0, 12).map((pr, i) => (
+                              <span key={pr.name}>
+                                {i > 0 ? " · " : ""}
+                                with {pr.slug ? <Link href={`/director/${pr.slug}`}>{pr.name}</Link> : pr.name}{" "}
+                                (<Link href={`/film/${pr.films[0].slug}`}>{pr.films[0].title}</Link>{pr.films[0].year ? `, ${pr.films[0].year}` : ""})
+                              </span>
+                            ))}
+                            .
+                          </p>
+                        ) : null}
+                      </div>
+                    </details>
+                  )}
+                </section>
+              )}
+            </>
           );
         })()}
-
-        {repertory.length > 0 && (
-          <section style={{ margin: "26px 0" }}>
-            <h2 className="df-h2">The company they keep</h2>
-            <p className="df-sub">Directors this {CRAFTS[mainCraft].role.toLowerCase()} keeps returning to, counted across the Metatake catalog.</p>
-            <div className="rcp-list">
-              {repertory.map((d) => (
-                <div key={d.name} className="rcp-row">
-                  {d.slug ? <Link className="rcp-h" href={`/director/${d.slug}`}>{d.name}</Link> : <span className="rcp-h">{d.name}</span>}
-                  <div className="rcp-m">{d.n} films together</div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {cat.length > 0 && (
-          <section style={{ margin: "26px 0" }}>
-            <h2 className="df-h2">In the Metatake catalog</h2>
-            <p className="df-sub">
-              {readN > 0 ? `${readN} of their films read closely — figures, strong misreadings and Q&A behind each link.` : ""}
-              {cat.length > readN ? `${readN > 0 ? " " : ""}${cat.length - readN} more in the catalog, not yet read closely — marked “catalog”.` : ""}
-            </p>
-            <div className="rcp-list">
-              {[...cat].sort((a, b) => (b.year ?? 0) - (a.year ?? 0)).map((f) => (
-                <div key={f.slug} className="rcp-row">
-                  <Link className="rcp-h" href={`/film/${f.slug}`}>
-                    {f.title}{f.year ? ` (${f.year})` : ""}
-                    {!isRead(f) && <span className="t2-chip">catalog</span>}
-                  </Link>
-                  <div className="rcp-m">{f.director ? `dir. ${f.director}` : ""}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
 
         {crafts.map((c) => (
           <section key={c.key} style={{ margin: "26px 0" }}>
