@@ -117,7 +117,7 @@ function leadSentence(name: string, native: string | null, crafts: { key: CraftK
     `${name}${native ? ` (${native})` : ""} — ${role.toLowerCase()}${crafts.length > 1 ? ` and ${crafts.slice(1).map((c) => CRAFTS[c.key].role.toLowerCase()).join(", ")}` : ""}, ${main.films.length} feature credit${main.films.length === 1 ? "" : "s"}${span ? ` (${span})` : ""}.`,
   ];
   const read = cat.filter(isRead).length;
-  if (read) parts.push(`${read} of them are read closely on Metatake${topDirector && topDirector.n >= 2 ? ` — including ${topDirector.n} with ${topDirector.name}` : ""}.`);
+  if (read) parts.push(`${read} of them are read closely on Metatake.`);
   return parts.join(" ");
 }
 
@@ -163,10 +163,12 @@ async function load(personSlug: string) {
   if (!crafts.length) return null; // not a key-craft person → no read page
   const allIds = [...new Set(crafts.flatMap((c) => c.films.map((f) => f.id)))];
   const cat = await catalogFilms(allIds);
-  // Repertory company — directors they keep working with, from OUR closely-read rows.
+  // Partnerships — directors they keep working with, counted across the WHOLE
+  // Metatake catalog (both tiers). Self-collaborations excluded (a director-
+  // writer is not "collaborating with" themselves).
   const byDir = new Map<string, { name: string; slug: string | null; n: number }>();
-  for (const f of cat.filter(isRead)) {
-    if (!f.director) continue;
+  for (const f of cat) {
+    if (!f.director || f.director === p.name) continue;
     const cur = byDir.get(f.director) ?? { name: f.director, slug: f.director_slug, n: 0 };
     cur.n += 1;
     byDir.set(f.director, cur);
