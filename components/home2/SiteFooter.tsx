@@ -38,7 +38,8 @@ export default function SiteFooter() {
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/guidelines">Community guidelines</Link>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog">The Daily</Link>
+            <Link href="/curious">Curious</Link>
           </div>
           <div className="fcol">
             <h4>Legal</h4>

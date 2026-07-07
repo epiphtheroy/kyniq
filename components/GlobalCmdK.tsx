@@ -40,7 +40,8 @@ const PAGES: { label: string; href: string }[] = [
   { label: "Surprise me", href: "/random" },
   { label: "My Room", href: "/room" },
   { label: "Ask metatake AI", href: "/ask" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blog — The Daily", href: "/blog" },
+  { label: "Curious", href: "/curious" },
 ];
 
 type Row =

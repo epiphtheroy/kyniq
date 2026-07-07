@@ -18,6 +18,7 @@ import crewIndex from "@/lib/crew_index.json";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
+import { DESKS, DESK_KEYS } from "@/lib/desks";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -74,7 +75,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/catalog` },
     { url: `${siteUrl}/theorist` },
     { url: `${siteUrl}/blog` },
-    { url: `${siteUrl}/blog/curious` },
+    { url: `${siteUrl}/curious` },
     { url: `${siteUrl}/concept` },
     { url: `${siteUrl}/director` },
     { url: `${siteUrl}/genre` },
@@ -94,6 +95,18 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
   // editorial hubs; no lastmod (no content-event source).
   for (const d of CODEX_DIMS) {
     entries.push({ url: `${siteUrl}${takescoreDimUrl(d.slug)}` });
+  }
+  // Curious desk sub-indexes (/curious/[desk]) — only desks that actually
+  // have verified essays (empty desks 404, and a 404 in the sitemap erodes
+  // trust). One cheap head-count per desk.
+  for (const k of DESK_KEYS) {
+    const { count } = await db()
+      .from("essays")
+      .select("id", { count: "exact", head: true })
+      .eq("mode", DESKS[k].mode)
+      .eq("lang", "en")
+      .eq("status", "verified");
+    if ((count ?? 0) > 0) entries.push({ url: `${siteUrl}/curious/${k}` });
   }
   // Blog editions — edition_date is the publish date (slugs ARE dates).
   const { data: posts } = await db()
