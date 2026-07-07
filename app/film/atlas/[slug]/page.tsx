@@ -206,7 +206,7 @@ export default async function FilmLocationsPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { film, pins, directorHasLocations, hubCountrySlugs } = data;
+  const { film, pins, videos, directorHasLocations, hubCountrySlugs } = data;
   const hubCountries = new Set(hubCountrySlugs);
   const filmed = sortPins(pins.filter((p) => p.layer === "filmed"));
   const setting = sortPins(pins.filter((p) => p.layer === "setting"));
@@ -269,71 +269,41 @@ export default async function FilmLocationsPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
-      <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 60px" }}>
-        <div className="df-crumb" style={{ marginBottom: 14 }}>
-          <Link href="/film">Films</Link>
-          {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
-          <span className="df-sep">›</span><Link href={`/film/${film.slug}`}>{film.title}</Link>
-          <span className="df-sep">›</span><span>Locations</span>
-        </div>
-
-        <header style={{ display: "flex", gap: 22, alignItems: "flex-start", marginBottom: 8 }}>
-          {film.poster_path ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <Link href={`/film/${film.slug}`} style={{ flexShrink: 0 }}>
-              <img src={`${IMG}/w185${film.poster_path}`} alt={`${film.title} poster`} width={110} height={165} style={{ borderRadius: 8, objectFit: "cover" }} loading="lazy" />
-            </Link>
-          ) : null}
-          <div>
-            <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>
-              Where was {film.title}{yearLabel} filmed?
-            </h1>
-            <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
-            <p style={{ display: "flex", flexWrap: "wrap", gap: 10, margin: "14px 0 0" }}>
-              <a
-                href="#map"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "#16233F", color: "#FBF8F1", padding: "9px 18px", borderRadius: 999,
-                  fontSize: 14, fontWeight: 600, textDecoration: "none", boxShadow: "0 1px 0 rgba(0,0,0,.15)",
-                }}
-              >
-                <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
-                See all {pins.length} on the map ↓
-              </a>
-              <Link
-                href={`/film/${film.slug}`}
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  border: "1.5px solid #16233F", color: "inherit", padding: "8px 17px", borderRadius: 999,
-                  fontSize: 14, fontWeight: 600, textDecoration: "none",
-                }}
-              >
-                ← {film.title} — the film page
-              </Link>
-            </p>
-          </div>
-        </header>
+      <ReadHero
+        film={{ title: film.title, slug: film.slug, year: film.year }}
+        crumbTail="On Location"
+        chip={<><Link href="/curious/locations" style={{ color: "inherit", textDecoration: "none" }}>On Location</Link>{" · "}fact-checked &amp; mapped</>}
+        meta={<>{pins.length} places · <a href="#map" style={{ color: "inherit", textDecoration: "underline" }}>see the map ↓</a> · data updated {updated}</>}
+        title={<>Where was {film.title}{yearLabel} filmed?</>}
+        dek={lead}
+        videos={videos}
+        backdropPath={film.backdrop_path}
+      />
+      <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 40px" }}>
+        <Byline created={updated} />
 
         {filmed.length > 0 && (
           <section style={{ margin: "28px 0" }}>
             <h2 className="df-h2">Filmed locations — {filmed.length} places</h2>
             <p className="df-sub">Where the cameras actually stood, from exact addresses down to city level.</p>
             {groupByCountry ? (
-              countries.map((c) => {
-                const rows = filmed.filter((p) => (p.country ?? "").trim() === c.name);
-                if (!rows.length) return null;
-                return (
-                  <div key={c.name} style={{ margin: "18px 0 6px" }}>
-                    <h3 style={{ fontSize: 14, letterSpacing: ".04em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 2px" }}>
-                      {c.name} — {rows.length} location{rows.length === 1 ? "" : "s"}
-                    </h3>
-                    {rows.map((p) => <LocationItem key={p.id} p={p} />)}
-                  </div>
-                );
-              })
+              (() => {
+                let n = 0;
+                return countries.map((c) => {
+                  const rows = filmed.filter((p) => (p.country ?? "").trim() === c.name);
+                  if (!rows.length) return null;
+                  return (
+                    <div key={c.name} style={{ margin: "18px 0 6px" }}>
+                      <h3 style={{ fontSize: 14, letterSpacing: ".04em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 2px" }}>
+                        {c.name} — {rows.length} location{rows.length === 1 ? "" : "s"}
+                      </h3>
+                      {rows.map((p) => { n += 1; return <LocationItem key={p.id} p={p} n={n} />; })}
+                    </div>
+                  );
+                });
+              })()
             ) : (
-              filmed.map((p) => <LocationItem key={p.id} p={p} />)
+              filmed.map((p, i) => <LocationItem key={p.id} p={p} n={i + 1} />)
             )}
           </section>
         )}
@@ -342,7 +312,7 @@ export default async function FilmLocationsPage({ params }: Props) {
           <section style={{ margin: "28px 0" }}>
             <h2 className="df-h2">The world it pretends to be</h2>
             <p className="df-sub">Places the story claims as its world — distinct from where the cameras stood.</p>
-            {setting.map((p) => <LocationItem key={p.id} p={p} />)}
+            {setting.map((p, i) => <LocationItem key={p.id} p={p} n={filmed.length + i + 1} />)}
           </section>
         )}
 
@@ -366,10 +336,19 @@ export default async function FilmLocationsPage({ params }: Props) {
           </p>
         </section>
 
-        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
-          Metatake Editorial · Location data researched, compiled and geolocated by Metatake — sources cited per location where on file · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
-        </p>
+        <aside style={{ margin: "34px 0 0", padding: "16px 18px", borderLeft: "3px solid #c0392b", background: "rgba(22,35,63,.04)", borderRadius: "0 6px 6px 0" }}>
+          <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65 }}>
+            <b>How this was researched.</b> Every location above was compiled from cited sources — production
+            notes, interviews, local press — then geocoded and graded for precision (exact spot → venue → area →
+            city). Built sets are flagged as sets, and the world the story <em>claims</em> is kept separate from
+            where the cameras stood. Sources are cited per location where on file; the dataset is corrected on
+            an ongoing basis. <Link href="/methodology#atlas">Read the full methodology →</Link>
+          </p>
+        </aside>
+        <Provenance created={updated} />
       </div>
+
+      <ReadPlates slug={film.slug} exclude="locations" />
     </div>
   );
 }
