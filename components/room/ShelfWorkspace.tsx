@@ -301,7 +301,9 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
               const o = ov(r);
               const href = publicHref(r);
               return (
-                <div key={keyOf(r)} className={`sh-card${selKey === keyOf(r) ? " sel" : ""}`} style={{ borderLeftColor: col }} onClick={() => openDetail(r)}>
+                <div key={keyOf(r)} className={`sh-card${selKey === keyOf(r) ? " sel" : ""}`} style={{ borderLeftColor: col }}
+                  role="button" tabIndex={0} onClick={() => openDetail(r)}
+                  onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); openDetail(r); } }}>
                   <div className="sh-ttag" style={{ color: col }}>
                     <i className={`ti ${TYPES[tk].i} tyi`} />{TYPES[tk].l}
                     <span className={`sh-pubpill${o.pub ? " pub" : ""}`} role="switch" aria-checked={o.pub} tabIndex={0}

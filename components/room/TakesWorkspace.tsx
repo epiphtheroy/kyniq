@@ -359,7 +359,9 @@ export default function TakesWorkspace({ takes }: { takes: TakeRow[] }) {
           </div>
           <div className="nlitems">
             {listItems.length ? listItems.map((it) => (
-              <div key={it.id} className={`li${it.id === curId ? " on" : ""}`} onClick={() => selectItem(it.id, it.real)}>
+              <div key={it.id} className={`li${it.id === curId ? " on" : ""}`}
+                role="button" tabIndex={0} onClick={() => selectItem(it.id, it.real)}
+                onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); selectItem(it.id, it.real); } }}>
                 <div className="lt">{it.title}</div>
                 <div className="sn">{it.snippet || "…"}</div>
                 <div className="lm">
