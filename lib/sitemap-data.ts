@@ -9,6 +9,7 @@ import {
   INDEX_COHORT_FILM_LOCATIONS,
   INDEX_COHORT_FILM_HONORS,
   INDEX_COHORT_ESSAYS,
+  INDEX_COHORT_MISREADINGS,
 } from "@/lib/seo";
 import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
 import { cachedLineageEligibility } from "@/lib/lineage";
@@ -153,6 +154,28 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
     out.push({ url, lastmod: isoDate(r.published_at ?? r.created_at) });
   }
   return out;
+}
+
+/**
+ * /film/[slug]/misreadings articles (added 2026-07-07) — every analyzed film's
+ * Strong Misreadings assembled as one article (9–15 readings each, LLM-free).
+ * Oldest-first + cap so raising the cohort only appends URLs. The index hub is
+ * /curious/misreadings (in coreEntries via the curious section).
+ */
+export async function misreadingsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const films = await fetchAll<{ slug: string; created_at: string; last_processed_at: string | null }>(
+    (from, to) =>
+      supabase.from("films").select("slug, created_at, last_processed_at")
+        .eq("visible", true).eq("is_analyzed", true)
+        .order("created_at", { ascending: true }).range(from, to),
+    INDEX_COHORT_MISREADINGS
+  );
+  return films.map((f) => ({
+    url: `${siteUrl}/film/${f.slug}/misreadings`,
+    lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
+  }));
 }
 
 /** Films — every visible film. */
