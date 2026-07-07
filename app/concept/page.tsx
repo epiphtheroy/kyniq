@@ -54,6 +54,15 @@ export default async function ConceptIndex() {
           see every film that stages it. (Paired with the <Link href="/theorist">theorists</Link> who think them and
           the <Link href="/tradition">traditions</Link> they belong to.)
         </p>
+        <p style={{ margin: "12px 0 0", fontSize: 14 }}>
+          Browse the full theory registry by domain:{" "}
+          {["politics","criticism","economics","culture","society","psychology","family","art","medicine","management","law","history","nature","literature"].map((d, i) => (
+            <span key={d}>
+              {i > 0 && <span style={{ opacity: 0.4 }}> · </span>}
+              <Link href={`/concept/domain/${d}`} style={{ textTransform: "capitalize" }}>{d}</Link>
+            </span>
+          ))}
+        </p>
         <LensQuickBar />
         <MineEntityIndex kind="concepts" hrefBase="/concept/" noun="concepts" />
         <div className="th-grid mtl-swap-out">
