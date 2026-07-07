@@ -62,7 +62,11 @@ const compOf = (c: string | CompFilm): CompFilm =>
   typeof c === "string" ? { title: c, slug: null, poster_path: null } : c;
 
 async function loadUncached(slug: string): Promise<Card | null> {
-  const { data } = await db().rpc("cinecodex_card", { p_slug: slug });
+  const { data, error } = await db().rpc("cinecodex_card", { p_slug: slug });
+  // THROW on transport/RPC errors — a thrown error is NOT stored by
+  // unstable_cache, so a transient failure can never be cached as a
+  // permanent "unscored" null (which 404s the page for a whole window).
+  if (error) throw new Error(`cinecodex_card(${slug}): ${error.message}`);
   const card = data as Card | null;
   // The RPC returns null/empty json for unscored films — treat both as a miss.
   if (!card || !card.slug || card.v == null || card.u == null) return null;
@@ -71,11 +75,16 @@ async function loadUncached(slug: string): Promise<Card | null> {
 
 // Per-slug Data Cache entry so the route edge-caches instead of hitting the
 // RPC per request (same pattern and reasoning as the film page's load()).
-function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["takescore-film-card1", slug], {
+async function load(slug: string) {
+  const cached = await unstable_cache(() => loadUncached(slug), ["takescore-film-card1", slug], {
     revalidate: 300,
     tags: [`takescore-film:${slug}`],
-  })();
+  })().catch(() => null);
+  if (cached) return cached;
+  // A cached null may be a poisoned entry from the pre-throw era (or the SWR
+  // refresh aborted by notFound()). Double-check uncached before 404ing —
+  // genuinely unscored films still miss, at one extra RPC on the rare 404 path.
+  return loadUncached(slug).catch(() => null);
 }
 
 const trim155 = (s: string) => (s.length <= 155 ? s : `${s.slice(0, 152).replace(/\s+\S*$/, "")}…`);
