@@ -83,7 +83,7 @@ export default async function TheoristPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { name, blurb, readings } = data;
+  const { name, blurb, readings, desks } = data;
 
   // Person + BreadcrumbList JSON-LD (trope-page inline pattern). sameAs anchors
   // the theorist to Wikidata when the slug has a machine-verified QID
@@ -142,6 +142,20 @@ export default async function TheoristPage({ params }: Props) {
             );
           })}
         </div>
+        {desks.length > 0 && (
+          <section style={{ margin: "34px 0 0" }} id="theorist-desks">
+            <h2 className="cmap-h2">From the desks — essays that cite {name}</h2>
+            <ul className="essay-desklist" style={{ marginTop: 10 }}>
+              {desks.map((d) => (
+                <li key={`${d.film_slug}/${d.desk_key}`}>
+                  <Link href={`/film/${d.film_slug}/${d.desk_key}`}>
+                    {d.film_title}{d.film_year ? ` (${d.film_year})` : ""} — {d.essay_title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         <p className="th-foot"><Link href="/theorist">← All theorists</Link></p>
       </div>
     </div>
