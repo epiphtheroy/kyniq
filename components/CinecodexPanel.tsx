@@ -303,15 +303,24 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
 
       <ValuePop v={data.v} votes={data.votes} />
 
-      {conf != null ? (
-        <div className={`ccx-cf ${tierClass}`}>
-          <div className="ccx-cf-head">
-            <span className="ccx-cf-lbl">Confidence</span>
-            <span className="ccx-cf-tier">{tier}</span>
-            <span className="ccx-cf-pct">{conf}<i>/100</i></span>
+      {/* Where it ranks — overall position by TakeScore among all scored films.
+          Real numbers from the RPC or nothing; confidence now lives in the
+          df-src disclosure footer below. */}
+      {hasRank ? (
+        <div className="ccx-rank">
+          <div className="ccx-rank-head">
+            <span className="ccx-rank-lbl">Where it ranks</span>
+            <span className="ccx-rank-n">#{rank.toLocaleString("en-US")} of {rankTotal.toLocaleString("en-US")} by TakeScore</span>
+            <span className="ccx-rank-pct">{rankShare}</span>
           </div>
-          <Bar v={conf} tone="ccx-cf-fill" />
-          <p className="ccx-cf-note">How well-grounded this score is — {evidence}. A measured reliability, not a claim of certainty.</p>
+          <div className="ccx-rank-track" aria-hidden="true">
+            <span>#1</span>
+            <span className="ccx-rank-bar">
+              <span className="ccx-rank-mark" style={{ left: `clamp(16px, ${rankPos}%, calc(100% - 16px))` }}>#{rank.toLocaleString("en-US")}</span>
+              <i style={{ left: `${rankPos}%` }} />
+            </span>
+            <span>#{rankTotal.toLocaleString("en-US")}</span>
+          </div>
         </div>
       ) : null}
 
@@ -336,9 +345,9 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
           ) : null}
         </div>
         <div className="ccx-cols">
-          <div><div className="ccx-gl ccx-glv">Value</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" pct={subscores?.pct} total={subscores?.total_scored} /></div>
-          <div><div className="ccx-gl ccx-glc">Cost</div><Sub names={COST} sub={data.sub} tone="ccx-c" pct={subscores?.pct} total={subscores?.total_scored} /></div>
-          <div><div className="ccx-gl ccx-glr">Risk</div><Sub names={RISK} sub={data.sub} tone="ccx-r" pct={subscores?.pct} total={subscores?.total_scored} /></div>
+          <div><div className="ccx-gl ccx-glv">Value</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" rich={!!subscores} /></div>
+          <div><div className="ccx-gl ccx-glc">Cost</div><Sub names={COST} sub={data.sub} tone="ccx-c" rich={!!subscores} /></div>
+          <div><div className="ccx-gl ccx-glr">Risk</div><Sub names={RISK} sub={data.sub} tone="ccx-r" rich={!!subscores} /></div>
         </div>
       </div>
 
@@ -355,6 +364,9 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
         AI-estimated (Cinecodex rubric, {data.panel}{data.n_samples ? `, n=${data.n_samples}` : ""}
         {data.sd_v != null ? `, ±${Math.round(Number(data.sd_v))}` : ""}). A rubric-anchored judgment, not an objective fact;
         popularity metrics above are for comparison only.
+        {conf != null ? (
+          <> Confidence {tier ? `${tier} ` : ""}({conf}/100) — {evidence}. A measured reliability, not a claim of certainty.</>
+        ) : null}
       </div>
 
       {/* Exit to the film's standalone appraisal page (/takescore/film/[slug]) —
