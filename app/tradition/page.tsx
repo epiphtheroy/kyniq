@@ -3,32 +3,32 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import LensQuickBar from "@/components/LensQuickBar";
-import MineEntityIndex from "@/components/MineEntityIndex";
 
+/**
+ * Traditions index — the school-of-thought axis (unified taxonomy Major).
+ * 2026-07-08 rework: old per-canon "traditions" (which were really concepts)
+ * merged into /concept; this index now lists the real scholarly traditions.
+ */
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/tradition" },
   title: "Traditions — the schools of thought behind the readings",
   description:
-    "The scholarly traditions Metatake's Strong Misreadings lean on — the uncanny, the gaze, commodity fetishism, the state of exception and hundreds more — each linked to the films and the thinkers that carry it.",
+    "The scholarly traditions Metatake's readings draw from — psychoanalytic criticism, the Frankfurt School, post-structuralism and more — each gathering the concepts, thinkers and films that carry it.",
 };
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-type Row = { slug: string; title: string; sub_category: string | null; part: string | null; theorist: string | null; n: number };
-
-// Drop the trailing "(Domain)" tag for a cleaner display name; keep it as a muted hint.
-function clean(title: string): string {
-  return title.replace(/\s*\([^)]*\)\s*$/, "").trim() || title;
-}
+type Row = { slug: string; name: string; parts: string[] | null; concepts: number; films: number };
 
 export default async function TraditionIndex() {
-  const { data } = await db().rpc("canon_index", { p_limit: 600 });
-  const rows = (data as Row[] | null) ?? [];
-  const total = rows.reduce((s, r) => s + r.n, 0);
+  const { data } = await db().rpc("theory_schools_index");
+  const rows = ((data as Row[] | null) ?? []).filter((r) => r.slug);
+  const totalFilms = rows.reduce((s, r) => s + r.films, 0);
+  const totalConcepts = rows.reduce((s, r) => s + r.concepts, 0);
 
   return (
     <div className="mt">
@@ -39,21 +39,19 @@ export default async function TraditionIndex() {
         </div>
         <h1 className="lh-h1">Traditions</h1>
         <p className="lh-def">
-          The canonical theory a Strong Misreading leans on — the recognised school of thought behind the reading. These {rows.length}{" "}
-          traditions anchor {total.toLocaleString()} readings; open any to see every film that leans on it, and the{" "}
-          <Link href="/theorist">thinkers</Link> who carry it. (Paired with the looser <Link href="/concept">concepts</Link>{" "}
-          critics actually name.)
+          The schools of thought behind Metatake&rsquo;s readings — {rows.length} traditions organizing{" "}
+          {totalConcepts.toLocaleString()} <Link href="/concept">concepts</Link> and {totalFilms.toLocaleString()} film
+          readings. Open any to see the concepts that carry it and the films they illuminate.
         </p>
         <LensQuickBar />
-        <MineEntityIndex kind="traditions" hrefBase="/tradition/" noun="traditions" />
         <div className="th-grid mtl-swap-out">
           {rows.map((r) => (
             <Link className="th-row" href={`/tradition/${r.slug}`} key={r.slug}>
               <span className="th-name">
-                {clean(r.title)}
-                {r.theorist ? <span className="th-by"> — {r.theorist}</span> : null}
+                {r.name}
+                {r.parts && r.parts.length > 0 ? <span className="th-by"> — {r.parts.join(" · ")}</span> : null}
               </span>
-              <span className="th-n">{r.n}</span>
+              <span className="th-n">{r.films > 0 ? r.films : r.concepts}</span>
             </Link>
           ))}
         </div>
