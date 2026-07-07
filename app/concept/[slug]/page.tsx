@@ -286,6 +286,9 @@ export default async function ConceptPage({ params }: Props) {
         <div className="mt-wrap">
           <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
           <h1 className="th-h1">{tc.concept}{tc.native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.6em" }}> · {tc.native}</span> : null}</h1>
+          {desks.length >= 3 && (
+            <p className="th-sub">{listicle(tc.concept, theorists[0]?.name ?? null, desks).n} film{desks.length !== 1 ? "s" : ""} that can be read through <em>{tc.concept}</em> — the essays below put it to work.</p>
+          )}
           {(tc.part || tc.major) && (
             <p style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 0" }}>
               {[tc.part, tc.major, tc.sub].filter(Boolean).map((x) => (
@@ -334,7 +337,7 @@ export default async function ConceptPage({ params }: Props) {
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
         <h1 className="th-h1">{name}</h1>
-        <p className="th-sub">{readings.length} film{readings.length !== 1 ? "s" : ""} read through <em>{name}</em> — each a Strong Misreading that turns on this idea.</p>
+        <p className="th-sub">{listicle(name, null, [...readings, ...desks]).n} film{readings.length !== 1 ? "s" : ""} that can be read through <em>{name}</em> — each a Strong Misreading that turns on this idea.</p>
         {intro ? (
           <p className="body reading" style={{ fontSize: 17, margin: "14px 0 0", maxWidth: "68ch" }}>{intro}</p>
         ) : null}
