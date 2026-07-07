@@ -4685,10 +4685,11 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 @media (max-width: 560px) { .essay-h1 { font-size: 26px; } .essay-body { font-size: 15.5px; } }
 
 /* ── Concept card (명함) — theory entity header, terminology charter 2026-07-08 ── */
-/* Business-card aesthetic: laid-paper texture, engraved double rule, serif display. */
+/* Business-card aesthetic v2: keyword alone, centered, typewriter face,
+   wide tracking, generous whitespace. Laid-paper texture + engraved rule. */
 .ccard {
-  margin-top: 14px; position: relative;
-  padding: 24px 26px 20px;
+  margin-top: 14px; position: relative; text-align: center;
+  padding: 54px 30px 48px;
   border: 1px solid rgba(60,50,35,.28); border-radius: 12px;
   background-color: #faf7f0;
   background-image:
@@ -4696,20 +4697,21 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
     linear-gradient(160deg, rgba(255,255,255,.65), rgba(240,232,214,.35));
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.55), inset 0 0 0 5px #faf7f0, inset 0 0 0 6px rgba(60,50,35,.18), 0 1px 3px rgba(0,0,0,.08);
 }
-html.dark .ccard, [data-theme="dark"] .ccard {
-  background-color: #1d1b17;
-  background-image: linear-gradient(160deg, rgba(255,255,255,.03), transparent);
-  border-color: rgba(255,255,255,.18);
-  box-shadow: inset 0 0 0 5px #1d1b17, inset 0 0 0 6px rgba(255,255,255,.12);
+.ccard__kicker {
+  font-family: var(--font-ui); font-size: 10px; letter-spacing: .34em;
+  font-weight: 700; opacity: .48; text-transform: uppercase;
 }
-.ccard__kicker { font-family: var(--font-ui); font-size: 10.5px; letter-spacing: .22em; font-weight: 700; opacity: .5; text-transform: uppercase; }
-.ccard .th-h1 { margin: 8px 0 0; font-family: var(--font-display); letter-spacing: -0.01em; text-shadow: 0 1px 0 rgba(255,255,255,.5); }
-html.dark .ccard .th-h1 { text-shadow: none; }
-.ccard__tag { margin: 10px 0 0; font-size: 15.5px; max-width: 60ch; font-family: var(--font-body); font-style: italic; opacity: .85; }
-.ccard__meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; align-items: center; }
+.ccard .th-h1 {
+  margin: 22px 0 0;
+  font-family: "American Typewriter", "Courier Prime", "Courier New", ui-monospace, "SFMono-Regular", monospace;
+  font-weight: 600; letter-spacing: .07em; line-height: 1.18;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.ccard__native {
+  display: block; margin-top: 14px;
+  font-family: "American Typewriter", "Courier Prime", "Courier New", ui-monospace, monospace;
+  font-size: 14px; letter-spacing: .14em; opacity: .55;
+}
+/* Post-card meta row + corner line live OUTSIDE the card. */
+.cmeta { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; align-items: center; justify-content: flex-start; }
 .ccard__chip { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(60,50,35,.22); background: rgba(255,255,255,.5); }
-html.dark .ccard__chip { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.06); }
-.ccard__stat { position: absolute; top: 20px; right: 24px; text-align: right; }
-.ccard__stat b { display: block; font-family: var(--font-display); font-size: 26px; line-height: 1; }
-.ccard__stat span { font-family: var(--font-ui); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; opacity: .55; }
-@media (max-width: 560px) { .ccard__stat { position: static; margin-top: 12px; text-align: left; display: block; } }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityMap from "@/components/EntityMap";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
+import DeskExplorer, { type DeskLink } from "@/components/DeskExplorer";
 import { pageRobots } from "@/lib/seo";
 import { listicle } from "@/lib/listicle";
 
@@ -37,36 +38,18 @@ type Reading = {
   film_title: string; film_slug: string; film_year: number | null; backdrop_path: string | null;
 };
 
-type DeskLink = {
-  film_slug: string; film_title: string; film_year: number | null; backdrop_path: string | null;
-  desk_key: string; essay_title: string; excerpt: string | null; mode: string | null;
-};
-
-const DESK_META: Record<string, { label: string; color: string }> = {
-  decoder: { label: "Decoder", color: "#8A5A2B" },
-  theories: { label: "Fan Theories", color: "#5B4DAF" },
-  debates: { label: "Debates", color: "#B03A48" },
-  contested: { label: "Contested", color: "#8C3B6E" },
-  "reception-story": { label: "Reception", color: "#2E7D6B" },
-  "parallel-lives": { label: "Parallel Lives", color: "#3E6DB5" },
-  "field-test": { label: "Field Test", color: "#71701F" },
-  exegesis: { label: "Exegesis", color: "#4A4A8F" },
-};
-const deskMeta = (k: string) => DESK_META[k] ?? { label: "Essay", color: "#666" };
-const mdStrip = (s: string) => s.replace(/\*\*?|__|`/g, "").trim();
-
 async function fetchDeskEssays(supabase: ReturnType<typeof db>, slugs: string[]): Promise<DeskLink[]> {
   const seen = new Set<string>();
   const out: DeskLink[] = [];
   for (const s of [...new Set(slugs)]) {
     try {
-      const { data } = await supabase.rpc("concept_desk_essays", { p_slug: s, p_limit: 24 });
+      const { data } = await supabase.rpc("concept_desk_essays", { p_slug: s, p_limit: 48 });
       for (const d of ((data ?? []) as DeskLink[])) {
         const key = `${d.film_slug}/${d.desk_key}`;
         if (seen.has(key)) continue;
         seen.add(key);
         out.push(d);
-        if (out.length >= 12) return out;
+        if (out.length >= 36) return out;
       }
     } catch { /* enhancement only */ }
   }
@@ -162,34 +145,6 @@ function load(slug: string) {
     ["concept-unified-2", slug],
     { revalidate: 1800, tags: [`idea:${slug}`, `concept:${slug}`] },
   )();
-}
-
-/** Desk (curious) essays rendered with the same care as the readings: image + excerpt. */
-function DeskCards({ desks }: { desks: DeskLink[] }) {
-  return (
-    <div className="th-readings">
-      {desks.map((d) => {
-        const M = deskMeta(d.desk_key);
-        const href = `/film/${d.film_slug}/${d.desk_key}`;
-        return (
-          <article className="thr" key={`${d.film_slug}/${d.desk_key}`}>
-            {d.backdrop_path ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <Link href={href} className="thr-th"><img src={`${IMG}/w300${d.backdrop_path}`} alt="" loading="lazy" /></Link>
-            ) : null}
-            <div className="thr-body">
-              <div className="thr-top">
-                <span className="thr-fw" style={{ color: M.color }}>{M.label}</span>
-                <Link className="thr-film" href={`/film/${d.film_slug}`}>{d.film_title}{d.film_year ? ` (${d.film_year})` : ""}</Link>
-              </div>
-              <Link className="thr-title" href={href}>{mdStrip(d.essay_title)}</Link>
-              {d.excerpt ? <p className="thr-thesis">{mdStrip(d.excerpt)}</p> : null}
-            </div>
-          </article>
-        );
-      })}
-    </div>
-  );
 }
 
 function introDescription(intro: string): string {
