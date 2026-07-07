@@ -131,6 +131,7 @@ export const SOCIAL_PROFILES: string[] = [
 ];
 
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
+export const INDEX_COHORT_MISREADINGS = 2000; // /film/*/misreadings articles in sitemap (added 2026-07-07)
 export const INDEX_COHORT_TROPES = 1500; // /trope/* pages in sitemap
 export const INDEX_COHORT_FIGURES = 2000; // /film/*/figure/* pages in sitemap (added 2026-07-03)
 export const INDEX_COHORT_CREW = 1500; // /credits/* person pages in sitemap (added 2026-07-03)
