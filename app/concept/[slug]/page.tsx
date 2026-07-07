@@ -427,15 +427,7 @@ export default async function ConceptPage({ params }: Props) {
         {desks.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="concept-desks">
             <h2 className="cmap-h2">From the desks — essays that put {name} to work</h2>
-            <ul className="essay-desklist" style={{ marginTop: 10 }}>
-              {desks.map((d) => (
-                <li key={`${d.film_slug}/${d.desk_key}`}>
-                  <Link href={`/film/${d.film_slug}/${d.desk_key}`}>
-                    {d.film_title}{d.film_year ? ` (${d.film_year})` : ""} — {d.essay_title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <DeskCards desks={desks} />
           </section>
         )}
 
