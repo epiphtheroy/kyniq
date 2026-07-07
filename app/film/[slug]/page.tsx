@@ -891,26 +891,25 @@ export default async function FilmPage({ params }: Props) {
   const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
   const accessRec = accessRecordFor(film.tmdb_id);
 
-  // "At a glance" band — the vital record (left) and our own numbers (right).
-  const glanceFacts: GlanceFact[] = ([
-    film.director ? { k: "Director", v: film.director_slug ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : film.director } : null,
-    cast.length ? { k: "Starring", v: <>{cast.slice(0, 2).map((c) => c.name).join(", ")}{cast.length > 2 ? <span className="df-vital__more"> +{cast.length - 2}</span> : null}</> } : null,
-    extra.writers?.length ? { k: "Written by", v: extra.writers.slice(0, 3).join(", ") } : null,
-    film.release_date ? { k: "Released", v: fmtReleaseDate(film.release_date) } : null,
-    runtimeFmt ? { k: "Runtime", v: runtimeFmt } : null,
-    extra.country?.length ? { k: "Country", v: extra.country.slice(0, 3).map(regionName).join(" · ") } : null,
-    extra.original_language ? { k: "Language", v: langName(extra.original_language) } : null,
-    film.genres?.length ? { k: "Genre", v: <>{(film.genres as string[]).slice(0, 3).map((g: string, i: number) => <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>)}</> } : null,
-    cert ? { k: "Rated", v: cert } : null,
-  ].filter(Boolean)) as GlanceFact[];
-  const glancePlaces = geoMerged || geoCount;
-  const glanceStats: GlanceStat[] = ([
-    misreadings.length ? { n: misreadings.length, k: "Strong misreadings", href: "#df-readings" } : null,
-    lineage.length ? { n: lineage.length, k: "Canon & award listings", href: "#df-lineage" } : null,
-    glancePlaces > 0 ? { n: glancePlaces, k: "Real places mapped", href: "#df-atlas" } : null,
-    reception.length ? { n: reception.length, k: "Critical sources", href: "#df-reception" } : null,
-    recommendedBy.length ? { n: recommendedBy.length, k: "films point here as their “watch next”", href: "#df-recby", wide: true } : null,
-  ].filter(Boolean)) as GlanceStat[];
+  // "By the numbers" — a scoreboard of every counted section on this page,
+  // each figure lit in its section's colour and linking to that tab.
+  const nPlaces = geoMerged || geoCount;
+  const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
+  const filmNumbers: FilmNumber[] = (([
+    misreadings.length ? { n: misreadings.length, label: "Strong misreadings", href: "#df-readings", color: "#FF6F61" } : null,
+    catalogue.length ? { n: catalogue.length, label: "Figures", href: "#df-figures", color: "#F0C674" } : null,
+    tropes.length ? { n: tropes.length, label: "Tropes", href: "#df-tropes", color: "#3FD0B4" } : null,
+    recs.length ? { n: recs.length, label: "Connected films", href: "#df-connected", color: "#6FB2F0" } : null,
+    lineage.length ? { n: lineage.length, label: "Canon & award listings", href: "#df-lineage", color: "#E8A33D" } : null,
+    nPlaces > 0 ? { n: nPlaces, label: "Places mapped", href: "#df-atlas", color: "#7ED9A0" } : null,
+    reception.length ? { n: reception.length, label: "Critical sources", href: "#df-reception", color: "#B8C6DF" } : null,
+    recommendedBy.length ? { n: recommendedBy.length, label: "Recommended by", href: "#df-recby", color: "#E58AC0" } : null,
+    questions.length ? { n: questions.length, label: "Reader questions", href: "#df-curious", color: "#F2A65A" } : null,
+    counterpoints.length ? { n: counterpoints.length, label: "Counterpoints", href: "#df-counterpoints", color: "#EF8B6A" } : null,
+    nArch > 0 ? { n: nArch, label: "Archetype tags", href: "#df-archetype", color: "#B79CEB" } : null,
+    watchNext.length ? { n: watchNext.length, label: "Watch-next picks", href: "#df-watchnext", color: "#86D6B4" } : null,
+  ].filter(Boolean)) as FilmNumber[]);
+  if (filmNumbers.length) filmNumbers[0] = { ...filmNumbers[0], hero: true };
 
   const tabs = ([
     invitation ? { id: "df-invitation", label: "Invitation" } : null,
