@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import {
   SITE_INDEXABLE,
   INDEX_COHORT_READINGS,
@@ -166,17 +167,37 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
 export async function misreadingsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
+  // Eligibility = at least one published, non-invitation take (a handful of
+  // is_analyzed films have none and their article 404s — never advertise
+  // those). ~25k take rows paged once a day, reduced to a slug set.
+  const eligible = await unstable_cache(
+    async () => {
+      const rows = await fetchAll<{ figure: { film: { slug: string } } }>((from, to) =>
+        supabase.from("takes")
+          .select("figure:figures!inner(film:films!inner(slug, visible))")
+          .eq("status", "published").eq("is_invitation", false)
+          .eq("figure.film.visible", true)
+          .range(from, to) as unknown as PromiseLike<{ data: { figure: { film: { slug: string } } }[] | null }>
+      );
+      return [...new Set(rows.map((r) => r.figure?.film?.slug).filter(Boolean))] as string[];
+    },
+    ["misreadings-eligible-1"],
+    { revalidate: 86400 }
+  )();
+  const eligibleSet = new Set(eligible);
   const films = await fetchAll<{ slug: string; created_at: string; last_processed_at: string | null }>(
     (from, to) =>
       supabase.from("films").select("slug, created_at, last_processed_at")
         .eq("visible", true).eq("is_analyzed", true)
-        .order("created_at", { ascending: true }).range(from, to),
-    INDEX_COHORT_MISREADINGS
+        .order("created_at", { ascending: true }).range(from, to)
   );
-  return films.map((f) => ({
-    url: `${siteUrl}/film/${f.slug}/misreadings`,
-    lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
-  }));
+  return films
+    .filter((f) => eligibleSet.has(f.slug))
+    .slice(0, INDEX_COHORT_MISREADINGS)
+    .map((f) => ({
+      url: `${siteUrl}/film/${f.slug}/misreadings`,
+      lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
+    }));
 }
 
 /** Films — every visible film. */
