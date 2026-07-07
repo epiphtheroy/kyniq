@@ -324,32 +324,7 @@ export default async function ConceptPage({ params }: Props) {
           {canonReadings.length > 0 && (
             <section style={{ margin: "30px 0 0" }} id="concept-readings">
               <h2 className="cmap-h2">Strong Misreadings that lean on {tc.concept}</h2>
-              <div className="th-readings">
-                {canonReadings.map((r) => {
-                  const F = fw(r.framework);
-                  const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
-                  return (
-                    <article className="thr" key={r.take_id}>
-                      {r.backdrop_path ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
-                      ) : null}
-                      <div className="thr-body">
-                        <div className="thr-top">
-                          <span className="thr-fw" style={{ color: F.color }}>{F.label}</span>
-                          <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
-                          {r.theorist_name ? (r.theorist_slug
-                            ? <Link className="thr-concept" href={`/theorist/${r.theorist_slug}`}>{r.theorist_name}</Link>
-                            : <span className="thr-concept">{r.theorist_name}</span>) : null}
-                        </div>
-                        <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
-                        {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
-                        {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
+              <ReadingsExplorer readings={canonReadings} about={tc.concept} />
             </section>
           )}
           {desks.length > 0 && (
@@ -378,38 +353,35 @@ export default async function ConceptPage({ params }: Props) {
       <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
-        <h1 className="th-h1">{name}</h1>
+        {(() => {
+          const n = listicle(name, null, [...readings, ...desks]).n;
+          const freq = new Map<string, { t: Reading; c: number }>();
+          for (const r of readings) {
+            if (!r.theorist_name) continue;
+            const e = freq.get(r.theorist_name) ?? { t: r, c: 0 };
+            e.c += 1; freq.set(r.theorist_name, e);
+          }
+          const top = [...freq.entries()].sort((a, b) => b[1].c - a[1].c).slice(0, 2);
+          return (
+            <div className="ccard">
+              <div className="ccard__kicker">Concept</div>
+              <h1 className="th-h1">{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
+              {intro ? <p className="ccard__tag">{intro}</p> : null}
+              <div className="ccard__meta">
+                {top.map(([nm, e]) => (
+                  <span className="ccard__chip" key={nm}>
+                    {e.t.theorist_slug ? <Link href={`/theorist/${e.t.theorist_slug}`}>{nm}</Link> : nm}
+                  </span>
+                ))}
+                <span className="ccard__chip" style={{ opacity: .75 }}>{readings.length} reading{readings.length !== 1 ? "s" : ""}</span>
+              </div>
+              {n > 0 ? <div className="ccard__stat"><b>{n}</b><span>film{n !== 1 ? "s" : ""}</span></div> : null}
+            </div>
+          );
+        })()}
         <p className="th-sub">{listicle(name, null, [...readings, ...desks]).n} film{readings.length !== 1 ? "s" : ""} that can be read through <em>{name}</em> — each a Strong Misreading that turns on this idea.</p>
-        {intro ? (
-          <p className="body reading" style={{ fontSize: 17, margin: "14px 0 0", maxWidth: "68ch" }}>{intro}</p>
-        ) : null}
 
-        <div className="th-readings">
-          {readings.map((r) => {
-            const F = fw(r.framework);
-            const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
-            return (
-              <article className="thr" key={r.take_id}>
-                {r.backdrop_path ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
-                ) : null}
-                <div className="thr-body">
-                  <div className="thr-top">
-                    <span className="thr-fw" style={{ color: F.color }}>{F.label}</span>
-                    <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
-                    {r.theorist_name ? (r.theorist_slug
-                      ? <Link className="thr-concept" href={`/theorist/${r.theorist_slug}`}>{r.theorist_name}</Link>
-                      : <span className="thr-concept">{r.theorist_name}</span>) : null}
-                  </div>
-                  <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
-                  {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
-                  {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
-                </div>
-              </article>
-            );
-          })}
-        </div>
+        <ReadingsExplorer readings={readings} about={name} />
 
         {tropes.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="concept-tropes">
