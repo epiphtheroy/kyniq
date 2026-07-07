@@ -290,7 +290,19 @@ export async function loadFullLinkDict(
         if (paren) {
           const alias = paren[1].trim();
           const akey = normName(alias);
-          if (alias.length >= 4 && !seen.has(akey)) {
+          // Head term (name minus trailing domain tag) is always a safe alias.
+          const head = t.concept.replace(/\s*\([^)]*\)\s*$/, "").trim();
+          const hkey = normName(head);
+          if (head.length >= 5 && !seen.has(hkey)) {
+            seen.add(hkey);
+            dict.concepts.push({ name: head, slug: t.concept_slug });
+          }
+          // Parenthetical itself is usually a domain tag ("(Sociology)", "(Human)") —
+          // linking those words pollutes links en masse. Only accept clearly specific
+          // terms: one token that is long or non-ASCII (e.g. "Wiederholungszwang").
+          const specific =
+            !/\s/.test(alias) && (alias.length >= 12 || /[^\x00-\x7F]/.test(alias));
+          if (specific && !seen.has(akey)) {
             seen.add(akey);
             dict.concepts.push({ name: alias, slug: t.concept_slug });
           }
