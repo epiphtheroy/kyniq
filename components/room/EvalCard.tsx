@@ -12,7 +12,12 @@ import { STR } from "./strings";
 import { useRoomActions } from "./useRoomActions";
 import Stars from "./Stars";
 
-type Comps = Record<string, string[] | null>;
+type CompFilm = { title: string; slug: string | null; poster_path: string | null };
+type Comps = Record<string, (string | CompFilm)[] | null>;
+/** cinecodex_card v2 (0046) upgraded comps entries from bare titles to
+ *  {title, slug, poster_path}; normalize so both shapes render. */
+const compOf = (c: string | CompFilm): CompFilm =>
+  typeof c === "string" ? { title: c, slug: null, poster_path: null } : c;
 export type CardData = {
   slug: string; title: string; year: number | null; director: string | null; poster_path: string | null;
   v: number; c: number; r: number; u: number; s: number;
@@ -181,9 +186,15 @@ export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
               <div className="rsn2">{BAND[axis][lv - 1]} — {AXDESC[axis]}.</div>
               {comps.length ? (
                 <div className="comps">
-                  {/* Comparison chips → search links (the RPC returns titles, not slugs — no fake film links). */}
-                  {comps.map((cf, i) => (
-                    <Link className="cmp" key={i} href={`/search?q=${encodeURIComponent(cf)}`} title={`Nearest measured neighbor on ${s.code} — search "${cf}"`}>{cf}</Link>
+                  {comps.map(compOf).map((cf, i) => (
+                    <Link
+                      className="cmp"
+                      key={i}
+                      href={cf.slug ? `/room/film/${cf.slug}` : `/search?q=${encodeURIComponent(cf.title)}`}
+                      title={`Nearest measured neighbor on ${s.code} — ${cf.title}`}
+                    >
+                      {cf.title}
+                    </Link>
                   ))}
                 </div>
               ) : null}
