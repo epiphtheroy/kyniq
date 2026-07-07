@@ -1,39 +1,40 @@
 "use client";
-/** v2 셸 (2026-07-03 리뉴얼 — 데일리 루프 셸).
- *  4단(레일·본문·상시 인스펙터·라이브피드) → 레일 + 본문 + 온디맨드 인스펙터(슬라이드오버).
- *  - 라이브피드/LIVE 티커/시스템카드 삭제 (실데이터 감사: 정보가치 0)
- *  - 인스펙터: select() 호출 시에만 우측 슬라이드-인(<900px 바텀시트) · ESC/백드롭/X 닫기.
- *    setDefault 요약은 앱바 「요약」 버튼으로 열람(자동 오픈 없음 — 본문과 중복이므로).
- *  - 레일 12→9항목·3그룹(오늘/자산/기록실). desk는 /room에 흡수(redirect), 동행은 ⌘K로만,
- *    공개 프로필은 아바타로 이동. NAV chip · 카운트 뱃지 · ⌘K는 유지(자산 0클릭 확인). */
+/** My Room v3 shell (The Terminal) — app bar + 3-group rail + on-demand inspector.
+ *  - Rail: SESSION / PORTFOLIO / RESEARCH from lib/room/nav.ts (single source
+ *    with CmdK PAGES). Items are real <Link>s (middle-click / prefetch / a11y).
+ *  - App bar: logo → /room · ⌘K trigger · NAV chip (score + tier + 30-day micro
+ *    sparkline; click opens the Performance-summary inspector — it NEVER links
+ *    to the Ledger) · Brief (text ≥1180px) · Refresh · avatar → /u/me.
+ *    Breadcrumb deleted (zero information).
+ *  - Providers mounted here: Inspector + SessionStore + Toast (single host). */
 import { useEffect, useState, type ReactNode } from "react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { NAV_GROUPS } from "@/lib/room/nav";
+import { STR } from "./strings";
 import { InspectorProvider, useInspector } from "./InspectorContext";
+import { SessionStoreProvider } from "./SessionStore";
+import { ToastProvider } from "./Toast";
+import ICard from "./insp/ICard";
+import KV from "./insp/KV";
 import CmdK from "./CmdK";
 
-export type NavChip = { nav: number | null; tier: string; up?: string | null };
-export type RailCounts = { collection?: number; watchlist?: number; pair?: number };
+export type NavChip = {
+  nav: number | null;
+  tier: string;
+  /** me_nav_history(30) NAV values, oldest → today (fetched once in layout). */
+  spark: number[];
+  /** me_portfolio_nav composition for the summary inspector (null = not formed). */
+  watched?: number | null;
+  scored?: number | null;
+  essentials?: number | null;
+  avgStanding?: number | null;
+  lines?: number | null;
+};
+export type RailCounts = { collection?: number; watchlist?: number };
 
-const NAV: { sec: string; items: { label: string; icon: string; href: string; key?: keyof RailCounts }[] }[] = [
-  { sec: "오늘", items: [
-    { label: "오늘 · 홈", icon: "ti-sun", href: "/room" },
-    { label: "볼 영화 · 추천", icon: "ti-target-arrow", href: "/room/watchlist", key: "watchlist" },
-    { label: "기록 · 평가", icon: "ti-star", href: "/room/rate" },
-  ]},
-  { sec: "자산", items: [
-    { label: "보유 영화", icon: "ti-list-details", href: "/room/collection", key: "collection" },
-    { label: "감독 정복", icon: "ti-crown", href: "/room/auteurs" },
-    { label: "지리 Atlas", icon: "ti-map-2", href: "/room/atlas" },
-    { label: "자산 분석", icon: "ti-chart-arcs", href: "/room/analysis" },
-  ]},
-  { sec: "기록실", items: [
-    { label: "서재", icon: "ti-books", href: "/room/library" },
-    { label: "노트 · 글쓰기", icon: "ti-feather", href: "/room/write" },
-  ]},
-];
-
-// Collapsed state persists in localStorage; if unset, auto-collapse when the
-// viewport is narrower than `collapseBelow` so the workspace fits on first load.
+/* Collapsed state persists in localStorage; if unset, auto-collapse when the
+   viewport is narrower than `collapseBelow` so the workspace fits on first load. */
 function useSticky(key: string, collapseBelow = 0) {
   const [v, setV] = useState(false);
   useEffect(() => {
@@ -45,7 +46,42 @@ function useSticky(key: string, collapseBelow = 0) {
   return [v, toggle] as const;
 }
 
-/** 온디맨드 인스펙터 — 슬라이드오버(백드롭·ESC·X 닫기). */
+/** Inline micro sparkline (no axes — a pulse, not a chart). Hidden under 2 points. */
+function Spark({ values, w = 64, h = 18 }: { values: number[]; w?: number; h?: number }) {
+  if (values.length < 2) return null;
+  const min = Math.min(...values), max = Math.max(...values);
+  const span = max - min || 1;
+  const pts = values.map((v, i) => `${((i / (values.length - 1)) * (w - 2) + 1).toFixed(1)},${(h - 2 - ((v - min) / span) * (h - 4) + 1).toFixed(1)}`).join(" ");
+  return (
+    <svg className="spk" width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true">
+      <polyline points={pts} fill="none" stroke="var(--safe)" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** NAV-chip click target: the Performance summary (composition + covenant).
+ *  Links ONLY to Performance — never to the Ledger (spec §1 risk fix). */
+function NavSummary({ chip }: { chip: NavChip }) {
+  return (
+    <div>
+      <ICard icon="ti-chart-line" title="NAV" right={chip.tier}>
+        <div className="bigscore">{chip.nav ?? "—"}</div>
+        <div style={{ margin: "8px 0 10px" }}><Spark values={chip.spark} w={200} h={36} /></div>
+        <KV k="Films seen" v={chip.watched ?? "—"} />
+        <KV k="Scored" v={chip.scored ?? "—"} />
+        <KV k="Essentials" v={chip.essentials ?? "—"} />
+        <KV k="Avg standing" v={chip.avgStanding ?? "—"} />
+        <KV k="Lines touched" v={chip.lines ?? "—"} />
+        <div className="relcard" style={{ marginTop: 8 }}>{STR.common.navCovenant}</div>
+      </ICard>
+      <Link className="actbtn" href="/room/performance" style={{ display: "block", textAlign: "center", fontSize: 11.5 }}>
+        {STR.shell.openPerformance}
+      </Link>
+    </div>
+  );
+}
+
+/** On-demand inspector — slide-over (backdrop · ESC · X · 1-depth back). */
 function InspectorPanel() {
   const insp = useInspector();
   useEffect(() => {
@@ -57,12 +93,13 @@ function InspectorPanel() {
       <div className={`insp-overlay${insp.open ? " on" : ""}`} onClick={insp.close} />
       <aside className={`insp-panel${insp.open ? " on" : ""}`} role="dialog" aria-modal="true" aria-label={insp.title}>
         <div className="insphd">
+          {insp.canBack ? <span className="chv" onClick={insp.back} title={STR.shell.back}><i className="ti ti-arrow-left" /></span> : null}
           <span className="ti-tit">{insp.title}</span>
-          <span className="chv" onClick={insp.close} title="닫기 (ESC)"><i className="ti ti-x" /></span>
+          <span className="chv" onClick={insp.close} title={STR.shell.close}><i className="ti ti-x" /></span>
         </div>
         <div className="col-scroll">
           <div className="inspbody">
-            {insp.content ?? <div className="emptyins">항목을 클릭하면 상세와 「왜」가 여기 열립니다.</div>}
+            {insp.content ?? <div className="emptyins">{STR.shell.inspectorEmpty}</div>}
           </div>
         </div>
       </aside>
@@ -70,22 +107,36 @@ function InspectorPanel() {
   );
 }
 
-/** 앱바 「요약」 버튼 — setDefault로 등록된 페이지 요약을 온디맨드로 연다. */
-function SummaryButton() {
+/** App-bar "Brief" button — opens the page summary registered via setDefault. */
+function BriefButton() {
   const insp = useInspector();
   if (!insp.hasDefault) return null;
   return (
-    <span className="iconbtn" onClick={insp.openDefault} title="이 페이지 요약">
+    <span className="iconbtn briefbtn" onClick={insp.openDefault} title={STR.shell.briefTitle}>
       <i className="ti ti-layout-sidebar-right-expand" />
+      <span className="tx">{STR.shell.brief}</span>
     </span>
   );
 }
 
-const CRUMB: Record<string, string> = {
-  "/room": "오늘 · 홈", "/room/collection": "보유 영화", "/room/watchlist": "볼 영화 · 추천",
-  "/room/analysis": "자산 분석", "/room/atlas": "지리 Atlas", "/room/auteurs": "감독 정복", "/room/rate": "기록 · 평가",
-  "/room/library": "서재", "/room/write": "노트", "/room/pair": "동행",
-};
+function NavChipButton({ chip }: { chip: NavChip }) {
+  const insp = useInspector();
+  return (
+    <div
+      className="navchip clk"
+      role="button"
+      tabIndex={0}
+      title={STR.shell.navChipTitle}
+      onClick={() => insp.select(<NavSummary chip={chip} />, STR.shell.navSummaryTitle)}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); insp.select(<NavSummary chip={chip} />, STR.shell.navSummaryTitle); } }}
+    >
+      <span className="eb">NAV</span>
+      <span className="n">{chip.nav ?? "—"}</span>
+      <span className="l">{chip.tier}</span>
+      <Spark values={chip.spark} />
+    </div>
+  );
+}
 
 export default function RoomShell({
   children, chip, counts,
@@ -94,7 +145,6 @@ export default function RoomShell({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  const crumb = CRUMB[pathname] ?? (pathname.startsWith("/room/film") ? "평가 카드" : "오늘 · 홈");
   const [railC, toggleRail] = useSticky("mt_rail", 900);
   const [cmdk, setCmdk] = useState(false);
 
@@ -104,57 +154,60 @@ export default function RoomShell({
   }, []);
 
   return (
-    <InspectorProvider>
-      <div className="room-root">
-        {/* APP BAR */}
-        <div className="appbar">
-          <span className="logo" onClick={() => router.push("/room")} style={{ cursor: "pointer" }}>META TAKE</span>
-          <div className="crumb"><b>{crumb}</b></div>
-          <div className="cmdk" onClick={() => setCmdk(true)}><i className="ti ti-search" /><span>영화 · 페이지 검색</span><span className="kbd">⌘K</span></div>
-          <div className="abright">
-            <div className="navchip">
-              <span className="eb">NAV</span>
-              <span className="n">{chip.nav ?? "—"}</span>
-              <span className="l">{chip.tier}</span>
-              {chip.up ? <span className="up">{chip.up}</span> : null}
+    /* .room-root is outermost so every portal-free child (toast host included)
+       stays inside the dark-shell CSS scope and its token set. */
+    <div className="room-root">
+      <InspectorProvider>
+        <SessionStoreProvider>
+          <ToastProvider>
+            {/* APP BAR */}
+            <div className="appbar">
+              <Link className="logo" href="/room">META TAKE</Link>
+              <div className="cmdk" onClick={() => setCmdk(true)}><i className="ti ti-search" /><span>{STR.cmdk.placeholder}</span><span className="kbd">⌘K</span></div>
+              <div className="abright">
+                <NavChipButton chip={chip} />
+                <BriefButton />
+                <span className="iconbtn" onClick={() => router.refresh()} title={STR.shell.refresh}><i className="ti ti-refresh" /></span>
+                <a className="ava ser" href="/u/me" title={STR.shell.publicProfile}>me</a>
+              </div>
             </div>
-            <SummaryButton />
-            <span className="iconbtn" onClick={() => router.refresh()} title="새로고침"><i className="ti ti-refresh" /></span>
-            <a className="ava ser" href="/u/me" title="공개 프로필">나</a>
-          </div>
-        </div>
 
-        {/* SHELL — 레일 + 본문 (인스펙터는 온디맨드 오버레이) */}
-        <div className="shell">
-          <nav className={`col rail${railC ? " collapsed" : ""}`}>
-            <div className="col-scroll" style={{ display: "flex", flexDirection: "column" }}>
-              <div className="railhd"><span className="eb">운영 메뉴</span><span className="chv" onClick={toggleRail}><i className="ti ti-layout-sidebar-left-collapse" /></span></div>
-              {NAV.map((s) => (
-                <div className="navsec" key={s.sec}>
-                  <div className="navlbl">{s.sec}</div>
-                  {s.items.map((it) => {
-                    const on = it.href === "/room" ? pathname === "/room" : pathname.startsWith(it.href);
-                    const ct = it.key ? counts[it.key] : undefined;
-                    return (
-                      <div key={it.href} className={`nv${on ? " on" : ""}`} onClick={() => router.push(it.href)} title={it.label}>
-                        <i className={`ti lead ${it.icon}`} />
-                        <span className="tx">{it.label}</span>
-                        {ct != null ? <span className="ct">{ct}</span> : null}
-                      </div>
-                    );
-                  })}
+            {/* SHELL — rail + main (inspector is an on-demand overlay) */}
+            <div className="shell">
+              <nav className={`col rail${railC ? " collapsed" : ""}`} aria-label={STR.shell.railAria}>
+                <div className="col-scroll" style={{ display: "flex", flexDirection: "column" }}>
+                  <div className="railhd"><span className="eb">{STR.shell.railAria}</span><span className="chv" onClick={toggleRail}><i className="ti ti-layout-sidebar-left-collapse" /></span></div>
+                  {NAV_GROUPS.map((g) => (
+                    <div className="navsec" key={g.sec}>
+                      <div className="navlbl">{g.sec}</div>
+                      {g.items.map((it) => {
+                        const on = it.href === "/room" ? pathname === "/room" : pathname.startsWith(it.href);
+                        const ct = it.countKey ? counts[it.countKey] : undefined;
+                        return (
+                          <Link key={it.href} className={`nv${on ? " on" : ""}`} href={it.href} title={it.label}>
+                            <i className={`ti lead ${it.icon}`} />
+                            <span className="tx">{it.label}</span>
+                            {ct != null ? <span className="ct">{ct}</span> : null}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ))}
+                  <div className="railft">
+                    <Link className="rimp" href="/me/import"><i className="ti ti-download" /> {STR.shell.railImport}</Link>
+                    <div>{STR.shell.railFooter}</div>
+                  </div>
                 </div>
-              ))}
-              <div className="railft">영화적 자산 운영 시스템 · Metatake</div>
+              </nav>
+
+              <main className="col main"><div className="col-scroll">{children}</div></main>
             </div>
-          </nav>
 
-          <main className="col main"><div className="col-scroll">{children}</div></main>
-        </div>
-
-        <InspectorPanel />
-        <CmdK open={cmdk} onClose={() => setCmdk(false)} />
-      </div>
+            <InspectorPanel />
+            <CmdK open={cmdk} onClose={() => setCmdk(false)} />
+          </div>
+        </ToastProvider>
+      </SessionStoreProvider>
     </InspectorProvider>
   );
 }
