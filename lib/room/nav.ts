@@ -1,5 +1,5 @@
 /** My Room v3 — single source of truth for the rail + CmdK PAGES.
- *  Spec: HANDOFF-마이룸-v3-redesign.md §2 (taxonomy) + §4 (shell).
+ *  Spec: HANDOFF My Room v3 redesign doc, §2 (taxonomy) + §4 (shell).
  *  RoomShell renders NAV_GROUPS as real <Link> items; CmdK builds its PAGES
  *  section from NAV_ITEMS. Never fork this list — that drift is exactly what
  *  killed the v2 palette. Icons are Tabler webfont classes (ti ti-*). */
