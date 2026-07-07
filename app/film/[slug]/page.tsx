@@ -344,7 +344,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -827,7 +827,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -863,7 +863,7 @@ export default async function FilmPage({ params }: Props) {
     { id: "df-map", label: "Connections" },
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
-    questions.length ? { id: "df-curious", label: "Curious" } : null,
+    questions.length || deskEssays.length ? { id: "df-curious", label: "Curious" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints" } : null,
@@ -1280,11 +1280,12 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        {/* CURIOUS — the blog's question desk: titles only, reading happens on the Q&A page */}
-        {questions.length > 0 ? (
+        {/* CURIOUS — the question desk: question + desk-essay titles only,
+            reading happens on the Q&A / desk pages (the canonical surfaces) */}
+        {questions.length > 0 || deskEssays.length > 0 ? (
           <section className="df-sec" id="df-curious">
             <h2 className="df-h2">Curious</h2>
-            <p className="df-sub">The questions viewers keep asking about {film.title} — answered in full on <Link href="/blog/curious">Curious</Link>, the Metatake blog&apos;s question desk. Spoiler-heavy titles are masked.</p>
+            <p className="df-sub">The questions viewers keep asking about {film.title} — answered in full on <Link href="/curious">Curious</Link>, the Metatake question desk. Spoiler-heavy titles are masked.</p>
             <div className="rcp-list">
               {questions.map((q) => (
                 <div key={q.slug} className="rcp-row">
@@ -1294,6 +1295,17 @@ export default async function FilmPage({ params }: Props) {
                   <div className="rcp-m">
                     {q.question_type ? q.question_type : "question"}
                     {q.spoiler_level === "major" ? " · discusses the ending" : ""}
+                  </div>
+                </div>
+              ))}
+              {deskEssays.map((e) => (
+                <div key={e.desk} className="rcp-row">
+                  <Link className="rcp-h" href={`/film/${film.slug}/${e.desk}`}>
+                    {e.title}
+                  </Link>
+                  <div className="rcp-m">
+                    {e.label.toLowerCase()} · from the desks
+                    {e.spoiler >= 2 ? " · discusses the ending" : ""}
                   </div>
                 </div>
               ))}
