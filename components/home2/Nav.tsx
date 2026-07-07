@@ -56,7 +56,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Strong Misreadings", h: "/strong-misreadings", c: c.readings },
     ] },
     { id: "you", label: "You", items: [
-      { t: "Your Shelf", h: "/me" },
+      { t: "My Room", h: "/room" },
       { t: "Import your films", h: "/me/import" },
       { t: "Ask metatake AI", h: "/ask" },
       ...(acct.state === "in"
@@ -193,11 +193,11 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
             <span className="dot" />
             <span className="t">Ask&nbsp;metatake&nbsp;AI</span>
           </Link>
-          <Link className="nicon" href="/me" title="Your Shelf">
+          <Link className="nicon" href="/room" title="My Room">
             <svg viewBox="0 0 24 24">
               <path d="M6 3h12v18l-6-4-6 4z" />
             </svg>
-            <span>Shelf</span>
+            <span>Room</span>
           </Link>
           <LensToggle />
           <div className="acct">
@@ -288,13 +288,13 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                   <div className="av">{acct.name.charAt(0).toUpperCase()}</div>
                   <div>
                     <div className="nm">{acct.name}</div>
-                    <Link className="lk" href="/me" onClick={() => setOpen(null)}>
-                      Signed in · My dashboard →
+                    <Link className="lk" href="/room" onClick={() => setOpen(null)}>
+                      Signed in · My Room →
                     </Link>
                   </div>
                 </div>
-                <Link className="mrow" href="/me" role="menuitem" onClick={() => setOpen(null)}>
-                  Your Shelf<span className="ar">→</span>
+                <Link className="mrow" href="/room" role="menuitem" onClick={() => setOpen(null)}>
+                  My Room<span className="ar">→</span>
                 </Link>
                 {acct.username && (
                   <Link className="mrow" href={`/u/${acct.username}`} role="menuitem" onClick={() => setOpen(null)}>

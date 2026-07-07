@@ -23,7 +23,7 @@ export default async function ImportPage() {
       <SiteNav />
       <main style={{ maxWidth: 860, margin: "0 auto", padding: "28px 20px 80px" }}>
         <p className="ui muted" style={{ fontSize: 13, margin: 0 }}>
-          <Link href="/me">← My Room</Link>
+          <Link href="/room">← My Room</Link>
         </p>
         <h1 style={{ margin: "10px 0 6px" }}>Import your watch history</h1>
         <p className="ui muted" style={{ fontSize: 14, margin: "0 0 20px", lineHeight: 1.6 }}>
