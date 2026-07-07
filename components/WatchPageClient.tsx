@@ -36,6 +36,14 @@ type CountryOffers = { link?: string; flatrate?: Prov[]; rent?: Prov[]; buy?: Pr
 export type WatchData = { results: Record<string, CountryOffers>; countries: string[] } | null;
 export type WatchRatings = { imdb_rating: number | null; imdb_votes: number | null; metascore: number | null; rt_tomatometer: number | null } | null;
 
+// verdict_note is sometimes an internal Korean research memo — only surface
+// it in the English banner when it reads as English.
+function englishNote(v: string | null | undefined): string | null {
+  if (!v) return null;
+  const nonAscii = [...v].filter((ch) => ch.charCodeAt(0) > 127).length;
+  return nonAscii / v.length < 0.1 ? v : null;
+}
+
 function fmtVotes(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
   if (n >= 1_000) return `${Math.round(n / 1_000)}k`;
@@ -186,10 +194,10 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
     if (offers.freeAds.length) {
       // JustWatch/TMDB lists a free tier here but our verified layer found none —
       // frame it as a verified caution instead of contradicting the headline.
-      if (r?.verdict_note) parts.push(`Verified note: ${r.verdict_note}`);
+      const vn1 = englishNote(r?.verdict_note); if (vn1) parts.push(`Verified note: ${vn1}`);
     } else {
       parts.push("No free or archive source anywhere we've checked.");
-      if (r?.verdict_note) parts.push(r.verdict_note);
+      const vn2 = englishNote(r?.verdict_note); if (vn2) parts.push(vn2);
     }
   }
   if (r?.confidence === "low") parts.push("Low-confidence record — treat as a lead, not a confirmation.");
