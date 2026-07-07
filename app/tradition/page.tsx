@@ -44,14 +44,16 @@ export default async function TraditionIndex() {
           readings. Open any to see the concepts that carry it and the films they illuminate.
         </p>
         <LensQuickBar />
-        <div className="th-grid mtl-swap-out">
+        {/* No mtl-swap-out here: the my-films lens has no tradition replacement list,
+            so hiding this grid in only-mode would blank the page. */}
+        <div className="th-grid">
           {rows.map((r) => (
             <Link className="th-row" href={`/tradition/${r.slug}`} key={r.slug}>
               <span className="th-name">
                 {r.name}
-                {r.parts && r.parts.length > 0 ? <span className="th-by"> — {r.parts.join(" · ")}</span> : null}
+                <span className="th-by"> — {r.concepts.toLocaleString()} concept{r.concepts !== 1 ? "s" : ""}{r.parts && r.parts.length > 0 ? ` · ${r.parts.join(" · ")}` : ""}</span>
               </span>
-              <span className="th-n">{r.films > 0 ? r.films : r.concepts}</span>
+              {r.films > 0 ? <span className="th-n">{r.films}</span> : null}
             </Link>
           ))}
         </div>

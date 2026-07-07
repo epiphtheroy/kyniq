@@ -7,9 +7,11 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 /**
- * Concepts by domain — the theory DB's 14 discipline domains (terminology
- * charter: "Domain" = 학제 대분류), each listing its concepts grouped by
- * major field. The registry directory 원우 asked for (2026-07-08).
+ * Concepts by domain — the theory DB's 14 discipline domains, each listing
+ * its concepts grouped by major field. 2026-07-08: every concept carries its
+ * film count (essay links + Strong Misreadings via crosswalk), every field
+ * header carries concept/film totals, and Korean field labels render as
+ * their English parenthetical (terminology charter).
  */
 export const revalidate = 3600;
 export async function generateStaticParams() { return []; }
@@ -25,38 +27,40 @@ const DOMAINS: Record<string, string> = {
   nature: "Nature", literature: "Literature",
 };
 
-type Row = { concept: string; concept_slug: string; major: string | null; one_liner: string | null };
+type Row = { concept: string; concept_slug: string; major: string | null; one_liner: string | null; films: number; theorist: string | null };
+
+/** Korean field labels carry their English translation in parens — show that. */
+function fieldLabel(major: string | null): string {
+  if (!major) return "General";
+  if (/[가-힣]/.test(major)) {
+    const m = major.match(/\(([^)]{2,60})\)/);
+    if (m) return m[1];
+  }
+  return major.replace(/^[0-9]+\.\s*/, "").replace(/^[IVX]+\.\s*/, "");
+}
 
 function load(domainSlug: string) {
   return unstable_cache(
     async () => {
       const part = DOMAINS[domainSlug];
       if (!part) return null;
-      const supabase = db();
-      const rows: Row[] = [];
-      for (let from = 0; from < 4000; from += 1000) {
-        const { data } = await supabase
-          .from("theory_concepts")
-          .select("concept, concept_slug, major, one_liner")
-          .eq("part", part)
-          .order("major", { ascending: true })
-          .order("concept", { ascending: true })
-          .range(from, from + 999);
-        const batch = (data ?? []) as Row[];
-        rows.push(...batch);
-        if (batch.length < 1000) break;
-      }
+      const { data } = await db().rpc("concept_domain_live", { p_part: part });
+      const rows = (data as Row[] | null) ?? [];
       if (rows.length === 0) return null;
       const groups = new Map<string, Row[]>();
       for (const r of rows) {
-        const k = r.major ?? "General";
+        const k = fieldLabel(r.major);
         const g = groups.get(k) ?? [];
         g.push(r);
         groups.set(k, g);
       }
-      return { part, groups: [...groups.entries()] };
+      // Fields with the most staged films first; concepts inside by films desc, then A–Z.
+      const sorted = [...groups.entries()]
+        .map(([k, g]) => [k, g.sort((a, b) => b.films - a.films || a.concept.localeCompare(b.concept))] as const)
+        .sort((a, b) => b[1].reduce((s, r) => s + r.films, 0) - a[1].reduce((s, r) => s + r.films, 0));
+      return { part, groups: sorted };
     },
-    ["concept-domain-1", domainSlug],
+    ["concept-domain-2", domainSlug],
     { revalidate: 3600 }
   )();
 }
@@ -68,11 +72,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(domain);
   if (!data) return { title: "Not found" };
   const n = data.groups.reduce((s, [, g]) => s + g.length, 0);
-  const title = `${data.part} concepts in film — the ${domain} domain`;
-  const description = `${n.toLocaleString()} concepts from ${data.part.toLowerCase()} that Metatake's readings and desk essays draw on, organized by field.`;
+  const films = data.groups.reduce((s, [, g]) => s + g.reduce((x, r) => x + r.films, 0), 0);
+  const title = films >= 3
+    ? `${data.part} Film Theory — ${n.toLocaleString()} Concepts, ${films.toLocaleString()} Film Readings`
+    : `${data.part} concepts in film — the ${domain} domain`;
+  const description = `${n.toLocaleString()} ${data.part.toLowerCase()} concepts in Metatake's theory registry, ${films.toLocaleString()} film readings between them — organized by field, each concept linked to the films that stage it.`;
   return {
     title, description,
     alternates: { canonical: `/concept/domain/${domain}` },
+    openGraph: { title, description },
     robots: pageRobots(true),
   };
 }
@@ -83,6 +91,7 @@ export default async function ConceptDomainPage({ params }: Props) {
   if (!data) notFound();
   const { part, groups } = data;
   const total = groups.reduce((s, [, g]) => s + g.length, 0);
+  const films = groups.reduce((s, [, g]) => s + g.reduce((x, r) => x + r.films, 0), 0);
 
   return (
     <div className="mt">
@@ -91,21 +100,32 @@ export default async function ConceptDomainPage({ params }: Props) {
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link> › <span>{part}</span></div>
         <h1 className="lh-h1">{part}</h1>
         <p className="lh-def">
-          {total.toLocaleString()} concepts from {part.toLowerCase()} in Metatake&rsquo;s theory registry — the
-          vocabulary the desk essays and readings draw on, organized by field.
+          {total.toLocaleString()} concepts from {part.toLowerCase()} in Metatake&rsquo;s theory registry —{" "}
+          {films.toLocaleString()} film readings lean on them. Fields with the most filmed concepts first; the number
+          beside each concept is how many films stage it.
         </p>
-        {groups.map(([major, rows]) => (
-          <section key={major} style={{ marginTop: 26 }}>
-            <h2 className="cmap-h2">{major}</h2>
-            <ul className="mt-cols" style={{ marginTop: 8 }}>
-              {rows.map((r) => (
-                <li key={r.concept_slug}>
-                  <Link href={`/concept/${r.concept_slug}`}>{r.concept}</Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
+        {groups.map(([major, rows]) => {
+          const gFilms = rows.reduce((s, r) => s + r.films, 0);
+          const gLive = rows.filter((r) => r.films > 0).length;
+          return (
+            <section key={major} style={{ marginTop: 26 }}>
+              <h2 className="cmap-h2">
+                {major}{" "}
+                <span style={{ fontWeight: 500, fontSize: "0.8em", opacity: 0.6 }}>
+                  {rows.length} concept{rows.length !== 1 ? "s" : ""}{gFilms > 0 ? ` · ${gFilms} film reading${gFilms !== 1 ? "s" : ""} across ${gLive}` : ""}
+                </span>
+              </h2>
+              <ul className="mt-cols" style={{ marginTop: 8 }}>
+                {rows.map((r) => (
+                  <li key={r.concept_slug}>
+                    <Link href={`/concept/${r.concept_slug}`}>{r.concept}</Link>
+                    {r.films > 0 ? <span className="yr"> ({r.films})</span> : null}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
         <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
       </div>
     </div>
