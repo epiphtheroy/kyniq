@@ -6,7 +6,12 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
+import ReadHero from "@/components/read/ReadHero";
+import ReadPlates from "@/components/read/ReadPlates";
+import { filmBackdropPaths, pickStills, injectFigures } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
+import "@/app/curious/curious.css";
+import "../read.css";
 import {
   DESKS,
   DESK_KEYS,
@@ -40,6 +45,9 @@ type FilmRow = {
   director: string | null;
   director_slug: string | null;
   visible: boolean;
+  backdrop_path: string | null;
+  poster_path: string | null;
+  tmdb_id: number | null;
 };
 
 type EssayRow = {
@@ -66,7 +74,7 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
   const supabase = db();
   const { data: film } = await supabase
     .from("films")
-    .select("id, title, slug, year, director, director_slug, visible")
+    .select("id, title, slug, year, director, director_slug, visible, backdrop_path, poster_path, tmdb_id")
     .eq("slug", slug)
     .maybeSingle<FilmRow>();
   if (!film || !film.visible) return null;
@@ -86,11 +94,21 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
   if (!essay || !essay.body_md) return null;
 
   // which other desks exist for this film (verified EN) + whether KO pair exists
-  const { data: modeRows } = await supabase
-    .from("essays")
-    .select("mode, lang")
-    .eq("film_id", film.id)
-    .eq("status", "verified");
+  const [{ data: modeRows }, { data: vidRows }] = await Promise.all([
+    supabase
+      .from("essays")
+      .select("mode, lang")
+      .eq("film_id", film.id)
+      .eq("status", "verified"),
+    supabase
+      .from("media")
+      .select("kind, external_id, title")
+      .eq("entity_type", "film")
+      .eq("entity_id", film.id)
+      .eq("status", "published")
+      .eq("kind", "video")
+      .order("position"),
+  ]);
   const enModes = new Set<string>();
   let hasKo = false;
   for (const r of modeRows ?? []) {
@@ -104,6 +122,13 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
   const dict = await loadDict();
   const html = linkifyEntities(essayMdToHtml(essay.body_md), dict);
 
+  // Hero reel: clips first, trailer/teaser last (same order as the film page).
+  const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[])
+    .filter((v) => v.external_id);
+  const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
+  const videos = [...vids.filter((v) => !isTrailerTitle(v.title)), ...vids.filter((v) => isTrailerTitle(v.title))]
+    .map((v) => ({ id: v.external_id as string, title: v.title ?? "" }));
+
   return {
     film: {
       id: film.id,
@@ -112,7 +137,11 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
       year: film.year,
       director: film.director,
       director_slug: film.director_slug,
+      backdrop_path: film.backdrop_path,
+      poster_path: film.poster_path,
+      tmdb_id: film.tmdb_id,
     },
+    videos,
     essay: {
       slug: essay.slug,
       title: mdToPlain(essay.title),
