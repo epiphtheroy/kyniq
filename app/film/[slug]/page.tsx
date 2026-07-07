@@ -545,15 +545,6 @@ export default async function FilmPage({ params }: Props) {
     const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
     const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle);
 
-    // "By the numbers" scoreboard — the ambient counts a catalog record holds
-    // (canon listings, mapped places, films recommending it). Fewer than a
-    // Tier-1 film, but the same live component.
-    const mFilmNumbers: FilmNumber[] = (([
-      lineage.length ? { n: lineage.length, label: "Canon & award listings", href: "#df-lineage", color: "#E8A33D" } : null,
-      geoCount > 0 ? { n: geoCount, label: "Places mapped", href: "#df-atlas", color: "#7ED9A0" } : null,
-      recommendedBy.length ? { n: recommendedBy.length, label: "Recommended by", href: "#df-recby", color: "#E58AC0" } : null,
-    ].filter(Boolean)) as FilmNumber[]);
-    if (mFilmNumbers.length) mFilmNumbers[0] = { ...mFilmNumbers[0], hero: true };
 
     // ---- EDITOR'S DIGEST — a deterministic record composed from the loader's
     // data. No LLM, no invented facts: every sentence renders only when its
@@ -1043,14 +1034,13 @@ export default async function FilmPage({ params }: Props) {
 
         </section>
 
-        {/* BY THE NUMBERS — a live scoreboard of every counted section, directly
-            under the hero (supersedes the old inline stat strip). AccessCountryProvider
-            still wraps down to the Where-to-watch section to keep it on one country. */}
+        {/* AccessCountryProvider wraps down to the Where-to-watch section so it
+            and the access layer stay on one country. */}
         <AccessCountryProvider>
-          <FilmNumbers title={film.title} items={filmNumbers} />
 
-        {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
-        {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
+        {/* SECTION TABS — two-row scroll-nav; each tab carries its section count
+            as a badge (TakeScore carries the score). SEO-safe anchors. */}
+        {tabs.length > 1 ? <FilmTabBar tabs={tabs} twoRow /> : null}
 
         {/* WHY WATCH — spoiler-free dossier of what the film offers, across 7 lenses */}
         {whyWatch.length > 0 ? (
