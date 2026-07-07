@@ -121,6 +121,37 @@ function leadSentence(name: string, native: string | null, crafts: { key: CraftK
   return parts.join(" ");
 }
 
+/* ── The analysis engine (2026-07-08): every sentence below is assembled
+   from the filmography numbers already on file — TMDB credits + the Metatake
+   catalog. No generation. Rendered as a short "at a glance" block plus a
+   <details> full analysis (server HTML, so all of it is crawlable). ── */
+
+type CraftFilm = { id: number; title: string; year: number; poster: string | null };
+
+function careerFacts(crafts: { key: CraftKey; films: CraftFilm[] }[]) {
+  const all = [...new Map(crafts.flatMap((c) => c.films).map((f) => [f.id, f])).values()];
+  const dated = all.filter((f) => f.year > 1880);
+  const years = dated.map((f) => f.year);
+  if (!years.length) return null;
+  const first = Math.min(...years);
+  const last = Math.max(...years);
+  const firstFilm = dated.filter((f) => f.year === first).sort((a, b) => a.title.localeCompare(b.title))[0];
+  const lastFilm = dated.filter((f) => f.year === last).sort((a, b) => a.title.localeCompare(b.title))[0];
+  const byDecade = new Map<number, CraftFilm[]>();
+  for (const f of dated) {
+    const d = Math.floor(f.year / 10) * 10;
+    byDecade.set(d, [...(byDecade.get(d) ?? []), f]);
+  }
+  const decades = [...byDecade.entries()].sort((a, b) => a[0] - b[0]);
+  const peak = [...decades].sort((a, b) => b[1].length - a[1].length)[0];
+  return { total: all.length, dated: dated.length, first, last, firstFilm, lastFilm, decades, peak };
+}
+
+const FilmRef = ({ f, catByTmdb }: { f: CraftFilm; catByTmdb: Map<number, CatFilm> }) => {
+  const c = catByTmdb.get(f.id);
+  return <>{c ? <Link href={`/film/${c.slug}`}>{f.title}</Link> : <i>{f.title}</i>}{f.year ? ` (${f.year})` : ""}</>;
+};
+
 interface Props { params: Promise<{ person: string }> }
 
 async function load(personSlug: string) {
