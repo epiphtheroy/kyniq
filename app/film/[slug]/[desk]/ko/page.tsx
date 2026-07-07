@@ -170,40 +170,31 @@ export default async function DeskEssayKoPage({ params }: Props) {
   if (!desk) notFound();
   const data = await load(slug, deskKey);
   if (!data) notFound();
-  const { film, essay, html, otherDesks } = data;
+  const { film, essay, html, otherDesks, videos } = data;
   const yearStr = film.year ? ` (${film.year})` : "";
   const label = KO_DESK_LABEL[desk.key] ?? desk.label;
+
+  const gallery = await filmBackdropPaths(film.tmdb_id);
+  const artPicks = pickStills(gallery, `${film.slug}:${desk.key}:ko`, 6);
+  const bodyHtml = injectFigures(html, artPicks.slice(0, 3), `${film.title}${yearStr}`);
+  const plateArt = [...artPicks.slice(3), ...(film.backdrop_path ? [film.backdrop_path] : [])];
 
   return (
     <div className="mt" lang="ko">
       <SiteNav />
-      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 60px" }}>
-        <div className="df-crumb">
-          <Link href="/film">Films</Link>
-          <span className="df-sep">›</span>
-          <Link href={`/film/${film.slug}`}>{film.title}</Link>
-          <span className="df-sep">›</span>
-          <span>{label}</span>
-        </div>
-
+      <ReadHero
+        film={film}
+        crumbTail={label}
+        chip={<><Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>Curious</Link>{" · "}{desk.deskName}</>}
+        meta={<>{essay.minutes}분 · 검증 {essay.date} ·{" "}<Link href={`/film/${film.slug}/${desk.key}`} style={{ color: "inherit", textDecoration: "underline" }}>English</Link></>}
+        title={essay.title}
+        dek={essay.dek ?? undefined}
+        videos={videos}
+        backdropPath={film.backdrop_path}
+      />
+      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 40px" }}>
         <article className="essay">
-          <div className="essay-kicker">
-            <span className="essay-chip">
-              <Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>
-                Curious
-              </Link>
-              {" · "}
-              {desk.deskName}
-            </span>
-            <span className="essay-meta">
-              {essay.minutes}분 · 검증 {essay.date} ·{" "}
-              <Link href={`/film/${film.slug}/${desk.key}`}>English</Link>
-            </span>
-          </div>
-
-          <h1 className="essay-h1">{essay.title}</h1>
           <Byline created={essay.date} />
-          {essay.dek && <p className="essay-dek">{essay.dek}</p>}
 
           {essay.spoiler >= 2 && (
             <p className="essay-spoiler">
@@ -212,7 +203,7 @@ export default async function DeskEssayKoPage({ params }: Props) {
             </p>
           )}
 
-          <div className="essay-body" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="essay-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
 
           <div className="essay-plaque">
             <p>
@@ -246,6 +237,8 @@ export default async function DeskEssayKoPage({ params }: Props) {
           </p>
         </article>
       </div>
+
+      <ReadPlates slug={film.slug} exclude={`desk:${desk.key}`} artPaths={plateArt} />
     </div>
   );
 }
