@@ -5,7 +5,10 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "../CreditsExplorer";
-import { CRAFTS, type CraftKey, img, personSlug } from "../credits-logic";
+import {
+  CRAFTS, FAM, type Api, type ArtistData, type Collab, type CraftKey, type GrpKey, type TFilm,
+  computeArtist, img, personSlug,
+} from "../credits-logic";
 import { resolveNative } from "@/lib/nativeName";
 import { pageRobots } from "@/lib/seo";
 import "../credits.css";
@@ -152,6 +155,23 @@ const FilmRef = ({ f, catByTmdb }: { f: CraftFilm; catByTmdb: Map<number, CatFil
   return <>{c ? <Link href={`/film/${c.slug}`}>{f.title}</Link> : <i>{f.title}</i>}{f.year ? ` (${f.year})` : ""}</>;
 };
 
+/* Server-side TMDB adapter for computeArtist — the SAME aggregation the
+   interactive explorer runs client-side, so the sentences below and the play
+   layer can never disagree. Fetches are Next-cached for a day. */
+const tmdbApi: Api = async (path, params) => {
+  const token = process.env.TMDB_READ_TOKEN!;
+  const v4 = token.length > 40;
+  const u = new URL(`https://api.themoviedb.org/3${path}`);
+  for (const [k, v] of Object.entries(params ?? {})) u.searchParams.set(k, v);
+  if (!v4) u.searchParams.set("api_key", token);
+  const r = await fetch(u, {
+    headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" },
+    next: { revalidate: 86400 },
+  });
+  if (!r.ok) throw new Error(`tmdb ${r.status}`);
+  return r.json();
+};
+
 interface Props { params: Promise<{ person: string }> }
 
 async function load(personSlug: string) {
@@ -174,11 +194,13 @@ async function load(personSlug: string) {
     byDir.set(f.director, cur);
   }
   const company = [...byDir.values()].sort((a, b) => b.n - a.n);
-  const [native, directorHub] = await Promise.all([
+  const [native, directorHub, artistRaw] = await Promise.all([
     resolveNative({ tmdbId: id, name: p.name, aliases: p.also_known_as, place: p.place_of_birth }),
     directorHubFor(p),
+    computeArtist(tmdbApi, id, crafts[0].key).catch(() => null),
   ]);
-  return { id, p, crafts, cat, company, native, directorHub };
+  const artist = artistRaw && !("empty" in artistRaw) ? (artistRaw as ArtistData) : null;
+  return { id, p, crafts, cat, company, native, directorHub, artist };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
