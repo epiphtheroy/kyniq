@@ -570,10 +570,11 @@ function AttachRail({ draft, onAddFilm, onRmFilm, onFramework, supabase }: {
         <KV k="Visibility" v={draft.status === "published" ? "Published" : "Draft"} />
       </ICard>
 
+      {/* neutral attach chips — .rsn reason chips are reserved for server-sent codes */}
       <ICard icon="ti-tags" title="Publish routing">
-        <div className="reasons">
-          {draft.framework ? <span className="rsn reading">framework {fw(draft.framework).label}</span> : null}
-          {draft.films.length ? <span className="rsn frontier">film {draft.films.length}</span> : null}
+        <div className="achips">
+          {draft.framework ? <span className="achip misread">framework · {fw(draft.framework).label}</span> : null}
+          {draft.films.length ? <span className="achip film">{draft.films.length} film{draft.films.length > 1 ? "s" : ""}</span> : null}
           {!draft.framework && !draft.films.length ? <span style={{ color: "var(--sub)", fontSize: 11 }}>Nothing attached yet — add entities above.</span> : null}
         </div>
         <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 8 }}>
