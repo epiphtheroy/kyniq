@@ -61,7 +61,7 @@ const loadDict = unstable_cache(
     }
     return { concepts: [], theorists: [] };
   },
-  ["desk-link-dict-1"],
+  ["desk-link-dict-2"],
   { revalidate: 86400 }
 );
 
@@ -137,7 +137,7 @@ async function loadUncached(slug: string, deskKey: string, lang: "en" | "ko") {
 function load(slug: string, deskKey: string, lang: "en" | "ko" = "en") {
   return unstable_cache(
     () => loadUncached(slug, deskKey, lang),
-    ["desk-essay-1", slug, deskKey, lang],
+    ["desk-essay-2", slug, deskKey, lang],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }
