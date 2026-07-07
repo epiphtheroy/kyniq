@@ -6,7 +6,8 @@
 .room-root .sl-bar button{font-family:var(--ui)}
 .room-root .sl-staledot{width:7px;height:7px;border-radius:50%;background:var(--risk)}
 .room-root .sl-resorted{font-size:10px;color:var(--sub);border:1px dashed var(--line2);border-radius:999px;padding:1px 8px}
-.room-root .sl-kpis{grid-template-columns:repeat(2,minmax(150px,220px))}
+.room-root .sl-kpis{grid-template-columns:repeat(3,minmax(130px,200px))}
+@media (max-width:640px){.room-root .sl-kpis{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}}
 
 /* Two columns ≥1180px: deal-flow table + streaming rollup rail; stacked below. */
 .room-root .sl-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
@@ -19,6 +20,7 @@
 .room-root .sl-t{font-family:var(--ser);font-size:14.5px;color:var(--ink);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .room-root .sl-t small{color:var(--sub);font-size:11px;margin-left:6px}
 .room-root .sl-m{margin-top:3px;display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--sub)}
+.room-root .sl-m .availdot{margin-left:0;flex:0 0 auto} /* flex gap already spaces it */
 .room-root .sl-added{font-family:var(--mono)}
 
 /* V/C/R microbars — ours only, never blended with ★ or external signals. */
@@ -39,9 +41,17 @@
 .room-root .sl-act .ab{width:28px;height:28px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer}
 .room-root .sl-act .ab:hover{color:var(--ink);border-color:var(--line3)}
 
-/* Streaming rollup rail — honest placeholder copy until §8-R6. */
+/* Streaming rollup rail — real per-provider rollup (§8-R6): headline, provider
+   groups (availdot · name · count) and title buttons that open the row inspector. */
 .room-root .sl-rail .sl-railcopy{margin:0;font-size:12px;color:var(--ink);line-height:1.55}
-.room-root .sl-rail .sl-railnote{margin:8px 0 0;font-size:10.5px;color:var(--sub);line-height:1.5}
+.room-root .sl-rail .sl-railnote{margin:10px 0 0;font-size:10.5px;color:var(--sub);line-height:1.5}
+.room-root .sl-prov{margin-top:11px;padding-top:9px;border-top:1px solid var(--line)}
+.room-root .sl-provh{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink)}
+.room-root .sl-provh .availdot{margin-left:0;flex:0 0 auto}
+.room-root .sl-provn{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--sub)}
+.room-root .sl-provlist{list-style:none;margin:4px 0 0;padding:0}
+.room-root .sl-provlist button{display:block;width:100%;text-align:left;background:none;border:0;padding:2px 0;font-family:var(--ui);font-size:11px;color:var(--mut);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.room-root .sl-provlist button:hover{color:var(--ink)}
 
 /* Empty slate — honest copy + door back to the Screener. */
 .room-root .sl-empty{border:1px dashed var(--line2);border-radius:10px;background:var(--pnl);padding:16px;font-size:13px;color:var(--mut);line-height:1.6}

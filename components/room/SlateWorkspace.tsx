@@ -4,9 +4,10 @@
  *  V/C/R microbars (returned but never rendered in v2), added date and an
  *  honest Age badge (Fresh <30d / Aging 30–90d / Stale >90d). Row actions are
  *  the conversion verbs: Seen (me_mark_seen), Rate (Stars → rate_film, rating
- *  implies seen) and Release (me_set_watchlist off). The streaming rollup rail
- *  is an honest placeholder until §8-R6 wires availability into the RPC — the
- *  header shows NO streaming count for the same reason (never fake a number). */
+ *  implies seen) and Release (me_set_watchlist off). §8-R6 (0045) attached the
+ *  KR-flatrate avail json to the RPC, so availability is now real here: per-row
+ *  streaming dot, a header streaming-now count, a Streaming-now filter toggle
+ *  and a per-provider rollup rail — confirmed "on" only; unknown ≠ unavailable. */
 import { useCallback, useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { IMG, num } from "@/lib/room/format";
@@ -20,12 +21,15 @@ import ActBar from "./insp/ActBar";
 import { useInspector } from "./InspectorContext";
 import { useRoomActions } from "./useRoomActions";
 
-/** me_watchlist_scored row (0033 snapshot) — PostgREST numerics may arrive as strings. */
+/** me_watchlist_scored row (0045 snapshot) — PostgREST numerics may arrive as strings.
+ *  avail is the same KR-flatrate json shape me_recommend_wwi builds (WwiRow):
+ *  {state:'on',provider} | {state:'unk'}; null when film_watch_providers has no row. */
 export type SlateRow = {
   slug: string; title: string; year: number | null; poster_path: string | null; director: string | null;
   rating: number | string | null;
   added_at: string | null;
   v: number | string | null; c: number | string | null; r: number | string | null;
+  avail: { state: string; provider?: string } | null;
 };
 
 const PAGE = 50;
@@ -82,6 +86,7 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
 
   const [q, setQ] = useState("");
   const [staleOnly, setStaleOnly] = useState(false);
+  const [streamOnly, setStreamOnly] = useState(false);
   const [sort, setSort] = useState<SortKey>("added");
   const [page, setPage] = useState(0);
   /* Rows released this session — server rows need a local mask (SessionStore's
@@ -107,6 +112,19 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
     [visible],
   );
 
+  /* ── §8-R6 availability: confirmed KR-flatrate rows and their provider rollup.
+     Only state==='on' counts — 'unk'/null stay out of every number (honesty rule). ── */
+  const streamingRows = useMemo(() => visible.filter((f) => f.avail?.state === "on"), [visible]);
+  const byProvider = useMemo(() => {
+    const m = new Map<string, SlateRow[]>();
+    for (const f of streamingRows) {
+      const p = f.avail?.provider ?? "Unnamed provider";
+      const list = m.get(p);
+      if (list) list.push(f); else m.set(p, [f]);
+    }
+    return [...m.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  }, [streamingRows]);
+
   const filtered = useMemo(() => {
     let a = visible;
     if (q.trim()) {
@@ -114,8 +132,9 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
       a = a.filter((f) => f.title.toLowerCase().includes(t) || (f.director ?? "").toLowerCase().includes(t));
     }
     if (staleOnly) a = a.filter((f) => (ageDays(f.added_at) ?? 0) > 90);
+    if (streamOnly) a = a.filter((f) => f.avail?.state === "on");
     return a;
-  }, [visible, q, staleOnly]);
+  }, [visible, q, staleOnly, streamOnly]);
 
   const sorted = useMemo(() => {
     if (sort === "added") return filtered; // server order: added_at desc
@@ -165,6 +184,12 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
         <ICard icon="ti-stack-2" title="On the slate">
           <KV k="Added" v={f.added_at ? f.added_at.slice(0, 10) : "—"} />
           <KV k="Age" v={d == null ? "—" : `${d}d`} />
+          <KV
+            k="Streaming"
+            v={f.avail?.state === "on"
+              ? <><span className="availdot on" style={{ marginLeft: 0, marginRight: 6 }} />{f.avail.provider ?? STR.row.streaming}</>
+              : STR.common.availUnknown}
+          />
         </ICard>
         <CinecodexCard d={{ v: num(f.v), c: num(f.c), r: num(f.r) }} slug={f.slug} />
         <ICard icon="ti-player-play" title={STR.insp.actNow}>
@@ -197,13 +222,14 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
           <KV k="Kept films" v={visible.length} />
           <KV k="Oldest" v={oldest == null ? "—" : `${oldest}d`} />
           <KV k={"Stale (>90d)"} v={staleCount} />
+          <KV k={STR.row.streaming} v={streamingRows.length} />
         </ICard>
         <div className="emptyins">
-          Commitments age honestly. Seen converts a film into a position, Release lets it go. Streaming counts appear once availability is wired to this list — never faked.
+          Commitments age honestly. Seen converts a film into a position, Release lets it go. Streaming counts only confirmed KR flatrate — unknown ≠ unavailable.
         </div>
       </div>,
     );
-  }, [visible.length, oldest, staleCount, setDefault]);
+  }, [visible.length, oldest, staleCount, streamingRows.length, setDefault]);
 
   return (
     <div className="v2wrap">
@@ -214,7 +240,7 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
 
       <div className="sl-cols">
         <div>
-          {/* ═══ header stats — count · oldest age (no streaming count: RPC lacks it) ═══ */}
+          {/* ═══ header stats — count · oldest age · streaming-now (§8-R6, confirmed only) ═══ */}
           <div className="kpis sl-kpis">
             <div className="kpi">
               <div className="kl">On the slate</div>
@@ -223,6 +249,10 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
             <div className="kpi">
               <div className="kl">Oldest commitment</div>
               <div className="kn">{oldest == null ? "—" : `${oldest}d`}</div>
+            </div>
+            <div className="kpi">
+              <div className="kl">{STR.row.streaming}</div>
+              <div className="kn">{streamingRows.length}</div>
             </div>
           </div>
 
@@ -258,6 +288,13 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
                 >
                   <span className="dot sl-staledot" /> Stale only
                 </button>
+                <button
+                  type="button"
+                  className={`qtoggle${streamOnly ? " on" : ""}`}
+                  onClick={() => { setStreamOnly((v) => !v); setPage(0); }}
+                >
+                  <span className="avdot" /> {STR.row.streaming}
+                </button>
               </div>
 
               {/* ═══ deal-flow table ═══ */}
@@ -271,6 +308,12 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
                       <div className="sl-t">{f.title}<small>{f.year ?? ""}{f.director ? ` · ${f.director}` : ""}</small></div>
                       <div className="sl-m">
                         <span className="sl-added" title="Added to the slate">{f.added_at ? f.added_at.slice(0, 10) : "—"}</span>
+                        {f.avail?.state === "on" ? (
+                          <span
+                            className="availdot on"
+                            title={f.avail.provider ? `${STR.row.streaming} · ${f.avail.provider}` : STR.row.streaming}
+                          />
+                        ) : null}
                       </div>
                     </div>
                     <Vcr v={num(f.v)} c={num(f.c)} r={num(f.r)} />
@@ -314,12 +357,46 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
           )}
         </div>
 
-        {/* ═══ streaming rollup rail — honest placeholder until §8-R6 wires avail ═══ */}
+        {/* ═══ streaming rollup rail — real per-provider rollup (§8-R6): confirmed
+             KR-flatrate rows grouped by provider; each title opens its row's
+             inspector. Everything else stays an honest unknown, never a number. ═══ */}
         <aside className="sl-rail">
           <div className="icard">
             <h4><i className="ti ti-antenna-bars-3" /> Streaming rollup</h4>
-            <p className="sl-railcopy">Availability not yet wired to the slate (≠ unavailable).</p>
-            <p className="sl-railnote">When it lands, this rail rolls your slate up by provider. Until then we show nothing rather than a made-up number.</p>
+            {streamingRows.length ? (
+              <>
+                <p className="sl-railcopy">
+                  Tonight you can stream <b>{streamingRows.length}</b> of your {visible.length} kept film{visible.length === 1 ? "" : "s"} (KR flatrate).
+                </p>
+                {byProvider.map(([prov, films]) => (
+                  <div key={prov} className="sl-prov">
+                    <div className="sl-provh">
+                      <span className="availdot on" />{prov}
+                      <span className="sl-provn">{films.length}</span>
+                    </div>
+                    <ul className="sl-provlist">
+                      {films.map((f) => (
+                        <li key={f.slug}>
+                          <button type="button" title={`Open "${f.title}" in the inspector`} onClick={() => openFilm(f)}>
+                            {f.title}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                {visible.length > streamingRows.length ? (
+                  <p className="sl-railnote">
+                    Availability unknown for the other {visible.length - streamingRows.length} — unknown ≠ unavailable. We only track KR flatrate.
+                  </p>
+                ) : null}
+              </>
+            ) : (
+              <>
+                <p className="sl-railcopy">Nothing on your slate is confirmed streaming on a KR flatrate service right now.</p>
+                <p className="sl-railnote">{STR.common.availUnknown} — we only track KR flatrate, so the rest may still be watchable elsewhere.</p>
+              </>
+            )}
           </div>
         </aside>
       </div>

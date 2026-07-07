@@ -66,11 +66,22 @@
 .room-root .cv-ilb{font-family:var(--ser);font-size:17px;color:var(--ink);line-height:1.3}
 .room-root .cv-isub{font-size:11px;color:var(--mut);margin-top:3px}
 .room-root .cv-honest{font-size:11px;color:var(--sub);line-height:1.5;margin-bottom:8px}
-.room-root .cv-cand{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:12px}
-.room-root .cv-cand:last-of-type{border-bottom:none}
-.room-root .cv-ct{flex:1;min-width:0;font-family:var(--ser);color:var(--ink);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.room-root .cv-ct:hover{text-decoration:underline}
-.room-root .cv-ct small{color:var(--sub);margin-left:5px;font-family:var(--ui)}
-.room-root .cv-kb{width:26px;height:26px;border-radius:6px;border:1px solid var(--line2);background:var(--pnl);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer;flex:0 0 auto}
-.room-root .cv-kb:hover{color:var(--ink);border-color:var(--line3)}
-.room-root .cv-kb.done{color:var(--safe);border-color:#1d5145;cursor:default}
+
+/* ── "Fill this gap" candidates (§8-R4 me_lineage_candidates) ── */
+.room-root .cv-fgl{display:flex;flex-direction:column}
+.room-root .cv-fg{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:9px;align-items:center;padding:6px 2px;border-bottom:1px solid var(--line)}
+.room-root .cv-fg:last-child{border-bottom:0}
+.room-root .cv-fg.seen{opacity:.5}
+.room-root .cv-fgpo{width:34px;height:50px;border-radius:3px;border:1px solid var(--line2);background:linear-gradient(145deg,#26262c,#151517) center/cover}
+.room-root .cv-fgt{font-family:var(--ser);font-size:12.5px;color:var(--ink);line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.room-root .cv-fgt:hover{text-decoration:underline}
+.room-root .cv-fgt small{color:var(--sub);font-size:10.5px;margin-left:5px;font-family:inherit}
+.room-root .cv-fgsub{font-size:10.5px;color:var(--mut);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .cv-fgsub b{font-family:var(--mono);color:var(--canon);font-style:normal}
+.room-root .cv-fgact{display:flex;gap:5px}
+.room-root .cv-fgb{width:26px;height:26px;border-radius:5px;border:1px solid var(--line2);background:var(--pnl);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;cursor:pointer;padding:0}
+.room-root .cv-fgb:hover:not(:disabled){color:var(--ink);border-color:var(--line3)}
+.room-root .cv-fgb.done,.room-root .cv-fgb:disabled{cursor:default}
+.room-root .cv-fgb.done{color:var(--safe);border-color:#1d5145}
+.room-root .cv-fgretry{margin-left:8px;font-size:10.5px;font-family:var(--ui);color:var(--frontier);background:none;border:1px solid var(--line2);border-radius:5px;padding:2px 8px;cursor:pointer}
+.room-root .cv-fgretry:hover{color:var(--ink);border-color:var(--line3)}

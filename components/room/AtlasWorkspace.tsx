@@ -9,11 +9,13 @@
  *  projX/projY below (x=(lng+180)/360·760, y=(90−lat)/180·380) so film dots land
  *  on the right landmass — verified against reference cities at generation time.
  *
- *  Data: one RPC — me_geo_coverage() → { points[], by_country[], totals } (single
- *  json, auth.uid()-scoped, seen films only, cap-safe). by_country carries a
- *  `continent` per SEEN country only, so the page additionally passes the full
+ *  Data: one page RPC — me_geo_coverage() → { points[], by_country[], totals }
+ *  (single json, auth.uid()-scoped, seen films only, cap-safe). by_country carries
+ *  a `continent` per SEEN country only, so the page additionally passes the full
  *  public country_continents reference (for blind-continent territory lists) and
- *  the public national lineage index (for /lineage/* deep links). No new RPCs.
+ *  the public national lineage index (for /lineage/* deep links). The blind-
+ *  continent inspector additionally client-fetches me_geo_gap_candidates (§8-R7,
+ *  0045) on open — lazily, one continent at a time, never eagerly for all.
  *
  *  Flags are COMPUTED: country name → ISO2 via an inverted Intl.DisplayNames
  *  region table (+ a small alias patch for CLDR naming variants) → regional-
@@ -26,7 +28,8 @@ import CinecodexCard from "./CinecodexCard";
 import ICard from "./insp/ICard";
 import KV from "./insp/KV";
 import ActBar from "./insp/ActBar";
-import { num } from "@/lib/room/format";
+import { useRoomActions } from "./useRoomActions";
+import { num, IMG } from "@/lib/room/format";
 import { STR } from "./strings";
 import { WORLD_LAND_PATHS, WORLD_VIEW_W, WORLD_VIEW_H } from "@/lib/room/world_paths";
 
@@ -243,9 +246,122 @@ function CountryInsp({ c, cont, pts, lineages }: {
   );
 }
 
-/** A blind continent → the territory: every country of that continent (from the
- *  country_continents reference), with doors to public national lineages and the
- *  Coverage national facet. Honest: no geographic recommendations exist yet. */
+/* ── §8-R7 me_geo_gap_candidates row (0045) — PostgREST numerics may arrive as strings ── */
+type GapCandRow = {
+  slug: string; title: string; year: number | string | null; poster_path: string | null;
+  director: string | null; prestige: number | string | null; country: string | null;
+};
+
+/** "Best films from this territory" — client-fetched on inspector open ONLY
+ *  (§8-R7 me_geo_gap_candidates: unseen visible films located in the continent,
+ *  Standing desc). p_continent takes the DB reference vocabulary — exactly the
+ *  CONTINENTS constants above (verified: blind cards are derived from CONTINENTS,
+ *  so `cont` is always one of the six DB labels; no mapping needed).
+ *  Keep/Seen are optimistic with rollback on RPC error (house pattern). */
+function GapCandidates({ cont }: { cont: Continent }) {
+  const { supabase, session, doKeep, doSeen } = useRoomActions();
+  const [rows, setRows] = useState<GapCandRow[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+  const [retryN, setRetryN] = useState(0);
+  /* optimistic overlays (rolled back if the RPC fails) */
+  const [localKept, setLocalKept] = useState<ReadonlySet<string>>(new Set());
+  const [localSeen, setLocalSeen] = useState<ReadonlySet<string>>(new Set());
+
+  /* React reuses the instance across consecutive select() calls — refetch and
+     reset overlays when the continent changes. Lazy by construction: this only
+     runs when the inspector renders this card. */
+  useEffect(() => {
+    let cancelled = false;
+    setRows(null); setErr(null);
+    setLocalKept(new Set()); setLocalSeen(new Set());
+    supabase.rpc("me_geo_gap_candidates", { p_continent: cont, p_limit: 8 })
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error) { setErr(error.message); return; }
+        setRows((data as GapCandRow[] | null) ?? []);
+      });
+    return () => { cancelled = true; };
+  }, [supabase, cont, retryN]);
+
+  const keep = (r: GapCandRow) => {
+    setLocalKept((p) => new Set(p).add(r.slug));
+    void doKeep(r.slug, r.title).then((ok) => {
+      if (!ok) setLocalKept((p) => { const n = new Set(p); n.delete(r.slug); return n; });
+    });
+  };
+  const markSeen = (r: GapCandRow) => {
+    setLocalSeen((p) => new Set(p).add(r.slug));
+    void doSeen(r.slug, r.title).then((ok) => {
+      if (!ok) setLocalSeen((p) => { const n = new Set(p); n.delete(r.slug); return n; });
+    });
+  };
+
+  return (
+    <ICard icon="ti-compass" title="Best films from this territory" right="me_geo_gap_candidates">
+      {err != null ? (
+        <div className="emptyins" style={{ padding: "8px 0", textAlign: "left" }}>
+          {STR.common.errorLoad}
+          <button type="button" className="at-gretry" onClick={() => setRetryN((n) => n + 1)}>{STR.common.retry}</button>
+        </div>
+      ) : rows == null ? (
+        <div>
+          <div className="ghline w80" />
+          <div className="ghline w60" />
+          <div className="ghline w80" />
+        </div>
+      ) : rows.length === 0 ? (
+        <div className="emptyins" style={{ padding: "8px 0", textAlign: "left" }}>
+          No unseen films located in this continent are in the catalog yet — the territory below is still the door.
+        </div>
+      ) : (
+        <>
+          <div className="at-gaps">
+            {rows.map((r) => {
+              const kept = localKept.has(r.slug) || session.kept.has(r.slug);
+              const seen = localSeen.has(r.slug) || session.gone.has(r.slug);
+              const p = num(r.prestige);
+              const flag = flagOf(r.country);
+              return (
+                <div key={r.slug} className={`at-gap${seen ? " seen" : ""}`}>
+                  <span className="at-gpo" style={r.poster_path ? { backgroundImage: `url(${IMG}${r.poster_path})` } : {}} />
+                  <div style={{ minWidth: 0 }}>
+                    <div className="at-gtt">
+                      <Link href={`/room/film/${r.slug}`}>{r.title}</Link>
+                      <small>{r.year ?? "?"}{r.director ? ` · ${r.director}` : ""}</small>
+                    </div>
+                    <div className="at-gsub">
+                      <span>{STR.cc.standing} <b>{p != null ? Math.round(p) : "—"}</b></span>
+                      <span>·</span>
+                      <span className="at-gc">{flag ? `${flag} ` : ""}{displayCountry(r.country)}</span>
+                    </div>
+                  </div>
+                  <div className="at-gact">
+                    <button type="button" className={`at-gb${kept ? " done" : ""}`} title={kept ? STR.row.kept : STR.row.keep}
+                      disabled={kept} onClick={() => keep(r)}>
+                      <i className={`ti ${kept ? "ti-bookmark-filled" : "ti-bookmark-plus"}`} />
+                    </button>
+                    <button type="button" className={`at-gb${seen ? " done" : ""}`} title={STR.row.seen}
+                      disabled={seen} onClick={() => markSeen(r)}>
+                      <i className="ti ti-check" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 8, lineHeight: 1.5 }}>
+            Unseen films with a measured location in this continent, ranked by {STR.cc.standing}. Keep → slate · Seen → the continent stops being blind.
+          </div>
+        </>
+      )}
+    </ICard>
+  );
+}
+
+/** A blind continent → best unseen films located there (§8-R7, fetched on open)
+ *  + the territory: every country of that continent (from the country_continents
+ *  reference), with doors to public national lineages and the Coverage national
+ *  facet. */
 function BlindInsp({ cont, countries, natByIso }: {
   cont: Continent; countries: string[]; natByIso: Map<string, NatLineage[]>;
 }) {
@@ -260,9 +376,10 @@ function BlindInsp({ cont, countries, natByIso }: {
           0<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>films · unexplored</span>
         </div>
         <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.55, marginTop: 8 }}>
-          We can&apos;t recommend by geography yet — here is the territory.
+          The best unseen films from this territory are below — and every country is a door.
         </div>
       </ICard>
+      <GapCandidates cont={cont} />
       <ICard icon="ti-world" title={`The territory · ${countries.length} countries`} right="country_continents">
         <div className="at-terr">
           {countries.map((name) => {
@@ -656,8 +773,8 @@ export default function AtlasWorkspace({ data, countryRef, nationalLineages }: {
                 </div>
               ) : null}
               <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 9, fontStyle: "italic" }}>
-                Blind = no seen film is set in or was shot on that continent. Click one for its full territory —
-                we can&apos;t recommend by geography yet, but every country there is a door.
+                Blind = no seen film is set in or was shot on that continent. Click one for the best unseen
+                films from that territory and its full country list — every country there is a door.
               </div>
             </div>
           </div>

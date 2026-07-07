@@ -2,17 +2,18 @@
 /** /room/coverage — the Coverage instrument (spec §3.7): the lineage-conquest
  *  board (me_coverage) + the shipping debut of me_blindspots.
  *  Honesty invariants held here:
- *   - WWI rows carry NO lineage ids, so "Fill this gap" NEVER pretends precise
- *     matching: candidates are labeled as general lineage-advancers, and the
- *     no-candidate fallback links to the public /lineage/[slug] page.
- *     (Precise matching waits on §8-R4 me_lineage_candidates.)
+ *   - "Fill this gap" is PRECISE since §8-R4: the lineage inspector client-
+ *     fetches me_lineage_candidates(list_id) — unseen members of THAT exact
+ *     list, best Standing first. Zero rows keeps the honest line ("every
+ *     ranked member is already in your collection") and the public
+ *     /lineage/[slug] link never disappears.
  *   - Blind-spot taste fit shows its formula in a .gloss and discloses the
  *     cold-start neutral 0.70 (never a fake personalization signal).
  *   - Auteur-facet lineages are excluded — they have their own instrument
  *     (/room/auteurs), matching me_portfolio_nav's "lines" facet set. */
 import { useCallback, useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
-import { num, FACET_LABEL, REASON_MAP, type WwiRow } from "@/lib/room/format";
+import { num, FACET_LABEL, IMG, type WwiRow } from "@/lib/room/format";
 import { STR } from "./strings";
 import { useInspector } from "./InspectorContext";
 import { useRoomActions } from "./useRoomActions";
@@ -33,7 +34,10 @@ export type BlindRow = {
   ratio: number | string | null; productivity: number | string | null;
   opportunity: number | string | null; gap_reason: string;
 };
-/** null field = that RPC failed server-side → render .errcard, not empty data. */
+/** null field = that RPC failed server-side → render .errcard, not empty data.
+ *  wwi stays in the payload shape (the server page still fetches it) but is no
+ *  longer consumed here — §8-R4 me_lineage_candidates made "Fill this gap"
+ *  precise per lineage, replacing the WWI-derived approximate candidates. */
 export type CoverageData = {
   coverage: CovRow[] | null;
   blind: BlindRow[] | null;
@@ -69,46 +73,121 @@ const GROUPS = [
 const LOCK_PREVIEW = 30;
 
 type NormRow = {
-  slug: string; label: string; facet: string; state: string;
+  listId: string; slug: string; label: string; facet: string; state: string;
   aw: number; seen: number; total: number; pct: number;
 };
 
-/* WwiRow → shared inspector input. λ=1.0 surface, so U = V − R. */
-function toRecFilm(f: WwiRow, kept: boolean): RecFilm {
-  const v = num(f.v), r = num(f.r);
-  return {
-    slug: f.slug, title: f.title, year: f.year, director: f.director, poster_path: f.poster_path,
-    reasons: f.reasons, v, c: null, r, u: v != null && r != null ? Math.round(v - r) : num(f.ts),
-    prestige: num(f.prestige), discovery: num(f.disc), conf: num(f.conf), tier: f.tier, kept,
-  };
-}
+/* ── §8-R4 me_lineage_candidates row (0045) — PostgREST numerics may arrive as strings ── */
+type LcRow = {
+  slug: string; title: string; year: number | string | null; poster_path: string | null;
+  director: string | null; prestige: number | string | null;
+};
 
-/** Candidate line inside the lineage inspector. Local kept state keeps the
- *  snapshot honest after a Keep without re-selecting the whole inspector. */
-function CandRow({ f, keptInit, onOpen, onKeep }: {
-  f: WwiRow; keptInit: boolean;
-  onOpen: (f: WwiRow, kept: boolean) => void;
-  onKeep: (f: WwiRow) => void;
+/** "Fill this gap" — precise since §8-R4: unseen members of THIS lineage
+ *  (me_lineage_candidates by list_id, best Standing first), client-fetched on
+ *  inspector open only (lazy by construction — the RPC fires when the inspector
+ *  renders this card). Keep/Seen are optimistic with rollback on RPC error
+ *  (house pattern, same as Atlas §8-R7). Zero rows keeps the honest line —
+ *  never scaffolded content — and the public /lineage/[slug] link stays. */
+function FillGap({ listId, slug, onOpen }: {
+  listId: string;
+  /** Lineage slug — powers the public /lineage/[slug] escape hatch. */
+  slug: string;
+  onOpen: (f: LcRow, kept: boolean) => void;
 }) {
-  const [kept, setKept] = useState(keptInit);
-  const code = (f.reasons ?? []).find((c) => c === "gap" || c === "conquer");
-  const chip = code ? REASON_MAP[code] : null;
+  const { supabase, session, doKeep, doSeen } = useRoomActions();
+  const [rows, setRows] = useState<LcRow[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+  const [retryN, setRetryN] = useState(0);
+  /* optimistic overlays (rolled back if the RPC fails) */
+  const [localKept, setLocalKept] = useState<ReadonlySet<string>>(new Set());
+  const [localSeen, setLocalSeen] = useState<ReadonlySet<string>>(new Set());
+
+  /* React reuses the instance across consecutive select() calls — refetch and
+     reset overlays when the lineage changes. */
+  useEffect(() => {
+    let cancelled = false;
+    setRows(null); setErr(null);
+    setLocalKept(new Set()); setLocalSeen(new Set());
+    supabase.rpc("me_lineage_candidates", { p_list_id: listId, p_limit: 8 })
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error) { setErr(error.message); return; }
+        setRows((data as LcRow[] | null) ?? []);
+      });
+    return () => { cancelled = true; };
+  }, [supabase, listId, retryN]);
+
+  const keep = (f: LcRow) => {
+    setLocalKept((p) => new Set(p).add(f.slug));
+    void doKeep(f.slug, f.title).then((ok) => {
+      if (!ok) setLocalKept((p) => { const n = new Set(p); n.delete(f.slug); return n; });
+    });
+  };
+  const markSeen = (f: LcRow) => {
+    setLocalSeen((p) => new Set(p).add(f.slug));
+    void doSeen(f.slug, f.title).then((ok) => {
+      if (!ok) setLocalSeen((p) => { const n = new Set(p); n.delete(f.slug); return n; });
+    });
+  };
+
   return (
-    <div className="cv-cand">
-      <span className="cv-ct" role="button" tabIndex={0} onClick={() => onOpen(f, kept)} onKeyDown={onKey(() => onOpen(f, kept))}>
-        {f.title}<small>{f.year ?? ""}</small>
-      </span>
-      {chip ? <span className={`rsn ${chip.cls}`}>{chip.label}</span> : null}
-      <span
-        className={`cv-kb${kept ? " done" : ""}`}
-        role="button" tabIndex={0}
-        title={kept ? STR.row.kept : STR.row.keep}
-        onClick={() => { if (!kept) { setKept(true); onKeep(f); } }}
-        onKeyDown={onKey(() => { if (!kept) { setKept(true); onKeep(f); } })}
-      >
-        <i className="ti ti-bookmark-plus" />
-      </span>
-    </div>
+    <ICard icon="ti-target-arrow" title="Fill this gap" right="me_lineage_candidates">
+      {err != null ? (
+        <div className="cv-honest">
+          {STR.common.errorLoad}
+          <button type="button" className="cv-fgretry" onClick={() => setRetryN((n) => n + 1)}>{STR.common.retry}</button>
+        </div>
+      ) : rows == null ? (
+        <div>
+          <div className="ghline w80" />
+          <div className="ghline w60" />
+          <div className="ghline w80" />
+        </div>
+      ) : rows.length === 0 ? (
+        <Link className="actbtn" href={`/lineage/${slug}`} style={{ display: "block", textAlign: "center", fontSize: 11.5 }}>
+          Every ranked member is already in your collection — browse it publicly →
+        </Link>
+      ) : (
+        <>
+          <div className="cv-honest">Unseen members of this exact lineage, best Standing first.</div>
+          <div className="cv-fgl">
+            {rows.map((f) => {
+              const kept = localKept.has(f.slug) || session.kept.has(f.slug);
+              const seen = localSeen.has(f.slug) || session.gone.has(f.slug);
+              const p = num(f.prestige);
+              const open = () => onOpen(f, kept);
+              return (
+                <div key={f.slug} className={`cv-fg${seen ? " seen" : ""}`}>
+                  <span className="cv-fgpo" style={f.poster_path ? { backgroundImage: `url(${IMG}${f.poster_path})` } : {}} />
+                  <div style={{ minWidth: 0 }}>
+                    <div className="cv-fgt" role="button" tabIndex={0} onClick={open} onKeyDown={onKey(open)}>
+                      {f.title}<small>{f.year ?? "?"}{f.director ? ` · ${f.director}` : ""}</small>
+                    </div>
+                    <div className="cv-fgsub" title="Standing — canonical prestige (market price); never blended with our fundamentals.">
+                      {STR.cc.standing} <b>{p != null ? Math.round(p) : "—"}</b>
+                    </div>
+                  </div>
+                  <div className="cv-fgact">
+                    <button type="button" className={`cv-fgb${kept ? " done" : ""}`} title={kept ? STR.row.kept : STR.row.keep}
+                      disabled={kept} onClick={() => keep(f)}>
+                      <i className={`ti ${kept ? "ti-bookmark-filled" : "ti-bookmark-plus"}`} />
+                    </button>
+                    <button type="button" className={`cv-fgb${seen ? " done" : ""}`} title={STR.row.seen}
+                      disabled={seen} onClick={() => markSeen(f)}>
+                      <i className="ti ti-check" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <Link className="actbtn" href={`/lineage/${slug}`} style={{ display: "block", textAlign: "center", marginTop: 10, fontSize: 11.5 }}>
+            Browse this lineage publicly →
+          </Link>
+        </>
+      )}
+    </ICard>
   );
 }
 
@@ -133,7 +212,7 @@ export default function CoverageWorkspace({ data, initialFacet }: { data: Covera
     return (data.coverage ?? [])
       .filter((c) => c.facet !== "auteur")
       .map((c) => ({
-        slug: c.slug, label: c.label, facet: c.facet, state: c.state,
+        listId: c.list_id, slug: c.slug, label: c.label, facet: c.facet, state: c.state,
         aw: num(c.aw) ?? 0, seen: num(c.seen) ?? 0, total: num(c.total) ?? 0, pct: num(c.pct) ?? 0,
       }));
   }, [data.coverage]);
@@ -150,37 +229,35 @@ export default function CoverageWorkspace({ data, initialFacet }: { data: Covera
 
   const blindRows = useMemo(() => {
     return (data.blind ?? []).map((b) => ({
-      slug: b.slug, label: b.label, facet: b.facet, gapReason: b.gap_reason,
+      listId: b.list_id, slug: b.slug, label: b.label, facet: b.facet, gapReason: b.gap_reason,
       aw: num(b.aw) ?? 0, seen: num(b.seen) ?? 0, total: num(b.total) ?? 0,
       ratio: num(b.ratio) ?? 0, prod: num(b.productivity) ?? 0, opp: num(b.opportunity) ?? 0,
     }));
   }, [data.blind]);
   const maxOpp = blindRows.reduce((m, b) => Math.max(m, b.opp), 0);
 
-  /* "Fill this gap" candidates: WWI rows carrying gap/conquer reasons. They are
-     NOT matched to a specific lineage (WWI rows have no lineage ids) and are
-     labeled accordingly — never implied to be precise. */
-  const cands = useMemo(() => {
-    if (data.wwi == null) return null;
-    return data.wwi
-      .filter((f) => !session.gone.has(f.slug) && (f.reasons ?? []).some((c) => c === "gap" || c === "conquer"))
-      .slice(0, 4);
-  }, [data.wwi, session.gone]);
-
   /* ── actions ── */
-  const keep = useCallback((f: WwiRow) => { void doKeep(f.slug, f.title); }, [doKeep]);
-  const pushFilm = useCallback((f: WwiRow, kept: boolean) => {
-    /* push (not select) → the shell renders a back arrow to the lineage inspector. */
+  /* Candidate → shared film inspector, pushed (not selected) so the shell
+     renders a back arrow to the lineage inspector. §8-R4 rows carry no WWI
+     payload: fundamentals arrive null and CinecodexCard says so honestly —
+     only Standing rides along (never blended). */
+  const pushCand = useCallback((f: LcRow, kept: boolean) => {
+    const rf: RecFilm = {
+      slug: f.slug, title: f.title, year: num(f.year), director: f.director, poster_path: f.poster_path,
+      reasons: null, v: null, c: null, r: null, u: null,
+      prestige: num(f.prestige), discovery: null, conf: null, tier: null,
+      kept: kept || session.kept.has(f.slug),
+    };
     insp.push(
       <RecInsp
-        f={toRecFilm(f, kept || session.kept.has(f.slug))}
-        onKeep={() => keep(f)}
+        f={rf}
+        onKeep={() => { void doKeep(f.slug, f.title); }}
         onSeen={() => { insp.close(); void doSeen(f.slug, f.title); }}
         onDismiss={() => { insp.close(); void doDismiss(f.slug, f.title); }}
         onRate={(_, v) => { insp.close(); void doRate(f.slug, f.title, v); }}
       />,
       "Candidate · Fill this gap");
-  }, [insp, session.kept, keep, doSeen, doDismiss, doRate]);
+  }, [insp, session.kept, doKeep, doSeen, doDismiss, doRate]);
 
   /* ── lineage inspector (coverage rows + blind-spot rows share it) ── */
   const openLineage = useCallback((x: NormRow, blind?: { opp: number; prod: number; gapReason: string }) => {
@@ -214,30 +291,10 @@ export default function CoverageWorkspace({ data, initialFacet }: { data: Covera
           </ICard>
         ) : null}
 
-        <ICard icon="ti-target-arrow" title="Fill this gap">
-          {cands == null ? (
-            <div className="cv-honest">{STR.common.errorLoad}</div>
-          ) : cands.length ? (
-            <>
-              <div className="cv-honest">
-                Screener candidates that advance lineage campaigns — not matched to this specific list yet.
-              </div>
-              {cands.map((f) => (
-                <CandRow key={f.slug} f={f} keptInit={!!f.in_watchlist || session.kept.has(f.slug)} onOpen={pushFilm} onKeep={keep} />
-              ))}
-              <Link className="actbtn" href={`/lineage/${x.slug}`} style={{ display: "block", textAlign: "center", marginTop: 10, fontSize: 11.5 }}>
-                Browse this lineage publicly →
-              </Link>
-            </>
-          ) : (
-            <Link className="actbtn" href={`/lineage/${x.slug}`} style={{ display: "block", textAlign: "center", fontSize: 11.5 }}>
-              No ranked candidate for this lineage yet — browse it publicly →
-            </Link>
-          )}
-        </ICard>
+        <FillGap listId={x.listId} slug={x.slug} onOpen={pushCand} />
       </div>,
       "Lineage · Coverage");
-  }, [insp, cands, session.kept, pushFilm, keep]);
+  }, [insp, pushCand]);
 
   /* ── page brief ── */
   const topBlind = blindRows[0] ?? null;
@@ -378,7 +435,7 @@ export default function CoverageWorkspace({ data, initialFacet }: { data: Covera
             <>
               {blindRows.map((b) => {
                 const norm: NormRow = {
-                  slug: b.slug, label: b.label, facet: b.facet, state: "lock",
+                  listId: b.listId, slug: b.slug, label: b.label, facet: b.facet, state: "lock",
                   aw: b.aw, seen: b.seen, total: b.total, pct: Math.round(b.ratio * 100),
                 };
                 const gloss =

@@ -9,7 +9,9 @@ export const dynamic = "force-dynamic";
 /** Slate — /room/slate (spec §3.3, new screen on the existing RPC).
  *  me_watchlist_scored is pulled through the shared .range() chunk loader —
  *  PostgREST caps every response at 1000 rows, and big imported watchlists
- *  must not silently truncate (launch-gate invariant §1-6). */
+ *  must not silently truncate (launch-gate invariant §1-6). §8-R6 (0045) only
+ *  added the avail column; ordering (added_at desc, slug) and the slug natural
+ *  key are unchanged, so the chunk-boundary dedupe below still holds. */
 export default async function RoomSlatePage() {
   const supabase = await createClient();
 

@@ -1,11 +1,11 @@
 "use client";
 /** My Room v3 — the shared mutation hook. Same-mutation principle: every screen
  *  and every inspector writes through here (all auth.uid()-scoped SECURITY
- *  DEFINER RPCs: me_set_watchlist / me_mark_seen / me_dismiss / rate_film).
+ *  DEFINER RPCs: me_set_watchlist / me_mark_seen / me_dismiss / me_undismiss / rate_film).
  *  v3 changes: English toasts via the single Toast provider, every mutation is
  *  recorded into SessionStore (optimistic state that survives route changes),
- *  dismiss toasts carry an Undo action, and doRestore encapsulates the
- *  documented two-call restore sequence. */
+ *  dismiss toasts carry an Undo action, and doRestore restores via the
+ *  canonical me_undismiss RPC (§8-R2). */
 import { useCallback, useMemo } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useToast } from "./Toast";
@@ -48,17 +48,12 @@ export function useRoomActions() {
   }, [supabase, toast, session]);
 
   /** Restore a film dismissed this session (Undo / the "Passed on" strip).
-   *  TWO-CALL SEQUENCE, documented per spec §1: there is no me_undismiss RPC yet,
-   *  so we lean on me_set_watchlist's server behavior —
-   *    1) me_set_watchlist(slug, true)  → keeping clears `dismissed`
-   *    2) me_set_watchlist(slug, false) → return the keep flag to off
-   *  Net server state: dismissed=false, kept=false. Replace with me_undismiss
-   *  (§8-R2) when it ships. Full dismiss-history restore waits on §8-R1. */
+   *  Single-call me_undismiss(p_slug) is canonical (§8-R2, live): sets
+   *  dismissed=false and leaves the keep flag untouched. The old two-call
+   *  me_set_watchlist(on)→(off) fallback is gone. */
   const doRestore = useCallback(async (slug: string, title: string) => {
-    const on = await supabase.rpc("me_set_watchlist", { p_slug: slug, p_on: true });
-    if (on.error) { toast(STR.toast.saveFail(on.error.message)); return false; }
-    const off = await supabase.rpc("me_set_watchlist", { p_slug: slug, p_on: false });
-    if (off.error) { toast(STR.toast.saveFail(off.error.message)); return false; }
+    const { error } = await supabase.rpc("me_undismiss", { p_slug: slug });
+    if (error) { toast(STR.toast.saveFail(error.message)); return false; }
     session.recordRestore(slug);
     toast(STR.toast.restored(title));
     return true;

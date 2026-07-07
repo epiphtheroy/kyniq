@@ -31,7 +31,7 @@
 .room-root .scr-reset,.room-root .scr-retry{margin-left:10px;background:var(--pnl2);border:1px solid var(--line2);border-radius:6px;color:var(--ink);font-size:11.5px;padding:3px 10px;cursor:pointer;font-family:var(--ui)}
 .room-root .scr-reset:hover,.room-root .scr-retry:hover{border-color:var(--line3)}
 
-/* Passed-on strip — session dismissals with Restore (no RPC history yet, §8-R1). */
+/* Passed-on strip — session dismissals with Restore + "Full history" (§8-R1). */
 .room-root .scr-passed{border-top:1px dashed var(--line2);padding-top:12px}
 .room-root .scr-passed .pline{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mut)}
 .room-root .scr-passed .pline i{color:var(--sub);font-size:14px}
@@ -41,3 +41,21 @@
 .room-root .scr-pass{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:3px 6px 3px 11px;font-size:11.5px;color:var(--mut);background:var(--pnl)}
 .room-root .scr-pass button{background:var(--pnl2);border:1px solid var(--line2);border-radius:999px;color:var(--ink);font-size:10.5px;padding:2px 9px;cursor:pointer;font-family:var(--ui)}
 .room-root .scr-pass button:hover{border-color:var(--line3)}
+.room-root .scr-histbtn{margin-left:auto}
+
+/* Full-history inspector (§8-R1 me_dismissed) — poster-chip rows + Restore. */
+.room-root .scr-hist{display:flex;flex-direction:column}
+.room-root .scr-hrow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.room-root .scr-hrow:last-child{border-bottom:none;padding-bottom:2px}
+.room-root .scr-hrow .hpo{width:26px;height:37px;border-radius:3px;background:linear-gradient(145deg,#26262c,#151517) center/cover no-repeat;border:1px solid var(--line2);flex:0 0 auto}
+.room-root .scr-hrow .ht{min-width:0;flex:1;display:flex;flex-direction:column;gap:1px}
+.room-root .scr-hrow .t{font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-root .scr-hrow .y{font-family:var(--mono);font-size:10px;color:var(--sub)}
+.room-root .scr-hrow .hres{background:var(--pnl2);border:1px solid var(--line2);border-radius:999px;color:var(--ink);font-size:10.5px;padding:2px 9px;cursor:pointer;font-family:var(--ui);flex:0 0 auto}
+.room-root .scr-hrow .hres:hover{border-color:var(--line3)}
+.room-root .scr-hmore{margin-top:10px;width:100%;background:var(--pnl2);border:1px solid var(--line2);border-radius:6px;color:var(--ink);font-size:11.5px;padding:5px 0;cursor:pointer;font-family:var(--ui)}
+.room-root .scr-hmore:hover{border-color:var(--line3)}
+.room-root .scr-hmore:disabled{opacity:.6;cursor:default}
+.room-root .scr-herr{margin-top:9px;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mut)}
+.room-root .scr-herr i{color:var(--risk)}
+.room-root .scr-hnote{margin-top:9px;border-top:1px dashed var(--line2);padding-top:8px;font-size:10.5px;color:var(--sub)}

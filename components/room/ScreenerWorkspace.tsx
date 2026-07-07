@@ -8,10 +8,12 @@
  *  score anatomy (u_util / t_taste / s_standing / conf + projected +N NAV).
  *  λ re-dials go through the SessionStore cache (`wwi:${λ}`) — a cache hit must
  *  never re-run the RPC (acceptance gate). Server order is the default sort
- *  (trust the server); any other sort is labeled "re-sorted client-side". */
+ *  (trust the server); any other sort is labeled "re-sorted client-side".
+ *  The footer strip lists session passes (SessionStore, no RPC) and opens the
+ *  full "Not interested" history (me_dismissed, §8-R1) in the inspector. */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { num, REASON_MAP, type WwiRow } from "@/lib/room/format";
+import { IMG, num, REASON_MAP, type WwiRow } from "@/lib/room/format";
 import { STR } from "./strings";
 import FilmRow from "./FilmRow";
 import RecInsp, { type RecFilm } from "./RecInsp";
@@ -73,6 +75,127 @@ function ScoreAnatomy({ f }: { f: WwiRow }) {
           </Link>
         ) : null}
       </div>
+    </div>
+  );
+}
+
+/* ── full "Not interested" history (§8-R1) ─────────────────────────────── */
+
+const HIST_PAGE = 50;
+
+/** me_dismissed row (0045: added_at = when the film entered user_movies). */
+type DismissedRow = {
+  slug: string; title: string; year: number | null; poster_path: string | null; added_at: string | null;
+};
+
+type RoomActs = ReturnType<typeof useRoomActions>;
+
+/** Inspector content for the footer strip's "Full history" — pages through
+ *  me_dismissed(p_limit:50, p_offset). Self-contained state (the inspector
+ *  holds a rendered snapshot, so the list can't live in workspace state).
+ *  Restore is optimistic with rollback (house pattern: ShelfWorkspace setPub):
+ *  the row leaves immediately and returns if the RPC fails. The next page's
+ *  p_offset = the local row count — restores shrink the server list by exactly
+ *  the rows removed locally, so the count stays the correct server offset. */
+function DismissedHistory({ supabase, doRestore }: {
+  supabase: RoomActs["supabase"];
+  doRestore: RoomActs["doRestore"];
+}) {
+  const [rows, setRows] = useState<DismissedRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
+  const [restoredAny, setRestoredAny] = useState(false);
+  const busy = useRef(false);
+
+  const load = useCallback(async (offset: number) => {
+    if (busy.current) return;
+    busy.current = true;
+    setLoading(true);
+    setError(null);
+    const { data, error: err } = await supabase.rpc("me_dismissed", { p_limit: HIST_PAGE, p_offset: offset });
+    busy.current = false;
+    setLoading(false);
+    if (err) { setError(err.message); return; }
+    const page = (data as DismissedRow[] | null) ?? [];
+    if (page.length < HIST_PAGE) setDone(true);
+    // Dedup by slug — a dismissal landing between pages shifts offsets down.
+    setRows((prev) => {
+      const have = new Set(prev.map((r) => r.slug));
+      return [...prev, ...page.filter((r) => !have.has(r.slug))];
+    });
+  }, [supabase]);
+
+  useEffect(() => { void load(0); }, [load]);
+
+  const restore = useCallback((r: DismissedRow) => {
+    setRows((prev) => prev.filter((x) => x.slug !== r.slug)); // optimistic
+    void doRestore(r.slug, r.title).then((ok) => {
+      if (ok) { setRestoredAny(true); return; }
+      // Rollback — doRestore already toasted the failure; reinsert in server order.
+      setRows((prev) => {
+        if (prev.some((x) => x.slug === r.slug)) return prev;
+        const next = [...prev, r];
+        next.sort((a, b) => (b.added_at ?? "").localeCompare(a.added_at ?? "") || a.slug.localeCompare(b.slug));
+        return next;
+      });
+    });
+  }, [doRestore]);
+
+  return (
+    <div>
+      <ICard
+        icon="ti-arrow-back-up"
+        title="Not interested — full history"
+        right={rows.length ? `${rows.length}${done ? "" : "+"}` : undefined}
+      >
+        {loading && rows.length === 0 ? (
+          <div>
+            <div className="ghline w80" />
+            <div className="ghline w60" />
+            <div className="ghline w80" />
+          </div>
+        ) : error && rows.length === 0 ? (
+          <div className="errcard">
+            <i className="ti ti-alert-triangle" />
+            {STR.common.errorLoad}
+            <button type="button" className="scr-retry" onClick={() => void load(0)}>{STR.common.retry}</button>
+          </div>
+        ) : rows.length === 0 && done ? (
+          /* done guard: restoring every loaded row of a longer list must not
+             claim an empty history — that case falls through to Load more. */
+          <div className="emptyins">Nothing here — you haven&apos;t marked any film &quot;Not interested&quot; yet.</div>
+        ) : (
+          <>
+            <div className="scr-hist">
+              {rows.map((r) => (
+                <div key={r.slug} className="scr-hrow">
+                  <span className="hpo" style={r.poster_path ? { backgroundImage: `url(${IMG}${r.poster_path})` } : undefined} />
+                  <div className="ht">
+                    <span className="t">{r.title}</span>
+                    <span className="y">{r.year ?? "—"} · dismissed {r.added_at ? r.added_at.slice(0, 10) : "—"}</span>
+                  </div>
+                  <button type="button" className="hres" onClick={() => restore(r)}>Restore</button>
+                </div>
+              ))}
+            </div>
+            {error ? (
+              <div className="scr-herr">
+                <i className="ti ti-alert-triangle" />
+                {STR.common.errorLoad}
+                <button type="button" className="scr-retry" onClick={() => void load(rows.length)}>{STR.common.retry}</button>
+              </div>
+            ) : !done ? (
+              <button type="button" className="scr-hmore" disabled={loading} onClick={() => void load(rows.length)}>
+                {loading ? "Loading more…" : "Load more"}
+              </button>
+            ) : null}
+          </>
+        )}
+        {restoredAny ? (
+          <div className="scr-hnote">Restored films may re-enter the screener on the next refresh.</div>
+        ) : null}
+      </ICard>
     </div>
   );
 }
@@ -203,6 +326,11 @@ export default function ScreenerWorkspace({ initialRows, formingHave, initialRea
       f.title,
     );
   }, [insp, handleKeep, handleSeen, handleDismiss, handleRate]);
+
+  /* Footer strip → full me_dismissed history (§8-R1) in the inspector. */
+  const openHistory = useCallback(() => {
+    insp.select(<DismissedHistory supabase={supabase} doRestore={doRestore} />, "Passed on — history");
+  }, [insp, supabase, doRestore]);
 
   const toggleReason = useCallback((code: string) => {
     setReasonsSel((prev) => {
@@ -362,28 +490,34 @@ export default function ScreenerWorkspace({ initialRows, formingHave, initialRea
         )}
       </section>
 
-      {/* ═══ passed-on strip (session-level regret handling — no RPC) ═══ */}
-      {passed.length ? (
-        <section className="scr-passed">
-          <div className="pline">
-            <i className="ti ti-arrow-back-up" />
-            <span>{`You've passed on ${passed.length} film${passed.length === 1 ? "" : "s"} this session`}</span>
-            <button type="button" className="prev" onClick={() => setPassedOpen((v) => !v)}>
-              {passedOpen ? "hide" : "review"}
-            </button>
+      {/* ═══ passed-on strip — session list (SessionStore, no RPC) + the full
+           me_dismissed history behind "Full history" (§8-R1) ═══ */}
+      <section className="scr-passed">
+        <div className="pline">
+          <i className="ti ti-arrow-back-up" />
+          {passed.length ? (
+            <>
+              <span>{`You've passed on ${passed.length} film${passed.length === 1 ? "" : "s"} this session`}</span>
+              <button type="button" className="prev" onClick={() => setPassedOpen((v) => !v)}>
+                {passedOpen ? "hide" : "review"}
+              </button>
+            </>
+          ) : (
+            <span>No films passed on this session</span>
+          )}
+          <button type="button" className="prev scr-histbtn" onClick={openHistory}>Full history</button>
+        </div>
+        {passed.length && passedOpen ? (
+          <div className="plist">
+            {passed.map((p) => (
+              <span key={p.slug} className="scr-pass">
+                {p.title}
+                <button type="button" onClick={() => void doRestore(p.slug, p.title)}>Restore</button>
+              </span>
+            ))}
           </div>
-          {passedOpen ? (
-            <div className="plist">
-              {passed.map((p) => (
-                <span key={p.slug} className="scr-pass">
-                  {p.title}
-                  <button type="button" onClick={() => void doRestore(p.slug, p.title)}>Restore</button>
-                </span>
-              ))}
-            </div>
-          ) : null}
-        </section>
-      ) : null}
+        ) : null}
+      </section>
     </div>
   );
 }

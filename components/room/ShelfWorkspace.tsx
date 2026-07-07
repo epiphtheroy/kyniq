@@ -4,18 +4,20 @@
  *  visibility), pulled through .range() chunks server-side.
  *
  *  v3 rules honored here:
- *  - poster-less chip cards — me_library returns no poster_path and we do NOT
- *    fake covers (§8-R3 me_library v2 adds real posters later);
+ *  - poster cards for pins that carry poster_path (film + figure, me_library
+ *    v2 — §8-R3, w185 base); trope/misreading pins have no artwork so they
+ *    keep the chip layout — we never fake covers;
  *  - the two permanently-empty pin types (director / lineage) are hidden from
  *    KPIs and filters — one honest line says "Directors & lineages: coming.";
  *  - every card links OUT to its public page (/film/ /trope/ /take/) and IN to
  *    the Details inspector;
- *  - Unpin is a disabled action ("Unpinning ships soon." — §8-R5a) while
- *    public/private (set_pin_visibility) and favorite (me_toggle_fav) stay
- *    live mutations;
+ *  - live mutations, all optimistic with rollback on RPC failure:
+ *    public/private (set_pin_visibility), favorite (me_toggle_fav) and
+ *    Unpin (me_unpin — §8-R5a);
  *  - sorts Newest / Oldest / Type / A–Z. */
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { IMG185 } from "@/lib/room/format";
 import { useInspector } from "./InspectorContext";
 import { useRoomActions } from "./useRoomActions";
 import { STR } from "./strings";
@@ -39,6 +41,7 @@ export type ShelfRow = {
   fav: boolean;
   visibility: string | null;
   created_at: string;
+  poster_path: string | null; // me_library v2 (§8-R3) — film + figure pins only
 };
 
 type TypeKey = "film" | "trope" | "misreading" | "figure";
@@ -51,6 +54,11 @@ const TYPES: Record<TypeKey, { l: string; c: string; i: string }> = {
 };
 const ORDER: TypeKey[] = ["film", "trope", "misreading", "figure"];
 const isType = (t: string): t is TypeKey => t in TYPES;
+/* UI type → user_pins entity_type, exactly what _pin_entity_id (0028) accepts:
+   trope and misreading cards are meta_take pins. */
+const PIN_TYPE: Record<TypeKey, "film" | "meta_take" | "figure"> = {
+  film: "film", trope: "meta_take", misreading: "meta_take", figure: "figure",
+};
 
 /** Public page for a pin — the shelf always links out (spec §3.12-2). */
 function publicHref(r: ShelfRow): string | null {
@@ -73,14 +81,14 @@ const PAGE = 60;
 /* Per-pin overlay (fav + public), seeded from server values, saved on toggle. */
 type Ov = { fav: boolean; pub: boolean };
 
-function DetailInsp({ it, ov, href, onTogglePub, onToggleFav }: {
-  it: ShelfRow; ov: Ov; href: string | null; onTogglePub: () => void; onToggleFav: () => void;
+function DetailInsp({ it, ov, href, onTogglePub, onToggleFav, onUnpin }: {
+  it: ShelfRow; ov: Ov; href: string | null; onTogglePub: () => void; onToggleFav: () => void; onUnpin: () => void;
 }) {
   const tk = isType(it.entity_type) ? it.entity_type : "misreading";
   const col = TYPES[tk].c;
   const acts: Act[] = [
     { label: <><i className="ti ti-star" /> {ov.fav ? "Favorited" : "Favorite"}</>, onClick: onToggleFav, primary: ov.fav, title: "Like-pin — saves instantly (me_toggle_fav)" },
-    { label: <><i className="ti ti-pinned-off" /> Unpin</>, disabled: true, title: "Unpinning ships soon." },
+    { label: <><i className="ti ti-pinned-off" /> Unpin</>, onClick: onUnpin, title: "Remove every pin of this item from your shelf (me_unpin)" },
   ];
   if (href) acts.push({ label: <>View page <i className="ti ti-arrow-right" /></>, href, title: "Open the public page" });
   return (
@@ -123,7 +131,7 @@ function DetailInsp({ it, ov, href, onTogglePub, onToggleFav }: {
         </div>
         <ActBar acts={acts} style={{ marginTop: 11 }} />
         <div className="sh-note">
-          Public/private and favorites save instantly. Unpinning ships soon.
+          Public/private and favorites save instantly. Unpin removes every pin of this item from your shelf.
         </div>
       </ICard>
     </div>
@@ -132,10 +140,10 @@ function DetailInsp({ it, ov, href, onTogglePub, onToggleFav }: {
 
 export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) {
   const insp = useInspector();
-  const { setDefault } = insp;
+  const { setDefault, reset: inspReset } = insp;
   const { supabase, say } = useRoomActions();
 
-  /* Pins removed server-side this session (like-only pin unfavorited → unpinned). */
+  /* Pins removed this session (Unpin, or a like-only pin unfavorited server-side). */
   const [gone, setGone] = useState<Set<string>>(new Set());
   /* director/lineage pins can't exist yet — and stay hidden if a stray row appears. */
   const rows = useMemo(
@@ -188,6 +196,28 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
         }
       });
   }, [ov, supabase, say, selKey]);
+
+  /* unpin → me_unpin (§8-R5a; removes every pin row for the entity — optimistic
+     card removal, restored on RPC failure). The RPC goes through _pin_entity_id,
+     so the UI type is mapped back to the pin type via PIN_TYPE. */
+  const doUnpin = useCallback((r: ShelfRow) => {
+    const k = keyOf(r);
+    setGone((p) => { const n = new Set(p); n.add(k); return n; });
+    if (selKey === k) setSelKey(null);
+    inspReset(); // the pin is gone — close its inspector snapshot
+    if (!r.slug) { say("This item has no identifier — the change lives in this session only"); return; }
+    const tk = isType(r.entity_type) ? r.entity_type : "misreading";
+    supabase.rpc("me_unpin", { p_entity_type: PIN_TYPE[tk], p_slug: r.slug })
+      .then(({ error }) => {
+        if (error) {
+          setGone((p) => { const n = new Set(p); n.delete(k); return n; });
+          say(STR.toast.saveFail(error.message));
+        } else {
+          say(`"${r.title}" unpinned — removed from your shelf`);
+        }
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [supabase, say, selKey, inspReset]);
 
   const [tfilter, setTfilter] = useState<Set<TypeKey>>(new Set());
   const [pubFilter, setPubFilter] = useState<"all" | "public" | "private">("all");
@@ -249,11 +279,11 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
   const openDetail = useCallback((r: ShelfRow) => {
     setSelKey(keyOf(r));
     insp.select(
-      <DetailInsp it={r} ov={ov(r)} href={publicHref(r)} onTogglePub={() => setPub(r)} onToggleFav={() => setFav(r)} />,
+      <DetailInsp it={r} ov={ov(r)} href={publicHref(r)} onTogglePub={() => setPub(r)} onToggleFav={() => setFav(r)} onUnpin={() => doUnpin(r)} />,
       r.title ?? "Pin"
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ov, setPub, setFav]);
+  }, [ov, setPub, setFav, doUnpin]);
 
   /* inspector content is a snapshot — re-select when the overlay changes */
   useEffect(() => {
@@ -261,7 +291,7 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
     const r = rows.find((x) => keyOf(x) === selKey);
     if (r) {
       insp.select(
-        <DetailInsp it={r} ov={ov(r)} href={publicHref(r)} onTogglePub={() => setPub(r)} onToggleFav={() => setFav(r)} />,
+        <DetailInsp it={r} ov={ov(r)} href={publicHref(r)} onTogglePub={() => setPub(r)} onToggleFav={() => setFav(r)} onUnpin={() => doUnpin(r)} />,
         r.title ?? "Pin"
       );
     }
@@ -321,6 +351,37 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
               const col = TYPES[tk].c;
               const o = ov(r);
               const href = publicHref(r);
+              /* per-type card text — wrapped in a poster row when the RPC
+                 supplied artwork (film/figure — me_library v2, §8-R3) */
+              const inner = tk === "film" ? (
+                <>
+                  <div className="sh-ftitle">{r.title}</div>
+                  <div className="sh-fsub">{r.sub}</div>
+                  <div style={{ marginTop: 8 }}>
+                    {r.prestige != null ? <span className="sh-chip2">Standing {Math.round(r.prestige)}</span> : null}
+                    {r.seen
+                      ? <span className="sh-chip2" style={{ color: "var(--safe)", borderColor: "#1d5145", marginLeft: r.prestige != null ? 4 : 0 }}>Seen</span>
+                      : null}
+                    {r.rating != null ? <span className="sh-chip2" style={{ marginLeft: 4 }}>★{r.rating.toFixed(1)}</span> : null}
+                  </div>
+                </>
+              ) : tk === "misreading" ? (
+                <>
+                  <div className="sh-quote">&ldquo;{r.sub || r.title}&rdquo;</div>
+                  <div className="sh-qmeta">— {r.title}</div>
+                  {r.def ? <div className="sh-deftease">{r.def}</div> : null}
+                </>
+              ) : (
+                <>
+                  <div className="sh-ftitle">{r.title}</div>
+                  <div className="sh-fsub">
+                    {tk === "trope"
+                      ? <>{r.film_count != null ? `Crosses ${r.film_count} films` : "Trope"}{r.maturity ? ` · ${r.maturity}` : ""}</>
+                      : r.sub || "Figure"}
+                  </div>
+                  {r.def ? <div className="sh-deftease">{r.def}</div> : r.sub && tk === "trope" ? <div className="sh-deftease">{r.sub}</div> : null}
+                </>
+              );
               return (
                 <div key={keyOf(r)} className={`sh-card${selKey === keyOf(r) ? " sel" : ""}`} style={{ borderLeftColor: col }}
                   role="button" tabIndex={0} onClick={() => openDetail(r)}
@@ -336,36 +397,13 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
                   </div>
                   <i className={`ti ti-star sh-fav${o.fav ? " on" : ""}`} onClick={(e) => { e.stopPropagation(); setFav(r); }} title="Favorite" />
 
-                  {/* poster-less chip cards by design — no fake covers */}
-                  {tk === "film" ? (
-                    <>
-                      <div className="sh-ftitle">{r.title}</div>
-                      <div className="sh-fsub">{r.sub}</div>
-                      <div style={{ marginTop: 8 }}>
-                        {r.prestige != null ? <span className="sh-chip2">Standing {Math.round(r.prestige)}</span> : null}
-                        {r.seen
-                          ? <span className="sh-chip2" style={{ color: "var(--safe)", borderColor: "#1d5145", marginLeft: r.prestige != null ? 4 : 0 }}>Seen</span>
-                          : null}
-                        {r.rating != null ? <span className="sh-chip2" style={{ marginLeft: 4 }}>★{r.rating.toFixed(1)}</span> : null}
-                      </div>
-                    </>
-                  ) : tk === "misreading" ? (
-                    <>
-                      <div className="sh-quote">&ldquo;{r.sub || r.title}&rdquo;</div>
-                      <div className="sh-qmeta">— {r.title}</div>
-                      {r.def ? <div className="sh-deftease">{r.def}</div> : null}
-                    </>
-                  ) : (
-                    <>
-                      <div className="sh-ftitle">{r.title}</div>
-                      <div className="sh-fsub">
-                        {tk === "trope"
-                          ? <>{r.film_count != null ? `Crosses ${r.film_count} films` : "Trope"}{r.maturity ? ` · ${r.maturity}` : ""}</>
-                          : r.sub || "Figure"}
-                      </div>
-                      {r.def ? <div className="sh-deftease">{r.def}</div> : r.sub && tk === "trope" ? <div className="sh-deftease">{r.sub}</div> : null}
-                    </>
-                  )}
+                  {/* real posters only (w185) — types without artwork keep the chip layout */}
+                  {r.poster_path ? (
+                    <div className="sh-prow">
+                      <div className="sh-poster" style={{ backgroundImage: `url(${IMG185}${r.poster_path})` }} />
+                      <div className="sh-pmain">{inner}</div>
+                    </div>
+                  ) : inner}
 
                   <span className="sh-cfoot">
                     <span className="sh-open"><i className="ti ti-layout-sidebar-right-expand" style={{ fontSize: 11 }} /> Details</span>

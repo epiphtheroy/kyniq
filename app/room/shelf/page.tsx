@@ -8,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 /** Shelf — the pin archive (spec §3.12, /room/library successor).
  *  me_library is a big-list RPC → pulled through .range() chunks (PostgREST
- *  1000-row cap, spec §1 invariant 6). Poster-less until §8-R3 me_library v2. */
+ *  1000-row cap, spec §1 invariant 6). v2 (§8-R3) rows carry poster_path for
+ *  film + figure pins — no column selection here, they pass straight through. */
 export default async function RoomShelfPage() {
   const supabase = await createClient();
   let rows: ShelfRow[];

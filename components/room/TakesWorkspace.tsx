@@ -8,11 +8,13 @@
  *  - editor = TakeEditor (Selection/Range command layer — execCommand is gone);
  *  - real draft safety: per-draft-key debounced localStorage + beforeunload when
  *    dirty; honest pill states Saved to server / Draft on this device / Unsaved;
- *  - server writes unchanged: explicit Save draft / Publish (and Archive =
- *    unpublish via save_take(p_publish:false) until §8-R9 delete_take ships);
+ *  - server writes unchanged: explicit Save draft / Publish; Archive =
+ *    unpublish via save_take(p_publish:false) stays the soft action, and
+ *    §8-R5b delete_take is the hard delete (inline two-step confirm);
  *  - list rail: status chip + upvotes + date (the constant ×1.5 tag is gone from
  *    rows — its one explanation lives in the attach rail);
- *  - stats header = client aggregate over the paged rows (§8-R8 replaces it);
+ *  - stats header = me_takes_stats() aggregate (§8-R8), fetched by the server
+ *    page and passed down as a prop;
  *  - attach rail = inline right column ≥1180px, inspector below. */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { createClient } from "@/lib/supabase/client";
@@ -110,7 +112,10 @@ const plain = (html: string) => html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi
 const wordsOf = (html: string) => { const t = plain(html); return t ? t.split(" ").length : 0; };
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 
-export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: string }) {
+/** §8-R8 me_takes_stats() row — whole-set counts, aggregated server-side. */
+export type TakesStats = { published: number; drafts: number; upvotes: number };
+
+export default function TakesWorkspace({ takes, uid, stats }: { takes: TakeRow[]; uid: string; stats: TakesStats | null }) {
   const insp = useInspector();
   const { setDefault } = insp;
   const { supabase, say } = useRoomActions();
@@ -124,8 +129,16 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
   const [listQ, setListQ] = useState("");
   const [listFilt, setListFilt] = useState<"all" | "pub" | "dra">("all");
   const [saving, setSaving] = useState(false);
+  /* §8-R5b delete: server rows removed this session (takes is an immutable
+     prop, so removal is an overlay), plus the inline two-step confirm state. */
+  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
+  const [confirmDel, setConfirmDel] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const cur: Draft | null = useMemo(() => drafts.find((d) => d.id === curId) ?? null, [drafts, curId]);
+
+  /* Delete confirm is per-selection — switching takes disarms it. */
+  useEffect(() => { setConfirmDel(false); }, [curId]);
 
   /* ── localStorage restore (mount only; client-side so no hydration mismatch) ── */
   const restoredRef = useRef(false);
@@ -214,6 +227,7 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
   /* ── server writes: save_take, unchanged contract (explicit Save/Publish) ── */
   const persist = useCallback(async (publish: boolean, doneMsg: string) => {
     if (!cur) return;
+    setConfirmDel(false); // a save/publish disarms a pending delete confirm
     setSaving(true);
     const sent = snapOf(cur); // exact content shipped to the server
     const { data, error } = await supabase.rpc("save_take", {
@@ -239,14 +253,49 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
 
   const saveDraft = () => persist(false, "Draft saved to the server");
   const publish = () => persist(true, "Published — live on your profile");
-  /** Archive = unpublish → draft (honest stand-in until §8-R9 delete_take). */
-  const archive = () => persist(false, "Archived — unpublished, back in drafts. Deletion ships soon.");
+  /** Archive = unpublish → draft: the soft action next to hard Delete. */
+  const archive = () => persist(false, "Archived — unpublished, back in drafts");
 
-  /* ── list rail items: server takes (with live draft overlay) + new drafts ── */
+  /** §8-R5b delete_take — hard delete of my own take. Every row this screen
+   *  lists is source='human' (save_take writes them), which is exactly what
+   *  the RPC's `source='human'` guard deletes. Optimistic removal with
+   *  rollback on failure (house pattern, ShelfWorkspace setPub); the
+   *  localStorage draft is cleared only after the server confirms, so a
+   *  rollback never costs local work. */
+  const deleteTake = useCallback(() => {
+    if (!cur?.fromTakeId || deleting || saving) return;
+    const takeId = cur.fromTakeId;
+    // Drafts riding on this take: the seeded editor copy (id === takeId) and/or
+    // a new-draft shell that was saved to it (fromTakeId === takeId).
+    const removed = drafts.filter((d) => d.id === takeId || d.fromTakeId === takeId);
+    setConfirmDel(false);
+    setDeleting(true);
+    setDeletedIds((p) => { const n = new Set(p); n.add(takeId); return n; });
+    setDrafts((ds) => ds.filter((d) => !removed.some((r) => r.id === d.id)));
+    setCurId(null);
+    supabase.rpc("delete_take", { p_take_id: takeId }).then(({ data, error }) => {
+      setDeleting(false);
+      const gone = (((data as { take_id: string }[] | null) ?? []).length) > 0;
+      if (error || !gone) {
+        // Rollback — the row is still on the server (RPC error, or 0 rows
+        // deleted because the guard didn't match).
+        setDeletedIds((p) => { const n = new Set(p); n.delete(takeId); return n; });
+        if (removed.length) setDrafts((ds) => [...ds, ...removed.filter((r) => !ds.some((d) => d.id === r.id))]);
+        say(STR.toast.saveFail(error ? error.message : "the take wasn't deleted"));
+        return;
+      }
+      for (const d of removed) { try { localStorage.removeItem(lsPrefix + d.id); } catch { /* fine */ } }
+      say("Deleted forever — the take is gone from the server");
+    });
+  }, [cur, deleting, saving, drafts, supabase, say, lsPrefix]);
+
+  /* ── list rail items: server takes (with live draft overlay) + new drafts.
+        takes is a prop, so §8-R5b deletions are subtracted here. ── */
   const listItems = useMemo(() => {
+    const live = takes.filter((t) => !deletedIds.has(t.take_id));
     const dm = new Map(drafts.map((d) => [d.id, d]));
-    const takeIds = new Set(takes.map((t) => t.take_id));
-    const takeItems = takes.map((t) => {
+    const takeIds = new Set(live.map((t) => t.take_id));
+    const takeItems = live.map((t) => {
       const d = dm.get(t.take_id);
       const status: TakeStatus = d ? d.status : t.status === "published" ? "published" : "draft";
       return {
@@ -268,12 +317,7 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
       if (listQ && !(it.title + it.snippet).toLowerCase().includes(listQ.toLowerCase())) return false;
       return true;
     });
-  }, [takes, drafts, listFilt, listQ]);
-
-  /* ── stats header: client aggregate over the paged server rows (§8-R8 later) ── */
-  const pubN = useMemo(() => takes.filter((t) => t.status === "published").length, [takes]);
-  const draN = takes.length - pubN;
-  const upSum = useMemo(() => takes.reduce((s, t) => s + (num(t.upvotes) ?? 0), 0), [takes]);
+  }, [takes, drafts, deletedIds, listFilt, listQ]);
 
   /* ── attach rail: inline column ≥1180px; inspector below (CSS decides) ── */
   const onAddFilm = useCallback((id: string, f: AttachedFilm) => {
@@ -343,12 +387,13 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
 
   return (
     <div className="tk-page">
-      {/* STATS HEADER — client aggregate over paged me_authored_takes */}
+      {/* STATS HEADER — me_takes_stats() whole-set aggregate (§8-R8), fetched
+          by the server page. Em-dash when the RPC failed — no fabricated 0s. */}
       <div className="tk-stats">
         <span className="eb">Takes</span>
-        <span className="ts"><b>{pubN}</b> published</span>
-        <span className="ts"><b>{draN}</b> drafts</span>
-        <span className="ts" title="Total upvotes across your takes"><i className="ti ti-arrow-big-up" /> <b>{upSum}</b> upvotes</span>
+        <span className="ts"><b>{stats ? stats.published : "—"}</b> published</span>
+        <span className="ts"><b>{stats ? stats.drafts : "—"}</b> drafts</span>
+        <span className="ts" title="Total upvotes across your takes"><i className="ti ti-arrow-big-up" /> <b>{stats ? stats.upvotes : "—"}</b> upvotes</span>
         <span className="tsnote">Not reviews. Not ratings. Readings.</span>
       </div>
 
@@ -405,9 +450,30 @@ export default function TakesWorkspace({ takes, uid }: { takes: TakeRow[]; uid: 
                 <i className={`ti ${saving ? "ti-loader-2" : pill.icon}`} /> {saving ? "Saving…" : pill.label}
               </span>
             ) : null}
+            {/* §8-R5b hard delete — only for takes that exist on the server
+                (all source='human' here). Inline two-step confirm, no
+                window.confirm; Archive below stays the soft path. */}
+            {cur?.fromTakeId ? (
+              confirmDel ? (
+                <span style={{ display: "inline-flex", gap: 6, alignItems: "center" }}>
+                  <button className="savebtn" style={{ background: "var(--red)" }} onClick={deleteTake} disabled={deleting}
+                    title="Permanently delete this take from the server — there is no undo">
+                    <i className="ti ti-trash" /> Delete forever?
+                  </button>
+                  <button className="savebtn ghost" onClick={() => setConfirmDel(false)} disabled={deleting}>
+                    Keep
+                  </button>
+                </span>
+              ) : (
+                <button className="savebtn arch" style={{ color: "var(--red)" }} onClick={() => setConfirmDel(true)}
+                  disabled={deleting || saving} title="Delete this take permanently — asks once more before it acts">
+                  <i className="ti ti-trash" /> Delete
+                </button>
+              )
+            ) : null}
             {cur?.status === "published" ? (
               <>
-                <button className="savebtn arch" onClick={archive} disabled={!cur || saving} title="Unpublish — the take returns to drafts. Deletion ships soon.">
+                <button className="savebtn arch" onClick={archive} disabled={!cur || saving} title="Unpublish — the take returns to drafts">
                   <i className="ti ti-archive" /> Archive
                 </button>
                 <button className="savebtn pub" onClick={publish} disabled={!cur || saving}>
