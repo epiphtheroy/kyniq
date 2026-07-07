@@ -68,7 +68,7 @@ export function useRoomActions() {
     const { error } = await supabase.rpc("me_dismiss", { p_slug: slug });
     if (error) { toast(STR.toast.saveFail(error.message)); return false; }
     session.recordDismiss(slug, title);
-    toast(STR.toast.dismissed(title), { action: { label: STR.toast.undo, run: () => doRestore(slug, title) } });
+    toast(STR.toast.dismissed(title), { action: { label: STR.toast.undo, run: () => { void doRestore(slug, title); } } });
     return true;
   }, [supabase, toast, session, doRestore]);
 
