@@ -355,7 +355,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -838,7 +838,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -875,6 +875,7 @@ export default async function FilmPage({ params }: Props) {
     archGroups.length ? { id: "df-archetype", label: "Archetype" } : null,
     reception.length ? { id: "df-reception", label: "Reception" } : null,
     questions.length || deskEssays.length ? { id: "df-curious", label: "Curious" } : null,
+    dailyRefs.length ? { id: "df-daily", label: "The Daily" } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next" } : null,
     recs.length ? { id: "df-connected", label: "Films like" } : null,
     counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints" } : null,
@@ -1317,6 +1318,25 @@ export default async function FilmPage({ params }: Props) {
                   <div className="rcp-m">
                     {e.label.toLowerCase()} · from the desks
                     {e.spoiler >= 2 ? " · discusses the ending" : ""}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {/* THE DAILY — editions of the newsletter that filed this film against the news */}
+        {dailyRefs.length > 0 ? (
+          <section className="df-sec" id="df-daily">
+            <h2 className="df-h2">The Daily</h2>
+            <p className="df-sub">When the news rhymed with {film.title} — editions of <Link href="/blog">Between Film and the World</Link>, Metatake&apos;s daily, that filed this film against the day&apos;s events.</p>
+            <div className="rcp-list">
+              {dailyRefs.map((d) => (
+                <div key={d.slug} className="rcp-row">
+                  <Link className="rcp-h" href={`/blog/${d.slug}`}>{d.ehead}</Link>
+                  <div className="rcp-m">
+                    {new Date(d.edition_date + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    {d.title && d.title.toLowerCase() !== "between film and the world" ? ` · ${d.title}` : ""}
                   </div>
                 </div>
               ))}
