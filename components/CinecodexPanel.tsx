@@ -1,6 +1,8 @@
 /** TakeScore evaluation card — durable Value, entry Cost, Risk, TakeScore (Value − Risk),
- *  Efficiency, the 13 sub-scores (always shown), and a MEASURED confidence (not luck).
- *  AI-estimated with stated limits. External metrics shown ALONGSIDE, never blended. */
+ *  Efficiency, the deterministic verdict sentence, the overall-rank strip, and the
+ *  13 sub-scores (always shown) with fixed category definitions. MEASURED confidence
+ *  (not luck) is disclosed in the footer. AI-estimated with stated limits.
+ *  External metrics shown ALONGSIDE, never blended. */
 import type { CSSProperties } from "react";
 import ScoreDonut from "@/components/ScoreDonut";
 import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
@@ -18,7 +20,9 @@ export type Codex = {
 };
 
 /** Payload of public.cinecodex_film_subscores — raw sub-scores plus each dimension's
- *  percentile against all scored films. Null for unscored films. */
+ *  percentile against all scored films. Null for unscored films. The panel no longer
+ *  renders the percentiles (`pct`); its presence gates the crawlable tier-1 layer
+ *  (dim links, "?" affordance, category definitions) and callers still pass it. */
 export type FilmSubscores = {
   scores: Record<string, number>;
   pct: Record<string, number>;
