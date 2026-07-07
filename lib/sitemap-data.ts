@@ -367,8 +367,27 @@ export async function directorEntries(): Promise<SitemapEntry[]> {
 /** Concept (canonical-term) pages. */
 export async function conceptEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  const { data: concepts } = await db().rpc("concept_index");
-  return ((concepts ?? []) as { slug: string }[]).map((c) => ({ url: `${siteUrl}/concept/${c.slug}` }));
+  const supabase = db();
+  // Unified /concept (2026-07-07): readings-corpus vocabulary + the SM concept
+  // registry (formerly noindex /idea). SM slugs gated at ≥3 readings — the
+  // same non-thin bar the page's own robots gate applies.
+  const [{ data: concepts }, { data: sm }] = await Promise.all([
+    supabase.rpc("concept_index"),
+    supabase.rpc("sm_concept_index", { p_limit: 500 }),
+  ]);
+  const out: SitemapEntry[] = [];
+  const seen = new Set<string>();
+  for (const c of (concepts ?? []) as { slug: string }[]) {
+    if (seen.has(c.slug)) continue;
+    seen.add(c.slug);
+    out.push({ url: `${siteUrl}/concept/${c.slug}` });
+  }
+  for (const r of (sm ?? []) as { slug: string; n: number }[]) {
+    if (r.n < 3 || seen.has(r.slug)) continue;
+    seen.add(r.slug);
+    out.push({ url: `${siteUrl}/concept/${r.slug}` });
+  }
+  return out;
 }
 
 /**
