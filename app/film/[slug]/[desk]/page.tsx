@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import Byline from "@/components/Byline";
+import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 import {
   DESKS,
@@ -223,7 +225,13 @@ export default async function DeskEssayPage({ params }: Props) {
 
         <article className="essay">
           <div className="essay-kicker">
-            <span className="essay-chip">{desk.deskName}</span>
+            <span className="essay-chip">
+              <Link href="/blog/curious" style={{ color: "inherit", textDecoration: "none" }}>
+                Curious
+              </Link>
+              {" · "}
+              {desk.deskName}
+            </span>
             <span className="essay-meta">
               {essay.minutes} min read · verified {essay.date}
               {hasKo && (
@@ -236,6 +244,7 @@ export default async function DeskEssayPage({ params }: Props) {
           </div>
 
           <h1 className="essay-h1">{essay.title}</h1>
+          <Byline created={essay.date} />
           {essay.dek && <p className="essay-dek">{essay.dek}</p>}
 
           {essay.spoiler >= 2 && (
@@ -252,10 +261,10 @@ export default async function DeskEssayPage({ params }: Props) {
               Produced at {desk.deskName} of{" "}
               <Link href="/engine-room">The Engine Room</Link>
               {essay.engine ? ` · engine: ${essay.engine}` : ""} · fact-checked and
-              verified {essay.date} ·{" "}
-              <Link href="/methodology">how this desk works</Link>
+              verified {essay.date}
             </p>
           </div>
+          <Provenance created={essay.date} />
 
           {otherDesks.length > 0 && (
             <section style={{ margin: "28px 0 0" }}>

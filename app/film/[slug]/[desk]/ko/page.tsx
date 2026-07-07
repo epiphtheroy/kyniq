@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import Byline from "@/components/Byline";
+import Provenance from "@/components/Provenance";
 import { pageRobots } from "@/lib/seo";
 import {
   DESKS,
@@ -171,7 +173,13 @@ export default async function DeskEssayKoPage({ params }: Props) {
 
         <article className="essay">
           <div className="essay-kicker">
-            <span className="essay-chip">{desk.deskName}</span>
+            <span className="essay-chip">
+              <Link href="/blog/curious" style={{ color: "inherit", textDecoration: "none" }}>
+                Curious
+              </Link>
+              {" · "}
+              {desk.deskName}
+            </span>
             <span className="essay-meta">
               {essay.minutes}분 · 검증 {essay.date} ·{" "}
               <Link href={`/film/${film.slug}/${desk.key}`}>English</Link>
@@ -179,6 +187,7 @@ export default async function DeskEssayKoPage({ params }: Props) {
           </div>
 
           <h1 className="essay-h1">{essay.title}</h1>
+          <Byline created={essay.date} />
           {essay.dek && <p className="essay-dek">{essay.dek}</p>}
 
           {essay.spoiler >= 2 && (
@@ -194,9 +203,10 @@ export default async function DeskEssayKoPage({ params }: Props) {
             <p>
               <Link href="/engine-room">The Engine Room</Link>의 {desk.deskName}에서
               생산{essay.engine ? ` · 엔진: ${essay.engine}` : ""} · 사실검증 완료{" "}
-              {essay.date} · <Link href="/methodology">방법론</Link>
+              {essay.date}
             </p>
           </div>
+          <Provenance created={essay.date} />
 
           {otherDesks.length > 0 && (
             <section style={{ margin: "28px 0 0" }}>

@@ -5,9 +5,9 @@
  *  DEFINED rubric (never invented per-film prose). Never-blend triptych: ours ≠ external ≠ canon.
  *  v3 (spec §3.15): full English strings per §5, plus a personal layer — the "My position" bar
  *  (inline ★, Keep/Seen, verdict vs Standing); basket rows and comparison chips are links. */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { verdictOf, VERDICT_FIND, VERDICT_LETDOWN, IMG185 } from "@/lib/room/format";
+import { verdictOf, VERDICT_FIND, VERDICT_LETDOWN, IMG, IMG185 } from "@/lib/room/format";
 import { STR } from "./strings";
 import { useRoomActions } from "./useRoomActions";
 import Stars from "./Stars";
@@ -26,7 +26,9 @@ export type CardData = {
   conf: number | null; tier: string | null; n_takes: number | null;
   ext: { imdb: number | null; rt: number | null; meta: number | null } | null;
   standing: { prestige: number | null; labels: string[] | null };
-  basket: { title: string; slug: string; u: number; r: number; self: boolean }[] | null;
+  /** v2 (0046): 20-row U-rank window around the film; rows gained rank/year/poster. */
+  basket: { title: string; slug: string; year?: number | null; poster_path?: string | null; rank?: number | null; u: number; r: number; self: boolean }[] | null;
+  rank?: number | null; rank_total?: number | null;
 };
 
 /** My position for this film (server-read once; optimistic after that). */
@@ -156,6 +158,16 @@ function MyPositionBar({ d, pos }: { d: CardData; pos: MyPosition }) {
 export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
   const [subsOpen, setSubsOpen] = useState(true);
   const [relOpen, setRelOpen] = useState(false);
+  // v2 basket is a 20-row window: the ladder scrolls, and we anchor the film's
+  // own row to the vertical center of the scroller (container-only scroll — no
+  // scrollIntoView, which would also scroll the page).
+  const ladderRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const box = ladderRef.current;
+    if (!box) return;
+    const self = box.querySelector<HTMLElement>("[data-self]");
+    if (self) box.scrollTop = Math.max(0, self.offsetTop - box.clientHeight / 2 + self.offsetHeight / 2);
+  }, [d.slug]);
   const v = Math.round(d.v), c = Math.round(d.c), r = Math.round(d.r);
   const al = Math.max(1, Math.min(10, Math.round(d.v / 10)));
   const polar = d.subs.polar ?? 0;
@@ -192,7 +204,15 @@ export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
                       key={i}
                       href={cf.slug ? `/room/film/${cf.slug}` : `/search?q=${encodeURIComponent(cf.title)}`}
                       title={`Nearest measured neighbor on ${s.code} — ${cf.title}`}
+                      style={cf.poster_path ? { display: "inline-flex", alignItems: "center", gap: 6, padding: "2px 9px 2px 3px" } : undefined}
                     >
+                      {cf.poster_path ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={`${IMG}${cf.poster_path}`} alt="" width={22} height={33} loading="lazy"
+                          style={{ width: 22, height: 33, objectFit: "cover", borderRadius: 3, border: "1px solid var(--line2)", flex: "0 0 auto" }}
+                        />
+                      ) : null}
                       {cf.title}
                     </Link>
                   ))}
@@ -306,19 +326,56 @@ export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
         </div>
       </div>
 
-      {/* REFERENCE BASKET */}
+      {/* REFERENCE BASKET — v2: 20-row U-rank window around this film */}
       {d.basket && d.basket.length ? (
         <div className="mod">
-          <div className="modh"><h3><i className="ti ti-arrows-sort" /> Reference basket · U rank</h3><span className="meta">where this film sits · top-left (high U · low R) is the ideal</span></div>
+          <div className="modh">
+            <h3><i className="ti ti-arrows-sort" /> Reference basket · U rank</h3>
+            <span className="meta">
+              {d.rank != null && d.rank_total != null ? `#${d.rank} of ${d.rank_total} · ` : ""}
+              the 20 films ranked around this one · high U, low R is the ideal
+            </span>
+          </div>
           <div className="modbody">
-            {d.basket.map((b) => (
-              <div className="baskrow" key={b.slug} style={b.self ? { background: "var(--pnl2)", borderRadius: 5, padding: "4px 6px" } : undefined}>
-                {b.self
-                  ? <span className="nm" style={{ color: "#5fd0b2" }}>{b.title}</span>
-                  : <Link className="nm" href={`/room/film/${b.slug}`} title={`Open the appraisal for ${b.title}`}>{b.title}</Link>}
-                <span className="bu">{b.u}</span><span className="br">{b.r}</span>
-              </div>
-            ))}
+            <div className="baskrow" aria-hidden style={{ gridTemplateColumns: "34px 24px 1fr 34px 30px", padding: "0 6px 5px 8px", fontSize: 9, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--sub)", borderBottom: "1px solid var(--line2, #24242a)", marginBottom: 3 }}>
+              <span>#</span><span /><span>Film</span><span style={{ textAlign: "right" }}>U</span><span style={{ textAlign: "right" }}>R</span>
+            </div>
+            <div ref={ladderRef} style={{ maxHeight: 330, overflowY: "auto", position: "relative" }}>
+              {d.basket.map((b) => (
+                <div
+                  className="baskrow"
+                  key={b.slug}
+                  data-self={b.self ? "1" : undefined}
+                  style={{
+                    gridTemplateColumns: "34px 24px 1fr 34px 30px",
+                    padding: "3px 6px 3px 8px",
+                    ...(b.self ? { background: "var(--pnl2)", borderRadius: 5, boxShadow: "inset 2px 0 0 var(--safe)" } : {}),
+                  }}
+                >
+                  <span style={{ fontFamily: "var(--mono)", fontSize: 10.5, color: b.self ? "var(--safe)" : "var(--sub)", fontVariantNumeric: "tabular-nums" }}>{b.rank ?? "—"}</span>
+                  {b.poster_path ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={`${IMG}${b.poster_path}`} alt="" width={18} height={27} loading="lazy"
+                      style={{ width: 18, height: 27, objectFit: "cover", borderRadius: 2, border: "1px solid var(--line2)" }}
+                    />
+                  ) : (
+                    <span style={{ width: 18, height: 27, borderRadius: 2, background: "var(--pnl3)" }} />
+                  )}
+                  {b.self ? (
+                    <span className="nm" style={{ color: "#5fd0b2" }}>
+                      {b.title}{b.year ? <span style={{ fontFamily: "var(--ui)", fontSize: 10, color: "var(--sub)" }}> {b.year}</span> : null}
+                      <span style={{ fontFamily: "var(--ui)", fontSize: 9, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--safe)", marginLeft: 7 }}>◂ this film</span>
+                    </span>
+                  ) : (
+                    <Link className="nm" href={`/room/film/${b.slug}`} title={`Open the appraisal for ${b.title}`}>
+                      {b.title}{b.year ? <span style={{ fontFamily: "var(--ui)", fontSize: 10, color: "var(--sub)" }}> {b.year}</span> : null}
+                    </Link>
+                  )}
+                  <span className="bu">{b.u}</span><span className="br">{b.r}</span>
+                </div>
+              ))}
+            </div>
             <div style={{ fontSize: 9.5, color: "var(--sub)", marginTop: 7 }}>U = V − λ·R. R renders in <span style={{ color: "var(--risk)" }}>--risk</span> — never --red.</div>
           </div>
         </div>

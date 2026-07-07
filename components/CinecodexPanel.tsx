@@ -220,14 +220,36 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
         {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">CineCodex dimensions</a> against a fixed anchor ruler.</> : null}
       </p>
 
-      <div className="ccx-axes">
-        <div className="ccx-axis"><div className="ccx-al">Value <span>higher is better</span></div><Bar v={data.v} tone="ccx-v" /><b>{data.v}</b></div>
-        <div className="ccx-axis"><div className="ccx-al">Cost <span>prerequisite, not a virtue</span></div><Bar v={data.c} tone="ccx-c" /><b>{data.c}</b></div>
-        <div className="ccx-axis"><div className="ccx-al">Risk <span>higher = more likely to disappoint</span></div><Bar v={data.r} tone="ccx-r" /><b>{data.r}</b></div>
-      </div>
-      <div className="ccx-net">
-        <div><span className="ccx-big">{data.u}</span><span className="ccx-nl">TakeScore (Value − Risk)</span></div>
-        <div><span className="ccx-big">{data.sharpe}</span><span className="ccx-nl">Efficiency (value per risk)</span></div>
+      {/* The three central scores as ring gauges — the same <ScoreDonut> instrument
+          as the appraisal page and /takescore curtain, with the net TakeScore beside
+          them. Same numbers the old bars carried; presentation only. */}
+      <style>{GAUGE_CSS}</style>
+      <div className="ccx-gauges">
+        <div className="ccx-gk">The three central scores <span>0–100</span></div>
+        <div className="ccx-grow">
+          <div className="ccx-gcell">
+            <ScoreDonut val={data.v} color={AXIS_HEX.v} label="Value" sub={bandWord("value", data.v)} size={72} />
+            <span className="ccx-ghint">higher is better</span>
+          </div>
+          <div className="ccx-gcell">
+            <ScoreDonut val={data.c} color={AXIS_HEX.c} label="Cost" sub={bandWord("cost", data.c)} size={72} />
+            <span className="ccx-ghint">prerequisite, not a virtue</span>
+          </div>
+          <div className="ccx-gcell">
+            <ScoreDonut val={data.r} color={AXIS_HEX.r} label="Risk" sub={bandWord("risk", data.r)} size={72} />
+            <span className="ccx-ghint">higher = more likely to disappoint</span>
+          </div>
+          <div className="ccx-gnet">
+            <div className="ccx-gnet-row">
+              <span className="ccx-gnet-n">{data.u}</span>
+              <span className="ccx-gnet-lab">
+                <span className="k">TakeScore</span>
+                <span className="d">Value − Risk</span>
+              </span>
+            </div>
+            <div className="ccx-gnet-eff"><b>{data.sharpe}</b>Efficiency (value per risk)</div>
+          </div>
+        </div>
       </div>
 
       <ValuePop v={data.v} votes={data.votes} />

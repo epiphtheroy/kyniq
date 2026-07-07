@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import ScoreDonut from "@/components/ScoreDonut";
 import { CODEX_DIMS, takescoreDimUrl, type CodexDimGroup } from "@/lib/cinecodex_dims";
 import { filmUrl } from "@/lib/urls";
 import {
@@ -31,11 +32,20 @@ function db() {
 
 interface Props { params: Promise<{ slug: string }>; }
 
+/** cinecodex_card v2 (migration 0046): comps entries are objects; the basket
+ *  is a 20-row U-rank window with rank/year/poster, plus top-level rank fields. */
+type CompFilm = { title: string; slug: string | null; poster_path: string | null };
+type BasketRow = {
+  title: string; slug: string; year: number | null; poster_path: string | null;
+  rank: number | null; u: number; r: number; self: boolean;
+};
+
 type Card = {
   slug: string; title: string; year: number | null; director: string | null; poster_path: string | null;
   v: number; c: number; r: number; u: number; s: number;
+  rank: number | null; rank_total: number | null;
   subs: Record<string, number | null>;
-  comps: Record<string, string[] | null> | null;
+  comps: Record<string, (string | CompFilm)[] | null> | null;
   reliability: {
     n_samples: number | null; sd_v: number | null; sd_r: number | null;
     panel: string | null; prompt_version: string | null; flagged: boolean | null; scored_at: string | null;
@@ -43,8 +53,13 @@ type Card = {
   conf: number | null; tier: string | null; n_takes: number | null;
   ext: { imdb: number | null; rt: number | null; meta: number | null } | null;
   standing: { prestige: number | null; labels: string[] | null } | null;
-  basket: { title: string; slug: string; u: number; r: number; self: boolean }[] | null;
+  basket: BasketRow[] | null;
 };
+
+/** Normalize a comp to the v2 object shape (edge-cached v1 payloads may still
+ *  carry bare title strings for one revalidate window). */
+const compOf = (c: string | CompFilm): CompFilm =>
+  typeof c === "string" ? { title: c, slug: null, poster_path: null } : c;
 
 async function loadUncached(slug: string): Promise<Card | null> {
   const { data } = await db().rpc("cinecodex_card", { p_slug: slug });
@@ -108,6 +123,13 @@ const GROUPS: { g: CodexDimGroup; ax: string; label: string; sub: string }[] = [
   { g: "risk", ax: "R", label: "Risk", sub: "how it can go wrong — lower is safer" },
 ];
 
+// Axis hexes = the shared cx-*/tsf-* light palette (value green / cost gray / risk red).
+const AXIS_HEX: Record<CodexDimGroup, string> = {
+  value: "#0F6E56",
+  cost: "#8a8f98",
+  risk: "#C8102E",
+};
+
 export default async function TakeScoreFilmPage({ params }: Props) {
   const { slug } = await params;
   const card = await load(slug);
@@ -123,6 +145,8 @@ export default async function TakeScoreFilmPage({ params }: Props) {
   const hasExt = !!ext && (ext.imdb != null || ext.rt != null || ext.meta != null);
   const extLine = hasExt ? extSentence(ext!.imdb, ext!.rt, ext!.meta, card.v) : null;
   const basket = card.basket ?? [];
+  const rank = card.rank;
+  const rankTotal = card.rank_total;
   const date = scoredDate(card);
   const dateHuman = scoredDateHuman(card);
   const canonical = `${SITE}/takescore/film/${card.slug}`;
@@ -170,7 +194,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         </div>
         <h1 className="lh-h1">{nameYear} — TakeScore {ts}</h1>
 
-        {/* ── Film hero — poster · title/director · the big mono net-value box ── */}
+        {/* ── Film hero — framed poster · title/director · the big TS ring ── */}
         <div className="tsf-hero">
           {card.poster_path ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -179,23 +203,21 @@ export default async function TakeScoreFilmPage({ params }: Props) {
             <div className="tsf-poster--e" aria-hidden="true" />
           )}
           <div className="tsf-hmeta">
+            <div className="tsf-kicker tsf-kicker--tight">TakeScore appraisal</div>
             <div className="tsf-ftitle">{card.title}{card.year ? <small>{card.year}</small> : null}</div>
             {card.director ? <p className="tsf-dir">Directed by {card.director}{card.year ? ` · ${card.year}` : ""}</p> : null}
             <p style={{ margin: 0 }}>
               <Link className="tsf-openfilm" href={filmUrl(card.slug)}>Open the film page →</Link>
             </p>
           </div>
-          <div className="tsf-ubox">
-            <span className="n">{ts}</span>
-            <span className="lab">
-              <span className="k">TS · Net value</span>
-              <span className="d">= V {v} − λ·R (λ = 1)</span>
-            </span>
+          <div className="tsf-tscell">
+            <ScoreDonut val={card.u} color={AXIS_HEX.value} size={118} label="TakeScore · Net value" sub={`= V ${v} − λ·R (λ = 1)`} />
           </div>
         </div>
 
         {/* ── Verdict — quadrant sentence + formula line ── */}
         <section aria-labelledby="tsf-verdict-h" className="tsf-verdict">
+          <div className="tsf-kicker">Verdict</div>
           <h2 className="tsf-h2" id="tsf-verdict-h">The verdict</h2>
           <p className="tsf-verdict-p">{verdict}</p>
           <p className="tsf-formula">
@@ -203,8 +225,9 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           </p>
         </section>
 
-        {/* ── Side by side · three pillars — V / C / R with their sub-scores ── */}
+        {/* ── Side by side · three pillars — V / C / R ring gauges + sub-scores ── */}
         <section aria-labelledby="tsf-dims-h">
+          <div className="tsf-kicker">Scorecard</div>
           <h2 className="tsf-h2" id="tsf-dims-h">How we scored it</h2>
           <p className="tsf-sub">
             Thirteen sub-scores in three groups, each 0–100 against the fixed CineCodex rubric. Every dimension links
@@ -219,15 +242,15 @@ export default async function TakeScoreFilmPage({ params }: Props) {
                   <div className="tsf-pil-h">
                     <span className={`tsf-pil-ax tsf-${g[0]}`}>{ax}</span>
                     <span className="tsf-pil-name">{label}</span>
-                    <span className="tsf-pil-score">{axisScore}</span>
                   </div>
-                  <div className="tsf-pil-band">{bandWord(g, axisScore)}</div>
-                  <span className="tsf-bar"><i className={`tsf-${g[0]}`} style={{ width: `${Math.min(100, axisScore)}%` }} /></span>
-                  <p className="tsf-pil-sub">{sub}</p>
+                  <div className="tsf-pil-gauge">
+                    <ScoreDonut val={axisScore} color={AXIS_HEX[g]} size={96} sub={bandWord(g, axisScore)} />
+                    <p className="tsf-pil-sub">{sub}</p>
+                  </div>
                   {CODEX_DIMS.filter((d) => d.group === g).map((d) => {
                     const score = card.subs?.[d.key];
                     if (score == null) return null;
-                    const comps = card.comps?.[d.key] ?? [];
+                    const comps = (card.comps?.[d.key] ?? []).map(compOf);
                     return (
                       <div className="tsf-dim" key={d.key}>
                         <div className="tsf-dim-t">
@@ -238,10 +261,28 @@ export default async function TakeScoreFilmPage({ params }: Props) {
                         <div className="tsf-dim-band">{bandWord(g, score)}</div>
                         <p className="tsf-dim-s">{dimSentence(d.key, score)}</p>
                         {comps.length ? (
-                          <details className="tsf-dim-comps">
-                            <summary>Scored alongside</summary>
-                            <div className="tsf-dim-comps-list">{comps.join(" · ")}</div>
-                          </details>
+                          <div className="tsf-dim-comps">
+                            <span className="tsf-comps-k">Scored alongside</span>
+                            <span className="tsf-comps-row">
+                              {comps.map((cf, i) => {
+                                const thumb = cf.poster_path ? (
+                                  // eslint-disable-next-line @next/next/no-img-element
+                                  <img className="tsf-thumb" src={`${IMG}/w92${cf.poster_path}`} alt="" width={28} height={42} loading="lazy" />
+                                ) : (
+                                  <span className="tsf-thumb tsf-thumb--e" aria-hidden="true" />
+                                );
+                                return cf.slug ? (
+                                  <Link className="tsf-comp" href={`/takescore/film/${cf.slug}`} key={`${d.key}-${i}`} title={`Nearest measured neighbor on ${d.label} — ${cf.title}`}>
+                                    {thumb}<span className="tsf-comp-t">{cf.title}</span>
+                                  </Link>
+                                ) : (
+                                  <span className="tsf-comp tsf-comp--txt" key={`${d.key}-${i}`}>
+                                    {thumb}<span className="tsf-comp-t">{cf.title}</span>
+                                  </span>
+                                );
+                              })}
+                            </span>
+                          </div>
                         ) : null}
                       </div>
                     );
@@ -253,6 +294,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         </section>
 
         {/* ── Confidence · Standing · External — separated cards, never blended ── */}
+        <div className="tsf-kicker">Trust &amp; context</div>
         <div className="tsf-cards">
           <section aria-labelledby="tsf-conf-h" className="tsf-card">
             <h2 className="tsf-card-h" id="tsf-conf-h">Confidence &amp; reproducibility</h2>
@@ -310,31 +352,60 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           ) : null}
         </div>
 
-        {/* ── Reference basket — U-ranked ladder, this film highlighted ── */}
+        {/* ── Where it ranks — 20-row U-rank window with the film's position marked ── */}
         {basket.length ? (
           <section aria-labelledby="tsf-basket-h">
-            <h2 className="tsf-h2" id="tsf-basket-h">The reference basket</h2>
-            <table className="tsf-basket">
-              <caption>U rank among the reference basket — U = Value − Risk at λ = 1; lower Risk is safer.</caption>
-              <thead>
-                <tr><th scope="col">Film</th><th scope="col">U</th><th scope="col">Risk</th></tr>
-              </thead>
-              <tbody>
-                {basket.map((b) => (
-                  <tr className={b.self ? "tsf-self" : undefined} key={b.slug}>
-                    <td>
-                      {b.self ? (
-                        <>{b.title} — this film</>
-                      ) : (
-                        <Link href={`/takescore/film/${b.slug}`}>{b.title}</Link>
-                      )}
-                    </td>
-                    <td className="tsf-num"><b>{Math.round(b.u)}</b></td>
-                    <td className="tsf-num tsf-rk">{Math.round(b.r)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="tsf-kicker">Where it ranks</div>
+            <h2 className="tsf-h2" id="tsf-basket-h">
+              {rank != null && rankTotal != null
+                ? <>Rank #{rank} of {rankTotal} by TakeScore</>
+                : <>The reference basket</>}
+            </h2>
+            <p className="tsf-sub">
+              A 20-film window of the TakeScore ranking around this film — U = Value − λ·Risk at λ = 1; lower Risk is safer.
+            </p>
+            {rank != null && rankTotal != null && rankTotal > 1 ? (
+              <div className="tsf-track" aria-hidden="true">
+                <span>#1</span>
+                <span className="tsf-track-bar"><i style={{ left: `${((rank - 1) / (rankTotal - 1)) * 100}%` }} /></span>
+                <span>#{rankTotal}</span>
+              </div>
+            ) : null}
+            <div className="tsf-ladder">
+              <div className="tsf-lrow tsf-lhead" aria-hidden="true">
+                <span className="tsf-lrank">#</span>
+                <span />
+                <span className="tsf-ltitle">Film</span>
+                <span className="tsf-lu">U</span>
+                <span className="tsf-lr">Risk</span>
+              </div>
+              {basket.map((b) => {
+                const cells = (
+                  <>
+                    <span className="tsf-lrank">{b.rank ?? "—"}</span>
+                    {b.poster_path ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img className="tsf-thumb" src={`${IMG}/w92${b.poster_path}`} alt="" width={28} height={42} loading="lazy" />
+                    ) : (
+                      <span className="tsf-thumb tsf-thumb--e" aria-hidden="true" />
+                    )}
+                    <span className="tsf-ltitle">
+                      {b.title}{b.year ? <small> ({b.year})</small> : null}
+                      {b.self ? <span className="tsf-lchip">This film</span> : null}
+                    </span>
+                    <span className="tsf-lu">{Math.round(b.u)}</span>
+                    <span className="tsf-lr">{Math.round(b.r)}</span>
+                  </>
+                );
+                return b.self ? (
+                  <div className="tsf-lrow tsf-lself" key={b.slug}>{cells}</div>
+                ) : (
+                  <Link className="tsf-lrow" href={`/takescore/film/${b.slug}`} key={b.slug} title={`Open the appraisal for ${b.title}`}>
+                    {cells}
+                  </Link>
+                );
+              })}
+            </div>
           </section>
         ) : null}
 

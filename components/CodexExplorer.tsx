@@ -11,6 +11,12 @@ import { createClient } from "@supabase/supabase-js";
 import { codeToFlag } from "@/lib/lineageBodies";
 import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
 import { useLens } from "@/components/LensProvider";
+import ScoreDonut from "@/components/ScoreDonut";
+
+/* Axis colors — the public light-theme TakeScore palette (globals.css cx-* /
+ * takescore-film.css tsf-*). Rings use the bar hues so the curtain reads as a
+ * miniature of the appraisal page. */
+const AX = { v: "#0F6E56", c: "#9ca3af", r: "#C8102E" };
 
 const IMG = "https://image.tmdb.org/t/p/w92";
 const PAGE = 60;
@@ -76,7 +82,7 @@ function SubGroup({ label, names, sub, tone }: { label: string; names: string[];
   );
 }
 
-function Curtain({ slug }: { slug: string }) {
+function Curtain({ slug, lam }: { slug: string; lam: number }) {
   const [d, setD] = useState<Detail | null>(null);
   const [err, setErr] = useState(false);
   useEffect(() => {
@@ -92,8 +98,24 @@ function Curtain({ slug }: { slug: string }) {
   if (err) return <div className="cxd cxd--msg">Couldn’t load the sub-scores.</div>;
   if (!d) return <div className="cxd cxd--msg">Loading sub-scores…</div>;
   const ext = d.ext || { imdb: null, rt: null, metascore: null };
+  const ts = Math.round(d.v - lam * d.r);
   return (
     <div className="cxd">
+      {/* hero band — the appraisal page in miniature: three ring gauges + TS */}
+      <div className="cxd-hero">
+        <div className="cxd-hero-dons">
+          <ScoreDonut val={d.v} color={AX.v} label="Value" size={64} />
+          <ScoreDonut val={d.c} color={AX.c} label="Cost" size={64} />
+          <ScoreDonut val={d.r} color={AX.r} label="Risk" size={64} />
+        </div>
+        <div className="cxd-ts">
+          <span className="n">{ts}</span>
+          <span className="lab">
+            <span className="k">TS TakeScore</span>
+            <span className="d">= V − λ·R (λ {lam.toFixed(1)})</span>
+          </span>
+        </div>
+      </div>
       <div className="cxd-cols">
         <SubGroup label="Value" names={VALUE_L} sub={d.sub} tone="cx-lv" />
         <SubGroup label="Cost" names={COST_L} sub={d.sub} tone="cx-lc" />
@@ -210,6 +232,15 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
         a.cx-tsbox:hover, a.cx-tsbox:focus-visible{filter:brightness(1.08); box-shadow:0 0 0 1px #fff, 0 0 0 2.5px #0F6E56}
         .cxd-appr{font-family:var(--font-ui); font-size:12.5px; font-weight:600; color:#fff; background:var(--accent,#C8102E); border-radius:7px; padding:5px 11px; text-decoration:none; white-space:nowrap}
         .cxd-appr:hover{filter:brightness(1.08)}
+        /* curtain hero — three ring gauges + the TS number (appraisal-page miniature) */
+        .cxd-hero{display:flex; align-items:center; gap:22px; flex-wrap:wrap; padding:14px 2px 13px; border-bottom:1px solid var(--hairline)}
+        .cxd-hero-dons{display:flex; align-items:flex-start; gap:20px}
+        .cxd-ts{display:flex; align-items:baseline; gap:10px; margin-left:auto; padding-left:20px; border-left:1px solid var(--hairline)}
+        .cxd-ts .n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:38px; font-weight:600; line-height:.9; color:#0F6E56; font-variant-numeric:tabular-nums}
+        .cxd-ts .lab{display:flex; flex-direction:column; gap:3px}
+        .cxd-ts .k{font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink)}
+        .cxd-ts .d{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px; color:var(--muted)}
+        @media(max-width:560px){.cxd-ts{margin-left:0; padding-left:0; border-left:0; flex-basis:100%}}
       `}</style>
       {/* ── Control panel ── */}
       <div className="cx-panel">
@@ -336,7 +367,7 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
                 ><b>{ts}</b><i>TS</i></Link>
                 <span className="cx-chev" aria-hidden>{isOpen ? "▾" : "▸"}</span>
               </div>
-              {isOpen ? <Curtain slug={f.slug} /> : null}
+              {isOpen ? <Curtain slug={f.slug} lam={lam} /> : null}
             </div>
           );
         })}
