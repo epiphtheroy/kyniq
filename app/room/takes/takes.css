@@ -1,0 +1,143 @@
+/* /room/takes — the take composer (v3 successor of /room/write; migrated from
+   write.css). EVERY selector scoped under .room-root so nothing leaks. The
+   attach classes (.arow/.achip/.adrop/.fwchip …) are NOT nested under .tk-page:
+   the attach rail also renders inside the shared inspector panel (<1180px).
+   The purged v1 `.inspector` override block from write.css is gone. */
+
+/* page shell: stats header + full-height 3-pane composer */
+.room-root .tk-page{display:flex;flex-direction:column;height:100%;min-height:0}
+.room-root .tk-stats{display:flex;align-items:center;gap:16px;padding:9px 14px;border-bottom:1px solid var(--line2);background:var(--bg2);flex-wrap:wrap}
+.room-root .tk-stats .ts{font-size:11.5px;color:var(--mut);display:inline-flex;align-items:center;gap:4px}
+.room-root .tk-stats .ts b{font-family:var(--mono);color:var(--ink);font-weight:600}
+.room-root .tk-stats .ts .ti{font-size:12px;color:var(--sub)}
+.room-root .tk-stats .tsnote{margin-left:auto;font-size:10.5px;color:var(--sub);font-style:italic}
+
+/* 3-pane grid: list rail · editor · attach rail (attach column ≥1180px only) */
+.room-root .tk-wrap{display:grid;grid-template-columns:262px minmax(0,1fr) 300px;flex:1;min-height:0}
+
+/* note list sub-pane */
+.room-root .nlist{border-right:1px solid var(--line2);background:var(--bg2);display:flex;flex-direction:column;min-height:0}
+.room-root .nlhd{display:flex;align-items:center;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line)}
+.room-root .nlhd .tk-srch{flex:1;position:relative}
+.room-root .nlhd input{width:100%;background:var(--pnl);border:1px solid var(--line2);border-radius:5px;padding:6px 10px 6px 28px;color:var(--ink);font-size:12px;font-family:var(--ui)}
+.room-root .nlhd input:focus{outline:none;border-color:var(--line3)}
+.room-root .nlhd .tk-srch i{position:absolute;left:8px;top:7px;color:var(--sub);font-size:13px}
+.room-root .newbtn{background:var(--red);color:#fff;border:none;border-radius:5px;height:30px;padding:0 10px;cursor:pointer;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;justify-content:center;flex:0 0 auto;white-space:nowrap}
+.room-root .newbtn i{font-size:15px}
+.room-root .newbtn:hover{filter:brightness(1.08)}
+.room-root .newbtn:disabled{opacity:.4;cursor:default}
+.room-root .nlfilt{display:flex;gap:4px;padding:7px 9px;border-bottom:1px solid var(--line);font-size:10px}
+.room-root .nlfilt button{background:transparent;border:1px solid var(--line2);color:var(--mut);border-radius:11px;padding:2px 9px;cursor:pointer;font-family:var(--ui);font-size:10px}
+.room-root .nlfilt button.on{background:var(--ink);color:#0A0A0B;border-color:var(--ink)}
+.room-root .nlitems{overflow:auto;flex:1;min-height:0}
+.room-root .li{padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;position:relative}
+.room-root .li:hover{background:var(--pnl2)}
+.room-root .li.on{background:var(--pnl2)}
+.room-root .li.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2.5px;background:var(--red);border-radius:2px}
+.room-root .li .lt{font-family:var(--ser);font-size:13.5px;line-height:1.25}
+.room-root .li .sn{font-size:11px;color:var(--sub);margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.room-root .li .lm{display:flex;gap:6px;align-items:center;margin-top:6px;flex-wrap:wrap}
+.room-root .li .ld{font-size:9.5px;color:var(--faint);margin-left:auto;font-family:var(--mono)}
+.room-root .nlempty{padding:28px 16px;color:var(--sub);font-size:11.5px;text-align:center;line-height:1.6}
+
+/* status chip + upvotes (row number budget: one status, one count, one date) */
+.room-root .tk-st{font-size:9px;font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:3px;border:1px solid var(--line2);color:var(--mut)}
+.room-root .tk-st.pub{color:#5fd0b2;border-color:#1d4d40;background:#0e221c}
+.room-root .tk-st.dra{color:#edc873;border-color:#5e4d1d;background:#211a08}
+.room-root .tk-up{display:inline-flex;align-items:center;gap:2px;font-family:var(--mono);font-size:10px;color:var(--mut)}
+.room-root .tk-up .ti{font-size:11px}
+
+/* editor sub-pane */
+.room-root .ed{display:flex;flex-direction:column;background:var(--bg);min-height:0}
+.room-root .edbar{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap;background:var(--bg2)}
+.room-root .tk-seg{display:flex;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+.room-root .tk-seg button{background:transparent;color:var(--mut);border:none;border-right:1px solid var(--line);padding:5px 10px;font-family:var(--ui);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:5px}
+.room-root .tk-seg button:last-child{border-right:none}
+.room-root .tk-seg button.on{background:var(--ink);color:#0A0A0B}
+.room-root .tk-seg button:disabled{opacity:.4;cursor:default}
+
+/* honest save-state pill: Saved to server / Draft on this device / Unsaved */
+.room-root .tk-pill{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--sub);font-family:var(--mono);white-space:nowrap;margin-left:auto}
+.room-root .tk-pill i{font-size:12px}
+.room-root .tk-pill.srv{color:var(--safe)}
+.room-root .tk-pill.loc{color:var(--gap)}
+.room-root .tk-pill.un{color:var(--risk)}
+
+.room-root .savebtn{background:var(--red);color:#fff;border:none;border-radius:5px;padding:6px 13px;font-size:11.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.room-root .savebtn:disabled{opacity:.45;cursor:default}
+.room-root .savebtn.pub{background:var(--safe);box-shadow:0 0 0 1px rgba(31,178,134,.3)}
+.room-root .savebtn.ghost{background:var(--pnl);color:var(--ink);border:1px solid var(--line2)}
+.room-root .savebtn.ghost:hover{border-color:var(--line3)}
+.room-root .savebtn.arch{background:transparent;color:var(--mut);border:1px solid var(--line2)}
+.room-root .savebtn.arch:hover{color:var(--ink);border-color:var(--line3)}
+.room-root .savebtn .where{font-size:9.5px;opacity:.85;font-weight:500}
+
+/* attach button — visible only when the inline rail is hidden (<1180px) */
+.room-root .tk-attachbtn{background:var(--pnl);color:var(--ink);border:1px solid var(--line2)}
+@media(min-width:1180px){.room-root .tk-attachbtn{display:none}}
+
+.room-root .tk-canvas{flex:1;overflow:auto;padding:24px 30px;min-height:0}
+.room-root .tk-canvas .inner{max-width:680px;margin:0 auto}
+.room-root .hintbanner{font-size:11.5px;color:#edc873;background:#1c1708;border:1px solid #5e4d1d;border-radius:5px;padding:7px 11px;margin-bottom:16px}
+.room-root .titlein{width:100%;background:transparent;border:none;color:var(--ink);font-family:var(--ser);font-size:29px;font-weight:700;line-height:1.2;padding:0;margin-bottom:8px}
+.room-root .titlein:focus{outline:none}
+.room-root .titlein::placeholder{color:#3a3a40}
+.room-root .fmtbar{display:flex;gap:3px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px}
+.room-root .fmtbar button{background:transparent;color:var(--mut);border:none;width:30px;height:28px;border-radius:4px;cursor:pointer;font-size:15px}
+.room-root .fmtbar button:hover{background:var(--pnl2);color:var(--ink)}
+.room-root .bodyed{font-family:var(--ser);font-size:17px;line-height:1.72;color:#E4E2DC;min-height:240px;outline:none}
+.room-root .bodyed:empty:before{content:attr(data-ph);color:#3a3a40}
+.room-root .bodyed h2{font-size:22px;margin:1.2em 0 .4em}
+.room-root .bodyed blockquote{border-left:2px solid var(--red);margin:1em 0;padding:2px 0 2px 16px;color:var(--mut);font-style:italic}
+.room-root .bodyed a{color:var(--frontier);text-decoration:underline}
+
+/* editor footer: word count + honest persistence note */
+.room-root .tk-foot{display:flex;align-items:baseline;gap:12px;font-size:10.5px;color:var(--sub);line-height:1.5;margin-top:18px;border-top:1px solid var(--line);padding-top:10px}
+.room-root .tk-foot .wc{font-family:var(--mono);color:var(--mut);flex:0 0 auto}
+.room-root .tk-noneopen{padding:60px 0;text-align:center;color:var(--sub)}
+.room-root .tk-noneopen i{font-size:34px;color:var(--faint)}
+.room-root .tk-noneopen div{margin-top:10px;font-size:13px;color:var(--mut)}
+
+/* attach rail — inline right column ≥1180px; hidden below (inspector instead) */
+.room-root .tk-rail{border-left:1px solid var(--line2);background:var(--bg2);overflow-y:auto;min-height:0;padding:12px 12px 30px}
+.room-root .tk-railempty{font-size:11.5px;color:var(--sub);line-height:1.6;padding:14px 4px}
+@media(max-width:1179px){
+  .room-root .tk-wrap{grid-template-columns:262px minmax(0,1fr)}
+  .room-root .tk-rail{display:none}
+}
+@media(max-width:720px){
+  .room-root .tk-wrap{grid-template-columns:1fr}
+  .room-root .nlist{display:none}
+}
+
+/* attach/connect content (inline rail AND inspector — scoped to .room-root only) */
+.room-root .arow{margin-bottom:11px}
+.room-root .arlbl{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--sub);margin-bottom:6px}
+.room-root .arlbl .d{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+.room-root .arlbl .ct{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--faint)}
+.room-root .achips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;position:relative}
+.room-root .achip{font-size:11.5px;border-radius:13px;padding:3px 5px 3px 9px;display:flex;align-items:center;gap:6px;font-family:var(--ser);border:1px solid}
+.room-root .achip.film{background:var(--pnl2);border-color:var(--line2);color:var(--ink)}
+.room-root .achip.misread{background:#211a08;border-color:#5e4d1d;color:#e6c884}
+.room-root .achip .yr{color:var(--sub);font-size:10px;font-family:var(--ui)}
+.room-root .achip .x{cursor:pointer;color:var(--sub);font-size:13px}
+.room-root .achip .x:hover{color:var(--red)}
+.room-root .addbtn{font-size:11px;color:var(--mut);border:1px dashed var(--line2);border-radius:13px;padding:4px 10px;cursor:pointer;display:flex;align-items:center;gap:5px;background:transparent}
+.room-root .addbtn:hover{color:var(--ink);border-color:var(--line3)}
+.room-root .asrch{position:relative}
+.room-root .asrch input{background:var(--pnl);border:1px solid var(--line3);border-radius:13px;padding:4px 10px;color:var(--ink);font-size:12px;width:180px;font-family:var(--ui)}
+.room-root .asrch input:focus{outline:none}
+.room-root .adrop{position:absolute;top:32px;left:0;background:#161618;border:1px solid var(--line3);border-radius:6px;z-index:9;min-width:236px;max-height:260px;overflow:auto;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.room-root .adrop .ai{padding:7px 11px;cursor:pointer;border-bottom:1px solid var(--line);font-size:12.5px}
+.room-root .adrop .ai:last-child{border-bottom:0}
+.room-root .adrop .ai:hover{background:var(--pnl2)}
+.room-root .adrop .ai .m{font-size:10.5px;color:var(--sub);margin-top:1px}
+.room-root .adrop .ai.busy{color:var(--sub);font-style:italic}
+.room-root .fwpick{display:flex;flex-wrap:wrap;gap:5px}
+.room-root .fwchip{font-size:10.5px;border:1px solid var(--line2);border-radius:12px;padding:2px 9px;color:var(--mut);cursor:pointer;background:transparent;font-family:var(--ui);display:inline-flex;align-items:center;gap:5px}
+.room-root .fwchip:hover{border-color:var(--line3);color:var(--ink)}
+.room-root .fwchip.on{color:#0A0A0B;font-weight:600}
+.room-root .fwchip .d{width:7px;height:7px;border-radius:50%;flex:0 0 auto}
+.room-root .fwfam{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:8px 0 4px}
+.room-root .fwfam:first-child{margin-top:0}
+.room-root .tk-coming{font-size:10.5px;color:var(--sub);font-style:italic;margin-top:6px;line-height:1.5}

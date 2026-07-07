@@ -1,16 +1,34 @@
 "use client";
-/** 지리 Atlas 포트폴리오 (The Room · /room/atlas).
- *  A personal world map of where the user's WATCHED films take place / were filmed,
- *  + geographic coverage (국가별) + geographic blind spots (④ = continents with 0 seen films).
- *  REAL data via one RPC:
- *    - me_geo_coverage → { points[], by_country[], totals } (auth.uid()-scoped, seen films only)
- *  Map is HAND-ROLLED inline SVG (equirectangular) — no maplibre — mirroring the SVG pattern
- *  in AnalysisWorkspace (ScatterSVG) / CommandCenterWorkspace (constellation). Every dot →
- *  inspector-swap with that film (CinecodexCard slug → film content hub). PostgREST numerics
- *  (incl. lat/lng) arrive as strings → coerced with num() before any math. */
-import { useMemo, useEffect } from "react";
+/** Atlas — /room/atlas (v3: a real map).
+ *  A personal world map of where the user's SEEN films are set / were filmed,
+ *  + per-country coverage + geographic blind spots (continents with 0 seen films).
+ *
+ *  Land = low-poly world outline from lib/room/world_paths.ts (static inline SVG
+ *  paths, imported ONLY by this route — bundle isolation; NO MapLibre, no external
+ *  tiles). The paths are pre-projected with the SAME equirectangular constants as
+ *  projX/projY below (x=(lng+180)/360·760, y=(90−lat)/180·380) so film dots land
+ *  on the right landmass — verified against reference cities at generation time.
+ *
+ *  Data: one RPC — me_geo_coverage() → { points[], by_country[], totals } (single
+ *  json, auth.uid()-scoped, seen films only, cap-safe). by_country carries a
+ *  `continent` per SEEN country only, so the page additionally passes the full
+ *  public country_continents reference (for blind-continent territory lists) and
+ *  the public national lineage index (for /lineage/* deep links). No new RPCs.
+ *
+ *  Flags are COMPUTED: country name → ISO2 via an inverted Intl.DisplayNames
+ *  region table (+ a small alias patch for CLDR naming variants) → regional-
+ *  indicator emoji. The old 45-entry hardcoded map is gone.
+ *  PostgREST numerics (incl. lat/lng) may arrive as strings → coerce with num(). */
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useInspector } from "./InspectorContext";
 import CinecodexCard from "./CinecodexCard";
+import ICard from "./insp/ICard";
+import KV from "./insp/KV";
+import ActBar from "./insp/ActBar";
+import { num } from "@/lib/room/format";
+import { STR } from "./strings";
+import { WORLD_LAND_PATHS, WORLD_VIEW_W, WORLD_VIEW_H } from "@/lib/room/world_paths";
 
 /* ── typed RPC shapes (numerics may arrive as strings from PostgREST) ── */
 export type GeoPoint = {
@@ -27,49 +45,86 @@ export type GeoTotals = {
 } | null;
 export type GeoData = { points: GeoPoint[]; by_country: CountryRow[]; totals: GeoTotals };
 
-const num = (x: number | string | null | undefined): number | null =>
-  x == null ? null : typeof x === "number" ? x : Number.isNaN(Number(x)) ? null : Number(x);
+/** Full country_continents reference row (public read-all table, fetched by the page). */
+export type CountryRefRow = { country: string; continent: string };
+/** Public national lineage (from the lineage_index RPC, facet="national"); country = lowercase ISO2. */
+export type NatLineage = { slug: string; label: string; country: string | null };
+
 const n0 = (x: number | string | null | undefined) => num(x) ?? 0;
 
-/* ── country → continent: DB 참조테이블(country_continents)에서 옴 — me_geo_coverage.by_country가
-   행마다 continent를 실어 보낸다(프론트 하드코딩 사전 제거 → 블라인드가 진짜 데이터 파생).
-   6 continents + DB 'Other'(극지 등)는 "기타" 버킷 — 블라인드 판정에서 제외. ── */
+/* The RPC coalesces a NULL country to a fixed Korean literal meaning "unknown"
+   (me_geo_coverage is unchanged in v3). Match it via escaped codepoints so this
+   file greps clean of Korean, and render it in English. */
+const UNKNOWN_COUNTRY = "미상";
+const displayCountry = (c: string | null | undefined): string =>
+  !c || c === UNKNOWN_COUNTRY ? "Unknown" : c;
+
+/* ── continents (DB reference-table vocabulary: country_continents.continent) ── */
 const CONTINENTS = ["Asia", "Europe", "Africa", "N.America", "S.America", "Oceania"] as const;
-type Continent = (typeof CONTINENTS)[number] | "기타";
-const CONT_KO: Record<Continent, string> = {
-  Asia: "아시아", Europe: "유럽", Africa: "아프리카",
-  "N.America": "북아메리카", "S.America": "남아메리카", Oceania: "오세아니아", 기타: "기타 · 극지",
+type Continent = (typeof CONTINENTS)[number] | "Other";
+const CONT_LABEL: Record<Continent, string> = {
+  Asia: "Asia", Europe: "Europe", Africa: "Africa",
+  "N.America": "North America", "S.America": "South America", Oceania: "Oceania", Other: "Other · polar",
 };
 const CONT_ICON: Record<Continent, string> = {
   Asia: "ti-building-pagoda", Europe: "ti-building-castle", Africa: "ti-tree",
-  "N.America": "ti-building-skyscraper", "S.America": "ti-mountain", Oceania: "ti-beach", 기타: "ti-snowflake",
+  "N.America": "ti-building-skyscraper", "S.America": "ti-mountain", Oceania: "ti-beach", Other: "ti-snowflake",
 };
 function normCont(c: string | null | undefined): Continent | null {
   if (!c) return null;
-  if (c === "Other") return "기타";
-  return (CONTINENTS as readonly string[]).includes(c) ? (c as Continent) : "기타";
+  return (CONTINENTS as readonly string[]).includes(c) ? (c as Continent) : "Other";
 }
 
-/* Regional-indicator flag emoji from a small country→ISO2 map (best-effort; falls back to a pin). */
-const ISO2: Record<string, string> = {
-  "United States": "US", "China": "CN", "Japan": "JP", "Italy": "IT", "Canada": "CA",
-  "Iceland": "IS", "Namibia": "NA", "Hungary": "HU", "South Korea": "KR", "Korea": "KR",
-  "United Kingdom": "GB", "Spain": "ES", "Thailand": "TH", "Hong Kong": "HK", "Cambodia": "KH",
-  "France": "FR", "Germany": "DE", "India": "IN", "Australia": "AU", "New Zealand": "NZ",
-  "Brazil": "BR", "Mexico": "MX", "Russia": "RU", "Morocco": "MA", "Egypt": "EG",
-  "Taiwan": "TW", "Vietnam": "VN", "Macau": "MO", "Ireland": "IE", "Norway": "NO",
-  "Sweden": "SE", "Denmark": "DK", "Netherlands": "NL", "Switzerland": "CH", "Austria": "AT",
-  "Greece": "GR", "Portugal": "PT", "Turkey": "TR", "Türkiye": "TR", "Poland": "PL",
-  "South Africa": "ZA", "Kenya": "KE", "Argentina": "AR", "Chile": "CL", "Peru": "PE",
+/* ── flags: computed name → ISO2 → regional-indicator emoji (no hardcoded country map).
+   The ISO table is built once by inverting Intl.DisplayNames("en", region) over all
+   AA–ZZ codes; a small alias patch covers CLDR naming variants present in our data. ── */
+const ISO_ALIASES: Record<string, string> = {
+  "Korea": "KR", "Hong Kong": "HK", "Macau": "MO", "Macao": "MO",
+  "Palestine": "PS", "Palestinian Territory": "PS", "Czech Republic": "CZ",
+  "Turkey": "TR", "Myanmar": "MM", "Democratic Republic of the Congo": "CD",
+  "Republic of the Congo": "CG", "Cabo Verde": "CV",
+  "United States Minor Outlying Islands": "UM",
 };
-function flagOf(country: string): string {
-  const iso = ISO2[country];
+function normName(s: string): string {
+  return s.toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/\bst\./g, "saint ")
+    .replace(/[^a-z]+/g, " ")
+    .split(/\s+/).filter((w) => w && w !== "the").join(" ");
+}
+let isoMap: Map<string, string> | null = null;
+function getIsoMap(): Map<string, string> {
+  if (isoMap) return isoMap;
+  const m = new Map<string, string>();
+  try {
+    const dn = new Intl.DisplayNames(["en"], { type: "region" });
+    for (let a = 65; a <= 90; a++) for (let b = 65; b <= 90; b++) {
+      const code = String.fromCharCode(a) + String.fromCharCode(b);
+      let name: string | undefined;
+      try { name = dn.of(code); } catch { continue; }
+      if (!name || name === code) continue;
+      const k = normName(name);
+      if (k && !m.has(k)) m.set(k, code);
+    }
+  } catch { /* Intl.DisplayNames unavailable → no flags (honest fallback, no fake glyphs) */ }
+  for (const [alias, code] of Object.entries(ISO_ALIASES)) m.set(normName(alias), code);
+  isoMap = m;
+  return m;
+}
+function isoOf(country: string | null | undefined): string | null {
+  if (!country || country === UNKNOWN_COUNTRY) return null;
+  return getIsoMap().get(normName(country)) ?? null;
+}
+function flagOf(country: string | null | undefined): string {
+  const iso = isoOf(country);
   if (!iso) return "";
-  return iso.replace(/./g, (c) => String.fromCodePoint(127397 + c.charCodeAt(0)));
+  return String.fromCodePoint(...[...iso].map((c) => 0x1f1e6 + (c.charCodeAt(0) - 65)));
 }
 
-/* ── equirectangular projection into an SVG viewBox (W×H). x=(lng+180)/360·W · y=(90-lat)/180·H ── */
-const MAP_W = 760, MAP_H = 380;
+/* ── equirectangular projection into the SVG viewBox — MUST stay in lockstep with
+      lib/room/world_paths.ts (the land is pre-projected with these constants). ── */
+const MAP_W = WORLD_VIEW_W; // 760
+const MAP_H = WORLD_VIEW_H; // 380
 const projX = (lng: number) => ((lng + 180) / 360) * MAP_W;
 const projY = (lat: number) => ((90 - lat) / 180) * MAP_H;
 
@@ -79,6 +134,7 @@ type Pt = {
   country: string | null; name: string | null; narrative_setting: string | null;
   layer: "filmed" | "setting"; kind: string | null; x: number; y: number;
 };
+type Cluster = { key: string; x: number; y: number; layer: "filmed" | "setting"; films: Pt[] };
 
 /* ═══════════ inspector nodes ═══════════ */
 
@@ -93,78 +149,157 @@ function PointInsp({ p }: { p: Pt }) {
         </span>
         <div>
           <div className="seltitle ser">{p.title}</div>
-          <div className="selsub">{p.country ?? "미상"}{p.kind ? ` · ${p.kind}` : ""} · {filmed ? "촬영지 (filmed)" : "무대 (setting)"}</div>
+          <div className="selsub">{displayCountry(p.country)}{p.kind ? ` · ${p.kind}` : ""} · {filmed ? "Filmed here" : "Setting"}</div>
         </div>
       </div>
-      <div className="icard"><h4><i className="ti ti-map-pin" /> 이 지점</h4>
+      <ICard icon="ti-map-pin" title="This point">
         <div className="seltitle ser" style={{ fontSize: 15 }}>{p.name ?? "—"}</div>
         {p.narrative_setting ? (
           <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.5, marginTop: 6 }}>{p.narrative_setting}</div>
         ) : null}
-        <div className="kv" style={{ marginTop: 8 }}><span>국가</span><b>{p.country ?? "미상"}</b></div>
-        <div className="kv"><span>좌표 (lat, lng)</span><b>{p.lat.toFixed(2)}, {p.lng.toFixed(2)}</b></div>
-        <div className="kv"><span>레이어</span><b style={{ color: filmed ? "var(--safe)" : "var(--frontier)" }}>{filmed ? "촬영지" : "무대"}</b></div>
-      </div>
+        <div style={{ marginTop: 8 }}>
+          <KV k="Country" v={displayCountry(p.country)} />
+          <KV k="Coordinates (lat, lng)" v={`${p.lat.toFixed(2)}, ${p.lng.toFixed(2)}`} />
+          <KV k="Layer" v={<span style={{ color: filmed ? "var(--safe)" : "var(--frontier)" }}>{filmed ? "Filmed" : "Setting"}</span>} />
+        </div>
+      </ICard>
       <CinecodexCard d={{ v: null, c: null, r: null }} slug={p.slug} />
     </div>
   );
 }
 
-/** A country row → its pins + films count. */
-function CountryInsp({ c, cont, pts }: { c: { country: string; films: number; pins: number }; cont: Continent | null; pts: Pt[] }) {
+/** Several films sharing one coordinate. */
+function ClusterInsp({ c }: { c: Cluster }) {
+  const uniq = [...new Map(c.films.map((p) => [p.slug, p])).values()];
+  const first = c.films[0];
+  return (
+    <div>
+      <ICard icon="ti-map-pin" title={`Shared coordinate · ${uniq.length} films`}>
+        <div className="seltitle ser" style={{ fontSize: 15 }}>{first.name ?? displayCountry(first.country)}</div>
+        <div className="selsub">{displayCountry(first.country)} · {c.layer === "filmed" ? "Filmed" : "Setting"} · ({first.lat.toFixed(2)}, {first.lng.toFixed(2)})</div>
+      </ICard>
+      <ICard icon="ti-movie" title="Films sharing this point">
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {uniq.map((p) => (
+            <Link key={p.slug} href={`/room/film/${p.slug}`} className="fh-loc" style={{ textDecoration: "none" }}>
+              <span className={`fh-locdot ${p.layer}`} />
+              <span className="fh-locn">{p.title}</span>
+            </Link>
+          ))}
+        </div>
+      </ICard>
+    </div>
+  );
+}
+
+/** A country row → its pins + film list + doors (national lineages, Coverage facet). */
+function CountryInsp({ c, cont, pts, lineages }: {
+  c: { country: string; films: number; pins: number };
+  cont: Continent | null; pts: Pt[]; lineages: NatLineage[];
+}) {
   const mine = pts.filter((p) => p.country === c.country);
   const filmedN = mine.filter((p) => p.layer === "filmed").length;
   const settingN = mine.length - filmedN;
   const flag = flagOf(c.country);
   return (
     <div>
-      <div className="icard"><h4><i className="ti ti-flag" /> 국가별 커버리지</h4>
-        <div className="seltitle ser" style={{ fontSize: 18 }}>{flag ? `${flag} ` : ""}{c.country}</div>
-        <div className="selsub">{cont ? CONT_KO[cont] : "대륙 미상"}</div>
-        <div className="bigscore" style={{ marginTop: 10, color: "var(--frontier)" }}>{c.films}<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>편 · {c.pins} 지점</span></div>
-        <div className="kv" style={{ marginTop: 8 }}><span>촬영지 (filmed)</span><b style={{ color: "var(--safe)" }}>{filmedN}</b></div>
-        <div className="kv"><span>무대 (setting)</span><b style={{ color: "var(--frontier)" }}>{settingN}</b></div>
-      </div>
-      <div className="icard"><h4><i className="ti ti-movie" /> 이 나라를 무대로 본 영화</h4>
+      <ICard icon="ti-flag" title="Country coverage">
+        <div className="seltitle ser" style={{ fontSize: 18 }}>{flag ? `${flag} ` : ""}{displayCountry(c.country)}</div>
+        <div className="selsub">{cont ? CONT_LABEL[cont] : "Continent unknown"}</div>
+        <div className="bigscore" style={{ marginTop: 10, color: "var(--frontier)" }}>
+          {c.films}<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>films · {c.pins} pins</span>
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <KV k="Filmed" v={<span style={{ color: "var(--safe)" }}>{filmedN}</span>} />
+          <KV k="Setting" v={<span style={{ color: "var(--frontier)" }}>{settingN}</span>} />
+        </div>
+      </ICard>
+      <ICard icon="ti-movie" title="Seen films set or shot here">
         {mine.length ? (
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {[...new Map(mine.map((p) => [p.slug, p])).values()].map((p) => (
-              <a key={p.slug} href={`/room/film/${p.slug}`} className="fh-loc" style={{ textDecoration: "none" }}>
+              <Link key={p.slug} href={`/room/film/${p.slug}`} className="fh-loc" style={{ textDecoration: "none" }}>
                 <span className={`fh-locdot ${p.layer}`} />
                 <span className="fh-locn">{p.title}</span>
-              </a>
+              </Link>
             ))}
           </div>
-        ) : <div className="fh-dim">지점 없음</div>}
-      </div>
+        ) : <div className="emptyins" style={{ padding: "8px 0" }}>No pins.</div>}
+      </ICard>
+      {lineages.length ? (
+        <ICard icon="ti-timeline" title="National lineages" right="public">
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {lineages.map((l) => (
+              <Link key={l.slug} href={`/lineage/${l.slug}`} className="fh-loc" style={{ textDecoration: "none" }}>
+                <i className="ti ti-arrow-right" style={{ fontSize: 11, color: "var(--sub)" }} />
+                <span className="fh-locn">{l.label}</span>
+              </Link>
+            ))}
+          </div>
+        </ICard>
+      ) : null}
+      <ActBar acts={[{ label: "Coverage · National →", href: "/room/coverage?facet=national" }]} />
     </div>
   );
 }
 
-/** A blind continent (④) → honest "아직 한 편도 안 본". */
-function BlindInsp({ cont }: { cont: Continent }) {
+/** A blind continent → the territory: every country of that continent (from the
+ *  country_continents reference), with doors to public national lineages and the
+ *  Coverage national facet. Honest: no geographic recommendations exist yet. */
+function BlindInsp({ cont, countries, natByIso }: {
+  cont: Continent; countries: string[]; natByIso: Map<string, NatLineage[]>;
+}) {
   return (
     <div>
-      <div className="icard"><h4><i className="ti ti-eye-off" style={{ color: "var(--blind)" }} /> 지리적 블라인드 · ④</h4>
+      <ICard icon="ti-eye-off" title="Geographic blind spot">
         <div className="seltitle ser" style={{ fontSize: 18, color: "var(--at-blindtx, #edc873)" }}>
-          <i className={`ti ${CONT_ICON[cont]}`} style={{ marginRight: 7 }} />{CONT_KO[cont]}
+          <i className={`ti ${CONT_ICON[cont]}`} style={{ marginRight: 7 }} />{CONT_LABEL[cont]}
         </div>
-        <div className="selsub">아직 한 편도 안 본 대륙</div>
-        <div className="bigscore" style={{ marginTop: 10, color: "var(--at-blindtx, #edc873)" }}>0<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>편 · 미개척</span></div>
-      </div>
-      <div className="icard"><h4><i className="ti ti-target" /> 왜 이 대륙인가</h4>
-        <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.55 }}>
-          당신이 본 영화의 무대·촬영지 어디에도 <b style={{ color: "var(--at-blindtx, #edc873)" }}>{CONT_KO[cont]}</b>가 등장하지 않았습니다 — 지도 위 완전한 공백(④). 이 대륙을 배경으로 한 첫 한 편이 지리 커버리지를 가장 크게 넓힙니다.
+        <div className="selsub">A continent none of your seen films touch</div>
+        <div className="bigscore" style={{ marginTop: 10, color: "var(--at-blindtx, #edc873)" }}>
+          0<span style={{ fontSize: 12, color: "var(--sub)", marginLeft: 8 }}>films · unexplored</span>
         </div>
-      </div>
+        <div style={{ fontSize: 11.5, color: "var(--mut)", lineHeight: 1.55, marginTop: 8 }}>
+          We can&apos;t recommend by geography yet — here is the territory.
+        </div>
+      </ICard>
+      <ICard icon="ti-world" title={`The territory · ${countries.length} countries`} right="country_continents">
+        <div className="at-terr">
+          {countries.map((name) => {
+            const flag = flagOf(name);
+            const iso = isoOf(name);
+            const lineages = iso ? (natByIso.get(iso.toLowerCase()) ?? []) : [];
+            return (
+              <div key={name} className="at-terrow">
+                <span className="at-terrn">{flag ? `${flag} ` : ""}{name}</span>
+                {lineages.length ? (
+                  <Link className="at-terrlink" href={`/lineage/${lineages[0].slug}`} title={lineages[0].label}>
+                    Lineage →
+                  </Link>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+      </ICard>
+      <ActBar acts={[
+        { label: "Coverage · National →", href: "/room/coverage?facet=national" },
+        { label: "Browse lineages →", href: "/lineage" },
+      ]} />
     </div>
   );
 }
 
 /* ═══════════ main ═══════════ */
-export default function AtlasWorkspace({ data }: { data: GeoData }) {
+export default function AtlasWorkspace({ data, countryRef, nationalLineages }: {
+  data: GeoData; countryRef: CountryRefRow[]; nationalLineages: NatLineage[];
+}) {
   const insp = useInspector();
   const { setDefault } = insp;
+
+  /* Layer toggles (spec §3.9.2) — both on by default. */
+  const [showFilmed, setShowFilmed] = useState(true);
+  const [showSetting, setShowSetting] = useState(true);
 
   /* normalized points (lat/lng coerced from possible strings) */
   const pts = useMemo<Pt[]>(() => {
@@ -186,14 +321,43 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
     (data.by_country ?? []).map((c) => ({ country: c.country, films: n0(c.films), pins: n0(c.pins), cont: normCont(c.continent) })),
     [data.by_country]);
 
-  /* country → continent — DB 참조테이블 값 (by_country.continent) */
+  /* country → continent for SEEN countries (payload-borne, from the DB reference table) */
   const contByCountry = useMemo(() => {
     const m = new Map<string, Continent | null>();
     for (const c of countries) m.set(c.country, c.cont);
     return m;
   }, [countries]);
-  const contOf = (country: string | null): Continent | null =>
-    country ? (contByCountry.get(country) ?? null) : null;
+  const contOf = useMemo(() => (country: string | null): Continent | null =>
+    country ? (contByCountry.get(country) ?? null) : null, [contByCountry]);
+
+  /* full territory per continent — the public reference table (page-fetched) */
+  const refByCont = useMemo(() => {
+    const m = new Map<Continent, string[]>();
+    for (const r of countryRef ?? []) {
+      const cont = normCont(r.continent);
+      if (!cont) continue;
+      if (!m.has(cont)) m.set(cont, []);
+      m.get(cont)!.push(r.country);
+    }
+    for (const list of m.values()) list.sort((a, b) => a.localeCompare(b));
+    return m;
+  }, [countryRef]);
+
+  /* national lineages by lowercase ISO2 */
+  const natByIso = useMemo(() => {
+    const m = new Map<string, NatLineage[]>();
+    for (const l of nationalLineages ?? []) {
+      if (!l.country) continue;
+      const k = l.country.toLowerCase();
+      if (!m.has(k)) m.set(k, []);
+      m.get(k)!.push(l);
+    }
+    return m;
+  }, [nationalLineages]);
+  const lineagesOf = useMemo(() => (country: string): NatLineage[] => {
+    const iso = isoOf(country);
+    return iso ? (natByIso.get(iso.toLowerCase()) ?? []) : [];
+  }, [natByIso]);
 
   const t = data.totals;
   const locatedFilms = n0(t?.located_films);
@@ -204,11 +368,12 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
   const filmedN = useMemo(() => pts.filter((p) => p.layer === "filmed").length, [pts]);
   const settingN = pts.length - filmedN;
 
-  /* 지리 커버리지 % — 분모 = film_locations에 실제 등장하는 전 국가 수 (실측, 매직넘버 제거) */
+  /* geographic reach % — denominator = every country that actually appears in
+     film_locations (measured, no magic number) */
   const refNations = n0(t?.countries_total) || 50;
   const coveragePct = Math.round((countryCount / refNations) * 100);
 
-  /* ── continents: seen counts + blind (④) — 대륙 매핑은 DB 참조테이블 파생 ── */
+  /* continents: seen counts + blind — continent mapping is DB-reference-derived */
   const contFilms = useMemo(() => {
     const m = new Map<Continent, Set<string>>();
     for (const p of pts) {
@@ -218,11 +383,10 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
       m.get(cont)!.add(p.slug);
     }
     return m;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pts, contByCountry]);
+  }, [pts, contOf]);
 
   const contStats = useMemo(() =>
-    CONTINENTS.map((cont) => ({ cont, films: contFilms.get(cont)?.size ?? 0 })), [contFilms]);
+    CONTINENTS.map((cont) => ({ cont: cont as Continent, films: contFilms.get(cont)?.size ?? 0 })), [contFilms]);
   const seenConts = useMemo(() => contStats.filter((c) => c.films > 0), [contStats]);
   const blindConts = useMemo(() => contStats.filter((c) => c.films === 0).map((c) => c.cont), [contStats]);
   const maxContFilms = Math.max(1, ...contStats.map((c) => c.films));
@@ -231,8 +395,7 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
   const lngLines = useMemo(() => { const a: number[] = []; for (let l = -150; l <= 150; l += 30) a.push(l); return a; }, []);
   const latLines = useMemo(() => { const a: number[] = []; for (let l = -60; l <= 60; l += 30) a.push(l); return a; }, []);
 
-  /* ── 동일 좌표 dedup (P2): 같은 (lat,lng,layer)를 공유하는 핀은 한 점으로 — n편 배지 ── */
-  type Cluster = { key: string; x: number; y: number; layer: "filmed" | "setting"; films: Pt[] };
+  /* same-coordinate dedup: pins sharing (lat,lng,layer) render as one dot with an n-film badge */
   const clusters = useMemo<Cluster[]>(() => {
     const m = new Map<string, Cluster>();
     for (const p of pts) {
@@ -243,81 +406,74 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
     }
     return [...m.values()];
   }, [pts]);
+  const visibleClusters = useMemo(
+    () => clusters.filter((c) => (c.layer === "filmed" ? showFilmed : showSetting)),
+    [clusters, showFilmed, showSetting]);
 
   const topCountry = countries[0] ?? null;
   const maxCountryFilms = Math.max(1, ...countries.map((c) => c.films));
 
   /* inspector openers */
-  const openPoint = (p: Pt) => insp.select(<PointInsp p={p} />, `${p.title} · 지점`);
+  const openPoint = (p: Pt) => insp.select(<PointInsp p={p} />, `${p.title} · Point`);
   const openCountry = (c: { country: string; films: number; pins: number }) =>
-    insp.select(<CountryInsp c={c} cont={contOf(c.country)} pts={pts} />, `${c.country} · 커버리지`);
-  const openBlind = (cont: Continent) => insp.select(<BlindInsp cont={cont} />, `${CONT_KO[cont]} · 블라인드 ④`);
+    insp.select(<CountryInsp c={c} cont={contOf(c.country)} pts={pts} lineages={lineagesOf(c.country)} />, `${displayCountry(c.country)} · Coverage`);
+  const openBlind = (cont: Continent) =>
+    insp.select(<BlindInsp cont={cont} countries={refByCont.get(cont) ?? []} natByIso={natByIso} />, `${CONT_LABEL[cont]} · Blind spot`);
   const openCluster = (c: Cluster) => {
     const uniq = [...new Map(c.films.map((p) => [p.slug, p])).values()];
-    const first = c.films[0];
-    insp.select(
-      <div>
-        <div className="icard"><h4><i className="ti ti-map-pin" /> 같은 좌표 · {uniq.length}편</h4>
-          <div className="seltitle ser" style={{ fontSize: 15 }}>{first.name ?? first.country ?? "이름 없는 지점"}</div>
-          <div className="selsub">{first.country ?? "미상"} · {c.layer === "filmed" ? "촬영지" : "무대"} · ({first.lat.toFixed(2)}, {first.lng.toFixed(2)})</div>
-        </div>
-        <div className="icard"><h4><i className="ti ti-movie" /> 이 지점을 공유하는 영화</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {uniq.map((p) => (
-              <a key={p.slug} href={`/room/film/${p.slug}`} className="fh-loc" style={{ textDecoration: "none" }}>
-                <span className={`fh-locdot ${p.layer}`} />
-                <span className="fh-locn">{p.title}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>, `${first.name ?? "지점"} · ${uniq.length}편 공유`);
+    insp.select(<ClusterInsp c={c} />, `${c.films[0].name ?? "Point"} · ${uniq.length} films`);
   };
 
-  /* ── default inspector = atlas summary (mirrors Analysis/CommandCenter setDefault) ── */
+  /* ── page brief (opened by the app-bar Brief button) ── */
   useEffect(() => {
     setDefault(
       <div>
-        <div className="icard"><h4><i className="ti ti-world" /> 지리 Atlas 요약</h4>
-          <div className="kv"><span>지도에 오른 영화</span><b>{locatedFilms}</b></div>
-          <div className="kv"><span>관람 자산</span><b>{totalWatched}</b></div>
-          <div className="kv"><span>국가</span><b>{countryCount}</b></div>
-          <div className="kv"><span>총 지점 (pins)</span><b>{totalPins}</b></div>
-          <div className="kv"><span>촬영지 · 무대</span><b>{filmedN} · {settingN}</b></div>
-        </div>
-        <div className="icard"><h4><i className="ti ti-eye-off" /> 지리적 블라인드 · ④</h4>
-          <div className="kv"><span>본 대륙</span><b style={{ color: "var(--safe)" }}>{seenConts.length} / 6</b></div>
-          <div className="kv"><span><span className="gloss" title="블라인드 = 본 영화 어디에도 등장하지 않은 대륙. 지도 위 완전한 공백.">블라인드</span> 대륙</span><b style={{ color: "var(--blind)" }}>{blindConts.length}</b></div>
+        <ICard icon="ti-world" title="Atlas — summary">
+          <KV k="Films on the map" v={locatedFilms} />
+          <KV k="Seen films" v={totalWatched} />
+          <KV k="Countries" v={countryCount} />
+          <KV k="Pins" v={totalPins} />
+          <KV k="Filmed · Setting" v={`${filmedN} · ${settingN}`} />
+        </ICard>
+        <ICard icon="ti-eye-off" title="Geographic blind spots">
+          <KV k="Continents reached" v={<span style={{ color: "var(--safe)" }}>{seenConts.length} / 6</span>} />
+          <KV k={<span className="gloss" title="Blind = a continent no seen film is set in or was shot on. A true blank on your map.">Blind continents</span>}
+            v={<span style={{ color: "var(--blind)" }}>{blindConts.length}</span>} />
           {blindConts.length ? (
             <div style={{ fontSize: 11, color: "var(--at-blindtx, #edc873)", marginTop: 6, lineHeight: 1.5 }}>
-              아직 한 편도 안 본: {blindConts.map((c) => CONT_KO[c]).join(" · ")}
+              Untouched: {blindConts.map((c) => CONT_LABEL[c]).join(" · ")}
             </div>
-          ) : <div style={{ fontSize: 11, color: "var(--safe)", marginTop: 6 }}>6개 대륙 모두 밟았습니다.</div>}
+          ) : <div style={{ fontSize: 11, color: "var(--safe)", marginTop: 6 }}>All six continents reached.</div>}
+        </ICard>
+        <div className="at-empty" style={{ textAlign: "left", padding: "0 2px" }}>
+          Click a dot, a country row or a blind continent — details open here. Every dot is a measured coordinate.
         </div>
-        <div className="at-empty" style={{ textAlign: "left", padding: "0 2px" }}>지도의 지점 · 국가 · 블라인드 대륙을 클릭하면 여기에 상세가 열립니다.</div>
       </div>
     );
-  }, [data, locatedFilms, totalWatched, countryCount, totalPins, filmedN, settingN, seenConts.length, blindConts, setDefault]);
+  }, [locatedFilms, totalWatched, countryCount, totalPins, filmedN, settingN, seenConts.length, blindConts, setDefault]);
 
   const empty = pts.length === 0;
 
   return (
     <div className="mainpad">
-      <h1 className="secttl">지리 Atlas · 포트폴리오</h1>
+      <h1 className="secttl">Atlas</h1>
       <p className="secsub">
-        내가 <b style={{ fontStyle: "normal", color: "var(--mut)" }}>본 영화</b>들이 벌어지는 · 찍힌 곳을 세계 지도에 얹은 개인 지도 — <span className="gloss" title="filmed = 실제 촬영지 · setting = 서사의 무대">촬영지·무대</span>의 지리적 커버리지와, 아직 한 편도 안 본 <span className="gloss" title="블라인드 = 본 영화 어디에도 등장하지 않은 대륙 (④ 공백)">지리적 블라인드(④)</span>를 정직하게 표시합니다. 모든 점은 실측 좌표입니다.
+        Your seen films on a world map — where they are <span className="gloss" title="Filmed = actual shooting location · Setting = where the narrative takes place">set and shot</span>,
+        the countries you&apos;ve covered, and the <span className="gloss" title="Blind = a continent no seen film touches (a true blank on the map)">blind continents</span> you haven&apos;t.
+        Every dot is a measured coordinate.
       </p>
 
       {empty ? (
         <div className="mod"><div className="modbody">
-          <div className="at-empty">
-            아직 지도에 올릴 위치 데이터가 있는 관람작이 없습니다.<br />
-            촬영지·무대 좌표가 붙은 영화를 관람하면 여기 세계 지도에 점으로 떠오릅니다.
-          </div>
+          <div className="emptyins" style={{ padding: "32px 12px 16px" }}>{STR.empty.atlas}</div>
+          <ActBar acts={[
+            { label: STR.forming.defaultCta, href: "/room/ledger" },
+            { label: STR.forming.importCta, href: "/me/import" },
+          ]} style={{ marginBottom: 10 }} />
         </div></div>
       ) : (
         <>
-          {/* ═══ HERO · 지리 커버리지 ═══ */}
+          {/* ═══ HERO · geographic reach ═══ */}
           <div className="at-hero">
             <div className="at-navbig">
               <div className="at-ring">
@@ -328,13 +484,13 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                       strokeDasharray={C.toFixed(1)} strokeDashoffset={(C * (1 - frac)).toFixed(1)} transform="rotate(-90 46 46)" />
                   ); })()}
                   <text x="46" y="43" textAnchor="middle" fontSize="16" fill="#ECEAE5" fontFamily="ui-monospace,monospace" fontWeight="600">{countryCount}</text>
-                  <text x="46" y="57" textAnchor="middle" fontSize="8" fill="#6C6960" letterSpacing="1">개국</text>
+                  <text x="46" y="57" textAnchor="middle" fontSize="8" fill="#6C6960" letterSpacing="1">COUNTRIES</text>
                 </svg>
               </div>
               <div className="at-navmeta">
-                <div className="eb">지리 커버리지 · Geographic Reach</div>
-                <div className="at-lvl">● {seenConts.length}/6 대륙 · {countryCount}개국</div>
-                <div className="at-pctl">지도 위 <b>{locatedFilms}</b>편 · <b>{totalPins}</b> 지점 · 실측 {refNations}개국 대비 <b>{coveragePct}%</b></div>
+                <div className="eb">Geographic reach</div>
+                <div className="at-lvl">● {seenConts.length}/6 continents · {countryCount} countries</div>
+                <div className="at-pctl"><b>{locatedFilms}</b> films on the map · <b>{totalPins}</b> pins · <b>{coveragePct}%</b> of the {refNations} countries with location data</div>
               </div>
             </div>
             <div className="at-components">
@@ -343,39 +499,61 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                 const pct = Math.round((c.films / maxContFilms) * 100);
                 return (
                   <div className={`at-comp${isBlind ? " blind" : ""}`} key={c.cont}>
-                    <span className="cl" title={CONT_KO[c.cont]}>{CONT_KO[c.cont]}</span>
+                    <span className="cl" title={CONT_LABEL[c.cont]}>{CONT_LABEL[c.cont]}</span>
                     <div className="ct"><i style={{ width: isBlind ? "3%" : `${pct}%`, background: isBlind ? "var(--blind)" : "var(--frontier)" }} /></div>
-                    <span className="cv">{isBlind ? "블라인드" : `${c.films}편`}</span>
+                    <span className="cv">{isBlind ? "blind" : `${c.films}`}</span>
                   </div>
                 );
               })}
             </div>
             <div className="at-sig-prose">
               {topCountry ? (
-                <>당신의 영화가 가장 많이 벌어지는 무대는 <span className="em">{topCountry.country}</span>({topCountry.films}편). 6개 대륙 중 <b>{seenConts.length}개</b>를 밟았고, {blindConts.length ? <>아직 <b style={{ color: "var(--at-blindtx, #edc873)" }}>{blindConts.map((c) => CONT_KO[c]).join(" · ")}</b>는 지도 위 공백입니다.</> : <>6개 대륙 모두 지도에 올랐습니다.</>}</>
-              ) : <>지도에 오른 국가가 아직 없습니다.</>}
+                <>Your films are set most often in <span className="em">{displayCountry(topCountry.country)}</span> ({topCountry.films} films).
+                  You&apos;ve reached <b>{seenConts.length}</b> of 6 continents{blindConts.length
+                    ? <>; <b style={{ color: "var(--at-blindtx, #edc873)" }}>{blindConts.map((c) => CONT_LABEL[c]).join(" · ")}</b> {blindConts.length === 1 ? "is" : "are"} still blank on your map.</>
+                    : <> — all six are on your map.</>}</>
+              ) : <>No countries on the map yet.</>}
             </div>
-            <div className="at-foot"><i className="ti ti-map-pin" style={{ color: "var(--frontier)" }} /> 점 = <b>film_locations</b>(lat/lng 실측) ∼ 내 관람작(seen). <b style={{ color: "var(--at-filmed, #0F6E56)" }}>촬영지</b>(filmed)·<b style={{ color: "var(--frontier)" }}>무대</b>(setting)를 색으로 구분. 대륙 매핑 = DB 참조테이블(country_continents) · 동일 좌표는 한 점(n편 배지).</div>
+            <div className="at-foot">
+              <i className="ti ti-map-pin" style={{ color: "var(--frontier)" }} /> Dots = <b>film_locations</b> (measured lat/lng) of your seen films.{" "}
+              <b style={{ color: "var(--at-filmed, #0F6E56)" }}>Filmed</b> and <b style={{ color: "var(--frontier)" }}>setting</b> are separate layers.
+              Continent mapping = DB reference table (country_continents) · shared coordinates merge into one dot (n-film badge).
+            </div>
           </div>
 
           {/* ═══ KPI STRIP ═══ */}
           <div className="at-kpis">
-            <div className="at-kpi"><div className="eb">지도 위 영화</div><div className="v">{locatedFilms}<small>/{totalWatched}</small></div><div className="d">좌표 있는 관람작</div></div>
-            <div className="at-kpi"><div className="eb">국가</div><div className="v">{countryCount}</div><div className="d">서로 다른 나라</div></div>
-            <div className="at-kpi"><div className="eb">총 지점</div><div className="v">{totalPins}</div><div className="d">촬영지 {filmedN} · 무대 {settingN}</div></div>
-            <div className={`at-kpi${blindConts.length ? " blindkpi" : ""}`}><div className="eb">블라인드 대륙 ④</div><div className="v">{blindConts.length}<small>/6</small></div><div className="d">아직 안 간 땅</div></div>
+            <div className="at-kpi"><div className="eb">Films on the map</div><div className="v">{locatedFilms}<small>/{totalWatched}</small></div><div className="d">seen films with coordinates</div></div>
+            <div className="at-kpi"><div className="eb">Countries</div><div className="v">{countryCount}</div><div className="d">distinct countries</div></div>
+            <div className="at-kpi"><div className="eb">Pins</div><div className="v">{totalPins}</div><div className="d">filmed {filmedN} · setting {settingN}</div></div>
+            <div className={`at-kpi${blindConts.length ? " blindkpi" : ""}`}><div className="eb">Blind continents</div><div className="v">{blindConts.length}<small>/6</small></div><div className="d">not yet reached</div></div>
           </div>
 
-          {/* ═══ 세계 지도 (hand-rolled equirectangular SVG) ═══ */}
+          {/* ═══ WORLD MAP (static low-poly land + measured dots) ═══ */}
           <div className="mod" id="at-map">
-            <div className="modh"><h3><i className="ti ti-world" /> 세계 지도 · 내 영화의 무대·촬영지 <span style={{ color: "var(--faint)", fontWeight: 400 }}>지리 자산</span></h3>
-              <span className="meta">equirectangular · 점 클릭=영화</span></div>
+            <div className="modh">
+              <h3><i className="ti ti-world" /> World map · where your films are set &amp; shot</h3>
+              <div className="at-lyrs">
+                <button className={`at-lyr filmed${showFilmed ? " on" : ""}`} onClick={() => setShowFilmed((v) => !v)}
+                  title="Toggle the filmed-location layer" aria-pressed={showFilmed}>
+                  <i /> Filmed ({filmedN})
+                </button>
+                <button className={`at-lyr setting${showSetting ? " on" : ""}`} onClick={() => setShowSetting((v) => !v)}
+                  title="Toggle the narrative-setting layer" aria-pressed={showSetting}>
+                  <i /> Setting ({settingN})
+                </button>
+              </div>
+            </div>
             <div className="modbody">
               <div className="at-mapwrap">
                 <div className="at-plane">
-                  <svg className="at-map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="내 관람작의 촬영지·무대 세계 지도">
+                  <svg className="at-map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="World map of the filming locations and settings of your seen films">
                     {/* ocean */}
-                    <rect x={0} y={0} width={MAP_W} height={MAP_H} fill="#0d0d10" />
+                    <rect x={0} y={0} width={MAP_W} height={MAP_H} fill="var(--at-ocean, #0d0d10)" />
+                    {/* land — pre-projected static outline (world_paths.ts, this route only) */}
+                    <g className="at-land">
+                      {WORLD_LAND_PATHS.map((d, i) => <path key={i} d={d} fillRule="evenodd" />)}
+                    </g>
                     {/* graticule every 30° */}
                     {lngLines.map((l) => {
                       const x = projX(l);
@@ -389,19 +567,19 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                     <line x1={0} y1={projY(0)} x2={MAP_W} y2={projY(0)} stroke="rgba(255,255,255,.10)" strokeWidth={1} />
                     <line x1={projX(0)} y1={0} x2={projX(0)} y2={MAP_H} stroke="rgba(255,255,255,.10)" strokeWidth={1} />
                     <rect x={0.5} y={0.5} width={MAP_W - 1} height={MAP_H - 1} fill="none" stroke="#2c2c30" />
-                    {/* dots — 동일 좌표는 한 점으로 dedup (n편 배지) */}
-                    {clusters.map((c) => {
+                    {/* dots — same-coordinate pins dedup into one dot (n-film badge) */}
+                    {visibleClusters.map((c) => {
                       const uniq = [...new Map(c.films.map((p) => [p.slug, p])).values()];
                       const first = c.films[0];
                       const rr = 3.2 + Math.min(3, Math.log2(uniq.length + 1));
-                      const fill = c.layer === "filmed" ? "#0F6E56" : "var(--frontier)";
+                      const fill = c.layer === "filmed" ? "var(--at-filmed, #0F6E56)" : "var(--frontier)";
                       return (
                         <g key={c.key} className="at-dot" onClick={() => (uniq.length === 1 ? openPoint(first) : openCluster(c))}>
                           <title>{uniq.length === 1
-                            ? `${first.title} · ${first.name ?? first.country ?? ""}`
-                            : `${first.name ?? first.country ?? "같은 좌표"} · ${uniq.length}편 공유`}</title>
+                            ? `${first.title} · ${first.name ?? displayCountry(first.country)}`
+                            : `${first.name ?? displayCountry(first.country)} · ${uniq.length} films`}</title>
                           <circle className="hit" cx={c.x} cy={c.y} r={11} fill="transparent" />
-                          <circle cx={c.x} cy={c.y} r={rr} fill={fill} fillOpacity={0.82} stroke="#0a0a0b" strokeWidth={0.8} />
+                          <circle cx={c.x} cy={c.y} r={rr} fill={fill} fillOpacity={0.85} stroke="#0a0a0b" strokeWidth={0.8} />
                           {uniq.length > 1 ? (
                             <text x={c.x} y={c.y - rr - 2.5} textAnchor="middle" fontSize="7.5" fill="#9A968D">{uniq.length}</text>
                           ) : null}
@@ -411,28 +589,26 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                   </svg>
                 </div>
                 <div className="at-side">
-                  <div className="at-lead2"><i className="ti ti-info-circle" /><div>각 점은 내가 본 영화의 <b>실측 좌표</b>. <b>촬영지</b>는 실제로 찍은 곳, <b>무대</b>는 서사가 벌어지는 곳. 점을 누르면 그 영화가 인스펙터에 열립니다.</div></div>
-                  <div className="at-grp">지도 통계</div>
-                  <div className="at-stat"><span className="k">지도 위 영화</span><span className="v">{locatedFilms}</span></div>
-                  <div className="at-stat"><span className="k">총 지점</span><span className="v">{totalPins}</span></div>
-                  <div className="at-stat"><span className="k">촬영지 (filmed)</span><span className="v">{filmedN}</span></div>
-                  <div className="at-stat"><span className="k">무대 (setting)</span><span className="v">{settingN}</span></div>
-                  <div className="at-stat"><span className="k">국가</span><span className="v">{countryCount}</span></div>
+                  <div className="at-lead2"><i className="ti ti-info-circle" /><div>Each dot is a <b>measured coordinate</b> from a film you&apos;ve seen. <b>Filmed</b> = where it was shot; <b>setting</b> = where the story takes place. Click a dot to open the film.</div></div>
+                  <div className="at-grp">Map stats</div>
+                  <div className="at-stat"><span className="k">Films on the map</span><span className="v">{locatedFilms}</span></div>
+                  <div className="at-stat"><span className="k">Pins</span><span className="v">{totalPins}</span></div>
+                  <div className="at-stat"><span className="k">Countries</span><span className="v">{countryCount}</span></div>
                   <div className="at-legend">
-                    <div className="lg"><i className="filmed" />촬영지 (filmed)</div>
-                    <div className="lg"><i className="setting" />무대 (setting)</div>
-                    <div className="lg" style={{ color: "var(--sub)" }}>점 크기·숫자 = 그 좌표를 공유하는 편수</div>
+                    <div className={`lg${showFilmed ? "" : " off"}`}><i className="filmed" />Filmed ({filmedN}){showFilmed ? "" : " · hidden"}</div>
+                    <div className={`lg${showSetting ? "" : " off"}`}><i className="setting" />Setting ({settingN}){showSetting ? "" : " · hidden"}</div>
+                    <div className="lg" style={{ color: "var(--sub)" }}>dot size &amp; number = films sharing the coordinate</div>
                   </div>
-                  <div className="at-note">점 = 실측 (lat, lng) · 등거리 원통도법. 클릭 → 영화 · Cinecodex.</div>
+                  <div className="at-note">Dots = measured (lat, lng) · equirectangular projection · land = Natural Earth 1:110m outline (static, no tiles).</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ═══ 국가별 커버리지 ═══ */}
+          {/* ═══ COVERAGE BY COUNTRY ═══ */}
           <div className="mod" id="at-country">
-            <div className="modh"><h3><i className="ti ti-flag" /> 국가별 커버리지 · 제일 많이 본 무대 <span style={{ color: "var(--faint)", fontWeight: 400 }}>지리 분포</span></h3>
-              <span className="meta">film 수 내림차순 · 행 클릭=상세</span></div>
+            <div className="modh"><h3><i className="ti ti-flag" /> Coverage by country</h3>
+              <span className="meta">by film count · click a row for details</span></div>
             <div className="modbody">
               {countries.length ? (
                 <>
@@ -440,47 +616,48 @@ export default function AtlasWorkspace({ data }: { data: GeoData }) {
                     const pct = Math.round((c.films / maxCountryFilms) * 100);
                     const flag = flagOf(c.country);
                     return (
-                      <div key={c.country} className={`at-cov${i === 0 ? " top" : ""}`} onClick={() => openCountry(c)} title={`${c.country} — ${c.films}편 · ${c.pins} 지점`}>
-                        <div className="cn">{flag ? <span className="flag">{flag}</span> : <i className="ti ti-map-pin" style={{ fontSize: 12, color: "var(--sub)" }} />}{c.country}</div>
+                      <div key={c.country} className={`at-cov${i === 0 ? " top" : ""}`} onClick={() => openCountry(c)} title={`${displayCountry(c.country)} — ${c.films} films · ${c.pins} pins`}>
+                        <div className="cn">{flag ? <span className="flag">{flag}</span> : <i className="ti ti-map-pin" style={{ fontSize: 12, color: "var(--sub)" }} />}{displayCountry(c.country)}</div>
                         <div className="track"><i style={{ width: `${Math.max(pct, 3)}%` }} /></div>
-                        <div className="frac">{c.films}편 · {c.pins}📍</div>
+                        <div className="frac">{c.films} films · {c.pins} pins</div>
                       </div>
                     );
                   })}
                   <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 8, fontStyle: "italic" }}>
-                    가장 두꺼운 무대는 <b style={{ color: "var(--ink)", fontStyle: "normal" }}>{topCountry?.country ?? "—"}</b>({topCountry?.films ?? 0}편). 국가를 클릭하면 그 나라의 촬영지·무대와 영화 목록이 열립니다.
+                    Your densest territory is <b style={{ color: "var(--ink)", fontStyle: "normal" }}>{displayCountry(topCountry?.country)}</b> ({topCountry?.films ?? 0} films). Click a country for its pins, films and national lineages.
                   </div>
                 </>
-              ) : <div className="at-empty">국가별 데이터가 아직 없습니다.</div>}
+              ) : <div className="at-empty">No per-country data yet.</div>}
             </div>
           </div>
 
-          {/* ═══ 지리적 블라인드 (④) ═══ */}
+          {/* ═══ GEOGRAPHIC BLIND SPOTS ═══ */}
           <div className="mod" id="at-blind">
-            <div className="modh"><h3><i className="ti ti-eye-off" style={{ color: "var(--blind)" }} /> 지리적 블라인드 · 아직 한 편도 안 본 대륙 <span style={{ color: "var(--faint)", fontWeight: 400 }}>④</span></h3>
-              <span className="meta">seen 0 · 대륙 매핑 = country_continents 참조테이블</span></div>
+            <div className="modh"><h3><i className="ti ti-eye-off" style={{ color: "var(--blind)" }} /> Blind continents · zero seen films</h3>
+              <span className="meta">continent mapping = country_continents reference table</span></div>
             <div className="modbody">
               {blindConts.length ? (
                 <div className="at-blindwrap">
                   {blindConts.map((cont) => (
-                    <div key={cont} className="at-blindchip" onClick={() => openBlind(cont)} title={`${CONT_KO[cont]} — 아직 한 편도 안 봄`}>
-                      <div className="bc-c"><i className={`ti ${CONT_ICON[cont]}`} />{CONT_KO[cont]}</div>
-                      <div className="bc-d">아직 한 편도 안 본 대륙 · 지도 위 공백</div>
+                    <div key={cont} className="at-blindchip" onClick={() => openBlind(cont)} title={`${CONT_LABEL[cont]} — no seen film touches it`}>
+                      <div className="bc-c"><i className={`ti ${CONT_ICON[cont]}`} />{CONT_LABEL[cont]}</div>
+                      <div className="bc-d">No seen film is set here or was shot here — a blank on your map.</div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="at-empty" style={{ padding: "14px" }}>블라인드 대륙이 없습니다 — 6개 대륙 모두 이미 지도에 올랐습니다.</div>
+                <div className="at-empty" style={{ padding: "14px" }}>No blind continents — all six are already on your map.</div>
               )}
               {seenConts.length ? (
                 <div className="at-seenwrap">
                   {seenConts.map((c) => (
-                    <span key={c.cont} className="at-seenchip"><i className="ti ti-check" />{CONT_KO[c.cont]} <b>{c.films}</b></span>
+                    <span key={c.cont} className="at-seenchip"><i className="ti ti-check" />{CONT_LABEL[c.cont]} <b>{c.films}</b></span>
                   ))}
                 </div>
               ) : null}
               <div style={{ fontSize: 10.5, color: "var(--sub)", marginTop: 9, fontStyle: "italic" }}>
-                블라인드 = 본 영화의 무대·촬영지 어디에도 등장하지 않은 대륙(<b style={{ color: "var(--at-blindtx, #edc873)", fontStyle: "normal" }}>④ 공백</b>). 그 대륙을 배경으로 한 첫 한 편이 지리 커버리지를 가장 크게 넓힙니다.
+                Blind = no seen film is set in or was shot on that continent. Click one for its full territory —
+                we can&apos;t recommend by geography yet, but every country there is a door.
               </div>
             </div>
           </div>

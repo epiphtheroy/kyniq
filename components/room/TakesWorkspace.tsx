@@ -492,7 +492,8 @@ function AttachRail({ draft, onAddFilm, onRmFilm, onFramework, supabase }: {
       <ICard icon="ti-paperclip" title="Attached to this take">
         {/* films */}
         <div className="arow">
-          <div className="arlbl"><span className="d" style={{ background: "var(--film)" }} />Films<span className="ct">{draft.films.length}</span></div>
+          {/* literal colors, not island vars — this rail also renders inside the inspector */}
+          <div className="arlbl"><span className="d" style={{ background: "#ECEAE5" }} />Films<span className="ct">{draft.films.length}</span></div>
           <div className="achips">
             {draft.films.map((f) => (
               <span className="achip film" key={f.slug}>{f.title}{f.year ? <span className="yr">&apos;{String(f.year).slice(2)}</span> : null}<i className="ti ti-x x" onClick={() => onRmFilm(f.slug)} /></span>
@@ -519,7 +520,7 @@ function AttachRail({ draft, onAddFilm, onRmFilm, onFramework, supabase }: {
 
         {/* framework */}
         <div className="arow">
-          <div className="arlbl"><span className="d" style={{ background: "var(--misread)" }} />Framework<span className="ct">{draft.framework ? 1 : 0}</span></div>
+          <div className="arlbl"><span className="d" style={{ background: "#E8B23A" }} />Framework<span className="ct">{draft.framework ? 1 : 0}</span></div>
           <div className="achips">
             {draft.framework ? (
               <span className="achip misread">{fw(draft.framework).label}<i className="ti ti-x x" onClick={() => onFramework(draft.framework!)} /></span>
@@ -552,7 +553,7 @@ function AttachRail({ draft, onAddFilm, onRmFilm, onFramework, supabase }: {
 
         {/* tropes & figures — honest "coming", no fake affordance */}
         <div className="arow">
-          <div className="arlbl"><span className="d" style={{ background: "var(--trope)" }} />Tropes · Figures<span className="ct">0</span></div>
+          <div className="arlbl"><span className="d" style={{ background: "#1FB286" }} />Tropes · Figures<span className="ct">0</span></div>
           <div className="tk-coming">Attaching tropes &amp; figures: coming.</div>
         </div>
       </ICard>

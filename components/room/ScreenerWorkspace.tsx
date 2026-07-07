@@ -212,7 +212,7 @@ export default function ScreenerWorkspace({ initialRows, formingHave, initialRea
     });
   }, []);
   const resetFilters = useCallback(() => {
-    setQ(""); setReasonsSel(new Set()); setStreamOnly(false); setHideRisk(false);
+    setQ(""); setReasonsSel(new Set<string>()); setStreamOnly(false); setHideRisk(false);
   }, []);
 
   /* ── page brief (opened by the app-bar Brief button — never auto-opened) ── */

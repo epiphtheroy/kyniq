@@ -86,7 +86,7 @@ export default function SlateWorkspace({ rows }: { rows: SlateRow[] }) {
   const [page, setPage] = useState(0);
   /* Rows released this session — server rows need a local mask (SessionStore's
      kept set only tracks session keeps, not server-loaded slate rows). */
-  const [released, setReleased] = useState<ReadonlySet<string>>(new Set());
+  const [released, setReleased] = useState<ReadonlySet<string>>(new Set<string>());
 
   /* ── visible slate: session conversions (seen/rated → gone) and releases drop out ── */
   const visible = useMemo(
