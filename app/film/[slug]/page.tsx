@@ -546,26 +546,15 @@ export default async function FilmPage({ params }: Props) {
     const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
     const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle);
 
-    // "At a glance" band — same component as Tier-1, on the ambient data we hold
-    // (facts from tmdb_extra; numbers from lineage / geo / recommended-by).
-    const mExtra = (f as { tmdb_extra?: { cast?: { name: string }[]; writers?: string[]; country?: string[]; original_language?: string; vote_average?: number } }).tmdb_extra ?? {};
-    const mCast = mExtra.cast ?? [];
-    const mGlanceFacts: GlanceFact[] = ([
-      f.director ? { k: "Director", v: dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director } : null,
-      mCast.length ? { k: "Starring", v: <>{mCast.slice(0, 2).map((c) => c.name).join(", ")}{mCast.length > 2 ? <span className="df-vital__more"> +{mCast.length - 2}</span> : null}</> } : null,
-      mExtra.writers?.length ? { k: "Written by", v: mExtra.writers.slice(0, 3).join(", ") } : null,
-      f.release_date ? { k: "Released", v: fmtReleaseDate(f.release_date) } : null,
-      mRuntime ? { k: "Runtime", v: mRuntime } : null,
-      mExtra.country?.length ? { k: "Country", v: mExtra.country.slice(0, 3).map(regionName).join(" · ") } : null,
-      mExtra.original_language ? { k: "Language", v: langName(mExtra.original_language) } : null,
-      f.genres?.length ? { k: "Genre", v: <>{f.genres.slice(0, 3).map((g, i) => <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>)}</> } : null,
-      mCert ? { k: "Rated", v: mCert } : null,
-    ].filter(Boolean)) as GlanceFact[];
-    const mGlanceStats: GlanceStat[] = ([
-      lineage.length ? { n: lineage.length, k: "Canon & award listings", href: "#df-lineage" } : null,
-      geoCount > 0 ? { n: geoCount, k: "Real places mapped", href: "#df-atlas" } : null,
-      recommendedBy.length ? { n: recommendedBy.length, k: "films point here as their “watch next”", href: "#df-recby", wide: true } : null,
-    ].filter(Boolean)) as GlanceStat[];
+    // "By the numbers" scoreboard — the ambient counts a catalog record holds
+    // (canon listings, mapped places, films recommending it). Fewer than a
+    // Tier-1 film, but the same live component.
+    const mFilmNumbers: FilmNumber[] = (([
+      lineage.length ? { n: lineage.length, label: "Canon & award listings", href: "#df-lineage", color: "#E8A33D" } : null,
+      geoCount > 0 ? { n: geoCount, label: "Places mapped", href: "#df-atlas", color: "#7ED9A0" } : null,
+      recommendedBy.length ? { n: recommendedBy.length, label: "Recommended by", href: "#df-recby", color: "#E58AC0" } : null,
+    ].filter(Boolean)) as FilmNumber[]);
+    if (mFilmNumbers.length) mFilmNumbers[0] = { ...mFilmNumbers[0], hero: true };
 
     // ---- EDITOR'S DIGEST — a deterministic record composed from the loader's
     // data. No LLM, no invented facts: every sentence renders only when its
@@ -1073,28 +1062,13 @@ export default async function FilmPage({ params }: Props) {
             </section>
           ) : null}
 
-          {/* STAT STRIP — clickable jump links */}
-          <div className="df-stats">
-            <Link className="df-stat" href="#df-figures"><span className="df-n">{catalogue.length}</span><span className="df-k">Figures</span></Link>
-            <Link className="df-stat df-red" href="#df-readings"><span className="df-n">{misreadings.length}</span><span className="df-k">Strong misreadings</span></Link>
-            <Link className="df-stat df-teal" href="#df-tropes"><span className="df-n">{tropes.length}</span><span className="df-k">Tropes</span></Link>
-            <Link className="df-stat" href="#df-connected"><span className="df-n">{recs.length}</span><span className="df-k">Connected films</span></Link>
-          </div>
         </section>
 
-        {/* AT A GLANCE — the vital record + our own numbers, directly under the hero.
-            (JustWatch moved to the Where-to-watch section below.) AccessCountryProvider
-            still wraps down to that section to keep it and the access layer on one country. */}
+        {/* BY THE NUMBERS — a live scoreboard of every counted section, directly
+            under the hero (supersedes the old inline stat strip). AccessCountryProvider
+            still wraps down to the Where-to-watch section to keep it on one country. */}
         <AccessCountryProvider>
-          <FilmGlance
-            facts={glanceFacts}
-            ratings={ratings}
-            tmdbVote={extra.vote_average ?? null}
-            imdbId={film.imdb_id}
-            takeScore={codex ? Math.round(codex.u) : null}
-            stats={glanceStats}
-            rank={codex && codex.rank != null && codex.rank_total != null ? { rank: codex.rank, total: codex.rank_total } : null}
-          />
+          <FilmNumbers title={film.title} items={filmNumbers} />
 
         {/* SECTION TABS — sticky scroll-nav (SEO-safe anchors) */}
         {tabs.length > 1 ? <FilmTabBar tabs={tabs} /> : null}
