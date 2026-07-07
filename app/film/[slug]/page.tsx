@@ -613,20 +613,22 @@ export default async function FilmPage({ params }: Props) {
     // Tab order mirrors the section order below. With digest data the record
     // leads (Digest → Codex/Lineage/Recommended-by → Atlas → About); with none
     // the page falls back to the old About-first layout.
+    const mTsScore = codex ? Math.round(codex.u) : null;
+    const mWatchRegions = watch?.countries?.length ?? 0;
     const mTabs = ([
       hasDigest ? { id: "df-digest", label: "Digest" } : null,
       !hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
-      codex ? { id: "df-codex", label: "TakeScore" } : null,
-      lineage.length ? { id: "df-lineage", label: "Lineage" } : null,
-      recommendedBy.length ? { id: "df-recby", label: "Recommended by" } : null,
-      geoCount > 0 ? { id: "df-atlas", label: "Atlas" } : null,
+      codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const } : null,
+      lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
+      recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
+      geoCount > 0 ? { id: "df-atlas", label: "Atlas", badge: geoCount } : null,
       hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
       crew.length
-        ? { id: "df-crew", label: "Credits" }
+        ? { id: "df-crew", label: "Credits", badge: crew.length }
         : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}` } : null,
-      { id: "df-watch", label: "Where to watch" },
+      { id: "df-watch", label: "Where to watch", badge: mWatchRegions || undefined },
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
-    ].filter(Boolean)) as { id: string; label: string; href?: string }[];
+    ].filter(Boolean)) as FilmTab[];
     // ABOUT — overview + the ambient facts we hold. original_title/overview are
     // being backfilled from TMDB: every field is null-safe, so this section
     // lights up as the data lands. When the digest exists it leads and About is
