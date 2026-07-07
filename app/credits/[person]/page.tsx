@@ -150,6 +150,8 @@ function careerFacts(crafts: { key: CraftKey; films: CraftFilm[] }[]) {
   return { total: all.length, dated: dated.length, first, last, firstFilm, lastFilm, decades, peak };
 }
 
+const yrs = (c: { y0: number; y1: number }) => (c.y0 === c.y1 ? String(c.y0) : `${c.y0}–${c.y1}`);
+
 const FilmRef = ({ f, catByTmdb }: { f: CraftFilm; catByTmdb: Map<number, CatFilm> }) => {
   const c = catByTmdb.get(f.id);
   return <>{c ? <Link href={`/film/${c.slug}`}>{f.title}</Link> : <i>{f.title}</i>}{f.year ? ` (${f.year})` : ""}</>;
@@ -231,7 +233,7 @@ export default async function CrewPersonPage({ params }: Props) {
   const { person } = await params;
   const data = await load(person);
   if (!data) notFound();
-  const { id, p, crafts, cat, company, native, directorHub } = data;
+  const { id, p, crafts, cat, company, native, directorHub, artist } = data;
   const mainCraft = crafts[0].key;
   const catByTmdb = new Map(cat.map((f) => [f.tmdb_id, f]));
   const updated = new Date().toISOString().slice(0, 10);
@@ -317,99 +319,200 @@ export default async function CrewPersonPage({ params }: Props) {
         </header>
 
         {(() => {
+          /* ── Verbalization engine (credits-verbalization-spec.md, 2026-07-08).
+             Every sentence: (1) contains the subject's full name, (2) carries at
+             least one concrete value (year, count, title, name), (3) uses only
+             deterministic operations — count, min/max, first/last, decade
+             buckets, ranges, role groups. Forbidden: derived arithmetic (ages,
+             career lengths), evaluation, ratings/curation, filled-in gaps. ── */
           const facts = careerFacts(crafts);
-          const role = CRAFTS[mainCraft].role.toLowerCase();
-          const VERB: Record<string, string> = { writer: "wrote", dp: "shot", editor: "cut", composer: "scored", pd: "designed" };
-          const verb = VERB[mainCraft] ?? "made";
-          const startAge = facts && p.birthday && facts.first ? facts.first - Number(p.birthday.slice(0, 4)) : null;
-          // Partnerships across the whole catalog, newest data model: per
-          // director, every catalog film with years — self excluded upstream.
-          const byName = new Map<string, CatFilm[]>();
-          for (const f of cat) {
-            if (!f.director || f.director === p.name) continue;
-            byName.set(f.director, [...(byName.get(f.director) ?? []), f]);
-          }
-          const partnerships = [...byName.entries()]
-            .map(([name, films]) => ({
-              name,
-              slug: films.find((f) => f.director_slug)?.director_slug ?? null,
-              films: [...films].sort((a, b) => (a.year ?? 0) - (b.year ?? 0)),
-            }))
-            .sort((a, b) => b.films.length - a.films.length || a.name.localeCompare(b.name));
-          const multi = partnerships.filter((x) => x.films.length >= 2);
-          const singles = partnerships.filter((x) => x.films.length === 1 && isRead(x.films[0]));
-
-          const Bullet = ({ pr }: { pr: (typeof multi)[number] }) => {
-            const years = pr.films.map((f) => f.year).filter(Boolean) as number[];
-            const span = years.length > 1 && Math.min(...years) !== Math.max(...years) ? `${Math.min(...years)}–${Math.max(...years)}` : years[0] ? String(years[0]) : "";
-            const shown = pr.films.slice(0, 4);
-            return (
-              <li style={{ margin: "0 0 10px" }}>
-                <b>{p.name}</b> {verb} <b>{pr.films.length}</b> film{pr.films.length === 1 ? "" : "s"} for{" "}
-                {pr.slug ? <Link href={`/director/${pr.slug}`}><b>{pr.name}</b></Link> : <b>{pr.name}</b>}
-                {span ? ` (${span})` : ""}:{" "}
-                {shown.map((f, i) => (
-                  <span key={f.slug}>
-                    {i > 0 ? ", " : ""}
-                    <Link href={`/film/${f.slug}`}>{f.title}</Link>
-                    {f.year ? ` (${f.year})` : ""}
-                  </span>
-                ))}
-                {pr.films.length > shown.length ? `, and ${pr.films.length - shown.length} more` : ""}.
-              </li>
-            );
+          if (!facts) return null;
+          const NAME = p.name;
+          const dept = CRAFTS[mainCraft].label.toLowerCase(); // credit noun: "score credit" etc.
+          const ord = (n: number) => {
+            const t = n % 100;
+            if (t >= 11 && t <= 13) return `${n}th`;
+            return `${n}${["th", "st", "nd", "rd"][Math.min(n % 10, 4) % 4] ?? "th"}`;
           };
+          const andList = (xs: React.ReactNode[]) =>
+            xs.map((x, i) => <span key={i}>{i > 0 ? (i === xs.length - 1 ? " and " : ", ") : ""}{x}</span>);
+          const FilmT = ({ f }: { f: TFilm }) => {
+            const c = catByTmdb.get(f.id);
+            return <>{c ? <Link href={`/film/${c.slug}`}>{f.title}</Link> : <i>{f.title}</i>}{f.year ? ` (${f.year})` : ""}</>;
+          };
+          const GRP_NOUN: Record<GrpKey, string> = {
+            director: "director", dp: "cinematographer", editor: "editor", composer: "composer",
+            pd: "production designer", writer: "writer", producer: "producer", actor: "actor",
+          };
+          const KEY_GRPS: GrpKey[] = ["dp", "editor", "composer", "pd", "writer"];
+          const dirSlugByName = new Map(cat.filter((f) => f.director && f.director_slug).map((f) => [f.director as string, f.director_slug as string]));
+          const PersonT = ({ c, withRole = false }: { c: Collab; withRole?: boolean }) => {
+            const role = withRole ? `${GRP_NOUN[c.grp]} ` : "";
+            if (c.grp === "director" && dirSlugByName.has(c.name)) {
+              return <>{role}<Link href={`/director/${dirSlugByName.get(c.name)}`}><b>{c.name}</b></Link></>;
+            }
+            if (KEY_GRPS.includes(c.grp)) return <>{role}<Link href={`/credits/${personSlug(c.name, c.id)}`}><b>{c.name}</b></Link></>;
+            return <>{role}<b>{c.name}</b></>;
+          };
+          const spanTxt = (y0: number, y1: number) => (y0 && y1 && y0 !== y1 ? `between ${y0} and ${y1}` : y0 ? `in ${y0}` : "");
+          const latestYear = facts.last;
+
+          // troupe (the regulars): same thresholds as the explorer — crew ≥2
+          // films, producers/cast ≥3. Self never appears (excluded upstream).
+          const troupe = (artist?.troupe ?? []).slice().sort((a, b) => b.count - a.count || a.y0 - b.y0 || a.name.localeCompare(b.name));
+          const corpusN = artist?.corpus.length ?? 0;
+          const filmsN = artist?.films.length ?? facts.dated;
+          const maxCount = troupe[0]?.count ?? 0;
+          const tops = troupe.filter((t) => t.count === maxCount);
+          const listFilms = (fs: TFilm[], cap = 8) => (
+            <>
+              {andList(fs.slice(0, cap).map((f) => <FilmT key={f.id} f={f} />))}
+              {fs.length > cap ? `, and ${fs.length - cap} more` : ""}
+            </>
+          );
+
+          // Per-film index of regulars (corpus films, chronological) — spec §D.
+          const corpusFilms = (artist?.corpus ?? []).filter((f) => f.year).slice().sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
+          const regularsOf = (fid: number) => troupe.filter((t) => t.filmIds.has(fid));
+          const withRegulars = corpusFilms.filter((f) => regularsOf(f.id).length > 0);
+          const withoutRegulars = corpusFilms.filter((f) => regularsOf(f.id).length === 0);
+          const fullestN = Math.max(0, ...withRegulars.map((f) => regularsOf(f.id).length));
+          const fullest = withRegulars.filter((f) => regularsOf(f.id).length === fullestN);
+
+          // Role-group sentences + succession (non-overlapping runs only).
+          const byGrp = new Map<GrpKey, Collab[]>();
+          for (const t of troupe) byGrp.set(t.grp, [...(byGrp.get(t.grp) ?? []), t]);
+
+          const peakList = facts.peak[1].slice().sort((a, b) => a.year - b.year);
 
           return (
             <>
-              {facts ? (
-                <p style={{ fontSize: 15.5, lineHeight: 1.65, maxWidth: "72ch", margin: "22px 0 10px" }}>
-                  <b>At a glance.</b> {facts.dated} dated credit{facts.dated === 1 ? "" : "s"} across{" "}
-                  {facts.decades.length} decade{facts.decades.length === 1 ? "" : "s"}, from{" "}
-                  <FilmRef f={facts.firstFilm} catByTmdb={catByTmdb} /> to <FilmRef f={facts.lastFilm} catByTmdb={catByTmdb} />
-                  {startAge && startAge > 10 && startAge < 80 ? <> — a career begun at {startAge}</> : null}.
-                  The {facts.peak[0]}s were the densest stretch: <b>{facts.peak[1].length}</b> of the {facts.dated} credits.
-                  {multi[0] ? <> The defining partnership: <b>{multi[0].name}</b>, {multi[0].films.length} films together.</> : null}
-                </p>
-              ) : null}
+              <section style={{ margin: "24px 0" }}>
+                <h2 className="df-h2">The facts, spelled out</h2>
+                <p className="df-sub">Assembled sentence by sentence from the TMDB filmography and the Metatake catalog — counts, years and names only, no interpretation.</p>
+                <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+                  {p.birthday && p.place_of_birth ? (
+                    <li>{NAME} was born in {p.place_of_birth} in {p.birthday.slice(0, 4)}.</li>
+                  ) : null}
+                  <li>
+                    {NAME} has {facts.dated} {dept} credit{facts.dated === 1 ? "" : "s"} on file, from {facts.first} to {facts.last}.
+                  </li>
+                  <li>
+                    {NAME}&apos;s first {dept} credit was <FilmRef f={facts.firstFilm} catByTmdb={catByTmdb} />; the most recent was <FilmRef f={facts.lastFilm} catByTmdb={catByTmdb} />.
+                  </li>
+                  <li>
+                    {NAME}&apos;s {facts.dated} credits spread across {facts.decades.length} decade{facts.decades.length === 1 ? "" : "s"}, from the {facts.decades[0][0]}s to the {facts.decades[facts.decades.length - 1][0]}s.
+                  </li>
+                  <li>
+                    The decade with the most {NAME} credits was the {facts.peak[0]}s — {facts.peak[1].length} of the {facts.dated}
+                    {peakList.length <= 8 ? <>: {andList(peakList.map((f) => <FilmRef key={f.id} f={f} catByTmdb={catByTmdb} />))}</> : <>, from <FilmRef f={peakList[0]} catByTmdb={catByTmdb} /> to <FilmRef f={peakList[peakList.length - 1]} catByTmdb={catByTmdb} /></>}.
+                  </li>
+                  {crafts.length > 1 ? (
+                    <li>
+                      Beyond {dept}, {NAME} also holds {andList(crafts.slice(1).map((c) => <span key={c.key}>{c.films.length} {CRAFTS[c.key].label.toLowerCase()} credit{c.films.length === 1 ? "" : "s"}</span>))}.
+                    </li>
+                  ) : null}
+                </ul>
+              </section>
 
-              {(multi.length > 0 || singles.length > 0) && (
+              {troupe.length > 0 ? (
                 <section style={{ margin: "26px 0" }}>
                   <h2 className="df-h2">The collaborations, counted</h2>
                   <p className="df-sub">
-                    Every partnership on file in the Metatake catalog, {role}-side — counted from our film records,
-                    so the true totals may run larger. Analysis by Metatake; filmography via TMDB.
+                    The regulars across {corpusN === filmsN ? `all ${filmsN} films` : `${corpusN} of the ${filmsN} films analysed`} — crew who appear on
+                    2 or more, producers and cast on 3 or more. Counted from the same records as the live map below{artist && artist.failed > 0 ? `; ${artist.failed} film${artist.failed === 1 ? "" : "s"} failed to load, so counts may run low` : ""}.
                   </p>
-                  <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.65, fontSize: 15, maxWidth: "76ch" }}>
-                    {multi.slice(0, 10).map((pr) => <Bullet key={pr.name} pr={pr} />)}
+                  <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+                    {tops.length === 1 ? (
+                      <li>
+                        {NAME}&apos;s most frequent regular collaborator was <PersonT c={tops[0]} withRole /> — {tops[0].count} films together {spanTxt(tops[0].y0, tops[0].y1)}.
+                      </li>
+                    ) : tops.length > 1 ? (
+                      <li>
+                        {NAME}&apos;s most frequent regular collaborators were {andList(tops.map((t) => <PersonT key={t.id} c={t} withRole />))} — {maxCount} films each.
+                      </li>
+                    ) : null}
+                    {troupe.slice(0, 10).map((t) => (
+                      <li key={t.id} style={{ margin: "0 0 8px" }}>
+                        {NAME} and <PersonT c={t} withRole /> made {t.count} films together {spanTxt(t.y0, t.y1)}: {listFilms(t.filmsArr)}.{" "}
+                        The first was <FilmT f={t.filmsArr[0]} />; the {t.y1 < latestYear ? "last" : "most recent"} was <FilmT f={t.filmsArr[t.filmsArr.length - 1]} />.
+                      </li>
+                    ))}
                   </ul>
-                  {(multi.length > 10 || singles.length > 0) && (
+                  {(troupe.length > 10 || byGrp.size > 0) && (
                     <details className="crd-more" style={{ marginTop: 10 }}>
-                      <summary>Every partnership, spelled out</summary>
-                      <div style={{ padding: "12px 2px 8px" }}>
-                        {multi.length > 10 ? (
-                          <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.65, fontSize: 15, maxWidth: "76ch" }}>
-                            {multi.slice(10).map((pr) => <Bullet key={pr.name} pr={pr} />)}
+                      <summary>Every regular, spelled out</summary>
+                      <div style={{ padding: "12px 2px 8px", lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+                        {troupe.length > 10 ? (
+                          <ul style={{ margin: "0 0 12px", paddingLeft: 20 }}>
+                            {troupe.slice(10).map((t) => (
+                              <li key={t.id} style={{ margin: "0 0 8px" }}>
+                                {NAME} and <PersonT c={t} withRole /> made {t.count} films together {spanTxt(t.y0, t.y1)}: {listFilms(t.filmsArr, 6)}.
+                              </li>
+                            ))}
                           </ul>
                         ) : null}
-                        {singles.length > 0 ? (
-                          <p style={{ margin: multi.length > 10 ? "10px 0 0" : 0, lineHeight: 1.8, fontSize: 15, maxWidth: "76ch" }}>
-                            One film apiece:{" "}
-                            {singles.slice(0, 12).map((pr, i) => (
-                              <span key={pr.name}>
-                                {i > 0 ? " · " : ""}
-                                with {pr.slug ? <Link href={`/director/${pr.slug}`}>{pr.name}</Link> : pr.name}{" "}
-                                (<Link href={`/film/${pr.films[0].slug}`}>{pr.films[0].title}</Link>{pr.films[0].year ? `, ${pr.films[0].year}` : ""})
-                              </span>
-                            ))}
-                            .
+                        {[...byGrp.entries()].map(([g, members]) => {
+                          const sorted = members.slice().sort((a, b) => a.y0 - b.y0);
+                          const succ: React.ReactNode[] = [];
+                          for (let i = 1; i < sorted.length; i++) {
+                            if (sorted[i - 1].y1 < sorted[i].y0) {
+                              succ.push(
+                                <span key={i}> <PersonT c={sorted[i]} /> came after <b>{sorted[i - 1].name}</b>&apos;s last film with {NAME} ({sorted[i - 1].y1}).</span>
+                              );
+                            }
+                          }
+                          return (
+                            <p key={g} style={{ margin: "0 0 8px" }}>
+                              {members.length === 1
+                                ? <>The only regular {GRP_NOUN[g]} in {NAME}&apos;s company was <PersonT c={members[0]} /> ({members[0].count} films, {yrs(members[0])}).</>
+                                : <>Among {NAME}&apos;s regulars, the {GRP_NOUN[g]}s were {andList(members.map((m) => <span key={m.id}><PersonT c={m} /> ({m.count} films, {yrs(m)})</span>))}.</>}
+                              {succ}
+                            </p>
+                          );
+                        })}
+                        <p style={{ margin: 0 }}>
+                          In all, {NAME}&apos;s regular collaborators were {andList(troupe.map((t) => <span key={t.id}><PersonT c={t} /> ({GRP_NOUN[t.grp]}, {t.count})</span>))} — {troupe.length} people.
+                        </p>
+                      </div>
+                    </details>
+                  )}
+
+                  {withRegulars.length > 0 ? (
+                    <details className="crd-more" style={{ marginTop: 10 }}>
+                      <summary>Film by film — who was in the room</summary>
+                      <div style={{ padding: "12px 2px 8px", lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+                        <ul style={{ margin: 0, paddingLeft: 20 }}>
+                          {withRegulars.map((f) => {
+                            const regs = regularsOf(f.id);
+                            const firsts = regs.filter((t) => t.filmsArr[0]?.id === f.id);
+                            const lasts = regs.filter((t) => t.filmsArr[t.filmsArr.length - 1]?.id === f.id && t.y1 < latestYear);
+                            return (
+                              <li key={f.id} style={{ margin: "0 0 8px" }}>
+                                On <FilmT f={f} />, {NAME} worked with {andList(regs.map((t) => <PersonT key={t.id} c={t} withRole />))}.
+                                {fullestN > 1 && fullest.length === 1 && fullest[0].id === f.id ? <> No other film gathered more of the regulars.</> : null}
+                                {firsts.length ? <> It was the first film with {NAME} for {andList(firsts.map((t) => <b key={t.id}>{t.name}</b>))}.</> : null}
+                                {lasts.length ? <> For {andList(lasts.map((t) => <b key={t.id}>{t.name}</b>))}, it was the last.</> : null}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                        {withoutRegulars.length > 0 ? (
+                          <p style={{ margin: "10px 0 0" }}>
+                            No regular collaborator appeared on {andList(withoutRegulars.slice(0, 10).map((f) => <FilmT key={f.id} f={f} />))}
+                            {withoutRegulars.length > 10 ? `, or ${withoutRegulars.length - 10} more` : ""}.
+                          </p>
+                        ) : null}
+                        {filmsN > corpusN ? (
+                          <p style={{ margin: "10px 0 0", opacity: 0.75 }}>
+                            The crew records of the remaining {filmsN - corpusN} films were not analysed on this page.
                           </p>
                         ) : null}
                       </div>
                     </details>
-                  )}
+                  ) : null}
                 </section>
-              )}
+              ) : null}
             </>
           );
         })()}
