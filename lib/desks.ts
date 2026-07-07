@@ -237,6 +237,73 @@ export type LinkDict = {
   theorists: { name: string; slug: string }[];
 };
 
+/**
+ * Full link dictionary: the SM registry RPC + the theory DB (theory_concepts,
+ * anon-readable) merged. Theory names dedupe against SM by normalized name
+ * (the SM page is richer, so it wins the slug). Parenthetical aliases —
+ * "Relationships of Dependence (Amae)" → also "Amae" — are extracted so the
+ * short form essays actually use gets linked.
+ */
+export async function loadFullLinkDict(
+  supabase: {
+    rpc: (fn: string) => PromiseLike<{ data: unknown }>;
+    from: (t: string) => {
+      select: (c: string) => {
+        order: (c: string, o: { ascending: boolean }) => {
+          range: (a: number, b: number) => PromiseLike<{ data: { concept: string; concept_slug: string }[] | null }>;
+        };
+      };
+    };
+  }
+): Promise<LinkDict> {
+  const dict: LinkDict = { concepts: [], theorists: [] };
+  const normName = (s: string) => s.toLowerCase().replace(/^the\s+/, "").replace(/[^a-z0-9]/g, "");
+  const seen = new Set<string>();
+  try {
+    const { data } = await supabase.rpc("desk_link_dictionary");
+    const base = (data ?? {}) as LinkDict;
+    for (const c of base.concepts ?? []) {
+      if (!c?.name || !c?.slug) continue;
+      dict.concepts.push(c);
+      seen.add(normName(c.name));
+    }
+    dict.theorists = base.theorists ?? [];
+  } catch {
+    /* enhancement only */
+  }
+  try {
+    for (let from = 0; from < 12000; from += 1000) {
+      const { data } = await supabase
+        .from("theory_concepts")
+        .select("concept, concept_slug")
+        .order("id", { ascending: true })
+        .range(from, from + 999);
+      const batch = data ?? [];
+      for (const t of batch) {
+        if (!t.concept || !t.concept_slug) continue;
+        const key = normName(t.concept);
+        if (!seen.has(key)) {
+          seen.add(key);
+          dict.concepts.push({ name: t.concept, slug: t.concept_slug });
+        }
+        const paren = /\(([^)]{4,60})\)\s*$/.exec(t.concept);
+        if (paren) {
+          const alias = paren[1].trim();
+          const akey = normName(alias);
+          if (alias.length >= 4 && !seen.has(akey)) {
+            seen.add(akey);
+            dict.concepts.push({ name: alias, slug: t.concept_slug });
+          }
+        }
+      }
+      if (batch.length < 1000) break;
+    }
+  } catch {
+    /* theory layer optional */
+  }
+  return dict;
+}
+
 type DictEntry = { name: string; href: string };
 
 /**
