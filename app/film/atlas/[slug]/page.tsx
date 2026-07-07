@@ -5,7 +5,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
+import Byline from "@/components/Byline";
+import Provenance from "@/components/Provenance";
+import ReadHero from "@/components/read/ReadHero";
+import ReadPlates from "@/components/read/ReadPlates";
 import { pageRobots } from "@/lib/seo";
+import "@/app/curious/curious.css";
+import "@/app/film/[slug]/read.css";
 import {
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
@@ -43,12 +49,13 @@ type FilmRow = {
   title: string; slug: string; year: number | null;
   director: string | null; director_slug: string | null;
   poster_path: string | null; visible: boolean | null;
+  backdrop_path: string | null; id?: string;
 };
 
 async function loadUncached(slug: string) {
   const { data: film } = await db()
     .from("films")
-    .select("title, slug, year, director, director_slug, poster_path, visible")
+    .select("id, title, slug, year, director, director_slug, poster_path, backdrop_path, visible")
     .eq("slug", slug)
     .maybeSingle();
   // film_geo does not filter on visibility, so the read page must.
@@ -63,13 +70,24 @@ async function loadUncached(slug: string) {
   const f = film as FilmRow;
   const directorHasLocations = !!f.director_slug && elig.directors.some((d) => d.slug === f.director_slug);
   const hubCountrySlugs = new Set(elig.countries.map((c) => c.slug));
-  return { film: f, pins, directorHasLocations, hubCountrySlugs: [...hubCountrySlugs] };
+  // Hero videos (same reel as the film page — clips first, trailer last).
+  const { data: vidRows } = await db()
+    .from("media")
+    .select("external_id, title")
+    .eq("entity_type", "film").eq("entity_id", f.id as string)
+    .eq("status", "published").eq("kind", "video")
+    .order("position");
+  const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[]).filter((v) => v.external_id);
+  const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
+  const videos = [...vids.filter((v) => !isTrailerTitle(v.title)), ...vids.filter((v) => isTrailerTitle(v.title))]
+    .map((v) => ({ id: v.external_id as string, title: v.title ?? "" }));
+  return { film: f, pins, videos, directorHasLocations, hubCountrySlugs: [...hubCountrySlugs] };
 }
 
 function load(slug: string) {
-  // Key bumped (locations2) when name-fusion joined the merge — the Data
-  // Cache outlives deploys.
-  return unstable_cache(() => loadUncached(slug), ["film-locations2", slug], {
+  // Key history: locations2 = name-fusion; locations3 = film art + hero
+  // videos (2026-07-08 On Location redesign). The Data Cache outlives deploys.
+  return unstable_cache(() => loadUncached(slug), ["film-locations3", slug], {
     revalidate: 86400,
     tags: [`film:${slug}`],
   })();
@@ -147,32 +165,39 @@ function sourceHost(u: string): string {
   try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return "source"; }
 }
 
-function LocationItem({ p }: { p: GeoPin }) {
+function gmaps(p: GeoPin): string {
+  // A point, not a search: the query pins the exact geocode we hold.
+  return `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+}
+
+function LocationItem({ p, n }: { p: GeoPin; n: number }) {
   const prose = pinProse(p);
   const badge = p.precision ? PRECISION_LABEL[p.precision] ?? p.precision : null;
   const srcs = sourceUrls(p.sources);
   return (
-    <div style={{ padding: "13px 0", borderBottom: "1px solid rgba(22,35,63,.1)" }}>
-      <h3 style={{ margin: "0 0 3px", fontSize: 16.5, lineHeight: 1.35 }}>{p.name}</h3>
-      <div style={{ fontSize: 12.5, opacity: 0.6, marginBottom: prose ? 5 : 0 }}>
-        {[p.country, badge, p.built_set ? (p.set_host ? `built set — ${p.set_host}` : "built set") : null]
-          .filter(Boolean).join(" · ")}
-      </div>
-      {prose ? <p style={{ margin: 0, lineHeight: 1.6, maxWidth: "70ch" }}>{prose}</p> : null}
-      {(p.fig_slug && p.film_slug) || srcs.length ? (
-        <p style={{ margin: "5px 0 0", fontSize: 13.5 }}>
+    <div style={{ padding: "14px 0", borderBottom: "1px solid rgba(22,35,63,.1)", display: "grid", gridTemplateColumns: "34px 1fr", gap: 12 }}>
+      <div aria-hidden style={{ fontSize: 19, fontWeight: 700, color: "#c0392b", lineHeight: 1.3 }}>{n}.</div>
+      <div>
+        <h3 style={{ margin: "0 0 3px", fontSize: 16.5, lineHeight: 1.35 }}>{p.name}</h3>
+        <div style={{ fontSize: 12.5, opacity: 0.6, marginBottom: prose ? 5 : 0 }}>
+          {[p.country, badge, p.built_set ? (p.set_host ? `built set — ${p.set_host}` : "built set") : null]
+            .filter(Boolean).join(" · ")}
+        </div>
+        {prose ? <p style={{ margin: 0, lineHeight: 1.6, maxWidth: "70ch" }}>{prose}</p> : null}
+        <p style={{ margin: "6px 0 0", fontSize: 13.5 }}>
+          <a href={gmaps(p)} target="_blank" rel="noopener noreferrer">◉ Google Maps ↗</a>
           {p.fig_slug && p.film_slug ? (
-            <Link href={`/film/${p.film_slug}/figure/${p.fig_slug}`}>Read this place as a figure in the film →</Link>
+            <> · <Link href={`/film/${p.film_slug}/figure/${p.fig_slug}`}>this place as a figure →</Link></>
           ) : null}
           {srcs.map((u, i) => (
             <span key={u} style={{ opacity: 0.75 }}>
-              {p.fig_slug || i > 0 ? " · " : ""}
+              {" · "}
               {i === 0 ? "Source: " : ""}
               <a href={u} target="_blank" rel="noopener noreferrer">{sourceHost(u)} ↗</a>
             </span>
           ))}
         </p>
-      ) : null}
+      </div>
     </div>
   );
 }
