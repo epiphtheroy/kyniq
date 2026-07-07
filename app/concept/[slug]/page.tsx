@@ -321,6 +321,37 @@ export default async function ConceptPage({ params }: Props) {
               ))}
             </p>
           )}
+          {canonReadings.length > 0 && (
+            <section style={{ margin: "30px 0 0" }} id="concept-readings">
+              <h2 className="cmap-h2">Strong Misreadings that lean on {tc.concept}</h2>
+              <div className="th-readings">
+                {canonReadings.map((r) => {
+                  const F = fw(r.framework);
+                  const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
+                  return (
+                    <article className="thr" key={r.take_id}>
+                      {r.backdrop_path ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
+                      ) : null}
+                      <div className="thr-body">
+                        <div className="thr-top">
+                          <span className="thr-fw" style={{ color: F.color }}>{F.label}</span>
+                          <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
+                          {r.theorist_name ? (r.theorist_slug
+                            ? <Link className="thr-concept" href={`/theorist/${r.theorist_slug}`}>{r.theorist_name}</Link>
+                            : <span className="thr-concept">{r.theorist_name}</span>) : null}
+                        </div>
+                        <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
+                        {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
+                        {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          )}
           {desks.length > 0 && (
             <section style={{ margin: "30px 0 0" }} id="concept-desks">
               <h2 className="cmap-h2">From the desks — essays that put {tc.concept} to work</h2>
