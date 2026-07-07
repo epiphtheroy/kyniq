@@ -1,0 +1,88 @@
+/* /takescore/film/[slug] — public per-film TakeScore appraisal.
+   Page-scoped tsf-* classes; reuses the cx-* visual language from
+   app/globals.css (green #0F6E56 = value, grey = cost, red #C8102E = risk)
+   and the site tokens var(--ink)/--muted/--hairline/--accent. */
+
+/* ── hero ── */
+.tsf-hero{display:flex; gap:20px; align-items:flex-start; margin:18px 0 6px}
+.tsf-poster{width:150px; height:225px; object-fit:cover; border-radius:8px; background:var(--hairline); flex:0 0 auto}
+.tsf-poster--e{width:150px; height:225px; border-radius:8px; background:var(--hairline); flex:0 0 auto}
+.tsf-hmeta{min-width:0; flex:1}
+.tsf-dir{font-family:var(--font-ui); font-size:13.5px; color:var(--muted); margin:2px 0 10px}
+.tsf-openfilm{display:inline-block; font-family:var(--font-ui); font-size:14px; font-weight:600; color:var(--accent,#C8102E); text-decoration:none; padding:7px 14px; border:1px solid var(--hairline-2); border-radius:8px; margin:2px 0 12px}
+.tsf-openfilm:hover{border-color:var(--accent,#C8102E)}
+
+/* TS box — same visual language as .cx-tsbox, sized up for the hero */
+.tsf-ts{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; min-width:66px; padding:8px 12px; border-radius:10px; background:#0F6E56; color:#fff; line-height:1}
+.tsf-ts b{font-family:var(--font-serif,Georgia,serif); font-size:30px; font-weight:700}
+.tsf-ts i{font-family:var(--font-ui); font-size:10px; font-style:normal; letter-spacing:.08em; opacity:.85; margin-top:3px}
+
+/* ── verdict ── */
+.tsf-verdict{margin:16px 0 8px; padding:14px 16px; border:1px solid var(--hairline-2); border-radius:12px; background:var(--paper-2,#fafafa)}
+.tsf-axes{display:flex; flex-direction:column; gap:8px; margin:4px 0 12px}
+.tsf-axis{display:grid; grid-template-columns:150px 1fr 34px; align-items:center; gap:10px}
+.tsf-axis-k{font-family:var(--font-ui); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase}
+.tsf-axis-k.tsf-v{color:#0F6E56} .tsf-axis-k.tsf-c{color:#6b7280} .tsf-axis-k.tsf-r{color:#C8102E}
+.tsf-axis-n{font-family:var(--font-ui); font-size:13px; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums}
+.tsf-bar{height:7px; border-radius:4px; background:var(--hairline); overflow:hidden}
+.tsf-bar i{display:block; height:100%; border-radius:4px}
+.tsf-bar i.tsf-v{background:#0F6E56} .tsf-bar i.tsf-c{background:#9ca3af} .tsf-bar i.tsf-r{background:#C8102E}
+.tsf-formula{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); margin:0 0 10px; padding-bottom:10px; border-bottom:1px solid var(--hairline)}
+.tsf-formula b{color:#0F6E56}
+.tsf-verdict-p{font-size:15.5px; line-height:1.55; margin:0; color:var(--ink)}
+
+/* ── the 13 dimension rows ── */
+.tsf-grp{margin:20px 0 4px}
+.tsf-grp-h{display:flex; align-items:baseline; gap:10px; margin:0 0 2px}
+.tsf-grp-k{font-family:var(--font-ui); font-size:12px; letter-spacing:.06em; text-transform:uppercase; font-weight:600}
+.tsf-grp-k.tsf-v{color:#0F6E56} .tsf-grp-k.tsf-c{color:#6b7280} .tsf-grp-k.tsf-r{color:#C8102E}
+.tsf-grp-sub{font-family:var(--font-ui); font-size:12px; color:var(--muted)}
+.tsf-dim{display:grid; grid-template-columns:170px 1fr; gap:6px 16px; padding:11px 0; border-bottom:1px solid var(--hairline)}
+.tsf-dim-l{min-width:0}
+.tsf-dim-name{font-family:var(--font-ui); font-size:13.5px; font-weight:600; color:var(--ink); text-decoration:none}
+.tsf-dim-name:hover{text-decoration:underline}
+.tsf-dim-meter{display:grid; grid-template-columns:1fr 34px; align-items:center; gap:8px; margin-top:6px}
+.tsf-dim-n{font-family:var(--font-ui); font-size:12.5px; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums}
+.tsf-dim-band{font-family:var(--font-ui); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-top:3px}
+.tsf-dim-r{min-width:0}
+.tsf-dim-s{font-size:14.5px; line-height:1.5; margin:0; color:var(--ink)}
+.tsf-dim-comps{font-family:var(--font-ui); font-size:12px; color:var(--muted); margin-top:4px}
+
+/* ── confidence / standing / external ── */
+.tsf-box{margin:14px 0 4px; padding:13px 16px; border:1px solid var(--hairline); border-radius:10px}
+.tsf-conf-meter{display:grid; grid-template-columns:130px 1fr 34px; align-items:center; gap:10px; margin:2px 0 10px}
+.tsf-conf-k{font-family:var(--font-ui); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
+.tsf-kvs{display:flex; flex-wrap:wrap; gap:6px 8px; margin:0 0 10px}
+.tsf-kv{font-family:var(--font-ui); font-size:11.5px; padding:3px 9px; border:1px solid var(--hairline-2); border-radius:999px; color:var(--muted)}
+.tsf-kv b{color:var(--ink); font-weight:600}
+.tsf-note{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); line-height:1.5; margin:0}
+.tsf-box-p{font-size:14.5px; line-height:1.55; margin:0 0 8px; color:var(--ink)}
+.tsf-aside{font-family:var(--font-ui); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
+.tsf-chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px}
+.tsf-chip{font-family:var(--font-ui); font-size:12px; padding:4px 10px; border:1px solid var(--hairline-2); border-radius:999px; color:var(--ink)}
+.tsf-chip b{font-weight:700}
+
+/* ── reference basket ── */
+.tsf-basket{width:100%; border-collapse:collapse; margin-top:6px}
+.tsf-basket caption{caption-side:top; text-align:left; font-family:var(--font-ui); font-size:12px; color:var(--muted); padding-bottom:6px}
+.tsf-basket th{font-family:var(--font-ui); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:600; text-align:right; padding:4px 0 6px; border-bottom:1px solid var(--hairline-2)}
+.tsf-basket th:first-child{text-align:left}
+.tsf-basket td{padding:6px 0; border-bottom:1px solid var(--hairline); font-size:14px}
+.tsf-basket td.tsf-num{font-family:var(--font-ui); font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); width:56px}
+.tsf-basket td.tsf-num b{color:#0F6E56; font-weight:700}
+.tsf-basket a{color:var(--ink); text-decoration:none}
+.tsf-basket a:hover{text-decoration:underline}
+.tsf-self td{background:var(--paper-2,#fafafa); font-weight:600}
+.tsf-self td:first-child{color:#0F6E56}
+
+/* ── byline footer ── */
+.tsf-byline{margin:28px 0 8px; padding-top:12px; border-top:1px solid var(--hairline); font-family:var(--font-ui); font-size:12.5px; color:var(--muted); line-height:1.6}
+.tsf-byline a{color:var(--ink)}
+
+/* ── responsive ── */
+@media (max-width: 720px) {
+  .tsf-hero{flex-direction:column; gap:14px}
+  .tsf-axis{grid-template-columns:96px 1fr 34px}
+  .tsf-dim{grid-template-columns:1fr}
+  .tsf-conf-meter{grid-template-columns:96px 1fr 34px}
+}

@@ -729,7 +729,7 @@ export default async function FilmPage({ params }: Props) {
 
           {!hasDigest ? aboutSection : null}
 
-          <CinecodexPanel data={codex as Codex | null} title={f.title} />
+          <CinecodexPanel data={codex as Codex | null} title={f.title} slug={f.slug} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
@@ -1037,7 +1037,7 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} />
+        <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (

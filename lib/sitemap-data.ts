@@ -432,6 +432,34 @@ export async function honorsEntries(): Promise<SitemapEntry[]> {
   return films.slice(0, INDEX_COHORT_FILM_HONORS).map((f) => ({ url: `${siteUrl}/film/lineage/${f.slug}` }));
 }
 
+/**
+ * /takescore/film/[slug] — per-film TakeScore appraisal pages, one per scored
+ * film (~6,701). Roster = the same cinecodex_ranked RPC the /takescore hub
+ * renders (single-jsonb {total, rows} payload), paged with p_limit 500 so no
+ * page approaches PostgREST's 1,000-row response cap. No lastmod: ranked rows
+ * carry no scored_at, and a fabricated date is worse than none (see header).
+ */
+export async function sitemapTakescoreFilms(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const entries: SitemapEntry[] = [];
+  const LIMIT = 500;
+  for (let offset = 0; ; offset += LIMIT) {
+    const { data } = await supabase.rpc("cinecodex_ranked", {
+      p_sort: "u", p_lambda: 1.0, p_limit: LIMIT, p_offset: offset,
+    });
+    const page = data as { total: number; rows: { slug: string }[] } | null;
+    const rows = page?.rows ?? [];
+    for (const r of rows) {
+      if (r.slug) entries.push({ url: `${siteUrl}/takescore/film/${r.slug}` });
+    }
+    // Stop on a short page (rows exhausted) or once the RPC's own total is
+    // covered — the total guard keeps a misbehaving RPC from looping forever.
+    if (rows.length < LIMIT || (page?.total != null && offset + rows.length >= page.total)) break;
+  }
+  return entries;
+}
+
 /** Public profiles. */
 export async function profileEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];

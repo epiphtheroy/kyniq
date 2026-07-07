@@ -28,6 +28,7 @@ const SECTIONS = [
   "cities",
   "lineage",
   "honors",
+  "takescore-films",
 ];
 
 export async function GET() {

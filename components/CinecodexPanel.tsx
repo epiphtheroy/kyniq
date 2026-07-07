@@ -165,7 +165,7 @@ function ValuePop({ v, votes }: { v: number; votes: number | null }) {
   );
 }
 
-export default function CinecodexPanel({ data, title, subscores }: { data: Codex | null; title: string; subscores?: FilmSubscores | null }) {
+export default function CinecodexPanel({ data, title, subscores, slug }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null }) {
   if (!data) return null;
   const { ext } = data;
   const tier = data.conf_tier ?? null;
@@ -250,6 +250,23 @@ export default function CinecodexPanel({ data, title, subscores }: { data: Codex
         {data.sd_v != null ? `, ±${Math.round(Number(data.sd_v))}` : ""}). A rubric-anchored judgment, not an objective fact;
         popularity metrics above are for comparison only.
       </div>
+
+      {/* Exit to the film's standalone appraisal page (/takescore/film/[slug]) —
+          rendered only when the caller passes the slug, so the panel never
+          fabricates a URL. Same accent-link idiom as the CTAs above. */}
+      {slug ? (
+        <p style={{ margin: "14px 0 0" }}>
+          <a
+            href={`/takescore/film/${slug}`}
+            style={{
+              fontFamily: "var(--font-ui)", fontSize: "13px", fontWeight: 600,
+              color: "var(--accent,#C8102E)", textDecoration: "none",
+            }}
+          >
+            View the full appraisal &rarr;
+          </a>
+        </p>
+      ) : null}
     </section>
   );
 }

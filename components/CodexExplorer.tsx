@@ -110,6 +110,7 @@ function Curtain({ slug }: { slug: string }) {
       <div className="cxd-foot">
         <span className="cxd-src">AI-estimated (rubric {d.panel}{d.n_samples ? `, n=${d.n_samples}` : ""}{d.sd_v != null ? `, ±${Math.round(Number(d.sd_v))}` : ""}) — a judgment, not a fact.</span>
         <Link className="cxd-open" href={`/film/${slug}#df-codex`}>Open the film →</Link>
+        <Link className="cxd-appr" href={`/takescore/film/${slug}`}>Full appraisal →</Link>
       </div>
     </div>
   );
@@ -201,6 +202,14 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
         .cx-qwrap:hover .cx-qtip, .cx-qwrap:focus-within .cx-qtip{display:block}
         .cx-qtip-in{display:block; padding:8px 10px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff; box-shadow:0 4px 14px rgba(0,0,0,.1); font-family:var(--font-ui); font-size:11.5px; line-height:1.45; color:var(--ink); white-space:normal}
         .cx-qmore{color:var(--accent,#C8102E); text-decoration:none; white-space:nowrap}
+        /* row: the toggle is a stretched button behind the content; the TS box is a
+           real link to the per-film appraisal page sitting above it */
+        .cx-row{position:relative}
+        .cx-rowbtn{position:absolute; inset:0; width:100%; border:0; background:transparent; cursor:pointer; padding:0}
+        a.cx-tsbox{position:relative; z-index:1; text-decoration:none}
+        a.cx-tsbox:hover, a.cx-tsbox:focus-visible{filter:brightness(1.08); box-shadow:0 0 0 1px #fff, 0 0 0 2.5px #0F6E56}
+        .cxd-appr{font-family:var(--font-ui); font-size:12.5px; font-weight:600; color:#fff; background:var(--accent,#C8102E); border-radius:7px; padding:5px 11px; text-decoration:none; white-space:nowrap}
+        .cxd-appr:hover{filter:brightness(1.08)}
       `}</style>
       {/* ── Control panel ── */}
       <div className="cx-panel">
@@ -303,7 +312,13 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
           const ts = Math.round(f.v - lam * f.r);
           return (
             <div className={`cx-item${isOpen ? " open" : ""}`} key={f.slug + i}>
-              <button className="cx-row" onClick={() => setOpen(isOpen ? null : f.slug + i)} aria-expanded={isOpen}>
+              <div className="cx-row">
+                <button
+                  className="cx-rowbtn"
+                  onClick={() => setOpen(isOpen ? null : f.slug + i)}
+                  aria-expanded={isOpen}
+                  aria-label={`Toggle sub-scores for ${f.title}`}
+                />
                 {f.poster_path
                   ? // eslint-disable-next-line @next/next/no-img-element
                     <img className="cx-th" src={`${IMG}${f.poster_path}`} alt="" loading="lazy" />
@@ -312,9 +327,15 @@ export default function CodexExplorer({ initialRows, initialTotal, countries }: 
                   <div className="cx-t">{f.title} <span className="cx-sub">({f.year ?? "?"}{f.director ? `, ${f.director}` : ""})</span></div>
                   <div className="cx-nums"><span className="cx-lv">Value {Math.round(f.v)}</span><span className="cx-lc">Cost {Math.round(f.c)}</span><span className="cx-lr">Risk {Math.round(f.r)}</span></div>
                 </div>
-                <span className="cx-tsbox"><b>{ts}</b><i>TS</i></span>
+                <Link
+                  className="cx-tsbox"
+                  href={`/takescore/film/${f.slug}`}
+                  title="Full appraisal →"
+                  aria-label={`Open the ${f.title} appraisal`}
+                  onClick={(e) => e.stopPropagation()}
+                ><b>{ts}</b><i>TS</i></Link>
                 <span className="cx-chev" aria-hidden>{isOpen ? "▾" : "▸"}</span>
-              </button>
+              </div>
               {isOpen ? <Curtain slug={f.slug} /> : null}
             </div>
           );
