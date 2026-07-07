@@ -6,8 +6,12 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
+import ReadingsExplorer from "@/components/ReadingsExplorer";
 import { pageRobots } from "@/lib/seo";
 import { listicle } from "@/lib/listicle";
+
+/** Display convention: concept names lead with a capital; no quotes in headings. */
+const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
 /**
  * Concept — the canonical page for a single named theoretical concept.
@@ -296,30 +300,26 @@ export default async function ConceptPage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
         <div className="mt-wrap">
           <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
-          <h1 className="th-h1">{tc.concept}{tc.native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.6em" }}> · {tc.native}</span> : null}</h1>
-          {desks.length + canonReadings.length >= 3 && (
-            <p className="th-sub">{listicle(tc.concept, theorists[0]?.name ?? null, [...desks, ...canonReadings]).n} films that can be read through <em>{tc.concept}</em> — the readings and essays below put it to work.</p>
-          )}
-          {(tc.part || tc.major) && (
-            <p style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 0" }}>
-              {[tc.part, tc.major, tc.sub].filter(Boolean).map((x) => (
-                <span key={x as string} style={{ fontSize: 12, fontWeight: 700, padding: "3px 10px", borderRadius: 999, background: "rgba(0,0,0,.055)" }}>{x}</span>
-              ))}
-            </p>
-          )}
-          {tc.one_liner && (
-            <p className="body reading" style={{ fontSize: 17, margin: "14px 0 0", maxWidth: "68ch" }}>{tc.one_liner}</p>
-          )}
-          {theorists.length > 0 && (
-            <p style={{ margin: "14px 0 0", fontSize: 15 }}>
-              Thought by:{" "}
-              {theorists.map((t, i) => (
-                <span key={t.name}>
-                  {i > 0 && ", "}
+          <div className="ccard">
+            <div className="ccard__kicker">Concept</div>
+            <h1 className="th-h1">{cap(tc.concept)}{tc.native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.6em" }}> · {tc.native}</span> : null}</h1>
+            {tc.one_liner && <p className="ccard__tag">{tc.one_liner}</p>}
+            <div className="ccard__meta">
+              {theorists.map((t) => (
+                <span className="ccard__chip" key={t.name}>
                   {t.slug ? <Link href={`/theorist/${t.slug}`}>{t.name}</Link> : t.name}
                 </span>
               ))}
-            </p>
+              {[tc.part, tc.major, tc.sub].filter(Boolean).map((x) => (
+                <span key={x as string} className="ccard__chip" style={{ opacity: .75 }}>{x}</span>
+              ))}
+            </div>
+            {(() => { const n = listicle(tc.concept, null, [...desks, ...canonReadings]).n; return n > 0 ? (
+              <div className="ccard__stat"><b>{n}</b><span>film{n !== 1 ? "s" : ""}</span></div>
+            ) : null; })()}
+          </div>
+          {desks.length + canonReadings.length >= 3 && (
+            <p className="th-sub">{listicle(tc.concept, theorists[0]?.name ?? null, [...desks, ...canonReadings]).n} films that can be read through <em>{tc.concept}</em> — the readings and essays below put it to work.</p>
           )}
           {canonReadings.length > 0 && (
             <section style={{ margin: "30px 0 0" }} id="concept-readings">

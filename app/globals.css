@@ -4683,3 +4683,15 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 .essay-desklist li { margin: 0 0 9px; padding-left: 14px; text-indent: -14px; }
 .essay-desklist li::before { content: "→ "; color: var(--accent); }
 @media (max-width: 560px) { .essay-h1 { font-size: 26px; } .essay-body { font-size: 15.5px; } }
+
+/* ── Concept card (명함) — theory entity header, terminology charter 2026-07-08 ── */
+.ccard { margin-top: 14px; border: 1px solid rgba(0,0,0,.14); border-radius: 14px; padding: 22px 24px 18px; position: relative; background: linear-gradient(180deg, rgba(0,0,0,.02), transparent); }
+.ccard__kicker { font-size: 11px; letter-spacing: .14em; font-weight: 800; opacity: .55; text-transform: uppercase; }
+.ccard .th-h1 { margin: 6px 0 0; }
+.ccard__tag { margin: 10px 0 0; font-size: 15.5px; max-width: 62ch; }
+.ccard__meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; align-items: center; }
+.ccard__chip { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(0,0,0,.055); }
+.ccard__stat { position: absolute; top: 18px; right: 20px; text-align: right; }
+.ccard__stat b { display: block; font-size: 22px; line-height: 1; }
+.ccard__stat span { font-size: 11px; opacity: .6; }
+@media (max-width: 560px) { .ccard__stat { position: static; margin-top: 10px; text-align: left; display: block; } }
