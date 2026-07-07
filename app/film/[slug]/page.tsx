@@ -919,7 +919,7 @@ export default async function FilmPage({ params }: Props) {
     runtimeFmt ? { k: "Runtime", v: runtimeFmt } : null,
     extra.country?.length ? { k: "Country", v: extra.country.slice(0, 3).map(regionName).join(" · ") } : null,
     extra.original_language ? { k: "Language", v: langName(extra.original_language) } : null,
-    film.genres?.length ? { k: "Genre", v: <>{film.genres.slice(0, 3).map((g, i) => <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>)}</> } : null,
+    film.genres?.length ? { k: "Genre", v: <>{(film.genres as string[]).slice(0, 3).map((g: string, i: number) => <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>)}</> } : null,
     cert ? { k: "Rated", v: cert } : null,
   ].filter(Boolean)) as GlanceFact[];
   const glancePlaces = geoMerged || geoCount;
