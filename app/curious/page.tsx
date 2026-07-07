@@ -163,6 +163,20 @@ export default async function CuriousIndex() {
         </section>
       ))}
 
+      <section>
+        <SectionHead
+          title="On Location"
+          moreHref="/curious/locations"
+          moreLabel="Film by film"
+        />
+        <p style={{ margin: "14px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "var(--cur-meta)", maxWidth: 760 }}>
+          Where the films were really shot — 1,700+ films&apos; locations researched from cited sources, geocoded
+          and mapped, with built sets flagged and the story-world kept separate.{" "}
+          <Link href="/curious/locations" style={{ color: "var(--cur-accent-soft)" }}>Browse film by film →</Link>{" "}
+          or wander <Link href="/atlas" style={{ color: "var(--cur-accent-soft)" }}>the Atlas map</Link>.
+        </p>
+      </section>
+
       {smFilms > 0 ? (
         <section>
           <SectionHead
