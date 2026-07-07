@@ -1,23 +1,16 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
+import { num, tierOf, type NavHistRow } from "@/lib/room/format";
 import RoomShell, { type NavChip, type RailCounts } from "@/components/room/RoomShell";
 import "./room.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "The Room — Metatake",
+  title: "My Room — Metatake",
   description: "Your cinematic asset operating system.",
   robots: { index: false, follow: false },
 };
-
-function tierOf(nav: number | null): string {
-  if (nav == null) return "형성 중";
-  if (nav >= 90) return "APEX";
-  if (nav >= 70) return "ESTABLISHED";
-  if (nav >= 45) return "BUILDING";
-  return "FORMING";
-}
 
 export default async function RoomLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -25,15 +18,32 @@ export default async function RoomLayout({ children }: { children: React.ReactNo
   const user = auth?.user;
   if (!user) redirect("/login?next=/room");
 
-  /* v2: 티커·시스템카드 삭제(라이브피드 폐지) — 셸에 필요한 건 NAV chip + 레일 카운트뿐 */
-  const [{ data: navRaw }, { data: pbRaw }] = await Promise.all([
+  /* Shell needs three things, fetched once here: NAV chip (+ its 30-day micro
+     sparkline — spec §4) and the rail count badges (Slate/Holdings). */
+  const [{ data: navRaw }, { data: pbRaw }, { data: histRaw }] = await Promise.all([
     supabase.rpc("me_portfolio_nav"),
     supabase.rpc("portfolio_breakdown"),
+    supabase.rpc("me_nav_history", { p_days: 30 }),
   ]);
-  const nav = (navRaw as { nav: number | null } | null) ?? null;
+  const nav = (navRaw as {
+    nav: number | string | null; n_watched?: number | string | null; n_scored?: number | string | null;
+    essentials?: number | string | null; avg_standing?: number | string | null; lines?: number | string | null;
+  } | null) ?? null;
   const pb = (pbRaw as { watched?: number; watchlist?: number } | null) ?? null;
+  const hist = (histRaw as NavHistRow[] | null) ?? [];
 
-  const chip: NavChip = { nav: nav?.nav ?? null, tier: tierOf(nav?.nav ?? null) };
+  const navV = num(nav?.nav);
+  const avgS = num(nav?.avg_standing);
+  const chip: NavChip = {
+    nav: navV,
+    tier: tierOf(navV),
+    spark: hist.map((h) => num(h.nav)).filter((v): v is number => v != null),
+    watched: num(nav?.n_watched),
+    scored: num(nav?.n_scored),
+    essentials: num(nav?.essentials),
+    avgStanding: avgS == null ? null : Math.round(avgS),
+    lines: num(nav?.lines),
+  };
   const counts: RailCounts = { collection: pb?.watched ?? undefined, watchlist: pb?.watchlist ?? undefined };
 
   return <RoomShell chip={chip} counts={counts}>{children}</RoomShell>;

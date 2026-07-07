@@ -205,9 +205,9 @@ export default function RoomShell({
 
             <InspectorPanel />
             <CmdK open={cmdk} onClose={() => setCmdk(false)} />
-          </div>
-        </ToastProvider>
-      </SessionStoreProvider>
-    </InspectorProvider>
+          </ToastProvider>
+        </SessionStoreProvider>
+      </InspectorProvider>
+    </div>
   );
 }
