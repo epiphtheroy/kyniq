@@ -61,6 +61,14 @@ function load(slug: string) {
       const tropes = (tr ?? []) as TropeRow[];
       const takesDetail = (td ?? null) as TakesDetail;
 
+      // Strong Misreadings absorbed from the retired per-canon tradition pages
+      // (theory_canon rows crosswalked to this concept via theory_canon_map).
+      let canonReadings: Reading[] = [];
+      try {
+        const { data: cr } = await supabase.rpc("concept_canon_readings", { p_slug: slug });
+        canonReadings = (cr as Reading[] | null) ?? [];
+      } catch { canonReadings = []; }
+
       if (!h) {
         if (tropes.length > 0) {
           return { kind: "takes" as const, concept: tropes[0].concept, tropes, takesDetail };
@@ -107,10 +115,13 @@ function load(slug: string) {
           desks.push(d);
           if (desks.length >= 12) break;
         }
-        return { kind: "theory" as const, tc, theorists, desks };
+        return { kind: "theory" as const, tc, theorists, desks, canonReadings };
       }
 
       const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
+      const smReadings = (rd as Reading[] | null) ?? [];
+      const seenTakes = new Set(smReadings.map((r) => r.take_id));
+      const mergedReadings = [...smReadings, ...canonReadings.filter((r) => !seenTakes.has(r.take_id))];
       let intro: string | null = null;
       const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
       if (typeof it === "string" && it.trim()) intro = it.trim();
@@ -138,7 +149,7 @@ function load(slug: string) {
         name: h.name,
         resolved: h.resolved_slug,
         intro,
-        readings: (rd as Reading[] | null) ?? [],
+        readings: mergedReadings,
         desks,
         tropes,
       };
