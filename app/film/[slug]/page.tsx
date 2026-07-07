@@ -36,6 +36,7 @@ import { pageRobots } from "@/lib/seo";
 import { ruleFigureQuestion } from "@/lib/figureSeo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
 import { FILM_HONORS_MIN, honorText, loadLineageListMeta } from "@/lib/lineage";
+import { DESKS, DESK_KEYS, mdToPlain, type DeskKey } from "@/lib/desks";
 import { relatedForTier2Film, slugifyGenre } from "@/lib/related";
 import RelatedBoxes from "@/components/RelatedBoxes";
 
@@ -87,6 +88,7 @@ type WatchCountry = { link?: string; flatrate?: WatchProv[]; rent?: WatchProv[];
 type Watch = { results: Record<string, WatchCountry>; countries: string[] };
 type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null };
 type QRow = { slug: string; title: string; display_title: string | null; title_spoiler: boolean | null; spoiler_level: string | null; question_type: string | null };
+type DeskEssay = { desk: DeskKey; label: string; title: string; spoiler: number };
 // Human phrasing — the CSS uppercases these anyway; the raw system keys
 // ("AUTEUR_VISION") used to leak into the page and read as machine output.
 const WW_TITLE: Record<string, string> = { auteur_vision: "The auteur's vision", aesthetic_innovation: "Aesthetic innovation", technical_mastery: "Technical mastery", philosophical_inquiry: "Philosophical inquiry", cinematic_lineage: "Cinematic lineage", spatial_aesthetics: "Space & place", critical_reception: "Critical reception", context_discourse: "Context & discourse" };
@@ -196,7 +198,7 @@ async function loadUncached(slug: string) {
     };
   }
 
-  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }, { data: cpJson }] = await Promise.all([
+  const [{ data: figRows }, { data: aff }, { data: mediaRows }, { data: catRows }, { data: rcpRows }, { data: wnRows }, { data: waRows }, { data: revRows }, { data: lnRows }, { data: ratRow }, { data: wpRow }, { data: qRows }, { data: cpJson }, { data: essRows }] = await Promise.all([
     supabase.from("figures").select("id, kind, label, slug, description").eq("film_id", film.id).eq("status", "approved"),
     supabase.from("film_affinities").select("related_film_id, score, shared_meta_take_ids, cos, updated_at").eq("film_id", film.id).order("score", { ascending: false }).limit(5),
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
@@ -212,6 +214,9 @@ async function loadUncached(slug: string) {
     supabase.from("questions").select("slug, title, display_title, title_spoiler, spoiler_level, question_type")
       .eq("film_id", film.id).eq("status", "published").order("published_at", { ascending: false }),
     supabase.rpc("film_counterpoints", { p_slug: slug, p_n: 6 }),
+    supabase.from("essays").select("mode, title, spoiler_level")
+      .eq("film_id", film.id).eq("lang", "en").eq("status", "verified")
+      .order("published_at", { ascending: false, nullsFirst: false }),
   ]);
   const archetypes = (catRows ?? []) as ArchRow[];
   const reception = (rcpRows ?? []) as RcpRow[];
@@ -224,6 +229,18 @@ async function loadUncached(slug: string) {
   const ratings = (ratRow as Ratings | null) ?? null;
   const watch = (wpRow as Watch | null) ?? null;
   const questions = (qRows ?? []) as QRow[];
+  // Desk essays for the Curious section — one link per desk, newest verified
+  // EN essay wins (canonical reading pages live at /film/[slug]/[desk]).
+  const essayByMode = new Map<string, { title: string; spoiler_level: number | null }>();
+  for (const e of (essRows ?? []) as { mode: string; title: string; spoiler_level: number | null }[]) {
+    if (!essayByMode.has(e.mode)) essayByMode.set(e.mode, e);
+  }
+  const deskEssays: DeskEssay[] = DESK_KEYS
+    .filter((k) => essayByMode.has(DESKS[k].mode))
+    .map((k) => {
+      const e = essayByMode.get(DESKS[k].mode)!;
+      return { desk: k, label: DESKS[k].label, title: mdToPlain(e.title), spoiler: e.spoiler_level ?? 0 };
+    });
 
   const figures = (figRows ?? []) as Fig[];
   const figById = new Map<string, Fig>(figures.map((f) => [f.id, f]));
