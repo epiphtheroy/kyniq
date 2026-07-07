@@ -81,12 +81,12 @@ const SUBROW_QM_STYLE: CSSProperties = { gridTemplateColumns: "112px 1fr 26px 16
 function Bar({ v, tone }: { v: number; tone: string }) {
   return <span className="ccx-bar"><i className={tone} style={{ width: `${Math.max(0, Math.min(100, v))}%` }} /></span>;
 }
-function Sub({ names, sub, tone, pct, total }: { names: string[]; sub: Record<string, number>; tone: string; pct?: Record<string, number>; total?: number }) {
+function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, number>; tone: string; rich?: boolean }) {
   return (
     <div className="ccx-sub">
       {names.map((n) => {
-        // Legacy (no percentile data passed): markup unchanged for existing callers.
-        if (!pct || total == null) {
+        // Legacy (thin pages): markup unchanged for existing callers.
+        if (!rich) {
           return (
             <div className="ccx-subrow" key={n}>
               <span className="ccx-subn">{n}</span><Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
@@ -94,10 +94,11 @@ function Sub({ names, sub, tone, pct, total }: { names: string[]; sub: Record<st
           );
         }
         // Crawlable layer: the label links to its /takescore/[dim] page, a circled
-        // "?" makes the explanation page an explicit affordance, and a
-        // server-rendered percentile line sits under the row (same muted voice).
+        // "?" makes the explanation page an explicit affordance, and a fixed
+        // one-line definition of the category sits under the row, closed by this
+        // film's own band phrase for its score (same muted voice).
         const dim = dimByKey.get(NAME_KEY[n] ?? "");
-        const p = dim ? pct[dim.key] : undefined;
+        const score = sub[n] ?? 0;
         const qm = dim ? `What is ${dim.label}? — full explanation and ranking` : "";
         return (
           <div key={n}>
@@ -105,12 +106,17 @@ function Sub({ names, sub, tone, pct, total }: { names: string[]; sub: Record<st
               {dim
                 ? <a className="ccx-subn" href={takescoreDimUrl(dim.slug)} title={dim.question}>{n}</a>
                 : <span className="ccx-subn">{n}</span>}
-              <Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
+              <Bar v={score} tone={tone} /><span className="ccx-subv">{score}</span>
               {dim
                 ? <a className="ccx-qm" href={takescoreDimUrl(dim.slug)} aria-label={qm} title={qm} style={QM_STYLE}>?</a>
                 : null}
             </div>
-            {dim && typeof p === "number" ? <div style={PCT_STYLE}>{pctPhrase(dim.group, p, total)}</div> : null}
+            {dim ? (
+              <div style={DEF_STYLE}>
+                {DEF[dim.key]}{" "}
+                <span style={{ color: "var(--ink)" }}>This film: {bandWord(dim.group, score)}.</span>
+              </div>
+            ) : null}
           </div>
         );
       })}
@@ -198,7 +204,7 @@ const GAUGE_CSS = `
 .ccx-grow{display:flex; flex-wrap:wrap; align-items:stretch; gap:8px 20px}
 .ccx-gcell{display:flex; flex-direction:column; align-items:center; gap:3px; flex:0 0 auto; min-width:96px}
 .ccx-gcell .sdonut-cap{text-transform:uppercase; letter-spacing:.08em}
-.ccx-gcell .sdonut-note{text-transform:uppercase; letter-spacing:.06em}
+.ccx-gcell .sdonut-note{text-transform:uppercase; letter-spacing:.06em; max-width:118px; text-align:center; line-height:1.35}
 .ccx-ghint{font-family:var(--font-ui); font-size:9.5px; line-height:1.3; color:var(--muted); text-align:center; max-width:120px}
 .ccx-gnet{display:flex; flex-direction:column; justify-content:center; gap:9px; margin-left:auto; padding-left:20px; border-left:1px solid var(--hairline); min-width:158px}
 .ccx-gnet-row{display:flex; align-items:baseline; gap:10px}
