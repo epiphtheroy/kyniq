@@ -8,7 +8,10 @@ import ShareRow from "@/components/ShareRow";
 import SpoilerShield from "@/components/SpoilerShield";
 import LightboxImage from "@/components/LightboxImage";
 import RelatedBoxes from "@/components/RelatedBoxes";
+import ReadPlates from "@/components/read/ReadPlates";
 import { relatedForQuestion } from "@/lib/related";
+import "@/app/curious/curious.css";
+import "../../read.css";
 
 // Force dynamic rendering — always fetch fresh data from Supabase
 // ISR: edge-cached, background-refreshed (was force-dynamic).
@@ -420,6 +423,9 @@ export default async function QuestionPage({ params }: Props) {
 
         </div>
       </main>
+
+      {/* "More on {film}" — the shared reading-page plate row (2026-07-08) */}
+      <ReadPlates slug={film.slug} exclude={`q:${question.slug}`} />
     </>
   );
 }
