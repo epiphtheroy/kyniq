@@ -39,42 +39,37 @@ export function InspectorProvider({ children }: { children: ReactNode }) {
   const pathRef = useRef(pathname);
   pathRef.current = pathname;
 
-  const [sel, setSel] = useState<Entry | null>(null);
-  const [prev, setPrev] = useState<Entry | null>(null); // 1-depth back target
+  /* Selection + its 1-depth back target live in ONE state object so push/back
+     stay atomic (no setState-inside-updater impurity). */
+  const [st, setSt] = useState<{ sel: Entry | null; prev: Entry | null }>({ sel: null, prev: null });
   const [def, setDef] = useState<{ path: string; node: ReactNode } | null>(null);
   const [open, setOpen] = useState(false);
+  const sel = st.sel, prev = st.prev;
 
   /* Route change → clear selection + close (the brief is path-scoped, so it
      invalidates naturally). */
   useEffect(() => {
-    setSel(null); setPrev(null); setOpen(false);
+    setSt({ sel: null, prev: null }); setOpen(false);
   }, [pathname]);
 
   const select = useCallback((node: ReactNode, t?: string) => {
-    setSel({ node, title: t ?? STR.shell.inspectorTitle });
-    setPrev(null);
+    setSt({ sel: { node, title: t ?? STR.shell.inspectorTitle }, prev: null });
     setOpen(true);
   }, []);
   const push = useCallback((node: ReactNode, t?: string) => {
-    setSel((cur) => {
-      if (cur) setPrev(cur);
-      return { node, title: t ?? STR.shell.inspectorTitle };
-    });
+    setSt((s) => ({ sel: { node, title: t ?? STR.shell.inspectorTitle }, prev: s.sel }));
     setOpen(true);
   }, []);
+  /* Only rendered/callable while canBack — a no-target call is a no-op. */
   const back = useCallback(() => {
-    setPrev((p) => {
-      if (p) setSel(p);
-      else setOpen(false);
-      return null;
-    });
+    setSt((s) => (s.prev ? { sel: s.prev, prev: null } : s));
   }, []);
   const setDefault = useCallback((node: ReactNode) => {
     setDef({ path: pathRef.current, node });
   }, []);
-  const openDefault = useCallback(() => { setSel(null); setPrev(null); setOpen(true); }, []);
+  const openDefault = useCallback(() => { setSt({ sel: null, prev: null }); setOpen(true); }, []);
   const close = useCallback(() => setOpen(false), []);
-  const reset = useCallback(() => { setSel(null); setPrev(null); setOpen(false); }, []);
+  const reset = useCallback(() => { setSt({ sel: null, prev: null }); setOpen(false); }, []);
 
   const defNode = def && def.path === pathname ? def.node : null;
   const title = sel ? sel.title : STR.shell.briefTitle;

@@ -3,7 +3,7 @@
  *  `primary` renders the red primary style; `disabled` renders inert with an
  *  optional title explaining why (honest gating, e.g. "Unpinning ships soon."). */
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 export type Act = {
   label: ReactNode;
@@ -15,7 +15,7 @@ export type Act = {
   title?: string;
 };
 
-export default function ActBar({ acts, style }: { acts: Act[]; style?: React.CSSProperties }) {
+export default function ActBar({ acts, style }: { acts: Act[]; style?: CSSProperties }) {
   return (
     <div className="actbar" style={style}>
       {acts.map((a, i) => {
