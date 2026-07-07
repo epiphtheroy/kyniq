@@ -21,7 +21,8 @@ export function listicle(
   const surname = first && !/^N\/A/i.test(first)
     ? (first.replace(/\([^)]*\)/g, "").trim().split(/\s+/).pop() ?? "")
     : "";
-  const bare = surname ? name.replace(/^The\s+/i, "") : name;
-  const poss = surname ? `${surname}’s ${bare}` : name;
+  let bare = surname ? name.replace(/^The\s+/i, "") : name;
+  bare = bare.charAt(0).toUpperCase() + bare.slice(1);
+  const poss = surname ? `${surname}’s ${bare}` : bare;
   return { n, poss, f1: titles[0], f2: titles[1] };
 }
