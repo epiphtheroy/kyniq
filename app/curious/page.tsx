@@ -46,8 +46,9 @@ export default async function CuriousIndex() {
   let questions: QRow[] = [];
   const deskRows: Partial<Record<DeskKey, ERow[]>> = {};
   const deskCounts: Record<string, number> = {};
+  let smFilms = 0;
   try {
-    const [qRes, ...deskRes] = await Promise.all([
+    const [qRes, smRes, ...deskRes] = await Promise.all([
       supabase
         .from("questions")
         .select(`slug, title, display_title, title_spoiler, spoiler_level, question_type, published_at, ${FILM_ART}`)
@@ -55,6 +56,12 @@ export default async function CuriousIndex() {
         .eq("film.visible", true)
         .order("published_at", { ascending: false })
         .limit(400)
+        .abortSignal(AbortSignal.timeout(4500)),
+      supabase
+        .from("films")
+        .select("id", { count: "exact", head: true })
+        .eq("visible", true)
+        .eq("is_analyzed", true)
         .abortSignal(AbortSignal.timeout(4500)),
       ...DESK_KEYS.map((k) =>
         supabase
@@ -70,6 +77,7 @@ export default async function CuriousIndex() {
       ),
     ]);
     questions = (qRes.data ?? []) as unknown as QRow[];
+    smFilms = smRes.count ?? 0;
     DESK_KEYS.forEach((k, i) => {
       deskRows[k] = (deskRes[i].data ?? []) as unknown as ERow[];
       deskCounts[k] = deskRes[i].count ?? 0;
@@ -154,6 +162,23 @@ export default async function CuriousIndex() {
           </div>
         </section>
       ))}
+
+      {smFilms > 0 ? (
+        <section>
+          <SectionHead
+            title="Strong Misreadings"
+            count={`${smFilms.toLocaleString()} films`}
+            moreHref="/curious/misreadings"
+            moreLabel="Film by film"
+          />
+          <p style={{ margin: "14px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "var(--cur-meta)", maxWidth: 760 }}>
+            The boldest defensible thing each film lets you say — every analyzed film carries 9–15 readings across{" "}
+            <Link href="/strong-misreadings" style={{ color: "var(--cur-accent-soft)" }}>14 critical frameworks</Link>,
+            assembled into one article per film. Arguments with a thesis, never summaries.{" "}
+            <Link href="/curious/misreadings" style={{ color: "var(--cur-accent-soft)" }}>Browse all {smFilms.toLocaleString()} →</Link>
+          </p>
+        </section>
+      ) : null}
 
       <section>
         <SectionHead title="All Questions" count={`${questions.length} answered · ${groups.length} films`} />
