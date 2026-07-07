@@ -1,0 +1,100 @@
+/* The Daily ("Between Film and the World") — ScreenRant grain, 2026-07-07
+   redesign. Shares the .cur token set (app/curious/curious.css); this file
+   adds the daily-only pieces: the date-forward edition rows, the article
+   paper sheet (SR articles are light-on-white under the dark chrome), and
+   the masthead subscribe pill. */
+
+.cur-mast__pill {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  background: var(--cur-gold); color: #181818; border-radius: 3px;
+  font-family: var(--cur-khand); font-weight: 600; font-size: 15px;
+  letter-spacing: 0.8px; text-transform: uppercase; padding: 7px 16px; line-height: 1;
+}
+.cur-mast__pill:hover { background: var(--cur-gold-soft); }
+
+/* Date eyebrow — the date IS the kicker on daily surfaces. */
+.cur-datekick {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--cur-khand); font-weight: 600; font-size: 16px;
+  letter-spacing: 1.6px; text-transform: uppercase; color: var(--cur-gold);
+}
+.cur-datekick .sub { color: var(--cur-label); letter-spacing: 1.2px; }
+.cur-datekick .d { width: 5px; height: 5px; border-radius: 50%; background: #4a4a4a; }
+
+/* Edition byline row (dark) */
+.cur-edby { font-size: 12.5px; color: var(--cur-meta); margin-top: 10px; }
+.cur-edby b { color: #d7d5d6; font-weight: 500; }
+
+/* ── Past-edition rows: the date block leads ─────────────────────── */
+.cur-edrow {
+  display: grid; grid-template-columns: 112px 1fr auto; gap: 22px; align-items: center;
+  padding: 20px 0; border-bottom: 1px solid #242424;
+}
+.cur-edrow .db { text-align: left; }
+.cur-edrow .db .m {
+  font-family: var(--cur-khand); font-weight: 700; font-size: 27px; line-height: 1;
+  text-transform: uppercase; color: var(--cur-gold); display: block;
+}
+.cur-edrow .db .y { font-size: 11px; color: #8f8d8e; display: block; margin-top: 4px; }
+.cur-edrow h3 {
+  font-family: var(--cur-khand); font-weight: 700; font-size: 22px; line-height: 1.12;
+  color: #fff; margin: 0;
+}
+.cur-edrow:hover h3 { color: var(--cur-gold-soft); }
+.cur-edrow .dk { font-size: 13px; color: var(--cur-meta); margin-top: 4px; }
+.cur-edrow .strip { display: flex; gap: 5px; margin-top: 9px; }
+.cur-edrow .strip span {
+  width: 66px; aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden; background: #0c0c0c; display: block;
+}
+.cur-edrow .strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cur-edrow .go {
+  font-family: var(--cur-khand); font-weight: 600; font-size: 14px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--cur-gold); white-space: nowrap;
+}
+
+/* ── Subscribe rail panel (mirrors .cur-latest) ──────────────────── */
+.cur-subpanel {
+  border: 1px solid var(--cur-line); border-radius: 4px; background: #1c1c1c;
+  padding: 18px; align-self: start;
+}
+.cur-subpanel .k {
+  font-size: 11px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--cur-gold); margin: 0 0 8px;
+}
+.cur-subpanel h3 { font-family: var(--cur-khand); font-weight: 700; font-size: 23px; color: #fff; margin: 0 0 7px; line-height: 1.1; }
+.cur-subpanel p { font-size: 13.5px; color: var(--cur-meta); margin: 0 0 14px; line-height: 1.5; }
+.cur-subpanel .blg-subform { display: flex; gap: 8px; }
+.cur-subpanel .blg-subform input {
+  flex: 1; min-width: 0; height: 38px; border: 0; border-radius: 3px; padding: 0 11px;
+  font-family: var(--cur-roboto); font-size: 14px; background: #fff; color: #181818;
+}
+.cur-subpanel .blg-subform button {
+  height: 38px; border: 0; border-radius: 3px; padding: 0 16px; cursor: pointer;
+  font-family: var(--cur-khand); font-weight: 600; font-size: 15px; letter-spacing: 0.6px;
+  text-transform: uppercase; background: var(--cur-gold); color: #181818;
+}
+.cur-subpanel .blg-subform button:hover { background: var(--cur-gold-soft); }
+.cur-subpanel .blg-subok { color: #fff; font-size: 14px; }
+.cur-subpanel .blg-suberr { color: #e07a5f; font-size: 12px; align-self: center; }
+.cur-subpanel .fine { font-size: 11px; color: #8f8d8e; margin: 9px 0 0; }
+
+/* ── The paper sheet: the edition body keeps its print-look, laid on
+      the dark desk (SR articles are light under the dark chrome). ── */
+.cur-paper {
+  background: #fbfaf7; border-radius: 6px; margin-top: 18px;
+  padding: 30px 38px 40px; box-shadow: 0 18px 50px -22px rgba(0, 0, 0, 0.8);
+}
+.cur-paper.blg { background: #fbfaf7; }
+.cur-paper .blg-byline {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  font-family: var(--font-ui); font-size: 12.5px; color: #6f6a60; margin: 0 0 18px;
+}
+.cur-paper .blg-byline .dot { width: 4px; height: 4px; border-radius: 50%; background: #c9c4b8; display: inline-block; }
+
+@media (max-width: 720px) {
+  .cur-paper { padding: 22px 18px 30px; margin-left: -8px; margin-right: -8px; }
+  .cur-edrow { grid-template-columns: 84px 1fr; }
+  .cur-edrow .db .m { font-size: 21px; }
+  .cur-edrow .go { display: none; }
+  .cur-edrow .strip span { width: 52px; }
+}
