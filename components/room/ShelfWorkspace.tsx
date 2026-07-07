@@ -80,7 +80,7 @@ function DetailInsp({ it, ov, href, onTogglePub, onToggleFav }: {
   const col = TYPES[tk].c;
   const acts: Act[] = [
     { label: <><i className="ti ti-star" /> {ov.fav ? "Favorited" : "Favorite"}</>, onClick: onToggleFav, primary: ov.fav, title: "Like-pin — saves instantly (me_toggle_fav)" },
-    { label: <><i className="ti ti-pin-off" /> Unpin</>, disabled: true, title: "Unpinning ships soon." },
+    { label: <><i className="ti ti-pinned-off" /> Unpin</>, disabled: true, title: "Unpinning ships soon." },
   ];
   if (href) acts.push({ label: <>View page <i className="ti ti-arrow-right" /></>, href, title: "Open the public page" });
   return (
@@ -135,10 +135,16 @@ export default function ShelfWorkspace({ rows: allRows }: { rows: ShelfRow[] }) 
   const { setDefault } = insp;
   const { supabase, say } = useRoomActions();
 
+  /* Pins removed server-side this session (like-only pin unfavorited → unpinned). */
+  const [gone, setGone] = useState<Set<string>>(new Set());
   /* director/lineage pins can't exist yet — and stay hidden if a stray row appears. */
-  const rows = useMemo(() => allRows.filter((r) => isType(r.entity_type)), [allRows]);
+  const rows = useMemo(
+    () => allRows.filter((r) => isType(r.entity_type) && !gone.has(`${r.entity_type}|${r.slug ?? r.title ?? ""}`)),
+    [allRows, gone],
+  );
 
   const keyOf = (r: ShelfRow) => `${r.entity_type}|${r.slug ?? r.title ?? ""}`;
+  const [selKey, setSelKey] = useState<string | null>(null);
   const [ovs, setOvs] = useState<Record<string, Ov>>(() => {
     const o: Record<string, Ov> = {};
     for (const r of rows) o[keyOf(r)] = { fav: r.fav, pub: r.visibility === "public" };

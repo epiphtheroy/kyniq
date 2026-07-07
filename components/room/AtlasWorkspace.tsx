@@ -67,7 +67,7 @@ const CONT_LABEL: Record<Continent, string> = {
   "N.America": "North America", "S.America": "South America", Oceania: "Oceania", Other: "Other · polar",
 };
 const CONT_ICON: Record<Continent, string> = {
-  Asia: "ti-building-pagoda", Europe: "ti-building-castle", Africa: "ti-tree",
+  Asia: "ti-torii", Europe: "ti-building-castle", Africa: "ti-tree",
   "N.America": "ti-building-skyscraper", "S.America": "ti-mountain", Oceania: "ti-beach", Other: "ti-snowflake",
 };
 function normCont(c: string | null | undefined): Continent | null {
