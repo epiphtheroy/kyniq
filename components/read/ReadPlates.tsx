@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { DESKS, DESK_KEYS, mdToPlain } from "@/lib/desks";
+import { cachedAtlasEligibility } from "@/lib/atlas";
 import { Card, SectionHead } from "@/components/curious/ui";
 
 /**
@@ -86,6 +87,16 @@ export default async function ReadPlates({
   plates.push({ key: "takescore", href: `/takescore/film/${film.slug}`, tag: "TakeScore", title: `The TakeScore verdict on ${film.title}` });
   if (film.is_analyzed && exclude !== "misreadings") {
     plates.push({ key: "misreadings", href: `/film/${film.slug}/misreadings`, tag: "Strong Misreadings", title: `${film.title}, read against the grain — the misreadings article` });
+  }
+  // On Location — only when the film clears the atlas gate (no 404 links).
+  if (exclude !== "locations") {
+    try {
+      const elig = await cachedAtlasEligibility();
+      const loc = elig.films.find((f) => f.slug === film.slug);
+      if (loc) {
+        plates.push({ key: "locations", href: `/film/atlas/${film.slug}`, tag: "On Location", title: `Where was ${film.title} filmed? ${loc.n} real places, mapped` });
+      }
+    } catch { /* plate is optional */ }
   }
   for (const q of questions) {
     const k = `q:${q.slug}`;
