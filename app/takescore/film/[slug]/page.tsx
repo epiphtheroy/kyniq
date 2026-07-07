@@ -100,10 +100,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const GROUPS: { g: CodexDimGroup; label: string; sub: string }[] = [
-  { g: "value", label: "Value", sub: "what a serious viewer keeps — higher is better" },
-  { g: "cost", label: "Cost", sub: "what it takes to unlock — a price, never a merit" },
-  { g: "risk", label: "Risk", sub: "how it can go wrong — lower is safer" },
+// The three pillars, in the private Appraisal's naming (EvalCard's V Earned
+// value / C Entry cost / R Risk). The sub lines are the public one-liners.
+const GROUPS: { g: CodexDimGroup; ax: string; label: string; sub: string }[] = [
+  { g: "value", ax: "V", label: "Earned value", sub: "what a serious viewer keeps — higher is better" },
+  { g: "cost", ax: "C", label: "Entry cost", sub: "what it takes to unlock — a price, never a merit" },
+  { g: "risk", ax: "R", label: "Risk", sub: "how it can go wrong — lower is safer" },
 ];
 
 export default async function TakeScoreFilmPage({ params }: Props) {
@@ -162,128 +164,125 @@ export default async function TakeScoreFilmPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="mt-wrap lh ab">
+      <div className="mt-wrap lh tsf">
         <div className="lh-crumb">
           <Link href="/">Home</Link> › <Link href="/takescore">TakeScore</Link> › {card.title}
         </div>
         <h1 className="lh-h1">{nameYear} — TakeScore {ts}</h1>
 
+        {/* ── Film hero — poster · title/director · the big mono net-value box ── */}
         <div className="tsf-hero">
           {card.poster_path ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="tsf-poster" src={`${IMG}/w342${card.poster_path}`} alt={`${card.title} poster`} width={150} height={225} />
+            <img className="tsf-poster" src={`${IMG}/w342${card.poster_path}`} alt={`${card.title} poster`} width={110} height={165} />
           ) : (
             <div className="tsf-poster--e" aria-hidden="true" />
           )}
           <div className="tsf-hmeta">
+            <div className="tsf-ftitle">{card.title}{card.year ? <small>{card.year}</small> : null}</div>
             {card.director ? <p className="tsf-dir">Directed by {card.director}{card.year ? ` · ${card.year}` : ""}</p> : null}
-            <p style={{ margin: "0 0 12px" }}>
+            <p style={{ margin: 0 }}>
               <Link className="tsf-openfilm" href={filmUrl(card.slug)}>Open the film page →</Link>
             </p>
-            <span className="tsf-ts"><b>{ts}</b><i>TAKESCORE</i></span>
+          </div>
+          <div className="tsf-ubox">
+            <span className="n">{ts}</span>
+            <span className="lab">
+              <span className="k">TS · Net value</span>
+              <span className="d">= V {v} − λ·R (λ = 1)</span>
+            </span>
           </div>
         </div>
 
-        {/* ── Verdict ── */}
-        <section aria-labelledby="tsf-verdict-h">
-          <h2 className="ab-h2" id="tsf-verdict-h">The verdict</h2>
-          <div className="tsf-verdict">
-            <div className="tsf-axes">
-              <div className="tsf-axis">
-                <span className="tsf-axis-k tsf-v">Value</span>
-                <span className="tsf-bar"><i className="tsf-v" style={{ width: `${Math.min(100, v)}%` }} /></span>
-                <span className="tsf-axis-n">{v}</span>
-              </div>
-              <div className="tsf-axis">
-                <span className="tsf-axis-k tsf-c">Cost</span>
-                <span className="tsf-bar"><i className="tsf-c" style={{ width: `${Math.min(100, c)}%` }} /></span>
-                <span className="tsf-axis-n">{c}</span>
-              </div>
-              <div className="tsf-axis">
-                <span className="tsf-axis-k tsf-r">Risk</span>
-                <span className="tsf-bar"><i className="tsf-r" style={{ width: `${Math.min(100, r)}%` }} /></span>
-                <span className="tsf-axis-n">{r}</span>
-              </div>
-            </div>
-            <p className="tsf-formula">
-              TakeScore = Value − λ·Risk at λ = 1 → <b>{ts}</b>. Cost is a difficulty, not a value.
-            </p>
-            <p className="tsf-verdict-p">{verdict}</p>
-          </div>
+        {/* ── Verdict — quadrant sentence + formula line ── */}
+        <section aria-labelledby="tsf-verdict-h" className="tsf-verdict">
+          <h2 className="tsf-h2" id="tsf-verdict-h">The verdict</h2>
+          <p className="tsf-verdict-p">{verdict}</p>
+          <p className="tsf-formula">
+            TakeScore = Value − λ·Risk at λ = 1 → <b>{ts}</b>. Cost is a difficulty, not a value.
+          </p>
         </section>
 
-        {/* ── The 13 dimensions ── */}
-        <section aria-labelledby="tsf-dims-h" style={{ marginTop: 36 }}>
-          <h2 className="df-h2" id="tsf-dims-h">How we scored it</h2>
-          <p className="df-sub">
+        {/* ── Side by side · three pillars — V / C / R with their sub-scores ── */}
+        <section aria-labelledby="tsf-dims-h">
+          <h2 className="tsf-h2" id="tsf-dims-h">How we scored it</h2>
+          <p className="tsf-sub">
             Thirteen sub-scores in three groups, each 0–100 against the fixed CineCodex rubric. Every dimension links
             to its own page — what it measures, the calibration ruler, the catalog&apos;s extremes. The comparison
             titles are this film&apos;s three measured nearest neighbors on that axis.
           </p>
-          {GROUPS.map(({ g, label, sub }) => (
-            <div className="tsf-grp" key={g}>
-              <div className="tsf-grp-h">
-                <span className={`tsf-grp-k tsf-${g[0]}`}>{label}</span>
-                <span className="tsf-grp-sub">{sub}</span>
-              </div>
-              {CODEX_DIMS.filter((d) => d.group === g).map((d) => {
-                const score = card.subs?.[d.key];
-                if (score == null) return null;
-                const comps = card.comps?.[d.key] ?? [];
-                return (
-                  <div className="tsf-dim" key={d.key}>
-                    <div className="tsf-dim-l">
-                      <Link className="tsf-dim-name" href={takescoreDimUrl(d.slug)}>{d.label}</Link>
-                      <div className="tsf-dim-meter">
-                        <span className="tsf-bar"><i className={`tsf-${g[0]}`} style={{ width: `${Math.min(100, Math.max(0, score))}%` }} /></span>
-                        <span className="tsf-dim-n">{Math.round(score)}</span>
-                      </div>
-                      <div className="tsf-dim-band">{bandWord(g, score)}</div>
-                    </div>
-                    <div className="tsf-dim-r">
-                      <p className="tsf-dim-s">{dimSentence(d.key, score)}</p>
-                      {comps.length ? (
-                        <div className="tsf-dim-comps">Scored alongside: {comps.join(" · ")}</div>
-                      ) : null}
-                    </div>
+          <div className="tsf-pillars">
+            {GROUPS.map(({ g, ax, label, sub }) => {
+              const axisScore = g === "value" ? v : g === "cost" ? c : r;
+              return (
+                <div className="tsf-pillar" key={g}>
+                  <div className="tsf-pil-h">
+                    <span className={`tsf-pil-ax tsf-${g[0]}`}>{ax}</span>
+                    <span className="tsf-pil-name">{label}</span>
+                    <span className="tsf-pil-score">{axisScore}</span>
                   </div>
-                );
-              })}
-            </div>
-          ))}
+                  <div className="tsf-pil-band">{bandWord(g, axisScore)}</div>
+                  <span className="tsf-bar"><i className={`tsf-${g[0]}`} style={{ width: `${Math.min(100, axisScore)}%` }} /></span>
+                  <p className="tsf-pil-sub">{sub}</p>
+                  {CODEX_DIMS.filter((d) => d.group === g).map((d) => {
+                    const score = card.subs?.[d.key];
+                    if (score == null) return null;
+                    const comps = card.comps?.[d.key] ?? [];
+                    return (
+                      <div className="tsf-dim" key={d.key}>
+                        <div className="tsf-dim-t">
+                          <Link className="tsf-dim-name" href={takescoreDimUrl(d.slug)}>{d.label}</Link>
+                          <span className="tsf-dim-n">{Math.round(score)}</span>
+                        </div>
+                        <span className="tsf-bar"><i className={`tsf-${g[0]}`} style={{ width: `${Math.min(100, Math.max(0, score))}%` }} /></span>
+                        <div className="tsf-dim-band">{bandWord(g, score)}</div>
+                        <p className="tsf-dim-s">{dimSentence(d.key, score)}</p>
+                        {comps.length ? (
+                          <details className="tsf-dim-comps">
+                            <summary>Scored alongside</summary>
+                            <div className="tsf-dim-comps-list">{comps.join(" · ")}</div>
+                          </details>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
         </section>
 
-        {/* ── Confidence & reproducibility ── */}
-        <section aria-labelledby="tsf-conf-h" style={{ marginTop: 36 }}>
-          <h2 className="ab-h2" id="tsf-conf-h">Confidence &amp; reproducibility</h2>
-          <div className="tsf-box">
+        {/* ── Confidence · Standing · External — separated cards, never blended ── */}
+        <div className="tsf-cards">
+          <section aria-labelledby="tsf-conf-h" className="tsf-card">
+            <h2 className="tsf-card-h" id="tsf-conf-h">Confidence &amp; reproducibility</h2>
+            <p className="tsf-aside">Non-determinism, disclosed honestly</p>
             {card.conf != null ? (
-              <div className="tsf-conf-meter">
-                <span className="tsf-conf-k">Confidence{card.tier ? ` · ${card.tier}` : ""}</span>
-                <span className="tsf-bar"><i className="tsf-v" style={{ width: `${Math.min(100, Math.max(0, card.conf))}%` }} /></span>
-                <span className="tsf-dim-n">{Math.round(card.conf)}</span>
+              <div className="tsf-conf">
+                <span className="tsf-conf-k">Measured confidence{card.tier ? ` · ${card.tier}` : ""}</span>
+                <div className="tsf-conf-meter">
+                  <span className="tsf-bar"><i className="tsf-v" style={{ width: `${Math.min(100, Math.max(0, card.conf))}%` }} /></span>
+                  <span className="tsf-dim-n">{Math.round(card.conf)}</span>
+                </div>
               </div>
             ) : null}
             <div className="tsf-kvs">
-              {rel?.n_samples != null ? <span className="tsf-kv">n_samples <b>{rel.n_samples}</b></span> : null}
-              <span className="tsf-kv">sd_v <b>{rel?.sd_v != null ? `±${rel.sd_v}` : "unmeasured (n=1)"}</b></span>
-              {rel?.panel ? <span className="tsf-kv">panel <b>{rel.panel}</b></span> : null}
-              {rel?.prompt_version ? <span className="tsf-kv">rubric <b>{rel.prompt_version}</b></span> : null}
-              {rel?.flagged ? <span className="tsf-kv">flagged <b>true</b></span> : null}
+              {rel?.n_samples != null ? <div className="tsf-kv"><span className="k">n_samples</span><span className="v">{rel.n_samples}</span></div> : null}
+              <div className="tsf-kv"><span className="k">sd_v</span><span className="v">{rel?.sd_v != null ? `±${rel.sd_v}` : "unmeasured (n=1)"}</span></div>
+              {rel?.panel ? <div className="tsf-kv"><span className="k">panel</span><span className="v">{rel.panel}</span></div> : null}
+              {rel?.prompt_version ? <div className="tsf-kv"><span className="k">rubric</span><span className="v">{rel.prompt_version}</span></div> : null}
+              {rel?.flagged ? <div className="tsf-kv"><span className="k">flagged</span><span className="v">true</span></div> : null}
             </div>
             {confLine ? <p className="tsf-box-p">{confLine}</p> : null}
             <p className="tsf-note">
               AI-estimated (rubric {rel?.panel ?? "—"}{rel?.n_samples != null ? `, n=${rel.n_samples}` : ""}) — a
               judgment, not a fact.
             </p>
-          </div>
-        </section>
+          </section>
 
-        {/* ── Standing (never enters the score) ── */}
-        {standLine ? (
-          <section aria-labelledby="tsf-stand-h" style={{ marginTop: 24 }}>
-            <h2 className="ab-h2" id="tsf-stand-h">Standing</h2>
-            <div className="tsf-box">
+          {standLine ? (
+            <section aria-labelledby="tsf-stand-h" className="tsf-card">
+              <h2 className="tsf-card-h" id="tsf-stand-h">Standing</h2>
               <p className="tsf-aside">A separate axis — never part of the TakeScore</p>
               <div className="tsf-chips">
                 {card.standing?.prestige != null ? (
@@ -293,31 +292,28 @@ export default async function TakeScoreFilmPage({ params }: Props) {
                   <span className="tsf-chip" key={l}>{l}</span>
                 ))}
               </div>
-              <p className="tsf-box-p" style={{ marginBottom: 0 }}>{standLine}</p>
-            </div>
-          </section>
-        ) : null}
+              <p className="tsf-box-p">{standLine}</p>
+            </section>
+          ) : null}
 
-        {/* ── External signals (never blended) ── */}
-        {hasExt ? (
-          <section aria-labelledby="tsf-ext-h" style={{ marginTop: 24 }}>
-            <h2 className="ab-h2" id="tsf-ext-h">External signals</h2>
-            <div className="tsf-box">
+          {hasExt ? (
+            <section aria-labelledby="tsf-ext-h" className="tsf-card">
+              <h2 className="tsf-card-h" id="tsf-ext-h">External signals</h2>
               <p className="tsf-aside">Alongside — not part of the score</p>
-              <div className="tsf-chips">
-                {ext!.imdb != null ? <span className="tsf-chip">IMDb <b>{ext!.imdb}</b>/10</span> : null}
-                {ext!.rt != null ? <span className="tsf-chip">Rotten Tomatoes <b>{ext!.rt}</b>%</span> : null}
-                {ext!.meta != null ? <span className="tsf-chip">Metascore <b>{ext!.meta}</b>/100</span> : null}
+              <div className="tsf-mets">
+                {ext!.imdb != null ? <div className="tsf-met"><span className="k">IMDb</span><span className="v">{ext!.imdb}<small>/10</small></span></div> : null}
+                {ext!.rt != null ? <div className="tsf-met"><span className="k">Rotten Tomatoes</span><span className="v">{ext!.rt}<small>%</small></span></div> : null}
+                {ext!.meta != null ? <div className="tsf-met"><span className="k">Metascore</span><span className="v">{ext!.meta}<small>/100</small></span></div> : null}
               </div>
-              {extLine ? <p className="tsf-box-p" style={{ marginBottom: 0 }}>{extLine}</p> : null}
-            </div>
-          </section>
-        ) : null}
+              {extLine ? <p className="tsf-box-p">{extLine}</p> : null}
+            </section>
+          ) : null}
+        </div>
 
-        {/* ── Reference basket ── */}
+        {/* ── Reference basket — U-ranked ladder, this film highlighted ── */}
         {basket.length ? (
-          <section aria-labelledby="tsf-basket-h" style={{ marginTop: 24 }}>
-            <h2 className="ab-h2" id="tsf-basket-h">The reference basket</h2>
+          <section aria-labelledby="tsf-basket-h">
+            <h2 className="tsf-h2" id="tsf-basket-h">The reference basket</h2>
             <table className="tsf-basket">
               <caption>U rank among the reference basket — U = Value − Risk at λ = 1; lower Risk is safer.</caption>
               <thead>
@@ -334,7 +330,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
                       )}
                     </td>
                     <td className="tsf-num"><b>{Math.round(b.u)}</b></td>
-                    <td className="tsf-num">{Math.round(b.r)}</td>
+                    <td className="tsf-num tsf-rk">{Math.round(b.r)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -348,7 +344,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           {rel?.prompt_version ? <>Rubric {rel.prompt_version} · </> : null}
           By <Link href="/editor">Wonwoo Yoon</Link>, Editor — Metatake
           <br />
-          <Link href="/takescore/about">How the TakeScore works →</Link>
+          <Link className="tsf-how" href="/takescore/about">How the TakeScore works →</Link>
         </footer>
       </div>
     </div>

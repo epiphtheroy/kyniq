@@ -1,88 +1,121 @@
 /* /takescore/film/[slug] — public per-film TakeScore appraisal.
-   Page-scoped tsf-* classes; reuses the cx-* visual language from
-   app/globals.css (green #0F6E56 = value, grey = cost, red #C8102E = risk)
-   and the site tokens var(--ink)/--muted/--hairline/--accent. */
+   Rebuilt in the anatomy of the private Appraisal card (components/room/EvalCard.tsx
+   + app/room/room.css): film hero with the big mono net-value box, three pillars
+   side by side, confidence / standing / external as separated cards, and the
+   reference-basket ladder — but on the LIGHT public palette: paper surfaces,
+   hairline borders, the cx-* axis colors (green #0F6E56 = value, grey = cost,
+   red #C8102E = risk), mono/tabular numerals for every score. */
 
-/* ── hero ── */
-.tsf-hero{display:flex; gap:20px; align-items:flex-start; margin:18px 0 6px}
-.tsf-poster{width:150px; height:225px; object-fit:cover; border-radius:8px; background:var(--hairline); flex:0 0 auto}
-.tsf-poster--e{width:150px; height:225px; border-radius:8px; background:var(--hairline); flex:0 0 auto}
-.tsf-hmeta{min-width:0; flex:1}
-.tsf-dir{font-family:var(--font-ui); font-size:13.5px; color:var(--muted); margin:2px 0 10px}
-.tsf-openfilm{display:inline-block; font-family:var(--font-ui); font-size:14px; font-weight:600; color:var(--accent,#C8102E); text-decoration:none; padding:7px 14px; border:1px solid var(--hairline-2); border-radius:8px; margin:2px 0 12px}
+.tsf{--tsf-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+
+/* ── section headings ── */
+.tsf-h2{font-family:var(--font-serif,Georgia,serif); font-size:20px; color:var(--ink); margin:32px 0 8px}
+.tsf-sub{font-size:14.5px; line-height:1.55; color:var(--muted); margin:0 0 16px; max-width:70ch}
+
+/* ── film hero (EvalCard .fhero, light) ── */
+.tsf-hero{display:grid; grid-template-columns:110px minmax(0,1fr) auto; gap:18px; align-items:center; margin:18px 0 4px; padding:16px 18px; border:1px solid var(--hairline-2); border-radius:12px; background:var(--paper-2,#fafafa)}
+.tsf-poster{width:110px; height:165px; object-fit:cover; border-radius:6px; background:var(--hairline); border:1px solid var(--hairline)}
+.tsf-poster--e{width:110px; height:165px; border-radius:6px; background:var(--hairline)}
+.tsf-hmeta{min-width:0}
+.tsf-ftitle{font-family:var(--font-serif,Georgia,serif); font-size:25px; line-height:1.12; color:var(--ink)}
+.tsf-ftitle small{font-family:var(--font-ui); font-size:13px; color:var(--muted); margin-left:8px; font-weight:400}
+.tsf-dir{font-family:var(--font-ui); font-size:13px; color:var(--muted); margin:4px 0 12px}
+.tsf-openfilm{display:inline-block; font-family:var(--font-ui); font-size:13.5px; font-weight:600; color:var(--accent,#C8102E); text-decoration:none; padding:7px 14px; border:1px solid var(--hairline-2); border-radius:8px; background:#fff}
 .tsf-openfilm:hover{border-color:var(--accent,#C8102E)}
 
-/* TS box — same visual language as .cx-tsbox, sized up for the hero */
-.tsf-ts{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; min-width:66px; padding:8px 12px; border-radius:10px; background:#0F6E56; color:#fff; line-height:1}
-.tsf-ts b{font-family:var(--font-serif,Georgia,serif); font-size:30px; font-weight:700}
-.tsf-ts i{font-family:var(--font-ui); font-size:10px; font-style:normal; letter-spacing:.08em; opacity:.85; margin-top:3px}
+/* the big mono net-value box — EvalCard's .usbig, light */
+.tsf-ubox{display:flex; align-items:baseline; gap:10px; padding-left:18px; border-left:1px solid var(--hairline)}
+.tsf-ubox .n{font-family:var(--tsf-mono); font-size:46px; font-weight:600; line-height:.9; color:#0F6E56; font-variant-numeric:tabular-nums}
+.tsf-ubox .lab{display:flex; flex-direction:column; gap:3px}
+.tsf-ubox .k{font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink)}
+.tsf-ubox .d{font-family:var(--tsf-mono); font-size:10.5px; color:var(--muted)}
 
-/* ── verdict ── */
-.tsf-verdict{margin:16px 0 8px; padding:14px 16px; border:1px solid var(--hairline-2); border-radius:12px; background:var(--paper-2,#fafafa)}
-.tsf-axes{display:flex; flex-direction:column; gap:8px; margin:4px 0 12px}
-.tsf-axis{display:grid; grid-template-columns:150px 1fr 34px; align-items:center; gap:10px}
-.tsf-axis-k{font-family:var(--font-ui); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase}
-.tsf-axis-k.tsf-v{color:#0F6E56} .tsf-axis-k.tsf-c{color:#6b7280} .tsf-axis-k.tsf-r{color:#C8102E}
-.tsf-axis-n{font-family:var(--font-ui); font-size:13px; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums}
-.tsf-bar{height:7px; border-radius:4px; background:var(--hairline); overflow:hidden}
-.tsf-bar i{display:block; height:100%; border-radius:4px}
+/* ── verdict + formula (EvalCard .formula / .honest idiom, light) ── */
+.tsf-verdict{margin-top:2px}
+.tsf-verdict-p{font-size:15.5px; line-height:1.55; margin:6px 0 0; color:var(--ink)}
+.tsf-formula{font-family:var(--tsf-mono); font-size:11.5px; line-height:1.6; color:var(--muted); margin:12px 0 0; padding-top:9px; border-top:1px solid var(--hairline)}
+.tsf-formula b{color:#0F6E56; font-weight:600}
+
+/* ── shared score bar ── */
+.tsf-bar{display:block; height:6px; border-radius:3px; background:var(--hairline); overflow:hidden}
+.tsf-bar i{display:block; height:100%; border-radius:3px}
 .tsf-bar i.tsf-v{background:#0F6E56} .tsf-bar i.tsf-c{background:#9ca3af} .tsf-bar i.tsf-r{background:#C8102E}
-.tsf-formula{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); margin:0 0 10px; padding-bottom:10px; border-bottom:1px solid var(--hairline)}
-.tsf-formula b{color:#0F6E56}
-.tsf-verdict-p{font-size:15.5px; line-height:1.55; margin:0; color:var(--ink)}
 
-/* ── the 13 dimension rows ── */
-.tsf-grp{margin:20px 0 4px}
-.tsf-grp-h{display:flex; align-items:baseline; gap:10px; margin:0 0 2px}
-.tsf-grp-k{font-family:var(--font-ui); font-size:12px; letter-spacing:.06em; text-transform:uppercase; font-weight:600}
-.tsf-grp-k.tsf-v{color:#0F6E56} .tsf-grp-k.tsf-c{color:#6b7280} .tsf-grp-k.tsf-r{color:#C8102E}
-.tsf-grp-sub{font-family:var(--font-ui); font-size:12px; color:var(--muted)}
-.tsf-dim{display:grid; grid-template-columns:170px 1fr; gap:6px 16px; padding:11px 0; border-bottom:1px solid var(--hairline)}
-.tsf-dim-l{min-width:0}
-.tsf-dim-name{font-family:var(--font-ui); font-size:13.5px; font-weight:600; color:var(--ink); text-decoration:none}
+/* ── side by side · three pillars (EvalCard triptych discipline) ── */
+.tsf-pillars{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:14px; align-items:start}
+.tsf-pillar{border:1px solid var(--hairline); border-radius:10px; padding:13px 14px; background:#fff}
+.tsf-pil-h{display:flex; align-items:baseline; gap:8px; margin-bottom:7px}
+.tsf-pil-ax{font-family:var(--tsf-mono); font-size:11px; font-weight:600; padding:1px 7px; border-radius:4px; border:1px solid}
+.tsf-pil-ax.tsf-v{color:#0F6E56; border-color:#B9D8CC; background:#EDF6F2}
+.tsf-pil-ax.tsf-c{color:#4B5563; border-color:#CBD0D8; background:#F3F4F6}
+.tsf-pil-ax.tsf-r{color:#C8102E; border-color:#EBBEC6; background:#FBEFF1}
+.tsf-pil-name{font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--ink)}
+.tsf-pil-score{margin-left:auto; font-family:var(--tsf-mono); font-size:24px; font-weight:600; line-height:1; color:var(--ink); font-variant-numeric:tabular-nums}
+.tsf-pil-band{font-family:var(--font-ui); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 7px}
+.tsf-pil-sub{font-family:var(--font-ui); font-size:11px; line-height:1.5; color:var(--muted); margin:9px 0 2px; padding-bottom:9px; border-bottom:1px solid var(--hairline)}
+
+/* sub-dimension rows inside a pillar */
+.tsf-dim{padding:10px 0; border-bottom:1px solid var(--hairline)}
+.tsf-dim:last-child{border-bottom:0; padding-bottom:2px}
+.tsf-dim-t{display:flex; align-items:baseline; gap:8px; margin-bottom:6px}
+.tsf-dim-name{font-family:var(--font-ui); font-size:12.5px; font-weight:600; color:var(--ink); text-decoration:none}
 .tsf-dim-name:hover{text-decoration:underline}
-.tsf-dim-meter{display:grid; grid-template-columns:1fr 34px; align-items:center; gap:8px; margin-top:6px}
-.tsf-dim-n{font-family:var(--font-ui); font-size:12.5px; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums}
-.tsf-dim-band{font-family:var(--font-ui); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-top:3px}
-.tsf-dim-r{min-width:0}
-.tsf-dim-s{font-size:14.5px; line-height:1.5; margin:0; color:var(--ink)}
-.tsf-dim-comps{font-family:var(--font-ui); font-size:12px; color:var(--muted); margin-top:4px}
+.tsf-dim-n{margin-left:auto; font-family:var(--tsf-mono); font-size:13px; color:var(--ink); font-variant-numeric:tabular-nums}
+.tsf-dim-band{font-family:var(--font-ui); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:5px}
+.tsf-dim-s{font-size:12.5px; line-height:1.5; margin:5px 0 0; color:var(--ink)}
+.tsf-dim-comps{margin-top:5px; font-family:var(--font-ui); font-size:11px; color:var(--muted)}
+.tsf-dim-comps summary{cursor:pointer; font-family:var(--tsf-mono); font-size:10px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
+.tsf-dim-comps summary:hover{color:var(--ink)}
+.tsf-dim-comps-list{margin-top:3px; line-height:1.5}
 
-/* ── confidence / standing / external ── */
-.tsf-box{margin:14px 0 4px; padding:13px 16px; border:1px solid var(--hairline); border-radius:10px}
-.tsf-conf-meter{display:grid; grid-template-columns:130px 1fr 34px; align-items:center; gap:10px; margin:2px 0 10px}
-.tsf-conf-k{font-family:var(--font-ui); font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
-.tsf-kvs{display:flex; flex-wrap:wrap; gap:6px 8px; margin:0 0 10px}
-.tsf-kv{font-family:var(--font-ui); font-size:11.5px; padding:3px 9px; border:1px solid var(--hairline-2); border-radius:999px; color:var(--muted)}
-.tsf-kv b{color:var(--ink); font-weight:600}
-.tsf-note{font-family:var(--font-ui); font-size:12.5px; color:var(--muted); line-height:1.5; margin:0}
-.tsf-box-p{font-size:14.5px; line-height:1.55; margin:0 0 8px; color:var(--ink)}
-.tsf-aside{font-family:var(--font-ui); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
-.tsf-chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px}
-.tsf-chip{font-family:var(--font-ui); font-size:12px; padding:4px 10px; border:1px solid var(--hairline-2); border-radius:999px; color:var(--ink)}
-.tsf-chip b{font-weight:700}
+/* ── confidence / standing / external — separated cards ── */
+.tsf-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:14px; align-items:start}
+.tsf-card{border:1px solid var(--hairline); border-radius:10px; padding:13px 15px; background:#fff}
+.tsf-card-h{font-family:var(--font-ui); font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--ink); margin:0 0 4px}
+.tsf-aside{font-family:var(--tsf-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--hairline)}
+.tsf-conf{margin:0 0 8px}
+.tsf-conf-k{display:block; font-family:var(--font-ui); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:5px}
+.tsf-conf-meter{display:grid; grid-template-columns:1fr 34px; align-items:center; gap:8px}
+.tsf-kvs{margin:0 0 2px}
+.tsf-kv{display:flex; justify-content:space-between; gap:10px; font-size:11.5px; padding:5px 0; border-bottom:1px solid var(--hairline); font-family:var(--font-ui)}
+.tsf-kv .k{color:var(--muted)}
+.tsf-kv .v{font-family:var(--tsf-mono); color:var(--ink); text-align:right; font-variant-numeric:tabular-nums}
+.tsf-mets{margin:0 0 2px}
+.tsf-met{display:flex; justify-content:space-between; align-items:baseline; gap:10px; padding:6px 0; border-bottom:1px solid var(--hairline)}
+.tsf-met .k{font-family:var(--font-ui); font-size:11.5px; color:var(--muted)}
+.tsf-met .v{font-family:var(--tsf-mono); font-size:16px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+.tsf-met .v small{font-size:10px; color:var(--muted); font-weight:400}
+.tsf-chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 4px}
+.tsf-chip{font-family:var(--font-ui); font-size:11.5px; padding:3px 10px; border:1px solid var(--hairline-2); border-radius:999px; color:var(--ink); background:#fff}
+.tsf-chip b{font-family:var(--tsf-mono); font-weight:600}
+.tsf-box-p{font-size:12.5px; line-height:1.55; margin:10px 0 0; color:var(--ink)}
+.tsf-note{font-family:var(--font-ui); font-size:11.5px; color:var(--muted); line-height:1.5; margin:8px 0 0; padding-top:8px; border-top:1px solid var(--hairline)}
 
-/* ── reference basket ── */
-.tsf-basket{width:100%; border-collapse:collapse; margin-top:6px}
-.tsf-basket caption{caption-side:top; text-align:left; font-family:var(--font-ui); font-size:12px; color:var(--muted); padding-bottom:6px}
-.tsf-basket th{font-family:var(--font-ui); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:600; text-align:right; padding:4px 0 6px; border-bottom:1px solid var(--hairline-2)}
+/* ── reference basket ladder (EvalCard .baskrow, light) ── */
+.tsf-basket{width:100%; border-collapse:collapse; margin-top:8px}
+.tsf-basket caption{caption-side:top; text-align:left; font-family:var(--font-ui); font-size:12px; color:var(--muted); padding-bottom:8px}
+.tsf-basket th{font-family:var(--tsf-mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:600; text-align:right; padding:4px 8px 6px; border-bottom:1px solid var(--hairline-2)}
 .tsf-basket th:first-child{text-align:left}
-.tsf-basket td{padding:6px 0; border-bottom:1px solid var(--hairline); font-size:14px}
-.tsf-basket td.tsf-num{font-family:var(--font-ui); font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); width:56px}
-.tsf-basket td.tsf-num b{color:#0F6E56; font-weight:700}
+.tsf-basket td{padding:7px 8px; border-bottom:1px solid var(--hairline); font-size:14px; font-family:var(--font-serif,Georgia,serif)}
+.tsf-basket td.tsf-num{font-family:var(--tsf-mono); font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); width:56px}
+.tsf-basket td.tsf-num b{color:#0F6E56; font-weight:600}
+.tsf-basket td.tsf-num.tsf-rk{color:#C8102E}
 .tsf-basket a{color:var(--ink); text-decoration:none}
 .tsf-basket a:hover{text-decoration:underline}
 .tsf-self td{background:var(--paper-2,#fafafa); font-weight:600}
-.tsf-self td:first-child{color:#0F6E56}
+.tsf-self td:first-child{color:#0F6E56; border-left:3px solid #0F6E56}
 
-/* ── byline footer ── */
-.tsf-byline{margin:28px 0 8px; padding-top:12px; border-top:1px solid var(--hairline); font-family:var(--font-ui); font-size:12.5px; color:var(--muted); line-height:1.6}
+/* ── byline footer (EvalCard .foot feel) ── */
+.tsf-byline{margin:32px 0 8px; padding-top:12px; border-top:1px solid var(--hairline); font-family:var(--font-ui); font-size:12px; color:var(--muted); line-height:1.7}
 .tsf-byline a{color:var(--ink)}
+.tsf-byline a.tsf-how{color:var(--accent,#C8102E); font-weight:600; text-decoration:none}
+.tsf-byline a.tsf-how:hover{text-decoration:underline}
 
 /* ── responsive ── */
-@media (max-width: 720px) {
-  .tsf-hero{flex-direction:column; gap:14px}
-  .tsf-axis{grid-template-columns:96px 1fr 34px}
-  .tsf-dim{grid-template-columns:1fr}
-  .tsf-conf-meter{grid-template-columns:96px 1fr 34px}
+@media (max-width: 760px) {
+  .tsf-hero{grid-template-columns:96px minmax(0,1fr); gap:14px}
+  .tsf-poster,.tsf-poster--e{width:96px; height:144px}
+  .tsf-ubox{grid-column:1/-1; border-left:0; padding-left:0; border-top:1px solid var(--hairline); padding-top:12px}
+  .tsf-pillars{grid-template-columns:1fr}
+  .tsf-cards{grid-template-columns:1fr}
 }
