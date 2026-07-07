@@ -9,7 +9,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar from "@/components/FilmTabBar";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
-import FilmTopInfo from "@/components/FilmTopInfo";
+import FilmGlance, { type GlanceFact, type GlanceStat } from "@/components/FilmGlance";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
 import AccessEnrichment, { type AccessRecord } from "@/components/AccessEnrichment";
 import AccessSummary from "@/components/AccessSummary";
@@ -56,6 +56,25 @@ function accessRecordFor(tmdbId: number | null | undefined): AccessRecord | null
   if (!tmdbId) return null;
   const films = (accessEnrichment as unknown as { films: Record<string, AccessRecord> }).films;
   return films[String(tmdbId)] ?? null;
+}
+
+// Human-readable facts for the "At a glance" band. ISO region/language codes →
+// names via Intl (built-in), with a small override table for TMDB's quirks
+// (e.g. "cn" = Cantonese, not a valid ISO 639-1). All null/throw-safe.
+function regionName(code: string): string {
+  try { return new Intl.DisplayNames(["en"], { type: "region" }).of(code.toUpperCase()) ?? code; }
+  catch { return code; }
+}
+const LANG_OVERRIDE: Record<string, string> = { cn: "Cantonese", zh: "Chinese", xx: "No dialogue" };
+function langName(code: string): string {
+  const c = code.toLowerCase();
+  if (LANG_OVERRIDE[c]) return LANG_OVERRIDE[c];
+  try { const n = new Intl.DisplayNames(["en"], { type: "language" }).of(c); return n && n.toLowerCase() !== c ? n : code.toUpperCase(); }
+  catch { return code.toUpperCase(); }
+}
+function fmtReleaseDate(iso: string): string {
+  try { return new Date(`${iso}T00:00:00`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }); }
+  catch { return iso; }
 }
 
 const KIND_LABEL: Record<string, string> = {
