@@ -1,0 +1,257 @@
+import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import Link from "next/link";
+import SiteNav from "@/components/home2/SiteNav";
+import Byline from "@/components/Byline";
+import Provenance from "@/components/Provenance";
+import { pageRobots } from "@/lib/seo";
+import { FAMILIES, fw } from "@/lib/frameworks";
+
+/**
+ * Strong Misreadings of one film, read as a single article (2026-07-07).
+ * The film page's card wall assembled into prose — LLM-free: every sentence
+ * already exists in the corpus (take_title + rationale + leap per reading,
+ * plus the spoiler-free invitation as the lede). This is the SEO read-layer
+ * for "{film} meaning / interpretation / analysis" queries; the cards on
+ * /film/[slug]#df-readings stay untouched (lineage-playbook: full data on
+ * the film page, a focused reading page on top).
+ */
+export const revalidate = 3600;
+export async function generateStaticParams() {
+  return [];
+}
+
+function db() {
+  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+}
+
+type Reading = {
+  id: string; framework: string | null; title: string | null;
+  rationale: string | null; leap: string | null; strength: number | null;
+  figLabel: string; figSlug: string | null;
+};
+
+async function loadUncached(slug: string) {
+  const supabase = db();
+  const { data: film } = await supabase
+    .from("films")
+    .select("id, title, slug, year, director, director_slug, visible")
+    .eq("slug", slug)
+    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; visible: boolean }>();
+  if (!film || !film.visible) return null;
+
+  const { data: figRows } = await supabase
+    .from("figures")
+    .select("id, label, slug")
+    .eq("film_id", film.id)
+    .eq("status", "approved");
+  const figById = new Map((figRows ?? []).map((f) => [f.id as string, f]));
+  const figIds = [...figById.keys()];
+  if (!figIds.length) return null;
+
+  const { data: takeRows } = await supabase
+    .from("takes")
+    .select("id, figure_id, framework, take_title, rationale, leap, strength, is_invitation, created_at")
+    .in("figure_id", figIds)
+    .eq("status", "published");
+
+  let invitation: string | null = null;
+  let latest: string | null = null;
+  const readings: Reading[] = [];
+  for (const t of (takeRows ?? []) as { id: string; figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean; created_at: string }[]) {
+    if (!latest || t.created_at > latest) latest = t.created_at;
+    if (t.is_invitation) {
+      if (!invitation) invitation = t.rationale;
+      continue;
+    }
+    const f = figById.get(t.figure_id);
+    readings.push({
+      id: t.id, framework: t.framework, title: t.take_title,
+      rationale: t.rationale, leap: t.leap, strength: t.strength,
+      figLabel: (f?.label as string) ?? "", figSlug: (f?.slug as string | null) ?? null,
+    });
+  }
+  if (!readings.length) return null;
+  readings.sort((a, b) => {
+    const fa = fw(a.framework), fb = fw(b.framework);
+    const oa = FAMILIES.findIndex((x) => x.key === fa.family), ob = FAMILIES.findIndex((x) => x.key === fb.family);
+    return oa - ob || fa.label.localeCompare(fb.label) || (b.strength ?? 0) - (a.strength ?? 0);
+  });
+  return {
+    film: { title: film.title, slug: film.slug, year: film.year, director: film.director, director_slug: film.director_slug },
+    invitation,
+    readings,
+    latest: latest ? latest.slice(0, 10) : null,
+  };
+}
+
+function load(slug: string) {
+  return unstable_cache(() => loadUncached(slug), ["film-misreadings-1", slug], {
+    revalidate: 3600,
+    tags: [`film:${slug}`],
+  })();
+}
+
+type Props = { params: Promise<{ slug: string }> };
+
+const yStr = (y: number | null) => (y ? ` (${y})` : "");
+
+function familyGroups(readings: Reading[]) {
+  return FAMILIES
+    .map((fam) => ({ fam, items: readings.filter((m) => fw(m.framework).family === fam.key) }))
+    .filter((g) => g.items.length > 0);
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await load(slug);
+  if (!data) return { title: "Not found" };
+  const { film, readings } = data;
+  const n = readings.length;
+  const famN = familyGroups(readings).length;
+  const title = `${film.title}${yStr(film.year)} Meaning & Interpretations — ${n} Strong Misreadings`;
+  const titled = readings.filter((r) => r.title);
+  let description = `${n} critical readings of ${film.title}${titled[0] ? `: “${titled[0].title}”` : ""}${titled[1] ? `, “${titled[1].title}”` : ""}, and more — each an argument with a thesis, filed across ${famN} framework famil${famN === 1 ? "y" : "ies"}.`;
+  if (description.length > 158) description = description.slice(0, 155).replace(/\s+\S*$/, "") + "…";
+  return {
+    title,
+    description,
+    alternates: { canonical: `/film/${slug}/misreadings` },
+    openGraph: { title, description },
+    twitter: { card: "summary_large_image", title, description },
+    robots: pageRobots(n >= 5),
+  };
+}
+
+export default async function FilmMisreadingsPage({ params }: Props) {
+  const { slug } = await params;
+  const data = await load(slug);
+  if (!data) notFound();
+  const { film, invitation, readings, latest } = data;
+  const groups = familyGroups(readings);
+  const anchors = new Map(readings.map((r, i) => [r.id, `r${i + 1}`]));
+
+  const headline = `${film.title}${yStr(film.year)} Meaning & Interpretations — ${readings.length} Strong Misreadings`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://metatake.net/film/${film.slug}/misreadings`,
+    headline,
+    description: `${readings.length} critical readings of ${film.title}, each an argument with a thesis.`,
+    ...(latest ? { datePublished: latest, dateModified: latest } : {}),
+    inLanguage: "en",
+    about: { "@id": `https://metatake.net/film/${film.slug}` },
+    isPartOf: { "@type": "WebSite", name: "Metatake", url: "https://metatake.net" },
+    author: { "@type": "Organization", name: "Metatake", url: "https://metatake.net" },
+    publisher: { "@type": "Organization", name: "Metatake", url: "https://metatake.net" },
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Films", item: "https://metatake.net/film" },
+      { "@type": "ListItem", position: 2, name: `${film.title}${yStr(film.year)}`, item: `https://metatake.net/film/${film.slug}` },
+      { "@type": "ListItem", position: 3, name: "Strong Misreadings", item: `https://metatake.net/film/${film.slug}/misreadings` },
+    ],
+  };
+
+  return (
+    <div className="mt">
+      <SiteNav />
+      <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 60px" }}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+
+        <div className="df-crumb">
+          <Link href="/film">Films</Link>
+          <span className="df-sep">›</span>
+          <Link href={`/film/${film.slug}`}>{film.title}</Link>
+          <span className="df-sep">›</span>
+          <span>Strong Misreadings</span>
+        </div>
+
+        <article className="essay">
+          <div className="essay-kicker">
+            <span className="essay-chip">
+              <Link href="/curious/misreadings" style={{ color: "inherit", textDecoration: "none" }}>Strong Misreadings</Link>
+              {" · "}film by film
+            </span>
+            <span className="essay-meta">
+              {readings.length} readings{latest ? ` · latest filed ${latest}` : ""}
+            </span>
+          </div>
+
+          <h1 className="essay-h1">Strong Misreadings of {film.title}{yStr(film.year)}</h1>
+          <Byline created={latest ?? undefined} />
+          <p className="essay-dek">
+            {readings.length} ways to read {film.title}
+            {film.director ? <> — {film.director_slug ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : film.director}&apos;s film</> : null}
+            {" "}— against the grain: every one an argument with a thesis, not a summary.
+          </p>
+
+          <div className="essay-body">
+            {invitation ? <p><em>{invitation}</em></p> : null}
+            <p>
+              A <Link href="/about#strong-misreadings">Strong Misreading</Link> is the boldest defensible thing a film
+              lets you say through one of its figures — the characters, objects, places and forms Metatake singles out.
+              Below are all {readings.length} readings of {film.title} in the live corpus, filed across{" "}
+              {groups.length === 1 ? `one framework family` : `${groups.length} framework families`}, from{" "}
+              {groups[0].fam.label.toLowerCase()} to {groups[groups.length - 1].fam.label.toLowerCase()}. Drafted by
+              Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>.
+            </p>
+
+            <p style={{ fontSize: "0.92em" }}>
+              <b>In this article:</b>{" "}
+              {readings.filter((r) => r.title).map((r, i) => (
+                <span key={r.id}>
+                  {i > 0 ? " · " : ""}
+                  <a href={`#${anchors.get(r.id)}`}>{r.title}</a>
+                </span>
+              ))}
+            </p>
+
+            {groups.map(({ fam, items }) => (
+              <section key={fam.key}>
+                <h2>{fam.label}</h2>
+                {items.map((m) => {
+                  const F = fw(m.framework);
+                  return (
+                    <section key={m.id} id={anchors.get(m.id)}>
+                      <h3>{m.title ?? `${F.label} — via ${m.figLabel}`}</h3>
+                      <p style={{ fontSize: "0.85em", opacity: 0.75, marginTop: "-0.4em" }}>
+                        <span style={{ color: F.color, fontWeight: 600 } as CSSProperties}>
+                          {F.slug ? <Link href={`/strong-misreadings/${F.slug}`} style={{ color: "inherit" }}>{F.label}</Link> : F.label}
+                        </span>
+                        {" · via "}
+                        {m.figSlug ? <Link href={`/film/${film.slug}/figure/${m.figSlug}`}>{m.figLabel}</Link> : m.figLabel}
+                      </p>
+                      {m.rationale ? <p>{m.rationale}</p> : null}
+                      {m.leap ? <p><strong>The leap.</strong> {m.leap}</p> : null}
+                    </section>
+                  );
+                })}
+              </section>
+            ))}
+
+            <hr />
+            <p>
+              These readings are deliberate over-readings — arguments a film can survive, not claims about intent.
+              Each one anchors to a figure you can follow across cinema, and each framework has its own shelf:
+              browse <Link href="/strong-misreadings">all 14 frameworks</Link>, or every film&apos;s misreadings on{" "}
+              <Link href="/curious/misreadings">Curious</Link>.
+            </p>
+          </div>
+
+          <Provenance created={latest ?? undefined} />
+
+          <p style={{ marginTop: 24 }}>
+            <Link href={`/film/${film.slug}`}>← Everything on {film.title}{yStr(film.year)}</Link>
+          </p>
+        </article>
+      </div>
+    </div>
+  );
+}
