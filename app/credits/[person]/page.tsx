@@ -294,6 +294,92 @@ export default async function CrewPersonPage({ params }: Props) {
           </div>
         </header>
 
+        {(() => {
+          const facts = careerFacts(crafts);
+          if (!facts) return null;
+          const role = CRAFTS[mainCraft].role.toLowerCase();
+          const startAge = p.birthday && facts.first ? facts.first - Number(p.birthday.slice(0, 4)) : null;
+          const collabs = company.filter((d) => d.n >= 2).slice(0, 5).map((d) => {
+            const their = cat.filter((f) => isRead(f) && f.director === d.name && f.year).sort((a, b) => (a.year ?? 0) - (b.year ?? 0));
+            return { ...d, first: their[0], last: their[their.length - 1] };
+          });
+          return (
+            <section style={{ margin: "22px 0" }}>
+              {/* At a glance — always visible; the full analysis unfolds below. */}
+              <p style={{ fontSize: 15.5, lineHeight: 1.65, maxWidth: "72ch", margin: "0 0 10px" }}>
+                <b>At a glance.</b> {facts.dated} dated credit{facts.dated === 1 ? "" : "s"} across{" "}
+                {facts.decades.length} decade{facts.decades.length === 1 ? "" : "s"}, from{" "}
+                <FilmRef f={facts.firstFilm} catByTmdb={catByTmdb} /> to <FilmRef f={facts.lastFilm} catByTmdb={catByTmdb} />
+                {startAge && startAge > 10 && startAge < 80 ? <> — a career begun at {startAge}</> : null}.
+                The {facts.peak[0]}s were the densest stretch: <b>{facts.peak[1].length}</b> of the {facts.dated} credits.
+                {collabs[0] ? <> The defining partnership in our catalog: <b>{collabs[0].name}</b>, {collabs[0].n} films together.</> : null}
+              </p>
+
+              <details className="crd-more">
+                <summary>The full analysis — every number, spelled out</summary>
+                <div style={{ padding: "14px 2px 4px", lineHeight: 1.7, fontSize: 15 }}>
+                  <h3 style={{ fontSize: 16, margin: "0 0 6px" }}>The career, decade by decade</h3>
+                  <table style={{ borderCollapse: "collapse", width: "100%", maxWidth: 640, fontSize: 14.5 }}>
+                    <thead>
+                      <tr style={{ textAlign: "left", borderBottom: "2px solid #16233F" }}>
+                        <th style={{ padding: "6px 10px 6px 0" }}>Decade</th>
+                        <th style={{ padding: "6px 10px" }}>Credits</th>
+                        <th style={{ padding: "6px 0" }}>Among them</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {facts.decades.map(([d, films]) => {
+                        const notable = [...films].sort((a, b) => Number(!!catByTmdb.get(b.id)) - Number(!!catByTmdb.get(a.id)) || a.year - b.year).slice(0, 2);
+                        return (
+                          <tr key={d} style={{ borderBottom: "1px solid rgba(22,35,63,.12)", verticalAlign: "top" }}>
+                            <td style={{ padding: "6px 10px 6px 0", whiteSpace: "nowrap" }}><b>{d}s</b></td>
+                            <td style={{ padding: "6px 10px" }}>{films.length}</td>
+                            <td style={{ padding: "6px 0" }}>
+                              {notable.map((f, i) => <span key={f.id}>{i > 0 ? " · " : ""}<FilmRef f={f} catByTmdb={catByTmdb} /></span>)}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                  <p style={{ fontSize: 12.5, opacity: 0.65, margin: "6px 0 16px" }}>
+                    How to read this: dated {role} credits from the TMDB filmography, grouped by release decade;
+                    &ldquo;among them&rdquo; prefers films that are in the Metatake catalog (linked).
+                  </p>
+
+                  {collabs.length > 0 ? (
+                    <>
+                      <h3 style={{ fontSize: 16, margin: "14px 0 6px" }}>The collaborations, counted</h3>
+                      {collabs.map((d) => (
+                        <p key={d.name} style={{ margin: "0 0 8px" }}>
+                          With {d.slug ? <Link href={`/director/${d.slug}`}><b>{d.name}</b></Link> : <b>{d.name}</b>}:{" "}
+                          {d.n} film{d.n === 1 ? "" : "s"} in the catalog
+                          {d.first && d.last && d.first !== d.last ? (
+                            <> across {d.first.year}–{d.last.year}, from <Link href={`/film/${d.first.slug}`}>{d.first.title}</Link> to <Link href={`/film/${d.last.slug}`}>{d.last.title}</Link></>
+                          ) : d.first ? (
+                            <> — <Link href={`/film/${d.first.slug}`}>{d.first.title}</Link>{d.first.year ? ` (${d.first.year})` : ""}</>
+                          ) : null}
+                          .
+                        </p>
+                      ))}
+                      <p style={{ fontSize: 12.5, opacity: 0.65, margin: "6px 0 16px" }}>
+                        Counted across closely-read catalog films only — the real filmography together may be larger.
+                      </p>
+                    </>
+                  ) : null}
+
+                  <h3 style={{ fontSize: 16, margin: "14px 0 6px" }}>Where the work lives on Metatake</h3>
+                  <p style={{ margin: 0 }}>
+                    {readN} of {p.name}&apos;s films are read closely — figures, Strong Misreadings and Q&amp;A behind
+                    each — and {cat.length - readN > 0 ? `${cat.length - readN} more sit in the catalog awaiting a close read` : "the rest of the filmography is tracked in the catalog"}.
+                    {crafts.length > 1 ? <> Beyond {role}, the file also holds {crafts.slice(1).map((c, i) => <span key={c.key}>{i > 0 ? " and " : ""}{c.films.length} credit{c.films.length === 1 ? "" : "s"} as {CRAFTS[c.key].role.toLowerCase()}</span>)}.</> : null}
+                  </p>
+                </div>
+              </details>
+            </section>
+          );
+        })()}
+
         {repertory.length > 0 && (
           <section style={{ margin: "26px 0" }}>
             <h2 className="df-h2">The company they keep</h2>
@@ -333,6 +419,7 @@ export default async function CrewPersonPage({ params }: Props) {
         {crafts.map((c) => (
           <section key={c.key} style={{ margin: "26px 0" }}>
             <h2 className="df-h2">{CRAFTS[c.key].label} — {c.films.length} films</h2>
+            <p className="df-sub">Every {CRAFTS[c.key].role.toLowerCase()} credit on file, newest first. Linked titles are in the Metatake catalog; the rest are TMDB-only.</p>
             <p style={{ lineHeight: 1.8, maxWidth: "70ch" }}>
               {c.films.slice(0, 40).map((f, i) => {
                 const catF = catByTmdb.get(f.id);
