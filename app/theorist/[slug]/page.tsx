@@ -180,6 +180,17 @@ export default async function TheoristPage({ params }: Props) {
 
   const surnamePre = name.split(" ").length > 1 ? name.split(" ").pop() as string : "";
   const hlTermsPre = [name, surnamePre].filter(Boolean);
+  // Recurring figures this lens anchors to (aggregated by label).
+  const figCount = new Map<string, { n: number; href: string }>();
+  for (const r of readings) {
+    const k = r.fig_label.toLowerCase();
+    const cur = figCount.get(k) ?? { n: 0, href: `/film/${r.film_slug}/figure/${r.fig_slug}` };
+    cur.n += 1;
+    figCount.set(k, cur);
+  }
+  const figTop = [...figCount.entries()].map(([label, v]) => ({ label, ...v }))
+    .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)).slice(0, 24);
+
   const heroBackdrop = F.topFilms.find((f) => f.backdrop)?.backdrop ?? null;
   const bdBySlug = new Map<string, string | null>();
   for (const r of readings) if (!bdBySlug.has(r.film_slug)) bdBySlug.set(r.film_slug, r.backdrop_path);
@@ -251,11 +262,11 @@ export default async function TheoristPage({ params }: Props) {
         center
         search={{ event: "theory:q", targetId: "readings", placeholder: `Search ${readings.length} readings…` }}
         tabs={[
-          { id: "lens-facts", label: "The lens" },
-          { id: "lens-films", label: "The films", badge: F.filmArr.length },
-          { id: "readings", label: "Every reading", badge: readings.length },
-          ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length }] : []),
-          { id: "theorist-map", label: "Map" },
+          { id: "lens-facts", label: "The lens", color: "#D64534" },
+          ...(figTop.length ? [{ id: "lens-figures", label: "Figures", badge: figTop.length, color: "#B8863B" }] : []),
+          ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
+          { id: "theorist-map", label: "Connections", color: "#2F6DB0" },
+          { id: "readings", label: "Every reading", badge: readings.length, color: "#12897A" },
         ]}
       />
 
