@@ -1,6 +1,4 @@
 import type { ReactNode } from "react";
-import { createClient } from "@supabase/supabase-js";
-import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -10,9 +8,11 @@ import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
 import GrowStill from "@/components/read/GrowStill";
+import MakerPanels from "@/components/read/MakerPanels";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
+import { filmCreditsData, ordinal, ROLE_NOUN, type Relation, type SharedFilm } from "@/lib/film-credits-data";
 import { pageRobots } from "@/lib/seo";
-import { CRAFTS, type CraftKey, personSlug } from "@/app/credits/credits-logic";
+import { type CraftKey, personSlug } from "@/app/credits/credits-logic";
 import "@/app/curious/curious.css";
 import "../read.css";
 
@@ -28,176 +28,9 @@ import "../read.css";
 export const revalidate = 86400;
 export async function generateStaticParams() { return []; }
 
-const KEY_CRAFTS: CraftKey[] = ["writer", "dp", "editor", "composer", "pd"];
-const ROLE_NOUN: Record<string, string> = {
-  writer: "writer", dp: "cinematographer", editor: "editor", composer: "composer", pd: "production designer",
-};
-
-function db() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-}
-
-async function tm<T>(path: string): Promise<T | null> {
-  const token = process.env.TMDB_READ_TOKEN;
-  if (!token) return null;
-  const v4 = token.length > 40;
-  const url = `https://api.themoviedb.org/3${path}${v4 ? "" : `${path.includes("?") ? "&" : "?"}api_key=${token}`}`;
-  const r = await fetch(url, {
-    headers: v4 ? { Authorization: `Bearer ${token}`, accept: "application/json" } : { accept: "application/json" },
-    next: { revalidate: 86400 },
-  }).catch(() => null);
-  if (!r || !r.ok) return null;
-  return (await r.json()) as T;
-}
-
-type TmMovie = {
-  id: number; title: string;
-  production_companies?: { id: number; name: string; origin_country?: string }[];
-  credits?: {
-    crew?: { id: number; name: string; job?: string; department?: string; profile_path?: string | null }[];
-    cast?: { id: number; name: string; character?: string; order?: number; profile_path?: string | null }[];
-  };
-};
-type TmPersonCredits = {
-  crew?: { id: number; title?: string; release_date?: string; job?: string }[];
-  cast?: { id: number; title?: string; release_date?: string }[];
-};
-
-type SharedFilm = { id: number; title: string; year: number };
-type Relation = {
-  personId: number; name: string; roleKey: CraftKey | "actor"; role: string;
-  shared: SharedFilm[]; idx: number; // index of THIS film in shared (-1 if absent)
-  careerCount: number; careerFirst: number; // their whole run in this craft (TMDB)
-  profile: string | null;
-};
-
-const yearOf = (d?: string) => Number((d || "").slice(0, 4)) || 0;
-
-async function relationWithDirector(
-  person: { id: number; name: string; profile_path?: string | null }, roleKey: CraftKey | "actor",
-  directedIds: Map<number, { title: string; year: number }>, thisId: number,
-): Promise<Relation | null> {
-  const pc = await tm<TmPersonCredits>(`/person/${person.id}/movie_credits`);
-  if (!pc) return null;
-  const mine = new Map<number, { title: string; year: number }>();
-  if (roleKey === "actor") {
-    for (const c of pc.cast ?? []) mine.set(c.id, { title: c.title ?? `#${c.id}`, year: yearOf(c.release_date) });
-  } else {
-    const cf = CRAFTS[roleKey];
-    for (const c of pc.crew ?? []) {
-      if (c.job && cf.jobs.has(c.job)) mine.set(c.id, { title: c.title ?? `#${c.id}`, year: yearOf(c.release_date) });
-    }
-  }
-  const shared: SharedFilm[] = [];
-  for (const [fid, meta] of mine) {
-    if (directedIds.has(fid)) shared.push({ id: fid, title: meta.title, year: meta.year });
-  }
-  shared.sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
-  const idx = shared.findIndex((f) => f.id === thisId);
-  const careerYears = [...mine.values()].map((m) => m.year).filter((y) => y > 1880);
-  return {
-    personId: person.id, name: person.name, roleKey,
-    role: roleKey === "actor" ? "actor" : ROLE_NOUN[roleKey], shared, idx,
-    careerCount: mine.size, careerFirst: careerYears.length ? Math.min(...careerYears) : 0,
-    profile: person.profile_path ?? null,
-  };
-}
-
-async function loadUncached(slug: string) {
-  const supabase = db();
-  const { data: film } = await supabase
-    .from("films")
-    .select("id, title, slug, year, director, director_slug, tmdb_id, poster_path, backdrop_path, visible")
-    .eq("slug", slug)
-    .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; tmdb_id: number | null; poster_path: string | null; backdrop_path: string | null; visible: boolean | null }>();
-  if (!film || !film.tmdb_id) return null;
-
-  const [movie, { data: vidRows }] = await Promise.all([
-    tm<TmMovie>(`/movie/${film.tmdb_id}?append_to_response=credits`),
-    supabase.from("media").select("external_id, title").eq("entity_type", "film").eq("entity_id", film.id)
-      .eq("status", "published").eq("kind", "video").order("position"),
-  ]);
-  if (!movie) return null;
-
-  const crewAll = movie.credits?.crew ?? [];
-  const directorEntry = crewAll.find((c) => c.job === "Director") ?? null;
-
-  // Key crew, one group per craft (up to 2 names each — the signing crafts).
-  const crew: { craft: CraftKey; people: { id: number; name: string; profile_path: string | null }[] }[] = [];
-  for (const key of KEY_CRAFTS) {
-    const cf = CRAFTS[key];
-    const seen = new Map<number, { id: number; name: string; profile_path: string | null }>();
-    for (const c of crewAll) {
-      if (c.job && cf.jobs.has(c.job) && c.department && cf.depts.includes(c.department)) seen.set(c.id, { id: c.id, name: c.name, profile_path: c.profile_path ?? null });
-    }
-    if (seen.size) crew.push({ craft: key, people: [...seen.values()].slice(0, 2) });
-  }
-  const topCast = [...(movie.credits?.cast ?? [])].sort((a, b) => (a.order ?? 99) - (b.order ?? 99)).slice(0, 5)
-    .map((c) => ({ id: c.id, name: c.name, character: c.character ?? null }));
-
-  // Relationship engine — director's directed set, then each person's overlap.
-  let directorFilmog: SharedFilm[] = [];
-  const relations: Relation[] = [];
-  if (directorEntry) {
-    const dc = await tm<TmPersonCredits>(`/person/${directorEntry.id}/movie_credits`);
-    const directed = new Map<number, { title: string; year: number }>();
-    for (const c of dc?.crew ?? []) {
-      if (c.job === "Director") directed.set(c.id, { title: c.title ?? `#${c.id}`, year: yearOf(c.release_date) });
-    }
-    directorFilmog = [...directed.entries()].map(([id, m]) => ({ id, ...m })).filter((f) => f.year > 1880)
-      .sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
-    const subjects: { p: { id: number; name: string }; roleKey: CraftKey | "actor" }[] = [];
-    for (const g of crew) for (const p of g.people.slice(0, 1)) if (p.id !== directorEntry.id) subjects.push({ p, roleKey: g.craft });
-    for (const c of topCast.slice(0, 3)) if (c.id !== directorEntry.id) subjects.push({ p: c, roleKey: "actor" });
-    const settled = await Promise.all(subjects.map((s) => relationWithDirector(s.p, s.roleKey, directed, film.tmdb_id!).catch(() => null)));
-    for (const r of settled) if (r) relations.push(r);
-  }
-
-  // Catalog links for every film mentioned in a sentence.
-  const mentioned = new Set<number>([film.tmdb_id]);
-  for (const r of relations) for (const f of r.shared) mentioned.add(f.id);
-  for (const f of directorFilmog.slice(0, 1)) mentioned.add(f.id);
-  for (const f of directorFilmog.slice(-1)) mentioned.add(f.id);
-  const slugByTmdb = new Map<number, string>();
-  const ids = [...mentioned];
-  for (let i = 0; i < ids.length; i += 150) {
-    const { data } = await supabase.from("films").select("tmdb_id, slug").in("tmdb_id", ids.slice(i, i + 150));
-    for (const row of (data ?? []) as { tmdb_id: number; slug: string }[]) slugByTmdb.set(row.tmdb_id, row.slug);
-  }
-
-  const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[]).filter((v) => v.external_id);
-  const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
-  const videos = [...vids.filter((v) => !isTrailerTitle(v.title)), ...vids.filter((v) => isTrailerTitle(v.title))]
-    .map((v) => ({ id: v.external_id as string, title: v.title ?? "" }));
-
-  return {
-    film: { title: film.title, slug: film.slug, year: film.year, director: film.director, director_slug: film.director_slug, tmdb_id: film.tmdb_id, backdrop_path: film.backdrop_path, visible: film.visible },
-    director: directorEntry ? { id: directorEntry.id, name: directorEntry.name, profile: directorEntry.profile_path ?? null } : null,
-    directorFilmog,
-    crew,
-    topCast,
-    companies: (movie.production_companies ?? []).slice(0, 8),
-    relations,
-    videos,
-    slugByTmdb: [...slugByTmdb.entries()],
-  };
-}
-
-function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["film-credits-page-2", slug], {
-    revalidate: 86400,
-    tags: [`film:${slug}`],
-  })();
-}
-
 type Props = { params: Promise<{ slug: string }> };
 const yStr = (y: number | null) => (y ? ` (${y})` : "");
-const ordinal = (n: number) => {
-  const t = n % 100;
-  if (t >= 11 && t <= 13) return `${n}th`;
-  const u = n % 10;
-  return `${n}${u === 1 ? "st" : u === 2 ? "nd" : u === 3 ? "rd" : "th"}`;
-};
+const load = filmCreditsData;
 
 function dekText(d: { film: { title: string }; director: { name: string } | null; crew: { craft: CraftKey; people: { name: string }[] }[] }): string {
   const bits: string[] = [];
@@ -386,57 +219,7 @@ export default async function FilmCreditsPage({ params }: Props) {
           <p className="df-sub">
             One panel per craft. Each opens the person&apos;s own page: everything they&apos;ve made, and who they made it with.
           </p>
-          <div className="crd-grid">
-            {director && directorFilmog.length > 0 ? (() => {
-              const dIdx = directorFilmog.findIndex((f) => f.id === film.tmdb_id);
-              const href = film.director_slug && film.director === director.name
-                ? `/director/${film.director_slug}`
-                : `/credits?p=${director.id}&c=dir`;
-              return (
-                <a className="crd-panel" href={href} key="director">
-                  {director.profile
-                    ? /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={`https://image.tmdb.org/t/p/w185${director.profile}`} alt={director.name} width={92} height={120} loading="lazy" />
-                    : <span className="crd-ph" aria-hidden>{director.name[0]}</span>}
-                  <span>
-                    <span className="crd-k">Director · {film.title}</span>
-                    <h3>What has {director.name} directed — and with whom?</h3>
-                    <p>
-                      The director of {film.title}: {directorFilmog.length} directing credits since {directorFilmog[0].year}
-                      {dIdx >= 0 ? <> — {film.title} was the {ordinal(dIdx + 1)} of them</> : null}.
-                    </p>
-                    <span className="crd-go">Open the file →</span>
-                  </span>
-                </a>
-              );
-            })() : null}
-            {relations.filter((r) => r.roleKey !== "actor").map((r) => {
-              const VERBED: Record<string, string> = { writer: "written", dp: "shot", editor: "cut", composer: "scored", pd: "designed" };
-              const verbed = VERBED[r.roleKey] ?? "made";
-              return (
-                <a className="crd-panel" href={`/credits/${personSlug(r.name, r.personId)}`} key={`${r.personId}-${r.roleKey}`}>
-                  {r.profile
-                    ? /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={`https://image.tmdb.org/t/p/w185${r.profile}`} alt={r.name} width={92} height={120} loading="lazy" />
-                    : <span className="crd-ph" aria-hidden>{r.name[0]}</span>}
-                  <span>
-                    <span className="crd-k">{r.role} · {film.title}</span>
-                    <h3>What has {r.name} {verbed} — and with whom?</h3>
-                    <p>
-                      The {r.role} of {film.title} — {r.careerCount} film{r.careerCount === 1 ? "" : "s"} {verbed}
-                      {r.careerFirst ? ` since ${r.careerFirst}` : ""}
-                      {r.shared.length > 0 && director ? (
-                        r.shared.length === 1
-                          ? <>; the only one with {director.name}</>
-                          : <>; {r.idx >= 0 ? `the ${ordinal(r.idx + 1)}` : "one"} of {r.shared.length} with {director.name}</>
-                      ) : null}.
-                    </p>
-                    <span className="crd-go">Open the file →</span>
-                  </span>
-                </a>
-              );
-            })}
-          </div>
+          <MakerPanels payload={data} />
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 22 }}>
