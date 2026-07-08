@@ -264,7 +264,7 @@ export default async function FilmReceptionPage({ params }: Props) {
     papers.length ? `${papers.length} paper${papers.length === 1 ? "" : "s"}` : null,
     honorsN ? `${honorsN} honor${honorsN === 1 ? "" : "s"}` : null,
     countries.length ? `${countries.length} countr${countries.length === 1 ? "y" : "ies"}` : null,
-    y1 && y0 && y1 > y0 ? `${y0}–${y1}` : null,
+    years.length > 1 && years[years.length - 1] > years[0] ? `${years[0]}–${years[years.length - 1]}` : null,
   ].filter(Boolean).join(" · ");
   const jsonLd = {
     "@context": "https://schema.org",
