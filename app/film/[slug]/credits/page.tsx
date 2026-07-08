@@ -15,6 +15,7 @@ import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
 import { CRAFTS, type CraftKey, personSlug } from "@/app/credits/credits-logic";
 import "@/app/curious/curious.css";
+import "@/app/credits/credits.css"; // the embedded explorer's cr-* chrome
 import "../read.css";
 
 /**
