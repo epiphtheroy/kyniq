@@ -8,7 +8,17 @@
 set -u
 DIR="/Users/jerryje/Documents/MetaTake/hourly"
 LOG="$DIR/poller/cron.log"
+PIDFILE="$DIR/.watch.pid"
 cd "$DIR" || exit 1
+
+# single-instance guard: double-starting (e.g. re-running the nohup line when
+# a watcher is already alive) must be harmless — duplicate loops would race
+# the daily cap and double-publish.
+if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE" 2>/dev/null)" 2>/dev/null; then
+  echo "[$(date -u +%FT%TZ)] watcher already running (pid $(cat "$PIDFILE")) — exiting" >> "$LOG"
+  exit 0
+fi
+echo $$ > "$PIDFILE"
 
 echo "[$(date -u +%FT%TZ)] now-playing-watch started (pid $$)" >> "$LOG"
 

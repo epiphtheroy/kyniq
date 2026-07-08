@@ -469,6 +469,16 @@ def main() -> None:
     env = load_env()
     stamp = now_utc()
 
+    # single-run lock: overlapping triggers (watcher + manual, or a slow run
+    # crossing the next :00) must never race the daily cap into a double publish
+    import fcntl
+    lock = open(HOURLY / ".produce.lock", "w")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        log("another produce run is in progress — exiting")
+        return
+
     if (HOURLY / "HOLD").exists():
         log("HOLD file present — publishing stopped by editor")
         ledger_append(f"{stamp} · PASS · HOLD file present")
