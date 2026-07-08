@@ -28,7 +28,13 @@ const TAB_COLOR: Record<string, string> = {
 };
 const DEFAULT_TAB_COLOR = "#5A6B86";
 
-export default function FilmTabBar({ tabs, twoRow = false }: { tabs: FilmTab[]; twoRow?: boolean }) {
+export default function FilmTabBar({ tabs, twoRow = false, center = false, search }: {
+  tabs: FilmTab[]; twoRow?: boolean;
+  // Theory pages (2026-07-08): center the single-row bar, and carry an
+  // in-page search box that drives the page's explorers via a CustomEvent.
+  center?: boolean;
+  search?: { event: string; targetId: string; placeholder?: string };
+}) {
   const barRef = useRef<HTMLElement>(null);
   const [navH, setNavH] = useState(0);
   const [active, setActive] = useState(tabs[0]?.id ?? "");
@@ -175,9 +181,30 @@ export default function FilmTabBar({ tabs, twoRow = false }: { tabs: FilmTab[]; 
     );
   }
 
+  const jumpTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const barH = barRef.current ? barRef.current.offsetHeight : 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - navH - barH - 10;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  };
+
   return (
     <nav ref={barRef} className="df-tabs" style={{ top: navH }} aria-label="Sections on this page">
-      <div className="df-tabs__in">{tabs.map(renderTab)}</div>
+      <div className={`df-tabs__in${center ? " df-tabs__in--center" : ""}`}>
+        {tabs.map(renderTab)}
+        {search ? (
+          <input
+            className="df-tabs__q"
+            type="search"
+            placeholder={search.placeholder ?? "Search this page…"}
+            aria-label={search.placeholder ?? "Search this page"}
+            onChange={(e) => window.dispatchEvent(new CustomEvent(search.event, { detail: e.target.value }))}
+            onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); jumpTo(search.targetId); } }}
+            onFocus={() => { /* keep context — jump happens on Enter */ }}
+          />
+        ) : null}
+      </div>
     </nav>
   );
 }

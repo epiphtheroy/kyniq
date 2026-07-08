@@ -1,6 +1,7 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import TermHighlight from "@/components/TermHighlight";
 
 /**
  * DeskExplorer — the curious-desk essays on a concept page, rendered as full
@@ -32,8 +33,14 @@ const sel: React.CSSProperties = {
   border: "1px solid rgba(0,0,0,.18)", background: "transparent",
 };
 
-export default function DeskExplorer({ desks, about }: { desks: DeskLink[]; about: string }) {
+export default function DeskExplorer({ desks, about, listenEvent }: { desks: DeskLink[]; about: string; listenEvent?: string }) {
   const [q, setQ] = useState("");
+  useEffect(() => {
+    if (!listenEvent) return;
+    const onQ = (e: Event) => setQ(String((e as CustomEvent).detail ?? ""));
+    window.addEventListener(listenEvent, onQ);
+    return () => window.removeEventListener(listenEvent, onQ);
+  }, [listenEvent]);
   const [desk, setDesk] = useState("");
   const [sort, setSort] = useState<"relevance" | "year-desc" | "year-asc" | "film-az">("relevance");
 
@@ -100,8 +107,9 @@ export default function DeskExplorer({ desks, about }: { desks: DeskLink[]; abou
                   <span className="thr-fw" style={{ color: M.color }}>{M.label}</span>
                   <Link className="thr-film" href={`/film/${d.film_slug}`}>{d.film_title}{d.film_year ? ` (${d.film_year})` : ""}</Link>
                 </div>
-                <Link className="thr-title" href={href}>{mdStrip(d.essay_title)}</Link>
-                {d.excerpt ? <p className="thr-thesis">{mdStrip(d.excerpt)}</p> : null}
+                <Link className="thr-title" href={href}><TermHighlight text={mdStrip(d.essay_title)} terms={[about]} /></Link>
+                {d.excerpt ? <p className="thr-thesis"><TermHighlight text={mdStrip(d.excerpt)} terms={[about]} /></p> : null}
+                <Link className="thr-go" href={href}>Read the essay →</Link>
               </div>
             </article>
           );

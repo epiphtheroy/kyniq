@@ -81,3 +81,15 @@
   display: inline-block; margin-top: 6px; font-size: 12.5px; font-weight: 700; color: #c0392b;
   text-decoration: none;
 }
+
+/* Theory-page tab bar: centered rail + in-page search (2026-07-08). */
+.df-tabs__in--center { justify-content: safe center; }
+.df-tabs__q {
+  flex: 0 0 auto; align-self: center; margin-left: 10px; width: 200px;
+  font-size: 13px; padding: 6px 13px; border-radius: 999px;
+  border: 1.5px solid rgba(22, 35, 63, 0.3); background: transparent; outline: none;
+}
+.df-tabs__q:focus { border-color: #c0392b; }
+/* Bigger ScreenRant-scale slate thumbnails (sides may crop — object-fit cover). */
+.mt .thr-th { flex: 0 0 232px; }
+@media (max-width: 640px) { .mt .thr-th { flex: 0 0 128px; } .df-tabs__q { width: 140px; } }

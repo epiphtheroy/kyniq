@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
 import TermHighlight from "@/components/TermHighlight";
@@ -23,8 +23,15 @@ const sel: React.CSSProperties = {
   border: "1px solid rgba(0,0,0,.18)", background: "transparent",
 };
 
-export default function ReadingsExplorer({ readings, about }: { readings: ReadingItem[]; about: string }) {
+export default function ReadingsExplorer({ readings, about, listenEvent }: { readings: ReadingItem[]; about: string; listenEvent?: string }) {
   const [q, setQ] = useState("");
+  // The sticky tab bar's in-page search drives this explorer (CustomEvent).
+  useEffect(() => {
+    if (!listenEvent) return;
+    const onQ = (e: Event) => setQ(String((e as CustomEvent).detail ?? ""));
+    window.addEventListener(listenEvent, onQ);
+    return () => window.removeEventListener(listenEvent, onQ);
+  }, [listenEvent]);
   const [frame, setFrame] = useState("");
   const [decade, setDecade] = useState("");
   const [sort, setSort] = useState<"relevance" | "year-desc" | "year-asc" | "film-az">("relevance");

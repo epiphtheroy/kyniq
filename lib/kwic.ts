@@ -32,7 +32,7 @@ const MODE_BY_KEY = new Map(DESK_KEYS.map((k) => [k as string, DESKS[k].mode]));
 
 /**
  * Attach KWIC excerpts (built from the full essay bodies) to desk links.
- * One batched query;每 pair matched on (film_slug, mode). Failures leave the
+ * One batched query; each pair matched on (film_slug, mode). Failures leave the
  * original excerpt untouched.
  */
 export async function attachKwic<T extends { film_slug: string; desk_key: string; excerpt?: string | null }>(
