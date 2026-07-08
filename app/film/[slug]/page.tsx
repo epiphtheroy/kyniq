@@ -207,7 +207,11 @@ async function loadUncached(slug: string) {
     supabase.from("media").select("id, kind, source, external_id, url, thumbnail_url, title, attribution")
       .eq("entity_type", "film").eq("entity_id", film.id).eq("status", "published").order("position"),
     supabase.rpc("film_catalog", { p_film_id: film.id }),
-    supabase.rpc("film_reception", { p_film_id: film.id }),
+    // Direct select (not the RPC) so the record layer gets dek_lead + review_year
+    // for pull-quotes and the afterlife slate (2026-07-08).
+    supabase.from("film_reception")
+      .select("kind, outlet, critic, year, tier, headline, comment, verdict, url, dek_lead, review_year")
+      .eq("film_id", film.id).order("position"),
     supabase.rpc("film_next", { p_film_id: film.id }),
     supabase.rpc("film_asset", { p_film_id: film.id }),
     supabase.rpc("film_next_reverse", { p_film_id: film.id }),
@@ -232,6 +236,22 @@ async function loadUncached(slug: string) {
   const lineage = (lnRows ?? []) as LinRow[];
   // Per-list source/QID for the Lineage section's citation tags.
   const lnListMeta = Object.fromEntries(await loadLineageListMeta([...new Set(lineage.map((l) => l.list_slug))]));
+  // The record layer's scale badges — how much sits behind "see more" (afterlife
+  // timeline + full honors record). Three cheap queries, cached with the page.
+  let afterlife: { releases: number; wdHonors: number; y0: number | null; y1: number | null } = { releases: 0, wdHonors: 0, y0: null, y1: null };
+  try {
+    const [relAsc, relDesc, wdCnt] = await Promise.all([
+      supabase.from("film_release_events").select("event_date", { count: "exact" }).eq("film_id", film.id).order("event_date").limit(1),
+      supabase.from("film_release_events").select("event_date").eq("film_id", film.id).order("event_date", { ascending: false }).limit(1),
+      supabase.from("film_wd_honors").select("id", { count: "exact", head: true }).eq("film_id", film.id),
+    ]);
+    afterlife = {
+      releases: relAsc.count ?? 0,
+      wdHonors: wdCnt.count ?? 0,
+      y0: relAsc.data?.[0]?.event_date ? Number(String(relAsc.data[0].event_date).slice(0, 4)) : null,
+      y1: relDesc.data?.[0]?.event_date ? Number(String(relDesc.data[0].event_date).slice(0, 4)) : null,
+    };
+  } catch { /* record layer is enhancement-only */ }
   const ratings = (ratRow as Ratings | null) ?? null;
   const watch = (wpRow as Watch | null) ?? null;
   const questions = (qRows ?? []) as QRow[];
