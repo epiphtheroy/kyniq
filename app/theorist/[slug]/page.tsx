@@ -6,6 +6,9 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar from "@/components/FilmTabBar";
 import TermHighlight from "@/components/TermHighlight";
+import ReadingsExplorer from "@/components/ReadingsExplorer";
+import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplorer";
+import { attachKwic } from "@/lib/kwic";
 import EntityMap from "@/components/EntityMap";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
@@ -176,9 +179,19 @@ export default async function TheoristPage({ params }: Props) {
     .map((fam) => ({ fam, items: readings.filter((r) => fw(r.framework).family === fam.key) }))
     .filter((g) => g.items.length > 0);
 
+  const surnamePre = name.split(" ").length > 1 ? name.split(" ").pop() as string : "";
+  const hlTermsPre = [name, surnamePre].filter(Boolean);
+  const hlTerms = hlTermsPre;
   const heroBackdrop = F.topFilms.find((f) => f.backdrop)?.backdrop ?? null;
-  const surname = name.split(" ").length > 1 ? name.split(" ").pop() as string : "";
-  const hlTerms = [name, surname].filter(Boolean);
+  const bdBySlug = new Map<string, string | null>();
+  for (const r of readings) if (!bdBySlug.has(r.film_slug)) bdBySlug.set(r.film_slug, r.backdrop_path);
+  const desksKwic = await attachKwic(db(), desks, hlTermsPre);
+  const deskLinks: XDeskLink[] = desksKwic.map((d) => ({
+    film_slug: d.film_slug, film_title: d.film_title, film_year: d.film_year,
+    desk_key: d.desk_key, essay_title: d.essay_title,
+    excerpt: d.excerpt, mode: null, backdrop_path: bdBySlug.get(d.film_slug) ?? null,
+  }));
+
   const growFilm = F.topFilms.find((f) => f.backdrop && f.n >= 1) ?? null;
 
   const canonical = `${SITE}/theorist/${slug}`;
@@ -236,13 +249,17 @@ export default async function TheoristPage({ params }: Props) {
         </div>
       </div>
 
-      <FilmTabBar tabs={[
-        { id: "lens-facts", label: "The lens" },
-        { id: "lens-films", label: "The films", badge: F.filmArr.length },
-        { id: "readings", label: "Every reading", badge: readings.length },
-        ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length }] : []),
-        { id: "theorist-map", label: "Map" },
-      ]} />
+      <FilmTabBar
+        center
+        search={{ event: "theory:q", targetId: "readings", placeholder: `Search ${readings.length} readings…` }}
+        tabs={[
+          { id: "lens-facts", label: "The lens" },
+          { id: "lens-films", label: "The films", badge: F.filmArr.length },
+          { id: "readings", label: "Every reading", badge: readings.length },
+          ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length }] : []),
+          { id: "theorist-map", label: "Map" },
+        ]}
+      />
 
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>
         <Byline />
@@ -320,57 +337,23 @@ export default async function TheoristPage({ params }: Props) {
 
         {/* ── The readings, by framework family — the tab structure IS the taxonomy ── */}
         <section style={{ margin: "8px 0 0" }} id="readings">
-          <h2 className="df-h2">Every reading, filed by framework</h2>
+          <h2 className="df-h2">Every reading, searchable</h2>
           <p className="df-sub">
-            {readings.length} Strong Misreadings borrow {name} — grouped the way Metatake files them, family by family.
-            Each links into the film&apos;s figure page, where the full reading lives.
+            {readings.length} Strong Misreadings borrow {name} — search them from the bar above, or filter by
+            framework and decade. Each card links into the film&apos;s figure page, where the full reading lives.
           </p>
-          {byFamily.map(({ fam, items }) => (
-            <div key={fam.key} style={{ margin: "18px 0 0" }}>
-              <h3 style={{ fontSize: 14, letterSpacing: ".05em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 4px" }}>
-                {fam.label} — {items.length}
-              </h3>
-              <div className="th-readings">
-                {items.map((r) => {
-                  const Fw = fw(r.framework);
-                  const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
-                  return (
-                    <article className="thr" key={r.take_id}>
-                      {r.backdrop_path ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
-                      ) : null}
-                      <div className="thr-body">
-                        <div className="thr-top">
-                          <span className="thr-fw" style={{ color: Fw.color }}>{Fw.label}</span>
-                          <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
-                          {r.concept ? <span className="thr-concept">{r.concept}</span> : null}
-                        </div>
-                        <Link className="thr-title" href={href}><TermHighlight text={r.take_title ?? r.fig_label} terms={hlTerms} /></Link>
-                        {r.thesis ? <p className="thr-thesis"><TermHighlight text={r.thesis} terms={hlTerms} /></p> : null}
-                        {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> <TermHighlight text={r.leap} terms={hlTerms} /></p> : null}
-                        <Link className="thr-go" href={href}>Read the scene →</Link>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          <ReadingsExplorer
+            readings={readings.map((r) => ({ ...r, theorist_name: null, theorist_slug: null }))}
+            about={name}
+            listenEvent="theory:q"
+          />
         </section>
 
         {desks.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="theorist-desks">
             <h2 className="df-h2">From the desks — essays that cite {name}</h2>
-            <ul className="essay-desklist" style={{ marginTop: 10 }}>
-              {desks.map((d) => (
-                <li key={`${d.film_slug}/${d.desk_key}`}>
-                  <Link href={`/film/${d.film_slug}/${d.desk_key}`}>
-                    {d.film_title}{d.film_year ? ` (${d.film_year})` : ""} — {d.essay_title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <p className="df-sub">Excerpted where {name} actually appears in the essay, not just the opening line.</p>
+            <DeskExplorer desks={deskLinks} about={name} listenEvent="theory:q" />
           </section>
         )}
 
