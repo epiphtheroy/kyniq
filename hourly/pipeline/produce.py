@@ -104,7 +104,7 @@ Voice: declarative, front-loaded, short paragraphs, zero filler, no em-dashes, n
 
 Workflow (mandatory): (1) use web_search at least twice - verify the core facts beyond the provided links, and find what is actually confirmed vs merely reported right now; (2) then write.
 
-Honesty at speed: first-hour facts move. Say once, plainly, what is confirmed vs reported. Attribute every fact to an outlet. Only cite sources you actually saw in search results.
+Honesty at speed: first-hour facts move. Say once, plainly, what is confirmed vs reported. Attribute every fact to an outlet AND a date - the piece's publish time is NOT the news's date, so write "Deadline reported on July 7 that..." / "as of July 8, no release date is set". Every factual paragraph must carry at least one explicit reporting date. Only cite sources you actually saw in search results.
 
 HTML rules for body fields: only <p>, <b>, <i>, <em>, <strong>, <ul>, <li>, <br>, and <a href="..."> where href MUST start with "/" (site-internal). News sources go in the sources array, never as links in body HTML.
 
@@ -274,16 +274,61 @@ def assemble_modules(piece: dict, pack: dict) -> list[dict]:
     return out
 
 
-def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict) -> tuple[bool, str]:
+def build_cut_floor(env: dict, snapshot: dict, chosen_keyword: str) -> list[dict]:
+    """The editor's cutting-room floor: the hour's other spikes we did NOT run,
+    each with a source link and a one-line reason. Transparency that the beat
+    gate is a choice, not an accident. One cheap LLM pass writes the comments."""
+    rejects = []
+    seen = {chosen_keyword.lower()}
+    for c in snapshot.get("candidates", []):
+        kw = c.get("keyword", "").strip()
+        if not kw or kw.lower() in seen:
+            continue
+        seen.add(kw.lower())
+        url = ""
+        for src in (c.get("news") or []) + (c.get("fleet_hits") or []):
+            if src.get("url", "").startswith("http"):
+                url = src["url"]
+                break
+        rejects.append({"keyword": kw, "url": url,
+                        "entity": (c.get("entity") or {}).get("label"),
+                        "beat": c.get("beat", 0), "traffic": c.get("traffic", "")})
+        if len(rejects) >= 8:
+            break
+    if not rejects:
+        return []
+
+    brief = [{"i": i, "keyword": r["keyword"], "in_corpus": r["entity"] or "no film in the archive"}
+             for i, r in enumerate(rejects)]
+    user = (f"We published one Now Playing piece on '{chosen_keyword}'. These other spikes trended this hour but we passed. "
+            f"Write ONE dry, wry editor's-note sentence (<=18 words) per item saying why it is not our story - "
+            f"the beat is film-and-culture read through the archive; a spike with no corpus film, or news the archive can't deepen, is out. "
+            f"No hedging, no repetition of the keyword verbatim. JSON only: {{\"comments\": [{{\"i\": n, \"c\": \"...\"}}]}}.\n\n"
+            f"ITEMS: {json.dumps(brief, ensure_ascii=False)}")
+    parsed = parse_json_block(anthropic_call(env, model=LIGHT_MODEL,
+                                             system="You are the editor writing cutting-room-floor notes. Terse, dry. JSON only.",
+                                             user=user, max_tokens=700) or "")
+    comments = {c["i"]: _strip_dashes(str(c["c"]))[:160] for c in (parsed or {}).get("comments", []) if "i" in c and "c" in c}
+    out = []
+    for i, r in enumerate(rejects):
+        out.append({"keyword": r["keyword"], "url": r["url"],
+                    "comment": comments.get(i) or ("outside the beat" if not r["entity"] else "the archive adds nothing here")})
+    return out
+
+
+def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_floor: list[dict]) -> tuple[bool, str]:
     anchor = pack["anchor"]
+    img = pack.get("image") or {}
     row = {
         "slug": piece["slug"], "headline": piece["headline"], "dek": piece.get("dek"),
         "summary": piece.get("summary"), "keyword": cand["keyword"], "lane": "direct",
         "anchor_type": anchor["type"], "anchor_slug": anchor.get("slug"), "anchor_label": anchor["label"],
         "film_slug": pack.get("film_slug"),
+        "image_path": img.get("path"), "image_alt": img.get("alt"),
         "facts_html": piece["facts_html"], "reading_html": piece["reading_html"],
         "bottom_html": piece.get("bottom_html"), "deposit": piece.get("deposit"),
         "modules": assemble_modules(piece, pack), "sources": piece["sources"], "scores": scores,
+        "archive_links": pack.get("archive_links") or [], "cut_floor": cut_floor,
         "status": "published",
     }
     ok, info = sb_insert(env, "now_articles", row)
@@ -419,13 +464,16 @@ def main() -> None:
             ledger_append(f"{stamp} · KILLED · {cand['keyword']} · gate x2: {failure_report[:200]}")
             continue
 
+        cut_floor = build_cut_floor(env, snap, cand["keyword"])
+
         if dry:
             out = HOURLY / "drafts" / f"dry-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M')}.json"
-            out.write_text(json.dumps({"cand": cand, "piece": piece, "scores": scores}, ensure_ascii=False, indent=1))
+            out.write_text(json.dumps({"cand": cand, "piece": piece, "scores": scores,
+                                       "snapshot": snap, "cut_floor": cut_floor}, ensure_ascii=False, indent=1))
             log(f"DRY RUN: draft written to {out}")
             return
 
-        ok, info = publish(env, piece, cand, pack, scores)
+        ok, info = publish(env, piece, cand, pack, scores, cut_floor)
         if not ok:
             log(f"insert failed: {info}")
             ledger_append(f"{stamp} · KILLED · {cand['keyword']} · insert fail {info[:120]}")

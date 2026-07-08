@@ -85,6 +85,16 @@ def sb_insert(env: dict, table: str, row: dict) -> tuple[bool, str]:
     return status in (200, 201), f"{status} {data[:300].decode('utf-8', 'ignore')}"
 
 
+def sb_update(env: dict, table: str, filt: str, patch: dict) -> tuple[bool, str]:
+    """PATCH rows matching a PostgREST filter, e.g. filt='slug=eq.foo'."""
+    key = env["SUPABASE_SERVICE_ROLE_KEY"]
+    url = f"{env['NEXT_PUBLIC_SUPABASE_URL']}/rest/v1/{table}?{filt}"
+    status, data = http(url, method="PATCH", body=json.dumps(patch).encode(),
+                        headers={"apikey": key, "Authorization": f"Bearer {key}",
+                                 "Content-Type": "application/json", "Prefer": "return=minimal"})
+    return status in (200, 204), f"{status} {data[:300].decode('utf-8', 'ignore')}"
+
+
 # ── Anthropic Messages API ───────────────────────────────────────────────────
 
 def anthropic_call(env: dict, *, model: str, system: str, user: str,

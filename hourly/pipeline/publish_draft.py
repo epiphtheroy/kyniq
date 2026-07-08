@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from pipeline.common import ledger_append, load_env, log, now_utc  # noqa: E402
 from pipeline.datapack import build_pack  # noqa: E402
-from pipeline.produce import after_publish, deterministic_gate, publish  # noqa: E402
+from pipeline.produce import after_publish, build_cut_floor, deterministic_gate, publish  # noqa: E402
 
 
 def main() -> None:
@@ -32,7 +32,10 @@ def main() -> None:
         log(f"gate fails: {fails}")
         return
 
-    ok, info = publish(env, piece, cand, pack, scores)
+    cut_floor = draft.get("cut_floor")
+    if cut_floor is None and draft.get("snapshot"):
+        cut_floor = build_cut_floor(env, draft["snapshot"], cand["keyword"])
+    ok, info = publish(env, piece, cand, pack, scores, cut_floor or [])
     if not ok:
         log(f"insert failed: {info}")
         return
