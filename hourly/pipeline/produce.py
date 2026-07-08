@@ -274,10 +274,26 @@ def assemble_modules(piece: dict, pack: dict) -> list[dict]:
     return out
 
 
+_GEO_LABEL = {"US": "United States", "GB": "United Kingdom", "world": "Worldwide", "-": "Worldwide"}
+
+
+def _fmt_news_date(raw: str) -> str:
+    """RSS pubDate → 'Jul 8, 2026'; '' if unparseable."""
+    if not raw:
+        return ""
+    for fmt in ("%a, %d %b %Y %H:%M:%S %z", "%a, %d %b %Y %H:%M:%S %Z", "%Y-%m-%dT%H:%M:%S%z"):
+        try:
+            return datetime.strptime(raw.replace("GMT", "+0000"), fmt).strftime("%b %-d, %Y")
+        except Exception:
+            continue
+    return ""
+
+
 def build_cut_floor(env: dict, snapshot: dict, chosen_keyword: str) -> list[dict]:
-    """The editor's cutting-room floor: the hour's other spikes we did NOT run,
-    each with a source link and a one-line reason. Transparency that the beat
-    gate is a choice, not an accident. One cheap LLM pass writes the comments."""
+    """The editor's cutting-room floor: the hour's other spikes we did NOT run.
+    Each item MUST carry region + reporting date + source outlet, then our
+    one-line note (date + region are the core of Now). One cheap LLM pass
+    writes the notes; the metadata is captured mechanically."""
     rejects = []
     seen = {chosen_keyword.lower()}
     for c in snapshot.get("candidates", []):
@@ -285,14 +301,19 @@ def build_cut_floor(env: dict, snapshot: dict, chosen_keyword: str) -> list[dict
         if not kw or kw.lower() in seen:
             continue
         seen.add(kw.lower())
-        url = ""
+        url, outlet = "", ""
         for src in (c.get("news") or []) + (c.get("fleet_hits") or []):
             if src.get("url", "").startswith("http"):
                 url = src["url"]
+                outlet = src.get("source") or src.get("outlet") or ""
                 break
-        rejects.append({"keyword": kw, "url": url,
-                        "entity": (c.get("entity") or {}).get("label"),
-                        "beat": c.get("beat", 0), "traffic": c.get("traffic", "")})
+        rejects.append({
+            "keyword": kw, "url": url,
+            "region": _GEO_LABEL.get(c.get("geo", "-"), c.get("geo") or "Worldwide"),
+            "date": _fmt_news_date(c.get("pub", "")),
+            "outlet": outlet,
+            "entity": (c.get("entity") or {}).get("label"),
+        })
         if len(rejects) >= 8:
             break
     if not rejects:
@@ -312,6 +333,7 @@ def build_cut_floor(env: dict, snapshot: dict, chosen_keyword: str) -> list[dict
     out = []
     for i, r in enumerate(rejects):
         out.append({"keyword": r["keyword"], "url": r["url"],
+                    "region": r["region"], "date": r["date"], "outlet": r["outlet"],
                     "comment": comments.get(i) or ("outside the beat" if not r["entity"] else "the archive adds nothing here")})
     return out
 

@@ -85,6 +85,20 @@ def sb_insert(env: dict, table: str, row: dict) -> tuple[bool, str]:
     return status in (200, 201), f"{status} {data[:300].decode('utf-8', 'ignore')}"
 
 
+def sb_rpc(env: dict, fn: str, args: dict, *, service: bool = False):
+    """POST /rest/v1/rpc/{fn}. Returns parsed JSON or None."""
+    key = env["SUPABASE_SERVICE_ROLE_KEY" if service else "NEXT_PUBLIC_SUPABASE_ANON_KEY"]
+    url = f"{env['NEXT_PUBLIC_SUPABASE_URL']}/rest/v1/rpc/{fn}"
+    status, data = http(url, method="POST", body=json.dumps(args).encode(),
+                        headers={"apikey": key, "Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+    if status != 200:
+        return None
+    try:
+        return json.loads(data)
+    except Exception:
+        return None
+
+
 def sb_update(env: dict, table: str, filt: str, patch: dict) -> tuple[bool, str]:
     """PATCH rows matching a PostgREST filter, e.g. filt='slug=eq.foo'."""
     key = env["SUPABASE_SERVICE_ROLE_KEY"]

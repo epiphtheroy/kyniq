@@ -10,7 +10,19 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from .common import sb_get
+from .common import sb_get, sb_rpc
+
+# TakeScore / CineCodex dimensions — key → (route slug, label). Mirrors
+# lib/cinecodex_dims.ts so each score links to its /takescore/[dim] page.
+CODEX_DIMS = {
+    "cog": ("cognitive", "Cognitive"), "aff": ("affective", "Affective"),
+    "form": ("formal", "Formal"), "moral": ("moral", "Moral"),
+    "dur": ("durability", "Durability"), "itx": ("intertextual", "Intertextual"),
+    "fr": ("formal-radicalism", "Formal radicalism"), "etx": ("extratextual", "Extratextual"),
+    "ctx": ("auteur-oeuvre", "Auteur oeuvre"), "bank": ("hollowness", "Hollowness"),
+    "insincere": ("insincerity", "Insincerity"), "coward": ("cowardice", "Cowardice"),
+    "polar": ("polarization", "Polarization"),
+}
 
 
 def _film_row(env: dict, slug: str) -> dict | None:
@@ -25,62 +37,82 @@ def _count(env: dict, path: str) -> int:
 
 
 def _honors_module(env: dict, film: dict, mid: str) -> dict | None:
-    rows = sb_get(env, f"film_wd_honors?select=kind,label,event_date,year_only&film_id=eq.{film['id']}&order=event_date.asc.nullslast&limit=14")
+    rows = sb_get(env, f"film_wd_honors?select=kind,label,event_date,year_only,qid&film_id=eq.{film['id']}&order=event_date.asc.nullslast&limit=14")
     if not rows:
         return None
     body = []
     for r in rows:
         year = (r.get("event_date") or "")[:4] or (str(r["year_only"]) if r.get("year_only") else "—")
         kind = (r.get("kind") or "").replace("_", " ")
-        body.append([year, r.get("label") or "", kind])
+        # each honor links to its Wikidata entity (the authoritative record)
+        label = r.get("label") or ""
+        cell = {"text": label, "href": f"https://www.wikidata.org/wiki/{r['qid']}"} if r.get("qid") else label
+        body.append([year, cell, kind])
     return {"id": mid, "type": "honors", "title": f"The honors record — {film['title']}",
+            "note": "Each entry links to its Wikidata record.",
             "columns": ["Year", "Honor", "Kind"], "rows": body}
 
 
 def _canon_module(env: dict, film: dict, mid: str) -> dict | None:
-    rows = sb_get(env, "film_lineage?select=rank,result,facet,list:lineage_lists(label,tier),edition:lineage_editions(year,edition_label)"
+    rows = sb_get(env, "film_lineage?select=rank,result,facet,list:lineage_lists(label,slug,tier),edition:lineage_editions(year,edition_label)"
                        f"&film_id=eq.{film['id']}&order=created_at.asc&limit=14")
     if not rows:
         return None
     body = []
     for r in rows:
-        lst = (r.get("list") or {}).get("label") or "—"
+        lst = r.get("list") or {}
+        label = lst.get("label") or "—"
+        # link the list to our lineage hub for it (internal)
+        cell = {"text": label, "href": f"/lineage/{lst['slug']}"} if lst.get("slug") else label
         ed = r.get("edition") or {}
         when = str(ed.get("year") or ed.get("edition_label") or "")
         place = f"#{r['rank']}" if r.get("rank") else (r.get("result") or "listed")
-        body.append([lst, when, place])
+        body.append([cell, when, place])
     return {"id": mid, "type": "canon",
             "title": "Canon appearances",
-            "note": "Where the film stands in the lists and prizes the archive tracks.",
+            "note": "Where the film stands in the lists and prizes the archive tracks. Each list links to its page here.",
             "columns": ["List / prize", "Edition", "Standing"], "rows": body,
             "more_href": f"/film/lineage/{film['slug']}"}
 
 
 def _takescore_module(env: dict, film: dict, mid: str) -> dict | None:
-    rows = sb_get(env, f"film_scores?select=total_score,prestige_score,discovery_score,components&film_id=eq.{film['id']}&limit=1")
-    if not (isinstance(rows, list) and rows):
+    # The public TakeScore comes from the cinecodex_card RPC (V/C/R + the 13
+    # named CineCodex dimensions), NOT the old film_scores table. Show the
+    # composite standing, the three axes, and the strongest dimensions -
+    # each dimension links to its /takescore/[dim] page.
+    card = sb_rpc(env, "cinecodex_card", {"p_slug": film["slug"]})
+    if not isinstance(card, dict) or card.get("v") is None:
         return None
-    s = rows[0]
-    items = [{"label": f"TakeScore {round(s['total_score'])}" if s.get("total_score") is not None else "TakeScore —",
-              "href": f"/takescore/film/{film['slug']}", "note": "the full scorecard"}]
-    for k, lbl in (("prestige_score", "Prestige"), ("discovery_score", "Discovery")):
-        if s.get(k) is not None:
-            items.append({"label": f"{lbl}: {round(s[k])}"})
-    comps = s.get("components") or {}
-    if isinstance(comps, dict):
-        for k, v in list(comps.items())[:5]:
-            if isinstance(v, (int, float)):
-                items.append({"label": f"{k.replace('_', ' ').title()}: {round(v)}"})
-    return {"id": mid, "type": "takescore", "title": f"TakeScore — {film['title']}", "items": items}
+    rank, total = card.get("rank"), card.get("rank_total")
+    head = f"TakeScore V{round(card['v'])} · C{round(card['c'])} · R{round(card['r'])}"
+    items = [{"label": head, "href": f"/takescore/film/{film['slug']}",
+              "note": (f"ranked {rank} of {total} in the corpus" if rank and total else "the full scorecard")}]
+    subs = card.get("subs") or {}
+    if isinstance(subs, dict):
+        ranked = sorted(((k, v) for k, v in subs.items() if isinstance(v, (int, float)) and k in CODEX_DIMS),
+                        key=lambda kv: kv[1], reverse=True)
+        for k, v in ranked[:6]:
+            slug, label = CODEX_DIMS[k]
+            items.append({"label": f"{label}: {round(v)}", "href": f"/takescore/{slug}"})
+    return {"id": mid, "type": "takescore",
+            "title": f"TakeScore — {film['title']}",
+            "note": "Value / Cost / Risk and the strongest of the 13 dimensions. Each links to its scale.",
+            "items": items}
 
 
 def _reception_module(env: dict, film: dict, mid: str) -> dict | None:
-    rows = sb_get(env, f"film_reception?select=review_year,outlet,critic,verdict&film_id=eq.{film['id']}&order=review_year.asc.nullslast&limit=10")
+    rows = sb_get(env, f"film_reception?select=review_year,outlet,critic,verdict,url&film_id=eq.{film['id']}&order=review_year.asc.nullslast&limit=10")
     if not rows:
         return None
-    body = [[str(r.get("review_year") or "—"), r.get("outlet") or r.get("critic") or "—", r.get("verdict") or "—"] for r in rows]
+    body = []
+    for r in rows:
+        year = str(r.get("review_year") or "—")
+        voice = r.get("outlet") or r.get("critic") or "—"
+        # the voice cell links to the actual review (external, trustworthy)
+        vcell = {"text": voice, "href": r["url"]} if (r.get("url") or "").startswith("http") else voice
+        body.append([year, vcell, r.get("verdict") or "—"])
     return {"id": mid, "type": "reception", "title": "The reception arc",
-            "note": "How the critical record moved, year by year.",
+            "note": "How the critical record moved, year by year - each outlet links to its review.",
             "columns": ["Year", "Voice", "Verdict"], "rows": body}
 
 

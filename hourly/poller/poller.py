@@ -249,7 +249,7 @@ def collect_candidates() -> dict:
             reddit_echo = all(w in reddit_blob for w in norm(tr["keyword"]).split() if len(w) >= 4) and len(norm(tr["keyword"])) >= 8
             candidates.append({
                 "source": "trends", "geo": geo, "keyword": tr["keyword"], "traffic": tr["traffic"],
-                "first_seen": first, "spike": traffic_score(tr["traffic"]),
+                "pub": tr.get("pub", ""), "first_seen": first, "spike": traffic_score(tr["traffic"]),
                 "corroboration": corr, "beat": ent["beat"] if ent else 0,
                 "entity": ent, "lane": "direct" if ent else "exception",
                 "news": tr["news"], "fleet_hits": hits, "reddit_echo": reddit_echo,
@@ -271,8 +271,8 @@ def collect_candidates() -> dict:
         n = len(rec["outlets"])
         if n >= CFG["corroboration_min_outlets"] + 1 and norm(label) not in known:
             candidates.append({
-                "source": "fleet", "geo": "-", "keyword": label.split("(")[0].strip(),
-                "traffic": "", "first_seen": now_utc(), "spike": 2,
+                "source": "fleet", "geo": "world", "keyword": label.split("(")[0].strip(),
+                "traffic": "", "pub": "", "first_seen": now_utc(), "spike": 2,
                 "corroboration": 5 if n >= 4 else 4 if n == 3 else 3,
                 "beat": rec["entity"]["beat"], "entity": rec["entity"], "lane": "direct",
                 "news": [], "fleet_hits": rec["hits"][:8], "reddit_echo": False,
