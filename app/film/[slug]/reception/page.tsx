@@ -8,6 +8,7 @@ import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
+import AfterlifeNav from "@/components/read/AfterlifeNav";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
 import { honorText, type FilmLineageRow } from "@/lib/lineage";
@@ -213,9 +214,17 @@ export default async function FilmReceptionPage({ params }: Props) {
   for (const r of papers) if (r.review_year) push(r.review_year, { t: "paper", r });
   const undated = reviews.filter((r) => !r.review_year);
 
-  const ORDER: Record<Entry["t"], number> = { release: 0, honor: 1, review: 2, paper: 3 };
   const years = [...byYear.keys()].sort((a, b) => a - b);
-  for (const y of years) byYear.get(y)!.sort((a, b) => ORDER[a.t] - ORDER[b.t]);
+
+  // Grouped render inside each year card — the group IS the visual unit.
+  const GROUPS: { t: Entry["t"]; label: string; color: string }[] = [
+    { t: "release", label: "Releases & revivals", color: "#2F6DB0" },
+    { t: "honor", label: "Honors", color: "#B8863B" },
+    { t: "review", label: "Reviews", color: "#D64534" },
+    { t: "paper", label: "Scholarship", color: "#12897A" },
+  ];
+  const DECADE_COLORS = ["#D64534", "#C87A2C", "#B8863B", "#6B4E9E", "#2F6DB0", "#12897A", "#B85C9E", "#4E7088"];
+  const yearColor = (y: number) => DECADE_COLORS[Math.floor(y / 10) % DECADE_COLORS.length];
 
   const gallery = await filmBackdropPaths(film.tmdb_id);
   const artPicks = pickStills(gallery, `${film.slug}:reception`, 6);
