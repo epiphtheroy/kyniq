@@ -88,6 +88,9 @@ export default async function ReadPlates({
   if (exclude !== "whereto") {
     plates.push({ key: "whereto", href: `/whereto/${film.slug}`, tag: "Where to Watch", title: `Where to watch ${film.title} — free options & every service` });
   }
+  if (exclude !== "credits") {
+    plates.push({ key: "credits", href: `/film/${film.slug}/credits`, tag: "Credits", title: `Who made ${film.title}? The crew, credit by credit` });
+  }
   if (film.is_analyzed && exclude !== "misreadings") {
     plates.push({ key: "misreadings", href: `/film/${film.slug}/misreadings`, tag: "Strong Misreadings", title: `${film.title}, read against the grain — the misreadings article` });
   }
