@@ -371,10 +371,12 @@ export default async function ConceptPage({ params }: Props) {
               </div>
               <div className="rd-chiprow">
                 <span className="rd-chip"><Link href="/concept" style={{ color: "inherit", textDecoration: "none" }}>Concepts on Screen</Link></span>
-                <span className="rd-meta">
-                  {canonReadings.length > 0 ? `${canonReadings.length} readings · ${tFilmArr.length} films` : `${desks.length} essays`}
-                  {updated ? ` · revised ${fmtDate(updated) ?? ""}` : ""}
-                </span>
+                {canonReadings.length > 0 || desks.length > 0 || updated ? (
+                  <span className="rd-meta">
+                    {canonReadings.length > 0 ? `${canonReadings.length} readings · ${tFilmArr.length} films` : desks.length > 0 ? `${desks.length} essay${desks.length === 1 ? "" : "s"}` : ""}
+                    {updated ? `${canonReadings.length > 0 || desks.length > 0 ? " · " : ""}revised ${fmtDate(updated) ?? ""}` : ""}
+                  </span>
+                ) : null}
               </div>
               <h1 className="rd-h1">{tCap}{tc.native ? <span style={{ fontSize: "0.45em", fontWeight: 500, opacity: 0.6, marginLeft: 12 }}>{tc.native}</span> : null}</h1>
               <p className="rd-dek">
@@ -385,10 +387,12 @@ export default async function ConceptPage({ params }: Props) {
                     {tDated.length > 1 ? <> — from <i>{tDated[0].title}</i> ({tDated[0].year}) to <i>{tDated[tDated.length - 1].title}</i> ({tDated[tDated.length - 1].year})</> : null}
                     {tThTop[0] ? <>, most often after {tThTop[0][0]}</> : null}.
                   </>
-                ) : (
+                ) : desks.length > 0 ? (
                   <>{desks.length} desk essay{desks.length === 1 ? "" : "s"} put {tName} to work across the Metatake corpus.</>
+                ) : (
+                  <>Where {tName} surfaces on screen, tracked by the concept desk{theorists[0] ? <> — after {theorists[0].name}</> : null}. Readings and essays land here as they publish.</>
                 )}
-                {" "}Every entry below is a close reading of a scene, not a definition.
+                {canonReadings.length > 0 || desks.length > 0 ? <>{" "}Every entry below is a close reading of a scene, not a definition.</> : null}
               </p>
             </div>
             {tHeroBd ? (
