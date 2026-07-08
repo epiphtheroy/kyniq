@@ -319,23 +319,100 @@ export default async function ConceptPage({ params }: Props) {
         ...(tc.one_liner ? { description: tc.one_liner } : {}),
         url: `https://metatake.net/concept/${tc.concept_slug}` },
     ];
+    // Deterministic aggregates over the absorbed readings — same grammar as the SM branch.
+    const tName = tc.concept;
+    const tCap = cap(tName);
+    const tFilms = new Map<string, { title: string; year: number | null; n: number; backdrop: string | null }>();
+    for (const r of canonReadings) {
+      const cur = tFilms.get(r.film_slug) ?? { title: r.film_title, year: r.film_year, n: 0, backdrop: r.backdrop_path };
+      cur.n += 1;
+      if (!cur.backdrop && r.backdrop_path) cur.backdrop = r.backdrop_path;
+      tFilms.set(r.film_slug, cur);
+    }
+    const tFilmArr = [...tFilms.entries()].map(([fslug, f]) => ({ slug: fslug, ...f }));
+    const tDated = tFilmArr.filter((f) => (f.year ?? 0) > 1880).sort((a, b) => (a.year! - b.year!) || a.title.localeCompare(b.title));
+    const tTop = [...tFilmArr].sort((a, b) => b.n - a.n || a.title.localeCompare(b.title));
+    const tThFreq = new Map<string, { slug: string | null; c: number }>();
+    for (const r of canonReadings) {
+      if (!r.theorist_name) continue;
+      const e = tThFreq.get(r.theorist_name) ?? { slug: r.theorist_slug, c: 0 };
+      e.c += 1; tThFreq.set(r.theorist_name, e);
+    }
+    const tThTop = [...tThFreq.entries()].sort((a, b) => b[1].c - a[1].c).slice(0, 3);
+    const tFwFreq = new Map<string, number>();
+    for (const r of canonReadings) { const l = fw(r.framework).label; tFwFreq.set(l, (tFwFreq.get(l) ?? 0) + 1); }
+    const tFwTop = [...tFwFreq.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const tFig = new Map<string, { n: number; href: string; bd: string | null; film: string }>();
+    for (const r of canonReadings) {
+      const k = r.fig_label.toLowerCase();
+      const cur = tFig.get(k) ?? { n: 0, href: `/film/${r.film_slug}/figure/${r.fig_slug}`, bd: r.backdrop_path, film: r.film_title };
+      cur.n += 1;
+      if (!cur.bd && r.backdrop_path) { cur.bd = r.backdrop_path; cur.film = r.film_title; }
+      tFig.set(k, cur);
+    }
+    const tFigTop = [...tFig.entries()].map(([label, v]) => ({ label, ...v }))
+      .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)).slice(0, 24);
+    const tHeroBd = tTop.find((f) => f.backdrop)?.backdrop ?? desks.find((d) => d.backdrop_path)?.backdrop_path ?? null;
+    const tHeroTitle = tTop.find((f) => f.backdrop)?.title ?? desks.find((d) => d.backdrop_path)?.film_title ?? null;
+
     return (
       <div className="mt">
         <SiteNav />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
-        <div className="mt-wrap">
-          <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
-          <div className="ccard">
-            <div className="ccard__kicker">Concepts on Screen</div>
-            <h1 className="th-h1">{cap(tc.concept)}</h1>
-            {tc.native ? <span className="ccard__native">{tc.native}</span> : null}
+
+        {/* ── Dark hero: the concept as a working lens, counted ── */}
+        <div className="cur rd-hero">
+          <div className="rd-hero__in">
+            <div className="rd-hero__txt">
+              <div className="rd-crumb">
+                <Link href="/theorist">Theory</Link><span>›</span>
+                <Link href="/concept">Concepts</Link><span>›</span>
+                <span>{tCap}</span>
+              </div>
+              <div className="rd-chiprow">
+                <span className="rd-chip"><Link href="/concept" style={{ color: "inherit", textDecoration: "none" }}>Concepts on Screen</Link></span>
+                <span className="rd-meta">
+                  {canonReadings.length > 0 ? `${canonReadings.length} readings · ${tFilmArr.length} films` : `${desks.length} essays`}
+                  {updated ? ` · revised ${fmtDate(updated) ?? ""}` : ""}
+                </span>
+              </div>
+              <h1 className="rd-h1">{tCap}{tc.native ? <span style={{ fontSize: "0.45em", fontWeight: 500, opacity: 0.6, marginLeft: 12 }}>{tc.native}</span> : null}</h1>
+              <p className="rd-dek">
+                {canonReadings.length > 0 ? (
+                  <>
+                    {canonReadings.length} Strong Misreading{canonReadings.length === 1 ? "" : "s"} stage {tName} across{" "}
+                    {tFilmArr.length} film{tFilmArr.length === 1 ? "" : "s"} of the Metatake corpus
+                    {tDated.length > 1 ? <> — from <i>{tDated[0].title}</i> ({tDated[0].year}) to <i>{tDated[tDated.length - 1].title}</i> ({tDated[tDated.length - 1].year})</> : null}
+                    {tThTop[0] ? <>, most often after {tThTop[0][0]}</> : null}.
+                  </>
+                ) : (
+                  <>{desks.length} desk essay{desks.length === 1 ? "" : "s"} put {tName} to work across the Metatake corpus.</>
+                )}
+                {" "}Every entry below is a close reading of a scene, not a definition.
+              </p>
+            </div>
+            {tHeroBd ? (
+              <div className="rd-hero__media">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="rd-hero__bd" src={`${IMG}/w780${tHeroBd}`} alt="" width={780} height={439} />
+                <div className="rd-hero__cap">From {tHeroTitle} · via TMDB</div>
+              </div>
+            ) : null}
           </div>
-          {(() => { const n = listicle(tc.concept, null, [...desks, ...canonReadings]).n; return (
-            <p className="th-sub">
-              Where {tc.concept} actually surfaces on screen
-              {n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}, tracked by the concept desk.
-            </p>
-          ); })()}
+        </div>
+
+        <FilmTabBar
+          center
+          search={canonReadings.length > 0 ? { event: "theory:q", targetId: "concept-slate", placeholder: `Search ${canonReadings.length} readings…` } : undefined}
+          tabs={[
+            { id: "spelled-out", label: "Spelled out", color: "#D64534" },
+            ...(tFigTop.length ? [{ id: "concept-figures", label: "Figures", badge: tFigTop.length, color: "#B8863B" }] : []),
+            ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
+            ...(canonReadings.length ? [{ id: "concept-slate", label: "The full slate", badge: canonReadings.length, color: "#12897A" }] : []),
+          ]}
+        />
+
+        <div className="mt-wrap">
           <Provenance updated={updated} />
           <div className="cmeta">
             {theorists.map((t) => (
@@ -353,20 +430,119 @@ export default async function ConceptPage({ params }: Props) {
               — {tc.one_liner}
             </p>
           )}
-          {canonReadings.length > 0 && (
-            <section style={{ margin: "30px 0 0" }} id="concept-readings">
-              <h2 className="cmap-h2">Strong Misreadings that lean on {tc.concept}</h2>
-              <ReadingsExplorer readings={canonReadings} about={tc.concept} />
+
+          {/* ── The concept, spelled out — deterministic sentences ── */}
+          <section style={{ margin: "22px 0 0" }} id="spelled-out">
+            <h2 className="cmap-h2">{tCap}, spelled out</h2>
+            <ul style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+              {canonReadings.length > 0 ? (
+                <li>
+                  {tCap} carries {canonReadings.length} Strong Misreading{canonReadings.length === 1 ? "" : "s"} across {tFilmArr.length} film{tFilmArr.length === 1 ? "" : "s"}
+                  {tDated.length > 1 ? <>, from <Link href={`/film/${tDated[0].slug}`}>{tDated[0].title}</Link> ({tDated[0].year}) to <Link href={`/film/${tDated[tDated.length - 1].slug}`}>{tDated[tDated.length - 1].title}</Link> ({tDated[tDated.length - 1].year})</> : null}.
+                </li>
+              ) : null}
+              {theorists.length > 0 ? (
+                <li>
+                  The theorists behind it: {theorists.slice(0, 4).map((t, i) => <span key={t.name}>{i > 0 ? " · " : ""}{t.slug ? <Link href={`/theorist/${t.slug}`}>{t.name}</Link> : t.name}</span>)}.
+                </li>
+              ) : null}
+              {tFwTop[0] && canonReadings.length > 1 ? (
+                <li>
+                  The framework that stages {tName} most is <b>{tFwTop[0][0]}</b> ({tFwTop[0][1]} of {canonReadings.length})
+                  {tFwTop[1] ? <>, ahead of {tFwTop[1][0]} ({tFwTop[1][1]})</> : null}.
+                </li>
+              ) : null}
+              {tTop[0] && tTop[0].n > 1 ? (
+                <li>
+                  The film that stages it most is <Link href={`/film/${tTop[0].slug}`}>{tTop[0].title}</Link>
+                  {tTop[0].year ? ` (${tTop[0].year})` : ""} — {tTop[0].n} readings there turn on {tName}.
+                </li>
+              ) : null}
+              {desks.length > 0 ? (
+                <li>
+                  {desks.length} desk essay{desks.length === 1 ? "" : "s"} put {tName} to work — each is linked below.
+                </li>
+              ) : null}
+            </ul>
+            <ReadingLedger subject={tName} readings={canonReadings} essays={desks} />
+          </section>
+
+          {tFigTop.length > 0 ? (
+            <section style={{ margin: "30px 0 0" }} id="concept-figures">
+              <h2 className="cmap-h2">The figures that carry {tName}</h2>
+              <p className="cmap-intro">The recurring anchors — characters, objects, places, forms — where {tName} does its work. Each chip opens a figure page.</p>
+              <div className="fig-cloud">
+                {tFigTop.map((f) => (
+                  <Link key={f.label} href={f.href} className={`fig-chip${f.bd ? "" : " fig-chip--bare"}`}>
+                    {f.bd ? <img src={`${IMG}/w300${f.bd}`} alt={`${f.film} still`} width={56} height={32} loading="lazy" /> : null}
+                    <span>{f.label}{f.n > 1 ? <span className="fig-chip__n"> ×{f.n}</span> : null}</span>
+                  </Link>
+                ))}
+              </div>
             </section>
-          )}
+          ) : null}
+
           {desks.length > 0 && (
-            <section style={{ margin: "30px 0 0" }} id="concept-desks">
-              <h2 className="cmap-h2">From the desks — essays that put {tc.concept} to work</h2>
-              <DeskExplorer desks={desks} about={tc.concept} />
+            <section style={{ margin: "34px 0 0" }} id="concept-desks">
+              <h2 className="cmap-h2">From the desks — essays that put {tName} to work</h2>
+              <DeskExplorer desks={desks} about={tName} listenEvent="theory:q" />
             </section>
           )}
+
+          {canonReadings.length > 0 && (
+            <section style={{ margin: "34px 0 0" }} id="concept-slate">
+              <h2 className="cmap-h2">The full slate — {canonReadings.length} reading{canonReadings.length === 1 ? "" : "s"}</h2>
+              <p className="cmap-intro">The complete archive, searchable and filterable by framework and decade. Each card links into the film&apos;s figure page, where the reading lives.</p>
+              <ReadingsExplorer readings={canonReadings} about={tName} listenEvent="theory:q" />
+            </section>
+          )}
+
+          {tTop.length > 0 ? (
+            <section style={{ margin: "30px 0 0" }} id="concept-films">
+              <h2 className="cmap-h2">The films that stage {tName}</h2>
+              <p className="cmap-intro">Every panel opens the film — the readings there put {tName} to work in the scenes.</p>
+              <div className="crd-grid">
+                {tTop.slice(0, 6).map((f) => (
+                  <a className="crd-panel" href={`/film/${f.slug}`} key={f.slug}>
+                    {f.backdrop
+                      ? /* eslint-disable-next-line @next/next/no-img-element */
+                        <img src={`${IMG}/w300${f.backdrop}`} alt="" width={124} height={70} loading="lazy" style={{ width: 124, height: 70, borderRadius: 6 }} />
+                      : <span className="crd-ph" style={{ width: 124, height: 70, fontSize: 22 }} aria-hidden>{f.title[0]}</span>}
+                    <span>
+                      <span className="crd-k">{f.n} reading{f.n === 1 ? "" : "s"} · {tName}</span>
+                      <h3>{f.title}{f.year ? ` (${f.year})` : ""}</h3>
+                      <span className="crd-go">Open the film →</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
+            Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
+          </p>
           <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
         </div>
+
+        {tTop.filter((f) => f.backdrop).length >= 2 ? (
+          <div className="cur rd-plates">
+            <div className="cur-wrap">
+              <SectionHead title={`Keep reading through ${tName}`} count={`${Math.min(5, tTop.length)} doors`} />
+              <div className="cur-grid">
+                {tTop.filter((f) => f.backdrop).slice(0, 5).map((f) => (
+                  <Card
+                    key={f.slug}
+                    href={`/film/${f.slug}/misreadings`}
+                    film={{ slug: f.slug, title: f.title, year: f.year, backdrop_path: f.backdrop, poster_path: null }}
+                    title={`${f.title}, read against the grain — the misreadings article`}
+                    tag="Strong Misreadings"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }
