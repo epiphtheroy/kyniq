@@ -1,0 +1,689 @@
+{
+ "at": "2026-07-08T11:56:23+00:00",
+ "fleet_items": 142,
+ "candidates": [
+  {
+   "source": "fleet",
+   "geo": "world",
+   "keyword": "Marie Antoinette",
+   "traffic": "",
+   "pub": "",
+   "first_seen": "2026-07-08T11:56:23+00:00",
+   "spike": 2,
+   "corroboration": 4,
+   "beat": 5,
+   "entity": {
+    "beat": 5,
+    "type": "film",
+    "slug": "marie-antoinette-2006",
+    "label": "Marie Antoinette (2006)"
+   },
+   "lane": "direct",
+   "news": [],
+   "fleet_hits": [
+    {
+     "outlet": "variety",
+     "title": "Mubi Acquires ‘Making Marie Antoinette,’ Eleanor Coppola’s Behind-the-Scenes Doc About Sofia Coppola’s Oscar-Winning Film",
+     "url": "https://variety.com/2026/film/global/mubi-marie-antoinette-eleanor-coppola-doc-sofia-coppola-film-1236804188/"
+    },
+    {
+     "outlet": "deadline",
+     "title": "Mubi Takes Worldwide To Eleanor Coppola’s Documentary ‘Making Marie Antoinette’",
+     "url": "https://deadline.com/2026/07/eleanor-coppola-making-marie-antoinette-mubi-1236976667/"
+    },
+    {
+     "outlet": "thr",
+     "title": "Mubi Take Worldwide Rights on ‘Making Marie Antoinette’",
+     "url": "https://www.hollywoodreporter.com/movies/movie-news/mubi-take-making-marie-antoinette-documentary-sofia-coppola-1236641191/"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "charlie hall",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 04:30:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 5,
+   "entity": {
+    "beat": 5,
+    "type": "film",
+    "slug": "her-2013",
+    "label": "Her (2013)"
+   },
+   "lane": "direct",
+   "news": [
+    {
+     "title": "Charlie Hall Talks New Dark Comedy and ‘White Lotus’ S4",
+     "url": "https://www.today.com/video/charlie-hall-on-maximum-pleasure-guaranteed-and-white-lotus-266295877819",
+     "source": "TODAY.com"
+    },
+    {
+     "title": "Here's how Julia Louis-Dreyfus reacted to her son being cast in season 4 of “The White Lotus”",
+     "url": "https://www.yahoo.com/entertainment/tv/articles/heres-julia-louis-dreyfus-reacted-160146980.html",
+     "source": "Yahoo"
+    },
+    {
+     "title": "Exclusive | Charlie Hall reveals how mom Julia Louis-Dreyfus reacted to his ‘White Lotus’ Season 4 casting",
+     "url": "https://nypost.com/2026/06/30/entertainment/how-julia-louis-dreyfus-reacted-to-son-charlie-halls-white-lotus-season-4-casting/",
+     "source": "New York Post"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "trump spain",
+   "traffic": "2000+",
+   "pub": "Wed, 8 Jul 2026 03:40:00 -0700",
+   "first_seen": "2026-07-08T11:56:23+00:00",
+   "spike": 3,
+   "corroboration": 3,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Trump orders US to cut all trade with Spain – latest updates",
+     "url": "https://www.telegraph.co.uk/business/2026/07/08/oil-prices-iran-war-trump-us-ftse-100-markets/",
+     "source": "The Telegraph"
+    },
+    {
+     "title": "NATO summit live: Trump rips NATO allies; calls Spain ‘a terrible partner’",
+     "url": "https://www.aljazeera.com/news/liveblog/2026/7/8/nato-summit-live-trump-world-leaders-meet-in-turkiyes-ankara",
+     "source": "Al Jazeera"
+    },
+    {
+     "title": "Trump turns on Spain and demands Greenland as NATO summit exposes cracks",
+     "url": "https://www.reuters.com/business/aerospace-defense/nato-leaders-meet-ankara-after-trump-rekindles-disputes-over-iran-greenland-2026-07-08/",
+     "source": "Reuters"
+    }
+   ],
+   "fleet_hits": [
+    {
+     "outlet": "guardian-world",
+     "title": "Trump makes fresh Greenland demand and threatens trade with Spain at Nato meeting – Europe live",
+     "url": "https://www.theguardian.com/world/live/2026/jul/08/trump-nato-summit-greenland-us-turkey-rutte-marine-le-pen-europe-latest-news-updates"
+    },
+    {
+     "outlet": "aljazeera",
+     "title": "NATO summit live: Trump rips NATO allies; calls Spain ‘a terrible partner’",
+     "url": "https://www.aljazeera.com/news/liveblog/2026/7/8/nato-summit-live-trump-world-leaders-meet-in-turkiyes-ankara?traffic_source=rss"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "oil prices today",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 04:40:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Stock market today: Dow, S&P 500, Nasdaq fall as semiconductors sell off, oil prices jump",
+     "url": "https://finance.yahoo.com/markets/live/stock-market-today-sp-500-nasdaq-futures-slip-after-samsung-results-spark-chip-sell-off-223015294.html",
+     "source": "Yahoo Finance"
+    },
+    {
+     "title": "Samsung Sends Chip Investors on Another Roller Coaster Ride",
+     "url": "https://www.bloomberg.com/news/newsletters/2026-07-08/samsung-sends-chip-investors-on-another-roller-coaster-ride",
+     "source": "Bloomberg.com"
+    },
+    {
+     "title": "Samsung Fails to Impress, Amazon Issues AI Bonds and Oil Jumps | Markets P.M. for July 7",
+     "url": "https://www.wsj.com/finance/stocks/samsung-fails-to-impress-8b61321c",
+     "source": "WSJ"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "cyclospora",
+   "traffic": "2000+",
+   "pub": "Wed, 8 Jul 2026 04:30:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "What to know about cyclospora, the gut-churning parasite causing illness in several states, and how to avoid it",
+     "url": "https://www.cnn.com/2026/07/07/health/cyclosporiasis-parasite-symptoms-causes",
+     "source": "CNN"
+    },
+    {
+     "title": "Michigan Cyclosporiasis outbreak tops 700 cases as health officials search for source",
+     "url": "https://www.clickondetroit.com/news/local/2026/07/08/michigan-cyclosporiasis-outbreak-tops-700-cases-as-health-officials-search-for-source/",
+     "source": "ClickOnDetroit | WDIV Local 4"
+    },
+    {
+     "title": "Cyclosporiasis outbreaks: What to know about the foodborne illness and symptoms",
+     "url": "https://www.nbcnews.com/health/health-news/cyclosporiasis-outbreak-symptoms-causes-fda-cdc-rcna353295",
+     "source": "NBC News"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "malton hospital",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 04:10:00 -0700",
+   "first_seen": "2026-07-08T11:56:23+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Large fire near hospital in North Yorkshire - LIVE",
+     "url": "https://www.yorkpress.co.uk/news/26262768.large-fire-near-malton-hospital---live-updates/",
+     "source": "The York Press"
+    },
+    {
+     "title": "Summer heatwaves spark surge in demand for aircon systems",
+     "url": "https://www.eadt.co.uk/news/26256699.ipswich-air-conditioning-company-sees-big-rise-demand/",
+     "source": "East Anglian Daily Times"
+    },
+    {
+     "title": "Large fire near hospital in North Yorkshire - LIVE",
+     "url": "https://www.gazetteherald.co.uk/news/26262768.large-fire-near-malton-hospital---live-updates/",
+     "source": "gazetteherald.co.uk"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "alfie hewett",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 04:00:00 -0700",
+   "first_seen": "2026-07-08T11:56:23+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Watch Wimbledon: Hewett & Reid win wheelchair doubles opener",
+     "url": "https://www.bbc.co.uk/sport/tennis/live/czjwnmle9p3t",
+     "source": "BBC"
+    },
+    {
+     "title": "Wimbledon 2026 results: Alfie Hewett through in wheelchair singles but Gordon Reid out",
+     "url": "https://www.bbc.co.uk/sport/tennis/articles/cdjk0927xxxo",
+     "source": "BBC"
+    },
+    {
+     "title": "Lexus British Open Roehampton 2026: Alfie Hewett sets up semi-final clash against Gustavo Fernandez",
+     "url": "https://www.lta.org.uk/fan-zone/british-open-tennis/news/alfie-hewett-sets-up-semi-final-clash-against-gustavo-fernandez/",
+     "source": "LTA"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "katie price",
+   "traffic": "2000+",
+   "pub": "Wed, 8 Jul 2026 03:50:00 -0700",
+   "first_seen": "2026-07-08T11:56:23+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Katie Price's kids break down as they reveal how her cocaine binges affected their childhoods",
+     "url": "https://www.mirror.co.uk/3am/celebrity-news/katie-prices-kids-break-down-37399609",
+     "source": "The Mirror"
+    },
+    {
+     "title": "Princess and Junior Andre break down in tears over Katie Price's drug use",
+     "url": "https://metro.co.uk/2026/07/08/princess-junior-andre-break-tears-katie-prices-drug-use-29075734/",
+     "source": "Metro.co.uk"
+    },
+    {
+     "title": "‘She wasn’t a mum’: Katie Price’s children break down in raw interview about her darkest years",
+     "url": "https://www.nine.com.au/entertainment/celebrity/katie-price-children-princess-junior-new-documentary-break-down-tears-drug-use-20260708-p60did.html",
+     "source": "Nine.com.au"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "nottingham fire",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 03:00:00 -0700",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Properties evacuated as fire breaks out at scrapyard",
+     "url": "https://www.bbc.co.uk/news/articles/cy5vdd329n6o",
+     "source": "BBC"
+    },
+    {
+     "title": "Updates: Seven fire crews attend scrapyard blaze at Basford",
+     "url": "https://westbridgfordwire.com/updates-seven-fire-crews-attend-scrapyard-blaze-at-basford/",
+     "source": "West Bridgford Wire"
+    },
+    {
+     "title": "People told to leave their homes amid huge Nottingham fire",
+     "url": "https://www.nottinghampost.com/news/nottingham-news/people-told-leave-homes-amid-11049849",
+     "source": "Nottingham Post"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "charles iii",
+   "traffic": "2000+",
+   "pub": "Wed, 8 Jul 2026 02:30:00 -0700",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "King Charles at Tank Museum in sunshine to celebrate regiment",
+     "url": "https://www.dorsetecho.co.uk/news/26257112.pictures-king-charles-visit-tank-museum-bovington/",
+     "source": "Dorset Echo"
+    },
+    {
+     "title": "Court Circular: July 6, 2026",
+     "url": "https://www.thetimes.com/comment/register/article/court-circular-july-6-2026-505w6rvfl",
+     "source": "The Times"
+    },
+    {
+     "title": "King Charles rides in armoured Rolls-Royce just hours after Prince Harry's public Buckingham Palace feud",
+     "url": "https://www.gbnews.com/royal/king-charles-armoured-rolls-royce-prince-harry-buckingham-palace-feud",
+     "source": "GB News"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "elise mertens",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 04:40:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Where to watch Linda Noskova vs. Elise Mertens: Wimbledon free live stream",
+     "url": "https://www.syracuse.com/tv/2026/07/where-to-watch-linda-noskova-vs-elise-mertens-wimbledon-free-live-stream.html",
+     "source": "Syracuse.com"
+    },
+    {
+     "title": "Linda Noskova vs Elise Mertens Prediction, Pick, Odds for Wimbledon Quarterfinals",
+     "url": "https://www.actionnetwork.com/tennis/linda-noskova-vs-elise-mertens-prediction-pick-odds-wimbledon-quarterfinals-wednesday-july-8",
+     "source": "Action Network"
+    },
+    {
+     "title": "Linda Noskova vs Elise Mertens Wimbledon Tips, Prediction & Live Stream - Noskova to reach first major semi-final",
+     "url": "https://www.bets.com.au/tennis/wimbledon/linda-noskova-vs-elise-mertens-wimbledon-tips-prediction-live-stream-20260708-0001/",
+     "source": "bets.com.au"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "wimbledon schedule",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 04:20:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Wimbledon 2026: What Arthur Fery must do to beat Flavio Cobolli and reach SW19 semi-finals",
+     "url": "https://www.bbc.com/sport/tennis/articles/c20y4x4y714o",
+     "source": "BBC"
+    },
+    {
+     "title": "Wimbledon 2026 today: Live updates, news as Brit Arthur Fery fights for place in semifinals vs. Flavio Cobolli - July 8",
+     "url": "https://www.espn.com/tennis/story/_/id/49299865/wimbledon-2026-today-blog-tennis-08-07-2026-live-updates-news-schedule-results-arthur-fery-flavio-cobolli-taylor-fritz-alexander-zverev",
+     "source": "ESPN"
+    },
+    {
+     "title": "The Preview Day 10",
+     "url": "https://www.wimbledon.com/en_GB/news/wimbledon_2026_the_preview_day_10",
+     "source": "Wimbledon"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "george howarth",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 04:00:00 -0700",
+   "first_seen": "2026-07-08T11:56:23+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Tributes to veteran MP and minister Sir George Howarth",
+     "url": "https://www.bbc.co.uk/news/articles/cr4777v7603o",
+     "source": "BBC"
+    },
+    {
+     "title": "Sir George Howarth obituary: minister who delivered postal vote",
+     "url": "https://www.thetimes.com/uk/obituaries/article/sir-george-howarth-obituary-minister-who-delivered-postal-vote-xvmc368c0",
+     "source": "The Times"
+    },
+    {
+     "title": "Sir George Howarth, respected Merseyside Labour MP who saw off the hard Left and reformed postal voting",
+     "url": "https://www.telegraph.co.uk/obituaries/2026/07/06/sir-george-howarth-labour-mp-merseyside-knowsley-militant/",
+     "source": "The Telegraph"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "romelle donovan",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 03:20:00 -0700",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Romelle Donovan: Sheffield United sign Brentford forward on loan",
+     "url": "https://www.bbc.co.uk/sport/football/articles/cnv9n10j2dmo",
+     "source": "BBC"
+    },
+    {
+     "title": "Romelle Donovan joins Sheffield United on season-long loan",
+     "url": "https://www.brentfordfc.com/en/news/article/first-team-romelle-donovan-sheffield-united-loan-transfer",
+     "source": "Brentford FC"
+    },
+    {
+     "title": "Gossip: Blades to sign Brentford winger",
+     "url": "https://www.bbc.com/sport/football/articles/ce8jkj8jx15o",
+     "source": "BBC"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "paula badosa",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 04:40:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Paula Badosa y el pueblo de la Costa Brava donde se cura del tenis y vuelve a ser niña",
+     "url": "https://www.noticiasdelvino.com/escapadas/2026/07/07/paula-badosa-el-pueblo-de-la-costa-brava-donde-se-cura-del-tenis-y-vuelve-a-ser-nina-69318/",
+     "source": "Noticias del Vino"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "brigham nurses strike",
+   "traffic": "100+",
+   "pub": "Wed, 8 Jul 2026 04:40:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "The biggest nursing strike in Mass. history could begin Wednesday. Here’s what to know.",
+     "url": "https://www.bostonglobe.com/2026/07/07/business/brigham-hospital-nurses-strike/",
+     "source": "The Boston Globe"
+    },
+    {
+     "title": "Brigham and Women's Hospital nurses go on strike in Boston in fight over pay",
+     "url": "https://www.cbsnews.com/boston/news/brigham-and-womens-hospital-nurses-strike-boston/",
+     "source": "CBS News"
+    },
+    {
+     "title": "Largest nursing strike in Massachusetts history looms",
+     "url": "https://www.boston25news.com/news/local/largest-nursing-strike-massachusetts-history-looms/T4WFEOMS6RCM3N42UP7CTN5QXA/",
+     "source": "Boston 25 News"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "orcl stock",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 04:30:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Oracle Stock Plummeted by 25% in the First Half of 2026, and This Dire AI Warning Might Be Why",
+     "url": "https://finance.yahoo.com/technology/ai/articles/oracle-stock-plummeted-25-first-012000513.html",
+     "source": "Yahoo Finance"
+    },
+    {
+     "title": "Oracle: Frankly, A Once In A Lifetime Opportunity (NYSE:ORCL)",
+     "url": "https://seekingalpha.com/article/4920442-oracle-frankly-a-once-in-a-life-time-opportunity",
+     "source": "Seeking Alpha"
+    },
+    {
+     "title": "The One Number That Explains Oracle Stock’s Entire Upside Case",
+     "url": "https://www.trefis.com/stock/orcl/articles/605376/the-one-number-that-explains-oracle-stocks-entire-upside-case/2026-07-01",
+     "source": "Trefis"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "here comes trouble strands",
+   "traffic": "100+",
+   "pub": "Wed, 8 Jul 2026 04:30:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "NYT Strands Hints for July 8, 2026",
+     "url": "https://www.nytimes.com/2026/07/07/crosswords/strands-sidekick-857.html",
+     "source": "The New York Times"
+    },
+    {
+     "title": "NYT Strands hints, answers for July 8, 2026",
+     "url": "https://mashable.com/entertainment/strands-nyt-hint-july-8-2026",
+     "source": "Mashable"
+    },
+    {
+     "title": "Today’s NYT Strands Hints, Spangram, Answers: Wednesday, July 8 (Here Comes Trouble)",
+     "url": "https://www.forbes.com/sites/paultassi/2026/07/07/todays-nyt-strands-hints-spangram-answers-wednesday-july-8-here-comes-trouble/",
+     "source": "Forbes"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "walmart kroger target food recalls",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 04:20:00 -0700",
+   "first_seen": "2026-07-08T11:56:22+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Grocery recalls affect Walmart, Target and Kroger shoppers in Texas",
+     "url": "https://www.houstonchronicle.com/news/houston-texas/trending/article/texas-grocery-recalls-22334488.php",
+     "source": "Houston Chronicle"
+    },
+    {
+     "title": "Food recalls hit 57.4M units in early 2026. Here’s why",
+     "url": "https://www.mysanantonio.com/food/article/food-recalls-2026-22319067.php",
+     "source": "MySA"
+    },
+    {
+     "title": "17 Popular Foods Were Recalled Last Month. See Them All Here",
+     "url": "https://people.com/all-food-recalls-june-2026-12005026",
+     "source": "People.com"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "liam rosenior paris fc appointment",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 02:50:00 -0700",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Former Chelsea boss Rosenior named Paris FC manager",
+     "url": "https://www.bbc.co.uk/sport/football/articles/c4gy6jm0k65o",
+     "source": "BBC"
+    },
+    {
+     "title": "Ex-Chelsea boss Liam Rosenior named Paris FC head coach",
+     "url": "https://www.espn.co.uk/football/story/_/id/49294332/liam-rosenior-chelsea-paris-fc",
+     "source": "ESPN"
+    },
+    {
+     "title": "Ex-Town loanee returns to management after being linked to the Blues job",
+     "url": "https://www.eadt.co.uk/sport/26258564.ipswich-town---ex-blue-liam-rosenior-named-paris-fc-manager/",
+     "source": "East Anglian Daily Times"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "géraldine reuteler",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 02:30:00 -0700",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "4 things you need to know about Géraldine Reuteler | Feature | News",
+     "url": "https://www.arsenal.com/news/4-things-you-need-know-about-geraldine-reuteler",
+     "source": "Arsenal.com"
+    },
+    {
+     "title": "Arsenal sign Swiss international midfielder Reuteler",
+     "url": "https://fawslfulltime.co.uk/2026/07/08/arsenal-sign-swiss-international-midfielder-reuteler/",
+     "source": "WSL Full-Time"
+    },
+    {
+     "title": "Arsenal complete signing of Switzerland international Géraldine Reuteler",
+     "url": "https://www.espn.co.uk/football/story/_/id/49297853/arsenal-complete-signing-switzerland-international-geraldine-reuteler",
+     "source": "ESPN"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  }
+ ]
+}

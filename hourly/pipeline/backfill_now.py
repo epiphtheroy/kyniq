@@ -34,14 +34,14 @@ def main() -> None:
 
     pack = build_pack(env, {"type": row["anchor_type"], "slug": row.get("anchor_slug"), "label": ""})
 
-    existing = row.get("modules") or []
-    have = {m.get("type") for m in existing}
-    added = []
-    for m in pack["modules"]:
-        if m["type"] in APPEND_TYPES and m["type"] not in have:
-            m = {k: v for k, v in m.items() if k not in ("id", "more_href")}
-            existing.append(m)
-            added.append(m["type"])
+    # Rebuild the data layer from the current pipeline so an older row gets the
+    # linked cells (reception URLs, Wikidata honors, real TakeScore) and any
+    # new module types. Order: the types the writer already chose, then the rest.
+    fresh = {m["type"]: {k: v for k, v in m.items() if k not in ("id", "more_href")} for m in pack["modules"]}
+    prior_order = [m.get("type") for m in (row.get("modules") or [])]
+    ordered_types = [t for t in prior_order if t in fresh] + [t for t in fresh if t not in prior_order]
+    existing = [fresh[t] for t in ordered_types]
+    added = [t for t in fresh if t not in prior_order]
 
     snap_path = sys.argv[2] if len(sys.argv) > 2 else None
     if not snap_path:
