@@ -145,6 +145,16 @@ async function loadUncached(slug: string) {
     for (const n of nextArr) { if (n.target_slug && !n.profile_path) n.profile_path = pmap.get(n.target_slug) ?? null; }
   }
 
+  // Record-layer counts (2026-07-09) — the doors to the aggregation articles
+  // (honors/reception; theory uses readingCount, takescore uses total films).
+  const [lnCnt, wdCnt, rcpCnt] = await Promise.all([
+    supabase.from("film_lineage").select("id", { count: "exact", head: true }).in("film_id", filmIds),
+    supabase.from("film_wd_honors").select("id", { count: "exact", head: true }).in("film_id", filmIds),
+    supabase.from("film_reception").select("id", { count: "exact", head: true }).in("film_id", filmIds),
+  ]);
+  const honorsN = (lnCnt.count ?? 0) + (wdCnt.count ?? 0);
+  const receptionN = rcpCnt.count ?? 0;
+
   const { data: geoRows } = await supabase.rpc("director_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
   // geoCells/geoFilms gate the Locations tab/link (the read page's own 404
@@ -164,7 +174,7 @@ async function loadUncached(slug: string) {
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
     recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms,
-    hiddenFilms, hiddenTotal,
+    hiddenFilms, hiddenTotal, honorsN, receptionN,
   };
 }
 
@@ -173,9 +183,9 @@ async function loadUncached(slug: string) {
 // set dynamically. Cache per slug in the Data Cache so the route is ISR-cached;
 // tagged director:<slug> for on-demand refresh.
 function load(slug: string) {
-  // Cache key bumped (load4) when geoCells/geoMerged/geoFilms joined the
-  // payload — the Data Cache outlives deploys, so a shape change needs a new key.
-  return unstable_cache(() => loadUncached(slug), ["director-load4", slug], {
+  // Cache key bumped (load5) when honorsN/receptionN joined the payload —
+  // the Data Cache outlives deploys, so a shape change needs a new key.
+  return unstable_cache(() => loadUncached(slug), ["director-load5", slug], {
     revalidate: 300,
     tags: [`director:${slug}`],
   })();
@@ -245,7 +255,7 @@ export default async function DirectorPage({ params }: Props) {
     if (alias) permanentRedirect(alias);
     notFound();
   }
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0 } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0 } = data;
   const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
@@ -334,22 +344,26 @@ export default async function DirectorPage({ params }: Props) {
   // poster for each pick (picks reference the director's own films)
   const posterBySlug = new Map<string, string | null>((films as FilmArt[]).map((f) => [f.slug, f.poster_path || f.backdrop_path || null]));
 
-  // Dynamic tabs: Portrait + Filmography always; others when their data exists.
-  const tabs: { id: string; label: string; href?: string }[] = [
-    { id: "dr-portrait", label: "Portrait" },
-    { id: "dr-filmography", label: "Filmography" },
+  // Dynamic tabs — the film-page menu grammar (2026-07-09): two offset rails,
+  // per-section colors, live counts as tinted badges. Portrait + Filmography
+  // always; others when their data exists.
+  const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
+  const tabs: { id: string; label: string; href?: string; badge?: number; color?: string }[] = [
+    { id: "dr-portrait", label: "Portrait", color: "#5A6B86" },
+    { id: "dr-filmography", label: "Filmography", badge: total, color: "#2E7D9E" },
   ];
-  if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings" });
-  if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes" });
-  if (archGroups.length) tabs.push({ id: "dr-archetype", label: "Archetype" });
-  if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life" });
-  if (next.length) tabs.push({ id: "dr-next", label: "Who's Next" });
-  if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start" });
-  tabs.push({ id: "dr-map", label: "Connections" });
-  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas" });
+  if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings", badge: readingCount, color: "#D64534" });
+  if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes", badge: tropeCount, color: "#12897A" });
+  if (archGroups.length) tabs.push({ id: "dr-archetype", label: "Archetype", badge: nArch, color: "#6B4E9E" });
+  if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life", badge: facts.facts.length, color: "#B8863B" });
+  if (next.length) tabs.push({ id: "dr-next", label: "Who's Next", badge: next.length, color: "#B85C9E" });
+  if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start", badge: picks.length, color: "#C87A2C" });
+  if (honorsN + receptionN > 0 || total >= 3 || readingCount > 0) tabs.push({ id: "dr-records", label: "The records", badge: honorsN + receptionN, color: "#8A6D3B" });
+  tabs.push({ id: "dr-map", label: "Connections", color: "#2F6DB0" });
+  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas", badge: geoMerged, color: "#2E8B6E" });
   const hasLocationsPage = geoFilms >= DIRECTOR_LOCATIONS_MIN_FILMS && geoCells >= DIRECTOR_LOCATIONS_MIN_PINS;
-  if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations` });
-  tabs.push({ id: "dr-credits", label: "Credits" });
+  if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations`, badge: geoMerged, color: "#3F7E8C" });
+  tabs.push({ id: "dr-credits", label: "Credits", color: "#6B7280" });
 
   return (
     <div className="mt">
@@ -395,7 +409,7 @@ export default async function DirectorPage({ params }: Props) {
       </div>
 
       <div className="dr-wrap">
-        <FilmTabBar tabs={tabs} />
+        <FilmTabBar tabs={tabs} twoRow />
 
         {/* PORTRAIT — our portrait when written; otherwise our numbers as
             prose. TMDB's bio is never shown (third-party duplicate text). */}
@@ -575,6 +589,53 @@ export default async function DirectorPage({ params }: Props) {
                 ]}
                 cta="Open the kinships"
               />
+            </div>
+          </section>
+        )}
+
+        {/* THE RECORDS — doors to the filmography-wide aggregation articles
+            (film-page grammar: counted print-TOC doors, no banners). */}
+        {(honorsN + receptionN > 0 || total >= 3 || readingCount > 0) && (
+          <section className="dr-sec" id="dr-records">
+            <h2 className="dr-h2">The records — across the filmography</h2>
+            <p className="dr-gloss">The film-level records ({director}&apos;s scores, honors, press and theory readings) gathered into filmography-wide articles — counted below, argued in full behind each door.</p>
+            <div className="rec-tocs">
+              {total >= 3 ? (
+                <RecordToc
+                  href={`/director/${slug}/takescore`}
+                  kicker="TakeScore™"
+                  title={`Every ${director} film, scored — the ranking`}
+                  rows={[{ label: "Films scored", value: total }, { label: "Readings behind them", value: readingCount }]}
+                  cta="Open the ranking"
+                />
+              ) : null}
+              {honorsN > 0 ? (
+                <RecordToc
+                  href={`/director/${slug}/honors`}
+                  kicker="The honors record"
+                  title={`Every award ${director}'s films have won — counted and sourced`}
+                  rows={[{ label: "Honors on the record", value: honorsN }, { label: "Films", value: total }]}
+                  cta="Open the record"
+                />
+              ) : null}
+              {receptionN > 0 ? (
+                <RecordToc
+                  href={`/director/${slug}/reception`}
+                  kicker="Reception"
+                  title={`What critics said about ${director}'s films — press & scholarship`}
+                  rows={[{ label: "Press & papers", value: receptionN }, { label: "Films covered", value: total }]}
+                  cta="Open the reception"
+                />
+              ) : null}
+              {readingCount > 0 ? (
+                <RecordToc
+                  href={`/director/${slug}/theory`}
+                  kicker="Through theory"
+                  title={`${director} through theory — the lenses the films answer to`}
+                  rows={[{ label: "Readings", value: readingCount }, { label: "Recurring tropes", value: tropeCount }]}
+                  cta="Open the lenses"
+                />
+              ) : null}
             </div>
           </section>
         )}

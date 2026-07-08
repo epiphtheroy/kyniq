@@ -2,11 +2,12 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
+import { Fragment, type CSSProperties } from "react";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
+import DirectorPlates from "@/components/read/DirectorPlates";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -143,6 +144,23 @@ export default async function DirectorStartPage({ params }: Props) {
   const pickSlugs = new Set(picks.map((p) => p.film_slug).filter(Boolean));
   const remaining = films.filter((f) => !pickSlugs.has(f.slug)).slice().sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999));
 
+  // Mid-article stills: after every 2nd route stop, one backdrop rotated in
+  // year order (the films query is year-ordered), never repeating a still,
+  // never the hero's film, and never the film whose poster the reader just
+  // saw at that stop. Deterministic; skipped once the gallery runs out.
+  const stillPool = films.filter((f) => f.backdrop_path && f.slug !== bdFilm?.slug);
+  const stillAfterStop = new Map<number, Film>();
+  {
+    const used = new Set<string>();
+    picks.forEach((p, i) => {
+      if ((i + 1) % 2 !== 0) return;
+      const cand = stillPool.find((f) => !used.has(f.slug) && f.slug !== p.film_slug);
+      if (!cand) return;
+      used.add(cand.slug);
+      stillAfterStop.set(i, cand);
+    });
+  }
+
   const years = films.map((f) => f.year).filter((y): y is number => typeof y === "number");
   const span = years.length > 1 ? ` (${Math.min(...years)}–${Math.max(...years)})` : "";
 
@@ -250,8 +268,10 @@ export default async function DirectorStartPage({ params }: Props) {
               const poster = film?.poster_path ?? null;
               const count = film ? perFilmReadings[film.id] ?? 0 : 0;
               const pos = p.pos ?? i + 1;
+              const still = stillAfterStop.get(i);
               return (
-                <section key={pos} id={`stop-${pos}`}>
+                <Fragment key={pos}>
+                <section id={`stop-${pos}`}>
                   {p.label ? <div className="afl-k" style={{ "--kc": "#B8863B" } as CSSProperties}>{p.label}</div> : null}
                   <h2 style={p.label ? { marginTop: 0 } : undefined}>{pos}. {filmTitle}{year ? ` (${year})` : ""}</h2>
                   <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
