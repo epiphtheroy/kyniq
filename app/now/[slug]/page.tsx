@@ -25,7 +25,7 @@ async function load(slug: string) {
   const { data } = await db()
     .from("now_articles")
     .select(
-      "slug, headline, dek, summary, keyword, lane, anchor_type, anchor_slug, anchor_label, film_slug, facts_html, reading_html, bottom_html, deposit, modules, sources, image_path, image_alt, cut_floor, archive_links, status, update_note, published_at, updated_at"
+      "slug, headline, dek, summary, dateline, keyword, lane, anchor_type, anchor_slug, anchor_label, film_slug, facts_html, reading_html, bottom_html, deposit, modules, sources, image_path, image_alt, archive_links, status, update_note, published_at, updated_at"
     )
     .eq("slug", slug)
     .eq("status", "published")
@@ -124,23 +124,17 @@ export default async function NowPiece({ params }: Props) {
         <article className="cur-paper blg">
           {p.update_note ? <div className="now-note">Update: {p.update_note}</div> : null}
 
-          <div className="now-sec">What happened</div>
-          <div dangerouslySetInnerHTML={{ __html: p.facts_html }} />
+          {p.dateline ? <p className="now-dateline">{p.dateline}</p> : null}
+
+          {/* v3: the editor's letter — continuous prose, no section furniture */}
+          <div className="now-letter" dangerouslySetInnerHTML={{ __html: p.facts_html }} />
+          <div className="now-letter" dangerouslySetInnerHTML={{ __html: p.reading_html }} />
+          {p.bottom_html ? <div className="now-letter" dangerouslySetInnerHTML={{ __html: p.bottom_html }} /> : null}
 
           {p.modules?.length ? (
             <>
-              <div className="now-sec">The record</div>
+              <div className="now-sec">From the archive</div>
               <NowModules modules={p.modules} />
-            </>
-          ) : null}
-
-          <div className="now-sec">The reading</div>
-          <div dangerouslySetInnerHTML={{ __html: p.reading_html }} />
-
-          {p.bottom_html ? (
-            <>
-              <div className="now-sec">Bottom line</div>
-              <div dangerouslySetInnerHTML={{ __html: p.bottom_html }} />
             </>
           ) : null}
 

@@ -33,6 +33,7 @@ export type NowArticle = {
   anchor_slug: string | null;
   anchor_label: string;
   film_slug: string | null;
+  dateline: string | null;
   facts_html: string;
   reading_html: string;
   bottom_html: string | null;
