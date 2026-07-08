@@ -218,6 +218,7 @@ export default async function CatalogNode({ params }: Props) {
             </div>
             <div className="rd-chiprow">
               <span className="rd-chip">{km.label}</span>
+              {meta?.facet_label ? <span className="rd-chip" title="UCN facet">{meta.facet_label}</span> : null}
               {mat ? <span className="rd-chip">{mat[1]}</span> : null}
               <span className="rd-meta">{n.toLocaleString()} {figLabel} · {uniqFilms.length}{full ? "" : "+"} films</span>
             </div>
@@ -245,7 +246,8 @@ export default async function CatalogNode({ params }: Props) {
         tabs={[
           { id: "spelled-out", label: "Spelled out", color: "#D64534" },
           { id: "members", label: "The ranked slate", badge: n, color: "#12897A" },
-          ...(kindred.length || themes.length ? [{ id: "cat-rels", label: "Kindred & themes", badge: kindred.length + themes.length, color: "#C87A2C" }] : []),
+          ...(concepts.length ? [{ id: "cat-concepts", label: "The theory", badge: concepts.length, color: "#5B4B8A" }] : []),
+          ...(kindred.length || themes.length || familyKin.length ? [{ id: "cat-rels", label: "Kindred & themes", badge: kindred.length + themes.length + familyKin.length, color: "#C87A2C" }] : []),
         ]}
       />
 

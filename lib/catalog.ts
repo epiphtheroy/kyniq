@@ -28,8 +28,11 @@ export const SECTIONS: Section[] = [
   { key: "themes", seg: "themes", label: "Themes", cardTitle: "Theme Archetype", icon: "affiliate",
     blurb: "What a work is about — the abstract subjects that recur across figures and films.",
     kinds: ["theme", "theme_cluster"], primaryKind: "theme" },
-  { key: "theory", seg: "theory", label: "Theory", cardTitle: "Theory Archetype", icon: "book",
-    blurb: "The critical concepts and theorists the readings draw on (from the canon).",
+  // Terminology charter (2026-07-08): this section lists CONCEPTS — the
+  // working subset of the concept registry that the readings actually deploy.
+  // "Theory Archetype" retired; canonical browse lives at /concept.
+  { key: "theory", seg: "theory", label: "Concepts", cardTitle: "Working Concepts", icon: "book",
+    blurb: "The named concepts the readings actually deploy — a working subset of the full concept registry at /concept.",
     kinds: ["theory"], primaryKind: "theory" },
 ];
 
