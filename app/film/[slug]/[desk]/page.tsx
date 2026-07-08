@@ -64,7 +64,7 @@ type EssayRow = {
 
 const loadDict = unstable_cache(
   async (): Promise<LinkDict> => loadFullLinkDict(db() as never),
-  ["desk-link-dict-4"],
+  ["desk-link-dict-5"],
   { revalidate: 86400 }
 );
 
