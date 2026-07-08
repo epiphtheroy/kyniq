@@ -11,12 +11,21 @@
 import { useEffect, useState } from "react";
 
 export default function ListFilter({
-  targetId, placeholder, total,
+  targetId, placeholder, total, listenEvent,
 }: {
   targetId: string; placeholder?: string; total?: number;
+  // The sticky tab bar's in-page search drives this filter too (CustomEvent).
+  listenEvent?: string;
 }) {
   const [q, setQ] = useState("");
   const [shown, setShown] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!listenEvent) return;
+    const onQ = (e: Event) => setQ(String((e as CustomEvent).detail ?? ""));
+    window.addEventListener(listenEvent, onQ);
+    return () => window.removeEventListener(listenEvent, onQ);
+  }, [listenEvent]);
 
   useEffect(() => {
     const root = document.getElementById(targetId);

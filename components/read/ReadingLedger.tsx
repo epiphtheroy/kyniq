@@ -18,7 +18,7 @@ import TermHighlight from "@/components/TermHighlight";
 export type LedgerReading = {
   take_id: string; thesis: string | null; leap: string | null;
   theorist_name?: string | null; theorist_slug?: string | null;
-  fig_label: string; fig_slug: string;
+  fig_label: string; fig_slug: string | null;
   film_title: string; film_slug: string; film_year: number | null;
   backdrop_path?: string | null;
 };
@@ -105,7 +105,9 @@ export default function ReadingLedger({ subject, readings, essays = [] }: {
                 {list.map((r) => {
                   const k = i++ % 3;
                   const film = <FilmT slug={r.film_slug} title={r.film_title} year={r.film_year} />;
-                  const fig = <Link href={`/film/${r.film_slug}/figure/${r.fig_slug}`}>{r.fig_label}</Link>;
+                  const fig = r.fig_slug
+                    ? <Link href={`/film/${r.film_slug}/figure/${r.fig_slug}`}>{r.fig_label}</Link>
+                    : <>{r.fig_label}</>;
                   const via = r.theorist_name ? (
                     <>, read through {r.theorist_slug
                       ? <Link href={`/theorist/${r.theorist_slug}`}>{r.theorist_name}</Link>
