@@ -229,6 +229,34 @@ export async function filmCreditsEntries(): Promise<SitemapEntry[]> {
   }));
 }
 
+/** Per-film reception timelines — eligibility mirrors the page's own gate:
+ *  at least one film_reception row (the page 404s otherwise). */
+export async function filmReceptionEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const rows = await fetchAll<{ film_id: string; created_at: string }>(
+    (from, to) => supabase.from("film_reception").select("film_id, created_at").order("film_id").range(from, to),
+    20000
+  );
+  const latestByFilm = new Map<string, string>();
+  for (const r of rows) {
+    const cur = latestByFilm.get(r.film_id);
+    if (!cur || r.created_at > cur) latestByFilm.set(r.film_id, r.created_at);
+  }
+  const ids = [...latestByFilm.keys()];
+  const films: { id: string; slug: string }[] = [];
+  for (let i = 0; i < ids.length; i += 150) {
+    const { data } = await supabase.from("films").select("id, slug")
+      .eq("visible", true).in("id", ids.slice(i, i + 150));
+    films.push(...((data ?? []) as { id: string; slug: string }[]));
+  }
+  films.sort((a, b) => a.slug.localeCompare(b.slug));
+  return films.map((f) => ({
+    url: `${siteUrl}/film/${f.slug}/reception`,
+    lastmod: isoDate(latestByFilm.get(f.id)!),
+  }));
+}
+
 /** Films — every visible film. */
 export async function filmEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
