@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar from "@/components/FilmTabBar";
-import TermHighlight from "@/components/TermHighlight";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplorer";
 import { attachKwic } from "@/lib/kwic";
@@ -181,7 +180,6 @@ export default async function TheoristPage({ params }: Props) {
 
   const surnamePre = name.split(" ").length > 1 ? name.split(" ").pop() as string : "";
   const hlTermsPre = [name, surnamePre].filter(Boolean);
-  const hlTerms = hlTermsPre;
   const heroBackdrop = F.topFilms.find((f) => f.backdrop)?.backdrop ?? null;
   const bdBySlug = new Map<string, string | null>();
   for (const r of readings) if (!bdBySlug.has(r.film_slug)) bdBySlug.set(r.film_slug, r.backdrop_path);
