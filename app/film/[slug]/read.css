@@ -43,3 +43,26 @@
   .rd-hero__in { grid-template-columns: 1fr; gap: 20px; }
   .rd-h1 { font-size: 30px; }
 }
+
+/* ── Maker panels (film credits page, 2026-07-08): blog-preview cards for
+      the people behind one film — face, role-in-this-film + whole-career in
+      one line, click-through to their own page. Light theme (article body). */
+.crd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+.crd-panel {
+  display: flex; gap: 14px; align-items: flex-start;
+  border: 1px solid rgba(22, 35, 63, 0.16); border-radius: 10px; padding: 14px;
+  background: #fff; text-decoration: none; color: inherit;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.crd-panel:hover { box-shadow: 0 14px 34px -14px rgba(22, 35, 63, 0.4); transform: translateY(-2px); border-color: rgba(192, 57, 43, 0.45); }
+.crd-panel img { width: 92px; height: 120px; object-fit: cover; border-radius: 8px; background: #e8e4da; flex: none; }
+.crd-ph {
+  width: 92px; height: 120px; border-radius: 8px; background: #16233F; color: #FBF8F1; flex: none;
+  display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 700;
+}
+.crd-panel > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+.crd-k { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #c0392b; font-weight: 700; }
+.crd-panel h3 { margin: 4px 0 6px; font-size: 17px; line-height: 1.25; }
+.crd-panel p { margin: 0; font-size: 13.5px; line-height: 1.55; color: #4c4a45; }
+.crd-go { margin-top: auto; padding-top: 8px; font-size: 12.5px; font-weight: 700; color: #c0392b; }
+@media (max-width: 720px) { .crd-grid { grid-template-columns: 1fr; } }

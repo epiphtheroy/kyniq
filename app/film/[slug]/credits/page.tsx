@@ -329,12 +329,12 @@ export default async function FilmCreditsPage({ params }: Props) {
                 {titleYear} was directed by <DirT />; TMDB files {directorFilmog.length} directing credit{directorFilmog.length === 1 ? "" : "s"} for {director.name}, from <FilmT f={directorFilmog[0]} /> to <FilmT f={directorFilmog[directorFilmog.length - 1]} />.
               </li>
             ) : null}
-            {relations.filter((r) => r.roleKey !== "actor").map((r) => (
+            {relations.filter((r) => r.roleKey !== "actor" && r.shared.length > 0).map((r) => (
               <li key={`${r.personId}-${r.roleKey}`} style={{ margin: "0 0 8px" }}>
                 The {r.role} was <PersonT r={r} />. <RelSentence r={r} />
               </li>
             ))}
-            {crew.filter((g) => !relations.some((r) => r.roleKey === g.craft)).map((g) => (
+            {crew.filter((g) => !relations.some((r) => r.roleKey === g.craft && r.shared.length > 0)).map((g) => (
               <li key={g.craft} style={{ margin: "0 0 8px" }}>
                 The {ROLE_NOUN[g.craft]} credit on {film.title} belongs to {list(g.people.map((p) => <Link key={p.id} href={`/credits/${personSlug(p.name, p.id)}`}><b>{p.name}</b></Link>))} — no shared history with the director on file.
               </li>
@@ -358,7 +358,7 @@ export default async function FilmCreditsPage({ params }: Props) {
               <li style={{ margin: "0 0 8px" }}>
                 The cast of {titleYear} was led by {list(topCast.map((c) => <b key={c.id}>{c.name}</b>))}.
               </li>
-              {relations.filter((r) => r.roleKey === "actor").map((r) => (
+              {relations.filter((r) => r.roleKey === "actor" && r.shared.length > 0).map((r) => (
                 <li key={r.personId} style={{ margin: "0 0 8px" }}><RelSentence r={r} /></li>
               ))}
             </ul>
@@ -381,14 +381,62 @@ export default async function FilmCreditsPage({ params }: Props) {
           </section>
         ) : null}
 
-        <section id="explorer" style={{ margin: "40px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
-          <h2 className="df-h2" style={{ marginTop: 18 }}>The collaboration map — live</h2>
+        <section id="the-makers" style={{ margin: "40px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
+          <h2 className="df-h2" style={{ marginTop: 18 }}>The makers — open their files</h2>
           <p className="df-sub">
-            The whole crew network of {film.title}, right here — every name opens their own credits page.
+            One panel per craft. Each opens the person&apos;s own page: everything they&apos;ve made, and who they made it with.
           </p>
-          <Suspense fallback={<div style={{ padding: "30px 0", opacity: 0.6 }}>Loading the map…</div>}>
-            <CreditsExplorer embed initialF={film.tmdb_id!} />
-          </Suspense>
+          <div className="crd-grid">
+            {director && directorFilmog.length > 0 ? (() => {
+              const dIdx = directorFilmog.findIndex((f) => f.id === film.tmdb_id);
+              const href = film.director_slug && film.director === director.name
+                ? `/director/${film.director_slug}`
+                : `/credits?p=${director.id}&c=dir`;
+              return (
+                <a className="crd-panel" href={href} key="director">
+                  {director.profile
+                    ? /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={`https://image.tmdb.org/t/p/w185${director.profile}`} alt={director.name} width={92} height={120} loading="lazy" />
+                    : <span className="crd-ph" aria-hidden>{director.name[0]}</span>}
+                  <span>
+                    <span className="crd-k">Director · {film.title}</span>
+                    <h3>What has {director.name} directed — and with whom?</h3>
+                    <p>
+                      The director of {film.title}: {directorFilmog.length} directing credits since {directorFilmog[0].year}
+                      {dIdx >= 0 ? <> — {film.title} was the {ordinal(dIdx + 1)} of them</> : null}.
+                    </p>
+                    <span className="crd-go">Open the file →</span>
+                  </span>
+                </a>
+              );
+            })() : null}
+            {relations.filter((r) => r.roleKey !== "actor").map((r) => {
+              const VERBED: Record<string, string> = { writer: "written", dp: "shot", editor: "cut", composer: "scored", pd: "designed" };
+              const verbed = VERBED[r.roleKey] ?? "made";
+              return (
+                <a className="crd-panel" href={`/credits/${personSlug(r.name, r.personId)}`} key={`${r.personId}-${r.roleKey}`}>
+                  {r.profile
+                    ? /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={`https://image.tmdb.org/t/p/w185${r.profile}`} alt={r.name} width={92} height={120} loading="lazy" />
+                    : <span className="crd-ph" aria-hidden>{r.name[0]}</span>}
+                  <span>
+                    <span className="crd-k">{r.role} · {film.title}</span>
+                    <h3>What has {r.name} {verbed} — and with whom?</h3>
+                    <p>
+                      The {r.role} of {film.title} — {r.careerCount} film{r.careerCount === 1 ? "" : "s"} {verbed}
+                      {r.careerFirst ? ` since ${r.careerFirst}` : ""}
+                      {r.shared.length > 0 && director ? (
+                        r.shared.length === 1
+                          ? <>; the only one with {director.name}</>
+                          : <>; {r.idx >= 0 ? `the ${ordinal(r.idx + 1)}` : "one"} of {r.shared.length} with {director.name}</>
+                      ) : null}.
+                    </p>
+                    <span className="crd-go">Open the file →</span>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
         </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 22 }}>
