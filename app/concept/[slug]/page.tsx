@@ -12,6 +12,7 @@ import { Card, SectionHead } from "@/components/curious/ui";
 import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 import { listicle } from "@/lib/listicle";
+import { attachKwic } from "@/lib/kwic";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
@@ -162,7 +163,8 @@ function load(slug: string) {
       let intro: string | null = null;
       const { data: it } = await supabase.rpc("sm_concept_intro", { p_slug: h.resolved_slug });
       if (typeof it === "string" && it.trim()) intro = it.trim();
-      const desks = await fetchDeskEssays(supabase, [slug, h.resolved_slug]);
+      const desksRaw = await fetchDeskEssays(supabase, [slug, h.resolved_slug]);
+      const desks = await attachKwic(supabase, desksRaw, [h.name]);
       return {
         kind: "sm" as const,
         updated,
@@ -440,14 +442,18 @@ export default async function ConceptPage({ params }: Props) {
         </div>
       </div>
 
-      <FilmTabBar tabs={[
-        { id: "spelled-out", label: "Spelled out" },
-        { id: "concept-films", label: "The films", badge: filmArr.length },
-        ...(tropes.length ? [{ id: "concept-tropes", label: "Patterns", badge: tropes.length }] : []),
-        ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length }] : []),
-        { id: "concept-slate", label: "The full slate", badge: readings.length },
-        { id: "concept-map", label: "Map" },
-      ]} />
+      <FilmTabBar
+        center
+        search={{ event: "theory:q", targetId: "concept-slate", placeholder: `Search ${readings.length} readings…` }}
+        tabs={[
+          { id: "spelled-out", label: "Spelled out" },
+          { id: "concept-films", label: "The films", badge: filmArr.length },
+          ...(tropes.length ? [{ id: "concept-tropes", label: "Patterns", badge: tropes.length }] : []),
+          ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length }] : []),
+          { id: "concept-slate", label: "The full slate", badge: readings.length },
+          { id: "concept-map", label: "Map" },
+        ]}
+      />
 
       <div className="mt-wrap">
         <Provenance updated={updated} />
@@ -535,14 +541,14 @@ export default async function ConceptPage({ params }: Props) {
         {desks.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="concept-desks">
             <h2 className="cmap-h2">From the desks — essays that put {name} to work</h2>
-            <DeskExplorer desks={desks} about={name} />
+            <DeskExplorer desks={desks} about={name} listenEvent="theory:q" />
           </section>
         )}
 
         <section style={{ margin: "34px 0 0" }} id="concept-slate">
           <h2 className="cmap-h2">The full slate — {readings.length} readings</h2>
           <p className="cmap-intro">The complete archive, searchable and filterable by framework and decade. Each card links into the film&apos;s figure page, where the reading lives.</p>
-          <ReadingsExplorer readings={readings} about={name} />
+          <ReadingsExplorer readings={readings} about={name} listenEvent="theory:q" />
         </section>
 
         <section className="cmap-sec" id="concept-map">
