@@ -877,9 +877,10 @@ export default async function FilmPage({ params }: Props) {
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
 
-  // Critic pull-quotes for the Lineage record layer — dek_lead (the publisher's
-  // own lead paragraph) preferred, one per outlet, verdict-tier first.
-  const linQuotes = (() => {
+  // Critic pull-quotes — dek_lead (the publisher's own lead paragraph)
+  // preferred, one per outlet, verdict-tier first. The pool is split so the
+  // Lineage record layer and the Reception section never repeat a quote.
+  const quotePool = (() => {
     const seen = new Set<string>();
     const out: { text: string; outlet: string; critic: string | null; year: number | null; url: string }[] = [];
     const pool = [
@@ -891,10 +892,12 @@ export default async function FilmPage({ params }: Props) {
       if (seen.has(r.outlet)) continue;
       seen.add(r.outlet);
       out.push({ text: (r.dek_lead ?? r.verdict)!, outlet: r.outlet, critic: r.critic || null, year: r.review_year ?? r.year, url: r.url });
-      if (out.length >= 3) break;
+      if (out.length >= 6) break;
     }
     return out;
   })();
+  const linQuotes = quotePool.slice(0, 2);
+  const rcpQuotes = quotePool.slice(2, 6);
   const linAfterlife = reviews.length + papers.length > 0 ? {
     reviews: reviews.length, papers: papers.length,
     releases: afterlife.releases, honors: afterlife.wdHonors,
@@ -1315,47 +1318,17 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        {/* RECEPTION — critics & scholarship (copyright-safe: headlines + ≤10-word verbatim verdicts) */}
-        {reception.length > 0 ? (
-          <section className="df-sec" id="df-reception">
-            <h2 className="df-h2">Reception</h2>
-            <p className="df-sub">What critics and scholars have written about {film.title} — each headline links to the source; short quotes are verbatim from publishers&apos; own link previews and paper abstracts.</p>
-            {reviews.length > 0 ? (
-              <div className="df-rcpgrp">
-                <div className="df-flabel">Reviews <span className="df-cnt">{reviews.length}</span></div>
-                <div className="rcp-list">
-                  {reviews.map((r, i) => (
-                    <div key={i} className="rcp-row">
-                      <a className="rcp-h" href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
-                      <div className="rcp-m">{r.outlet}{r.critic ? ` · ${r.critic}` : ""}{r.year ? ` · ${r.year}` : ""}</div>
-                      {r.verdict ? <p className="rcp-v">“{r.verdict}”</p> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            {papers.length > 0 ? (
-              <div className="df-rcpgrp">
-                <div className="df-flabel">Scholarship <span className="df-cnt">{papers.length}</span></div>
-                <div className="rcp-list">
-                  {papers.map((r, i) => (
-                    <div key={i} className="rcp-row">
-                      <a className="rcp-h" href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
-                      <div className="rcp-m">{r.outlet}{r.critic ? ` · ${r.critic}` : ""}{r.year ? ` · ${r.year}` : ""}</div>
-                      {r.verdict ? <p className="rcp-v">“{r.verdict}”</p> : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            <div className="df-src">Headlines &amp; ≤10-word quotes from publishers&apos; link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.</div>
-            <p style={{ marginTop: 12 }}>
-              <Link href={`/film/${film.slug}/reception`} style={{ fontWeight: 700 }}>
-                {film.title} — what critics said, and everything since: the year-by-year record →
-              </Link>
-            </p>
-          </section>
-        ) : null}
+        {/* RECEPTION — critics & scholarship (copyright-safe: headlines + publishers' own
+            link-preview text). Record-layer grammar: chips → quotes → curtains → slate. */}
+        <FilmReceptionSection
+          title={film.title}
+          slug={film.slug}
+          reviews={reviews}
+          papers={papers}
+          quotes={rcpQuotes}
+          afterlife={linAfterlife}
+          backdropPath={film.backdrop_path}
+        />
 
         {/* CURIOUS — the question desk: question + desk-essay titles only,
             reading happens on the Q&A / desk pages (the canonical surfaces) */}
