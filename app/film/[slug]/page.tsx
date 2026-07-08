@@ -14,6 +14,7 @@ import AccessEnrichment, { type AccessRecord } from "@/components/AccessEnrichme
 import AccessSummary from "@/components/AccessSummary";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import FilmLineageSection from "@/components/FilmLineageSection";
+import FilmReceptionSection from "@/components/FilmReceptionSection";
 import CinecodexPanel, { type Codex, type FilmSubscores } from "@/components/CinecodexPanel";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
