@@ -241,12 +241,17 @@ export async function conceptDomainEntries(): Promise<SitemapEntry[]> {
 export async function frameEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
-  const { data: frames } = await supabase.from("frames").select("slug").eq("status", "approved");
-  const list = (frames ?? []) as { slug: string }[];
+  const { data: frames } = await supabase.from("frames").select("id, slug").eq("status", "approved");
+  const list = (frames ?? []) as { id: string; slug: string }[];
   const out: SitemapEntry[] = [];
   for (const f of list) {
-    // Page 404s when a frame has no ranked instances — check before advertising.
-    const { count } = await supabase.from("frame_rankings").select("id", { count: "exact", head: true }).eq("frame_slug", f.slug);
+    // Page 404s with no primary instance on a published question — mirror that gate.
+    const { count } = await supabase
+      .from("question_frames")
+      .select("question:questions!inner(status)", { count: "exact", head: true })
+      .eq("frame_id", f.id)
+      .eq("is_primary", true)
+      .eq("question.status", "published");
     if ((count ?? 0) > 0) out.push({ url: `${siteUrl}/frame/${f.slug}` });
   }
   return out;

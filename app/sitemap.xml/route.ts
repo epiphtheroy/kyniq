@@ -33,6 +33,10 @@ const SECTIONS = [
   "misreadings",
   "film-credits",
   "film-reception",
+  "essays-ko",
+  "movements",
+  "concept-domains",
+  "frames",
   "now",
 ];
 
