@@ -872,10 +872,34 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
+
+  // Critic pull-quotes for the Lineage record layer — dek_lead (the publisher's
+  // own lead paragraph) preferred, one per outlet, verdict-tier first.
+  const linQuotes = (() => {
+    const seen = new Set<string>();
+    const out: { text: string; outlet: string; critic: string | null; year: number | null; url: string }[] = [];
+    const pool = [
+      ...reviews.filter((r) => r.dek_lead && r.tier === "verdict"),
+      ...reviews.filter((r) => r.dek_lead && r.tier !== "verdict"),
+      ...reviews.filter((r) => !r.dek_lead && r.verdict),
+    ];
+    for (const r of pool) {
+      if (seen.has(r.outlet)) continue;
+      seen.add(r.outlet);
+      out.push({ text: (r.dek_lead ?? r.verdict)!, outlet: r.outlet, critic: r.critic || null, year: r.review_year ?? r.year, url: r.url });
+      if (out.length >= 3) break;
+    }
+    return out;
+  })();
+  const linAfterlife = reviews.length + papers.length > 0 ? {
+    reviews: reviews.length, papers: papers.length,
+    releases: afterlife.releases, honors: afterlife.wdHonors,
+    y0: afterlife.y0, y1: afterlife.y1,
+  } : null;
 
   // Figures shown in the catalogue exclude the synthetic 'film'/'title' anchors.
   const catalogue = figures.filter((f) => f.kind !== "film" && f.kind !== "title" && (takeCount[f.id] ?? 0) > 0);
@@ -1129,7 +1153,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} />
+        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife} backdropPath={film.backdrop_path} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
         <FilmRecommendedBy rows={recommendedBy} title={film.title} />
