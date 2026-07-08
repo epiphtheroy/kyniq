@@ -14,7 +14,8 @@ export type Codex = {
   n_samples: number | null; sd_v: number | null; panel: string; flagged: boolean;
   conf: number | null; conf_tier: string | null; n_takes: number | null; votes: number | null;
   ext: { imdb: number | null; rt: number | null; metascore: number | null };
-  /** Overall U-rank among all visible scored films (migration 0047) — optional:
+  /** Overall U-rank among ALL scored films (~6,701; migration 0052 dropped the
+   *  visible-only filter so Tier-2 catalog films get a real rank too) — optional:
    *  edge-cached pre-0047 payloads omit them; the rank strip renders only when present. */
   rank?: number | null; rank_total?: number | null;
 };

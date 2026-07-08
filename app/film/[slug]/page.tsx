@@ -1386,6 +1386,9 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
+        {/* IN THE NEWS — the Now Playing hourly desk's record for this film */}
+        <EntityNews filmSlug={slug} variant="df" />
+
         {/* THE DAILY — editions of the newsletter that filed this film against the news */}
         {dailyRefs.length > 0 ? (
           <section className="df-sec" id="df-daily">

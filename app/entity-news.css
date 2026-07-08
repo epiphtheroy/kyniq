@@ -1,0 +1,49 @@
+/* "In the news" — the Now Playing layer on film (.df-sec) and director
+   (.dr-sec) pages. Light newspaper grain shared by both hosts: hairlines,
+   ink, the one house red. Scoped under .enw. */
+
+.enw .enw-lede {
+  font: 400 13.5px/1.6 Inter, -apple-system, sans-serif;
+  color: #6b6b6b;
+  margin: 2px 0 12px;
+  max-width: 720px;
+}
+.enw .enw-lede a { color: #b80d05; font-weight: 600; text-decoration: none; }
+.enw .enw-lede a:hover { text-decoration: underline; }
+
+.enw .enw-row {
+  display: block;
+  padding: 11px 0 12px;
+  border-top: 1px solid #e5e1d8;
+  color: inherit;
+  text-decoration: none;
+}
+.enw .enw-row:last-child { border-bottom: 1px solid #e5e1d8; }
+
+.enw .enw-meta {
+  font: 600 11px/1.5 Inter, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8c857a;
+}
+.enw .enw-badge {
+  color: #fff;
+  background: #e3120b;
+  padding: 1px 7px 2px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  margin-right: 6px;
+}
+.enw .enw-t {
+  font: 700 16.5px/1.35 "PT Serif", Georgia, serif;
+  color: #1a1714;
+  margin: 4px 0 2px;
+}
+.enw .enw-t a { color: inherit; text-decoration: underline; text-decoration-color: #e3120b; text-underline-offset: 3px; }
+.enw .enw-t a:hover { color: #b80d05; }
+.enw a.enw-row--piece:hover .enw-t { color: #b80d05; }
+.enw .enw-d {
+  font: 400 14px/1.55 Inter, sans-serif;
+  color: #5c564e;
+  max-width: 760px;
+}
