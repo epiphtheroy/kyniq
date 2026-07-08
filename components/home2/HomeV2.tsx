@@ -16,6 +16,7 @@ import Auteurs from "./AuteursRow";
 import Rhyme from "./Rhyme";
 import Canon from "./Canon";
 import BlogGraph from "./BlogGraph";
+import NowPlaying from "./NowPlaying";
 import HomeMap from "./HomeMap";
 import HomeAtlas from "./HomeAtlas";
 import BigSearch from "./BigSearch";
@@ -36,6 +37,8 @@ export default function HomeV2({ data }: { data: HomeV2Data }) {
       <HeroSurprise />
       {/* 2b — My Films lens ribbon (client-personalised, server HTML identical) */}
       <MyFilmsRibbon />
+      {/* 2c — Now Playing: the live layer, featured big (renders nothing until the first piece) */}
+      <NowPlaying />
       {/* 3 — Recommended by the map (paper) */}
       <Picked data={data} />
       {/* 4 — The essential 10 (dark) */}
