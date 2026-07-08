@@ -1,11 +1,10 @@
-import { Suspense, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import CreditsExplorer from "@/app/credits/CreditsExplorer";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
@@ -15,7 +14,6 @@ import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
 import { CRAFTS, type CraftKey, personSlug } from "@/app/credits/credits-logic";
 import "@/app/curious/curious.css";
-import "@/app/credits/credits.css"; // the embedded explorer's cr-* chrome
 import "../read.css";
 
 /**
@@ -56,8 +54,8 @@ type TmMovie = {
   id: number; title: string;
   production_companies?: { id: number; name: string; origin_country?: string }[];
   credits?: {
-    crew?: { id: number; name: string; job?: string; department?: string }[];
-    cast?: { id: number; name: string; character?: string; order?: number }[];
+    crew?: { id: number; name: string; job?: string; department?: string; profile_path?: string | null }[];
+    cast?: { id: number; name: string; character?: string; order?: number; profile_path?: string | null }[];
   };
 };
 type TmPersonCredits = {
@@ -69,12 +67,14 @@ type SharedFilm = { id: number; title: string; year: number };
 type Relation = {
   personId: number; name: string; roleKey: CraftKey | "actor"; role: string;
   shared: SharedFilm[]; idx: number; // index of THIS film in shared (-1 if absent)
+  careerCount: number; careerFirst: number; // their whole run in this craft (TMDB)
+  profile: string | null;
 };
 
 const yearOf = (d?: string) => Number((d || "").slice(0, 4)) || 0;
 
 async function relationWithDirector(
-  person: { id: number; name: string }, roleKey: CraftKey | "actor",
+  person: { id: number; name: string; profile_path?: string | null }, roleKey: CraftKey | "actor",
   directedIds: Map<number, { title: string; year: number }>, thisId: number,
 ): Promise<Relation | null> {
   const pc = await tm<TmPersonCredits>(`/person/${person.id}/movie_credits`);
@@ -94,7 +94,13 @@ async function relationWithDirector(
   }
   shared.sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
   const idx = shared.findIndex((f) => f.id === thisId);
-  return { personId: person.id, name: person.name, roleKey, role: roleKey === "actor" ? "actor" : ROLE_NOUN[roleKey], shared, idx };
+  const careerYears = [...mine.values()].map((m) => m.year).filter((y) => y > 1880);
+  return {
+    personId: person.id, name: person.name, roleKey,
+    role: roleKey === "actor" ? "actor" : ROLE_NOUN[roleKey], shared, idx,
+    careerCount: mine.size, careerFirst: careerYears.length ? Math.min(...careerYears) : 0,
+    profile: person.profile_path ?? null,
+  };
 }
 
 async function loadUncached(slug: string) {
@@ -117,12 +123,12 @@ async function loadUncached(slug: string) {
   const directorEntry = crewAll.find((c) => c.job === "Director") ?? null;
 
   // Key crew, one group per craft (up to 2 names each — the signing crafts).
-  const crew: { craft: CraftKey; people: { id: number; name: string }[] }[] = [];
+  const crew: { craft: CraftKey; people: { id: number; name: string; profile_path: string | null }[] }[] = [];
   for (const key of KEY_CRAFTS) {
     const cf = CRAFTS[key];
-    const seen = new Map<number, { id: number; name: string }>();
+    const seen = new Map<number, { id: number; name: string; profile_path: string | null }>();
     for (const c of crewAll) {
-      if (c.job && cf.jobs.has(c.job) && c.department && cf.depts.includes(c.department)) seen.set(c.id, { id: c.id, name: c.name });
+      if (c.job && cf.jobs.has(c.job) && c.department && cf.depts.includes(c.department)) seen.set(c.id, { id: c.id, name: c.name, profile_path: c.profile_path ?? null });
     }
     if (seen.size) crew.push({ craft: key, people: [...seen.values()].slice(0, 2) });
   }
@@ -144,7 +150,7 @@ async function loadUncached(slug: string) {
     for (const g of crew) for (const p of g.people.slice(0, 1)) if (p.id !== directorEntry.id) subjects.push({ p, roleKey: g.craft });
     for (const c of topCast.slice(0, 3)) if (c.id !== directorEntry.id) subjects.push({ p: c, roleKey: "actor" });
     const settled = await Promise.all(subjects.map((s) => relationWithDirector(s.p, s.roleKey, directed, film.tmdb_id!).catch(() => null)));
-    for (const r of settled) if (r && r.shared.length) relations.push(r);
+    for (const r of settled) if (r) relations.push(r);
   }
 
   // Catalog links for every film mentioned in a sentence.
@@ -166,7 +172,7 @@ async function loadUncached(slug: string) {
 
   return {
     film: { title: film.title, slug: film.slug, year: film.year, director: film.director, director_slug: film.director_slug, tmdb_id: film.tmdb_id, backdrop_path: film.backdrop_path, visible: film.visible },
-    director: directorEntry ? { id: directorEntry.id, name: directorEntry.name } : null,
+    director: directorEntry ? { id: directorEntry.id, name: directorEntry.name, profile: directorEntry.profile_path ?? null } : null,
     directorFilmog,
     crew,
     topCast,
@@ -178,7 +184,7 @@ async function loadUncached(slug: string) {
 }
 
 function load(slug: string) {
-  return unstable_cache(() => loadUncached(slug), ["film-credits-page-1", slug], {
+  return unstable_cache(() => loadUncached(slug), ["film-credits-page-2", slug], {
     revalidate: 86400,
     tags: [`film:${slug}`],
   })();
