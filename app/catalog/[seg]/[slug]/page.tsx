@@ -30,7 +30,12 @@ type Member = { figure_label: string; figure_slug: string | null; film_title: st
 type Kin = { slug: string; label: string; sim: number; n: number };
 type Theme = { slug: string; label: string; n: number };
 type Dates = { created_at: string | null; updated_at: string | null };
-type UcnMeta = { facet?: string | null; facet_label?: string | null; cluster?: string | null; cluster_label?: string | null; aliases?: string | string[] | null };
+type PosItem = { label: string; slug: string; kind: string; n: number };
+type UcnMeta = {
+  facet?: string | null; facet_label?: string | null; cluster?: string | null; cluster_label?: string | null;
+  aliases?: string | string[] | null;
+  positions?: { as_object?: PosItem[]; as_place?: PosItem[]; as_complex?: PosItem[] } | null;
+};
 
 function maturity(n: number): [string, string] | null {
   if (n >= 26) return ["cliche", "Cliché"];
@@ -246,6 +251,8 @@ export default async function CatalogNode({ params }: Props) {
         tabs={[
           { id: "spelled-out", label: "Spelled out", color: "#D64534" },
           { id: "members", label: "The ranked slate", badge: n, color: "#12897A" },
+          ...(km.kind === "theme" && meta?.positions && (meta.positions.as_object?.length || meta.positions.as_place?.length || meta.positions.as_complex?.length)
+            ? [{ id: "cat-positions", label: "Where it lives", color: "#2F6FAD" }] : []),
           ...(concepts.length ? [{ id: "cat-concepts", label: "The theory", badge: concepts.length, color: "#5B4B8A" }] : []),
           ...(kindred.length || themes.length || familyKin.length ? [{ id: "cat-rels", label: "Kindred & themes", badge: kindred.length + themes.length + familyKin.length, color: "#C87A2C" }] : []),
         ]}
@@ -343,6 +350,31 @@ export default async function CatalogNode({ params }: Props) {
             </>
           )}
         </section>
+
+        {km.kind === "theme" && meta?.positions && (meta.positions.as_object?.length || meta.positions.as_place?.length || meta.positions.as_complex?.length) ? (
+          <section className="cat-sec" id="cat-positions">
+            <h2 className="cat-h2">Where {detail.label} lives</h2>
+            <p className="cat-gloss">
+              One theme, three homes — the objects, places, and character-complexes it most often inhabits
+              (co-occurrence across this theme&rsquo;s figures; counts shown).
+            </p>
+            {([["As an object", meta.positions.as_object], ["As a place", meta.positions.as_place], ["As a character-complex", meta.positions.as_complex]] as [string, PosItem[] | undefined][]).map(([label, items]) =>
+              items && items.length > 0 ? (
+                <div key={label} style={{ margin: "10px 0 0" }}>
+                  <h3 className="cat-h3">{label}</h3>
+                  <div className="cat-pills">
+                    {items.map((p) => (
+                      <Link key={p.slug} href={nodeHref(p.kind, p.slug)} className="cat-pill"
+                        title={`${p.n} shared figures`}>
+                        {p.label}<span className="cat-pill__n">{p.n}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null
+            )}
+          </section>
+        ) : null}
 
         {km.kind === "theme" && concepts.length > 0 ? (
           <section className="cat-sec" id="cat-concepts">
