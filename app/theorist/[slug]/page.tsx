@@ -313,6 +313,56 @@ export default async function TheoristPage({ params }: Props) {
           </ul>
         </section>
 
+        {/* ── The readings, by framework family — the tab structure IS the taxonomy ── */}
+        {figTop.length > 0 ? (
+          <section style={{ margin: "30px 0 0" }} id="lens-figures">
+            <h2 className="df-h2">The figures {name} anchors to</h2>
+            <p className="df-sub">The recurring anchors — characters, objects, places, forms — that this lens keeps choosing. Each chip opens a figure page where the reading lives.</p>
+            <p style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "12px 0 0" }}>
+              {figTop.map((f) => (
+                <Link key={f.label} href={f.href} style={{ fontSize: 13.5, fontWeight: 600, padding: "6px 13px", borderRadius: 999, border: "1.5px solid rgba(184,134,59,.5)", textDecoration: "none", color: "inherit" }}>
+                  {f.label}{f.n > 1 ? <span style={{ color: "#B8863B", fontWeight: 800 }}> ×{f.n}</span> : null}
+                </Link>
+              ))}
+            </p>
+          </section>
+        ) : null}
+
+        {growFilm?.backdrop ? (
+          <GrowStill
+            src={`${IMG}/w1280${growFilm.backdrop}`}
+            alt={`${growFilm.title} still`}
+            caption={`${growFilm.title}${growFilm.year ? ` (${growFilm.year})` : ""} — read through ${name} · via TMDB`}
+          />
+        ) : null}
+
+        {desks.length > 0 && (
+          <section style={{ margin: "34px 0 0" }} id="theorist-desks">
+            <h2 className="df-h2">From the desks — essays that cite {name}</h2>
+            <p className="df-sub">Excerpted where {name} actually appears in the essay, not just the opening line.</p>
+            <DeskExplorer desks={deskLinks} about={name} listenEvent="theory:q" />
+          </section>
+        )}
+
+        <section className="cmap-sec" id="theorist-map" style={{ marginTop: 34 }}>
+          <h2 className="cmap-h2">Connections — {name} across the map</h2>
+          <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
+          <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
+        </section>
+
+        <section style={{ margin: "8px 0 0" }} id="readings">
+          <h2 className="df-h2">Every reading, searchable</h2>
+          <p className="df-sub">
+            {readings.length} Strong Misreadings borrow {name} — search them from the bar above, or filter by
+            framework and decade. Each card links into the film&apos;s figure page, where the full reading lives.
+          </p>
+          <ReadingsExplorer
+            readings={readings.map((r) => ({ ...r, theorist_name: null, theorist_slug: null }))}
+            about={name}
+            listenEvent="theory:q"
+          />
+        </section>
+
         {/* ── The films this lens returns to — panel cards ── */}
         {F.topFilms.length > 0 ? (
           <section style={{ margin: "30px 0 0" }} id="lens-films">
@@ -335,42 +385,6 @@ export default async function TheoristPage({ params }: Props) {
             </div>
           </section>
         ) : null}
-
-        {growFilm?.backdrop ? (
-          <GrowStill
-            src={`${IMG}/w1280${growFilm.backdrop}`}
-            alt={`${growFilm.title} still`}
-            caption={`${growFilm.title}${growFilm.year ? ` (${growFilm.year})` : ""} — read through ${name} · via TMDB`}
-          />
-        ) : null}
-
-        {/* ── The readings, by framework family — the tab structure IS the taxonomy ── */}
-        <section style={{ margin: "8px 0 0" }} id="readings">
-          <h2 className="df-h2">Every reading, searchable</h2>
-          <p className="df-sub">
-            {readings.length} Strong Misreadings borrow {name} — search them from the bar above, or filter by
-            framework and decade. Each card links into the film&apos;s figure page, where the full reading lives.
-          </p>
-          <ReadingsExplorer
-            readings={readings.map((r) => ({ ...r, theorist_name: null, theorist_slug: null }))}
-            about={name}
-            listenEvent="theory:q"
-          />
-        </section>
-
-        {desks.length > 0 && (
-          <section style={{ margin: "34px 0 0" }} id="theorist-desks">
-            <h2 className="df-h2">From the desks — essays that cite {name}</h2>
-            <p className="df-sub">Excerpted where {name} actually appears in the essay, not just the opening line.</p>
-            <DeskExplorer desks={deskLinks} about={name} listenEvent="theory:q" />
-          </section>
-        )}
-
-        <section className="cmap-sec" id="theorist-map" style={{ marginTop: 34 }}>
-          <h2 className="cmap-h2">{name} — connection map</h2>
-          <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
-        </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link>
