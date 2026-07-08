@@ -143,7 +143,8 @@ export default function ReadingLedger({ subject, readings, essays = [] }: {
         <>
           <h3 className="vl-h3">What can still be read</h3>
           <p className="vl-lede">These stay open — possibilities the essays hold, not verdicts. The arrow jumps to the essay card below.</p>
-          <details className="vl-d">
+          {/* essays-only pages still get exactly one sample curtain open */}
+          <details className="vl-d" open={rows.length === 0}>
             <summary>
               <span className="vl-sum-d">The open readings</span>
               <span className="vl-n">{essayRows.length}</span>
