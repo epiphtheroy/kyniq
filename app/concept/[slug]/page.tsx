@@ -327,8 +327,8 @@ export default async function ConceptPage({ params }: Props) {
           </div>
           {(() => { const n = listicle(tc.concept, null, [...desks, ...canonReadings]).n; return (
             <p className="th-sub">
-              This is not a dictionary entry. The concept desk tracks where {tc.concept} actually surfaces on
-              screen{n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}.
+              Where {tc.concept} actually surfaces on screen
+              {n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}, tracked by the concept desk.
             </p>
           ); })()}
           <Provenance updated={updated} />
@@ -422,10 +422,11 @@ export default async function ConceptPage({ params }: Props) {
             </div>
             <h1 className="rd-h1">{capName}</h1>
             <p className="rd-dek">
-              This is not a dictionary entry. On Metatake, {name} is a working lens: {readings.length} Strong
-              Misreading{readings.length === 1 ? "" : "s"} stage it across {filmArr.length} film{filmArr.length === 1 ? "" : "s"}
+              {readings.length} Strong Misreading{readings.length === 1 ? "" : "s"} stage {name} across{" "}
+              {filmArr.length} film{filmArr.length === 1 ? "" : "s"} of the Metatake corpus
               {datedF.length > 1 ? <> — from <i>{datedF[0].title}</i> ({datedF[0].year}) to <i>{datedF[datedF.length - 1].title}</i> ({datedF[datedF.length - 1].year})</> : null}
               {thTop[0] ? <>, most often after {thTop[0][0]}</> : null}.
+              {" "}Every entry below is a close reading of a scene, not a definition.
             </p>
           </div>
           {heroBd ? (
