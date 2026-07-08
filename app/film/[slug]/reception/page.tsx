@@ -190,9 +190,16 @@ export default async function FilmReceptionPage({ params }: Props) {
     lnTexts.push({ y, words: normWords(`${l.parent_label ?? ""} ${l.list_label} ${l.result ?? ""}`) });
     push(y, { t: "honor", text, href: `/lineage/${l.list_slug}`, won: /win|won|winner/i.test(l.result ?? "") });
   }
+  const undatedHonors: { text: string; won: boolean }[] = [];
   for (const w of wdHonors) {
     const y = w.event_date ? Number(w.event_date.slice(0, 4)) : null;
-    if (!y || !(y > 1880)) continue;
+    if (!y || !(y > 1880)) {
+      // No point-in-time on the statement — list it without a year claim.
+      const words0 = normWords(w.label);
+      const dup0 = lnTexts.some((l) => [...words0].filter((x) => l.words.has(x)).length >= Math.max(2, Math.floor(words0.size * 0.6)));
+      if (!dup0) undatedHonors.push({ text: w.kind === "award" ? `Won the ${w.label}.` : `Nominated for the ${w.label}.`, won: w.kind === "award" });
+      continue;
+    }
     const words = normWords(w.label);
     const dup = lnTexts.some((l) => Math.abs(l.y - y) <= 1 && [...words].filter((x) => l.words.has(x)).length >= Math.max(2, Math.floor(words.size * 0.6)));
     if (dup) continue;
@@ -330,12 +337,15 @@ export default async function FilmReceptionPage({ params }: Props) {
               </section>
             ))}
 
-            {undated.length ? (
+            {undated.length || undatedHonors.length ? (
               <section id="undated">
                 <h2>Also on the record</h2>
                 <p style={{ fontSize: "0.92em", opacity: 0.8 }}>
-                  Pieces whose publication date isn&apos;t machine-recoverable from the source URL — listed without a year claim.
+                  Items whose exact date isn&apos;t machine-recoverable from the source — listed without a year claim.
                 </p>
+                {undatedHonors.map((h, i) => (
+                  <p key={`h${i}`} className="afl-ev"><span aria-hidden>{h.won ? "🏆" : "◇"}</span> {h.text}</p>
+                ))}
                 {undated.map((r, i) => (
                   <section key={i} className="afl-item">
                     <h3 style={{ fontSize: "1.02em" }}>
