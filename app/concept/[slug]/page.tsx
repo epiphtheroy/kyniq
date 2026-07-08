@@ -440,6 +440,21 @@ export default async function ConceptPage({ params }: Props) {
       </div>
 
       <div className="mt-wrap">
+        {/* Anchor pills — the page's tab structure (large corpora need a spine) */}
+        <nav aria-label="On this page" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "18px 0 0" }}>
+          {[
+            ["#spelled-out", "Spelled out"],
+            ["#concept-films", `The films (${filmArr.length})`],
+            ...(tropes.length ? [["#concept-tropes", `Patterns (${tropes.length})`]] : []),
+            ...(desks.length ? [["#concept-desks", `Desk essays (${desks.length})`]] : []),
+            ["#concept-slate", `The full slate (${readings.length})`],
+            ["#concept-map", "Map"],
+          ].map(([href, label]) => (
+            <a key={href as string} href={href as string} style={{ fontSize: 13, fontWeight: 600, padding: "6px 14px", borderRadius: 999, border: "1.5px solid rgba(22,35,63,.28)", textDecoration: "none", color: "inherit" }}>
+              {label}
+            </a>
+          ))}
+        </nav>
         <Provenance updated={updated} />
         {intro ? (
           <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
@@ -449,7 +464,7 @@ export default async function ConceptPage({ params }: Props) {
         ) : null}
 
         {/* ── The concept, spelled out — deterministic sentences ── */}
-        <section style={{ margin: "22px 0 0" }}>
+        <section style={{ margin: "22px 0 0" }} id="spelled-out">
           <h2 className="cmap-h2">{capName}, spelled out</h2>
           <ul style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
             <li>
@@ -481,7 +496,26 @@ export default async function ConceptPage({ params }: Props) {
           </ul>
         </section>
 
-        <ReadingsExplorer readings={readings} about={name} />
+        {/* ── The doors in: the films that stage it most ── */}
+        <section style={{ margin: "30px 0 0" }} id="concept-films">
+          <h2 className="cmap-h2">The films that stage {name}</h2>
+          <p className="cmap-intro">Every panel opens the film — the readings there put {name} to work in the scenes.</p>
+          <div className="crd-grid">
+            {topFilmsC.slice(0, 6).map((f) => (
+              <a className="crd-panel" href={`/film/${f.slug}`} key={f.slug}>
+                {f.backdrop
+                  ? /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={`${IMG}/w300${f.backdrop}`} alt="" width={124} height={70} loading="lazy" style={{ width: 124, height: 70, borderRadius: 6 }} />
+                  : <span className="crd-ph" style={{ width: 124, height: 70, fontSize: 22 }} aria-hidden>{f.title[0]}</span>}
+                <span>
+                  <span className="crd-k">{f.n} reading{f.n === 1 ? "" : "s"} · {name}</span>
+                  <h3>{f.title}{f.year ? ` (${f.year})` : ""}</h3>
+                  <span className="crd-go">Open the film →</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
 
         {tropes.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="concept-tropes">
@@ -509,6 +543,12 @@ export default async function ConceptPage({ params }: Props) {
             <DeskExplorer desks={desks} about={name} />
           </section>
         )}
+
+        <section style={{ margin: "34px 0 0" }} id="concept-slate">
+          <h2 className="cmap-h2">The full slate — {readings.length} readings</h2>
+          <p className="cmap-intro">The complete archive, searchable and filterable by framework and decade. Each card links into the film&apos;s figure page, where the reading lives.</p>
+          <ReadingsExplorer readings={readings} about={name} />
+        </section>
 
         <section className="cmap-sec" id="concept-map">
           <h2 className="cmap-h2">{name} — connection map</h2>
