@@ -71,7 +71,7 @@ function load(slug: string) {
           .eq("theorist_id", (th as { id: number | string }).id)
           .limit(16);
         const seen = new Set<string>();
-        for (const row of (cc ?? []) as { theory_concepts: { concept: string; concept_slug: string } | null }[]) {
+        for (const row of (cc ?? []) as unknown as { theory_concepts: { concept: string; concept_slug: string } | null }[]) {
           const c = row.theory_concepts;
           if (!c?.concept || seen.has(c.concept_slug)) continue;
           seen.add(c.concept_slug);
