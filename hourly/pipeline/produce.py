@@ -34,7 +34,7 @@ MIN_MECH = 9          # spike + corroboration + beat prefilter
 MIN_CORR = 3          # >= 2 distinct outlets
 INDEXNOW_KEY = "72623852f17d4eb341d4cd3755d3ba64"
 
-ALLOWED_TAGS = {"p", "a", "b", "i", "em", "strong", "ul", "li", "br"}
+ALLOWED_TAGS = {"p", "a", "b", "i", "em", "strong", "ul", "li", "br", "cite"}
 
 
 # ── selection ────────────────────────────────────────────────────────────────
@@ -154,6 +154,20 @@ def _strip_dashes(s: str) -> str:
     return s.replace(" — ", ", ").replace("—", "-").replace(" – ", ", ").replace("–", "-")
 
 
+def _sanitize_html(html: str) -> str:
+    """Strip every attribute except href on <a> — the web_search tool leaks
+    `<cite index="18-1">` reference attrs into prose; keep the tag, drop the noise."""
+    def fix(m: re.Match) -> str:
+        closing, tag, attrs = m.group(1), m.group(2).lower(), m.group(3)
+        if closing:
+            return f"</{tag}>"
+        if tag == "a":
+            h = re.search(r'href\s*=\s*"([^"]*)"', attrs)
+            return f'<a href="{h.group(1)}">' if h else "<a>"
+        return f"<{tag}>"
+    return re.sub(r"<(/?)([a-zA-Z0-9]+)((?:\s[^>]*)?)>", fix, html)
+
+
 def _html_ok(html: str) -> str | None:
     for tag in re.findall(r"</?([a-zA-Z0-9]+)", html):
         if tag.lower() not in ALLOWED_TAGS:
@@ -181,6 +195,9 @@ def deterministic_gate(env: dict, piece: dict, pack: dict) -> list[str]:
     for k in ("summary", "dek", "facts_html", "reading_html", "bottom_html", "deposit", "headline"):
         if piece.get(k):
             piece[k] = _strip_dashes(piece[k])
+    for k in ("facts_html", "reading_html", "bottom_html"):
+        if piece.get(k):
+            piece[k] = _sanitize_html(piece[k])
 
     if not re.fullmatch(r"[a-z0-9-]{8,80}", piece["slug"]):
         piece["slug"] = slugify(piece["headline"])
@@ -231,10 +248,14 @@ def llm_gate(env: dict, piece: dict) -> dict | None:
 
 PIECE: {body}
 
-Reply JSON only: {{"pass": true/false, "failures": ["quote the offending text + which rule", ...]}}"""
+Reply JSON only, failures terse (rule number + a short paraphrase, no long quotes):
+{{"pass": true/false, "failures": ["...", ...]}}"""
     out = anthropic_call(env, model=LIGHT_MODEL, system="You are the pre-publication gate. Strict. JSON only.",
-                         user=user, max_tokens=600)
-    return parse_json_block(out or "")
+                         user=user, max_tokens=1000)
+    parsed = parse_json_block(out or "")
+    if parsed is None:
+        log(f"gate unparseable reply: {(out or '')[:200]!r}")
+    return parsed
 
 
 # ── publish ──────────────────────────────────────────────────────────────────
@@ -384,11 +405,14 @@ def main() -> None:
                 failure_report = "previous attempt returned no parseable JSON"
                 continue
             fails = deterministic_gate(env, draft, pack)
-            g = llm_gate(env, draft) if not fails else None
-            if not fails and g and g.get("pass"):
-                piece = draft
-                break
-            failure_report = "; ".join(fails + ((g or {}).get("failures") or ["gate api failed"]))
+            if fails:
+                failure_report = "; ".join(fails)
+            else:
+                g = llm_gate(env, draft)
+                if g and g.get("pass"):
+                    piece = draft
+                    break
+                failure_report = "; ".join((g or {}).get("failures") or ["content gate unavailable (API) — fail closed"])
             log(f"gate fail (attempt {attempt}): {failure_report[:300]}")
 
         if not piece:

@@ -1,0 +1,89 @@
+{
+ "cand": {
+  "source": "fleet",
+  "geo": "-",
+  "keyword": "Marie Antoinette",
+  "traffic": "",
+  "first_seen": "2026-07-08T10:42:16+00:00",
+  "spike": 2,
+  "corroboration": 4,
+  "beat": 5,
+  "entity": {
+   "beat": 5,
+   "type": "film",
+   "slug": "marie-antoinette-2006",
+   "label": "Marie Antoinette (2006)"
+  },
+  "lane": "direct",
+  "news": [],
+  "fleet_hits": [
+   {
+    "outlet": "variety",
+    "title": "Mubi Acquires ‘Making Marie Antoinette,’ Eleanor Coppola’s Behind-the-Scenes Doc About Sofia Coppola’s Oscar-Winning Film",
+    "url": "https://variety.com/2026/film/global/mubi-marie-antoinette-eleanor-coppola-doc-sofia-coppola-film-1236804188/"
+   },
+   {
+    "outlet": "deadline",
+    "title": "Mubi Takes Worldwide To Eleanor Coppola’s Documentary ‘Making Marie Antoinette’",
+    "url": "https://deadline.com/2026/07/eleanor-coppola-making-marie-antoinette-mubi-1236976667/"
+   },
+   {
+    "outlet": "thr",
+    "title": "Mubi Take Worldwide Rights on ‘Making Marie Antoinette’",
+    "url": "https://www.hollywoodreporter.com/movies/movie-news/mubi-take-making-marie-antoinette-documentary-sofia-coppola-1236641191/"
+   }
+  ],
+  "reddit_echo": false
+ },
+ "piece": {
+  "slug": "making-marie-antoinette-mubi-acquisition",
+  "headline": "Mubi Buys Making Marie Antoinette; the Archive Tracks the Film From Cannes Boos to Canon",
+  "dek": "Eleanor Coppola's set footage becomes a feature documentary just as the 2006 film's reception record completes its arc.",
+  "summary": "Mubi has taken worldwide rights to Making Marie Antoinette, built from Eleanor Coppola's on-set footage. The archive's record for the 2006 film shows an early Oscar, a late canon entry, and a reception file that moved in between.",
+  "facts_html": "<p>Confirmed: <cite index=\"18-1\">Mubi has taken worldwide rights to Eleanor Coppola's documentary Making Marie Antoinette</cite>, per Deadline and IndieWire. <cite index=\"15-1,15-3\">The film is assembled from roughly 80 hours of previously unseen set footage shot by Eleanor Coppola at Versailles, timed to the production's 20th anniversary</cite>.</p><p>Reported, per coverage of the announcement: <cite index=\"15-6,15-7\">the cut was edited by Aaron Matthews and narrated by Diane Lane, voicing journal entries Eleanor Coppola wrote during the 2005 shoot</cite>. <cite index=\"15-16,15-17\">No release date is set; Mubi says plans will follow</cite>. The precedent is direct: <cite index=\"2-1\">Eleanor Coppola previously turned behind-the-scenes footage from Apocalypse Now into Hearts of Darkness: A Filmmaker's Apocalypse in 1991</cite>.</p><p>The subject's history is on file. <cite index=\"9-26\">Marie Antoinette premiered at Cannes in 2006, where it competed for the Palme d'Or</cite>. <cite index=\"13-1,13-2\">It drew both applause and boos at press screenings; Roger Ebert noted that only a couple of journalists booed and that the media sensationalized the event</cite>, per Wikipedia's account of the coverage.</p>",
+  "reading_html": "<p>The archive's record for the film is short and its shape is specific. The honors table holds one row: <cite index=\"13-22\">the Best Costume Design win at the 79th Academy Awards</cite>, logged here as 2007. The canon table also holds one row: the BBC's 100 Greatest Films Directed by Women, 2019 edition, at #63. Twelve years separate the two entries.</p><p>The reception file spans that gap: a New York Times verdict from the premiere year, a Vulture entry from 2013, and RogerEbert.com's reading that Coppola brilliantly sidesteps a beheading. The TakeScore sits at 17, split 16 prestige to 4 discovery. The scorecard describes a film whose standing runs through awards and lists rather than through rediscovery traffic.</p><p>The rehabilitation is attributed, not asserted. <cite index=\"14-10,14-11\">Coppola herself told Vanity Fair the film \"was a flop\" and that its afterlife has been satisfying</cite>, per IndieWire. <cite index=\"11-14\">Far Out wrote this year that it has become an undisputed classic</cite>, and <cite index=\"10-5\">Mental Floss files it among Cannes-booed films now considered among Coppola's finest work</cite>. The new documentary revisits the production those verdicts were reacting to.</p>",
+  "bottom_html": "<p>A one-row honors table in 2007, a one-row canon table in 2019, and a reception file that moved in between: that is the record Making Marie Antoinette now reopens, this time from the mother's side of the camera. See the full scorecard at <a href=\"/takescore/film/marie-antoinette-2006\">the film's TakeScore page</a>.</p>",
+  "deposit": "Marie Antoinette (2006): a twelve-year gap in the record between its only honors entry (2007 Costume Design Oscar) and its first tracked canon appearance (BBC 2019, #63).",
+  "module_ids": [
+   "reception",
+   "honors",
+   "canon",
+   "takescore"
+  ],
+  "module_notes": {
+   "reception": "The verdicts on file, from premiere year onward.",
+   "honors": "One row, dated early.",
+   "canon": "One row, dated late.",
+   "takescore": "A prestige-weighted 17: the split behind the standing."
+  },
+  "sources": [
+   {
+    "outlet": "deadline",
+    "title": "Mubi Takes Worldwide To Eleanor Coppola's Documentary 'Making Marie Antoinette'",
+    "url": "https://deadline.com/2026/07/eleanor-coppola-making-marie-antoinette-mubi-1236976667/"
+   },
+   {
+    "outlet": "indiewire",
+    "title": "Sofia Coppola Admits 'Marie Antoinette' Was a 'Flop'",
+    "url": "https://www.indiewire.com/news/general-news/sofia-coppola-marie-antoinette-flop-1234899565/"
+   },
+   {
+    "outlet": "faroutmagazine",
+    "title": "20 years ago, 'Marie Antoinette' was booed at Cannes",
+    "url": "https://faroutmagazine.co.uk/20-years-ago-marie-antoinette-was-booed-at-cannes/"
+   },
+   {
+    "outlet": "mentalfloss",
+    "title": "6 Movies That Were Booed at Cannes But Are Now Considered Masterpieces",
+    "url": "https://www.mentalfloss.com/entertainment/movies/masterpieces-booed-cannes"
+   }
+  ]
+ },
+ "scores": {
+  "spike": 2,
+  "corroboration": 4,
+  "beat": 5,
+  "depth": 4,
+  "search_shape": 4
+ }
+}

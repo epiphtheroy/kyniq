@@ -9,3 +9,5 @@ The 48h story-cluster dedupe and the 7-day film-reuse check read this file. Keep
 ---
 2026-07-08T10:35:07+00:00 · PASS-CAND · Marie Antoinette · selector: api-fail
 2026-07-08T10:35:07+00:00 · PASS · candidates tried, none survived selection/gate
+2026-07-08T10:37:46+00:00 · KILLED · Marie Antoinette · gate x2: gate api failed
+2026-07-08T10:37:46+00:00 · PASS · candidates tried, none survived selection/gate
