@@ -504,6 +504,7 @@ export default async function FilmPage({ params }: Props) {
   // load so a cold day costs no extra wall-clock.
   const creditsP = filmCreditsData(slug).catch(() => null);
   const data = await load(slug);
+  const creditsPayload = await creditsP;
   if (!data) {
     const alias = await resolveAlias(`/film/${slug}`);
     if (alias) permanentRedirect(alias);
@@ -1476,34 +1477,37 @@ export default async function FilmPage({ params }: Props) {
         {/* CREDITS — key crafts, crawlable, linking to /credits/[person] read pages */}
         {crew.length > 0 ? (
           <section className="df-sec" id="df-crew">
-            <h2 className="df-h2">Credits — who made {film.title}</h2>
-            <p className="df-sub">The key crafts behind the film. Each name opens their body of work: the directors they keep returning to, and where their films are read on Metatake.</p>
-            <div className="rcp-list">
-              {film.director ? (
-                <div className="rcp-row">
-                  <span className="rcp-m" style={{ minWidth: 150 }}>Director</span>
-                  {film.director_slug ? <Link className="rcp-h" href={`/director/${film.director_slug}`}>{film.director}</Link> : <span className="rcp-h">{film.director}</span>}
-                </div>
-              ) : null}
-              {crew.map((c) => (
-                <div key={c.craft} className="rcp-row">
-                  <span className="rcp-m" style={{ minWidth: 150 }}>{CRAFTS[c.craft].label}</span>
-                  <span>
-                    {c.people.map((pp, i) => (
-                      <span key={pp.id}>
-                        {i > 0 ? ", " : ""}
-                        <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
-                      </span>
-                    ))}
-                  </span>
-                </div>
-              ))}
-            </div>
-            {film.tmdb_id ? (
-              <div className="df-src">
-                <Link href={`/film/${film.slug}/credits`}><b>Who made {film.title}? — the full credits page →</b></Link> · Credits data from TMDB
+            <h2 className="df-h2">Credits — who made {film.title}?</h2>
+            <p className="df-sub">One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person&apos;s own file.</p>
+            {creditsPayload ? (
+              <>
+                <MakerPanels payload={creditsPayload} />
+                <MakerPanelsCta slug={film.slug} title={film.title} />
+              </>
+            ) : (
+              <div className="rcp-list">
+                {film.director ? (
+                  <div className="rcp-row">
+                    <span className="rcp-m" style={{ minWidth: 150 }}>Director</span>
+                    {film.director_slug ? <Link className="rcp-h" href={`/director/${film.director_slug}`}>{film.director}</Link> : <span className="rcp-h">{film.director}</span>}
+                  </div>
+                ) : null}
+                {crew.map((c) => (
+                  <div key={c.craft} className="rcp-row">
+                    <span className="rcp-m" style={{ minWidth: 150 }}>{CRAFTS[c.craft].label}</span>
+                    <span>
+                      {c.people.map((pp, i) => (
+                        <span key={pp.id}>
+                          {i > 0 ? ", " : ""}
+                          <Link className="rcp-h" href={`/credits/${personSlug(pp.name, pp.id)}`}>{pp.name}</Link>
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ) : null}
+            )}
+            <div className="df-src">Credits data from TMDB · analysis by Metatake</div>
           </section>
         ) : null}
 
