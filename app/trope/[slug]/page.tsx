@@ -260,21 +260,55 @@ export default async function TropePage({ params }: Props) {
         ...(faqLd ? [faqLd] : []),
       ]) }} />
 
-      <div className="tp-wrap">
-        <div className="tp-crumb"><Link href="/tropes">Tropes</Link></div>
+      {/* ── Dark hero: the trope as a working pattern, counted ── */}
+      <div className="cur rd-hero">
+        <div className="rd-hero__in">
+          <div className="rd-hero__txt">
+            <div className="rd-crumb">
+              <Link href="/tropes">Tropes</Link><span>›</span>
+              <span>{t.title}</span>
+            </div>
+            <div className="rd-chiprow">
+              <span className="rd-chip"><Link href="/tropes" style={{ color: "inherit", textDecoration: "none" }}>Tropes</Link></span>
+              {mat ? <span className="rd-chip">{mat[0]}</span> : null}
+              <span className="rd-meta">{n} {readLabel} · {filmCount} {filmLabel}{coherence != null ? ` · ${coherence}% coherence` : ""}</span>
+            </div>
+            <h1 className="rd-h1">{t.title}</h1>
+            <p className="rd-dek">
+              {t.laconic ? <>{t.laconic}{" "}</> : null}
+              {n} Strong Misreading{n === 1 ? "" : "s"} across {filmCount} {filmLabel} stage {t.title}
+              {full && datedM.length > 1 ? <> — from <i>{datedM[0].film_title}</i> ({datedM[0].film_year}) to <i>{datedM[datedM.length - 1].film_title}</i> ({datedM[datedM.length - 1].film_year})</> : null},
+              {" "}ranked by how centrally each reading sits in this trope&apos;s meaning-space.
+            </p>
+          </div>
+          {heroBd ? (
+            <div className="rd-hero__media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="rd-hero__bd" src={`${IMG}/w780${heroBd}`} alt="" width={780} height={439} />
+              <div className="rd-hero__cap">From {heroM?.film_title} · via TMDB</div>
+            </div>
+          ) : null}
+        </div>
+      </div>
 
-        <header className="tp-head">
-          <div className="tp-role">
-            Trope{mat ? <> · <span className={`tp-mat tp-mat--${tt.maturity}`}>{mat[0]}</span></> : null}
-          </div>
-          <h1 className="tp-h1">{t.title}</h1>
-          {t.laconic ? <p className="tp-laconic">{t.laconic}</p> : null}
-          <Byline created={t.created_at} updated={t.updated_at} />
-          <div className="tp-actions">
-            <EntityActions entityType="meta_take" entityId={t.id} />
-            <SaveButton entityType="trope" entityRef={slug} label="Save" labelOn="Saved" variant="bookmark" />
-          </div>
-        </header>
+      <FilmTabBar
+        center
+        search={n > 0 ? { event: "theory:q", targetId: "members", placeholder: `Search ${n} ${readLabel}…` } : undefined}
+        tabs={[
+          { id: "spelled-out", label: "Spelled out", color: "#D64534" },
+          ...(figTopT.length ? [{ id: "tp-figures", label: "Figures", badge: figTopT.length, color: "#B8863B" }] : []),
+          { id: "tp-map", label: "Connections", color: "#2F6DB0" },
+          { id: "members", label: "The ranked slate", badge: n, color: "#12897A" },
+          ...(related.length ? [{ id: "tp-rel", label: "Kindred tropes", badge: related.length, color: "#C87A2C" }] : []),
+        ]}
+      />
+
+      <div className="tp-wrap">
+        <Byline created={t.created_at} updated={t.updated_at} />
+        <div className="tp-actions">
+          <EntityActions entityType="meta_take" entityId={t.id} />
+          <SaveButton entityType="trope" entityRef={slug} label="Save" labelOn="Saved" variant="bookmark" />
+        </div>
 
         <LensQuickBar />
 
@@ -298,6 +332,50 @@ export default async function TropePage({ params }: Props) {
         {t.thesis ? <p className="tp-thesis">{t.thesis}</p> : null}
         {mat ? <p className="tp-matnote"><span className={`tp-mat tp-mat--${tt.maturity}`}>{mat[0]}</span> — {mat[1]}.</p> : null}
 
+        {/* ── The trope, spelled out — deterministic sentences (concept-page grammar) ── */}
+        <section className="tp-sec" id="spelled-out">
+          <h2 className="tp-h2">{t.title}, spelled out</h2>
+          <ul style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+            <li>
+              {t.title} carries {n} {readLabel} across {filmCount} {filmLabel}
+              {full && datedM.length > 1 ? <>, from <Link href={`/film/${datedM[0].film_slug}`}>{datedM[0].film_title}</Link> ({datedM[0].film_year}) to <Link href={`/film/${datedM[datedM.length - 1].film_slug}`}>{datedM[datedM.length - 1].film_title}</Link> ({datedM[datedM.length - 1].film_year})</> : null}.
+            </li>
+            {fwTopT[0] && n > 1 ? (
+              <li>
+                The framework that stages it most is <b>{fwTopT[0][0]}</b> ({fwTopT[0][1]} of {n})
+                {fwTopT[1] ? <>, ahead of {fwTopT[1][0]} ({fwTopT[1][1]})</> : null}.
+              </li>
+            ) : null}
+            {full && topFreq && topFreq.c > 1 ? (
+              <li>
+                The film that returns to it most is <Link href={`/film/${topFreq.slug}`}>{topFreq.title}</Link>
+                {topFreq.year ? ` (${topFreq.year})` : ""} — {topFreq.c} readings there stage {t.title}.
+              </li>
+            ) : null}
+            {full && decTop && datedM.length >= 4 ? (
+              <li>
+                The decade that stages {t.title} most, by count, is the {decTop[0]}s — {decTop[1]} of the {datedM.length} dated films.
+              </li>
+            ) : null}
+          </ul>
+          <ReadingLedger subject={t.title} readings={ledgerRows} />
+        </section>
+
+        {figTopT.length > 0 ? (
+          <section className="tp-sec" id="tp-figures">
+            <h2 className="tp-h2">The figures that carry {t.title}</h2>
+            <p className="tp-gloss">The on-screen anchors — characters, objects, places, forms — where this trope does its work. Each chip opens the figure&apos;s page.</p>
+            <div className="fig-cloud">
+              {figTopT.map((f) => (
+                <Link key={f.label} href={f.href} className={`fig-chip${f.bd ? "" : " fig-chip--bare"}`}>
+                  {f.bd ? <img src={`${IMG}/w300${f.bd}`} alt={`${f.film} still`} width={56} height={32} loading="lazy" /> : null}
+                  <span>{f.label}{f.n > 1 ? <span className="fig-chip__n"> ×{f.n}</span> : null}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section className="tp-sec" id="tp-map">
           <h2 className="tp-h2">{t.title} — connection map</h2>
           <p className="cmap-stat"><b>{n}</b> readings · <b>{filmCount}</b> {filmLabel}</p>
@@ -320,7 +398,7 @@ export default async function TropePage({ params }: Props) {
             <p className="tp-empty">No readings yet.</p>
           ) : (
             <>
-              <ListFilter targetId="trope-members" placeholder={`Search ${n} ${readLabel}…`} total={n} />
+              <ListFilter targetId="trope-members" placeholder={`Search ${n} ${readLabel}…`} total={n} listenEvent="theory:q" />
               <ol className="tp-mlist mtl-rows" id="trope-members">
                 {members.map((m, i) => {
                   const href = figHref(m);
@@ -329,6 +407,7 @@ export default async function TropePage({ params }: Props) {
                   return (
                     <li
                       key={m.take_id}
+                      id={`take-${m.take_id}`}
                       className="tp-member"
                       data-filter-item
                       data-filter-text={`${m.film_title} ${m.figure_label} ${m.take_title ?? ""}`.toLowerCase()}
@@ -373,7 +452,7 @@ export default async function TropePage({ params }: Props) {
         </section>
 
         {related.length > 0 && (
-          <section className="tp-rel" aria-labelledby="tp-rel-h">
+          <section className="tp-rel" id="tp-rel" aria-labelledby="tp-rel-h">
             <h2 className="tp-h2" id="tp-rel-h">
               Drawn to {t.title}? <span className="tp-h2__n">— follow these</span>
             </h2>
