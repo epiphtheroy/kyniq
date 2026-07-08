@@ -55,14 +55,20 @@ async function loadUncached(slug: string) {
   // One cinecodex_card per film (≤ ~44 RPCs, hourly-cached). THROW on RPC
   // errors — a thrown error is never stored by unstable_cache, so a transient
   // failure can't be cached as "0 scored films" (a poisoned 404 for an hour).
-  const results = await Promise.all(filmArr.map((f) => supabase.rpc("cinecodex_card", { p_slug: f.slug })));
+  // Concurrency is capped at 3: the card RPC computes corpus-wide rank and a
+  // full-filmography Promise.all starved itself into Postgres statement
+  // timeouts (500s on every director — Vercel runtime logs, 2026-07-09).
   const cards: Card[] = [];
-  results.forEach((res, i) => {
-    if (res.error) throw new Error(`cinecodex_card(${filmArr[i].slug}): ${res.error.message}`);
-    const card = res.data as Card | null;
-    // The RPC returns null/empty json for unscored films — skip those.
-    if (card && card.slug && card.u != null && card.v != null) cards.push(card);
-  });
+  for (let i = 0; i < filmArr.length; i += 3) {
+    const batch = filmArr.slice(i, i + 3);
+    const results = await Promise.all(batch.map((f) => supabase.rpc("cinecodex_card", { p_slug: f.slug })));
+    results.forEach((res, j) => {
+      if (res.error) throw new Error(`cinecodex_card(${batch[j].slug}): ${res.error.message}`);
+      const card = res.data as Card | null;
+      // The RPC returns null/empty json for unscored films — skip those.
+      if (card && card.slug && card.u != null && card.v != null) cards.push(card);
+    });
+  }
   if (cards.length === 0) return null;
 
   // The ranking: U desc; ties broken by site rank, then title — deterministic.
