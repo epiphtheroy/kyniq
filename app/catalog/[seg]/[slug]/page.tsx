@@ -9,6 +9,9 @@ import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
 import { kindBySeg, sectionByKey, axisLabel, nodeHref, sectionHref } from "@/lib/catalog";
+import FilmTabBar from "@/components/FilmTabBar";
+import "@/app/curious/curious.css";
+import "@/app/film/[slug]/read.css";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -84,6 +87,25 @@ export default async function CatalogNode({ params }: Props) {
   const n = detail.member_count;
   const figLabel = n === 1 ? "figure" : "figures";
   const topFilms = Array.from(new Map(members.map((m) => [m.film_slug, m])).values()).slice(0, 5);
+
+  // ── Deterministic aggregates for the hero + "spelled out" layer (2026-07-08,
+  // concept-page grammar). Truth gate: span/decade/most claims only render when
+  // the FULL member set is loaded (limit 120).
+  const full = n <= members.length;
+  const uniqFilms = Array.from(new Map(members.map((m) => [m.film_slug, m])).values());
+  const datedA = uniqFilms.filter((m) => (m.yr ?? 0) > 1880).sort((a, b) => (a.yr! - b.yr!) || a.film_title.localeCompare(b.film_title));
+  const filmFreqA = new Map<string, { title: string; year: number | null; c: number }>();
+  for (const m of members) {
+    const e = filmFreqA.get(m.film_slug) ?? { title: m.film_title, year: m.yr, c: 0 };
+    e.c += 1; filmFreqA.set(m.film_slug, e);
+  }
+  const topFreqA = [...filmFreqA.entries()].map(([s, v]) => ({ slug: s, ...v }))
+    .sort((a, b) => b.c - a.c || a.title.localeCompare(b.title))[0] ?? null;
+  const decFreqA = new Map<number, number>();
+  for (const m of datedA) { const d = Math.floor((m.yr as number) / 10) * 10; decFreqA.set(d, (decFreqA.get(d) ?? 0) + 1); }
+  const decTopA = [...decFreqA.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0])[0] ?? null;
+  const heroM = members.find((m) => m.backdrop);
+  const heroBd = heroM?.backdrop ?? null;
 
   // JSON-LD — built entirely from data already fetched above (no extra queries).
   const nodeUrl = `${SITE}${nodeHref(km.kind, detail.slug)}`;

@@ -137,7 +137,7 @@
 .mt .vl-go { font-weight: 800; color: #c0392b; text-decoration: none; padding: 0 3px; }
 .mt .vl-go:hover { text-decoration: underline; }
 /* the arrows land on slate/essay cards — clear the sticky nav + tab bar */
-.mt .thr { scroll-margin-top: 130px; }
+.mt .thr, .mt .tp-member, .mt .cat-mrow { scroll-margin-top: 130px; }
 /* Figure chips with a small film thumbnail (theory pages, 2026-07-08). */
 .mt .fig-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 0; }
 .mt .fig-chip {
