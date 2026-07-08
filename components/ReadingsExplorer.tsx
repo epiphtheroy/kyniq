@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { fw } from "@/lib/frameworks";
+import TermHighlight from "@/components/TermHighlight";
 
 /**
  * ReadingsExplorer — client-side search / sort / filter over a concept's
@@ -107,9 +108,10 @@ export default function ReadingsExplorer({ readings, about }: { readings: Readin
                     ? <Link className="thr-concept" href={`/theorist/${r.theorist_slug}`}>{r.theorist_name}</Link>
                     : <span className="thr-concept">{r.theorist_name}</span>) : null}
                 </div>
-                <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
-                {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
-                {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
+                <Link className="thr-title" href={href}><TermHighlight text={r.take_title ?? r.fig_label} terms={[about]} /></Link>
+                {r.thesis ? <p className="thr-thesis"><TermHighlight text={r.thesis} terms={[about]} /></p> : null}
+                {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> <TermHighlight text={r.leap} terms={[about]} /></p> : null}
+                <Link className="thr-go" href={href}>Read the scene →</Link>
               </div>
             </article>
           );
