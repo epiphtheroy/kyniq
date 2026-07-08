@@ -47,7 +47,7 @@ async function loadUncached(slug: string) {
     .select("id, title, slug, year, director, director_slug, visible, backdrop_path, poster_path, tmdb_id")
     .eq("slug", slug)
     .maybeSingle<{ id: string; title: string; slug: string; year: number | null; director: string | null; director_slug: string | null; visible: boolean; backdrop_path: string | null; poster_path: string | null; tmdb_id: number | null }>();
-  if (!film || !film.visible) return null;
+  if (!film) return null;
 
   const [{ data: rcp }, { data: ev }, { data: wd }, { data: ln }, { data: vidRows }] = await Promise.all([
     supabase.from("film_reception")
@@ -65,7 +65,12 @@ async function loadUncached(slug: string) {
       .eq("status", "published").eq("kind", "video").order("position"),
   ]);
   const reception = (rcp ?? []) as Rcp[];
-  if (!reception.length) return null;
+  const wdHonors = (wd ?? []) as Wd[];
+  const lnAwards = ((ln ?? []) as FilmLineageRow[]).filter((l) => l.edition_year && (l.facet === "award" || l.facet === "festival" || l.facet === "section"));
+  // Publish only with genuine afterlife substance — critical reception OR an
+  // honors record. Release dates alone (nearly every film has them) don't make
+  // an afterlife article, so a bare release ledger stays unpublished (404).
+  if (!reception.length && !wdHonors.length && !lnAwards.length) return null;
 
   const vids = ((vidRows ?? []) as { external_id: string | null; title: string | null }[]).filter((v) => v.external_id);
   const isTrailerTitle = (t: string | null) => !!t && /trailer|teaser/i.test(t);
@@ -78,8 +83,8 @@ async function loadUncached(slug: string) {
     film: { title: film.title, slug: film.slug, year: film.year, director: film.director, director_slug: film.director_slug, backdrop_path: film.backdrop_path, poster_path: film.poster_path, tmdb_id: film.tmdb_id },
     reception,
     events: (ev ?? []) as Ev[],
-    wdHonors: (wd ?? []) as Wd[],
-    lineage: ((ln ?? []) as FilmLineageRow[]).filter((l) => l.edition_year && (l.facet === "award" || l.facet === "festival" || l.facet === "section")),
+    wdHonors,
+    lineage: lnAwards,
     videos,
     latest: latest ? latest.slice(0, 10) : null,
   };
