@@ -49,6 +49,6 @@ export default function robots(): MetadataRoute.Robots {
       // AI training / bulk-scraping bots — blocked.
       { userAgent: TRAINING_BOTS, disallow: "/" },
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: [`${siteUrl}/sitemap.xml`, `${siteUrl}/news-sitemap.xml`],
   };
 }

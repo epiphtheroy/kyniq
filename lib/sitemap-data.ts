@@ -640,6 +640,24 @@ export async function profileEntries(): Promise<SitemapEntry[]> {
   return (profiles ?? []).filter((p) => p.username).map((p) => ({ url: `${siteUrl}/u/${p.username}` }));
 }
 
+// /now/[slug] — Now Playing, the live layer (hourly/README.md v2). Published
+// pieces only; lastmod = updated_at, which the pipeline touches only on real
+// content events (publish + corrections), so it is an accurate signal.
+export async function nowEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { data } = await db()
+    .from("now_articles")
+    .select("slug, updated_at")
+    .eq("status", "published")
+    .order("published_at", { ascending: false })
+    .limit(PAGE);
+  const entries: SitemapEntry[] = [{ url: `${siteUrl}/now` }];
+  for (const p of data ?? []) {
+    entries.push({ url: `${siteUrl}/now/${p.slug}`, lastmod: (p.updated_at as string)?.slice(0, 10) });
+  }
+  return entries;
+}
+
 // ---------------------------------------------------------------------------
 // XML rendering
 

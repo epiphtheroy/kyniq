@@ -33,6 +33,7 @@ const SECTIONS = [
   "misreadings",
   "film-credits",
   "film-reception",
+  "now",
 ];
 
 export async function GET() {
