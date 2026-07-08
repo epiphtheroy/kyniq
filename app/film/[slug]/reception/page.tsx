@@ -128,15 +128,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { film, reception, events, wdHonors, lineage } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
+  // Reviews-led framing when critics exist; honors-led when they don't (the
+  // substance gate guarantees a no-review page still carries an honors record).
+  const hasReviews = reviews.length > 0;
+  const honorsN = wdHonors.length + lineage.length;
   const years = [
     ...events.map((e) => Number(e.event_date.slice(0, 4))),
     ...reception.map((r) => r.review_year ?? 0),
   ].filter((y) => y > 1880);
   const y0 = years.length ? Math.min(...years) : film.year;
   const y1 = years.length ? Math.max(...years) : film.year;
-  const title = `${film.title}${yStr(film.year)} Reviews & Afterlife — Year by Year${y0 && y1 && y1 > (y0 ?? 0) ? `, ${y0}–${y1}` : ""}`;
+  const span = y0 && y1 && y1 > (y0 ?? 0) ? `, ${y0}–${y1}` : "";
+  const title = `${film.title}${yStr(film.year)} ${hasReviews ? "Reviews & Afterlife" : "Awards & Afterlife"} — Year by Year${span}`;
   const outlets = [...new Set(reviews.map((r) => r.outlet))];
-  let description = `What critics said about ${film.title} — ${reviews.length} review${reviews.length === 1 ? "" : "s"} from ${outlets.slice(0, 3).join(", ")}${outlets.length > 3 ? " and more" : ""}${papers.length ? `, ${papers.length} scholarly paper${papers.length === 1 ? "" : "s"}` : ""}, plus its releases, honors and revivals, dated and sourced.`;
+  let description = hasReviews
+    ? `What critics said about ${film.title} — ${reviews.length} review${reviews.length === 1 ? "" : "s"} from ${outlets.slice(0, 3).join(", ")}${outlets.length > 3 ? " and more" : ""}${papers.length ? `, ${papers.length} scholarly paper${papers.length === 1 ? "" : "s"}` : ""}, plus its releases, honors and revivals, dated and sourced.`
+    : `The awards, releases and afterlife of ${film.title}${yStr(film.year)} — ${honorsN} honor${honorsN === 1 ? "" : "s"}${events.length ? ", its release history" : ""} and revivals, dated and sourced.`;
   if (description.length > 158) description = description.slice(0, 155).replace(/\s+\S*$/, "") + "…";
   return {
     title, description,
