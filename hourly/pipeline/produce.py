@@ -97,31 +97,39 @@ proceed=false if either score < 3, if the news is only tangent to the entity, or
 
 # ── writer ───────────────────────────────────────────────────────────────────
 
-WRITER_SYSTEM = """You write for "Now Playing", the live layer of metatake.net, as Wonwoo Yoon's studio.
-One piece = one spiking story + one corpus anchor + the archive's data record. NOT a hot take, NOT a political verdict: the data-deep film-history read, timestamped.
+WRITER_SYSTEM = """You are Wonwoo Yoon, editor of the Metatake archive, writing "Now Playing" on metatake.net: the editor's letter that lands within the hour on a spiking film-and-culture story. You read the report an hour ago; the letter exists to say why it deserves more than a headline. The product is the ANALYSIS - one argued, deeply researched take a reader cannot get from the wire.
 
-Voice: declarative, front-loaded, short paragraphs, zero filler, no em-dashes, no stacked hedges. Wit is welcome in the reading; it never touches the facts. Criticism targets works, structures, institutions - never private individuals' character.
+Non-negotiables, in order:
 
-Workflow (mandatory): (1) use web_search at least twice - verify the core facts beyond the provided links, and find what is actually confirmed vs merely reported right now; (2) then write.
+1. SPEED MADE VISIBLE. Open with a dateline (the STORY's region + the NEWS date, not our publish time). The first two sentences must say when and where the story broke, who reported it, and that you are writing now because of it - the "I read this an hour ago, and here is why it matters" frame, in fresh wording every time.
 
-Honesty at speed: first-hour facts move. Say once, plainly, what is confirmed vs reported. Attribute every fact to an outlet AND a date - the piece's publish time is NOT the news's date, so write "Deadline reported on July 7 that..." / "as of July 8, no release date is set". Every factual paragraph must carry at least one explicit reporting date. Only cite sources you actually saw in search results.
+2. SEARCH-SHAPED HEADLINE. Write the headline AS the question or phrase people will type while this spikes, plus the promise of an answer. Proper nouns first: names, titles, places. No cleverness that hides the query.
 
-HTML rules for body fields: only <p>, <b>, <i>, <em>, <strong>, <ul>, <li>, <br>, and <a href="..."> where href MUST start with "/" (site-internal). News sources go in the sources array, never as links in body HTML.
+3. NAMES AND PLACES. Real names, real places, real dates - as many as accuracy allows. Every factual claim carries its outlet AND its reporting date ("Variety reported on July 7 that..."). What is confirmed vs merely reported is said once, plainly.
 
-Data honesty: every number or archival claim in your prose must come from the provided data modules. You may SELECT which modules run (by id) and caption them; you cannot invent data.
+4. THE ARCHIVE IN THE PROSE. Weave 4 to 10 links from the provided INTERNAL LINKS inventory into the body where they genuinely carry the argument - the film page where you invoke the film, the scorecard where you cite its standing, the lineage page where you cite its canon record. Never link-stuff; never use an href absent from the inventory. Archival numbers and claims must come from the provided modules - nothing remembered.
+
+5. ARGUE, HUMBLY. The letter moves: the surface reaction everyone will have -> the deeper question underneath -> your position, argued. Engage the strongest objection honestly; concede what must be conceded; state uncertainty once and plainly. Intelligent, warm, firm in the argument. First person available, used sparingly. This is film and culture: take real positions on works, industries, reputations, institutions - never partisan-political verdicts, never private individuals' character.
+
+6. FORM. 700-1200 words of prose. Short paragraphs (1-4 sentences), front-loaded, zero filler, no em-dashes, no listicles. Wit is welcome; it never touches the facts. Vary structure against the recent-pieces digest: no repeated openings, closings, or headline shapes.
+
+Workflow (mandatory): use web_search at least twice - (a) verify and DATE the core facts beyond the provided links; (b) find the terrain of reaction and at least one fact the wire coverage does not carry. Only cite sources you actually saw.
+
+HTML rules for body fields: only <p>, <b>, <i>, <em>, <strong>, <ul>, <li>, <br>, <cite>, and <a href="..."> where href MUST start with "/" AND appear in the INTERNAL LINKS inventory. News sources go in the sources array, never as links in body HTML.
 
 Reply with ONE JSON object only, no prose around it:
 {
  "slug": "kebab-case, entity + event, 8-80 chars",
- "headline": "the searcher's proper nouns + the archive's angle, 40-100 chars, no formula",
- "dek": "one sentence preview",
- "summary": "the whole thesis in 1-2 plain sentences (no HTML)",
- "facts_html": "2-3 short <p> paragraphs: what happened, attributed, confirmed-vs-reported explicit",
- "reading_html": "2-4 short <p> paragraphs: what the record shows about this moment - the through-line the data modules reveal; at most one named theorist and only if corpus-linked",
- "bottom_html": "1 <p>: re-tighten, no new points",
+ "headline": "the searcher's query + the answer's promise, 40-110 chars",
+ "dek": "one sentence: the letter's promise",
+ "summary": "the argued thesis in 1-2 plain sentences (no HTML)",
+ "dateline": "REGION(S) OF THE STORY IN UPPERCASE · Month D, YYYY (the news date, not publish time)",
+ "facts_html": "the opening movement, 2-3 <p>: the dated, attributed news + why you write within the hour",
+ "reading_html": "the argument, 4-7 <p>: surface -> deeper question -> your argued position, archive links woven in, strongest objection engaged",
+ "bottom_html": "the close, 1 <p>: a letter's ending - re-tighten, no new points",
  "deposit": "one line naming what this piece deposits in Metatake (a figure/connection), no HTML",
- "module_ids": ["3+ ids chosen from the provided modules, in running order"],
- "module_notes": {"id": "optional one-line caption replacing the default note"},
+ "module_ids": ["0-2 module ids, ONLY if a table genuinely helps the letter; empty array is normal"],
+ "module_notes": {"id": "optional one-line caption"},
  "sources": [{"outlet": "...", "title": "...", "url": "https://..."}]  // >= 2 distinct outlets you verified in search
 }"""
 
@@ -132,6 +140,9 @@ def writer_pass(env: dict, cand: dict, pack: dict, digest: str, angle: str, fail
 keyword being searched right now: {cand['keyword']} (approx traffic {cand.get('traffic') or 'n/a'}, geo {cand.get('geo')}; first seen {cand.get('first_seen')})
 anchor entity (verified in corpus): {json.dumps(pack['anchor'], ensure_ascii=False)}
 starting links (verify and go beyond them): {json.dumps((cand.get('news') or []) + (cand.get('fleet_hits') or [])[:4], ensure_ascii=False)}
+
+INTERNAL LINKS inventory (the ONLY hrefs allowed in prose - weave 4-10 where they carry the argument):
+{json.dumps(pack.get('internal_links') or [], ensure_ascii=False)}
 
 SELECTION EDITOR'S ANGLE: {angle}
 
@@ -184,9 +195,15 @@ def _words(html: str) -> int:
     return len(re.sub(r"<[^>]+>", " ", html).split())
 
 
-def deterministic_gate(env: dict, piece: dict, pack: dict) -> list[str]:
+MONTHS = ("January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December")
+
+
+def deterministic_gate(env: dict, piece: dict, pack: dict, keyword: str = "") -> list[str]:
+    if keyword:
+        piece["_keyword"] = keyword
     fails: list[str] = []
-    for k in ("slug", "headline", "summary", "facts_html", "reading_html", "deposit", "module_ids", "sources"):
+    for k in ("slug", "headline", "summary", "dateline", "facts_html", "reading_html", "deposit", "sources"):
         if not piece.get(k):
             fails.append(f"missing field {k}")
     if fails:
@@ -204,22 +221,44 @@ def deterministic_gate(env: dict, piece: dict, pack: dict) -> list[str]:
     if sb_get(env, f"now_articles?select=slug&slug=eq.{quote(piece['slug'])}", service=True):
         piece["slug"] = f"{piece['slug'][:70]}-{datetime.now(timezone.utc).strftime('%H%M')}"
 
-    if not (30 <= len(piece["headline"]) <= 120):
+    if not (30 <= len(piece["headline"]) <= 130):
         fails.append(f"headline length {len(piece['headline'])}")
+    # search-shaped headline: the spiking keyword's long tokens (or the anchor's
+    # name) must actually appear — the query IS the title (v3 rule 3).
+    hl = piece["headline"].lower()
+    kw_tokens = [w for w in re.sub(r"[^a-z0-9 ]", " ", (piece.get("_keyword") or "").lower()).split() if len(w) >= 4]
+    anchor_tokens = [w for w in re.sub(r"[^a-z0-9 ]", " ", (pack["anchor"].get("label") or "").lower()).split() if len(w) >= 4]
+    if kw_tokens or anchor_tokens:
+        if not any(t in hl for t in kw_tokens) and not any(t in hl for t in anchor_tokens):
+            fails.append("headline carries neither the trending keyword nor the anchor's name")
+
+    dl = piece["dateline"]
+    if not any(m in dl for m in MONTHS) or not re.search(r"\d{4}", dl):
+        fails.append(f"dateline lacks a month name + year: {dl!r}")
+
     for k in ("facts_html", "reading_html", "bottom_html"):
         if piece.get(k):
             err = _html_ok(piece[k])
             if err:
                 fails.append(f"{k}: {err}")
+
     total = _words(piece["facts_html"]) + _words(piece["reading_html"]) + _words(piece.get("bottom_html") or "")
-    if not (250 <= total <= 1200):
-        fails.append(f"prose length {total} words (need 250-1200)")
+    if not (500 <= total <= 1500):
+        fails.append(f"prose length {total} words (need 500-1500)")
+
+    # inner links: >= 3 woven into prose, every one from the verified inventory
+    inventory = {l["href"] for l in pack.get("internal_links") or []}
+    prose = (piece["facts_html"] or "") + (piece["reading_html"] or "") + (piece.get("bottom_html") or "")
+    hrefs = re.findall(r'href="([^"]*)"', prose)
+    bad = [h for h in hrefs if h not in inventory]
+    if bad:
+        fails.append(f"prose hrefs not in inventory: {bad[:4]}")
+    if len(hrefs) < 3:
+        fails.append(f"only {len(hrefs)} internal links in prose (need >=3, want 4-10)")
 
     pack_ids = {m["id"] for m in pack["modules"]}
-    ids = [i for i in (piece.get("module_ids") or []) if i in pack_ids]
-    if len(ids) < 3:
-        fails.append(f"module_ids: only {len(ids)} valid (need >=3 of {sorted(pack_ids)})")
-    piece["module_ids"] = ids
+    ids = [i for i in (piece.get("module_ids") or []) if i in pack_ids][:2]
+    piece["module_ids"] = ids  # 0-2 modules; the letter is the product now
 
     srcs = piece.get("sources") or []
     domains = set()
@@ -338,19 +377,22 @@ def build_cut_floor(env: dict, snapshot: dict, chosen_keyword: str) -> list[dict
     return out
 
 
-def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_floor: list[dict]) -> tuple[bool, str]:
+def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_floor: list[dict] | None = None) -> tuple[bool, str]:
     anchor = pack["anchor"]
     img = pack.get("image") or {}
+    piece.pop("_keyword", None)
     row = {
         "slug": piece["slug"], "headline": piece["headline"], "dek": piece.get("dek"),
-        "summary": piece.get("summary"), "keyword": cand["keyword"], "lane": "direct",
+        "summary": piece.get("summary"), "dateline": piece.get("dateline"),
+        "keyword": cand["keyword"], "lane": "direct",
         "anchor_type": anchor["type"], "anchor_slug": anchor.get("slug"), "anchor_label": anchor["label"],
         "film_slug": pack.get("film_slug"),
         "image_path": img.get("path"), "image_alt": img.get("alt"),
         "facts_html": piece["facts_html"], "reading_html": piece["reading_html"],
         "bottom_html": piece.get("bottom_html"), "deposit": piece.get("deposit"),
         "modules": assemble_modules(piece, pack), "sources": piece["sources"], "scores": scores,
-        "archive_links": pack.get("archive_links") or [], "cut_floor": cut_floor,
+        "archive_links": pack.get("archive_links") or [],
+        "cut_floor": [],  # v3: rejected news is NOT published (owner's rule 5)
         "status": "published",
     }
     ok, info = sb_insert(env, "now_articles", row)
@@ -430,6 +472,17 @@ def main() -> None:
         ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP}")
         return
 
+    # unattended operation: refresh the entity cache when it goes stale
+    ents_file = HOURLY / "poller" / "entities.json"
+    import time as _t
+    if not ents_file.exists() or _t.time() - ents_file.stat().st_mtime > 24 * 3600:
+        log("entity cache stale — resyncing")
+        try:
+            from poller.sync_entities import main as sync_main
+            sync_main()
+        except Exception as e:
+            log(f"entity sync failed (continuing on old cache): {e}")
+
     from poller.poller import collect_candidates  # local import: hourly/ is on sys.path
     snap = collect_candidates()
     a7, k48, a48 = recent_anchors(env)
@@ -450,52 +503,48 @@ def main() -> None:
             continue
 
         pack = build_pack(env, {"type": ent["type"], "slug": ent.get("slug"), "label": ent["label"]})
-        if pack["depth"] < 3:
-            log(f"corpus-depth skip ({pack['depth']} modules): {cand['keyword']}")
-            ledger_append(f"{stamp} · PASS-CAND · {cand['keyword']} · depth {pack['depth']}<3")
+        # v3 gate: the letter needs archive presence — enough verified internal
+        # links to weave (owner's rule 4), not big tables.
+        n_links = len(pack.get("internal_links") or [])
+        if n_links < 4:
+            log(f"archive-thin skip ({n_links} internal links): {cand['keyword']}")
+            ledger_append(f"{stamp} · PASS-CAND · {cand['keyword']} · archive links {n_links}<4")
             continue
 
-        sel = selector_pass(env, cand, pack, digest)
-        if not sel or not sel.get("proceed"):
-            log(f"selector declined: {cand['keyword']} -> {sel}")
-            ledger_append(f"{stamp} · PASS-CAND · {cand['keyword']} · selector: {json.dumps(sel, ensure_ascii=False) if sel else 'api-fail'}")
-            continue
+        # No second-model selection or verification (owner's rule 2026-07-08):
+        # mechanical selection above, then Fable 5 writes and that is the piece.
+        scores = {"spike": cand["spike"], "corroboration": cand["corroboration"], "beat": cand["beat"]}
+        log(f"WRITING: {cand['keyword']} → {ent['label']} (scores {scores}, links {n_links})")
 
-        scores = {"spike": cand["spike"], "corroboration": cand["corroboration"], "beat": cand["beat"],
-                  "depth": sel.get("depth"), "search_shape": sel.get("search_shape")}
-        log(f"WRITING: {cand['keyword']} → {ent['label']} (scores {scores})")
-
+        # Fable 5 writes; the piece publishes. No second-model content gate
+        # (owner's rule 2026-07-08: the voice must reach the page untouched).
+        # The deterministic gate stays: it checks structure and link validity,
+        # never style.
         piece, failure_report = None, None
         for attempt in (1, 2):
-            draft = writer_pass(env, cand, pack, digest, sel.get("angle", ""), failure_report)
+            draft = writer_pass(env, cand, pack, digest, "your call - find the letter's argument", failure_report)
             if not draft:
                 failure_report = "previous attempt returned no parseable JSON"
                 continue
-            fails = deterministic_gate(env, draft, pack)
-            if fails:
-                failure_report = "; ".join(fails)
-            else:
-                g = llm_gate(env, draft)
-                if g and g.get("pass"):
-                    piece = draft
-                    break
-                failure_report = "; ".join((g or {}).get("failures") or ["content gate unavailable (API) — fail closed"])
+            fails = deterministic_gate(env, draft, pack, keyword=cand["keyword"])
+            if not fails:
+                piece = draft
+                break
+            failure_report = "; ".join(fails)
             log(f"gate fail (attempt {attempt}): {failure_report[:300]}")
 
         if not piece:
             ledger_append(f"{stamp} · KILLED · {cand['keyword']} · gate x2: {failure_report[:200]}")
             continue
 
-        cut_floor = build_cut_floor(env, snap, cand["keyword"])
-
         if dry:
             out = HOURLY / "drafts" / f"dry-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M')}.json"
             out.write_text(json.dumps({"cand": cand, "piece": piece, "scores": scores,
-                                       "snapshot": snap, "cut_floor": cut_floor}, ensure_ascii=False, indent=1))
+                                       "snapshot": snap}, ensure_ascii=False, indent=1))
             log(f"DRY RUN: draft written to {out}")
             return
 
-        ok, info = publish(env, piece, cand, pack, scores, cut_floor)
+        ok, info = publish(env, piece, cand, pack, scores)
         if not ok:
             log(f"insert failed: {info}")
             ledger_append(f"{stamp} · KILLED · {cand['keyword']} · insert fail {info[:120]}")

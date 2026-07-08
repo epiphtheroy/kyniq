@@ -263,5 +263,24 @@ def build_pack(env: dict, anchor: dict) -> dict:
                 modules.append(m)
 
     usable = [m for m in modules if (m.get("rows") or m.get("items"))]
+
+    # Internal-link inventory — every VERIFIED metatake.net link the writer may
+    # weave into the letter's prose (v3: inner links in prose are the archive's
+    # presence in the piece; the writer may only use hrefs from this list).
+    inv: dict[str, str] = {}
+    for l in archive_links:
+        inv.setdefault(l["href"], l["label"] + (f" ({l['note']})" if l.get("note") else ""))
+    for m in usable:
+        for it in m.get("items") or []:
+            h = it.get("href") or ""
+            if h.startswith("/"):
+                inv.setdefault(h, it["label"])
+        for row in m.get("rows") or []:
+            for cell in row:
+                if isinstance(cell, dict) and (cell.get("href") or "").startswith("/"):
+                    inv.setdefault(cell["href"], cell.get("text", ""))
+    internal_links = [{"href": h, "label": t} for h, t in list(inv.items())[:24]]
+
     return {"anchor": anchor, "film_slug": film_slug, "image": image,
-            "archive_links": archive_links, "modules": usable, "depth": len(usable)}
+            "archive_links": archive_links, "modules": usable,
+            "internal_links": internal_links, "depth": len(usable)}
