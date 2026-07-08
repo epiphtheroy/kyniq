@@ -175,31 +175,8 @@ export default async function NowPiece({ params }: Props) {
           ) : null}
         </article>
 
-        {p.cut_floor?.length ? (
-          <div className="now-cutfloor">
-            <div className="now-cf-head">On the cutting-room floor</div>
-            <p className="now-cf-lede">
-              Other spikes that trended this hour. We passed on them — the beat is film and culture the archive can
-              actually deepen. The editor&apos;s note on each:
-            </p>
-            <ul>
-              {p.cut_floor.map((c, i) => {
-                const meta = [c.region, c.date, c.outlet].filter(Boolean).join(" · ");
-                return (
-                  <li key={i}>
-                    {meta ? <span className="meta">{meta}</span> : null}
-                    {c.url ? (
-                      <a href={c.url} target="_blank" rel="noopener nofollow">{c.keyword}</a>
-                    ) : (
-                      <span className="kw">{c.keyword}</span>
-                    )}
-                    <span className="c"> — {c.comment}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ) : null}
+        {/* v3 (owner's rule 5): rejected news is not published — the cutting-room
+            floor stays in the ledger, not on the page. */}
 
         <div className="cur-foot" style={{ display: "flex", gap: 22 }}>
           <Link href="/now">← All of Now Playing</Link>

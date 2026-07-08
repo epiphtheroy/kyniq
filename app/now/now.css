@@ -44,7 +44,18 @@
 .mt.cur .now-hero figcaption a { color: #b6b4b5; text-decoration: underline; text-underline-offset: 2px; }
 .mt.cur .now-hero figcaption a:hover { color: #ff8177; }
 
-/* ── paper zone: section kickers + data modules (on white sheet) ────────── */
+/* ── paper zone: the letter ─────────────────────────────────────────────── */
+.mt.cur .cur-paper .now-dateline {
+  font: 700 13px/1.4 Inter, sans-serif; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #0d0d0d; margin: 4px 0 16px; padding-bottom: 10px; border-bottom: 2px solid #0d0d0d;
+}
+.mt.cur .cur-paper .now-letter a {
+  color: #0d0d0d; text-decoration: underline; text-decoration-color: #e3120b;
+  text-underline-offset: 3px; font-weight: 600;
+}
+.mt.cur .cur-paper .now-letter a:hover { color: #b80d05; }
+
+/* ── section kickers + data modules (on white sheet) ────────────────────── */
 .mt.cur .cur-paper .now-sec {
   font: 700 12px/1 Inter, sans-serif; letter-spacing: 0.14em; text-transform: uppercase;
   color: #0d0d0d; border-top: 2px solid #0d0d0d; padding-top: 10px; margin: 30px 0 12px;
