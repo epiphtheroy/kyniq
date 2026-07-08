@@ -311,6 +311,8 @@ export default async function DirectorLifePage({ params }: Props) {
           </p>
         </article>
       </div>
+
+      <DirectorPlates slug={slug} exclude="life" />
     </div>
   );
 }
