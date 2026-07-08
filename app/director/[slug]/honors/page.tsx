@@ -244,12 +244,12 @@ export default async function DirectorHonorsPage({ params }: Props) {
     : (() => { const f = films.find((x) => x.backdrop_path); return f ? { title: f.title, year: f.year, backdrop_path: f.backdrop_path! } : null; })();
 
   // Mid-article stills — the filmography's backdrops, year-sorted (films come
-  // ordered by year), hero excluded; deterministic, no shuffle.
+  // ordered by year), hero excluded; deterministic, no shuffle. One still every
+  // 3 film sections: section i = 3, 6, 9, 12 → still i/3 − 1.
   const stills = films
     .filter((f) => f.backdrop_path && f.title !== bdFilm?.title)
     .map((f) => ({ title: f.title, year: f.year, backdrop_path: f.backdrop_path as string }))
     .slice(0, 4);
-  let artUsed = 0;
 
   const metaBits = [
     wins > 0 ? `${wins} win${wins === 1 ? "" : "s"}` : null,
@@ -369,6 +369,7 @@ export default async function DirectorHonorsPage({ params }: Props) {
               const visible = s.lines.length > CURTAIN_AT ? s.lines.slice(0, CURTAIN_AT) : s.lines;
               const rest = s.lines.length > CURTAIN_AT ? s.lines.slice(CURTAIN_AT) : [];
               const preview = rest.slice(0, 2).map((l) => (l.text.length > 36 ? l.text.slice(0, 36).trimEnd() + "…" : l.text)).join(" · ");
+              const still = i > 0 && i % 3 === 0 && i / 3 - 1 < stills.length ? stills[i / 3 - 1] : null;
               const Line = ({ l }: { l: HonorLine }) => (
                 <p className="afl-ev afl-ev--honor" data-af="honor">
                   <span aria-hidden>{l.marker === "win" ? "🏆" : l.marker === "canon" ? "📚" : "◇"}</span>{" "}
@@ -377,12 +378,11 @@ export default async function DirectorHonorsPage({ params }: Props) {
               );
               return (
                 <section key={s.slug} id={`f-${s.slug}`} className="afl-year" style={{ "--yc": yearColor(s.year) } as CSSProperties}>
-                  {i > 0 && i % 3 === 0 && artUsed < stills.length ? (
+                  {still ? (
                     <figure className="rd-fig" style={{ marginTop: 0 }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={`${IMG}/w780${stills[artUsed].backdrop_path}`} alt={`${stills[artUsed].title} still`} loading="lazy" width={780} height={439} />
-                      <figcaption>{stills[artUsed].title}{stills[artUsed].year ? ` (${stills[artUsed].year})` : ""} · via TMDB</figcaption>
-                      <span style={{ display: "none" }}>{(() => { artUsed++; return null; })()}</span>
+                      <img src={`${IMG}/w780${still.backdrop_path}`} alt={`${still.title} still`} loading="lazy" width={780} height={439} />
+                      <figcaption>{still.title}{still.year ? ` (${still.year})` : ""} · via TMDB</figcaption>
                     </figure>
                   ) : null}
                   <h2 className="afl-h2">
