@@ -228,6 +228,75 @@ async function directorGuideSlugs(table: "director_picks" | "director_next"): Pr
   return [...count.entries()].filter(([, n]) => n >= 3).map(([s]) => s).sort();
 }
 
+/**
+ * Per-director eligibility for the wave-2 aggregation articles (2026-07-09):
+ * takescore / honors / reception / theory. One daily-cached pass that mirrors
+ * each page's pageRobots gate (≥3 / ≥3 / ≥3 / ≥5), aggregated from the film
+ * tables per director. Shared by the sitemaps and /curious/directors.
+ */
+export const directorLayerEligibility = unstable_cache(
+  async (): Promise<{ takescore: string[]; honors: string[]; reception: string[]; theory: string[] }> => {
+    const supabase = db();
+    const films = await fetchAll<{ id: string; director_slug: string | null }>((from, to) =>
+      supabase.from("films").select("id, director_slug").eq("visible", true).not("director_slug", "is", null)
+        .order("id").range(from, to));
+    const dirOf = new Map(films.map((f) => [f.id, f.director_slug as string]));
+    const filmsPerDir = new Map<string, number>();
+    for (const f of films) filmsPerDir.set(f.director_slug!, (filmsPerDir.get(f.director_slug!) ?? 0) + 1);
+
+    const tally = async (rows: { film_id: string }[]) => {
+      const per = new Map<string, number>();
+      for (const r of rows) {
+        const d = dirOf.get(r.film_id);
+        if (d) per.set(d, (per.get(d) ?? 0) + 1);
+      }
+      return per;
+    };
+    const [lineageRows, wdRows, rcpRows, takeRows] = await Promise.all([
+      fetchAll<{ film_id: string }>((from, to) => supabase.from("film_lineage").select("film_id").order("id").range(from, to)),
+      fetchAll<{ film_id: string }>((from, to) => supabase.from("film_wd_honors").select("film_id").order("id").range(from, to)),
+      fetchAll<{ film_id: string }>((from, to) => supabase.from("film_reception").select("film_id").order("id").range(from, to)),
+      fetchAll<{ figure: { film_id: string } }>((from, to) =>
+        supabase.from("takes").select("figure:figures!inner(film_id)").eq("status", "published").eq("is_invitation", false)
+          .range(from, to) as unknown as PromiseLike<{ data: { figure: { film_id: string } }[] | null }>),
+    ]);
+    const honorsPer = await tally([...lineageRows, ...wdRows]);
+    const rcpPer = await tally(rcpRows);
+    const theoryPer = await tally(takeRows.map((r) => ({ film_id: r.figure?.film_id })).filter((r) => r.film_id) as { film_id: string }[]);
+    const pick = (per: Map<string, number>, min: number) =>
+      [...per.entries()].filter(([, n]) => n >= min).map(([s]) => s).sort();
+    return {
+      takescore: [...filmsPerDir.entries()].filter(([, n]) => n >= 3).map(([s]) => s).sort(),
+      honors: pick(honorsPer, 3),
+      reception: pick(rcpPer, 3),
+      theory: pick(theoryPer, 5),
+    };
+  },
+  ["director-layer-eligibility-1"],
+  { revalidate: 86400 }
+);
+
+export async function directorTakescoreEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const e = await directorLayerEligibility();
+  return e.takescore.map((s) => ({ url: `${siteUrl}/director/${s}/takescore` }));
+}
+export async function directorHonorsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const e = await directorLayerEligibility();
+  return e.honors.map((s) => ({ url: `${siteUrl}/director/${s}/honors` }));
+}
+export async function directorReceptionEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const e = await directorLayerEligibility();
+  return e.reception.map((s) => ({ url: `${siteUrl}/director/${s}/reception` }));
+}
+export async function directorTheoryEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const e = await directorLayerEligibility();
+  return e.theory.map((s) => ({ url: `${siteUrl}/director/${s}/theory` }));
+}
+
 export async function directorStartEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const slugs = await directorGuideSlugs("director_picks");

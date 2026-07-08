@@ -24,7 +24,9 @@ import SaveButton from "@/components/SaveButton";
 import PosterActions from "@/components/PosterActions";
 import LensDirectorCoverage from "@/components/LensDirectorCoverage";
 import RecordToc from "@/components/read/RecordToc";
+import DirectorPlates from "@/components/read/DirectorPlates";
 import "@/app/film/[slug]/read.css";
+import "@/app/curious/curious.css";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -751,6 +753,10 @@ export default async function DirectorPage({ params }: Props) {
           </Suspense>
         </section>
       </div>
+
+      {/* Bottom plate band — doors to every director article that exists
+          (life/start/next/locations/honors/reception/takescore/theory). */}
+      <DirectorPlates slug={slug} />
     </div>
   );
 }
