@@ -90,6 +90,31 @@
   border: 1.5px solid rgba(22, 35, 63, 0.3); background: transparent; outline: none;
 }
 .df-tabs__q:focus { border-color: #c0392b; }
+/* The single-row centered bar consumes per-tab --bc (colored badges + active tint),
+   mirroring the film-page menu bar — those rules are scoped .df-tabs--menu only. */
+.df-tabs__in--center .df-tab { --bc: #5a6b86; }
+.df-tabs__in--center .df-tab:hover { color: var(--bc); }
+.df-tabs__in--center .df-tab.active { color: var(--bc); border-bottom-color: var(--bc); }
+.df-tabs__in--center .df-tab__b {
+  background: color-mix(in srgb, var(--bc) 14%, #fff);
+  border-color: color-mix(in srgb, var(--bc) 45%, transparent);
+  color: var(--bc); font-weight: 800;
+  transition: background 0.14s, color 0.14s, border-color 0.14s;
+}
+.df-tabs__in--center .df-tab:hover .df-tab__b,
+.df-tabs__in--center .df-tab.active .df-tab__b { background: var(--bc); border-color: var(--bc); color: #fff; }
+/* Figure chips with a small film thumbnail (theory pages, 2026-07-08). */
+.mt .fig-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 0; }
+.mt .fig-chip {
+  display: inline-flex; align-items: center; gap: 9px; padding: 4px 13px 4px 4px;
+  border-radius: 10px; border: 1.5px solid rgba(184, 134, 59, 0.4);
+  font-size: 13.5px; font-weight: 600; text-decoration: none; color: inherit;
+  transition: border-color 0.14s, background 0.14s;
+}
+.mt .fig-chip:hover { border-color: #b8863b; background: rgba(184, 134, 59, 0.08); }
+.mt .fig-chip img { width: 56px; height: 32px; object-fit: cover; border-radius: 7px; display: block; background: #e8e4da; }
+.mt .fig-chip--bare { padding: 8px 13px; }
+.mt .fig-chip__n { color: #b8863b; font-weight: 800; }
 /* Bigger ScreenRant-scale slate thumbnails (sides may crop — object-fit cover). */
 .mt .thr-th { flex: 0 0 232px; }
 @media (max-width: 640px) { .mt .thr-th { flex: 0 0 128px; } .df-tabs__q { width: 140px; } }

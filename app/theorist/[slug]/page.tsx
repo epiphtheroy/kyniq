@@ -181,11 +181,12 @@ export default async function TheoristPage({ params }: Props) {
   const surnamePre = name.split(" ").length > 1 ? name.split(" ").pop() as string : "";
   const hlTermsPre = [name, surnamePre].filter(Boolean);
   // Recurring figures this lens anchors to (aggregated by label).
-  const figCount = new Map<string, { n: number; href: string }>();
+  const figCount = new Map<string, { n: number; href: string; bd: string | null; film: string }>();
   for (const r of readings) {
     const k = r.fig_label.toLowerCase();
-    const cur = figCount.get(k) ?? { n: 0, href: `/film/${r.film_slug}/figure/${r.fig_slug}` };
+    const cur = figCount.get(k) ?? { n: 0, href: `/film/${r.film_slug}/figure/${r.fig_slug}`, bd: r.backdrop_path, film: r.film_title };
     cur.n += 1;
+    if (!cur.bd && r.backdrop_path) { cur.bd = r.backdrop_path; cur.film = r.film_title; }
     figCount.set(k, cur);
   }
   const figTop = [...figCount.entries()].map(([label, v]) => ({ label, ...v }))
@@ -318,13 +319,14 @@ export default async function TheoristPage({ params }: Props) {
           <section style={{ margin: "30px 0 0" }} id="lens-figures">
             <h2 className="df-h2">The figures {name} anchors to</h2>
             <p className="df-sub">The recurring anchors — characters, objects, places, forms — that this lens keeps choosing. Each chip opens a figure page where the reading lives.</p>
-            <p style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "12px 0 0" }}>
+            <div className="fig-cloud">
               {figTop.map((f) => (
-                <Link key={f.label} href={f.href} style={{ fontSize: 13.5, fontWeight: 600, padding: "6px 13px", borderRadius: 999, border: "1.5px solid rgba(184,134,59,.5)", textDecoration: "none", color: "inherit" }}>
-                  {f.label}{f.n > 1 ? <span style={{ color: "#B8863B", fontWeight: 800 }}> ×{f.n}</span> : null}
+                <Link key={f.label} href={f.href} className={`fig-chip${f.bd ? "" : " fig-chip--bare"}`}>
+                  {f.bd ? <img src={`${IMG}/w300${f.bd}`} alt={`${f.film} still`} width={56} height={32} loading="lazy" /> : null}
+                  <span>{f.label}{f.n > 1 ? <span className="fig-chip__n"> ×{f.n}</span> : null}</span>
                 </Link>
               ))}
-            </p>
+            </div>
           </section>
         ) : null}
 
