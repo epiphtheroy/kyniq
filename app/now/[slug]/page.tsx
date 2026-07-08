@@ -112,11 +112,12 @@ export default async function NowPiece({ params }: Props) {
           <figure className="now-hero">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={tmdbImg(p.image_path)} alt={p.image_alt ?? p.anchor_label} loading="eager" />
-            {ah ? (
-              <figcaption>
-                From <Link href={ah}>{p.anchor_label}</Link> in the Metatake corpus
-              </figcaption>
-            ) : null}
+            <figcaption>
+              Promotional still from{" "}
+              {ah ? <Link href={ah}>{p.anchor_label}</Link> : <span>{p.anchor_label}</span>}. Source:{" "}
+              <a href="https://www.themoviedb.org/" target="_blank" rel="noopener nofollow">The Movie Database (TMDB)</a>.
+              Not an image of the news event.
+            </figcaption>
           </figure>
         ) : null}
 

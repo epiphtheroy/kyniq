@@ -46,10 +46,16 @@ function ModuleBlock({ m }: { m: NowModule }) {
       ) : (
         <ul className="now-mod__list">
           {m.items!.map((it, i) => {
-            const href = safeHref(it.href);
+            const p = provenanceHref(it.href);
             return (
               <li key={i}>
-                {href ? <Link href={href}>{it.label}</Link> : <span>{it.label}</span>}
+                {!p ? (
+                  <span>{it.label}</span>
+                ) : p.external ? (
+                  <a href={p.href} target="_blank" rel="noopener nofollow">{it.label}</a>
+                ) : (
+                  <Link href={p.href}>{it.label}</Link>
+                )}
                 {it.note ? <span className="n"> — {it.note}</span> : null}
               </li>
             );
