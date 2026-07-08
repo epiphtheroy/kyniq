@@ -298,13 +298,26 @@ export async function loadFullLinkDict(
             dict.concepts.push({ name: head, slug: t.concept_slug });
           }
           // Parenthetical itself is usually a domain tag ("(Sociology)", "(Human)") —
-          // linking those words pollutes links en masse. Only accept clearly specific
-          // terms: one token that is long or non-ASCII (e.g. "Wiederholungszwang").
+          // linking those words pollutes links en masse. Accept clearly specific
+          // terms: long/non-ASCII tokens (e.g. "Wiederholungszwang"), or short
+          // capitalized foreign terms ("Amae") not on the domain-tag stoplist.
           const specific =
-            !/\s/.test(alias) && (alias.length >= 12 || /[^\x00-\x7F]/.test(alias));
+            !/\s/.test(alias) &&
+            (alias.length >= 12 ||
+              /[^\x00-\x7F]/.test(alias) ||
+              (alias.length >= 4 && /^[A-Z]/.test(alias) && !ALIAS_TAG_STOP.has(alias.toLowerCase())));
           if (specific && !seen.has(akey)) {
             seen.add(akey);
             dict.concepts.push({ name: alias, slug: t.concept_slug });
+          }
+        }
+        // "The X Y" → "X Y" (two+ words only — single bare words are false-positive bait)
+        if (/^The\s+\S+\s+\S/.test(t.concept)) {
+          const bare = t.concept.replace(/^The\s+/, "").replace(/\s*\([^)]*\)\s*$/, "").trim();
+          const bkey = normName(bare);
+          if (bare.split(/\s+/).length >= 2 && !seen.has(bkey)) {
+            seen.add(bkey);
+            dict.concepts.push({ name: bare, slug: t.concept_slug });
           }
         }
       }
@@ -315,6 +328,13 @@ export async function loadFullLinkDict(
   }
   return dict;
 }
+
+const ALIAS_TAG_STOP = new Set([
+  "human", "sociology", "psychology", "millennial", "economics", "art", "law",
+  "politics", "culture", "society", "family", "medicine", "management",
+  "history", "nature", "literature", "criticism", "general", "film", "cinema",
+  "media", "digital", "modern", "classic",
+]);
 
 type DictEntry = { name: string; href: string };
 
