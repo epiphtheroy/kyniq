@@ -621,6 +621,8 @@ export default async function FilmPage({ params }: Props) {
       ...(f.genres?.length ? { genre: f.genres } : {}),
       ...(f.runtime ? { duration: `PT${f.runtime}M` } : {}),
       ...(f.director ? { director: { "@type": "Person", name: f.director } } : {}),
+      ...(mExtra.cast?.length ? { actor: mExtra.cast.slice(0, 5).map((c) => ({ "@type": "Person", name: c.name })) } : {}),
+      ...(mExtra.original_language ? { inLanguage: mExtra.original_language } : {}),
       ...(f.poster_path ? { image: `${IMG}/w500${f.poster_path}` } : {}),
       ...(f.overview ? { description: f.overview } : {}),
       ...(mSameAs.length ? { sameAs: mSameAs } : {}),
