@@ -12,6 +12,7 @@ import {
   INDEX_COHORT_ESSAYS,
   INDEX_COHORT_MISREADINGS,
   INDEX_COHORT_FILM_CREDITS,
+  INDEX_COHORT_ESSAYS_KO,
 } from "@/lib/seo";
 import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
 import { cachedLineageEligibility } from "@/lib/lineage";
@@ -156,6 +157,97 @@ export async function essaysEntries(): Promise<SitemapEntry[]> {
     if (seen.has(url)) continue;
     seen.add(url);
     out.push({ url, lastmod: isoDate(r.published_at ?? r.created_at) });
+  }
+  return out;
+}
+
+/**
+ * /film/[slug]/[desk]/ko — verified Korean essays (added 2026-07-08). The EN
+ * essaysEntries mirror; separate child so GSC reports KR indexation on its own.
+ * Oldest-first + cap, same append-only discipline.
+ */
+export async function essaysKoEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  type Row = { mode: string; published_at: string | null; created_at: string; film: { slug: string } };
+  const rows = await fetchAll<Row>(
+    (from, to) =>
+      supabase
+        .from("essays")
+        .select("mode, published_at, created_at, film:films!inner(slug, visible)")
+        .eq("lang", "ko")
+        .eq("status", "verified")
+        .eq("film.visible", true)
+        .order("created_at", { ascending: true })
+        .range(from, to) as unknown as PromiseLike<{ data: Row[] | null }>,
+    INDEX_COHORT_ESSAYS_KO
+  );
+  const out: SitemapEntry[] = [];
+  const seen = new Set<string>();
+  for (const r of rows) {
+    const desk = deskByMode(r.mode);
+    if (!desk || !r.film?.slug) continue;
+    const url = `${siteUrl}/film/${r.film.slug}/${desk.key}/ko`;
+    if (seen.has(url)) continue;
+    seen.add(url);
+    out.push({ url, lastmod: isoDate(r.published_at ?? r.created_at) });
+  }
+  return out;
+}
+
+/**
+ * /movements/[slug] — national cinemas & film movements (added 2026-07-08).
+ * The /movements index 308s to /lineage, so these had zero crawl entry. Gate
+ * mirrors the page's own thin-hub rule (≥8 films → indexable; <8 is noindex).
+ */
+export async function movementEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const { data } = await db().rpc("movements_index");
+  const groups = (data ?? {}) as { national?: { slug: string; film_count: number | null }[]; movement?: { slug: string; film_count: number | null }[] };
+  const all = [...(groups.national ?? []), ...(groups.movement ?? [])];
+  return all
+    .filter((m) => m.slug && (m.film_count ?? 0) >= 8)
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .map((m) => ({ url: `${siteUrl}/movements/${m.slug}` }));
+}
+
+/**
+ * /concept/domain/[domain] — the 14 discipline-domain concept hubs and
+ * /frame/[slug] frames (added 2026-07-08). Small fixed editorial sets; each
+ * entry is verified to render (non-empty) before advertising, so the sitemap
+ * never carries a soft-404.
+ */
+const CONCEPT_DOMAIN_SLUGS = [
+  "politics", "criticism", "economics", "culture", "society", "psychology",
+  "family", "art", "medicine", "management", "law", "history", "nature", "literature",
+] as const;
+const DOMAIN_PART: Record<string, string> = {
+  politics: "Politics", criticism: "Criticism", economics: "Economics", culture: "Culture",
+  society: "Society", psychology: "Psychology", family: "Family", art: "Art",
+  medicine: "Medicine", management: "Management", law: "Law", history: "History",
+  nature: "Nature", literature: "Literature",
+};
+export async function conceptDomainEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const out: SitemapEntry[] = [];
+  for (const slug of CONCEPT_DOMAIN_SLUGS) {
+    const { data } = await supabase.rpc("concept_domain_live", { p_part: DOMAIN_PART[slug] });
+    if (Array.isArray(data) && data.length > 0) out.push({ url: `${siteUrl}/concept/domain/${slug}` });
+  }
+  return out;
+}
+
+export async function frameEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const { data: frames } = await supabase.from("frames").select("slug").eq("status", "approved");
+  const list = (frames ?? []) as { slug: string }[];
+  const out: SitemapEntry[] = [];
+  for (const f of list) {
+    // Page 404s when a frame has no ranked instances — check before advertising.
+    const { count } = await supabase.from("frame_rankings").select("id", { count: "exact", head: true }).eq("frame_slug", f.slug);
+    if ((count ?? 0) > 0) out.push({ url: `${siteUrl}/frame/${f.slug}` });
   }
   return out;
 }

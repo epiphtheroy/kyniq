@@ -146,6 +146,7 @@ export const INDEX_COHORT_CATALOG = 500; // /catalog/{seg}/{slug} archetype node
 export const INDEX_COHORT_FILM_LOCATIONS = 1000; // /film/*/locations pages in sitemap (added 2026-07-04; 1,707 eligible)
 export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
+export const INDEX_COHORT_ESSAYS_KO = 300; // /film/*/{desk}/ko Korean essays cohort 1 (added 2026-07-08; ~1,613 eligible KO)
 
 
 
