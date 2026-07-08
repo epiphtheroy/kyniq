@@ -555,6 +555,7 @@ export default async function FilmPage({ params }: Props) {
       poster_path: string | null; backdrop_path: string | null; tagline: string | null;
       overview: string | null; runtime: number | null; release_date: string | null;
       certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
+      tmdb_extra: { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string | null; collection?: string | null } | null;
     };
     const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
@@ -572,7 +573,11 @@ export default async function FilmPage({ params }: Props) {
     const nativeTitle = f.original_title && f.original_title !== f.title ? f.original_title : null;
     const mRuntime = f.runtime ? `${f.runtime} min` : null;
     const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
-    const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle);
+    // Curated credits/production facts backfilled from TMDB (same shape & source
+    // as the Tier-1 "Film info & credits" block) — null-safe, so it lights up as
+    // the enrichment lands.
+    const mExtra = f.tmdb_extra ?? {};
+    const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle || mExtra.cast?.length || mExtra.writers?.length || mExtra.country?.length);
 
 
     // ---- EDITOR'S DIGEST — a deterministic record composed from the loader's
@@ -670,12 +675,17 @@ export default async function FilmPage({ params }: Props) {
         <dl className="df-dl">
           {f.director ? <><dt>Director</dt><dd>{dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director}</dd></> : null}
           {nativeTitle ? <><dt>Original title</dt><dd>{nativeTitle}</dd></> : null}
+          {mExtra.cast?.length ? <><dt>Cast</dt><dd>{mExtra.cast.slice(0, 5).map((c) => c.character ? `${c.name} (${c.character})` : c.name).join(", ")}</dd></> : null}
+          {mExtra.writers?.length ? <><dt>Writing</dt><dd>{mExtra.writers.join(", ")}</dd></> : null}
           {f.release_date ? <><dt>Released</dt><dd>{f.release_date}</dd></> : null}
           {mRuntime ? <><dt>Runtime</dt><dd>{mRuntime}</dd></> : null}
           {f.genres?.length ? <><dt>Genre</dt><dd>{f.genres.map((g, i) => (
             <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>
           ))}</dd></> : null}
           {mCert ? <><dt>Rated</dt><dd>{mCert}</dd></> : null}
+          {mExtra.original_language ? <><dt>Language</dt><dd>{mExtra.original_language.toUpperCase()}</dd></> : null}
+          {mExtra.country?.length ? <><dt>Country</dt><dd>{mExtra.country.join(", ")}</dd></> : null}
+          {mExtra.collection ? <><dt>Collection</dt><dd>{mExtra.collection}</dd></> : null}
         </dl>
       </section>
     ) : null;
