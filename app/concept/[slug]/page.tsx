@@ -145,7 +145,7 @@ function load(slug: string) {
         ]);
         const theorists: { name: string; slug: string | null }[] = [];
         const seenTh = new Set<string>();
-        for (const r of (thRows ?? []) as { theorist_name: string | null; theorists: { slug: string; name: string } | null }[]) {
+        for (const r of (thRows ?? []) as unknown as { theorist_name: string | null; theorists: { slug: string; name: string } | null }[]) {
           const nm = r.theorists?.name ?? r.theorist_name;
           if (!nm || seenTh.has(nm)) continue;
           seenTh.add(nm);
