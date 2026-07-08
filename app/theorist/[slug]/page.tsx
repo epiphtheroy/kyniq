@@ -4,14 +4,26 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
+import Byline from "@/components/Byline";
+import Provenance from "@/components/Provenance";
+import GrowStill from "@/components/read/GrowStill";
+import { Card, SectionHead } from "@/components/curious/ui";
+import { FAMILIES, fw } from "@/lib/frameworks";
+import { pageRobots } from "@/lib/seo";
+import { wdPerson } from "@/lib/wikidata-person";
 import theoristQid from "@/lib/theorist_qid.json";
+import "@/app/curious/curious.css";
+import "@/app/film/[slug]/read.css";
 
+/**
+ * /theorist/[slug] — the theorist as a LENS ON CINEMA, not a theory explainer
+ * (2026-07-08 rebuild, whole-session grammar: dark hero + Wikidata portrait,
+ * LLM-free verbalized facts, framework-family structure, film panels, plates).
+ * Every sentence is assembled from the readings corpus — counts, years,
+ * titles, names only.
+ */
 export const revalidate = 1800;
-// Empty list = nothing prebuilt at build, but its presence enables the
-// on-demand Full Route Cache so generated pages are ISR-cached (HIT), not
-// re-rendered dynamically on every request.
 export async function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -30,18 +42,44 @@ type Reading = {
 };
 
 type DeskLink = { film_slug: string; film_title: string; film_year: number | null; desk_key: string; essay_title: string };
+type FilmMeta = { slug: string; genres: string[] | null; year: number | null; poster_path: string | null };
 
-// Cached per slug so the page is ISR-cached instead of re-querying on every
-// request (uncached Supabase calls otherwise force dynamic rendering).
 function load(slug: string) {
   return unstable_cache(
     async () => {
       const supabase = db();
-      const { data: th } = await supabase.from("theorists").select("name, blurb").eq("slug", slug).maybeSingle();
+      const { data: th } = await supabase.from("theorists").select("id, name, blurb").eq("slug", slug).maybeSingle();
       if (!th) return null;
       const { data: rd } = await supabase.rpc("theorist_readings", { p_slug: slug });
-      // Reverse links: desk essays that cite this theorist (precomputed,
-      // worker/build-entity-links.py). Defensive while the table is absent.
+      const readings = (rd as Reading[] | null) ?? [];
+
+      // Film metadata for the verbalizer (genres/years) — one IN query.
+      const slugs = [...new Set(readings.map((r) => r.film_slug))];
+      const filmMeta = new Map<string, FilmMeta>();
+      for (let i = 0; i < slugs.length; i += 150) {
+        const { data: fm } = await supabase
+          .from("films").select("slug, genres, year, poster_path").in("slug", slugs.slice(i, i + 150));
+        for (const f of (fm ?? []) as FilmMeta[]) filmMeta.set(f.slug, f);
+      }
+
+      // Concepts this theorist authored (theory DB) — the idea shelf.
+      let concepts: { name: string; slug: string }[] = [];
+      try {
+        const { data: cc } = await supabase
+          .from("theorist_concepts")
+          .select("theory_concepts(concept, concept_slug)")
+          .eq("theorist_id", (th as { id: number | string }).id)
+          .limit(16);
+        const seen = new Set<string>();
+        for (const row of (cc ?? []) as { theory_concepts: { concept: string; concept_slug: string } | null }[]) {
+          const c = row.theory_concepts;
+          if (!c?.concept || seen.has(c.concept_slug)) continue;
+          seen.add(c.concept_slug);
+          concepts.push({ name: c.concept, slug: c.concept_slug });
+        }
+      } catch { concepts = []; }
+
+      // Desk essays that cite this theorist (precomputed reverse links).
       let desks: DeskLink[] = [];
       try {
         const { data: dl } = await supabase
@@ -58,24 +96,65 @@ function load(slug: string) {
           desks.push(d);
           if (desks.length >= 12) break;
         }
-      } catch {
-        desks = [];
-      }
-      return { name: (th as { name: string }).name, blurb: (th as { blurb: string | null }).blurb, readings: (rd as Reading[] | null) ?? [], desks };
+      } catch { desks = []; }
+
+      return {
+        name: (th as { name: string }).name,
+        blurb: (th as { blurb: string | null }).blurb,
+        readings, desks, concepts,
+        filmMeta: [...filmMeta.entries()] as [string, FilmMeta][],
+      };
     },
-    ["theorist-2", slug],
+    // v3: genres/concepts/filmMeta joined the payload (2026-07-08 rebuild)
+    ["theorist-3", slug],
     { revalidate: 1800, tags: [`theorist:${slug}`] },
   )();
+}
+
+/* ── The verbalizer: deterministic aggregates over the readings corpus ── */
+
+function facts(name: string, readings: Reading[], filmMeta: Map<string, FilmMeta>) {
+  const films = new Map<string, { title: string; year: number | null; n: number; backdrop: string | null }>();
+  for (const r of readings) {
+    const cur = films.get(r.film_slug) ?? { title: r.film_title, year: r.film_year, n: 0, backdrop: r.backdrop_path };
+    cur.n += 1;
+    if (!cur.backdrop && r.backdrop_path) cur.backdrop = r.backdrop_path;
+    films.set(r.film_slug, cur);
+  }
+  const filmArr = [...films.entries()].map(([slug, f]) => ({ slug, ...f }));
+  const dated = filmArr.filter((f) => (f.year ?? 0) > 1880).sort((a, b) => (a.year! - b.year!) || a.title.localeCompare(b.title));
+  const fwCount = new Map<string, number>();
+  for (const r of readings) { const l = fw(r.framework).label; fwCount.set(l, (fwCount.get(l) ?? 0) + 1); }
+  const fwTop = [...fwCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const topFilms = [...filmArr].sort((a, b) => b.n - a.n || a.title.localeCompare(b.title));
+  const genreCount = new Map<string, number>();
+  for (const f of filmArr) for (const g of filmMeta.get(f.slug)?.genres ?? []) genreCount.set(g, (genreCount.get(g) ?? 0) + 1);
+  const genresTop = [...genreCount.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 4);
+  const decades = new Map<number, number>();
+  for (const f of dated) { const d = Math.floor((f.year as number) / 10) * 10; decades.set(d, (decades.get(d) ?? 0) + 1); }
+  const decadeTop = [...decades.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0])[0] ?? null;
+  return { filmArr, dated, fwTop, topFilms, genresTop, decadeTop };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) return { title: "Theorist — Metatake" };
+  const F = facts(data.name, data.readings, new Map(data.filmMeta));
+  const n = F.filmArr.length;
+  const title = n >= 3
+    ? `${data.name} in Film — ${n} Movies Read Through ${data.name}'s Lens`
+    : `${data.name} in film — readings through ${data.name}`;
+  const first = F.dated[0]; const last = F.dated[F.dated.length - 1];
+  let description = first && last && first.slug !== last.slug
+    ? `From ${first.title} (${first.year}) to ${last.title} (${last.year}): ${data.readings.length} Strong Misreadings borrow ${data.name}'s lens${F.fwTop[0] ? `, most often through ${F.fwTop[0][0].toLowerCase()}` : ""}.`
+    : `Films read through ${data.name}: ${data.readings.length} Strong Misreadings that borrow ${data.name}'s lens, across cinema.`;
+  if (description.length > 158) description = description.slice(0, 155).replace(/\s+\S*$/, "") + "…";
   return {
-    title: `${data.name} in film — readings through ${data.name}`,
-    description: `Films read through ${data.name}: ${data.readings.length} Strong Misreadings that borrow ${data.name}'s lens, across cinema.`,
+    title, description,
     alternates: { canonical: `/theorist/${slug}` },
+    openGraph: { title, description },
+    robots: pageRobots(data.readings.length >= 3),
   };
 }
 
@@ -83,13 +162,22 @@ export default async function TheoristPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
   if (!data) notFound();
-  const { name, blurb, readings, desks } = data;
-
-  // Person + BreadcrumbList JSON-LD (trope-page inline pattern). sameAs anchors
-  // the theorist to Wikidata when the slug has a machine-verified QID
-  // (lib/theorist_qid.json, built by worker/theorist-qid/match.mjs).
-  const canonical = `${SITE}/theorist/${slug}`;
+  const { name, blurb, readings, desks, concepts } = data;
+  const filmMeta = new Map(data.filmMeta);
+  const F = facts(name, readings, filmMeta);
   const qid = (theoristQid as Record<string, string>)[slug];
+  const wd = qid ? await wdPerson(qid) : null;
+  const life = wd?.birth ? `${wd.birth}–${wd.death ?? ""}` : null;
+
+  // Readings grouped by framework family — the site's own taxonomy is the tab structure.
+  const byFamily = FAMILIES
+    .map((fam) => ({ fam, items: readings.filter((r) => fw(r.framework).family === fam.key) }))
+    .filter((g) => g.items.length > 0);
+
+  const heroBackdrop = F.topFilms.find((f) => f.backdrop)?.backdrop ?? null;
+  const growFilm = F.topFilms.find((f) => f.backdrop && f.n >= 1) ?? null;
+
+  const canonical = `${SITE}/theorist/${slug}`;
   const jsonLd = [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE },
@@ -97,7 +185,9 @@ export default async function TheoristPage({ params }: Props) {
       { "@type": "ListItem", position: 3, name, item: canonical },
     ] },
     { "@context": "https://schema.org", "@type": "Person", "@id": canonical, name, url: canonical,
-      ...(blurb ? { description: blurb } : {}),
+      ...(wd?.description || blurb ? { description: wd?.description ?? blurb } : {}),
+      ...(wd?.birth ? { birthDate: String(wd.birth) } : {}),
+      ...(wd?.image ? { image: wd.image } : {}),
       ...(qid ? { sameAs: [`https://www.wikidata.org/wiki/${qid}`] } : {}) },
   ];
 
@@ -105,46 +195,160 @@ export default async function TheoristPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="mt-wrap">
-        <div className="mt-crumb"><Link href="/concept">Theory</Link> › <Link href="/theorist">Theorists</Link></div>
-        <h1 className="th-h1">{name}</h1>
-        {blurb ? <p className="th-blurb">{blurb}</p> : null}
-        <p className="th-sub">{readings.length} film{readings.length !== 1 ? "s" : ""} read through {name} — each a Strong Misreading that borrows this lens.</p>
 
-        <section className="cmap-sec cmap-sec--top" id="theorist-map">
-          <h2 className="cmap-h2">{name} — connection map</h2>
-          <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>
-          <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
+      {/* ── Dark hero: the person, the lens, the count ── */}
+      <div className="cur rd-hero">
+        <div className="rd-hero__in">
+          <div className="rd-hero__txt">
+            <div className="rd-crumb">
+              <Link href="/concept">Theory</Link><span>›</span>
+              <Link href="/theorist">Theorists</Link><span>›</span>
+              <span>{name}</span>
+            </div>
+            <div className="rd-chiprow">
+              <span className="rd-chip"><Link href="/theorist" style={{ color: "inherit", textDecoration: "none" }}>The Lens</Link>{" · "}theorist</span>
+              <span className="rd-meta">{readings.length} readings · {F.filmArr.length} films{qid ? <> · <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>Wikidata ↗</a></> : null}</span>
+            </div>
+            <h1 className="rd-h1">{name}{life ? <span style={{ fontWeight: 500, opacity: 0.6, fontSize: "0.62em" }}> ({life})</span> : null}</h1>
+            <p className="rd-dek">
+              {wd?.description ? `${wd.description.charAt(0).toUpperCase()}${wd.description.slice(1)}. ` : blurb ? `${blurb} ` : ""}
+              On Metatake, {name} is not a syllabus entry but a working lens: {readings.length} Strong
+              Misreading{readings.length === 1 ? "" : "s"} across {F.filmArr.length} film{F.filmArr.length === 1 ? "" : "s"} borrow it
+              {F.dated.length > 1 ? <> — from <i>{F.dated[0].title}</i> ({F.dated[0].year}) to <i>{F.dated[F.dated.length - 1].title}</i> ({F.dated[F.dated.length - 1].year})</> : null}.
+            </p>
+          </div>
+          {(wd?.image || heroBackdrop) && (
+            <div className="rd-hero__media" style={wd?.image ? { maxWidth: 300, justifySelf: "end" } : undefined}>
+              {wd?.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={wd.image} alt={name} width={300} height={380} style={{ width: "100%", borderRadius: 8, display: "block", background: "#000" }} />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="rd-hero__bd" src={`${IMG}/w780${heroBackdrop}`} alt="" width={780} height={439} />
+              )}
+              <div className="rd-hero__cap">{wd?.image ? "Portrait via Wikimedia Commons" : `From ${F.topFilms[0]?.title} · via TMDB`}</div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>
+        <Byline />
+
+        {/* ── The lens, spelled out — deterministic sentences only ── */}
+        <section style={{ margin: "12px 0 0" }}>
+          <h2 className="df-h2">The lens, spelled out</h2>
+          <p className="df-sub">Counted from the readings corpus — every claim below is a number, a year, a title or a name.</p>
+          <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+            <li>
+              {name}&apos;s lens appears in {readings.length} Strong Misreading{readings.length === 1 ? "" : "s"} across{" "}
+              {F.filmArr.length} film{F.filmArr.length === 1 ? "" : "s"}
+              {F.dated.length > 1 ? <>, from <Link href={`/film/${F.dated[0].slug}`}>{F.dated[0].title}</Link> ({F.dated[0].year}) to <Link href={`/film/${F.dated[F.dated.length - 1].slug}`}>{F.dated[F.dated.length - 1].title}</Link> ({F.dated[F.dated.length - 1].year})</> : null}.
+            </li>
+            {F.fwTop.length > 0 ? (
+              <li>
+                The framework that borrows {name} most is <b>{F.fwTop[0][0]}</b> ({F.fwTop[0][1]} of the {readings.length} readings)
+                {F.fwTop[1] ? <>, ahead of {F.fwTop[1][0]} ({F.fwTop[1][1]})</> : null}.
+              </li>
+            ) : null}
+            {F.topFilms[0] && F.topFilms[0].n > 1 ? (
+              <li>
+                The film that returns to {name} most is <Link href={`/film/${F.topFilms[0].slug}`}>{F.topFilms[0].title}</Link>
+                {F.topFilms[0].year ? ` (${F.topFilms[0].year})` : ""} — {F.topFilms[0].n} readings turn on this lens there.
+              </li>
+            ) : null}
+            {F.genresTop.length > 1 ? (
+              <li>
+                By genre, {name} gravitates to {F.genresTop.map(([g, n], i) => <span key={g}>{i > 0 ? (i === F.genresTop.length - 1 ? " and " : ", ") : ""}{g} ({n})</span>)}.
+              </li>
+            ) : null}
+            {F.decadeTop && F.dated.length >= 4 ? (
+              <li>
+                The decade of cinema {name} reads best, by count, is the {F.decadeTop[0]}s — {F.decadeTop[1]} of the {F.dated.length} dated films.
+              </li>
+            ) : null}
+            {concepts.length > 0 ? (
+              <li>
+                Concepts on {name}&apos;s shelf here: {concepts.slice(0, 6).map((c, i) => <span key={c.slug}>{i > 0 ? " · " : ""}<Link href={`/concept/${c.slug}`}>{c.name}</Link></span>)}{concepts.length > 6 ? ` — and ${concepts.length - 6} more` : ""}.
+              </li>
+            ) : null}
+          </ul>
         </section>
 
-        <div className="th-readings">
-          {readings.map((r) => {
-            const F = fw(r.framework);
-            const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
-            return (
-              <article className="thr" key={r.take_id}>
-                {r.backdrop_path ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
-                ) : null}
-                <div className="thr-body">
-                  <div className="thr-top">
-                    <span className="thr-fw" style={{ color: F.color }}>{F.label}</span>
-                    <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
-                    {r.concept ? <span className="thr-concept">{r.concept}</span> : null}
-                  </div>
-                  <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
-                  {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
-                  {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
-                </div>
-              </article>
-            );
-          })}
-        </div>
+        {/* ── The films this lens returns to — panel cards ── */}
+        {F.topFilms.length > 0 ? (
+          <section style={{ margin: "30px 0 0" }}>
+            <h2 className="df-h2">The films {name} returns to</h2>
+            <p className="df-sub">Every panel opens the film — the readings there carry {name}&apos;s ideas into the scenes.</p>
+            <div className="crd-grid">
+              {F.topFilms.slice(0, 6).map((f) => (
+                <a className="crd-panel" href={`/film/${f.slug}`} key={f.slug}>
+                  {f.backdrop
+                    ? /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={`${IMG}/w300${f.backdrop}`} alt="" width={124} height={70} loading="lazy" style={{ width: 124, height: 70, borderRadius: 6 }} />
+                    : <span className="crd-ph" style={{ width: 124, height: 70, fontSize: 22 }} aria-hidden>{f.title[0]}</span>}
+                  <span>
+                    <span className="crd-k">{f.n} reading{f.n === 1 ? "" : "s"} · through {name}</span>
+                    <h3>{f.title}{f.year ? ` (${f.year})` : ""}</h3>
+                    <span className="crd-go">Open the film →</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {growFilm?.backdrop ? (
+          <GrowStill
+            src={`${IMG}/w1280${growFilm.backdrop}`}
+            alt={`${growFilm.title} still`}
+            caption={`${growFilm.title}${growFilm.year ? ` (${growFilm.year})` : ""} — read through ${name} · via TMDB`}
+          />
+        ) : null}
+
+        {/* ── The readings, by framework family — the tab structure IS the taxonomy ── */}
+        <section style={{ margin: "8px 0 0" }} id="readings">
+          <h2 className="df-h2">Every reading, filed by framework</h2>
+          <p className="df-sub">
+            {readings.length} Strong Misreadings borrow {name} — grouped the way Metatake files them, family by family.
+            Each links into the film&apos;s figure page, where the full reading lives.
+          </p>
+          {byFamily.map(({ fam, items }) => (
+            <div key={fam.key} style={{ margin: "18px 0 0" }}>
+              <h3 style={{ fontSize: 14, letterSpacing: ".05em", textTransform: "uppercase", opacity: 0.7, margin: "0 0 4px" }}>
+                {fam.label} — {items.length}
+              </h3>
+              <div className="th-readings">
+                {items.map((r) => {
+                  const Fw = fw(r.framework);
+                  const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
+                  return (
+                    <article className="thr" key={r.take_id}>
+                      {r.backdrop_path ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
+                      ) : null}
+                      <div className="thr-body">
+                        <div className="thr-top">
+                          <span className="thr-fw" style={{ color: Fw.color }}>{Fw.label}</span>
+                          <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
+                          {r.concept ? <span className="thr-concept">{r.concept}</span> : null}
+                        </div>
+                        <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
+                        {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
+                        {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </section>
+
         {desks.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="theorist-desks">
-            <h2 className="cmap-h2">From the desks — essays that cite {name}</h2>
+            <h2 className="df-h2">From the desks — essays that cite {name}</h2>
             <ul className="essay-desklist" style={{ marginTop: 10 }}>
               {desks.map((d) => (
                 <li key={`${d.film_slug}/${d.desk_key}`}>
@@ -156,8 +360,41 @@ export default async function TheoristPage({ params }: Props) {
             </ul>
           </section>
         )}
+
+        <section className="cmap-sec" id="theorist-map" style={{ marginTop: 34 }}>
+          <h2 className="cmap-h2">{name} — connection map</h2>
+          <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
+          <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
+        </section>
+
+        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
+          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link>
+          {qid ? <> · person data from <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener noreferrer">Wikidata ↗</a></> : null}
+          {" "}· <Link href="/methodology">How we read films →</Link>
+        </p>
+        <Provenance />
         <p className="th-foot"><Link href="/theorist">← All theorists</Link></p>
       </div>
+
+      {/* ── Keep-reading plates: the lens's films, as misreadings articles ── */}
+      {F.topFilms.filter((f) => f.backdrop).length >= 2 ? (
+        <div className="cur rd-plates">
+          <div className="cur-wrap">
+            <SectionHead title={`Keep reading through ${name}`} count={`${Math.min(5, F.topFilms.length)} doors`} />
+            <div className="cur-grid">
+              {F.topFilms.filter((f) => f.backdrop).slice(0, 5).map((f) => (
+                <Card
+                  key={f.slug}
+                  href={`/film/${f.slug}/misreadings`}
+                  film={{ slug: f.slug, title: f.title, year: f.year, backdrop_path: f.backdrop, poster_path: filmMeta.get(f.slug)?.poster_path ?? null }}
+                  title={`${f.title}, read against the grain — the misreadings article`}
+                  tag="Strong Misreadings"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
