@@ -1304,6 +1304,11 @@ export default async function FilmPage({ params }: Props) {
               </div>
             ) : null}
             <div className="df-src">Headlines &amp; ≤10-word quotes from publishers&apos; link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.</div>
+            <p style={{ marginTop: 12 }}>
+              <Link href={`/film/${film.slug}/reception`} style={{ fontWeight: 700 }}>
+                {film.title} — what critics said, and everything since: the year-by-year record →
+              </Link>
+            </p>
           </section>
         ) : null}
 

@@ -138,6 +138,10 @@
 .mt .vl-go:hover { text-decoration: underline; }
 /* the arrows land on slate/essay cards — clear the sticky nav + tab bar */
 .mt .thr, .mt .tp-member, .mt .cat-mrow { scroll-margin-top: 130px; }
+/* Afterlife (reception timeline) article entries (2026-07-08). */
+.mt .afl-ev { margin: 0.5em 0; padding-left: 14px; border-left: 3px solid rgba(214, 69, 52, 0.35); }
+.mt .afl-item { margin: 1.1em 0; }
+.mt .afl-q { font-size: 0.95em; font-style: italic; opacity: 0.88; border-left: 3px solid rgba(0, 0, 0, 0.14); padding-left: 14px; }
 /* Figure chips with a small film thumbnail (theory pages, 2026-07-08). */
 .mt .fig-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 0; }
 .mt .fig-chip {
