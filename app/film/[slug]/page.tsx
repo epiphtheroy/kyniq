@@ -399,7 +399,8 @@ function load(slug: string) {
   // joined the minimal payload — the Data Cache outlives deploys, so a shape
   // change needs a new key. (load4 was the lnListMeta join.)
   // v6: reception rows carry dek_lead/review_year + afterlife scale counts (2026-07-08)
-  return unstable_cache(() => loadUncached(slug), ["film-load6", slug], {
+  // v7: Tier-2 minimal payload adds afterlifeTab/afterlifeHonors (Afterlife tab door)
+  return unstable_cache(() => loadUncached(slug), ["film-load7", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
