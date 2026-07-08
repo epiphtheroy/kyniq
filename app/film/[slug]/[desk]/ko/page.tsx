@@ -50,7 +50,7 @@ const KO_DESK_LABEL: Record<string, string> = {
 
 const loadDict = unstable_cache(
   async (): Promise<LinkDict> => loadFullLinkDict(db() as never),
-  ["desk-link-dict-5"],
+  ["desk-link-dict-6"],
   { revalidate: 86400 }
 );
 
@@ -133,7 +133,7 @@ function load(slug: string, deskKey: string) {
   return unstable_cache(
     () => loadUncached(slug, deskKey),
     // v5: payload gained film art/tmdb_id + hero videos (2026-07-08 redesign)
-    ["desk-essay-ko-5", slug, deskKey],
+    ["desk-essay-ko-6", slug, deskKey],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }

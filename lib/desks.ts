@@ -282,9 +282,15 @@ export async function loadFullLinkDict(
       for (const t of batch) {
         if (!t.concept || !t.concept_slug) continue;
         const key = normName(t.concept);
+        // "The X ..." registry names must match as body copy writes them (no article).
+        let disp = t.concept;
+        if (/^The\s+\S/.test(t.concept)) {
+          const bare = t.concept.slice(4).trim();
+          if (bare.split(/\s+/).length >= 2 || /[a-z][A-Z]/.test(bare)) disp = bare;
+        }
         if (!seen.has(key)) {
           seen.add(key);
-          dict.concepts.push({ name: t.concept, slug: t.concept_slug });
+          dict.concepts.push({ name: disp, slug: t.concept_slug });
         }
         const paren = /\(([^)]{4,60})\)\s*$/.exec(t.concept);
         if (paren) {
@@ -309,15 +315,6 @@ export async function loadFullLinkDict(
           if (specific && !seen.has(akey)) {
             seen.add(akey);
             dict.concepts.push({ name: alias, slug: t.concept_slug });
-          }
-        }
-        // "The X Y" → "X Y" (two+ words only — single bare words are false-positive bait)
-        if (/^The\s+\S+\s+\S/.test(t.concept)) {
-          const bare = t.concept.replace(/^The\s+/, "").replace(/\s*\([^)]*\)\s*$/, "").trim();
-          const bkey = normName(bare);
-          if (bare.split(/\s+/).length >= 2 && !seen.has(bkey)) {
-            seen.add(bkey);
-            dict.concepts.push({ name: bare, slug: t.concept_slug });
           }
         }
       }

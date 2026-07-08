@@ -64,7 +64,7 @@ type EssayRow = {
 
 const loadDict = unstable_cache(
   async (): Promise<LinkDict> => loadFullLinkDict(db() as never),
-  ["desk-link-dict-5"],
+  ["desk-link-dict-6"],
   { revalidate: 86400 }
 );
 
@@ -162,7 +162,7 @@ function load(slug: string, deskKey: string, lang: "en" | "ko" = "en") {
   return unstable_cache(
     () => loadUncached(slug, deskKey, lang),
     // v5: payload gained film art/tmdb_id + hero videos (2026-07-08 redesign)
-    ["desk-essay-5", slug, deskKey, lang],
+    ["desk-essay-6", slug, deskKey, lang],
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 }
