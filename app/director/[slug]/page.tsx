@@ -23,6 +23,8 @@ import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, 
 import SaveButton from "@/components/SaveButton";
 import PosterActions from "@/components/PosterActions";
 import LensDirectorCoverage from "@/components/LensDirectorCoverage";
+import RecordToc from "@/components/read/RecordToc";
+import "@/app/film/[slug]/read.css";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -517,11 +519,18 @@ export default async function DirectorPage({ params }: Props) {
                 );
               })}
             </ol>
-            {facts.facts.length > 6 ? (
-              <p style={{ margin: "10px 0 0" }}>
-                <Link className="rcp-h" href={`/director/${slug}/life`}>Who is {director}? — all {facts.facts.length} researched moments →</Link>
-              </p>
-            ) : null}
+            <div className="rec-tocs" style={{ maxWidth: 420 }}>
+              <RecordToc
+                href={`/director/${slug}/life`}
+                kicker="The full life"
+                title={`Who is ${director}? — every researched moment, sourced`}
+                rows={[
+                  { label: "Researched moments", value: facts.facts.length },
+                  { label: "Films on Metatake", value: total },
+                ]}
+                cta="Open the life"
+              />
+            </div>
             <div className="dr-src">Each fact is written freely, then verified against a live web source (English &amp; native-language). Source link per fact.</div>
           </section>
         )}
@@ -553,6 +562,18 @@ export default async function DirectorPage({ params }: Props) {
                 {recBy.map((r, i) => (<span key={r.slug}>{i > 0 ? " · " : ""}<Link href={`/director/${r.slug}`}>{r.name}</Link></span>))}
               </div>
             )}
+            <div className="rec-tocs" style={{ maxWidth: 420 }}>
+              <RecordToc
+                href={`/director/${slug}/next`}
+                kicker="Who's next"
+                title={`${next.length} directors to watch after ${director} — and exactly why`}
+                rows={[
+                  { label: "Recommendations", value: next.length },
+                  ...(recBy.length ? [{ label: "Pointed to from", value: recBy.length }] : []),
+                ]}
+                cta="Open the kinships"
+              />
+            </div>
           </section>
         )}
 
@@ -569,12 +590,21 @@ export default async function DirectorPage({ params }: Props) {
           <section className="dr-sec" id="dr-atlas">
             <h2 className="dr-h2">{director} — on the map</h2>
             <p className="cmap-intro">The real places {director}&rsquo;s films are set in and name, across the whole filmography. Click a pin to read the location.</p>
-            {hasLocationsPage ? (
-              <p style={{ margin: "2px 0 10px", fontSize: 15 }}>
-                <Link href={`/director/${slug}/locations`}>Where does {director} film? All {geoMerged} locations, film by film →</Link>
-              </p>
-            ) : null}
             <FilmMap endpoint={`/api/geo?director=${slug}`} height={480} />
+            {hasLocationsPage ? (
+              <div className="rec-tocs" style={{ maxWidth: 420, marginTop: 14 }}>
+                <RecordToc
+                  href={`/director/${slug}/locations`}
+                  kicker="On location"
+                  title={`Where does ${director} film? — every location, film by film`}
+                  rows={[
+                    { label: "Locations", value: geoMerged },
+                    { label: "Films on the map", value: geoFilms },
+                  ]}
+                  cta="Open the map article"
+                />
+              </div>
+            ) : null}
           </section>
         ) : null}
 
@@ -665,6 +695,19 @@ export default async function DirectorPage({ params }: Props) {
                   </div>
                 );
               })}
+            </div>
+            <div className="rec-tocs" style={{ maxWidth: 420 }}>
+              <RecordToc
+                href={`/director/${slug}/start`}
+                kicker="The route in"
+                title={`Where to start with ${director} — the ${picks.length}-film route, argued`}
+                rows={[
+                  { label: "Route stops", value: picks.length },
+                  { label: "Films read", value: total },
+                  { label: "Readings", value: readingCount },
+                ]}
+                cta="Open the route"
+              />
             </div>
           </section>
         )}

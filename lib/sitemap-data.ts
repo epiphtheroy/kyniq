@@ -212,6 +212,35 @@ export async function movementEntries(): Promise<SitemapEntry[]> {
 }
 
 /**
+ * /director/[slug]/start + /director/[slug]/next — the promoted director
+ * guide articles (added 2026-07-09). Advertise only the indexable cohort
+ * (≥3 items — mirrors each page's pageRobots gate; pages themselves render
+ * from 1 item but thin ones stay noindex and out of the sitemap).
+ */
+async function directorGuideSlugs(table: "director_picks" | "director_next"): Promise<string[]> {
+  const supabase = db();
+  const rows = await fetchAll<{ director_slug: string }>(
+    (from, to) => supabase.from(table).select("director_slug").order("director_slug").range(from, to),
+    5000
+  );
+  const count = new Map<string, number>();
+  for (const r of rows) count.set(r.director_slug, (count.get(r.director_slug) ?? 0) + 1);
+  return [...count.entries()].filter(([, n]) => n >= 3).map(([s]) => s).sort();
+}
+
+export async function directorStartEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const slugs = await directorGuideSlugs("director_picks");
+  return slugs.map((s) => ({ url: `${siteUrl}/director/${s}/start` }));
+}
+
+export async function directorNextEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const slugs = await directorGuideSlugs("director_next");
+  return slugs.map((s) => ({ url: `${siteUrl}/director/${s}/next` }));
+}
+
+/**
  * /concept/domain/[domain] — the 14 discipline-domain concept hubs and
  * /frame/[slug] frames (added 2026-07-08). Small fixed editorial sets; each
  * entry is verified to render (non-empty) before advertising, so the sitemap

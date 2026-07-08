@@ -35,6 +35,8 @@ export default function CuriousLayout({ children }: { children: React.ReactNode 
             <Link href="/curious/misreadings">Misreadings</Link>
             <span className="d" />
             <Link href="/curious/locations">On Location</Link>
+            <span className="d" />
+            <Link href="/curious/directors">Directors</Link>
           </div>
         </nav>
       </div>

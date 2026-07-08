@@ -34,6 +34,8 @@ const SECTIONS = [
   "film-credits",
   "film-reception",
   "essays-ko",
+  "director-start",
+  "director-next",
   "movements",
   "concept-domains",
   "frames",
