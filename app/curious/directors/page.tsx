@@ -159,7 +159,7 @@ export async function generateMetadata(): Promise<Metadata> {
 function letterOf(name: string): string {
   const c = name
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .charAt(0)
     .toUpperCase();
   return c >= "A" && c <= "Z" ? c : "#";
