@@ -7,8 +7,12 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityMap from "@/components/EntityMap";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink } from "@/components/DeskExplorer";
+import { Card, SectionHead } from "@/components/curious/ui";
+import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 import { listicle } from "@/lib/listicle";
+import "@/app/curious/curious.css";
+import "@/app/film/[slug]/read.css";
 
 /** Display convention: concept names lead with a capital; no quotes in headings. */
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
@@ -363,48 +367,118 @@ export default async function ConceptPage({ params }: Props) {
   }
 
   const { name, intro, readings, desks, tropes, updated } = data;
+  const capName = name.charAt(0).toUpperCase() + name.slice(1);
+
+  // ── Deterministic aggregates (the verbalizer) ──
+  const filmsMap = new Map<string, { title: string; year: number | null; n: number; backdrop: string | null }>();
+  for (const r of readings) {
+    const cur = filmsMap.get(r.film_slug) ?? { title: r.film_title, year: r.film_year, n: 0, backdrop: r.backdrop_path };
+    cur.n += 1;
+    if (!cur.backdrop && r.backdrop_path) cur.backdrop = r.backdrop_path;
+    filmsMap.set(r.film_slug, cur);
+  }
+  const filmArr = [...filmsMap.entries()].map(([fslug, f]) => ({ slug: fslug, ...f }));
+  const datedF = filmArr.filter((f) => (f.year ?? 0) > 1880).sort((a, b) => (a.year! - b.year!) || a.title.localeCompare(b.title));
+  const topFilmsC = [...filmArr].sort((a, b) => b.n - a.n || a.title.localeCompare(b.title));
+  const thFreq = new Map<string, { slug: string | null; c: number }>();
+  for (const r of readings) {
+    if (!r.theorist_name) continue;
+    const e = thFreq.get(r.theorist_name) ?? { slug: r.theorist_slug, c: 0 };
+    e.c += 1; thFreq.set(r.theorist_name, e);
+  }
+  const thTop = [...thFreq.entries()].sort((a, b) => b[1].c - a[1].c).slice(0, 3);
+  const fwFreq = new Map<string, number>();
+  for (const r of readings) { const l = fw(r.framework).label; fwFreq.set(l, (fwFreq.get(l) ?? 0) + 1); }
+  const fwTopC = [...fwFreq.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const heroBd = topFilmsC.find((f) => f.backdrop)?.backdrop ?? null;
+
+  const smJsonld = [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Concepts", item: "https://metatake.net/concept" },
+      { "@type": "ListItem", position: 2, name: capName, item: `https://metatake.net/concept/${data.resolved}` },
+    ] },
+    { "@context": "https://schema.org", "@type": "DefinedTerm", "@id": `https://metatake.net/concept/${data.resolved}#term`,
+      name: capName, url: `https://metatake.net/concept/${data.resolved}`,
+      ...(intro ? { description: introDescription(intro) } : {}) },
+  ];
+
   return (
     <div className="mt">
       <SiteNav />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(smJsonld) }} />
+
+      {/* ── Dark hero: the concept as a working lens, counted ── */}
+      <div className="cur rd-hero">
+        <div className="rd-hero__in">
+          <div className="rd-hero__txt">
+            <div className="rd-crumb">
+              <Link href="/theorist">Theory</Link><span>›</span>
+              <Link href="/concept">Concepts</Link><span>›</span>
+              <span>{capName}</span>
+            </div>
+            <div className="rd-chiprow">
+              <span className="rd-chip"><Link href="/concept" style={{ color: "inherit", textDecoration: "none" }}>Concepts on Screen</Link></span>
+              <span className="rd-meta">{readings.length} readings · {filmArr.length} films{updated ? ` · revised ${fmtDate(updated) ?? ""}` : ""}</span>
+            </div>
+            <h1 className="rd-h1">{capName}</h1>
+            <p className="rd-dek">
+              This is not a dictionary entry. On Metatake, {name} is a working lens: {readings.length} Strong
+              Misreading{readings.length === 1 ? "" : "s"} stage it across {filmArr.length} film{filmArr.length === 1 ? "" : "s"}
+              {datedF.length > 1 ? <> — from <i>{datedF[0].title}</i> ({datedF[0].year}) to <i>{datedF[datedF.length - 1].title}</i> ({datedF[datedF.length - 1].year})</> : null}
+              {thTop[0] ? <>, most often after {thTop[0][0]}</> : null}.
+            </p>
+          </div>
+          {heroBd ? (
+            <div className="rd-hero__media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="rd-hero__bd" src={`${IMG}/w780${heroBd}`} alt="" width={780} height={439} />
+              <div className="rd-hero__cap">From {topFilmsC[0]?.title} · via TMDB</div>
+            </div>
+          ) : null}
+        </div>
+      </div>
+
       <div className="mt-wrap">
-        <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link></div>
-        {(() => {
-          const n = listicle(name, null, [...readings, ...desks]).n;
-          const freq = new Map<string, { t: Reading; c: number }>();
-          for (const r of readings) {
-            if (!r.theorist_name) continue;
-            const e = freq.get(r.theorist_name) ?? { t: r, c: 0 };
-            e.c += 1; freq.set(r.theorist_name, e);
-          }
-          const top = [...freq.entries()].sort((a, b) => b[1].c - a[1].c).slice(0, 2);
-          return (
-            <>
-              <div className="ccard">
-                <div className="ccard__kicker">Concepts on Screen</div>
-                <h1 className="th-h1">{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
-              </div>
-              <p className="th-sub">
-                This is not a dictionary entry. The concept desk tracks where {name} actually surfaces on
-                screen{n > 0 ? <> — <b>{n}</b> film{n !== 1 ? "s" : ""} so far, each read closely below</> : null}.
-              </p>
-              <Provenance updated={updated} />
-              <div className="cmeta">
-                {top.map(([nm, e]) => (
-                  <span className="ccard__chip" key={nm}>
-                    {e.t.theorist_slug ? <Link href={`/theorist/${e.t.theorist_slug}`}>{nm}</Link> : nm}
-                  </span>
-                ))}
-                <span className="ccard__chip" style={{ opacity: .75 }}>{readings.length} reading{readings.length !== 1 ? "s" : ""}</span>
-              </div>
-              {intro ? (
-                <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
-                  <b style={{ fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", opacity: .55 }}>The idea in brief</b>{" "}
-                  — {intro}
-                </p>
-              ) : null}
-            </>
-          );
-        })()}
+        <Provenance updated={updated} />
+        {intro ? (
+          <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
+            <b style={{ fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", opacity: .55 }}>The idea in brief</b>{" "}
+            — {intro}
+          </p>
+        ) : null}
+
+        {/* ── The concept, spelled out — deterministic sentences ── */}
+        <section style={{ margin: "22px 0 0" }}>
+          <h2 className="cmap-h2">{capName}, spelled out</h2>
+          <ul style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+            <li>
+              {capName} carries {readings.length} Strong Misreading{readings.length === 1 ? "" : "s"} across {filmArr.length} film{filmArr.length === 1 ? "" : "s"}
+              {datedF.length > 1 ? <>, from <Link href={`/film/${datedF[0].slug}`}>{datedF[0].title}</Link> ({datedF[0].year}) to <Link href={`/film/${datedF[datedF.length - 1].slug}`}>{datedF[datedF.length - 1].title}</Link> ({datedF[datedF.length - 1].year})</> : null}.
+            </li>
+            {thTop.length > 0 ? (
+              <li>
+                The theorists behind it here: {thTop.map(([nm, e], i) => <span key={nm}>{i > 0 ? " · " : ""}{e.slug ? <Link href={`/theorist/${e.slug}`}>{nm}</Link> : nm} ({e.c})</span>)}.
+              </li>
+            ) : null}
+            {fwTopC[0] ? (
+              <li>
+                The framework that stages {name} most is <b>{fwTopC[0][0]}</b> ({fwTopC[0][1]} of {readings.length})
+                {fwTopC[1] ? <>, ahead of {fwTopC[1][0]} ({fwTopC[1][1]})</> : null}.
+              </li>
+            ) : null}
+            {topFilmsC[0] && topFilmsC[0].n > 1 ? (
+              <li>
+                The film that stages it most is <Link href={`/film/${topFilmsC[0].slug}`}>{topFilmsC[0].title}</Link>
+                {topFilmsC[0].year ? ` (${topFilmsC[0].year})` : ""} — {topFilmsC[0].n} readings there turn on {name}.
+              </li>
+            ) : null}
+            {tropes.length > 0 ? (
+              <li>
+                As a recurring pattern, {name} anchors {tropes.length} trope{tropes.length === 1 ? "" : "s"} — the shelf is below.
+              </li>
+            ) : null}
+          </ul>
+        </section>
 
         <ReadingsExplorer readings={readings} about={name} />
 
@@ -441,8 +515,30 @@ export default async function ConceptPage({ params }: Props) {
           <p className="cmap-intro">The figures and films that stage <em>{name}</em>, and the theorists behind it, across Metatake&rsquo;s critical web. Click a node to open it.</p>
           <EntityMap api={`/api/map?type=idea&key=${slug}`} full={`/map?m=critical&t=idea&k=${slug}`} />
         </section>
+        <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
+          Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
+        </p>
         <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
       </div>
+
+      {topFilmsC.filter((f) => f.backdrop).length >= 2 ? (
+        <div className="cur rd-plates">
+          <div className="cur-wrap">
+            <SectionHead title={`Keep reading through ${name}`} count={`${Math.min(5, topFilmsC.length)} doors`} />
+            <div className="cur-grid">
+              {topFilmsC.filter((f) => f.backdrop).slice(0, 5).map((f) => (
+                <Card
+                  key={f.slug}
+                  href={`/film/${f.slug}/misreadings`}
+                  film={{ slug: f.slug, title: f.title, year: f.year, backdrop_path: f.backdrop, poster_path: null }}
+                  title={`${f.title}, read against the grain — the misreadings article`}
+                  tag="Strong Misreadings"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
