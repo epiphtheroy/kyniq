@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { awardBody, awardLabel, canonEmblem, codeToFlag } from "@/lib/lineageBodies";
 import { lineageSource, wikidataUrl } from "@/lib/lineage";
+import RecordToc from "@/components/read/RecordToc";
 
 /**
  * Lineage section — the film's record, reworked 2026-07-08: a spelled-out
@@ -39,9 +40,9 @@ function SourceTag({ meta }: { meta: ListMetaLite | undefined }) {
   );
 }
 
-export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, backdropPath = null }: {
+export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null }: {
   lineage: LinRow[]; title: string; slug?: string; listMeta?: Record<string, ListMetaLite>; movements?: MvChip[];
-  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; backdropPath?: string | null;
+  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null;
 }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linNational = lineage.filter((l) => l.facet === "national" && l.result === "listed");
@@ -159,46 +160,39 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
         <Curtain label="Auteur lineage" items={linAuteur} emblemFor={() => "🎬"} />
       </div>
 
-      {/* ── The doors: how much sits behind "see more" ── */}
+      {/* ── The doors: print-style index cards — the counts ARE the pitch ── */}
       {showRecordSlate || showAfterlifeSlate ? (
-        <div className="lin-slates">
+        <div className="rec-tocs">
           {showRecordSlate ? (
-            <Link href={`/film/lineage/${slug}`} className="lin-slate">
-              {backdropPath ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img className="lin-slate__bg" src={`https://image.tmdb.org/t/p/w780${backdropPath}`} alt="" loading="lazy" />
-              ) : null}
-              <span className="lin-slate__in">
-                <span className="lin-slate__k">The complete record</span>
-                <h3>Every award, canon and ranking {title} holds — sourced</h3>
-                <span className="lin-slate__b">
-                  <span className="lin-slate__n">{lineage.length} entries</span>
-                  <span className="lin-slate__n">{listsN} lists</span>
-                  {eY0 && eY1 ? <span className="lin-slate__n">{eY0}{eY1 > eY0 ? `–${eY1}` : ""}</span> : null}
-                </span>
-                <span className="lin-slate__go">Open the record →</span>
-              </span>
-            </Link>
+            <RecordToc
+              href={`/film/lineage/${slug}`}
+              kicker="The complete record"
+              title={`Every award, canon and ranking ${title} holds — sourced per entry`}
+              rows={[
+                ...(wins > 0 ? [{ label: "Wins", value: wins }] : []),
+                ...(noms > 0 ? [{ label: "Nominations", value: noms }] : []),
+                ...(canonsN > 0 ? [{ label: "Canon appearances", value: canonsN }] : []),
+                ...(linAuteur.length > 0 ? [{ label: "Auteur line", value: linAuteur.length }] : []),
+                { label: "Lists cited", value: listsN },
+                ...(eY0 && eY1 && eY1 > eY0 ? [{ label: "Years covered", value: `${eY0}–${eY1}` }] : []),
+              ]}
+              cta="Open the record"
+            />
           ) : null}
           {showAfterlifeSlate && afterlife ? (
-            <Link href={`/film/${slug}/reception`} className="lin-slate">
-              {backdropPath ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img className="lin-slate__bg" src={`https://image.tmdb.org/t/p/w780${backdropPath}`} alt="" loading="lazy" />
-              ) : null}
-              <span className="lin-slate__in">
-                <span className="lin-slate__k">Reviews &amp; afterlife</span>
-                <h3>What critics said about {title} — and everything since, year by year</h3>
-                <span className="lin-slate__b">
-                  <span className="lin-slate__n">{afterlife.reviews} review{afterlife.reviews === 1 ? "" : "s"}</span>
-                  {afterlife.papers > 0 ? <span className="lin-slate__n">{afterlife.papers} paper{afterlife.papers === 1 ? "" : "s"}</span> : null}
-                  {afterlife.releases > 0 ? <span className="lin-slate__n">{afterlife.releases} releases</span> : null}
-                  {afterlife.honors > 0 ? <span className="lin-slate__n">{afterlife.honors} honors</span> : null}
-                  {afterlife.y0 && afterlife.y1 && afterlife.y1 > afterlife.y0 ? <span className="lin-slate__n">{afterlife.y0}–{afterlife.y1}</span> : null}
-                </span>
-                <span className="lin-slate__go">Open the timeline →</span>
-              </span>
-            </Link>
+            <RecordToc
+              href={`/film/${slug}/reception`}
+              kicker="Reviews & afterlife"
+              title={`What critics said about ${title} — and everything since, year by year`}
+              rows={[
+                { label: "Reviews", value: afterlife.reviews },
+                ...(afterlife.papers > 0 ? [{ label: "Scholarship", value: afterlife.papers }] : []),
+                ...(afterlife.releases > 0 ? [{ label: "Releases & revivals", value: afterlife.releases }] : []),
+                ...(afterlife.honors > 0 ? [{ label: "Honors", value: afterlife.honors }] : []),
+                ...(afterlife.y0 && afterlife.y1 && afterlife.y1 > afterlife.y0 ? [{ label: "Years covered", value: `${afterlife.y0}–${afterlife.y1}` }] : []),
+              ]}
+              cta="Open the timeline"
+            />
           ) : null}
         </div>
       ) : null}

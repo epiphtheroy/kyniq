@@ -1157,7 +1157,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife} backdropPath={film.backdrop_path} />
+        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
         <FilmRecommendedBy rows={recommendedBy} title={film.title} />
@@ -1328,7 +1328,6 @@ export default async function FilmPage({ params }: Props) {
           papers={papers}
           quotes={rcpQuotes}
           afterlife={linAfterlife}
-          backdropPath={film.backdrop_path}
         />
 
         {/* CURIOUS — the question desk: question + desk-essay titles only,

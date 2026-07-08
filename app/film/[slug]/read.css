@@ -211,25 +211,25 @@
 }
 .mt .lin-quotes { margin: 14px 0 0; }
 .mt .lin-qsrc { font-size: 0.82em; opacity: 0.72; margin: 4px 0 0; }
-.mt .lin-slates { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 18px 0 10px; }
-.mt .lin-slate {
-  position: relative; display: block; border-radius: 14px; overflow: hidden;
-  color: #fff; text-decoration: none; min-height: 168px; padding: 18px 18px 14px;
-  background: #181818; transition: transform 0.16s ease, box-shadow 0.16s ease;
+/* RecordToc — print-style table-of-contents card (the door to a record page).
+   Ink + hairlines only; explicit colors so .mt link inks can't invert them. */
+.mt .rec-tocs { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin: 18px 0 10px; }
+.mt a.rec-toc {
+  display: block; border: 1px solid rgba(22, 35, 63, 0.22); border-radius: 12px;
+  padding: 14px 18px 13px; text-decoration: none; color: #16233f; background: transparent;
+  transition: border-color 0.15s, background 0.15s;
 }
-.mt .lin-slate:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28); }
-.mt .lin-slate__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.42; transition: opacity 0.16s; }
-.mt .lin-slate:hover .lin-slate__bg { opacity: 0.55; }
-.mt .lin-slate__in { position: relative; display: flex; flex-direction: column; gap: 8px; min-height: 136px; }
-.mt .lin-slate__k { font-size: 11px; letter-spacing: 0.14em; font-weight: 800; text-transform: uppercase; color: #ff8177; }
-.mt .lin-slate h3 { margin: 0; font-size: 18.5px; line-height: 1.28; color: #fff; font-weight: 800; }
-.mt .lin-slate__b { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-.mt .lin-slate__n {
-  font-size: 11.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.28);
-  font-variant-numeric: tabular-nums;
-}
-.mt .lin-slate__go { font-weight: 800; color: #ff8177; font-size: 13.5px; }
+.mt a.rec-toc:hover { border-color: rgba(22, 35, 63, 0.55); background: rgba(22, 35, 63, 0.03); }
+.mt .rec-toc__k { display: block; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; color: rgba(22, 35, 63, 0.55); }
+.mt .rec-toc__t { display: block; font-weight: 800; font-size: 15px; line-height: 1.38; margin: 5px 0 10px; color: #16233f; }
+.mt a.rec-toc:hover .rec-toc__t { text-decoration: underline; text-underline-offset: 3px; }
+.mt .rec-toc__rows { display: block; border-top: 1px solid rgba(22, 35, 63, 0.14); padding-top: 7px; }
+.mt .rec-toc__row { display: flex; align-items: baseline; gap: 8px; font-size: 13.5px; padding: 2.5px 0; color: #16233f; }
+.mt .rec-toc__l { flex: 0 0 auto; opacity: 0.82; }
+.mt .rec-toc__lead { flex: 1 1 auto; min-width: 24px; border-bottom: 1.5px dotted rgba(22, 35, 63, 0.3); transform: translateY(-3px); }
+.mt .rec-toc__row b { font-weight: 700; font-variant-numeric: tabular-nums; color: #16233f; }
+.mt .rec-toc__go { display: inline-block; margin-top: 10px; font-weight: 700; font-size: 13px; color: rgba(22, 35, 63, 0.72); }
+.mt a.rec-toc:hover .rec-toc__go { color: #16233f; }
 /* Figure chips with a small film thumbnail (theory pages, 2026-07-08). */
 .mt .fig-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 0; }
 .mt .fig-chip {
