@@ -394,6 +394,15 @@ export default async function ConceptPage({ params }: Props) {
   for (const r of readings) { const l = fw(r.framework).label; fwFreq.set(l, (fwFreq.get(l) ?? 0) + 1); }
   const fwTopC = [...fwFreq.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   const heroBd = topFilmsC.find((f) => f.backdrop)?.backdrop ?? null;
+  const figCountC = new Map<string, { n: number; href: string }>();
+  for (const r of readings) {
+    const k = r.fig_label.toLowerCase();
+    const cur = figCountC.get(k) ?? { n: 0, href: `/film/${r.film_slug}/figure/${r.fig_slug}` };
+    cur.n += 1;
+    figCountC.set(k, cur);
+  }
+  const figTopC = [...figCountC.entries()].map(([label, v]) => ({ label, ...v }))
+    .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)).slice(0, 24);
 
   const smJsonld = [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
@@ -446,12 +455,12 @@ export default async function ConceptPage({ params }: Props) {
         center
         search={{ event: "theory:q", targetId: "concept-slate", placeholder: `Search ${readings.length} readings…` }}
         tabs={[
-          { id: "spelled-out", label: "Spelled out" },
-          { id: "concept-films", label: "The films", badge: filmArr.length },
-          ...(tropes.length ? [{ id: "concept-tropes", label: "Patterns", badge: tropes.length }] : []),
-          ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length }] : []),
-          { id: "concept-slate", label: "The full slate", badge: readings.length },
-          { id: "concept-map", label: "Map" },
+          { id: "spelled-out", label: "Spelled out", color: "#D64534" },
+          ...(figTopC.length ? [{ id: "concept-figures", label: "Figures", badge: figTopC.length, color: "#B8863B" }] : []),
+          ...(tropes.length ? [{ id: "concept-tropes", label: "Patterns", badge: tropes.length, color: "#6B4E9E" }] : []),
+          ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
+          { id: "concept-map", label: "Connections", color: "#2F6DB0" },
+          { id: "concept-slate", label: "The full slate", badge: readings.length, color: "#12897A" },
         ]}
       />
 
@@ -497,26 +506,19 @@ export default async function ConceptPage({ params }: Props) {
           </ul>
         </section>
 
-        {/* ── The doors in: the films that stage it most ── */}
-        <section style={{ margin: "30px 0 0" }} id="concept-films">
-          <h2 className="cmap-h2">The films that stage {name}</h2>
-          <p className="cmap-intro">Every panel opens the film — the readings there put {name} to work in the scenes.</p>
-          <div className="crd-grid">
-            {topFilmsC.slice(0, 6).map((f) => (
-              <a className="crd-panel" href={`/film/${f.slug}`} key={f.slug}>
-                {f.backdrop
-                  ? /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={`${IMG}/w300${f.backdrop}`} alt="" width={124} height={70} loading="lazy" style={{ width: 124, height: 70, borderRadius: 6 }} />
-                  : <span className="crd-ph" style={{ width: 124, height: 70, fontSize: 22 }} aria-hidden>{f.title[0]}</span>}
-                <span>
-                  <span className="crd-k">{f.n} reading{f.n === 1 ? "" : "s"} · {name}</span>
-                  <h3>{f.title}{f.year ? ` (${f.year})` : ""}</h3>
-                  <span className="crd-go">Open the film →</span>
-                </span>
-              </a>
-            ))}
-          </div>
-        </section>
+        {figTopC.length > 0 ? (
+          <section style={{ margin: "30px 0 0" }} id="concept-figures">
+            <h2 className="cmap-h2">The figures that carry {name}</h2>
+            <p className="cmap-intro">The recurring anchors — characters, objects, places, forms — where {name} does its work. Each chip opens a figure page.</p>
+            <p style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "12px 0 0" }}>
+              {figTopC.map((f) => (
+                <Link key={f.label} href={f.href} style={{ fontSize: 13.5, fontWeight: 600, padding: "6px 13px", borderRadius: 999, border: "1.5px solid rgba(184,134,59,.5)", textDecoration: "none", color: "inherit" }}>
+                  {f.label}{f.n > 1 ? <span style={{ color: "#B8863B", fontWeight: 800 }}> ×{f.n}</span> : null}
+                </Link>
+              ))}
+            </p>
+          </section>
+        ) : null}
 
         {tropes.length > 0 && (
           <section style={{ margin: "34px 0 0" }} id="concept-tropes">
@@ -545,18 +547,39 @@ export default async function ConceptPage({ params }: Props) {
           </section>
         )}
 
+        <section className="cmap-sec" id="concept-map">
+          <h2 className="cmap-h2">Connections — {name} across the map</h2>
+          <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>
+          <p className="cmap-intro">The figures and films that stage <em>{name}</em>, and the theorists behind it, across Metatake&rsquo;s critical web. Click a node to open it.</p>
+          <EntityMap api={`/api/map?type=idea&key=${slug}`} full={`/map?m=critical&t=idea&k=${slug}`} />
+        </section>
         <section style={{ margin: "34px 0 0" }} id="concept-slate">
           <h2 className="cmap-h2">The full slate — {readings.length} readings</h2>
           <p className="cmap-intro">The complete archive, searchable and filterable by framework and decade. Each card links into the film&apos;s figure page, where the reading lives.</p>
           <ReadingsExplorer readings={readings} about={name} listenEvent="theory:q" />
         </section>
 
-        <section className="cmap-sec" id="concept-map">
-          <h2 className="cmap-h2">{name} — connection map</h2>
-          <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>
-          <p className="cmap-intro">The figures and films that stage <em>{name}</em>, and the theorists behind it, across Metatake&rsquo;s critical web. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=idea&key=${slug}`} full={`/map?m=critical&t=idea&k=${slug}`} />
+        {/* ── The doors in: the films that stage it most ── */}
+        <section style={{ margin: "30px 0 0" }} id="concept-films">
+          <h2 className="cmap-h2">The films that stage {name}</h2>
+          <p className="cmap-intro">Every panel opens the film — the readings there put {name} to work in the scenes.</p>
+          <div className="crd-grid">
+            {topFilmsC.slice(0, 6).map((f) => (
+              <a className="crd-panel" href={`/film/${f.slug}`} key={f.slug}>
+                {f.backdrop
+                  ? /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={`${IMG}/w300${f.backdrop}`} alt="" width={124} height={70} loading="lazy" style={{ width: 124, height: 70, borderRadius: 6 }} />
+                  : <span className="crd-ph" style={{ width: 124, height: 70, fontSize: 22 }} aria-hidden>{f.title[0]}</span>}
+                <span>
+                  <span className="crd-k">{f.n} reading{f.n === 1 ? "" : "s"} · {name}</span>
+                  <h3>{f.title}{f.year ? ` (${f.year})` : ""}</h3>
+                  <span className="crd-go">Open the film →</span>
+                </span>
+              </a>
+            ))}
+          </div>
         </section>
+
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology">How we read films →</Link>
         </p>
