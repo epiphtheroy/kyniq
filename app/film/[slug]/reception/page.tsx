@@ -226,6 +226,19 @@ export default async function FilmReceptionPage({ params }: Props) {
   const DECADE_COLORS = ["#D64534", "#C87A2C", "#B8863B", "#6B4E9E", "#2F6DB0", "#12897A", "#B85C9E", "#4E7088"];
   const yearColor = (y: number) => DECADE_COLORS[Math.floor(y / 10) % DECADE_COLORS.length];
 
+  const countBy = (t: Entry["t"]) => years.reduce((s, y) => s + byYear.get(y)!.filter((e) => e.t === t).length, 0);
+  const navYears = [
+    ...years.map((y) => ({ id: `y${y}`, label: String(y), n: byYear.get(y)!.length, color: yearColor(y) })),
+    ...(undated.length + undatedHonors.length ? [{ id: "undated", label: "On the record", n: undated.length + undatedHonors.length, color: "#5A6B86" }] : []),
+  ];
+  const navModes = [
+    { key: "all", label: "Everything", n: 0, color: "#5A6B86" },
+    { key: "release", label: "Releases", n: countBy("release"), color: "#2F6DB0" },
+    { key: "honor", label: "Honors", n: countBy("honor") + undatedHonors.length, color: "#B8863B" },
+    { key: "review", label: "Reviews", n: countBy("review") + undated.length, color: "#D64534" },
+    { key: "paper", label: "Scholarship", n: countBy("paper"), color: "#12897A" },
+  ];
+
   const gallery = await filmBackdropPaths(film.tmdb_id);
   const artPicks = pickStills(gallery, `${film.slug}:reception`, 6);
   const midArt = artPicks.slice(0, Math.max(0, Math.min(2, years.length - 1)));
@@ -290,6 +303,8 @@ export default async function FilmReceptionPage({ params }: Props) {
         backdropPath={film.backdrop_path}
       />
 
+      <AfterlifeNav years={navYears} modes={navModes} />
+
       <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 40px" }}>
         <article className="essay">
           <Byline created={latest ?? undefined} />
@@ -302,45 +317,46 @@ export default async function FilmReceptionPage({ params }: Props) {
               and in order. Quotes are verbatim from publishers&apos; link previews and paper abstracts; no article
               text is stored.
             </p>
-            {years.length > 1 ? (
-              <p style={{ fontSize: "0.92em" }}>
-                <b>Jump to:</b>{" "}
-                {years.map((y, i) => (
-                  <span key={y}>{i > 0 ? " · " : ""}<a href={`#y${y}`}>{y}</a></span>
-                ))}
-                {undated.length ? <> · <a href="#undated">on the record</a></> : null}
-              </p>
-            ) : null}
-
             {years.map((y, yi) => (
-              <section key={y} id={`y${y}`}>
+              <section key={y} id={`y${y}`} data-af-year className="afl-year" style={{ "--yc": yearColor(y) } as React.CSSProperties}>
                 {yi > 0 && yi % Math.max(2, Math.ceil(years.length / (midArt.length + 1))) === 0 && artUsed < midArt.length ? (
-                  <figure className="rd-fig">
+                  <figure className="rd-fig" style={{ marginTop: 0 }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={`https://image.tmdb.org/t/p/w780${midArt[artUsed++]}`} alt={`${film.title} still`} loading="lazy" width={780} height={439} />
                     <figcaption>{film.title}{yStr(film.year)} · via TMDB</figcaption>
                   </figure>
                 ) : null}
-                <h2>{y}{y === film.year ? " — the release" : ""}</h2>
-                {byYear.get(y)!.map((e, i) => {
-                  if (e.t === "release") return <p key={i} className="afl-ev">{e.text}</p>;
-                  if (e.t === "honor") return (
-                    <p key={i} className="afl-ev">
-                      <span aria-hidden>{e.won ? "🏆" : "◇"}</span>{" "}
-                      {e.href ? <Link href={e.href}>{e.text}</Link> : e.text}
-                    </p>
-                  );
-                  const r = e.r;
+                <h2 className="afl-h2">
+                  <span className="afl-dot" aria-hidden />
+                  {y}{y === film.year ? " — the release" : ""}
+                  <span className="afl-yn">{byYear.get(y)!.length} {byYear.get(y)!.length === 1 ? "entry" : "entries"}</span>
+                </h2>
+                {GROUPS.map((g) => {
+                  const items = byYear.get(y)!.filter((e) => e.t === g.t);
+                  if (!items.length) return null;
                   return (
-                    <section key={i} className="afl-item">
-                      <h3 style={{ fontSize: "1.02em" }}>
-                        <a href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
-                      </h3>
-                      <p style={{ fontSize: "0.85em", opacity: 0.75, marginTop: "-0.4em" }}>
-                        {e.t === "paper" ? "Scholarship · " : ""}{r.outlet}{r.critic ? ` · ${r.critic}` : ""}
-                      </p>
-                      <Quote r={r} />
-                    </section>
+                    <div key={g.t} className="afl-grp">
+                      <div className="afl-k" data-af={g.t} style={{ "--kc": g.color } as React.CSSProperties}>{g.label}</div>
+                      {items.map((e, i) => {
+                        if (e.t === "release") return <p key={i} className="afl-ev" data-af="release">{e.text}</p>;
+                        if (e.t === "honor") return (
+                          <p key={i} className="afl-ev afl-ev--honor" data-af="honor">
+                            <span aria-hidden>{e.won ? "🏆" : "◇"}</span>{" "}
+                            {e.href ? <Link href={e.href}>{e.text}</Link> : e.text}
+                          </p>
+                        );
+                        const r = e.r;
+                        return (
+                          <section key={i} className="afl-item" data-af={e.t}>
+                            <h3 className="afl-h3">
+                              <a href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
+                            </h3>
+                            <p className="afl-src">{r.outlet}{r.critic ? ` · ${r.critic}` : ""}</p>
+                            <Quote r={r} />
+                          </section>
+                        );
+                      })}
+                    </div>
                   );
                 })}
               </section>
