@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import NowModules from "@/components/NowModules";
-import { anchorHref, fmtDay, fmtStamp, type NowArticle } from "@/lib/now";
+import { anchorHref, fmtDay, fmtStamp, tmdbImg, type NowArticle } from "@/lib/now";
 
 /**
  * One Now Playing piece — the live layer (shell in app/now/layout.tsx):
@@ -25,7 +25,7 @@ async function load(slug: string) {
   const { data } = await db()
     .from("now_articles")
     .select(
-      "slug, headline, dek, summary, keyword, lane, anchor_type, anchor_slug, anchor_label, film_slug, facts_html, reading_html, bottom_html, deposit, modules, sources, status, update_note, published_at, updated_at"
+      "slug, headline, dek, summary, keyword, lane, anchor_type, anchor_slug, anchor_label, film_slug, facts_html, reading_html, bottom_html, deposit, modules, sources, image_path, image_alt, cut_floor, archive_links, status, update_note, published_at, updated_at"
     )
     .eq("slug", slug)
     .eq("status", "published")
@@ -107,6 +107,18 @@ export default async function NowPiece({ params }: Props) {
             live in the corpus
           </p>
         </header>
+
+        {p.image_path ? (
+          <figure className="now-hero">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={tmdbImg(p.image_path)} alt={p.image_alt ?? p.anchor_label} loading="eager" />
+            {ah ? (
+              <figcaption>
+                From <Link href={ah}>{p.anchor_label}</Link> in the Metatake corpus
+              </figcaption>
+            ) : null}
+          </figure>
+        ) : null}
 
         <article className="cur-paper blg">
           {p.update_note ? <div className="now-note">Update: {p.update_note}</div> : null}

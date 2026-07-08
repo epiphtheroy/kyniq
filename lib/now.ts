@@ -15,6 +15,10 @@ export type NowModule = {
 
 export type NowSource = { outlet: string; title?: string; url: string };
 
+export type NowCutFloorItem = { keyword: string; url?: string; comment: string };
+
+export type NowArchiveLink = { label: string; href: string; note?: string };
+
 export type NowArticle = {
   slug: string;
   headline: string;
@@ -32,11 +36,20 @@ export type NowArticle = {
   deposit: string | null;
   modules: NowModule[];
   sources: NowSource[];
+  image_path: string | null;
+  image_alt: string | null;
+  cut_floor: NowCutFloorItem[];
+  archive_links: NowArchiveLink[];
   status: string;
   update_note: string | null;
   published_at: string;
   updated_at: string;
 };
+
+/** TMDB image URL from a stored path (w1280 for the hero). */
+export function tmdbImg(path: string, size = "w1280"): string {
+  return `https://image.tmdb.org/t/p/${size}${path}`;
+}
 
 /** "Jul 8, 2026, 14:05 UTC" — the piece's clock is part of the product. */
 export function fmtStamp(iso: string): string {
