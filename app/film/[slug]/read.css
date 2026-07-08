@@ -66,3 +66,18 @@
 .crd-panel p { margin: 0; font-size: 13.5px; line-height: 1.55; color: #4c4a45; }
 .crd-go { margin-top: auto; padding-top: 8px; font-size: 12.5px; font-weight: 700; color: #c0392b; }
 @media (max-width: 720px) { .crd-grid { grid-template-columns: 1fr; } }
+
+/* ── Theory-layer pitch pass (2026-07-08): the subject term pops inside the
+      reading cards (highlighter stroke), titles hit harder, each card ends
+      with a red go-cue. Light-theme surfaces (.mt) only. ── */
+.mt mark.term-hl {
+  background: linear-gradient(transparent 60%, rgba(214, 69, 52, 0.22) 60%);
+  color: #b3392b; font-weight: 700; padding: 0 1px;
+}
+.mt .thr-title { font-size: 17.5px; font-weight: 800; line-height: 1.28; letter-spacing: -0.01em; }
+.mt .thr-title:hover { color: #c0392b; }
+.mt .thr-thesis { font-size: 14.5px; line-height: 1.6; }
+.mt .thr-go {
+  display: inline-block; margin-top: 6px; font-size: 12.5px; font-weight: 700; color: #c0392b;
+  text-decoration: none;
+}
