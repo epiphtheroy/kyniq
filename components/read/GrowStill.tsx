@@ -31,11 +31,13 @@ export default function GrowStill({
       if (!el) return;
       const vh = window.innerHeight;
       const r = el.getBoundingClientRect();
-      // 0 when the still enters near the bottom, 1 by the time its center
-      // passes ~35% of the viewport — then it holds full-bleed.
-      const t = Math.min(1, Math.max(0, (vh * 0.9 - (r.top + r.height / 2)) / (vh * 0.55)));
+      // Rise-and-fall: widest when the still sits around the upper-middle of
+      // the viewport, easing back down as it scrolls in from below OR out the
+      // top — and it never goes truly full-bleed (breathing room stays).
+      const center = r.top + r.height / 2;
+      const t = Math.min(1, Math.max(0, 1 - Math.abs(center - vh * 0.42) / (vh * 0.6)));
       const eased = t * t * (3 - 2 * t); // smoothstep
-      setW(`min(calc(${startPx}px + ${(eased * 100).toFixed(1)} * (100vw - ${startPx}px) / 100), 100vw)`);
+      setW(`min(calc(${startPx}px + ${(eased * 100).toFixed(1)} * ((100vw - 72px) - ${startPx}px) / 100), calc(100vw - 72px))`);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
