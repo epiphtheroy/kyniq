@@ -154,7 +154,7 @@ function load(slug: string) {
           seenTh.add(nm);
           theorists.push({ name: nm, slug: r.theorists?.slug ?? null });
         }
-        return { kind: "theory" as const, tc, theorists, desks, canonReadings, updated };
+        return { kind: "theory" as const, tc, theorists, desks: await attachKwic(supabase, desks, [tc.concept]), canonReadings, updated };
       }
 
       const { data: rd } = await supabase.rpc("sm_concept_readings", { p_slug: h.resolved_slug });
@@ -177,7 +177,8 @@ function load(slug: string) {
         tropes,
       };
     },
-    ["concept-unified-2", slug],
+    // v3: theory-branch desks carry KWIC excerpts (2026-07-08)
+    ["concept-unified-3", slug],
     { revalidate: 1800, tags: [`idea:${slug}`, `concept:${slug}`] },
   )();
 }
