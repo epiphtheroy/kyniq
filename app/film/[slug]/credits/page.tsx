@@ -1,10 +1,11 @@
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import CreditsExplorer from "@/app/credits/CreditsExplorer";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
@@ -373,19 +374,15 @@ export default async function FilmCreditsPage({ params }: Props) {
           </section>
         ) : null}
 
-        <p style={{ marginTop: 26 }}>
-          <a
-            href={`/credits?f=${film.tmdb_id}`}
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              background: "#16233F", color: "#FBF8F1", padding: "9px 18px", borderRadius: 999,
-              fontSize: 14, fontWeight: 600, textDecoration: "none",
-            }}
-          >
-            <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
-            Play the collaboration map — the interactive explorer →
-          </a>
-        </p>
+        <section id="explorer" style={{ margin: "40px 0 0", borderTop: "2px solid #16233F", paddingTop: 6 }}>
+          <h2 className="df-h2" style={{ marginTop: 18 }}>The collaboration map — live</h2>
+          <p className="df-sub">
+            The whole crew network of {film.title}, right here — every name opens their own credits page.
+          </p>
+          <Suspense fallback={<div style={{ padding: "30px 0", opacity: 0.6 }}>Loading the map…</div>}>
+            <CreditsExplorer embed initialF={film.tmdb_id!} />
+          </Suspense>
+        </section>
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 22 }}>
           Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · credits &amp; company data from{" "}

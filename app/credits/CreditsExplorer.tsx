@@ -109,6 +109,7 @@ export default function CreditsExplorer({
   initialP,
   initialC,
   initialD,
+  initialF,
 }: {
   // Embed mode (person/director pages): navigation is component state instead
   // of the URL, so following the credits never leaves the page underneath.
@@ -117,11 +118,12 @@ export default function CreditsExplorer({
   initialP?: number;
   initialC?: CraftKey;
   initialD?: string;
+  initialF?: number;
 } = {}) {
   const router = useRouter();
   const sp = useSearchParams();
   const [local, setLocal] = useState<{ f: number | null; p: number | null; c: CraftKey | null; d: string | null }>(
-    { f: null, p: initialP ?? null, c: initialC ?? null, d: initialP ? null : initialD ?? null },
+    { f: initialF ?? null, p: initialP ?? null, c: initialC ?? null, d: initialP || initialF ? null : initialD ?? null },
   );
   // The page's own subject — their profile box is redundant with the server
   // header above the embed, so ArtistView hides it for this id only.
