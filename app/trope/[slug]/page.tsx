@@ -176,6 +176,48 @@ export default async function TropePage({ params }: Props) {
   const topFilms = Array.from(new Map(members.map((m) => [m.film_slug, m])).values()).slice(0, 5);
   const figHref = (m: Member) => (m.figure_slug ? `/film/${m.film_slug}/figure/${m.figure_slug}` : `/film/${m.film_slug}`);
 
+  // ── Deterministic aggregates for the hero + "spelled out" layer (2026-07-08,
+  // same grammar as the concept/theorist pages). Truth gate: span/decade/most
+  // claims only render when the FULL member set is loaded (limit 200).
+  const full = (tt.member_count ?? n) <= n;
+  const uniqFilms = [...new Map(members.map((m) => [m.film_slug, m])).values()];
+  const datedM = uniqFilms.filter((m) => (m.film_year ?? 0) > 1880)
+    .sort((a, b) => (a.film_year! - b.film_year!) || a.film_title.localeCompare(b.film_title));
+  const filmFreq = new Map<string, { title: string; year: number | null; c: number }>();
+  for (const m of members) {
+    const e = filmFreq.get(m.film_slug) ?? { title: m.film_title, year: m.film_year, c: 0 };
+    e.c += 1; filmFreq.set(m.film_slug, e);
+  }
+  const topFreq = [...filmFreq.entries()].map(([s, v]) => ({ slug: s, ...v }))
+    .sort((a, b) => b.c - a.c || a.title.localeCompare(b.title))[0] ?? null;
+  const fwFreqT = new Map<string, number>();
+  for (const m of members) { const l = fw(m.framework).label; fwFreqT.set(l, (fwFreqT.get(l) ?? 0) + 1); }
+  const fwTopT = [...fwFreqT.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const decFreq = new Map<number, number>();
+  for (const m of datedM) { const d = Math.floor((m.film_year as number) / 10) * 10; decFreq.set(d, (decFreq.get(d) ?? 0) + 1); }
+  const decTop = [...decFreq.entries()].sort((a, b) => b[1] - a[1] || a[0] - b[0])[0] ?? null;
+  const figFreqT = new Map<string, { n: number; href: string; bd: string | null; film: string }>();
+  for (const m of members) {
+    const k = m.figure_label.toLowerCase();
+    const cur = figFreqT.get(k) ?? { n: 0, href: figHref(m), bd: bd.get(m.film_slug) ?? null, film: m.film_title };
+    cur.n += 1;
+    const b = bd.get(m.film_slug);
+    if (!cur.bd && b) { cur.bd = b; cur.film = m.film_title; }
+    figFreqT.set(k, cur);
+  }
+  const figTopT = [...figFreqT.entries()].map(([label, v]) => ({ label, ...v }))
+    .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)).slice(0, 24);
+  const heroM = members.find((m) => bd.get(m.film_slug));
+  const heroBd = heroM ? bd.get(heroM.film_slug) : null;
+  const ledgerRows = members.map((m) => ({
+    take_id: m.take_id,
+    thesis: excerptPlain(m.rationale, 320) ?? m.take_title,
+    leap: null,
+    fig_label: m.figure_label, fig_slug: m.figure_slug,
+    film_title: m.film_title, film_slug: m.film_slug, film_year: m.film_year,
+    backdrop_path: bd.get(m.film_slug) ?? null,
+  }));
+
   const faqLd = n > 0 ? {
     "@context": "https://schema.org", "@type": "FAQPage",
     ...(t.created_at ? { datePublished: t.created_at } : {}),
