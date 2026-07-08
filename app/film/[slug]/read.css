@@ -110,20 +110,30 @@
 .mt .vl-lede { font-size: 13.5px; opacity: 0.7; margin: 4px 0 10px; }
 .mt details.vl-d { border: 1px solid rgba(0, 0, 0, 0.14); border-radius: 12px; margin: 10px 0; background: rgba(0, 0, 0, 0.015); }
 .mt details.vl-d summary {
-  cursor: pointer; padding: 11px 16px; font-weight: 800; font-size: 15px;
-  display: flex; align-items: center; gap: 10px; list-style: none; user-select: none;
+  cursor: pointer; padding: 14px 18px; font-size: 17px;
+  display: flex; align-items: center; gap: 12px; list-style: none; user-select: none;
 }
+.mt details.vl-d summary:hover { background: rgba(0, 0, 0, 0.03); border-radius: 12px; }
 .mt details.vl-d summary::-webkit-details-marker { display: none; }
-.mt details.vl-d summary::before { content: "▸"; font-size: 12px; opacity: 0.55; transition: transform 0.15s; }
+.mt details.vl-d summary::before { content: "▸"; font-size: 16px; font-weight: 800; color: #d64534; transition: transform 0.15s; flex: 0 0 auto; }
 .mt details.vl-d[open] summary::before { transform: rotate(90deg); }
+.mt .vl-sum-d { font-weight: 800; flex: 0 0 auto; }
+.mt .vl-sum-kw {
+  flex: 1 1 0; min-width: 0; font-size: 13px; font-weight: 500; opacity: 0.65;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 .mt .vl-n {
-  display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px;
-  padding: 0 6px; border-radius: 999px; font-size: 11px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px;
+  padding: 0 7px; border-radius: 999px; font-size: 12px; font-weight: 800; flex: 0 0 auto;
   background: rgba(214, 69, 52, 0.12); border: 1px solid rgba(214, 69, 52, 0.4); color: #d64534;
   font-variant-numeric: tabular-nums;
 }
-.mt .vl-ul { margin: 0; padding: 2px 18px 16px 36px; display: grid; gap: 10px; }
-.mt .vl-ul li { font-size: 14.5px; line-height: 1.66; }
+.mt .vl-ul { margin: 0; padding: 2px 18px 16px 20px; display: grid; gap: 12px; list-style: none; }
+.mt .vl-ul li { font-size: 14.5px; line-height: 1.66; display: flex; gap: 11px; align-items: flex-start; }
+.mt .vl-th { flex: 0 0 auto; margin-top: 3px; }
+.mt .vl-th img { width: 64px; height: 36px; object-fit: cover; border-radius: 6px; display: block; background: #e8e4da; }
+.mt .vl-tx { flex: 1 1 0; min-width: 0; }
+@media (max-width: 640px) { .mt .vl-sum-kw { display: none; } .mt .vl-th img { width: 52px; height: 30px; } }
 .mt .vl-go { font-weight: 800; color: #c0392b; text-decoration: none; padding: 0 3px; }
 .mt .vl-go:hover { text-decoration: underline; }
 /* the arrows land on slate/essay cards — clear the sticky nav + tab bar */
