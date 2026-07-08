@@ -175,30 +175,90 @@ export default async function CatalogNode({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="cat-wrap cat-node">
-        <div className="cat-crumb">
-          <Link href="/catalog">Archetype</Link> <span>›</span>{" "}
-          {section ? <Link href={sectionHref(section.key)}>{section.label}</Link> : null} <span>›</span>{" "}
-          {km.label}
-        </div>
-
-        <header className="cat-nhead">
-          <div className="cat-nrole">
-            {km.label}
-            {mat ? <> · <span className={`tp-mat tp-mat--${mat[0]}`}>{mat[1]}</span></> : null}
+      {/* ── Dark hero: the archetype as a counted classification ── */}
+      <div className="cur rd-hero">
+        <div className="rd-hero__in">
+          <div className="rd-hero__txt">
+            <div className="rd-crumb">
+              <Link href="/catalog">Archetype</Link><span>›</span>
+              {section ? <><Link href={sectionHref(section.key)}>{section.label}</Link><span>›</span></> : null}
+              <span>{detail.label}</span>
+            </div>
+            <div className="rd-chiprow">
+              <span className="rd-chip">{km.label}</span>
+              {mat ? <span className="rd-chip">{mat[1]}</span> : null}
+              <span className="rd-meta">{n.toLocaleString()} {figLabel} · {uniqFilms.length}{full ? "" : "+"} films</span>
+            </div>
+            <h1 className="rd-h1">{detail.label}</h1>
+            <p className="rd-dek">
+              {detail.definition ? <>{detail.definition}{" "}</> : null}
+              Metatake classifies {n.toLocaleString()} {figLabel} as {detail.label}
+              {full && datedA.length > 1 ? <> — from <i>{datedA[0].film_title}</i> ({datedA[0].yr}) to <i>{datedA[datedA.length - 1].film_title}</i> ({datedA[datedA.length - 1].yr})</> : null},
+              {" "}each tied to the exact film and the close reading that carries it.
+            </p>
           </div>
-          <h1 className="cat-h1">{detail.label}</h1>
-          <Byline created={dates?.created_at} updated={dates?.updated_at} />
-          {detail.parent_slug && detail.parent_kind ? (
-            <div className="cat-parent">
-              {axisLabel(detail.parent_kind)}:{" "}
-              <Link href={nodeHref(detail.parent_kind, detail.parent_slug)}>{detail.parent_label}</Link>
+          {heroBd ? (
+            <div className="rd-hero__media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="rd-hero__bd" src={`https://image.tmdb.org/t/p/w780${heroBd}`} alt="" width={780} height={439} />
+              <div className="rd-hero__cap">From {heroM?.film_title} · via TMDB</div>
             </div>
           ) : null}
-          {detail.definition ? <p className="cat-ndef">{detail.definition}</p> : null}
-        </header>
+        </div>
+      </div>
+
+      <FilmTabBar
+        center
+        search={members.length > 8 ? { event: "theory:q", targetId: "members", placeholder: `Search ${members.length} ${figLabel}…` } : undefined}
+        tabs={[
+          { id: "spelled-out", label: "Spelled out", color: "#D64534" },
+          { id: "members", label: "The ranked slate", badge: n, color: "#12897A" },
+          ...(kindred.length || themes.length ? [{ id: "cat-rels", label: "Kindred & themes", badge: kindred.length + themes.length, color: "#C87A2C" }] : []),
+        ]}
+      />
+
+      <div className="cat-wrap cat-node">
+        <Byline created={dates?.created_at} updated={dates?.updated_at} />
+        {detail.parent_slug && detail.parent_kind ? (
+          <div className="cat-parent">
+            {axisLabel(detail.parent_kind)}:{" "}
+            <Link href={nodeHref(detail.parent_kind, detail.parent_slug)}>{detail.parent_label}</Link>
+          </div>
+        ) : null}
 
         <LensQuickBar />
+
+        {/* ── The archetype, spelled out — deterministic sentences ── */}
+        <section className="cat-sec" id="spelled-out">
+          <h2 className="cat-h2">{detail.label}, spelled out</h2>
+          <ul style={{ margin: "8px 0 0", paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
+            <li>
+              {detail.label} names {n.toLocaleString()} {figLabel} in the archive
+              {full && datedA.length > 1 ? <>, from <Link href={`/film/${datedA[0].film_slug}`}>{datedA[0].film_title}</Link> ({datedA[0].yr}) to <Link href={`/film/${datedA[datedA.length - 1].film_slug}`}>{datedA[datedA.length - 1].film_title}</Link> ({datedA[datedA.length - 1].yr})</> : null}.
+            </li>
+            {detail.parent_slug && detail.parent_kind ? (
+              <li>
+                On the {axisLabel(detail.parent_kind).toLowerCase()} axis, {detail.label} sits under <Link href={nodeHref(detail.parent_kind, detail.parent_slug)}>{detail.parent_label}</Link>.
+              </li>
+            ) : null}
+            {full && topFreqA && topFreqA.c > 1 ? (
+              <li>
+                The film that returns to it most is <Link href={`/film/${topFreqA.slug}`}>{topFreqA.title}</Link>
+                {topFreqA.year ? ` (${topFreqA.year})` : ""} — {topFreqA.c} {topFreqA.c === 1 ? "figure" : "figures"} there are classified as {detail.label}.
+              </li>
+            ) : null}
+            {full && decTopA && datedA.length >= 4 ? (
+              <li>
+                The decade that stages {detail.label} most, by count, is the {decTopA[0]}s — {decTopA[1]} of the {datedA.length} dated films.
+              </li>
+            ) : null}
+            {mat ? (
+              <li>
+                As a pattern, {detail.label} is <b>{mat[1]}</b>{n >= 26 ? " — fully conventional; cinema returns to it again and again" : n >= 9 ? " — a recurring pattern across many films" : n >= 4 ? " — a real recurring pattern, still rare" : n >= 2 ? " — a pattern just beginning to be shared" : " — documented in a single film so far"}.
+              </li>
+            ) : null}
+          </ul>
+        </section>
 
         <section className="cat-sec" id="members">
           <h2 className="cat-h2">
@@ -213,7 +273,7 @@ export default async function CatalogNode({ params }: Props) {
           ) : (
             <>
               {members.length > 8 ? (
-                <ListFilter targetId="cat-members" placeholder={`Filter these ${figLabel}…`} total={members.length} />
+                <ListFilter targetId="cat-members" placeholder={`Filter these ${figLabel}…`} total={members.length} listenEvent="theory:q" />
               ) : null}
               <div className="cat-mlist" id="cat-members">
               {members.map((m, i) => {
@@ -250,7 +310,7 @@ export default async function CatalogNode({ params }: Props) {
           )}
         </section>
 
-        <div className="cat-rels">
+        <div className="cat-rels" id="cat-rels">
           {kindred.length > 0 ? (
             <section className="cat-relblock">
               <h2 className="cat-h3">Kindred {axisLabel(km.kind).toLowerCase()}s <span className="cat-h2__n">by embedding</span></h2>
