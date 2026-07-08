@@ -138,10 +138,69 @@
 .mt .vl-go:hover { text-decoration: underline; }
 /* the arrows land on slate/essay cards — clear the sticky nav + tab bar */
 .mt .thr, .mt .tp-member, .mt .cat-mrow { scroll-margin-top: 130px; }
-/* Afterlife (reception timeline) article entries (2026-07-08). */
-.mt .afl-ev { margin: 0.5em 0; padding-left: 14px; border-left: 3px solid rgba(214, 69, 52, 0.35); }
-.mt .afl-item { margin: 1.1em 0; }
-.mt .afl-q { font-size: 0.95em; font-style: italic; opacity: 0.88; border-left: 3px solid rgba(0, 0, 0, 0.14); padding-left: 14px; }
+/* ── Afterlife (reception timeline) — sticky year nav + mode collector ── */
+.mt .afn {
+  position: sticky; z-index: 45; margin: 0 0 8px; padding: 7px 14px 6px;
+  background: linear-gradient(180deg, #f4f1e9, #fcfbf7);
+  border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.mt .afn__row { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 1px 0; }
+.mt .afn__row::-webkit-scrollbar { display: none; }
+.mt .afn__y {
+  --bc: #5a6b86; flex: 0 0 auto; display: inline-flex; align-items: center;
+  border-radius: 8px; padding: 4px 8px 4px 10px; font-size: 12.5px; font-weight: 700;
+  color: inherit; text-decoration: none; font-variant-numeric: tabular-nums;
+  transition: background 0.14s, color 0.14s;
+}
+.mt .afn__y:hover { background: color-mix(in srgb, var(--bc) 12%, transparent); color: var(--bc); }
+.mt .afn__y.active { background: color-mix(in srgb, var(--bc) 17%, transparent); color: var(--bc); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bc) 32%, transparent); }
+.mt .afn__y.off { opacity: 0.32; pointer-events: none; }
+.mt .afn__n {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 17px; height: 17px;
+  margin-left: 6px; padding: 0 4px; border-radius: 999px; font-size: 10.5px; font-weight: 800;
+  background: color-mix(in srgb, var(--bc) 14%, #fff); border: 1px solid color-mix(in srgb, var(--bc) 42%, transparent);
+  color: var(--bc); line-height: 1;
+}
+.mt .afn__y.active .afn__n, .mt .afn__y:hover .afn__n { background: var(--bc); border-color: var(--bc); color: #fff; }
+.mt .afn__modes { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-top: 5px; padding-top: 6px; border-top: 1px dashed rgba(0, 0, 0, 0.12); }
+.mt .afn__m {
+  --bc: #5a6b86; flex: 0 0 auto; display: inline-flex; align-items: center; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--bc) 38%, transparent); border-radius: 999px;
+  background: transparent; padding: 4px 12px; font-size: 12px; font-weight: 700; color: var(--bc);
+  transition: background 0.14s, color 0.14s;
+}
+.mt .afn__m:hover { background: color-mix(in srgb, var(--bc) 10%, transparent); }
+.mt .afn__m.active { background: var(--bc); border-color: var(--bc); color: #fff; }
+.mt .afn__m.active .afn__n { background: rgba(255, 255, 255, 0.92); border-color: transparent; }
+
+/* Year cards — one bordered unit per year, tinted by its decade (--yc),
+   with a timeline dot; groups inside carry small-caps kickers (--kc). */
+.mt .afl-year {
+  position: relative; border: 1px solid rgba(0, 0, 0, 0.12); border-left: 4px solid var(--yc, #d64534);
+  border-radius: 14px; padding: 16px 20px 12px; margin: 18px 0; background: rgba(0, 0, 0, 0.012);
+  scroll-margin-top: 150px;
+}
+.mt .essay-body .afl-h2 { display: flex; align-items: baseline; gap: 10px; margin: 0 0 4px; font-size: 1.35em; }
+.mt .afl-dot { width: 11px; height: 11px; border-radius: 999px; background: var(--yc, #d64534); flex: 0 0 auto; align-self: center; }
+.mt .afl-yn { font-size: 12px; font-weight: 700; opacity: 0.55; letter-spacing: 0.02em; }
+.mt .afl-grp { margin: 10px 0 2px; }
+.mt .afl-grp + .afl-grp { border-top: 1px dashed rgba(0, 0, 0, 0.1); }
+.mt .afl-k {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--kc, #666); margin: 12px 0 6px;
+}
+.mt .afl-ev { margin: 0.45em 0; padding-left: 14px; border-left: 3px solid rgba(47, 109, 176, 0.4); font-size: 0.97em; }
+.mt .afl-ev--honor { border-left-color: rgba(184, 134, 59, 0.55); }
+.mt .afl-item { margin: 0.9em 0 1.2em; }
+.mt .essay-body .afl-h3 { font-size: 1.02em; margin: 0 0 2px; }
+.mt .afl-src { font-size: 0.82em; opacity: 0.72; margin: 0 0 4px; }
+.mt .afl-q {
+  font-size: 0.97em; font-style: italic; line-height: 1.62; opacity: 0.92;
+  border-left: 3px solid color-mix(in srgb, #d64534 45%, transparent);
+  background: rgba(0, 0, 0, 0.025); padding: 9px 14px; margin: 6px 0 0;
+  border-radius: 0 8px 8px 0;
+}
 /* Figure chips with a small film thumbnail (theory pages, 2026-07-08). */
 .mt .fig-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 0; }
 .mt .fig-chip {

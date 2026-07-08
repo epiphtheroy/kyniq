@@ -363,23 +363,37 @@ export default async function FilmReceptionPage({ params }: Props) {
             ))}
 
             {undated.length || undatedHonors.length ? (
-              <section id="undated">
-                <h2>Also on the record</h2>
+              <section id="undated" data-af-year className="afl-year" style={{ "--yc": "#5A6B86" } as React.CSSProperties}>
+                <h2 className="afl-h2">
+                  <span className="afl-dot" aria-hidden />
+                  Also on the record
+                  <span className="afl-yn">{undated.length + undatedHonors.length} {undated.length + undatedHonors.length === 1 ? "entry" : "entries"}</span>
+                </h2>
                 <p style={{ fontSize: "0.92em", opacity: 0.8 }}>
                   Items whose exact date isn&apos;t machine-recoverable from the source — listed without a year claim.
                 </p>
-                {undatedHonors.map((h, i) => (
-                  <p key={`h${i}`} className="afl-ev"><span aria-hidden>{h.won ? "🏆" : "◇"}</span> {h.text}</p>
-                ))}
-                {undated.map((r, i) => (
-                  <section key={i} className="afl-item">
-                    <h3 style={{ fontSize: "1.02em" }}>
-                      <a href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
-                    </h3>
-                    <p style={{ fontSize: "0.85em", opacity: 0.75, marginTop: "-0.4em" }}>{r.outlet}{r.critic ? ` · ${r.critic}` : ""}</p>
-                    <Quote r={r} />
-                  </section>
-                ))}
+                {undatedHonors.length ? (
+                  <div className="afl-grp">
+                    <div className="afl-k" data-af="honor" style={{ "--kc": "#B8863B" } as React.CSSProperties}>Honors</div>
+                    {undatedHonors.map((h, i) => (
+                      <p key={`h${i}`} className="afl-ev afl-ev--honor" data-af="honor"><span aria-hidden>{h.won ? "🏆" : "◇"}</span> {h.text}</p>
+                    ))}
+                  </div>
+                ) : null}
+                {undated.length ? (
+                  <div className="afl-grp">
+                    <div className="afl-k" data-af="review" style={{ "--kc": "#D64534" } as React.CSSProperties}>Reviews</div>
+                    {undated.map((r, i) => (
+                      <section key={i} className="afl-item" data-af="review">
+                        <h3 className="afl-h3">
+                          <a href={r.url} target="_blank" rel="noopener nofollow">{r.headline}</a>
+                        </h3>
+                        <p className="afl-src">{r.outlet}{r.critic ? ` · ${r.critic}` : ""}</p>
+                        <Quote r={r} />
+                      </section>
+                    ))}
+                  </div>
+                ) : null}
               </section>
             ) : null}
 

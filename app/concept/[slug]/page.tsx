@@ -431,7 +431,8 @@ export default async function ConceptPage({ params }: Props) {
           {tc.one_liner && (
             <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>
               <b style={{ fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", opacity: .55 }}>The idea in brief</b>{" "}
-              — {tc.one_liner}
+              — {tc.one_liner}{" "}
+              <span style={{ fontSize: 12, opacity: 0.55, whiteSpace: "nowrap" }}>© Metatake Editorial</span>
             </p>
           )}
 
