@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { type NowModule, safeHref } from "@/lib/now";
+import { type NowModule, provenanceHref } from "@/lib/now";
 
 /**
  * "The record" — the data layer of a Now Playing piece. Renders the typed
@@ -11,8 +11,12 @@ import { type NowModule, safeHref } from "@/lib/now";
 
 function Cell({ cell }: { cell: string | { text: string; href?: string } }) {
   if (typeof cell === "string") return <>{cell}</>;
-  const href = safeHref(cell.href);
-  return href ? <Link href={href}>{cell.text}</Link> : <>{cell.text}</>;
+  const p = provenanceHref(cell.href);
+  if (!p) return <>{cell.text}</>;
+  if (p.external) {
+    return <a href={p.href} target="_blank" rel="noopener nofollow">{cell.text}</a>;
+  }
+  return <Link href={p.href}>{cell.text}</Link>;
 }
 
 function ModuleBlock({ m }: { m: NowModule }) {

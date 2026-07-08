@@ -81,3 +81,13 @@ export function safeHref(href?: string): string | null {
   if (!href) return null;
   return href.startsWith("/") && !href.startsWith("//") ? href : null;
 }
+
+/** Data-provenance links inside "The record" tables may point at our own site
+ * OR a trustworthy external source (a review URL, a Wikidata record). These
+ * come from our own DB, never from model prose. Returns {href, external}. */
+export function provenanceHref(href?: string): { href: string; external: boolean } | null {
+  if (!href) return null;
+  if (href.startsWith("/") && !href.startsWith("//")) return { href, external: false };
+  if (href.startsWith("https://")) return { href, external: true };
+  return null;
+}
