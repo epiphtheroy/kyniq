@@ -211,8 +211,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await load(person);
   if (!data) return { title: "Not found" };
   const { p, crafts, cat, company, native } = data;
-  const role = CRAFTS[crafts[0].key].label;
-  const title = `${p.name}${native ? ` (${native})` : ""} — ${role}: Films & Collaborations`;
+  // Question-form title (ScreenRant grammar, 2026-07-08): the query people
+  // actually type is "what has X shot/written" — mirror it.
+  const VERBED: Record<string, string> = { writer: "Written", dp: "Shot", editor: "Cut", composer: "Scored", pd: "Designed" };
+  const title = `What Has ${p.name}${native ? ` (${native})` : ""} ${VERBED[crafts[0].key] ?? "Made"} — and With Whom?`;
   const description = leadSentence(p.name, native, crafts, cat, company[0] ?? null);
   return {
     title,
