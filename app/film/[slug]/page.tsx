@@ -73,7 +73,7 @@ type MediaRow = { id: string; kind: string; source: string; external_id: string;
 type TakeRow = { id: string; figure_id: string; framework: string | null; take_title: string | null; rationale: string | null; leap: string | null; strength: number | null; is_invitation: boolean | null; trope_id: string | null };
 type SM = { id: string; framework: string | null; take_title: string | null; thesis: string | null; leap: string | null; strength: number | null; figLabel: string; figSlug: string | null };
 type ArchRow = { axis: string; slug: string; label: string; n: number; fig_label: string | null; fig_slug: string | null; figs?: FigRef[] | null };
-type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string };
+type RcpRow = { kind: string; outlet: string; critic: string | null; year: number | null; tier: string; headline: string; comment: string; verdict: string | null; url: string; dek_lead: string | null; review_year: number | null };
 type WnRow = { pos: number; rec_title: string; rec_year: number | null; rec_director: string | null; reason: string; target_slug: string | null; target_title: string | null; target_year: number | null; target_poster: string | null; tmdb_id: number | null; poster_path: string | null };
 type WwPoint = { label?: string; text: string };
 type WwLens = { key: string; points: WwPoint[] };
@@ -377,7 +377,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -388,7 +388,8 @@ function load(slug: string) {
   // Cache key bumped (load5) when the Tier-2 digest fields (geo/scores/timestamps)
   // joined the minimal payload — the Data Cache outlives deploys, so a shape
   // change needs a new key. (load4 was the lnListMeta join.)
-  return unstable_cache(() => loadUncached(slug), ["film-load5", slug], {
+  // v6: reception rows carry dek_lead/review_year + afterlife scale counts (2026-07-08)
+  return unstable_cache(() => loadUncached(slug), ["film-load6", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
