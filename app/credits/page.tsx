@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import CreditsExplorer from "./CreditsExplorer";
 import { personSlug } from "./credits-logic";
@@ -34,7 +36,15 @@ function azGroups(): [string, CrewPerson[]][] {
   return [...groups.entries()].sort((a, b) => (a[0] === "#" ? 1 : b[0] === "#" ? -1 : a[0].localeCompare(b[0])));
 }
 
-export default function CreditsPage() {
+export default async function CreditsPage({ searchParams }: { searchParams: Promise<{ f?: string }> }) {
+  // The film view moved to /film/[slug]/credits (2026-07-08) — catalog films
+  // redirect there permanently; films outside the catalog keep the explorer.
+  const { f } = await searchParams;
+  if (f && /^\d+$/.test(f)) {
+    const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+    const { data } = await supabase.from("films").select("slug").eq("tmdb_id", Number(f)).maybeSingle();
+    if (data?.slug) permanentRedirect(`/film/${data.slug}/credits`);
+  }
   const groups = azGroups();
   const total = groups.reduce((s, [, ppl]) => s + ppl.length, 0);
   const people = (crewIndex as unknown as { people: CrewPerson[] }).people;
