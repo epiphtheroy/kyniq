@@ -46,9 +46,11 @@ def today_count(env: dict) -> int:
 
 
 def recent_anchors(env: dict) -> tuple[set, set, set]:
-    """(anchor slugs 7d, keywords 48h, anchor slugs 48h) for reuse/novelty rules."""
-    cut7 = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
-    cut48 = (datetime.now(timezone.utc) - timedelta(hours=48)).isoformat()
+    """(anchor slugs 7d, keywords 48h, anchor slugs 48h) for reuse/novelty rules.
+    Timestamps use Z, never +00:00 — a '+' in a query string is a space to
+    PostgREST and silently 400s the request (which disabled novelty once)."""
+    cut7 = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    cut48 = (datetime.now(timezone.utc) - timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M:%SZ")
     rows = sb_get(env, f"now_articles?select=anchor_slug,keyword,published_at&published_at=gte.{cut7}", service=True) or []
     a7 = {r["anchor_slug"] for r in rows if r.get("anchor_slug")}
     k48 = {(r.get("keyword") or "").lower() for r in rows if r["published_at"] >= cut48}
@@ -131,7 +133,9 @@ Reply with ONE JSON object only, no prose around it:
  "module_ids": ["0-2 module ids, ONLY if a table genuinely helps the letter; empty array is normal"],
  "module_notes": {"id": "optional one-line caption"},
  "sources": [{"outlet": "...", "title": "...", "url": "https://..."}]  // >= 2 distinct outlets you verified in search
-}"""
+}
+
+CRITICAL: after your web searches, your entire final answer must be that single JSON object - no analysis text before it, no commentary after it."""
 
 
 def writer_pass(env: dict, cand: dict, pack: dict, digest: str, angle: str, failure_report: str | None = None) -> dict | None:
@@ -155,8 +159,15 @@ PREVIOUS DRAFT FAILED THE GATE - fix exactly these and rewrite:
 {failure_report}''' if failure_report else ''}
 Write the piece now. JSON only."""
     out = anthropic_call(env, model=WRITER_MODEL, system=WRITER_SYSTEM, user=user,
-                         max_tokens=6000, web_search=True, timeout=900)
-    return parse_json_block(out or "")
+                         max_tokens=16000, web_search=True, timeout=900)
+    parsed = parse_json_block(out or "")
+    if parsed is None and out:
+        # keep the raw reply for diagnosis — unparseable writer output is the
+        # pipeline's most expensive failure
+        f = HOURLY / "drafts" / f"failed-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}.txt"
+        f.write_text(out)
+        log(f"writer reply unparseable ({len(out)} chars) — saved to {f.name}; head: {out[:150]!r}")
+    return parsed
 
 
 # ── gate ─────────────────────────────────────────────────────────────────────
