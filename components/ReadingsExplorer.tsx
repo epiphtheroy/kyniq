@@ -102,7 +102,7 @@ export default function ReadingsExplorer({ readings, about, listenEvent }: { rea
           const F = fw(r.framework);
           const href = `/film/${r.film_slug}/figure/${r.fig_slug}#t-${r.take_id}`;
           return (
-            <article className="thr" key={r.take_id}>
+            <article className="thr" key={r.take_id} id={`take-${r.take_id}`}>
               {r.backdrop_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>

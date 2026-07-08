@@ -97,7 +97,7 @@ export default function DeskExplorer({ desks, about, listenEvent }: { desks: Des
           const M = deskMeta(d.desk_key);
           const href = `/film/${d.film_slug}/${d.desk_key}`;
           return (
-            <article className="thr" key={`${d.film_slug}/${d.desk_key}`}>
+            <article className="thr" key={`${d.film_slug}/${d.desk_key}`} id={`desk-${d.film_slug}-${d.desk_key}`}>
               {d.backdrop_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <Link href={href} className="thr-th"><img src={`${IMG}/w300${d.backdrop_path}`} alt="" loading="lazy" /></Link>

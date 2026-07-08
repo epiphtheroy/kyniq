@@ -8,6 +8,7 @@ import FilmTabBar from "@/components/FilmTabBar";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplorer";
 import { attachKwic } from "@/lib/kwic";
+import ReadingLedger from "@/components/read/ReadingLedger";
 import EntityMap from "@/components/EntityMap";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
@@ -312,6 +313,7 @@ export default async function TheoristPage({ params }: Props) {
               </li>
             ) : null}
           </ul>
+          <ReadingLedger subject={name} readings={readings} essays={deskLinks} />
         </section>
 
         {/* ── The readings, by framework family — the tab structure IS the taxonomy ── */}

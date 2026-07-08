@@ -13,6 +13,7 @@ import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
 import { listicle } from "@/lib/listicle";
 import { attachKwic } from "@/lib/kwic";
+import ReadingLedger from "@/components/read/ReadingLedger";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
@@ -505,6 +506,7 @@ export default async function ConceptPage({ params }: Props) {
               </li>
             ) : null}
           </ul>
+          <ReadingLedger subject={name} readings={readings} essays={desks} />
         </section>
 
         {figTopC.length > 0 ? (
