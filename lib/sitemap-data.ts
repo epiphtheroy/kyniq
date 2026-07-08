@@ -11,6 +11,7 @@ import {
   INDEX_COHORT_FILM_HONORS,
   INDEX_COHORT_ESSAYS,
   INDEX_COHORT_MISREADINGS,
+  INDEX_COHORT_FILM_CREDITS,
 } from "@/lib/seo";
 import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
 import { cachedLineageEligibility } from "@/lib/lineage";
@@ -205,6 +206,27 @@ export async function misreadingsEntries(): Promise<SitemapEntry[]> {
       url: `${siteUrl}/film/${f.slug}/misreadings`,
       lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
     }));
+}
+
+/**
+ * /film/[slug]/credits pages (added 2026-07-08) — "who made this film",
+ * verbalized from TMDB relations. Visible films with a TMDB id, oldest-first
+ * + cap so raising the cohort only appends URLs.
+ */
+export async function filmCreditsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  const films = await fetchAll<{ slug: string; created_at: string; last_processed_at: string | null }>(
+    (from, to) =>
+      supabase.from("films").select("slug, created_at, last_processed_at")
+        .eq("visible", true).not("tmdb_id", "is", null)
+        .order("created_at", { ascending: true }).range(from, to),
+    INDEX_COHORT_FILM_CREDITS
+  );
+  return films.map((f) => ({
+    url: `${siteUrl}/film/${f.slug}/credits`,
+    lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
+  }));
 }
 
 /** Films — every visible film. */
