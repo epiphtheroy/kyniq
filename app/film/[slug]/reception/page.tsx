@@ -306,18 +306,20 @@ export default async function FilmReceptionPage({ params }: Props) {
 
       <ReadHero
         film={film}
-        crumbTail="Reviews & Afterlife"
-        chip={<>Reception · the record</>}
-        meta={<>{reviews.length} reviews{papers.length ? ` · ${papers.length} papers` : ""}{countries.length ? ` · ${countries.length} countries` : ""}{y1 && y0 && y1 > y0 ? ` · ${y0}–${y1}` : ""}</>}
-        title={<>{film.title}{yStr(film.year)} — What Critics Said, and Everything Since</>}
+        crumbTail={hasReviews ? "Reviews & Afterlife" : "Awards & Afterlife"}
+        chip={<>{hasReviews ? "Reception" : "Afterlife"} · the record</>}
+        meta={<>{metaBits}</>}
+        title={<>{film.title}{yStr(film.year)} — {hasReviews ? "What Critics Said, and Everything Since" : "Its Honors, Releases and Afterlife"}</>}
         dek={
           <>
             The public life of {film.title}
             {film.director ? <> — {film.director_slug ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : film.director}&apos;s film</> : null}
-            {" "}— year by year: {reviews.length} review{reviews.length === 1 ? "" : "s"} from {outlets.length} outlet{outlets.length === 1 ? "" : "s"}
-            {papers.length ? <>, {papers.length} scholarly paper{papers.length === 1 ? "" : "s"}</> : null}
-            {wdHonors.length + lineage.length ? <>, its honors</> : null}
-            {events.length ? <>, and every release and revival Metatake can date</> : null}. Every item links to its source.
+            {" "}— year by year: {[
+              hasReviews ? `${reviews.length} review${reviews.length === 1 ? "" : "s"} from ${outlets.length} outlet${outlets.length === 1 ? "" : "s"}` : null,
+              papers.length ? `${papers.length} scholarly paper${papers.length === 1 ? "" : "s"}` : null,
+              honorsN ? "its honors" : null,
+              events.length ? "every release and revival Metatake can date" : null,
+            ].filter(Boolean).join(", ")}. Every item links to its source.
           </>
         }
         videos={videos}
@@ -333,10 +335,9 @@ export default async function FilmReceptionPage({ params }: Props) {
           <div className="essay-body">
             <p>
               A film&apos;s release is the start of its life, not the end. Below is the record for {film.title}
-              {yStr(film.year)}, assembled from the publishers&apos; own headlines and link previews, TMDB&apos;s
+              {yStr(film.year)}, assembled from {hasReviews ? <>the publishers&apos; own headlines and link previews, </> : null}TMDB&apos;s
               release ledger, Wikidata&apos;s award record and Metatake&apos;s lineage archive — dated, sourced,
-              and in order. Quotes are verbatim from publishers&apos; link previews and paper abstracts; no article
-              text is stored.
+              and in order.{hasReviews ? <> Quotes are verbatim from publishers&apos; link previews and paper abstracts; no article text is stored.</> : null}
             </p>
             {years.map((y, yi) => (
               <section key={y} id={`y${y}`} data-af-year className="afl-year" style={{ "--yc": yearColor(y) } as React.CSSProperties}>
