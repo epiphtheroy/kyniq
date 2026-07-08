@@ -114,9 +114,13 @@
 .mt.cur .now-cf-lede { font: 400 13.5px/1.6 Inter, sans-serif; color: #b6b4b5; margin: 8px 0 12px; max-width: 720px; }
 .mt.cur .now-cutfloor ul { list-style: none; margin: 0; padding: 0; }
 .mt.cur .now-cutfloor li {
-  padding: 9px 0; border-bottom: 1px solid #2a2a2a; font: 400 14px/1.55 Inter, sans-serif; color: #d3d3d3;
+  padding: 11px 0; border-bottom: 1px solid #2a2a2a; font: 400 14px/1.55 Inter, sans-serif; color: #d3d3d3;
 }
 .mt.cur .now-cutfloor li:last-child { border-bottom: 0; }
+.mt.cur .now-cutfloor .meta {
+  display: block; font: 600 11px/1.4 Inter, sans-serif; letter-spacing: 0.04em; text-transform: uppercase;
+  color: #7f7d7e; margin-bottom: 3px;
+}
 .mt.cur .now-cutfloor a, .mt.cur .now-cutfloor .kw { color: #fff; font-weight: 600; }
 .mt.cur .now-cutfloor a { text-decoration: underline; text-decoration-color: #e3120b; text-underline-offset: 3px; }
 .mt.cur .now-cutfloor a:hover { color: #ff8177; }

@@ -15,7 +15,10 @@ export type NowModule = {
 
 export type NowSource = { outlet: string; title?: string; url: string };
 
-export type NowCutFloorItem = { keyword: string; url?: string; comment: string };
+export type NowCutFloorItem = {
+  keyword: string; url?: string; comment: string;
+  region?: string; date?: string; outlet?: string;
+};
 
 export type NowArchiveLink = { label: string; href: string; note?: string };
 

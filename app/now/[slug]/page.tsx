@@ -189,16 +189,20 @@ export default async function NowPiece({ params }: Props) {
               actually deepen. The editor&apos;s note on each:
             </p>
             <ul>
-              {p.cut_floor.map((c, i) => (
-                <li key={i}>
-                  {c.url ? (
-                    <a href={c.url} target="_blank" rel="noopener">{c.keyword}</a>
-                  ) : (
-                    <span className="kw">{c.keyword}</span>
-                  )}
-                  <span className="c"> — {c.comment}</span>
-                </li>
-              ))}
+              {p.cut_floor.map((c, i) => {
+                const meta = [c.region, c.date, c.outlet].filter(Boolean).join(" · ");
+                return (
+                  <li key={i}>
+                    {meta ? <span className="meta">{meta}</span> : null}
+                    {c.url ? (
+                      <a href={c.url} target="_blank" rel="noopener nofollow">{c.keyword}</a>
+                    ) : (
+                      <span className="kw">{c.keyword}</span>
+                    )}
+                    <span className="c"> — {c.comment}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ) : null}
