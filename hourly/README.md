@@ -42,11 +42,14 @@ v2 supersedes v1's fusion recipe after the case-evidence review (`FORECAST.md`):
 | Headline | The trending query's own words + the archive's angle | Proper nouns forward; no formulaic patterns |
 | Timestamp block | Published + last-updated, timezone-explicit | Rendered prominently; matches JSON-LD `datePublished`/`dateModified` |
 | Dek + one-line summary | What happened + what the record shows | Dek one sentence; summary 1–2 sentences, **bolded** |
-| The facts | What happened, verified | 2–3 short paragraphs; ≥2 independent sources, attributed; confirmed-vs-reported language; minimal evaluation |
-| **The record** | The corpus data layer — the differentiator | Structured modules assembled from the DB (pick the ≥3 that genuinely illuminate): honors/lineage timeline · TakeScore + component scores · tropes/figures the work deposits · connections/kinship (what shares the figure) · filmography-in-corpus with scores · atlas locations · reception-year arc · theorist links. Every number/claim must come from the data pack — nothing remembered, everything retrieved |
+| Hero image | The anchor film's TMDB backdrop | One header image (site already serves TMDB, no new rights risk); caption links the film page. Never a still implying it depicts the *news* event |
+| The facts | What happened, verified | 2–3 short paragraphs; ≥2 independent sources, **each attributed to an outlet AND a reporting date** ("Deadline reported on July 7 that…") — publish time ≠ news date; confirmed-vs-reported language; minimal evaluation |
+| **The record** | The corpus data layer — the differentiator | Structured modules assembled from the DB (pick the ≥3 that genuinely illuminate): honors/lineage timeline · TakeScore + component scores · reception-year arc · **shooting locations (atlas)** · **strong misreadings** · **essays on file** · filmography-in-corpus · theorist links. Every number/claim must come from the data pack — nothing remembered, everything retrieved |
 | The reading | What the pattern means in film history | Interpretive but data-grounded: the through-line the modules reveal. One named theorist/concept max, only if corpus-linked. Wit welcome; structures, not private individuals |
 | Bottom line | Re-tighten | 1–2 sentences; no new points |
 | Sources + deposit | Attribution + the Metatake edge | Outlets actually used; end `→ In Metatake:` naming what this piece deposits (figure/connection) |
+| Keep reading in the archive | The anchor's other live pages | Collected footer built from the data pack: film page · TakeScore · lineage/honors · shooting atlas · misreadings · director. Only links known to resolve |
+| On the cutting-room floor | The hour's rejected spikes | Up to 8 keywords we passed on this hour — each a source link + one dry editor's-note line on why it's off the beat. The anti-abuse posture made visible: we chose, and here's what we cut |
 
 **Voice.** Wonwoo Yoon's studio voice: declarative, front-loaded, short paragraphs, zero filler, no em-dashes. Anthony Lane wit is welcome in the reading; it never touches the facts. Criticism targets works, structures, institutions — never private individuals' character (non-negotiable at any speed).
 
