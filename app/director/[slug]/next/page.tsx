@@ -287,6 +287,14 @@ export default async function DirectorNextPage({ params }: Props) {
                     </div>
                   </div>
                 </section>
+                {still ? (
+                  <figure className="rd-fig">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`${IMG}/w780${still.backdrop_path}`} alt={`${still.title} still`} width={780} height={439} loading="lazy" />
+                    <figcaption>{still.title}{still.year ? ` (${still.year})` : ""} · via TMDB</figcaption>
+                  </figure>
+                ) : null}
+                </Fragment>
               );
             })}
 
@@ -350,6 +358,8 @@ export default async function DirectorNextPage({ params }: Props) {
           </p>
         </article>
       </div>
+
+      <DirectorPlates slug={slug} exclude="next" />
     </div>
   );
 }

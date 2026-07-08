@@ -2,11 +2,12 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
+import { Fragment, type CSSProperties } from "react";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
+import DirectorPlates from "@/components/read/DirectorPlates";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -103,6 +104,14 @@ export default async function DirectorLifePage({ params }: Props) {
   const bornYear = d?.birthday ? d.birthday.slice(0, 4) : null;
   const heroFilm = films.find((f) => f.backdrop_path) ?? null;
   const dated = films.filter((f) => f.year != null);
+
+  // Mid-article stills: the fact list breaks every 6 moments for a backdrop
+  // from the filmography (year order — the films query is year-ordered — hero
+  // excluded, max 3 stills). Numbering carries across segments via <ol start>.
+  const FACTS_PER_SEGMENT = 6;
+  const segments: Fact[][] = [];
+  for (let i = 0; i < sorted.length; i += FACTS_PER_SEGMENT) segments.push(sorted.slice(i, i + FACTS_PER_SEGMENT));
+  const lifeStills = films.filter((f) => f.backdrop_path && f.slug !== heroFilm?.slug).slice(0, 3);
 
   const metaLine = [
     `${n} moment${n === 1 ? "" : "s"}`,
@@ -226,17 +235,31 @@ export default async function DirectorLifePage({ params }: Props) {
               </p>
             ) : null}
 
-            <ol className="dr-life-list">
-              {sorted.map((f) => {
-                const host = hostOf(f.source);
-                return (
-                  <li key={f.n} id={`m${f.n}`} className="dr-fact">
-                    {f.text}
-                    {f.source ? <> <a className="dr-fact-src" href={f.source} target="_blank" rel="noopener nofollow" title={f.source}>↗ {host}</a></> : null}
-                  </li>
-                );
-              })}
-            </ol>
+            {segments.map((seg, si) => {
+              const still = si < segments.length - 1 ? lifeStills[si] : undefined;
+              return (
+                <Fragment key={seg[0].n}>
+                  <ol className="dr-life-list" start={si * FACTS_PER_SEGMENT + 1}>
+                    {seg.map((f) => {
+                      const host = hostOf(f.source);
+                      return (
+                        <li key={f.n} id={`m${f.n}`} className="dr-fact">
+                          {f.text}
+                          {f.source ? <> <a className="dr-fact-src" href={f.source} target="_blank" rel="noopener nofollow" title={f.source}>↗ {host}</a></> : null}
+                        </li>
+                      );
+                    })}
+                  </ol>
+                  {still ? (
+                    <figure className="rd-fig">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`${IMG}/w780${still.backdrop_path}`} alt={`${still.title} still`} width={780} height={439} loading="lazy" />
+                      <figcaption>{still.title}{still.year ? ` (${still.year})` : ""} · via TMDB</figcaption>
+                    </figure>
+                  ) : null}
+                </Fragment>
+              );
+            })}
             <div className="dr-src">Each fact is written freely, then verified against a live web source (English &amp; native-language). Source link per fact.</div>
 
             {films.length ? (
