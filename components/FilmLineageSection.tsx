@@ -3,14 +3,18 @@ import { awardBody, awardLabel, canonEmblem, codeToFlag } from "@/lib/lineageBod
 import { lineageSource, wikidataUrl } from "@/lib/lineage";
 
 /**
- * Lineage section — the film's honours record (awards, canons & rankings,
- * national canons, auteur line), each row citing its list's source. Shared by
- * the full and catalog (Tier-2) film pages; this IS the "Lineage" tab's
- * content, mirroring the standalone /film/lineage/[slug] record page.
+ * Lineage section — the film's record, reworked 2026-07-08: a spelled-out
+ * numeric summary + critic pull-quotes up top, the detailed per-facet row
+ * lists behind counted curtains, and two large slates that SHOW how much
+ * sits behind "see more" (the full honors record page and the reviews-&-
+ * afterlife timeline). Shared by the full and catalog (Tier-2) film pages —
+ * every new prop is optional, so Tier-2 renders exactly as before.
  */
 export type LinRow = { facet: string; list_slug: string; list_label: string; parent_label: string | null; result: string | null; rank: number | null; edition_year: number | null; rank_max: number | null; rep_type: string | null; country?: string | null };
 export type MvChip = { slug: string; label: string; kind: string; country_code: string | null };
 export type ListMetaLite = { source: string | null; external_ref: { wikidata?: string; url?: string } | null };
+export type LinQuote = { text: string; outlet: string; critic: string | null; year: number | null; url: string };
+export type AfterlifeStats = { reviews: number; papers: number; releases: number; honors: number; y0: number | null; y1: number | null };
 
 const HONORS_MIN = 3; // mirrors FILM_HONORS_MIN in lib/lineage.ts — /film/lineage/[slug] 404 bar
 
@@ -35,7 +39,10 @@ function SourceTag({ meta }: { meta: ListMetaLite | undefined }) {
   );
 }
 
-export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [] }: { lineage: LinRow[]; title: string; slug?: string; listMeta?: Record<string, ListMetaLite>; movements?: MvChip[] }) {
+export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, backdropPath = null }: {
+  lineage: LinRow[]; title: string; slug?: string; listMeta?: Record<string, ListMetaLite>; movements?: MvChip[];
+  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; backdropPath?: string | null;
+}) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linNational = lineage.filter((l) => l.facet === "national" && l.result === "listed");
   const linCanons = lineage.filter((l) => l.facet !== "auteur" && l.facet !== "national" && l.result === "listed");
@@ -43,6 +50,15 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
   const nations = movements.filter((m) => m.kind !== "movement");
   const moves = movements.filter((m) => m.kind === "movement");
   if (linAwards.length + linCanons.length + linNational.length + linAuteur.length + movements.length === 0) return null;
+
+  // Spelled-out numbers — deterministic, from the rows themselves.
+  const wins = linAwards.filter((l) => l.result === "won").length;
+  const noms = linAwards.length - wins;
+  const canonsN = linCanons.length + linNational.length;
+  const listsN = new Set(lineage.map((l) => l.list_slug)).size;
+  const editionYears = lineage.map((l) => l.edition_year).filter((y): y is number => !!y && y > 1880);
+  const eY0 = editionYears.length ? Math.min(...editionYears) : null;
+  const eY1 = editionYears.length ? Math.max(...editionYears) : null;
 
   const Row = ({ l, emblem }: { l: LinRow; emblem: string }) => (
     <div className="lin-row">
@@ -60,10 +76,45 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
     </div>
   );
 
+  // Curtained facet group — the summary line carries the count and a preview,
+  // so the scale is visible before opening (ReadingLedger grammar).
+  const Curtain = ({ label, items, emblemFor, open }: {
+    label: string; items: LinRow[]; emblemFor: (l: LinRow) => string; open?: boolean;
+  }) => {
+    if (!items.length) return null;
+    const preview = [...new Set(items.map((l) => awardLabel(l.list_label, l.list_slug)))].slice(0, 3).join(" · ");
+    return (
+      <details className="vl-d" open={open}>
+        <summary>
+          <span className="vl-sum-d">{label}</span>
+          <span className="vl-n">{items.length}</span>
+          <span className="vl-sum-kw">{preview}{items.length > 3 ? " …" : ""}</span>
+        </summary>
+        <div className="lin-list" style={{ padding: "2px 18px 14px 20px" }}>
+          {items.map((l, i) => <Row key={i} l={l} emblem={emblemFor(l)} />)}
+        </div>
+      </details>
+    );
+  };
+
+  const showRecordSlate = !!slug && lineage.length >= HONORS_MIN;
+  const showAfterlifeSlate = !!slug && !!afterlife && afterlife.reviews + afterlife.papers > 0;
+
   return (
     <section className="df-sec" id="df-lineage">
-      <h2 className="df-h2">Lineage</h2>
+      <h2 className="df-h2">Lineage — the record</h2>
       <p className="df-sub">Where {title} comes from and sits in cinema&apos;s record — its national cinema and movement, the awards it won, the canons it belongs to, and the auteur line it extends. Sourced per entry.</p>
+
+      {/* ── The record, spelled out — one glance at the scale ── */}
+      <div className="lin-stats">
+        {wins > 0 ? <span className="lin-stat" style={{ "--sc": "#B8863B" } as React.CSSProperties}>🏆 {wins} win{wins === 1 ? "" : "s"}</span> : null}
+        {noms > 0 ? <span className="lin-stat" style={{ "--sc": "#C87A2C" } as React.CSSProperties}>◇ {noms} nomination{noms === 1 ? "" : "s"}</span> : null}
+        {canonsN > 0 ? <span className="lin-stat" style={{ "--sc": "#12897A" } as React.CSSProperties}>📚 {canonsN} canon appearance{canonsN === 1 ? "" : "s"}</span> : null}
+        {linAuteur.length > 0 ? <span className="lin-stat" style={{ "--sc": "#6B4E9E" } as React.CSSProperties}>🎬 auteur line ×{linAuteur.length}</span> : null}
+        {listsN > 1 ? <span className="lin-stat" style={{ "--sc": "#5A6B86" } as React.CSSProperties}>{listsN} lists</span> : null}
+        {eY0 && eY1 && eY1 > eY0 ? <span className="lin-stat" style={{ "--sc": "#2F6DB0" } as React.CSSProperties}>{eY0}–{eY1}</span> : null}
+      </div>
+
       {movements.length > 0 ? (
         <div className="df-lingrp">
           <div className="df-flabel">National cinema &amp; movements <span className="df-cnt">{movements.length}</span></div>
@@ -83,46 +134,75 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
           </div>
         </div>
       ) : null}
-      {linAwards.length > 0 ? (
-        <div className="df-lingrp">
-          <div className="df-flabel">Awards &amp; honours <span className="df-cnt">{linAwards.length}</span></div>
-          <div className="lin-list">
-            {linAwards.map((l, i) => {
-              const b = awardBody(l.list_slug);
-              return <Row key={`a${i}`} l={{ ...l, parent_label: b?.name ?? l.parent_label }} emblem={b?.emblem ?? "🏆"} />;
-            })}
-          </div>
+
+      {/* ── What critics said — the pull-quotes worth reading in place ── */}
+      {quotes.length > 0 ? (
+        <div className="lin-quotes">
+          <div className="df-flabel">What critics said</div>
+          {quotes.map((q, i) => (
+            <figure key={i} style={{ margin: "10px 0 0" }}>
+              <blockquote className="afl-q" style={{ margin: 0 }}>“{q.text}”</blockquote>
+              <figcaption className="lin-qsrc">
+                — <a href={q.url} target="_blank" rel="noopener nofollow">{q.outlet}</a>
+                {q.critic ? ` · ${q.critic}` : ""}{q.year ? ` · ${q.year}` : ""}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       ) : null}
-      {linCanons.length > 0 ? (
-        <div className="df-lingrp">
-          <div className="df-flabel">Canons &amp; rankings <span className="df-cnt">{linCanons.length}</span></div>
-          <div className="lin-list">
-            {linCanons.map((l, i) => <Row key={`c${i}`} l={l} emblem={canonEmblem(l.list_slug)} />)}
-          </div>
+
+      {/* ── The detail, behind counted curtains — scale visible before opening ── */}
+      <div style={{ margin: "14px 0 0" }}>
+        <Curtain label="Awards & honours" items={linAwards.map((l) => ({ ...l, parent_label: awardBody(l.list_slug)?.name ?? l.parent_label }))} emblemFor={(l) => awardBody(l.list_slug)?.emblem ?? "🏆"} open={linAwards.length > 0 && linAwards.length <= 6} />
+        <Curtain label="Canons & rankings" items={linCanons} emblemFor={(l) => canonEmblem(l.list_slug)} />
+        <Curtain label="National canons" items={linNational} emblemFor={() => "🏛️"} />
+        <Curtain label="Auteur lineage" items={linAuteur} emblemFor={() => "🎬"} />
+      </div>
+
+      {/* ── The doors: how much sits behind "see more" ── */}
+      {showRecordSlate || showAfterlifeSlate ? (
+        <div className="lin-slates">
+          {showRecordSlate ? (
+            <Link href={`/film/lineage/${slug}`} className="lin-slate">
+              {backdropPath ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="lin-slate__bg" src={`https://image.tmdb.org/t/p/w780${backdropPath}`} alt="" loading="lazy" />
+              ) : null}
+              <span className="lin-slate__in">
+                <span className="lin-slate__k">The complete record</span>
+                <h3>Every award, canon and ranking {title} holds — sourced</h3>
+                <span className="lin-slate__b">
+                  <span className="lin-slate__n">{lineage.length} entries</span>
+                  <span className="lin-slate__n">{listsN} lists</span>
+                  {eY0 && eY1 ? <span className="lin-slate__n">{eY0}{eY1 > eY0 ? `–${eY1}` : ""}</span> : null}
+                </span>
+                <span className="lin-slate__go">Open the record →</span>
+              </span>
+            </Link>
+          ) : null}
+          {showAfterlifeSlate && afterlife ? (
+            <Link href={`/film/${slug}/reception`} className="lin-slate">
+              {backdropPath ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="lin-slate__bg" src={`https://image.tmdb.org/t/p/w780${backdropPath}`} alt="" loading="lazy" />
+              ) : null}
+              <span className="lin-slate__in">
+                <span className="lin-slate__k">Reviews &amp; afterlife</span>
+                <h3>What critics said about {title} — and everything since, year by year</h3>
+                <span className="lin-slate__b">
+                  <span className="lin-slate__n">{afterlife.reviews} review{afterlife.reviews === 1 ? "" : "s"}</span>
+                  {afterlife.papers > 0 ? <span className="lin-slate__n">{afterlife.papers} paper{afterlife.papers === 1 ? "" : "s"}</span> : null}
+                  {afterlife.releases > 0 ? <span className="lin-slate__n">{afterlife.releases} releases</span> : null}
+                  {afterlife.honors > 0 ? <span className="lin-slate__n">{afterlife.honors} honors</span> : null}
+                  {afterlife.y0 && afterlife.y1 && afterlife.y1 > afterlife.y0 ? <span className="lin-slate__n">{afterlife.y0}–{afterlife.y1}</span> : null}
+                </span>
+                <span className="lin-slate__go">Open the timeline →</span>
+              </span>
+            </Link>
+          ) : null}
         </div>
       ) : null}
-      {linNational.length > 0 ? (
-        <div className="df-lingrp">
-          <div className="df-flabel">National canons <span className="df-cnt">{linNational.length}</span></div>
-          <div className="lin-list">
-            {linNational.map((l, i) => <Row key={`t${i}`} l={l} emblem="🏛️" />)}
-          </div>
-        </div>
-      ) : null}
-      {linAuteur.length > 0 ? (
-        <div className="df-lingrp">
-          <div className="df-flabel">Auteur lineage <span className="df-cnt">{linAuteur.length}</span></div>
-          <div className="lin-list">
-            {linAuteur.map((l, i) => <Row key={`u${i}`} l={l} emblem="🎬" />)}
-          </div>
-        </div>
-      ) : null}
-      {slug && lineage.length >= HONORS_MIN ? (
-        <p style={{ margin: "12px 0 0", fontSize: 15 }}>
-          <Link href={`/film/lineage/${slug}`}>The complete record — every award, canon and ranking, with sources →</Link>
-        </p>
-      ) : null}
+
       <div className="df-src">Origin from TMDB; awards &amp; canons from public records and critics&apos;/institutional polls — cited per entry above; movements from auteur rosters.</div>
     </section>
   );
