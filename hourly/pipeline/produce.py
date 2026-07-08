@@ -1,0 +1,421 @@
+#!/usr/bin/env python3
+"""Now Playing — the hourly production run (README.md v2).
+
+DETECT (poller) -> SELECT (mechanical + one light LLM pass) -> data pack ->
+WRITE (Fable 5 + web search) -> GATE (deterministic + LLM) -> PUBLISH
+(insert + revalidate + IndexNow + Bluesky/Telegram).
+
+Hard rules enforced here: HOLD kill switch, daily cap (4), 48h novelty,
+corpus-depth >= 3 modules, sources >= 2 distinct outlets, internal-only links
+in body HTML, defamation gate. The automated path runs the DIRECT lane only;
+the exception lane (figure-rhyme on off-beat news) stays manual by design.
+
+Usage: python3 -m pipeline.produce            (from hourly/)
+       python3 hourly/pipeline/produce.py --dry   (stop before publishing)
+"""
+from __future__ import annotations
+
+import json
+import re
+import sys
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from urllib.parse import quote, urlparse
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from pipeline.common import (HOURLY, anthropic_call, http, ledger_append,  # noqa: E402
+                             load_env, log, now_utc, parse_json_block, sb_get, sb_insert, slugify)
+from pipeline.datapack import build_pack  # noqa: E402
+
+WRITER_MODEL = "claude-fable-5"
+LIGHT_MODEL = "claude-sonnet-5"
+DAILY_CAP = 4
+MIN_MECH = 9          # spike + corroboration + beat prefilter
+MIN_CORR = 3          # >= 2 distinct outlets
+INDEXNOW_KEY = "72623852f17d4eb341d4cd3755d3ba64"
+
+ALLOWED_TAGS = {"p", "a", "b", "i", "em", "strong", "ul", "li", "br"}
+
+
+# ── selection ────────────────────────────────────────────────────────────────
+
+def today_count(env: dict) -> int:
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    rows = sb_get(env, f"now_articles?select=slug&published_at=gte.{day}T00:00:00Z", service=True)
+    return len(rows) if isinstance(rows, list) else 0
+
+
+def recent_anchors(env: dict) -> tuple[set, set, set]:
+    """(anchor slugs 7d, keywords 48h, anchor slugs 48h) for reuse/novelty rules."""
+    cut7 = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+    cut48 = (datetime.now(timezone.utc) - timedelta(hours=48)).isoformat()
+    rows = sb_get(env, f"now_articles?select=anchor_slug,keyword,published_at&published_at=gte.{cut7}", service=True) or []
+    a7 = {r["anchor_slug"] for r in rows if r.get("anchor_slug")}
+    k48 = {(r.get("keyword") or "").lower() for r in rows if r["published_at"] >= cut48}
+    a48 = {r["anchor_slug"] for r in rows if r.get("anchor_slug") and r["published_at"] >= cut48}
+    return a7, k48, a48
+
+
+def anti_repetition_digest(env: dict) -> str:
+    rows = sb_get(env, "now_articles?select=headline,anchor_label,modules,published_at&order=published_at.desc&limit=12", service=True) or []
+    lines = []
+    for r in rows:
+        mods = ",".join(m.get("type", "?") for m in (r.get("modules") or []))
+        lines.append(f"- {r['published_at'][:16]} · {r['headline']} · anchor {r['anchor_label']} · modules {mods}")
+    return "\n".join(lines) or "(none yet)"
+
+
+def selector_pass(env: dict, cand: dict, pack: dict, digest: str) -> dict | None:
+    """One light-model judgment: corpus depth + search shape + angle. Returns
+    {proceed, depth, search_shape, angle} or None on API failure."""
+    mods = [{"id": m["id"], "type": m["type"], "title": m["title"],
+             "size": len(m.get("rows") or m.get("items") or [])} for m in pack["modules"]]
+    user = f"""A trend candidate for Metatake's "Now Playing" live layer (data-deep film-history pieces, no political verdicts).
+
+CANDIDATE
+keyword: {cand['keyword']} (traffic {cand.get('traffic') or 'n/a'}, geo {cand.get('geo')})
+anchor entity in our corpus: {json.dumps(pack['anchor'], ensure_ascii=False)}
+news links seen: {json.dumps((cand.get('news') or [])[:3] + (cand.get('fleet_hits') or [])[:3], ensure_ascii=False)}
+
+AVAILABLE DATA MODULES (from our own database): {json.dumps(mods, ensure_ascii=False)}
+
+RECENT PIECES (avoid repeating anchors/shapes):
+{digest}
+
+Judge, 1-5 each:
+- depth: can >=3 of these modules genuinely illuminate THIS news moment (not decoration)?
+- search_shape: is there a query real people are typing right now where this piece could be the best page?
+Reply as JSON only: {{"proceed": true/false, "depth": n, "search_shape": n, "angle": "one sentence: the film-history read this piece should take"}}.
+proceed=false if either score < 3, if the news is only tangent to the entity, or if this would repeat a recent piece."""
+    out = anthropic_call(env, model=LIGHT_MODEL, system="You are the selection editor. Reply with JSON only.",
+                         user=user, max_tokens=900)
+    parsed = parse_json_block(out or "")
+    if parsed is None:
+        log(f"selector unparseable reply: {(out or '')[:200]!r}")
+    return parsed
+
+
+# ── writer ───────────────────────────────────────────────────────────────────
+
+WRITER_SYSTEM = """You write for "Now Playing", the live layer of metatake.net, as Wonwoo Yoon's studio.
+One piece = one spiking story + one corpus anchor + the archive's data record. NOT a hot take, NOT a political verdict: the data-deep film-history read, timestamped.
+
+Voice: declarative, front-loaded, short paragraphs, zero filler, no em-dashes, no stacked hedges. Wit is welcome in the reading; it never touches the facts. Criticism targets works, structures, institutions - never private individuals' character.
+
+Workflow (mandatory): (1) use web_search at least twice - verify the core facts beyond the provided links, and find what is actually confirmed vs merely reported right now; (2) then write.
+
+Honesty at speed: first-hour facts move. Say once, plainly, what is confirmed vs reported. Attribute every fact to an outlet. Only cite sources you actually saw in search results.
+
+HTML rules for body fields: only <p>, <b>, <i>, <em>, <strong>, <ul>, <li>, <br>, and <a href="..."> where href MUST start with "/" (site-internal). News sources go in the sources array, never as links in body HTML.
+
+Data honesty: every number or archival claim in your prose must come from the provided data modules. You may SELECT which modules run (by id) and caption them; you cannot invent data.
+
+Reply with ONE JSON object only, no prose around it:
+{
+ "slug": "kebab-case, entity + event, 8-80 chars",
+ "headline": "the searcher's proper nouns + the archive's angle, 40-100 chars, no formula",
+ "dek": "one sentence preview",
+ "summary": "the whole thesis in 1-2 plain sentences (no HTML)",
+ "facts_html": "2-3 short <p> paragraphs: what happened, attributed, confirmed-vs-reported explicit",
+ "reading_html": "2-4 short <p> paragraphs: what the record shows about this moment - the through-line the data modules reveal; at most one named theorist and only if corpus-linked",
+ "bottom_html": "1 <p>: re-tighten, no new points",
+ "deposit": "one line naming what this piece deposits in Metatake (a figure/connection), no HTML",
+ "module_ids": ["3+ ids chosen from the provided modules, in running order"],
+ "module_notes": {"id": "optional one-line caption replacing the default note"},
+ "sources": [{"outlet": "...", "title": "...", "url": "https://..."}]  // >= 2 distinct outlets you verified in search
+}"""
+
+
+def writer_pass(env: dict, cand: dict, pack: dict, digest: str, angle: str, failure_report: str | None = None) -> dict | None:
+    mods_full = json.dumps(pack["modules"], ensure_ascii=False)
+    user = f"""THE SPIKE
+keyword being searched right now: {cand['keyword']} (approx traffic {cand.get('traffic') or 'n/a'}, geo {cand.get('geo')}; first seen {cand.get('first_seen')})
+anchor entity (verified in corpus): {json.dumps(pack['anchor'], ensure_ascii=False)}
+starting links (verify and go beyond them): {json.dumps((cand.get('news') or []) + (cand.get('fleet_hits') or [])[:4], ensure_ascii=False)}
+
+SELECTION EDITOR'S ANGLE: {angle}
+
+DATA MODULES (the record - select >=3 by id): {mods_full}
+
+ANTI-REPETITION - the last 12 pieces (do not repeat their headline shapes, openings, or closings):
+{digest}
+{f'''
+PREVIOUS DRAFT FAILED THE GATE - fix exactly these and rewrite:
+{failure_report}''' if failure_report else ''}
+Write the piece now. JSON only."""
+    out = anthropic_call(env, model=WRITER_MODEL, system=WRITER_SYSTEM, user=user,
+                         max_tokens=6000, web_search=True, timeout=900)
+    return parse_json_block(out or "")
+
+
+# ── gate ─────────────────────────────────────────────────────────────────────
+
+def _strip_dashes(s: str) -> str:
+    return s.replace(" — ", ", ").replace("—", "-").replace(" – ", ", ").replace("–", "-")
+
+
+def _html_ok(html: str) -> str | None:
+    for tag in re.findall(r"</?([a-zA-Z0-9]+)", html):
+        if tag.lower() not in ALLOWED_TAGS:
+            return f"disallowed tag <{tag}>"
+    for href in re.findall(r'href="([^"]*)"', html):
+        if not href.startswith("/") or href.startswith("//"):
+            return f"external href in body: {href}"
+    if re.search(r"\bon\w+\s*=|javascript:", html, re.I):
+        return "scripty attribute"
+    return None
+
+
+def _words(html: str) -> int:
+    return len(re.sub(r"<[^>]+>", " ", html).split())
+
+
+def deterministic_gate(env: dict, piece: dict, pack: dict) -> list[str]:
+    fails: list[str] = []
+    for k in ("slug", "headline", "summary", "facts_html", "reading_html", "deposit", "module_ids", "sources"):
+        if not piece.get(k):
+            fails.append(f"missing field {k}")
+    if fails:
+        return fails
+
+    for k in ("summary", "dek", "facts_html", "reading_html", "bottom_html", "deposit", "headline"):
+        if piece.get(k):
+            piece[k] = _strip_dashes(piece[k])
+
+    if not re.fullmatch(r"[a-z0-9-]{8,80}", piece["slug"]):
+        piece["slug"] = slugify(piece["headline"])
+    if sb_get(env, f"now_articles?select=slug&slug=eq.{quote(piece['slug'])}", service=True):
+        piece["slug"] = f"{piece['slug'][:70]}-{datetime.now(timezone.utc).strftime('%H%M')}"
+
+    if not (30 <= len(piece["headline"]) <= 120):
+        fails.append(f"headline length {len(piece['headline'])}")
+    for k in ("facts_html", "reading_html", "bottom_html"):
+        if piece.get(k):
+            err = _html_ok(piece[k])
+            if err:
+                fails.append(f"{k}: {err}")
+    total = _words(piece["facts_html"]) + _words(piece["reading_html"]) + _words(piece.get("bottom_html") or "")
+    if not (250 <= total <= 1200):
+        fails.append(f"prose length {total} words (need 250-1200)")
+
+    pack_ids = {m["id"] for m in pack["modules"]}
+    ids = [i for i in (piece.get("module_ids") or []) if i in pack_ids]
+    if len(ids) < 3:
+        fails.append(f"module_ids: only {len(ids)} valid (need >=3 of {sorted(pack_ids)})")
+    piece["module_ids"] = ids
+
+    srcs = piece.get("sources") or []
+    domains = set()
+    for s in srcs:
+        u = s.get("url", "")
+        if not u.startswith("http"):
+            fails.append(f"bad source url {u!r}")
+            continue
+        domains.add(urlparse(u).netloc.removeprefix("www."))
+    if len(domains) < 2:
+        fails.append(f"sources: {len(domains)} distinct outlets (need >=2)")
+    for s in srcs[:5]:
+        status, _ = http(s["url"], timeout=12, retries=0)
+        if status == 0 or status >= 500:
+            fails.append(f"source unreachable ({status}): {s['url']}")
+    return fails
+
+
+def llm_gate(env: dict, piece: dict) -> dict | None:
+    body = json.dumps({k: piece.get(k) for k in ("headline", "dek", "summary", "facts_html", "reading_html", "bottom_html")}, ensure_ascii=False)
+    user = f"""Gate this news piece before auto-publish. FAIL it if ANY of:
+1. Defamation risk: claims about a private individual's character; unverified accusations stated as fact about ANY person (public figures: actions/structures only).
+2. Unverified assertion: a factual claim presented as confirmed that the piece itself does not attribute to a source.
+3. Copyright: quoted passages beyond brief attributed reference.
+4. Tone breach: outrage-as-conclusion, engagement bait, or a political verdict (this product is film-history data reading, not ethics columns).
+
+PIECE: {body}
+
+Reply JSON only: {{"pass": true/false, "failures": ["quote the offending text + which rule", ...]}}"""
+    out = anthropic_call(env, model=LIGHT_MODEL, system="You are the pre-publication gate. Strict. JSON only.",
+                         user=user, max_tokens=600)
+    return parse_json_block(out or "")
+
+
+# ── publish ──────────────────────────────────────────────────────────────────
+
+def assemble_modules(piece: dict, pack: dict) -> list[dict]:
+    by_id = {m["id"]: m for m in pack["modules"]}
+    notes = piece.get("module_notes") or {}
+    out = []
+    for mid in piece["module_ids"]:
+        m = dict(by_id[mid])
+        if notes.get(mid):
+            m["note"] = _strip_dashes(str(notes[mid]))[:200]
+        m.pop("id", None)
+        m.pop("more_href", None)
+        out.append(m)
+    return out
+
+
+def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict) -> tuple[bool, str]:
+    anchor = pack["anchor"]
+    row = {
+        "slug": piece["slug"], "headline": piece["headline"], "dek": piece.get("dek"),
+        "summary": piece.get("summary"), "keyword": cand["keyword"], "lane": "direct",
+        "anchor_type": anchor["type"], "anchor_slug": anchor.get("slug"), "anchor_label": anchor["label"],
+        "film_slug": pack.get("film_slug"),
+        "facts_html": piece["facts_html"], "reading_html": piece["reading_html"],
+        "bottom_html": piece.get("bottom_html"), "deposit": piece.get("deposit"),
+        "modules": assemble_modules(piece, pack), "sources": piece["sources"], "scores": scores,
+        "status": "published",
+    }
+    ok, info = sb_insert(env, "now_articles", row)
+    return ok, info
+
+
+def after_publish(env: dict, slug: str, headline: str, dek: str | None) -> list[str]:
+    site = env.get("NEXT_PUBLIC_SITE_URL", "https://metatake.net").rstrip("/")
+    url = f"{site}/now/{slug}"
+    done = []
+
+    secret = env.get("REVALIDATION_SECRET")
+    if secret:
+        for path in (f"/now/{slug}", "/now", "/"):
+            http(f"{site}/api/revalidate?secret={quote(secret)}&path={quote(path)}", timeout=15, retries=0)
+        done.append("revalidate")
+
+    host = urlparse(site).netloc
+    body = json.dumps({"host": host, "key": INDEXNOW_KEY,
+                       "keyLocation": f"{site}/{INDEXNOW_KEY}.txt",
+                       "urlList": [url, f"{site}/now", f"{site}/news-sitemap.xml"]}).encode()
+    status, _ = http("https://api.indexnow.org/indexnow", method="POST", body=body,
+                     headers={"Content-Type": "application/json; charset=utf-8"}, retries=0)
+    done.append(f"indexnow:{status}")
+
+    text = f"{headline}\n\n{dek or ''}\n\nThe record, timestamped:\n{url}".strip()
+    if env.get("TELEGRAM_BOT_TOKEN") and env.get("TELEGRAM_CHANNEL"):
+        status, _ = http(f"https://api.telegram.org/bot{env['TELEGRAM_BOT_TOKEN']}/sendMessage",
+                         method="POST", body=json.dumps({"chat_id": env["TELEGRAM_CHANNEL"], "text": text}).encode(),
+                         headers={"Content-Type": "application/json"}, retries=0)
+        done.append(f"telegram:{status}")
+    if env.get("BLUESKY_HANDLE") and env.get("BLUESKY_APP_PASSWORD"):
+        done.append(f"bluesky:{_bluesky_post(env, headline, url)}")
+    return done
+
+
+def _bluesky_post(env: dict, headline: str, url: str) -> int:
+    status, data = http("https://bsky.social/xrpc/com.atproto.server.createSession", method="POST",
+                        body=json.dumps({"identifier": env["BLUESKY_HANDLE"], "password": env["BLUESKY_APP_PASSWORD"]}).encode(),
+                        headers={"Content-Type": "application/json"}, retries=0)
+    if status != 200:
+        return status
+    try:
+        sess = json.loads(data)
+    except Exception:
+        return 0
+    text = f"{headline}\n\n{url}"
+    start = len(text.encode()) - len(url.encode())
+    record = {"$type": "app.bsky.feed.post", "text": text,
+              "createdAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+              "facets": [{"index": {"byteStart": start, "byteEnd": len(text.encode())},
+                          "features": [{"$type": "app.bsky.richtext.facet#link", "uri": url}]}]}
+    status, _ = http("https://bsky.social/xrpc/com.atproto.repo.createRecord", method="POST",
+                     body=json.dumps({"repo": sess["did"], "collection": "app.bsky.feed.post", "record": record}).encode(),
+                     headers={"Content-Type": "application/json", "Authorization": f"Bearer {sess['accessJwt']}"}, retries=0)
+    return status
+
+
+# ── main ─────────────────────────────────────────────────────────────────────
+
+def main() -> None:
+    dry = "--dry" in sys.argv
+    env = load_env()
+    stamp = now_utc()
+
+    if (HOURLY / "HOLD").exists():
+        log("HOLD file present — publishing stopped by editor")
+        ledger_append(f"{stamp} · PASS · HOLD file present")
+        return
+    if not env.get("ANTHROPIC_API_KEY") or not env.get("SUPABASE_SERVICE_ROLE_KEY"):
+        log("missing ANTHROPIC_API_KEY / SUPABASE_SERVICE_ROLE_KEY in .env.local")
+        return
+
+    n = today_count(env)
+    if n >= DAILY_CAP:
+        log(f"daily cap reached ({n}/{DAILY_CAP})")
+        ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP}")
+        return
+
+    from poller.poller import collect_candidates  # local import: hourly/ is on sys.path
+    snap = collect_candidates()
+    a7, k48, a48 = recent_anchors(env)
+
+    cands = [c for c in snap["candidates"]
+             if c["beat"] >= 4 and c["corroboration"] >= MIN_CORR
+             and c["spike"] + c["corroboration"] + c["beat"] >= MIN_MECH]
+    if not cands:
+        log("no qualifying candidate")
+        ledger_append(f"{stamp} · PASS · no beat candidate above threshold ({len(snap['candidates'])} raw)")
+        return
+
+    digest = anti_repetition_digest(env)
+    for cand in cands[:3]:
+        ent = cand["entity"]
+        if ent.get("slug") in a7 or ent.get("slug") in a48 or cand["keyword"].lower() in k48:
+            log(f"novelty skip: {cand['keyword']}")
+            continue
+
+        pack = build_pack(env, {"type": ent["type"], "slug": ent.get("slug"), "label": ent["label"]})
+        if pack["depth"] < 3:
+            log(f"corpus-depth skip ({pack['depth']} modules): {cand['keyword']}")
+            ledger_append(f"{stamp} · PASS-CAND · {cand['keyword']} · depth {pack['depth']}<3")
+            continue
+
+        sel = selector_pass(env, cand, pack, digest)
+        if not sel or not sel.get("proceed"):
+            log(f"selector declined: {cand['keyword']} -> {sel}")
+            ledger_append(f"{stamp} · PASS-CAND · {cand['keyword']} · selector: {json.dumps(sel, ensure_ascii=False) if sel else 'api-fail'}")
+            continue
+
+        scores = {"spike": cand["spike"], "corroboration": cand["corroboration"], "beat": cand["beat"],
+                  "depth": sel.get("depth"), "search_shape": sel.get("search_shape")}
+        log(f"WRITING: {cand['keyword']} → {ent['label']} (scores {scores})")
+
+        piece, failure_report = None, None
+        for attempt in (1, 2):
+            draft = writer_pass(env, cand, pack, digest, sel.get("angle", ""), failure_report)
+            if not draft:
+                failure_report = "previous attempt returned no parseable JSON"
+                continue
+            fails = deterministic_gate(env, draft, pack)
+            g = llm_gate(env, draft) if not fails else None
+            if not fails and g and g.get("pass"):
+                piece = draft
+                break
+            failure_report = "; ".join(fails + ((g or {}).get("failures") or ["gate api failed"]))
+            log(f"gate fail (attempt {attempt}): {failure_report[:300]}")
+
+        if not piece:
+            ledger_append(f"{stamp} · KILLED · {cand['keyword']} · gate x2: {failure_report[:200]}")
+            continue
+
+        if dry:
+            out = HOURLY / "drafts" / f"dry-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M')}.json"
+            out.write_text(json.dumps({"cand": cand, "piece": piece, "scores": scores}, ensure_ascii=False, indent=1))
+            log(f"DRY RUN: draft written to {out}")
+            return
+
+        ok, info = publish(env, piece, cand, pack, scores)
+        if not ok:
+            log(f"insert failed: {info}")
+            ledger_append(f"{stamp} · KILLED · {cand['keyword']} · insert fail {info[:120]}")
+            return
+        dist = after_publish(env, piece["slug"], piece["headline"], piece.get("dek"))
+        mods = ",".join(piece["module_ids"])
+        ledger_append(f"{stamp} · PUBLISHED · kw: {cand['keyword']} · anchor: {ent.get('slug') or ent['label']} · "
+                      f"lane: direct · modules: {mods} · /now/{piece['slug']} · dist: {','.join(dist)}")
+        log(f"PUBLISHED /now/{piece['slug']} · {dist}")
+        return
+
+    ledger_append(f"{stamp} · PASS · candidates tried, none survived selection/gate")
+    log("no candidate survived")
+
+
+if __name__ == "__main__":
+    main()

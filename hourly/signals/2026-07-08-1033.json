@@ -1,0 +1,673 @@
+{
+ "at": "2026-07-08T10:33:35+00:00",
+ "fleet_items": 133,
+ "candidates": [
+  {
+   "source": "fleet",
+   "geo": "-",
+   "keyword": "Marie Antoinette",
+   "traffic": "",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 4,
+   "beat": 5,
+   "entity": {
+    "beat": 5,
+    "type": "film",
+    "slug": "marie-antoinette-2006",
+    "label": "Marie Antoinette (2006)"
+   },
+   "lane": "direct",
+   "news": [],
+   "fleet_hits": [
+    {
+     "outlet": "variety",
+     "title": "Mubi Acquires ‘Making Marie Antoinette,’ Eleanor Coppola’s Behind-the-Scenes Doc About Sofia Coppola’s Oscar-Winning Film",
+     "url": "https://variety.com/2026/film/global/mubi-marie-antoinette-eleanor-coppola-doc-sofia-coppola-film-1236804188/"
+    },
+    {
+     "outlet": "deadline",
+     "title": "Mubi Takes Worldwide To Eleanor Coppola’s Documentary ‘Making Marie Antoinette’",
+     "url": "https://deadline.com/2026/07/eleanor-coppola-making-marie-antoinette-mubi-1236976667/"
+    },
+    {
+     "outlet": "thr",
+     "title": "Mubi Take Worldwide Rights on ‘Making Marie Antoinette’",
+     "url": "https://www.hollywoodreporter.com/movies/movie-news/mubi-take-making-marie-antoinette-documentary-sofia-coppola-1236641191/"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "mega millions",
+   "traffic": "2000+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 4,
+   "entity": {
+    "beat": 4,
+    "type": "film",
+    "slug": "the-winner-1962",
+    "label": "The Winner (1962)"
+   },
+   "lane": "direct",
+   "news": [
+    {
+     "title": "Mega Millions Jackpot Crosses $600 Million—Here’s What The Winner Could Take Home",
+     "url": "https://www.forbes.com/sites/siladityaray/2026/07/08/mega-millions-jackpot-crosses-600-million-heres-what-the-winner-could-take-home/",
+     "source": "Forbes"
+    },
+    {
+     "title": "Bucks County Wawa sells $3 million winning Mega Millions ticket",
+     "url": "https://www.phillyburbs.com/story/news/lottery/2026/07/06/warminster-wawa-sells-3-million-winning-mega-millions-ticket-bucks-county-pa-lottery/90823404007/",
+     "source": "PhillyBurbs"
+    },
+    {
+     "title": "Mega Millions winning numbers as jackpot hits $576M for July 7 drawing",
+     "url": "https://www.usatoday.com/story/money/lottery/2026/07/07/mega-millions-jackpot-july-7-drawing-winning-numbers/90841174007/",
+     "source": "USA Today"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "ticketmaster",
+   "traffic": "5000+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 4,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Miami Athletics partners with Ticketmaster across four sports",
+     "url": "https://themiamihurricane.com/2026/07/07/miami-athletics-partners-with-ticketmaster-across-four-sports/",
+     "source": "The Miami Hurricane"
+    },
+    {
+     "title": "Ticketmaster Becomes Official Ticketing Partner of Miami Athletics",
+     "url": "https://www.canesinsight.com/articles/ticketmaster-becomes-official-ticketing-partner-of-miami-athletics.12110/?page=1",
+     "source": "CanesInSight"
+    },
+    {
+     "title": "Live Nation Pushes Bid To Nix Antitrust Trial Loss",
+     "url": "https://www.law360.com/pulse/pennsylvania-pulse/articles/2497465/live-nation-pushes-bid-to-nix-antitrust-trial-loss",
+     "source": "Law360"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "oil prices",
+   "traffic": "1000+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 3,
+   "corroboration": 1,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Oil prices rise after fresh US strikes on Iran and return of sanctions on Tehran – business live",
+     "url": "https://www.theguardian.com/business/live/2026/jul/08/oil-prices-rise-fresh-us-strikes-iran-return-sanctions-tehran-federal-reserve-minutes-live-updates",
+     "source": "The Guardian"
+    },
+    {
+     "title": "Britons to buy 8m mini fans this year – but almost half will end up in landfill",
+     "url": "https://www.theguardian.com/business/2026/jul/08/uk-mini-fans-heatwave-sales",
+     "source": "The Guardian"
+    },
+    {
+     "title": "Oil prices rise after fresh US strikes on Iran and return of sanctions on Tehran – business live",
+     "url": "https://www.theguardian.com/business/live/2026/jul/08/oil-prices-rise-fresh-us-strikes-iran-return-sanctions-tehran-federal-reserve-minutes-live-updates",
+     "source": "The Guardian"
+    }
+   ],
+   "fleet_hits": [
+    {
+     "outlet": "nyt-world",
+     "title": "Oil Prices Jump After U.S. and Iran Trade Strikes in Persian Gulf",
+     "url": "https://www.nytimes.com/2026/07/08/business/oil-gas-markets-shipping-hormuz.html"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "jennifer beals",
+   "traffic": "2000+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Jennifer Beals Joins LL Cool J & Scott Caan In ‘NCIS: New York’; Three Others Cast In CBS Spinoff Series",
+     "url": "https://deadline.com/2026/07/jennifer-beals-ncis-new-york-cast-ll-cool-j-scott-caan-1236976108/",
+     "source": "Deadline"
+    },
+    {
+     "title": "Jennifer Beals Among Four Additions to ‘NCIS: New York’ at CBS",
+     "url": "https://www.hollywoodreporter.com/tv/tv-news/ncis-new-york-jennifer-beals-cast-1236640619/",
+     "source": "The Hollywood Reporter"
+    },
+    {
+     "title": "Breaking News - Jennifer Beals Joins New CBS Original Series \"NCIS: New York\"",
+     "url": "http://www.thefutoncritic.com/news/2026/07/07/jennifer-beals-joins-new-cbs-original-series-ncis-new-york-272210/20260707cbs02/",
+     "source": "The Futon Critic"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "cyclosporiasis outbreak",
+   "traffic": "2000+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "What to know about cyclospora, the gut-churning parasite causing illness in several states, and how to avoid it",
+     "url": "https://www.cnn.com/2026/07/07/health/cyclosporiasis-parasite-symptoms-causes",
+     "source": "CNN"
+    },
+    {
+     "title": "Cyclosporiasis outbreaks: What to know about the foodborne illness and symptoms",
+     "url": "https://www.nbcnews.com/health/health-news/cyclosporiasis-outbreak-symptoms-causes-fda-cdc-rcna353295",
+     "source": "NBC News"
+    },
+    {
+     "title": "Clusters of Severe Stomach Illness Reported Across the U.S.",
+     "url": "https://www.nytimes.com/2026/07/02/well/cyclospora-infection-united-states.html",
+     "source": "The New York Times"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "truck accident lawyer",
+   "traffic": "500+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Qualities That Set the Best Car Accident Lawyers Apart in Court",
+     "url": "https://speedwaymedia.com/2026/07/07/qualities-that-set-the-best-car-accident-lawyers-apart-in-court/",
+     "source": "SpeedwayMedia.com"
+    },
+    {
+     "title": "Top 5 truck and commercial vehicle accident law firms in Atlanta",
+     "url": "https://azbigmedia.com/business/law/top-5-truck-commercial-vehicle-accident-lawyers-in-atlanta/",
+     "source": "AZ Big Media"
+    },
+    {
+     "title": "Dump Truck Driver Dies After Solo Crash on Interstate 5 in Woodland",
+     "url": "https://www.sacramentoinjuryattorneysblog.com/dump-truck-driver-dies-after-solo-crash-on-interstate-5-in-woodland/",
+     "source": "sacramentoinjuryattorneysblog.com"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "romelle donovan",
+   "traffic": "500+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Gossip: Blades to sign Brentford winger",
+     "url": "https://www.bbc.co.uk/sport/football/articles/ce8jkj8jx15o",
+     "source": "BBC"
+    },
+    {
+     "title": "Brentford transfer news: Romelle Donovan to join Sheffield United on loan",
+     "url": "https://www.bbc.co.uk/sport/football/articles/cvge7ek7ywro",
+     "source": "BBC"
+    },
+    {
+     "title": "Brentford 'agree' to send playmaker on loan to Sheffield United",
+     "url": "https://www.yorkshirepost.co.uk/sport/football/sheffield-united-brentford-romelle-donovan-birmingham-city-8782982",
+     "source": "Yorkshire Post"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "nottingham fire",
+   "traffic": "500+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Updates: Seven fire crews attend scrapyard blaze at Basford",
+     "url": "https://westbridgfordwire.com/updates-seven-fire-crews-attend-scrapyard-blaze-at-basford/",
+     "source": "West Bridgford Wire"
+    },
+    {
+     "title": "Fire breaks out at Nottingham scrapyard as crews rush to scene",
+     "url": "https://www.thebusinessdesk.com/eastmidlands/news/2112417-fire-breaks-out-at-nottingham-scrapyard-as-crews-rush-to-scene",
+     "source": "TheBusinessDesk.com"
+    },
+    {
+     "title": "Basford fire live updates as 'avoid area' warning issued over major scrapyard blaze",
+     "url": "https://www.nottinghampost.com/news/local-news/basford-fire-live-updates-avoid-11049749",
+     "source": "Nottingham Post"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "charles iii",
+   "traffic": "500+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Charles to make first Isle of Man visit as King",
+     "url": "https://www.bbc.co.uk/news/articles/clyw8r132ypo",
+     "source": "BBC"
+    },
+    {
+     "title": "King Charles just made his first massive mistake - now Prince Harry has the victim card",
+     "url": "https://www.express.co.uk/news/royal/2226226/king-charles-prince-harry-buckingham-palace",
+     "source": "Daily Express"
+    },
+    {
+     "title": "Secret Secretaries Allegedly on Standby to Terminate King Charles' Meetings with Harry if Things Get 'Uncomfortable'",
+     "url": "https://www.ibtimes.co.uk/palace-aides-manage-king-charles-prince-harry-meetings-1807399",
+     "source": "International Business Times UK"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "brent crude price",
+   "traffic": "500+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Oil prices rise after fresh US strikes on Iran and return of sanctions on Tehran – business live",
+     "url": "https://www.theguardian.com/business/live/2026/jul/08/oil-prices-rise-fresh-us-strikes-iran-return-sanctions-tehran-federal-reserve-minutes-live-updates",
+     "source": "The Guardian"
+    },
+    {
+     "title": "Brent could fall to $60 a barrel by Christmas, forecasts Citi",
+     "url": "https://www.ft.com/content/30f0195c-6283-4a70-aab0-929b026c9b70?syn-25a6b1a6=1",
+     "source": "Financial Times"
+    },
+    {
+     "title": "Oil prices jump as US and Iran trade strikes",
+     "url": "https://www.telegraph.co.uk/business/2026/07/08/oil-prices-iran-war-trump-us-ftse-100-markets/",
+     "source": "The Telegraph"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "western europe heat dome",
+   "traffic": "500+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Europe’s preparations for a world of extreme heat",
+     "url": "https://www.ft.com/content/5f069b03-f694-48da-951e-98c5923a14e4?syn-25a6b1a6=1",
+     "source": "Financial Times"
+    },
+    {
+     "title": "'Hotter and hotter and hotter' - Europe's new climate in seven charts",
+     "url": "https://www.bbc.co.uk/news/articles/c8e2j0j87reo",
+     "source": "BBC"
+    },
+    {
+     "title": "Europe may face 'more deadly weeks' as new heatwave builds, WHO warns",
+     "url": "https://www.reuters.com/business/environment/europe-may-face-more-deadly-weeks-new-heatwave-builds-who-warns-2026-07-07/",
+     "source": "Reuters"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "ct lottery",
+   "traffic": "100+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Second $100,000 Cash5 ticket drawn in as many days in CT. Winning numbers, where it was sold",
+     "url": "https://www.courant.com/2026/07/07/second-100000-cash5-ticket-drawn-in-as-many-days-in-ct-winning-numbers-where-it-was-sold/",
+     "source": "Hartford Courant"
+    },
+    {
+     "title": "$300K in Connecticut Lottery prizes remain unclaimed. See the winning tickets",
+     "url": "https://www.ctinsider.com/news/article/ct-lottery-unclaimed-winning-tickets-july-2026-22335427.php",
+     "source": "CT Insider"
+    },
+    {
+     "title": "Connecticut Powerball player wins $100K prize as jackpot climbs to $416M",
+     "url": "https://www.yahoo.com/news/us/articles/connecticut-powerball-player-wins-100k-123529880.html",
+     "source": "Yahoo"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "katie couric",
+   "traffic": "100+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Katie's Frightening Memory Loss Episode, Explained",
+     "url": "https://katiecouric.com/health/mental-health/what-causes-transient-global-amnesia/",
+     "source": "Katie Couric Media"
+    },
+    {
+     "title": "Katie Couric Shares Her ‘Freaky’ Experience with Transient Global Amnesia",
+     "url": "https://people.com/katie-couric-shares-experience-transient-global-amnesia-12013975",
+     "source": "People.com"
+    },
+    {
+     "title": "Katie Couric suffers stroke scare, diagnosed with temporary amnesia",
+     "url": "https://ew.com/katie-couric-suffers-stroke-scare-diagnosed-with-amnesia-12013971",
+     "source": "Entertainment Weekly"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "submarine",
+   "traffic": "100+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Canada awards Germany major submarine contract",
+     "url": "https://www.dw.com/en/canada-awards-germany-major-submarine-contract/a-77857391",
+     "source": "DW.com"
+    },
+    {
+     "title": "Hanwha Ocean shares sink 23% as it loses bid to build Canada's next fleet of submarines",
+     "url": "https://www.cnbc.com/2026/07/07/hanwha-ocean-shares-sink-canada-submarines-tkms.html",
+     "source": "CNBC"
+    },
+    {
+     "title": "Canada to buy 12 hi-tech German submarines after bidding war",
+     "url": "https://www.theguardian.com/world/2026/jul/06/canada-buys-12-tkms-german-norwegian-submarines-after-bidding-war",
+     "source": "The Guardian"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "baba stock",
+   "traffic": "100+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Alibaba’s Shares Jump Most in Ten Months as Earnings Hopes Grow",
+     "url": "https://www.bloomberg.com/news/articles/2026-07-08/alibaba-s-shares-jump-most-in-ten-months-as-earnings-hopes-grow",
+     "source": "Bloomberg.com"
+    },
+    {
+     "title": "Hong Kong Stock Market Movement | Alibaba-W (09988) Rises Over 9% Before Midday Amid Reports Alibaba Is Merging Three Enterprise-Grade Agent Products",
+     "url": "https://www.moomoo.com/news/post/72623153/hong-kong-stock-market-movement-alibaba-w-09988-rises-over",
+     "source": "Moomoo"
+    },
+    {
+     "title": "Alibaba Stock Leads China AI Rally, Just as U.S. Tech Stumbles",
+     "url": "https://www.barrons.com/articles/alibaba-stock-china-ai-rally-fa4e07ee",
+     "source": "Barron's"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "ny giants",
+   "traffic": "100+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Giants claim former Titans DT C.J. Ravenell off waivers",
+     "url": "https://sports.yahoo.com/articles/giants-claim-former-titans-dt-090920841.html",
+     "source": "Yahoo Sports"
+    },
+    {
+     "title": "Minor NFL Transactions: 7/6/26",
+     "url": "https://www.profootballrumors.com/2026/07/minor-nfl-transactions-7-6-26",
+     "source": "ProFootballRumors.com"
+    },
+    {
+     "title": "Giants claim yet another defensive tackle, waive CB Rico Payton injured",
+     "url": "https://www.bigblueview.com/new-york-giants-news/164851/ny-giants-roster-moves-defensive-tackle-claimed-cornerback-waived",
+     "source": "Big Blue View"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "state of origin",
+   "traffic": "200+",
+   "first_seen": "2026-07-08T10:33:34+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "State of Origin 2026 Game 3 live: Qld Maroons v NSW Blues – latest updates",
+     "url": "https://www.theguardian.com/sport/live/2026/jul/08/state-of-origin-2026-game-3-decider-nsw-blues-v-queensland-maroons-live",
+     "source": "The Guardian"
+    },
+    {
+     "title": "Qld’s spine is destined for all-time greatness. This is the only way to beat them",
+     "url": "https://www.smh.com.au/sport/nrl/qld-s-spine-is-destined-for-all-time-greatness-this-is-the-only-way-to-beat-them-20260707-p60d81.html",
+     "source": "SMH.com.au"
+    },
+    {
+     "title": "Teams locked in, ‘ridiculous’ drama erupts",
+     "url": "https://www.news.com.au/sport/nrl/state-of-origin-game-3-live-storm-explodes-over-one-word-as-michael-maguire-detail-comes-to-light/live-coverage/78e0ba33316233dc3896819d28231734",
+     "source": "News.com.au"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "fire nottingham",
+   "traffic": "200+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Updates: Seven fire crews attend scrapyard blaze at Basford",
+     "url": "https://westbridgfordwire.com/updates-seven-fire-crews-attend-scrapyard-blaze-at-basford/",
+     "source": "West Bridgford Wire"
+    },
+    {
+     "title": "Fire breaks out at Nottingham scrapyard as crews rush to scene",
+     "url": "https://www.thebusinessdesk.com/eastmidlands/news/2112417-fire-breaks-out-at-nottingham-scrapyard-as-crews-rush-to-scene",
+     "source": "TheBusinessDesk.com"
+    },
+    {
+     "title": "Basford fire live updates as 'avoid area' warning issued over major scrapyard blaze",
+     "url": "https://www.nottinghampost.com/news/local-news/basford-fire-live-updates-avoid-11049749",
+     "source": "Nottingham Post"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "liam rosenior paris fc appointment",
+   "traffic": "100+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Former Chelsea boss Rosenior named Paris FC manager",
+     "url": "https://www.bbc.co.uk/sport/football/articles/c4gy6jm0k65o",
+     "source": "BBC"
+    },
+    {
+     "title": "Ex-Chelsea boss Liam Rosenior named Paris FC head coach",
+     "url": "https://www.espn.co.uk/football/story/_/id/49294332/liam-rosenior-chelsea-paris-fc",
+     "source": "ESPN"
+    },
+    {
+     "title": "Ex-Town loanee returns to management after being linked to the Blues job",
+     "url": "https://www.eadt.co.uk/sport/26258564.ipswich-town---ex-blue-liam-rosenior-named-paris-fc-manager/",
+     "source": "East Anglian Daily Times"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "géraldine reuteler",
+   "traffic": "200+",
+   "first_seen": "2026-07-08T10:33:35+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "4 things you need to know about Géraldine Reuteler | Feature | News",
+     "url": "https://www.arsenal.com/news/4-things-you-need-know-about-geraldine-reuteler",
+     "source": "Arsenal.com"
+    },
+    {
+     "title": "Arsenal sign Swiss international midfielder Reuteler",
+     "url": "https://fawslfulltime.co.uk/2026/07/08/arsenal-sign-swiss-international-midfielder-reuteler/",
+     "source": "WSL Full-Time"
+    },
+    {
+     "title": "Arsenal complete signing of Switzerland international Géraldine Reuteler",
+     "url": "https://www.espn.co.uk/football/story/_/id/49297853/arsenal-complete-signing-switzerland-international-geraldine-reuteler",
+     "source": "ESPN"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  }
+ ]
+}

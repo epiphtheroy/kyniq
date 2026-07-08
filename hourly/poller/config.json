@@ -1,0 +1,23 @@
+{
+  "trends_geos": ["US", "GB"],
+  "fleet": [
+    {"outlet": "variety",      "beat": "trade",   "url": "https://variety.com/feed/"},
+    {"outlet": "deadline",     "beat": "trade",   "url": "https://deadline.com/feed/"},
+    {"outlet": "thr",          "beat": "trade",   "url": "https://www.hollywoodreporter.com/feed/"},
+    {"outlet": "indiewire",    "beat": "trade",   "url": "https://www.indiewire.com/feed/"},
+    {"outlet": "guardian-film","beat": "culture", "url": "https://www.theguardian.com/film/rss"},
+    {"outlet": "bbc-ents",     "beat": "culture", "url": "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"},
+    {"outlet": "nyt-movies",   "beat": "culture", "url": "https://rss.nytimes.com/services/xml/rss/nyt/Movies.xml"},
+    {"outlet": "bbc-world",    "beat": "world",   "url": "https://feeds.bbci.co.uk/news/world/rss.xml"},
+    {"outlet": "guardian-world","beat": "world",  "url": "https://www.theguardian.com/world/rss"},
+    {"outlet": "nyt-world",    "beat": "world",   "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"},
+    {"outlet": "npr",          "beat": "world",   "url": "https://feeds.npr.org/1001/rss.xml"},
+    {"outlet": "aljazeera",    "beat": "world",   "url": "https://www.aljazeera.com/xml/rss/all.xml"}
+  ],
+  "reddit": ["movies", "boxoffice", "entertainment"],
+  "fleet_window_hours": 12,
+  "corroboration_min_outlets": 2,
+  "traffic_bucket_scores": {"20000": 5, "5000": 4, "1000": 3, "500": 2, "0": 1},
+  "publish_threshold_note": "mechanical proxy in Phase 0: spike+corroboration+beat >= 10 marks CANDIDATE; corpus-depth and search-shape are the selector's (LLM) dimensions",
+  "user_agent": "MetatakeNowPoller/0.1 (metatake.net; contact: editor@metatake.net)"
+}
