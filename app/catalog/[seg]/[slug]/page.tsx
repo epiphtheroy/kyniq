@@ -30,6 +30,7 @@ type Member = { figure_label: string; figure_slug: string | null; film_title: st
 type Kin = { slug: string; label: string; sim: number; n: number };
 type Theme = { slug: string; label: string; n: number };
 type Dates = { created_at: string | null; updated_at: string | null };
+type UcnMeta = { facet?: string | null; facet_label?: string | null; cluster?: string | null; cluster_label?: string | null; aliases?: string | string[] | null };
 
 function maturity(n: number): [string, string] | null {
   if (n >= 26) return ["cliche", "Cliché"];
@@ -52,15 +53,46 @@ async function load(seg: string, slug: string) {
     supabase.rpc("catalog_node_members", { p_kind: km.kind, p_slug: slug, p_limit: 120, p_offset: 0 }),
     supabase.rpc("catalog_node_kindred", { p_kind: km.kind, p_slug: slug, p_n: 8 }),
     supabase.rpc("catalog_node_themes", { p_kind: km.kind, p_slug: slug, p_n: 10 }),
-    // Node timestamps for the byline/provenance + dateModified (public read RLS).
-    supabase.from("taxonomy_nodes").select("created_at, updated_at").eq("kind", km.kind).eq("slug", slug).maybeSingle(),
+    // Node timestamps + UCN meta (facet/family/aliases) for the byline & theme layers.
+    supabase.from("taxonomy_nodes").select("id, created_at, updated_at, meta").eq("kind", km.kind).eq("slug", slug).maybeSingle(),
   ]);
+  const node = (nd.data ?? null) as (Dates & { id: number; meta: UcnMeta | null }) | null;
+
+  // Theme-only layers (UCN surface, 2026-07-08): concepts that theorize this
+  // theme (theory_concepts bridge) + structural kin (same Family cluster).
+  let concepts: { name: string; slug: string }[] = [];
+  let familyKin: { label: string; slug: string }[] = [];
+  if (km.kind === "theme" && node) {
+    const cluster = node.meta?.cluster ?? null;
+    const [cc, fk] = await Promise.all([
+      supabase
+        .from("theory_concepts")
+        .select("concept, concept_slug")
+        .eq("taxonomy_node_id", node.id)
+        .limit(12),
+      cluster
+        ? supabase
+            .from("taxonomy_nodes")
+            .select("label, slug, meta")
+            .eq("kind", "theme")
+            .eq("meta->>cluster", cluster)
+            .neq("slug", slug)
+            .limit(14)
+        : Promise.resolve({ data: [] as { label: string; slug: string }[] }),
+    ]);
+    concepts = ((cc.data ?? []) as { concept: string; concept_slug: string }[]).map((c) => ({ name: c.concept, slug: c.concept_slug }));
+    familyKin = ((fk.data ?? []) as { label: string; slug: string }[]).map((k) => ({ label: k.label, slug: k.slug }));
+  }
+
   return {
     km, detail,
     members: (mem.data as Member[]) ?? [],
     kindred: (kin.data as Kin[]) ?? [],
     themes: ((thm.data as Theme[]) ?? []).filter((t) => !(km.kind === "theme" && t.slug === slug)),
-    dates: (nd.data as Dates | null) ?? null,
+    dates: node,
+    meta: node?.meta ?? null,
+    concepts,
+    familyKin,
   };
 }
 
@@ -81,7 +113,7 @@ export default async function CatalogNode({ params }: Props) {
   const { seg, slug } = await params;
   const data = await load(seg, slug);
   if (!data) notFound();
-  const { km, detail, members, kindred, themes, dates } = data;
+  const { km, detail, members, kindred, themes, dates, meta, concepts, familyKin } = data;
   const section = sectionByKey(km.section);
   const mat = maturity(detail.member_count);
   const n = detail.member_count;
