@@ -163,6 +163,8 @@ export default async function FilmReceptionPage({ params }: Props) {
   const papers = reception.filter((r) => r.kind === "academic");
   const outlets = [...new Set(reviews.map((r) => r.outlet))];
   const countries = [...new Set(events.map((e) => e.country))];
+  const hasReviews = reviews.length > 0;
+  const honorsN = wdHonors.length + lineage.length;
 
   // ── Assemble the year buckets ──
   const byYear = new Map<number, Entry[]>();
@@ -256,7 +258,14 @@ export default async function FilmReceptionPage({ params }: Props) {
   const midArt = artPicks.slice(0, Math.max(0, Math.min(2, years.length - 1)));
   const plateArt = [...artPicks.slice(midArt.length), ...(film.backdrop_path ? [film.backdrop_path] : [])];
 
-  const headline = `${film.title}${yStr(film.year)} Reviews & Afterlife — Year by Year`;
+  const headline = `${film.title}${yStr(film.year)} ${hasReviews ? "Reviews & Afterlife" : "Awards & Afterlife"} — Year by Year`;
+  const metaBits = [
+    hasReviews ? `${reviews.length} review${reviews.length === 1 ? "" : "s"}` : null,
+    papers.length ? `${papers.length} paper${papers.length === 1 ? "" : "s"}` : null,
+    honorsN ? `${honorsN} honor${honorsN === 1 ? "" : "s"}` : null,
+    countries.length ? `${countries.length} countr${countries.length === 1 ? "y" : "ies"}` : null,
+    y1 && y0 && y1 > y0 ? `${y0}–${y1}` : null,
+  ].filter(Boolean).join(" · ");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
