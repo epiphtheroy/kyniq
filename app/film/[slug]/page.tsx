@@ -801,7 +801,11 @@ export default async function FilmPage({ params }: Props) {
                 ))}
               </div>
               {f.tmdb_id ? (
-                <div className="df-src"><Link href={`/credits?f=${f.tmdb_id}`}>Open in the interactive Credits explorer →</Link> · Credits data from TMDB</div>
+                <div className="df-src">
+                  <Link href={`/film/${f.slug}/credits`}><b>Who made {f.title}? — the full credits page →</b></Link>
+                  {" · "}
+                  <Link href={`/credits?f=${f.tmdb_id}`}>interactive explorer →</Link> · Credits data from TMDB
+                </div>
               ) : null}
             </section>
           ) : null}
@@ -1489,7 +1493,11 @@ export default async function FilmPage({ params }: Props) {
               ))}
             </div>
             {film.tmdb_id ? (
-              <div className="df-src"><Link href={`/credits?f=${film.tmdb_id}`}>Open in the interactive Credits explorer →</Link> · Credits data from TMDB</div>
+              <div className="df-src">
+                <Link href={`/film/${film.slug}/credits`}><b>Who made {film.title}? — the full credits page →</b></Link>
+                {" · "}
+                <Link href={`/credits?f=${film.tmdb_id}`}>interactive explorer →</Link> · Credits data from TMDB
+              </div>
             ) : null}
           </section>
         ) : null}
