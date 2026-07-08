@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import FilmTabBar from "@/components/FilmTabBar";
 import EntityMap from "@/components/EntityMap";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink } from "@/components/DeskExplorer";
@@ -439,22 +440,16 @@ export default async function ConceptPage({ params }: Props) {
         </div>
       </div>
 
+      <FilmTabBar tabs={[
+        { id: "spelled-out", label: "Spelled out" },
+        { id: "concept-films", label: "The films", badge: filmArr.length },
+        ...(tropes.length ? [{ id: "concept-tropes", label: "Patterns", badge: tropes.length }] : []),
+        ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length }] : []),
+        { id: "concept-slate", label: "The full slate", badge: readings.length },
+        { id: "concept-map", label: "Map" },
+      ]} />
+
       <div className="mt-wrap">
-        {/* Anchor pills — the page's tab structure (large corpora need a spine) */}
-        <nav aria-label="On this page" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "18px 0 0" }}>
-          {[
-            ["#spelled-out", "Spelled out"],
-            ["#concept-films", `The films (${filmArr.length})`],
-            ...(tropes.length ? [["#concept-tropes", `Patterns (${tropes.length})`]] : []),
-            ...(desks.length ? [["#concept-desks", `Desk essays (${desks.length})`]] : []),
-            ["#concept-slate", `The full slate (${readings.length})`],
-            ["#concept-map", "Map"],
-          ].map(([href, label]) => (
-            <a key={href as string} href={href as string} style={{ fontSize: 13, fontWeight: 600, padding: "6px 14px", borderRadius: 999, border: "1.5px solid rgba(22,35,63,.28)", textDecoration: "none", color: "inherit" }}>
-              {label}
-            </a>
-          ))}
-        </nav>
         <Provenance updated={updated} />
         {intro ? (
           <p className="body reading" style={{ fontSize: 16, margin: "14px 0 0", maxWidth: "66ch" }}>

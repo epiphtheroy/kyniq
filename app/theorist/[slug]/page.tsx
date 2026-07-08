@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import FilmTabBar from "@/components/FilmTabBar";
+import TermHighlight from "@/components/TermHighlight";
 import EntityMap from "@/components/EntityMap";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
@@ -175,6 +177,8 @@ export default async function TheoristPage({ params }: Props) {
     .filter((g) => g.items.length > 0);
 
   const heroBackdrop = F.topFilms.find((f) => f.backdrop)?.backdrop ?? null;
+  const surname = name.split(" ").length > 1 ? name.split(" ").pop() as string : "";
+  const hlTerms = [name, surname].filter(Boolean);
   const growFilm = F.topFilms.find((f) => f.backdrop && f.n >= 1) ?? null;
 
   const canonical = `${SITE}/theorist/${slug}`;
@@ -232,21 +236,15 @@ export default async function TheoristPage({ params }: Props) {
         </div>
       </div>
 
+      <FilmTabBar tabs={[
+        { id: "lens-facts", label: "The lens" },
+        { id: "lens-films", label: "The films", badge: F.filmArr.length },
+        { id: "readings", label: "Every reading", badge: readings.length },
+        ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length }] : []),
+        { id: "theorist-map", label: "Map" },
+      ]} />
+
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>
-        <nav aria-label="On this page" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "0 0 8px" }}>
-          {[
-            ["#lens-facts", "The lens"],
-            ["#lens-films", `The films (${F.filmArr.length})`],
-            ["#readings", `Every reading (${readings.length})`],
-            ...(desks.length ? [["#theorist-desks", `Desk essays (${desks.length})`]] : []),
-            ...(concepts.length ? [["#lens-facts", "Concepts"]] : []),
-            ["#theorist-map", "Map"],
-          ].map(([href, label]) => (
-            <a key={label as string} href={href as string} style={{ fontSize: 13, fontWeight: 600, padding: "6px 14px", borderRadius: 999, border: "1.5px solid rgba(22,35,63,.28)", textDecoration: "none", color: "inherit" }}>
-              {label}
-            </a>
-          ))}
-        </nav>
         <Byline />
 
         {/* ── The lens, spelled out — deterministic sentences only ── */}
@@ -348,9 +346,10 @@ export default async function TheoristPage({ params }: Props) {
                           <Link className="thr-film" href={`/film/${r.film_slug}`}>{r.film_title}{r.film_year ? ` (${r.film_year})` : ""}</Link>
                           {r.concept ? <span className="thr-concept">{r.concept}</span> : null}
                         </div>
-                        <Link className="thr-title" href={href}>{r.take_title ?? r.fig_label}</Link>
-                        {r.thesis ? <p className="thr-thesis">{r.thesis}</p> : null}
-                        {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> {r.leap}</p> : null}
+                        <Link className="thr-title" href={href}><TermHighlight text={r.take_title ?? r.fig_label} terms={hlTerms} /></Link>
+                        {r.thesis ? <p className="thr-thesis"><TermHighlight text={r.thesis} terms={hlTerms} /></p> : null}
+                        {r.leap ? <p className="thr-leap"><span className="thr-leap__l">The leap</span> <TermHighlight text={r.leap} terms={hlTerms} /></p> : null}
+                        <Link className="thr-go" href={href}>Read the scene →</Link>
                       </div>
                     </article>
                   );
