@@ -2,10 +2,12 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
+import DirectorPlates from "@/components/read/DirectorPlates";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -149,6 +151,12 @@ export default async function DirectorNextPage({ params }: Props) {
   const withBd = films.filter((f) => f.backdrop_path);
   const heroFilm = withBd.length ? withBd[seed % withBd.length] : null;
 
+  // Mid-article stills from the subject director's own films: year order
+  // (the films query is year-ordered), hero excluded, deterministic. One
+  // after recommendation 2, one after recommendation 4; skipped when the
+  // gallery runs out.
+  const stillFilms = withBd.filter((f) => f.slug !== heroFilm?.slug);
+
   const headline = `${n} Directors to Watch After ${name}${native ? ` (${native})` : ""} — and Exactly Why`;
   const description = buildDescription(name, next);
   const firstThree = joinNames(next.slice(0, 3).map((r) => r.rec_name));
@@ -245,11 +253,13 @@ export default async function DirectorNextPage({ params }: Props) {
               score. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>.
             </p>
 
-            {next.map((r) => {
+            {next.map((r, i) => {
               const filmCount = r.target_slug ? targetFilmCounts[r.target_slug] ?? 0 : 0;
               const hasStart = !!r.target_slug && startSlugs.includes(r.target_slug);
+              const still = i === 1 ? stillFilms[0] : i === 3 ? stillFilms[1] : undefined;
               return (
-                <section key={r.pos}>
+                <Fragment key={r.pos}>
+                <section>
                   <h2>{r.pos}. {r.rec_name}</h2>
                   <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
                     {r.profile_path ? (
