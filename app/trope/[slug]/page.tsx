@@ -15,6 +15,10 @@ import { fw } from "@/lib/frameworks";
 import EntityMap from "@/components/EntityMap";
 import RelatedBoxes from "@/components/RelatedBoxes";
 import { relatedForMetaTake } from "@/lib/related";
+import FilmTabBar from "@/components/FilmTabBar";
+import ReadingLedger from "@/components/read/ReadingLedger";
+import "@/app/curious/curious.css";
+import "@/app/film/[slug]/read.css";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -63,7 +67,15 @@ async function load(slug: string) {
   const { data: md } = await supabase.rpc("trope_members_ranked", { p_slug: slug, p_limit: 200 });
   const members = ((md as Member[] | null) ?? []);
   const films = new Set(members.map((m) => m.film_slug));
-  return { t, members, filmCount: films.size };
+  // Backdrops for the hero / ledger thumbnails / figure chips (the members RPC
+  // only carries posters) — one IN query per 150 slugs.
+  const bd = new Map<string, string | null>();
+  const fslugs = [...films];
+  for (let i = 0; i < fslugs.length; i += 150) {
+    const { data: fb } = await supabase.from("films").select("slug, backdrop_path").in("slug", fslugs.slice(i, i + 150));
+    for (const f of (fb ?? []) as { slug: string; backdrop_path: string | null }[]) bd.set(f.slug, f.backdrop_path);
+  }
+  return { t, members, filmCount: films.size, bd };
 }
 
 // Extracts the first 1–2 sentences of a prose field as a plain-text meta
@@ -148,7 +160,7 @@ export default async function TropePage({ params }: Props) {
     if (alias) permanentRedirect(alias);
     notFound();
   }
-  const { t, members, filmCount } = data;
+  const { t, members, filmCount, bd } = data;
   const [{ data: relRaw }, relatedSections] = await Promise.all([
     db().rpc("trope_related", { p_slug: slug, p_n: 9 }),
     // Related-boxes sections (SEO module) — deterministic, per-trope mix.
