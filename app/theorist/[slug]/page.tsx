@@ -212,9 +212,9 @@ export default async function TheoristPage({ params }: Props) {
             <h1 className="rd-h1">{name}{life ? <span style={{ fontWeight: 500, opacity: 0.6, fontSize: "0.62em" }}> ({life})</span> : null}</h1>
             <p className="rd-dek">
               {wd?.description ? `${wd.description.charAt(0).toUpperCase()}${wd.description.slice(1)}. ` : blurb ? `${blurb} ` : ""}
-              On Metatake, {name} is not a syllabus entry but a working lens: {readings.length} Strong
-              Misreading{readings.length === 1 ? "" : "s"} across {F.filmArr.length} film{F.filmArr.length === 1 ? "" : "s"} borrow it
+              {readings.length} Strong Misreading{readings.length === 1 ? "" : "s"} across {F.filmArr.length} film{F.filmArr.length === 1 ? "" : "s"} borrow {name}&apos;s lens
               {F.dated.length > 1 ? <> — from <i>{F.dated[0].title}</i> ({F.dated[0].year}) to <i>{F.dated[F.dated.length - 1].title}</i> ({F.dated[F.dated.length - 1].year})</> : null}.
+              {" "}Every entry below is a close reading of a scene, not a précis.
             </p>
           </div>
           {(wd?.image || heroBackdrop) && (
@@ -233,10 +233,24 @@ export default async function TheoristPage({ params }: Props) {
       </div>
 
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>
+        <nav aria-label="On this page" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "0 0 8px" }}>
+          {[
+            ["#lens-facts", "The lens"],
+            ["#lens-films", `The films (${F.filmArr.length})`],
+            ["#readings", `Every reading (${readings.length})`],
+            ...(desks.length ? [["#theorist-desks", `Desk essays (${desks.length})`]] : []),
+            ...(concepts.length ? [["#lens-facts", "Concepts"]] : []),
+            ["#theorist-map", "Map"],
+          ].map(([href, label]) => (
+            <a key={label as string} href={href as string} style={{ fontSize: 13, fontWeight: 600, padding: "6px 14px", borderRadius: 999, border: "1.5px solid rgba(22,35,63,.28)", textDecoration: "none", color: "inherit" }}>
+              {label}
+            </a>
+          ))}
+        </nav>
         <Byline />
 
         {/* ── The lens, spelled out — deterministic sentences only ── */}
-        <section style={{ margin: "12px 0 0" }}>
+        <section style={{ margin: "12px 0 0" }} id="lens-facts">
           <h2 className="df-h2">The lens, spelled out</h2>
           <p className="df-sub">Counted from the readings corpus — every claim below is a number, a year, a title or a name.</p>
           <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.7, fontSize: 15, maxWidth: "78ch" }}>
@@ -277,7 +291,7 @@ export default async function TheoristPage({ params }: Props) {
 
         {/* ── The films this lens returns to — panel cards ── */}
         {F.topFilms.length > 0 ? (
-          <section style={{ margin: "30px 0 0" }}>
+          <section style={{ margin: "30px 0 0" }} id="lens-films">
             <h2 className="df-h2">The films {name} returns to</h2>
             <p className="df-sub">Every panel opens the film — the readings there carry {name}&apos;s ideas into the scenes.</p>
             <div className="crd-grid">
