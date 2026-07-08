@@ -188,8 +188,17 @@ async function loadUncached(slug: string) {
       (film as { created_at?: string | null }).created_at,
     ].filter((s): s is string => !!s);
     const mRecordUpdated = mStamps.length ? mStamps.reduce((a, b) => (a > b ? a : b)) : null;
+    // Afterlife door: the /reception page renders for a catalog film when it has
+    // critical reception OR an honors record (release dates alone don't qualify),
+    // so only offer the tab when that page won't 404. Two cheap head counts.
+    const [{ count: mHonorCount }, { count: mReviewCount }] = await Promise.all([
+      supabase.from("film_wd_honors").select("id", { count: "exact", head: true }).eq("film_id", film.id),
+      supabase.from("film_reception").select("id", { count: "exact", head: true }).eq("film_id", film.id),
+    ]);
+    const mHasAfterlife = (mHonorCount ?? 0) > 0 || (mReviewCount ?? 0) > 0;
     return {
       minimal: true as const, film,
+      afterlifeTab: mHasAfterlife, afterlifeHonors: mHonorCount ?? 0,
       lineage: mLineage,
       lnListMeta: mListMeta,
       recommendedBy: (revRows ?? []) as RevRow[],
@@ -557,7 +566,7 @@ export default async function FilmPage({ params }: Props) {
       certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
       tmdb_extra: { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string | null; collection?: string | null } | null;
     };
-    const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated } = data;
+    const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -658,6 +667,7 @@ export default async function FilmPage({ params }: Props) {
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
       geoCount > 0 ? { id: "df-atlas", label: "Atlas", badge: geoCount } : null,
+      afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
       hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
       crew.length
         ? { id: "df-crew", label: "Credits", badge: crew.length }

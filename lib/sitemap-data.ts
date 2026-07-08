@@ -326,8 +326,10 @@ export async function filmCreditsEntries(): Promise<SitemapEntry[]> {
   }));
 }
 
-/** Per-film reception timelines — eligibility mirrors the page's own gate:
- *  at least one film_reception row (the page 404s otherwise). */
+/** Per-film afterlife timelines — mirrors the page's publish gate: at least one
+ *  film_reception row (reviews/papers), OR a substantial honors record. Honor-
+ *  only pages require >= 3 honors so they stay indexable (the page noindexes
+ *  thinner records), which is also why non-visible catalog films can qualify. */
 export async function filmReceptionEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
@@ -340,18 +342,28 @@ export async function filmReceptionEntries(): Promise<SitemapEntry[]> {
     const cur = latestByFilm.get(r.film_id);
     if (!cur || r.created_at > cur) latestByFilm.set(r.film_id, r.created_at);
   }
-  const ids = [...latestByFilm.keys()];
+  const honorRows = await fetchAll<{ film_id: string }>(
+    (from, to) => supabase.from("film_wd_honors").select("film_id").order("film_id").range(from, to),
+    40000
+  );
+  const honorCount = new Map<string, number>();
+  for (const h of honorRows) honorCount.set(h.film_id, (honorCount.get(h.film_id) ?? 0) + 1);
+
+  const ids = new Set<string>(latestByFilm.keys());
+  for (const [fid, n] of honorCount) if (n >= 3) ids.add(fid);
+  const idList = [...ids];
   const films: { id: string; slug: string }[] = [];
-  for (let i = 0; i < ids.length; i += 150) {
-    const { data } = await supabase.from("films").select("id, slug")
-      .eq("visible", true).in("id", ids.slice(i, i + 150));
+  for (let i = 0; i < idList.length; i += 150) {
+    const { data } = await supabase.from("films").select("id, slug").in("id", idList.slice(i, i + 150));
     films.push(...((data ?? []) as { id: string; slug: string }[]));
   }
   films.sort((a, b) => a.slug.localeCompare(b.slug));
-  return films.map((f) => ({
-    url: `${siteUrl}/film/${f.slug}/reception`,
-    lastmod: isoDate(latestByFilm.get(f.id)!),
-  }));
+  return films.map((f) => {
+    const ts = latestByFilm.get(f.id);
+    return ts
+      ? { url: `${siteUrl}/film/${f.slug}/reception`, lastmod: isoDate(ts) }
+      : { url: `${siteUrl}/film/${f.slug}/reception` };
+  });
 }
 
 /** Films — every visible film. */
