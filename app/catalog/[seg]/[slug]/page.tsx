@@ -342,7 +342,37 @@ export default async function CatalogNode({ params }: Props) {
           )}
         </section>
 
+        {km.kind === "theme" && concepts.length > 0 ? (
+          <section className="cat-sec" id="cat-concepts">
+            <h2 className="cat-h2">The theory behind {detail.label} <span className="cat-h2__n">— {concepts.length} concept{concepts.length === 1 ? "" : "s"}</span></h2>
+            <p className="cat-gloss">
+              Named concepts from the theory registry that formalize this theme — each opens the concept page with its definition, thinkers, and the desk essays that use it.
+            </p>
+            <div className="cat-pills">
+              {concepts.map((c) => (
+                <Link key={c.slug} href={`/concept/${c.slug}`} className="cat-pill">{c.name}</Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <div className="cat-rels" id="cat-rels">
+          {km.kind === "theme" && familyKin.length > 0 ? (
+            <section className="cat-relblock">
+              <h2 className="cat-h3">
+                Same family{meta?.cluster_label ? <>: {meta.cluster_label}</> : null} <span className="cat-h2__n">structural kin</span>
+              </h2>
+              <div className="cat-pills">
+                {familyKin.map((k) => (
+                  <Link key={k.slug} href={nodeHref("theme", k.slug)} className="cat-pill"
+                    title="structural kinship — same UCN theme family">
+                    {k.label}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
           {kindred.length > 0 ? (
             <section className="cat-relblock">
               <h2 className="cat-h3">Kindred {axisLabel(km.kind).toLowerCase()}s <span className="cat-h2__n">by embedding</span></h2>
