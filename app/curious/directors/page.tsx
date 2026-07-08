@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHead } from "@/components/curious/ui";
 import { cachedAtlasEligibility } from "@/lib/atlas";
+import { directorLayerEligibility } from "@/lib/sitemap-data";
 import { pageRobots } from "@/lib/seo";
 
 /**
@@ -47,6 +48,9 @@ type DirRow = {
   start: number; // picks on /start — page exists from 1
   next: number; // recommendations on /next — page exists from 1
   locations: boolean; // /locations clears the atlas gate (≥2 located films & ≥6 merged pins)
+  // Wave-2 aggregation articles (2026-07-09) — eligibility mirrors each page's
+  // robots gate via directorLayerEligibility() (same source as their sitemaps).
+  takescore: boolean; honors: boolean; reception: boolean; theory: boolean;
 };
 
 type Index = { rows: DirRow[]; lives: number; starts: number; kinships: number; maps: number };
@@ -82,6 +86,11 @@ const loadIndex = unstable_cache(
       // (atlas_eligibility_json → directors), so this can never link a 404.
       cachedAtlasEligibility(),
     ]);
+    const layer = await directorLayerEligibility();
+    const layerSets = {
+      takescore: new Set(layer.takescore), honors: new Set(layer.honors),
+      reception: new Set(layer.reception), theory: new Set(layer.theory),
+    };
 
     const hub = new Set(hubRows.map((r) => r.director_slug));
     const life = new Map<string, number>();
@@ -126,6 +135,10 @@ const loadIndex = unstable_cache(
         start: start.get(slug) ?? 0,
         next: next.get(slug) ?? 0,
         locations: locations.has(slug),
+        takescore: layerSets.takescore.has(slug),
+        honors: layerSets.honors.has(slug),
+        reception: layerSets.reception.has(slug),
+        theory: layerSets.theory.has(slug),
       }))
       .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
@@ -137,7 +150,8 @@ const loadIndex = unstable_cache(
       maps: rows.filter((r) => r.locations).length,
     };
   },
-  ["curious-directors-1"],
+  // v2: wave-2 layer flags joined the rows (2026-07-09)
+  ["curious-directors-2"],
   { revalidate: 86400 }
 );
 
@@ -227,6 +241,10 @@ export default async function CuriousDirectorsIndex() {
                 if (d.start > 0) links.push({ href: `/director/${d.slug}/start`, label: `Where to start (${d.start})` });
                 if (d.next > 0) links.push({ href: `/director/${d.slug}/next`, label: `Who's next (${d.next})` });
                 if (d.locations) links.push({ href: `/director/${d.slug}/locations`, label: "Locations" });
+                if (d.takescore) links.push({ href: `/director/${d.slug}/takescore`, label: "TakeScore" });
+                if (d.honors) links.push({ href: `/director/${d.slug}/honors`, label: "Honors" });
+                if (d.reception) links.push({ href: `/director/${d.slug}/reception`, label: "Reception" });
+                if (d.theory) links.push({ href: `/director/${d.slug}/theory`, label: "Theory" });
                 links.push({ href: `/director/${d.slug}`, label: "Hub" });
                 return (
                   <div className="cur-qindex__film" key={d.slug} style={{ marginBottom: 16 }}>
