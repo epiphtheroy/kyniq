@@ -135,9 +135,36 @@ def anthropic_call(env: dict, *, model: str, system: str, user: str,
         return None
     try:
         msg = json.loads(data)
+        _log_usage(model, msg.get("usage") or {})
         return "".join(b.get("text", "") for b in msg.get("content", []) if b.get("type") == "text")
     except Exception:
         return None
+
+
+# $/MTok — keep in sync with platform.claude.com/docs/en/about-claude/pricing
+_PRICES = {"claude-fable-5": (10.0, 50.0, 1.0), "claude-sonnet-5": (2.0, 10.0, 0.2)}
+_SEARCH_PRICE = 0.01  # $10 per 1,000 web searches
+
+
+def _log_usage(model: str, u: dict) -> None:
+    """Append real API usage + computed cost to poller/usage.jsonl — the
+    owner is pay-per-use; every call must be accountable."""
+    try:
+        inp = u.get("input_tokens", 0)
+        out = u.get("output_tokens", 0)
+        cr = u.get("cache_read_input_tokens", 0) or 0
+        cw = u.get("cache_creation_input_tokens", 0) or 0
+        searches = (u.get("server_tool_use") or {}).get("web_search_requests", 0) or 0
+        p_in, p_out, p_cr = _PRICES.get(model, (10.0, 50.0, 1.0))
+        cost = (inp * p_in + cw * p_in * 1.25 + cr * p_cr + out * p_out) / 1e6 + searches * _SEARCH_PRICE
+        rec = {"at": now_utc(), "model": model, "in": inp, "out": out,
+               "cache_read": cr, "cache_write": cw, "searches": searches,
+               "cost_usd": round(cost, 4)}
+        with open(HOURLY / "poller" / "usage.jsonl", "a") as f:
+            f.write(json.dumps(rec) + "\n")
+        log(f"usage {model}: in={inp} out={out} cache_r={cr} searches={searches} → ${cost:.3f}")
+    except Exception:
+        pass
 
 
 def parse_json_block(text: str) -> dict | None:
