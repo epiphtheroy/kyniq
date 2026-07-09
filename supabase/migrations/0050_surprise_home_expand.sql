@@ -116,7 +116,7 @@ begin
       'href','/film/'||f.slug||'/reception',
       'items',(select jsonb_agg(jb) from (
         select jsonb_build_object('text',rc.dek_lead,
-               'label', rc.outlet||coalesce(' · '||rc.critic,''),
+               'label', btrim(rc.outlet||coalesce(' · '||nullif(btrim(rc.critic),''),'')),
                'year', rc.review_year) jb
         from film_reception rc where rc.film_id=f.id and rc.dek_lead is not null
         order by random() limit 4) s));
@@ -153,8 +153,8 @@ begin
       'href','/film/'||f.slug||'#df-atlas',
       'items',(select jsonb_agg(jb) from (
         select jsonb_build_object('text', l2.name,
-               'label', nullif(btrim(coalesce(l2.country,'')||coalesce(' · '||l2.scene_role,'')),''),
-               'reason', l2.narrative_setting) jb
+               'label', nullif(btrim(coalesce(nullif(btrim(l2.country),''),'')||coalesce(' · '||nullif(btrim(l2.scene_role),''),'')), ''),
+               'reason', nullif(btrim(l2.narrative_setting),'')) jb
         from film_locations l2 where l2.film_id=f.id and l2.name is not null
         order by (case when l2.tier='primary' then 0 else 1 end) nulls last, random() limit 6) s));
     if r->'items' is null or jsonb_typeof(r->'items') = 'null' then m := 'misreading'; end if;
