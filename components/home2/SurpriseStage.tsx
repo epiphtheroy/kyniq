@@ -27,6 +27,7 @@ export type SurpriseCard = {
 };
 
 const IMG = "https://image.tmdb.org/t/p";
+const NCOMP = 6; // number of randomized editorial compositions
 const isMap = (m?: string) => m === "film_map" || m === "director_map" || m === "figure_links";
 const isChips = (m?: string) => m === "film_tropes" || m === "film_ideas" || m === "director_ideas";
 
@@ -40,8 +41,10 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
   const [idx, setIdx] = useState(-1);
   const [loading, setLoading] = useState(true);
   const [muted, setMuted] = useState(true);
+  const [comps, setComps] = useState<number[]>([]);
   const busy = useRef(false);
   const card = idx >= 0 ? hist[idx] : null;
+  const comp = idx >= 0 ? (comps[idx] ?? 0) : 0;
 
   const draw = useCallback(async () => {
     if (busy.current) return;
@@ -51,6 +54,7 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
       const r = await fetch(`/api/surprise/home?_=${Date.now()}`, { cache: "no-store" });
       const c = (await r.json()) as SurpriseCard;
       setHist((h) => [...h, c]);
+      setComps((cs) => [...cs, Math.floor(Math.random() * NCOMP)]);
       setIdx((i) => i + 1);
     } catch { /* noop */ } finally { setLoading(false); busy.current = false; }
   }, []);
