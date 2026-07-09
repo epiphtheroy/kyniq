@@ -113,10 +113,12 @@
 .mthome .topicchips .tc:hover{background:rgba(255,255,255,.1)}
 .mthome .topicchips .tc .ch{color:#8c8474}
 /* Surprise-me hero: one stage card (video + caption) + red bar; lens panel right */
-.mthome .hs-vh{align-items:stretch;gap:16px}
-.mthome .hs-left{display:flex;flex-direction:column;min-width:0}
-.mthome .hs-stage{flex:1 0 auto;display:flex;flex-direction:column;border:1px solid var(--dline);border-radius:10px;overflow:hidden;background:var(--dark-2)}
-.mthome .hs-main{position:relative;flex:1 0 auto;min-height:360px;cursor:pointer;overflow:hidden}
+/* align-items:start so the lens panel growing tall never stretches the media;
+   the media is a fixed 16:9 box and the panel grows down / scrolls (2026-07-09). */
+.mthome .hs-vh{align-items:start;gap:16px}
+.mthome .hs-left{display:flex;flex-direction:column;min-width:0;position:sticky;top:14px}
+.mthome .hs-stage{flex:0 0 auto;display:flex;flex-direction:column;border:1px solid var(--dline);border-radius:10px;overflow:hidden;background:var(--dark-2)}
+.mthome .hs-main{position:relative;flex:0 0 auto;aspect-ratio:16/9;min-height:0;cursor:pointer;overflow:hidden}
 .mthome .hs-main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.5));pointer-events:none}
 .mthome .hs-main.is-load{opacity:.6}
 .mthome .hs-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block}
@@ -140,7 +142,7 @@
 .mthome .hs-nav:hover{background:rgba(0,0,0,.33)}
 .mthome .hs-nav:disabled{opacity:.4;cursor:default}
 .mthome .hs-text{display:flex;flex-direction:column;min-width:0}
-.mthome .hs-textwrap{flex:1;background:var(--dark-2);border:1px solid var(--dline);border-top:3px solid var(--red);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;align-items:flex-start;overflow:auto}
+.mthome .hs-textwrap{flex:1;background:var(--dark-2);border:1px solid var(--dline);border-top:3px solid var(--red);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;align-items:flex-start;overflow:auto;max-height:82vh}
 .mthome .hs-chip{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--red);padding:3px 9px;border-radius:5px;margin-bottom:11px}
 .mthome .hs-line{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.16;color:#fff}
 .mthome .hs-sub{font-family:var(--ui);font-size:13px;color:#b3aa98;margin-top:9px}
