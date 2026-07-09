@@ -276,28 +276,30 @@ export default function ChannelPage() {
         </div>
       ) : null}
 
-      {/* the current beat, by zone */}
+      {/* the current beat, by zone — each carries an exit moment near its end */}
       {beat && beat.zone === "sub" ? (
-        <div key={bk} className="sv2-sub">
-          {beat.kicker ? <span className="sv2-kick sv2-kick--sub">{beat.kicker}</span> : null}
-          <p className="sv2-subtxt">{beat.text}</p>
-          {beat.sub ? <p className="sv2-subsub">{beat.sub}</p> : null}
+        <div key={bk} className="sv2-sub" style={{ "--exit": `${Math.max(700, beat.hold - 520)}ms` } as React.CSSProperties}>
+          <div className="sv2-band">
+            {beat.kicker ? <span className="sv2-kick sv2-kick--sub">{beat.kicker}</span> : null}
+            <p className="sv2-subtxt">{beat.text}</p>
+            {beat.sub ? <p className="sv2-subsub">{beat.sub}</p> : null}
+          </div>
         </div>
       ) : beat && beat.zone === "quote" ? (
-        <figure key={bk} className="sv2-quote">
+        <figure key={bk} className="sv2-quote" style={{ "--exit": `${Math.max(700, beat.hold - 520)}ms` } as React.CSSProperties}>
           <span className="sv2-quote__mark" aria-hidden="true">“</span>
           <blockquote>{beat.text}</blockquote>
           {beat.sub ? <figcaption>— {beat.sub}</figcaption> : null}
         </figure>
       ) : beat && beat.zone === "chips" ? (
-        <div key={bk} className="sv2-chips">
+        <div key={bk} className="sv2-chips" style={{ "--exit": `${Math.max(700, beat.hold - 520)}ms` } as React.CSSProperties}>
           {(beat.chips ?? []).map((c, i) => (
             <span key={i} className="sv2-chip" style={{ animationDelay: `${i * 90}ms` }}>{c}</span>
           ))}
         </div>
       ) : beat && beat.zone === "map" ? (
         <div key={`map-${idx}`} className="sv2-map">
-          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={440} />
+          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={300} />
         </div>
       ) : null}
 
