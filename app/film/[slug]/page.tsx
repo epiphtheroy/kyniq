@@ -880,7 +880,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -952,6 +952,7 @@ export default async function FilmPage({ params }: Props) {
     { id: "df-map", label: "Connections" },
     archGroups.length ? { id: "df-archetype", label: "Archetype", badge: nArch } : null,
     reception.length ? { id: "df-reception", label: "Reception", badge: reception.length } : null,
+    newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount } : null,
     nCurious ? { id: "df-curious", label: "Curious", badge: nCurious } : null,
     dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length } : null,
