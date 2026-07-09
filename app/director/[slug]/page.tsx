@@ -5,6 +5,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityNews from "@/components/EntityNews";
 import CreditsExplorer from "@/app/credits/CreditsExplorer";
 import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
 import crewIndex from "@/lib/crew_index.json";
@@ -451,6 +452,9 @@ export default async function DirectorPage({ params }: Props) {
             )}
           </div>
         </section>
+
+        {/* IN THE NEWS — the Now Playing hourly desk's record for this director */}
+        <EntityNews directorSlug={slug} variant="dr" />
 
         {/* STRONG MISREADINGS — a representative set of real readings across the films */}
         {misreadings.length > 0 && (
