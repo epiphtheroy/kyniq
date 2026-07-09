@@ -3601,6 +3601,9 @@ a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .msa-foot{font-family:var(--font-ui); font-size:11px; color:var(--faint); padding:7px 10px}
 .df-catnote{font-family:var(--font-display); font-size:14px; color:var(--ink2); margin:12px 0 0; max-width:60ch}
 .df-synopsis{font-family:var(--font-display); font-size:16px; color:var(--ink2); line-height:1.62; margin:18px 0 2px; max-width:70ch}
+/* Search-term highlight (mirrors read.css) — used by TermHighlight on /search.
+   A slight underline-style mark rather than a full block highlight. */
+.mt mark.term-hl{background:linear-gradient(transparent 60%, rgba(214,69,52,0.22) 60%); color:#b3392b; font-weight:700; padding:0 1px}
 /* Tier-2 Editor's digest — the catalog page's lead: a compact, data-composed
    editorial record (canon standing · numbers · recommended-by · geography ·
    availability). A record, not a hero banner: quiet prose + one byline rule. */
@@ -3761,7 +3764,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sm-page .sm-h2{font-family:var(--font-display); font-size:21px; font-weight:500; color:#efe7d8; margin:0}
 
 /* ── Surprise v2 — "The Metatake Channel": text/lens composited over the film ── */
-.svc{position:fixed; top:0; left:0; width:100vw; height:100vh; height:100dvh; background:#000; overflow:hidden; z-index:60}
+.svchan{position:fixed; top:0; left:0; width:100vw; height:100vh; height:100dvh; background:#000; overflow:hidden; z-index:60}
 .svc-bed{position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden}
 .svc-media{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100vw; height:56.25vw; min-height:100vh; min-width:177.78vh; border:0; display:block; object-fit:cover}
 .svc-media--kb{width:100%; height:100%; min-height:100%; min-width:100%; object-fit:cover; animation:svc-kb 26s ease-in-out infinite alternate; transform-origin:center}
@@ -3804,7 +3807,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .svc-chips{display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; max-width:62ch}
 .svc-chip{font-family:var(--font-ui); font-size:clamp(12px,1.3vw,15px); color:#f2ece0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.24); border-radius:20px; padding:6px 14px; backdrop-filter:blur(3px); text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .svc-ctrls{position:absolute; bottom:20px; left:50%; transform:translateX(-50%); z-index:7; display:flex; align-items:center; gap:8px; background:rgba(12,10,8,.62); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:7px 10px; backdrop-filter:blur(8px); opacity:0; transition:opacity .3s; pointer-events:none}
-.svc--ui .svc-ctrls{opacity:1; pointer-events:auto}
+.svchan--ui .svc-ctrls{opacity:1; pointer-events:auto}
 .svc-btn{font-family:var(--font-ui); font-size:15px; color:#fff; background:transparent; border:0; width:40px; height:40px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none}
 .svc-btn:hover{background:rgba(255,255,255,.14)}
 .svc-btn:disabled{opacity:.35; cursor:default}
@@ -3812,7 +3815,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .svc-btn--play:hover{background:#a50d26}
 .svc-btn--open{width:auto; padding:0 15px; font-size:13px; font-weight:600; border:1px solid rgba(255,255,255,.28); border-radius:999px}
 .svc-hint{font-family:var(--font-ui); font-size:11px; color:#9a9388; padding:0 10px 0 6px; white-space:nowrap}
-.svc:not(.svc--ui){cursor:none}
+.svchan:not(.svchan--ui){cursor:none}
 @media(max-width:640px){ .svc-hint{display:none} .svc-head{max-width:none} .svc-stage{padding-bottom:88px} }
 
 /* ══ METATAKE TV (v2) — screen-essay beats over the film (model: MUBI essays).

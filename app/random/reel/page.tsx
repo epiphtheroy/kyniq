@@ -124,7 +124,7 @@ export default function ReelPage() {
   const card = i >= 0 ? cards[i] : null;
 
   return (
-    <div className="svc reel">
+    <div className="svchan reel">
       {/* bed */}
       <div className="svc-bed">
         {card?.backdrop ? (

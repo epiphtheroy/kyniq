@@ -233,7 +233,7 @@ export default function ChannelPage() {
 
   return (
     <div
-      className={`svc sv2 sv2-p-${pattern} sv2-m-${card?.mode ?? "boot"}${uiVisible ? " svc--ui" : ""}`}
+      className={`svchan sv2 sv2-p-${pattern} sv2-m-${card?.mode ?? "boot"}${uiVisible ? " svchan--ui" : ""}`}
       style={{ "--acc": acc, "--ent": ent } as React.CSSProperties}
       onMouseMove={wake} onClick={wake}
     >
