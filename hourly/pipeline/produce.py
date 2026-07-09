@@ -441,8 +441,11 @@ def after_publish(env: dict, slug: str, headline: str, dek: str | None) -> list[
 
 
 def _bluesky_post(env: dict, headline: str, url: str) -> int:
+    # a leading '@' makes bsky read the handle as an email (empty local part) → 400;
+    # strip it so BLUESKY_HANDLE works with or without the '@'.
+    ident = (env.get("BLUESKY_HANDLE") or "").lstrip("@").strip()
     status, data = http("https://bsky.social/xrpc/com.atproto.server.createSession", method="POST",
-                        body=json.dumps({"identifier": env["BLUESKY_HANDLE"], "password": env["BLUESKY_APP_PASSWORD"]}).encode(),
+                        body=json.dumps({"identifier": ident, "password": (env.get("BLUESKY_APP_PASSWORD") or "").strip()}).encode(),
                         headers={"Content-Type": "application/json"}, retries=0)
     if status != 200:
         return status
