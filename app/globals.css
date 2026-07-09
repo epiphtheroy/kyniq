@@ -3755,6 +3755,61 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sm-page .sm-morehd{text-align:center; margin-top:46px; padding-top:28px; border-top:1px solid rgba(255,255,255,.09)}
 .sm-page .sm-h2{font-family:var(--font-display); font-size:21px; font-weight:500; color:#efe7d8; margin:0}
 
+/* ── Surprise v2 — "The Metatake Channel": text/lens composited over the film ── */
+.svc{position:fixed; inset:0; background:#000; overflow:hidden; z-index:1}
+.svc-bed{position:absolute; inset:0; overflow:hidden}
+.svc-media{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100vw; height:56.25vw; min-height:100vh; min-width:177.78vh; border:0; display:block; object-fit:cover}
+.svc-media--kb{width:100%; height:100%; min-height:100%; min-width:100%; object-fit:cover; animation:svc-kb 26s ease-in-out infinite alternate; transform-origin:center}
+.svc-media--empty{width:100%; height:100%; background:radial-gradient(circle at 30% 30%,#20303c,#0a0806)}
+@keyframes svc-kb{from{transform:scale(1.04)} to{transform:scale(1.20)}}
+.svc-scrim{position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.55) 34%,rgba(0,0,0,.05) 66%,rgba(0,0,0,.35) 100%),
+             linear-gradient(0deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.1) 40%)}
+.svc-prog{position:absolute; top:0; left:0; right:0; height:3px; background:rgba(255,255,255,.14); z-index:6}
+.svc-prog i{display:block; height:100%; width:0; background:var(--red,#C8102E); animation:svc-prog linear forwards}
+@keyframes svc-prog{from{width:0} to{width:100%}}
+.svc-bug{position:absolute; top:18px; left:22px; z-index:6; display:flex; align-items:center; gap:9px; font-family:var(--font-ui)}
+.svc-bug__dot{width:9px; height:9px; border-radius:50%; background:#8c8474}
+.svc-bug__dot[data-live="1"]{background:var(--red,#C8102E); animation:svc-pulse 1.8s ease-in-out infinite}
+@keyframes svc-pulse{0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(200,16,46,.6)} 50%{opacity:.65; box-shadow:0 0 0 6px rgba(200,16,46,0)}}
+.svc-bug__name{font-weight:800; letter-spacing:.14em; font-size:14px; color:#fff}
+.svc-bug__sub{font-size:10px; font-weight:700; letter-spacing:.14em; color:#d9d1c2; border:1px solid rgba(255,255,255,.3); padding:2px 7px; border-radius:4px}
+.svc-stage{position:absolute; left:0; right:0; bottom:0; z-index:5; padding:0 clamp(22px,5vw,74px) clamp(64px,9vh,104px); max-width:min(58rem,86vw)}
+.svc-boot,.svc-lens{color:#fff}
+.svc-lens{animation:svc-in .6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes svc-in{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+.svc-film{font-family:var(--font-ui); font-size:clamp(12px,1.4vw,15px); color:#cfc7b8; margin-bottom:12px; text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.svc-film__t{color:#fff; font-weight:600}
+.svc-kicker{font-family:var(--font-ui); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#fff; background:var(--red,#C8102E); display:inline-block; padding:4px 11px; border-radius:5px; margin-bottom:14px}
+.svc-head{font-family:var(--font-display); font-size:clamp(28px,4.3vw,58px); line-height:1.05; font-weight:600; color:#fff; text-shadow:0 2px 22px rgba(0,0,0,.72); max-width:20ch}
+.svc-sub{font-family:var(--text-serif); font-size:clamp(15px,1.7vw,21px); line-height:1.45; color:#efe7d8; margin:16px 0 0; max-width:46ch; text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.svc-sub--sm{font-size:clamp(14px,1.4vw,17px); color:#d7cfc0}
+.svc-leap{font-family:var(--font-ui); font-size:clamp(13px,1.4vw,17px); line-height:1.5; color:#e8dfce; margin:14px 0 0; max-width:52ch; text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.svc-leap span{color:#E8A7AF; font-weight:800; margin-right:8px; text-transform:uppercase; font-size:.82em; letter-spacing:.04em}
+.svc-quotes{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:12px; max-width:56ch}
+.svc-quotes li{font-family:var(--text-serif); font-size:clamp(15px,1.6vw,20px); line-height:1.4; color:#f2ece0; border-left:2px solid rgba(232,167,175,.6); padding-left:14px; text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.svc-q__a{color:#b9b0a0; font-family:var(--font-ui); font-size:.72em}
+.svc-roll{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:9px; max-width:54ch}
+.svc-roll li{font-family:var(--font-ui); font-size:clamp(14px,1.5vw,18px); color:#efe7d8; text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.svc-roll b{color:#8c8474; margin-right:8px} .svc-roll .is-won b{color:#E8A7AF}
+.svc-roll em{color:#b9b0a0; font-style:normal}
+.svc-list{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:10px; max-width:56ch}
+.svc-list li{font-family:var(--font-ui); font-size:clamp(14px,1.5vw,18px); line-height:1.35; color:#e6ddcd; text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.svc-list b{color:#fff; font-weight:600} .svc-list span{color:#b9b0a0}
+.svc-chips{display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; max-width:62ch}
+.svc-chip{font-family:var(--font-ui); font-size:clamp(12px,1.3vw,15px); color:#f2ece0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.24); border-radius:20px; padding:6px 14px; backdrop-filter:blur(3px); text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.svc-ctrls{position:absolute; bottom:20px; left:50%; transform:translateX(-50%); z-index:7; display:flex; align-items:center; gap:8px; background:rgba(12,10,8,.62); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:7px 10px; backdrop-filter:blur(8px); opacity:0; transition:opacity .3s; pointer-events:none}
+.svc--ui .svc-ctrls{opacity:1; pointer-events:auto}
+.svc-btn{font-family:var(--font-ui); font-size:15px; color:#fff; background:transparent; border:0; width:40px; height:40px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none}
+.svc-btn:hover{background:rgba(255,255,255,.14)}
+.svc-btn:disabled{opacity:.35; cursor:default}
+.svc-btn--play{background:var(--red,#C8102E); font-size:13px}
+.svc-btn--play:hover{background:#a50d26}
+.svc-btn--open{width:auto; padding:0 15px; font-size:13px; font-weight:600; border:1px solid rgba(255,255,255,.28); border-radius:999px}
+.svc-hint{font-family:var(--font-ui); font-size:11px; color:#9a9388; padding:0 10px 0 6px; white-space:nowrap}
+.svc:not(.svc--ui){cursor:none}
+@media(max-width:640px){ .svc-hint{display:none} .svc-head{max-width:none} .svc-stage{padding-bottom:88px} }
+
 /* ── The Map (/map) — full-screen critical-web explorer ───────────────── */
 .map-shell{position:relative; width:100%}
 .map-bar{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:11px 16px; border-bottom:1px solid var(--hairline); background:var(--bg); position:sticky; top:0; z-index:5}
