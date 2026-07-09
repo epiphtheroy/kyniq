@@ -140,12 +140,16 @@
 .mt .thr, .mt .tp-member, .mt .cat-mrow { scroll-margin-top: 130px; }
 /* ── Afterlife (reception timeline) — sticky year nav + mode collector ── */
 .mt .afn {
-  position: sticky; z-index: 45; margin: 0 0 8px; padding: 7px 14px 6px;
+  position: sticky; z-index: 45; margin: 0 0 8px; padding: 7px 0 6px;
   background: linear-gradient(180deg, #f4f1e9, #fcfbf7);
   border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
-.mt .afn__row { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 1px 0; }
+/* The bar is full-bleed, but its content aligns to the article column (760px
+   centred) so the year pills sit above where the text starts — not adrift at
+   the far viewport edge (2026-07-09 fix). */
+.mt .afn__row, .mt .afn__modes { max-width: 760px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
+.mt .afn__row { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 .mt .afn__row::-webkit-scrollbar { display: none; }
 .mt .afn__y {
   --bc: #5a6b86; flex: 0 0 auto; display: inline-flex; align-items: center;

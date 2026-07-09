@@ -1,0 +1,2 @@
+{"at": "2026-07-09T00:10:30+00:00", "model": "claude-fable-5", "in": 273, "out": 128, "cache_read": 0, "cache_write": 0, "searches": 0, "cost_usd": 0.0091}
+{"at": "2026-07-09T00:11:11+00:00", "model": "claude-fable-5", "in": 402, "out": 474, "cache_read": 0, "cache_write": 0, "searches": 0, "cost_usd": 0.0277}
