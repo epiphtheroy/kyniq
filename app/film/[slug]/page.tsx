@@ -949,7 +949,6 @@ export default async function FilmPage({ params }: Props) {
     whyWatch.length ? { id: "df-whywatch", label: "Why watch", badge: whyWatch.length, zone: "free" as const } : null,
     codex ? { id: "df-codex", label: "TakeScore", badge: tsScore ?? undefined, badgeTone: "score" as const, zone: "free" as const } : null,
     { id: "df-watch", label: "Where to watch", badge: nWatchRegions || undefined, zone: "free" as const },
-    filmInfoPresent ? { id: "df-information", label: "Information", zone: "free" as const } : null,
     hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
     nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces, zone: "free" as const } : null,
     { id: "df-map", label: "Connections", zone: "free" as const },
@@ -1549,34 +1548,6 @@ export default async function FilmPage({ params }: Props) {
             )}
             <div className="df-src">Credits data from TMDB · analysis by Metatake</div>
           </section>
-        ) : null}
-
-        {/* FILM INFO — accordion */}
-        {(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer) ? (
-          <details className="df-finfo" id="df-information">
-            <summary>Film info &amp; credits</summary>
-            <div className="df-finfo__body">
-              {film.overview ? <p className="df-ov">{film.overview}</p> : null}
-              {trailer && !invitation ? (
-                <div className="df-trailer">
-                  <YouTubeFacade videoId={trailer.external_id} title={trailer.title ?? "Trailer"} thumbnailUrl={trailer.thumbnail_url ?? undefined} attribution={trailer.attribution ?? undefined} />
-                </div>
-              ) : null}
-              <dl className="df-dl">
-                {film.director ? <><dt>Director</dt><dd><Link href={`/director/${film.director_slug}`}>{film.director}</Link></dd></> : null}
-                {cast.length ? <><dt>Cast</dt><dd>{cast.slice(0, 5).map((c) => c.character ? `${c.name} (${c.character})` : c.name).join(", ")}</dd></> : null}
-                {extra.writers?.length ? <><dt>Writing</dt><dd>{extra.writers.join(", ")}</dd></> : null}
-                {film.release_date ? <><dt>Released</dt><dd>{film.release_date}</dd></> : null}
-                {runtimeFmt ? <><dt>Runtime</dt><dd>{runtimeFmt}</dd></> : null}
-                {film.genres?.length ? <><dt>Genre</dt><dd>{film.genres.join(", ")}</dd></> : null}
-                {cert ? <><dt>Rated</dt><dd>{cert}</dd></> : null}
-                {extra.original_language ? <><dt>Language</dt><dd>{extra.original_language.toUpperCase()}</dd></> : null}
-                {extra.country?.length ? <><dt>Country</dt><dd>{extra.country.join(", ")}</dd></> : null}
-                {extra.collection ? <><dt>Collection</dt><dd>{extra.collection}</dd></> : null}
-              </dl>
-              <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
-            </div>
-          </details>
         ) : null}
 
         {/* WHERE TO WATCH — verified access layer, moved to the final tab */}
