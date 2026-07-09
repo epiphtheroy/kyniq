@@ -20,6 +20,34 @@
 .mt.cur .now-stamp b { color: #fff; font-weight: 600; }
 .mt.cur .now-stamp .sep { margin: 0 8px; color: #4a4a4a; }
 
+/* byline with monogram avatar (no photo on file yet) → links to /editor */
+.mt.cur .now-byline { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 9px; }
+.mt.cur .now-author { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.mt.cur .now-avatar {
+  width: 27px; height: 27px; flex: none; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: radial-gradient(120% 120% at 30% 25%, #2a2a2a, #161616);
+  border: 1px solid #565452; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4);
+  font: 700 14px/1 "PT Serif", Georgia, serif; color: #ff5347;
+}
+.mt.cur .now-author-name { color: #e8e6e7; font-weight: 600; }
+.mt.cur .now-author:hover .now-author-name { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+.mt.cur .now-author:hover .now-avatar { border-color: #ff5347; }
+.mt.cur .now-byline-rest { color: #b6b4b5; }
+
+/* written / published time card — the clock is the product, restated above the body */
+.mt.cur .cur-paper .now-timecard {
+  display: flex; flex-direction: column; gap: 3px;
+  font: 500 12px/1.6 ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color: #4d4a47; background: #faf8f5; border: 1px solid #e6e2db;
+  border-left: 3px solid #e3120b; border-radius: 3px; padding: 10px 14px; margin: 0 0 18px;
+}
+.mt.cur .cur-paper .now-timecard time { color: #23211f; }
+.mt.cur .cur-paper .now-timecard .k {
+  display: inline-block; min-width: 78px; color: #0d0d0d; font-weight: 700;
+  font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase;
+}
+
 .mt.cur .now-kw {
   display: inline-block; margin-top: 10px; padding: 4px 11px;
   border: 1px solid #3a3a3a; border-radius: 3px; background: #1f1f1f;
