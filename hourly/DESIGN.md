@@ -1,3 +1,5 @@
+> 📍 **정본 인덱스: [`HANDOFF-now-플레잉.md`](../HANDOFF-now-플레잉.md)** — Now Playing 전체 체계·불변식·결정 로그. 작업 전 먼저 읽으세요.
+
 # Now Playing — architecture & design rationale
 
 *Companion to `README.md` (the editorial recipe, v2), `TREND-SOURCES.md` (signal-service comparison), `DISTRIBUTION.md` (post-publish), `FORECAST.md` (case evidence that shaped v2). Decisions locked 2026-07-08 (Wonwoo): beat-first · data-deep (no political verdict layer) · 2–4 pieces/day · hold rule · section brand containing "now" → **Now Playing at metatake.net/now**, featured big on the home page · no X.*

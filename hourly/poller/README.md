@@ -1,3 +1,5 @@
+> 📍 **정본 인덱스: [`HANDOFF-now-플레잉.md`](../../HANDOFF-now-플레잉.md)** — Now Playing 전체 체계·불변식·결정 로그. 작업 전 먼저 읽으세요.
+
 # Now Playing — running the machine
 
 All stdlib Python 3; no pip installs. Everything reads creds from the repo's `.env.local`. The Claude Code sandbox has no network — these run on the Mac directly (cron/launchd) or with sandbox disabled.

@@ -1,3 +1,5 @@
+> 📍 **정본 인덱스: [`HANDOFF-now-플레잉.md`](../HANDOFF-now-플레잉.md)** — Now Playing 전체 체계·불변식·결정 로그. 작업 전 먼저 읽으세요.
+
 # Traffic forecast & case evidence — read before building
 
 *Researched and adversarially verified 2026-07-08 (two independent research passes; load-bearing claims checked against primary sources). This document exists because the honest answer changes the design. Decision points at the bottom.*

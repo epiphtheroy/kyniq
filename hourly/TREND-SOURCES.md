@@ -1,3 +1,5 @@
+> 📍 **정본 인덱스: [`HANDOFF-now-플레잉.md`](../HANDOFF-now-플레잉.md)** — Now Playing 전체 체계·불변식·결정 로그. 작업 전 먼저 읽으세요.
+
 # Trend-signal services — comprehensive comparison & the chosen stack
 
 *Researched and endpoint-verified 2026-07-08 (live curl tests on the key feeds). This is the poller's contract: what we poll, why, and the upgrade path. Prices as of July 2026 — recheck before upgrading.*

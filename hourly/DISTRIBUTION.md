@@ -1,3 +1,5 @@
+> 📍 **정본 인덱스: [`HANDOFF-now-플레잉.md`](../HANDOFF-now-플레잉.md)** — Now Playing 전체 체계·불변식·결정 로그. 작업 전 먼저 읽으세요.
+
 # Post-publish distribution — what fires after every piece, automatically
 
 *Companion to README.md (recipe) and DESIGN.md (architecture). This is the publisher stage's second half: the piece is live — now make sure the searchers and the feeds find it while the spike is still climbing. Everything in Tier 1–2 runs unattended; Tier 3 is deliberately manual; Tier 4 is prohibited.*

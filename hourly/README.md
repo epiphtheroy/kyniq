@@ -1,3 +1,5 @@
+> 📍 **정본 인덱스: [`HANDOFF-now-플레잉.md`](../HANDOFF-now-플레잉.md)** — Now Playing 전체 체계·불변식·결정 로그. 작업 전 먼저 읽으세요.
+
 # Now Playing — production spec v2 (beat-first, data-deep)
 
 **What this is.** metatake.net's live layer: `/now`. When something spikes in the film-and-culture territory, Now Playing publishes — within the hour — the piece only Metatake can write: the news, verified, plus **the archive's record of the entities involved**, assembled from the corpus (lineage & honors, TakeScore, tropes & figures, connections, atlas, reception history). Not a hot take, not a political verdict: *the data-deep film-history read, timestamped.*
