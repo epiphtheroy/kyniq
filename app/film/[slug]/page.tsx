@@ -928,7 +928,6 @@ export default async function FilmPage({ params }: Props) {
   const archGroups = ARCH_ORDER
     .map((axis) => ({ axis, items: archetypes.filter((a) => a.axis === axis).slice(0, ARCH_CAP[axis] ?? 999) }))
     .filter((g) => g.items.length > 0);
-  const filmInfoPresent = !!(film.overview || cast.length || extra.writers?.length || film.release_date || extra.country?.length || trailer);
   const accessRec = accessRecordFor(film.tmdb_id);
 
   // Section tabs — each carries its own count as a badge (TakeScore carries the
@@ -958,10 +957,11 @@ export default async function FilmPage({ params }: Props) {
     recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length, zone: "free" as const } : null,
     watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length, zone: "free" as const } : null,
     recs.length ? { id: "df-connected", label: "Films like", badge: recs.length, zone: "free" as const } : null,
-    (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery`, zone: "free" as const } : null,
     crew.length
       ? { id: "df-crew", label: "Credits", badge: crew.length, zone: "free" as const }
       : film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}`, zone: "free" as const } : null,
+    // Gallery sits at the very end of the spoiler-free rail — a side surface.
+    (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery`, zone: "free" as const } : null,
     // ── Spoilers (after you watch): the close readings that turn on the film's scenes ──
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!", badge: misreadings.length, zone: "spoiler" as const } : null,
     grouped.length ? { id: "df-figures", label: "Figures", badge: catalogue.length, zone: "spoiler" as const } : null,
