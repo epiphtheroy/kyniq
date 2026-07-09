@@ -160,7 +160,8 @@ const loadIndex = unstable_cache(
     };
   },
   // v3: country/birthYear joined the rows for client sort (2026-07-09)
-  ["curious-directors-3"],
+  // v4: misreadings flag joined (2026-07-09)
+  ["curious-directors-4"],
   { revalidate: 86400 }
 );
 

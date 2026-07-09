@@ -18,7 +18,7 @@ type Sort = "name" | "country" | "year" | "layers";
 
 const layerCount = (d: DirRow) =>
   (d.life > 0 ? 1 : 0) + (d.start > 0 ? 1 : 0) + (d.next > 0 ? 1 : 0) +
-  (d.locations ? 1 : 0) + (d.takescore ? 1 : 0) + (d.honors ? 1 : 0) + (d.reception ? 1 : 0) + (d.theory ? 1 : 0);
+  (d.locations ? 1 : 0) + (d.takescore ? 1 : 0) + (d.honors ? 1 : 0) + (d.reception ? 1 : 0) + (d.theory ? 1 : 0) + (d.misreadings ? 1 : 0);
 
 function letterOf(name: string): string {
   const c = name.normalize("NFD").replace(/[̀-ͯ]/g, "").charAt(0).toUpperCase();
@@ -30,6 +30,7 @@ function linksFor(d: DirRow): { href: string; label: string }[] {
   if (d.life > 0) out.push({ href: `/director/${d.slug}/life`, label: `The life (${d.life})` });
   if (d.start > 0) out.push({ href: `/director/${d.slug}/start`, label: `Where to start (${d.start})` });
   if (d.next > 0) out.push({ href: `/director/${d.slug}/next`, label: `Who's next (${d.next})` });
+  if (d.misreadings) out.push({ href: `/director/${d.slug}/misreadings`, label: "Strong Misreadings" });
   if (d.locations) out.push({ href: `/director/${d.slug}/locations`, label: "Locations" });
   if (d.takescore) out.push({ href: `/director/${d.slug}/takescore`, label: "TakeScore" });
   if (d.honors) out.push({ href: `/director/${d.slug}/honors`, label: "Honors" });
