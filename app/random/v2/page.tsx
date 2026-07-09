@@ -298,6 +298,10 @@ export default function ChannelPage() {
         </div>
       ) : beat && beat.zone === "map" ? (
         <div key={`map-${idx}`} className="sv2-map">
+          <div className="sv2-map__h">
+            <span className="sv2-kick sv2-kick--sub">{card?.label ?? "The map"}</span>
+            <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
+          </div>
           <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={300} />
         </div>
       ) : null}
