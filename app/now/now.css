@@ -20,9 +20,10 @@
 .mt.cur .now-stamp b { color: #fff; font-weight: 600; }
 .mt.cur .now-stamp .sep { margin: 0 8px; color: #4a4a4a; }
 
-/* byline with monogram avatar (no photo on file yet) → links to /editor */
-.mt.cur .now-byline { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 9px; }
-.mt.cur .now-author { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+/* byline with monogram avatar (no photo on file yet) → links to /editor.
+   flows as text so ", founder & editor …" stays attached to the name on wrap */
+.mt.cur .now-byline { line-height: 1.9; }
+.mt.cur .now-author { display: inline-flex; align-items: center; gap: 7px; vertical-align: middle; text-decoration: none; }
 .mt.cur .now-avatar {
   width: 27px; height: 27px; flex: none; border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
