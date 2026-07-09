@@ -151,8 +151,8 @@ function popupHTML(p: Record<string, string>, detailed: boolean): string {
 }
 
 export default function FilmMap({
-  endpoint, height = 460, filmSlug, search = false, satelliteDefault = false, panelSide = "right",
-}: { endpoint: string; height?: number; filmSlug?: string; search?: boolean; satelliteDefault?: boolean; panelSide?: "left" | "right" }) {
+  endpoint, height = 460, filmSlug, search = false, satelliteDefault = false, panelSide = "right", fitMaxZoom = 9,
+}: { endpoint: string; height?: number; filmSlug?: string; search?: boolean; satelliteDefault?: boolean; panelSide?: "left" | "right"; fitMaxZoom?: number }) {
   const [primary, setPrimary] = useState<Row[] | null>(null);      // rows from `endpoint` (film/director pages)
   const [worldBase, setWorldBase] = useState<Row[] | null>(null);  // overview: one pin per film
   const [worldVer, setWorldVer] = useState(0);                     // bumped when viewport detail arrives
@@ -563,7 +563,7 @@ export default function FilmMap({
   const fitBase = primary ?? worldAll;
   useEffect(() => {
     if (!mapReady || didFit.current || !fitBase || fitBase.length === 0) return;
-    fitRows(fitBase);
+    fitRows(fitBase, fitMaxZoom);
     didFit.current = true;
     requestBbox();
   }, [mapReady, fitBase, fitRows, requestBbox]);
