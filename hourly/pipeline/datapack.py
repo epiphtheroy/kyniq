@@ -24,6 +24,45 @@ CODEX_DIMS = {
     "polar": ("polarization", "Polarization"),
 }
 
+# Which of the three TakeScore groups each sub-dimension belongs to (mirrors
+# lib/cinecodex_dims.ts CodexDim.group). Used to pick the right verdict word.
+DIM_GROUP = {
+    "cog": "value", "aff": "value", "form": "value", "moral": "value", "dur": "value",
+    "itx": "cost", "fr": "cost", "etx": "cost", "ctx": "cost",
+    "bank": "risk", "insincere": "risk", "coward": "risk", "polar": "risk",
+}
+
+# The 1..5 verdict WORDS per group — byte-identical to lib/takescore_prose.ts
+# BAND_WORDS (public vocabulary). We surface these instead of a corpus rank
+# (owner's rule 2026-07-10: rank invites criticism; verdict words are the honest
+# read). Em-dashes removed to satisfy the no-em-dash house rule.
+BAND_WORDS = {
+    "value": ["Faint traces", "Fair returns", "Solid, not peak", "Strong, lasting", "Exceptional, canon-grade"],
+    "cost": ["Walk right in", "Some homework", "Real preparation", "Advanced viewing", "Expert terrain"],
+    "risk": ["Nearly riskless", "Low downside", "Some hazard", "High letdown risk", "Severe, a gamble"],
+}
+
+
+def _band_of(score: float) -> int:
+    return max(1, min(5, round(score / 20)))
+
+
+def _band_word(group: str, score: float) -> str:
+    return BAND_WORDS[group][_band_of(score) - 1]
+
+
+def _verdict_quadrant(v: float, r: float) -> tuple[str, str]:
+    """(headline phrase, tail) — the same quadrant logic as verdictSentence().
+    Thresholds match the private Appraisal: high value >= 72, low risk <= 20."""
+    hi_v, lo_r = v >= 72, r <= 20
+    if hi_v and lo_r:
+        return "High value, low risk", "a safe masterpiece"
+    if hi_v and not lo_r:
+        return "High value, high risk", "ambitious but divisive"
+    if not hi_v and lo_r:
+        return "Solid but not peak", "a stable choice"
+    return "Mid value, mid risk", "approach with care"
+
 
 def _film_row(env: dict, slug: str) -> dict | None:
     rows = sb_get(env, f"films?select=id,slug,title,year,director,director_slug,genres,is_analyzed,backdrop_path,poster_path&slug=eq.{quote(slug)}&limit=1")
@@ -76,27 +115,44 @@ def _canon_module(env: dict, film: dict, mid: str) -> dict | None:
 
 
 def _takescore_module(env: dict, film: dict, mid: str) -> dict | None:
-    # The public TakeScore comes from the cinecodex_card RPC (V/C/R + the 13
-    # named CineCodex dimensions), NOT the old film_scores table. Show the
-    # composite standing, the three axes, and the strongest dimensions -
-    # each dimension links to its /takescore/[dim] page.
+    # Metatake's own appraisal via the cinecodex_card RPC (V/C/R + the 13 named
+    # dimensions). We surface VERDICT WORDS, never a corpus rank (owner's rule
+    # 2026-07-10) — rank is criticizable; a rank only appears when it is a
+    # genuine top-1000 standing. V/C/R are spelled out (no bare abbreviations);
+    # only the film's value strengths are named, so no dimension reads as a jab.
     card = sb_rpc(env, "cinecodex_card", {"p_slug": film["slug"]})
     if not isinstance(card, dict) or card.get("v") is None:
         return None
+    v = card["v"]
+    c = card.get("c") or 0
+    r = card.get("r") or 0
     rank, total = card.get("rank"), card.get("rank_total")
-    head = f"TakeScore V{round(card['v'])} · C{round(card['c'])} · R{round(card['r'])}"
-    items = [{"label": head, "href": f"/takescore/film/{film['slug']}",
-              "note": (f"ranked {rank} of {total} in the corpus" if rank and total else "the full scorecard")}]
+    slug = film["slug"]
+    qword, qtail = _verdict_quadrant(v, r)
+
+    comp_note = qtail
+    if rank and total and rank <= 1000:  # a top-1000 standing is a fact worth stating
+        comp_note = f"{qtail} · ranks {rank} of {total:,} in the corpus"
+
+    items = [
+        {"label": f"TakeScore™ — {qword}", "href": f"/takescore/film/{slug}", "note": comp_note},
+        {"label": f"Value (what you keep) — {_band_word('value', v)}", "href": f"/takescore/film/{slug}"},
+        {"label": f"Cost (what it asks) — {_band_word('cost', c)}", "href": f"/takescore/film/{slug}"},
+        {"label": f"Risk (how it can go wrong) — {_band_word('risk', r)}", "href": f"/takescore/film/{slug}"},
+    ]
+    # name only the strongest VALUE dimensions (strengths), each as a verdict word
     subs = card.get("subs") or {}
     if isinstance(subs, dict):
-        ranked = sorted(((k, v) for k, v in subs.items() if isinstance(v, (int, float)) and k in CODEX_DIMS),
-                        key=lambda kv: kv[1], reverse=True)
-        for k, v in ranked[:6]:
-            slug, label = CODEX_DIMS[k]
-            items.append({"label": f"{label}: {round(v)}", "href": f"/takescore/{slug}"})
+        val = sorted(((k, s) for k, s in subs.items()
+                      if isinstance(s, (int, float)) and DIM_GROUP.get(k) == "value" and k in CODEX_DIMS),
+                     key=lambda kv: kv[1], reverse=True)
+        for k, s in val[:3]:
+            dslug, label = CODEX_DIMS[k]
+            items.append({"label": f"{label} — {_band_word('value', s)}", "href": f"/takescore/{dslug}"})
     return {"id": mid, "type": "takescore",
-            "title": f"TakeScore — {film['title']}",
-            "note": "Value / Cost / Risk and the strongest of the 13 dimensions. Each links to its scale.",
+            "title": f"TakeScore™ — {film['title']}",
+            "note": "Metatake's own appraisal, read as verdicts rather than a ranking: Value (what you keep), "
+                    "Cost (what it asks), Risk (how it can go wrong). Each links to its scale.",
             "items": items}
 
 
@@ -198,16 +254,19 @@ def _film_archive_links(env: dict, film: dict, modules: list[dict]) -> list[dict
     links, drive the on-site click). Only links we know resolve."""
     slug, fid = film["slug"], film["id"]
     types = {m["type"] for m in modules}
-    links = [{"label": "The film page", "href": f"/film/{slug}", "note": "the full record"}]
+    title = film["title"]
+    tlabel = f"{title} ({film['year']})" if film.get("year") else title
+    # bottom box: name the film, not a generic "film page" (owner's rule 2026-07-10)
+    links = [{"label": tlabel, "href": f"/film/{slug}", "note": "the full record"}]
 
     if "takescore" in types:
-        links.append({"label": "TakeScore scorecard", "href": f"/takescore/film/{slug}", "note": "the 13-dimension read"})
+        links.append({"label": f"TakeScore™ — {title}", "href": f"/takescore/film/{slug}", "note": "Value, Cost, Risk read as verdicts"})
     if "canon" in types:
-        links.append({"label": "Lineage & honors", "href": f"/film/lineage/{slug}", "note": "the record in the lists"})
+        links.append({"label": f"{title} in the canon", "href": f"/film/lineage/{slug}", "note": "the record in the lists and prizes"})
     if "locations" in types:
-        links.append({"label": "Shooting atlas", "href": f"/film/atlas/{slug}", "note": "every mapped place"})
+        links.append({"label": f"Where {title} was shot", "href": f"/film/atlas/{slug}", "note": "every mapped place"})
     if "misreadings" in types:
-        links.append({"label": "Strong misreadings", "href": f"/film/{slug}/misreadings", "note": "the readings, assembled"})
+        links.append({"label": f"Strong misreadings of {title}", "href": f"/film/{slug}/misreadings", "note": "the readings, assembled"})
 
     # movies-like (kinship connections)
     kin = sb_get(env, f"film_affinities?select=film_id&film_id=eq.{fid}&limit=1")

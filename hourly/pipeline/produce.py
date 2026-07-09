@@ -109,9 +109,9 @@ Non-negotiables, in order:
 
 3. NAMES AND PLACES. Real names, real places, real dates - as many as accuracy allows. Every factual claim carries its outlet AND its reporting date ("Variety reported on July 7 that..."). What is confirmed vs merely reported is said once, plainly.
 
-4. THE ARCHIVE IN THE PROSE. Weave 4 to 10 links from the provided INTERNAL LINKS inventory into the body where they genuinely carry the argument - the film page where you invoke the film, the scorecard where you cite its standing, the lineage page where you cite its canon record. Never link-stuff; never use an href absent from the inventory. Archival numbers and claims must come from the provided modules - nothing remembered.
+4. THE ARCHIVE IN THE PROSE. Weave 4 to 10 links from the provided INTERNAL LINKS inventory into the body where they genuinely carry the argument - the film page where you invoke the film, the scorecard where you cite its standing, the lineage page where you cite its canon record. Never link-stuff; never use an href absent from the inventory. Archival numbers and claims must come from the provided modules - nothing remembered. When you cite TakeScore, brand it TakeScore(TM) and quote its VERDICT WORDS (e.g. "high value, high risk", "solid but not peak"), never bare abbreviations. Do NOT state the film's rank in the corpus unless a module explicitly gives one (the pack only surfaces a rank when it is a genuine top-1000 standing); a rank invites needless argument, the verdict word does the work.
 
-5. ARGUE, HUMBLY. The letter moves: the surface reaction everyone will have -> the deeper question underneath -> your position, argued. Engage the strongest objection honestly; concede what must be conceded; state uncertainty once and plainly. Intelligent, warm, firm in the argument. First person available, used sparingly. This is film and culture: take real positions on works, industries, reputations, institutions - never partisan-political verdicts, never private individuals' character.
+5. ARGUE, HUMBLY - AND WOUND NO ONE. The letter moves: the surface reaction everyone will have -> the deeper question underneath -> your position, argued. Engage the strongest objection honestly; concede what must be conceded; state uncertainty once and plainly. Intelligent, warm, firm in the argument. First person available, used sparingly. Take real positions on works, ideas, industries, and institutions - never partisan-political verdicts, never a private individual's character. CRUCIAL: no person, film, or filmmaker named here should come away feeling attacked, mocked, belittled, or disadvantaged. We do not want to hurt anyone. Neutral and fair is the default register: when the argument runs critical of a work or a choice, aim it at the idea, the reception, or the film's place in history, offered with respect and care, never as a verdict that diminishes the people who made it or appear in it. Describe reception (praise and boos alike) as reported fact, from a distance, never as your own attack.
 
 6. FORM. 700-1200 words of prose. Short paragraphs (1-4 sentences), front-loaded, zero filler, no em-dashes, no listicles. Wit is welcome; it never touches the facts. Vary structure against the recent-pieces digest: no repeated openings, closings, or headline shapes.
 
@@ -388,7 +388,8 @@ def build_cut_floor(env: dict, snapshot: dict, chosen_keyword: str) -> list[dict
     return out
 
 
-def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_floor: list[dict] | None = None) -> tuple[bool, str]:
+def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_floor: list[dict] | None = None,
+            written_at: str | None = None) -> tuple[bool, str]:
     anchor = pack["anchor"]
     img = pack.get("image") or {}
     piece.pop("_keyword", None)
@@ -406,6 +407,10 @@ def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_fl
         "cut_floor": [],  # v3: rejected news is NOT published (owner's rule 5)
         "status": "published",
     }
+    # created_at = when the letter was written; published_at defaults to the
+    # insert moment. The piece shows both (owner's rule 2026-07-10).
+    if written_at:
+        row["created_at"] = written_at
     ok, info = sb_insert(env, "now_articles", row)
     return ok, info
 
@@ -558,7 +563,7 @@ def main() -> None:
         # (owner's rule 2026-07-08: the voice must reach the page untouched).
         # The deterministic gate stays: it checks structure and link validity,
         # never style.
-        piece, failure_report = None, None
+        piece, failure_report, written_at = None, None, None
         for attempt in (1, 2):
             draft = writer_pass(env, cand, pack, digest, "your call - find the letter's argument", failure_report)
             if not draft:
@@ -567,6 +572,7 @@ def main() -> None:
             fails = deterministic_gate(env, draft, pack, keyword=cand["keyword"])
             if not fails:
                 piece = draft
+                written_at = now_utc()  # when the letter was composed; publish stamps a hair later
                 break
             failure_report = "; ".join(fails)
             log(f"gate fail (attempt {attempt}): {failure_report[:300]}")
@@ -582,7 +588,7 @@ def main() -> None:
             log(f"DRY RUN: draft written to {out}")
             return
 
-        ok, info = publish(env, piece, cand, pack, scores)
+        ok, info = publish(env, piece, cand, pack, scores, written_at=written_at)
         if not ok:
             log(f"insert failed: {info}")
             ledger_append(f"{stamp} · KILLED · {cand['keyword']} · insert fail {info[:120]}")
