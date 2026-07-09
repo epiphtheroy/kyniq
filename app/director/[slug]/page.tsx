@@ -370,29 +370,35 @@ export default async function DirectorPage({ params }: Props) {
   // poster for each pick (picks reference the director's own films)
   const posterBySlug = new Map<string, string | null>((films as FilmArt[]).map((f) => [f.slug, f.poster_path || f.backdrop_path || null]));
 
-  // Dynamic tabs — the film-page menu grammar (2026-07-09): two offset rails,
-  // per-section colors, live counts as tinted badges. Portrait + Filmography
-  // always; others when their data exists.
+  // Dynamic tabs — the film-page menu grammar (2026-07-09): two zoned rails,
+  // per-section colors, live counts as tinted badges. Top rail = the overview
+  // (spoiler-free: who he is, the work, the records, the maps); bottom rail =
+  // the close readings that turn on specific scenes and can spoil his films.
+  // Order within each zone runs intro → work → guides → record (top), and
+  // flagship reading → deeper analysis (bottom).
   const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
   const filmoTotal = total + hiddenTotal;
-  const tabs: { id: string; label: string; href?: string; badge?: number; color?: string }[] = [
-    { id: "dr-portrait", label: "Portrait", color: "#5A6B86" },
-    { id: "dr-filmography", label: "Filmography", badge: filmoTotal, color: "#2E7D9E" },
-  ];
-  if (newsCount > 0) tabs.push({ id: "dr-in-the-news", label: "In the news", badge: newsCount, color: "#E3120B" });
-  if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings", badge: readingCount, color: "#D64534" });
-  tabs.push({ id: "dr-selection", label: "The selection", badge: total, color: "#0F6E56" });
-  if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes", badge: tropeCount, color: "#12897A" });
-  if (archGroups.length) tabs.push({ id: "dr-archetype", label: "Archetype", badge: nArch, color: "#6B4E9E" });
-  if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life", badge: facts.facts.length, color: "#B8863B" });
-  if (next.length) tabs.push({ id: "dr-next", label: "Who's Next", badge: next.length, color: "#B85C9E" });
-  if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start", badge: picks.length, color: "#C87A2C" });
-  if (honorsN + receptionN > 0 || total >= 3 || readingCount > 0) tabs.push({ id: "dr-records", label: "The records", badge: honorsN + receptionN, color: "#8A6D3B" });
-  tabs.push({ id: "dr-map", label: "Connections", color: "#2F6DB0" });
-  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas", badge: geoMerged, color: "#2E8B6E" });
+  type DTab = { id: string; label: string; href?: string; badge?: number; color?: string; zone?: "free" | "spoiler" };
   const hasLocationsPage = geoFilms >= DIRECTOR_LOCATIONS_MIN_FILMS && geoCells >= DIRECTOR_LOCATIONS_MIN_PINS;
-  if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations`, badge: geoMerged, color: "#3F7E8C" });
-  tabs.push({ id: "dr-credits", label: "Credits", color: "#6B7280" });
+  const tabs: DTab[] = [
+    // ── The overview (spoiler-free) ──
+    { id: "dr-portrait", label: "Portrait", color: "#5A6B86", zone: "free" },
+    { id: "dr-filmography", label: "Filmography", badge: filmoTotal, color: "#2E7D9E", zone: "free" },
+    { id: "dr-selection", label: "The selection", badge: total, color: "#0F6E56", zone: "free" },
+  ];
+  if (picks.length) tabs.push({ id: "dr-start", label: "Where to Start", badge: picks.length, color: "#C87A2C", zone: "free" });
+  if (next.length) tabs.push({ id: "dr-next", label: "Who's Next", badge: next.length, color: "#B85C9E", zone: "free" });
+  if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life", badge: facts.facts.length, color: "#B8863B", zone: "free" });
+  if (honorsN + receptionN > 0 || total >= 3 || readingCount > 0) tabs.push({ id: "dr-records", label: "The records", badge: honorsN + receptionN, color: "#8A6D3B", zone: "free" });
+  if (newsCount > 0) tabs.push({ id: "dr-in-the-news", label: "In the news", badge: newsCount, color: "#E3120B", zone: "free" });
+  tabs.push({ id: "dr-map", label: "Connections", color: "#2F6DB0", zone: "free" });
+  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas", badge: geoMerged, color: "#2E8B6E", zone: "free" });
+  if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations`, badge: geoMerged, color: "#3F7E8C", zone: "free" });
+  tabs.push({ id: "dr-credits", label: "Credits", color: "#6B7280", zone: "free" });
+  // ── Close readings (may spoil individual films) ──
+  if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings", badge: readingCount, color: "#D64534", zone: "spoiler" });
+  if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes", badge: tropeCount, color: "#12897A", zone: "spoiler" });
+  if (archGroups.length) tabs.push({ id: "dr-archetype", label: "Archetype", badge: nArch, color: "#6B4E9E", zone: "spoiler" });
 
   return (
     <div className="mt">
@@ -438,7 +444,7 @@ export default async function DirectorPage({ params }: Props) {
       </div>
 
       <div className="dr-wrap">
-        <FilmTabBar tabs={tabs} twoRow />
+        <FilmTabBar tabs={tabs} twoRow zoneLabels={{ free: { title: "The overview", sub: "spoiler-free" }, spoiler: { title: "Close readings", sub: "may spoil his films" } }} />
 
         {/* PORTRAIT — our portrait when written; otherwise our numbers as
             prose. TMDB's bio is never shown (third-party duplicate text). */}
