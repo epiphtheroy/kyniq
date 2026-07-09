@@ -184,6 +184,8 @@ metatake.net의 라이브 뉴스층. 전 세계에서 스파이크하는 **영�
 10. **now/[slug]은 다크 셸(.mt.cur #181818)** — .cur-paper.blg만 흰 시트. 헤더/인덱스=밝은 글자, 페이퍼 내부=어두운 글자.
 11. **Hidden Chrome 탭에서 MapLibre 안 뜸**(rAF 정지) — 지도 디버깅 전 visibilityState 확인.
 12. **sonnet 재도입 금지** — 원우 규칙: 기계 선별 후 Fable가 쓰면 발행, 제2모델 문체 게이트 없음.
+13. **wire 기록은 모든 종료 경로에서** — produce.py의 `not cands`(발행후보 없음=가장 흔한 경우) 조기 종료가 record_stream을 건너뛰면 wire가 안 쌓임(2026-07-09 버그). 발행/일일캡/후보실패/후보없음 4경로 모두에서 record_stream 호출 필수.
+14. **wire 오매칭은 value_point 패스에서 drop** — 매처가 짧은/일반 제목을 잘못 매칭(cs2 update→Mirage 1965). `_value_points`가 Fable에게 real 판정 시켜 spurious면 drop. 발행된 기사는 항상 유지.
 
 ---
 

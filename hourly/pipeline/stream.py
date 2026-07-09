@@ -55,15 +55,24 @@ def _value_points(env: dict, entries: list[dict]) -> dict:
               "became_piece": bool(e.get("published"))}
              for i, e in enumerate(entries)]
     user = ("You are Wonwoo Yoon, editor of the Metatake archive, annotating this hour's wire. "
-            "For each item below, write ONE intelligent, dry sentence (<= 22 words) saying why this spike was worth watching "
-            "from a film-and-culture archive's point of view - what the connection to the named corpus entity is, or what it might become. "
+            "Each item is a search spike our matcher tied to a corpus entity. FIRST judge whether the tie is real: "
+            "a Counter-Strike patch tied to a 1965 film, or any keyword that has nothing to do with the named entity, is a FALSE match - set real=false. "
+            "For REAL ties, write ONE intelligent, dry sentence (<= 22 words) saying why this spike was worth watching from a "
+            "film-and-culture archive's point of view - the connection to the entity, or what it might become. "
             "No em-dashes, no hype, no repetition of the keyword verbatim, fresh wording per item.\n\n"
             f"ITEMS: {json.dumps(brief, ensure_ascii=False)}\n\n"
-            'Reply JSON only: {"notes": [{"i": 0, "v": "..."}, ...]}')
-    out = anthropic_call(env, model=WRITER_MODEL, system="Reply with JSON only.", user=user, max_tokens=1200)
+            'Reply JSON only: {"notes": [{"i": 0, "real": true, "v": "..."}, {"i": 1, "real": false}, ...]}')
+    out = anthropic_call(env, model=WRITER_MODEL, system="Reply with JSON only.", user=user, max_tokens=1400)
     parsed = parse_json_block(out or "") or {}
-    return {n["i"]: str(n["v"]).replace(" — ", ", ").replace("—", "-")[:220]
-            for n in parsed.get("notes", []) if "i" in n and "v" in n}
+    notes = {}
+    for n in parsed.get("notes", []):
+        if "i" not in n:
+            continue
+        if n.get("real") is False:  # spurious match — drop from the wire
+            notes[n["i"]] = None
+        elif n.get("v"):
+            notes[n["i"]] = str(n["v"]).replace(" — ", ", ").replace("—", "-")[:220]
+    return notes
 
 
 def record_stream(env: dict, cands: list[dict], published_keyword: str | None = None,
@@ -106,13 +115,20 @@ def record_stream(env: dict, cands: list[dict], published_keyword: str | None = 
         return 0
 
     notes = _value_points(env, entries)
-    written = 0
+    written, dropped = 0, 0
     for i, e in enumerate(entries):
-        e["value_point"] = notes.get(i) or "Watched for the archive; the hour moved on."
+        vp = notes.get(i, "__missing__")
+        # a published piece always stays (it cleared the writer+gate); otherwise
+        # the editor pass can drop a spurious match (vp is None).
+        if vp is None and not e.get("published"):
+            dropped += 1
+            continue
+        e["value_point"] = (vp if isinstance(vp, str) else None) or "Watched for the archive; the hour moved on."
         ok, info = sb_insert(env, "now_stream", e)
         if ok:
             written += 1
         else:
             log(f"stream insert failed: {info}")
-    log(f"wire: {written} entries recorded" + (f" (1 became /now/{published_slug})" if published_slug else ""))
+    log(f"wire: {written} recorded, {dropped} dropped as spurious"
+        + (f" (1 became /now/{published_slug})" if published_slug else ""))
     return written

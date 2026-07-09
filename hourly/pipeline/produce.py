@@ -525,8 +525,12 @@ def main() -> None:
         ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP} · wire: {len(wire_cands)} reviewed")
         return
     if not cands:
+        # BUGFIX 2026-07-09: the wire must record on THIS path too — it is the
+        # most common outcome (no publish-bar candidate), and the whole point
+        # of the wire is to keep the entity-matched spikes we reviewed.
+        w = 0 if dry else record_stream(env, wire_cands)
         log("no qualifying candidate")
-        ledger_append(f"{stamp} · PASS · no beat candidate above threshold ({len(snap['candidates'])} raw)")
+        ledger_append(f"{stamp} · PASS · no beat candidate above threshold ({len(snap['candidates'])} raw) · wire: {w} recorded")
         return
 
     digest = anti_repetition_digest(env)
