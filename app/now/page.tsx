@@ -135,6 +135,33 @@ export default async function NowIndex() {
           ))
         )}
 
+        {wire.length ? (
+          <section>
+            <div className="now-wire-head">The wire we watched</div>
+            <p className="now-wire-lede">
+              Spikes the desk reviewed this cycle and judged worth noting — but did not turn into a full piece.
+              Timestamps are the news dates. They accrue under each film and filmmaker too.
+            </p>
+            <ul className="now-wire">
+              {wire.map((r, i) => {
+                const href = r.film_slug ? `/film/${r.film_slug}` : r.director_slug ? `/director/${r.director_slug}` : null;
+                return (
+                  <li key={i}>
+                    <div className="w-meta">{[r.region, r.news_date, r.outlet].filter(Boolean).join(" · ")}</div>
+                    <div className="w-t">
+                      {r.url ? <a href={r.url} target="_blank" rel="noopener nofollow">{r.title || r.keyword}</a> : (r.title || r.keyword)}
+                    </div>
+                    {r.value_point ? <div className="w-v">{r.value_point}</div> : null}
+                    {href && r.anchor_label ? (
+                      <div className="w-anchor">In the archive: <Link href={href}>{r.anchor_label}</Link></div>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ) : null}
+
         <div className="cur-foot" style={{ display: "flex", gap: 22, marginTop: 30 }}>
           <Link href="/blog">The Daily — the morning edition →</Link>
           <Link href="/curious">Curious — the question desk →</Link>
