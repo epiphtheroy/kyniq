@@ -237,6 +237,42 @@ export default async function MethodologyPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl" id="now">Now Playing — the live layer</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        <Link href="/now" className="accent" style={{ textDecoration: "none" }}>Now Playing</Link> is Metatake&apos;s
+        live desk. When a film or filmmaker spikes in the world&apos;s search traffic, it publishes a short
+        editor&apos;s letter within the hour, anchored to one film already in the corpus. It is deliberately the
+        opposite of a generated news blurb: each letter carries{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon&apos;s</Link> byline,
+        is timestamped to the minute for both when it was <em>written</em> and when it was <em>published</em>, and
+        argues a case the wire doesn&apos;t — not what happened, but why it matters and where it sits in film history.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        What keeps it from being &ldquo;AI writing about the news&rdquo; is the data underneath. A candidate story is
+        matched to the corpus through the same <strong>embeddings</strong> that power the rest of the site — the spike
+        has to resolve to a film we actually hold before a letter is even attempted. Every figure a letter cites is
+        then <strong>retrieved, not remembered</strong>: the film&apos;s{" "}
+        <Link href="/takescore" className="accent" style={{ textDecoration: "none" }}>TakeScore&trade;</Link> verdict,
+        its reception arc, its place in the{" "}
+        <Link href="/lineage" className="accent" style={{ textDecoration: "none" }}>lineage</Link>, the places it was
+        shot, the figures it deposits — each pulled live from the database and linked back so a reader can check it.
+        Nothing archival is invented; the letter may only caption what the corpus already knows.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Two standing rules govern the tone. TakeScore appears as a <strong>verdict</strong> — &ldquo;high value, high
+        risk,&rdquo; &ldquo;solid but not peak&rdquo; — rather than a corpus rank, because a rank invites an argument
+        the number can&apos;t settle; a rank is named only when a film stands inside the top thousand. And the letter
+        is written to <strong>wound no one</strong>: it takes positions on works, ideas and institutions, never on a
+        person&apos;s character, and it reports praise and criticism alike from a neutral distance, never as an attack
+        on the people who made or appear in the film. Every letter still passes the editor&apos;s factual review before
+        it goes live, and sits under the same{" "}
+        <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop as the rest
+        of the site.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl" id="corrections">Corrections</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
