@@ -30,18 +30,22 @@ const stampOf = (iso: string) => {
  * rows like BlogGraph so the server bundle RPC stays untouched. Renders
  * nothing until the first piece exists.
  */
+type Digest = { digest_date: string; headline: string };
+
 export default function NowPlaying() {
   const [pieces, setPieces] = useState<Piece[] | null>(null);
+  const [digest, setDigest] = useState<Digest | null>(null);
 
   useEffect(() => {
     (async () => {
-      const { data } = await sb
-        .from("now_articles")
-        .select("slug, headline, dek, keyword, anchor_label, published_at")
-        .eq("status", "published")
-        .order("published_at", { ascending: false })
-        .limit(4);
-      setPieces((data as Piece[] | null) ?? []);
+      const [p, d] = await Promise.all([
+        sb.from("now_articles")
+          .select("slug, headline, dek, keyword, anchor_label, published_at")
+          .eq("status", "published").order("published_at", { ascending: false }).limit(4),
+        sb.from("now_digests").select("digest_date, headline").order("digest_date", { ascending: false }).limit(1),
+      ]);
+      setPieces((p.data as Piece[] | null) ?? []);
+      setDigest(((d.data as Digest[] | null) ?? [])[0] ?? null);
     })();
   }, []);
 
@@ -114,6 +118,23 @@ export default function NowPlaying() {
               </Link>
             ))}
           </div>
+        ) : null}
+
+        {digest ? (
+          <Link
+            href={`/now/daily/${digest.digest_date}`}
+            style={{
+              display: "block", marginTop: 20, paddingTop: 16, borderTop: "1px solid #d8d8d8",
+              textDecoration: "none", color: "inherit",
+            }}
+          >
+            <span style={{ font: "700 11px/1 Inter,sans-serif", letterSpacing: "0.1em", textTransform: "uppercase", color: RED }}>
+              The daily digest · {digest.digest_date}
+            </span>
+            <span style={{ display: "block", font: '700 17px/1.3 "PT Serif",Georgia,serif', marginTop: 5, color: "#1a1714" }}>
+              {digest.headline}
+            </span>
+          </Link>
         ) : null}
       </div>
     </section>

@@ -862,6 +862,14 @@ export async function nowEntries(): Promise<SitemapEntry[]> {
   for (const p of data ?? []) {
     entries.push({ url: `${siteUrl}/now/${p.slug}`, lastmod: (p.updated_at as string)?.slice(0, 10) });
   }
+  const { data: digests } = await db()
+    .from("now_digests")
+    .select("digest_date, updated_at")
+    .order("digest_date", { ascending: false })
+    .limit(PAGE);
+  for (const d of digests ?? []) {
+    entries.push({ url: `${siteUrl}/now/daily/${d.digest_date}`, lastmod: (d.updated_at as string)?.slice(0, 10) });
+  }
   return entries;
 }
 

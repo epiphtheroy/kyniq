@@ -25,19 +25,23 @@ export async function GET() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
   const cutoff = new Date(Date.now() - 48 * 3600 * 1000).toISOString();
-  const { data } = await supabase
-    .from("now_articles")
-    .select("slug, headline, published_at")
-    .eq("status", "published")
-    .gte("published_at", cutoff)
-    .order("published_at", { ascending: false })
-    .limit(100);
+  const [{ data: arts }, { data: digs }] = await Promise.all([
+    supabase.from("now_articles").select("slug, headline, published_at")
+      .eq("status", "published").gte("published_at", cutoff)
+      .order("published_at", { ascending: false }).limit(100),
+    supabase.from("now_digests").select("digest_date, headline, published_at")
+      .gte("published_at", cutoff).order("published_at", { ascending: false }).limit(10),
+  ]);
+  const data = [
+    ...(arts ?? []).map((p) => ({ loc: `${siteUrl}/now/${p.slug}`, headline: p.headline, published_at: p.published_at })),
+    ...(digs ?? []).map((d) => ({ loc: `${siteUrl}/now/daily/${d.digest_date}`, headline: d.headline, published_at: d.published_at })),
+  ];
 
-  const urls = (data ?? [])
+  const urls = data
     .map((p) =>
       [
         "  <url>",
-        `    <loc>${siteUrl}/now/${p.slug}</loc>`,
+        `    <loc>${p.loc}</loc>`,
         "    <news:news>",
         "      <news:publication>",
         "        <news:name>Metatake</news:name>",
