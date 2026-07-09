@@ -49,11 +49,14 @@ export default async function EntityNews({
         .order("at", { ascending: false })
         .limit(8)
         .abortSignal(AbortSignal.timeout(3500)),
-      supabase
-        .from("now_articles")
-        .select("slug, headline, dek, published_at")
-        .eq("status", "published")
-        .eq(filmSlug ? "film_slug" : "anchor_slug", val)
+      (filmSlug
+        ? supabase.from("now_articles")
+            .select("slug, headline, dek, published_at")
+            .eq("status", "published").eq("film_slug", val)
+        : supabase.from("now_articles")
+            .select("slug, headline, dek, published_at")
+            .eq("status", "published").or(`anchor_slug.eq.${val},director_slug.eq.${val}`)
+      )
         .order("published_at", { ascending: false })
         .limit(4)
         .abortSignal(AbortSignal.timeout(3500)),
