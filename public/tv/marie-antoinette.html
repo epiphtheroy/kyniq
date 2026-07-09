@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#100e11">
+<title>Metatake TV — Marie Antoinette (prototype Short)</title>
+<style>
+  :root{
+    color-scheme: dark;
+    --ground:#100e11;        /* warm darkroom ink */
+    --ground-2:#191519;      /* lifted panel */
+    --ground-3:#221b20;
+    --bone:#ece6da;          /* warm off-white */
+    --muted:#9b9188;         /* warm grey */
+    --line:#332a30;
+    --gilt:#c9a44c;          /* champagne gilt — honors + Versailles */
+    --gilt-soft:#e7cf95;
+    --rose:#dba9b0;          /* Ladurée pastel — the film's own palette */
+    --slate:#6f8ea8;         /* the cold-1906 marker */
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--bone);font-family:var(--sans);
+       -webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:var(--gilt-soft)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:34px 22px 70px}
+  .studio{display:flex;align-items:baseline;justify-content:space-between;gap:18px;
+          flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px}
+  .brand{display:flex;align-items:baseline;gap:12px}
+  .brand .mark{font-family:var(--serif);font-size:21px;letter-spacing:.3px}
+  .brand .mark b{color:var(--gilt)}
+  .brand .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .ep{font-size:12px;color:var(--muted);letter-spacing:.04em;text-align:right}
+  .ep b{color:var(--bone);font-weight:600}
+
+  .stage{display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);
+         gap:38px;margin-top:30px;align-items:start}
+  @media(max-width:820px){.stage{grid-template-columns:1fr;gap:26px}}
+
+  /* ---------- the 9:16 frame (a fixed film artifact — always its own dark world) ---------- */
+  .framewrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .frame{position:relative;width:100%;max-width:360px;aspect-ratio:9/16;
+         background:#0b0a0c;border-radius:14px;overflow:hidden;
+         box-shadow:0 24px 60px -20px rgba(0,0,0,.85),0 0 0 1px var(--line);
+         font-family:var(--sans);isolation:isolate}
+  .scene{position:absolute;inset:0;opacity:0;pointer-events:none}
+  .scene.on{opacity:1}
+
+  /* poster plate — art-directed stand-in for the licensed backdrop (external images are sandbox-blocked) */
+  .plate{position:absolute;inset:0;background:
+      radial-gradient(120% 90% at 50% 12%,#f3dfe0 0%,#e7c3c9 34%,#c98f9c 68%,#7c5560 100%);
+      transform:scale(1.08);transform-origin:52% 40%}
+  .plate::after{content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(11,10,12,0) 42%,rgba(11,10,12,.62) 78%,rgba(11,10,12,.94) 100%)}
+  .plate .gild{position:absolute;inset:16px;border:1px solid rgba(201,164,76,.55);border-radius:4px}
+  .plate .ptitle{position:absolute;left:0;right:0;top:30%;text-align:center;
+      font-family:var(--serif);font-style:italic;color:#3a2530;
+      font-size:30px;line-height:1.05;letter-spacing:.5px;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+  .plate .pyear{position:absolute;left:0;right:0;top:47%;text-align:center;
+      font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:#4a3038}
+
+  /* generic frame furniture */
+  .vig{position:absolute;inset:0;background:radial-gradient(130% 100% at 50% 46%,transparent 55%,rgba(0,0,0,.5))}
+  .kicker{position:absolute;top:20px;left:20px;font-size:10px;letter-spacing:.22em;
+          text-transform:uppercase;color:var(--gilt);display:flex;align-items:center;gap:7px}
+  .kicker .rec{width:7px;height:7px;border-radius:50%;background:#e05a58;box-shadow:0 0 8px #e05a58}
+  .lower{position:absolute;left:20px;right:20px;bottom:64px}
+  .cap{position:absolute;left:18px;right:18px;bottom:20px;text-align:center;
+       font-weight:800;font-size:16px;line-height:1.32;letter-spacing:-.01em;
+       text-shadow:0 2px 10px rgba(0,0,0,.9)}
+  .cap .w{color:#d8d2c8;transition:color .12s}
+  .cap .w.hot{color:var(--gilt-soft)}
+
+  /* scene 1 — hook title cards */
+  .hook{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+        gap:14px;padding:0 26px;background:#0b0a0c}
+  .hook .l1,.hook .l2{font-family:var(--serif);font-weight:700;line-height:1.02;letter-spacing:-.5px}
+  .hook .l1{font-size:34px}
+  .hook .l2{font-size:34px;color:var(--gilt)}
+  .hook .rule{height:2px;background:var(--gilt);width:0;transition:width .5s ease}
+  .hook.play .rule{width:64%}
+
+  /* scene 3 — takescore dial */
+  .dial{position:absolute;top:19%;left:50%;transform:translateX(-50%);width:150px;height:150px}
+  .dial svg{transform:rotate(-90deg)}
+  .dial .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+             font-family:var(--mono);font-size:44px;font-variant-numeric:tabular-nums;color:var(--bone)}
+  .dial .of{position:absolute;left:0;right:0;bottom:22px;text-align:center;
+            font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.12em}
+  .dlabel{position:absolute;top:12%;left:0;right:0;text-align:center;font-size:11px;
+          letter-spacing:.24em;text-transform:uppercase;color:var(--gilt)}
+  .rank{position:absolute;top:56%;left:0;right:0;text-align:center;font-family:var(--mono);
+        font-size:15px;letter-spacing:.06em;color:var(--bone);opacity:0;transition:opacity .4s}
+  .rank b{color:var(--gilt-soft)}
+  .rank small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.2em;
+              text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .scene.on .rank.show{opacity:1}
+
+  /* scene 4 — dimension bars */
+  .dims{position:absolute;top:26%;left:26px;right:26px}
+  .dims .head{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .bar{margin:16px 0}
+  .bar .bl{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px}
+  .bar .bl .v{font-family:var(--mono);color:var(--gilt-soft)}
+  .bar .track{height:9px;background:var(--ground-3);border-radius:5px;overflow:hidden}
+  .bar .fill{height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,var(--gilt),var(--gilt-soft));
+             transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+  .ghost{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px;opacity:.32}
+  .ghost span{font-family:var(--mono);font-size:10px;color:var(--muted);
+              border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+
+  /* scene 5 — reception arc */
+  .arc{position:absolute;top:22%;left:22px;right:22px}
+  .arc .head{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .arc svg{width:100%;height:150px;overflow:visible}
+  .arc .yr{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+
+  /* scene 6 — honors + cta */
+  .honors{position:absolute;top:24%;left:0;right:0;text-align:center}
+  .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gilt);
+        color:var(--gilt-soft);border-radius:999px;padding:8px 15px;font-size:12px;
+        letter-spacing:.05em;opacity:0;transform:translateY(6px);transition:.4s}
+  .honors.play .chip{opacity:1;transform:none}
+  .honors .chip+.chip{margin-top:10px}
+  .cta{position:absolute;left:0;right:0;bottom:26%;text-align:center}
+  .cta .big{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.4px}
+  .cta .site{margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--gilt)}
+
+  .progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);z-index:5}
+  .progress .b{height:100%;width:0;background:var(--gilt)}
+
+  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center}
+  button{font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:var(--bone);
+         background:var(--ground-2);border:1px solid var(--line);border-radius:8px;
+         padding:8px 13px;cursor:pointer;transition:.15s}
+  button:hover{border-color:var(--gilt);color:var(--gilt-soft)}
+  button:focus-visible{outline:2px solid var(--gilt);outline-offset:2px}
+  button.on{border-color:var(--gilt);color:var(--gilt)}
+  .hint{font-size:11px;color:var(--muted)}
+
+  /* ---------- editorial column ---------- */
+  .col h2{font-family:var(--serif);font-size:22px;font-weight:700;margin:0 0 4px;text-wrap:balance}
+  .col .sub{color:var(--muted);font-size:13px;margin-bottom:22px}
+  .block{border-top:1px solid var(--line);padding:18px 0}
+  .block .lab{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gilt);margin-bottom:12px}
+  .script{display:flex;flex-direction:column;gap:2px}
+  .row{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .t{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:2px}
+  .row .s{font-size:13.5px}
+  .row .s em{color:var(--gilt-soft);font-style:normal}
+  .row.active{background:linear-gradient(90deg,rgba(201,164,76,.09),transparent)}
+  .row.active .t{color:var(--gilt)}
+  .notes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .notes li{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:13.5px;color:#cfc7bb}
+  .notes li b{color:var(--bone);font-weight:600}
+  .notes .k{color:var(--gilt);font-family:var(--serif);font-size:15px;line-height:1.2}
+  .foot{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;font-size:12px;color:var(--muted)}
+  .foot b{color:var(--bone)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="studio">
+    <div class="brand">
+      <span class="mark">Metatake&nbsp;<b>TV</b></span>
+      <span class="tag">Prototype · vertical Short</span>
+    </div>
+    <div class="ep">
+      Episode 001 · <b>Marie Antoinette</b> (2006), dir. Sofia Coppola<br>
+      Anchor: the boo-to-reappraisal arc, read through the archive's data
+    </div>
+  </header>
+
+  <div class="stage">
+    <!-- ============ THE 9:16 FRAME ============ -->
+    <div class="framewrap">
+      <div class="frame" id="frame" aria-label="Vertical Short preview">
+
+        <!-- scene 1: hook -->
+        <div class="scene" data-s="1">
+          <div class="hook" id="hook">
+            <div class="l1">Booed at Cannes.</div>
+            <div class="rule"></div>
+            <div class="l2">Then it won an Oscar.</div>
+          </div>
+        </div>
+
+        <!-- scene 2: poster plate -->
+        <div class="scene" data-s="2">
+          <div class="plate" id="plate">
+            <div class="gild"></div>
+            <div class="ptitle">Marie<br>Antoinette</div>
+            <div class="pyear">2006</div>
+          </div>
+          <div class="vig"></div>
+          <div class="kicker"><span class="rec"></span>Now Playing</div>
+        </div>
+
+        <!-- scene 3: takescore dial -->
+        <div class="scene" data-s="3">
+          <div class="dlabel">TakeScore</div>
+          <div class="dial">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+              <circle cx="75" cy="75" r="64" fill="none" stroke="#2a2229" stroke-width="9"/>
+              <circle id="dialArc" cx="75" cy="75" r="64" fill="none" stroke="#c9a44c" stroke-width="9"
+                      stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+            </svg>
+            <div class="num" id="dialNum">0</div>
+            <div class="of">of 100</div>
+          </div>
+          <div class="rank" id="rank"><b>5,882</b> of 6,701<small>overall rank in the corpus</small></div>
+        </div>
+
+        <!-- scene 4: dimensions -->
+        <div class="scene" data-s="4">
+          <div class="dims">
+            <div class="head">The average hides the fight</div>
+            <div class="bar"><div class="bl"><span>Formal craft</span><span class="v">65</span></div>
+              <div class="track"><div class="fill" data-w="65"></div></div></div>
+            <div class="bar"><div class="bl"><span>Polarizing</span><span class="v">62</span></div>
+              <div class="track"><div class="fill" data-w="62"></div></div></div>
+            <div class="ghost">
+              <span>cog 48</span><span>aff 58</span><span>moral 45</span><span>duration 50</span>
+              <span>intertext 38</span><span>bankable 28</span><span>coward 22</span><span>+6 more</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- scene 5: reception arc -->
+        <div class="scene" data-s="5">
+          <div class="arc">
+            <div class="head">Critical reception, by year</div>
+            <svg viewBox="0 0 300 150" preserveAspectRatio="none" id="arcSvg">
+              <line x1="0" y1="120" x2="300" y2="120" stroke="#2a2229" stroke-width="1"/>
+              <polyline id="arcLine" fill="none" stroke="#c9a44c" stroke-width="3"
+                stroke-linejoin="round" points="14,108 96,112 168,66 236,40 292,26"
+                stroke-dasharray="340" stroke-dashoffset="340"/>
+              <circle id="dotCold" cx="14" cy="108" r="0" fill="#6f8ea8"/>
+              <circle id="dotWarm" cx="168" cy="66" r="0" fill="#dba9b0"/>
+              <text class="yr" x="6" y="138">2006</text>
+              <text class="yr" x="150" y="138">2013</text>
+              <text class="yr" x="272" y="138">2020</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- scene 6: honors + cta -->
+        <div class="scene" data-s="6">
+          <div class="honors" id="honors">
+            <div class="chip">🏆 Academy Award · Costume Design · 2007</div>
+          </div>
+          <div class="cta">
+            <div class="big">The full breakdown</div>
+            <div class="site">metatake.net</div>
+          </div>
+        </div>
+
+        <!-- shared caption + progress -->
+        <div class="cap" id="cap"></div>
+        <div class="progress"><div class="b" id="pbar"></div></div>
+      </div>
+
+      <div class="controls">
+        <button id="replay">↺ Replay</button>
+        <button id="voice">🔊 With voice</button>
+        <span class="hint" id="clock">0.0s / 39s</span>
+      </div>
+    </div>
+
+    <!-- ============ EDITORIAL COLUMN ============ -->
+    <div class="col">
+      <h2>What you're watching — and why it isn't slop</h2>
+      <p class="sub">A ~39-second vertical cut built entirely from real archive data. The drama is the data reversal, not a shouting face.</p>
+
+      <div class="block">
+        <div class="lab">The voiceover · the frame follows the clock</div>
+        <div class="script" id="script">
+          <div class="row" data-a="1"><div class="t">0.0–2.6</div><div class="s">This film was <em>booed</em> at Cannes. The next winter, it won an <em>Academy Award</em>.</div></div>
+          <div class="row" data-a="2"><div class="t">2.6–8.0</div><div class="s">Sofia Coppola's <em>Marie Antoinette</em>, 2006. Critics walked out of the press screening.</div></div>
+          <div class="row" data-a="3"><div class="t">8.0–17</div><div class="s">Our archive scores it <em>53 of 100</em> — mid-pack, <em>5,882nd of 6,701</em>. But the average hides the fight.</div></div>
+          <div class="row" data-a="4"><div class="t">17–25</div><div class="s">On formal craft it lands <em>65</em>. On how sharply it splits a room, <em>62</em>. That split <em>is</em> the film.</div></div>
+          <div class="row" data-a="5"><div class="t">25–33</div><div class="s">In 2006 the reviews were cold. By 2013 the same critics called it a landmark. The film never changed — the frame did.</div></div>
+          <div class="row" data-a="6"><div class="t">33–39</div><div class="s">Booed, then crowned. The full record, every dimension and date, at <em>Metatake</em>.</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="lab">Director's notes · anti-slop by construction</div>
+        <ul class="notes">
+          <li><span class="k">1</span><span><b>An argued turn, not a recap.</b> The "the frame changed, not the film" thesis is a human reading — exactly the transformative commentary YouTube's 2026 inauthentic-content policy protects.</span></li>
+          <li><span class="k">2</span><span><b>Proprietary data no template can fake.</b> The 53/100, the 5,882/6,701 rank, the craft-65 / polarizing-62 split, the 2006→2013 arc — all pulled live from the archive.</span></li>
+          <li><span class="k">3</span><span><b>One number at a time.</b> The dial counts up, the chart draws, the bars grow. Progressive reveals beat dumping a 13-cell table into a vertical frame.</span></li>
+          <li><span class="k">4</span><span><b>Mute-first.</b> Burned-in karaoke captions carry the whole message with the sound off — where 60%+ of Shorts are actually watched.</span></li>
+          <li><span class="k">5</span><span><b>Loopable + one CTA.</b> The closing card rhymes with the opening, so the loop is seamless; a single "full breakdown → Metatake" is the only ask.</span></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="lab">This page is the render template</div>
+        <ul class="notes">
+          <li><span class="k">→</span><span>The production pipeline captures <b>this exact DOM</b> frame-by-frame via headless Chrome (or Remotion), muxes the Fable-written voiceover under it with ffmpeg, and uploads through the YouTube Data API. The poster plate is an art-directed stand-in — production swaps in the licensed backdrop, which the sandbox blocks here.</span></li>
+        </ul>
+      </div>
+
+      <p class="foot">Prototype · <b>Metatake TV</b>. All figures verified against the archive on 2026-07-09. Voice preview uses your browser's built-in speech engine; the shipped channel uses a consistent local neural voice.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var LOOP=39000;
+  var scenes=[
+    {s:1,a:0,b:2600},
+    {s:2,a:2600,b:8000},
+    {s:3,a:8000,b:17000},
+    {s:4,a:17000,b:25000},
+    {s:5,a:25000,b:33000},
+    {s:6,a:33000,b:39000}
+  ];
+  var caps={
+    1:"Booed at Cannes. Then it won an Oscar.",
+    2:"Sofia Coppola's Marie Antoinette. Critics walked out of the screening.",
+    3:"Our archive scores it 53 of 100. Rank 5,882 of 6,701.",
+    4:"The average hides the fight: craft 65, polarizing 62.",
+    5:"2006, reviews cold. 2013, a landmark. The film never changed, the frame did.",
+    6:"Booed, then crowned. Full breakdown at Metatake."
+  };
+  var voLines={
+    1:"This film was booed at Cannes. The next winter, it won an Academy Award.",
+    2:"Sofia Coppola's Marie Antoinette, two thousand six. Critics walked out of the press screening.",
+    3:"Our archive scores it fifty three out of a hundred. Mid pack. Five thousand eight hundred eighty second of six thousand seven hundred and one.",
+    4:"But the average hides the fight. On formal craft it lands sixty five. On how sharply it splits a room, sixty two.",
+    5:"In two thousand six the reviews were cold. By twenty thirteen the same critics called it a landmark. The film never changed. The frame did.",
+    6:"Booed, then crowned. The full record, at Metatake."
+  };
+
+  var $=function(id){return document.getElementById(id)};
+  var sceneEls={},rows={};
+  document.querySelectorAll('.scene').forEach(function(el){sceneEls[el.dataset.s]=el});
+  document.querySelectorAll('.row').forEach(function(el){rows[el.dataset.a]=el});
+  var cap=$('cap'),pbar=$('pbar'),clock=$('clock');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // caption words cache
+  var capWords={};
+  Object.keys(caps).forEach(function(k){capWords[k]=caps[k].split(' ')});
+
+  function renderCaption(s,p){
+    var words=capWords[s];
+    var html='';
+    var hot=Math.floor(p*words.length);
+    for(var i=0;i<words.length;i++){
+      html+='<span class="w'+(i<=hot?' hot':'')+'">'+words[i]+'</span> ';
+    }
+    cap.innerHTML=html;
+  }
+
+  var dialArc=$('dialArc'),dialNum=$('dialNum'),rank=$('rank');
+  var arcLine=$('arcLine'),dotCold=$('dotCold'),dotWarm=$('dotWarm');
+  var hook=$('hook'),honors=$('honors');
+  var fills=document.querySelectorAll('.fill');
+  var barsFired=false,dialCirc=402;
+
+  function setScene(active){
+    for(var k in sceneEls){sceneEls[k].classList.toggle('on',k==String(active))}
+    for(var r in rows){rows[r].classList.toggle('active',r==String(active))}
+  }
+
+  function frame(t){
+    // which scene
+    var cur=scenes[0];
+    for(var i=0;i<scenes.length;i++){if(t>=scenes[i].a&&t<scenes[i].b){cur=scenes[i];break}}
+    setScene(cur.s);
+    var lp=(t-cur.a)/(cur.b-cur.a); // local progress 0..1
+    renderCaption(cur.s,Math.min(1,lp/0.8));
+    pbar.style.width=(t/LOOP*100)+'%';
+    clock.textContent=(t/1000).toFixed(1)+'s / 39s';
+
+    // scene 1 rule sweep
+    if(cur.s===1){hook.classList.toggle('play',lp>0.25)} else {hook.classList.remove('play')}
+
+    // scene 3 dial
+    if(cur.s===3){
+      var dp=Math.min(1,lp/0.5); // fill dial in first half
+      var val=Math.round(dp*53);
+      dialNum.textContent=val;
+      dialArc.style.strokeDashoffset=dialCirc-(dialCirc*(val/100));
+      rank.classList.toggle('show',lp>0.62);
+    } else { dialNum.textContent='0'; dialArc.style.strokeDashoffset=dialCirc; rank.classList.remove('show'); }
+
+    // scene 4 bars (fire once on entry)
+    if(cur.s===4){ if(!barsFired){fills.forEach(function(f){f.style.width=f.dataset.w+'%'});barsFired=true} }
+    else { if(barsFired){fills.forEach(function(f){f.style.width='0'});barsFired=false} }
+
+    // scene 5 arc draw
+    if(cur.s===5){
+      var ap=Math.min(1,lp/0.62);
+      arcLine.style.strokeDashoffset=340-(340*ap);
+      dotCold.setAttribute('r', ap>0.15?4:0);
+      dotWarm.setAttribute('r', ap>0.7?4.5:0);
+    } else { arcLine.style.strokeDashoffset=340; dotCold.setAttribute('r',0); dotWarm.setAttribute('r',0); }
+
+    // scene 6 honors
+    if(cur.s===6){honors.classList.toggle('play',lp>0.15)} else {honors.classList.remove('play')}
+  }
+
+  // ---- clock ----
+  var raf=null,start=null,paused=false;
+  function tick(ts){
+    if(start===null)start=ts;
+    var t=(ts-start)%LOOP;
+    frame(t);
+    handleVoice(t);
+    raf=requestAnimationFrame(tick);
+  }
+  function run(){ if(reduce){frame(35000);return} start=null; if(raf)cancelAnimationFrame(raf); raf=requestAnimationFrame(tick); }
+
+  // ---- voice (optional, browser speech) ----
+  var voiceOn=false,spokenScene=0,pickedVoice=null;
+  function pickVoice(){
+    if(!('speechSynthesis'in window))return null;
+    var vs=speechSynthesis.getVoices()||[];
+    var pref=vs.filter(function(v){return /en(-|_)?(US|GB)/i.test(v.lang)});
+    // prefer a fuller-sounding voice over robotic defaults
+    var nice=pref.find(function(v){return /Samantha|Serena|Daniel|Karen|Google US/i.test(v.name)});
+    return nice||pref[0]||vs[0]||null;
+  }
+  function handleVoice(t){
+    if(!voiceOn||!('speechSynthesis'in window))return;
+    var cur=scenes[0];
+    for(var i=0;i<scenes.length;i++){if(t>=scenes[i].a&&t<scenes[i].b){cur=scenes[i];break}}
+    if(cur.s!==spokenScene){
+      spokenScene=cur.s;
+      try{
+        speechSynthesis.cancel();
+        var u=new SpeechSynthesisUtterance(voLines[cur.s]);
+        u.rate=0.98; u.pitch=1.0; if(pickedVoice)u.voice=pickedVoice;
+        speechSynthesis.speak(u);
+      }catch(e){}
+    }
+  }
+
+  $('replay').addEventListener('click',run);
+  $('voice').addEventListener('click',function(){
+    voiceOn=!voiceOn;
+    this.classList.toggle('on',voiceOn);
+    this.textContent=voiceOn?'🔊 Voice on':'🔊 With voice';
+    if(voiceOn){ pickedVoice=pickVoice(); spokenScene=0; }
+    else { try{speechSynthesis.cancel()}catch(e){} }
+  });
+  if('speechSynthesis'in window){ speechSynthesis.onvoiceschanged=function(){pickedVoice=pickVoice()}; }
+
+  run();
+})();
+</script>
+</body>
+</html>
