@@ -50,6 +50,25 @@ type Row =
   | { type: "recent"; q: string }
   | { type: "action"; label: string; href: string };
 
+// Result sections — the dropdown groups hits under these headers instead of one
+// interleaved list (kind chips per row read as clutter; a header reads as a map).
+// Order is editorial: entities → ideas → writing → places. Fused (relevance)
+// order is preserved within each section.
+const SECTIONS: { label: string; kinds: SearchHit["kind"][]; cap: number }[] = [
+  { label: "Films", kinds: ["film"], cap: 5 },
+  { label: "People", kinds: ["director", "theorist"], cap: 4 },
+  { label: "Ideas & Patterns", kinds: ["trope", "idea", "tradition", "archetype", "movement", "genre"], cap: 4 },
+  { label: "Writing", kinds: ["reading", "figure"], cap: 4 },
+  { label: "Places & Lists", kinds: ["country", "city", "lineage"], cap: 3 },
+];
+
+function groupHits(hits: SearchHit[]): { label: string; hits: SearchHit[] }[] {
+  return SECTIONS.map((s) => ({
+    label: s.label,
+    hits: hits.filter((h) => s.kinds.includes(h.kind)).slice(0, s.cap),
+  })).filter((s) => s.hits.length > 0);
+}
+
 function readRecent(): string[] {
   try {
     const raw = window.localStorage.getItem(RECENT_KEY);
@@ -132,23 +151,39 @@ export default function GlobalCmdK() {
 
   /* ------------------------------------------------------------ row model */
 
-  const rows = useMemo<Row[]>(() => {
+  // Rows stay a FLAT array (keyboard nav walks indices); `sections` carries the
+  // group headers over contiguous index ranges so the render can label them.
+  const { rows, sections } = useMemo<{ rows: Row[]; sections: { label: string; start: number; count: number }[] }>(() => {
     const q = query.trim();
     if (q.length < 2) {
-      return [
-        ...PAGES.map<Row>((p) => ({ type: "page", ...p })),
-        ...recent.map<Row>((r) => ({ type: "recent", q: r })),
-      ];
+      return {
+        rows: [
+          ...PAGES.map<Row>((p) => ({ type: "page", ...p })),
+          ...recent.map<Row>((r) => ({ type: "recent", q: r })),
+        ],
+        sections: [],
+      };
     }
     const ql = q.toLowerCase();
+    const grouped = groupHits(hits);
+    const rows: Row[] = [];
+    const sections: { label: string; start: number; count: number }[] = [];
+    for (const g of grouped) {
+      sections.push({ label: g.label, start: rows.length, count: g.hits.length });
+      for (const hit of g.hits) rows.push({ type: "hit", hit });
+    }
+    // Page shortcuts while typing: top 2 only — the 22-link grid belongs to the
+    // empty state, not under search results.
+    const pageMatches = PAGES.filter((p) => p.label.toLowerCase().includes(ql)).slice(0, 2);
+    if (pageMatches.length) {
+      sections.push({ label: "Pages", start: rows.length, count: pageMatches.length });
+      for (const p of pageMatches) rows.push({ type: "page", ...p });
+    }
     // "See all results" leads the actions: Enter before hits land must go to
     // /search (the old nav form's muscle memory), never surprise-route to /ask.
-    return [
-      ...hits.map<Row>((hit) => ({ type: "hit", hit })),
-      ...PAGES.filter((p) => p.label.toLowerCase().includes(ql)).map<Row>((p) => ({ type: "page", ...p })),
-      { type: "action", label: `See all results for “${q}”`, href: `/search?q=${encodeURIComponent(q)}` },
-      { type: "action", label: `Ask metatake AI: “${q}”`, href: `/ask?q=${encodeURIComponent(q)}` },
-    ];
+    rows.push({ type: "action", label: `See all results for “${q}”`, href: `/search?q=${encodeURIComponent(q)}` });
+    rows.push({ type: "action", label: `Ask metatake AI: “${q}”`, href: `/ask?q=${encodeURIComponent(q)}` });
+    return { rows, sections };
   }, [query, hits, recent]);
 
   const active = Math.min(activeIdx, Math.max(rows.length - 1, 0));
@@ -257,7 +292,9 @@ export default function GlobalCmdK() {
             </span>
           ) : null}
           {h.is_catalog ? <span className="gcmdk-cat">catalog</span> : null}
-          <span className="gcmdk-kind">{kindLabel}</span>
+          {/* Kind chip only where the section header doesn't already say it —
+              mixed sections (People, Writing, Ideas, Places) keep the tag. */}
+          {h.kind !== "film" ? <span className="gcmdk-kind">{kindLabel}</span> : null}
         </>,
       );
     }
@@ -305,7 +342,6 @@ export default function GlobalCmdK() {
   const indexed = rows.map((r, i) => [r, i] as const);
   const pageRows = indexed.filter(([r]) => r.type === "page");
   const recentRows = indexed.filter(([r]) => r.type === "recent");
-  const mainRows = indexed.filter(([r]) => r.type !== "action");
   const actionRows = indexed.filter(([r]) => r.type === "action");
 
   return (
@@ -325,8 +361,8 @@ export default function GlobalCmdK() {
             className="gcmdk-input"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search a film, an idea, a feeling — any language"
-            aria-label="Search a film, an idea, a feeling — any language"
+            placeholder="Search all of Metatake — any language"
+            aria-label="Search all of Metatake — any language"
             role="combobox"
             aria-expanded="true"
             aria-controls="gcmdk-list"
@@ -360,7 +396,12 @@ export default function GlobalCmdK() {
               {hits.length === 0 && !pending ? (
                 <div className="gcmdk-none">No direct matches — try asking, or see all results below.</div>
               ) : null}
-              {mainRows.map(([r, i]) => renderRow(r, i))}
+              {sections.map((s) => (
+                <div key={s.label} className="gcmdk-sec">
+                  <div className="gcmdk-h">{s.label}</div>
+                  {rows.slice(s.start, s.start + s.count).map((r, j) => renderRow(r, s.start + j))}
+                </div>
+              ))}
               <div className="gcmdk-actions">{actionRows.map(([r, i]) => renderRow(r, i))}</div>
             </>
           )}
@@ -397,6 +438,8 @@ export default function GlobalCmdK() {
         .gcmdk-kind{flex:0 0 auto;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#6b6b6b);border:1px solid var(--hairline,#d8d8d8);border-radius:4px;padding:2px 6px}
         .gcmdk-sem{flex:0 0 auto;font-size:10.5px;font-weight:600;font-style:italic;color:var(--accent,#e3120b)}
         .gcmdk-cat{flex:0 0 auto;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle,#8f8f8f)}
+        .gcmdk-sec{margin-bottom:2px}
+        .gcmdk-sec + .gcmdk-sec{margin-top:4px}
         .gcmdk-actions{margin-top:6px;border-top:1px solid var(--hairline,#d8d8d8);padding-top:6px}
         .gcmdk-row--action .gcmdk-title{color:var(--accent,#e3120b);font-weight:600;font-size:13.5px}
         .gcmdk-arrow{color:var(--accent,#e3120b)}

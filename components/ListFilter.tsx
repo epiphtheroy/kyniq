@@ -30,10 +30,14 @@ export default function ListFilter({
   useEffect(() => {
     const root = document.getElementById(targetId);
     if (!root) return;
-    const term = q.trim().toLowerCase();
+    // Diacritic-insensitive, multi-word AND matching: "almodovar 2019" finds a
+    // row whose filter text carries "Almodóvar" and "2019" anywhere.
+    const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    const terms = norm(q.trim()).split(/\s+/).filter(Boolean);
     let visible = 0;
     root.querySelectorAll<HTMLElement>("[data-filter-item]").forEach((el) => {
-      const hit = !term || (el.dataset.filterText || "").includes(term);
+      const hay = norm(el.dataset.filterText || "");
+      const hit = terms.length === 0 || terms.every((t) => hay.includes(t));
       el.style.display = hit ? "" : "none";
       if (hit) visible++;
     });
@@ -58,8 +62,12 @@ export default function ListFilter({
         aria-label="Filter this list"
         autoComplete="off"
       />
-      {shown !== null && (
+      {shown !== null ? (
         <span className="lf-count">{shown} shown{total ? ` of ${total}` : ""}</span>
+      ) : (
+        // Scope disambiguator: this box narrows the current page; the nav/⌘K
+        // box searches the whole site. Shown until the user starts typing.
+        <span className="lf-hint">filters this page — <kbd>⌘K</kbd> searches all of Metatake</span>
       )}
     </div>
   );
