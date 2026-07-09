@@ -234,6 +234,48 @@
 .mt .rec-toc__row b { font-weight: 700; font-variant-numeric: tabular-nums; color: #16233f; }
 .mt .rec-toc__go { display: inline-block; margin-top: 10px; font-weight: 700; font-size: 13px; color: rgba(22, 35, 63, 0.72); }
 .mt a.rec-toc:hover .rec-toc__go { color: #16233f; }
+
+/* ── TakeScore mini-scorecard: 4 boxed metrics (U big, then V/C/R), used on
+   the director filmography table and the /takescore aggregation page. Numbers
+   are boxed so they read as a scorecard, not loose digits (2026-07-09). ── */
+.mt .tsc-boxes { display: flex; gap: 6px; flex-wrap: wrap; align-items: stretch; }
+.mt .tsc-box {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 46px; padding: 5px 8px 4px; border-radius: 9px; line-height: 1;
+  border: 1px solid rgba(22, 35, 63, 0.16); background: rgba(22, 35, 63, 0.025);
+}
+.mt .tsc-box__n { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; color: #16233f; }
+.mt .tsc-box__k { font-size: 8.5px; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 700; opacity: 0.55; margin-top: 3px; }
+/* The headline U box — filled, tinted by tier band. */
+.mt .tsc-box--u { border: 0; color: #fff; min-width: 58px; }
+.mt .tsc-box--u .tsc-box__n { font-size: 22px; color: #fff; }
+.mt .tsc-box--u .tsc-box__k { opacity: 0.85; }
+.mt .tsc-u-hi { background: #0f6e56; }   /* High / Very High */
+.mt .tsc-u-mid { background: #8a6d3b; }  /* Moderate */
+.mt .tsc-u-lo { background: #6b7280; }   /* Low */
+
+/* Director filmography — the complete list, expanded, one compact row per film:
+   year · title · reading count · TakeScore boxes. (2026-07-09) */
+.mt .dr-filmo { display: flex; flex-direction: column; gap: 2px; margin: 12px 0 0; }
+.mt .dr-flm {
+  display: flex; align-items: center; gap: 13px; padding: 9px 10px; border-radius: 10px;
+  border: 1px solid transparent; text-decoration: none; color: inherit; transition: background 0.13s, border-color 0.13s;
+}
+.mt .dr-flm:hover { background: rgba(22, 35, 63, 0.03); border-color: rgba(22, 35, 63, 0.12); }
+.mt .dr-flm__yr { flex: 0 0 46px; font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13.5px; color: #2E7D9E; }
+.mt .dr-flm__po { flex: 0 0 auto; width: 34px; height: 51px; border-radius: 4px; object-fit: cover; background: #e8e4da; display: block; }
+.mt .dr-flm__po--e { background: rgba(22,35,63,0.06); }
+.mt .dr-flm__mid { flex: 1 1 0; min-width: 0; }
+.mt .dr-flm__ti { font-weight: 700; font-size: 15px; }
+.mt .dr-flm:hover .dr-flm__ti { text-decoration: underline; text-underline-offset: 2px; }
+.mt .dr-flm__sub { font-size: 12px; opacity: 0.62; margin-top: 2px; font-family: var(--font-ui); }
+.mt .dr-flm__sc { flex: 0 0 auto; }
+.mt .dr-flm__unscored { flex: 0 0 auto; font-size: 11.5px; opacity: 0.5; font-family: var(--font-ui); }
+@media (max-width: 640px) {
+  .mt .dr-flm { flex-wrap: wrap; gap: 8px; }
+  .mt .dr-flm__sc { flex-basis: 100%; padding-left: 59px; }
+}
+
 /* Figure chips with a small film thumbnail (theory pages, 2026-07-08). */
 .mt .fig-cloud { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 0; }
 .mt .fig-chip {
