@@ -35,13 +35,14 @@ type Film = { id: string; slug: string; title: string; year: number | null; dire
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const [{ data: films }, { data: dir }, { data: picks }, { data: factsRow }, { count: nextCount }] = await Promise.all([
+  const [{ data: films, error: filmsErr }, { data: dir }, { data: picks }, { data: factsRow }, { count: nextCount }] = await Promise.all([
     supabase.from("films").select("id, slug, title, year, director, backdrop_path, poster_path").eq("director_slug", slug).eq("visible", true).order("year"),
     supabase.from("directors").select("name").eq("slug", slug).maybeSingle(),
     supabase.from("director_picks").select("pos, film_slug, film_title, film_year, label, reason").eq("director_slug", slug).order("pos"),
     supabase.from("director_facts").select("facts").eq("director_slug", slug).maybeSingle(),
     supabase.from("director_next").select("pos", { count: "exact", head: true }).eq("director_slug", slug),
   ]);
+  if (filmsErr) throw new Error(`director films(${slug}): ${filmsErr.message}`); // never cache a poison 404
   if (!films || films.length === 0) return null;
   if (!picks || picks.length === 0) return null;
   const filmArr = films as Film[];

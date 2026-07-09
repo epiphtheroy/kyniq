@@ -38,9 +38,10 @@ type Reading = {
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const { data: films } = await supabase
+  const { data: films, error: filmsErr } = await supabase
     .from("films").select("id, slug, title, year, director, backdrop_path, poster_path")
     .eq("director_slug", slug).eq("visible", true).order("year");
+  if (filmsErr) throw new Error(`director films(${slug}): ${filmsErr.message}`); // never cache a poison 404
   if (!films || films.length === 0) return null;
   const director = (films[0].director as string) ?? slug.replace(/-/g, " ");
 

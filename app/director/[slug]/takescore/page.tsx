@@ -44,12 +44,13 @@ type Card = {
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const [{ data: films }, { data: dir }, { count: picksCount }, { data: factsRow }] = await Promise.all([
+  const [{ data: films, error: filmsErr }, { data: dir }, { count: picksCount }, { data: factsRow }] = await Promise.all([
     supabase.from("films").select("id, slug, title, year, director, backdrop_path, poster_path").eq("director_slug", slug).eq("visible", true).order("year"),
     supabase.from("directors").select("name").eq("slug", slug).maybeSingle(),
     supabase.from("director_picks").select("pos", { count: "exact", head: true }).eq("director_slug", slug),
     supabase.from("director_facts").select("facts").eq("director_slug", slug).maybeSingle(),
   ]);
+  if (filmsErr) throw new Error(`director films(${slug}): ${filmsErr.message}`); // never cache a poison 404
   if (!films || films.length === 0) return null;
   const filmArr = films as Film[];
   const director = (dir?.name as string | undefined) || filmArr[0].director || slug.replace(/-/g, " ");
