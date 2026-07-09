@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { anchorHref, fmtTime, type NowArticle } from "@/lib/now";
+import { anchorHref, fmtTime, tmdbImg, type NowArticle } from "@/lib/now";
 
 /**
  * Now Playing index — the live layer's front page: every piece, newest first,
@@ -117,17 +117,25 @@ export default async function NowIndex() {
               {g.rows.map((r) => {
                 const ah = anchorHref(r);
                 return (
-                  <Link className="now-row" href={`/now/${r.slug}`} key={r.slug}>
-                    <div className="t">
-                      <b>{fmtTime(r.published_at)} UTC</b>
-                      {r.keyword ? <> · chasing “{r.keyword}”</> : null}
+                  <Link className="now-row now-row--img" href={`/now/${r.slug}`} key={r.slug}>
+                    <div className="now-row__body">
+                      <div className="t">
+                        <b>{fmtTime(r.published_at)} UTC</b>
+                        {r.keyword ? <> · chasing “{r.keyword}”</> : null}
+                      </div>
+                      <h2>{r.headline}</h2>
+                      {r.dek ? <p className="dk">{r.dek}</p> : null}
+                      <div className="meta">
+                        Anchor: {r.anchor_label}
+                        {ah ? " · in the corpus" : null}
+                      </div>
                     </div>
-                    <h2>{r.headline}</h2>
-                    {r.dek ? <p className="dk">{r.dek}</p> : null}
-                    <div className="meta">
-                      Anchor: {r.anchor_label}
-                      {ah ? " · in the corpus" : null}
-                    </div>
+                    {r.image_path ? (
+                      <div className="now-row__thumb">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={tmdbImg(r.image_path, "w500")} alt="" loading="lazy" />
+                      </div>
+                    ) : null}
                   </Link>
                 );
               })}

@@ -46,7 +46,12 @@ export default async function NowLayout({ children }: { children: React.ReactNod
         </div>
         <nav className="cur-strip" aria-label="Latest pieces">
           <div className="cur-strip__in">
-            <Link href="/now">Latest</Link>
+            {/* "Latest" opens the newest piece directly; "All pieces" is the list. */}
+            {pieces.length ? <Link href={`/now/${pieces[0].slug}`} className="on">Latest ↗</Link> : <Link href="/now" className="on">Latest</Link>}
+            <span className="d" />
+            <Link href="/now">All pieces</Link>
+            <span className="d" />
+            <Link href="/now/wire">The wire</Link>
             {pieces.map((p) => (
               <span key={p.slug} style={{ display: "contents" }}>
                 <span className="d" />
