@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import EntityMap from "@/components/EntityMap";
+import FilmMap from "@/components/FilmMap";
 import type { SurpriseCard } from "@/components/home2/SurpriseStage";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -26,11 +27,23 @@ const ACCENT: Record<string, string> = {
   why_watch: "#8FBF6F", where_to_start: "#8FBF6F",
   film_map: "#6E9BFF", director_map: "#6E9BFF", figure_links: "#6E9BFF",
   film_tropes: "#D9C08A", film_ideas: "#D9C08A", director_tropes: "#D9C08A", director_ideas: "#D9C08A",
+  kindred: "#EF7D9D",
 };
 const PATTERNS = ["air", "band", "ink", "wire"] as const;
 
+// the entity the statement is ABOUT → tints the top headline (a second axis of
+// colour, distinct from the mode accent that drives the furniture)
+const ENTITY: Record<string, "film" | "director" | "figure" | "theorist"> = {
+  director_map: "director", director_tropes: "director", director_ideas: "director",
+  where_to_start: "director", director_next: "director",
+  figure_links: "figure", theorist: "theorist",
+};
+const ENT_COLOR: Record<string, string> = {
+  film: "#FFFFFF", director: "#BBD9F5", figure: "#F3D08A", theorist: "#CFC6FF",
+};
+
 type Beat = {
-  zone: "top" | "sub" | "quote" | "stack" | "chips" | "map";
+  zone: "top" | "sub" | "quote" | "stack" | "chips" | "map" | "atlas";
   kicker?: string; text?: string; sub?: string; won?: boolean;
   chips?: string[]; mapApi?: string; mapFull?: string; hold: number;
 };
@@ -84,11 +97,11 @@ function compileBeats(card: SurpriseCard): Beat[] {
     b.push({ zone: "top", kicker: "A question people ask", text: card.subject, hold: hold(card.subject, 1200) });
     for (const c of chunks(card.intro).slice(0, 2)) b.push({ zone: "sub", text: c, hold: hold(c) });
   } else if (m === "locations") {
-    b.push({ zone: "top", kicker: "On location", text: card.subject, hold: hold(card.subject) });
-    for (const it of items.slice(0, 5)) {
-      const sub = it.reason && it.reason.length < 110 ? it.reason : it.label ?? undefined;
-      b.push({ zone: "stack", text: it.text, sub, hold: 3400 });
-    }
+    b.push({ zone: "top", kicker: "On location", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject, 800) });
+    b.push({ zone: "atlas", hold: 17000 });
+  } else if (m === "kindred") {
+    b.push({ zone: "top", kicker: "Kindred films", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject) });
+    for (const it of items.slice(0, 5)) b.push({ zone: "stack", text: listTitle(it), hold: 3400 });
   } else if (m === "misreadings_teaser") {
     b.push({ zone: "top", kicker: "Read against the grain", text: card.subject, hold: hold(card.subject) });
     for (const it of items.slice(0, 4)) b.push({ zone: "stack", text: it.text ?? "", sub: it.label ?? undefined, hold: 3400 });
