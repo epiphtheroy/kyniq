@@ -155,8 +155,8 @@ export default function SurprisePage() {
             {card?.label ? (
               <span className="sm-chip">{card.label}{card.theorist ? ` · after ${card.theorist}` : ""}</span>
             ) : null}
-            <div className="sm-line">
-              {card?.line}
+            <div className={`sm-line${card?.kind === "reception" ? " sm-line--quote" : ""}`}>
+              {card?.kind === "reception" && card?.line ? `“${card.line}”` : card?.line}
               {card?.native ? <span className="sm-native"> {card.native}</span> : null}
             </div>
             {card?.sub ? <div className="sm-sub">{card.sub}</div> : null}
