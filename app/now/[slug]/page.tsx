@@ -111,11 +111,17 @@ export default async function NowPiece({ params }: Props) {
           <h1 style={{ marginTop: 14 }}>{p.headline}</h1>
           {p.dek ? <p className="dek">{p.dek}</p> : null}
           {p.summary ? <p className="now-summary">{p.summary}</p> : null}
-          <p className="cur-edby">
-            By <b>Wonwoo Yoon</b> · anchored on{" "}
-            {ah ? <Link href={ah}>{p.anchor_label}</Link> : <b>{p.anchor_label}</b>} · every data point below is
-            live in the corpus
-          </p>
+          <div className="cur-edby now-byline">
+            <Link href="/editor" className="now-author" aria-label="Wonwoo Yoon, founder and editor">
+              <span className="now-avatar" aria-hidden="true">W</span>
+              <span className="now-author-name">Wonwoo Yoon</span>
+            </Link>
+            <span className="now-byline-rest">
+              , founder &amp; editor · anchored on{" "}
+              {ah ? <Link href={ah}>{p.anchor_label}</Link> : <b>{p.anchor_label}</b>} · every data point below is
+              live in the corpus
+            </span>
+          </div>
         </header>
 
         {p.image_path ? (
@@ -133,6 +139,16 @@ export default async function NowPiece({ params }: Props) {
 
         <article className="cur-paper blg">
           {p.update_note ? <div className="now-note">Update: {p.update_note}</div> : null}
+
+          {/* the clock is the product: re-state when this letter was written and
+              published, to the minute, right above the body (owner's rule 2026-07-10) */}
+          <div className="now-timecard" aria-label="When this letter was written and published">
+            <div><span className="k">Written</span> <time dateTime={written}>{fmtStamp(written)}</time></div>
+            <div><span className="k">Published</span> <time dateTime={p.published_at}>{fmtStamp(p.published_at)}</time></div>
+            {updated ? (
+              <div><span className="k">Updated</span> <time dateTime={p.updated_at}>{fmtStamp(p.updated_at)}</time></div>
+            ) : null}
+          </div>
 
           {p.dateline ? <p className="now-dateline">{p.dateline}</p> : null}
 
