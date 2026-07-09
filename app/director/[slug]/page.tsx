@@ -47,8 +47,13 @@ type Next = { pos: number; rec_name: string; reason: string; target_slug: string
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const { data: films } = await supabase
+  const { data: films, error: filmsErr } = await supabase
     .from("films").select("id, title, slug, year, director, backdrop_path, poster_path, tmdb_id").eq("director_slug", slug).eq("visible", true).order("year");
+  // Throw on a DB error (never return null) so unstable_cache doesn't cache a
+  // poison 404: during a Supabase outage the query returns {data:null,error},
+  // which would otherwise look like "no such director" and get cached (the
+  // null-poison-404 trap). notFound only for a genuinely-empty result.
+  if (filmsErr) throw new Error(`director films(${slug}): ${filmsErr.message}`);
   if (!films || films.length === 0) return null;
   const director = films[0].director ?? slug.replace(/-/g, " ");
   const filmIds = films.map((f) => f.id);
