@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
+import EntityMap from "@/components/EntityMap";
 import { fmtDay } from "@/lib/now";
 
 /**
@@ -20,7 +21,7 @@ function db() {
 type DigestItem = {
   time: string; keyword: string; title: string | null; url: string | null;
   outlet: string | null; region: string | null; news_date: string | null;
-  anchor_label: string | null; anchor_href: string | null;
+  anchor_label: string | null; anchor_href: string | null; film_slug?: string | null;
   value_point: string | null; piece_slug: string | null;
 };
 type Digest = {
@@ -91,6 +92,21 @@ export default async function DailyDigest({ params }: Props) {
 
         <article className="cur-paper blg">
           <div className="now-letter" dangerouslySetInnerHTML={{ __html: d.intro_html }} />
+
+          {(() => {
+            const lead = items.find((it) => it.film_slug);
+            return lead?.film_slug ? (
+              <>
+                <div className="now-sec">The day&apos;s connections</div>
+                <p className="now-mapnote">
+                  {lead.anchor_label} sat at the center of today&apos;s wire — here is how it links across the corpus.
+                </p>
+                <div className="now-mapwrap">
+                  <EntityMap api={`/api/map?type=film&key=${lead.film_slug}`} full={`/map?m=critical&t=film&k=${lead.film_slug}`} height={360} />
+                </div>
+              </>
+            ) : null;
+          })()}
 
           {items.length ? (
             <>
