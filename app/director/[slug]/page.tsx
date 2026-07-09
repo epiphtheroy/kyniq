@@ -486,7 +486,7 @@ export default async function DirectorPage({ params }: Props) {
           const readFilms = (films as { slug: string; title: string; year: number | null; poster_path?: string | null; id: string }[])
             .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path ?? null, readings: perFilmReadings[f.id] ?? 0, score: filmScores[f.slug] ?? null }));
           const catFilms = (hiddenFilms as { slug: string; title: string; year: number | null; poster_path: string | null }[])
-            .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, readings: 0, score: null as (typeof readFilms)[number]["score"] }));
+            .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, readings: 0, score: null as Score | null }));
           const allFilms = [...readFilms, ...catFilms].sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999) || a.title.localeCompare(b.title));
           const scoredN = readFilms.filter((f) => f.score).length;
           return (
