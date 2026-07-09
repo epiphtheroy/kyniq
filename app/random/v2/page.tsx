@@ -27,7 +27,7 @@ const ACCENT: Record<string, string> = {
   why_watch: "#8FBF6F", where_to_start: "#8FBF6F",
   film_map: "#6E9BFF", director_map: "#6E9BFF", figure_links: "#6E9BFF",
   film_tropes: "#D9C08A", film_ideas: "#D9C08A", director_tropes: "#D9C08A", director_ideas: "#D9C08A",
-  kindred: "#EF7D9D",
+  kindred: "#EF7D9D", figures: "#C8A2E0", invitation: "#5FC9A8", lineage: "#E0A93E",
 };
 const PATTERNS = ["air", "band", "ink", "wire"] as const;
 
@@ -102,6 +102,15 @@ function compileBeats(card: SurpriseCard): Beat[] {
   } else if (m === "kindred") {
     b.push({ zone: "top", kicker: "Kindred films", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject) });
     for (const it of items.slice(0, 5)) b.push({ zone: "stack", text: listTitle(it), hold: 3400 });
+  } else if (m === "figures") {
+    b.push({ zone: "top", kicker: "The figures", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject) });
+    for (const it of items.slice(0, 6)) b.push({ zone: "stack", text: it.text ?? "", sub: it.reason ?? undefined, hold: 3600 });
+  } else if (m === "invitation") {
+    b.push({ zone: "top", kicker: "An invitation", text: card.subject, hold: hold(card.subject, 1000) });
+    for (const c of chunks(card.body).slice(0, 3)) b.push({ zone: "sub", text: c, hold: hold(c) });
+  } else if (m === "lineage") {
+    b.push({ zone: "top", kicker: "In the canon", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject) });
+    for (const it of items.slice(0, 6)) b.push({ zone: "stack", text: it.text ?? "", sub: it.label ?? undefined, won: true, hold: 3300 });
   } else if (m === "misreadings_teaser") {
     b.push({ zone: "top", kicker: "Read against the grain", text: card.subject, hold: hold(card.subject) });
     for (const it of items.slice(0, 4)) b.push({ zone: "stack", text: it.text ?? "", sub: it.label ?? undefined, hold: 3400 });
@@ -325,7 +334,7 @@ export default function ChannelPage() {
             <span className="sv2-kick sv2-kick--sub">On the atlas</span>
             <a href={`/film/${card.film_slug}#df-atlas`}>Open ↗</a>
           </div>
-          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={280} />
+          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={300} panelSide="left" fitMaxZoom={13} />
         </div>
       ) : null}
 
