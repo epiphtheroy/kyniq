@@ -19,7 +19,6 @@ import DirectorsIndexClient from "@/components/curious/DirectorsIndexClient";
  */
 export const revalidate = 3600;
 
-const IMG = "https://image.tmdb.org/t/p";
 const SITE = "https://metatake.net";
 
 function db() {

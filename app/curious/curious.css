@@ -285,3 +285,27 @@
   .cur-row h3 { font-size: 17px; }
   .cur-row .ex { display: none; }
 }
+
+/* ── /curious/directors interactive roster: filter + sort + A–Z jump
+   (2026-07-09). Dark Curious theme. ── */
+.cdir-ctrl { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 6px 0 14px; }
+.cdir-q {
+  flex: 1 1 260px; max-width: 420px; font-family: var(--cur-text); font-size: 15px;
+  padding: 10px 15px; border-radius: 10px; border: 1.5px solid #333; background: #1c1c1c; color: #fff; outline: none;
+}
+.cdir-q::placeholder { color: #6f6d6e; }
+.cdir-q:focus { border-color: var(--cur-accent); }
+.cdir-sort { display: flex; gap: 4px; flex-wrap: wrap; }
+.cdir-sortb {
+  font-family: var(--cur-text); font-size: 12.5px; font-weight: 600; cursor: pointer;
+  padding: 8px 13px; border-radius: 999px; border: 1px solid #333; background: transparent; color: #cfcdce; transition: background .13s, color .13s, border-color .13s;
+}
+.cdir-sortb:hover { border-color: #555; color: #fff; }
+.cdir-sortb.active { background: var(--cur-accent); border-color: var(--cur-accent); color: #fff; }
+.cdir-az { display: flex; flex-wrap: wrap; gap: 2px 4px; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid #2a2a2a; }
+.cdir-az a {
+  font-family: var(--cur-display); font-weight: 700; font-size: 13px; color: #8f8d8e; text-decoration: none;
+  min-width: 20px; text-align: center; padding: 2px 4px; border-radius: 5px;
+}
+.cdir-az a:hover { color: #fff; background: #262626; }
+.cdir-count { font-size: 12.5px; color: #6f6d6e; margin: 0 0 12px; }
