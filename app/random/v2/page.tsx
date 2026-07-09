@@ -85,8 +85,6 @@ export default function ChannelPage() {
     ? `https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${card.clip}&start=7&playsinline=1&modestbranding=1&rel=0&enablejsapi=1`
     : null;
 
-  const filmLine = card ? [card.film_title, card.film_year ? `(${card.film_year})` : null].filter(Boolean).join(" ") : "";
-
   return (
     <div className={`svc svc-comp-${comp}${uiVisible ? " svc--ui" : ""}`} onMouseMove={wake} onClick={wake}>
       {/* the bed: the film clip, else a Ken-Burns backdrop */}
@@ -134,7 +132,7 @@ export default function ChannelPage() {
 
       {/* the lens — a panel that moves and restyles per composition */}
       <div className="svc-stage">
-        {card ? <Lens key={idx} card={card} filmLine={filmLine} /> : <div className="svc-boot">Tuning in…</div>}
+        {card ? <Lens key={idx} card={card} /> : <div className="svc-boot">Tuning in…</div>}
       </div>
 
       {/* controls — auto-hide */}
@@ -151,7 +149,7 @@ export default function ChannelPage() {
 }
 
 // The lens rendered as broadcast furniture (text over the film).
-function Lens({ card, filmLine }: { card: SurpriseCard; filmLine: string }) {
+function Lens({ card }: { card: SurpriseCard }) {
   const m = card.mode;
   const kicker = [card.label, m === "misreading" || m === "theorist" ? card.framework : null]
     .filter(Boolean).join(" · ") + (card.theorist && (m === "misreading" || m === "theorist") ? ` · ${m === "misreading" ? "after " : ""}${card.theorist}` : "");
@@ -161,7 +159,6 @@ function Lens({ card, filmLine }: { card: SurpriseCard; filmLine: string }) {
 
   return (
     <div className="svc-lens">
-      <div className="svc-film"><span className="svc-film__t">{filmLine}</span>{card.director ? <span className="svc-film__d"> · dir. {card.director}</span> : null}</div>
       {kicker ? <div className="svc-kicker">{kicker}</div> : null}
       {head ? <div className="svc-head">{head}</div> : null}
       {m === "misreading" ? (
