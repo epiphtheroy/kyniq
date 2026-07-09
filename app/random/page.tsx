@@ -2,40 +2,33 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import SiteNavClient from "@/components/home2/SiteNavClient";
+import SurpriseStage from "@/components/home2/SurpriseStage";
 import "@/app/home2.css";
-
-type Card = {
-  kind: string; line?: string; sub?: string; leap?: string; label?: string;
-  framework?: string; theorist?: string; native?: string; fact?: string;
-  film?: string; example?: string; href?: string;
-  backdrop?: string | null; clip?: string | null; portrait?: string | null;
-};
 
 type GCard = { kind: string; line?: string; sub?: string | null; href?: string; backdrop?: string | null };
 
-// 10 content types the corpus can surprise you with (2026-07-09 expansion).
+// The wander-wall content types (drive surprise_set, user-customizable). The
+// hero above uses surprise_home — the same curated, film-anchored lenses as the
+// home page — so /random opens with the exact home experience, then lets you
+// browse a wall of a chosen type below.
 const KINDS: [string, string][] = [
   ["any", "🎲 Surprise"],
   ["film", "Film"], ["reading", "Reading"], ["concept", "Concept"], ["director", "Director"],
   ["theorist", "Theorist"], ["trope", "Trope"], ["figure", "Figure"], ["location", "On location"],
   ["question", "Curious"], ["reception", "What critics said"],
 ];
-// The types that "🎲 Surprise" draws from — user-customizable, persisted.
 const MIX_TYPES: [string, string][] = KINDS.slice(1);
 const IMG = "https://image.tmdb.org/t/p";
 const MIX_KEY = "sm_mix_v1";
 
 export default function SurprisePage() {
   const [kind, setKind] = useState("any");
-  const [card, setCard] = useState<Card | null>(null);
-  const [loading, setLoading] = useState(true);
   const [set, setSet] = useState<GCard[]>([]);
   const [gridLoading, setGridLoading] = useState(true);
   const [mix, setMix] = useState<string[]>(() => MIX_TYPES.map(([k]) => k));
   const [showMix, setShowMix] = useState(false);
   const kindRef = useRef(kind); kindRef.current = kind;
   const mixRef = useRef(mix); mixRef.current = mix;
-  const busy = useRef(false);
 
   // Load the saved mix once on mount.
   useEffect(() => {
@@ -53,17 +46,6 @@ export default function SurprisePage() {
   const mixParam = (k: string) =>
     k === "any" && mixRef.current.length && mixRef.current.length < MIX_TYPES.length
       ? `&mix=${mixRef.current.join(",")}` : "";
-
-  const drawCard = useCallback(async (k?: string) => {
-    if (busy.current) return;
-    busy.current = true;
-    const kk = k ?? kindRef.current;
-    setLoading(true);
-    try {
-      const r = await fetch(`/api/surprise?kind=${kk}${mixParam(kk)}&_=${Date.now()}`, { cache: "no-store" });
-      setCard((await r.json()) as Card);
-    } catch { /* noop */ } finally { setLoading(false); busy.current = false; }
-  }, []);
 
   const drawSet = useCallback(async (k?: string) => {
     const kk = k ?? kindRef.current;
@@ -85,28 +67,33 @@ export default function SurprisePage() {
     });
   };
 
-  useEffect(() => { drawCard("any"); drawSet("any"); }, [drawCard, drawSet]);
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !(e.target as HTMLElement)?.closest?.("input,textarea,a,button")) { e.preventDefault(); drawCard(); }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [drawCard]);
+  useEffect(() => { drawSet("any"); }, [drawSet]);
 
-  const pick = (k: string) => { setKind(k); drawCard(k); drawSet(k); };
-
-  const clipSrc = card?.clip
-    ? `https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=1&controls=0&loop=1&playlist=${card.clip}&start=7&playsinline=1&modestbranding=1&rel=0`
-    : null;
+  const pick = (k: string) => { setKind(k); drawSet(k); };
 
   return (
-    <div className="mt sm-page">
+    <div className="mt sm-page sm-rand">
       <SiteNavClient />
+
+      <div className="sm-head">
+        <h1 className="sm-h1">Surprise me</h1>
+        <p className="sm-tag">A film through one lens you didn’t expect — its critics, its honors, its map, a bold misreading. Hit <kbd>Space</kbd> to draw again.</p>
+      </div>
+
+      {/* The hero: identical to the home "Surprise me" — a curated, film-anchored lens */}
+      <div className="mthome sm-rand-hero">
+        <div className="hero">
+          <div className="wrap">
+            <SurpriseStage />
+          </div>
+        </div>
+      </div>
+
+      {/* Below: a wall you can steer by type */}
       <div className="sm-wrap">
-        <div className="sm-head">
-          <h1 className="sm-h1">Surprise me</h1>
-          <p className="sm-tag">One card at a time. Hit <kbd>Space</kbd> to draw again.</p>
+        <div className="sm-morehd">
+          <h2 className="sm-h2">Or wander by type</h2>
+          <p className="sm-tag">Choose what the wall pulls from — your pick is remembered.</p>
         </div>
 
         <div className="sm-toggles">
@@ -131,49 +118,8 @@ export default function SurprisePage() {
           </div>
         ) : null}
 
-        <div className={`sm-card${loading ? " is-load" : ""}`}>
-          {clipSrc ? (
-            <iframe
-              key={card!.clip}
-              className="sm-bg"
-              src={clipSrc}
-              title={card?.line ?? "clip"}
-              allow="autoplay; encrypted-media; picture-in-picture"
-            />
-          ) : card?.backdrop ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img className="sm-bg" src={`${IMG}/w1280${card.backdrop}`} alt="" />
-          ) : <div className="sm-bg sm-bg--empty" aria-hidden="true" />}
-        </div>
-
-        <div className="sm-meta">
-          {card?.portrait ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img className="sm-pic" src={`${IMG}/w185${card.portrait}`} alt="" />
-          ) : null}
-          <div className="sm-metabody">
-            {card?.label ? (
-              <span className="sm-chip">{card.label}{card.theorist ? ` · after ${card.theorist}` : ""}</span>
-            ) : null}
-            <div className={`sm-line${card?.kind === "reception" ? " sm-line--quote" : ""}`}>
-              {card?.kind === "reception" && card?.line ? `“${card.line}”` : card?.line}
-              {card?.native ? <span className="sm-native"> {card.native}</span> : null}
-            </div>
-            {card?.sub ? <div className="sm-sub">{card.sub}</div> : null}
-            {card?.leap ? <div className="sm-leap"><span>The leap</span> {card.leap}</div> : null}
-            {card?.fact ? <div className="sm-leap"><span>The life</span> {card.fact}</div> : null}
-            {card?.kind === "director" && card?.film ? <div className="sm-sub">Where to start · {card.film}</div> : null}
-            <div className="sm-actions">
-              <button className="sm-again" onClick={() => drawCard()} disabled={loading}>
-                ↻ Surprise me again <kbd>Space</kbd>
-              </button>
-              {card?.href ? <a className="sm-open" href={card.href}>Open ↗</a> : null}
-            </div>
-          </div>
-        </div>
-
         <div className="sm-setbar">
-          <span className="sm-setk">More to wander — 30 cards</span>
+          <span className="sm-setk">30 cards to wander</span>
           <button className="sm-setbtn" onClick={() => drawSet()} disabled={gridLoading}>↻ Show another 30</button>
         </div>
         <div className="sm-grid">
