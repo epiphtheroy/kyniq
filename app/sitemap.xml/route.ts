@@ -36,6 +36,7 @@ const SECTIONS = [
   "essays-ko",
   "director-start",
   "director-next",
+  "director-misreadings",
   "director-takescore",
   "director-honors",
   "director-reception",

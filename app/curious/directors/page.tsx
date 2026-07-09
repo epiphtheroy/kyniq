@@ -51,7 +51,7 @@ export type DirRow = {
   locations: boolean; // /locations clears the atlas gate (≥2 located films & ≥6 merged pins)
   // Wave-2 aggregation articles (2026-07-09) — eligibility mirrors each page's
   // robots gate via directorLayerEligibility() (same source as their sitemaps).
-  takescore: boolean; honors: boolean; reception: boolean; theory: boolean;
+  takescore: boolean; honors: boolean; reception: boolean; theory: boolean; misreadings: boolean;
 };
 
 type Index = { rows: DirRow[]; lives: number; starts: number; kinships: number; maps: number };
@@ -90,7 +90,7 @@ const loadIndex = unstable_cache(
     const layer = await directorLayerEligibility();
     const layerSets = {
       takescore: new Set(layer.takescore), honors: new Set(layer.honors),
-      reception: new Set(layer.reception), theory: new Set(layer.theory),
+      reception: new Set(layer.reception), theory: new Set(layer.theory), misreadings: new Set(layer.misreadings),
     };
 
     const hub = new Set(hubRows.map((r) => r.director_slug));
@@ -147,6 +147,7 @@ const loadIndex = unstable_cache(
         honors: layerSets.honors.has(slug),
         reception: layerSets.reception.has(slug),
         theory: layerSets.theory.has(slug),
+        misreadings: layerSets.misreadings.has(slug),
       }))
       .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
