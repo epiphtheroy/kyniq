@@ -512,11 +512,11 @@ export default async function DirectorPage({ params }: Props) {
         {/* IN THE NEWS — the Now Playing hourly desk's record for this director */}
         <EntityNews directorSlug={slug} variant="dr" />
 
-        {/* STRONG MISREADINGS — a representative set of real readings across the films */}
+        {/* STRONG MISREADINGS — a representative set; the full set lives on its own page */}
         {misreadings.length > 0 && (
           <section className="dr-sec" id="dr-misreadings">
             <h2 className="dr-h2">Strong Misreadings</h2>
-            <p className="dr-gloss">{readingCount} bold readings across {director}&apos;s films — here are the strongest, at most two per film. Open a film for its full set.</p>
+            <p className="dr-gloss">{readingCount} bold readings across {director}&apos;s films — here are the strongest, at most two per film. {readingCount > misreadings.length ? <>The complete set is <Link href={`/director/${slug}/misreadings`}>on its own page</Link>.</> : "Open a film for its full set."}</p>
             <div className="dr-mr-cards">
               {misreadings.map((m, i) => {
                 const f = fw(m.framework);

@@ -397,7 +397,7 @@ def publish(env: dict, piece: dict, cand: dict, pack: dict, scores: dict, cut_fl
         "summary": piece.get("summary"), "dateline": piece.get("dateline"),
         "keyword": cand["keyword"], "lane": "direct",
         "anchor_type": anchor["type"], "anchor_slug": anchor.get("slug"), "anchor_label": anchor["label"],
-        "film_slug": pack.get("film_slug"),
+        "film_slug": pack.get("film_slug"), "director_slug": pack.get("director_slug"),
         "image_path": img.get("path"), "image_alt": img.get("alt"),
         "facts_html": piece["facts_html"], "reading_html": piece["reading_html"],
         "bottom_html": piece.get("bottom_html"), "deposit": piece.get("deposit"),
@@ -507,13 +507,19 @@ def main() -> None:
              if c["beat"] >= 4 and c["corroboration"] >= MIN_CORR
              and c["spike"] + c["corroboration"] + c["beat"] >= MIN_MECH]
 
-    # the wire we watched: even when the cap stops WRITING, reviewing continues
+    # the wire we watched is a WIDER net than the publish bar: any spike that
+    # matched a real corpus entity (beat >= 4) is worth noting under that
+    # film/director, even if it never becomes a piece. This keeps the daily
+    # digest full (owner's rule: >= 3 items) on ordinary days.
+    wire_cands = [c for c in snap["candidates"] if c.get("entity") and c["beat"] >= 4]
+
+    # even when the cap stops WRITING, reviewing continues
     n = today_count(env)
     if n >= DAILY_CAP:
         log(f"daily cap reached ({n}/{DAILY_CAP}) — recording the wire only")
         if not dry:
-            record_stream(env, cands)
-        ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP} · wire: {len(cands)} reviewed")
+            record_stream(env, wire_cands)
+        ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP} · wire: {len(wire_cands)} reviewed")
         return
     if not cands:
         log("no qualifying candidate")
@@ -576,14 +582,14 @@ def main() -> None:
             return
         dist = after_publish(env, piece["slug"], piece["headline"], piece.get("dek"))
         mods = ",".join(piece["module_ids"])
-        record_stream(env, cands, published_keyword=cand["keyword"], published_slug=piece["slug"])
+        record_stream(env, wire_cands, published_keyword=cand["keyword"], published_slug=piece["slug"])
         ledger_append(f"{stamp} · PUBLISHED · kw: {cand['keyword']} · anchor: {ent.get('slug') or ent['label']} · "
                       f"lane: direct · modules: {mods} · /now/{piece['slug']} · dist: {','.join(dist)}")
         log(f"PUBLISHED /now/{piece['slug']} · {dist}")
         return
 
     if not dry:
-        record_stream(env, cands)
+        record_stream(env, wire_cands)
     ledger_append(f"{stamp} · PASS · candidates tried, none survived selection/gate · wire: {len(cands)} reviewed")
     log("no candidate survived")
 

@@ -24,21 +24,34 @@ from pipeline.produce import INDEXNOW_KEY, _bluesky_post  # noqa: E402
 MODEL = "claude-fable-5"
 
 
+def _anchor_href(r: dict) -> str | None:
+    """The link must match the anchor label: a person/theorist anchor points at
+    the director/theorist page, NOT the film they happen to be tied to."""
+    t = r.get("anchor_type")
+    if t == "film" and r.get("film_slug"):
+        return f"/film/{r['film_slug']}"
+    if t in ("person", "director") and r.get("director_slug"):
+        return f"/director/{r['director_slug']}"
+    if t == "theorist" and r.get("anchor_slug"):
+        return f"/theorist/{r['anchor_slug']}"
+    if r.get("film_slug"):
+        return f"/film/{r['film_slug']}"
+    if r.get("director_slug"):
+        return f"/director/{r['director_slug']}"
+    return None
+
+
 def build_items(env: dict, day: str) -> list[dict]:
     rows = sb_get(env, f"now_stream?select=at,keyword,title,url,outlet,region,news_date,anchor_label,anchor_slug,anchor_type,film_slug,director_slug,value_point,published,piece_slug"
                        f"&at=gte.{day}T00:00:00Z&at=lte.{day}T23:59:59Z&order=at.asc", service=True) or []
     items = []
     for r in rows:
-        href = None
-        if r.get("film_slug"):
-            href = f"/film/{r['film_slug']}"
-        elif r.get("director_slug"):
-            href = f"/director/{r['director_slug']}"
         items.append({
             "time": (r.get("at") or "")[11:16] + " UTC", "keyword": r.get("keyword"),
             "title": r.get("title"), "url": r.get("url"), "outlet": r.get("outlet"),
             "region": r.get("region"), "news_date": r.get("news_date"),
-            "anchor_label": r.get("anchor_label"), "anchor_href": href,
+            "anchor_label": r.get("anchor_label"), "anchor_href": _anchor_href(r),
+            "film_slug": r.get("film_slug"),
             "value_point": r.get("value_point"),
             "piece_slug": r.get("piece_slug") if r.get("published") else None,
         })

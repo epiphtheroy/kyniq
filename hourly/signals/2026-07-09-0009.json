@@ -1,0 +1,690 @@
+{
+ "at": "2026-07-09T00:09:27+00:00",
+ "fleet_items": 164,
+ "candidates": [
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "cs2 update",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 16:10:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 2,
+   "corroboration": 1,
+   "beat": 4,
+   "entity": {
+    "beat": 4,
+    "type": "film",
+    "slug": "mirage-1965",
+    "label": "Mirage (1965)"
+   },
+   "lane": "direct",
+   "news": [
+    {
+     "title": "Magixx 1v4 clutch gets a graffiti-like reference in Mirage update",
+     "url": "https://escorenews.com/en/csgo/news/79186-magixx-1v4-clutch-gets-a-graffiti-like-reference-in-mirage-update",
+     "source": "escorenews.com"
+    },
+    {
+     "title": "CS2 July 8th update brings bomb explosion re-design, new Armory items",
+     "url": "https://www.dust2.us/news/75797/cs2-july-8th-update-brings-bomb-explosion-re-design-new-armory-items",
+     "source": "Dust2.us"
+    },
+    {
+     "title": "Inart is set to open pre-orders for the Supergirl figure from the movie of the same name",
+     "url": "https://ixbt.games/en/news/2026/07/01/inart-sobiraetsia-otkryt-predzakaz-na-figurku-supergerl-iz-odnoimennogo-filma.html",
+     "source": "IXBT.games"
+    }
+   ],
+   "fleet_hits": [
+    {
+     "outlet": "nyt-world",
+     "title": "Iran War Live Updates: U.S. Launches New Strikes on Iran, Military Says",
+     "url": "https://www.nytimes.com/live/2026/07/08/world/iran-war-us-trump"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "fan",
+   "traffic": "2000+",
+   "pub": "Wed, 8 Jul 2026 15:10:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 3,
+   "corroboration": 4,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "England fan who spent life savings gets money back",
+     "url": "https://www.bbc.co.uk/news/articles/cd95wqe5l3ko",
+     "source": "BBC"
+    },
+    {
+     "title": "England fan who blew life savings taking grandad to World Cup is given money back",
+     "url": "https://www.dailystar.co.uk/news/england-fan-who-blew-10k-37402142",
+     "source": "Daily Star"
+    },
+    {
+     "title": "England Fan Who Spent Life Savings on World Cup Trip with Granddad Gets Money Gifted Back",
+     "url": "https://www.goodnewsnetwork.org/england-fan-who-spent-life-savings-on-world-cup-trip-with-granddad-gets-money-gifted-back/",
+     "source": "Good News Network"
+    }
+   ],
+   "fleet_hits": [
+    {
+     "outlet": "indiewire",
+     "title": "‘The Sun Never Sets’ Trailer: Dakota Fanning Gets Lost in a Love Triangle in One of 2026’s Best Romantic Dramas",
+     "url": "https://www.indiewire.com/news/trailers/the-sun-never-sets-trailer-dakota-fanning-1235204217/"
+    },
+    {
+     "outlet": "nyt-world",
+     "title": "The Alluring Albanian Island Inspiring Ivanka’s Fantasy",
+     "url": "https://www.nytimes.com/2026/07/08/world/europe/albania-sazan-island-kushner-ivanka.html"
+    },
+    {
+     "outlet": "aljazeera",
+     "title": "Argentina fans accused of violence, racism by Egypt, Cape Verde supporters",
+     "url": "https://www.aljazeera.com/sports/2026/7/8/argentina-fans-accused-of-violence-racism-by-egypt-cape-verde-supporters?traffic_source=rss"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "emily blunt",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 16:20:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 5,
+   "entity": {
+    "beat": 5,
+    "type": "person",
+    "slug": "steven-spielberg",
+    "label": "Steven Spielberg"
+   },
+   "lane": "direct",
+   "news": [
+    {
+     "title": "8 Action Thriller Movies That Are Better Than 'Sicario'",
+     "url": "https://movieweb.com/action-thriller-movies-better-sicario/",
+     "source": "MovieWeb"
+    },
+    {
+     "title": "11 Years Later, Steven Spielberg Conquers His Own Spy Thriller Masterpiece at the Global Box Office",
+     "url": "https://www.imdb.com/news/ni65911873/?ref_=nmnw_art_perm",
+     "source": "IMDb"
+    },
+    {
+     "title": "Despite Struggles, Disclosure Day Puts Steven Spielberg in Rare Box Office Club at 79",
+     "url": "https://www.yahoo.com/entertainment/movies/articles/despite-struggles-disclosure-day-puts-145952247.html",
+     "source": "Yahoo"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "royals - mets",
+   "traffic": "10000+",
+   "pub": "Wed, 8 Jul 2026 16:20:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 4,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Tyler Tolbert ties MLB mark with hits in 12 straight plate appearances",
+     "url": "https://www.espn.com/mlb/story/_/id/49302660/tyler-tolbert-ties-mlb-mark-hits-12-straight-plate-appearances",
+     "source": "ESPN"
+    },
+    {
+     "title": "Royals rally to beat Mets after giving up 'Little League home run' as Tyler Tolbert matches record with 12th straight hit",
+     "url": "https://sports.yahoo.com/mlb/breaking-news/article/royals-rally-to-beat-mets-after-giving-up-little-league-home-run-as-tyler-tolbert-matches-record-with-12th-straight-hit-235554007.html",
+     "source": "Yahoo Sports"
+    },
+    {
+     "title": "Royals speedster ties MLB record with hit in 12 straight plate appearances",
+     "url": "https://www.mlb.com/news/tyler-tolbert-ties-record-hits-consecutive-plate-appearances",
+     "source": "MLB.com"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "fans",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 15:30:00 -0700",
+   "first_seen": "2026-07-08T23:00:17+00:00",
+   "spike": 3,
+   "corroboration": 1,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Ruben Amorim says sorry for not speaking to Man Utd fans since exit",
+     "url": "https://www.bbc.co.uk/sport/football/articles/c0ly5d57wkeo",
+     "source": "BBC"
+    },
+    {
+     "title": "Ruben Amorim: I made mistakes with Manchester United",
+     "url": "https://www.espn.co.uk/football/story/_/id/49307048/ruben-amorim-made-mistakes-manchester-united-ac-milan",
+     "source": "ESPN"
+    },
+    {
+     "title": "Amorim arrives in Milan, already speaking Italian and taking a swipe at United: \"Milan, a bigger challenge than the last...\"",
+     "url": "https://www.gazzetta.it/en/football/teams/milan/news/06-07-2026/milan-amorim-arrives-declares-an-honour-m-here-to-win.shtml",
+     "source": "La Gazzetta dello Sport"
+    }
+   ],
+   "fleet_hits": [
+    {
+     "outlet": "aljazeera",
+     "title": "Argentina fans accused of violence, racism by Egypt, Cape Verde supporters",
+     "url": "https://www.aljazeera.com/sports/2026/7/8/argentina-fans-accused-of-violence-racism-by-egypt-cape-verde-supporters?traffic_source=rss"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "albania",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 16:50:00 -0700",
+   "first_seen": "2026-07-09T00:09:26+00:00",
+   "spike": 2,
+   "corroboration": 1,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "The Guardian view on the flamingo revolution: Albanians are standing up for their rights, as well as for nature | Editorial",
+     "url": "https://www.theguardian.com/commentisfree/2026/jul/08/the-guardian-view-on-the-flamingo-revolution-albanians-stand-up-for-their-rights-as-well-as-for-nature",
+     "source": "The Guardian"
+    },
+    {
+     "title": "Video: Work at Kushner-Linked Resort in Albania Could Affect Sensitive Landscape",
+     "url": "https://www.nytimes.com/video/world/europe/100000010975655/jared-kushner-resort-albania-wildlife.html",
+     "source": "The New York Times"
+    },
+    {
+     "title": "How Trump’s son-in-law sparked a revolt in Albania",
+     "url": "https://www.vox.com/podcasts/494431/jared-kusher-ivanka-trump-albania-sazan-protest-movement-explained",
+     "source": "Vox"
+    }
+   ],
+   "fleet_hits": [
+    {
+     "outlet": "nyt-world",
+     "title": "The Alluring Albanian Island Inspiring Ivanka’s Fantasy",
+     "url": "https://www.nytimes.com/2026/07/08/world/europe/albania-sazan-island-kushner-ivanka.html"
+    }
+   ],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "angel",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 16:40:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "WNBA All-Star 2026: Snubs, top questions after roster named",
+     "url": "https://www.espn.com/wnba/story/_/id/49303218/wnba-all-star-game-2026-snubs-questions-predictions-roster-named-mvp",
+     "source": "ESPN"
+    },
+    {
+     "title": "Candace Parker slams WNBA players for voting Caitlin Clark as the league's 11th-best guard: 'This is getting out of hand'",
+     "url": "https://sports.yahoo.com/wnba/article/candace-parker-slams-wnba-players-for-voting-caitlin-clark-as-the-leagues-11th-best-guard-this-is-getting-out-of-hand-201201908.html",
+     "source": "Yahoo Sports"
+    },
+    {
+     "title": "Nneka Ogwumike, Jonquel Jones Highlight Reserves for 2026 AT&T WNBA All-Star Game",
+     "url": "https://www.wnba.com/news/all-star-reserves-2026",
+     "source": "WNBA"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "nick kurtz",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 16:30:00 -0700",
+   "first_seen": "2026-07-09T00:09:26+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Dodgers Outright Jonathan Hernández",
+     "url": "https://www.mlbtraderumors.com/2026/07/dodgers-outright-jonathan-hernandez.html",
+     "source": "MLB Trade Rumors"
+    },
+    {
+     "title": "Dodgers call up Charlie Barnes, option Wyatt Mills",
+     "url": "https://www.truebluela.com/dodgers-roster/119231/charlie-barnes-wyatt-mills",
+     "source": "True Blue LA"
+    },
+    {
+     "title": "Gary Harris traded to Pistons",
+     "url": "https://www.fantasypros.com/nba/news/595516/gary-harris-traded-to-pistons-.php",
+     "source": "FantasyPros"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "dillon dingler",
+   "traffic": "1000+",
+   "pub": "Wed, 8 Jul 2026 16:20:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Dingler exits after taking foul tip off right hand",
+     "url": "https://www.mlb.com/news/dillon-dingler-exits-early-after-foul-tip-to-hand",
+     "source": "MLB.com"
+    },
+    {
+     "title": "Tigers' Dillon Dingler leaves game with apparent hand injury",
+     "url": "https://www.detroitnews.com/story/sports/mlb/tigers/2026/07/08/dillon-dingler-tigers-catcher-leaves-game-with-apparent-hand-injury/90856180007/",
+     "source": "The Detroit News"
+    },
+    {
+     "title": "Athletics' Nick Kurtz: Exits Wednesday's game",
+     "url": "https://www.cbssports.com/fantasy/baseball/news/athletics-nick-kurtz-exits-wednesdays-game/",
+     "source": "CBS Sports"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "portable air conditioner",
+   "traffic": "2000+",
+   "pub": "Wed, 8 Jul 2026 15:10:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 3,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Meaco's ultra-quiet portable air conditioner is coming back into stock today, so act fast",
+     "url": "https://www.idealhome.co.uk/house-manual/air-quality/meaco-cirro-portable-air-conditioner-back-in-stock-july-2026",
+     "source": "Ideal Home"
+    },
+    {
+     "title": "Meaco's ultra-quiet portable air conditioner is coming back into stock today, so act fast",
+     "url": "https://www.msn.com/en-gb/lifestyle/shopping/meaco-s-ultra-quiet-portable-air-conditioner-is-coming-back-into-stock-today-so-act-fast/ar-AA27toaA",
+     "source": "MSN"
+    },
+    {
+     "title": "Fans vs air conditioners: Which to buy to beat the summer heat",
+     "url": "https://www.independent.co.uk/extras/indybest/house-garden/household-appliances/fan-vs-portable-air-conditioner-b3009664.html",
+     "source": "The Independent"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "brandon marsh",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 16:40:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Luzardo named to NL roster, giving Phillies MLB-high 6 All-Stars",
+     "url": "https://www.mlb.com/news/phillies-to-have-5-representatives-as-all-star-game-hosts",
+     "source": "MLB.com"
+    },
+    {
+     "title": "Bryce Harper is ‘grateful’ to be MLB commissioner’s All-Star pick. He’s also earned it.",
+     "url": "https://www.inquirer.com/phillies/bryce-harper-all-star-selection-home-run-derby-nine-time-20260705.html",
+     "source": "Inquirer.com"
+    },
+    {
+     "title": "Five Phillies named All-Stars for 96th Midsummer Classic at CBP",
+     "url": "https://www.nbcsportsphiladelphia.com/mlb/philadelphia-phillies/mlb-all-star-game-bryce-harper-brandon-marsh-2/738335/",
+     "source": "NBC Sports Philadelphia"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "ohio horror house",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 16:30:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Ohio House of Horrors Mom Had Conjoined Twins Who Died After Birth",
+     "url": "https://people.com/mom-ohio-house-horrors-gave-birth-conjoined-twins-died-shortly-after-childbirth-12014329",
+     "source": "People.com"
+    },
+    {
+     "title": "16 Vinton County children safe and being cared for as number of birth certificates remains unclear",
+     "url": "https://www.10tv.com/article/news/local/vinton-county-children-safe-number-of-birth-certificates-remains-unclear/530-1e556bdb-e2c5-4a0a-9335-545aacf84008",
+     "source": "10TV"
+    },
+    {
+     "title": "Ohio ‘House of horrors’ case began with unrelated warrant, now heads to grand jury",
+     "url": "https://www.newsnationnow.com/crime/ohio-house-of-horrors-elizabeth-gary-siders/",
+     "source": "NewsNation"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "chase burns",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 16:10:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "The final Chase Burns start of the Reds first half",
+     "url": "https://sports.yahoo.com/articles/final-chase-burns-start-reds-210000754.html",
+     "source": "Yahoo Sports"
+    },
+    {
+     "title": "Chase Burns against the Phillies",
+     "url": "https://www.mlb.com/reds/video/chase-burns-against-the-phillies-x3341",
+     "source": "MLB.com"
+    },
+    {
+     "title": "Reds turn to reliable Chase Burns in rematch vs. Phillies",
+     "url": "https://www.cbssports.com/mlb/news/reds-turn-to-reliable-chase-burns-in-rematch-vs-phillies/",
+     "source": "CBS Sports"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "shabana mahmood",
+   "traffic": "500+",
+   "pub": "Wed, 8 Jul 2026 16:00:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 2,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "UK to change law so ringleader of Rochdale grooming gang can be deported",
+     "url": "https://www.bbc.co.uk/news/articles/cly0ly30384o",
+     "source": "BBC"
+    },
+    {
+     "title": "Mahmood to close loophole blocking deportation of Rochdale grooming gang ringleader",
+     "url": "https://www.theguardian.com/politics/2026/jul/08/mahmood-to-close-loophole-blocking-deportation-of-rochdale-grooming-gang-ringleader",
+     "source": "The Guardian"
+    },
+    {
+     "title": "Pakistan sets out demands for taking back Rochdale rapist",
+     "url": "https://www.telegraph.co.uk/news/2026/07/07/pakistan-sets-out-demands-for-taking-back-rochdale-rapist/",
+     "source": "The Telegraph"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "US",
+   "keyword": "kris jenner",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 16:30:00 -0700",
+   "first_seen": "2026-07-09T00:00:13+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "See Photos of Penelope Disick and Her Famous Family as Kourtney Kardashian’s Eldest Daughter Turns 14",
+     "url": "https://nz.news.yahoo.com/see-photos-penelope-disick-her-110000331.html",
+     "source": "Yahoo News New Zealand"
+    },
+    {
+     "title": "Kris Jenner Shares Special Tribute to Her ‘Precious’ Granddaughter Penelope on Her 14th Birthday",
+     "url": "https://people.com/kris-jenner-celebrates-her-precious-granddaughter-penelope-with-sweet-tribute-12014605",
+     "source": "People.com"
+    },
+    {
+     "title": "Penelope Disick turns 14! Inside teen's special celebrations at home with famous family",
+     "url": "https://www.hellomagazine.com/us/911816/penelope-disick-turns-14-inside-celebrations-with-famous-family/",
+     "source": "HELLO! Magazine"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "william hill",
+   "traffic": "100+",
+   "pub": "Wed, 8 Jul 2026 16:40:00 -0700",
+   "first_seen": "2026-07-09T00:09:27+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "bet365 bonus code: Bet £10, Get £30 in World Cup free bets",
+     "url": "https://mybettingsites.co.uk/news/bet365-bonus-code-bet-10-get-30-in-world-cup-free-bets-8-july/",
+     "source": "MyBettingSites.Co.UK"
+    },
+    {
+     "title": "World Cup 2026 betting: Daily hub for odds, offers and free bets",
+     "url": "https://www.standard.co.uk/sport/betting/world-cup-daily-betting-offers-july-b1286166.html",
+     "source": "London Evening Standard"
+    },
+    {
+     "title": "BOYLE Sports Super Boost: Get Lionel Messi to score in 90 mins, ET OR Pens NOW EVS",
+     "url": "https://talksport.com/betting/4395498/boyle-sports-super-boost-lionel-messi/",
+     "source": "talkSPORT"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "adeyemi",
+   "traffic": "100+",
+   "pub": "Wed, 8 Jul 2026 16:30:00 -0700",
+   "first_seen": "2026-07-08T23:00:16+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Adeniyi Adeyemi: Nigeria's President Bola Tinubu orders probe into alleged fake agency",
+     "url": "https://www.bbc.co.uk/news/articles/c621xrrp6jeo",
+     "source": "BBC"
+    },
+    {
+     "title": "Tinubu speak on fake agency: Nigeria President order investigation into 'Presidential Foreign Intervention Promotion Council, give ICPC deadline to submit report",
+     "url": "https://www.bbc.com/pidgin/articles/c14y1gmx405o",
+     "source": "BBC"
+    },
+    {
+     "title": "PFIPC scandal: ‘Fake’ DG deceived me with Presidency letterhead — Kalu",
+     "url": "https://punchng.com/pfipc-scandal-fake-dg-deceived-me-with-presidency-letterhead-kalu/",
+     "source": "Punch Newspapers"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "gakuran codes",
+   "traffic": "100+",
+   "pub": "Wed, 8 Jul 2026 16:30:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "All fighting styles in Gakuran",
+     "url": "https://www.eurogamer.net/all-fighting-styles-gakuran",
+     "source": "Eurogamer.net"
+    },
+    {
+     "title": "Gakuran Codes for July 2026",
+     "url": "https://www.ign.com/articles/gakuran-codes",
+     "source": "IGN"
+    },
+    {
+     "title": "Gakuran Codes July 2026: All Active and Expired Codes",
+     "url": "https://games.gg/news/gakuran-codes-july-2026/",
+     "source": "games.gg"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "karim adeyemi",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 16:10:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "Barcelona “submit official bid” to Borussia Dortmund for Karim Adeyemi",
+     "url": "https://www.barcablaugranes.com/fc-barcelona-transfer-rumors-news/126067/barcelona-submit-official-bid-to-borussia-dortmund-for-karim-adeyemi",
+     "source": "Barca Blaugranes"
+    },
+    {
+     "title": "FC Barcelona Secures New Summer Signing: Financial Implications for La Liga Club - Operating Margin Analysis",
+     "url": "https://www.dars.gov.et/expert-time/FC-Barcelona-Secures-New-Summer-Signing-Financial-Implications-for-La-Liga-Club-42-2319",
+     "source": "https://www.dars.gov.et/"
+    },
+    {
+     "title": "💣Bombshell: Barcelona close to sealing a second signing",
+     "url": "https://sports.yahoo.com/articles/bombshell-barcelona-close-sealing-second-230200046.html",
+     "source": "Yahoo Sports"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  },
+  {
+   "source": "trends",
+   "geo": "GB",
+   "keyword": "fast and furious",
+   "traffic": "200+",
+   "pub": "Wed, 8 Jul 2026 15:50:00 -0700",
+   "first_seen": "2026-07-09T00:00:14+00:00",
+   "spike": 1,
+   "corroboration": 0,
+   "beat": 0,
+   "entity": null,
+   "lane": "exception",
+   "news": [
+    {
+     "title": "No, 'Fast & Furious 11' Is Not in Production: Update",
+     "url": "https://www.thewrap.com/creative-content/movies/fast-and-furious-11-filming-update-vin-diesel/",
+     "source": "TheWrap"
+    },
+    {
+     "title": "Vin Diesel Teases ‘Fast Forever’ Will Be “Most Amazing Finale”",
+     "url": "https://deadline.com/2026/07/vin-diesel-begins-fast-forever-production-1236974251/",
+     "source": "Deadline"
+    },
+    {
+     "title": "\"Fast Forever\" Is Not Filming Right Now",
+     "url": "https://www.darkhorizons.com/fast-forever-is-not-filming-right-now/",
+     "source": "Dark Horizons"
+    }
+   ],
+   "fleet_hits": [],
+   "reddit_echo": false
+  }
+ ]
+}

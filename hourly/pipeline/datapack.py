@@ -193,22 +193,55 @@ def _theorist_module(env: dict, theorist_id: str, name: str, mid: str) -> dict |
 
 
 def _film_archive_links(env: dict, film: dict, modules: list[dict]) -> list[dict]:
-    """The anchor film's other live pages — collected at the foot of the piece
-    so the reader can walk into the archive. Only links we know resolve."""
-    slug, links = film["slug"], []
+    """The anchor film's other live pages — the reader's on-ramps into the
+    archive. Built abundantly (owner's rule 2026-07-09: pack the foot with
+    links, drive the on-site click). Only links we know resolve."""
+    slug, fid = film["slug"], film["id"]
     types = {m["type"] for m in modules}
-    links.append({"label": "The film page", "href": f"/film/{slug}", "note": "overview, figures, connections"})
+    links = [{"label": "The film page", "href": f"/film/{slug}", "note": "the full record"}]
+
     if "takescore" in types:
-        links.append({"label": "TakeScore scorecard", "href": f"/takescore/film/{slug}", "note": "the full 13-dimension read"})
+        links.append({"label": "TakeScore scorecard", "href": f"/takescore/film/{slug}", "note": "the 13-dimension read"})
     if "canon" in types:
         links.append({"label": "Lineage & honors", "href": f"/film/lineage/{slug}", "note": "the record in the lists"})
     if "locations" in types:
         links.append({"label": "Shooting atlas", "href": f"/film/atlas/{slug}", "note": "every mapped place"})
     if "misreadings" in types:
         links.append({"label": "Strong misreadings", "href": f"/film/{slug}/misreadings", "note": "the readings, assembled"})
+
+    # movies-like (kinship connections)
+    kin = sb_get(env, f"film_affinities?select=film_id&film_id=eq.{fid}&limit=1")
+    if kin:
+        links.append({"label": f"Movies like {film['title']}", "href": f"/movies-like/{slug}", "note": "kin by figure and idea"})
+
+    # curious questions viewers actually ask (each its own page)
+    qs = sb_get(env, f"questions?select=slug,display_title,title,spoiler_level&film_id=eq.{fid}&order=created_at.asc&limit=5")
+    for q in qs or []:
+        if (q.get("spoiler_level") or 0) >= 2:
+            continue
+        t = (q.get("display_title") or q.get("title") or "").strip()
+        if t:
+            links.append({"label": t, "href": f"/film/{slug}/q/{q['slug']}", "note": "on Curious"})
+
+    # tropes the film deposits (figure-type readings)
+    tr = sb_get(env, "figure_type_members?select=meta_take:meta_takes!inner(slug,title,status,kind),figure:figures!inner(film_id)"
+                     f"&figure.film_id=eq.{fid}&meta_take.status=eq.published&meta_take.kind=eq.figure_type&limit=6")
+    seen_t = set()
+    for r in tr or []:
+        mt = r.get("meta_take") or {}
+        if mt.get("slug") and mt["slug"] not in seen_t:
+            seen_t.add(mt["slug"])
+            links.append({"label": mt["title"], "href": f"/trope/{mt['slug']}", "note": "a recurring figure"})
+
+    # essays / desk readings
+    es = sb_get(env, f"essays?select=mode&film_id=eq.{fid}&status=eq.verified&lang=eq.en&limit=1")
+    if es:
+        links.append({"label": f"Essays on {film['title']}", "href": f"/film/{slug}", "note": "long-form, on the film page"})
+
     if film.get("director_slug"):
-        links.append({"label": film.get("director") or "The director", "href": f"/director/{film['director_slug']}", "note": "the filmography"})
-    return links
+        links.append({"label": f"{film.get('director') or 'The director'} — the filmography",
+                      "href": f"/director/{film['director_slug']}", "note": "every film we hold"})
+    return links[:16]
 
 
 def build_pack(env: dict, anchor: dict) -> dict:
@@ -218,11 +251,14 @@ def build_pack(env: dict, anchor: dict) -> dict:
     film_slug: str | None = None
     image: dict | None = None
     archive_links: list[dict] = []
+    director_slug: str | None = None
+    maps: list[dict] = []  # visual connection/geo blocks (owner's rule 2026-07-09)
 
     if anchor["type"] == "film" and anchor.get("slug"):
         film = _film_row(env, anchor["slug"])
         if film:
             film_slug = film["slug"]
+            director_slug = film.get("director_slug")
             anchor = {**anchor, "label": f"{film['title']} ({film.get('year') or '—'})"}
             bp = film.get("backdrop_path") or film.get("poster_path")
             if bp:
@@ -239,9 +275,14 @@ def build_pack(env: dict, anchor: dict) -> dict:
                 if m:
                     modules.append(m)
             archive_links = _film_archive_links(env, film, modules)
+            # visuals: the connections galaxy (every film) + the geo map (if located)
+            maps.append({"kind": "connections", "film_slug": film["slug"], "title": film["title"]})
+            if any(m["type"] == "locations" for m in modules):
+                maps.append({"kind": "geo", "film_slug": film["slug"], "title": film["title"]})
 
     elif anchor["type"] == "person":
         name = anchor["label"]
+        director_slug = anchor.get("slug")
         m = _filmography_module(env, name, anchor.get("slug"), "filmography")
         if m:
             modules.append(m)
@@ -262,6 +303,17 @@ def build_pack(env: dict, anchor: dict) -> dict:
             if m:
                 modules.append(m)
 
+    # for person/theorist anchors, seed archive_links from the filmography module
+    if not archive_links:
+        if director_slug and anchor["type"] == "person":
+            archive_links.append({"label": f"{anchor.get('label')} — the filmography",
+                                  "href": f"/director/{director_slug}", "note": "every film we hold"})
+        for m in modules:
+            for it in (m.get("items") or [])[:10]:
+                if (it.get("href") or "").startswith("/"):
+                    archive_links.append({"label": it["label"], "href": it["href"], "note": it.get("note")})
+        archive_links = archive_links[:16]
+
     usable = [m for m in modules if (m.get("rows") or m.get("items"))]
 
     # Internal-link inventory — every VERIFIED metatake.net link the writer may
@@ -281,6 +333,6 @@ def build_pack(env: dict, anchor: dict) -> dict:
                     inv.setdefault(cell["href"], cell.get("text", ""))
     internal_links = [{"href": h, "label": t} for h, t in list(inv.items())[:24]]
 
-    return {"anchor": anchor, "film_slug": film_slug, "image": image,
-            "archive_links": archive_links, "modules": usable,
-            "internal_links": internal_links, "depth": len(usable)}
+    return {"anchor": anchor, "film_slug": film_slug, "director_slug": director_slug,
+            "image": image, "archive_links": archive_links, "modules": usable,
+            "maps": maps, "internal_links": internal_links, "depth": len(usable)}

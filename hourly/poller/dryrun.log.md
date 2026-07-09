@@ -9,3 +9,7 @@
 ## 2026-07-08T11:56:23+00:00 — fleet items 142, candidates 21
 - [11] spike 2 · corr 4 · beat 5 · **Marie Antoinette** (fleet, world) → Marie Antoinette (2006)
 - [ 8] spike 3 · corr 0 · beat 5 · **charlie hall** (1000+, US) → Her (2013)
+
+## 2026-07-09T00:09:27+00:00 — fleet items 164, candidates 20
+- [ 7] spike 2 · corr 1 · beat 4 · **cs2 update** (500+, US) → Mirage (1965)
+- [ 6] spike 1 · corr 0 · beat 5 · **emily blunt** (200+, GB) → Steven Spielberg
