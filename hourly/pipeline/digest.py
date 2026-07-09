@@ -41,13 +41,25 @@ def _anchor_href(r: dict) -> str | None:
     return None
 
 
+def _clock(iso: str) -> str:
+    """'14:05 UTC (10:05 ET)' — UTC explicit + US Eastern (DST-aware)."""
+    from datetime import datetime, timezone
+    try:
+        from zoneinfo import ZoneInfo
+        d = datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(timezone.utc)
+        et = d.astimezone(ZoneInfo("America/New_York"))
+        return f"{d.strftime('%H:%M')} UTC ({et.strftime('%H:%M')} ET)"
+    except Exception:
+        return (iso or "")[11:16] + " UTC"
+
+
 def build_items(env: dict, day: str) -> list[dict]:
     rows = sb_get(env, f"now_stream?select=at,keyword,title,url,outlet,region,news_date,anchor_label,anchor_slug,anchor_type,film_slug,director_slug,value_point,published,piece_slug"
                        f"&at=gte.{day}T00:00:00Z&at=lte.{day}T23:59:59Z&order=at.asc", service=True) or []
     items = []
     for r in rows:
         items.append({
-            "time": (r.get("at") or "")[11:16] + " UTC", "keyword": r.get("keyword"),
+            "time": _clock(r.get("at") or ""), "keyword": r.get("keyword"),
             "title": r.get("title"), "url": r.get("url"), "outlet": r.get("outlet"),
             "region": r.get("region"), "news_date": r.get("news_date"),
             "anchor_label": r.get("anchor_label"), "anchor_href": _anchor_href(r),
