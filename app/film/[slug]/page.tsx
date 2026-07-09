@@ -663,13 +663,11 @@ export default async function FilmPage({ params }: Props) {
     const mWatchRegions = watch?.countries?.length ?? 0;
     const mTabs = ([
       hasDigest ? { id: "df-digest", label: "Digest" } : null,
-      !hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
       codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
       geoCount > 0 ? { id: "df-atlas", label: "Atlas", badge: geoCount } : null,
       afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
-      hasDigest && hasInfo ? { id: "df-information", label: "About" } : null,
       crew.length
         ? { id: "df-crew", label: "Credits", badge: crew.length }
         : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}` } : null,
@@ -732,6 +730,8 @@ export default async function FilmPage({ params }: Props) {
               </div>
             </div>
           </section>
+
+          {synopsis}
 
           <AccessCountryProvider>
 
