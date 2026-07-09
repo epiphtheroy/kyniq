@@ -4,37 +4,37 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { SurpriseCard } from "@/components/home2/SurpriseStage";
 
 const IMG = "https://image.tmdb.org/t/p";
-const HOLD_MS = 15000; // seconds each card holds before the channel advances
+const HOLD_MS = 15000; // ms each card holds before the channel advances
 
-// Surprise-me v2 — "The Metatake Channel". A self-running broadcast: a film clip
-// (or a slow Ken-Burns backdrop) fills the frame, and the lens content is
-// composited ON TOP as broadcast furniture — a channel bug, a lower-third, a
-// running caption — like an unmanned information display. It advances on its own;
-// pausing freezes the frame AND the video. Built as a separate route so v1 stays
-// untouched until this is promoted. Rights note: the clip layer is a YouTube
-// *embed* (legal on-site); this page is NOT a rebroadcast — see the streaming plan.
+// Surprise-me v2 — "The Metatake Channel". A self-running broadcast / unmanned
+// information display: a still film image (the backdrop) fills the frame under a
+// slow Ken-Burns drift, and the lens content is composited ON TOP as broadcast
+// furniture — a channel bug, a lower-third, a running caption. It advances on its
+// own; pausing freezes the frame. Built as a separate route so v1 stays untouched
+// until promoted.
+//
+// Image bed, no video: reliable (no black frames), and the far safer basis for an
+// eventual YouTube channel — a slideshow of images + our own text triggers Content
+// ID far less than restreamed footage would. (For YouTube proper, lean on posters
+// + our own maps/type over film stills; see the streaming plan.)
 export default function ChannelPage() {
   const [hist, setHist] = useState<SurpriseCard[]>([]);
   const [idx, setIdx] = useState(-1);
-  const [loading, setLoading] = useState(true);
   const [playing, setPlaying] = useState(true);
-  const [muted, setMuted] = useState(true);
   const [uiVisible, setUiVisible] = useState(true);
   const busy = useRef(false);
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const card = idx >= 0 ? hist[idx] : null;
 
   const draw = useCallback(async () => {
     if (busy.current) return;
     busy.current = true;
-    setLoading(true);
     try {
       const r = await fetch(`/api/surprise/home?_=${Date.now()}`, { cache: "no-store" });
       const c = (await r.json()) as SurpriseCard;
       setHist((h) => [...h, c]);
       setIdx((i) => i + 1);
-    } catch { /* noop */ } finally { setLoading(false); busy.current = false; }
+    } catch { /* noop */ } finally { busy.current = false; }
   }, []);
 
   const prev = () => setIdx((i) => Math.max(0, i - 1));
@@ -56,14 +56,6 @@ export default function ChannelPage() {
     return () => clearInterval(t);
   }, [playing, draw]);
 
-  // Talk to the YouTube embed to pause/resume the clip with the channel.
-  const postYT = useCallback((func: string) => {
-    iframeRef.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: "command", func, args: [] }), "*"
-    );
-  }, []);
-  useEffect(() => { postYT(playing ? "playVideo" : "pauseVideo"); }, [playing, postYT, idx]);
-
   // Auto-hide the controls a few seconds after the pointer goes still.
   const wake = useCallback(() => {
     setUiVisible(true);
@@ -83,22 +75,17 @@ export default function ChannelPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idx, hist.length, wake]);
 
-  const clipSrc = card?.clip
-    ? `https://www.youtube-nocookie.com/embed/${card.clip}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${card.clip}&start=7&playsinline=1&modestbranding=1&rel=0&enablejsapi=1`
-    : null;
-
   const filmLine = card ? [card.film_title, card.film_year ? `(${card.film_year})` : null].filter(Boolean).join(" ") : "";
 
   return (
     <div className={`svc${uiVisible ? " svc--ui" : ""}`} onMouseMove={wake} onClick={wake}>
-      {/* the moving bed: clip, else a slow Ken-Burns backdrop */}
+      {/* the still bed: the film backdrop under a slow Ken-Burns drift */}
       <div className="svc-bed">
-        {clipSrc ? (
-          <iframe ref={iframeRef} key={card!.clip} className="svc-media" src={clipSrc}
-            title={card?.film_title ?? "clip"} allow="autoplay; encrypted-media; picture-in-picture" />
-        ) : card?.backdrop ? (
+        {card?.backdrop ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className="svc-media svc-media--kb" src={`${IMG}/w1280${card.backdrop}`} alt="" />
+          <img className="svc-media svc-media--kb" key={card.film_slug ?? idx}
+            style={{ animationPlayState: playing ? "running" : "paused" }}
+            src={`${IMG}/w1280${card.backdrop}`} alt="" />
         ) : <div className="svc-media svc-media--empty" aria-hidden="true" />}
       </div>
       <div className="svc-scrim" aria-hidden="true" />
@@ -115,7 +102,7 @@ export default function ChannelPage() {
         <span className="svc-bug__sub">{playing ? "ON AIR" : "PAUSED"}</span>
       </div>
 
-      {/* the lens, composited over the film */}
+      {/* the lens, composited over the film image */}
       <div className="svc-stage">
         {card ? <Lens key={idx} card={card} filmLine={filmLine} /> : <div className="svc-boot">Tuning in…</div>}
       </div>
@@ -127,9 +114,6 @@ export default function ChannelPage() {
           {playing ? "❚❚" : "►"}
         </button>
         <button className="svc-btn" onClick={next} aria-label="Next">›</button>
-        <button className="svc-btn" onClick={() => setMuted((v) => !v)} aria-label={muted ? "Unmute" : "Mute"}>
-          {muted ? "🔇" : "🔊"}
-        </button>
         {card?.href ? <a className="svc-btn svc-btn--open" href={card.href}>Full info ↗</a> : null}
         <span className="svc-hint">Space = pause · ← → = skip</span>
       </div>
@@ -137,10 +121,10 @@ export default function ChannelPage() {
   );
 }
 
-// The lens rendered as broadcast furniture (text over the film).
+// The lens rendered as broadcast furniture (text over the film image).
 function Lens({ card, filmLine }: { card: SurpriseCard; filmLine: string }) {
   const m = card.mode;
-  const kicker = [card.label, card.mode === "misreading" || card.mode === "theorist" ? card.framework : null]
+  const kicker = [card.label, m === "misreading" || m === "theorist" ? card.framework : null]
     .filter(Boolean).join(" · ") + (card.theorist && (m === "misreading" || m === "theorist") ? ` · ${m === "misreading" ? "after " : ""}${card.theorist}` : "");
   const head = m === "misreading" ? card.line : card.subject;
   const items = (card.items ?? []).slice(0, 4);
