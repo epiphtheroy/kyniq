@@ -25,6 +25,11 @@ The dark "operating-system" terminal (12 routes) that fuses TakeScore + 정전�
 - `docs/ux/PLAN-room-implementation.md` — build plan (Phase-1 era; partly historical now).
 - `docs/ux/HTML-DESIGN-HANDOFF.md` — visual design intent; `docs/ux/SHARED-STANDARD.md` — S1–S11 display rules; per-mockup UX docs (`command-center.md`, `collection.md`, …).
 
+## News & video layer — hourly desk → text → video (SHIPPED text / prototyped video) 🟢
+The live news layer and its video spin-off. Both self-contained bundles under `hourly/`.
+- `HANDOFF-now-플레잉.md` (루트) — **Now Playing 정본 (SHIPPED 2026-07-09, 자율 가동 중)**: 시간당 키워드 체이싱 뉴스 체계. 하루 3종(The Daily `/blog` · Now Playing 라이브 `/now` · 일간 다이제스트 `/now/daily/[date]`) + `/now/wire` + film/director "In the news" 탭. 순수 파이썬 stdlib 파이프라인, Fable 5 작성=발행(sonnet 게이트 없음). 워처 `hourly/now-playing-watch.sh`. 세부: `hourly/README.md`(레시피)·`DESIGN.md`·`TREND-SOURCES.md`·`DISTRIBUTION.md`·`FORECAST.md`(⚠️필독). **뉴스층 세션은 여기서 시작.**
+- `HANDOFF-metatake-tv.md` (루트) — **Metatake TV 정본 (전략+프로토타입 완료 2026-07-09)**: `/now` 레터를 페이스리스 영상(Short+롱폼 단일 퍼널)으로 만들어 유튜브 배포. 데이터 반전=드라마=반슬롭 해자. 시네마틱 프로토타입 라이브(**metatake.net/tv/marie-antoinette.html**, 실제 스틸·Didot·그레인). 전략/포맷 세부: `hourly/tv/STRATEGY.md`. **렌더+업로드 루프는 ffmpeg 설치+채널/OAuth 대기(오너 몫).** ⚠️함정: 외부이미지 CSP(→base64), rAF 스로틀(→시간 명시 구동), public/ 수동 커밋. **영상 세션은 여기서 시작.**
+
 ## Design plans (status flipped to live where shipped)
 - `HANDOFF-감독읽는층-리셉션-SEO.md` (루트) — **감독 기사층 · 리셉션/애프터라이프 · SEO 확장 (SHIPPED 2026-07-08~09)**: `/film/x/reception`(1,957) + 감독 8서브페이지(start·next·life·misreadings·takescore·honors·reception·theory) + `/curious/directors` + 누락 색인 4종 + 스포일러-존 탭바. **⚠️ 함정 필독: cinecodex_card 루프=DB다운(→lib/takescore-bulk.ts), null-poison 404(loader 에러-throw), 자동배포 churn 과부하.** 감독/리셉션/이론층/사이트맵/탭 세션은 여기서 시작. 상위 SEO는 `docs/HANDOFF-SEO-마스터.md` §3c.
 - `HANDOFF-서프라이즈-v2채널-스트리밍.md` (루트) — **Surprise 확장 · v2 방송채널 · 릴 · 유튜브 검토 (2026-07-09)**: surprise_home **20모드**(reception/honors/question/locations/theorist/misreadings, 마이그 0050) + 미디어 16:9 고정 레이아웃수정 + `SurpriseStage` 공유컴포넌트로 `/random`=홈 통합. **`/random/v2`** "The Metatake Channel"(영상 풀스크린 + 에디토리얼 6 랜덤 컴포지션, `.svc-ed-*`/`.svc-comp-*`). **`/random/reel`** 30초 Short 시제품(스틸+SpeechSynthesis 낭독+WebAudio 앰비언트, RPC reel_cards 마이그 0051). 유튜브 스트리밍 기술·**Content ID** 저작권 검토(실행 보류). **⚠️ 함정: jsonb 빈-게이트는 `jsonb_typeof='null'` 필요 · `position:fixed;inset:0`는 longhand 필수.** Surprise/‌`/random`/v2/릴/유튜브 세션은 여기서 시작.
@@ -47,6 +52,7 @@ The dark "operating-system" terminal (12 routes) that fuses TakeScore + 정전�
 ## Scoped sub-projects (self-contained bundles)
 - `handoff/` — Lineage (계보) tag layer (canon/awards/festivals) — **SHIPPED** (`/lineage`, `film_lineage` 10,551)
 - `magazine research agent/` — reception research sub-agent
+- `sentence-engine/` — **LLM-free sentence generator (SQL-only), PoC 2026-07-09**. Postgres `format()` templates × DB joins → factual sentences at $0/LLM=0. 6 interpretation/connection patterns (A/B/C/G/H/I; awards·rating-rank·runtime-compare removed by decision), English output, title-first. Demo: *Parasite* → 238 sentences on live kyniq DB. Start at `sentence-engine/README.md` (decision log + reusable engine). Not yet persisted/surfaced.
 
 ## Operational scratch (lives with code, not "project docs")
 - `worker/*.md` (DRY-run samples), `substack/` (publishing log), `Element/` + `Asset/` (catalog/recommendation design), various `*/README.md`.

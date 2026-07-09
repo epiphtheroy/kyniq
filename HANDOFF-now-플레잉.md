@@ -2,6 +2,8 @@
 
 **이 문서가 정본(canonical)입니다.** Now Playing 관련 작업을 이어받는 에이전트는 코드를 만지기 전에 이 문서를 먼저 읽으세요. 중복·누락·회귀를 막기 위한 단일 진입점입니다. 최종 갱신: 2026-07-09.
 
+형제 체계: `HANDOFF-metatake-tv.md`(정본) — 이 데스크의 `/now` 레터를 페이스리스 **영상**으로 만들어 유튜브 배포하는 Metatake TV. 전략/포맷은 `hourly/tv/STRATEGY.md`.
+
 관련 정본 문서(운영 세부):
 - `hourly/README.md` — 편집 레시피(레터 포맷·규칙)
 - `hourly/DESIGN.md` — 아키텍처·비용·결정

@@ -1,9 +1,13 @@
-# Metatake TV — strategy & pipeline (canonical)
+# Metatake TV — strategy, format & pipeline
 
-**Status:** 2026-07-09 — concept locked, prototype built (`prototype-marie-antoinette.html`),
-render+upload loop NOT yet wired (blocked on: ffmpeg install + TTS choice + YouTube OAuth).
-This doc is the entry point for anyone continuing. Sister system: `HANDOFF-now-플레잉.md`
-(the text pieces this channel turns into video).
+**Canonical entry point is the root `HANDOFF-metatake-tv.md`** (status, file map, decision log,
+invariants, traps, owner's part). THIS doc owns the enduring strategy detail: 2026 format
+benchmarks, the Short↔long decision rubric, storyboards, SEO, and the anti-slop rationale.
+Sister system: `HANDOFF-now-플레잉.md` (the text pieces this channel turns into video).
+
+**Status (2026-07-09):** concept locked · **cinematic prototype built, deployed & self-verified**
+(https://metatake.net/tv/marie-antoinette.html) · render+upload loop NOT yet wired
+(blocked on: ffmpeg install + TTS choice + YouTube OAuth + channel).
 
 ---
 
@@ -126,14 +130,21 @@ now_articles row  ──►  tv/script.py   (Fable 5 → {vo_lines[], timings[],
 
 `prototype-marie-antoinette.html` IS the `compose.html` template, parameterized per film.
 
-## 8. Prototype (done)
+## 8. Prototype (done — cinematic rebuild, deployed, self-verified)
 
-`prototype-marie-antoinette.html` — watchable 9:16 Short, ~39s, real data:
-Marie Antoinette (2006), TakeScore 53/100, rank 5,882/6,701, form 65 / polar 62,
-reception 2006 cold → 2013 landmark, Academy Award (Costume Design) 2007.
-Scenes: hook cards → poster plate (Ken Burns) → TakeScore dial → dimension split →
-reception arc draw → honors chip + CTA loop. Karaoke captions; optional browser-speech voice.
-Poster is an art-directed stand-in (external images sandbox-blocked; production swaps the backdrop).
+Live: **https://metatake.net/tv/marie-antoinette.html** (`public/tv/marie-antoinette.html`;
+source `hourly/tv/prototype-marie-antoinette.html`). A ~39s 9:16 Short over **5 real film stills**
+(base64-embedded to beat the image CSP), **Didot** display type, film grain + vignette + letterbox,
+**hard-cut** scenes, data drawn ON the imagery (TakeScore dial 0→53, craft/polarizing bars,
+reception arc 2006→2013), karaoke captions, optional browser-speech voice. This HTML IS the
+render template. First (flat-gradient) draft was rejected on quality and fully replaced.
+
+Self-verification (via Chrome MCP, all 6 scenes) caught & fixed: scene-bleed (→ hard cuts +
+`visibility:hidden`), scene-4 too dark / low-contrast data (→ stronger scrim + white labels +
+shadow + thicker bars), scene-6 end-card illegible over bright dress (→ dark end-card + repositioned
+✦). See root handoff §3b (scene map) and §6 (invariants/traps). Real numbers verified 2026-07-09;
+no fabrication (the research example's "Palme d'Or" is wrong — MA was booed at Cannes but did NOT
+win it; true arc = booed → Oscar 2007 → reappraised).
 
 ## 9. Open decisions / owner's part
 
