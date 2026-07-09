@@ -34,13 +34,15 @@ function load(slug: string) {
   return unstable_cache(
     async () => {
       const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
-      const [{ data: facts }, { data: d }, { data: films }, { count: pickCount }, { count: nextCount }] = await Promise.all([
+      const [{ data: facts, error: factsErr }, { data: d }, { data: films }, { count: pickCount }, { count: nextCount }] = await Promise.all([
         supabase.from("director_facts").select("director_slug, name_meaning, intro, facts").eq("director_slug", slug).maybeSingle(),
         supabase.from("directors").select("name, profile_path, birthday, place_of_birth").eq("slug", slug).maybeSingle(),
         supabase.from("films").select("slug, title, year, director, backdrop_path").eq("director_slug", slug).eq("visible", true).order("year"),
         supabase.from("director_picks").select("pos", { count: "exact", head: true }).eq("director_slug", slug),
         supabase.from("director_next").select("pos", { count: "exact", head: true }).eq("director_slug", slug),
       ]);
+      // Throw on a DB error (never cache a poison 404 during a Supabase outage).
+      if (factsErr) throw new Error(`director facts(${slug}): ${factsErr.message}`);
       if (!facts || !Array.isArray(facts.facts) || facts.facts.length === 0) return null;
       const director = d?.name || (films as FilmRow[] | null)?.[0]?.director || slug.replace(/-/g, " ");
       return {
