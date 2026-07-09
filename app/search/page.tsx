@@ -39,7 +39,7 @@ interface Group {
 const GROUPS: Group[] = [
   { id: "films", label: "Films", kinds: ["film"], render: "films" },
   { id: "people", label: "People", kinds: ["director", "theorist"], render: "people" },
-  { id: "readings", label: "Readings", kinds: ["reading", "figure"], render: "readings" },
+  { id: "readings", label: "Readings & Essays", kinds: ["essay", "reading", "figure"], render: "readings" },
   { id: "ideas", label: "Ideas & Lenses", kinds: ["trope", "idea", "tradition", "archetype", "genre"], render: "chips" },
   { id: "places", label: "Places", kinds: ["country", "city"], render: "places" },
   { id: "lists", label: "Lists & Movements", kinds: ["lineage", "movement"], render: "lists" },

@@ -46,6 +46,7 @@ export function hrefOf(kind: SearchKind, slug: string, filmSlug?: string | null)
     case "trope": return `/trope/${slug}`;
     case "reading":
     case "figure": return `/film/${filmSlug}/figure/${slug}`;
+    case "essay": return `/film/${filmSlug}/${slug}`; // slug carries the desk key (decoder, debates…)
     case "theorist": return `/theorist/${slug}`;
     case "idea": return `/concept/${slug}`;
     case "tradition": return `/tradition/${slug}`;
@@ -235,8 +236,11 @@ export async function runSearch(rawQ: string, opts: SearchOptions = {}): Promise
   }
 
   const sb = db();
-  const [lexRes, semRes] = await Promise.all([
+  const [lexRes, essRes, semRes] = await Promise.all([
     sb.rpc("search_all", { p_q: q, p_limit: 80 }),
+    // Desk essays by title OR the theorist/concept they discuss (search_essays,
+    // migration 0054) — a separate lexical RPC so search_all stays untouched.
+    sb.rpc("search_essays", { p_q: q, p_limit: 20 }),
     wantSemantic
       ? embedQuery(q).then((vec) =>
           vec ? sb.rpc("search_semantic", { p_qvec: `[${vec.join(",")}]`, p_limit: 40 }) : null,
@@ -244,11 +248,12 @@ export async function runSearch(rawQ: string, opts: SearchOptions = {}): Promise
       : Promise.resolve(null),
   ]);
 
-  // Gate the semantic floor on RPC rows only — local city/genre matches must
-  // not count as "lexical results", or a query like "몸의 공포" that happens to
-  // graze a city name would lose its cross-lingual fallback.
+  // Gate the semantic floor on search_all rows only — essays and local city/genre
+  // matches must not count as "lexical results", or a query like "몸의 공포" that
+  // happens to graze one would lose its cross-lingual fallback.
   const lexRpc: RpcRow[] = (lexRes.data as RpcRow[]) ?? [];
-  const lex: RpcRow[] = [...lexRpc, ...localHits(q)].sort((a, b) => b.score - a.score);
+  const essRpc: RpcRow[] = (essRes.data as RpcRow[]) ?? [];
+  const lex: RpcRow[] = [...lexRpc, ...essRpc, ...localHits(q)].sort((a, b) => b.score - a.score);
   const semRaw: RpcRow[] = ((semRes?.data as RpcRow[]) ?? []);
   const sem: RpcRow[] = semRaw.filter(
     (r) => r.score >= (lexRpc.length >= 3 ? SEM_FLOOR_STRICT : SEM_FLOOR_FALLBACK),
