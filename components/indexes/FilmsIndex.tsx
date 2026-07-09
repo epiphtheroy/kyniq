@@ -100,7 +100,7 @@ export default function FilmsIndex({ featured, catalogue }: { featured: FilmFeat
     <>
       <EntityFinder
         kinds="film"
-        placeholder="Find a film — title, director, 한국어 제목도 OK"
+        placeholder="Find a film — by title or director"
         ariaLabel="Find a film in this index"
       />
       <CardDeck

@@ -89,7 +89,7 @@ export default function DirectorsIndex({ featured, catalogue }: { featured: DirF
     <>
       <EntityFinder
         kinds="director"
-        placeholder="Find a director — name, 한국어 이름도 OK"
+        placeholder="Find a director by name"
         ariaLabel="Find a director in this index"
       />
       <CardDeck

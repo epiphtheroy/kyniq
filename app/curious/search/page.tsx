@@ -7,8 +7,10 @@ import { ResultRow, type FilmArt } from "@/components/curious/ui";
 /**
  * Curious search — ScreenRant-style results page ("SEARCHED" eyebrow, the
  * query as the headline, thumb-left result rows). Plain GET (?q=) so the
- * masthead form works without JS. Searches question titles, desk-essay
- * titles and film titles; results link to the canonical reading pages.
+ * masthead form works without JS. Searches question titles, desk-essay titles,
+ * film titles, AND the theorists/concepts each essay discusses (essay_entity_links)
+ * — so a thinker's name ("Jean Baudrillard") finds the essays about them, not just
+ * titles. Results link to the canonical reading pages.
  * Always noindex: infinite query space, no canonical content of its own.
  */
 
@@ -48,12 +50,21 @@ async function search(q: string): Promise<Hit[]> {
   const essBase = () =>
     supabase.from("essays").select(E_COLS).eq("lang", "en").eq("status", "verified").eq("film.visible", true)
       .order("published_at", { ascending: false, nullsFirst: false }).limit(24).abortSignal(AbortSignal.timeout(4500));
+  // Entity leg — essays found by the theorist/concept they discuss (essay_entity_links,
+  // pre-filtered to verified/en/visible). This is what makes "Jean Baudrillard" or
+  // "hyperreality" surface the essays about them, not just title matches.
+  const eelBase = () =>
+    supabase.from("essay_entity_links")
+      .select(`entity_name, essay:essays!inner(${E_COLS})`)
+      .eq("essay.status", "verified").eq("essay.lang", "en").eq("essay.film.visible", true)
+      .limit(30).abortSignal(AbortSignal.timeout(4500));
 
-  const [qByTitle, qByFilm, eByTitle, eByFilm] = await Promise.all([
+  const [qByTitle, qByFilm, eByTitle, eByFilm, eByEntity] = await Promise.all([
     base().ilike("title", pat),
     base().ilike("film.title", pat),
     essBase().ilike("title", pat),
     essBase().ilike("film.title", pat),
+    eelBase().ilike("entity_name", pat),
   ]);
 
   const hits: Hit[] = [];
@@ -73,7 +84,9 @@ async function search(q: string): Promise<Hit[]> {
       film: r.film,
     });
   };
-  const pushE = (r: ERow) => {
+  // `via` is set for entity matches (an essay found because it discusses that
+  // theorist/concept, not because the query is in its title) — shown as context.
+  const pushE = (r: ERow, via?: string) => {
     const desk = deskByMode(r.mode);
     if (!desk) return;
     const key = `e:${r.film.slug}:${r.mode}`;
@@ -83,17 +96,20 @@ async function search(q: string): Promise<Hit[]> {
       key,
       href: `/film/${r.film.slug}/${desk.key}`,
       title: mdToPlain(r.title),
-      tag: desk.label,
+      tag: via ? `${desk.label} · discusses ${via}` : desk.label,
       date: r.published_at ?? r.created_at,
       excerpt: r.dek ? mdToPlain(r.dek) : desk.blurb,
       spoilerNote: (r.spoiler_level ?? 0) >= 2,
       film: r.film,
     });
   };
-  ((qByTitle.data ?? []) as unknown as QRow[]).forEach(pushQ);
-  ((eByTitle.data ?? []) as unknown as ERow[]).forEach(pushE);
-  ((qByFilm.data ?? []) as unknown as QRow[]).forEach(pushQ);
-  ((eByFilm.data ?? []) as unknown as ERow[]).forEach(pushE);
+  // Title matches first (strongest signal), then entity/discusses matches.
+  ((qByTitle.data ?? []) as unknown as QRow[]).forEach((r) => pushQ(r));
+  ((eByTitle.data ?? []) as unknown as ERow[]).forEach((r) => pushE(r));
+  ((qByFilm.data ?? []) as unknown as QRow[]).forEach((r) => pushQ(r));
+  ((eByFilm.data ?? []) as unknown as ERow[]).forEach((r) => pushE(r));
+  ((eByEntity.data ?? []) as unknown as { entity_name: string; essay: ERow }[])
+    .forEach((r) => pushE(r.essay, r.entity_name));
 
   hits.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
   return hits.slice(0, 40);
