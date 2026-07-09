@@ -3809,6 +3809,21 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .svc-hint{font-family:var(--font-ui); font-size:11px; color:#9a9388; padding:0 10px 0 6px; white-space:nowrap}
 .svc:not(.svc--ui){cursor:none}
 @media(max-width:640px){ .svc-hint{display:none} .svc-head{max-width:none} .svc-stage{padding-bottom:88px} }
+/* The Reel (/random/reel) — start/end covers over the broadcast bed */
+.reel-count{position:absolute; top:18px; right:22px; z-index:6; font-family:var(--font-ui); font-size:12px; font-weight:700; letter-spacing:.12em; color:#d9d1c2}
+.reel-cover{position:absolute; inset:0; z-index:7; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 26px; gap:0}
+.reel-kick{font-family:var(--font-ui); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#E8A7AF; margin-bottom:16px}
+.reel-title{font-family:var(--font-display); font-size:clamp(38px,6vw,76px); font-weight:600; color:#fff; line-height:1.02; text-shadow:0 2px 30px rgba(0,0,0,.7)}
+.reel-end{font-family:var(--font-display); font-size:clamp(34px,5vw,64px); font-weight:600; color:#fff; text-shadow:0 2px 30px rgba(0,0,0,.7)}
+.reel-sub{font-family:var(--text-serif); font-size:clamp(15px,1.7vw,20px); color:#e7dfd0; margin:16px auto 0; max-width:44ch; line-height:1.5; text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.reel-actions{display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; justify-content:center}
+.reel-btn{font-family:var(--font-ui); font-size:16px; font-weight:600; color:#fff; background:var(--red,#C8102E); border:0; border-radius:999px; padding:15px 30px; cursor:pointer; transition:transform .15s, background .15s}
+.reel-btn--go{margin-top:34px; font-size:18px; padding:17px 40px}
+.reel-btn:hover{background:#a50d26; transform:translateY(-1px)}
+.reel-btn:disabled{opacity:.5; cursor:default}
+.reel-btn--ghost{background:transparent; border:1px solid rgba(255,255,255,.3)}
+.reel-btn--ghost:hover{background:rgba(255,255,255,.1)}
+.reel-note{font-family:var(--font-ui); font-size:12px; color:#9a9388; margin-top:24px; max-width:52ch}
 
 /* ── The Map (/map) — full-screen critical-web explorer ───────────────── */
 .map-shell{position:relative; width:100%}
