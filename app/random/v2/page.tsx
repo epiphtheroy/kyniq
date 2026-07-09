@@ -51,7 +51,8 @@ function chunks(t?: string | null, max = 150): string[] {
 // calmer pacing — each beat lingers; reading time + generous headroom
 const hold = (t?: string, extra = 0) =>
   Math.min(12000, Math.max(5200, 3400 + (t ?? "").length * 42)) + extra;
-const listTitle = (it: { title?: string; name?: string; text?: string; year?: number | null }) =>
+type ItemT = NonNullable<SurpriseCard["items"]>[number];
+const listTitle = (it: ItemT) =>
   `${it.title ?? it.name ?? it.text ?? ""}${it.year ? ` (${it.year})` : ""}`;
 
 // ── the text-format strategy: every mode compiles to a known beat sequence.
