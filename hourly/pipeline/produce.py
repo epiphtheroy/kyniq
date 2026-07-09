@@ -487,12 +487,6 @@ def main() -> None:
         log("missing ANTHROPIC_API_KEY / SUPABASE_SERVICE_ROLE_KEY in .env.local")
         return
 
-    n = today_count(env)
-    if n >= DAILY_CAP:
-        log(f"daily cap reached ({n}/{DAILY_CAP})")
-        ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP}")
-        return
-
     # unattended operation: refresh the entity cache when it goes stale
     ents_file = HOURLY / "poller" / "entities.json"
     import time as _t
@@ -505,12 +499,22 @@ def main() -> None:
             log(f"entity sync failed (continuing on old cache): {e}")
 
     from poller.poller import collect_candidates  # local import: hourly/ is on sys.path
+    from pipeline.stream import record_stream
     snap = collect_candidates()
     a7, k48, a48 = recent_anchors(env)
 
     cands = [c for c in snap["candidates"]
              if c["beat"] >= 4 and c["corroboration"] >= MIN_CORR
              and c["spike"] + c["corroboration"] + c["beat"] >= MIN_MECH]
+
+    # the wire we watched: even when the cap stops WRITING, reviewing continues
+    n = today_count(env)
+    if n >= DAILY_CAP:
+        log(f"daily cap reached ({n}/{DAILY_CAP}) — recording the wire only")
+        if not dry:
+            record_stream(env, cands)
+        ledger_append(f"{stamp} · PASS · daily cap {n}/{DAILY_CAP} · wire: {len(cands)} reviewed")
+        return
     if not cands:
         log("no qualifying candidate")
         ledger_append(f"{stamp} · PASS · no beat candidate above threshold ({len(snap['candidates'])} raw)")
@@ -572,12 +576,15 @@ def main() -> None:
             return
         dist = after_publish(env, piece["slug"], piece["headline"], piece.get("dek"))
         mods = ",".join(piece["module_ids"])
+        record_stream(env, cands, published_keyword=cand["keyword"], published_slug=piece["slug"])
         ledger_append(f"{stamp} · PUBLISHED · kw: {cand['keyword']} · anchor: {ent.get('slug') or ent['label']} · "
                       f"lane: direct · modules: {mods} · /now/{piece['slug']} · dist: {','.join(dist)}")
         log(f"PUBLISHED /now/{piece['slug']} · {dist}")
         return
 
-    ledger_append(f"{stamp} · PASS · candidates tried, none survived selection/gate")
+    if not dry:
+        record_stream(env, cands)
+    ledger_append(f"{stamp} · PASS · candidates tried, none survived selection/gate · wire: {len(cands)} reviewed")
     log("no candidate survived")
 
 

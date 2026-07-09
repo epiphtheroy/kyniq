@@ -28,6 +28,10 @@ run_once() {
     return
   fi
   /usr/bin/python3 "$DIR/pipeline/produce.py" >> "$LOG" 2>&1
+  # the daily digest closes the desk at 23:xx UTC (after that hour's run)
+  if [ "$(date -u +%H)" = "23" ]; then
+    /usr/bin/python3 "$DIR/pipeline/digest.py" >> "$LOG" 2>&1
+  fi
 }
 
 # one run at start (catches up if the Mac slept through :00), then every :00
