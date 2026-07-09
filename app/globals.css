@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* ScreenRant-family condensed display for the v2 broadcast channel (same pick as curious.css) */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap");
 
 /* ============================================================
    Metatake — design system v3 "Newspaper"
