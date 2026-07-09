@@ -55,12 +55,13 @@ const normWords = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9 ]/g, 
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const [{ data: films }, { data: dir }] = await Promise.all([
+  const [{ data: films, error: filmsErr }, { data: dir }] = await Promise.all([
     supabase.from("films")
       .select("id, slug, title, year, director, backdrop_path, poster_path, tmdb_id")
       .eq("director_slug", slug).eq("visible", true).order("year"),
     supabase.from("directors").select("name").eq("slug", slug).maybeSingle(),
   ]);
+  if (filmsErr) throw new Error(`director films(${slug}): ${filmsErr.message}`); // never cache a poison 404
   if (!films || films.length === 0) return null;
   const filmArr = films as Film[];
   const filmIds = filmArr.map((f) => f.id);

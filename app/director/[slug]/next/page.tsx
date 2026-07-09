@@ -33,7 +33,7 @@ type Film = { id: string; title: string; slug: string; year: number | null; dire
 
 async function loadUncached(slug: string) {
   const supabase = db();
-  const [{ data: films }, { data: dir }, { data: next }, { data: recByRaw }, { count: picksCount }, { data: factsRow }] = await Promise.all([
+  const [{ data: films, error: filmsErr }, { data: dir }, { data: next }, { data: recByRaw }, { count: picksCount }, { data: factsRow }] = await Promise.all([
     supabase.from("films").select("id, title, slug, year, director, backdrop_path, poster_path").eq("director_slug", slug).eq("visible", true).order("year"),
     supabase.from("directors").select("name, profile_path").eq("slug", slug).maybeSingle(),
     supabase.from("director_next").select("pos, rec_name, reason, target_slug, tmdb_person_id, profile_path").eq("director_slug", slug).order("pos"),
@@ -42,6 +42,8 @@ async function loadUncached(slug: string) {
     supabase.from("director_facts").select("facts").eq("director_slug", slug).maybeSingle(),
   ]);
 
+  if (filmsErr) throw new Error(`director films(${slug}): ${filmsErr.message}`); // never cache a poison 404
+  if (!films || films.length === 0) return null;
   const nextArr = (next as Next[] | null) ?? [];
   if (nextArr.length === 0) return null;
 
