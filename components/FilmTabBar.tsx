@@ -175,14 +175,34 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
   };
 
   if (twoRow) {
-    const mid = Math.ceil(tabs.length / 2);
-    const rows = [tabs.slice(0, mid), tabs.slice(mid)].filter((r) => r.length);
+    // Zoned split (spoiler-free / spoilers) when tabs carry a `zone`; otherwise
+    // fall back to the old halve-by-count layout (no labels).
+    const zoned = tabs.some((t) => t.zone);
+    const rails: { key: string; kind: "free" | "spoiler" | "none"; items: FilmTab[] }[] = zoned
+      ? [
+          { key: "free", kind: "free", items: tabs.filter((t) => t.zone !== "spoiler") },
+          { key: "spoiler", kind: "spoiler", items: tabs.filter((t) => t.zone === "spoiler") },
+        ].filter((r) => r.items.length)
+      : (() => {
+          const mid = Math.ceil(tabs.length / 2);
+          return [tabs.slice(0, mid), tabs.slice(mid)]
+            .filter((r) => r.length)
+            .map((items, i) => ({ key: `r${i}`, kind: "none" as const, items }));
+        })();
     return (
-      <nav ref={barRef} className="df-tabs df-tabs--menu" style={{ top: navH }} aria-label="Sections on this page">
-        {rows.map((row, i) => (
-          <div key={i} className={`df-tabs__rail${i === 1 ? " df-tabs__rail--b" : ""}`}>
-            <div className="df-tabs__row">{row.map(renderTab)}</div>
-            <div className="df-tabs__track" aria-hidden="true"><i className="df-tabs__thumb" /></div>
+      <nav ref={barRef} className={`df-tabs df-tabs--menu${zoned ? " df-tabs--zoned" : ""}`} style={{ top: navH }} aria-label="Sections on this page">
+        {rails.map((rail, i) => (
+          <div key={rail.key} className={`df-tabs__rail${i === 1 ? " df-tabs__rail--b" : ""}${rail.kind !== "none" ? ` df-tabs__rail--${rail.kind}` : ""}`}>
+            {rail.kind !== "none" ? (
+              <span className={`df-tabs__zlab df-tabs__zlab--${rail.kind}`}>
+                <b>{zoneLabels[rail.kind].title}</b>
+                <em>{zoneLabels[rail.kind].sub}</em>
+              </span>
+            ) : null}
+            <div className="df-tabs__scroll">
+              <div className="df-tabs__row">{rail.items.map(renderTab)}</div>
+              <div className="df-tabs__track" aria-hidden="true"><i className="df-tabs__thumb" /></div>
+            </div>
           </div>
         ))}
       </nav>
