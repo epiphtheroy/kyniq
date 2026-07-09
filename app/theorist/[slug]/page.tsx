@@ -115,7 +115,7 @@ function load(slug: string) {
       };
     },
     // v3: genres/concepts/filmMeta joined the payload (2026-07-08 rebuild)
-    ["theorist-3", slug],
+    ["theorist-4", slug],
     { revalidate: 1800, tags: [`theorist:${slug}`] },
   )();
 }
