@@ -939,31 +939,37 @@ export default async function FilmPage({ params }: Props) {
   const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
   const nCurious = questions.length + deskEssays.length;
   const nWatchRegions = watch?.countries?.length ?? 0;
+  // Tabs carry a spoiler `zone` (2026-07-09): the top rail is safe to read
+  // before watching, the bottom rail (the close readings) discusses specific
+  // scenes and endings. Order within each zone runs decide → context → record
+  // (top), and flagship reading → deeper analysis (bottom).
   const tabs = ([
-    invitation ? { id: "df-invitation", label: "Invitation" } : null,
-    whyWatch.length ? { id: "df-whywatch", label: "Why watch", badge: whyWatch.length } : null,
-    codex ? { id: "df-codex", label: "TakeScore", badge: tsScore ?? undefined, badgeTone: "score" as const } : null,
-    nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces } : null,
-    hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
-    recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
-    misreadings.length ? { id: "df-readings", label: "Strong Misreadings!", badge: misreadings.length } : null,
-    grouped.length ? { id: "df-figures", label: "Figures", badge: catalogue.length } : null,
-    tropes.length ? { id: "df-tropes", label: "Tropes", badge: tropes.length } : null,
-    { id: "df-map", label: "Connections" },
-    archGroups.length ? { id: "df-archetype", label: "Archetype", badge: nArch } : null,
-    reception.length ? { id: "df-reception", label: "Reception", badge: reception.length } : null,
-    newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount } : null,
-    nCurious ? { id: "df-curious", label: "Curious", badge: nCurious } : null,
-    dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length } : null,
-    watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length } : null,
-    recs.length ? { id: "df-connected", label: "Films like", badge: recs.length } : null,
-    counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints", badge: counterpoints.length } : null,
-    filmInfoPresent ? { id: "df-information", label: "Information" } : null,
-    { id: "df-watch", label: "Where to watch", badge: nWatchRegions || undefined },
+    // ── Spoiler-free (before you watch): the pitch, the practicalities, the record ──
+    invitation ? { id: "df-invitation", label: "Invitation", zone: "free" as const } : null,
+    whyWatch.length ? { id: "df-whywatch", label: "Why watch", badge: whyWatch.length, zone: "free" as const } : null,
+    codex ? { id: "df-codex", label: "TakeScore", badge: tsScore ?? undefined, badgeTone: "score" as const, zone: "free" as const } : null,
+    { id: "df-watch", label: "Where to watch", badge: nWatchRegions || undefined, zone: "free" as const },
+    filmInfoPresent ? { id: "df-information", label: "Information", zone: "free" as const } : null,
+    hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
+    nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces, zone: "free" as const } : null,
+    { id: "df-map", label: "Connections", zone: "free" as const },
+    reception.length ? { id: "df-reception", label: "Reception", badge: reception.length, zone: "free" as const } : null,
+    newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount, zone: "free" as const } : null,
+    dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length, zone: "free" as const } : null,
+    recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length, zone: "free" as const } : null,
+    watchNext.length ? { id: "df-watchnext", label: "Watch next", badge: watchNext.length, zone: "free" as const } : null,
+    recs.length ? { id: "df-connected", label: "Films like", badge: recs.length, zone: "free" as const } : null,
+    (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery`, zone: "free" as const } : null,
     crew.length
-      ? { id: "df-crew", label: "Credits", badge: crew.length }
-      : film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}` } : null,
-    (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery` } : null,
+      ? { id: "df-crew", label: "Credits", badge: crew.length, zone: "free" as const }
+      : film.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${film.tmdb_id}`, zone: "free" as const } : null,
+    // ── Spoilers (after you watch): the close readings that turn on the film's scenes ──
+    misreadings.length ? { id: "df-readings", label: "Strong Misreadings!", badge: misreadings.length, zone: "spoiler" as const } : null,
+    grouped.length ? { id: "df-figures", label: "Figures", badge: catalogue.length, zone: "spoiler" as const } : null,
+    tropes.length ? { id: "df-tropes", label: "Tropes", badge: tropes.length, zone: "spoiler" as const } : null,
+    archGroups.length ? { id: "df-archetype", label: "Archetype", badge: nArch, zone: "spoiler" as const } : null,
+    nCurious ? { id: "df-curious", label: "Curious", badge: nCurious, zone: "spoiler" as const } : null,
+    counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints", badge: counterpoints.length, zone: "spoiler" as const } : null,
   ].filter(Boolean)) as FilmTab[];
 
   // Entity anchors (§8.2 film-entity recognition): canonical @id + external IDs.
