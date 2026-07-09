@@ -3747,6 +3747,13 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sm-page .sm-gkind{font-family:var(--font-ui); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:#E8A7AF; margin-bottom:3px}
 .sm-page .sm-gline{font-family:var(--font-display); font-size:13px; line-height:1.25; color:#fff; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
 @media(max-width:640px){ .sm-page .sm-meta{flex-direction:column; gap:12px} .sm-page .sm-pic{width:58px; height:58px} }
+/* /random hero: reuse the home "Surprise me" stage inside a .mthome scope, but
+   keep the page's dark ground so the .mthome cream default never flashes. */
+.sm-page .sm-rand-hero{background:#0e0c0a}
+.sm-page .sm-rand-hero .hero{background:#0e0c0a; padding-top:6px}
+.sm-page .sm-rand-hero .wrap{padding:0 18px}
+.sm-page .sm-morehd{text-align:center; margin-top:46px; padding-top:28px; border-top:1px solid rgba(255,255,255,.09)}
+.sm-page .sm-h2{font-family:var(--font-display); font-size:21px; font-weight:500; color:#efe7d8; margin:0}
 
 /* ── The Map (/map) — full-screen critical-web explorer ───────────────── */
 .map-shell{position:relative; width:100%}
