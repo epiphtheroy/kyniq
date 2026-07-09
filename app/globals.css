@@ -3261,6 +3261,28 @@ a.df-rt:hover{border-color:var(--ink)}
 .df-tabs--menu .df-tabs__thumb:hover{background:color-mix(in srgb, var(--ink) 52%, transparent)}
 .df-tabs--menu .df-tabs__thumb:active{background:var(--accent); cursor:grabbing}
 @media (max-width:560px){ .df-tabs--menu .df-tabs__rail--b .df-tabs__row{padding-left:24px} .df-tabs--menu .df-tabs__rail--b .df-tabs__track{margin-left:26px} }
+
+/* ── Spoiler-zoned tab bar (2026-07-09): top rail = spoiler-free (before you
+   watch), bottom rail = spoilers (after). Each rail carries a fixed left
+   label describing what the row is; the tabs scroll beside it. ── */
+.df-tabs--zoned .df-tabs__rail{display:flex; align-items:stretch; gap:10px; padding:2px 0}
+.df-tabs--zoned .df-tabs__rail--b{margin-top:1px; border-top:1px dashed color-mix(in srgb, var(--ink) 12%, transparent); padding-top:4px}
+/* the count-split offsets don't apply in zoned mode */
+.df-tabs--zoned .df-tabs__rail--b .df-tabs__row{padding-left:0}
+.df-tabs--zoned .df-tabs__rail--b .df-tabs__track{margin-left:4px}
+.df-tabs__zlab{flex:0 0 auto; align-self:center; display:flex; flex-direction:column; justify-content:center; line-height:1.05; min-width:96px; max-width:112px; padding:2px 12px 2px 6px; border-right:2px solid; border-color:transparent}
+.df-tabs__zlab b{font-family:var(--font-ui); font-size:11px; font-weight:800; letter-spacing:.02em}
+.df-tabs__zlab em{font-family:var(--font-ui); font-size:9.5px; font-style:normal; opacity:.6; margin-top:1px; letter-spacing:.01em}
+.df-tabs__zlab--free{border-color:color-mix(in srgb,#2E8B6E 55%,transparent)}
+.df-tabs__zlab--free b{color:#2E8B6E}
+.df-tabs__zlab--spoiler{border-color:color-mix(in srgb,#C0392B 50%,transparent)}
+.df-tabs__zlab--spoiler b{color:#C0392B}
+.df-tabs__zlab--spoiler b::before{content:"⚠ "; font-size:10px}
+.df-tabs--zoned .df-tabs__scroll{flex:1 1 0; min-width:0}
+@media (max-width:560px){
+  .df-tabs__zlab{min-width:62px; max-width:76px; padding:2px 7px 2px 4px}
+  .df-tabs__zlab b{font-size:10px} .df-tabs__zlab em{display:none}
+}
 .df-archgrp{margin:0 0 14px}
 .df-sec, .df-invite, .df-finfo{scroll-margin-top:140px}
 .cat-sections{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
