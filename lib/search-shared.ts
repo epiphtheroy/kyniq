@@ -8,7 +8,7 @@
 export type SearchKind =
   | "film" | "director" | "trope" | "reading" | "figure" | "theorist"
   | "idea" | "tradition" | "lineage" | "movement" | "archetype"
-  | "country" | "city" | "genre" | "essay";
+  | "country" | "city" | "genre" | "essay" | "now";
 
 export interface SearchHit {
   kind: SearchKind;
@@ -42,6 +42,7 @@ export const KIND_LABEL: Record<SearchKind, string> = {
   city: "Place",
   genre: "Genre",
   essay: "Essay",
+  now: "Now Playing",
 };
 
 export const TMDB_IMG = "https://image.tmdb.org/t/p";

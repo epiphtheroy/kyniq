@@ -57,6 +57,7 @@ type Row =
 const SECTIONS: { label: string; kinds: SearchHit["kind"][]; cap: number }[] = [
   { label: "Films", kinds: ["film"], cap: 5 },
   { label: "People", kinds: ["director", "theorist"], cap: 4 },
+  { label: "Now Playing", kinds: ["now"], cap: 2 },
   { label: "Ideas & Patterns", kinds: ["trope", "idea", "tradition", "archetype", "movement", "genre"], cap: 4 },
   { label: "Writing", kinds: ["essay", "reading", "figure"], cap: 4 },
   { label: "Places & Lists", kinds: ["country", "city", "lineage"], cap: 3 },

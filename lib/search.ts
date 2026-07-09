@@ -47,6 +47,7 @@ export function hrefOf(kind: SearchKind, slug: string, filmSlug?: string | null)
     case "reading":
     case "figure": return `/film/${filmSlug}/figure/${slug}`;
     case "essay": return `/film/${filmSlug}/${slug}`; // slug carries the desk key (decoder, debates…)
+    case "now": return `/now/${slug}`;
     case "theorist": return `/theorist/${slug}`;
     case "idea": return `/concept/${slug}`;
     case "tradition": return `/tradition/${slug}`;

@@ -47,7 +47,7 @@ type Reading = {
 };
 
 type DeskLink = { film_slug: string; film_title: string; film_year: number | null; desk_key: string; essay_title: string };
-type FilmMeta = { slug: string; genres: string[] | null; year: number | null; poster_path: string | null };
+type FilmMeta = { slug: string; genres: string[] | null; year: number | null; poster_path: string | null; backdrop_path: string | null };
 
 function load(slug: string) {
   return unstable_cache(
@@ -59,13 +59,7 @@ function load(slug: string) {
       const readings = (rd as Reading[] | null) ?? [];
 
       // Film metadata for the verbalizer (genres/years) — one IN query.
-      const slugs = [...new Set(readings.map((r) => r.film_slug))];
       const filmMeta = new Map<string, FilmMeta>();
-      for (let i = 0; i < slugs.length; i += 150) {
-        const { data: fm } = await supabase
-          .from("films").select("slug, genres, year, poster_path").in("slug", slugs.slice(i, i + 150));
-        for (const f of (fm ?? []) as FilmMeta[]) filmMeta.set(f.slug, f);
-      }
 
       // Concepts this theorist authored (theory DB) — the idea shelf.
       let concepts: { name: string; slug: string }[] = [];
@@ -102,6 +96,16 @@ function load(slug: string) {
           if (desks.length >= 12) break;
         }
       } catch { desks = []; }
+
+      // Film metadata for BOTH readings (genres/year) and desk essays (backdrop
+      // for the thumbnail) — desk-only films have no reading, so without this the
+      // desks section renders thumbnail-less.
+      const slugs = [...new Set([...readings.map((r) => r.film_slug), ...desks.map((d) => d.film_slug)])];
+      for (let i = 0; i < slugs.length; i += 150) {
+        const { data: fm } = await supabase
+          .from("films").select("slug, genres, year, poster_path, backdrop_path").in("slug", slugs.slice(i, i + 150));
+        for (const f of (fm ?? []) as FilmMeta[]) filmMeta.set(f.slug, f);
+      }
 
       return {
         name: (th as { name: string }).name,
@@ -200,7 +204,8 @@ export default async function TheoristPage({ params }: Props) {
   const deskLinks: XDeskLink[] = desksKwic.map((d) => ({
     film_slug: d.film_slug, film_title: d.film_title, film_year: d.film_year,
     desk_key: d.desk_key, essay_title: d.essay_title,
-    excerpt: d.excerpt, mode: null, backdrop_path: bdBySlug.get(d.film_slug) ?? null,
+    excerpt: d.excerpt, mode: null,
+    backdrop_path: bdBySlug.get(d.film_slug) ?? filmMeta.get(d.film_slug)?.backdrop_path ?? null,
   }));
 
   const growFilm = F.topFilms.find((f) => f.backdrop && f.n >= 1) ?? null;

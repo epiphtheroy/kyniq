@@ -3,7 +3,10 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import SearchBox from "@/components/SearchBox";
 import { pageRobots } from "@/lib/seo";
+import { createClient } from "@supabase/supabase-js";
 import { runSearch } from "@/lib/search";
+import { attachKwic } from "@/lib/kwic";
+import TermHighlight from "@/components/TermHighlight";
 import { KIND_LABEL, TMDB_IMG, type SearchHit, type SearchKind } from "@/lib/search-shared";
 
 export const revalidate = 60;
@@ -40,6 +43,7 @@ const GROUPS: Group[] = [
   { id: "films", label: "Films", kinds: ["film"], render: "films" },
   { id: "people", label: "People", kinds: ["director", "theorist"], render: "people" },
   { id: "readings", label: "Readings & Essays", kinds: ["essay", "reading", "figure"], render: "readings" },
+  { id: "now", label: "Now Playing", kinds: ["now"], render: "readings" },
   { id: "ideas", label: "Ideas & Lenses", kinds: ["trope", "idea", "tradition", "archetype", "genre"], render: "chips" },
   { id: "places", label: "Places", kinds: ["country", "city"], render: "places" },
   { id: "lists", label: "Lists & Movements", kinds: ["lineage", "movement"], render: "lists" },
@@ -54,7 +58,11 @@ function Meaning({ hit }: { hit: SearchHit }) {
   );
 }
 
-function FilmCards({ items }: { items: SearchHit[] }) {
+// Highlights the searched term (underline via mark.term-hl in read.css) inside a
+// result's title/sub, so the reader sees what matched.
+const HL = ({ s, term }: { s: string | null | undefined; term: string }) => <TermHighlight text={s} terms={[term]} />;
+
+function FilmCards({ items, term }: { items: SearchHit[]; term: string }) {
   return (
     <div className="srp-films">
       {items.map((h) => (
@@ -67,10 +75,10 @@ function FilmCards({ items }: { items: SearchHit[] }) {
             </span>
           )}
           <span className="srp-card__t">
-            {h.title}
+            <HL s={h.title} term={term} />
             {h.is_catalog === true ? <span className="t2-chip">catalog</span> : null}
           </span>
-          {h.sub ? <span className="srp-card__sub">{h.sub}</span> : null}
+          {h.sub ? <span className="srp-card__sub"><HL s={h.sub} term={term} /></span> : null}
           <Meaning hit={h} />
         </Link>
       ))}
@@ -78,7 +86,7 @@ function FilmCards({ items }: { items: SearchHit[] }) {
   );
 }
 
-function PeopleRows({ items }: { items: SearchHit[] }) {
+function PeopleRows({ items, term }: { items: SearchHit[]; term: string }) {
   return (
     <div className="srp-rows">
       {items.map((h) => (
@@ -89,8 +97,8 @@ function PeopleRows({ items }: { items: SearchHit[] }) {
             <span className="srp-ava" aria-hidden="true">{(h.title || "?").slice(0, 1).toUpperCase()}</span>
           )}
           <span className="srp-row__main">
-            <span className="srp-row__t">{h.title}<Meaning hit={h} /></span>
-            {h.sub ? <span className="srp-row__sub">{h.sub}</span> : null}
+            <span className="srp-row__t"><HL s={h.title} term={term} /><Meaning hit={h} /></span>
+            {h.sub ? <span className="srp-row__sub"><HL s={h.sub} term={term} /></span> : null}
           </span>
           <span className={`srp-row__kind sb-k-${h.kind}`}>{KIND_LABEL[h.kind]}</span>
         </Link>
@@ -99,7 +107,7 @@ function PeopleRows({ items }: { items: SearchHit[] }) {
   );
 }
 
-function ReadingRows({ items }: { items: SearchHit[] }) {
+function ReadingRows({ items, term }: { items: SearchHit[]; term: string }) {
   return (
     <div className="srp-rows">
       {items.map((h) => (
@@ -110,8 +118,8 @@ function ReadingRows({ items }: { items: SearchHit[] }) {
             <span className="srp-thumb" aria-hidden="true">{(h.title || "?").slice(0, 1).toUpperCase()}</span>
           )}
           <span className="srp-row__main">
-            <span className="srp-row__t">{h.title}<Meaning hit={h} /></span>
-            {h.sub ? <span className="srp-row__sub">{h.sub}{h.year ? ` · ${h.year}` : ""}</span> : null}
+            <span className="srp-row__t"><HL s={h.title} term={term} /><Meaning hit={h} /></span>
+            {h.sub ? <span className="srp-row__sub"><HL s={h.sub} term={term} />{h.year ? ` · ${h.year}` : ""}</span> : null}
           </span>
           <span className={`srp-row__kind sb-k-${h.kind}`}>{KIND_LABEL[h.kind]}</span>
         </Link>
@@ -120,13 +128,13 @@ function ReadingRows({ items }: { items: SearchHit[] }) {
   );
 }
 
-function IdeaChips({ items }: { items: SearchHit[] }) {
+function IdeaChips({ items, term }: { items: SearchHit[]; term: string }) {
   return (
     <div className="srp-chips">
       {items.map((h) => (
         <Link key={keyOf(h)} href={h.href} className="srp-chip">
           <span className={`k sb-k-${h.kind}`}>{KIND_LABEL[h.kind]}</span>
-          <span className="t">{h.title}</span>
+          <span className="t"><HL s={h.title} term={term} /></span>
           <Meaning hit={h} />
         </Link>
       ))}
@@ -134,7 +142,7 @@ function IdeaChips({ items }: { items: SearchHit[] }) {
   );
 }
 
-function PlaceRows({ items }: { items: SearchHit[] }) {
+function PlaceRows({ items, term }: { items: SearchHit[]; term: string }) {
   return (
     <div className="srp-rows">
       {items.map((h) => (
@@ -146,8 +154,8 @@ function PlaceRows({ items }: { items: SearchHit[] }) {
             </svg>
           </span>
           <span className="srp-row__main">
-            <span className="srp-row__t">{h.title}<Meaning hit={h} /></span>
-            {h.sub ? <span className="srp-row__sub">{h.sub}</span> : null}
+            <span className="srp-row__t"><HL s={h.title} term={term} /><Meaning hit={h} /></span>
+            {h.sub ? <span className="srp-row__sub"><HL s={h.sub} term={term} /></span> : null}
           </span>
           <span className={`srp-row__kind sb-k-${h.kind}`}>{KIND_LABEL[h.kind]}</span>
         </Link>
@@ -156,14 +164,14 @@ function PlaceRows({ items }: { items: SearchHit[] }) {
   );
 }
 
-function ListRows({ items }: { items: SearchHit[] }) {
+function ListRows({ items, term }: { items: SearchHit[]; term: string }) {
   return (
     <div className="srp-rows">
       {items.map((h) => (
         <Link key={keyOf(h)} href={h.href} className="srp-row">
           <span className="srp-row__main">
-            <span className="srp-row__t">{h.title}<Meaning hit={h} /></span>
-            {h.sub ? <span className="srp-row__sub">{h.sub}</span> : null}
+            <span className="srp-row__t"><HL s={h.title} term={term} /><Meaning hit={h} /></span>
+            {h.sub ? <span className="srp-row__sub"><HL s={h.sub} term={term} /></span> : null}
           </span>
           <span className={`srp-row__kind sb-k-${h.kind}`}>{KIND_LABEL[h.kind]}</span>
         </Link>
@@ -194,7 +202,21 @@ export default async function SearchPage({ searchParams }: Props) {
   const term = (q ?? "").trim();
 
   const result = term.length >= 2 ? await runSearch(term, { limit: 60 }) : null;
-  const hits = result?.hits ?? [];
+  let hits = result?.hits ?? [];
+
+  // Keyword-in-context excerpts for essay hits: replace the "film · year" sub with
+  // the passage of the essay body where the term (or the theorist/concept it names)
+  // appears, so the quote actually contains what was searched. Reuses attachKwic.
+  const essayHits = hits.filter((h) => h.kind === "essay" && h.film_slug);
+  if (essayHits.length) {
+    try {
+      const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+      const kw = await attachKwic(sb, essayHits.map((h) => ({ film_slug: h.film_slug as string, desk_key: h.slug, excerpt: h.sub })), [term]);
+      const byKey = new Map(kw.map((k) => [`${k.film_slug}/${k.desk_key}`, k.excerpt]));
+      hits = hits.map((h) => (h.kind === "essay" && h.film_slug
+        ? { ...h, sub: byKey.get(`${h.film_slug}/${h.slug}`) || h.sub } : h));
+    } catch { /* keep the film · year subs */ }
+  }
   const meaningCount = hits.filter((h) => h.match === "meaning").length;
 
   return (
@@ -234,12 +256,12 @@ export default async function SearchPage({ searchParams }: Props) {
                   <h2 className="mt-h2">
                     {g.label} <span className="srp-count">{items.length}</span>
                   </h2>
-                  {g.render === "films" ? <FilmCards items={items} /> :
-                   g.render === "people" ? <PeopleRows items={items} /> :
-                   g.render === "readings" ? <ReadingRows items={items} /> :
-                   g.render === "chips" ? <IdeaChips items={items} /> :
-                   g.render === "places" ? <PlaceRows items={items} /> :
-                   <ListRows items={items} />}
+                  {g.render === "films" ? <FilmCards items={items} term={term} /> :
+                   g.render === "people" ? <PeopleRows items={items} term={term} /> :
+                   g.render === "readings" ? <ReadingRows items={items} term={term} /> :
+                   g.render === "chips" ? <IdeaChips items={items} term={term} /> :
+                   g.render === "places" ? <PlaceRows items={items} term={term} /> :
+                   <ListRows items={items} term={term} />}
                 </section>
               );
             })}
