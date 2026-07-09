@@ -174,6 +174,21 @@
 .mthome .hs-poster--ph{background:#23303a}
 .mthome .hs-face{flex:0 0 auto;width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.7);background:#23303a}
 .mthome .hs-face--ph{background:#23303a}
+/* new lenses: reception quotes, honors record, location list, theorist reading */
+.mthome .hs-body__k{color:#E8A7AF;font-weight:700;font-family:var(--ui);font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin-right:7px}
+.mthome .hs-li__t--mut{color:#8f8676;font-style:italic}
+.mthome .hs-li__t--fw{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#9c9486}
+.mthome .hs-quotes{list-style:none;margin:14px 0 0;padding:0;align-self:stretch;display:flex;flex-direction:column;gap:15px}
+.mthome .hs-quote{border-left:2px solid rgba(232,167,175,.5);padding-left:14px}
+.mthome .hs-quote__t{font-family:var(--text-serif);font-size:15px;line-height:1.5;color:#efe7d8;margin:0}
+.mthome .hs-quote__a{display:block;font-family:var(--ui);font-size:11.5px;color:#9c9486;margin-top:6px}
+.mthome .hs-honors{list-style:none;margin:14px 0 0;padding:0;align-self:stretch;display:flex;flex-direction:column;gap:10px}
+.mthome .hs-honor{display:flex;gap:11px;align-items:flex-start}
+.mthome .hs-honor__m{flex:0 0 auto;font-size:14px;line-height:1.3;color:#7f7768}
+.mthome .hs-honor.is-won .hs-honor__m{color:#E8A7AF}
+.mthome .hs-honor__b{min-width:0;flex:1}
+.mthome .hs-honor__t{display:block;font-family:var(--serif);font-size:14.5px;font-weight:600;color:#fff;line-height:1.25}
+.mthome .hs-honor__r{display:block;font-family:var(--ui);font-size:11.5px;color:#b3aa98;margin-top:2px}
 /* Home foot — Today's newsletter summary card (right of the blog column) */
 .mthome .news .nlc{align-self:start}
 .mthome .nlc{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:var(--paper)}

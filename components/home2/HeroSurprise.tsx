@@ -30,11 +30,16 @@ const IMG = "https://image.tmdb.org/t/p";
 const isMap = (m?: string) => m === "film_map" || m === "director_map" || m === "figure_links";
 const isChips = (m?: string) => m === "film_tropes" || m === "film_ideas" || m === "director_ideas";
 
-// Home hero — "Surprise me". A random film, drawn one at a time, seen through a
-// random lens: a Strong Misreading (≥1 in 3), the film's map, its director's map,
-// a figure across films, what to watch next, what recommends it, why watch it, or
-// where to start with the director. Video left, caption beneath it, a long red
-// space-bar to draw again, and the lens itself rendered in the right panel.
+// Home hero — "Surprise me". A random analyzed film, drawn one at a time, seen
+// through one curated lens. The lens set (surprise_home): a Strong Misreading
+// (the plurality), the film's / director's map, a figure across films, what to
+// watch next, what recommends it, why watch it, where to start with the director,
+// who's next — plus the newer film-anchored lenses: what critics said
+// (reception), the record it holds (honors), a question people ask (Curious),
+// where it takes place (locations), the film through one theorist, and its whole
+// Strong-Misreadings article by count. Video (fixed 16:9) left, caption beneath,
+// a red space-bar to draw again; the lens renders in the right panel, which grows
+// down / scrolls without ever stretching the media.
 export default function HeroSurprise() {
   const [hist, setHist] = useState<Card[]>([]);
   const [idx, setIdx] = useState(-1);
