@@ -3815,12 +3815,129 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .svc:not(.svc--ui){cursor:none}
 @media(max-width:640px){ .svc-hint{display:none} .svc-head{max-width:none} .svc-stage{padding-bottom:88px} }
 
-  .sv2-mast{max-width:62vw;padding:9px 12px}
+/* ══ METATAKE TV (v2) — screen-essay beats over the film (model: MUBI essays).
+   The film plays center-frame; information lives at the EDGES. Fixed furniture:
+   mastplate TL (poster + title, normal-width Barlow), TV logo TR, segmented beat
+   rail, an accent frame that pulses when info lands. Zones: top statement (≤2
+   lines, wide) / bottom breaking-strip / center quote / stack / chips / map box
+   bottom-right. Patterns .sv2-p-{air|band|ink|wire}; --acc = mode accent;
+   every beat enters AND exits (--exit = hold-520ms). ══ */
+.sv2{--tvfont:"Barlow Condensed","Arial Narrow",sans-serif;--tvwide:"Barlow","Inter",sans-serif}
+.sv2 .svc-scrim{background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.16) 26%,rgba(0,0,0,.04) 55%,rgba(0,0,0,.34) 100%)}
+
+/* accent frame — a second color around the film while info plays */
+.sv2-frame{position:absolute;top:10px;left:10px;right:10px;bottom:10px;z-index:5;pointer-events:none;border:2px solid var(--acc);border-radius:14px;opacity:.34;animation:sv2-frame 1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sv2-frame{0%{opacity:0;transform:scale(1.012)}45%{opacity:.6}100%{opacity:.34;transform:scale(1)}}
+
+/* mastplate TL — poster + (title biggest / year · director), grid-ground banner */
+.sv2-mast{position:absolute;top:18px;left:20px;z-index:8;display:flex;gap:12px;align-items:stretch;max-width:min(38vw,470px);padding:10px 16px 10px 10px;text-decoration:none;border-left:3px solid var(--acc);
+  background:linear-gradient(rgba(12,10,8,.88),rgba(12,10,8,.88)),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.11) 0 1px,transparent 1px 8px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.11) 0 1px,transparent 1px 8px);
+  background-blend-mode:normal,overlay,overlay;box-shadow:0 4px 24px rgba(0,0,0,.45)}
+.sv2-mast__p{flex:0 0 auto;width:46px;height:69px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,.25);background:#1a1713}
+.sv2-mast__b{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0}
+.sv2-mast__t{font-family:var(--tvwide);font-weight:700;font-size:clamp(17px,1.7vw,25px);line-height:1.08;color:#fff;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sv2-mast:hover .sv2-mast__t{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--acc)}
+.sv2-mast__m{display:flex;gap:10px;align-items:baseline;font-family:var(--tvwide);color:#e6ded0;white-space:nowrap;overflow:hidden}
+.sv2-mast__m b{color:var(--acc);font-weight:800;font-size:14px;letter-spacing:.02em}
+.sv2-mast__m i{font-style:normal;font-weight:600;font-size:13.5px;letter-spacing:.03em;color:#f0e9db;text-overflow:ellipsis;overflow:hidden}
+
+/* METATAKE TV logo TR */
+.sv2-tv{position:absolute;top:20px;right:22px;z-index:8;display:flex;align-items:center;gap:7px;font-family:var(--tvfont)}
+.sv2-tv__name{font-weight:800;font-size:19px;letter-spacing:.1em;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.sv2-tv__box{font-weight:800;font-size:15px;letter-spacing:.04em;color:#fff;background:var(--red,#C8102E);padding:2px 7px;border-radius:3px}
+.sv2-tv__live{font-size:11px;font-weight:600;letter-spacing:.14em;color:#d9d1c2;margin-left:4px}
+.sv2-tv__live[data-live="1"]{color:#ff5f5f;animation:sv2-blink 2.2s ease-in-out infinite}
+@keyframes sv2-blink{0%,100%{opacity:1}50%{opacity:.55}}
+
+/* segmented beat rail */
+.sv2-segs{position:absolute;top:0;left:0;right:0;z-index:9;display:flex;gap:5px;padding:5px 6px 0;height:9px}
+.sv2-seg{flex:1;height:4px;border-radius:3px;background:rgba(255,255,255,.16);overflow:hidden}
+.sv2-seg.done{background:var(--acc)}
+.sv2-seg i{display:block;height:100%;width:100%;background:var(--acc);transform-origin:left center;transform:scaleX(0);animation:sv2-seg linear forwards}
+@keyframes sv2-seg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* kickers (accent chips) — dark ink on light accents, white on the reds */
+.sv2-kick{display:inline-block;font-family:var(--tvfont);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#140f0b;background:var(--acc);padding:4px 12px;border-radius:3px;margin-bottom:14px}
+.sv2-m-misreading .sv2-kick,.sv2-m-misreadings_teaser .sv2-kick{color:#fff}
+
+/* top-center statement — WIDE, max 2 lines, high up; shrinks while beats play */
+.sv2-top{position:absolute;top:7%;left:50%;transform:translateX(-50%);z-index:6;width:min(90vw,1300px);text-align:center;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s,top .7s;animation:sv2-up .7s cubic-bezier(.2,.7,.2,1) both}
+.sv2-top .sv2-state{font-family:var(--tvfont);font-weight:700;font-size:clamp(28px,4.1vw,58px);line-height:1.02;letter-spacing:.005em;color:#fff;text-shadow:0 3px 30px rgba(0,0,0,.85);margin:0;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sv2-top .sv2-dek{font-family:var(--font-ui);font-size:clamp(13px,1.3vw,16px);line-height:1.5;color:#e0d8c8;margin:12px auto 0;max-width:64ch;text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.sv2-top.is-min{transform:translateX(-50%) scale(.66);opacity:.88;top:4.5%}
+
+/* bottom-center — the BREAKING STRIP. The workhorse zone: a bold full-width band
+   that wipes in, holds, and slips out. */
+.sv2-sub{position:absolute;left:0;right:0;bottom:11%;z-index:6;display:flex;justify-content:center;animation:sv2-up .5s cubic-bezier(.2,.7,.2,1) both,sv2-out .5s ease-in forwards;animation-delay:0s,var(--exit,6000ms)}
+.sv2-band{position:relative;max-width:min(86vw,1200px);background:rgba(8,7,5,.82);border-top:3px solid var(--acc);border-bottom:1px solid color-mix(in srgb,var(--acc) 45%,transparent);padding:16px 38px 17px;text-align:center;clip-path:inset(0 100% 0 0);animation:sv2-wipe .6s cubic-bezier(.2,.7,.2,1) .08s forwards;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.sv2-band .sv2-kick--sub{margin-bottom:8px;font-size:12px}
+.sv2-subtxt{font-family:var(--tvfont);font-weight:600;font-size:clamp(20px,2.5vw,34px);line-height:1.22;color:#fff;margin:0;text-wrap:balance}
+.sv2-subsub{font-family:var(--font-ui);font-size:clamp(12.5px,1.2vw,15px);color:#cfc7b8;margin:8px 0 0}
+@keyframes sv2-wipe{to{clip-path:inset(0 0 0 0)}}
+@keyframes sv2-out{to{opacity:0;transform:translateY(14px)}}
+
+/* centered quote (reception) */
+.sv2-quote{position:absolute;top:47%;left:50%;transform:translate(-50%,-46%);z-index:6;width:min(72vw,900px);text-align:center;margin:0;animation:sv2-fade .6s cubic-bezier(.2,.7,.2,1) both,sv2-qout .5s ease-in forwards;animation-delay:0s,var(--exit,6000ms)}
+.sv2-quote__mark{display:block;font-family:var(--font-display);font-size:clamp(64px,7vw,110px);line-height:.4;color:var(--acc);margin-bottom:6px;animation:sv2-drift 7s ease-in-out infinite}
+.sv2-quote blockquote{font-family:var(--font-display);font-style:italic;font-size:clamp(21px,2.5vw,34px);line-height:1.35;color:#f4eee2;margin:0;text-shadow:0 2px 20px rgba(0,0,0,.9)}
+.sv2-quote figcaption{font-family:var(--tvfont);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#d9d1c2;margin-top:18px}
+@keyframes sv2-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes sv2-fade{from{opacity:0}to{opacity:1}}
+@keyframes sv2-qout{to{opacity:0;transform:translate(-50%,-52%)}}
+
+/* chip cloud */
+.sv2-chips{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);z-index:6;width:min(74vw,960px);display:flex;flex-wrap:wrap;gap:11px;justify-content:center;animation:sv2-fade .3s both,sv2-fadeout .5s ease-in forwards;animation-delay:0s,var(--exit,6000ms)}
+.sv2-chip{font-family:var(--tvfont);font-weight:600;font-size:clamp(15px,1.6vw,21px);letter-spacing:.02em;color:#fff;background:rgba(10,8,6,.55);border:1px solid rgba(255,255,255,.2);border-bottom:3px solid var(--acc);padding:8px 18px;border-radius:5px;backdrop-filter:blur(4px);opacity:0;animation:sv2-pop .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sv2-pop{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes sv2-fadeout{to{opacity:0}}
+
+/* map / connections — a modest box bottom-right, out of the film's way */
+.sv2-map{position:absolute;right:22px;bottom:10%;z-index:6;width:min(34vw,460px);background:rgba(10,8,6,.72);border:1px solid rgba(255,255,255,.18);border-top:3px solid var(--acc);border-radius:10px;padding:10px;backdrop-filter:blur(6px);animation:sv2-rail-r .55s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sv2-rail-r{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+
+/* accumulating stack (honors / locations) */
+.sv2-stack{position:absolute;bottom:12%;left:50%;transform:translateX(-50%);z-index:6;width:min(62vw,760px);list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.sv2-stkrow{display:flex;gap:12px;align-items:flex-start;background:rgba(10,8,6,.62);border-left:3px solid rgba(255,255,255,.25);padding:9px 14px;border-radius:0 6px 6px 0;backdrop-filter:blur(3px)}
+.sv2-stkrow.is-new{animation:sv2-slide .5s cubic-bezier(.2,.7,.2,1) both}
+.sv2-stkrow.is-won{border-left-color:var(--acc)}
+.sv2-stkrow b{flex:0 0 auto;font-size:14px;color:#8c8474;line-height:1.4}
+.sv2-stkrow.is-won b{color:var(--acc)}
+.sv2-stkrow__t{display:block;font-family:var(--tvfont);font-weight:600;font-size:clamp(15px,1.5vw,19px);color:#fff;line-height:1.2}
+.sv2-stkrow__s{display:block;font-family:var(--font-ui);font-size:12.5px;color:#b3aa98;margin-top:2px}
+@keyframes sv2-slide{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+@keyframes sv2-up{from{opacity:0;transform:translate(-50%,18px)}to{opacity:1;transform:translate(-50%,0)}}
+
+/* ── patterns ── air: the defaults above.
+   band: FULL-BLEED breaking strip, edge to edge */
+.sv2-p-band .sv2-band{max-width:none;flex:1;border-top-width:4px}
+.sv2-p-band .sv2-subtxt{font-size:clamp(22px,2.8vw,38px)}
+/* ink: darker frame, serif captions, statement rides a touch lower — the essay look */
+.sv2-p-ink .svc-scrim{background:linear-gradient(0deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.22) 70%,rgba(0,0,0,.5) 100%)}
+.sv2-p-ink .sv2-top{top:10%}
+.sv2-p-ink .sv2-top.is-min{top:5%}
+.sv2-p-ink .sv2-state{animation:sv2-ink .8s cubic-bezier(.2,.7,.2,1) both}
+.sv2-p-ink .sv2-band{background:rgba(8,7,5,.66);border-top-width:1px;border-bottom:0}
+.sv2-p-ink .sv2-subtxt{font-family:var(--font-display);font-weight:400;font-size:clamp(19px,2.1vw,29px);line-height:1.42;font-style:italic}
+@keyframes sv2-ink{from{opacity:0;letter-spacing:.06em}to{opacity:1;letter-spacing:.005em}}
+/* wire: the strip docks left with a hairline + arrow marker */
+.sv2-p-wire .sv2-sub{justify-content:flex-start;padding-left:22px}
+.sv2-p-wire .sv2-band{text-align:left;border-top:0;border-left:4px solid var(--acc);max-width:min(44vw,560px);padding:14px 22px}
+.sv2-p-wire .sv2-band::before{content:"→";position:absolute;left:-2px;top:-24px;font-size:17px;color:var(--acc)}
+.sv2-p-wire .sv2-subtxt{font-size:clamp(16px,1.7vw,23px);font-family:var(--font-ui);font-weight:500;line-height:1.4}
+.sv2-p-wire .sv2-stack{left:22px;transform:none;width:min(44vw,560px)}
+
+@media(max-width:680px){
+  .sv2-mast{max-width:70vw;padding:8px 12px 8px 8px}
+  .sv2-mast__p{width:36px;height:54px}
   .sv2-tv__name{font-size:15px}
-  .sv2-top{width:92vw}
-  .sv2-sub,.sv2-p-wire .sv2-sub{width:92vw;left:50%;transform:translateX(-50%);text-align:left;border:0;padding:0;text-align:center}
+  .sv2-top{width:94vw}
+  .sv2-sub,.sv2-p-wire .sv2-sub{padding-left:0;justify-content:center}
+  .sv2-p-wire .sv2-band{max-width:92vw}
+  .sv2-band{max-width:94vw;padding:12px 18px}
   .sv2-stack,.sv2-p-wire .sv2-stack{width:92vw;left:50%;transform:translateX(-50%)}
-  .sv2-map{width:94vw}
+  .sv2-map{width:94vw;right:3vw;bottom:14%}
 }
 
 /* The Reel (/random/reel) — start/end covers over the broadcast bed */
