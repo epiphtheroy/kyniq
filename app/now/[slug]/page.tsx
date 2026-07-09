@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import NowModules from "@/components/NowModules";
+import EntityMap from "@/components/EntityMap";
+import FilmMap from "@/components/FilmMap";
 import { anchorHref, fmtDay, fmtStamp, tmdbImg, type NowArticle } from "@/lib/now";
 
 /**
