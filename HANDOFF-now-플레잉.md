@@ -1,6 +1,6 @@
 # HANDOFF — Now Playing (시간당 키워드 체이싱 뉴스 체계)
 
-**이 문서가 정본(canonical)입니다.** Now Playing 관련 작업을 이어받는 에이전트는 코드를 만지기 전에 이 문서를 먼저 읽으세요. 중복·누락·회귀를 막기 위한 단일 진입점입니다. 최종 갱신: 2026-07-09.
+**이 문서가 정본(canonical)입니다.** Now Playing 관련 작업을 이어받는 에이전트는 코드를 만지기 전에 이 문서를 먼저 읽으세요. 중복·누락·회귀를 막기 위한 단일 진입점입니다. 최종 갱신: 2026-07-10.
 
 형제 체계: `HANDOFF-metatake-tv.md`(정본) — 이 데스크의 `/now` 레터를 페이스리스 **영상**으로 만들어 유튜브 배포하는 Metatake TV. 전략/포맷은 `hourly/tv/STRATEGY.md`.
 
@@ -199,6 +199,15 @@ metatake.net의 라이브 뉴스층. 전 세계에서 스파이크하는 **영�
 - 홀드룰(FORECAST §4): 일일 캡 4 유지, 비구글 30%·GSC 우위 전까지 증량 금지, 12주 선행지표 판정.
 - 자동발행+비동기검수(AVAULT 사람게이트 이탈), 아웃리치만 100% 사람게이트, 데일리 이메일은 큐레이션.
 - X 영구 제외(1K 미만 계정 링크글 참여 0%, $0.20/URL). 기각뉴스 지면 미게재. 발행 표면=metatake.net(신규 도메인 아님).
+- **v3.1 리뷰 반영(2026-07-10)** — 6개 라이브 피스 검수 후 확정, 파이프라인+기존 피스 백필 완료:
+  - **TakeScore는 순위 대신 판정단어(verdict words).** 코퍼스 랭크는 비판 소지 → 프로즈·모듈에서 제거. **단 top-1000이면 랭크 명시 가능**(`datapack._takescore_module`이 rank<=1000일 때만 note에 추가). V/C/R 약어는 "Value (what you keep)/Cost (what it asks)/Risk (how it can go wrong)"로 풀고 밴드워드(`BAND_WORDS`, lib/takescore_prose.ts와 동기) 사용. 브랜딩 **TakeScore™**. 모듈은 value 차원(강점)만 명명(약점=인신공격 방지). WRITER_SYSTEM 규칙4에 랭크금지+판정단어 명문화.
+  - **중립·무해 원칙(WRITER_SYSTEM 규칙5).** 뉴스에 거명된 인물·영화·제작자 누구도 공격·조롱·불이익 느낌 금지. 비판은 작품/아이디어/제도/수용사에만, 존중과 거리를 두고. 리셉션(호평·야유)은 보도된 사실로 인용, 본인 공격 아님. **중립이 기본**.
+  - **바이라인**: "Wonwoo Yoon, founder & editor" + **W 모노그램 아바타**(사진 미등록) → `/editor` 링크(연락 이메일 wonwoo@metatake.net·AI 방식 고지·경력 모두 거기). JSON-LD author `@id`+email=/editor#person. (사진 등록되면 아바타 교체.)
+  - **작성/발행 시각 코너**: 본문 바로 위 `now-timecard`에 Written(=created_at)·Published(=published_at)·Updated를 분 단위 UTC(+ET) 병기. produce.py가 작성완료 시각을 `created_at`으로 기록(발행은 insert now()).
+  - **하단 박스**는 제네릭("The film page") 대신 **영화 제목**("Marie Antoinette (2006)" 등) — `datapack._film_archive_links`.
+  - **/methodology에 "Now Playing — the live layer" 섹션** 추가(임베딩·retrieved-not-remembered·판정단어·무해 규칙·"단순 AI 글 아님" 강조).
+  - **AI 조력 고지는 피스별로 안 함**(법적 의무 아님 — 사설/실명 저자 콘텐츠엔 미적용). /editor·/methodology가 투명성 담당.
+  - 검수 중 **오매칭 발견**: "Little House on the Prairie" 피스가 House(1977, 오바야시)에 오앵커 → `status='pulled'`로 하차. now_articles.status는 CHECK('published','pulled')뿐(마이그 0049). 앵커 매칭 정밀도는 후속 과제.
 
 ---
 
