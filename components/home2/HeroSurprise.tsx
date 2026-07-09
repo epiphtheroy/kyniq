@@ -193,6 +193,83 @@ export default function HeroSurprise() {
                   </ul>
                   {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}
                 </>
+              ) : card.mode === "theorist" ? (
+                <>
+                  <span className="hs-chip">{[card.label, card.framework].filter(Boolean).join(" · ")}{card.theorist ? ` · ${card.theorist}` : ""}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  {card.intro ? <div className="hs-sub">{card.intro}</div> : null}
+                  {card.line ? <p className="hs-body"><span className="hs-body__k">The reading</span> {card.line}</p> : null}
+                  {card.body ? <p className="hs-body">{card.body}</p> : null}
+                  {card.href ? <a className="hs-open" href={card.href}>Meet {card.theorist ?? "the theorist"} ↗</a> : null}
+                </>
+              ) : card.mode === "reception" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  <ul className="hs-quotes">
+                    {(card.items ?? []).map((it, i) => (
+                      <li className="hs-quote" key={i}>
+                        <p className="hs-quote__t">“{it.text}”</p>
+                        {it.label || it.year ? <span className="hs-quote__a">— {[it.label, it.year].filter(Boolean).join(" · ")}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                  {card.href ? <a className="hs-open" href={card.href}>The full reception ↗</a> : null}
+                </>
+              ) : card.mode === "honors" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  <ul className="hs-honors">
+                    {(card.items ?? []).map((it, i) => (
+                      <li className={`hs-honor${it.won ? " is-won" : ""}`} key={i}>
+                        <span className="hs-honor__m" aria-hidden="true">{it.won ? "🏆" : "◆"}</span>
+                        <span className="hs-honor__b">
+                          <span className="hs-honor__t">{it.text}</span>
+                          {it.label ? <span className="hs-honor__r">{it.label}</span> : null}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  {card.href ? <a className="hs-open" href={card.href}>The full record ↗</a> : null}
+                </>
+              ) : card.mode === "locations" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  <ul className="hs-list">
+                    {(card.items ?? []).map((it, i) => (
+                      <li className="hs-li" key={i}>
+                        <span className="hs-li__h">📍 {it.text}</span>
+                        {it.label ? <span className="hs-li__t">{it.label}</span> : null}
+                        {it.reason ? <span className="hs-li__t hs-li__t--mut">{it.reason}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                  {card.href ? <a className="hs-open" href={card.href}>See it on the atlas ↗</a> : null}
+                </>
+              ) : card.mode === "question" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  {card.intro ? <div className="hs-sub">{card.intro}</div> : null}
+                  {card.href ? <a className="hs-open" href={card.href}>Read the answer ↗</a> : null}
+                </>
+              ) : card.mode === "misreadings_teaser" ? (
+                <>
+                  <span className="hs-chip">{card.label}</span>
+                  <div className="hs-line">{card.subject}</div>
+                  {card.intro ? <div className="hs-sub">{card.intro}</div> : null}
+                  <ul className="hs-list">
+                    {(card.items ?? []).map((it, i) => (
+                      <li className="hs-li" key={i}>
+                        <span className="hs-li__h">{it.text}</span>
+                        {it.label ? <span className="hs-li__t hs-li__t--fw">{it.label}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                  {card.href ? <a className="hs-open" href={card.href}>All readings, filed ↗</a> : null}
+                </>
               ) : (
                 <>
                   <span className="hs-chip">{card.label}</span>
