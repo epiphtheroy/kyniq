@@ -78,7 +78,9 @@
 **주의:** `.svc-*` 베이스(bed/media/scrim/ctrls)는 **릴(/random/reel)과 공유** — 수정 시 릴 확인. 구 `.svc-ed-*`/`.svc-comp-*`(NYT 6컴포지션)는 폐기·삭제됨. Barlow Condensed+Barlow는 globals.css 상단 @import.
 
 **2차 다듬기(2026-07-10, 원우 피드백 반영):** ① 마스트에 **포스터**(surprise_home base에 `poster` 추가 — **마이그 0052** 적용) + 마스트 타이포는 **Barlow 정상 장평**(Condensed 아님)·감독명 승급. ② 스테이트먼트 **최대 2줄**(line-clamp)·**top 7%**·폭 90vw(글자 더 들어가게). ③ 하단 자막존 = **속보 띠**(sv2-band: 액센트 보더 다크밴드, 와이프 인→홀드→슬립 아웃; band 패턴은 풀블리드, ink는 세리프, wire는 좌측 도킹). ④ 맵/커넥션 = **우하단 작은 박스**(460px, EntityMap h300). ⑤ **이미지 배경 금지** — bed는 클립 전용, draw()가 클립 있는 카드만(최대 4회 재추첨). ⑥ **액센트 프레임**(.sv2-frame) — 화면 가장자리 모드색 테두리가 매 비트 펄스. ⑦ 모든 비트에 **퇴장 애니메이션**(`--exit`=hold-520ms; sub 슬립다운·quote 페이드업·chips 페이드).
-- 검증 아티팩트: **백그라운드 Chrome MCP 탭은 CSS 애니메이션 스로틀** → 스크린샷이 어둡게(진입 중 고정) 잡힘. 실브라우저 정상. (hidden-tab rAF 함정과 같은 계열.)
+- 검증 아티팩트: **백그라운드 Chrome MCP 탭은 CSS 애니메이션·setTimeout 스로틀** → 스크린샷 어둡게·비트클록 느림·맵 비트(index 1) 도달 전 카드 자동넘어감. 검증은 스크린샷 대신 **DOM/rect + ego API 노드수**로. 실브라우저 정상.
+
+**3차 다듬기(2026-07-10 2차 피드백):** ① 페이싱 완화(hold 최소 5.2s, 글자당 42) ② 거친 clip-path 와이프·슬립 제거 → 부드러운 페이드+살짝 상승(빼꼼)/조용한 페이드아웃 ③ **리스트 모드 전부 stack 누적**(watch_next·recommended_by·where_to_start·director_next·why_watch·misreadings_teaser + 기존 honors·locations) — 사라지지 않고 쌓임 ④ **자막존 전 패턴 중앙정렬**(wire 좌측밀기 제거 → 좌측 클리핑 해결; 패턴은 위치 아닌 스타일만) ⑤ **칩 중앙하단**(bottom:13%) ⑥ **맵 우하단 박스**: EntityMap이 데이터실패 시 null-반환하는 함정 → `.sv2-map__h` 헤더(라벨+Explore↗) 항상표시 + 진입 opacity-only(force-graph 캔버스 폭측정 간섭 제거) + 박스 확대(520px). ⑦ **액센트 프레임 삭제**.
 
 ---
 
