@@ -167,6 +167,7 @@ export default async function NowIndex() {
                 );
               })}
             </ul>
+            <Link className="now-wire-more" href="/now/wire">Browse the full wire →</Link>
           </section>
         ) : null}
 

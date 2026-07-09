@@ -193,6 +193,16 @@
 .mt.cur .now-wire .w-v { font: 400 13.5px/1.5 Inter, sans-serif; color: #9c9a9b; max-width: 740px; }
 .mt.cur .now-wire .w-anchor { font: 500 12px/1.5 Inter, sans-serif; color: #7f7d7e; margin-top: 2px; }
 .mt.cur .now-wire .w-anchor a { color: #ff8177; }
+.mt.cur .now-wire .w-badge {
+  display: inline-block; margin-left: 8px; vertical-align: middle;
+  font: 700 10px/1.4 Inter, sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #fff; background: #e3120b; padding: 1px 7px 2px; border-radius: 2px;
+}
+.mt.cur .now-wire-more {
+  display: inline-block; margin-top: 14px; font: 600 13px/1 Inter, sans-serif;
+  color: #ff8177; text-decoration: none;
+}
+.mt.cur .now-wire-more:hover { text-decoration: underline; }
 
 .mt.cur .now-digest-strip {
   display: block; margin: 8px 0 4px; padding: 14px 16px; border: 1px solid #3a3a3a;
