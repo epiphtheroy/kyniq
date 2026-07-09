@@ -73,6 +73,7 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
   if (hasLocations && exclude !== "locations") plates.push({ key: "locations", href: `/director/${slug}/locations`, tag: "On location", title: `Where does ${director} film? Every location, mapped` });
   if (honors > 0 && exclude !== "honors") plates.push({ key: "honors", href: `/director/${slug}/honors`, tag: "The record", title: `Every award ${director}'s films have won — counted and sourced` });
   if (reception > 0 && exclude !== "reception") plates.push({ key: "reception", href: `/director/${slug}/reception`, tag: "Reception", title: `What critics said about ${director}'s films — the record` });
+  if (takes > 0 && exclude !== "misreadings") plates.push({ key: "misreadings", href: `/director/${slug}/misreadings`, tag: "Strong Misreadings", title: `Every Strong Misreading of ${director}'s films — the complete set` });
   if (films.length >= 3 && exclude !== "takescore") plates.push({ key: "takescore", href: `/director/${slug}/takescore`, tag: "TakeScore", title: `Every ${director} film, scored — the TakeScore ranking` });
   if (takes > 0 && exclude !== "theory") plates.push({ key: "theory", href: `/director/${slug}/theory`, tag: "Through theory", title: `${director} through theory — the lenses his films answer to` });
 

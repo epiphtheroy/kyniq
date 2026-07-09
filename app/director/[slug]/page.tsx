@@ -540,6 +540,20 @@ export default async function DirectorPage({ params }: Props) {
                 );
               })}
             </div>
+            {readingCount > misreadings.length ? (
+              <div className="rec-tocs" style={{ maxWidth: 420 }}>
+                <RecordToc
+                  href={`/director/${slug}/misreadings`}
+                  kicker="Every reading"
+                  title={`Every Strong Misreading of ${director}'s films — the complete set`}
+                  rows={[
+                    { label: "Readings", value: readingCount },
+                    { label: "Films", value: new Set(misreadings.map((m) => m.film_slug)).size || total },
+                  ]}
+                  cta="Open all readings"
+                />
+              </div>
+            ) : null}
           </section>
         )}
 
