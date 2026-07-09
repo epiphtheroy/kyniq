@@ -92,13 +92,38 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
       <div className="vh hs-vh">
         <div className="hs-left">
           <div className="hs-stage">
-            <div className={`hs-main${loading ? " is-load" : ""}`} onClick={() => { if (card?.href) window.location.href = card.href; }}>
+            <div className={`hs-main hs-comp-${comp}${loading ? " is-load" : ""}`} onClick={() => { if (card?.href) window.location.href = card.href; }}>
               {clipSrc ? (
                 <iframe key={`${card!.clip}-${muted ? "m" : "s"}`} className="hs-media" src={clipSrc} title={card?.film_title ?? "clip"} allow="autoplay; encrypted-media; picture-in-picture" />
               ) : card?.backdrop ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img className="hs-media" src={`${IMG}/w1280${card.backdrop}`} alt="" />
               ) : <div className="hs-media hs-media--empty" aria-hidden="true" />}
+
+              {/* editorial layer — corner masthead, rules, an arrow, a peeking glyph,
+                  floating supers. Decorative; arranged per composition by .hs-comp-N. */}
+              {card ? (
+                <div className="hs-ed">
+                  <div className="hs-ed-title">
+                    {card.film_slug ? <Link href={`/film/${card.film_slug}`}>{card.film_title}</Link> : card.film_title}
+                  </div>
+                  <div className="hs-ed-meta" aria-hidden="true">
+                    {card.film_year ? <span className="hs-ed-yr">{card.film_year}</span> : null}
+                    {card.director ? <span className="hs-ed-dir">dir. {card.director}</span> : null}
+                  </div>
+                  {card.label ? <div className="hs-ed-label" aria-hidden="true">{card.label}</div> : null}
+                  <span className="hs-ed-peek" aria-hidden="true">{card.mode === "reception" || card.mode === "misreading" || card.mode === "theorist" ? "“" : "›"}</span>
+                  <span className="hs-ed-rule hs-ed-rule--a" aria-hidden="true" />
+                  <span className="hs-ed-rule hs-ed-rule--b" aria-hidden="true" />
+                  <svg className="hs-ed-arrow" viewBox="0 0 120 34" aria-hidden="true" preserveAspectRatio="none">
+                    <path d="M2,17 L104,17 M104,17 L92,9 M104,17 L92,25" fill="none" stroke="currentColor" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                  </svg>
+                  <span className="hs-ed-super hs-ed-super--1" aria-hidden="true">{card.framework ?? card.director ?? card.label}</span>
+                  <span className="hs-ed-super hs-ed-super--2" aria-hidden="true">No. {(idx % 99) + 1}</span>
+                  <span className="hs-ed-ticks" aria-hidden="true" />
+                </div>
+              ) : null}
+
               {clipSrc ? (
                 <button type="button" className={`hs-mute${muted ? "" : " on"}`} onClick={(e) => { e.stopPropagation(); setMuted((v) => !v); }} aria-label={muted ? "Unmute" : "Mute"}>
                   {muted ? "🔇 Sound off" : "🔊 Sound on"}
@@ -106,13 +131,13 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
               ) : null}
             </div>
             <div className="hs-cap">
+              {card?.label ? (
+                <div className="hs-cap__what"><span className="hs-cap__tag">This surprise</span> {card.label}{card?.subject && card.mode !== "misreading" ? <> — {card.subject}</> : null}</div>
+              ) : null}
               <div className="hs-cap__film">
                 {card?.film_slug ? <Link href={`/film/${card.film_slug}`}>{filmLine}</Link> : filmLine}
                 {card?.director ? <span className="hs-cap__dir"> · dir. {card.director_slug ? <Link href={`/director/${card.director_slug}`}>{card.director}</Link> : card.director}</span> : null}
               </div>
-              {card?.label ? (
-                <div className="hs-cap__what"><span className="hs-cap__tag">This surprise</span> {card.label}{card?.subject && card.mode !== "misreading" ? <> — {card.subject}</> : null}</div>
-              ) : null}
             </div>
           </div>
 
@@ -123,7 +148,7 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
           </div>
         </div>
 
-        <aside className="hs-text">
+        <aside className={`hs-text hs-tcomp-${comp}`}>
           <div className="hs-textwrap">
             {!card ? <div className="hs-skel" /> : isMap(card.mode) ? (
               <>
