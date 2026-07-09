@@ -55,6 +55,8 @@ Embedded on every entity page **and** inside the home Surprise panel (map modes)
 
 ## 2. "Surprise me" (home hero)
 
+> **UPDATE 2026-07-09 — see `HANDOFF-서프라이즈-v2채널-스트리밍.md` (canonical).** Deltas since the description below: **`surprise_home()` now has 20 modes** (added reception/honors/question/locations/theorist/misreadings_teaser; misreading×4 in a 19-slot pool, so ≈17% baseline + fallbacks — not the 6/14 below). ⚠️ empty-item gate must use `jsonb_typeof(r->'items')='null'`, not `is null`. The hero stage is now a **shared component `components/home2/SurpriseStage.tsx`**; `HeroSurprise` just wraps it. **`/random` is no longer "left untouched"** — it leads with the same SurpriseStage hero (home layout) + keeps the toggles/mix/30-card wall below (RPC `surprise`/`surprise_set`, migration 0049). Layout: media is now a **fixed 16:9** box and the lens panel grows/scrolls (`.hs-vh{align-items:start}`, `.hs-main{aspect-ratio:16/9}`, `.hs-textwrap{max-height:82vh}`). New broadcast surfaces: **`/random/v2`** (full-screen editorial channel) and **`/random/reel`** (30s Short). The section below is retained for history.
+
 Two independent systems share the *idea* but not the code:
 - **`/random`** (full page, `app/random/page.tsx`) — the original Surprise with Film/Reading/Idea/Director toggles + a 30-card wall. Uses RPC `surprise(p_kind)` and `surprise_set()`. **Left untouched** by the home redesign.
 - **Home hero** (`components/home2/HeroSurprise.tsx`) — a richer, film-anchored draw. Uses **`surprise_home()`** via **`/api/surprise/home`**.
