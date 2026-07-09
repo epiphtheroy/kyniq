@@ -477,6 +477,47 @@ export default async function DirectorPage({ params }: Props) {
           </div>
         </section>
 
+        {/* FILMOGRAPHY — the COMPLETE list (closely-read + catalog), pulled up
+            and shown expanded: year · title · reading count · TakeScore boxes.
+            Every film links to its page. (2026-07-09 restructure) */}
+        {(() => {
+          const readFilms = (films as { slug: string; title: string; year: number | null; poster_path?: string | null; id: string }[])
+            .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path ?? null, readings: perFilmReadings[f.id] ?? 0, score: filmScores[f.slug] ?? null }));
+          const catFilms = (hiddenFilms as { slug: string; title: string; year: number | null; poster_path: string | null }[])
+            .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, readings: 0, score: null as (typeof readFilms)[number]["score"] }));
+          const allFilms = [...readFilms, ...catFilms].sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999) || a.title.localeCompare(b.title));
+          const scoredN = readFilms.filter((f) => f.score).length;
+          return (
+            <section className="dr-sec" id="dr-filmography">
+              <h2 className="dr-h2">Filmography</h2>
+              <p className="dr-gloss">
+                Every {director} film on Metatake, oldest first — {total} read closely{hiddenTotal > 0 ? ` and ${hiddenTotal} more in the catalog` : ""}.
+                {scoredN > 0 ? <> {scoredN} carr{scoredN === 1 ? "ies" : "y"} a <Link href={`/director/${slug}/takescore`}>TakeScore</Link> — the boxed numbers are Value, Cost and Risk behind the headline score.</> : null}
+              </p>
+              <LensDirectorCoverage slugs={(films as { slug: string }[]).map((f) => f.slug)} />
+              <div className="dr-filmo">
+                {allFilms.map((f) => (
+                  <Link key={f.slug} href={`/film/${f.slug}`} className="dr-flm">
+                    <span className="dr-flm__yr">{f.year ?? "—"}</span>
+                    {f.poster_path ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img className="dr-flm__po" src={`${IMG}/w92${f.poster_path}`} alt="" width={34} height={51} loading="lazy" />
+                    ) : <span className="dr-flm__po dr-flm__po--e" aria-hidden="true" />}
+                    <span className="dr-flm__mid">
+                      <span className="dr-flm__ti">{f.title}</span>
+                      <span className="dr-flm__sub">{f.readings > 0 ? `${f.readings} Strong Misreading${f.readings === 1 ? "" : "s"}` : "In the catalog"}</span>
+                    </span>
+                    {f.score ? (
+                      <span className="dr-flm__sc"><TakeScoreBoxes s={f.score} /></span>
+                    ) : <span className="dr-flm__unscored">not yet scored</span>}
+                  </Link>
+                ))}
+              </div>
+              <div className="dr-prov">Filmography &amp; images via TMDB; readings &amp; TakeScores computed from the Metatake corpus.</div>
+            </section>
+          );
+        })()}
+
         {/* IN THE NEWS — the Now Playing hourly desk's record for this director */}
         <EntityNews directorSlug={slug} variant="dr" />
 
@@ -700,12 +741,11 @@ export default async function DirectorPage({ params }: Props) {
         ) : null}
 
         {/* FILMOGRAPHY */}
-        <section className="dr-sec" id="dr-filmography">
-          <h2 className="dr-h2">Filmography</h2>
+        <section className="dr-sec" id="dr-selection">
+          <h2 className="dr-h2">The Metatake selection</h2>
           <p className="dr-gloss">
-            {total === 1 ? "One film" : `${total} films`} on Metatake — each read closely. The count is the number of Strong Misreadings written for each film.
+            The {total === 1 ? "one film" : `${total} films`} Metatake has read closely — our curation, not the full filmography (that&apos;s above). The count is the number of Strong Misreadings written for each.
           </p>
-          <LensDirectorCoverage slugs={films.map((f) => (f as { slug: string }).slug)} />
           <div className="dr-films-grid">
             {films.map((f) => {
               const film = f as { slug: string; title: string; year: number | null; backdrop_path?: string | null; poster_path?: string | null };
