@@ -214,10 +214,11 @@ def _film_archive_links(env: dict, film: dict, modules: list[dict]) -> list[dict
     if kin:
         links.append({"label": f"Movies like {film['title']}", "href": f"/movies-like/{slug}", "note": "kin by figure and idea"})
 
-    # curious questions viewers actually ask (each its own page)
+    # curious questions viewers actually ask (each its own page). spoiler_level
+    # is a text enum (none/mild/major) — skip only the heavy-spoiler ones.
     qs = sb_get(env, f"questions?select=slug,display_title,title,spoiler_level&film_id=eq.{fid}&order=created_at.asc&limit=5")
     for q in qs or []:
-        if (q.get("spoiler_level") or 0) >= 2:
+        if q.get("spoiler_level") == "major":
             continue
         t = (q.get("display_title") or q.get("title") or "").strip()
         if t:
