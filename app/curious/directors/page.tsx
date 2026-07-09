@@ -40,10 +40,12 @@ async function fetchAll<T>(run: (from: number, to: number) => PromiseLike<{ data
   return out;
 }
 
-type DirRow = {
+export type DirRow = {
   slug: string;
   name: string;
   profile_path: string | null;
+  country: string | null; // last comma-segment of place_of_birth
+  birthYear: number | null;
   life: number; // sourced facts on /life — page exists from 1 (robots-gates itself at 4)
   start: number; // picks on /start — page exists from 1
   next: number; // recommendations on /next — page exists from 1
@@ -108,15 +110,20 @@ const loadIndex = unstable_cache(
       hub.has(s)
     );
 
-    // Names + photos from `directors`, in batches of 150 (.in() URL length).
-    const meta = new Map<string, { name: string | null; profile_path: string | null }>();
+    // Names + photos + country/year (for the client sort) from `directors`,
+    // in batches of 150 (.in() URL length).
+    type Meta = { name: string | null; profile_path: string | null; country: string | null; birthYear: number | null };
+    const meta = new Map<string, Meta>();
     for (let i = 0; i < slugs.length; i += 150) {
       const { data } = await supabase
         .from("directors")
-        .select("slug, name, profile_path")
+        .select("slug, name, profile_path, place_of_birth, birthday")
         .in("slug", slugs.slice(i, i + 150));
-      for (const d of (data ?? []) as { slug: string; name: string | null; profile_path: string | null }[]) {
-        meta.set(d.slug, { name: d.name, profile_path: d.profile_path });
+      for (const d of (data ?? []) as { slug: string; name: string | null; profile_path: string | null; place_of_birth: string | null; birthday: string | null }[]) {
+        // Country = the last comma-segment of place_of_birth ("Tokyo, Japan" → "Japan").
+        const country = d.place_of_birth ? (d.place_of_birth.split(",").pop() || "").trim() || null : null;
+        const yr = d.birthday ? Number(d.birthday.slice(0, 4)) : null;
+        meta.set(d.slug, { name: d.name, profile_path: d.profile_path, country, birthYear: yr && yr > 1800 ? yr : null });
       }
     }
     const fallbackName = (slug: string) =>
@@ -131,6 +138,8 @@ const loadIndex = unstable_cache(
         slug,
         name: meta.get(slug)?.name || fallbackName(slug),
         profile_path: meta.get(slug)?.profile_path ?? null,
+        country: meta.get(slug)?.country ?? null,
+        birthYear: meta.get(slug)?.birthYear ?? null,
         life: life.get(slug) ?? 0,
         start: start.get(slug) ?? 0,
         next: next.get(slug) ?? 0,
@@ -150,8 +159,8 @@ const loadIndex = unstable_cache(
       maps: rows.filter((r) => r.locations).length,
     };
   },
-  // v2: wave-2 layer flags joined the rows (2026-07-09)
-  ["curious-directors-2"],
+  // v3: country/birthYear joined the rows for client sort (2026-07-09)
+  ["curious-directors-3"],
   { revalidate: 86400 }
 );
 
