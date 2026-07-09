@@ -27,7 +27,7 @@ async function load(slug: string) {
   const { data } = await db()
     .from("now_articles")
     .select(
-      "slug, headline, dek, summary, dateline, keyword, lane, anchor_type, anchor_slug, anchor_label, film_slug, facts_html, reading_html, bottom_html, deposit, modules, sources, image_path, image_alt, archive_links, status, update_note, published_at, updated_at"
+      "slug, headline, dek, summary, dateline, keyword, lane, anchor_type, anchor_slug, anchor_label, film_slug, facts_html, reading_html, bottom_html, deposit, modules, sources, image_path, image_alt, archive_links, status, update_note, published_at, updated_at, created_at"
     )
     .eq("slug", slug)
     .eq("status", "published")
@@ -62,6 +62,7 @@ export default async function NowPiece({ params }: Props) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
   const updated = p.updated_at && p.updated_at !== p.published_at;
+  const written = p.created_at ?? p.published_at; // when the letter was composed
   const ah = anchorHref(p);
 
   const jsonLd = {
@@ -69,12 +70,19 @@ export default async function NowPiece({ params }: Props) {
     "@type": "NewsArticle",
     headline: p.headline,
     ...(p.dek ? { description: p.dek } : {}),
+    dateCreated: written,
     datePublished: p.published_at,
     dateModified: p.updated_at,
     url: `${siteUrl}/now/${p.slug}`,
     mainEntityOfPage: `${siteUrl}/now/${p.slug}`,
     isPartOf: { "@type": "WebPage", name: "Now Playing — Metatake's live layer", url: `${siteUrl}/now` },
-    author: { "@type": "Person", name: "Wonwoo Yoon", url: `${siteUrl}/about` },
+    author: {
+      "@type": "Person",
+      "@id": `${siteUrl}/editor#person`,
+      name: "Wonwoo Yoon",
+      url: `${siteUrl}/editor`,
+      email: "mailto:wonwoo@metatake.net",
+    },
     publisher: { "@type": "Organization", name: "Metatake", url: siteUrl },
   };
 

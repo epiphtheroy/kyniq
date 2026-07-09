@@ -48,6 +48,7 @@ export type NowArticle = {
   update_note: string | null;
   published_at: string;
   updated_at: string;
+  created_at: string | null; // when the letter was written (shown alongside published)
 };
 
 /** TMDB image URL from a stored path (w1280 for the hero). */
