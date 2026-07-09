@@ -74,7 +74,15 @@ export default async function FilmGalleryPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <div className="mt-wrap">
+        <div className="df-crumb" style={{ marginBottom: 12 }}>
+          <Link href="/film">Films</Link><span className="df-sep">›</span>
+          <Link href={`/film/${film.slug}`}>{film.title}{film.year ? ` (${film.year})` : ""}</Link><span className="df-sep">›</span>
+          <span>Gallery</span>
+        </div>
         <h1 className="gal-h1">{film.title} {film.year ? <span className="gal-yr">({film.year})</span> : null} <span className="gal-h1k">gallery</span></h1>
+        <p style={{ margin: "2px 0 18px" }}>
+          <Link href={`/film/${film.slug}`}>← Back to {film.title} on Metatake</Link>
+        </p>
         {backdrops.length === 0 && posters.length === 0 ? (
           <p className="gal-empty">
             No images available for this title.{" "}
