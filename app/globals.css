@@ -3864,7 +3864,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 
 /* top-center statement — WIDE, max 2 lines, high up; shrinks while beats play */
 .sv2-top{position:absolute;top:7%;left:50%;transform:translateX(-50%);z-index:6;width:min(90vw,1300px);text-align:center;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s,top .7s;animation:sv2-inx .7s cubic-bezier(.2,.7,.2,1) both}
-.sv2-top .sv2-state{font-family:var(--tvfont);font-weight:700;font-size:clamp(28px,4.1vw,58px);line-height:1.03;letter-spacing:.005em;color:#fff;text-shadow:0 3px 30px rgba(0,0,0,.85);margin:0;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sv2-top .sv2-state{font-family:var(--tvfont);font-weight:700;font-size:clamp(28px,4.1vw,58px);line-height:1.03;letter-spacing:.005em;color:var(--ent,#fff);text-shadow:0 3px 30px rgba(0,0,0,.85);margin:0;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .5s}
 .sv2-top .sv2-dek{font-family:var(--font-ui);font-size:clamp(13px,1.3vw,16px);line-height:1.5;color:#e0d8c8;margin:12px auto 0;max-width:64ch;text-shadow:0 1px 10px rgba(0,0,0,.8)}
 .sv2-top.is-min{transform:translateX(-50%) scale(.66);opacity:.9;top:4.5%}
 
@@ -3886,8 +3886,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 @keyframes sv2-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 @keyframes sv2-fade{from{opacity:0}to{opacity:1}}
 
-/* chip cloud — CENTER-BOTTOM */
-.sv2-chips{position:absolute;left:50%;bottom:13%;transform:translateX(-50%);z-index:6;width:min(74vw,1000px);display:flex;flex-wrap:wrap;gap:11px;justify-content:center;
+/* chip cloud — lower third, bottom-anchored (grows upward) */
+.sv2-chips{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);z-index:6;width:min(78vw,1080px);display:flex;flex-wrap:wrap;gap:11px;justify-content:center;align-content:flex-end;
   animation:sv2-fade .3s both,sv2-out .55s ease-in forwards;animation-delay:0s,var(--exit,7000ms)}
 .sv2-chip{font-family:var(--tvfont);font-weight:600;font-size:clamp(15px,1.6vw,21px);letter-spacing:.02em;color:#fff;background:rgba(10,8,6,.6);border:1px solid rgba(255,255,255,.2);border-bottom:3px solid var(--acc);padding:8px 18px;border-radius:5px;backdrop-filter:blur(4px);opacity:0;animation:sv2-pop .55s cubic-bezier(.2,.7,.2,1) both}
 @keyframes sv2-pop{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
