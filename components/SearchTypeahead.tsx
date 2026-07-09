@@ -51,11 +51,9 @@ export default function SearchTypeahead({
     const pattern = `%${q}%`;
 
     const [filmRes, questionRes, directorRes] = await Promise.all([
-      supabase
-        .from("films")
-        .select("id, title, year, slug, poster_path, director")
-        .ilike("title", pattern)
-        .limit(4),
+      // film_search v3 (RPC): trigram typo tolerance + original titles +
+      // search_aliases (Korean titles) — replaces the old bare title ilike.
+      supabase.rpc("film_search", { p_q: q, p_limit: 4 }),
       supabase
         .from("questions")
         .select("id, title, display_title, slug, film:films!inner(title, slug)")
@@ -69,7 +67,8 @@ export default function SearchTypeahead({
         .limit(10),
     ]);
 
-    setFilms((filmRes.data ?? []) as FilmResult[]);
+    // The RPC returns no id column — the row key is the slug.
+    setFilms(((filmRes.data ?? []) as Omit<FilmResult, "id">[]).map((f) => ({ ...f, id: f.slug })));
 
     const qResults = (questionRes.data ?? []).map((q: Record<string, unknown>) => {
       const film = q.film as { title: string; slug: string };
