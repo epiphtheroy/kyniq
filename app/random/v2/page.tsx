@@ -48,66 +48,68 @@ function chunks(t?: string | null, max = 150): string[] {
   if (cur.trim()) out.push(cur.trim());
   return out;
 }
+// calmer pacing — each beat lingers; reading time + generous headroom
 const hold = (t?: string, extra = 0) =>
-  Math.min(9500, Math.max(3600, 2600 + (t ?? "").length * 34)) + extra;
+  Math.min(12000, Math.max(5200, 3400 + (t ?? "").length * 42)) + extra;
+const listTitle = (it: { title?: string; name?: string; text?: string; year?: number | null }) =>
+  `${it.title ?? it.name ?? it.text ?? ""}${it.year ? ` (${it.year})` : ""}`;
 
-// ── the text-format strategy: every mode compiles to a known beat sequence ──
+// ── the text-format strategy: every mode compiles to a known beat sequence.
+// Lists ACCUMULATE (zone "stack"), so nothing flashes away; prose arrives one
+// gentle thought at a time (zone "sub"). ──
 function compileBeats(card: SurpriseCard): Beat[] {
   const m = card.mode;
   const items = card.items ?? [];
   const b: Beat[] = [];
 
   if (m === "misreading") {
-    b.push({ zone: "top", kicker: ["Strong Misreading", card.framework].filter(Boolean).join(" · ") + (card.theorist ? ` · after ${card.theorist}` : ""), text: card.line, hold: hold(card.line, 900) });
+    b.push({ zone: "top", kicker: ["Strong Misreading", card.framework].filter(Boolean).join(" · ") + (card.theorist ? ` · after ${card.theorist}` : ""), text: card.line, hold: hold(card.line, 1400) });
     for (const c of chunks(card.body).slice(0, 4)) b.push({ zone: "sub", text: c, hold: hold(c) });
-    if (card.leap) b.push({ zone: "sub", kicker: "The leap", text: card.leap, hold: hold(card.leap, 600) });
+    if (card.leap) b.push({ zone: "sub", kicker: "The leap", text: card.leap, hold: hold(card.leap, 800) });
   } else if (m === "theorist") {
-    b.push({ zone: "top", kicker: ["Through a lens", card.framework].filter(Boolean).join(" · "), text: card.subject, hold: hold(card.subject, 700) });
+    b.push({ zone: "top", kicker: ["Through a lens", card.framework].filter(Boolean).join(" · "), text: card.subject, hold: hold(card.subject, 1000) });
     for (const c of chunks(card.intro).slice(0, 2)) b.push({ zone: "sub", kicker: card.theorist ?? undefined, text: c, hold: hold(c) });
-    if (card.line) b.push({ zone: "sub", kicker: "The reading", text: card.line, hold: hold(card.line, 600) });
+    if (card.line) b.push({ zone: "sub", kicker: "The reading", text: card.line, hold: hold(card.line, 800) });
   } else if (m === "reception") {
     b.push({ zone: "top", kicker: "What critics said", text: card.subject, hold: hold(card.subject) });
     for (const it of items.slice(0, 4)) {
       const sub = [it.label, it.year ? String(it.year) : null].filter(Boolean).join(" · ");
-      b.push({ zone: "quote", text: it.text, sub, hold: hold(it.text, 700) });
+      b.push({ zone: "quote", text: it.text, sub, hold: hold(it.text, 1000) });
     }
   } else if (m === "honors") {
     b.push({ zone: "top", kicker: "The record", text: card.subject, hold: hold(card.subject) });
-    for (const it of items.slice(0, 6)) b.push({ zone: "stack", text: it.text, sub: it.label ?? undefined, won: !!it.won, hold: 2900 });
+    for (const it of items.slice(0, 6)) b.push({ zone: "stack", text: it.text, sub: it.label ?? undefined, won: !!it.won, hold: 3300 });
   } else if (m === "question") {
-    b.push({ zone: "top", kicker: "A question people ask", text: card.subject, hold: hold(card.subject, 900) });
+    b.push({ zone: "top", kicker: "A question people ask", text: card.subject, hold: hold(card.subject, 1200) });
     for (const c of chunks(card.intro).slice(0, 2)) b.push({ zone: "sub", text: c, hold: hold(c) });
   } else if (m === "locations") {
     b.push({ zone: "top", kicker: "On location", text: card.subject, hold: hold(card.subject) });
     for (const it of items.slice(0, 5)) {
       const sub = it.reason && it.reason.length < 110 ? it.reason : it.label ?? undefined;
-      b.push({ zone: "stack", text: it.text, sub, hold: 3100 });
+      b.push({ zone: "stack", text: it.text, sub, hold: 3400 });
     }
   } else if (m === "misreadings_teaser") {
     b.push({ zone: "top", kicker: "Read against the grain", text: card.subject, hold: hold(card.subject) });
-    for (const it of items.slice(0, 4)) b.push({ zone: "sub", kicker: it.label ?? undefined, text: it.text, hold: hold(it.text) });
+    for (const it of items.slice(0, 4)) b.push({ zone: "stack", text: it.text ?? "", sub: it.label ?? undefined, hold: 3400 });
   } else if (m === "why_watch") {
     b.push({ zone: "top", kicker: "Why watch", text: card.subject, hold: hold(card.subject) });
-    for (const it of items.slice(0, 4)) b.push({ zone: "sub", kicker: it.label ?? undefined, text: it.text, hold: hold(it.text) });
+    for (const it of items.slice(0, 4)) b.push({ zone: "stack", text: it.label ?? it.text ?? "", sub: it.label ? it.text : undefined, hold: 3600 });
   } else if (m === "watch_next" || m === "recommended_by" || m === "where_to_start" || m === "director_next") {
     b.push({ zone: "top", kicker: card.label, text: card.subject, hold: hold(card.subject) });
-    for (const it of items.slice(0, 4)) {
-      const t = `${it.title ?? it.name ?? it.text ?? ""}${it.year ? ` (${it.year})` : ""}`;
-      b.push({ zone: "sub", kicker: m === "where_to_start" && it.pos ? `Nº ${it.pos}` : undefined, text: t, sub: it.reason ?? undefined, hold: hold(`${t}${it.reason ?? ""}`) });
-    }
+    for (const it of items.slice(0, 5)) b.push({ zone: "stack", text: `${m === "where_to_start" && it.pos ? `${it.pos}. ` : ""}${listTitle(it)}`, sub: it.reason ?? undefined, hold: 3500 });
   } else if (m === "film_tropes" || m === "film_ideas" || m === "director_tropes" || m === "director_ideas") {
     const all = (card.chips ?? (card.groups ?? []).flatMap((g) => g.chips)).map((c) => c.text);
     b.push({ zone: "top", kicker: card.label, text: card.subject, hold: hold(card.subject) });
-    for (let i = 0; i < Math.min(all.length, 18); i += 9)
-      b.push({ zone: "chips", chips: all.slice(i, i + 9), hold: 6200 });
+    for (let i = 0; i < Math.min(all.length, 20); i += 10)
+      b.push({ zone: "chips", chips: all.slice(i, i + 10), hold: 7600 });
   } else if (m === "film_map" || m === "director_map" || m === "figure_links") {
-    b.push({ zone: "top", kicker: card.label, text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject, 1200) });
-    if (card.mapApi) b.push({ zone: "map", mapApi: card.mapApi, mapFull: card.mapFull, hold: 15000 });
+    b.push({ zone: "top", kicker: card.label, text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject, 1600) });
+    if (card.mapApi) b.push({ zone: "map", mapApi: card.mapApi, mapFull: card.mapFull, hold: 16000 });
   } else {
-    b.push({ zone: "top", kicker: card.label, text: card.subject ?? card.line, sub: card.intro ?? undefined, hold: hold(card.subject ?? card.line, 900) });
+    b.push({ zone: "top", kicker: card.label, text: card.subject ?? card.line, sub: card.intro ?? undefined, hold: hold(card.subject ?? card.line, 1200) });
     for (const c of chunks(card.body ?? card.intro).slice(0, 2)) b.push({ zone: "sub", text: c, hold: hold(c) });
   }
-  return b.slice(0, 8);
+  return b.slice(0, 9);
 }
 
 export default function ChannelPage() {
@@ -228,9 +230,6 @@ export default function ChannelPage() {
         ) : <div className="svc-media svc-media--empty" aria-hidden="true" />}
       </div>
       <div className="svc-scrim" aria-hidden="true" />
-
-      {/* accent frame — a second color enters the film's color when info plays */}
-      {card ? <span key={`fr-${bk}`} className="sv2-frame" aria-hidden="true" /> : null}
 
       {/* fixed: mastplate top-left — poster, then title biggest, year · director */}
       {card ? (
