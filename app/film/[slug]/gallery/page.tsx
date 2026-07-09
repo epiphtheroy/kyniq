@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import GalleryViewer from "@/components/GalleryViewer";
 
@@ -92,6 +93,9 @@ export default async function FilmGalleryPage({ params }: Props) {
         ) : (
           <GalleryViewer backdrops={backdrops} posters={posters} title={film.title} year={film.year} filmSlug={film.slug} />
         )}
+        <p style={{ margin: "28px 0 8px" }}>
+          <Link href={`/film/${film.slug}`}>← Back to {film.title} on Metatake</Link>
+        </p>
       </div>
     </div>
   );
