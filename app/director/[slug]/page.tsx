@@ -270,7 +270,7 @@ export default async function DirectorPage({ params }: Props) {
     if (alias) permanentRedirect(alias);
     notFound();
   }
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0 } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
   const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
@@ -379,6 +379,7 @@ export default async function DirectorPage({ params }: Props) {
     { id: "dr-portrait", label: "Portrait", color: "#5A6B86" },
     { id: "dr-filmography", label: "Filmography", badge: filmoTotal, color: "#2E7D9E" },
   ];
+  if (newsCount > 0) tabs.push({ id: "dr-in-the-news", label: "In the news", badge: newsCount, color: "#E3120B" });
   if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings", badge: readingCount, color: "#D64534" });
   tabs.push({ id: "dr-selection", label: "The selection", badge: total, color: "#0F6E56" });
   if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes", badge: tropeCount, color: "#12897A" });

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 type Row = Pick<
   NowArticle,
-  "slug" | "headline" | "dek" | "keyword" | "anchor_type" | "anchor_slug" | "anchor_label" | "published_at" | "updated_at"
+  "slug" | "headline" | "dek" | "keyword" | "anchor_type" | "anchor_slug" | "anchor_label" | "published_at" | "updated_at" | "image_path"
 >;
 type WireRow = {
   at: string; keyword: string; title: string | null; url: string | null;
@@ -46,7 +46,7 @@ export default async function NowIndex() {
   try {
     const [a, w, dg] = await Promise.all([
       db().from("now_articles")
-        .select("slug, headline, dek, keyword, anchor_type, anchor_slug, anchor_label, published_at, updated_at")
+        .select("slug, headline, dek, keyword, anchor_type, anchor_slug, anchor_label, published_at, updated_at, image_path")
         .eq("status", "published").order("published_at", { ascending: false }).limit(60)
         .abortSignal(AbortSignal.timeout(4500)),
       db().from("now_stream")
