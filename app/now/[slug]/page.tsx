@@ -138,6 +138,31 @@ export default async function NowPiece({ params }: Props) {
             </>
           ) : null}
 
+          {p.film_slug ? (
+            <>
+              <div className="now-sec">The map of connections</div>
+              <p className="now-mapnote">
+                How {p.anchor_label} sits in the corpus — the films, figures, and readings it links to.
+                Drag to explore; open any node.
+              </p>
+              <div className="now-mapwrap">
+                <EntityMap
+                  api={`/api/map?type=film&key=${p.film_slug}`}
+                  full={`/map?m=critical&t=film&k=${p.film_slug}`}
+                  height={400}
+                />
+              </div>
+              {(p.modules ?? []).some((m) => m.type === "locations") ? (
+                <>
+                  <div className="now-sec">Where it was shot</div>
+                  <div className="now-mapwrap">
+                    <FilmMap endpoint={`/api/geo?film=${p.film_slug}`} filmSlug={p.film_slug} height={400} />
+                  </div>
+                </>
+              ) : null}
+            </>
+          ) : null}
+
           {p.sources?.length ? (
             <>
               <div className="now-sec">Sources</div>
@@ -162,15 +187,16 @@ export default async function NowPiece({ params }: Props) {
 
           {p.archive_links?.length ? (
             <div className="now-archive">
-              <div className="now-sec">Keep reading in the archive</div>
-              <ul>
+              <div className="now-sec">Read together — more in the archive</div>
+              <p className="now-mapnote">Everything this piece touches, one click away. Curious questions, kin films, the readings, the record.</p>
+              <div className="now-slots">
                 {p.archive_links.map((l, i) => (
-                  <li key={i}>
-                    <Link href={l.href}>{l.label}</Link>
-                    {l.note ? <span className="n"> — {l.note}</span> : null}
-                  </li>
+                  <Link className="now-slot" href={l.href} key={i}>
+                    <span className="s-label">{l.label}</span>
+                    {l.note ? <span className="s-note">{l.note}</span> : null}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           ) : null}
         </article>
