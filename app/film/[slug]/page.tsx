@@ -789,8 +789,6 @@ export default async function FilmPage({ params }: Props) {
             </section>
           ) : null}
 
-          {!hasDigest ? aboutSection : null}
-
           <CinecodexPanel data={codex as Codex | null} title={f.title} slug={f.slug} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
@@ -804,8 +802,6 @@ export default async function FilmPage({ params }: Props) {
               <FilmMap endpoint={`/api/geo?film=${f.slug}`} filmSlug={f.slug} height={460} />
             </section>
           ) : null}
-
-          {hasDigest ? aboutSection : null}
 
           {/* CREDITS — maker panels (shared with /film/[slug]/credits), rows as fallback */}
           {crew.length > 0 || creditsPayload ? (
