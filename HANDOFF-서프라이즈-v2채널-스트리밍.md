@@ -75,9 +75,10 @@
 
 **⚠️ 함정 (재발 방지): `position:fixed; inset:0`가 이 빌드 CSS 파이프라인에서 top/bottom만 드롭됨**(left/right는 적용 → 높이 10px로 붕괴). **longhand 필수: `top:0;left:0;width:100vw;height:100vh`**. + 루트 layout이 전역 Footer 렌더 → 풀스크린은 `document.body.style.overflow='hidden'` 잠금.
 
-**주의:** `.svc-*` 베이스(bed/media/scrim/ctrls)는 **릴(/random/reel)과 공유** — 수정 시 릴 확인. 구 `.svc-ed-*`/`.svc-comp-*`(NYT 6컴포지션)는 폐기·삭제됨. Barlow Condensed는 globals.css 상단 @import.
+**주의:** `.svc-*` 베이스(bed/media/scrim/ctrls)는 **릴(/random/reel)과 공유** — 수정 시 릴 확인. 구 `.svc-ed-*`/`.svc-comp-*`(NYT 6컴포지션)는 폐기·삭제됨. Barlow Condensed+Barlow는 globals.css 상단 @import.
 
-**미결(원우 결정 대기): 배경 bed.** 자동화 탭에선 임베드 자동재생이 막혀 검게 보임(실브라우저는 재생). 옵션: 하이브리드(백드롭 항상+영상 위) 등 — 단 미재생 임베드가 불투명 검정이라 하이브리드도 완전 해결은 아님.
+**2차 다듬기(2026-07-10, 원우 피드백 반영):** ① 마스트에 **포스터**(surprise_home base에 `poster` 추가 — **마이그 0052** 적용) + 마스트 타이포는 **Barlow 정상 장평**(Condensed 아님)·감독명 승급. ② 스테이트먼트 **최대 2줄**(line-clamp)·**top 7%**·폭 90vw(글자 더 들어가게). ③ 하단 자막존 = **속보 띠**(sv2-band: 액센트 보더 다크밴드, 와이프 인→홀드→슬립 아웃; band 패턴은 풀블리드, ink는 세리프, wire는 좌측 도킹). ④ 맵/커넥션 = **우하단 작은 박스**(460px, EntityMap h300). ⑤ **이미지 배경 금지** — bed는 클립 전용, draw()가 클립 있는 카드만(최대 4회 재추첨). ⑥ **액센트 프레임**(.sv2-frame) — 화면 가장자리 모드색 테두리가 매 비트 펄스. ⑦ 모든 비트에 **퇴장 애니메이션**(`--exit`=hold-520ms; sub 슬립다운·quote 페이드업·chips 페이드).
+- 검증 아티팩트: **백그라운드 Chrome MCP 탭은 CSS 애니메이션 스로틀** → 스크린샷이 어둡게(진입 중 고정) 잡힘. 실브라우저 정상. (hidden-tab rAF 함정과 같은 계열.)
 
 ---
 
