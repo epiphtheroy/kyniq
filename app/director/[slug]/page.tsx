@@ -27,6 +27,7 @@ import LensDirectorCoverage from "@/components/LensDirectorCoverage";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
 import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
+import { cachedRankedScores } from "@/lib/takescore-bulk";
 import "@/app/film/[slug]/read.css";
 import "@/app/curious/curious.css";
 
@@ -278,27 +279,15 @@ export default async function DirectorPage({ params }: Props) {
   const d = dir as { profile_path?: string | null; bio?: string | null; birthday?: string | null; place_of_birth?: string | null } | null;
 
   // TakeScore per film for the complete filmography table (4 boxed metrics).
-  // Separate 1h cache + concurrency 3 (the card RPC computes corpus-wide rank;
-  // a full-filmography Promise.all starves into Postgres statement timeouts).
+  // From the shared bulk ranking (one fast cached query for the whole corpus)
+  // — cinecodex_card in a per-film loop starved Postgres into timeouts.
   type Score = { u: number; v: number; c: number; r: number; tier: string | null };
-  const filmScores = await unstable_cache(
-    async () => {
-      const sb = db();
-      const out: Record<string, Score> = {};
-      const list = films as { slug: string }[];
-      for (let i = 0; i < list.length; i += 3) {
-        const batch = list.slice(i, i + 3);
-        const res = await Promise.all(batch.map((f) => sb.rpc("cinecodex_card", { p_slug: f.slug })));
-        res.forEach((r, j) => {
-          const card = r.data as { u?: number; v?: number; c?: number; r?: number; tier?: string | null } | null;
-          if (card && card.u != null && card.v != null) out[batch[j].slug] = { u: card.u, v: card.v, c: card.c ?? 0, r: card.r ?? 0, tier: card.tier ?? null };
-        });
-      }
-      return out;
-    },
-    ["director-filmscores-1", slug],
-    { revalidate: 3600, tags: [`director:${slug}`] },
-  )();
+  const { scores: bulkScores } = await cachedRankedScores();
+  const filmScores: Record<string, Score> = {};
+  for (const f of films as { slug: string }[]) {
+    const b = bulkScores[f.slug];
+    if (b) filmScores[f.slug] = { u: b.u, v: b.v, c: b.c, r: b.r, tier: null };
+  }
 
   // Entity stitching — same human as a /credits crew page? Exact, unique name
   // match against the crew index; namesakes (0 or >1 hits) are skipped silently.

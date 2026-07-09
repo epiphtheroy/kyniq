@@ -8,6 +8,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
+import { cachedRankedScores } from "@/lib/takescore-bulk";
 import DirectorPlates from "@/components/read/DirectorPlates";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
@@ -53,21 +54,16 @@ async function loadUncached(slug: string) {
   const filmArr = films as Film[];
   const director = (dir?.name as string | undefined) || filmArr[0].director || slug.replace(/-/g, " ");
 
-  // One cinecodex_card per film (≤ ~44 RPCs, hourly-cached). THROW on RPC
-  // errors — a thrown error is never stored by unstable_cache, so a transient
-  // failure can't be cached as "0 scored films" (a poisoned 404 for an hour).
-  // Concurrency is capped at 3: the card RPC computes corpus-wide rank and a
-  // full-filmography Promise.all starved itself into Postgres statement
-  // timeouts (500s on every director — Vercel runtime logs, 2026-07-09).
+  // Scores from the shared bulk ranking (one fast cached corpus query) — a
+  // per-film cinecodex_card loop recomputes corpus-wide rank each call and
+  // starved Postgres into statement timeouts (500s — Vercel logs 2026-07-09).
+  const { scores: bulkScores, total: rankTotal } = await cachedRankedScores();
   const cards: Card[] = [];
-  for (let i = 0; i < filmArr.length; i += 3) {
-    const batch = filmArr.slice(i, i + 3);
-    const results = await Promise.all(batch.map((f) => supabase.rpc("cinecodex_card", { p_slug: f.slug })));
-    results.forEach((res, j) => {
-      if (res.error) throw new Error(`cinecodex_card(${batch[j].slug}): ${res.error.message}`);
-      const card = res.data as Card | null;
-      // The RPC returns null/empty json for unscored films — skip those.
-      if (card && card.slug && card.u != null && card.v != null) cards.push(card);
+  for (const f of filmArr) {
+    const b = bulkScores[f.slug];
+    if (b) cards.push({
+      slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path,
+      v: b.v, c: b.c, r: b.r, u: b.u, rank: b.rank, rank_total: rankTotal, tier: null, n_takes: null,
     });
   }
   if (cards.length === 0) return null;
