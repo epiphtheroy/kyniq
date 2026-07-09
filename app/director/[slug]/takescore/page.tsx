@@ -7,6 +7,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
+import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
 import DirectorPlates from "@/components/read/DirectorPlates";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
@@ -117,14 +118,18 @@ function pageDescription(d: Data): string {
   );
 }
 
-/** One deterministic sentence per film, from card fields only. */
+/** One deterministic sentence per film — the numbers already sit in the boxes
+ *  above it, so the prose reads the score, it doesn't just repeat the digits. */
 function cardSentence(c: Card): string {
-  const u = Math.round(c.u);
-  let s = `TakeScore ${u}${c.tier ? ` (${c.tier})` : ""}`;
-  if (c.n_takes != null && c.n_takes > 0) s += ` on ${c.n_takes} reading${c.n_takes === 1 ? "" : "s"}`;
-  if (c.rank != null && c.rank_total != null) s += ` — ranked #${c.rank} of ${c.rank_total} on Metatake`;
-  s += `. Value ${Math.round(c.v)} · entry cost ${Math.round(c.c)} · risk ${Math.round(c.r)}.`;
-  return s;
+  const parts: string[] = [];
+  if (c.rank != null && c.rank_total != null) parts.push(`Ranked #${c.rank} of ${c.rank_total} films on Metatake`);
+  if (c.n_takes != null && c.n_takes > 0) parts.push(`${parts.length ? "on " : "On "}${c.n_takes} close reading${c.n_takes === 1 ? "" : "s"}`);
+  // Read the shape of the score, from the fields only (no evaluation beyond tier).
+  const shape = c.v >= c.r + 20 ? "value clears its risk with room to spare"
+    : c.v >= c.r ? "value edges out the risk"
+    : "the risk runs close to the value";
+  parts.push(`its ${c.tier ? `${c.tier.toLowerCase()} ` : ""}score of ${Math.round(c.u)} means ${shape}`);
+  return parts.join(" — ") + ".";
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -314,7 +319,7 @@ export default async function DirectorTakescorePage({ params }: Props) {
                       <figcaption>{still.title}{yStr(still.year)} · via TMDB</figcaption>
                     </figure>
                   ) : null}
-                  <h2>{i + 1}. {c.title}{yStr(c.year)} — {Math.round(c.u)}</h2>
+                  <h2>{i + 1}. {c.title}{yStr(c.year)}</h2>
                   <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
                     {poster ? (
                       <Link href={`/film/${c.slug}`} style={{ flex: "0 0 auto" }}>
@@ -323,6 +328,8 @@ export default async function DirectorTakescorePage({ params }: Props) {
                       </Link>
                     ) : null}
                     <div style={{ flex: "1 1 0", minWidth: 0 }}>
+                      {/* Numbers first — the boxed scorecard, then the prose reads it. */}
+                      <div style={{ margin: "0 0 10px" }}><TakeScoreBoxes s={c} /></div>
                       <p style={{ marginTop: 0 }}>{cardSentence(c)}</p>
                       <p style={{ fontSize: "0.92em" }}>
                         <Link href={`/takescore/film/${c.slug}`}>Full scorecard →</Link>
