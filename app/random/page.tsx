@@ -13,11 +13,17 @@ type Card = {
 
 type GCard = { kind: string; line?: string; sub?: string | null; href?: string; backdrop?: string | null };
 
+// 10 content types the corpus can surprise you with (2026-07-09 expansion).
 const KINDS: [string, string][] = [
-  ["any", "Surprise"], ["film", "Film"], ["reading", "Reading"],
-  ["idea", "Idea"], ["director", "Director"],
+  ["any", "🎲 Surprise"],
+  ["film", "Film"], ["reading", "Reading"], ["concept", "Concept"], ["director", "Director"],
+  ["theorist", "Theorist"], ["trope", "Trope"], ["figure", "Figure"], ["location", "On location"],
+  ["question", "Curious"], ["reception", "What critics said"],
 ];
+// The types that "🎲 Surprise" draws from — user-customizable, persisted.
+const MIX_TYPES: [string, string][] = KINDS.slice(1);
 const IMG = "https://image.tmdb.org/t/p";
+const MIX_KEY = "sm_mix_v1";
 
 export default function SurprisePage() {
   const [kind, setKind] = useState("any");
@@ -25,8 +31,28 @@ export default function SurprisePage() {
   const [loading, setLoading] = useState(true);
   const [set, setSet] = useState<GCard[]>([]);
   const [gridLoading, setGridLoading] = useState(true);
+  const [mix, setMix] = useState<string[]>(() => MIX_TYPES.map(([k]) => k));
+  const [showMix, setShowMix] = useState(false);
   const kindRef = useRef(kind); kindRef.current = kind;
+  const mixRef = useRef(mix); mixRef.current = mix;
   const busy = useRef(false);
+
+  // Load the saved mix once on mount.
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(MIX_KEY);
+      if (raw) {
+        const arr = JSON.parse(raw) as string[];
+        const valid = arr.filter((k) => MIX_TYPES.some(([t]) => t === k));
+        if (valid.length) setMix(valid);
+      }
+    } catch { /* noop */ }
+  }, []);
+
+  // The mix query param — only meaningful for "any"; full mix ⇒ omit (server default).
+  const mixParam = (k: string) =>
+    k === "any" && mixRef.current.length && mixRef.current.length < MIX_TYPES.length
+      ? `&mix=${mixRef.current.join(",")}` : "";
 
   const drawCard = useCallback(async (k?: string) => {
     if (busy.current) return;
@@ -34,7 +60,7 @@ export default function SurprisePage() {
     const kk = k ?? kindRef.current;
     setLoading(true);
     try {
-      const r = await fetch(`/api/surprise?kind=${kk}&_=${Date.now()}`, { cache: "no-store" });
+      const r = await fetch(`/api/surprise?kind=${kk}${mixParam(kk)}&_=${Date.now()}`, { cache: "no-store" });
       setCard((await r.json()) as Card);
     } catch { /* noop */ } finally { setLoading(false); busy.current = false; }
   }, []);
@@ -43,11 +69,21 @@ export default function SurprisePage() {
     const kk = k ?? kindRef.current;
     setGridLoading(true);
     try {
-      const r = await fetch(`/api/surprise/set?kind=${kk}&n=30&_=${Date.now()}`, { cache: "no-store" });
+      const r = await fetch(`/api/surprise/set?kind=${kk}&n=30${mixParam(kk)}&_=${Date.now()}`, { cache: "no-store" });
       const j = await r.json();
       setSet(Array.isArray(j) ? (j as GCard[]) : []);
     } catch { /* noop */ } finally { setGridLoading(false); }
   }, []);
+
+  const toggleMix = (t: string) => {
+    setMix((cur) => {
+      const next = cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t];
+      const safe = next.length ? next : [t]; // never let the mix go empty
+      try { localStorage.setItem(MIX_KEY, JSON.stringify(safe)); } catch { /* noop */ }
+      mixRef.current = safe;
+      return safe;
+    });
+  };
 
   useEffect(() => { drawCard("any"); drawSet("any"); }, [drawCard, drawSet]);
   useEffect(() => {
@@ -77,7 +113,23 @@ export default function SurprisePage() {
           {KINDS.map(([k, l]) => (
             <button key={k} className={`sm-tog${kind === k ? " on" : ""}`} onClick={() => pick(k)}>{l}</button>
           ))}
+          <button className={`sm-tog sm-tog--mix${showMix ? " on" : ""}`} onClick={() => setShowMix((v) => !v)} title="Choose what Surprise draws from">
+            ⚙ Your mix{mix.length < MIX_TYPES.length ? ` (${mix.length})` : ""}
+          </button>
         </div>
+
+        {showMix ? (
+          <div className="sm-mix">
+            <span className="sm-mixk">🎲 Surprise draws from:</span>
+            {MIX_TYPES.map(([k, l]) => (
+              <label key={k} className={`sm-mixc${mix.includes(k) ? " on" : ""}`}>
+                <input type="checkbox" checked={mix.includes(k)} onChange={() => toggleMix(k)} />
+                {l}
+              </label>
+            ))}
+            <button className="sm-mixall" onClick={() => { const all = MIX_TYPES.map(([t]) => t); setMix(all); mixRef.current = all; try { localStorage.setItem(MIX_KEY, JSON.stringify(all)); } catch { /* noop */ } }}>All</button>
+          </div>
+        ) : null}
 
         <div className={`sm-card${loading ? " is-load" : ""}`}>
           {clipSrc ? (
