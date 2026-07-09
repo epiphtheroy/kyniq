@@ -235,7 +235,7 @@ async function directorGuideSlugs(table: "director_picks" | "director_next"): Pr
  * tables per director. Shared by the sitemaps and /curious/directors.
  */
 export const directorLayerEligibility = unstable_cache(
-  async (): Promise<{ takescore: string[]; honors: string[]; reception: string[]; theory: string[] }> => {
+  async (): Promise<{ takescore: string[]; honors: string[]; reception: string[]; theory: string[]; misreadings: string[] }> => {
     const supabase = db();
     const films = await fetchAll<{ id: string; director_slug: string | null }>((from, to) =>
       supabase.from("films").select("id, director_slug").eq("visible", true).not("director_slug", "is", null)
@@ -270,12 +270,20 @@ export const directorLayerEligibility = unstable_cache(
       honors: pick(honorsPer, 3),
       reception: pick(rcpPer, 3),
       theory: pick(theoryPer, 5),
+      // Same readings corpus as theory; the /misreadings article gates ≥5 too.
+      misreadings: pick(theoryPer, 5),
     };
   },
-  ["director-layer-eligibility-1"],
+  // v2: misreadings slugs joined (2026-07-09)
+  ["director-layer-eligibility-2"],
   { revalidate: 86400 }
 );
 
+export async function directorMisreadingsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const e = await directorLayerEligibility();
+  return e.misreadings.map((s) => ({ url: `${siteUrl}/director/${s}/misreadings` }));
+}
 export async function directorTakescoreEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const e = await directorLayerEligibility();
