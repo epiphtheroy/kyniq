@@ -8,6 +8,7 @@ type Item = {
   title?: string; year?: number | null; director?: string | null; reason?: string;
   slug?: string | null; label?: string | null; text?: string; pos?: number;
   poster?: string | null; profile?: string | null; name?: string | null;
+  won?: boolean;
 };
 type Chip = { text: string; kind?: string };
 type Group = { title: string; chips: Chip[] };
