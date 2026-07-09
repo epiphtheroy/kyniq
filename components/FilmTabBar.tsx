@@ -14,7 +14,12 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 
-export type FilmTab = { id: string; label: string; href?: string; badge?: string | number; badgeTone?: "score"; color?: string };
+export type FilmTab = { id: string; label: string; href?: string; badge?: string | number; badgeTone?: "score"; color?: string; zone?: "free" | "spoiler" };
+export type ZoneLabels = { free: { title: string; sub: string }; spoiler: { title: string; sub: string } };
+const DEFAULT_ZONE_LABELS: ZoneLabels = {
+  free: { title: "Spoiler-free", sub: "before you watch" },
+  spoiler: { title: "Spoilers", sub: "after you watch" },
+};
 
 // Per-section accent for the badge + chip. Keyed by the section anchor id; muted,
 // print-ink versions (legible on the light bar), one family per section.
@@ -28,12 +33,15 @@ const TAB_COLOR: Record<string, string> = {
 };
 const DEFAULT_TAB_COLOR = "#5A6B86";
 
-export default function FilmTabBar({ tabs, twoRow = false, center = false, search }: {
+export default function FilmTabBar({ tabs, twoRow = false, center = false, search, zoneLabels = DEFAULT_ZONE_LABELS }: {
   tabs: FilmTab[]; twoRow?: boolean;
   // Theory pages (2026-07-08): center the single-row bar, and carry an
   // in-page search box that drives the page's explorers via a CustomEvent.
   center?: boolean;
   search?: { event: string; targetId: string; placeholder?: string };
+  // Two-row spoiler zoning (2026-07-09): top rail = spoiler-free (before you
+  // watch), bottom rail = spoilers (after). Tabs split by their `zone`.
+  zoneLabels?: ZoneLabels;
 }) {
   const barRef = useRef<HTMLElement>(null);
   const [navH, setNavH] = useState(0);
