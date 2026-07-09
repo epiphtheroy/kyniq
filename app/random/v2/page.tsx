@@ -144,6 +144,7 @@ export default function ChannelPage() {
   const beats = useMemo(() => (card ? compileBeats(card) : []), [card]);
   const beat = beats[beatIdx] ?? null;
   const acc = ACCENT[card?.mode ?? ""] ?? "#C8102E";
+  const ent = ENT_COLOR[ENTITY[card?.mode ?? ""] ?? "film"];
 
   // draw a card — the bed is video-only, so retry a few times until a clip lands
   const draw = useCallback(async () => {
@@ -233,7 +234,7 @@ export default function ChannelPage() {
   return (
     <div
       className={`svc sv2 sv2-p-${pattern} sv2-m-${card?.mode ?? "boot"}${uiVisible ? " svc--ui" : ""}`}
-      style={{ "--acc": acc } as React.CSSProperties}
+      style={{ "--acc": acc, "--ent": ent } as React.CSSProperties}
       onMouseMove={wake} onClick={wake}
     >
       {/* bed: the film clip only — never a still image as the background */}
@@ -317,6 +318,14 @@ export default function ChannelPage() {
             <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
           </div>
           <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={300} />
+        </div>
+      ) : beat && beat.zone === "atlas" && card?.film_slug ? (
+        <div key={`atlas-${idx}`} className="sv2-atlas">
+          <div className="sv2-map__h">
+            <span className="sv2-kick sv2-kick--sub">On the atlas</span>
+            <a href={`/film/${card.film_slug}#df-atlas`}>Open ↗</a>
+          </div>
+          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={280} />
         </div>
       ) : null}
 
