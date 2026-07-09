@@ -584,11 +584,10 @@ export default async function FilmPage({ params }: Props) {
     const nativeTitle = f.original_title && f.original_title !== f.title ? f.original_title : null;
     const mRuntime = f.runtime ? `${f.runtime} min` : null;
     const mCert = f.certification ? f.certification.replace(/^[A-Z]{2}:/, "") : null;
-    // Curated credits/production facts backfilled from TMDB (same shape & source
-    // as the Tier-1 "Film info & credits" block) — null-safe, so it lights up as
-    // the enrichment lands.
+    // Curated credits/production facts backfilled from TMDB — now only feeds the
+    // Movie JSON-LD (actor/inLanguage); the visible cast/writing live in the
+    // Credits tab, so the old "About" metadata list was dropped.
     const mExtra = f.tmdb_extra ?? {};
-    const hasInfo = !!(f.overview || f.release_date || mRuntime || f.genres?.length || mCert || nativeTitle || mExtra.cast?.length || mExtra.writers?.length || mExtra.country?.length);
 
 
     // ---- EDITOR'S DIGEST — a deterministic record composed from the loader's
