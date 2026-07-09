@@ -25,6 +25,12 @@ type Row = Pick<
   NowArticle,
   "slug" | "headline" | "dek" | "keyword" | "anchor_type" | "anchor_slug" | "anchor_label" | "published_at" | "updated_at"
 >;
+type WireRow = {
+  at: string; keyword: string; title: string | null; url: string | null;
+  outlet: string | null; region: string | null; news_date: string | null;
+  anchor_label: string | null; film_slug: string | null; director_slug: string | null; value_point: string | null;
+};
+type DigestRow = { digest_date: string; headline: string; dek: string | null };
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -35,15 +41,25 @@ const dayOf = (iso: string) =>
 
 export default async function NowIndex() {
   let rows: Row[] = [];
+  let wire: WireRow[] = [];
+  let digest: DigestRow | null = null;
   try {
-    const { data } = await db()
-      .from("now_articles")
-      .select("slug, headline, dek, keyword, anchor_type, anchor_slug, anchor_label, published_at, updated_at")
-      .eq("status", "published")
-      .order("published_at", { ascending: false })
-      .limit(60)
-      .abortSignal(AbortSignal.timeout(4500));
-    rows = (data as Row[] | null) ?? [];
+    const [a, w, dg] = await Promise.all([
+      db().from("now_articles")
+        .select("slug, headline, dek, keyword, anchor_type, anchor_slug, anchor_label, published_at, updated_at")
+        .eq("status", "published").order("published_at", { ascending: false }).limit(60)
+        .abortSignal(AbortSignal.timeout(4500)),
+      db().from("now_stream")
+        .select("at, keyword, title, url, outlet, region, news_date, anchor_label, film_slug, director_slug, value_point, published")
+        .eq("published", false).order("at", { ascending: false }).limit(12)
+        .abortSignal(AbortSignal.timeout(4500)),
+      db().from("now_digests")
+        .select("digest_date, headline, dek").order("digest_date", { ascending: false }).limit(1)
+        .abortSignal(AbortSignal.timeout(4500)),
+    ]);
+    rows = (a.data as Row[] | null) ?? [];
+    wire = (w.data as WireRow[] | null) ?? [];
+    digest = ((dg.data as DigestRow[] | null) ?? [])[0] ?? null;
   } catch {
     rows = [];
   }
@@ -80,6 +96,14 @@ export default async function NowIndex() {
             every claim is one click from its data.
           </p>
         </header>
+
+        {digest ? (
+          <Link className="now-digest-strip" href={`/now/daily/${digest.digest_date}`}>
+            <div className="k">The daily digest · {digest.digest_date}</div>
+            <div className="h">{digest.headline}</div>
+            {digest.dek ? <div className="d">{digest.dek}</div> : null}
+          </Link>
+        ) : null}
 
         {groups.length === 0 ? (
           <p className="cur-edby" style={{ padding: "30px 0 60px" }}>
