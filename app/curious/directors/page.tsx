@@ -2,10 +2,10 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHead } from "@/components/curious/ui";
 import { cachedAtlasEligibility } from "@/lib/atlas";
 import { directorLayerEligibility } from "@/lib/sitemap-data";
 import { pageRobots } from "@/lib/seo";
+import DirectorsIndexClient from "@/components/curious/DirectorsIndexClient";
 
 /**
  * Directors, Researched — the Curious-side index of the director article
@@ -176,16 +176,6 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: "/curious/directors" },
     robots: pageRobots(true),
   };
-}
-
-/** A–Z bucket letter — diacritics fold (Éric → E), non-Latin → "#". */
-function letterOf(name: string): string {
-  const c = name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .charAt(0)
-    .toUpperCase();
-  return c >= "A" && c <= "Z" ? c : "#";
 }
 
 export default async function CuriousDirectorsIndex() {
