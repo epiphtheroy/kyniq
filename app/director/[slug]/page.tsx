@@ -163,6 +163,13 @@ async function loadUncached(slug: string) {
   const honorsN = (lnCnt.count ?? 0) + (wdCnt.count ?? 0);
   const receptionN = rcpCnt.count ?? 0;
 
+  // Now Playing count — pieces + wire entries under this director.
+  const [nowPieceCnt, nowWireCnt] = await Promise.all([
+    supabase.from("now_articles").select("id", { count: "exact", head: true }).eq("status", "published").or(`anchor_slug.eq.${slug},director_slug.eq.${slug}`),
+    supabase.from("now_stream").select("id", { count: "exact", head: true }).eq("director_slug", slug),
+  ]);
+  const newsCount = (nowPieceCnt.count ?? 0) + (nowWireCnt.count ?? 0);
+
   const { data: geoRows } = await supabase.rpc("director_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
   // geoCells/geoFilms gate the Locations tab/link (the read page's own 404
@@ -182,7 +189,7 @@ async function loadUncached(slug: string) {
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
     recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms,
-    hiddenFilms, hiddenTotal, honorsN, receptionN,
+    hiddenFilms, hiddenTotal, honorsN, receptionN, newsCount,
   };
 }
 
