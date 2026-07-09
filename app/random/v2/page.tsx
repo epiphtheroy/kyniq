@@ -129,13 +129,21 @@ export default function ChannelPage() {
   const beat = beats[beatIdx] ?? null;
   const acc = ACCENT[card?.mode ?? ""] ?? "#C8102E";
 
+  // draw a card — the bed is video-only, so retry a few times until a clip lands
   const draw = useCallback(async () => {
     if (busy.current) return;
     busy.current = true;
     try {
-      const r = await fetch(`/api/surprise/home?_=${Date.now()}`, { cache: "no-store" });
-      const c = (await r.json()) as SurpriseCard;
-      setHist((h) => [...h, c]);
+      let c: SurpriseCard | null = null;
+      for (let t = 0; t < 4; t++) {
+        const r = await fetch(`/api/surprise/home?_=${Date.now()}-${t}`, { cache: "no-store" });
+        const j = (await r.json()) as SurpriseCard;
+        c = c ?? j;
+        if (j.clip) { c = j; break; }
+      }
+      if (!c) return;
+      const cc = c;
+      setHist((h) => [...h, cc]);
       setPats((p) => [...p, Math.floor(Math.random() * PATTERNS.length)]);
       setIdx((i) => i + 1);
     } catch { /* noop */ } finally { busy.current = false; }
@@ -212,25 +220,31 @@ export default function ChannelPage() {
       style={{ "--acc": acc } as React.CSSProperties}
       onMouseMove={wake} onClick={wake}
     >
-      {/* bed: the film clip, else a Ken-Burns backdrop */}
+      {/* bed: the film clip only — never a still image as the background */}
       <div className="svc-bed">
         {clipSrc ? (
           <iframe ref={iframeRef} key={card!.clip} className="svc-media" src={clipSrc}
             title={card?.film_title ?? "clip"} allow="autoplay; encrypted-media; picture-in-picture" />
-        ) : card?.backdrop ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img className="svc-media svc-media--kb" key={card.film_slug ?? idx} src={`${IMG}/w1280${card.backdrop}`} alt="" />
         ) : <div className="svc-media svc-media--empty" aria-hidden="true" />}
       </div>
       <div className="svc-scrim" aria-hidden="true" />
 
-      {/* fixed: mastplate top-left — title biggest, year · director, grid ground */}
+      {/* accent frame — a second color enters the film's color when info plays */}
+      {card ? <span key={`fr-${bk}`} className="sv2-frame" aria-hidden="true" /> : null}
+
+      {/* fixed: mastplate top-left — poster, then title biggest, year · director */}
       {card ? (
         <a className="sv2-mast" href={card.film_slug ? `/film/${card.film_slug}` : undefined}>
-          <span className="sv2-mast__t">{card.film_title}</span>
-          <span className="sv2-mast__m">
-            {card.film_year ? <b>{card.film_year}</b> : null}
-            {card.director ? <i>dir. {card.director}</i> : null}
+          {card.poster ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="sv2-mast__p" src={`${IMG}/w154${card.poster}`} alt="" />
+          ) : null}
+          <span className="sv2-mast__b">
+            <span className="sv2-mast__t">{card.film_title}</span>
+            <span className="sv2-mast__m">
+              {card.film_year ? <b>{card.film_year}</b> : null}
+              {card.director ? <i>dir. {card.director}</i> : null}
+            </span>
           </span>
         </a>
       ) : null}

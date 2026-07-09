@@ -4,6 +4,7 @@ import { Fragment, type SyntheticEvent } from "react";
 import Link from "next/link";
 import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
+import EntityFinder from "@/components/EntityFinder";
 import PosterActions from "@/components/PosterActions";
 import { foldDiacritics } from "@/lib/slug";
 
@@ -97,6 +98,11 @@ const MODES: CatMode[] = [
 export default function FilmsIndex({ featured, catalogue }: { featured: FilmFeat[]; catalogue: FilmCat[] }) {
   return (
     <>
+      <EntityFinder
+        kinds="film"
+        placeholder="Find a film — title, director, 한국어 제목도 OK"
+        ariaLabel="Find a film in this index"
+      />
       <CardDeck
         items={featured}
         keyOf={(d) => d.slug}

@@ -4,6 +4,7 @@ import { type SyntheticEvent } from "react";
 import Link from "next/link";
 import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
+import EntityFinder from "@/components/EntityFinder";
 import { foldDiacritics } from "@/lib/slug";
 
 type DirSig = { t: string; slug: string; n: number; fig: string };
@@ -86,6 +87,11 @@ const MODES: CatMode[] = [
 export default function DirectorsIndex({ featured, catalogue }: { featured: DirFeat[]; catalogue: DirCat[] }) {
   return (
     <>
+      <EntityFinder
+        kinds="director"
+        placeholder="Find a director — name, 한국어 이름도 OK"
+        ariaLabel="Find a director in this index"
+      />
       <CardDeck
         items={featured}
         keyOf={(d) => d.slug}

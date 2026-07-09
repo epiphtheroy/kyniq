@@ -16,7 +16,7 @@ export type SurpriseCard = {
   mode: string; label?: string; subject?: string; intro?: string;
   film_title?: string; film_year?: number | null; film_slug?: string;
   director?: string | null; director_slug?: string | null;
-  backdrop?: string | null; clip?: string | null; href?: string;
+  backdrop?: string | null; poster?: string | null; clip?: string | null; href?: string;
   // misreading / theorist
   line?: string; body?: string; leap?: string; framework?: string; theorist?: string | null;
   fig_label?: string; fig_slug?: string;
