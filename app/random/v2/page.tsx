@@ -42,6 +42,13 @@ export default function ChannelPage() {
 
   useEffect(() => { draw(); }, [draw]);
 
+  // Full-screen kiosk: lock the page so the site footer/chrome can't scroll in.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+
   // The channel's own clock — advances only while playing.
   useEffect(() => {
     if (!playing) return;
