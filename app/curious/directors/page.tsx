@@ -192,15 +192,6 @@ export default async function CuriousDirectorsIndex() {
   const index = await loadIndex();
   const { rows, lives, starts, kinships, maps } = index;
 
-  const byLetter = new Map<string, DirRow[]>();
-  for (const r of rows) {
-    const l = letterOf(r.name);
-    const arr = byLetter.get(l) ?? [];
-    arr.push(r);
-    byLetter.set(l, arr);
-  }
-  const letters = [...byLetter.keys()].sort((a, b) => (a === "#" ? 1 : b === "#" ? -1 : a.localeCompare(b)));
-
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -238,68 +229,7 @@ export default async function CuriousDirectorsIndex() {
         </p>
       </header>
 
-      {letters.map((letter) => {
-        const items = byLetter.get(letter)!;
-        return (
-          <section key={letter}>
-            <SectionHead title={letter} count={`${items.length} director${items.length === 1 ? "" : "s"}`} />
-            <div className="cur-qindex" style={{ columns: 3 }}>
-              {items.map((d) => {
-                const links: { href: string; label: string }[] = [];
-                if (d.life > 0) links.push({ href: `/director/${d.slug}/life`, label: `The life (${d.life})` });
-                if (d.start > 0) links.push({ href: `/director/${d.slug}/start`, label: `Where to start (${d.start})` });
-                if (d.next > 0) links.push({ href: `/director/${d.slug}/next`, label: `Who's next (${d.next})` });
-                if (d.locations) links.push({ href: `/director/${d.slug}/locations`, label: "Locations" });
-                if (d.takescore) links.push({ href: `/director/${d.slug}/takescore`, label: "TakeScore" });
-                if (d.honors) links.push({ href: `/director/${d.slug}/honors`, label: "Honors" });
-                if (d.reception) links.push({ href: `/director/${d.slug}/reception`, label: "Reception" });
-                if (d.theory) links.push({ href: `/director/${d.slug}/theory`, label: "Theory" });
-                links.push({ href: `/director/${d.slug}`, label: "Hub" });
-                return (
-                  <div className="cur-qindex__film" key={d.slug} style={{ marginBottom: 16 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      {d.profile_path ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={`${IMG}/w92${d.profile_path}`}
-                          alt=""
-                          loading="lazy"
-                          width={40}
-                          height={40}
-                          style={{
-                            width: 40,
-                            height: 40,
-                            borderRadius: "50%",
-                            objectFit: "cover",
-                            flex: "none",
-                            background: "#0c0c0c",
-                          }}
-                        />
-                      ) : null}
-                      <Link
-                        href={`/director/${d.slug}`}
-                        style={{ fontFamily: "var(--cur-display)", fontWeight: 600, fontSize: 17, color: "#fff" }}
-                      >
-                        {d.name}
-                      </Link>
-                    </div>
-                    <div style={{ margin: "5px 0 0", fontSize: 12.5, lineHeight: 1.8, color: "#5f5d5e" }}>
-                      {links.map((l, i) => (
-                        <span key={l.href}>
-                          {i > 0 ? " · " : ""}
-                          <Link href={l.href} style={{ color: "#cfcdce" }}>
-                            {l.label}
-                          </Link>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        );
-      })}
+      <DirectorsIndexClient rows={rows} />
 
       <div className="cur-foot">
         <Link href="/curious">← Curious — all questions &amp; desks</Link>
