@@ -676,31 +676,12 @@ export default async function FilmPage({ params }: Props) {
       { id: "df-watch", label: "Where to watch", badge: mWatchRegions || undefined },
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
     ].filter(Boolean)) as FilmTab[];
-    // ABOUT — overview + the ambient facts we hold. original_title/overview are
-    // being backfilled from TMDB: every field is null-safe, so this section
-    // lights up as the data lands. When the digest exists it leads and About is
-    // demoted below the Codex/Lineage/Recommended-by cluster; with no digest
-    // data the record falls back to the old About-first layout.
-    const aboutSection = hasInfo ? (
-      <section className="df-sec" id="df-information">
-        <h2 className="df-h2">About {f.title}</h2>
-        {f.overview ? <p className="df-ov">{f.overview}</p> : null}
-        <dl className="df-dl">
-          {f.director ? <><dt>Director</dt><dd>{dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : f.director}</dd></> : null}
-          {nativeTitle ? <><dt>Original title</dt><dd>{nativeTitle}</dd></> : null}
-          {mExtra.cast?.length ? <><dt>Cast</dt><dd>{mExtra.cast.slice(0, 5).map((c) => c.character ? `${c.name} (${c.character})` : c.name).join(", ")}</dd></> : null}
-          {mExtra.writers?.length ? <><dt>Writing</dt><dd>{mExtra.writers.join(", ")}</dd></> : null}
-          {f.release_date ? <><dt>Released</dt><dd>{f.release_date}</dd></> : null}
-          {mRuntime ? <><dt>Runtime</dt><dd>{mRuntime}</dd></> : null}
-          {f.genres?.length ? <><dt>Genre</dt><dd>{f.genres.map((g, i) => (
-            <span key={g}>{i > 0 ? ", " : ""}<Link href={`/genre/${slugifyGenre(g)}`}>{g}</Link></span>
-          ))}</dd></> : null}
-          {mCert ? <><dt>Rated</dt><dd>{mCert}</dd></> : null}
-          {mExtra.original_language ? <><dt>Language</dt><dd>{mExtra.original_language.toUpperCase()}</dd></> : null}
-          {mExtra.country?.length ? <><dt>Country</dt><dd>{mExtra.country.join(", ")}</dd></> : null}
-          {mExtra.collection ? <><dt>Collection</dt><dd>{mExtra.collection}</dd></> : null}
-        </dl>
-      </section>
+    // SYNOPSIS — the film's overview (plot), rendered as a lead paragraph directly
+    // under the hero. The old "About" tab and its metadata list were removed: the
+    // facts (director/genre/runtime/cert) duplicate the hero, and cast/writing now
+    // live in the Credits tab.
+    const synopsis = f.overview ? (
+      <p className="df-synopsis">{f.overview}</p>
     ) : null;
     return (
       <div className="mt">
