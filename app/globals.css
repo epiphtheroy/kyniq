@@ -3892,17 +3892,21 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sv2-chip{font-family:var(--tvfont);font-weight:600;font-size:clamp(15px,1.6vw,21px);letter-spacing:.02em;color:#fff;background:rgba(10,8,6,.6);border:1px solid rgba(255,255,255,.2);border-bottom:3px solid var(--acc);padding:8px 18px;border-radius:5px;backdrop-filter:blur(4px);opacity:0;animation:sv2-pop .55s cubic-bezier(.2,.7,.2,1) both}
 @keyframes sv2-pop{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
 
-/* map / connections — a box BOTTOM-RIGHT, opacity-only entry (canvas measures clean) */
-.sv2-map{position:absolute;right:22px;bottom:9%;z-index:6;width:min(42vw,520px);background:rgba(10,8,6,.82);border:1px solid rgba(255,255,255,.18);border-top:3px solid var(--acc);border-radius:10px;padding:10px 12px 12px;box-shadow:0 10px 44px rgba(0,0,0,.55);animation:sv2-fade .6s ease both}
+/* connections map — box BOTTOM-RIGHT; atlas (geo) — box BOTTOM-LEFT.
+   Opacity-only entry so the canvas/MapLibre measures a settled width. */
+.sv2-map,.sv2-atlas{position:absolute;bottom:9%;z-index:6;width:min(42vw,520px);background:rgba(10,8,6,.82);border:1px solid rgba(255,255,255,.18);border-top:3px solid var(--acc);border-radius:10px;padding:10px 12px 12px;box-shadow:0 10px 44px rgba(0,0,0,.55);animation:sv2-fade .6s ease both}
+.sv2-map{right:22px}
+.sv2-atlas{left:22px}
 .sv2-map__h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
 .sv2-map__h .sv2-kick--sub{margin-bottom:0}
 .sv2-map__h a{font-family:var(--tvfont);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#e6ded0;text-decoration:none}
 .sv2-map__h a:hover{color:#fff}
-.sv2-map .emap{background:transparent}
+.sv2-map .emap,.sv2-atlas .emap{background:transparent}
+.sv2-atlas .cmap,.sv2-atlas canvas,.sv2-atlas .maplibregl-map{border-radius:7px;overflow:hidden}
 
-/* accumulating stack (honors / locations / recommendations / why-watch) — CENTER-BOTTOM */
-.sv2-stack{position:absolute;left:50%;bottom:11%;transform:translateX(-50%);z-index:6;width:min(66vw,820px);list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.sv2-stkrow{display:flex;gap:12px;align-items:flex-start;background:rgba(10,8,6,.66);border-left:3px solid rgba(255,255,255,.22);padding:9px 15px;border-radius:0 6px 6px 0;box-shadow:0 3px 14px rgba(0,0,0,.35)}
+/* accumulating stack — CENTER-BOTTOM, each row centered (never left-biased) */
+.sv2-stack{position:absolute;left:50%;bottom:11%;transform:translateX(-50%);z-index:6;max-width:min(74vw,900px);list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sv2-stkrow{display:inline-flex;gap:12px;align-items:flex-start;max-width:min(74vw,900px);background:rgba(10,8,6,.66);border-left:3px solid rgba(255,255,255,.22);padding:9px 15px;border-radius:0 6px 6px 0;box-shadow:0 3px 14px rgba(0,0,0,.35)}
 .sv2-stkrow.is-new{animation:sv2-in .55s cubic-bezier(.2,.7,.2,1) both}
 .sv2-stkrow.is-won{border-left-color:var(--acc)}
 .sv2-stkrow b{flex:0 0 auto;font-size:13px;color:var(--acc);line-height:1.5}
@@ -3930,8 +3934,9 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
   .sv2-top{width:94vw}
   .sv2-sub{max-width:94vw}
   .sv2-band{padding:12px 18px}
-  .sv2-stack{width:92vw}
+  .sv2-stack{max-width:92vw}
   .sv2-map{width:94vw;right:3vw;bottom:13%}
+  .sv2-atlas{width:94vw;left:3vw;bottom:13%}
 }
 
 /* The Reel (/random/reel) — start/end covers over the broadcast bed */
