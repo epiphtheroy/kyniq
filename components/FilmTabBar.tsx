@@ -180,8 +180,8 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
     const zoned = tabs.some((t) => t.zone);
     const rails: { key: string; kind: "free" | "spoiler" | "none"; items: FilmTab[] }[] = zoned
       ? [
-          { key: "free", kind: "free", items: tabs.filter((t) => t.zone !== "spoiler") },
-          { key: "spoiler", kind: "spoiler", items: tabs.filter((t) => t.zone === "spoiler") },
+          { key: "free", kind: "free" as const, items: tabs.filter((t) => t.zone !== "spoiler") },
+          { key: "spoiler", kind: "spoiler" as const, items: tabs.filter((t) => t.zone === "spoiler") },
         ].filter((r) => r.items.length)
       : (() => {
           const mid = Math.ceil(tabs.length / 2);
