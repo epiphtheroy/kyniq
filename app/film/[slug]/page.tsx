@@ -386,9 +386,16 @@ async function loadUncached(slug: string) {
   const geoCells = Array.isArray(geoRows) ? mergeCells(geoRows as GeoPin[]).length : 0;
   const geoMerged = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]).length : 0;
 
+  // Now Playing count — pieces + wire entries under this film ("In the news").
+  const [{ count: nowPieceN }, { count: nowWireN }] = await Promise.all([
+    supabase.from("now_articles").select("id", { count: "exact", head: true }).eq("status", "published").eq("film_slug", film.slug),
+    supabase.from("now_stream").select("id", { count: "exact", head: true }).eq("film_slug", film.slug),
+  ]);
+  const newsCount = (nowPieceN ?? 0) + (nowWireN ?? 0);
+
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
