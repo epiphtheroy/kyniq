@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { anchorHref, fmtTime, tmdbImg, type NowArticle } from "@/lib/now";
+import { anchorHref, fmtClock, tmdbImg, type NowArticle } from "@/lib/now";
 
 /**
  * Now Playing index — the live layer's front page: every piece, newest first,
@@ -120,7 +120,7 @@ export default async function NowIndex() {
                   <Link className="now-row now-row--img" href={`/now/${r.slug}`} key={r.slug}>
                     <div className="now-row__body">
                       <div className="t">
-                        <b>{fmtTime(r.published_at)} UTC</b>
+                        <b>{fmtClock(r.published_at)}</b>
                         {r.keyword ? <> · chasing “{r.keyword}”</> : null}
                       </div>
                       <h2>{r.headline}</h2>

@@ -55,7 +55,7 @@ export default async function NowLayout({ children }: { children: React.ReactNod
             {pieces.map((p) => (
               <span key={p.slug} style={{ display: "contents" }}>
                 <span className="d" />
-                <Link href={`/now/${p.slug}`}>{stripDay(p.published_at)} {fmtTime(p.published_at)}</Link>
+                <Link href={`/now/${p.slug}`}>{stripDay(p.published_at)} {fmtTime(p.published_at)} UTC</Link>
               </span>
             ))}
           </div>

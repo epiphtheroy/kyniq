@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { fmtClock } from "@/lib/now";
 
 /**
  * The wire — the full, browsable log of what the Now Playing desk watched
@@ -32,8 +33,6 @@ function db() {
 
 const dayOf = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
-const timeOf = (iso: string) =>
-  new Date(iso).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" });
 
 function anchorHref(r: WireRow): string | null {
   if (r.anchor_type === "film" && r.film_slug) return `/film/${r.film_slug}`;
@@ -95,7 +94,7 @@ export default async function WirePage() {
                 return (
                   <li key={i}>
                     <div className="w-meta">
-                      {timeOf(r.at)} UTC
+                      {fmtClock(r.at)}
                       {[r.region, r.news_date, r.outlet].filter(Boolean).length ? " · " : ""}
                       {[r.region, r.news_date, r.outlet].filter(Boolean).join(" · ")}
                     </div>
