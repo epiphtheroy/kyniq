@@ -103,15 +103,35 @@
 }
 .mt.cur .cur-paper .now-deposit .k { color: #e3120b; }
 
-/* "Keep reading in the archive" — on the paper sheet, foot of the article */
-.mt.cur .now-archive { margin-top: 24px; }
+/* maps: the connections galaxy + the geo map, embedded as visual click-drivers */
+.mt.cur .now-mapnote { font: 400 13px/1.6 Inter, sans-serif; color: #6b6b6b; margin: 0 0 10px; max-width: 760px; }
+.mt.cur .now-mapwrap {
+  border: 1px solid #d8d8d8; border-radius: 4px; overflow: hidden; margin: 0 0 8px; background: #0c0c0c;
+}
+.mt.cur .now-mapwrap > * { display: block; }
+
+/* "Read together" — slot grid, foot of the article (owner's rule 2026-07-09) */
+.mt.cur .now-archive { margin-top: 20px; }
+.mt.cur .now-slots {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px; margin-top: 10px;
+}
+.mt.cur .now-slot {
+  display: block; padding: 11px 13px; border: 1px solid #e2ded3; border-left: 3px solid #e3120b;
+  background: #fff; text-decoration: none; transition: background 0.12s;
+}
+.mt.cur .now-slot:hover { background: #faf8f3; }
+.mt.cur .now-slot .s-label { display: block; font: 700 14px/1.35 "PT Serif", Georgia, serif; color: #0d0d0d; }
+.mt.cur .now-slot .s-note { display: block; font: 400 11.5px/1.4 Inter, sans-serif; color: #8c857a; margin-top: 3px; }
+
+/* "Keep reading in the archive" — legacy list (kept for backward compat) */
 .mt.cur .now-archive ul { list-style: none; margin: 8px 0 0; padding: 0; }
 .mt.cur .now-archive li {
   padding: 8px 0; border-bottom: 1px solid #ece8df; font: 400 15px/1.5 Inter, sans-serif; color: #333;
 }
 .mt.cur .now-archive li:last-child { border-bottom: 0; }
-.mt.cur .now-archive a { color: #0d0d0d; font-weight: 600; text-decoration: underline; text-decoration-color: #e3120b; text-underline-offset: 3px; }
-.mt.cur .now-archive a:hover { color: #b80d05; }
+.mt.cur .now-archive li a { color: #0d0d0d; font-weight: 600; text-decoration: underline; text-decoration-color: #e3120b; text-underline-offset: 3px; }
+.mt.cur .now-archive li a:hover { color: #b80d05; }
 .mt.cur .now-archive .n { color: #6b6b6b; }
 
 /* ── cutting-room floor (after the paper, back on dark) ──────────────────── */
