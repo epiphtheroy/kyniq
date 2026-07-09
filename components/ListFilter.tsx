@@ -48,7 +48,7 @@ export default function ListFilter({
       const badge = g.querySelector<HTMLElement>("[data-filter-count]");
       if (badge) badge.textContent = String(gShown);
     });
-    setShown(term ? visible : null);
+    setShown(terms.length ? visible : null);
   }, [q, targetId]);
 
   return (
