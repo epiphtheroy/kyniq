@@ -195,6 +195,9 @@ export default async function FilmMisreadingsPage({ params }: Props) {
 
       <ReadHero
         film={film}
+        sharePath={`/film/${film.slug}/misreadings`}
+        shareTitle={`Strong Misreadings of ${film.title}${yStr(film.year)}`}
+        shareHook={`${readings.length} deliberate misreadings of ${film.title}${yStr(film.year)} — each one an argument, not a summary`}
         crumbTail="Strong Misreadings"
         chip={<><Link href="/curious/misreadings" style={{ color: "inherit", textDecoration: "none" }}>Strong Misreadings</Link>{" · "}film by film</>}
         meta={<>{readings.length} readings{latest ? ` · latest filed ${latest}` : ""}</>}

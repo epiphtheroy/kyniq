@@ -246,6 +246,9 @@ export default async function DeskEssayPage({ params }: Props) {
 
       <ReadHero
         film={film}
+        sharePath={`/film/${film.slug}/${desk.key}`}
+        shareTitle={essay.title}
+        shareHook={`${essay.title} — ${desk.deskName} on ${film.title}${film.year ? ` (${film.year})` : ""}, Metatake`}
         crumbTail={desk.label}
         chip={<><Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>Curious</Link>{" · "}{desk.deskName}</>}
         meta={<>{essay.minutes} min read · verified {essay.date}{hasKo && <>{" · "}<Link href={`/film/${film.slug}/${desk.key}/ko`} style={{ color: "inherit", textDecoration: "underline" }}>한국어</Link></>}</>}

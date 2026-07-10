@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import FilmHeroReel from "@/components/FilmHeroReel";
+import ShareDock from "@/components/ShareDock";
 
 /**
  * Dark film hero for the reading pages (desk essays, misreadings, Q&A) —
@@ -26,6 +27,9 @@ export default function ReadHero({
   videos = [],
   backdropPath,
   children,
+  sharePath,
+  shareTitle,
+  shareHook,
 }: {
   film: { title: string; slug: string; year: number | null };
   crumbTail: string;
@@ -36,6 +40,10 @@ export default function ReadHero({
   videos?: { id: string; title: string }[];
   backdropPath?: string | null;
   children?: ReactNode;
+  /** Share: when given, a ShareDock bar (desktop) + fab (mobile) render in the hero. */
+  sharePath?: string;
+  shareTitle?: string;
+  shareHook?: string;
 }) {
   const backdrop = backdropPath ? `${IMG}/w780${backdropPath}` : undefined;
   return (
@@ -55,6 +63,12 @@ export default function ReadHero({
           </div>
           <h1 className="rd-h1">{title}</h1>
           {dek ? <p className="rd-dek">{dek}</p> : null}
+          {sharePath ? (
+            <div className="rd-share">
+              <ShareDock variant="bar" path={sharePath} title={shareTitle ?? film.title} hook={shareHook} />
+              <ShareDock variant="fab" path={sharePath} title={shareTitle ?? film.title} hook={shareHook} />
+            </div>
+          ) : null}
           {children}
         </div>
         {(videos.length > 0 || backdrop) && (

@@ -306,6 +306,9 @@ export default async function FilmReceptionPage({ params }: Props) {
 
       <ReadHero
         film={film}
+        sharePath={`/film/${film.slug}/reception`}
+        shareTitle={`${film.title}${yStr(film.year)} — Reviews & Afterlife`}
+        shareHook={`${film.title}${yStr(film.year)} — ${reviews.length} reviews, ${wdHonors.length + lineage.length} honors, every release and revival, year by year`}
         crumbTail={hasReviews ? "Reviews & Afterlife" : "Awards & Afterlife"}
         chip={<>{hasReviews ? "Reception" : "Afterlife"} · the record</>}
         meta={<>{metaBits}</>}

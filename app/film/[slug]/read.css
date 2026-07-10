@@ -291,3 +291,5 @@
 /* Bigger ScreenRant-scale slate thumbnails (sides may crop — object-fit cover). */
 .mt .thr-th { flex: 0 0 232px; }
 @media (max-width: 640px) { .mt .thr-th { flex: 0 0 128px; } .df-tabs__q { width: 140px; } }
+
+.rd-share{margin:14px 0 2px}
