@@ -324,12 +324,15 @@ export default async function OmniPage({ searchParams }: Props) {
     } catch { /* keep subs */ }
   }
 
-  const top = hits[0];
-  const card = await loadEntityCard(top && ["film", "director", "theorist"].includes(top.kind) ? top : undefined);
+  // Object card = the first ENTITY near the top (Yandex shows the object card even
+  // when a list item edges it in fused rank — e.g. "parasite" can rank the trope
+  // "The Title Names The Parasite…" #1, but the card should still be the film).
+  const cardHit = hits.slice(0, 6).find((h) => ["film", "director", "theorist"].includes(h.kind));
+  const card = await loadEntityCard(cardHit);
 
   const shown = vertical.kinds ? hits.filter((h) => vertical.kinds!.includes(h.kind)) : hits;
-  // The entity card already owns the top hit — don't repeat it as row #1 on "All".
-  const rows = (!vertical.kinds && card ? shown.filter((h) => h !== top) : shown).slice(0, 30);
+  // The entity card already owns its hit — don't repeat it as a row on "All".
+  const rows = (!vertical.kinds && card ? shown.filter((h) => h !== cardHit) : shown).slice(0, 30);
 
   // Image strip: entity stills first, then poster'd hits (films/readings), deduped.
   const strip: { href: string; src: string; label: string }[] = [];
@@ -337,7 +340,7 @@ export default async function OmniPage({ searchParams }: Props) {
   const seenPoster = new Set<string>();
   for (const h of hits) {
     if (!h.poster || seenPoster.has(h.poster)) continue;
-    if (card?.type === "film" && h === top) continue;
+    if (card?.type === "film" && h === cardHit) continue;
     seenPoster.add(h.poster);
     strip.push({ href: h.href, src: `${IMG}/w185${h.poster}`, label: h.title });
     if (strip.length >= 14) break;
