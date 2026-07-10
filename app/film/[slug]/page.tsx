@@ -62,7 +62,7 @@ async function filmHasProgram(slug: string): Promise<boolean> {
       const { data } = await db().from("tv_programs").select("slug").eq("slug", slug).eq("status", "published").maybeSingle();
       return !!data;
     },
-    ["film-tv-present", slug],
+    ["film-tv-present-v2", slug],
     { revalidate: 300 },
   )();
 }

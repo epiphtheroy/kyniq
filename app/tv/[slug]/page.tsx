@@ -53,6 +53,13 @@ function isoDuration(ms: number): string {
   const sec = Math.max(1, Math.round(ms / 1000));
   return `PT${Math.floor(sec / 60)}M${sec % 60}S`;
 }
+// built_at is a Postgres timestamptz text ("2026-07-10 03:22:45.38+00"); guard so a
+// malformed value can never throw during render (would 500 the page).
+function safeIso(s: string | null): string | undefined {
+  if (!s) return undefined;
+  const d = new Date(s);
+  return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
+}
 function describe(entry: TVEntry): string {
   const f = entry.film;
   return `${entry.dek ? entry.dek + " — " : ""}A chapter-by-chapter video essay on ${f?.title}${f?.year ? ` (${f.year})` : ""}${f?.director ? `, directed by ${f.director}` : ""}, compiled from the Metatake record with no LLM: strong misreadings, the theorist's lens, figures, reception, honors and the film's map. On METATAKE TV.`;
@@ -98,7 +105,7 @@ export default async function Page({ params }: Params) {
   // samples, but the chapters and their durations are real.
   const ms = totalMs(entry, prog);
   const thumb = f?.backdrop ? `${IMG}/w1280${f.backdrop}` : f?.poster ? `${IMG}/w780${f.poster}` : undefined;
-  const uploadIso = prog?.built_at ?? null;
+  const uploadIso = safeIso(prog?.built_at ?? null);
   let acc = 0;
   const clips = (entry.segments ?? []).map((s) => {
     const start = Math.round(acc / 1000);
@@ -112,7 +119,7 @@ export default async function Page({ params }: Params) {
     name: entry.title,
     description: describe(entry),
     ...(thumb ? { thumbnailUrl: [thumb] } : {}),
-    ...(uploadIso ? { uploadDate: new Date(uploadIso).toISOString() } : {}),
+    ...(uploadIso ? { uploadDate: uploadIso } : {}),
     duration: isoDuration(ms),
     embedUrl: `${SITE}/tv/${slug}`,
     ...(f?.clip ? { contentUrl: `https://www.youtube.com/watch?v=${f.clip}` } : {}),
