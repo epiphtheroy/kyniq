@@ -72,7 +72,7 @@
 - **⚠️ RLS 함정(0059):** `tv_*` 테이블은 RLS **활성 + 정책 0개**로 생성돼 anon SELECT가 0행 반환 → 위 두 직접 select(탭 게이트·built_at)가 조용히 실패(탭·히어로 안 뜸, uploadDate 누락). `tv_watch` RPC는 security definer라 무사. 0059가 published 프로그램/공개 세그·플레이리스트에 SELECT 정책 부여(쓰기 정책 없음=deny-by-default 유지). **tv_* 신규 직접 read 추가 시 정책 필수.**
 - **검증:** `/tv/pulp-fiction-1994` VideoObject+Clip+og:video 라이브, `/film/pulp-fiction-1994` TV Broadcast 탭+16:9 방송 히어로 라이브(백그라운드 트레일러는 `document.hidden` 자동재생 게이팅 때문에 자동화 탭에서만 검게 보임 — 실사용 정상).
 
-**미착수(원우 다음 단계, 선언됨):** 방송 **정렬·검색·장르별 브라우즈 UI** + **여러 세부 플레이리스트**(현재 장르 18·수동 컬렉션만; topic 태그가 이미 있어 "액션 로케이션" 같은 교차컷은 WHERE절로 생성 가능). "이건 하나의 플레이리스트일 뿐" — 세부 플레이리스트 생성기가 다음.
+**다음 단계 — 전략 플레이리스트 체계(기획 완료, 실행 대기):** 정본 지시서 **`docs/WORKORDER-tv-strategic-playlists.md`** (2026-07-10 Opus 기획). 핵심: 새 카테고리 발명 없이 **기존 축을 미러링** — 실측 리니지 89(무브먼트 67 포함)·감독 192·장르 18·국가 45·연대 11·이론가 276·트로프 291(`conn_film_trope_vec`가 정본 멤버십) ≈ 총 ~900 플레이리스트. 각 방송 = ① 세부 페이지 임베드(PlaylistTVEmbed) + ② 독립 slug `/tv/list/[slug]`(CollectionPage+ItemList) + ③ **인트로 브리핑**(제목·클리핑 기준·영화 수·챕터 수 — tv_playlists.intro beats를 tv_watch가 pseudo-엔트리로 선두 삽입). 스키마=0060(axis/key/cut/intro/href 컬럼 추가), 생성기 `tv_build_*_playlists()` 8종+`tv_directory()`. ⚠️ 이론가·트로프 segments-cut은 엔티티 불일치로 P1 금지(컴파일러 v3 meta 스탬프 후). 브라우즈 UI는 tv_directory() 소비로 후속.
 
 ## C. METATAKE TV — 채널 (2026-07-10; `/random`=임베드 페이지, `/random/v2`=풀스크린 키오스크)
 
