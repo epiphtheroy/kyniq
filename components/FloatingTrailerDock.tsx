@@ -48,7 +48,6 @@ export default function FloatingTrailerDock({ videos, watch, poster }: {
   };
   const toggleMute = () => {
     postYT(muted ? "unMute" : "mute");
-    if (muted) postYT("setVolume") /* noop-safe */;
     setMuted((m) => !m);
   };
 

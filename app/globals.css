@@ -3707,6 +3707,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .df-tvhero__badge i{background:#C8102E; color:#fff; font-style:normal; font-weight:800; font-size:13px; padding:1px 6px; border-radius:4px}
 .df-tvhero__tune{position:relative; z-index:2; margin:0 14px 16px 0; color:#fff; font-size:12px; letter-spacing:.06em; text-transform:uppercase; opacity:.9}
 @media(max-width:640px){ .df-tvhero__badge b{font-size:13px} }
+/* FloatingTrailerDock — plain-trailer iframe fills the reused .iv-frame--float box */
+.ivd-yt{position:absolute; inset:0; width:100%; height:100%; border:0; display:block}
 
 /* FilmHeroReel — YT IFrame API player fills the .iv-frame box. */
 .iv-ytwrap{position:absolute; inset:0}
