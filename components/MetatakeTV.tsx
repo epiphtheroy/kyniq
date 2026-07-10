@@ -145,6 +145,8 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
   const pattern = PATTERNS[idx >= 0 ? (pats[idx] ?? 0) : 0];
   const beats = useMemo(() => (card ? compileBeats(card) : []), [card]);
   const beat = beats[beatIdx] ?? null;
+  // the opening title lingers only ~2s before the content flows (unless it's the whole beat)
+  const holdMs = beat && beatIdx === 0 && beat.zone === "top" && beats.length > 1 ? Math.min(beat.hold, 2200) : (beat?.hold ?? 0);
   const acc = ACCENT[card?.mode ?? ""] ?? "#C8102E";
   const ent = ENT_COLOR[ENTITY[card?.mode ?? ""] ?? "film"];
 
@@ -195,9 +197,9 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
     const t = setTimeout(() => {
       if (beatIdx < beats.length - 1) setBeatIdx((i) => i + 1);
       else nextRef.current();
-    }, beat.hold);
+    }, holdMs);
     return () => clearTimeout(t);
-  }, [playing, beat, beatIdx, beats.length, nonce]);
+  }, [playing, beat, beatIdx, beats.length, nonce, holdMs]);
 
   const postYT = useCallback((func: string) => {
     iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ event: "command", func, args: [] }), "*");
@@ -277,7 +279,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
         {beats.map((x, i) => (
           <span key={i} className={`sv2-seg${i < beatIdx ? " done" : ""}`}>
             {i === beatIdx ? (
-              <i key={`${bk}-${nonce}`} style={{ animationDuration: `${x.hold}ms`, animationPlayState: playing ? "running" : "paused" }} />
+              <i key={`${bk}-${nonce}`} style={{ animationDuration: `${holdMs}ms`, animationPlayState: playing ? "running" : "paused" }} />
             ) : null}
           </span>
         ))}
@@ -317,7 +319,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
             <span className="sv2-kick sv2-kick--sub">{card?.label ?? "The map"}</span>
             <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
           </div>
-          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={230} />
+          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={190} />
         </div>
       ) : beat && beat.zone === "atlas" && card?.film_slug ? (
         <div key={`atlas-${idx}`} className="sv2-atlas">
@@ -325,7 +327,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
             <span className="sv2-kick sv2-kick--sub">On the atlas</span>
             <a href={`/film/${card.film_slug}#df-atlas`}>Open ↗</a>
           </div>
-          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={210} panelSide="left" fitMaxZoom={14} />
+          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={160} panelSide="left" fitMaxZoom={14} />
         </div>
       ) : null}
 

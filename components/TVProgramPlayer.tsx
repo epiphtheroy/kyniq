@@ -75,6 +75,8 @@ export default function TVProgramPlayer({
   const seg = entry && plan.length ? entry.segments[plan[pos]] ?? null : null;
   const beats = useMemo(() => seg?.beats ?? [], [seg]);
   const beat = beats[beatIdx] ?? null;
+  // opening title lingers only ~2s before the content flows (unless it's the whole segment)
+  const holdMs = beat && beatIdx === 0 && beat.zone === "top" && beats.length > 1 ? Math.min(beat.hold, 2200) : (beat?.hold ?? 0);
   const acc = seg?.accent ?? "#C8102E";
   useEffect(() => { onNow?.(seg ?? null); /* eslint-disable-next-line */ }, [seg?.id]);
 
@@ -94,9 +96,9 @@ export default function TVProgramPlayer({
     const t = setTimeout(() => {
       if (beatIdx < beats.length - 1) setBeatIdx((i) => i + 1);
       else nextSeg();
-    }, beat.hold);
+    }, holdMs);
     return () => clearTimeout(t);
-  }, [playing, beat, beatIdx, beats.length, nonce, nextSeg]);
+  }, [playing, beat, beatIdx, beats.length, nonce, nextSeg, holdMs]);
 
   // pause/resume the trailer with the broadcast
   const postYT = useCallback((func: string) => {
@@ -211,7 +213,7 @@ export default function TVProgramPlayer({
             <span className="sv2-kick sv2-kick--sub">{seg?.kicker ?? "The map"}</span>
             <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
           </div>
-          <EntityMap api={beat.mapApi} full={beat.mapFull ?? "/map"} height={230} />
+          <EntityMap api={beat.mapApi} full={beat.mapFull ?? "/map"} height={190} />
         </div>
       ) : beat && beat.zone === "atlas" && film?.slug ? (
         <div key={`atlas-${entryIdx}-${pos}`} className="sv2-atlas">
@@ -219,7 +221,7 @@ export default function TVProgramPlayer({
             <span className="sv2-kick sv2-kick--sub">On the atlas</span>
             <a href={`/film/${film.slug}#df-atlas`}>Open ↗</a>
           </div>
-          <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={210} panelSide="left" fitMaxZoom={14} />
+          <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={160} panelSide="left" fitMaxZoom={14} />
         </div>
       ) : null}
 
