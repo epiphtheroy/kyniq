@@ -76,7 +76,7 @@ export default function TVProgramPlayer({
   const beats = useMemo(() => seg?.beats ?? [], [seg]);
   const beat = beats[beatIdx] ?? null;
   // opening title lingers only ~2s before the content flows (unless it's the whole segment)
-  const holdMs = beat && beatIdx === 0 && beat.zone === "top" && beats.length > 1 ? Math.min(beat.hold, 2200) : (beat?.hold ?? 0);
+  const holdMs = beat && beatIdx === 0 && beat.zone === "top" && beats.length > 1 ? Math.min(beat.hold, 1800) : (beat?.hold ?? 0);
   const acc = seg?.accent ?? "#C8102E";
   useEffect(() => { onNow?.(seg ?? null); /* eslint-disable-next-line */ }, [seg?.id]);
 

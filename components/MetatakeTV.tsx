@@ -146,7 +146,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
   const beats = useMemo(() => (card ? compileBeats(card) : []), [card]);
   const beat = beats[beatIdx] ?? null;
   // the opening title lingers only ~2s before the content flows (unless it's the whole beat)
-  const holdMs = beat && beatIdx === 0 && beat.zone === "top" && beats.length > 1 ? Math.min(beat.hold, 2200) : (beat?.hold ?? 0);
+  const holdMs = beat && beatIdx === 0 && beat.zone === "top" && beats.length > 1 ? Math.min(beat.hold, 1800) : (beat?.hold ?? 0);
   const acc = ACCENT[card?.mode ?? ""] ?? "#C8102E";
   const ent = ENT_COLOR[ENTITY[card?.mode ?? ""] ?? "film"];
 
