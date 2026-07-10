@@ -5137,3 +5137,5 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 /* Post-card meta row + corner line live OUTSIDE the card. */
 .cmeta { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0; align-items: center; justify-content: flex-start; }
 .ccard__chip { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(60,50,35,.22); background: rgba(255,255,255,.5); }
+
+.df-share{margin:14px 0 4px}

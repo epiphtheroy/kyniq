@@ -7,6 +7,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar, { type FilmTab } from "@/components/FilmTabBar";
+import ShareDock from "@/components/ShareDock";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
