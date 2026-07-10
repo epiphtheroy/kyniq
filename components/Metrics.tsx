@@ -84,6 +84,12 @@ export default function Metrics() {
 
     if (cur.current && cur.current !== pathname) flushLeave();
 
+    // never count the admin area (dashboard visits would pollute the data)
+    if (pathname.startsWith("/admin")) {
+      cur.current = null;
+      return;
+    }
+
     cur.current = pathname;
     since.current = Date.now();
     maxScroll.current = 0;
