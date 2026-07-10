@@ -133,6 +133,15 @@ export default function RootLayout({
         <GlobalCmdK />
         <Analytics />
         <Metrics />
+        {process.env.NEXT_PUBLIC_CLARITY_ID && (
+          // Microsoft Clarity (session replay + heatmaps) — activates only when
+          // NEXT_PUBLIC_CLARITY_ID is set in Vercel env. Free, unlimited.
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${process.env.NEXT_PUBLIC_CLARITY_ID}");`,
+            }}
+          />
+        )}
       </body>
     </html>
   );
