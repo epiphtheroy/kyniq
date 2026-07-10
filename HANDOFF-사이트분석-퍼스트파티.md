@@ -50,16 +50,13 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 - 시계열(페이지뷰+방문자, 호버 크로스헤어) · Top pages(체류·스크롤 병기) · 유입 도메인 · 진입/이탈 페이지 · 국가 · 기기/브라우저 · **사이트 내 검색어** · 클릭(data-mt) · 세션 흐름(페이지→페이지) · vitals p75.
 - **페이지 행 클릭 = 드릴다운**: 그 페이지의 시계열·유입·전/다음 페이지·**GSC 쿼리**(클릭·노출·평균 순위) 한 화면.
 
-## 5. GSC 커넥터 — worker/gsc-pull.py (⏳ 원우 셋업 대기)
+## 5. GSC 커넥터 — worker/gsc-pull.py (✅ 가동 중 2026-07-10)
 
-원우가 할 일(1회, ~10분):
-1. console.cloud.google.com → 프로젝트에서 **Search Console API 활성화**
-2. 서비스 계정 생성 → JSON 키 다운로드 → `worker/gsc-sa.json`으로 저장(.gitignore 등록됨)
-3. GSC(search.google.com/search-console) → 설정 → 사용자·권한 → 그 서비스계정 이메일 추가
-4. `python3 worker/gsc-pull.py` (드라이런) → `python3 worker/gsc-pull.py --persist --days 90` (백필)
-5. 이후 일일 1회 `--persist` (hourly 워처 루프에 한 줄 추가하면 됨; GSC는 ~2일 지연이라 기본 3일 창)
-
+- 서비스계정 `metatake@epiph-test-bot.iam.gserviceaccount.com` = GSC siteFullUser, 키는 `worker/gsc-sa.json`(gitignore).
+- 90일 백필 완료(첫 데이터는 2026-07-01부터 — 사이트가 검색노출 초기 단계라 51행/63노출).
+- **일일 자동 갱신: `worker/gsc-daily-watch.sh`** (nohup 루프, pid=`worker/.gsc-watch.pid`, 로그=`worker/gsc-pull.log`). 하루 1회 3일 창 재적재(GSC ~2일 지연 커버, upsert 멱등). 재부팅 후엔 `nohup worker/gsc-daily-watch.sh >> worker/gsc-pull.log 2>&1 &`로 재기동.
 - pip 의존성 없음(JWT 서명은 openssl 서브프로세스). 프로퍼티 기본 `sc-domain:metatake.net`, 다르면 `GSC_PROPERTY` env 또는 `--property`.
+- ⚠️ GSC page×query 차원은 프라이버시 필터로 희귀 쿼리를 누락시킴 — 일별 합계(클릭 등)가 GSC UI 총계보다 약간 적은 건 정상.
 
 ## 6. Clarity (선택, ⏳ 원우 계정 생성 대기)
 
@@ -78,7 +75,7 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 
 ## 8. 다음 단계(대기)
 
-- [ ] 원우: GSC 서비스계정 (§5) → 대시보드 GSC 패널 활성화
+- [x] GSC 서비스계정 + 90일 백필 + 일일 워처 (§5, 2026-07-10 완료)
 - [ ] 원우(선택): Clarity 계정 (§6)
 - [ ] 원우(선택): Vercel env `METRICS_SALT` 임의 문자열 추가
 - [ ] 데이터가 쌓이면: 핵심 CTA에 `data-mt` 속성 부착(Save/Seen/Watchlist/Follow/TV 재생 등), 주간 자동 리포트, 일별 롤업, "노출 많고 클릭 없는 페이지"(GSC×행동) 자동 리스트

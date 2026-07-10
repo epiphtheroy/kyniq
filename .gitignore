@@ -56,3 +56,5 @@ outputs/figure_seo/*.jsonl
 
 # Search Console service-account key (worker/gsc-pull.py) — never commit
 worker/gsc-sa.json
+worker/.gsc-watch.pid
+worker/gsc-pull.log
