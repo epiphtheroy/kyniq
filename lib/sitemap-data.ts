@@ -212,6 +212,27 @@ export async function movementEntries(): Promise<SitemapEntry[]> {
 }
 
 /**
+ * METATAKE TV — /tv/[slug] per-film broadcasts (built_at is an accurate per-film
+ * compile event, so lastmod is safe here) and /tv/list/[slug] axis watch lists
+ * (rebuilt together, so no lastmod — see the lastmod discipline note above).
+ */
+export async function tvProgramEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const rows = await fetchAll<{ slug: string; built_at: string | null }>(
+    (from, to) => db().from("tv_programs").select("slug, built_at").eq("status", "published").order("slug").range(from, to)
+  );
+  return rows.filter((r) => r.slug).map((r) => ({ url: `${siteUrl}/tv/${r.slug}`, ...(r.built_at ? { lastmod: isoDate(r.built_at) } : {}) }));
+}
+
+export async function tvListEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const rows = await fetchAll<{ slug: string }>(
+    (from, to) => db().from("tv_playlists").select("slug").order("slug").range(from, to)
+  );
+  return rows.filter((r) => r.slug).map((r) => ({ url: `${siteUrl}/tv/list/${r.slug}` }));
+}
+
+/**
  * /director/[slug]/start + /director/[slug]/next — the promoted director
  * guide articles (added 2026-07-09). Advertise only the indexable cohort
  * (≥3 items — mirrors each page's pageRobots gate; pages themselves render

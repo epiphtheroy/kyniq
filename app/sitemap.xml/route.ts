@@ -45,6 +45,8 @@ const SECTIONS = [
   "concept-domains",
   "frames",
   "now",
+  "tv-programs",
+  "tv-lists",
 ];
 
 export async function GET() {
