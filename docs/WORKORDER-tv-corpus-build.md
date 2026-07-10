@@ -1,7 +1,15 @@
 # 작업 지시서 — METATAKE TV 전 코퍼스 DB 구축 (다른 AI 실행용)
 
-**상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.**
+**상태: ✅ 완료 (2026-07-10, Opus 실행). compiled 1,794 · skipped 141 · segments 27,583 (편당 12–15.4–18).**
 작성 2026-07-10. 배경 지식: 루트 `HANDOFF-서프라이즈-v2채널-스트리밍.md` §C2 (엔진 v1 설계·10편 파일럿 완료).
+
+**실행 결과 요약** (Phase 1–5 완주):
+- 0058 적용 → `tv_compile_batch(20,4)` 90배치(≈39분), 슬립·advisory lock·statement_timeout으로 사이트 다운 0회.
+- **skip 사유**: no clean trailer 139 · takes<3 2 · rich<4 **0** (트레일러+테이크≥3이면 전부 rich≥4였음 → 데이터 게이트는 트레일러 유무가 사실상 결정).
+- **주제 분포**: misreading 5,382(3/편) · open/close/figures/why_watch/invitation/kindred/map 각 1,794 · theorist 1,793 · watch_next 1,790 · locations 1,764 · ideas 1,484 · reception 1,250 · canon 677 · honors 644 · question 241.
+- 플레이리스트 20개(장르 18 + on-location 40편 + palme-files 46편).
+- **QA 최종**: empty beats 0 · orphan 0 · <8세그 0 · headline 오염 0. tv_watch(null,null) < 1s, palme-files 피드 647KB·1.3s.
+- **버그 1건 수정**: The-시작 제목(예: The Monkey)에서 close `'The %s File Stays Open'` · kindred `'The %s Family Tree'` 템플릿이 이중관사("The The …") 214세그 유발 → 두 템플릿을 `'%s — The File Stays Open'` · `'The Family Tree of %s'`로 교체, 해당 183편 재컴파일, 재확인 0.
 
 ---
 

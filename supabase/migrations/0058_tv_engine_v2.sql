@@ -321,7 +321,7 @@ begin
   end loop;
   if jsonb_array_length(beats) > 0 then
     n := n + 1;
-    t := format(tv_pick(array['The Films Nearest to %s','%s Has Relatives — Meet Them','The %s Family Tree'], f.slug||':kin'), f.title);
+    t := format(tv_pick(array['The Films Nearest to %s','%s Has Relatives — Meet Them','The Family Tree of %s'], f.slug||':kin'), f.title);
     beats := jsonb_build_array(jsonb_build_object('zone','top','kicker','Kindred films','text',t,'hold',tv_hold(t))) || beats;
     d := d + tv_hold(t);
     insert into tv_segments (program_id, film_id, topic, seq, title, kicker, accent, beats, duration_ms)
@@ -372,7 +372,7 @@ begin
 
   -- 18 · CLOSE
   n := n + 1;
-  t := format(tv_pick(array['The %s File Stays Open','This Was the Short File on %s','%s — To Be Continued on Metatake'], f.slug||':close'), f.title);
+  t := format(tv_pick(array['%s — The File Stays Open','This Was the Short File on %s','%s — To Be Continued on Metatake'], f.slug||':close'), f.title);
   d := tv_hold(t, 800);
   beats := jsonb_build_array(jsonb_build_object('zone','top','kicker','METATAKE TV','text',t,
     'sub', 'Read the full file — every take, every place, every list — at metatake.net/film/'||f.slug, 'hold', d));

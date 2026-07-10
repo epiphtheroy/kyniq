@@ -55,16 +55,16 @@
 
 ---
 
-## C2. TV 프로덕션 엔진 — 영화별 방송 자동생산 (2026-07-10, 마이그 0056·0057)
+## C2. TV 프로덕션 엔진 — 영화별 방송 자동생산 (2026-07-10, 마이그 0056·0057·0058; 전 코퍼스 빌드 완료)
 
 **목적:** 영화별 방송(프로그램)을 LLM-0으로 자동 컴파일 → 시청목록으로 묶어 연속재생(유튜브식) → 장차 film 페이지 상단 트레일러 대체. **설계 축: 세그먼트가 topic 태그를 달고 beats까지 사전 컴파일 저장 → "액션영화 로케이션" 같은 미래 컷 = WHERE절**(재생성 불필요).
 
 - **DB(0056):** `tv_programs`(영화당 1, slug=film slug, meta.clips) / **`tv_segments`**(원자단위: film×topic×seq, title=궁금증 헤드라인, accent, **beats jsonb**=플레이어 그대로 소비, duration_ms; 인덱스 (film_id,topic)·(topic)) / `tv_playlists`(kind='films'|'segments', rule jsonb) / `tv_playlist_items`(program_id 또는 segment_id).
-- **컴파일러 `tv_compile_film(uuid)`:** 챕터 순서 open→misreading×3(테이크당 1모듈)→figures→ideas→reception→honors→canon→locations(atlas)→map→kindred→close. 헤드라인=ScreenRant식 템플릿×사실, `tv_pick`(hashtext 결정적)이라 재빌드에도 카피 불변. `tv_chunks`(문장분할)·`tv_hold`(읽기시간). **배경 클립=trailer/teaser만**(explain|featurette|interview|review|making 등 제외 — "영화 설명 영상 금지"). ⚠️ 템플릿 함정: 'The %s Dossier'는 The-시작 제목과 충돌("The The Conversation") → '%s: The Dossier'로.
+- **컴파일러 `tv_compile_film(uuid)`:** 챕터 순서 open→misreading×3(테이크당 1모듈)→figures→ideas→reception→honors→canon→locations(atlas)→map→kindred→close. 헤드라인=ScreenRant식 템플릿×사실, `tv_pick`(hashtext 결정적)이라 재빌드에도 카피 불변. `tv_chunks`(문장분할)·`tv_hold`(읽기시간). **배경 클립=trailer/teaser만**(explain|featurette|interview|review|making 등 제외 — "영화 설명 영상 금지"). ⚠️ 템플릿 함정(이중관사): The-시작 제목("The Monkey")은 `'The %s …'` 꼴 템플릿과 충돌해 "The The …"를 만든다 — prog `'The %s Dossier'`→`'%s: The Dossier'`, close `'The %s File Stays Open'`→`'%s — The File Stays Open'`, kindred `'The %s Family Tree'`→`'The Family Tree of %s'`로 모두 교체됨(2026-07-10 코퍼스 QA에서 214세그 적발·수정). 새 템플릿 추가 시 선두 `The %s` 금지.
 - **피드 `tv_watch(p_list,p_program)`:** (null,null)=선반(플레이리스트+전 프로그램 라이트) / (list)=풀 엔트리(segments-kind는 세그먼트를 1세그 미니프로그램으로 합성 → 플레이어 동일 처리) / (program)=단일.
 - **시드(0057):** 10편 컴파일(128세그) — 팔므도르 6(Wages of Fear·Conversation·Apocalypse Now·Pulp Fiction·Shoplifters·Anatomy of a Fall)+Amélie(slug **am-lie-2001**)·Cold War·Great Beauty·All About My Mother. 플레이리스트 3: `palme-files`(films 6)·`thriller-files`(films 4, genres 배열 컷)·**`on-location`(segments 10 — 주제 슬라이스 증명)**.
 - **프론트:** `/api/tv/watch` → **`components/TVProgramPlayer.tsx`**(컴파일된 beats 재생; **랜덤 플레이**: 모듈 전부 저장·재생 시 open+셔플 중간(≤170s 예산)+close 샘플링 — 원우 지시 "테이크 많아 길면 랜덤"; 챕터 점프=window 'tvw-jump' 이벤트; 플레이리스트 자동 다음) + **`/tv/watch`**(유튜브형: 플레이어+챕터칩+Up next 레일+Watch lists/All programs 선반; `?list=`·`?v=`).
-- **주의:** sv2 존-렌더 JSX가 MetatakeTV와 TVProgramPlayer에 중복(3벌째) — 존 구조 바꿀 땐 두 파일 동기. 새 영화 추가 = `select tv_compile_film(id)` 1콜. **미착수:** film 페이지 트레일러 대체(목적 선언됨), 전 코퍼스 배치 컴파일, 장르×주제 자동 플레이리스트 생성기.
+- **주의:** sv2 존-렌더 JSX가 MetatakeTV와 TVProgramPlayer에 중복(3벌째) — 존 구조 바꿀 땐 두 파일 동기. 새 영화 추가 = `select tv_compile_film(id)` 1콜. **✅ 완료(2026-07-10, 마이그 0058 v2, Opus 실행):** 전 코퍼스 배치 컴파일 — 1,794편 방송 / 141 스킵(트레일러 없음 139·테이크<3 2) / 27,583 세그먼트, 플레이리스트 20개(장르 18·on-location·palme-files). 실행·QA 전체 기록은 `docs/WORKORDER-tv-corpus-build.md`(상태 완료). **미착수:** film 페이지 상단 트레일러를 이 방송으로 대체(목적 선언됨), 장르×주제 조합 자동 플레이리스트 생성기(현재는 장르·수동 컬렉션만).
 
 ## C. METATAKE TV — 채널 (2026-07-10; `/random`=임베드 페이지, `/random/v2`=풀스크린 키오스크)
 
