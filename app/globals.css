@@ -4047,6 +4047,48 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .tv-embed .sv2-atlas .fmap-body{grid-template-columns:1fr 160px}
 .tv-embed .sv2-atlas .fmap-body--left{grid-template-columns:160px 1fr}
 
+/* ══ /tv/watch — the YouTube-shaped watch page (player + up-next + shelves) ══ */
+.tvw-wrap{max-width:1440px;margin:0 auto;padding:0 20px 80px}
+.tvw-main{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:22px;align-items:start}
+.tvw-player{position:relative;width:100%;aspect-ratio:16/9;min-height:380px;border-radius:12px;box-shadow:0 20px 70px rgba(0,0,0,.5)}
+.tvw-tuning{display:flex;align-items:center;justify-content:center;height:100%;color:#7a7468;font-family:var(--font-ui);font-size:13px;background:#000;border-radius:12px}
+.tvw-meta{padding:16px 4px 0}
+.tvw .tvw-title{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.08;color:#fff;margin:0}
+.tvw .tvw-sub{font-family:var(--font-ui);font-size:13.5px;color:#b3aa98;margin:8px 0 0}
+.tvw-chapters{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tvw-chap{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:capitalize;color:#d9d1c2;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 13px;cursor:pointer}
+.tvw-chap i{width:8px;height:8px;border-radius:50%;background:var(--acc,#C8102E);flex:0 0 auto}
+.tvw-chap:hover{background:rgba(255,255,255,.1)}
+.tvw-chap.on{border-color:var(--acc,#C8102E);color:#fff;background:rgba(255,255,255,.08)}
+.tvw-next{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;max-height:calc(56.25vw * .8);min-height:420px;overflow-y:auto}
+.tvw-next__h{font-family:var(--font-ui);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9a9388;margin:2px 2px 12px}
+.tvw-next__h p{font-weight:400;text-transform:none;letter-spacing:0;font-size:12px;color:#7a7468;margin:6px 0 0}
+.tvw-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.tvw-item{display:flex;gap:11px;width:100%;text-align:left;background:transparent;border:0;padding:6px;border-radius:10px;cursor:pointer}
+.tvw-item:hover{background:rgba(255,255,255,.06)}
+.tvw-item.on{background:rgba(200,16,46,.14);outline:1px solid rgba(200,16,46,.5)}
+.tvw-item__th{position:relative;flex:0 0 auto;width:150px;aspect-ratio:16/9;border-radius:7px;background:#1a1713 center/cover no-repeat;display:flex;align-items:center;justify-content:center}
+.tvw-item__th b{color:#fff;font-size:15px;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.tvw-item__b{min-width:0;display:flex;flex-direction:column;gap:4px;justify-content:center}
+.tvw-item__t{font-family:var(--font-ui);font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tvw-item__f{font-family:var(--font-ui);font-size:12px;color:#9a9388}
+.tvw-shelves{margin-top:34px;border-top:1px solid rgba(255,255,255,.1);padding-top:22px}
+.tvw-shelf__h{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:20px;letter-spacing:.03em;color:#fff;margin:14px 0 12px}
+.tvw-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.tvw-card{text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 18px;cursor:pointer;display:flex;flex-direction:column;gap:7px}
+.tvw-card:hover{background:rgba(255,255,255,.08)}
+.tvw-card.on{border-color:var(--red,#C8102E);background:rgba(200,16,46,.1)}
+.tvw-card__k{font-family:var(--font-ui);font-size:10.5px;font-weight:800;letter-spacing:.12em;color:#E8A7AF}
+.tvw-card__t{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:21px;color:#fff;line-height:1.1}
+.tvw-card__d{font-family:var(--font-ui);font-size:12.5px;color:#9a9388;line-height:1.45}
+.tvw-progrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tvw-prog{display:flex;flex-direction:column;gap:7px;text-decoration:none}
+.tvw-prog__th{width:100%;aspect-ratio:16/9;border-radius:9px;background:#1a1713 center/cover no-repeat;border:1px solid rgba(255,255,255,.1)}
+.tvw-prog:hover .tvw-prog__th{outline:2px solid var(--red,#C8102E)}
+.tvw-prog__t{font-family:var(--font-ui);font-size:13.5px;font-weight:600;color:#fff;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tvw-prog__f{font-family:var(--font-ui);font-size:12px;color:#9a9388}
+@media(max-width:980px){ .tvw-main{grid-template-columns:1fr} .tvw-next{max-height:420px} .tvw-player{min-height:250px} }
+
 /* The Reel (/random/reel) — start/end covers over the broadcast bed */
 .reel-count{position:absolute; top:18px; right:22px; z-index:6; font-family:var(--font-ui); font-size:12px; font-weight:700; letter-spacing:.12em; color:#d9d1c2}
 .reel-cover{position:absolute; inset:0; z-index:7; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 26px; gap:0}
