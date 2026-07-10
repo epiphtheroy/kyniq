@@ -277,6 +277,21 @@ begin
   on conflict (key) do nothing;
   get diagnostics n = row_count; ins := ins + n;
 
+  -- 14) weekly UI-interaction digest (tabs, maps, graphs, data-mt clicks)
+  insert into mt_insights (kind, key, line, data)
+  select 'ui_week', 'uiweek:' || to_char(now(), 'IYYY-IW'),
+         '🖱️ 이번 주 UI 상호작용 톱: ' || string_agg(u.name || ' ' || u.cnt || '회', ' · ' order by u.cnt desc),
+         jsonb_object_agg(u.name, u.cnt)
+  from (
+    select props->>'name' as name, count(*) as cnt
+    from mt_events
+    where type = 'click' and ts > now() - interval '7 days' and coalesce(props->>'name','') <> ''
+    group by 1 order by cnt desc limit 5
+  ) u
+  having count(*) > 0
+  on conflict (key) do nothing;
+  get diagnostics n = row_count; ins := ins + n;
+
   return ins;
 end;
 $fn$;
