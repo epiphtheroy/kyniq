@@ -748,6 +748,11 @@ export default async function FilmPage({ params }: Props) {
                   {f.tmdb_id ? <Link className="df-like" href={`/credits?f=${f.tmdb_id}`}>🎞 Follow the credits →</Link> : null}
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
                 </div>
+                <div className="df-share">
+                  <ShareDock variant="bar" noSave path={`/film/${f.slug}`} title={`${f.title}${f.year ? ` (${f.year})` : ""}`}
+                    hook={`${f.title}${f.year ? ` (${f.year})` : ""}${f.director ? `, ${f.director}` : ""}${mTsScore != null ? ` — TakeScore ${mTsScore} on Metatake` : " on Metatake"}`} />
+                  <ShareDock variant="fab" path={`/film/${f.slug}`} title={f.title} />
+                </div>
                 <p className="df-catnote">Catalog record — the deep analysis (figures &amp; readings) is still pending. Track it in your lists; the films most readers add are the ones we analyze next.</p>
               </div>
             </div>
@@ -1106,6 +1111,11 @@ export default async function FilmPage({ params }: Props) {
                 <MovieListActions filmId={film.id} />
                 <EntityActions entityType="film" entityId={film.id} />
                 {recs.length ? <Link className="df-like" href={`/movies-like/${film.slug}`}>🎬 Movies like {film.title} →</Link> : null}
+              </div>
+              <div className="df-share">
+                <ShareDock variant="bar" noSave path={`/film/${film.slug}`} title={`${film.title}${film.year ? ` (${film.year})` : ""}`}
+                  hook={`${film.title}${film.year ? ` (${film.year})` : ""}${film.director ? `, ${film.director}` : ""}${codex ? ` — TakeScore ${Math.round(codex.u)}${codex.rank && codex.rank_total ? `, #${codex.rank.toLocaleString()} of ${codex.rank_total.toLocaleString()}` : ""} on Metatake` : " on Metatake"}`} />
+                <ShareDock variant="fab" path={`/film/${film.slug}`} title={film.title} />
               </div>
             </div>
           </div>
