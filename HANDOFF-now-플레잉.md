@@ -208,6 +208,7 @@ metatake.net의 라이브 뉴스층. 전 세계에서 스파이크하는 **영�
   - **/methodology에 "Now Playing — the live layer" 섹션** 추가(임베딩·retrieved-not-remembered·판정단어·무해 규칙·"단순 AI 글 아님" 강조).
   - **AI 조력 고지는 피스별로 안 함**(법적 의무 아님 — 사설/실명 저자 콘텐츠엔 미적용). /editor·/methodology가 투명성 담당.
   - 검수 중 **오매칭 발견**: "Little House on the Prairie" 피스가 House(1977, 오바야시)에 오앵커 → `status='pulled'`로 하차. now_articles.status는 CHECK('published','pulled')뿐(마이그 0049). 앵커 매칭 정밀도는 후속 과제.
+  - **일간 다이제스트 = (A) 매일 발행, 빈틈 없이**(원우 확정 2026-07-10). `digest.py`는 완전 조용한 날(관찰0·발행0)에도 스킵하지 않고 결정론적 "A Quiet {날짜}" 노트를 박음(Fable 미사용, 날짜로 헤드라인 유니크). 워처가 UTC 23시대 실행. `/now/daily/[date]`는 결번 없음.
 
 ---
 

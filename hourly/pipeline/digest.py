@@ -102,14 +102,27 @@ def main() -> None:
     items = build_items(env, day)
     pieces = sb_get(env, f"now_articles?select=slug,headline,keyword&status=eq.published"
                          f"&published_at=gte.{day}T00:00:00Z&published_at=lte.{day}T23:59:59Z", service=True) or []
-    if not items and not pieces:
-        log(f"digest {day}: nothing reviewed, nothing published — skipping")
-        return
 
-    front = write_intro(env, day, items, pieces)
-    if not front or not front.get("headline") or not front.get("intro_html"):
-        log(f"digest {day}: front matter generation failed")
-        return
+    if not items and not pieces:
+        # (A) publish every day, no gaps (owner's rule 2026-07-10). On a fully
+        # quiet day — nothing watched, nothing written — post a deterministic
+        # note instead of skipping, so /now/daily/[date] is never missing. The
+        # date keeps each quiet-day headline unique; no Fable spend on empties.
+        nice = datetime.strptime(day, "%Y-%m-%d").strftime("%B %-d, %Y")
+        front = {
+            "headline": f"The Now Playing Desk: A Quiet {nice}",
+            "dek": "No film or culture story spiked hard enough to write today.",
+            "intro_html": ("<p>A genuinely quiet day at the desk. The wire brought nothing the archive judged "
+                           "worth an editor's letter, so we wrote none. We publish when a film or filmmaker truly "
+                           "spikes in the world's attention, never to fill a slot, and today the quiet is simply "
+                           "the standard holding.</p>"),
+        }
+        log(f"digest {day}: fully quiet day — deterministic note (no Fable)")
+    else:
+        front = write_intro(env, day, items, pieces)
+        if not front or not front.get("headline") or not front.get("intro_html"):
+            log(f"digest {day}: front matter generation failed")
+            return
 
     row = {"digest_date": day, "headline": front["headline"][:200], "dek": front.get("dek"),
            "intro_html": front["intro_html"], "items": items, "updated_at": now_utc()}
