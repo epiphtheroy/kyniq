@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ContributionSection from "./ContributionSection";
 import MediaGallery from "@/components/MediaGallery";
-import ShareRow from "@/components/ShareRow";
+import ShareDock from "@/components/ShareDock";
 import SpoilerShield from "@/components/SpoilerShield";
 import LightboxImage from "@/components/LightboxImage";
 import RelatedBoxes from "@/components/RelatedBoxes";
@@ -279,7 +279,8 @@ export default async function QuestionPage({ params }: Props) {
                 </>
               )}
               <span className="grow" />
-              <ShareRow title={question.title} />
+              <ShareDock variant="bar" path={`/film/${film.slug}/q/${question.slug}`} title={question.title}
+                hook={question.safe_hook || question.title} saveType="question" saveRef={question.slug} />
             </div>
           </header>
 
