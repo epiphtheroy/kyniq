@@ -60,3 +60,4 @@ The live news layer and its video spin-off. Both self-contained bundles under `h
 
 ## Legacy / superseded → to be archived
 Pre-migration docs still teaching the old model (root `MASTER.md`, `meta-take-architecture.md`, `START-HERE.md`, `SPEC.md`, all `mission-*.md`, root `HANDOFF-*.md`, `docs/STATE-2026-06-17.md`, `docs/RUNBOOK-bigbang.md`, and the entire **duplicate `filmcurio-bundle/`**). Pending your OK to move into `archive/` (BACKLOG §F).
+- **공유·저장 시스템(기획)**: 루트 `HANDOFF-공유-저장-시스템.md` — ShareDock·채널전략·OG 이미지 표준·배치맵·측정. 구현 대기(다른 AI 수행 예정).
