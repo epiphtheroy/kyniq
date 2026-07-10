@@ -1019,12 +1019,15 @@ export default async function FilmPage({ params }: Props) {
     // TakeScore as a schema.org Review — Tier-1 + scored films only. ratingValue
     // must equal the TakeScore visibly rendered on the page (Google requires
     // correspondence): subscores.takescore == Math.round(v − r), the badge number.
-    ...(codex && subscores ? {
+    // Scale is 0–100 to match /takescore/film JSON-LD; negative scores (339
+    // films) ship no Review at all — a negative ratingValue trips Google's
+    // "value out of range" review-snippet error (GSC, 2026-07-11).
+    ...(codex && subscores && subscores.takescore >= 0 ? {
       review: {
         "@type": "Review",
         author: { "@type": "Organization", name: "Metatake", url: "https://metatake.net" },
         name: "TakeScore",
-        reviewRating: { "@type": "Rating", ratingValue: subscores.takescore, worstRating: -100, bestRating: 100 },
+        reviewRating: { "@type": "Rating", ratingValue: subscores.takescore, worstRating: 0, bestRating: 100 },
       },
     } : {}),
   };

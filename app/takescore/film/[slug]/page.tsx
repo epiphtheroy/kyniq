@@ -166,7 +166,11 @@ export default async function TakeScoreFilmPage({ params }: Props) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
+      // Review markup only when the score fits the declared 0–100 scale.
+      // 339 films score negative (min −50): a negative ratingValue is "out of
+      // range" to Google (GSC review-snippet error, 2026-07-11) and a negative
+      // review snippet has no search value anyway — those pages ship no Review.
+      ...(ts >= 0 ? [{
         "@type": "Review",
         "@id": `${canonical}#review`,
         url: canonical,
@@ -183,7 +187,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         publisher: { "@type": "Organization", name: "Metatake", url: SITE },
         ...(date ? { datePublished: date } : {}),
         reviewBody: verdict,
-      },
+      }] : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
