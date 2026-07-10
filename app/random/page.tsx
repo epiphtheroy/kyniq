@@ -1,141 +1,90 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import SiteNavClient from "@/components/home2/SiteNavClient";
-import SurpriseStage from "@/components/home2/SurpriseStage";
+import MetatakeTV from "@/components/MetatakeTV";
+import type { SurpriseCard } from "@/components/home2/SurpriseStage";
 import "@/app/home2.css";
 
-type GCard = { kind: string; line?: string; sub?: string | null; href?: string; backdrop?: string | null };
-
-// The wander-wall content types (drive surprise_set, user-customizable). The
-// hero above uses surprise_home — the same curated, film-anchored lenses as the
-// home page — so /random opens with the exact home experience, then lets you
-// browse a wall of a chosen type below.
-const KINDS: [string, string][] = [
-  ["any", "🎲 Surprise"],
-  ["film", "Film"], ["reading", "Reading"], ["concept", "Concept"], ["director", "Director"],
-  ["theorist", "Theorist"], ["trope", "Trope"], ["figure", "Figure"], ["location", "On location"],
-  ["question", "Curious"], ["reception", "What critics said"],
-];
-const MIX_TYPES: [string, string][] = KINDS.slice(1);
 const IMG = "https://image.tmdb.org/t/p";
-const MIX_KEY = "sm_mix_v1";
 
-export default function SurprisePage() {
-  const [kind, setKind] = useState("any");
-  const [set, setSet] = useState<GCard[]>([]);
-  const [gridLoading, setGridLoading] = useState(true);
-  const [mix, setMix] = useState<string[]>(() => MIX_TYPES.map(([k]) => k));
-  const [showMix, setShowMix] = useState(false);
-  const kindRef = useRef(kind); kindRef.current = kind;
-  const mixRef = useRef(mix); mixRef.current = mix;
-
-  // Load the saved mix once on mount.
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(MIX_KEY);
-      if (raw) {
-        const arr = JSON.parse(raw) as string[];
-        const valid = arr.filter((k) => MIX_TYPES.some(([t]) => t === k));
-        if (valid.length) setMix(valid);
-      }
-    } catch { /* noop */ }
-  }, []);
-
-  // The mix query param — only meaningful for "any"; full mix ⇒ omit (server default).
-  const mixParam = (k: string) =>
-    k === "any" && mixRef.current.length && mixRef.current.length < MIX_TYPES.length
-      ? `&mix=${mixRef.current.join(",")}` : "";
-
-  const drawSet = useCallback(async (k?: string) => {
-    const kk = k ?? kindRef.current;
-    setGridLoading(true);
-    try {
-      const r = await fetch(`/api/surprise/set?kind=${kk}&n=30${mixParam(kk)}&_=${Date.now()}`, { cache: "no-store" });
-      const j = await r.json();
-      setSet(Array.isArray(j) ? (j as GCard[]) : []);
-    } catch { /* noop */ } finally { setGridLoading(false); }
-  }, []);
-
-  const toggleMix = (t: string) => {
-    setMix((cur) => {
-      const next = cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t];
-      const safe = next.length ? next : [t]; // never let the mix go empty
-      try { localStorage.setItem(MIX_KEY, JSON.stringify(safe)); } catch { /* noop */ }
-      mixRef.current = safe;
-      return safe;
-    });
-  };
-
-  useEffect(() => { drawSet("any"); }, [drawSet]);
-
-  const pick = (k: string) => { setKind(k); drawSet(k); };
-
+// METATAKE TV — the former "Surprise me" page, reborn as a channel. The TV plays
+// large at the top (embedded, not full-screen); beneath it a live "dossier" pulls
+// in whatever the TV is currently on — the film, the lens in full, deep links —
+// so the broadcast doubles as a way into the site (page-within-page).
+export default function TVPage() {
+  const [card, setCard] = useState<SurpriseCard | null>(null);
   return (
-    <div className="mt sm-page sm-rand">
+    <div className="mt tvpg">
       <SiteNavClient />
-
-      <div className="sm-head">
-        <h1 className="sm-h1">Surprise me</h1>
-        <p className="sm-tag">A film through one lens you didn’t expect — its critics, its honors, its map, a bold misreading. Hit <kbd>Space</kbd> to draw again.</p>
-      </div>
-
-      {/* The hero: identical to the home "Surprise me" — a curated, film-anchored lens */}
-      <div className="mthome sm-rand-hero">
-        <div className="hero">
-          <div className="wrap">
-            <SurpriseStage />
+      <div className="tvpg-wrap">
+        <header className="tvpg-head">
+          <div className="tvpg-brand">
+            <span className="tvpg-brand__n">METATAKE</span>
+            <span className="tvpg-brand__tv">TV</span>
+            <span className="tvpg-brand__live">● ON AIR</span>
           </div>
-        </div>
-      </div>
+          <p className="tvpg-tag">The channel that never stops reading films — one film, one lens at a time. Leave it on.</p>
+          <a className="tvpg-full" href="/random/v2">Full-screen ↗</a>
+        </header>
 
-      {/* Below: a wall you can steer by type */}
-      <div className="sm-wrap">
-        <div className="sm-morehd">
-          <h2 className="sm-h2">Or wander by type</h2>
-          <p className="sm-tag">Choose what the wall pulls from — your pick is remembered.</p>
-        </div>
+        <div className="tv-stage"><MetatakeTV embed onCard={setCard} /></div>
 
-        <div className="sm-toggles">
-          {KINDS.map(([k, l]) => (
-            <button key={k} className={`sm-tog${kind === k ? " on" : ""}`} onClick={() => pick(k)}>{l}</button>
-          ))}
-          <button className={`sm-tog sm-tog--mix${showMix ? " on" : ""}`} onClick={() => setShowMix((v) => !v)} title="Choose what Surprise draws from">
-            ⚙ Your mix{mix.length < MIX_TYPES.length ? ` (${mix.length})` : ""}
-          </button>
-        </div>
-
-        {showMix ? (
-          <div className="sm-mix">
-            <span className="sm-mixk">🎲 Surprise draws from:</span>
-            {MIX_TYPES.map(([k, l]) => (
-              <label key={k} className={`sm-mixc${mix.includes(k) ? " on" : ""}`}>
-                <input type="checkbox" checked={mix.includes(k)} onChange={() => toggleMix(k)} />
-                {l}
-              </label>
-            ))}
-            <button className="sm-mixall" onClick={() => { const all = MIX_TYPES.map(([t]) => t); setMix(all); mixRef.current = all; try { localStorage.setItem(MIX_KEY, JSON.stringify(all)); } catch { /* noop */ } }}>All</button>
-          </div>
-        ) : null}
-
-        <div className="sm-setbar">
-          <span className="sm-setk">30 cards to wander</span>
-          <button className="sm-setbtn" onClick={() => drawSet()} disabled={gridLoading}>↻ Show another 30</button>
-        </div>
-        <div className="sm-grid">
-          {set.map((c, i) => (
-            <a
-              key={i}
-              className="sm-gcard"
-              href={c.href}
-              style={c.backdrop ? { backgroundImage: `linear-gradient(0deg,rgba(8,7,5,.9),rgba(8,7,5,.12)),url(${IMG}/w500${c.backdrop})` } : undefined}
-            >
-              <span className="sm-gkind">{c.kind}</span>
-              <span className="sm-gline">{c.line}</span>
-            </a>
-          ))}
-        </div>
+        <TVDossier card={card} />
       </div>
     </div>
+  );
+}
+
+// The live "page-within-page" beneath the TV — the current broadcast, expanded.
+function TVDossier({ card }: { card: SurpriseCard | null }) {
+  if (!card) return <div className="tvd tvd--skel">Tuning in…</div>;
+  const filmLine = [card.film_title, card.film_year ? `(${card.film_year})` : null].filter(Boolean).join(" ");
+  const items = card.items ?? [];
+  const chips = (card.chips ?? (card.groups ?? []).flatMap((g) => g.chips)).map((c) => c.text);
+  const head = card.mode === "misreading" ? card.line : card.subject;
+
+  return (
+    <section className="tvd" aria-live="polite">
+      <div className="tvd-rail">
+        <span className="tvd-kick">Now on air</span>
+        {card.poster ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className="tvd-poster" src={`${IMG}/w342${card.poster}`} alt="" />
+        ) : null}
+        <h2 className="tvd-film">{card.film_slug ? <Link href={`/film/${card.film_slug}`}>{filmLine}</Link> : filmLine}</h2>
+        {card.director ? (
+          <p className="tvd-dir">dir. {card.director_slug ? <Link href={`/director/${card.director_slug}`}>{card.director}</Link> : card.director}</p>
+        ) : null}
+        <div className="tvd-jumps">
+          {card.film_slug ? <a className="tvd-jump" href={`/film/${card.film_slug}`}>The film ↗</a> : null}
+          {card.href ? <a className="tvd-jump tvd-jump--acc" href={card.href}>{card.label ?? "This piece"} ↗</a> : null}
+          {card.director_slug ? <a className="tvd-jump" href={`/director/${card.director_slug}`}>The director ↗</a> : null}
+        </div>
+      </div>
+
+      <div className="tvd-body">
+        {card.label ? <span className="tvd-kick tvd-kick--acc">{card.label}</span> : null}
+        {head ? <h3 className="tvd-subj">{head}</h3> : null}
+        {card.intro ? <p className="tvd-intro">{card.intro}</p> : null}
+        {card.body ? <p className="tvd-p">{card.body}</p> : null}
+        {card.leap ? <p className="tvd-leap"><span>The leap</span> {card.leap}</p> : null}
+        {chips.length ? (
+          <div className="tvd-chips">{chips.slice(0, 20).map((c, i) => <span key={i} className="tvd-chip">{c}</span>)}</div>
+        ) : null}
+        {items.length ? (
+          <ul className="tvd-list">
+            {items.slice(0, 8).map((it, i) => (
+              <li key={i}>
+                <b>{it.text ?? it.title ?? it.name}{it.year ? ` (${it.year})` : ""}</b>
+                {it.reason || it.label ? <span> — {it.reason ?? it.label}</span> : null}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        {card.href ? <a className="tvd-more" href={card.href}>Read this in full ↗</a> : null}
+      </div>
+    </section>
   );
 }
