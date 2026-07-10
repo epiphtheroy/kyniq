@@ -38,7 +38,7 @@ const PAGES: { label: string; href: string }[] = [
   { label: "Credits", href: "/credits" },
   { label: "Latest", href: "/latest" },
   { label: "Trending", href: "/trending" },
-  { label: "Surprise me", href: "/random" },
+  { label: "METATAKE TV", href: "/tv" },
   { label: "My Room", href: "/room" },
   { label: "Ask metatake AI", href: "/ask" },
   { label: "Blog — The Daily", href: "/blog" },
