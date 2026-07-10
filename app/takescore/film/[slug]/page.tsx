@@ -122,7 +122,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description: trim155(verdict),
       url: `${SITE}/takescore/film/${card.slug}`,
-      ...(card.poster_path ? { images: [{ url: `${IMG}/w500${card.poster_path}` }] } : {}),
+      // images: omitted on purpose — the route's opengraph-image.tsx (branded
+      // 1200×630 card with the TakeScore ring & rank badges) is auto-used and
+      // shares far better than the bare TMDB poster.
     },
   };
 }
