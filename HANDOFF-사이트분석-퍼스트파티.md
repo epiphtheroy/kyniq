@@ -21,6 +21,12 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 
 ## 1. 수집 — components/Metrics.tsx (루트 layout에 장착)
 
+> **+ 상호작용 계측(2026-07-10 오후 추가):** `components/mtTrack.ts`의 `mtEvent(name)` —
+> (페이지,이름)당 1회만 전송(참여율 측정, 제스처 스팸 방지). 심어진 곳:
+> **FilmTabBar**(`data-mt="tab:<id>"` — film/director/theorist/concept/trope 전 탭 표면, 매 클릭 카운트)
+> · **FilmMap**(아틀라스: map:drag/zoom/click) · **EntityGraph**(커넥션 맵: graph:node/drag/pan)
+> · **GalaxyMap**(/map: galaxy:drag/node). 전부 대시보드 Clicks 패널 + 주간 UI 다이제스트(감지기 14)로 집계.
+
 - **pageview**: 로드 + App Router 내비게이션마다. 첫 로드만 document.referrer, UTM 파라미터.
 - **leave**: 페이지 이탈 시 sendBeacon으로 dwell_ms + 최대 scroll_pct. 라우트 전환 시에도 이전 페이지 leave 발사 → 모든 페이지뷰에 체류/스크롤이 붙는다.
 - **click**: `data-mt="이름"` 달린 요소 클릭(전 사이트 어디든 속성만 붙이면 집계됨) + 외부링크(outbound).
@@ -45,7 +51,9 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 ## 4. 대시보드 — /admin/metrics (관리자 사이드바 "📈 Analytics")
 
 - 게이트: 미들웨어 /admin/* + `getAdminUser()` (profiles.role='admin').
-- 범위 24h/7d/28d/90d (24h는 시간 단위 버킷, KST). 상단 라이브 스트립(5분/30분 활성).
+- 범위 24h/7d/28d/90d + **시간별/일별 토글**(시간 버킷은 7d까지, KST). 상단 라이브 스트립(5분/30분 활성).
+- **한줄 리포트(최상단)**: 규칙 기반 감지기 13종(마이그 0060 `mt_generate_insights()`, LLM 0)이 한국어 한 줄씩 생성 → `mt_insights`(unique key 중복 방지; 일회성 키 vs ISO주 키). 30분마다 Vercel cron(`/api/metrics/insights`, vercel.json `*/30`)+대시보드 로드 시 30분 경과면 즉석 재생성(20분 가드). 감지기: GSC 새 검색어·순위 ±3 변동·톱10 진입·노출≥15 클릭0 기회·첫 클릭·주간 요약 / 트래픽 급증(시간대 3×)·새 유입처·새 국가·사이트검색 무결과·오래 읽는 페이지·얕은 인기 페이지·LCP p75>4s.
+- **GSC 패널**: `mt_gsc_overview_json(28)` — 7일 노출/클릭/평균순위(전주 Δ), 노출·클릭 시계열, 검색어 순위표, 노출 페이지(드릴다운 링크), 이번 주 새 검색어.
 - KPI: 방문자·페이지뷰·세션·페이지/세션·바운스·평균 체류·평균 스크롤.
 - 시계열(페이지뷰+방문자, 호버 크로스헤어) · Top pages(체류·스크롤 병기) · 유입 도메인 · 진입/이탈 페이지 · 국가 · 기기/브라우저 · **사이트 내 검색어** · 클릭(data-mt) · 세션 흐름(페이지→페이지) · vitals p75.
 - **페이지 행 클릭 = 드릴다운**: 그 페이지의 시계열·유입·전/다음 페이지·**GSC 쿼리**(클릭·노출·평균 순위) 한 화면.
