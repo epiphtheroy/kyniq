@@ -3873,7 +3873,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 
 /* bottom-center subtitle — the workhorse. Centered in EVERY pattern (never
    clipped left). A calm dark card that peeks up and fades. */
-.sv2-sub{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);z-index:6;width:auto;max-width:min(84vw,1100px);text-align:center;
+.sv2-sub{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);z-index:6;width:auto;max-width:min(84vw,1100px);text-align:center;
   animation:sv2-inx .6s cubic-bezier(.2,.7,.2,1) both,sv2-out .55s ease-in forwards;animation-delay:0s,var(--exit,7000ms)}
 .sv2-band{position:relative;background:rgba(8,7,5,.8);border-top:3px solid var(--acc);padding:15px 34px 16px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .sv2-band .sv2-kick--sub{margin-bottom:8px;font-size:12px}
@@ -3897,9 +3897,10 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 
 /* connections map — box BOTTOM-RIGHT; atlas (geo) — box BOTTOM-LEFT.
    Opacity-only entry so the canvas/MapLibre measures a settled width. */
-.sv2-map,.sv2-atlas{position:absolute;bottom:9%;z-index:6;width:min(42vw,520px);background:rgba(10,8,6,.82);border:1px solid rgba(255,255,255,.18);border-top:3px solid var(--acc);border-radius:10px;padding:10px 12px 12px;box-shadow:0 10px 44px rgba(0,0,0,.55);animation:sv2-fade .6s ease both}
-.sv2-map{right:22px}
-.sv2-atlas{left:22px}
+.sv2-map,.sv2-atlas{position:absolute;bottom:8%;z-index:6;background:rgba(10,8,6,.82);border:1px solid rgba(255,255,255,.18);border-top:3px solid var(--acc);border-radius:10px;padding:10px 12px 12px;box-shadow:0 10px 44px rgba(0,0,0,.55);animation:sv2-fade .6s ease both}
+.sv2-map{right:22px;width:min(42vw,520px)}
+.sv2-atlas{left:22px;width:min(60vw,820px)}   /* wider: fits the atlas's own place-list panel */
+.sv2-atlas .fmap{border-color:rgba(255,255,255,.14)}
 .sv2-map__h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
 .sv2-map__h .sv2-kick--sub{margin-bottom:0}
 .sv2-map__h a{font-family:var(--tvfont);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#e6ded0;text-decoration:none}
