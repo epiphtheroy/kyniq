@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { unstable_cache } from "next/cache";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { runSearch } from "@/lib/search";
