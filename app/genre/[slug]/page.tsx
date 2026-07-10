@@ -71,6 +71,11 @@ export default async function GenrePage({ params }: Props) {
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/genre">Genres</Link></div>
         <h1 className="mt-h1" style={{ textTransform: "capitalize" }}>{unslug(slug)}</h1>
+        <div className="mt-share">
+          <ShareDock variant="bar" path={`/genre/${slug}`} title={`${unslug(slug)} films`}
+            hook={`${inGenre.length} ${unslug(slug)} films on Metatake — ranked by TakeScore, read scene by scene`} />
+          <ShareDock variant="fab" path={`/genre/${slug}`} title={`${unslug(slug)} films`} />
+        </div>
         <LensQuickBar />
         <ListFilter targetId="genre-list" total={inGenre.length} placeholder="Filter these films…" />
         <ul className="mt-list mtl-rows" id="genre-list" style={{ marginTop: 12 }}>

@@ -216,6 +216,12 @@ export default async function LineagePage({ params }: Props) {
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/lineage">Lineage</Link></div>
         <h1 className="lh-h1">{list.label}</h1>
+        <div className="lh-share">
+          <ShareDock variant="bar" path={`/lineage/${list.slug}`} title={list.label}
+            hook={`${list.label} — the complete list${list.film_count ? `, ${list.film_count} films` : ""} on Metatake`}
+            saveType="lineage" saveRef={list.slug} />
+          <ShareDock variant="fab" path={`/lineage/${list.slug}`} title={list.label} />
+        </div>
         <div className="lh-kick">
           {FACET_LABEL[list.facet] ?? list.facet}
           {list.country ? ` · ${list.country.toUpperCase()}` : ""}

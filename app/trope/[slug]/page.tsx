@@ -275,6 +275,12 @@ export default async function TropePage({ params }: Props) {
               <span className="rd-meta">{n} {readLabel} · {filmCount} {filmLabel}{coherence != null ? ` · ${coherence}% coherence` : ""}</span>
             </div>
             <h1 className="rd-h1">{t.title}</h1>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/trope/${slug}`} title={t.title}
+                hook={`"${t.title}" — a trope across ${filmCount} film${filmCount === 1 ? "" : "s"} on Metatake`}
+                saveType="trope" saveRef={slug} />
+              <ShareDock variant="fab" path={`/trope/${slug}`} title={t.title} />
+            </div>
             <p className="rd-dek">
               {t.laconic ? <>{t.laconic}{" "}</> : null}
               {n} Strong Misreading{n === 1 ? "" : "s"} across {filmCount} {filmLabel} stage {t.title}
