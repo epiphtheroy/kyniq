@@ -23,7 +23,7 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-type Prog = { created_at: string | null; updated_at: string | null; duration_ms: number | null; seg_count: number | null };
+type Prog = { built_at: string | null; duration_ms: number | null; seg_count: number | null };
 type Params = { params: Promise<{ slug: string }> };
 
 // One program + its timing row. React cache() dedupes across generateMetadata + page.
@@ -31,7 +31,7 @@ const load = cache(async (slug: string): Promise<{ entry: TVEntry; prog: Prog | 
   const sb = db();
   const [watchRes, progRes] = await Promise.all([
     sb.rpc("tv_watch", { p_list: null, p_program: slug }),
-    sb.from("tv_programs").select("created_at,updated_at,duration_ms,seg_count").eq("slug", slug).eq("status", "published").maybeSingle(),
+    sb.from("tv_programs").select("built_at,duration_ms,seg_count").eq("slug", slug).eq("status", "published").maybeSingle(),
   ]);
   const entry = ((watchRes.data as { entries?: TVEntry[] } | null)?.entries ?? [])[0] ?? null;
   if (!entry) return null;
@@ -98,7 +98,7 @@ export default async function Page({ params }: Params) {
   // samples, but the chapters and their durations are real.
   const ms = totalMs(entry, prog);
   const thumb = f?.backdrop ? `${IMG}/w1280${f.backdrop}` : f?.poster ? `${IMG}/w780${f.poster}` : undefined;
-  const uploadIso = prog?.created_at ?? prog?.updated_at ?? null;
+  const uploadIso = prog?.built_at ?? null;
   let acc = 0;
   const clips = (entry.segments ?? []).map((s) => {
     const start = Math.round(acc / 1000);
