@@ -42,7 +42,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Connections", h: "/map" },
       { t: "Where to watch", h: "/where-to-watch" },
       { t: "Credits", h: "/credits" },
-      { t: "Surprise me", h: "/random" },
+      { t: "METATAKE TV", h: "/tv" },
     ] },
     { id: "read", label: "Read", items: [
       { t: "Now Playing", h: "/now" },
