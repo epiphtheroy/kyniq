@@ -1,4 +1,7 @@
 -- 0058_first_party_metrics.sql — first-party analytics (2026-07-10)
+-- (remote history: applied as first_party_metrics + first_party_metrics_alias_fix —
+--  jsonb_agg aliases must NOT equal an inner column name, or to_jsonb(alias)
+--  resolves the COLUMN and serializes bare strings instead of row objects)
 --
 -- Raw event stream collected by app/api/metrics (client beacon in
 -- components/Metrics.tsx), read by /admin/metrics via the *_json RPCs below.
@@ -158,16 +161,16 @@ select jsonb_build_object(
   'series',      (select coalesce(jsonb_agg(jsonb_build_object('b', s.b, 'pv', s.pv, 'vis', s.vis) order by s.bt), '[]'::jsonb) from series s),
   'top_pages',   (select coalesce(jsonb_agg(jsonb_build_object('path', tp.path, 'pv', tp.pv, 'vis', tp.vis, 'dwell_s', pd.dwell_s, 'scroll_pct', pd.scroll_pct) order by tp.pv desc), '[]'::jsonb)
                   from top_pages tp left join page_dwell pd using (path)),
-  'referrers',   (select coalesce(jsonb_agg(to_jsonb(r) order by r.n desc), '[]'::jsonb) from refs r),
-  'countries',   (select coalesce(jsonb_agg(to_jsonb(c) order by c.n desc), '[]'::jsonb) from countries c),
-  'devices',     (select coalesce(jsonb_agg(to_jsonb(d) order by d.n desc), '[]'::jsonb) from devices d),
-  'browsers',    (select coalesce(jsonb_agg(to_jsonb(b) order by b.n desc), '[]'::jsonb) from browsers b),
-  'entries',     (select coalesce(jsonb_agg(to_jsonb(e) order by e.n desc), '[]'::jsonb) from entries e),
-  'exits',       (select coalesce(jsonb_agg(to_jsonb(e) order by e.n desc), '[]'::jsonb) from exits e),
-  'clicks',      (select coalesce(jsonb_agg(to_jsonb(c) order by c.n desc), '[]'::jsonb) from clicks c),
-  'searches',    (select coalesce(jsonb_agg(to_jsonb(s) order by s.n desc), '[]'::jsonb) from searches s),
-  'vitals',      (select coalesce(jsonb_agg(to_jsonb(v)), '[]'::jsonb) from vitals v),
-  'transitions', (select coalesce(jsonb_agg(to_jsonb(tr) order by tr.n desc), '[]'::jsonb) from transitions tr)
+  'referrers',   (select coalesce(jsonb_agg(to_jsonb(rr) order by rr.n desc), '[]'::jsonb) from refs rr),
+  'countries',   (select coalesce(jsonb_agg(to_jsonb(cc) order by cc.n desc), '[]'::jsonb) from countries cc),
+  'devices',     (select coalesce(jsonb_agg(to_jsonb(dd) order by dd.n desc), '[]'::jsonb) from devices dd),
+  'browsers',    (select coalesce(jsonb_agg(to_jsonb(bb) order by bb.n desc), '[]'::jsonb) from browsers bb),
+  'entries',     (select coalesce(jsonb_agg(to_jsonb(ee) order by ee.n desc), '[]'::jsonb) from entries ee),
+  'exits',       (select coalesce(jsonb_agg(to_jsonb(xx) order by xx.n desc), '[]'::jsonb) from exits xx),
+  'clicks',      (select coalesce(jsonb_agg(to_jsonb(kk) order by kk.n desc), '[]'::jsonb) from clicks kk),
+  'searches',    (select coalesce(jsonb_agg(to_jsonb(ss) order by ss.n desc), '[]'::jsonb) from searches ss),
+  'vitals',      (select coalesce(jsonb_agg(to_jsonb(vv)), '[]'::jsonb) from vitals vv),
+  'transitions', (select coalesce(jsonb_agg(to_jsonb(tt) order by tt.n desc), '[]'::jsonb) from transitions tt)
 );
 $$;
 
@@ -251,12 +254,12 @@ totals as (
 select jsonb_build_object(
   'totals',    (select to_jsonb(t) from totals t),
   'series',    (select coalesce(jsonb_agg(jsonb_build_object('b', s.b, 'pv', s.pv, 'vis', s.vis) order by s.bt), '[]'::jsonb) from series s),
-  'referrers', (select coalesce(jsonb_agg(to_jsonb(r) order by r.n desc), '[]'::jsonb) from refs r),
-  'countries', (select coalesce(jsonb_agg(to_jsonb(c) order by c.n desc), '[]'::jsonb) from countries c),
-  'prevs',     (select coalesce(jsonb_agg(to_jsonb(p) order by p.n desc), '[]'::jsonb) from prevs p),
-  'nexts',     (select coalesce(jsonb_agg(to_jsonb(n) order by n.n desc), '[]'::jsonb) from nexts n),
-  'gsc',       (select coalesce(jsonb_agg(to_jsonb(g) order by g.day), '[]'::jsonb) from gsc g),
-  'gsc_queries', (select coalesce(jsonb_agg(to_jsonb(q)), '[]'::jsonb) from gsc_q q)
+  'referrers', (select coalesce(jsonb_agg(to_jsonb(rr) order by rr.n desc), '[]'::jsonb) from refs rr),
+  'countries', (select coalesce(jsonb_agg(to_jsonb(cc) order by cc.n desc), '[]'::jsonb) from countries cc),
+  'prevs',     (select coalesce(jsonb_agg(to_jsonb(pp) order by pp.n desc), '[]'::jsonb) from prevs pp),
+  'nexts',     (select coalesce(jsonb_agg(to_jsonb(nn) order by nn.n desc), '[]'::jsonb) from nexts nn),
+  'gsc',       (select coalesce(jsonb_agg(to_jsonb(gg) order by gg.day), '[]'::jsonb) from gsc gg),
+  'gsc_queries', (select coalesce(jsonb_agg(to_jsonb(qq)), '[]'::jsonb) from gsc_q qq)
 );
 $$;
 
