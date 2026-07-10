@@ -200,6 +200,68 @@ export default async function MetricsPage({
         <MetricsChart data={ov.series} />
       </Panel>
 
+      {/* Google Search Console — rankings & exposure */}
+      <Panel title={`Google 검색 노출 (GSC, 최근 28일${gsc?.totals?.latest_day ? ` · 데이터 ~${gsc.totals.latest_day}` : ""})`}>
+        {gsc && gsc.series.length > 0 ? (
+          <>
+            <div style={{ display: "flex", gap: 24, fontSize: 13, color: "#cbd5e1", marginBottom: 12, flexWrap: "wrap" }}>
+              <span>7일 노출 <b style={{ color: "#f1f5f9" }}>{fmt(gsc.totals.impressions_7d)}</b>{delta(gsc.totals.impressions_7d, gsc.totals.impressions_prev)}</span>
+              <span>7일 클릭 <b style={{ color: "#f1f5f9" }}>{fmt(gsc.totals.clicks_7d)}</b>{delta(gsc.totals.clicks_7d, gsc.totals.clicks_prev)}</span>
+              <span>평균 순위 <b style={{ color: "#f1f5f9" }}>{gsc.totals.pos_7d ?? "–"}</b>{gsc.totals.pos_prev != null ? ` (전주 ${gsc.totals.pos_prev})` : ""}</span>
+            </div>
+            <MetricsChart data={gsc.series} height={170} labels={["Impressions", "Clicks"]} />
+            <div style={grid2}>
+              <div>
+                <SubTitle>검색어 (노출·순위)</SubTitle>
+                <table style={{ fontSize: 12.5, width: "100%" }}>
+                  <thead><tr style={{ textAlign: "left", color: "#94a3b8" }}><th>query</th><th style={num}>클릭</th><th style={num}>노출</th><th style={num}>순위</th></tr></thead>
+                  <tbody>
+                    {gsc.top_queries.map((r, i) => (
+                      <tr key={i}>
+                        <td style={{ padding: "3px 0", color: "#e2e8f0" }}>{String(r.query)}</td>
+                        <td style={num}>{fmt(r.clicks)}</td>
+                        <td style={num}>{fmt(r.impressions)}</td>
+                        <td style={num}>{r.pos ?? "–"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <SubTitle>노출 페이지</SubTitle>
+                <table style={{ fontSize: 12.5, width: "100%" }}>
+                  <thead><tr style={{ textAlign: "left", color: "#94a3b8" }}><th>page</th><th style={num}>클릭</th><th style={num}>노출</th><th style={num}>순위</th></tr></thead>
+                  <tbody>
+                    {gsc.top_pages.map((r, i) => (
+                      <tr key={i}>
+                        <td style={{ padding: "3px 0", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 260 }}>
+                          <Link href={qs({ d, path: String(r.path) })} style={{ color: "#e2e8f0", textDecoration: "none" }}>{String(r.path)}</Link>
+                        </td>
+                        <td style={num}>{fmt(r.clicks)}</td>
+                        <td style={num}>{fmt(r.impressions)}</td>
+                        <td style={num}>{r.pos ?? "–"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {gsc.new_queries.length > 0 && (
+                  <div style={{ marginTop: 14 }}>
+                    <SubTitle>이번 주 새 검색어</SubTitle>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 3, fontSize: 12.5, color: "#cbd5e1" }}>
+                      {gsc.new_queries.map((r, i) => (
+                        <div key={i}>“{String(r.query)}” → {String(r.path)} <span style={{ color: "#64748b" }}>({r.pos}위 · 노출 {fmt(r.impressions)})</span></div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div style={{ fontSize: 12.5, color: "#64748b" }}>GSC 데이터 없음 — worker/gsc-daily-watch.sh 가동 여부를 확인하세요.</div>
+        )}
+      </Panel>
+
       {/* per-page drilldown */}
       {drillPath && (
         <Panel
