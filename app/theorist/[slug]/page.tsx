@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import ShareDock from "@/components/ShareDock";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -249,6 +250,12 @@ export default async function TheoristPage({ params }: Props) {
               {F.dated.length > 1 ? <> — from <i>{F.dated[0].title}</i> ({F.dated[0].year}) to <i>{F.dated[F.dated.length - 1].title}</i> ({F.dated[F.dated.length - 1].year})</> : null}.
               {" "}Every entry below is a close reading of a scene, not a précis.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/theorist/${slug}`} title={name}
+                hook={`${name} through ${F.filmArr.length} films — the cinema read through their lens, on Metatake`}
+                saveType="theorist" saveRef={slug} />
+              <ShareDock variant="fab" path={`/theorist/${slug}`} title={name} />
+            </div>
           </div>
           {(wd?.image || heroBackdrop) && (
             <div className="rd-hero__media" style={wd?.image ? { maxWidth: 300, justifySelf: "end" } : undefined}>

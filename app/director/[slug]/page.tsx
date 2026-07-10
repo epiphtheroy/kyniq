@@ -23,6 +23,7 @@ import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
 import SaveButton from "@/components/SaveButton";
+import ShareDock from "@/components/ShareDock";
 import PosterActions from "@/components/PosterActions";
 import LensDirectorCoverage from "@/components/LensDirectorCoverage";
 import RecordToc from "@/components/read/RecordToc";
@@ -433,6 +434,11 @@ export default async function DirectorPage({ params }: Props) {
               </div>
             )}
             <div className="dr-save"><SaveButton entityType="director" entityRef={slug} label="Add to favorites" labelOn="Favorite" variant="heart" /></div>
+            <div className="dr-share">
+              <ShareDock variant="bar" noSave path={`/director/${slug}`} title={director}
+                hook={`${director} on Metatake — ${total} film${total === 1 ? "" : "s"}, traced through their signature tropes and readings`} />
+              <ShareDock variant="fab" path={`/director/${slug}`} title={director} />
+            </div>
           </div>
         </div>
 

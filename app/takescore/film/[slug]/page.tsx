@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ShareDock from "@/components/ShareDock";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -208,6 +209,12 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           <Link href="/">Home</Link> › <Link href="/takescore">TakeScore</Link> › {card.title}
         </div>
         <h1 className="lh-h1">{nameYear} — TakeScore {ts}</h1>
+        <div className="tsf-share">
+          <ShareDock variant="bar" path={`/takescore/film/${card.slug}`} title={`${nameYear} — TakeScore ${ts}`}
+            hook={`${nameYear} scores ${ts}/100 on TakeScore${card.rank && card.rank_total ? `, #${card.rank.toLocaleString()} of ${card.rank_total.toLocaleString()}` : ""} on Metatake — agree?`}
+            saveType="film-takescore" saveRef={card.slug} />
+          <ShareDock variant="fab" path={`/takescore/film/${card.slug}`} title={`${nameYear} — TakeScore ${ts}`} />
+        </div>
 
         {/* ── Film hero — framed poster · title/director · the big TS ring ── */}
         <div className="tsf-hero">
