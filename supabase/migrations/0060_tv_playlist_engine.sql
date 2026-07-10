@@ -485,8 +485,12 @@ returns jsonb language sql stable security definer set search_path to 'public' a
 $$;
 
 -- ── 6 · tv_watch v3 — prepend an intro pseudo-entry; cap the shelf ──────────
+-- statement_timeout override: the anon role defaults to 3s, but a COLD list/shelf
+-- build (all entries' beats, or first-call plan compilation) can take several
+-- seconds. The result is cached (ISR + s-maxage 300) so this only bites the
+-- first hit; without it, cold anon calls hit the 3s wall and error.
 create or replace function public.tv_watch(p_list text default null, p_program text default null)
-returns jsonb language sql stable security definer set search_path to 'public' as $$
+returns jsonb language sql stable security definer set search_path to 'public' set statement_timeout to '12s' as $$
 with film_j as (
   select p.id pid, p.slug, p.title, p.dek, p.seg_count, p.duration_ms,
     jsonb_build_object(

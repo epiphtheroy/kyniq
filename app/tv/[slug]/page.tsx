@@ -14,6 +14,7 @@ import "@/app/home2.css";
 // lazy like the film page.
 export const revalidate = 300;
 export const dynamicParams = true;
+export const maxDuration = 30;
 export function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";

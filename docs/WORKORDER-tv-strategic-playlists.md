@@ -1,6 +1,13 @@
 # 작업 지시서 — METATAKE TV 전략 플레이리스트 체계 (다른 AI 실행용)
 
-**상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.**
+**상태: ✅ 구현 완료 (2026-07-11, Opus 실행, 마이그 0060). 5,559 플레이리스트 / 53,506 아이템.**
+- 축별: 트로프 2,859·아키타입 1,535·컨셉 588·감독 192·이론가 150·리니지 89·genre_topic 71·국가 45·장르 18·연대 11·manual(palme) 1. 헬스 전 구간 정상(대형 3축 배치 러너 콜당 1–37초).
+- 프론트: `/tv/list/[slug]` 독립 페이지(CollectionPage+ItemList JSON-LD, `app/tv/list/[slug]/page.tsx`+`components/TVListView.tsx`), `components/PlaylistTVEmbed.tsx`를 director/lineage/movements/genre/trope/concept 페이지에 임베드(빈 슬러그 자동 숨김), 사이트맵 tv-programs/tv-lists 자식 추가.
+- tv_watch v3: 인트로 브리핑 pseudo-엔트리 선두 삽입 + 셸프 36 캡. tv_directory(축·검색·페이징)/tv_directory_summary 추가.
+- **다음(미착수):** 브라우즈 UI(`/tv/lists` 정렬·검색·축 필터 — tv_directory 소비), 아키타입 catalog-노드 페이지 임베드, 이론가·트로프 segments-cut(컴파일러 v3 meta 스탬프 후).
+
+---
+**(원본 기획, 참고용)** 상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.
 작성 2026-07-10 (Opus 기획). 배경: 루트 `HANDOFF-서프라이즈-v2채널-스트리밍.md` §C2·§C2-b (엔진·전 코퍼스 1,794편 빌드·film 히어로 교체·/tv/[slug] SEO 페이지 완료), `docs/WORKORDER-tv-corpus-build.md` (전 코퍼스 빌드 기록).
 
 ---

@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 30; // headroom for a cold list/shelf build (cached after)
 
 // GET /api/tv/watch            → shelves (playlists + all programs, light)
 // GET /api/tv/watch?list=slug  → a playlist's full entries (film + segments/beats)

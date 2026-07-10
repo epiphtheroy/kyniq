@@ -12,6 +12,7 @@ import "@/app/home2.css";
 // the list and its member broadcasts are legible to search. ISR, per-slug lazy.
 export const revalidate = 300;
 export const dynamicParams = true;
+export const maxDuration = 30; // headroom for a cold list build (ISR-cached after)
 export function generateStaticParams() { return []; }
 
 const IMG = "https://image.tmdb.org/t/p";
