@@ -347,73 +347,7 @@ export default async function OmniPage({ searchParams }: Props) {
     );
   }
 
-  /* ---------- results ---------- */
-  const result = await runSearch(term, { limit: 80 });
-  let hits = result.hits;
-
-  // KWIC snippets for essays: quote the passage where the term (or the entity it
-  // names) appears, not the film title.
-  const essayHits = hits.filter((h) => h.kind === "essay" && h.film_slug);
-  if (essayHits.length) {
-    try {
-      const kw = await attachKwic(db(), essayHits.map((h) => ({ film_slug: h.film_slug as string, desk_key: h.slug, excerpt: h.sub })), [term]);
-      const byKey = new Map(kw.map((k) => [`${k.film_slug}/${k.desk_key}`, k.excerpt]));
-      hits = hits.map((h) => (h.kind === "essay" && h.film_slug ? { ...h, sub: byKey.get(`${h.film_slug}/${h.slug}`) || h.sub } : h));
-    } catch { /* keep subs */ }
-  }
-
-  // Reading snippets: replace the bare film-title sub with the take's own "leap"
-  // line (its argumentative core), keyword-centered — the reader sees WHY the
-  // reading matched, not just where it lives.
-  const readingHits = hits.filter((h) => h.kind === "reading").slice(0, 12);
-  if (readingHits.length) {
-    try {
-      const { data } = await db().from("takes")
-        .select("leap, figure:figures!inner(slug)")
-        .in("figure.slug", readingHits.map((h) => h.slug))
-        .eq("status", "published").limit(40);
-      const bySlug = new Map<string, string>();
-      for (const r of (data ?? []) as unknown as { leap: string | null; figure: { slug: string } }[]) {
-        if (r.figure?.slug && r.leap && !bySlug.has(r.figure.slug)) bySlug.set(r.figure.slug, r.leap);
-      }
-      hits = hits.map((h) => (h.kind === "reading" && bySlug.has(h.slug)
-        ? { ...h, sub: kwic(bySlug.get(h.slug)!, [term], 150) } : h));
-    } catch { /* keep film-title subs */ }
-  }
-
-  // Object card = the first ENTITY near the top (Yandex shows the object card even
-  // when a list item edges it in fused rank — e.g. "parasite" can rank the trope
-  // "The Title Names The Parasite…" #1, but the card should still be the film).
-  const cardHit = hits.slice(0, 6).find((h) => ["film", "director", "theorist"].includes(h.kind));
-  const card = await loadEntityCard(cardHit);
-
-  const shown = vertical.kinds ? hits.filter((h) => vertical.kinds!.includes(h.kind)) : hits;
-  // The entity card already owns its hit — don't repeat it as a row on "All".
-  const rows = (!vertical.kinds && card ? shown.filter((h) => h !== cardHit) : shown).slice(0, 30);
-
-  // Image strip: entity stills first, then poster'd hits (films/readings), deduped.
-  const strip: { href: string; src: string; label: string }[] = [];
-  if (card?.type === "film") for (const s of card.stills.slice(0, 8)) strip.push({ href: `/film/${card.slug}/gallery`, src: s.thumb, label: card.title });
-  const seenPoster = new Set<string>();
-  for (const h of hits) {
-    if (!h.poster || seenPoster.has(h.poster)) continue;
-    if (card?.type === "film" && h === cardHit) continue;
-    seenPoster.add(h.poster);
-    strip.push({ href: h.href, src: `${IMG}/w185${h.poster}`, label: h.title });
-    if (strip.length >= 14) break;
-  }
-
-  // Related searches: other entity names in the result set = what people mean next.
-  const related = [...new Set(hits
-    .filter((h) => ["director", "theorist", "idea", "trope", "tradition", "movement"].includes(h.kind))
-    .map((h) => h.title)
-    .filter((t) => t.toLowerCase() !== term.toLowerCase()))].slice(0, 8);
-
-  const counts = new Map<string, number>();
-  for (const vt of VERTICALS) {
-    counts.set(vt.key, vt.kinds ? hits.filter((h) => vt.kinds!.includes(h.kind)).length : hits.length);
-  }
-
+  /* ---------- results: instant shell, streamed body (Yandex pattern) ---------- */
   return (
     <div className="mt ox">
       <SiteNav />
@@ -425,52 +359,169 @@ export default async function OmniPage({ searchParams }: Props) {
             <button type="submit" aria-label="Search">⌕</button>
           </form>
         </header>
+        <Suspense fallback={<OmniSkeleton />}>
+          <OmniBody term={term} verticalKey={vertical.key} />
+        </Suspense>
+      </div>
+    </div>
+  );
+}
 
-        <nav className="ox-tabs" aria-label="Result types">
-          {VERTICALS.map((vt) => {
-            const n = counts.get(vt.key) ?? 0;
-            if (vt.key !== "all" && n === 0) return null;
-            return (
-              <Link key={vt.key} href={`/omni?q=${encodeURIComponent(term)}${vt.key === "all" ? "" : `&v=${vt.key}`}`}
-                className={`ox-tab${vertical.key === vt.key ? " ox-tab--on" : ""}`}>
-                {vt.label}{vt.key !== "all" ? <span className="ox-tab__n">{n}</span> : null}
-              </Link>
-            );
-          })}
-          <Link className="ox-tab ox-tab--ask" href={`/ask?q=${encodeURIComponent(term)}`}>Ask AI →</Link>
-        </nav>
+/* ---------------- payload: everything a query needs, one Data Cache entry.
+   Cold query: engine + (KWIC ∥ leap ∥ entity card) in parallel. Warm query
+   (anyone searched it in the last 10 min): served from the Data Cache in ~ms. */
 
-        <p className="ox-count">{hits.length} results{result.semantic ? " · text + meaning" : ""} · {result.took} ms</p>
+type OmniPayload = {
+  hits: SearchHit[]; semantic: boolean; took: number;
+  card: EntityCard; cardKey: string | null;
+  strip: { href: string; src: string; label: string }[];
+  related: string[];
+};
 
-        {strip.length >= 3 && vertical.key === "all" ? (
-          <div className="ox-strip" aria-label="Images">
-            {strip.map((s, i) => (
-              <Link key={i} href={s.href} className="ox-strip__it" title={s.label}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={s.src} alt={s.label} loading={i > 4 ? "lazy" : undefined} />
-              </Link>
-            ))}
-          </div>
-        ) : null}
+const loadOmniPayload = (term: string): Promise<OmniPayload> =>
+  unstable_cache(async (): Promise<OmniPayload> => {
+    const result = await runSearch(term, { limit: 80 });
+    let hits = result.hits;
 
-        <div className="ox-cols">
-          <div className="ox-results">
-            {rows.length === 0 ? (
-              <p className="ox-empty">Nothing in this tab for “{term}” — try <Link href={`/omni?q=${encodeURIComponent(term)}`}>All</Link> or <Link href={`/ask?q=${encodeURIComponent(term)}`}>ask the AI</Link>.</p>
-            ) : rows.map((h) => <ResultRow key={`${h.kind}:${h.slug}:${h.film_slug ?? ""}`} h={h} term={term} sitelinks />)}
+    const essayHits = hits.filter((h) => h.kind === "essay" && h.film_slug);
+    const readingHits = hits.filter((h) => h.kind === "reading").slice(0, 12);
+    const cardHit = hits.slice(0, 6).find((h) => ["film", "director", "theorist"].includes(h.kind));
 
-            {related.length ? (
-              <div className="ox-related">
-                <div className="ox-related__h">Related searches</div>
-                <div className="ox-chips">
-                  {related.map((r) => <Link key={r} href={`/omni?q=${encodeURIComponent(r)}`} className="ox-chip">⌕ {r}</Link>)}
-                </div>
-              </div>
-            ) : null}
-          </div>
+    // The three enrichments are independent — run them concurrently.
+    const [kwByKey, leapBySlug, card] = await Promise.all([
+      (async () => {
+        if (!essayHits.length) return new Map<string, string | null>();
+        try {
+          const kw = await attachKwic(db(), essayHits.map((h) => ({ film_slug: h.film_slug as string, desk_key: h.slug, excerpt: h.sub })), [term]);
+          return new Map(kw.map((k) => [`${k.film_slug}/${k.desk_key}`, k.excerpt]));
+        } catch { return new Map<string, string | null>(); }
+      })(),
+      (async () => {
+        if (!readingHits.length) return new Map<string, string>();
+        try {
+          const { data } = await db().from("takes")
+            .select("leap, figure:figures!inner(slug)")
+            .in("figure.slug", readingHits.map((h) => h.slug))
+            .eq("status", "published").limit(40);
+          const m = new Map<string, string>();
+          for (const r of (data ?? []) as unknown as { leap: string | null; figure: { slug: string } }[]) {
+            if (r.figure?.slug && r.leap && !m.has(r.figure.slug)) m.set(r.figure.slug, r.leap);
+          }
+          return m;
+        } catch { return new Map<string, string>(); }
+      })(),
+      loadEntityCard(cardHit),
+    ]);
 
-          {vertical.key === "all" ? <Card card={card} term={term} /> : null}
+    hits = hits.map((h) => {
+      if (h.kind === "essay" && h.film_slug) {
+        const kw = kwByKey.get(`${h.film_slug}/${h.slug}`);
+        if (kw) return { ...h, sub: kw };
+      }
+      if (h.kind === "reading" && leapBySlug.has(h.slug)) {
+        return { ...h, sub: kwic(leapBySlug.get(h.slug)!, [term], 150) };
+      }
+      return h;
+    });
+
+    const hitKey = (h: SearchHit) => `${h.kind}:${h.slug}:${h.film_slug ?? ""}`;
+    const cardKey = cardHit ? hitKey(cardHit) : null;
+
+    const strip: { href: string; src: string; label: string }[] = [];
+    if (card?.type === "film") for (const s of card.stills.slice(0, 8)) strip.push({ href: `/film/${card.slug}/gallery`, src: s.thumb, label: card.title });
+    const seenPoster = new Set<string>();
+    for (const h of hits) {
+      if (!h.poster || seenPoster.has(h.poster)) continue;
+      if (card?.type === "film" && hitKey(h) === cardKey) continue;
+      seenPoster.add(h.poster);
+      strip.push({ href: h.href, src: `${IMG}/w185${h.poster}`, label: h.title });
+      if (strip.length >= 14) break;
+    }
+
+    const related = [...new Set(hits
+      .filter((h) => ["director", "theorist", "idea", "trope", "tradition", "movement"].includes(h.kind))
+      .map((h) => h.title)
+      .filter((t) => t.toLowerCase() !== term.toLowerCase()))].slice(0, 8);
+
+    return { hits, semantic: result.semantic, took: result.took, card, cardKey, strip, related };
+  }, ["omni-payload-1", term.toLowerCase()], { revalidate: 600 })();
+
+async function OmniBody({ term, verticalKey }: { term: string; verticalKey: string }) {
+  const p = await loadOmniPayload(term);
+  const vertical = VERTICALS.find((x) => x.key === verticalKey) ?? VERTICALS[0];
+  const hitKey = (h: SearchHit) => `${h.kind}:${h.slug}:${h.film_slug ?? ""}`;
+
+  const shown = vertical.kinds ? p.hits.filter((h) => vertical.kinds!.includes(h.kind)) : p.hits;
+  const rows = (!vertical.kinds && p.card ? shown.filter((h) => hitKey(h) !== p.cardKey) : shown).slice(0, 30);
+
+  return (
+    <>
+      <nav className="ox-tabs" aria-label="Result types">
+        {VERTICALS.map((vt) => {
+          const n = vt.kinds ? p.hits.filter((h) => vt.kinds!.includes(h.kind)).length : p.hits.length;
+          if (vt.key !== "all" && n === 0) return null;
+          return (
+            <Link key={vt.key} href={`/omni?q=${encodeURIComponent(term)}${vt.key === "all" ? "" : `&v=${vt.key}`}`}
+              className={`ox-tab${vertical.key === vt.key ? " ox-tab--on" : ""}`}>
+              {vt.label}{vt.key !== "all" ? <span className="ox-tab__n">{n}</span> : null}
+            </Link>
+          );
+        })}
+        <Link className="ox-tab ox-tab--ask" href={`/ask?q=${encodeURIComponent(term)}`}>Ask AI →</Link>
+      </nav>
+
+      <p className="ox-count">{p.hits.length} results{p.semantic ? " · text + meaning" : ""}</p>
+
+      {p.strip.length >= 3 && vertical.key === "all" ? (
+        <div className="ox-strip" aria-label="Images">
+          {p.strip.map((s, i) => (
+            <Link key={i} href={s.href} className="ox-strip__it" title={s.label}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={s.src} alt={s.label} loading={i > 4 ? "lazy" : undefined} />
+            </Link>
+          ))}
         </div>
+      ) : null}
+
+      <div className="ox-cols">
+        <div className="ox-results">
+          {rows.length === 0 ? (
+            <p className="ox-empty">Nothing in this tab for “{term}” — try <Link href={`/omni?q=${encodeURIComponent(term)}`}>All</Link> or <Link href={`/ask?q=${encodeURIComponent(term)}`}>ask the AI</Link>.</p>
+          ) : rows.map((h) => <ResultRow key={hitKey(h)} h={h} term={term} sitelinks />)}
+
+          {p.related.length ? (
+            <div className="ox-related">
+              <div className="ox-related__h">Related searches</div>
+              <div className="ox-chips">
+                {p.related.map((r) => <Link key={r} href={`/omni?q=${encodeURIComponent(r)}`} className="ox-chip">⌕ {r}</Link>)}
+              </div>
+            </div>
+          ) : null}
+        </div>
+
+        {vertical.key === "all" ? <Card card={p.card} term={term} /> : null}
+      </div>
+    </>
+  );
+}
+
+/* Streaming fallback — the page shell + this paint immediately (Yandex-style),
+   the real body replaces it as soon as the engine chunk arrives. */
+function OmniSkeleton() {
+  return (
+    <div className="ox-skel" aria-hidden="true">
+      <div className="ox-skel__tabs">{[64, 48, 56, 60, 44].map((w, i) => <span key={i} style={{ width: w }} />)}</div>
+      <div className="ox-skel__strip">{Array.from({ length: 7 }, (_, i) => <span key={i} />)}</div>
+      <div className="ox-cols">
+        <div>
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={i} className="ox-skel__row">
+              <div className="ox-skel__main"><span className="w40" /><span className="w90" /><span className="w75" /></div>
+              <span className="ox-skel__thumb" />
+            </div>
+          ))}
+        </div>
+        <div className="ox-skel__card" />
       </div>
     </div>
   );

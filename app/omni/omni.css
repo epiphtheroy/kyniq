@@ -97,6 +97,25 @@
 .ox-card__essay img { width: 30px; height: 44px; object-fit: cover; border-radius: 4px; flex: 0 0 auto; }
 .ox-card__essay:hover span { color: var(--accent); }
 
+/* ---------- streaming skeleton ---------- */
+@keyframes ox-shimmer { 0% { background-position: -400px 0 } 100% { background-position: 400px 0 } }
+.ox-skel span, .ox-skel .ox-skel__card, .ox-skel .ox-skel__thumb {
+  display: block; border-radius: 6px;
+  background: linear-gradient(90deg, var(--surface-2, #f0f0f0) 25%, #fafafa 40%, var(--surface-2, #f0f0f0) 55%);
+  background-size: 800px 100%; animation: ox-shimmer 1.1s linear infinite;
+}
+.ox-skel__tabs { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--hairline, #eee); }
+.ox-skel__tabs span { height: 14px; }
+.ox-skel__strip { display: flex; gap: 8px; padding: 12px 0; }
+.ox-skel__strip span { width: 78px; height: 110px; flex: 0 0 auto; }
+.ox-skel__row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--hairline, #f2f2f2); }
+.ox-skel__main { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.ox-skel__main span { height: 12px; }
+.ox-skel__main .w40 { width: 40%; } .ox-skel__main .w90 { width: 90%; height: 16px; } .ox-skel__main .w75 { width: 75%; }
+.ox-skel__thumb { width: 72px; height: 104px; flex: 0 0 auto; }
+.ox-skel__card { height: 320px; border-radius: 14px; }
+@media (max-width: 899px) { .ox-skel__card { display: none; } }
+
 @media (max-width: 640px) {
   .ox-home__main { padding-top: 9vh; }
   .ox-logo { font-size: 32px; }
