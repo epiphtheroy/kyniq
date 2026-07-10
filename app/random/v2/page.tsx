@@ -1,9 +1,6 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import MetatakeTV from "@/components/MetatakeTV";
-
-// Full-screen METATAKE TV kiosk. The embedded (large-in-page) version lives on
-// /random; the component is shared.
-export default function ChannelPage() {
-  return <MetatakeTV />;
+// The full-screen kiosk moved to /tv/full. Keep the old URL alive.
+export default function RandomV2Redirect() {
+  redirect("/tv/full");
 }
