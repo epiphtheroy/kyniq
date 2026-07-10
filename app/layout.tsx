@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Metrics from "@/components/Metrics";
 import Footer from "@/components/Footer";
 import GlobalCmdK from "@/components/GlobalCmdK";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
@@ -131,6 +132,7 @@ export default function RootLayout({
         <Footer />
         <GlobalCmdK />
         <Analytics />
+        <Metrics />
       </body>
     </html>
   );

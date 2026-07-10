@@ -11,6 +11,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { runSearch, type SearchKind } from "@/lib/search";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -55,6 +56,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const result = await runSearch(q, { limit, semantic, kinds: kinds.length ? kinds : undefined });
+    logSearch(req, q, result.hits?.length ?? 0, semantic);
     return NextResponse.json(result, {
       headers: { "cache-control": "public, max-age=60, s-maxage=300, stale-while-revalidate=3600" },
     });
