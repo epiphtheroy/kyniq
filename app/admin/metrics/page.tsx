@@ -114,8 +114,13 @@ export default async function MetricsPage({
     const p = new URLSearchParams();
     p.set("d", String(extra.d ?? d));
     if (extra.path) p.set("path", String(extra.path));
+    if (extra.b) p.set("b", String(extra.b));
     return `/admin/metrics?${p.toString()}`;
   };
+  const fmtTs = (iso: string) =>
+    new Date(iso).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false });
+  const delta = (cur: number, prev: number) =>
+    prev > 0 ? ` (전주 ${prev.toLocaleString()})` : "";
 
   return (
     <div style={{ maxWidth: 1160 }}>
@@ -137,6 +142,23 @@ export default async function MetricsPage({
             </Link>
           ))}
         </div>
+        {d <= 7 && (
+          <div style={{ display: "flex", gap: 4 }}>
+            {[{ b: "h", label: "시간별" }, { b: "d", label: "일별" }].map((o) => (
+              <Link
+                key={o.b}
+                href={qs({ d, b: o.b, ...(drillPath ? { path: drillPath } : {}) })}
+                style={{
+                  padding: "4px 10px", borderRadius: 6, fontSize: 12, textDecoration: "none",
+                  background: (o.b === "h") === hourly ? "rgba(96,165,250,0.25)" : "rgba(148,163,184,0.12)",
+                  color: (o.b === "h") === hourly ? "#93c5fd" : "#94a3b8",
+                }}
+              >
+                {o.label}
+              </Link>
+            ))}
+          </div>
+        )}
         {live && (
           <span style={{ fontSize: 12, color: "#94a3b8" }}>
             <span style={{ color: "#0ca30c" }}>●</span> now: <b style={{ color: "#e2e8f0" }}>{live.active_5m}</b> active
@@ -145,6 +167,22 @@ export default async function MetricsPage({
         )}
         <div style={{ marginLeft: "auto" }}><MetricsOptOut /></div>
       </div>
+
+      {/* one-line report feed (rule-based, regenerated every 30 min) */}
+      <Panel title="한줄 리포트 — 기계 감지 (30분 주기, LLM 없음)">
+        {insights.length === 0 ? (
+          <div style={{ fontSize: 12.5, color: "#64748b" }}>아직 감지된 것이 없습니다 — 데이터가 쌓이면 새 검색어·순위 변동·트래픽 급증 등이 여기 한 줄씩 올라옵니다.</div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {insights.map((i, idx) => (
+              <div key={idx} style={{ fontSize: 13, color: "#e2e8f0", lineHeight: 1.5, display: "flex", gap: 10 }}>
+                <span style={{ color: "#64748b", fontVariantNumeric: "tabular-nums", flexShrink: 0, fontSize: 11.5, paddingTop: 1 }}>{fmtTs(i.ts)}</span>
+                <span>{i.line}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </Panel>
 
       {/* KPI tiles */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10, marginBottom: 20 }}>
