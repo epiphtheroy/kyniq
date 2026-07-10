@@ -102,7 +102,7 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
     return (
       <div ref={railRef} className={`shd-rail${showRail ? " shd-rail--on" : ""}`} aria-label="Share">
         {PRIMARY_CHANNELS.map((c) => (
-          <button key={c} className="shd-ib" onClick={() => openChannel(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c]}</button>
+          <button key={c} className="shd-ib" onClick={() => openChannel(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}</button>
         ))}
         <button className="shd-ib" onClick={copy} aria-label="Copy link">{copied ? <span className="shd-ok">✓</span> : I.copy}</button>
         <button className="shd-ib" onClick={native} aria-label="More share options">{I.more}</button>
@@ -117,7 +117,7 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
     <div className="shd-bar" role="group" aria-label="Share and save">
       <span className="shd-lbl">Share</span>
       {PRIMARY_CHANNELS.map((c) => (
-        <button key={c} className="shd-b" onClick={() => openChannel(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c]}<span className="shd-t">{CHANNEL_LABEL[c]}</span></button>
+        <button key={c} className="shd-b" onClick={() => openChannel(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}<span className="shd-t">{CHANNEL_LABEL[c]}</span></button>
       ))}
       <button className="shd-b" onClick={copy} aria-label="Copy link">{copied ? <span className="shd-ok">✓</span> : I.copy}<span className="shd-t">{copied ? "Copied" : "Copy link"}</span></button>
       <button className="shd-b shd-b--icon" onClick={native} aria-label="More share options">{I.more}</button>
@@ -140,7 +140,7 @@ function BottomSheet({ onClose, title, openChannel, copy, copied, Save }: {
         <div className="shd-grid">
           {all.map((c) => (
             <button key={c} className="shd-g" onClick={() => { openChannel(c); onClose(); }}>
-              <span className="shd-g__i">{I[c] ?? I.more}</span>{CHANNEL_LABEL[c]}
+              <span className="shd-g__i">{I[c as keyof typeof I] ?? I.more}</span>{CHANNEL_LABEL[c]}
             </button>
           ))}
           <button className="shd-g" onClick={() => { copy(); }}>
