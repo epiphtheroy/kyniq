@@ -55,7 +55,13 @@
 
 ---
 
-## C. `/random/v2` "METATAKE TV" — 스크린 에세이 채널 (2026-07-10 전면 재설계)
+## C. METATAKE TV — 채널 (2026-07-10; `/random`=임베드 페이지, `/random/v2`=풀스크린 키오스크)
+
+**7차: "Surprise me" → "METATAKE TV" 페이지 승격(2026-07-10).** `/random`이 큰 임베드 TV(상단 78vh) + 하단 **라이브 도시에**(page-within-page)로 개편. TV를 **풀스크린/임베드 겸용 공유 컴포넌트 `components/MetatakeTV.tsx`**로 추출(`embed` prop, `onCard` 콜백). `/random/v2/page.tsx`=`<MetatakeTV/>`(풀스크린), `/random/page.tsx`=헤더(METATAKE TV·ON AIR 브랜딩)+`<MetatakeTV embed onCard={setCard}/>`+`TVDossier(card)`. 임베드 모드: 바디 스크롤잠금 해제·Space 키핸들러 비활성(페이지 스크롤 방해 방지)·컨트롤 상시표시(`.tv-embed .svc-ctrls{opacity:1}`). 루트 클래스 `svchan`(풀스크린) vs `tv-embed`(relative). 도시에=현재 방송 카드를 정적으로 펼침(포스터·제목·감독·딥링크 The film/lens/director + 렌즈 전체 본문/칩/리스트), TV 넘어가면 갱신. CSS `.tv-embed`·`.tvpg`·`.tv-stage`·`.tvd-*`. 홈 히어로(v1 SurpriseStage)는 미변경(원우 확인 대기: 홈도 TV로 바꿀지).
+
+### 이하 초기 재설계(§C 원문):
+
+**METATAKE TV 스크린 에세이 채널.**
 
 풀스크린(`position:fixed`) 방송 오버레이 위에 **MUBI 스크린 에세이 페이싱의 비트(beat) 엔진**. 영화가 프레임을 채우고, 렌즈는 "한 번에 한 생각"의 비트 시퀀스로 흐름. Space 정지·←→ 넘김·컨트롤 3.2s 자동숨김. **v1 미변경.**
 
