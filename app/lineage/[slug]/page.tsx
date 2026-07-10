@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import ShareDock from "@/components/ShareDock";
 import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
