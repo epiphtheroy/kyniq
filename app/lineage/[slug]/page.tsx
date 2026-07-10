@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteNav from "@/components/home2/SiteNav";
+import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import LineageActions from "@/components/LineageActions";
 import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
@@ -324,6 +325,7 @@ export default async function LineagePage({ params }: Props) {
           </section>
         )}
 
+        <PlaylistTVEmbed slug={`lineage-${slug}`} />
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Metatake Editorial · Lineage data compiled from public records — source above · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>

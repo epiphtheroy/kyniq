@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import EntityActions from "@/components/EntityActions";
 import SaveButton from "@/components/SaveButton";
 import ListFilter from "@/components/ListFilter";
@@ -499,6 +500,7 @@ export default async function TropePage({ params }: Props) {
           <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
         ))}
 
+        <PlaylistTVEmbed slug={`trope-${slug}`} heading={`${t.title} on METATAKE TV`} />
         <Provenance created={t.created_at} updated={t.updated_at} />
       </div>
     </div>

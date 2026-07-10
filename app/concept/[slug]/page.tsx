@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import FilmTabBar from "@/components/FilmTabBar";
 import EntityMap from "@/components/EntityMap";
 import ReadingsExplorer from "@/components/ReadingsExplorer";

@@ -5,6 +5,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import EntityNews from "@/components/EntityNews";
 import CreditsExplorer from "@/app/credits/CreditsExplorer";
 import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
@@ -877,6 +878,8 @@ export default async function DirectorPage({ params }: Props) {
             <CreditsExplorer embed initialD={director} />
           </Suspense>
         </section>
+
+        <PlaylistTVEmbed slug={`director-${slug}`} heading={`${director} on METATAKE TV`} />
       </div>
 
       {/* Bottom plate band — doors to every director article that exists

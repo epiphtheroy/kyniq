@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import MovementHubClient from "@/components/MovementHubClient";
 
 export const revalidate = 1800;
@@ -99,6 +100,8 @@ export default async function MovementHub({ params }: Props) {
             ) : null}
           </section>
         )}
+
+        <PlaylistTVEmbed slug={`lineage-${slug}`} />
       </div>
     </div>
   );
