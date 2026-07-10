@@ -20,6 +20,7 @@ const RECENT_KEY = "mt:recent-searches";
 const RECENT_MAX = 5;
 
 const PAGES: { label: string; href: string }[] = [
+  { label: "Omni search", href: "/omni" },
   { label: "Films", href: "/film" },
   { label: "Directors", href: "/director" },
   { label: "Tropes", href: "/tropes" },

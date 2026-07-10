@@ -1,0 +1,103 @@
+/* Metatake Omni — Yandex-benchmarked search surface. Mobile-first; .ox- namespace. */
+
+/* ---------- home (empty state) ---------- */
+.ox-home__main { max-width: 680px; margin: 0 auto; padding: 12vh 20px 60px; text-align: center; }
+.ox-logo { font-family: var(--font-display, Georgia, serif); font-size: 40px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 6px; }
+.ox-logo span { color: var(--accent, #e3120b); }
+.ox-tag { font-family: var(--font-ui); font-size: 14px; color: var(--muted); margin: 0 0 26px; }
+
+.ox-box { display: flex; align-items: stretch; border: 1.5px solid var(--hairline-2, #ccc); border-radius: 26px; background: var(--bg, #fff); overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.ox-box:focus-within { border-color: var(--accent, #e3120b); box-shadow: 0 4px 24px -8px rgba(227, 18, 11, .25); }
+.ox-box input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-family: var(--font-ui); font-size: 16px; color: var(--ink); padding: 13px 20px; }
+.ox-box button { border: 0; background: transparent; color: var(--accent, #e3120b); font-size: 21px; padding: 0 18px; cursor: pointer; }
+.ox-box--big input { padding: 16px 22px; font-size: 17px; }
+
+.ox-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px 0 0; }
+.ox-chip { font-family: var(--font-ui); font-size: 13px; color: var(--ink2, #2a2a2a); border: 1px solid var(--hairline, #ddd); border-radius: 16px; padding: 6px 13px; text-decoration: none; background: var(--bg); }
+.ox-chip:hover { border-color: var(--accent, #e3120b); color: var(--accent, #e3120b); }
+.ox-chip--hot { border-color: rgba(227, 18, 11, .35); color: #b3392b; }
+.ox-foot { font-family: var(--font-ui); font-size: 12.5px; color: var(--subtle, #8f8f8f); margin-top: 38px; line-height: 1.9; }
+.ox-foot a { color: var(--accent, #e3120b); text-decoration: none; font-weight: 600; }
+
+/* ---------- results shell ---------- */
+.ox-wrap { max-width: 1060px; margin: 0 auto; padding: 14px var(--wrap-x, 20px) 60px; }
+.ox-head { display: flex; align-items: center; gap: 18px; margin: 6px 0 12px; }
+.ox-logo--sm { font-size: 20px; margin: 0; text-decoration: none; white-space: nowrap; }
+.ox-head .ox-box { flex: 1; max-width: 620px; }
+.ox-head .ox-box input { padding: 10px 18px; font-size: 15px; }
+
+.ox-tabs { display: flex; gap: 2px; overflow-x: auto; border-bottom: 1px solid var(--hairline, #ddd); scrollbar-width: none; }
+.ox-tabs::-webkit-scrollbar { display: none; }
+.ox-tab { font-family: var(--font-ui); font-size: 13.5px; color: var(--muted); text-decoration: none; padding: 9px 13px; border-bottom: 2px solid transparent; white-space: nowrap; }
+.ox-tab--on { color: var(--ink); font-weight: 700; border-bottom-color: var(--accent, #e3120b); }
+.ox-tab__n { font-size: 10.5px; color: var(--subtle); margin-left: 5px; }
+.ox-tab--ask { margin-left: auto; color: var(--accent, #e3120b); font-weight: 600; }
+.ox-count { font-family: var(--font-ui); font-size: 12px; color: var(--subtle); margin: 10px 2px 4px; }
+
+/* ---------- image strip ---------- */
+.ox-strip { display: flex; gap: 8px; overflow-x: auto; padding: 8px 0 10px; scrollbar-width: thin; }
+.ox-strip__it { flex: 0 0 auto; border-radius: 8px; overflow: hidden; background: var(--surface-2, #f2f2f2); }
+.ox-strip__it img { height: 110px; width: auto; display: block; }
+.ox-strip--inCard { padding: 10px 0 2px; }
+.ox-strip--inCard img { height: 84px; }
+
+/* ---------- two columns (results + entity card) ---------- */
+.ox-cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; margin-top: 10px; }
+@media (min-width: 900px) { .ox-cols { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; } }
+/* Mobile: the object card leads (Yandex mobile pattern) */
+@media (max-width: 899px) { .ox-card { order: -1; } .ox-cols { display: flex; flex-direction: column; } }
+
+/* ---------- result rows ---------- */
+.ox-results { min-width: 0; }
+.ox-r { display: flex; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--hairline, #eee); }
+.ox-r__main { flex: 1; min-width: 0; }
+.ox-r__crumb { font-family: var(--font-ui); font-size: 11px; color: var(--subtle, #8f8f8f); margin-bottom: 3px; display: flex; align-items: center; gap: 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ox-k { font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; border: 1px solid var(--hairline, #ddd); border-radius: 4px; padding: 1px 5px; flex: 0 0 auto; }
+.ox-r__t { font-family: var(--font-display, Georgia, serif); font-size: 17px; font-weight: 700; line-height: 1.3; color: #1a0dab; text-decoration: none; display: inline-block; }
+.mt .ox-r__t { color: var(--link, #1552a0); }
+.ox-r__t:hover { text-decoration: underline; }
+.ox-r__y { font-weight: 400; color: var(--muted); font-size: 14px; }
+.ox-r__s { font-family: var(--font-ui); font-size: 13.5px; color: var(--ink2, #333); line-height: 1.55; margin: 4px 0 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ox-sem { font-family: var(--font-ui); font-size: 11px; font-style: italic; color: var(--accent, #e3120b); }
+.ox-r__img { flex: 0 0 auto; }
+.ox-r__img img { width: 72px; height: 104px; object-fit: cover; border-radius: 7px; background: var(--surface-2, #f2f2f2); display: block; }
+
+.ox-empty { font-family: var(--font-ui); font-size: 14px; color: var(--muted); padding: 26px 0; }
+.ox-empty a { color: var(--accent); }
+
+/* ---------- related ---------- */
+.ox-related { margin: 22px 0 0; }
+.ox-related__h { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--subtle); margin-bottom: 9px; }
+.ox-related .ox-chips { justify-content: flex-start; margin-top: 0; }
+
+/* ---------- entity card ---------- */
+.ox-card { border: 1px solid var(--hairline, #ddd); border-radius: 14px; overflow: hidden; background: var(--bg, #fff); }
+.ox-card__bd { width: 100%; height: 150px; object-fit: cover; display: block; }
+.ox-card__head { display: flex; gap: 14px; padding: 14px 16px 4px; }
+.ox-card__poster { width: 84px; height: 124px; object-fit: cover; border-radius: 8px; flex: 0 0 auto; margin-top: -44px; box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .45); background: var(--surface-2); }
+.ox-card__poster--person { margin-top: 0; height: 104px; width: 84px; }
+.ox-card__kind { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--subtle); }
+.ox-card__t { font-family: var(--font-display); font-size: 19px; font-weight: 800; margin: 2px 0 3px; line-height: 1.2; }
+.ox-card__t a { color: var(--ink); text-decoration: none; }
+.ox-card__meta { font-family: var(--font-ui); font-size: 12.5px; color: var(--muted); }
+.ox-card__meta a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.ox-card__scores { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; align-items: center; }
+.ox-score { font-family: var(--font-ui); font-size: 11.5px; color: #0f6e56; border: 1px solid rgba(15, 110, 86, .3); border-radius: 6px; padding: 3px 8px; text-decoration: none; }
+.ox-score b { font-size: 13px; }
+.ox-ext { font-family: var(--font-ui); font-size: 11px; color: var(--muted); border: 1px solid var(--hairline); border-radius: 6px; padding: 3px 7px; }
+.ox-card__ov { font-family: var(--font-ui); font-size: 13px; line-height: 1.6; color: var(--ink2); padding: 8px 16px 0; margin: 0; }
+.ox-card__links { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 12px 16px 15px; }
+.ox-card__links a { font-family: var(--font-ui); font-size: 12.5px; color: var(--accent, #e3120b); text-decoration: none; font-weight: 600; }
+.ox-card .ox-strip { padding-left: 16px; padding-right: 16px; }
+.ox-card__essays { padding: 10px 16px 2px; display: flex; flex-direction: column; gap: 8px; }
+.ox-card__essay { display: flex; gap: 9px; align-items: center; font-family: var(--font-ui); font-size: 12.5px; color: var(--ink2); text-decoration: none; line-height: 1.4; }
+.ox-card__essay img { width: 30px; height: 44px; object-fit: cover; border-radius: 4px; flex: 0 0 auto; }
+.ox-card__essay:hover span { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .ox-home__main { padding-top: 9vh; }
+  .ox-logo { font-size: 32px; }
+  .ox-head { flex-wrap: wrap; gap: 10px; }
+  .ox-r__img img { width: 60px; height: 88px; }
+  .ox-card__bd { height: 120px; }
+}
