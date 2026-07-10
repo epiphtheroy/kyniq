@@ -1,0 +1,310 @@
+/**
+ * /admin/metrics — first-party analytics dashboard.
+ *
+ * Reads mt_events via the three service-role RPCs from migration 0058
+ * (mt_overview_json / mt_page_json / mt_live_json) — one call per panel
+ * group, jsonb single-row so the PostgREST 1000-row cap never applies.
+ * Collection: components/Metrics.tsx → /api/metrics.
+ * GSC panels light up once worker/gsc-pull.py has filled mt_gsc_daily.
+ */
+import type { CSSProperties } from "react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getAdminUser } from "@/lib/admin";
+import { createAdminClient } from "@/lib/supabase/admin";
+import MetricsChart, { type MetricsPoint } from "@/components/admin/MetricsChart";
+import MetricsOptOut from "@/components/admin/MetricsOptOut";
+
+export const dynamic = "force-dynamic";
+
+const RANGES = [
+  { d: 1, label: "24h" },
+  { d: 7, label: "7d" },
+  { d: 28, label: "28d" },
+  { d: 90, label: "90d" },
+];
+
+type Row = Record<string, string | number | null>;
+
+interface Overview {
+  totals: {
+    pageviews: number; visitors: number; sessions: number;
+    pv_per_session: number | null; bounce_pct: number | null;
+    avg_dwell_s: number | null; avg_scroll_pct: number | null;
+  };
+  series: MetricsPoint[];
+  top_pages: Row[]; referrers: Row[]; countries: Row[]; devices: Row[]; browsers: Row[];
+  entries: Row[]; exits: Row[]; clicks: Row[]; searches: Row[]; vitals: Row[]; transitions: Row[];
+}
+
+interface PageDetail {
+  totals: { pageviews: number; visitors: number; avg_dwell_s: number | null; avg_scroll_pct: number | null };
+  series: MetricsPoint[];
+  referrers: Row[]; countries: Row[]; prevs: Row[]; nexts: Row[]; gsc: Row[]; gsc_queries: Row[];
+}
+
+export default async function MetricsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ d?: string; path?: string }>;
+}) {
+  const admin = await getAdminUser();
+  if (!admin) notFound();
+
+  const sp = await searchParams;
+  const d = RANGES.some((r) => r.d === Number(sp.d)) ? Number(sp.d) : 7;
+  const drillPath = typeof sp.path === "string" && sp.path.startsWith("/") ? sp.path : null;
+
+  const to = new Date();
+  const from = new Date(to.getTime() - d * 24 * 60 * 60 * 1000);
+  const bucket = d <= 2 ? "hour" : "day";
+
+  const supabase = createAdminClient();
+  const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
+
+  const [ovRes, liveRes, pageRes] = await Promise.all([
+    supabase.rpc("mt_overview_json", args),
+    supabase.rpc("mt_live_json"),
+    drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
+  ]);
+
+  const ov = (ovRes.data ?? null) as Overview | null;
+  const live = (liveRes.data ?? null) as { active_5m: number; active_30m: number; paths: Row[] } | null;
+  const detail = (pageRes.data ?? null) as PageDetail | null;
+
+  if (ovRes.error) {
+    return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;
+  }
+  if (!ov) return <div style={{ color: "#94a3b8" }}>No data.</div>;
+
+  const t = ov.totals;
+  const qs = (extra: Record<string, string | number>) => {
+    const p = new URLSearchParams();
+    p.set("d", String(extra.d ?? d));
+    if (extra.path) p.set("path", String(extra.path));
+    return `/admin/metrics?${p.toString()}`;
+  };
+
+  return (
+    <div style={{ maxWidth: 1160 }}>
+      {/* header row */}
+      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginBottom: 18 }}>
+        <h1 style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>Analytics</h1>
+        <div style={{ display: "flex", gap: 4 }}>
+          {RANGES.map((r) => (
+            <Link
+              key={r.d}
+              href={qs({ d: r.d, ...(drillPath ? { path: drillPath } : {}) })}
+              style={{
+                padding: "4px 12px", borderRadius: 6, fontSize: 13, textDecoration: "none",
+                background: r.d === d ? "#60a5fa" : "rgba(148,163,184,0.12)",
+                color: r.d === d ? "#0f172a" : "#cbd5e1", fontWeight: r.d === d ? 700 : 400,
+              }}
+            >
+              {r.label}
+            </Link>
+          ))}
+        </div>
+        {live && (
+          <span style={{ fontSize: 12, color: "#94a3b8" }}>
+            <span style={{ color: "#0ca30c" }}>●</span> now: <b style={{ color: "#e2e8f0" }}>{live.active_5m}</b> active
+            · 30 min: <b style={{ color: "#e2e8f0" }}>{live.active_30m}</b>
+          </span>
+        )}
+        <div style={{ marginLeft: "auto" }}><MetricsOptOut /></div>
+      </div>
+
+      {/* KPI tiles */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10, marginBottom: 20 }}>
+        <Kpi label="Visitors" value={fmt(t.visitors)} />
+        <Kpi label="Pageviews" value={fmt(t.pageviews)} />
+        <Kpi label="Sessions" value={fmt(t.sessions)} />
+        <Kpi label="Pages / session" value={t.pv_per_session != null ? String(t.pv_per_session) : "–"} />
+        <Kpi label="Bounce" value={t.bounce_pct != null ? `${t.bounce_pct}%` : "–"} />
+        <Kpi label="Avg dwell" value={t.avg_dwell_s != null ? `${t.avg_dwell_s}s` : "–"} />
+        <Kpi label="Avg scroll" value={t.avg_scroll_pct != null ? `${t.avg_scroll_pct}%` : "–"} />
+      </div>
+
+      {/* time series */}
+      <Panel title={`Traffic (${bucket === "hour" ? "hourly" : "daily"}, KST)`}>
+        <MetricsChart data={ov.series} />
+      </Panel>
+
+      {/* per-page drilldown */}
+      {drillPath && (
+        <Panel
+          title={
+            <>
+              Page: <span style={{ color: "#60a5fa" }}>{drillPath}</span>{" "}
+              <Link href={qs({ d })} style={{ fontSize: 12, color: "#94a3b8", marginLeft: 10 }}>✕ close</Link>
+            </>
+          }
+        >
+          {detail ? (
+            <>
+              <div style={{ display: "flex", gap: 24, fontSize: 13, color: "#cbd5e1", marginBottom: 12, flexWrap: "wrap" }}>
+                <span>{fmt(detail.totals.pageviews)} pageviews</span>
+                <span>{fmt(detail.totals.visitors)} visitors</span>
+                <span>dwell {detail.totals.avg_dwell_s ?? "–"}s</span>
+                <span>scroll {detail.totals.avg_scroll_pct ?? "–"}%</span>
+                <a href={`https://metatake.net${drillPath}`} target="_blank" rel="noreferrer" style={{ color: "#60a5fa" }}>open ↗</a>
+              </div>
+              <MetricsChart data={detail.series} height={160} />
+              <div style={grid2}>
+                <BarList title="Came from (referrers)" rows={detail.referrers} labelKey="d" />
+                <BarList title="Countries" rows={detail.countries} labelKey="c" />
+                <BarList title="Previous page in session" rows={detail.prevs} labelKey="path" linkD={d} />
+                <BarList title="Next page in session" rows={detail.nexts} labelKey="path" linkD={d} />
+              </div>
+              {detail.gsc_queries.length > 0 ? (
+                <div style={{ marginTop: 14 }}>
+                  <SubTitle>Google Search queries (GSC)</SubTitle>
+                  <table style={{ fontSize: 12.5, width: "100%" }}>
+                    <thead><tr style={{ textAlign: "left" }}><th>query</th><th style={num}>clicks</th><th style={num}>impressions</th><th style={num}>avg pos</th></tr></thead>
+                    <tbody>
+                      {detail.gsc_queries.map((r, i) => (
+                        <tr key={i}>
+                          <td style={{ padding: "3px 0" }}>{String(r.query)}</td>
+                          <td style={num}>{fmt(r.clicks)}</td>
+                          <td style={num}>{fmt(r.impressions)}</td>
+                          <td style={num}>{r.position ?? "–"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div style={{ fontSize: 12, color: "#64748b", marginTop: 12 }}>
+                  GSC data not loaded yet — run <code>worker/gsc-pull.py</code> (see HANDOFF-사이트분석.md).
+                </div>
+              )}
+            </>
+          ) : (
+            <div style={{ color: "#94a3b8", fontSize: 13 }}>No data for this page in range.</div>
+          )}
+        </Panel>
+      )}
+
+      {/* panel grid */}
+      <div style={grid2}>
+        <BarList title="Top pages" rows={ov.top_pages} labelKey="path" valueKey="pv" linkD={d} extra={(r) => (r.dwell_s != null ? `${r.dwell_s}s · ${r.scroll_pct ?? "–"}%` : "")} />
+        <BarList title="Referrers" rows={ov.referrers} labelKey="d" />
+        <BarList title="Entry pages" rows={ov.entries} labelKey="path" linkD={d} />
+        <BarList title="Exit pages" rows={ov.exits} labelKey="path" linkD={d} />
+        <BarList title="Countries" rows={ov.countries} labelKey="c" />
+        <div>
+          <BarList title="Devices" rows={ov.devices} labelKey="d" />
+          <div style={{ height: 14 }} />
+          <BarList title="Browsers" rows={ov.browsers} labelKey="b" />
+        </div>
+        <BarList title="On-site searches" rows={ov.searches} labelKey="q" />
+        <BarList title="Clicks (data-mt + outbound)" rows={ov.clicks} labelKey="name" />
+        <BarList title="Session flows (page → page)" rows={ov.transitions.map((r) => ({ ...r, pair: `${r.f} → ${r.t}` }))} labelKey="pair" />
+        <div>
+          <SubTitle>Web vitals (p75)</SubTitle>
+          {ov.vitals.length ? (
+            <table style={{ fontSize: 12.5 }}>
+              <tbody>
+                {ov.vitals.map((v, i) => (
+                  <tr key={i}>
+                    <td style={{ paddingRight: 16, color: "#cbd5e1" }}>{String(v.name)}</td>
+                    <td style={{ ...num, color: "#e2e8f0" }}>{v.name === "CLS" ? v.p75 : `${fmt(v.p75)} ms`}</td>
+                    <td style={{ ...num, color: "#64748b" }}>n={fmt(v.n)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <div style={{ fontSize: 12, color: "#64748b" }}>Sampled 1-in-3 sessions — accumulates over time.</div>
+          )}
+        </div>
+      </div>
+
+      <p style={{ fontSize: 11.5, color: "#64748b", marginTop: 22, lineHeight: 1.6 }}>
+        First-party collection (components/Metrics.tsx → /api/metrics → mt_events). Cookieless: visitor ids rotate daily.
+        Bots are filtered by UA + the beacon only runs in real browsers. Click a page row to drill down.
+        Instrument any element with <code>data-mt=&quot;name&quot;</code> to count it under Clicks.
+      </p>
+    </div>
+  );
+}
+
+// ── little presentational helpers ─────────────────────────────────────────
+
+const num: CSSProperties = { textAlign: "right", fontVariantNumeric: "tabular-nums", paddingLeft: 14 };
+const grid2: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 18, marginTop: 4 };
+
+function fmt(v: unknown): string {
+  const n = Number(v);
+  return Number.isFinite(n) ? n.toLocaleString("en-US") : "–";
+}
+
+function Kpi({ label, value }: { label: string; value: string }) {
+  return (
+    <div style={{ background: "#0f172a", border: "1px solid rgba(148,163,184,0.15)", borderRadius: 8, padding: "10px 14px" }}>
+      <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 3 }}>{label}</div>
+      <div style={{ fontSize: 20, fontWeight: 700, color: "#f1f5f9", fontVariantNumeric: "tabular-nums" }}>{value}</div>
+    </div>
+  );
+}
+
+function Panel({ title, children }: { title: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div style={{ background: "#0f172a", border: "1px solid rgba(148,163,184,0.15)", borderRadius: 8, padding: "14px 16px", marginBottom: 18 }}>
+      <div style={{ fontSize: 13, fontWeight: 600, color: "#cbd5e1", marginBottom: 10 }}>{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function SubTitle({ children }: { children: React.ReactNode }) {
+  return <div style={{ fontSize: 13, fontWeight: 600, color: "#cbd5e1", marginBottom: 8 }}>{children}</div>;
+}
+
+/** Horizontal bar list — direct-labeled rows, single sequential hue. */
+function BarList({
+  title, rows, labelKey, valueKey = "n", linkD, extra,
+}: {
+  title: string;
+  rows: Row[];
+  labelKey: string;
+  valueKey?: string;
+  linkD?: number; // when set, labels are paths and link to the drilldown
+  extra?: (r: Row) => string;
+}) {
+  const max = Math.max(1, ...rows.map((r) => Number(r[valueKey]) || 0));
+  return (
+    <div>
+      <SubTitle>{title}</SubTitle>
+      {rows.length === 0 && <div style={{ fontSize: 12, color: "#64748b" }}>Nothing yet.</div>}
+      <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+        {rows.map((r, i) => {
+          const v = Number(r[valueKey]) || 0;
+          const label = String(r[labelKey] ?? "–");
+          const ex = extra ? extra(r) : "";
+          return (
+            <div key={i} style={{ position: "relative", fontSize: 12.5, lineHeight: "22px" }}>
+              <div style={{
+                position: "absolute", inset: 0, width: `${Math.max(2, (v / max) * 100)}%`,
+                background: "rgba(57,135,229,0.16)", borderRadius: 4,
+              }} />
+              <div style={{ position: "relative", display: "flex", justifyContent: "space-between", gap: 10, padding: "0 8px" }}>
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "#e2e8f0" }}>
+                  {linkD ? (
+                    <Link href={`/admin/metrics?d=${linkD}&path=${encodeURIComponent(label)}`} style={{ color: "#e2e8f0", textDecoration: "none" }}>
+                      {label}
+                    </Link>
+                  ) : label}
+                </span>
+                <span style={{ color: "#94a3b8", fontVariantNumeric: "tabular-nums", flexShrink: 0 }}>
+                  {ex && <span style={{ marginRight: 10, color: "#64748b" }}>{ex}</span>}
+                  {fmt(v)}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
