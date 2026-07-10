@@ -53,8 +53,9 @@ const keyOf = (h: SearchHit) => `${h.kind}:${h.slug}:${h.film_slug ?? ""}`;
 
 function Meaning({ hit }: { hit: SearchHit }) {
   if (hit.match !== "meaning") return null;
+  const pct = hit.sem != null ? ` ${Math.round(hit.sem * 100)}%` : "";
   return (
-    <span className="srp-sem" title="Found by meaning, not keywords">≈ meaning</span>
+    <span className="srp-sem" title={`Found by meaning, not keywords${pct ? ` — similarity${pct}` : ""}`}>≈ meaning{pct}</span>
   );
 }
 

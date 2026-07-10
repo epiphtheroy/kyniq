@@ -156,7 +156,7 @@ function localHits(q: string): RpcRow[] {
 const keyOf = (r: RpcRow) => `${r.kind}:${r.slug}:${r.film_slug ?? ""}`;
 
 function fuse(lex: RpcRow[], sem: RpcRow[], limit: number): SearchHit[] {
-  const acc = new Map<string, { row: RpcRow; rrf: number; inLex: boolean; inSem: boolean }>();
+  const acc = new Map<string, { row: RpcRow; rrf: number; inLex: boolean; inSem: boolean; sem?: number }>();
   lex.forEach((row, i) => {
     const k = keyOf(row);
     const cur = acc.get(k) ?? { row, rrf: 0, inLex: false, inSem: false };
@@ -173,13 +173,14 @@ function fuse(lex: RpcRow[], sem: RpcRow[], limit: number): SearchHit[] {
     const cur = acc.get(k) ?? { row, rrf: 0, inLex: false, inSem: false };
     cur.rrf += 1 / (RRF_K + i + 1);
     cur.inSem = true;
+    cur.sem = row.score; // raw cosine similarity — surfaced as a trust signal ("≈ 72%")
     // prefer the lexical row's fields (it has exact sub/poster too) but keep either
     acc.set(k, cur);
   });
   return [...acc.values()]
     .sort((a, b) => b.rrf - a.rrf || b.row.score - a.row.score)
     .slice(0, limit)
-    .map(({ row, rrf, inLex, inSem }) => ({
+    .map(({ row, rrf, inLex, inSem, sem: semScore }) => ({
       kind: row.kind as SearchKind,
       slug: row.slug,
       film_slug: row.film_slug,
@@ -190,6 +191,7 @@ function fuse(lex: RpcRow[], sem: RpcRow[], limit: number): SearchHit[] {
       score: rrf,
       is_catalog: row.is_catalog === true,
       match: inLex && inSem ? "both" : inSem ? "meaning" : "text",
+      sem: semScore,
       href: hrefOf(row.kind as SearchKind, row.slug, row.film_slug),
     }));
 }

@@ -23,6 +23,8 @@ export interface SearchHit {
   score: number;
   is_catalog: boolean;
   match: "text" | "meaning" | "both";
+  /** raw cosine similarity of the semantic leg (0–1) when match includes meaning */
+  sem?: number;
   href: string;
 }
 

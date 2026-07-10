@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { runSearch } from "@/lib/search";
-import { attachKwic } from "@/lib/kwic";
+import { attachKwic, kwic } from "@/lib/kwic";
 import TermHighlight from "@/components/TermHighlight";
 import SiteNav from "@/components/home2/SiteNav";
 import { KIND_LABEL, TMDB_IMG, type SearchHit, type SearchKind } from "@/lib/search-shared";
@@ -42,7 +42,7 @@ type FilmCard = {
   backdrop_path: string | null; runtime: number | null; genres: string[] | null;
   takescore: number | null; rank: number | null; rank_total: number | null;
   imdb: number | null; rt: number | null; metascore: number | null;
-  honors: number; stills: { url: string; thumb: string }[];
+  honors: number; lineage: number; stills: { url: string; thumb: string }[];
 };
 type DirectorCard = {
   type: "director"; slug: string; name: string; profile_path: string | null;
@@ -64,12 +64,13 @@ async function loadEntityCard(hit: SearchHit | undefined): Promise<EntityCard> {
         .select("id, slug, title, year, director, director_slug, overview, poster_path, backdrop_path, runtime, genres")
         .eq("slug", hit.slug).maybeSingle();
       if (!f) return null;
-      const [codexRes, ratRes, honRes, stillRes] = await Promise.all([
+      const [codexRes, ratRes, honRes, stillRes, linRes] = await Promise.all([
         sb.rpc("cinecodex_for", { p_slug: f.slug }),
         sb.from("film_ratings").select("imdb_rating, rt_tomatometer, metascore").eq("film_id", f.id).maybeSingle(),
         sb.from("film_wd_honors").select("id", { count: "exact", head: true }).eq("film_id", f.id),
         sb.from("media").select("url, thumbnail_url").eq("entity_type", "film").eq("entity_id", f.id)
           .eq("kind", "image").eq("status", "published").order("position").limit(10),
+        sb.from("film_lineage").select("id", { count: "exact", head: true }).eq("film_id", f.id),
       ]);
       const cx = (codexRes.data ?? null) as { u?: number; rank?: number; rank_total?: number } | null;
       const rat = ratRes.data as { imdb_rating: number | null; rt_tomatometer: number | null; metascore: number | null } | null;
@@ -81,6 +82,7 @@ async function loadEntityCard(hit: SearchHit | undefined): Promise<EntityCard> {
         rank: cx?.rank ?? null, rank_total: cx?.rank_total ?? null,
         imdb: rat?.imdb_rating ?? null, rt: rat?.rt_tomatometer ?? null, metascore: rat?.metascore ?? null,
         honors: honRes.count ?? 0,
+        lineage: linRes.count ?? 0,
         stills: ((stillRes.data ?? []) as { url: string; thumbnail_url: string }[])
           .map((s) => ({ url: s.url, thumb: s.thumbnail_url })),
       };
@@ -128,14 +130,47 @@ function crumbOf(href: string): string {
   return "metatake.net" + href.split("?")[0].split("/").filter(Boolean).map((p) => ` › ${decodeURIComponent(p)}`).join("");
 }
 
-function ResultRow({ h, term }: { h: SearchHit; term: string }) {
+// What mediated a meaning-match: the embedding space the hit was found in.
+// Named so the reader knows WHICH text/profile carried the semantic link.
+const SEM_VIA: Partial<Record<SearchHit["kind"], string>> = {
+  reading: "the reading's text", essay: "the essay's text", trope: "the trope's description",
+  film: "the film's taste profile", director: "the director's style profile",
+  tradition: "the theory canon", archetype: "the archetype's definition",
+};
+
+function SemBadge({ h }: { h: SearchHit }) {
+  if (h.match === "text" || h.sem == null) return null;
+  const pct = Math.round(h.sem * 100);
+  const via = SEM_VIA[h.kind] ?? `this ${KIND_LABEL[h.kind].toLowerCase()}`;
+  return (
+    <span className="ox-sem" title={`Semantic match — cosine similarity ${pct}% via ${via}`}>
+      ≈ {pct}% by meaning · via {via}
+    </span>
+  );
+}
+
+// Yandex-style sitelinks under a film row — only the always-resolvable surfaces
+// (Afterlife/Lineage are publish-gated per film; they live on the entity card
+// where the counts are checked first).
+function FilmSitelinks({ slug }: { slug: string }) {
+  return (
+    <div className="ox-r__links">
+      <Link href={`/film/${slug}/credits`}>Credits</Link>
+      <Link href={`/takescore/film/${slug}`}>TakeScore</Link>
+      <Link href={`/film/${slug}/gallery`}>Gallery</Link>
+    </div>
+  );
+}
+
+function ResultRow({ h, term, sitelinks }: { h: SearchHit; term: string; sitelinks?: boolean }) {
   return (
     <article className="ox-r">
       <div className="ox-r__main">
         <div className="ox-r__crumb">{crumbOf(h.href)}<span className={`ox-k ox-k--${h.kind}`}>{KIND_LABEL[h.kind]}</span></div>
         <Link href={h.href} className="ox-r__t"><HL s={h.title} term={term} />{h.year ? <span className="ox-r__y"> ({h.year})</span> : null}</Link>
         {h.sub ? <p className="ox-r__s"><HL s={h.sub} term={term} /></p> : null}
-        {h.match === "meaning" ? <span className="ox-sem">≈ matched by meaning</span> : null}
+        <SemBadge h={h} />
+        {sitelinks && h.kind === "film" ? <FilmSitelinks slug={h.slug} /> : null}
       </div>
       {h.poster ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -186,6 +221,7 @@ function Card({ card, term }: { card: EntityCard; term: string }) {
           <Link href={`/film/${card.slug}`}>Overview</Link>
           <Link href={`/takescore/film/${card.slug}`}>TakeScore</Link>
           {card.honors > 0 ? <Link href={`/film/${card.slug}/reception`}>Afterlife · {card.honors} honors</Link> : null}
+          {card.lineage >= 3 ? <Link href={`/film/lineage/${card.slug}`}>Lineage · {card.lineage} listings</Link> : null}
           <Link href={`/film/${card.slug}/credits`}>Credits</Link>
           <Link href={`/film/${card.slug}/gallery`}>Gallery</Link>
         </div>
@@ -324,6 +360,25 @@ export default async function OmniPage({ searchParams }: Props) {
     } catch { /* keep subs */ }
   }
 
+  // Reading snippets: replace the bare film-title sub with the take's own "leap"
+  // line (its argumentative core), keyword-centered — the reader sees WHY the
+  // reading matched, not just where it lives.
+  const readingHits = hits.filter((h) => h.kind === "reading").slice(0, 12);
+  if (readingHits.length) {
+    try {
+      const { data } = await db().from("takes")
+        .select("leap, figure:figures!inner(slug)")
+        .in("figure.slug", readingHits.map((h) => h.slug))
+        .eq("status", "published").limit(40);
+      const bySlug = new Map<string, string>();
+      for (const r of (data ?? []) as unknown as { leap: string | null; figure: { slug: string } }[]) {
+        if (r.figure?.slug && r.leap && !bySlug.has(r.figure.slug)) bySlug.set(r.figure.slug, r.leap);
+      }
+      hits = hits.map((h) => (h.kind === "reading" && bySlug.has(h.slug)
+        ? { ...h, sub: kwic(bySlug.get(h.slug)!, [term], 150) } : h));
+    } catch { /* keep film-title subs */ }
+  }
+
   // Object card = the first ENTITY near the top (Yandex shows the object card even
   // when a list item edges it in fused rank — e.g. "parasite" can rank the trope
   // "The Title Names The Parasite…" #1, but the card should still be the film).
@@ -400,7 +455,7 @@ export default async function OmniPage({ searchParams }: Props) {
           <div className="ox-results">
             {rows.length === 0 ? (
               <p className="ox-empty">Nothing in this tab for “{term}” — try <Link href={`/omni?q=${encodeURIComponent(term)}`}>All</Link> or <Link href={`/ask?q=${encodeURIComponent(term)}`}>ask the AI</Link>.</p>
-            ) : rows.map((h) => <ResultRow key={`${h.kind}:${h.slug}:${h.film_slug ?? ""}`} h={h} term={term} />)}
+            ) : rows.map((h) => <ResultRow key={`${h.kind}:${h.slug}:${h.film_slug ?? ""}`} h={h} term={term} sitelinks />)}
 
             {related.length ? (
               <div className="ox-related">
