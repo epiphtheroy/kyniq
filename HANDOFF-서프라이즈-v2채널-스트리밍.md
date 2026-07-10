@@ -57,6 +57,8 @@
 
 ## C. METATAKE TV — 채널 (2026-07-10; `/random`=임베드 페이지, `/random/v2`=풀스크린 키오스크)
 
+**8차: /tv 슬러그 이전 + 임베드 축소·가독성 수정(2026-07-10).** 슬러그 `/random`→**`/tv`**, `/random/v2`→**`/tv/full`**(구 URL은 `redirect()` 서버 리다이렉트로 살림, `app/random/page.tsx`·`app/random/v2/page.tsx`=redirect만). 내비(`components/home2/Nav.tsx` wander)·⌘K(`GlobalCmdK.tsx`) 라벨 "Surprise me"→"METATAKE TV". `app/tv/{page,full/page,layout}.tsx` 신설(layout=메타데이터). **⚠️ 도시에 검정-검정 버그**: `.mt p{color:var(--ink)}`(특정성 0,1,1)가 `.tvd-p`(0,1,0)를 이겨 어두운 텍스트→불가시. `.tvpg .tvd-*`(0,2,0)로 전 텍스트·링크 특정성 올려 해결. 임베드는 뷰포트가 아닌 박스(~78vh)라 `.tv-embed .sv2-*`로 폰트·마스트·자막·칩·맵 전면 다운스케일 + 아틀라스/커넥션 맵 대폭 축소(FilmMap h300→210, box 460/400px)·하단(bottom 6/5%)·상단툴바 제거(`.sv2-atlas .fmap-head,.fmap-tools{display:none}`, 지도+좌측 리스트만). 홈 히어로(v1)는 여전히 미변경. **함정 교훈: 전역 CSS라 `.mt` 요소셀렉터가 라이트테마 색을 강제 → 다크 오버레이 안 텍스트는 반드시 클래스 특정성 2단(`.부모 .자식`) 이상으로.**
+
 **7차: "Surprise me" → "METATAKE TV" 페이지 승격(2026-07-10).** `/random`이 큰 임베드 TV(상단 78vh) + 하단 **라이브 도시에**(page-within-page)로 개편. TV를 **풀스크린/임베드 겸용 공유 컴포넌트 `components/MetatakeTV.tsx`**로 추출(`embed` prop, `onCard` 콜백). `/random/v2/page.tsx`=`<MetatakeTV/>`(풀스크린), `/random/page.tsx`=헤더(METATAKE TV·ON AIR 브랜딩)+`<MetatakeTV embed onCard={setCard}/>`+`TVDossier(card)`. 임베드 모드: 바디 스크롤잠금 해제·Space 키핸들러 비활성(페이지 스크롤 방해 방지)·컨트롤 상시표시(`.tv-embed .svc-ctrls{opacity:1}`). 루트 클래스 `svchan`(풀스크린) vs `tv-embed`(relative). 도시에=현재 방송 카드를 정적으로 펼침(포스터·제목·감독·딥링크 The film/lens/director + 렌즈 전체 본문/칩/리스트), TV 넘어가면 갱신. CSS `.tv-embed`·`.tvpg`·`.tv-stage`·`.tvd-*`. 홈 히어로(v1 SurpriseStage)는 미변경(원우 확인 대기: 홈도 TV로 바꿀지).
 
 ### 이하 초기 재설계(§C 원문):
