@@ -3999,6 +3999,18 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .tvpg .tvd-dir a{color:#d9d1c2} .tvpg .tvd-chip{color:#e7dfd0}
 .tvpg .tvd-jump{color:#EFEADD} .tvpg .tvd-jump--acc,.tvpg .tvd-more{color:#fff}
 .tvpg .tvd-leap span{color:#E8A7AF}
+/* embedded TV lives inside `.mt` (light theme) — its <p>/<h2>/<blockquote> text
+   gets clobbered by `.mt p{color:var(--ink)}` etc. Force the broadcast text light
+   with 2-class specificity (works in both embed and full-screen). */
+.sv2 .sv2-subtxt{color:#fff}
+.sv2 .sv2-subsub{color:#cfc7b8}
+.sv2 .sv2-dek{color:#e0d8c8}
+.sv2 .sv2-quote blockquote{color:#f4eee2}
+.sv2 .sv2-quote figcaption{color:#d9d1c2}
+.sv2 .sv2-stkrow__t{color:#fff}
+.sv2 .sv2-stkrow__s{color:#b3aa98}
+.sv2 .sv2-chip{color:#fff}
+.sv2 .sv2-top .sv2-state{color:var(--ent,#fff)}
 
 /* embedded TV is a box (~78vh), not the viewport — scale the furniture down so
    nothing overlaps the video, and shrink the maps a lot. */
