@@ -16,6 +16,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLens } from "@/components/LensProvider";
+import { mtEvent } from "@/components/mtTrack";
 
 type GPoint = {
   slug: string; title: string; x: number; y: number; c: number;
@@ -403,11 +404,12 @@ export default function GalaxyMap({ height }: { height: number }) {
   }, [pick, draw, scheduleVisible]);
   const onUp = useCallback((e: React.MouseEvent) => {
     const wasDrag = drag.current?.moved; drag.current = null;
-    if (wasDrag) { scheduleVisible(); return; }
+    if (wasDrag) { mtEvent("galaxy:drag"); scheduleVisible(); return; }
     const cv = canvasRef.current; if (!cv) return;
     const rect = cv.getBoundingClientRect();
     const p = pick(e.clientX - rect.left, e.clientY - rect.top);
     if (!p) { setSelected(null); return; }
+    mtEvent("galaxy:node");
     if (narrow) { window.location.assign(hrefOf(kind, p)); return; }
     setSelected(p);
   }, [pick, narrow, kind]);

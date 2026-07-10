@@ -17,6 +17,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useLens } from "@/components/LensProvider";
+import { mtEvent } from "@/components/mtTrack";
 
 type Row = {
   id: string; name: string; narrative_setting?: string | null; scene_role?: string | null;
@@ -491,6 +492,9 @@ export default function FilmMap({
       m.on("load", () => { addPoints(); updateInView(); setMapReady(true); });
       m.on("styledata", addPoints);
       m.on("moveend", () => { updateInView(); requestBbox(); });
+      m.on("dragend", () => mtEvent("map:drag"));
+      m.on("zoomend", () => mtEvent("map:zoom"));
+      m.on("click", () => mtEvent("map:click"));
 
       m.on("click", "clusters", (ev: { features?: { properties: Record<string, unknown>; geometry: { coordinates: number[] } }[] }) => {
         const f = ev.features?.[0]; if (!f) return;

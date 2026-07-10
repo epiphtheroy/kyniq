@@ -20,6 +20,7 @@ import CinecodexPanel, { type Codex, type FilmSubscores } from "@/components/Cin
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import FilmHeroReel from "@/components/FilmHeroReel";
+import FilmTVHero from "@/components/FilmTVHero";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityMap from "@/components/EntityMap";
@@ -50,6 +51,20 @@ const IMG = "https://image.tmdb.org/t/p";
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+}
+
+// Does this film have a published METATAKE TV broadcast? (slug === film slug.)
+// Tiny indexed exists-probe, cached on its own key so it never recomputes the
+// heavy film loader; gates the hero swap + the "TV Broadcast" tab.
+async function filmHasProgram(slug: string): Promise<boolean> {
+  return unstable_cache(
+    async () => {
+      const { data } = await db().from("tv_programs").select("slug").eq("slug", slug).eq("status", "published").maybeSingle();
+      return !!data;
+    },
+    ["film-tv-present", slug],
+    { revalidate: 300 },
+  )();
 }
 
 interface Props { params: Promise<{ slug: string }>; }
@@ -938,6 +953,9 @@ export default async function FilmPage({ params }: Props) {
   const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
   const nCurious = questions.length + deskEssays.length;
   const nWatchRegions = watch?.countries?.length ?? 0;
+  // METATAKE TV — the film's compiled broadcast (replaces the hero trailer and
+  // adds a tab linking to the full /tv/[slug] page). Cheap cached exists-probe.
+  const hasProgram = await filmHasProgram(film.slug);
   // Tabs carry a spoiler `zone` (2026-07-09): the top rail is safe to read
   // before watching, the bottom rail (the close readings) discusses specific
   // scenes and endings. Order within each zone runs decide → context → record
@@ -963,6 +981,9 @@ export default async function FilmPage({ params }: Props) {
     // Gallery sits at the very end of the spoiler-free rail — a side surface.
     (film.backdrop_path || film.poster_path) ? { id: "df-gallery", label: "Gallery", href: `/film/${film.slug}/gallery`, zone: "free" as const } : null,
     // ── Spoilers (after you watch): the close readings that turn on the film's scenes ──
+    // The METATAKE TV broadcast leads the second rail — it plays the readings, so
+    // it lives with the spoiler surfaces; the link opens the full /tv/[slug] page.
+    hasProgram ? { id: "df-tv", label: "▶ TV Broadcast", href: `/tv/${film.slug}`, color: "#C8102E", zone: "spoiler" as const } : null,
     misreadings.length ? { id: "df-readings", label: "Strong Misreadings!", badge: misreadings.length, zone: "spoiler" as const } : null,
     grouped.length ? { id: "df-figures", label: "Figures", badge: catalogue.length, zone: "spoiler" as const } : null,
     tropes.length ? { id: "df-tropes", label: "Tropes", badge: tropes.length, zone: "spoiler" as const } : null,
@@ -1046,9 +1067,12 @@ export default async function FilmPage({ params }: Props) {
           {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
         </div>
 
-        {/* HERO — autoplay (muted) trailer in full 16:9; falls back to the colour backdrop */}
-        <section className={`df-hero${videos.length ? " df-hero--vid" : ""}`}>
-          {videos.length ? (
+        {/* HERO — the film's METATAKE TV broadcast when one is compiled (a video essay
+            over the trailer); else the autoplay (muted) trailer reel; else the colour backdrop */}
+        <section className={`df-hero${videos.length || hasProgram ? " df-hero--vid" : ""}`}>
+          {hasProgram ? (
+            <FilmTVHero slug={film.slug} videos={videos} poster={heroPoster ?? undefined} backdrop={film.backdrop_path} />
+          ) : videos.length ? (
             <FilmHeroReel videos={videos} poster={heroPoster ?? undefined} start={7} />
           ) : film.backdrop_path ? (
             // eslint-disable-next-line @next/next/no-img-element

@@ -14,6 +14,7 @@
 
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { mtEvent } from "@/components/mtTrack";
 
 export type GraphNode = {
   id: string;
@@ -252,6 +253,7 @@ export default function EntityGraph({
       // single click = navigate within the map (recenter). Drags are filtered by `moved`.
       el.addEventListener("click", () => {
         if (moved) return;
+        mtEvent("graph:node");
         if (clickRef.current) clickRef.current(n);
         else if (n.href) router.push(n.href);
       });
@@ -260,13 +262,14 @@ export default function EntityGraph({
     const onMove = (e: PointerEvent) => {
       if (dragNode) {
         if (!moved) {
-          if (Math.abs(e.clientX - downAt.x) + Math.abs(e.clientY - downAt.y) > 8) moved = true;
+          if (Math.abs(e.clientX - downAt.x) + Math.abs(e.clientY - downAt.y) > 8) { moved = true; mtEvent("graph:drag"); }
           else return; // small jitter — keep it a click, don't start dragging
         }
         const w = toWorld(e.clientX, e.clientY);
         dragNode.fx = w.x; dragNode.fy = w.y;
         alpha = Math.max(alpha, 0.6);
       } else if (panning) {
+        mtEvent("graph:pan");
         tx = panStart.tx + (e.clientX - panStart.x);
         ty = panStart.ty + (e.clientY - panStart.y);
         applyView();
