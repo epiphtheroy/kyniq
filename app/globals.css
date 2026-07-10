@@ -3696,6 +3696,18 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .df-video iframe{width:100%; height:100%; border:0; display:block}
 .df-hero--vid .df-headrow{margin-top:14px; align-items:flex-start}
 
+/* FilmTVHero — the METATAKE TV broadcast embedded in the film hero (16:9). The
+   .tv-embed inside fills this box (container-query sized). Loading state shows
+   the backdrop with an on-air ribbon so there's no double YouTube load. */
+.df-tvhero{position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; background:#000; box-shadow:0 14px 44px rgba(0,0,0,.32)}
+.df-tvhero--load{background-size:cover; background-position:center; display:flex; align-items:flex-end; justify-content:space-between}
+.df-tvhero--load::after{content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.12) 46%,rgba(0,0,0,.2))}
+.df-tvhero__badge{position:relative; z-index:2; margin:0 0 14px 14px; display:inline-flex; align-items:center; gap:6px; font-weight:800; letter-spacing:.02em}
+.df-tvhero__badge b{color:#fff; font-size:15px}
+.df-tvhero__badge i{background:#C8102E; color:#fff; font-style:normal; font-weight:800; font-size:13px; padding:1px 6px; border-radius:4px}
+.df-tvhero__tune{position:relative; z-index:2; margin:0 14px 16px 0; color:#fff; font-size:12px; letter-spacing:.06em; text-transform:uppercase; opacity:.9}
+@media(max-width:640px){ .df-tvhero__badge b{font-size:13px} }
+
 /* FilmHeroReel — YT IFrame API player fills the .iv-frame box. */
 .iv-ytwrap{position:absolute; inset:0}
 .iv-frame .iv-yt{position:absolute; inset:0; width:100%; height:100%}

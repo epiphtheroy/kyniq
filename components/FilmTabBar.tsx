@@ -156,7 +156,7 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
       <span className={`df-tab__b${t.badgeTone === "score" ? " df-tab__b--score" : ""}`}>{t.badge}</span>
     ) : null;
     return t.href ? (
-      <Link key={t.id} href={t.href} data-tab={t.id} className="df-tab df-tab--link" style={style}>
+      <Link key={t.id} href={t.href} data-tab={t.id} data-mt={`tab:${t.id}`} className="df-tab df-tab--link" style={style}>
         <span className="df-tab__t">{t.label}</span>{badge}
       </Link>
     ) : (
@@ -164,6 +164,7 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
         key={t.id}
         href={`#${t.id}`}
         data-tab={t.id}
+        data-mt={`tab:${t.id}`}
         className={`df-tab${active === t.id ? " active" : ""}`}
         aria-current={active === t.id ? "true" : undefined}
         onClick={(e) => onClick(e, t.id)}
