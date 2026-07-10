@@ -73,7 +73,16 @@
 - **검증:** `/tv/pulp-fiction-1994` VideoObject+Clip+og:video 라이브, `/film/pulp-fiction-1994` TV Broadcast 탭+16:9 방송 히어로 라이브(백그라운드 트레일러는 `document.hidden` 자동재생 게이팅 때문에 자동화 탭에서만 검게 보임 — 실사용 정상).
 - **플로팅 미니 TV(2026-07-10 복원):** `components/FloatingTrailerDock.tsx` — 방송 히어로가 뷰포트를 벗어나면 **예전 플레인 트레일러 릴**(오버레이 없음)이 좌하단에 도킹(드래그·음소거·닫기, `.iv-frame--float` 가구 재사용). iframe은 플로팅 시에만 마운트(방송과 유튜브 이중로드 방지), 루프는 `playlist=` 체인(YT API 불사용, 음소거 토글만 postMessage). FilmTVHero가 fragment로 히어로 밖에 마운트(`.df-tvhero`의 overflow:hidden 클리핑 회피). 방송 없는 영화는 FilmHeroReel 자체 플로팅 그대로.
 
-**다음 단계 — 전략 플레이리스트 체계(기획 완료, 실행 대기):** 정본 지시서 **`docs/WORKORDER-tv-strategic-playlists.md`** (2026-07-10 Opus 기획). 핵심: 새 카테고리 발명 없이 **기존 축을 미러링** — 실측 리니지 89(무브먼트 67 포함)·감독 192·장르 18·국가 45·연대 11·이론가 276 + **강화 3축(원우 지시, 게이트 ≥3): 트로프 2,859(`conn_film_trope_vec`가 정본 멤버십)·아키타입 1,535(`figure_taxonomy`→`taxonomy_nodes` 6축)·컨셉 588(`takes.concept` 슬러그화, concept_readings 정규식 필수 동일)** ≈ 총 ~5,500 플레이리스트(생성기 배치 루프·디렉토리 페이징 필수). 각 방송 = ① 세부 페이지 임베드(PlaylistTVEmbed) + ② 독립 slug `/tv/list/[slug]`(CollectionPage+ItemList) + ③ **인트로 브리핑**(제목·클리핑 기준·영화 수·챕터 수 — tv_playlists.intro beats를 tv_watch가 pseudo-엔트리로 선두 삽입). 스키마=0060(axis/key/cut/intro/href 컬럼 추가), 생성기 `tv_build_*_playlists()` 8종+`tv_directory()`. ⚠️ 이론가·트로프 segments-cut은 엔티티 불일치로 P1 금지(컴파일러 v3 meta 스탬프 후). 브라우즈 UI는 tv_directory() 소비로 후속.
+### C2-c. 전략 플레이리스트 체계 — ✅ 구현 완료 (2026-07-11, 마이그 0060)
+정본 지시서 **`docs/WORKORDER-tv-strategic-playlists.md`**(상태=완료). 새 카테고리 없이 **기존 축 미러링**, LLM-0.
+- **빌드 결과: 5,559 플레이리스트 / 53,506 아이템** — 트로프 2,859(`conn_film_trope_vec`→`meta_takes` figure_type)·아키타입 1,535(`figure_taxonomy`→`taxonomy_nodes` 6축, seg 매핑=lib/catalog KINDS)·컨셉 588(`takes.concept` 슬러그화, **concept_readings 정규식과 동일** 필수)·감독 192·이론가 150·리니지 89(무브먼트 67 포함)·genre_topic 71(segments-cut)·국가 45·장르 18·연대 11·manual(palme) 1.
+- **DB(0060):** tv_playlists에 axis/key/cut/intro/href/n_* 추가. 제너레이터 `tv_build_{lineage,director,genre,country,decade,theorist}_playlists()`(소형, 1콜) + `tv_build_{trope,concept,archetype}_playlists(min,batch,offset)`(대형, 배치 러너로 offset 루프). upsert 헬퍼 `tv_upsert_film_playlist`/`tv_upsert_seg_playlist`가 items·counts·intro까지 조립. `tv_directory(axis,q,limit,offset)`+`tv_directory_summary()`(브라우즈 UI용, 페이징 필수).
+- **tv_watch v3:** 리스트 브랜치 맨 앞에 **인트로 브리핑 pseudo-엔트리**(topic='intro', beats=pl.intro) 삽입 + 셸프 36 캡 + n_playlists.
+- **프론트:** `/tv/list/[slug]`(독립 색인 페이지, CollectionPage+ItemList JSON-LD, `TVListView`) + `PlaylistTVEmbed`(director/lineage/movements/genre/trope/concept 페이지 임베드, 빈 슬러그 자동 숨김) + 사이트맵 tv-programs/tv-lists 자식.
+- **⚠️ anon 3초 타임아웃 함정(중요):** anon 역할 statement_timeout=3s인데 콜드 리스트/셸프 빌드는 ~4s(콜드), 최초 DDL 직후 15s. → `/tv/list` 404, 임베드·셸프 error. **해결: tv_watch에 함수레벨 `set statement_timeout to '12s'`**(ISR+s-maxage 300 캐시라 첫 히트만 부담) + 라우트 maxDuration=30. 신규 tv_* 무거운 anon RPC 추가 시 동일 패턴 필수.
+- **다음(미착수):** 브라우즈 UI `/tv/lists`(tv_directory 소비), 아키타입 catalog-노드 페이지 임베드, 이론가·트로프 segments-cut(컴파일러 v3 meta 스탬프 후).
+
+**(구 기획 노트)** 실측 리니지 89·감독 192·장르 18·국가 45·연대 11·이론가 276 + 강화 3축(≥3) 트로프 2,859·아키타입 1,535·컨셉 588 ≈ ~5,500. 각 방송 = ① 세부 페이지 임베드(PlaylistTVEmbed) + ② 독립 slug `/tv/list/[slug]`(CollectionPage+ItemList) + ③ **인트로 브리핑**(제목·클리핑 기준·영화 수·챕터 수 — tv_playlists.intro beats를 tv_watch가 pseudo-엔트리로 선두 삽입). 스키마=0060(axis/key/cut/intro/href 컬럼 추가), 생성기 `tv_build_*_playlists()` 8종+`tv_directory()`. ⚠️ 이론가·트로프 segments-cut은 엔티티 불일치로 P1 금지(컴파일러 v3 meta 스탬프 후). 브라우즈 UI는 tv_directory() 소비로 후속.
 
 ## C. METATAKE TV — 채널 (2026-07-10; `/random`=임베드 페이지, `/random/v2`=풀스크린 키오스크)
 
