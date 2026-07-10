@@ -317,7 +317,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
             <span className="sv2-kick sv2-kick--sub">{card?.label ?? "The map"}</span>
             <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
           </div>
-          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={300} />
+          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={230} />
         </div>
       ) : beat && beat.zone === "atlas" && card?.film_slug ? (
         <div key={`atlas-${idx}`} className="sv2-atlas">
@@ -325,7 +325,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
             <span className="sv2-kick sv2-kick--sub">On the atlas</span>
             <a href={`/film/${card.film_slug}#df-atlas`}>Open ↗</a>
           </div>
-          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={300} panelSide="left" fitMaxZoom={13} />
+          <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={210} panelSide="left" fitMaxZoom={14} />
         </div>
       ) : null}
 
