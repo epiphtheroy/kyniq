@@ -64,7 +64,9 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-async function embedQuery(q: string, timeoutMs = 2000): Promise<number[] | null> {
+// 1200ms cap: p95 for a short query embed from hnd1 is ~300ms; a slow OpenAI
+// call must degrade to lexical-only rather than hold the whole page hostage.
+async function embedQuery(q: string, timeoutMs = 1200): Promise<number[] | null> {
   if (!process.env.OPENAI_API_KEY) return null;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), timeoutMs);
