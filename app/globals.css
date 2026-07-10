@@ -3764,7 +3764,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sm-page .sm-h2{font-family:var(--font-display); font-size:21px; font-weight:500; color:#efe7d8; margin:0}
 
 /* ── Surprise v2 — "The Metatake Channel": text/lens composited over the film ── */
-.svchan{position:fixed; top:0; left:0; width:100vw; height:100vh; height:100dvh; background:#000; overflow:hidden; z-index:60}
+.svchan{position:fixed; top:0; left:0; width:100vw; height:100vh; height:100dvh; background:#000; overflow:hidden; z-index:60; container-type:inline-size}
 .svc-bed{position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden}
 .svc-media{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100vw; height:56.25vw; min-height:100vh; min-width:177.78vh; border:0; display:block; object-fit:cover}
 .svc-media--kb{width:100%; height:100%; min-height:100%; min-width:100%; object-fit:cover; animation:svc-kb 26s ease-in-out infinite alternate; transform-origin:center}
@@ -3825,7 +3825,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
    bottom subtitle (centered, all patterns) / center quote / stack (center-bottom)
    / chips (center-bottom) / map box bottom-right. --acc = mode accent. ══ */
 .sv2{--tvfont:"Barlow Condensed","Arial Narrow",sans-serif;--tvwide:"Barlow","Inter",sans-serif}
-.sv2 .svc-scrim{background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.16) 26%,rgba(0,0,0,.04) 55%,rgba(0,0,0,.34) 100%)}
+/* keep the film bright — a light vignette only; text zones carry their own backing/shadow */
+.sv2 .svc-scrim{background:linear-gradient(0deg,rgba(0,0,0,.46) 0%,rgba(0,0,0,.06) 20%,rgba(0,0,0,0) 46%,rgba(0,0,0,0) 62%,rgba(0,0,0,.14) 100%)}
 
 /* mastplate TL — poster + (title biggest / year · director), grid-ground banner */
 .sv2-mast{position:absolute;top:18px;left:20px;z-index:8;display:flex;gap:12px;align-items:stretch;max-width:min(38vw,470px);padding:10px 16px 10px 10px;text-decoration:none;border-left:3px solid var(--acc);
@@ -3867,7 +3868,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 
 /* top-center statement — WIDE, max 2 lines, high up; shrinks while beats play */
 .sv2-top{position:absolute;top:7%;left:50%;transform:translateX(-50%);z-index:6;width:min(90vw,1300px);text-align:center;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s,top .7s;animation:sv2-inx .7s cubic-bezier(.2,.7,.2,1) both}
-.sv2-top .sv2-state{font-family:var(--tvfont);font-weight:700;font-size:clamp(28px,4.1vw,58px);line-height:1.03;letter-spacing:.005em;color:var(--ent,#fff);text-shadow:0 3px 30px rgba(0,0,0,.85);margin:0;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .5s}
+.sv2-top .sv2-state{font-family:var(--tvfont);font-weight:700;font-size:clamp(16px,3.2cqw,52px);line-height:1.03;letter-spacing:.005em;color:var(--ent,#fff);text-shadow:0 2px 6px rgba(0,0,0,.9),0 3px 30px rgba(0,0,0,.75);margin:0;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .5s}
 .sv2-top .sv2-dek{font-family:var(--font-ui);font-size:clamp(13px,1.3vw,16px);line-height:1.5;color:#e0d8c8;margin:12px auto 0;max-width:64ch;text-shadow:0 1px 10px rgba(0,0,0,.8)}
 .sv2-top.is-min{transform:translateX(-50%) scale(.66);opacity:.9;top:4.5%}
 
@@ -3949,7 +3950,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 }
 
 /* ══ METATAKE TV — embedded (large-in-page) variant + the /random TV page ══ */
-.tv-embed{position:relative;width:100%;height:100%;background:#000;overflow:hidden;border-radius:12px;color:#fff}
+.tv-embed{position:relative;width:100%;height:100%;background:#000;overflow:hidden;border-radius:12px;color:#fff;container-type:inline-size}
 .tv-embed .svc-ctrls{opacity:1;pointer-events:auto;bottom:14px}
 .tv-embed .sv2-tv{top:13px;right:15px}
 .tv-embed .sv2-mast{top:13px;left:13px}
