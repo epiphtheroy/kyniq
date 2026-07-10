@@ -44,8 +44,24 @@ export async function attachKwic<T extends { film_slug: string; desk_key: string
   const subset = desks.slice(0, cap);
   try {
     const slugs = [...new Set(subset.map((d) => d.film_slug))];
+    if (!slugs.length) return desks.map((d) => ({ ...d, excerpt: d.excerpt ?? null }));
+    // Fast path: essay_plain (0057) holds pre-stripped bodies keyed by
+    // (film_slug, desk_key) — a tiny PK lookup instead of body_md + md-strip.
+    const { data: plainRows } = await supabase
+      .from("essay_plain").select("film_slug, desk_key, plain").in("film_slug", slugs);
+    const plain = new Map<string, string>();
+    for (const r of (plainRows ?? []) as { film_slug: string; desk_key: string; plain: string }[]) {
+      plain.set(`${r.film_slug}/${r.desk_key}`, r.plain);
+    }
+    if (plain.size) {
+      return desks.map((d) => {
+        const p = plain.get(`${d.film_slug}/${d.desk_key}`);
+        return { ...d, excerpt: p ? kwic(p, terms) : d.excerpt ?? null };
+      });
+    }
+    // Fallback (essay_plain empty/unreachable): the original live body_md path.
     const modes = [...new Set(subset.map((d) => MODE_BY_KEY.get(d.desk_key)).filter(Boolean))] as string[];
-    if (!slugs.length || !modes.length) return desks.map((d) => ({ ...d, excerpt: d.excerpt ?? null }));
+    if (!modes.length) return desks.map((d) => ({ ...d, excerpt: d.excerpt ?? null }));
     const { data } = await supabase
       .from("essays")
       .select("mode, body_md, film:films!inner(slug)")

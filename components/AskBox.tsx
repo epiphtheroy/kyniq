@@ -1,6 +1,6 @@
 "use client";
 
-/** Compact "Ask Metatake" entry for the homepage — routes to /ask?q=… which auto-runs. */
+/** Compact "Ask Metatake" entry for the homepage — routes to /ask-ai?q=… which auto-runs. */
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -17,7 +17,7 @@ export default function AskBox() {
   const go = (query?: string) => {
     const v = (query ?? q).trim();
     if (v.length < 3) return;
-    router.push(`/ask?q=${encodeURIComponent(v)}`);
+    router.push(`/ask-ai?q=${encodeURIComponent(v)}`);
   };
 
   return (

@@ -232,7 +232,7 @@ function ChatInner() {
           Answers are synthesized by an AI <b>strictly from our close readings</b> — interpretations, not citations of
           record. Follow the links to read the source. No claim appears that isn&apos;t traceable to a reading in the
           corpus. &nbsp;Prefer a single grounded answer?{" "}
-          <Link href="/ask" className="ak-foot__link">Use Ask →</Link>
+          <Link href="/ask-ai" className="ak-foot__link">Use Ask →</Link>
         </p>
       </div>
     </div>

@@ -20,7 +20,7 @@ const RECENT_KEY = "mt:recent-searches";
 const RECENT_MAX = 5;
 
 const PAGES: { label: string; href: string }[] = [
-  { label: "Omni search", href: "/omni" },
+  { label: "Search", href: "/search" },
   { label: "Films", href: "/film" },
   { label: "Directors", href: "/director" },
   { label: "Tropes", href: "/tropes" },
@@ -40,7 +40,7 @@ const PAGES: { label: string; href: string }[] = [
   { label: "Trending", href: "/trending" },
   { label: "METATAKE TV", href: "/tv" },
   { label: "My Room", href: "/room" },
-  { label: "Ask metatake AI", href: "/ask" },
+  { label: "Ask metatake AI", href: "/ask-ai" },
   { label: "Blog — The Daily", href: "/blog" },
   { label: "Curious", href: "/curious" },
 ];
@@ -184,7 +184,7 @@ export default function GlobalCmdK() {
     // "See all results" leads the actions: Enter before hits land must go to
     // /search (the old nav form's muscle memory), never surprise-route to /ask.
     rows.push({ type: "action", label: `See all results for “${q}”`, href: `/search?q=${encodeURIComponent(q)}` });
-    rows.push({ type: "action", label: `Ask metatake AI: “${q}”`, href: `/ask?q=${encodeURIComponent(q)}` });
+    rows.push({ type: "action", label: `Ask metatake AI: “${q}”`, href: `/ask-ai?q=${encodeURIComponent(q)}` });
     return { rows, sections };
   }, [query, hits, recent]);
 

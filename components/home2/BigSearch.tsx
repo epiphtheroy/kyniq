@@ -75,7 +75,7 @@ export default function BigSearch({ data }: { data: HomeV2 }) {
             <button
               type="button"
               className="ask"
-              onClick={() => router.push(q ? `/ask?q=${encodeURIComponent(q)}` : "/ask")}
+              onClick={() => router.push(q ? `/ask-ai?q=${encodeURIComponent(q)}` : "/ask")}
             >
               <span className="dot" />
               Ask&nbsp;AI →
@@ -115,7 +115,7 @@ export default function BigSearch({ data }: { data: HomeV2 }) {
           <Link className="chip" href="/search?q=grief+that+refuses+closure">
             Grief that refuses closure
           </Link>
-          <Link className="chip" href="/ask?q=What+recurs+across+films+about+grief%3F">
+          <Link className="chip" href="/ask-ai?q=What+recurs+across+films+about+grief%3F">
             What recurs across films about grief?
           </Link>
           <Link className="chip" href={`/search?q=${encodeURIComponent("몸의 공포")}`}>

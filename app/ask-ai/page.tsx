@@ -1,67 +1,41 @@
 "use client";
 
-/**
- * /rag — the v2 ASK pipeline on a dedicated, isolated surface.
- *
- * This page is a verification/preview surface for the upgraded grounded-RAG
- * stack. It is a sibling of /ask (v1) and does NOT touch it. It calls
- * POST /api/rag (query-understanding → embed → ask_retrieve → rerank →
- * dynamic diversify → grounded generation) and renders:
- *   - the grounded answer + traceable corpus sources (Answer mode),
- *   - the retrieved close-readings as first-class cards (Readings mode),
- *   - a clearly-separated "Further reading — beyond the corpus" academic rail
- *     (only when ACADEMIC_FURTHER_READING is enabled server-side),
- *   - a small diagnostic strip (intent · lang · reranker · model) so we can
- *     confirm every stage of the pipeline is actually firing.
- *
- * Grounding integrity is preserved: academic items arrive in a SEPARATE
- * `further_reading` field and are never merged into the corpus citations.
- */
-
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import SiteNavClient from "@/components/home2/SiteNavClient";
-import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "./_components/AskReadings";
-import FurtherReading, { type AcademicRef } from "./_components/FurtherReading";
-import CriticQuotes, { type Critic } from "./_components/CriticQuotes";
+import AskReadings, { AskModeToggle, REG, type Cite, type AskMode } from "@/components/AskReadings";
+import FurtherReading, { type AcademicRef } from "@/app/rag/_components/FurtherReading";
 
-type Meta = {
-  model?: string | null;
-  intent?: string | null;
-  lang?: string | null;
-  reranker?: string | null;
-  inTokens?: number | null;
-  outTokens?: number | null;
-  costUsd?: number | null;
-};
-type Result = {
-  answer: string;
-  citations: Cite[];
-  readings: { slug: string; title: string }[];
-  meta?: Meta;
-  further_reading?: AcademicRef[];
-  critics?: Critic[];
-};
-
-const ENDPOINT = "/api/rag";
+type Critic = { snippet: string; outlet: string; author: string | null; url: string; year: number | null };
+type Result = { answer: string; citations: Cite[]; readings: { slug: string; title: string }[]; critics?: Critic[]; further_reading?: AcademicRef[] };
 
 const EXAMPLES = [
   "How does cinema portray surveillance?",
   "What does the color red tend to mean?",
   "How do films show grief without dialogue?",
-  "거울은 영화에서 무엇을 의미하는가?",
+  "What is the meaning of mirrors on screen?",
 ];
 
 function citeTarget(c: Cite) {
-  return c.meta_slug ? `/take/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
+  return c.meta_slug ? `/trope/${c.meta_slug}` : `/film/${c.film_slug}/figure/${c.figure_slug}`;
 }
 
-function renderPara(para: string, map: Map<number, Cite>, k: string, onCite: (n: number) => void) {
-  const parts = para.split(/(\[\d+\])/g);
+function renderPara(para: string, map: Map<number, Cite>, k: string, onCite: (n: number) => void, criticsLen = 0) {
+  const parts = para.split(/(\[C?\d+\])/g);
   return (
     <p key={k} className="ak-p">
       {parts.map((p, i) => {
+        const mc = p.match(/^\[C(\d+)\]$/);
+        if (mc) {
+          const n = Number(mc[1]);
+          if (n >= 1 && n <= criticsLen) {
+            return (
+              <a key={i} href={`#ak-crit-${n}`} className="ak-cite ak-cite--crit" title="Critic source">[C{mc[1]}]</a>
+            );
+          }
+          return <span key={i}>{p}</span>;
+        }
         const m = p.match(/^\[(\d+)\]$/);
         if (m) {
           const n = Number(m[1]);
@@ -86,38 +60,7 @@ function renderPara(para: string, map: Map<number, Cite>, k: string, onCite: (n:
   );
 }
 
-/** Diagnostic strip — confirms each pipeline stage is live (intent/lang/rerank/model). */
-function MetaStrip({ meta }: { meta?: Meta }) {
-  if (!meta) return null;
-  const bits: [string, string | null | undefined][] = [
-    ["intent", meta.intent],
-    ["lang", meta.lang],
-    ["reranker", meta.reranker],
-    ["model", meta.model],
-  ];
-  const shown = bits.filter(([, v]) => v);
-  if (shown.length === 0) return null;
-  return (
-    <div
-      aria-label="Pipeline diagnostics"
-      style={{
-        display: "flex", flexWrap: "wrap", gap: 8, margin: "10px 0 4px",
-        fontSize: 11.5, color: "var(--subtle)", fontFamily: "var(--font-ui, inherit)",
-      }}
-    >
-      {shown.map(([k, v]) => (
-        <span
-          key={k}
-          style={{ border: "1px solid var(--hairline, #e5e5e5)", borderRadius: 2, padding: "1px 6px" }}
-        >
-          <span style={{ opacity: 0.6 }}>{k}:</span> {v}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function RagInner() {
+function AskInner() {
   const sp = useSearchParams();
   const ranRef = useRef(false);
   const [q, setQ] = useState("");
@@ -135,7 +78,7 @@ function RagInner() {
     setAsked(query);
     setLoading(true); setErr(null); setRes(null); setHi(null); setMode("answer");
     try {
-      const r = await fetch(ENDPOINT, {
+      const r = await fetch("/api/rag", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ q: query }),
       });
@@ -161,14 +104,11 @@ function RagInner() {
       <SiteNavClient />
       <div className="ak-wrap">
         <div className="ak-head">
-          <h1 className="ak-h1">
-            Ask Metatake <span style={{ fontSize: "0.5em", verticalAlign: "middle", color: "var(--subtle)", letterSpacing: "0.08em" }}>RAG · v2</span>
-          </h1>
+          <h1 className="ak-h1">Metatake AI</h1>
           <p className="ak-sub">
-            The upgraded grounded-RAG pipeline — query understanding, reranking, and a separate scholarly rail.
-            Every answer is still drawn <em>only</em> from Metatake&apos;s close readings, and every claim links back to its source.
+            Ask a question about cinema. Every answer is drawn <em>only</em> from Metatake&apos;s 18,004 close readings — and every claim links back to the reading it came from.
           </p>
-          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated · multilingual</p>
+          <p className="ak-stamp"><span className="ak-gl">▦</span> Grounded in the corpus · retrieved, not generated · <Link href="/chat" className="ak-foot__link">Try Chat →</Link></p>
 
           <form className="ak-bar" onSubmit={(e) => { e.preventDefault(); run(); }}>
             <input
@@ -187,7 +127,7 @@ function RagInner() {
             ))}
           </div>
 
-          {loading ? <p className="ak-loading">Understanding the question, searching the corpus, then composing…</p> : null}
+          {loading ? <p className="ak-loading">Searching 18,004 readings, then composing…</p> : null}
           {err ? <p className="ak-err">{err}</p> : null}
         </div>
 
@@ -198,8 +138,6 @@ function RagInner() {
               <b className="ak-q__txt">{asked}</b>
               <span className="ak-q__tag">grounded</span>
             </div>
-
-            <MetaStrip meta={res.meta} />
 
             {res.citations.length > 0 ? (
               <div className="ak-modebar">
@@ -220,14 +158,14 @@ function RagInner() {
             {mode === "answer" ? (
               <>
                 <div className="ak-answer">
-                  {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi))}
+                  {res.answer.split(/\n\n+/).map((para, i) => renderPara(para, map, `p${i}`, setHi, res.critics?.length ?? 0))}
                 </div>
 
                 {res.readings.length > 0 ? (
                   <div className="ak-threads">
-                    <span className="ak-threads__lbl">Threads to pull</span>
+                    <span className="ak-threads__lbl">Tropes to pull</span>
                     {res.readings.slice(0, 6).map((rd) => (
-                      <Link key={rd.slug} href={`/take/${rd.slug}`} className="ak-thread">{rd.title}</Link>
+                      <Link key={rd.slug} href={`/trope/${rd.slug}`} className="ak-thread">{rd.title}</Link>
                     ))}
                   </div>
                 ) : null}
@@ -253,10 +191,21 @@ function RagInner() {
                   </div>
                 ) : null}
 
-                {/* Critic quotes (W8) — separate, attributed, link-out. No-ops unless present. */}
-                <CriticQuotes items={res.critics} />
+                {res.critics && res.critics.length > 0 ? (
+                  <div className="ak-sources ak-critics">
+                    <div className="ak-sources__lbl">Critics — short quotes, attributed &amp; linked to the source</div>
+                    <ol className="ak-srclist">
+                      {res.critics.map((c, i) => (
+                        <li key={i} id={`ak-crit-${i + 1}`}>
+                          <em className="ak-critq">&ldquo;{c.snippet}&rdquo;</em>{" "}
+                          <span className="ak-film">— {[c.author, c.outlet, c.year != null ? String(c.year) : null].filter(Boolean).join(", ")}</span>{" "}
+                          <a href={c.url} target="_blank" rel="noopener noreferrer nofollow" className="ak-to">source ↗</a>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                ) : null}
 
-                {/* Academic rail — separate, labeled, link-out only. No-ops unless the field is present. */}
                 <FurtherReading items={res.further_reading} />
               </>
             ) : (
@@ -266,19 +215,18 @@ function RagInner() {
         ) : null}
 
         <p className="ak-foot">
-          Answers are synthesized by an AI <b>strictly from our close readings</b> — interpretations, not citations of record.
-          Follow the links to read the source. No claim appears that isn&apos;t traceable to a reading in the corpus.
-          &nbsp;This is the v2 (RAG) surface; the classic experience lives at <Link href="/ask-ai" className="ak-foot__link">/ask</Link>.
+          Answers are synthesized by an AI <b>strictly from our close readings</b> — interpretations, not citations of record. Follow the links to read the source. No claim appears that isn&apos;t traceable to a reading in the corpus. &nbsp;Looking to post a question for others?{" "}
+          <Link href="/ask/new" className="ak-foot__link">Ask the community →</Link>
         </p>
       </div>
     </div>
   );
 }
 
-export default function RagPage() {
+export default function AskPage() {
   return (
     <Suspense fallback={null}>
-      <RagInner />
+      <AskInner />
     </Suspense>
   );
 }
