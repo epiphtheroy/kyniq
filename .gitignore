@@ -53,3 +53,6 @@ worker/figure-enrich*.json
 
 # figure_seo 파이프라인 대용량 산출물
 outputs/figure_seo/*.jsonl
+
+# Search Console service-account key (worker/gsc-pull.py) — never commit
+worker/gsc-sa.json
