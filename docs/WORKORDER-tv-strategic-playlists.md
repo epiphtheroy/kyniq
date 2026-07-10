@@ -43,13 +43,17 @@
 | **국가(로케이션)** | `film_locations.country`(lat 있음) × tv_programs | ≥8 | **45개국** | 2,274 |
 | **연대** | `(films.year/10)*10` × tv_programs | ≥8 | **11개**(1920s–2020s) | 1,794 |
 | **이론가** | `takes.theorist_id → figures.film_id` × tv_programs | ≥4 | **276명** | 10,265 |
-| **트로프** | `conn_film_trope_vec(film_id,trope_id)` × tv_programs | ≥8 | **291개** | 3,479 |
+| **트로프** ⭐강화 | `conn_film_trope_vec(film_id,trope_id)` × tv_programs | **≥3** | **2,859개** | 13,890 |
+| **컨셉** ⭐강화 | `takes.concept`(slugify — concept_readings RPC와 동일 정규식) → figures → film × tv_programs | **≥3** | **588개** | 4,698 |
+| **아키타입** ⭐강화 | `figure_taxonomy(figure_id,axis,node_id) → taxonomy_nodes` × figures × tv_programs | **≥3** | **1,535노드** (char_identity 514 · theme 500 · object 185 · location 184 · char_complex 136 · char_archetype 16) | 21,099 |
 | **장르×주제 교차** | films.genres × `tv_segments.topic` | 표본: Action×locations | 223편/440세그 | — |
 
 무브먼트는 별도 테이블이 아니라 **lineage_lists.facet='movement'** (67개)로 리니지 축에 탑승. `/movements/[slug]` 페이지도 이 리스트를 소비.
 트로프 정본 멤버십 테이블은 **`conn_film_trope_vec`**(film_id, trope_id, v, n) — `frame_instances`는 존재하지 않음(과거 백업 `_bak_trope_ftm`만 있음).
+**컨셉 멤버십의 정본 경로**는 `concept_readings` RPC가 실증: `takes.concept`(원문 텍스트)을 `regexp_replace(lower(regexp_replace(trim(concept),'[^a-z0-9]+','-','gi')),'^-+|-+$','','g')`로 슬러그화 — 생성기는 **반드시 동일 정규식**을 써야 `/concept/[slug]` 페이지와 키가 일치한다.
+**아키타입 멤버십의 정본 경로**는 `film_catalog` RPC가 실증: `figure_taxonomy` 6축(object·location·char_archetype·char_identity·char_complex·theme) → `taxonomy_nodes(slug,label)`.
 
-**규모 전망**: 1단계(§5 P1) ≈ 355개, 2단계(P2) ≈ 550개 → 총 ~900 플레이리스트, `tv_playlist_items` ~3만 행(트리비얼).
+**규모 전망 (원우 지시로 트로프·컨셉·아키타입 ≥3 강화, 2026-07-10 재실측)**: 기타 축 ≈ 505개(리니지 89·감독 192·장르 18·국가 45·연대 11·이론가 상위 150) + **강화 3축 = 4,982개**(트로프 2,859·아키타입 1,535·컨셉 588) → **총 ≈ 5,500 플레이리스트**, `tv_playlist_items` ≈ 5만 행(트리비얼). 이 규모 때문에 §3b 디렉토리는 **페이징 필수**, §5 생성기는 **배치 루프 필수**다.
 
 ---
 
@@ -75,17 +79,30 @@ create unique index if not exists tv_playlists_axis_key_cut on public.tv_playlis
 - 기존 행 백필: 장르 18개 → `axis='genre', key=<장르명>, href='/genre/'||slugify`, `palme-files` → `axis='lineage'`(해당 리스트 slug), `on-location` → `axis='manual'`.
 - **RLS**: 0059가 tv_playlists/tv_playlist_items에 SELECT 정책을 이미 부여함. 새 테이블을 만들지 않으므로 추가 정책 불요. (신규 tv_* 테이블을 만들면 반드시 정책 동반 — 0059 함정 참조.)
 
-### 3b. 디렉토리 RPC (원우의 다음 단계 '정렬·검색·브라우즈 UI'가 소비할 API를 미리 확정)
+### 3b. 디렉토리 RPC — **페이징 필수** (총 ~5,500개라 무페이징 jsonb_object_agg는 수 MB payload가 됨)
 
 ```sql
-create or replace function public.tv_directory()
+-- 축별 요약(브라우즈 UI의 탭 카운트)
+create or replace function public.tv_directory_summary()
 returns jsonb language sql stable security definer set search_path to 'public' as $$
-  select jsonb_object_agg(axis, lists) from (
-    select coalesce(axis,'manual') axis,
-           jsonb_agg(jsonb_build_object('slug',slug,'title',title,'dek',dek,'kind',kind,'cut',cut,
-             'n_films',n_films,'n_segments',n_segments,'total_ms',total_ms,'href',href)
-             order by n_films desc nulls last) lists
-    from tv_playlists group by 1) s
+  select jsonb_agg(jsonb_build_object('axis',axis,'n',n) order by n desc)
+  from (select coalesce(axis,'manual') axis, count(*) n from tv_playlists group by 1) s
+$$;
+
+-- 페이지 단위 목록(정렬·검색·축 필터 — 원우의 브라우즈 UI가 그대로 소비)
+create or replace function public.tv_directory(p_axis text default null, p_q text default null,
+                                               p_limit int default 60, p_offset int default 0)
+returns jsonb language sql stable security definer set search_path to 'public' as $$
+  select jsonb_build_object(
+    'total', (select count(*) from tv_playlists
+              where (p_axis is null or axis=p_axis) and (p_q is null or title ilike '%'||p_q||'%')),
+    'lists', coalesce((select jsonb_agg(x) from (
+       select jsonb_build_object('slug',slug,'title',title,'dek',dek,'kind',kind,'axis',axis,'cut',cut,
+         'n_films',n_films,'n_segments',n_segments,'total_ms',total_ms,'href',href) x
+       from tv_playlists
+       where (p_axis is null or axis=p_axis) and (p_q is null or title ilike '%'||p_q||'%')
+       order by n_films desc nulls last, title
+       limit least(p_limit,120) offset greatest(p_offset,0)) s), '[]'::jsonb))
 $$;
 ```
 
@@ -130,7 +147,11 @@ intro 엔트리 = jsonb_build_object(
 | country | `Filmed in %s` · `On Location: %s` · `%s, On the Record` | `{n}편 · 현지 로케이션 지도 포함` |
 | decade | `The %ss, Reopened` · `Cinema of the %ss` · `%ss: The Broadcast Archive` | `{n}편` |
 | theorist | `Cinema According to %s` · `%s: The Reading List` · `Films That Answer to %s` | `{n}편 — 이 이론가의 렌즈가 걸린 영화들` |
-| trope | `%s: A Pattern File` · `The Anatomy of %s` · `%s, Across {n} Films`(예외: 숫자 dek로) | `{n}편에서 반복되는 패턴` |
+| trope | `%s: A Pattern File` · `The Anatomy of %s` · `%s, Film After Film` | `{n}편에서 반복되는 패턴` |
+| concept | `The Concept File: %s` · `%s, Across the Films` · `Thinking With %s` | `{n}편 — takes에서 이 개념이 걸린 영화들` |
+| archetype(char_*) | `%s: A Recurring Figure` · `Every %s We've Catalogued` · `%s, Film by Film` | `{n}편 · {figures}명의 피겨` |
+| archetype(object/location) | `%s: An Object File` / `%s: A Place That Recurs` · `The Films That Share %s` | 동일 |
+| archetype(theme) | `%s: The Theme File` · `Films Built on %s` · `%s, Traced Across Cinema` | 동일 |
 | genre_topic | locations: `Where %s Films Were Really Shot` / reception: `How %s Films Were Received` / honors: `The Prizes of %s` / misreading: `%s Films, Read Too Closely` | `{n}편 · {s}세그먼트 — {topic} 챕터만 잘라낸 컷` |
 
 ### 4c. 인트로 브리핑 beats (모든 플레이리스트 공통 구조; 생성기가 실수치 주입)
@@ -170,9 +191,13 @@ beats = [
 | `tv_build_country_playlists(p_min int default 8)` | `film_locations.country`(lat not null) join tv_programs, distinct film | ≥8 → 45개 | films (P2에서 segments 변형: topic in ('locations','map')) |
 | `tv_build_decade_playlists(p_min int default 8)` | `(year/10)*10` | ≥8 → 11개 | films |
 | `tv_build_theorist_playlists(p_min int default 5, p_top int default 150)` | `takes(status='published', theorist_id) join figures join tv_programs`, distinct film; 엔티티는 영화 수 상위 p_top | ≥5, 상위 150명 | films |
-| `tv_build_trope_playlists(p_min int default 10, p_top int default 150)` | `conn_film_trope_vec join tv_programs`, distinct film; `frames`에서 label/slug (`frames.status` 정상 행만) | ≥10, 상위 150개 | films |
+| `tv_build_trope_playlists(p_min int default 3, p_batch int default 300, p_offset int default 0)` ⭐ | `conn_film_trope_vec join tv_programs`, distinct film; `frames`에서 label/slug (`merged_into is null` 정상 행만); 아이템 순서 `v.n desc, year` | **≥3 → 2,859개** — 배치 필수 | films |
+| `tv_build_concept_playlists(p_min int default 3, p_batch int default 300, p_offset int default 0)` ⭐ | `takes.concept` 슬러그화(§2의 정규식 그대로) join figures join tv_programs; key=cslug, label=`min(trim(concept))`, href=`/concept/{cslug}` | **≥3 → 588개** | films |
+| `tv_build_archetype_playlists(p_min int default 3, p_batch int default 300, p_offset int default 0)` ⭐ | `figure_taxonomy join figures join tv_programs join taxonomy_nodes`; key=`{axis}:{node_slug}`, slug=`{axis(언더스코어→하이픈)}-{node_slug}`, href=`nodeHref` 규칙(lib/catalog.ts `kindMeta`의 axis→seg 매핑을 SQL CASE로 복제 — **실행자는 lib/catalog.ts에서 매핑을 확인 후 하드코딩**) | **≥3 → 1,535개** — 배치 필수 | films |
 | `tv_build_genre_topic_playlists(p_min int default 12)` | `tv_segments s join films f on f.id=s.film_id`, topic in ('locations','reception','honors','misreading') × 장르 | 교차 영화 ≥12 | **segments** |
-| `tv_build_all_playlists()` | 위 전부 순차 호출(사이 `pg_sleep(2)`), 결과 합산 반환 | — | — |
+| `tv_build_all_playlists()` | 소형 축(리니지·감독·장르·국가·연대·이론가·교차)만 순차 호출(사이 `pg_sleep(2)`) — **대형 3축은 포함하지 말 것**(런타임 폭발), 별도 배치 러너(§5d)로 | — | — |
+
+**⭐ 배치 계약(대형 3축 공통):** 엔티티를 `(슬롯수 desc, key)` 결정론 순서로 정렬해 `offset p_offset limit p_batch`만 처리하고 `{built, next_offset, remaining}`을 반환. 러너가 remaining=0까지 재호출. 한 배치 안에서도 인트로 집계는 엔티티당 O(멤버십)이므로 300개면 수 초 내 종료(실측 근거: 전체 멤버십 join이 5–15s 수준).
 
 ⚠️ **이론가·트로프의 segments-cut은 P1에서 금지.** 영화의 theorist 세그먼트는 "그 영화의 최강 테이크의 이론가"라서 플레이리스트 대상 이론가와 **다른 사람일 수 있다**(엔티티 불일치). segments-cut으로 승격하려면 컴파일러 v3에서 `tv_segments.meta`에 theorist_id를 스탬프하고 재컴파일해야 함 — P3 항목(§8).
 
@@ -180,8 +205,13 @@ beats = [
 
 1. 0060 적용(스키마+함수). 적용 전 `select count(*) from tv_playlists;` 기록(현재 20).
 2. `select tv_build_genre_playlists();` → 기존 18개가 axis 백필됐는지 확인.
-3. 축별 1콜씩 순차 실행, **콜 사이 15초 대기 + 헬스체크**(§1-4). 각 콜은 5b의 단일 함수 — 내부는 단일조인 집계라 수 초 안에 끝남.
-4. `select tv_build_all_playlists();`는 이후 갱신용 단일 진입점(신규 방송 컴파일 후 재실행).
+3. 소형 축(리니지·감독·장르·국가·연대·이론가·교차) 1콜씩 순차 실행, **콜 사이 15초 대기 + 헬스체크**(§1-4).
+4. **대형 3축 배치 러너**: 트로프(2,859)·아키타입(1,535)·컨셉(588)을 각각 `p_batch=300`으로 루프 — 트로프 ~10콜, 아키타입 ~6콜, 컨셉 2콜, **콜 사이 20초 대기 + 헬스체크**. 총 ~20콜, 예상 소요 15–20분. 중단 기준 발동 시 next_offset부터 재개(멱등이라 중복 안전).
+5. `select tv_build_all_playlists();`는 이후 소형 축 갱신용 단일 진입점(신규 방송 컴파일 후 재실행). 대형 3축은 러너 스크립트를 재실행.
+
+### 5d. 갱신 러너 (실행자 산출물)
+
+`worker/tv-build-playlists.py` — 관리 API로 §5c의 3–4단계를 수행하는 단일 스크립트(헬스체크·슬립·재개 오프셋 내장). 이후 "방송 재컴파일 → 플레이리스트 리프레시"가 이 스크립트 1회 실행이 되도록.
 
 ---
 
@@ -209,12 +239,14 @@ beats = [
 | `/movements/[slug]` | lineage / (movement facet 리스트 slug) | 무브먼트=리니지 탑승 |
 | `/genre/[slug]` | genre / 장르 원문(slugify 역변환 필요 — key에 원문 저장했으므로 페이지의 장르 원문으로 매칭) | |
 | `/theorist/[slug]` | theorist / theorist uuid→slug 매핑(키를 **slug로 저장**할 것 — theorists.slug 존재 확인 후) | P2 |
-| `/trope/[slug]` | trope / frames.slug | P2 |
+| `/trope/[slug]` | trope / frames.slug | ⭐P1 승격(2,859개 — 최대 임베드 표면) |
+| `/concept/[slug]` | concept / 슬러그화된 concept 텍스트(§2 정규식) | ⭐P1 |
+| `/catalog/{seg}/[slug]` (아키타입 노드 페이지) | archetype / `{axis}:{node_slug}` — seg 매핑은 lib/catalog.ts `kindMeta` | ⭐P1 |
 | 국가 페이지 | 현재 라우트 없음 → `/tv/list/country-*` 독립 페이지만 | 지도(/map) 연동은 후속 |
 
 ### 6d. 사이트맵 · 색인
 
-- `lib/sitemap-data.ts`에 tv 자식 2개 추가: `tv-programs.xml`(1,794 — `/tv/{slug}`, lastmod=built_at), `tv-lists.xml`(~900 — `/tv/list/{slug}`, lastmod=updated_at). 기존 17분할 인덱스에 등록.
+- `lib/sitemap-data.ts`에 tv 자식 2개 추가: `tv-programs.xml`(1,794 — `/tv/{slug}`, lastmod=built_at), `tv-lists.xml`(**~5,500** — `/tv/list/{slug}`, lastmod=updated_at; 50k 한도 내라 단일 파일 가능하되 축별 2분할 권장: tv-lists-core.xml=소형 축+컨셉, tv-lists-patterns.xml=트로프+아키타입). 기존 17분할 인덱스에 등록.
 - **tv-programs.xml은 비디오 사이트맵 확장으로**: 각 URL에 `<video:video>` 블록(thumbnail_loc=백드롭 w1280, title, description, player_loc=유튜브 embed, duration=Σseg초). `/tv/[slug]`의 VideoObject JSON-LD와 값 일치 필수(불일치는 리치결과 억제). ⚠️ 한계 인지: 방송 오버레이는 DOM 합성이라 "우리 영상 파일"이 아님 — 구글은 video를 유튜브 트레일러로 귀속할 수 있음. 진짜 자체 영상 인식은 ffmpeg 렌더 파이프라인(HANDOFF-metatake-tv.md) 이후의 일.
 - IndexNow 재귀 스크립트로 신규 URL 핑. **GSC 제출은 원우 몫.**
 - ⚠️ 사이트맵·미들웨어·lib 루트 파일은 워처가 커밋 안 함 — 수동 커밋.
@@ -238,8 +270,8 @@ select max(n) from (select playlist_id, count(*) n from tv_playlist_items group 
 explain analyze select tv_watch('lineage-palme-dor', null);   -- < 1.5s, payload < 700KB
 ```
 
-- 라이브: `/tv/list/lineage-palme-dor`(예) 200 + CollectionPage/ItemList JSON-LD 존재, 인트로 브리핑이 첫 세그로 재생, `/director/bong-joon-ho`에 임베드 노출.
-- 수용: 7-2·7-3·7-4 = 0, 선반 payload < 200KB(캡 36 적용 후), 사이트 헬스 전 구간 정상.
+- 라이브: `/tv/list/lineage-palme-dor`(예) 200 + CollectionPage/ItemList JSON-LD 존재, 인트로 브리핑이 첫 세그로 재생, `/director/bong-joon-ho`에 임베드 노출. 강화 축 표본: `/tv/list/theme-{node}` 1건 + `/tv/list/concept-{slug}` 1건 재생 스모크.
+- 수용: 7-1이 §2 실측과 정합(트로프 ~2,859·아키타입 ~1,535·컨셉 ~588 — 재컴파일 오차 ±5% 허용), 7-2·7-3·7-4 = 0, 선반 payload < 200KB(캡 36 적용 후), `tv_directory(null,null,60,0)` < 300ms, 사이트 헬스 전 구간 정상.
 
 ## 8. 후속(P3, 이 지시서 범위 밖 — 기록만)
 
