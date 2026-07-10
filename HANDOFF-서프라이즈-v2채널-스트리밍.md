@@ -64,7 +64,15 @@
 - **피드 `tv_watch(p_list,p_program)`:** (null,null)=선반(플레이리스트+전 프로그램 라이트) / (list)=풀 엔트리(segments-kind는 세그먼트를 1세그 미니프로그램으로 합성 → 플레이어 동일 처리) / (program)=단일.
 - **시드(0057):** 10편 컴파일(128세그) — 팔므도르 6(Wages of Fear·Conversation·Apocalypse Now·Pulp Fiction·Shoplifters·Anatomy of a Fall)+Amélie(slug **am-lie-2001**)·Cold War·Great Beauty·All About My Mother. 플레이리스트 3: `palme-files`(films 6)·`thriller-files`(films 4, genres 배열 컷)·**`on-location`(segments 10 — 주제 슬라이스 증명)**.
 - **프론트:** `/api/tv/watch` → **`components/TVProgramPlayer.tsx`**(컴파일된 beats 재생; **랜덤 플레이**: 모듈 전부 저장·재생 시 open+셔플 중간(≤170s 예산)+close 샘플링 — 원우 지시 "테이크 많아 길면 랜덤"; 챕터 점프=window 'tvw-jump' 이벤트; 플레이리스트 자동 다음) + **`/tv/watch`**(유튜브형: 플레이어+챕터칩+Up next 레일+Watch lists/All programs 선반; `?list=`·`?v=`).
-- **주의:** sv2 존-렌더 JSX가 MetatakeTV와 TVProgramPlayer에 중복(3벌째) — 존 구조 바꿀 땐 두 파일 동기. 새 영화 추가 = `select tv_compile_film(id)` 1콜. **✅ 완료(2026-07-10, 마이그 0058 v2, Opus 실행):** 전 코퍼스 배치 컴파일 — 1,794편 방송 / 141 스킵(트레일러 없음 139·테이크<3 2) / 27,583 세그먼트, 플레이리스트 20개(장르 18·on-location·palme-files). 실행·QA 전체 기록은 `docs/WORKORDER-tv-corpus-build.md`(상태 완료). **미착수:** film 페이지 상단 트레일러를 이 방송으로 대체(목적 선언됨), 장르×주제 조합 자동 플레이리스트 생성기(현재는 장르·수동 컬렉션만).
+- **주의:** sv2 존-렌더 JSX가 MetatakeTV와 TVProgramPlayer에 중복(3벌째) — 존 구조 바꿀 땐 두 파일 동기. 새 영화 추가 = `select tv_compile_film(id)` 1콜. **✅ 완료(2026-07-10, 마이그 0058 v2, Opus 실행):** 전 코퍼스 배치 컴파일 — 1,794편 방송 / 141 스킵(트레일러 없음 139·테이크<3 2) / 27,583 세그먼트, 플레이리스트 20개(장르 18·on-location·palme-files). 실행·QA 전체 기록은 `docs/WORKORDER-tv-corpus-build.md`(상태 완료).
+
+### C2-b. 읽는층 편입 — film 히어로 교체 + 방송 SEO 페이지 (2026-07-10, 마이그 0059)
+- **film 페이지 상단 영상 교체(완료):** 방송이 컴파일된 영화는 히어로가 트레일러 릴 대신 방송을 재생. `components/FilmTVHero.tsx`(클라이언트, `/api/tv/watch?v=slug` 페치 → `TVProgramPlayer` 마운트; 로딩 중엔 백드롭+ON AIR 리본으로 유튜브 이중로드 방지; 프로그램 없으면 릴로 폴백). 서버는 `app/film/[slug]/page.tsx`의 `filmHasProgram(slug)`(캐시키 `film-tv-present-v2`, 인덱스 exists 프로브)로 게이트 → 히어로 스왑 + **"▶ TV Broadcast" 탭**(두번째 rail=spoiler zone, href `/tv/{slug}`, accent #C8102E). CSS `.df-tvhero`(16:9, `.tv-embed`가 채움).
+- **방송 "업로드" 페이지(완료):** **`app/tv/[slug]/page.tsx`** = 영화별 방송의 정규 색인 페이지(ISR 300, per-slug lazy). 본문 `components/TVSingle.tsx`(단일 엔트리 재생+챕터+More 레일=다른 방송으로 내부링크). **영상 SEO 신호**: VideoObject JSON-LD(name·description·thumbnailUrl·**uploadDate**=built_at·duration=Σseg·embedUrl·contentUrl=유튜브 트레일러·publisher·about=Movie) + **Clip hasPart**(챕터별 key moments, seq 순 offset) + BreadcrumbList + og:type=video.other·og:video(유튜브 embed)·og:image(w1280 백드롭)·canonical. built_at은 raw pg 타임스탬프가 `new Date()`로 파싱됨(단 `safeIso` 가드로 절대 throw 금지).
+- **⚠️ RLS 함정(0059):** `tv_*` 테이블은 RLS **활성 + 정책 0개**로 생성돼 anon SELECT가 0행 반환 → 위 두 직접 select(탭 게이트·built_at)가 조용히 실패(탭·히어로 안 뜸, uploadDate 누락). `tv_watch` RPC는 security definer라 무사. 0059가 published 프로그램/공개 세그·플레이리스트에 SELECT 정책 부여(쓰기 정책 없음=deny-by-default 유지). **tv_* 신규 직접 read 추가 시 정책 필수.**
+- **검증:** `/tv/pulp-fiction-1994` VideoObject+Clip+og:video 라이브, `/film/pulp-fiction-1994` TV Broadcast 탭+16:9 방송 히어로 라이브(백그라운드 트레일러는 `document.hidden` 자동재생 게이팅 때문에 자동화 탭에서만 검게 보임 — 실사용 정상).
+
+**미착수(원우 다음 단계, 선언됨):** 방송 **정렬·검색·장르별 브라우즈 UI** + **여러 세부 플레이리스트**(현재 장르 18·수동 컬렉션만; topic 태그가 이미 있어 "액션 로케이션" 같은 교차컷은 WHERE절로 생성 가능). "이건 하나의 플레이리스트일 뿐" — 세부 플레이리스트 생성기가 다음.
 
 ## C. METATAKE TV — 채널 (2026-07-10; `/random`=임베드 페이지, `/random/v2`=풀스크린 키오스크)
 
