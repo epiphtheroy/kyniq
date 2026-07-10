@@ -10,6 +10,7 @@
  * on top of lib/search's in-process 10-min cache.
  */
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
 import { runSearch, type SearchKind } from "@/lib/search";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -63,4 +64,23 @@ export async function GET(req: NextRequest) {
   } catch {
     return NextResponse.json({ q, semantic: false, hits: [], took: 0, error: "search failed" }, { status: 500 });
   }
+}
+
+/**
+ * Log settled searches into mt_events for /admin/metrics ("what do visitors
+ * look for"). Skips mode=lex (early-keystroke typeahead noise) and bots.
+ * Undercounts repeats: identical queries within 5 min are served by the CDN
+ * and never reach this function — fine for a top-queries report.
+ */
+function logSearch(req: NextRequest, q: string, hitCount: number, semantic: boolean) {
+  try {
+    if (!semantic || q.length < 2) return;
+    const ua = req.headers.get("user-agent") ?? "";
+    if (!ua || /bot|crawl|spider|headless|curl\/|wget\//i.test(ua)) return;
+    after(async () => {
+      await createAdminClient()
+        .from("mt_events")
+        .insert({ type: "search", path: "/api/search", props: { q: q.slice(0, 120), hits: hitCount } });
+    });
+  } catch {}
 }
