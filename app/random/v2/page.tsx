@@ -103,8 +103,10 @@ function compileBeats(card: SurpriseCard): Beat[] {
     b.push({ zone: "top", kicker: "Kindred films", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject) });
     for (const it of items.slice(0, 5)) b.push({ zone: "stack", text: listTitle(it), hold: 3400 });
   } else if (m === "figures") {
+    // show the film's whole cast of figures AT ONCE, like the idea/trope clouds
+    const figs = items.map((it) => it.text ?? "").filter(Boolean);
     b.push({ zone: "top", kicker: "The figures", text: card.subject, sub: card.intro ?? undefined, hold: hold(card.subject) });
-    for (const it of items.slice(0, 6)) b.push({ zone: "stack", text: it.text ?? "", sub: it.reason ?? undefined, hold: 3600 });
+    if (figs.length) b.push({ zone: "chips", chips: figs.slice(0, 14), hold: 9000 });
   } else if (m === "invitation") {
     b.push({ zone: "top", kicker: "An invitation", text: card.subject, hold: hold(card.subject, 1000) });
     for (const c of chunks(card.body).slice(0, 3)) b.push({ zone: "sub", text: c, hold: hold(c) });

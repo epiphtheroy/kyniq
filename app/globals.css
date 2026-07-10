@@ -3899,8 +3899,12 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
    Opacity-only entry so the canvas/MapLibre measures a settled width. */
 .sv2-map,.sv2-atlas{position:absolute;bottom:8%;z-index:6;background:rgba(10,8,6,.82);border:1px solid rgba(255,255,255,.18);border-top:3px solid var(--acc);border-radius:10px;padding:10px 12px 12px;box-shadow:0 10px 44px rgba(0,0,0,.55);animation:sv2-fade .6s ease both}
 .sv2-map{right:22px;width:min(42vw,520px)}
-.sv2-atlas{left:22px;width:min(60vw,820px)}   /* wider: fits the atlas's own place-list panel */
+.sv2-atlas{right:22px;width:min(46vw,600px)}   /* bottom-right; place-list panel kept tight */
 .sv2-atlas .fmap{border-color:rgba(255,255,255,.14)}
+.sv2-atlas .fmap-body{grid-template-columns:1fr 220px}
+.sv2-atlas .fmap-body--left{grid-template-columns:220px 1fr}
+.sv2-atlas .fmap-li{padding:7px 10px}
+.sv2-atlas .fmap-li__ttl{font-size:13px}
 .sv2-map__h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
 .sv2-map__h .sv2-kick--sub{margin-bottom:0}
 .sv2-map__h a{font-family:var(--tvfont);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#e6ded0;text-decoration:none}
@@ -3940,7 +3944,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
   .sv2-band{padding:12px 18px}
   .sv2-stack{max-width:92vw}
   .sv2-map{width:94vw;right:3vw;bottom:13%}
-  .sv2-atlas{width:94vw;left:3vw;bottom:13%}
+  .sv2-atlas{width:94vw;right:3vw;left:auto;bottom:13%}
+  .sv2-atlas .fmap-body,.sv2-atlas .fmap-body--left{grid-template-columns:1fr}
 }
 
 /* The Reel (/random/reel) — start/end covers over the broadcast bed */
