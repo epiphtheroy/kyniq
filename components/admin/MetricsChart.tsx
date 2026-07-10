@@ -18,7 +18,15 @@ const INK = "#e2e8f0";
 const MUTED = "#94a3b8";
 const GRID = "rgba(148,163,184,0.15)";
 
-export default function MetricsChart({ data, height = 230 }: { data: MetricsPoint[]; height?: number }) {
+export default function MetricsChart({
+  data,
+  height = 230,
+  labels = ["Pageviews", "Visitors"],
+}: {
+  data: MetricsPoint[];
+  height?: number;
+  labels?: [string, string];
+}) {
   const [hi, setHi] = useState<number | null>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
 
@@ -53,8 +61,8 @@ export default function MetricsChart({ data, height = 230 }: { data: MetricsPoin
   return (
     <div ref={wrapRef} style={{ position: "relative" }}>
       <div style={{ display: "flex", gap: 18, fontSize: 12, color: MUTED, marginBottom: 6 }}>
-        <span><i style={dot(BLUE)} /> Pageviews</span>
-        <span><i style={dot(AQUA)} /> Visitors</span>
+        <span><i style={dot(BLUE)} /> {labels[0]}</span>
+        <span><i style={dot(AQUA)} /> {labels[1]}</span>
       </div>
       <svg
         viewBox={`0 0 ${W} ${H}`}
@@ -107,8 +115,8 @@ export default function MetricsChart({ data, height = 230 }: { data: MetricsPoin
           }}
         >
           <div style={{ color: MUTED, marginBottom: 2 }}>{h.b}</div>
-          <div style={{ fontVariantNumeric: "tabular-nums" }}><i style={dot(BLUE)} /> {h.pv.toLocaleString()} pageviews</div>
-          <div style={{ fontVariantNumeric: "tabular-nums" }}><i style={dot(AQUA)} /> {h.vis.toLocaleString()} visitors</div>
+          <div style={{ fontVariantNumeric: "tabular-nums" }}><i style={dot(BLUE)} /> {h.pv.toLocaleString()} {labels[0].toLowerCase()}</div>
+          <div style={{ fontVariantNumeric: "tabular-nums" }}><i style={dot(AQUA)} /> {h.vis.toLocaleString()} {labels[1].toLowerCase()}</div>
         </div>
       )}
     </div>

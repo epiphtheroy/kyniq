@@ -43,10 +43,35 @@ interface PageDetail {
   referrers: Row[]; countries: Row[]; prevs: Row[]; nexts: Row[]; gsc: Row[]; gsc_queries: Row[];
 }
 
+interface GscOverview {
+  totals: {
+    impressions_7d: number; clicks_7d: number; pos_7d: number | null;
+    impressions_prev: number; clicks_prev: number; pos_prev: number | null;
+    latest_day: string | null;
+  };
+  series: MetricsPoint[];
+  top_queries: Row[]; top_pages: Row[]; new_queries: Row[];
+}
+
+/** Regenerate the one-line report feed when older than 30 min (also cron-run). */
+async function refreshInsightsIfStale(supabase: ReturnType<typeof createAdminClient>) {
+  try {
+    const { data: last } = await supabase
+      .from("mt_insights").select("ts").eq("kind", "_run")
+      .order("ts", { ascending: false }).limit(1);
+    const lastTs = last?.[0]?.ts ? new Date(last[0].ts).getTime() : 0;
+    if (Date.now() - lastTs < 30 * 60 * 1000) return;
+    await supabase.rpc("mt_generate_insights");
+    await supabase.from("mt_insights").insert({
+      kind: "_run", key: "run:" + new Date().toISOString().slice(0, 19), line: "",
+    });
+  } catch {}
+}
+
 export default async function MetricsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ d?: string; path?: string }>;
+  searchParams: Promise<{ d?: string; path?: string; b?: string }>;
 }) {
   const admin = await getAdminUser();
   if (!admin) notFound();
@@ -54,23 +79,30 @@ export default async function MetricsPage({
   const sp = await searchParams;
   const d = RANGES.some((r) => r.d === Number(sp.d)) ? Number(sp.d) : 7;
   const drillPath = typeof sp.path === "string" && sp.path.startsWith("/") ? sp.path : null;
+  // hourly bucket: automatic for 24h, opt-in (?b=h) up to 7d
+  const hourly = d <= 2 || (sp.b === "h" && d <= 7);
 
   const to = new Date();
   const from = new Date(to.getTime() - d * 24 * 60 * 60 * 1000);
-  const bucket = d <= 2 ? "hour" : "day";
+  const bucket = hourly ? "hour" : "day";
 
   const supabase = createAdminClient();
+  await refreshInsightsIfStale(supabase);
   const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
 
-  const [ovRes, liveRes, pageRes] = await Promise.all([
+  const [ovRes, liveRes, pageRes, insightsRes, gscRes] = await Promise.all([
     supabase.rpc("mt_overview_json", args),
     supabase.rpc("mt_live_json"),
     drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
+    supabase.from("mt_insights").select("ts, kind, line").neq("kind", "_run").order("ts", { ascending: false }).limit(24),
+    supabase.rpc("mt_gsc_overview_json", { p_days: 28 }),
   ]);
 
   const ov = (ovRes.data ?? null) as Overview | null;
   const live = (liveRes.data ?? null) as { active_5m: number; active_30m: number; paths: Row[] } | null;
   const detail = (pageRes.data ?? null) as PageDetail | null;
+  const insights = (insightsRes.data ?? []) as { ts: string; kind: string; line: string }[];
+  const gsc = (gscRes.data ?? null) as GscOverview | null;
 
   if (ovRes.error) {
     return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;

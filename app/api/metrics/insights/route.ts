@@ -1,0 +1,51 @@
+/**
+ * /api/metrics/insights — runs the rule-based insight generator
+ * (mt_generate_insights, migration 0060) and stamps a '_run' marker.
+ *
+ * Called by: Vercel cron every 30 min (vercel.json), the /admin/metrics page
+ * when the feed is stale, or manually (?key=REVALIDATION_SECRET).
+ * A 20-minute guard makes stray triggers harmless.
+ */
+import { NextRequest, NextResponse } from "next/server";
+import { getAdminUser } from "@/lib/admin";
+import { createAdminClient } from "@/lib/supabase/admin";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+const MIN_INTERVAL_MS = 20 * 60 * 1000;
+
+export async function GET(req: NextRequest) {
+  const fromCron =
+    req.headers.get("x-vercel-cron") !== null ||
+    (req.headers.get("user-agent") ?? "").startsWith("vercel-cron/");
+  const key = req.nextUrl.searchParams.get("key");
+  const keyOk = !!key && key === process.env.REVALIDATION_SECRET;
+
+  if (!fromCron && !keyOk) {
+    const admin = await getAdminUser();
+    if (!admin) return NextResponse.json({ error: "forbidden" }, { status: 403 });
+  }
+
+  const supabase = createAdminClient();
+
+  const { data: last } = await supabase
+    .from("mt_insights")
+    .select("ts")
+    .eq("kind", "_run")
+    .order("ts", { ascending: false })
+    .limit(1);
+  const lastTs = last?.[0]?.ts ? new Date(last[0].ts).getTime() : 0;
+  if (Date.now() - lastTs < MIN_INTERVAL_MS && !req.nextUrl.searchParams.get("force")) {
+    return NextResponse.json({ skipped: true, last_run: last?.[0]?.ts });
+  }
+
+  const { data: inserted, error } = await supabase.rpc("mt_generate_insights");
+  await supabase.from("mt_insights").insert({
+    kind: "_run",
+    key: "run:" + new Date().toISOString().slice(0, 19),
+    line: "",
+  });
+
+  return NextResponse.json({ inserted: inserted ?? 0, error: error?.message ?? null });
+}
