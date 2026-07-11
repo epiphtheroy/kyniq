@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
 import { cachedAtlasEligibility } from "@/lib/atlas";
@@ -109,6 +110,74 @@ function leadText(film: FilmRow, lineage: FilmLineageRow[]): string {
   if (auteur.length) parts.push(`an auteur line`);
   const body = parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}` : parts[0] ?? "";
   return `${film.title}${year} carries ${lineage.length} entries in Metatake's lineage record: ${body}. Every entry links to the complete list it belongs to, with the source it was compiled from.`;
+}
+
+// A readable, verbatim award name from one lineage row: the festival grand
+// prize is self-identifying (e.g. "Palme d'Or"); otherwise the awarding body,
+// derived deterministically from the slug (same map that picks the emblem), is
+// prefixed so a bare category ("Best Picture") reads unambiguously.
+function awardName(l: FilmLineageRow): string {
+  const label = awardLabel(l.list_label, l.list_slug);
+  const parent = l.parent_label && l.parent_label !== l.list_label ? l.parent_label : null;
+  if (parent) return label;
+  const body = awardBody(l.list_slug)?.name;
+  return body && !label.toLowerCase().includes(body.toLowerCase()) ? `${body} for ${label}` : label;
+}
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.2) ─────────
+// Deterministic Q&A from the lineage rows already in scope. TRAP GUARDS: rows
+// are FILM-level (no person) so a question never says "which actor/director
+// won"; and edition_year is the AWARD year, kept distinct from the film's
+// release year (yearLabel, shown in parens after the title). Search-term
+// variants "win / won / awards / honours" are woven, max two uses each (entity
+// names carrying "Award" are verbatim per §0.2 and exempt from the tally).
+function quickAnswerItems(film: FilmRow, lineage: FilmLineageRow[]): QuickAnswerItem[] {
+  const { awards, canons } = splitRows(lineage);
+  const yearLabel = film.year ? ` (${film.year})` : "";
+  const won = awards.filter((a) => a.result === "won");
+  const nominated = awards.filter((a) => a.result === "nominated");
+  const items: QuickAnswerItem[] = [];
+  // 1 — the head "what did X win" query: won rows, verbatim, with award years.
+  if (won.length > 0) {
+    const named = won.map((l) => `${awardName(l)}${l.edition_year ? ` (${l.edition_year})` : ""}`);
+    const head = named.slice(0, 3).join(", ");
+    const more = named.length > 3 ? ` and ${named.length - 3} more` : "";
+    items.push({ q: `What awards did ${film.title} win?`, a: `${film.title}${yearLabel} claimed ${head}${more}.` });
+  }
+  // 2 — the flagship yes/no (top won row = the most recent award edition).
+  if (won.length > 0) {
+    const top = won[0];
+    items.push({
+      q: `Did ${film.title} win the ${awardName(top)}?`,
+      a: `Yes — ${film.title}${yearLabel} won the ${awardName(top)}${top.edition_year ? ` in ${top.edition_year}` : ""}.`,
+    });
+  }
+  // 3 — nomination (no 'nominated' rows in the current data, so this is dormant).
+  if (nominated.length > 0) {
+    const nom = nominated[0];
+    items.push({
+      q: `Was ${film.title} nominated for the ${awardName(nom)}?`,
+      a: `Yes — ${film.title}${yearLabel} was nominated for the ${awardName(nom)}${nom.edition_year ? ` in ${nom.edition_year}` : ""}.`,
+    });
+  }
+  // 4 — canon membership, with rank/rank_max verbatim when present.
+  if (canons.length > 0) {
+    const c = canons[0];
+    const cname = awardLabel(c.list_label, c.list_slug);
+    const at = c.rank ? ` at #${c.rank}${c.rank_max ? ` of ${c.rank_max}` : ""}` : "";
+    items.push({
+      q: `Is ${film.title} on the ${cname}?`,
+      a: `Yes — ${film.title}${yearLabel} appears on the ${cname}${at}.`,
+    });
+  }
+  // 5 — the count of wins.
+  if (won.length > 0) {
+    items.push({
+      q: `How many awards has ${film.title} won?`,
+      a: `By our count, ${film.title}${yearLabel} holds ${won.length} such honour${won.length === 1 ? "" : "s"} on record.`,
+    });
+  }
+  return items.slice(0, 5);
 }
 
 interface Props { params: Promise<{ slug: string }> }
@@ -266,6 +335,8 @@ export default async function FilmHonorsPage({ params }: Props) {
             </div>
           </div>
         </header>
+
+        <QuickAnswers items={quickAnswerItems(film, lineage)} />
 
         {awards.length > 0 && (
           <section style={{ margin: "28px 0" }}>
