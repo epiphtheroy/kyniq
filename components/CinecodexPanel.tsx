@@ -69,6 +69,15 @@ const DEF_STYLE: CSSProperties = {
   lineHeight: 1.4, margin: "-2px 0 9px",
 };
 
+// The film's plain-word reading of each dimension, pulled OUT of the small
+// definition text and shown as a prominent, axis-coloured verdict line — so the
+// judgment reads at a glance instead of hiding at the end of a grey sentence.
+const GROUP_HEX: Record<string, string> = { value: "#0F6E56", cost: "#6b7280", risk: "#C8102E" };
+const VERDICT_STYLE: CSSProperties = {
+  fontFamily: "var(--font-ui)", fontSize: "13px", fontWeight: 700,
+  lineHeight: 1.25, margin: "2px 0 12px",
+};
+
 // Compact circled "?" — an explicit "what is this?" affordance per dimension row,
 // linking to the /takescore/[dim] explanation page. Muted palette; hover darkens
 // via the .ccx-qm rule injected in the panel (server component — no JS handlers).
@@ -117,9 +126,8 @@ function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, 
                 : null}
             </div>
             {dim ? (
-              <div style={DEF_STYLE}>
-                {DEF[dim.key]}{" "}
-                <span style={{ color: "var(--ink)" }}>This film: {bandWord(dim.group, score)}.</span>
+              <div style={{ ...VERDICT_STYLE, color: GROUP_HEX[dim.group] ?? "var(--ink)" }}>
+                {bandWord(dim.group, score)}
               </div>
             ) : null}
           </div>
