@@ -11,6 +11,7 @@
 import { NextRequest } from "next/server";
 import { createHash } from "crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { ipToPrefix } from "@/lib/ip-prefix";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -108,7 +109,23 @@ export async function POST(req: NextRequest) {
       props: b.props && typeof b.props === "object" ? b.props : null,
     };
 
-    await createAdminClient().from("mt_events").insert(row);
+    const sb = createAdminClient();
+    await sb.from("mt_events").insert(row);
+
+    // Record the visitor→/24 map the bot detector needs (mt_events omits IP by
+    // design). One upsert per visitor/day, pageviews only. Best-effort: a
+    // failure here must never surface to the beacon.
+    if (t === "pageview") {
+      const prefix = ipToPrefix(ip);
+      if (prefix) {
+        await sb
+          .from("mt_visitor_ip")
+          .upsert(
+            { day, visitor, prefix, country: row.country },
+            { onConflict: "day,visitor", ignoreDuplicates: true }
+          );
+      }
+    }
     return ok();
   } catch {
     return ok(); // the beacon must never surface errors to the page

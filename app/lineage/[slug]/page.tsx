@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteNav from "@/components/home2/SiteNav";
-import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
+import EntityTVHero from "@/components/EntityTVHero";
 import LineageActions from "@/components/LineageActions";
 import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
@@ -216,6 +216,7 @@ export default async function LineagePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/lineage">Lineage</Link></div>
+        <EntityTVHero playlist={`lineage-${slug}`} reelSlugs={(visibleFilms.length ? visibleFilms : films).map((f) => f.film_slug)} label={list.label} listHref={`/tv/list/lineage-${slug}`} backdrop={null} />
         <h1 className="lh-h1">{list.label}</h1>
         <div className="lh-share">
           <ShareDock variant="bar" path={`/lineage/${list.slug}`} title={list.label}
@@ -332,7 +333,6 @@ export default async function LineagePage({ params }: Props) {
           </section>
         )}
 
-        <PlaylistTVEmbed slug={`lineage-${slug}`} heading={`${list.label} on METATAKE TV — every listed film as a broadcast`} />
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Metatake Editorial · Lineage data compiled from public records — source above · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>

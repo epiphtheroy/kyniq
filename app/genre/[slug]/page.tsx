@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
+import EntityTVHero from "@/components/EntityTVHero";
 import ListFilter from "@/components/ListFilter";
 import LensQuickBar from "@/components/LensQuickBar";
 
@@ -71,6 +71,7 @@ export default async function GenrePage({ params }: Props) {
       <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/genre">Genres</Link></div>
+        <EntityTVHero playlist={`genre-${slug}`} reelSlugs={inGenre.map((f) => f.slug)} label={unslug(slug)} listHref={`/tv/list/genre-${slug}`} backdrop={null} />
         <h1 className="mt-h1" style={{ textTransform: "capitalize" }}>{unslug(slug)}</h1>
         <div className="mt-share">
           <ShareDock variant="bar" path={`/genre/${slug}`} title={`${unslug(slug)} films`}
@@ -110,8 +111,6 @@ export default async function GenrePage({ params }: Props) {
             ) : null}
           </section>
         )}
-
-        <PlaylistTVEmbed slug={`genre-${slug}`} heading={`${unslug(slug).replace(/\b\w/g, (c) => c.toUpperCase())} films on METATAKE TV`} />
       </div>
     </div>
   );

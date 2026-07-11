@@ -3710,8 +3710,10 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 /* FloatingTrailerDock — plain-trailer iframe fills the reused .iv-frame--float box */
 .ivd-yt{position:absolute; inset:0; width:100%; height:100%; border:0; display:block}
 
-/* EntityTVHero — the unified top-of-page video hero on entity pages */
-.ehero{margin:8px 0 20px}
+/* EntityTVHero — the unified top-of-page video hero on entity pages.
+   max-width + auto margins keep it sane on full-bleed pages (trope/theorist);
+   inside a content wrapper it simply fills the column. */
+.ehero{margin:10px auto 20px; max-width:1040px}
 .ehero-more{position:absolute; top:12px; right:14px; z-index:6; font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.03em; color:#fff; background:rgba(0,0,0,.55); border-radius:999px; padding:5px 12px; text-decoration:none}
 .ehero-more:hover{background:var(--accent,#C8102E)}
 .ehero-mute{position:absolute; bottom:12px; right:14px; z-index:6; border:0; background:rgba(0,0,0,.6); color:#fff; font-size:13px; border-radius:999px; padding:6px 12px; cursor:pointer}

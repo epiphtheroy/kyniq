@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
+import EntityTVHero from "@/components/EntityTVHero";
 import MovementHubClient from "@/components/MovementHubClient";
 import ShareDock from "@/components/ShareDock";
 
@@ -72,6 +72,7 @@ export default async function MovementHub({ params }: Props) {
       <SiteNav />
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/movements">Movements</Link></div>
+        <EntityTVHero playlist={`lineage-${slug}`} reelSlugs={d.films.map((f) => f.slug)} label={d.hub.label} listHref={`/tv/list/lineage-${slug}`} backdrop={null} />
         <MovementHubClient d={d} />
         <div className="lh-share">
           <ShareDock variant="bar" path={`/movements/${slug}`} title={d.hub.label}
@@ -107,8 +108,6 @@ export default async function MovementHub({ params }: Props) {
             ) : null}
           </section>
         )}
-
-        <PlaylistTVEmbed slug={`lineage-${slug}`} heading={`${d.hub.label} on METATAKE TV — the films of the tradition, as broadcasts`} />
       </div>
     </div>
   );
