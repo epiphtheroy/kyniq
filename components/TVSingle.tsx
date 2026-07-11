@@ -9,6 +9,8 @@ import { useState } from "react";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
 import VideoMiniDock from "@/components/VideoMiniDock";
+import TVRecommended from "@/components/TVRecommended";
+import TVDirectory from "@/components/TVDirectory";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -82,6 +84,11 @@ export default function TVSingle({ entry, more }: { entry: TVEntry; more: MoreIt
             </ul>
           </aside>
         </div>
+
+        {/* watch-next with reasons, then the full searchable library — every
+            page where a video plays as the main content carries both */}
+        <TVRecommended program={entry.slug} />
+        <TVDirectory embedded />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
 import TVDirectory from "@/components/TVDirectory";
 import TVListPicker from "@/components/TVListPicker";
+import TVRecommended from "@/components/TVRecommended";
 import SaveButton from "@/components/SaveButton";
 import VideoMiniDock from "@/components/VideoMiniDock";
 import { deleteList, fetchMyLists, renameList, type TVUserList } from "@/lib/tvUserLists";
@@ -293,6 +294,9 @@ function Watch({ seed }: { seed: TVSeed }) {
             </ul>
           </aside>
         </div>
+
+        {/* watch-next with reasons — follows whatever is playing */}
+        <TVRecommended program={entry && !isPseudo(entry) ? entry.slug : null} onPick={selectVideo} />
 
         {/* the visitor's own lists, YouTube-library style */}
         {myLists && myLists.length ? (

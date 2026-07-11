@@ -9,6 +9,7 @@ import { useCallback, useMemo, useState } from "react";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
 import TVDirectory from "@/components/TVDirectory";
+import TVRecommended from "@/components/TVRecommended";
 import VideoMiniDock from "@/components/VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -114,8 +115,9 @@ export default function TVListView({ playlist, entries }: { playlist: PlaylistMe
           </div>
         </section>
 
-        {/* the same searchable library as /tv — the browse surface travels with
-            every list page instead of dead-ending here */}
+        {/* watch-next with reasons (follows the film now playing), then the same
+            searchable library as /tv — no video page dead-ends */}
+        <TVRecommended program={entry && !isIntro(entry) ? entry.slug : films[0]?.slug ?? null} />
         <TVDirectory embedded />
       </div>
     </div>
