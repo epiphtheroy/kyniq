@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import FilmsIndex, { type FilmFeat, type FilmCat } from "@/components/indexes/FilmsIndex";
+import FilmsIndex, { type FilmCat } from "@/components/indexes/FilmsIndex";
 import LensQuickBar from "@/components/LensQuickBar";
 import MineEntityIndex from "@/components/MineEntityIndex";
 import { filmUrl } from "@/lib/urls";
@@ -128,8 +128,7 @@ export default async function FilmIndexPage({ searchParams }: Props) {
   if (view === "all") return <AllFilmsView pageParam={page} />;
 
   const supabase = db();
-  const [featuredRes, catRes, invRes] = await Promise.all([
-    supabase.rpc("films_featured", { p_n: 12 }),
+  const [catRes, invRes] = await Promise.all([
     // v2 returns one jsonb row {total, items} — the TABLE-returning v1 was
     // silently truncated to 1,000 of 1,935 visible films by PostgREST's row cap.
     supabase.rpc("films_catalogue_v2"),
@@ -137,7 +136,6 @@ export default async function FilmIndexPage({ searchParams }: Props) {
     supabase.from("films").select("slug", { count: "exact", head: true }).not("slug", "like", "tmdb-%"),
   ]);
 
-  const featured = ((featuredRes.data as FilmFeat[] | null) ?? []).filter((f) => f && f.readingList?.length);
   const cat = (catRes.data as FilmCatalogue | null) ?? { total: 0, items: [] };
   const catalogue = cat.items;
   const inventoryTotal = invRes.count ?? 0;
@@ -183,7 +181,17 @@ export default async function FilmIndexPage({ searchParams }: Props) {
         <MineEntityIndex kind="films" hrefBase="/film/" noun="films" imgShape="poster" />
 
         <div className="mtl-swap-out">
-          <FilmsIndex featured={featured} catalogue={catalogue} inventoryTotal={inventoryTotal} />
+          <FilmsIndex
+            catalogue={catalogue}
+            inventoryTotal={inventoryTotal}
+            heroSub={
+              <>
+                Not a movie database. <b>{cat.total.toLocaleString()} films</b>, each taken apart into the{" "}
+                <span className="term">figures</span> on screen — the faces, objects and gestures a critic points to — and the
+                strong misreadings and tropes they carry. Open any one and it already knows its kin.
+              </>
+            }
+          />
         </div>
       </div>
     </div>

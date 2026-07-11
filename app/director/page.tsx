@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
-import DirectorsIndex, { type DirFeat, type DirCat } from "@/components/indexes/DirectorsIndex";
+import DirectorsIndex, { type DirCat } from "@/components/indexes/DirectorsIndex";
 import LensQuickBar from "@/components/LensQuickBar";
 import MineEntityIndex from "@/components/MineEntityIndex";
 import { directorUrl } from "@/lib/urls";
@@ -27,12 +27,8 @@ type DirCatalogue = { total: number; items: DirCat[] };
 
 export default async function DirectorIndexPage() {
   const supabase = db();
-  const [featuredRes, catRes] = await Promise.all([
-    supabase.rpc("directors_featured", { p_n: 12 }),
-    supabase.rpc("directors_catalogue_v2"),
-  ]);
+  const catRes = await supabase.rpc("directors_catalogue_v2");
 
-  const featured = ((featuredRes.data as DirFeat[] | null) ?? []).filter((d) => d && d.tropesList?.length);
   const cat = (catRes.data as DirCatalogue | null) ?? { total: 0, items: [] };
   const catalogue = cat.items;
   const total = cat.total;
@@ -78,7 +74,16 @@ export default async function DirectorIndexPage() {
         <MineEntityIndex kind="directors" hrefBase="/director/" noun="directors" filmsNoun="of yours" imgShape="round" />
 
         <div className="mtl-swap-out">
-          <DirectorsIndex featured={featured} catalogue={catalogue} />
+          <DirectorsIndex
+            catalogue={catalogue}
+            heroSub={
+              <>
+                Not a filmography. <b>{total.toLocaleString()} directors</b>, each read as the sum of their obsessions — the{" "}
+                <span className="term">signature readings</span> and <span className="term">tropes</span> that recur, film
+                after film, until a frame is unmistakably theirs.
+              </>
+            }
+          />
         </div>
       </div>
     </div>
