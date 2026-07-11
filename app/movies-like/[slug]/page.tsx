@@ -7,6 +7,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import PosterActions from "@/components/PosterActions";
 import LensQuickBar from "@/components/LensQuickBar";
 import ShareDock from "@/components/ShareDock";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -99,6 +100,53 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.5a) ─────────
+// Deterministic Q&A assembled ONLY from fields already in scope (recs are
+// score-sorted): a question is emitted only when its answer row is present,
+// and every title, year and score is verbatim from the rec rows. Search-term
+// variants are woven across Q and A, max two uses each: "similar to" (Q1),
+// "films comparable to" (A1), "movies like" / "like" (Q4 / Q3).
+function quickAnswerItems(film: Film, recs: Rec[]): QuickAnswerItem[] {
+  if (recs.length < 3) return []; // mirrors the index/robots bar (recs ≥ 3)
+  const items: QuickAnswerItem[] = [];
+  const yr = (y: number | null) => (y ? ` (${y})` : "");
+  const top = recs[0];
+  // 1 — the head "similar to X" query, always answerable at ≥3 recs.
+  items.push({
+    q: `What movies are similar to ${film.title}?`,
+    a: `${recs.length} films comparable to ${film.title}, ranked by shared themes — starting with ${top.film.title}${yr(top.film.year)}.`,
+  });
+  // 2 — the closest single film, with its taste-vector match (cos required).
+  if (top.cos != null) {
+    const by = top.film.director ? ` by ${top.film.director}` : "";
+    items.push({
+      q: `What is the closest movie to ${film.title}?`,
+      a: `${top.film.title}${yr(top.film.year)}${by} — a ${Math.round(top.cos * 100)}% taste match.`,
+    });
+  }
+  // 3 — why the top film is kin: the shared tropes, verbatim from reasons[].
+  if (top.reasons.length > 0) {
+    const t = top.reasons.slice(0, 3).map((r) => r.title);
+    const joined = t.length === 1 ? t[0] : `${t.slice(0, -1).join(", ")} and ${t[t.length - 1]}`;
+    items.push({
+      q: `Why is ${top.film.title} like ${film.title}?`,
+      a: `Both stage ${joined}.`,
+    });
+  }
+  // 4 — worth-watching cut: nearest recs that also carry a real TakeScore.
+  const scored = recs.filter((r) => r.ts != null).slice(0, 2);
+  if (scored.length > 0) {
+    const phr = scored.map((r) => `${r.film.title} (TakeScore ${r.ts})`);
+    const joined = phr.length === 1 ? phr[0] : `${phr[0]} and ${phr[1]}`;
+    const verb = scored.length === 1 ? "carries" : "carry";
+    items.push({
+      q: `Which movies like ${film.title} are worth watching?`,
+      a: `Among the closest matches, ${joined} ${verb} a Metatake TakeScore — the site's own read on what's worth watching.`,
+    });
+  }
+  return items.slice(0, 4);
+}
+
 export default async function MoviesLikePage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
@@ -171,6 +219,8 @@ export default async function MoviesLikePage({ params }: Props) {
         </div>
 
         <LensQuickBar />
+
+        <QuickAnswers items={quickAnswerItems(film, recs)} />
 
         {recs.length === 0 ? (
           <p className="mt-see" style={{ fontStyle: "italic", marginTop: 24 }}>No similar films yet — this film&apos;s readings are still being connected.</p>
