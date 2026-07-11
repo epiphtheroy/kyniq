@@ -17,6 +17,8 @@ import "@/app/credits/credits.css";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
 import EntityMap from "@/components/EntityMap";
+import EntityFantasia from "@/components/EntityFantasia";
+import { loadFantasia } from "@/lib/fantasia";
 import FilmMap from "@/components/FilmMap";
 import Byline from "@/components/Byline";
 import { fw } from "@/lib/frameworks";
