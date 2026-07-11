@@ -5253,3 +5253,24 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 @keyframes lexi-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){.lexi-item{animation:none}}
 @media (max-width:900px){.cmap-cols,.map-cols{flex-direction:column}.lexi{flex:1 1 auto;min-height:0!important}}
+
+/* EMBEDDING FANTASIA — kicker, disclaimer, topic pills (FilmSentences + EntityFantasia — cross-page) */
+.dfk-kicker{font-family:var(--font-ui);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#E0922A;margin-bottom:2px}
+.dfk-by{color:rgba(22,35,63,.5);letter-spacing:.05em}
+.dfk-disclaimer{max-width:78ch}
+.dfk-nav{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 10px}
+.dfk-pill{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.02em;padding:5px 12px;border:1px solid var(--hairline-2);border-radius:999px;background:#fff;color:var(--ink2);cursor:pointer}
+.dfk-pill:hover{border-color:#E0922A;color:#16233F}
+.dfk-pill.on{background:#16233F;border-color:#16233F;color:#fff}
+.dfk-pill.on .dfk-n{color:#E0922A}
+.dfk-n{font-variant-numeric:tabular-nums;font-size:10.5px;color:rgba(22,35,63,.5);margin-left:2px}
+.dfk-blurb{font-family:var(--font-ui);font-size:12.5px;color:var(--muted);margin:0 0 10px}
+
+/* DID YOU KNOW — film_sentences module (cross-page: FilmSentences + EntityFantasia) */
+.dfk-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.dfk-row{padding:13px 15px;border:1px solid var(--hairline-2);border-radius:12px;background:var(--paper,#fff)}
+.dfk-row:hover{border-color:var(--hairline)}
+.dfk-sent{margin:0;font-family:var(--font-serif,Georgia,serif);font-size:16px;line-height:1.5;color:var(--ink)}
+.dfk-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.dfk-chip{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:640px){.dfk-sent{font-size:15px}.dfk-row{padding:11px 12px}}
