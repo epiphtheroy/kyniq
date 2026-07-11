@@ -80,6 +80,7 @@ export default function ForWHeoList({ films }: { films: WHeoFilm[] }) {
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     const out = films.filter((f) => {
+      if (tier && f.verdict !== tier) return false;
       if (genre && !(f.genres ?? []).includes(genre)) return false;
       if (director && f.director !== director) return false;
       if (needle && !(f.title.toLowerCase().includes(needle) || (f.director ?? "").toLowerCase().includes(needle))) return false;
@@ -95,9 +96,9 @@ export default function ForWHeoList({ films }: { films: WHeoFilm[] }) {
       }
     });
     return out;
-  }, [films, genre, director, q, sort]);
+  }, [films, tier, genre, director, q, sort]);
 
-  const activeFilters = genre || director || q.trim();
+  const activeFilters = tier || genre || director || q.trim();
 
   return (
     <div className="fwh">
@@ -118,6 +119,19 @@ export default function ForWHeoList({ films }: { films: WHeoFilm[] }) {
           </select>
         </label>
       </div>
+
+      {hasTiers ? (
+        <div className="fwh-tiers" role="group" aria-label="Filter by recommendation tier">
+          <button className={`fwh-tierbtn${!tier ? " is-on" : ""}`} onClick={() => setTier(null)}>All tiers</button>
+          {(["essential", "start_here", "deep_cut"] as const).map((t) => (
+            tierCounts[t] > 0 ? (
+              <button key={t} className={`fwh-tierbtn fwh-tierbtn--${t}${tier === t ? " is-on" : ""}`} onClick={() => setTier(tier === t ? null : t)}>
+                {TIER_LABEL[t]}<span className="fwh-chip-n">{tierCounts[t]}</span>
+              </button>
+            ) : null
+          ))}
+        </div>
+      ) : null}
 
       <div className="fwh-genres" role="group" aria-label="Filter by genre">
         <button className={`fwh-chip${!genre ? " is-on" : ""}`} onClick={() => setGenre(null)}>All genres</button>
@@ -164,13 +178,13 @@ export default function ForWHeoList({ films }: { films: WHeoFilm[] }) {
           <div className="fwh-count">
             <b>{filtered.length}</b> {filtered.length === 1 ? "film" : "films"}
             {activeFilters ? (
-              <button className="fwh-reset" onClick={() => { setGenre(null); setDirector(null); setQ(""); }}>
+              <button className="fwh-reset" onClick={() => { setTier(null); setGenre(null); setDirector(null); setQ(""); }}>
                 Reset filters
               </button>
             ) : null}
           </div>
           {filtered.length === 0 ? (
-            <p className="fwh-empty">No films match these filters. <button className="fwh-linkbtn" onClick={() => { setGenre(null); setDirector(null); setQ(""); }}>Clear them</button> to see all {films.length}.</p>
+            <p className="fwh-empty">No films match these filters. <button className="fwh-linkbtn" onClick={() => { setTier(null); setGenre(null); setDirector(null); setQ(""); }}>Clear them</button> to see all {films.length}.</p>
           ) : (
             <ul className="fwh-grid">
               {filtered.map((f) => (
