@@ -6,6 +6,7 @@ import LensQuickBar from "@/components/LensQuickBar";
 import MineEntityIndex from "@/components/MineEntityIndex";
 import TheoryExplorer from "@/components/theory/TheoryExplorer";
 import TheoristDirectory, { type TheoristRow } from "@/components/theory/TheoristDirectory";
+import portraits from "@/lib/theorist_portrait.json";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 1800;
@@ -68,7 +69,7 @@ export default async function TheoristIndex() {
           <LensQuickBar />
           <MineEntityIndex kind="theorists" hrefBase="/theorist/" noun="theorists" />
           <div className="mtl-swap-out">
-            <TheoristDirectory rows={rows} />
+            <TheoristDirectory rows={rows} portraits={portraits as Record<string, string>} />
           </div>
         </TheoryExplorer>
       </div>

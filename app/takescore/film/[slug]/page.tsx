@@ -294,9 +294,8 @@ export default async function TakeScoreFilmPage({ params }: Props) {
             </p>
             <p className="tsf-tow-sign">— W. Yoon</p>
             <p className="tsf-tow-note">
-              A note from the curator on where {card.title} stands in the Metatake index — assembled
-              from the catalog&apos;s curation records (canon lists, festival honors, auteur lineages), separate
-              from the TakeScore appraisal above.
+              A curator&apos;s note on {card.title}&apos;s place in the Metatake index — drawn from the catalog&apos;s
+              curation records, and kept separate from the TakeScore appraisal above.
             </p>
           </section>
         ) : null}
