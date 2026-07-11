@@ -16,6 +16,7 @@ import { pageRobots } from "@/lib/seo";
 import { listicle } from "@/lib/listicle";
 import { attachKwic } from "@/lib/kwic";
 import ReadingLedger from "@/components/read/ReadingLedger";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
@@ -364,6 +365,50 @@ export default async function ConceptPage({ params }: Props) {
     const tHeroBd = tTop.find((f) => f.backdrop)?.backdrop ?? desks.find((d) => d.backdrop_path)?.backdrop_path ?? null;
     const tHeroTitle = tTop.find((f) => f.backdrop)?.title ?? desks.find((d) => d.backdrop_path)?.film_title ?? null;
 
+    // ── Quick answers (docs/PLAN-intent-coverage.md §0 + §5.6) — theory branch.
+    // GAP: a thin concept (0 readings + 0 desks) emits only the definition, never
+    // a fabricated film list. Variants: "idea" ×2, "concept" ×1 (each ≤2).
+    const thThin = canonReadings.length === 0 && desks.length === 0;
+    const theoryQA: QuickAnswerItem[] = [];
+    if (tc.one_liner) theoryQA.push({ q: `What is ${tCap}?`, a: tc.one_liner });
+    if (!thThin) {
+      if (tFilmArr.length > 0) {
+        const show = tTop.slice(0, 3);
+        const more = tFilmArr.length - show.length;
+        theoryQA.push({
+          q: `Which films explore ${tName}?`,
+          a: (
+            <>
+              Films that put the idea to work include{" "}
+              {show.map((f, i) => (
+                <span key={f.slug}>
+                  {i > 0 ? (i === show.length - 1 ? " and " : ", ") : ""}
+                  <Link href={`/film/${f.slug}`}>{f.title}</Link>{f.year ? ` (${f.year})` : ""}
+                </span>
+              ))}
+              {more > 0 ? `, and ${more} more` : ""} — {tFilmArr.length} film{tFilmArr.length === 1 ? "" : "s"} in all.
+            </>
+          ),
+        });
+      }
+      if (theorists.length > 0) {
+        theoryQA.push({
+          q: `Who developed the idea of ${tName}?`,
+          a: (
+            <>
+              The concept is associated with{" "}
+              {theorists.slice(0, 3).map((t, i) => (
+                <span key={t.name}>
+                  {i > 0 ? (i === Math.min(3, theorists.length) - 1 ? " and " : ", ") : ""}
+                  {t.slug ? <Link href={`/theorist/${t.slug}`}>{t.name}</Link> : t.name}
+                </span>
+              ))}.
+            </>
+          ),
+        });
+      }
+    }
+
     return (
       <div className="mt">
         <SiteNav />
@@ -451,6 +496,8 @@ export default async function ConceptPage({ params }: Props) {
               <span style={{ fontSize: 12, opacity: 0.55, whiteSpace: "nowrap" }}>© Metatake Editorial</span>
             </p>
           )}
+
+          <QuickAnswers items={theoryQA.slice(0, 5)} />
 
           {/* ── The concept, spelled out — deterministic sentences ── */}
           <section style={{ margin: "22px 0 0" }} id="spelled-out">
