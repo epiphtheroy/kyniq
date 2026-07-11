@@ -4075,12 +4075,15 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .tv-embed .sv2-top{top:5%}
 .sv2-top{width:min(86cqw,900px)}
 .sv2-stack{bottom:9%}
-/* compact embeds (e.g. the ReadHero side-slot on film reading pages, or mobile):
-   the masthead + TV badge already frame the top, so drop the redundant centre
-   kicker and the masthead's meta line to stop the three from crowding/overlapping */
+/* compact embeds (the ReadHero side-slot on film reading pages, or any player on
+   mobile): the top region is too narrow for masthead + centre title + TV badge
+   at once. The page around them already says which film/that it's METATAKE TV,
+   so hide the masthead, the centre kicker and the corner TV badge — leaving the
+   centred segment title + body + controls uncluttered. */
 @container (max-width: 720px) {
   .sv2-top > .sv2-kick{ display:none; }
-  .sv2-mast__m{ display:none; }
+  .sv2-mast{ display:none; }
+  .sv2-tv{ display:none; }
 }
 
 /* the atlas / connection maps — MUCH smaller, cq-scaled, lower, stripped of the
