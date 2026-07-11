@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import TVChannel from "@/components/TVChannel";
 import "@/app/home2.css";
 
-// /tv/fullscreen — the full-page METATAKE TV channel (was /tv). The main watch
-// interface (player + watch-list library) is at /tv.
+// /tv/fullscreen — METATAKE TV "On Air": the always-on broadcast. Nothing to
+// pick, no host, no menu — films and their readings play back to back forever.
+// The interactive watch interface (playlists + library) is at /tv.
 export const metadata: Metadata = {
-  title: "METATAKE TV — the channel",
-  description: "METATAKE TV, full page — a continuous, LLM-free broadcast that never stops reading films, one film and one lens at a time.",
+  title: "METATAKE TV — On Air",
+  description: "The always-on broadcast: films and their readings, back to back, forever. No host, no menu, nothing to pick — just leave it on.",
   alternates: { canonical: "/tv/fullscreen" },
 };
 

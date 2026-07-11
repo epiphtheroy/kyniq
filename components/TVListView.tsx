@@ -8,6 +8,7 @@
 import { useCallback, useMemo, useState } from "react";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
+import TVDirectory from "@/components/TVDirectory";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -39,9 +40,8 @@ export default function TVListView({ playlist, entries }: { playlist: PlaylistMe
             <span className="tvpg-brand__live">● ON AIR</span>
           </div>
           <p className="tvpg-tag">{playlist.dek ?? "A METATAKE TV watch list — compiled from the Metatake record, no LLM. It opens with a briefing, then plays each film."}</p>
-          {playlist.href
-            ? <a className="tvpg-full" href={playlist.href}>Open the source page ↗</a>
-            : <a className="tvpg-full" href="/tv/lists">Browse all watch lists ↗</a>}
+          <a className="tvpg-full" href={`/tv?list=${encodeURIComponent(playlist.slug)}`}>Open in the watch page ↗</a>
+          {playlist.href ? <a className="tvpg-full" href={playlist.href}>Source page ↗</a> : null}
         </header>
 
         <div className="tvw-main">
@@ -110,6 +110,10 @@ export default function TVListView({ playlist, entries }: { playlist: PlaylistMe
             ))}
           </div>
         </section>
+
+        {/* the same searchable library as /tv — the browse surface travels with
+            every list page instead of dead-ending here */}
+        <TVDirectory embedded />
       </div>
     </div>
   );

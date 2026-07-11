@@ -24,7 +24,7 @@ export default function TVChannel() {
             <span className="tvpg-brand__tv">TV</span>
             <span className="tvpg-brand__live">● ON AIR</span>
           </a>
-          <p className="tvpg-tag">The channel that never stops reading films — one film, one lens at a time. Leave it on.</p>
+          <p className="tvpg-tag">On Air — the broadcast that never stops reading films. No host, nothing to pick: one film, one lens at a time. Just leave it on.</p>
           <a className="tvpg-full" href="/tv">← Watch &amp; browse</a>
           <a className="tvpg-full" href="/tv/full">Full-screen ↗</a>
         </header>

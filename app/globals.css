@@ -4130,6 +4130,28 @@ a.tvpg-brand:hover{opacity:.85}
 .tvw-item__b{min-width:0;display:flex;flex-direction:column;gap:4px;justify-content:center}
 .tvw-item__t{font-family:var(--font-ui);font-size:13.5px;font-weight:600;line-height:1.3;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .tvw-item__f{font-family:var(--font-ui);font-size:12px;color:#9a9388}
+/* queue rows: the item button + reorder/remove controls that appear on hover */
+.tvw-qrow{display:flex;align-items:stretch;gap:4px}
+.tvw-qrow .tvw-item{flex:1 1 auto;min-width:0}
+.tvw-qops{display:flex;flex-direction:column;justify-content:center;gap:2px;opacity:0;transition:opacity .15s}
+.tvw-qrow:hover .tvw-qops,.tvw-qrow:focus-within .tvw-qops{opacity:1}
+@media(hover:none){.tvw-qops{opacity:.8}}
+.tvw-qops button{width:22px;height:22px;border-radius:6px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#d9d1c2;font-size:11px;line-height:1;cursor:pointer;padding:0}
+.tvw-qops button:hover{background:rgba(255,255,255,.14);color:#fff}
+.tvw-qops button:disabled{opacity:.25;cursor:default}
+/* queue toolbar: shuffle / theater / count / list-page link */
+.tvw-qbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:10px;text-transform:none;letter-spacing:0}
+.tvw-qbtn{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:.05em;color:#d9d1c2;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 10px;cursor:pointer}
+.tvw-qbtn:hover{background:rgba(255,255,255,.12)}
+.tvw-qbtn.on{border-color:rgba(200,16,46,.65);color:#fff;background:rgba(200,16,46,.16)}
+.tvw-qn{font-family:var(--font-ui);font-size:11px;font-weight:600;color:#7a7468}
+.tvw-qlink{font-family:var(--font-ui);font-size:11px;font-weight:700;color:#E8A7AF;text-decoration:none;letter-spacing:.03em}
+.tvw-qlink:hover{color:#fff}
+/* theater ("크게보기"): player spans the full width, the queue drops below */
+.tvw--theater .tvw-main{grid-template-columns:1fr}
+.tvw--theater .tvw-next{max-height:380px;min-height:0}
+/* the On Air header link's red dot */
+.tvpg-onair b{color:#C8102E;font-size:9px;vertical-align:2px;margin-right:2px;font-weight:400}
 .tvw-shelves{margin-top:34px;border-top:1px solid rgba(255,255,255,.1);padding-top:22px}
 .tvw-shelf__h{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:20px;letter-spacing:.03em;color:#fff;margin:14px 0 12px}
 .tvw-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
