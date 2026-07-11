@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import FilmHeroReel from "@/components/FilmHeroReel";
+import FilmTVHero from "@/components/FilmTVHero";
 import ShareDock from "@/components/ShareDock";
 
 /**
@@ -74,7 +74,9 @@ export default function ReadHero({
         {(videos.length > 0 || backdrop) && (
           <div className="rd-hero__media">
             {videos.length > 0 ? (
-              <FilmHeroReel videos={videos} poster={backdrop} start={7} />
+              // the film's compiled METATAKE TV broadcast (falls back to the plain
+              // trailer reel when the film has no broadcast) — same as the main film page
+              <FilmTVHero slug={film.slug} videos={videos} poster={backdrop} backdrop={backdropPath ?? null} />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img className="rd-hero__bd" src={backdrop} alt={`${film.title} still`} width={780} height={439} />
