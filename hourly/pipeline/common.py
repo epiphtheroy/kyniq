@@ -17,7 +17,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 HOURLY = REPO / "hourly"
-UA = "MetatakeNowPipeline/0.1 (metatake.net)"
+UA = "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
 
 
 def load_env() -> dict:

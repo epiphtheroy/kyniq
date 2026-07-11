@@ -146,7 +146,7 @@ def native_meta(name):
 
 def bad_domain(url):
     u = (url or "").lower(); return any(d in u for d in BLOCK_DOMAINS)
-LINK_UA = {"User-Agent": "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net)"}
+LINK_UA = {"User-Agent": "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"}
 def link_alive(url):
     if not url or not str(url).startswith("http"): return False
     try:

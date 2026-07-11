@@ -37,7 +37,7 @@ from urllib import robotparser, request, parse
 from urllib.request import Request, urlopen
 
 MAX_WORDS = 10
-UA = "MetatakeCommentBot/1.0 (+contact@yourdomain.example; respects robots.txt)"
+UA = "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
 TIMEOUT = 15
 
 # 평가성 단서(코멘트다움 판정용, 다국어). 필요시 계속 확장(handover §7 참고).
@@ -198,7 +198,7 @@ def build_comment(url, outlet, critic, year, film_title="", title="",
             v = verdict_span(ab, film_title, allow_first=True)
             if v:
                 return Comment(outlet, critic, year, url, title, v, v, "verdict",
-                               "abstract", ab[:240], v in _norm(ab))
+                               "abstract", ab[:520], v in _norm(ab))
         return Comment(outlet, critic, year, url, title, title, "", "title", "", "", False)
     # 비평: dek/og:description → ≤10단어 verdict → 제목 폴백
     htmltext = fetch(url) or ""
@@ -206,8 +206,8 @@ def build_comment(url, outlet, critic, year, film_title="", title="",
     v = verdict_span(dek, film_title)
     if v:
         return Comment(outlet, critic, year, url, title, v, v, "verdict",
-                       field, dek[:240], v in _norm(dek))
-    return Comment(outlet, critic, year, url, title, title, "", "title", "", dek[:240], False)
+                       field, dek[:520], v in _norm(dek))
+    return Comment(outlet, critic, year, url, title, title, "", "title", "", dek[:520], False)
 
 def run(in_csv: str, out_csv: str, film_title: str = ""):
     """입력 CSV(id,type,outlet,critic,year,language,comment_or_title,url,note)의 각 행을 보강해

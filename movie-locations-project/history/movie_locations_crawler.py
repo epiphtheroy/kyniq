@@ -54,7 +54,7 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE = "https://movie-locations.com"
-USER_AGENT = "MovieLocationsFactBot/3.0 (research; contact: your-email@example.com)"
+USER_AGENT = "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
 
 WD_SPARQL = "https://query.wikidata.org/sparql"
 WD_API = "https://www.wikidata.org/w/api.php"

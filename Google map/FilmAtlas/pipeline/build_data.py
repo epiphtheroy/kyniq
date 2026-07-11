@@ -135,7 +135,7 @@ def geocode(query, cache, geocoder="nominatim"):
     else:  # nominatim — 초당 1회 제한 준수
         r = requests.get("https://nominatim.openstreetmap.org/search",
             params={"q": query, "format": "json", "limit": 1},
-            headers={"User-Agent": "FilmSpatialAtlas/1.0 (research)"}, timeout=20).json()
+            headers={"User-Agent": "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"}, timeout=20).json()
         time.sleep(1.1)
         if r:
             coord = [float(r[0]["lon"]), float(r[0]["lat"])]

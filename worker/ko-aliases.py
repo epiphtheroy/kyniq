@@ -30,7 +30,7 @@ for line in open(os.path.join(ROOT, ".env.local"), encoding="utf-8"):
 BASE = os.environ["NEXT_PUBLIC_SUPABASE_URL"].rstrip("/")
 KEY = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
 H = {"apikey": KEY, "Authorization": f"Bearer {KEY}", "Content-Type": "application/json"}
-UA = "MetatakeKoAliases/1.0 (thinkartist1@gmail.com)"
+UA = "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
 DRY = "--dry" in sys.argv
 LIMIT = int(sys.argv[sys.argv.index("--limit") + 1]) if "--limit" in sys.argv else None
 

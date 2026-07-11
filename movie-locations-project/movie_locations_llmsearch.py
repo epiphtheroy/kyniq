@@ -46,7 +46,7 @@ from urllib.parse import urlparse
 
 import requests
 
-USER_AGENT = "MovieLocAgent/1.0 (research; contact: your-email@example.com)"
+USER_AGENT = "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
 
 # 보호 데이터베이스(법적 사유): 이 도메인 '하나만'이면 verified 불가 + 단독이면 격리.
 SOLE_SOURCE_BLOCKLIST = {"movie-locations.com", "atlasofwonders.com"}

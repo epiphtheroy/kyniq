@@ -19,5 +19,5 @@
   "corroboration_min_outlets": 2,
   "traffic_bucket_scores": {"20000": 5, "5000": 4, "1000": 3, "500": 2, "0": 1},
   "publish_threshold_note": "mechanical proxy in Phase 0: spike+corroboration+beat >= 10 marks CANDIDATE; corpus-depth and search-shape are the selector's (LLM) dimensions",
-  "user_agent": "MetatakeNowPoller/0.1 (metatake.net; contact: editor@metatake.net)"
+  "user_agent": "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
 }

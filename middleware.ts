@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
 import { ipToPrefix } from "@/lib/ip-prefix";
+import { isObservableCrawler } from "@/lib/bots/identify";
 
 // ── Bot enforcement ─────────────────────────────────────────────────────────
 // Search + citation bots we WANT (they index us / cite us / send traffic) —
@@ -41,7 +42,34 @@ const forbidden = () =>
     headers: { "content-type": "text/plain", "x-mt-bot": "blocked" },
   });
 
-export async function middleware(request: NextRequest) {
+// ── Crawler observation (visit-back handshake) ───────────────────────────────
+// Record identifiable crawlers that visit us, with their UA + self-declared URL,
+// so the visit-back worker (lib/bots/handshake) can leave metatake.net in their
+// logs. Fire-and-forget via event.waitUntil so it never delays a response.
+// Isolate-scoped dedup: a given UA is beaconed at most once / 10 min per isolate.
+const OBSERVE_TTL = 10 * 60 * 1000;
+const seenUA = new Map<string, number>();
+function observeCrawler(event: NextFetchEvent, request: NextRequest, ua: string) {
+  const now = Date.now();
+  const last = seenUA.get(ua);
+  if (last && now - last < OBSERVE_TTL) return;
+  seenUA.set(ua, now);
+  if (seenUA.size > 2000) {
+    for (const [k, t] of seenUA) if (now - t > OBSERVE_TTL) seenUA.delete(k);
+  }
+  const ip =
+    request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip") ?? "";
+  event.waitUntil(
+    fetch(`${request.nextUrl.origin}/api/bots/observe`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-mt-observe": "1" },
+      body: JSON.stringify({ ua, ip, path: request.nextUrl.pathname }),
+      signal: AbortSignal.timeout(2500),
+    }).catch(() => {})
+  );
+}
+
+export async function middleware(request: NextRequest, event: NextFetchEvent) {
   const { pathname } = request.nextUrl;
 
   // The blocklist endpoint must stay reachable from within middleware (else the
@@ -64,6 +92,9 @@ export async function middleware(request: NextRequest) {
         return forbidden();
       }
     }
+    // After the block decision (so we never record a request we 403'd): note
+    // identifiable crawlers for the visit-back handshake.
+    if (ua && isObservableCrawler(ua)) observeCrawler(event, request, ua);
   }
 
   // The home page ("/") is fully public and client-driven — it has no
