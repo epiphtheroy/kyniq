@@ -154,7 +154,8 @@ export default function TheoryExplorer({
 
         .thx-searchwrap{position:relative;max-width:600px;margin:0 auto 16px;display:flex;align-items:center}
         .thx-mag{position:absolute;left:18px;color:var(--muted);pointer-events:none}
-        .thx-input{width:100%;font-family:var(--font-ui);font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid var(--hairline-2,#ccc);border-radius:999px;padding:13px 44px 13px 46px;box-shadow:0 4px 22px -10px rgba(0,0,0,.22)}
+        .thx-input{width:100%;font-family:var(--font-ui);font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid var(--hairline-2,#ccc);border-radius:999px;padding:13px 44px 13px 46px;box-shadow:0 4px 22px -10px rgba(0,0,0,.22);appearance:none;-webkit-appearance:none}
+        .thx-input::-webkit-search-cancel-button,.thx-input::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
         .thx-input:focus{outline:none;border-color:var(--accent,#e3120b);box-shadow:0 6px 28px -8px rgba(227,18,11,.28)}
         .thx-clear{position:absolute;right:14px;width:24px;height:24px;border-radius:50%;border:0;background:var(--surface-2,#eee);color:var(--muted);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center}
         .thx-clear:hover{background:var(--accent);color:#fff}
