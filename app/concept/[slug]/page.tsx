@@ -651,6 +651,60 @@ export default async function ConceptPage({ params }: Props) {
   const figTopC = [...figCountC.entries()].map(([label, v]) => ({ label, ...v }))
     .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)).slice(0, 24);
 
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 + §5.6) — sm (primary) branch.
+  // GAP: a thin concept (0 readings + 0 desks) emits only the definition, never a
+  // fabricated film list. Variants: "idea" ×2, "concept" ×1, "term" ×1 (each ≤2).
+  const smThin = readings.length === 0 && desks.length === 0;
+  const smQA: QuickAnswerItem[] = [];
+  if (intro) smQA.push({ q: `What is ${capName}?`, a: introDescription(intro) });
+  if (!smThin) {
+    if (filmArr.length > 0) {
+      const show = topFilmsC.slice(0, 3);
+      const more = filmArr.length - show.length;
+      smQA.push({
+        q: `Which films explore ${name}?`,
+        a: (
+          <>
+            Films that put the idea to work include{" "}
+            {show.map((f, i) => (
+              <span key={f.slug}>
+                {i > 0 ? (i === show.length - 1 ? " and " : ", ") : ""}
+                <Link href={`/film/${f.slug}`}>{f.title}</Link>{f.year ? ` (${f.year})` : ""}
+              </span>
+            ))}
+            {more > 0 ? `, and ${more} more` : ""} — {filmArr.length} film{filmArr.length === 1 ? "" : "s"} in all.
+          </>
+        ),
+      });
+    }
+    if (thTop.length > 0) {
+      smQA.push({
+        q: `Who developed the idea of ${name}?`,
+        a: (
+          <>
+            The concept is read most often after{" "}
+            {thTop.map(([nm, e], i) => (
+              <span key={nm}>
+                {i > 0 ? (i === thTop.length - 1 ? " and " : ", ") : ""}
+                {e.slug ? <Link href={`/theorist/${e.slug}`}>{nm}</Link> : nm}
+              </span>
+            ))}.
+          </>
+        ),
+      });
+    }
+    if (fwTopC[0]) {
+      smQA.push({
+        q: `Which lens uses ${name} most?`,
+        a: (
+          <>
+            The <b>{fwTopC[0][0]}</b> framework deploys this term most — {fwTopC[0][1]} of {readings.length} reading{readings.length === 1 ? "" : "s"}.
+          </>
+        ),
+      });
+    }
+  }
+
   const smJsonld = [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Concepts", item: "https://metatake.net/concept" },
@@ -726,6 +780,8 @@ export default async function ConceptPage({ params }: Props) {
             — {intro}
           </p>
         ) : null}
+
+        <QuickAnswers items={smQA.slice(0, 5)} />
 
         {/* ── The concept, spelled out — deterministic sentences ── */}
         <section style={{ margin: "22px 0 0" }} id="spelled-out">
