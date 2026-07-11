@@ -30,7 +30,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
     { id: "watch", label: "Watch", href: "/watch", items: [
       { t: "The watch library", h: "/tv/lists" },
-      { t: "METATAKE TV", h: "/tv" },
+      { t: "METATAKE TV", h: "/watch" },
       { t: "Films", h: "/film", c: c.films },
       { t: "Directors", h: "/director", c: c.directors },
       { t: "Latest", h: "/latest" },
@@ -44,7 +44,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Connections", h: "/map" },
       { t: "Where to watch", h: "/where-to-watch" },
       { t: "Credits", h: "/credits" },
-      { t: "METATAKE TV", h: "/tv" },
+      { t: "METATAKE TV", h: "/watch" },
     ] },
     { id: "read", label: "Read", items: [
       { t: "Now Playing", h: "/now" },
