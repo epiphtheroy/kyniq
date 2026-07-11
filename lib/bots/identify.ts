@@ -19,7 +19,10 @@ export type CrawlerId = {
   declaredHost: string | null;
 };
 
-const URL_RE = /\+\s*(https?:\/\/[^\s;)"'<>]+)/i;
+// Preferred: the robots.org "+URL" self-reference convention (Googlebot, GPTBot…).
+const URL_PLUS_RE = /\+\s*(https?:\/\/[^\s;)"'<>]+)/i;
+// Fallback: a bare URL in the UA (e.g. CCBot/2.0 (https://commoncrawl.org/faq/)).
+const URL_BARE_RE = /(https?:\/\/[^\s;)"'<>]+)/i;
 const NAME_RE = /([\w.-]*(?:bot|crawler|spider|slurp|scraper|crawl))\/?[\d.]*/i;
 
 function normHost(u: string): string | null {
@@ -31,7 +34,7 @@ function normHost(u: string): string | null {
 }
 
 export function parseCrawler(ua: string): CrawlerId {
-  const urlMatch = ua.match(URL_RE);
+  const urlMatch = ua.match(URL_PLUS_RE) ?? ua.match(URL_BARE_RE);
   let declaredUrl = urlMatch ? urlMatch[1].replace(/[.,;]+$/, "") : null;
   let declaredHost = declaredUrl ? normHost(declaredUrl) : null;
 
