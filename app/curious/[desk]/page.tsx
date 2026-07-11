@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import EntityTVHero from "@/components/EntityTVHero";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -92,6 +93,7 @@ export default async function CuriousDeskIndex({ params }: Props) {
 
   return (
     <div className="cur-wrap">
+      <EntityTVHero reelSlugs={[...new Set(rows.map((e) => e.film.slug))]} label={desk.label} backdrop={null} />
       <header className="cur-head">
         <h1>{desk.label}<span className="q">.</span></h1>
         <p className="dek">
