@@ -21,6 +21,20 @@ const VideoDockContext = createContext<DockCtx | null>(null);
 /** Player controls call this to render a Fullscreen button wired to the dock. */
 export function useVideoDock() { return useContext(VideoDockContext); }
 
+/** Drop-in fullscreen toggle for players that are inline JSX (not their own
+ *  component), e.g. the trailer reel. Renders nothing outside a VideoMiniDock. */
+export function DockFullscreenButton({ className = "" }: { className?: string }) {
+  const dock = useVideoDock();
+  if (!dock) return null;
+  return (
+    <button type="button" className={className} onClick={dock.toggleFullscreen}
+      aria-label={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"}
+      title={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"}>
+      {dock.isFullscreen ? "⤢" : "⛶"}
+    </button>
+  );
+}
+
 function fsElement(): Element | null {
   const d = document as Document & { webkitFullscreenElement?: Element };
   return document.fullscreenElement ?? d.webkitFullscreenElement ?? null;

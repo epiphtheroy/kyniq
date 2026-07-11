@@ -4213,7 +4213,21 @@ a.tvpg-brand:hover{opacity:.85}
 .vdock-ui .vdock-x{cursor:pointer}
 .vdock-ui .vdock-x:hover{background:rgba(200,16,46,.85)}
 .vdock-ui .vdock-drag{cursor:grab;color:#d9d1c2;user-select:none;touch-action:none}
+.vdock-ui .vdock-fs{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.7);color:#fff;font-size:14px;line-height:1;padding:0;cursor:pointer}
+.vdock-ui .vdock-fs:hover{background:rgba(15,110,86,.9)}
 @media(max-width:760px){ .vdock--on{right:10px;bottom:10px} }
+/* Fullscreen: the docked/hero video fills the screen — un-scale, drop the mini
+   chrome, and stretch the player + its iframe to the viewport. */
+.vdock:fullscreen,.vdock:-webkit-full-screen{position:fixed;inset:0;width:100vw!important;height:100vh!important;transform:none!important;border-radius:0;right:auto;bottom:auto;background:#000;overflow:hidden}
+.vdock:fullscreen .tv-embed,.vdock:fullscreen .df-tvhero,.vdock:fullscreen .ehero,.vdock:-webkit-full-screen .tv-embed,.vdock:-webkit-full-screen .df-tvhero,.vdock:-webkit-full-screen .ehero{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;max-width:none!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
+.vdock:fullscreen .svc-media,.vdock:fullscreen .ivd-yt,.vdock:-webkit-full-screen .svc-media,.vdock:-webkit-full-screen .ivd-yt{width:100%!important;height:100%!important}
+.vdock:fullscreen .vdock-ui,.vdock:-webkit-full-screen .vdock-ui{display:none!important}
+.vdock-fsx{position:absolute;top:14px;right:16px;z-index:60;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.62);color:#fff;font-family:var(--font-ui);font-size:12px;font-weight:700;border-radius:999px;padding:7px 14px;cursor:pointer}
+.vdock-fsx:hover{background:rgba(200,16,46,.85)}
+/* reel fullscreen button — sits left of the mute pill */
+.ehero-fs{position:absolute;bottom:12px;right:58px;z-index:6;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:14px;line-height:1;border-radius:999px;padding:6px 11px;cursor:pointer}
+.ehero-fs:hover{background:rgba(15,110,86,.9)}
+.ehero--in .ehero-fs{bottom:8px;right:48px;font-size:12px;padding:5px 9px}
 /* under-title action row (YouTube's Save / playlist actions) */
 .tvw-actions{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:12px}
 .tvw-act{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-size:12.5px;font-weight:700;color:#EFEADD;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 15px;cursor:pointer;text-decoration:none}

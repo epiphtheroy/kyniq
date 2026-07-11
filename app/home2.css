@@ -298,10 +298,7 @@
 .mthome .hxc-go{font-family:var(--ui);font-size:13px;font-weight:600;color:#e7cf95;margin-top:4px}
 @media(max-width:820px){.mthome .hxtv-row{grid-template-columns:1fr}}
 
-/* ── The map of cinema: centered head + the lexicon floating INSIDE the map ── */
-.mthome .homemap-sec .shead.homemap-head{flex-direction:column;align-items:center;text-align:center;gap:8px;margin-bottom:6px}
-.mthome .homemap-sec .homemap-head .sub{max-width:60ch}
-.mthome .homemap-sec .homemap-head .seeall{margin-top:2px}
+/* ── The map of cinema (header left-aligned like every other section) ── */
 /* side-by-side desk (owner 2026-07-11: separate the map and the text again;
    tops and bottoms must LINE UP). The emap-head row (hint + open-link, which
    duplicates the section header's link) is hidden on home and margins zeroed,

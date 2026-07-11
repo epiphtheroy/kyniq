@@ -79,5 +79,10 @@ export async function GET(req: Request) {
 
   if (res.error) return NextResponse.json({ error: res.error.message, nodes: [], links: [] }, { status: 500 });
   const enriched = await enrich(db, (res.data as Graph) ?? { nodes: [], links: [] });
-  return NextResponse.json(enriched, { headers: { "cache-control": "no-store" } });
+  // Same payload for every visitor (per URL) — let the CDN carry it. Was
+  // "no-store", which made every home/map view pay the live 0.5–3s query
+  // (the "map is slow" report, 2026-07-11).
+  return NextResponse.json(enriched, {
+    headers: { "cache-control": "public, max-age=120, s-maxage=600, stale-while-revalidate=3600" },
+  });
 }

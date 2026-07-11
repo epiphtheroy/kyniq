@@ -1,6 +1,15 @@
 "use client";
 
-import FilmMap from "@/components/FilmMap";
+import dynamic from "next/dynamic";
+import LazyMount from "./LazyMount";
+
+// Chunk-split + lazy: FilmMap pulls MapLibre GL (a heavy script + tiles) —
+// it must never compete with the home's first paint. It downloads and mounts
+// only when the reader scrolls near ("atlas is slow" report, 2026-07-11).
+const FilmMap = dynamic(() => import("@/components/FilmMap"), {
+  ssr: false,
+  loading: () => <div className="emap-skel" style={{ height: 460 }}>Loading the Atlas…</div>,
+});
 
 /**
  * Home — the geographic Atlas. Every place our films are set in or filmed at,
@@ -19,7 +28,9 @@ export default function HomeAtlas() {
           <a className="seeall" href="/atlas">Open the full Atlas ›</a>
         </div>
         <div className="homeatlas">
-          <FilmMap endpoint="/api/geo" height={460} search />
+          <LazyMount height={460} label="Loading the Atlas…">
+            <FilmMap endpoint="/api/geo" height={460} search />
+          </LazyMount>
         </div>
       </div>
     </section>

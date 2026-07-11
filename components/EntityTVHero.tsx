@@ -12,7 +12,7 @@
 // a single youtube-nocookie iframe with a chained playlist (no YT API).
 import { useEffect, useRef, useState } from "react";
 import TVProgramPlayer, { type TVEntry } from "./TVProgramPlayer";
-import VideoMiniDock from "./VideoMiniDock";
+import VideoMiniDock, { DockFullscreenButton } from "./VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -96,6 +96,7 @@ export default function EntityTVHero({ program, playlist, reelSlugs, label, list
           onClick={() => { iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ event: "command", func: muted ? "unMute" : "mute", args: [] }), "*"); setMuted((m) => !m); }}>
           {muted ? "🔇" : "🔊"}
         </button>
+        <DockFullscreenButton className="ehero-fs" />
       </section>,
     );
   }

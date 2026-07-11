@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import MetatakeTV from "@/components/MetatakeTV";
+import dynamic from "next/dynamic";
+
+// Chunk-split: the TV player's JS (YouTube iframe logic, channel patterns)
+// downloads only when the section actually mounts on scroll — it must not
+// sit in the home's initial bundle.
+const MetatakeTV = dynamic(() => import("@/components/MetatakeTV"), {
+  ssr: false,
+  loading: () => <div className="hxtv-ph" aria-hidden="true" />,
+});
 
 /**
  * Lower-page two-column row: Metatake TV (the screen-essay channel) on one side,
