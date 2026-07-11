@@ -1,6 +1,6 @@
 "use client";
 
-import type { HomeV2 as HomeV2Data, Exhibits } from "@/lib/home2";
+import type { HomeV2 as HomeV2Data, Exhibits, ReadingCard } from "@/lib/home2";
 
 import type { ScreenerTop } from "@/app/page";
 import Nav from "./Nav";
@@ -10,7 +10,7 @@ import MyFilmsRibbon from "./MyFilmsRibbon";
 import Picked from "./Picked";
 import Top10 from "./EssentialTen";
 import Newly from "./Newly";
-import TropeList from "./TropeList";
+import ReadingsDesk from "./ReadingsDesk";
 import ConceptTiles from "./ConceptsRail";
 import LensRail from "./LensRail";
 import Directors from "./DirectorsBlock";
@@ -32,7 +32,7 @@ import SiteFooter from "./SiteFooter";
  * 16 sections in mockup order with the paper / dark / paper-2 band rhythm.
  * Everything renders inside a single .mthome scope so app/home2.css applies.
  */
-export default function HomeV2({ data, screenerTop = [], exhibits = null }: { data: HomeV2Data; screenerTop?: ScreenerTop[]; exhibits?: Exhibits }) {
+export default function HomeV2({ data, screenerTop = [], exhibits = null, readings = null }: { data: HomeV2Data; screenerTop?: ScreenerTop[]; exhibits?: Exhibits; readings?: ReadingCard[] | null }) {
   return (
     <div className="mthome">
       {/* 1 — Nav (dark, sticky) */}
@@ -53,8 +53,8 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null }: { da
       <Top10 data={data} />
       {/* 5 — Newly mapped (dark) */}
       <Newly data={data} />
-      {/* 6 — The widest readings (paper-2) */}
-      <TropeList data={data} />
+      {/* 6 — From the readings desk (paper-2): news-box of strong readings */}
+      <ReadingsDesk items={readings} />
       {/* 7 — Popular concepts (paper) */}
       <ConceptTiles data={data} />
       {/* 8 — Explore by lens (dark) */}
