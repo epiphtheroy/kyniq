@@ -163,8 +163,6 @@ export default async function DirectorLifePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* ── Dark hero: the life, counted ── */}
-      <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director} listHref={`/tv/list/director-${slug}`} backdrop={null} />
-
       <div className="cur rd-hero">
         <div className="rd-hero__in">
           <div className="rd-hero__txt">
@@ -186,6 +184,7 @@ export default async function DirectorLifePage({ params }: Props) {
             <div className="rd-hero__media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="rd-hero__bd" src={`${IMG}/w780${heroFilm.backdrop_path}`} alt="" width={780} height={439} />
+              <EntityTVHero inline playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director} listHref={`/tv/list/director-${slug}`} backdrop={null} />
               <div className="rd-hero__cap">From {heroFilm.title}{heroFilm.year ? ` (${heroFilm.year})` : ""} · via TMDB</div>
             </div>
           ) : null}

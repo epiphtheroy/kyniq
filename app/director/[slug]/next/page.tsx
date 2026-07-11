@@ -210,8 +210,6 @@ export default async function DirectorNextPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
 
-      <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={name} listHref={`/tv/list/director-${slug}`} backdrop={null} />
-
       {/* HERO — dark, per the promoted-article grammar */}
       <div className="cur rd-hero">
         <div className="rd-hero__in">
@@ -239,6 +237,7 @@ export default async function DirectorNextPage({ params }: Props) {
             <div className="rd-hero__media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="rd-hero__bd" src={`${IMG}/w780${heroFilm.backdrop_path}`} alt="" width={780} height={439} />
+              <EntityTVHero inline playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={name} listHref={`/tv/list/director-${slug}`} backdrop={null} />
               <div className="rd-hero__cap">From {heroFilm.title} · via TMDB</div>
             </div>
           ) : null}

@@ -219,8 +219,6 @@ export default async function DirectorStartPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
 
       {/* ── Dark hero: the route, counted ── */}
-      <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director} listHref={`/tv/list/director-${slug}`} backdrop={null} />
-
       <div className="cur rd-hero">
         <div className="rd-hero__in">
           <div className="rd-hero__txt">
@@ -246,6 +244,7 @@ export default async function DirectorStartPage({ params }: Props) {
             <div className="rd-hero__media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="rd-hero__bd" src={`${IMG}/w780${heroBd}`} alt="" width={780} height={439} />
+              <EntityTVHero inline playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director} listHref={`/tv/list/director-${slug}`} backdrop={null} />
               <div className="rd-hero__cap">From {bdFilm!.title} · via TMDB</div>
             </div>
           ) : null}
