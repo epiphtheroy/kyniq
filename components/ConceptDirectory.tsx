@@ -12,6 +12,8 @@ import Link from "next/link";
 export type DirRow = { slug: string; name: string; films: number; theorist?: string | null };
 
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+const firstLetter = (s: string) => (sortKeyLetter(s) || "·");
+function sortKeyLetter(s: string) { const c = s.replace(/^the\s+/i, "").trim().charAt(0); return /[a-z0-9]/i.test(c) ? c.toUpperCase() : ""; }
 const sortKey = (s: string) => s.replace(/^the\s+/i, "").trim();
 const letterOf = (s: string) => {
   const c = sortKey(s).charAt(0).toUpperCase();
@@ -24,7 +26,7 @@ const btn: React.CSSProperties = {
 };
 const btnOn: React.CSSProperties = { ...btn, background: "rgba(0,0,0,.08)" };
 
-export default function ConceptDirectory({ rows }: { rows: DirRow[] }) {
+export default function ConceptDirectory({ rows, portraits }: { rows: DirRow[]; portraits?: Record<string, string> }) {
   const [q, setQ] = useState("");
   const [letter, setLetter] = useState<string | null>(null);
   const [mode, setMode] = useState<"films" | "az" | "theorist">("films");
@@ -71,20 +73,36 @@ export default function ConceptDirectory({ rows }: { rows: DirRow[] }) {
         {filtered.length.toLocaleString()} concept{filtered.length !== 1 ? "s" : ""}
         {mode === "theorist" ? " with a named theorist" : ""} · film counts shown at right
       </p>
-      <div className="th-grid" style={{ marginTop: 10 }}>
-        {filtered.map((r) => (
-          <Link className="th-row" href={`/concept/${r.slug}`} key={r.slug}>
-            <span className="th-name">
-              {mode === "theorist" ? (
-                <>{r.theorist} — {cap(r.name)}</>
-              ) : (
-                <>{cap(r.name)}{r.theorist ? <span className="th-by"> — {r.theorist}</span> : null}</>
-              )}
-            </span>
-            {r.films > 0 ? <span className="th-n">{r.films}</span> : null}
-          </Link>
-        ))}
+      <div className="th-grid cd-grid" style={{ marginTop: 10 }}>
+        {filtered.map((r) => {
+          const img = r.theorist ? portraits?.[r.theorist] : undefined;
+          return (
+            <Link className="th-row cd-row" href={`/concept/${r.slug}`} key={r.slug}>
+              <span className="cd-thumb" aria-hidden="true">
+                {img ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={img} alt="" loading="lazy" />
+                ) : <span className="cd-mono">{firstLetter(r.name)}</span>}
+              </span>
+              <span className="th-name">
+                {mode === "theorist" ? (
+                  <>{r.theorist} — {cap(r.name)}</>
+                ) : (
+                  <>{cap(r.name)}{r.theorist ? <span className="th-by"> — {r.theorist}</span> : null}</>
+                )}
+              </span>
+              {r.films > 0 ? <span className="th-n">{r.films}</span> : null}
+            </Link>
+          );
+        })}
       </div>
+      <style>{`
+        .cd-row{align-items:center}
+        .cd-thumb{flex:0 0 auto;width:30px;height:30px;border-radius:6px;overflow:hidden;background:var(--surface-2,#eee);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center}
+        .cd-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+        .cd-mono{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--muted)}
+        .cd-row .th-name{align-self:center}
+      `}</style>
     </div>
   );
 }
