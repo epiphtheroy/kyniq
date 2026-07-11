@@ -23,7 +23,6 @@ import TodayExhibits from "./TodayExhibits";
 import HomeTVCredits from "./HomeTVCredits";
 import HomeMap from "./HomeMap";
 import HomeAtlas from "./HomeAtlas";
-import BigSearch from "./BigSearch";
 import SixWays from "./SixWays";
 import SiteFooter from "./SiteFooter";
 
@@ -75,8 +74,7 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null, readin
       <BlogGraph />
       {/* 13b — Metatake TV (screen-essay channel) + the credits web (dark) */}
       <HomeTVCredits />
-      {/* 14 — Search the map (paper-2), back at its original lower position */}
-      <BigSearch data={data} />
+      {/* (BigSearch band removed from home per owner 2026-07-11 — search lives in the nav / ⌘K / /search) */}
       {/* 15 — Six ways in (paper) */}
       <SixWays data={data} />
       {/* 16 — Footer (dark) */}
