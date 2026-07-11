@@ -1555,32 +1555,45 @@ export default async function FilmPage({ params }: Props) {
               Films that stage one of <b>{film.title}</b>&apos;s own tropes but read it against the grain.
               Kinship maps can find lookalikes; only a reading-level graph can find arguments.
             </p>
-            <div className="df-conn">
-              {counterpoints.map((c) => (
-                <div key={`${c.film.slug}-${c.trope.slug}`} className="df-crow">
-                  <Link className="df-ti" href={`/film/${c.film.slug}`}>{c.film.title}</Link>{" "}
-                  <span className="df-cyr">({c.film.year ?? "?"}{c.film.director ? `, ${c.film.director}` : ""})</span>{" "}
-                  <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(230,126,34,.12)", color: "#9a4d0c", whiteSpace: "nowrap" }}>
-                    readings diverge {Math.round((1 - c.sim) * 100)}%
-                  </span>
-                  <p className="wn-why">
-                    Both stage <Link href={`/trope/${c.trope.slug}`}>{c.trope.title}</Link>
-                    {c.here?.take && c.there?.take ? (
-                      <>
-                        {" "}— here it becomes{" "}
-                        {c.here.figure
-                          ? <Link href={`/film/${film.slug}/figure/${c.here.figure}`}>&ldquo;{c.here.take}&rdquo;</Link>
-                          : <>&ldquo;{c.here.take}&rdquo;</>}
-                        , there{" "}
-                        {c.there.figure
-                          ? <Link href={`/film/${c.film.slug}/figure/${c.there.figure}`}>&ldquo;{c.there.take}&rdquo;</Link>
-                          : <>&ldquo;{c.there.take}&rdquo;</>}
-                        .
-                      </>
-                    ) : "."}
-                  </p>
-                </div>
-              ))}
+            <div className="df-cpgrid">
+              {counterpoints.map((c) => {
+                const otherPoster = cpPosters[c.film.slug] ?? null;
+                return (
+                  <div key={`${c.film.slug}-${c.trope.slug}`} className="df-cpcard">
+                    {/* the two films, juxtaposed */}
+                    <div className="df-cpvs" aria-hidden="true">
+                      <span className="df-cpposter" style={film.poster_path ? { backgroundImage: `url(${IMG}/w185${film.poster_path})` } : undefined} title={film.title} />
+                      <i className="df-cpx">vs</i>
+                      <Link className="df-cpposter" href={`/film/${c.film.slug}`}
+                        style={otherPoster ? { backgroundImage: `url(${IMG}/w185${otherPoster})` } : undefined} title={c.film.title} />
+                    </div>
+                    <div className="df-cpbody">
+                      <p className="df-cpkick">
+                        <Link href={`/trope/${c.trope.slug}`}>{c.trope.title}</Link>
+                        <span className="df-cpdiv">readings diverge {Math.round((1 - c.sim) * 100)}%</span>
+                      </p>
+                      <p className="df-cpline">
+                        <b>{film.title}</b>
+                        <span className="df-cpmeta"> ({film.year ?? "?"})</span> —{" "}
+                        {c.here?.take
+                          ? (c.here.figure
+                              ? <Link href={`/film/${film.slug}/figure/${c.here.figure}`}>&ldquo;{c.here.take}&rdquo;</Link>
+                              : <>&ldquo;{c.here.take}&rdquo;</>)
+                          : <>stages it straight</>}
+                      </p>
+                      <p className="df-cpline">
+                        <b><Link href={`/film/${c.film.slug}`}>{c.film.title}</Link></b>
+                        <span className="df-cpmeta"> ({c.film.year ?? "?"}{c.film.director ? `, ${c.film.director}` : ""})</span> —{" "}
+                        {c.there?.take
+                          ? (c.there.figure
+                              ? <Link href={`/film/${c.film.slug}/figure/${c.there.figure}`}>&ldquo;{c.there.take}&rdquo;</Link>
+                              : <>&ldquo;{c.there.take}&rdquo;</>)
+                          : <>reads it against the grain</>}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <p style={{ fontSize: 11.5, opacity: .6, margin: "12px 0 0" }}>
               <b>readings diverge N%</b> = distance between the two films&apos; reading vectors on the shared trope
