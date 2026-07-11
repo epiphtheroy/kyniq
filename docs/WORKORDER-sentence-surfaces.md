@@ -28,6 +28,13 @@
 2. **코너명 = "Embedding Fantasia"** (원우 제안 "embedding fantasy"의 환상곡 번역 채택). 브랜드 계약: **앰버 키커 "EMBEDDING FANTASIA · a data fantasia by Wonwoo Yoon"(설계자 명기) + 디스클레이머 dek("Not AI-written. …SQL from the embedding space… independent of the filmmakers' intent…") + 푸터 반복.** h2 = "{Title} — Embedding Fantasia"; 탭 라벨도 동일. 레일(SentenceLexicon) 키커·푸터도 리브랜드. ⚠️ 디스클레이머는 계약의 일부 — 제거 금지.
 3. **주제 네비게이션** — `film_sentences_for`에 `p_per_pattern` 추가(**0066**, ⚠️구 3-인자 시그니처 DROP — 오버로드 함정), film 페이지는 48행/패턴당 6을 로드(캐시키 v2). `FilmSentences`가 클라이언트 컴포넌트로 전환(단 Next.js SSR로 전 행이 HTML에 남음 = SEO 링크 메시 유지; hidden 토글만 클라이언트). **주제 7종 명명**: Kinships(A/H/B) · Readings(C) · Twin Lenses(G/I) · Tropes & Frames(L/M) · The Record(D/E) · Filmography(F) · Locations(J). "All"=주제당 2개 큐레이션 믹스; 필 클릭=해당 주제 전체.
 
+## Phase 1.7 — 미들웨어 504 수리 + Embedding Fantasia 엔티티 페이지 확장 (SHIPPED 2026-07-11)
+**A. 사이트 전역 산발 504 수리 (원우 제보: /director/ridley-scott 호출 불가).** 근본 원인은 감독 페이지가 아니라 **Bot Sentinel middleware**: `blockedPrefix()`의 내부 `fetch(/api/bots/blocklist)`에 타임아웃이 없어 행업 시 미들웨어가 25s에서 Vercel에 강제 종료 → 아무 라우트나 504 GATEWAY_TIMEOUT (런타임 에러 클러스터 "/middleware did not return within 25s" ×5). **수리: `AbortSignal.timeout(1500)`** → catch가 기존 리스트로 fail-open(설계 의도 보존). middleware.ts는 루트 파일 = 수동 커밋. 진단 요령: Vercel MCP `get_runtime_errors`가 라우트별 클러스터를 바로 보여줌; 브라우저 탭 타이틀 "504: GATEWAY_TIMEOUT"이 단서였음.
+**B. EntityFantasia — 탭 있는 엔티티 페이지 확장.** 공용 `components/EntityFantasia.tsx`(FilmSentences의 자매, 행마다 **앵커 영화 칩** 추가·selfHref 자기참조 칩 제외) + `components/EntityFantasiaServer.tsx`(비동기 서버 래퍼, **fail-soft: RPC 오류 시 null — 페이지 500 방지**, unstable_cache는 여전히 에러 미캐시) + `lib/fantasia.ts` 로더. dfk-* CSS는 read.css(film 전용)→**globals.css로 이관**(.mt 스코프 제거 — 크로스 페이지 필수).
+- **마운트**: director(`dr-fantasia` 섹션+탭, badge=행수) · theorist(`theorist-fantasia`) · trope(`tp-fantasia`) — 각 페이지의 connection map 직후, 페이지별 섹션 클래스(dr-sec/cmap-sec/tp-sec).
+- **take 페이지 제외(데이터 사실)**: 문장 보유 take 21,332개 전원 `meta_take_id=NULL`(신모델 이론가 take는 리딩 클러스터에 미소속) → /take 페이지는 현 데이터로 판타지아 행이 0. RPC 'take' 분기는 미래 대비로 수리해둠(0067: 멤버 take UNION 경로+take_id 부분 인덱스), 마운트만 제거.
+- 검증(라이브): director 5회 출현+탭 · theorist 3 · trope 3 · 미들웨어 수리 후 fresh 3연속 200(1.7s/0.24s/0.09s).
+
 ---
 
 **Original spec (written 2026-07-11, for a fresh agent):**

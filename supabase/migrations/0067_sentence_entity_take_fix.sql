@@ -1,0 +1,26 @@
+-- 0067: sentences_for_entity 'take' branch matches a reading's member takes
+-- (takes.meta_take_id → film_sentences.take_id) UNION the node-containment path,
+-- + partial index on take_id. (Applied to prod 2026-07-11 via MCP
+-- "sentence_entity_take_fix".)
+--
+-- ⚠️ FINDING (2026-07-11): all 21,332 sentence-bearing takes currently have
+-- meta_take_id = NULL (the new-model theorist takes are not clustered into
+-- meta_takes), so /take/[slug] pages have NO fantasia rows today — the take-page
+-- mount was removed; this branch is future-proofing for when clustering lands.
+-- Full function body: see 0064_sentence_entity_lookup.sql with the take branch
+-- replaced by:
+--
+--   elsif p_type = 'take' then
+--     v_ids := (select array_agg(id) from (
+--       select id from (
+--         select fs.id, fs.salience from film_sentences fs
+--         where fs.take_id in (
+--           select t.id from takes t
+--           where t.meta_take_id = (select mt.id from meta_takes mt where mt.slug = p_key limit 1))
+--         union
+--         select fs.id, fs.salience from film_sentences fs
+--         where fs.meta_take_ids @> (select array[mt.id] from meta_takes mt where mt.slug = p_key limit 1)
+--       ) u order by salience desc, id limit 400) q);
+--
+create index if not exists film_sentences_take_idx
+  on public.film_sentences (take_id) where take_id is not null;
