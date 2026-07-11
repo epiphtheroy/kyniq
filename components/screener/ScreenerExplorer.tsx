@@ -110,6 +110,7 @@ export default function ScreenerExplorer({
   const [pinMeta, setPinMeta] = useState<Record<string, { title: string; poster: string | null }>>({});
   const [activePin, setActivePin] = useState<string | null>(null);
   const [compare, setCompare] = useState(false);
+  const [openRow, setOpenRow] = useState<string | null>(null); // slug whose inline curtain is expanded
   const hydrated = useRef(false);
 
   useEffect(() => {
@@ -411,12 +412,14 @@ export default function ScreenerExplorer({
       ) : null}
 
       {/* TakeScore distribution brush */}
-      <div className="scr-brushwrap">
+      <div className={`scr-brushwrap${ts ? " sel" : ""}`}>
         <div className="scr-brush-head">
-          <span>TakeScore distribution</span>
-          {ts ? <button className="scr-brush-clear" onClick={() => setTs(null)}>{ts[0]}–{ts[1]} · clear</button> : <span className="scr-brush-hint">drag to filter by score</span>}
+          <span className="scr-brush-title">TakeScore distribution</span>
+          {ts
+            ? <button className="scr-brush-clear" onClick={() => setTs(null)}>Showing {ts[0]}–{ts[1]} · clear ✕</button>
+            : <span className="scr-brush-hint"><span aria-hidden>⇤</span> drag across the bars to filter by score <span aria-hidden>⇥</span></span>}
         </div>
-        <ScoreBrush buckets={hist} domain={[-20, 90]} step={5} value={ts} onChange={setTs} height={60} color={AX.v} label="TakeScore range" />
+        <ScoreBrush buckets={hist} domain={[-20, 90]} step={5} value={ts} onChange={setTs} height={64} color={AX.v} label="TakeScore range" hint={!ts} />
       </div>
 
       {/* results grid */}
