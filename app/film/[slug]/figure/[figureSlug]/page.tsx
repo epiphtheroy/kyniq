@@ -7,6 +7,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
 import EntityMap from "@/components/EntityMap";
+import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import EntityActions from "@/components/EntityActions";
 import ShareDock from "@/components/ShareDock";
 import SeqNav from "@/components/SeqNav";
@@ -445,6 +446,9 @@ export default async function FigurePage({ params }: Props) {
           <p className="cmap-intro">{figure.label} in {film.title} — its tropes, the ideas and theorists it draws, and the figures nearest it across films. Click a node to open it.</p>
           <EntityMap api={`/api/map?type=figure&key=${film.slug}&key2=${figureSlug}`} full={`/map?m=critical&t=figure&k=${film.slug}&k2=${figureSlug}`} />
         </section>
+
+        {/* EMBEDDING FANTASIA — sentences that read this figure */}
+        <EntityFantasiaServer type="figure" entityKey={film.slug} key2={figureSlug} title={figure.label as string} sectionId="fg-fantasia" sectionClass="fg-sec" selfHref={`/film/${film.slug}/figure/${figureSlug}`} tag={`film:${film.slug}`} />
 
         {/* CONNECTED FIGURES */}
         {connections.length > 0 && (

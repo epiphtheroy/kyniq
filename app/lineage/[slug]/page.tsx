@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import LineageActions from "@/components/LineageActions";
+import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
 import {
@@ -240,6 +241,9 @@ export default async function LineagePage({ params }: Props) {
           , resolved to TMDb identities
           {" · "}{visibleFilms.length} of {films.length} read closely on Metatake
         </p>
+
+        {/* EMBEDDING FANTASIA — honor sentences anchored on this list's films */}
+        <EntityFantasiaServer type="lineage" entityKey={slug} title={list.label} sectionId="lh-fantasia" sectionClass="df-sec" selfHref={`/lineage/${slug}`} tag={`lineage:${slug}`} />
         {trueSize && films.length < trueSize ? (
           <p className="lh-def" style={{ fontSize: 13.5, opacity: 0.65 }}>
             <b>{films.length} of {trueSize} films matched to a film page.</b>{" "}

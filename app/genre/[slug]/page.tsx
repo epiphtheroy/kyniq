@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import ListFilter from "@/components/ListFilter";
+import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import LensQuickBar from "@/components/LensQuickBar";
 
 export const revalidate = 600;
@@ -85,6 +86,9 @@ export default async function GenrePage({ params }: Props) {
             <li key={f.slug} data-lens-film={f.slug} data-filter-item data-filter-text={`${f.title} ${f.year ?? ""}`.toLowerCase()}><Link href={`/film/${f.slug}`}>{f.title}</Link> <span className="meta">({f.year ?? "?"})</span></li>
           ))}
         </ul>
+
+        {/* EMBEDDING FANTASIA — sentences anchored on this genre's films */}
+        <EntityFantasiaServer type="genre" entityKey={slug} title={unslug(slug)} sectionId="genre-fantasia" sectionClass="mvh-sec" selfHref={`/genre/${slug}`} />
 
         {/* Layer 2 — the hidden catalog as members of this genre. Server-rendered
             plain <a> list; these films' own pages stay out of the index. */}
