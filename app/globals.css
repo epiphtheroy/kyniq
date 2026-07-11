@@ -5242,6 +5242,11 @@ span.srp-thumb { display: flex; align-items: center; justify-content: center;
 .srp-exq a.srp-ask:hover { background: var(--accent); border-color: var(--accent); }
 .srp-top { margin: 18px 0 0; font-family: var(--font-ui); font-size: 12px; }
 .srp-top a { color: var(--mt-link); text-decoration: none; }
+
+/* Embed mode — set by IndexExplorer on its spotlight iframe's <html> (same
+   origin): strip the site nav so the real page shows as a clean preview. */
+html[data-embed] .mthome { display: none !important; }
+html[data-embed] body { padding-top: 0 !important; }
 .srp-top a:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---- home hero live search (BigSearch, .mthome scope) ----
