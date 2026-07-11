@@ -2,7 +2,6 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import SiteNav from "@/components/home2/SiteNav";
 import ScreenerExplorer, { type ScrRow, type DimHist } from "@/components/screener/ScreenerExplorer";
 import { filmUrl } from "@/lib/urls";
@@ -37,7 +36,18 @@ const cachedDimHist = unstable_cache(
   { revalidate: 86400 },
 );
 
-export default async function TakeScorePage() {
+type SP = Record<string, string | string[] | undefined>;
+const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
+
+export default async function TakeScorePage({ searchParams }: { searchParams: Promise<SP> }) {
+  const sp = await searchParams;
+  // Seed the client instrument from the URL on the server, so the hero + first
+  // grid page are in the SSR HTML (no useSearchParams → no Suspense fallback).
+  const initialParams = {
+    sort: one(sp.sort) || "u", lam: one(sp.lam), since: one(sp.since), to: one(sp.to),
+    country: one(sp.country), q: one(sp.q), ts: one(sp.ts), dims: one(sp.dims),
+    mv: one(sp.mv), hide: one(sp.hide), pin: one(sp.pin),
+  };
   const [{ data: page }, { data: cc }, dimHist] = await Promise.all([
     db().rpc("cinecodex_ranked", { p_sort: "u", p_lambda: 1.0, p_limit: 500, p_offset: 0 }),
     db().rpc("cinecodex_countries"),
@@ -78,12 +88,11 @@ export default async function TakeScorePage() {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Suspense fallback={<div className="scr-boot" />}>
-        <ScreenerExplorer
-          initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries}
-          dimHist={dimHist} heroBackdrop={heroBackdrop} heroFilm={heroFilm}
-        />
-      </Suspense>
+      <ScreenerExplorer
+        initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries}
+        dimHist={dimHist} heroBackdrop={heroBackdrop} heroFilm={heroFilm} initialParams={initialParams}
+      />
+
 
       <div className="mt-wrap lh">
         {/* The 13 dimension landing pages — each answers one search-shaped

@@ -10,7 +10,7 @@
  * Spec: HANDOFF-테이크스코어-스크리너.md. Personalization is client-only.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { useLens } from "@/components/LensProvider";
@@ -70,29 +70,34 @@ function dimsToStr(d: Record<string, [number, number]>): string {
   return Object.entries(d).map(([k, [a, b]]) => `${k}:${a}-${b}`).join(",");
 }
 
+export type InitialParams = {
+  sort: string; lam: string; since: string; to: string; country: string;
+  q: string; ts: string; dims: string; mv: string; hide: string; pin: string;
+};
+
 export default function ScreenerExplorer({
-  initialRows, initialTotal, countries, dimHist, heroBackdrop, heroFilm,
+  initialRows, initialTotal, countries, dimHist, heroBackdrop, heroFilm, initialParams,
 }: {
   initialRows: ScrRow[]; initialTotal: number; countries: Country[];
-  dimHist: DimHist; heroBackdrop: string | null; heroFilm: string | null;
+  dimHist: DimHist; heroBackdrop: string | null; heroFilm: string | null; initialParams: InitialParams;
 }) {
   const router = useRouter();
-  const params = useSearchParams();
   const lens = useLens();
   const uf = useUserFilms();
 
-  // ---- state seeded from the URL ----
-  const [sort, setSort] = useState(params.get("sort") || "u");
-  const [lam, setLam] = useState(parseFloat(params.get("lam") || "1") || 1);
-  const [since, setSince] = useState(params.get("since") || "");
-  const [to, setTo] = useState(params.get("to") || "");
-  const [country, setCountry] = useState(params.get("country") || "");     // made-in
-  const [q, setQ] = useState(params.get("q") || "");
-  const [ts, setTs] = useState<[number, number] | null>(parseRange(params.get("ts")));
-  const [dims, setDims] = useState<Record<string, [number, number]>>(parseDims(params.get("dims")));
-  const [maxVotes, setMaxVotes] = useState(params.get("mv") || "");
-  const [hideSeen, setHideSeen] = useState(params.get("hide") === "seen");
-  const [showDims, setShowDims] = useState(Object.keys(parseDims(params.get("dims"))).length > 0);
+  // ---- state seeded from the URL (read on the SERVER → passed as props, so the
+  //      hero + first grid page are in the SSR HTML; no useSearchParams) ----
+  const [sort, setSort] = useState(initialParams.sort || "u");
+  const [lam, setLam] = useState(parseFloat(initialParams.lam || "1") || 1);
+  const [since, setSince] = useState(initialParams.since || "");
+  const [to, setTo] = useState(initialParams.to || "");
+  const [country, setCountry] = useState(initialParams.country || "");     // made-in
+  const [q, setQ] = useState(initialParams.q || "");
+  const [ts, setTs] = useState<[number, number] | null>(parseRange(initialParams.ts || null));
+  const [dims, setDims] = useState<Record<string, [number, number]>>(parseDims(initialParams.dims || null));
+  const [maxVotes, setMaxVotes] = useState(initialParams.mv || "");
+  const [hideSeen, setHideSeen] = useState(initialParams.hide === "seen");
+  const [showDims, setShowDims] = useState(Object.keys(parseDims(initialParams.dims || null)).length > 0);
 
   // ---- watch prefs (localStorage, no login) ----
   const [watchCountry, setWatchCountry] = useState("US");
