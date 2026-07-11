@@ -1,5 +1,7 @@
 # PLAN — Atlas SEO 읽는 층 구축 (촬영지 페이지)
 
+> ⚠️ **리네임 2026-07-12: "Atlas" → "Locations".** 이 문서의 `/atlas`·`/film/atlas`·"Atlas"는 모두 `/locations`·`/film/locations`·"Locations"로 라이브(구 경로 308). DB결합 이름(`atlas_*_json` RPC·`lib/atlas_cities.json`·`#df-atlas`)은 유지. 매핑: `docs/RENAME-atlas-locations-map-network.md`.
+
 **상태: 전 Phase 실행 완료 (2026-07-04 배포·라이브 검증) — Phase 3 도시·지역 허브 포함.**
 작성 2026-07-03 · 갱신 2026-07-04 (재실측 → 당일 실행).
 배경: `/atlas`·필름/감독 Atlas 탭은 MapLibre 클라이언트 렌더링이라 검색엔진에 빈 페이지. credits에서 검증한 "읽는 층(서버) + 노는 층(임베드)" 공식을 재적용한다.

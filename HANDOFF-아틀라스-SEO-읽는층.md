@@ -1,5 +1,7 @@
 # 종합 인수인계 — 아틀라스 SEO 읽는층 (촬영지 검색 표면)
 
+> ⚠️ **리네임 (2026-07-12): "Atlas" → "Locations".** 이 문서 본문의 `/atlas`·`/film/atlas`·`/room/atlas`·나 "Atlas" 라벨은 모두 이제 `/locations`·`/film/locations`·`/room/locations`·"Locations"입니다(구 경로 308 리다이렉트). **단, DB결합 이름은 그대로 유지**: `atlas_country_json`/`atlas_eligibility_json`/`atlas_meta_json`/`atlas_city_candidates_json` RPC, `lib/atlas_cities.json`, `worker/atlas-cities-build.py`, `#df-atlas`/`#dr-atlas` 앵커. `lib/atlas.ts`는 `lib/locations.ts`로 이동. 전체 매핑: **`docs/RENAME-atlas-locations-map-network.md`**.
+
 > 다른 AI/사람이 이 파일 하나로 현황·이력·파일위치·운영절차·불변식을 파악해 이어받기 위한 문서.
 > 프로젝트 루트: `/Users/jerryje/Documents/MetaTake/` · Supabase: `kyniq` (id `jvgarcqrtsmgfimdcwgo`)
 > 작성 2026-07-04 (전 작업 당일 완료). **데이터 수집 파이프라인은 별도 문서** — `HANDOFF-종합현황-지리촬영지.md`(이력·현황) + `GEO_운영-신규영화-증분처리.md`(신규 영화 처리). 이 문서는 그 데이터를 **검색엔진·AI가 읽는 페이지로 노출하는 층**을 다룬다.

@@ -1,5 +1,7 @@
 # PLAN — Geographic Atlas (FilmAtlas) : the real-world map of cinema
 
+> ⚠️ **Renamed 2026-07-12: "Atlas" → "Locations"** (`/atlas`→`/locations`, `/room/atlas`→`/room/locations`; old paths 308). This doc also decided "The Map"→"Connections" for the graph — that graph's route is now `/network` (label still "Connections"). DB-coupled names kept. Mapping: `docs/RENAME-atlas-locations-map-network.md`.
+
 **Decided 2026-06-28.** A second kind of map for Metatake: a **geographic** one (lat/lng on a real map), distinct from the existing **node/critical graph** ("The map" → renamed **Connections**). Approach chosen: **FilmAtlas** = the *narrative geography* of films (the places a film is *about* / set in / names), built from our existing content. Real *filming locations* (production geography, the `movie-locations-project` agent) are a **later, second layer** ("Filmed").
 
 Source handoffs studied: `Google map/HANDOFF-맵프로젝트-AI인수인계.md` (map impl + 3 PoCs), `movie-locations-project/HANDOVER.md` (legally-safe location-fact extraction). Companion: `FRONTEND-DISCOVERY-AND-DECISIONS.md`, `RUNBOOK-new-film-ingestion.md`.

@@ -1,5 +1,7 @@
 # HANDOFF — SEO 운영 마스터 (정본)
 
+> ⚠️ **리네임 2026-07-12:** 이 문서의 `/atlas`→`/locations`, `/map`→`/network`(라벨 "Connections" 유지), `sitemaps/atlas.xml`→`sitemaps/location-hubs.xml`. 구 경로 전부 308(쿼리 보존)·sitemap은 신 URL만·IndexNow 재제출 완료. 전체 매핑·유지항목: `docs/RENAME-atlas-locations-map-network.md`.
+
 *작성 2026-07-04 · **갱신 2026-07-06** (계보 층 + 필름 하위 URL 체계 확정 반영). 새 영화 추가·표면 개방·개명 등 변경 작업 전에 반드시 이 문서의 런북부터 확인할 것. 기획 상세: `docs/PLAN-seo-surface-expansion.md`, 지도 표면: `docs/PLAN-atlas-seo.md`. 층별 정본: 아틀라스=`HANDOFF-아틀라스-SEO-읽는층.md`, 계보=`HANDOFF-계보-SEO-읽는층.md`, 순위표면=`HANDOFF-트로프피겨아키타입-순위표면.md`, 연결=`HANDOFF-연결엔진-커넥션.md`.*
 
 ---

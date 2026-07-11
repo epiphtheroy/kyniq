@@ -1,5 +1,7 @@
 # PLAN — 연결(Connections) 시스템 총점검·재건
 
+> ⚠️ **리네임 2026-07-12: 라우트 `/map` → `/network`** (라벨은 여전히 "Connections"). 컴포넌트 `MapExplorer`→`NetworkExplorer` 등. `/api/map` 엔드포인트·`mapApi`/`mapFull` 키는 DB결합이라 유지. 본문의 `/map`은 `/network`으로 읽으세요. 매핑: `docs/RENAME-atlas-locations-map-network.md`.
+
 *작성 2026-07-04. 원우 문제제기("연결이 적절한가 / 너무 부분적이지 않은가 / 로직·시각화·SEO 업그레이드")에 대한 전면 실측 진단 + 제안.*
 *자매 문서: PLAN-atlas-seo.md(지리 아틀라스 — 별개), PLAN-seo-surface-expansion.md(원칙 재사용).*
 

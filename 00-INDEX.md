@@ -2,6 +2,8 @@
 
 *Map of the project's docs. Updated 2026-06-17 after the redesign sprint; ★-table refreshed 2026-07-06 (Tier-2 정본 등재). Read the "authoritative now" docs first; treat the rest as reference or history.*
 
+> ⚠️ **Terminology (renamed 2026-07-12):** geographic map = **Locations** (`/locations`, was `/atlas`); connection graph = **Network** (`/network`, was `/map`; label still "Connections"). Old paths 308. Full mapping + what was KEPT: **`docs/RENAME-atlas-locations-map-network.md`**.
+
 ## ★ Authoritative now (read these)
 | Doc | What it is |
 |---|---|
@@ -19,7 +21,8 @@
 | `HANDOFF-종합현황-지리촬영지.md` | 촬영지(film_locations) 파이프라인 이력·현황. §0 = 2026-07-03 완료 스냅샷(20,073행/4,334편), §12 = 수정·검증 로그. |
 | `HANDOFF-아틀라스-SEO-읽는층.md` | 촬영지 데이터의 **SEO 읽는층**(2026-07-04 전 Phase 라이브: film/director locations 1,000+331 · 국가 73 · 도시 511) — 파일맵·DB RPC·불변식(게이트=mergeCells 동기 규칙)·신규영화 운영절차(§3). 설계·실행 로그는 `docs/PLAN-atlas-seo.md`. |
 | `HANDOFF-계보-SEO-읽는층.md` | lineage(상·정전·국가별 정전·감독 계보)의 **SEO 읽는층**(2026-07-05~06: /lineage/[slug] 업그레이드 ~202 + /film/lineage/[slug] 신설 895 — Tier-2 367편 포함, 구 /film/x/honors 308) — 출처 표면화(코드맵+QID)·불변식(film_count 게이트 금지 등)·운영절차. |
-| `HANDOFF-연결엔진-커넥션.md` | **연결 엔진 정본 (2026-07-05)** — 친족(film_affinities, RRF)·counterpoint(entity_edges)·개념(concept_map)·갤럭시(film/director_map_xy)의 파일맵·데이터 객체·**불변식 6조**(meta_take_id 회귀 금지 등)·상황별 재실행 절차·인제스트 수요 큐(film_next_demand). movies-like/Connected/Counterpoints/map/galaxy 작업은 여기서 시작. 진단·실행 이력: `docs/PLAN-connections-overhaul.md`. |
+| `SITE_LEDGER.md` (+ `handoff/`, `site_content/`) | **계보 데이터·점수·방법론 워크스트림 정본 (2026-07-06)** — 데이터 빌드(Wave1–12: `handoff/mappings/film_lineage.csv` 10k+행·`films_master.csv` 6.7k편)·DB상태(kyniq)·**선정기준(§1b)**·이번 수정(cine21 재라벨·ar-encuesta 숨김·award 인용 QID 20 보강)·미결·**월 1회 자동업데이트**. `handoff/00_MASTER_HANDOFF.md`=마스터 적재 인수인계, `site_content/METHODOLOGY_LINEAGE_SECTION.md`=/methodology 계보 섹션(선정기준 포함), `SEO_LINEAGE_SPEC.md`=JSON-LD/SEO 스펙. **계보 데이터·점수·방법론 변경은 여기서 시작**(프론트/SEO 읽는층은 위 `HANDOFF-계보-SEO-읽는층.md`). |
+| `HANDOFF-연결엔진-커넥션.md` | **연결 엔진 정본 (2026-07-05; `/map`→`/network` 리네임 2026-07-12, 라벨은 여전히 "Connections")** — 친족(film_affinities, RRF)·counterpoint(entity_edges)·개념(concept_map)·갤럭시(film/director_map_xy)의 파일맵·데이터 객체·**불변식 6조**(meta_take_id 회귀 금지 등)·상황별 재실행 절차·인제스트 수요 큐(film_next_demand). movies-like/Connected/Counterpoints/**network**/galaxy 작업은 여기서 시작. `/api/map` 엔드포인트·`mapApi`/`mapFull` 키는 DB결합이라 유지. 진단·실행 이력: `docs/PLAN-connections-overhaul.md`. |
 | `HANDOFF-트로프피겨아키타입-순위표면.md` | **트로프·피겨·아키타입 순위 표면 정본 (2026-07-05~06)** — /trope 멤버 라이브 랭킹(`trope_members_ranked`, take↔trope 코사인)·% match·리스티클 타이틀·ItemList/FAQ, 피겨 질문 H2+nearest figures(figure_neighbors), /catalog 순번·confidence %·날짜/EEAT, 필름 Tropes 독해제목 라인, /methodology#rankings. **함정 기록**: ftm.sim=트로프별 상수, 피겨 임베딩=표면축, reading 허브 0출판. 이 네 페이지 작업은 여기서 시작. |
 | `HANDOFF-마이필름-렌즈.md` | **My Films 렌즈 정본 (2026-07-06, v1~v1.5 전부 라이브)** — 로그인 유저 seen 세트로 전 사이트를 off/highlight/only 3단으로 보는 클라 오버레이. LensProvider DOM 엔진(`a[href^=/film/]`+`data-lens-film`)·mine-first 정렬(CSS order)·LensQuickBar(12+페이지)·only-모드 데이터 스왑(readings/entities/takescore/films — `*_mine` RPC 8종은 **service_role 전용**, supabase/migrations/0042). **불변식**: 서버 HTML 개인화 금지(캐시·SEO), user_movies 로드 .range 페이징, 새 표면 옵트인 규약(.mtl-rows/.mtl-swap-out/data-lens-film). 렌즈·개인화 작업은 여기서 시작. |
 | `figure-page-KEPT.md` | Parking-lot + the most up-to-date pipeline notes: §G scale (1k-film), §H embeddings, §J tropes, §K scholar header, **§L the big-bang checklist**. |

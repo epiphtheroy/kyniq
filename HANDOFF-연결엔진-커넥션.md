@@ -1,5 +1,7 @@
 # HANDOFF — 연결 엔진 (Connections: 친족·counterpoint·개념·갤럭시)
 
+> ⚠️ **리네임 (2026-07-12): 라우트 `/map` → `/network`** (사용자 노출 라벨은 여전히 **"Connections"**). 컴포넌트 `MapExplorer`→`NetworkExplorer`·`EntityMap`→`EntityNetwork`·`GalaxyMap`→`GalaxyView`·`HomeMap`→`HomeNetwork`, 탭 id `*-map`→`*-network`. **단 `/api/map`·`/api/map/galaxy` 엔드포인트와 `mapApi`/`mapFull` 비트 키, `zone:"map"` 문자열은 DB(RPC jsonb) 결합이라 그대로 유지** — 이름 바꾸지 말 것. 본문의 `/map`·"The Map"은 `/network`으로 읽으세요. 전체 매핑: **`docs/RENAME-atlas-locations-map-network.md`**.
+
 *2026-07-04~05 구축. 이 문서 하나로 콜드스타트 가능해야 한다. 설계 배경·실측 진단·실행 이력은 `docs/PLAN-connections-overhaul.md`(그날의 전 과정 로그), 운영 접점은 `docs/RUNBOOK-new-film-ingestion.md §4.3`.*
 
 ## 0. 이게 무엇인가 (3줄)
