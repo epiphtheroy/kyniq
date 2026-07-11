@@ -237,7 +237,7 @@ function loadCuration(slug: string): Promise<DirectorCuration | null> {
       if (error) throw new Error(`director_curation(${slug}): ${error.message}`);
       return (data as DirectorCuration | null) ?? null;
     },
-    ["director-curation1", slug],
+    ["director-curation2", slug],
     { revalidate: 3600, tags: [`director:${slug}`] },
   )().catch(() => null);
 }
