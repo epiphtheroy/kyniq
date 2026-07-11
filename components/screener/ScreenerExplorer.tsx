@@ -117,7 +117,7 @@ export default function ScreenerExplorer({
       else { const loc = (new Intl.DateTimeFormat().resolvedOptions().locale.split("-")[1] || "").toUpperCase(); if (loc) setWatchCountry(loc); }
       if (Array.isArray(wp.providers)) setProviders(wp.providers);
     } catch { /* defaults */ }
-    const urlPins = (params.get("pin") || "").split(",").map((s) => s.trim()).filter(Boolean);
+    const urlPins = (initialParams.pin || "").split(",").map((s) => s.trim()).filter(Boolean);
     if (urlPins.length) setPins(urlPins.slice(0, MAX_PINS));
     else { try { const t = JSON.parse(localStorage.getItem("mt-ts-tray") || "[]"); if (Array.isArray(t)) setPins(t.slice(0, MAX_PINS)); } catch { /* */ } }
     hydrated.current = true;
@@ -220,9 +220,17 @@ export default function ScreenerExplorer({
     setHist(d?.buckets ?? []);
   }, [lam, q, yearMin, to, country, subJson, provActive, providers, watchCountry, maxVotes]);
 
-  // refetch on any filter change (debounced) — SSR seed serves the untouched first paint
+  // refetch on any filter change (debounced). The SSR seed is the default sort-u
+  // top 60, so only refetch on first paint when the URL carried a non-default
+  // filter (a shared/bookmarked link) or a personal mode is active.
   useEffect(() => {
-    if (first.current) { first.current = false; fetchHist(); if (personalMode) fetchPage(true); return; }
+    if (first.current) {
+      first.current = false;
+      fetchHist();
+      const stale = sort !== "u" || !!since || !!to || !!country || !!q || !!ts || activeDims > 0 || !!maxVotes || provActive || !!personalMode;
+      if (stale) fetchPage(true);
+      return;
+    }
     const t = setTimeout(() => { fetchPage(true); fetchHist(); }, 320);
     return () => clearTimeout(t);
   }, [sort, lam, q, yearMin, to, country, ts, subJson, maxVotes, provActive, providers, watchCountry, personalMode]); // eslint-disable-line react-hooks/exhaustive-deps
