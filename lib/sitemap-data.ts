@@ -232,6 +232,48 @@ export async function tvListEntries(): Promise<SitemapEntry[]> {
   return rows.filter((r) => r.slug).map((r) => ({ url: `${siteUrl}/tv/list/${r.slug}` }));
 }
 
+// /tv/[slug] as a VIDEO sitemap — each broadcast is the main content of its own
+// watch page, so it qualifies for a <video:video> entry (unlike the decorative
+// trailer reels on film sub-pages, which Google rightly flags "not on the watch
+// page"). player_loc is the trailer's embed (the actual player on the page);
+// the video's own thumbnail/title/description are ours. Requires a thumbnail +
+// a clip; rows missing either are skipped.
+export type VideoEntry = { loc: string; thumbnail: string; title: string; description: string; playerLoc: string; pubDate?: string; duration?: number };
+
+export async function tvProgramVideoEntries(): Promise<VideoEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const TMDB = "https://image.tmdb.org/t/p";
+  type Row = {
+    slug: string; title: string | null; dek: string | null; built_at: string | null; duration_ms: number | null;
+    meta: { clips?: string[] } | null;
+    films: { backdrop_path: string | null; poster_path: string | null; title: string | null; year: number | null; director: string | null } | null;
+  };
+  const rows = await fetchAll<Row>(
+    (from, to) => db()
+      .from("tv_programs")
+      .select("slug,title,dek,built_at,duration_ms,meta,films(backdrop_path,poster_path,title,year,director)")
+      .eq("status", "published").order("slug").range(from, to)
+  );
+  const out: VideoEntry[] = [];
+  for (const r of rows) {
+    const f = r.films;
+    const clip = r.meta?.clips?.[0];
+    const thumb = f?.backdrop_path ? `${TMDB}/w1280${f.backdrop_path}` : f?.poster_path ? `${TMDB}/w780${f.poster_path}` : null;
+    if (!r.slug || !clip || !thumb) continue; // a video sitemap entry needs a thumbnail + player
+    const desc = `A chapter-by-chapter video essay on ${f?.title ?? r.slug}${f?.year ? ` (${f.year})` : ""}${f?.director ? `, directed by ${f.director}` : ""}, compiled from the Metatake record. On METATAKE TV.`;
+    out.push({
+      loc: `${siteUrl}/tv/${r.slug}`,
+      thumbnail: thumb,
+      title: (r.title || f?.title || r.slug).slice(0, 100),
+      description: desc.slice(0, 2048),
+      playerLoc: `https://www.youtube-nocookie.com/embed/${clip}`,
+      pubDate: r.built_at ? new Date(r.built_at).toISOString() : undefined,
+      duration: r.duration_ms ? Math.max(1, Math.min(28800, Math.round(r.duration_ms / 1000))) : undefined,
+    });
+  }
+  return out;
+}
+
 /**
  * /director/[slug]/start + /director/[slug]/next — the promoted director
  * guide articles (added 2026-07-09). Advertise only the indexable cohort
@@ -918,6 +960,24 @@ export function urlset(entries: SitemapEntry[]): string {
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+}
+
+// Video sitemap renderer — one <url> per watch page with a <video:video> child.
+export function videoUrlset(entries: VideoEntry[]): string {
+  const body = entries.map((e) => {
+    const v = [
+      `      <video:thumbnail_loc>${escapeXml(e.thumbnail)}</video:thumbnail_loc>`,
+      `      <video:title>${escapeXml(e.title)}</video:title>`,
+      `      <video:description>${escapeXml(e.description)}</video:description>`,
+      `      <video:player_loc>${escapeXml(e.playerLoc)}</video:player_loc>`,
+      e.duration ? `      <video:duration>${e.duration}</video:duration>` : "",
+      e.pubDate ? `      <video:publication_date>${e.pubDate}</video:publication_date>` : "",
+      `      <video:family_friendly>yes</video:family_friendly>`,
+      `      <video:live>no</video:live>`,
+    ].filter(Boolean).join("\n");
+    return `  <url>\n    <loc>${escapeXml(e.loc)}</loc>\n    <video:video>\n${v}\n    </video:video>\n  </url>`;
+  }).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n${body}\n</urlset>\n`;
 }
 
 export function sitemapindex(urls: string[]): string {
