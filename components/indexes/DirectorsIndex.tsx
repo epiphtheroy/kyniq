@@ -2,7 +2,7 @@
 
 import { type SyntheticEvent } from "react";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
-import IndexExplorer, { type PoolItem } from "@/components/indexes/IndexExplorer";
+import IndexExplorer from "@/components/indexes/IndexExplorer";
 import { foldDiacritics } from "@/lib/slug";
 
 export type DirCat = { slug: string; name: string; country: string | null; films: number; sig: string | null; photo: string | null; has_intro?: boolean };
@@ -21,10 +21,6 @@ const MODES: CatMode[] = [
 ];
 
 export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: DirCat[]; initialSlug: string | null }) {
-  // spotlight pool = only directors with a written intro page (director_portrait);
-  // the A–Z index below still lists every director
-  const pool: PoolItem[] = catalogue.filter((d) => d.has_intro).map((d) => ({ slug: d.slug, label: d.name, sub: d.country }));
-
   const cat = (
     <>
       {/* country=null directors don't appear in the Nationality view (no
