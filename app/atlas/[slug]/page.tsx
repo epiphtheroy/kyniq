@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import LensQuickBar from "@/components/LensQuickBar";
 import { pageRobots } from "@/lib/seo";
@@ -146,6 +147,7 @@ export default async function AtlasCountryPage({ params }: Props) {
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {countryPhrase(c.country)}</h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
+        <EntityTVHero playlist={`country-${slug}`} reelSlugs={c.films.map((f) => f.slug)} label={countryPhrase(c.country)} listHref={`/tv/list/country-${slug}`} backdrop={null} />
         <a
           href="#map"
           style={{

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import LensQuickBar from "@/components/LensQuickBar";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
@@ -213,6 +214,8 @@ export default async function CatalogNode({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <EntityTVHero playlist={`arch-${km.kind.replace(/_/g, "-")}-${slug}`} reelSlugs={uniqFilms.map((m) => m.film_slug)} label={detail.label} listHref={`/tv/list/arch-${km.kind.replace(/_/g, "-")}-${slug}`} backdrop={null} />
+
       {/* ── Dark hero: the archetype as a counted classification ── */}
       <div className="cur rd-hero">
         <div className="rd-hero__in">
