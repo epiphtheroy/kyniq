@@ -14,8 +14,8 @@ type Shelf = {
   programs: { slug: string; title: string; dek?: string | null; seg_count: number; duration_ms: number; film: TVEntry["film"] }[];
 };
 
-// TVWatch — the main METATAKE TV watch interface (served at /watch, aliased at
-// /tv/watch): the player up front, an "Up next" rail beside it, a chapter strip
+// TVWatch — the main METATAKE TV watch interface (served at /tv; /watch and
+// /tv/watch 308 here): the player up front, an "Up next" rail beside it, a chapter strip
 // beneath, and watch-list + all-programs shelves below. Everything it plays was
 // compiled by the LLM-free production engine (tv_compile_film / tv_segments).
 export default function TVWatch() {

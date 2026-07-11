@@ -28,13 +28,10 @@ type Acct =
 
 function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
-    { id: "watch", label: "Watch", href: "/watch", items: [
-      { t: "The watch library", h: "/tv/lists" },
-      { t: "METATAKE TV", h: "/watch" },
+    { id: "watch", label: "Watch", href: "/tv", items: [
       { t: "Films", h: "/film", c: c.films },
       { t: "Directors", h: "/director", c: c.directors },
-      { t: "Latest", h: "/latest" },
-      { t: "Trending", h: "/trending" },
+      { t: "Metatake TV", h: "/tv" },
     ] },
     { id: "wander", label: "Wander", items: [
       { t: "TakeScore", h: "/takescore" },
@@ -44,7 +41,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Connections", h: "/map" },
       { t: "Where to watch", h: "/where-to-watch" },
       { t: "Credits", h: "/credits" },
-      { t: "METATAKE TV", h: "/watch" },
+      { t: "Metatake TV", h: "/tv" },
     ] },
     { id: "read", label: "Read", items: [
       { t: "Now Playing", h: "/now" },
@@ -77,6 +74,10 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
 }
 
 const arrow = (c?: number) => (c != null ? `${c.toLocaleString()} →` : "→");
+
+// Render a nav label, painting a trailing "TV" red (e.g. "Metatake TV").
+const navLabel = (t: string) =>
+  t.endsWith("TV") ? (<>{t.slice(0, -2)}<span className="nav-tv">TV</span></>) : t;
 
 export default function Nav({ counts = {} }: { counts?: NavCounts }) {
   const router = useRouter();
@@ -178,7 +179,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               <div className={`drop${grp === g.id ? " open" : ""}`}>
                 {g.items.map((it) => (
                   <Link key={it.t + it.h} href={it.h}>
-                    {it.t}
+                    {navLabel(it.t)}
                     <span className="ar">{arrow(it.c)}</span>
                   </Link>
                 ))}
@@ -361,7 +362,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               <h4>{g.label}</h4>
               {g.items.map((it) => (
                 <Link key={it.t + it.h} href={it.h}>
-                  {it.t}
+                  {navLabel(it.t)}
                   <span className="ar">{arrow(it.c)}</span>
                 </Link>
               ))}
