@@ -284,6 +284,7 @@ export default async function WhereToPage({ params }: Props) {
               </p>
             ) : null}
             {report.verdict ? <p><em>{report.verdict}</em></p> : null}
+            {film.runtime ? <p><b>Runtime.</b> {titleYear} runs {film.runtime} minutes.</p> : null}
           </div>
         </section>
 

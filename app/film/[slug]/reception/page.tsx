@@ -418,6 +418,7 @@ export default async function FilmReceptionPage({ params }: Props) {
               release ledger, Wikidata&apos;s award record and Metatake&apos;s lineage archive — dated, sourced,
               and in order.{hasReviews ? <> Quotes are verbatim from publishers&apos; link previews and paper abstracts; no article text is stored.</> : null}
             </p>
+            <QuickAnswers items={receptionQuickAnswers(film, events, countries, reviews, papers)} />
             {years.map((y, yi) => (
               <section key={y} id={`y${y}`} data-af-year className="afl-year" style={{ "--yc": yearColor(y) } as React.CSSProperties}>
                 {yi > 0 && yi % Math.max(2, Math.ceil(years.length / (midArt.length + 1))) === 0 && artUsed < midArt.length ? (
