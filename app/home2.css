@@ -312,8 +312,14 @@
 .mthome .homemap .cmap-colgraph{flex:1 1 auto;min-width:0}
 .mthome .homemap .emap-head{display:none}
 .mthome .homemap .emap{margin:0}
-/* breathing room inside the sentence grid (kept from the spacing fix) */
-.mthome .homemap .lexi{padding:20px 22px 14px}
+/* breathing room inside the sentence grid (kept from the spacing fix).
+   HARD-CAPPED to the map's height (560): overflowing sentences scroll INSIDE
+   the box — the box itself never grows taller than the map (owner 2026-07-11). */
+.mthome .homemap .lexi{padding:20px 22px 14px;height:560px;max-height:560px;
+  overflow-y:auto;overscroll-behavior:contain}
+.mthome .homemap .lexi::-webkit-scrollbar{width:6px}
+.mthome .homemap .lexi::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+@media(max-width:900px){.mthome .homemap .lexi{height:auto;max-height:440px}}
 .mthome .homemap .lexi-center{padding-bottom:11px;margin-bottom:8px}
 .mthome .homemap .lexi-item{padding:14px 4px 13px}
 .mthome .homemap .lexi-sent{font-size:14px;line-height:1.66}
