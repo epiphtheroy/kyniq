@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import FilmTabBar from "@/components/FilmTabBar";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplorer";
@@ -229,6 +230,8 @@ export default async function TheoristPage({ params }: Props) {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      <EntityTVHero playlist={`theorist-${slug}`} reelSlugs={F.filmArr.map((f) => f.slug)} label={name} listHref={`/tv/list/theorist-${slug}`} backdrop={null} />
 
       {/* ── Dark hero: the person, the lens, the count ── */}
       <div className="cur rd-hero">

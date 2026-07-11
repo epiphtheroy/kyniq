@@ -41,11 +41,27 @@ export async function GET(req: NextRequest) {
   }
 
   const { data: inserted, error } = await supabase.rpc("mt_generate_insights");
+
+  // Same cadence, same guard: run the autonomous bot detector. It flags stealth
+  // scrapers, auto-blocks them (middleware enforces bot_blocks), and lets 24h-
+  // quiet blocks expire. Isolated so a failure never affects the insight feed.
+  let botBlocks = 0;
+  try {
+    const { data: bb } = await supabase.rpc("mt_detect_bots");
+    botBlocks = bb ?? 0;
+  } catch {
+    /* best-effort */
+  }
+
   await supabase.from("mt_insights").insert({
     kind: "_run",
     key: "run:" + new Date().toISOString().slice(0, 19),
     line: "",
   });
 
-  return NextResponse.json({ inserted: inserted ?? 0, error: error?.message ?? null });
+  return NextResponse.json({
+    inserted: inserted ?? 0,
+    bot_blocks: botBlocks,
+    error: error?.message ?? null,
+  });
 }
