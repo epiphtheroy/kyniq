@@ -184,6 +184,60 @@ function leadText(film: FilmRow, filmed: GeoPin[], setting: GeoPin[]): string {
   return sentences.join(" ");
 }
 
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.1) ─────────
+// Deterministic Q&A assembled ONLY from fields already in scope: a question
+// is emitted only when its answer row is present, and every name, count and
+// country is verbatim from the pin rows. Search-term variants (filmed / shot /
+// filming locations) are woven across Q and A — never listed, max two uses
+// each: "filmed" carries Q1+Q4, "shot" carries A1+Q3 (the plan's own §5.1
+// scene template), "filming locations" appears once in A1.
+function quickAnswerItems(film: FilmRow, filmed: GeoPin[], setting: GeoPin[]): QuickAnswerItem[] {
+  const yearLabel = film.year ? ` (${film.year})` : "";
+  const items: QuickAnswerItem[] = [];
+  if (filmed.length > 0) {
+    const where = wherePhrase(filmed);
+    items.push({
+      q: `Where was ${film.title} filmed?`,
+      a: `${film.title}${yearLabel} was shot across ${filmed.length} filming location${filmed.length === 1 ? "" : "s"}${where ? ` ${where}` : ""}.`,
+    });
+    const builtPins = filmed.filter((p) => p.built_set);
+    if (builtPins.length > 0) {
+      const realCount = filmed.length - builtPins.length;
+      const host = builtPins.find((p) => (p.set_host ?? "").trim());
+      let a =
+        realCount > 0
+          ? `Of its ${filmed.length} locations, ${realCount} ${realCount === 1 ? "was a real place" : "were real places"} and ${builtPins.length} ${builtPins.length === 1 ? "was a built set" : "were built sets"}`
+          : `All ${filmed.length} of its locations were built as sets rather than found`;
+      if (host) a += ` — ${host.name} was built at ${(host.set_host ?? "").trim()}`;
+      items.push({ q: `Were ${film.title}'s locations real places or built sets?`, a: `${a}.` });
+    }
+    // filmed arrives precision-sorted, so the first pin with a scene is "top".
+    const scenePin = filmed.find((p) => (p.scene_role ?? "").trim());
+    if (scenePin) {
+      const scene = (scenePin.scene_role ?? "").trim();
+      items.push({
+        q: `What scene was shot at ${scenePin.name}?`,
+        a: /[.!?]$/.test(scene) ? scene : `${scene}.`,
+      });
+    }
+    const countries = pinCountries(filmed);
+    if (countries.length > 1) {
+      items.push({
+        q: `Which countries was ${film.title} filmed in?`,
+        a: `Cameras stood in ${countryListPhrase(countries.map((c) => c.name))} — ${countries.length} countries in all.`,
+      });
+    }
+  } else if (setting.length > 0) {
+    // Setting-only page: one question, no filming claims (charter §0-1).
+    const names = listWords(setting.slice(0, 3).map((p) => p.name));
+    items.push({
+      q: `Where is ${film.title} set?`,
+      a: `${film.title}${yearLabel} is set in ${names} — ${setting.length} narrative place${setting.length === 1 ? "" : "s"}, mapped below.`,
+    });
+  }
+  return items.slice(0, 4);
+}
+
 interface Props { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -333,6 +387,8 @@ export default async function FilmLocationsPage({ params }: Props) {
       />
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 40px" }}>
         <Byline created={updated} />
+
+        <QuickAnswers items={quickAnswerItems(film, filmed, setting)} />
 
         {filmed.length > 0 && (
           <section style={{ margin: "28px 0" }}>
