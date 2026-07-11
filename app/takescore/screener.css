@@ -303,9 +303,12 @@
 /* ── v4: crisper hero title + card verdict fills the middle + worded dimensions ── */
 /* 1 · make the black-hero title crisp — mute the backdrop + darken the title
    band so pure-white type pops, and give the words a solid shadow. */
-.scr-hero::before { opacity:.20; }
-.scr-hero::after { background:linear-gradient(180deg, rgba(8,8,8,.86) 0%, rgba(8,8,8,.74) 42%, rgba(8,8,8,.72) 66%, rgba(8,8,8,.95) 100%); }
-.scr-hero-brand { color:#fff; text-shadow:0 2px 22px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,.75); }
+.scr-hero::before { opacity:.26; }
+.scr-hero::after { background:linear-gradient(180deg, rgba(8,8,8,.74) 0%, rgba(8,8,8,.66) 45%, rgba(8,8,8,.72) 68%, rgba(8,8,8,.95) 100%); }
+/* .mt a sets a link colour (higher specificity than a bare class) — the brand is
+   a <Link>, so qualify past it to force pure white. */
+.scr-hero .scr-hero-brand, .mt a.scr-hero-brand { color:#fff; text-shadow:0 2px 22px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,.75); }
+.scr-hero .scr-hero-brand:hover, .mt a.scr-hero-brand:hover { color:#7ff0c4; }
 .scr-hero-sub-title { text-shadow:0 1px 10px rgba(0,0,0,.7); color:#a7ead2; }
 .scr-hero-sub { color:#e9e7df; }
 
