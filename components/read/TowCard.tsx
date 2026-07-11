@@ -13,6 +13,9 @@ export type TowComment = {
   verdict_label: string | null;
   authority_label: string | null;
   rationale: string | null;
+  director?: string | null;
+  auteur?: boolean | null;
+  rec_date?: string | null;
 };
 
 function db() {
@@ -40,13 +43,16 @@ export default function TowCard({ tow, filmTitle }: { tow: TowComment | null; fi
       <div className="towc-head">
         <div>
           <div className="towc-kicker">to. W. Heo</div>
-          <h2 className="towc-h" id="towc-h">Why it&apos;s in the index</h2>
+          <h2 className="towc-h" id="towc-h">Why {filmTitle} is in the index</h2>
         </div>
         {tow.verdict_label ? (
           <span className={`towc-chip towc-chip--${tow.verdict}`}>{tow.verdict_label}</span>
         ) : null}
       </div>
       <p className="towc-p">{tow.rationale}</p>
+      {tow.rec_date ? (
+        <p className="towc-recd">Recommended into the Metatake index · {tow.rec_date}</p>
+      ) : null}
       <div className="towc-signrow">
         <span className="towc-sign">from. W. Yoon</span>
         <Link href="/editor" className="towc-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
