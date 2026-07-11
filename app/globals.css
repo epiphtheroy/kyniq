@@ -2406,6 +2406,26 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .df-cvia .df-via__lab { color:var(--faint); text-transform:uppercase; letter-spacing:.08em; font-size:11px; margin-right:5px; }
 .df-cvia a { color:var(--accent); font-weight:600; }
 .df-cvia a:hover { text-decoration:underline; }
+/* Counterpoints — versus cards: the two posters juxtaposed, the argument beside them */
+.df-cpgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(420px,1fr)); gap:14px; margin-top:16px; }
+.df-cpcard { display:flex; gap:16px; align-items:flex-start; border:1px solid var(--hairline); border-radius:14px; padding:16px; background:var(--panel,#fff); }
+.df-cpvs { display:flex; align-items:center; gap:7px; flex:0 0 auto; }
+.df-cpposter { display:block; width:84px; aspect-ratio:2/3; border-radius:8px; background:linear-gradient(150deg,#e7e0d2,#d9d1bf) center/cover no-repeat; box-shadow:0 8px 22px rgba(0,0,0,.18); }
+a.df-cpposter:hover { outline:2px solid #C56A44; }
+.df-cpx { font-style:normal; font-family:var(--font-ui); font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#9a4d0c; background:rgba(230,126,34,.14); border-radius:999px; padding:3px 6px; flex:0 0 auto; }
+.df-cpbody { min-width:0; display:flex; flex-direction:column; gap:8px; }
+.df-cpkick { margin:0; display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-family:var(--font-ui); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.df-cpkick a { color:#9a4d0c; text-decoration:none; }
+.df-cpkick a:hover { text-decoration:underline; }
+.df-cpdiv { font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; background:rgba(230,126,34,.12); color:#9a4d0c; letter-spacing:.02em; white-space:nowrap; }
+.df-cpline { margin:0; font-size:13.5px; line-height:1.6; color:var(--ink,#2e2a22); }
+.df-cpline b { font-weight:700; }
+.df-cpline b a { color:inherit; }
+.df-cpline b a:hover { color:var(--accent); }
+.df-cpline a { color:var(--accent); }
+.df-cpline a:hover { text-decoration:underline; }
+.df-cpmeta { color:var(--muted); font-size:12px; }
+@media (max-width:560px){ .df-cpgrid{grid-template-columns:1fr} .df-cpcard{flex-direction:column} }
 .df-finfo { margin:30px 0 0; border:1px solid var(--hairline); }
 .df-finfo summary { font-family:var(--font-ui); font-size:13px; font-weight:600; padding:13px 16px; cursor:pointer; list-style:none; display:flex; align-items:center; gap:8px; color:var(--ink2); }
 .df-finfo summary::-webkit-details-marker { display:none; }
