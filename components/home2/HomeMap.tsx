@@ -10,9 +10,10 @@ import ConnectionDesk from "@/components/ConnectionDesk";
  */
 export default function HomeMap() {
   return (
-    <section className="band p2">
+    <section className="band p2 homemap-sec">
       <div className="wrap">
-        <div className="shead">
+        {/* centered header (owner's note 2026-07-11) */}
+        <div className="shead homemap-head">
           <div>
             <h2>The map of cinema <span className="chev">›</span></h2>
             <div className="sub">Films, figures, tropes, ideas and directors — the whole critical web. Drag to wander, scroll to zoom, click a node to travel in.</div>
@@ -23,7 +24,7 @@ export default function HomeMap() {
           <ConnectionDesk
             api="/api/map"
             full="/map"
-            height={520}
+            height={560}
             root={{ type: "sample", key: "A_affinity,B_bridge,H_dense,C_reading,L_trope,N_question", label: "The critical web" }}
           />
         </div>

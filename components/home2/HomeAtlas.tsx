@@ -9,7 +9,7 @@ import FilmMap from "@/components/FilmMap";
  */
 export default function HomeAtlas() {
   return (
-    <section className="band">
+    <section className="band homeatlas-sec">
       <div className="wrap">
         <div className="shead">
           <div>
