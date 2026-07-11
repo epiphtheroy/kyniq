@@ -59,8 +59,6 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null }: { da
       <ConceptTiles data={data} />
       {/* 8 — Explore by lens (dark) */}
       <LensRail data={data} />
-      {/* 8a — Search the whole map, featured centrally (paper-2) */}
-      <BigSearch data={data} />
       {/* 8b — The living map of cinema + SentenceLexicon text grid (paper-2) */}
       <HomeMap />
       {/* 8c — The geographic Atlas (satellite) */}
@@ -77,6 +75,8 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null }: { da
       <BlogGraph />
       {/* 13b — Metatake TV (screen-essay channel) + the credits web (dark) */}
       <HomeTVCredits />
+      {/* 14 — Search the map (paper-2), back at its original lower position */}
+      <BigSearch data={data} />
       {/* 15 — Six ways in (paper) */}
       <SixWays data={data} />
       {/* 16 — Footer (dark) */}
