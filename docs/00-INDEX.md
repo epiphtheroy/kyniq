@@ -61,3 +61,4 @@ The live news layer and its video spin-off. Both self-contained bundles under `h
 ## Legacy / superseded → to be archived
 Pre-migration docs still teaching the old model (root `MASTER.md`, `meta-take-architecture.md`, `START-HERE.md`, `SPEC.md`, all `mission-*.md`, root `HANDOFF-*.md`, `docs/STATE-2026-06-17.md`, `docs/RUNBOOK-bigbang.md`, and the entire **duplicate `filmcurio-bundle/`**). Pending your OK to move into `archive/` (BACKLOG §F).
 - **공유·저장 시스템(기획)**: 루트 `HANDOFF-공유-저장-시스템.md` — ShareDock·채널전략·OG 이미지 표준·배치맵·측정. 구현 대기(다른 AI 수행 예정).
+- **TakeScore Screener(기획)**: 루트 `HANDOFF-테이크스코어-스크리너.md` — `/takescore` 전면 리디자인 정본(2026-07-11): 블랙히어로+즉답검색, 필름 탭 트레이(다중 고정·비교), URL 상태 동기화, 연도 since, Hide-seen(렌즈 exclude 모드), TS 분포 브러시, 그리드 v2(rank·IMDb·PosterActions), **시청국×구독서비스 필터**(film_provider_index 신설), 프리셋 스크린, 마이룸 개념 이식. Phase P0~P5 + 불변식 12. 구현 대기(다른 AI 수행 예정).
