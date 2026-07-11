@@ -42,7 +42,7 @@
 4. **불가 확정(측정 근거)**: concept 페이지 — takes.concept 자유텍스트 vs 레지스트리 매칭 8/7,733뿐; frame 페이지 — frames 테이블은 질문 프레임층이지 SM 14 프레임워크가 아님(SM 키는 lib/frameworks.ts+takes.framework 텍스트에만 존재). 문서화로 종결.
 5. **N_question 패턴**(0069) — 호기심 갭 질문 12,419행(3형: 친연쌍 ≤3/편·촬영지 1/편·최강 렌즈 ≤2/편), 티커 패턴셋 편입 + 4개 클라이언트 컴포넌트에 "question" 태그/Questions 토픽 등록. 티커 검증: 54개 중 질문 6.
 6. **/map 캡션 보류항목 종결**: MapExplorer 캡션은 SentenceLexicon 레일(Phase 1.5~1.6)이 상위 호환으로 대체 — obsolete.
-7. **잔여 없음**: take 페이지 복원만 take↔meta_take 클러스터링(콘텐츠 파이프라인 결정) 이후 가능 — 코드는 0067로 준비됨.
+7. **잔여 없음 — /take 항목 OBSOLETE 확정(2026-07-11 추가 실측)**: published `kind='reading'` meta_takes = **0개** → /take/[slug]는 현재 페이지가 하나도 없는 **은퇴 구모델 라우트**다(클러스터된 take 43,426개 전원 status=retired; docs/00-INDEX 원칙 "구 meta-take/reading-hub 모델 재건 금지"). "클러스터링 후 복원"은 곧 구모델 재건이므로 하지 않는다. 그 정보가치(같은 해석을 공유하는 영화 쌍)는 A/B/H(트로프 노드 친연)·G/I(같은 이론가·개념 쌍)가 이미 문장으로 커버하고, 표면으로는 /trope·/theorist 페이지가 대체한다. 0067의 take 분기는 무해한 사문으로 남긴다(호출 표면 없음).
 
 ---
 
