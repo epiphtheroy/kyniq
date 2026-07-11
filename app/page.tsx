@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 import HomeV2 from "@/components/home2/HomeV2";
-import { PLACEHOLDER, type HomeV2 as HomeV2Data } from "@/lib/home2";
+import { PLACEHOLDER, type HomeV2 as HomeV2Data, type Exhibits } from "@/lib/home2";
 import "@/app/home2.css";
 
 // The home bundle changes ~nightly, so there is no reason to re-run the ~1.4s
@@ -86,7 +86,27 @@ const getScreenerTop = unstable_cache(
   { revalidate: 3600 },
 );
 
+// "Today at Metatake" band — one sample per content layer, held a full day
+// (YYYYMMDD seed) then rotated. Its own Data-Cache entry per day; never blocks
+// the home (null on any failure → the band self-omits).
+async function loadExhibits(): Promise<Exhibits> {
+  const day = new Date().toISOString().slice(0, 10).replace(/-/g, ""); // YYYYMMDD, UTC
+  const getEx = unstable_cache(
+    async (): Promise<Exhibits> => {
+      try {
+        const { data } = await db().rpc("home_daily_exhibits", { p_seed: day });
+        return (data as Exhibits) ?? null;
+      } catch {
+        return null;
+      }
+    },
+    ["home-exhibits", day],
+    { revalidate: 3600, tags: ["home-v2"] },
+  );
+  return getEx();
+}
+
 export default async function Home() {
-  const [data, screenerTop] = await Promise.all([loadV2(), getScreenerTop()]);
-  return <HomeV2 data={data} screenerTop={screenerTop} />;
+  const [data, screenerTop, exhibits] = await Promise.all([loadV2(), getScreenerTop(), loadExhibits()]);
+  return <HomeV2 data={data} screenerTop={screenerTop} exhibits={exhibits} />;
 }

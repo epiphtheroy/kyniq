@@ -232,8 +232,6 @@ export default async function TheoristPage({ params }: Props) {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <EntityTVHero playlist={`theorist-${slug}`} reelSlugs={F.filmArr.map((f) => f.slug)} label={name} listHref={`/tv/list/theorist-${slug}`} backdrop={null} />
-
       {/* ── Dark hero: the person, the lens, the count ── */}
       <div className="cur rd-hero">
         <div className="rd-hero__in">
@@ -270,6 +268,7 @@ export default async function TheoristPage({ params }: Props) {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img className="rd-hero__bd" src={`${IMG}/w780${heroBackdrop}`} alt="" width={780} height={439} />
               )}
+              {!wd?.image ? <EntityTVHero inline playlist={`theorist-${slug}`} reelSlugs={F.filmArr.map((f) => f.slug)} label={name} listHref={`/tv/list/theorist-${slug}`} backdrop={null} /> : null}
               <div className="rd-hero__cap">{wd?.image ? "Portrait via Wikimedia Commons" : `From ${F.topFilms[0]?.title} · via TMDB`}</div>
             </div>
           )}
