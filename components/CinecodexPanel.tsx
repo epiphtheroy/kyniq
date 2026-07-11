@@ -206,8 +206,9 @@ const GAUGE_CSS = `
 .ccx-gauges{margin:6px 0 14px; padding:13px 16px 12px; border:1px solid var(--hairline-2,#ddd); border-radius:12px; background:var(--paper-2,#fafafa)}
 .ccx-gk{display:flex; align-items:baseline; gap:10px; font-family:var(--font-ui); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--hairline)}
 .ccx-gk span{margin-left:auto; font-family:${MONO}; font-size:9.5px; font-weight:400; letter-spacing:.05em; color:var(--muted); text-transform:none}
-.ccx-grow{display:flex; flex-wrap:wrap; align-items:stretch; gap:8px 20px}
-.ccx-gcell{display:flex; flex-direction:column; align-items:center; gap:3px; flex:0 0 auto; min-width:96px}
+.ccx-grow{display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px}
+.ccx-gmid{flex:1 1 220px; min-width:220px; margin:0; align-self:center; font-family:var(--font-serif,Georgia,serif); font-size:14.5px; line-height:1.55; color:var(--ink)}
+.ccx-gcell{display:flex; flex-direction:column; align-items:center; gap:3px; flex:0 0 auto; min-width:82px}
 .ccx-gcell .sdonut-cap{text-transform:uppercase; letter-spacing:.08em}
 .ccx-gcell .sdonut-note{text-transform:uppercase; letter-spacing:.06em; max-width:118px; text-align:center; line-height:1.35}
 .ccx-ghint{font-family:var(--font-ui); font-size:9.5px; line-height:1.3; color:var(--muted); text-align:center; max-width:120px}
@@ -277,19 +278,9 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
       <style>{GAUGE_CSS}</style>
       <div className="ccx-gauges">
         <div className="ccx-gk">The three central scores <span>0–100</span></div>
+        {/* TakeScore + verdict fill the width; the three rings sit together at the
+            right (same reading order as the /takescore Screener card). */}
         <div className="ccx-grow">
-          <div className="ccx-gcell">
-            <ScoreDonut val={data.v} color={AXIS_HEX.v} label="Value" sub={bandWord("value", data.v)} size={72} />
-            <span className="ccx-ghint">higher is better</span>
-          </div>
-          <div className="ccx-gcell">
-            <ScoreDonut val={data.c} color={AXIS_HEX.c} label="Cost" sub={bandWord("cost", data.c)} size={72} />
-            <span className="ccx-ghint">prerequisite, not a virtue</span>
-          </div>
-          <div className="ccx-gcell">
-            <ScoreDonut val={data.r} color={AXIS_HEX.r} label="Risk" sub={bandWord("risk", data.r)} size={72} />
-            <span className="ccx-ghint">higher = more likely to disappoint</span>
-          </div>
           <div className="ccx-gnet">
             <div className="ccx-gnet-row">
               <span className="ccx-gnet-n">{data.u}</span>
@@ -300,10 +291,17 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
             </div>
             <div className="ccx-gnet-eff"><b>{data.sharpe}</b>Efficiency (value per risk)</div>
           </div>
+          <p className="ccx-gmid">{verdictSentence(data.v, data.c, data.r, data.u, title)}</p>
+          <div className="ccx-gcell">
+            <ScoreDonut val={data.v} color={AXIS_HEX.v} label="Value" sub={bandWord("value", data.v)} size={66} />
+          </div>
+          <div className="ccx-gcell">
+            <ScoreDonut val={data.c} color={AXIS_HEX.c} label="Cost" sub={bandWord("cost", data.c)} size={66} />
+          </div>
+          <div className="ccx-gcell">
+            <ScoreDonut val={data.r} color={AXIS_HEX.r} label="Risk" sub={bandWord("risk", data.r)} size={66} />
+          </div>
         </div>
-        {/* The verdict — the full deterministic interpretation (same sentence the
-            appraisal page leads with), so the card reads before it counts. */}
-        <p className="ccx-gverdict">{verdictSentence(data.v, data.c, data.r, data.u, title)}</p>
       </div>
 
       {/* Where it ranks — overall position by TakeScore among all scored films.
