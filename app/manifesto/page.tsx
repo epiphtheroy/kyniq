@@ -21,15 +21,20 @@ function db() {
 
 async function loadBundle(): Promise<HomeBundle> {
   const supabase = db();
-  for (let i = 0; i < 3; i++) {
+  // At BUILD time a throw here kills the entire deploy (observed 2026-07-11:
+  // one transient DB blip failed the whole build at "prerendering /manifesto").
+  // So the build gets long patient retries to ride out blips; runtime keeps the
+  // short cycle, because at runtime a throw is CORRECT — Next serves the last
+  // good ISR page and recovers on the next 900s regeneration.
+  const building = process.env.NEXT_PHASE === "phase-production-build";
+  const tries = building ? 8 : 3;
+  const waitMs = building ? 2500 : 500;
+  for (let i = 0; i < tries; i++) {
     const { data } = await supabase.rpc("home_bundle_cached");
     const b = data as HomeBundle | null;
     if (b && Array.isArray(b.pairs) && b.pairs.length > 0) return b;
-    if (i < 2) await new Promise((r) => setTimeout(r, 500));
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, waitMs));
   }
-  // Persistent empty/timeout (e.g. DB under heavy write load): throw so Next keeps
-  // serving the last good statically-generated page instead of caching an empty one
-  // (no featured pair, zero stats). It recovers automatically on the next good render.
   throw new Error("home_bundle returned empty after retries");
 }
 
