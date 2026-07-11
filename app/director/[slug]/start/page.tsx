@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Fragment, type CSSProperties } from "react";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
@@ -218,6 +219,8 @@ export default async function DirectorStartPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
 
       {/* ── Dark hero: the route, counted ── */}
+      <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director} listHref={`/tv/list/director-${slug}`} backdrop={null} />
+
       <div className="cur rd-hero">
         <div className="rd-hero__in">
           <div className="rd-hero__txt">
