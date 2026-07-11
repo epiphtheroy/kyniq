@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -105,6 +106,26 @@ export default async function DirectorLifePage({ params }: Props) {
 
   const hostCount = new Set(sorted.map((f) => hostOf(f.source)).filter(Boolean)).size;
   const bornYear = d?.birthday ? d.birthday.slice(0, 4) : null;
+
+  // Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.6). The ONLY
+  // distinct crisp fact this near-single-purpose ("Who is X?") page doesn't
+  // already headline: the precise birthdate. The stat chip above shows the
+  // birth YEAR only, so a full date + place is additive, not a restatement
+  // (§0-4). name_meaning is deliberately NOT surfaced here — the dr-namemean
+  // callout below carries it verbatim, so a QA item would duplicate it.
+  const bornLabel = (() => {
+    if (!d?.birthday) return null;
+    const dt = new Date(d.birthday);
+    return isNaN(dt.getTime())
+      ? d.birthday
+      : dt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  })();
+  const lifeQuickAnswers: QuickAnswerItem[] = bornLabel
+    ? [{
+        q: `When and where was ${director} born?`,
+        a: `${director} was born ${bornLabel}${d?.place_of_birth ? ` in ${d.place_of_birth}` : ""}.`,
+      }]
+    : [];
   const heroFilm = films.find((f) => f.backdrop_path) ?? null;
   const dated = films.filter((f) => f.year != null);
 
@@ -217,6 +238,8 @@ export default async function DirectorLifePage({ params }: Props) {
                 style={{ float: "right", margin: "4px 0 10px 16px", borderRadius: 8, objectFit: "cover" }}
               />
             ) : null}
+
+            <QuickAnswers items={lifeQuickAnswers} />
 
             {facts.name_meaning ? (
               <div className="dr-namemean" style={{ margin: "18px 0" }}>
