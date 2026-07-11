@@ -69,14 +69,13 @@ function Watch() {
       <SiteNavClient />
       <div className="tvw-wrap">
         <header className="tvpg-head">
-          <div className="tvpg-brand">
+          <a className="tvpg-brand" href="/watch">
             <span className="tvpg-brand__n">METATAKE</span>
             <span className="tvpg-brand__tv">TV</span>
             <span className="tvpg-brand__live">● ON AIR</span>
-          </div>
+          </a>
           <p className="tvpg-tag">Programs compiled per film by the production engine — bundled into watch lists. Leave it on.</p>
-          <a className="tvpg-full" href="/tv/lists">Browse all lists ↗</a>
-          <a className="tvpg-full" href="/tv">The channel ↗</a>
+          <a className="tvpg-full" href="/tv">Full page ↗</a>
         </header>
 
         <div className="tvw-main">
@@ -131,25 +130,16 @@ function Watch() {
           </aside>
         </div>
 
-        {/* shelves */}
+        {/* the full, filterable watch-list library (replaces the flat "Watch lists" shelf) */}
+        <TVDirectory embedded />
+
+        {/* every individual film broadcast */}
         {shelf ? (
           <section className="tvw-shelves">
-            <h2 className="tvw-shelf__h">Watch lists <a href="/tv/lists" className="tvw-browse">Browse all {shelf.n_playlists ? shelf.n_playlists.toLocaleString() : ""} ↗</a></h2>
-            <div className="tvw-cards">
-              {shelf.playlists.map((p) => (
-                <button key={p.slug} className={`tvw-card${p.slug === list ? " on" : ""}`} onClick={() => pickList(p.slug)}>
-                  <span className="tvw-card__k">{p.kind === "segments" ? "TOPIC CUT" : "FILMS"} · {p.n}</span>
-                  <span className="tvw-card__t">{p.title}</span>
-                  {p.dek ? <span className="tvw-card__d">{p.dek}</span> : null}
-                </button>
-              ))}
-            </div>
-
             <h2 className="tvw-shelf__h">All programs</h2>
             <div className="tvw-progrid">
               {shelf.programs.map((p) => (
-                <a key={p.slug} className="tvw-prog" href={`/watch?list=${list}&v=${p.slug}`}
-                  onClick={(e) => { e.preventDefault(); const i = entries.findIndex((x) => x.slug === p.slug); if (i >= 0) setEntryIdx(i); else router.push(`/watch?v=${p.slug}`); }}>
+                <a key={p.slug} className="tvw-prog" href={`/tv/${p.slug}`}>
                   <span className="tvw-prog__th" style={p.film?.backdrop ? { backgroundImage: `url(${IMG}/w500${p.film.backdrop})` } : undefined} />
                   <span className="tvw-prog__t">{p.title}</span>
                   <span className="tvw-prog__f">{p.film?.title}{p.film?.year ? ` (${p.film.year})` : ""} · {p.seg_count} chapters</span>
