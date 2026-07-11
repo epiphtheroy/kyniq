@@ -3739,7 +3739,7 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .tvdir-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px}
 /* dark, image-backed cards (the film backdrop dimmed under a gradient) — not flat white panels */
 .tvdir-card{position:relative; display:flex; flex-direction:column; justify-content:flex-end; min-height:132px; padding:14px 15px; border-radius:12px; overflow:hidden; text-decoration:none; color:#fff; background:#14171c 50%/cover no-repeat; border:1px solid rgba(255,255,255,.07); transition:transform .16s, box-shadow .16s}
-.tvdir-card::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(9,11,14,.22) 0%, rgba(9,11,14,.55) 46%, rgba(9,11,14,.93) 100%); transition:background .16s}
+.tvdir-card::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(9,11,14,.18) 0%, rgba(9,11,14,.42) 34%, rgba(9,11,14,.82) 64%, rgba(9,11,14,.97) 100%); transition:background .16s}
 .tvdir-card--noimg{background:linear-gradient(150deg,#1c2128,#101318)}
 .tvdir-card--noimg::before{background:linear-gradient(180deg, rgba(9,11,14,.1), rgba(9,11,14,.55))}
 .tvdir-card > *{position:relative; z-index:1}
