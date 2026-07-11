@@ -25,6 +25,7 @@ import FilmTVHero from "@/components/FilmTVHero";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import EntityMap from "@/components/EntityMap";
+import FilmSentences, { type SentenceRow } from "@/components/FilmSentences";
 import FilmMap from "@/components/FilmMap";
 import EntityActions from "@/components/EntityActions";
 import MovieListActions from "@/components/MovieListActions";
@@ -469,6 +470,21 @@ function loadTier2Related(slug: string, args: {
   })();
 }
 
+// "Did you know" module rows — rule-based sentences from the film_sentences layer
+// (sentence-engine/MASS-PRODUCTION.md). Cached per slug like the other loaders so the
+// route stays ISR-cached; own key so it never recomputes the heavy film load.
+function loadSentences(slug: string) {
+  return unstable_cache(
+    async () => {
+      const { data, error } = await db().rpc("film_sentences_for", { p_slug: slug, p_limit: 6 });
+      if (error) throw error; // null-poison guard: never cache an error as an empty module
+      return (data ?? []) as SentenceRow[];
+    },
+    ["film-sentences-v1", slug],
+    { revalidate: 300, tags: [`film:${slug}`] },
+  )();
+}
+
 // order + cap for the film-page Archetype section
 const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
 const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
@@ -567,6 +583,8 @@ export default async function FilmPage({ params }: Props) {
     notFound();
   }
   const { movements, codex, subscores } = await loadChrome(slug);
+  // "Did you know" rows — shared by both the Tier-1 and Tier-2 render branches.
+  const sentences = await loadSentences(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
   const codexBadge = _cx ? (
