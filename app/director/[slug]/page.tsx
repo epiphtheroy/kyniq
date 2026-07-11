@@ -31,6 +31,7 @@ import LensDirectorCoverage from "@/components/LensDirectorCoverage";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
 import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { cachedRankedScores } from "@/lib/takescore-bulk";
 import "@/app/film/[slug]/read.css";
 import "@/app/curious/curious.css";
@@ -264,6 +265,87 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const SIG_LIMIT = 12;
 
+function andList(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? "";
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.6) ─────────
+// Deterministic Q&A for the director hub, assembled ONLY from fields already
+// in the page's render scope: a question is emitted only when its answer row is
+// present, and every film title, count, date and name is verbatim from the row
+// (§0-1/§0-2). Search-term variants ("films"/"direct"/"directed"/"filmography")
+// are woven across the block, max two uses each — "films" carries Q1+A1,
+// "direct" Q1, "directed" A1, "filmography" A5 (§0-6). The GAP list (per-film
+// synopsis / box office / "best film") is intentionally not emitted: the hub
+// is not a ranked surface (that's /takescore).
+function directorQuickAnswers(a: {
+  slug: string;
+  director: string;
+  total: number;
+  filmoTotal: number;
+  hiddenTotal: number;
+  films: { title: string; year: number | null }[];
+  bornLabel: string | null;
+  placeOfBirth: string | null;
+  picks: Pick[];
+  next: Next[];
+  sigTropes: { title: string }[];
+}): QuickAnswerItem[] {
+  const items: QuickAnswerItem[] = [];
+  // 1 — the head "[director] films" query: verbatim titles, honest counts
+  // (filmoTotal = closely-read + catalog; total = the closely-read subset).
+  if (a.films.length > 0) {
+    const sample = a.films.slice(0, 3).map((f) => `${f.title}${f.year ? ` (${f.year})` : ""}`);
+    const body = a.hiddenTotal > 0
+      ? `${a.director} directed ${a.filmoTotal} films on Metatake — ${a.total} read closely, including ${andList(sample)}.`
+      : `${a.director} directed ${a.total} films, all read closely on Metatake, including ${andList(sample)}.`;
+    items.push({ q: `What films did ${a.director} direct?`, a: body });
+  }
+  // 2 — birthdate, verbatim (+ place of birth when on file).
+  if (a.bornLabel) {
+    items.push({
+      q: `When was ${a.director} born?`,
+      a: `${a.director} was born ${a.bornLabel}${a.placeOfBirth ? ` in ${a.placeOfBirth}` : ""}.`,
+    });
+  }
+  // 3 — "where to start": the Start-here pick (or the first stop), deep-linked
+  // to the full route article.
+  if (a.picks.length > 0) {
+    const start = a.picks.find((p) => (p.label ?? "").trim().toLowerCase() === "start here") ?? a.picks[0];
+    const title = start.film_title ?? "";
+    if (title) {
+      const yr = start.film_year ? ` (${start.film_year})` : "";
+      const label = (start.label ?? "").trim();
+      items.push({
+        q: `Where should I start with ${a.director}?`,
+        a: `${title}${yr}${label ? ` — ${label}` : ""}.`,
+        href: `/director/${a.slug}/start`,
+      });
+    }
+  }
+  // 4 — "directors like X": the curated Who's Next names, deep-linked.
+  if (a.next.length > 0) {
+    const names = andList(a.next.slice(0, 3).map((n) => n.rec_name));
+    items.push({
+      q: `Which directors are like ${a.director}?`,
+      a: `Try ${names} — each chosen for a specific kinship with ${a.director}.`,
+      href: `/director/${a.slug}/next`,
+    });
+  }
+  // 5 — "themes that recur": signature figure-types across the filmography,
+  // titles verbatim.
+  if (a.sigTropes.length > 0) {
+    const themes = andList(a.sigTropes.slice(0, 3).map((t) => t.title));
+    items.push({
+      q: `What themes recur in ${a.director}'s work?`,
+      a: `${a.director} returns to ${themes} across the filmography.`,
+    });
+  }
+  return items.slice(0, 5);
+}
+
 export default async function DirectorPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
@@ -461,6 +543,15 @@ export default async function DirectorPage({ params }: Props) {
       </div>
 
       <div className="dr-wrap">
+        <QuickAnswers
+          items={directorQuickAnswers({
+            slug, director, total, filmoTotal, hiddenTotal,
+            films: films as { title: string; year: number | null }[],
+            bornLabel, placeOfBirth: d?.place_of_birth ?? null,
+            picks, next, sigTropes,
+          })}
+        />
+
         <FilmTabBar tabs={tabs} twoRow zoneLabels={{ free: { title: "The overview", sub: "spoiler-free" }, spoiler: { title: "Close readings", sub: "may spoil his films" } }} />
 
         {/* PORTRAIT — our portrait when written; otherwise our numbers as

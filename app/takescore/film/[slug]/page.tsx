@@ -275,6 +275,30 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           </p>
         </section>
 
+        {/* ── to.W — the curator's letter: why this film is in the index.
+               Optional-verdict films get no letter (tow is null). ── */}
+        {tow?.rationale ? (
+          <section aria-labelledby="tsf-tow-h" className="tsf-tow">
+            <div className="tsf-tow-head">
+              <div>
+                <div className="tsf-kicker">to.W</div>
+                <h2 className="tsf-h2" id="tsf-tow-h">Why it&apos;s in the index</h2>
+              </div>
+              {tow.verdict_label ? (
+                <span className={`tsf-tow-chip tsf-tow-chip--${tow.verdict}`}>{tow.verdict_label}</span>
+              ) : null}
+            </div>
+            <p className="tsf-tow-p">
+              <em>To W.</em> — {tow.rationale}
+            </p>
+            <p className="tsf-tow-note">
+              A note from the curator on why {card.title} holds its place in the Metatake index — assembled
+              from the catalog&apos;s curation records (canon lists, festival honors, auteur lineages), separate
+              from the TakeScore appraisal above.
+            </p>
+          </section>
+        ) : null}
+
         {/* ── Side by side · three pillars — V / C / R ring gauges + sub-scores ── */}
         <section aria-labelledby="tsf-dims-h">
           <div className="tsf-kicker">Scorecard</div>
