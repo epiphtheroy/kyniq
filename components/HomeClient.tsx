@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
 import HomeConstellation from "@/components/HomeConstellation";
 import PosterActions from "@/components/PosterActions";
+import SentenceTicker from "@/components/SentenceTicker";
 import { FRAMEWORKS } from "@/lib/frameworks";
 
 const W780 = "https://image.tmdb.org/t/p/w780";
@@ -257,6 +258,9 @@ export default function HomeClient({ bundle }: { bundle: HomeBundle }) {
           )}
         </div>
       </section>
+
+      {/* connection ticker — the disaster-broadcast strip of computed links */}
+      <SentenceTicker variant="home" n={40} />
 
       {/* manifesto */}
       <section className="hm-mani">
