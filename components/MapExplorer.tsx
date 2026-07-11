@@ -11,6 +11,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import EntityGraph, { type GraphData, type GraphNode } from "@/components/EntityGraph";
 import GalaxyMap from "@/components/GalaxyMap";
+import SentenceLexicon from "@/components/SentenceLexicon";
 
 type Mode = "films" | "directors" | "critical" | "galaxy";
 type EgoParams = { type: string; key: string; key2?: string };
@@ -150,6 +151,13 @@ export default function MapExplorer() {
   }, [query]);
 
   const center = data.nodes.find((n) => n.center) || null;
+  // SentenceLexicon root — the current center as a full-word entity descriptor;
+  // overview graphs (no ego center, e.g. "__all_films") hide the rail.
+  const lexiRoot = (() => {
+    if (!center) return null;
+    const p = egoParams(center.id);
+    return p ? { ...p, label: center.label } : null;
+  })();
 
   const switchMode = useCallback((m: Mode) => {
     if (busy.current || m === modeRef.current) return;
@@ -272,6 +280,8 @@ export default function MapExplorer() {
         </div>
       ) : (
       <div className="map-graphwrap">
+      <div className="map-cols">
+      <div className="map-colgraph">
         <div className="map-search">
           <input
             className="map-sinput"
