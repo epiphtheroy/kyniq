@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, type SyntheticEvent } from "react";
+import { type SyntheticEvent } from "react";
 import Link from "next/link";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
 import IndexExplorer, { type PoolItem } from "@/components/indexes/IndexExplorer";
@@ -23,8 +23,8 @@ const MODES: CatMode[] = [
   { key: "year", label: "Year" },
 ];
 
-export default function FilmsIndex({ catalogue, inventoryTotal, heroSub, initialSlug }: {
-  catalogue: FilmCat[]; inventoryTotal?: number; heroSub: ReactNode; initialSlug: string | null;
+export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
+  catalogue: FilmCat[]; inventoryTotal?: number; initialSlug: string | null;
 }) {
   // spotlight pool = the visible catalogue (every read-closely page)
   const pool: PoolItem[] = catalogue.map((f) => ({
@@ -84,9 +84,8 @@ export default function FilmsIndex({ catalogue, inventoryTotal, heroSub, initial
       pool={pool}
       initialSlug={initialSlug}
       heroTitle="Films"
-      heroSub={heroSub}
       placeholder="Search films by title or director…"
-      spotlightLabel="A film, live"
+      reshuffleLabel="random movie!"
       openLabel="Open this film →"
       catalogue={cat}
     />

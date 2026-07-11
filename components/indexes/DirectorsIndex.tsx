@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, type SyntheticEvent } from "react";
+import { type SyntheticEvent } from "react";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
 import IndexExplorer, { type PoolItem } from "@/components/indexes/IndexExplorer";
 import { foldDiacritics } from "@/lib/slug";
@@ -20,7 +20,7 @@ const MODES: CatMode[] = [
   { key: "films", label: "Films" },
 ];
 
-export default function DirectorsIndex({ catalogue, heroSub, initialSlug }: { catalogue: DirCat[]; heroSub: ReactNode; initialSlug: string | null }) {
+export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: DirCat[]; initialSlug: string | null }) {
   // spotlight pool = the whole catalogue
   const pool: PoolItem[] = catalogue.map((d) => ({ slug: d.slug, label: d.name, sub: d.country }));
 
@@ -77,9 +77,8 @@ export default function DirectorsIndex({ catalogue, heroSub, initialSlug }: { ca
       pool={pool}
       initialSlug={initialSlug}
       heroTitle="Directors"
-      heroSub={heroSub}
       placeholder="Search directors by name…"
-      spotlightLabel="A director, live"
+      reshuffleLabel="random director!"
       openLabel="Open this director →"
       catalogue={cat}
     />
