@@ -20,6 +20,7 @@ import Canon from "./Canon";
 import BlogGraph from "./BlogGraph";
 import NowPlaying from "./NowPlaying";
 import TodayExhibits from "./TodayExhibits";
+import HomeTVCredits from "./HomeTVCredits";
 import HomeMap from "./HomeMap";
 import HomeAtlas from "./HomeAtlas";
 import BigSearch from "./BigSearch";
@@ -58,7 +59,9 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null }: { da
       <ConceptTiles data={data} />
       {/* 8 — Explore by lens (dark) */}
       <LensRail data={data} />
-      {/* 8b — The living map of cinema (paper-2) */}
+      {/* 8a — Search the whole map, featured centrally (paper-2) */}
+      <BigSearch data={data} />
+      {/* 8b — The living map of cinema + SentenceLexicon text grid (paper-2) */}
       <HomeMap />
       {/* 8c — The geographic Atlas (satellite) */}
       <HomeAtlas />
@@ -72,8 +75,8 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null }: { da
       <Canon data={data} />
       {/* 13 — Between Film and the World + live node graph (paper-2) */}
       <BlogGraph />
-      {/* 14 — Search the map (paper-2) */}
-      <BigSearch data={data} />
+      {/* 13b — Metatake TV (screen-essay channel) + the credits web (dark) */}
+      <HomeTVCredits />
       {/* 15 — Six ways in (paper) */}
       <SixWays data={data} />
       {/* 16 — Footer (dark) */}
