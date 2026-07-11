@@ -139,6 +139,9 @@ export default async function FilmIndexPage({ searchParams }: Props) {
   const cat = (catRes.data as FilmCatalogue | null) ?? { total: 0, items: [] };
   const catalogue = cat.items;
   const inventoryTotal = invRes.count ?? 0;
+  // server-seeded spotlight: the live-page iframe loads from first paint
+  // (re-picked each ISR revalidate; the "↻ another" button rotates from there)
+  const spotlightSlug = catalogue.length ? catalogue[Math.floor(Math.random() * catalogue.length)].slug : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -184,11 +187,11 @@ export default async function FilmIndexPage({ searchParams }: Props) {
           <FilmsIndex
             catalogue={catalogue}
             inventoryTotal={inventoryTotal}
+            initialSlug={spotlightSlug}
             heroSub={
               <>
-                Not a movie database. <b>{cat.total.toLocaleString()} films</b>, each taken apart into the{" "}
-                <span className="term">figures</span> on screen — the faces, objects and gestures a critic points to — and the
-                strong misreadings and tropes they carry. Open any one and it already knows its kin.
+                <b>{cat.total.toLocaleString()} films</b>, each read closely — its <span className="term">figures</span>,
+                strong misreadings and tropes, where it was shot, and the films it rhymes with.
               </>
             }
           />

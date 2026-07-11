@@ -32,6 +32,8 @@ export default async function DirectorIndexPage() {
   const cat = (catRes.data as DirCatalogue | null) ?? { total: 0, items: [] };
   const catalogue = cat.items;
   const total = cat.total;
+  // server-seeded spotlight (loads from first paint; "↻ another" rotates)
+  const spotlightSlug = catalogue.length ? catalogue[Math.floor(Math.random() * catalogue.length)].slug : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -76,11 +78,11 @@ export default async function DirectorIndexPage() {
         <div className="mtl-swap-out">
           <DirectorsIndex
             catalogue={catalogue}
+            initialSlug={spotlightSlug}
             heroSub={
               <>
-                Not a filmography. <b>{total.toLocaleString()} directors</b>, each read as the sum of their obsessions — the{" "}
-                <span className="term">signature readings</span> and <span className="term">tropes</span> that recur, film
-                after film, until a frame is unmistakably theirs.
+                <b>{total.toLocaleString()} directors</b>, each a full dossier — the filmography, the{" "}
+                <span className="term">signature readings and tropes</span>, where to start, and the life.
               </>
             }
           />
