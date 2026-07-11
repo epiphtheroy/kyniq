@@ -70,34 +70,30 @@ function dimsToStr(d: Record<string, [number, number]>): string {
   return Object.entries(d).map(([k, [a, b]]) => `${k}:${a}-${b}`).join(",");
 }
 
-export type InitialParams = {
-  sort: string; lam: string; since: string; to: string; country: string;
-  q: string; ts: string; dims: string; mv: string; hide: string; pin: string;
-};
-
 export default function ScreenerExplorer({
-  initialRows, initialTotal, countries, dimHist, heroBackdrop, heroFilm, initialParams,
+  initialRows, initialTotal, countries, dimHist, heroBackdrop, heroFilm,
 }: {
   initialRows: ScrRow[]; initialTotal: number; countries: Country[];
-  dimHist: DimHist; heroBackdrop: string | null; heroFilm: string | null; initialParams: InitialParams;
+  dimHist: DimHist; heroBackdrop: string | null; heroFilm: string | null;
 }) {
   const router = useRouter();
   const lens = useLens();
   const uf = useUserFilms();
 
-  // ---- state seeded from the URL (read on the SERVER → passed as props, so the
-  //      hero + first grid page are in the SSR HTML; no useSearchParams) ----
-  const [sort, setSort] = useState(initialParams.sort || "u");
-  const [lam, setLam] = useState(parseFloat(initialParams.lam || "1") || 1);
-  const [since, setSince] = useState(initialParams.since || "");
-  const [to, setTo] = useState(initialParams.to || "");
-  const [country, setCountry] = useState(initialParams.country || "");     // made-in
-  const [q, setQ] = useState(initialParams.q || "");
-  const [ts, setTs] = useState<[number, number] | null>(parseRange(initialParams.ts || null));
-  const [dims, setDims] = useState<Record<string, [number, number]>>(parseDims(initialParams.dims || null));
-  const [maxVotes, setMaxVotes] = useState(initialParams.mv || "");
-  const [hideSeen, setHideSeen] = useState(initialParams.hide === "seen");
-  const [showDims, setShowDims] = useState(Object.keys(parseDims(initialParams.dims || null)).length > 0);
+  // ---- state starts at defaults so SSR matches hydration (page stays static/
+  //      cached). The mount effect below reads window.location to apply any
+  //      shared/bookmarked filters, then the refetch effect narrows the grid. ----
+  const [sort, setSort] = useState("u");
+  const [lam, setLam] = useState(1);
+  const [since, setSince] = useState("");
+  const [to, setTo] = useState("");
+  const [country, setCountry] = useState("");     // made-in
+  const [q, setQ] = useState("");
+  const [ts, setTs] = useState<[number, number] | null>(null);
+  const [dims, setDims] = useState<Record<string, [number, number]>>({});
+  const [maxVotes, setMaxVotes] = useState("");
+  const [hideSeen, setHideSeen] = useState(false);
+  const [showDims, setShowDims] = useState(false);
 
   // ---- watch prefs (localStorage, no login) ----
   const [watchCountry, setWatchCountry] = useState("US");
@@ -110,14 +106,27 @@ export default function ScreenerExplorer({
   const hydrated = useRef(false);
 
   useEffect(() => {
-    // one-time client hydration of localStorage-backed prefs
+    // one-time client hydration: apply URL filters (shared/bookmarked links) +
+    // localStorage-backed prefs. Runs after the default-state SSR paint.
+    const url = new URLSearchParams(window.location.search);
+    const g = (k: string) => url.get(k) || "";
+    if (g("sort")) setSort(g("sort"));
+    if (g("lam")) setLam(parseFloat(g("lam")) || 1);
+    if (g("since")) setSince(g("since"));
+    if (g("to")) setTo(g("to"));
+    if (g("country")) setCountry(g("country"));
+    if (g("q")) setQ(g("q"));
+    const tsr = parseRange(g("ts")); if (tsr) setTs(tsr);
+    const dm = parseDims(g("dims")); if (Object.keys(dm).length) { setDims(dm); setShowDims(true); }
+    if (g("mv")) setMaxVotes(g("mv"));
+    if (g("hide") === "seen") setHideSeen(true);
     try {
       const wp = JSON.parse(localStorage.getItem("mt-watch-prefs") || "{}");
       if (wp.country) setWatchCountry(wp.country);
       else { const loc = (new Intl.DateTimeFormat().resolvedOptions().locale.split("-")[1] || "").toUpperCase(); if (loc) setWatchCountry(loc); }
       if (Array.isArray(wp.providers)) setProviders(wp.providers);
     } catch { /* defaults */ }
-    const urlPins = (initialParams.pin || "").split(",").map((s) => s.trim()).filter(Boolean);
+    const urlPins = g("pin").split(",").map((s) => s.trim()).filter(Boolean);
     if (urlPins.length) setPins(urlPins.slice(0, MAX_PINS));
     else { try { const t = JSON.parse(localStorage.getItem("mt-ts-tray") || "[]"); if (Array.isArray(t)) setPins(t.slice(0, MAX_PINS)); } catch { /* */ } }
     hydrated.current = true;

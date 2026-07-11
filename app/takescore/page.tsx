@@ -83,7 +83,7 @@ export default async function TakeScorePage() {
 
       <ScreenerExplorer
         initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries}
-        dimHist={dimHist} heroBackdrop={heroBackdrop} heroFilm={heroFilm} initialParams={initialParams}
+        dimHist={dimHist} heroBackdrop={heroBackdrop} heroFilm={heroFilm}
       />
 
 
