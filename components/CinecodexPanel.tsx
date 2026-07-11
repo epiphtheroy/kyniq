@@ -306,8 +306,6 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
         <p className="ccx-gverdict">{verdictSentence(data.v, data.c, data.r, data.u, title)}</p>
       </div>
 
-      <ValuePop v={data.v} votes={data.votes} title={title} />
-
       {/* Where it ranks — overall position by TakeScore among all scored films.
           Real numbers from the RPC or nothing; confidence now lives in the
           df-src disclosure footer below. */}
@@ -355,6 +353,10 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
           <div><div className="ccx-gl ccx-glr">Risk</div><Sub names={RISK} sub={data.sub} tone="ccx-r" rich={!!subscores} /></div>
         </div>
       </div>
+
+      {/* Value × Popularity (the "hidden gem" read) — a secondary lens, so it sits
+          below the score itself and its dimensional breakdown, not above them. */}
+      <ValuePop v={data.v} votes={data.votes} title={title} />
 
       {(ext.imdb || ext.rt || ext.metascore) ? (
         <div className="ccx-ext">
