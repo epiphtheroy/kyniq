@@ -7,6 +7,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import GrowStill from "@/components/read/GrowStill";
 import CreditsExplorer from "../CreditsExplorer";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import {
   CRAFTS, FAM, type Api, type ArtistData, type Collab, type CraftKey, type GrpKey, type TFilm,
   computeArtist, img, personSlug,
@@ -262,6 +263,82 @@ export default async function CrewPersonPage({ params }: Props) {
   })();
   const updated = new Date().toISOString().slice(0, 10);
 
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 + §5.6) ─────────────────
+  // Search-phrased Q&A assembled from the same TMDB filmography + Metatake
+  // catalog numbers as the "spelled out" section, mounted above it (distinct
+  // framing). Titles, counts, years and names verbatim. GAP: no "best film",
+  // no ratings (deterministic-only). Variants (§0.6): craft verb ×1, "films"
+  // ×2 (Q1/Q2), "credits" ×2 (both answers) — each ≤2.
+  const VERBED_LC: Record<CraftKey, string> = { dir: "directed", writer: "written", dp: "shot", editor: "edited", composer: "scored", pd: "designed" };
+  const craftNoun = CRAFTS[mainCraft].label.toLowerCase();
+  const careerF = careerFacts(crafts);
+  const troupeQA = (artist?.troupe ?? []).slice().sort((a, b) => b.count - a.count || a.y0 - b.y0 || a.name.localeCompare(b.name));
+  const mainFilms = crafts[0].films;
+  const mainFilmsDated = mainFilms.filter((f) => f.year > 1880);
+  const creditsQA: QuickAnswerItem[] = [];
+  {
+    const verb = VERBED_LC[mainCraft] ?? "made";
+    const show = (mainFilmsDated.length ? mainFilmsDated : mainFilms).slice(0, 4);
+    const more = mainFilms.length - show.length;
+    creditsQA.push({
+      q: `What films has ${p.name} ${verb}?`,
+      a: (
+        <>
+          {p.name} has {mainFilms.length} {craftNoun} credit{mainFilms.length === 1 ? "" : "s"} on file, among them{" "}
+          {show.map((f, i) => (
+            <span key={f.id}>
+              {i > 0 ? (i === show.length - 1 ? " and " : ", ") : ""}
+              <FilmRef f={f} catByTmdb={catByTmdb} />
+            </span>
+          ))}
+          {more > 0 ? `, and ${more} more` : ""}.
+        </>
+      ),
+    });
+  }
+  if (careerF) {
+    creditsQA.push({
+      q: `How long has ${p.name} been making films?`,
+      a: (
+        <>
+          From {careerF.first} to {careerF.last} — {careerF.total} credit{careerF.total === 1 ? "" : "s"} in all
+          {careerF.decades.length > 1 ? `, across ${careerF.decades.length} decades` : ""}.
+        </>
+      ),
+    });
+  }
+  if (troupeQA.length > 0) {
+    const t0 = troupeQA[0];
+    const t1 = troupeQA[1];
+    creditsQA.push({
+      q: `Who does ${p.name} regularly work with?`,
+      a: (
+        <>
+          {p.name}&apos;s most frequent collaborator is <b>{t0.name}</b> — {t0.count} projects together
+          {t0.y0 ? ` (${yrs({ y0: t0.y0, y1: t0.y1 })})` : ""}
+          {t1 ? <>, followed by <b>{t1.name}</b> with {t1.count}</> : null}.
+        </>
+      ),
+    });
+  }
+  if (directorHub) {
+    creditsQA.push({
+      q: `Is ${p.name} also a director?`,
+      a: <>Yes — {directorHub.n} feature{directorHub.n === 1 ? "" : "s"} in the catalog carry {p.name} as director.</>,
+      href: `/director/${directorHub.slug}`,
+    });
+  }
+  if (p.birthday) {
+    const bd = new Date(`${p.birthday}T00:00:00`);
+    const born = Number.isNaN(bd.getTime())
+      ? p.birthday
+      : bd.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    creditsQA.push({
+      q: `When and where was ${p.name} born?`,
+      a: <>{p.name} was born on {born}{p.place_of_birth ? ` in ${p.place_of_birth}` : ""}.</>,
+    });
+  }
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -330,6 +407,7 @@ export default async function CrewPersonPage({ params }: Props) {
                 </Link>
               </p>
             ) : null}
+            <QuickAnswers items={creditsQA.slice(0, 5)} />
             <a
               href="#explorer"
               style={{
