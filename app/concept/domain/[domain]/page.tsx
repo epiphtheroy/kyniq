@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
+import DomainConcepts from "@/components/theory/DomainConcepts";
 import { pageRobots } from "@/lib/seo";
 
 /**
@@ -105,32 +106,17 @@ export default async function ConceptDomainPage({ params }: Props) {
         <EntityTVHero reelSlugs={_reelSlugs} label={part} backdrop={null} />
         <h1 className="lh-h1">{part}</h1>
         <p className="lh-def">
-          {total.toLocaleString()} concepts from {part.toLowerCase()} in Metatake&rsquo;s theory registry —{" "}
-          {films.toLocaleString()} film readings lean on them. Fields with the most filmed concepts first; the number
-          beside each concept is how many films stage it.
+          Where does cinema stage {part.toLowerCase()}? {liveTotal.toLocaleString()} of this domain&rsquo;s{" "}
+          {total.toLocaleString()} concepts have a film example — {films.toLocaleString()} readings between them. Fields
+          with the most staged concepts first; the number beside a concept is how many films put it on screen.
         </p>
-        {groups.map(([major, rows]) => {
-          const gFilms = rows.reduce((s, r) => s + r.films, 0);
-          const gLive = rows.filter((r) => r.films > 0).length;
-          return (
-            <section key={major} style={{ marginTop: 26 }}>
-              <h2 className="cmap-h2">
-                {major}{" "}
-                <span style={{ fontWeight: 500, fontSize: "0.8em", opacity: 0.6 }}>
-                  {rows.length} concept{rows.length !== 1 ? "s" : ""}{gFilms > 0 ? ` · ${gFilms} film reading${gFilms !== 1 ? "s" : ""} across ${gLive}` : ""}
-                </span>
-              </h2>
-              <ul className="mt-cols" style={{ marginTop: 8 }}>
-                {rows.map((r) => (
-                  <li key={r.concept_slug}>
-                    <Link href={`/concept/${r.concept_slug}`}>{r.concept}</Link>
-                    {r.films > 0 ? <span className="yr"> ({r.films})</span> : null}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          );
-        })}
+        <DomainConcepts
+          groups={groups.map(([major, rows]) => ({
+            major,
+            rows: rows.map((r) => ({ concept: r.concept, concept_slug: r.concept_slug, one_liner: r.one_liner, films: r.films, theorist: r.theorist })),
+          }))}
+          hiddenCount={hiddenCount}
+        />
         <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
       </div>
     </div>
