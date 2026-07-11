@@ -44,34 +44,10 @@ const NAME_KEY: Record<string, string> = {
   Bankruptcy: "bank", Insincerity: "insincere", Cowardice: "coward", Polarization: "polar",
 };
 
-// What each category IS — fixed one-line definitions distilled from the
-// registry's `question` + `scale` texts (lib/cinecodex_dims.ts), keyed by
-// registry key. Deterministic, no LLM; each row appends the film's own band
-// phrase (bandWord) so the category's meaning is tied to this film's number.
-const DEF: Record<string, string> = {
-  cog: "How much the film changes how you think — live ideas and perceptual shifts, not trivia.",
-  aff: "Whether the emotional imprint endures — durable feeling, not a momentary thrill.",
-  form: "How formally achieved it is — disciplined authorial craft, not spectacle.",
-  moral: "Whether it stages a real moral or existential reckoning, held open rather than settled cheaply.",
-  dur: "Whether it deepens on rewatch or spends itself on first contact.",
-  itx: "How much film history you need before the film opens — quotation, tradition, canon.",
-  fr: "How far from mainstream film grammar it asks you to travel — pacing, shape, story logic.",
-  etx: "How much outside knowledge — history, politics, philosophy — the film assumes you bring.",
-  ctx: "How much of the director's other work you must know before this one fully opens.",
-  bank: "The hazard the film is intellectually hollow — banal, or pretentious with nothing behind it.",
-  insincere: "The hazard style detaches from substance — pastiche and display doing the work of meaning.",
-  coward: "The hazard it panders — safe choices, commercial calculation, emotion extracted by formula.",
-  polar: "How sharply informed, engaged viewers split on it — acclaim against dismissal.",
-};
-
-const DEF_STYLE: CSSProperties = {
-  fontFamily: "var(--font-ui)", fontSize: "10px", color: "var(--muted)",
-  lineHeight: 1.4, margin: "-2px 0 9px",
-};
-
-// The film's plain-word reading of each dimension, pulled OUT of the small
-// definition text and shown as a prominent, axis-coloured verdict line — so the
-// judgment reads at a glance instead of hiding at the end of a grey sentence.
+// The film's plain-word reading of each dimension, shown as a prominent,
+// axis-coloured verdict line under each row — so the judgment reads at a glance
+// instead of hiding at the end of a grey definition sentence (removed). The row's
+// "?" still links to the full /takescore/[dim] explanation for anyone who wants it.
 const GROUP_HEX: Record<string, string> = { value: "#0F6E56", cost: "#6b7280", risk: "#C8102E" };
 const VERDICT_STYLE: CSSProperties = {
   fontFamily: "var(--font-ui)", fontSize: "13px", fontWeight: 700,
