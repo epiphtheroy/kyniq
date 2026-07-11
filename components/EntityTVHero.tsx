@@ -21,30 +21,34 @@ function shuffle<T>(a: T[]): T[] {
   return b;
 }
 
-export default function EntityTVHero({ playlist, reelSlugs, label, listHref, backdrop }: {
+export default function EntityTVHero({ program, playlist, reelSlugs, label, listHref, backdrop }: {
+  program?: string;                  // a single film's slug → its broadcast (?v=); takes precedence
   playlist?: string;                 // tv_playlists.slug (omit for reel-only pages)
   reelSlugs: string[];               // the entity's film slugs — reel fallback source
   label: string;                     // entity name — a11y label only (H1 stays on the page)
   listHref?: string;                 // /tv/list/[slug], shown when a broadcast plays
   backdrop?: string | null;          // TMDB backdrop path for the loading ribbon
 }) {
-  // undefined = deciding; 'reel' after playlist misses; TVEntry[] once a broadcast loads
+  // undefined = deciding; null = no broadcast → use the reel; TVEntry[] once a broadcast loads
   const [entries, setEntries] = useState<TVEntry[] | null | undefined>(undefined);
   const [reelIds, setReelIds] = useState<string[] | null>(null);
   const [idx, setIdx] = useState(0);
   const [muted, setMuted] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  // Step 1 — try the broadcast playlist.
+  // Step 1 — try the broadcast (a single program via ?v=, else a playlist via ?list=).
   useEffect(() => {
     let on = true;
-    if (!playlist) { setEntries(null); return; }
-    fetch(`/api/tv/watch?list=${encodeURIComponent(playlist)}`)
+    const url = program
+      ? `/api/tv/watch?v=${encodeURIComponent(program)}`
+      : playlist ? `/api/tv/watch?list=${encodeURIComponent(playlist)}` : null;
+    if (!url) { setEntries(null); return; }
+    fetch(url)
       .then((r) => r.json())
       .then((j) => { if (on) { const e: TVEntry[] = j.entries ?? []; setEntries(e.length ? e : null); } })
       .catch(() => { if (on) setEntries(null); });
     return () => { on = false; };
-  }, [playlist]);
+  }, [program, playlist]);
 
   // Step 2 — no broadcast → fetch the trailer reel.
   useEffect(() => {
