@@ -4020,7 +4020,9 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .mt.tvpg{background:#0b0a08;min-height:100vh;color:#EFEADD}
 .tvpg-wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
 .tvpg-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 2px 16px}
-.tvpg-brand{display:flex;align-items:center;gap:9px;font-family:"Barlow Condensed","Arial Narrow",sans-serif}
+.tvpg-brand{display:flex;align-items:center;gap:9px;font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-decoration:none;color:inherit}
+a.tvpg-brand{cursor:pointer}
+a.tvpg-brand:hover{opacity:.85}
 .tvpg-brand__n{font-weight:800;font-size:30px;letter-spacing:.08em;color:#fff}
 .tvpg-brand__tv{font-weight:800;font-size:23px;color:#fff;background:var(--red,#C8102E);padding:1px 10px;border-radius:5px}
 .tvpg-brand__live{font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:.14em;color:#ff5f5f;animation:sv2-blink 2.2s ease-in-out infinite}
