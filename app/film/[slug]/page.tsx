@@ -395,6 +395,13 @@ async function loadUncached(slug: string) {
     return u && (!m || u > m) ? u : m;
   }, null);
   const counterpoints = (Array.isArray(cpJson) ? cpJson : []) as CpRow[];
+  // counterpoint posters — the RPC carries no art; one batch query fills the versus cards
+  const cpSlugs = [...new Set(counterpoints.map((c) => c.film.slug))];
+  const { data: cpArt } = cpSlugs.length
+    ? await supabase.from("films").select("slug, poster_path").in("slug", cpSlugs)
+    : { data: [] as { slug: string; poster_path: string | null }[] };
+  const cpPosters: Record<string, string | null> =
+    Object.fromEntries(((cpArt ?? []) as { slug: string; poster_path: string | null }[]).map((f) => [f.slug, f.poster_path]));
 
   const { data: geoRows } = await supabase.rpc("film_geo", { p_slug: slug });
   const geoCount = Array.isArray(geoRows) ? geoRows.length : 0;
@@ -412,7 +419,7 @@ async function loadUncached(slug: string) {
 
   // takeCount is a Map; the Data Cache (unstable_cache) can't serialize Maps,
   // so return it as a plain object. Consumers read it with bracket access.
-  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount };
+  return { film, figures, takeCount: Object.fromEntries(takeCount), invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount };
 }
 
 // The full film load is ~20 Supabase round-trips and generateStaticParams
@@ -924,7 +931,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
