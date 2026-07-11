@@ -44,6 +44,7 @@ const TOPICS: { key: string; name: string; blurb: string; patterns: string[] }[]
   { key: "record", name: "The Record", blurb: "honors, lists, and standing", patterns: ["D_award", "E_rank"] },
   { key: "filmography", name: "Filmography", blurb: "inside the director's body of work", patterns: ["F_compare"] },
   { key: "places", name: "Locations", blurb: "where it was actually filmed", patterns: ["J_location"] },
+  { key: "questions", name: "Questions", blurb: "open doors — each one leads to its answer", patterns: ["N_question"] },
 ];
 const topicOf = (pattern: string) => TOPICS.find((t) => t.patterns.includes(pattern))?.key ?? "kinships";
 

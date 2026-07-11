@@ -18,12 +18,14 @@ const TAG_COLOR: Record<string, string> = {
   A_affinity: "#A8434F", B_bridge: "#A8434F", H_dense: "#A8434F",
   G_theorist_twin: "#2E6F8E",
   D_award: "#8A6D1F", E_rank: "#8A6D1F",
+  N_question: "#6D4AAE",
   J_location: "#167C6B", L_trope: "#167C6B",
 };
 const TAG_LABEL: Record<string, string> = {
   A_affinity: "shared reading", B_bridge: "bridge", H_dense: "connection",
   G_theorist_twin: "same lens",
   D_award: "honor", E_rank: "rank",
+  N_question: "question",
   J_location: "location", L_trope: "trope",
 };
 

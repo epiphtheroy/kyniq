@@ -35,7 +35,7 @@ const TAG: Record<string, string> = {
   A_affinity: "shared reading", B_bridge: "bridge", H_dense: "connection",
   C_reading: "reading", G_theorist_twin: "same lens", I_lens_twin: "same lens",
   D_award: "honor", E_rank: "rank", F_compare: "runtime",
-  J_location: "location", L_trope: "trope", M_frame: "frame",
+  J_location: "location", L_trope: "trope", N_question: "question", M_frame: "frame",
 };
 
 function pageHref(e: LexEnt): string | null {
