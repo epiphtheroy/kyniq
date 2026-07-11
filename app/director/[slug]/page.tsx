@@ -276,6 +276,8 @@ export default async function DirectorPage({ params }: Props) {
   }
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
   const native = await directorNative(director);
+  // Embedding Fantasia rows — sentences anchored on this director's films
+  const fantasia = await loadFantasia("director", slug, null, `director:${slug}`);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
   // /credits/[person] read page. Per-film crew is 24h-cached (shared cache).
@@ -396,6 +398,7 @@ export default async function DirectorPage({ params }: Props) {
   if (honorsN + receptionN > 0 || total >= 3 || readingCount > 0) tabs.push({ id: "dr-records", label: "The records", badge: honorsN + receptionN, color: "#8A6D3B", zone: "free" });
   if (newsCount > 0) tabs.push({ id: "dr-in-the-news", label: "In the news", badge: newsCount, color: "#E3120B", zone: "free" });
   tabs.push({ id: "dr-map", label: "Connections", color: "#2F6DB0", zone: "free" });
+  if (fantasia.length >= 2) tabs.push({ id: "dr-fantasia", label: "Embedding Fantasia", badge: fantasia.length, color: "#E0922A", zone: "free" });
   if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas", badge: geoMerged, color: "#2E8B6E", zone: "free" });
   if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations`, badge: geoMerged, color: "#3F7E8C", zone: "free" });
   tabs.push({ id: "dr-credits", label: "Credits", color: "#6B7280", zone: "free" });
@@ -752,6 +755,9 @@ export default async function DirectorPage({ params }: Props) {
           <p className="cmap-intro">Where {director} sits among filmmakers — who to watch next, the directors who point back here, and the directors nearest by Metatake&rsquo;s embedding of their films. Click a face to travel.</p>
           <EntityMap api={`/api/map?mode=directors&key=${slug}`} full={`/map?m=directors&k=${slug}`} />
         </section>
+
+        {/* EMBEDDING FANTASIA — rule-based sentences across this director's films */}
+        <EntityFantasia title={director} rows={fantasia} sectionId="dr-fantasia" sectionClass="dr-sec" selfHref={`/director/${slug}`} />
 
         {/* ATLAS — real-world places across the filmography */}
         {geoCount > 0 ? (
