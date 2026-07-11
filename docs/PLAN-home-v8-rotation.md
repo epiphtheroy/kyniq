@@ -1,6 +1,8 @@
 # PLAN — 홈 v8 "살아있는 진열장" (시드 로테이션 · TakeScore 카드 · Daily Exhibits)
 
-**상태: Phase 1·2 SHIPPED (2026-07-11), Phase 3 보류.** 원우 지시로 직접 실행함.
+**상태: v8 Phase 1·2 + v8.1 디자인·성능 라운드 SHIPPED (2026-07-11). Phase 3 보류.**
+**최신 최종 상태는 §14(v8.1)가 정본** — 그 아래 Phase 1·2 로그의 일부 세부(카드 라벨 Tm,
+BigSearch 위치, 지도 오버레이)는 v8.1에서 변경/철회됨.
 - **Phase 1 (SHIPPED)**: `home_v2_bundle_v3(p_seed)` 시드 로테이션(마이그 0071, 시간 시드 YYYYMMDDHH, md5 샘플, 결정론 검증·1.2s) + 전 영화 카드 `Tm {U}` TakeScore 칩(`FilmCard.tsx`/`helpers.tsQuadrant`) + 상단우측 Ask AI 제거(`Nav.tsx`). `app/page.tsx`가 v3로 스위치(롤백=RPC명 1줄). 라이브 검증: 홈 108/108 카드 칩·랭크 미표기·시드 로테이션 동작.
 - **Phase 2 (SHIPPED)**: "Today at Metatake" 밴드(`home_daily_exhibits`, 마이그 0072, 일 시드) 6타일(film·reversal·question·place·misreading·counterpoint, LLM-0, 각 md5 1픽·misreading은 'mis' 솔트로 film과 decorrelate, 0.6s) + `TodayExhibits.tsx` + `HomeV2` 2d 삽입 + `.hx-*` CSS. NowPlaying 아래 배치. 라이브: 6타일 렌더 확인.
 - **Phase 3 (보류, 저가치 폴리시)**: §8 방문별 클라 오프셋(useVisitOffset) + §9 Surprise 첫방문 어포던스(pulse+마이크로카피). 원우 요청 시 착수.
@@ -298,3 +300,72 @@ misreadings 클릭 분산 증가(특정 상위 카드 쏠림 완화), Surprise �
 
 **등록**: 완료 시 `docs/00-INDEX.md` 이 항목의 상태를 SHIPPED로 바꾸고, 본 문서 상단
 상태줄 갱신. 문제 발견 시 이 문서에 결정 로그를 덧붙일 것(별도 문서 만들지 말 것).
+
+---
+
+## 14. v8.1 — 오너 디자인 리뷰 반영 + 성능·안정성 라운드 (2026-07-11, 최종 상태 정본)
+
+Phase 1·2 출시 직후 오너 리뷰(4차례)로 확정된 **현재 라이브 상태**. 이후 홈을 만지는
+에이전트는 이 절을 기준으로 삼을 것(위 Phase 로그의 세부 일부는 여기서 대체됨).
+
+### 14.1 확정된 최종 홈 구성 (섹션 순서)
+Nav → HeroSurprise(불변) → ScreenerPromo → MyFilmsRibbon → NowPlaying →
+**TodayExhibits**(0072) → Picked → **EssentialTen(TakeScore화)** → Newly →
+**ReadingsDesk**(0075, 구 TropeList 대체) → ConceptTiles → LensRail →
+**HomeMap(지도+문장그리드 데스크)** → HomeAtlas → Directors → Auteurs → Rhyme →
+Canon → BlogGraph → **HomeTVCredits** → SixWays → Footer.
+**BigSearch는 홈에서 완전 제거**(검색은 내비·⌘K·/search) — 중앙 배치 시도 후 오너 지시로 철회→삭제.
+
+### 14.2 디자인 확정 사항 (오너 결정 로그)
+- **카드 점수 라벨 = `TS {U}`** ("Tm"은 오식으로 보인다는 지적 → TS). Essential Ten
+  상단 3편은 `TakeScore™ {U} · {판정어}`, 둘째 줄 7편은 `TS {U}`. **Metascore/RT는
+  Essential Ten에서 제거**(외부 지표 → 자사 점수 통일, 마이그 0076으로 top10 행에 ts 주입).
+- **지도 데스크(HomeMap)**: 글래스 오버레이("맵 안에서 노는 텍스트") 시도 → **철회**.
+  최종 = 좌 그래프 / 우 SentenceLexicon **좌우 분리**, 두 박스 **상하단 픽셀 정렬**
+  (홈 스코프에서 `.emap-head` 숨김 + 마진 0; 실측 top/bottom 차이 0px), 텍스트 그리드는
+  **560px 고정 + 내부 스크롤**(박스가 늘어나지 않음), 섹션 헤더는 **좌측정렬**(중앙정렬
+  시도 → 타 섹션과 통일 위해 철회). 그리드 내부 여백 확대는 유지.
+- **HomeTVCredits**: 하단 2단 — Metatake TV 임베드(16:9, 지연 마운트) + `/credits` 연결 카드.
+- **ReadingsDesk** "From the readings": 신문 1면형 — 리드(포스터 풀높이+세리프 제목+7줄
+  발췌) + 보조 4건 + 코너 스트립(misreadings·curious·tropes·concepts·theorists).
+  소스 = takes 출판 리딩 18,008건(강도≥4, rationale>250자), `home_readings_desk`(0075)
+  시간 시드. 링크는 `/film/{slug}/figure/{figSlug}`.
+- **movies-like**: 추천 카드마다 `TakeScore {U}` 필 — 공유 RPC **`takescore_for_slugs(slugs[])`**
+  (타 에이전트 제작)를 표준 벌크 프리미티브로 사용. **TS 확산 시 이 RPC를 쓸 것**(루프 금지).
+
+### 14.3 성능 수리 (오너 "홈 느려짐" 신고 → 실측 해결)
+| 원인 | 수리 | 실측 |
+|---|---|---|
+| `/api/map`이 명시적 `no-store` | 엣지 캐시 `max-age=120, s-maxage=600, SWR 1h` | 2.9s → **0.06s** HIT |
+| 아틀라스(MapLibre, unpkg 주입)·연결데스크·TV플레이어가 첫 로드에 즉시 로드/번들 포함 | **`components/home2/LazyMount.tsx`**(IO, 700px 프리롤, 고정높이 스켈레톤=CLS 0) + `next/dynamic ssr:false` 청크 분리 | 첫 페인트에서 3대 무거운 덩어리 제거 |
+| 홈 TTFB | (위 + 아래 14.4) | **0.06~0.21s** HIT |
+
+### 14.4 안정성 수리 (DB 재시작 2회에서 학습 — 재발 방지 계약)
+2026-07-11 Supabase 2회 재시작(과부하: 다중 에이전트 동시작업 + 무거운 RPC 적체).
+전면 증상(홈 깨짐·크레딧 안보임·아틀라스 무한로딩·전체 느림)은 모두 이 장애의 얼굴.
+- **캐시 스탬피드 계약**: `unstable_cache` **키에 시간 시드 넣지 말 것** — 매시 새 키 =
+  stale 없음 = 정시마다 전 동시요청이 RPC 직행. **키 고정 + 시드는 재생성 콜백 안에서
+  계산**(SWR 유지, 로테이션은 TTL마다). `app/page.tsx`의 loadV2/loadExhibits/loadReadings
+  전부 이 패턴.
+- **홈 RPC 타임아웃**: `home_v2_bundle_v3` 8s / `home_daily_exhibits` 6s (0074) — 홈
+  쿼리는 빨리 실패해야지 적체되면 안 됨(관측: 부하 시 1.2s→23s로 팽창).
+- **fetch 재시도 2회 이하**(3회×400ms가 스탬피드를 3배 증폭했음).
+- **빌드-타임 prerender 가드**: `/manifesto` loadBundle이 빌드 단계(`NEXT_PHASE`)에서만
+  재시도 8×2.5s — 일시 DB 블립이 배포 전체를 죽이던 문제(당일 빌드 4개 전멸) 종결.
+  **실전 검증됨**(리부팅 꼬리에 걸린 빌드가 재시도로 READY). 런타임은 기존 throw 유지
+  (last-good ISR 서빙이 정답).
+- **EntityMap은 fetch 실패 시 조용히 null 반환**(`if (failed) return null`) — 홈에선
+  LazyMount 스켈레톤이 자리를 지키므로 무해하지만, EntityMap을 새 표면에 얹을 땐 이
+  침묵-실패를 전제할 것.
+
+### 14.5 마이그레이션 대장 (이 라운드)
+0071 `home_v2_bundle_v3`(시드 로테이션+ts) · 0072 `home_daily_exhibits` ·
+0074 타임아웃 가드 · 0075 `home_readings_desk` · 0076 top10 ts.
+(0073은 타 에이전트의 TV 개인 리스트 — 번호 교차 주의.)
+
+### 14.6 남은 것
+- Phase 3(방문별 클라 오프셋·Surprise 첫방문 pulse) — 보류, 오너 요청 시.
+- 스켈레톤 노출이 거슬리면 LazyMount 프리롤(700px) 상향.
+- TS 필 사이트 확산(film 페이지 kin·감독 필모·검색 결과 등) — `takescore_for_slugs`로
+  표면당 반복 작업, movies-like가 참조 구현.
+- 성공 지표 관찰(§10)은 /admin/metrics로 2주 후.
