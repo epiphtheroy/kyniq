@@ -2572,6 +2572,21 @@ a.df-cpposter:hover { outline:2px solid #C56A44; }
 .dr-stat .dr-k { font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:7px; display:flex; align-items:center; gap:5px; }
 .dr-stat .dr-k:after { content:"↓"; color:var(--hairline-2); font-weight:700; }
 .dr-stat:hover .dr-k:after { color:var(--accent); }
+/* to.W — director standing card (the curator on the filmography's place in the index) */
+.dr-tow { margin:20px 0 0; padding:18px 20px; border:1px solid var(--hairline-2); border-left:3px solid var(--accent); border-radius:10px; background:var(--paper); }
+.dr-tow-kicker { font-family:var(--font-ui); font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+.dr-tow-h { font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:-.015em; color:var(--ink); margin:3px 0 6px; }
+.dr-tow-lead { font-family:var(--font-serif,Georgia,serif); font-size:16px; line-height:1.6; color:var(--ink2); margin:0; max-width:72ch; }
+.dr-tow-lead em { font-style:italic; }
+.dr-tow-tags { display:flex; flex-wrap:wrap; gap:7px; margin:12px 0 0; }
+.dr-tow-tag { font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.03em; padding:2px 10px; border-radius:999px; border:1px solid var(--hairline-2); color:var(--muted); background:#fff; }
+.dr-tow-tag--essential { color:var(--accent); border-color:var(--accent); }
+.dr-tow-tag--start { color:#0F6E56; border-color:#0F6E56; }
+.dr-tow-tag--deep { color:#5b4bb5; border-color:#5b4bb5; }
+.dr-tow-eg { font-family:var(--font-ui); font-size:13px; color:var(--muted); margin:11px 0 0; }
+.dr-tow-eg-k { font-weight:700; color:var(--ink2); }
+.dr-tow-eg a { color:var(--ink2); text-decoration:none; border-bottom:1px solid var(--hairline-2); }
+.dr-tow-eg a:hover { color:var(--accent); border-color:var(--accent); }
 .dr-finger { border-left:3px solid var(--accent); padding:4px 0 4px 16px; margin:26px 0 0; font-size:16.5px; color:var(--ink2); line-height:1.55; max-width:70ch; }
 .dr-finger b { color:var(--ink); }
 .dr-bio { margin:20px 0 0; border:1px solid var(--hairline); }

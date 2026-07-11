@@ -160,6 +160,38 @@ export default async function FramePage({ params }: Props) {
     .filter((i) => i.spoilerLevel === "none" && i.aha)
     .slice(0, 3);
 
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7/§5.8) ─────
+  // frame HAS a real ranking (rank + rationale), so "best film for {frame}" is
+  // legitimately answerable here (§5.8) — the rank-1 case with its editorial
+  // rationale verbatim. Every title/year is from the instance rows. Variant
+  // weaving (§0.6, authored text): "film(s)" carries Q_explore + Q_best (2),
+  // "explore" carries Q_explore (1). A verbatim definition/rationale is a quote,
+  // not woven phrasing, so it is not counted.
+  const frameQA: QuickAnswerItem[] = [];
+  const frDef = (frame.definition ?? "").trim();
+  if (frDef) frameQA.push({ q: `What is ${frame.label}?`, a: frDef });
+  if (instances.length > 0) {
+    const exploreFilms = instances.slice(0, 4).map((i) => ({ slug: i.film.slug, title: i.film.title, year: i.film.year }));
+    frameQA.push({
+      q: `Which films explore ${frame.label}?`,
+      a: <>Metatake ranks <FilmList films={exploreFilms} /> among the defining cases.</>,
+    });
+  }
+  const best = instances.find((i) => i.rank === 1);
+  if (best) {
+    const rationale = (best.rationale ?? "").trim();
+    frameQA.push({
+      q: `What is the best film for ${frame.label}?`,
+      a: (
+        <>
+          <Link href={`/film/${best.film.slug}`}>{best.film.title}</Link>
+          {best.film.year != null ? ` (${best.film.year})` : ""}
+          {rationale ? <> — {/[.!?]$/.test(rationale) ? rationale : `${rationale}.`}</> : "."}
+        </>
+      ),
+    });
+  }
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -197,6 +229,7 @@ export default async function FramePage({ params }: Props) {
               <span>·</span>
               <span>ranked by Metatake Editorial</span>
             </div>
+            <QuickAnswers items={frameQA.slice(0, 5)} />
           </header>
 
           {/* ── The ranking ── */}

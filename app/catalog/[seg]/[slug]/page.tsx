@@ -8,6 +8,7 @@ import LensQuickBar from "@/components/LensQuickBar";
 import ListFilter from "@/components/ListFilter";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { kindBySeg, sectionByKey, axisLabel, nodeHref, sectionHref } from "@/lib/catalog";
 import FilmTabBar from "@/components/FilmTabBar";
@@ -146,6 +147,36 @@ export default async function CatalogNode({ params }: Props) {
   const heroM = members.find((m) => m.backdrop);
   const heroBd = heroM?.backdrop ?? null;
 
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7/§5.8) ─────
+  // confidence = classification CERTAINTY, not quality — so "best {archetype}"
+  // is NEVER emitted (§5.8). The "Which films feature {label}?" list is also
+  // omitted: the members section below is a dedicated answer to that exact
+  // question (its H2 is identical), so repeating it here would duplicate a body
+  // answer section (charter §0.4). Counts are verbatim; the earliest claim only
+  // renders on a fully-loaded member set (`full`). Variant weaving (§0.6,
+  // authored text): "film(s)" carries Q_count + Q_earliest (2), "feature"
+  // carries Q_count (1) — each ≤2. The verbatim definition is a quote.
+  const catalogQA: QuickAnswerItem[] = [];
+  const catDef = (detail.definition ?? "").trim();
+  if (catDef) catalogQA.push({ q: `What is ${detail.label}?`, a: catDef });
+  if (members.length > 0) {
+    catalogQA.push({
+      q: `How many films feature ${detail.label}?`,
+      a: <>{n.toLocaleString()} {figLabel} across {uniqFilms.length}{full ? "" : "+"} title{uniqFilms.length === 1 ? "" : "s"}, each classified as {detail.label}.</>,
+    });
+  }
+  if (full && datedA.length >= 2) {
+    catalogQA.push({
+      q: `What is the earliest film with ${detail.label}?`,
+      a: (
+        <>
+          <Link href={`/film/${datedA[0].film_slug}`}>{datedA[0].film_title}</Link>
+          {datedA[0].yr != null ? ` (${datedA[0].yr})` : ""} — the earliest of the {datedA.length} dated title{datedA.length === 1 ? "" : "s"}.
+        </>
+      ),
+    });
+  }
+
   // JSON-LD — built entirely from data already fetched above (no extra queries).
   const nodeUrl = `${SITE}${nodeHref(km.kind, detail.slug)}`;
   const def =
@@ -277,6 +308,8 @@ export default async function CatalogNode({ params }: Props) {
         ) : null}
 
         <LensQuickBar />
+
+        <QuickAnswers items={catalogQA.slice(0, 5)} />
 
         {/* ── The archetype, spelled out — deterministic sentences ── */}
         <section className="cat-sec" id="spelled-out">
