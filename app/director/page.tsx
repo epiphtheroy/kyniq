@@ -32,8 +32,10 @@ export default async function DirectorIndexPage() {
   const cat = (catRes.data as DirCatalogue | null) ?? { total: 0, items: [] };
   const catalogue = cat.items;
   const total = cat.total;
-  // server-seeded spotlight (loads from first paint; "↻ another" rotates)
-  const spotlightSlug = catalogue.length ? catalogue[Math.floor(Math.random() * catalogue.length)].slug : null;
+  // server-seeded spotlight (loads from first paint; "↻ another" rotates) —
+  // only directors with a written intro page (director_portrait)
+  const introDirs = catalogue.filter((d) => d.has_intro);
+  const spotlightSlug = introDirs.length ? introDirs[Math.floor(Math.random() * introDirs.length)].slug : null;
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -5,7 +5,7 @@ import Catalogue, { type CatMode } from "@/components/Catalogue";
 import IndexExplorer, { type PoolItem } from "@/components/indexes/IndexExplorer";
 import { foldDiacritics } from "@/lib/slug";
 
-export type DirCat = { slug: string; name: string; country: string | null; films: number; sig: string | null; photo: string | null };
+export type DirCat = { slug: string; name: string; country: string | null; films: number; sig: string | null; photo: string | null; has_intro?: boolean };
 
 const THUMB = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w92${p}` : null);
 
@@ -21,8 +21,9 @@ const MODES: CatMode[] = [
 ];
 
 export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: DirCat[]; initialSlug: string | null }) {
-  // spotlight pool = the whole catalogue
-  const pool: PoolItem[] = catalogue.map((d) => ({ slug: d.slug, label: d.name, sub: d.country }));
+  // spotlight pool = only directors with a written intro page (director_portrait);
+  // the A–Z index below still lists every director
+  const pool: PoolItem[] = catalogue.filter((d) => d.has_intro).map((d) => ({ slug: d.slug, label: d.name, sub: d.country }));
 
   const cat = (
     <>
