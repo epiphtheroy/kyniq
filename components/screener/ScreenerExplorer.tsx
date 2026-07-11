@@ -150,9 +150,12 @@ export default function ScreenerExplorer({
   }, [dims]);
   const activeDims = Object.keys(subJson).length;
 
-  // build the URL from state (debounced)
+  // build the URL from state (debounced). Skip the first settled render so we
+  // never write the URL before localStorage-backed pins have hydrated.
+  const urlArmed = useRef(false);
   useEffect(() => {
     if (!hydrated.current) return;
+    if (!urlArmed.current) { urlArmed.current = true; return; }
     const sp = new URLSearchParams();
     if (sort !== "u") sp.set("sort", sort);
     if (lam !== 1) sp.set("lam", String(lam));
