@@ -59,6 +59,12 @@ async function load(slug: string) {
     return { film: f, reasons, score: Number(a.score), cos: a.cos == null ? null : Number(a.cos), sharedN: (a.shared_meta_take_ids ?? []).length };
   }).filter(Boolean) as Rec[];
 
+  // TakeScore per rec (shared bulk RPC by slug; null for unscored Tier-2 films)
+  const scoreRows = recs.length
+    ? (((await supabase.rpc("takescore_for_slugs", { p_slugs: recs.map((r) => r.film.slug) })).data as { slug: string; ts: number }[] | null) ?? [])
+    : [];
+  const scoreMap = new Map(scoreRows.map((s) => [s.slug, s.ts]));
+
   // derived, never baked: the edition date is the last time the affinity ledger was rebuilt
   const updatedAt = (aff ?? []).reduce<string | null>((m, a) => {
     const u = (a as { updated_at?: string }).updated_at ?? null;
@@ -187,6 +193,11 @@ export default async function MoviesLikePage({ params }: Props) {
                     <span className="yr">({r.film.year ?? "?"})</span>
                     {r.film.director ? <span className="ml-dir"> · {r.film.director}</span> : null}
                     <p style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "7px 0 0" }}>
+                      {scoreMap.get(r.film.slug) != null ? (
+                        <Link href={`/takescore/film/${r.film.slug}`} style={{ fontSize: 11.5, fontWeight: 700, padding: "2px 8px", borderRadius: 999, background: "rgba(176,138,44,.12)", color: "#6b5416", textDecoration: "none" }}>
+                          TakeScore {scoreMap.get(r.film.slug)}
+                        </Link>
+                      ) : null}
                       {r.cos != null ? (
                         <span style={{ fontSize: 11.5, fontWeight: 700, padding: "2px 8px", borderRadius: 999, background: "rgba(31,111,178,.10)", color: "#1a4e7a" }}>
                           taste match {Math.round(r.cos * 100)}%
