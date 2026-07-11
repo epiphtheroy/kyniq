@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import EntityTVHero from "@/components/EntityTVHero";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -234,6 +235,7 @@ export default async function QuestionPage({ params }: Props) {
 
       <main className="page">
         <div className="colwrap">
+          <EntityTVHero program={slug} reelSlugs={[slug]} label={film.title} backdrop={null} />
           {/* ── Kicker: film | year · director ── */}
           <header className="article-head">
             <p className="kicker">

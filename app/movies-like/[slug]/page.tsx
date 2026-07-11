@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import PosterActions from "@/components/PosterActions";
 import LensQuickBar from "@/components/LensQuickBar";
 import ShareDock from "@/components/ShareDock";
@@ -131,6 +132,7 @@ export default async function MoviesLikePage({ params }: Props) {
         <div className="mt-crumb">
           <Link href="/film">Films</Link> &nbsp;›&nbsp; <Link href={`/film/${film.slug}`}>{film.title}</Link>
         </div>
+        <EntityTVHero program={film.slug} reelSlugs={[film.slug]} label={film.title} backdrop={film.backdrop_path ?? null} />
 
         <div style={{ display: "flex", gap: 18, alignItems: "flex-start", marginTop: 6 }}>
           {film.poster_path ? (

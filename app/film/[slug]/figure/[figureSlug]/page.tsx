@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
 import EntityMap from "@/components/EntityMap";
@@ -295,6 +296,7 @@ export default async function FigurePage({ params }: Props) {
           {film.director_slug ? <><span className="fg-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
           <span className="fg-sep">›</span><Link href={`/film/${film.slug}`}>{film.title}</Link>
         </div>
+        <EntityTVHero program={film.slug} reelSlugs={[film.slug]} label={film.title} backdrop={null} />
 
         <section className="fg-head">
           <div className="fg-kindtag">Figure</div>

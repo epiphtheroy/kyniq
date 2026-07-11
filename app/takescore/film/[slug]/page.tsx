@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import ScoreDonut from "@/components/ScoreDonut";
 import { CODEX_DIMS, takescoreDimUrl, type CodexDimGroup } from "@/lib/cinecodex_dims";
 import { filmUrl } from "@/lib/urls";
@@ -210,6 +211,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         <div className="lh-crumb">
           <Link href="/">Home</Link> › <Link href="/takescore">TakeScore</Link> › {card.title}
         </div>
+        <EntityTVHero program={slug} reelSlugs={[slug]} label={nameYear} backdrop={null} />
         <h1 className="lh-h1">{nameYear} — TakeScore {ts}</h1>
         <div className="tsf-share">
           <ShareDock variant="bar" path={`/takescore/film/${card.slug}`} title={`${nameYear} — TakeScore ${ts}`}
