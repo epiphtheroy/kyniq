@@ -422,37 +422,64 @@ export default function ScreenerExplorer({
         <ScoreBrush buckets={hist} domain={[-20, 90]} step={5} value={ts} onChange={setTs} height={64} color={AX.v} label="TakeScore range" hint={!ts} />
       </div>
 
-      {/* results grid */}
+      {/* results grid — click a row to drop its verdict curtain */}
       <div className="scr-grid">
         {rows.length === 0 && !loading ? (
-          <p className="scr-empty">No films match these filters. <button className="scr-empty-reset" onClick={() => { setTs(null); setDims({}); setMaxVotes(""); setProviders([]); setHideSeen(false); }}>Reset filters</button></p>
-        ) : rows.map((f) => (
-          <div className="scr-row" key={`${f.slug}-${f.rank}`}>
-            <span className="scr-rank" title={`#${f.rank} by ${SORTS.find((s) => s.id === sort)?.label ?? "TakeScore"}`}>{f.rank}</span>
-            <button className="scr-row-poster" onClick={() => pin(f.slug, f.title, f.poster_path)} aria-label={`Pin ${f.title}`}>
-              {f.poster_path ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" width={66} height={99} />
-              ) : <span className="scr-row-poster--e" />}
-            </button>
-            <div className="scr-row-mid">
-              <button className="scr-row-title" onClick={() => pin(f.slug, f.title, f.poster_path)}>
-                {f.title} <span className="scr-row-y">({f.year ?? "?"}{f.director ? `, ${f.director}` : ""})</span>
-              </button>
-              <div className="scr-row-band">
-                <b style={{ color: AX.v }}>V {Math.round(f.v)}</b>
-                <b style={{ color: AX.c }}>C {Math.round(f.c)}</b>
-                <b style={{ color: AX.r }}>R {Math.round(f.r)}</b>
-                {f.imdb_rating != null ? <span>IMDb {Number(f.imdb_rating).toFixed(1)}</span> : null}
-                {f.rt != null ? <span>RT {f.rt}%</span> : null}
+          <p className="scr-empty">No films match these filters. <button className="scr-empty-reset" onClick={() => { setTs(null); setDims({}); setMaxVotes(""); setProviders([]); setHideSeen(false); setGenre(""); setCountry(""); }}>Reset filters</button></p>
+        ) : rows.map((f) => {
+          const isOpen = openRow === f.slug;
+          return (
+          <div className={`scr-rowwrap${isOpen ? " open" : ""}`} key={`${f.slug}-${f.rank}`}>
+            <div className="scr-row" role="button" tabIndex={0} aria-expanded={isOpen}
+              onClick={() => setOpenRow(isOpen ? null : f.slug)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenRow(isOpen ? null : f.slug); } }}>
+              <span className="scr-rank" title={`#${f.rank} by ${SORTS.find((s) => s.id === sort)?.label ?? "TakeScore"}`}>{f.rank}</span>
+              <span className="scr-row-poster">
+                {f.poster_path ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" width={66} height={99} />
+                ) : <span className="scr-row-poster--e" />}
+              </span>
+              <div className="scr-row-mid">
+                <div className="scr-row-title">
+                  {f.title} <span className="scr-row-y">({f.year ?? "?"}{f.director ? `, ${f.director}` : ""})</span>
+                </div>
+                <div className="scr-row-band">
+                  <b style={{ color: AX.v }}>V {Math.round(f.v)}</b>
+                  <b style={{ color: AX.c }}>C {Math.round(f.c)}</b>
+                  <b style={{ color: AX.r }}>R {Math.round(f.r)}</b>
+                  {f.imdb_rating != null ? <span>IMDb {Number(f.imdb_rating).toFixed(1)}</span> : null}
+                  {f.rt != null ? <span>RT {f.rt}%</span> : null}
+                </div>
+                <div className="scr-row-verdict">{shortVerdict(f.v, f.c, f.r, f.u)}</div>
               </div>
+              <span className="scr-row-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
+              <span className="scr-row-chev" aria-hidden>{isOpen ? "▲" : "▼"}</span>
             </div>
-            <Link className="scr-row-ts" href={`/takescore/film/${f.slug}`} title="Full appraisal →" onClick={(e) => e.stopPropagation()}>
-              <b>{Math.round(f.u)}</b><i>TS</i>
-            </Link>
-            <div className="scr-row-save"><PosterActions slug={f.slug} rating={false} compact /></div>
+            {isOpen ? (
+              <div className="scr-curtain">
+                <p className="scr-curtain-verdict">{verdictSentence(f.v, f.c, f.r, f.u, f.title)}</p>
+                <div className="scr-curtain-row">
+                  <div className="scr-curtain-scores">
+                    <span className="scr-cs" style={{ color: AX.v }}><b>{Math.round(f.v)}</b><i>Value</i></span>
+                    <span className="scr-cs" style={{ color: AX.c }}><b>{Math.round(f.c)}</b><i>Cost</i></span>
+                    <span className="scr-cs" style={{ color: AX.r }}><b>{Math.round(f.r)}</b><i>Risk</i></span>
+                    <span className="scr-cs scr-cs--ts"><b>{Math.round(f.u)}</b><i>TakeScore</i></span>
+                    {f.imdb_rating != null ? <span className="scr-cs scr-cs--ext"><b>{Number(f.imdb_rating).toFixed(1)}</b><i>IMDb</i></span> : null}
+                    {f.rt != null ? <span className="scr-cs scr-cs--ext"><b>{f.rt}%</b><i>RT</i></span> : null}
+                  </div>
+                  <div className="scr-curtain-act" onClick={(e) => e.stopPropagation()}>
+                    <PosterActions slug={f.slug} rating={false} compact />
+                    <button className="scr-curtain-pin" onClick={() => pin(f.slug, f.title, f.poster_path)}>＋ Compare</button>
+                    <Link className="scr-curtain-appr" href={`/takescore/film/${f.slug}`}>Full appraisal →</Link>
+                    <Link className="scr-curtain-film" href={`/film/${f.slug}`}>Film page →</Link>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
-        ))}
+          );
+        })}
       </div>
       {rows.length < total ? (
         <div className="scr-more"><button onClick={() => fetchPage(false)} disabled={loading}>{loading ? "Loading…" : `Load more (${rows.length}/${total.toLocaleString("en-US")})`}</button></div>
