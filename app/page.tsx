@@ -66,7 +66,24 @@ async function loadV2(): Promise<HomeV2Data> {
   }
 }
 
+// Top TakeScores for the Screener promo strip (SSR'd, no flash). Cached hourly
+// with the rest of the home; a tiny slice of the same cinecodex_ranked the
+// Screener itself serves.
+export type ScreenerTop = { slug: string; title: string; year: number | null; poster_path: string | null; u: number };
+const getScreenerTop = unstable_cache(
+  async (): Promise<ScreenerTop[]> => {
+    try {
+      const { data } = await db().rpc("cinecodex_ranked", { p_sort: "u", p_lambda: 1.0, p_limit: 14, p_offset: 0 });
+      return (((data as { rows?: ScreenerTop[] } | null)?.rows) ?? []).map((r) => ({
+        slug: r.slug, title: r.title, year: r.year, poster_path: r.poster_path, u: r.u,
+      }));
+    } catch { return []; }
+  },
+  ["home-screener-top-1"],
+  { revalidate: 3600 },
+);
+
 export default async function Home() {
-  const data = await loadV2();
-  return <HomeV2 data={data} />;
+  const [data, screenerTop] = await Promise.all([loadV2(), getScreenerTop()]);
+  return <HomeV2 data={data} screenerTop={screenerTop} />;
 }

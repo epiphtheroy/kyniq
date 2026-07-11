@@ -2,8 +2,10 @@
 
 import type { HomeV2 as HomeV2Data } from "@/lib/home2";
 
+import type { ScreenerTop } from "@/app/page";
 import Nav from "./Nav";
 import HeroSurprise from "./HeroSurprise";
+import ScreenerPromo from "./ScreenerPromo";
 import MyFilmsRibbon from "./MyFilmsRibbon";
 import Picked from "./Picked";
 import Top10 from "./EssentialTen";
@@ -28,13 +30,15 @@ import SiteFooter from "./SiteFooter";
  * 16 sections in mockup order with the paper / dark / paper-2 band rhythm.
  * Everything renders inside a single .mthome scope so app/home2.css applies.
  */
-export default function HomeV2({ data }: { data: HomeV2Data }) {
+export default function HomeV2({ data, screenerTop = [] }: { data: HomeV2Data; screenerTop?: ScreenerTop[] }) {
   return (
     <div className="mthome">
       {/* 1 — Nav (dark, sticky) */}
       <Nav counts={data.stats} />
       {/* 2 — Surprise me hero (dark): random draw + red space-bar + text panel */}
       <HeroSurprise />
+      {/* 2a — The Screener: flagship entry into /takescore (dark), featured high */}
+      <ScreenerPromo rows={screenerTop} />
       {/* 2b — My Films lens ribbon (client-personalised, server HTML identical) */}
       <MyFilmsRibbon />
       {/* 2c — Now Playing: the live layer, featured big (renders nothing until the first piece) */}
