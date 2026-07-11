@@ -598,8 +598,12 @@ export default async function DirectorPage({ params }: Props) {
             director holds no non-optional films. */}
         {standing && curation ? (
           <section className="dr-tow" aria-labelledby="dr-tow-h">
-            <div className="dr-tow-kicker">to.W · the index</div>
-            <h2 className="dr-tow-h" id="dr-tow-h">{director} in the Metatake index</h2>
+            <div className="dr-tow-head">
+              <div>
+                <div className="dr-tow-kicker">to.W · the index</div>
+                <h2 className="dr-tow-h" id="dr-tow-h">{director} in the Metatake index</h2>
+              </div>
+            </div>
             <p className="dr-tow-lead">
               <em>To W.H.</em> — {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
             </p>

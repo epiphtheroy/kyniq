@@ -7,6 +7,7 @@ import MineEntityIndex from "@/components/MineEntityIndex";
 import ConceptDirectory, { type DirRow } from "@/components/ConceptDirectory";
 import TheoryExplorer from "@/components/theory/TheoryExplorer";
 import ConceptDomainRail, { type DomainCount } from "@/components/theory/ConceptDomainRail";
+import portraits from "@/lib/theorist_portrait.json";
 import { pageRobots } from "@/lib/seo";
 
 /**
@@ -33,14 +34,24 @@ type LiveRow = { slug: string; name: string; films: number; theorist: string | n
 
 const normName = (s: string) => s.toLowerCase().replace(/\s*\([^)]*\)/g, "").replace(/^the\s+/, "").replace(/[^a-z0-9]/g, "");
 
+type TheoristIdx = { slug: string; name: string };
+
 async function loadRows() {
   const supabase = db();
-  const [{ data: liveData }, { data: smData }, { data: takesData }, { data: domData }] = await Promise.all([
+  const [{ data: liveData }, { data: smData }, { data: takesData }, { data: domData }, { data: thData }] = await Promise.all([
     supabase.rpc("concept_live_registry"),
     supabase.rpc("sm_concept_index", { p_limit: 500 }),
     supabase.rpc("concept_index"),
     supabase.rpc("concept_domain_counts"),
+    supabase.rpc("theorist_index"),
   ]);
+  // theorist NAME → portrait URL (concept rows carry a theorist name, not slug)
+  const pmap = portraits as Record<string, string>;
+  const portraitByTheorist: Record<string, string> = {};
+  for (const t of ((thData as TheoristIdx[] | null) ?? [])) {
+    const url = pmap[t.slug];
+    if (url) portraitByTheorist[t.name] = url;
+  }
   const live = (liveData as LiveRow[] | null) ?? [];
   const seenSlug = new Set(live.map((r) => r.slug));
   const seenName = new Set(live.map((r) => normName(r.name)));
@@ -55,7 +66,7 @@ async function loadRows() {
     seenSlug.add(r.slug); seenName.add(normName(r.title));
     rows.push({ slug: r.slug, name: r.title, films: r.n });
   }
-  return { rows, domains: ((domData as DomainCount[] | null) ?? []) };
+  return { rows, domains: ((domData as DomainCount[] | null) ?? []), portraitByTheorist };
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -68,7 +79,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ConceptIndex() {
-  const { rows, domains } = await loadRows();
+  const { rows, domains, portraitByTheorist } = await loadRows();
   const films = rows.reduce((s, r) => s + r.films, 0);
   const liveDomains = domains.filter((d) => d.live > 0).length;
 
@@ -105,7 +116,7 @@ export default async function ConceptIndex() {
           <MineEntityIndex kind="concepts" hrefBase="/concept/" noun="concepts" />
           <ConceptDomainRail domains={domains} />
           <div className="mtl-swap-out" style={{ marginTop: 30 }}>
-            <ConceptDirectory rows={rows} />
+            <ConceptDirectory rows={rows} portraits={portraitByTheorist} />
           </div>
         </TheoryExplorer>
       </div>
