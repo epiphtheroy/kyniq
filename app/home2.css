@@ -304,6 +304,7 @@
 .mthome .homemap-sec .homemap-head .seeall{margin-top:2px}
 /* one surface: the graph fills the row; the sentence grid becomes a glass panel
    floating over the map's right edge — the text lives inside the map. */
+.mthome .homemap{max-width:none;margin:16px 0 0}
 .mthome .homemap .cmap-cols{position:relative;display:block}
 .mthome .homemap .cmap-colgraph{width:100%}
 .mthome .homemap .lexi{position:absolute;top:66px;right:14px;bottom:14px;width:328px;z-index:6;
@@ -329,15 +330,15 @@
 .mthome .rdx-lead{display:flex;gap:22px;text-decoration:none;background:#fff;border:1px solid var(--line);
   border-radius:12px;padding:24px;transition:border-color .15s,transform .15s}
 .mthome .rdx-lead:hover{border-color:var(--red);transform:translateY(-1px)}
-.mthome .rdx-art{flex:0 0 150px;width:150px;height:225px;object-fit:cover;border-radius:8px;background:var(--paper-2)}
+.mthome .rdx-art{flex:0 0 150px;width:150px;height:auto;align-self:stretch;min-height:225px;object-fit:cover;border-radius:8px;background:var(--paper-2)}
 .mthome .rdx-lead-body{min-width:0;display:flex;flex-direction:column}
 .mthome .rdx-kick{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:10.5px;font-family:var(--ui)}
 .mthome .rdx-fw{font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
 .mthome .rdx-film{color:var(--ink-faint);font-weight:600}
 .mthome .rdx-title{font-family:Georgia,"Times New Roman",serif;font-size:27px;line-height:1.14;
   margin:10px 0 12px;color:var(--ink);font-weight:700;letter-spacing:-.3px}
-.mthome .rdx-ex{font-family:Georgia,"Times New Roman",serif;font-size:14.5px;line-height:1.64;color:var(--ink-soft);
-  margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.mthome .rdx-ex{font-family:Georgia,"Times New Roman",serif;font-size:14.5px;line-height:1.66;color:var(--ink-soft);
+  margin:0;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
 .mthome .rdx-meta{margin-top:auto;padding-top:14px;font-family:var(--ui);font-size:12px;color:var(--ink-faint)}
 .mthome .rdx-meta b{color:var(--ink-soft)}
 .mthome .rdx-side{display:flex;flex-direction:column;justify-content:space-between}
