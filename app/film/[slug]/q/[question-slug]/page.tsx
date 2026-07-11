@@ -235,7 +235,7 @@ export default async function QuestionPage({ params }: Props) {
 
       <main className="page">
         <div className="colwrap">
-          <EntityTVHero program={slug} reelSlugs={[slug]} label={film.title} backdrop={null} />
+          <EntityTVHero program={film.slug} reelSlugs={[film.slug]} label={film.title} backdrop={null} />
           {/* ── Kicker: film | year · director ── */}
           <header className="article-head">
             <p className="kicker">
