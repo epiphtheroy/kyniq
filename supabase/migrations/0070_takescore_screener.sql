@@ -1,4 +1,4 @@
--- 0068_takescore_screener.sql — DB layer for the /takescore Screener redesign.
+-- 0070_takescore_screener.sql — DB layer for the /takescore Screener redesign.
 -- Spec: HANDOFF-테이크스코어-스크리너.md §6.
 --
 -- 1. film_provider_index — a normalized (film, country, provider, kind) row set
