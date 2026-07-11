@@ -45,7 +45,7 @@ export default function FilmCard({
               href={`/takescore/film/${f.slug}`}
               title={`TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}
             >
-              Tm&nbsp;{f.ts}
+              TS&nbsp;{f.ts}
             </Link>
           ) : null}
           <span className="save">☆</span>

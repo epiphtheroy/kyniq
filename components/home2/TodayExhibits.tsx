@@ -25,7 +25,7 @@ export default function TodayExhibits({ ex }: { ex: Exhibits }) {
           <span className="hx-d">
             {f.director ?? "on the map"}
             {f.ts != null ? (
-              <span className="hx-ts" title={`TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}>Tm&nbsp;{f.ts}</span>
+              <span className="hx-ts" title={`TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}>TakeScore&nbsp;{f.ts}</span>
             ) : null}
           </span>
         </span>
