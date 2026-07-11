@@ -29,6 +29,14 @@ const TYPE_LABEL: Record<string, string> = { film: "Film", figure: "Figure", tro
 const YEARS = [null, 1970, 1980, 1990, 2000, 2010, 2020];
 const IMDBS = [null, 6, 7, 7.5, 8];
 const RTS = [null, 60, 75, 90];
+// view-flavored lexicon roots for overview states (no ego center) — each /map
+// tab samples the sentence patterns that match what it draws
+const VIEW_ROOT: Record<Mode, { type: string; key: string; label: string }> = {
+  films: { type: "sample", key: "A_affinity,B_bridge,H_dense", label: "All films" },
+  directors: { type: "sample", key: "F_compare,E_rank", label: "All directors" },
+  critical: { type: "sample", key: "C_reading,G_theorist_twin,I_lens_twin,L_trope,M_frame", label: "The critical web" },
+  galaxy: { type: "sample", key: "E_rank,D_award,J_location", label: "The galaxy" },
+};
 
 function egoParams(id: string): EgoParams | null {
   const i = id.indexOf(":");
@@ -281,7 +289,12 @@ export default function MapExplorer() {
 
       {mode === "galaxy" ? (
         <div className="map-graphwrap">
-          <GalaxyMap height={h} />
+          <div className="map-cols">
+            <div className="map-colgraph">
+              <GalaxyMap height={h} />
+            </div>
+            <SentenceLexicon key="view:galaxy" root={VIEW_ROOT.galaxy} height={h} />
+          </div>
         </div>
       ) : (
       <div className="map-graphwrap">
@@ -324,9 +337,7 @@ export default function MapExplorer() {
         </div>
         <EntityGraph data={data} height={h} onNodeClick={recenter} onOpen={openNode} className="map-canvas" />
       </div>
-      {lexiRoot ? (
-        <SentenceLexicon key={center!.id} root={lexiRoot} height={h} />
-      ) : null}
+      <SentenceLexicon key={center?.id ?? `view:${mode}`} root={lexiRoot} height={h} />
       </div>
       </div>
       )}
