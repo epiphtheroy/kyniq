@@ -17,6 +17,7 @@ import { useLens } from "@/components/LensProvider";
 import { useUserFilms } from "@/components/UserFilmsProvider";
 import PosterActions from "@/components/PosterActions";
 import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
+import { verdictSentence } from "@/lib/takescore_prose";
 import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
 import ScoreBrush, { type Bucket } from "@/components/screener/ScoreBrush";
 import ProviderPicker from "@/components/screener/ProviderPicker";
@@ -39,9 +40,14 @@ export type DimHist = Record<string, Bucket[]>;
 const SORTS = [
   { id: "u", label: "TakeScore" }, { id: "v", label: "Value" }, { id: "c", label: "Lowest cost" },
   { id: "lowrisk", label: "Lowest risk" }, { id: "sharpe", label: "Efficiency" },
-  { id: "newest", label: "Newest" }, { id: "oldest", label: "Oldest" },
+  { id: "newest", label: "Newest" }, { id: "oldest", label: "Oldest" }, { id: "alpha", label: "A–Z" },
 ];
+const GENRES = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama",
+  "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction",
+  "Thriller", "War", "Western"];
 const SINCE = ["", "2020", "2010", "2000", "1990", "1970"];
+// one-line verdict for the collapsed row (quadrant only, title-free); full verdict in the curtain
+const shortVerdict = (v: number, c: number, r: number, u: number) => verdictSentence(v, c, r, u).split(". ")[0];
 const WATCH_COUNTRIES = ["KR", "US", "GB", "CA", "AU", "IN", "FR", "DE", "JP", "BR", "MX", "ES", "IT", "NL", "SE"];
 
 let RN: Intl.DisplayNames | null = null;
@@ -88,6 +94,7 @@ export default function ScreenerExplorer({
   const [since, setSince] = useState("");
   const [to, setTo] = useState("");
   const [country, setCountry] = useState("");     // made-in
+  const [genre, setGenre] = useState("");
   const [q, setQ] = useState("");
   const [ts, setTs] = useState<[number, number] | null>(null);
   const [dims, setDims] = useState<Record<string, [number, number]>>({});
