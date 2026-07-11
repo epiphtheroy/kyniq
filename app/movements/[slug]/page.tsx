@@ -108,7 +108,7 @@ export default async function MovementHub({ params }: Props) {
           </section>
         )}
 
-        <PlaylistTVEmbed slug={`lineage-${slug}`} />
+        <PlaylistTVEmbed slug={`lineage-${slug}`} heading={`${d.hub.label} on METATAKE TV — the films of the tradition, as broadcasts`} />
       </div>
     </div>
   );

@@ -811,7 +811,7 @@ export default async function ConceptPage({ params }: Props) {
         </div>
       ) : null}
 
-      <div className="mt-wrap"><PlaylistTVEmbed slug={`concept-${slug}`} /></div>
+      <div className="mt-wrap"><PlaylistTVEmbed slug={`concept-${slug}`} heading={`${name} on METATAKE TV — the films that stage it`} /></div>
     </div>
   );
 }

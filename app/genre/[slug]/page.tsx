@@ -111,7 +111,7 @@ export default async function GenrePage({ params }: Props) {
           </section>
         )}
 
-        <PlaylistTVEmbed slug={`genre-${slug}`} />
+        <PlaylistTVEmbed slug={`genre-${slug}`} heading={`${unslug(slug).replace(/\b\w/g, (c) => c.toUpperCase())} films on METATAKE TV`} />
       </div>
     </div>
   );

@@ -332,7 +332,7 @@ export default async function LineagePage({ params }: Props) {
           </section>
         )}
 
-        <PlaylistTVEmbed slug={`lineage-${slug}`} />
+        <PlaylistTVEmbed slug={`lineage-${slug}`} heading={`${list.label} on METATAKE TV — every listed film as a broadcast`} />
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Metatake Editorial · Lineage data compiled from public records — source above · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
