@@ -249,13 +249,13 @@ export default function ScreenerExplorer({
     if (first.current) {
       first.current = false;
       fetchHist();
-      const stale = sort !== "u" || !!since || !!to || !!country || !!q || !!ts || activeDims > 0 || !!maxVotes || provActive || !!personalMode;
+      const stale = sort !== "u" || !!since || !!to || !!country || !!genre || !!q || !!ts || activeDims > 0 || !!maxVotes || provActive || !!personalMode;
       if (stale) fetchPage(true);
       return;
     }
     const t = setTimeout(() => { fetchPage(true); fetchHist(); }, 320);
     return () => clearTimeout(t);
-  }, [sort, lam, q, yearMin, to, country, ts, subJson, maxVotes, provActive, providers, watchCountry, personalMode]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sort, lam, q, yearMin, to, country, genre, ts, subJson, maxVotes, provActive, providers, watchCountry, personalMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ---- pin helpers ----
   const pin = useCallback((slug: string, title: string, poster: string | null) => {

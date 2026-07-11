@@ -40,6 +40,7 @@ export async function GET(request: Request) {
     p_watch_country: searchParams.get("watch") || null,
     p_max_votes: num("max_votes"),
     p_mode: mode,
+    p_genre: searchParams.get("genre") || null,
     p_limit: Math.min(Math.max(Math.trunc(num("limit") ?? 60), 1), 120),
     p_offset: Math.max(Math.trunc(num("offset") ?? 0), 0),
   });
