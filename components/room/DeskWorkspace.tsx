@@ -14,6 +14,7 @@
  *  (honest empty copy instead); NAV surfaces never link to the Ledger. */
 import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import SentenceTicker from "@/components/SentenceTicker";
 import { useInspector } from "./InspectorContext";
 import RecInsp, { type RecFilm } from "./RecInsp";
 import QuickRate, { type QuickHit } from "./QuickRate";
@@ -280,6 +281,9 @@ export default function DeskWorkspace({ data }: { data: DeskData }) {
 
   return (
     <div className="v2wrap" style={{ gap: 22, paddingBottom: 40 }}>
+      {/* ⓪ Connection ticker — terminal tape of computed cross-film links */}
+      <SentenceTicker variant="room" n={40} />
+
       {/* ① Log bar */}
       <div>
         <QuickRate onRate={(h: QuickHit, v: number) => void rateNew({ ...h, rating: null, date: null }, v)} />
