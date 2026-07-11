@@ -104,7 +104,7 @@ export default async function MovementHub({ params }: Props) {
   if (famousList.length) {
     movementQA.push({
       q: `What are the most famous ${label} films?`,
-      a: <>The best-known are <FilmList films={famousList} />.</>,
+      a: <>The most popular are <FilmList films={famousList} />.</>,
     });
   }
   if (d.auteurs?.length) {
