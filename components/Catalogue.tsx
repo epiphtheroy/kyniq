@@ -6,7 +6,7 @@ import Link from "next/link";
 const AZ = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("");
 
 export type CatMode = { key: string; label: string; az?: boolean };
-export type CatCell = { href: string; title: ReactNode; meta: ReactNode; text: string };
+export type CatCell = { href: string; title: ReactNode; meta: ReactNode; text: string; thumb?: ReactNode };
 
 function gid(k: string) {
   return "g-" + k.replace(/[^A-Za-z0-9]/g, "");
@@ -105,9 +105,12 @@ export default function Catalogue<T>({
             {groups.map[key].map((it) => {
               const c = cell(it);
               return (
-                <Link key={c.href} href={c.href} className="idx-fcell">
-                  <span className="ft">{c.title}</span>
-                  <span className="fd">{c.meta}</span>
+                <Link key={c.href} href={c.href} className={`idx-fcell${c.thumb ? " idx-fcell--media" : ""}`}>
+                  {c.thumb ?? null}
+                  <span className="idx-fcelltxt">
+                    <span className="ft">{c.title}</span>
+                    <span className="fd">{c.meta}</span>
+                  </span>
                 </Link>
               );
             })}
