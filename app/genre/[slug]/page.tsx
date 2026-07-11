@@ -8,12 +8,28 @@ import EntityTVHero from "@/components/EntityTVHero";
 import ListFilter from "@/components/ListFilter";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import LensQuickBar from "@/components/LensQuickBar";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 
 export const revalidate = 600;
 export async function generateStaticParams() { return []; }
 
 interface Props { params: Promise<{ slug: string }>; }
 function unslug(s: string) { return s.replace(/-/g, " "); }
+
+// One grammatical, linked enumeration of films — "A (2020), B (2019) and C (2018)"
+// — for the Quick-answers block (never a bare keyword list, charter §0.6).
+function FilmList({ films }: { films: { slug: string; title: string; year: number | null }[] }) {
+  return (
+    <>
+      {films.map((f, i) => (
+        <span key={f.slug}>
+          {i > 0 ? (i === films.length - 1 ? " and " : ", ") : ""}
+          <Link href={`/film/${f.slug}`}>{f.title}</Link>{f.year != null ? ` (${f.year})` : ""}
+        </span>
+      ))}
+    </>
+  );
+}
 // The one genre matcher this page uses — visible list and hidden archive both go through it.
 function slugifyGenre(g: string) { return g.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 const IMG = "https://image.tmdb.org/t/p";
@@ -67,6 +83,39 @@ export default async function GenrePage({ params }: Props) {
     hidden = (h as HiddenFilm[] | null) ?? [];
     hiddenTotal = count ?? hidden.length;
   }
+
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7/§5.8) ─────
+  // Genre has NO quality signal — so "best {genre}" is NEVER emitted; every
+  // question is a count or a chronological reframe answered from the rows in
+  // scope (inGenre is year-desc sorted; counts are verbatim). Variant weaving
+  // (§0.6): "films" carries Q1+A1 (2), "movies" carries Q2+Q3 (2) — each ≤2.
+  const genre = unslug(slug);
+  const genreQA: QuickAnswerItem[] = [];
+  genreQA.push({
+    q: `How many ${genre} films are there?`,
+    a: `${inGenre.length} ${genre} films read closely on Metatake${hiddenTotal > 0 ? `, plus ${hiddenTotal} more in the catalog` : ""}.`,
+  });
+  const datedG = inGenre.filter((f) => f.year != null);
+  if (datedG.length > 0) {
+    const newest = datedG.slice(0, 4);
+    genreQA.push({
+      q: `What are the newest ${genre} movies?`,
+      a: <>The most recent are <FilmList films={newest} />.</>,
+    });
+  }
+  const decFreqG = new Map<number, number>();
+  for (const f of datedG) { const d = Math.floor((f.year as number) / 10) * 10; decFreqG.set(d, (decFreqG.get(d) ?? 0) + 1); }
+  if (decFreqG.size >= 2) {
+    const topDec = [...decFreqG.entries()].sort((a, b) => b[1] - a[1] || b[0] - a[0])[0][0];
+    const inDecade = datedG.filter((f) => Math.floor((f.year as number) / 10) * 10 === topDec).slice(0, 4);
+    if (inDecade.length > 0) {
+      genreQA.push({
+        q: `Which ${genre} movies are from the ${topDec}s?`,
+        a: <FilmList films={inDecade} />,
+      });
+    }
+  }
+
   return (
     <div className="mt">
       <SiteNav />
@@ -80,6 +129,7 @@ export default async function GenrePage({ params }: Props) {
           <ShareDock variant="fab" path={`/genre/${slug}`} title={`${unslug(slug)} films`} />
         </div>
         <LensQuickBar />
+        <QuickAnswers items={genreQA.slice(0, 4)} />
         <ListFilter targetId="genre-list" total={inGenre.length} placeholder="Filter these films…" />
         <ul className="mt-list mtl-rows" id="genre-list" style={{ marginTop: 12 }}>
           {inGenre.map((f) => (
