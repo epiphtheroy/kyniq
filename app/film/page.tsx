@@ -135,9 +135,10 @@ export default async function FilmIndexPage({ searchParams }: Props) {
   const cat = (catRes.data as FilmCatalogue | null) ?? { total: 0, items: [] };
   const catalogue = cat.items;
   const inventoryTotal = invRes.count ?? 0;
-  // server-seeded spotlight: the live-page iframe loads from first paint
-  // (re-picked each ISR revalidate; the "↻ another" button rotates from there)
-  const spotlightSlug = catalogue.length ? catalogue[Math.floor(Math.random() * catalogue.length)].slug : null;
+  // server-seeded spotlight (loads from first paint; the 🎲 tab reshuffles) —
+  // only data-rich films (the A–Z index/catalogue below shows all 6,975)
+  const richFilms = catalogue.filter((f) => f.rich);
+  const spotlightSlug = richFilms.length ? richFilms[Math.floor(Math.random() * richFilms.length)].slug : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
