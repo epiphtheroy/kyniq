@@ -25,6 +25,13 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+// Country option labels are computed on the SERVER and passed as strings, so the
+// client never calls Intl.DisplayNames at render — otherwise Node ICU vs browser
+// ICU can disagree and trip a hydration mismatch (React #418).
+let _rn: Intl.DisplayNames | null = null;
+const cname = (cc: string) => { try { _rn = _rn || new Intl.DisplayNames(["en"], { type: "region" }); return _rn.of(cc.toUpperCase()) || cc.toUpperCase(); } catch { return cc.toUpperCase(); } };
+const flag = (cc: string) => cc.length === 2 ? String.fromCodePoint(...[...cc.toUpperCase()].map((c) => 127397 + c.charCodeAt(0))) : "";
+
 // The 13 global dimension distributions are static (change only on a rescore) —
 // cache a day so the brush minis cost nothing on the hot path.
 const cachedDimHist = unstable_cache(
@@ -47,7 +54,8 @@ export default async function TakeScorePage() {
     cachedDimHist(),
   ]);
   const res = (page as { total: number; rows: ScrRow[] } | null) ?? { total: 0, rows: [] };
-  const countries = (cc as { code: string; n: number }[] | null) ?? [];
+  const countries = ((cc as { code: string; n: number }[] | null) ?? [])
+    .map((c) => ({ code: c.code, n: c.n, label: `${flag(c.code)} ${cname(c.code)} (${c.n})` }));
   const ranked = res.rows;
 
   // #1 film's backdrop drives the black hero (deterministic → stable ISR cache).
@@ -125,8 +133,8 @@ export default async function TakeScorePage() {
         <section aria-labelledby="ts-full" style={{ marginTop: 48 }} className="mtl-swap-out">
           <h2 className="df-h2" id="ts-full">The full ranking</h2>
           <p className="df-sub">
-            The top {ranked.length.toLocaleString()} films by TakeScore
-            {res.total > ranked.length ? ` of ${res.total.toLocaleString()} scored` : ""} — each links to the film
+            The top {ranked.length.toLocaleString("en-US")} films by TakeScore
+            {res.total > ranked.length ? ` of ${res.total.toLocaleString("en-US")} scored` : ""} — each links to the film
             page, where the full sub-scores live.
           </p>
           <div className="th-grid">

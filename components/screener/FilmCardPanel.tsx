@@ -102,7 +102,7 @@ export default function FilmCardPanel({
             <div className="scr-card-ts">
               <b className="scr-card-tsn">{Math.round(card.u)}</b>
               <span className="scr-card-tsk">TakeScore</span>
-              {card.rank ? <span className="scr-card-rank">#{card.rank}{card.rank_total ? ` of ${card.rank_total.toLocaleString()}` : ""}</span> : null}
+              {card.rank ? <span className="scr-card-rank">#{card.rank}{card.rank_total ? ` of ${card.rank_total.toLocaleString("en-US")}` : ""}</span> : null}
             </div>
             <div className="scr-card-dons">
               <ScoreDonut val={card.v} color={AX.v} label="Value" size={62} />

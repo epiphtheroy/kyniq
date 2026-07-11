@@ -363,7 +363,7 @@ export default function ScreenerExplorer({
           Dimensions{activeDims ? ` · ${activeDims}` : ""} <span aria-hidden>{showDims ? "▴" : "▾"}</span>
         </button>
 
-        <span className="scr-count">{total.toLocaleString()} films</span>
+        <span className="scr-count">{total.toLocaleString("en-US")} films</span>
       </div>
 
       {/* dimension range panel */}
@@ -432,7 +432,7 @@ export default function ScreenerExplorer({
         ))}
       </div>
       {rows.length < total ? (
-        <div className="scr-more"><button onClick={() => fetchPage(false)} disabled={loading}>{loading ? "Loading…" : `Load more (${rows.length}/${total.toLocaleString()})`}</button></div>
+        <div className="scr-more"><button onClick={() => fetchPage(false)} disabled={loading}>{loading ? "Loading…" : `Load more (${rows.length}/${total.toLocaleString("en-US")})`}</button></div>
       ) : null}
 
       {/* My strip (logged-in only; client render keeps SSR global) */}
