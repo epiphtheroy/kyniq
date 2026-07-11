@@ -226,6 +226,7 @@ type DirectorCuration = {
   optional: number;
   is_auteur: boolean;
   auteur_reason: string | null;
+  rec_since: string | null;
   exemplars: { title: string; slug: string; year: number | null }[];
 };
 
@@ -609,6 +610,9 @@ export default async function DirectorPage({ params }: Props) {
             <p className="dr-tow-lead">
               {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
             </p>
+            {curation.rec_since ? (
+              <p className="dr-tow-recd">In the Metatake index since {curation.rec_since}</p>
+            ) : null}
             <div className="dr-tow-signrow">
               <span className="dr-tow-sign">from. W. Yoon</span>
               <Link href="/editor" className="dr-tow-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
