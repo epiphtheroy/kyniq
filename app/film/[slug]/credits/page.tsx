@@ -215,6 +215,8 @@ export default async function FilmCreditsPage({ params }: Props) {
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>
         <Byline created={updated} />
 
+        <QuickAnswers items={creditsQuickAnswers(film, director, crew, topCast, relations)} />
+
         <section style={{ margin: "14px 0 0" }}>
           <h2 className="df-h2">The crew — and which meeting this was</h2>
           <p className="df-sub">

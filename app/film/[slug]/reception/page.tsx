@@ -9,6 +9,7 @@ import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
 import AfterlifeNav from "@/components/read/AfterlifeNav";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
 import { honorText, type FilmLineageRow } from "@/lib/lineage";
@@ -120,6 +121,81 @@ type Entry =
   | { t: "paper"; r: Rcp };
 
 const normWords = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w.length > 2));
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.3) ─────────
+// Deterministic Q&A from the dated rows already in scope. Every date and
+// country is verbatim from a real release-event row; critic quotes are the
+// publishers' own verbatim headlines/link-previews, attributed. GAP (never
+// emitted): aggregate scores — no Rotten Tomatoes / Metacritic / star-rating
+// question, because that data is not on this page (tier is internal). No full
+// review body either. Search-term variants are woven, max two uses each:
+// "premiere" (Q1), "released" (Q2 + Q4), "come out" (Q3), "release date" (A2).
+function receptionQuickAnswers(
+  film: { title: string },
+  events: Ev[],
+  countries: string[],
+  reviews: Rcp[],
+  papers: Rcp[],
+): QuickAnswerItem[] {
+  const items: QuickAnswerItem[] = [];
+  const byDate = (list: Ev[]) => [...list].sort((a, b) => a.event_date.localeCompare(b.event_date));
+  // 1 — premiere (earliest premiere row, named by country).
+  const premieres = byDate(events.filter((e) => e.event_type === "premiere"));
+  if (premieres.length) {
+    const p = premieres[0];
+    items.push({
+      q: `When did ${film.title} premiere?`,
+      a: `${film.title} premiered in ${cname(p.country)} on ${fmtDate(p.event_date)}${p.note ? ` (${p.note})` : ""}.`,
+    });
+  }
+  // 2 — first theatrical opening (real event row, by country).
+  const theatrical = byDate(events.filter((e) => e.event_type === "theatrical" || e.event_type === "theatrical_limited"));
+  if (theatrical.length) {
+    const t = theatrical[0];
+    const where = t.country ? cname(t.country) : null;
+    items.push({
+      q: `When was ${film.title} released${where ? ` in ${where}` : ""}?`,
+      a: `${film.title}'s theatrical release date${where ? ` in ${where}` : ""} was ${fmtDate(t.event_date)}.`,
+    });
+  }
+  // 3 — digital / physical window, with the note (4K, platform…) verbatim.
+  const later = byDate(events.filter((e) => e.event_type === "digital" || e.event_type === "physical"));
+  if (later.length) {
+    const d = later[0];
+    const kind = d.event_type === "digital" ? "Digital" : "Home video";
+    items.push({
+      q: `When did ${film.title} come out on streaming or Blu-ray?`,
+      a: `${kind} release${d.note ? ` (${d.note})` : ""}: ${fmtDate(d.event_date)}${d.country ? ` in ${cname(d.country)}` : ""}.`,
+    });
+  }
+  // 4 — country count (only when it genuinely spans more than one).
+  if (countries.length > 1) {
+    items.push({
+      q: `In how many countries was ${film.title} released?`,
+      a: `${film.title} has dated release events in ${countries.length} countries and territories on TMDB's ledger.`,
+    });
+  }
+  // 5 — what critics said: one or two verbatim, attributed publisher headlines.
+  const crit = reviews.filter((r) => (r.headline || r.dek_lead || "").trim()).slice(0, 2);
+  if (crit.length) {
+    const quote = (r: Rcp) => (r.headline || r.dek_lead || "").trim();
+    items.push({
+      q: `What did critics say about ${film.title}?`,
+      a: (
+        <>
+          {crit.map((r, i) => (
+            <span key={i}>
+              {i > 0 ? "; " : ""}
+              {r.outlet} called it “{quote(r)}”{r.critic ? ` (${r.critic})` : ""}
+            </span>
+          ))}
+          {papers.length > 0 ? <>, and {papers.length} academic {papers.length === 1 ? "study engages" : "studies engage"} it.</> : "."}
+        </>
+      ),
+    });
+  }
+  return items.slice(0, 5);
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
