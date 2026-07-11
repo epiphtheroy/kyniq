@@ -85,22 +85,8 @@ const MODES: CatMode[] = [
 ];
 
 export default function DirectorsIndex({ featured, catalogue }: { featured: DirFeat[]; catalogue: DirCat[] }) {
-  return (
+  const cat = (
     <>
-      <EntityFinder
-        kinds="director"
-        placeholder="Find a director by name"
-        ariaLabel="Find a director in this index"
-      />
-      <CardDeck
-        items={featured}
-        keyOf={(d) => d.slug}
-        renderCard={(d) => <DirectorCard {...d} />}
-        dieText="🎲 Directors, at random"
-        autoNote="turning · the deck reshuffles every 5 min"
-        rollLabel="↻ reshuffle"
-        tall
-      />
       {/* country=null directors don't appear in the Nationality view (no
           "Unknown" group is ever exhibited); they stay reachable in A–Z. */}
       <Catalogue<DirCat>
@@ -128,6 +114,12 @@ export default function DirectorsIndex({ featured, catalogue }: { featured: DirF
             </>
           ),
           text: `${it.name} ${it.country ?? ""} ${it.sig ?? ""}`.toLowerCase(),
+          thumb: (
+            <span className="idx-th idx-th--round">
+              {THUMB(it.photo) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.photo) as string} alt="" loading="lazy" />
+                : <span className="idx-th-mono">{it.name.charAt(0)}</span>}
+            </span>
+          ),
         })}
         title="The full catalogue of directors"
         sub="Every director on Metatake. Click any name to open their filmography, signature readings and tropes."
@@ -136,5 +128,21 @@ export default function DirectorsIndex({ featured, catalogue }: { featured: DirF
         emptyText="No director matches that."
       />
     </>
+  );
+
+  return (
+    <IndexExplorer<DirFeat>
+      searchKind="director"
+      imgShape="round"
+      featured={featured}
+      keyOf={(d) => d.slug}
+      renderSpotlight={(d) => <DirectorCard {...d} />}
+      cardVariant="director"
+      heroTitle="Directors"
+      heroSub={<>Not a filmography list. A director here is the sum of their obsessions — the <span className="term">signature readings</span> and <span className="term">tropes</span> that recur across a whole body of work.</>}
+      placeholder="Search directors by name…"
+      spotlightLabel="A director, opened at random"
+      catalogue={cat}
+    />
   );
 }
