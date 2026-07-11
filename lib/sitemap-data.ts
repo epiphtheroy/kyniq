@@ -53,7 +53,12 @@ async function fetchAll<T>(
   const out: T[] = [];
   for (let from = 0; from < cap; from += PAGE) {
     const to = Math.min(from + PAGE, cap) - 1;
-    const { data } = await run(from, to);
+    // A build-time DB/network hiccup (these routes are force-static and Supabase
+    // rejects, not just returns null, on a connection failure) must NOT crash the
+    // whole `next build` export. Degrade to the entries gathered so far; the next
+    // hourly revalidation regenerates the full sitemap once the DB is healthy.
+    let data: T[] | null = null;
+    try { ({ data } = await run(from, to)); } catch { break; }
     if (!data?.length) break;
     out.push(...data);
     if (data.length < to - from + 1) break;
