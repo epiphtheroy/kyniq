@@ -3473,6 +3473,14 @@ a.lin-name:hover{color:var(--accent); text-decoration:underline}
 .lin-res{font-family:var(--font-ui); font-size:12px; color:var(--muted); text-transform:capitalize}
 /* ===== Lineage hub (/lineage + /lineage/[slug]) ===== */
 .lh{max-width:980px}
+/* Flagship "for W. Heo" card at the top of /lineage */
+.lh-flag{display:block; margin:18px 0 8px; padding:20px 24px; border:1px solid var(--hairline-2); border-left:3px solid var(--accent);
+  border-radius:14px; background:var(--paper-2,#fafafa); text-decoration:none; box-shadow:0 1px 2px rgba(0,0,0,.04), 0 16px 36px -22px rgba(0,0,0,.22); transition:box-shadow .14s ease, transform .14s ease}
+.lh-flag:hover{transform:translateY(-2px); box-shadow:0 2px 4px rgba(0,0,0,.08), 0 20px 40px -20px rgba(0,0,0,.3)}
+.lh-flag-kicker{display:block; font-family:var(--font-ui); font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
+.lh-flag-title{display:block; font-family:var(--font-display); font-size:23px; font-weight:700; letter-spacing:-.015em; color:var(--ink); margin:4px 0 0}
+.lh-flag-sub{display:block; font-family:var(--font-ui); font-size:14px; line-height:1.5; color:var(--muted); margin:6px 0 0; max-width:64ch}
+.lh-flag-cta{display:inline-block; font-family:var(--font-ui); font-size:13px; font-weight:700; color:var(--accent); margin:10px 0 0}
 .lh-h1{font-family:var(--font-display); font-size:34px; font-weight:700; letter-spacing:-.01em; margin:6px 0 10px}
 .lh-crumb{font-family:var(--font-ui); font-size:13px; margin:2px 0 6px}
 .lh-crumb a{color:var(--muted); text-decoration:none}
