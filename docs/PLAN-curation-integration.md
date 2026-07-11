@@ -5,6 +5,8 @@
 sequenced plan — especially for personalized recommendation and its tie to lineage.
 **Status:** Phase 1 (connect) started 2026-07-01. Bridge + monitor live.
 
+> **↳ 코멘트층 (2026-07-11, SHIPPED):** 이 브레인의 6차원 등급을 편지체 코멘트로 표면화한 **to.W 층**은 별도 정본 `HANDOFF-투두블유-큐레이션코멘트.md`(루트)에서 관리. verdict 규칙 v2 대수술·저점정전 명명회피·optional 겸손문구·영화/감독 표면 포함. DB쪽 규칙 정본은 `curation.rule` 테이블.
+
 ---
 
 ## 1. What the curation system is (in one line)
