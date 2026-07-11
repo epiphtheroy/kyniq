@@ -97,6 +97,8 @@ export default async function ConceptDomainPage({ params }: Props) {
   const _reelSlugs = (_reelData as string[] | null) ?? [];
   const total = groups.reduce((s, [, g]) => s + g.length, 0);
   const films = groups.reduce((s, [, g]) => s + g.reduce((x, r) => x + r.films, 0), 0);
+  const liveTotal = groups.reduce((s, [, g]) => s + g.filter((r) => r.films > 0).length, 0);
+  const hiddenCount = total - liveTotal;
 
   return (
     <div className="mt">
