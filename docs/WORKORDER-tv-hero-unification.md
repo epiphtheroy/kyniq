@@ -22,6 +22,14 @@
 - **정렬 개선(0063)**: `/tv/lists`·`/tv` 그리드 축 인터리브.
 - **진짜 남은 것(불가/비가치):** ① **crew 플레이리스트=불가**(films.tmdb_extra.cast에 tmdb id 없음·crew_index는 카운트만·credits는 요청시 TMDB → DB 매핑 부재; film_credits 테이블 신설이 선행). ② **catalog/[seg]·takescore/[dim]=스킵**(집계 browse 인덱스 — 영화셋이 broad/client라 히어로가 랜덤이 됨, 억지 영상보다 무영상이 나음). ③ **이론가·트로프 segments-cut=아키텍처 부적합**(방송의 theorist/misreading 세그는 "그 영화의 top" 태그라 특정 엔티티와 불일치 → 엔티티별 세그 재생성이 필요한 대공사인데 films-cut이 이미 전 방송을 재생하므로 가치 낮음). take/[slug]=대부분 리다이렉트, gallery=이미지 페이지, blog/now/room/u=비영화 표면.
 
+### 커버리지 4차 — 도크 풀스크린 (2026-07-11, 원우 피드백)
+지시 원문: "상단 영상 옆 Full info 칸 옆에 풀스크린 보기 버튼 + 하단 도크로 내려갈 때 작은 화살표 기호로 풀스크린 진입". **대상=스크롤 시 도크되는 히어로(=`VideoMiniDock` 래핑, 배너 모드). 인라인 히어로(`ehero--in`, 히어로 우측 슬롯)는 도크 안 하므로 범위 밖(설계상 정상, 버튼 자동 비표시).**
+- **`components/VideoMiniDock.tsx`**: `VideoDockContext`(`{toggleFullscreen, isFullscreen}`) 신설 + `useVideoDock()`·`DockFullscreenButton`(인라인 JSX용 드롭인, provider 밖이면 null) export. `.vdock` 요소를 Fullscreen 타깃으로 `requestFullscreen`(webkit 폴백), `fullscreenchange`로 `fs` state 동기(Esc 이탈도 반영). 도크 미니 UI(`.vdock-ui`)에 ⛶(`.vdock-fs`) 버튼 추가(드래그/닫기 옆), 풀스크린 중엔 `.vdock-fsx` "✕ Exit" 표시. `fs`일 때 인라인 transform(scale) 제거해 un-scale.
+- **`components/TVProgramPlayer.tsx`**: `useVideoDock()` 소비, 컨트롤 바(`.svc-ctrls`)에 `svc-btn svc-btn--open` 알약 "⛶ Fullscreen"을 "Full info ↗" 바로 옆에 삽입(`dock` 있을 때만 — 인라인/비도크 페이지엔 미표시).
+- **`components/EntityTVHero.tsx`**: 릴 케이스(case 2)에 `<DockFullscreenButton className="ehero-fs"/>`(mute 옆). **함정: 릴은 인라인 JSX라 `useVideoDock()`을 EntityTVHero 최상위에서 부르면 provider 밖(EntityTVHero가 VideoMiniDock의 부모)이라 null → 반드시 자식 컴포넌트(`DockFullscreenButton`)로 감싸야 context 획득.**
+- **CSS(globals.css `.vdock` 인근)**: `.vdock-ui .vdock-fs`(28×28 아이콘), `.vdock:fullscreen`/`:-webkit-full-screen`(inset:0·100vw/vh·transform:none·미니 chrome 숨김), `.tv-embed/.df-tvhero/.svc-media/.ivd-yt` 100% 채움, `.vdock-fsx`(exit 알약), `.ehero-fs`(릴 mute 왼쪽).
+- **검증(라이브)**: film(marie-antoinette-2006)·director(wong-kar-wai) 배너 도크 → ⛶ Fullscreen 알약 + 도크 미니 ⛶ 화살표 렌더 확인. 클릭이 user-activation 획득·올바른 `.vdock`에 `requestFullscreen` 호출까지 확인(`document.fullscreenEnabled=true`). **⚠️ 자동화(CDP 제어) 브라우저는 실제 OS 풀스크린 전환을 "not granted"로 거부 — 코드는 정상, 일반 사용자 Chrome에서 작동.** trope는 인라인이라 버튼 정상 미표시.
+
 ---
 **(원본 기획, 참고용)** 상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.
 작성 2026-07-11 (Opus 기획). 배경: 루트 `HANDOFF-서프라이즈-v2채널-스트리밍.md` §C2~C2-c (방송 1,794편 + 전략 플레이리스트 5,559개 라이브), `docs/WORKORDER-tv-strategic-playlists.md`(완료).
