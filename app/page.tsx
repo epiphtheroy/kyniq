@@ -39,7 +39,10 @@ function db() {
 // empty read is NOT written into the Data Cache (unstable_cache does not cache
 // thrown errors); the caller falls back to PLACEHOLDER instead.
 async function fetchBundle(seed: string): Promise<HomeV2Data> {
-  for (let i = 0; i < 3; i++) {
+  // 2 attempts max: under DB stress, retries amplify the stampede (observed in
+  // the 2026-07-11 restart). One quick retry covers transient blips; anything
+  // worse should fail fast into PLACEHOLDER and let the stale cache carry us.
+  for (let i = 0; i < 2; i++) {
     try {
       const { data } = await db().rpc("home_v2_bundle_v3", { p_seed: seed });
       const b = data as HomeV2Data | null;
@@ -47,7 +50,7 @@ async function fetchBundle(seed: string): Promise<HomeV2Data> {
     } catch {
       /* retry */
     }
-    if (i < 2) await new Promise((r) => setTimeout(r, 400));
+    if (i < 1) await new Promise((r) => setTimeout(r, 300));
   }
   throw new Error("home_v2_bundle_v3 returned no usable data");
 }
