@@ -1,9 +1,10 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
+import TVDirectory from "@/components/TVDirectory";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -27,7 +28,6 @@ export default function TVWatch() {
 
 function Watch() {
   const sp = useSearchParams();
-  const router = useRouter();
   const list = sp.get("list") ?? "palme-files";
   const v = sp.get("v");
 
@@ -60,7 +60,6 @@ function Watch() {
 
   const entry = entries[entryIdx] ?? null;
   const advance = useCallback(() => setEntryIdx((i) => (entries.length ? (i + 1) % entries.length : 0)), [entries.length]);
-  const pickList = (slug: string) => router.push(`/watch?list=${slug}`);
   const jumpChapter = (i: number) => window.dispatchEvent(new CustomEvent("tvw-jump", { detail: i }));
 
   const chapters = useMemo(() => entry?.segments ?? [], [entry]);
