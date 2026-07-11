@@ -13,6 +13,7 @@
 3. 확정된 방향: **엑셀을 새 정본(canonical)층으로 Supabase에 적재하고, theory_canon을 crosswalk로 매핑**한다(합치는 게 아니라 앵커를 교체). 그 위에 **3층 구조(원문→발생→정본) + 주기적 통폐합 배치** 파이프라인을 세운다.
 4. 임베딩에 대한 판정: **전면 해결책 아님, 부분 채택.** 매칭 캐스케이드의 3단계 후보 검색과, 분석 시 top-k retrieval에만 사용.
 5. ~~지금 해야 할 일 = Phase 1~~ → **Phase 1은 2026-07-07 기준 완료됨** (theory_concepts 8,196 적재, crosswalk 2,004건, 사용 중 canon 100% 매핑). 2026-07-07 총정리 실행 내역은 §10 참조. 다음 할 일: §10 말미의 "남은 작업".
+6. **읽는층(인덱스 3면) 현황**: `/concept`·`/theorist`·`/tradition`은 **2026-07-11~12에 공용 `TheoryExplorer` 셸(통합검색+축탭)로 통합 재설계 완료·라이브** — 영화 없는 카테고리 게이팅 + 이론가/개념 얼굴 썸네일(`lib/theorist_portrait.json`). **인덱스/읽는층 UI 세션은 §14 먼저 읽을 것**(중복 재설계 금지). 데이터·파이프라인은 §10~13.
 
 ---
 
@@ -226,6 +227,45 @@ provisional↔기존 병합 후보 제시(임베딩+이름) → `merged_into`·a
 
 ---
 
+## 14. 작업 로그 — 2026-07-11~12: 이론 인덱스 3면 통합 재설계 + 초상 썸네일 (배포 완료·라이브)
+
+사용자 지시: `/concept`·`/theorist`·`/tradition` 인트로 3면 총정리. 문제 — ① 검색기 부재(특히 theorist·tradition은 아예 없음), ② concept의 도메인→필드→개념 3중 중첩 혼란, ③ **영화 없는 카테고리 노출**(Literature 도메인 0편, Management 600개념 중 35편만 등). 가치 프레임(사용자 강조): "이론 설명"이 아니라 **"세상에 이해 안 되는 것 → 이름(개념) → 스크린에서 목격"의 아카이브** — 영화=이론의 재현 가능한 수단. 0편 = 재현사례 없음 = UX·SEO 양쪽 저가치 → 기본 숨김이 정답.
+
+1. **공용 셸 `components/theory/TheoryExplorer.tsx`(client)** — 3면 공통: 히어로(질문형 가치 카피)+**통합 검색**(`/api/search kinds=idea,theorist,tradition mode=lex`, 종류별 그룹 결과)+**축 전환 탭**(Concepts·Theorists·Traditions는 실제 `<Link>` 라우트라 각자 canonical/JSON-LD 유지)+children(SSR 브라우즈, searching 중 `hidden`으로 크롤 링크 보존). 세 `page.tsx`가 이 셸을 감싸고 축별 브라우즈를 children으로 주입. **⚠️ `type=search` 네이티브 ✕ 중복 → `::-webkit-search-cancel-button{display:none}`.**
+2. **축별 브라우즈 컴포넌트** — `TheoristDirectory`(레터바+films/AZ 정렬+얼굴 카드+블러브 글로스), `TraditionDirectory`(도메인 그룹+films>0 기본, 0편 26개는 토글), `ConceptDomainRail`(도메인 카드, **live>0만**—Literature 0편 숨김, "N on screen of M"+도메인 글로스), `DomainConcepts`(도메인 페이지 필드→개념, films=0 기본숨김+**"Show N not yet on screen" 토글**로 전체 레지스트리 노출, 전체는 DOM 상주라 크롤 가능). `ConceptDirectory`에 썸네일 슬롯 추가(기존 검색/정렬/레터바 유지).
+3. **영화 없는 카테고리 게이팅(핵심 수정)** — 도메인 페이지 `/concept/domain/[domain]`는 이제 영화 있는 개념만 기본 노출(예: Management 35/600, "Where does cinema stage management?" 카피), 나머지는 토글. /tradition은 films>0 학파만 기본. /concept 도메인 레일은 Literature(2개념·0편) 숨김. **불변식: 0편을 완전 삭제가 아니라 게이팅**(전체 레지스트리는 SEO 자산이라 DOM 상주).
+4. **초상 썸네일(사용자 추가지시 "감독처럼 얼굴")** — 이미지 컬럼 부재(`theorists`=id·slug·name·blurb뿐). 기존 `lib/theorist_qid.json`(299 QID)을 **`scripts/build-theorist-portraits.mjs`로 Wikidata P18→Commons `Special:FilePath?width=200` 백필 → `lib/theorist_portrait.json`(261명)**. 이론가 카드=slug 직접 조회. **컨셉 행=theorist NAME만 보유 → concept 페이지에서 `theorist_index`로 name→slug→portrait 맵 빌드**(그래서 loadRows에 theorist_index RPC 추가). 초상 없으면 모노그램(이니셜) 폴백. plain `<img loading=lazy>`(CSP 무관 — slug 페이지가 이미 같은 Commons 패턴 사용). 책·논문 표지는 데이터 부재라 이론가 얼굴로 대체.
+5. **가치·질문형 SEO** — 타이틀/H1/카피 전부 "film examples"·질문형: `/concept` "…1,404 Ideas, 16,420 Film Examples", `/theorist` "Film Theorists A–Z — the thinkers cinema is read through", `/tradition` "Schools of Film Theory — traditions and the films that carry them", 도메인 "Where does cinema stage X?". 세 면에 CollectionPage+BreadcrumbList(+ItemList) JSON-LD. §13의 "사전 오독 방지" 정신 계승.
+6. **라이브 검증**: 로컬 dev(스크린샷)+**프로덕션 4면 전부 확인**(/concept·/theorist·/tradition·/concept/domain/management). 초상 425개 렌더, 게이트 토글 작동. 타입체크 제 파일 0 에러.
+7. **⚠️ 함정(다음 에이전트 필독)**: (a) **`app/globals.css`의 `@import "tailwindcss"` 후 폰트 `@import url()`는 tailwind 확장 후 순서위반 → `next dev`(Turbopack) 500. 하지만 프로덕션 빌드는 정상**(Vercel 배포 전부 READY, 번들러 turbopack이어도 build는 dev만큼 엄격치 않음). **검증은 tsc + 프로덕션, `next dev` 아님.** (b) My Films 렌즈 `.mtl-swap-out`은 concept/theorist에서 보존(tradition은 대체목록 없어 제외 — §13.6과 동일 이유). (c) 셸의 통합검색은 `hrefOf`가 idea→/concept, theorist→/theorist, tradition→/tradition 매핑에 의존([[unified-hybrid-search-live]]). (d) 배포 CHURN: 워처가 파일별 커밋→다중 배포, 동시 세션과 인덱스 경합 가능 — 배포 후 Vercel 최신 state READY 확인.
+8. **연관 auto-memory**: `theory-index-explorer-redesign`(상세). 이 3면은 [[index-explorer-redesign]](/film·/director의 IndexExplorer)와 자매 패턴이나 별도 컴포넌트(theory 전용 셸).
+
+## 13. 작업 로그 — 2026-07-08 (3차): 이론 축 상세 기획 구현 (배포 완료)
+
+사용자 스펙: 모든 목록에 숫자, A–Z·필터·이론가 정렬, 개념 상세 내 검색/소팅/필터, 개념 '명함 카드' 디자인(질감·서체), 표기 규범, 한국어 라벨 영문화, 무LLM SEO 부제 일관화.
+
+1. **DB**: `concept_live_registry`(영화 걸린 개념 1,141 + 영화수 + 이론가), `concept_domain_live(part)`(도메인 개념 전수 + 영화수), `concept_domain_counts`(14개 도메인 요약), `school_name` 한국어→괄호영문 추출. sm 'hane'→'han' 슬러그 교정.
+2. **/concept 인덱스**: `ConceptDirectory` 클라이언트 컴포넌트 — 검색(개념+이론가), A–Z 레터바, 정렬 3모드(영화수/A–Z/이론가별 "이름 — 개념"), 전 행 영화 수. 도메인 칩에 등록/상영중 숫자. 타이틀 "Film Theory Concepts A–Z — 1,554 Ideas, 15,384 Film Readings".
+3. **/concept/domain/[domain]**: 분야 헤더에 "N concepts · M film readings", 개념별 영화수, 영화수순 정렬, 한국어 분야명은 괄호 영문 표기.
+4. **개념 상세**: `ReadingsExplorer` — 리딩 12건 초과 시 검색(영화/테제/이론가)+프레임워크/연대 필터+정렬(관련도/최신/최고전/A–Z). **개념 명함 카드**(.ccard) — 레이드지 텍스처(SVG feTurbulence)+이중 괘선+PT Serif 표제+Inter 킥커+이탤릭 한줄정의+이론가 칩+영화수 스탯.
+5. **표기 규범(확정)**: 제목·목록의 개념명은 문장 첫 글자만 대문자(sentence case), 따옴표·꺾쇠 없음, 본문 산문 속 언급만 `<em>`. 원어는 " · 원어" 병기. 데이터는 원형 보존, 표시만 변환.
+6. **/tradition 빈 화면 수정**: 원인은 my-films 렌즈 only 모드에서 `.mtl-swap-out`이 목록을 숨기는데 대체 컴포넌트가 없던 것 — 클래스 제거로 해결. 행에 "N concepts" 부기. **존치 결정**(학파 축 = 검색 자산).
+7. **개념 데이터 병합 25건 추가**(괄호 변형·동일 이론 쌍: Bad faith/mauvaise foi, Bare life/homo sacer, Social Contract 등; Lyotard 포스트모던 숭고 등 학술적 구별 쌍은 보존). 인덱스 병합 로직도 괄호 병기 접기.
+8. **데스크(curious) 에세이 카드화**: 개념 페이지의 "From the desks"가 제목 텍스트 링크뿐이던 것을 → RPC `concept_desk_essays`(영화 백드롭 + essays.dek/본문 발췌 + 데스크 라벨) 기반 카드로 격상. 미스리딩 카드와 동급 비주얼(DECODER/FAN THEORIES 등 데스크별 컬러 라벨). 라이브 검증: /concept/duration.
+9-b. **E-E-A-T 요소**: 개념 페이지(양 분기)에 저작 표시·개정 날짜·메쏘드 링크 라인 추가 — "By the Metatake concept desk · Revised {date} · How we read films →(/methodology)". 개정일은 RPC `concept_last_updated`(연결 에세이 최신 published_at). theory 분기 JSON-LD에 WebPage(dateModified + author Organization) 추가.
+9. **명함 카드 v2 (사용자 디자인 지시)**: 카드는 키워드 단독 — 중앙 정렬, 타자기 서체(American Typewriter 계열), 자간 .07em, 킥커 "CONCEPTS ON SCREEN"(자간 .34em), 넉넉한 여백(패딩 54px). 한줄정의·이론가 칩·영화 스탯은 카드 밖으로. **카드 직후 첫 문장이 코너 정체성 선언**: "This is not a dictionary entry. The concept desk tracks where X actually surfaces on screen — N films…" (사전으로 오독되는 SEO 리스크 대응). 설명은 "THE IDEA IN BRIEF" 라벨로 그 아래. 데스크 에세이에도 `DeskExplorer`(검색·데스크 필터·정렬, 8건 초과 시) 적용, 수집 한도 12→36.
+
+## 12. 작업 로그 — 2026-07-08 (2차): concept/tradition 축 통합 + 학파 축 재건 (배포 완료)
+
+사용자 결정: "tradition과 concept은 구분 안 되니 합치되, /tradition은 진짜 학파 축으로 재건"(추천안 승인). 실행·배포·라이브 검증 완료.
+
+1. **DB (마이그레이션 `tradition_school_axis_rpcs`)**: `school_name/school_slug`(Major 라벨 정규화), `canon_concept_slug`(구 슬러그→정본 개념, 308용), `concept_canon_readings`(crosswalk 경유 Strong Misreadings — concept 페이지 흡수용), `theory_schools_index`(학파 179개: 개념·영화 수 집계), `theory_school_detail`(학파 소속 개념+영화수+이론가). 전부 SECURITY DEFINER.
+2. **`app/tradition/[slug]/page.tsx` 재작성**: 학파 슬러그면 학파 페이지, 구 canon 슬러그면 `permanentRedirect`로 `/concept/<정본>`에 308. 구 URL 383개의 `slug_aliases` 원장 등록(reason='tradition-axis-merge').
+3. **`app/tradition/page.tsx` 재작성**: 택소노미 Major 기반 학파 인덱스(179개).
+4. **`app/concept/[slug]/page.tsx` 확장**: `concept_canon_readings` 흡수 — sm 분기는 리딩 병합(take_id dedupe), theory 분기는 "Strong Misreadings that lean on X" 섹션 신설. 리스티클 제목·robots도 흡수분 포함해 계산.
+5. **라이브 검증**: `/tradition/the-gaze` → `/concept/the-gaze` 308 + "310 Films That Can Be Read Through Lacan's Gaze"(흡수로 298→310). `/tradition` = 학파 인덱스. `/tradition/psychoanalytic-psychological` = "Psychoanalytic & Psychological in Film — 1507 Readings Across 43 Concepts".
+6. 남은 소일거리: 택소노미 Major 라벨 정리(번호 변형·한국어 Family 라벨 영문화 여부는 편집 판단), lib/related.ts의 tradition 티저 로직은 구 축 기준이라 추후 학파 기준으로 갱신 가능.
+
 ## 11. 작업 로그 — 2026-07-08 실행 (§10.3의 잔여 작업 + 사용자 승인 일괄 처리)
 
 사용자가 "모두 추천대로" 승인 → 직접 실행. **중요: 이 폴더(MetaTake)가 곧 사이트 저장소**(Next.js app/ + worker/ 파이프라인)임이 확인됨 — 코드 수정까지 포함해 처리했다.
@@ -244,9 +284,13 @@ provisional↔기존 병합 후보 제시(임베딩+이름) → `merged_into`·a
 2. **무LLM SEO 리스티클 제목** (`lib/listicle.ts` 신설): 데이터만으로 `"49 Films That Can Be Read Through Kant's Sublime"` 형 제목·설명 생성(고유 영화 수 + 첫 이론가 성 + 실제 영화 제목 2개 "From X to Y:"). 적용: `app/tradition/[slug]/page.tsx`(title/description/og/부제), `app/concept/[slug]/page.tsx`(sm·theory 분기 title/description + 부제). 영화 수 3편 미만이면 기존 제목 유지. 설명에 실제 영화 제목이 들어가므로 "영화와 동떨어진 느낌" 방지.
 3. 타입체크: 수정 파일 에러 0 (저장소 기존 에러 53건은 별개 — .next 스테일 타입, admin 페이지 등).
 
-### 11.3 남은 것
+### 11.2b 배포 및 배포 중 발견·수정한 프로덕션 버그 (2026-07-08)
 
-1. **배포**: 코드 수정분(worker 1, lib 2, app 2 파일) 검토 후 평소 플로우로 배포. 배포 후 `build-entity-links.py --truncate` 재실행하면 사전이 깨끗한 상태에서 링크 재생성됨(현 DB는 이미 수동 정화됨이라 필수는 아님).
+- **배포 완료**: 사용자 Mac의 auto-deploy 워처가 커밋·푸시 → Vercel 빌드 READY → metatake.net 반영. 라이브 검증: `/tradition/the-gaze` 제목이 "298 Films That Can Be Read Through Lacan's Gaze"로 렌더링 확인.
+- **RLS 버그 발견·수정**: `/tradition/[slug]` 상세가 전부 404였음(코드 변경과 무관한 기존 버그). 원인: `theory_canon` 등 이론 계층 테이블에 RLS만 켜져 있고 anon SELECT 정책이 없어 페이지의 anon 쿼리가 빈 결과 → notFound. 마이그레이션 `public_read_policies_theory_layer`로 `theory_canon, take_canon, sm_concepts, concept_aliases, theory_canon_map`에 공개 읽기 정책 추가. 이미 404로 ISR 캐시된 슬러그는 최대 30분(revalidate 1800) 후 자동 회복.
+- 샌드박스에서 git 잠금파일(.git/HEAD.lock) 잔류 사고 있었음 — 제거 완료, fsck 정상.
+
+### 11.3 남은 것 배포 후 `build-entity-links.py --truncate` 재실행하면 사전이 깨끗한 상태에서 링크 재생성됨(현 DB는 이미 수동 정화됨이라 필수는 아님).
 2. **/tradition 축의 학파 재구축**(§10.3-3 후자안): 데이터 기반(crosswalk 100%)은 완성. 통합 택소노미 Major(171) 기반의 학파 페이지 신설은 별도 기능 작업으로 남음.
 3. provisional 157건의 one_liner(한줄정의)·native(원어) 보강 — 다음 배치에서.
 4. `theory_concepts` 택소노미 라벨 표기 불일치(번호 붙은 "7. Visual Culture…" vs 없는 것) 정규화 — 표시용이라 급하지 않음.
