@@ -162,3 +162,15 @@ a.tsf-lrow:hover .tsf-ltitle{text-decoration:underline}
   .tsf-lself{padding-left:7px}
   .tsf-ltitle{white-space:normal}
 }
+
+/* ── to.W — the curator's letter: why this film is in the index ── */
+.tsf-tow{margin-top:14px; padding:16px 20px; border:1px solid var(--hairline-2); border-radius:12px; background:var(--paper-2,#fafafa)}
+.tsf-tow .tsf-kicker{margin:0}
+.tsf-tow-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px}
+.tsf-tow-chip{font-family:var(--font-ui); font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:2px 9px; border-radius:999px; border:1px solid var(--hairline-2); color:var(--ink); background:#fff; white-space:nowrap}
+.tsf-tow-chip--essential{color:#C8102E; border-color:#C8102E}
+.tsf-tow-chip--start_here{color:#0F6E56; border-color:#0F6E56}
+.tsf-tow-chip--deep_cut{color:#5b4bb5; border-color:#5b4bb5}
+.tsf-tow-chip--popular_not_cinephile{color:var(--muted)}
+.tsf-tow-p{font-family:var(--font-serif,Georgia,serif); font-size:15.5px; line-height:1.6; color:var(--ink); margin:8px 0 0}
+.tsf-tow-note{font-family:var(--font-ui); font-size:11px; color:var(--muted); margin:10px 0 0; padding-top:8px; border-top:1px solid var(--hairline)}

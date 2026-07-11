@@ -89,6 +89,29 @@ async function load(slug: string) {
   return loadUncached(slug).catch(() => null);
 }
 
+/** to.W — the curator's letter (curation.v_film_comment via tow_comment RPC).
+ *  Null is a real state (verdict "optional" renders nothing), so unlike the
+ *  card loader a cached null here is fine; only transport errors are thrown
+ *  (and thus never cached). */
+type TowComment = {
+  verdict: string;
+  verdict_label: string | null;
+  authority_label: string | null;
+  rationale: string | null;
+};
+
+async function loadTow(slug: string): Promise<TowComment | null> {
+  return unstable_cache(
+    async () => {
+      const { data, error } = await db().rpc("tow_comment", { p_slug: slug });
+      if (error) throw new Error(`tow_comment(${slug}): ${error.message}`);
+      return (data as TowComment | null) ?? null;
+    },
+    ["tow-comment1", slug],
+    { revalidate: 3600, tags: [`takescore-film:${slug}`] },
+  )().catch(() => null);
+}
+
 const trim155 = (s: string) => (s.length <= 155 ? s : `${s.slice(0, 152).replace(/\s+\S*$/, "")}…`);
 
 function scoredDate(card: Card): string | null {
@@ -149,6 +172,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
   const { slug } = await params;
   const card = await load(slug);
   if (!card) notFound();
+  const tow = await loadTow(slug);
 
   const ts = Math.round(card.u);
   const v = Math.round(card.v), c = Math.round(card.c), r = Math.round(card.r);
