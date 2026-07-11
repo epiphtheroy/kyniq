@@ -95,24 +95,9 @@ const MODES: CatMode[] = [
   { key: "year", label: "Year" },
 ];
 
-export default function FilmsIndex({ featured, catalogue }: { featured: FilmFeat[]; catalogue: FilmCat[] }) {
-  return (
+export default function FilmsIndex({ featured, catalogue, inventoryTotal }: { featured: FilmFeat[]; catalogue: FilmCat[]; inventoryTotal?: number }) {
+  const cat = (
     <>
-      <EntityFinder
-        kinds="film"
-        placeholder="Find a film — by title or director"
-        ariaLabel="Find a film in this index"
-      />
-      <CardDeck
-        items={featured}
-        keyOf={(d) => d.slug}
-        renderCard={(d) => <FilmCard {...d} />}
-        dieText="🎲 Films, at random"
-        autoNote="turning · the deck reshuffles every 5 min"
-        rollLabel="↻ reshuffle"
-        tall
-        cardClassName="idx-dcard--film"
-      />
       <Catalogue<FilmCat>
         items={catalogue}
         modes={MODES}
@@ -131,6 +116,12 @@ export default function FilmsIndex({ featured, catalogue }: { featured: FilmFeat
           title: <>{it.title} {it.year ? <span className="yr">({it.year})</span> : null}</>,
           meta: it.director ?? "—",
           text: `${it.title} ${it.director ?? ""}`.toLowerCase(),
+          thumb: (
+            <span className="idx-th idx-th--poster">
+              {THUMB(it.poster) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.poster) as string} alt="" loading="lazy" />
+                : <span className="idx-th-mono">{it.title.charAt(0)}</span>}
+            </span>
+          ),
         })}
         title="The full catalogue of films"
         sub="Every film on Metatake — each broken into its figures and the meanings it shares. Click a title to open it."
@@ -138,6 +129,29 @@ export default function FilmsIndex({ featured, catalogue }: { featured: FilmFeat
         filterPlaceholder="Filter films by title or director…"
         emptyText="No film matches that."
       />
+      {inventoryTotal && inventoryTotal > catalogue.length ? (
+        <div className="idx-tabs" style={{ marginTop: 18 }}>
+          <Link className="vtab" href="/film?view=all">
+            Browse the full inventory — all {inventoryTotal.toLocaleString()} films →
+          </Link>
+        </div>
+      ) : null}
     </>
+  );
+
+  return (
+    <IndexExplorer<FilmFeat>
+      searchKind="film"
+      imgShape="poster"
+      featured={featured}
+      keyOf={(d) => d.slug}
+      renderSpotlight={(d) => <FilmCard {...d} />}
+      cardVariant="film"
+      heroTitle="Films"
+      heroSub={<>Not a movie database. Every film is read through its <span className="term">figures</span> and the <span className="term">readings</span> &amp; <span className="term">tropes</span> they carry — then wired to every other film that shares them.</>}
+      placeholder="Search films by title or director…"
+      spotlightLabel="A film, opened at random"
+      catalogue={cat}
+    />
   );
 }
