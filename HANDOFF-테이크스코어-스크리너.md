@@ -229,7 +229,7 @@
 
 | 결정 | 기본값(이대로 구현) | 대안 |
 |---|---|---|
-| 메인(/) 승격 | **보류** — /takescore 완성 후 홈에 "Screener" 대형 진입 모듈만 추가 | 홈 자체를 스크리너로 교체 |
+| 메인(/) 승격 | **✅ 완료 (2026-07-11)** — 홈 히어로 직후 `ScreenerPromo`(band dark, 섹션 2a) 배치: SSR top-TS 포스터 스트립(딥링크 `?pin=`)+프리셋 칩+대형 CTA. 원우 지시로 승격 확정 | 홈 자체를 스크리너로 교체(미채택) |
 | 페이지 부제 표기 | "TakeScore™ Screener" (브랜드 유지+계기 명칭) | "The Screener" 단독 |
 | 시청국 기본값 | KR (사용자 다수) + 브라우저 `navigator.language` 힌트 | IP 지오 (비용·프라이버시로 비추천) |
 | rent/buy 포함 여부 | 구독 필터는 flatrate/ads/free만 | rent/buy 토글 추가 |
