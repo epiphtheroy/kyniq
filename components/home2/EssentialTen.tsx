@@ -62,7 +62,7 @@ export default function Top10({ data }: { data: HomeV2 }) {
                 <div className="rk">#{f.rank}</div>
               </div>
               <div className="nm">{f.title}</div>
-              <div className="rt">on the canon</div>
+              <div className="rt">{f.ts != null ? `TS ${f.ts}` : "on the canon"}</div>
             </Link>
           ))}
         </Rail>
