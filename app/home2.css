@@ -305,8 +305,15 @@
 /* one surface: the graph fills the row; the sentence grid becomes a glass panel
    floating over the map's right edge — the text lives inside the map. */
 .mthome .homemap{max-width:none;margin:16px 0 0}
-.mthome .homemap .cmap-cols{position:relative;display:block}
+/* the desk container IS the map surface (same radial paper as the graph
+   canvas): if EntityMap loads slow — or silently returns null on a fetch
+   blip — the sentence panel still sits on a framed surface instead of
+   floating over the next section (the "broken map" report, 2026-07-11). */
+.mthome .homemap .cmap-cols{position:relative;display:block;min-height:648px;
+  background:radial-gradient(120% 100% at 50% 30%,#ffffff,#f6f4ee);
+  border:1px solid var(--line);border-radius:16px;padding:8px 14px 14px}
 .mthome .homemap .cmap-colgraph{width:100%}
+@media(max-width:900px){.mthome .homemap .cmap-cols{min-height:0;background:none;border:0;padding:0}}
 .mthome .homemap .lexi{position:absolute;top:66px;right:14px;bottom:14px;width:328px;z-index:6;
   background:rgba(255,255,255,.80);backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15);
   border:1px solid rgba(22,35,63,.12);border-radius:14px;
