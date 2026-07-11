@@ -302,32 +302,23 @@
 .mthome .homemap-sec .shead.homemap-head{flex-direction:column;align-items:center;text-align:center;gap:8px;margin-bottom:6px}
 .mthome .homemap-sec .homemap-head .sub{max-width:60ch}
 .mthome .homemap-sec .homemap-head .seeall{margin-top:2px}
-/* one surface: the graph fills the row; the sentence grid becomes a glass panel
-   floating over the map's right edge — the text lives inside the map. */
+/* side-by-side desk (owner 2026-07-11: separate the map and the text again;
+   tops and bottoms must LINE UP). The emap-head row (hint + open-link, which
+   duplicates the section header's link) is hidden on home and margins zeroed,
+   so the graph box and the sentence box share the exact same top edge; both
+   are 560px tall, so the bottoms match too. */
 .mthome .homemap{max-width:none;margin:16px 0 0}
-/* the desk container IS the map surface (same radial paper as the graph
-   canvas): if EntityMap loads slow — or silently returns null on a fetch
-   blip — the sentence panel still sits on a framed surface instead of
-   floating over the next section (the "broken map" report, 2026-07-11). */
-.mthome .homemap .cmap-cols{position:relative;display:block;min-height:648px;
-  background:radial-gradient(120% 100% at 50% 30%,#ffffff,#f6f4ee);
-  border:1px solid var(--line);border-radius:16px;padding:8px 14px 14px}
-.mthome .homemap .cmap-colgraph{width:100%}
-@media(max-width:900px){.mthome .homemap .cmap-cols{min-height:0;background:none;border:0;padding:0}}
-.mthome .homemap .lexi{position:absolute;top:66px;right:14px;bottom:14px;width:328px;z-index:6;
-  background:rgba(255,255,255,.80);backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15);
-  border:1px solid rgba(22,35,63,.12);border-radius:14px;
-  box-shadow:0 22px 48px -20px rgba(22,35,63,.28);padding:20px 22px 14px}
-/* breathing room inside the grid (owner's note: text was glued to the box) */
+.mthome .homemap .cmap-cols{display:flex;gap:16px;align-items:stretch}
+.mthome .homemap .cmap-colgraph{flex:1 1 auto;min-width:0}
+.mthome .homemap .emap-head{display:none}
+.mthome .homemap .emap{margin:0}
+/* breathing room inside the sentence grid (kept from the spacing fix) */
+.mthome .homemap .lexi{padding:20px 22px 14px}
 .mthome .homemap .lexi-center{padding-bottom:11px;margin-bottom:8px}
 .mthome .homemap .lexi-item{padding:14px 4px 13px}
 .mthome .homemap .lexi-sent{font-size:14px;line-height:1.66}
 .mthome .homemap .lexi-cell{border-bottom-color:rgba(22,35,63,.09)}
 .mthome .homemap .lexi-ents{margin-top:8px;gap:5px 12px}
-@media(max-width:900px){
-  .mthome .homemap .lexi{position:static;width:100%;margin-top:14px;background:#fff;
-    backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;min-height:300px}
-}
 
 /* the Atlas band breathes away from the map band above it */
 .mthome .homeatlas-sec{padding-top:76px}
