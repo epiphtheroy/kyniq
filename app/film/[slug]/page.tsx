@@ -707,6 +707,7 @@ export default async function FilmPage({ params }: Props) {
       codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
+      sentences.length >= 2 ? { id: "df-know", label: "Did you know" } : null,
       geoCount > 0 ? { id: "df-atlas", label: "Atlas", badge: geoCount } : null,
       afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
       crew.length
@@ -838,6 +839,9 @@ export default async function FilmPage({ params }: Props) {
           <CinecodexPanel data={codex as Codex | null} title={f.title} slug={f.slug} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+
+          {/* DID YOU KNOW — thickens thin catalog records with linked facts */}
+          <FilmSentences slug={f.slug} title={f.title} rows={sentences} />
 
           {/* ATLAS — same lazy MapLibre module the Tier-1 branch renders;
               film_geo is not gated on visibility, so Tier-2 pins load fine. */}
@@ -993,6 +997,7 @@ export default async function FilmPage({ params }: Props) {
     hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
     nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces, zone: "free" as const } : null,
     { id: "df-map", label: "Connections", zone: "free" as const },
+    sentences.length >= 2 ? { id: "df-know", label: "Did you know", zone: "free" as const } : null,
     reception.length ? { id: "df-reception", label: "Reception", badge: reception.length, zone: "free" as const } : null,
     newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount, zone: "free" as const } : null,
     dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length, zone: "free" as const } : null,
@@ -1317,6 +1322,9 @@ export default async function FilmPage({ params }: Props) {
           <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
           <EntityMap api={`/api/map?type=film&key=${film.slug}`} full={`/map?m=critical&t=film&k=${film.slug}`} />
         </section>
+
+        {/* DID YOU KNOW — rule-based sentences from the film_sentences layer */}
+        <FilmSentences slug={film.slug} title={film.title} rows={sentences} />
 
         {/* TROPES */}
         {tropes.length > 0 ? (
