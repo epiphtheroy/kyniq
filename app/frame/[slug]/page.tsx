@@ -161,19 +161,23 @@ export default async function FramePage({ params }: Props) {
     .slice(0, 3);
 
   // ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7/§5.8) ─────
-  // frame HAS a real ranking (rank + rationale), so "best film for {frame}" is
-  // legitimately answerable here (§5.8) — the rank-1 case with its editorial
-  // rationale verbatim. Every title/year is from the instance rows. Variant
-  // weaving (§0.6, authored text): "film(s)" carries Q_explore + Q_best (2),
-  // "explore" carries Q_explore (1). A verbatim definition/rationale is a quote,
-  // not woven phrasing, so it is not counted.
+  // frame.label is ITSELF a question ("How does the film subvert genre tropes?"),
+  // so the noun-phrase templates ("What is X?") would be ungrammatical — instead
+  // the primary Q is the label verbatim, and the supporting Qs say "this
+  // question" (the label sits directly above them, as the H1). Grammar invariant
+  // (§0.6-②). frame HAS a real ranking (rank + rationale), so the rank-1 "best"
+  // answer is legitimately allowed here (§5.8). Every title/year is from the
+  // instance rows; a verbatim definition/rationale is a quote, not woven
+  // phrasing, so it is exempt from the variant tally. Authored variants:
+  // "film(s)" Q2 + Q3 (2), "explore" Q2 (1) — each ≤2.
   const frameQA: QuickAnswerItem[] = [];
+  const labelQ = /[?？]\s*$/.test(frame.label) ? frame.label.trim() : `${frame.label.trim()}?`;
   const frDef = (frame.definition ?? "").trim();
-  if (frDef) frameQA.push({ q: `What is ${frame.label}?`, a: frDef });
+  if (frDef) frameQA.push({ q: labelQ, a: frDef });
   if (instances.length > 0) {
     const exploreFilms = instances.slice(0, 4).map((i) => ({ slug: i.film.slug, title: i.film.title, year: i.film.year }));
     frameQA.push({
-      q: `Which films explore ${frame.label}?`,
+      q: `Which films explore this question?`,
       a: <>Metatake ranks <FilmList films={exploreFilms} /> among the defining cases.</>,
     });
   }
@@ -181,7 +185,7 @@ export default async function FramePage({ params }: Props) {
   if (best) {
     const rationale = (best.rationale ?? "").trim();
     frameQA.push({
-      q: `What is the best film for ${frame.label}?`,
+      q: `Which film best answers this question?`,
       a: (
         <>
           <Link href={`/film/${best.film.slug}`}>{best.film.title}</Link>
