@@ -1,0 +1,18 @@
+-- 0069: N_question — rule-based curiosity-gap questions (12,419 rows generated
+-- 2026-07-11 via MCP execute_sql; idempotent ON CONFLICT inserts) + ticker
+-- inclusion (MCP "ticker_questions"). Three shapes, all title-first,
+-- entity-linked, deterministic:
+--   Q1 top-kin pairs (≤3/film):  "{T} ({y}) and {OT} ({oy}) — what connects them?"
+--       salience = kin · other_film_id + kin set
+--   Q2 filming location (1/film): "{T} ({y}) — where was it actually filmed?"
+--       salience = 30 · location_id set
+--   Q3 strongest lens (≤2/film, strength 5): "{T} ({y}) — what does {theorist} unlock in it?"
+--       salience = 75 · figure/take/theorist ids set
+-- Regeneration SQL: see docs/WORKORDER-sentence-surfaces.md Phase 1.8 (or re-run
+-- the three INSERT ... ON CONFLICT DO NOTHING statements from that log).
+--
+-- sentences_ticker now samples pattern set (+N_question):
+--   A_affinity,B_bridge,D_award,E_rank,G_theorist_twin,H_dense,J_location,L_trope,N_question
+-- Client tag maps updated: SentenceTicker/SentenceLexicon ("question", #6D4AAE);
+-- FilmSentences/EntityFantasia gained the "Questions" topic pill.
+select 1; -- marker migration: DML + function replace applied via MCP (see header)

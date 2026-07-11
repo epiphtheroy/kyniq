@@ -35,6 +35,15 @@
 - **take 페이지 제외(데이터 사실)**: 문장 보유 take 21,332개 전원 `meta_take_id=NULL`(신모델 이론가 take는 리딩 클러스터에 미소속) → /take 페이지는 현 데이터로 판타지아 행이 0. RPC 'take' 분기는 미래 대비로 수리해둠(0067: 멤버 take UNION 경로+take_id 부분 인덱스), 마운트만 제거.
 - 검증(라이브): director 5회 출현+탭 · theorist 3 · trope 3 · 미들웨어 수리 후 fresh 3연속 200(1.7s/0.24s/0.09s).
 
+## Phase 1.8 — 잔여 확장 총정리 (SHIPPED 2026-07-11, "남은 것 모두 완료" 지시)
+1. **map_film_overview kin 가중치**(0068a) — ego(0063)와 동일하게 like 엣지에 w; 검증 19엣지. ⚠️ 0-인자 레거시 오버로드 존재 — 제로인자 SQL 호출은 모호(API 라우트는 named p_min_* 3개를 항상 전달하므로 안전); 오버로드 추가 금지.
+2. **sentences_for_entity 신규 분기**(0068b): `lineage`(fs.lineage_list_id, 신규 부분 인덱스) · `genre`(films.genres 라벨을 lib/related.ts slugifyGenre와 동일 정규식으로 슬러그화). 검증: lineage 6·genre 18행.
+3. **신규 마운트 3종**: figure 페이지(fg-fantasia, fg-sec — RPC 'figure' 기존 지원) · lineage 페이지(lh-fantasia, df-sec) · genre 페이지(genre-fantasia, mvh-sec). 모두 EntityFantasiaServer 1줄 마운트.
+4. **불가 확정(측정 근거)**: concept 페이지 — takes.concept 자유텍스트 vs 레지스트리 매칭 8/7,733뿐; frame 페이지 — frames 테이블은 질문 프레임층이지 SM 14 프레임워크가 아님(SM 키는 lib/frameworks.ts+takes.framework 텍스트에만 존재). 문서화로 종결.
+5. **N_question 패턴**(0069) — 호기심 갭 질문 12,419행(3형: 친연쌍 ≤3/편·촬영지 1/편·최강 렌즈 ≤2/편), 티커 패턴셋 편입 + 4개 클라이언트 컴포넌트에 "question" 태그/Questions 토픽 등록. 티커 검증: 54개 중 질문 6.
+6. **/map 캡션 보류항목 종결**: MapExplorer 캡션은 SentenceLexicon 레일(Phase 1.5~1.6)이 상위 호환으로 대체 — obsolete.
+7. **잔여 없음**: take 페이지 복원만 take↔meta_take 클러스터링(콘텐츠 파이프라인 결정) 이후 가능 — 코드는 0067로 준비됨.
+
 ---
 
 **Original spec (written 2026-07-11, for a fresh agent):**
