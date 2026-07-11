@@ -74,22 +74,8 @@ export default async function DirectorIndexPage() {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
-        <h1 className="idx-h1">Directors</h1>
         <LensQuickBar />
         <MineEntityIndex kind="directors" hrefBase="/director/" noun="directors" filmsNoun="of yours" imgShape="round" />
-
-        <p className="idx-def">
-          <b>Not a filmography list.</b> On Metatake a director is the sum of their obsessions. We break every film into
-          its <span className="term">figures</span>, then compute what recurs across a whole body of work — the{" "}
-          <span className="term">signature readings</span> and <span className="term t">signature tropes</span> that make
-          a film unmistakably theirs.
-        </p>
-
-        <p className="idx-intro">
-          <strong>{total.toLocaleString()} directors.</strong> Each signature is shown with the{" "}
-          <em>figure</em> that carries it — the concrete thing on screen, traced through one of the director&apos;s films.
-          Start with one at random, then browse the catalogue below.
-        </p>
 
         <div className="mtl-swap-out">
           <DirectorsIndex featured={featured} catalogue={catalogue} />

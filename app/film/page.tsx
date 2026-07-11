@@ -179,36 +179,12 @@ export default async function FilmIndexPage({ searchParams }: Props) {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
-        <h1 className="idx-h1">Films</h1>
-
-        <p className="idx-def">
-          <b>Not a movie database.</b> Metatake reads each film through its <span className="term">figures</span> — the
-          faces, objects, places and gestures critics single out — and the <span className="term">readings</span> &amp;{" "}
-          <span className="term">tropes</span> those figures carry. A film here isn&apos;t a rating; it&apos;s a bundle of
-          meanings, wired by AI embeddings to every other film that shares them.
-        </p>
-
-        <p className="idx-intro">
-          <strong>Pick one and follow the thread.</strong> Each film opens onto its kin — not lookalikes, not the same
-          genre or director, but films that <em>rhyme</em> in meaning. Start with one at random, then browse the
-          catalogue below.
-        </p>
-
-        <ViewTabs all={false} />
         <LensQuickBar />
         <MineEntityIndex kind="films" hrefBase="/film/" noun="films" imgShape="poster" />
 
         <div className="mtl-swap-out">
-          <FilmsIndex featured={featured} catalogue={catalogue} />
+          <FilmsIndex featured={featured} catalogue={catalogue} inventoryTotal={inventoryTotal} />
         </div>
-
-        {inventoryTotal > cat.total && (
-          <div className="idx-tabs" style={{ marginTop: 18 }}>
-            <Link className="vtab" href="/film?view=all">
-              Browse the full inventory — all {inventoryTotal.toLocaleString()} films →
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );

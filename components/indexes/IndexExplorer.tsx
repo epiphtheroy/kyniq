@@ -13,7 +13,7 @@
  * (FilmsIndex / DirectorsIndex) so this component stays entity-agnostic.
  */
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { tmdbUrl, type SearchHit } from "@/lib/search-shared";
