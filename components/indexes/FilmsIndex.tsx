@@ -3,7 +3,7 @@
 import { type SyntheticEvent } from "react";
 import Link from "next/link";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
-import IndexExplorer, { type PoolItem } from "@/components/indexes/IndexExplorer";
+import IndexExplorer from "@/components/indexes/IndexExplorer";
 import { foldDiacritics } from "@/lib/slug";
 
 export type FilmCat = { slug: string; title: string; year: number | null; director: string | null; genre: string; poster: string | null };
@@ -26,13 +26,6 @@ const MODES: CatMode[] = [
 export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
   catalogue: FilmCat[]; inventoryTotal?: number; initialSlug: string | null;
 }) {
-  // spotlight pool = the visible catalogue (every read-closely page)
-  const pool: PoolItem[] = catalogue.map((f) => ({
-    slug: f.slug,
-    label: `${f.title}${f.year ? ` (${f.year})` : ""}`,
-    sub: f.director,
-  }));
-
   const cat = (
     <>
       <Catalogue<FilmCat>
@@ -81,12 +74,9 @@ export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
       searchKind="film"
       imgShape="poster"
       basePath="/film"
-      pool={pool}
       initialSlug={initialSlug}
       heroTitle="Films"
       placeholder="Search films by title or director…"
-      reshuffleLabel="random movie!"
-      openLabel="Open this film →"
       catalogue={cat}
     />
   );

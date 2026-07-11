@@ -4,15 +4,12 @@
  * IndexExplorer — the search-first shell for the /film and /director index
  * pages. A large hero search sits on top; below it the page has two states:
  *
- *   · idle  → a "spotlight": the ACTUAL entity page for a random slug, loaded
- *             live in a same-origin, box-less, full-bleed iframe. It loads and
- *             scrolls exactly like the real page (native scrollbar, no
- *             artificial spinner) — only the site nav is stripped so there's no
- *             double nav. The single control is a "random movie!" /
- *             "random director!" button; the next random is PRELOADED in a
- *             hidden twin iframe so it's instant, and the first slug is
- *             server-seeded so it loads from first paint. A tab flips to the
- *             full A–Z index (kept mounted for crawlers).
+ *   · idle  → a "spotlight": the ACTUAL entity page for a server-seeded random
+ *             slug, loaded live in a same-origin, box-less, full-bleed iframe.
+ *             It loads and scrolls (with its own sticky section tabs) exactly
+ *             like the real page; only the site nav + footer are stripped so it
+ *             reads as one seamless page. A tab flips to the full A–Z index
+ *             (kept mounted for crawlers).
  *   · typing→ the spotlight/tabs give way to a live results grid — poster cards
  *             for films, circular faces for directors — each a link to the page.
  */
@@ -23,22 +20,17 @@ import { useRouter } from "next/navigation";
 import { tmdbUrl, type SearchHit } from "@/lib/search-shared";
 
 type Shape = "poster" | "round";
-export type PoolItem = { slug: string; label: string; sub?: string | null };
 
 export default function IndexExplorer({
-  searchKind, imgShape, basePath, pool, initialSlug, catalogue,
-  heroTitle, placeholder, reshuffleLabel, openLabel,
+  searchKind, imgShape, basePath, initialSlug, catalogue, heroTitle, placeholder,
 }: {
   searchKind: string;
   imgShape: Shape;
   basePath: string;
-  pool: PoolItem[];
-  initialSlug: string | null;            // server-seeded first spotlight (SSR-stable)
+  initialSlug: string | null;            // server-seeded spotlight slug (SSR-stable)
   catalogue: ReactNode;
   heroTitle: string;
   placeholder: string;
-  reshuffleLabel: string;                // "random movie!" / "random director!"
-  openLabel: string;                     // "Open this film →"
 }) {
   const router = useRouter();
   const [q, setQ] = useState("");
@@ -46,26 +38,9 @@ export default function IndexExplorer({
   const [hits, setHits] = useState<SearchHit[]>([]);
   const [busy, setBusy] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  const frameRef = useRef<HTMLIFrameElement>(null);
 
-  // double-buffered iframes: two fixed slots, one visible + one preloading next.
-  // The frame has a fixed (tall, borderless) height and each iframe scrolls
-  // INTERNALLY — so the real page's own sticky section tabs (.df-tabs) stick,
-  // exactly like on the real page.
-  const seed = initialSlug ?? pool[0]?.slug ?? "";
-  const [srcs, setSrcs] = useState<[string, string]>([seed, ""]);
-  const [active, setActive] = useState<0 | 1>(0);
-  const fa = useRef<HTMLIFrameElement>(null);
-  const fb = useRef<HTMLIFrameElement>(null);
-  const frameRefs = [fa, fb] as const;
-
-  const byLabel = (slug: string) => pool.find((p) => p.slug === slug)?.label ?? slug;
-  const pickRandom = (exclude: string[]) => {
-    if (!pool.length) return "";
-    if (pool.length <= exclude.length + 1) return pool[Math.floor(Math.random() * pool.length)].slug;
-    let s = "";
-    do { s = pool[Math.floor(Math.random() * pool.length)].slug; } while (exclude.includes(s));
-    return s;
-  };
+  const src = initialSlug ?? "";
 
   // live search → results grid
   useEffect(() => {
@@ -89,42 +64,12 @@ export default function IndexExplorer({
     return () => clearTimeout(t);
   }, [q, searchKind]);
 
-  // an iframe finished loading (same-origin): strip only the site nav so there's
-  // no double nav — the page otherwise loads/scrolls exactly like the real one.
-  // Then start preloading the buffer once the visible page is ready.
-  const onFrameLoad = (i: 0 | 1) => {
-    const f = frameRefs[i].current;
-    // strip only the site nav so there's no double nav; the page otherwise loads
-    // and scrolls (with its sticky tabs) exactly like the real one
-    try { f?.contentDocument?.documentElement.setAttribute("data-embed", ""); } catch { /* same-origin */ }
-    if (i === active) {
-      setSrcs((s) => {
-        const other = i === 0 ? 1 : 0;
-        if (s[other]) return s;
-        const c = [...s] as [string, string];
-        c[other] = pickRandom([s[i]]);
-        return c;
-      });
-    }
+  // strip the site nav + footer so the embedded page reads as one seamless page
+  const onFrameLoad = () => {
+    try { frameRef.current?.contentDocument?.documentElement.setAttribute("data-embed", ""); } catch { /* same-origin */ }
   };
 
   const searching = q.trim().length >= 2;
-  const activeSlug = srcs[active];
-  const href = activeSlug ? `${basePath}/${activeSlug}` : basePath;
-
-  const reshuffle = () => {
-    if (pool.length < 2) return;
-    const other = active === 0 ? 1 : 0;
-    const cur = srcs[active], buf = srcs[other];
-    if (buf) {
-      setActive(other);
-      const nxt = pickRandom([buf, cur]);
-      setSrcs((s) => { const c = [...s] as [string, string]; c[active] = nxt; return c; });
-    } else {
-      const nxt = pickRandom([cur]);
-      setSrcs((s) => { const c = [...s] as [string, string]; c[active] = nxt; return c; });
-    }
-  };
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (hits[0]) router.push(hits[0].href);
@@ -144,11 +89,9 @@ export default function IndexExplorer({
           />
           {q ? <button type="button" className="xplor-clear" aria-label="Clear search" onClick={() => setQ("")}>✕</button> : null}
         </form>
-        <p className="xplor-hint">
-          {searching
-            ? <>{busy ? "Searching…" : `${hits.length} result${hits.length === 1 ? "" : "s"}`}</>
-            : <>Type to search, or press <kbd>⌘K</kbd> to search everything on Metatake</>}
-        </p>
+        {searching ? (
+          <p className="xplor-hint">{busy ? "Searching…" : `${hits.length} result${hits.length === 1 ? "" : "s"}`}</p>
+        ) : null}
       </div>
 
       {searching ? (
@@ -184,23 +127,10 @@ export default function IndexExplorer({
         </div>
 
         <div className="xplor-spot" hidden={tab !== "spotlight"}>
-          <div className="xplor-spotbar">
-            <button type="button" className="xplor-rand" onClick={reshuffle}>🎲 {reshuffleLabel}</button>
-            {activeSlug ? <Link className="xplor-open" href={href}>{openLabel}</Link> : null}
-          </div>
           <div className="xplor-frame">
-            {[0, 1].map((i) => (
-              srcs[i] ? (
-                <iframe
-                  key={i}
-                  ref={frameRefs[i as 0 | 1]}
-                  className={`xplor-iframe${i === active ? " is-front" : ""}`}
-                  src={`${basePath}/${srcs[i]}`}
-                  title={byLabel(srcs[i])}
-                  onLoad={() => onFrameLoad(i as 0 | 1)}
-                />
-              ) : null
-            ))}
+            {src ? (
+              <iframe ref={frameRef} className="xplor-iframe is-front" src={`${basePath}/${src}`} title={src} onLoad={onFrameLoad} />
+            ) : null}
           </div>
         </div>
 
@@ -220,7 +150,6 @@ export default function IndexExplorer({
         .xplor-clear{position:absolute;right:16px;width:26px;height:26px;border-radius:50%;border:0;background:var(--surface-2,#eee);color:var(--muted);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center}
         .xplor-clear:hover{background:var(--accent);color:#fff}
         .xplor-hint{font-family:var(--font-ui);font-size:12.5px;color:var(--subtle,#8f8f8f);margin:11px 0 0}
-        .xplor-hint kbd{font-family:inherit;font-size:11px;border:1px solid var(--hairline,#d8d8d8);border-radius:4px;padding:1px 5px}
 
         .xplor-results{margin-top:6px}
         .xplor-none{text-align:center;color:var(--muted);font-family:var(--font-ui);font-size:15px;padding:30px 0}
@@ -247,20 +176,10 @@ export default function IndexExplorer({
         .xplor-tabs button[data-on]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
         .xplor-tabs button:not([data-on]):hover{border-color:var(--accent);color:var(--accent)}
 
-        /* spotlight — ONE control (the random button), then a box-less, full-bleed
-           window that just IS the real page (native scroll, no border/shadow). */
-        .xplor-spotbar{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 12px;flex-wrap:wrap}
-        .xplor-rand{font-family:var(--font-ui);font-size:15px;font-weight:800;letter-spacing:.01em;color:#fff;background:var(--accent,#e3120b);border:0;border-radius:999px;padding:11px 26px;cursor:pointer;box-shadow:0 6px 18px -6px rgba(227,18,11,.5)}
-        .xplor-rand:hover{background:var(--accent-hover,#c20f09)}
-        .xplor-rand:active{transform:translateY(1px)}
-        .xplor-open{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--hairline-2,#ccc);border-radius:999px;padding:10px 16px;text-decoration:none;white-space:nowrap}
-        .xplor-open:hover{border-color:var(--accent);color:var(--accent)}
-
         /* tall, box-less, full-bleed frame; the iframe scrolls internally so the
            real page's own sticky section tabs stay pinned as you scroll */
         .xplor-frame{position:relative;width:97vw;margin-left:50%;transform:translateX(-50%);height:min(94vh,1500px);background:var(--bg)}
-        .xplor-iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;opacity:0;pointer-events:none;z-index:1}
-        .xplor-iframe.is-front{opacity:1;pointer-events:auto;z-index:2}
+        .xplor-iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;z-index:1}
 
         @media(max-width:600px){
           .xplor-thumb--round{width:92px;height:92px}
