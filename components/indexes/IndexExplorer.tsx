@@ -284,14 +284,16 @@ export default function IndexExplorer({
         .xplor-open{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--hairline-2,#ccc);border-radius:999px;padding:10px 16px;text-decoration:none;white-space:nowrap}
         .xplor-open:hover{border-color:var(--accent);color:var(--accent)}
 
-        .xplor-frame{position:relative;width:97vw;margin-left:50%;transform:translateX(-50%);height:min(92vh,1400px);background:var(--bg)}
+        /* height is set inline to the active page's full content height → the
+           whole real page flows and the parent scrolls; bottom is wide open */
+        .xplor-frame{position:relative;width:97vw;margin-left:50%;transform:translateX(-50%);background:var(--bg)}
         .xplor-iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;opacity:0;pointer-events:none;z-index:1}
         .xplor-iframe.is-front{opacity:1;pointer-events:auto;z-index:2}
 
         @media(max-width:600px){
           .xplor-thumb--round{width:92px;height:92px}
           .xplor-grid--round{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}
-          .xplor-frame{width:100vw;height:88vh}
+          .xplor-frame{width:100vw}
         }
       `}</style>
     </div>
