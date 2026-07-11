@@ -3717,6 +3717,11 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .ehero-more{position:absolute; top:12px; right:14px; z-index:6; font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.03em; color:#fff; background:rgba(0,0,0,.55); border-radius:999px; padding:5px 12px; text-decoration:none}
 .ehero-more:hover{background:var(--accent,#C8102E)}
 .ehero-mute{position:absolute; bottom:12px; right:14px; z-index:6; border:0; background:rgba(0,0,0,.6); color:#fff; font-size:13px; border-radius:999px; padding:6px 12px; cursor:pointer}
+/* inline variant — fills a hero's right media slot as an overlay over its
+   backdrop image (no top-of-page banner). Order after .df-tvhero so radius wins. */
+.ehero--in{position:absolute; inset:0; margin:0; max-width:none; border-radius:8px; box-shadow:none}
+.ehero--in .ehero-more{top:8px; right:8px; font-size:10px; padding:4px 9px}
+.ehero--in .ehero-mute{bottom:8px; right:8px; font-size:12px; padding:5px 10px}
 
 /* PlaylistTVEmbed — a METATAKE TV watch list embedded in an axis page */
 .pltv{margin-top:26px}

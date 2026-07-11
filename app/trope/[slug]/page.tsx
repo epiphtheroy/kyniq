@@ -263,8 +263,6 @@ export default async function TropePage({ params }: Props) {
         ...(faqLd ? [faqLd] : []),
       ]) }} />
 
-      <EntityTVHero playlist={`trope-${slug}`} reelSlugs={[...new Set(members.map((m) => m.film_slug))]} label={t.title} listHref={`/tv/list/trope-${slug}`} backdrop={null} />
-
       {/* ── Dark hero: the trope as a working pattern, counted ── */}
       <div className="cur rd-hero">
         <div className="rd-hero__in">
@@ -296,6 +294,7 @@ export default async function TropePage({ params }: Props) {
             <div className="rd-hero__media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="rd-hero__bd" src={`${IMG}/w780${heroBd}`} alt="" width={780} height={439} />
+              <EntityTVHero inline playlist={`trope-${slug}`} reelSlugs={[...new Set(members.map((m) => m.film_slug))]} label={t.title} listHref={`/tv/list/trope-${slug}`} backdrop={heroBd} />
               <div className="rd-hero__cap">From {heroM?.film_title} · via TMDB</div>
             </div>
           ) : null}
