@@ -10,22 +10,26 @@ import TVProgramPlayer, { type TVEntry } from "@/components/TVProgramPlayer";
 
 export default function PlaylistTVEmbed({ slug, heading }: { slug: string; heading?: string }) {
   const [entries, setEntries] = useState<TVEntry[] | null>(null); // null = loading
+  const [plTitle, setPlTitle] = useState<string | null>(null);
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
     let on = true;
     fetch(`/api/tv/watch?list=${encodeURIComponent(slug)}`)
       .then((r) => r.json())
-      .then((j) => { if (on) setEntries(j.entries ?? []); })
+      .then((j) => { if (on) { setEntries(j.entries ?? []); setPlTitle(j.playlist?.title ?? null); } })
       .catch(() => { if (on) setEntries([]); });
     return () => { on = false; };
   }, [slug]);
 
   if (entries && entries.length === 0) return null; // no playlist for this slug
 
+  // SEO: the heading must NAME the subject. Callers pass an entity-specific
+  // heading (server-rendered into the HTML); the fetched playlist title (itself
+  // entity-specific, e.g. "Palme d'Or — All the Broadcasts") is the fallback.
   return (
     <section className="df-sec pltv" id="df-tv">
-      <h2 className="df-h2">{heading ?? "Watch this as a METATAKE TV list"}</h2>
+      <h2 className="df-h2">{heading ?? plTitle ?? " "}</h2>
       <p className="pltv-tag">A single broadcast per film, compiled from the Metatake record — no LLM. It opens with a briefing, then plays each film.</p>
       <div className="df-tvhero pltv-box">
         {entries === null
