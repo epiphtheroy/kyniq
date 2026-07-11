@@ -33,7 +33,7 @@ export type ScrRow = {
   v: number; c: number; r: number; u: number; sharpe: number; country_code?: string | null;
   imdb_rating: number | null; imdb_votes: number | null; rt: number | null; rank: number;
 };
-export type Country = { code: string; n: number };
+export type Country = { code: string; n: number; label: string };
 export type DimHist = Record<string, Bucket[]>;
 
 const SORTS = [
@@ -352,7 +352,7 @@ export default function ScreenerExplorer({
           <span className="scr-ctl-l">Made in</span>
           <select className="scr-sel" value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value="">Any country</option>
-            {countries.map((c) => <option key={c.code} value={c.code}>{codeToFlag(c.code)} {cname(c.code)} ({c.n})</option>)}
+            {countries.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}
           </select>
         </div>
 
