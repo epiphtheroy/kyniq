@@ -278,8 +278,10 @@ export default function ScreenerExplorer({
       {/* ── Black hero ── */}
       <header className="scr-hero" style={heroBackdrop ? { ["--bd" as string]: `url(https://image.tmdb.org/t/p/w1280${heroBackdrop})` } : undefined}>
         <div className="scr-hero-in">
-          <div className="scr-hero-kick">TakeScore™</div>
-          <h1 className="scr-hero-h1">The Screener</h1>
+          <h1 className="scr-hero-h1">
+            <Link href="/takescore/about" className="scr-hero-brand">TakeScore<sup>™</sup></Link>
+            <span className="scr-hero-sub-title">The Screener</span>
+          </h1>
           <p className="scr-hero-sub">Every film scored on durable value, not popularity. Search one, compare many, screen the whole catalog by your own rules.</p>
           <HeroSearch onPin={pin} />
           <div className="scr-presets">
@@ -356,6 +358,14 @@ export default function ScreenerExplorer({
               λ<input type="range" min={0} max={2} step={0.1} value={lam} onChange={(e) => setLam(parseFloat(e.target.value))} /><b>{lam.toFixed(1)}</b>
             </span>
           ) : null}
+        </div>
+
+        <div className="scr-ctl">
+          <span className="scr-ctl-l">Genre</span>
+          <select className="scr-sel" value={genre} onChange={(e) => setGenre(e.target.value)}>
+            <option value="">Any genre</option>
+            {GENRES.map((g) => <option key={g} value={g}>{g}</option>)}
+          </select>
         </div>
 
         <div className="scr-ctl">
