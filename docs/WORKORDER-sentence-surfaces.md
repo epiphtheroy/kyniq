@@ -22,6 +22,12 @@
 - **Mounts:** film `df-map` → **`components/ConnectionDesk.tsx`** (2-col flex: EntityMap + lexicon; graph recenter re-roots the rail via new `EntityMap onCenter` callback — **replaces GraphCaptions there**; component kept in repo, unused). `/map` (MapExplorer) → rail beside EntityGraph for films/directors/critical modes, keyed to the live center node (`egoParams`); overview/galaxy hide it.
 - CSS: `.cmap-cols/.map-cols/.lexi-*` in globals.css; ≤900px stacks below the graph.
 
+## Phase 1.6 — Embedding Fantasia branding + topic nav + /map view samplers (SHIPPED 2026-07-11)
+원우 지시 3건, 같은 날 구현:
+1. **/map 오버뷰에도 레일** — 뷰별로 다른 문장: `sentences_sample(p_patterns,p_n)` RPC(**0065**, UTC-hour 시드 결정론·salience≥15·패턴당 9) + `/api/sentences/sample`. `MapExplorer.VIEW_ROOT` 매핑: films=A/B/H(친연쌍) · directors=F/E(필모 수치) · critical=C/G/I/L/M(해석층) · **galaxy=E/D/J(영화 정체성; 갤럭시도 map-cols로 감싸 레일 추가)**. 센터 노드가 생기면 엔티티 중심으로 전환(기존 동작), 오버뷰로 돌아오면 뷰 샘플러로 복귀.
+2. **코너명 = "Embedding Fantasia"** (원우 제안 "embedding fantasy"의 환상곡 번역 채택). 브랜드 계약: **앰버 키커 "EMBEDDING FANTASIA · a data fantasia by Wonwoo Yoon"(설계자 명기) + 디스클레이머 dek("Not AI-written. …SQL from the embedding space… independent of the filmmakers' intent…") + 푸터 반복.** h2 = "{Title} — Embedding Fantasia"; 탭 라벨도 동일. 레일(SentenceLexicon) 키커·푸터도 리브랜드. ⚠️ 디스클레이머는 계약의 일부 — 제거 금지.
+3. **주제 네비게이션** — `film_sentences_for`에 `p_per_pattern` 추가(**0066**, ⚠️구 3-인자 시그니처 DROP — 오버로드 함정), film 페이지는 48행/패턴당 6을 로드(캐시키 v2). `FilmSentences`가 클라이언트 컴포넌트로 전환(단 Next.js SSR로 전 행이 HTML에 남음 = SEO 링크 메시 유지; hidden 토글만 클라이언트). **주제 7종 명명**: Kinships(A/H/B) · Readings(C) · Twin Lenses(G/I) · Tropes & Frames(L/M) · The Record(D/E) · Filmography(F) · Locations(J). "All"=주제당 2개 큐레이션 믹스; 필 클릭=해당 주제 전체.
+
 ---
 
 **Original spec (written 2026-07-11, for a fresh agent):**
