@@ -1,11 +1,12 @@
 "use client";
 
-import EntityMap from "@/components/EntityMap";
+import ConnectionDesk from "@/components/ConnectionDesk";
 
 /**
  * Home — the living map of cinema, embedded mid-page. The overview hub cloud
- * (films · figures · tropes · ideas · directors). Contained in .wrap so it keeps
- * generous left/right margins; drag/zoom inside; click a node to travel in.
+ * (films · figures · tropes · ideas · directors) on the left, the atlas-style
+ * SentenceLexicon text grid on the right (rule-based connection sentences that
+ * recenter when you travel the map). Contained in .wrap for generous margins.
  */
 export default function HomeMap() {
   return (
@@ -19,7 +20,12 @@ export default function HomeMap() {
           <a className="seeall" href="/map">Open full map ›</a>
         </div>
         <div className="homemap">
-          <EntityMap api="/api/map" full="/map" height={520} />
+          <ConnectionDesk
+            api="/api/map"
+            full="/map"
+            height={520}
+            root={{ type: "sample", key: "A_affinity,B_bridge,H_dense,C_reading,L_trope,N_question", label: "The critical web" }}
+          />
         </div>
       </div>
     </section>

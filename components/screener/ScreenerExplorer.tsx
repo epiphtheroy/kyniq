@@ -492,12 +492,13 @@ export default function ScreenerExplorer({
   );
 }
 
-/* ── Hero instant search: lexical /api/search films → open its card. Fast
-   (110ms debounce, lexical-only so no embedding round-trip). ── */
-type Hit = { slug: string; title: string; year: number | null; poster: string | null };
+/* ── Hero instant search: scored results straight from cinecodex_ranked(p_q),
+   so each row carries its TakeScore + verdict + a save button — the most
+   important surface. Fast (title ilike, 110ms debounce, no embedding). ── */
+type SHit = { slug: string; title: string; year: number | null; poster_path: string | null; v: number; c: number; r: number; u: number; imdb_rating: number | null; rt: number | null };
 function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: string | null) => void }) {
   const [q, setQ] = useState("");
-  const [hits, setHits] = useState<Hit[]>([]);
+  const [hits, setHits] = useState<SHit[]>([]);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const box = useRef<HTMLFormElement | null>(null);
@@ -507,10 +508,9 @@ function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: st
     const ac = new AbortController();
     setLoading(true); setOpen(true);
     const t = setTimeout(async () => {
-      const d = await fetch(`/api/search?q=${encodeURIComponent(q)}&kinds=film&limit=7&mode=lex`, { signal: ac.signal }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      const { data } = await sb.rpc("cinecodex_ranked", { p_sort: "u", p_lambda: 1.0, p_q: q.trim(), p_limit: 8, p_offset: 0 });
       if (ac.signal.aborted) return;
-      const hs = ((d?.hits ?? []) as Hit[]).map((h) => ({ slug: h.slug, title: h.title, year: h.year, poster: h.poster }));
-      setHits(hs); setLoading(false); setOpen(true);
+      setHits(((data as { rows?: SHit[] } | null)?.rows) ?? []); setLoading(false); setOpen(true);
     }, 110);
     return () => { clearTimeout(t); ac.abort(); };
   }, [q]);
@@ -521,7 +521,7 @@ function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: st
     return () => document.removeEventListener("mousedown", h);
   }, []);
 
-  const choose = (h: Hit) => { onPin(h.slug, h.title, h.poster); setQ(""); setHits([]); setOpen(false); };
+  const choose = (h: SHit) => { onPin(h.slug, h.title, h.poster_path); setQ(""); setHits([]); setOpen(false); };
   const submit = (e: React.FormEvent) => { e.preventDefault(); if (hits.length) choose(hits[0]); };
 
   return (
@@ -533,15 +533,25 @@ function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: st
       {open && q.trim().length >= 2 ? (
         <div className="scr-search-drop">
           {hits.length ? hits.map((h) => (
-            <button type="button" key={h.slug} className="scr-search-hit" onClick={() => choose(h)}>
-              {h.poster ? (
+            <div key={h.slug} className="scr-hit" onClick={() => choose(h)} role="button" tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter") choose(h); }}>
+              {h.poster_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={`https://image.tmdb.org/t/p/w92${h.poster}`} alt="" width={30} height={45} />
-              ) : <span className="scr-search-hit--e" />}
-              <span className="scr-search-hit-t">{h.title} <i>({h.year ?? "?"})</i></span>
-              <span className="scr-search-hit-pin">See score →</span>
-            </button>
-          )) : <div className="scr-search-empty">{loading ? "Searching…" : "No films found."}</div>}
+                <img className="scr-hit-p" src={`https://image.tmdb.org/t/p/w92${h.poster_path}`} alt="" width={38} height={57} />
+              ) : <span className="scr-hit-p scr-hit-p--e" />}
+              <div className="scr-hit-mid">
+                <div className="scr-hit-t">{h.title} <span className="scr-hit-y">({h.year ?? "?"})</span></div>
+                <div className="scr-hit-v">{shortVerdict(h.v, h.c, h.r, h.u)}</div>
+                <div className="scr-hit-band">
+                  <b style={{ color: AX.v }}>V {Math.round(h.v)}</b><b style={{ color: AX.c }}>C {Math.round(h.c)}</b><b style={{ color: AX.r }}>R {Math.round(h.r)}</b>
+                  {h.imdb_rating != null ? <span>IMDb {Number(h.imdb_rating).toFixed(1)}</span> : null}
+                  {h.rt != null ? <span>RT {h.rt}%</span> : null}
+                </div>
+              </div>
+              <span className="scr-hit-ts"><b>{Math.round(h.u)}</b><i>TS</i></span>
+              <span className="scr-hit-save" onClick={(e) => e.stopPropagation()}><PosterActions slug={h.slug} rating={false} compact /></span>
+            </div>
+          )) : <div className="scr-search-empty">{loading ? "Searching…" : "No scored films match — try another title."}</div>}
         </div>
       ) : null}
     </form>
