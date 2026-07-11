@@ -12,6 +12,7 @@ import ListFilter from "@/components/ListFilter";
 import LensQuickBar from "@/components/LensQuickBar";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { resolveAlias } from "@/lib/aliases";
 import { fw } from "@/lib/frameworks";
@@ -237,6 +238,57 @@ export default async function TropePage({ params }: Props) {
     ],
   } : null;
 
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 + §5.6) ─────────────────
+  // Search-phrased Q&A assembled ONLY from fields already in scope, mounted
+  // above the "spelled out" bullets (distinct framing, not a duplicate). Every
+  // title, count and framework is verbatim. Variant weaving (§0.6): "trope"
+  // carries Q1+Q2 (2), "cliché" the maturity Q (and its established answer),
+  // "convention" the cliché answer — each ≤2 uses.
+  const tropeQA: QuickAnswerItem[] = [];
+  const tropeDef = excerptPlain(t.thesis ?? t.laconic, 300);
+  if (tropeDef) {
+    tropeQA.push({ q: `What is the ${t.title} trope?`, a: tropeDef });
+  }
+  if (filmCount >= 4) {
+    const show = topFilms.slice(0, 4);
+    const more = filmCount - show.length;
+    tropeQA.push({
+      q: `Which films use the ${t.title} trope?`,
+      a: (
+        <>
+          {show.map((m, i) => (
+            <span key={m.film_slug}>
+              {i > 0 ? (i === show.length - 1 ? " and " : ", ") : ""}
+              <Link href={`/film/${m.film_slug}`}>{m.film_title}</Link>
+              {m.film_year != null ? ` (${m.film_year})` : ""}
+            </span>
+          ))}
+          {more > 0 ? `, and ${more} more` : ""}.
+        </>
+      ),
+    });
+  }
+  if (tt.maturity && mat) {
+    const m = tt.maturity;
+    const a =
+      m === "cliche"
+        ? `Yes — ${t.title} is a well-worn convention that cinema returns to again and again.`
+        : m === "fresh" || m === "emerging"
+          ? `Not really — ${t.title} is still ${m}, a pattern only beginning to recur across films.`
+          : `Not quite — ${t.title} is established rather than a cliché: a recurring pattern across many films, but not yet a tired one.`;
+    tropeQA.push({ q: `Is ${t.title} a cliché?`, a });
+  }
+  if (fwTopT[0] && n > 1) {
+    tropeQA.push({
+      q: `Which critical lens stages ${t.title} most?`,
+      a: (
+        <>
+          The <b>{fwTopT[0][0]}</b> lens stages {t.title} most often — {fwTopT[0][1]} of {n} reading{n === 1 ? "" : "s"}.
+        </>
+      ),
+    });
+  }
+
   return (
     <div className="mt">
       <SiteNav />
@@ -341,6 +393,8 @@ export default async function TropePage({ params }: Props) {
 
         {t.thesis ? <p className="tp-thesis">{t.thesis}</p> : null}
         {mat ? <p className="tp-matnote"><span className={`tp-mat tp-mat--${tt.maturity}`}>{mat[0]}</span> — {mat[1]}.</p> : null}
+
+        <QuickAnswers items={tropeQA.slice(0, 5)} />
 
         {/* ── The trope, spelled out — deterministic sentences (concept-page grammar) ── */}
         <section className="tp-sec" id="spelled-out">
