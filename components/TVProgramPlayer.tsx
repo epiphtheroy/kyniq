@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import EntityMap from "@/components/EntityMap";
 import FilmMap from "@/components/FilmMap";
+import { useVideoDock } from "@/components/VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 const PATTERNS = ["air", "band", "ink", "wire"] as const;
@@ -63,6 +64,7 @@ export default function TVProgramPlayer({
   const [nonce, setNonce] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState(true);
+  const dock = useVideoDock();   // present only when wrapped in a VideoMiniDock
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const endRef = useRef(onEntryEnd); endRef.current = onEntryEnd;
 
@@ -244,6 +246,7 @@ export default function TVProgramPlayer({
         <button className="svc-btn svc-btn--play" onClick={togglePlay} aria-label={playing ? "Pause" : "Play"}>{playing ? "❚❚" : "►"}</button>
         <button className="svc-btn" onClick={nextSeg} aria-label="Next chapter">›</button>
         {clipSrc ? <button className="svc-btn" onClick={() => setMuted((v) => !v)} aria-label={muted ? "Unmute" : "Mute"}>{muted ? "🔇" : "🔊"}</button> : null}
+        {dock ? <button className="svc-btn" onClick={dock.toggleFullscreen} aria-label={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"} title="Fullscreen">{dock.isFullscreen ? "�''" : "⛶"} Fullscreen</button> : null}
         {film?.slug ? <a className="svc-btn svc-btn--open" href={`/film/${film.slug}`}>Full info ↗</a> : null}
       </div>
     </div>
