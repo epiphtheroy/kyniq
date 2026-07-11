@@ -70,3 +70,16 @@ select jsonb_build_object('entries', coalesce((select jsonb_agg(jsonb_build_obje
 $$;
 
 grant execute on function public.tv_watch_films(text[], int) to anon, authenticated;
+
+-- tv_directory / tv_directory_summary also get the 12s function-level timeout
+-- (same anon 3s trap as tv_watch — a cold search 500s otherwise).
+do $$
+declare sig text;
+begin
+  for sig in
+    select oid::regprocedure::text from pg_proc
+    where proname in ('tv_directory','tv_directory_summary') and pronamespace = 'public'::regnamespace
+  loop
+    execute format('alter function %s set statement_timeout = ''12s''', sig);
+  end loop;
+end $$;
