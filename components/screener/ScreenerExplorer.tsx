@@ -122,6 +122,7 @@ export default function ScreenerExplorer({
     if (g("since")) setSince(g("since"));
     if (g("to")) setTo(g("to"));
     if (g("country")) setCountry(g("country"));
+    if (g("genre")) setGenre(g("genre"));
     if (g("q")) setQ(g("q"));
     const tsr = parseRange(g("ts")); if (tsr) setTs(tsr);
     const dm = parseDims(g("dims")); if (Object.keys(dm).length) { setDims(dm); setShowDims(true); }
@@ -178,6 +179,7 @@ export default function ScreenerExplorer({
     if (since) sp.set("since", since);
     if (to) sp.set("to", to);
     if (country) sp.set("country", country);
+    if (genre) sp.set("genre", genre);
     if (q) sp.set("q", q);
     if (ts) sp.set("ts", `${ts[0]}-${ts[1]}`);
     if (activeDims) sp.set("dims", dimsToStr(dims));
@@ -187,7 +189,7 @@ export default function ScreenerExplorer({
     const s = sp.toString();
     const t = setTimeout(() => router.replace(s ? `/takescore?${s}` : "/takescore", { scroll: false }), 350);
     return () => clearTimeout(t);
-  }, [sort, lam, since, to, country, q, ts, dims, maxVotes, hideSeen, pins, activeDims, router]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sort, lam, since, to, country, genre, q, ts, dims, maxVotes, hideSeen, pins, activeDims, router]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchPage = useCallback(async (reset: boolean) => {
     setLoading(true);
