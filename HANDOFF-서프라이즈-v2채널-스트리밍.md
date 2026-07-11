@@ -80,7 +80,8 @@
 - **tv_watch v3:** 리스트 브랜치 맨 앞에 **인트로 브리핑 pseudo-엔트리**(topic='intro', beats=pl.intro) 삽입 + 셸프 36 캡 + n_playlists.
 - **프론트:** `/tv/list/[slug]`(독립 색인 페이지, CollectionPage+ItemList JSON-LD, `TVListView`) + `PlaylistTVEmbed`(director/lineage/movements/genre/trope/concept 페이지 임베드, 빈 슬러그 자동 숨김) + 사이트맵 tv-programs/tv-lists 자식.
 - **⚠️ anon 3초 타임아웃 함정(중요):** anon 역할 statement_timeout=3s인데 콜드 리스트/셸프 빌드는 ~4s(콜드), 최초 DDL 직후 15s. → `/tv/list` 404, 임베드·셸프 error. **해결: tv_watch에 함수레벨 `set statement_timeout to '12s'`**(ISR+s-maxage 300 캐시라 첫 히트만 부담) + 라우트 maxDuration=30. 신규 tv_* 무거운 anon RPC 추가 시 동일 패턴 필수.
-- **다음(미착수):** 브라우즈 UI `/tv/lists`(tv_directory 소비), 아키타입 catalog-노드 페이지 임베드, 이론가·트로프 segments-cut(컴파일러 v3 meta 스탬프 후).
+- **✅ 완료(2026-07-11):** 브라우즈 UI **`/tv/lists`**(축 필터 탭+검색+페이지네이션, `TVDirectory`+`/api/tv/directory`; /tv/watch 셸프·단일·리스트뷰 링크 — ⚠️`.tvpg` 다크셸이라 필터칩은 라이트잉크), **tradition 히어로**(0062 `tv_films_for_concepts`). 전 엔티티 상단 영상 히어로 통일(0061 §C2-c와 세트).
+- **다음(미착수, 데이터 선행):** crew 축 플레이리스트(DB에 person→film 매핑 부재 — film_credits 테이블 선행 필요; credits는 릴로 동작), 이론가·트로프 segments-cut(컴파일러 v3 meta 스탬프 후).
 
 **(구 기획 노트)** 실측 리니지 89·감독 192·장르 18·국가 45·연대 11·이론가 276 + 강화 3축(≥3) 트로프 2,859·아키타입 1,535·컨셉 588 ≈ ~5,500. 각 방송 = ① 세부 페이지 임베드(PlaylistTVEmbed) + ② 독립 slug `/tv/list/[slug]`(CollectionPage+ItemList) + ③ **인트로 브리핑**(제목·클리핑 기준·영화 수·챕터 수 — tv_playlists.intro beats를 tv_watch가 pseudo-엔트리로 선두 삽입). 스키마=0060(axis/key/cut/intro/href 컬럼 추가), 생성기 `tv_build_*_playlists()` 8종+`tv_directory()`. ⚠️ 이론가·트로프 segments-cut은 엔티티 불일치로 P1 금지(컴파일러 v3 meta 스탬프 후). 브라우즈 UI는 tv_directory() 소비로 후속.
 
