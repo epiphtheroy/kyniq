@@ -6,7 +6,7 @@ import Catalogue, { type CatMode } from "@/components/Catalogue";
 import IndexExplorer from "@/components/indexes/IndexExplorer";
 import { foldDiacritics } from "@/lib/slug";
 
-export type FilmCat = { slug: string; title: string; year: number | null; director: string | null; genre: string; poster: string | null };
+export type FilmCat = { slug: string; title: string; year: number | null; director: string | null; genre: string; poster: string | null; rich?: boolean };
 
 const THUMB = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w92${p}` : null);
 
@@ -26,6 +26,9 @@ const MODES: CatMode[] = [
 export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
   catalogue: FilmCat[]; inventoryTotal?: number; initialSlug: string | null;
 }) {
+  // random/spotlight pool = data-rich films only (the A–Z index shows all)
+  const pool = catalogue.filter((f) => f.rich).map((f) => f.slug);
+
   const cat = (
     <>
       <Catalogue<FilmCat>
@@ -43,7 +46,7 @@ export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
           : sortKey(a.title).localeCompare(sortKey(b.title))}
         cell={(it) => ({
           href: `/film/${it.slug}`,
-          title: <>{it.title} {it.year ? <span className="yr">({it.year})</span> : null}</>,
+          title: <>{it.title} {it.year ? <span className="yr">({it.year})</span> : null}{it.rich === false ? <span className="t2-chip">catalog</span> : null}</>,
           meta: it.director ?? "—",
           text: `${it.title} ${it.director ?? ""}`.toLowerCase(),
           thumb: (

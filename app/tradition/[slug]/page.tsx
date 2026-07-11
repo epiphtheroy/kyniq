@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 
 /**
  * Tradition — the school-of-thought axis (unified taxonomy Major).
@@ -68,6 +69,55 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7) ─────────
+// Deterministic Q&A assembled ONLY from the school's rows already in scope.
+// tradition has NO definition field, so there is NEVER a "What is X?" question
+// (it cannot be answered from data — charter §0-1); only concept, theorist and
+// count questions, every name verbatim. Variants (tradition / school /
+// concepts) woven across Q and A, max two uses each: "concepts" carries Q1+Q3,
+// "tradition" carries Q1+A2, "school" carries A1.
+function quickAnswerItems(rows: SchoolRow[], films: number): QuickAnswerItem[] {
+  const name = rows[0].school;
+  const items: QuickAnswerItem[] = [];
+
+  const shown = rows.slice(0, 4);
+  const conceptNodes = shown.map((r, i) => (
+    <span key={r.concept_slug}>
+      {i > 0 ? (i === shown.length - 1 ? " and " : ", ") : ""}
+      <Link href={`/concept/${r.concept_slug}`}>{r.concept}</Link>
+    </span>
+  ));
+  items.push({
+    q: `What are the key concepts in the ${name} tradition?`,
+    a: <>The {name} school turns on {conceptNodes}.</>,
+  });
+
+  const theorists: string[] = [];
+  const seen = new Set<string>();
+  for (const r of rows) {
+    if (!r.theorists) continue;
+    for (const t of r.theorists.split(",").map((s) => s.trim()).filter(Boolean)) {
+      const k = t.toLowerCase();
+      if (!seen.has(k)) { seen.add(k); theorists.push(t); }
+    }
+  }
+  if (theorists.length > 0) {
+    const names = theorists.slice(0, 4);
+    const joined = names.length <= 1 ? (names[0] ?? "") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+    items.push({
+      q: `Who are the ${name} theorists?`,
+      a: `${joined} — the theorists whose work this tradition gathers.`,
+    });
+  }
+
+  items.push({
+    q: `How many concepts does ${name} cover?`,
+    a: `${rows.length} in all${films > 0 ? `, drawn on across ${films} film reading${films !== 1 ? "s" : ""} on Metatake` : ""}.`,
+  });
+
+  return items.slice(0, 4);
+}
+
 export default async function TraditionPage({ params }: Props) {
   const { slug } = await params;
   const data = await load(slug);
@@ -97,6 +147,7 @@ export default async function TraditionPage({ params }: Props) {
           {rows.length} concept{rows.length !== 1 ? "s" : ""} carry the <em>{name}</em> tradition
           {films > 0 ? <> — {films} film reading{films !== 1 ? "s" : ""} across Metatake lean on them.</> : "."}
         </p>
+        <QuickAnswers items={quickAnswerItems(rows, films)} />
         <div className="th-share" style={{ marginTop: 14 }}>
           <ShareDock variant="bar" path={`/tradition/${slug}`} title={`${name} — a theory tradition`}
             hook={`${name} — ${rows.length} concept${rows.length !== 1 ? "s" : ""} read across film on Metatake`}
