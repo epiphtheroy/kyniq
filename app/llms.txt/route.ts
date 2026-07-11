@@ -1,31 +1,40 @@
 import { NextResponse } from "next/server";
+import { DOC_CATEGORIES, DOCS, docHref, docsInCategory } from "@/lib/docs/registry";
 
 /**
- * llms.txt — SPEC §8.6
- * Helps AI systems understand the site structure.
+ * llms.txt — helps AI systems understand the site and cite the right pages.
+ * The methodology section is generated from lib/docs/registry.ts so it stays
+ * in sync with The Method Docs.
  */
 export async function GET() {
-  const content = `# Metatake — Read films closely
-> A collaborative film interpretation platform where readers build shared canonical answers.
+  const SITE = "https://metatake.net";
+
+  const methodology = DOC_CATEGORIES.map((c) => {
+    const lines = docsInCategory(c.key)
+      .filter((d) => d.slug !== "overview")
+      .map((d) => `- ${SITE}${docHref(d.slug)} — ${d.title}: ${d.desc}`)
+      .join("\n");
+    return `### ${c.label}\n${lines}`;
+  }).join("\n\n");
+
+  const content = `# Metatake — a critical map of cinema
+> An AI-drafted, human-edited film-interpretation site. Films are broken into figures; each figure gets close readings under named interpretive frameworks; readings are embedded so films connect by meaning, not by tag. Every reading is reviewed and signed off by a human editor before it publishes.
 
 ## About
-Metatake gathers interpretation questions about films and lets readers build answers together.
-One canonical answer per question, evolving through edits and merged contributions.
+Metatake reads films closely and maps how they connect. The interpretive work is drafted by an AI system (Metatake Editorial) and reviewed by a named human editor, Wonwoo Yoon, who checks every reading's facts and takes responsibility for the page. Alongside the readings sit structured layers: a computed value score (TakeScore), a public record of awards and canons (lineage), filming and setting locations, reception history, and an hourly news desk.
 
-## URL Structure
-- /film/[slug] — Film hub with all questions
-- /film/[slug]/q/[question-slug] — Question page with canonical answer + community readings
-- /director/[slug] — Director hub with films and notable questions
-- /u/[username] — User profile
-- /about — About Metatake
-- /guidelines — Community guidelines
+## Core model
+- film → figure → take: a film is decomposed into figures (the objects, gestures, colours, silences it returns to); each figure carries close readings ("strong misreadings") drafted under one of fourteen frameworks.
+- Recurring readings across films form tropes, ranked by embedding similarity.
+- Connections (kinship, counterpoints) are computed from readings, not from viewing behaviour, and always shown with their evidence.
 
-## Content Model
-- Each question belongs to exactly one film
-- One canonical answer per question (answer-first TL;DR + detailed analysis)
-- Multiple community contributions (readings) per question
-- Upvote-only (no downvotes) — quality through curation
-- AI-authored content is transparently labeled "Metatake Editorial"
+## Methodology — how everything is made (transparent by design)
+The full method is published, document by document, under ${SITE}/methodology. What goes in, how it is normalised, and what we deliberately exclude are all described in plain language.
+
+${methodology}
+
+## Sources & attribution
+Film stills and posters are from TMDB. External rating metrics are from an open ratings source; award histories from Wikidata. Readings, figures, tropes, connections, TakeScore, the lineage structure and location pins are original to Metatake.
 
 ## Contact
 wonwoo@metatake.net

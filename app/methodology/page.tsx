@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { pageRobots } from "@/lib/seo";
 import { cachedLineageMeta } from "@/lib/lineage";
+import { DOC_CATEGORIES, docsInCategory, categoryEntryHref } from "@/lib/docs/registry";
 
 export const revalidate = 3600;
 
@@ -50,6 +51,27 @@ export default async function MethodologyPage() {
         How a reading on Metatake actually gets made — the pipeline, what the AI does and doesn&apos;t do, and how to
         flag it when we get something wrong.
       </p>
+
+      <p className="ui muted" style={{ fontSize: 13, margin: "10px 0 0", maxWidth: "62ch" }}>
+        This page is the summary. The full method is split into a set of short documents — browse them below, or use the
+        list on the left.
+      </p>
+
+      <hr className="rule" />
+      <div className="seclbl">Browse the method</div>
+      <div className="tick" />
+      <div className="mdocs-cards">
+        {DOC_CATEGORIES.map((c) => {
+          const n = docsInCategory(c.key).filter((d) => d.slug !== "overview").length;
+          return (
+            <Link key={c.key} href={categoryEntryHref(c.key)} className="mdocs-card">
+              <div className="mdocs-card__label">{c.label}</div>
+              <div className="mdocs-card__blurb">{c.blurb}</div>
+              {n > 0 ? <div className="mdocs-card__n">{n} doc{n === 1 ? "" : "s"}</div> : null}
+            </Link>
+          );
+        })}
+      </div>
 
       {tiles.length > 0 ? (
         <>
@@ -153,6 +175,10 @@ export default async function MethodologyPage() {
         corpus grows.</> : null}
       </p>
 
+      <p className="mdocs-more">
+        <Link href="/methodology/kinship" className="accent" style={{ textDecoration: "none" }}>Read the full method: how kinship is computed →</Link>
+      </p>
+
       <hr className="rule" />
 
       <div className="seclbl" id="rankings">The numbers on ranked lists</div>
@@ -178,6 +204,10 @@ export default async function MethodologyPage() {
         hand, and no ranking is ever frozen into the page.
       </p>
 
+      <p className="mdocs-more">
+        <Link href="/methodology/rankings" className="accent" style={{ textDecoration: "none" }}>Read the full method: the numbers on ranked lists →</Link>
+      </p>
+
       <hr className="rule" />
 
       <div className="seclbl" id="locations">Locations — location data</div>
@@ -192,6 +222,10 @@ export default async function MethodologyPage() {
         display; where the record is thin, the pin says city level rather than pretending to an address. Location
         facts sit under the same correction loop as everything else on this page — if we&apos;ve put a pin in the
         wrong place, tell us and we&apos;ll move it.
+      </p>
+
+      <p className="mdocs-more">
+        <Link href="/methodology/locations" className="accent" style={{ textDecoration: "none" }}>Read the full method: setting vs. filmed locations →</Link>
       </p>
 
       <hr className="rule" />
@@ -235,6 +269,10 @@ export default async function MethodologyPage() {
         the lineage layer.
       </p>
 
+      <p className="mdocs-more">
+        <Link href="/methodology/lineage" className="accent" style={{ textDecoration: "none" }}>Read the full method: the lineage record →</Link>
+      </p>
+
       <hr className="rule" />
 
       <div className="seclbl" id="index">to.W — why a film is in the index</div>
@@ -267,6 +305,10 @@ export default async function MethodologyPage() {
         settle it. Like everything here, the filings sit under the same{" "}
         <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop: if a film is
         filed under the wrong standing, tell us and we&apos;ll re-file it.
+      </p>
+
+      <p className="mdocs-more">
+        <Link href="/methodology/why-a-film-is-in-the-index" className="accent" style={{ textDecoration: "none" }}>Read the full method: why a film is in the index →</Link>
       </p>
 
       <hr className="rule" />
@@ -303,6 +345,10 @@ export default async function MethodologyPage() {
         it goes live, and sits under the same{" "}
         <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop as the rest
         of the site.
+      </p>
+
+      <p className="mdocs-more">
+        <Link href="/methodology/now-playing" className="accent" style={{ textDecoration: "none" }}>Read the full method: the live desk →</Link>
       </p>
 
       <hr className="rule" />

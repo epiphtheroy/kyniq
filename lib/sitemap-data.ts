@@ -24,6 +24,8 @@ import accessEnrichment from "@/lib/access_enrichment.json";
 import { whereToUrl, genreUrl, theoristUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
 import { DESKS, DESK_KEYS, deskByMode } from "@/lib/desks";
+import { DOCS as METHOD_DOCS, docHref } from "@/lib/docs/registry";
+import { DOC_BODIES } from "@/lib/docs/content";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -128,6 +130,20 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     .order("edition_date", { ascending: true });
   for (const p of posts ?? []) {
     entries.push({ url: `${siteUrl}/blog/${p.slug}`, lastmod: p.edition_date });
+  }
+  return entries;
+}
+
+/** The Method Docs — the /methodology hub + every authored sub-doc. Static
+ * editorial hubs; no lastmod (no content-event source). A stub (empty body)
+ * is 404 on-page, so only authored docs are advertised. */
+export async function methodologyEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const entries: SitemapEntry[] = [{ url: `${siteUrl}/methodology` }];
+  for (const d of METHOD_DOCS) {
+    if (d.slug === "overview") continue;
+    if (!DOC_BODIES[d.slug]) continue; // unauthored stub → not advertised
+    entries.push({ url: `${siteUrl}${docHref(d.slug)}` });
   }
   return entries;
 }
