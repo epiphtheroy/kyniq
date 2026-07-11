@@ -21,6 +21,9 @@ const MODES: CatMode[] = [
 ];
 
 export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: DirCat[]; initialSlug: string | null }) {
+  // random/spotlight pool = only directors with a written intro page
+  const pool = catalogue.filter((d) => d.has_intro).map((d) => d.slug);
+
   const cat = (
     <>
       {/* country=null directors don't appear in the Nationality view (no
@@ -71,9 +74,11 @@ export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: 
       searchKind="director"
       imgShape="round"
       basePath="/director"
+      pool={pool}
       initialSlug={initialSlug}
-      heroTitle="Directors"
+      heroTitle="director search"
       placeholder="Search directors by name…"
+      reshuffleLabel="random director"
       catalogue={cat}
     />
   );

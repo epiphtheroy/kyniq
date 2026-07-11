@@ -77,9 +77,11 @@ export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
       searchKind="film"
       imgShape="poster"
       basePath="/film"
+      pool={pool}
       initialSlug={initialSlug}
-      heroTitle="Films"
+      heroTitle="film search"
       placeholder="Search films by title or director…"
+      reshuffleLabel="random movie"
       catalogue={cat}
     />
   );
