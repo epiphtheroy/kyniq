@@ -5176,3 +5176,21 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 .tsf-share{margin:12px 0 6px}
 
 .mt-share,.lh-share{margin:12px 0 6px}
+
+/* SentenceTicker — site-wide connection strip (components/SentenceTicker.tsx) */
+.stk{height:38px;overflow:hidden;border-top:1px solid var(--hairline-2);border-bottom:1px solid var(--hairline-2);background:var(--paper,#fff)}
+.stk-track{display:inline-flex;align-items:center;white-space:nowrap;will-change:transform;animation:stk-scroll linear infinite}
+.stk:hover .stk-track,.stk:focus-within .stk-track{animation-play-state:paused}
+.stk-item{display:inline-flex;align-items:center;gap:9px;padding:0 22px;height:38px;text-decoration:none;color:var(--ink);border-right:1px solid var(--hairline-2)}
+.stk-item:hover .stk-txt{color:var(--accent)}
+.stk-tag{flex:none;font-family:var(--font-ui);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#fff;padding:2px 6px;border-radius:4px}
+.stk-txt{font-size:13.5px;font-variant-numeric:tabular-nums}
+.stk--rot{display:flex;align-items:center;justify-content:center}
+.stk--rot .stk-item{border-right:none;max-width:100%;overflow:hidden}
+.stk--rot .stk-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@keyframes stk-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* room variant — terminal dark */
+.stk--room{background:#0b0d10;border-color:#1b2027}
+.stk--room .stk-item{color:#c9d1d9;border-right-color:#1b2027}
+.stk--room .stk-item:hover .stk-txt{color:#7ee3c7}
+@media (prefers-reduced-motion: reduce){.stk-track{animation:none}}
