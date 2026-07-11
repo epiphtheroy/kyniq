@@ -358,6 +358,8 @@ export default async function TheoristPage({ params }: Props) {
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>
         <Byline />
 
+        <QuickAnswers items={theoristQA.slice(0, 5)} />
+
         {/* ── The lens, spelled out — deterministic sentences only ── */}
         <section style={{ margin: "12px 0 0" }} id="lens-facts">
           <h2 className="df-h2">The lens, spelled out</h2>
