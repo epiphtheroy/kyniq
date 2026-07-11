@@ -41,7 +41,7 @@ export default function TVListView({ playlist, entries }: { playlist: PlaylistMe
           <p className="tvpg-tag">{playlist.dek ?? "A METATAKE TV watch list — compiled from the Metatake record, no LLM. It opens with a briefing, then plays each film."}</p>
           {playlist.href
             ? <a className="tvpg-full" href={playlist.href}>Open the source page ↗</a>
-            : <a className="tvpg-full" href="/tv/lists">Browse all watch lists ↗</a>}
+            : <a className="tvpg-full" href="/watch">Browse all watch lists ↗</a>}
         </header>
 
         <div className="tvw-main">

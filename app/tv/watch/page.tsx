@@ -136,7 +136,7 @@ function Watch() {
         {/* shelves */}
         {shelf ? (
           <section className="tvw-shelves">
-            <h2 className="tvw-shelf__h">Watch lists <a href="/tv/lists" className="tvw-browse">Browse all {shelf.n_playlists ? shelf.n_playlists.toLocaleString() : ""} ↗</a></h2>
+            <h2 className="tvw-shelf__h">Watch lists <a href="/watch" className="tvw-browse">Browse all {shelf.n_playlists ? shelf.n_playlists.toLocaleString() : ""} ↗</a></h2>
             <div className="tvw-cards">
               {shelf.playlists.map((p) => (
                 <button key={p.slug} className={`tvw-card${p.slug === list ? " on" : ""}`} onClick={() => pickList(p.slug)}>

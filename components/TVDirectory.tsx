@@ -130,7 +130,7 @@ export default function TVDirectory({ initial = [], initialSummary = [], initial
             <span className="tvpg-brand__live">● WATCH LISTS</span>
           </div>
           <p className="tvpg-tag">{totalAll.toLocaleString()} watch lists — every director, canon, trope, concept and more, compiled into broadcasts. No LLM.</p>
-          <a className="tvpg-full" href="/tv/watch">Back to the channel ↗</a>
+          <a className="tvpg-full" href="/tv">Back to the channel ↗</a>
         </header>
         {controls}
       </div>
