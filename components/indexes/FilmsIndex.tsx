@@ -49,7 +49,10 @@ export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
           title: <>{it.title} {it.year ? <span className="yr">({it.year})</span> : null}{it.rich === false ? <span className="t2-chip">catalog</span> : null}</>,
           meta: it.director ?? "—",
           text: `${it.title} ${it.director ?? ""}`.toLowerCase(),
-          thumb: (
+          // only data-rich films carry a poster thumbnail; the 5,040 Tier-2
+          // catalog films render as lighter text rows (keeps the 6,975-row
+          // index from getting heavy)
+          thumb: it.rich === false ? undefined : (
             <span className="idx-th idx-th--poster">
               {THUMB(it.poster) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.poster) as string} alt="" loading="lazy" />
                 : <span className="idx-th-mono">{it.title.charAt(0)}</span>}
