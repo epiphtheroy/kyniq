@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import LensQuickBar from "@/components/LensQuickBar";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
@@ -89,6 +90,64 @@ function leadText(city: AtlasCity, films: FilmGroup[], pinCount: number, returne
   if (returnedTo.length) sentences.push(`Filmmakers keep returning to ${listWords(returnedTo.slice(0, 2).map((m) => m.name))}.`);
   sentences.push("Each film below links to its own location page, with the scene every place carries.");
   return sentences.join(" ");
+}
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7) ─────────
+// Deterministic Q&A assembled ONLY from fields already in scope: emitted only
+// when the answer row is present, every film, landmark, pin and director name
+// verbatim from the merged pins. No quality signal here, so never a "best
+// films" question — only counts, what/which and where. Search-term variants
+// (filmed / shot / filming locations) woven across Q and A, max two uses each:
+// "filmed" carries Q1+Q4, "shot" carries Q2+Q5, "filming locations" carries A2.
+function quickAnswerItems(
+  city: AtlasCity,
+  films: FilmGroup[],
+  pinCount: number,
+  returnedTo: { name: string; films: number }[],
+  returningDirectors: { name: string; films: number }[],
+): QuickAnswerItem[] {
+  const filmLabel = (f: FilmGroup) => `${f.title}${f.year ? ` (${f.year})` : ""}`;
+  const items: QuickAnswerItem[] = [];
+
+  if (films.length > 0) {
+    items.push({
+      q: `What movies were filmed in ${city.name}?`,
+      a: `${listWords(films.slice(0, 4).map(filmLabel))} — ${films.length} film${films.length === 1 ? "" : "s"} in all.`,
+    });
+    items.push({
+      q: `How many movies were shot in ${city.name}?`,
+      a: `${films.length} film${films.length === 1 ? "" : "s"}, across ${pinCount} filming location${pinCount === 1 ? "" : "s"} in all.`,
+    });
+  }
+
+  if (returnedTo.length > 0) {
+    items.push({
+      q: `What are the landmarks used in ${city.name} films?`,
+      a: `${listWords(returnedTo.slice(0, 3).map((m) => m.name))} — each appears in more than one film.`,
+    });
+  }
+
+  const topFilm = films[0];
+  if (topFilm && topFilm.pins.length > 0) {
+    const topPins = [...topFilm.pins]
+      .sort((a, b) => precisionRank(a.precision) - precisionRank(b.precision))
+      .slice(0, 2);
+    const names = listWords(topPins.map((p) => p.name.split(",")[0].trim()));
+    const nar = topPins[0].narrative_setting ? ` — ${topPins[0].narrative_setting.split(".")[0]}` : "";
+    items.push({
+      q: `Where in ${city.name} was ${topFilm.title} filmed?`,
+      a: `For ${topFilm.title}, the cameras stood at ${names}${nar}.`,
+    });
+  }
+
+  if (returningDirectors.length > 0) {
+    items.push({
+      q: `Which directors keep shooting in ${city.name}?`,
+      a: `${listWords(returningDirectors.slice(0, 3).map((d) => d.name))} each have more than one film here.`,
+    });
+  }
+
+  return items.slice(0, 5);
 }
 
 interface Props { params: Promise<{ slug: string; city: string }> }
@@ -197,6 +256,7 @@ export default async function AtlasCityPage({ params }: Props) {
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {city.name}</h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
+        <QuickAnswers items={quickAnswerItems(city, films, pins.length, returnedTo, returningDirectors)} />
         <a
           href="#map"
           style={{

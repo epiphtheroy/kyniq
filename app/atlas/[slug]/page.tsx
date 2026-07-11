@@ -6,6 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import LensQuickBar from "@/components/LensQuickBar";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { FILM_LOCATIONS_MIN, cachedAtlasEligibility, cachedAtlasMeta, citiesForCountry, countryPhrase, listWords, loadAtlasCountry, type AtlasCountry } from "@/lib/atlas";
 
@@ -43,6 +44,62 @@ function leadText(c: AtlasCountry): string {
   if (marks.length) sentences.push(`Filmmakers keep returning to ${listWords(marks)}.`);
   sentences.push("Each film below links to its own location page, with the scene every place carries.");
   return sentences.join(" ");
+}
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7) ─────────
+// Deterministic Q&A assembled ONLY from fields already in scope: a question is
+// emitted only when its answer row is present, and every film, landmark, city
+// and director name is verbatim from the country payload. The Atlas carries NO
+// quality signal, so there is never a "best films in X" question — only counts,
+// what/which and where. Search-term variants (filmed / shot / filming
+// locations) are woven across Q and A, max two uses each: "filmed" carries
+// Q1+Q3, "shot" carries Q2+Q5, "filming locations" carries A1+Q4.
+function quickAnswerItems(
+  c: AtlasCountry,
+  returnedTo: AtlasCountry["landmarks"],
+  cities: { name: string; films: number }[],
+  returningDirectors: { name: string; films: number }[],
+): QuickAnswerItem[] {
+  const place = countryPhrase(c.country);
+  const filmLabel = (f: AtlasCountry["films"][number]) => `${f.title}${f.year ? ` (${f.year})` : ""}`;
+  const items: QuickAnswerItem[] = [];
+
+  items.push({
+    q: `How many movies were filmed in ${place}?`,
+    a: `${c.films.length} films, across ${c.pins} real filming locations in all.`,
+  });
+
+  if (c.films.length > 0) {
+    const sample = [...c.films].sort((a, b) => b.pins - a.pins).slice(0, 4);
+    items.push({
+      q: `What movies were shot in ${place}?`,
+      a: `Among them, ${listWords(sample.map(filmLabel))}.`,
+    });
+  }
+
+  if (returnedTo.length > 0) {
+    items.push({
+      q: `What are the most-filmed locations in ${place}?`,
+      a: `${listWords(returnedTo.slice(0, 3).map((m) => `${m.name} (in ${m.films} films)`))}.`,
+    });
+  }
+
+  if (cities.length > 0) {
+    const top = [...cities].sort((a, b) => b.films - a.films).slice(0, 4);
+    items.push({
+      q: `Which cities in ${place} are filming locations?`,
+      a: `${listWords(top.map((ct) => ct.name))}.`,
+    });
+  }
+
+  if (returningDirectors.length > 0) {
+    items.push({
+      q: `Which directors keep shooting in ${place}?`,
+      a: `${listWords(returningDirectors.slice(0, 3).map((d) => d.name))} each return with more than one film here.`,
+    });
+  }
+
+  return items.slice(0, 5);
 }
 
 interface Props { params: Promise<{ slug: string }> }
@@ -148,6 +205,7 @@ export default async function AtlasCountryPage({ params }: Props) {
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {countryPhrase(c.country)}</h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
+        <QuickAnswers items={quickAnswerItems(c, returnedTo, cities, returningDirectors)} />
         <a
           href="#map"
           style={{
