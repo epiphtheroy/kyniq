@@ -237,6 +237,40 @@ export default async function MethodologyPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl" id="index">to.W — why a film is in the index</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Every film Metatake catalogues carries a short note — a letter, addressed <em>To&nbsp;W.H.</em> and signed{" "}
+        <em>W.&nbsp;Yoon</em> — saying plainly why it earned a place in the index. You&apos;ll see it on a film&apos;s{" "}
+        <Link href="/takescore" className="accent" style={{ textDecoration: "none" }}>TakeScore&trade;</Link> page and,
+        aggregated across a filmography, on a{" "}
+        <Link href="/director" className="accent" style={{ textDecoration: "none" }}>director&apos;s</Link> page. The note
+        is <strong>assembled, not written by an AI</strong>: each film is filed on a handful of plain axes — its standing
+        in the critics&apos; canon, how widely it&apos;s known, which door it came in through (a canon, a festival, a
+        national cinema, an auteur&apos;s body of work), and a one-line verdict — and those filings are stitched into
+        English by a fixed template. Same filings in, same sentence out.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        The verdict is the honest part. A film is called <strong>essential</strong> only when it sits in the critics&apos;
+        canon proper — the standing lists, not merely an award. Below that come <strong>start here</strong> (canonical
+        but approachable), <strong>deep cut</strong> (for when you&apos;re digging further), <strong>popular, not
+        canon</strong> (famous, but not required viewing for a cinephile), and <strong>optional</strong>. We keep two
+        rules against overclaiming. A film that&apos;s on the canon lists but scores low on TakeScore is <strong>not
+        called &ldquo;canon&rdquo;</strong> — it&apos;s described as much-seen and much-talked-about, which is the true
+        thing to say. And the optional films aren&apos;t hidden: each gets the same courtesy of an honest, understated
+        line — <em>not a canon title, not a festival standout, not a household name</em> — rather than silence.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        to.W is kept <strong>separate from the TakeScore appraisal</strong> it sits beside. TakeScore weighs a film&apos;s
+        value against its cost and risk; to.W only says where the film stands in the catalog and why it was collected.
+        The two can disagree — a canon title can score low — and the page lets them, rather than forcing one number to
+        settle it. Like everything here, the filings sit under the same{" "}
+        <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop: if a film is
+        filed under the wrong standing, tell us and we&apos;ll re-file it.
+      </p>
+
+      <hr className="rule" />
+
       <div className="seclbl" id="now">Now Playing — the live layer</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
