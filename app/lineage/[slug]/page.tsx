@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import LineageActions from "@/components/LineageActions";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import LensQuickBar from "@/components/LensQuickBar";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import {
   FACET_LABEL,
@@ -123,6 +124,52 @@ function listDescription(list: LineageListMeta, films: LineageFilmRow[]): string
     ? (/[.!?]$/.test(list.description.trim()) ? list.description.trim() : `${list.description.trim()}.`)
     : `${list.label} — ${FACET_LABEL[list.facet]?.toLowerCase() ?? list.facet}.`;
   return `${base} ${n} film${n === 1 ? "" : "s"} on record${src ? `, compiled from ${src.name}` : ""}${read ? ` — ${read} read closely on Metatake` : ""}.`;
+}
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7) ─────────
+// Deterministic Q&A from the member rows already in scope. TRAP GUARDS: rows
+// are FILM-level (no person) so no "who won"; and edition_year is the AWARD
+// year, kept distinct from film_year (the release year, shown in parens). The
+// variants "won / winners / award" are woven only where truthful — "won" and
+// "winners" never appear on a canon (those rows are listed, not won) — max two
+// uses each.
+function quickAnswerItems(list: LineageListMeta, films: LineageFilmRow[], trueSize: number | undefined): QuickAnswerItem[] {
+  if (films.length < 3) return []; // mirrors the index/robots bar (LINEAGE_LIST_MIN)
+  const years = films.map((f) => f.edition_year).filter((y): y is number => !!y);
+  const minY = years.length ? Math.min(...years) : null;
+  const maxY = years.length ? Math.max(...years) : null;
+  const hasSpan = minY != null && maxY != null && minY !== maxY;
+  const span = hasSpan ? ` (${minY}–${maxY})` : "";
+  const count = trueSize ?? films.length;
+  const allWon = films.length > 0 && films.every((f) => f.result === "won");
+  const items: QuickAnswerItem[] = [];
+  // 1 — size (always). "winners" only when the list is genuinely a winners roll.
+  items.push({
+    q: `How many films are in the ${list.label}?`,
+    a: allWon ? `${count} winners${span}.` : `${count} films${span}.`,
+  });
+  // 2 — most recent winner (won rows carrying an award year only).
+  const wonDated = films.filter((f) => f.result === "won" && f.edition_year != null);
+  if (wonDated.length > 0) {
+    const latest = wonDated.reduce((a, b) => ((b.edition_year ?? 0) > (a.edition_year ?? 0) ? b : a));
+    items.push({
+      q: `Which film won the ${list.label} most recently?`,
+      a: `${latest.film_title}${latest.film_year ? ` (${latest.film_year})` : ""} won in ${latest.edition_year}.`,
+    });
+  }
+  // 3 — number one (ranked lists only).
+  const number1 = films.find((f) => f.rank === 1);
+  if (number1) {
+    items.push({
+      q: `What is number one on the ${list.label}?`,
+      a: `${number1.film_title}${number1.film_year ? ` (${number1.film_year})` : ""} tops the list.`,
+    });
+  }
+  // 4 — the years the list spans (only when a real range exists).
+  if (hasSpan) {
+    items.push({ q: `What years does the ${list.label} cover?`, a: `${minY}–${maxY}.` });
+  }
+  return items.slice(0, 5);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -255,6 +302,8 @@ export default async function LineagePage({ params }: Props) {
         ) : null}
         <LineageActions slug={slug} />
         <LensQuickBar />
+
+        <QuickAnswers items={quickAnswerItems(list, films, trueSize)} />
 
         <div className="lh-films">
           {visibleFilms.map((f, i) => (
