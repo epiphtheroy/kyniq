@@ -47,3 +47,15 @@ export const directorHref = (slug: string) => `/director/${slug}`;
 export const tropeHref = (slug: string) => (slug ? `/trope/${slug}` : "/tropes");
 export const conceptHref = (slug: string) => (slug ? `/concept/${slug}` : "/concept");
 export const blogHref = (slug: string) => (slug ? `/blog/${slug}` : "/blog");
+
+// ── TakeScore verdict quadrant (thresholds MUST match lib/takescore_prose.ts
+// verdictSentence: high value ≥ 72, low risk ≤ 20). Used for the card's hover
+// tooltip. Score number itself is the U passed as `f.ts`; rank is never shown. ──
+export function tsQuadrant(v?: number | null, r?: number | null): string {
+  if (v == null || r == null) return "";
+  const hiV = v >= 72, loR = r <= 20;
+  if (hiV && loR) return "a safe masterpiece";
+  if (hiV) return "ambitious but divisive";
+  if (loR) return "a stable choice";
+  return "approach with care";
+}

@@ -21,6 +21,9 @@ export type Film = {
   topReading?: string | null;   // representative reading title or "via {figure}"
   figureLabel?: string | null;  // the figure it reads through
   figureSlug?: string | null;   // → /film/{slug}/figure/{figureSlug}
+  ts?: number | null;           // public TakeScore U (= value − risk); null if unscored
+  tsv?: number | null;          // value axis (for the verdict quadrant tooltip)
+  tsr?: number | null;          // risk axis
 };
 
 export type Pick = Film & { shared: number };           // shared readings count

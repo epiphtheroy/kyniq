@@ -33,13 +33,15 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-// Real home bundle from home_v2_bundle_v2(). Throws on total failure so a
-// transient empty read is NOT written into the Data Cache (unstable_cache does
-// not cache thrown errors); the caller falls back to PLACEHOLDER instead.
-async function fetchBundle(): Promise<HomeV2Data> {
+// Real home bundle from home_v2_bundle_v3(p_seed). The seed (UTC YYYYMMDDHH)
+// rotates the featured cards hourly while staying deterministic within the hour,
+// so the edge-cached HTML is consistent. Throws on total failure so a transient
+// empty read is NOT written into the Data Cache (unstable_cache does not cache
+// thrown errors); the caller falls back to PLACEHOLDER instead.
+async function fetchBundle(seed: string): Promise<HomeV2Data> {
   for (let i = 0; i < 3; i++) {
     try {
-      const { data } = await db().rpc("home_v2_bundle_v2");
+      const { data } = await db().rpc("home_v2_bundle_v3", { p_seed: seed });
       const b = data as HomeV2Data | null;
       if (b && Array.isArray(b.picks) && b.picks.length > 0 && b.stats?.films) return b;
     } catch {
@@ -47,20 +49,21 @@ async function fetchBundle(): Promise<HomeV2Data> {
     }
     if (i < 2) await new Promise((r) => setTimeout(r, 400));
   }
-  throw new Error("home_v2_bundle_v2 returned no usable data");
+  throw new Error("home_v2_bundle_v3 returned no usable data");
 }
 
-// Persist the RPC result in the Data Cache. Tagged "home-v2" so the publisher
-// can force an immediate refresh via revalidateTag; also refreshed hourly.
-const getCachedBundle = unstable_cache(fetchBundle, ["home-v2-bundle-v2"], {
-  revalidate: 3600,
-  tags: ["home-v2"],
-});
-
-// Falls back to PLACEHOLDER so the home never renders empty under DB write-load.
+// The seed IS part of the cache key, so each hour gets its own Data-Cache entry
+// (one RPC call/hour, then edge-served). Tag "home-v2" keeps the publisher's
+// revalidateTag working. Falls back to PLACEHOLDER so the home never renders
+// empty under DB write-load.
 async function loadV2(): Promise<HomeV2Data> {
+  const seed = new Date().toISOString().slice(0, 13).replace(/[-T]/g, ""); // YYYYMMDDHH, UTC
+  const getCached = unstable_cache(() => fetchBundle(seed), ["home-v2-bundle-v3", seed], {
+    revalidate: 3600,
+    tags: ["home-v2"],
+  });
   try {
-    return await getCachedBundle();
+    return await getCached();
   } catch {
     return PLACEHOLDER;
   }
