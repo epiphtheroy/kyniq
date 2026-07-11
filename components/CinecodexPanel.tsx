@@ -212,7 +212,7 @@ const GAUGE_CSS = `
 .ccx-gcell .sdonut-cap{text-transform:uppercase; letter-spacing:.08em}
 .ccx-gcell .sdonut-note{text-transform:uppercase; letter-spacing:.06em; max-width:118px; text-align:center; line-height:1.35}
 .ccx-ghint{font-family:var(--font-ui); font-size:9.5px; line-height:1.3; color:var(--muted); text-align:center; max-width:120px}
-.ccx-gnet{display:flex; flex-direction:column; justify-content:center; gap:9px; margin-left:auto; padding-left:20px; border-left:1px solid var(--hairline); min-width:158px}
+.ccx-gnet{display:flex; flex-direction:column; justify-content:center; gap:9px; flex:0 0 auto; min-width:150px}
 .ccx-gnet-row{display:flex; align-items:baseline; gap:10px}
 .ccx-gnet-n{font-family:${MONO}; font-size:40px; font-weight:600; line-height:.9; color:${AXIS_HEX.v}; font-variant-numeric:tabular-nums}
 .ccx-gnet-lab{display:flex; flex-direction:column; gap:2px}
@@ -234,8 +234,10 @@ const GAUGE_CSS = `
 .ccx-rank-mark{position:absolute; bottom:9px; transform:translateX(-50%); font-family:${MONO}; font-size:9.5px; font-weight:600; color:#0F6E56; white-space:nowrap}
 @media (max-width:600px){
   .ccx-grow{justify-content:center}
-  .ccx-gnet{flex-direction:row; align-items:baseline; gap:16px; width:100%; margin-left:0; padding-left:0; border-left:0; padding-top:10px; border-top:1px solid var(--hairline)}
+  .ccx-gmid{flex-basis:100%; min-width:0; order:3; text-align:left}
+  .ccx-gnet{flex-direction:row; align-items:baseline; gap:16px; width:100%; order:1; padding-bottom:10px; border-bottom:1px solid var(--hairline)}
   .ccx-gnet-eff{padding-top:0; border-top:0; margin-left:auto}
+  .ccx-gcell{order:2}
 }
 `;
 
