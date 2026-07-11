@@ -9,6 +9,13 @@
 - **추가 완료(2026-07-11):** `/tv/lists` 브라우즈 UI(축 필터 탭+검색+페이지네이션, `components/TVDirectory.tsx`+`/api/tv/directory`, tv_directory/tv_directory_summary 소비; /tv/watch 셸프·단일·리스트뷰에서 링크) · **tradition 히어로**(마이그 0062 `tv_films_for_concepts`로 학파 개념들의 영화 릴, 릴 전용).
 - **여전히 보류(데이터 선행 필요):** crew 축 플레이리스트 — DB에 person→film 매핑 없음(credits는 요청시 TMDB로 영화 조회, `crew_index.json`은 카운트만). credits 페이지는 트레일러 릴로 동작 중. 방송화하려면 film_credits 테이블 신설이 선행돼야 함. / 이론가·트로프 segments-cut은 컴파일러 v3의 `tv_segments.meta` 스탬프 후.
 
+### 커버리지 확대 2차 (2026-07-11)
+- **atlas 국가·도시 히어로를 h1 위(최상단)로 이동** — 기존엔 인트로 아래라 "상단 히어로 없음"으로 보였음(원우 제보 /atlas/taiwan).
+- **director 서브페이지 9개 전부 히어로 추가**(honors·life·locations·misreadings·next·reception·start·takescore·theory) — `director-{slug}` 플레이리스트 + 필모 릴 폴백. 대부분 `rd-hero` 앞 삽입, locations는 크럼 뒤, next는 label={name}.
+- **frame/[slug]**(질문 프레임) — instances의 `i.film.slug`로 릴.
+- **`/tv` 하단에 브라우즈 라이브러리 내장**(`TVDirectory embedded`) — 축 필터 탭+검색+페이지네이션. 리스트가 묻히던 문제 해결(원우 제보). `/tv/lists` 독립 페이지와 동일 컴포넌트, embedded 모드는 마운트 시 자체 페치.
+- **여전히 히어로 없음(후속 판단):** film 서브페이지(credits/misreadings/reception 등 — 이미 `components/read/ReadHero.tsx`의 트레일러 릴 보유, 소형 슬롯이라 방송 승격은 별도 판단), strong-misreadings/[fw](영화가 ReadingFeed 클라이언트 로드라 서버 슬러그 없음), film/lineage·film/atlas(단일 영화 — program prop 필요), catalog/[seg]·concept/domain/[domain]·takescore/[dim](집계 색인).
+
 ---
 **(원본 기획, 참고용)** 상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.
 작성 2026-07-11 (Opus 기획). 배경: 루트 `HANDOFF-서프라이즈-v2채널-스트리밍.md` §C2~C2-c (방송 1,794편 + 전략 플레이리스트 5,559개 라이브), `docs/WORKORDER-tv-strategic-playlists.md`(완료).
