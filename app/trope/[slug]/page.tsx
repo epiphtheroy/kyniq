@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import EntityActions from "@/components/EntityActions";
+import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import SaveButton from "@/components/SaveButton";
 import ListFilter from "@/components/ListFilter";
 import LensQuickBar from "@/components/LensQuickBar";
@@ -392,6 +393,9 @@ export default async function TropePage({ params }: Props) {
           <p className="cmap-intro">The figures that carry {t.title} and the films they belong to, across Metatake&rsquo;s critical web. Click a node to open it.</p>
           <EntityMap api={`/api/map?type=trope&key=${slug}`} full={`/map?m=critical&t=trope&k=${slug}`} />
         </section>
+
+        {/* EMBEDDING FANTASIA — sentences that stage this trope */}
+        <EntityFantasiaServer type="trope" entityKey={slug} title={t.title} sectionId="tp-fantasia" sectionClass="tp-sec" selfHref={`/trope/${slug}`} tag={`trope:${slug}`} />
 
         <section className="tp-sec" id="members">
           <h2 className="tp-h2">

@@ -276,8 +276,10 @@ export default async function DirectorPage({ params }: Props) {
   }
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
   const native = await directorNative(director);
-  // Embedding Fantasia rows — sentences anchored on this director's films
-  const fantasia = await loadFantasia("director", slug, null, `director:${slug}`);
+  // Embedding Fantasia rows — sentences anchored on this director's films.
+  // Fail soft: an RPC hiccup hides the module for this render (never 500s, and
+  // the loader's throw keeps unstable_cache from caching the empty state).
+  const fantasia = await loadFantasia("director", slug, null, `director:${slug}`).catch(() => []);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
   // /credits/[person] read page. Per-film crew is 24h-cached (shared cache).

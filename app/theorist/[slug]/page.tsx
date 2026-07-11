@@ -12,6 +12,7 @@ import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplo
 import { attachKwic } from "@/lib/kwic";
 import ReadingLedger from "@/components/read/ReadingLedger";
 import EntityMap from "@/components/EntityMap";
+import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
 import GrowStill from "@/components/read/GrowStill";
@@ -368,6 +369,9 @@ export default async function TheoristPage({ params }: Props) {
           <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
           <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
         </section>
+
+        {/* EMBEDDING FANTASIA — sentences read through this thinker's lenses */}
+        <EntityFantasiaServer type="theorist" entityKey={slug} title={name} sectionId="theorist-fantasia" sectionClass="cmap-sec" selfHref={`/theorist/${slug}`} tag={`theorist:${slug}`} />
 
         <section style={{ margin: "8px 0 0" }} id="readings">
           <h2 className="df-h2">Every reading, searchable</h2>

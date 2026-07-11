@@ -5,6 +5,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import ViewBeacon from "@/components/ViewBeacon";
 import TakeExplorer from "@/components/TakeExplorer";
+import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import ScholarHeader from "@/components/ScholarHeader";
 import EntityActions from "@/components/EntityActions";
 import ShareDock from "@/components/ShareDock";
@@ -315,6 +316,9 @@ export default async function TakePage({ params }: Props) {
             <span className="mk-leg"><i className="mk-leg__dot mk-leg__dot--kin" />unexpected kin</span>
           </p>
         </section>
+
+        {/* EMBEDDING FANTASIA — sentences carrying this reading */}
+        <EntityFantasiaServer type="take" entityKey={mt.slug} title={mt.title} sectionId="mk-fantasia" sectionClass="mk-sec" selfHref={`/take/${mt.slug}`} tag={`take:${mt.slug}`} />
 
         {/* REPRESENTATIVE TAKES */}
         <section className="mk-sec" id="rep">
