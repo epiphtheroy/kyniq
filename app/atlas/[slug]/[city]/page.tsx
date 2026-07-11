@@ -193,9 +193,9 @@ export default async function AtlasCityPage({ params }: Props) {
           <span className="df-sep">›</span><Link href={`/atlas/${slug}`}>{city.country}</Link>
           <span className="df-sep">›</span><span>{city.name}</span>
         </div>
+        <EntityTVHero reelSlugs={films.map((f) => f.slug)} label={city.name} backdrop={null} />
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {city.name}</h1>
-        <EntityTVHero reelSlugs={films.map((f) => f.slug)} label={city.name} backdrop={null} />
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
         <a
           href="#map"
