@@ -12,8 +12,10 @@ import SiteNavClient from "@/components/home2/SiteNavClient";
 type Item = {
   slug: string; title: string; dek: string | null; kind: string; axis: string | null;
   cut: string | null; n_films: number | null; n_segments: number | null; total_ms: number | null; href: string | null;
+  backdrop?: string | null;
 };
 type Sum = { axis: string; n: number }[];
+const IMG = "https://image.tmdb.org/t/p";
 
 const AXIS_LABEL: Record<string, string> = {
   lineage: "Lineage", director: "Directors", genre: "Genres", country: "Countries", decade: "Decades",
@@ -88,7 +90,8 @@ export default function TVDirectory({ initial = [], initialSummary = [], initial
 
       <div className="tvdir-grid">
         {items.map((it) => (
-          <a key={it.slug} className="tvdir-card" href={`/tv/list/${it.slug}`}>
+          <a key={it.slug} className={`tvdir-card${it.backdrop ? "" : " tvdir-card--noimg"}`} href={`/tv/list/${it.slug}`}
+            style={it.backdrop ? { backgroundImage: `url(${IMG}/w500${it.backdrop})` } : undefined}>
             <span className="tvdir-card__k">{AXIS_LABEL[it.axis ?? ""] ?? it.axis}{it.cut === "segments" ? " · topic cut" : ""}</span>
             <span className="tvdir-card__t">{it.title}</span>
             <span className="tvdir-card__m">
