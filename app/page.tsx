@@ -52,16 +52,21 @@ async function fetchBundle(seed: string): Promise<HomeV2Data> {
   throw new Error("home_v2_bundle_v3 returned no usable data");
 }
 
-// The seed IS part of the cache key, so each hour gets its own Data-Cache entry
-// (one RPC call/hour, then edge-served). Tag "home-v2" keeps the publisher's
-// revalidateTag working. Falls back to PLACEHOLDER so the home never renders
-// empty under DB write-load.
+// CONSTANT cache key + hour seed captured at regeneration time. The key must
+// NOT contain the seed: a per-hour key means no stale entry exists at the hour
+// boundary, so every concurrent request blocks on the live RPC (the stampede
+// that helped push the DB over on 2026-07-11). With one key, unstable_cache
+// serves the STALE hour while ONE background regeneration picks up the new
+// seed — rotation still lands hourly, with zero request-blocking.
 async function loadV2(): Promise<HomeV2Data> {
-  const seed = new Date().toISOString().slice(0, 13).replace(/[-T]/g, ""); // YYYYMMDDHH, UTC
-  const getCached = unstable_cache(() => fetchBundle(seed), ["home-v2-bundle-v3", seed], {
-    revalidate: 3600,
-    tags: ["home-v2"],
-  });
+  const getCached = unstable_cache(
+    () => {
+      const seed = new Date().toISOString().slice(0, 13).replace(/[-T]/g, ""); // YYYYMMDDHH, UTC — evaluated when the cache entry regenerates
+      return fetchBundle(seed);
+    },
+    ["home-v2-bundle-v3"],
+    { revalidate: 3600, tags: ["home-v2"] },
+  );
   try {
     return await getCached();
   } catch {
@@ -90,9 +95,11 @@ const getScreenerTop = unstable_cache(
 // (YYYYMMDD seed) then rotated. Its own Data-Cache entry per day; never blocks
 // the home (null on any failure → the band self-omits).
 async function loadExhibits(): Promise<Exhibits> {
-  const day = new Date().toISOString().slice(0, 10).replace(/-/g, ""); // YYYYMMDD, UTC
+  // Constant key for the same anti-stampede reason as loadV2; the day seed is
+  // read at regeneration time, so the band still flips on the UTC day change.
   const getEx = unstable_cache(
     async (): Promise<Exhibits> => {
+      const day = new Date().toISOString().slice(0, 10).replace(/-/g, ""); // YYYYMMDD, UTC
       try {
         const { data } = await db().rpc("home_daily_exhibits", { p_seed: day });
         return (data as Exhibits) ?? null;
@@ -100,7 +107,7 @@ async function loadExhibits(): Promise<Exhibits> {
         return null;
       }
     },
-    ["home-exhibits", day],
+    ["home-exhibits"],
     { revalidate: 3600, tags: ["home-v2"] },
   );
   return getEx();
