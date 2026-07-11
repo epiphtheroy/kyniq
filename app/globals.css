@@ -1775,6 +1775,17 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 .idx-fcell .ft{font-family:var(--font-display);font-weight:700;font-size:14.5px;line-height:1.25;color:var(--ink)}
 .idx-fcell:hover .ft{color:var(--accent-hover)}
 .idx-fcell .fd{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.idx-fcelltxt{display:block;min-width:0}
+/* media cells — poster (films) / circular face (directors) beside the label */
+.idx-fcell--media{display:flex;align-items:center;gap:11px}
+.idx-th{flex:0 0 auto;display:block;background:var(--surface-2);overflow:hidden}
+.idx-th img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s}
+.idx-th img.idx-on{opacity:1}
+.idx-th--poster{width:34px;height:51px;border-radius:4px;border:1px solid var(--hairline)}
+.idx-th--round{width:44px;height:44px;border-radius:50%;border:1px solid var(--hairline)}
+.idx-fcell:hover .idx-th--poster{outline:1.5px solid var(--accent)}
+.idx-fcell:hover .idx-th--round{border-color:var(--accent)}
+.idx-th-mono{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--font-display);font-weight:700;font-size:15px}
 .idx-empty{font-size:13px;color:var(--subtle);padding:14px 0}
 .idx-seeded{margin-top:26px;border:1px dashed var(--hairline-2);padding:0 16px}
 .idx-seeded>summary{cursor:pointer;list-style:none;padding:13px 0;font-size:13px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:9px}
@@ -1846,8 +1857,8 @@ details[open] > .trm-sum::before { transform: translateY(-1px) rotate(90deg); }
 /* ---- director card (Directors index) ---- */
 .idx-def .term.t{color:#167C6B}
 .idx-stat.mt .num{color:var(--accent)}
-.idx-dtop{display:flex;gap:15px;align-items:flex-start}
-.idx-dphoto{width:90px;height:135px;object-fit:cover;flex:none;background:var(--surface-2);border:1px solid var(--hairline)}
+.idx-dtop{display:flex;gap:16px;align-items:center}
+.idx-dphoto{width:104px;height:104px;border-radius:50%;object-fit:cover;object-position:50% 22%;flex:none;background:var(--surface-2);border:2px solid var(--hairline);box-shadow:0 6px 18px -6px rgba(0,0,0,.3)}
 .idx-dmeta{min-width:0;flex:1 1 auto;padding-top:1px}
 .idx-dmeta h2{font-family:var(--font-display);font-weight:700;font-size:25px;line-height:1.1;margin:0 0 3px;display:block}
 .idx-dmeta h2 a:hover{color:var(--accent-hover)}
