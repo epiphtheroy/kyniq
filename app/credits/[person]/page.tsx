@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import GrowStill from "@/components/read/GrowStill";
 import CreditsExplorer from "../CreditsExplorer";
 import {
@@ -303,6 +304,8 @@ export default async function CrewPersonPage({ params }: Props) {
         <div className="df-crumb" style={{ marginBottom: 14 }}>
           <Link href="/credits">Credits</Link><span className="df-sep">›</span><span>{p.name}</span>
         </div>
+
+        <EntityTVHero reelSlugs={cat.map((f) => f.slug)} label={p.name} backdrop={null} />
 
         <header style={{ display: "flex", gap: 22, alignItems: "flex-start", marginBottom: 18 }}>
           {p.profile_path ? (
