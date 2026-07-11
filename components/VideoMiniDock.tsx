@@ -57,6 +57,9 @@ export default function VideoMiniDock({ children, mini = 420 }: {
   useEffect(() => {
     const el = hostRef.current;
     if (!el) return;
+    // Embedded (e.g. the /film · /director index "spotlight" iframe): the hero
+    // must NOT follow the scroll — it just scrolls away like a normal element.
+    if (window.self !== window.top) return;
     const io = new IntersectionObserver((entries) => {
       const e = entries[0];
       if (e.isIntersecting) {
