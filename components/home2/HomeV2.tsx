@@ -31,7 +31,7 @@ import SiteFooter from "./SiteFooter";
  * 16 sections in mockup order with the paper / dark / paper-2 band rhythm.
  * Everything renders inside a single .mthome scope so app/home2.css applies.
  */
-export default function HomeV2({ data, screenerTop = [] }: { data: HomeV2Data; screenerTop?: ScreenerTop[] }) {
+export default function HomeV2({ data, screenerTop = [], exhibits = null }: { data: HomeV2Data; screenerTop?: ScreenerTop[]; exhibits?: Exhibits }) {
   return (
     <div className="mthome">
       {/* 1 — Nav (dark, sticky) */}
@@ -44,6 +44,8 @@ export default function HomeV2({ data, screenerTop = [] }: { data: HomeV2Data; s
       <MyFilmsRibbon />
       {/* 2c — Now Playing: the live layer, featured big (renders nothing until the first piece) */}
       <NowPlaying />
+      {/* 2d — Today at Metatake: one daily sample from each content layer */}
+      <TodayExhibits ex={exhibits} />
       {/* 3 — Recommended by the map (paper) */}
       <Picked data={data} />
       {/* 4 — The essential 10 (dark) */}

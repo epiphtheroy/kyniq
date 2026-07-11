@@ -369,8 +369,6 @@ export default async function ConceptPage({ params }: Props) {
         <SiteNav />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
 
-        <EntityTVHero playlist={`concept-${slug}`} reelSlugs={tFilmArr.map((f) => f.slug)} label={tName} listHref={`/tv/list/concept-${slug}`} backdrop={tHeroBd} />
-
         {/* ── Dark hero: the concept as a working lens, counted ── */}
         <div className="cur rd-hero">
           <div className="rd-hero__in">
@@ -416,6 +414,7 @@ export default async function ConceptPage({ params }: Props) {
               <div className="rd-hero__media">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="rd-hero__bd" src={`${IMG}/w780${tHeroBd}`} alt="" width={780} height={439} />
+                <EntityTVHero inline playlist={`concept-${slug}`} reelSlugs={tFilmArr.map((f) => f.slug)} label={tName} listHref={`/tv/list/concept-${slug}`} backdrop={tHeroBd} />
                 <div className="rd-hero__cap">From {tHeroTitle} · via TMDB</div>
               </div>
             ) : null}
