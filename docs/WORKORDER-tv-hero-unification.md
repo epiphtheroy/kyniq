@@ -1,6 +1,15 @@
 # 작업 지시서 — 전 엔티티 페이지 영상 히어로 통일 (METATAKE TV Hero Unification)
 
-**상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.**
+**상태: ✅ 구현 완료 (2026-07-11, Opus 실행, 마이그 0061).**
+- 부품: `tv_reel(slugs[],cap)` RPC(0061) + `/api/tv/reel` GET(캐시 3600s) + `components/EntityTVHero.tsx`(폴백 체인: 방송 플레이리스트 → 릴 → 없음, 릴은 playlist 미스 시에만 클라이언트 페치).
+- 적용(P1): director·lineage·movements·genre·trope·concept(3브랜치)·theorist·catalog 노드·atlas 국가 — 각 페이지 상단 크럼 다음(또는 다크히어로 위)에 `<EntityTVHero>` 삽입, 기존 하단 PlaylistTVEmbed 제거(페이지당 iframe 1개).
+- 적용(P2, 릴 전용): credits/[person]·atlas/[slug]/[city]. **tradition은 스킵**(rows가 개념이라 영화 슬러그 없음 — 후속).
+- CSS: `.ehero{margin:10px auto 20px; max-width:1040px}` — full-bleed 페이지(trope/theorist/catalog)에서도 과대 방지.
+- 검증: 방송(spielberg 인트로 브리핑)·릴(alma-har-el 플레인 트레일러 isReel)·없음(tom-hanks 히어로 생략) 3경로 라이브 확인. 자동화 탭은 hidden autoplay 게이팅으로 검게 보임(실사용 정상).
+- 미착수: crew 축 플레이리스트(credits 방송화), tradition 히어로, 국가 페이지 서버렌더 방송 텍스트 라인(현재는 EntityTVHero의 "Watch as a list ↗" 링크로 대체).
+
+---
+**(원본 기획, 참고용)** 상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.
 작성 2026-07-11 (Opus 기획). 배경: 루트 `HANDOFF-서프라이즈-v2채널-스트리밍.md` §C2~C2-c (방송 1,794편 + 전략 플레이리스트 5,559개 라이브), `docs/WORKORDER-tv-strategic-playlists.md`(완료).
 
 ---
