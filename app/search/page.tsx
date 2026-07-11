@@ -489,6 +489,12 @@ async function OmniBody({ term, verticalKey }: { term: string; verticalKey: stri
             <p className="ox-empty">Nothing in this tab for “{term}” — try <Link href={`/search?q=${encodeURIComponent(term)}`}>All</Link> or <Link href={`/ask-ai?q=${encodeURIComponent(term)}`}>ask the AI</Link>.</p>
           ) : rows.map((h) => <ResultRow key={hitKey(h)} h={h} term={term} sitelinks />)}
 
+          {vertical.key === "watch" ? (
+            <p className="ox-empty" style={{ borderTop: "1px solid var(--hairline, #eee)", paddingTop: 14 }}>
+              Every broadcast and playlist lives on <Link href="/tv/lists">METATAKE TV — browse all →</Link>
+            </p>
+          ) : null}
+
           {p.related.length ? (
             <div className="ox-related">
               <div className="ox-related__h">Related searches</div>
