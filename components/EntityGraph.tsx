@@ -26,7 +26,7 @@ export type GraphNode = {
   img?: string | null;   // poster (film) or profile photo (director)
   dim?: string | null;   // faint inline suffix — film year / director birth year
 };
-export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" | "next" | "recby" | "like" | "counter"; arrow?: boolean };
+export type GraphLink = { s: string; t: string; kind?: "struct" | "reading" | "trope" | "next" | "recby" | "like" | "counter"; arrow?: boolean; w?: number | null };
 export type GraphData = { nodes: GraphNode[]; links: GraphLink[] };
 
 // Light theme — readable on a white canvas. Dots carry the category colour;
@@ -154,7 +154,9 @@ export default function EntityGraph({
     links.forEach((l) => {
       const ln = document.createElementNS(SVGNS, "line");
       ln.setAttribute("stroke", EDGE[l.kind as keyof typeof EDGE] || EDGE.struct);
-      ln.setAttribute("stroke-width", l.arrow ? "1.5" : "1.1");
+      // kin-weighted width for film↔film "like" edges (film_kinship.kin, 0–100);
+      // arrows keep their fixed width; unweighted edges fall back to 1.1.
+      ln.setAttribute("stroke-width", l.arrow ? "1.5" : l.w != null ? String(1 + 1.6 * Math.min(l.w, 100) / 100) : "1.1");
       if (l.arrow) ln.setAttribute("marker-end", l.kind === "recby" ? "url(#mk-recby)" : "url(#mk-next)");
       svg.appendChild(ln);
       l.el = ln;
