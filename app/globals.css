@@ -4075,6 +4075,13 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .tv-embed .sv2-top{top:5%}
 .sv2-top{width:min(86cqw,900px)}
 .sv2-stack{bottom:9%}
+/* compact embeds (e.g. the ReadHero side-slot on film reading pages, or mobile):
+   the masthead + TV badge already frame the top, so drop the redundant centre
+   kicker and the masthead's meta line to stop the three from crowding/overlapping */
+@container (max-width: 720px) {
+  .sv2-top > .sv2-kick{ display:none; }
+  .sv2-mast__m{ display:none; }
+}
 
 /* the atlas / connection maps — MUCH smaller, cq-scaled, lower, stripped of the
    top toolbar & panel tools (just the map + a slim left place list). */
