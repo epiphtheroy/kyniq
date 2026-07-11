@@ -29,7 +29,7 @@ type Acct =
 function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
     { id: "watch", label: "Watch", href: "/watch", items: [
-      { t: "The watch library", h: "/watch" },
+      { t: "The watch library", h: "/tv/lists" },
       { t: "METATAKE TV", h: "/tv" },
       { t: "Films", h: "/film", c: c.films },
       { t: "Directors", h: "/director", c: c.directors },

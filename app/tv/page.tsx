@@ -27,7 +27,7 @@ export default function TVPage() {
             <span className="tvpg-brand__live">● ON AIR</span>
           </div>
           <p className="tvpg-tag">The channel that never stops reading films — one film, one lens at a time. Leave it on.</p>
-          <a className="tvpg-full" href="/watch">Browse the library ↗</a>
+          <a className="tvpg-full" href="/watch">Watch ↗</a>
           <a className="tvpg-full" href="/tv/full">Full-screen ↗</a>
         </header>
 
