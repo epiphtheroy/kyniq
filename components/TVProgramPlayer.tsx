@@ -246,7 +246,7 @@ export default function TVProgramPlayer({
         <button className="svc-btn svc-btn--play" onClick={togglePlay} aria-label={playing ? "Pause" : "Play"}>{playing ? "❚❚" : "►"}</button>
         <button className="svc-btn" onClick={nextSeg} aria-label="Next chapter">›</button>
         {clipSrc ? <button className="svc-btn" onClick={() => setMuted((v) => !v)} aria-label={muted ? "Unmute" : "Mute"}>{muted ? "🔇" : "🔊"}</button> : null}
-        {dock ? <button className="svc-btn" onClick={dock.toggleFullscreen} aria-label={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"} title={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"}>{dock.isFullscreen ? "⤢ Exit" : "⛶ Fullscreen"}</button> : null}
+        {dock ? <button className="svc-btn svc-btn--open" onClick={dock.toggleFullscreen} aria-label={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"} title={dock.isFullscreen ? "Exit fullscreen" : "Watch fullscreen"}>{dock.isFullscreen ? "⤢ Exit" : "⛶ Fullscreen"}</button> : null}
         {film?.slug ? <a className="svc-btn svc-btn--open" href={`/film/${film.slug}`}>Full info ↗</a> : null}
       </div>
     </div>
