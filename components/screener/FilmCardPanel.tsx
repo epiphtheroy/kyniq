@@ -29,6 +29,10 @@ type Card = {
 type Prov = { provider_id: number; provider_name: string; provider_logo: string | null };
 
 const GROUP: Record<string, string> = { value: AX.v, cost: AX.c, risk: AX.r };
+const GROUP_LABEL: Record<string, string> = {
+  value: "Value — what you keep", cost: "Cost — what it takes", risk: "Risk — what can go wrong",
+};
+const GROUPS = ["value", "cost", "risk"] as const;
 
 export default function FilmCardPanel({
   slug, watchCountry, fallbackTitle, fallbackPoster, compare = false, onClose,
@@ -122,19 +126,25 @@ export default function FilmCardPanel({
               ? <span className="scr-card-noext">No external ratings on file</span> : null}
           </div>
 
-          {/* each of the 13 dimensions gets its plain-word reading, not just a bar */}
+          {/* the 13 dimensions, grouped under Value / Cost / Risk so each item's
+              axis is explicit — plus its plain-word reading, not just a bar */}
           <div className="scr-card-subs">
-            {CODEX_DIMS.map((d) => {
-              const val = card.subs?.[d.key] ?? 0;
-              return (
-                <div className="scr-card-sub" key={d.key} title={dimSentence(d.key, val) || `${d.label}: ${val}`}>
-                  <span className="scr-card-sub-l">{d.label}</span>
-                  <span className="scr-card-sub-word" style={{ color: GROUP[d.group] }}>{bandWord(d.group, val)}</span>
-                  <span className="scr-card-sub-bar"><i style={{ width: `${val}%`, background: GROUP[d.group] }} /></span>
-                  <span className="scr-card-sub-v">{val}</span>
-                </div>
-              );
-            })}
+            {GROUPS.map((g) => (
+              <div className="scr-card-subgroup" key={g}>
+                <div className="scr-card-subgroup-h" style={{ color: GROUP[g] }}>{GROUP_LABEL[g]}</div>
+                {CODEX_DIMS.filter((d) => d.group === g).map((d) => {
+                  const val = card.subs?.[d.key] ?? 0;
+                  return (
+                    <div className="scr-card-sub" key={d.key} title={dimSentence(d.key, val) || `${d.label}: ${val}`}>
+                      <span className="scr-card-sub-l">{d.label}</span>
+                      <span className="scr-card-sub-word" style={{ color: GROUP[d.group] }}>{bandWord(d.group, val)}</span>
+                      <span className="scr-card-sub-bar"><i style={{ width: `${val}%`, background: GROUP[d.group] }} /></span>
+                      <span className="scr-card-sub-v">{val}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
 
           <div className="scr-card-watch">
