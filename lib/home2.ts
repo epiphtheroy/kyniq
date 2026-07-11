@@ -50,6 +50,16 @@ export type GraphNode = { label: string; kind: "film" | "trope"; slug: string };
 // Structured pair for the original constellation graph (HomeConstellation/EntityGraph).
 export type CPair = { mt: string; slug: string; a: { f: string; fs: string }; b: { f: string; fs: string } };
 
+// "Today at Metatake" — one daily sample from each content layer (home_daily_exhibits).
+export type Exhibits = {
+  film?: { slug: string; title: string; year: number | null; director?: string | null; poster: string | null; backdrop?: string | null; ts?: number | null; tsv?: number | null; tsr?: number | null } | null;
+  reversal?: { slug: string; title: string; year: number | null; poster: string | null; y1: number; v1: string; y2: number; v2: string } | null;
+  question?: { title: string; fslug: string; qslug: string; film: string; year: number | null; poster: string | null } | null;
+  place?: { place: string; fslug: string; film: string; year: number | null; poster: string | null } | null;
+  misreading?: { slug: string; title: string; year: number | null; poster: string | null; trope: string | null } | null;
+  counterpoint?: { slug: string; trope: string; a: { f: string; fs: string }; b: { f: string; fs: string } } | null;
+} | null;
+
 export type HomeV2 = {
   stats: { films: number; directors: number; tropes: number; concepts: number; readings: number; figures: number; lists: number; theorists?: number; traditions?: number };
   hero: Film[];                                   // rotating featured (counts + figureLabel populated)
