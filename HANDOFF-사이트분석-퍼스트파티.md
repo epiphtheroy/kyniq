@@ -81,9 +81,26 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 - mt_events는 무한 성장 — 월 수백만 행 규모가 되면 일별 롤업 테이블 + 원본 90일 보존 도입(§8).
 - 워처가 app/components를 자동 커밋하므로 이 영역 수정은 저장 즉시 배포됨.
 
+## 9. Bot Sentinel — 자율 봇 감지·차단·해제 (SHIPPED·검증 2026-07-11)
+
+이 비콘의 **보안 확장**. 토큰 없이 우리 인프라만으로 완결되는 자동 루프. 정본은 이 섹션 + auto-memory `vercel-waf-bot-block`.
+
+- **왜 여기 붙었나**: 위장 헤드리스 봇(정상 Chrome UA로 위장, JS 실행)은 이 비콘에 잡히지만 mt_events는 프라이버시상 IP가 없음. 차단 키(프리픽스)를 비콘 수집 시점에 확보해야 해서 이 시스템의 확장으로 구현.
+- **감지**: `app/api/metrics/route.ts`가 pageview마다 IP의 /24(v6 /48) 프리픽스를 `mt_visitor_ip`에 upsert(3일 보관). 헬퍼 `lib/ip-prefix.ts`(ingest·middleware 공유, 값 반드시 일치).
+- **탐지기** `mt_detect_bots()`(마이그 `worker/0078_bot_sentinel.sql`): 인사이트 30분 크론(`app/api/metrics/insights`)에 편승. A)프리픽스별 24h 원샷·리퍼러없음·딥페이지 ≥6방문·≥5경로, B)동일지문(country,screen_w,browser) ≥15 → 기여 /24 차단. 신규 차단은 `mt_insights`에 🛡️ 라인 emit(→/admin/metrics).
+- **차단 실행**: `middleware.ts`가 블록리스트(`bot_blocks`, 엔드포인트 `/api/bots/blocklist` 60s 캐시) 읽어 403. GOOD_BOT 정규식(googlebot·bingbot·Claude-SearchBot·Amzn-SearchBot·Perplexity 등) 먼저 예외 → BAD_UA 정규식(GPTBot·MJ12bot·Ahrefs 등) 403 → 프리픽스 403. **전부 fail-open**(오류=통과).
+- **자동 해제**: auto 블록 24h TTL, 조용해지면 만료. 재범 strike로 3d→7d→30d. `source='manual'`은 영구.
+- **Vercel WAF 병행**: 대시보드에 커스텀 규칙 2개(Alibaba AS45102 Deny + 스크레이퍼/AI훈련 UA Deny)도 라이브. robots.ts는 훈련봇 disallow.
+- **⚠️ 절대 규칙**:
+  - `middleware.ts`·`app/api/metrics/route.ts` 편집 전 이 섹션 필독 — **모르고 봇 게이트/프리픽스 수집 제거 금지.**
+  - middleware.ts는 **루트 파일**이라 자동배포 워처가 스테이징 안 함 → 수동 커밋 필요.
+  - OVH·Amazon ASN **통째 차단 금지**: Claude-SearchBot·Amzn-SearchBot 인용봇(트래픽 유입)이 그 인프라라 오폭. 나쁜 봇은 UA로만.
+  - Vercel **Bot Protection Off 유지**: 켜면 우리 GET 워밍·크론 등 서버측 자동화가 챌린지됨.
+
 ## 8. 다음 단계(대기)
 
 - [x] GSC 서비스계정 + 90일 백필 + 일일 워처 (§5, 2026-07-10 완료)
+- [x] Bot Sentinel 자율 봇 차단 (§9, 2026-07-11 완료)
 - [ ] 원우(선택): Clarity 계정 (§6)
 - [ ] 원우(선택): Vercel env `METRICS_SALT` 임의 문자열 추가
 - [ ] 데이터가 쌓이면: 핵심 CTA에 `data-mt` 속성 부착(Save/Seen/Watchlist/Follow/TV 재생 등), 주간 자동 리포트, 일별 롤업, "노출 많고 클릭 없는 페이지"(GSC×행동) 자동 리스트

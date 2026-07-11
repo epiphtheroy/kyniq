@@ -33,6 +33,7 @@
 | 이론가 QID | `lib/theorist_qid.json`(검증 299) + `worker/theorist-qid/match.mjs` | 미해결 59명 CSV는 세션 스크래치에 있었음 — 재생성 가능(스크립트 재실행) |
 | 스키마 공통 | 각 페이지 인라인 JSON-LD(트로프 페이지 패턴) | 포털=CollectionPage+ItemList+Breadcrumb, 노드=DefinedTerm, film=Movie(@id·sameAs wikidata·review) |
 | **figure 질문 title 레이어** | `lib/figureSeo.ts`(ruleFigureQuestion·messyFigureTitle) → figure 페이지 `<title>`·리드 H2(fg-qh)·film 페이지 figure 앵커 | **18,168页 전량 렌더 타임 규칙 — DB·LLM 불요.** 불변식: H1·상호참조·JSON-LD headline은 label(엔티티) 유지, 질문은 title·부제에만. 정본: `Outputs/figure_seo/RUNBOOK.md` |
+| **Quick Answers(인텐트 커버리지)** | 공용 `components/read/QuickAnswers.tsx` → 전 콘텐츠 유형 페이지가 리드 아래 마운트(LLM-0, 추가 페치 0) · 1층 탐지기 `mt_intent_scan()`(마이그 0079/0080) · 큐 `intent_queue` | **SHIPPED 전유형 라이브 2026-07-11.** GSC 쿼리→데이터로 답하는 Q&A. 정본: `docs/PLAN-intent-coverage.md`(헌장 6불변식·유형별 진단·웨이브 로그). 불변식: 답 없는 질문 금지·"best"는 실랭킹만·tradition "What is" 금지·lineage edition_year≠film_year. **신규 Q 추가·유형 확장 전 정본 §0·§5 필독** |
 
 DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `movement_hidden_films`, `cinecodex_dimension_top`, `cinecodex_film_subscores` — 전부 2026-07-04. **주의: `0035_figures_seo_fields.sql`은 파일만 커밋되고 프로덕션 미적용**(2단계 LLM 폴리싱 전용 컬럼 — 적용 전까지 어떤 코드도 seo_question/seo_short_label을 select하면 안 됨).
 
@@ -97,9 +98,32 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 8. **Tier-2 개방 배치**(07-06, 별도 세션): Tier-2 페이지 **Editor's digest**(DB 결정론 조합, 바이라인 Wonwoo Yoon+실데이터 갱신일, WebPage LD dateModified/editor, About 격하, 캐시 키 film-load5) + Atlas 미니맵 · 검색 `search_site` v2(Tier-2 포함, is_catalog+0.8 디스카운트, "catalog" 칩) · /film Full catalogue 뷰 · credits 인물 페이지 Tier-2 링크 승격 · **/whereto robots 게이트 명시**(visible만 색인 — 기존 무게이트 우연 상태 종료) · Atlas 표시 RPC 6종 핀 개방(17,307→25,029, 자격 게이트 불변) · director_slug 백필 22→1,022 · **stub slug 274편 일괄 개명**(aliases 548, /film miss 경로 resolveAlias 신설 배선) → 정본 `docs/PLAN-tier2-almanac.md` §7. **robots/색인 코호트 변화 없음**(Tier-2 전원 noindex 유지, Track B는 7/16 리뷰 대기).
 9. **figure 질문 title 레이어**(07-07): figure 18,168页 `<title>` 전량 질문형 전환 — **전부 렌더 타임 규칙, LLM·DB 무사용/$0** (`lib/figureSeo.ts`). 깨끗한 라벨 57%=완전 질문형("Who is Monsieur Merde in Holy Motors (2012)?"), 지저분한 43%=대시-suffix("{label} in {film} — what does it mean?", 원우 아이디어). 부수 수정: 끝마침표 title 깨짐 1,333页·라벨 내 영화명 중복 2,353页. film 페이지 figure 카드 "Open →"→질문 앵커(깨끗한 라벨만). **불변식: H1·상호참조·JSON-LD headline은 label(엔티티) 유지 — 질문은 title·리드 H2(fg-qh)·앵커에만**(원우 확정). LLM 파이프라인(파일럿 30/30 합격, 배치는 큐 적체 24h 0건으로 취소)은 `Outputs/figure_seo/RUNBOOK.md`에 보존 — 2단계 폴리싱은 §5-7. URL·색인 정책 변화 없음.
 
+## 3c. 2026-07-08~09 작업 이력 (정본: 루트 `HANDOFF-감독읽는층-리셉션-SEO.md`)
+
+**대규모 SEO 표면 확장 — 상세·함정·남은 일은 반드시 루트 `HANDOFF-감독읽는층-리셉션-SEO.md`에서 시작.** 여기는 색인:
+
+10. **리셉션/애프터라이프 층**(07-08): `/film/[slug]/reception` 1,957편(연도 타임라인, 4소스 결합) + 마이그레이션 0048(dek_lead·review_year·film_release_events·film_wd_honors) + 필름 Lineage/Reception 탭 record 문법 개편(캐시 film-load6). 사이트맵 film-reception.xml(1,894).
+11. **감독 기사층**(07-09): 8개 서브페이지(start·next·life·misreadings·takescore·honors·reception·theory) + `/curious/directors` 색인(필터/정렬) + 허브 개편(The records 섹션·필모그래피 재편·2단 스포일러 탭). 사이트맵 6자식(director-start/next/misreadings/takescore/honors/reception/theory). 적격성 `directorLayerEligibility()`.
+12. **누락 색인 4종**(07-08): movements(25)·essays-ko(293)·concept-domains(14)·frames(12) 자식 추가.
+13. **이론층 문장화**(07-08): concept/theorist/trope/archetype에 "spelled out"+ReadingLedger+Figures칩 — auto-memory `engine-room-curious-integration.md`.
+14. **스포일러-존 탭바**(07-09): FilmTabBar twoRow를 스포일러프리(상단)/스포일러(하단)로 의미 분할 + 좌측 라벨. 필름·감독 양쪽.
+15. **⚠️ 운영 함정 3종**(루트 문서 §6): cinecodex_card 루프=DB다운(→벌크캐시 lib/takescore-bulk.ts), null-poison 404(loader 에러-throw), DB 과부하 나선(자동배포 churn+home_v2_bundle_v2 25초).
+
+**신규 사이트맵 자식(GSC 개별 등록 필요)**: film-reception, movements, essays-ko, concept-domains, frames, director-{start,next,misreadings,takescore,honors,reception,theory}.
+
+## 3d. 2026-07-11 작업 이력 (정본: `docs/PLAN-intent-coverage.md`)
+
+**인텐트 커버리지 / Quick Answers 층 — 전유형 SHIPPED·라이브검증.** 상세·유형별 진단·함정·남은 일은 정본 문서에서 시작. 여기는 색인:
+
+16. **Quick Answers 블록**(전 콘텐츠 유형): GSC 실측 쿼리를 "데이터로 답하는 질문+답"으로 커버. 공용 `components/read/QuickAnswers.tsx`, LLM-0·추가 페치 0. 웨이브: atlas(촬영지, +leadText 국가→도시)·movies-like·film-lineage·lineage정전·reception·credits·whereto·감독허브/life·trope("is it a cliché"=maturity)·concept(sm/theory분기)·theorist·credits인물·genre·movements·frame·catalog·atlas국가/도시·tradition.
+17. **1층 미커버-인텐트 탐지기**: `mt_intent_scan()`(마이그 0079, v2 봇노이즈필터 0080) → `intent_queue`, 인사이트 30분 크론 편승. 발단이던 "idiocracy skyline"류가 실제로 큐에 잡히고 데이터 없어 미생성됨(설계대로).
+18. **⚠️ 불변식(신규 Q 추가 시 필독, 정본 §0·§5.8)**: 답 없는 질문 금지·엔티티 불변·변형어 최대2회·"best"는 실랭킹필드만(genre/atlas/catalog 금지)·lineage 영화단위(인물 노미네이션 금지)·edition_year≠film_year·tradition "What is" 금지(정의필드 없음)·misreadings 해석프레이밍만·reception 집계점수 없음.
+19. **⚠️ 배포 CHURN 함정(§F 보강)**: 워처가 파일별 커밋→2분새 다중 배포→각 빌드가 sitemap XML을 DB서 동시생성→과부하→일부 빌드 ERROR(`Export encountered an error on /sitemaps/*.xml`). 최종 배포가 ERROR면 변경 미반영. **해법: 웨이브 후 Vercel `list_deployments`로 최신 state 확인→ERROR면 빈 커밋 재푸시로 단일 클린빌드.** dynamic 라우트(generateStaticParams()[])는 로컬빌드가 실렌더 안 하니 라이브 curl로 런타임 검증 필수.
+
 ## 4. GSC 판독 로그 (추기식)
 
 - **2026-07-04**: 노출 46·클릭 2. 트로프 헤드텀 8종 44~63위 진입. 인명 롱테일 지속(뉴스 연동 확인: eisenberg polish citizenship). 영화 제목 쿼리 첫 등장(inside the yellow cocoon shell).
+- **2026-07-11**: 누적 노출 218·클릭 3·평균 19.5위(제출 후 48h). film-atlas 9.1위·movies-like 8.8위=초기 승자, tropes 헤드텀 40~70위(장기). 수동조치·보안문제 0. 조치: robots.ts에 /search?*·/ask-ai 차단(전 봇그룹 상속), 깨진 중복 sitemap 삭제. **Quick Answers 층 배포 → 유형별 CTR before/after 판독은 +1~2주 후(정본 §8에 추기).**
 
 ## 5. 대기 중인 결정 (원우)
 
