@@ -30,6 +30,7 @@ const VERTICALS: { key: string; label: string; kinds?: SearchKind[] }[] = [
   { key: "ideas", label: "Ideas", kinds: ["trope", "idea", "tradition", "archetype", "genre", "movement", "lineage"] },
   { key: "places", label: "Places", kinds: ["country", "city"] },
   { key: "news", label: "News", kinds: ["now"] },
+  { key: "watch", label: "Watch", kinds: ["tv", "tv_list"] },
 ];
 
 function db() {

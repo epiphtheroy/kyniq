@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
 
 /**
@@ -33,7 +34,11 @@ function load(slug: string) {
       const supabase = db();
       const { data: school } = await supabase.rpc("theory_school_detail", { p_slug: slug });
       const rows = (school as SchoolRow[] | null) ?? [];
-      if (rows.length > 0) return { kind: "school" as const, rows };
+      if (rows.length > 0) {
+        // Reel for the video hero: films across all the school's concepts.
+        const { data: reel } = await supabase.rpc("tv_films_for_concepts", { p_slugs: rows.map((r) => r.concept_slug), p_cap: 40 });
+        return { kind: "school" as const, rows, reelSlugs: (reel as string[] | null) ?? [] };
+      }
       // Legacy canon slug → its canonical concept page (crosswalk).
       const { data: target } = await supabase.rpc("canon_concept_slug", { p_slug: slug });
       if (typeof target === "string" && target) return { kind: "redirect" as const, target };
@@ -69,7 +74,7 @@ export default async function TraditionPage({ params }: Props) {
   if (!data) notFound();
   if (data.kind === "redirect") permanentRedirect(`/concept/${data.target}`);
 
-  const { rows } = data;
+  const { rows, reelSlugs } = data;
   const name = rows[0].school;
   const parts = [...new Set(rows.map((r) => r.part).filter(Boolean))] as string[];
   const films = rows.reduce((s, r) => s + r.films, 0);
@@ -79,6 +84,7 @@ export default async function TraditionPage({ params }: Props) {
       <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/tradition">Traditions</Link></div>
+        <EntityTVHero reelSlugs={reelSlugs} label={name} backdrop={null} />
         <h1 className="th-h1">{name}</h1>
         {parts.length > 0 && (
           <p style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 0" }}>

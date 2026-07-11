@@ -57,6 +57,8 @@ export function hrefOf(kind: SearchKind, slug: string, filmSlug?: string | null)
     case "country": return `/atlas/${slug}`;
     case "city": return `/atlas/${filmSlug}/${slug}`; // film_slug carries the country slug
     case "genre": return `/genre/${slug}`;
+    case "tv": return `/tv/${slug}`;
+    case "tv_list": return `/tv/list/${slug}`;
   }
 }
 
