@@ -133,7 +133,10 @@ export default function ScreenerExplorer({
   const yearMin = since ? parseInt(since) : null;
   const provActive = providers.length > 0;
   const onlyMode = !!lens && lens.mode === "only" && lens.seenCount > 0;
-  const personalMode = hideSeen ? "exclude" : (onlyMode ? "only" : null); // exclude wins if both
+  // Personal modes need auth (service-role mirror). A shared ?hide=seen link
+  // opened logged-out falls back to the global ranking, never an empty grid.
+  const personalMode: "exclude" | "only" | null =
+    hideSeen && uf?.uid ? "exclude" : (onlyMode ? "only" : null);
 
   const subJson = useMemo(() => {
     const o: Record<string, { min: number; max: number }> = {};
