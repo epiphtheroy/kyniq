@@ -6,7 +6,8 @@
 - 적용(P2, 릴 전용): credits/[person]·atlas/[slug]/[city]. **tradition은 스킵**(rows가 개념이라 영화 슬러그 없음 — 후속).
 - CSS: `.ehero{margin:10px auto 20px; max-width:1040px}` — full-bleed 페이지(trope/theorist/catalog)에서도 과대 방지.
 - 검증: 방송(spielberg 인트로 브리핑)·릴(alma-har-el 플레인 트레일러 isReel)·없음(tom-hanks 히어로 생략) 3경로 라이브 확인. 자동화 탭은 hidden autoplay 게이팅으로 검게 보임(실사용 정상).
-- 미착수: crew 축 플레이리스트(credits 방송화), tradition 히어로, 국가 페이지 서버렌더 방송 텍스트 라인(현재는 EntityTVHero의 "Watch as a list ↗" 링크로 대체).
+- **추가 완료(2026-07-11):** `/tv/lists` 브라우즈 UI(축 필터 탭+검색+페이지네이션, `components/TVDirectory.tsx`+`/api/tv/directory`, tv_directory/tv_directory_summary 소비; /tv/watch 셸프·단일·리스트뷰에서 링크) · **tradition 히어로**(마이그 0062 `tv_films_for_concepts`로 학파 개념들의 영화 릴, 릴 전용).
+- **여전히 보류(데이터 선행 필요):** crew 축 플레이리스트 — DB에 person→film 매핑 없음(credits는 요청시 TMDB로 영화 조회, `crew_index.json`은 카운트만). credits 페이지는 트레일러 릴로 동작 중. 방송화하려면 film_credits 테이블 신설이 선행돼야 함. / 이론가·트로프 segments-cut은 컴파일러 v3의 `tv_segments.meta` 스탬프 후.
 
 ---
 **(원본 기획, 참고용)** 상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.
