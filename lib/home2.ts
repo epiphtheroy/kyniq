@@ -28,7 +28,7 @@ export type Film = {
 
 export type Pick = Film & { shared: number };           // shared readings count
 export type Top3 = Film & { rank: number; meta: string; metascore: number | null; rt: number | null; syn: string };
-export type Top10Item = { rank: number; title: string; slug: string; imdb: number | null; poster?: string | null };
+export type Top10Item = { rank: number; title: string; slug: string; imdb: number | null; poster?: string | null; ts?: number | null; tsv?: number | null; tsr?: number | null };
 export type Wide = Film & { trope: string; framework: string }; // "Newly mapped" wide card
 export type TropeRow = { rank: number; title: string; pair: string; slug: string; n: number }; // → /trope/{slug}
 export type ConceptTile = { name: string; slug: string; n: number; backdrop?: string | null };    // → /idea/{slug}

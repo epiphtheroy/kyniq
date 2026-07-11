@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
-import { posterUrl, hashTone, tone, filmHref } from "./helpers";
+import { posterUrl, hashTone, tone, filmHref, tsQuadrant } from "./helpers";
 import Rail from "./Rail";
 
 export default function Top10({ data }: { data: HomeV2 }) {
@@ -41,8 +41,8 @@ export default function Top10({ data }: { data: HomeV2 }) {
                   <div className="ti">{f.title}</div>
                   <div className="mt">{f.meta}</div>
                   <div className="rt">
-                    <span>
-                      Metascore {f.metascore ?? "—"} · RT {f.rt ?? "—"}%
+                    <span title={f.ts != null ? `TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}` : undefined}>
+                      {f.ts != null ? <>TakeScore™ {f.ts}{tsQuadrant(f.tsv, f.tsr) ? ` · ${tsQuadrant(f.tsv, f.tsr)}` : ""}</> : "TakeScore —"}
                     </span>
                   </div>
                   <div className="watched">◉ Mark as read</div>
