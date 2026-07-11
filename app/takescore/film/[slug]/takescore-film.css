@@ -173,4 +173,5 @@ a.tsf-lrow:hover .tsf-ltitle{text-decoration:underline}
 .tsf-tow-chip--deep_cut{color:#5b4bb5; border-color:#5b4bb5}
 .tsf-tow-chip--popular_not_cinephile{color:var(--muted)}
 .tsf-tow-p{font-family:var(--font-serif,Georgia,serif); font-size:15.5px; line-height:1.6; color:var(--ink); margin:8px 0 0}
+.tsf-tow-sign{font-family:var(--font-serif,Georgia,serif); font-style:italic; font-size:14px; color:var(--muted); margin:6px 0 0; text-align:right}
 .tsf-tow-note{font-family:var(--font-ui); font-size:11px; color:var(--muted); margin:10px 0 0; padding-top:8px; border-top:1px solid var(--hairline)}

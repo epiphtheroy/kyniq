@@ -601,8 +601,9 @@ export default async function DirectorPage({ params }: Props) {
             <div className="dr-tow-kicker">to.W · the index</div>
             <h2 className="dr-tow-h" id="dr-tow-h">{director} in the Metatake index</h2>
             <p className="dr-tow-lead">
-              <em>To W.</em> — {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
+              <em>To W.H.</em> — {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
             </p>
+            <p className="dr-tow-sign">— W. Yoon</p>
             <div className="dr-tow-tags">
               {curation.essential > 0 ? <span className="dr-tow-tag dr-tow-tag--essential">{curation.essential} essential</span> : null}
               {curation.start_here > 0 ? <span className="dr-tow-tag dr-tow-tag--start">{curation.start_here} start here</span> : null}

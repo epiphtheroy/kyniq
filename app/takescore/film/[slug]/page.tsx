@@ -275,8 +275,9 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           </p>
         </section>
 
-        {/* ── to.W — the curator's letter: why this film is in the index.
-               Optional-verdict films get no letter (tow is null). ── */}
+        {/* ── to.W — the curator's letter to W.H., signed W. Yoon: where this
+               film stands in the index. Every catalogued film gets a note,
+               optional ones included (the honest, understated verdict). ── */}
         {tow?.rationale ? (
           <section aria-labelledby="tsf-tow-h" className="tsf-tow">
             <div className="tsf-tow-head">
@@ -289,10 +290,11 @@ export default async function TakeScoreFilmPage({ params }: Props) {
               ) : null}
             </div>
             <p className="tsf-tow-p">
-              <em>To W.</em> — {tow.rationale}
+              <em>To W.H.</em> — {tow.rationale}
             </p>
+            <p className="tsf-tow-sign">— W. Yoon</p>
             <p className="tsf-tow-note">
-              A note from the curator on why {card.title} holds its place in the Metatake index — assembled
+              A note from the curator on where {card.title} stands in the Metatake index — assembled
               from the catalog&apos;s curation records (canon lists, festival honors, auteur lineages), separate
               from the TakeScore appraisal above.
             </p>
