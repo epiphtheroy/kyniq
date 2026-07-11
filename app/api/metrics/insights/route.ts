@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/admin";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { runHandshakes } from "@/lib/bots/handshake";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -64,6 +65,17 @@ export async function GET(req: NextRequest) {
     /* best-effort */
   }
 
+  // Same cadence again: politely visit back a few crawlers that declared a URL
+  // (lib/bots/handshake) so metatake.net lands in their logs. Robots-respecting,
+  // one visit per host per 30 days. Isolated so a failure never affects insights.
+  let handshakes = 0;
+  try {
+    const hs = await runHandshakes(4);
+    handshakes = hs.done;
+  } catch {
+    /* best-effort */
+  }
+
   await supabase.from("mt_insights").insert({
     kind: "_run",
     key: "run:" + new Date().toISOString().slice(0, 19),
@@ -74,6 +86,7 @@ export async function GET(req: NextRequest) {
     inserted: inserted ?? 0,
     bot_blocks: botBlocks,
     intent_new: intentNew,
+    handshakes,
     error: error?.message ?? null,
   });
 }
