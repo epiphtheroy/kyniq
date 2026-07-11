@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import EntityTVHero from "@/components/EntityTVHero";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -165,6 +166,7 @@ export default async function FramePage({ params }: Props) {
       />
       <main className="page">
         <div className="colwrap">
+          <EntityTVHero reelSlugs={[...new Set(instances.map((i) => i.film.slug))]} label={frame.label} backdrop={null} />
           {/* ── Header ── */}
           <header className="article-head">
             <p className="kicker">
