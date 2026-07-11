@@ -19,8 +19,12 @@ async function blockedPrefix(prefix: string, origin: string): Promise<boolean> {
   const now = Date.now();
   if (!blCache || now - blCache.at > 60_000) {
     try {
+      // Hard 1.5s cap: a hanging blocklist fetch must never stall page renders
+      // (Vercel kills middleware at 25s → sitewide sporadic 504s). Abort → the
+      // catch below fails open with the prior list, honoring the design intent.
       const r = await fetch(`${origin}/api/bots/blocklist`, {
         headers: { "x-mw": "1" },
+        signal: AbortSignal.timeout(1500),
       });
       const j = (await r.json()) as { prefixes?: string[] };
       blCache = { at: now, prefixes: new Set(j.prefixes ?? []) };
