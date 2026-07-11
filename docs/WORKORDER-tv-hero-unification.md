@@ -14,7 +14,13 @@
 - **director 서브페이지 9개 전부 히어로 추가**(honors·life·locations·misreadings·next·reception·start·takescore·theory) — `director-{slug}` 플레이리스트 + 필모 릴 폴백. 대부분 `rd-hero` 앞 삽입, locations는 크럼 뒤, next는 label={name}.
 - **frame/[slug]**(질문 프레임) — instances의 `i.film.slug`로 릴.
 - **`/tv` 하단에 브라우즈 라이브러리 내장**(`TVDirectory embedded`) — 축 필터 탭+검색+페이지네이션. 리스트가 묻히던 문제 해결(원우 제보). `/tv/lists` 독립 페이지와 동일 컴포넌트, embedded 모드는 마운트 시 자체 페치.
-- **여전히 히어로 없음(후속 판단):** film 서브페이지(credits/misreadings/reception 등 — 이미 `components/read/ReadHero.tsx`의 트레일러 릴 보유, 소형 슬롯이라 방송 승격은 별도 판단), strong-misreadings/[fw](영화가 ReadingFeed 클라이언트 로드라 서버 슬러그 없음), film/lineage·film/atlas(단일 영화 — program prop 필요), catalog/[seg]·concept/domain/[domain]·takescore/[dim](집계 색인).
+### 커버리지 3차 — 거의 전부 완료 (2026-07-11)
+- **ReadHero 방송 승격**: credits·misreadings·reception·[desk]·[desk]/ko·whereto·film/atlas 전부 트레일러→방송(FilmTVHero). **컴팩트 슬롯 폴리시**: `@container (max-width:720px)`에서 중앙 키커+마스트헤드 meta 숨김(겹침 해소).
+- **EntityTVHero `program` prop**(단일영화 ?v=): film/lineage·**film/[slug]/q**·**figure**·**movies-like**·**takescore/film**.
+- **strong-misreadings/[fw]**(`initial.rows.filmslug`), **concept/domain**(`tv_films_for_concepts`), **frame**, **curious/[desk]**(`rows.film.slug`), **director 서브 9개** 릴/플레이리스트.
+- honors·locations 서브는 308 리다이렉트(→film/lineage·film/atlas, 이미 히어로).
+- **정렬 개선(0063)**: `/tv/lists`·`/tv` 그리드 축 인터리브.
+- **진짜 남은 것(불가/비가치):** ① **crew 플레이리스트=불가**(films.tmdb_extra.cast에 tmdb id 없음·crew_index는 카운트만·credits는 요청시 TMDB → DB 매핑 부재; film_credits 테이블 신설이 선행). ② **catalog/[seg]·takescore/[dim]=스킵**(집계 browse 인덱스 — 영화셋이 broad/client라 히어로가 랜덤이 됨, 억지 영상보다 무영상이 나음). ③ **이론가·트로프 segments-cut=아키텍처 부적합**(방송의 theorist/misreading 세그는 "그 영화의 top" 태그라 특정 엔티티와 불일치 → 엔티티별 세그 재생성이 필요한 대공사인데 films-cut이 이미 전 방송을 재생하므로 가치 낮음). take/[slug]=대부분 리다이렉트, gallery=이미지 페이지, blog/now/room/u=비영화 표면.
 
 ---
 **(원본 기획, 참고용)** 상태: 대기 (원우 OK 후 실행). 이 문서만 보고 실행 가능하도록 작성됨.
