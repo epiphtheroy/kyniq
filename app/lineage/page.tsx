@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import LineageTabsClient, { type IdxRow } from "@/components/LineageTabsClient";
 import type { MvHub } from "@/app/movements/page";
@@ -101,6 +102,13 @@ export default async function LineageIndex() {
           <span className="term"> movement</span>, the awards it won and the canons it entered. Pick a tradition to see its films;
           open a film&apos;s <em>Lineage</em> tab to see everything it belongs to.
         </p>
+        <Link href="/lineage/for-w-heo" className="lh-flag">
+          <span className="lh-flag-kicker">The Metatake list · to. W. Heo</span>
+          <span className="lh-flag-title">for W. Heo — the essential films</span>
+          <span className="lh-flag-sub">Every film we mark essential viewing for a cinephile — browse by year, genre, director or title.</span>
+          <span className="lh-flag-cta">Open the list →</span>
+        </Link>
+
         <LineageTabsClient national={mvd.national ?? []} movements={mvd.movements ?? []} lists={lists} />
       </div>
     </div>
