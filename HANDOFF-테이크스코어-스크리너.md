@@ -1,7 +1,9 @@
-# HANDOFF — TakeScore Screener 전면 리디자인 (단일 정본 기획서)
+# HANDOFF — TakeScore Screener 전면 리디자인 (단일 정본)
 
-> **이 문서가 정본.** /takescore 허브를 "서비스의 메인이 되어도 좋은" 공개 스크리닝 터미널로 전면 업그레이드하는 기획. 기획: 2026-07-11 (원우 지시). 구현은 다른 AI가 이 문서만 보고 수행할 수 있어야 한다.
-> 관련 정본: `HANDOFF-마이룸-v3-redesign.md`(계기 개념), `HANDOFF-마이필름-렌즈.md`(렌즈 불변식), `docs/00-INDEX.md`에 등록할 것.
+> **✅ 구현 완료 (2026-07-11).** 기획+구현 모두 이 세션에서 수행. 마이그레이션은 **0070**(문서 본문의 `00xx`/`0068` 표기는 0070으로 읽을 것) — 프로덕션 적용 완료. 프론트: `app/takescore/page.tsx`(재작성)+`app/takescore/screener.css`+`components/screener/{ScreenerExplorer,ScoreBrush,ProviderPicker,FilmCardPanel}.tsx`+`lib/takescore_presets.ts`+`app/api/lens/takescore/route.ts`(확장). 아래 §4의 전 기능(P0~P5) 라이브. `film_provider_index`는 provider 갱신 시 `select fpi_rebuild();` 재실행(worker/external-data.py 훅 대기).
+>
+> **이 문서가 정본.** /takescore 허브를 "서비스의 메인이 되어도 좋은" 공개 스크리닝 터미널로 전면 업그레이드. 기획: 2026-07-11 (원우 지시).
+> 관련 정본: `HANDOFF-마이룸-v3-redesign.md`(계기 개념), `HANDOFF-마이필름-렌즈.md`(렌즈 불변식), `docs/00-INDEX.md` 등록됨.
 
 ---
 
