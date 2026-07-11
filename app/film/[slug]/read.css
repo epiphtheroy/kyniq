@@ -302,3 +302,15 @@
 .mt .dfk-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .mt .dfk-chip{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media (max-width:640px){.mt .dfk-sent{font-size:15px}.mt .dfk-row{padding:11px 12px}}
+
+/* EMBEDDING FANTASIA — kicker, disclaimer, topic pills (components/FilmSentences.tsx) */
+.mt .dfk-kicker{font-family:var(--font-ui);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#E0922A;margin-bottom:2px}
+.mt .dfk-by{color:rgba(22,35,63,.5);letter-spacing:.05em}
+.mt .dfk-disclaimer{max-width:78ch}
+.mt .dfk-nav{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 10px}
+.mt .dfk-pill{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.02em;padding:5px 12px;border:1px solid var(--hairline-2);border-radius:999px;background:#fff;color:var(--ink2);cursor:pointer}
+.mt .dfk-pill:hover{border-color:#E0922A;color:#16233F}
+.mt .dfk-pill.on{background:#16233F;border-color:#16233F;color:#fff}
+.mt .dfk-pill.on .dfk-n{color:#E0922A}
+.mt .dfk-n{font-variant-numeric:tabular-nums;font-size:10.5px;color:rgba(22,35,63,.5);margin-left:2px}
+.mt .dfk-blurb{font-family:var(--font-ui);font-size:12.5px;color:var(--muted);margin:0 0 10px}
