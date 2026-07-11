@@ -492,21 +492,26 @@ export default function ScreenerExplorer({
   );
 }
 
-/* ── Hero instant search: /api/search films → pin ── */
+/* ── Hero instant search: lexical /api/search films → open its card. Fast
+   (110ms debounce, lexical-only so no embedding round-trip). ── */
+type Hit = { slug: string; title: string; year: number | null; poster: string | null };
 function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: string | null) => void }) {
   const [q, setQ] = useState("");
-  const [hits, setHits] = useState<{ slug: string; title: string; year: number | null; poster: string | null }[]>([]);
+  const [hits, setHits] = useState<Hit[]>([]);
   const [open, setOpen] = useState(false);
-  const box = useRef<HTMLDivElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const box = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
-    if (q.trim().length < 2) { setHits([]); return; }
+    if (q.trim().length < 2) { setHits([]); setLoading(false); setOpen(false); return; }
     const ac = new AbortController();
+    setLoading(true); setOpen(true);
     const t = setTimeout(async () => {
-      const d = await fetch(`/api/search?q=${encodeURIComponent(q)}&kinds=film&limit=6`, { signal: ac.signal }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-      const hs = ((d?.hits ?? []) as { slug: string; title: string; year: number | null; poster: string | null }[]).map((h) => ({ slug: h.slug, title: h.title, year: h.year, poster: h.poster }));
-      setHits(hs); setOpen(true);
-    }, 250);
+      const d = await fetch(`/api/search?q=${encodeURIComponent(q)}&kinds=film&limit=7&mode=lex`, { signal: ac.signal }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      if (ac.signal.aborted) return;
+      const hs = ((d?.hits ?? []) as Hit[]).map((h) => ({ slug: h.slug, title: h.title, year: h.year, poster: h.poster }));
+      setHits(hs); setLoading(false); setOpen(true);
+    }, 110);
     return () => { clearTimeout(t); ac.abort(); };
   }, [q]);
 
@@ -516,25 +521,30 @@ function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: st
     return () => document.removeEventListener("mousedown", h);
   }, []);
 
+  const choose = (h: Hit) => { onPin(h.slug, h.title, h.poster); setQ(""); setHits([]); setOpen(false); };
+  const submit = (e: React.FormEvent) => { e.preventDefault(); if (hits.length) choose(hits[0]); };
+
   return (
-    <div className="scr-search" ref={box}>
-      <input className="scr-search-in" value={q} onChange={(e) => setQ(e.target.value)} onFocus={() => hits.length && setOpen(true)}
-        placeholder="Search any film to see its score…" aria-label="Search a film" autoComplete="off" />
-      {open && hits.length ? (
+    <form className="scr-search" ref={box} role="search" onSubmit={submit}>
+      <span className="scr-search-ic" aria-hidden>⌕</span>
+      <input className="scr-search-in" value={q} onChange={(e) => setQ(e.target.value)} onFocus={() => q.trim().length >= 2 && setOpen(true)}
+        placeholder="Search any film to see its score…" aria-label="Search a film by title" autoComplete="off" />
+      <button type="submit" className="scr-search-btn" aria-label="Search">Search</button>
+      {open && q.trim().length >= 2 ? (
         <div className="scr-search-drop">
-          {hits.map((h) => (
-            <button key={h.slug} className="scr-search-hit" onClick={() => { onPin(h.slug, h.title, h.poster); setQ(""); setOpen(false); }}>
+          {hits.length ? hits.map((h) => (
+            <button type="button" key={h.slug} className="scr-search-hit" onClick={() => choose(h)}>
               {h.poster ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={`https://image.tmdb.org/t/p/w92${h.poster}`} alt="" width={30} height={45} />
               ) : <span className="scr-search-hit--e" />}
               <span className="scr-search-hit-t">{h.title} <i>({h.year ?? "?"})</i></span>
-              <span className="scr-search-hit-pin">Pin →</span>
+              <span className="scr-search-hit-pin">See score →</span>
             </button>
-          ))}
+          )) : <div className="scr-search-empty">{loading ? "Searching…" : "No films found."}</div>}
         </div>
       ) : null}
-    </div>
+    </form>
   );
 }
 

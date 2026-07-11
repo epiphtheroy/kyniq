@@ -14,7 +14,7 @@ export type Bucket = { lo: number; n: number };
 
 export default function ScoreBrush({
   buckets, domain, step, value, onChange,
-  height = 64, color = "#0F6E56", label,
+  height = 64, color = "#0F6E56", label, hint = false,
 }: {
   buckets: Bucket[];
   domain: [number, number];
@@ -24,6 +24,7 @@ export default function ScoreBrush({
   height?: number;
   color?: string;
   label?: string;
+  hint?: boolean;   // draw a "drag me" grip cue when there's no selection yet
 }) {
   const [dmin, dmax] = domain;
   const span = dmax - dmin || 1;
@@ -89,10 +90,21 @@ export default function ScoreBrush({
           );
         })}
         {sel ? (
-          <>
-            <rect x={valToX(sel[0])} y={0} width={Math.max(2, valToX(sel[1]) - valToX(sel[0]))} height={height}
-              fill={color} fillOpacity={0.08} stroke={color} strokeOpacity={0.5} strokeWidth={1} vectorEffect="non-scaling-stroke" />
-          </>
+          <rect x={valToX(sel[0])} y={0} width={Math.max(2, valToX(sel[1]) - valToX(sel[0]))} height={height}
+            fill={color} fillOpacity={0.08} stroke={color} strokeOpacity={0.5} strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
+        ) : hint ? (
+          // "drag me" cue: a ghost selection band with grip handles in the middle
+          <g className="sbr-hint" opacity={0.85}>
+            <rect x={W * 0.36} y={2} width={W * 0.28} height={height - 4} rx={4}
+              fill={color} fillOpacity={0.07} stroke={color} strokeOpacity={0.45} strokeWidth={1.5}
+              strokeDasharray="5 4" vectorEffect="non-scaling-stroke" />
+            {[0.36, 0.64].map((fx) => (
+              <g key={fx}>
+                <rect x={W * fx - 1.5} y={height / 2 - 9} width={3} height={18} rx={1.5} fill={color} vectorEffect="non-scaling-stroke" />
+                <line x1={W * fx - 4.5} y1={height / 2} x2={W * fx + 4.5} y2={height / 2} stroke={color} strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
+              </g>
+            ))}
+          </g>
         ) : null}
       </svg>
     </div>
