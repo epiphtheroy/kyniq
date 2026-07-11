@@ -269,3 +269,33 @@
   .scr-curtain-row { align-items:flex-start; }
   .scr-search-btn { padding:9px 14px; }
 }
+
+/* ── v3: rich search results (verdict + score + save, dense) ── */
+.scr-search-drop { max-height:min(70vh,560px); overflow-y:auto; }
+.scr-hit { display:grid; grid-template-columns:38px minmax(0,1fr) auto 36px; align-items:center; gap:12px; padding:9px 12px; border-bottom:1px solid var(--hairline,#eee); cursor:pointer; }
+.scr-hit:last-child { border-bottom:0; }
+.scr-hit:hover, .scr-hit:focus-visible { background:#f5f4ef; outline:none; }
+.scr-hit-p { width:38px; height:57px; border-radius:4px; object-fit:cover; background:#e7e4dc; display:block; }
+.scr-hit-p--e { display:block; }
+.scr-hit-mid { min-width:0; }
+.scr-hit-t { font-family:var(--font-display,Georgia,serif); font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.scr-hit-y { font-weight:400; color:var(--muted); }
+.scr-hit-v { font-size:12px; color:var(--ink-soft,#5c564e); font-style:italic; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.scr-hit-band { display:flex; gap:9px; margin-top:3px; font-family:var(--font-ui); font-size:11px; color:var(--muted); flex-wrap:wrap; }
+.scr-hit-band b { font-weight:700; }
+.scr-hit-ts { display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:46px; height:46px; border-radius:8px; background:rgba(15,110,86,.1); }
+.scr-hit-ts b { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:19px; font-weight:700; color:var(--v); line-height:1; }
+.scr-hit-ts i { font-family:var(--font-ui); font-size:8px; font-weight:700; color:var(--v); font-style:normal; margin-top:1px; }
+.scr-hit-save { position:relative; width:34px; display:flex; align-items:center; justify-content:center; }
+
+/* main row: keep the score close to the title (cap the middle column) + a
+   visible save button in every result so you can add to your list at a glance */
+.scr-row { grid-template-columns:28px 60px minmax(0,520px) auto 34px 18px; column-gap:14px; justify-content:start; }
+.scr-row-mid { max-width:520px; }
+.scr-row-save { position:relative; width:34px; display:flex; align-items:center; justify-content:center; }
+@media (min-width:1040px){ .scr-row { grid-template-columns:28px 60px minmax(0,1fr) auto 34px 18px; } }
+@media (max-width:600px){
+  .scr-row { grid-template-columns:22px 48px minmax(0,1fr) auto 30px 16px; column-gap:9px; }
+  .scr-row-save { display:flex; }
+  .scr-hit { grid-template-columns:34px minmax(0,1fr) auto 32px; gap:9px; }
+}

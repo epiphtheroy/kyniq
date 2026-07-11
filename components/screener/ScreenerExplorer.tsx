@@ -454,6 +454,7 @@ export default function ScreenerExplorer({
                 <div className="scr-row-verdict">{shortVerdict(f.v, f.c, f.r, f.u)}</div>
               </div>
               <span className="scr-row-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
+              <span className="scr-row-save" onClick={(e) => e.stopPropagation()}><PosterActions slug={f.slug} rating={false} compact /></span>
               <span className="scr-row-chev" aria-hidden>{isOpen ? "▲" : "▼"}</span>
             </div>
             {isOpen ? (
