@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import { createClient as createServerClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
-// My Films lens: the TakeScore ranking restricted to the signed-in user's seen
-// films. CodexExplorer swaps its paged cinecodex_ranked calls to this route in
-// only-mode; every filter (sort, lambda, search, year, country, dimension
-// ranges) passes straight through to the service-role-only mirror RPC.
+// My Films lens + Hide-seen: the TakeScore ranking restricted to (only) or
+// excluding the signed-in user's seen films. ScreenerExplorer swaps its paged
+// anon cinecodex_ranked calls to this route whenever a personal mode is active;
+// every filter (sort, lambda, search, year, made-in country, dimension ranges,
+// TS band, providers, votes) passes straight through to the service-role mirror.
 export const revalidate = 0;
 
 export async function GET(request: Request) {
@@ -16,8 +17,11 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const num = (k: string) => { const v = parseFloat(searchParams.get(k) ?? ""); return Number.isFinite(v) ? v : null; };
+  const intArr = (k: string) => (searchParams.get(k) || "").split(",").map((s) => parseInt(s.trim(), 10)).filter(Number.isFinite);
   let sub: unknown = {};
   try { sub = JSON.parse(searchParams.get("sub") || "{}"); } catch { sub = {}; }
+  const prov = intArr("prov");
+  const mode = searchParams.get("mode") === "exclude" ? "exclude" : "only";
 
   const admin = createAdminClient();
   const { data, error } = await admin.rpc("cinecodex_ranked_mine", {
@@ -30,6 +34,12 @@ export async function GET(request: Request) {
     p_country: searchParams.get("country") || null,
     p_max_cost: num("max_cost") ?? 100,
     p_sub: sub,
+    p_ts_min: num("ts_min"),
+    p_ts_max: num("ts_max"),
+    p_providers: prov.length ? prov : null,
+    p_watch_country: searchParams.get("watch") || null,
+    p_max_votes: num("max_votes"),
+    p_mode: mode,
     p_limit: Math.min(Math.max(Math.trunc(num("limit") ?? 60), 1), 120),
     p_offset: Math.max(Math.trunc(num("offset") ?? 0), 0),
   });

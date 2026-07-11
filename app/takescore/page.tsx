@@ -1,18 +1,20 @@
 import { createClient } from "@supabase/supabase-js";
+import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import SiteNav from "@/components/home2/SiteNav";
-import LensQuickBar from "@/components/LensQuickBar";
-import CodexExplorer, { type CodexRow } from "@/components/CodexExplorer";
+import ScreenerExplorer, { type ScrRow, type DimHist } from "@/components/screener/ScreenerExplorer";
 import { filmUrl } from "@/lib/urls";
 import { CODEX_DIMS, takescoreDimUrl, type CodexDimGroup } from "@/lib/cinecodex_dims";
+import "./screener.css";
 
 export const revalidate = 300;
 
 const SITE = "https://metatake.net";
-const TITLE = "TakeScore — films ranked by durable value, not popularity";
+const TITLE = "TakeScore Screener — every film scored on durable value, not popularity";
 const DESC =
-  "The TakeScore (TS): our own estimate of the durable value a serious viewer gains from a film, the cost to unlock it, and the risk it disappoints. Search, filter by country, decade and by any of the thirteen sub-dimensions, and dial your risk-aversion.";
+  "The Screener: search any film for its TakeScore (with IMDb, RT and Metascore), pin and compare several at once, and screen 6,701 scored films by year, country, your streaming services, the thirteen sub-dimensions, and what you haven't seen. One-tap to your list.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/takescore" },
@@ -24,17 +26,34 @@ function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
+// The 13 global dimension distributions are static (change only on a rescore) —
+// cache a day so the brush minis cost nothing on the hot path.
+const cachedDimHist = unstable_cache(
+  async (): Promise<DimHist> => {
+    const { data } = await db().rpc("cinecodex_dim_histograms");
+    return (data as DimHist | null) ?? {};
+  },
+  ["cinecodex-dim-hist-1"],
+  { revalidate: 86400 },
+);
+
 export default async function TakeScorePage() {
-  // One ranked fetch serves both surfaces: the explorer takes the first 60
-  // (its load-more offset starts at initialRows.length), and the crawlable
-  // "full ranking" below renders the whole page of 500.
-  const [{ data: page }, { data: cc }] = await Promise.all([
+  const [{ data: page }, { data: cc }, dimHist] = await Promise.all([
     db().rpc("cinecodex_ranked", { p_sort: "u", p_lambda: 1.0, p_limit: 500, p_offset: 0 }),
     db().rpc("cinecodex_countries"),
+    cachedDimHist(),
   ]);
-  const res = (page as { total: number; rows: CodexRow[] } | null) ?? { total: 0, rows: [] };
+  const res = (page as { total: number; rows: ScrRow[] } | null) ?? { total: 0, rows: [] };
   const countries = (cc as { code: string; n: number }[] | null) ?? [];
   const ranked = res.rows;
+
+  // #1 film's backdrop drives the black hero (deterministic → stable ISR cache).
+  const topSlug = ranked[0]?.slug ?? null;
+  const { data: hero } = topSlug
+    ? await db().from("films").select("title, backdrop_path").eq("slug", topSlug).maybeSingle()
+    : { data: null };
+  const heroBackdrop = (hero as { backdrop_path: string | null } | null)?.backdrop_path ?? null;
+  const heroFilm = (hero as { title: string } | null)?.title ?? null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -58,20 +77,18 @@ export default async function TakeScorePage() {
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="mt-wrap lh">
-        <h1 className="lh-h1">TakeScore™</h1>
-        <p className="lh-def">
-          Every film gets a <span className="term">TakeScore</span> (TS) — our estimate of the durable value a serious
-          viewer gains, the cost to unlock it and the risk it disappoints. Ranked by TakeScore, not popularity. Search,
-          set a range on any dimension, dial your risk-aversion, and click any film to open its scores in place.{" "}
-          <Link href="/takescore/about">How it works →</Link>
-        </p>
-        <LensQuickBar />
-        <CodexExplorer initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries} />
 
+      <Suspense fallback={<div className="scr-boot" />}>
+        <ScreenerExplorer
+          initialRows={ranked.slice(0, 60)} initialTotal={res.total} countries={countries}
+          dimHist={dimHist} heroBackdrop={heroBackdrop} heroFilm={heroFilm}
+        />
+      </Suspense>
+
+      <div className="mt-wrap lh">
         {/* The 13 dimension landing pages — each answers one search-shaped
             question with an essay, the 8-anchor ruler and a top-25 list. */}
-        <section aria-labelledby="ts-dims" style={{ marginTop: 56 }}>
+        <section aria-labelledby="ts-dims" style={{ marginTop: 48 }}>
           <h2 className="df-h2" id="ts-dims">The thirteen dimensions</h2>
           <p className="df-sub">
             Every TakeScore is built from thirteen sub-scores in three groups — what a film gives back (Value), what
@@ -97,12 +114,13 @@ export default async function TakeScorePage() {
               </ul>
             </div>
           ))}
+          <p className="df-sub" style={{ marginTop: 8 }}><Link href="/takescore/about">How the TakeScore works →</Link></p>
         </section>
 
         {/* Crawlable ranking — the explorer above is client-paginated, so this
             plain server-rendered list is the crawl backbone (same model as the
             credits A–Z). */}
-        <section aria-labelledby="ts-full" style={{ marginTop: 56 }} className="mtl-swap-out">
+        <section aria-labelledby="ts-full" style={{ marginTop: 48 }} className="mtl-swap-out">
           <h2 className="df-h2" id="ts-full">The full ranking</h2>
           <p className="df-sub">
             The top {ranked.length.toLocaleString()} films by TakeScore
@@ -118,6 +136,10 @@ export default async function TakeScorePage() {
             ))}
           </div>
         </section>
+
+        <p className="df-sub" style={{ marginTop: 24, fontSize: 12, opacity: 0.7 }}>
+          Streaming availability via TMDB (data licensed through JustWatch). External ratings via IMDb, Rotten Tomatoes and Metacritic.
+        </p>
       </div>
     </div>
   );
