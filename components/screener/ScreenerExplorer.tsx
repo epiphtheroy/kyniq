@@ -204,6 +204,7 @@ export default function ScreenerExplorer({
         if (yearMin != null) sp.set("year_min", String(yearMin));
         if (to) sp.set("year_max", to);
         if (country) sp.set("country", country);
+        if (genre) sp.set("genre", genre);
         if (ts) { sp.set("ts_min", String(ts[0])); sp.set("ts_max", String(ts[1])); }
         if (activeDims) sp.set("sub", JSON.stringify(subJson));
         if (maxVotes) sp.set("max_votes", maxVotes);
@@ -217,7 +218,7 @@ export default function ScreenerExplorer({
           p_max_cost: 100, p_sub: subJson,
           p_ts_min: ts ? ts[0] : null, p_ts_max: ts ? ts[1] : null,
           p_providers: provActive ? providers : null, p_watch_country: provActive ? watchCountry : null,
-          p_max_votes: maxVotes ? parseInt(maxVotes) : null,
+          p_max_votes: maxVotes ? parseInt(maxVotes) : null, p_genre: genre || null,
           p_limit: PAGE, p_offset: off,
         });
         res = (data as typeof res) ?? { total: 0, rows: [] };
@@ -228,18 +229,18 @@ export default function ScreenerExplorer({
     setRows((prev) => reset ? res.rows : [...prev, ...res.rows]);
     setOffset(off + res.rows.length);
     setLoading(false);
-  }, [sort, lam, q, yearMin, to, country, ts, subJson, activeDims, maxVotes, provActive, providers, watchCountry, personalMode, offset]);
+  }, [sort, lam, q, yearMin, to, country, genre, ts, subJson, activeDims, maxVotes, provActive, providers, watchCountry, personalMode, offset]);
 
   const fetchHist = useCallback(async () => {
     const { data } = await sb.rpc("cinecodex_histogram", {
       p_lambda: lam, p_q: q || null, p_year_min: yearMin, p_year_max: to ? parseInt(to) : null,
       p_country: country || null, p_max_cost: 100, p_sub: subJson,
       p_providers: provActive ? providers : null, p_watch_country: provActive ? watchCountry : null,
-      p_max_votes: maxVotes ? parseInt(maxVotes) : null,
+      p_max_votes: maxVotes ? parseInt(maxVotes) : null, p_genre: genre || null,
     });
     const d = data as { buckets: Bucket[] } | null;
     setHist(d?.buckets ?? []);
-  }, [lam, q, yearMin, to, country, subJson, provActive, providers, watchCountry, maxVotes]);
+  }, [lam, q, yearMin, to, country, genre, subJson, provActive, providers, watchCountry, maxVotes]);
 
   // refetch on any filter change (debounced). The SSR seed is the default sort-u
   // top 60, so only refetch on first paint when the URL carried a non-default
