@@ -71,7 +71,7 @@ export default function FurtherReading({ items }: { items?: AcademicRef[] | null
                 <a
                   href={r.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="ak-fr__title"
                 >
                   {r.title}

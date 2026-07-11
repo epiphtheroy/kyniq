@@ -209,8 +209,8 @@ function SourceTag({ meta }: { meta: LineageListMeta | undefined }) {
   return (
     <span className="lin-meta" style={{ opacity: 0.65 }}>
       {" · via "}
-      {wd ? <a href={wd} target="_blank" rel="noopener noreferrer">{src?.name ?? "Wikidata"} ↗</a>
-        : src?.url ? <a href={src.url} target="_blank" rel="noopener noreferrer">{src.name} ↗</a>
+      {wd ? <a href={wd} target="_blank" rel="noopener">{src?.name ?? "Wikidata"} ↗</a>
+        : src?.url ? <a href={src.url} target="_blank" rel="noopener">{src.name} ↗</a>
         : src?.name}
     </span>
   );

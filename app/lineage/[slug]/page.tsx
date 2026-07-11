@@ -282,8 +282,8 @@ export default async function LineagePage({ params }: Props) {
           {/* One citation link, never a bare wikidata.org: QID link when the
               list has one; the source's own site otherwise; plain text last. */}
           Compiled from{" "}
-          {wd ? <a href={wd} target="_blank" rel="noopener noreferrer">{src?.name ?? "Wikidata"} ↗</a>
-            : src?.url ? <a href={src.url} target="_blank" rel="noopener noreferrer">{src.name} ↗</a>
+          {wd ? <a href={wd} target="_blank" rel="noopener">{src?.name ?? "Wikidata"} ↗</a>
+            : src?.url ? <a href={src.url} target="_blank" rel="noopener">{src.name} ↗</a>
             : (src?.name ?? "public records")}
           , resolved to TMDb identities
           {" · "}{visibleFilms.length} of {films.length} read closely on Metatake

@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description:
     "Read films closely. Metatake breaks films into their figures and the critical readings they carry, then links films through the meanings they share — a critical map of cinema.",
   metadataBase: new URL(siteUrl),
+  // Send the full referring URL (not just the origin) to external sites when a
+  // visitor clicks an outbound link, so metatake.net — with the exact page —
+  // shows up in the target server's referrer logs. "no-referrer-when-downgrade"
+  // sends the full path to HTTPS destinations and nothing on an HTTPS→HTTP
+  // downgrade (the safe default). Note: a per-link noreferrer token would
+  // override this to send nothing, which is why those were stripped site-wide.
+  referrer: "no-referrer-when-downgrade",
   robots: pageRobots(),
   verification: {
     // Google Search Console (URL-prefix property https://metatake.net)

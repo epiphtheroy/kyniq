@@ -229,7 +229,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             <div className="axw-ratings">
               {ratings?.imdb_rating ? (
                 film.imdb_id
-                  ? <a className="axw-rt" href={`https://www.imdb.com/title/${film.imdb_id}/`} target="_blank" rel="noopener noreferrer"><b>IMDb</b> {ratings.imdb_rating}{ratings.imdb_votes ? ` (${fmtVotes(ratings.imdb_votes)})` : ""}</a>
+                  ? <a className="axw-rt" href={`https://www.imdb.com/title/${film.imdb_id}/`} target="_blank" rel="noopener"><b>IMDb</b> {ratings.imdb_rating}{ratings.imdb_votes ? ` (${fmtVotes(ratings.imdb_votes)})` : ""}</a>
                   : <span className="axw-rt"><b>IMDb</b> {ratings.imdb_rating}{ratings.imdb_votes ? ` (${fmtVotes(ratings.imdb_votes)})` : ""}</span>
               ) : null}
               {ratings?.rt_tomatometer != null ? <span className="axw-rt"><b>RT</b> {ratings.rt_tomatometer}%</span> : null}
@@ -281,7 +281,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             {(r?.free_sources ?? []).length ? (r?.free_sources ?? []).map((o, i) => {
               const b = coverBadge(o.scope, cc);
               return (
-                <a key={i} className="axw-offer axw-offer--free" href={o.url} target="_blank" rel="noopener noreferrer">
+                <a key={i} className="axw-offer axw-offer--free" href={o.url} target="_blank" rel="noopener">
                   <span className="axw-offer-n">{o.platform}<span className="axw-kind">{KIND_LABEL[o.kind] ?? o.kind}</span></span>
                   {o.note ? <span className="axw-offer-note">{o.note}</span> : null}
                   <span className={`axw-badge axw-badge--${b.k}`}>{b.t}</span>
@@ -300,7 +300,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             <span className="axw-row-k">Library</span>
             <div className="axw-row-items">
               {offers.library.map((p) => (
-                <a key={p.provider_id} className="axw-offer" href={jw} target="_blank" rel="noopener noreferrer">
+                <a key={p.provider_id} className="axw-offer" href={jw} target="_blank" rel="noopener">
                   <span className="axw-offer-n">
                     {p.logo_path ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -321,7 +321,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             <span className="axw-row-k">{row.label}</span>
             <div className="axw-row-items">
               {row.items.map((p) => (
-                <a key={`${row.label}-${p.provider_id}`} className="axw-offer" href={jw} target="_blank" rel="noopener noreferrer">
+                <a key={`${row.label}-${p.provider_id}`} className="axw-offer" href={jw} target="_blank" rel="noopener">
                   <span className="axw-offer-n">
                     {p.logo_path ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -341,7 +341,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             <span className="axw-row-k">Korea — verified</span>
             <div className="axw-row-items">
               {krLocal.map((o, i) => o.url ? (
-                <a key={i} className="axw-offer" href={o.url} target="_blank" rel="noopener noreferrer">
+                <a key={i} className="axw-offer" href={o.url} target="_blank" rel="noopener">
                   <span className="axw-offer-n">{o.platform}</span>
                   <span className="axw-offer-p">{o.tier}</span>
                   {o.note ? <span className="axw-offer-note">{o.note}</span> : null}
@@ -364,7 +364,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
               {elsewhereAll.map((e, i) => {
                 const b = coverBadge(e.scope, cc, e.paid);
                 return (
-                  <a key={i} className={`axw-offer${b.k === "ok" ? "" : " axw-offer--dim"}`} href={e.url} target="_blank" rel="noopener noreferrer">
+                  <a key={i} className={`axw-offer${b.k === "ok" ? "" : " axw-offer--dim"}`} href={e.url} target="_blank" rel="noopener">
                     <span className="axw-offer-n">{e.name}</span>
                     <span className={`axw-badge axw-badge--${b.k}`}>{b.t}</span>
                   </a>
@@ -379,7 +379,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
         ) : null}
 
         <div className="axw-attr">
-          Streaming availability: <a href={jw} target="_blank" rel="noopener noreferrer">JustWatch</a>, via TMDB.
+          Streaming availability: <a href={jw} target="_blank" rel="noopener">JustWatch</a>, via TMDB.
           {" "}Free &amp; archive sources verified by MetaTake.{r ? ` Checked ${r.checked_at}.` : ""}
         </div>
       </section>
@@ -458,7 +458,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             <div className="axw-disc-title">Criterion Collection · Spine #{spine}</div>
             <div className="axw-disc-sub">A label edition, not just a listing — restoration source, transfer and extras are documented per release.</div>
             <div className="axw-linkrow">
-              <a className="axw-lbtn" href={criterionSearchUrl(film.title)} target="_blank" rel="noopener noreferrer">Find it on criterion.com <span className="axw-lbtn-s">search</span></a>
+              <a className="axw-lbtn" href={criterionSearchUrl(film.title)} target="_blank" rel="noopener">Find it on criterion.com <span className="axw-lbtn-s">search</span></a>
             </div>
           </div>
         ) : null}
@@ -467,7 +467,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
             <div className="axw-disc-label">{e.format ?? "Disc"}{e.region ? ` · Region ${e.region}` : ""}</div>
             <div className="axw-disc-title">{e.label}{e.spine ? ` · Spine #${e.spine}` : ""}</div>
             {e.note ? <div className="axw-disc-sub">{e.note}</div> : null}
-            {e.url ? <div className="axw-linkrow"><a className="axw-lbtn" href={e.url} target="_blank" rel="noopener noreferrer">Label page</a></div> : null}
+            {e.url ? <div className="axw-linkrow"><a className="axw-lbtn" href={e.url} target="_blank" rel="noopener">Label page</a></div> : null}
           </div>
         ))}
         {!spine && !editions.length ? (
@@ -476,10 +476,10 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
         <div className="axw-linkrow">
           {(["blu-ray", "dvd"] as const).map((fmt) => {
             const u = amazonDiscSearchUrl(cc, film.title, film.year, fmt);
-            return u ? <a key={fmt} className="axw-lbtn" href={u} target="_blank" rel="noopener noreferrer">Amazon — &lsquo;{film.title}&rsquo; {fmt === "dvd" ? "DVD" : "Blu-ray"} <span className="axw-lbtn-s">search</span></a> : null;
+            return u ? <a key={fmt} className="axw-lbtn" href={u} target="_blank" rel="noopener">Amazon — &lsquo;{film.title}&rsquo; {fmt === "dvd" ? "DVD" : "Blu-ray"} <span className="axw-lbtn-s">search</span></a> : null;
           })}
           {!spine && !editions.length ? (
-            <a className="axw-lbtn" href={criterionSearchUrl(film.title)} target="_blank" rel="noopener noreferrer">criterion.com <span className="axw-lbtn-s">search</span></a>
+            <a className="axw-lbtn" href={criterionSearchUrl(film.title)} target="_blank" rel="noopener">criterion.com <span className="axw-lbtn-s">search</span></a>
           ) : null}
         </div>
         <div className="axw-tinynote">Imported discs may be region-locked. Check for &quot;Region Free&quot; or use a region-free player. 4K UHD discs have no region codes.</div>
@@ -490,10 +490,10 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
         <h2 className="axw-h2">Subtitles — {film.title}{film.year ? ` (${film.year})` : ""}</h2>
         <div className="axw-h2s">Official subtitles on the streaming service are always best. These are third-party community sites.</div>
         <div className="axw-linkrow">
-          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title })} target="_blank" rel="noopener noreferrer">OpenSubtitles — {film.title} <span className="axw-lbtn-s">English</span></a>
-          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title, lang: "all" })} target="_blank" rel="noopener noreferrer">OpenSubtitles — {film.title} <span className="axw-lbtn-s">all languages</span></a>
-          <a className="axw-lbtn" href={subdlSearchUrl(film.title)} target="_blank" rel="noopener noreferrer">SUBDL — {film.title} <span className="axw-lbtn-s">title search</span></a>
-          <a className="axw-lbtn" href={podnapisiSearchUrl(film.title, film.year)} target="_blank" rel="noopener noreferrer">Podnapisi — {film.title} <span className="axw-lbtn-s">title search</span></a>
+          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title })} target="_blank" rel="noopener">OpenSubtitles — {film.title} <span className="axw-lbtn-s">English</span></a>
+          <a className="axw-lbtn" href={openSubtitlesSearchUrl({ imdbId: film.imdb_id, title: film.title, lang: "all" })} target="_blank" rel="noopener">OpenSubtitles — {film.title} <span className="axw-lbtn-s">all languages</span></a>
+          <a className="axw-lbtn" href={subdlSearchUrl(film.title)} target="_blank" rel="noopener">SUBDL — {film.title} <span className="axw-lbtn-s">title search</span></a>
+          <a className="axw-lbtn" href={podnapisiSearchUrl(film.title, film.year)} target="_blank" rel="noopener">Podnapisi — {film.title} <span className="axw-lbtn-s">title search</span></a>
         </div>
         <div className="axw-tinynote">Links open search results only — pick the file that matches your copy&apos;s runtime and language.</div>
       </section>
@@ -508,7 +508,7 @@ export default function WatchPageClient({ film, watch, record, ratings, takeScor
         <p>Some services are region-locked. Accessing them from abroad may violate their terms of service — check before you subscribe.</p>
         <p>Availability changes frequently. Every listing shows when it was last checked; anything older than {STALE_DAYS} days is flagged &quot;needs re-check&quot;. Prices are indicative.</p>
         <p>Imported discs may be region-locked. Check for &quot;Region Free&quot; or use a region-free player. 4K UHD discs have no region codes.</p>
-        <p>Streaming availability data: <a href="https://www.justwatch.com/" target="_blank" rel="noopener noreferrer">JustWatch</a>, via TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB. Poster images: TMDB.</p>
+        <p>Streaming availability data: <a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>, via TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB. Poster images: TMDB.</p>
       </footer>
     </div>
   );

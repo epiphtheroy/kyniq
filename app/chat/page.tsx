@@ -108,7 +108,7 @@ function Answer({ res, pfx }: { res: Result; pfx: string }) {
               <li key={i} id={`${pfx}-crit-${i + 1}`}>
                 <em className="ak-critq">&ldquo;{c.snippet}&rdquo;</em>{" "}
                 <span className="ak-film">— {[c.author, c.outlet, c.year != null ? String(c.year) : null].filter(Boolean).join(", ")}</span>{" "}
-                <a href={c.url} target="_blank" rel="noopener noreferrer nofollow" className="ak-to">source ↗</a>
+                <a href={c.url} target="_blank" rel="noopener nofollow" className="ak-to">source ↗</a>
               </li>
             ))}
           </ol>

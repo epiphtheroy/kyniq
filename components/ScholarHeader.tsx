@@ -73,9 +73,9 @@ export default function ScholarHeader({
       <div className="sch-row">
         <span className="sch-k">Find scholarship</span>
         <span className="sch-links">
-          <a href={`https://scholar.google.com/scholar?q=${enc(term + " cinema")}`} target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
-          <a href={`https://www.jstor.org/action/doBasicSearch?Query=${enc(term + " film")}`} target="_blank" rel="noopener noreferrer">JSTOR ↗</a>
-          <a href={`https://philpapers.org/s/${enc(term)}`} target="_blank" rel="noopener noreferrer">PhilPapers ↗</a>
+          <a href={`https://scholar.google.com/scholar?q=${enc(term + " cinema")}`} target="_blank" rel="noopener">Google Scholar ↗</a>
+          <a href={`https://www.jstor.org/action/doBasicSearch?Query=${enc(term + " film")}`} target="_blank" rel="noopener">JSTOR ↗</a>
+          <a href={`https://philpapers.org/s/${enc(term)}`} target="_blank" rel="noopener">PhilPapers ↗</a>
         </span>
       </div>
 

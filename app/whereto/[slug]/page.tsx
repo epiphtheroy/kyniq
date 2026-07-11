@@ -235,7 +235,7 @@ export default async function WhereToPage({ params }: Props) {
                 {report.freeSources.slice(0, 3).map((s, i) => (
                   <span key={s.url}>
                     {i > 0 ? " · " : ""}
-                    <a href={s.url} target="_blank" rel="noopener noreferrer">{s.platform} ↗</a>
+                    <a href={s.url} target="_blank" rel="noopener">{s.platform} ↗</a>
                     <span style={{ opacity: 0.65 }}> ({s.kind}{s.scope ? `, ${s.scope}` : ""})</span>
                   </span>
                 ))}{" "}

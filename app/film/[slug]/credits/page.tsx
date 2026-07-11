@@ -272,7 +272,7 @@ export default async function FilmCreditsPage({ params }: Props) {
             <p style={{ lineHeight: 1.8, maxWidth: "78ch", margin: 0, fontSize: 15 }}>
               {titleYear} was produced by{" "}
               {list(companies.map((c) => (
-                <a key={c.id} href={`https://www.themoviedb.org/company/${c.id}`} target="_blank" rel="noopener noreferrer">
+                <a key={c.id} href={`https://www.themoviedb.org/company/${c.id}`} target="_blank" rel="noopener">
                   <b>{c.name}</b>{c.origin_country ? ` (${c.origin_country})` : ""} ↗
                 </a>
               )))}
@@ -291,7 +291,7 @@ export default async function FilmCreditsPage({ params }: Props) {
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 22 }}>
           Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link> · credits &amp; company data from{" "}
-          <a href={`https://www.themoviedb.org/movie/${film.tmdb_id}`} target="_blank" rel="noopener noreferrer">TMDB ↗</a> · Updated {updated}
+          <a href={`https://www.themoviedb.org/movie/${film.tmdb_id}`} target="_blank" rel="noopener">TMDB ↗</a> · Updated {updated}
         </p>
         <Provenance created={updated} />
 

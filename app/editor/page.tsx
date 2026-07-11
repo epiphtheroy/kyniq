@@ -90,7 +90,7 @@ export default function EditorPage() {
         <p>
           Wonwoo&rsquo;s path to film criticism runs through management scholarship rather than a film
           school, and Metatake&rsquo;s method comes directly out of that training. His{" "}
-          <a href={RISS_THESIS_URL} target="_blank" rel="noopener noreferrer">doctoral research</a> — a
+          <a href={RISS_THESIS_URL} target="_blank" rel="noopener">doctoral research</a> — a
           Ph.D. in business administration from Kyung Hee University (2022) — examined shared leadership
           and linking social capital: how people grow through the relations that connect them across
           organizational lines. Social capital is the study of how value lives in relations rather than in
@@ -108,14 +108,14 @@ export default function EditorPage() {
         <h2 className="mt-h2">Selected work</h2>
         <p>
           As <span lang="ko">제원우</span>, he is the lead author of{" "}
-          <a href={KYOBO_AUTHOR_URL} target="_blank" rel="noopener noreferrer">
+          <a href={KYOBO_AUTHOR_URL} target="_blank" rel="noopener">
             <em>The Doctors Peter Drucker Saved</em>
           </a>{" "}
           (<span lang="ko">피터 드러커가 살린 의사들</span>), a six-volume series on hospital management
           through Peter Drucker&rsquo;s thought, published between 2013 and 2022, and a co-author of{" "}
           <em>Happy Management Stories for Hospital People</em> (<span lang="ko">병원 사람들을 위한 행복한
           경영이야기</span>, Gimm-Young, 2019). His doctoral thesis,{" "}
-          <a href={RISS_THESIS_URL} target="_blank" rel="noopener noreferrer">
+          <a href={RISS_THESIS_URL} target="_blank" rel="noopener">
             <em>A Study on the Effect of Shared Leadership on the Organizational Career Growth: Linking
             Social Capital as a Moderating Variable</em>
           </a>

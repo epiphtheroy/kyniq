@@ -311,7 +311,7 @@ export default async function TheoristPage({ params }: Props) {
             </div>
             <div className="rd-chiprow">
               <span className="rd-chip"><Link href="/theorist" style={{ color: "inherit", textDecoration: "none" }}>The Lens</Link>{" · "}theorist</span>
-              <span className="rd-meta">{readings.length} readings · {F.filmArr.length} films{qid ? <> · <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>Wikidata ↗</a></> : null}</span>
+              <span className="rd-meta">{readings.length} readings · {F.filmArr.length} films{qid ? <> · <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener" style={{ color: "inherit", textDecoration: "underline" }}>Wikidata ↗</a></> : null}</span>
             </div>
             <h1 className="rd-h1">{name}{life ? <span style={{ fontWeight: 500, opacity: 0.6, fontSize: "0.62em" }}> ({life})</span> : null}</h1>
             <p className="rd-dek">
@@ -480,7 +480,7 @@ export default async function TheoristPage({ params }: Props) {
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
           Analysis by Metatake Editorial · edited by <Link href="/editor">Wonwoo Yoon</Link>
-          {qid ? <> · person data from <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener noreferrer">Wikidata ↗</a></> : null}
+          {qid ? <> · person data from <a href={`https://www.wikidata.org/wiki/${qid}`} target="_blank" rel="noopener">Wikidata ↗</a></> : null}
           {" "}· <Link href="/methodology">How we read films →</Link>
         </p>
         <Provenance />

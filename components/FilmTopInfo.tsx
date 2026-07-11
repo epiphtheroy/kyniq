@@ -24,7 +24,7 @@ export default function FilmTopInfo({ ratings, watch, imdbId }: { ratings: Ratin
         <div className="df-ratings">
           {ratings!.imdb_rating ? (
             imdbId
-              ? <a className="df-rt df-rt--imdb" href={`https://www.imdb.com/title/${imdbId}/`} target="_blank" rel="noopener noreferrer"><b>IMDb</b> {ratings!.imdb_rating}{ratings!.imdb_votes ? <span className="df-rt-v">{fmtVotes(ratings!.imdb_votes)}</span> : null}</a>
+              ? <a className="df-rt df-rt--imdb" href={`https://www.imdb.com/title/${imdbId}/`} target="_blank" rel="noopener"><b>IMDb</b> {ratings!.imdb_rating}{ratings!.imdb_votes ? <span className="df-rt-v">{fmtVotes(ratings!.imdb_votes)}</span> : null}</a>
               : <span className="df-rt df-rt--imdb"><b>IMDb</b> {ratings!.imdb_rating}</span>
           ) : null}
           {ratings!.rt_tomatometer != null ? <span className="df-rt df-rt--rt"><b>RT</b> {ratings!.rt_tomatometer}%</span> : null}

@@ -95,7 +95,7 @@ export default function WatchProviders({ results, countries }: { results: Record
       <div className="wp-attr">
         Source:{" "}
         {data?.link
-          ? <a href={data.link} target="_blank" rel="noopener noreferrer">JustWatch</a>
+          ? <a href={data.link} target="_blank" rel="noopener">JustWatch</a>
           : <span>JustWatch</span>}
         {" "}· via TMDB. Availability changes; not endorsed by the providers.
       </div>

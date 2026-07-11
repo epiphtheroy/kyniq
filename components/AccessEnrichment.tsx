@@ -148,7 +148,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
           {hasFree ? r.free_sources.map((o, i) => {
             const b = coverBadge(o.scope, country);
             return (
-              <a key={i} className="ax-offer ax-offer--free" href={o.url} target="_blank" rel="noopener noreferrer">
+              <a key={i} className="ax-offer ax-offer--free" href={o.url} target="_blank" rel="noopener">
                 <span className="ax-offer-n">{o.platform}<span className="ax-kind">{KIND_LABEL[o.kind] ?? o.kind}</span></span>
                 {o.note ? <span className="ax-offer-note">{o.note}</span> : null}
                 <span className={`ax-badge ax-badge--${b.k}`}>{b.t}</span>
@@ -172,7 +172,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
             {(r.elsewhere_stream ?? []).map((e, i) => {
               const b = coverBadge(e.scope, country, e.paid);
               return (
-                <a key={i} className={`ax-offer${b.k === "ok" ? "" : " ax-offer--dim"}`} href={e.url} target="_blank" rel="noopener noreferrer">
+                <a key={i} className={`ax-offer${b.k === "ok" ? "" : " ax-offer--dim"}`} href={e.url} target="_blank" rel="noopener">
                   <span className="ax-offer-n">{e.name}</span>
                   <span className={`ax-badge ax-badge--${b.k}`}>{b.t}</span>
                 </a>
@@ -189,7 +189,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
           <div className="ax-row-items">
             {krLocal.map((o, i) => (
               o.url ? (
-                <a key={i} className="ax-offer" href={o.url} target="_blank" rel="noopener noreferrer">
+                <a key={i} className="ax-offer" href={o.url} target="_blank" rel="noopener">
                   <span className="ax-offer-n">{o.platform}</span>
                   <span className="ax-offer-p">{o.tier}</span>
                   {o.note ? <span className="ax-offer-note">{o.note}</span> : null}
@@ -234,7 +234,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
             <div className="ax-disc-title">Criterion Collection · Spine #{spine}</div>
             <div className="ax-disc-sub">A label edition, not just a listing — restoration source, transfer and extras are documented per release.</div>
             <div className="ax-linkrow">
-              <a className="ax-lbtn" href={criterionSearchUrl(r.title)} target="_blank" rel="noopener noreferrer">Find it on criterion.com <span className="ax-lbtn-s">search</span></a>
+              <a className="ax-lbtn" href={criterionSearchUrl(r.title)} target="_blank" rel="noopener">Find it on criterion.com <span className="ax-lbtn-s">search</span></a>
             </div>
           </div>
         ) : null}
@@ -243,16 +243,16 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
             <div className="ax-disc-label">{e.format ?? "Disc"}{e.region ? ` · Region ${e.region}` : ""}</div>
             <div className="ax-disc-title">{e.label}{e.spine ? ` · Spine #${e.spine}` : ""}</div>
             {e.note ? <div className="ax-disc-sub">{e.note}</div> : null}
-            {e.url ? <div className="ax-linkrow"><a className="ax-lbtn" href={e.url} target="_blank" rel="noopener noreferrer">Label page</a></div> : null}
+            {e.url ? <div className="ax-linkrow"><a className="ax-lbtn" href={e.url} target="_blank" rel="noopener">Label page</a></div> : null}
           </div>
         ))}
         <div className="ax-linkrow">
           {(["blu-ray", "dvd"] as const).map((fmt) => {
             const u = amazonDiscSearchUrl(country, r.title, r.year, fmt);
-            return u ? <a key={fmt} className="ax-lbtn" href={u} target="_blank" rel="noopener noreferrer">Amazon — {fmt === "dvd" ? "DVD" : "Blu-ray"} <span className="ax-lbtn-s">search</span></a> : null;
+            return u ? <a key={fmt} className="ax-lbtn" href={u} target="_blank" rel="noopener">Amazon — {fmt === "dvd" ? "DVD" : "Blu-ray"} <span className="ax-lbtn-s">search</span></a> : null;
           })}
           {!spine && !editions.length ? (
-            <a className="ax-lbtn" href={criterionSearchUrl(r.title)} target="_blank" rel="noopener noreferrer">criterion.com <span className="ax-lbtn-s">search</span></a>
+            <a className="ax-lbtn" href={criterionSearchUrl(r.title)} target="_blank" rel="noopener">criterion.com <span className="ax-lbtn-s">search</span></a>
           ) : null}
         </div>
         <div className="ax-tinynote">Imported discs may be region-locked. Check for &quot;Region Free&quot; or use a region-free player. 4K UHD discs have no region codes.</div>
@@ -263,17 +263,17 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
         <h3 className="ax-h3">Subtitles</h3>
         <div className="ax-h2s">Official subtitles on the streaming service are always best. These are third-party community sites.</div>
         <div className="ax-linkrow">
-          <a className="ax-lbtn" href={openSubtitlesSearchUrl({ imdbId: r.imdb_id, title: r.title })} target="_blank" rel="noopener noreferrer">OpenSubtitles <span className="ax-lbtn-s">English</span></a>
-          <a className="ax-lbtn" href={openSubtitlesSearchUrl({ imdbId: r.imdb_id, title: r.title, lang: "all" })} target="_blank" rel="noopener noreferrer">OpenSubtitles <span className="ax-lbtn-s">all languages</span></a>
-          <a className="ax-lbtn" href={subdlSearchUrl(r.title)} target="_blank" rel="noopener noreferrer">SUBDL <span className="ax-lbtn-s">title search</span></a>
-          <a className="ax-lbtn" href={podnapisiSearchUrl(r.title, r.year)} target="_blank" rel="noopener noreferrer">Podnapisi <span className="ax-lbtn-s">title search</span></a>
+          <a className="ax-lbtn" href={openSubtitlesSearchUrl({ imdbId: r.imdb_id, title: r.title })} target="_blank" rel="noopener">OpenSubtitles <span className="ax-lbtn-s">English</span></a>
+          <a className="ax-lbtn" href={openSubtitlesSearchUrl({ imdbId: r.imdb_id, title: r.title, lang: "all" })} target="_blank" rel="noopener">OpenSubtitles <span className="ax-lbtn-s">all languages</span></a>
+          <a className="ax-lbtn" href={subdlSearchUrl(r.title)} target="_blank" rel="noopener">SUBDL <span className="ax-lbtn-s">title search</span></a>
+          <a className="ax-lbtn" href={podnapisiSearchUrl(r.title, r.year)} target="_blank" rel="noopener">Podnapisi <span className="ax-lbtn-s">title search</span></a>
         </div>
         <div className="ax-tinynote">Links open search results only — pick the file that matches your copy&apos;s runtime and language.</div>
       </div>
 
       <div className="ax-attr">
         Free &amp; archive sources verified by MetaTake. Streaming availability:{" "}
-        <a href="https://www.justwatch.com/" target="_blank" rel="noopener noreferrer">JustWatch</a>, via TMDB.
+        <a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>, via TMDB.
         {" "}Checked {r.checked_at}.{stale ? " Needs re-check." : ""} Some services are region-locked; accessing them from abroad may violate their terms of service.
       </div>
     </section>

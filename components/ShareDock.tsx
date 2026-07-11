@@ -101,7 +101,7 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
     return (
       <div ref={railRef} className={`shd-rail${showRail ? " shd-rail--on" : ""}`} aria-label="Share">
         {PRIMARY_CHANNELS.map((c) => (
-          <a key={c} className="shd-ib" href={intentOf(c)} target="_blank" rel="noopener noreferrer" onClick={track(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}</a>
+          <a key={c} className="shd-ib" href={intentOf(c)} target="_blank" rel="noopener" onClick={track(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}</a>
         ))}
         <button className="shd-ib" onClick={copy} aria-label="Copy link">{copied ? <span className="shd-ok">✓</span> : I.copy}</button>
         <button className="shd-ib" onClick={native} aria-label="More share options">{I.more}</button>
@@ -116,7 +116,7 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
     <div className="shd-bar" role="group" aria-label="Share and save">
       <span className="shd-lbl">Share</span>
       {PRIMARY_CHANNELS.map((c) => (
-        <a key={c} className="shd-b" href={intentOf(c)} target="_blank" rel="noopener noreferrer" onClick={track(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}<span className="shd-t">{CHANNEL_LABEL[c]}</span></a>
+        <a key={c} className="shd-b" href={intentOf(c)} target="_blank" rel="noopener" onClick={track(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}<span className="shd-t">{CHANNEL_LABEL[c]}</span></a>
       ))}
       <button className="shd-b" onClick={copy} aria-label="Copy link">{copied ? <span className="shd-ok">✓</span> : I.copy}<span className="shd-t">{copied ? "Copied" : "Copy link"}</span></button>
       <button className="shd-b shd-b--icon" onClick={native} aria-label="More share options">{I.more}</button>
@@ -138,7 +138,7 @@ function BottomSheet({ onClose, title, intentOf, track, copy, copied, Save }: {
         <div className="shd-sheet__h">Share</div>
         <div className="shd-grid">
           {all.map((c) => (
-            <a key={c} className="shd-g" href={intentOf(c)} target="_blank" rel="noopener noreferrer" onClick={() => { track(c)(); onClose(); }}>
+            <a key={c} className="shd-g" href={intentOf(c)} target="_blank" rel="noopener" onClick={() => { track(c)(); onClose(); }}>
               <span className="shd-g__i">{I[c as keyof typeof I] ?? I.more}</span>{CHANNEL_LABEL[c]}
             </a>
           ))}

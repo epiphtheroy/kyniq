@@ -37,7 +37,7 @@ export default function CriticQuotes({ items }: { items?: Critic[] | null }) {
             <li key={c.url || `${c.outlet}-${i}`} className="ak-cr__item">
               <span className="ak-cr__quote">“{c.snippet}”</span>
               {c.url ? (
-                <a href={c.url} target="_blank" rel="noopener noreferrer" className="ak-cr__by">
+                <a href={c.url} target="_blank" rel="noopener" className="ak-cr__by">
                   — {by || c.outlet}
                 </a>
               ) : (

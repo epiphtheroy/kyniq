@@ -279,7 +279,7 @@ export default async function MetricsPage({
                 <span>{fmt(detail.totals.visitors)} visitors</span>
                 <span>dwell {detail.totals.avg_dwell_s ?? "–"}s</span>
                 <span>scroll {detail.totals.avg_scroll_pct ?? "–"}%</span>
-                <a href={`https://metatake.net${drillPath}`} target="_blank" rel="noreferrer" style={{ color: "#60a5fa" }}>open ↗</a>
+                <a href={`https://metatake.net${drillPath}`} target="_blank" rel="noopener" style={{ color: "#60a5fa" }}>open ↗</a>
               </div>
               <MetricsChart data={detail.series} height={160} />
               <div style={grid2}>

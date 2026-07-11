@@ -291,7 +291,7 @@ function LocationItem({ p, n }: { p: GeoPin; n: number }) {
         </div>
         {prose ? <p style={{ margin: 0, lineHeight: 1.6, maxWidth: "70ch" }}>{prose}</p> : null}
         <p style={{ margin: "6px 0 0", fontSize: 13.5 }}>
-          <a href={gmaps(p)} target="_blank" rel="noopener noreferrer">◉ Google Maps ↗</a>
+          <a href={gmaps(p)} target="_blank" rel="noopener">◉ Google Maps ↗</a>
           {p.fig_slug && p.film_slug ? (
             <> · <Link href={`/film/${p.film_slug}/figure/${p.fig_slug}`}>this place as a figure →</Link></>
           ) : null}
@@ -299,7 +299,7 @@ function LocationItem({ p, n }: { p: GeoPin; n: number }) {
             <span key={u} style={{ opacity: 0.75 }}>
               {" · "}
               {i === 0 ? "Source: " : ""}
-              <a href={u} target="_blank" rel="noopener noreferrer">{sourceHost(u)} ↗</a>
+              <a href={u} target="_blank" rel="noopener">{sourceHost(u)} ↗</a>
             </span>
           ))}
         </p>
