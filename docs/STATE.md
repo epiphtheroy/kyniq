@@ -67,6 +67,7 @@ Figures are also classified into the **Catalog / Archetype** taxonomy (`taxonomy
 | **film_lineage / lineage_lists / lineage_editions** | 10,551 / 398 / 4,735 | 계보 layer (canon/awards/festivals) — **shipped** |
 | theory_canon / theorists / theory_families / canon_theorist | 2,587 / 1,840 / 1,394 / 981 | theory + tradition browse |
 | sm_concepts | 1,227 | Strong-Misreading concept intros (`/idea`, `/concept`) |
+| **film_sentences** | **466,974 · 13 patterns · 6,713 films (96%)** | **Embedding Fantasia 문장층 (2026-07-11)** — LLM-0 SQL 조립 문장, 전 값 엔티티 FK. + `film_kinship` 27,593(kin 지수, 죽은 affinity score 대체) + `sentence_node_stats`/`sentence_concept_stats`. 정본: 루트 `HANDOFF-임베딩판타지아-문장층.md` |
 | magazines / magazine_passages | 137 / 40 | RAG sources |
 | _bak_* tables | (several) | cleanup backups from boldtake/trope/consolidation — safe to archive |
 
@@ -144,6 +145,7 @@ Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app
 - Discovery: The Map (`/map` + embedded) · Home v7 Surprise-me · Newsletter/editions · sticky nav. Watchlists P1+2 (lazy TMDB import, Tier-2). Ask/RAG · search · blog · mobile-first · IndexNow.
 - **관람기록 통합 임포트 `/me/import` (2026-07-03)** — 파일(Letterboxd ZIP·IMDb CSV·XLSX·왓챠)/텍스트 붙여넣기 자동감지 → 규칙 파서(+Gemini 폴백) → TMDB 매칭 검수 위저드 → `user_watch_log`(무손실)+`user_movies`(집계) 저장. 파서 셀프테스트 `scripts/import-selftest.ts` 26/26. 상세: `docs/HANDOFF-IMPORT.md`(진행상황 포함) + `docs/IMPORT-watch-history-design.md`(설계).
 - **트로프·피겨·아키타입 순위 표면 (2026-07-05~06)** — /trope 멤버 라이브 랭킹(신규 RPC `trope_members_ranked`)+% match+리스티클 타이틀+ItemList/FAQ JSON-LD, 피겨 가시 질문 H2+nearest figures, /catalog 순번·confidence %·날짜/EEAT(이중브랜드 수정), 필름 Tropes 독해제목 라인, /methodology#rankings. 전부 렌더 파생(베이크 없음). 정본: `HANDOFF-트로프피겨아키타입-순위표면.md`.
+- **Embedding Fantasia · SQL 문장층 (2026-07-11)** — `film_sentences` 466,974행(13패턴, LLM-0 SQL 조립, 전 값 엔티티 FK) + kin 지수(`film_kinship`) → 표면 전 전개: film `df-know` 모듈+탭(주제 8종 필 네비) · director/theorist/trope/figure/lineage/genre 판타지아 섹션 · 홈+/room SentenceTicker · film df-map+/map 4뷰 SentenceLexicon 회전 레일(클릭=엔티티 리센터) · /map like 엣지 kin 굵기 · N_question 훅 12,419(티커). 브랜드 계약: 설계자 명기+Not-AI 디스클레이머 제거 금지. 마이그 0061~0069. **정본: 루트 `HANDOFF-임베딩판타지아-문장층.md`.**
 
 **Pending (see BACKLOG + `docs/ux/ROOM-LOGIC-AUDIT.md`):**
 - **/room reinforcement — P0+P1 DONE (2026-07-03):** `me_coverage`⑦/`me_blindspots`④ shipped+wired; write-actions (담기/봤어요/관심없음/서재 공개토글·즐겨찾기/노트 save_take+sanitize) all real mutations; conquer/gap WWI reasons real-tagged; ticker/system card de-hardcoded (`me_system_status`); `nav_snapshots`+`me_nav_history` asset curve live; `/u/me` 302 fixed; **pair 실구현** (`pair_matches` default-deny + `me_today_pair`/`me_pair_reveal`/`me_pair_history`, 부분노출 RPC 강제); `/api/geo` param whitelist+rate-limit; Atlas continent map DB화 (`country_continents` 156국 + `me_geo_coverage` v2) + dot dedup; 기존 room RPC 18종 스냅샷 역커밋. Migrations `0027–0033`. **Remaining:** cinecodex DDL 역커밋, P3 (per-sub rationale·미니맵·self-host 타일), 정식 엔진 W0–W4 (docs/logic).

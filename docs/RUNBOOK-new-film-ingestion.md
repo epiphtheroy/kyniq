@@ -117,6 +117,13 @@ Powers the **Atlas** tab (film + director pages) and the global **`/atlas`** map
 - **Notes:** existing corpus was seeded once with knowledge-based coords (489 pins / 469 films); the Google pass refines `precision`. The real **filming-location** ("Filmed") layer is a future Phase 4 (the `movie-locations-project` agent, legal guardrails ON).
 - **Risk:** vague/fictional places get no pin (intended — accuracy over coverage).
 
+### Stage 18 — Sentence layer refresh (Embedding Fantasia)  ·  CORPUS-WIDE idempotent, cheap
+Powers the **Embedding Fantasia** modules (film `df-know` + director/theorist/trope/figure/lineage/genre), the home+/room **SentenceTicker**, and the `/map` **SentenceLexicon** rail. 정본: 루트 `HANDOFF-임베딩판타지아-문장층.md` §5; 재생성 SQL은 `sentence-engine/MASS-PRODUCTION.md`.
+- **What:** rule-based sentences (`film_sentences`, 13 patterns, LLM-0) + kin index (`film_kinship`) + fanout stats. All inserts are `ON CONFLICT DO NOTHING` — re-running only adds the new film's rows.
+- **How (order matters):** ① `sentence_node_stats` upsert → ② `sentence_concept_stats` upsert → ③ `film_kinship` upsert → ④ the 13 pattern INSERTs. Run via MCP `execute_sql`; the heavy G/I self-joins need the scratch-table + hex-bucket recipe from MASS-PRODUCTION.md when run corpus-wide (per-film increments are trivial).
+- **When:** after Stages 3–7 land for the new film (needs published takes, affinities, tropes; D/E/F/J patterns also refresh from lineage/ratings/locations as those stages complete).
+- **Risk:** skip it and the new film's Fantasia module/ticker entries simply don't exist (pages degrade gracefully — module hides below 2 rows). Title renames need a per-pattern delete + re-insert (text drift).
+
 ---
 
 ## 3b. Discovery layer (Map · Surprise · Home · Newsletter)
