@@ -9,6 +9,7 @@ import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
 import GrowStill from "@/components/read/GrowStill";
 import MakerPanels from "@/components/read/MakerPanels";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { filmCreditsData, ordinal, ROLE_NOUN, type Relation, type SharedFilm } from "@/lib/film-credits-data";
 import { pageRobots } from "@/lib/seo";
@@ -31,6 +32,70 @@ export async function generateStaticParams() { return []; }
 type Props = { params: Promise<{ slug: string }> };
 const yStr = (y: number | null) => (y ? ` (${y})` : "");
 const load = filmCreditsData;
+
+// ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.5) ─────────
+// Deterministic Q&A from the credits payload already in scope: every name is
+// verbatim from a TMDB row, a question is emitted only when its answer exists,
+// and the character line appears ONLY when the top-billed row carries one.
+// Search-term variants are woven, max two uses each: "directed" (Q1), "stars"
+// (the cast Q) with "cast" (its answer), and "plays" (the character Q + its
+// answer). Crew names carry no tracked variant and are exempt.
+const andJoin = (xs: string[]) =>
+  xs.length <= 1 ? (xs[0] ?? "") : xs.length === 2 ? `${xs[0]} and ${xs[1]}` : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+
+function creditsQuickAnswers(
+  film: { title: string; director: string | null },
+  director: { name: string } | null,
+  crew: { craft: CraftKey; people: { name: string }[] }[],
+  topCast: { name: string; character: string | null }[],
+  relations: Relation[],
+): QuickAnswerItem[] {
+  const items: QuickAnswerItem[] = [];
+  const dName = director?.name ?? film.director ?? null;
+  // 1 — the head "who directed X" query.
+  if (dName) items.push({ q: `Who directed ${film.title}?`, a: dName });
+  // 2 — up to two signing crafts, most search-worthy first (writer, dp, composer).
+  const CRAFT_Q: Partial<Record<CraftKey, string>> = {
+    writer: `Who wrote ${film.title}?`,
+    dp: `Who shot ${film.title}?`,
+    composer: `Who composed the music for ${film.title}?`,
+  };
+  let usedCrafts = 0;
+  for (const key of ["writer", "dp", "composer"] as CraftKey[]) {
+    if (usedCrafts >= 2) break;
+    const g = crew.find((c) => c.craft === key);
+    if (g && g.people.length) {
+      items.push({ q: CRAFT_Q[key]!, a: andJoin(g.people.map((p) => p.name)) });
+      usedCrafts += 1;
+    }
+  }
+  // 3 — the top of the bill.
+  if (topCast.length > 0) {
+    items.push({ q: `Who stars in ${film.title}?`, a: `The cast is led by ${andJoin(topCast.slice(0, 5).map((c) => c.name))}.` });
+    // Character line ONLY when a top-billed row actually carries a character.
+    const withChar = topCast.find((c) => (c.character ?? "").trim());
+    if (withChar) {
+      const ch = (withChar.character ?? "").trim();
+      items.push({ q: `Who plays ${ch} in ${film.title}?`, a: `${withChar.name} plays ${ch}.` });
+    }
+  }
+  // 4 — collaboration history, from the relation rows only (idx = this film's
+  // place in the shared run; -1 if absent, 0 if first).
+  if (dName) {
+    const cand = relations
+      .filter((r) => r.idx === 0 || r.shared.length > 1)
+      .sort((a, b) => b.shared.length - a.shared.length)[0];
+    if (cand) {
+      const n = cand.shared.length;
+      let a: string;
+      if (cand.idx > 0) a = `Yes — ${film.title} was the ${ordinal(cand.idx + 1)} of ${n} films ${dName} and ${cand.name} have made together on TMDB's file.`;
+      else if (n > 1) a = `${film.title} was the first of ${n} films ${dName} and ${cand.name} would make together — ${n - 1} more followed.`;
+      else a = `No — ${film.title} is their only film together on TMDB's file.`;
+      items.push({ q: `Have ${dName} and ${cand.name} worked together before?`, a });
+    }
+  }
+  return items.slice(0, 5);
+}
 
 function dekText(d: { film: { title: string }; director: { name: string } | null; crew: { craft: CraftKey; people: { name: string }[] }[] }): string {
   const bits: string[] = [];
