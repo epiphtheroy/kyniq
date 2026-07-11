@@ -5249,6 +5249,10 @@ span.srp-thumb { display: flex; align-items: center; justify-content: center;
 html[data-embed] .mthome { display: none !important; }
 html[data-embed] body { padding-top: 0 !important; }
 html[data-embed] .df-tabs { top: 0 !important; }
+html[data-embed] .site-footer { display: none !important; }
+/* the /film · /director index pages themselves carry no footer (only .xplor is
+   rendered there, so this never affects other pages) */
+body:has(.xplor) .site-footer { display: none; }
 .srp-top a:hover { color: var(--mt-link-hover); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---- home hero live search (BigSearch, .mthome scope) ----

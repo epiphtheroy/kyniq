@@ -2,8 +2,6 @@ import { createClient } from "@supabase/supabase-js";
 import type { Metadata } from "next";
 import SiteNav from "@/components/home2/SiteNav";
 import DirectorsIndex, { type DirCat } from "@/components/indexes/DirectorsIndex";
-import LensQuickBar from "@/components/LensQuickBar";
-import MineEntityIndex from "@/components/MineEntityIndex";
 import { directorUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
@@ -74,15 +72,10 @@ export default async function DirectorIndexPage() {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
-        <LensQuickBar />
-        <MineEntityIndex kind="directors" hrefBase="/director/" noun="directors" filmsNoun="of yours" imgShape="round" />
-
-        <div className="mtl-swap-out">
-          <DirectorsIndex
-            catalogue={catalogue}
-            initialSlug={spotlightSlug}
-          />
-        </div>
+        <DirectorsIndex
+          catalogue={catalogue}
+          initialSlug={spotlightSlug}
+        />
       </div>
     </div>
   );
