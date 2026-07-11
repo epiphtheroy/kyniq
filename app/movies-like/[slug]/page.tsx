@@ -25,6 +25,7 @@ type Rec = {
   score: number;
   cos: number | null;
   sharedN: number;
+  ts?: number | null;   // public TakeScore (U); null if unscored
 };
 
 async function load(slug: string) {
@@ -64,6 +65,7 @@ async function load(slug: string) {
     ? (((await supabase.rpc("takescore_for_slugs", { p_slugs: recs.map((r) => r.film.slug) })).data as { slug: string; ts: number }[] | null) ?? [])
     : [];
   const scoreMap = new Map(scoreRows.map((s) => [s.slug, s.ts]));
+  recs.forEach((r) => { r.ts = scoreMap.get(r.film.slug) ?? null; });
 
   // derived, never baked: the edition date is the last time the affinity ledger was rebuilt
   const updatedAt = (aff ?? []).reduce<string | null>((m, a) => {
@@ -193,9 +195,9 @@ export default async function MoviesLikePage({ params }: Props) {
                     <span className="yr">({r.film.year ?? "?"})</span>
                     {r.film.director ? <span className="ml-dir"> · {r.film.director}</span> : null}
                     <p style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "7px 0 0" }}>
-                      {scoreMap.get(r.film.slug) != null ? (
+                      {r.ts != null ? (
                         <Link href={`/takescore/film/${r.film.slug}`} style={{ fontSize: 11.5, fontWeight: 700, padding: "2px 8px", borderRadius: 999, background: "rgba(176,138,44,.12)", color: "#6b5416", textDecoration: "none" }}>
-                          TakeScore {scoreMap.get(r.film.slug)}
+                          TakeScore {r.ts}
                         </Link>
                       ) : null}
                       {r.cos != null ? (
