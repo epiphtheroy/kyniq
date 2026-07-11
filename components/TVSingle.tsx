@@ -30,7 +30,7 @@ export default function TVSingle({ entry, more }: { entry: TVEntry; more: MoreIt
             <span className="tvpg-brand__live">● ON AIR</span>
           </div>
           <p className="tvpg-tag">A single-film broadcast, compiled from the Metatake record with no LLM. Chapters play in a random cut — reload for a new one.</p>
-          <a className="tvpg-full" href="/tv/watch">All watch lists ↗</a>
+          <a className="tvpg-full" href="/tv/lists">Browse all watch lists ↗</a>
         </header>
 
         <div className="tvw-main">
