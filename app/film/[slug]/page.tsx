@@ -470,17 +470,18 @@ function loadTier2Related(slug: string, args: {
   })();
 }
 
-// "Did you know" module rows — rule-based sentences from the film_sentences layer
-// (sentence-engine/MASS-PRODUCTION.md). Cached per slug like the other loaders so the
-// route stays ISR-cached; own key so it never recomputes the heavy film load.
+// Embedding Fantasia module rows — rule-based sentences from the film_sentences
+// layer (sentence-engine/MASS-PRODUCTION.md). Topic-navigable pool: up to 48 rows,
+// 6 per pattern. Cached per slug like the other loaders so the route stays
+// ISR-cached; key bumped (v2) when the pool size/shape changed.
 function loadSentences(slug: string) {
   return unstable_cache(
     async () => {
-      const { data, error } = await db().rpc("film_sentences_for", { p_slug: slug, p_limit: 6 });
+      const { data, error } = await db().rpc("film_sentences_for", { p_slug: slug, p_limit: 48, p_per_pattern: 6 });
       if (error) throw error; // null-poison guard: never cache an error as an empty module
       return (data ?? []) as SentenceRow[];
     },
-    ["film-sentences-v1", slug],
+    ["film-sentences-v2", slug],
     { revalidate: 300, tags: [`film:${slug}`] },
   )();
 }
