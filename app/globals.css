@@ -5194,3 +5194,12 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 .stk--room .stk-item{color:#c9d1d9;border-right-color:#1b2027}
 .stk--room .stk-item:hover .stk-txt{color:#7ee3c7}
 @media (prefers-reduced-motion: reduce){.stk-track{animation:none}}
+
+/* GraphCaptions — "why connected" strip under a connection graph (components/GraphCaptions.tsx) */
+.gcap{margin-top:12px;padding:12px 14px;border:1px solid var(--hairline-2);border-radius:10px;background:var(--paper,#fff)}
+.gcap-h{font-family:var(--font-ui);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);margin-bottom:8px}
+.gcap-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.gcap-row{font-size:14px;line-height:1.45;color:var(--ink)}
+.gcap-txt{font-family:var(--font-serif,Georgia,serif)}
+.gcap-lk{margin-left:6px;font-family:var(--font-ui);font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
+.gcap-lk:hover{text-decoration:underline}
