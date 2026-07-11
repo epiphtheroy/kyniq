@@ -24,9 +24,8 @@ import FilmHeroReel from "@/components/FilmHeroReel";
 import FilmTVHero from "@/components/FilmTVHero";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
-import EntityMap from "@/components/EntityMap";
+import ConnectionDesk from "@/components/ConnectionDesk";
 import FilmSentences, { type SentenceRow } from "@/components/FilmSentences";
-import GraphCaptions from "@/components/GraphCaptions";
 import FilmMap from "@/components/FilmMap";
 import EntityActions from "@/components/EntityActions";
 import MovieListActions from "@/components/MovieListActions";
@@ -1321,8 +1320,11 @@ export default async function FilmPage({ params }: Props) {
           <h2 className="df-h2">{film.title} — connection map</h2>
           <p className="cmap-stat"><b>{figures.length}</b> figures · <b>{misreadings.length}</b> strong misreadings · <b>{tropes.length}</b> tropes</p>
           <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
-          <EntityMap api={`/api/map?type=film&key=${film.slug}`} full={`/map?m=critical&t=film&k=${film.slug}`} />
-          <GraphCaptions slug={film.slug} />
+          <ConnectionDesk
+            api={`/api/map?type=film&key=${film.slug}`}
+            full={`/map?m=critical&t=film&k=${film.slug}`}
+            root={{ type: "film", key: film.slug, label: film.title }}
+          />
         </section>
 
         {/* DID YOU KNOW — rule-based sentences from the film_sentences layer */}

@@ -30,7 +30,35 @@ function egoUrl(id: string): string | null {
 
 type Crumb = { label: string; url: string };
 
-export default function EntityMap({ api, full, height = 460 }: { api: string; full: string; height?: number }) {
+// entity descriptor for onCenter (consumed by SentenceLexicon via ConnectionDesk)
+export type CenterEnt = { type: string; key: string; key2?: string | null; label: string };
+
+// "type:key[/key2]" node id → CenterEnt (full-word type per PREFIX)
+function parseCenter(id: string, label: string): CenterEnt | null {
+  const i = id.indexOf(":");
+  if (i < 0) return null;
+  const type = PREFIX[id.slice(0, i)];
+  const rest = id.slice(i + 1);
+  if (!type || !rest) return null;
+  if (type === "figure") {
+    const j = rest.indexOf("/");
+    if (j < 0) return null;
+    return { type, key: rest.slice(0, j), key2: rest.slice(j + 1), label };
+  }
+  return { type, key: rest, label };
+}
+
+// ego URL (crumb) → CenterEnt, for breadcrumb jumps
+function parseCenterUrl(url: string, label: string): CenterEnt | null {
+  try {
+    const u = new URL(url, "http://x");
+    const type = u.searchParams.get("type"); const key = u.searchParams.get("key");
+    if (!type || !key) return null;
+    return { type, key, key2: u.searchParams.get("key2"), label };
+  } catch { return null; }
+}
+
+export default function EntityMap({ api, full, height = 460, onCenter }: { api: string; full: string; height?: number; onCenter?: (e: CenterEnt | null) => void }) {
   const [stack, setStack] = useState<Crumb[]>([{ label: "Start", url: api }]);
   const [data, setData] = useState<GraphData | null>(null);
   const [failed, setFailed] = useState(false);
@@ -62,9 +90,13 @@ export default function EntityMap({ api, full, height = 460 }: { api: string; fu
     const u = egoUrl(node.id);
     if (!u) { if (node.href) window.location.assign(node.href); return; }
     setStack((s) => (s[s.length - 1].url === u ? s : [...s, { label: node.label, url: u }]));
-  }, []);
+    onCenter?.(parseCenter(node.id, node.label));
+  }, [onCenter]);
   const openNode = useCallback((n: GraphNode) => { if (n.href) window.location.assign(n.href); }, []);
-  const jumpTo = (i: number) => setStack((s) => s.slice(0, i + 1));
+  const jumpTo = (i: number) => {
+    setStack((s) => s.slice(0, i + 1));
+    onCenter?.(i === 0 ? null : parseCenterUrl(stack[i].url, stack[i].label));
+  };
 
   if (failed) return null;
   const h = expanded ? 820 : height;
