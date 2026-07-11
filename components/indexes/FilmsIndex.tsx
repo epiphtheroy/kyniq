@@ -47,7 +47,7 @@ export default function FilmsIndex({ catalogue, inventoryTotal, heroSub }: {
         }}
         orderItems={(mode) => (a, b) => mode === "year"
           ? ((b.year ?? 0) - (a.year ?? 0) || sortKey(a.title).localeCompare(sortKey(b.title)))
-          : sortKey(a.title).localeCompare(sortKey(b.title)))}
+          : sortKey(a.title).localeCompare(sortKey(b.title))}
         cell={(it) => ({
           href: `/film/${it.slug}`,
           title: <>{it.title} {it.year ? <span className="yr">({it.year})</span> : null}</>,
