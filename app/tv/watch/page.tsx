@@ -1,15 +1,6 @@
-import type { Metadata } from "next";
-import TVWatch from "@/components/TVWatch";
-import "@/app/home2.css";
+import { permanentRedirect } from "next/navigation";
 
-// /tv/watch — alias of the main watch interface, which now lives at /watch.
-// Kept so existing /tv/watch?list=…/?v=… links still play; canonical → /watch.
-export const metadata: Metadata = {
-  title: "Watch · METATAKE TV",
-  alternates: { canonical: "/watch" },
-  robots: { index: false, follow: true },
-};
-
+// The watch interface is now the canonical /tv. 308 for old /tv/watch links.
 export default function Page() {
-  return <TVWatch />;
+  permanentRedirect("/tv");
 }

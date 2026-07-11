@@ -69,13 +69,13 @@ function Watch() {
       <SiteNavClient />
       <div className="tvw-wrap">
         <header className="tvpg-head">
-          <a className="tvpg-brand" href="/watch">
+          <a className="tvpg-brand" href="/tv">
             <span className="tvpg-brand__n">METATAKE</span>
             <span className="tvpg-brand__tv">TV</span>
             <span className="tvpg-brand__live">● ON AIR</span>
           </a>
           <p className="tvpg-tag">Programs compiled per film by the production engine — bundled into watch lists. Leave it on.</p>
-          <a className="tvpg-full" href="/tv">Full page ↗</a>
+          <a className="tvpg-full" href="/tv/fullscreen">Full page ↗</a>
         </header>
 
         <div className="tvw-main">
