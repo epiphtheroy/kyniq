@@ -1,6 +1,6 @@
 "use client";
 
-import type { HomeV2 as HomeV2Data } from "@/lib/home2";
+import type { HomeV2 as HomeV2Data, Exhibits } from "@/lib/home2";
 
 import type { ScreenerTop } from "@/app/page";
 import Nav from "./Nav";
@@ -19,6 +19,7 @@ import Rhyme from "./Rhyme";
 import Canon from "./Canon";
 import BlogGraph from "./BlogGraph";
 import NowPlaying from "./NowPlaying";
+import TodayExhibits from "./TodayExhibits";
 import HomeMap from "./HomeMap";
 import HomeAtlas from "./HomeAtlas";
 import BigSearch from "./BigSearch";
