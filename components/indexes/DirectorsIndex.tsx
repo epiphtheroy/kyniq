@@ -71,12 +71,9 @@ export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: 
       searchKind="director"
       imgShape="round"
       basePath="/director"
-      pool={pool}
       initialSlug={initialSlug}
       heroTitle="Directors"
       placeholder="Search directors by name…"
-      reshuffleLabel="random director!"
-      openLabel="Open this director →"
       catalogue={cat}
     />
   );

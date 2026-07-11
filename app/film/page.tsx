@@ -180,16 +180,11 @@ export default async function FilmIndexPage({ searchParams }: Props) {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap idx">
-        <LensQuickBar />
-        <MineEntityIndex kind="films" hrefBase="/film/" noun="films" imgShape="poster" />
-
-        <div className="mtl-swap-out">
-          <FilmsIndex
-            catalogue={catalogue}
-            inventoryTotal={inventoryTotal}
-            initialSlug={spotlightSlug}
-          />
-        </div>
+        <FilmsIndex
+          catalogue={catalogue}
+          inventoryTotal={inventoryTotal}
+          initialSlug={spotlightSlug}
+        />
       </div>
     </div>
   );
