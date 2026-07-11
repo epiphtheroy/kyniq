@@ -21,3 +21,4 @@ export const whereToUrl = (slug: string) => `/whereto/${slug}`;
 export const conceptUrl = (slug: string) => `/concept/${slug}`;
 export const theoristUrl = (slug: string) => `/theorist/${slug}`;
 export const genreUrl = (slug: string) => `/genre/${slug}`;
+export const lineageUrl = (slug: string) => `/lineage/${slug}`;
