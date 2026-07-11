@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import { pageRobots } from "@/lib/seo";
 import {
@@ -173,6 +174,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
           <span className="df-sep">›</span><Link href={`/director/${slug}`}>{director}</Link>
           <span className="df-sep">›</span><span>Locations</span>
         </div>
+        <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director} listHref={`/tv/list/director-${slug}`} backdrop={null} />
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Where does {director} film?</h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>

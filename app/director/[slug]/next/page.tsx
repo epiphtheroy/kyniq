@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Fragment } from "react";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
@@ -208,6 +209,8 @@ export default async function DirectorNextPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+
+      <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={name} listHref={`/tv/list/director-${slug}`} backdrop={null} />
 
       {/* HERO — dark, per the promoted-article grammar */}
       <div className="cur rd-hero">
