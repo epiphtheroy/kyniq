@@ -5208,3 +5208,32 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 .gcap-txt{font-family:var(--font-serif,Georgia,serif)}
 .gcap-lk{margin-left:6px;font-family:var(--font-ui);font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
 .gcap-lk:hover{text-decoration:underline}
+
+/* SentenceLexicon — atlas-style living index rail beside connection graphs
+   (components/SentenceLexicon.tsx; wrappers: ConnectionDesk / MapExplorer) */
+.cmap-cols,.map-cols{display:flex;gap:16px;align-items:stretch}
+.cmap-colgraph,.map-colgraph{flex:1 1 auto;min-width:0;position:relative}
+.lexi{flex:0 0 340px;display:flex;flex-direction:column;border:1px solid var(--hairline-2);border-radius:12px;background:var(--paper,#fff);padding:14px 16px 10px;overflow:hidden}
+.lexi-kicker{font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#E0922A}
+.lexi-center{display:flex;align-items:baseline;gap:7px;margin:3px 0 4px;border-bottom:1px solid rgba(22,35,63,.16);padding-bottom:8px}
+.lexi-title{font-family:var(--font-display);font-size:16.5px;letter-spacing:-.01em;color:#16233F;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.lexi-go{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;flex:none}
+.lexi-nav{font-family:var(--font-ui);font-size:13px;line-height:1;color:rgba(22,35,63,.55);background:none;border:1px solid rgba(22,35,63,.18);border-radius:6px;padding:2px 7px;cursor:pointer;flex:none}
+.lexi-nav:hover{color:#16233F;border-color:rgba(22,35,63,.4)}
+.lexi-cells{display:flex;flex-direction:column;flex:1 1 auto}
+.lexi-cell{border-bottom:1px solid rgba(22,35,63,.08)}
+.lexi-cell:last-child{border-bottom:none}
+.lexi-item{padding:10px 2px 9px;animation:lexi-in .5s ease}
+.lexi-meta{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+.lexi-no{font-family:var(--font-ui);font-size:10px;font-variant-numeric:tabular-nums;color:rgba(22,35,63,.4)}
+.lexi-tag{font-family:var(--font-ui);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(22,35,63,.6)}
+.lexi-sent{display:block;width:100%;text-align:left;background:none;border:0;padding:0;margin:0;cursor:pointer;font-family:var(--font-serif,Georgia,serif);font-size:13.5px;line-height:1.5;color:var(--ink)}
+.lexi-sent:hover{color:var(--accent)}
+.lexi-ents{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:5px}
+.lexi-ent{background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:.02em;color:#16233F;border-bottom:1px solid rgba(22,35,63,.25)}
+.lexi-ent:hover{color:#E0922A;border-color:#E0922A}
+.lexi-empty{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-ui);font-size:12.5px;color:var(--muted)}
+.lexi-foot{font-family:var(--font-ui);font-size:10.5px;color:rgba(22,35,63,.45);padding-top:6px;border-top:1px solid rgba(22,35,63,.08)}
+@keyframes lexi-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.lexi-item{animation:none}}
+@media (max-width:900px){.cmap-cols,.map-cols{flex-direction:column}.lexi{flex:1 1 auto;min-height:0!important}}
