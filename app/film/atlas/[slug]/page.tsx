@@ -9,6 +9,7 @@ import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
@@ -16,6 +17,8 @@ import {
   FILM_LOCATIONS_MIN,
   cachedAtlasEligibility,
   cachedAtlasMeta,
+  citiesForCountry,
+  cityMemberPins,
   countryListPhrase,
   countryPhrase,
   countrySlug,
@@ -25,6 +28,7 @@ import {
   mergePins,
   pinCountries,
   precisionRank,
+  type AtlasCity,
   type GeoPin,
 } from "@/lib/atlas";
 
@@ -112,14 +116,62 @@ function sortPins(pins: GeoPin[]): GeoPin[] {
   return [...pins].sort((a, b) => precisionRank(a.precision) - precisionRank(b.precision) || a.name.localeCompare(b.name));
 }
 
+// ── City-first "where" phrase (docs/PLAN-intent-coverage.md §5.1) ──────────
+// GeoPin has no city field, so the dominant shooting city is derived from the
+// frozen roster (lib/atlas_cities.json) with the SAME membership matcher the
+// /atlas/[country]/[city] hubs use — locality-term + proximity via
+// cityMemberPins(). A city is therefore only ever named when the roster
+// already owns it (never invented from pin-name text).
+function cityMatches(filmed: GeoPin[]): { city: AtlasCity; ids: Set<string> }[] {
+  const out: { city: AtlasCity; ids: Set<string> }[] = [];
+  for (const c of pinCountries(filmed)) {
+    for (const city of citiesForCountry(countrySlug(c.name))) {
+      const ids = new Set(cityMemberPins(filmed, city).map((p) => p.id));
+      if (ids.size) out.push({ city, ids });
+    }
+  }
+  return out.sort((a, b) => b.ids.size - a.ids.size);
+}
+
+// Full prepositional phrase for "…across N locations {HERE}". Rules: one
+// roster city matching ≥50% of filmed pins → "in and around {City}" (country
+// appended when the film also shot elsewhere); top two cities together ≥70%
+// (union, overlaps counted once) → "in {CityA} and {CityB}"; otherwise the
+// original country phrasing, unchanged.
+function wherePhrase(filmed: GeoPin[]): string {
+  const countries = pinCountries(filmed);
+  const countryWhere = countryListPhrase(countries.slice(0, 3).map((c) => c.name), Math.max(0, countries.length - 3));
+  const fallback = countryWhere ? `in ${countryWhere}` : "";
+  if (!filmed.length) return fallback;
+  const matches = cityMatches(filmed);
+  const top = matches[0];
+  if (!top) return fallback;
+  if (top.ids.size / filmed.length >= 0.5) {
+    const alsoElsewhere = filmed.some((p) => !top.ids.has(p.id));
+    return alsoElsewhere
+      ? `in and around ${top.city.name}, ${countryPhrase(top.city.country)}`
+      : `in and around ${top.city.name}`;
+  }
+  let second: { city: AtlasCity; add: number } | null = null;
+  for (const m of matches.slice(1)) {
+    if (m.city.name === top.city.name) continue;
+    let add = 0;
+    for (const id of m.ids) if (!top.ids.has(id)) add += 1;
+    if (!second || add > second.add) second = { city: m.city, add };
+  }
+  if (second && second.add > 0 && (top.ids.size + second.add) / filmed.length >= 0.7) {
+    return `in ${top.city.name} and ${second.city.name}`;
+  }
+  return fallback;
+}
+
 function leadText(film: FilmRow, filmed: GeoPin[], setting: GeoPin[]): string {
   const year = film.year ? ` (${film.year})` : "";
   const builtSets = filmed.filter((p) => p.built_set).length;
   const sentences: string[] = [];
   if (filmed.length) {
-    const countries = pinCountries(filmed);
-    const where = countryListPhrase(countries.slice(0, 3).map((c) => c.name), Math.max(0, countries.length - 3));
-    sentences.push(`${film.title}${year} was filmed across ${filmed.length} real location${filmed.length === 1 ? "" : "s"}${where ? ` in ${where}` : ""}.`);
+    const where = wherePhrase(filmed);
+    sentences.push(`${film.title}${year} was filmed across ${filmed.length} real location${filmed.length === 1 ? "" : "s"}${where ? ` ${where}` : ""}.`);
     if (builtSets) sentences.push(`${builtSets} of its worlds ${builtSets === 1 ? "was" : "were"} built as sets rather than found.`);
   }
   if (setting.length) {

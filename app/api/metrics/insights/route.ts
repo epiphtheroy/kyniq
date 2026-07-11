@@ -53,6 +53,17 @@ export async function GET(req: NextRequest) {
     /* best-effort */
   }
 
+  // Same cadence again: the layer-1 uncovered-intent detector (0079,
+  // docs/PLAN-intent-coverage.md §1). Folds fresh GSC (page, query) demand
+  // into intent_queue for the coverage waves. Isolated the same way.
+  let intentNew = 0;
+  try {
+    const { data: iq } = await supabase.rpc("mt_intent_scan");
+    intentNew = iq ?? 0;
+  } catch {
+    /* best-effort */
+  }
+
   await supabase.from("mt_insights").insert({
     kind: "_run",
     key: "run:" + new Date().toISOString().slice(0, 19),
@@ -62,6 +73,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     inserted: inserted ?? 0,
     bot_blocks: botBlocks,
+    intent_new: intentNew,
     error: error?.message ?? null,
   });
 }
