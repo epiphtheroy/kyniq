@@ -607,5 +607,28 @@ def main() -> None:
     log("no candidate survived")
 
 
+def _maybe_run_digest() -> None:
+    """The daily digest closes the desk at 23:xx UTC. Triggered from HERE (not
+    only in the watcher's bash run_once) so it fires on every produce.py run —
+    the watcher re-reads this file from disk each hour, but it parsed its bash
+    run_once ONCE at startup, so a run_once written before the digest step was
+    added never runs the digest (root cause found 2026-07-10: digest had never
+    fired automatically). Idempotent: digest.py upserts by date."""
+    if "--dry" in sys.argv:
+        return
+    if datetime.now(timezone.utc).hour != 23:
+        return
+    import subprocess
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        subprocess.run(["/usr/bin/python3", str(HOURLY / "pipeline" / "digest.py"), day], timeout=300)
+    except Exception as e:  # never let a digest failure crash the hourly run
+        log(f"digest trigger failed: {e}")
+
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        # the digest must close the desk at 23:xx even if the hourly run crashed
+        _maybe_run_digest()

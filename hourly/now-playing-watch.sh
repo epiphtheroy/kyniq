@@ -28,10 +28,11 @@ run_once() {
     return
   fi
   /usr/bin/python3 "$DIR/pipeline/produce.py" >> "$LOG" 2>&1
-  # the daily digest closes the desk at 23:xx UTC (after that hour's run)
-  if [ "$(date -u +%H)" = "23" ]; then
-    /usr/bin/python3 "$DIR/pipeline/digest.py" >> "$LOG" 2>&1
-  fi
+  # The daily digest (23:xx UTC close) is now triggered INSIDE produce.py
+  # (_maybe_run_digest), not here. Reason: bash parses this run_once once at
+  # startup, so editing this file after the watcher launched never took effect
+  # and the digest never ran (2026-07-10). produce.py is re-read every hour, so
+  # the trigger fires reliably from there regardless of this process's age.
 }
 
 # one run at start (catches up if the Mac slept through :00), then every :00
