@@ -28,12 +28,14 @@ type Acct =
 
 function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
-    { id: "watch", label: "Watch", href: "/tv", items: [
+    { id: "watch", label: "Watch", items: [
       { t: "Films", h: "/film", c: c.films },
       { t: "Directors", h: "/director", c: c.directors },
-      { t: "Metatake TV", h: "/tv" },
+      { t: "Latest", h: "/latest" },
+      { t: "Trending", h: "/trending" },
     ] },
     { id: "wander", label: "Wander", items: [
+      { t: "Metatake TV", h: "/tv" },
       { t: "TakeScore", h: "/takescore" },
       { t: "Lineage", h: "/lineage" },
       { t: "Atlas", h: "/atlas" },
@@ -41,7 +43,6 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
       { t: "Connections", h: "/map" },
       { t: "Where to watch", h: "/where-to-watch" },
       { t: "Credits", h: "/credits" },
-      { t: "Metatake TV", h: "/tv" },
     ] },
     { id: "read", label: "Read", items: [
       { t: "Now Playing", h: "/now" },
@@ -179,7 +180,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               <div className={`drop${grp === g.id ? " open" : ""}`}>
                 {g.items.map((it) => (
                   <Link key={it.t + it.h} href={it.h}>
-                    {navLabel(it.t)}
+                    <span className="nl">{navLabel(it.t)}</span>
                     <span className="ar">{arrow(it.c)}</span>
                   </Link>
                 ))}
@@ -362,7 +363,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               <h4>{g.label}</h4>
               {g.items.map((it) => (
                 <Link key={it.t + it.h} href={it.h}>
-                  {navLabel(it.t)}
+                  <span className="nl">{navLabel(it.t)}</span>
                   <span className="ar">{arrow(it.c)}</span>
                 </Link>
               ))}
