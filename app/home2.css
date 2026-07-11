@@ -249,6 +249,11 @@
 .mthome .tp .catnum .lz::after{content:"";position:absolute;inset:2.5px;background:var(--red);border-radius:50%}
 .mthome .tp .save{margin-left:auto;color:var(--ink-faint);font-size:16px;cursor:pointer}
 .mthome .tp .save:hover{color:var(--red)}
+/* TakeScore chip on every scored card → /takescore/film/{slug} (U score, no rank) */
+.mthome .tp .tsc{font-variant-numeric:tabular-nums;font-weight:700;font-size:11px;color:#8a6d1f;
+  background:rgba(176,138,44,.10);border:1px solid rgba(176,138,44,.34);border-radius:4px;
+  padding:0 6px;line-height:1.55;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.mthome .tp .tsc:hover{background:rgba(176,138,44,.22);color:#6b5416}
 .mthome .tp .nm{font-family:var(--text-serif);font-size:15px;margin-top:8px;line-height:1.2;min-height:36px}
 .mthome .tp .nm .yr{color:var(--ink-faint);font-family:var(--ui);font-size:12px}
 .mthome .tp .wl{width:100%;margin-top:9px;font-family:var(--ui);font-size:12.5px;font-weight:700;color:var(--red);background:var(--paper-2);border:1px solid var(--line-strong);border-radius:22px;padding:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}

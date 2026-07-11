@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Film } from "@/lib/home2";
-import { posterUrl, hashTone, tone, filmHref } from "./helpers";
+import { posterUrl, hashTone, tone, filmHref, tsQuadrant } from "./helpers";
 
 /**
  * Light film card (.tp). `cat` renders the category-number metric (with the
@@ -39,6 +39,15 @@ export default function FilmCard({
             {lens ? <span className="lz" /> : null}
             {cat}
           </span>
+          {f.ts != null ? (
+            <Link
+              className="tsc"
+              href={`/takescore/film/${f.slug}`}
+              title={`TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}
+            >
+              Tm&nbsp;{f.ts}
+            </Link>
+          ) : null}
           <span className="save">☆</span>
         </div>
         <div className="nm">
