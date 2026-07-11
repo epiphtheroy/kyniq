@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmsIndex, { type FilmCat } from "@/components/indexes/FilmsIndex";
-import LensQuickBar from "@/components/LensQuickBar";
-import MineEntityIndex from "@/components/MineEntityIndex";
 import { filmUrl } from "@/lib/urls";
 
 export const revalidate = 1800;
@@ -92,10 +90,8 @@ async function AllFilmsView({ pageParam }: { pageParam?: string }) {
         </p>
 
         <ViewTabs all />
-        <LensQuickBar />
-        <MineEntityIndex kind="films" hrefBase="/film/" noun="films" imgShape="poster" />
 
-        <section className="idx-grp mtl-swap-out">
+        <section className="idx-grp">
           <div className="idx-grph">All films <span className="gc">{total.toLocaleString()}</span></div>
           <div className="idx-fcols">
             {films.map((f) => (
