@@ -2,9 +2,8 @@
 
 import { Fragment, type SyntheticEvent } from "react";
 import Link from "next/link";
-import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
-import EntityFinder from "@/components/EntityFinder";
+import IndexExplorer from "@/components/indexes/IndexExplorer";
 import PosterActions from "@/components/PosterActions";
 import { foldDiacritics } from "@/lib/slug";
 
@@ -16,9 +15,10 @@ export type FilmFeat = {
   tropeList: { t: string; slug: string; fig: string }[];
   kin: { t: string; y: number | null; slug: string; n: number }[];
 };
-export type FilmCat = { slug: string; title: string; year: number | null; director: string | null; genre: string };
+export type FilmCat = { slug: string; title: string; year: number | null; director: string | null; genre: string; poster: string | null };
 
 const HERO = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w780${p}` : null);
+const THUMB = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w92${p}` : null);
 
 function sortKey(t: string) { return t.toLowerCase().replace(/^(the|a|an)\s+/i, "").trim(); }
 function letterOf(t: string) { const c = foldDiacritics(sortKey(t)).charAt(0).toUpperCase(); return c >= "A" && c <= "Z" ? c : "#"; }
