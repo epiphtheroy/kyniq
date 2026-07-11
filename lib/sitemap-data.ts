@@ -252,7 +252,7 @@ export async function tvProgramVideoEntries(): Promise<VideoEntry[]> {
     (from, to) => db()
       .from("tv_programs")
       .select("slug,title,dek,built_at,duration_ms,meta,films(backdrop_path,poster_path,title,year,director)")
-      .eq("status", "published").order("slug").range(from, to)
+      .eq("status", "published").order("slug").range(from, to) as unknown as PromiseLike<{ data: Row[] | null }>
   );
   const out: VideoEntry[] = [];
   for (const r of rows) {
