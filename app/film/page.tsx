@@ -188,12 +188,6 @@ export default async function FilmIndexPage({ searchParams }: Props) {
             catalogue={catalogue}
             inventoryTotal={inventoryTotal}
             initialSlug={spotlightSlug}
-            heroSub={
-              <>
-                <b>{cat.total.toLocaleString()} films</b>, each read closely — its <span className="term">figures</span>,
-                strong misreadings and tropes, where it was shot, and the films it rhymes with.
-              </>
-            }
           />
         </div>
       </div>

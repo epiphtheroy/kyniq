@@ -79,12 +79,6 @@ export default async function DirectorIndexPage() {
           <DirectorsIndex
             catalogue={catalogue}
             initialSlug={spotlightSlug}
-            heroSub={
-              <>
-                <b>{total.toLocaleString()} directors</b>, each a full dossier — the filmography, the{" "}
-                <span className="term">signature readings and tropes</span>, where to start, and the life.
-              </>
-            }
           />
         </div>
       </div>
