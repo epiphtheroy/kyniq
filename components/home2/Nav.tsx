@@ -13,7 +13,7 @@ export type NavCounts = {
 };
 
 type Item = { t: string; h: string; c?: number };
-type Group = { id: string; label: string; items: Item[] };
+type Group = { id: string; label: string; items: Item[]; href?: string };
 
 function sb() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -28,7 +28,9 @@ type Acct =
 
 function buildGroups(c: NavCounts, acct: Acct): Group[] {
   return [
-    { id: "watch", label: "Watch", items: [
+    { id: "watch", label: "Watch", href: "/watch", items: [
+      { t: "The watch library", h: "/watch" },
+      { t: "METATAKE TV", h: "/tv" },
       { t: "Films", h: "/film", c: c.films },
       { t: "Directors", h: "/director", c: c.directors },
       { t: "Latest", h: "/latest" },
@@ -157,14 +159,22 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               key={g.id}
               onMouseEnter={() => setGrp(g.id)}
             >
-              <button
-                type="button"
-                className="ngl"
-                onClick={() => setGrp((cur) => (cur === g.id ? null : g.id))}
-                aria-expanded={grp === g.id}
-              >
-                {g.label}
-              </button>
+              {g.href ? (
+                // a category that is itself a destination (Watch → /watch): the
+                // label navigates on click, the dropdown still opens on hover.
+                <Link className="ngl" href={g.href} aria-expanded={grp === g.id}>
+                  {g.label}
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  className="ngl"
+                  onClick={() => setGrp((cur) => (cur === g.id ? null : g.id))}
+                  aria-expanded={grp === g.id}
+                >
+                  {g.label}
+                </button>
+              )}
               <div className={`drop${grp === g.id ? " open" : ""}`}>
                 {g.items.map((it) => (
                   <Link key={it.t + it.h} href={it.h}>
