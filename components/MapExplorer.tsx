@@ -11,7 +11,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import EntityGraph, { type GraphData, type GraphNode } from "@/components/EntityGraph";
 import GalaxyMap from "@/components/GalaxyMap";
-import SentenceLexicon from "@/components/SentenceLexicon";
+import SentenceLexicon, { type LexEnt } from "@/components/SentenceLexicon";
 
 type Mode = "films" | "directors" | "critical" | "galaxy";
 type EgoParams = { type: string; key: string; key2?: string };
@@ -151,12 +151,17 @@ export default function MapExplorer() {
   }, [query]);
 
   const center = data.nodes.find((n) => n.center) || null;
-  // SentenceLexicon root — the current center as a full-word entity descriptor;
-  // overview graphs (no ego center, e.g. "__all_films") hide the rail.
-  const lexiRoot = (() => {
-    if (!center) return null;
-    const p = egoParams(center.id);
-    return p ? { ...p, label: center.label } : null;
+  // SentenceLexicon root — the current center as a full-word entity descriptor.
+  // Overview states (no ego center) fall back to a VIEW-flavored catalog sampler:
+  // each /map tab reads through its own pattern set (films = kinship pairs,
+  // directors = filmography numbers, grouped = the interpretation layer,
+  // galaxy = film-identity facts).
+  const lexiRoot: LexEnt = (() => {
+    if (center) {
+      const p = egoParams(center.id);
+      if (p) return { ...p, label: center.label };
+    }
+    return VIEW_ROOT[mode];
   })();
 
   const switchMode = useCallback((m: Mode) => {
