@@ -64,7 +64,6 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
     { id: "you", label: "You", items: [
       { t: "My Room", h: "/room" },
       { t: "Import your films", h: "/me/import" },
-      { t: "Ask metatake AI", h: "/ask-ai" },
       ...(acct.state === "in"
         ? [{ t: "Settings", h: "/settings" }]
         : acct.state === "out"
@@ -208,10 +207,6 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
         </noscript>
 
         <div className="navright">
-          <Link className="npro" href="/ask-ai">
-            <span className="dot" />
-            <span className="t">Ask&nbsp;metatake&nbsp;AI</span>
-          </Link>
           <Link className="nicon" href="/room" title="My Room">
             <svg viewBox="0 0 24 24">
               <path d="M6 3h12v18l-6-4-6 4z" />
