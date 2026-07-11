@@ -20,7 +20,7 @@ const MODES: CatMode[] = [
   { key: "films", label: "Films" },
 ];
 
-export default function DirectorsIndex({ catalogue, heroSub }: { catalogue: DirCat[]; heroSub: ReactNode }) {
+export default function DirectorsIndex({ catalogue, heroSub, initialSlug }: { catalogue: DirCat[]; heroSub: ReactNode; initialSlug: string | null }) {
   // spotlight pool = the whole catalogue
   const pool: PoolItem[] = catalogue.map((d) => ({ slug: d.slug, label: d.name, sub: d.country }));
 
@@ -75,6 +75,7 @@ export default function DirectorsIndex({ catalogue, heroSub }: { catalogue: DirC
       imgShape="round"
       basePath="/director"
       pool={pool}
+      initialSlug={initialSlug}
       heroTitle="Directors"
       heroSub={heroSub}
       placeholder="Search directors by name…"

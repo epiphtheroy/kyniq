@@ -23,8 +23,8 @@ const MODES: CatMode[] = [
   { key: "year", label: "Year" },
 ];
 
-export default function FilmsIndex({ catalogue, inventoryTotal, heroSub }: {
-  catalogue: FilmCat[]; inventoryTotal?: number; heroSub: ReactNode;
+export default function FilmsIndex({ catalogue, inventoryTotal, heroSub, initialSlug }: {
+  catalogue: FilmCat[]; inventoryTotal?: number; heroSub: ReactNode; initialSlug: string | null;
 }) {
   // spotlight pool = the visible catalogue (every read-closely page)
   const pool: PoolItem[] = catalogue.map((f) => ({
@@ -82,6 +82,7 @@ export default function FilmsIndex({ catalogue, inventoryTotal, heroSub }: {
       imgShape="poster"
       basePath="/film"
       pool={pool}
+      initialSlug={initialSlug}
       heroTitle="Films"
       heroSub={heroSub}
       placeholder="Search films by title or director…"
