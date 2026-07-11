@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
+import EntityTVHero from "@/components/EntityTVHero";
 import FilmTabBar from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
 import EntityMap from "@/components/EntityMap";
@@ -270,6 +270,7 @@ export default async function ConceptPage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
         <div className="mt-wrap">
           <div className="mt-crumb"><Link href="/concept">Theory</Link> › <Link href="/concept">Concepts</Link></div>
+          <EntityTVHero playlist={`concept-${slug}`} reelSlugs={[]} label={concept} listHref={`/tv/list/concept-${slug}`} backdrop={null} />
           <h1 className="mt-h1">{concept} in film{native ? <span style={{ fontWeight: 400, opacity: .55, fontSize: "0.62em" }}> · {native}</span> : null}</h1>
           <p className="mt-laconic">
             {tropes.length} ways {concept.toLowerCase()} shows up across cinema — each a recurring pattern that gathers the films sharing it.
@@ -367,6 +368,8 @@ export default async function ConceptPage({ params }: Props) {
       <div className="mt">
         <SiteNav />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+
+        <EntityTVHero playlist={`concept-${slug}`} reelSlugs={tFilmArr.map((f) => f.slug)} label={tName} listHref={`/tv/list/concept-${slug}`} backdrop={tHeroBd} />
 
         {/* ── Dark hero: the concept as a working lens, counted ── */}
         <div className="cur rd-hero">
@@ -617,6 +620,8 @@ export default async function ConceptPage({ params }: Props) {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(smJsonld) }} />
 
+      <EntityTVHero playlist={`concept-${slug}`} reelSlugs={filmArr.map((f) => f.slug)} label={name} listHref={`/tv/list/concept-${slug}`} backdrop={heroBd} />
+
       {/* ── Dark hero: the concept as a working lens, counted ── */}
       <div className="cur rd-hero">
         <div className="rd-hero__in">
@@ -811,7 +816,6 @@ export default async function ConceptPage({ params }: Props) {
         </div>
       ) : null}
 
-      <div className="mt-wrap"><PlaylistTVEmbed slug={`concept-${slug}`} heading={`${name} on METATAKE TV — the films that stage it`} /></div>
     </div>
   );
 }
