@@ -78,6 +78,8 @@ verdict는 (authority × recognition)의 결정함수. **authority 정의가 핵
 - 프론트 캐시: 둘 다 `unstable_cache` 별도 키(`tow-comment1`/`director-curation1`), `revalidate:3600`, 태그 `takescore-film:{slug}`/`director:{slug}`.
 - 감독 카드 프로즈는 `curationStanding()`가 조립(하우스 패턴 `editorialSummary()`와 동일, LLM 0), verdict별 칩 + 대표작 링크.
 
+**디자인 (편지 카드, 2026-07-11):** 두 박스 동일 언어 — 모노그램 "W" 실링(`::before content:"W"`, 원형 accent 링 + 이중 inset 그림자), 레터헤드 하단 hairline, "To W.H." 빨간 볼드 이탤릭 인사, 우측 서명 "— W. Yoon"(펜선 `::before` 그라디언트), verdict 칩은 톤다운 배경 틴트, 카드 soft shadow+radius 14px. 영화=`.tsf-tow*`(head::before 실링, 3자식 flex: 실링·타이틀·칩), 감독=`.dr-tow*`(`.dr-tow-head` 래퍼 추가). ⚠️ 각주는 possessive `{title}'s place`로 써서 JSX 동일줄 공백 유실("Titlestands") 회피.
+
 ---
 
 ## 5. 불변식 · 함정
