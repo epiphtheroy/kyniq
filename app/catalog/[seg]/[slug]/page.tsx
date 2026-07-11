@@ -10,6 +10,7 @@ import Byline from "@/components/Byline";
 import { pageRobots } from "@/lib/seo";
 import { kindBySeg, sectionByKey, axisLabel, nodeHref, sectionHref } from "@/lib/catalog";
 import FilmTabBar from "@/components/FilmTabBar";
+import ShareDock from "@/components/ShareDock";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
@@ -234,6 +235,12 @@ export default async function CatalogNode({ params }: Props) {
               {full && datedA.length > 1 ? <> — from <i>{datedA[0].film_title}</i> ({datedA[0].yr}) to <i>{datedA[datedA.length - 1].film_title}</i> ({datedA[datedA.length - 1].yr})</> : null},
               {" "}each tied to the exact film and the close reading that carries it.
             </p>
+            <div className="rd-share" style={{ marginTop: 12 }}>
+              <ShareDock variant="bar" path={`/catalog/${seg}/${slug}`} title={detail.label}
+                hook={`${detail.label} — ${n.toLocaleString()} ${figLabel} across film, each tied to its close reading on Metatake`}
+                saveType={`catalog-${seg}`} saveRef={slug} />
+              <ShareDock variant="fab" path={`/catalog/${seg}/${slug}`} title={detail.label} noSave />
+            </div>
           </div>
           {heroBd ? (
             <div className="rd-hero__media">

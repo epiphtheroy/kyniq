@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import ShareDock from "@/components/ShareDock";
 
 /**
  * Tradition — the school-of-thought axis (unified taxonomy Major).
@@ -90,6 +91,12 @@ export default async function TraditionPage({ params }: Props) {
           {rows.length} concept{rows.length !== 1 ? "s" : ""} carry the <em>{name}</em> tradition
           {films > 0 ? <> — {films} film reading{films !== 1 ? "s" : ""} across Metatake lean on them.</> : "."}
         </p>
+        <div className="th-share" style={{ marginTop: 14 }}>
+          <ShareDock variant="bar" path={`/tradition/${slug}`} title={`${name} — a theory tradition`}
+            hook={`${name} — ${rows.length} concept${rows.length !== 1 ? "s" : ""} read across film on Metatake`}
+            saveType="tradition" saveRef={slug} />
+          <ShareDock variant="fab" path={`/tradition/${slug}`} title={name} noSave />
+        </div>
 
         <div className="th-grid" style={{ marginTop: 18 }}>
           {rows.map((r) => (

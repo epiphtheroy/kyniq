@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
 import { cachedAtlasEligibility } from "@/lib/atlas";
@@ -255,6 +256,12 @@ export default async function FilmHonorsPage({ params }: Props) {
               {film.title}{yearLabel} — awards, canons &amp; honors
             </h1>
             <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
+            <div className="lin-share" style={{ marginTop: 12 }}>
+              <ShareDock variant="bar" path={`/film/lineage/${slug}`} title={`${film.title}${yearLabel} — awards, canons & honors`}
+                hook={`${film.title}${yearLabel} — every award, canon and honors listing, the complete record on Metatake`}
+                saveType="film-lineage" saveRef={slug} />
+              <ShareDock variant="fab" path={`/film/lineage/${slug}`} title={`${film.title} — awards & honors`} noSave />
+            </div>
           </div>
         </header>
 

@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import PosterActions from "@/components/PosterActions";
 import LensQuickBar from "@/components/LensQuickBar";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -150,6 +151,12 @@ export default async function MoviesLikePage({ params }: Props) {
               By Metatake Editorial · Edited by <Link href="/editor">Wonwoo Yoon</Link>
               {updated ? <> · Updated {updated}</> : null} · <Link href="/methodology#connections">How it&apos;s computed →</Link>
             </p>
+            <div className="ml-share" style={{ marginTop: 12 }}>
+              <ShareDock variant="bar" path={`/movies-like/${slug}`} title={`Movies like ${film.title}`}
+                hook={`Movies like ${film.title}${film.year ? ` (${film.year})` : ""} — the ${recs.length} closest films, ranked by shared tropes and taste on Metatake`}
+                saveType="movies-like" saveRef={slug} />
+              <ShareDock variant="fab" path={`/movies-like/${slug}`} title={`Movies like ${film.title}`} noSave />
+            </div>
           </div>
         </div>
 

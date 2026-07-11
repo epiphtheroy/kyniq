@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import FilmTabBar from "@/components/FilmTabBar";
+import ShareDock from "@/components/ShareDock";
 import EntityMap from "@/components/EntityMap";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink } from "@/components/DeskExplorer";
@@ -283,6 +284,12 @@ export default async function ConceptPage({ params }: Props) {
               ))}
             </p>
           ) : null}
+          <div className="mt-share" style={{ marginTop: 14 }}>
+            <ShareDock variant="bar" path={`/concept/${slug}`} title={`${concept} in film`}
+              hook={`${concept} in film — ${tropes.length} recurring pattern${tropes.length === 1 ? "" : "s"}, read across cinema on Metatake`}
+              saveType="concept" saveRef={slug} />
+            <ShareDock variant="fab" path={`/concept/${slug}`} title={`${concept} in film`} noSave />
+          </div>
           <div className="cat-mlist">
             {tropes.map((r) => {
               const src = r.bd ? `${IMG}/w300${r.bd}` : null;
@@ -395,6 +402,12 @@ export default async function ConceptPage({ params }: Props) {
                 )}
                 {canonReadings.length > 0 || desks.length > 0 ? <>{" "}Every entry below is a close reading of a scene, not a definition.</> : null}
               </p>
+              <div className="rd-share" style={{ marginTop: 14 }}>
+                <ShareDock variant="bar" path={`/concept/${slug}`} title={tCap}
+                  hook={`${tCap} — ${tName} read across film on Metatake, scene by scene`}
+                  saveType="concept" saveRef={slug} />
+                <ShareDock variant="fab" path={`/concept/${slug}`} title={tCap} noSave />
+              </div>
             </div>
             {tHeroBd ? (
               <div className="rd-hero__media">
@@ -625,6 +638,12 @@ export default async function ConceptPage({ params }: Props) {
               {thTop[0] ? <>, most often after {thTop[0][0]}</> : null}.
               {" "}Every entry below is a close reading of a scene, not a definition.
             </p>
+            <div className="rd-share" style={{ marginTop: 14 }}>
+              <ShareDock variant="bar" path={`/concept/${data.resolved}`} title={capName}
+                hook={`${capName} — ${name} read across ${filmArr.length} film${filmArr.length === 1 ? "" : "s"} on Metatake, scene by scene`}
+                saveType="concept" saveRef={data.resolved} />
+              <ShareDock variant="fab" path={`/concept/${data.resolved}`} title={capName} noSave />
+            </div>
           </div>
           {heroBd ? (
             <div className="rd-hero__media">

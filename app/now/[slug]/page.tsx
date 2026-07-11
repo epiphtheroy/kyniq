@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import NowModules from "@/components/NowModules";
+import ShareDock from "@/components/ShareDock";
 import EntityMap from "@/components/EntityMap";
 import FilmMap from "@/components/FilmMap";
 import { anchorHref, fmtDay, fmtStamp, tmdbImg, type NowArticle } from "@/lib/now";
@@ -121,6 +122,12 @@ export default async function NowPiece({ params }: Props) {
               {ah ? <Link href={ah}>{p.anchor_label}</Link> : <b>{p.anchor_label}</b>} · every data point below is
               live in the corpus
             </span>
+          </div>
+          <div className="now-share">
+            <ShareDock variant="bar" path={`/now/${slug}`} title={p.headline}
+              hook={p.dek || p.summary || `${p.headline} — Now Playing on Metatake, anchored on ${p.anchor_label}`}
+              saveType="now" saveRef={slug} />
+            <ShareDock variant="fab" path={`/now/${slug}`} title={p.headline} noSave />
           </div>
         </header>
 

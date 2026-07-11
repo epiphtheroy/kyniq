@@ -7,6 +7,7 @@ import ViewBeacon from "@/components/ViewBeacon";
 import TakeExplorer from "@/components/TakeExplorer";
 import ScholarHeader from "@/components/ScholarHeader";
 import EntityActions from "@/components/EntityActions";
+import ShareDock from "@/components/ShareDock";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
@@ -286,6 +287,12 @@ export default async function TakePage({ params }: Props) {
           </div>
 
           <MetatakeStats films={filmCount} takes={all.length} registers={registerCount} />
+          <div className="mk-share">
+            <ShareDock variant="bar" path={`/take/${slug}`} title={mt.title}
+              hook={`${mt.title}${theorist ? ` · after ${theorist.name}` : ""} — one strong misreading read across ${filmCount} films on Metatake`}
+              saveType="meta_take" saveRef={String(mt.id)} />
+            <ShareDock variant="fab" path={`/take/${slug}`} title={mt.title} noSave />
+          </div>
         </header>
 
         <ScholarHeader

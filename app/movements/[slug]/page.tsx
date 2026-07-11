@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import PlaylistTVEmbed from "@/components/PlaylistTVEmbed";
 import MovementHubClient from "@/components/MovementHubClient";
+import ShareDock from "@/components/ShareDock";
 
 export const revalidate = 1800;
 // Empty list enables the on-demand Full Route Cache (ISR HIT) without
@@ -72,6 +73,12 @@ export default async function MovementHub({ params }: Props) {
       <div className="mt-wrap lh">
         <div className="lh-crumb"><Link href="/movements">Movements</Link></div>
         <MovementHubClient d={d} />
+        <div className="lh-share">
+          <ShareDock variant="bar" path={`/movements/${slug}`} title={d.hub.label}
+            hook={`${d.hub.label} — the films, ideas and close readings of the movement, on Metatake`}
+            saveType="movement" saveRef={slug} />
+          <ShareDock variant="fab" path={`/movements/${slug}`} title={d.hub.label} noSave />
+        </div>
 
         {/* Layer 2 — the hidden catalog as members of this tradition. Server-
             rendered plain <a> list; these films' own pages stay out of the index. */}

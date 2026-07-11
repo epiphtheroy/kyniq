@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import EditionBody, { type EditionPost } from "@/components/EditionBody";
+import ShareDock from "@/components/ShareDock";
 
 /**
  * One edition of The Daily — ScreenRant grain (shell in app/blog/layout.tsx):
@@ -75,6 +76,12 @@ export default async function BlogPost({ params }: Props) {
         <p className="cur-edby">
           <b>{p.read_min} min read</b> · The Metatake desk · every film and reading below is live in the corpus
         </p>
+        <div className="cur-share">
+          <ShareDock variant="bar" path={`/blog/${slug}`} title={headline}
+            hook={p.dek || `${headline} — The Metatake daily edition`}
+            saveType="post" saveRef={slug} />
+          <ShareDock variant="fab" path={`/blog/${slug}`} title={headline} noSave />
+        </div>
       </header>
 
       <article className="cur-paper blg">

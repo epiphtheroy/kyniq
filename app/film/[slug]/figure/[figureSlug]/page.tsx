@@ -7,6 +7,7 @@ import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
 import EntityMap from "@/components/EntityMap";
 import EntityActions from "@/components/EntityActions";
+import ShareDock from "@/components/ShareDock";
 import SeqNav from "@/components/SeqNav";
 import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
@@ -337,6 +338,13 @@ export default async function FigurePage({ params }: Props) {
             ) : null}
             <span className="fg-dot" />
             <span>Readings <b>{takes.length}</b></span>
+          </div>
+
+          <div className="fg-share">
+            <ShareDock variant="bar" path={`/film/${slug}/figure/${figureSlug}`} title={figure.label}
+              hook={`${figure.label} — a figure in ${film.title}${film.year ? ` (${film.year})` : ""}, read across ${takes.length} close reading${takes.length === 1 ? "" : "s"} on Metatake`}
+              saveType="figure" saveRef={figureSlug} />
+            <ShareDock variant="fab" path={`/film/${slug}/figure/${figureSlug}`} title={figure.label} noSave />
           </div>
 
           {catalog.length > 0 ? (
