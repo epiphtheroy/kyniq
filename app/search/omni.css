@@ -53,6 +53,8 @@
 .ox-r__main { flex: 1; min-width: 0; }
 .ox-r__crumb { font-family: var(--font-ui); font-size: 11px; color: var(--subtle, #8f8f8f); margin-bottom: 3px; display: flex; align-items: center; gap: 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .ox-k { font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; border: 1px solid var(--hairline, #ddd); border-radius: 4px; padding: 1px 5px; flex: 0 0 auto; }
+/* Video rows read as video: METATAKE TV chips carry the live-red tint. */
+.ox-k--tv, .ox-k--tv_list { color: #c2170f; border-color: rgba(227, 23, 11, 0.45); background: rgba(227, 23, 11, 0.06); }
 .ox-r__t { font-family: var(--font-display, Georgia, serif); font-size: 17px; font-weight: 700; line-height: 1.3; color: #1a0dab; text-decoration: none; display: inline-block; }
 .mt .ox-r__t { color: var(--link, #1552a0); }
 .ox-r__t:hover { text-decoration: underline; }
