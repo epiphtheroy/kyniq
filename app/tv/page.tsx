@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import MetatakeTV from "@/components/MetatakeTV";
+import TVDirectory from "@/components/TVDirectory";
 import type { SurpriseCard } from "@/components/home2/SurpriseStage";
 import "@/app/home2.css";
 
@@ -33,6 +34,9 @@ export default function TVPage() {
         <div className="tv-stage"><MetatakeTV embed onCard={setCard} /></div>
 
         <TVDossier card={card} />
+
+        {/* the full watch-list library — browsable + searchable, so lists aren't buried */}
+        <TVDirectory embedded />
       </div>
     </div>
   );
