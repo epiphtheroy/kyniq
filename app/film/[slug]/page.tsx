@@ -584,7 +584,7 @@ export default async function FilmPage({ params }: Props) {
     notFound();
   }
   const { movements, codex, subscores } = await loadChrome(slug);
-  // "Did you know" rows — shared by both the Tier-1 and Tier-2 render branches.
+  // Embedding Fantasia rows — shared by both the Tier-1 and Tier-2 render branches.
   const sentences = await loadSentences(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
@@ -708,7 +708,7 @@ export default async function FilmPage({ params }: Props) {
       codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
-      sentences.length >= 2 ? { id: "df-know", label: "Did you know" } : null,
+      sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia" } : null,
       geoCount > 0 ? { id: "df-atlas", label: "Atlas", badge: geoCount } : null,
       afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
       crew.length
@@ -841,7 +841,7 @@ export default async function FilmPage({ params }: Props) {
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
-          {/* DID YOU KNOW — thickens thin catalog records with linked facts */}
+          {/* EMBEDDING FANTASIA — thickens thin catalog records with linked facts */}
           <FilmSentences slug={f.slug} title={f.title} rows={sentences} />
 
           {/* ATLAS — same lazy MapLibre module the Tier-1 branch renders;
@@ -998,7 +998,7 @@ export default async function FilmPage({ params }: Props) {
     hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
     nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces, zone: "free" as const } : null,
     { id: "df-map", label: "Connections", zone: "free" as const },
-    sentences.length >= 2 ? { id: "df-know", label: "Did you know", zone: "free" as const } : null,
+    sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia", zone: "free" as const } : null,
     reception.length ? { id: "df-reception", label: "Reception", badge: reception.length, zone: "free" as const } : null,
     newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount, zone: "free" as const } : null,
     dailyRefs.length ? { id: "df-daily", label: "The Daily", badge: dailyRefs.length, zone: "free" as const } : null,
@@ -1328,7 +1328,7 @@ export default async function FilmPage({ params }: Props) {
           />
         </section>
 
-        {/* DID YOU KNOW — rule-based sentences from the film_sentences layer */}
+        {/* EMBEDDING FANTASIA — rule-based sentences from the film_sentences layer */}
         <FilmSentences slug={film.slug} title={film.title} rows={sentences} />
 
         {/* TROPES */}

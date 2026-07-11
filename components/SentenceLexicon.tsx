@@ -142,7 +142,7 @@ export default function SentenceLexicon({ root, height = 460 }: { root: LexEnt; 
       onPointerEnter={() => { paused.current = true; }}
       onPointerLeave={() => { paused.current = false; }}
     >
-      <div className="lexi-kicker">Connections · in words</div>
+      <div className="lexi-kicker">Embedding Fantasia</div>
       <div className="lexi-center">
         {trail.length > 0 ? <button className="lexi-nav" onClick={back} title="Back">‹</button> : null}
         <b className="lexi-title">{cur.label}</b>
@@ -180,7 +180,7 @@ export default function SentenceLexicon({ root, height = 460 }: { root: LexEnt; 
           ))}
         </div>
       )}
-      <div className="lexi-foot">{pool?.length ? `${pool.length} entries · click any name to recenter` : ""}</div>
+      <div className="lexi-foot">{pool?.length ? `${pool.length} entries · click any name to recenter · SQL-assembled, no AI text` : ""}</div>
     </aside>
   );
 }
