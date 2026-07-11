@@ -1,6 +1,12 @@
 # PLAN — 홈 v8 "살아있는 진열장" (시드 로테이션 · TakeScore 카드 · Daily Exhibits)
 
-**상태: 기획 확정, 실행 대기 (2026-07-11).** 이 문서는 실행 담당 AI를 위한 완결 사양서다.
+**상태: Phase 1·2 SHIPPED (2026-07-11), Phase 3 보류.** 원우 지시로 직접 실행함.
+- **Phase 1 (SHIPPED)**: `home_v2_bundle_v3(p_seed)` 시드 로테이션(마이그 0071, 시간 시드 YYYYMMDDHH, md5 샘플, 결정론 검증·1.2s) + 전 영화 카드 `Tm {U}` TakeScore 칩(`FilmCard.tsx`/`helpers.tsQuadrant`) + 상단우측 Ask AI 제거(`Nav.tsx`). `app/page.tsx`가 v3로 스위치(롤백=RPC명 1줄). 라이브 검증: 홈 108/108 카드 칩·랭크 미표기·시드 로테이션 동작.
+- **Phase 2 (SHIPPED)**: "Today at Metatake" 밴드(`home_daily_exhibits`, 마이그 0072, 일 시드) 6타일(film·reversal·question·place·misreading·counterpoint, LLM-0, 각 md5 1픽·misreading은 'mis' 솔트로 film과 decorrelate, 0.6s) + `TodayExhibits.tsx` + `HomeV2` 2d 삽입 + `.hx-*` CSS. NowPlaying 아래 배치. 라이브: 6타일 렌더 확인.
+- **Phase 3 (보류, 저가치 폴리시)**: §8 방문별 클라 오프셋(useVisitOffset) + §9 Surprise 첫방문 어포던스(pulse+마이크로카피). 원우 요청 시 착수.
+- ⚠️ 검증 중 발견(무해): 홈 히어로 `SurpriseStage`는 14s마다 콘텐츠만 auto-draw(내비 아님), 클릭 시에만 이동. MCP 탭에서 스크린샷이 히어로를 잘못 클릭해 탭이 이탈하는 아티팩트 있음(실사용자 무관).
+
+이 문서는 실행 담당 AI를 위한 완결 사양서다.
 여기 적힌 결정은 오너(원우)가 확정한 것이므로 재논의 없이 그대로 구현한다. 모호한 지점이
 남으면 §12의 기본값을 따른다. 코드 사실관계(파일·라인·RPC·컬럼)는 2026-07-11에 라이브
 코드/DB에서 직접 검증했다.
