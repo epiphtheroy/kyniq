@@ -14,6 +14,7 @@ import ReadingLedger from "@/components/read/ReadingLedger";
 import EntityMap from "@/components/EntityMap";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import Byline from "@/components/Byline";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import Provenance from "@/components/Provenance";
 import GrowStill from "@/components/read/GrowStill";
 import { Card, SectionHead } from "@/components/curious/ui";
@@ -212,6 +213,73 @@ export default async function TheoristPage({ params }: Props) {
   }));
 
   const growFilm = F.topFilms.find((f) => f.backdrop && f.n >= 1) ?? null;
+
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 + §5.6) ─────────────────
+  // Search-phrased Q&A from fields already in scope, mounted above the "lens,
+  // spelled out" bullets (distinct framing). Names, years and frameworks are
+  // verbatim. Variants (§0.6): "thinker" ×1, "theory" ×1 (each ≤2).
+  const theoristQA: QuickAnswerItem[] = [];
+  const bio = wd?.description ?? blurb ?? null;
+  if (bio) {
+    const bioCap = (bio.charAt(0).toUpperCase() + bio.slice(1)).trim();
+    const bioSentence = /[.!?]$/.test(bioCap) ? bioCap : `${bioCap}.`;
+    theoristQA.push({
+      q: `Who is ${name}?`,
+      a: (
+        <>
+          {bioSentence}
+          {wd?.birth ? ` ${name} was born in ${wd.birth}${wd.death ? ` and died in ${wd.death}` : ""}.` : ""}
+        </>
+      ),
+    });
+  }
+  if (readings.length > 0 && F.topFilms.length > 0) {
+    const show = F.topFilms.slice(0, 4);
+    const more = F.filmArr.length - show.length;
+    theoristQA.push({
+      q: `Which films are read through ${name}?`,
+      a: (
+        <>
+          {show.map((f, i) => (
+            <span key={f.slug}>
+              {i > 0 ? (i === show.length - 1 ? " and " : ", ") : ""}
+              <Link href={`/film/${f.slug}`}>{f.title}</Link>{f.year ? ` (${f.year})` : ""}
+            </span>
+          ))}
+          {more > 0 ? `, and ${more} more` : ""} — {F.filmArr.length} film{F.filmArr.length === 1 ? "" : "s"} in all.
+        </>
+      ),
+    });
+  }
+  if (concepts.length > 0) {
+    const shown = Math.min(6, concepts.length);
+    theoristQA.push({
+      q: `What concepts is ${name} known for?`,
+      a: (
+        <>
+          {name} is the thinker behind{" "}
+          {concepts.slice(0, 6).map((c, i) => (
+            <span key={c.slug}>
+              {i > 0 ? (i === shown - 1 ? " and " : ", ") : ""}
+              <Link href={`/concept/${c.slug}`}>{c.name}</Link>
+            </span>
+          ))}
+          {concepts.length > 6 ? `, and ${concepts.length - 6} more` : ""}.
+        </>
+      ),
+    });
+  }
+  if (F.fwTop.length > 0) {
+    theoristQA.push({
+      q: `What kind of theory is ${name} associated with?`,
+      a: (
+        <>
+          The readings that borrow {name}&apos;s lens lean most on <b>{F.fwTop[0][0]}</b>
+          {F.fwTop[1] ? <>, ahead of {F.fwTop[1][0]}</> : null}.
+        </>
+      ),
+    });
+  }
 
   const canonical = `${SITE}/theorist/${slug}`;
   const jsonLd = [
