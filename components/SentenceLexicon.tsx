@@ -14,6 +14,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+// type "sample" = view-flavored catalog sampler (key = comma-joined pattern list)
 export type LexEnt = { type: string; key: string; key2?: string | null; label: string };
 
 type Row = {
@@ -39,6 +40,7 @@ const TAG: Record<string, string> = {
 
 function pageHref(e: LexEnt): string | null {
   switch (e.type) {
+    case "sample": return null;
     case "film": return `/film/${e.key}`;
     case "director": return `/director/${e.key}`;
     case "theorist": return `/theorist/${e.key}`;
@@ -83,8 +85,10 @@ export default function SentenceLexicon({ root, height = 460 }: { root: LexEnt; 
   useEffect(() => {
     let alive = true;
     setPool(null);
-    const q = `type=${encodeURIComponent(cur.type)}&key=${encodeURIComponent(cur.key)}${cur.key2 ? `&key2=${encodeURIComponent(cur.key2)}` : ""}&limit=18`;
-    fetch(`/api/sentences/entity?${q}`)
+    const url = cur.type === "sample"
+      ? `/api/sentences/sample?patterns=${encodeURIComponent(cur.key)}&n=18`
+      : `/api/sentences/entity?type=${encodeURIComponent(cur.type)}&key=${encodeURIComponent(cur.key)}${cur.key2 ? `&key2=${encodeURIComponent(cur.key2)}` : ""}&limit=18`;
+    fetch(url)
       .then((r) => r.json())
       .then((j) => {
         if (!alive) return;
