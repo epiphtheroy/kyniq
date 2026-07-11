@@ -2,9 +2,8 @@
 
 import { type SyntheticEvent } from "react";
 import Link from "next/link";
-import CardDeck from "@/components/CardDeck";
 import Catalogue, { type CatMode } from "@/components/Catalogue";
-import EntityFinder from "@/components/EntityFinder";
+import IndexExplorer from "@/components/indexes/IndexExplorer";
 import { foldDiacritics } from "@/lib/slug";
 
 type DirSig = { t: string; slug: string; n: number; fig: string };
@@ -15,9 +14,10 @@ export type DirFeat = {
   tropesList: DirSig[];
   filmography: { t: string; y: number | null; s: string }[];
 };
-export type DirCat = { slug: string; name: string; country: string | null; films: number; sig: string | null };
+export type DirCat = { slug: string; name: string; country: string | null; films: number; sig: string | null; photo: string | null };
 
 const PHOTO = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w185${p}` : null);
+const THUMB = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w92${p}` : null);
 const BACKDROP = (p: string | null) => (p ? `https://image.tmdb.org/t/p/w500${p}` : null);
 
 function firstLetter(s: string) { const c = foldDiacritics(s || "").charAt(0).toUpperCase(); return c >= "A" && c <= "Z" ? c : "#"; }
