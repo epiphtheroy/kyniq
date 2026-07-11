@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import MetatakeTV from "@/components/MetatakeTV";
+import VideoMiniDock from "@/components/VideoMiniDock";
 import type { SurpriseCard } from "@/components/home2/SurpriseStage";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -29,7 +30,9 @@ export default function TVChannel() {
           <a className="tvpg-full" href="/tv/full">Full-screen ↗</a>
         </header>
 
-        <div className="tv-stage"><MetatakeTV embed onCard={setCard} /></div>
+        <VideoMiniDock mini={460}>
+          <div className="tv-stage"><MetatakeTV embed onCard={setCard} /></div>
+        </VideoMiniDock>
 
         <TVDossier card={card} />
       </div>

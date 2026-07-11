@@ -12,6 +12,7 @@
 // a single youtube-nocookie iframe with a chained playlist (no YT API).
 import { useEffect, useRef, useState } from "react";
 import TVProgramPlayer, { type TVEntry } from "./TVProgramPlayer";
+import VideoMiniDock from "./VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -69,13 +70,18 @@ export default function EntityTVHero({ program, playlist, reelSlugs, label, list
     return () => { on = false; };
   }, [entries, reelSlugs]);
 
+  // Scroll-follow: banner heroes shrink into a bottom-right mini player (the
+  // broadcast text scales with them). Inline slot heroes stay put — their
+  // absolute-fill geometry doesn't survive re-anchoring.
+  const dock = (node: React.ReactElement) => (inline ? node : <VideoMiniDock>{node}</VideoMiniDock>);
+
   // 1 · broadcast playlist
   if (entries && entries.length) {
-    return (
+    return dock(
       <section className={shell} aria-label={`${label} — video`}>
         <TVProgramPlayer entries={entries} entryIdx={idx} onEntryEnd={() => setIdx((i) => (entries.length ? (i + 1) % entries.length : 0))} />
         {listHref ? <a className="ehero-more" href={listHref}>Watch as a list ↗</a> : null}
-      </section>
+      </section>,
     );
   }
 
@@ -83,14 +89,14 @@ export default function EntityTVHero({ program, playlist, reelSlugs, label, list
   if (entries === null && reelIds !== null) {
     if (!reelIds.length) return null; // no broadcast and no trailers → no hero
     const src = `https://www.youtube-nocookie.com/embed/${reelIds[0]}?autoplay=1&mute=1&controls=1&loop=1&playlist=${reelIds.join(",")}&start=7&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`;
-    return (
+    return dock(
       <section className={shell} aria-label={`${label} — trailers`}>
         <iframe ref={iframeRef} className="ivd-yt" src={src} title={`${label} trailers`} allow="autoplay; encrypted-media; picture-in-picture" />
         <button type="button" className="ehero-mute" aria-label={muted ? "Unmute" : "Mute"}
           onClick={() => { iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ event: "command", func: muted ? "unMute" : "mute", args: [] }), "*"); setMuted((m) => !m); }}>
           {muted ? "🔇" : "🔊"}
         </button>
-      </section>
+      </section>,
     );
   }
 

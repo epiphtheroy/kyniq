@@ -9,6 +9,7 @@ import { useCallback, useMemo, useState } from "react";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
 import TVDirectory from "@/components/TVDirectory";
+import VideoMiniDock from "@/components/VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -46,11 +47,13 @@ export default function TVListView({ playlist, entries }: { playlist: PlaylistMe
 
         <div className="tvw-main">
           <div className="tvw-left">
-            <div className="tvw-player">
-              {entries.length
-                ? <TVProgramPlayer entries={entries} entryIdx={entryIdx} onEntryEnd={advance} onNow={setNowSeg} />
-                : <div className="tvw-tuning">Tuning in…</div>}
-            </div>
+            <VideoMiniDock>
+              <div className="tvw-player">
+                {entries.length
+                  ? <TVProgramPlayer entries={entries} entryIdx={entryIdx} onEntryEnd={advance} onNow={setNowSeg} />
+                  : <div className="tvw-tuning">Tuning in…</div>}
+              </div>
+            </VideoMiniDock>
 
             {entry ? (
               <div className="tvw-meta">

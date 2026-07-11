@@ -7,6 +7,7 @@ import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVPr
 import TVDirectory from "@/components/TVDirectory";
 import TVListPicker from "@/components/TVListPicker";
 import SaveButton from "@/components/SaveButton";
+import VideoMiniDock from "@/components/VideoMiniDock";
 import { deleteList, fetchMyLists, renameList, type TVUserList } from "@/lib/tvUserLists";
 
 const IMG = "https://image.tmdb.org/t/p";
@@ -213,11 +214,13 @@ function Watch({ seed }: { seed: TVSeed }) {
 
         <div className="tvw-main">
           <div className="tvw-left">
-            <div className="tvw-player">
-              {ordered.length ? (
-                <TVProgramPlayer entries={ordered} entryIdx={pos} onEntryEnd={advance} onNow={setNowSeg} />
-              ) : <div className="tvw-tuning">Tuning in…</div>}
-            </div>
+            <VideoMiniDock>
+              <div className="tvw-player">
+                {ordered.length ? (
+                  <TVProgramPlayer entries={ordered} entryIdx={pos} onEntryEnd={advance} onNow={setNowSeg} />
+                ) : <div className="tvw-tuning">Tuning in…</div>}
+              </div>
+            </VideoMiniDock>
 
             {entry ? (
               <div className="tvw-meta">

@@ -8,6 +8,7 @@
 import { useState } from "react";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
+import VideoMiniDock from "@/components/VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -35,9 +36,11 @@ export default function TVSingle({ entry, more }: { entry: TVEntry; more: MoreIt
 
         <div className="tvw-main">
           <div className="tvw-left">
-            <div className="tvw-player">
-              <TVProgramPlayer key={nonce} entries={[entry]} entryIdx={0} onEntryEnd={() => setNonce((n) => n + 1)} onNow={setNowSeg} />
-            </div>
+            <VideoMiniDock>
+              <div className="tvw-player">
+                <TVProgramPlayer key={nonce} entries={[entry]} entryIdx={0} onEntryEnd={() => setNonce((n) => n + 1)} onNow={setNowSeg} />
+              </div>
+            </VideoMiniDock>
 
             <div className="tvw-meta">
               <h1 className="tvw-title">{entry.title}</h1>

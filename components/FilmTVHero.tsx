@@ -6,10 +6,10 @@
 // backdrop with an on-air ribbon (no double YouTube load); if the program has
 // vanished it falls back to the trailer reel. The full broadcast lives at
 // /tv/[slug] — this is the same program embedded.
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import FilmHeroReel from "./FilmHeroReel";
-import FloatingTrailerDock from "./FloatingTrailerDock";
 import TVProgramPlayer, { type TVEntry } from "./TVProgramPlayer";
+import VideoMiniDock from "./VideoMiniDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -21,7 +21,6 @@ export default function FilmTVHero({ slug, videos, poster, backdrop }: {
 }) {
   const [entry, setEntry] = useState<TVEntry | null | undefined>(undefined); // undefined = loading
   const [nonce, setNonce] = useState(0);
-  const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let on = true;
@@ -33,15 +32,14 @@ export default function FilmTVHero({ slug, videos, poster, backdrop }: {
   }, [slug]);
 
   if (entry) {
+    // scroll-follow: the broadcast ITSELF shrinks into a bottom-right mini
+    // player (text scales with it) — replaces the old plain-trailer dock
     return (
-      <>
-        <div className="df-tvhero" ref={boxRef}>
+      <VideoMiniDock>
+        <div className="df-tvhero">
           <TVProgramPlayer key={nonce} entries={[entry]} entryIdx={0} onEntryEnd={() => setNonce((n) => n + 1)} />
         </div>
-        {/* scroll-follow dock: the PLAIN trailer reel (old hero video, no overlay)
-            floats bottom-left once the broadcast hero scrolls out of view */}
-        <FloatingTrailerDock videos={videos} watch={boxRef} poster={poster} />
-      </>
+      </VideoMiniDock>
     );
   }
 
