@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { DESKS, DESK_KEYS, mdToPlain } from "@/lib/desks";
-import { cachedAtlasEligibility } from "@/lib/atlas";
+import { cachedLocationsEligibility } from "@/lib/locations";
 import { Card, SectionHead } from "@/components/curious/ui";
 
 /**
@@ -97,10 +97,10 @@ export default async function ReadPlates({
   // On Location — only when the film clears the atlas gate (no 404 links).
   if (exclude !== "locations") {
     try {
-      const elig = await cachedAtlasEligibility();
+      const elig = await cachedLocationsEligibility();
       const loc = elig.films.find((f) => f.slug === film.slug);
       if (loc) {
-        plates.push({ key: "locations", href: `/film/atlas/${film.slug}`, tag: "On Location", title: `Where was ${film.title} filmed? ${loc.n} real places, mapped` });
+        plates.push({ key: "locations", href: `/film/locations/${film.slug}`, tag: "On Location", title: `Where was ${film.title} filmed? ${loc.n} real places, mapped` });
       }
     } catch { /* plate is optional */ }
   }

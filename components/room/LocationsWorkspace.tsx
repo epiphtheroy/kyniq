@@ -1,5 +1,5 @@
 "use client";
-/** Atlas — /room/atlas (v3: a real map).
+/** Atlas — /room/locations (v3: a real map).
  *  A personal world map of where the user's SEEN films are set / were filmed,
  *  + per-country coverage + geographic blind spots (continents with 0 seen films).
  *
@@ -408,7 +408,7 @@ function BlindInsp({ cont, countries, natByIso }: {
 }
 
 /* ═══════════ main ═══════════ */
-export default function AtlasWorkspace({ data, countryRef, nationalLineages }: {
+export default function LocationsWorkspace({ data, countryRef, nationalLineages }: {
   data: GeoData; countryRef: CountryRefRow[]; nationalLineages: NatLineage[];
 }) {
   const insp = useInspector();
@@ -545,7 +545,7 @@ export default function AtlasWorkspace({ data, countryRef, nationalLineages }: {
   useEffect(() => {
     setDefault(
       <div>
-        <ICard icon="ti-world" title="Atlas — summary">
+        <ICard icon="ti-world" title="Locations — summary">
           <KV k="Films on the map" v={locatedFilms} />
           <KV k="Seen films" v={totalWatched} />
           <KV k="Countries" v={countryCount} />
@@ -573,7 +573,7 @@ export default function AtlasWorkspace({ data, countryRef, nationalLineages }: {
 
   return (
     <div className="mainpad">
-      <h1 className="secttl">Atlas</h1>
+      <h1 className="secttl">Locations</h1>
       <p className="secsub">
         Your seen films on a world map — where they are <span className="gloss" title="Filmed = actual shooting location · Setting = where the narrative takes place">set and shot</span>,
         the countries you&apos;ve covered, and the <span className="gloss" title="Blind = a continent no seen film touches (a true blank on the map)">blind continents</span> you haven&apos;t.
@@ -582,7 +582,7 @@ export default function AtlasWorkspace({ data, countryRef, nationalLineages }: {
 
       {empty ? (
         <div className="mod"><div className="modbody">
-          <div className="emptyins" style={{ padding: "32px 12px 16px" }}>{STR.empty.atlas}</div>
+          <div className="emptyins" style={{ padding: "32px 12px 16px" }}>{STR.empty.locations}</div>
           <ActBar acts={[
             { label: STR.forming.defaultCta, href: "/room/ledger" },
             { label: STR.forming.importCta, href: "/me/import" },

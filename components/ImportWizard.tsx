@@ -217,7 +217,7 @@ export default function ImportWizard() {
         <div className="iw-benefit" style={{ marginTop: 18 }}>
           <h3>What just changed</h3>
           <ul>
-            <li><span className="b">◑</span><span>Every film you&apos;ve seen now carries a <b>red border</b> across the whole site — posters, the galaxy, the atlas.</span></li>
+            <li><span className="b">◑</span><span>Every film you&apos;ve seen now carries a <b>red border</b> across the whole site — posters, the galaxy, the locations.</span></li>
             <li><span className="b">✦</span><span><b>My Room</b> is now unlocked in your navigation — your personal workspace for rating, writing, and organizing.</span></li>
             <li><span className="b">◎</span><span>Recommendations and lists re-center on <b>your</b> history instead of the global map.</span></li>
           </ul>
@@ -318,7 +318,7 @@ export default function ImportWizard() {
         <ul>
           <li><span className="b">◑</span><span>Every film you&apos;ve seen gets a <b>red border</b> everywhere on the site, so you always know what&apos;s new to you.</span></li>
           <li><span className="b">✦</span><span>Unlocks <b>My Room</b> in your navigation — a private workspace to rate, write, and organize what you&apos;ve watched.</span></li>
-          <li><span className="b">◎</span><span>The whole map — recommendations, galaxy, atlas, lists — <b>re-centers on your taste</b>.</span></li>
+          <li><span className="b">◎</span><span>Everything — recommendations, galaxy, locations, lists — <b>re-centers on your taste</b>.</span></li>
         </ul>
       </div>
 

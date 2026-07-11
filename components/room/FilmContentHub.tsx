@@ -77,7 +77,7 @@ export default function FilmContentHub({ slug }: { slug: string }) {
 
       {loc.length ? (
         <div className="fh-sec">
-          <div className="fh-lbl"><i className="ti ti-map-pin" /> Filming locations · Atlas <span className="fh-dim">{d.loc_count}</span></div>
+          <div className="fh-lbl"><i className="ti ti-map-pin" /> Filming locations <span className="fh-dim">{d.loc_count}</span></div>
           {loc.slice(0, 3).map((l, i) => (
             <div className="fh-loc" key={i}>
               <span className={`fh-locdot ${l.layer === "filmed" ? "filmed" : "setting"}`} />

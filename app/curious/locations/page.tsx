@@ -3,14 +3,14 @@ import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHead } from "@/components/curious/ui";
-import { cachedAtlasEligibility, countryPhrase } from "@/lib/atlas";
+import { cachedLocationsEligibility, countryPhrase } from "@/lib/locations";
 
 /**
  * On Location — the Curious-side index of the filming-location articles
- * (/film/atlas/[slug], 2026-07-08). Every film that clears the atlas gate
+ * (/film/locations/[slug], 2026-07-08). Every film that clears the atlas gate
  * (≥3 merged locations) gets a fact-checked, geocoded, source-cited article;
  * this page is the crawlable A–Z bridge plus the country shortcuts. The map
- * itself lives on /atlas (the play layer).
+ * itself lives on /locations (the play layer).
  */
 export const revalidate = 3600;
 
@@ -29,7 +29,7 @@ type Row = { slug: string; title: string; year: number | null; n: number };
 
 const loadIndex = unstable_cache(
   async (): Promise<{ rows: Row[]; countries: { name: string; slug: string; pins: number; films: number }[] }> => {
-    const elig = await cachedAtlasEligibility();
+    const elig = await cachedLocationsEligibility();
     const bySlug = new Map(elig.films.map((f) => [f.slug, f.n]));
     const supabase = db();
     const rows: Row[] = [];
@@ -65,17 +65,17 @@ export default async function CuriousLocationsIndex() {
           Where the films were really shot — {rows.length.toLocaleString()} films,{" "}
           {totalPins.toLocaleString()} places, every one researched from cited sources, geocoded and mapped.
           Built sets are flagged as sets; the world a story claims is kept separate from where the cameras
-          stood. <Link href="/methodology#atlas">How we research locations →</Link>
+          stood. <Link href="/methodology#locations">How we research locations →</Link>
         </p>
       </header>
 
       <section>
-        <SectionHead title="By country" count={`${countries.length} of 73 hubs`} moreHref="/atlas" moreLabel="The Atlas" />
+        <SectionHead title="By country" count={`${countries.length} of 73 hubs`} moreHref="/locations" moreLabel="Locations" />
         <p style={{ margin: "12px 0 0", fontSize: 14, lineHeight: 1.9 }}>
           {countries.map((c, i) => (
             <span key={c.slug}>
               {i > 0 ? " · " : ""}
-              <Link href={`/atlas/${c.slug}`} style={{ color: "var(--cur-accent-soft)" }}>
+              <Link href={`/locations/${c.slug}`} style={{ color: "var(--cur-accent-soft)" }}>
                 {countryPhrase(c.name)}
               </Link>
               <span style={{ color: "#8f8d8e", fontSize: 12 }}> {c.films}</span>
@@ -89,7 +89,7 @@ export default async function CuriousLocationsIndex() {
         <div className="cur-qindex" style={{ columns: 3 }}>
           {rows.map((f) => (
             <div className="cur-qindex__film" key={f.slug} style={{ marginBottom: 10 }}>
-              <Link href={`/film/atlas/${f.slug}`}>
+              <Link href={`/film/locations/${f.slug}`}>
                 {f.title}
                 {f.year ? <span className="yr">({f.year})</span> : null}
                 <span className="yr">· {f.n} places</span>

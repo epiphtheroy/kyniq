@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import FilmMap from "@/components/FilmMap";
 import { useVideoDock } from "@/components/VideoMiniDock";
 
@@ -210,17 +210,17 @@ export default function TVProgramPlayer({
           ))}
         </div>
       ) : beat && beat.zone === "map" && beat.mapApi ? (
-        <div key={`map-${entryIdx}-${pos}`} className="sv2-map">
+        <div key={`map-${entryIdx}-${pos}`} className="sv2-network">
           <div className="sv2-map__h">
             <span className="sv2-kick sv2-kick--sub">{seg?.kicker ?? "The map"}</span>
-            <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
+            <a href={beat.mapFull ?? "/network"}>Explore ↗</a>
           </div>
-          <EntityMap api={beat.mapApi} full={beat.mapFull ?? "/map"} height={190} />
+          <EntityNetwork api={beat.mapApi} full={beat.mapFull ?? "/network"} height={190} />
         </div>
       ) : beat && beat.zone === "atlas" && film?.slug ? (
-        <div key={`atlas-${entryIdx}-${pos}`} className="sv2-atlas">
+        <div key={`atlas-${entryIdx}-${pos}`} className="sv2-locations">
           <div className="sv2-map__h">
-            <span className="sv2-kick sv2-kick--sub">On the atlas</span>
+            <span className="sv2-kick sv2-kick--sub">Locations</span>
             <a href={`/film/${film.slug}#df-atlas`}>Open ↗</a>
           </div>
           <FilmMap endpoint={`/api/geo?film=${film.slug}`} filmSlug={film.slug} height={160} panelSide="left" fitMaxZoom={14} />

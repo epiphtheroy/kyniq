@@ -5,7 +5,7 @@ import atlasCitiesJson from "@/lib/atlas_cities.json";
 /**
  * Atlas read layer — shared data helpers (docs/PLAN-atlas-seo.md).
  * The map embeds stay on /api/geo; these helpers feed the SERVER-rendered
- * location pages (/film/x/locations, /director/x/locations, /atlas/[country])
+ * location pages (/film/x/locations, /director/x/locations, /locations/[country])
  * and the sitemap. All list-shaped answers come from jsonb-aggregating RPCs so
  * PostgREST's 1,000-row response cap can never truncate them.
  */
@@ -37,7 +37,7 @@ export type GeoPin = {
   director_slug?: string | null;
 };
 
-export type AtlasCountry = {
+export type LocationCountry = {
   country: string;
   pins: number;
   films: {
@@ -49,7 +49,7 @@ export type AtlasCountry = {
   landmarks: { name: string; films: number; note: string | null }[];
 };
 
-export type AtlasEligibility = {
+export type LocationsEligibility = {
   films: { slug: string; n: number }[];
   directors: { slug: string; films: number; n: number }[];
   countries: { name: string; slug: string; pins: number; films: number }[];
@@ -195,38 +195,38 @@ export async function loadDirectorGeo(slug: string): Promise<GeoPin[]> {
   return Array.isArray(data) ? (data as GeoPin[]) : [];
 }
 
-export async function loadAtlasCountry(slug: string): Promise<AtlasCountry | null> {
+export async function loadLocationsCountry(slug: string): Promise<LocationCountry | null> {
   const { data } = await db().rpc("atlas_country_json", { p_slug: slug });
-  const c = data as AtlasCountry | null;
+  const c = data as LocationCountry | null;
   return c && c.country ? c : null;
 }
 
-export async function loadAtlasEligibility(): Promise<AtlasEligibility> {
+export async function loadLocationsEligibility(): Promise<LocationsEligibility> {
   const { data } = await db().rpc("atlas_eligibility_json");
-  const d = (data ?? {}) as Partial<AtlasEligibility>;
+  const d = (data ?? {}) as Partial<LocationsEligibility>;
   return { films: d.films ?? [], directors: d.directors ?? [], countries: d.countries ?? [] };
 }
 
 /** Eligibility roster, shared through the Data Cache — every locations page
  * needs it to avoid linking to a gated (404) sibling, so it must not cost one
  * RPC per page render. */
-export function cachedAtlasEligibility(): Promise<AtlasEligibility> {
-  return unstable_cache(loadAtlasEligibility, ["atlas-eligibility"], { revalidate: 3600 })();
+export function cachedLocationsEligibility(): Promise<LocationsEligibility> {
+  return unstable_cache(loadLocationsEligibility, ["locations-eligibility"], { revalidate: 3600 })();
 }
 
-export type AtlasMeta = { updated: string; pins: number; films: number };
+export type LocationsMeta = { updated: string; pins: number; films: number };
 
 /** Dataset-level facts: the TRUE last-updated date (max created_at of the
  * location rows) and corpus size. Pages print this instead of the render
  * date — a date that changes every regeneration reads as fake freshness. */
-export function cachedAtlasMeta(): Promise<AtlasMeta> {
+export function cachedLocationsMeta(): Promise<LocationsMeta> {
   return unstable_cache(
     async () => {
       const { data } = await db().rpc("atlas_meta_json");
-      const m = (data ?? {}) as Partial<AtlasMeta>;
+      const m = (data ?? {}) as Partial<LocationsMeta>;
       return { updated: m.updated ?? "", pins: m.pins ?? 0, films: m.films ?? 0 };
     },
-    ["atlas-meta"],
+    ["locations-meta"],
     { revalidate: 86400 },
   )();
 }
@@ -235,22 +235,22 @@ export function cachedAtlasMeta(): Promise<AtlasMeta> {
 // City / region hubs (Phase 3) — roster frozen in lib/atlas_cities.json
 // (rebuilt by worker/atlas-cities-build.py; ≥3 films + p90 ≤ 150 km gates).
 
-export type AtlasCity = {
+export type LocationCity = {
   slug: string; name: string; country: string; countrySlug: string;
   terms: string[]; lat: number; lng: number;
   films: number; pins: number; scale: "city" | "region";
 };
 
-export function allAtlasCities(): AtlasCity[] {
-  return (atlasCitiesJson as { cities: AtlasCity[] }).cities;
+export function allLocationCities(): LocationCity[] {
+  return (atlasCitiesJson as { cities: LocationCity[] }).cities;
 }
 
-export function citiesForCountry(countrySlugValue: string): AtlasCity[] {
-  return allAtlasCities().filter((c) => c.countrySlug === countrySlugValue);
+export function citiesForCountry(countrySlugValue: string): LocationCity[] {
+  return allLocationCities().filter((c) => c.countrySlug === countrySlugValue);
 }
 
-export function findAtlasCity(countrySlugValue: string, citySlug: string): AtlasCity | null {
-  return allAtlasCities().find((c) => c.countrySlug === countrySlugValue && c.slug === citySlug) ?? null;
+export function findLocationCity(countrySlugValue: string, citySlug: string): LocationCity | null {
+  return allLocationCities().find((c) => c.countrySlug === countrySlugValue && c.slug === citySlug) ?? null;
 }
 
 // MUST STAY IN SYNC with the SQL in atlas_city_candidates_json (same exclusions).
@@ -284,7 +284,7 @@ const CITY_MEMBER_KM = 250;
 
 /** Pins belonging to a city/region hub: same country, a matching locality
  * term, and within ~250 km of the roster centroid. */
-export function cityMemberPins<T extends GeoPin>(pins: T[], city: AtlasCity): T[] {
+export function cityMemberPins<T extends GeoPin>(pins: T[], city: LocationCity): T[] {
   const terms = new Set(city.terms);
   return pins.filter((p) => {
     if ((p.country ?? "") !== city.country) return false;

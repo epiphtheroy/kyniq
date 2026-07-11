@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 15;
 
 // GET /api/sentences/sample?patterns=A_affinity,B_bridge&n=18
-// View-flavored catalog sampler for the /map lexicon rail (hour-seeded,
+// View-flavored catalog sampler for the /network lexicon rail (hour-seeded,
 // deterministic within the hour → the s-maxage below matches the seed).
 export async function GET(req: Request) {
   const u = new URL(req.url);

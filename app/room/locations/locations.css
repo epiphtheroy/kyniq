@@ -1,4 +1,4 @@
-/* Atlas — /room/atlas (v3) page CSS.
+/* Atlas — /room/locations (v3) page CSS.
    Low-poly world land (static inline SVG paths from lib/room/world_paths.ts) +
    measured film dots + per-country coverage + geographic blind spots.
    FULLY SCOPED under .room-root so it never leaks. Reuses shared room.css tokens

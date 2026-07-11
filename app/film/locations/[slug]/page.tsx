@@ -15,8 +15,8 @@ import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 import {
   FILM_LOCATIONS_MIN,
-  cachedAtlasEligibility,
-  cachedAtlasMeta,
+  cachedLocationsEligibility,
+  cachedLocationsMeta,
   citiesForCountry,
   cityMemberPins,
   countryListPhrase,
@@ -28,12 +28,12 @@ import {
   mergePins,
   pinCountries,
   precisionRank,
-  type AtlasCity,
+  type LocationCity,
   type GeoPin,
-} from "@/lib/atlas";
+} from "@/lib/locations";
 
 /**
- * /film/atlas/[slug] — the Atlas READ layer for one film
+ * /film/locations/[slug] — the Atlas READ layer for one film
  * (docs/PLAN-atlas-seo.md Phase 1). The film page's Atlas tab stays the play
  * layer; this page is what search engines, AI assistants and cold visitors
  * get: where the film was actually shot, place by place, with the scene each
@@ -70,7 +70,7 @@ async function loadUncached(slug: string) {
   if (mergeCells(raw).length < FILM_LOCATIONS_MIN) return null;
   const pins = mergePins(raw);
   // Only link to sibling pages that clear their own gates (no 404 links).
-  const elig = await cachedAtlasEligibility();
+  const elig = await cachedLocationsEligibility();
   const f = film as FilmRow;
   const directorHasLocations = !!f.director_slug && elig.directors.some((d) => d.slug === f.director_slug);
   const hubCountrySlugs = new Set(elig.countries.map((c) => c.slug));
@@ -119,11 +119,11 @@ function sortPins(pins: GeoPin[]): GeoPin[] {
 // ── City-first "where" phrase (docs/PLAN-intent-coverage.md §5.1) ──────────
 // GeoPin has no city field, so the dominant shooting city is derived from the
 // frozen roster (lib/atlas_cities.json) with the SAME membership matcher the
-// /atlas/[country]/[city] hubs use — locality-term + proximity via
+// /locations/[country]/[city] hubs use — locality-term + proximity via
 // cityMemberPins(). A city is therefore only ever named when the roster
 // already owns it (never invented from pin-name text).
-function cityMatches(filmed: GeoPin[]): { city: AtlasCity; ids: Set<string> }[] {
-  const out: { city: AtlasCity; ids: Set<string> }[] = [];
+function cityMatches(filmed: GeoPin[]): { city: LocationCity; ids: Set<string> }[] {
+  const out: { city: LocationCity; ids: Set<string> }[] = [];
   for (const c of pinCountries(filmed)) {
     for (const city of citiesForCountry(countrySlug(c.name))) {
       const ids = new Set(cityMemberPins(filmed, city).map((p) => p.id));
@@ -152,7 +152,7 @@ function wherePhrase(filmed: GeoPin[]): string {
       ? `in and around ${top.city.name}, ${countryPhrase(top.city.country)}`
       : `in and around ${top.city.name}`;
   }
-  let second: { city: AtlasCity; add: number } | null = null;
+  let second: { city: LocationCity; add: number } | null = null;
   for (const m of matches.slice(1)) {
     if (m.city.name === top.city.name) continue;
     let add = 0;
@@ -254,7 +254,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `/film/atlas/${slug}` },
+    alternates: { canonical: `/film/locations/${slug}` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
     robots: pageRobots(true), // load() already 404s below the gate
@@ -319,7 +319,7 @@ export default async function FilmLocationsPage({ params }: Props) {
   const countries = pinCountries(filmed);
   const groupByCountry = countries.length > 1;
   // The dataset's real last-change date — not the render date.
-  const updated = (await cachedAtlasMeta()).updated || new Date().toISOString().slice(0, 10);
+  const updated = (await cachedLocationsMeta()).updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(film, filmed, setting);
   const yearLabel = film.year ? ` (${film.year})` : "";
 
@@ -353,13 +353,13 @@ export default async function FilmLocationsPage({ params }: Props) {
       { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
       { "@type": "ListItem", position: 2, name: "Films", item: "https://metatake.net/film" },
       { "@type": "ListItem", position: 3, name: `${film.title}${yearLabel}`, item: `https://metatake.net/film/${film.slug}` },
-      { "@type": "ListItem", position: 4, name: "Filming locations", item: `https://metatake.net/film/atlas/${film.slug}` },
+      { "@type": "ListItem", position: 4, name: "Filming locations", item: `https://metatake.net/film/locations/${film.slug}` },
     ],
   };
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    url: `https://metatake.net/film/atlas/${film.slug}`,
+    url: `https://metatake.net/film/locations/${film.slug}`,
     name: `Where was ${film.title}${yearLabel} filmed?`,
     about: { "@type": "Movie", "@id": `https://metatake.net/film/${film.slug}`, name: film.title },
     author: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
@@ -438,9 +438,9 @@ export default async function FilmLocationsPage({ params }: Props) {
               <><br /><Link href={`/director/${film.director_slug}/locations`}>Where does {film.director} film? Every location across the filmography →</Link></>
             ) : null}
             {countries.filter((c) => hubCountries.has(countrySlug(c.name))).slice(0, 3).map((c) => (
-              <span key={c.name}><br /><Link href={`/atlas/${countrySlug(c.name)}`}>Movies filmed in {countryPhrase(c.name)} →</Link></span>
+              <span key={c.name}><br /><Link href={`/locations/${countrySlug(c.name)}`}>Movies filmed in {countryPhrase(c.name)} →</Link></span>
             ))}
-            <br /><Link href="/atlas">The Atlas of cinema — every country, one map →</Link>
+            <br /><Link href="/locations">The world map of cinema — every country, one map →</Link>
           </p>
         </section>
 
@@ -450,7 +450,7 @@ export default async function FilmLocationsPage({ params }: Props) {
             notes, interviews, local press — then geocoded and graded for precision (exact spot → venue → area →
             city). Built sets are flagged as sets, and the world the story <em>claims</em> is kept separate from
             where the cameras stood. Sources are cited per location where on file; the dataset is corrected on
-            an ongoing basis. <Link href="/methodology#atlas">Read the full methodology →</Link>
+            an ongoing basis. <Link href="/methodology#locations">Read the full methodology →</Link>
           </p>
         </aside>
         <Provenance created={updated} />

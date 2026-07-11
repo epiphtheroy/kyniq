@@ -18,7 +18,7 @@ export default function MyFilmsRibbon() {
       <div className="wrap mflrow">
         <span className="mflnew">New</span>
         <p className="mflp">
-          <b>My Films</b>{" — flip the whole site to the films you’ve seen: a red border on every poster you know, or the galaxy, atlas and lists re-centred on your own history."}
+          <b>My Films</b>{" — flip the whole site to the films you’ve seen: a red border on every poster you know, or the galaxy, locations and lists re-centred on your own history."}
           {hasLens ? (
             <span className="mflme">
               {" "}Your lens covers <b>{lens!.seenCount.toLocaleString()}</b> films

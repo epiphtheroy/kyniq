@@ -324,7 +324,7 @@
 .mthome .homemap .lexi-ents{margin-top:8px;gap:5px 12px}
 
 /* the Atlas band breathes away from the map band above it */
-.mthome .homeatlas-sec{padding-top:76px}
+.mthome .homelocations-sec{padding-top:76px}
 
 /* ── From the readings desk: newspaper front over the readings corpus ── */
 .mthome .rdx{display:grid;grid-template-columns:1.35fr 1fr;gap:30px;align-items:stretch}

@@ -9,7 +9,7 @@ import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
-import { cachedAtlasEligibility } from "@/lib/atlas";
+import { cachedLocationsEligibility } from "@/lib/locations";
 import {
   FILM_HONORS_MIN,
   cachedLineageMeta,
@@ -61,12 +61,12 @@ async function loadUncached(slug: string) {
   const lineage = ((rows ?? []) as FilmLineageRow[]);
   if (lineage.length < FILM_HONORS_MIN) return null;
   const listMeta = await loadLineageListMeta([...new Set(lineage.map((l) => l.list_slug))]);
-  const atlasElig = await cachedAtlasEligibility();
+  const locElig = await cachedLocationsEligibility();
   return {
     film: film as FilmRow,
     lineage,
     listMeta: Object.fromEntries(listMeta), // Data Cache can't serialize Maps
-    hasLocationsPage: atlasElig.films.some((f) => f.slug === slug),
+    hasLocationsPage: locElig.films.some((f) => f.slug === slug),
   };
 }
 
@@ -379,7 +379,7 @@ export default async function FilmHonorsPage({ params }: Props) {
           <p style={{ lineHeight: 1.9, margin: "6px 0 0" }}>
             <Link href={`/film/${film.slug}`}>{film.title} — the film page →</Link>
             {hasLocationsPage ? (
-              <><br /><Link href={`/film/atlas/${film.slug}`}>Where was {film.title} filmed? Every location, mapped →</Link></>
+              <><br /><Link href={`/film/locations/${film.slug}`}>Where was {film.title} filmed? Every location, mapped →</Link></>
             ) : null}
             {film.director_slug ? (
               <><br /><Link href={`/director/${film.director_slug}`}>{film.director} — the director hub →</Link></>

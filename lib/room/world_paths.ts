@@ -1,4 +1,4 @@
-/** Low-poly world land outline for /room/atlas — STATIC data, no runtime cost.
+/** Low-poly world land outline for /room/locations — STATIC data, no runtime cost.
  *
  *  Source: world-atlas land-110m (Natural Earth 1:110m, public domain), decoded
  *  from TopoJSON and baked into the Atlas equirectangular projection at build
@@ -6,11 +6,11 @@
  *
  *      x = (lng + 180) / 360 * 760      y = (90 - lat) / 180 * 380
  *
- *  These constants MUST match projX/projY in components/room/AtlasWorkspace.tsx
+ *  These constants MUST match projX/projY in components/room/LocationsWorkspace.tsx
  *  (viewBox 0 0 760 380) so film dots land on the right landmass.
  *
- *  BUNDLE ISOLATION: import this module ONLY from the /room/atlas route
- *  (AtlasWorkspace). No MapLibre, no external tiles, no other consumers.
+ *  BUNDLE ISOLATION: import this module ONLY from the /room/locations route
+ *  (LocationsWorkspace). No MapLibre, no external tiles, no other consumers.
  */
 
 export const WORLD_VIEW_W = 760;

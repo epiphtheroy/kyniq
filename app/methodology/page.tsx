@@ -35,7 +35,7 @@ export default async function MethodologyPage() {
     [s.concepts, "canonical concepts", `${nf(s.concept_links)} phrasing variants resolved onto them`],
     [s.kin_edges, "kinship connections", "film-to-film edges, each carrying its shared-trope evidence"],
     [s.counterpoints, "counterpoints", "pairs that share a trope but read it in opposite directions"],
-    [s.locations, "mapped locations", "geocoded shooting and setting places behind the Atlas"],
+    [s.locations, "mapped locations", "geocoded shooting and setting places behind the Locations layer"],
   ] : [];
   // Lineage counts live in their own layer (film_lineage) — same live-count rule.
   const lm = await cachedLineageMeta();
@@ -146,7 +146,7 @@ export default async function MethodologyPage() {
         can make: two films that stage the <em>same</em> trope, whose readings of it point in opposite directions.
         Similarity engines can find lookalikes; they can&apos;t find arguments. We keep the pair whose readings are
         farthest apart in meaning and show both takes side by side, so the disagreement is legible on the page. All of
-        it — kinship, counterpoints, the <Link href="/map" className="accent" style={{ textDecoration: "none" }}>map</Link>,
+        it — kinship, counterpoints, the <Link href="/network" className="accent" style={{ textDecoration: "none" }}>map</Link>,
         the galaxy view — reads from the same computed ledger, and none of it is hand-weighted.
         {s ? <> As of today that ledger holds <strong>{nf(s.kin_edges)} kinship edges</strong> and{" "}
         <strong>{nf(s.counterpoints)} counterpoints</strong> across {nf(s.films)} films, and it is rebuilt as the
@@ -180,10 +180,10 @@ export default async function MethodologyPage() {
 
       <hr className="rule" />
 
-      <div className="seclbl" id="atlas">The Atlas — location data</div>
+      <div className="seclbl" id="locations">Locations — location data</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        The <Link href="/atlas" className="accent" style={{ textDecoration: "none" }}>Atlas</Link> — the map layer
+        The <Link href="/locations" className="accent" style={{ textDecoration: "none" }}>Locations</Link> — the map layer
         behind &ldquo;where was this filmed?&rdquo; pages — is compiled, not scraped. Metatake Editorial researches
         each film&apos;s shooting places from public sources and production records, geolocates them, and files every
         pin with the scene it carries, a precision label (exact spot, venue, area, or city level), its source, and a

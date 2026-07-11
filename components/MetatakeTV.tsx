@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import FilmMap from "@/components/FilmMap";
 import type { SurpriseCard } from "@/components/home2/SurpriseStage";
 
@@ -314,17 +314,17 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
           ))}
         </div>
       ) : beat && beat.zone === "map" ? (
-        <div key={`map-${idx}`} className="sv2-map">
+        <div key={`map-${idx}`} className="sv2-network">
           <div className="sv2-map__h">
             <span className="sv2-kick sv2-kick--sub">{card?.label ?? "The map"}</span>
-            <a href={beat.mapFull ?? "/map"}>Explore ↗</a>
+            <a href={beat.mapFull ?? "/network"}>Explore ↗</a>
           </div>
-          <EntityMap api={beat.mapApi!} full={beat.mapFull ?? "/map"} height={190} />
+          <EntityNetwork api={beat.mapApi!} full={beat.mapFull ?? "/network"} height={190} />
         </div>
       ) : beat && beat.zone === "atlas" && card?.film_slug ? (
-        <div key={`atlas-${idx}`} className="sv2-atlas">
+        <div key={`atlas-${idx}`} className="sv2-locations">
           <div className="sv2-map__h">
-            <span className="sv2-kick sv2-kick--sub">On the atlas</span>
+            <span className="sv2-kick sv2-kick--sub">Locations</span>
             <a href={`/film/${card.film_slug}#df-atlas`}>Open ↗</a>
           </div>
           <FilmMap endpoint={`/api/geo?film=${card.film_slug}`} filmSlug={card.film_slug} height={160} panelSide="left" fitMaxZoom={14} />

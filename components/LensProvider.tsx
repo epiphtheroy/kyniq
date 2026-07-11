@@ -5,7 +5,7 @@
  *   off        — the public site, untouched.
  *   highlight  — films you've seen get an accent border everywhere; the rest stay normal.
  *   only       — the site re-centres on your films: unseen poster cards ghost out,
- *                the galaxy/panel/atlas filter down to what you've watched.
+ *                the galaxy/panel/locations filter down to what you've watched.
  *
  * Mechanism: one DOM engine. Every film link on the site is an <a href="/film/{slug}">
  * (bespoke canvases opt in via data-lens-film="{slug}"), so a single scanner marks
@@ -13,7 +13,7 @@
  * rest, gated on <html data-mtlens="...">. Server HTML stays fully cacheable — the
  * lens is a pure client overlay (see globals.css "My Films lens" block).
  *
- * Canvas surfaces (GalaxyMap, FilmMap) read useLens() directly.
+ * Canvas surfaces (GalaxyView, FilmMap) read useLens() directly.
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useUserFilms } from "@/components/UserFilmsProvider";

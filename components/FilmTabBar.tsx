@@ -28,7 +28,7 @@ const TAB_COLOR: Record<string, string> = {
   "df-lineage": "#C1802A", "df-atlas": "#2E7D9E", "df-reception": "#4E7088", "df-recby": "#B85C9E",
   "df-curious": "#C87A2C", "df-counterpoints": "#C56A44", "df-archetype": "#6B4E9E", "df-watchnext": "#2E8B6E",
   "df-whywatch": "#6E7BA6", "df-daily": "#8A6D3B", "df-codex": "#0F6E56", "df-watch": "#3F7E8C",
-  "df-crew": "#6B7280", "df-credits": "#6B7280", "df-map": "#5A6B86", "df-invitation": "#5A6B86",
+  "df-crew": "#6B7280", "df-credits": "#6B7280", "df-network": "#5A6B86", "df-invitation": "#5A6B86",
   "df-information": "#5A6B86", "df-gallery": "#6B7280", "df-digest": "#5A6B86",
 };
 const DEFAULT_TAB_COLOR = "#5A6B86";

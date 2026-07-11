@@ -21,8 +21,8 @@ import BlogGraph from "./BlogGraph";
 import NowPlaying from "./NowPlaying";
 import TodayExhibits from "./TodayExhibits";
 import HomeTVCredits from "./HomeTVCredits";
-import HomeMap from "./HomeMap";
-import HomeAtlas from "./HomeAtlas";
+import HomeNetwork from "./HomeNetwork";
+import HomeLocations from "./HomeLocations";
 import SixWays from "./SixWays";
 import SiteFooter from "./SiteFooter";
 
@@ -59,9 +59,9 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null, readin
       {/* 8 — Explore by lens (dark) */}
       <LensRail data={data} />
       {/* 8b — The living map of cinema + SentenceLexicon text grid (paper-2) */}
-      <HomeMap />
+      <HomeNetwork />
       {/* 8c — The geographic Atlas (satellite) */}
-      <HomeAtlas />
+      <HomeLocations />
       {/* 9 — Directors spotlight + cards (paper-2) */}
       <Directors data={data} />
       {/* 10 — Auteurs to explore (dark) */}

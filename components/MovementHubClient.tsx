@@ -120,7 +120,7 @@ export default function MovementHubClient({ d }: { d: MvDetail }) {
         <section id="mvh-map" className="mvh-sec">
           <h2 className="mvh-h2">On the map</h2>
           <p className="mvh-note">See where these films are set and shot.</p>
-          <Link className="mvh-maplink" href="/atlas">Open the Atlas →</Link>
+          <Link className="mvh-maplink" href="/locations">Open the map →</Link>
         </section>
       ) : null}
     </>

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 
 type Item = {
   title?: string; year?: number | null; director?: string | null; reason?: string;
@@ -126,7 +126,7 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
                 <span className="hs-chip">{card.label}</span>
                 <div className="hs-line">{card.subject}</div>
                 {card.intro ? <div className="hs-sub">{card.intro}</div> : null}
-                {card.mapApi ? <div className="hs-map"><EntityMap api={card.mapApi} full={card.mapFull ?? "/map"} height={300} /></div> : null}
+                {card.mapApi ? <div className="hs-map"><EntityNetwork api={card.mapApi} full={card.mapFull ?? "/network"} height={300} /></div> : null}
                 {card.href ? <a className="hs-open" href={card.href}>Open this ↗</a> : null}
               </>
             ) : card.mode === "misreading" ? (
@@ -246,7 +246,7 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
                     </li>
                   ))}
                 </ul>
-                {card.href ? <a className="hs-open" href={card.href}>See it on the atlas ↗</a> : null}
+                {card.href ? <a className="hs-open" href={card.href}>See it on the map ↗</a> : null}
               </>
             ) : card.mode === "question" ? (
               <>

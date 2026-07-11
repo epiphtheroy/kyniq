@@ -54,8 +54,8 @@ export function hrefOf(kind: SearchKind, slug: string, filmSlug?: string | null)
     case "lineage": return `/lineage/${slug}`;
     case "movement": return `/movements/${slug}`;
     case "archetype": return nodeHref(filmSlug ?? "", slug); // film_slug carries the taxonomy kind
-    case "country": return `/atlas/${slug}`;
-    case "city": return `/atlas/${filmSlug}/${slug}`; // film_slug carries the country slug
+    case "country": return `/locations/${slug}`;
+    case "city": return `/locations/${filmSlug}/${slug}`; // film_slug carries the country slug
     case "genre": return `/genre/${slug}`;
     case "tv": return `/tv/${slug}`;
     case "tv_list": return `/tv/list/${slug}`;
@@ -91,11 +91,11 @@ async function embedQuery(q: string, timeoutMs = 1200): Promise<number[] | null>
 
 /* ---------------------------------------------------------------- local leg */
 
-interface AtlasCity {
+interface LocationCity {
   slug: string; name: string; country: string; countrySlug: string;
   terms?: string[]; films?: number; pins?: number; scale?: string;
 }
-const CITIES: AtlasCity[] = (atlas as { cities: AtlasCity[] }).cities ?? [];
+const CITIES: LocationCity[] = (atlas as { cities: LocationCity[] }).cities ?? [];
 const COUNTRIES: { slug: string; name: string; films: number }[] = (() => {
   const m = new Map<string, { slug: string; name: string; films: number }>();
   for (const c of CITIES) {
@@ -138,7 +138,7 @@ function localHits(q: string): RpcRow[] {
     if (s > 0.6) {
       out.push({
         kind: "country", slug: c.slug, film_slug: null, title: c.name,
-        sub: `Atlas · ${c.films} filming locations`, poster: null, year: null,
+        sub: `Locations · ${c.films} filming locations`, poster: null, year: null,
         score: s, is_catalog: false,
       });
     }

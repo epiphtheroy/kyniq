@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import { fmtDay } from "@/lib/now";
 
 /**
@@ -102,7 +102,7 @@ export default async function DailyDigest({ params }: Props) {
                   {lead.anchor_label} sat at the center of today&apos;s wire — here is how it links across the corpus.
                 </p>
                 <div className="now-mapwrap">
-                  <EntityMap api={`/api/map?type=film&key=${lead.film_slug}`} full={`/map?m=critical&t=film&k=${lead.film_slug}`} height={360} />
+                  <EntityNetwork api={`/api/map?type=film&key=${lead.film_slug}`} full={`/network?m=critical&t=film&k=${lead.film_slug}`} height={360} />
                 </div>
               </>
             ) : null;

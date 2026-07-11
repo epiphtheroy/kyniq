@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
-import { cachedAtlasEligibility } from "@/lib/atlas";
+import { cachedLocationsEligibility } from "@/lib/locations";
 import { Card, SectionHead } from "@/components/curious/ui";
 
 /**
@@ -34,7 +34,7 @@ const loadPlates = (slug: string) =>
         .eq("director_slug", slug).eq("visible", true).order("year");
       if (!films || films.length === 0) return null;
       const filmIds = films.map((f) => f.id as string);
-      const [facts, picks, next, lineage, wd, reception, takes, atlas] = await Promise.all([
+      const [facts, picks, next, lineage, wd, reception, takes, locElig] = await Promise.all([
         supabase.from("director_facts").select("director_slug", { count: "exact", head: true }).eq("director_slug", slug),
         supabase.from("director_picks").select("pos", { count: "exact", head: true }).eq("director_slug", slug),
         supabase.from("director_next").select("pos", { count: "exact", head: true }).eq("director_slug", slug),
@@ -43,13 +43,13 @@ const loadPlates = (slug: string) =>
         supabase.from("film_reception").select("id", { count: "exact", head: true }).in("film_id", filmIds),
         supabase.from("takes").select("id, figure:figures!inner(film_id)", { count: "exact", head: true })
           .in("figure.film_id", filmIds).eq("status", "published").eq("is_invitation", false),
-        cachedAtlasEligibility().catch(() => null),
+        cachedLocationsEligibility().catch(() => null),
       ]);
       return {
         director: (films[0].director as string) ?? slug.replace(/-/g, " "),
         films: films.map((f) => ({ slug: f.slug as string, title: f.title as string, year: f.year as number | null, backdrop_path: f.backdrop_path as string | null, poster_path: f.poster_path as string | null })),
         facts: facts.count ?? 0, picks: picks.count ?? 0, next: next.count ?? 0,
-        hasLocations: !!atlas?.directors?.some((d: { slug: string }) => d.slug === slug),
+        hasLocations: !!locElig?.directors?.some((d: { slug: string }) => d.slug === slug),
         honors: (lineage.count ?? 0) + (wd.count ?? 0),
         reception: reception.count ?? 0,
         takes: takes.count ?? 0,

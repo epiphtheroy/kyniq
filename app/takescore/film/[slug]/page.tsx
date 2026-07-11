@@ -17,6 +17,7 @@ import {
   standingSentence,
   extSentence,
 } from "@/lib/takescore_prose";
+import TowCard, { loadTow } from "@/components/read/TowCard";
 import "./takescore-film.css";
 
 // ISR (house pattern, see app/film/[slug]/page.tsx): nothing prebuilt, every
@@ -87,29 +88,6 @@ async function load(slug: string) {
   // refresh aborted by notFound()). Double-check uncached before 404ing —
   // genuinely unscored films still miss, at one extra RPC on the rare 404 path.
   return loadUncached(slug).catch(() => null);
-}
-
-/** to.W — the curator's letter (curation.v_film_comment via tow_comment RPC).
- *  Null is a real state (verdict "optional" renders nothing), so unlike the
- *  card loader a cached null here is fine; only transport errors are thrown
- *  (and thus never cached). */
-type TowComment = {
-  verdict: string;
-  verdict_label: string | null;
-  authority_label: string | null;
-  rationale: string | null;
-};
-
-async function loadTow(slug: string): Promise<TowComment | null> {
-  return unstable_cache(
-    async () => {
-      const { data, error } = await db().rpc("tow_comment", { p_slug: slug });
-      if (error) throw new Error(`tow_comment(${slug}): ${error.message}`);
-      return (data as TowComment | null) ?? null;
-    },
-    ["tow-comment1", slug],
-    { revalidate: 3600, tags: [`takescore-film:${slug}`] },
-  )().catch(() => null);
 }
 
 const trim155 = (s: string) => (s.length <= 155 ? s : `${s.slice(0, 152).replace(/\s+\S*$/, "")}…`);
@@ -275,30 +253,9 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           </p>
         </section>
 
-        {/* ── to.W — the curator's letter to W.H., signed W. Yoon: where this
-               film stands in the index. Every catalogued film gets a note,
-               optional ones included (the honest, understated verdict). ── */}
-        {tow?.rationale ? (
-          <section aria-labelledby="tsf-tow-h" className="tsf-tow">
-            <div className="tsf-tow-head">
-              <div>
-                <div className="tsf-kicker">to.W</div>
-                <h2 className="tsf-h2" id="tsf-tow-h">Why it&apos;s in the index</h2>
-              </div>
-              {tow.verdict_label ? (
-                <span className={`tsf-tow-chip tsf-tow-chip--${tow.verdict}`}>{tow.verdict_label}</span>
-              ) : null}
-            </div>
-            <p className="tsf-tow-p">
-              <em>To W.H.</em> — {tow.rationale}
-            </p>
-            <p className="tsf-tow-sign">— W. Yoon</p>
-            <p className="tsf-tow-note">
-              A curator&apos;s note on {card.title}&apos;s place in the Metatake index — drawn from the catalog&apos;s
-              curation records, and kept separate from the TakeScore appraisal above.
-            </p>
-          </section>
-        ) : null}
+        {/* ── to.W — the curator's letter (addressed to. W. Heo, from. W. Yoon).
+               Shared card; renders for every catalogued film, optional ones too. ── */}
+        <TowCard tow={tow} filmTitle={card.title} />
 
         {/* ── Side by side · three pillars — V / C / R ring gauges + sub-scores ── */}
         <section aria-labelledby="tsf-dims-h">

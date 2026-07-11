@@ -36,7 +36,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: "Performance", icon: "ti-chart-line", href: "/room/performance" },
       { label: "Coverage", icon: "ti-chart-arcs", href: "/room/coverage" },
       { label: "Auteurs", icon: "ti-crown", href: "/room/auteurs" },
-      { label: "Atlas", icon: "ti-map-2", href: "/room/atlas" },
+      { label: "Locations", icon: "ti-map-2", href: "/room/locations" },
     ],
   },
   {

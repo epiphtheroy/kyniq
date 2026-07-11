@@ -70,7 +70,7 @@ export default function EntityGraph({
   height?: number;
   className?: string;
   // When provided, a (non-drag) click invokes this instead of navigating to href.
-  // Used by The Map to recenter the graph on the clicked node.
+  // Used by Connections to recenter the graph on the clicked node.
   onNodeClick?: (n: GraphNode) => void;
   // The little ↗ shortcut on each node — navigate to the entity page.
   onOpen?: (n: GraphNode) => void;

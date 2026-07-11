@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cachedAtlasEligibility } from "@/lib/atlas";
+import { cachedLocationsEligibility } from "@/lib/locations";
 import { directorLayerEligibility } from "@/lib/sitemap-data";
 import { pageRobots } from "@/lib/seo";
 import DirectorsIndexClient from "@/components/curious/DirectorsIndexClient";
@@ -59,7 +59,7 @@ type Index = { rows: DirRow[]; lives: number; starts: number; kinships: number; 
 const loadIndex = unstable_cache(
   async (): Promise<Index> => {
     const supabase = db();
-    const [hubRows, factRows, pickRows, nextRows, atlas] = await Promise.all([
+    const [hubRows, factRows, pickRows, nextRows, locElig] = await Promise.all([
       // Hub existence — /director/[slug] 404s without a visible film, so the
       // roster is gated on the same source the sitemap's directorEntries uses.
       fetchAll<{ director_slug: string }>((from, to) =>
@@ -83,9 +83,9 @@ const loadIndex = unstable_cache(
       fetchAll<{ director_slug: string }>((from, to) =>
         supabase.from("director_next").select("director_slug").order("director_slug").order("pos").range(from, to)
       ),
-      // LOCATIONS — the exact roster atlasEntries() puts in the sitemap
+      // LOCATIONS — the exact roster locationHubEntries() puts in the sitemap
       // (atlas_eligibility_json → directors), so this can never link a 404.
-      cachedAtlasEligibility(),
+      cachedLocationsEligibility(),
     ]);
     const layer = await directorLayerEligibility();
     const layerSets = {
@@ -103,7 +103,7 @@ const loadIndex = unstable_cache(
     for (const r of pickRows) start.set(r.director_slug, (start.get(r.director_slug) ?? 0) + 1);
     const next = new Map<string, number>();
     for (const r of nextRows) next.set(r.director_slug, (next.get(r.director_slug) ?? 0) + 1);
-    const locations = new Set(atlas.directors.map((d) => d.slug));
+    const locations = new Set(locElig.directors.map((d) => d.slug));
 
     const slugs = [...new Set([...life.keys(), ...start.keys(), ...next.keys(), ...locations])].filter((s) =>
       hub.has(s)

@@ -5,7 +5,7 @@ import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import NowModules from "@/components/NowModules";
 import ShareDock from "@/components/ShareDock";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import FilmMap from "@/components/FilmMap";
 import { anchorHref, fmtDay, fmtStamp, tmdbImg, type NowArticle } from "@/lib/now";
 
@@ -173,15 +173,15 @@ export default async function NowPiece({ params }: Props) {
 
           {p.film_slug ? (
             <>
-              <div className="now-sec">The map of connections</div>
+              <div className="now-sec">The web of connections</div>
               <p className="now-mapnote">
                 How {p.anchor_label} sits in the corpus — the films, figures, and readings it links to.
                 Drag to explore; open any node.
               </p>
               <div className="now-mapwrap">
-                <EntityMap
+                <EntityNetwork
                   api={`/api/map?type=film&key=${p.film_slug}`}
-                  full={`/map?m=critical&t=film&k=${p.film_slug}`}
+                  full={`/network?m=critical&t=film&k=${p.film_slug}`}
                   height={400}
                 />
               </div>

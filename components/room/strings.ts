@@ -113,7 +113,7 @@ export const STR = {
     performance: (n: number) => `NAV forms at 8 seen films — you're at ${n}. Every film only adds.`,
     coverage: "Coverage begins with your first seen film in any lineage.",
     auteurs: "Mark films Seen and directors appear with completion bars.",
-    atlas: "No located films yet — your map begins with your first seen film that has location data.",
+    locations: "No located films yet — your map begins with your first seen film that has location data.",
     signature: (n: number) => `A signature forms from loved films (★4.5+) — you have ${n} of 8.`,
     lensEntities: "No published entities cross your films yet — every film you log can bring its theory here.",
     lensReadings: "No published readings on your films yet.",

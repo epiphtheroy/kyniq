@@ -70,13 +70,13 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    (25k pins, ~100% with narrative prose) gets server pages — /film/x/
  *    locations ("where was X filmed", 1,707 eligible at ≥3 merged pins,
  *    cohort 1000 below), /director/x/locations (331 at ≥2 films & ≥6 pins)
- *    and /atlas/[country] hubs (73 at ≥3 films & ≥3 pins; all advertised,
+ *    and /locations/[country] hubs (73 at ≥3 films & ≥3 pins; all advertised,
  *    no cohort — small set). New children: sitemaps/locations.xml (film
- *    cohort) + sitemaps/atlas.xml (countries + directors). Gates mirror the
- *    pages' own 404/robots bars (lib/atlas.ts). Raise the film cohort on the
+ *    cohort) + sitemaps/locations.xml (countries + directors). Gates mirror the
+ *    pages' own 404/robots bars (lib/locations.ts). Raise the film cohort on the
  *    standard weekly GSC evidence rule.
  *  - 2026-07-04 (Atlas Phase 3, same evening, user-directed): city/region
- *    hubs /atlas/{country}/{city} — 511 pages (439 city + 72 region) from
+ *    hubs /locations/{country}/{city} — 511 pages (439 city + 72 region) from
  *    the frozen lib/atlas_cities.json roster (worker/atlas-cities-build.py:
  *    locality terms from pin names, ≥3 visible films, p90 spread ≤150 km —
  *    ambiguous terms like "Washington" self-drop; variants like "New York
@@ -109,7 +109,7 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    tab removed — the Lineage tab/section itself now carries the honours
  *    presentation (per-row source tags via lnListMeta).
  *  - 2026-07-06 (user decision, mirror of the honours move): the per-film
- *    locations page moved to /film/atlas/[slug]; old /film/x/locations 308s
+ *    locations page moved to /film/locations/[slug]; old /film/x/locations 308s
  *    (whole-pattern permanentRedirect). Film pages: separate Locations tab
  *    removed — the Atlas section's pill button links out instead. Spec pack
  *    site_content/ (SEO_LINEAGE_SPEC etc.) applied the same day: bare-QID

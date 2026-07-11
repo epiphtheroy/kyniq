@@ -1,4 +1,4 @@
-/** Skeleton for /room/atlas — hero + KPI strip + map plane (ghost pulse). */
+/** Skeleton for /room/locations — hero + KPI strip + map plane (ghost pulse). */
 export default function Loading() {
   return (
     <div className="mainpad">

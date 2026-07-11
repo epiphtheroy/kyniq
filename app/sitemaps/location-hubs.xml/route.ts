@@ -1,8 +1,8 @@
-import { atlasEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
+import { locationHubEntries, urlset, xmlResponse } from "@/lib/sitemap-data";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
 
 export async function GET() {
-  return xmlResponse(urlset(await atlasEntries()));
+  return xmlResponse(urlset(await locationHubEntries()));
 }

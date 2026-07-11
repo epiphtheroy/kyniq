@@ -341,7 +341,7 @@ export default async function OmniPage({ searchParams }: Props) {
             {trending.map((t) => <Link key={t} href={`/search?q=${encodeURIComponent(t)}`} className="ox-chip ox-chip--hot">↗ {t}</Link>)}
             {examples.map((t) => <Link key={t} href={`/search?q=${encodeURIComponent(t)}`} className="ox-chip">{t}</Link>)}
           </div>
-          <p className="ox-foot">6,900 films · 27,000 readings · 4,700 tropes · 3,700 theorists · the Atlas · the news<br /></p>
+          <p className="ox-foot">6,900 films · 27,000 readings · 4,700 tropes · 3,700 theorists · the locations · the news<br /></p>
         </main>
       </div>
     );

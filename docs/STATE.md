@@ -36,9 +36,11 @@ Figures are also classified into the **Catalog / Archetype** taxonomy (`taxonomy
 | "Frames" (Q&A) | *separate system* — community Q&A taxonomy, not frameworks |
 | "films like" / 인근값 | `film_affinities` |
 | Codex / `/codex` · `/score` | **TakeScore** / `/takescore` (current canonical; `/codex`,`/score` earlier names) |
-| World Cinema Atlas | **Movements** (`/movements`) — origin/tradition axis (≠ geographic Atlas) |
+| World Cinema Atlas | **Movements** (`/movements`) — origin/tradition axis (≠ geographic Locations) |
+| Atlas / `/atlas` · `/film/atlas` · `/room/atlas` | **Locations** / `/locations` · `/film/locations` · `/room/locations` (renamed 2026-07-11; old paths 308→new). Word "atlas" retired sitewide. `lib/atlas_cities.json` + `atlas_*_json` RPCs keep their names (DB/data layer, unchanged). |
+| Map / `/map` · `MapExplorer` · `EntityMap` | **Network** / `/network` · `NetworkExplorer` · `EntityNetwork` (renamed 2026-07-11; `/map` 308→`/network`, query-preserving). Visible label stays **"Connections"**. `/api/map` endpoint + `mapApi`/`mapFull` beat keys + `zone:"map"` KEPT (DB-emitted, unchanged). |
 
-> ⚠️ Easily-confused pairs: **frameworks** (14 strong-misreading angles) vs **frames** (community-Q&A). **Movements** (`/movements`, national cinemas + waves) vs **Atlas** (`/atlas`, geographic filming map) vs **Map** (`/map`, node connection graph). `meta_takes` is **polymorphic** via `kind` (trope hubs + legacy reading hubs).
+> ⚠️ Easily-confused pairs: **frameworks** (14 strong-misreading angles) vs **frames** (community-Q&A). **Movements** (`/movements`, national cinemas + waves) vs **Locations** (`/locations`, geographic filming map; formerly `/atlas`) vs **Network** (`/network`, node connection graph, labelled "Connections"; formerly `/map`). `meta_takes` is **polymorphic** via `kind` (trope hubs + legacy reading hubs).
 
 ---
 

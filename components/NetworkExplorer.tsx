@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * MapExplorer — "The Map". Tabs: Films (default) · Directors · Grouped.
+ * NetworkExplorer — "Connections". Tabs: Films (default) · Directors · Grouped.
  * Film/director nodes show poster/face; year & birth-year sit faint inline; every node
  * has a small ↗ to its page and a single-click recenter. A fuzzy search box (top-left of
  * the graph) jumps the map to any film/director/trope/idea/theorist/figure. A filter grid
@@ -10,7 +10,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import EntityGraph, { type GraphData, type GraphNode } from "@/components/EntityGraph";
-import GalaxyMap from "@/components/GalaxyMap";
+import GalaxyView from "@/components/GalaxyView";
 import SentenceLexicon, { type LexEnt } from "@/components/SentenceLexicon";
 
 type Mode = "films" | "directors" | "critical" | "galaxy";
@@ -29,7 +29,7 @@ const TYPE_LABEL: Record<string, string> = { film: "Film", figure: "Figure", tro
 const YEARS = [null, 1970, 1980, 1990, 2000, 2010, 2020];
 const IMDBS = [null, 6, 7, 7.5, 8];
 const RTS = [null, 60, 75, 90];
-// view-flavored lexicon roots for overview states (no ego center) — each /map
+// view-flavored lexicon roots for overview states (no ego center) — each /network
 // tab samples the sentence patterns that match what it draws
 const VIEW_ROOT: Record<Mode, { type: string; key: string; label: string }> = {
   films: { type: "sample", key: "A_affinity,B_bridge,H_dense", label: "All films" },
@@ -67,7 +67,7 @@ async function fetchMap(t: Target): Promise<GraphData> {
   } catch { return { nodes: [], links: [] }; }
 }
 
-export default function MapExplorer() {
+export default function NetworkExplorer() {
   const [mode, setMode] = useState<Mode>("films");
   const [data, setData] = useState<GraphData>({ nodes: [], links: [] });
   const [stack, setStack] = useState<Crumb[]>([{ id: "__all_films", label: "All films", target: { mode: "films", key: null, filt: {} } }]);
@@ -161,7 +161,7 @@ export default function MapExplorer() {
   const center = data.nodes.find((n) => n.center) || null;
   // SentenceLexicon root — the current center as a full-word entity descriptor.
   // Overview states (no ego center) fall back to a VIEW-flavored catalog sampler:
-  // each /map tab reads through its own pattern set (films = kinship pairs,
+  // each /network tab reads through its own pattern set (films = kinship pairs,
   // directors = filmography numbers, grouped = the interpretation layer,
   // galaxy = film-identity facts).
   const lexiRoot: LexEnt = (() => {
@@ -291,7 +291,7 @@ export default function MapExplorer() {
         <div className="map-graphwrap">
           <div className="map-cols">
             <div className="map-colgraph">
-              <GalaxyMap height={h} />
+              <GalaxyView height={h} />
             </div>
             <SentenceLexicon key="view:galaxy" root={VIEW_ROOT.galaxy} height={h} />
           </div>

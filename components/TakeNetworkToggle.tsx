@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * TakeMapToggle — a small "map" affordance under a reading card that lazily mounts
+ * TakeNetworkToggle — a small "map" affordance under a reading card that lazily mounts
  * the take → meta-take → kindred-takes mini-graph (NodeGraph kind="take", bare).
  * Lazy so a figure with many readings doesn't run N simulations at once.
  */
@@ -9,7 +9,7 @@
 import { useState } from "react";
 import NodeGraph from "@/components/NodeGraph";
 
-export default function TakeMapToggle({
+export default function TakeNetworkToggle({
   mtSlug, mtTitle, label, takeId,
 }: {
   mtSlug: string; mtTitle: string; label: string; takeId: string;

@@ -7,7 +7,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import FilmTabBar from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink } from "@/components/DeskExplorer";
 import { Card, SectionHead } from "@/components/curious/ui";
@@ -767,7 +767,7 @@ export default async function ConceptPage({ params }: Props) {
           ...(figTopC.length ? [{ id: "concept-figures", label: "Figures", badge: figTopC.length, color: "#B8863B" }] : []),
           ...(tropes.length ? [{ id: "concept-tropes", label: "Patterns", badge: tropes.length, color: "#6B4E9E" }] : []),
           ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
-          { id: "concept-map", label: "Connections", color: "#2F6DB0" },
+          { id: "concept-network", label: "Connections", color: "#2F6DB0" },
           { id: "concept-slate", label: "The full slate", badge: readings.length, color: "#12897A" },
         ]}
       />
@@ -859,11 +859,11 @@ export default async function ConceptPage({ params }: Props) {
           </section>
         )}
 
-        <section className="cmap-sec" id="concept-map">
-          <h2 className="cmap-h2">Connections — {name} across the map</h2>
+        <section className="cmap-sec" id="concept-network">
+          <h2 className="cmap-h2">Connections — {name} across the web</h2>
           <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>
           <p className="cmap-intro">The figures and films that stage <em>{name}</em>, and the theorists behind it, across Metatake&rsquo;s critical web. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=idea&key=${slug}`} full={`/map?m=critical&t=idea&k=${slug}`} />
+          <EntityNetwork api={`/api/map?type=idea&key=${slug}`} full={`/network?m=critical&t=idea&k=${slug}`} />
         </section>
         <section style={{ margin: "34px 0 0" }} id="concept-slate">
           <h2 className="cmap-h2">The full slate — {readings.length} readings</h2>

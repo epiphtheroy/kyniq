@@ -11,7 +11,7 @@ import { useLens, type LensMode } from "@/components/LensProvider";
 const MODES: { m: LensMode; t: string; s: string }[] = [
   { m: "off", t: "All films", s: "The public site, exactly as everyone sees it." },
   { m: "highlight", t: "Highlight mine", s: "Every film you've seen wears a red border — posters, thumbnails, the galaxy, the maps." },
-  { m: "only", t: "Only mine", s: "The site re-centres on your history: unseen films ghost out, the galaxy and atlas filter down to yours." },
+  { m: "only", t: "Only mine", s: "The site re-centres on your history: unseen films ghost out, the galaxy and locations filter down to yours." },
 ];
 
 export default function LensCta() {

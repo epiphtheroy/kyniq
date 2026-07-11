@@ -16,7 +16,7 @@ import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswe
 import { pageRobots } from "@/lib/seo";
 import { resolveAlias } from "@/lib/aliases";
 import { fw } from "@/lib/frameworks";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import RelatedBoxes from "@/components/RelatedBoxes";
 import { relatedForMetaTake } from "@/lib/related";
 import FilmTabBar from "@/components/FilmTabBar";
@@ -359,7 +359,7 @@ export default async function TropePage({ params }: Props) {
         tabs={[
           { id: "spelled-out", label: "Spelled out", color: "#D64534" },
           ...(figTopT.length ? [{ id: "tp-figures", label: "Figures", badge: figTopT.length, color: "#B8863B" }] : []),
-          { id: "tp-map", label: "Connections", color: "#2F6DB0" },
+          { id: "tp-network", label: "Connections", color: "#2F6DB0" },
           { id: "members", label: "The ranked slate", badge: n, color: "#12897A" },
           ...(related.length ? [{ id: "tp-rel", label: "Kindred tropes", badge: related.length, color: "#C87A2C" }] : []),
         ]}
@@ -440,11 +440,11 @@ export default async function TropePage({ params }: Props) {
           </section>
         ) : null}
 
-        <section className="tp-sec" id="tp-map">
+        <section className="tp-sec" id="tp-network">
           <h2 className="tp-h2">{t.title} — connection map</h2>
           <p className="cmap-stat"><b>{n}</b> readings · <b>{filmCount}</b> {filmLabel}</p>
           <p className="cmap-intro">The figures that carry {t.title} and the films they belong to, across Metatake&rsquo;s critical web. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=trope&key=${slug}`} full={`/map?m=critical&t=trope&k=${slug}`} />
+          <EntityNetwork api={`/api/map?type=trope&key=${slug}`} full={`/network?m=critical&t=trope&k=${slug}`} />
         </section>
 
         {/* EMBEDDING FANTASIA — sentences that stage this trope */}

@@ -11,7 +11,7 @@ import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplorer";
 import { attachKwic } from "@/lib/kwic";
 import ReadingLedger from "@/components/read/ReadingLedger";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import Byline from "@/components/Byline";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
@@ -350,7 +350,7 @@ export default async function TheoristPage({ params }: Props) {
           { id: "lens-facts", label: "The lens", color: "#D64534" },
           ...(figTop.length ? [{ id: "lens-figures", label: "Figures", badge: figTop.length, color: "#B8863B" }] : []),
           ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
-          { id: "theorist-map", label: "Connections", color: "#2F6DB0" },
+          { id: "theorist-network", label: "Connections", color: "#2F6DB0" },
           { id: "readings", label: "Every reading", badge: readings.length, color: "#12897A" },
         ]}
       />
@@ -433,10 +433,10 @@ export default async function TheoristPage({ params }: Props) {
           </section>
         )}
 
-        <section className="cmap-sec" id="theorist-map" style={{ marginTop: 34 }}>
-          <h2 className="cmap-h2">Connections — {name} across the map</h2>
+        <section className="cmap-sec" id="theorist-network" style={{ marginTop: 34 }}>
+          <h2 className="cmap-h2">Connections — {name} across the web</h2>
           <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=theorist&key=${slug}`} full={`/map?m=critical&t=theorist&k=${slug}`} />
+          <EntityNetwork api={`/api/map?type=theorist&key=${slug}`} full={`/network?m=critical&t=theorist&k=${slug}`} />
         </section>
 
         {/* EMBEDDING FANTASIA — sentences read through this thinker's lenses */}

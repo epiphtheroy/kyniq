@@ -16,14 +16,14 @@ import { resolveAlias } from "@/lib/aliases";
 import "@/app/credits/credits.css";
 import LightboxImage from "@/components/LightboxImage";
 import FilmTabBar from "@/components/FilmTabBar";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import EntityFantasia from "@/components/EntityFantasia";
 import { loadFantasia } from "@/lib/fantasia";
 import FilmMap from "@/components/FilmMap";
 import Byline from "@/components/Byline";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
-import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
+import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, type GeoPin } from "@/lib/locations";
 import SaveButton from "@/components/SaveButton";
 import ShareDock from "@/components/ShareDock";
 import PosterActions from "@/components/PosterActions";
@@ -533,10 +533,12 @@ export default async function DirectorPage({ params }: Props) {
   if (facts && Array.isArray(facts.facts) && facts.facts.length) tabs.push({ id: "dr-life", label: "The Life", badge: facts.facts.length, color: "#B8863B", zone: "free" });
   if (honorsN + receptionN > 0 || total >= 3 || readingCount > 0) tabs.push({ id: "dr-records", label: "The records", badge: honorsN + receptionN, color: "#8A6D3B", zone: "free" });
   if (newsCount > 0) tabs.push({ id: "dr-in-the-news", label: "In the news", badge: newsCount, color: "#E3120B", zone: "free" });
-  tabs.push({ id: "dr-map", label: "Connections", color: "#2F6DB0", zone: "free" });
+  tabs.push({ id: "dr-network", label: "Connections", color: "#2F6DB0", zone: "free" });
   if (fantasia.length >= 2) tabs.push({ id: "dr-fantasia", label: "Embedding Fantasia", badge: fantasia.length, color: "#E0922A", zone: "free" });
-  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Atlas", badge: geoMerged, color: "#2E8B6E", zone: "free" });
-  if (hasLocationsPage) tabs.push({ id: "dr-locations", label: "Locations", href: `/director/${slug}/locations`, badge: geoMerged, color: "#3F7E8C", zone: "free" });
+  // One "Locations" tab: the in-page map (the read article is linked from
+  // inside this section via the RecordToc CTA below — same pattern as the film
+  // page — so a separate "Locations" link-tab would just duplicate it).
+  if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Locations", badge: geoMerged, color: "#2E8B6E", zone: "free" });
   tabs.push({ id: "dr-credits", label: "Credits", color: "#6B7280", zone: "free" });
   // ── Close readings (may spoil individual films) ──
   if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings", badge: readingCount, color: "#D64534", zone: "spoiler" });
@@ -600,14 +602,17 @@ export default async function DirectorPage({ params }: Props) {
           <section className="dr-tow" aria-labelledby="dr-tow-h">
             <div className="dr-tow-head">
               <div>
-                <div className="dr-tow-kicker">to.W · the index</div>
+                <div className="dr-tow-kicker">to. W. Heo · the index</div>
                 <h2 className="dr-tow-h" id="dr-tow-h">{director} in the Metatake index</h2>
               </div>
             </div>
             <p className="dr-tow-lead">
-              <em>To W.H.</em> — {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
+              {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
             </p>
-            <p className="dr-tow-sign">— W. Yoon</p>
+            <div className="dr-tow-signrow">
+              <span className="dr-tow-sign">from. W. Yoon</span>
+              <Link href="/editor" className="dr-tow-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
+            </div>
             <div className="dr-tow-tags">
               {curation.essential > 0 ? <span className="dr-tow-tag dr-tow-tag--essential">{curation.essential} essential</span> : null}
               {curation.start_here > 0 ? <span className="dr-tow-tag dr-tow-tag--start">{curation.start_here} start here</span> : null}
@@ -929,11 +934,11 @@ export default async function DirectorPage({ params }: Props) {
         )}
 
         {/* CONNECTION MAP */}
-        <section className="dr-sec" id="dr-map">
+        <section className="dr-sec" id="dr-network">
           <h2 className="dr-h2">{director} — director map</h2>
           <p className="cmap-stat"><b>{total}</b> films · <b>{readingCount}</b> readings · <b>{tropeCount}</b> tropes</p>
           <p className="cmap-intro">Where {director} sits among filmmakers — who to watch next, the directors who point back here, and the directors nearest by Metatake&rsquo;s embedding of their films. Click a face to travel.</p>
-          <EntityMap api={`/api/map?mode=directors&key=${slug}`} full={`/map?m=directors&k=${slug}`} />
+          <EntityNetwork api={`/api/map?mode=directors&key=${slug}`} full={`/network?m=directors&k=${slug}`} />
         </section>
 
         {/* EMBEDDING FANTASIA — rule-based sentences across this director's films */}
@@ -955,7 +960,7 @@ export default async function DirectorPage({ params }: Props) {
                     { label: "Locations", value: geoMerged },
                     { label: "Films on the map", value: geoFilms },
                   ]}
-                  cta="Open the map article"
+                  cta="Open the locations article"
                 />
               </div>
             ) : null}

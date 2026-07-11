@@ -6,7 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import SaveChip from "@/components/SaveChip";
 import FigureContribute from "@/components/FigureContribute";
-import EntityMap from "@/components/EntityMap";
+import EntityNetwork from "@/components/EntityNetwork";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import EntityActions from "@/components/EntityActions";
 import ShareDock from "@/components/ShareDock";
@@ -444,7 +444,7 @@ export default async function FigurePage({ params }: Props) {
           <h2 className="fg-h2">{figure.label} — connection map</h2>
           <p className="cmap-stat"><b>{takes.length}</b> readings · <b>{tropes.length}</b> tropes</p>
           <p className="cmap-intro">{figure.label} in {film.title} — its tropes, the ideas and theorists it draws, and the figures nearest it across films. Click a node to open it.</p>
-          <EntityMap api={`/api/map?type=figure&key=${film.slug}&key2=${figureSlug}`} full={`/map?m=critical&t=figure&k=${film.slug}&k2=${figureSlug}`} />
+          <EntityNetwork api={`/api/map?type=figure&key=${film.slug}&key2=${figureSlug}`} full={`/network?m=critical&t=figure&k=${film.slug}&k2=${figureSlug}`} />
         </section>
 
         {/* EMBEDDING FANTASIA — sentences that read this figure */}

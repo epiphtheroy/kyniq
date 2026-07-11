@@ -18,6 +18,7 @@ import FilmLineageSection from "@/components/FilmLineageSection";
 import FilmReceptionSection from "@/components/FilmReceptionSection";
 import EntityNews from "@/components/EntityNews";
 import CinecodexPanel, { type Codex, type FilmSubscores } from "@/components/CinecodexPanel";
+import TowCard, { loadTow } from "@/components/read/TowCard";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import FilmHeroReel from "@/components/FilmHeroReel";
@@ -38,7 +39,7 @@ import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
 import { ruleFigureQuestion } from "@/lib/figureSeo";
-import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/atlas";
+import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/locations";
 import { FILM_HONORS_MIN, honorText, loadLineageListMeta } from "@/lib/lineage";
 import { DESKS, DESK_KEYS, mdToPlain, type DeskKey } from "@/lib/desks";
 import MakerPanels, { MakerPanelsCta } from "@/components/read/MakerPanels";
@@ -593,6 +594,8 @@ export default async function FilmPage({ params }: Props) {
   const { movements, codex, subscores } = await loadChrome(slug);
   // Embedding Fantasia rows — shared by both the Tier-1 and Tier-2 render branches.
   const sentences = await loadSentences(slug);
+  // to.W — curator's letter on this film's place in the index (both branches).
+  const tow = await loadTow(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
   const _cx = codex;
   const codexBadge = _cx ? (
@@ -716,7 +719,7 @@ export default async function FilmPage({ params }: Props) {
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
       sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia" } : null,
-      geoCount > 0 ? { id: "df-atlas", label: "Atlas", badge: geoCount } : null,
+      geoCount > 0 ? { id: "df-atlas", label: "Locations", badge: geoCount } : null,
       afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
       crew.length
         ? { id: "df-crew", label: "Credits", badge: crew.length }
@@ -826,7 +829,7 @@ export default async function FilmPage({ params }: Props) {
               {geoCount > 0 || watchRegionN > 0 ? (
                 <p className="df-digest__p">
                   {geoCount > 0 ? (
-                    <>Its geography is charted on <a href="#df-atlas">the Atlas below</a> — {geoCount} located place{geoCount === 1 ? "" : "s"}{geoCountries.length === 1 ? ` in ${geoCountries[0]}` : geoCountries.length > 1 ? ` across ${geoCountries.length} countries` : ""}.{" "}</>
+                    <>Its geography is charted on <a href="#df-atlas">the map below</a> — {geoCount} located place{geoCount === 1 ? "" : "s"}{geoCountries.length === 1 ? ` in ${geoCountries[0]}` : geoCountries.length > 1 ? ` across ${geoCountries.length} countries` : ""}.{" "}</>
                   ) : null}
                   {watchRegionN > 0 ? <>Streaming availability is <a href="#df-watch">tracked in {watchRegionN} region{watchRegionN === 1 ? "" : "s"}</a>.</> : null}
                 </p>
@@ -845,6 +848,7 @@ export default async function FilmPage({ params }: Props) {
           ) : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} slug={f.slug} />
+          <TowCard tow={tow} filmTitle={f.title} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
@@ -856,7 +860,7 @@ export default async function FilmPage({ params }: Props) {
           {geoCount > 0 ? (
             <section className="df-sec" id="df-atlas">
               <h2 className="df-h2">{f.title} — on the map</h2>
-              <p className="cmap-intro">The real places {f.title} is set in, was filmed at, or names — geolocated on the Metatake Atlas.</p>
+              <p className="cmap-intro">The real places {f.title} is set in, was filmed at, or names — geolocated on Metatake's location map.</p>
               <FilmMap endpoint={`/api/geo?film=${f.slug}`} filmSlug={f.slug} height={460} />
             </section>
           ) : null}
@@ -1003,8 +1007,8 @@ export default async function FilmPage({ params }: Props) {
     codex ? { id: "df-codex", label: "TakeScore", badge: tsScore ?? undefined, badgeTone: "score" as const, zone: "free" as const } : null,
     { id: "df-watch", label: "Where to watch", badge: nWatchRegions || undefined, zone: "free" as const },
     hasLineage ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
-    nPlaces > 0 ? { id: "df-atlas", label: "Atlas", badge: nPlaces, zone: "free" as const } : null,
-    { id: "df-map", label: "Connections", zone: "free" as const },
+    nPlaces > 0 ? { id: "df-atlas", label: "Locations", badge: nPlaces, zone: "free" as const } : null,
+    { id: "df-network", label: "Connections", zone: "free" as const },
     sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia", zone: "free" as const } : null,
     reception.length ? { id: "df-reception", label: "Reception", badge: reception.length, zone: "free" as const } : null,
     newsCount > 0 ? { id: "df-in-the-news", label: "In the news", badge: newsCount, zone: "free" as const } : null,
@@ -1213,6 +1217,7 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug} />
+        <TowCard tow={tow} filmTitle={film.title} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (
@@ -1222,7 +1227,7 @@ export default async function FilmPage({ params }: Props) {
             {geoCells >= FILM_LOCATIONS_MIN ? (
               <p style={{ margin: "4px 0 14px" }}>
                 <Link
-                  href={`/film/atlas/${film.slug}`}
+                  href={`/film/locations/${film.slug}`}
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     background: "#16233F", color: "#FBF8F1", padding: "9px 18px", borderRadius: 999,
@@ -1324,13 +1329,13 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* CONNECTION MAP */}
-        <section className="df-sec" id="df-map">
+        <section className="df-sec" id="df-network">
           <h2 className="df-h2">{film.title} — connection map</h2>
           <p className="cmap-stat"><b>{figures.length}</b> figures · <b>{misreadings.length}</b> strong misreadings · <b>{tropes.length}</b> tropes</p>
           <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
           <ConnectionDesk
             api={`/api/map?type=film&key=${film.slug}`}
-            full={`/map?m=critical&t=film&k=${film.slug}`}
+            full={`/network?m=critical&t=film&k=${film.slug}`}
             root={{ type: "film", key: film.slug, label: film.title }}
           />
         </section>

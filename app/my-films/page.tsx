@@ -9,7 +9,7 @@ import LensCta from "@/components/LensCta";
 export const metadata: Metadata = {
   title: "My Films — see Metatake through what you've watched",
   description:
-    "One switch, three views of the whole site. Highlight every film you've seen with a red border, or re-centre the galaxy, the atlas and every list on your own watch history.",
+    "One switch, three views of the whole site. Highlight every film you've seen with a red border, or re-centre the galaxy, the locations and every list on your own watch history.",
   alternates: { canonical: "/my-films" },
 };
 
@@ -20,18 +20,18 @@ const MODES = [
   },
   {
     t: "Highlight mine",
-    s: "Everything stays, but the films you've seen light up: a red border on every poster and thumbnail, a ring around your dots in the galaxy, a check beside every title. Your history, visible against the whole map.",
+    s: "Everything stays, but the films you've seen light up: a red border on every poster and thumbnail, a ring around your dots in the galaxy, a check beside every title. Your history, visible against the whole web.",
   },
   {
     t: "Only mine",
-    s: "The site re-centres on you. Unseen films ghost out of every grid, the galaxy and the atlas filter down to what you've watched, and the connection pages show how your films talk to each other.",
+    s: "The site re-centres on you. Unseen films ghost out of every grid, the galaxy and the locations filter down to what you've watched, and the connection pages show how your films talk to each other.",
   },
 ];
 
 const SURFACES = [
-  { t: "The Galaxy", s: "Your films ringed in red across the starfield — or a galaxy made only of them.", h: "/map?m=galaxy" },
-  { t: "The Atlas", s: "The world map of settings and shooting locations, filtered to the places your films know.", h: "/atlas" },
-  { t: "Connections", s: "Kinships and counterpoints between films — including just among yours.", h: "/map" },
+  { t: "The Galaxy", s: "Your films ringed in red across the starfield — or a galaxy made only of them.", h: "/network?m=galaxy" },
+  { t: "Locations", s: "The world map of settings and shooting locations, filtered to the places your films know.", h: "/locations" },
+  { t: "Connections", s: "Kinships and counterpoints between films — including just among yours.", h: "/network" },
   { t: "Every list & page", s: "Catalog, genres, directors, watch-next rails: your films are marked wherever they appear.", h: "/film" },
 ];
 
@@ -45,7 +45,7 @@ export default function MyFilmsPage() {
           <h1>One switch, three views of the whole site.</h1>
           <p className="mfl-lede">
             Metatake maps cinema — films linked by the readings they share, placed in a galaxy,
-            pinned on a world atlas. The <b>My Films</b> lens turns that whole map into <i>your</i> map:
+            pinned on a world map. The <b>My Films</b> lens turns that whole map into <i>your</i> map:
             flip the <b>◎&nbsp;My&nbsp;films</b>{" toggle in the top bar and every page answers to what you’ve watched."}
           </p>
         </header>

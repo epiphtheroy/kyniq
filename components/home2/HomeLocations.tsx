@@ -8,7 +8,7 @@ import LazyMount from "./LazyMount";
 // only when the reader scrolls near ("atlas is slow" report, 2026-07-11).
 const FilmMap = dynamic(() => import("@/components/FilmMap"), {
   ssr: false,
-  loading: () => <div className="emap-skel" style={{ height: 460 }}>Loading the Atlas…</div>,
+  loading: () => <div className="emap-skel" style={{ height: 460 }}>Loading the map…</div>,
 });
 
 /**
@@ -16,19 +16,19 @@ const FilmMap = dynamic(() => import("@/components/FilmMap"), {
  * on a real-world map (crisp vector basemap; satellite one click away).
  * Search a film to frame it; hover a pin to read what the place means.
  */
-export default function HomeAtlas() {
+export default function HomeLocations() {
   return (
-    <section className="band homeatlas-sec">
+    <section className="band homelocations-sec">
       <div className="wrap">
         <div className="shead">
           <div>
-            <h2>The Atlas of cinema <span className="chev">›</span></h2>
+            <h2>The world map of cinema <span className="chev">›</span></h2>
             <div className="sub">Every place our films are set in and filmed at, on the real map. Search a film to open it; hover a pin to read what the place means.</div>
           </div>
-          <a className="seeall" href="/atlas">Open the full Atlas ›</a>
+          <a className="seeall" href="/locations">Open the full map ›</a>
         </div>
-        <div className="homeatlas">
-          <LazyMount height={460} label="Loading the Atlas…">
+        <div className="homelocations">
+          <LazyMount height={460} label="Loading the map…">
             <FilmMap endpoint="/api/geo" height={460} search />
           </LazyMount>
         </div>

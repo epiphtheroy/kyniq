@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * GalaxyMap — the whole catalogue as one starfield. Films mode: each dot is a
+ * GalaxyView — the whole catalogue as one starfield. Films mode: each dot is a
  * film placed by t-SNE over its taste vector; Directors mode: each dot is a
  * director placed by their figure-embedding centroid (worker/galaxy-build.py).
  * Colour = taste neighbourhood (KMeans cluster).
@@ -50,7 +50,7 @@ function phase(slug: string) {
   return (h % 628) / 100; // 0..~6.28
 }
 
-export default function GalaxyMap({ height }: { height: number }) {
+export default function GalaxyView({ height }: { height: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const [kind, setKind] = useState<Kind>("films");
@@ -71,7 +71,7 @@ export default function GalaxyMap({ height }: { height: number }) {
   const drawRef = useRef<() => void>(() => {});
   const rafOn = useRef(false);
 
-  // deep link: /map?m=galaxy&g=directors
+  // deep link: /network?m=galaxy&g=directors
   useEffect(() => {
     const g = new URLSearchParams(window.location.search).get("g");
     if (g === "directors") { setKind("directors"); setSort("films-desc"); }

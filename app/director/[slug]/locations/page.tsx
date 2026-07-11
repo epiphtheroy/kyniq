@@ -11,8 +11,8 @@ import {
   DIRECTOR_LOCATIONS_MIN_FILMS,
   DIRECTOR_LOCATIONS_MIN_PINS,
   FILM_LOCATIONS_MIN,
-  cachedAtlasEligibility,
-  cachedAtlasMeta,
+  cachedLocationsEligibility,
+  cachedLocationsMeta,
   countryListPhrase,
   countryPhrase,
   countrySlug,
@@ -22,7 +22,7 @@ import {
   pinCountries,
   precisionRank,
   type GeoPin,
-} from "@/lib/atlas";
+} from "@/lib/locations";
 
 /**
  * /director/[slug]/locations — the Atlas READ layer for one director's whole
@@ -65,7 +65,7 @@ async function loadUncached(slug: string) {
     byFilm.set(p.film_slug, g);
   }
   const films = [...byFilm.values()].sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
-  const elig = await cachedAtlasEligibility();
+  const elig = await cachedLocationsEligibility();
   return { director, slug, pins, films, posterBySlug, cellsByFilm: Object.fromEntries(cellsByFilm), hubCountrySlugs: elig.countries.map((c) => c.slug) };
 }
 
@@ -121,7 +121,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
   const { director, pins, films, posterBySlug, cellsByFilm, hubCountrySlugs } = data;
   const hubCountries = new Set(hubCountrySlugs);
   const countries = pinCountries(pins);
-  const updated = (await cachedAtlasMeta()).updated || new Date().toISOString().slice(0, 10);
+  const updated = (await cachedLocationsMeta()).updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(director, films, pins);
 
   const itemListLd = {
@@ -221,7 +221,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
                   </ul>
                   {hasOwnPage ? (
                     <p style={{ margin: "5px 0 0", fontSize: 14 }}>
-                      <Link href={`/film/atlas/${f.slug}`}>
+                      <Link href={`/film/locations/${f.slug}`}>
                         {f.pins.length > PER_FILM_SHOWN ? `All ${f.pins.length} locations, with the scene each carries →` : "Where was it filmed? The full location page →"}
                       </Link>
                     </p>
@@ -243,7 +243,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
           <p style={{ lineHeight: 1.9, margin: "6px 0 0" }}>
             <Link href={`/director/${slug}`}>{director} — the director hub →</Link>
             {countries.filter((c) => hubCountries.has(countrySlug(c.name))).slice(0, 3).map((c) => (
-              <span key={c.name}><br /><Link href={`/atlas/${countrySlug(c.name)}`}>Movies filmed in {c.name} →</Link></span>
+              <span key={c.name}><br /><Link href={`/locations/${countrySlug(c.name)}`}>Movies filmed in {c.name} →</Link></span>
             ))}
           </p>
         </section>

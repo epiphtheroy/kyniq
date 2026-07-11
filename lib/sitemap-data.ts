@@ -14,7 +14,7 @@ import {
   INDEX_COHORT_FILM_CREDITS,
   INDEX_COHORT_ESSAYS_KO,
 } from "@/lib/seo";
-import { allAtlasCities, loadAtlasEligibility } from "@/lib/atlas";
+import { allLocationCities, loadLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
 import { KINDS, nodeHref, sectionHref, type SectionKey } from "@/lib/catalog";
 import { BROWSABLE } from "@/lib/frameworks";
@@ -96,8 +96,8 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/frames` },
     { url: `${siteUrl}/trending` },
     { url: `${siteUrl}/where-to-watch` },
-    { url: `${siteUrl}/map` },
-    { url: `${siteUrl}/atlas` },
+    { url: `${siteUrl}/network` },
+    { url: `${siteUrl}/locations` },
   ];
   // Strong Misreadings — the 14 framework hubs.
   for (const f of BROWSABLE) {
@@ -821,43 +821,43 @@ export async function catalogEntries(): Promise<SitemapEntry[]> {
 
 /**
  * /film/x/locations read pages (docs/PLAN-atlas-seo.md Phase 1) — films with
- * ≥3 merged pins (same bar as the page's own 404 gate; lib/atlas.ts). The
+ * ≥3 merged pins (same bar as the page's own 404 gate; lib/locations.ts). The
  * eligibility RPC returns slug-ascending order, so the cohort cap only ever
  * appends. No lastmod: location data refreshes wholesale.
  */
 export async function filmLocationsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  const { films } = await loadAtlasEligibility();
+  const { films } = await loadLocationsEligibility();
   return films
     .slice(0, INDEX_COHORT_FILM_LOCATIONS)
-    .map((f) => ({ url: `${siteUrl}/film/atlas/${f.slug}` }));
+    .map((f) => ({ url: `${siteUrl}/film/locations/${f.slug}` }));
 }
 
 /**
- * Atlas hubs: /atlas/[country] (≥3 films & ≥3 pins, ~73 — small set, no
+ * Atlas hubs: /locations/[country] (≥3 films & ≥3 pins, ~73 — small set, no
  * cohort) + /director/x/locations (≥2 located films & ≥6 merged pins, ~331).
  * Both gates mirror the pages' own 404 bars.
  */
-export async function atlasEntries(): Promise<SitemapEntry[]> {
+export async function locationHubEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  const { countries, directors } = await loadAtlasEligibility();
+  const { countries, directors } = await loadLocationsEligibility();
   return [
-    ...[...countries].sort((a, b) => a.slug.localeCompare(b.slug)).map((c) => ({ url: `${siteUrl}/atlas/${c.slug}` })),
+    ...[...countries].sort((a, b) => a.slug.localeCompare(b.slug)).map((c) => ({ url: `${siteUrl}/locations/${c.slug}` })),
     ...directors.map((d) => ({ url: `${siteUrl}/director/${d.slug}/locations` })),
   ];
 }
 
 /**
- * City & region hubs /atlas/{country}/{city} — the roster is the frozen
+ * City & region hubs /locations/{country}/{city} — the roster is the frozen
  * lib/atlas_cities.json artifact (worker/atlas-cities-build.py; ≥3 films +
  * geographic coherence). Stable order (country, city); the page itself
  * re-checks the ≥3-film bar via robots as drift protection.
  */
 export async function cityEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  return [...allAtlasCities()]
+  return [...allLocationCities()]
     .sort((a, b) => a.countrySlug.localeCompare(b.countrySlug) || a.slug.localeCompare(b.slug))
-    .map((c) => ({ url: `${siteUrl}/atlas/${c.countrySlug}/${c.slug}` }));
+    .map((c) => ({ url: `${siteUrl}/locations/${c.countrySlug}/${c.slug}` }));
 }
 
 /**

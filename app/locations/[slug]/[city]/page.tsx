@@ -10,21 +10,21 @@ import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswe
 import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
-  cachedAtlasEligibility,
-  cachedAtlasMeta,
+  cachedLocationsEligibility,
+  cachedLocationsMeta,
   cachedCountryGeo,
   cityMemberPins,
   countryPhrase,
-  findAtlasCity,
+  findLocationCity,
   listWords,
   mergePins,
   precisionRank,
-  type AtlasCity,
+  type LocationCity,
   type GeoPin,
-} from "@/lib/atlas";
+} from "@/lib/locations";
 
 /**
- * /atlas/[country]/[city] — city & region hubs, the READ layer for
+ * /locations/[country]/[city] — city & region hubs, the READ layer for
  * "movies filmed in Paris / Manhattan / Hertfordshire"
  * (docs/PLAN-atlas-seo.md Phase 3). The roster is frozen in
  * lib/atlas_cities.json (≥3 films, geographically coherent, variants merged);
@@ -38,7 +38,7 @@ export async function generateStaticParams() { return []; }
 type FilmGroup = { slug: string; title: string; year: number | null; pins: GeoPin[] };
 
 async function loadUncached(countrySlug: string, citySlug: string) {
-  const city = findAtlasCity(countrySlug, citySlug);
+  const city = findLocationCity(countrySlug, citySlug);
   if (!city) return null;
   const members = cityMemberPins(await cachedCountryGeo(countrySlug), city);
   const pins = mergePins(members);
@@ -65,7 +65,7 @@ async function loadUncached(countrySlug: string, citySlug: string) {
     .sort((a, b) => b.films.size - a.films.size)
     .slice(0, 12)
     .map((m) => ({ name: m.name, films: m.films.size }));
-  const elig = await cachedAtlasEligibility();
+  const elig = await cachedLocationsEligibility();
   return {
     city, pins, films, returnedTo,
     eligibleFilmSlugs: elig.films.map((f) => f.slug),
@@ -75,12 +75,12 @@ async function loadUncached(countrySlug: string, citySlug: string) {
 
 function load(countrySlug: string, citySlug: string) {
   // Key bumped (2) when director fields/posters joined the pin payload.
-  return unstable_cache(() => loadUncached(countrySlug, citySlug), ["atlas-city2", countrySlug, citySlug], {
+  return unstable_cache(() => loadUncached(countrySlug, citySlug), ["locations-city2", countrySlug, citySlug], {
     revalidate: 86400,
   })();
 }
 
-function leadText(city: AtlasCity, films: FilmGroup[], pinCount: number, returnedTo: { name: string }[]): string {
+function leadText(city: LocationCity, films: FilmGroup[], pinCount: number, returnedTo: { name: string }[]): string {
   const span = films.map((f) => f.year).filter((y): y is number => !!y);
   const years = span.length > 1 ? ` (${Math.min(...span)}–${Math.max(...span)})` : "";
   const inWord = city.scale === "city" ? "in and around" : "across";
@@ -100,7 +100,7 @@ function leadText(city: AtlasCity, films: FilmGroup[], pinCount: number, returne
 // (filmed / shot / filming locations) woven across Q and A, max two uses each:
 // "filmed" carries Q1+Q4, "shot" carries Q2+Q5, "filming locations" carries A2.
 function quickAnswerItems(
-  city: AtlasCity,
+  city: LocationCity,
   films: FilmGroup[],
   pinCount: number,
   returnedTo: { name: string; films: number }[],
@@ -162,7 +162,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `/atlas/${slug}/${citySlug}` },
+    alternates: { canonical: `/locations/${slug}/${citySlug}` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
     robots: pageRobots(films.length >= 3),
@@ -171,14 +171,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const PER_FILM_SHOWN = 3;
 
-export default async function AtlasCityPage({ params }: Props) {
+export default async function LocationsCityPage({ params }: Props) {
   const { slug, city: citySlug } = await params;
   const data = await load(slug, citySlug);
   if (!data) notFound();
   const { city, pins, films, returnedTo, eligibleFilmSlugs, eligibleDirectorSlugs } = data;
   const eligible = new Set(eligibleFilmSlugs);
   const locDirectors = new Set(eligibleDirectorSlugs);
-  const updated = (await cachedAtlasMeta()).updated || new Date().toISOString().slice(0, 10);
+  const updated = (await cachedLocationsMeta()).updated || new Date().toISOString().slice(0, 10);
   const lead = leadText(city, films, pins.length, returnedTo);
   // Directors with ≥2 films shot here — the anti-catalog editorial layer.
   const byDirector = new Map<string, { name: string; slug: string | null; films: number }>();
@@ -218,15 +218,15 @@ export default async function AtlasCityPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
-      { "@type": "ListItem", position: 2, name: "Atlas", item: "https://metatake.net/atlas" },
-      { "@type": "ListItem", position: 3, name: city.country, item: `https://metatake.net/atlas/${slug}` },
-      { "@type": "ListItem", position: 4, name: city.name, item: `https://metatake.net/atlas/${slug}/${citySlug}` },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://metatake.net/locations" },
+      { "@type": "ListItem", position: 3, name: city.country, item: `https://metatake.net/locations/${slug}` },
+      { "@type": "ListItem", position: 4, name: city.name, item: `https://metatake.net/locations/${slug}/${citySlug}` },
     ],
   };
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    url: `https://metatake.net/atlas/${slug}/${citySlug}`,
+    url: `https://metatake.net/locations/${slug}/${citySlug}`,
     name: `Movies filmed in ${city.name}`,
     about: {
       "@type": "Place",
@@ -248,8 +248,8 @@ export default async function AtlasCityPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 60px" }}>
         <div className="df-crumb" style={{ marginBottom: 14 }}>
-          <Link href="/atlas">Atlas</Link>
-          <span className="df-sep">›</span><Link href={`/atlas/${slug}`}>{city.country}</Link>
+          <Link href="/locations">Locations</Link>
+          <span className="df-sep">›</span><Link href={`/locations/${slug}`}>{city.country}</Link>
           <span className="df-sep">›</span><span>{city.name}</span>
         </div>
         <EntityTVHero reelSlugs={films.map((f) => f.slug)} label={city.name} backdrop={null} />
@@ -327,7 +327,7 @@ export default async function AtlasCityPage({ params }: Props) {
                   </p>
                   {eligible.has(f.slug) ? (
                     <p style={{ margin: "3px 0 0", fontSize: 13.5 }}>
-                      <Link href={`/film/atlas/${f.slug}`}>Where was {f.title} filmed? All locations →</Link>
+                      <Link href={`/film/locations/${f.slug}`}>Where was {f.title} filmed? All locations →</Link>
                     </p>
                   ) : null}
                 </div>
@@ -346,8 +346,8 @@ export default async function AtlasCityPage({ params }: Props) {
         <section style={{ margin: "30px 0 0" }}>
           <h2 className="df-h2">Keep exploring</h2>
           <p style={{ lineHeight: 1.9, margin: "6px 0 0" }}>
-            <Link href={`/atlas/${slug}`}>Movies filmed in {countryPhrase(city.country)} — the country hub →</Link>
-            <br /><Link href="/atlas">The Atlas of cinema — every country, one map →</Link>
+            <Link href={`/locations/${slug}`}>Movies filmed in {countryPhrase(city.country)} — the country hub →</Link>
+            <br /><Link href="/locations">The world map of cinema — every country, one map →</Link>
           </p>
         </section>
 

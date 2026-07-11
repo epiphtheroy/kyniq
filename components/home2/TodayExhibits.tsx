@@ -66,7 +66,7 @@ export default function TodayExhibits({ ex }: { ex: Exhibits }) {
   if (ex.place) {
     const p = ex.place;
     tiles.push(
-      <Link className="hx-tile" href={`/film/atlas/${p.fslug}`} key="place">
+      <Link className="hx-tile" href={`/film/locations/${p.fslug}`} key="place">
         {posterUrl(p.poster) ? <span className="hx-thumb" style={{ backgroundImage: `url(${posterUrl(p.poster)})` }} /> : null}
         <span className="hx-body">
           <span className="hx-k">Where it was shot</span>

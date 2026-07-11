@@ -1,8 +1,8 @@
-import "./atlas.css";
+import "./locations.css";
 import { createClient } from "@/lib/supabase/server";
-import AtlasWorkspace, {
+import LocationsWorkspace, {
   type GeoData, type CountryRefRow, type NatLineage,
-} from "@/components/room/AtlasWorkspace";
+} from "@/components/room/LocationsWorkspace";
 import { STR } from "@/components/room/strings";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 /* lineage_index row (public RPC — same one the /lineage hub uses). */
 type IdxRow = { facet: string; slug: string; label: string; country: string | null; film_count: number | string | null };
 
-export default async function RoomAtlasPage() {
+export default async function RoomLocationsPage() {
   const supabase = await createClient();
   /* Personal RPC unchanged (me_geo_coverage, single json — cap-safe). The payload
      carries a continent only for countries the user has SEEN (verified against the
@@ -39,5 +39,5 @@ export default async function RoomAtlasPage() {
     .filter((r) => r.facet === "national" && Number(r.film_count ?? 0) > 0)
     .map((r) => ({ slug: r.slug, label: r.label, country: r.country }));
 
-  return <AtlasWorkspace data={geo} countryRef={countryRef} nationalLineages={national} />;
+  return <LocationsWorkspace data={geo} countryRef={countryRef} nationalLineages={national} />;
 }

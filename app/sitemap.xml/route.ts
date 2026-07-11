@@ -24,7 +24,7 @@ const SECTIONS = [
   "theorists",
   "catalog",
   "locations",
-  "atlas",
+  "location-hubs",
   "cities",
   "lineage",
   "honors",

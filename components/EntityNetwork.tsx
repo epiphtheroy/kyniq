@@ -1,11 +1,11 @@
 "use client";
 
 /**
- * EntityMap — embeds the live Metatake graph centered on one entity, as a tab/section
+ * EntityNetwork — embeds the live Metatake graph centered on one entity, as a tab/section
  * on its page (and inside the home "Surprise me" panel). Fetches a ready-made ego
- * payload from /api/map (same engine as /map). Clicking any node RECENTERS the map on
+ * payload from /api/map (same engine as /network). Clicking any node RECENTERS the map on
  * that node (fetching its ego in place) with a breadcrumb to step back; the tiny ↗ on a
- * node opens its page. "Open in the full map" jumps into the full explorer.
+ * node opens its page. "Open the full web" jumps into the full explorer.
  */
 
 import { useCallback, useEffect, useState } from "react";
@@ -58,7 +58,7 @@ function parseCenterUrl(url: string, label: string): CenterEnt | null {
   } catch { return null; }
 }
 
-export default function EntityMap({ api, full, height = 460, onCenter }: { api: string; full: string; height?: number; onCenter?: (e: CenterEnt | null) => void }) {
+export default function EntityNetwork({ api, full, height = 460, onCenter }: { api: string; full: string; height?: number; onCenter?: (e: CenterEnt | null) => void }) {
   const [stack, setStack] = useState<Crumb[]>([{ label: "Start", url: api }]);
   const [data, setData] = useState<GraphData | null>(null);
   const [failed, setFailed] = useState(false);
@@ -124,7 +124,7 @@ export default function EntityMap({ api, full, height = 460, onCenter }: { api: 
               {expanded ? "Collapse" : "Expand ⤢"}
             </button>
           ) : null}
-          <a className="emap-full" href={full}>Open in the full map ↗</a>
+          <a className="emap-full" href={full}>Open the full web ↗</a>
         </div>
       </div>
       {data ? <EntityGraph data={data} height={h} onNodeClick={recenter} onOpen={openNode} /> : <div className="emap-skel" style={{ height: h }}>Drawing connections…</div>}
