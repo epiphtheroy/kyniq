@@ -10,6 +10,16 @@
 .fwh-sort select { font-family: var(--font-ui); font-size: 13px; padding: 8px 10px; border: 1px solid var(--hairline-2);
   border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; }
 
+/* Tier segment (essential / start here / deep cut) */
+.fwh-tiers { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 0; }
+.fwh-tierbtn { font-family: var(--font-ui); font-size: 12.5px; font-weight: 700; padding: 6px 13px; border-radius: 8px;
+  border: 1px solid var(--hairline-2); background: #fff; color: var(--ink2, #333); cursor: pointer; transition: all .12s; }
+.fwh-tierbtn:hover { border-color: var(--ink2, #333); }
+.fwh-tierbtn.is-on { background: var(--ink, #1a1a1a); border-color: var(--ink, #1a1a1a); color: #fff; }
+.fwh-tierbtn--essential.is-on { background: var(--accent); border-color: var(--accent); }
+.fwh-tierbtn--start_here.is-on { background: #0F6E56; border-color: #0F6E56; }
+.fwh-tierbtn--deep_cut.is-on { background: #5b4bb5; border-color: #5b4bb5; }
+
 /* Genre chips */
 .fwh-genres { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 0; }
 .fwh-chip { font-family: var(--font-ui); font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px;
@@ -55,7 +65,13 @@
 .fwh-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px 16px;
   grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
 .fwh-card { min-width: 0; }
-.fwh-poster-link { display: block; }
+.fwh-poster-link { display: block; position: relative; }
+.fwh-tierbadge { position: absolute; top: 6px; left: 6px; font-family: var(--font-ui); font-size: 9.5px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase; padding: 2px 7px; border-radius: 5px; color: #fff;
+  background: rgba(26,26,26,.86); box-shadow: 0 1px 3px rgba(0,0,0,.3); backdrop-filter: blur(2px); }
+.fwh-tierbadge--essential { background: rgba(200,16,46,.92); }
+.fwh-tierbadge--start_here { background: rgba(15,110,86,.92); }
+.fwh-tierbadge--deep_cut { background: rgba(91,75,181,.92); }
 .fwh-poster { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 8px;
   background: var(--hairline); border: 1px solid rgba(0,0,0,.10); box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 6px 16px -8px rgba(0,0,0,.2);
   transition: transform .14s ease, box-shadow .14s ease; }

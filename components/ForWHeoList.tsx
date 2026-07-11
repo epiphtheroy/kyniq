@@ -196,6 +196,9 @@ export default function ForWHeoList({ films }: { films: WHeoFilm[] }) {
                     ) : (
                       <span className="fwh-poster fwh-poster--e" aria-hidden="true" />
                     )}
+                    {f.verdict && TIER_LABEL[f.verdict] ? (
+                      <span className={`fwh-tierbadge fwh-tierbadge--${f.verdict}`}>{TIER_LABEL[f.verdict]}</span>
+                    ) : null}
                   </Link>
                   <div className="fwh-meta">
                     <Link href={`/film/${f.slug}`} className="fwh-title">{f.title}</Link>

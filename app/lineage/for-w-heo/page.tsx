@@ -87,9 +87,10 @@ export default async function ForWHeoPage() {
         </div>
         <h1 className="lh-h1">for W. Heo</h1>
         <p className="lh-def">
-          The films our curation marks <strong>essential</strong> — required viewing for a cinephile.{" "}
-          {`${films.length} films across ${directors} directors`}, each on a major critics&apos; canon (TSPDT, Sight &amp; Sound) or its director&apos;s
-          own auteur line.{" "}
+          The films we recommend to cinephiles — from canon <strong>essentials</strong> and approachable
+          <strong> start-here</strong> picks to auteur <strong>deep cuts</strong>.{" "}
+          {`${films.length} films across ${directors} directors`}, each on a major critics&apos; canon, a top festival, or its
+          director&apos;s own auteur line.{" "}
           <Link href="/methodology#index" style={{ color: "var(--accent)", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>How we choose them →</Link>
         </p>
         <div style={{ margin: "10px 0 4px" }}>
