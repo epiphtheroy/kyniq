@@ -93,6 +93,7 @@ Supabase public.mt_events  ←  mt_gsc_daily (worker/gsc-pull.py, Search Console
 - **Vercel WAF 병행**: 대시보드에 커스텀 규칙 2개(Alibaba AS45102 Deny + 스크레이퍼/AI훈련 UA Deny)도 라이브. robots.ts는 훈련봇 disallow.
 - **⚠️ 절대 규칙**:
   - `middleware.ts`·`app/api/metrics/route.ts` 편집 전 이 섹션 필독 — **모르고 봇 게이트/프리픽스 수집 제거 금지.**
+  - **`middleware.ts`는 크롤러 관찰 훅도 공유**(2026-07-12): 봇 차단 판정 *이후* 식별가능 크롤러를 `/api/bots/observe`로 fire-and-forget 수집(역방문 핸드셰이크용). 정본 `HANDOFF-크롤러-핸드셰이크-리퍼러.md` — **middleware 편집 시 그 문서도 필독**(순서 뒤집으면 403할 봇을 관찰함).
   - middleware.ts는 **루트 파일**이라 자동배포 워처가 스테이징 안 함 → 수동 커밋 필요.
   - OVH·Amazon ASN **통째 차단 금지**: Claude-SearchBot·Amzn-SearchBot 인용봇(트래픽 유입)이 그 인프라라 오폭. 나쁜 봇은 UA로만.
   - Vercel **Bot Protection Off 유지**: 켜면 우리 GET 워밍·크론 등 서버측 자동화가 챌린지됨.
