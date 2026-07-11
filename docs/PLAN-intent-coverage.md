@@ -130,7 +130,12 @@
 
 ## 8. 판독 로그 (웨이브별 before/after)
 
-- (첫 판독은 Wave 1 배포 +2주)
+- **Wave 0+1 SHIPPED·검증 2026-07-11**: `components/read/QuickAnswers.tsx` + `worker/0079_intent_queue.sql`(적용됨, `mt_intent_scan()` 인사이트 크론 편승) + atlas 403p Quick answers 블록 + leadText 도시 우선.
+  - 라이브 확인: /film/atlas/idiocracy-2006 meta="…in and around Austin, the United States", Quick answers 3항(where filmed / what scene at {pin} / built-set·multi-country는 데이터 없어 정확히 생략). color-of-pomegranates·stalker 200+렌더(설정만 페이지 우아한 강등 OK). 변형어 블록 내 filmed1·shot2·filming-locations1(전부 ≤2, §0.6 준수 — scene Q는 "shot"으로 조정).
+  - **루프 종단 검증**: intent_queue가 발단 갭 그대로 포착 — `idiocracy skyline`(imps7,pos7.3)·`idiocracy skyscrapers`(imps5) status='new'. 그리고 **스카이라인은 핀 데이터에 없어 답을 생성하지 않음**(§1 준수). 즉 갭 감지→데이터 있는 것만 답→없는 건 큐 대기, 설계대로 작동.
+  - v2 정제 후보: intent_queue에 봇 쿼리 노이즈("news for … -site:facebook.com" 류) 유입 — 탐지기에 `-site:`/"news for" 필터 필요. Q1("where filmed")은 페이지 리드와 근접 중복(§0.4) — 무해하나 향후 리드-존재 시 생략 검토.
+  - 환경: 8일 묵은 stale `next dev`가 .next 점유해 첫 빌드 데드락 → 에이전트가 dev 서버(pid 32112 등) 종료 후 재빌드 성공. **오너 dev 서버 재시작 필요.**
+- (Wave 1 CTR 판독은 배포 +1~2주 GSC 축적 후)
 
 ## 7. 리스크 노트
 
