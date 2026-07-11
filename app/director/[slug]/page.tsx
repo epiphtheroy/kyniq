@@ -182,17 +182,10 @@ async function loadUncached(slug: string) {
   const geoFilms = new Set(geoCellsArr.map((p) => p.film_slug)).size;
   const geoMerged = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]).length : 0;
 
-  // Fallback trailer reel for the unified top video hero (played when this
-  // director has no compiled broadcast playlist). One clean trailer per film.
-  const { data: reelData } = await supabase.rpc("tv_reel", { p_slugs: films.map((f) => f.slug).slice(0, 60), p_cap: 12 });
-  const reel = (reelData as { id: string; title: string }[] | null) ?? [];
-  const heroBackdrop = films.find((f) => f.backdrop_path)?.backdrop_path ?? null;
-
   return {
     // perFilmReadings is a Map; the Data Cache can't serialize Maps, so return
     // a plain object. Consumers read it with bracket access.
     director, dir, films, sigTropes, perFilmReadings: Object.fromEntries(perFilmReadings), total: films.length, readingCount, tropeCount: tropeFilms.size,
-    reel, heroBackdrop,
     portrait: portrait as { body: string; source: string } | null,
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
@@ -279,7 +272,7 @@ export default async function DirectorPage({ params }: Props) {
     if (alias) permanentRedirect(alias);
     notFound();
   }
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0, reel = [], heroBackdrop = null } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
   const native = await directorNative(director);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
@@ -419,8 +412,8 @@ export default async function DirectorPage({ params }: Props) {
       <div className="dr-wrap">
         <div className="dr-crumb"><Link href="/director">Directors</Link></div>
 
-        <EntityTVHero playlist={`director-${slug}`} reel={reel} label={director}
-          listHref={`/tv/list/director-${slug}`} backdrop={heroBackdrop} />
+        <EntityTVHero playlist={`director-${slug}`} reelSlugs={films.map((f) => f.slug)} label={director}
+          listHref={`/tv/list/director-${slug}`} backdrop={films.find((f) => f.backdrop_path)?.backdrop_path ?? null} />
 
         {/* HEADER */}
         <div className="dr-head">
