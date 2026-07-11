@@ -12,8 +12,15 @@
 
 **Deferred (documented, low value / higher risk):**
 - **map_film_overview kin weights** — only `map_film_ego` was weighted (the ego graph is what users focus on). The global overview graph is unweighted. Follow-up if desired.
-- **GraphCaptions in MapExplorer** — the film-page `df-map` embed (highest traffic) has it; the `/map` explorer's recenter flow buries the current slug in the crumb stack, so mounting there needs state-lifting. Deferred. NOTE: the film-page `df-map` uses the **critical** graph (`map_ego`: figures/tropes/ideas), so its edges are not kin-weighted — the captions add the film↔film context there instead.
 - TypeScript: `tsc --noEmit` clean (0 errors). Migration files 0061/0062/0063 mirrored to `supabase/migrations/` and committed manually (watcher doesn't stage `supabase/`).
+
+## Phase 1.5 — SentenceLexicon rail (SHIPPED 2026-07-11, same day)
+원우 직접 요청: /map과 film 커넥션 섹션 **우측에 아틀라스풍 회전 문장 그리드** — 화면 속 엔티티를 설명하는 글자들이 박스 안에서 계속 바뀌고, 클릭하면 그 엔티티 중심으로 재호출.
+- **`components/SentenceLexicon.tsx`** — 340px rail, 4 cells, staggered rotation (one cell advances every 3.4s to the next unshown sentence), pause-on-hover, reduced-motion → static. Atlas typography (uppercase micro-labels, hairline rules, serif body, tabular index numbers, navy #16233F / amber #E0922A). Every entity name = recenter button; ‹ back / ⌂ home / ↗ open-page.
+- **RPC `sentences_for_entity(type,key,key2,limit)`** (migration **0064**, plpgsql branches per type so indexes are always used): film · director · theorist · trope/take/idea (meta_takes slug) · figure. Returns the SAME projection as `film_sentences_for` **plus the anchor `film`** per row (recenter target). film/figure pools share one anchor → per-anchor diversity cap disabled there (fix applied same day). New indexes: GIN on `meta_take_ids`, partial btree on `theorist_id`/`figure_id`.
+- **API `/api/sentences/entity`** (s-maxage=300).
+- **Mounts:** film `df-map` → **`components/ConnectionDesk.tsx`** (2-col flex: EntityMap + lexicon; graph recenter re-roots the rail via new `EntityMap onCenter` callback — **replaces GraphCaptions there**; component kept in repo, unused). `/map` (MapExplorer) → rail beside EntityGraph for films/directors/critical modes, keyed to the live center node (`egoParams`); overview/galaxy hide it.
+- CSS: `.cmap-cols/.map-cols/.lexi-*` in globals.css; ≤900px stacks below the graph.
 
 ---
 
