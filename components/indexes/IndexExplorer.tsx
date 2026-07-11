@@ -51,9 +51,29 @@ export default function IndexExplorer({
   const seed = initialSlug ?? pool[0]?.slug ?? "";
   const [srcs, setSrcs] = useState<[string, string]>([seed, ""]);
   const [active, setActive] = useState<0 | 1>(0);
+  // each iframe is sized to its OWN full content height so the whole real page
+  // flows and the parent scrolls through it — no fixed frame, no bottom cutoff.
+  const [heights, setHeights] = useState<[number, number]>([0, 0]);
   const fa = useRef<HTMLIFrameElement>(null);
   const fb = useRef<HTMLIFrameElement>(null);
   const frameRefs = [fa, fb] as const;
+  const obsRefs = useRef<[ResizeObserver | null, ResizeObserver | null]>([null, null]);
+  useEffect(() => () => { obsRefs.current[0]?.disconnect(); obsRefs.current[1]?.disconnect(); }, []);
+
+  // measure a slot's true content height (body-based, so it's not clamped to the
+  // iframe's own viewport even when the slot is oversized while buffering)
+  const measure = (i: 0 | 1) => {
+    const doc = frameRefs[i].current?.contentDocument;
+    const b = doc?.body;
+    if (!b || !doc) return;
+    const h = Math.max(b.scrollHeight, b.offsetHeight, doc.documentElement.offsetHeight);
+    setHeights((prev) => {
+      if (Math.abs((prev[i] || 0) - h) < 2) return prev;
+      const c = [...prev] as [number, number];
+      c[i] = h;
+      return c;
+    });
+  };
 
   const byLabel = (slug: string) => pool.find((p) => p.slug === slug)?.label ?? slug;
   const pickRandom = (exclude: string[]) => {
@@ -91,9 +111,20 @@ export default function IndexExplorer({
   // Then start preloading the buffer once the visible page is ready.
   const onFrameLoad = (i: 0 | 1) => {
     const f = frameRefs[i].current;
-    if (f) {
-      try { f.contentDocument?.documentElement.setAttribute("data-embed", ""); } catch { /* same-origin */ }
-    }
+    try {
+      const doc = f?.contentDocument;
+      if (doc) {
+        doc.documentElement.setAttribute("data-embed", "");
+        obsRefs.current[i]?.disconnect();
+        measure(i);
+        const ro = new ResizeObserver(() => measure(i));
+        if (doc.body) ro.observe(doc.body);
+        obsRefs.current[i] = ro;
+      }
+    } catch { /* same-origin */ }
+    // content (images, video) can change height after load → re-measure
+    window.setTimeout(() => measure(i), 500);
+    window.setTimeout(() => measure(i), 1500);
     if (i === active) {
       setSrcs((s) => {
         const other = i === 0 ? 1 : 0;
@@ -185,7 +216,7 @@ export default function IndexExplorer({
             <button type="button" className="xplor-rand" onClick={reshuffle}>🎲 {reshuffleLabel}</button>
             {activeSlug ? <Link className="xplor-open" href={href}>{openLabel}</Link> : null}
           </div>
-          <div className="xplor-frame">
+          <div className="xplor-frame" style={{ height: `${heights[active] || 900}px` }}>
             {[0, 1].map((i) => (
               srcs[i] ? (
                 <iframe
