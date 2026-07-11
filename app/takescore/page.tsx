@@ -36,18 +36,11 @@ const cachedDimHist = unstable_cache(
   { revalidate: 86400 },
 );
 
-type SP = Record<string, string | string[] | undefined>;
-const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
-
-export default async function TakeScorePage({ searchParams }: { searchParams: Promise<SP> }) {
-  const sp = await searchParams;
-  // Seed the client instrument from the URL on the server, so the hero + first
-  // grid page are in the SSR HTML (no useSearchParams → no Suspense fallback).
-  const initialParams = {
-    sort: one(sp.sort) || "u", lam: one(sp.lam), since: one(sp.since), to: one(sp.to),
-    country: one(sp.country), q: one(sp.q), ts: one(sp.ts), dims: one(sp.dims),
-    mv: one(sp.mv), hide: one(sp.hide), pin: one(sp.pin),
-  };
+// Kept static/ISR (no searchParams read) so the HTML caches; the hero + default
+// grid render server-side, and ScreenerExplorer reads the URL client-side on
+// mount to apply any shared/bookmarked filters. Reading searchParams here would
+// force per-request dynamic rendering (a cinecodex_ranked(500) hit every load).
+export default async function TakeScorePage() {
   const [{ data: page }, { data: cc }, dimHist] = await Promise.all([
     db().rpc("cinecodex_ranked", { p_sort: "u", p_lambda: 1.0, p_limit: 500, p_offset: 0 }),
     db().rpc("cinecodex_countries"),
