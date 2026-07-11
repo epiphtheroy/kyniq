@@ -135,7 +135,15 @@
   - **루프 종단 검증**: intent_queue가 발단 갭 그대로 포착 — `idiocracy skyline`(imps7,pos7.3)·`idiocracy skyscrapers`(imps5) status='new'. 그리고 **스카이라인은 핀 데이터에 없어 답을 생성하지 않음**(§1 준수). 즉 갭 감지→데이터 있는 것만 답→없는 건 큐 대기, 설계대로 작동.
   - v2 정제 후보: intent_queue에 봇 쿼리 노이즈("news for … -site:facebook.com" 류) 유입 — 탐지기에 `-site:`/"news for" 필터 필요. Q1("where filmed")은 페이지 리드와 근접 중복(§0.4) — 무해하나 향후 리드-존재 시 생략 검토.
   - 환경: 8일 묵은 stale `next dev`가 .next 점유해 첫 빌드 데드락 → 에이전트가 dev 서버(pid 32112 등) 종료 후 재빌드 성공. **오너 dev 서버 재시작 필요.**
-- (Wave 1 CTR 판독은 배포 +1~2주 GSC 축적 후)
+- **Wave 2~5 SHIPPED·라이브검증 2026-07-11** (에이전트 순차, LLM-0):
+  - W2 movies-like·film-lineage·lineage정전 — Parasite 수상13·NYT#1·"won…in 2020"(edition_year≠film_year 구분 라이브). ⚠️실데이터 확인: film_lineage.result에 nominated 0건→노미네이션 질문 자동 미생성.
+  - W3 reception·credits·whereto — Parasite 프리미어/개봉/스트리밍·감독/각본/촬영/캐스트·runtime clause. 집계점수 질문 미생성(RT% 없음).
+  - W4a 감독 허브+life(bong-joon-ho), start/next는 §0.4 중복회피 스킵. W4b trope·concept(sm+theory 분기)·theorist·credits-person(freud·lacan·deakins 라이브). trope "is it a cliché"=maturity 키잉.
+  - W5a genre·movements·frame·catalog — genre/catalog "best" 금지(most/newest/count), frame "best"=실제 rank. member_count=figure수라 "figures across titles"로 정확표기.
+  - W5b atlas 국가/도시·tradition — atlas "best" 금지, tradition "What is" 금지(정의필드 없음). + **탐지기 v2(worker/0080)**: intent_queue 봇노이즈 필터(-site:·news for·wykop.pl), rejected 2·new 4(idiocracy skyline 등 실쿼리 유지).
+  - 공용 `<QuickAnswers>` 1개로 전 유형. 전 페이지 추가 페치 0.
+- **⚠️ 배포 CHURN 함정 실측**: 워처가 파일 하나씩 커밋→2분새 배포 6회↑→각 빌드가 sitemap XML(misreadings 1932 등)을 도쿄DB에서 동시생성→DB과부하→일부 빌드 ERROR(`Export encountered an error on /sitemaps/misreadings.xml`). W4b는 최종 배포가 ERROR라 변경이 안 떴음. **해법: 배포상태 확인(Vercel list_deployments)→최신이 ERROR면 빈 커밋 재푸시로 단일 클린 빌드.** 웨이브 후 항상 확인. (dynamic 라우트=generateStaticParams()[]는 로컬빌드가 실제 렌더 안 함→라이브 curl로만 런타임 null 검증됨.)
+- **잔여(후속)**: Wave 1 atlas CTR 판독(배포+1~2주 GSC); figure 페이지 QA 보강(이미 FAQ 있음); take(리다이렉트) 제외 유지; concept "takes"분기·director 기록서브페이지(honors/reception/theory/takescore)는 미착수(패턴은 확립됨); 1층 탐지기 커버판정 자동화(v3).
 
 ## 7. 리스크 노트
 
