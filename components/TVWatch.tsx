@@ -5,6 +5,9 @@ import { useSearchParams } from "next/navigation";
 import SiteNavClient from "@/components/home2/SiteNavClient";
 import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVProgramPlayer";
 import TVDirectory from "@/components/TVDirectory";
+import TVListPicker from "@/components/TVListPicker";
+import SaveButton from "@/components/SaveButton";
+import { deleteList, fetchMyLists, renameList, type TVUserList } from "@/lib/tvUserLists";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -14,7 +17,10 @@ type Shelf = {
   programs: { slug: string; title: string; dek?: string | null; seg_count: number; duration_ms: number; film: TVEntry["film"] }[];
 };
 
-const isIntro = (e: TVEntry) => e.slug.startsWith("intro-");
+type Playlist = { slug: string | null; title: string; dek?: string | null; kind?: string } | null;
+export type TVSeed = { playlist: Playlist; entry: TVEntry } | null;
+
+const isPseudo = (e: TVEntry) => e.slug.startsWith("intro-") || e.slug.startsWith("seg-");
 
 function shuffled<T>(a: T[]): T[] {
   const r = [...a];
@@ -26,9 +32,9 @@ function shuffled<T>(a: T[]): T[] {
 }
 
 // Playback order over entry indices. The intro briefing (if any) stays pinned
-// first; a deep-linked start entry begins playing immediately.
+// first; a deep-linked/seeded start entry begins playing immediately.
 function buildQueue(es: TVEntry[], doShuffle: boolean, startSlug: string | null): { queue: number[]; pos: number } {
-  const intro = es.length && isIntro(es[0]) ? [0] : [];
+  const intro = es.length && es[0].slug.startsWith("intro-") ? [0] : [];
   const rest = es.map((_, i) => i).slice(intro.length);
   const start = startSlug != null ? rest.find((i) => es[i].slug === startSlug) : undefined;
   const body = doShuffle
@@ -39,34 +45,44 @@ function buildQueue(es: TVEntry[], doShuffle: boolean, startSlug: string | null)
 }
 
 // TVWatch — the main METATAKE TV watch interface (served at /tv; /watch and
-// /tv/watch 308 here): the player up front, an editable "Up next" queue beside
-// it (shuffle by default, reorder, remove), a chapter strip beneath, and the
-// full watch-list library + all programs below. Picking a list from the library
-// swaps the player in place — the browse surface never disappears. Everything
-// it plays was compiled by the LLM-free production engine.
-export default function TVWatch() {
+// /tv/watch 308 here). YouTube-shaped: player + editable "Up next" queue
+// (shuffle by default, reorder, remove, save-to-list), an action row under the
+// title (Save / Save list), the visitor's own lists as a shelf, and the full
+// searchable library below — picking anything swaps the player in place.
+// `seed` (SSR-provided first entry) starts playback instantly, before the full
+// list arrives.
+export default function TVWatch({ seed = null }: { seed?: TVSeed }) {
   return (
     <Suspense fallback={<div className="mt tvpg"><div className="tvpg-wrap"><div className="tvd--skel tvd">Tuning in…</div></div></div>}>
-      <Watch />
+      <Watch seed={seed} />
     </Suspense>
   );
 }
 
-function Watch() {
+type Sel = { list: string | null; v: string | null; mylist: string | null };
+
+function Watch({ seed }: { seed: TVSeed }) {
   const sp = useSearchParams();
-  const [sel, setSel] = useState<{ list: string | null; v: string | null }>({ list: sp.get("list"), v: sp.get("v") });
-  const listSlug = sel.list ?? (sel.v ? null : "palme-files");
+  const [sel, setSel] = useState<Sel>({ list: sp.get("list"), v: sp.get("v"), mylist: sp.get("mylist") });
+  const listSlug = sel.list ?? (sel.v || sel.mylist ? null : "palme-files");
+  const seedApplies = !!seed?.entry && !sel.list && !sel.v && !sel.mylist;
 
   const [shelf, setShelf] = useState<Shelf | null>(null);
-  const [entries, setEntries] = useState<TVEntry[]>([]);
-  const [playlist, setPlaylist] = useState<{ slug: string; title: string; dek?: string | null; kind?: string } | null>(null);
-  const [queue, setQueue] = useState<number[]>([]);
+  const [entries, setEntries] = useState<TVEntry[]>(seedApplies ? [seed!.entry] : []);
+  const [playlist, setPlaylist] = useState<Playlist>(seedApplies ? seed!.playlist : null);
+  const [queue, setQueue] = useState<number[]>(seedApplies ? [0] : []);
   const [pos, setPos] = useState(0);
   const [shuffle, setShuffle] = useState(true); // random is the default
   const [theater, setTheater] = useState(false);
   const [nowSeg, setNowSeg] = useState<TVSegment | null>(null);
+  const [picker, setPicker] = useState<string[] | null>(null); // program slugs being saved
+  const [myLists, setMyLists] = useState<TVUserList[] | null | undefined>(undefined);
   const shuffleRef = useRef(shuffle);
   shuffleRef.current = shuffle;
+  const seedRef = useRef<TVEntry | null>(seedApplies ? seed!.entry : null); // consumed on first full load
+
+  const refreshMyLists = useCallback(() => { fetchMyLists().then(setMyLists).catch(() => {}); }, []);
+  useEffect(() => { refreshMyLists(); }, [refreshMyLists]);
 
   useEffect(() => {
     (async () => {
@@ -78,29 +94,58 @@ function Watch() {
   useEffect(() => {
     const onPop = () => {
       const p = new URLSearchParams(window.location.search);
-      setSel({ list: p.get("list"), v: p.get("v") });
+      setSel({ list: p.get("list"), v: p.get("v"), mylist: p.get("mylist") });
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
-  // load the selected list (or single program) and build a fresh queue
+  // load the selection (curated list / single program / personal list) and
+  // build a fresh queue; the SSR seed keeps playing seamlessly through the swap
   useEffect(() => {
+    let alive = true;
     (async () => {
       try {
-        const url = sel.v && !sel.list
-          ? `/api/tv/watch?v=${encodeURIComponent(sel.v)}`
-          : `/api/tv/watch?list=${encodeURIComponent(listSlug ?? "palme-files")}`;
-        const j = await fetch(url).then((r) => r.json());
-        const es: TVEntry[] = j.entries ?? [];
+        let es: TVEntry[] = [];
+        let pl: Playlist = null;
+        if (sel.mylist) {
+          const lists = await fetchMyLists();
+          const L = lists?.find((x) => x.id === sel.mylist);
+          if (!L || !L.slugs.length) {
+            if (alive) setSel({ list: null, v: null, mylist: null });
+            return;
+          }
+          const j = await fetch(`/api/tv/watch?films=${encodeURIComponent(L.slugs.slice(0, 60).join(","))}`).then((r) => r.json());
+          es = j.entries ?? [];
+          pl = { slug: null, title: L.title, dek: `Your list · ${es.length} program${es.length === 1 ? "" : "s"}`, kind: "mine" };
+        } else if (sel.v && !sel.list) {
+          const j = await fetch(`/api/tv/watch?v=${encodeURIComponent(sel.v)}`).then((r) => r.json());
+          es = j.entries ?? [];
+          pl = j.playlist ?? null;
+        } else {
+          const j = await fetch(`/api/tv/watch?list=${encodeURIComponent(listSlug ?? "palme-files")}`).then((r) => r.json());
+          es = j.entries ?? [];
+          pl = j.playlist ?? null;
+        }
+        if (!alive) return;
+        const sd = seedRef.current;
+        let startSlug = sel.v;
+        if (sd) {
+          // reuse the seeded object so entry identity survives → no restart
+          es = es.map((e) => (e.slug === sd.slug ? sd : e));
+          if (es.some((e) => e === sd)) startSlug = sd.slug;
+          seedRef.current = null;
+        }
         setEntries(es);
-        setPlaylist(j.playlist ?? null);
-        const built = buildQueue(es, shuffleRef.current, sel.v);
+        setPlaylist(pl);
+        const built = buildQueue(es, shuffleRef.current, startSlug);
         setQueue(built.queue);
         setPos(built.pos);
       } catch { /* noop */ }
     })();
-  }, [sel, listSlug]);
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sel]);
 
   // stable per-entry objects → reordering the queue never restarts the player
   const ordered = useMemo(() => queue.map((i) => entries[i]).filter(Boolean), [queue, entries]);
@@ -108,6 +153,7 @@ function Watch() {
   const advance = useCallback(() => setPos((p) => (queue.length ? (p + 1) % queue.length : 0)), [queue.length]);
   const jumpChapter = (i: number) => window.dispatchEvent(new CustomEvent("tvw-jump", { detail: i }));
   const chapters = useMemo(() => entry?.segments ?? [], [entry]);
+  const realQueueSlugs = useMemo(() => ordered.filter((e) => !isPseudo(e)).map((e) => e.slug), [ordered]);
 
   const toggleShuffle = () => {
     const next = !shuffle;
@@ -141,12 +187,15 @@ function Watch() {
     setPos((p) => Math.min(qi < p ? p - 1 : p, newLen - 1));
   };
 
-  // picking a list from the library below swaps the player without leaving /tv
-  const selectList = useCallback((slug: string) => {
-    setSel({ list: slug, v: null });
-    window.history.pushState(null, "", `/tv?list=${encodeURIComponent(slug)}`);
+  // picking anything below swaps the player without leaving /tv
+  const goto = useCallback((next: Sel, url: string) => {
+    setSel(next);
+    window.history.pushState(null, "", url);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  const selectList = useCallback((slug: string) => goto({ list: slug, v: null, mylist: null }, `/tv?list=${encodeURIComponent(slug)}`), [goto]);
+  const selectVideo = useCallback((slug: string) => goto({ list: null, v: slug, mylist: null }, `/tv?v=${encodeURIComponent(slug)}`), [goto]);
+  const selectMyList = useCallback((id: string) => goto({ list: null, v: null, mylist: id }, `/tv?mylist=${encodeURIComponent(id)}`), [goto]);
 
   return (
     <div className={`mt tvpg tvw${theater ? " tvw--theater" : ""}`}>
@@ -178,6 +227,17 @@ function Watch() {
                   {entry.film?.director ? <> · dir. {entry.film.director}</> : null}
                   {entry.dek ? <> — {entry.dek}</> : null}
                 </p>
+                <div className="tvw-actions">
+                  {!isPseudo(entry) ? (
+                    <button className="tvw-act" onClick={() => setPicker([entry.slug])} title="Save this program to one of your lists">＋ Save</button>
+                  ) : null}
+                  {listSlug ? (
+                    <SaveButton entityType="tv_list" entityRef={listSlug} label="Save list" labelOn="List saved" />
+                  ) : null}
+                  {!isPseudo(entry) ? (
+                    <a className="tvw-act tvw-act--lnk" href={`/tv/${entry.slug}`}>Broadcast page ↗</a>
+                  ) : null}
+                </div>
                 <div className="tvw-chapters">
                   {chapters.map((s, i) => (
                     <button key={s.id} className={`tvw-chap${nowSeg?.id === s.id ? " on" : ""}`}
@@ -198,8 +258,11 @@ function Watch() {
               <div className="tvw-qbar">
                 <button className={`tvw-qbtn${shuffle ? " on" : ""}`} onClick={toggleShuffle} title="Play in random order">⇄ Shuffle{shuffle ? " · on" : ""}</button>
                 <button className={`tvw-qbtn${theater ? " on" : ""}`} onClick={() => setTheater((t) => !t)} title="Big player">⛶ Theater</button>
+                {realQueueSlugs.length > 1 ? (
+                  <button className="tvw-qbtn" onClick={() => setPicker(realQueueSlugs)} title="Save the whole queue as one of your lists">＋ Save queue</button>
+                ) : null}
                 <span className="tvw-qn">{queue.length} program{queue.length === 1 ? "" : "s"}</span>
-                {listSlug ? <a className="tvw-qlink" href={`/tv/list/${listSlug}`}>List page ↗</a> : null}
+                {sel.list || (!sel.v && !sel.mylist) ? <a className="tvw-qlink" href={`/tv/list/${listSlug}`}>List page ↗</a> : null}
               </div>
             </div>
             <ul className="tvw-list">
@@ -217,6 +280,9 @@ function Watch() {
                   <span className="tvw-qops">
                     <button aria-label="Play earlier" title="Move up" onClick={() => moveBy(qi, -1)} disabled={qi === 0}>↑</button>
                     <button aria-label="Play later" title="Move down" onClick={() => moveBy(qi, 1)} disabled={qi === queue.length - 1}>↓</button>
+                    {!isPseudo(e) ? (
+                      <button aria-label="Save to list" title="Save to list" onClick={() => setPicker([e.slug])}>＋</button>
+                    ) : null}
                     <button aria-label="Remove from the queue" title="Remove" onClick={() => removeAt(qi)} disabled={queue.length <= 1}>✕</button>
                   </span>
                 </li>
@@ -225,9 +291,39 @@ function Watch() {
           </aside>
         </div>
 
-        {/* the full, filterable watch-list library — always present; picking a
-            list swaps the player above instead of leaving the page */}
-        <TVDirectory embedded onSelect={selectList} />
+        {/* the visitor's own lists, YouTube-library style */}
+        {myLists && myLists.length ? (
+          <section className="tvw-shelves tvw-mine">
+            <h2 className="tvw-shelf__h">Your lists</h2>
+            <div className="tvw-minegrid">
+              {myLists.map((l) => (
+                <div key={l.id} className={`tvw-minecard${sel.mylist === l.id ? " on" : ""}`}>
+                  <button className="tvw-minecard__play" onClick={() => selectMyList(l.id)} title="Play this list">
+                    <span className="tvw-minecard__t">{l.title}</span>
+                    <span className="tvw-minecard__m">{l.slugs.length} program{l.slugs.length === 1 ? "" : "s"} · ▶ Play</span>
+                  </button>
+                  <span className="tvw-minecard__ops">
+                    <button title="Rename" onClick={async () => {
+                      const t = window.prompt("Rename list", l.title);
+                      if (t && t.trim()) { await renameList(l.id, t.trim()); refreshMyLists(); }
+                    }}>✎</button>
+                    <button title="Delete" onClick={async () => {
+                      if (window.confirm(`Delete “${l.title}”?`)) {
+                        await deleteList(l.id);
+                        refreshMyLists();
+                        if (sel.mylist === l.id) goto({ list: null, v: null, mylist: null }, "/tv");
+                      }
+                    }}>✕</button>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {/* the full, filterable library — always present; picking a list or a
+            broadcast swaps the player above instead of leaving the page */}
+        <TVDirectory embedded onSelect={selectList} onSelectVideo={selectVideo} />
 
         {/* every individual film broadcast */}
         {shelf ? (
@@ -245,6 +341,8 @@ function Watch() {
           </section>
         ) : null}
       </div>
+
+      {picker ? <TVListPicker slugs={picker} onClose={() => setPicker(null)} onChanged={refreshMyLists} /> : null}
     </div>
   );
 }
