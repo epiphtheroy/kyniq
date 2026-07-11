@@ -21,14 +21,20 @@ function shuffle<T>(a: T[]): T[] {
   return b;
 }
 
-export default function EntityTVHero({ program, playlist, reelSlugs, label, listHref, backdrop }: {
+export default function EntityTVHero({ program, playlist, reelSlugs, label, listHref, backdrop, inline }: {
   program?: string;                  // a single film's slug → its broadcast (?v=); takes precedence
   playlist?: string;                 // tv_playlists.slug (omit for reel-only pages)
   reelSlugs: string[];               // the entity's film slugs — reel fallback source
   label: string;                     // entity name — a11y label only (H1 stays on the page)
   listHref?: string;                 // /tv/list/[slug], shown when a broadcast plays
   backdrop?: string | null;          // TMDB backdrop path for the loading ribbon
+  inline?: boolean;                  // render as an absolute overlay filling a hero media slot,
+                                     // over the slot's static backdrop (which shows until/if no video)
 }) {
+  // In inline mode the wrapper fills the hero's right media slot instead of the
+  // full-width centered banner, and while deciding / with no video it renders
+  // nothing so the slot's own backdrop image shows through (no top-of-page bar).
+  const shell = inline ? "df-tvhero ehero--in" : "df-tvhero ehero";
   // undefined = deciding; null = no broadcast → use the reel; TVEntry[] once a broadcast loads
   const [entries, setEntries] = useState<TVEntry[] | null | undefined>(undefined);
   const [reelIds, setReelIds] = useState<string[] | null>(null);
@@ -66,7 +72,7 @@ export default function EntityTVHero({ program, playlist, reelSlugs, label, list
   // 1 · broadcast playlist
   if (entries && entries.length) {
     return (
-      <section className="df-tvhero ehero" aria-label={`${label} — video`}>
+      <section className={shell} aria-label={`${label} — video`}>
         <TVProgramPlayer entries={entries} entryIdx={idx} onEntryEnd={() => setIdx((i) => (entries.length ? (i + 1) % entries.length : 0))} />
         {listHref ? <a className="ehero-more" href={listHref}>Watch as a list ↗</a> : null}
       </section>
@@ -78,7 +84,7 @@ export default function EntityTVHero({ program, playlist, reelSlugs, label, list
     if (!reelIds.length) return null; // no broadcast and no trailers → no hero
     const src = `https://www.youtube-nocookie.com/embed/${reelIds[0]}?autoplay=1&mute=1&controls=1&loop=1&playlist=${reelIds.join(",")}&start=7&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`;
     return (
-      <section className="df-tvhero ehero" aria-label={`${label} — trailers`}>
+      <section className={shell} aria-label={`${label} — trailers`}>
         <iframe ref={iframeRef} className="ivd-yt" src={src} title={`${label} trailers`} allow="autoplay; encrypted-media; picture-in-picture" />
         <button type="button" className="ehero-mute" aria-label={muted ? "Unmute" : "Mute"}
           onClick={() => { iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ event: "command", func: muted ? "unMute" : "mute", args: [] }), "*"); setMuted((m) => !m); }}>
@@ -88,7 +94,9 @@ export default function EntityTVHero({ program, playlist, reelSlugs, label, list
     );
   }
 
-  // 3 · loading — backdrop + on-air ribbon (no YT load yet)
+  // 3 · loading. Inline: render nothing so the slot's own backdrop shows through
+  // (no flash of a second ribbon). Top-banner: the backdrop + on-air ribbon.
+  if (inline) return null;
   return (
     <section className="df-tvhero df-tvhero--load ehero" style={backdrop ? { backgroundImage: `url(${IMG}/w780${backdrop})` } : undefined} aria-label={`${label} — video`}>
       <span className="df-tvhero__badge"><b>METATAKE</b><i>TV</i></span>
