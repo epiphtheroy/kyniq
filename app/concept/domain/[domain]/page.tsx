@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import { pageRobots } from "@/lib/seo";
 
 /**
@@ -90,6 +91,9 @@ export default async function ConceptDomainPage({ params }: Props) {
   const data = await load(domain);
   if (!data) notFound();
   const { part, groups } = data;
+  const _conceptSlugs = groups.flatMap(([, g]) => g.map((r) => r.concept_slug)).slice(0, 80);
+  const { data: _reelData } = await db().rpc("tv_films_for_concepts", { p_slugs: _conceptSlugs, p_cap: 40 });
+  const _reelSlugs = (_reelData as string[] | null) ?? [];
   const total = groups.reduce((s, [, g]) => s + g.length, 0);
   const films = groups.reduce((s, [, g]) => s + g.reduce((x, r) => x + r.films, 0), 0);
 
@@ -98,6 +102,7 @@ export default async function ConceptDomainPage({ params }: Props) {
       <SiteNav />
       <div className="mt-wrap lh">
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link> › <span>{part}</span></div>
+        <EntityTVHero reelSlugs={_reelSlugs} label={part} backdrop={null} />
         <h1 className="lh-h1">{part}</h1>
         <p className="lh-def">
           {total.toLocaleString()} concepts from {part.toLowerCase()} in Metatake&rsquo;s theory registry —{" "}

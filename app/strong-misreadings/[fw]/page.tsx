@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import ReadingFeed, { type FeedRow, type Facets } from "@/components/ReadingFeed";
 import LensQuickBar from "@/components/LensQuickBar";
 import { fwBySlug } from "@/lib/frameworks";
@@ -69,6 +70,7 @@ export default async function FrameworkPage({ params }: Props) {
       {hubJsonld ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(hubJsonld) }} /> : null}
       <div className="mt-wrap smb-fw">
         <div className="smb-crumb"><Link href="/strong-misreadings">Strong Misreadings</Link></div>
+        <EntityTVHero reelSlugs={[...new Set(initial.rows.map((r) => r.filmslug))]} label={isAll ? "Strong Misreadings" : (f?.label ?? "Strong Misreadings")} backdrop={null} />
         <h1 className="smb-fw__h" style={isAll ? undefined : { color: f!.color }}>
           {isAll ? "All readings" : f!.label}
         </h1>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
@@ -243,6 +244,7 @@ export default async function FilmHonorsPage({ params }: Props) {
           <span className="df-sep">›</span><Link href={`/film/${film.slug}`}>{film.title}</Link>
           <span className="df-sep">›</span><span>Honors</span>
         </div>
+        <EntityTVHero program={slug} reelSlugs={[slug]} label={film.title} backdrop={null} />
 
         <header style={{ display: "flex", gap: 22, alignItems: "flex-start", marginBottom: 8 }}>
           {film.poster_path ? (
