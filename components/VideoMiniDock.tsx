@@ -6,7 +6,25 @@
 // inside — the broadcast overlay text, chips, badges — scales in exact
 // proportion. The player keeps playing through the transition (same DOM node,
 // no remount). Draggable, dismissable; re-arms when the hero scrolls back up.
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+//
+// It also owns a Fullscreen affordance and shares it via VideoDockContext, so
+// the SAME toggle can be triggered from the player's own controls (next to
+// "Full info") and from the docked mini's arrow. The .vdock element is the
+// fullscreen target; :fullscreen CSS un-scales it and fills the screen.
+import {
+  createContext, useCallback, useContext, useEffect, useRef, useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
+
+type DockCtx = { toggleFullscreen: () => void; isFullscreen: boolean };
+const VideoDockContext = createContext<DockCtx | null>(null);
+/** Player controls call this to render a Fullscreen button wired to the dock. */
+export function useVideoDock() { return useContext(VideoDockContext); }
+
+function fsElement(): Element | null {
+  const d = document as Document & { webkitFullscreenElement?: Element };
+  return document.fullscreenElement ?? d.webkitFullscreenElement ?? null;
+}
 
 export default function VideoMiniDock({ children, mini = 420 }: {
   children: React.ReactNode;
@@ -17,6 +35,7 @@ export default function VideoMiniDock({ children, mini = 420 }: {
   const [dismissed, setDismissed] = useState(false);
   const [box, setBox] = useState<{ w: number; h: number } | null>(null);
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+  const [fs, setFs] = useState(false);
   const dismRef = useRef(false); dismRef.current = dismissed;
   const drag = useRef<{ dx: number; dy: number } | null>(null);
   const dockRef = useRef<HTMLDivElement>(null);
@@ -38,6 +57,31 @@ export default function VideoMiniDock({ children, mini = 420 }: {
     }, { threshold: 0, rootMargin: "-72px 0px 0px 0px" });
     io.observe(el);
     return () => io.disconnect();
+  }, []);
+
+  // Track the browser's fullscreen state so the icon and CSS class stay in sync
+  // even when the user exits with Esc.
+  useEffect(() => {
+    const sync = () => setFs(fsElement() === dockRef.current);
+    document.addEventListener("fullscreenchange", sync);
+    document.addEventListener("webkitfullscreenchange", sync);
+    return () => {
+      document.removeEventListener("fullscreenchange", sync);
+      document.removeEventListener("webkitfullscreenchange", sync);
+    };
+  }, []);
+
+  const toggleFullscreen = useCallback(() => {
+    const el = dockRef.current as (HTMLDivElement & {
+      webkitRequestFullscreen?: () => void;
+    }) | null;
+    if (!el) return;
+    const d = document as Document & { webkitExitFullscreen?: () => void };
+    if (fsElement()) {
+      (document.exitFullscreen ?? d.webkitExitFullscreen)?.call(document);
+    } else {
+      (el.requestFullscreen ?? el.webkitRequestFullscreen)?.call(el);
+    }
   }, []);
 
   const miniW = typeof window !== "undefined" ? Math.min(mini, window.innerWidth * 0.62) : mini;
@@ -68,19 +112,25 @@ export default function VideoMiniDock({ children, mini = 420 }: {
     <div ref={hostRef} className="vdock-host" style={on ? { height: box!.h } : undefined}>
       <div
         ref={dockRef}
-        className={`vdock${on ? " vdock--on" : ""}`}
-        style={on ? {
+        className={`vdock${on ? " vdock--on" : ""}${fs ? " vdock--fs" : ""}`}
+        style={on && !fs ? {
           width: box!.w, height: box!.h,
           transform: `scale(${scale})`,
           ...(pos ? { left: pos.x, top: pos.y, right: "auto", bottom: "auto", transformOrigin: "top left" } : {}),
         } : undefined}
       >
-        {children}
+        <VideoDockContext.Provider value={{ toggleFullscreen, isFullscreen: fs }}>
+          {children}
+        </VideoDockContext.Provider>
         {on ? (
           <span className="vdock-ui" style={{ transform: `scale(${1 / scale})` }}>
+            <button type="button" className="vdock-fs" onClick={toggleFullscreen} aria-label="Watch fullscreen" title="Fullscreen">⛶</button>
             <span className="vdock-drag" onPointerDown={onDragDown} title="Drag to move">⋮⋮</span>
             <button type="button" className="vdock-x" onClick={() => { setDismissed(true); setDocked(false); setPos(null); }} aria-label="Close mini player">✕</button>
           </span>
+        ) : null}
+        {fs ? (
+          <button type="button" className="vdock-fsx" onClick={toggleFullscreen} aria-label="Exit fullscreen" title="Exit fullscreen (Esc)">✕ Exit</button>
         ) : null}
       </div>
     </div>
