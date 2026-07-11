@@ -23,8 +23,11 @@ const AXIS_LABEL: Record<string, string> = {
 };
 const LIMIT = 48;
 
-export default function TVDirectory({ initial = [], initialSummary = [], initialTotal = 0, embedded = false }: {
+export default function TVDirectory({ initial = [], initialSummary = [], initialTotal = 0, embedded = false, onSelect }: {
   initial?: Item[]; initialSummary?: Sum; initialTotal?: number; embedded?: boolean;
+  // when set (the /tv embed), picking a card plays the list in place instead of
+  // navigating; plain hrefs are kept for SEO and modifier-clicks
+  onSelect?: (slug: string) => void;
 }) {
   const [summary, setSummary] = useState<Sum>(initialSummary);
   const [axis, setAxis] = useState<string | null>(null);
@@ -91,6 +94,11 @@ export default function TVDirectory({ initial = [], initialSummary = [], initial
       <div className="tvdir-grid">
         {items.map((it) => (
           <a key={it.slug} className={`tvdir-card${it.backdrop ? "" : " tvdir-card--noimg"}`} href={`/tv/list/${it.slug}`}
+            onClick={onSelect ? (e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+              e.preventDefault();
+              onSelect(it.slug);
+            } : undefined}
             style={it.backdrop ? { backgroundImage: `url(${IMG}/w500${it.backdrop})` } : undefined}>
             <span className="tvdir-card__k">{AXIS_LABEL[it.axis ?? ""] ?? it.axis}{it.cut === "segments" ? " · topic cut" : ""}</span>
             <span className="tvdir-card__t">{it.title}</span>
