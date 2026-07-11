@@ -3,6 +3,22 @@ import EntityTVHero from "@/components/EntityTVHero";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
+
+// One grammatical, linked enumeration of films for the Quick-answers block
+// (never a bare keyword list, charter §0.6).
+function FilmList({ films }: { films: { slug: string; title: string; year: number | null }[] }) {
+  return (
+    <>
+      {films.map((f, i) => (
+        <span key={f.slug}>
+          {i > 0 ? (i === films.length - 1 ? " and " : ", ") : ""}
+          <Link href={`/film/${f.slug}`}>{f.title}</Link>{f.year != null ? ` (${f.year})` : ""}
+        </span>
+      ))}
+    </>
+  );
+}
 
 /**
  * Frame hub — "one of cinema's big questions" (site-ia-plan.md §4.3).

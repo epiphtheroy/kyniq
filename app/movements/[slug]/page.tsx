@@ -7,8 +7,24 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import MovementHubClient from "@/components/MovementHubClient";
 import ShareDock from "@/components/ShareDock";
+import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 
 export const revalidate = 1800;
+
+// One grammatical, linked enumeration of films for the Quick-answers block
+// (never a bare keyword list, charter §0.6).
+function FilmList({ films }: { films: { slug: string; title: string; year: number | null }[] }) {
+  return (
+    <>
+      {films.map((f, i) => (
+        <span key={f.slug}>
+          {i > 0 ? (i === films.length - 1 ? " and " : ", ") : ""}
+          <Link href={`/film/${f.slug}`}>{f.title}</Link>{f.year != null ? ` (${f.year})` : ""}
+        </span>
+      ))}
+    </>
+  );
+}
 // Empty list enables the on-demand Full Route Cache (ISR HIT) without
 // prebuilding anything at build time.
 export async function generateStaticParams() { return []; }
@@ -67,6 +83,57 @@ export default async function MovementHub({ params }: Props) {
   if (!d || !d.films) notFound();
   const hidden = d.hidden ?? [];
   const hiddenTotal = hidden[0]?.total ?? 0;
+
+  // ── Quick answers (docs/PLAN-intent-coverage.md §0 charter + §5.7/§5.8) ─────
+  // Server-rendered (SSR HTML) so the block is crawlable. `demand` is a
+  // popularity signal, so "most famous" is allowed but "best" is NOT (§5.8).
+  // "Start here" replicates the client's startHere = films.slice(0,5) exactly.
+  // Variant weaving (§0.6, counting authored text): "films" Q2+A3 (2),
+  // "movement" A3+A4 (2), "directors" Q3 (1) — each ≤2. A verbatim source
+  // definition is a quote, not woven phrasing, so it is not counted.
+  const label = d.hub.label;
+  const films = d.films;
+  const movementQA: QuickAnswerItem[] = [];
+  const mvDef = (d.hub.description ?? "").trim();
+  if (mvDef) {
+    movementQA.push({ q: `What is ${label}?`, a: mvDef });
+  }
+  const famous = [...films].filter((f) => f.demand != null)
+    .sort((a, b) => (b.demand ?? 0) - (a.demand ?? 0)).slice(0, 4);
+  const famousList = famous.length ? famous : films.slice(0, 4);
+  if (famousList.length) {
+    movementQA.push({
+      q: `What are the most famous ${label} films?`,
+      a: <>The best-known are <FilmList films={famousList} />.</>,
+    });
+  }
+  if (d.auteurs?.length) {
+    const top = d.auteurs.slice(0, 3);
+    const ns = top.map((a) => a.n);
+    const nPhrase = ns.length === 1 ? `${ns[0]}` : `${ns.slice(0, -1).join(", ")} and ${ns[ns.length - 1]}`;
+    movementQA.push({
+      q: `Who are the key directors of ${label}?`,
+      a: (
+        <>
+          {top.map((a, i) => (
+            <span key={a.director}>
+              {i > 0 ? (i === top.length - 1 ? " and " : ", ") : ""}
+              <b>{a.director}</b>
+            </span>
+          ))}{" "}
+          {top.length === 1 ? "is" : "are"} the movement&rsquo;s central auteur{top.length === 1 ? "" : "s"}, with {nPhrase} films here.
+        </>
+      ),
+    });
+  }
+  const start = films.slice(0, 5);
+  if (start.length) {
+    movementQA.push({
+      q: `Where should I start with ${label}?`,
+      a: <>Begin with <FilmList films={start} /> — the entry points into the movement.</>,
+    });
+  }
+
   return (
     <div className="mt">
       <SiteNav />
@@ -74,6 +141,7 @@ export default async function MovementHub({ params }: Props) {
         <div className="lh-crumb"><Link href="/movements">Movements</Link></div>
         <EntityTVHero playlist={`lineage-${slug}`} reelSlugs={d.films.map((f) => f.slug)} label={d.hub.label} listHref={`/tv/list/lineage-${slug}`} backdrop={null} />
         <MovementHubClient d={d} />
+        <QuickAnswers items={movementQA.slice(0, 5)} />
         <div className="lh-share">
           <ShareDock variant="bar" path={`/movements/${slug}`} title={d.hub.label}
             hook={`${d.hub.label} — the films, ideas and close readings of the movement, on Metatake`}

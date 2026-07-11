@@ -211,6 +211,54 @@ function load(slug: string) {
   })();
 }
 
+// to.W (director scope) — the curation standing: how this director's films sit
+// across the Metatake index (curation.film_comment via director_curation RPC).
+// Null is a real state (no non-optional films → no card), so a cached null is
+// fine here; only transport errors throw (and are thus never cached).
+type DirectorCuration = {
+  director: string;
+  in_index: number;
+  total: number;
+  essential: number;
+  start_here: number;
+  deep_cut: number;
+  popular_not_cinephile: number;
+  optional: number;
+  is_auteur: boolean;
+  auteur_reason: string | null;
+  exemplars: { title: string; slug: string; year: number | null }[];
+};
+
+function loadCuration(slug: string): Promise<DirectorCuration | null> {
+  return unstable_cache(
+    async () => {
+      const { data, error } = await db().rpc("director_curation", { p_slug: slug });
+      if (error) throw new Error(`director_curation(${slug}): ${error.message}`);
+      return (data as DirectorCuration | null) ?? null;
+    },
+    ["director-curation1", slug],
+    { revalidate: 3600, tags: [`director:${slug}`] },
+  )().catch(() => null);
+}
+
+// Assemble the standing prose from the aggregates — deterministic, no LLM,
+// mirroring editorialSummary()'s house style. Highest tier first.
+function curationStanding(c: DirectorCuration): { lead: string; auteur: string | null } {
+  const n = c.in_index;
+  const filmWord = n === 1 ? "film" : "films";
+  const tiers: string[] = [];
+  if (c.essential > 0) tiers.push(`${c.essential} rated essential viewing`);
+  if (c.start_here > 0) tiers.push(`${c.start_here} a cinephile entry point`);
+  if (c.deep_cut > 0) tiers.push(`${c.deep_cut} ${c.deep_cut === 1 ? "a deep cut" : "deep cuts"}`);
+  if (tiers.length === 0 && c.popular_not_cinephile > 0)
+    tiers.push(`${c.popular_not_cinephile} widely seen but outside the cinephile canon`);
+  const lead = `In the Metatake index, ${c.director} holds ${n} ${filmWord}${tiers.length ? ` — ${andList(tiers)}` : ""}.`;
+  const auteur = c.is_auteur
+    ? `${c.director}'s filmography is tracked as an auteur lineage: even the lesser-known titles earn their place through the body of work.`
+    : null;
+  return { lead, auteur };
+}
+
 // First 1–2 sentences of prose, plain text, ≤155 chars, truncated at a word boundary with "…".
 function metaDescription(text: string, maxLen = 155): string {
   const plain = text.replace(/\s+/g, " ").trim();
@@ -358,6 +406,10 @@ export default async function DirectorPage({ params }: Props) {
   }
   const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
   const native = await directorNative(director);
+  // to.W — the curation standing across the index (fail-soft: an RPC hiccup
+  // just hides the card; null is the honest "no non-optional films" state).
+  const curation = await loadCuration(slug);
+  const standing = curation ? curationStanding(curation) : null;
   // Embedding Fantasia rows — sentences anchored on this director's films.
   // Fail soft: an RPC hiccup hides the module for this render (never 500s, and
   // the loader's throw keeps unstable_cache from caching the empty state).
@@ -540,6 +592,36 @@ export default async function DirectorPage({ params }: Props) {
           <a className="dr-stat" href="#dr-misreadings"><div className="dr-n">{readingCount}</div><div className="dr-k">Readings</div></a>
           <a className="dr-stat dr-teal" href="#dr-tropes"><div className="dr-n">{tropeCount}</div><div className="dr-k">Tropes</div></a>
         </div>
+
+        {/* to.W — the curator on this director's standing in the index.
+            Deterministic prose from curation.film_comment; hidden when the
+            director holds no non-optional films. */}
+        {standing && curation ? (
+          <section className="dr-tow" aria-labelledby="dr-tow-h">
+            <div className="dr-tow-kicker">to.W · the index</div>
+            <h2 className="dr-tow-h" id="dr-tow-h">{director} in the Metatake index</h2>
+            <p className="dr-tow-lead">
+              <em>To W.</em> — {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
+            </p>
+            <div className="dr-tow-tags">
+              {curation.essential > 0 ? <span className="dr-tow-tag dr-tow-tag--essential">{curation.essential} essential</span> : null}
+              {curation.start_here > 0 ? <span className="dr-tow-tag dr-tow-tag--start">{curation.start_here} start here</span> : null}
+              {curation.deep_cut > 0 ? <span className="dr-tow-tag dr-tow-tag--deep">{curation.deep_cut} deep {curation.deep_cut === 1 ? "cut" : "cuts"}</span> : null}
+              {curation.popular_not_cinephile > 0 ? <span className="dr-tow-tag">{curation.popular_not_cinephile} popular</span> : null}
+            </div>
+            {curation.exemplars.length > 0 ? (
+              <p className="dr-tow-eg">
+                <span className="dr-tow-eg-k">The picks:</span>{" "}
+                {curation.exemplars.map((e, i) => (
+                  <span key={e.slug}>
+                    {i > 0 ? " · " : ""}
+                    <Link href={`/film/${e.slug}`}>{e.title}</Link>
+                  </span>
+                ))}
+              </p>
+            ) : null}
+          </section>
+        ) : null}
       </div>
 
       <div className="dr-wrap">
