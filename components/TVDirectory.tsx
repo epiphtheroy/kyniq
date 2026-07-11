@@ -65,13 +65,23 @@ export default function TVDirectory({ initial = [], initialSummary = [], initial
       if (query) p.set("q", query);
       p.set("offset", String(off));
       p.set("limit", String(LIMIT));
-      const j = await fetch(`/api/tv/directory?${p.toString()}`).then((r) => r.json());
-      if (my !== seq.current) return; // a newer request won
-      if (j.summary?.length) setSummary(j.summary as Sum);
+      // one retry: a cold /api hit can 500 on the anon statement timeout, and a
+      // silently dropped search response leaves stale unfiltered results on screen
+      let j: { summary?: Sum; lists?: Item[]; videos?: Vid[]; total?: number; error?: string } | null = null;
+      for (let attempt = 0; attempt < 2 && !j?.lists; attempt++) {
+        try {
+          const r = await fetch(`/api/tv/directory?${p.toString()}`);
+          const body = await r.json();
+          if (r.ok && !body.error) j = body;
+        } catch { /* retry */ }
+        if (my !== seq.current) return; // a newer request won
+      }
+      if (!j) return;
+      if (j.summary?.length) setSummary(j.summary);
       const lists: Item[] = j.lists ?? [];
       setTotal(j.total ?? 0);
       setItems((prev) => (append ? [...prev, ...lists] : lists));
-      if (!append) setVideos((j.videos as Vid[] | undefined) ?? []);
+      if (!append) setVideos(j.videos ?? []);
       setOffset(off + lists.length);
     } finally {
       if (my === seq.current) setLoading(false);
