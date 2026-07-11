@@ -50,6 +50,13 @@ export type GraphNode = { label: string; kind: "film" | "trope"; slug: string };
 // Structured pair for the original constellation graph (HomeConstellation/EntityGraph).
 export type CPair = { mt: string; slug: string; a: { f: string; fs: string }; b: { f: string; fs: string } };
 
+// "From the readings desk" — hourly sample of published readings (home_readings_desk).
+export type ReadingCard = {
+  title: string; excerpt: string; framework: string | null;
+  film: string; slug: string; year: number | null; poster: string | null;
+  figure: string | null; figSlug: string | null; ts?: number | null;
+};
+
 // "Today at Metatake" — one daily sample from each content layer (home_daily_exhibits).
 export type Exhibits = {
   film?: { slug: string; title: string; year: number | null; director?: string | null; poster: string | null; backdrop?: string | null; ts?: number | null; tsv?: number | null; tsr?: number | null } | null;

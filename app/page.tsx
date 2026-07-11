@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 import HomeV2 from "@/components/home2/HomeV2";
-import { PLACEHOLDER, type HomeV2 as HomeV2Data, type Exhibits } from "@/lib/home2";
+import { PLACEHOLDER, type HomeV2 as HomeV2Data, type Exhibits, type ReadingCard } from "@/lib/home2";
 import "@/app/home2.css";
 
 // The home bundle changes ~nightly, so there is no reason to re-run the ~1.4s
@@ -116,7 +116,30 @@ async function loadExhibits(): Promise<Exhibits> {
   return getEx();
 }
 
+// "From the readings desk" — hourly-rotating sample of strong published
+// readings (constant cache key, seed read at regeneration; same anti-stampede
+// pattern as loadV2). Null on failure → the section self-omits.
+async function loadReadings(): Promise<ReadingCard[] | null> {
+  const getRd = unstable_cache(
+    async (): Promise<ReadingCard[] | null> => {
+      const seed = new Date().toISOString().slice(0, 13).replace(/[-T]/g, ""); // YYYYMMDDHH, UTC
+      try {
+        const { data } = await db().rpc("home_readings_desk", { p_seed: seed });
+        const rows = data as ReadingCard[] | null;
+        return Array.isArray(rows) && rows.length > 0 ? rows : null;
+      } catch {
+        return null;
+      }
+    },
+    ["home-readings-desk"],
+    { revalidate: 3600, tags: ["home-v2"] },
+  );
+  return getRd();
+}
+
 export default async function Home() {
-  const [data, screenerTop, exhibits] = await Promise.all([loadV2(), getScreenerTop(), loadExhibits()]);
-  return <HomeV2 data={data} screenerTop={screenerTop} exhibits={exhibits} />;
+  const [data, screenerTop, exhibits, readings] = await Promise.all([
+    loadV2(), getScreenerTop(), loadExhibits(), loadReadings(),
+  ]);
+  return <HomeV2 data={data} screenerTop={screenerTop} exhibits={exhibits} readings={readings} />;
 }
