@@ -2585,6 +2585,7 @@ a.df-cpposter:hover { outline:2px solid #C56A44; }
 .dr-tow-h { font-family:var(--font-display); font-weight:700; font-size:21px; letter-spacing:-.015em; color:var(--ink); margin:3px 0 0; }
 .dr-tow-lead { font-family:var(--font-serif,Georgia,serif); font-size:16px; line-height:1.64; color:var(--ink2); margin:14px 0 0; max-width:74ch; }
 .dr-tow-lead em { font-style:italic; font-weight:600; color:var(--accent); }
+.dr-tow-recd { font-family:var(--font-ui); font-size:11.5px; font-weight:600; letter-spacing:.02em; color:var(--muted); margin:10px 0 0; }
 .dr-tow-signrow { position:relative; display:flex; align-items:center; justify-content:flex-end; gap:9px; margin:12px 0 0; padding-top:9px; }
 .dr-tow-signrow::before { content:""; position:absolute; top:0; right:0; width:110px; height:1px; background:linear-gradient(90deg,transparent,var(--hairline-2)); }
 .dr-tow-sign { font-family:var(--font-serif,Georgia,serif); font-style:italic; font-size:15px; color:var(--ink2); }

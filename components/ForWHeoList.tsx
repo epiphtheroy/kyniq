@@ -14,6 +14,14 @@ export type WHeoFilm = {
   genres: string[] | null;
   director: string | null;
   director_slug: string | null;
+  verdict?: string | null;
+  rec_date?: string | null;
+};
+
+const TIER_LABEL: Record<string, string> = {
+  essential: "Essential",
+  start_here: "Start here",
+  deep_cut: "Deep cut",
 };
 
 type SortKey = "year_desc" | "year_asc" | "title" | "director";
@@ -30,10 +38,19 @@ const titleKey = (t: string) => t.replace(/^(the|a|an)\s+/i, "").toLowerCase();
 
 export default function ForWHeoList({ films }: { films: WHeoFilm[] }) {
   const [sort, setSort] = useState<SortKey>("year_desc");
+  const [tier, setTier] = useState<string | null>(null);
   const [genre, setGenre] = useState<string | null>(null);
   const [director, setDirector] = useState<string | null>(null);
   const [q, setQ] = useState("");
   const [dirQuery, setDirQuery] = useState("");
+
+  // Tier facet — how many of each recommendation tier are present.
+  const tierCounts = useMemo(() => {
+    const m: Record<string, number> = { essential: 0, start_here: 0, deep_cut: 0 };
+    for (const f of films) if (f.verdict && f.verdict in m) m[f.verdict] += 1;
+    return m;
+  }, [films]);
+  const hasTiers = films.some((f) => f.verdict);
 
   // Genre facet — every genre present, with counts, most common first.
   const genres = useMemo(() => {
