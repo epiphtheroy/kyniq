@@ -13,6 +13,7 @@ import { createClient } from "@supabase/supabase-js";
 import ScoreDonut from "@/components/ScoreDonut";
 import PosterActions from "@/components/PosterActions";
 import { CODEX_DIMS } from "@/lib/cinecodex_dims";
+import { verdictSentence, bandWord, dimSentence } from "@/lib/takescore_prose";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const POSTER = "https://image.tmdb.org/t/p/w185";
@@ -98,16 +99,18 @@ export default function FilmCardPanel({
         </div>
       ) : card ? (
         <>
+          {/* verdict fills the middle; TakeScore + the three rings sit together on the right */}
           <div className="scr-card-scores">
             <div className="scr-card-ts">
               <b className="scr-card-tsn">{Math.round(card.u)}</b>
               <span className="scr-card-tsk">TakeScore</span>
               {card.rank ? <span className="scr-card-rank">#{card.rank}{card.rank_total ? ` of ${card.rank_total.toLocaleString("en-US")}` : ""}</span> : null}
             </div>
+            <p className="scr-card-verdict">{verdictSentence(card.v, card.c, card.r, card.u, card.title)}</p>
             <div className="scr-card-dons">
-              <ScoreDonut val={card.v} color={AX.v} label="Value" size={62} />
-              <ScoreDonut val={card.c} color={AX.c} label="Cost" size={62} />
-              <ScoreDonut val={card.r} color={AX.r} label="Risk" size={62} />
+              <ScoreDonut val={card.v} color={AX.v} label="Value" size={58} />
+              <ScoreDonut val={card.c} color={AX.c} label="Cost" size={58} />
+              <ScoreDonut val={card.r} color={AX.r} label="Risk" size={58} />
             </div>
           </div>
 
@@ -119,12 +122,14 @@ export default function FilmCardPanel({
               ? <span className="scr-card-noext">No external ratings on file</span> : null}
           </div>
 
+          {/* each of the 13 dimensions gets its plain-word reading, not just a bar */}
           <div className="scr-card-subs">
             {CODEX_DIMS.map((d) => {
               const val = card.subs?.[d.key] ?? 0;
               return (
-                <div className="scr-card-sub" key={d.key} title={`${d.label}: ${val}`}>
+                <div className="scr-card-sub" key={d.key} title={dimSentence(d.key, val) || `${d.label}: ${val}`}>
                   <span className="scr-card-sub-l">{d.label}</span>
+                  <span className="scr-card-sub-word" style={{ color: GROUP[d.group] }}>{bandWord(d.group, val)}</span>
                   <span className="scr-card-sub-bar"><i style={{ width: `${val}%`, background: GROUP[d.group] }} /></span>
                   <span className="scr-card-sub-v">{val}</span>
                 </div>
