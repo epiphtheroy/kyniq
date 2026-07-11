@@ -34,17 +34,23 @@ export default function robots(): MetadataRoute.Robots {
     "YouBot",              // You.com
   ];
 
+  // Paths no crawler should index: admin, APIs, the infinite internal-search
+  // query space (/search itself — the landing — stays crawlable), and the
+  // legacy AI chat shell. Repeated per group because robots.txt groups are
+  // exclusive: a bot obeys ONLY its best-matching group, inheriting nothing.
+  const NOINDEX_PATHS = ["/admin", "/api", "/search?*", "/ask-ai"];
+
   return {
     rules: [
       // Everyone else (incl. Googlebot, Bingbot, DuckDuckBot) — allowed.
-      { userAgent: "*", allow: "/", disallow: ["/admin", "/api"] },
+      { userAgent: "*", allow: "/", disallow: NOINDEX_PATHS },
 
       // AI answer / retrieval bots — explicitly allowed (they cite + send traffic).
-      { userAgent: "OAI-SearchBot", allow: "/" },
-      { userAgent: "ChatGPT-User", allow: "/" },
-      { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Claude-SearchBot", allow: "/" },
-      { userAgent: "Claude-User", allow: "/" },
+      { userAgent: "OAI-SearchBot", allow: "/", disallow: NOINDEX_PATHS },
+      { userAgent: "ChatGPT-User", allow: "/", disallow: NOINDEX_PATHS },
+      { userAgent: "PerplexityBot", allow: "/", disallow: NOINDEX_PATHS },
+      { userAgent: "Claude-SearchBot", allow: "/", disallow: NOINDEX_PATHS },
+      { userAgent: "Claude-User", allow: "/", disallow: NOINDEX_PATHS },
 
       // AI training / bulk-scraping bots — blocked.
       { userAgent: TRAINING_BOTS, disallow: "/" },
