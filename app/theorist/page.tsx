@@ -4,29 +4,32 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import LensQuickBar from "@/components/LensQuickBar";
 import MineEntityIndex from "@/components/MineEntityIndex";
+import TheoryExplorer from "@/components/theory/TheoryExplorer";
+import TheoristDirectory, { type TheoristRow } from "@/components/theory/TheoristDirectory";
+import { pageRobots } from "@/lib/seo";
 
 export const revalidate = 1800;
 
 const SITE = "https://metatake.net";
-const TITLE = "Theorists — the thinkers cinema is read through";
+const TITLE = "Film Theorists A–Z — the thinkers cinema is read through";
 const DESC =
-  "Every theorist Metatake reads films through — Freud, Lacan, Foucault, Arendt and hundreds more — each linked to the Strong Misreadings that invoke them.";
+  "Freud, Lacan, Foucault, Arendt and hundreds more — each thinker named something the world does that we had no word for, and each is linked here to the films that stage it. Browse every theorist by the number of films read in their light.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/theorist" },
   title: TITLE,
   description: DESC,
+  openGraph: { title: TITLE, description: DESC },
+  robots: pageRobots(true),
 };
 
 function db() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 }
 
-type Row = { slug: string; name: string; blurb: string | null; n: number };
-
 export default async function TheoristIndex() {
   const { data } = await db().rpc("theorist_index");
-  const rows = (data as Row[] | null) ?? [];
+  const rows = (data as TheoristRow[] | null) ?? [];
   const total = rows.reduce((s, r) => s + r.n, 0);
   const top = [...rows].sort((a, b) => b.n - a.n).slice(0, 25);
 
@@ -50,24 +53,24 @@ export default async function TheoristIndex() {
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap lh">
-        <div className="mt-crumb">Theory › <Link href="/concept">Concepts</Link> · <Link href="/tradition">Traditions</Link></div>
-        <h1 className="lh-h1">Theorists</h1>
-        <p className="lh-def">
-          The thinkers Metatake reads films <em>through</em>. Each Strong Misreading borrows a lens — a theorist and a
-          concept — and this is the roll of those minds, {rows.length} of them across {total.toLocaleString()} readings.
-          Open any one to see every film read in their light. (See also the <Link href="/concept">concepts</Link> they think
-          and the <Link href="/tradition">traditions</Link> they belong to.)
-        </p>
-        <LensQuickBar />
-        <MineEntityIndex kind="theorists" hrefBase="/theorist/" noun="theorists" />
-        <div className="th-grid mtl-swap-out">
-          {rows.map((r) => (
-            <Link className="th-row" href={`/theorist/${r.slug}`} key={r.slug}>
-              <span className="th-name">{r.name}</span>
-              <span className="th-n">{r.n}</span>
-            </Link>
-          ))}
-        </div>
+        <TheoryExplorer
+          axis="theorists"
+          heroTitle="The thinkers cinema is read through"
+          heroLede={
+            <>
+              Every one of them named something the world keeps doing that we had no word for, then handed criticism a lens
+              to see it with. This is the roll of those minds — {rows.length.toLocaleString()} of them, {total.toLocaleString()}{" "}
+              film readings between them. Open any to watch the films read in their light. See also the{" "}
+              <Link href="/concept">concepts</Link> they coined and the <Link href="/tradition">traditions</Link> they belong to.
+            </>
+          }
+        >
+          <LensQuickBar />
+          <MineEntityIndex kind="theorists" hrefBase="/theorist/" noun="theorists" />
+          <div className="mtl-swap-out">
+            <TheoristDirectory rows={rows} />
+          </div>
+        </TheoryExplorer>
       </div>
     </div>
   );
