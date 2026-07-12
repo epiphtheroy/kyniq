@@ -5,13 +5,17 @@ A film's lineage standing is a number, and like every number on Metatake it is c
 
 ## In numbers
 
-> **{{n:lineage}}**
+> **~5,970**
 > films with a standing
 > each carrying at least one award, canon or national honour, resolved to the same film identity the rest of the site uses
 
-> **over ten thousand**
+> **{{n:lineage}}**
 > list memberships
 > every list enumerated whole and weighed, not sampled — see [Lineage](/lineage)
+
+> **70**
+> countries
+> national honours weighed beside the global-prestige lists, on purpose
 
 ## What a single honour is worth
 
@@ -26,6 +30,8 @@ The director adds a fifth, gentler signal, a band running **from 0.92 for a firs
 Having weighed each honour, we have to add them up, and the shape of that sum matters. If we simply totalled every signal, a film with a shelf of minor citations could out-score a film with a single towering one — which is backwards. So the signals are sorted from strongest to weakest and summed with a **geometric decay of about 0.6 per step**: the top honour lands at full weight, the next at roughly 0.6, the third at roughly 0.36, and so on.
 
 The effect is that **one great honour defines a film and each further honour adds depth**. A Palme d'Or alone outweighs a stack of small prizes; a Palme *and* a Best Picture *and* a canon place outweighs the Palme alone. Depth is rewarded, but it can never manufacture prestige out of volume.
+
+The spread that results is wide and deliberately lopsided. The median film with any standing sits near **33**, most cluster well below the halfway mark, and only a small elite — the films that won at the top *and* were canonised *and* kept — climb into the 90s, up toward a ceiling near 99. The scale is built so that its summit stays thinly populated; a standing everyone could reach would rank nothing.
 
 ## Three scores, not one
 
