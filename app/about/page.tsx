@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 // Fully static: this page has no server data. It's prerendered at build and
-// served from the edge (regenerated on every deploy). The old stale-prerender
-// issue this used to force-SSR around is now handled by /api/revalidate.
+// served from the edge (regenerated on every deploy).
 
 export const metadata: Metadata = {
   title: "About — Metatake",
   description:
-    "Metatake is an independent project of large-scale film interpretation: 1,900+ films connected through 26,000+ close readings in a single embedding space — AI-drafted, reviewed and edited by a named human editor.",
+    "An independent film-interpretation project: close readings connected in one map of meaning — machine-drafted, answered for by a named editor in Seoul.",
   alternates: { canonical: "/about" },
   robots: { index: true, follow: true },
 };
@@ -32,33 +31,20 @@ const aboutJsonLd = {
   },
 };
 
+const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <Link href={href} className="accent" style={{ textDecoration: "none" }}>
+    {children}
+  </Link>
+);
+
 export default function AboutPage() {
   return (
     <main className="shell">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
       <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>About Metatake</h1>
       <p className="standfirst" style={{ margin: "14px 0 0", maxWidth: "62ch" }}>
-        An independent project of large-scale film interpretation: 1,900+ films connected through 26,000+
-        close readings in a single embedding space — drafted by AI, reviewed and answered for by a named
-        human editor.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">What Metatake is</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Metatake is a close-reading companion for cinema. Instead of scores and stars, it publishes{" "}
-        <em>readings</em> — short, careful interpretations built around the <em>figures</em> a film keeps
-        returning to: an object, a gesture, a color, a particular kind of silence. Each figure opens onto
-        other films that share it, and the connections are yours to follow.
-      </p>
-      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        As of July 2026 the map holds 1,900+ films, 870+ directors, 4,700+ tropes and 26,000+ readings, and
-        grows daily. Every reading lives in one embedding space, so what the database really stores is{" "}
-        <em>relations</em> — which meanings sit close to which — rather than rows about titles. The scale is
-        the means, not the point: a body of interpretation organized as one connected map, not a shelf of
-        separate reviews.
+        Metatake reads films closely and connects what it finds. Every page is drafted by a machine and
+        answered for by a person.
       </p>
 
       <hr className="rule" />
@@ -66,25 +52,59 @@ export default function AboutPage() {
       <div className="seclbl">Why it exists</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Most of the film web is busy telling you whether a movie is &ldquo;good.&rdquo; Very little of it
-        helps with the quieter question you carry out of the theatre: <em>what was that — and what did it
-        connect to?</em> A rating flattens a film into a thumbs-up. Metatake is built for the opposite
-        impulse — to slow down, look again, and trace how one film rhymes with another, and with the ideas
-        it&apos;s wrestling with off-screen.
+        You see as much as you know. Metatake exists to enlarge what a viewer can see in a film, not to
+        tell anyone whether to clap. Most of the film web settles whether a movie is good; we work on the
+        question that survives the verdict: <em>what was that, and what does it connect to?</em> It is for
+        the viewer who leaves the theater still turning the film over.
       </p>
 
       <hr className="rule" />
 
-      <div className="seclbl">How it works — figures, readings, tropes</div>
+      <div className="seclbl">What we hold</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Three pieces. A <em>figure</em> is a meaningful element a film keeps returning to — a mirror, a
-        staircase, a held look. A <em>Strong Misreading</em> is one bold reading of that figure, filed under
-        one of fourteen <em>frameworks</em> — from the film&apos;s hidden ontology to a real place it was
-        shot, a theorist it summons, or a single life it secretly rhymes with. And a <em>trope</em> is what
-        surfaces when the same reading recurs across films: a coded pattern on a maturity arc, from a
-        singular reading no one has made before to a full-blown cliché. Follow a figure and you don&apos;t
-        get a verdict; you get a doorway to the next film.
+        Seven articles, held until further notice.
+      </p>
+      <ol className="body reading" style={{ fontSize: 18, margin: "12px 0 0", paddingLeft: 24, display: "grid", gap: 10 }}>
+        <li>
+          The unit of the work is the reading, not the verdict. A verdict closes a film; a reading opens it.
+        </li>
+        <li>
+          The record is relations, not rankings. Films connect across genre, era, and language, and we keep
+          the map of those connections.
+        </li>
+        <li>
+          Value is not popularity. <A href="/takescore">TakeScore</A> measures a film on its own axis and is
+          never blended with ratings or box office; the divergence is the information.
+        </li>
+        <li>
+          Difficulty is a price, not a virtue and not a sin. Entry cost is reported beside value, never
+          subtracted from it, never rewarded.
+        </li>
+        <li>
+          The canon validates; it does not gate. A film no list carries can measure as essential.
+        </li>
+        <li>
+          A film sustains many readings. Readers add their own, and disagreement is not flattened.
+        </li>
+        <li>
+          A person answers. Nothing publishes without the desk&apos;s pass, corrections are public, and no
+          one can pay to place, change, or remove a reading.
+        </li>
+      </ol>
+
+      <hr className="rule" />
+
+      <div className="seclbl">How it works</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        The unit of attention is the <em>figure</em>: an object, a gesture, a color, a kind of silence a
+        film keeps returning to. A reading follows one figure through one of fourteen frameworks; when the
+        same reading recurs across films, it becomes a <em>trope</em>. Every reading is placed in a single
+        embedding space, where distance means kinship of meaning. Every page is drafted by Metatake
+        Editorial, a purpose-built system, and publishes only after the desk&apos;s pass, where a
+        misattributed theorist is a hard fail, not a style note. The pipeline, stage by stage, is in{" "}
+        <A href="/methodology">Methodology</A>.
       </p>
 
       <hr className="rule" />
@@ -92,140 +112,49 @@ export default function AboutPage() {
       <div className="seclbl" id="strong-misreadings" style={{ scrollMarginTop: 70 }}>Strong Misreadings</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        The critic Harold Bloom argued that no reading is innocent — that <em>&ldquo;reading is always
-        misreading,&rdquo;</em> and that the readings worth having are the strong ones: forceful
-        interpretations that wrest a new meaning from a work rather than dutifully recovering its obvious
-        sense. A strong misreading earns its keep not by being correct, but by how much it lets you see.
-        That is the wager here. Each one takes a surface detail — an image, a line, a fact about how the
-        film was made — distrusts it, and turns it into something the film never says aloud.
+        A reading pushed to full strength is published as a <em>Strong Misreading</em>, after Harold
+        Bloom&apos;s claim that reading is always misreading. The name is the disclaimer. A reading taken
+        this far gives up any claim to be the correct one; what it keeps is what it lets you see. Read them
+        as provocations, not verdicts. If one changes how a film looks to you, it has done its work.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">Who answers</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        Metatake is edited by <A href="/editor">Wonwoo Yoon</A> in Seoul, with a small editorial desk. He
+        trained as a management scholar — Ph.D. in business administration, lead author of a six-volume
+        series on Peter Drucker — and has written one essay on each of Hong Sang-soo&apos;s thirty-four
+        films. Both fields taught the same lesson: value lives in relations. His signed essays run in{" "}
+        <A href="/poetics">Poetics</A>; he can be wrong in public.
+      </p>
+
+      <hr className="rule" />
+
+      <div className="seclbl">In closing</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        None of this exists without the films or the people who made them; we only rearrange light that
+        others made first. Start with <A href="/search">a film you love</A>, follow a figure, and see where
+        it leads.
       </p>
       <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        Which is why the name is what it is. To call these <em>Strong Misreadings</em> is to keep a promise:
-        we push a reading as far as it will go, and we do not pretend the result is the truth of the film.
-        &ldquo;Misreading&rdquo; is the disclaimer built into the title — a reading this bold forfeits any
-        right to also call itself the correct one, so it doesn&apos;t. Read them as provocations, not
-        verdicts. If one changes how a film looks to you, it has done the only thing it set out to do.
+        — <A href="/editor">Wonwoo Yoon</A>, Seoul
       </p>
 
       <hr className="rule" />
 
-      <div className="seclbl">How the connections are drawn</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        The links between films aren&apos;t hand-filed into tidy categories. Every reading is turned into a
-        point in a high-dimensional space — an <em>embedding</em> — so that films thinking about the same
-        thing drift close together, even when they share no genre, era, or language. What you walk when you
-        pull a thread is that map: the quiet, often unconscious lines that run between one film and another,
-        and between a film and the world it&apos;s trying to make sense of.
+      <p className="ui muted" style={{ fontSize: 14.5, lineHeight: 1.6 }}>
+        As of July 2026: nearly 7,000 films in the index, 6,704 of them scored; close to 2,000 close-read;
+        more than 70,000 readings; hundreds of theorists cited by name.
       </p>
-      <p className="ui muted" style={{ fontSize: 14.5, margin: "12px 0 0", maxWidth: "62ch", lineHeight: 1.6 }}>
-        <em>For the technically minded:</em> embeddings don&apos;t match keywords, genres, or tags — they
-        place each reading by <strong>meaning</strong>, in a space of thousands of dimensions, where distance{" "}
-        <em>is</em> similarity of sense. That makes them unusually good at surfacing the affinities no one
-        filed by hand: the latent kinship between films. Metatake is a sustained test of that instrument
-        across a whole body of cinema.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">Editorial standards</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Every reading is drafted by <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span> —
-        an AI system built for close film analysis — and reviewed by the editorial desk led by{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> before
-        it publishes. Nothing goes live without that pass; each page states how it was
-        made and when. Factual claims — dates, credits, plot details, scholarly attributions — are checked
-        at review and corrected after publication as readers and our own audits surface issues.
-        Interpretations stay open: a film sustains many readings, so logged-in readers can add their own
-        beneath any figure, and we don&apos;t flatten a reading because someone disagrees with it.
-      </p>
-      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        No reading is sponsored, and no one can pay to place, remove, or change one. Where a reading draws
-        on published scholarship, the source is credited. Film stills and posters come from TMDB. The full
-        pipeline, stage by stage, is documented in{" "}
-        <Link href="/methodology" className="accent" style={{ textDecoration: "none" }}>Methodology</Link>;
-        corrections are welcome at{" "}
-        <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
-          wonwoo@metatake.net
-        </a>.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">Who&apos;s behind it</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Metatake is founded and edited by{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, a
-        writer on cinema based in Seoul, working with a small editorial desk that reviews everything the site
-        publishes. He was trained as a management scholar — a Ph.D. in business administration, lead author of
-        a six-volume series on Peter Drucker&apos;s management thought — but he is, first, someone who simply
-        loves films, and loves arguing with them: a devotee of the Korean director Hong Sang-soo, on whom he
-        has written a complete cycle of essays, one on each of Hong&apos;s thirty-four films, due to appear
-        here before long. That double life is not a detour from the method; it is the method. Social capital
-        is the study of how value lives in relations rather than in things, and Metatake asks the same of
-        cinema: not &ldquo;what is this film worth?&rdquo; but &ldquo;what does it connect to?&rdquo; Every
-        reading publishes under the desk&apos;s review, and he answers for what stands.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">Who it&apos;s for</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        For the viewer who leaves the cinema still turning the film over. For{" "}
-        <strong>students and teachers</strong>, a thinking partner, and a way to watch a single idea — the
-        gaze, cruel optimism, the double — move across dozens of films. For{" "}
-        <strong>filmmakers and writers</strong>, a look at how a choice reads from the other side of the
-        screen, with a working vocabulary of the devices (our{" "}
-        <Link href="/tropes" className="accent" style={{ textDecoration: "none" }}>tropes</Link>) underneath.
-        For <strong>critics and journalists</strong>, a sparring partner and a fast way to find the film
-        that rhymes with the one in front of you. For <strong>scholars</strong>, a concept mapped across the
-        corpus, with links out to the literature when you want to go deeper. No answer key, no downvotes.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">Where it&apos;s going</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        The aim isn&apos;t to be the last word on any film. It&apos;s to become a living map of how cinema
-        talks to itself — and to the world — grown reading by reading, and more and more by the people who
-        use it. Connective tissue for film, not a scoreboard.
-      </p>
-
-      <hr className="rule" />
-
-      <div className="seclbl">A note from the editor</div>
-      <div className="tick" />
-      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        I built Metatake because the after-film feeling — the one that wants to talk, to connect, to look
-        once more — never had anywhere to go. The web had summaries and hot takes; it didn&apos;t have a
-        room for thinking. So I made one.
-      </p>
-      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        None of this would exist without the films, or the people who made them. To the directors, writers,
-        actors, cinematographers, editors, composers, and crews whose work we read here, and to the critics
-        and scholars who taught all of us how to look: thank you. Metatake only rearranges light that others
-        made first, and we try not to forget whose shoulders we stand on. Start anywhere — a film you love,
-        a figure that catches your eye — and pull the thread.
-      </p>
-      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        — <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, Seoul
-      </p>
-
-      <hr className="rule" />
-
       <p className="ui muted" style={{ fontSize: 13 }}>
-        Questions, press, or partnerships:{" "}
+        Corrections, questions, press:{" "}
         <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
           wonwoo@metatake.net
         </a>
-        {" "}· See also{" "}
-        <Link href="/methodology" className="accent" style={{ textDecoration: "none" }}>Methodology</Link>
-        {" "}·{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>The editor</Link>
+        {" "}· See also <A href="/methodology">Methodology</A> · <A href="/editor">The editor</A>
       </p>
     </main>
   );
