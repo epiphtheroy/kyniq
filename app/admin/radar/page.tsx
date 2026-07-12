@@ -15,20 +15,23 @@ import { createAdminClient } from "@/lib/supabase/admin";
 
 export const dynamic = "force-dynamic";
 
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net").replace(/\/$/, "");
 const WINDOWS: Record<string, number> = { "1h": 1, "6h": 6, "24h": 24, "7d": 168 };
 const PLATFORM_LABEL: Record<string, string> = {
-  bluesky: "Bluesky", mastodon: "Mastodon", youtube: "YouTube", news: "News",
-  wordpress: "WordPress", substack: "Substack", medium: "Medium", ghost: "Ghost",
-  hn: "HN", blog: "Blog", x: "X", threads: "Threads", reddit: "Reddit",
+  letterboxd: "Letterboxd", bluesky: "Bluesky", mastodon: "Mastodon", youtube: "YouTube",
+  news: "News", wordpress: "WordPress", substack: "Substack", medium: "Medium",
+  ghost: "Ghost", hn: "HN", blog: "Blog", x: "X", threads: "Threads", reddit: "Reddit",
 };
+// view: which authors to show. Default hides institutions (major outlets/news).
+const VIEWS: Record<string, string> = { people: "People", all: "All", orgs: "Institutions" };
 
-type SP = { w?: string; platform?: string; kw?: string; tab?: string };
+type SP = { w?: string; platform?: string; kw?: string; tab?: string; view?: string };
 
 type Hit = { matched_on: string; radar_keywords: { id: number; keyword: string } | null };
 type Item = {
   id: number; url: string; platform: string; author: string | null; author_url: string | null;
   title: string | null; snippet: string | null; published_at: string | null;
-  discovered_at: string; radar_hits: Hit[];
+  discovered_at: string; author_kind: string; meta: Record<string, unknown> | null; radar_hits: Hit[];
 };
 type Source = {
   id: number; platform: string; kind: string; label: string | null; beat: string | null;
@@ -63,13 +66,19 @@ export default async function RadarPage({ searchParams }: { searchParams: Promis
   const platform = sp.platform || "";
   const kwId = sp.kw && /^\d+$/.test(sp.kw) ? Number(sp.kw) : null;
   const tab = sp.tab === "sources" ? "sources" : "feed";
+  const view = VIEWS[sp.view || ""] ? (sp.view as string) : "people";
 
   const sb = createAdminClient();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const byView = (q: any) =>
+    view === "people" ? q.neq("author_kind", "institution")
+      : view === "orgs" ? q.eq("author_kind", "institution")
+      : q; // 'all'
 
-  // headline counts
+  // headline counts (respect the current view so the platform tally matches the feed)
   const [{ count: kwCount }, { data: winPlatforms }] = await Promise.all([
     sb.from("radar_keywords").select("*", { count: "exact", head: true }).eq("active", true),
-    sb.from("radar_items").select("platform").gte("discovered_at", cutoff).limit(1000),
+    byView(sb.from("radar_items").select("platform").gte("discovered_at", cutoff)).limit(1000),
   ]);
   const platformCounts: Record<string, number> = {};
   for (const r of (winPlatforms ?? []) as { platform: string }[]) {
