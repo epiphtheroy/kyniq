@@ -1,0 +1,11 @@
+# Keyword Radar — runtime artifacts (never commit)
+state/
+cron.log
+usage.jsonl
+HOLD
+.watch.pid
+.jetstream.pid
+.fedibuzz.pid
+.lock_*
+__pycache__/
+*.pyc
