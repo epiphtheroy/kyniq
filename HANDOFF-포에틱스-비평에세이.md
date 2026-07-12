@@ -5,6 +5,14 @@
 
 ---
 
+> **⚠️ 개정 v2 (2026-07-12, 라이브)** — 오너 지시로 43편 전면 재저술 완료. 이 문서의 §5~§7은 v1 기준이며, v2에서 다음이 우선한다:
+> 1. **예시 영화 = 오너 개인 시청 로그 전용** (`user_watch_log`, thinkartist1 계정, 688기록/687편·0.5~5★). 로그 밖 영화 예시 금지. 별점 인용 가능("I gave it five stars"), 시청 정황 창작 금지.
+> 2. **영화 반복 금지(코퍼스 전역 1회)** + 편당 최소 2편. 현재 113편 고유 배정 — 배정표는 개정 당시 임시파일(_POETICS_REVISION_PLAN.md, 삭제됨)이었으므로 새 에세이 추가 시 기존 43편의 /film/ 링크와 중복만 피하면 됨.
+> 3. **가치 서술 = verdict v3(TakeScore-primary)**: 추천 1차 신호=V(Value), 정전은 보조; essential=A or V≥80; 비유명 V≥60 딥컷 구제(와이키키 브라더스); 판정은 V로만(U/rank 금지); 난이도=비용. 정본: HANDOFF-투두블유-큐레이션코멘트.md §0·§2.
+> 4. **안티-포뮬러 계약**: "There is a trope our readings keep finding"류 트로프 도입 공식·"I want to be honest"·"I am aware that"·"I still cannot"·"textbook [trope]" 남용·"My log says X; the instrument says Y" 주문형 데이터 인용·"What the X costs" 제목 몰드·전편 물음표 종지(43편 중 6편만 question 종결) 전부 금지. 종결 모드 5종(question/flat/image/concession/joke)·오프닝 5종을 편별 배정.
+> 5. **교체 5편**(구 슬러그는 [slug]page의 POE_RENAMES로 308): the-fear-of-a-wasted-evening→the-arithmetic-of-a-lifetime · a-thousand-titles-that-say-nothing→the-shape-of-a-blind-spot · movements-are-not-quality→how-to-read-a-filmography · whose-hundred-greatest→the-location-cannot-lie · the-economics-of-an-evening→the-film-outside-the-frame. (신규 주제: 평생 관람 산술·개인 맹점·필모그래피 독법·로케이션은 거짓말 못함·영화외적 요소.)
+> 6. 캐시키 poe-render2. 검증 도구: 결정론 체커+에코 감사(포뮬러 재발 방지) — 새 저술 후 배포 전 필수.
+
 ## 0. 저술 에이전트 시작 절차
 
 1. 이 문서 전체 → §5 보이스 헌장 → §7 에세이 카드(자기 담당분)의 **소스 파일을 실제로 읽는다**.
