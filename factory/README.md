@@ -1,5 +1,9 @@
 # The Film Factory — operator quickstart
 
+> **⭐ To actually RUN it on a film list, follow `factory/RUN-PLAYBOOK.md`** — the validated
+> end-to-end recipe (every command + gotcha) proven on 2026-07-12. Open Claude Code here, paste
+> your titles, say *"run the film factory on these per factory/RUN-PLAYBOOK.md"*.
+
 Canonical design + rationale: **`../HANDOFF-영화공장.md`**. This is the how-to-run card.
 
 The factory turns a title (or a CSV of titles) into fully-integrated metatake.net pages with

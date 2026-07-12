@@ -220,8 +220,8 @@
     {
       "id": "S19-geo", "wave": "W1", "order": 20, "title": "Locations (setting/filmed)",
       "class": "per_film", "tier": ["full", "catalog"],
-      "runner": { "type": "shell_seq_env", "env": { "GEO_FILMS": "{slugs}" }, "steps": [
-                    { "script": "worker/geo-extract.py", "args": ["--apply"] },
+      "runner": { "type": "shell_seq", "steps": [
+                    { "script": "worker/geo-extract.py", "args": ["--films", "{slugs}", "--apply"] },
                     { "script": "worker/geo-code.py", "args": ["--apply"] } ], "per_film_arg": null, "scoped_by_eligibility": true },
       "depends_on": ["S03-tmdb-fetch"], "writes": ["film_locations", "geo_cache"], "reads": [], "external": ["anthropic_sync", "google_geocode"],
       "cost": { "model": "claude-haiku-4-5", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },

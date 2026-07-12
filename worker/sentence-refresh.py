@@ -87,7 +87,9 @@ def mgmt_query(sql, timeout=180):
     body = json.dumps({"query": sql}).encode()
     req = urllib.request.Request(url, data=body, method="POST",
                                  headers={"Authorization": f"Bearer {SBP}",
-                                          "Content-Type": "application/json"})
+                                          "Content-Type": "application/json",
+                                          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                                                        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             out = r.read().decode()

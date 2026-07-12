@@ -135,7 +135,7 @@ def emit_requests():
             try: done.add(json.loads(l).get("slug"))
             except Exception: pass
     films = all_films()
-    todo = [f for f in films if f["slug"] not in done]
+    todo = [f for f in films if f["slug"] not in done and (not FILMS_ARG or f["slug"] in FILMS_ARG)]  # §7.13: honor --films
     print(f"[emit] {len(films)} films · {len(done)} done · {len(todo)} to request")
     n = 0
     with open(f"{OUT}.requests.jsonl", "w", encoding="utf-8") as w:

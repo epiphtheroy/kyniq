@@ -7,9 +7,21 @@
 
 ---
 
-## §BUILD STATUS — 2026-07-12 (P0~P4 골격 구축·라이브 적용, 같은 세션에서 빌드됨)
+## §BUILD STATUS — 2026-07-12 (P0~P4 골격 + **파일럿 3편 실제 라이브 완주** + Fantasia/Locations 엔진화)
 
-> 이 문서는 이제 "설계도"이자 "이미 지어진 것의 기록"이다. 아래가 실제 상태. 운영 카드는 `factory/README.md`.
+> **⭐ 운영 정본(실행용) = `factory/RUN-PLAYBOOK.md`** — 검증된 end-to-end 명령 시퀀스. 원우가 아무 클로드
+> 터미널에서 영화목록 붙이고 "run the film factory per factory/RUN-PLAYBOOK.md" → 같은 퀄리티 재현.
+> 이 문서는 설계 정본, README는 요약, PLAYBOOK은 실행 정본.
+>
+> **파일럿 검증(2026-07-12):** Renoir·Left-Handed Girl·My Father's Shadow(전부 코퍼스 부재 2025작) →
+> 무에서 라이브 Tier-1 색인 페이지. 편당 figures 8~9·미스리딩 12~13·이론가연결·트로프·24 movies-like·
+> **Fantasia 90~130문장**·locations(Tokyo/Taipei/Lagos)·watch-next·why-watch·TakeScore·to.W·감독포트레이트.
+> 실비 ~$1.6. egress(Anthropic/OpenAI/TMDB) 이 터미널서 도달가능(당초 차단 가정 오류)·Mgmt API 브라우저 UA 필수.
+> **검증 중 엔진에 추가로 메꾼 것**: Fantasia 13패턴 생성 SQL 재구성(`factory/sql/sentence_*.sql`, 레포에 없던 것)·
+> geo S19 스코핑 수정(env→--films)·theorist_id 해소·to.W 규칙조립·asset/next/profile emit §7.13 패치.
+> **남은 엔진 갭(PLAYBOOK에 우회법)**: 하드코딩 로더 파일스왑·boldtake preflight RPC우회·factory.py run 실행루프 미코딩.
+
+> 아래가 초기 골격 실제 상태. 운영 카드는 `factory/README.md`.
 
 **✅ 구축·라이브 적용·검증 완료:**
 - **DB(라이브 적용):** 마이그레이션 `supabase/migrations/0081_factory_schema.sql`(factory 스키마 runs·intake·stage_runs·change_orders + visible 트리거 VCS 캡처 + 헬퍼 RPC `refresh_film_taste_vector`/`refresh_director_embeddings` + admin 래퍼 6종) · `0082_factory_stage_helpers.sql`(스테이지 실행 함수 6종 — **블로커 해소 `factory_analyzed_flip`**·`factory_next_target_backfill`·`factory_detect_new_directors`·`factory_run_audit`·`factory_bump_lastmod`·`factory_assert_figure_slugs`). **둘 다 라이브 DB에 적용됨.** `factory_gaps_json`이 실제 결손 검출 검증(unscored 274·held 4,760 등).

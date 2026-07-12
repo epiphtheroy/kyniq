@@ -1,0 +1,5 @@
+Film_TMDB_ID,Film_Title,Film_Director_Name,tmdb_title,tmdb_year,tmdb_director,confidence,status,note
+1392527,Renoir,Chie Hayakawa,Renoir,2025,Chie Hayakawa,high,new,exact-title+director
+999075,Left-Handed Girl,Shih-Ching Tsou,Left-Handed Girl,2025,Tsou Shih-ching,high,new,exact-title+director
+1432605,My Father's Shadow,Akinola Davies Jr,My Father's Shadow,2025,Akinola Davies Jr.,high,new,exact-title+director
+975511,The Return,,The Return,2024,Uberto Pasolini,medium,exists,"title-only, NO director match (7 exact-title candidates) — VERIFY"

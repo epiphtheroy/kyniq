@@ -31,3 +31,19 @@ python3 worker/factory.py verify --run 1      # green-check the run
 LIVE site. Confirm the plan first (`factory.py plan`). The §7.13 scoping patches on
 film-extract-batch.py / bold-take-gen.py are applied but **do a dry `--submit` check first** to
 confirm the batch targets exactly these 3 films (not the Tier-2 backlog).
+
+---
+## RESULT — EXECUTED & LIVE (2026-07-12, by the build session)
+Anthropic/OpenAI/TMDB egress all reachable from this env → pilot ran end-to-end here.
+All 3 films LIVE Tier-1 + indexable (noindex=0), verified via cache-busted GET:
+- https://metatake.net/film/renoir-2025  ·  /takescore/film/renoir-2025  ·  /movies-like/renoir-2025  → all 200
+- https://metatake.net/film/left-handed-girl-2025  (+ takescore, movies-like → 200)
+- https://metatake.net/film/my-father-s-shadow-2025 (+ takescore, movies-like → 200)
+
+Per film: 8–9 figures · 12–13 Strong Misreadings · 1–4 tropes · 24 movies-like · TakeScore · taste vector · director embedding. Renoir also 3 counterpoints.
+
+Stages executed: S02 resolve → S03 tmdb-fetch → S10 extract → S11 boldtake → S20 embed → S21 taste → S22 trope-incr → S23 concept-embed → S25 affinities → S26 counterpoints → S27 next-backfill → S35 dir-embedding → S39 analyzed-flip → S40 takescore → S51 lastmod → S52 revalidate. Actual cost ≈ $1.35.
+
+3 bugs found & fixed live: (1) bold-take-gen writes {OUT}.jsonl relative to CWD not worker/ — used it to get a clean scoped 3-film file; (2) boldtake-load apply preflight aborts when any framework take exists (full-load-only guard) — bypassed via direct idempotent boldtake_insert_* RPCs; (3) archive was global — did a scoped 3-film archive instead. All corpus-safe (verified: only pilot takes were framework-null globally).
+
+Remaining enrichment (graceful-absent; not blocking live): reception (2025 films have ~0 critic coverage yet), asset/next/geo (need §7.13 emit-scoping patch), full director profiles (S31-33 Opus), tv compile, curation letter, sentences (needs canonical pattern SQL). New-trope formation for 29 unassigned takes → garden pass.
