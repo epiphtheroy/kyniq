@@ -201,6 +201,90 @@ function invitationSection(p: FilmPack): string {
   return ["## An invitation — a spoiler-free way in", p.open_question.text].join("\n");
 }
 
+/**
+ * Section registry — the single map from a pack section to the film-page tab it
+ * mirrors. Drives BOTH the per-tab "Copy for AI" buttons (components/FilmTabBar)
+ * and the whole-film download selector (components/DownloadPackModal). A tab NOT
+ * listed here gets no copy button — that is how forbidden-to-export tabs
+ * (Reception's verbatim quotes → df-reception, Where-to-watch's providers →
+ * df-watch) and time-sensitive tabs (news/daily) are excluded at the UI layer.
+ */
+export type PackSectionKey =
+  | "invitation" | "takescore" | "standing" | "readings"
+  | "figures" | "locations" | "tropes" | "kindred";
+
+type SectionDef = { key: PackSectionKey; tabId: string; label: string; render: (p: FilmPack) => string };
+
+export const PACK_SECTIONS: SectionDef[] = [
+  { key: "invitation", tabId: "df-invitation", label: "Invitation", render: invitationSection },
+  { key: "takescore", tabId: "df-codex", label: "TakeScore", render: takeScoreSection },
+  { key: "standing", tabId: "df-lineage", label: "Standing & honors", render: standingAndHonors },
+  { key: "readings", tabId: "df-readings", label: "Strong misreadings", render: readingsSection },
+  { key: "figures", tabId: "df-figures", label: "Figures", render: figuresSection },
+  { key: "locations", tabId: "df-atlas", label: "Filming locations", render: locationsSection },
+  { key: "tropes", tabId: "df-tropes", label: "Tropes", render: tropesSection },
+  { key: "kindred", tabId: "df-connected", label: "Kindred films", render: kindredSection },
+];
+
+const SECTION_BY_KEY = new Map(PACK_SECTIONS.map((s) => [s.key, s]));
+/** tabId → section key, for FilmTabBar to decide which tabs get a copy button. */
+export const PACK_SECTION_BY_TAB: Record<string, PackSectionKey> = Object.fromEntries(
+  PACK_SECTIONS.map((s) => [s.tabId, s.key])
+);
+export const PACK_SECTION_LABEL: Record<string, string> = Object.fromEntries(
+  PACK_SECTIONS.map((s) => [s.key, s.label])
+);
+
+function packDate(p: FilmPack): string {
+  return (p.generated_at || "").slice(0, 10);
+}
+function filmTitle(p: FilmPack): string {
+  return `${p.film.title}${p.film.year ? ` (${p.film.year})` : ""}`;
+}
+function footer(p: FilmPack): string {
+  return ["---", sourceLine(p), `This pack is AI-generated criticism with human curation. Method: ${METHOD_URL}`].join("\n");
+}
+/** Mandatory film-identity header prepended to every section/selected copy (#2). */
+function identityHeader(p: FilmPack, subtitle: string): string {
+  const date = packDate(p);
+  return [
+    sourceLine(p),
+    "",
+    `# ${filmTitle(p)}`,
+    "",
+    identityLine(p),
+    `_Metatake context pack · ${subtitle}${date ? ` · generated ${date}` : ""}_`,
+  ].join("\n");
+}
+
+/** Render ONE section with the mandatory film header (per-tab "Copy for AI", #2). */
+export function renderPackSection(p: FilmPack, key: PackSectionKey): string {
+  const def = SECTION_BY_KEY.get(key);
+  if (!def) return renderPackMarkdown(p); // unknown → whole pack, safe fallback
+  const body = def.render(p);
+  const parts = [
+    identityHeader(p, `${def.label} section`),
+    body && body.trim() ? body : `## ${def.label}\n_No ${def.label.toLowerCase()} data for this film yet._`,
+    footer(p),
+  ];
+  return parts.join("\n\n") + "\n";
+}
+
+/** Render a chosen set of sections into one file (the download selector, #3). */
+export function renderPackSelected(p: FilmPack, keys: PackSectionKey[]): string {
+  const chosen = PACK_SECTIONS.filter((s) => keys.includes(s.key));
+  if (chosen.length === 0) return renderPackMarkdown(p);
+  const labels = chosen.map((s) => s.label).join(", ");
+  const rendered = chosen.map((s) => s.render(p)).filter((s) => s && s.trim().length > 0);
+  const parts = [
+    identityHeader(p, `${chosen.length} section${chosen.length === 1 ? "" : "s"}: ${labels}`),
+    HOW_TO_USE,
+    ...rendered,
+    footer(p),
+  ];
+  return parts.join("\n\n") + "\n";
+}
+
 const HOW_TO_USE = [
   "## How to use this file",
   "Attach this file to Claude Projects, a Custom GPT, NotebookLM, Gemini Gems, or any AI assistant, and write on top of it.",
@@ -246,7 +330,8 @@ export function renderPackMarkdown(p: FilmPack): string {
   return sections.join("\n\n") + "\n";
 }
 
-/** Filename for a downloaded pack (W1.5 uses this; safe for content-disposition). */
-export function packFilename(slug: string, tier: PackTier, fmt: "md" | "json"): string {
-  return `metatake-pack_${slug}_${tier}.${fmt}`;
+/** Filename for a downloaded pack. `scope` = tier ("full") | section key | "custom". */
+export function packFilename(slug: string, scope: string, fmt: "md" | "json"): string {
+  const safe = scope.replace(/[^a-z0-9_-]+/gi, "-").slice(0, 40) || "pack";
+  return `metatake-pack_${slug}_${safe}.${fmt}`;
 }

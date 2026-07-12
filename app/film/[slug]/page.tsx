@@ -1190,7 +1190,13 @@ export default async function FilmPage({ params }: Props) {
 
         {/* SECTION TABS — two-row scroll-nav; each tab carries its section count
             as a badge (TakeScore carries the score). SEO-safe anchors. */}
-        {tabs.length > 1 ? <FilmTabBar tabs={tabs} twoRow /> : null}
+        {tabs.length > 1 ? (
+          <FilmTabBar
+            tabs={tabs}
+            twoRow
+            {...((film as { visible?: boolean }).visible !== false ? { packSlug: film.slug, packDownload: true } : {})}
+          />
+        ) : null}
 
         {/* WHY WATCH — spoiler-free dossier of what the film offers, across 7 lenses */}
         {whyWatch.length > 0 ? (

@@ -45,6 +45,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: "Signature", icon: "ti-fingerprint", href: "/room/signature" },
       { label: "Lens", icon: "ti-telescope", href: "/room/lens" },
       { label: "Shelf", icon: "ti-books", href: "/room/shelf" },
+      { label: "Packs", icon: "ti-file-download", href: "/room/packs" },
       { label: "Takes", icon: "ti-feather", href: "/room/takes" },
     ],
   },

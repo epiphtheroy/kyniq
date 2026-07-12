@@ -99,7 +99,7 @@ export default function EditorPage() {
           organizational lines. Social capital is the study of how value lives in relations rather than in
           any single node, and Metatake asks the same question of cinema: not &ldquo;what is this film
           worth?&rdquo; but &ldquo;what does it connect to?&rdquo; The site&rsquo;s core design decision —
-          reading 1,900+ films as one connected map of meanings instead of a shelf of separate reviews — is
+          reading a catalog of nearly 7,000 films as one connected map of meanings instead of a shelf of separate reviews — is
           that research instinct applied to a different corpus.
         </p>
         <p>

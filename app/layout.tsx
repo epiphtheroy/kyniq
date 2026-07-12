@@ -86,7 +86,7 @@ const organizationJsonLd = {
     url: `${siteUrl}/editor`,
   },
   description:
-    "A critical map of cinema — 1,900+ films linked through 26,000+ close readings in one embedding space.",
+    "A critical map of cinema — nearly 7,000 films connected through 70,000+ close readings in one embedding space.",
   email: "wonwoo@metatake.net",
   ...(SOCIAL_PROFILES.length > 0 ? { sameAs: SOCIAL_PROFILES } : {}),
 };

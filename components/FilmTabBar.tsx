@@ -13,6 +13,9 @@
  */
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import CopyForAI from "@/components/CopyForAI";
+import DownloadPackModal from "@/components/DownloadPackModal";
+import { PACK_SECTION_BY_TAB, PACK_SECTION_LABEL } from "@/lib/pack";
 
 export type FilmTab = { id: string; label: string; href?: string; badge?: string | number; badgeTone?: "score"; color?: string; zone?: "free" | "spoiler" };
 export type ZoneLabels = { free: { title: string; sub: string }; spoiler: { title: string; sub: string } };
@@ -33,7 +36,7 @@ const TAB_COLOR: Record<string, string> = {
 };
 const DEFAULT_TAB_COLOR = "#5A6B86";
 
-export default function FilmTabBar({ tabs, twoRow = false, center = false, search, zoneLabels = DEFAULT_ZONE_LABELS }: {
+export default function FilmTabBar({ tabs, twoRow = false, center = false, search, zoneLabels = DEFAULT_ZONE_LABELS, packSlug, packDownload = false }: {
   tabs: FilmTab[]; twoRow?: boolean;
   // Theory pages (2026-07-08): center the single-row bar, and carry an
   // in-page search box that drives the page's explorers via a CustomEvent.
@@ -42,6 +45,11 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
   // Two-row spoiler zoning (2026-07-09): top rail = spoiler-free (before you
   // watch), bottom rail = spoilers (after). Tabs split by their `zone`.
   zoneLabels?: ZoneLabels;
+  // Context packs (2026-07-12): when packSlug is set, tabs that map to a pack
+  // section get a compact "✦ AI" copy button next to the label, and (if
+  // packDownload) a whole-film download control sits at the bottom rail's far right.
+  packSlug?: string;
+  packDownload?: boolean;
 }) {
   const barRef = useRef<HTMLElement>(null);
   const [navH, setNavH] = useState(0);
@@ -149,19 +157,34 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
     history.replaceState(null, "", `#${id}`);
   };
 
+  // Available pack sections on this film (deduped), for the download selector.
+  const packSecs = packSlug
+    ? Array.from(new Map(
+        tabs
+          .filter((t) => !t.href && PACK_SECTION_BY_TAB[t.id])
+          .map((t) => {
+            const k = PACK_SECTION_BY_TAB[t.id];
+            return [k, { key: k, label: PACK_SECTION_LABEL[k] }] as const;
+          })
+      ).values())
+    : [];
+
   const renderTab = (t: FilmTab) => {
     const bc = t.color ?? TAB_COLOR[t.id] ?? DEFAULT_TAB_COLOR;
     const style = { "--bc": bc } as CSSProperties;
     const badge = t.badge != null && t.badge !== "" ? (
       <span className={`df-tab__b${t.badgeTone === "score" ? " df-tab__b--score" : ""}`}>{t.badge}</span>
     ) : null;
-    return t.href ? (
-      <Link key={t.id} href={t.href} data-tab={t.id} data-mt={`tab:${t.id}`} className="df-tab df-tab--link" style={style}>
-        <span className="df-tab__t">{t.label}</span>{badge}
-      </Link>
-    ) : (
+    if (t.href) {
+      return (
+        <Link key={t.id} href={t.href} data-tab={t.id} data-mt={`tab:${t.id}`} className="df-tab df-tab--link" style={style}>
+          <span className="df-tab__t">{t.label}</span>{badge}
+        </Link>
+      );
+    }
+    const anchor = (withKey: boolean) => (
       <a
-        key={t.id}
+        key={withKey ? t.id : undefined}
         href={`#${t.id}`}
         data-tab={t.id}
         data-mt={`tab:${t.id}`}
@@ -172,6 +195,14 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
       >
         <span className="df-tab__t">{t.label}</span>{badge}
       </a>
+    );
+    const sk = packSlug ? PACK_SECTION_BY_TAB[t.id] : undefined;
+    if (!sk) return anchor(true); // unchanged DOM for non-pack tabs (director pages included)
+    return (
+      <span key={t.id} style={{ display: "inline-flex", alignItems: "center", gap: 2, flex: "0 0 auto" }}>
+        {anchor(false)}
+        <CopyForAI slug={packSlug!} section={sk} variant="tab" />
+      </span>
     );
   };
 
@@ -204,6 +235,9 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
               <div className="df-tabs__row">{rail.items.map(renderTab)}</div>
               <div className="df-tabs__track" aria-hidden="true"><i className="df-tabs__thumb" /></div>
             </div>
+            {packDownload && packSlug && packSecs.length > 0 && i === rails.length - 1 ? (
+              <DownloadPackModal slug={packSlug} sections={packSecs} />
+            ) : null}
           </div>
         ))}
       </nav>
