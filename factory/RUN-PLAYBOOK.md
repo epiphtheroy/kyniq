@@ -6,16 +6,28 @@ scripts use their own API keys). Two ways to run it, both token-free:
 
 ```bash
 # ── TERMINAL (recommended, simplest) ────────────────────────────────────────
-python3 worker/factory.py add "The Piano (1993)" --tmdb-id 897   # or: enqueue titles.csv
+# add films — three ways, all forgiving (title-only is fine; the run resolves it):
+python3 worker/factory.py add "The Piano (1993)" --tmdb-id 897    # one film
+python3 worker/factory.py ingest my-list.txt                      # a file: .csv OR "Title (Year)" lines
+pbpaste | python3 worker/factory.py ingest                       # pasted text via stdin
+#   (drop-folder convention still works: put titles.csv in factory/intake/ then `ingest` it)
 python3 worker/factory.py plan --write                            # → run #N (status=planning) + cost
 python3 worker/factory.py run --run N --dry-run                   # print the exact 47-stage plan, $0
 python3 worker/factory.py run --run N --yes                       # EXECUTE (real spend, ledgered)
 
-# ── ADMIN BUTTON (/admin/factory → "▶ Queue a run") ─────────────────────────
-#   marks a run status='queued'; then on the Mac start the watcher once:
+# ── ADMIN (/admin/factory) ──────────────────────────────────────────────────
+#   ⓪ "Add films" panel: paste one title per line, or upload a .txt/.csv → intake (dedups repeats)
+#   ① "▶ Queue a run" button: marks a run status='queued'
+#   then on the Mac start the watcher ONCE (survives logout):
 nohup bash worker/factory-watch.sh >> factory/logs/watch.log 2>&1 &
 #   the watcher claims queued runs and runs the executor. Stop: touch factory/.watch-stop
 ```
+
+**Intake text format** (both `ingest` and the admin paste box): one film per line — `Title (Year)`
+(year optional), or add `tmdb:12345` / a trailing `| 1999`; `#` lines are comments. A block whose
+first line is a `title,year,director,tmdb_id,tier` header is read as CSV. Titles with commas
+("Paris, Texas") are safe in text mode. Everything routes through `factory_intake_add_batch` (one DB
+round-trip, dedups against existing intake).
 
 Flags: `--from Sxx` resume from a stage · `--only Sxx` one stage · `--films slug,slug` subset ·
 `--with-corpus` include deferred global rebuilds (S26) · `--dry-run` plan without spending.

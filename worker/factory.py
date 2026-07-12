@@ -8,6 +8,8 @@ stdlib-only.  Two DB channels:
 Subcommands
   add "Title (Year)" [--director D] [--tmdb-id N] [--tier full|catalog]
   enqueue <titles.csv> [--tier ...]          # or drop the CSV in factory/intake/
+  ingest [path|-] [--tier ...]               # bulk: .csv OR plain "Title (Year)" lines, file path or stdin
+                                             #   e.g.  factory.py ingest list.txt   |   pbpaste | factory.py ingest
   plan [--run N] [--write]                    # queued intake -> run + stage plan + cost estimate (DRY)
   review [--approve-all-high]                 # R1 gate: list/approve intake in 'review'
   run  [--run N] [--from Sxx] [--only Sxx] [--films slug,slug] [--yes]
@@ -182,6 +184,73 @@ def cmd_enqueue(a):
                        (row.get("tier") or a.tier).strip())
             n += 1
     print(f"enqueued {n} rows from {path}")
+
+
+def parse_film_lines(text):
+    """Forgiving one-film-per-line parser (mirrors the admin parseFilmLines).
+    CSV mode when the first meaningful line is a `title,...` header (cols title,year,director,tmdb_id,tier);
+    else text mode: 'Title (Year)' (year optional) + optional `tmdb:12345` token and trailing `| 1999`.
+    '#' and blank lines are skipped. Returns dict rows for factory_intake_add_batch."""
+    lines = text.splitlines()
+    first = next((l.strip() for l in lines if l.strip() and not l.strip().startswith("#")), "")
+    if re.match(r"^(title|film_title)\s*,", first, re.I):
+        body = [l for l in lines if l.strip() and not l.strip().startswith("#")]
+        rows = []
+        for r in csv.DictReader(body):
+            title = (r.get("title") or r.get("Film_Title") or r.get("film_title") or "").strip()
+            if not title:
+                continue
+            y = (r.get("year") or "").strip(); tm = (r.get("tmdb_id") or "").strip()
+            rows.append({"title": title, "year": y if y.isdigit() else None,
+                         "director": (r.get("director") or "").strip() or None,
+                         "tmdb_id": tm if tm.isdigit() else None,
+                         "tier": (r.get("tier") or "").strip() or None})
+        return rows
+    rows = []
+    for raw in lines:
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        s = line; tmdb = None
+        mt = re.search(r"\btmdb[:=](\d+)\b", s, re.I)
+        if mt:
+            tmdb = mt.group(1); s = (s[:mt.start()] + s[mt.end():]).strip()
+        year = None
+        mp = re.match(r"^(.*?)(?:\s*\((\d{4})\))?$", s)
+        title = (mp.group(1) if mp else s).strip()
+        if mp and mp.group(2):
+            year = mp.group(2)
+        if year is None:
+            mt2 = re.match(r"^(.*?)\s*[|,]\s*(\d{4})$", title)
+            if mt2:
+                title = mt2.group(1).strip(); year = mt2.group(2)
+        title = re.sub(r"[|,]\s*$", "", title).strip()
+        if not title:
+            continue
+        rows.append({"title": title, "year": year, "director": None, "tmdb_id": tmdb, "tier": None})
+    return rows
+
+
+def cmd_ingest(a):
+    """Bulk intake from a file path, or stdin ('-'), or a pasted list. Accepts .csv or plain text.
+    Uses factory_intake_add_batch (one round-trip, dedups repeats)."""
+    src = a.path
+    if not src or src == "-":
+        text = sys.stdin.read(); source = "cli"
+    else:
+        text = open(src, encoding="utf-8").read()
+        source = "csv" if src.lower().endswith(".csv") else "cli"
+    rows = parse_film_lines(text)
+    for r in rows:
+        if not r.get("tier"):
+            r["tier"] = a.tier
+    if not rows:
+        print("no films parsed (blank/comment-only input?)."); return
+    n = q1(f"select public.factory_intake_add_batch({sql_lit(source)}, "
+           f"{sql_lit(json.dumps(rows))}::jsonb, 'cli') as n")["n"]
+    print(f"ingested {n} new film(s) into intake (parsed {len(rows)}; duplicates skipped).")
+    print(f"next: python3 worker/factory.py queue   →   run --run <id> --yes   "
+          f"(or /admin/factory: Add films / ▶ Queue a run)")
 
 
 def cmd_review(a):
@@ -892,6 +961,7 @@ def main():
     pa = sub.add_parser("add"); pa.add_argument("title"); pa.add_argument("--director"); pa.add_argument("--year", type=int)
     pa.add_argument("--tmdb-id", type=int, dest="tmdb_id"); pa.add_argument("--tier", default="full"); pa.set_defaults(fn=cmd_add)
     pe = sub.add_parser("enqueue"); pe.add_argument("csv"); pe.add_argument("--tier", default="full"); pe.set_defaults(fn=cmd_enqueue)
+    pin = sub.add_parser("ingest"); pin.add_argument("path", nargs="?", default="-"); pin.add_argument("--tier", default="full"); pin.set_defaults(fn=cmd_ingest)
     pp = sub.add_parser("plan"); pp.add_argument("--run", type=int); pp.add_argument("--write", action="store_true"); pp.set_defaults(fn=cmd_plan)
     pr = sub.add_parser("review"); pr.add_argument("--approve-all-high", action="store_true", dest="approve_all_high"); pr.add_argument("--decide"); pr.set_defaults(fn=cmd_review)
     prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--yes", action="store_true"); prun.add_argument("--dry-run", action="store_true", dest="dry_run"); prun.add_argument("--with-corpus", action="store_true", dest="with_corpus"); prun.set_defaults(fn=cmd_run)

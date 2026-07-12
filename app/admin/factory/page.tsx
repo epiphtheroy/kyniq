@@ -124,6 +124,79 @@ async function queueRun() {
   revalidatePath("/admin/factory");
 }
 
+// Forgiving one-film-per-line parser (mirrors worker/factory.py parse_film_lines):
+//  • skip blank + '#' comment lines
+//  • CSV mode when the first meaningful line is a `title,...` header — cols title,year,director,tmdb_id,tier
+//  • else text mode: "Title (Year)" (year optional), plus optional `tmdb:12345` token and trailing `| 1999`
+type ParsedFilm = { title: string; year: number | null; director: string | null; tmdb_id: number | null; tier: string | null };
+function parseFilmLines(text: string): ParsedFilm[] {
+  const lines = text.split(/\r?\n/);
+  const firstMeaningful = lines.find((l) => l.trim() && !l.trim().startsWith("#"))?.trim() ?? "";
+  const isCsv = /^title\s*,/i.test(firstMeaningful) || /^film_title\s*,/i.test(firstMeaningful);
+  const out: ParsedFilm[] = [];
+  let header: string[] | null = null;
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#")) continue;
+    if (isCsv) {
+      const cells = line.split(",").map((c) => c.trim());
+      if (!header) { header = cells.map((c) => c.toLowerCase()); continue; }
+      const rec: Record<string, string> = {};
+      header.forEach((h, i) => { rec[h] = cells[i] ?? ""; });
+      const title = (rec["title"] || rec["film_title"] || "").trim();
+      if (!title) continue;
+      out.push({
+        title,
+        year: /^\d{4}$/.test(rec["year"] || "") ? Number(rec["year"]) : null,
+        director: rec["director"] || null,
+        tmdb_id: /^\d+$/.test(rec["tmdb_id"] || "") ? Number(rec["tmdb_id"]) : null,
+        tier: rec["tier"] || null,
+      });
+    } else {
+      let s = line;
+      let tmdb: number | null = null;
+      const mt = s.match(/\btmdb[:=](\d+)\b/i);
+      if (mt) { tmdb = Number(mt[1]); s = s.replace(mt[0], "").trim(); }
+      let year: number | null = null;
+      const mParen = s.match(/^(.*?)(?:\s*\((\d{4})\))?$/);
+      let title = (mParen?.[1] ?? s).trim();
+      if (mParen?.[2]) year = Number(mParen[2]);
+      if (year === null) {
+        const mTail = title.match(/^(.*?)\s*[|,]\s*(\d{4})$/);
+        if (mTail) { title = mTail[1].trim(); year = Number(mTail[2]); }
+      }
+      title = title.replace(/[|,]\s*$/, "").trim();
+      if (!title) continue;
+      out.push({ title, year, director: null, tmdb_id: tmdb, tier: null });
+    }
+  }
+  return out;
+}
+
+// Add films to intake: parse a pasted textarea (one title per line) and/or an uploaded
+// .txt/.csv, insert all in one round-trip via factory_intake_add_batch (dedups repeats).
+// STATUS write only — rows land 'queued' (or 'review' if tier=auto); the Mac loop executes them.
+async function addFilms(formData: FormData) {
+  "use server";
+  const admin = await getAdminUser();
+  if (!admin) return;
+  const pasted = String(formData.get("titles") || "");
+  const file = formData.get("file");
+  const fromFile = file instanceof File && file.size > 0 ? await file.text() : "";
+  const tierSel = String(formData.get("tier") || "full");
+  const rows = [...parseFilmLines(pasted), ...parseFilmLines(fromFile)].map((r) => ({
+    title: r.title,
+    year: r.year,
+    director: r.director,
+    tmdb_id: r.tmdb_id,
+    tier: r.tier || tierSel,
+  }));
+  if (rows.length === 0) return;
+  const supabase = createAdminClient();
+  await supabase.rpc("factory_intake_add_batch", { p_source: "admin", p_rows: rows, p_requested_by: "admin" });
+  revalidatePath("/admin/factory");
+}
+
 // ── page ──────────────────────────────────────────────────────────────────
 
 export default async function FactoryPage() {
@@ -151,6 +224,8 @@ export default async function FactoryPage() {
 
   // R1 review queue = intake awaiting a human decision.
   const reviewQueue = intake.filter((i) => i.status === "review");
+  // Pending intake = added, not yet linked to a run — this is exactly what "Queue a run" will pick up.
+  const pendingIntake = intake.filter((i) => (i.status === "queued" || i.status === "approved") && !i.run_id);
 
   // Matrix: group stage_runs by film, count status per film, keep stage ids.
   const perFilm = new Map<string, { total: number; byStatus: Record<string, number> }>();
@@ -184,12 +259,82 @@ export default async function FactoryPage() {
       {/* KPI tiles */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10, marginBottom: 20 }}>
         <Kpi label="Runs (recent)" value={fmt(runs.length)} />
-        <Kpi label="Intake (recent)" value={fmt(intake.length)} />
+        <Kpi label="Pending intake" value={fmt(pendingIntake.length)} />
         <Kpi label="R1 review queue" value={fmt(reviewQueue.length)} />
         <Kpi label="Stage rows" value={fmt(stages.length)} />
         <Kpi label="Open change orders" value={fmt(orders.length)} />
         <Kpi label="Cost" value={`$${costValue.toFixed(2)}`} />
       </div>
+
+      {/* ⓪ Add films */}
+      <Panel title="⓪ Add films — paste one title per line (or upload .txt/.csv), then ① Queue a run">
+        <form action={addFilms} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          <textarea
+            name="titles"
+            rows={5}
+            placeholder={"Parasite (2019)\nThe Handmaiden (2016)\n# CSV also works — header: title,year,director,tmdb_id,tier\n# or add a TMDB id:  Oldboy  tmdb:670"}
+            style={{
+              width: "100%", background: "#0b1220", color: "#e2e8f0",
+              border: "1px solid rgba(148,163,184,0.2)", borderRadius: 6,
+              padding: "8px 10px", fontSize: 12.5, fontFamily: "monospace", resize: "vertical",
+            }}
+          />
+          <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <input type="file" name="file" accept=".txt,.csv" style={{ fontSize: 12, color: "#94a3b8" }} />
+            <label style={{ fontSize: 12, color: "#94a3b8" }}>
+              tier{" "}
+              <select
+                name="tier"
+                defaultValue="full"
+                style={{
+                  background: "#0b1220", color: "#e2e8f0", border: "1px solid rgba(148,163,184,0.2)",
+                  borderRadius: 6, padding: "5px 8px", fontSize: 12,
+                }}
+              >
+                <option value="full">full</option>
+                <option value="catalog">catalog</option>
+              </select>
+            </label>
+            <button
+              type="submit"
+              style={{
+                background: "#1f6feb", color: "#fff", border: "none", borderRadius: 6,
+                padding: "7px 14px", fontSize: 13, fontWeight: 600, cursor: "pointer",
+              }}
+            >
+              + Add to intake
+            </button>
+            <span style={{ fontSize: 11.5, color: "#94a3b8" }}>
+              lands as <code>queued</code> intake (title-only is fine — the run resolves it); duplicates are skipped
+            </span>
+          </div>
+        </form>
+
+        {pendingIntake.length > 0 && (
+          <div style={{ marginTop: 14 }}>
+            <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 6 }}>
+              {pendingIntake.length} pending — the next ① Queue a run bundles these:
+            </div>
+            <table style={{ fontSize: 12.5, width: "100%" }}>
+              <thead>
+                <tr style={{ textAlign: "left", color: "#94a3b8" }}>
+                  <th>title</th><th style={num}>year</th><th>tier</th><th>resolved?</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pendingIntake.slice(0, 30).map((i) => (
+                  <tr key={i.id}>
+                    <td style={{ padding: "3px 0", color: "#e2e8f0" }}>{i.raw_title}</td>
+                    <td style={num}>{i.year_hint ?? "–"}</td>
+                    <td>{i.tier}</td>
+                    <td>{i.film_id ? <span style={{ color: "#0ca30c" }}>✓ film</span> : <span style={{ color: "#e0a458" }}>on run</span>}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </Panel>
 
       {/* ① Runs */}
       <Panel title="① Runs">
