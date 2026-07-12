@@ -37,6 +37,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
     { id: "wander", label: "Wander", items: [
       { t: "Metatake TV", h: "/tv" },
       { t: "TakeScore", h: "/takescore" },
+      { t: "What to Watch", h: "/what-to-watch" },
       { t: "Lineage", h: "/lineage" },
       { t: "Locations", h: "/locations" },
       { t: "Movements", h: "/movements" },

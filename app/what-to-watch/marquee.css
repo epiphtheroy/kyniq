@@ -1,0 +1,140 @@
+/* marquee.css — What to Watch ("The Marquee"). Scoped to .mq* so it never leaks
+   into the Screener. Shares the TS green (#0F6E56); access badges are green
+   (streaming) / blue (free) / amber (rent). */
+
+.mq { --mq-green: #0F6E56; --mq-blue: #1d5fb0; --mq-amber: #9a6a00; }
+
+/* A. hero — black band, top film backdrop behind */
+.mq-hero {
+  position: relative;
+  background: #0b0b0c;
+  color: #fff;
+  border-bottom: 3px solid var(--mq-green);
+  overflow: hidden;
+}
+.mq-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--bd);
+  background-size: cover; background-position: center;
+  opacity: 0.20; filter: saturate(0.85);
+}
+.mq-hero-in { position: relative; max-width: 1180px; margin: 0 auto; padding: 26px 20px 30px; }
+.mq-crumb { font: 12px/1.4 var(--font-ui, system-ui); color: #b9b7b8; margin-bottom: 10px; }
+.mq-crumb a { color: #b9b7b8; text-decoration: none; }
+.mq-crumb a:hover { color: #fff; }
+.mq-crumb span { opacity: 0.5; margin: 0 4px; }
+.mq-h1 { font: 700 38px/1.05 var(--font-serif, Georgia, serif); margin: 0 0 8px; letter-spacing: -0.01em; }
+.mq-alias { font: 500 14px/1 var(--font-ui, system-ui); color: var(--mq-green); background: #fff; border-radius: 999px; padding: 4px 10px; vertical-align: middle; margin-left: 8px; }
+.mq-sub { font: 15px/1.5 var(--font-ui, system-ui); color: #d6d4d5; max-width: 640px; margin: 0; }
+.mq-hero-cap { font: 12px/1.4 var(--font-ui, system-ui); color: #8f8d8e; margin: 10px 0 0; }
+
+/* B. setup bar — the identity. Sticky, dominant. */
+.mq-setup {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--card, #fff);
+  border-bottom: 1px solid var(--line, #e5e3e0);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+.mq-setup-in {
+  max-width: 1180px; margin: 0 auto; padding: 12px 20px;
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+}
+.mq-country { display: inline-flex; flex-direction: column; gap: 2px; }
+.mq-country-lab { font: 600 10px/1 var(--font-ui, system-ui); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted, #6b7280); }
+.mq-country select {
+  font: 600 16px/1 var(--font-ui, system-ui);
+  padding: 9px 12px; border: 2px solid var(--mq-green); border-radius: 10px;
+  background: var(--card, #fff); color: var(--fg, #111); cursor: pointer; min-width: 190px;
+}
+.mq-toggle, .mq-sort select, .mq-more button, .mq-inline {
+  font: 500 13px/1 var(--font-ui, system-ui);
+}
+.mq-toggle {
+  padding: 9px 12px; border: 1px solid var(--line, #d7d4d0); border-radius: 10px;
+  background: var(--card, #fff); color: var(--fg, #222); cursor: pointer;
+}
+.mq-toggle:hover { border-color: var(--mq-green); }
+.mq-toggle.on { background: var(--mq-green); border-color: var(--mq-green); color: #fff; }
+.mq-sort { margin-left: auto; }
+.mq-sort label { font: 600 11px/1 var(--font-ui, system-ui); color: var(--muted, #6b7280); display: inline-flex; align-items: center; gap: 6px; }
+.mq-sort select { padding: 8px 10px; border: 1px solid var(--line, #d7d4d0); border-radius: 8px; background: var(--card, #fff); color: var(--fg, #111); cursor: pointer; }
+
+/* B'. VPN country row */
+.mq-vpn-row {
+  max-width: 1180px; margin: 0 auto; padding: 0 20px 12px;
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.mq-vpn-lab { font: 600 12px/1 var(--font-ui, system-ui); color: var(--muted, #6b7280); }
+.mq-cc {
+  font: 500 12px/1 var(--font-ui, system-ui);
+  padding: 6px 9px; border: 1px solid var(--line, #d7d4d0); border-radius: 999px;
+  background: var(--card, #fff); color: var(--fg, #222); cursor: pointer;
+}
+.mq-cc.on { background: #eef6f3; border-color: var(--mq-green); color: var(--mq-green); }
+.mq-vpn-note { font: 11px/1.3 var(--font-ui, system-ui); color: var(--muted, #9a9a9a); margin-left: 4px; }
+
+/* C. summary */
+.mq-wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.mq-summary { font: 14px/1.5 var(--font-ui, system-ui); color: var(--fg, #222); padding: 16px 0 8px; }
+.mq-summary b { color: var(--mq-green); }
+
+/* D. results grid */
+.mq-grid { display: flex; flex-direction: column; gap: 8px; padding-bottom: 8px; }
+.mq-row {
+  display: grid; grid-template-columns: 28px 54px 1fr auto auto; gap: 12px; align-items: center;
+  padding: 8px 12px; border: 1px solid var(--line, #ececec); border-radius: 12px;
+  background: var(--card, #fff);
+}
+.mq-row--seen { opacity: 0.5; }
+.mq-rank { font: 700 14px/1 var(--font-ui, system-ui); color: var(--muted, #9a9a9a); text-align: center; }
+.mq-poster { display: block; width: 54px; height: 81px; border-radius: 6px; overflow: hidden; background: #eceae7; }
+.mq-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mq-poster--e { display: block; width: 100%; height: 100%; }
+.mq-mid { min-width: 0; }
+.mq-title { font: 600 15px/1.3 var(--font-ui, system-ui); color: var(--fg, #111); }
+.mq-title a { color: inherit; text-decoration: none; }
+.mq-title a:hover { text-decoration: underline; }
+.mq-y { font-weight: 400; color: var(--muted, #6b7280); }
+.mq-seen-chip { font: 600 10px/1 var(--font-ui, system-ui); color: var(--muted, #6b7280); border: 1px solid var(--line, #d7d4d0); border-radius: 999px; padding: 2px 6px; margin-left: 6px; }
+.mq-band { font: 600 12px/1.4 var(--font-ui, system-ui); color: var(--muted, #6b7280); margin: 3px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mq-verdict { font: 12.5px/1.4 var(--font-ui, system-ui); color: var(--muted, #6b7280); }
+.mq-ts { text-align: center; }
+.mq-ts b { display: block; font: 700 18px/1 var(--font-serif, Georgia, serif); color: var(--mq-green); }
+.mq-ts i { font: 600 9px/1 var(--font-ui, system-ui); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted, #9a9a9a); font-style: normal; }
+.mq-save { min-width: 40px; }
+
+/* access badges */
+.mq-badges { display: flex; flex-wrap: wrap; gap: 5px; margin: 4px 0; }
+.mq-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font: 600 11px/1 var(--font-ui, system-ui);
+  padding: 3px 7px; border-radius: 999px; border: 1px solid transparent;
+}
+.mq-badge img { border-radius: 3px; display: block; }
+.mq-badge--stream { background: #eaf5f0; color: #0b5a45; border-color: #cfe8de; }
+.mq-badge--free   { background: #eaf0f9; color: #17457e; border-color: #cfe0f2; }
+.mq-badge--rent   { background: #fbf3e2; color: #7a5400; border-color: #f0e3c4; }
+.mq-badge-flag { font-size: 12px; }
+
+/* E. empty fallback */
+.mq-empty { padding: 28px 16px; text-align: center; border: 1px dashed var(--line, #d7d4d0); border-radius: 12px; color: var(--muted, #6b7280); }
+.mq-empty p { margin: 0 0 8px; font: 14px/1.5 var(--font-ui, system-ui); }
+.mq-inline { background: none; border: none; color: var(--mq-green); font-weight: 600; cursor: pointer; padding: 0; text-decoration: underline; }
+
+/* more + attribution */
+.mq-more { text-align: center; padding: 16px 0; }
+.mq-more button { padding: 10px 22px; border: 1px solid var(--mq-green); border-radius: 999px; background: var(--card, #fff); color: var(--mq-green); font-weight: 600; cursor: pointer; }
+.mq-more button:disabled { opacity: 0.5; cursor: default; }
+.mq-attr { font: 11px/1.5 var(--font-ui, system-ui); color: var(--muted, #9a9a9a); padding: 16px 0 28px; }
+
+/* mobile */
+@media (max-width: 720px) {
+  .mq-h1 { font-size: 28px; }
+  .mq-setup-in { padding: 10px 14px; gap: 8px; }
+  .mq-country select { min-width: 150px; font-size: 15px; }
+  .mq-sort { margin-left: 0; width: 100%; }
+  .mq-row { grid-template-columns: 22px 46px 1fr auto; }
+  .mq-ts { grid-column: 3 / 4; text-align: left; }
+  .mq-save { grid-column: 4 / 5; }
+}
