@@ -76,11 +76,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   // any error here must never break the free copy path. When the prefix crosses
   // the 10-min threshold, pack_note_hit auto-adds it to bot_blocks and the edge
   // middleware then 403s it fleet-wide; we also 429 immediately.
+  // Trusted AI-platform egress is exempt: Anthropic 160.79.104.0/21 (Claude-User
+  // fetching packs to CITE us is the whole point — many users share few /24s).
   try {
-    const prefix = ipToPrefix(
-      req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip")
-    );
-    if (prefix) {
+    const rawIp = (req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "").split(",")[0].trim();
+    const prefix = ipToPrefix(rawIp || null);
+    if (prefix && !/^160\.79\.(10[4-9]|11[01])\./.test(rawIp)) {
       const { data: hit } = await db.rpc("pack_note_hit", { p_prefix: prefix });
       if (hit && typeof hit === "object" && (hit as { blocked?: boolean }).blocked) {
         return NextResponse.json(
