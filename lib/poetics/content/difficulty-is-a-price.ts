@@ -1,7 +1,7 @@
 const body = `
 # Difficulty is a price, not a virtue
 
-Three hundred and seventeen minutes. That is the running time of [Happy Hour](/film/happy-hour-2015), and it is usually the first fact anyone learns about the film, delivered as a warning. In my log it sits at five stars; the instrument gives it a Value of 79; for once my hand and the machine agree that every minute is repaid. The length is not decoration. The film's subject is the speed at which four women in Kobe stop performing friendship and start saying true things to each other, and that speed turns out to be five hours. The famous workshop scene, where strangers press foreheads together and listen for one another's centre of gravity, needs all that slow air around it to mean what it means. Hamaguchi charges exactly what the material costs.
+[Happy Hour](/film/happy-hour-2015) runs three hundred and seventeen minutes, and the length is usually the first fact anyone learns about the film, delivered as a warning. In my log it sits at five stars; the instrument gives it a Value of 79; for once the log and the instrument agree that every minute is repaid. The length is not decoration. The film's subject is the speed at which four women in Kobe stop performing friendship and start saying true things to each other, and that speed turns out to be five hours. The famous workshop scene, where strangers press foreheads together and listen for one another's centre of gravity, needs all that slow air around it to mean what it means. Hamaguchi charges exactly what the material costs.
 
 ## A cost is not a compliment
 
@@ -9,7 +9,7 @@ Notice what I did not claim: that the film is good because it is long. The five 
 
 ## The score declines to record my failure
 
-[Playtime](/film/playtime-1967) keeps me disciplined about all this. Tati built a glass city outside Paris to shoot it and scattered the comedy across the whole 70mm frame, uncued, uncentred, going on in windows nobody tells you to check. Value 81, and the site calls it essential. My log says two and a half stars. I watched it the way I watch most things, waiting to be pointed at the joke, and the film quietly refused to point. The failed party in that transaction was me. What I have come to be grateful for is that the score does not write my failure down. If Value dipped every time a viewer bounced off, the axis would be measuring stamina and calling it worth. My two and a half stars are a fact about my attention. The 81 is a fact about the film. The page holds both without blending them, which is more courtesy than my rating has earned.
+[Playtime](/film/playtime-1967) keeps me disciplined about all this. Tati built a glass city outside Paris to shoot it and scattered the comedy across the whole 70mm frame, uncued, uncentred, going on in windows nobody tells you to check. Value 81, and the site calls it essential. My log says two and a half stars. I watched it the way I watch most things, waiting to be pointed at the joke, and the film quietly refused to point. The failed party in that transaction was me. What I have come to be grateful for is that the score does not write my failure down. If Value dipped every time a viewer bounced off, the axis would be measuring stamina and calling it worth. The two and a half stars record where my attention gave out. The 81 was there before I sat down and will still be there after. The page holds both, which is more courtesy than my rating has earned.
 
 ## Same price, different pockets
 

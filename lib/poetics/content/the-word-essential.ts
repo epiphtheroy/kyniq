@@ -1,7 +1,7 @@
 const body = `
 # Who deserves the word essential?
 
-About six hundred. Of the 6,701 films this site has scored, that is how many carry the word essential, and the ratio stays under one in ten. I check that number the way a farmer checks a fence. If it drifts much higher, the word stops meaning "do not die without seeing this" and starts meaning "we liked it," and the language already has plenty of words for that.
+Six hundred films, give or take, carry the word essential here — 600 of 6,701 scored, a ratio that stays under one in ten — and I check that ratio the way a farmer checks a fence. If it drifts much higher, the word stops meaning "do not die without seeing this" and starts meaning "we liked it," and the language already has plenty of words for that.
 
 For most of the site's life the word had a single door. A film was essential if the standing canon held it at its core: the critics' polls, the thousand-film aggregates, the lists that outlive the people who voted on them. Everything else waited outside, whatever I privately felt about it. The rule was defensible, and it was borrowed. I was not judging films; I was forwarding a jury's verdict and signing the delivery slip.
 

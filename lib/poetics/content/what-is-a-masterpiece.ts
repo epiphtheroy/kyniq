@@ -11,7 +11,7 @@ Once I began holding my own log against the measurements, I noticed the word doe
 
 ## Three directions
 
-Agreement first. [Fanny and Alexander](/film/fanny-and-alexander-1982) carries five stars in my log and an 88 from the instrument. My hand and the ruler said yes to the same film, and the yes is easy to inhabit: Bergman's entire theatre of childhood, the enormous Ekdahl Christmas giving way to the bishop's scrubbed and loveless house, a magic lantern throwing pictures on a nursery wall as if to explain the whole art form with one toy.
+Agreement first. [Fanny and Alexander](/film/fanny-and-alexander-1982) carries five stars in my log and an 88 from the instrument. For once my stars and the score said yes to the same film, and the yes is easy to inhabit: Bergman's entire theatre of childhood, the enormous Ekdahl Christmas giving way to the bishop's scrubbed and loveless house, a magic lantern throwing pictures on a nursery wall as if to explain the whole art form with one toy.
 
 [Secret Sunshine](/film/secret-sunshine-2007) is agreement of a quieter kind. Four and a half from me, 85 from the instrument, which under our own rule is enough for the word essential with no committee behind it. A grieving mother in a provincial Korean city visits the prison to forgive her son's murderer and discovers that his God has already forgiven him, beaten her to the one act she had left. The scene stands with anything in the medium, and the word arrived for me with almost nobody else in the room. Agreement, it turns out, does not require witnesses.
 
