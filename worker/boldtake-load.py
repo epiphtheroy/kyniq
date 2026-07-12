@@ -26,6 +26,7 @@ if not (URL and KEY): sys.exit("Missing SUPABASE env")
 args=sys.argv[1:]; APPLY="--apply" in args
 INCR="--incremental" in args                       # scoped per-run load: no global preflight/archive
 IN_FILE=args[args.index("--in")+1] if "--in" in args else None
+FILMS_FILTER=set(s.strip() for s in args[args.index("--films")+1].split(",")) if "--films" in args else None
 JSONL=IN_FILE if IN_FILE else os.path.join(HERE,"bold-take-full.jsonl")
 PLAN=os.path.join(HERE,"boldtake-load-plan.json")
 
@@ -67,6 +68,7 @@ def nlabel(s): return re.sub(r"\s+"," ",(s or "").strip()).lower()
 
 def resolve():
     rows=[json.loads(l) for l in open(JSONL,encoding="utf-8") if l.strip()]
+    if FILMS_FILTER: rows=[r for r in rows if r.get("slug") in FILMS_FILTER]   # scoped salvage of specific films
     print(f"  {len(rows)} films from {os.path.basename(JSONL)}; fetching films + approved figures …")
     films={f["slug"]:f for f in fetch_all("films?select=id,slug,title,year")}
     figs_by_film=defaultdict(dict)

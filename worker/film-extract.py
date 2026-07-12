@@ -106,14 +106,34 @@ def gemini(system, prompt):
     raise RuntimeError(f"gemini {MODELS[0]} {st}: {tx[:200]}")
 def model_call(system, prompt):
     return claude(system, prompt) if USE_CLAUDE else gemini(system, prompt)
+def _repair_json(s):
+    """Re-escape stray double-quotes / raw control chars inside string values (common LLM
+    JSON defect: unescaped inner quotes like  "meaning "the swamp"..." )."""
+    out = []; in_str = False; esc = False; n = len(s)
+    for i, ch in enumerate(s):
+        if esc: out.append(ch); esc = False; continue
+        if ch == "\\": out.append(ch); esc = True; continue
+        if ch == '"':
+            if not in_str: in_str = True; out.append(ch); continue
+            j = i + 1
+            while j < n and s[j] in " \t\r\n": j += 1
+            nxt = s[j] if j < n else ""
+            if nxt in ",:}]" or nxt == "": in_str = False; out.append(ch)
+            else: out.append('\\"')
+            continue
+        if in_str and ch in "\n\r\t": out.append({"\n": "\\n", "\r": "\\r", "\t": "\\t"}[ch]); continue
+        out.append(ch)
+    return "".join(out)
+
 def parse(t):
-    try: return json.loads(t)
+    s = (t or "").strip()
+    if s.startswith("```"): s = re.sub(r"^```[a-z]*\n?", "", s); s = re.sub(r"\n?```$", "", s)
+    i = s.find("{"); e = s.rfind("}")
+    if i >= 0 and e > i: s = s[i:e + 1]
+    try: return json.loads(s)
     except Exception:
-        s = t.find("{"); e = t.rfind("}")
-        if s >= 0 and e > s:
-            try: return json.loads(t[s:e + 1])
-            except Exception: return None
-    return None
+        try: return json.loads(_repair_json(s))
+        except Exception: return None
 def fetch_all(path):
     rows = []; off = 0
     while True:

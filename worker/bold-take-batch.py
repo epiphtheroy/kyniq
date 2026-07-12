@@ -45,12 +45,34 @@ def http(method,url,headers=None,body=None,timeout=300):
     try:
         with urllib.request.urlopen(req,timeout=timeout) as r: return r.status, r.read().decode()
     except urllib.error.HTTPError as e: return e.code, e.read().decode()[:800]
+def repair_json(s):
+    """Re-escape stray double-quotes / control chars inside string VALUES — the common LLM
+    failure (e.g.  "...meaning "the swamp" or "the marsh"..."  where the inner quotes aren't
+    escaped). A quote inside a string is treated as the real close only if the next non-space
+    char is structural (,:}]) or EOF; otherwise it is escaped."""
+    out=[]; in_str=False; esc=False; n=len(s)
+    for i,ch in enumerate(s):
+        if esc: out.append(ch); esc=False; continue
+        if ch=="\\": out.append(ch); esc=True; continue
+        if ch=='"':
+            if not in_str: in_str=True; out.append(ch); continue
+            j=i+1
+            while j<n and s[j] in " \t\r\n": j+=1
+            nxt=s[j] if j<n else ""
+            if nxt in ",:}]" or nxt=="": in_str=False; out.append(ch)
+            else: out.append('\\"')
+            continue
+        if in_str and ch in "\n\r\t": out.append({"\n":"\\n","\r":"\\r","\t":"\\t"}[ch]); continue
+        out.append(ch)
+    return "".join(out)
+
 def parse_json(s):
     s=s.strip()
     if s.startswith("```"): s=re.sub(r"^```[a-z]*\n?","",s); s=re.sub(r"\n?```$","",s)
     i=s.find("{"); j=s.rfind("}")
     if i>=0 and j>i: s=s[i:j+1]
-    return json.loads(s)
+    try: return json.loads(s)
+    except json.JSONDecodeError: return json.loads(repair_json(s))   # tolerate stray quotes
 
 def submit():
     reqpath=f"{OUT}.requests.jsonl"
@@ -100,13 +122,19 @@ def fetch():
             except Exception: continue
             cid=r.get("custom_id"); res=r.get("result",{})
             if not cid or cid in done: continue
+            def _logfail(reason, extra):
+                with open(f"{OUT}.failures.jsonl","a",encoding="utf-8") as ff:
+                    ff.write(json.dumps({"slug":cid,"reason":reason,**extra},ensure_ascii=False)+"\n")
             if res.get("type")!="succeeded":
-                err+=1; print(f"    ! {cid}: {res.get('type')}"); continue
+                err+=1; print(f"    ! {cid}: {res.get('type')}")
+                _logfail(res.get("type") or "unknown", {"detail":str(res)[:300]}); continue
             msg=res.get("message",{}); u=msg.get("usage",{})
             tin+=u.get("input_tokens",0); tout+=u.get("output_tokens",0)
             text="".join(p.get("text","") for p in msg.get("content",[]) if p.get("type")=="text")
             try: parsed=parse_json(text)
-            except Exception: err+=1; print(f"    ! {cid}: parse fail"); continue
+            except Exception as e:
+                err+=1; print(f"    ! {cid}: parse fail ({e})")
+                _logfail("parse_fail", {"error":str(e)[:200], "stop":msg.get("stop_reason"), "text":text[:4000]}); continue
             fh.write(json.dumps({"slug":cid,"invitation":parsed.get("invitation",""),
                                  "takes":parsed.get("takes",[])},ensure_ascii=False)+"\n"); fh.flush()
             done.add(cid); got+=1

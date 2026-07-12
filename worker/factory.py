@@ -803,7 +803,28 @@ def verify_stage(stage, films):
                 bad += 1; bad_slugs.append(f["slug"])
         except Exception:
             bad += 1; bad_slugs.append(f["slug"])
-    return {"checked": ok + bad, "ok": ok, "bad": bad, "bad_slugs": bad_slugs[:20]}
+    return {"checked": ok + bad, "ok": ok, "bad": bad, "bad_slugs": bad_slugs[:500]}
+
+
+def salvage_stage(s, films, bad_slugs, run_id):
+    """Self-heal a batch content stage: re-run its fetch (the workers now repair malformed LLM
+    JSON) and a scoped load of ONLY the bad films, so a parse-drop recovers WITHOUT re-spending.
+    Returns the re-verify result for the bad films (or None if the stage declares no salvage)."""
+    sp = s.get("salvage")
+    if not sp or not bad_slugs:
+        return None
+    badfilms = [f for f in films if f["slug"] in set(bad_slugs)]
+    ctx = build_ctx(run_id, badfilms)
+    ctx["bad_slugs"] = ",".join(bad_slugs)
+    print(f"      ⟳ salvage {len(bad_slugs)} film(s): re-fetch (JSON-repair) + scoped load")
+    for key in ("refetch", "load"):
+        st = sp.get(key)
+        if not st:
+            continue
+        rc, _ = sh(pyw(st["script"], subst(st["args"], ctx)))
+        if rc != 0:
+            print(f"      salvage {key} rc={rc}")
+    return verify_stage(s, badfilms)
 
 
 def cmd_run(a):
@@ -902,6 +923,14 @@ def cmd_run(a):
 
         # verify gate (per applicable film)
         v = verify_stage(s, sfilms) if not DRY else {"checked": 0, "ok": 0, "bad": 0, "bad_slugs": []}
+        # self-heal: if the runner succeeded but some films failed verify, salvage them (re-fetch
+        # with JSON-repair + scoped load) up to 2× before accepting a partial.
+        if rc == 0 and v["bad"] and not DRY and s.get("salvage"):
+            for _ in range(2):
+                salvage_stage(s, sfilms, v["bad_slugs"], run_id)
+                v = verify_stage(s, sfilms)
+                if not v["bad"]:
+                    print("      ✓ salvage recovered all films"); break
         status = "done" if rc == 0 else "failed"
         if rc == 0 and v["bad"]:
             status = "partial"

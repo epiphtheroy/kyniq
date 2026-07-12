@@ -98,6 +98,9 @@
       "idempotency": "skip_if_exists",
       "verify_sql": "select (select count(*) from figures where film_id='{film_id}' and status='approved') >= 3",
       "failure_policy": "park",
+      "salvage": {
+        "refetch": { "script": "worker/film-extract-batch.py", "args": ["--fetch"] }
+      },
       "coupling": ["worker/film-extract-batch.py", "app/film/[slug]/page.tsx"],
       "notes": "SCOPING PATCH APPLIED 2026-07-12: --films filters figure_less_films() (prevents ~$1500 Tier-2 mis-fire). VERIFY with a dry submit before first real run."
     },
@@ -114,6 +117,10 @@
       "idempotency": "skip_if_exists",
       "verify_sql": "select exists(select 1 from takes tk join figures fg on fg.id=tk.figure_id where fg.film_id='{film_id}' and tk.is_invitation)",
       "failure_policy": "park",
+      "salvage": {
+        "refetch": { "script": "worker/bold-take-batch.py", "args": ["fetch", "--out", "factory-boldtake-{run_id}"] },
+        "load": { "script": "worker/boldtake-load.py", "args": ["--apply", "--incremental", "--in", "factory-boldtake-{run_id}.jsonl", "--films", "{bad_slugs}"] }
+      },
       "coupling": ["worker/bold-take-gen.py", "worker/boldtake-load.py"],
       "notes": "SCOPING PATCH APPLIED 2026-07-12: bold-take-gen main() now prioritizes --films in emit mode. MUST land before S20 embed (new figure UUIDs must be embedded). VERIFY with a dry run before first real run."
     },
