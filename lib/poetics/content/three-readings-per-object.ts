@@ -1,13 +1,13 @@
 const body = `
 # Three readings per object, never one
 
-Justine is lying naked on the riverbank at night, bathing in the blue light of the planet that has come to kill her, and she looks happier there than at any other point in [Melancholia](/film/melancholia-2011). Her sister finds her and is frightened. Most viewers are not. Something in the image reads as rightness rather than terror, and deciding why is the whole game.
+Justine is lying naked on the riverbank at night, bathing in the blue light of the planet that has come to kill her, and she looks happier than at any other point in [Melancholia](/film/melancholia-2011). Her sister finds her and is frightened. Most viewers are not. Something in the image reads as rightness rather than terror, and deciding why is the whole game.
 
 The standard answer arrives almost before the film ends: the planet is depression made literal. A wedding curdles, a bride cannot perform joy on schedule, and her condition is granted a mass and an orbit. It is a good reading. On our pages it is also forbidden to stand alone.
 
 ## Three planets
 
-Every figure we catalogue is read under three different [frameworks](/methodology/frameworks), and the rule exists because of images exactly like this one. Read the planet a second time and it stops being a symptom. Justine is the only person in the film who can meet the end with steady hands; her sister, competent in every ordinary crisis, comes apart. Now the planet is a rapture that only the depressed woman can host. She was already living without a future, so she is the one guest prepared when the future is cancelled. The second reading does not defeat the first. It stands beside it and changes what that calm on the riverbank costs.
+Every figure we catalogue is read under three different [frameworks](/methodology/frameworks), and the rule exists because of images like this one. Read the planet a second time and it stops being a symptom. Justine is the only person in the film who can meet the end with steady hands; her sister, competent in every ordinary crisis, comes apart. Now the planet is a rapture that only the depressed woman can host. She was already living without a future, so she is the one guest prepared when the future is cancelled. The second reading does not defeat the first. It stands beside it and changes what that calm on the riverbank costs.
 
 Read it a third time and the astronomy turns economic. The film never leaves the estate: the golf course, the stables, the brother-in-law reminding everyone what the wedding cost him. The end of the world arrives at a country house, among people whose money has always bought them distance from consequence, and it is the first event of their lives that cannot be rescheduled. On this reading the planet is not psychology; it is the bill.
 
