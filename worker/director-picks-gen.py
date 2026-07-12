@@ -135,7 +135,7 @@ def emit_requests():
         for l in open(full, encoding="utf-8"):
             try: done.add(json.loads(l).get("slug"))
             except Exception: pass
-    todo = [s for s in all_directors() if s not in done]
+    todo = [s for s in (DIRS_ARG or all_directors()) if s not in done]  # §7.13: honor --dirs scope (unscoped = corpus-wide mis-fire)
     print(f"[emit] directors >= {MIN_FILMS} films: {len(todo)+len(done)} · done {len(done)} · to request {len(todo)}")
     n = 0
     with open(f"{OUT}.requests.jsonl", "w", encoding="utf-8") as w:
