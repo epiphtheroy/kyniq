@@ -31,7 +31,7 @@ export function loadTow(slug: string): Promise<TowComment | null> {
       if (error) throw new Error(`tow_comment(${slug}): ${error.message}`);
       return (data as TowComment | null) ?? null;
     },
-    ["tow-comment3", slug],
+    ["tow-comment4", slug],
     { revalidate: 3600, tags: [`takescore-film:${slug}`] },
   )().catch(() => null);
 }
