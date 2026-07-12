@@ -158,8 +158,11 @@ function BottomSheet({ onClose, title, intentOf, track, copy, copied, Save }: {
 const BAR_CSS = `
 .shd-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-family:var(--font-ui)}
 .shd-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle,#8f8f8f);margin-right:2px}
-.shd-b{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 11px;border:1px solid var(--hairline,#ddd);border-radius:16px;background:var(--bg,#fff);color:var(--ink,#111);font-size:13px;font-family:inherit;cursor:pointer;transition:border-color .12s,color .12s}
-.shd-b:hover{border-color:var(--accent,#e3120b);color:var(--accent,#e3120b)}
+/* container-scoped (specificity 0,2,0) so ancestor shells like ".cur a{color:inherit}"
+   or ".mt a{color:var(--lk-film)}" can't hijack the channel-link colors. transparent
+   chip + inherited text = readable on dark heroes AND light sheets (no white-on-white). */
+.shd-bar .shd-b{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 11px;border:1px solid color-mix(in srgb, currentColor 26%, transparent);border-radius:16px;background:transparent;color:inherit;font-size:13px;font-family:inherit;cursor:pointer;transition:border-color .12s,color .12s}
+.shd-bar .shd-b:hover{border-color:var(--accent,#e3120b);color:var(--accent,#e3120b)}
 .shd-b--icon{padding:0 9px}
 .shd-t{line-height:1}
 .shd-ok{color:#0f8a4f;font-weight:700}
@@ -171,8 +174,8 @@ const RAIL_CSS = `
 .shd-rail{position:sticky;top:120px;display:none;flex-direction:column;gap:6px;opacity:0;transition:opacity .25s}
 @media(min-width:1080px){.shd-rail{display:flex}}
 .shd-rail--on{opacity:1}
-.shd-ib{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--hairline,#ddd);border-radius:50%;background:var(--bg,#fff);color:var(--ink,#111);cursor:pointer}
-.shd-ib:hover{border-color:var(--accent,#e3120b);color:var(--accent,#e3120b)}
+.shd-rail .shd-ib{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid color-mix(in srgb, currentColor 26%, transparent);border-radius:50%;background:transparent;color:inherit;cursor:pointer}
+.shd-rail .shd-ib:hover{border-color:var(--accent,#e3120b);color:var(--accent,#e3120b)}
 `;
 const FAB_CSS = `
 .shd-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;width:52px;height:52px;border-radius:50%;border:0;background:var(--accent,#e3120b);color:#fff;box-shadow:0 8px 24px -6px rgba(227,18,11,.5);display:flex;align-items:center;justify-content:center;cursor:pointer}
@@ -180,11 +183,13 @@ const FAB_CSS = `
 `;
 const SHEET_CSS = `
 .shd-ov{position:fixed;inset:0;z-index:1200;background:rgba(13,13,13,.4);display:flex;align-items:flex-end;justify-content:center}
-.shd-sheet{width:100%;max-width:520px;background:var(--bg,#fff);border-radius:16px 16px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom));font-family:var(--font-ui)}
+/* the sheet is its own light surface (var(--bg)); force ink text so a dark ancestor
+   shell (.cur/.room-root/.blg …) can't leave the labels white-on-white inside it */
+.shd-sheet{width:100%;max-width:520px;background:var(--bg,#fff);color:var(--ink,#111);border-radius:16px 16px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom));font-family:var(--font-ui)}
 .shd-sheet__h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle,#8f8f8f);margin-bottom:12px}
 .shd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 @media(max-width:400px){.shd-grid{grid-template-columns:repeat(3,1fr)}}
-.shd-g{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px;border:0;background:transparent;color:var(--ink,#111);font-size:11.5px;cursor:pointer;border-radius:10px}
+.shd-sheet .shd-g{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px;border:0;background:transparent;color:var(--ink,#111);font-size:11.5px;cursor:pointer;border-radius:10px}
 .shd-g:hover{background:var(--surface-2,#f2f2f2)}
 .shd-g__i{width:40px;height:40px;border-radius:50%;background:var(--surface-2,#f2f2f2);display:flex;align-items:center;justify-content:center;color:var(--ink,#111)}
 .shd-sheet__save{margin-top:14px;display:flex;justify-content:center}
