@@ -1,7 +1,7 @@
 const body = `
 # What should you watch?
 
-"Just tell me what to watch. You run a film site, you have the numbers, skip the method and name a title." I hear a version of this often, and the objection deserves to be taken at full strength: a recommendation wrapped in a lecture is a worse recommendation, and a site that answers a plain question with an essay has failed at something basic. So let me concede the format and defend the delay. Behind every one-title answer sits a rule for producing it, and this year we changed ours. Two roads lead into any recommendation this site makes. One starts from the lists. The other starts from a measurement. They used to stand in a fixed order, and the order has been reversed.
+"Just tell me what to watch. You run a film site, you have the numbers, skip the method and name a title." The complaint lands regularly in my inbox, and it is right on its face: a recommendation wrapped in a lecture is a worse recommendation, and a site that answers a plain question with an essay has failed at something basic. So let me concede the format and defend the delay. Behind every one-title answer sits a rule for producing it, and this year we changed ours. Two roads lead into any recommendation this site makes. One starts from the lists. The other starts from a measurement. They used to stand in a fixed order, and the order has been reversed.
 
 ## The road that starts from a list
 
