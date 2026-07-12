@@ -11,6 +11,7 @@ import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVPr
 import VideoMiniDock from "@/components/VideoMiniDock";
 import TVRecommended from "@/components/TVRecommended";
 import TVDirectory from "@/components/TVDirectory";
+import ShareDock from "@/components/ShareDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -52,6 +53,10 @@ export default function TVSingle({ entry, more }: { entry: TVEntry; more: MoreIt
                 {entry.film?.director ? <> · dir. {entry.film.director}</> : null}
                 {entry.dek ? <> — {entry.dek}</> : null}
               </p>
+              <div className="rd-share" style={{ marginTop: 12 }}>
+                <ShareDock variant="bar" path={`/tv/${entry.slug}`} title={entry.title} hook={entry.dek || undefined} />
+                <ShareDock variant="fab" path={`/tv/${entry.slug}`} title={entry.title} hook={entry.dek || undefined} />
+              </div>
               <div className="tvw-chapters">
                 {chapters.map((s, i) => (
                   <button key={s.id} className={`tvw-chap${nowSeg?.id === s.id ? " on" : ""}`}

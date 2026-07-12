@@ -8,6 +8,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import GrowStill from "@/components/read/GrowStill";
 import CreditsExplorer from "../CreditsExplorer";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
+import ShareDock from "@/components/ShareDock";
 import {
   CRAFTS, FAM, type Api, type ArtistData, type Collab, type CraftKey, type GrpKey, type TFilm,
   computeArtist, img, personSlug,
@@ -393,6 +394,10 @@ export default async function CrewPersonPage({ params }: Props) {
             <h1 style={{ fontSize: 30, lineHeight: 1.15, margin: "2px 0 4px" }}>
               {p.name}{native ? <span style={{ fontWeight: 400, opacity: 0.75 }}> ({native})</span> : null}
             </h1>
+            <div className="rd-share" style={{ marginTop: 12 }}>
+              <ShareDock variant="bar" path={`/credits/${person}`} title={p.name} hook={leadSentence(p.name, native, crafts, cat, company[0] ?? null)} />
+              <ShareDock variant="fab" path={`/credits/${person}`} title={p.name} hook={leadSentence(p.name, native, crafts, cat, company[0] ?? null)} />
+            </div>
             <p style={{ margin: "0 0 8px", opacity: 0.8 }}>
               {crafts.map((c) => CRAFTS[c.key].label).join(" · ")}
               {p.birthday ? ` · b. ${p.birthday.slice(0, 4)}${p.place_of_birth ? `, ${p.place_of_birth}` : ""}` : ""}

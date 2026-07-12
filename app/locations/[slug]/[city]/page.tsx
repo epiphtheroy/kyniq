@@ -7,6 +7,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import LensQuickBar from "@/components/LensQuickBar";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import {
   FILM_LOCATIONS_MIN,
@@ -255,6 +256,10 @@ export default async function LocationsCityPage({ params }: Props) {
         <EntityTVHero reelSlugs={films.map((f) => f.slug)} label={city.name} backdrop={null} />
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {city.name}</h1>
+        <div className="rd-share" style={{ marginTop: 12 }}>
+          <ShareDock variant="bar" path={`/locations/${slug}/${citySlug}`} title={`Movies filmed in ${city.name}`} hook={lead} />
+          <ShareDock variant="fab" path={`/locations/${slug}/${citySlug}`} title={`Movies filmed in ${city.name}`} hook={lead} />
+        </div>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
         <QuickAnswers items={quickAnswerItems(city, films, pins.length, returnedTo, returningDirectors)} />
         <a

@@ -7,6 +7,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import LensQuickBar from "@/components/LensQuickBar";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { FILM_LOCATIONS_MIN, cachedLocationsEligibility, cachedLocationsMeta, citiesForCountry, countryPhrase, listWords, loadLocationsCountry, type LocationCountry } from "@/lib/locations";
 
@@ -204,6 +205,10 @@ export default async function LocationsCountryPage({ params }: Props) {
         <EntityTVHero playlist={`country-${slug}`} reelSlugs={c.films.map((f) => f.slug)} label={countryPhrase(c.country)} listHref={`/tv/list/country-${slug}`} backdrop={null} />
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Movies filmed in {countryPhrase(c.country)}</h1>
+        <div className="rd-share" style={{ marginTop: 12 }}>
+          <ShareDock variant="bar" path={`/locations/${slug}`} title={`Movies filmed in ${countryPhrase(c.country)}`} hook={lead} />
+          <ShareDock variant="fab" path={`/locations/${slug}`} title={`Movies filmed in ${countryPhrase(c.country)}`} hook={lead} />
+        </div>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
         <QuickAnswers items={quickAnswerItems(c, returnedTo, cities, returningDirectors)} />
         <a

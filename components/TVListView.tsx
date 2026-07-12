@@ -11,6 +11,7 @@ import TVProgramPlayer, { type TVEntry, type TVSegment } from "@/components/TVPr
 import TVDirectory from "@/components/TVDirectory";
 import TVRecommended from "@/components/TVRecommended";
 import VideoMiniDock from "@/components/VideoMiniDock";
+import ShareDock from "@/components/ShareDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -62,6 +63,10 @@ export default function TVListView({ playlist, entries }: { playlist: PlaylistMe
                 <p className="tvw-sub">
                   {isIntro(entry) ? "Briefing" : <>Now playing: {entry.film?.title}{entry.film?.year ? ` (${entry.film.year})` : ""}{entry.title ? <> — {entry.title}</> : null}</>}
                 </p>
+                <div className="rd-share" style={{ marginTop: 12 }}>
+                  <ShareDock variant="bar" path={`/tv/list/${playlist.slug}`} title={playlist.title} hook={playlist.dek || undefined} />
+                  <ShareDock variant="fab" path={`/tv/list/${playlist.slug}`} title={playlist.title} hook={playlist.dek || undefined} />
+                </div>
                 <div className="tvw-chapters">
                   {chapters.map((s, i) => (
                     <button key={s.id} className={`tvw-chap${nowSeg?.id === s.id ? " on" : ""}`}
