@@ -76,7 +76,14 @@ def clean_figure(fo, pool_slugs, fseen):
 
 def submit():
     pool = fe.fetch_all("meta_takes?select=slug,title,laconic&status=eq.published&kind=eq.reading")
-    targets = figure_less_films()[:LIMIT]
+    targets = figure_less_films()
+    # --films slug,slug : scope the batch to specific films (factory per-run scoping, §7.13).
+    # Backward-compatible: absent -> unchanged (all figure-less films). Prevents the ~$1500
+    # mis-fire where an unscoped --submit sweeps in ~5,000 figure-less Tier-2 films.
+    if "--films" in args:
+        want = {s.strip() for s in args[args.index("--films") + 1].split(",") if s.strip()}
+        targets = [f for f in targets if f.get("slug") in want]
+    targets = targets[:LIMIT]
     print(f"[batch submit] {len(targets)} figure-less films | reading pool {len(pool)} | model {MODEL}")
     if not targets: print("  nothing to do (all films have figures)."); return
     reqs = [{"custom_id": f["id"],

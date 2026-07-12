@@ -321,10 +321,13 @@ def run_emit(films):
     if skipped: print("   skipped slugs (run via sync --films):", ", ".join(skipped[:20]))
 
 def main():
-    if ALL or EMIT:
-        films=eligible_films()
-    elif FILMS_ARG:
+    # --films wins in ALL modes incl. --emit-requests (§7.13 factory scoping). Previously the
+    # emit/all path ignored FILMS_ARG and swept every eligible film. eligible_films() and FILMS_ARG
+    # are both slug lists, so run_emit/run_full/run_dry accept either. Absent --films -> unchanged.
+    if FILMS_ARG:
         films=FILMS_ARG
+    elif ALL or EMIT:
+        films=eligible_films()
     else:
         films=PILOT
     if OFFSET: films=films[OFFSET:]
