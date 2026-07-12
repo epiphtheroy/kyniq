@@ -8,6 +8,7 @@ import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar, { type FilmTab } from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
+import CopyForAI from "@/components/CopyForAI";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
@@ -1151,6 +1152,7 @@ export default async function FilmPage({ params }: Props) {
               <div className="df-share">
                 <ShareDock variant="bar" noSave path={`/film/${film.slug}`} title={`${film.title}${film.year ? ` (${film.year})` : ""}`}
                   hook={`${film.title}${film.year ? ` (${film.year})` : ""}${film.director ? `, ${film.director}` : ""}${codex ? ` — TakeScore ${Math.round(codex.u)}${codex.rank && codex.rank_total ? `, #${codex.rank.toLocaleString()} of ${codex.rank_total.toLocaleString()}` : ""} on Metatake` : " on Metatake"}`} />
+                {(film as { visible?: boolean }).visible !== false ? <CopyForAI slug={film.slug} /> : null}
                 <ShareDock variant="fab" path={`/film/${film.slug}`} title={film.title} />
               </div>
             </div>

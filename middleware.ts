@@ -97,6 +97,14 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     if (ua && isObservableCrawler(ua)) observeCrawler(event, request, ua);
   }
 
+  // API routes do their own auth (each creates its own Supabase client) — skip
+  // the supabase.auth.getUser() round-trip here so every /api/* call doesn't pay
+  // an auth-server hop. /api/admin/* is excluded out of caution (though the admin
+  // gate below matches "/admin", not "/api/admin", so those rely on route guards).
+  if (pathname.startsWith("/api") && !pathname.startsWith("/api/admin")) {
+    return NextResponse.next({ request: { headers: request.headers } });
+  }
+
   // The home page ("/") is fully public and client-driven — it has no
   // server-side auth gating. Skip the supabase.auth.getUser() round-trip here so
   // logged-in visitors don't pay an auth-server hop on the most-visited, now
