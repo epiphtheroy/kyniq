@@ -6,10 +6,21 @@
 > (the run-#6 root cause was TWO-layer: stale manifest block AND hardcoded loader paths)
 > ⑤ `LAST_ERR` → `stage_runs.error` on failed/parked/partial + `"retries": N` manifest support
 > (S20-embed retries=2) ⑥ partial now carries verify bad_slugs as its error; report prints the
-> exact `--adhoc` repair command. ③ (director batch parking) mitigated by the batch-poll fix
-> (9f54811); ④ (theorist create-missing) NOT done — S27b links exact-match only, by design
-> (theorists table has composite pollution; auto-create is an owner decision). `--only` accepts a
-> comma list. Repair mode = `factory.py run --adhoc slug1,slug2 --only S15,S16 --yes` (mig 0089/0090).
+> exact `--adhoc` repair command. ③ **root cause was NOT batch latency** — the S31/S32 manifest
+> steps ran the gens without `--emit-requests`/`--out` (no requests file → submit died every run);
+> fixed a125577 + picks-gen emit now honors `--dirs` (was corpus-unscoped, §7.13 class).
+> ④ (theorist create-missing) NOT done — S27b links exact-match only, by design (theorists table
+> has composite pollution; auto-create is an owner decision). Observed residual: real-but-absent
+> figures like René Magritte, Andreas Werckmeister (1/film). `--only` accepts a comma list.
+> Repair mode = `factory.py run --adhoc slug1,slug2 --only S15,S16 --yes` (mig 0089/0090).
+>
+> **LATER ADDITIONS (same day): realtime sync mode** (`--sync`, auto ≤5 films, worker/realtime-batch.py
+> — owner rule: tests never wait on the Batch API) · **single-run lock + 60s liveness heartbeat**
+> (finished_at doubles as heartbeat; stale >30min self-releases) after two concurrent runs exhausted
+> the disk-IO burst (2026-07-13 incident: bulk_set_embeddings 11-18s, checkpoint 214s, REST 522) ·
+> **PROMOTE-path parity**: held stubs get hold=false+visible=true at the S10 figure gate (visible
+> trigger is on FIGURES — a films.hold change never fires it), else S25 affinities skips them (mother
+> ended 0 movies-like until rerun).
 
 **What this is:** field notes recorded while observing the first real bulk runs (2026-07-12). The
 executor (`worker/factory.py run`) was built and driven on real film lists. It **works** — but the runs
