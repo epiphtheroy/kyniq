@@ -1,34 +1,26 @@
 const body = `
-# In defence of fan theories
+# In defense of fan theories
 
-The first time the question got sharp, I was looking at a reading of [The Shining](/film/the-shining-1980) that argued the film is [Kubrick](/director/stanley-kubrick)'s coded confession to having faked the Apollo footage. My trained instinct was to file it under **not-criticism** and move on. Then I noticed I could not actually say why. The theory is false. But it is false in a structured, textually-anchored way — it points at real objects on screen, the Apollo 11 sweater, the number on the room, and builds from them. That is more procedure than a fair amount of published criticism manages.
+Fan theories are what people produce instead of criticism. Every ambiguity becomes a lock with exactly one key, trivia gets promoted to evidence, and the whole genre exists to keep a franchise warm between installments; it ends, reliably, in a thumbnail with a red arrow on it. A critic reads a film. A theorist ransacks it.
 
-So the honest problem was never whether the theory was true. It was where, on a critical map of cinema, a false-but-serious reading is allowed to stand.
+I have said gentler versions of that from my own desk, so the sneer deserves an answer instead of a shrug. What it rests on, when you press it, is an assumption: that somewhere behind the film stands an authority the theorist forgot to consult.
 
-## The desk I nearly did not build
+## Barthes with a message board
 
-My first draft of the site had no room for this at all. Fan theories were the noise the map was supposed to filter out — the "it was all a dream" of [Mulholland Drive](/film/mulholland-drive-2001), the endless keys to [Inland Empire](/film/inland-empire-2006), the forum threads that read every ambiguity as a locked door with exactly one key. I told myself criticism was the signal and this was the folk chatter underneath it.
+Modern criticism gave that authority up decades ago. Once a film is finished and released, the director's intention becomes one reading among others, with no power of veto; every graduate seminar nods along to the death of the author. The theory forum is the only place I know where the idea gets practiced at full strength. Nobody there asks what the director meant. They ask what the film, treated as an object loose in the world, will support. That this folk hermeneutics arrives without footnotes, without editors, and frequently without shame does not change what it is.
 
-The trouble is that the distinction does not survive contact with the films. What a theory-forum does when it argues about [Lynch](/director/david-lynch) is **hermeneutics** — reading a text for hidden order — done without a licence. Sometimes badly. Sometimes better than the credentialed reading it competes with. To exclude it wholesale I would have had to claim I could tell the two apart by their author's status rather than by the work on the page, and I do not believe that, so I could not build the wall.
+## Three films kept warm from below
 
-## Sourced, weighed, ruled on
+[The Butterfly Effect](/film/the-butterfly-effect-2004) sits at four stars in my log, and some fraction of that is gratitude for the arguments it started. A mid-2000s time-travel melodrama with more endings than it can manage, it has spent twenty years as raw material: threads on which ending governs, on how the blackout mechanics work, on whether any of Evan's timelines was ever the real one. Our index has never scored it. The theorizing is most of its afterlife now, and I do not mean that as an insult to the film.
 
-What I built instead was a desk with three rules, set out under [the essay desks](/methodology/essays).
+[Interstellar](/film/interstellar-2014) is also a four in my log, and a 59 on our Value axis, a mid number for a film that big. The number cannot see the seminar: a decade of fans auditing the time dilation on Miller's planet, stress-testing the tesseract, re-deriving the film's physics like a disputed manuscript. This mode of theory carries a discipline the sneer never credits. The audit can fail. The math can come back wrong. A reading that puts something at risk has earned the name.
 
-**It does not invent.** The desk only opens on a film where theories genuinely circulate — where there is an argument out there to adjudicate, not one I would be manufacturing to fill a slot. Most films get no such essay, and that silence is the point.
+[The Neon Demon](/film/the-neon-demon-2016) was booed at Cannes, and a portion of its first audience did not stay for the ending. I gave it five stars, so my interest is declared. For years afterward the liveliest reading it received happened on forums: the occult geometry, fashion as vampirism, whether the last act is literal appetite or pure allegory. Its Value score is 49, which records a divided film, and division is what theorists eat. The professionals filed their eight hundred words and left; the amateurs stayed.
 
-**It rules, it does not relay.** The published piece is the verdict, not the theory. The strongest version of the fan reading is stated at full strength, then sourced, weighed against what is actually on screen, and ruled on. An independent checker then tries to break the ruling; roughly one draft in five fails that first pass and is sent back or killed. Repeating a rumour is free. Adjudicating one is expensive, and the expense is the whole difference.
+## A theory that can lose
 
-**It stays out of the [strong misreadings](/methodology/strong-misreadings) lane.** A fan theory asks *what did the film secretly mean.* A strong misreading asks *what could we do to the film against its own grain.* Both are welcome here; they are not the same desk, and blurring them would flatter the weaker one.
+None of this defends everything posted under the word. The defense has a limit, and the limit is procedure, the same one that separates a reading from a rumor anywhere else. A serious theory points at objects actually on screen. It stakes a claim the film could contradict. It takes the loss when the contradiction arrives. A theory that cannot lose is not a reading; it is a belief with screenshots. When circulating theories reach our own desk, the standard we apply is the one the best threads already impose on themselves: source the claim, weigh it against the frames, and publish the verdict either way.
 
-## What the defence costs
-
-Here is where I turn the vocabulary on myself. There is a trope our own readings keep finding, [*The Reception As Proof Of The Thesis*](/trope/the-reception-as-proof-of-the-thesis) — a work becoming true by being received as true, the argument feeding on its own echo. That is precisely the failure mode of the theory-forum, and precisely the failure mode of a desk that grows too fond of adjudicating theories. If I keep commissioning these because readers keep clicking them, I have simply moved the confession-machinery up one floor.
-
-And I should admit the cleaner sentence I started with — "fan theories are beneath criticism" — is itself an instance of [*The Critic's Verdict As Unwitting Confession*](/trope/the-critic-s-verdict-as-unwitting-confession). It confesses a fear of the amateur, dressed up as a standard.
-
-The cost of defending fan theories, then, is that the desk sometimes has to publish the word *no* — a sourced, argued *no*, which to the theory's believers reads as exactly the gatekeeping I claimed to have refused. I have read the 1,935 films this catalogue closed-reads and filed 26,975 readings against them, and I still cannot draw the line between a reading that is wrong-and-worth-adjudicating and one that is wrong-and-noise except case by case, in the [reception](/methodology/reception) each one left behind.
-
-Which leaves the question the desk was built on and has not answered: when a false reading is more careful than the true one, whose criticism is it?
+The death of the author was supposed to hand the work over to its readers. Nobody promised the readers would look like this: anonymous, tireless, wrong at industrial scale and right just often enough to matter. If a film stays alive mainly because strangers keep reading it wrongly, out loud, together, what exactly has died — the author, or the criticism that stopped showing up?
 `;
 export default body;
