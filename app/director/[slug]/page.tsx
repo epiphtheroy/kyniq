@@ -217,13 +217,13 @@ function load(slug: string) {
 // fine here; only transport errors throw (and are thus never cached).
 type DirectorCuration = {
   director: string;
-  in_index: number;
-  total: number;
-  essential: number;
-  start_here: number;
-  deep_cut: number;
-  popular_not_cinephile: number;
-  optional: number;
+  n_total: number;   // films of theirs we hold (any verdict)
+  n_reco: number;    // essential + start_here + deep_cut (cinephile-worthy)
+  n_essential: number;
+  n_start: number;
+  n_deep: number;
+  reco_pct: number | null;
+  mean_v: number | null;
   is_auteur: boolean;
   auteur_reason: string | null;
   rec_since: string | null;
@@ -237,27 +237,44 @@ function loadCuration(slug: string): Promise<DirectorCuration | null> {
       if (error) throw new Error(`director_curation(${slug}): ${error.message}`);
       return (data as DirectorCuration | null) ?? null;
     },
-    ["director-curation3", slug],
+    ["director-curation4", slug],
     { revalidate: 3600, tags: [`director:${slug}`] },
   )().catch(() => null);
 }
 
-// Assemble the standing prose from the aggregates — deterministic, no LLM,
-// mirroring editorialSummary()'s house style. Highest tier first.
-function curationStanding(c: DirectorCuration): { lead: string; auteur: string | null } {
-  const n = c.in_index;
-  const filmWord = n === 1 ? "film" : "films";
-  const tiers: string[] = [];
-  if (c.essential > 0) tiers.push(`${c.essential} rated essential viewing`);
-  if (c.start_here > 0) tiers.push(`${c.start_here} a cinephile entry point`);
-  if (c.deep_cut > 0) tiers.push(`${c.deep_cut} ${c.deep_cut === 1 ? "a deep cut" : "deep cuts"}`);
-  if (tiers.length === 0 && c.popular_not_cinephile > 0)
-    tiers.push(`${c.popular_not_cinephile} widely seen but outside the cinephile canon`);
-  const lead = `In the Metatake index, ${c.director} holds ${n} ${filmWord}${tiers.length ? ` — ${andList(tiers)}` : ""}.`;
+// Assemble the standing prose from the aggregates — deterministic, no LLM.
+// Design (2026-07-12): lead with the ABSOLUTE count of cinephile-worthy films
+// (essential+start_here+deep_cut) and the essential count — a director with many
+// gems is major regardless of ratio. Then, only when it is FAVOURABLE, add the
+// proportion of their whole filmography as praise ("most of their work rewards
+// you"). A low ratio is never stated — we don't judge the person by the films
+// that fell outside; silence over the rest. Cards render only when n_reco ≥ 1,
+// so a filmmaker with no cinephile-worthy films gets no standing claim at all.
+function curationStanding(c: DirectorCuration): { lead: string; ratio: string | null; auteur: string | null } {
+  const filmWord = c.n_reco === 1 ? "film" : "films";
+  const essClause = c.n_essential > 0 ? `, ${c.n_essential} of them essential viewing` : "";
+  const lead = `In the Metatake index, ${c.director} has ${c.n_reco} ${filmWord} that reward a cinephile${essClause}.`;
+
+  // Proportion of the whole filmography — surfaced only when it reflects well.
+  const pct = c.reco_pct ?? 0;
+  const v = c.mean_v ?? 0;
+  let ratio: string | null = null;
+  if (c.n_total >= 3) {
+    if (pct >= 90 && v >= 75 && c.n_total >= 5)
+      ratio = `That is very nearly their whole filmography here — the rare kind of body of work where almost no evening is a wasted one.`;
+    else if (pct >= 90 && c.n_total >= 4)
+      ratio = `That is nearly everything of theirs we hold; a remarkably consistent filmmaker.`;
+    else if (pct >= 70)
+      ratio = `That is most of what we hold of theirs — the work rewards you far more often than not.`;
+    else if (pct >= 45)
+      ratio = `A good part of their work here is worth seeking out.`;
+    // pct < 45: no proportion sentence — the count above stands on its own.
+  }
+
   const auteur = c.is_auteur
     ? `${c.director}'s filmography is tracked as an auteur lineage: even the lesser-known titles earn their place through the body of work.`
     : null;
-  return { lead, auteur };
+  return { lead, ratio, auteur };
 }
 
 // First 1–2 sentences of prose, plain text, ≤155 chars, truncated at a word boundary with "…".
