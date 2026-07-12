@@ -1,4 +1,5 @@
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/admin";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -150,6 +151,7 @@ async function getReviewItems(): Promise<ReviewItem[]> {
 }
 
 export default async function AdminReviewPage() {
+  await requireAdmin();
   const items = await getReviewItems();
 
   return (

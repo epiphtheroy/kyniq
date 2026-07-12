@@ -1,8 +1,10 @@
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminMembersPage() {
+  await requireAdmin();
   const supabase = createAdminClient();
 
   const { data: members } = await supabase

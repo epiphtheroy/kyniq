@@ -1,4 +1,5 @@
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/admin";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -8,6 +9,7 @@ export default async function AdminContentPage({
 }: {
   searchParams: Promise<{ q?: string; status?: string; type?: string }>;
 }) {
+  await requireAdmin();
   const params = await searchParams;
   const supabase = createAdminClient();
   const query = params.q ?? "";

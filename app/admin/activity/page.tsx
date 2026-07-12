@@ -1,8 +1,10 @@
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminActivityPage() {
+  await requireAdmin();
   const supabase = createAdminClient();
 
   // ── NOW: agent_activity heartbeat ───────────────────────────────

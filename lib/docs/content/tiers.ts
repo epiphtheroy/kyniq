@@ -5,9 +5,17 @@ Not every film on Metatake gets the same kind of page. Some have been read close
 
 ## In numbers
 
+> **6,900+**
+> films in the catalogue
+> the full universe we hold — most as catalog records
+
 > **{{n:films}}**
-> films in the catalog
-> the full scored universe; only the ones read closely are indexed
+> read closely
+> broken into figures with published readings; these are the pages we index
+
+> **6,700+**
+> carrying a TakeScore
+> every catalogue film is scored, read closely or not
 
 ## Two kinds of page
 

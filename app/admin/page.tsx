@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { getAdminUser, logContentEvent } from "@/lib/admin";
+import { getAdminUser, requireAdmin, logContentEvent } from "@/lib/admin";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
@@ -123,7 +123,7 @@ const EVENT_LABEL: Record<string, { t: string; c: string }> = {
 };
 
 export default async function AdminControlCenter() {
-  const admin = await getAdminUser();
+  const admin = await requireAdmin();
   const { stats, queue, splits, events } = await load();
   const orphanPct = stats.takesTotal ? Math.round((1 - stats.takesLinked / stats.takesTotal) * 100) : 0;
   const legacyDrafts = stats.qDraft + stats.aDraft + stats.cDraft;

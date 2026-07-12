@@ -1,5 +1,6 @@
 /* Admin-only server helpers — never import from client components */
 
+import { redirect } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
@@ -32,6 +33,19 @@ export async function getAdminUser(): Promise<AdminUser | null> {
   if (!profile || profile.role !== "admin") return null;
 
   return profile as AdminUser;
+}
+
+/**
+ * Defense-in-depth guard for admin pages/server components. Middleware already
+ * gates every /admin route, but pages here load data with the service-role
+ * client (which bypasses RLS), so each must re-verify server-side rather than
+ * trust middleware alone. Redirects non-admins to the login page and never
+ * returns for them; returns the admin profile otherwise.
+ */
+export async function requireAdmin(): Promise<AdminUser> {
+  const admin = await getAdminUser();
+  if (!admin) redirect("/admin/login");
+  return admin;
 }
 
 // ── Audit logging ───────────────────────────────────────────────

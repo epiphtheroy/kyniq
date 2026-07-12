@@ -1,8 +1,10 @@
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminPipelinePage() {
+  await requireAdmin();
   const supabase = createAdminClient();
 
   // Get all films for the selector

@@ -1,13 +1,17 @@
 const body = `
 # Why a film is in the index
 
-Every film Metatake catalogues carries a short letter — addressed *To W.H.*, signed *W. Yoon* — saying plainly why it earned a place in the index. This page explains what goes into that letter, how the verdict is decided, and why we keep it apart from the [TakeScore](/takescore) number it sits beside.
+Every film Metatake catalogues carries a short letter — addressed *To WY. Heo*, signed *W. Yoon* — saying plainly why it earned a place in the index. This page explains what goes into that letter, how the verdict is decided, and why we keep it apart from the [TakeScore](/takescore) number it sits beside.
 
 The letter is **assembled by rule, not written by an AI**. Each film is filed on a handful of plain axes, and those filings are stitched into English by a fixed template. Same filings in, same sentence out — the letter is a readout of the filing, not an opinion generated on the spot.
 
+## Who the letter is to
+
+The letter has a real addressee. **WY. Heo** is a friend and younger colleague of the editor — the person Wonwoo Yoon first led into cinephilia, one film at a time, over years of watching together. When Metatake was still only an idea, WY. Heo was the reader it was being built for: someone serious and curious about film but standing at the foot of an enormous catalogue, asking the only question that matters at the start — *of all these, why this one?* Every to.W note is written to that person. Addressing a single real reader, rather than "the user", is how we keep the answer honest and plain: it has to make sense to someone you actually know.
+
 ## In numbers
 
-> **{{n:films}}**
+> **6,900+**
 > catalogued films
 > each carries one assembled letter saying why it was collected
 

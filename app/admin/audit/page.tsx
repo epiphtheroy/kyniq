@@ -1,4 +1,5 @@
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
@@ -7,6 +8,7 @@ export default async function AdminAuditPage({
 }: {
   searchParams: Promise<{ entity_type?: string; event?: string }>;
 }) {
+  await requireAdmin();
   const params = await searchParams;
   const supabase = createAdminClient();
 
