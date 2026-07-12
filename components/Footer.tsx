@@ -45,6 +45,9 @@ export default function Footer() {
             <Link href="/methodology" className="footer-link">
               Methodology
             </Link>
+            <Link href="/mcp" className="footer-link">
+              MCP for AI
+            </Link>
             <Link href="/contact" className="footer-link">
               Contact
             </Link>
