@@ -1071,6 +1071,14 @@ def cmd_run(a):
                     print(f"      ✗ {r['slug']} still <3 figures — parked out of this run (repair: factory.py run --adhoc {r['slug']})")
                     ledger(run_id, sid, "parked", film_id=r["id"], error=f"figures<3 after reset re-extract ({r['c']})")
                 films = [f for f in films if f["film_id"] not in bad_ids]
+            # PROMOTE path parity: a held stub that now has >=3 figures must become visible HERE
+            # (like a new film, whose trigger fires at extract) — not at S39. Otherwise the corpus
+            # stages between (S25 affinities!) exclude it and it ends with 0 movies-like (run #13).
+            # NB: the visible trigger lives on FIGURES, so clearing hold alone never recomputes
+            # films.visible — set it in the same statement (same recompute factory_analyzed_flip does).
+            mgmt_query(f"update public.films f set hold=false, visible=true where f.id = any({gate_ids}) "
+                       f"and coalesce(f.hold,false) and (select count(*) from public.figures g "
+                       f"where g.film_id=f.id and g.status='approved') >= 3;")
 
         # verify gate (per applicable film)
         v = verify_stage(s, sfilms) if not DRY else {"checked": 0, "ok": 0, "bad": 0, "bad_slugs": []}
