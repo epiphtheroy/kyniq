@@ -89,13 +89,13 @@ export default async function RadarPage({ searchParams }: { searchParams: Promis
   // feed query
   let feedItems: Item[] = [];
   if (tab === "feed") {
-    let q = sb
+    let q = byView(sb
       .from("radar_items")
       .select(
         kwId
-          ? "id,url,platform,author,author_url,title,snippet,published_at,discovered_at,radar_hits!inner(matched_on,keyword_id,radar_keywords(id,keyword))"
-          : "id,url,platform,author,author_url,title,snippet,published_at,discovered_at,radar_hits(matched_on,radar_keywords(id,keyword))"
-      )
+          ? "id,url,platform,author,author_url,title,snippet,published_at,discovered_at,author_kind,meta,radar_hits!inner(matched_on,keyword_id,radar_keywords(id,keyword))"
+          : "id,url,platform,author,author_url,title,snippet,published_at,discovered_at,author_kind,meta,radar_hits(matched_on,radar_keywords(id,keyword))"
+      ))
       .gte("discovered_at", cutoff)
       .order("published_at", { ascending: false, nullsFirst: false })
       .limit(100);
