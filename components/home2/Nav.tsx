@@ -73,7 +73,8 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
   ];
 }
 
-const arrow = (c?: number) => (c != null ? `${c.toLocaleString()} →` : "→");
+// Counts removed (owner request — several were stale/wrong): nav shows labels + arrow only.
+const arrow = (_c?: number) => "→";
 
 // Render a nav label, painting a trailing "TV" red (e.g. "Metatake TV").
 const navLabel = (t: string) =>

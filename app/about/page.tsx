@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteNav from "@/components/home2/SiteNav";
 
 // Fully static: this page has no server data. It's prerendered at build and
 // served from the edge (regenerated on every deploy).
@@ -39,7 +40,9 @@ const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
 
 export default function AboutPage() {
   return (
-    <main className="shell">
+    <>
+      <SiteNav />
+      <main className="shell">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
       <h1 className="disp" style={{ fontSize: 30, margin: "28px 0 0" }}>About Metatake</h1>
       <p className="standfirst" style={{ margin: "14px 0 0", maxWidth: "62ch" }}>
@@ -157,5 +160,6 @@ export default function AboutPage() {
         {" "}· See also <A href="/methodology">Methodology</A> · <A href="/editor">The editor</A>
       </p>
     </main>
+    </>
   );
 }
