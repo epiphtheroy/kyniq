@@ -429,6 +429,12 @@ Polar.sh(MoR — VAT/JCT 대행, 한국 사업자 유리) 제품 2개: Pass Mont
   - **탭바:** 다운로드 컨트롤을 `.df-tabs__row` 안으로 이동(탭과 함께 좌우 스크롤, `variant="rail"`). Invitation 탭의 "✦ AI" 복사 마크 제거(다운로드 섹션으로는 유지).
   - **라이브 검증:** 히어로 Download 버튼·rail 다운로드·구 Copy필 제거(0)·Movies-like 이전·팩탭 복사버튼 8→7(invitation 제외)·섹션 엔드포인트 CC BY-NC.
   - **Phase B 지시(오너 요구 "save 옆 download 동일 크기·디자인"):** 비-영화 엔티티 페이지의 ShareDock Save 옆에 `DownloadPackModal`(금색 트리거, 크기 매칭)을 배치. 단 각 엔티티 팩 생성기 선행 필요(아직 film만). 트리거 디자인 정본=DPM_TRIGGER_CSS.
+- **2026-07-12 UI 3차 반복 (오너 피드백, commit 552d453·라이브 검증):**
+  - **탭바 "✦ AI" 마크 전면 제거** → 탭바=순수 내비게이션. 대신 **섹션별 "⬇ Download" 버튼을 각 H2 서브타이틀 옆(아래)에 배치**(`DownloadPackModal variant="section"`, 단일섹션 UI=선택기 없이 "Download: {섹션}"). 다운로드 원리 동일(로그인+claim, 영화당 1슬롯 공유).
+  - **배치 7섹션:** 인라인 5(Locations/Strong Misreadings/Figures/Tropes/Kindred, page.tsx H2 직후) + 컴포넌트 2(TakeScore=CinecodexPanel·Lineage=FilmLineageSection에 `headerAccessory?: ReactNode` prop 신설, page가 `packVisible`일 때만 주입). **Invitation은 제외**(특수 인트로 카드, 이전 요청 존중 — 필요시 1줄 추가).
+  - 단일섹션 파일명=섹션키(`metatake-pack_{slug}_{section}.md`). 히어로 "Download for AI"·rail "Download" 유지.
+  - **라이브 검증:** ✦ AI 0개·섹션 Download 7개(aria-label "Download the {섹션} section for AI")·히어로 present·"Download" 텍스트 8(7섹션+rail)·"Download for AI" 1(히어로)·섹션 엔드포인트 markdown+noindex.
+  - ⚠️ DownloadPackModal 인스턴스 10개(히어로+rail+섹션7+룸 등)가 각자 inline `<style>` 주입=CSS 중복(~기능무해, 추후 globals.css 승격 최적화 여지).
 
 ## 13. 다음 세션 시작 프롬프트 (복붙용)
 
