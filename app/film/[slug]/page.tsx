@@ -467,6 +467,21 @@ function loadChrome(slug: string) {
   )();
 }
 
+// Director's circular face photo (directors.profile_path, TMDB) — shown under the
+// film title. Cached per director; 99% of directors have one.
+function loadDirectorPhoto(directorSlug: string | null) {
+  if (!directorSlug) return Promise.resolve<string | null>(null);
+  return unstable_cache(
+    async () => {
+      const supabase = db();
+      const { data } = await supabase.from("directors").select("profile_path").eq("slug", directorSlug).maybeSingle();
+      return (data as { profile_path?: string | null } | null)?.profile_path ?? null;
+    },
+    ["dir-photo1", directorSlug],
+    { revalidate: 86400, tags: [`director:${directorSlug}`] },
+  )();
+}
+
 // Tier-2 "keep reading" modules (lib/related.ts recipe) — cached per slug like
 // the main load, so the catalog route stays ISR-cached.
 function loadTier2Related(slug: string, args: {
@@ -594,6 +609,9 @@ export default async function FilmPage({ params }: Props) {
     notFound();
   }
   const { movements, codex, subscores } = await loadChrome(slug);
+  // Director face photo (shown under the title in both render branches).
+  const anyData = data as { minimal?: boolean; directorSlug?: string | null; film?: { director_slug?: string | null } };
+  const directorPhoto = await loadDirectorPhoto(anyData.minimal ? (anyData.directorSlug ?? null) : (anyData.film?.director_slug ?? null));
   // Embedding Fantasia rows — shared by both the Tier-1 and Tier-2 render branches.
   const sentences = await loadSentences(slug);
   // to.W — curator's letter on this film's place in the index (both branches).
@@ -762,10 +780,18 @@ export default async function FilmPage({ params }: Props) {
               ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
               <div className="df-htxt">
                 <h1>
-                  {f.title} <span className="df-yr">({f.year ?? "?"})</span>
+                  <Link href={`/film/${f.slug}`} target="_top" className="df-h1link">{f.title}</Link> <span className="df-yr">({f.year ?? "?"})</span>
                   {nativeTitle ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({nativeTitle})</span> : null}
                 </h1>
-                {f.tagline ? <div className="df-tagline">{f.tagline}</div> : null}
+                {f.director && dirSlug ? (
+                  <Link className="df-dircard" href={`/director/${dirSlug}`}>
+                    {directorPhoto ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img className="df-dircard__face" src={`${IMG}/w92${directorPhoto}`} alt={f.director} loading="lazy" width={38} height={38} />
+                    ) : <span className="df-dircard__face df-dircard__face--mono" aria-hidden>{f.director.charAt(0)}</span>}
+                    <span className="df-dircard__name">{f.director}</span>
+                  </Link>
+                ) : null}
                 <div className="df-facts">
                   {f.director ? (dirSlug ? <Link href={`/director/${dirSlug}`}>{f.director}</Link> : <span>{f.director}</span>) : null}
                   {f.genres?.length ? <><span className="df-d" />{f.genres.slice(0, 3).map((g, i) => (
@@ -1140,8 +1166,16 @@ export default async function FilmPage({ params }: Props) {
               />
             ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
             <div className="df-htxt">
-              <h1>{film.title} <span className="df-yr">({film.year ?? "?"})</span></h1>
-              {film.tagline ? <div className="df-tagline">{film.tagline}</div> : null}
+              <h1><Link href={`/film/${film.slug}`} target="_top" className="df-h1link">{film.title}</Link> <span className="df-yr">({film.year ?? "?"})</span></h1>
+              {film.director && film.director_slug ? (
+                <Link className="df-dircard" href={`/director/${film.director_slug}`}>
+                  {directorPhoto ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img className="df-dircard__face" src={`${IMG}/w92${directorPhoto}`} alt={film.director} loading="lazy" width={38} height={38} />
+                  ) : <span className="df-dircard__face df-dircard__face--mono" aria-hidden>{film.director.charAt(0)}</span>}
+                  <span className="df-dircard__name">{film.director}</span>
+                </Link>
+              ) : null}
               <Byline created={film.created_at} />
               <div className="df-facts">
                 {film.director ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : null}
