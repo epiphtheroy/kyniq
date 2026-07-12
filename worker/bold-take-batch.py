@@ -62,6 +62,10 @@ def repair_json(s):
             if nxt in ",:}]" or nxt=="": in_str=False; out.append(ch)
             else: out.append('\\"')
             continue
+        if not in_str and ch==",":
+            j=i+1
+            while j<n and s[j] in " \t\r\n": j+=1
+            if j<n and s[j] in "}]": continue        # drop trailing comma
         if in_str and ch in "\n\r\t": out.append({"\n":"\\n","\r":"\\r","\t":"\\t"}[ch]); continue
         out.append(ch)
     return "".join(out)
@@ -72,7 +76,8 @@ def parse_json(s):
     i=s.find("{"); j=s.rfind("}")
     if i>=0 and j>i: s=s[i:j+1]
     try: return json.loads(s)
-    except json.JSONDecodeError: return json.loads(repair_json(s))   # tolerate stray quotes
+    except json.JSONDecodeError:
+        return json.loads(repair_json(s))   # tolerate stray quotes / trailing commas
 
 def submit():
     reqpath=f"{OUT}.requests.jsonl"

@@ -107,8 +107,8 @@ def gemini(system, prompt):
 def model_call(system, prompt):
     return claude(system, prompt) if USE_CLAUDE else gemini(system, prompt)
 def _repair_json(s):
-    """Re-escape stray double-quotes / raw control chars inside string values (common LLM
-    JSON defect: unescaped inner quotes like  "meaning "the swamp"..." )."""
+    """Re-escape stray double-quotes / raw control chars inside string values and drop trailing
+    commas (common LLM JSON defects: unescaped inner quotes like "meaning "the swamp"...", or ",}")."""
     out = []; in_str = False; esc = False; n = len(s)
     for i, ch in enumerate(s):
         if esc: out.append(ch); esc = False; continue
@@ -121,19 +121,52 @@ def _repair_json(s):
             if nxt in ",:}]" or nxt == "": in_str = False; out.append(ch)
             else: out.append('\\"')
             continue
+        if not in_str and ch == ",":
+            j = i + 1
+            while j < n and s[j] in " \t\r\n": j += 1
+            if j < n and s[j] in "}]": continue        # drop trailing comma
         if in_str and ch in "\n\r\t": out.append({"\n": "\\n", "\r": "\\r", "\t": "\\t"}[ch]); continue
         out.append(ch)
     return "".join(out)
+
+def _salvage_array(s, key):
+    """Last-resort recovery: collect the COMPLETE {...} elements of the named array from a
+    corrupt/truncated output's valid prefix (a missing bracket or mid-doc break still yields
+    most figures). Prevents a single malformed tail from dropping the whole film at scale."""
+    m = re.search(r'"' + key + r'"\s*:\s*\[', s)
+    if not m: return []
+    k = m.end(); items = []; depth = 0; start = None; instr = False; esc = False
+    while k < len(s):
+        ch = s[k]
+        if instr:
+            if esc: esc = False
+            elif ch == "\\": esc = True
+            elif ch == '"': instr = False
+        elif ch == '"': instr = True
+        elif ch == '{':
+            if depth == 0: start = k
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0 and start is not None:
+                try: items.append(json.loads(_repair_json(s[start:k + 1])))
+                except Exception: pass
+                start = None
+        elif ch == ']' and depth == 0:
+            break
+        k += 1
+    return items
 
 def parse(t):
     s = (t or "").strip()
     if s.startswith("```"): s = re.sub(r"^```[a-z]*\n?", "", s); s = re.sub(r"\n?```$", "", s)
     i = s.find("{"); e = s.rfind("}")
     if i >= 0 and e > i: s = s[i:e + 1]
-    try: return json.loads(s)
-    except Exception:
-        try: return json.loads(_repair_json(s))
-        except Exception: return None
+    for attempt in (s, None):
+        try: return json.loads(attempt if attempt else _repair_json(s))
+        except Exception: continue
+    figs = _salvage_array(s, "figures")           # recover complete figures from the valid prefix
+    return {"figures": figs} if figs else None
 def fetch_all(path):
     rows = []; off = 0
     while True:
