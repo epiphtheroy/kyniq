@@ -15,6 +15,15 @@ python3 worker/factory.py plan --write                            # → run #N (
 python3 worker/factory.py run --run N --dry-run                   # print the exact 47-stage plan, $0
 python3 worker/factory.py run --run N --yes                       # EXECUTE (real spend, ledgered)
 
+# LLM transport (owner rule 2026-07-13: 테스트=실시간 API, 벌크만 배치):
+#   runs ≤ FACTORY_SYNC_UNDER films (default 5) auto-use realtime /v1/messages — no Batch API,
+#   no polling latency; results in minutes. `--sync` forces realtime at any size (full price,
+#   no 50% batch discount). Bigger runs use the Batch API automatically (50% off, ~constant latency).
+#   Engine: worker/realtime-batch.py replaces every submit/poll-fetch leg generically.
+
+# REPAIR an existing film (any prior run) — stage-scoped, slug-scoped:
+python3 worker/factory.py run --adhoc slug-1,slug-2 --only S15,S16 --yes   # e.g. missing why/next
+
 # ── ADMIN (/admin/factory) ──────────────────────────────────────────────────
 #   ⓪ "Add films" panel: paste one title per line, or upload a .txt/.csv → intake (dedups repeats)
 #   ① "▶ Queue a run" button: marks a run status='queued'
