@@ -1,7 +1,7 @@
 const body = `
 # The theorist as interlocutor
 
-Nobody needs a philosopher to know that humiliating a beggar is wrong. So runs the objection, and it deserves its full voice: when a film page cites Levinas or Arendt, it is redecorating. The argument stood on its own; the name was hung on the wall afterwards; the reader is meant to admire the shelves. Strike every theorist from criticism tomorrow and the readings would lose nothing except the smell of the seminar.
+Nobody needs a philosopher to know that humiliating a beggar is wrong. So runs the objection, and at full strength it says: when a film page cites Levinas or Arendt, it is redecorating. The argument stood on its own; the name was hung on the wall afterwards; the reader is meant to admire the shelves. Strike every theorist from criticism tomorrow and the readings would lose nothing except the smell of the seminar.
 
 For most citations in most criticism, mine included, the objection is simply correct. Names get dropped the way rugs get bought. What interests me is the remaining minority, the citations that would leave a hole if you pulled them.
 

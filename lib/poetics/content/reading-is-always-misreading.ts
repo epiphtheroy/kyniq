@@ -1,7 +1,7 @@
 const body = `
 # Reading is always misreading
 
-At the end of [The Green Ray](/film/the-green-ray-1986), the sun drops behind the Atlantic, and in the last second before dark a sliver of green sits on the horizon. Delphine, who has spent the film failing at her own summer, has heard the legend out of Jules Verne: whoever catches the green ray can at last read her own feelings and everyone else's. She sees it. She cries out. Rohmer cuts. Every viewer walks out with a different film: one where a lonely woman's stubbornness is vindicated as faith, or one where she has just assigned cosmic weight to an optical event because she needed to. In my log the film sits at four and a half stars; the instrument values it at 76. Neither number records what I decided that flash meant, and the reading I carry is one I could not source to Rohmer if I tried. It is mine all the same.
+At the end of [The Green Ray](/film/the-green-ray-1986), the sun drops behind the Atlantic, and in the last second before dark a sliver of green sits on the horizon. Delphine, who has spent the film failing at her own summer, has heard the legend out of Jules Verne: whoever catches the green ray can at last read her own feelings and everyone else's. She sees it. She cries out. Rohmer cuts. Every viewer walks out with a different film: one where a lonely woman's stubbornness is vindicated as faith, or one where she has just assigned cosmic weight to an optical event because she needed to. In my log the film sits at four and a half stars; the instrument values it at 76. The numbers know nothing of what I decided that flash meant, and the reading I carry is one I could not source to Rohmer if I tried. It is mine all the same.
 
 ## The name signs a waiver
 

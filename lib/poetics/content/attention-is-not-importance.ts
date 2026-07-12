@@ -1,7 +1,7 @@
 const body = `
 # Attention is not importance
 
-Thirty-five. That is the Value our instrument reports for [No Other Choice](/film/no-other-choice-2025), the Park Chan-wook thriller that spent its release window as the most searched-for Korean film in years. A national event, a star cast, weeks of headlines. My own log has it at three and a half stars, which is to say that for once my hand and the measurement roughly agree: a middle film in the middle of the scale, standing in the biggest spotlight the season had to offer. The live desk's whole job is contained in that mismatch, and in the decision of when to mention it. Saying it after the crowd leaves is easy and useless. The desk exists to say it during.
+Thirty-five. That is the Value our instrument reports for [No Other Choice](/film/no-other-choice-2025), the Park Chan-wook thriller that spent its release window as the most searched-for Korean film in years. A national event, a star cast, weeks of headlines. My own log has it at three and a half stars, which is to say that my log and the measurement roughly agree: a middle film in the middle of the scale, standing in the biggest spotlight the season had to offer. The live desk's whole job is contained in that mismatch, and in the decision of when to mention it. Saying it after the crowd leaves is easy and useless. The desk exists to say it during.
 
 ## The spike measures the crowd
 
