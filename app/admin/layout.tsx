@@ -17,8 +17,8 @@ const NAV_ITEMS = [
   { href: "/admin/audit", label: "Audit Log", icon: "📜" },
   { href: "/admin/pipeline", label: "Pipeline", icon: "⚙️" },
   { href: "/admin/factory", label: "Factory", icon: "🏭" },
-  { href: "/admin/radar", label: "Radar", icon: "📡" },
-  { href: "/admin/activity", label: "Activity Log", icon: "📻" },
+  { href: "/admin/activity", label: "Activity Log", icon: "📡" },
+  { href: "/admin/radar", label: "Radar", icon: "🛰️" },
 ];
 
 export default async function AdminLayout({
