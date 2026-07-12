@@ -6,7 +6,9 @@
 
 ## 0. 상태 한 줄 · 읽는 순서
 
-**상태:** ✅ **W1 SHIPPED (2026-07-12, commit d80e016·라이브 검증 완료).** 다음 실행 대상은 §7(W1.5: 다운로드·쿼터·섹션 토글·`/room/packs` 라이브러리). 결제(W2)는 그 뒤.
+**상태:** ✅ **W1 + Phase A(확장 비전) SHIPPED (2026-07-12, 라이브 검증 완료).** 다음 실행 대상은 Phase B(비-영화 엔티티로 Copy-for-AI 확장) 또는 결제(W2 Pass).
+
+**Phase A(2026-07-12, 오너 확장 요구 반영) — SHIPPED:** 편재형 Copy-for-AI. ① 영화 탭바(FilmTabBar)의 팩-섹션 탭마다 "✦ AI" 소형 복사 버튼(그 섹션+영화신원 헤더, 무료·무로그인) ② 2중탭 하단 맨우측 "⭳ Download film" 컨트롤 → 섹션 선택 모달 → .md 파일(로그인+월10 신규영화, 재다운로드 무료) ③ `/room/packs` 라이브러리. **모델 재정의(오너 확정): 복사=전부 무료(공개 콘텐츠), 다운로드(파일)만 로그인+쿼터=편의 게이트.** 마이그 0086(pack_downloads+RLS)·0087(pack_download_claim 원자적 청구=경합안전+재다운로드 전기간 무료). 라이선스=CC BY-NC 4.0(무료 복사 정직 표기).
 
 **W1에서 실제로 나간 것:** `film_context_pack(slug,tier)`+`film_context_pack_trim` RPC(마이그 0085, full=service_role 전용·trim=anon 경계 라이브 검증), `lib/pack.ts` 렌더러, `GET /api/pack/[slug]?tier=&fmt=`(trim만·full은 403·null은 404·X-Robots noindex), `components/CopyForAI.tsx`(Tier-1 히어로 df-share, visible=true 게이트), 기술부채 3건(tmp-sql CORS 제거·middleware /api/* 분리·backfill 하드닝). 5-렌즈 적대적 리뷰 통과(§12).
 
@@ -413,6 +415,14 @@ Polar.sh(MoR — VAT/JCT 대행, 한국 사업자 유리) 제품 2개: Pass Mont
   - **라이브 검증 전항 통과:** 트림 MD 품질(11KB, 출처·라이선스 상하단·13차원 정순), full→403·missing→404·json content-type·X-Robots noindex, 버튼 Tier-1 존재/Tier-2 부재, 좌표·금지필드 키 0(정밀 검사), 1,939 Tier-1 전편 TakeScore.
   - **⚠️ 발견된 선존 데이터 결함(팩 무관·W1 범위 밖):** 발행 takes 2편의 rationale에 중국어 이중인코딩 모지바케(예 ITMFL TITLE/INVITATION의 `鏌愯姳鏍峰勾鍗`=원래 `花樣年華`). DB 원본 손상이라 film 페이지에도 동일 노출. 팩 파이프라인은 충실 통과(내 버그 아님). 데이터 품질 트랙에서 2건 수정 권고(발행 콘텐츠라 임의 재작성 보류).
   - **오너 몫(코드 아님):** Vercel 대시보드 → Spend Management 알림 켜기.
+- **2026-07-12 Phase A 구현·배포 (오너 확장 요구 4항: 편재 복사·탭별 복사·전체 다운로드·로그인+월10):**
+  - **모델 재정의(오너 AskUserQuestion 확정):** 복사(탭별·전체)=무료·무로그인(공개 페이지 콘텐츠), .md 다운로드만 로그인+월10 신규영화=편의 게이트. 구축=영화 페이지 먼저→이후 비-영화 엔티티(Phase B).
+  - **아키텍처:** `film_context_pack`은 여전히 service_role only(=DB엣지 스크레이핑 차단). 앱 라우트가 admin 클라이언트로 full 조회 후 섹션/전체 렌더(무료·레이트리밋·noindex). 섹션↔탭 매핑 정본=`lib/pack.ts PACK_SECTIONS`(금지콘텐츠 탭=reception verbatim·where-to-watch providers·news는 맵 부재→버튼 없음=UI층 화이트리스트).
+  - **파일:** lib/pack.ts(PACK_SECTIONS+renderPackSection/Selected), /api/pack/[slug](section/sections/whole), /api/pack/[slug]/download(로그인+claim), CopyForAI(pill/tab), DownloadPackModal, FilmTabBar(packSlug/packDownload), app/film 마운트, /room/packs, nav.
+  - **5-렌즈 적대적 리뷰(10에이전트) 확정 2건 수정:** ①TOCTOU 쿼터 경합(동시요청 10초과)→pack_download_claim 원자함수(advisory lock) ②라이브러리 재다운로드 월-스코프 버그(전월 영화 재다운로드가 쿼터 소진+402 raw JSON)→ever(전기간) 무료+min기반 신규영화 카운트. **+자가발견 1건:** 쿼터 RPC가 Supabase 기본권한으로 anon EXECUTE 노출→전 함수 service_role only 명시 revoke(0087). CTE 합성테스트로 카운트 로직 검증(전월 재다운로드 미차감).
+  - **라이브 검증:** 섹션 엔드포인트(13 readings+헤더)·다운로드 status JSON(authed/remaining/eligible)·전체 복사·필름페이지 UI(팩탭 8버튼·다운로드 컨트롤 1·히어로 1)·라이선스 CC BY-NC.
+  - **⚠️ 동시 세션 위험 실현:** 다른 세션이 `.autodeploy-off`를 지워 워처가 내 staged 인덱스(마이그 포함)를 auto-deploy 커밋으로 푸시. 결과적으로 최종본이 정상 커밋·푸시됨(HEAD==origin 확인). 교훈=[[autodeploy-watcher-race]] 재확인, 커밋은 pathspec(`git commit <files>`)로.
+  - **미착수:** 실제 로그인 브라우저 E2E(다운로드 파일 저장·쿼터 차감·라이브러리 표출)는 오너 검증 몫. Phase B(비-영화 엔티티 팩: concept/director/trope/catalog 등 ~20종, 각 팩 생성기 필요).
 
 ## 13. 다음 세션 시작 프롬프트 (복붙용)
 
