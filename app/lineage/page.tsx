@@ -103,8 +103,8 @@ export default async function LineageIndex() {
           open a film&apos;s <em>Lineage</em> tab to see everything it belongs to.
         </p>
         <Link href="/lineage/for-w-heo" className="lh-flag">
-          <span className="lh-flag-kicker">The Metatake list · to. W. Heo</span>
-          <span className="lh-flag-title">for W. Heo — the essential films</span>
+          <span className="lh-flag-kicker">The Metatake list · to. WY. Heo</span>
+          <span className="lh-flag-title">for WY. Heo — the essential films</span>
           <span className="lh-flag-sub">Every film we mark essential viewing for a cinephile — browse by year, genre, director or title.</span>
           <span className="lh-flag-cta">Open the list →</span>
         </Link>

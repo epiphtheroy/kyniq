@@ -7,7 +7,7 @@ People reasonably ask whether an AI wrote the readings on Metatake, and what a h
 
 > **{{n:readings}}**
 > close readings
-> each one drafted by the AI, then read and signed off by a human before it published
+> each one drafted by the AI, then read and signed off by a human before it publishes
 
 > **1**
 > editor of record
@@ -27,7 +27,7 @@ That is the whole of the machine's job. It proposes prose, and it proposes dista
 
 It does not decide what stands on the site.
 
-A draft is not a published page. Every reading, without exception, is read by [Wonwoo Yoon](/editor), our human editor, before it goes live. In practice that means he reads the draft, checks its factual claims — dates, credits, plot details, scholarly attributions — and then does one of three things: edits it, cuts it, or signs off on it. Nothing publishes without that pass. If a reading is live on Metatake, a human has looked at it and taken responsibility for that specific page.
+A draft is not a published page. Every reading, without exception, passes through the editorial desk — led by [Wonwoo Yoon](/editor) — before it goes live. In practice a human reads the draft, checks its factual claims — dates, credits, plot details, scholarly attributions — and then does one of three things: edits it, cuts it, or signs off on it. That final read sits on top of automated checks that flag the risky drafts first, so human attention lands where it is most needed rather than being spread thin across everything at once; the [full review pipeline is described here](/methodology/editorial-responsibility). Nothing publishes without that pass. If a reading is live on Metatake, a person has looked at it and taken responsibility for that specific page.
 
 The embeddings get the same treatment at the layer above the individual reading. The AI computes the distances, but the rules for what counts as a connection, what gets shown, and how the whole thing is framed are editorial decisions, documented in the open. The machine measures; it does not set the policy on what the measurements mean.
 

@@ -603,7 +603,7 @@ export default async function DirectorPage({ params }: Props) {
           <section className="dr-tow" aria-labelledby="dr-tow-h">
             <div className="dr-tow-head">
               <div>
-                <div className="dr-tow-kicker">to. W. Heo · the index</div>
+                <div className="dr-tow-kicker">to. WY. Heo · the index</div>
                 <h2 className="dr-tow-h" id="dr-tow-h">{director} in the Metatake index</h2>
               </div>
             </div>

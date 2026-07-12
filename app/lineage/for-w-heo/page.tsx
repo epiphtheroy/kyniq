@@ -30,7 +30,7 @@ function load() {
   )();
 }
 
-const TITLE = "for W. Heo — the essential films every cinephile should see";
+const TITLE = "for WY. Heo — the essential films every cinephile should see";
 const DESC =
   "Our curated list of essential viewing: the films Metatake marks as required watching for cinephiles. Browse by year, genre, director or title — poster grid, sortable and filterable.";
 
@@ -58,7 +58,7 @@ export default async function ForWHeoPage() {
       },
       {
         "@type": "ItemList",
-        name: "for W. Heo — essential films",
+        name: "for WY. Heo — essential films",
         numberOfItems: films.length,
         itemListElement: films.slice(0, 100).map((f, i) => ({
           "@type": "ListItem",
@@ -71,7 +71,7 @@ export default async function ForWHeoPage() {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://metatake.net" },
           { "@type": "ListItem", position: 2, name: "Lineage", item: "https://metatake.net/lineage" },
-          { "@type": "ListItem", position: 3, name: "for W. Heo", item: `${SITE}/lineage/for-w-heo` },
+          { "@type": "ListItem", position: 3, name: "for WY. Heo", item: `${SITE}/lineage/for-w-heo` },
         ],
       },
     ],
@@ -83,9 +83,9 @@ export default async function ForWHeoPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mt-wrap lh">
         <div className="lh-crumb">
-          <Link href="/">Home</Link> › <Link href="/lineage">Lineage</Link> › for W. Heo
+          <Link href="/">Home</Link> › <Link href="/lineage">Lineage</Link> › for WY. Heo
         </div>
-        <h1 className="lh-h1">for W. Heo</h1>
+        <h1 className="lh-h1">for WY. Heo</h1>
         <p className="lh-def">
           The films we recommend to cinephiles — from canon <strong>essentials</strong> and approachable
           <strong> start-here</strong> picks to auteur <strong>deep cuts</strong>.{" "}

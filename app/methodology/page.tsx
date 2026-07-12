@@ -52,9 +52,25 @@ export default async function MethodologyPage() {
         flag it when we get something wrong.
       </p>
 
-      <p className="ui muted" style={{ fontSize: 13, margin: "10px 0 0", maxWidth: "62ch" }}>
-        This page is the summary. The full method is split into a set of short documents — browse them below, or use the
-        list on the left.
+      <p className="ui muted" style={{ fontSize: 12.5, margin: "12px 0 0" }}>
+        By the{" "}
+        <Link href="/methodology/editorial-responsibility" className="accent" style={{ textDecoration: "none" }}>
+          Metatake editorial desk
+        </Link>{" "}
+        · Reviewed July 2026
+      </p>
+
+      <p className="body reading" style={{ fontSize: 18, margin: "18px 0 0", maxWidth: "62ch" }}>
+        A word first on why this exists at all. Metatake is built to help you watch more good films, and to enjoy them
+        more deeply. There is a Korean saying — <em>아는 만큼 보인다</em>, <em>you see as much as you know</em> — and
+        the whole site is one attempt to help you know a film a little more, so that you see a great deal more in it,
+        and in the next one. None of the seeing begins here, though. All of it begins in the films themselves; we only
+        try to hand you a better light to watch them by.
+      </p>
+
+      <p className="ui muted" style={{ fontSize: 13, margin: "14px 0 0", maxWidth: "62ch" }}>
+        The rest of this page is the summary. The full method is split into a set of short documents — browse them
+        below, or use the list on the left.
       </p>
 
       <hr className="rule" />
@@ -278,7 +294,7 @@ export default async function MethodologyPage() {
       <div className="seclbl" id="index">to.W — why a film is in the index</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Every film Metatake catalogues carries a short note — a letter, addressed <em>To&nbsp;W.H.</em> and signed{" "}
+        Every film Metatake catalogues carries a short note — a letter, addressed <em>To&nbsp;WY.&nbsp;Heo</em> and signed{" "}
         <em>W.&nbsp;Yoon</em> — saying plainly why it earned a place in the index. You&apos;ll see it on a film&apos;s{" "}
         <Link href="/takescore" className="accent" style={{ textDecoration: "none" }}>TakeScore&trade;</Link> page and,
         aggregated across a filmography, on a{" "}

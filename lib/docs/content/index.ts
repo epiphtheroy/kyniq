@@ -39,6 +39,16 @@ import whatTakescoreIgnores from "./what-takescore-ignores";
 import whereToStart from "./where-to-start";
 import whereToWatch from "./where-to-watch";
 import whyAFilmIsInTheIndex from "./why-a-film-is-in-the-index";
+import botsAndCrawlers from "./bots-and-crawlers";
+import collaborate from "./collaborate";
+import importDoc from "./import";
+import metatakeTv from "./metatake-tv";
+import myFilms from "./my-films";
+import myRoom from "./my-room";
+import saveAndShare from "./save-and-share";
+import sourcesWeMonitor from "./sources-we-monitor";
+import theDaily from "./the-daily";
+import theoryExplorer from "./theory-explorer";
 
 export const DOC_BODIES: Record<string, string> = {
   "ai-disclosure": aiDisclosure,
@@ -77,4 +87,14 @@ export const DOC_BODIES: Record<string, string> = {
   "where-to-start": whereToStart,
   "where-to-watch": whereToWatch,
   "why-a-film-is-in-the-index": whyAFilmIsInTheIndex,
+  "bots-and-crawlers": botsAndCrawlers,
+  collaborate,
+  import: importDoc,
+  "metatake-tv": metatakeTv,
+  "my-films": myFilms,
+  "my-room": myRoom,
+  "save-and-share": saveAndShare,
+  "sources-we-monitor": sourcesWeMonitor,
+  "the-daily": theDaily,
+  "theory-explorer": theoryExplorer,
 };

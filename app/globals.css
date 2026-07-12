@@ -977,6 +977,10 @@ p.has-dropcap::first-letter {
   --lk-fig: #1F6FB2; --lk-fig-hover: #154E7E; }
 .mt { font-weight: 400; font-size: 15px; color: var(--ink); line-height: 1.7; }
 .mt-wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 40px; }
+
+/* MethodologyBadge — tiny circled "?" linking to /methodology (transparency marker) */
+.mth-badge { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--hairline-2); color: var(--muted); font-family: var(--font-ui); font-size: 9.5px; font-weight: 700; line-height: 1; text-decoration: none; vertical-align: middle; margin-left: 6px; transition: color .12s, border-color .12s; }
+.mth-badge:hover { color: var(--accent); border-color: var(--accent); }
 /* Link colour by entity (via href): meta take = red, figure = blue, film/structural = neutral */
 .mt a { color: var(--lk-film); text-decoration: none; }
 .mt a:hover { color: var(--lk-film-hover); text-decoration: underline; text-underline-offset: 2px; }

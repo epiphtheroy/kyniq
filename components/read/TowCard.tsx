@@ -42,7 +42,7 @@ export default function TowCard({ tow, filmTitle }: { tow: TowComment | null; fi
     <section className="towc" aria-labelledby="towc-h">
       <div className="towc-head">
         <div>
-          <div className="towc-kicker">to. W. Heo</div>
+          <div className="towc-kicker">to. WY. Heo</div>
           <h2 className="towc-h" id="towc-h">Why {filmTitle} is in the index</h2>
         </div>
         {tow.verdict_label ? (

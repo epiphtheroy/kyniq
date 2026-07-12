@@ -1,7 +1,7 @@
 const body = `
 # Independence
 
-Metatake carries no advertising, and nothing on the site can be bought. This page states plainly what that means: no reading is sponsored, no ranking is for sale, and the [TakeScore](/takescore) appraisal is kept walled off from the outside metrics printed beside it. We would rather write this down than ask you to take it on faith.
+Today Metatake carries no advertising, and nothing on the site can be bought. This page states plainly what that means now — no reading is sponsored, no ranking is for sale, and the [TakeScore](/takescore) appraisal is walled off from the outside metrics printed beside it — and, because a small independent project cannot honestly promise that first sentence forever, exactly what would and would not change if it ever did. We would rather write this down than ask you to take it on faith.
 
 ## Nothing is sponsored
 
@@ -11,7 +11,7 @@ The same rule holds for every ranked surface the site computes. A film cannot bu
 
 ## No paid placement anywhere
 
-By *editorial judgment* we mean everything the site actually asserts: the readings, the connections between films, the ranked lists, the verdicts, the letters on the live desk. None of it is sponsored content, none of it is native advertising dressed as analysis, and none of it is arranged to favour a distributor, a studio, a streamer, or a filmmaker. When Metatake says a film connects to another, or reads a figure a particular way, that is the method talking and no one else.
+By *editorial judgement* we mean everything the site actually asserts: the readings, the connections between films, the ranked lists, the verdicts, the letters on the live desk. None of it is sponsored content, none of it is native advertising dressed as analysis, and none of it is arranged to favour a distributor, a studio, a streamer, or a filmmaker. When Metatake says a film connects to another, or reads a figure a particular way, that is the method talking and no one else.
 
 Where the site leans on outside material, it says so rather than hiding it. Film stills and posters come from [TMDB](https://www.themoviedb.org/). Where a reading draws on published scholarship, the source is credited rather than passed off as ours. Those are attributions, not endorsements, and no one on the other end pays for, or is paid for, the mention.
 
@@ -20,6 +20,16 @@ Where the site leans on outside material, it says so rather than hiding it. Film
 On a film's [TakeScore](/takescore) page you will often see outside numbers nearby — a critics' aggregate, an audience rating, box-office figures. It would be easy to assume TakeScore is quietly built from those, or nudged to agree with them. It is not. **The score is kept independent of the external metrics shown beside it.** Those metrics are printed as context, so you can compare; they are not ingredients in the appraisal, and they are not allowed to pull it into line.
 
 This independence is deliberate, and it means the numbers are allowed to disagree. A film can be beloved by audiences and score modestly on TakeScore, or the reverse, and the page lets the gap stand rather than massaging one number toward the other. What TakeScore does and does not weigh — and exactly which popularity signals it refuses — is its own subject; we set it out in full in [what TakeScore ignores](/methodology/what-takescore-ignores).
+
+## If we ever run advertising
+
+We may not always be able to say the first sentence of this page — the lights have to stay on — so here is the boundary, drawn now while nothing is at stake. Ads, if they ever come, would be a clearly marked room you can choose to enter, never a hand on the editorial scale.
+
+Any advertising would live only in **demarcated, plainly labelled zones**, kept visually and structurally apart from the writing, so you can always tell at a glance which is which. It would sit behind an **editorial firewall** — the old "church and state" wall of the press: the people and the method that produce a reading, a [TakeScore](/takescore), a ranking or a film's placement, walled off from anyone who sells or buys that space. No advertiser would get to see, soften, sharpen or veto a word before or after it publishes. What advertising could never do is buy its way into the work itself: no reading, no score, no ranked list, no verdict and no placement is for sale or ever will be, and those stay governed solely by our own editorial standards and the published method. An advertiser could pay for the labelled space beside the writing. It could never pay for the writing.
+
+## On making a living
+
+Metatake is independent, but it is not a charity, and we would rather be honest about that than strike a pose. Keeping a project like this alive — and growing it — costs money, and at some point it will have to earn some. What we will not do is earn it by compromising the work: no paid readings, no bought rankings, no advertiser's hand on the scale, ever. Within that wall, though, we intend to build things people find genuinely useful and are glad to pay for — deeper tools, richer data, ways of working with the corpus we have not shipped yet — while anyone who simply wants to read keeps reading, free. Right now this is a question we are working out in the open, not a settled model. When something here costs money, it will be because it earns its price — and never because the honesty of the writing was for sale.
 
 ## What we decided, and why
 

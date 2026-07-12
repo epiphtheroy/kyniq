@@ -17,7 +17,7 @@ const RISS_THESIS_URL =
   "https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=a449fa46c284353fffe0bdc3ef48d419";
 
 const BIO =
-  "Wonwoo Yoon is the pen name under which Wonwoo Je (제원우) writes on film. He is the founder and editor of Metatake, an independent platform for critical thinking through film, based in Seoul. A management scholar with a Ph.D. in business administration from Kyung Hee University, he is the lead author of the six-volume hospital-management series The Doctors Peter Drucker Saved and serves as global strategy officer of a healthcare-technology company. His writing sits at the intersection of those two lives: how an art survives its economics.";
+  "Wonwoo Yoon is the pen name under which Wonwoo Je (제원우) writes on film. He is the founder and editor of Metatake, an independent platform for critical thinking through film, based in Seoul, and works with a small editorial desk that reviews everything the site publishes. A management scholar with a Ph.D. in business administration from Kyung Hee University, he is the lead author of the six-volume hospital-management series The Doctors Peter Drucker Saved. Before any of that, though, he is a devotee of cinema — and especially of the Korean director Hong Sang-soo, on whom he has written a complete cycle of essays, one on each of Hong's thirty-four films, a manuscript now in submission and due to appear here on Metatake before long.";
 
 export default function EditorPage() {
   // ProfilePage + Person is Google's documented markup for author/profile
@@ -50,6 +50,7 @@ export default function EditorPage() {
       knowsAbout: [
         "Film criticism",
         "Film interpretation",
+        "Hong Sang-soo",
         "Peter Drucker",
         "Management",
         "Social capital",
@@ -72,12 +73,14 @@ export default function EditorPage() {
         <h2 className="mt-h2">Editorial responsibility</h2>
         <p>
           Metatake&rsquo;s readings are drafted by Metatake Editorial, an AI system built for close film
-          analysis, and every one of them passes through Wonwoo&rsquo;s review before it publishes. In
-          practice that means he reads each draft, checks its factual claims — dates, credits, plot details,
-          scholarly attributions — and either edits it, cuts it, or signs off on it. Nothing goes live
-          without that pass, and if a reading is on the site, he answers for it. There are no individual
-          per-page bylines; instead every page states how it was generated and when, and points here — to
-          the person accountable for the method and the standard each reading is held to.
+          analysis, and every one of them passes through the editorial desk&rsquo;s review — led by Wonwoo —
+          before it publishes. In practice a human reads each draft, checks its factual claims — dates,
+          credits, plot details, scholarly attributions — and either edits it, cuts it, or signs off on it.
+          That final read sits on top of automated checks that surface the risky drafts first, so attention
+          lands where it is most needed rather than being spread thin across everything at once. Nothing goes
+          live without that pass, and if a reading is on the site, the desk answers for it. There are no
+          individual per-page bylines; instead every page states how it was generated and when, and points
+          here — to the people accountable for the method and the standard each reading is held to.
         </p>
         <p>
           Corrections land on his desk directly: if a page states a fact wrongly, email{" "}
@@ -100,9 +103,11 @@ export default function EditorPage() {
           that research instinct applied to a different corpus.
         </p>
         <p>
-          Alongside Metatake he works as global strategy officer of a healthcare-technology company. The
-          question that runs underneath his current writing — and underneath this whole project — is how an
-          art survives its economics.
+          Alongside the scholarship there is the plainer fact that he simply loves films — and loves arguing
+          with them. He is a particular devotee of the Korean director Hong Sang-soo, on whom he has written a
+          complete cycle of essays, one on each of Hong&rsquo;s thirty-four films; the manuscript is in
+          submission and will appear here on Metatake before long. The question that runs underneath both the
+          criticism and this whole project is the same: how an art survives its economics.
         </p>
 
         <h2 className="mt-h2">Selected work</h2>

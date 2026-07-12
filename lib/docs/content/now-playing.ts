@@ -19,7 +19,7 @@ Once a film is anchored, the letter is allowed to cite it — but only from what
 
 ## Two gates before it is public
 
-Every letter clears two gates. First a **machine gate**: it checks that the piece rests on at least two independent sources, that the internal links it carries actually resolve, and that the shape of the letter is what a letter should be. A piece that fails is held, not smoothed over. Then a **human review**: the editor reads it for factual accuracy and signs off — or sends it back — before it publishes. The machine cannot approve itself onto the site.
+Every letter clears two gates. First a **machine gate**: it checks that the piece rests on at least two independent sources, that the internal links it carries actually resolve, and that the shape of the letter is what a letter should be. A piece that fails is held, not smoothed over. Then a **human review**: a person on the editorial desk reads it for factual accuracy and signs off — or sends it back — before it publishes. The machine cannot approve itself onto the site.
 
 ## What we decided, and why
 

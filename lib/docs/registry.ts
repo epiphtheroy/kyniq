@@ -34,8 +34,9 @@ export const DOC_CATEGORIES: DocCategory[] = [
   { key: "readings", label: "The Readings", blurb: "Figures, the fourteen frameworks, strong misreadings, tropes and the essay desks." },
   { key: "scores", label: "The Scores", blurb: "TakeScore's three axes and thirteen dimensions, and the lineage record's weights." },
   { key: "connections", label: "The Connections", blurb: "The embedding map, kinship, counterpoints, ranked numbers, the graph, search and sentences." },
-  { key: "record", label: "The Record", blurb: "Locations, reception, credits, where to watch, where to start, and the TMDb spine." },
-  { key: "live", label: "The Live Desk", blurb: "How the hourly Now Playing letters are made." },
+  { key: "record", label: "The Record", blurb: "Locations, reception, credits, where to watch, where to start, the sources we monitor, and the TMDb spine." },
+  { key: "your-cinema", label: "Your Cinema", blurb: "The personal layer — your films, your room, and how the whole site can re-centre on what you have seen." },
+  { key: "live", label: "The Live Desk", blurb: "The hourly Now Playing letters, the morning Daily, and the ambient TV channel." },
   { key: "trust", label: "Trust", blurb: "Editorial responsibility, corrections, independence and AI disclosure." },
 ];
 
@@ -57,6 +58,7 @@ export const DOCS: DocMeta[] = [
   { slug: "strong-misreadings", category: "readings", nav: "Strong misreadings", title: "What a strong misreading is", desc: "Not the one correct decoding but the boldest reading a film can sustain — where the idea comes from and why readings stay open." },
   { slug: "tropes", category: "readings", nav: "Tropes & maturity", title: "Tropes and the maturity arc", desc: "When a reading recurs across films it becomes a coded pattern — a trope — and every pattern sits somewhere on an arc from Noble to Cliché." },
   { slug: "essays", category: "readings", nav: "The desks", title: "The essay desks", desc: "Eight editorial desks commission long-form essays — but only where a film can sustain one, and only after an independent verifier tries to break the draft." },
+  { slug: "theory-explorer", category: "readings", nav: "Concepts & theorists", title: "Concepts, theorists and traditions", desc: "The concepts, theorists and traditions the readings lean on — one searchable shelf of the scholarship behind the site." },
 
   // The Scores
   { slug: "takescore", category: "scores", nav: "TakeScore", title: "TakeScore: the three axes", desc: "A film's lasting value to a cinephile, weighed against its cost and its risk — not its popularity." },
@@ -83,15 +85,26 @@ export const DOCS: DocMeta[] = [
   { slug: "where-to-watch", category: "record", nav: "Where to watch", title: "Where to watch: sources and freshness", desc: "How the availability matrix is built from TMDB and JustWatch, checked against free and physical sources, and dated." },
   { slug: "where-to-start", category: "record", nav: "Where to start", title: "Where to start, who's next", desc: "The director entry points and next-director picks are curated, not algorithmic — every pick carries the exact reason, not a score." },
   { slug: "sources-and-identity", category: "record", nav: "Sources & identity", title: "Sources and identity", desc: "TMDb identity is the spine that holds every layer to the same film — and the line between what's ours and what's borrowed." },
+  { slug: "sources-we-monitor", category: "record", nav: "Sources we monitor", title: "The sources we monitor", desc: "The award bodies, canons, national lists, critics' outlets, watch-data sources and directors we actually track — named, with links." },
+
+  // Your Cinema
+  { slug: "my-room", category: "your-cinema", nav: "My Room", title: "My Room — your cinema operating system", desc: "Your private terminal: every film you have seen treated as a position, each screen a single-purpose instrument, and one rule — never blend the numbers." },
+  { slug: "my-films", category: "your-cinema", nav: "The My Films lens", title: "The My Films lens", desc: "Turn on the lens and the whole site re-centres on the films you have actually seen — highlighted, or with everything else ghosted away." },
+  { slug: "import", category: "your-cinema", nav: "Import your films", title: "Importing your films", desc: "Bring your viewing history in from Letterboxd, IMDb or a spreadsheet — the one step that lights up everything personal." },
+  { slug: "save-and-share", category: "your-cinema", nav: "Save & share", title: "Saving and sharing", desc: "How saving to your shelf and sharing a page work — and why an account earns its keep before you rate a single film." },
 
   // The Live Desk
   { slug: "now-playing", category: "live", nav: "The live desk", title: "The live desk", desc: "When a film spikes in the world's attention, a signed editor's letter within the hour — anchored to the corpus, retrieved not remembered." },
+  { slug: "the-daily", category: "live", nav: "The Daily", title: "The Daily — Between Film and the World", desc: "Most mornings, five things that happened in the world and the films that already knew them — each reduced to a figure, anchored to a film, verified live before it ships." },
+  { slug: "metatake-tv", category: "live", nav: "Metatake TV", title: "Metatake TV", desc: "A continuous, rule-made video channel you can steer or simply leave on — an ambient, screensaver way to keep cinema in the room." },
 
   // Trust
   { slug: "editorial-responsibility", category: "trust", nav: "Editorial responsibility", title: "Editorial responsibility", desc: "Who reads every draft, signs it off, and answers for the page — and how that responsibility is recorded." },
   { slug: "corrections", category: "trust", nav: "Corrections", title: "Corrections", desc: "Facts get corrected; readings stay open. How to flag an error, and what we will and won't change." },
   { slug: "independence", category: "trust", nav: "Independence", title: "Independence", desc: "No reading is sponsored, and no one can pay to place, remove or change one. What that means in practice." },
   { slug: "ai-disclosure", category: "trust", nav: "AI disclosure", title: "AI disclosure", desc: "A layer-by-layer map of what's AI-drafted, what's assembled by rule, and what's curated by a human hand." },
+  { slug: "collaborate", category: "trust", nav: "Working with us", title: "Working with Metatake", desc: "Who we would like to work with, what we are actually asking, and why it might be worth your while — an open door, not a pitch." },
+  { slug: "bots-and-crawlers", category: "trust", nav: "Bots & crawlers", title: "Bots and crawlers", desc: "How our one identified crawler behaves, and how we treat the crawlers that visit us — citation welcome, wholesale scraping declined." },
 ];
 
 /** The hub renders from app/methodology/page.tsx; sub-docs from [slug]. */

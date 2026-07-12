@@ -13,6 +13,14 @@ People reasonably ask how much of Metatake an AI wrote. The honest answer is tha
 > kinship connections
 > computed from embeddings and shared tropes, never hand-weighted
 
+## The worry, and where we stand
+
+We know why people flinch at "AI-written," and we do not think the flinch is silly. The open web is filling with machine-made text produced for no reason except to exist — pages spun up by the thousand to catch a search query, say nothing, and move on. That is real, and it is pollution. But look closely at what the worry is actually about: it is about *indiscriminate mass-production* — writing with no reader in mind and no one answering for it. On inspection, it is not about the tool.
+
+Our position is that the tool matters enormously, and nowhere more than here. Film interpretation is among the most abstract and most human things we do with our minds: it runs on imagination, on emotional intelligence, on the ability to hold a whole work in view and say what it is *really* about. Watching a language model reach into that domain — not to summarise a plot but to venture a reading, to seize a small figure and press it until it yields something the film never says aloud — is genuinely worth doing, and worth watching with care. The flattening question was never "did a machine write this?" The real one is whether a machine can help *build, systematise and deepen a whole field of thought* — and what the picture looks like when it tries to draw in a register this human.
+
+So we treat Metatake as a sustained experiment in exactly that, run in the open and under a person's responsibility. We are not defending AI writing in the abstract; we are refusing the slop and keeping the tool, and betting that the distance between those two is the whole game. The rest of this page is the accounting — layer by layer — of where a model drafts, where it computes, and where it never appears at all, so you can weigh that bet against the specific thing in front of you.
+
 ## Layer by layer
 
 Here is every layer that produces something you read on a page, and exactly how it is made. We have tried to be precise about the difference between *drafted by AI and approved by a person*, *computed by a model*, and *assembled by fixed rules with no model in the loop at all*.

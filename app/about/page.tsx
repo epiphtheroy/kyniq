@@ -156,16 +156,17 @@ export default function AboutPage() {
       <div className="seclbl">Who&apos;s behind it</div>
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
-        Metatake is founded, edited, and run by{" "}
+        Metatake is founded and edited by{" "}
         <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, a
-        writer on cinema based in Seoul. He was trained as a management scholar — a Ph.D. in business
-        administration, with doctoral research on shared leadership and social capital — is the lead author
-        of a six-volume series on Peter Drucker&apos;s management thought, and serves as global strategy
-        officer of a healthcare-technology company. That training is not a detour from the method here; it
-        is the method. Social capital is the study of how value lives in relations rather than in things,
-        and Metatake asks the same question of cinema: not &ldquo;what is this film worth?&rdquo; but
-        &ldquo;what does it connect to?&rdquo; Every reading on the site publishes under his review, and he
-        answers for what stands.
+        writer on cinema based in Seoul, working with a small editorial desk that reviews everything the site
+        publishes. He was trained as a management scholar — a Ph.D. in business administration, lead author of
+        a six-volume series on Peter Drucker&apos;s management thought — but he is, first, someone who simply
+        loves films, and loves arguing with them: a devotee of the Korean director Hong Sang-soo, on whom he
+        has written a complete cycle of essays, one on each of Hong&apos;s thirty-four films, due to appear
+        here before long. That double life is not a detour from the method; it is the method. Social capital
+        is the study of how value lives in relations rather than in things, and Metatake asks the same of
+        cinema: not &ldquo;what is this film worth?&rdquo; but &ldquo;what does it connect to?&rdquo; Every
+        reading publishes under the desk&apos;s review, and he answers for what stands.
       </p>
 
       <hr className="rule" />

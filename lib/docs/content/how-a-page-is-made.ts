@@ -23,7 +23,7 @@ Every reading passes through the same six stages, and nothing skips a step.
 
 **3. Scholarly anchoring, where it applies.** Some readings are anchored to a specific piece of published film scholarship, and where they are, we credit the source rather than passing the idea off as our own. Most readings are original interpretations in their own right, built the way this page describes.
 
-**4. Human editorial review.** Every reading, no exceptions, is checked for accuracy and either edited or cut by [our editor](/methodology#corrections) before it goes live. The engine proposes; the editor disposes. If a reading is on the site, a human has read it and taken responsibility for that specific page.
+**4. Human editorial review.** Every reading, no exceptions, is checked for accuracy and either edited or cut by the [editorial desk](/methodology/editorial-responsibility) — led by our editor — before it goes live. This human read is the last gate on top of automated checks that flag the risky drafts first, so the desk's attention lands where a machine cannot be trusted rather than being spread evenly across everything. The engine proposes; the desk disposes. If a reading is on the site, a person has read it and taken responsibility for that specific page.
 
 **5. Publication.** Only reviewed readings publish, under the editor's sign-off. There is no path from draft to live that goes around a person.
 

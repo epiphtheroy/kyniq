@@ -91,6 +91,9 @@ export function renderDocMarkdown(md: string): string {
   let block: Block | null = null;
   let firstH1Dropped = false;
   let tileBuf: string[] = [];
+  let detailsOpen = false;
+  let detailsBuf: string[] = [];
+  let detailsSummary = "";
 
   const flushTiles = () => {
     if (tileBuf.length) {
@@ -120,6 +123,32 @@ export function renderDocMarkdown(md: string): string {
   for (const raw of lines) {
     const line = raw.replace(/\s+$/, "");
     const t = line.trim();
+
+    // collapsible block:  :::details Summary … :::   (inner is rendered recursively)
+    if (detailsOpen) {
+      if (t === ":::") {
+        out.push(
+          `<details class="md-details"><summary>${inline(esc(detailsSummary))}</summary>\n` +
+            renderDocMarkdown(detailsBuf.join("\n")) +
+            `\n</details>`
+        );
+        detailsOpen = false;
+        detailsBuf = [];
+        detailsSummary = "";
+      } else {
+        detailsBuf.push(raw);
+      }
+      continue;
+    }
+    const dm = /^:::details\s+(.*)$/.exec(t);
+    if (dm) {
+      flush();
+      flushTiles();
+      detailsOpen = true;
+      detailsSummary = dm[1];
+      detailsBuf = [];
+      continue;
+    }
 
     if (!t) {
       flush();
@@ -198,6 +227,13 @@ export function renderDocMarkdown(md: string): string {
       block = { t: "para", lines: [] };
     }
     (block as { t: "para"; lines: string[] }).lines.push(t);
+  }
+  if (detailsOpen) {
+    out.push(
+      `<details class="md-details"><summary>${inline(esc(detailsSummary))}</summary>\n` +
+        renderDocMarkdown(detailsBuf.join("\n")) +
+        `\n</details>`
+    );
   }
   flush();
   flushTiles();

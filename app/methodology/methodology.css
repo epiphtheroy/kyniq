@@ -34,6 +34,9 @@
 .mdocs-crumb a:hover { color: var(--accent); }
 .mdocs-h1 { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1.16; letter-spacing: -0.014em; margin: 0; color: var(--ink); }
 .mdocs-standfirst { font-family: var(--font-display); font-weight: 400; font-size: 19px; line-height: 1.5; color: var(--ink); opacity: .82; margin: 14px 0 0; max-width: 62ch; }
+.mdocs-byline { font-family: var(--font-ui); font-size: 12.5px; color: var(--subtle); margin: 12px 0 0; }
+.mdocs-byline a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--hairline); }
+.mdocs-byline a:hover { color: var(--accent); }
 
 /* Left-align the hub's .shell inside the docs column (it centres by default) */
 .mdocs .shell { margin-left: 0; margin-right: 0; max-width: none; padding-left: 0; padding-right: 0; padding-top: 0; }
@@ -69,6 +72,20 @@
 .mdocs-body .md-table th { text-align: left; font-weight: 700; color: var(--ink); background: rgba(0,0,0,.03); padding: 9px 12px; border-bottom: 1px solid var(--hairline); white-space: nowrap; }
 .mdocs-body .md-table td { padding: 9px 12px; border-bottom: 1px solid var(--hairline); vertical-align: top; line-height: 1.45; color: var(--ink); }
 .mdocs-body .md-table tr:last-child td { border-bottom: 0; }
+
+/* Collapsible sources toggle (:::details) */
+.mdocs-body .md-details { border: 1px solid var(--hairline); border-radius: 10px; margin: 16px 0; background: rgba(0,0,0,.012); }
+.mdocs-body .md-details > summary { cursor: pointer; padding: 13px 16px; font-family: var(--font-ui); font-size: 14px; font-weight: 700; color: var(--ink); list-style: none; }
+.mdocs-body .md-details > summary::-webkit-details-marker { display: none; }
+.mdocs-body .md-details > summary::before { content: "▸"; color: var(--accent); margin-right: 8px; display: inline-block; transition: transform .12s; }
+.mdocs-body .md-details[open] > summary::before { transform: rotate(90deg); }
+.mdocs-body .md-details[open] > summary { border-bottom: 1px solid var(--hairline); }
+.mdocs-body .md-details > *:not(summary) { padding: 0 16px; }
+.mdocs-body .md-details > .body.reading:first-of-type { padding-top: 14px; }
+.mdocs-body .md-details > *:last-child { padding-bottom: 12px; }
+.mdocs-body .md-details .md-h3 { font-size: 15px; margin: 16px 0 6px; }
+.mdocs-body .md-details ul { margin-bottom: 10px; }
+.mdocs-body .md-details li { font-size: 14px; line-height: 1.5; }
 
 /* Category card grid (hub only) */
 .mdocs-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: 4px 0 0; }

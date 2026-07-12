@@ -14,6 +14,7 @@ export const revalidate = 3600;
 
 const SITE = "https://metatake.net";
 const REVIEWED = "July 2026";
+const REVIEWED_ISO = "2026-07-12";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -89,6 +90,9 @@ export default async function MethodologyDocPage({ params }: Props) {
         editor: { "@type": "Person", name: "Wonwoo Yoon", url: `${SITE}/editor` },
         publisher: { "@type": "Organization", name: "Metatake", url: SITE },
         about: "Film interpretation methodology",
+        datePublished: "2026-07-12",
+        dateModified: REVIEWED_ISO,
+        inLanguage: "en",
       },
       {
         "@type": "BreadcrumbList",
@@ -110,6 +114,9 @@ export default async function MethodologyDocPage({ params }: Props) {
       </div>
       <h1 className="mdocs-h1">{doc!.title}</h1>
       <p className="mdocs-standfirst">{doc!.desc}</p>
+      <p className="mdocs-byline">
+        By the <Link href="/methodology/editorial-responsibility">Metatake editorial desk</Link> · Reviewed {REVIEWED}
+      </p>
 
       <div className="mdocs-body" dangerouslySetInnerHTML={{ __html: html }} />
 
