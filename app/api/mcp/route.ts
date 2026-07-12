@@ -261,6 +261,15 @@ export async function POST(req: Request) {
           serverInfo: { name: "metatake", title: "Metatake — film criticism", version: "1.0.0" },
           instructions: INSTRUCTIONS,
         }));
+        // Ledger the handshake too (not just tools/call) — this is how we see WHICH
+        // clients connect (claude.ai, Cursor, …) and with what UA, without guessing.
+        try {
+          const client = (msg.params?.clientInfo as { name?: string } | undefined)?.name ?? null;
+          await db.from("mcp_calls").insert({
+            tool: "_initialize", arg: [asked || "?", client].filter(Boolean).join(" · ").slice(0, 200),
+            prefix, ua: ua.slice(0, 300), ok: true, ms: null,
+          });
+        } catch { /* never break the handshake */ }
         break;
       }
       case "ping":
@@ -268,6 +277,11 @@ export async function POST(req: Request) {
         break;
       case "tools/list":
         replies.push(rpcResult(id, { tools: TOOLS }));
+        try {
+          await db.from("mcp_calls").insert({
+            tool: "_tools_list", arg: null, prefix, ua: ua.slice(0, 300), ok: true, ms: null,
+          });
+        } catch { /* never break discovery */ }
         break;
       case "tools/call": {
         const name = typeof msg.params?.name === "string" ? (msg.params.name as string) : "";
