@@ -5,7 +5,7 @@ Every "where to watch" page on Metatake answers one plain question — how can I
 
 ## In numbers
 
-> **{{n:films}}**
+> **6,900+**
 > films with a watch page
 > each one built from a stored country matrix plus whatever we could verify beyond it
 
