@@ -107,10 +107,10 @@
       "runner": { "type": "worker_batch_chain", "steps": [
                     { "script": "worker/bold-take-gen.py", "args": ["--emit-requests", "--films", "{slugs}", "--out", "factory-boldtake-{run_id}"] },
                     { "script": "worker/bold-take-batch.py", "submit_args": ["submit", "--out", "factory-boldtake-{run_id}"], "fetch_args": ["fetch", "--out", "factory-boldtake-{run_id}"] },
-                    { "script": "worker/boldtake-load.py", "args": ["--apply"] } ], "needs_scoping_patch": true },
+                    { "script": "worker/boldtake-load.py", "args": ["--apply", "--incremental", "--in", "factory-boldtake-{run_id}.jsonl"] } ] },
       "depends_on": ["S10-extract"], "writes": ["takes", "figures"], "reads": [], "external": ["anthropic_batch"],
       "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.30, "max_usd": null, "measured": false },
-      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 }, "scoped_by_eligibility": true,
       "idempotency": "skip_if_exists",
       "verify_sql": "select exists(select 1 from takes tk join figures fg on fg.id=tk.figure_id where fg.film_id='{film_id}' and tk.is_invitation)",
       "failure_policy": "park",

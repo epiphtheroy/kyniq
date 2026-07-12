@@ -56,7 +56,7 @@ def submit():
     reqpath=f"{OUT}.requests.jsonl"
     if not os.path.exists(reqpath): sys.exit(f"missing {reqpath} — run: python3 bold-take-gen.py --emit-requests --all --out {OUT}")
     reqs=[json.loads(l) for l in open(reqpath,encoding="utf-8") if l.strip()]
-    if not reqs: sys.exit("no requests to submit (all done?)")
+    if not reqs: print("no requests to submit (all films already emitted) — nothing to do."); return
     print(f"[batch submit] {len(reqs)} requests · chunk={CHUNK}")
     ids=[]
     for i in range(0,len(reqs),CHUNK):

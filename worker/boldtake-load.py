@@ -24,7 +24,10 @@ load_env(os.path.join(ROOT,".env.local"))
 URL=os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY=os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
 if not (URL and KEY): sys.exit("Missing SUPABASE env")
 args=sys.argv[1:]; APPLY="--apply" in args
-JSONL=os.path.join(HERE,"bold-take-full.jsonl"); PLAN=os.path.join(HERE,"boldtake-load-plan.json")
+INCR="--incremental" in args                       # scoped per-run load: no global preflight/archive
+IN_FILE=args[args.index("--in")+1] if "--in" in args else None
+JSONL=IN_FILE if IN_FILE else os.path.join(HERE,"bold-take-full.jsonl")
+PLAN=os.path.join(HERE,"boldtake-load-plan.json")
 
 CANON={"PHENOMENON→NOUMENON","NOUMENON","SIGNIFIER→SIGNIFIED","CONTEXT","PROCESS","LOCATION",
  "METACRITIC","PSYCHOANALYTIC","ETHICAL-PHILOSOPHICAL","ETHICO-POLITICAL","ENIGMA",
@@ -69,12 +72,12 @@ def resolve():
     figs_by_film=defaultdict(dict)
     for g in fetch_all("figures?select=id,film_id,label&status=eq.approved"):
         figs_by_film[g["film_id"]][nlabel(g["label"])]=g["id"]
-    figures_create=[]; takes=[]
+    figures_create=[]; takes=[]; loaded_ids=set()
     anchor=Counter(); fwcount=Counter(); fw_unknown=Counter(); newlabels=[]; not_found=[]; invitations=0
     for r in rows:
         fm=films.get(r["slug"])
         if not fm: not_found.append(r["slug"]); continue
-        fid=fm["id"]; fmap=figs_by_film.get(fid,{})
+        fid=fm["id"]; loaded_ids.add(fid); fmap=figs_by_film.get(fid,{})
         used_slugs=set(); newcache={}; film_id_fig=[None]; title_id_fig=[None]
         def new_fig(kind,label):
             nid=str(uuid.uuid4()); base=slugify(label); slug=base; n=2
@@ -116,7 +119,7 @@ def resolve():
     stats=dict(anchor=dict(anchor),fwcount=dict(fwcount),fw_unknown=dict(fw_unknown),
                newlabels=newlabels,not_found=not_found,invitations=invitations,
                n_takes=len(takes),n_figs=len(figures_create))
-    return figures_create, takes, stats
+    return figures_create, takes, stats, sorted(loaded_ids)
 
 def report(figures_create, takes, st):
     a=st["anchor"]
@@ -159,10 +162,30 @@ def apply_plan():
     pf2=json.loads(rpc("boldtake_preflight",{})); print("  post:",pf2)
     print("\n✅ APPLY complete. Verify on the site / tell Claude.")
 
+def apply_incremental(figs, tks, film_ids):
+    """Scoped per-run load: insert this run's figures + takes, then retire ONLY these films'
+    old framework-null takes. No global boldtake_preflight abort, no global archive."""
+    print(f"[apply-incremental] {len(figs):,} figures · {len(tks):,} takes · {len(film_ids)} films (scoped)")
+    if not film_ids: print("  no films matched — nothing to do."); return
+    nf=0
+    for c in chunks(figs,500): nf+=int(rpc("boldtake_insert_figures",{"p_rows":c}))
+    print(f"  ✅ figures inserted: {nf:,}")
+    nt=0
+    for c in chunks(tks,1000): nt+=int(rpc("boldtake_insert_takes",{"p_rows":c}))
+    print(f"  ✅ takes inserted: {nt:,}")
+    na=int(rpc("boldtake_archive_films",{"p_film_ids":film_ids}))
+    print(f"  ✅ scoped archive: retired {na:,} old framework-null takes for these {len(film_ids)} films")
+
 def main():
-    print(f"[boldtake-load] mode={'APPLY' if APPLY else 'DRY'}")
+    print(f"[boldtake-load] mode={'APPLY-INCREMENTAL' if (APPLY and INCR) else 'APPLY' if APPLY else 'DRY'}  in={os.path.basename(JSONL)}")
+    if APPLY and INCR:
+        figs, tks, st, film_ids = resolve()
+        report(figs, tks, st)
+        if not tks: print("  (no takes resolved — 0 films matched the DB?)"); return
+        apply_incremental(figs, tks, film_ids)
+        return
     if APPLY: apply_plan(); return
-    figures_create, takes, st = resolve()
+    figures_create, takes, st, film_ids = resolve()
     json.dump({"figures_create":figures_create,"takes":takes}, open(PLAN,"w",encoding="utf-8"), ensure_ascii=False)
     report(figures_create, takes, st)
     print(f"\n✅ wrote {os.path.basename(PLAN)} (deterministic).  --apply consumes THIS file; old takes (framework IS NULL) → retired after insert.")
