@@ -44,13 +44,6 @@ export default async function WhatToWatchPage() {
   const countries: Country[] = wcRows.map((c) => ({ code: c.code, n: c.n_films, label: `${flag(c.code)} ${cname(c.code)} (${c.n_films})` }));
   const ranked = res.rows;
 
-  const topSlug = ranked[0]?.slug ?? null;
-  const { data: hero } = topSlug
-    ? await db().from("films").select("title, backdrop_path").eq("slug", topSlug).maybeSingle()
-    : { data: null };
-  const heroBackdrop = (hero as { backdrop_path: string | null } | null)?.backdrop_path ?? null;
-  const heroFilm = (hero as { title: string } | null)?.title ?? null;
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -75,8 +68,7 @@ export default async function WhatToWatchPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <MarqueeExplorer
-        initialRows={ranked.slice(0, 60)} initialTotal={res.total}
-        countries={countries} heroBackdrop={heroBackdrop} heroFilm={heroFilm}
+        initialRows={ranked.slice(0, 40)} initialTotal={res.total} countries={countries}
       />
 
       <div className="mt-wrap lh">

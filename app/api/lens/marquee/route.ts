@@ -18,8 +18,11 @@ export async function GET(request: Request) {
   const num = (k: string) => { const v = parseFloat(searchParams.get(k) ?? ""); return Number.isFinite(v) ? v : null; };
   const intArr = (k: string) => (searchParams.get(k) || "").split(",").map((s) => parseInt(s.trim(), 10)).filter(Number.isFinite);
   const strArr = (k: string) => (searchParams.get(k) || "").split(",").map((s) => s.trim().toUpperCase()).filter(Boolean);
+  const csv = (k: string) => (searchParams.get(k) || "").split(",").map((s) => s.trim()).filter(Boolean);
   const prov = intArr("prov");
   const countries = strArr("watch_countries");
+  const genres = csv("genres");
+  const dir = searchParams.get("dir");
   const mode = searchParams.get("mode") === "exclude" ? "exclude" : "only";
 
   const admin = createAdminClient();
@@ -44,6 +47,9 @@ export async function GET(request: Request) {
     p_offset: Math.max(Math.trunc(num("offset") ?? 0), 0),
     p_watch_countries: countries.length ? countries : null,
     p_include_us_library: searchParams.get("us_lib") === "1",
+    p_genres: genres.length ? genres : null,
+    p_dir: dir === "asc" || dir === "desc" ? dir : null,
+    p_include_rent: searchParams.get("include_rent") === "1",
   });
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json(data ?? { total: 0, rows: [] }, {
