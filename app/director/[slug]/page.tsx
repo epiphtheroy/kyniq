@@ -251,9 +251,11 @@ function loadCuration(slug: string): Promise<DirectorCuration | null> {
 // that fell outside; silence over the rest. Cards render only when n_reco ≥ 1,
 // so a filmmaker with no cinephile-worthy films gets no standing claim at all.
 function curationStanding(c: DirectorCuration): { lead: string; ratio: string | null; auteur: string | null } {
-  const filmWord = c.n_reco === 1 ? "film" : "films";
+  const one = c.n_reco === 1;
+  const filmWord = one ? "film" : "films";
+  const rewardVerb = one ? "rewards" : "reward";
   const essClause = c.n_essential > 0 ? `, ${c.n_essential} of them essential viewing` : "";
-  const lead = `In the Metatake index, ${c.director} has ${c.n_reco} ${filmWord} that reward a cinephile${essClause}.`;
+  const lead = `In the Metatake index, ${c.director} has ${c.n_reco} ${filmWord} that ${rewardVerb} a cinephile${essClause}.`;
 
   // Proportion of the whole filmography — surfaced only when it reflects well.
   const pct = c.reco_pct ?? 0;
