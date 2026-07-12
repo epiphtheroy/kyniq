@@ -8,7 +8,8 @@ import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar, { type FilmTab } from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
-import CopyForAI from "@/components/CopyForAI";
+import DownloadPackModal from "@/components/DownloadPackModal";
+import { PACK_SECTIONS } from "@/lib/pack";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
 import AccessCountryProvider from "@/components/AccessCountryProvider";
@@ -1034,6 +1035,13 @@ export default async function FilmPage({ params }: Props) {
     counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints", badge: counterpoints.length, zone: "spoiler" as const } : null,
   ].filter(Boolean)) as FilmTab[];
 
+  // Pack sections available on this film (mirrors the tabs present) — feeds the
+  // hero "Download for AI" selector. visible!==false gate matches the tab bar.
+  const packVisible = (film as { visible?: boolean }).visible !== false;
+  const packSecs = PACK_SECTIONS
+    .filter((s) => tabs.some((t) => t.id === s.tabId))
+    .map((s) => ({ key: s.key, label: s.label }));
+
   // Entity anchors (§8.2 film-entity recognition): canonical @id + external IDs.
   // Field set must stay consistent with /film/lineage/[slug]'s Movie node
   // (shared @id — contradictions suppress rich results; SEO_LINEAGE_SPEC §1b-2).
@@ -1147,12 +1155,11 @@ export default async function FilmPage({ params }: Props) {
               <div className="df-hactions">
                 <MovieListActions filmId={film.id} />
                 <EntityActions entityType="film" entityId={film.id} />
-                {recs.length ? <Link className="df-like" href={`/movies-like/${film.slug}`}>🎬 Movies like {film.title} →</Link> : null}
+                {packVisible && packSecs.length > 0 ? <DownloadPackModal slug={film.slug} sections={packSecs} variant="hero" /> : null}
               </div>
               <div className="df-share">
                 <ShareDock variant="bar" noSave path={`/film/${film.slug}`} title={`${film.title}${film.year ? ` (${film.year})` : ""}`}
                   hook={`${film.title}${film.year ? ` (${film.year})` : ""}${film.director ? `, ${film.director}` : ""}${codex ? ` — TakeScore ${Math.round(codex.u)}${codex.rank && codex.rank_total ? `, #${codex.rank.toLocaleString()} of ${codex.rank_total.toLocaleString()}` : ""} on Metatake` : " on Metatake"}`} />
-                {(film as { visible?: boolean }).visible !== false ? <CopyForAI slug={film.slug} /> : null}
                 <ShareDock variant="fab" path={`/film/${film.slug}`} title={film.title} />
               </div>
             </div>
@@ -1551,6 +1558,9 @@ export default async function FilmPage({ params }: Props) {
                   </span>
                 </div>
               ))}
+            </div>
+            <div className="df-hactions" style={{ marginTop: 12 }}>
+              <Link className="df-like" href={`/movies-like/${film.slug}`}>🎬 Movies like {film.title} →</Link>
             </div>
             <p style={{ fontSize: 11.5, opacity: .6, margin: "12px 0 0" }}>
               Computed by Metatake&apos;s connection engine · Edited by <Link href="/editor">Wonwoo Yoon</Link>

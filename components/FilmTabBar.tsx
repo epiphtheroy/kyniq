@@ -196,7 +196,9 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
         <span className="df-tab__t">{t.label}</span>{badge}
       </a>
     );
-    const sk = packSlug ? PACK_SECTION_BY_TAB[t.id] : undefined;
+    // Invitation deliberately carries no copy mark (owner request); it stays a
+    // downloadable section in the selector.
+    const sk = packSlug && t.id !== "df-invitation" ? PACK_SECTION_BY_TAB[t.id] : undefined;
     if (!sk) return anchor(true); // unchanged DOM for non-pack tabs (director pages included)
     return (
       <span key={t.id} style={{ display: "inline-flex", alignItems: "center", gap: 2, flex: "0 0 auto" }}>
@@ -232,12 +234,15 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
               </span>
             ) : null}
             <div className="df-tabs__scroll">
-              <div className="df-tabs__row">{rail.items.map(renderTab)}</div>
+              <div className="df-tabs__row">
+                {rail.items.map(renderTab)}
+                {/* Download control lives INSIDE the row so it scrolls with the tabs. */}
+                {packDownload && packSlug && packSecs.length > 0 && i === rails.length - 1 ? (
+                  <DownloadPackModal slug={packSlug} sections={packSecs} variant="rail" />
+                ) : null}
+              </div>
               <div className="df-tabs__track" aria-hidden="true"><i className="df-tabs__thumb" /></div>
             </div>
-            {packDownload && packSlug && packSecs.length > 0 && i === rails.length - 1 ? (
-              <DownloadPackModal slug={packSlug} sections={packSecs} />
-            ) : null}
           </div>
         ))}
       </nav>

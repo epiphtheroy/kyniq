@@ -12,7 +12,7 @@
 import { useState } from "react";
 import { mtEvent } from "@/components/mtTrack";
 
-type State = "idle" | "copying" | "copied";
+type State = "idle" | "copying" | "copied" | "error";
 
 export default function CopyForAI({
   slug,
@@ -49,13 +49,14 @@ export default function CopyForAI({
       setState("copied");
       window.setTimeout(() => setState("idle"), 1600);
     } catch {
-      try { window.open(url, "_blank", "noopener"); } catch {}
-      setState("idle");
+      // Never navigate to a raw-Markdown page on failure — just signal in place.
+      setState("error");
+      window.setTimeout(() => setState("idle"), 1800);
     }
   }
 
   if (variant === "tab") {
-    const t = state === "copied" ? "Copied ✓" : state === "copying" ? "…" : "✦ AI";
+    const t = state === "copied" ? "Copied ✓" : state === "copying" ? "…" : state === "error" ? "⚠" : "✦ AI";
     return (
       <button
         type="button"
@@ -78,8 +79,8 @@ export default function CopyForAI({
       aria-label="Copy an AI context pack for this film"
       title="Copy a structured context pack (Markdown) for Claude, ChatGPT, or NotebookLM"
     >
-      <span className="cfa-ico" aria-hidden>{state === "copied" ? "✓" : "✦"}</span>
-      {state === "copied" ? "Copied for AI" : state === "copying" ? "Copying…" : label || "Copy for AI"}
+      <span className="cfa-ico" aria-hidden>{state === "copied" ? "✓" : state === "error" ? "⚠" : "✦"}</span>
+      {state === "copied" ? "Copied for AI" : state === "copying" ? "Copying…" : state === "error" ? "Copy failed — retry" : label || "Copy for AI"}
       <style>{CFA_CSS}</style>
     </button>
   );

@@ -1,11 +1,14 @@
 "use client";
 /**
- * DownloadPackModal — the whole-film ".md download" control (points 3 & 4).
- * Renders its own trigger (placed at the bottom-right of the film tab bar) and,
- * on click, a modal to pick sections and download one Markdown file.
+ * DownloadPackModal — "Download for AI": pick sections → save ONE Markdown file.
+ * Renders its own colored trigger (hero variant = big pill in the film hero;
+ * rail variant = compact, lives at the end of the tab row). Opening it shows a
+ * section selector; downloading saves a real file — via the browser's folder /
+ * filename picker where supported (Chrome/Edge), else a normal download. It never
+ * navigates to a raw-Markdown page.
  *
- * The DOWNLOAD is login-gated + 10 distinct films / month (copy stays free).
- * Enforced server-side at /api/pack/[slug]/download; this UI mirrors that state.
+ * DOWNLOAD is login-gated + 10 new films/month (copy stays free); the quota is
+ * claimed atomically server-side (/api/pack/[slug]/download).
  */
 import { useCallback, useState } from "react";
 import { mtEvent } from "@/components/mtTrack";
@@ -13,7 +16,15 @@ import { mtEvent } from "@/components/mtTrack";
 type Sec = { key: string; label: string };
 type Status = { authed: boolean; limit: number; remaining: number; already: boolean } | null;
 
-export default function DownloadPackModal({ slug, sections }: { slug: string; sections: Sec[] }) {
+export default function DownloadPackModal({
+  slug,
+  sections,
+  variant = "rail",
+}: {
+  slug: string;
+  sections: Sec[];
+  variant?: "rail" | "hero";
+}) {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>(null);
   const [sel, setSel] = useState<Set<string>>(() => new Set(sections.map((s) => s.key)));
@@ -48,31 +59,62 @@ export default function DownloadPackModal({ slug, sections }: { slug: string; se
 
   async function download() {
     if (busy || sel.size === 0) return;
+    const keys = sections.filter((s) => sel.has(s.key)).map((s) => s.key);
+    const scope = keys.length < sections.length ? "custom" : "full";
+    const fname = `metatake-pack_${slug}_${scope}.md`;
+
+    // 1) If the File System Access API exists, let the user pick a folder/name FIRST
+    //    (during the click gesture). Cancelling here means no fetch and no quota spent.
+    let handle: FileSystemFileHandle | null = null;
+    const picker = (window as unknown as {
+      showSaveFilePicker?: (o: unknown) => Promise<FileSystemFileHandle>;
+    }).showSaveFilePicker;
+    if (picker) {
+      try {
+        handle = await picker({
+          suggestedName: fname,
+          types: [{ description: "Markdown file", accept: { "text/markdown": [".md"] } }],
+        });
+      } catch (e) {
+        if (e instanceof DOMException && e.name === "AbortError") return; // user cancelled
+        handle = null; // any other error → fall back to a normal download
+      }
+    }
+
     setBusy(true);
     setMsg("");
-    const keys = sections.filter((s) => sel.has(s.key)).map((s) => s.key);
     try {
+      // 2) Fetch the gated endpoint (this atomically claims the quota slot).
       const res = await fetch(
         `/api/pack/${encodeURIComponent(slug)}/download?dl=1&sections=${encodeURIComponent(keys.join(","))}`,
         { cache: "no-store" }
       );
       if (res.status === 401) { setMsg("Please sign in to download."); await load(); return; }
       if (res.status === 402) {
-        const j = await res.json().catch(() => ({}));
+        const j = await res.json().catch(() => ({} as { error?: string }));
         setMsg(j.error || "Monthly download limit reached. Copying stays free.");
         await load();
         return;
       }
       if (!res.ok) { setMsg("Download failed. Please try again."); return; }
-      const blob = await res.blob();
+      const md = await res.text();
       const cd = res.headers.get("content-disposition") || "";
-      const fname = /filename="([^"]+)"/.exec(cd)?.[1] || `metatake-pack_${slug}.md`;
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url; a.download = fname; document.body.appendChild(a); a.click();
-      a.remove(); URL.revokeObjectURL(url);
+      const serverName = /filename="([^"]+)"/.exec(cd)?.[1] || fname;
+
+      // 3) Write the file — to the chosen location, or a normal browser download.
+      if (handle) {
+        const ws = await handle.createWritable();
+        await ws.write(md);
+        await ws.close();
+      } else {
+        const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url; a.download = serverName; document.body.appendChild(a); a.click();
+        a.remove(); URL.revokeObjectURL(url);
+      }
       mtEvent("pack_download");
-      setMsg("Saved. It's in your library at /room/packs.");
+      setMsg("Saved. It's also in your library at /room/packs.");
       await load();
     } catch {
       setMsg("Download failed. Please try again.");
@@ -87,8 +129,13 @@ export default function DownloadPackModal({ slug, sections }: { slug: string; se
 
   return (
     <>
-      <button type="button" className="dpm-trigger" onClick={openModal} aria-label="Download this film as a Markdown file for AI">
-        ⭳ Download film
+      <button
+        type="button"
+        className={`dpm-trigger dpm-trigger--${variant}`}
+        onClick={openModal}
+        aria-label="Download this film as a Markdown file for AI"
+      >
+        <span aria-hidden>⬇</span> Download for AI
       </button>
 
       {open ? (
@@ -99,7 +146,7 @@ export default function DownloadPackModal({ slug, sections }: { slug: string; se
               <button type="button" className="dpm-x" onClick={() => setOpen(false)} aria-label="Close">✕</button>
             </div>
 
-            <p className="dpm-sub">One structured Markdown file with the sections you choose. Copying any tab is always free — a saved file needs a free account (10 films/month).</p>
+            <p className="dpm-sub">One structured Markdown file with the sections you choose — attach it to Claude, ChatGPT, or NotebookLM. Copying any tab is always free; saving a file needs a free account (10 films/month).</p>
 
             <div className="dpm-secs">
               {sections.map((s) => (
@@ -121,8 +168,8 @@ export default function DownloadPackModal({ slug, sections }: { slug: string; se
               <div className="dpm-gate">
                 <p className="dpm-note">
                   {status.already
-                    ? "You already downloaded this film this month — re-downloading is free."
-                    : `${status.remaining} of ${status.limit} film downloads left this month.`}
+                    ? "You already downloaded this film — re-downloading is free."
+                    : `${status.remaining} of ${status.limit} new-film downloads left this month.`}
                 </p>
                 <button
                   type="button"
@@ -130,7 +177,7 @@ export default function DownloadPackModal({ slug, sections }: { slug: string; se
                   disabled={busy || sel.size === 0 || (!status.already && status.remaining <= 0)}
                   onClick={download}
                 >
-                  {busy ? "Preparing…" : `Download .md (${sel.size})`}
+                  {busy ? "Saving…" : `Save .md (${sel.size} section${sel.size === 1 ? "" : "s"})`}
                 </button>
               </div>
             )}
@@ -145,13 +192,18 @@ export default function DownloadPackModal({ slug, sections }: { slug: string; se
   );
 }
 
+// Colored, high-contrast trigger (gold with dark ink). Hero = prominent pill;
+// rail = compact so it fits at the end of the scrolling tab row.
 const DPM_TRIGGER_CSS = `
-  .dpm-trigger{flex:0 0 auto;align-self:center;margin-left:8px;
-    font:inherit;font-size:.72rem;font-weight:700;line-height:1;white-space:nowrap;
-    padding:.42em .7em;border-radius:8px;cursor:pointer;
-    color:#3d4a60;background:rgba(90,107,134,.1);border:1px solid rgba(90,107,134,.3);
-    transition:background .15s ease,border-color .15s ease;-webkit-appearance:none;appearance:none;}
-  .dpm-trigger:hover{background:rgba(90,107,134,.2);border-color:rgba(90,107,134,.55);}
+  .dpm-trigger{display:inline-flex;align-items:center;gap:.4em;flex:0 0 auto;
+    font:inherit;font-weight:800;line-height:1;white-space:nowrap;cursor:pointer;
+    color:#241a06;background:#E4B23C;border:1px solid #B98A22;border-radius:999px;
+    box-shadow:0 1px 2px rgba(0,0,0,.15);
+    transition:background .15s ease,transform .05s ease,box-shadow .15s ease;-webkit-appearance:none;appearance:none;}
+  .dpm-trigger:hover{background:#F0C255;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+  .dpm-trigger:active{transform:translateY(1px);}
+  .dpm-trigger--hero{font-size:.86rem;padding:.62em 1.05em;}
+  .dpm-trigger--rail{font-size:.74rem;font-weight:700;padding:.42em .8em;align-self:center;margin-left:6px;}
 `;
 
 const DPM_CSS = `
@@ -164,7 +216,7 @@ const DPM_CSS = `
   .dpm-sub{font-size:.82rem;color:#4b5563;margin:2px 0 12px;line-height:1.45;}
   .dpm-secs{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-bottom:12px;}
   .dpm-sec{display:flex;align-items:center;gap:7px;font-size:.86rem;cursor:pointer;}
-  .dpm-sec input{width:15px;height:15px;accent-color:#5A6B86;}
+  .dpm-sec input{width:15px;height:15px;accent-color:#B98A22;}
   .dpm-gate{border-top:1px solid rgba(0,0,0,.08);padding-top:12px;}
   .dpm-note{font-size:.8rem;color:#4b5563;margin:0 0 10px;}
   .dpm-go{display:inline-block;font:inherit;font-weight:700;font-size:.88rem;cursor:pointer;
