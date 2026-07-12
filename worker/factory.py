@@ -567,16 +567,22 @@ def stage_resolve(run_id, m):
     outp = os.path.join(RUNSDIR, f"run-{run_id}-resolved.csv")
     if not DRY:
         with open(csvp, "w", newline="") as fh:
-            w = csv.writer(fh); w.writerow(["title", "year", "director", "tmdb_id"])
+            # tmdb-resolve.py reads Film_TMDB_ID / Film_Title / Film_Director_Name (a supplied
+            # tmdb_id is trusted = confidence 'given' -> upserted as a new film by --persist).
+            w = csv.writer(fh); w.writerow(["Film_TMDB_ID", "Film_Title", "Film_Director_Name"])
             for r in unresolved:
-                w.writerow([r["raw_title"], r["year_hint"] or "", r["director_hint"] or "", r["tmdb_id"] or ""])
+                w.writerow([r["tmdb_id"] or "", r["raw_title"], r["director_hint"] or ""])
     rc, _ = sh(pyw("worker/tmdb-resolve.py", ["--in", csvp, "--out", outp, "--persist"]))
-    # Robust backfill: whatever the resolver upserted, match films back into intake by tmdb_id / title.
+    # Robust backfill: link intake -> films. When a tmdb_id was supplied it is AUTHORITATIVE —
+    # match ONLY by tmdb_id (never fall back to title, which can hit a different film that merely
+    # shares the title, e.g. Faust 1926 vs Faust 2011). Title-match only rows that have no tmdb_id.
     if not DRY:
-        mgmt_query(f"""update factory.intake i set film_id=f.id
-                       from public.films f
+        mgmt_query(f"""update factory.intake i set film_id=f.id from public.films f
                        where i.run_id={run_id} and i.film_id is null
-                         and (f.tmdb_id=i.tmdb_id or lower(f.title)=lower(i.raw_title));""")
+                         and i.tmdb_id is not null and f.tmdb_id=i.tmdb_id;""")
+        mgmt_query(f"""update factory.intake i set film_id=f.id from public.films f
+                       where i.run_id={run_id} and i.film_id is null
+                         and i.tmdb_id is null and lower(f.title)=lower(i.raw_title);""")
         # flag exists-stub promotions (film pre-existed held / un-analyzed)
         mgmt_query(f"""update factory.intake i set source='promotion'
                        from public.films f
