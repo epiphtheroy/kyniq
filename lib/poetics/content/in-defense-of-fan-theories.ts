@@ -3,11 +3,11 @@ const body = `
 
 Fan theories are what people produce instead of criticism. Every ambiguity becomes a lock with exactly one key, trivia gets promoted to evidence, and the whole genre exists to keep a franchise warm between installments; it ends, reliably, in a thumbnail with a red arrow on it. A critic reads a film. A theorist ransacks it.
 
-I have said gentler versions of that from my own desk, so the sneer deserves an answer instead of a shrug. What it rests on, when you press it, is an assumption: that somewhere behind the film stands an authority the theorist forgot to consult.
+I wrote a version of that paragraph myself once, in an editor's note I am glad never shipped. What it rests on, when you press it, is an assumption: that somewhere behind the film stands an authority the theorist forgot to consult.
 
 ## Barthes with a message board
 
-Modern criticism gave that authority up decades ago. Once a film is finished and released, the director's intention becomes one reading among others, with no power of veto; every graduate seminar nods along to the death of the author. The theory forum is the only place I know where the idea gets practiced at full strength. Nobody there asks what the director meant. They ask what the film, treated as an object loose in the world, will support. That this folk hermeneutics arrives without footnotes, without editors, and frequently without shame does not change what it is.
+The seminar settled this decades ago — the director lost his veto the day the film shipped — and then went straight back to asking what Lynch meant. The theory forum is the one room where the ruling gets enforced. Nobody there asks what the director meant. They ask what the film, treated as an object loose in the world, will support. That this folk hermeneutics arrives without footnotes, without editors, and frequently without shame does not change what it is.
 
 ## Three films kept warm from below
 

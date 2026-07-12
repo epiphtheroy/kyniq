@@ -15,7 +15,7 @@ If this sounds like a licence to say anything, consider the film that turned the
 
 And what became of it? Canonisation. Two decades of critics' polls carried it upward until it sat at or near the top of the century's rankings. In my log it holds five stars; the instrument gives it a Value of 85; the verdict on its page reads essential. The institution of criticism, offered a film in which being wrong is the built-in experience, promoted it over the films that can be gotten right. It is the closest thing criticism has yet produced to an admission that Bloom won.
 
-## What intention keeps
+## Dead as sovereign, alive as builder
 
 Two concessions, because the other side owns real ground. The dull kind of misreading exists, and the waiver does not launder it: get the plot wrong, misplace a scene, and you have stumbled rather than swerved. A strong misreading departs from an exact account of what is on screen or it is noise. The larger concession is that the swerve is parasitic on intention. There is nothing to misread in static. My reading of the green flash carries weight only because Rohmer placed that flash with enough care that it could bear more than he loaded onto it, and the blue box in Mulholland Drive rewards twenty years of theories only because Lynch machined it to tolerances no accident reaches. The author is dead as a sovereign and alive as a builder. So the intentionalists keep their best point, and I hand it over without a fight: every misreading I am proud of was made possible by someone who, unlike me, had to mean something first.
 `;

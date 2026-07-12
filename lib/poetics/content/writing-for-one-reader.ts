@@ -17,7 +17,7 @@ The obvious repair is to move the line. Set the deep-cut threshold at 59 and bot
 
 What waits there cannot be rescued by rule, because any exception clause hardens into a new rule with the same edge one point lower. The sentence that actually does the job is one no rule can utter: trust me past the number. And that sentence has a grammatical requirement. It needs a second person. Addressed to no one in particular, it is ad copy. Addressed to Heo, who will tell me plainly when the trust was misplaced, it is a promise with a cost attached.
 
-## What the second person is for
+## The residue
 
 So the name at the top of the note is load-bearing. The rules cover the middle of the distribution well, and fame handles the famous without any help from us. The letter exists for the residue: the five-star films the net let through by a single point. When I write *To W. Heo* above a fifty-nine, I am lending the film something the instrument correctly refuses to lend, my own credit, staked in front of a named witness. Most notes never draw on the loan. Two of them do, and those two are the reason the whole envelope exists.
 

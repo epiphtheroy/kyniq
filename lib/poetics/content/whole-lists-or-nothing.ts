@@ -11,7 +11,7 @@ The same complete list holds [Parasite](/film/parasite-2019), which I rated five
 
 That is the real case for completeness. A cherry-picked list cannot embarrass its owner. Every cut is made from inside his taste, so the finished shelf agrees with him perfectly, and a shelf in perfect agreement with its owner carries no information he did not already have. The whole-list rule manufactures the opposite: dated, documented spots where the prize, the score, and my own hand point three different ways at once. Averaging those three voices into one would delete the only interesting thing on the page. Readers who are unlike me — which is most readers — are the ones those spots serve.
 
-## What the rule costs
+## Slow on purpose
 
 Whole lists are slow. Every winner gets checked against the public record rather than recited from memory, and the finished record then holds the juries' mistakes with the same posture as their triumphs. There are films on that page I think are weak, and under the rule my objection stays in my log where it belongs, instead of leaking into the data as a quiet omission. The rule also keeps some prizes out entirely: if I can verify only part of a list, the part stays unpublished, because a partial entry is the exact thing being forbidden. What a reader gains for all this is the freedom to stop wondering whether the shelf was trimmed to flatter the house.
 

@@ -3,7 +3,7 @@ const body = `
 
 Lunch on a ski-resort terrace in the French Alps, sun out, families at their tables. A controlled avalanche starts down the slope, picturesque at first, then very suddenly not, and as the white wall arrives a father grabs his phone and his gloves and runs, leaving his wife and children where they sit. The snow turns out to be mist. It settles. He comes back to his soup. Nothing has happened: nobody is hurt, nothing is broken, lunch resumes. And [Force Majeure](/film/force-majeure-2014) is already complete, early on, because everything the film will do afterwards is stored in that one movement of a hand toward a phone.
 
-Now try to summarise it. "A family's ski holiday is strained after a near-miss with an avalanche" — accurate the way a receipt is accurate. A synopsis is built to hold events, and the terrace scene is precisely not an event: the avalanche never hits, the man never leaves, the marriage does not end at that table. The recap keeps what happened and drops what the film knows. What it knows fits inside a closing hand.
+Now try to summarise it. "A family's ski holiday is strained after a near-miss with an avalanche" — accurate the way a customs form is accurate. A synopsis is built to hold events, and the terrace scene is precisely not an event: the avalanche never hits, the man never leaves, the marriage does not end at that table. The recap keeps what happened and drops what the film knows. What it knows fits inside a closing hand.
 
 I rated it 4.5; the instrument scores it V72; and the thing both numbers respond to appears in no plot description. So when I read, I trust a smaller unit: the figure, the concrete detail a film charges with meaning, the gesture that generates everything around it. One hand, one phone, one film.
 
@@ -19,8 +19,8 @@ My log complicates this in a useful way. I gave Still Walking 3.5 — a respectf
 
 ## What the smaller unit costs
 
-In fairness, the figure has a blind side. Some films are their machinery — the heist, the trap, the reversal timed to the minute — and for those a clean recap honours the work better than any hunt for feathers. A figure is a claim about meaning, so it can be wrong; a synopsis is rarely wrong, only empty. And since figures are what this site's reading layer files instead of summaries, my bias is load-bearing; [figures](/methodology/figures) shows how the details are chosen and kept.
+In fairness, the figure has a blind side. Some films are their machinery — the heist, the trap, the reversal timed to the minute — and for those a clean recap honours the work better than any hunt for feathers. A figure is a claim about meaning, so it can be wrong; a synopsis is rarely wrong, only empty. And since figures are what this site's reading layer files instead of summaries, the shelves here are built on my bias; [figures](/methodology/figures) shows how the details are chosen and kept.
 
-I still take the trade. A wrong meaning can be argued with; empty accuracy cannot, and the argument is the reason to publish readings at all. The proof stays on that terrace in the Alps: the roar fades, the white mist thins, the mountain stands exactly where it stood, and a man walks back to the table, still holding his phone.
+I still take the trade. A wrong meaning can be argued with; empty accuracy cannot, and the argument is the reason to publish readings at all. The proof stays on that terrace in the Alps: the roar fades, the white mist thins, the mountain stands exactly where it stood, and a man walks back to the table with the phone in his hand.
 `;
 export default body;

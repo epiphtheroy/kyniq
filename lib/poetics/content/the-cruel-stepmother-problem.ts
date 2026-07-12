@@ -1,7 +1,7 @@
 const body = `
 # The cruel stepmother problem
 
-"You keep a detail because it struck you, and what strikes you is a function of who you are, so a catalogue built on strikingness is a diary of your attention with a methods page stapled to the front. At least a frequency count can be re-run by someone who is not you." I have heard politer versions of this from readers and sharper ones from myself, and it deserves a real answer, because the alternative it proposes sounds so reasonable: count what recurs, keep what recurs most, stay out of it personally.
+"You keep a detail because it struck you, and what strikes you is a function of who you are, so a catalogue built on strikingness is a diary of your attention with a methods page stapled to the front. At least a frequency count can be re-run by someone who is not you."
 
 The trouble is that frequency points backwards. Rain falls in half the films ever made and means nothing by falling; rain a film refuses to turn off has stopped being weather and become a claim. The elements a count promotes are the ones every film shares, which is why they carry nothing in particular.
 
@@ -15,7 +15,7 @@ The objector knows the weak point, though. "Loading" is judged by a person. A co
 
 Here my own log turns state's evidence. [The Handmaiden](/film/the-handmaiden-2016) sits in it at one and a half stars. I resisted the film: too lacquered, I felt, every surface designed, every reversal rehearsed twice. The rating records that resistance faithfully. What the rating could not do was evict the figures. The thimble grinding a sharp tooth smooth. The reading room where pornography is recited to an audience of collectors. The octopus waiting in the basement tank. Years on, they surface unprompted, load intact, from a film I would still not rate above two.
 
-That gap is the defence. If strikingness were only approval under another name, the figures of a film I disliked would have faded along with my interest. They did the opposite. Being struck turned out to be the one response I could not withdraw, even when my verdict wanted the whole film gone. A criterion becomes usable exactly where it separates from preference, and here the separation is on the record: my one and a half stars, the instrument's Value of 71, and a set of figures that side with the instrument against me.
+That gap is the defence. If strikingness were only approval under another name, the figures of a film I disliked would have faded along with my interest. They did the opposite. Being struck turned out to be the one response I could not withdraw, even when my verdict wanted the whole film gone. A criterion becomes usable exactly where it separates from preference, and here the separation is on the record: my one and a half stars on one side; the 71, and the thimble, on the other.
 
 ## A premise with a plot attached
 

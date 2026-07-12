@@ -19,7 +19,7 @@ I gave the film five stars, and I could not tell you which of the three planets 
 
 Almodóvar shot all three at once, in the same rooms, on the same bodysuit. The famous last line, spoken by the escaped captive standing in a family dress shop — I am Vicente — closes none of them. In the thriller it is a survivor's report. In the gender essay it is a declaration the film has spent two hours complicating. In Frankenstein it is the creature naming itself, which the original monster was never allowed to do. My four and a half stars went to all three films at once; I own no method for watching only one of them.
 
-## What the single reading buys
+## The dinner answer
 
 The objection writes itself: a critic who offers three answers has declined to give one. Multiplicity can be a hedge. Held loosely enough, three readings are a way of never being caught wrong, and a shelf of alternatives is worth less than one verdict somebody would defend by name.
 

@@ -1,13 +1,13 @@
 const body = `
 # The frontier festival
 
-Sixty-three. That is the Value our instrument reads in [Vengeance Is Mine, All Others Pay Cash](/film/vengeance-is-mine-all-others-pay-cash-2021), Edwin's period pulp about an Indonesian brawler whose impotence is his town's open secret, and the number is the quietest of its credentials. The film won the Golden Leopard at Locarno in 2021, the top prize of a festival that has been running since 1946. Almost no one I know has heard of it. My own log is no shrine either: three stars, a decent evening.
+The Value our instrument reads in [Vengeance Is Mine, All Others Pay Cash](/film/vengeance-is-mine-all-others-pay-cash-2021), Edwin's period pulp about an Indonesian brawler whose impotence is his town's open secret, is 63, and the number is the quietest of its credentials. The film won the Golden Leopard at Locarno in 2021, the top prize of a festival that has been running since 1946. Almost no one I know has heard of it. My own log is no shrine either: three stars, a decent evening.
 
 ## The exchange rate on a Leopard
 
 A prize is a currency, and currencies have exchange rates. A [Palme](/lineage/cannes-palme-dor) converts everywhere, into distribution, into syllabi, into the word *masterpiece* arriving pre-approved. A Golden Leopard converts inside a smaller circle, and a Busan prize barely converts at all. This has nothing to do with how fiercely those festivals choose. It has to do with whose recognition the world's indexes were built to count, and the answer, mostly, is Western hardware. A film honoured anywhere else arrives at the ranking table looking under-documented, and the thinness of its paperwork gets read, quietly, as thinness of the film.
 
-[Lucky Chan-sil](/film/lucky-chan-sil-2019) is my favourite case. Kim Cho-hee produced [Hong Sang-soo](/director/hong-sang-soo)'s films for years before directing this one, about a producer whose director drops dead mid-project and takes her whole career with him. It surfaced at Busan in 2019 and won prizes there, none of which survive translation into English. In my log it sits at four and a half stars. On the site it reads V62, within a point of the film with the Leopard.
+[Lucky Chan-sil](/film/lucky-chan-sil-2019) is the case I keep returning to. Kim Cho-hee produced [Hong Sang-soo](/director/hong-sang-soo)'s films for years before directing this one, about a producer whose director drops dead mid-project and takes her whole career with him. It surfaced at Busan in 2019 and won prizes there, none of which survive translation into English. In my log it sits at four and a half stars. On the site it reads V62, within a point of the film with the Leopard.
 
 ## A rule that does not ask where you premiered
 

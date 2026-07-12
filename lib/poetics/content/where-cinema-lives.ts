@@ -17,9 +17,9 @@ A ghost story about wage theft, a courtroom melodrama about statelessness, an en
 
 The locations layer exists to break that heading into coordinates. Building it took about a week; deciding what to say about it has taken longer. A reader who arrives at any of these three films can now leave through the place: from Dakar sideways to whatever else was shot on that coast, from Beirut to the other films that used the same streets to different ends.
 
-What the density measures is records, not merit. A city grows bright when its films leave traces someone can check: award rolls that get published, national canons, restorations, magazines that kept score for decades. The glow over Western Europe is a glow of paperwork. An empty stretch of coastline registers an absence of legible records, which is a different thing from an absence of films. No one weighed those films and found them light; the scale simply never saw them.
+What the density measures is records, not merit. A city grows bright when its films leave traces someone can check: award rolls that get published, national canons, restorations, magazines that kept score for decades. The glow over Western Europe is a glow of paperwork. An empty stretch of coastline registers an absence of legible records, which is a different thing from an absence of films.
 
-So the admission stays attached to the picture: this is a chart of where we went looking, drawn by people whose reading lists and search languages have a shape. I would rather publish it with the gaps showing than crop the frame to the lit parts and call the picture complete. A reader who mistakes brightness for quality has been misled by us, and the only repair I know is to keep explaining what a mark is evidence of.
+So the admission stays attached to the picture: this is a chart of where we went looking, drawn by people whose reading lists and search languages have a shape. I would rather publish it with the gaps showing than crop the frame to the lit parts and call the picture complete.
 
 Dakar, Beirut and a bend in the Niger are three different places, and the site now treats them that way.
 `;

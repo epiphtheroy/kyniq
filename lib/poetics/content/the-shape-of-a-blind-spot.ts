@@ -1,7 +1,7 @@
 const body = `
 # The Shape of a Blind Spot
 
-I gave one star to [Withnail and I](/film/withnail-and-i-1987). One star is the rating I reserve for warnings. The instrument puts the film at V66 with an essential verdict on its page, and the culture sides with the instrument: this is one of the most quoted comedies in the English language, the film people recite at each other about the finest wines available to humanity. Against all of that stands my single star, entered with conviction and never revised.
+I gave one star to [Withnail and I](/film/withnail-and-i-1987). One star is the rating I reserve for warnings. The instrument puts the film at V66 with an essential verdict on its page, and the culture never consulted either of us: this is one of the most quoted comedies in the English language, the film people recite at each other about the finest wines available to humanity. Against all of that stands my single star, entered with conviction and never revised.
 
 It has company. [O Brother, Where Art Thou?](/film/o-brother-where-art-thou-2000) also sits at one star in my log, against a V of 61 and a start-here verdict. Two beloved comedies among the seven one-star ratings I have ever handed out. I could defend each verdict on its own. Side by side they stop being verdicts and start being a pattern.
 
@@ -9,7 +9,7 @@ It has company. [O Brother, Where Art Thou?](/film/o-brother-where-art-thou-2000
 
 Look at what the log holds instead. 688 entries. Twenty-one films by [Hong Sang-soo](/director/hong-sang-soo). Hundreds of European art-house titles, rated with the warmth of a man among friends. And animation is nearly absent: [Frozen](/film/frozen-2013), at 2 stars against a V of 43, is one of the few animated features in the log at all, despite having reached an audience about as large as the medium has ever had.
 
-None of this is random. A viewing log maps appetite, nothing more scientific than that. I went where my appetite pointed, for years, and the result covers certain territories in obsessive detail — the Korean art film, the European long take — while leaving whole continents blank. Comedy is thin. Animation is thinner. Nobody weighed those blank regions and rejected them. They were never visited.
+A viewing log maps appetite, nothing more scientific than that. I went where my appetite pointed, for years, and the result covers certain territories in obsessive detail — the Korean art film, the European long take — while leaving whole continents blank. Comedy is thin. Animation is thinner. Nobody weighed those blank regions and rejected them. They were never visited.
 
 ## The verdict describes the judge
 
