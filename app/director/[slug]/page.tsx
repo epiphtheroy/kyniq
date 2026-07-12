@@ -572,7 +572,7 @@ export default async function DirectorPage({ params }: Props) {
               {director}
               {native ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({native})</span> : null}
             </h1>
-            <Byline />
+            <Byline methodologyHref="/methodology/where-to-start" badge />
             {(bornLabel || d?.place_of_birth) && (
               <div className="dr-born">
                 {bornLabel && <span>Born {bornLabel}</span>}

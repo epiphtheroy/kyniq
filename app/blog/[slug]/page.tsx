@@ -5,6 +5,7 @@ import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import EditionBody, { type EditionPost } from "@/components/EditionBody";
 import ShareDock from "@/components/ShareDock";
+import MethodologyBadge from "@/components/MethodologyBadge";
 
 /**
  * One edition of The Daily — ScreenRant grain (shell in app/blog/layout.tsx):
@@ -74,7 +75,9 @@ export default async function BlogPost({ params }: Props) {
         <h1 style={{ marginTop: 10 }}>{headline}</h1>
         {p.dek ? <p className="dek">{p.dek}</p> : null}
         <p className="cur-edby">
-          <b>{p.read_min} min read</b> · The Metatake desk · every film and reading below is live in the corpus
+          <b>{p.read_min} min read</b> · The Metatake desk · every film and reading below is live in the corpus ·{" "}
+          <Link href="/methodology/the-daily" style={{ textDecoration: "none" }}>how The Daily is made</Link>
+          <MethodologyBadge href="/methodology/the-daily" label="How The Daily is made — methodology" />
         </p>
         <div className="cur-share">
           <ShareDock variant="bar" path={`/blog/${slug}`} title={headline}

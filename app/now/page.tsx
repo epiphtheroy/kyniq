@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import type { Metadata } from "next";
+import MethodologyBadge from "@/components/MethodologyBadge";
 import { anchorHref, fmtClock, tmdbImg, type NowArticle } from "@/lib/now";
 
 /**
@@ -93,7 +94,9 @@ export default async function NowIndex() {
           <p className="dek">
             The live layer. When the world starts searching a film, a filmmaker, a moment — the archive answers
             within the hour: what happened, verified, and what the record already knows. Every piece is timestamped;
-            every claim is one click from its data.
+            every claim is one click from its data.{" "}
+            <Link href="/methodology/now-playing" style={{ textDecoration: "none", whiteSpace: "nowrap" }}>How the live desk works →</Link>
+            <MethodologyBadge href="/methodology/now-playing" label="How the live desk works — methodology" />
           </p>
         </header>
 

@@ -1,10 +1,16 @@
 import Link from "next/link";
+import MethodologyBadge from "./MethodologyBadge";
 
 /**
  * Byline — visible top-of-page provenance (Phase 1, 2026-07-02).
  * Complements the bottom <Provenance/>: Google's quality guidance looks for
  * "who made this, how, when" to be immediately visible, so the flagship
  * templates surface it right under the headline. Keep it one quiet line.
+ *
+ * `methodologyHref` deep-links the "how this is made" phrase to the most
+ * relevant methodology doc (defaults to the hub). `badge` adds the small "?"
+ * mark — turn it on for pages that do NOT carry the bottom <Provenance/> badge
+ * (director hubs, /now, /blog), off elsewhere to avoid a duplicate mark.
  */
 function fmt(d?: string | null): string | null {
   if (!d) return null;
@@ -13,7 +19,17 @@ function fmt(d?: string | null): string | null {
   return t.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 }
 
-export default function Byline({ updated, created }: { updated?: string | null; created?: string | null }) {
+export default function Byline({
+  updated,
+  created,
+  methodologyHref = "/methodology",
+  badge = false,
+}: {
+  updated?: string | null;
+  created?: string | null;
+  methodologyHref?: string;
+  badge?: boolean;
+}) {
   const u = fmt(updated) || fmt(created);
   return (
     <p
@@ -25,6 +41,11 @@ export default function Byline({ updated, created }: { updated?: string | null; 
         Wonwoo Yoon
       </Link>
       {u ? <> · updated {u}</> : null}
+      {" · "}
+      <Link href={methodologyHref} className="accent" style={{ textDecoration: "none" }}>
+        how this is made
+      </Link>
+      {badge ? <MethodologyBadge href={methodologyHref} /> : null}
     </p>
   );
 }

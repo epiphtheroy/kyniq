@@ -5,6 +5,7 @@ import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import NowModules from "@/components/NowModules";
 import ShareDock from "@/components/ShareDock";
+import MethodologyBadge from "@/components/MethodologyBadge";
 import EntityNetwork from "@/components/EntityNetwork";
 import FilmMap from "@/components/FilmMap";
 import { anchorHref, fmtDay, fmtStamp, tmdbImg, type NowArticle } from "@/lib/now";
@@ -120,8 +121,10 @@ export default async function NowPiece({ params }: Props) {
             <span className="now-byline-rest">
               , founder &amp; editor · anchored on{" "}
               {ah ? <Link href={ah}>{p.anchor_label}</Link> : <b>{p.anchor_label}</b>} · every data point below is
-              live in the corpus
+              live in the corpus ·{" "}
+              <Link href="/methodology/now-playing" style={{ textDecoration: "none" }}>how the live desk works</Link>
             </span>
+            <MethodologyBadge href="/methodology/now-playing" label="How the live desk works — methodology" />
           </div>
           <div className="now-share">
             <ShareDock variant="bar" path={`/now/${slug}`} title={p.headline}

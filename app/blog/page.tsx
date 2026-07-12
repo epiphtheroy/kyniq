@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import EditionBody, { type EditionPost } from "@/components/EditionBody";
+import MethodologyBadge from "@/components/MethodologyBadge";
 import { SectionHead } from "@/components/curious/ui";
 
 /**
@@ -88,7 +89,7 @@ export default async function BlogIndex() {
             <SectionHead title="Today's edition" count={full(today.edition_date)} moreHref={`/blog/${today.slug}`} moreLabel="Permalink" />
             <article className="cur-paper blg">
               <div className="blg-byline">
-                <b>{full(today.edition_date)}</b><span className="dot" /><span>{today.read_min} min read</span><span className="dot" /><span>The Metatake desk</span>
+                <b>{full(today.edition_date)}</b><span className="dot" /><span>{today.read_min} min read</span><span className="dot" /><span>The Metatake desk</span><span className="dot" /><Link href="/methodology/the-daily" style={{ textDecoration: "none" }}>how The Daily is made</Link><MethodologyBadge href="/methodology/the-daily" label="How The Daily is made — methodology" />
               </div>
               <EditionBody post={today} />
             </article>

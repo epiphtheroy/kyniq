@@ -5,6 +5,7 @@ import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 import EntityNetwork from "@/components/EntityNetwork";
 import ShareDock from "@/components/ShareDock";
+import MethodologyBadge from "@/components/MethodologyBadge";
 import { fmtDay } from "@/lib/now";
 
 /**
@@ -88,7 +89,10 @@ export default async function DailyDigest({ params }: Props) {
           </p>
           <h1 style={{ marginTop: 6 }}>{d.headline}</h1>
           {d.dek ? <p className="dek">{d.dek}</p> : null}
-          <p className="cur-edby">By <b>Wonwoo Yoon</b> · the Now Playing desk closed the day</p>
+          <p className="cur-edby">By <b>Wonwoo Yoon</b> · the Now Playing desk closed the day ·{" "}
+            <Link href="/methodology/now-playing" style={{ textDecoration: "none" }}>how the live desk works</Link>
+            <MethodologyBadge href="/methodology/now-playing" label="How the live desk works — methodology" />
+          </p>
           <div className="rd-share" style={{ marginTop: 12 }}>
             <ShareDock variant="bar" path={`/now/daily/${date}`} title={d.headline} hook={d.dek || undefined} />
             <ShareDock variant="fab" path={`/now/daily/${date}`} title={d.headline} hook={d.dek || undefined} />
