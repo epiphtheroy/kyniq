@@ -1,5 +1,6 @@
--- 0094_marquee_availability.sql
+-- 0095_marquee_availability.sql
 -- What to Watch ("The Marquee") — availability-first ranking surface.
+-- (Applied to production 2026-07-13 via worker/apply-sql.py; DDL then fpi_rebuild.)
 -- Adds: rent/buy rows to film_provider_index, multi-country + US-library ranking,
 --       a decoration RPC for access badges, and a watch-country directory.
 --
