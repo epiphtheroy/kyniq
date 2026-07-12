@@ -1,30 +1,28 @@
 const body = `
 # What a 36 means
 
-A reader I trust wrote to me, more wounded than angry, to ask why I had given [In the Mood for Love](/film/in-the-mood-for-love-2000) a 41. He had not misread anything. The number was there, next to a film he loves, and 41 out of 100 is, in every classroom any of us sat in, a fail. He was reading the number the only way a number beside a film has ever been read: as a grade. And by that grammar I had just told him his favourite film scraped the bottom of the class.
+My viewing log, plotted, makes a lopsided staircase. 688 ratings, ten bars, one for every half star, and the tallest bar by a wide margin stands at four and a half: 223 films. Five full stars holds another 98. Stack the top two bars and you get 321 ratings, nearly half of everything I have ever watched and judged, living in the top tenth of the scale. Down at the other end, the half-star bar holds exactly three films.
 
-I had not. But the message stayed with me, because he was right about one thing and I had been careless about it. **A number means nothing until you know the shape it sits in**, and I had shipped the number without the shape.
+I defend the shape, up to a point. A private log gets written at the end of the evening, film still warm; the hand reaches high because that is where affection keeps its things. A log is a friend, and it remembers that I was happy. But a friend who says wonderful 321 times has ranked nothing. Ask my histogram which of those 223 films you should watch first and it smiles and shrugs.
 
-## The scale you think you are reading
+## The middle lives at 36
 
-Here is the reflex, and I have it too. We see a bounded score and silently install a school at the top of it: 90 is excellent, 70 is fine, 50 is a warning, anything below is a verdict of failure. On that imagined scale a 36 is a wreck.
+The instrument this site runs on was built to be the other thing: a ruler. Across 6,701 scored films the median [TakeScore](/methodology/takescore) sits near 36, and eight films in ten land somewhere between 8 and 57. Anyone raised on school grading feels the jolt; I certainly did, and I helped set the thing running. In a classroom, 36 out of 100 means a phone call home. On a ruler whose exact centre is 36, it means the middle of world cinema, a film returning roughly what films usually return.
 
-But that is not the scale [TakeScore](/methodology/takescore) is on. The median of the whole scored catalogue — I know the figure because I had to compute it across all 6,701 scored films — sits near **36**. The middle four-fifths of everything runs from about **8 to 57**. The single highest net score in the catalogue belongs to [Tokyo Story](/film/tokyo-story-1953), and it is **86**, not 99. The ceiling is hoarded on purpose. Value across the catalogue averages 58 and Risk around 24, and the two do not cancel to anything generous.
+A kinder curve was available, and refusing it was the point. If the catalogue's scores bunched high the way my stars do, the site would be one more friend, and nobody has ever been short of friends. What a score sells is the distance between films, and generosity spends that distance first.
 
-So a 36 is not a D. **A 36 is the middle of the road** — a competent film that gives a serious viewer a fair return and asks a fair price. In the shape it actually lives in, my reader's 41 was above the median: a good film, quietly told so, by a scale that was too shy to say it out loud.
+## A 44, a 54, a 55
 
-## Why the scale refuses to be kind
+TakeScore nets a film's Value against its Risk; Value, the axis a recommendation actually runs on, is the number I will read here, for three films out of my own log, all parked in the instrument's broad middle.
 
-I could have fixed the wound by inflation. Slide everything up twenty points, let the median land at a comfortable 70, and no one writes me a hurt email again. I decided that would be a lie, and a specifically useless one.
+[Architecture 101](/film/architecture-101-2012) holds a Value of 44 against my four and a half stars. It was a phenomenon in Korea in 2012 and is nearly invisible everywhere else. The 44 says: above the centre of the catalogue, real value, no masterpiece claim filed. My stars say what only a hand can say — the film studies first love from a safe distance, and I happen to own both of those things. Neither number is wrong. They are answering different questions.
 
-A scale where nearly everything clusters in the high sixties is not measuring films; it is flattering them. The proof that this one measures anything is that it can go **negative**. [Forrest Gump](/film/forrest-gump-1994) sits at −1. [Avatar](/film/avatar-2009) at −10. These are not obscure misfires — they are canon-adjacent, beloved, enormous. When a scale can put a film the world adores below zero and still hold, its positive numbers have earned the right to mean something. Generosity would have bought my reader's comfort by bankrupting every other score on the site.
+[Dunkirk](/film/dunkirk-2017) reads 54 against my four stars, and the lesson is what fame fails to buy. An event picture from one of the most famous directors alive lands near the top of the fat middle and no higher: the 54 counts the craft and declines to count the noise.
 
-## What I actually owed him
+[The Lunchbox](/film/the-lunchbox-2013) sits at 55, a single point above Dunkirk, and this is the fact I would frame. A quiet film about misdelivered lunches and letters in Mumbai outpoints the decade's loudest war picture; only a scale that keeps its middle low can even pronounce such a sentence. My hand went the other way, three and a half stars, and I notice, with some discomfort, that I ranked this trio in exactly the reverse of the ruler's order.
 
-The failure was not the 36. The failure was presenting a distribution's midpoint as if it were an examiner's mark and expecting the reader to supply the context I had kept to myself. There is a trope our own readings keep turning up, [*The Box-Office Verdict As Cultural Diagnosis*](/trope/the-box-office-verdict-as-cultural-diagnosis) — the habit of reading one lonely figure as a whole judgement of worth — and a bare 36 with no shape around it invites exactly that misreading. I built the invitation and then blamed the guest for accepting it.
+That inversion is the finding. The friend and the ruler disagree past mere magnitude; they can flip a whole ordering, and both columns stay on the page, because the gap between them is the information a reader can actually use.
 
-So the fix was never the number. It was teaching the number to arrive with its neighbours: median, spread, ceiling, the fact that it is a **net** score fusing value against risk and not a percentage of anything. A 36 read against 8-to-57 is legible. A 36 read against an imaginary 100 is a slap.
-
-Which leaves the question I still cannot close. I can print the distribution beside every score, and I do. But the school-grade reflex is older and stronger than any legend I can write. Can you ever teach a person to read a number as a position in a shape — or does a number beside a film always, in the end, get read as a grade?
+So my histogram has stopped looking like a comfort. If a middle held at 36 can sort three of my evenings into the opposite of the order my affection chose, what would it do to the tallest bar — how many of those 223 four-and-a-half-star films would still stand next to each other once a ruler was finished with them?
 `;
 export default body;
