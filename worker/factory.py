@@ -624,14 +624,24 @@ def run_shell_seq(stage, films, ctx):
     return 0
 
 
+# The batch-fetch workers exit 0 EVEN WHEN THE BATCH IS STILL RUNNING (they print
+# "Not ready yet — re-run later" and return). So exit code alone is NOT a completion
+# signal — we must poll on the worker's own status text until it actually persists.
+_BATCH_PENDING = ("not ready", "still processing", "re-run this command later", "re-run fetch later",
+                  "status=in_progress", "status=validating", "status=finalizing", "status=canceling")
+
+
 def _batch_poll_fetch(script, fetch_args, ctx):
     waited = 0
     while True:
-        rc, _ = sh(pyw(script, subst(fetch_args, ctx)), quiet=(waited > 0))
-        if rc == 0:
-            return 0
-        if waited >= BATCH_MAX_WAIT or DRY:
-            return rc
+        rc, out = sh(pyw(script, subst(fetch_args, ctx)), quiet=(waited > 0))
+        pending = any(s in out.lower() for s in _BATCH_PENDING)
+        if rc == 0 and not pending:
+            return 0                       # worker persisted (batch ended) — real completion
+        if DRY or waited >= BATCH_MAX_WAIT:
+            return rc if rc != 0 else 1     # gave up waiting -> let failure_policy park it
+        if waited == 0:
+            print(f"      batch pending — polling every {BATCH_POLL}s (max {BATCH_MAX_WAIT}s)…")
         time.sleep(BATCH_POLL); waited += BATCH_POLL
 
 
