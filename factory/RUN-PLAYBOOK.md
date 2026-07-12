@@ -1,5 +1,33 @@
 # 영화공장 RUN PLAYBOOK — the validated end-to-end recipe (paste a film list → same quality)
 
+## ⭐ AUTOMATED PATH (built 2026-07-12) — `factory.py run` executor
+The whole recipe below is now a **standalone program** (no Claude tokens — plain Python; the worker
+scripts use their own API keys). Two ways to run it, both token-free:
+
+```bash
+# ── TERMINAL (recommended, simplest) ────────────────────────────────────────
+python3 worker/factory.py add "The Piano (1993)" --tmdb-id 897   # or: enqueue titles.csv
+python3 worker/factory.py plan --write                            # → run #N (status=planning) + cost
+python3 worker/factory.py run --run N --dry-run                   # print the exact 47-stage plan, $0
+python3 worker/factory.py run --run N --yes                       # EXECUTE (real spend, ledgered)
+
+# ── ADMIN BUTTON (/admin/factory → "▶ Queue a run") ─────────────────────────
+#   marks a run status='queued'; then on the Mac start the watcher once:
+nohup bash worker/factory-watch.sh >> factory/logs/watch.log 2>&1 &
+#   the watcher claims queued runs and runs the executor. Stop: touch factory/.watch-stop
+```
+
+Flags: `--from Sxx` resume from a stage · `--only Sxx` one stage · `--films slug,slug` subset ·
+`--with-corpus` include deferred global rebuilds (S26) · `--dry-run` plan without spending.
+Every stage writes `factory.stage_runs` (status/cost/verify_result) so **any run is resumable** —
+re-run `--from Sxx` and unchanged stages are idempotent. The final report (quality bar per film +
+"incomplete" list) lands in `factory.runs.report_md` and `factory/logs/run-N.md`.
+
+**Bulk economics** (why hundreds ≈ same wall-clock, cheaper per film): the Opus/Sonnet stages combine
+all films into ONE Batch-API job (50% off, ~constant latency for 3 or 300); corpus stages (embed,
+affinities, sentences) run ONCE and amortize; only the per-film HTTP stages fan out (pool of 6).
+So per-film cost DROPS at scale; total scales with count (gate pauses >$50).
+
 **This is THE operating doc.** It captures the *actual, validated* sequence run on 2026-07-12 that
 took 3 brand-new films from nothing → fully-live Tier-1 pages at the quality bar below. A fresh
 Claude Code terminal reads this file + a film list and reproduces that quality. Design rationale +

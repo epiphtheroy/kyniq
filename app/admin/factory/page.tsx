@@ -112,6 +112,18 @@ async function decideChangeOrder(formData: FormData) {
   revalidatePath("/admin/factory");
 }
 
+// Queue a run: creates factory.runs(status='queued') from eligible intake and links it.
+// This is a STATUS write only — the Mac watcher (worker/factory-watch.sh) claims the
+// queued run and executes the standalone executor. The admin never fires execution itself.
+async function queueRun() {
+  "use server";
+  const admin = await getAdminUser();
+  if (!admin) return;
+  const supabase = createAdminClient();
+  await supabase.rpc("factory_queue_run");
+  revalidatePath("/admin/factory");
+}
+
 // ── page ──────────────────────────────────────────────────────────────────
 
 export default async function FactoryPage() {
@@ -181,6 +193,20 @@ export default async function FactoryPage() {
 
       {/* ① Runs */}
       <Panel title="① Runs">
+        <form action={queueRun} style={{ marginBottom: 12 }}>
+          <button
+            type="submit"
+            style={{
+              background: "#1f6feb", color: "#fff", border: "none", borderRadius: 6,
+              padding: "7px 14px", fontSize: 13, fontWeight: 600, cursor: "pointer",
+            }}
+          >
+            ▶ Queue a run from approved intake
+          </button>
+          <span style={{ marginLeft: 10, fontSize: 11.5, color: "#94a3b8" }}>
+            marks a run <code>queued</code> — the Mac watcher (factory-watch.sh) executes it; no tokens, no live-fire from here
+          </span>
+        </form>
         {runs.length === 0 ? (
           <Empty>No runs yet.</Empty>
         ) : (

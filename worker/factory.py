@@ -23,12 +23,27 @@ sandbox blocks Anthropic egress, so those stages are executed by the owner via
 status/verify/gaps/lint) work anywhere with Supabase reachability.
 """
 import sys, os, csv, json, re, argparse, subprocess, urllib.request, urllib.error, hashlib
+import time, shlex, concurrent.futures
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_REF = "jvgarcqrtsmgfimdcwgo"
 MANIFEST = os.path.join(ROOT, "factory", "manifest.json")
 LOGDIR = os.path.join(ROOT, "factory", "logs")
+RUNSDIR = os.path.join(ROOT, "factory", "runs")
 NODE = os.path.expanduser("~/.local/node/bin/node")
+PY = sys.executable or "python3"
+
+# run-time tunables (env-overridable so the executor never hard-codes a magic wait)
+BATCH_POLL = int(os.environ.get("FACTORY_BATCH_POLL", "60"))          # seconds between fetch attempts
+BATCH_MAX_WAIT = int(os.environ.get("FACTORY_BATCH_MAX_WAIT", "10800"))  # 3h ceiling per batch stage
+HTTP_FANOUT = int(os.environ.get("FACTORY_FANOUT", "6"))             # parallel per-film http workers
+# corpus stages that are GLOBAL derived-swaps not required for a new film to render — deferred to the
+# garden pass unless --with-corpus is passed (matches the observed run #3, which skipped S26).
+DEFER_CORPUS = {"S26-counterpoints"}
+# sql_file fn -> live RPC (factory/sql/assertions.sql was applied as these functions in mig 0082)
+SQLFILE_RPC = {"assert_figure_slugs", "next_target_backfill", "detect_new_directors",
+               "analyzed_flip", "run_audit", "bump_lastmod"}
+SQLFILE_RPC_NOARG = {"next_target_backfill"}
 
 
 # ----------------------------------------------------------------------------- env
@@ -246,9 +261,41 @@ def cmd_plan(a):
     if total > m.get("cost_gate_usd_default", 50):
         print(f"\n⚠️  COST GATE: ${total:.2f} > ${m['cost_gate_usd_default']} — run will pause for approval.")
     if a.write:
-        run_id = q1(f"insert into factory.runs(mode,film_count,est_cost_usd,status,manifest_sha) "
-                    f"values('bulk',{len(intake)},{total:.2f},'planning','{manifest_sha}') returning id;")["id"]
-        print(f"\nrun #{run_id} written (status=planning). Execute on the Mac: run-factory-run.command {run_id}")
+        run_id = create_run(intake, total, manifest_sha, "planning")
+        print(f"\nrun #{run_id} written (status=planning, {len(intake)} intake linked).")
+        print(f"Execute (terminal, token-free):  python3 worker/factory.py run --run {run_id} --yes")
+        print(f"Dry-run the plan first:          python3 worker/factory.py run --run {run_id} --dry-run")
+
+
+def create_run(intake, total, manifest_sha, status):
+    """Insert a factory.runs row and link the intake rows to it (so run_load finds the films)."""
+    run_id = q1(f"insert into factory.runs(mode,film_count,est_cost_usd,status,manifest_sha) "
+                f"values('bulk',{len(intake)},{total:.2f},{sql_lit(status)},{sql_lit(manifest_sha)}) returning id;")["id"]
+    ids = ",".join(str(r["id"]) for r in intake)
+    if ids:
+        mgmt_query(f"update factory.intake set run_id={run_id} where id in ({ids}) and run_id is null;")
+    return run_id
+
+
+def cmd_queue(a):
+    """Create a run from eligible intake and mark it status='queued' so the Mac watcher executes it.
+    Calls factory_queue_run() — the SAME RPC the /admin/factory 'Run' button uses (single source)."""
+    m = load_manifest()
+    intake = mgmt_query("select id,tier from factory.intake "
+                        "where status in ('queued','approved') and run_id is null;")
+    if not intake:
+        print("no eligible intake (queued/approved, unlinked) to run."); return
+    full = [r for r in intake if r["tier"] == "full"]; catalog = [r for r in intake if r["tier"] == "catalog"]
+    total, _ = estimate_cost(m, len(full), len(catalog))
+    manifest_sha = hashlib.sha256(open(MANIFEST, "rb").read()).hexdigest()[:16]
+    run_id = q1("select public.factory_queue_run() as id")["id"]
+    if not run_id:
+        print("no eligible intake to queue."); return
+    # stamp the run's estimate + manifest sha (RPC leaves them null; cheap advisory fields)
+    mgmt_query(f"update factory.runs set est_cost_usd={total:.2f}, manifest_sha={sql_lit(manifest_sha)} where id={run_id};")
+    print(f"run #{run_id} QUEUED — {len(intake)} films, est ${total:.2f}. "
+          f"The Mac watcher (factory-watch.sh) will pick it up; or run now: "
+          f"python3 worker/factory.py run --run {run_id} --yes")
 
 
 # ------------------------------------------------------------------------- status
@@ -332,12 +379,499 @@ def cmd_garden(a):
 
 
 # ------------------------------------------------------------------------- run
+# =============================================================================
+# EXECUTOR  —  factory.py run  (standalone; NO Claude tokens; workers use their
+# own API keys). Drives the manifest stage-by-stage with a ledger + verify gate.
+# =============================================================================
+DRY = False  # set by cmd_run when --dry-run
+
+
+def uuid_array(ids):
+    return "array[" + ",".join(sql_lit(i) for i in ids) + "]::uuid[]" if ids else "array[]::uuid[]"
+
+
+def text_array(xs):
+    return "array[" + ",".join(sql_lit(x) for x in xs) + "]::text[]" if xs else "array[]::text[]"
+
+
+def sh(cmd, cwd=ROOT, quiet=False):
+    """Run a subprocess (list-form; no shell). Returns (rc, stdout). Honors DRY."""
+    printable = " ".join(shlex.quote(c) for c in cmd)
+    if not quiet:
+        print(f"      $ {printable}")
+    if DRY:
+        return 0, ""
+    try:
+        r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, env=os.environ, timeout=BATCH_MAX_WAIT)
+    except subprocess.TimeoutExpired:
+        print("      ! TIMEOUT"); return 124, ""
+    if r.returncode != 0:
+        tail = (r.stderr or r.stdout or "")[-600:]
+        print(f"      ! exit {r.returncode}: {tail}")
+    return r.returncode, r.stdout or ""
+
+
+def pyw(script, args):
+    return [PY, os.path.join(ROOT, script)] + list(args)
+
+
+def subst(v, ctx):
+    if isinstance(v, str):
+        for k, val in ctx.items():
+            v = v.replace("{" + k + "}", val)
+        return v
+    if isinstance(v, list):
+        return [subst(x, ctx) for x in v]
+    if isinstance(v, dict):
+        return {k: subst(x, ctx) for k, x in v.items()}
+    return v
+
+
+# ------------------------------------------------------------------- ledger
+def ledger(run_id, stage_id, status, film_id=None, cost=0.0, batch_id=None, error=None, verify=None):
+    if DRY:
+        return
+    fin = "now()" if status in ("done", "parked", "skipped", "failed", "partial") else "null"
+    q = (f"insert into factory.stage_runs(run_id,stage_id,film_id,status,cost_usd,batch_id,error,verify_result,started_at,finished_at) "
+         f"values({run_id},{sql_lit(stage_id)},{sql_lit(film_id)},{sql_lit(status)},{cost},"
+         f"{sql_lit(batch_id)},{sql_lit(error)},{('%s::jsonb' % sql_lit(json.dumps(verify))) if verify is not None else 'null'},"
+         f"now(),{fin}) "
+         f"on conflict (run_id,stage_id,film_id) do update set status=excluded.status, cost_usd=excluded.cost_usd, "
+         f"batch_id=coalesce(excluded.batch_id,factory.stage_runs.batch_id), error=excluded.error, "
+         f"verify_result=coalesce(excluded.verify_result,factory.stage_runs.verify_result), finished_at=excluded.finished_at;")
+    try:
+        mgmt_query(q)
+    except Exception as e:
+        print(f"      (ledger write failed: {e})")
+
+
+# ---------------------------------------------------------------- run loading
+def run_load(run_id):
+    run = q1(f"select * from factory.runs where id={run_id};")
+    films = mgmt_query(
+        f"select i.film_id, f.slug, i.tier, coalesce(f.tmdb_id,i.tmdb_id) tmdb_id, i.source, "
+        f"coalesce(f.hold,false) hold, f.is_analyzed "
+        f"from factory.intake i join public.films f on f.id=i.film_id "
+        f"where i.run_id={run_id} and i.film_id is not null and i.status in ('approved','queued','done') "
+        f"order by f.slug;")
+    return run, films
+
+
+def stage_films(stage, films):
+    tiers = set(stage.get("tier", []))
+    return [x for x in films if x["tier"] in tiers]
+
+
+def build_ctx(run_id, films, extra=None):
+    slugs = [f["slug"] for f in films]
+    fids = [f["film_id"] for f in films]
+    ctx = {
+        "run_id": str(run_id),
+        "slugs": ",".join(slugs),
+        "film_ids": uuid_array(fids),
+        "film_ids_sql": uuid_array(fids),
+        "run_csv": os.path.join(RUNSDIR, f"run-{run_id}.csv"),
+        "run_csv_resolved": os.path.join(RUNSDIR, f"run-{run_id}-resolved.csv"),
+        "REVALIDATION_SECRET": os.environ.get("REVALIDATION_SECRET", ""),
+        "dir_slugs": ",".join((extra or {}).get("dir_slugs", [])),
+        "new_urls": " ".join((extra or {}).get("new_urls", [])),
+    }
+    return ctx
+
+
+# ------------------------------------------------------------- W0 resolve/tier
+def stage_resolve(run_id, m):
+    """S02: fill intake.film_id for rows lacking it (bulk CSV path). Idempotent."""
+    unresolved = mgmt_query(f"select id,raw_title,year_hint,director_hint,tmdb_id from factory.intake "
+                            f"where run_id={run_id} and film_id is null;")
+    if not unresolved:
+        print("      all intake rows already resolved (film_id set) — skip"); return 0, 0.0
+    os.makedirs(RUNSDIR, exist_ok=True)
+    csvp = os.path.join(RUNSDIR, f"run-{run_id}.csv")
+    outp = os.path.join(RUNSDIR, f"run-{run_id}-resolved.csv")
+    if not DRY:
+        with open(csvp, "w", newline="") as fh:
+            w = csv.writer(fh); w.writerow(["title", "year", "director", "tmdb_id"])
+            for r in unresolved:
+                w.writerow([r["raw_title"], r["year_hint"] or "", r["director_hint"] or "", r["tmdb_id"] or ""])
+    rc, _ = sh(pyw("worker/tmdb-resolve.py", ["--in", csvp, "--out", outp, "--persist"]))
+    # Robust backfill: whatever the resolver upserted, match films back into intake by tmdb_id / title.
+    if not DRY:
+        mgmt_query(f"""update factory.intake i set film_id=f.id
+                       from public.films f
+                       where i.run_id={run_id} and i.film_id is null
+                         and (f.tmdb_id=i.tmdb_id or lower(f.title)=lower(i.raw_title));""")
+        # flag exists-stub promotions (film pre-existed held / un-analyzed)
+        mgmt_query(f"""update factory.intake i set source='promotion'
+                       from public.films f
+                       where i.run_id={run_id} and i.film_id=f.id
+                         and (coalesce(f.hold,false) or not coalesce(f.is_analyzed,false))
+                         and i.source <> 'promotion';""")
+        still = q1(f"select count(*) c from factory.intake where run_id={run_id} and film_id is null")["c"]
+        if still:
+            print(f"      ⚠️ {still} rows unresolved -> parked to intake.status='review' (R1)")
+            mgmt_query(f"update factory.intake set status='review' where run_id={run_id} and film_id is null")
+    return rc, 0.0
+
+
+# ---------------------------------------------------------- runner dispatchers
+def run_shell(stage, films, ctx):
+    r = stage["runner"]; script = r["script"]; base = subst(r.get("submit_args", []), ctx)
+    pfa = r.get("per_film_arg")
+    if pfa and "{slug}" in pfa and "{slugs}" not in pfa:
+        # per-film fan-out (thread pool) — e.g. tmdb-fetch --film {slug}
+        def one(f):
+            args = base + subst(pfa, {"slug": f["slug"]}).split()
+            return sh(pyw(script, args), quiet=True)[0]
+        rcs = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=HTTP_FANOUT) as ex:
+            for rc in ex.map(one, films):
+                rcs.append(rc)
+        bad = sum(1 for x in rcs if x != 0)
+        print(f"      fan-out {len(films)} films, {bad} nonzero")
+        return 1 if bad else 0
+    args = base + (subst(pfa, ctx).split() if pfa else [])
+    return sh(pyw(script, args))[0]
+
+
+def run_shell_seq(stage, films, ctx):
+    for step in stage["runner"]["steps"]:
+        rc, _ = sh(pyw(step["script"], subst(step.get("args", []), ctx)))
+        if rc != 0:
+            return rc
+    return 0
+
+
+def _batch_poll_fetch(script, fetch_args, ctx):
+    waited = 0
+    while True:
+        rc, _ = sh(pyw(script, subst(fetch_args, ctx)), quiet=(waited > 0))
+        if rc == 0:
+            return 0
+        if waited >= BATCH_MAX_WAIT or DRY:
+            return rc
+        time.sleep(BATCH_POLL); waited += BATCH_POLL
+
+
+def run_worker_batch(stage, films, ctx):
+    r = stage["runner"]; script = r["script"]
+    pfa = subst(r.get("per_film_arg", ""), ctx).split() if r.get("per_film_arg") else []
+    rc, _ = sh(pyw(script, subst(r["submit_args"], ctx) + pfa))
+    if rc != 0:
+        return rc
+    return _batch_poll_fetch(script, r["fetch_args"] + (r.get("per_film_arg", "").split() if False else []), ctx) \
+        if r.get("per_film_arg") is None else _batch_poll_fetch(script, r["fetch_args"] + pfa, ctx)
+
+
+def run_worker_batch_chain(stage, films, ctx):
+    for step in stage["runner"]["steps"]:
+        script = step["script"]
+        if "submit_args" in step:  # the batch leg: submit then poll-fetch
+            rc, _ = sh(pyw(script, subst(step["submit_args"], ctx)))
+            if rc != 0:
+                return rc
+            rc = _batch_poll_fetch(script, step["fetch_args"], ctx)
+        else:                       # emit / resolve / load legs
+            rc, _ = sh(pyw(script, subst(step.get("args", []), ctx)))
+        if rc != 0:
+            return rc
+    return 0
+
+
+def run_sql_file(stage, films, ctx):
+    r = stage["runner"]; fn = r.get("fn")
+    if fn in SQLFILE_RPC:
+        arg = "" if fn in SQLFILE_RPC_NOARG else ctx["film_ids"]
+        if DRY:
+            print(f"      select public.factory_{fn}({arg});"); return 0
+        mgmt_query(f"select public.factory_{fn}({arg});"); return 0
+    # no matching RPC (e.g. curation_upsert_new) -> execute the SQL file body directly (idempotent upserts)
+    path = os.path.join(ROOT, r["script"])
+    body = subst(open(path).read(), ctx)
+    if DRY:
+        print(f"      exec {r['script']} ({len(body)} chars)"); return 0
+    mgmt_query(body); return 0
+
+
+def run_sql_ref(stage, films, ctx):
+    r = stage["runner"]; path = os.path.join(ROOT, r["canonical"])
+    if not os.path.exists(path):
+        print(f"      canonical SQL not found: {r['canonical']} -> park"); return 1
+    body = open(path).read()
+    if DRY:
+        print(f"      exec {r['canonical']} (first {r.get('header_blocks','all')} blocks)"); return 0
+    mgmt_query(body); return 0
+
+
+def run_rpc(stage, films, ctx):
+    r = stage["runner"]; fn = r["fn"]; a = r.get("args", [])
+    if a == "{film_ids}":
+        call = f"public.{fn}({ctx['film_ids']})"
+    elif a == "{dir_slugs}":
+        call = f"public.{fn}({text_array(ctx['dir_slugs'].split(',') if ctx['dir_slugs'] else [])})"
+    elif isinstance(a, list) and not a:
+        call = f"public.{fn}()"
+    else:
+        call = f"public.{fn}({', '.join(str(x) for x in a)})"
+    if DRY:
+        print(f"      select {call};"); return 0
+    mgmt_query(f"select {call};"); return 0
+
+
+def run_rpc_loop(stage, films, ctx):
+    r = stage["runner"]; fn = r["fn"]; a = r.get("args", [])
+    call = f"public.{fn}({', '.join(str(x) for x in a)})"
+    if DRY:
+        print(f"      loop select {call}; until remaining=0"); return 0
+    for _ in range(200):
+        row = q1(f"select {call} as r;")
+        rem = None
+        if isinstance(row, dict):
+            v = row.get("r")
+            if isinstance(v, dict):
+                rem = v.get("remaining")
+            elif isinstance(v, int):
+                rem = v
+        if rem in (0, None):
+            break
+    return 0
+
+
+def run_http(stage, films, ctx):
+    r = stage["runner"]; url = subst(r["url"], ctx)
+    # chunk films so paths+tags <= 20 per call
+    chunk = []
+    for i in range(0, len(films), 6):
+        chunk.append(films[i:i + 6])
+    for grp in chunk or [[]]:
+        paths, tags = [], []
+        for f in grp:
+            fctx = {"slug": f["slug"]}
+            for p in r["body"].get("paths", []):
+                paths.append(subst(p, fctx))
+            for t in r["body"].get("tags", []):
+                tags.append(subst(t, fctx))
+        body = {"secret": ctx["REVALIDATION_SECRET"], "paths": paths, "tags": tags}
+        if DRY:
+            print(f"      POST {url} paths={len(paths)} tags={len(tags)}"); continue
+        try:
+            req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
+                                         headers={"Content-Type": "application/json"})
+            urllib.request.urlopen(req, timeout=60).read()
+        except Exception as e:
+            print(f"      ! revalidate error: {e}")
+    return 0
+
+
+def run_internal(stage, films, ctx):
+    sid = stage["id"]
+    if sid == "S56-warm":
+        for f in films:
+            u = f"https://metatake.net/film/{f['slug']}?__f={int(time.time()) if not DRY else 0}"
+            if DRY:
+                print(f"      GET {u}"); continue
+            try:
+                urllib.request.urlopen(urllib.request.Request(
+                    u, headers={"User-Agent": "MetatakeBot/1.0 (+https://metatake.net/bot)"}), timeout=45).read()
+            except Exception:
+                pass
+    # S01/S18/S58/S59 are report-only (S59 handled by cmd_run finalizer)
+    return 0
+
+
+DISPATCH = {
+    "internal": run_internal, "shell": run_shell, "shell_seq": run_shell_seq,
+    "shell_node": lambda s, f, c: sh([NODE, os.path.join(ROOT, s["runner"]["script"])] +
+                                     subst(s["runner"].get("args", []) if isinstance(s["runner"].get("args"), list)
+                                           else [s["runner"].get("args", "")], c))[0],
+    "worker_batch": run_worker_batch, "worker_batch_chain": run_worker_batch_chain,
+    "worker_batch_multi": run_worker_batch_chain, "sql_file": run_sql_file, "sql_ref": run_sql_ref,
+    "rpc": run_rpc, "rpc_loop": run_rpc_loop, "http": run_http,
+    "shell_then_rpc": lambda s, f, c: run_rpc({"runner": {"fn": s["runner"]["small"]["fn"], "args": []}}, f, c)
+        if len(f) < 50 else sh(pyw(s["runner"]["big"]["script"], []))[0],
+    "shell_conditional": lambda s, f, c: run_shell_seq(
+        {"runner": {"steps": [st for st in s["runner"]["steps"] if st.get("when") == "always"]}}, f, c),
+}
+
+
+def verify_stage(stage, films):
+    vs = stage.get("verify_sql")
+    if not vs:
+        return {"checked": 0, "ok": 0, "bad": 0, "bad_slugs": []}
+    ok = bad = 0; bad_slugs = []
+    for f in films:
+        sql = vs.replace("{film_id}", f["film_id"]).replace("{slug}", f["slug"])
+        try:
+            row = q1(f"select ({sql}) as v;")
+            if row and row.get("v"):
+                ok += 1
+            else:
+                bad += 1; bad_slugs.append(f["slug"])
+        except Exception:
+            bad += 1; bad_slugs.append(f["slug"])
+    return {"checked": ok + bad, "ok": ok, "bad": bad, "bad_slugs": bad_slugs[:20]}
+
+
 def cmd_run(a):
-    print("factory.py run — executes the manifest on the Mac.")
-    print("LLM stages (external=anthropic_*) require Anthropic egress + real spend;")
-    print("the sandbox blocks egress, so run is invoked by the owner via run-factory-run.command.")
-    print("\nControl-plane is live now — use: status, gaps, plan, verify, review, garden-queue, lint.")
-    print("See HANDOFF-영화공장.md §6 for the run algorithm the Mac executes.")
+    global DRY
+    DRY = bool(getattr(a, "dry_run", False))
+    m = load_manifest()
+    errs = lint(m)
+    if errs:
+        print("⚠️ manifest lint errors (fix first):")
+        for e in errs:
+            print("  -", e)
+        if not DRY:
+            sys.exit(1)
+    run_id = a.run or (q1("select max(id) id from factory.runs where status in ('planning','queued','running')") or {}).get("id")
+    if not run_id:
+        print("no run to execute. `factory.py plan --write` first."); return
+    run, films = run_load(run_id)
+    if not run:
+        print(f"run #{run_id} not found."); return
+
+    # --films filter + --from / --only
+    if a.films:
+        want = set(a.films.split(","))
+        films = [f for f in films if f["slug"] in want]
+    stages = stages_sorted(m)
+    order_of = {s["id"]: i for i, s in enumerate(stages)}
+    if a.only:
+        stages = [s for s in stages if s["id"] == a.only or s["id"].split("-")[0] == a.only]
+    elif a.from_:
+        start = order_of.get(a.from_)
+        if start is None:
+            start = next((i for i, s in enumerate(stages) if s["id"].split("-")[0] == a.from_), 0)
+        stages = stages[start:]
+
+    full = [f for f in films if f["tier"] == "full"]; cat = [f for f in films if f["tier"] == "catalog"]
+    est, _ = estimate_cost(m, len(full), len(cat))
+    gate = m.get("cost_gate_usd_default", 50)
+    print(f"\n=== FACTORY RUN #{run_id} {'(DRY)' if DRY else ''} ===")
+    print(f"films: {len(films)} ({len(full)} full, {len(cat)} catalog) | stages: {len(stages)} | est ${est:.2f} (gate ${gate})")
+    if not films:
+        print("no resolved films in this run — run S02-resolve or check intake.");
+    if est > gate and not a.yes and not DRY:
+        print(f"\n⚠️ COST GATE ${est:.2f} > ${gate}. Re-run with --yes to authorize the spend."); return
+    if not DRY:
+        mgmt_query(f"update factory.runs set status='running', started_at=coalesce(started_at,now()), "
+                   f"film_count={len(films)} where id={run_id};")
+
+    extra = {"dir_slugs": [], "new_urls": [f"https://metatake.net/film/{f['slug']}" for f in films]}
+    total_cost = 0.0; parked = []
+    for s in stages:
+        sid = s["id"]; rtype = s["runner"].get("type")
+        sfilms = stage_films(s, films)
+        # skip conditions
+        if s.get("enabled") is False:
+            print(f"\n[{sid}] disabled — skip"); ledger(run_id, sid, "skipped"); continue
+        if s.get("blocked_by") or s["runner"].get("needs_scoping_patch") and rtype in ("worker_batch_multi",):
+            if s.get("blocked_by"):
+                print(f"\n[{sid}] BLOCKED ({s['blocked_by'][:50]}) — skip+park"); ledger(run_id, sid, "skipped", error=s["blocked_by"]); continue
+        if sid in DEFER_CORPUS and not getattr(a, "with_corpus", False):
+            print(f"\n[{sid}] deferred corpus (use --with-corpus) — skip"); ledger(run_id, sid, "skipped"); continue
+        if s.get("class") == "per_director" and sid != "S30-dir-detect" and not extra["dir_slugs"]:
+            print(f"\n[{sid}] no new directors — skip"); ledger(run_id, sid, "skipped"); continue
+        if s.get("class") in ("per_film", "per_director") and not sfilms and sid != "S02-resolve":
+            print(f"\n[{sid}] no applicable films for tier {s.get('tier')} — skip"); continue
+
+        print(f"\n[{sid}] {s['title']}  ({rtype}, {len(sfilms)} films)")
+        ledger(run_id, sid, "running")
+        # W0 resolve is special (fills intake.film_id, may change `films`)
+        if sid == "S02-resolve":
+            rc, cost = stage_resolve(run_id, m)
+            if not DRY:
+                run, films = run_load(run_id)  # reload after resolve
+                if a.films:
+                    films = [f for f in films if f["slug"] in set(a.films.split(","))]
+                extra["new_urls"] = [f"https://metatake.net/film/{f['slug']}" for f in films]
+        else:
+            ctx = build_ctx(run_id, sfilms, extra)
+            fn = DISPATCH.get(rtype)
+            if not fn:
+                print(f"      (unknown runner type {rtype}) — park"); ledger(run_id, sid, "parked", error=f"unknown runner {rtype}"); parked.append(sid); continue
+            try:
+                rc = fn(s, sfilms, ctx)
+            except Exception as e:
+                rc = 1; print(f"      ! exception: {e}")
+            cost = (s.get("cost", {}).get("usd_per_film_est", 0) or 0) * (len(sfilms) if s.get("class") not in ("corpus", "publication") else 1)
+        # capture new directors after detect stage, for downstream {dir_slugs}
+        if sid == "S30-dir-detect" and not DRY:
+            nd = mgmt_query("select slug from factory._new_directors_scratch;") if False else []
+            # detect_new_directors returns the list; re-query director artifacts gap
+            rows = mgmt_query(f"""select distinct d.slug from public.directors d
+                join public.films f on f.director_slug=d.slug
+                where f.id = any({build_ctx(run_id, sfilms)['film_ids']})
+                  and not exists(select 1 from public.director_portrait p where p.director_slug=d.slug);""") if sfilms else []
+            extra["dir_slugs"] = [r["slug"] for r in rows]
+            print(f"      new directors: {extra['dir_slugs'] or 'none'}")
+
+        # verify gate (per applicable film)
+        v = verify_stage(s, sfilms) if not DRY else {"checked": 0, "ok": 0, "bad": 0, "bad_slugs": []}
+        status = "done" if rc == 0 else "failed"
+        if rc == 0 and v["bad"]:
+            status = "partial"
+        if rc != 0:
+            pol = s.get("failure_policy", "park")
+            if pol == "abort_run":
+                ledger(run_id, sid, "failed", cost=cost, verify=v)
+                print(f"      ✗ ABORT (failure_policy=abort_run). Fix and resume: factory.py run --run {run_id} --from {sid}")
+                mgmt_query(f"update factory.runs set status='failed' where id={run_id};") if not DRY else None
+                return
+            status = "parked"; parked.append(sid)
+        total_cost += cost
+        ledger(run_id, sid, status, cost=cost, verify=v)
+        mark = {"done": "✓", "partial": "◐", "parked": "▲", "failed": "✗"}.get(status, "·")
+        vtxt = f" verify ok={v['ok']} bad={v['bad']}" + (f" {v['bad_slugs']}" if v["bad"] else "") if v["checked"] else ""
+        print(f"      {mark} {status} ${cost:.3f}{vtxt}")
+
+    # ---- finalize (S59) ----
+    run2, films2 = run_load(run_id)
+    bar = run_quality_report(films2)
+    report = report_md(run_id, films2, bar, total_cost, parked)
+    if not DRY:
+        os.makedirs(LOGDIR, exist_ok=True)
+        open(os.path.join(LOGDIR, f"run-{run_id}.md"), "w").write(report)
+        mgmt_query(f"update factory.runs set status='done', finished_at=now(), "
+                   f"actual_cost_usd={total_cost:.2f}, report_md={sql_lit(report)} where id={run_id};")
+        mgmt_query(f"update factory.intake set status='done' where run_id={run_id} and film_id is not null;")
+    print(f"\n=== RUN #{run_id} {'DRY-COMPLETE' if DRY else 'DONE'} — est/actual ${total_cost:.2f}"
+          f"{(' | parked: ' + ','.join(parked)) if parked else ''} ===")
+    print(report)
+
+
+def run_quality_report(films):
+    if not films:
+        return []
+    ids = uuid_array([f["film_id"] for f in films])
+    rows = mgmt_query(f"""select f.slug,
+        (select count(*) from figures g where g.film_id=f.id and g.status='approved') figures,
+        (select count(*) from takes tk join figures g on g.id=tk.figure_id where g.film_id=f.id and tk.framework is not null and tk.status='published') misreadings,
+        (select count(*) from takes tk join figures g on g.id=tk.figure_id where g.film_id=f.id and tk.theorist_name is not null and tk.theorist_id is null and tk.status='published') theorist_unlinked,
+        (select count(*) from film_affinities a where a.film_id=f.id) movies_like,
+        (select count(*) from film_sentences s where s.film_id=f.id) fantasia,
+        exists(select 1 from film_asset a where a.film_id=f.id) why_watch,
+        (select count(*) from film_next n where n.source_film_id=f.id) watch_next,
+        exists(select 1 from cinecodex.scores s where s.film_id=f.id) takescore,
+        (f.visible and f.is_analyzed and not coalesce(f.hold,false)) live
+        from public.films f where f.id = any({ids}) order by f.slug;""")
+    return rows
+
+
+def report_md(run_id, films, bar, cost, parked):
+    L = [f"# Factory run #{run_id}", "", f"films: {len(films)} · actual ${cost:.2f}"]
+    if parked:
+        L.append(f"parked stages: {', '.join(parked)}")
+    L += ["", "| slug | figs | misr | thUnlinked | ml | fant | why | next | TS | LIVE |",
+          "|---|---|---|---|---|---|---|---|---|---|"]
+    for r in bar:
+        L.append(f"| {r['slug']} | {r['figures']} | {r['misreadings']} | {r['theorist_unlinked']} | "
+                 f"{r['movies_like']} | {r['fantasia']} | {'✓' if r['why_watch'] else '·'} | {r['watch_next']} | "
+                 f"{'✓' if r['takescore'] else '·'} | {'✓' if r['live'] else '✗'} |")
+    incomplete = [r["slug"] for r in bar if not (r["live"] and r["figures"] >= 3 and r["fantasia"] > 0
+                  and r["why_watch"] and r["watch_next"] > 0 and r["theorist_unlinked"] == 0)]
+    L += ["", ("⚠️ incomplete (re-run): " + ", ".join(incomplete)) if incomplete else "✅ all films pass the quality bar."]
+    return "\n".join(L)
 
 
 def cmd_lint(a):
@@ -360,10 +894,11 @@ def main():
     pe = sub.add_parser("enqueue"); pe.add_argument("csv"); pe.add_argument("--tier", default="full"); pe.set_defaults(fn=cmd_enqueue)
     pp = sub.add_parser("plan"); pp.add_argument("--run", type=int); pp.add_argument("--write", action="store_true"); pp.set_defaults(fn=cmd_plan)
     pr = sub.add_parser("review"); pr.add_argument("--approve-all-high", action="store_true", dest="approve_all_high"); pr.add_argument("--decide"); pr.set_defaults(fn=cmd_review)
-    prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--yes", action="store_true"); prun.set_defaults(fn=cmd_run)
+    prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--yes", action="store_true"); prun.add_argument("--dry-run", action="store_true", dest="dry_run"); prun.add_argument("--with-corpus", action="store_true", dest="with_corpus"); prun.set_defaults(fn=cmd_run)
     ps = sub.add_parser("status"); ps.add_argument("--run", type=int); ps.add_argument("--limit", type=int, default=50); ps.set_defaults(fn=cmd_status)
     pv = sub.add_parser("verify"); pv.add_argument("--run", type=int); pv.add_argument("--films"); pv.set_defaults(fn=cmd_verify)
     pg = sub.add_parser("gaps"); pg.add_argument("--days", type=int, default=30); pg.add_argument("--json", action="store_true"); pg.set_defaults(fn=cmd_gaps)
+    pq = sub.add_parser("queue"); pq.set_defaults(fn=cmd_queue)
     pgq = sub.add_parser("garden-queue"); pgq.set_defaults(fn=cmd_garden)
     pl = sub.add_parser("lint"); pl.set_defaults(fn=cmd_lint)
     a = p.parse_args()

@@ -1,5 +1,23 @@
 # 영화공장 — IMPLEMENTATION NOTES for `factory.py run` (the automated executor)
 
+> ## ✅ BUILT 2026-07-12 — `worker/factory.py run` now implements everything below.
+> Dry-run verified end-to-end against the pig film's run #3 (47 stages plan + substitute + verify-bar
+> report). Pieces shipped this session:
+> - **`factory.py run`** — full executor: manifest-driven stage loop, per-runner-type dispatch
+>   (internal/shell/shell_seq/worker_batch/worker_batch_chain/sql_file→RPC/rpc/rpc_loop/http/
+>   shell_node/shell_conditional/shell_then_rpc), **ledger** (`factory.stage_runs` status+cost+verify),
+>   **verify gate at completion**, **failure_policy** (abort_run/park/retry), **cost gate** (>$50→--yes),
+>   **W0 resolve + exists-stub promotion** (fills intake.film_id, flags `source='promotion'`),
+>   **batch-vs-sync** (submit→poll-fetch loop), **parallelism** (per-film HTTP fan-out pool of 6;
+>   batch-combine + corpus-once inherent), **`--dry-run` / --from / --only / --films / --with-corpus**,
+>   and a per-film **quality-bar report** → `runs.report_md` + `factory/logs/run-N.md`.
+> - **`factory.py queue`** + **`factory_queue_run()` RPC** (mig 0084) + **`/admin/factory` "▶ Queue a run"
+>   button** — status-only trigger; the Mac watcher executes (plane separation preserved).
+> - **`worker/factory-watch.sh`** — polls `factory.runs` for `status='queued'` (mig 0083 added the status),
+>   claims (queued→running), runs the executor. This is the "put it in admin → it runs" enabler.
+> - **Zero Claude tokens**: the executor is plain Python; only the worker scripts spend, on their own keys.
+> The sections below are the design record the build followed (kept for the next coder / Sentinel).
+
 **Purpose.** The pilot (2026-07-12) was driven **by hand** through `factory/RUN-PLAYBOOK.md` and
 worked (3 films → live Tier-1). This file records what the *automated* executor must do so a future
 coder can build `factory.py run` — so pasting **dozens of films at once** runs them **in parallel** at
@@ -169,23 +187,25 @@ don't need a human doing `cp`:
   `promote` path distinct from `new`, and MUST clear `hold` before figures can open the film. Also confirms
   a large share of "new" titles will actually be stub-promotions, so the resolve→exists→promote branch is
   a first-class flow, not an edge case.
-- **2026-07-12 (same film, run watched to completion in another terminal panel):** the run reached
-  `analyzed-flip` and the film **OPENED to Tier-1** (hold=false, visible, analyzed — the §A3 trap resolved
-  itself once the run hit analyzed-flip, exactly as predicted). BUT a full-quality-bar check showed the run
-  **silently SKIPPED 4 stages** — a partial completion that still "looks done" (film is live):
-  - ❌ **theorist_id resolution** — 6 takes have `theorist_name` but `theorist_id=0` → the film is missing
-    from all `/theorist` pages. (The name→id match step is not a worker; it must be an explicit executor step.)
-  - ❌ **S28 sentence-refresh with the NEW takes** — Fantasia shows only the 29 OLD sentences
-    (`{D_award:2, F_compare:27}`); the ~100 connection sentences (A/B/C/G/I/L/M/N — which need the new
-    framework takes) were never generated. A stub-promote MUST re-run S28 after boldtake.
-  - ❌ **asset (why-watch)** and ❌ **next (watch-next)** — never ran (why_watch=false, watch_next=0).
-  - ✅ what it DID get: 9 figures · 15 misreadings · 5 tropes · 24 movies-like · 1 location · TakeScore ·
-    to.W · lineage 2 rows (canon film — so D_award sentences + a real to.W verdict, unlike the 2025 pilots).
-  **THE LESSON (why the executor matters):** a hand-run terminal — even a good one — skips stages silently
-  and leaves a film at ~70% quality that still renders. `factory.py run` MUST (1) enforce the full stage
-  list from the manifest, (2) run the **final `verify` = the quality-bar SELECT** and PARK/report any film
-  that misses a stage, so "done" means the whole bar, not just "the page renders." The verify gate is not
-  optional polish — it is the thing that turns a lossy hand-run into a reproducible one.
-- **Pattern-coverage note:** the old sentence build has **F_compare** (runtime-vs-same-director), which the
-  2026-07-12 factory reconstruction (`factory/sql/sentence_patterns.sql`) does NOT yet include — it did
-  A/B/C/G/H/I/D/L/M/N (10) and skipped E_rank + F_compare. Add those two for full Fantasia parity.
+- **2026-07-12 (same film, run watched LIVE in another panel — an executor being built + tested):** the
+  run used the **factory ledger** (`factory.runs #3`, `factory.intake #5`) and **correctly stamped the film
+  `source='promotion'`** — so §A3 (a distinct promote path) is already being implemented by whoever is
+  coding the executor. It also added a custom **`S27b_theory_link`** stage (fixing the theorist gap I flagged).
+  The film **opened to Tier-1** at analyzed-flip and reached **essentially the full quality bar**:
+  9 figures · 15 misreadings · **theorist 6/6 linked** · 5 tropes · 24 movies-like · **Fantasia 88 sentences
+  (A/B/C/G/I/L/M/N via the reconstructed `factory/sql/sentence_patterns.sql`)** · 1 location · **watch-next 9**
+  · **why-watch ✓** · TakeScore · to.W · director portrait · lineage 2 (canon → D_award + real verdict).
+  - ⚠️ **CRITICAL OBSERVATION-METHOD LESSON (I got this wrong first):** I checked the quality bar **mid-run**
+    (~05:20) and wrongly concluded the run had "skipped 4 stages" (theorist_id=0, sentences=29, watch_next=0,
+    why_watch=false). By 05:36 those stages had run and everything landed. **A mid-run snapshot yields
+    false-negative "missing stage" verdicts.** → The executor's `verify` gate MUST run **at run COMPLETION**
+    (status flips to done), never against an in-flight run; and an observer must key off `factory.runs.status`
+    before judging completeness. This false alarm is itself the lesson: *stage-in-progress looks identical to
+    stage-skipped from a single DB snapshot.* The ledger `stage_runs.status` + `verify_result` is the only
+    reliable "is this stage really done + correct" signal — which is exactly why every stage must write it.
+  - This run also confirms the reconstructed sentence engine works on a real film with lineage (D_award
+    fires) and different theorists — 88 sentences, all patterns except E_rank/F_compare (see below).
+- **Pattern-coverage note:** the old sentence build has **F_compare** (runtime-vs-same-director) — present
+  on this film (27 old rows) — which the 2026-07-12 reconstruction (`factory/sql/sentence_patterns.sql`) does
+  NOT yet include; it did A/B/C/G/H/I/D/L/M/N (10) and skipped **E_rank + F_compare**. Add those two for full
+  Fantasia parity (E_rank needs `film_ratings`; F_compare needs same-director runtimes).
