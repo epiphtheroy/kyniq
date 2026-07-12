@@ -1,28 +1,26 @@
 const body = `
 # What is a masterpiece, operationally?
 
-Somewhere around the four-thousandth film, the question stopped being rhetorical. "What is a masterpiece?" is a seminar question right up until you are responsible for a number printed next to [Jeanne Dielman](/film/jeanne-dielman-23-quai-du-commerce-1976) — three and a half hours of a woman peeling potatoes and making the beds, and also, on the most recent [Sight & Sound](/methodology/lineage-selection) critics' poll, the greatest film ever made. At that point the question becomes a design decision, and design decisions have consequences you have to live with in public.
+I gave Shoah three and a half stars. Nine and a half hours of testimony about the extermination of Europe's Jews, a film with a serious claim to being the gravest thing the medium has ever produced, and my log files it at the same mark it hands to eighty-odd other films. The instrument this site runs returned a different verdict: [Shoah](/film/shoah-1985) scores 91 on the Value axis, the highest V I have ever personally sat all the way through. Whatever the word masterpiece is going to mean around here, it has to be able to survive that gap.
 
-I should be honest about how I resolved it: I didn't. I refused to.
+## Measuring without naming
 
-## The definition I never shipped
+The tidy move would have been a definition: a masterpiece is any film above such-and-such a line. We never wrote one. Every draft I tried either promoted my own taste to a law of nature or was loose enough to admit anything with good lighting and a dead parent. So the site does something narrower. It measures value one film at a time, publishes the number, and declines to say the word at all. [TakeScore](/methodology/takescore) will give you a film's V to the point; what to call the film is left to happen, or not, in the reader.
 
-I drafted definitions. Each one embarrassed me within a week. "A film of the first rank in form and vision" — true, useless, quietly circular. "A masterpiece rewards rewatching" — so does a competent procedural. Every definition either smuggled in my own taste as if it were a law of nature, or was general enough to be worthless. A rule that files [City Lights](/film/city-lights-1931), [Stalker](/film/stalker-1979) and [Shoah](/film/shoah-1985) under one property is not describing a feature of films; it is describing my affection for them.
+Once I began holding my own log against the measurements, I noticed the word does not arrive from one direction. It arrives from three, and they feel nothing alike.
 
-So instead of defining the word, I fixed three ways a score is allowed to *behave*, and let the word fend for itself.
+## Three directions
 
-## Three rules, no definition
+Agreement first. [Fanny and Alexander](/film/fanny-and-alexander-1982) carries five stars in my log and an 88 from the instrument. My hand and the ruler said yes to the same film, and the yes is easy to inhabit: Bergman's entire theatre of childhood, the enormous Ekdahl Christmas giving way to the bishop's scrubbed and loveless house, a magic lantern throwing pictures on a nursery wall as if to explain the whole art form with one toy.
 
-**No film is scored against another.** Each is judged on its own terms against a fixed set of reference points, never against the film beside it on a list. This sounds obvious and isn't — the entire ranking industry runs the other way. The cost is real: I gave up the one thing rankings are *for*, the satisfying and slightly false clarity of "this beats that." The gain is that a film's number does not lurch when its neighbours change.
+[Secret Sunshine](/film/secret-sunshine-2007) is agreement of a quieter kind. Four and a half from me, 85 from the instrument, which under our own rule is enough for the word essential with no committee behind it. A grieving mother in a provincial Korean city visits the prison to forgive her son's murderer and discovers that his God has already forgiven him, beaten her to the one act she had left. The scene stands with anything in the medium, and the word arrived for me with almost nobody else in the room. Agreement, it turns out, does not require witnesses.
 
-**The scale hoards its ceiling.** Value can reach 100; almost nothing does. Across the whole catalogue the single highest net score belongs to [Tokyo Story](/film/tokyo-story-1953), and it sits at 86 — not 99, not a round hundred. (I know the figure because I had to compute it for all 6,701 scored films; the machinery is set out under [TakeScore](/methodology/takescore).) A scale where the masterpieces pile up at the top has quietly stopped measuring and started applauding.
+Then there is love alone. Ninety-eight films in my log wear five stars, and the instrument follows only a fraction of them to the summit. For the rest, masterpiece is a word I say privately, and the score's refusal to say it back is information about me that I have chosen to publish.
 
-**A masterpiece is a shape, not a threshold.** There is no line a film crosses to become one. There is a distribution, and a small number of films — the [Ozus](/film/an-autumn-afternoon-1962), the [Bressons](/film/au-hasard-balthazar-1966), the [Dreyers](/film/the-passion-of-joan-of-arc-1928) — that hold the very top of it, and then a long, honest slope down through the merely very good.
+## Nine and a half hours, three and a half stars
 
-## What the refusal costs
+Which leaves the direction I opened with: measurement alone, the word arriving over my objection. My three and a half stars are the record of a viewer who resisted, drifted, and kept waiting for a relief the film had decided against. Shoah uses no archival footage; it asks the catastrophe to surface in present-day landscapes and living memory, and the refusal is the form. Difficulty, in our accounting, is a price and never a deduction, so the 91 stands unbothered beside my rating, and the film's page shows both numbers without blending them. The gap between them is the most instructive thing on the page.
 
-I am not sure it was the right call. Declining to define the word means the site can never say, cleanly, "this is a masterpiece." It can only show you a high number, a body of readings, and let you draw your own line. Some readers want the line drawn, and they are not wrong to: there is a genuine service in a critic saying the word and standing behind it, and I have opted out of that service in exchange for not overstating.
-
-And the refusal hides an asymmetry I still don't love. It spares me the embarrassment of a bad definition — but it also lets me dodge the harder task of actually holding a theory of value. "It's a distribution" is, if I am honest, half an answer and half an evasion. There is a trope our own readings keep finding, [*The Critic's Verdict As Unwitting Confession*](/trope/the-critic-s-verdict-as-unwitting-confession) — the idea that what a critic praises or damns is really a confession about the critic — and I am aware that "I refuse to define a masterpiece" is exactly that kind of sentence. Jeanne Dielman still gets her number. I still cannot tell you in one sentence what it means. I can only tell you how it was made, and the two things I promised it would never do.
+A star rating is textbook [Praise Word as Critic's Confession](/trope/praise-word-as-critic-s-confession): it deposes the person who typed it long before it describes the film. Mine testifies that there is at least one masterpiece I could measure and could not love, which embarrasses me in exactly the way a working instrument should. In the film's most famous passage, Abraham Bomba, who cut women's hair inside the gas chamber at Treblinka, tells what he saw while trimming a customer's hair in a Tel Aviv barbershop; when he breaks and begs to stop, Lanzmann quietly presses him on, and the scissors keep moving.
 `;
 export default body;
