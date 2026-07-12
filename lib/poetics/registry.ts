@@ -20,7 +20,7 @@ export const POE_CATEGORIES: PoeCategory[] = [
 
 export const POE_ESSAYS: PoeEssay[] = [
   // On value
-  { slug: "what-is-a-masterpiece", category: "value", nav: "What is a masterpiece?", title: "What is a masterpiece, operationally?", desc: "We had to put a number next to Jeanne Dielman. Here's why we refused to define the word — and what the refusal cost." },
+  { slug: "what-is-a-masterpiece", category: "value", nav: "What is a masterpiece?", title: "What is a masterpiece, operationally?", desc: "The highest value I have ever measured belongs to a film I rated three and a half stars. Why we refused to define the word." },
   { slug: "can-value-be-scored", category: "value", nav: "Can value be scored?", title: "Can the value of a film be scored at all?", desc: "A defence of measurement scepticism, and the dashboard we built instead of a single blended number." },
   { slug: "the-anatomy-of-disappointment", category: "value", nav: "Anatomy of disappointment", title: "An anatomy of disappointment", desc: "We split the ways a film fails into four — and kept 'divisive' carefully apart from 'bankrupt.'" },
   { slug: "difficulty-is-a-price", category: "value", nav: "Difficulty is a price", title: "Difficulty is a price, not a virtue", desc: "Why a hard film earns nothing for being hard, and how we priced difficulty as a cost rather than a merit." },
