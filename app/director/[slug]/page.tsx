@@ -625,7 +625,11 @@ export default async function DirectorPage({ params }: Props) {
               </div>
             </div>
             <p className="dr-tow-lead">
-              {standing.lead}{standing.auteur ? ` ${standing.auteur}` : ""}
+              {standing.lead}{standing.ratio ? ` ${standing.ratio}` : ""}{standing.auteur ? ` ${standing.auteur}` : ""}
+            </p>
+            <p className="dr-tow-metric">
+              <b>{curation.n_reco}</b> of the <b>{curation.n_total}</b> {curation.n_total === 1 ? "film" : "films"} we hold reward a cinephile
+              {curation.reco_pct != null ? <> · <b>{curation.reco_pct}%</b></> : null}
             </p>
             {curation.rec_since ? (
               <p className="dr-tow-recd">In the Metatake index since {curation.rec_since}</p>
@@ -635,10 +639,9 @@ export default async function DirectorPage({ params }: Props) {
               <Link href="/editor" className="dr-tow-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
             </div>
             <div className="dr-tow-tags">
-              {curation.essential > 0 ? <span className="dr-tow-tag dr-tow-tag--essential">{curation.essential} essential</span> : null}
-              {curation.start_here > 0 ? <span className="dr-tow-tag dr-tow-tag--start">{curation.start_here} start here</span> : null}
-              {curation.deep_cut > 0 ? <span className="dr-tow-tag dr-tow-tag--deep">{curation.deep_cut} deep {curation.deep_cut === 1 ? "cut" : "cuts"}</span> : null}
-              {curation.popular_not_cinephile > 0 ? <span className="dr-tow-tag">{curation.popular_not_cinephile} popular</span> : null}
+              {curation.n_essential > 0 ? <span className="dr-tow-tag dr-tow-tag--essential">{curation.n_essential} essential</span> : null}
+              {curation.n_start > 0 ? <span className="dr-tow-tag dr-tow-tag--start">{curation.n_start} start here</span> : null}
+              {curation.n_deep > 0 ? <span className="dr-tow-tag dr-tow-tag--deep">{curation.n_deep} deep {curation.n_deep === 1 ? "cut" : "cuts"}</span> : null}
             </div>
             {curation.exemplars.length > 0 ? (
               <p className="dr-tow-eg">
