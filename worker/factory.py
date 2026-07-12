@@ -653,8 +653,29 @@ def _batch_poll_fetch(script, fetch_args, ctx):
         time.sleep(BATCH_POLL); waited += BATCH_POLL
 
 
+FORCE_SYNC = False  # --sync: replace every Batch-API leg with realtime /v1/messages calls
+SYNC_UNDER = int(os.environ.get("FACTORY_SYNC_UNDER", "5"))  # auto-realtime for runs this small (owner rule: tests/pilots sync, bulk batch)
+
+
+def sync_mode(films):
+    return FORCE_SYNC or len(films) <= SYNC_UNDER
+
+
+def _out_of(argv):
+    """the --out NAME a submit leg targets (already substituted)."""
+    return argv[argv.index("--out") + 1] if "--out" in argv else None
+
+
 def run_worker_batch(stage, films, ctx):
     r = stage["runner"]; script = r["script"]
+    if sync_mode(films) and r.get("sync"):
+        # realtime twin (e.g. S10: film-extract.py is the sync worker of film-extract-batch.py)
+        sy = r["sync"]; a = list(subst(sy.get("args", []), ctx))
+        for f in films:
+            a += [sy.get("per_film_flag", "--film"), f["slug"]]
+        print("      (realtime sync — no Batch API)")
+        rc, _ = sh(pyw(sy["script"], a))
+        return rc
     pfa = subst(r.get("per_film_arg", ""), ctx).split() if r.get("per_film_arg") else []
     rc, _ = sh(pyw(script, subst(r["submit_args"], ctx) + pfa))
     if rc != 0:
@@ -666,11 +687,20 @@ def run_worker_batch(stage, films, ctx):
 def run_worker_batch_chain(stage, films, ctx):
     for step in stage["runner"]["steps"]:
         script = step["script"]
-        if "submit_args" in step:  # the batch leg: submit then poll-fetch
-            rc, _ = sh(pyw(script, subst(step["submit_args"], ctx)))
-            if rc != 0:
-                return rc
-            rc = _batch_poll_fetch(script, step["fetch_args"], ctx)
+        if "submit_args" in step:  # the batch leg: submit then poll-fetch — or realtime in sync mode
+            sub = subst(step["submit_args"], ctx)
+            out = _out_of(sub)
+            if sync_mode(films) and out:
+                # every *-batch.py fetch writes {"slug": custom_id, <keys straight out of the parsed
+                # model JSON>} — realtime-batch.py writes a superset of that line, so the load/resolve
+                # legs consume it unchanged. Full price (no 50%), zero batch latency: test runs only.
+                print("      (realtime sync — no Batch API)")
+                rc, _ = sh(pyw("worker/realtime-batch.py", ["--out", out]))
+            else:
+                rc, _ = sh(pyw(script, sub))
+                if rc != 0:
+                    return rc
+                rc = _batch_poll_fetch(script, step["fetch_args"], ctx)
         else:                       # emit / resolve / load legs
             rc, _ = sh(pyw(script, subst(step.get("args", []), ctx)))
         if rc != 0:
@@ -834,8 +864,9 @@ def salvage_stage(s, films, bad_slugs, run_id):
 
 
 def cmd_run(a):
-    global DRY
+    global DRY, FORCE_SYNC
     DRY = bool(getattr(a, "dry_run", False))
+    FORCE_SYNC = bool(getattr(a, "sync", False))
     m = load_manifest()
     errs = lint(m)
     if errs:
@@ -1097,7 +1128,7 @@ def main():
     pin = sub.add_parser("ingest"); pin.add_argument("path", nargs="?", default="-"); pin.add_argument("--tier", default="full"); pin.set_defaults(fn=cmd_ingest)
     pp = sub.add_parser("plan"); pp.add_argument("--run", type=int); pp.add_argument("--write", action="store_true"); pp.set_defaults(fn=cmd_plan)
     pr = sub.add_parser("review"); pr.add_argument("--approve-all-high", action="store_true", dest="approve_all_high"); pr.add_argument("--decide"); pr.set_defaults(fn=cmd_review)
-    prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--adhoc", help="repair mode: run stage(s) on existing films by slug, no --run needed (spans prior runs)"); prun.add_argument("--yes", action="store_true"); prun.add_argument("--dry-run", action="store_true", dest="dry_run"); prun.add_argument("--with-corpus", action="store_true", dest="with_corpus"); prun.set_defaults(fn=cmd_run)
+    prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--adhoc", help="repair mode: run stage(s) on existing films by slug, no --run needed (spans prior runs)"); prun.add_argument("--yes", action="store_true"); prun.add_argument("--sync", action="store_true", help="realtime /v1/messages instead of Batch API for every LLM leg (tests; full price, no 50%% discount). Auto for runs <= FACTORY_SYNC_UNDER films (default 5)"); prun.add_argument("--dry-run", action="store_true", dest="dry_run"); prun.add_argument("--with-corpus", action="store_true", dest="with_corpus"); prun.set_defaults(fn=cmd_run)
     ps = sub.add_parser("status"); ps.add_argument("--run", type=int); ps.add_argument("--limit", type=int, default=50); ps.set_defaults(fn=cmd_status)
     pv = sub.add_parser("verify"); pv.add_argument("--run", type=int); pv.add_argument("--films"); pv.set_defaults(fn=cmd_verify)
     pg = sub.add_parser("gaps"); pg.add_argument("--days", type=int, default=30); pg.add_argument("--json", action="store_true"); pg.set_defaults(fn=cmd_gaps)
