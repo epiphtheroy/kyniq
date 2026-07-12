@@ -203,6 +203,9 @@ export default async function FilmCreditsPage({ params }: Props) {
 
       <ReadHero
         film={{ title: film.title, slug: film.slug, year: film.year }}
+        sharePath={`/film/${film.slug}/credits`}
+        shareTitle={`Who made ${titleYear}?`}
+        shareHook={dekText(data)}
         crumbTail="Credits"
         chip={<><Link href="/credits" style={{ color: "inherit", textDecoration: "none" }}>Credits</Link>{" · "}who made it, counted</>}
         meta={<>{crew.length} key crafts · {companies.length} companies · data from TMDB</>}

@@ -215,6 +215,9 @@ export default async function WhereToPage({ params }: Props) {
 
       <ReadHero
         film={{ title: film.title, slug: film.slug, year: film.year }}
+        sharePath={`/whereto/${film.slug}`}
+        shareTitle={`Where to watch ${titleYear}`}
+        shareHook={dekText(film.title, report)}
         crumbTail="Where to watch"
         chip={<><Link href="/where-to-watch" style={{ color: "inherit", textDecoration: "none" }}>Where to Watch</Link>{" · "}beyond the matrix</>}
         meta={<>{report.nCountries} countries{report.updated ? ` · updated ${report.updated}` : ""}</>}

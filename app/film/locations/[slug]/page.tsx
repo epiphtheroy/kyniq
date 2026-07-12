@@ -377,6 +377,9 @@ export default async function FilmLocationsPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
       <ReadHero
         film={{ title: film.title, slug: film.slug, year: film.year }}
+        sharePath={`/film/locations/${film.slug}`}
+        shareTitle={`Where was ${film.title}${yearLabel} filmed?`}
+        shareHook={lead}
         crumbTail="On Location"
         chip={<><Link href="/curious/locations" style={{ color: "inherit", textDecoration: "none" }}>On Location</Link>{" · "}fact-checked &amp; mapped</>}
         meta={<>{pins.length} places · <a href="#map" style={{ color: "inherit", textDecoration: "underline" }}>see the map ↓</a> · data updated {updated}</>}

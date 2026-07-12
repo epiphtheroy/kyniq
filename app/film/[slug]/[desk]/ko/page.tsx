@@ -184,6 +184,9 @@ export default async function DeskEssayKoPage({ params }: Props) {
       <SiteNav />
       <ReadHero
         film={film}
+        sharePath={`/film/${film.slug}/${desk.key}/ko`}
+        shareTitle={essay.title}
+        shareHook={essay.dek ?? undefined}
         crumbTail={label}
         chip={<><Link href="/curious" style={{ color: "inherit", textDecoration: "none" }}>Curious</Link>{" · "}{desk.deskName}</>}
         meta={<>{essay.minutes}분 · 검증 {essay.date} ·{" "}<Link href={`/film/${film.slug}/${desk.key}`} style={{ color: "inherit", textDecoration: "underline" }}>English</Link></>}
