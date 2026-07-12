@@ -14,6 +14,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import DownloadPackModal from "@/components/DownloadPackModal";
+import McpConnectButton from "@/components/McpConnectButton";
 import { PACK_SECTION_BY_TAB, PACK_SECTION_LABEL } from "@/lib/pack";
 
 export type FilmTab = { id: string; label: string; href?: string; badge?: string | number; badgeTone?: "score"; color?: string; zone?: "free" | "spoiler" };
@@ -35,7 +36,7 @@ const TAB_COLOR: Record<string, string> = {
 };
 const DEFAULT_TAB_COLOR = "#5A6B86";
 
-export default function FilmTabBar({ tabs, twoRow = false, center = false, search, zoneLabels = DEFAULT_ZONE_LABELS, packSlug, packDownload = false }: {
+export default function FilmTabBar({ tabs, twoRow = false, center = false, search, zoneLabels = DEFAULT_ZONE_LABELS, packSlug, packDownload = false, packTitle }: {
   tabs: FilmTab[]; twoRow?: boolean;
   // Theory pages (2026-07-08): center the single-row bar, and carry an
   // in-page search box that drives the page's explorers via a CustomEvent.
@@ -46,9 +47,11 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
   zoneLabels?: ZoneLabels;
   // Context packs (2026-07-12): when packSlug is set, tabs that map to a pack
   // section get a compact "✦ AI" copy button next to the label, and (if
-  // packDownload) a whole-film download control sits at the bottom rail's far right.
+  // packDownload) a whole-film download control sits at the bottom rail's far right,
+  // with the "In Your AI" MCP guide beside it (packTitle personalizes its example).
   packSlug?: string;
   packDownload?: boolean;
+  packTitle?: string;
 }) {
   const barRef = useRef<HTMLElement>(null);
   const [navH, setNavH] = useState(0);
@@ -229,7 +232,10 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
                 {rail.items.map(renderTab)}
                 {/* Download control lives INSIDE the row so it scrolls with the tabs. */}
                 {packDownload && packSlug && packSecs.length > 0 && i === rails.length - 1 ? (
-                  <DownloadPackModal slug={packSlug} sections={packSecs} variant="rail" />
+                  <>
+                    <DownloadPackModal slug={packSlug} sections={packSecs} variant="rail" />
+                    <McpConnectButton title={packTitle} variant="rail" />
+                  </>
                 ) : null}
               </div>
               <div className="df-tabs__track" aria-hidden="true"><i className="df-tabs__thumb" /></div>
