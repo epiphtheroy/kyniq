@@ -136,18 +136,40 @@ export default async function RadarPage({ searchParams }: { searchParams: Promis
     background: active ? "#2563eb" : "#0f172a", color: active ? "#fff" : "#93a3b8",
   });
 
+  // The marketing action: from "who's writing about our films" straight to the
+  // metatake page you'd share with them. Letterboxd items carry the exact slug;
+  // others fall back to metatake search on the matched keyword.
+  const metatakeLink = (it: Item): { href: string; label: string } => {
+    const meta = (it.meta ?? {}) as { film_slug?: string; film_title?: string };
+    if (meta.film_slug) {
+      return { href: `${SITE}/film/${meta.film_slug}`, label: `${meta.film_title ?? "film"} on metatake →` };
+    }
+    const kw = (it.radar_hits ?? []).map((h) => h.radar_keywords?.keyword).find(Boolean);
+    return { href: `${SITE}/search?q=${encodeURIComponent(kw || it.title || "")}`, label: "find on metatake →" };
+  };
+
   return (
     <div style={{ maxWidth: 1100 }}>
       <h1 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 4px" }}>Keyword Radar</h1>
       <p style={{ fontSize: 13, color: "#94a3b8", margin: "0 0 14px" }}>
-        {kwCount ?? 0} active keywords · {windowTotal} item{windowTotal === 1 ? "" : "s"} found in the last {w}
-        {windowTotal >= 1000 ? "+ (capped)" : ""} · free-only Phase 0 (Bluesky · Mastodon · YouTube · news · blogs · HN)
+        {kwCount ?? 0} keywords · {windowTotal} {view === "orgs" ? "institution" : "creator"} item
+        {windowTotal === 1 ? "" : "s"} in the last {w}{windowTotal >= 1000 ? "+ (capped)" : ""} ·{" "}
+        <strong style={{ color: "#cbd5e1" }}>individuals</strong> from Letterboxd · Bluesky · Mastodon · blogs · HN
+        {view === "people" ? " (major outlets hidden)" : ""}
       </p>
 
-      {/* tabs */}
+      {/* tabs + view */}
       <div style={{ marginBottom: 12 }}>
         <Link href={qs(sp, { tab: undefined })} style={chip(tab === "feed")}>Feed</Link>
         <Link href={qs(sp, { tab: "sources" })} style={chip(tab === "sources")}>Sources &amp; health</Link>
+        {tab === "feed" && (
+          <span style={{ marginLeft: 14 }}>
+            <span style={{ fontSize: 11, color: "#64748b", marginRight: 6 }}>SHOW</span>
+            {Object.keys(VIEWS).map((v) => (
+              <Link key={v} href={qs(sp, { view: v === "people" ? undefined : v })} style={chip(view === v)}>{VIEWS[v]}</Link>
+            ))}
+          </span>
+        )}
       </div>
 
       {/* window + platform filters */}
@@ -195,12 +217,13 @@ export default async function RadarPage({ searchParams }: { searchParams: Promis
             return (
               <div key={it.id} style={{ padding: "10px 0", borderBottom: "1px solid #263449" }}>
                 <div style={{ display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: 13 }} title={it.author_kind}>{it.author_kind === "institution" ? "🏢" : "🧑"}</span>
                   <span style={{ fontSize: 11, fontWeight: 700, color: "#60a5fa", textTransform: "uppercase" }}>
                     {PLATFORM_LABEL[it.platform] ?? it.platform}
                   </span>
                   {it.author && (
-                    <span style={{ fontSize: 12, color: "#94a3b8" }}>
-                      {it.author_url ? <a href={it.author_url} target="_blank" rel="noopener noreferrer" style={{ color: "#94a3b8" }}>{it.author}</a> : it.author}
+                    <span style={{ fontSize: 12, color: "#cbd5e1", fontWeight: 500 }}>
+                      {it.author_url ? <a href={it.author_url} target="_blank" rel="noopener noreferrer" style={{ color: "#cbd5e1" }}>{it.author}</a> : it.author}
                     </span>
                   )}
                   <span style={{ fontSize: 12, color: "#64748b" }}>{ago(it.published_at || it.discovered_at)}</span>
@@ -210,14 +233,24 @@ export default async function RadarPage({ searchParams }: { searchParams: Promis
                   {it.title || it.url}
                 </a>
                 {it.snippet && <p style={{ fontSize: 13, color: "#94a3b8", margin: "2px 0 6px" }}>{it.snippet}</p>}
-                <div>
+                <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 4 }}>
                   {uniq.map((k) => (
                     <Link key={k.id} href={qs(sp, { kw: String(k.id) })}
                           style={{ display: "inline-block", fontSize: 11, color: "#c4b5fd", background: "#1e1b4b",
-                                   padding: "2px 8px", borderRadius: 4, marginRight: 6, textDecoration: "none" }}>
+                                   padding: "2px 8px", borderRadius: 4, textDecoration: "none" }}>
                       {k.keyword}
                     </Link>
                   ))}
+                  {(() => {
+                    const ml = metatakeLink(it);
+                    return (
+                      <a href={ml.href} target="_blank" rel="noopener noreferrer"
+                         style={{ fontSize: 11, fontWeight: 600, color: "#34d399", background: "#052e2b",
+                                  padding: "2px 8px", borderRadius: 4, textDecoration: "none", marginLeft: 2 }}>
+                        {ml.label}
+                      </a>
+                    );
+                  })()}
                 </div>
               </div>
             );
