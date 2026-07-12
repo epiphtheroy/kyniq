@@ -9,7 +9,7 @@ On many pages you will find a small module of short, factual sentences — a fil
 > factual sentences
 > assembled by rule across the catalogue, each carrying links to the entities it names
 
-> **{{n:films}}**
+> **6,700+**
 > films covered
 > nearly every film in the catalogue has at least one sentence about it
 

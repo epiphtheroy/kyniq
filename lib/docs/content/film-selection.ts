@@ -5,7 +5,7 @@ Metatake does not try to catalogue every film ever made. It grows one film at a 
 
 ## In numbers
 
-> **{{n:films}}**
+> **6,900+**
 > films in the catalogue
 > each admitted because it passed the same three filters, not because it was famous
 

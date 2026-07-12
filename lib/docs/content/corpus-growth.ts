@@ -5,7 +5,7 @@ Metatake holds more films than it has close-read. This page explains why the cat
 
 ## In numbers
 
-> **{{n:films}}**
+> **6,900+**
 > films in the catalogue
 > each is at least an anchor: a resolved identity we can name and link to
 

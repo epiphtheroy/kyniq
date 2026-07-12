@@ -9,7 +9,7 @@ One engine powers every search box on Metatake — the global search page, the n
 > critical readings, searchable by meaning
 > the semantic leg searches these passages for sense, not just wording
 
-> **{{n:films}}**
+> **6,900+**
 > films reachable by title
 > including original, non-English titles alongside the English ones
 
