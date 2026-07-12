@@ -169,7 +169,7 @@ async function toolSearchFilms(db: ReturnType<typeof createAdminClient>, args: R
     const { data: ts } = await db.rpc("takescore_for_slugs", { p_slugs: films.map((f) => f.slug) });
     for (const row of Array.isArray(ts) ? ts : []) {
       const s = (row as Record<string, unknown>)?.slug;
-      const sc = (row as Record<string, unknown>)?.score ?? (row as Record<string, unknown>)?.takescore;
+      const sc = (row as Record<string, unknown>)?.ts ?? (row as Record<string, unknown>)?.score; // RPC shape: [{slug, ts}]
       if (typeof s === "string" && typeof sc === "number") tsBySlug.set(s, sc);
     }
   } catch { /* scores are decoration here */ }
