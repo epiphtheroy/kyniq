@@ -174,6 +174,122 @@ app/llms.txt/route.ts                # "## Poetics" 섹션
 
 ---
 
+## 7-v2. 최종 에세이 인벤토리 — 라이브 정본 (2026-07-12 개정 v2, commit 2e59663)
+
+> **이 표가 v2의 저술 정본이다.** 아래 §7의 v1 카드는 '앵커·소스' 참고용으로만 남기고, **영화 예시·수치·톤은 이 표와 상단 v2 배너가 우선한다.** 각 에세이의 논지(angle)는 라이브 파일 `lib/poetics/content/<slug>.ts` 본문이 정본이다(여기 다시 옮기지 않음 — 파일을 열어 읽을 것).
+>
+> **불변 규칙(수정 시 반드시 지킬 것)**:
+> 1. **영화 예시 = 오너 시청로그 전용**(`public.user_watch_log`, auth user `thinkartist1@gmail.com`=`7d252e84-45ca-4b3d-ab49-9c556a41d931`, 688기록/687편·0.5~5★). 아래 각 에세이의 `films:`가 그 에세이가 인용해도 되는 **유일한** 영화다. 새 영화를 넣으려면 반드시 이 로그에서 뽑고(별점·V·verdict를 SQL로 확인), **코퍼스 전역에서 아직 안 쓰인 영화**여야 한다(현재 113편 전부 유니크).
+> 2. 편당 영화 ≥2. 실제 별점 인용 가능("I gave it five stars"), 시청 정황 창작 금지.
+> 3. 가치·점수 서술은 **verdict v3(TakeScore Value 1차, 정전 보조)** 준수 — 정본 `HANDOFF-투두블유-큐레이션코멘트.md` §0·§2.
+> 4. **안티-포뮬러 계약**: 금지 상수구("There is a trope our readings keep finding"류 트로프 도입공식·"I want to be honest"·"I am aware that"·"I still cannot"·"textbook [trope]" 남용·"My log says X; the instrument says Y" 주문형 데이터인용·"What the X costs" 제목 몰드·전편 물음표 종지). 종결 5모드(question은 43편 중 ~1/3만)·오프닝 5모드를 편별로 분산.
+> 5. 새 에세이/대량수정 후 **결정론 체커 + 에코 감사** 재실행(병렬 저술은 새 공유템플릿을 만든다). 도구는 세션 임시 파일이었으나 로직은 이 배너에 기술됨 — 재작성 가능.
+> 6. 파일 기계 형식: `const body = ` + 백틱 + markdown + 백틱 + `;` + 개행 + `export default body;`. **닫는 백틱 앞 백슬래시 금지(TS1160)**·본문에 백틱/`${` 금지. 콘텐츠 변경 시 `app/poetics/[slug]/page.tsx`의 캐시키 `poe-render2`→범프.
+> 7. **교체 5편**은 `app/poetics/[slug]/page.tsx`의 `POE_RENAMES`가 308 처리(구슬러그→신슬러그). 새 교체 시 여기에 추가.
+
+
+### On value
+- **`what-is-a-masterpiece`** — What is a masterpiece, operationally? · 종결:flat/image/concession/joke · trope: `praise-word-as-critic-s-confession`
+  - films: fanny-and-alexander-1982, secret-sunshine-2007, shoah-1985
+- **`can-value-be-scored`** — Can the value of a film be scored at all? · 종결:flat/image/concession/joke
+  - films: about-time-2013, drive-my-car-2021, taken-2008
+- **`the-anatomy-of-disappointment`** — An anatomy of disappointment · 종결:flat/image/concession/joke
+  - films: annette-2021, avengers-endgame-2019, bugonia-2025, the-green-knight-2021
+- **`difficulty-is-a-price`** — Difficulty is a price, not a virtue · 종결:flat/image/concession/joke
+  - films: happy-hour-2015, horse-money-2014, playtime-1967
+- **`the-arithmetic-of-a-lifetime`** — The arithmetic of a lifetime · 종결:flat/image/concession/joke
+  - films: jukdo-surfing-diary-2020, night-train-to-lisbon-2013
+- **`ambition-is-not-achievement`** — Ambition is not achievement · 종결:flat/image/concession/joke · trope: `the-render-farm-as-confession-of-its-limits`
+  - films: avatar-the-way-of-water-2022, birdman-or-the-unexpected-virtue-of-ignorance-2014, small-slow-but-steady-2022
+- **`what-a-36-means`** — What a 36 means · 종결:question
+  - films: architecture-101-2012, dunkirk-2017, the-lunchbox-2013
+- **`the-rewatch-test`** — The rewatch test · 종결:flat/image/concession/joke
+  - films: la-la-land-2016, land-and-shade-2015, the-godfather-part-ii-1974, the-sixth-sense-1999
+
+### On the canon
+- **`what-should-you-watch`** — What should you watch? An honest decomposition · 종결:flat/image/concession/joke
+  - films: memories-of-murder-2003, waikiki-brothers-2001
+- **`the-word-essential`** — Who deserves the word 'essential'? · 종결:flat/image/concession/joke
+  - films: a-separation-2011, no-bears-2022
+- **`when-the-canon-scores-low`** — When the canon scores low · 종결:flat/image/concession/joke
+  - films: american-beauty-1999, breakfast-at-tiffany-s-1961
+- **`whole-lists-or-nothing`** — Whole lists or nothing · 종결:flat/image/concession/joke
+  - films: parasite-2019, taste-of-cherry-1997
+- **`writing-for-one-reader`** — Writing for one reader · 종결:flat/image/concession/joke
+  - films: comrades-almost-a-love-story-1996, one-fine-spring-day-2001
+- **`the-gravity-of-cannes`** — The gravity of Cannes · 종결:flat/image/concession/joke · trope: `the-award-as-society-s-absolution-ritual`
+  - films: blue-is-the-warmest-color-2013, dheepan-2015, i-daniel-blake-2016
+- **`the-shape-of-a-blind-spot`** — The shape of a blind spot · 종결:flat/image/concession/joke · trope: `the-critic-s-verdict-as-unwitting-confession`
+  - films: frozen-2013, o-brother-where-art-thou-2000, withnail-and-i-1987
+
+### On reading
+- **`why-the-feather-not-the-plot`** — Why the feather, not the plot · 종결:flat/image/concession/joke
+  - films: force-majeure-2014, memories-of-matsuko-2006, still-walking-2008
+- **`the-cruel-stepmother-problem`** — The cruel stepmother problem · 종결:flat/image/concession/joke
+  - films: the-handmaiden-2016, the-lobster-2015
+- **`reading-is-always-misreading`** — Reading is always misreading · 종결:flat/image/concession/joke
+  - films: mulholland-drive-2001, the-green-ray-1986
+- **`in-defense-of-fan-theories`** — In defence of fan theories · 종결:question
+  - films: interstellar-2014, the-butterfly-effect-2004, the-neon-demon-2016
+- **`when-a-reading-repeats`** — When a reading repeats, it stops being yours · 종결:flat/image/concession/joke
+  - films: the-hunt-2012, the-teachers-lounge-2023
+- **`the-lifecycle-of-a-cliche`** — Every cliché was once a discovery · 종결:flat/image/concession/joke · trope: `the-budget-s-constraint-becomes-the-style`
+  - films: el-mariachi-1992, midsommar-2019, the-conjuring-2013
+- **`three-readings-per-object`** — Three readings per object, never one · 종결:flat/image/concession/joke
+  - films: melancholia-2011, the-skin-i-live-in-2011
+- **`why-fourteen`** — Why fourteen frameworks (and not twelve, and not truth) · 종결:flat/image/concession/joke
+  - films: dogville-2003, holy-motors-2012
+
+### On theory
+- **`filing-a-century-of-theory`** — Filing a century of film theory · 종결:question · trope: `the-real-erupts-through-the-symbolic`
+  - films: videodrome-1983, we-need-to-talk-about-kevin-2011
+- **`concepts-are-doors`** — A concept is a door, not a cage · 종결:flat/image/concession/joke · trope: `sovereignty-is-the-power-to-decide-the-exception`
+  - films: benny-s-video-1992, children-of-men-2006
+- **`the-theorist-as-interlocutor`** — The theorist as interlocutor · 종결:flat/image/concession/joke · trope: `the-held-shot-as-ethical-witness`
+  - films: code-unknown-2000, the-headless-woman-2008
+- **`distance-as-meaning`** — Distance as meaning · 종결:flat/image/concession/joke
+  - films: asako-i-ii-2018, the-double-life-of-veronique-1991
+- **`database-criticism`** — Criticism as a database (and what that does to it) · 종결:question
+  - films: oki-s-movie-2010, right-now-wrong-then-2015
+
+### On the world map
+- **`where-cinema-lives`** — Where cinema lives, measured · 종결:flat/image/concession/joke
+  - films: atlantics-2019, capernaum-2018, timbuktu-2014
+- **`the-auteur-in-2026`** — Is the auteur still a useful idea? · 종결:question
+  - films: alps-2011, kinds-of-kindness-2024, the-favourite-2018
+- **`a-nations-hundred-films`** — A nation's hundred films · 종결:flat/image/concession/joke
+  - films: chilsu-and-mansu-1988, jiseul-2012, the-march-of-fools-1975
+- **`how-to-read-a-filmography`** — How to read a filmography · 종결:flat/image/concession/joke
+  - films: a-traveler-s-needs-2024, in-front-of-your-face-2021, rosetta-1999, the-day-a-pig-fell-into-the-well-1997, the-day-he-arrives-2011, tori-and-lokita-2022
+- **`the-frontier-festival`** — The frontier festival problem · 종결:flat/image/concession/joke
+  - films: lucky-chan-sil-2019, manta-ray-2019, vengeance-is-mine-all-others-pay-cash-2021
+- **`the-location-cannot-lie`** — The location cannot lie · 종결:flat/image/concession/joke
+  - films: aquarius-2016, neighboring-sounds-2012, return-to-seoul-2022
+
+### On industry & attention
+- **`how-reputations-are-remade`** — Reputations are remade, not made · 종결:flat/image/concession/joke · trope: `the-reception-as-proof-of-the-thesis`
+  - films: blue-velvet-1986, breaking-the-waves-1996
+- **`attention-is-not-importance`** — Attention is not importance · 종결:flat/image/concession/joke
+  - films: for-sama-2019, no-other-choice-2025, suzume-2022
+- **`the-film-outside-the-frame`** — The film outside the frame · 종결:question
+  - films: it-was-just-an-accident-2025, lust-caution-2007, the-seed-of-the-sacred-fig-2024
+- **`availability-is-destiny`** — Availability is destiny · 종결:flat/image/concession/joke · trope: `the-object-that-will-not-be-mourned`
+  - films: a-short-love-affair-1990, floating-clouds-1955, the-road-to-sampo-1975
+- **`the-critic-and-the-aggregator`** — The critic and the aggregator · 종결:flat/image/concession/joke · trope: `the-box-office-verdict-as-cultural-diagnosis`
+  - films: green-book-2018, the-intouchables-2011
+
+### On machines & criticism
+- **`can-a-machine-venture-a-reading`** — Can a machine venture a reading? · 종결:flat/image/concession/joke
+  - films: after-life-1998, perfect-days-2023
+- **`the-slop-question`** — The slop question · 종결:flat/image/concession/joke
+  - films: lucy-2014, the-garden-of-words-2013
+- **`what-machines-cannot-decide`** — What machines cannot decide · 종결:flat/image/concession/joke
+  - films: grave-of-the-fireflies-2005, son-of-saul-2015
+- **`criticism-as-infrastructure`** — Criticism as infrastructure · 종결:flat/image/concession/joke
+  - films: three-colors-blue-1993, three-colors-red-1994, three-colors-white-1994
+
+_총 43편 · 113 유니크 영화 · 내부링크 150개(전부 라이브 200) · 캐시키 poe-render2._
+
 ## 8. 불변식 (P-1 ~ P-7)
 
 - **P-1** `/methodology`와 사실·수치·입장 모순 금지. 수치는 §6 원장만.
