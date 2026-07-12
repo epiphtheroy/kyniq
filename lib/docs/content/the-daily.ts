@@ -15,7 +15,7 @@ Every item begins by reducing an event to a **figure** — a recurring structure
 
 ## Where to find it, and how it relates to Now Playing
 
-The Daily lives at [/blog](/blog), with every past edition kept at a permanent link, and you can subscribe to have it arrive by email. It has a faster sibling, [Now Playing](/methodology/now-playing), which is different in shape: where the Daily is one reflective morning edition of five figure-anchored items, Now Playing publishes a single-film editor's letter within the hour whenever a title spikes in the world's attention. Same corpus underneath, two tempos on top.
+The Daily lives at [/blog](/blog), with every past edition kept at a permanent link, and you can subscribe to have it arrive by email. It has a faster sibling, [Now Playing](/methodology/now-playing), which is different in shape: where the Daily is one reflective morning edition of five figure-anchored items, Now Playing publishes a single-film editor's letter within the hour when a title in the corpus spikes in the world's attention. Same corpus underneath, two tempos on top.
 
 ## Limits
 

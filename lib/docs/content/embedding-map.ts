@@ -17,7 +17,7 @@ The lines you follow between films on Metatake are not hand-tagged categories. T
 
 An embedding is a position in meaning-space, computed from a piece of text rather than assigned by a person. When we embed a reading, we are asking a simple question of it: *what is this about?* Two readings that turn out to be about the same thing land near each other, and two that are about different things land far apart — regardless of whether the films agree on anything a catalogue would notice. Nothing here is a keyword count. A reading of colour as grief and a reading of a doorway as grief can sit close even though they share no word in common, because the *meaning* is what gets placed, not the vocabulary.
 
-That is the whole trick, and it is why the map can surprise you. You can start at one figure and land somewhere you would not have thought to look — not because a human filed both films under the same tag, but because their readings sit near each other in meaning. It is a map built from content, not from taxonomy.
+That is the whole method, and it is why the map can surprise you. You can start at one figure and land somewhere you would not have thought to look — not because a human filed both films under the same tag, but because their readings sit near each other in meaning. It is a map built from content, not from taxonomy.
 
 ## What we embed
 

@@ -5,7 +5,7 @@ The [Credits](/credits) explorer treats a filmography as a set of relationships,
 
 ## Where the record comes from
 
-The credit data — casts, full crews, images, release years, vote counts and ratings — comes from **The Movie Database (TMDB)**, and we attribute it on every screen: *this product uses the TMDB API but is not endorsed or certified by TMDB.* TMDB is unusually complete below the line, which is why crew members can be first-class here rather than a footnote.
+The credit data — casts, full crews, images, release years, vote counts and ratings — comes from **The Movie Database (TMDB)**, and we attribute it on every screen: *this product uses the TMDB API but is not endorsed or certified by TMDB.* TMDB's below-the-line crew coverage is broad enough that crew members can be first-class here rather than a footnote.
 
 Award histories are a separate matter. TMDB carries no award data, so where we show honours we draw them from **Wikidata**, which is released under a public-domain dedication. We look a person up by their IMDb identifier and read back the awards recorded against them, most recent first.
 

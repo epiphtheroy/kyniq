@@ -51,7 +51,7 @@ We also separate the *release date* of a review from the release date of the fil
 
 ## Limits
 
-This is a record of what was *said and awarded*, not a verdict of our own — for that, see [TakeScore](/takescore). It is only as complete as the public record: an outlet that blocks crawlers, a paper with no abstract, a festival with no structured entry all leave gaps, and we would rather show a smaller true record than pad it. Dates are as good as the source's dates; where a source gives none, the item is listed plainly without a year claim rather than guessed. And the list of outlets we draw from is finite and English-leaning, so the page reflects where a film was written about, which is not always where it mattered most.
+This is a record of what was *said and awarded*, not a verdict of our own — for that, see [TakeScore](/takescore). It is only as complete as the public record: an outlet that blocks crawlers, a paper with no abstract, a festival with no structured entry all leave gaps, and we would rather show a smaller true record than pad it. Dates are as good as the source's dates; where a source gives none, the item is listed plainly without a year claim rather than guessed. And the list of outlets we draw from is finite — roughly 150, enumerated in [the sources we monitor](/methodology/sources-we-monitor) — so the page reflects where a film was written about, which is not always where it mattered most.
 
 ---
 

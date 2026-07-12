@@ -9,11 +9,11 @@ A counterpoint is the opposite of a [kinship](/methodology/kinship) connection. 
 > counterpoints
 > pairs that stage the same trope but read it in opposite directions
 
-## The connection only a reading-level database can make
+## Why a similarity engine cannot find one
 
 Most "related films" tools measure resemblance: they find the film that looks most like the one in front of you. That is a useful thing to compute, and it is what kinship does. But resemblance can only ever return lookalikes. It cannot return an *argument* — two films that reach for the same device and mean opposite things by it.
 
-A counterpoint needs something a resemblance engine does not have: a written reading of what each film is *doing* with the trope. Because every figure on Metatake carries a close reading, and every reading becomes a point in meaning-space, we can hold two films up to the same trope and measure how far apart their readings of it sit. That is the whole idea. Films that read the trope the same way are kin. Films that read it in opposite directions are counterpoints.
+A counterpoint needs something a resemblance engine does not have: a written reading of what each film is *doing* with the trope. Because every figure on Metatake carries a close reading, and every reading becomes a point in [meaning-space](/methodology/embedding-map), we can hold two films up to the same trope and measure how far apart their readings of it sit. That is the whole idea. Films that read the trope the same way are kin. Films that read it in opposite directions are counterpoints.
 
 ## How a counterpoint is built
 

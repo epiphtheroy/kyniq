@@ -1,7 +1,7 @@
 const body = `
 # What AI does, and doesn't do
 
-People reasonably ask whether an AI wrote the readings on Metatake, and what a human had to do with them. We would rather answer plainly than let the question hang. The short version: AI drafts and connects; a human judges and answers for it. This page draws the line between the two — what the AI actually produces, what it is never allowed to decide, and who is on the record for every page that stands.
+People reasonably ask whether an AI wrote the readings on Metatake, and what a human had to do with them. We would rather answer plainly than let the question hang. The short version: AI drafts and connects; a human judges and answers for it. This page draws the line between the two — what the AI actually produces, what it is never allowed to decide, and who is on the record for every page that stands. It covers the readings and the connections; for a layer-by-layer accounting of the whole site, including the parts that touch no model at all, see the [AI disclosure](/methodology/ai-disclosure).
 
 ## In numbers
 
@@ -41,7 +41,7 @@ There are no individual per-page bylines on Metatake, and that is deliberate rat
 
 A few calls here were not obvious, so here is how we settled them.
 
-We let the AI **write and connect, but never publish**. It would have been faster to trust well-behaved drafts and spot-check a sample. We do not do that. Review is per-reading, because the failures that matter — a wrong date, a misattributed critic, a plot detail that is simply not in the film — do not announce themselves, and a sample would miss exactly the ones worth catching.
+We let the AI **write and connect, but never publish**. It would have been faster to trust well-behaved drafts and spot-check a sample. We do not do that. Review is per-reading, because the failures that matter — a wrong date, a misattributed critic, a plot detail that is simply not in the film — do not announce themselves, and a sample would let some of them through unread.
 
 We keep the prose and the embedding **as two separate outputs**, not one. A reading can read well and still sit in the wrong place, or sit in the right place and still get a fact wrong. Splitting the two lets each be checked on its own terms rather than bundled into a single verdict.
 

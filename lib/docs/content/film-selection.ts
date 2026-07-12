@@ -10,8 +10,8 @@ Metatake does not try to catalogue every film ever made. It grows one film at a 
 > each admitted because it passed the same three filters, not because it was famous
 
 > **{{n:lineage}}**
-> lineage lists behind them
-> the curated canons, festivals and auteur bodies of work we read reach against
+> lineage memberships
+> the films' places in the curated canons, festivals and auteur bodies of work we check reach against
 
 ## Three filters, passed together
 
@@ -29,11 +29,9 @@ When a film clears all three, it is a candidate. The three together are the whol
 
 The tempting shortcut is to rank every film by a single score and keep the top slice. We looked hard at what that would do to this catalogue, and rejected it.
 
-Our own prestige-and-reception scores lean, unavoidably, towards mainstream and awards-season prestige. If we cut the catalogue by that score, the films that fall off the bottom are not the weak ones — they are the avant-garde, the women directors, and the world-cinema deep cuts that cinephiles value most. Maya Deren, Chantal Akerman, Agnes Varda, Claire Denis: exactly the work a film site like this exists to take seriously would be the first thrown out. A popularity cut throws away its own reason to exist.
+Our own prestige-and-reception scores lean, unavoidably, towards mainstream and awards-season prestige. If we cut the catalogue by that score, the films that fall off the bottom are not the weak ones — they are the avant-garde, the women directors, and the world-cinema deep cuts that cinephiles particularly value. Maya Deren, Chantal Akerman, Agnès Varda, Claire Denis: exactly the work a film site like this exists to take seriously would be the first thrown out. A popularity cut throws away its own reason to exist.
 
-So we separated two questions that a single score smashes together. *Whether a film belongs* is decided by **authority** — is it carried by a canon, an auteur's body of work, or a national tradition that critics and archives recognise. *What order we get to it in* is decided by **demand** — how many people are actually looking for it. You can picture it as a simple grid: authority on one axis, demand on the other. High authority earns a place regardless of where it sits on the demand axis; a well-loved deep cut with little search traffic is still a keeper. Demand never buys entry and never blocks it — it only tells us what to work on first.
-
-The practical payoff is that a high-authority, low-demand film — the sort of thing you would call a deep cut — is safe on Metatake by design, even though it would be the first casualty of any ranked-by-popularity list.
+So we separated two questions that a single score collapses into one. *Whether a film belongs* is decided by **authority** — is it carried by a canon, an auteur's body of work, or a national tradition that critics and archives recognise. *What order we get to it in* is decided by **demand** — how many people are actually looking for it. You can picture it as a simple grid: authority on one axis, demand on the other. High authority earns a place regardless of where it sits on the demand axis; a well-loved deep cut with little search traffic is still a keeper. Demand never buys entry and never blocks it — it only tells us what to work on first.
 
 ## World cinema on purpose
 
@@ -43,7 +41,7 @@ Left to their own gravity, the sources that carry the most authority pull hard t
 
 A few calls here were not obvious, so here is how we settled them.
 
-We do not analyse everything the moment it is admitted. Admission and close reading are separate steps. Writing a thin page about a film we have nothing to say about yet helps no one and clutters the site, so a newly admitted film waits in the catalogue, findable but unindexed, until there is enough to read closely. When we do commit effort, we take films in demand order — the ones people are already looking for first — while keeping the authority gate firmly in place. We would rather grow slowly and densely than let the catalogue's size outrun what we can actually say about each film.
+We do not analyse everything the moment it is admitted. Admission and close reading are separate steps. Writing a thin page about a film we have nothing to say about yet helps no one and clutters the site, so a newly admitted film waits in the catalogue, findable but unindexed (see [close readings and catalogue records](/methodology/tiers)), until there is enough to read closely. When we do commit effort, we take films in demand order — the ones people are already looking for first — while keeping the authority gate firmly in place. We would rather grow slowly and densely than let the catalogue's size outrun what we can actually say about each film.
 
 ## Limits
 

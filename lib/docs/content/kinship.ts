@@ -11,7 +11,7 @@ Every "films most connected" list on Metatake is computed, not curated. This pag
 ## In numbers
 
 > **{{n:kin_edges}}**
-> kinship pairs
+> connections held
 > film-to-film edges, each carrying the evidence it was computed from
 
 > **{{n:films}}**
@@ -28,7 +28,7 @@ A connection between two films is built from two independent signals.
 
 **Shared tropes.** When two films' figures belong to the same [trope](/tropes) — the same coded, recurring pattern of reading — that is a connection, and rarer tropes count for more than common ones. Two films that both stage rain share almost nothing; two films that both stage a trope only a handful of films on the site carry share something real. The weighting follows the standard rarity logic of information retrieval: the fewer films a trope touches, the more it says when two of them meet there.
 
-**Taste distance.** Separately, each film's published readings are averaged into a single vector — a position in meaning-space built from what the readings actually say, not from genre or decade tags. Films whose vectors sit close are neighbours even when they share no trope at all. This is what lets a connection cross genre lines: a horror film and a chamber drama can be kin because their readings think about the same thing.
+**Taste distance.** Separately, each film's published readings are averaged into a single vector — a position in [meaning-space](/methodology/embedding-map) built from what the readings actually say, not from genre or decade tags. Films whose vectors sit close are neighbours even when they share no trope at all. This is what lets a connection cross genre lines: a horror film and a chamber drama can be kin because their readings think about the same thing.
 
 The two rankings are then fused — neither signal is allowed to dominate — and the strongest connections are kept per film. Both underlying quantities are stored with every edge, so a connection can always be audited back to its parts.
 

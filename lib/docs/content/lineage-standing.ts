@@ -5,7 +5,7 @@ A film's lineage standing is a number, and like every number on Metatake it is c
 
 ## In numbers
 
-> **~5,970**
+> **~5,975**
 > films with a standing
 > each carrying at least one award, canon or national honour, resolved to the same film identity the rest of the site uses
 
@@ -47,11 +47,11 @@ Prestige tilts hard toward Cannes and Hollywood by its nature, so **discovery** 
 
 ## What we decided, and why
 
-A few calls were not obvious, so here is how we settled them. **Movements and styles are kept out of the headline score.** A film is not *better* for being slow cinema or surrealist — that is likeness, not quality, and treating the two as the same is a category error. So style lives only in the similarity score, where it helps find kin, and never touches prestige. We record **winners and ranked members, not full nominee slates**, because nomination data is not uniformly public and we would rather under-claim than pad a page. And a distributor's catalogue or a community thousand-best — vast lists that barely tell their own entries apart — is set aside, because it would swell the totals without telling you anything.
+A few calls were not obvious, so here is how we settled them. **Movements and styles are kept out of the headline score.** A film is not *better* for being slow cinema or surrealist — that is likeness, not quality, and treating the two as the same is a category error. So style lives only in the similarity score, where it helps find kin, and never touches prestige. Which lists are admitted in the first place — and why full nominee slates and vast, low-discrimination catalogues are kept out — is covered in [How a list earns its place](/methodology/lineage-selection).
 
 ## Limits
 
-A standing measures a film's place in the public record, not its worth to you. It rises as new ceremonies are held, which means a living director's recent film can score low simply because its record is unfinished — the honours have not been awarded yet. The bands and multipliers above are fixed and published; the tuning that calibrates the top of the scale is ours, and we hold it back so the numbers stay honest rather than gameable. Every standing is shown broken into its parts precisely so you can check our arithmetic against your own judgement.
+A standing measures a film's place in the public record, not its worth to you. It rises as new ceremonies are held, which means a living director's recent film can score low simply because its record is unfinished — the honours have not been awarded yet. The bands and multipliers above are fixed and published; the tuning that calibrates the top of the scale is ours, and we hold it back so the numbers stay honest rather than gameable. Every standing is shown broken into its parts, so the number can be weighed against your own judgement rather than taken on trust.
 
 ---
 

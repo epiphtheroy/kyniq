@@ -26,7 +26,7 @@ The fourteen frameworks group into five families. The families are not categorie
 
 ## Three per figure
 
-A [figure](/tropes) is a concrete thing a film keeps returning to — an object, a place, a recurring image. Each figure is read under **three different frameworks**, never the same one twice. The point is not coverage for its own sake. Reading the same detail as *subtext*, then as *semiotics*, then as *politics* forces three genuinely different questions at the same object, and the three answers rarely agree. Where they pull apart is often where the reading gets interesting.
+A [figure](/methodology/figures) is a concrete thing a film keeps returning to — an object, a place, a recurring image. Each figure is read under **three different frameworks**, never the same one twice. The point is not coverage for its own sake. Reading the same detail as *subtext*, then as *semiotics*, then as *politics* forces three genuinely different questions at the same object, and the three answers rarely agree. Where they pull apart is often where the reading gets interesting.
 
 Choosing three from fourteen also keeps the readings honest about their own arbitrariness. No single framework owns a film. A detail that looks like an *enigma* under one lens is a piece of *production* history under another, and neither reading claims to be the last word — each is a [strong misreading](/strong-misreadings), offered as a provocation rather than a verdict.
 

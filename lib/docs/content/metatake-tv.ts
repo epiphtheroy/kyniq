@@ -9,7 +9,7 @@ Not every encounter with cinema needs to be a decision. Sometimes you want film 
 
 ## How it is made
 
-Two things keep it from being an autoplay slop feed. First, every playlist mirrors a **real axis of the corpus** — an auteur's oeuvre, a lineage, an archetype, a national cinema — so whatever plays is always an argued sequence, not a random reel. Second, like the [sentence layer](/methodology/sentences), the channel is assembled by rule with **no language model and no randomness** in the ordering: what you get is the corpus, sequenced, not a machine improvising. To start instantly, the channel seeds one item from a default list and streams the rest of the library in behind it.
+Two things keep it from being an unconsidered autoplay feed. First, every playlist mirrors a **real axis of the corpus** — an auteur's oeuvre, a lineage, an archetype, a national cinema — so whatever plays is always an argued sequence, not a random reel. Second, like the [sentence layer](/methodology/sentences), the channel is assembled by rule with **no language model and no randomness** in the ordering: what you get is the corpus, sequenced, not a machine improvising. To start instantly, the channel seeds one item from a default list and streams the rest of the library in behind it.
 
 Across the site, entity pages carry a video hero built the same way: if a director, trope or concept has a broadcast playlist, it plays; if not, it falls back to a reel of that entity's films. Where any synthetic media appears, it is labelled as such and credited to its designer — the same brand contract the sentence layer keeps.
 

@@ -15,7 +15,7 @@ A trope on Metatake is a coded reading pattern — a way of reading a film that 
 
 ## A misreading that recurs
 
-We start from the smallest unit: a single bold reading of a single film — what we call a strong misreading. A strong misreading takes a detail and pushes it somewhere the film never says aloud, and it is offered as a provocation, not a verdict. On its own it is singular. The moment the *same* reading turns up across several films, it stops being a one-off and becomes a pattern that circulates — an interpretive convention in the making. That is a trope. So a trope is not imposed from a fixed list; it is what emerges when independent readings, taken across the whole library, turn out to rhyme.
+We start from the smallest unit: a single bold reading of a single film — what we call a [strong misreading](/methodology/strong-misreadings). A strong misreading takes a detail and pushes it somewhere the film never says aloud, and it is offered as a provocation, not a verdict. On its own it is singular. The moment the *same* reading turns up across several films, it stops being a one-off and becomes a pattern that circulates — an interpretive convention in the making. That is a trope. So a trope is not imposed from a fixed list; it is what emerges when independent readings, taken across the whole library, turn out to rhyme.
 
 ## The maturity arc
 
@@ -23,7 +23,7 @@ Every pattern sits somewhere on a single arc, read from two things at once: **re
 
 | Band | What it means |
 |---|---|
-| **Noble** | A lone reading (one film). So original it stands by itself, shared with nothing yet — the boldest thing the site holds. It is shown with a badge on the film's own page, not as a trope. |
+| **Noble** | A lone reading (one film). So original it stands by itself, shared with nothing yet. It is shown with a badge on the film's own page, not as a trope. |
 | **Fresh** | A rare, tight recurrence across two or three films — and only when the readings are genuinely coherent. A loose pair is coincidence, not a discovery, so cohesion has to carry it. |
 | **Emerging** | A pattern beginning to establish itself across a handful of films. |
 | **Established** | A real recurring pattern shared across many films. |
@@ -35,11 +35,11 @@ The badge attached to each trope is nothing more than which band it falls in. It
 
 Finding candidates is the easy half. We measure which readings sit near one another and group the close ones together. But proximity alone is a poor judge of meaning: it will happily gather "tall characters" or "red objects" or "rain" — bare attributes that recur without ever meaning anything. A repeated attribute is frequency; a trope is a *function*. Height only becomes a trope when it is bundled with meaning and expectation and read as a code — the gentle giant whose size subverts the threat, not simply the fact of being tall.
 
-So the grouping step only ever *proposes*. A critic step then reads each proposed cluster and asks one question: is there a real code here — a meaning with an activated expectation — or is this a bare, incoherent lump? Groups that carry a code are kept and named; the rest are discarded. This is the test the folklorist Stith Thompson used for what survives in tradition: the mother is not a motif, the cruel stepmother is. It is criticism, not classification.
+So the grouping step only ever *proposes*. A critic step then reads each proposed cluster and asks one question: is there a real code here — a meaning with an activated expectation — or is this a bare, incoherent lump? Groups that carry a code are kept and named; the rest are discarded. It is the same strikingness test that decides [what counts as a figure](/methodology/figures) in the first place. It is criticism, not classification.
 
 ## The name states the code
 
-When a cluster is kept, the critic gives it an evocative name of at most eight words that states the code itself — "The Gentle Giant," never "Tall Characters." The name is where the effort goes. A trope earns its place not by being large but by a name that makes the gathered set feel uncanny, as if an improbably perfect collection had been assembled in one room. Entering a trope should feel like that.
+When a cluster is kept, the critic gives it an evocative name of at most eight words that states the code itself — "The Gentle Giant," never "Tall Characters." The name is where the effort goes. A trope earns its place not by being large but by a name that makes the gathered set read as one pattern rather than a list.
 
 ## What we decided, and why
 
@@ -47,7 +47,7 @@ A few calls were not obvious. We hold a **minimum of two films**: a true pair, f
 
 ## Limits
 
-A trope measures how films *read*, not how they were made. It is built from our own bold readings, and those readings are provocations by design — so a trope inherits their willfulness. Cohesion tells us a set hangs together; it cannot tell us the reading is correct, and correctness was never the claim. The critic step is a judgement, and judgements can miss: a real code can be discarded as noise, or a name can undersell what it gathered. We would rather admit that than pretend the map is finished.
+A trope measures how films *read*, not how they were made. It is built from our own bold readings, and those readings are provocations by design — so a trope inherits their wilfulness. Cohesion tells us a set hangs together; it cannot tell us the reading is correct, and correctness was never the claim. The critic step is a judgement, and judgements can miss: a real code can be discarded as noise, or a name can undersell what it gathered. We would rather admit that than pretend the map is finished.
 
 ---
 

@@ -37,7 +37,7 @@ The bands bite, too. Across the catalogue the average film sits around **58 on V
 
 ## How the three axes combine
 
-Value is the plain average of its five sub-scores. Cost is the plain average of its four. Risk is composed a little differently: it is weighted mainly toward the trio of failure dimensions — intellectual bankruptcy, aesthetic insincerity and artistic cowardice — with polarization counted separately and more lightly, because a divisive film is a different animal from a bankrupt one. The exact weighting is fixed and version-locked, and the same for every film. We do not blend any external number — an IMDb rating, a Rotten Tomatoes score, a festival honour — into any of the thirteen. External metrics are shown beside our scores for context and never enter the formula.
+Value is the plain average of its five sub-scores. Cost is the plain average of its four. Risk is composed a little differently: it is weighted mainly toward the trio of failure dimensions — intellectual bankruptcy, aesthetic insincerity and artistic cowardice — with Polarization counted separately and more lightly, because a divisive film is a different animal from a bankrupt one. The exact weighting is fixed and version-locked, and the same for every film. We do not blend any external number — an IMDb rating, a Rotten Tomatoes score, a festival honour — into any of the thirteen; the reasoning is set out in [What TakeScore ignores](/methodology/what-takescore-ignores).
 
 ## What we decided, and why
 
@@ -45,9 +45,9 @@ A few calls shape every one of the thirteen, so here they are in the open.
 
 **Difficulty is a cost, never a virtue.** A hard film earns nothing on the Cost axis; a high Cost score just raises the price of admission. Whether the price is worth paying is settled entirely by the five Value dimensions. Hard-but-empty is the worst deal in the catalogue — low value at a high price — and the two axes never blur into each other.
 
-**Legibility is never penalised.** A perfectly clear, crowd-embraced film can post an elite Value score. Accessibility is not a cap and obscurity is not an achievement; we grade what a film delivers, not how much it makes you work.
+**Legibility is never penalised.** A perfectly clear, crowd-embraced film can post a very high Value score. Accessibility is not a cap and obscurity is not an achievement; we grade what a film delivers, not how much it makes you work.
 
-**Divisive is not bankrupt.** When a film has a serious camp defending it, that disagreement is scored as Polarization, not as hollowness or insincerity. A strong defence is exactly what separates a gamble from a failure, so a polarizing film can sit far from the failure dimensions.
+**Divisive is not bankrupt.** When a film has a serious camp defending it, that disagreement is scored as Polarization, not as hollowness or insincerity. A strong defence is exactly what separates a gamble from a failure, so a divisive film can sit far from the failure dimensions.
 
 **Ambition is not achievement.** Ostentatious spectacle and scale do not lift the Formal score on their own; the upper bands are reserved for form that is integrated and controlled.
 

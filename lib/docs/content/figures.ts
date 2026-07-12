@@ -11,13 +11,13 @@ Before we can say anything about a film, we have to decide what in the film is w
 
 > **{{n:films}}**
 > films read
-> each yields roughly six to eight figures worth keeping
+> each yields roughly eight to ten figures worth keeping
 
 ## A figure, not an attribute
 
 A figure is the smallest thing a film returns to that also *carries meaning*. That second half is the whole difference. A film is full of properties that recur — a character happens to be tall, it happens to rain in several scenes — and a property that merely recurs is a statistical regularity, not a figure. Counting it tells you nothing you did not already see.
 
-What makes something a figure is not how often it appears but how much it is loaded. A figure is where a recurring detail binds to a meaning and to an *activated expectation* — where the thing becomes a small code the film is speaking in. The distinction is old in the study of narrative: the mother is not a motif, but the cruel stepmother is. "A tall character" is an attribute; the towering villain — height read as menace — is a figure, because the height has been bundled with a meaning and a thing we expect to follow.
+What makes something a figure is not how often it appears but how much it is loaded. A figure is where a recurring detail binds to a meaning and to an *activated expectation* — where the thing becomes a small code the film is speaking in. The distinction is old in the study of narrative — it is the test the folklorist Stith Thompson used for what survives in tradition: the mother is not a motif, but the cruel stepmother is. "A tall character" is an attribute; the towering villain — height read as menace — is a figure, because the height has been bundled with a meaning and a thing we expect to follow.
 
 So the working test for every candidate is **strikingness and semiotic loading, not frequency**. Does this detail do something — activate a code, set up an expectation, ask to be interpreted — or does it just happen to be present more than once? Bare repetition never crystallises into meaning, however frequent; coded repetition is what a film is actually made of.
 
@@ -37,7 +37,7 @@ We chose the figure — not the scene or the theme — as the atomic unit. A sce
 
 We let frequency lose to strikingness on purpose. It would be easier, and more defensible-looking, to keep whatever recurs most. We do not, because the most frequent property is usually the least meaningful one. The gem filter costs us completeness and buys us a layer where nearly everything present is present for a reason.
 
-We keep the number of figures per film small. Six to eight is not a quota; it is what usually survives the filter. When a film yields many more, that is a sign the filter ran loose, not that the film is unusually rich.
+We keep the number of figures per film small. Eight to ten is not a quota; it is what usually survives the filter. When a film yields many more, that is a sign the filter ran loose, not that the film is unusually rich.
 
 ## Limits
 

@@ -11,7 +11,7 @@ Wherever Metatake shows a percentage or a ranked list — a trope page ordering 
 
 ## Every number starts from an embedding
 
-Every reading, figure and trope on Metatake carries an *embedding* — a position in meaning-space derived from its actual text. Nothing about that position is hand-assigned. Two readings that think about the same thing land near each other; two that don't drift apart. The rankings you see are just distances measured in that space, reported as percentages.
+Every reading, figure and trope on Metatake carries an *embedding* — a position in meaning-space derived from its actual text, with nothing hand-assigned; [the embedding map](/methodology/embedding-map) explains how those positions are built. The rankings you see are distances measured in that space, reported as percentages.
 
 Because the number comes from the text and only the text, the same input always yields the same output. Nothing is shuffled, nothing is promoted by hand, and no ranking is ever frozen into the page.
 

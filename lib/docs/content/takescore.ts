@@ -7,7 +7,7 @@ Most ratings measure satisfaction — whether a crowd enjoyed a film — and the
 
 > **6,700+**
 > films scored
-> every film in the catalogue carries a TakeScore, each judged on its own terms
+> every film in the visible catalogue carries a TakeScore, each judged on its own terms
 
 > **58 / 100**
 > average Value
@@ -43,7 +43,7 @@ A few calls shaped the whole scale, so here is how we settled them.
 
 **Ambition is not achievement.** Scale, spectacle and reach are not scored as value in themselves. A film is credited for what it accomplishes, not for what it reached toward. Announced intentions do not earn points.
 
-**External ratings are ignored.** Box office, star averages and aggregator scores are never inputs to a TakeScore. Where we show them, they sit *beside* the score for comparison and are labelled as not part of it. Feeding the crowd back in would only re-package popularity under a new name, and popularity is the thing TakeScore was built to set aside.
+**External ratings are ignored.** Box office, star averages and aggregator scores are never inputs to a TakeScore. Where we show them, they sit *beside* the score for comparison and are labelled as not part of it. The full case for keeping them out is set out in [What TakeScore ignores](/methodology/what-takescore-ignores).
 
 **Every film is scored on its own.** No film's score depends on the films around it. Each is judged against a fixed, calibrated set of reference points, so the scale means the same thing across the whole catalogue and a film's number does not drift when its neighbours change.
 

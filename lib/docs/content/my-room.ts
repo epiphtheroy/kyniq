@@ -1,11 +1,11 @@
 const body = `
-# My Room — your cinema operating system
+# My Room — a private terminal for your films
 
 [My Room](/room) is your private side of Metatake: a personal terminal where every film you have seen is treated as a position, and each screen is a single-purpose instrument. The rest of the site is a map of cinema; My Room is a map of *your* cinema.
 
 ## Why it exists
 
-Most film sites forget you the moment you close the tab. My Room is built on the opposite premise — that a lifetime of watching is an asset worth compounding, and that the interesting questions are personal: what should I watch tonight, what does my taste actually look like, which corners of cinema have I never entered? So the Room borrows the language of a portfolio deliberately. Your films are holdings; your watchlist is a pipeline; your coverage of a director or a canon is something you can complete. The point of the metaphor is a gentle one: watching *adds* to something, and the site should show you what.
+Most film sites forget you the moment you close the tab. My Room is built on the opposite premise — that a lifetime of watching is a record worth keeping and building on, and that the interesting questions are personal: what should I watch tonight, what does my taste actually look like, which corners of cinema have I never entered? So the Room borrows the language of a portfolio deliberately. Your films are holdings; your watchlist is a pipeline; your coverage of a director or a canon is something you can complete. The point of the metaphor is a gentle one: watching *adds* to something, and the site should show you what.
 
 ## How it works
 

@@ -5,7 +5,7 @@ Every reading in Metatake's Strong Misreadings section arrives under a name that
 
 ## The wager, borrowed from Bloom
 
-The critic Harold Bloom argued that no reading is innocent or neutral — that reading is always misreading, and that the readings worth having are the strong ones: forceful, willful interpretations that wrest a new meaning from a work instead of dutifully recovering its obvious sense. A strong misreading earns its keep not by being correct, but by how much it lets you see.
+The critic Harold Bloom argued that no reading is innocent or neutral — that reading is always misreading, and that the readings worth having are the strong ones: forceful, wilful interpretations that wrest a new meaning from a work instead of dutifully recovering its obvious sense. A strong misreading earns its keep not by being correct, but by how much it lets you see.
 
 That is the wager here. Each reading takes a surface detail — an image, a line, a fact about how the film was made — distrusts it, and turns it into something the film never says aloud. The lineage is old: Nietzsche's claim that there are only interpretations, Ricoeur's *hermeneutics of suspicion*, Jonathan Culler's defence of overinterpretation on the argument that the cautious reading tends to recover only what we already knew. Against all of them stands Umberto Eco, who spent a career warning about the reader who connects everything and finds a secret behind every detail. We take the warning seriously, and we recognise that we are close to the kind of reading he distrusted.
 

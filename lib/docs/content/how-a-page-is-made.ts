@@ -23,7 +23,7 @@ Every reading passes through the same six stages, and nothing skips a step.
 
 **3. Scholarly anchoring, where it applies.** Some readings are anchored to a specific piece of published film scholarship, and where they are, we credit the source rather than passing the idea off as our own. Most readings are original interpretations in their own right, built the way this page describes.
 
-**4. Human editorial review.** Every reading, no exceptions, is checked for accuracy and either edited or cut by the [editorial desk](/methodology/editorial-responsibility) — led by our editor — before it goes live. This human read is the last gate on top of automated checks that flag the risky drafts first, so the desk's attention lands where a machine cannot be trusted rather than being spread evenly across everything. The engine proposes; the desk disposes. If a reading is on the site, a person has read it and taken responsibility for that specific page.
+**4. Human editorial review.** Every reading, no exceptions, reaches the [editorial desk](/methodology/editorial-responsibility) before it goes live, and the desk does one of three things with it: edits it, cuts it, or signs off on it. This human read is the final gate, sitting on top of automated checks that flag the risky drafts first. How that review scales across the corpus, and who answers for it, is covered in [editorial responsibility](/methodology/editorial-responsibility).
 
 **5. Publication.** Only reviewed readings publish, under the editor's sign-off. There is no path from draft to live that goes around a person.
 
@@ -31,7 +31,7 @@ Every reading passes through the same six stages, and nothing skips a step.
 
 ## The desk essays: an adversarial second pass
 
-Alongside the short readings, some films carry longer [desk essays](/network) — a fan-theory piece, a decoding of a puzzling scene, an accuracy audit. These are held to a stricter standard than any single reading, because they make more claims, so before one publishes it has to survive an attack.
+Alongside the short readings, some films carry longer [desk essays](/network) — a fan-theory piece, a decoding of a puzzling scene, an accuracy audit. These are held to a stricter standard than any single reading, because they make more claims, so before one publishes it has to clear a second, stricter pass.
 
 Once a draft is written, an **independent verifier reads it adversarially** — its job is to break the piece, not to bless it. The draft has to clear two different kinds of gate.
 

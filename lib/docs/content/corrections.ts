@@ -10,14 +10,14 @@ This is the same loop every layer of the site sits under. A [kinship](/methodolo
 ## Readings stay open
 What we will *not* do is flatten an interpretation because a reader disagrees with it. A close reading is not a fact, and it isn't meant to be the last word. A film sustains more than one strong reading, and the site is built to hold several rather than to settle on one.
 
-So the two kinds of change are handled differently. A factual error is corrected — quietly, permanently, and in our favour to fix. A disagreement about meaning is not corrected; it's added to. Logged-in readers can write their own reading beneath any figure, and that reading stands next to ours rather than replacing it. Argument is the point, not the failure mode.
+So the two kinds of change are handled differently. A factual error is corrected — quietly and permanently, and the job of fixing it is ours. A disagreement about meaning is not corrected; it's added to. Logged-in readers can write their own reading beneath any figure, and that reading stands next to ours rather than replacing it. Argument is the point, not the failure mode.
 
 The line between the two is usually clear. **"The scene is set in 1962, not 1965"** is a fact — send it. **"You've read this shot too generously"** is a reading — write yours underneath. When a claim sits on the border, we treat the checkable part as a fact and leave the interpretive part open.
 
 ## What we decided, and why
 A few calls here weren't obvious, so this is how we settled them.
 
-We keep corrections **continuous rather than versioned**. There's no correction queue that fills up and gets cleared on a schedule; a verified fix goes in when it's verified, because a page that's wrong today shouldn't stay wrong until some later date. The cost of that is that we don't publish a running changelog of every small fix — the record of the corpus is the corpus as it currently stands.
+We keep corrections **continuous rather than versioned**. There's no correction queue that fills up and gets cleared on a schedule; a fix goes in as soon as it's verified, because a page that's wrong today shouldn't stay wrong until some later date. The cost of that is that we don't publish a running changelog of every small fix — the record of the corpus is the corpus as it currently stands.
 
 We correct **the underlying data, not just the visible page**. Because so much of the site is computed — rankings, connections, maps — a fact that's wrong at the source is often wrong in several places at once. Fixing the row it's drawn from fixes all of them together, and is why we ask for the specific claim rather than a general note that a page feels off.
 

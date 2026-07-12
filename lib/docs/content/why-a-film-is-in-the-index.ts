@@ -7,7 +7,7 @@ The letter is **assembled by rule, not written by an AI**. Each film is filed on
 
 ## Who the letter is to
 
-The letter has a real addressee. **WY. Heo** is a friend and younger colleague of the editor — the person Wonwoo Yoon first led into cinephilia, one film at a time, over years of watching together. When Metatake was still only an idea, WY. Heo was the reader it was being built for: someone serious and curious about film but standing at the foot of an enormous catalogue, asking the only question that matters at the start — *of all these, why this one?* Every to.W note is written to that person. Addressing a single real reader, rather than "the user", is how we keep the answer honest and plain: it has to make sense to someone you actually know.
+The letter has a real addressee. **WY. Heo** is a friend and younger colleague of the editor — the person Wonwoo Yoon first led into cinephilia, one film at a time, over years of watching together. When Metatake was still only an idea, WY. Heo was the reader it was being built for: someone serious and curious about film but standing at the foot of an enormous catalogue, asking the natural first question — *of all these, why this one?* Every to.W note is written to that person. Addressing a single real reader, rather than "the user", is how we keep the answer honest and plain: it has to make sense to someone you actually know.
 
 ## In numbers
 
@@ -17,13 +17,13 @@ The letter has a real addressee. **WY. Heo** is a friend and younger colleague o
 
 ## What we file
 
-Before any sentence is written, a film is recorded on a few honest axes. **Standing in the critics' canon** — whether it appears on the long-standing canon lists, on their secondary tiers, or nowhere on them. **How widely it is known** — from a household name down to a title few have heard of. **Which door it came in through** — a canon list, a festival's top prize, a national cinema, or an auteur's larger body of work. And a **one-line verdict** that follows from the rest.
+Before any sentence is written, a film is recorded on a few axes. **Standing in the critics' canon** — whether it appears on the long-standing canon lists, on their secondary tiers, or nowhere on them. **How widely it is known** — from a household name down to a title few have heard of. **Which door it came in through** — a canon list, a festival's top prize, a national cinema, or an auteur's larger body of work. And a **one-line verdict** that follows from the rest.
 
 These filings are deliberately coarse. They are meant to be things we can defend in a sentence, not fine-grained scores. An award and a canon listing are different doors, and we keep them different: appearing on a festival prize roll is not the same as sitting on the standing critics' lists, and the filing records which one is true.
 
 ## The verdict ladder
 
-The verdict is the honest part. It follows from standing and reach, and it comes in five rungs.
+The verdict follows from standing and reach, and it comes in five rungs.
 
 | Verdict | What it means |
 |---|---|

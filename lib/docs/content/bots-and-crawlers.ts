@@ -15,7 +15,7 @@ We try to treat the bots that visit *us* the way we would want MetatakeBot treat
 
 ## Citation welcome, wholesale scraping declined
 
-Not every bot is equal, and we do not pretend otherwise. We keep an open door for the search engines and citation bots that index us or quote us to readers, because they carry people *toward* the writing — that is the whole point of publishing it. What we decline, at the door, are the bulk scrapers and training harvesters that would take the entire site to resell or to feed a model wholesale. The reading here is meant to be read, cited and linked — not strip-mined.
+Not every bot is equal, and we do not pretend otherwise. We keep an open door for the search engines and citation bots that index us or quote us to readers, because they carry people *toward* the writing — that is the point of publishing it. What we decline are the bulk scrapers and training harvesters that would take the entire site to resell or to feed a model wholesale. The reading here is meant to be read, cited and linked — not copied out in bulk.
 
 We keep the exact machinery of that gate to ourselves, for the ordinary reason that publishing the lock helps the people trying to pick it. But the principle is public, and it is simple: identify yourself, respect **robots.txt**, send readers our way, and you are welcome.
 

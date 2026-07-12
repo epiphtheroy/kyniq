@@ -29,13 +29,13 @@ Any advertising would live only in **demarcated, plainly labelled zones**, kept 
 
 ## On making a living
 
-Metatake is independent, but it is not a charity, and we would rather be honest about that than strike a pose. Keeping a project like this alive — and growing it — costs money, and at some point it will have to earn some. What we will not do is earn it by compromising the work: no paid readings, no bought rankings, no advertiser's hand on the scale, ever. Within that wall, though, we intend to build things people find genuinely useful and are glad to pay for — deeper tools, richer data, ways of working with the corpus we have not shipped yet — while anyone who simply wants to read keeps reading, free. Right now this is a question we are working out in the open, not a settled model. When something here costs money, it will be because it earns its price — and never because the honesty of the writing was for sale.
+Metatake is independent, but it is not a charity, and we would rather say that plainly. Keeping a project like this alive — and growing it — costs money, and at some point it will have to earn some. What we will not do is earn it by compromising the work: no paid readings, no bought rankings, no advertiser's hand on the scale, ever. Within that wall, though, we intend to build things people find genuinely useful and are glad to pay for — deeper tools, richer data, ways of working with the corpus we have not shipped yet — while anyone who simply wants to read keeps reading, free. Right now this is a question we are working out in the open, not a settled model. When something here costs money, it will be because it earns its price — and never because the honesty of the writing was for sale.
 
 ## What we decided, and why
 
 A few of these lines could have been drawn more loosely, so here is where we landed and why.
 
-We treat *no advertising* as a rule about the whole editorial surface, not just banner space. It would be technically true to say we run no display ads while accepting paid write-ups; that is exactly the loophole the rule is meant to close. So the ban covers placement of any kind — a reading, a ranking, a verdict, a mention — not merely the margins of the page.
+We drew the permanent line around **the work itself, not the margins of the page**. It would be technically true to say we run no display ads while quietly accepting paid write-ups; that is exactly the loophole the rule is meant to close. So what can never be bought, now or later, is placement inside the work — a reading, a ranking, a verdict, a mention. Whether labelled advertising space ever exists beside the work is the separate, narrower question answered above, and it changes nothing about this one.
 
 We keep the score and the surrounding metrics visibly separate rather than blending them into one tidy number, even though a single blended figure would look cleaner. A blended number hides which signal is doing the work and invites the outside metrics to quietly govern the verdict. Keeping them apart is less neat and more honest: you can see the appraisal, see the context, and judge the distance between them yourself.
 

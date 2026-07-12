@@ -21,7 +21,7 @@ Because the two axes are kept independent, the *gap* between them carries inform
 
 | When you see | What it tends to mean |
 |---|---|
-| High TakeScore, low IMDb | A film that reads far richer than its crowd reception — a hidden gem we surface rather than bury |
+| High TakeScore, low IMDb | A film that reads far richer than its crowd reception — often a quiet find worth a second look |
 | High Metascore, low TakeScore | Critics of its moment were warm, but the film yields less on sustained reading |
 
 If we averaged the two together, every one of these pairs would collapse into a single dot and the tension would vanish. Keeping the axes apart is what lets the interesting cases stay visible.

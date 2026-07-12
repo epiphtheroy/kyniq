@@ -7,7 +7,7 @@ The point of the desk is to have the reflexes of a news operation and write the 
 
 ## Detection runs on public signals
 
-Nothing is invented into existence. The desk watches the open web — search-trend feeds and a fleet of outlet RSS from the major film and general-news publications — and looks for a subject that is spiking now. These are public signals anyone could read; we are reading them faster and against our own library. A trending term is only ours to write about if it resolves to a film or film-maker we already hold. Most spikes do not, and those are logged and left alone.
+Nothing is invented into existence. The desk watches the open web — search-trend feeds and a set of RSS feeds from the major film and general-news publications — and looks for a subject that is spiking now. These are public signals anyone could read; we are reading them against our own library. A trending term is only ours to write about if it resolves to a film or film-maker we already hold. Most spikes do not, and those are logged and left alone.
 
 ## It must resolve to a film we hold
 

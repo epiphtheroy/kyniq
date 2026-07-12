@@ -34,7 +34,7 @@ There are thirteen sentence patterns, grouped into eight themes:
 | Locations | where a film was filmed |
 | Questions | an open question a film's connections raise |
 
-The [kinship](/methodology/kinship) theme is the same fused signal documented in its own doc; the rest draw on [readings](/takescore), the trope and frame layers, the [lineage](/lineage) and honours record, [director](/director) filmographies, and [location](/locations) data. Each pattern has a rule for which sentences matter most on a given page, so the module leads with the ones that are rarest or most specific rather than the most generic.
+The [kinship](/methodology/kinship) theme is the same fused signal documented in its own doc; the rest draw on the published [readings](/strong-misreadings), the trope and frame layers, the [lineage](/lineage) and honours record, [director](/director) filmographies, and [location](/locations) data. Each pattern has a rule for which sentences matter most on a given page, so the module leads with the ones that are rarest or most specific rather than the most generic.
 
 ## The brand contract
 

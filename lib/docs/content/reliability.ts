@@ -10,7 +10,7 @@ We answer that with two tests, both run on real films rather than in theory.
 
 **Repeat agreement.** We score the same films several times and compare the runs. Because each film is judged on thirteen separate sub-dimensions rather than one holistic number, the variation is penned into small slots. In our checks the runs agree very tightly — an intraclass correlation near **0.99**, with the spread of any single film's Value across runs close to a single point on a hundred-point scale.
 
-**Cross-model agreement.** A single model can quietly favour its own style, so we also compare a panel of models from different makers scoring the same films. The panel agrees strongly, at a Krippendorff's alpha around **0.96**. When several independent models land in the same place, the score is a property of the film, not a quirk of one model.
+**Cross-model agreement.** A single model can quietly favour its own style, so we also compare a panel of models from different makers scoring the same films. The panel agrees strongly, at a Krippendorff's alpha around **0.96**. When several independent models land in the same place, the score is much less likely to be a quirk of any one model.
 
 ## In numbers
 > **~0.99**
@@ -27,7 +27,7 @@ Most films are settled in one pass. The exceptions are caught and sent back for 
 - A score sitting **near a band boundary** — where a small wobble would flip it into the neighbouring grade — is flagged and rescored several times, and we take the median so no single run decides it.
 - A score that came back with **high run-to-run spread** gets the same treatment: more samples, median kept.
 - When the **panel disagrees** with itself beyond what we consider settled, the film is escalated, and if it still will not converge it goes to a person.
-- A **random audit slice** of the catalogue is rescored with a stronger, more expensive model than the one used for the main pass, purely to check the workhorse against a harder judge.
+- A **random audit slice** of the catalogue is rescored with a stronger model than the one used for the main pass, purely to check the main pass against a harder judge.
 - Anything the parser cannot read cleanly is retried and, failing that, held out rather than published as a guess.
 
 ## The drift gate

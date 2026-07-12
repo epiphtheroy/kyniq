@@ -17,7 +17,7 @@ Alongside the readings, Metatake keeps a second, plainer kind of knowledge about
 
 The method is deliberate: when we add an award, we add all of it. When we add the Palme d'Or we add *every* Palme d'Or; when we add a ranked canon — a thousand-greatest poll, a national preservation registry — it goes in whole and in order, not as a hand-picked highlight reel. A list is either the real thing end to end or it isn't on the site. This is slower than skimming the famous entries, but it is the only way the total can be checked against the record rather than trusted on our say-so.
 
-Most deliberately, the layer reaches for the traditions the global-prestige lists tend to overlook — national cinemas and critics' polls from outside the Cannes-and-Oscars centre — so that a film's recognition can be seen in its own terms and not only in Western hardware.
+The layer also reaches, deliberately, for the traditions the global-prestige lists tend to overlook — national cinemas and critics' polls from outside the Cannes-and-Oscars centre — so that a film's recognition can be read on its own terms, not only against the Western prize circuit.
 
 ## Matched to a film, or held
 
@@ -31,7 +31,7 @@ Nothing is published until it has been checked. Every row is structurally valida
 
 ## What we decided, and why
 
-A few calls weren't obvious, so here is how we settled them. We record **winners and ranked members, not full nominee slates** — a Best Picture list holds the film that won, not the four it beat — because nomination data isn't uniformly public and we would rather under-claim than pad a page. We keep **prestige separate from likeness**: a film isn't *better* for belonging to a movement or a style, so movements are used to find kin, not to inflate a standing. Because pure prestige tilts hard toward Cannes and Hollywood, the national honours are a **deliberate counterweight**, not an afterthought — a film honoured at a small, fiercely selective festival is credited for it rather than penalised for carrying no familiar hardware. And where a source turned out mislabelled or thin — a single year's critics' list once sat under the title of a century-long poll — we relabel it honestly or hold it back rather than let the error stand.
+A few calls weren't obvious, so here is how we settled them. We record **winners and ranked members, not full nominee slates** — the reasoning is set out in [How a list earns its place](/methodology/lineage-selection). We keep **prestige separate from likeness** — a film isn't *better* for belonging to a movement or a style — and how that separation is scored, along with the national counterweight to pure prestige, is covered in [Weights and decay](/methodology/lineage-standing). And where a source turned out mislabelled or thin — a single year's critics' list once sat under the title of a century-long poll — we relabel it honestly or hold it back rather than let the error stand.
 
 ## Limits
 

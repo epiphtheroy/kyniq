@@ -3,7 +3,7 @@ const body = `
 
 Much of Metatake is built on records other people keep — award rolls, critical canons, national film histories, working critics, and the databases that say where a film can be watched. We would rather name them than gesture at "public sources." The lists below are the ones we actually track and monitor; where a source has an official page or a Wikidata entry, it is linked. They are grouped into toggles so the page stays readable — open the one you want.
 
-We track *which* lists exist and cite them by their issuing body; the internal weight each one carries, and the exact machinery behind our reception and watch data, are described in [lineage-standing](/methodology/lineage-standing), [reception](/methodology/reception) and [where-to-watch](/methodology/where-to-watch).
+We track *which* lists exist and cite them by their issuing body; the internal weight each one carries, and the exact machinery behind our reception and watch data, are described in [lineage-standing](/methodology/lineage-standing), [reception](/methodology/reception) and [where-to-watch](/methodology/where-to-watch). How borrowed facts are attributed, and how everything is pinned to one film identity, is covered in [sources and identity](/methodology/sources-and-identity).
 
 :::details Awards, canons and national lists we enumerate
 ### Festival and award bodies
@@ -15,7 +15,7 @@ The three major festivals: [Cannes](https://www.festival-cannes.com) (Palme d'Or
 ### National canons and awards, by country
 We deliberately weight toward national cinemas the global-prestige lists overlook — currently national honours from 23 countries. Among them: France ([César](https://www.academie-cinema.org)), Spain ([Goya](https://www.premiosgoya.com) and the *Caimán* poll), Italy (David di Donatello; *100 film italiani da salvare*), Germany (Deutscher Filmpreis), Sweden (Guldbagge), Denmark (Bodil / Robert), Poland, Russia, Japan ([Kinema Junpo](https://www.kinejun.com) and its all-time poll), South Korea ([Blue Dragon](https://www.bluedragonfilmawards.com), Grand Bell, Baeksang, the [KOFA](https://www.kmdb.or.kr) 100), Hong Kong, China (Golden Rooster), Taiwan (Golden Horse; the 100 Greatest Chinese-Language Films), India (National Film Awards; Filmfare), Iran (Fajr / Crystal Simorgh), Mexico (Ariel), Brazil (Grande Prêmio; the *Abraccine* 100), Argentina, the UK ([BFI Top 100 British Films](https://www.bfi.org.uk)), Australia (AACTA), Canada, and Romania.
 
-Every list is enumerated whole, cross-read against the issuing body's own record and Wikipedia/Wikidata, then resolved to a TMDb identity; unmatched titles are held, not guessed.
+Every list is enumerated whole, cross-read against the issuing body's own record and Wikipedia/Wikidata, then resolved to a TMDB identity; unmatched titles are held, not guessed.
 :::
 
 :::details Critics and outlets we cite in reception

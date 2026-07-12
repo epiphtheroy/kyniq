@@ -132,9 +132,9 @@ export default function AboutPage() {
       <div className="tick" />
       <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
         Every reading is drafted by <span className="disp" style={{ fontSize: 18 }}>Metatake Editorial</span> —
-        an AI system built for close film analysis — and reviewed by{" "}
-        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link>, the
-        human editor, before it publishes. Nothing goes live without that pass; each page states how it was
+        an AI system built for close film analysis — and reviewed by the editorial desk led by{" "}
+        <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>Wonwoo Yoon</Link> before
+        it publishes. Nothing goes live without that pass; each page states how it was
         made and when. Factual claims — dates, credits, plot details, scholarly attributions — are checked
         at review and corrected after publication as readers and our own audits surface issues.
         Interpretations stay open: a film sustains many readings, so logged-in readers can add their own

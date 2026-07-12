@@ -5,7 +5,7 @@ The page labelled **Connections** on Metatake is one graph shown four ways. Ever
 
 ## The four views
 
-The graph opens on a single entity and its neighbourhood — an *ego* view — and you move through it by clicking. A click recenters the graph on whatever you clicked; the little ↗ on each node opens that entity's own page instead. A search box jumps the map to any film, director, [trope](/tropes), idea, or [theorist](/theorist) by name.
+The graph opens on a single entity and its neighbourhood — an *ego* view — and you move through it by clicking. A click recentres the graph on whatever you clicked; the little ↗ on each node opens that entity's own page instead. A search box jumps the map to any film, director, [trope](/tropes), idea, or [theorist](/theorist) by name.
 
 Four tabs reshape what the graph draws.
 
@@ -26,15 +26,15 @@ An edge is never just a line. In the film view three different relationships are
 
 **A kinship link.** An undirected line joins two films that read as kin. Its **thickness grows with the [kinship](/methodology/kinship) index** — a thin thread is a faint echo, a heavy line is close family. The number behind that thickness is the same one described in the kinship doc, fused from shared tropes and taste distance; here we simply let the eye read strength as weight rather than printing a figure on every edge.
 
-**A counterpoint edge.** A third kind of line marks films that share a trope but read in *opposite* directions — the same device pulled toward contrary meanings. Counterpoints are the connections a plain similarity engine cannot produce, because they depend on knowing not just what two films have in common but how each was interpreted.
+**A counterpoint edge.** A third kind of line marks films that share a trope but read it in *opposite* directions — the same device pulled toward contrary meanings. How these pairs are found is explained in the [counterpoints](/methodology/counterpoints) doc.
 
 The grouped view drops the arrows and instead colours nodes by kind — film, figure, trope, idea, director, theorist — so you can see how one entity sits across every layer at once. Hovering any node dims everything that is not its neighbour, which is the quickest way to read a crowded patch.
 
 ## The galaxy
 
-The galaxy is the whole corpus in one frame. Each film is reduced to a single point of taste, and those points are projected down to two dimensions so that films which read alike land near each other. Distance on the galaxy is meaning, not chronology or alphabet: neighbouring dots are neighbours in how they were read.
+The galaxy is the whole corpus in one frame. Each film is reduced to a single point of taste — the averaged position described in [the embedding map](/methodology/embedding-map) — and those points are projected down to two dimensions so that films which read alike land near each other. Distance on the galaxy is meaning, not chronology or alphabet: neighbouring dots are neighbours in how they were read.
 
-The coloured neighbourhoods are found in the data, not drawn by us. We cluster the points and then **name each cluster from what is actually inside it** — the pair of genres that dominate it and a representative trope — so a region might read "Crime · Thriller — Hopper's Lonely American Light". No one wrote those labels by hand; if the underlying readings shift, the clusters and their names shift with them. Because the coordinates are fixed once computed, a galaxy view can be shared by link and will look the same when it loads.
+The coloured neighbourhoods are found in the data, not drawn by us. We cluster the points and then **name each cluster from what is actually inside it** — the pair of genres that dominate it and a representative trope — so a region might read "Crime · Thriller — Hopper's Lonely American Light". No one wrote those labels by hand; if the underlying readings shift, the clusters and their names shift with them. Because the coordinates are stored once computed rather than re-projected on each visit, a galaxy view can be shared by link and will look the same when it loads — until the corpus grows enough for a recompute.
 
 ## What we decided, and why
 

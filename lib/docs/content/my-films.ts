@@ -5,7 +5,7 @@ Turn on the **My Films** lens and the entire site re-centres on the films you ha
 
 ## Why it exists
 
-A catalogue of nearly seven thousand films is a wonderful thing and a slightly overwhelming one. The My Films lens is the answer to a simple wish: *show me this, but through what I know.* Suddenly a director's page, a trope, a map of filming locations, a ranked list — all of it can be read against your own history, so the vast archive becomes legible as your archive. It is the same instinct as [My Room](/methodology/my-room), turned outward onto the whole public site rather than kept to a private terminal.
+A catalogue of nearly seven thousand films is a lot to take in at once. The My Films lens is the answer to a simple wish: *show me this, but through what I know.* Suddenly a director's page, a trope, a map of filming locations, a ranked list — all of it can be read against your own history, so the vast archive becomes legible as your archive. It is the same instinct as [My Room](/methodology/my-room), turned outward onto the whole public site rather than kept to a private terminal.
 
 ## How it works
 
@@ -19,7 +19,7 @@ The lens lives as a toggle in the top navigation once you are signed in and have
 
 ## Limits
 
-The lens can only reflect what it has been told. If your seen-list is thin or out of date, "Only" mode will feel sparse — so the fastest way to make it sing is to [import your history](/methodology/import). And "Only" is a way of *reading* the site, not a verdict on it: a film you have not seen is ghosted, not judged, and the full public site is always one switch away.
+The lens can only reflect what it has been told. If your seen-list is thin or out of date, "Only" mode will feel sparse — so the fastest way to fill it in is to [import your history](/methodology/import). And "Only" is a way of *reading* the site, not a verdict on it: a film you have not seen is ghosted, not judged, and the full public site is always one switch away.
 
 ---
 
