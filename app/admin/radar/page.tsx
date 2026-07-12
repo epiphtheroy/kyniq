@@ -207,8 +207,9 @@ export default async function RadarPage({ searchParams }: { searchParams: Promis
         <div>
           {feedItems.length === 0 && (
             <p style={{ fontSize: 13, color: "#94a3b8" }}>
-              No items in this window yet. If the Mac worker (radar/radar-watch.sh) is running, matched
-              content will appear here within minutes (Bluesky/Mastodon are real-time; feeds poll hourly).
+              No creator posts in this window{platform ? ` on ${PLATFORM_LABEL[platform] ?? platform}` : ""}.
+              Letterboxd reviewers poll every 30 min, Bluesky/Mastodon are real-time, blogs hourly.
+              Add reviewers to follow with <code>radar/add_letterboxd.py &lt;username&gt;</code>, or widen the window.
             </p>
           )}
           {feedItems.map((it) => {
