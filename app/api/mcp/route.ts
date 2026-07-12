@@ -147,18 +147,12 @@ async function toolSearchFilms(db: ReturnType<typeof createAdminClient>, args: R
   if (!q) return toolText("Empty query. Give a film title, original title, or director name.", true);
   const year = typeof args.year === "number" && Number.isFinite(args.year) ? Math.trunc(args.year) : null;
 
-  let sel = db
-    .from("films")
-    .select("slug, title, original_title, year, director, is_analyzed, visible")
-    .or(`title.ilike.*${q}*,original_title.ilike.*${q}*,director.ilike.*${q}*`)
-    .order("is_analyzed", { ascending: false })
-    .order("year", { ascending: false })
-    .limit(25);
-  if (year) sel = sel.eq("year", year);
-  const { data: rows, error } = await sel;
+  // Diacritic-insensitive match via unaccent (0094) — "kieslowski" must find Kieślowski.
+  const { data: rows, error } = await db.rpc("films_basic_search", { p_q: q, p_year: year });
   if (error) return toolText(`Search failed: ${error.message}`, true);
 
-  const films = (rows ?? []).filter((f) => f.visible !== false).slice(0, 10);
+  type FilmRow = { slug: string; title: string; original_title: string | null; year: number | null; director: string | null; is_analyzed: boolean | null };
+  const films = (Array.isArray(rows) ? rows : []) as FilmRow[];
   if (films.length === 0) {
     return toolText(`No Metatake films match "${q}"${year ? ` (${year})` : ""}. Try a shorter title fragment.`);
   }
