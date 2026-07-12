@@ -18,6 +18,9 @@ Usage:
   python3 catalog-map-run.py --kind object --limit 50   # first 50 (smoke)
   python3 catalog-map-run.py --kind object --no-write    # everything except the DB insert
   python3 catalog-map-run.py --kind object --fresh       # ignore a saved batch id, submit anew
+  python3 catalog-map-run.py --kind object --films a,b --out run6   # SCOPED (factory): only these
+     films' untagged figures; --out namespaces the batch/results file so a scoped run never
+     collides with (or resumes into) the corpus-wide batch.
 """
 import os, sys, re, json, time, argparse, urllib.request, urllib.error
 
@@ -157,11 +160,16 @@ def parse_json(txt):
     return None
 
 # ---------- figures ----------
-def fetch_figures(kind, limit):
+def fetch_figures(kind, limit, film_ids=None):
+    """film_ids: when given (factory --films scoping), restrict to those films AND exclude
+    figures that already have a figure_taxonomy row for this axis (additive/idempotent —
+    the unscoped corpus-wide path already relies on the caller not re-running finished figures,
+    but a scoped incremental run must self-exclude or every re-run re-charges the same figures)."""
     out, off, page = [], 0, 1000
+    fid_filter = f"&film_id=in.({','.join(film_ids)})" if film_ids else ""
     while True:
         sel = "id,label,description,film:films(title,director,year)"
-        rows = sb_get(f"figures?kind=eq.{kind}&embedding=not.is.null&select={sel}&order=id&limit={page}&offset={off}")
+        rows = sb_get(f"figures?kind=eq.{kind}&embedding=not.is.null{fid_filter}&select={sel}&order=id&limit={page}&offset={off}")
         for r in rows:
             f = r.get("film") or {}
             out.append({"id": r["id"], "label": r["label"], "description": r.get("description"),
@@ -170,7 +178,13 @@ def fetch_figures(kind, limit):
         if len(rows) < page: break
         off += page
         if limit and len(out) >= limit: break
-    return out[:limit] if limit else out
+    out = out[:limit] if limit else out
+    if film_ids:
+        fids = ",".join(r["id"] for r in out) or "00000000-0000-0000-0000-000000000000"
+        tagged_rows = sb_get(f"figure_taxonomy?select=figure_id&figure_id=in.({fids})")
+        tagged = {r["figure_id"] for r in tagged_rows}
+        out = [r for r in out if r["id"] not in tagged]
+    return out
 
 def main():
     ap = argparse.ArgumentParser()
@@ -183,12 +197,21 @@ def main():
     ap.add_argument("--poll-secs", type=int, default=20)
     ap.add_argument("--no-write", action="store_true")
     ap.add_argument("--fresh", action="store_true")
+    ap.add_argument("--films", default=None, help="factory scoping: slug,slug — only these films' untagged figures")
+    ap.add_argument("--out", default=None, help="namespace the batch/results file (required with --films)")
     a = ap.parse_args()
 
     for n, v in [("NEXT_PUBLIC_SUPABASE_URL", URL), ("SUPABASE_SERVICE_ROLE_KEY", KEY), ("ANTHROPIC_API_KEY", ANTH)]:
         if not v: raise SystemExit(f"Missing env: {n}")
     sp = KIND_SPEC[a.kind]
-    batch_file = os.path.join(ELEM, f"catalog-map-{a.kind}.batch")
+    film_ids = None
+    if a.films:
+        slugs = [s.strip() for s in a.films.split(",") if s.strip()]
+        frows = sb_get(f"films?slug=in.({','.join(slugs)})&select=id")
+        film_ids = [r["id"] for r in frows]
+        if not film_ids: print("  no matching films for --films — nothing to do."); return
+    tag = f"-{a.out}" if a.out else ("-scoped" if a.films else "")
+    batch_file = os.path.join(ELEM, f"catalog-map-{a.kind}{tag}.batch")
     os.makedirs(ELEM, exist_ok=True)
 
     # ----- vocab maps -----
@@ -211,7 +234,7 @@ def main():
     candmap = {}   # figure_id -> {"arch":set,"theme":set}
     if not batch_id:
         print(f"▶ fetching {a.kind} figures …")
-        figs = fetch_figures(a.kind, a.limit)
+        figs = fetch_figures(a.kind, a.limit, film_ids)
         print(f"  {len(figs)} figures · building requests (kNN candidates each) …")
         requests = []
         for i, fig in enumerate(figs, 1):
@@ -224,7 +247,7 @@ def main():
                 "system": [{"type": "text", "text": prefix, "cache_control": {"type": "ephemeral"}}],
                 "messages": [{"role": "user", "content": build_user(a.kind, fig, cands)}]}})
             if i % 200 == 0: print(f"    prepared {i}/{len(figs)}")
-        json.dump(candmap, open(os.path.join(ELEM, f"catalog-map-{a.kind}.cands.json"), "w"))
+        json.dump(candmap, open(os.path.join(ELEM, f"catalog-map-{a.kind}{tag}.cands.json"), "w"))
         print(f"▶ submitting batch ({len(requests)} requests) …")
         st, body = anth("POST", "/v1/messages/batches", {"requests": requests})
         if st not in (200, 201): raise SystemExit(f"batch create {st}: {body}")
@@ -232,7 +255,7 @@ def main():
         open(batch_file, "w").write(batch_id)
         print(f"  batch id {batch_id}  (saved to {batch_file})")
     else:
-        cf = os.path.join(ELEM, f"catalog-map-{a.kind}.cands.json")
+        cf = os.path.join(ELEM, f"catalog-map-{a.kind}{tag}.cands.json")
         if os.path.exists(cf): candmap = json.load(open(cf))
 
     # ===== poll =====
@@ -248,7 +271,7 @@ def main():
     print("▶ retrieving results …")
     st, body = anth("GET", f"/v1/messages/batches/{batch_id}/results", timeout=600)
     if st != 200: raise SystemExit(f"results {st}: {body}")
-    open(os.path.join(ELEM, f"catalog-map-{a.kind}-results.jsonl"), "w").write(body)
+    open(os.path.join(ELEM, f"catalog-map-{a.kind}{tag}-results.jsonl"), "w").write(body)
 
     # ===== validate + resolve =====
     rows, stat = [], {"ok": 0, "abstain": 0, "err": 0, "bad_code": 0, "bad_arch": 0, "themes": 0}

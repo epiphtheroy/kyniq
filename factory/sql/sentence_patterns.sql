@@ -153,10 +153,15 @@ select b.id, 'M_frame',
   least(cnt*6, 40),
   jsonb_build_object('frame_count',cnt)
 from (
+  -- 2026-07-12: gated cnt>=2 — boldtake emits >=1 take per framework per film (rarely more than
+  -- one), so an ungated count is thin/tautological ~99% of the time ("draws 1 reading through the
+  -- frame" just restates that the framework exists, no insight). Only state a count when there's
+  -- actually a plural to remark on.
   select g.film_id, tk.framework, count(*)::int as cnt
   from public.takes tk join public.figures g on g.id=tk.figure_id
   where g.film_id = any({film_ids_array}) and tk.status='published' and tk.framework is not null and tk.framework<>'INVITATION'
   group by g.film_id, tk.framework
+  having count(*) >= 2
 ) tk
 join public.films b on b.id=tk.film_id
 on conflict do nothing;

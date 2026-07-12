@@ -24,7 +24,11 @@ def load_env(p):
 load_env(os.path.join(ROOT, ".env.local"))
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
 TMDB = os.environ.get("TMDB_READ_TOKEN")
-SRC = os.path.join(HERE, "next-all.jsonl"); OUTF = os.path.join(HERE, "next-all.resolved.jsonl")
+_a = sys.argv[1:]  # --out NAME → NAME.jsonl / NAME.resolved.jsonl (CWD-relative; factory namespaced runs)
+if "--out" in _a:
+    _o = _a[_a.index("--out") + 1]; SRC = f"{_o}.jsonl"; OUTF = f"{_o}.resolved.jsonl"
+else:
+    SRC = os.path.join(HERE, "next-all.jsonl"); OUTF = os.path.join(HERE, "next-all.resolved.jsonl")
 CACHE = os.path.join(HERE, "next-tmdb-cache.json")
 DRY = "--dry" in sys.argv
 if not (URL and KEY): sys.exit("Missing SUPABASE env")

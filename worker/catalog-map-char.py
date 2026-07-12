@@ -148,10 +148,13 @@ def cost(u, batch=False):
     c = (u["in"]*PRICE["in"] + u["out"]*PRICE["out"] + u["cw"]*PRICE["cw"] + u["cr"]*PRICE["cr"]) / 1e6
     return c*0.5 if batch else c
 
-def fetch_figures(limit):
+def fetch_figures(limit, film_ids=None):
+    """film_ids: factory --films scoping — restrict to those films AND exclude figures that
+    already have a figure_taxonomy row (additive/idempotent for scoped incremental runs)."""
     out, off, page = [], 0, 1000
+    fid_filter = f"&film_id=in.({','.join(film_ids)})" if film_ids else ""
     while True:
-        rows = sb_get(f"figures?kind=eq.character&embedding=not.is.null&select=id,label,description,film:films(title,director,year)&order=id&limit={page}&offset={off}")
+        rows = sb_get(f"figures?kind=eq.character&embedding=not.is.null{fid_filter}&select=id,label,description,film:films(title,director,year)&order=id&limit={page}&offset={off}")
         for r in rows:
             f = r.get("film") or {}
             out.append({"id": r["id"], "label": r["label"], "description": r.get("description"),
@@ -159,7 +162,12 @@ def fetch_figures(limit):
         if len(rows) < page: break
         off += page
         if limit and len(out) >= limit: break
-    return out[:limit] if limit else out
+    out = out[:limit] if limit else out
+    if film_ids:
+        fids = ",".join(r["id"] for r in out) or "00000000-0000-0000-0000-000000000000"
+        tagged = {r["figure_id"] for r in sb_get(f"figure_taxonomy?select=figure_id&figure_id=in.({fids})")}
+        out = [r for r in out if r["id"] not in tagged]
+    return out
 
 # ---------- shared resolve ----------
 def load_maps():
@@ -295,15 +303,17 @@ def run_sync(a, maps, prefix):
     print(f"\n✅ characters (sync): wrote {ok} rows from {stat['ok']} matched + {stat['abstain']} abstained.")
 
 # ---------- BATCH ----------
-def run_batch(a, maps, prefix):
-    bf = os.path.join(ELEM, "catalog-map-character.batch")
-    cf = os.path.join(ELEM, "catalog-map-character.cands.json")
+def run_batch(a, maps, prefix, film_ids=None, tag=""):
+    bf = os.path.join(ELEM, f"catalog-map-character{tag}.batch")
+    cf = os.path.join(ELEM, f"catalog-map-character{tag}.cands.json")
     batch_id = None
     if os.path.exists(bf) and not a.fresh:
         batch_id = open(bf).read().strip(); print(f"▶ resuming batch {batch_id}")
     candmap = {}
     if not batch_id:
-        figs = fetch_figures(a.limit)
+        figs = fetch_figures(a.limit, film_ids)
+        if film_ids and not figs:
+            print("  no untagged figures for --films — nothing to do."); return
         print(f"▶ {len(figs)} characters · building requests …")
         reqs = []
         for i, fig in enumerate(figs, 1):
@@ -336,7 +346,7 @@ def run_batch(a, maps, prefix):
     print("▶ retrieving …")
     st, body = anth("GET", f"/v1/messages/batches/{batch_id}/results", timeout=600)
     if st != 200: raise SystemExit(f"results {st}: {body}")
-    open(os.path.join(ELEM, "catalog-map-character-results.jsonl"), "w").write(body)
+    open(os.path.join(ELEM, f"catalog-map-character{tag}-results.jsonl"), "w").write(body)
 
     rows, u = [], {"in": 0, "out": 0, "cw": 0, "cr": 0}
     stat = {"ok": 0, "abstain": 0, "err": 0, "bad_ident": 0, "bad_complex": 0, "bad_arch": 0}
@@ -392,18 +402,26 @@ def main():
     ap.add_argument("--poll-secs", type=int, default=20)
     ap.add_argument("--no-write", action="store_true")
     ap.add_argument("--fresh", action="store_true")
+    ap.add_argument("--films", default=None, help="factory scoping: slug,slug — only these films' untagged figures")
+    ap.add_argument("--out", default=None, help="namespace the batch/results file (required with --films)")
     a = ap.parse_args()
     for n, v in [("NEXT_PUBLIC_SUPABASE_URL", URL), ("SUPABASE_SERVICE_ROLE_KEY", KEY), ("ANTHROPIC_API_KEY", ANTH)]:
         if not v: raise SystemExit(f"Missing env: {n}")
     os.makedirs(ELEM, exist_ok=True)
     if a.cancel: do_cancel(); return
+    film_ids = None
+    if a.films:
+        slugs = [s.strip() for s in a.films.split(",") if s.strip()]
+        film_ids = [r["id"] for r in sb_get(f"films?slug=in.({','.join(slugs)})&select=id")]
+        if not film_ids: print("  no matching films for --films — nothing to do."); return
+    tag = f"-{a.out}" if a.out else ("-scoped" if a.films else "")
     print("▶ loading taxonomy maps …")
     maps = load_maps()
     prefix = build_prefix(maps["arche"])
     print(f"  {len(maps['ident'])} identities · {len(maps['complex'])} complexes · {len(maps['arche'])} archetypes · {len(maps['theme'])} themes")
     if a.dry: run_dry(a, maps, prefix)
     elif a.sync: run_sync(a, maps, prefix)
-    else: run_batch(a, maps, prefix)
+    else: run_batch(a, maps, prefix, film_ids, tag)
 
 if __name__ == "__main__":
     main()

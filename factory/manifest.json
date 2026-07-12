@@ -147,14 +147,17 @@
     {
       "id": "S14-catalog-map", "wave": "W1", "order": 14, "title": "figure_taxonomy (archetype)",
       "class": "per_film", "tier": ["full"],
-      "runner": { "type": "worker_batch_multi", "scripts": ["worker/catalog-map-run.py", "worker/catalog-map-char.py"], "per_film_arg": "--films {slugs}", "needs_scoping_patch": true },
-      "depends_on": ["S11-boldtake"], "writes": ["figure_taxonomy"], "reads": [], "external": ["anthropic_batch"],
+      "runner": { "type": "shell_seq", "steps": [
+                    { "script": "worker/catalog-map-run.py", "args": ["--kind", "object", "--films", "{slugs}", "--out", "{run_id}"] },
+                    { "script": "worker/catalog-map-run.py", "args": ["--kind", "location", "--films", "{slugs}", "--out", "{run_id}"] },
+                    { "script": "worker/catalog-map-char.py", "args": ["--films", "{slugs}", "--out", "{run_id}"] } ] },
+      "depends_on": ["S11-boldtake", "S20-embed"], "writes": ["figure_taxonomy"], "reads": [], "external": ["anthropic_batch"],
       "cost": { "model": "claude-sonnet-4-6", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },
-      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 }, "scoped_by_eligibility": true,
       "idempotency": "on_conflict",
       "verify_sql": null, "failure_policy": "park",
       "coupling": ["worker/catalog-map-run.py", "worker/catalog-map-char.py"],
-      "blocked_by": "worker-scoping-patch (targets ALL embedded figures of a kind = corpus re-charge)"
+      "notes": "UNBLOCKED 2026-07-12: added --films (film_id IN filter) + already-tagged exclusion + --out (namespaces the batch/cands/results files so a scoped run never collides with the corpus-wide path) to both scripts. Depends on S20-embed (figures.embedding, not just takes) since fetch_figures requires embedding not null."
     },
     {
       "id": "S15-asset", "wave": "W1", "order": 15, "title": "Why-watch 8 lenses",
@@ -162,15 +165,15 @@
       "runner": { "type": "worker_batch_chain", "steps": [
                     { "script": "worker/asset-gen.py", "args": ["--emit-requests", "--films", "{slugs}", "--out", "factory-asset-{run_id}"] },
                     { "script": "worker/asset-batch.py", "submit_args": ["submit", "--out", "factory-asset-{run_id}"], "fetch_args": ["fetch", "--out", "factory-asset-{run_id}"] },
-                    { "script": "worker/asset-load.py", "args": [] } ], "needs_scoping_patch": true },
+                    { "script": "worker/asset-load.py", "args": ["--out", "factory-asset-{run_id}"] } ] },
       "depends_on": ["S11-boldtake"], "writes": ["film_asset"], "reads": [], "external": ["anthropic_batch"],
       "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.15, "max_usd": null, "measured": false },
-      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 }, "scoped_by_eligibility": true,
       "idempotency": "skip_if_exists",
       "verify_sql": "select exists(select 1 from film_asset where film_id='{film_id}')",
       "failure_policy": "park",
-      "coupling": ["worker/asset-gen.py"],
-      "blocked_by": "worker-scoping-patch (emit uses all_films minus out.jsonl)"
+      "coupling": ["worker/asset-gen.py", "worker/asset-load.py"],
+      "notes": "UNBLOCKED 2026-07-12: asset-gen honors --films (§7.13, commit 7c8cc73) and asset-load now honors --out (was hardcoded worker/asset-all.jsonl — the run #6 root cause: manifest still carried needs_scoping_patch so all 20 films skipped why-watch)."
     },
     {
       "id": "S16-next", "wave": "W1", "order": 16, "title": "Watch-next",
@@ -178,16 +181,16 @@
       "runner": { "type": "worker_batch_chain", "steps": [
                     { "script": "worker/next-gen.py", "args": ["--emit-requests", "--films", "{slugs}", "--out", "factory-next-{run_id}"] },
                     { "script": "worker/next-batch.py", "submit_args": ["submit", "--out", "factory-next-{run_id}"], "fetch_args": ["fetch", "--out", "factory-next-{run_id}"] },
-                    { "script": "worker/next-resolve.py", "args": [] },
-                    { "script": "worker/next-load.py", "args": [] } ], "needs_scoping_patch": true },
+                    { "script": "worker/next-resolve.py", "args": ["--out", "factory-next-{run_id}"] },
+                    { "script": "worker/next-load.py", "args": ["--out", "factory-next-{run_id}"] } ] },
       "depends_on": ["S11-boldtake"], "writes": ["film_next"], "reads": [], "external": ["anthropic_batch"],
       "cost": { "model": "claude-sonnet-4-6", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },
-      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 }, "scoped_by_eligibility": true,
       "idempotency": "skip_if_exists",
       "verify_sql": "select exists(select 1 from film_next where source_film_id='{film_id}')",
       "failure_policy": "park",
-      "coupling": ["worker/next-gen.py"],
-      "blocked_by": "worker-scoping-patch"
+      "coupling": ["worker/next-gen.py", "worker/next-resolve.py", "worker/next-load.py"],
+      "notes": "UNBLOCKED 2026-07-12: next-gen honors --films (§7.13) and next-resolve/next-load now honor --out (were hardcoded worker/next-all*.jsonl)."
     },
     {
       "id": "S17-reception", "wave": "W1", "order": 17, "title": "Reception (4-source, LLM-0)",
@@ -238,7 +241,7 @@
       "notes": "Uses the RUNBOOK Stage-17 per-film path (GEO_FILMS env scopes to the run's slugs) instead of geo-batch-submit (whose --only/seed-only cannot scope to new films and whose full submit is forbidden). Setting-layer haiku extractor; the sonnet-5 web-search batch (geo-batch-submit, $0.166/film) is a richer optional upgrade the owner can run separately. inherits GEO_운영 gates."
     },
     {
-      "id": "S20-embed", "wave": "W2", "order": 20, "title": "Embeddings (null-only)",
+      "id": "S20-embed", "wave": "W2", "order": 20, "title": "Embeddings (null-only)", "retries": 2,
       "class": "corpus", "tier": ["full"],
       "runner": { "type": "shell", "script": "worker/mt-embed.py", "submit_args": [], "per_film_arg": null },
       "depends_on": ["S11-boldtake"], "writes": ["figures", "takes", "meta_takes"], "reads": [], "external": ["openai_embed"],
@@ -262,13 +265,13 @@
     {
       "id": "S22-trope-incr", "wave": "W2", "order": 22, "title": "takes.trope_id additive assign",
       "class": "corpus", "tier": ["full"],
-      "runner": { "type": "shell", "script": "worker/trope-incremental.py", "submit_args": ["--films", "{slugs}", "--persist"], "per_film_arg": null },
+      "runner": { "type": "shell", "script": "worker/trope-incremental.py", "submit_args": ["--films", "{slugs}", "--thresh", "0.55", "--persist"], "per_film_arg": null },
       "depends_on": ["S20-embed"], "writes": ["takes", "figure_type_members"], "reads": [], "external": [],
       "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
       "idempotency": "on_conflict", "scoped_by_eligibility": true,
       "verify_sql": null, "failure_policy": "park",
       "coupling": ["worker/trope-incremental.py"],
-      "notes": "additive. unmatched takes -> garden queue. meta_takes.film_count stays stale until garden (S59 reports)."
+      "notes": "additive. unmatched takes -> garden queue. meta_takes.film_count stays stale until garden (S59 reports). thresh=0.55 (2026-07-12 recalibration — see trope-incremental.py header; 0.72 was an unvalidated copy of the FORMATION threshold and starved incremental assignment to 0-33% vs the corpus's own 78%)."
     },
     {
       "id": "S23-concept-embed", "wave": "W2", "order": 23, "title": "New raw concepts -> concept_map",
@@ -313,10 +316,22 @@
       "verify_sql": null, "failure_policy": "park", "coupling": ["factory/sql/assertions.sql"]
     },
     {
+      "id": "S27b-theorist-link", "wave": "W2", "order": 27, "title": "takes.theorist_name -> theorist_id resolve",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "rpc", "fn": "factory_theorist_link", "args": "{film_ids}" },
+      "depends_on": ["S11-boldtake"], "writes": ["takes"], "reads": ["theorists"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": "select not exists(select 1 from takes tk join figures fg on fg.id=tk.figure_id where fg.film_id='{film_id}' and tk.status='published' and tk.theorist_name is not null and tk.theorist_id is null)",
+      "failure_policy": "park",
+      "coupling": ["supabase/migrations/0088_factory_theorist_link.sql"],
+      "notes": "BLOCKER FIX 2026-07-12: boldtake-load never set theorist_id (name only) and nothing else in the repo backfills it — confirmed 0/130 linked for a 20-film batch (corpus baseline 100%). Exact case-insensitive match only (theorists.name has composite-pollution rows; no fuzzy match)."
+    },
+    {
       "id": "S28-sentences", "wave": "W2", "order": 28, "title": "Embedding Fantasia sentence layer (LLM-0)",
       "class": "corpus", "tier": ["full"],
       "runner": { "type": "shell", "script": "worker/sentence-refresh.py", "submit_args": ["--films", "{slugs}"], "per_film_arg": null },
-      "depends_on": ["S25-affinities", "S22-trope-incr"], "writes": ["film_sentences", "film_kinship", "sentence_node_stats", "sentence_concept_stats"], "reads": [], "external": [],
+      "depends_on": ["S25-affinities", "S22-trope-incr", "S27b-theorist-link"], "writes": ["film_sentences", "film_kinship", "sentence_node_stats", "sentence_concept_stats"], "reads": [], "external": [],
       "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
       "idempotency": "on_conflict",
       "verify_sql": "select exists(select 1 from film_sentences where film_id='{film_id}')",

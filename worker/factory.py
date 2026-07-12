@@ -470,8 +470,12 @@ def text_array(xs):
     return "array[" + ",".join(sql_lit(x) for x in xs) + "]::text[]" if xs else "array[]::text[]"
 
 
+LAST_ERR = None  # tail of the most recent subprocess/exception failure; ledgered so failed runs are debuggable (run #9's S20 died with error=null)
+
+
 def sh(cmd, cwd=ROOT, quiet=False):
     """Run a subprocess (list-form; no shell). Returns (rc, stdout). Honors DRY."""
+    global LAST_ERR
     printable = " ".join(shlex.quote(c) for c in cmd)
     if not quiet:
         print(f"      $ {printable}")
@@ -480,9 +484,11 @@ def sh(cmd, cwd=ROOT, quiet=False):
     try:
         r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, env=os.environ, timeout=BATCH_MAX_WAIT)
     except subprocess.TimeoutExpired:
+        LAST_ERR = f"TIMEOUT after {BATCH_MAX_WAIT}s: {printable}"
         print("      ! TIMEOUT"); return 124, ""
     if r.returncode != 0:
         tail = (r.stderr or r.stdout or "")[-600:]
+        LAST_ERR = f"exit {r.returncode}: {tail}"
         print(f"      ! exit {r.returncode}: {tail}")
     return r.returncode, r.stdout or ""
 
@@ -838,12 +844,45 @@ def cmd_run(a):
             print("  -", e)
         if not DRY:
             sys.exit(1)
-    run_id = a.run or (q1("select max(id) id from factory.runs where status in ('planning','queued','running')") or {}).get("id")
-    if not run_id:
-        print("no run to execute. `factory.py plan --write` first."); return
-    run, films = run_load(run_id)
-    if not run:
-        print(f"run #{run_id} not found."); return
+    run_id = None
+    if getattr(a, "adhoc", None):
+        # Repair mode: target existing films DIRECTLY by slug, regardless of which (or how many
+        # different) intake runs originally created them. Creates a real, auditable
+        # factory.runs(mode='repair') row + synthetic intake(source='repair') links, then the
+        # normal engine loop runs unchanged (ledger, verify, cost gate all apply). Exists because
+        # a stage-level bug fix (e.g. a mis-tuned threshold, a missing resolution step) needs to
+        # be re-applied to films that were split across multiple prior runs.
+        slugs = [s.strip() for s in a.adhoc.split(",") if s.strip()]
+        frows = mgmt_query(f"select id, slug from public.films where slug in "
+                           f"({','.join(sql_lit(s) for s in slugs)});")
+        missing = set(slugs) - {r["slug"] for r in frows}
+        if missing:
+            print(f"  ⚠️ not found, skipped: {sorted(missing)}")
+        if not frows:
+            print("no matching films for --adhoc."); return
+        if DRY:
+            print(f"  [DRY] would create a repair run linking {len(frows)} film(s): "
+                  f"{sorted(r['slug'] for r in frows)}")
+            run_id = -1  # sentinel; run_load() is skipped below in DRY mode
+        else:
+            run_id = q1("insert into factory.runs(mode,film_count,status,started_at) "
+                        f"values('repair',{len(frows)},'running',now()) returning id;")["id"]
+            for r in frows:
+                mgmt_query(f"insert into factory.intake(source,raw_title,tier,status,film_id,run_id) "
+                           f"values('repair','(repair)','full','done',{sql_lit(r['id'])},{run_id});")
+            print(f"  adhoc repair run #{run_id}: {len(frows)} film(s) linked directly by slug")
+    if run_id == -1:  # DRY adhoc: synthesize the films list run_load() would have returned
+        run, films = {"id": -1, "status": "planning"}, [
+            {"film_id": r["id"], "slug": r["slug"], "tier": "full", "tmdb_id": None,
+             "source": "repair", "hold": False, "is_analyzed": None} for r in frows]
+    else:
+        if run_id is None:
+            run_id = a.run or (q1("select max(id) id from factory.runs where status in ('planning','queued','running')") or {}).get("id")
+        if not run_id:
+            print("no run to execute. `factory.py plan --write` first."); return
+        run, films = run_load(run_id)
+        if not run:
+            print(f"run #{run_id} not found."); return
 
     # --films filter + --from / --only
     if a.films:
@@ -852,7 +891,8 @@ def cmd_run(a):
     stages = stages_sorted(m)
     order_of = {s["id"]: i for i, s in enumerate(stages)}
     if a.only:
-        stages = [s for s in stages if s["id"] == a.only or s["id"].split("-")[0] == a.only]
+        want = set(x.strip() for x in a.only.split(",") if x.strip())
+        stages = [s for s in stages if s["id"] in want or s["id"].split("-")[0] in want]
     elif a.from_:
         start = order_of.get(a.from_)
         if start is None:
@@ -905,10 +945,21 @@ def cmd_run(a):
             fn = DISPATCH.get(rtype)
             if not fn:
                 print(f"      (unknown runner type {rtype}) — park"); ledger(run_id, sid, "parked", error=f"unknown runner {rtype}"); parked.append(sid); continue
+            globals()["LAST_ERR"] = None
             try:
                 rc = fn(s, sfilms, ctx)
             except Exception as e:
-                rc = 1; print(f"      ! exception: {e}")
+                rc = 1; globals()["LAST_ERR"] = f"exception: {e}"; print(f"      ! exception: {e}")
+            # manifest "retries": N — for fragile-but-idempotent stages (embed is null-only: a
+            # re-run only fills what's missing). Run #9 died here once; retry before abort/park.
+            tries = int(s.get("retries") or 0)
+            while rc != 0 and tries > 0 and not DRY:
+                tries -= 1
+                print(f"      ↻ retry ({tries} left)…")
+                try:
+                    rc = fn(s, sfilms, ctx)
+                except Exception as e:
+                    rc = 1; globals()["LAST_ERR"] = f"exception: {e}"; print(f"      ! exception: {e}")
             cost = (s.get("cost", {}).get("usd_per_film_est", 0) or 0) * (len(sfilms) if s.get("class") not in ("corpus", "publication") else 1)
         # capture new directors after detect stage, for downstream {dir_slugs}
         if sid == "S30-dir-detect" and not DRY:
@@ -920,6 +971,28 @@ def cmd_run(a):
                   and not exists(select 1 from public.director_portrait p where p.director_slug=d.slug);""") if sfilms else []
             extra["dir_slugs"] = [r["slug"] for r in rows]
             print(f"      new directors: {extra['dir_slugs'] or 'none'}")
+
+        # Ω figure hard gate: visibility needs >=3 approved figures, but film-extract SKIPS films
+        # that already have any (existing thin stubs keep their 1-2 old figures and silently miss
+        # Tier-1 — run #6: mother-2009). Top up with a scoped --reset re-extract; a film still
+        # short is parked OUT of the run (per-film independence) and reported, never silent.
+        if sid == "S10-extract" and not DRY and sfilms:
+            def _short(ids):
+                rows = mgmt_query(f"select f.id, f.slug, (select count(*) from public.figures g "
+                                  f"where g.film_id=f.id and g.status='approved') c "
+                                  f"from public.films f where f.id = any({ids});")
+                return [r for r in rows if int(r["c"]) < 3]
+            gate_ids = uuid_array([f["film_id"] for f in sfilms])
+            for r in _short(gate_ids):
+                print(f"      figure gate: {r['slug']} has {r['c']}<3 approved figures — scoped reset re-extract")
+                sh(pyw("worker/film-extract.py", ["--reset", "--film", r["slug"], "--persist"]))
+            still = _short(gate_ids)
+            if still:
+                bad_ids = {r["id"] for r in still}
+                for r in still:
+                    print(f"      ✗ {r['slug']} still <3 figures — parked out of this run (repair: factory.py run --adhoc {r['slug']})")
+                    ledger(run_id, sid, "parked", film_id=r["id"], error=f"figures<3 after reset re-extract ({r['c']})")
+                films = [f for f in films if f["film_id"] not in bad_ids]
 
         # verify gate (per applicable film)
         v = verify_stage(s, sfilms) if not DRY else {"checked": 0, "ok": 0, "bad": 0, "bad_slugs": []}
@@ -934,16 +1007,20 @@ def cmd_run(a):
         status = "done" if rc == 0 else "failed"
         if rc == 0 and v["bad"]:
             status = "partial"
+        # partial must carry a reason (run #6 logged partial with error=null — undebuggable)
+        err = LAST_ERR
+        if status == "partial" and not err:
+            err = f"verify failed for: {', '.join(v['bad_slugs'][:20])}"
         if rc != 0:
             pol = s.get("failure_policy", "park")
             if pol == "abort_run":
-                ledger(run_id, sid, "failed", cost=cost, verify=v)
+                ledger(run_id, sid, "failed", cost=cost, verify=v, error=err)
                 print(f"      ✗ ABORT (failure_policy=abort_run). Fix and resume: factory.py run --run {run_id} --from {sid}")
                 mgmt_query(f"update factory.runs set status='failed' where id={run_id};") if not DRY else None
                 return
             status = "parked"; parked.append(sid)
         total_cost += cost
-        ledger(run_id, sid, status, cost=cost, verify=v)
+        ledger(run_id, sid, status, cost=cost, verify=v, error=(err if status in ("failed", "parked", "partial") else None))
         mark = {"done": "✓", "partial": "◐", "parked": "▲", "failed": "✗"}.get(status, "·")
         vtxt = f" verify ok={v['ok']} bad={v['bad']}" + (f" {v['bad_slugs']}" if v["bad"] else "") if v["checked"] else ""
         print(f"      {mark} {status} ${cost:.3f}{vtxt}")
@@ -993,7 +1070,9 @@ def report_md(run_id, films, bar, cost, parked):
                  f"{'✓' if r['takescore'] else '·'} | {'✓' if r['live'] else '✗'} |")
     incomplete = [r["slug"] for r in bar if not (r["live"] and r["figures"] >= 3 and r["fantasia"] > 0
                   and r["why_watch"] and r["watch_next"] > 0 and r["theorist_unlinked"] == 0)]
-    L += ["", ("⚠️ incomplete (re-run): " + ", ".join(incomplete)) if incomplete else "✅ all films pass the quality bar."]
+    L += ["", (f"⚠️ incomplete ({len(incomplete)}): " + ", ".join(incomplete) +
+               f"\n\nrepair: `python3 worker/factory.py run --adhoc {','.join(incomplete)} --yes`")
+          if incomplete else "✅ all films pass the quality bar."]
     return "\n".join(L)
 
 
@@ -1018,7 +1097,7 @@ def main():
     pin = sub.add_parser("ingest"); pin.add_argument("path", nargs="?", default="-"); pin.add_argument("--tier", default="full"); pin.set_defaults(fn=cmd_ingest)
     pp = sub.add_parser("plan"); pp.add_argument("--run", type=int); pp.add_argument("--write", action="store_true"); pp.set_defaults(fn=cmd_plan)
     pr = sub.add_parser("review"); pr.add_argument("--approve-all-high", action="store_true", dest="approve_all_high"); pr.add_argument("--decide"); pr.set_defaults(fn=cmd_review)
-    prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--yes", action="store_true"); prun.add_argument("--dry-run", action="store_true", dest="dry_run"); prun.add_argument("--with-corpus", action="store_true", dest="with_corpus"); prun.set_defaults(fn=cmd_run)
+    prun = sub.add_parser("run"); prun.add_argument("--run", type=int); prun.add_argument("--from", dest="from_"); prun.add_argument("--only"); prun.add_argument("--films"); prun.add_argument("--adhoc", help="repair mode: run stage(s) on existing films by slug, no --run needed (spans prior runs)"); prun.add_argument("--yes", action="store_true"); prun.add_argument("--dry-run", action="store_true", dest="dry_run"); prun.add_argument("--with-corpus", action="store_true", dest="with_corpus"); prun.set_defaults(fn=cmd_run)
     ps = sub.add_parser("status"); ps.add_argument("--run", type=int); ps.add_argument("--limit", type=int, default=50); ps.set_defaults(fn=cmd_status)
     pv = sub.add_parser("verify"); pv.add_argument("--run", type=int); pv.add_argument("--films"); pv.set_defaults(fn=cmd_verify)
     pg = sub.add_parser("gaps"); pg.add_argument("--days", type=int, default=30); pg.add_argument("--json", action="store_true"); pg.set_defaults(fn=cmd_gaps)

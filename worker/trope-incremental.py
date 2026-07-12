@@ -20,9 +20,24 @@ existing RPCs trope_set_take_tropeid + trope_insert_members.
 DRY by default: prints the similarity histogram + how many would assign at --thresh + samples.
   python3 trope-incremental.py --films parasite-2019,oldboy-2003        # scope to films
   python3 trope-incremental.py --all-null                                # every unassigned take
-  python3 trope-incremental.py --films <slugs> --thresh 0.72 --persist   # write
+  python3 trope-incremental.py --films <slugs> --thresh 0.55 --persist   # write
 
 Run AFTER the new films have figures + takes + embeddings (mt-embed / sm-embed).
+
+THRESHOLD CALIBRATION (2026-07-12): default was 0.72, copied from trope-build.py's
+FORMATION threshold without validating it against incremental matching — the two are not
+comparable. Formation is k-NN CLUSTERING (a take only needs to be close to its NEIGHBORS,
+gate>=3, to found/join a cluster); incremental matching compares a take to the cluster's
+already-fixed CENTROID, whose similarity ceiling is structurally lower. Proof: a random
+sample of the CORPUS'S OWN assigned takes vs their own trope's centroid has median cosine
+~0.60-0.65, with only ~11% reaching >=0.75 and ~25% reaching >=0.70 — most of the 78% of
+the corpus that carries a trope_id would ITSELF fail a 0.72 incremental bar. At 0.72,
+incremental assignment silently starved (5 films added this session matched 0-33% vs the
+corpus's 78%). Spot-checked matches at 0.50-0.62 are semantically excellent (e.g. "The
+Ambulance as Post-Communist Transition Itself" -> "The Romanian City as Moral Indictment"
+@0.55; "The Girl Locked Inside as the Director's Displaced Body" -> "The Director Who Filmed
+His Own Cage" @0.61) — so 0.55 is not a quality compromise, it's the threshold that was
+always supported by the data. Re-tune only from a fresh histogram + spot-check, never by feel.
 """
 import os, sys, json, time, urllib.request, urllib.error
 from collections import defaultdict, Counter
@@ -42,7 +57,7 @@ args = sys.argv[1:]
 PERSIST = "--persist" in args
 ALL_NULL = "--all-null" in args
 def argval(f, d=None): return args[args.index(f)+1] if f in args and args.index(f)+1 < len(args) else d
-THRESH = float(argval("--thresh", "0.72"))
+THRESH = float(argval("--thresh", "0.55"))  # see THRESHOLD CALIBRATION note above (was 0.72)
 LIMIT = int(argval("--limit", "0"))  # 0 = no cap
 FILMS = [s.strip() for s in (argval("--films", "") or "").split(",") if s.strip()]
 

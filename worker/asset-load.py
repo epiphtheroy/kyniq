@@ -11,7 +11,8 @@ def load_env(p):
             k, _, v = line.partition("="); os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 load_env(os.path.join(ROOT, ".env.local"))
 URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL"); KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-SRC = os.path.join(HERE, "asset-all.jsonl")
+_a = sys.argv[1:]  # --out NAME → read NAME.jsonl (CWD-relative; factory namespaced runs). Default = legacy corpus file.
+SRC = f"{_a[_a.index('--out') + 1]}.jsonl" if "--out" in _a else os.path.join(HERE, "asset-all.jsonl")
 DRY = "--dry" in sys.argv
 if not (URL and KEY): sys.exit("Missing SUPABASE env")
 H = {"apikey": KEY, "Authorization": f"Bearer {KEY}", "Content-Type": "application/json"}
