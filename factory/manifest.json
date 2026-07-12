@@ -1,0 +1,547 @@
+{
+  "manifest_version": 1,
+  "generated": "2026-07-12",
+  "canonical_doc": "HANDOFF-영화공장.md",
+  "notes": "Machine-canonical process definition for the Film Factory. factory.py reads this; factory-sentinel.py diffs it. Column names / function sigs verified live 2026-07-12. Stages with runner.blocked_by must not run until that part ships (lint enforces).",
+  "pricing": {
+    "claude-opus-4-8":   { "in": 15, "out": 75, "batch_x": 0.5 },
+    "claude-sonnet-4-6": { "in": 3,  "out": 15, "batch_x": 0.5 },
+    "claude-sonnet-5":   { "in": 3,  "out": 15, "batch_x": 0.5 },
+    "claude-haiku-4-5":  { "in": 1,  "out": 5,  "batch_x": 0.5 },
+    "gemini":            { "in": 0,  "out": 0,  "batch_x": 1.0 },
+    "none":              { "in": 0,  "out": 0,  "batch_x": 1.0 }
+  },
+  "template_vars": ["{film_id}", "{slug}", "{tmdb_id}", "{slugs}", "{run_id}"],
+  "cost_gate_usd_default": 50,
+  "sync_under_default": 50,
+  "stages": [
+    {
+      "id": "S01-intake", "wave": "W0", "order": 1, "title": "Intake row create/normalize",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "internal" },
+      "depends_on": [], "writes": ["factory.intake"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "scoped_by_eligibility": true,
+      "verify_sql": null, "failure_policy": "abort_run",
+      "coupling": ["worker/factory.py"], "notes": "CSV cols: title,year,director,tmdb_id?,tier?. tier=auto -> catalog+review."
+    },
+    {
+      "id": "S02-resolve", "wave": "W0", "order": 2, "title": "Title -> tmdb_id + films upsert (R1 gate)",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "worker/tmdb-resolve.py",
+                  "submit_args": ["--in", "{run_csv}", "--out", "{run_csv_resolved}", "--persist"], "per_film_arg": null },
+      "depends_on": ["S01-intake"], "writes": ["films"], "reads": [], "external": ["tmdb"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "scoped_by_eligibility": true,
+      "verify_sql": "select coalesce((select count(*) from films where id='{film_id}'),0) >= 1",
+      "failure_policy": "park",
+      "coupling": ["worker/tmdb-resolve.py"],
+      "notes": "factory.py writes {run_csv} from intake, parses {run_csv_resolved} back into intake (confidence/status/film_id). low/unmatched -> intake.status='review' (R1). year is hint-only."
+    },
+    {
+      "id": "S03-tmdb-fetch", "wave": "W0", "order": 3, "title": "TMDB metadata + media + directors",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "worker/tmdb-fetch.py", "submit_args": ["--persist"], "per_film_arg": "--film {slug}" },
+      "depends_on": ["S02-resolve"], "writes": ["films", "media", "directors"], "reads": [], "external": ["tmdb"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists",
+      "verify_sql": "select coalesce((select (overview is not null) from films where id='{film_id}'), false)",
+      "failure_policy": "park",
+      "coupling": ["worker/tmdb-fetch.py", "app/film/[slug]/page.tsx"],
+      "notes": "MUST precede S10 (genre Other collapse). trailer here enables tv_eligible."
+    },
+    {
+      "id": "S04-external", "wave": "W0", "order": 4, "title": "imdb_id / ratings / providers / wikidata_id",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell_seq", "steps": [
+                    { "script": "worker/external-data.py", "args": ["--persist", "--scope", "all"] },
+                    { "script": "worker/wikidata-id.py", "args": [] } ], "per_film_arg": null },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["film_ratings", "film_watch_providers", "films"], "reads": [], "external": ["tmdb", "omdb", "wikidata"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "scoped_by_eligibility": true,
+      "verify_sql": "select exists(select 1 from film_watch_providers where film_id='{film_id}')",
+      "failure_policy": "park",
+      "coupling": ["worker/external-data.py", "worker/wikidata-id.py"],
+      "notes": "fpi_rebuild() is S44 (once). No --shard flag (memory stale)."
+    },
+    {
+      "id": "S05-release-events", "wave": "W0", "order": 5, "title": "TMDB release chronology",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "worker/release-events.py", "submit_args": ["--all"], "per_film_arg": "--films {slugs}", "needs_scoping_patch": true },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["film_release_events"], "reads": [], "external": ["tmdb"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/release-events.py"],
+      "blocked_by": "worker-scoping-patch (default cohort = visible only; W0 films not yet visible)"
+    },
+    {
+      "id": "S06-wd-honors", "wave": "W0", "order": 6, "title": "Wikidata honors",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "worker/wd-honors.py", "submit_args": ["--all"], "per_film_arg": "--films {slugs}", "needs_scoping_patch": true },
+      "depends_on": ["S04-external"], "writes": ["film_wd_honors"], "reads": [], "external": ["wikidata"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/wd-honors.py"],
+      "blocked_by": "worker-scoping-patch",
+      "notes": "needs imdb_id from S04 (depends). pqv:P585 date trap handled in worker."
+    },
+    {
+      "id": "S10-extract", "wave": "W1", "order": 10, "title": "Figures + Takes (content)",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "worker_batch", "script": "worker/film-extract-batch.py",
+                  "submit_args": ["--submit"], "fetch_args": ["--fetch"], "per_film_arg": "--films {slugs}" },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["figures", "takes"], "reads": ["films", "media"], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.30, "max_usd": null, "measured": false },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "idempotency": "skip_if_exists",
+      "verify_sql": "select (select count(*) from figures where film_id='{film_id}' and status='approved') >= 3",
+      "failure_policy": "park",
+      "coupling": ["worker/film-extract-batch.py", "app/film/[slug]/page.tsx"],
+      "notes": "SCOPING PATCH APPLIED 2026-07-12: --films filters figure_less_films() (prevents ~$1500 Tier-2 mis-fire). VERIFY with a dry submit before first real run."
+    },
+    {
+      "id": "S11-boldtake", "wave": "W1", "order": 11, "title": "Strong Misreadings (14 frameworks + invitation)",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "worker_batch_chain", "steps": [
+                    { "script": "worker/bold-take-gen.py", "args": ["--emit-requests", "--films", "{slugs}", "--out", "factory-boldtake-{run_id}"] },
+                    { "script": "worker/bold-take-batch.py", "submit_args": ["submit", "--out", "factory-boldtake-{run_id}"], "fetch_args": ["fetch", "--out", "factory-boldtake-{run_id}"] },
+                    { "script": "worker/boldtake-load.py", "args": ["--apply"] } ], "needs_scoping_patch": true },
+      "depends_on": ["S10-extract"], "writes": ["takes", "figures"], "reads": [], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.30, "max_usd": null, "measured": false },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "idempotency": "skip_if_exists",
+      "verify_sql": "select exists(select 1 from takes tk join figures fg on fg.id=tk.figure_id where fg.film_id='{film_id}' and tk.is_invitation)",
+      "failure_policy": "park",
+      "coupling": ["worker/bold-take-gen.py", "worker/boldtake-load.py"],
+      "notes": "SCOPING PATCH APPLIED 2026-07-12: bold-take-gen main() now prioritizes --films in emit mode. MUST land before S20 embed (new figure UUIDs must be embedded). VERIFY with a dry run before first real run."
+    },
+    {
+      "id": "S12-figure-slug-assert", "wave": "W1", "order": 12, "title": "figures.slug null backfill/assert",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "assert_figure_slugs" },
+      "depends_on": ["S11-boldtake"], "writes": ["figures"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": "select (select count(*) from figures where film_id='{film_id}' and slug is null) = 0",
+      "failure_policy": "retry(2)", "coupling": ["factory/sql/assertions.sql"]
+    },
+    {
+      "id": "S13-trope-tag", "wave": "W1", "order": 13, "title": "figure_tags",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/trope-tag.py", "submit_args": ["--persist"], "per_film_arg": "--films {slugs}" },
+      "depends_on": ["S11-boldtake"], "writes": ["figure_tags"], "reads": [], "external": ["anthropic_sync"],
+      "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.03, "max_usd": null, "measured": false },
+      "idempotency": "skip_if_exists", "scoped_by_eligibility": true,
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/trope-tag.py"], "notes": "untagged figures only (self-scoping)."
+    },
+    {
+      "id": "S14-catalog-map", "wave": "W1", "order": 14, "title": "figure_taxonomy (archetype)",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "worker_batch_multi", "scripts": ["worker/catalog-map-run.py", "worker/catalog-map-char.py"], "per_film_arg": "--films {slugs}", "needs_scoping_patch": true },
+      "depends_on": ["S11-boldtake"], "writes": ["figure_taxonomy"], "reads": [], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-sonnet-4-6", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/catalog-map-run.py", "worker/catalog-map-char.py"],
+      "blocked_by": "worker-scoping-patch (targets ALL embedded figures of a kind = corpus re-charge)"
+    },
+    {
+      "id": "S15-asset", "wave": "W1", "order": 15, "title": "Why-watch 8 lenses",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "worker_batch_chain", "steps": [
+                    { "script": "worker/asset-gen.py", "args": ["--emit-requests", "--films", "{slugs}", "--out", "factory-asset-{run_id}"] },
+                    { "script": "worker/asset-batch.py", "submit_args": ["submit", "--out", "factory-asset-{run_id}"], "fetch_args": ["fetch", "--out", "factory-asset-{run_id}"] },
+                    { "script": "worker/asset-load.py", "args": [] } ], "needs_scoping_patch": true },
+      "depends_on": ["S11-boldtake"], "writes": ["film_asset"], "reads": [], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.15, "max_usd": null, "measured": false },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "idempotency": "skip_if_exists",
+      "verify_sql": "select exists(select 1 from film_asset where film_id='{film_id}')",
+      "failure_policy": "park",
+      "coupling": ["worker/asset-gen.py"],
+      "blocked_by": "worker-scoping-patch (emit uses all_films minus out.jsonl)"
+    },
+    {
+      "id": "S16-next", "wave": "W1", "order": 16, "title": "Watch-next",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "worker_batch_chain", "steps": [
+                    { "script": "worker/next-gen.py", "args": ["--emit-requests", "--films", "{slugs}", "--out", "factory-next-{run_id}"] },
+                    { "script": "worker/next-batch.py", "submit_args": ["submit", "--out", "factory-next-{run_id}"], "fetch_args": ["fetch", "--out", "factory-next-{run_id}"] },
+                    { "script": "worker/next-resolve.py", "args": [] },
+                    { "script": "worker/next-load.py", "args": [] } ], "needs_scoping_patch": true },
+      "depends_on": ["S11-boldtake"], "writes": ["film_next"], "reads": [], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-sonnet-4-6", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },
+      "batch_policy": { "combine_across_films": true, "sync_under": 50 },
+      "idempotency": "skip_if_exists",
+      "verify_sql": "select exists(select 1 from film_next where source_film_id='{film_id}')",
+      "failure_policy": "park",
+      "coupling": ["worker/next-gen.py"],
+      "blocked_by": "worker-scoping-patch"
+    },
+    {
+      "id": "S17-reception", "wave": "W1", "order": 17, "title": "Reception (4-source, LLM-0)",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell_seq", "steps": [
+                    { "script": "magazine research agent/reception-run.py", "args": ["--limit", "0"] },
+                    { "script": "magazine research agent/reception-load.py", "args": [] } ], "per_film_arg": null },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["film_reception"], "reads": [], "external": ["brave", "openalex"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "scoped_by_eligibility": true,
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["magazine research agent/reception-run.py"],
+      "notes": "resume skip = reception_data/<slug>.json. path has a space (quote). Empty reception is valid (soft)."
+    },
+    {
+      "id": "S18-qa", "wave": "W1", "order": 18, "title": "Q&A queue registration (decision #8: register-only)",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "internal", "note": "qa-seed auto-picks films where visible AND NOT EXISTS questions; no push needed. Report count only." },
+      "depends_on": ["S39-analyzed-flip"], "writes": [], "reads": ["questions"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists",
+      "verify_sql": null, "failure_policy": "park", "enabled": true,
+      "coupling": ["worker/qa-seed"],
+      "notes": "Factory does NOT generate questions (weekly pace cap Ω34). S59 reports 'questions:0'. df-curious tab absent until qa-seed wave lands = normal."
+    },
+    {
+      "id": "S18b-clips", "wave": "W1", "order": 19, "title": "YouTube clips (film hero reel / tv_reel)",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/film-clips.py", "submit_args": ["--persist"], "per_film_arg": "--film {slug}" },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["media"], "reads": [], "external": ["youtube"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists",
+      "verify_sql": null, "failure_policy": "park", "enabled": true,
+      "coupling": ["worker/film-clips.py"],
+      "notes": "decision #9: factory takes over (launchd net.metatake.filmclips is dead/TCC). VERIFY film-clips.py accepts --film."
+    },
+    {
+      "id": "S19-geo", "wave": "W1", "order": 20, "title": "Locations (setting/filmed)",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell_seq_env", "env": { "GEO_FILMS": "{slugs}" }, "steps": [
+                    { "script": "worker/geo-extract.py", "args": ["--apply"] },
+                    { "script": "worker/geo-code.py", "args": ["--apply"] } ], "per_film_arg": null, "scoped_by_eligibility": true },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["film_locations", "geo_cache"], "reads": [], "external": ["anthropic_sync", "google_geocode"],
+      "cost": { "model": "claude-haiku-4-5", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park", "scoped_by_eligibility": true,
+      "coupling": ["worker/geo-extract.py", "worker/geo-code.py"],
+      "notes": "Uses the RUNBOOK Stage-17 per-film path (GEO_FILMS env scopes to the run's slugs) instead of geo-batch-submit (whose --only/seed-only cannot scope to new films and whose full submit is forbidden). Setting-layer haiku extractor; the sonnet-5 web-search batch (geo-batch-submit, $0.166/film) is a richer optional upgrade the owner can run separately. inherits GEO_운영 gates."
+    },
+    {
+      "id": "S20-embed", "wave": "W2", "order": 20, "title": "Embeddings (null-only)",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/mt-embed.py", "submit_args": [], "per_film_arg": null },
+      "depends_on": ["S11-boldtake"], "writes": ["figures", "takes", "meta_takes"], "reads": [], "external": ["openai_embed"],
+      "cost": { "model": "none", "usd_per_film_est": 0.01, "max_usd": null, "measured": true },
+      "idempotency": "null_only",
+      "verify_sql": "select exists(select 1 from takes tk join figures fg on fg.id=tk.figure_id where fg.film_id='{film_id}' and tk.embedding is not null)",
+      "failure_policy": "abort_run",
+      "coupling": ["worker/mt-embed.py"], "notes": "null-only; safe corpus-wide. Must precede taste/trope/affinities."
+    },
+    {
+      "id": "S21-taste-vector", "wave": "W2", "order": 21, "title": "film_taste_vector upsert",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "rpc", "fn": "refresh_film_taste_vector", "args": "{film_ids}" },
+      "depends_on": ["S20-embed"], "writes": ["film_taste_vector"], "reads": ["takes"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap",
+      "verify_sql": "select exists(select 1 from film_taste_vector where film_id='{film_id}')",
+      "failure_policy": "abort_run",
+      "coupling": ["supabase/migrations/0081_factory_schema.sql"], "notes": "RPC applied live 2026-07-12."
+    },
+    {
+      "id": "S22-trope-incr", "wave": "W2", "order": 22, "title": "takes.trope_id additive assign",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/trope-incremental.py", "submit_args": ["--films", "{slugs}", "--persist"], "per_film_arg": null },
+      "depends_on": ["S20-embed"], "writes": ["takes", "figure_type_members"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict", "scoped_by_eligibility": true,
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/trope-incremental.py"],
+      "notes": "additive. unmatched takes -> garden queue. meta_takes.film_count stays stale until garden (S59 reports)."
+    },
+    {
+      "id": "S23-concept-embed", "wave": "W2", "order": 23, "title": "New raw concepts -> concept_map",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/concept-embed.py", "submit_args": ["--write", "0.70"], "per_film_arg": null },
+      "depends_on": ["S20-embed"], "writes": ["concept_map"], "reads": [], "external": ["openai_embed"],
+      "cost": { "model": "none", "usd_per_film_est": 0.01, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/concept-embed.py"]
+    },
+    {
+      "id": "S25-affinities", "wave": "W2", "order": 25, "title": "film_affinities rebuild (derived swap)",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/mt-recommend.py", "submit_args": [], "per_film_arg": null },
+      "depends_on": ["S21-taste-vector", "S22-trope-incr"], "writes": ["film_affinities"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap",
+      "verify_sql": "select exists(select 1 from film_affinities where film_id='{film_id}')",
+      "failure_policy": "abort_run",
+      "coupling": ["worker/mt-recommend.py", "supabase/rpc/conn_rebuild.sql"],
+      "notes": "TF-IDF leg reads figure_type_members (needs S22). KNN leg reads film_taste_vector (needs S21)."
+    },
+    {
+      "id": "S26-counterpoints", "wave": "W2", "order": 26, "title": "entity_edges (counterpoints) rebuild",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "sql_ref", "canonical": "supabase/rpc/counterpoints.sql", "header_blocks": 2 },
+      "depends_on": ["S25-affinities"], "writes": ["entity_edges"], "reads": ["takes"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["supabase/rpc/counterpoints.sql"],
+      "notes": "run the 2 header blocks from the canonical file (do NOT copy)."
+    },
+    {
+      "id": "S27-next-backfill", "wave": "W2", "order": 27, "title": "film_next target backfill (1-liner)",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "next_target_backfill" },
+      "depends_on": ["S16-next"], "writes": ["film_next"], "reads": ["films"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park", "coupling": ["factory/sql/assertions.sql"]
+    },
+    {
+      "id": "S28-sentences", "wave": "W2", "order": 28, "title": "Embedding Fantasia sentence layer (LLM-0)",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/sentence-refresh.py", "submit_args": ["--films", "{slugs}"], "per_film_arg": null },
+      "depends_on": ["S25-affinities", "S22-trope-incr"], "writes": ["film_sentences", "film_kinship", "sentence_node_stats", "sentence_concept_stats"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": "select exists(select 1 from film_sentences where film_id='{film_id}')",
+      "failure_policy": "park",
+      "coupling": ["worker/sentence-refresh.py", "sentence-engine/MASS-PRODUCTION.md"],
+      "notes": "order: node_stats -> concept_stats -> kinship -> 13 patterns. LLM-0, random-0, brand contract untouchable."
+    },
+    {
+      "id": "S30-dir-detect", "wave": "W2b", "order": 30, "title": "Detect new directors (0 artifacts)",
+      "class": "per_director", "tier": ["full"],
+      "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "detect_new_directors" },
+      "depends_on": ["S10-extract"], "writes": [], "reads": ["director_portrait", "director_picks", "director_facts", "director_next"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["factory/sql/assertions.sql"]
+    },
+    {
+      "id": "S31-dir-profile", "wave": "W2b", "order": 31, "title": "director_portrait + director_next",
+      "class": "per_director", "tier": ["full"],
+      "runner": { "type": "worker_batch_chain", "steps": [
+                    { "script": "worker/director-profile-gen.py", "args": ["--dirs", "{dir_slugs}"] },
+                    { "script": "worker/director-profile-batch.py", "submit_args": ["submit"], "fetch_args": ["fetch"] },
+                    { "script": "worker/director-profile-load.py", "args": ["--apply"] } ] },
+      "depends_on": ["S30-dir-detect"], "writes": ["director_portrait", "director_next"], "reads": [], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.5, "max_usd": null, "measured": false },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/director-profile-gen.py"], "notes": "only when S30 finds new directors."
+    },
+    {
+      "id": "S32-dir-picks", "wave": "W2b", "order": 32, "title": "director_picks (Where to start)",
+      "class": "per_director", "tier": ["full"],
+      "runner": { "type": "worker_batch_chain", "steps": [
+                    { "script": "worker/director-picks-gen.py", "args": ["--dirs", "{dir_slugs}"] },
+                    { "script": "worker/director-picks-batch.py", "submit_args": ["submit"], "fetch_args": ["fetch"] },
+                    { "script": "worker/director-picks-load.py", "args": ["--apply"] } ] },
+      "depends_on": ["S30-dir-detect"], "writes": ["director_picks"], "reads": [], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-opus-4-8", "usd_per_film_est": 0.3, "max_usd": null, "measured": false },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/director-picks-gen.py"]
+    },
+    {
+      "id": "S33-dir-facts", "wave": "W2b", "order": 33, "title": "director_facts (The Life)",
+      "class": "per_director", "tier": ["full"],
+      "runner": { "type": "shell_seq", "steps": [
+                    { "script": "worker/director-facts-gen.py", "args": ["--dirs", "{dir_slugs}"] },
+                    { "script": "worker/director-facts-load.py", "args": ["--apply"] } ] },
+      "depends_on": ["S30-dir-detect"], "writes": ["director_facts"], "reads": [], "external": ["gemini", "brave", "anthropic_sync"],
+      "cost": { "model": "gemini", "usd_per_film_est": 0.2, "max_usd": null, "measured": false },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/director-facts-gen.py"], "notes": "writer=Gemini (GEMINI_API_KEY hard-required), judge=Sonnet, BRAVE_API_KEY required."
+    },
+    {
+      "id": "S34-dir-photo", "wave": "W2b", "order": 34, "title": "director photo",
+      "class": "per_director", "tier": ["full"],
+      "runner": { "type": "shell", "script": "worker/director-profiles.py", "submit_args": [], "per_film_arg": null },
+      "depends_on": ["S30-dir-detect"], "writes": ["director_profile"], "reads": [], "external": ["tmdb"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/director-profiles.py"]
+    },
+    {
+      "id": "S35-dir-embedding", "wave": "W2b", "order": 35, "title": "director_embedding (Stage-16 gap fix)",
+      "class": "per_director", "tier": ["full"],
+      "runner": { "type": "rpc", "fn": "refresh_director_embeddings", "args": "{dir_slugs}" },
+      "depends_on": ["S20-embed", "S30-dir-detect"], "writes": ["director_embedding"], "reads": ["figures"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["supabase/migrations/0081_factory_schema.sql"],
+      "notes": "director_map_xy (galaxy coords) stays absent until quarterly garden -- intended, not a failure."
+    },
+    {
+      "id": "S39-analyzed-flip", "wave": "W3", "order": 39, "title": "films.is_analyzed=true + hold clear (BLOCKER FIX)",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "analyzed_flip" },
+      "depends_on": ["S10-extract", "S11-boldtake"], "writes": ["films"], "reads": ["figures"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": "select (is_analyzed and not coalesce(hold,false)) from films where id='{film_id}'",
+      "failure_policy": "abort_run",
+      "coupling": ["factory/sql/assertions.sql", "app/film/[slug]/page.tsx"],
+      "notes": "Nothing in the repo sets is_analyzed=true. Without this: Tier-1 render/TV/home/misreadings all closed even when visible. Also clears hold + forces visible recompute (trigger is on figures only)."
+    },
+    {
+      "id": "S40-takescore", "wave": "W3", "order": 40, "title": "TakeScore (cinecodex) scoring",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "score/cinecodex_score.py", "args_full": ["100000", "visible"], "args_catalog": ["100000", "all"] },
+      "depends_on": ["S39-analyzed-flip"], "writes": ["cinecodex.scores"], "reads": ["films"], "external": ["anthropic_batch"],
+      "cost": { "model": "claude-sonnet-4-6", "usd_per_film_est": 0.005, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "scoped_by_eligibility": true,
+      "verify_sql": "select exists(select 1 from cinecodex.scores s where s.film_id='{film_id}')",
+      "failure_policy": "park",
+      "coupling": ["score/cinecodex_score.py"],
+      "notes": "decision #2: catalog also scored (all scope, +~274 backlog). resume via cinecodex_targets. never-blend, prompt SHA pinned, Haiku forbidden."
+    },
+    {
+      "id": "S41-curation", "wave": "W3", "order": 41, "title": "to.W curation comment (LLM-0)",
+      "class": "per_film", "tier": ["full", "catalog"],
+      "runner": { "type": "sql_file", "script": "factory/sql/curation_new_films.sql", "fn": "curation_upsert_new" },
+      "depends_on": ["S04-external"], "writes": ["curation.film", "curation.film_comment"], "reads": ["films"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["factory/sql/curation_new_films.sql", "curation.rule"],
+      "notes": "rules from curation.rule table. MUST include where manual_override is not true."
+    },
+    {
+      "id": "S42-tv-compile", "wave": "W3", "order": 42, "title": "TV broadcast compile",
+      "class": "per_film", "tier": ["full"],
+      "runner": { "type": "rpc_loop", "fn": "tv_compile_batch", "args": [20, 4], "until": "remaining=0" },
+      "depends_on": ["S39-analyzed-flip", "S03-tmdb-fetch"], "writes": ["tv_programs", "tv_segments"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["supabase/migrations/0058_tv_engine_v2.sql"],
+      "notes": "tv_eligible(film,4) gate: visible+analyzed+clean trailer+rich>=4. skip=status='skipped' (normal). needs is_analyzed (S39)."
+    },
+    {
+      "id": "S43-tv-playlists", "wave": "W3", "order": 43, "title": "TV strategic playlists rebuild",
+      "class": "corpus", "tier": ["full"],
+      "runner": { "type": "shell_then_rpc", "small": { "fn": "tv_build_all_playlists" }, "big": { "script": "worker/tv-build-playlists.py" } },
+      "depends_on": ["S42-tv-compile"], "writes": ["tv_playlists", "tv_playlist_items"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/tv-build-playlists.py"],
+      "notes": "big-3 axes runner is NEW (§7.14). advisory lock 777002, pg_sleep between."
+    },
+    {
+      "id": "S44-fpi", "wave": "W4", "order": 44, "title": "film_provider_index rebuild",
+      "class": "corpus", "tier": ["full", "catalog"],
+      "runner": { "type": "rpc", "fn": "fpi_rebuild", "args": [] },
+      "depends_on": ["S04-external"], "writes": ["film_provider_index"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["supabase/migrations/0070_takescore_screener.sql"], "notes": "Screener watch-country filter."
+    },
+    {
+      "id": "S50-visibility-audit", "wave": "W4", "order": 50, "title": "Visibility + assertions",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "run_audit" },
+      "depends_on": ["S39-analyzed-flip"], "writes": [], "reads": ["films", "figures"], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["factory/sql/assertions.sql"],
+      "notes": "<3 figs => alert list. asserts is_analyzed/hold/genres/overview/poster. Ω41."
+    },
+    {
+      "id": "S51-lastmod", "wave": "W4", "order": 51, "title": "films.last_processed_at bump",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "bump_lastmod" },
+      "depends_on": ["S50-visibility-audit"], "writes": ["films"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict",
+      "verify_sql": "select last_processed_at > now() - interval '1 day' from films where id='{film_id}'",
+      "failure_policy": "retry(2)", "coupling": ["lib/sitemap-data.ts"], "notes": "sitemap lastmod contract."
+    },
+    {
+      "id": "S52-revalidate", "wave": "W4", "order": 52, "title": "ISR tag revalidation",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "http", "url": "https://metatake.net/api/revalidate", "method": "POST",
+                  "body": { "secret": "{REVALIDATION_SECRET}", "paths": ["/film/{slug}", "/movies-like/{slug}", "/takescore/film/{slug}"], "tags": ["film:{slug}", "takescore-film:{slug}"] } },
+      "depends_on": ["S51-lastmod"], "writes": [], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict", "verify_sql": null, "failure_policy": "retry(2)",
+      "coupling": ["app/api/revalidate/route.ts"],
+      "notes": "paths REQUIRED (tag-only=400); paths+tags capped 20/call -> chunk bulk runs."
+    },
+    {
+      "id": "S53-artifacts", "wave": "W4", "order": 53, "title": "Frozen JSON rebuilds (conditional)",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "shell_conditional", "steps": [
+                    { "script": "worker/crew-index-build.py", "when": "always" },
+                    { "script": "worker/atlas-cities-build.py", "when": "new_city_candidate" } ] },
+      "depends_on": ["S19-geo"], "writes": ["lib/crew_index.json", "lib/atlas_cities.json"], "reads": [], "external": ["tmdb"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/crew-index-build.py", "worker/atlas-cities-build.py"],
+      "notes": "lib/ artifacts -> watcher auto-deploys. theorist_portrait.json = 4th candidate if boldtake creates new theorists (VERIFY)."
+    },
+    {
+      "id": "S54-ko-aliases", "wave": "W4", "order": 54, "title": "Korean search aliases",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "worker/ko-aliases.py", "submit_args": [], "per_film_arg": null },
+      "depends_on": ["S04-external"], "writes": ["search_aliases"], "reads": [], "external": ["wikidata"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "on_conflict", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/ko-aliases.py"], "notes": "needs wikidata_id (S04)."
+    },
+    {
+      "id": "S55-news-entities", "wave": "W4", "order": 55, "title": "Hourly poller entity sync",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "shell", "script": "hourly/poller/sync_entities.py", "submit_args": [], "per_film_arg": null },
+      "depends_on": ["S39-analyzed-flip"], "writes": ["hourly/poller/entities.json"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "derived_swap", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["hourly/poller/sync_entities.py"], "notes": "enables news beat-gate matching."
+    },
+    {
+      "id": "S56-warm", "wave": "W4", "order": 56, "title": "ISR GET-warm new URLs",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "internal", "note": "GET film/whereto/movies-like/takescore with cache-buster; verify 200+marker. NEVER loop cinecodex_card (Ω42)." },
+      "depends_on": ["S52-revalidate"], "writes": [], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/factory.py"]
+    },
+    {
+      "id": "S57-indexnow", "wave": "W4", "order": 57, "title": "IndexNow ping (new URLs only)",
+      "class": "publication", "tier": ["full"],
+      "runner": { "type": "shell_node", "script": "scripts/indexnow-ping.mjs", "args": "{new_urls}" },
+      "depends_on": ["S56-warm"], "writes": [], "reads": [], "external": ["indexnow"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["scripts/indexnow-ping.mjs"], "notes": "never re-ping unchanged URLs. node at ~/.local/node/bin."
+    },
+    {
+      "id": "S58-deploy-check", "wave": "W4", "order": 58, "title": "Vercel deploy state check (if lib/ changed)",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "internal", "note": "if S53 changed lib/, verify Vercel latest READY; if ERROR empty-commit rebuild." },
+      "depends_on": ["S53-artifacts"], "writes": [], "reads": [], "external": ["vercel"],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["auto-deploy-watch.sh"]
+    },
+    {
+      "id": "S59-report", "wave": "W4", "order": 59, "title": "Run report + garden queue",
+      "class": "publication", "tier": ["full", "catalog"],
+      "runner": { "type": "internal", "note": "run all verify_sql; write runs.report_md + factory/logs/run-<id>.md; aggregate garden-queue (unassigned takes, new concepts, <3fig list, questions:0, meta_takes.film_count stale)." },
+      "depends_on": ["S50-visibility-audit"], "writes": ["factory.runs"], "reads": [], "external": [],
+      "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
+      "idempotency": "skip_if_exists", "verify_sql": null, "failure_policy": "park",
+      "coupling": ["worker/factory.py"]
+    }
+  ]
+}
