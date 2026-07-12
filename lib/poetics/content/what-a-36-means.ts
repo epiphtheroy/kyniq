@@ -15,9 +15,9 @@ A kinder curve was available, and refusing it was the point. If the catalogue's 
 
 TakeScore nets a film's Value against its Risk; Value, the axis a recommendation actually runs on, is the number I will read here, for three films out of my own log, all parked in the instrument's broad middle.
 
-[Architecture 101](/film/architecture-101-2012) holds a Value of 44 against my four and a half stars. It was a phenomenon in Korea in 2012 and is nearly invisible everywhere else. The 44 says: above the centre of the catalogue, real value, no masterpiece claim filed. My stars say what only a hand can say — the film studies first love from a safe distance, and I happen to own both of those things. Neither number is wrong. They are answering different questions.
+[Architecture 101](/film/architecture-101-2012) holds a Value of 44 against my four and a half stars. It was a phenomenon in Korea in 2012 and is nearly invisible everywhere else. The 44 says: above the centre of the catalogue, real value, no masterpiece claim filed. My stars say what only a hand can say — the film studies first love from a safe distance, and I happen to own both of those things.
 
-[Dunkirk](/film/dunkirk-2017) reads 54 against my four stars, and the lesson is what fame fails to buy. An event picture from one of the most famous directors alive lands near the top of the fat middle and no higher: the 54 counts the craft and declines to count the noise.
+[Dunkirk](/film/dunkirk-2017) reads 54 against my four stars, and the lesson is what fame fails to buy. An event picture from one of the most famous directors alive lands near the top of the fat middle and no higher.
 
 [The Lunchbox](/film/the-lunchbox-2013) sits at 55, a single point above Dunkirk, and this is the fact I would frame. A quiet film about misdelivered lunches and letters in Mumbai outpoints the decade's loudest war picture; only a scale that keeps its middle low can even pronounce such a sentence. My hand went the other way, three and a half stars, and I notice, with some discomfort, that I ranked this trio in exactly the reverse of the ruler's order.
 

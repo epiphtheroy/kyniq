@@ -19,6 +19,6 @@ Blending would end it. The three aggregate numbers already correlate with each o
 
 ## What the crowd's number gets right
 
-A concession is owed, though, because the other side holds a real card. Pleasure is worth measuring, and the aggregators measure it well. On the one question most viewers actually bring to a film — will I enjoy this? — IMDb called both of my evenings correctly, and the instrument I publish missed me twice. Anyone shopping for tonight should trust the crowd's thermometer over mine. It knew what I was going to feel before I felt it, and no score of ours has ever managed that.
+Before I congratulate the instrument on its independence: the aggregators do their actual job better than anything we run. Pleasure is worth measuring, and the aggregators measure it well. On the one question most viewers actually bring to a film — will I enjoy this? — IMDb called both of my evenings correctly, and the instrument I publish missed me twice. Anyone shopping for tonight should trust the crowd's thermometer over mine. It knew what I was going to feel before I felt it, and no score of ours has ever managed that.
 `;
 export default body;

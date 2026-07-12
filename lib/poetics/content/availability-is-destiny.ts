@@ -1,7 +1,7 @@
 const body = `
 # Availability is destiny
 
-The watch grid on our page for [The Road to Sampo](/film/the-road-to-sampo-1975) has three columns: stream, rent, buy. For most readers in most countries all three are empty. Just above the grid the film carries a Value of 72, and in my log it holds five stars, so two instruments that disagree constantly, my hand and the site's, happen to agree here. The market is the third instrument, and it registers nothing.
+The watch grid on our page for [The Road to Sampo](/film/the-road-to-sampo-1975) has three columns: stream, rent, buy. For most readers in most countries all three are empty. Just above the grid the film carries a Value of 72, and in my log it holds five stars, so the log and the site's number, which disagree constantly, happen to agree here. The market votes too, and its vote here is silence.
 
 The two votes are deserved. Lee Man-hee died in 1975 before the film reached theatres: three strangers cross a snowbound Korea on foot toward a hometown that development has already remade before anyone can arrive. For my money it is the great Korean road movie, and it is also about the easiest masterpiece in our index to go a whole lifetime without seeing.
 
@@ -9,7 +9,7 @@ The two votes are deserved. Lee Man-hee died in 1975 before the film reached the
 
 [Floating Clouds](/film/floating-clouds-1955) at least has a constituency. Naruse's postwar melodrama has sat near the top of Japanese critics' all-time polls for half a century; Ozu reportedly named it among the few films he could not have made himself. Here it scores 80, which clears our bar for the word essential on measurement alone, no Western list involved. My log adds four and a half stars. None of this puts it on a service near you. Canonical and unreachable are two conditions that have never excluded each other, and Floating Clouds has spent decades demonstrating the overlap.
 
-Still, someone will eventually fight for Naruse; archives program him, and restorations find their way to the famous. The case that unsettles me is [A Short Love Affair](/film/a-short-love-affair-1990), a Korean film from 1990 that has vanished almost entirely. I rated it four and a half. The instrument is cooler, a Value of 50 and a verdict of optional, and no rescue campaign is coming for a 50. Restoration chases masterpieces, cults chase oddities, and the middle register of a national cinema, the merely good films that make the great ones legible, evaporates without ceremony. People imagining lost cinema picture burning nitrate. Mostly it looks like a licence quietly not renewed.
+Still, someone will eventually fight for Naruse; archives program him, and restorations find their way to the famous. The case that unsettles me is [A Short Love Affair](/film/a-short-love-affair-1990), a Korean film from 1990 that has vanished almost entirely. I rated it four and a half. The site is less sentimental about it: a Value of 50, a verdict of optional, and no rescue campaign is coming for a 50. Restoration chases masterpieces, cults chase oddities, and the middle register of a national cinema, the merely good films that make the great ones legible, evaporates without ceremony. People imagining lost cinema picture burning nitrate. Mostly it looks like a licence quietly not renewed.
 
 ## The score never checks the shelf
 

@@ -17,6 +17,6 @@ The one thing the two films cannot disagree about is the city. The apartment tow
 
 ## The ground floor
 
-Fiction holds final cut over almost everything — dialogue, faces, endings. It does not hold final cut over the ground it stands on, which is why the site keeps a [locations layer](/locations): where a film was shot is a fact the finished film cannot edit. So I end where that fact weighs the most. In the last minutes of Aquarius, Clara walks into the developers' boardroom carrying timber from her own building, hollowed out by the termites the company had seeded in the empty flats above her, wood that kept its shape while being eaten from within, and she sets it down on the conference table and lets the building do the talking.
+Fiction holds final cut over almost everything — dialogue, faces, endings. It does not hold final cut over the ground it stands on. The site keeps a [locations layer](/locations) for exactly this fact: where a film was shot is the one thing the finished film cannot edit. So I end where that fact weighs the most. In the last minutes of Aquarius, Clara walks into the developers' boardroom carrying timber from her own building, hollowed out by the termites the company had seeded in the empty flats above her, wood that kept its shape while being eaten from within, and she sets it down on the conference table and lets the building do the talking.
 `;
 export default body;

@@ -17,8 +17,8 @@ It would sound noble to claim the film is too sacred to score, and it would be f
 
 ## Permission needs a name
 
-The working rule is written down under [editorial responsibility](/methodology/editorial-responsibility), and it is shorter than visitors expect: nothing on this site publishes on a machine's authority; a person signs, and that person can be wrong in public. I hold the line for an unsentimental reason. The machine contributes a great deal I could not, and it still cannot supply the one thing a verdict on Son of Saul requires, which is a party who can be blamed. Permission and blame travel together. A system that cannot be blamed cannot grant permission either.
+The working rule is written down under [editorial responsibility](/methodology/editorial-responsibility), and it is shorter than visitors expect: nothing on this site publishes on a machine's authority; a person signs, and that person can be wrong in public. I hold the line for an unsentimental reason. The machine contributes a great deal I could not, and it still cannot supply the one thing a verdict on Son of Saul requires, which is a party who can be blamed. A system that cannot be blamed cannot grant permission either.
 
-Two films, then, and the whole desk in miniature. One carries an 85 I endorse and a moral licence no instrument could have issued. The other carries five stars and no number at all. I signed both, and only one of them needed the machine's help.
+Grave of the Fireflies stays unscored. Son of Saul keeps its 85. Both entries carry the same signature.
 `;
 export default body;
