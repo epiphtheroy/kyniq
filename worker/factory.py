@@ -933,6 +933,17 @@ def cmd_run(a):
     full = [f for f in films if f["tier"] == "full"]; cat = [f for f in films if f["tier"] == "catalog"]
     est, _ = estimate_cost(m, len(full), len(cat))
     gate = m.get("cost_gate_usd_default", 50)
+    # single-run lock: two concurrent runs both writing embeddings/affinities exhausted the
+    # instance's disk-IO burst on 2026-07-13 (bulk_set_embeddings 11-18s/call, checkpoint 214s,
+    # statement-timeout cascade -> REST 522, live site degraded). One run at a time, period.
+    if not DRY:
+        others = mgmt_query(f"select id from factory.runs where status='running' and id<>{run_id};")
+        if others:
+            print(f"⛔ run(s) {[r['id'] for r in others]} already running — one run at a time (DB write-load guard).\n"
+                  f"   Wait for it, or if it is dead: update factory.runs set status='aborted' where id=<id>;")
+            mgmt_query(f"update factory.runs set status='aborted', finished_at=now(), "
+                       f"report_md='aborted: another run active (single-run lock)' where id={run_id} and mode='repair';")
+            return
     print(f"\n=== FACTORY RUN #{run_id} {'(DRY)' if DRY else ''} ===")
     print(f"films: {len(films)} ({len(full)} full, {len(cat)} catalog) | stages: {len(stages)} | est ${est:.2f} (gate ${gate})")
     if not films:

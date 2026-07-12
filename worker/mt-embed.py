@@ -80,6 +80,7 @@ def embed(texts):
 def writeback(kind, ids, vecs):
     wrote=0
     for i in range(0,len(ids),WRITE_BATCH):
+        if i: import time; time.sleep(0.5)   # IO pacing: sustained back-to-back vector writes helped exhaust the disk burst budget (2026-07-13 incident)
         rows=[{"id":ids[j],"e":vecs[j]} for j in range(i,min(i+WRITE_BATCH,len(ids)))]
         for attempt in range(4):
             st,tx=rpc("bulk_set_embeddings",{"p_kind":kind,"p_rows":rows})
