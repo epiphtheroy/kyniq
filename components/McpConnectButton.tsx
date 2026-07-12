@@ -138,8 +138,10 @@ const MCB_CSS = `
   .mcb-copy{flex:0 0 auto;font:inherit;font-weight:700;font-size:.72rem;cursor:pointer;
     padding:.4em .8em;border-radius:7px;border:1px solid #0B5E58;background:#0F766E;color:#F0FDFA;}
   .mcb-copy:hover{background:#0D8A80;}
-  .mcb-steps{margin:0 0 12px;padding-left:1.25em;font-size:.85rem;line-height:1.55;color:#1f2937;}
-  .mcb-steps li{margin-bottom:4px;}
+  .mcb-steps{margin:0 0 12px;padding-left:1.35em;font-size:.85rem;line-height:1.55;color:#1f2937;
+    list-style:decimal outside;}
+  .mcb-steps li{margin-bottom:4px;display:list-item;}
+  .mcb-steps li::marker{font-weight:800;color:#0F766E;}
   .mcb-try{border:1px solid rgba(15,118,110,.3);background:rgba(15,118,110,.06);border-radius:10px;
     padding:10px 12px;margin-bottom:12px;}
   .mcb-try__lab{display:block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0F766E;margin-bottom:4px;}
