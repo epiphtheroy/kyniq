@@ -1,30 +1,24 @@
 const body = `
 # What machines cannot decide
 
-A reading came to the desk one evening that I very nearly let stand. It was on [Shoah](/film/shoah-1985), it was fluent, and it attributed a famous sentence about the film to the wrong critic — confidently, in a subordinate clause, the way a true thing is said. I had read four paragraphs nodding before the clause caught. Nothing in the prose flinched at the error. That is the whole problem on a single page: the machine is best at exactly the thing that disarms a reader, and the fact it got wrong wore the same clothes as the facts it got right.
+"You trust an instrument enough to publish its verdicts on 6,701 films. The model reads faster than you do, never tires, and gives the same answer twice when asked twice. What you call human responsibility is ceremony. The machine judges; you hold the pen." That is the strongest form of the objection I know, and I concede more of it than most editors would like to. The instrument does judge, if judging means measuring: it can tell a controlled film from a loose one, a risk taken from a risk dodged, and it does this without fatigue and without favourites. If judging and measuring were the same act, the essay could end here.
 
-## The formula, and what it hides
+## What an 85 can see
 
-We say it to ourselves often enough that it has worn smooth: the AI proposes; the editor disposes. It is set out plainly under [what AI does](/methodology/what-ai-does) and [editorial responsibility](/methodology/editorial-responsibility), and it is true. The machine drafts the prose and computes the distances that become [counterpoints](/methodology/counterpoints); a human reads, and then edits, cuts, or signs off. Nothing publishes on its own authority.
+[Son of Saul](/film/son-of-saul-2015) is where the two acts come apart. The film's discipline is legible from orbit: a nearly square frame, focus held on one Sonderkommando prisoner's face, the machinery of the camp reduced to blur and offscreen sound. Our instrument puts its Value at 85 with a TakeScore of 69 and files it as essential. I believe the number, because control at that pitch is exactly what measurement is built to detect.
 
-But the formula flatters me. It implies the division of labour runs judgement to the human and mechanism to the machine — that I keep the interesting half. The honest split is closer to the reverse. The machine is good at the things that *look* like judgement: a supple sentence, a plausible neighbour in meaning-space. What is left to me is the clerical residue — was that date right, did that critic say that, is that shot actually in the film. My job is not taste. It is doubt. I am the person paid to disbelieve a paragraph that has given me no reason to.
+But the argument that met the film in 2015 was never about whether the control existed. It was about whether the control was permitted — whether a fiction set inside the crematoria of Auschwitz may be this composed, this virtuosic, or whether the tactful blur at the edge of the frame doubles as an alibi. No amount of computation moves that question an inch. It is addressed to whoever happens to be watching, and it can only be answered in the first person, by someone the answer will implicate. The machine measured the control. The licence had to come from a person. In my log the film holds four stars: licence granted, under my own name.
 
-## The line I will not move
+## The five stars I never sent downstairs
 
-So the line is narrow and unglamorous: **a machine may decide what is persuasive; it may never decide what is true.** [TakeScore](/methodology/takescore) can rank [Forrest Gump](/film/forrest-gump-1994) below a film a hundredth its size, and I will defend the shape of that. But whether a sentence in the reading of [Jeanne Dielman](/film/jeanne-dielman-23-quai-du-commerce-1976) corresponds to something on the screen is not a matter the model gets a vote on, however well it writes.
+[Grave of the Fireflies](/film/grave-of-the-fireflies-2005) sits in my log at five stars and has never passed through the instrument at all. No Value, no verdict, nothing to cite. I could queue it, and the pipeline would be done by evening. I notice I am in no hurry.
 
-Roughly one draft in five comes back rejected before it ever reaches me — sent back or killed by a checker reading it against the record. That figure is not a boast about rigour. It is a confession about the base rate: a fifth of fluent, confident drafts are wrong somewhere, and fluency is no signal of which fifth. If it were, I could sample. I cannot sample. The errors that matter do not announce themselves, which is precisely why they matter.
+It would sound noble to claim the film is too sacred to score, and it would be false; measurement has never desecrated anything I care about. The plain reason is that Takahata's film — two children in the firebombing of Kobe, a fruit-drop tin that ends the story holding ashes — settled its account with me completely, and no number could reopen the case in either direction. Keeping one five-star judgment that answers to no pipeline has turned out to be clarifying. It reminds me which way authority runs here: the instrument reports to the desk, never the reverse.
 
-## What it costs to do it this way
+## Permission needs a name
 
-The cost is that I cannot honestly say I wrote these. I sign off; I do not author. A per-page byline would claim otherwise, which is why there isn't one. And there is a vainer cost. There is a trope our own readings keep filing, [*The Render Farm As Confession Of Its Limits*](/trope/the-render-farm-as-confession-of-its-limits) — a machine's output quietly betraying the boundary of what it could do. I keep the phrase near the desk, because the confession it most often exposes is mine. The evening I nodded through four paragraphs is not a story about a machine's limit. It is a story about a reader who wanted a good sentence to be a true one.
+The working rule is written down under [editorial responsibility](/methodology/editorial-responsibility), and it is shorter than visitors expect: nothing on this site publishes on a machine's authority; a person signs, and that person can be wrong in public. I hold the line for an unsentimental reason. The machine contributes a great deal I could not, and it still cannot supply the one thing a verdict on Son of Saul requires, which is a party who can be blamed. Permission and blame travel together. A system that cannot be blamed cannot grant permission either.
 
-There is a companion trope, [*The Critic's Verdict As Unwitting Confession*](/trope/the-critic-s-verdict-as-unwitting-confession), and I am aware that "I am the doubt in the system" is exactly that kind of sentence — a flattering self-portrait dressed as a job description.
-
-## The question I have not settled
-
-Here is where it stops being clean. The same checker that rejects a fifth of drafts also decides which of the survivors reach my eye first — it surfaces the risky pages and clears the routine ones, so my attention lands where a machine cannot be trusted. Which means the last human decision on the site is already framed by a machine's triage. I did not pull the [Shoah](/film/shoah-1985) draft off a shelf at random; something chose it for me, and I would like to believe I would have caught the error either way.
-
-So the line I keep insisting on — the machine cannot decide what stands — may sit one step further back than I admit. It cannot decide what stands. Can it decide what I look at? And if it already does, whose doubt was that in the end?
+Two films, then, and the whole desk in miniature. One carries an 85 I endorse and a moral licence no instrument could have issued. The other carries five stars and no number at all. I signed both, and only one of them needed the machine's help.
 `;
 export default body;
