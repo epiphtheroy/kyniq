@@ -508,11 +508,13 @@ def ledger(run_id, stage_id, status, film_id=None, cost=0.0, batch_id=None, erro
     if DRY:
         return
     fin = "now()" if status in ("done", "parked", "skipped", "failed", "partial") else "null"
-    q = (f"insert into factory.stage_runs(run_id,stage_id,film_id,status,cost_usd,batch_id,error,verify_result,started_at,finished_at) "
-         f"values({run_id},{sql_lit(stage_id)},{sql_lit(film_id)},{sql_lit(status)},{cost},"
+    # the unique key is (run_id, film_id, stage_id, attempt) NULLS NOT DISTINCT — all four must be
+    # in the ON CONFLICT target or Postgres raises 42P10 (no matching constraint).
+    q = (f"insert into factory.stage_runs(run_id,stage_id,film_id,attempt,status,cost_usd,batch_id,error,verify_result,started_at,finished_at) "
+         f"values({run_id},{sql_lit(stage_id)},{sql_lit(film_id)},1,{sql_lit(status)},{cost},"
          f"{sql_lit(batch_id)},{sql_lit(error)},{('%s::jsonb' % sql_lit(json.dumps(verify))) if verify is not None else 'null'},"
          f"now(),{fin}) "
-         f"on conflict (run_id,stage_id,film_id) do update set status=excluded.status, cost_usd=excluded.cost_usd, "
+         f"on conflict (run_id,film_id,stage_id,attempt) do update set status=excluded.status, cost_usd=excluded.cost_usd, "
          f"batch_id=coalesce(excluded.batch_id,factory.stage_runs.batch_id), error=excluded.error, "
          f"verify_result=coalesce(excluded.verify_result,factory.stage_runs.verify_result), finished_at=excluded.finished_at;")
     try:
