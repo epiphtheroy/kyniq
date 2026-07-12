@@ -1,13 +1,21 @@
 const body = `
 # TakeScore: the three axes
 
-Most ratings measure satisfaction — whether a crowd enjoyed a film. TakeScore measures something else: the lasting value a film offers a serious viewer, the prior knowledge it asks in return, and the chance it disappoints. This page explains the three axes, how they combine into the single **TS** number, and the principles we hold to when we score.
+Most ratings measure satisfaction — whether a crowd enjoyed a film — and then stop. They are good at telling you what is popular and silent on the question a committed viewer actually carries out of the cinema: was *that* worth it, and will the next one be? TakeScore is our attempt at the number those sites leave out. It measures the lasting value a film offers a serious viewer, the prior knowledge it asks in return, and the chance it disappoints — three things no rating we could find weighed together. This page explains the three axes, how they combine into the single **TS** number, and the principles we hold to when we score.
 
 ## In numbers
 
-> **{{n:films}}**
+> **6,700+**
 > films scored
-> each judged on its own terms, never ranked against the rest of the list
+> every film in the catalogue carries a TakeScore, each judged on its own terms
+
+> **58 / 100**
+> average Value
+> what a typical film gives back — before its cost and risk are weighed in
+
+> **8 – 57**
+> where most scores land
+> the middle four-fifths of the catalogue by net TakeScore; the median sits near 36, and only the strongest clear 80
 
 ## Three axes
 

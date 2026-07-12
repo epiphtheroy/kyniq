@@ -5,7 +5,7 @@ Every [TakeScore](/takescore) is built from thirteen sub-scores, not a single ve
 
 ## In numbers
 
-> **{{n:films}}**
+> **6,700+**
 > films scored
 > each carries all thirteen sub-scores, computed against the same fixed rubric
 
@@ -32,6 +32,8 @@ The thirteen divide into three groups. **Value** is what a film gives back. **Co
 ## Anchored bands
 
 None of the thirteen is scored freehand. Each is rated against **anchored behavioural bands** whose midpoints — 0, 25, 50, 75, 100 — act as gravity wells. Each band carries a concrete description of what a film at that level actually does, so the number is a judgement against a written standard rather than a mood. On Cognitive, for instance, 50 is real ideas conventionally delivered, 75 means the film reorganises how you see something specific, and 100 is a lasting conceptual or perceptual shift. The bands are calibrated against a small fixed set of reference films whose gold scores are frozen into the rubric, so a mark of 75 means the same thing across the whole catalogue.
+
+The bands bite, too. Across the catalogue the average film sits around **58 on Value** and **24 on Risk**; most marks cluster in the middle bands rather than at the extremes, and a score in the top band is genuinely uncommon — the rubric is built to hold its 100 in reserve rather than hand it out. That is deliberate: a scale where everything is excellent measures nothing.
 
 ## How the three axes combine
 
