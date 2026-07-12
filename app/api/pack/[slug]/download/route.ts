@@ -75,6 +75,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   if (!data) return NextResponse.json({ error: "No context pack for this film." }, { status: 404, headers: NOINDEX });
 
   const pack = data as FilmPack;
+  pack.license = "CC BY-NC 4.0 (attribution required)"; // free-to-use with attribution (gate is on the download, not rights)
   const keys = (u.searchParams.get("sections") || "")
     .split(",").map((s) => s.trim())
     .filter((s) => ALL_KEYS.includes(s as PackSectionKey)) as PackSectionKey[];

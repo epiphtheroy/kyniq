@@ -58,6 +58,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   if (!data) return NextResponse.json({ error: "No context pack for this film." }, { status: 404, headers: NOINDEX });
 
   const pack = data as FilmPack;
+  // Everything served here is free to copy (public page content). Label it as
+  // such — the RPC's tier-derived "Creator License" is for a future paid tier.
+  pack.license = "CC BY-NC 4.0 (attribution required)";
   const headers: Record<string, string> = {
     "cache-control": "public, s-maxage=86400, stale-while-revalidate=604800",
     ...NOINDEX,
