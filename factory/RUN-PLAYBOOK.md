@@ -23,11 +23,16 @@ nohup bash worker/factory-watch.sh >> factory/logs/watch.log 2>&1 &
 #   the watcher claims queued runs and runs the executor. Stop: touch factory/.watch-stop
 ```
 
-**Intake text format** (both `ingest` and the admin paste box): one film per line — `Title (Year)`
-(year optional), or add `tmdb:12345` / a trailing `| 1999`; `#` lines are comments. A block whose
-first line is a `title,year,director,tmdb_id,tier` header is read as CSV. Titles with commas
-("Paris, Texas") are safe in text mode. Everything routes through `factory_intake_add_batch` (one DB
-round-trip, dedups against existing intake).
+**Intake text format** (both `ingest` and the admin paste box): one film per line —
+- `Title (Year)` — year in parens (optional)
+- `Title 496243` — **a trailing bare number (≥3 digits) is read as a TMDB id** (the fastest, most exact
+  form; e.g. `Werckmeister Harmonies 23160`). Works even when the title itself ends in a number
+  (`Blade Runner 2049 335984`, `Toy Story 3 10193`); a small trailing number like `Toy Story 2` is left alone.
+- `Title tmdb:12345` or `Title | 1999` also work; `#` lines are comments.
+- A block whose first line is a `title,year,director,tmdb_id,tier` header is read as CSV.
+Titles with commas ("Paris, Texas") are safe. Everything routes through `factory_intake_add_batch`
+(one DB round-trip, dedups against existing intake). TMDB id is the most reliable — the run fetches the
+canonical film directly from it, no fuzzy title match.
 
 Flags: `--from Sxx` resume from a stage · `--only Sxx` one stage · `--films slug,slug` subset ·
 `--with-corpus` include deferred global rebuilds (S26) · `--dry-run` plan without spending.

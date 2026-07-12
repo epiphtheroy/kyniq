@@ -211,20 +211,27 @@ def parse_film_lines(text):
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
-        s = line; tmdb = None
+        s = line; tmdb = None; year = None
+        # 1. explicit `tmdb:12345` / `tmdb=12345` token anywhere
         mt = re.search(r"\btmdb[:=](\d+)\b", s, re.I)
         if mt:
             tmdb = mt.group(1); s = (s[:mt.start()] + s[mt.end():]).strip()
-        year = None
-        mp = re.match(r"^(.*?)(?:\s*\((\d{4})\))?$", s)
-        title = (mp.group(1) if mp else s).strip()
-        if mp and mp.group(2):
-            year = mp.group(2)
-        if year is None:
-            mt2 = re.match(r"^(.*?)\s*[|,]\s*(\d{4})$", title)
-            if mt2:
-                title = mt2.group(1).strip(); year = mt2.group(2)
-        title = re.sub(r"[|,]\s*$", "", title).strip()
+        # 2. explicit year via a `|` or `,` delimiter at the end: "Title | 1999"
+        md = re.match(r"^(.*\S)\s*[|,]\s*(\d{4})\s*$", s)
+        if md and 1870 <= int(md.group(2)) <= 2035:
+            s = md.group(1).strip(); year = md.group(2)
+        # 3. bare trailing TMDB id — "Title 496243" (>=3 digits so sequels like "Toy Story 2" are safe)
+        if tmdb is None:
+            mb = re.match(r"^(.+?)\s+(\d{3,})$", s)
+            if mb:
+                s = mb.group(1).strip(); tmdb = mb.group(2)
+        # 4. year in parens: "Title (2019)"
+        mp = re.match(r"^(.*?)\s*\((\d{4})\)\s*$", s)
+        if mp:
+            s = mp.group(1).strip()
+            if year is None:
+                year = mp.group(2)
+        title = s.strip()
         if not title:
             continue
         rows.append({"title": title, "year": year, "director": None, "tmdb_id": tmdb, "tier": None})
