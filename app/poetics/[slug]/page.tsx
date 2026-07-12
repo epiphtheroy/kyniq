@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { unstable_cache } from "next/cache";
 import { pageRobots } from "@/lib/seo";
 import { poeBySlug, poeCategoryBySlug, poeHref, poeEssaysInCategory } from "@/lib/poetics/registry";
@@ -15,6 +15,15 @@ const REVIEWED = "July 2026";
 const REVIEWED_ISO = "2026-07-12";
 
 type Props = { params: Promise<{ slug: string }> };
+
+/** Essays replaced in the 2026-07 revision — old URLs 308 to their successors. */
+const POE_RENAMES: Record<string, string> = {
+  "the-fear-of-a-wasted-evening": "the-arithmetic-of-a-lifetime",
+  "a-thousand-titles-that-say-nothing": "the-shape-of-a-blind-spot",
+  "movements-are-not-quality": "how-to-read-a-filmography",
+  "whose-hundred-greatest": "the-location-cannot-lie",
+  "the-economics-of-an-evening": "the-film-outside-the-frame",
+};
 
 export function generateStaticParams() {
   return [] as { slug: string }[];
@@ -35,13 +44,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const renderBody = (slug: string, body: string) =>
-  unstable_cache(async () => renderDocMarkdown(body), ["poe-render1", slug], {
+  unstable_cache(async () => renderDocMarkdown(body), ["poe-render2", slug], {
     revalidate: 3600,
     tags: ["poetics"],
   })();
 
 export default async function PoeticsEssayPage({ params }: Props) {
   const { slug } = await params;
+  if (POE_RENAMES[slug]) permanentRedirect(poeHref(POE_RENAMES[slug]));
   const e = poeBySlug(slug);
   const body = POE_BODIES[slug];
   if (!e || !body) notFound();
