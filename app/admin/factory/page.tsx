@@ -155,17 +155,22 @@ function parseFilmLines(text: string): ParsedFilm[] {
     } else {
       let s = line;
       let tmdb: number | null = null;
-      const mt = s.match(/\btmdb[:=](\d+)\b/i);
-      if (mt) { tmdb = Number(mt[1]); s = s.replace(mt[0], "").trim(); }
       let year: number | null = null;
-      const mParen = s.match(/^(.*?)(?:\s*\((\d{4})\))?$/);
-      let title = (mParen?.[1] ?? s).trim();
-      if (mParen?.[2]) year = Number(mParen[2]);
-      if (year === null) {
-        const mTail = title.match(/^(.*?)\s*[|,]\s*(\d{4})$/);
-        if (mTail) { title = mTail[1].trim(); year = Number(mTail[2]); }
+      // 1. explicit `tmdb:12345` token
+      const mt = s.match(/\btmdb[:=](\d+)\b/i);
+      if (mt) { tmdb = Number(mt[1]); s = (s.slice(0, mt.index) + s.slice((mt.index ?? 0) + mt[0].length)).trim(); }
+      // 2. explicit year via `|` or `,` delimiter: "Title | 1999"
+      const md = s.match(/^(.*\S)\s*[|,]\s*(\d{4})\s*$/);
+      if (md && Number(md[2]) >= 1870 && Number(md[2]) <= 2035) { s = md[1].trim(); year = Number(md[2]); }
+      // 3. bare trailing TMDB id — "Title 496243" (>=3 digits so "Toy Story 2" is safe)
+      if (tmdb === null) {
+        const mb = s.match(/^(.+?)\s+(\d{3,})$/);
+        if (mb) { s = mb[1].trim(); tmdb = Number(mb[2]); }
       }
-      title = title.replace(/[|,]\s*$/, "").trim();
+      // 4. year in parens: "Title (2019)"
+      const mp = s.match(/^(.*?)\s*\((\d{4})\)\s*$/);
+      if (mp) { s = mp[1].trim(); if (year === null) year = Number(mp[2]); }
+      const title = s.trim();
       if (!title) continue;
       out.push({ title, year, director: null, tmdb_id: tmdb, tier: null });
     }
@@ -272,7 +277,7 @@ export default async function FactoryPage() {
           <textarea
             name="titles"
             rows={5}
-            placeholder={"Parasite (2019)\nThe Handmaiden (2016)\n# CSV also works — header: title,year,director,tmdb_id,tier\n# or add a TMDB id:  Oldboy  tmdb:670"}
+            placeholder={"Parasite (2019)\nWerckmeister Harmonies 23160    ← a trailing number is read as a TMDB id\nThe Handmaiden\n# one per line: \"Title (Year)\" and/or \"Title <tmdb_id>\"; CSV header title,year,director,tmdb_id,tier also works"}
             style={{
               width: "100%", background: "#0b1220", color: "#e2e8f0",
               border: "1px solid rgba(148,163,184,0.2)", borderRadius: 6,
