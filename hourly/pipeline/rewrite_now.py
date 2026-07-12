@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rewrite an existing /now piece in place with the CURRENT writer prompt.
 
-Same slug, same URL (SEO continuity): Fable 5 rewrites the letter, the
+Same slug, same URL (SEO continuity): Opus 4.8 rewrites the letter, the
 deterministic gate checks structure, the row is PATCHed, dateModified bumps,
 and distribution fires (revalidate + IndexNow + Bluesky/Telegram).
 

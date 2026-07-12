@@ -2,7 +2,7 @@
 """Now Playing — the wire we watched.
 
 Records the hour's REVIEWED candidates (the ones that cleared the mechanical
-bar) into now_stream, with one batched Fable 5 call writing the editor's
+bar) into now_stream, with one batched Opus 4.8 call writing the editor's
 value-point line per item. Nothing here uses web search; cost per hour is a
 few cents. These rows accumulate under films/directors ("In the news") and
 feed the daily digest.
@@ -15,7 +15,7 @@ from datetime import datetime, timedelta, timezone
 from .common import anthropic_call, log, parse_json_block, sb_get, sb_insert
 from .datapack import build_pack
 
-WRITER_MODEL = "claude-fable-5"
+WRITER_MODEL = "claude-opus-4-8"
 
 _GEO_LABEL = {"US": "United States", "GB": "United Kingdom", "world": "Worldwide", "-": "Worldwide"}
 

@@ -142,7 +142,7 @@ def anthropic_call(env: dict, *, model: str, system: str, user: str,
 
 
 # $/MTok — keep in sync with platform.claude.com/docs/en/about-claude/pricing
-_PRICES = {"claude-fable-5": (10.0, 50.0, 1.0), "claude-sonnet-5": (2.0, 10.0, 0.2)}
+_PRICES = {"claude-fable-5": (10.0, 50.0, 1.0), "claude-opus-4-8": (5.0, 25.0, 0.5), "claude-sonnet-5": (2.0, 10.0, 0.2)}
 _SEARCH_PRICE = 0.01  # $10 per 1,000 web searches
 
 

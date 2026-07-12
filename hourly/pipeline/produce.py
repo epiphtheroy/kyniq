@@ -2,7 +2,7 @@
 """Now Playing — the hourly production run (README.md v2).
 
 DETECT (poller) -> SELECT (mechanical + one light LLM pass) -> data pack ->
-WRITE (Fable 5 + web search) -> GATE (deterministic + LLM) -> PUBLISH
+WRITE (Opus 4.8 + web search) -> GATE (deterministic + LLM) -> PUBLISH
 (insert + revalidate + IndexNow + Bluesky/Telegram).
 
 Hard rules enforced here: HOLD kill switch, daily cap (4), 48h novelty,
@@ -27,7 +27,7 @@ from pipeline.common import (HOURLY, anthropic_call, http, ledger_append,  # noq
                              load_env, log, now_utc, parse_json_block, sb_get, sb_insert, slugify)
 from pipeline.datapack import build_pack  # noqa: E402
 
-WRITER_MODEL = "claude-fable-5"
+WRITER_MODEL = "claude-opus-4-8"
 LIGHT_MODEL = "claude-sonnet-5"
 DAILY_CAP = 4
 MIN_MECH = 9          # spike + corroboration + beat prefilter
@@ -555,11 +555,11 @@ def main() -> None:
             continue
 
         # No second-model selection or verification (owner's rule 2026-07-08):
-        # mechanical selection above, then Fable 5 writes and that is the piece.
+        # mechanical selection above, then Opus 4.8 writes and that is the piece.
         scores = {"spike": cand["spike"], "corroboration": cand["corroboration"], "beat": cand["beat"]}
         log(f"WRITING: {cand['keyword']} → {ent['label']} (scores {scores}, links {n_links})")
 
-        # Fable 5 writes; the piece publishes. No second-model content gate
+        # Opus 4.8 writes; the piece publishes. No second-model content gate
         # (owner's rule 2026-07-08: the voice must reach the page untouched).
         # The deterministic gate stays: it checks structure and link validity,
         # never style.

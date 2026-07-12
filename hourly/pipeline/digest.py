@@ -2,7 +2,7 @@
 """Now Playing — the daily digest.
 
 One editor's note over the day: what spiked, what we watched, what we wrote.
-Assembled mechanically from now_stream + now_articles; Fable 5 writes only the
+Assembled mechanically from now_stream + now_articles; Opus 4.8 writes only the
 headline, dek, and intro (no web search). Upserts into now_digests, then
 revalidates + pings IndexNow + posts to Bluesky.
 
@@ -21,7 +21,7 @@ from pipeline.common import (anthropic_call, http, load_env, log, now_utc,  # no
                              parse_json_block, sb_get, sb_insert, sb_update)
 from pipeline.produce import INDEXNOW_KEY, _bluesky_post  # noqa: E402
 
-MODEL = "claude-fable-5"
+MODEL = "claude-opus-4-8"
 
 
 def _anchor_href(r: dict) -> str | None:
@@ -107,7 +107,7 @@ def main() -> None:
         # (A) publish every day, no gaps (owner's rule 2026-07-10). On a fully
         # quiet day — nothing watched, nothing written — post a deterministic
         # note instead of skipping, so /now/daily/[date] is never missing. The
-        # date keeps each quiet-day headline unique; no Fable spend on empties.
+        # date keeps each quiet-day headline unique; no writer-model spend on empties.
         nice = datetime.strptime(day, "%Y-%m-%d").strftime("%B %-d, %Y")
         front = {
             "headline": f"The Now Playing Desk: A Quiet {nice}",
@@ -117,7 +117,7 @@ def main() -> None:
                            "spikes in the world's attention, never to fill a slot, and today the quiet is simply "
                            "the standard holding.</p>"),
         }
-        log(f"digest {day}: fully quiet day — deterministic note (no Fable)")
+        log(f"digest {day}: fully quiet day — deterministic note (no writer call)")
     else:
         front = write_intro(env, day, items, pieces)
         if not front or not front.get("headline") or not front.get("intro_html"):
