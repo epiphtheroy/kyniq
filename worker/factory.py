@@ -473,24 +473,52 @@ def text_array(xs):
 LAST_ERR = None  # tail of the most recent subprocess/exception failure; ledgered so failed runs are debuggable (run #9's S20 died with error=null)
 
 
+CURRENT_RUN_ID = None  # set by cmd_run; sh() heartbeats this run while a worker is executing
+
+
+def _heartbeat():
+    """While status='running', finished_at doubles as a liveness timestamp (overwritten with the
+    real finish on close). The single-run lock's stale-release reads it — so a 3h batch poll or a
+    long embed never gets falsely declared dead, but a crashed executor releases in ~30min."""
+    if CURRENT_RUN_ID:
+        try:
+            mgmt_query(f"update factory.runs set finished_at=now() where id={CURRENT_RUN_ID} and status='running';")
+        except Exception:
+            pass  # a missed heartbeat must never kill the run
+
+
 def sh(cmd, cwd=ROOT, quiet=False):
-    """Run a subprocess (list-form; no shell). Returns (rc, stdout). Honors DRY."""
+    """Run a subprocess (list-form; no shell). Returns (rc, stdout). Honors DRY.
+    Waits with a poll loop (not subprocess.run) so it can heartbeat the ledger every ~60s."""
     global LAST_ERR
     printable = " ".join(shlex.quote(c) for c in cmd)
     if not quiet:
         print(f"      $ {printable}")
     if DRY:
         return 0, ""
-    try:
-        r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, env=os.environ, timeout=BATCH_MAX_WAIT)
-    except subprocess.TimeoutExpired:
-        LAST_ERR = f"TIMEOUT after {BATCH_MAX_WAIT}s: {printable}"
-        print("      ! TIMEOUT"); return 124, ""
-    if r.returncode != 0:
-        tail = (r.stderr or r.stdout or "")[-600:]
-        LAST_ERR = f"exit {r.returncode}: {tail}"
-        print(f"      ! exit {r.returncode}: {tail}")
-    return r.returncode, r.stdout or ""
+    import tempfile
+    with tempfile.TemporaryFile(mode="w+", encoding="utf-8", errors="replace") as fo, \
+         tempfile.TemporaryFile(mode="w+", encoding="utf-8", errors="replace") as fe:
+        try:
+            p = subprocess.Popen(cmd, cwd=cwd, stdout=fo, stderr=fe, text=True, env=os.environ)
+        except Exception as e:
+            LAST_ERR = f"spawn failed: {e}"; print(f"      ! {LAST_ERR}"); return 1, ""
+        waited = 0
+        while p.poll() is None:
+            time.sleep(5); waited += 5
+            if waited % 60 == 0:
+                _heartbeat()
+            if waited >= BATCH_MAX_WAIT:
+                p.kill(); p.wait()
+                LAST_ERR = f"TIMEOUT after {BATCH_MAX_WAIT}s: {printable}"
+                print("      ! TIMEOUT"); return 124, ""
+        fo.seek(0); fe.seek(0)
+        out, errtx = fo.read(), fe.read()
+    if p.returncode != 0:
+        tail = (errtx or out or "")[-600:]
+        LAST_ERR = f"exit {p.returncode}: {tail}"
+        print(f"      ! exit {p.returncode}: {tail}")
+    return p.returncode, out or ""
 
 
 def pyw(script, args):
@@ -650,6 +678,7 @@ def _batch_poll_fetch(script, fetch_args, ctx):
             return rc if rc != 0 else 1     # gave up waiting -> let failure_policy park it
         if waited == 0:
             print(f"      batch pending — polling every {BATCH_POLL}s (max {BATCH_MAX_WAIT}s)…")
+        _heartbeat()
         time.sleep(BATCH_POLL); waited += BATCH_POLL
 
 
@@ -864,7 +893,7 @@ def salvage_stage(s, films, bad_slugs, run_id):
 
 
 def cmd_run(a):
-    global DRY, FORCE_SYNC
+    global DRY, FORCE_SYNC, CURRENT_RUN_ID
     DRY = bool(getattr(a, "dry_run", False))
     FORCE_SYNC = bool(getattr(a, "sync", False))
     m = load_manifest()
@@ -933,6 +962,24 @@ def cmd_run(a):
     full = [f for f in films if f["tier"] == "full"]; cat = [f for f in films if f["tier"] == "catalog"]
     est, _ = estimate_cost(m, len(full), len(cat))
     gate = m.get("cost_gate_usd_default", 50)
+    CURRENT_RUN_ID = run_id if (isinstance(run_id, int) and run_id > 0) else None
+    # single-run lock: two concurrent runs both writing embeddings/affinities exhausted the
+    # instance's disk-IO burst on 2026-07-13 (bulk_set_embeddings 11-18s/call, checkpoint 214s,
+    # statement-timeout cascade -> REST 522, live site degraded). One run at a time, period.
+    if not DRY:
+        # a crashed executor leaves its run 'running' forever — while alive, sh()/batch-poll
+        # heartbeat finished_at every ~60s, so 30min of silence = dead; self-release instead of
+        # requiring hand SQL. (Long batch polls and multi-hour stages keep heartbeating.)
+        mgmt_query("update factory.runs r set status='aborted', finished_at=now(), "
+                   "report_md=coalesce(r.report_md,'')||' | auto-aborted: stale (no heartbeat >30min)' "
+                   "where r.status='running' and coalesce(r.finished_at, r.started_at, now()-interval '1 hour') < now()-interval '30 minutes';")
+        others = mgmt_query(f"select id from factory.runs where status='running' and id<>{run_id};")
+        if others:
+            print(f"⛔ run(s) {[r['id'] for r in others]} already running — one run at a time (DB write-load guard).\n"
+                  f"   Wait for it to finish (a dead run auto-releases after 30min without ledger writes).")
+            mgmt_query(f"update factory.runs set status='aborted', finished_at=now(), "
+                       f"report_md='aborted: another run active (single-run lock)' where id={run_id} and mode='repair';")
+            return
     print(f"\n=== FACTORY RUN #{run_id} {'(DRY)' if DRY else ''} ===")
     print(f"films: {len(films)} ({len(full)} full, {len(cat)} catalog) | stages: {len(stages)} | est ${est:.2f} (gate ${gate})")
     if not films:
