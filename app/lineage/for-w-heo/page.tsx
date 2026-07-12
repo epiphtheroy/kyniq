@@ -25,7 +25,7 @@ function load() {
       if (error) throw new Error(`for_w_heo_films: ${error.message}`);
       return (data as WHeoFilm[] | null) ?? [];
     },
-    ["for-w-heo-films2"],
+    ["for-w-heo-films3"],
     { revalidate: 1800, tags: ["for-w-heo"] },
   )();
 }

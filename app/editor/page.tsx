@@ -134,7 +134,7 @@ export default function EditorPage() {
         </p>
 
         <p className="mt-see">
-          <Link href="/about">About Metatake</Link> · <Link href="/methodology">Methodology</Link>
+          <Link href="/about">About Metatake</Link> · <Link href="/methodology">Methodology</Link> · <Link href="/poetics">Poetics (essays)</Link>
         </p>
       </div>
     </div>

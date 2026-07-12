@@ -10,6 +10,7 @@ export const dynamic = "force-static";
 const SECTIONS = [
   "core",
   "methodology",
+  "poetics",
   "films",
   "figures",
   "qa",

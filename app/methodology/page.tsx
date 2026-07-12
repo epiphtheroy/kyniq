@@ -299,26 +299,30 @@ export default async function MethodologyPage() {
         <Link href="/takescore" className="accent" style={{ textDecoration: "none" }}>TakeScore&trade;</Link> page and,
         aggregated across a filmography, on a{" "}
         <Link href="/director" className="accent" style={{ textDecoration: "none" }}>director&apos;s</Link> page. The note
-        is <strong>assembled, not written by an AI</strong>: each film is filed on a handful of plain axes — its standing
-        in the critics&apos; canon, how widely it&apos;s known, which door it came in through (a canon, a festival, a
-        national cinema, an auteur&apos;s body of work), and a one-line verdict — and those filings are stitched into
-        English by a fixed template. Same filings in, same sentence out.
+        is <strong>assembled, not written by an AI</strong>: each film is filed on a handful of plain axes — its measured
+        artistic value on TakeScore, how widely it&apos;s known, which door it came in through (a canon, a festival, a
+        national cinema, an auteur&apos;s body of work, or its own high value), and a one-line verdict — and those
+        filings are stitched into English by a fixed template. Same filings in, same sentence out.
       </p>
       <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        The verdict is the honest part. A film is called <strong>essential</strong> only when it sits in the critics&apos;
-        canon proper — the standing lists, not merely an award. Below that come <strong>start here</strong> (canonical
-        but approachable), <strong>deep cut</strong> (for when you&apos;re digging further), <strong>popular, not
-        canon</strong> (famous, but not required viewing for a cinephile), and <strong>optional</strong>. We keep two
-        rules against overclaiming. A film that&apos;s on the canon lists but scores low on TakeScore is <strong>not
-        called &ldquo;canon&rdquo;</strong> — it&apos;s described as much-seen and much-talked-about, which is the true
-        thing to say. And the optional films aren&apos;t hidden: each gets the same courtesy of an honest, understated
-        line — <em>not a canon title, not a festival standout, not a household name</em> — rather than silence.
+        The verdict is the honest part — and its first question is not &ldquo;is it on a canon list?&rdquo; but{" "}
+        <strong>does the film earn a cinephile&apos;s time?</strong> That is what{" "}
+        <Link href="/takescore" className="accent" style={{ textDecoration: "none" }}>TakeScore&trade;</Link> exists to
+        measure: durable artistic value, minus the risk it disappoints — deliberately uncorrelated with fame or box
+        office. So a film is recommended when it carries <strong>real measured value</strong>, whether or not any list
+        has noticed it — a Korean New Wave film no canon indexes, an under-seen auteur work, a formally daring debut.
+        A film is <strong>essential</strong> when it is either canon-core <em>or</em> scores exceptionally high on
+        TakeScore value; below that come <strong>start here</strong> (recommended and approachable),{" "}
+        <strong>deep cut</strong> (recommended but under-seen — the hidden gems), <strong>popular, not cinephile</strong>{" "}
+        (famous, but without the artistic value to earn the list), and <strong>optional</strong>. What we filter out is
+        the formulaic — competent films with no artistic ambition — not the obscure.
       </p>
       <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
-        to.W is kept <strong>separate from the TakeScore appraisal</strong> it sits beside. TakeScore weighs a film&apos;s
-        value against its cost and risk; to.W only says where the film stands in the catalog and why it was collected.
-        The two can disagree — a canon title can score low — and the page lets them, rather than forcing one number to
-        settle it. Like everything here, the filings sit under the same{" "}
+        Canon-list membership is a <strong>supporting signal, never the gate</strong> — using it as the gate would just
+        rebuild someone else&apos;s top-100 and make TakeScore pointless. Awards, canons and auteur lines still lift a
+        film, but they cannot be the only way in, and a beloved-but-hollow film cannot buy its way past a low value
+        score. The optional films aren&apos;t hidden either: each gets an honest, understated line rather than silence.
+        Like everything here, the filings sit under the same{" "}
         <a href="#corrections" className="accent" style={{ textDecoration: "none" }}>corrections</a> loop: if a film is
         filed under the wrong standing, tell us and we&apos;ll re-file it.
       </p>
@@ -397,7 +401,9 @@ export default async function MethodologyPage() {
 
       <p className="ui muted" style={{ fontSize: 13 }}>
         More on the project as a whole:{" "}
-        <Link href="/about" className="accent" style={{ textDecoration: "none" }}>About Metatake</Link>. Questions,
+        <Link href="/about" className="accent" style={{ textDecoration: "none" }}>About Metatake</Link>. The thinking
+        behind the choices, argued at essay length:{" "}
+        <Link href="/poetics" className="accent" style={{ textDecoration: "none" }}>Poetics</Link>. Questions,
         press, or partnerships:{" "}
         <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
           wonwoo@metatake.net

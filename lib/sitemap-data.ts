@@ -26,6 +26,8 @@ import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
 import { DESKS, DESK_KEYS, deskByMode } from "@/lib/desks";
 import { DOCS as METHOD_DOCS, docHref } from "@/lib/docs/registry";
 import { DOC_BODIES } from "@/lib/docs/content";
+import { POE_ESSAYS, poeHref } from "@/lib/poetics/registry";
+import { POE_BODIES } from "@/lib/poetics/content";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -144,6 +146,18 @@ export async function methodologyEntries(): Promise<SitemapEntry[]> {
     if (d.slug === "overview") continue;
     if (!DOC_BODIES[d.slug]) continue; // unauthored stub → not advertised
     entries.push({ url: `${siteUrl}${docHref(d.slug)}` });
+  }
+  return entries;
+}
+
+/** Poetics — the /poetics hub + every authored essay. Static editorial; no
+ * lastmod. A stub (empty body) is 404 on-page, so only authored essays ship. */
+export async function poeticsEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const entries: SitemapEntry[] = [{ url: `${siteUrl}/poetics` }];
+  for (const e of POE_ESSAYS) {
+    if (!POE_BODIES[e.slug]) continue;
+    entries.push({ url: `${siteUrl}${poeHref(e.slug)}` });
   }
   return entries;
 }

@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { DOC_CATEGORIES, DOCS, docHref, docsInCategory } from "@/lib/docs/registry";
+import { POE_ESSAYS, poeHref } from "@/lib/poetics/registry";
+import { POE_BODIES } from "@/lib/poetics/content";
 
 /**
  * llms.txt — helps AI systems understand the site and cite the right pages.
@@ -32,6 +34,10 @@ Metatake reads films closely and maps how they connect. The interpretive work is
 The full method is published, document by document, under ${SITE}/methodology. What goes in, how it is normalised, and what we deliberately exclude are all described in plain language.
 
 ${methodology}
+
+## Poetics — signed critical essays
+Open questions on film criticism and theory by editor Wonwoo Yoon, under ${SITE}/poetics.
+${POE_ESSAYS.filter((e) => POE_BODIES[e.slug]).map((e) => `- ${SITE}${poeHref(e.slug)} — ${e.title}: ${e.desc}`).join("\n")}
 
 ## Sources & attribution
 Film stills and posters are from TMDB. External rating metrics are from an open ratings source; award histories from Wikidata. Readings, figures, tropes, connections, TakeScore, the lineage structure and location pins are original to Metatake.
