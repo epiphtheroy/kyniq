@@ -67,9 +67,12 @@ while true; do
   TICK="$H$M"
   if [ "$TICK" != "$last_tick" ]; then
     last_tick="$TICK"
+    # 개인 창작자 발굴 모드: GDELT(순수 뉴스/기관)는 비활성 — 필요 시
+    #   run_bg gdelt poll_gdelt.py 를 :05에 되살리면 됨(코드는 유지).
     case "$M" in
-      05) run poll_feeds.py; run poll_wpcom.py; run_bg gdelt poll_gdelt.py ;;
+      05) run poll_feeds.py; run poll_wpcom.py ;;
       20|35|50) run poll_feeds.py fast ;;                       # Medium 15-min class
+      25|55) run poll_letterboxd.py ;;                          # 개인 리뷰어 풀
     esac
     case "$M" in 00|15|30|45) run poll_hn.py; run process_inbox.py ;; esac
     if [ "$M" = "10" ]; then case "$H" in 00|06|12|18) run poll_youtube_search.py ;; esac; fi

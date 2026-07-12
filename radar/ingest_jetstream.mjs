@@ -37,6 +37,23 @@ function saveCursor(us) {
   try { writeFileSync(CURSOR_FILE, String(us)); } catch { /* best effort */ }
 }
 
+// DID → {handle, name} via the public AppView (no auth), cached in-process.
+const profileCache = new Map();
+async function resolveProfile(did) {
+  const hit = profileCache.get(did);
+  if (hit) return hit;
+  let p = { handle: did, name: null };
+  try {
+    const r = await fetch(
+      `https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${encodeURIComponent(did)}`,
+      { headers: { "User-Agent": "metatake-radar/1.0" }, signal: AbortSignal.timeout(6000) });
+    if (r.ok) { const j = await r.json(); p = { handle: j.handle || did, name: j.displayName || j.handle || null }; }
+  } catch { /* fall back to did */ }
+  if (profileCache.size > 5000) profileCache.clear();  // bound memory
+  profileCache.set(did, p);
+  return p;
+}
+
 async function flush() {
   if (!pending.length) return;
   const batch = pending; pending = [];
@@ -67,15 +84,20 @@ function connect() {
     const kws = matcher.get().match(text);
     if (!kws.size) return;
     const url2 = `https://bsky.app/profile/${e.did}/post/${c.rkey}`;
-    pending.push({
-      url: url2, url_hash: urlHash(url2), platform: "bluesky",
-      author: e.did, author_url: `https://bsky.app/profile/${e.did}`,
-      title: text.slice(0, 140), snippet: text.slice(0, 300),
-      content_text: text.slice(0, 3000),
-      published_at: c.record?.createdAt || null,
-      meta: { did: e.did, rkey: c.rkey }, _kw: kws,
+    // resolve DID → readable handle/name so the feed shows WHO to engage, not a
+    // did:plc: string (matches are rare, so one cached lookup each is cheap).
+    resolveProfile(e.did).then((p) => {
+      pending.push({
+        url: url2, url_hash: urlHash(url2), platform: "bluesky",
+        author: p.name || p.handle, author_url: `https://bsky.app/profile/${p.handle}`,
+        title: text.slice(0, 140), snippet: text.slice(0, 300),
+        content_text: text.slice(0, 3000),
+        published_at: c.record?.createdAt || null,
+        author_kind: "individual",  // Bluesky posts are always a person
+        meta: { did: e.did, handle: p.handle, rkey: c.rkey }, _kw: kws,
+      });
+      if (pending.length >= FLUSH_EVERY) flush();
     });
-    if (pending.length >= FLUSH_EVERY) flush();
   });
 
   ws.addEventListener("close", () => { saveCursor(lastCursor); scheduleReconnect("close"); });

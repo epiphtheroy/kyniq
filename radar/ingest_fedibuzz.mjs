@@ -49,6 +49,7 @@ function handleStatus(s) {
     author: acct.acct || acct.username || null, author_url: acct.url || null,
     title: text.slice(0, 140), snippet: text.slice(0, 300),
     content_text: text.slice(0, 3000), published_at: s.created_at || null,
+    author_kind: "individual",  // Mastodon statuses are always a person
     meta: { status_id: s.id }, _kw: kws,
   });
   if (pending.length >= FLUSH_EVERY) flush();

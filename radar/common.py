@@ -56,6 +56,59 @@ def url_hash(u: str) -> str:
     return hashlib.sha256(normalize_url(u).encode("utf-8")).hexdigest()
 
 
+# ── author classification: individual vs institution (개인 창작자 발굴) ─────────
+# The radar's purpose pivoted to finding INDIVIDUAL creators (people you can build
+# relationships with), not major outlets. classify_author tags each item so the
+# feed can hide institutions by default. We only need to reliably identify
+# institutions — everything else flows through as 'individual'.
+
+INSTITUTION_DOMAINS = {
+    # trade / news / big culture outlets — never an "individual creator"
+    "variety.com", "deadline.com", "hollywoodreporter.com", "thewrap.com",
+    "indiewire.com", "theguardian.com", "nytimes.com", "washingtonpost.com",
+    "bbc.com", "bbc.co.uk", "npr.org", "apnews.com", "reuters.com", "cnn.com",
+    "latimes.com", "vulture.com", "avclub.com", "rollingstone.com", "ew.com",
+    "empireonline.com", "totalfilm.com", "screenrant.com", "collider.com",
+    "slashfilm.com", "ign.com", "polygon.com", "theverge.com", "vice.com",
+    "buzzfeed.com", "huffpost.com", "salon.com", "slate.com", "theatlantic.com",
+    "newyorker.com", "vanityfair.com", "gq.com", "esquire.com", "time.com",
+    "usatoday.com", "forbes.com", "businessinsider.com", "yahoo.com",
+    "aljazeera.com", "ft.com", "wsj.com", "economist.com", "sky.com",
+    "metacritic.com", "rottentomatoes.com", "imdb.com", "themoviedb.org",
+    "mubi.com", "criterion.com", "filmcomment.com", "sensesofcinema.com",
+    "lwlies.com", "littlewhitelies.co.uk", "filmmakermagazine.com",
+    "cineuropa.org", "screendaily.com", "thefilmstage.com", "reverseshot.org",
+    "lareviewofbooks.org", "kinolorber.com", "gamespot.com", "engadget.com",
+    "gizmodo.com", "wired.com", "mashable.com", "cbr.com", "gamesradar.com",
+    "movieweb.com", "livemint.com", "hindustantimes.com", "indiatimes.com",
+    "koreaherald.com", "koreatimes.co.kr", "hankyung.com", "chosun.com",
+}
+_INSTITUTION_AUTHOR = re.compile(
+    r"\b(staff|editor|editorial|newsroom|team|desk|reporters?|correspondent|"
+    r"associated press|reuters|agency|bureau|press|wire)\b", re.I)
+
+
+def _host(u: str) -> str:
+    try:
+        h = urlsplit((u or "").strip()).netloc.lower()
+        return h[4:] if h.startswith("www.") else h
+    except Exception:
+        return ""
+
+
+def classify_author(platform: str, url: str, author: str | None) -> str:
+    """'institution' | 'individual'. Only institutions are positively detected;
+    the default is 'individual' so ambiguous items still surface."""
+    if platform == "news":                      # GDELT et al. = news index
+        return "institution"
+    h = _host(url)
+    if h and (h in INSTITUTION_DOMAINS or any(h.endswith("." + d) for d in INSTITUTION_DOMAINS)):
+        return "institution"
+    if author and _INSTITUTION_AUTHOR.search(author):
+        return "institution"
+    return "individual"
+
+
 # ── text / date utils (shared by every poller) ───────────────────────────────
 
 _TAG = re.compile(r"<[^>]+>")
@@ -199,6 +252,9 @@ def upsert_items(env: dict, items: list[dict]) -> tuple[int, int, int]:
             it.setdefault("_matched_on", {})
             by_hash[h] = it
     batch = list(by_hash.values())
+    for it in batch:  # tag individual vs institution unless the caller pre-set it
+        if not it.get("author_kind"):
+            it["author_kind"] = classify_author(it.get("platform", ""), it.get("url", ""), it.get("author"))
     rows = [{k: v for k, v in it.items() if not k.startswith("_")} for it in batch]
 
     status, rep = sb_post(env, "radar_items", rows, on_conflict="url_hash",
@@ -253,6 +309,36 @@ def build_matcher(env: dict):
     """Load keywords and return a ready Matcher (radar/matcher.py)."""
     from matcher import Matcher  # local module
     return Matcher(load_keywords(env))
+
+
+def load_film_corpus() -> dict:
+    """metatake's full film corpus (title+year → slug) from the local entity
+    cache, for Letterboxd's STRUCTURED matching (RSS carries filmTitle/filmYear,
+    so we match precisely against all ~7k films — no keyword automaton, no false
+    positives, and we get the slug for the '→ metatake page' action link).
+    Returns {'by_ty': {(norm_title, year): slug}, 'by_t': {norm_title: slug}}."""
+    from matcher import norm
+    f = HERE.parent / "hourly" / "poller" / "entities.json"
+    by_ty: dict = {}
+    by_t: dict = {}
+    if not f.exists():
+        return {"by_ty": by_ty, "by_t": by_t}
+    try:
+        films = json.loads(f.read_text()).get("films", [])
+    except Exception:
+        return {"by_ty": by_ty, "by_t": by_t}
+    for fm in films:
+        t, y, slug = fm.get("title"), fm.get("year"), fm.get("slug")
+        if not t or not slug:
+            continue
+        nt = norm(t)
+        if y:
+            try:
+                by_ty[(nt, int(y))] = slug
+            except Exception:
+                pass
+        by_t.setdefault(nt, slug)
+    return {"by_ty": by_ty, "by_t": by_t}
 
 
 # ── run / ledger bookkeeping ─────────────────────────────────────────────────
