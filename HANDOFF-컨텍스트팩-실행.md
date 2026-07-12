@@ -423,6 +423,12 @@ Polar.sh(MoR — VAT/JCT 대행, 한국 사업자 유리) 제품 2개: Pass Mont
   - **라이브 검증:** 섹션 엔드포인트(13 readings+헤더)·다운로드 status JSON(authed/remaining/eligible)·전체 복사·필름페이지 UI(팩탭 8버튼·다운로드 컨트롤 1·히어로 1)·라이선스 CC BY-NC.
   - **⚠️ 동시 세션 위험 실현:** 다른 세션이 `.autodeploy-off`를 지워 워처가 내 staged 인덱스(마이그 포함)를 auto-deploy 커밋으로 푸시. 결과적으로 최종본이 정상 커밋·푸시됨(HEAD==origin 확인). 교훈=[[autodeploy-watcher-race]] 재확인, 커밋은 pathspec(`git commit <files>`)로.
   - **미착수:** 실제 로그인 브라우저 E2E(다운로드 파일 저장·쿼터 차감·라이브러리 표출)는 오너 검증 몫. Phase B(비-영화 엔티티 팩: concept/director/trope/catalog 등 ~20종, 각 팩 생성기 필요).
+- **2026-07-12 UI 2차 반복 (오너 피드백, commit 22ba572·라이브 검증):**
+  - **히어로 버튼 교체:** 히어로 df-hactions의 "🎬 Movies like →" 링크 → **금색 "⬇ Download for AI" 버튼**(`DownloadPackModal variant="hero"`, `#E4B23C`+짙은 잉크 텍스트=흰글씨 비가시 문제 해결)로 교체. 클릭 시 섹션 선택 모달. 구 "Copy for AI" 히어로 필 제거. Movies-like 링크는 df-connected("Films like") 섹션 하단으로 이전(df-like=자립형 accent 필이라 밝은 배경서도 정상).
+  - **다운로드 UX:** raw MD 페이지 이동 폐지. File System Access API(`showSaveFilePicker`, Chrome/Edge)로 **폴더·파일명 선택**(취소=쿼터 미소모=picker를 fetch 前 호출) → 미지원 브라우저는 blob 다운로드. CopyForAI 실패 시 window.open(raw MD) 폐지→인플레이스 에러상태.
+  - **탭바:** 다운로드 컨트롤을 `.df-tabs__row` 안으로 이동(탭과 함께 좌우 스크롤, `variant="rail"`). Invitation 탭의 "✦ AI" 복사 마크 제거(다운로드 섹션으로는 유지).
+  - **라이브 검증:** 히어로 Download 버튼·rail 다운로드·구 Copy필 제거(0)·Movies-like 이전·팩탭 복사버튼 8→7(invitation 제외)·섹션 엔드포인트 CC BY-NC.
+  - **Phase B 지시(오너 요구 "save 옆 download 동일 크기·디자인"):** 비-영화 엔티티 페이지의 ShareDock Save 옆에 `DownloadPackModal`(금색 트리거, 크기 매칭)을 배치. 단 각 엔티티 팩 생성기 선행 필요(아직 film만). 트리거 디자인 정본=DPM_TRIGGER_CSS.
 
 ## 13. 다음 세션 시작 프롬프트 (복붙용)
 
