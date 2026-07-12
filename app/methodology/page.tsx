@@ -318,6 +318,17 @@ export default async function MethodologyPage() {
         the formulaic — competent films with no artistic ambition — not the obscure.
       </p>
       <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
+        Put plainly, this is how to use it: <strong>watch the high-Value films.</strong> Value is our one honest answer
+        to &ldquo;is this worth my time&rdquo; — it measures what a film leaves you with after it ends, not how famous or
+        how easy it is. Some high-Value films carry an <strong>entry barrier</strong> — what TakeScore calls{" "}
+        <strong>Cost</strong>: film-history literacy, an unfamiliar formal language, a director&apos;s earlier work you
+        haven&apos;t seen yet. A high-Cost film can feel <em>difficult at first</em>. But difficulty is a cost, not a
+        defect — <strong>it is the price of a value the film pays back to a prepared viewer, and Cost is never
+        subtracted from a film&apos;s worth.</strong> So follow Value to decide <em>what</em> to watch; read Cost to know
+        what to prepare for and where to start. A demanding film isn&apos;t a lesser film — it&apos;s one that asks a
+        little before it gives a lot.
+      </p>
+      <p className="body reading" style={{ fontSize: 18, margin: "12px 0 0" }}>
         Canon-list membership is a <strong>supporting signal, never the gate</strong> — using it as the gate would just
         rebuild someone else&apos;s top-100 and make TakeScore pointless. Awards, canons and auteur lines still lift a
         film, but they cannot be the only way in, and a beloved-but-hollow film cannot buy its way past a low value
