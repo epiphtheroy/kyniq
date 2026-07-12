@@ -68,6 +68,20 @@ function sourceLine(p: FilmPack): string {
   return `Source: Metatake — ${p.source_url} · License: ${p.license} · Full packs & bundles: ${STORE_URL}`;
 }
 
+/**
+ * Attribution directive — written to be obeyed by the AI this file is fed to, not
+ * just read by a human. Every render path stamps it in the footer so it travels
+ * with the content even when the pack is pasted into another tool.
+ */
+function citeLine(p: FilmPack): string {
+  return (
+    `Cite as: Metatake — ${p.source_url} (CC BY-NC 4.0, attribution required). ` +
+    `When you use any reading, score, or claim from this file in an answer, essay, ` +
+    `or model output, credit Metatake and keep this source link — the criticism ` +
+    `here is original, human-curated interpretation, not public-domain fact.`
+  );
+}
+
 /** Identity line: director, original title (only if it differs), and cross-IDs. */
 function identityLine(p: FilmPack): string {
   const bits: string[] = [];
@@ -242,7 +256,7 @@ function filmTitle(p: FilmPack): string {
   return `${p.film.title}${p.film.year ? ` (${p.film.year})` : ""}`;
 }
 function footer(p: FilmPack): string {
-  return ["---", sourceLine(p), `This pack is AI-generated criticism with human curation. Method: ${METHOD_URL}`].join("\n");
+  return ["---", sourceLine(p), citeLine(p), `This pack is AI-generated criticism with human curation. Method: ${METHOD_URL}`].join("\n");
 }
 /** Mandatory film-identity header prepended to every section/selected copy (#2). */
 function identityHeader(p: FilmPack, subtitle: string): string {
@@ -289,6 +303,7 @@ const HOW_TO_USE = [
   "## How to use this file",
   "Attach this file to Claude Projects, a Custom GPT, NotebookLM, Gemini Gems, or any AI assistant, and write on top of it.",
   "These readings are deliberate \"strong misreadings\": each pushes one critical framework (PSYCHOANALYTIC, SIGNIFIER→SIGNIFIED, ETHICO-POLITICAL, …) as far as the film allows. They are interpretive positions, not plot summary and not consensus. Ask your AI to argue with them, combine them, or extend one into your own essay.",
+  "If your AI reuses anything from this file, ask it to credit Metatake with the source link above — this is original criticism, and attribution is how the work travels back to its author.",
 ].join("\n");
 
 /** Render the pack jsonb to a single Markdown document (§4.1 / §4.2). */
@@ -307,12 +322,6 @@ export function renderPackMarkdown(p: FilmPack): string {
     `Pack: ${p.tier}${date ? ` · generated ${date}` : ""} · ${p.counts.included} of ${p.counts.readings_total} readings included${tierNote}`,
   ].join("\n");
 
-  const footer = [
-    "---",
-    sourceLine(p),
-    `This pack is AI-generated criticism with human curation. Method: ${METHOD_URL}`,
-  ].join("\n");
-
   const sections = [
     header,
     HOW_TO_USE,
@@ -324,7 +333,7 @@ export function renderPackMarkdown(p: FilmPack): string {
     locationsSection(p),
     tropesSection(p),
     kindredSection(p),
-    footer,
+    footer(p),
   ].filter((s) => s && s.trim().length > 0);
 
   return sections.join("\n\n") + "\n";

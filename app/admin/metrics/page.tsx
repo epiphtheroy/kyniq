@@ -43,6 +43,13 @@ interface PageDetail {
   referrers: Row[]; countries: Row[]; prevs: Row[]; nexts: Row[]; gsc: Row[]; gsc_queries: Row[];
 }
 
+interface AiReferrals {
+  total_visits: number;
+  total_visitors: number;
+  sources: Row[];  // { source, n, visitors }
+  landings: Row[]; // { path, n }
+}
+
 interface GscOverview {
   totals: {
     impressions_7d: number; clicks_7d: number; pos_7d: number | null;
@@ -90,12 +97,13 @@ export default async function MetricsPage({
   await refreshInsightsIfStale(supabase);
   const args = { p_from: from.toISOString(), p_to: to.toISOString(), p_tz: "Asia/Seoul", p_bucket: bucket };
 
-  const [ovRes, liveRes, pageRes, insightsRes, gscRes] = await Promise.all([
+  const [ovRes, liveRes, pageRes, insightsRes, gscRes, aiRes] = await Promise.all([
     supabase.rpc("mt_overview_json", args),
     supabase.rpc("mt_live_json"),
     drillPath ? supabase.rpc("mt_page_json", { p_path: drillPath, ...args }) : Promise.resolve({ data: null, error: null }),
     supabase.from("mt_insights").select("ts, kind, line").neq("kind", "_run").order("ts", { ascending: false }).limit(24),
     supabase.rpc("mt_gsc_overview_json", { p_days: 28 }),
+    supabase.rpc("mt_ai_referrals_json", { p_from: from.toISOString(), p_to: to.toISOString() }),
   ]);
 
   const ov = (ovRes.data ?? null) as Overview | null;
@@ -103,6 +111,7 @@ export default async function MetricsPage({
   const detail = (pageRes.data ?? null) as PageDetail | null;
   const insights = (insightsRes.data ?? []) as { ts: string; kind: string; line: string }[];
   const gsc = (gscRes.data ?? null) as GscOverview | null;
+  const ai = (aiRes.data ?? null) as AiReferrals | null;
 
   if (ovRes.error) {
     return <div style={{ color: "#e66767" }}>Failed to load metrics: {ovRes.error.message}</div>;
@@ -259,6 +268,33 @@ export default async function MetricsPage({
           </>
         ) : (
           <div style={{ fontSize: 12.5, color: "#64748b" }}>GSC 데이터 없음 — worker/gsc-daily-watch.sh 가동 여부를 확인하세요.</div>
+        )}
+      </Panel>
+
+      {/* AI referrals — traffic sent back by AI assistants (the context-pack ROI signal) */}
+      <Panel title="AI 유입 — 챗봇이 보내준 트래픽 (인용 채널 ROI)">
+        {ai && ai.total_visits > 0 ? (
+          <>
+            <div style={{ display: "flex", gap: 24, fontSize: 13, color: "#cbd5e1", marginBottom: 12, flexWrap: "wrap" }}>
+              <span>AI 유입 방문 <b style={{ color: "#f1f5f9" }}>{fmt(ai.total_visits)}</b></span>
+              <span>순 방문자 <b style={{ color: "#f1f5f9" }}>{fmt(ai.total_visitors)}</b></span>
+              {ov.totals.pageviews > 0 && (
+                <span style={{ color: "#94a3b8" }}>
+                  전체 페이지뷰의 <b style={{ color: "#e2e8f0" }}>{((ai.total_visits / ov.totals.pageviews) * 100).toFixed(1)}%</b>
+                </span>
+              )}
+            </div>
+            <div style={grid2}>
+              <BarList title="AI 소스 (ChatGPT · Perplexity · Claude · …)" rows={ai.sources} labelKey="source" />
+              <BarList title="AI가 보낸 착지 페이지" rows={ai.landings} labelKey="path" linkD={d} />
+            </div>
+          </>
+        ) : (
+          <div style={{ fontSize: 12.5, color: "#64748b", lineHeight: 1.6 }}>
+            아직 AI 챗봇발(發) 유입이 잡히지 않았습니다 — ChatGPT·Perplexity·Claude·Gemini 등이 답변에 metatake.net을
+            링크하고 사용자가 그 링크를 클릭하면 여기에 소스별로 쌓입니다. 컨텍스트 팩·Copy-for-AI 전략이 트래픽으로
+            돌아오는지를 이 패널로 90일간 판정하세요. (검색엔진 AI모드는 일반 검색과 구분 불가라 Referrers 패널에 집계됩니다.)
+          </div>
         )}
       </Panel>
 

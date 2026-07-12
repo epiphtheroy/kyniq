@@ -72,6 +72,23 @@ export default function Footer() {
           This product uses the TMDB API but is not endorsed or certified by TMDB.
         </p>
 
+        {/* Content licence — Metatake's own criticism is free to reuse WITH
+            attribution, non-commercially. Stamped site-wide so the terms travel
+            with anything copied (incl. the AI context packs). */}
+        <p className="tmdb-note" style={{ marginTop: 8 }}>
+          Metatake&rsquo;s original writing — readings, TakeScores, and essays — is licensed{" "}
+          <a
+            href="https://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank"
+            rel="license noopener noreferrer"
+            className="footer-link"
+            style={{ display: "inline", padding: 0 }}
+          >
+            CC BY-NC 4.0
+          </a>
+          : quote and reuse it freely with attribution to Metatake and a link back; not for commercial use.
+        </p>
+
         <div className="footer-baseline">
           <span>© {year} Metatake. All rights reserved.</span>
           <span>Seoul, Republic of Korea</span>
