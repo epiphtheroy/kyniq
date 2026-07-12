@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient as createServerClient } from "@/lib/supabase/server";
+import { ipToPrefix } from "@/lib/ip-prefix";
 import {
   renderPackMarkdown,
   renderPackSection,
@@ -53,6 +55,44 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   const sectionsParam = u.searchParams.get("sections");
 
   const db = createAdminClient();
+
+  // ── C: the raw machine-readable JSON payload (the cleanest bulk-harvest
+  // surface — no UI uses it) is login-gated, same as the .md download. The
+  // human-facing copy paths (whole-pack md, single section) stay free.
+  if (fmt === "json") {
+    const ssr = await createServerClient();
+    const { data: { user } } = await ssr.auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: "Sign in to fetch the raw JSON pack. Copying the page content stays free." },
+        { status: 401, headers: NOINDEX }
+      );
+    }
+  }
+
+  // ── B: durable per-/24 velocity guard (survives across serverless isolates,
+  // unlike the in-memory soft limit above). Only cache-MISSES reach here, which
+  // is exactly the unique-slug enumeration pattern of a harvester. Fail-open:
+  // any error here must never break the free copy path. When the prefix crosses
+  // the 10-min threshold, pack_note_hit auto-adds it to bot_blocks and the edge
+  // middleware then 403s it fleet-wide; we also 429 immediately.
+  try {
+    const prefix = ipToPrefix(
+      req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip")
+    );
+    if (prefix) {
+      const { data: hit } = await db.rpc("pack_note_hit", { p_prefix: prefix });
+      if (hit && typeof hit === "object" && (hit as { blocked?: boolean }).blocked) {
+        return NextResponse.json(
+          { error: "Automated bulk access detected. This is public content — please slow down or contact us for a data license." },
+          { status: 429, headers: NOINDEX }
+        );
+      }
+    }
+  } catch {
+    // fail-open — never let the guard break a legitimate copy
+  }
+
   const { data, error } = await db.rpc("film_context_pack", { p_slug: slug, p_tier: "full" });
   if (error) return NextResponse.json({ error: error.message }, { status: 500, headers: NOINDEX });
   if (!data) return NextResponse.json({ error: "No context pack for this film." }, { status: 404, headers: NOINDEX });
@@ -66,7 +106,10 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
     ...NOINDEX,
   };
 
-  if (fmt === "json") return NextResponse.json(pack, { headers });
+  // JSON is login-gated (see above), so it must not be shared via the public CDN
+  // cache — serve it per-request and uncached.
+  if (fmt === "json")
+    return NextResponse.json(pack, { headers: { ...NOINDEX, "cache-control": "private, no-store" } });
 
   let md: string;
   if (section && ALL_KEYS.includes(section as PackSectionKey)) {

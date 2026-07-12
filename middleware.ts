@@ -78,6 +78,26 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     return NextResponse.next({ request: { headers: request.headers } });
   }
 
+  // Bot enforcement DOES cover the free pack copy API (/api/pack/*). It is the one
+  // /api surface that serves bulk page content with no auth, so it's the natural
+  // bulk-harvest target — apply the same UA + blocklist gate we use on content
+  // routes (the durable per-/24 velocity guard in the route feeds bot_blocks, so
+  // a harvester that trips it gets 403'd here fleet-wide). Everything else under
+  // /api keeps skipping this gate (each has its own auth/route guards).
+  if (pathname.startsWith("/api/pack")) {
+    const ua = request.headers.get("user-agent") ?? "";
+    if (ua && !GOOD_BOT.test(ua)) {
+      if (BAD_UA.test(ua)) return forbidden();
+      const prefix = ipToPrefix(
+        request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip")
+      );
+      if (prefix && (await blockedPrefix(prefix, request.nextUrl.origin))) {
+        return forbidden();
+      }
+    }
+    return NextResponse.next({ request: { headers: request.headers } });
+  }
+
   // Bot gate on content routes (not /api — the beacon self-filters bots, and
   // APIs have their own guards). Fail-open throughout: any doubt → allow.
   if (!pathname.startsWith("/api")) {
