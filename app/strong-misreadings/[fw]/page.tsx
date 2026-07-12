@@ -8,6 +8,7 @@ import ReadingFeed, { type FeedRow, type Facets } from "@/components/ReadingFeed
 import LensQuickBar from "@/components/LensQuickBar";
 import { fwBySlug } from "@/lib/frameworks";
 import { FRAMEWORK_INTROS } from "@/lib/frameworkIntros";
+import ShareDock from "@/components/ShareDock";
 
 export const revalidate = 600;
 export async function generateStaticParams() { return []; }
@@ -74,6 +75,10 @@ export default async function FrameworkPage({ params }: Props) {
         <h1 className="smb-fw__h" style={isAll ? undefined : { color: f!.color }}>
           {isAll ? "All readings" : f!.label}
         </h1>
+        <div className="rd-share" style={{ marginTop: 12 }}>
+          <ShareDock variant="bar" path={`/strong-misreadings/${slug}`} title={isAll ? "All readings" : f!.label} hook={isAll ? "Every Strong Misreading on Metatake, across all 14 frameworks." : f!.short} />
+          <ShareDock variant="fab" path={`/strong-misreadings/${slug}`} title={isAll ? "All readings" : f!.label} hook={isAll ? "Every Strong Misreading on Metatake, across all 14 frameworks." : f!.short} />
+        </div>
         <p className="smb-fw__short">
           {isAll ? "Every Strong Misreading on Metatake, across all 14 frameworks." : f!.short}
         </p>

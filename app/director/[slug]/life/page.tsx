@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
@@ -200,6 +201,10 @@ export default async function DirectorLifePage({ params }: Props) {
               Who is {director}{native ? <span style={{ fontWeight: 400, opacity: 0.6 }}> ({native})</span> : null}?
             </h1>
             <p className="rd-dek">{dek}</p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/life`} title={`Who is ${director}?`} hook={dek} />
+              <ShareDock variant="fab" path={`/director/${slug}/life`} title={`Who is ${director}?`} hook={dek} />
+            </div>
           </div>
           {heroFilm?.backdrop_path ? (
             <div className="rd-hero__media">

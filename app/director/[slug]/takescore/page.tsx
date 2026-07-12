@@ -11,6 +11,7 @@ import RecordToc from "@/components/read/RecordToc";
 import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
 import { cachedRankedScores } from "@/lib/takescore-bulk";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -264,6 +265,10 @@ export default async function DirectorTakescorePage({ params }: Props) {
               {second ? <>; {second.title}{yStr(second.year)} follows at {Math.round(second.u)}</> : null}.
               {" "}TakeScore = Value − Risk on a 0–100 scale — the {n === 1 ? "one scored film" : `${n} scored films`}, ranked below, best first.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/takescore`} title={title} hook={description} />
+              <ShareDock variant="fab" path={`/director/${slug}/takescore`} title={title} hook={description} />
+            </div>
           </div>
           {heroBd && heroFilm ? (
             <div className="rd-hero__media">

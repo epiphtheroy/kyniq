@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
+import ShareDock from "@/components/ShareDock";
 
 // One grammatical, linked enumeration of films for the Quick-answers block
 // (never a bare keyword list, charter §0.6).
@@ -227,6 +228,10 @@ export default async function FramePage({ params }: Props) {
               <span className="topic">{frame.dimension}</span>
             </p>
             <h1 className="article-title">{frame.label}</h1>
+            <div className="rd-share" style={{ marginTop: 12 }}>
+              <ShareDock variant="bar" path={`/frame/${slug}`} title={frame.label} hook={frame.definition ?? undefined} />
+              <ShareDock variant="fab" path={`/frame/${slug}`} title={frame.label} hook={frame.definition ?? undefined} />
+            </div>
             {frame.definition && <p className="article-dek">{frame.definition}</p>}
             <div className="article-metarow">
               <span>{instances.length} films carry this question</span>

@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -239,6 +240,10 @@ export default async function DirectorStartPage({ params }: Props) {
               {labelChain ? <>{picks.length} stops, in order: {labelChain}. </> : <>{picks.length} stops, in order. </>}
               A curated route through {director}&apos;s filmography — each film chosen for what it opens, not by box office.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/start`} title={title} hook={description} />
+              <ShareDock variant="fab" path={`/director/${slug}/start`} title={title} hook={description} />
+            </div>
           </div>
           {heroBd ? (
             <div className="rd-hero__media">

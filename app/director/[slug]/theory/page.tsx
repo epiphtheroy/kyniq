@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import { FAMILIES, fw } from "@/lib/frameworks";
@@ -339,6 +340,10 @@ export default async function DirectorTheoryPage({ params }: Props) {
               {thN > 0 ? <> with {thN} theorist{thN === 1 ? "" : "s"} behind them</> : null}.
               Counted below: which lenses the filmography answers to, and where each one lands.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/theory`} title={title} hook={description} />
+              <ShareDock variant="fab" path={`/director/${slug}/theory`} title={title} hook={description} />
+            </div>
           </div>
           {heroFilm?.backdrop_path ? (
             <div className="rd-hero__media">

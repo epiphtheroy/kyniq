@@ -8,6 +8,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { FAMILIES, fw } from "@/lib/frameworks";
 import { directorNative } from "@/lib/nativeName";
 import { pageRobots } from "@/lib/seo";
@@ -187,6 +188,10 @@ export default async function DirectorMisreadingsPage({ params }: Props) {
               {topFilm && topFilm[1].n > 1 ? <> — {topFilm[1].title}{yStr(topFilm[1].year)} draws the most, {topFilm[1].n}</> : null}.
               {" "}Each is an argument with a thesis, filed by framework — not a summary.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/misreadings`} title={`Every Strong Misreading of ${director}'s Films`} />
+              <ShareDock variant="fab" path={`/director/${slug}/misreadings`} title={`Every Strong Misreading of ${director}'s Films`} />
+            </div>
           </div>
           {heroBd && heroFilm ? (
             <div className="rd-hero__media">

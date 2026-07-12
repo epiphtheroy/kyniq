@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import DomainConcepts from "@/components/theory/DomainConcepts";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 
 /**
@@ -107,6 +108,10 @@ export default async function ConceptDomainPage({ params }: Props) {
         <div className="mt-crumb"><Link href="/theorist">Theory</Link> › <Link href="/concept">Concepts</Link> › <span>{part}</span></div>
         <EntityTVHero reelSlugs={_reelSlugs} label={part} backdrop={null} />
         <h1 className="lh-h1">{part}</h1>
+        <div className="rd-share" style={{ marginTop: 12 }}>
+          <ShareDock variant="bar" path={`/concept/domain/${domain}`} title={part} />
+          <ShareDock variant="fab" path={`/concept/domain/${domain}`} title={part} />
+        </div>
         <p className="lh-def">
           Where does cinema stage {part.toLowerCase()}? {liveTotal.toLocaleString()} of this domain&rsquo;s{" "}
           {total.toLocaleString()} concepts have a film example — {films.toLocaleString()} readings between them. Fields

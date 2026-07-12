@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import {
   DIRECTOR_LOCATIONS_MIN_FILMS,
@@ -178,6 +179,10 @@ export default async function DirectorLocationsPage({ params }: Props) {
 
         <h1 style={{ fontSize: 30, lineHeight: 1.18, margin: "2px 0 10px" }}>Where does {director} film?</h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, maxWidth: "64ch", margin: 0 }}>{lead}</p>
+        <div className="rd-share">
+          <ShareDock variant="bar" path={`/director/${slug}/locations`} title={`Where does ${director} film?`} hook={lead} />
+          <ShareDock variant="fab" path={`/director/${slug}/locations`} title={`Where does ${director} film?`} hook={lead} />
+        </div>
         <a
           href="#map"
           style={{

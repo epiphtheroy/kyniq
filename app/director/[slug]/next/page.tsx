@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -232,6 +233,10 @@ export default async function DirectorNextPage({ params }: Props) {
               {n} door{n === 1 ? "" : "s"} out of {name}&apos;s cinema — {firstThree}{n > 3 ? " and more" : ""} — each picked
               for one specific kinship, with the reason spelled out under every name.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/next`} title={headline} hook={description} />
+              <ShareDock variant="fab" path={`/director/${slug}/next`} title={headline} hook={description} />
+            </div>
           </div>
           {heroFilm ? (
             <div className="rd-hero__media">

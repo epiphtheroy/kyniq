@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import "@/app/curious/curious.css";
@@ -287,6 +288,10 @@ export default async function DirectorReceptionPage({ params }: Props) {
               {span ? <>, {span}</> : null}
               {" — "}headlines and the publishers&apos; own link previews, film by film. Every item links to its source.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/reception`} title={title} hook={description} />
+              <ShareDock variant="fab" path={`/director/${slug}/reception`} title={title} hook={description} />
+            </div>
           </div>
           {bdFilm?.backdrop_path ? (
             <div className="rd-hero__media">

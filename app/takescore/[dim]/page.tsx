@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import PosterActions from "@/components/PosterActions";
+import ShareDock from "@/components/ShareDock";
 import { CODEX_DIMS, dimBySlug, takescoreDimUrl, type CodexDim } from "@/lib/cinecodex_dims";
 import { CODEX_ANCHORS, type AnchorGold } from "@/lib/cinecodex_anchors";
 import { filmUrl } from "@/lib/urls";
@@ -284,6 +285,10 @@ export default async function DimensionPage({ params }: Props) {
           <Link href="/takescore">TakeScore</Link> · {GROUP_LABEL[dim.group]}
         </div>
         <h1 className="lh-h1">{copy.title}</h1>
+        <div className="rd-share" style={{ marginTop: 12 }}>
+          <ShareDock variant="bar" path={`/takescore/${slug}`} title={copy.title} hook={dim.question} />
+          <ShareDock variant="fab" path={`/takescore/${slug}`} title={copy.title} hook={dim.question} />
+        </div>
         <p className="lh-def">
           {dim.question} This page answers it with <span className="term">{dim.label}</span> — {GROUP_PHRASE[dim.group]} —
           one of the thirteen axes behind the TakeScore, scored 0–100 for all {SCORED} films in the catalog

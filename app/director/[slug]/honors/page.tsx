@@ -9,6 +9,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import DirectorPlates from "@/components/read/DirectorPlates";
+import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
 import { directorNative } from "@/lib/nativeName";
 import { honorText, type FilmLineageRow } from "@/lib/lineage";
@@ -330,6 +331,10 @@ export default async function DirectorHonorsPage({ params }: Props) {
               led by {top.title}{top.year ? ` (${top.year})` : ""} with {top.lines.length} honor{top.lines.length === 1 ? "" : "s"}.
               Metatake&apos;s lineage archive plus Wikidata&apos;s award statements, duplicates removed, sourced per entry.
             </p>
+            <div className="rd-share">
+              <ShareDock variant="bar" path={`/director/${slug}/honors`} title={title} hook={description} />
+              <ShareDock variant="fab" path={`/director/${slug}/honors`} title={title} hook={description} />
+            </div>
           </div>
           {bdFilm ? (
             <div className="rd-hero__media">

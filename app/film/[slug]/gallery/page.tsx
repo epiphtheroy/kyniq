@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import GalleryViewer from "@/components/GalleryViewer";
+import ShareDock from "@/components/ShareDock";
 
 // Images change rarely; cache the TMDB call for a day (ISR).
 export const revalidate = 86400;
@@ -81,6 +82,10 @@ export default async function FilmGalleryPage({ params }: Props) {
           <span>Gallery</span>
         </div>
         <h1 className="gal-h1">{film.title} {film.year ? <span className="gal-yr">({film.year})</span> : null} <span className="gal-h1k">gallery</span></h1>
+        <div className="rd-share" style={{ marginTop: 12 }}>
+          <ShareDock variant="bar" path={`/film/${film.slug}/gallery`} title={`${film.title}${film.year ? ` (${film.year})` : ""} gallery`} />
+          <ShareDock variant="fab" path={`/film/${film.slug}/gallery`} title={`${film.title}${film.year ? ` (${film.year})` : ""} gallery`} />
+        </div>
         <p style={{ margin: "2px 0 18px" }}>
           <Link href={`/film/${film.slug}`}>← Back to {film.title} on Metatake</Link>
         </p>
