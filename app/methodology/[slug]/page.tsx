@@ -61,7 +61,7 @@ async function substituteCounts(body: string): Promise<string> {
 }
 
 const renderBody = (slug: string, body: string) =>
-  unstable_cache(async () => renderDocMarkdown(await substituteCounts(body)), ["mdocs-render1", slug], {
+  unstable_cache(async () => renderDocMarkdown(await substituteCounts(body)), ["mdocs-render2", slug], {
     revalidate: 3600,
     tags: ["methodology-docs"],
   })();
