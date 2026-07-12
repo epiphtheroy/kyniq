@@ -3,7 +3,7 @@
  *  13 sub-scores (always shown) with fixed category definitions. MEASURED confidence
  *  (not luck) is disclosed in the footer. AI-estimated with stated limits.
  *  External metrics shown ALONGSIDE, never blended. */
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import ScoreDonut from "@/components/ScoreDonut";
 import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
 import { bandWord, verdictSentence } from "@/lib/takescore_prose";
@@ -225,7 +225,7 @@ const GAUGE_CSS = `
 }
 `;
 
-export default function CinecodexPanel({ data, title, subscores, slug }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null }) {
+export default function CinecodexPanel({ data, title, subscores, slug, headerAccessory }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null; headerAccessory?: ReactNode }) {
   if (!data) return null;
   const { ext } = data;
   const tier = data.conf_tier ?? null;
@@ -252,6 +252,7 @@ export default function CinecodexPanel({ data, title, subscores, slug }: { data:
   return (
     <section className="df-sec ccx" id="df-codex">
       <h2 className="df-h2">TakeScore™ <a className="ccx-how" href="/takescore/about">how it works →</a></h2>
+      {headerAccessory}
       <p className="df-sub">
         Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
         the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.

@@ -94,7 +94,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   }
 
   const md = keys.length ? renderPackSelected(pack, keys) : renderPackMarkdown(pack);
-  const scope = keys.length && keys.length < ALL_KEYS.length ? "custom" : "full";
+  const scope = keys.length === 1 ? keys[0] : keys.length && keys.length < ALL_KEYS.length ? "custom" : "full";
   const fname = packFilename(slug, scope, "md");
 
   return new NextResponse(md, {

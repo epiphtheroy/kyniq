@@ -23,8 +23,9 @@ export default function DownloadPackModal({
 }: {
   slug: string;
   sections: Sec[];
-  variant?: "rail" | "hero";
+  variant?: "rail" | "hero" | "section";
 }) {
+  const single = sections.length === 1;
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>(null);
   const [sel, setSel] = useState<Set<string>>(() => new Set(sections.map((s) => s.key)));
@@ -133,29 +134,35 @@ export default function DownloadPackModal({
         type="button"
         className={`dpm-trigger dpm-trigger--${variant}`}
         onClick={openModal}
-        aria-label="Download this film as a Markdown file for AI"
+        aria-label={single ? `Download the ${sections[0].label} section for AI` : "Download this film as a Markdown file for AI"}
       >
-        <span aria-hidden>⬇</span> Download for AI
+        <span aria-hidden>⬇</span> {variant === "hero" ? "Download for AI" : "Download"}
       </button>
 
       {open ? (
         <div className="dpm-ov" role="dialog" aria-modal="true" aria-label="Download film pack" onClick={() => setOpen(false)}>
           <div className="dpm-box" onClick={(e) => e.stopPropagation()}>
             <div className="dpm-h">
-              <span>Download this film for AI</span>
+              <span>{single ? `Download: ${sections[0].label}` : "Download this film for AI"}</span>
               <button type="button" className="dpm-x" onClick={() => setOpen(false)} aria-label="Close">✕</button>
             </div>
 
-            <p className="dpm-sub">One structured Markdown file with the sections you choose — attach it to Claude, ChatGPT, or NotebookLM. Copying any tab is always free; saving a file needs a free account (10 films/month).</p>
+            <p className="dpm-sub">
+              {single
+                ? `Saves the ${sections[0].label} section as a Markdown file (with the film's basics on top) — attach it to Claude, ChatGPT, or NotebookLM. Saving a file needs a free account (10 films/month); the section stays free to read here.`
+                : "One structured Markdown file with the sections you choose — attach it to Claude, ChatGPT, or NotebookLM. Saving a file needs a free account (10 films/month)."}
+            </p>
 
-            <div className="dpm-secs">
-              {sections.map((s) => (
-                <label key={s.key} className="dpm-sec">
-                  <input type="checkbox" checked={sel.has(s.key)} onChange={() => toggle(s.key)} />
-                  <span>{s.label}</span>
-                </label>
-              ))}
-            </div>
+            {single ? null : (
+              <div className="dpm-secs">
+                {sections.map((s) => (
+                  <label key={s.key} className="dpm-sec">
+                    <input type="checkbox" checked={sel.has(s.key)} onChange={() => toggle(s.key)} />
+                    <span>{s.label}</span>
+                  </label>
+                ))}
+              </div>
+            )}
 
             {status == null ? (
               <p className="dpm-note">Checking your account…</p>
@@ -204,6 +211,7 @@ const DPM_TRIGGER_CSS = `
   .dpm-trigger:active{transform:translateY(1px);}
   .dpm-trigger--hero{font-size:.86rem;padding:.62em 1.05em;}
   .dpm-trigger--rail{font-size:.74rem;font-weight:700;padding:.42em .8em;align-self:center;margin-left:6px;}
+  .dpm-trigger--section{font-size:.72rem;font-weight:700;padding:.34em .72em;margin:8px 0 4px;vertical-align:middle;}
 `;
 
 const DPM_CSS = `

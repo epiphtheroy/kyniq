@@ -1231,13 +1231,15 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug} />
+        <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
+          headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "takescore", label: "TakeScore" }]} variant="section" /> : null} />
         <TowCard tow={tow} filmTitle={film.title} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (
           <section className="df-sec" id="df-atlas">
             <h2 className="df-h2">{film.title} — on the map</h2>
+            {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "locations", label: "Filming locations" }]} variant="section" /> : null}
             <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
             {geoCells >= FILM_LOCATIONS_MIN ? (
               <p style={{ margin: "4px 0 14px" }}>
@@ -1259,7 +1261,8 @@ export default async function FilmPage({ params }: Props) {
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife} />
+        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife}
+          headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "standing", label: "Standing & honors" }]} variant="section" /> : null} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
         <FilmRecommendedBy rows={recommendedBy} title={film.title} />
@@ -1268,6 +1271,7 @@ export default async function FilmPage({ params }: Props) {
         {misreadings.length > 0 ? (
           <section className="df-sec" id="df-readings">
             <h2 className="df-h2">Strong Misreadings of {film.title}</h2>
+            {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "readings", label: "Strong misreadings" }]} variant="section" /> : null}
             <p className="df-sub">
               {misreadings.length} original critical readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">frameworks</Link> — each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>. Also readable as one piece: <Link href={`/film/${film.slug}/misreadings`}>the full misreadings article →</Link>
             </p>
@@ -1314,6 +1318,7 @@ export default async function FilmPage({ params }: Props) {
         {grouped.length > 0 ? (
           <section className="df-sec" id="df-figures">
             <h2 className="df-h2">Figures</h2>
+            {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "figures", label: "Figures" }]} variant="section" /> : null}
             <p className="df-sub">The characters, objects, places, forms and motifs Metatake singled out in {film.title} — each the anchor for one or more strong misreadings.</p>
             {grouped.map((g) => (
               <div key={g.kind} className="df-fgroup">
@@ -1362,6 +1367,7 @@ export default async function FilmPage({ params }: Props) {
         {tropes.length > 0 ? (
           <section className="df-sec" id="df-tropes">
             <h2 className="df-h2">Tropes</h2>
+            {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "tropes", label: "Tropes" }]} variant="section" /> : null}
             <p className="df-sub">Cross-film types {film.title} instantiates — shared under <Link href="/tropes">Tropes</Link>. <b>Via</b> = the figure that carries it.</p>
             <div className="df-mlist df-mlist--wide">
               {tropes.map((t) => (
@@ -1533,6 +1539,7 @@ export default async function FilmPage({ params }: Props) {
         {recs.length > 0 ? (
           <section className="df-sec" id="df-connected">
             <h2 className="df-h2">The 5 films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>full ranking →</Link></h2>
+            {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "kindred", label: "Kindred films" }]} variant="section" /> : null}
             <p className="df-sub">Nearest neighbours in meaning-space, ranked by shared tropes and taste-vector proximity. <Link href="/methodology#connections">How connections are computed →</Link></p>
             <div className="df-conn">
               {recs.map((r, i) => (

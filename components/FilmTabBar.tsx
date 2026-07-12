@@ -13,7 +13,6 @@
  */
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import CopyForAI from "@/components/CopyForAI";
 import DownloadPackModal from "@/components/DownloadPackModal";
 import { PACK_SECTION_BY_TAB, PACK_SECTION_LABEL } from "@/lib/pack";
 
@@ -182,9 +181,11 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
         </Link>
       );
     }
-    const anchor = (withKey: boolean) => (
+    // Per-tab AI marks were removed (owner request) — the tab bar is pure
+    // navigation; per-section downloads now live next to each section's heading.
+    return (
       <a
-        key={withKey ? t.id : undefined}
+        key={t.id}
         href={`#${t.id}`}
         data-tab={t.id}
         data-mt={`tab:${t.id}`}
@@ -195,16 +196,6 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
       >
         <span className="df-tab__t">{t.label}</span>{badge}
       </a>
-    );
-    // Invitation deliberately carries no copy mark (owner request); it stays a
-    // downloadable section in the selector.
-    const sk = packSlug && t.id !== "df-invitation" ? PACK_SECTION_BY_TAB[t.id] : undefined;
-    if (!sk) return anchor(true); // unchanged DOM for non-pack tabs (director pages included)
-    return (
-      <span key={t.id} style={{ display: "inline-flex", alignItems: "center", gap: 2, flex: "0 0 auto" }}>
-        {anchor(false)}
-        <CopyForAI slug={packSlug!} section={sk} variant="tab" />
-      </span>
     );
   };
 

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { awardBody, awardLabel, canonEmblem, codeToFlag } from "@/lib/lineageBodies";
 import { lineageSource, wikidataUrl } from "@/lib/lineage";
@@ -40,9 +41,9 @@ function SourceTag({ meta }: { meta: ListMetaLite | undefined }) {
   );
 }
 
-export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null }: {
+export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, headerAccessory }: {
   lineage: LinRow[]; title: string; slug?: string; listMeta?: Record<string, ListMetaLite>; movements?: MvChip[];
-  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null;
+  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; headerAccessory?: ReactNode;
 }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linNational = lineage.filter((l) => l.facet === "national" && l.result === "listed");
@@ -104,6 +105,7 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
   return (
     <section className="df-sec" id="df-lineage">
       <h2 className="df-h2">Lineage — the record</h2>
+      {headerAccessory}
       <p className="df-sub">Where {title} comes from and sits in cinema&apos;s record — its national cinema and movement, the awards it won, the canons it belongs to, and the auteur line it extends. Sourced per entry.</p>
 
       {/* ── The record, spelled out — one glance at the scale ── */}
