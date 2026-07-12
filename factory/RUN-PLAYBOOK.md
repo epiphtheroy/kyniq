@@ -194,20 +194,21 @@ python3 score/cinecodex_score.py 10 visible
 # S42 TV compile:  select tv_compile_batch(20,4);   (needs a clean trailer in media — S03 provides it)
 ```
 
-## W2 asset/next  (per-film content — emit patched for --films, §7.13; SWAP the loader files)
+## W2 asset/next  (per-film content — fully scoped 2026-07-12: emit `--films` + loaders `--out`, NO file swaps)
 ```bash
 # ASSET (why-watch, Opus batch):
 python3 worker/asset-gen.py --emit-requests --films $SLUGS --out worker/asset-run
 python3 worker/asset-batch.py submit --out worker/asset-run
 python3 worker/asset-batch.py fetch  --out worker/asset-run          # re-run until "fetched N"
-cp worker/asset-all.jsonl worker/asset-all.jsonl.bak; cp worker/asset-run.jsonl worker/asset-all.jsonl
-python3 worker/asset-load.py; mv worker/asset-all.jsonl.bak worker/asset-all.jsonl   # ⚠️ load reads hardcoded asset-all.jsonl → swap
+python3 worker/asset-load.py --out worker/asset-run                  # loads worker/asset-run.jsonl
 # WATCH-NEXT (Sonnet batch):
 python3 worker/next-gen.py --emit-requests --films $SLUGS --out worker/next-run
 python3 worker/next-batch.py submit --out worker/next-run
 python3 worker/next-batch.py fetch  --out worker/next-run
-cp worker/next-all.jsonl worker/next-all.jsonl.bak; cp worker/next-run.jsonl worker/next-all.jsonl
-python3 worker/next-resolve.py; python3 worker/next-load.py; mv worker/next-all.jsonl.bak worker/next-all.jsonl  # ⚠️ resolve+load read hardcoded next-all.* → swap
+python3 worker/next-resolve.py --out worker/next-run
+python3 worker/next-load.py --out worker/next-run                    # reads worker/next-run.resolved.jsonl
+# (without --out the loaders fall back to the legacy corpus files asset-all/next-all — old swap trick retired)
+# S15/S16 are UNBLOCKED in factory/manifest.json — `factory.py run` executes this chain automatically.
 ```
 
 ## W4 · Publish + verify
@@ -231,7 +232,8 @@ the run first (`insert into factory.runs`), attach intake, close with `status='d
 `factory/logs/run-<id>.md`. Admin view: `/admin/factory`. Helper functions live in migrations 0081/0082.
 
 ## Known engine gaps (still §7.13 / documented — the SWAPS above are the workaround)
-- Loaders with hardcoded input paths (boldtake-load, asset-load, next-resolve/load) → the file-swap trick.
+- ~~Loaders with hardcoded input paths (asset-load, next-resolve/load)~~ FIXED 2026-07-12: they honor `--out`.
+  boldtake-load still preflight-guards `--apply` → the direct-RPC bypass (or `--incremental`, see executor S11).
 - boldtake-load `--apply` preflight guard → the direct-RPC bypass.
 - geo-extract honors `--films` not `GEO_FILMS` env (manifest S19 corrected 2026-07-12).
 - Fantasia D/E/F/H/J patterns need lineage/ratings/filmed-locations; kinship kin value is an approximate

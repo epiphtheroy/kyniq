@@ -1,5 +1,16 @@
 # 영화공장 — Executor coding notes (observed from real runs, for hardening `factory.py run`)
 
+> **STATUS 2026-07-12 (commit 2094e9a): patterns 1,2,5,6 CODED INTO THE ENGINE.**
+> ① figure≥3 hard gate after S10 (scoped `--reset` re-extract top-up; still-short films parked out
+> of the run, per-film) ② S15/S16 unblocked — asset-load/next-resolve/next-load now honor `--out`
+> (the run-#6 root cause was TWO-layer: stale manifest block AND hardcoded loader paths)
+> ⑤ `LAST_ERR` → `stage_runs.error` on failed/parked/partial + `"retries": N` manifest support
+> (S20-embed retries=2) ⑥ partial now carries verify bad_slugs as its error; report prints the
+> exact `--adhoc` repair command. ③ (director batch parking) mitigated by the batch-poll fix
+> (9f54811); ④ (theorist create-missing) NOT done — S27b links exact-match only, by design
+> (theorists table has composite pollution; auto-create is an owner decision). `--only` accepts a
+> comma list. Repair mode = `factory.py run --adhoc slug1,slug2 --only S15,S16 --yes` (mig 0089/0090).
+
 **What this is:** field notes recorded while observing the first real bulk runs (2026-07-12). The
 executor (`worker/factory.py run`) was built and driven on real film lists. It **works** — but the runs
 exposed concrete failure patterns worth coding around before scaling to hundreds. This is the
