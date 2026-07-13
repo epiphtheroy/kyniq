@@ -1,5 +1,5 @@
 ---
-license: cc-by-nc-4.0
+license: cc-by-4.0
 language:
   - en
 pretty_name: Metatake Film Filming-Locations
@@ -70,9 +70,11 @@ df = pd.read_json("metatake-filming-locations.jsonl", lines=True)
 ```
 
 ## License & citation
-Licensed **CC BY-NC 4.0** — free to use, share, and adapt **with attribution to
-Metatake**, non-commercial. Attribution is the whole deal (the legal form of the
-"cite us" line every Metatake surface carries).
+Licensed **CC BY 4.0** — free to use, share, and adapt (including commercially)
+**as long as you attribute Metatake**. Attribution is the whole deal (the legal
+form of the "cite us" line every Metatake surface carries). *Note: this open
+geodata is CC BY; Metatake's original written criticism (readings, essays) on the
+site remains CC BY-NC 4.0.*
 
 ```bibtex
 @misc{metatake_filming_locations,
@@ -80,7 +82,7 @@ Metatake**, non-commercial. Attribution is the whole deal (the legal form of the
   author = {Metatake},
   year   = {2026},
   url    = {https://metatake.net},
-  note   = {CC BY-NC 4.0}
+  note   = {CC BY 4.0}
 }
 ```
 

@@ -50,8 +50,8 @@ export async function GET(req: Request) {
       count: payload.count,
       limit,
       locations: payload.locations,
-      license: "CC BY-NC 4.0 (attribution required)",
-      note: "Filming-location geodata by Metatake (metatake.net). Attribution required. Full open dataset: https://metatake.net/data.",
+      license: "CC BY 4.0 (attribution required)",
+      note: "Filming-location geodata by Metatake (metatake.net), CC BY 4.0 — free to reuse (incl. commercially) with attribution. (Metatake's written criticism elsewhere is CC BY-NC.) Full open dataset: https://metatake.net/data.",
     },
     { headers: { ...API_CORS, "cache-control": "public, s-maxage=86400, stale-while-revalidate=604800" } }
   );
