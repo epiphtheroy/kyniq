@@ -19,12 +19,20 @@ user where they already are."
 
 ## Owner action — publish to the Chrome Web Store
 - One-time **$5** developer registration: https://chrome.google.com/webstore/devconsole
-- **Package**: zip the *contents* of `extension/` (manifest at the zip root):
+- **Package**: already built at repo root as `metatake-extension.zip` (real red-M
+  icons included). Rebuild anytime with:
   ```bash
-  cd extension && zip -r ../metatake-extension.zip . -x '*.DS_Store' && cd ..
+  cd extension && zip -r ../metatake-extension.zip . -x '*.DS_Store' '*/.*' && cd ..
   ```
-- **Before submitting**: replace `icons/icon{16,48,128}.png` (currently plain teal
-  placeholders) with the real Metatake wordmark, and add 1–3 screenshots (1280×800).
+- **Store images** — ready to drop in, in `extension/store/` (exact required sizes,
+  JPEG = no alpha):
+  | Store slot | File |
+  |---|---|
+  | Screenshot (1280×800, ≥1 required) | `screenshot-1-hero.jpg`, `screenshot-2-in-context.jpg` |
+  | Small promo tile (440×280) | `promo-small-440x280.jpg` |
+  | Marquee promo tile (1400×560) | `promo-marquee-1400x560.jpg` |
+  Regenerate/edit via `tmp/build-store-assets.py` (headless-Chrome render of HTML).
+- Icons are the real Metatake red-M logo (no longer placeholders).
 - **Privacy**: the extension collects nothing. In the store's Privacy tab declare
   "does not collect user data"; host permission is only `https://metatake.net/*`.
 - Firefox (optional): the same MV3 works via addons.mozilla.org with minor manifest
