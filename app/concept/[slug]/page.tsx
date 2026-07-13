@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
+import EntityStills from "@/components/EntityStills";
+import BroadcastCard from "@/components/BroadcastCard";
+import { playlistExists } from "@/lib/tvExists";
 import FilmTabBar from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
 import EntityNetwork from "@/components/EntityNetwork";
@@ -342,6 +345,7 @@ export default async function ConceptPage({ params }: Props) {
     const tFilmArr = [...tFilms.entries()].map(([fslug, f]) => ({ slug: fslug, ...f }));
     const tDated = tFilmArr.filter((f) => (f.year ?? 0) > 1880).sort((a, b) => (a.year! - b.year!) || a.title.localeCompare(b.title));
     const tTop = [...tFilmArr].sort((a, b) => b.n - a.n || a.title.localeCompare(b.title));
+    const hasTvC = await playlistExists(`concept-${slug}`);
     const tThFreq = new Map<string, { slug: string | null; c: number }>();
     for (const r of canonReadings) {
       if (!r.theorist_name) continue;
@@ -474,6 +478,7 @@ export default async function ConceptPage({ params }: Props) {
             ...(tFigTop.length ? [{ id: "concept-figures", label: "Figures", badge: tFigTop.length, color: "#B8863B" }] : []),
             ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
             ...(canonReadings.length ? [{ id: "concept-slate", label: "The full slate", badge: canonReadings.length, color: "#12897A" }] : []),
+            ...(hasTvC ? [{ id: "concept-tv", label: "▶ TV Broadcast", href: `/tv/list/concept-${slug}`, color: "#C8102E" }] : []),
           ]}
         />
 
@@ -565,6 +570,12 @@ export default async function ConceptPage({ params }: Props) {
             </section>
           )}
 
+          {tFilmArr.length > 0 ? (
+            <section style={{ margin: "30px 0 0" }}>
+              <EntityStills slugs={tFilmArr.map((f) => f.slug)} topic={tName} heading={`Stills from films that stage ${tName}`} cap={4} />
+            </section>
+          ) : null}
+
           {tTop.length > 0 ? (
             <section style={{ margin: "30px 0 0" }} id="concept-films">
               <h2 className="cmap-h2">The films that stage {tName}</h2>
@@ -592,6 +603,18 @@ export default async function ConceptPage({ params }: Props) {
           </p>
           <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
         </div>
+
+        {hasTvC ? (
+          <div className="cur-wrap">
+            <BroadcastCard
+              playlist={`concept-${slug}`}
+              watchHref={`/tv/list/concept-${slug}`}
+              poster={tHeroBd}
+              title={`Watch films that stage ${tName} on METATAKE TV`}
+              theme={`Films that put ${tName} to work, as compiled audiovisual readings — our criticism over each film's images.`}
+            />
+          </div>
+        ) : null}
 
         {tTop.filter((f) => f.backdrop).length >= 2 ? (
           <div className="cur rd-plates">
@@ -640,6 +663,7 @@ export default async function ConceptPage({ params }: Props) {
   for (const r of readings) { const l = fw(r.framework).label; fwFreq.set(l, (fwFreq.get(l) ?? 0) + 1); }
   const fwTopC = [...fwFreq.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   const heroBd = topFilmsC.find((f) => f.backdrop)?.backdrop ?? null;
+  const hasTvC2 = await playlistExists(`concept-${slug}`);
   const figCountC = new Map<string, { n: number; href: string; bd: string | null; film: string }>();
   for (const r of readings) {
     const k = r.fig_label.toLowerCase();
@@ -769,6 +793,7 @@ export default async function ConceptPage({ params }: Props) {
           ...(desks.length ? [{ id: "concept-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
           { id: "concept-network", label: "Connections", color: "#2F6DB0" },
           { id: "concept-slate", label: "The full slate", badge: readings.length, color: "#12897A" },
+          ...(hasTvC2 ? [{ id: "concept-tv", label: "▶ TV Broadcast", href: `/tv/list/concept-${slug}`, color: "#C8102E" }] : []),
         ]}
       />
 
@@ -859,6 +884,12 @@ export default async function ConceptPage({ params }: Props) {
           </section>
         )}
 
+        {filmArr.length > 0 ? (
+          <section style={{ margin: "30px 0 0" }}>
+            <EntityStills slugs={filmArr.map((f) => f.slug)} topic={name} heading={`Stills from films that stage ${name}`} cap={4} />
+          </section>
+        ) : null}
+
         <section className="cmap-sec" id="concept-network">
           <h2 className="cmap-h2">Connections — {name} across the web</h2>
           <p className="cmap-stat"><b>{readings.length}</b> readings · <b>{new Set(readings.map((r) => r.film_slug)).size}</b> films</p>
@@ -897,6 +928,18 @@ export default async function ConceptPage({ params }: Props) {
         </p>
         <p className="th-foot"><Link href="/concept">← All concepts</Link></p>
       </div>
+
+      {hasTvC2 ? (
+        <div className="cur-wrap">
+          <BroadcastCard
+            playlist={`concept-${slug}`}
+            watchHref={`/tv/list/concept-${slug}`}
+            poster={heroBd}
+            title={`Watch films that stage ${name} on METATAKE TV`}
+            theme={`Films that put ${name} to work, as compiled audiovisual readings — our criticism over each film's images.`}
+          />
+        </div>
+      ) : null}
 
       {topFilmsC.filter((f) => f.backdrop).length >= 2 ? (
         <div className="cur rd-plates">
