@@ -18,15 +18,24 @@
     const nodes = document.querySelectorAll('script[type="application/ld+json"]');
     for (const n of nodes) {
       let data;
-      try { data = JSON.parse(n.textContent); } catch { continue; }
+      try {
+        // Letterboxd (and others) wrap JSON-LD in a /* <![CDATA[ */ … /* ]]> */
+        // comment — strip it before parsing or JSON.parse throws.
+        const txt = n.textContent.trim()
+          .replace(/^\/\*\s*<!\[CDATA\[\s*\*\//, "")
+          .replace(/\/\*\s*\]\]>\s*\*\/\s*$/, "")
+          .trim();
+        data = JSON.parse(txt);
+      } catch { continue; }
       const arr = Array.isArray(data) ? data : (data["@graph"] ? data["@graph"] : [data]);
       for (const o of arr) {
         const t = o && o["@type"];
         const isMovie = t === "Movie" || (Array.isArray(t) && t.includes("Movie")) || t === "TVSeries";
         if (isMovie && o.name) {
           let year = null;
-          const dp = o.datePublished || o.dateCreated;
-          if (dp && /\d{4}/.test(dp)) year = dp.match(/(\d{4})/)[1];
+          const dp = o.datePublished || o.dateCreated
+            || (Array.isArray(o.releasedEvent) && o.releasedEvent[0] && o.releasedEvent[0].startDate);
+          if (dp && /\d{4}/.test(String(dp))) year = String(dp).match(/(\d{4})/)[1];
           return { title: String(o.name), year };
         }
       }
