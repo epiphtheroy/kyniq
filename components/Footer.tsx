@@ -35,6 +35,25 @@ export default function Footer() {
             <Link href="/concept" className="footer-link">
               Concepts
             </Link>
+            <Link href="/lineage" className="footer-link">
+              Lineage
+            </Link>
+          </div>
+
+          <div>
+            <div className="footer-head">For AI &amp; developers</div>
+            <Link href="/mcp" className="footer-link">
+              MCP for AI
+            </Link>
+            <Link href="/api" className="footer-link">
+              API &amp; embeds
+            </Link>
+            <Link href="/data" className="footer-link">
+              Open data
+            </Link>
+            <Link href="/methodology" className="footer-link">
+              Methodology
+            </Link>
           </div>
 
           <div>
@@ -42,14 +61,11 @@ export default function Footer() {
             <Link href="/about" className="footer-link">
               About
             </Link>
-            <Link href="/methodology" className="footer-link">
-              Methodology
+            <Link href="/blog" className="footer-link">
+              The Daily
             </Link>
-            <Link href="/mcp" className="footer-link">
-              MCP for AI
-            </Link>
-            <Link href="/api" className="footer-link">
-              API &amp; embeds
+            <Link href="/curious" className="footer-link">
+              Curious
             </Link>
             <Link href="/contact" className="footer-link">
               Contact

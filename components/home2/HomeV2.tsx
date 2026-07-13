@@ -24,7 +24,6 @@ import HomeTVCredits from "./HomeTVCredits";
 import HomeNetwork from "./HomeNetwork";
 import HomeLocations from "./HomeLocations";
 import SixWays from "./SixWays";
-import SiteFooter from "./SiteFooter";
 
 /**
  * v7 home, ported faithfully from metatake-home-mockup-v7.html.
@@ -77,8 +76,7 @@ export default function HomeV2({ data, screenerTop = [], exhibits = null, readin
       {/* (BigSearch band removed from home per owner 2026-07-11 — search lives in the nav / ⌘K / /search) */}
       {/* 15 — Six ways in (paper) */}
       <SixWays data={data} />
-      {/* 16 — Footer (dark) */}
-      <SiteFooter />
+      {/* Footer is rendered globally by app/layout.tsx (single unified site footer) */}
     </div>
   );
 }
