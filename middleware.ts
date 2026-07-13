@@ -86,7 +86,7 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
   // it gets 403'd here fleet-wide). Everything else under /api keeps skipping
   // this gate (each has its own auth/route guards). NB: GOOD_BOT (Claude-User,
   // ChatGPT-User, …) passes — those are exactly the AI callers MCP exists for.
-  if (pathname.startsWith("/api/pack") || pathname.startsWith("/api/mcp")) {
+  if (pathname.startsWith("/api/pack") || pathname.startsWith("/api/mcp") || pathname.startsWith("/api/v1")) {
     const ua = request.headers.get("user-agent") ?? "";
     if (ua && !GOOD_BOT.test(ua)) {
       if (BAD_UA.test(ua)) return forbidden();
