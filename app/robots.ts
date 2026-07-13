@@ -38,7 +38,10 @@ export default function robots(): MetadataRoute.Robots {
   // query space (/search itself — the landing — stays crawlable), and the
   // legacy AI chat shell. Repeated per group because robots.txt groups are
   // exclusive: a bot obeys ONLY its best-matching group, inheriting nothing.
-  const NOINDEX_PATHS = ["/admin", "/api", "/search?*", "/ask-ai"];
+  // "/api/" (with trailing slash) blocks the data endpoints (/api/v1, /api/mcp,
+  // /api/pack, …) while leaving the exact "/api" developer landing page
+  // crawlable/indexable — it's a public reference + backlink target.
+  const NOINDEX_PATHS = ["/admin", "/api/", "/search?*", "/ask-ai"];
 
   return {
     rules: [

@@ -30,8 +30,16 @@ export const metadata: Metadata = {
   verification: {
     // Google Search Console (URL-prefix property https://metatake.net)
     google: "Xlx_jr5Fg6VjxZXktgB9huxHQ_1lfGgDOuiSWGP60Gs",
-    // Bing Webmaster Tools (also verifiable via public/BingSiteAuth.xml — same token)
-    other: { "msvalidate.01": "B19CC42557D19874EA92BD9497BB2F68" },
+    other: {
+      // Bing Webmaster Tools (also verifiable via public/BingSiteAuth.xml — same token)
+      "msvalidate.01": "B19CC42557D19874EA92BD9497BB2F68",
+      // Naver Search Advisor — set NAVER_SITE_VERIFICATION in Vercel env to the
+      // token from searchadvisor.naver.com (사이트 등록 → HTML 태그). Emits
+      // <meta name="naver-site-verification" ...> only when present.
+      ...(process.env.NAVER_SITE_VERIFICATION
+        ? { "naver-site-verification": process.env.NAVER_SITE_VERIFICATION }
+        : {}),
+    },
   },
   icons: {
     icon: [

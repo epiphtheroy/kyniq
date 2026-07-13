@@ -7,7 +7,7 @@ import { isObservableCrawler } from "@/lib/bots/identify";
 // Search + citation bots we WANT (they index us / cite us / send traffic) —
 // never block these, even if a blocked prefix happened to overlap.
 const GOOD_BOT =
-  /googlebot|bingbot|duckduckbot|yandex|baiduspider|applebot(?!-extended)|slurp|Claude-SearchBot|Claude-User|ChatGPT-User|OAI-SearchBot|PerplexityBot|Amzn-SearchBot|vercel/i;
+  /googlebot|bingbot|duckduckbot|yandex|baiduspider|applebot(?!-extended)|slurp|Yeti|Daum|NaverBot|Claude-SearchBot|Claude-User|ChatGPT-User|OAI-SearchBot|PerplexityBot|Amzn-SearchBot|vercel/i;
 // Scrapers / AI-training / SEO-harvest bots — the same set our Vercel WAF rule
 // and app/robots.ts disallow. Enforced here too so it holds even if the WAF
 // rule is edited. (Citation bots above are matched first and exempted.)
