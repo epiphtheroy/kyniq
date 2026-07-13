@@ -403,6 +403,7 @@ export default async function FilmReceptionPage({ params }: Props) {
         }
         videos={videos}
         backdropPath={film.backdrop_path}
+        tmdbId={film.tmdb_id}
       />
 
       <AfterlifeNav years={navYears} modes={navModes} />

@@ -213,6 +213,7 @@ export default async function FilmCreditsPage({ params }: Props) {
         dek={dekText(data)}
         videos={videos}
         backdropPath={film.backdrop_path}
+        tmdbId={film.tmdb_id}
       />
 
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 40px" }}>

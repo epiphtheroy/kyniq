@@ -1,15 +1,19 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import FilmTVHero from "@/components/FilmTVHero";
+import { createClient } from "@supabase/supabase-js";
+import StillHero from "@/components/StillHero";
 import ShareDock from "@/components/ShareDock";
+import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 
 /**
- * Dark film hero for the reading pages (desk essays, misreadings, Q&A) —
- * 2026-07-08 redesign. Fixes the dark-chrome→white-article jump by giving the
- * headline a dark band of its own, and reuses the film page's video header:
- * FilmHeroReel already floats (docks bottom-left) when scrolled past, which
- * covers the "video stays with you" behaviour for free. Falls back to the
- * film's backdrop when there is no published video.
+ * Dark film hero for the reading pages (desk essays, misreadings, Q&A).
+ * 2026-07-14: the video header was replaced by an IMAGE-first hero (StillHero:
+ * 1–3 film stills, cross-fade + Ken Burns). Reason: these pages are text-primary,
+ * so Google's Video indexing report flagged the old autoplay trailer "Video is
+ * not on a watch page." An image hero carries no <iframe> → no flag, faster LCP,
+ * and nothing docks to the corner on scroll. When the film has a compiled
+ * METATAKE TV broadcast, StillHero shows a "▶ Watch on METATAKE TV" pill to the
+ * real watch page (/tv/[slug]) — the only place we carry VideoObject.
  *
  * Uses the .cur token set (curious.css) — pages importing this must also
  * import "@/app/curious/curious.css" and "./read.css" (route-local).
@@ -17,15 +21,15 @@ import ShareDock from "@/components/ShareDock";
 
 const IMG = "https://image.tmdb.org/t/p";
 
-export default function ReadHero({
+export default async function ReadHero({
   film,
   crumbTail,
   chip,
   meta,
   title,
   dek,
-  videos = [],
   backdropPath,
+  tmdbId,
   children,
   sharePath,
   shareTitle,
@@ -37,8 +41,11 @@ export default function ReadHero({
   meta?: ReactNode;
   title: ReactNode;
   dek?: ReactNode;
+  /** Legacy prop — kept for callers; no longer drives the hero (image-first now). */
   videos?: { id: string; title: string }[];
   backdropPath?: string | null;
+  /** TMDB id → up to 3 clean stills for the image hero (falls back to backdropPath). */
+  tmdbId?: number | null;
   children?: ReactNode;
   /** Share: when given, a ShareDock bar (desktop) + fab (mobile) render in the hero. */
   sharePath?: string;
@@ -46,6 +53,25 @@ export default function ReadHero({
   shareHook?: string;
 }) {
   const backdrop = backdropPath ? `${IMG}/w780${backdropPath}` : undefined;
+
+  // 1–3 clean stills for the image hero (deterministic; dedupes with the page's
+  // own filmBackdropPaths call via the shared 1-day fetch cache). Falls back to
+  // the single backdrop when TMDB has nothing.
+  const gallery = tmdbId ? await filmBackdropPaths(tmdbId) : [];
+  const heroStills = gallery.length
+    ? pickStills(gallery, `${film.slug}:hero`, 3)
+    : (backdropPath ? [backdropPath] : []);
+
+  // Watch pill only when a published broadcast exists for this film (no /tv 404s).
+  let watchHref: string | undefined;
+  if (heroStills.length) {
+    try {
+      const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+      const { data } = await db
+        .from("tv_programs").select("slug").eq("slug", film.slug).eq("status", "published").maybeSingle();
+      if (data) watchHref = `/tv/${film.slug}`;
+    } catch { /* no watch link */ }
+  }
   return (
     <div className="cur rd-hero">
       <div className="rd-hero__in">
@@ -71,12 +97,12 @@ export default function ReadHero({
           ) : null}
           {children}
         </div>
-        {(videos.length > 0 || backdrop) && (
+        {(heroStills.length > 0 || backdrop) && (
           <div className="rd-hero__media">
-            {videos.length > 0 ? (
-              // the film's compiled METATAKE TV broadcast (falls back to the plain
-              // trailer reel when the film has no broadcast) — same as the main film page
-              <FilmTVHero slug={film.slug} videos={videos} poster={backdrop} backdrop={backdropPath ?? null} />
+            {heroStills.length > 0 ? (
+              // image-first hero: 1–3 stills, cross-fade + Ken Burns, no <iframe>.
+              // A "▶ Watch on METATAKE TV" pill appears when a broadcast exists.
+              <StillHero stills={heroStills} label={`${film.title} — stills`} watchHref={watchHref} shell="bare" />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img className="rd-hero__bd" src={backdrop} alt={`${film.title} still`} width={780} height={439} />

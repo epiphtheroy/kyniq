@@ -122,8 +122,13 @@ export default async function Page({ params }: Params) {
     ...(thumb ? { thumbnailUrl: [thumb] } : {}),
     ...(uploadIso ? { uploadDate: uploadIso } : {}),
     duration: isoDuration(ms),
-    embedUrl: `${SITE}/tv/${slug}`,
-    ...(f?.clip ? { contentUrl: `https://www.youtube.com/watch?v=${f.clip}` } : {}),
+    // embedUrl must point at the PLAYER, not the page — and match the on-page
+    // iframe + the video sitemap's player_loc (all youtube-nocookie/embed) so
+    // Google can resolve one consistent player for this watch page. Pointing
+    // embedUrl at the page itself is what left these flagged "not on a watch page."
+    ...(f?.clip
+      ? { embedUrl: `https://www.youtube-nocookie.com/embed/${f.clip}`, contentUrl: `https://www.youtube.com/watch?v=${f.clip}` }
+      : { embedUrl: `${SITE}/tv/${slug}` }),
     inLanguage: "en",
     isFamilyFriendly: true,
     genre: "film criticism",

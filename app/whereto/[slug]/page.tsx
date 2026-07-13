@@ -225,6 +225,7 @@ export default async function WhereToPage({ params }: Props) {
         dek={dekText(film.title, report)}
         videos={videos}
         backdropPath={film.backdrop_path}
+        tmdbId={film.tmdb_id}
       />
 
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "24px 20px 8px" }}>

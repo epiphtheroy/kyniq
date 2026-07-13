@@ -211,6 +211,7 @@ export default async function FilmMisreadingsPage({ params }: Props) {
         }
         videos={videos}
         backdropPath={film.backdrop_path}
+        tmdbId={film.tmdb_id}
       />
 
       <div className="mt-wrap" style={{ maxWidth: 760, padding: "28px 20px 40px" }}>
