@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
+import EntityStills from "@/components/EntityStills";
+import BroadcastCard from "@/components/BroadcastCard";
+import { playlistExists } from "@/lib/tvExists";
 import EntityActions from "@/components/EntityActions";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import SaveButton from "@/components/SaveButton";
@@ -185,6 +188,7 @@ export default async function TropePage({ params }: Props) {
   // claims only render when the FULL member set is loaded (limit 200).
   const full = (tt.member_count ?? n) <= n;
   const uniqFilms = [...new Map(members.map((m) => [m.film_slug, m])).values()];
+  const hasTv = await playlistExists(`trope-${slug}`);
   const datedM = uniqFilms.filter((m) => (m.film_year ?? 0) > 1880)
     .sort((a, b) => (a.film_year! - b.film_year!) || a.film_title.localeCompare(b.film_title));
   const filmFreq = new Map<string, { title: string; year: number | null; c: number }>();
@@ -362,6 +366,7 @@ export default async function TropePage({ params }: Props) {
           { id: "tp-network", label: "Connections", color: "#2F6DB0" },
           { id: "members", label: "The ranked slate", badge: n, color: "#12897A" },
           ...(related.length ? [{ id: "tp-rel", label: "Kindred tropes", badge: related.length, color: "#C87A2C" }] : []),
+          ...(hasTv ? [{ id: "tp-tv", label: "▶ TV Broadcast", href: `/tv/list/trope-${slug}`, color: "#C8102E" }] : []),
         ]}
       />
 
@@ -439,6 +444,10 @@ export default async function TropePage({ params }: Props) {
             </div>
           </section>
         ) : null}
+
+        <section className="tp-sec">
+          <EntityStills slugs={uniqFilms.map((m) => m.film_slug)} topic={t.title} heading={`Stills from films that carry ${t.title}`} cap={4} />
+        </section>
 
         <section className="tp-sec" id="tp-network">
           <h2 className="tp-h2">{t.title} — connection map</h2>
@@ -565,6 +574,16 @@ export default async function TropePage({ params }: Props) {
         {relatedSections.map((s) => (
           <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
         ))}
+
+        {hasTv ? (
+          <BroadcastCard
+            playlist={`trope-${slug}`}
+            watchHref={`/tv/list/trope-${slug}`}
+            poster={heroBd}
+            title={`Watch films that carry ${t.title} on METATAKE TV`}
+            theme={`Films built on ${t.title}, as compiled audiovisual readings — our criticism over each film's images.`}
+          />
+        ) : null}
 
         <Provenance created={t.created_at} updated={t.updated_at} />
       </div>

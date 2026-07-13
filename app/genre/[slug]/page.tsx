@@ -6,6 +6,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import HubExplore from "@/components/HubExplore";
 import EntityTVHero from "@/components/EntityTVHero";
+import EntityStills from "@/components/EntityStills";
 import ListFilter from "@/components/ListFilter";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
 import LensQuickBar from "@/components/LensQuickBar";
@@ -140,6 +141,10 @@ export default async function GenrePage({ params }: Props) {
 
         {/* EMBEDDING FANTASIA — sentences anchored on this genre's films */}
         <EntityFantasiaServer type="genre" entityKey={slug} title={unslug(slug)} sectionId="genre-fantasia" sectionClass="mvh-sec" selfHref={`/genre/${slug}`} />
+
+        {/* Stills — a few frames from this genre's films (images only, shared
+            lightbox; captions credit TMDB + note they're illustrative). */}
+        <EntityStills slugs={inGenre.map((f) => f.slug)} topic={`${unslug(slug)} films`} heading={`Stills from ${unslug(slug)} films`} cap={4} />
 
         {/* Layer 2 — the hidden catalog as members of this genre. Server-rendered
             plain <a> list; these films' own pages stay out of the index. */}

@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
+import EntityStills from "@/components/EntityStills";
+import BroadcastCard from "@/components/BroadcastCard";
+import { playlistExists } from "@/lib/tvExists";
 import FilmTabBar from "@/components/FilmTabBar";
 import ReadingsExplorer from "@/components/ReadingsExplorer";
 import DeskExplorer, { type DeskLink as XDeskLink } from "@/components/DeskExplorer";
@@ -202,6 +205,7 @@ export default async function TheoristPage({ params }: Props) {
     .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label)).slice(0, 24);
 
   const heroBackdrop = F.topFilms.find((f) => f.backdrop)?.backdrop ?? null;
+  const hasTv = await playlistExists(`theorist-${slug}`);
   const bdBySlug = new Map<string, string | null>();
   for (const r of readings) if (!bdBySlug.has(r.film_slug)) bdBySlug.set(r.film_slug, r.backdrop_path);
   const desksKwic = await attachKwic(db(), desks, hlTermsPre);
@@ -352,6 +356,7 @@ export default async function TheoristPage({ params }: Props) {
           ...(desks.length ? [{ id: "theorist-desks", label: "Desk essays", badge: desks.length, color: "#C87A2C" }] : []),
           { id: "theorist-network", label: "Connections", color: "#2F6DB0" },
           { id: "readings", label: "Every reading", badge: readings.length, color: "#12897A" },
+          ...(hasTv ? [{ id: "theorist-tv", label: "▶ TV Broadcast", href: `/tv/list/theorist-${slug}`, color: "#C8102E" }] : []),
         ]}
       />
 
@@ -433,6 +438,10 @@ export default async function TheoristPage({ params }: Props) {
           </section>
         )}
 
+        <section style={{ margin: "30px 0 0" }}>
+          <EntityStills slugs={F.filmArr.map((f) => f.slug)} topic={name} heading={`Stills from films read through ${name}`} cap={4} />
+        </section>
+
         <section className="cmap-sec" id="theorist-network" style={{ marginTop: 34 }}>
           <h2 className="cmap-h2">Connections — {name} across the web</h2>
           <p className="cmap-intro">The figures, films and ideas read through {name} across Metatake&rsquo;s critical web. Click a node to open it.</p>
@@ -476,6 +485,16 @@ export default async function TheoristPage({ params }: Props) {
               ))}
             </div>
           </section>
+        ) : null}
+
+        {hasTv ? (
+          <BroadcastCard
+            playlist={`theorist-${slug}`}
+            watchHref={`/tv/list/theorist-${slug}`}
+            poster={heroBackdrop}
+            title={`Watch films read through ${name} on METATAKE TV`}
+            theme={`Films that borrow ${name}'s lens, as compiled audiovisual readings — our criticism over each film's images.`}
+          />
         ) : null}
 
         <p style={{ fontSize: 12.5, opacity: 0.6, marginTop: 26 }}>
