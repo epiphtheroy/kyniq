@@ -17,16 +17,16 @@ export async function GET(req: Request) {
   const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
   const { data, error } = await db
     .from("films")
-    .select("slug,title,backdrop_path,poster_path")
+    .select("slug,title,year,backdrop_path,poster_path")
     .in("slug", slugs);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   const bySlug = new Map((data ?? []).map((r) => [r.slug, r] as const));
-  const out: { slug: string; path: string; title: string | null }[] = [];
+  const out: { slug: string; path: string; title: string | null; year: number | null }[] = [];
   for (const s of slugs) {
     const r = bySlug.get(s);
     const path = r?.backdrop_path || r?.poster_path;
-    if (r && path) out.push({ slug: r.slug, path, title: r.title });
+    if (r && path) out.push({ slug: r.slug, path, title: r.title, year: r.year ?? null });
     if (out.length >= cap) break;
   }
 

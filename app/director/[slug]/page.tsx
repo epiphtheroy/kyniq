@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
+import EntityStills from "@/components/EntityStills";
+import { playlistExists } from "@/lib/tvExists";
 import EntityNews from "@/components/EntityNews";
 import CreditsExplorer from "@/app/credits/CreditsExplorer";
 import { CRAFTS, personSlug, type CraftKey } from "@/app/credits/credits-logic";
@@ -542,6 +544,7 @@ export default async function DirectorPage({ params }: Props) {
   const filmoTotal = total + hiddenTotal;
   type DTab = { id: string; label: string; href?: string; badge?: number; color?: string; zone?: "free" | "spoiler" };
   const hasLocationsPage = geoFilms >= DIRECTOR_LOCATIONS_MIN_FILMS && geoCells >= DIRECTOR_LOCATIONS_MIN_PINS;
+  const hasTvPlaylist = await playlistExists(`director-${slug}`);
   const tabs: DTab[] = [
     // ── The overview (spoiler-free) ──
     { id: "dr-portrait", label: "Portrait", color: "#5A6B86", zone: "free" },
@@ -561,6 +564,7 @@ export default async function DirectorPage({ params }: Props) {
   if (geoCount > 0) tabs.push({ id: "dr-atlas", label: "Locations", badge: geoMerged, color: "#2E8B6E", zone: "free" });
   tabs.push({ id: "dr-credits", label: "Credits", color: "#6B7280", zone: "free" });
   // ── Close readings (may spoil individual films) ──
+  if (hasTvPlaylist) tabs.push({ id: "dr-tv", label: "▶ TV Broadcast", href: `/tv/list/director-${slug}`, color: "#C8102E", zone: "spoiler" });
   if (misreadings.length) tabs.push({ id: "dr-misreadings", label: "Strong Misreadings", badge: readingCount, color: "#D64534", zone: "spoiler" });
   if (sigTropes.length) tabs.push({ id: "dr-tropes", label: "Tropes", badge: tropeCount, color: "#12897A", zone: "spoiler" });
   if (archGroups.length) tabs.push({ id: "dr-archetype", label: "Archetype", badge: nArch, color: "#6B4E9E", zone: "spoiler" });
@@ -958,6 +962,12 @@ export default async function DirectorPage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* STILLS — a few frames from the director's films (images only, shared
+            lightbox; captions credit TMDB + note they're illustrative). */}
+        <section className="dr-sec">
+          <EntityStills slugs={films.map((f) => f.slug)} topic={director} heading={`Stills from ${director}'s films`} cap={4} />
+        </section>
 
         {/* CONNECTION MAP */}
         <section className="dr-sec" id="dr-network">
