@@ -25,6 +25,7 @@ import TowCard, { loadTow } from "@/components/read/TowCard";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import StillHero from "@/components/StillHero";
+import BroadcastCard from "@/components/BroadcastCard";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -370,7 +371,7 @@ async function loadUncached(slug: string) {
   }
 
   const media = (mediaRows ?? []) as unknown as MediaRow[];
-  const stills = media.filter((m) => m.kind === "image").slice(0, 5);
+  const stills = media.filter((m) => m.kind === "image").slice(0, 3);
   const trailer = media.find((m) => m.kind === "video") ?? null;
   // Hero reel: all videos, clips first (title not "trailer/teaser") and trailer last.
   // media is already position-ordered, and Array.sort is stable, so order is preserved within groups.
@@ -1724,6 +1725,18 @@ export default async function FilmPage({ params }: Props) {
           {accessRec ? <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} /> : null}
         </section>
         </AccessCountryProvider>
+
+        {/* Playable broadcast at the bottom — click-to-play (no <iframe> until
+            click), docks on scroll. The video lives fully at /tv/[slug]. */}
+        {hasProgram ? (
+          <BroadcastCard
+            program={film.slug}
+            watchHref={`/tv/${film.slug}`}
+            poster={film.backdrop_path}
+            title={`Watch ${film.title}${film.year ? ` (${film.year})` : ""} on METATAKE TV`}
+            theme={`A chapter-by-chapter audiovisual reading of ${film.title} — figures, misreadings, reception and its map, played over the film's images.`}
+          />
+        ) : null}
 
         <div className="df-seq">
           <SeqNav kind="film" id={film.id} />

@@ -40,9 +40,13 @@ function fsElement(): Element | null {
   return document.fullscreenElement ?? d.webkitFullscreenElement ?? null;
 }
 
-export default function VideoMiniDock({ children, mini = 420 }: {
+export default function VideoMiniDock({ children, mini = 420, dockAnyDirection = false }: {
   children: React.ReactNode;
   mini?: number; // docked width in px (clamped to 62vw on small screens)
+  // Default docks only when the stage leaves through the TOP (top-of-page heroes).
+  // Bottom-of-page players (e.g. BroadcastCard) mount already in view on click and
+  // leave through the BOTTOM when the reader scrolls up — set this so they still dock.
+  dockAnyDirection?: boolean;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [docked, setDocked] = useState(false);
@@ -65,8 +69,9 @@ export default function VideoMiniDock({ children, mini = 420 }: {
       if (e.isIntersecting) {
         // hero back on screen → undock and re-arm the dismiss
         setDocked(false); setDismissed(false); setPos(null);
-      } else if (!dismRef.current && e.boundingClientRect.top < 0) {
-        // only dock when the hero left through the TOP (scrolling down)
+      } else if (!dismRef.current && (dockAnyDirection || e.boundingClientRect.top < 0)) {
+        // dock when the hero leaves the viewport — through the TOP (top heroes),
+        // or through either edge when dockAnyDirection (bottom-of-page players)
         const r = el.getBoundingClientRect();
         if (r.width > 40 && r.height > 40) setBox({ w: r.width, h: r.height });
         setDocked(true);
@@ -74,7 +79,7 @@ export default function VideoMiniDock({ children, mini = 420 }: {
     }, { threshold: 0, rootMargin: "-72px 0px 0px 0px" });
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [dockAnyDirection]);
 
   // Track the browser's fullscreen state so the icon and CSS class stay in sync
   // even when the user exits with Esc.

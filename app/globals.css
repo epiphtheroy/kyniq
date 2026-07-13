@@ -3830,6 +3830,32 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sh--calm .sh-img{transition:opacity 2.4s ease; animation-duration:44s}
 @media(prefers-reduced-motion:reduce){ .sh-img{animation:none; transition:opacity .4s linear} }
 
+/* BroadcastCard — bottom-of-page click-to-play METATAKE TV broadcast (light bg,
+   sits ABOVE the dark footer plates). Pre-click = poster + ▶ (no iframe). */
+.bcast{margin:34px auto 4px; max-width:1040px}
+.bcast-stage{position:relative; display:block; width:100%; aspect-ratio:16/9; border:0; padding:0; cursor:pointer;
+  border-radius:12px; overflow:hidden; background:#000 center/cover no-repeat; box-shadow:0 14px 44px rgba(0,0,0,.28)}
+.bcast-stage::after{content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,.08) 50%,rgba(0,0,0,.3))}
+.bcast-badge{position:absolute; top:14px; left:14px; z-index:2; display:inline-flex; align-items:center; gap:6px; font-weight:800}
+.bcast-badge b{color:#fff; font-size:15px}
+.bcast-badge i{background:#C8102E; color:#fff; font-style:normal; font-weight:800; font-size:13px; padding:1px 6px; border-radius:4px}
+.bcast-play{position:absolute; z-index:2; top:50%; left:50%; transform:translate(-50%,-50%); width:66px; height:66px;
+  display:grid; place-items:center; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:24px; padding-left:4px;
+  transition:background .15s, transform .15s}
+.bcast-stage:hover .bcast-play{background:#C8102E; transform:translate(-50%,-50%) scale(1.06)}
+.bcast-tune{position:absolute; z-index:2; bottom:14px; left:14px; color:#fff; font-size:12px; letter-spacing:.06em; text-transform:uppercase; opacity:.92}
+.bcast-meta{margin-top:12px}
+.bcast-title{font-size:18px; font-weight:800; margin:0; color:var(--ink,#141414)}
+.bcast-theme{margin:4px 0 0; color:var(--muted,#6b7280); font-size:14px}
+.bcast-desc{margin:8px 0 10px; font-size:13px; line-height:1.55; color:var(--muted,#6b7280); max-width:70ch}
+.bcast-rights{white-space:nowrap; opacity:.85; font-weight:600}
+.bcast-open{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-ui); font-weight:700; font-size:13px;
+  color:#fff; background:#C8102E; border-radius:999px; padding:8px 16px; text-decoration:none}
+.bcast-open:hover{background:#a50d24}
+.bcast--live .bcast-player{position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; box-shadow:0 14px 44px rgba(0,0,0,.28)}
+.bcast--live .bcast-note{margin:10px 0 0; font-size:12px; line-height:1.55; color:var(--muted,#6b7280); max-width:74ch}
+.bcast--live .bcast-note .bcast-open{color:#fff; padding:3px 11px; font-size:12px; margin-left:2px}
+
 /* PlaylistTVEmbed — a METATAKE TV watch list embedded in an axis page */
 .pltv{margin-top:26px}
 .pltv-tag{font-size:13px; color:var(--muted,#6b7280); margin:2px 0 12px}

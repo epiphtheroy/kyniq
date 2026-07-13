@@ -10,6 +10,7 @@ import {
   questionUrl, directorUrl,
 } from "@/lib/urls";
 import { Card, SectionHead } from "@/components/curious/ui";
+import BroadcastCard from "@/components/BroadcastCard";
 
 /**
  * "Keep exploring {film}" — the dark bottom plate block shared by every
@@ -176,8 +177,8 @@ export default async function ReadPlates({
     plates.push({ key: "movies-like", href: moviesLikeUrl(film.slug), tag: "Similar Films", title: `Movies like ${film.title}, ranked by shared tropes` });
   if (exclude !== "whereto")
     plates.push({ key: "whereto", href: whereToUrl(film.slug), tag: "Where to Watch", title: `Where to watch ${film.title} — free options & every service` });
-  if (gates.tv && exclude !== "tv")
-    plates.push({ key: "tv", href: tvUrl(film.slug), tag: "Metatake TV", title: `Watch the ${film.title} broadcast on Metatake TV` });
+  // NB: no "Metatake TV" plate — the film's broadcast now gets the playable
+  // BroadcastCard below (one TV affordance, not two). See BroadcastCard render.
   if (exclude !== "credits")
     plates.push({ key: "credits", href: filmCreditsUrl(film.slug), tag: "Credits", title: `Who made ${film.title}? The crew, credit by credit` });
   if (film.poster_path && exclude !== "gallery")
@@ -206,6 +207,21 @@ export default async function ReadPlates({
     || `The full Metatake reading of ${film.title}${yr} — close readings, figures and tropes, its standing in the canon, filming locations and where to watch, all gathered on one page.`;
 
   return (
+    <>
+      {/* Playable broadcast — the film's METATAKE TV essay, click-to-play (no
+          <iframe> until click, so it stays clear of the video-indexing flag).
+          Replaces the old "Watch on Metatake TV" link plate + CTA button. */}
+      {gates.tv ? (
+        <div className="cur-wrap">
+          <BroadcastCard
+            program={film.slug}
+            watchHref={tvUrl(film.slug)}
+            poster={film.backdrop_path}
+            title={`Watch ${film.title}${yr} on METATAKE TV`}
+            theme={`A chapter-by-chapter audiovisual reading of ${film.title} — figures, misreadings, reception and its map, played over the film's images.`}
+          />
+        </div>
+      ) : null}
     <div
       className="cur rd-plates"
       style={{ minHeight: 0, marginTop: 48, borderTop: "3px solid var(--cur-accent)", padding: "4px 0 46px" }}
@@ -228,9 +244,6 @@ export default async function ReadPlates({
             ) : null}
             <div className="rd-cta__btns">
               <Link className="rd-cta__btn" href={filmUrl(film.slug)}>Read the full Metatake analysis of {film.title} →</Link>
-              {gates.tv ? (
-                <Link className="rd-cta__btn rd-cta__btn--tv" href={tvUrl(film.slug)}><span aria-hidden>▶</span> Watch on Metatake TV →</Link>
-              ) : null}
             </div>
           </div>
         </div>
@@ -254,5 +267,6 @@ export default async function ReadPlates({
         ) : null}
       </div>
     </div>
+    </>
   );
 }
