@@ -1,12 +1,13 @@
 "use client";
 
 /**
- * ServicesPicker — the sidebar "My services" multi-select for The Marquee.
- * Loads the country's providers via wtw_services() and groups them by how you
- * access them: Subscription / Free / Rent & Buy (YouTube, Apple, Amazon…). Each
- * provider is a toggle; the parent owns the selected id list and persistence.
+ * ServicesPicker — the "My services" popover for The Marquee top bar. A toggle
+ * button opens a floating panel of the country's providers, grouped by how you
+ * access them: Subscription / Free / Rent & Buy (YouTube, Apple, Amazon…). The
+ * parent owns the selected id list + persistence; onServices lifts the loaded
+ * list so the parent can tell which selections are rent stores.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -22,10 +23,10 @@ export type Service = {
   n: number;
 };
 
-const GROUPS: { key: Service["label"]; title: string; hint: string }[] = [
-  { key: "subscription", title: "Subscription", hint: "Services you pay a monthly fee for" },
-  { key: "free", title: "Free", hint: "Free / ad-supported / library" },
-  { key: "rent", title: "Rent & Buy", hint: "Pay per title — YouTube, Apple, Amazon…" },
+const GROUPS: { key: Service["label"]; title: string }[] = [
+  { key: "subscription", title: "Subscription" },
+  { key: "free", title: "Free" },
+  { key: "rent", title: "Rent & Buy" },
 ];
 
 export default function ServicesPicker({
@@ -36,8 +37,10 @@ export default function ServicesPicker({
   onChange: (ids: number[]) => void;
   onServices?: (svcs: Service[]) => void;
 }) {
+  const [open, setOpen] = useState(false);
   const [svcs, setSvcs] = useState<Service[]>([]);
   const [loading, setLoading] = useState(false);
+  const box = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let alive = true;
@@ -52,51 +55,60 @@ export default function ServicesPicker({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country]);
 
+  useEffect(() => {
+    if (!open) return;
+    const h = (e: MouseEvent) => { if (box.current && !box.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
+  }, [open]);
+
   const toggle = (id: number) =>
     onChange(selected.includes(id) ? selected.filter((x) => x !== id) : [...selected, id]);
 
   return (
-    <div className="mq-svc">
-      <div className="mq-svc-head">
-        <span>My services{selected.length ? ` · ${selected.length}` : ""}</span>
-        {selected.length ? <button type="button" className="mq-svc-clear" onClick={() => onChange([])}>Clear</button> : null}
-      </div>
-      {loading ? (
-        <p className="mq-svc-empty">Loading…</p>
-      ) : svcs.length === 0 ? (
-        <p className="mq-svc-empty">No provider data for this country.</p>
-      ) : (
-        GROUPS.map((g) => {
-          const items = svcs.filter((s) => s.label === g.key);
-          if (items.length === 0) return null;
-          return (
-            <div className="mq-svc-group" key={g.key}>
-              <div className={`mq-svc-gtitle mq-svc-gtitle--${g.key}`} title={g.hint}>{g.title}</div>
-              <div className="mq-svc-grid">
-                {items.map((s) => {
-                  const on = selected.includes(s.provider_id);
-                  return (
-                    <button
-                      key={s.provider_id}
-                      type="button"
-                      className={`mq-svc-chip${on ? " on" : ""}`}
-                      onClick={() => toggle(s.provider_id)}
-                      title={`${s.provider_name}${s.library ? " · library card" : ""} · ${s.n} films`}
-                    >
-                      {s.logo_path ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={`${LOGO}${s.logo_path}`} alt="" width={22} height={22} loading="lazy" />
-                      ) : <span className="mq-svc-dot" aria-hidden />}
-                      <span className="mq-svc-name">{s.provider_name}</span>
-                      {s.library ? <span className="mq-svc-lib">lib</span> : null}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })
-      )}
+    <div className="mq-pop" ref={box}>
+      <button type="button" className={`mq-popbtn${selected.length ? " on" : ""}`} onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+        {selected.length ? `My services · ${selected.length}` : "My services"} <span aria-hidden>▾</span>
+      </button>
+      {open ? (
+        <div className="mq-pop-panel mq-pop-panel--wide" role="dialog" aria-label="Choose your services">
+          <div className="mq-pop-head">
+            <span>My services{selected.length ? ` · ${selected.length}` : ""}</span>
+            {selected.length ? <button type="button" className="mq-pop-clear" onClick={() => onChange([])}>Clear</button> : null}
+          </div>
+          {loading ? (
+            <p className="mq-pop-empty">Loading…</p>
+          ) : svcs.length === 0 ? (
+            <p className="mq-pop-empty">No provider data for this country.</p>
+          ) : (
+            GROUPS.map((g) => {
+              const items = svcs.filter((s) => s.label === g.key);
+              if (items.length === 0) return null;
+              return (
+                <div className="mq-svc-group" key={g.key}>
+                  <div className={`mq-svc-gtitle mq-svc-gtitle--${g.key}`}>{g.title}</div>
+                  <div className="mq-svc-grid">
+                    {items.map((s) => {
+                      const on = selected.includes(s.provider_id);
+                      return (
+                        <button key={s.provider_id} type="button" className={`mq-svc-chip${on ? " on" : ""}`}
+                          onClick={() => toggle(s.provider_id)} title={`${s.provider_name}${s.library ? " · library card" : ""} · ${s.n} films`}>
+                          {s.logo_path ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={`${LOGO}${s.logo_path}`} alt="" width={20} height={20} loading="lazy" />
+                          ) : <span className="mq-svc-dot" aria-hidden />}
+                          <span className="mq-svc-name">{s.provider_name}</span>
+                          {s.library ? <span className="mq-svc-lib">lib</span> : null}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

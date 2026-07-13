@@ -1,18 +1,17 @@
 "use client";
 
 /**
- * MarqueeExplorer — the client heart of What to Watch ("The Marquee"), v2.
+ * MarqueeExplorer — the client heart of What to Watch ("The Marquee"), v2.1.
  *
- * Left sidebar owns the setup (country · services grouped by Subscription/Free/Rent ·
- * genres · year · VPN · US library · hide-seen); the right column ranks the best you
- * can watch by TakeScore in a two-up card grid. Each card carries the TakeScore on the
- * LEFT, an access badge (Subscription/Free/Rent), the full rating/seen/watchlist bar, a
- * director link, Where-to-watch + Details buttons, and expands to the real TakeScore
- * appraisal panel (FilmCardPanel). Signed-in users save named views; everyone's current
- * setting is remembered in the browser.
+ * All controls live in a single TOP bar (no sidebar): country, a "My services"
+ * popover with Save-view beside it, a genres popover, year range, sort + direction,
+ * and the VPN / US-library / hide-seen toggles. Below, the best you can watch is
+ * ranked by TakeScore in a card grid — TakeScore on the left, the rating/seen/
+ * watchlist controls overlaid on the poster, a director link, Where-to-watch +
+ * Details buttons, and an expand to the real TakeScore appraisal (FilmCardPanel).
  *
- * Invariants: SSR is global (no personalization) — the client reads localStorage on mount
- * and re-ranks. Country/services also mirror the shared `mt-watch-prefs` key.
+ * Invariants: SSR is global (no personalization) — the client reads localStorage on
+ * mount and re-ranks. Country/services also mirror the shared `mt-watch-prefs` key.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -52,15 +51,6 @@ const rpcSort = (k: SortKey) => (k === "ts" ? "u" : k === "year" ? "newest" : k)
 const flag = (cc: string) =>
   cc && cc.length === 2 ? String.fromCodePoint(...[...cc.toUpperCase()].map((c) => 127397 + c.charCodeAt(0))) : "";
 
-function shortVerdict(v: number, c: number, r: number, u: number) {
-  if (u >= 78) return "A durable high — worth the climb.";
-  if (u >= 68) return "Strong value that holds up.";
-  if (r >= 60) return "High ceiling, real risk.";
-  if (c >= 60) return "Demands something of you.";
-  if (v >= 60) return "Gives back more than it asks.";
-  return "A solid watch.";
-}
-
 type SavedView = { id: string; name: string; config: Cfg };
 
 export default function MarqueeExplorer({
@@ -94,10 +84,13 @@ export default function MarqueeExplorer({
   const [avail, setAvail] = useState<Record<string, AvailRow[]>>({});
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const [views, setViews] = useState<SavedView[]>([]);
-  const [sideOpen, setSideOpen] = useState(false); // mobile drawer
+  const [genreOpen, setGenreOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   const hydrated = useRef(false);
   const abort = useRef<AbortController | null>(null);
+  const genreBox = useRef<HTMLDivElement | null>(null);
+  const moreBox = useRef<HTMLDivElement | null>(null);
 
   const watchCountries = vpn ? Array.from(new Set([country, ...vpnCountries])) : [country];
   const provActive = providers.length > 0 || usLib;
@@ -121,7 +114,6 @@ export default function MarqueeExplorer({
     if (c.sortDir === "asc" || c.sortDir === "desc") setSortDir(c.sortDir);
   }, []);
 
-  // ── hydrate from localStorage ──────────────────────────────────────────────
   useEffect(() => {
     try {
       const full = JSON.parse(localStorage.getItem("mt-marquee-cfg") || "null");
@@ -140,7 +132,6 @@ export default function MarqueeExplorer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ── persist ────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (!hydrated.current) return;
     try {
@@ -149,11 +140,20 @@ export default function MarqueeExplorer({
     } catch { /* ignore */ }
   }, [currentCfg, country, providers]);
 
-  // ── saved views (logged-in) ────────────────────────────────────────────────
   useEffect(() => {
     if (!uid) { setViews([]); return; }
     fetch("/api/wtw/views").then((r) => (r.ok ? r.json() : [])).then((d) => setViews(Array.isArray(d) ? d : []));
   }, [uid]);
+
+  // click-outside for the two inline popovers
+  useEffect(() => {
+    const h = (e: MouseEvent) => {
+      if (genreOpen && genreBox.current && !genreBox.current.contains(e.target as Node)) setGenreOpen(false);
+      if (moreOpen && moreBox.current && !moreBox.current.contains(e.target as Node)) setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
+  }, [genreOpen, moreOpen]);
 
   const saveView = async () => {
     const name = window.prompt("Name this view (e.g. \"Weeknight KR\")");
@@ -162,17 +162,13 @@ export default function MarqueeExplorer({
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: name.trim(), config: currentCfg() }),
     });
-    if (res.ok) {
-      const v = await res.json();
-      setViews((prev) => [v, ...prev.filter((x) => x.id !== v.id)]);
-    }
+    if (res.ok) { const v = await res.json(); setViews((prev) => [v, ...prev.filter((x) => x.id !== v.id)]); }
   };
   const deleteView = async (id: string) => {
     await fetch(`/api/wtw/views?id=${encodeURIComponent(id)}`, { method: "DELETE" });
     setViews((prev) => prev.filter((v) => v.id !== id));
   };
 
-  // ── decorate visible rows with access badges ───────────────────────────────
   const decorate = useCallback(async (slugs: string[]) => {
     if (slugs.length === 0) return;
     const { data } = await sb.rpc("film_availability", {
@@ -188,7 +184,6 @@ export default function MarqueeExplorer({
     });
   }, [watchCountries, providers, usLib]);
 
-  // ── fetch a page ───────────────────────────────────────────────────────────
   const fetchPage = useCallback(async (reset: boolean) => {
     const off = reset ? 0 : offset + PAGE;
     setLoading(true);
@@ -248,7 +243,6 @@ export default function MarqueeExplorer({
 
   return (
     <div className="mq2">
-      {/* compact hero */}
       <header className="mq-hero2">
         <div className="mq-hero2-in">
           <h1 className="mq-h1b">What to Watch <span className="mq-alias">The Marquee</span></h1>
@@ -256,191 +250,188 @@ export default function MarqueeExplorer({
         </div>
       </header>
 
-      <div className="mq-shell">
-        <button type="button" className="mq-side-toggle" onClick={() => setSideOpen((o) => !o)} aria-expanded={sideOpen}>
-          {sideOpen ? "✕ Close filters" : "☰ Filters"}
-        </button>
+      {/* ── TOP filter bar (no sidebar) ── */}
+      <div className="mq-bar">
+        <div className="mq-bar-in">
+          <select className="mq-select mq-select--cc" value={country} onChange={(e) => setCountry(e.target.value)} aria-label="Country">
+            {countryOpts.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}
+          </select>
 
-        {/* ── LEFT: filter sidebar ── */}
-        <aside className={`mq-side${sideOpen ? " open" : ""}`}>
-          <div className="mq-side-in">
-            <div className="mq-fblock">
-              <label className="mq-flabel" htmlFor="mq-country">Country</label>
-              <select id="mq-country" className="mq-select" value={country} onChange={(e) => setCountry(e.target.value)}>
-                {countryOpts.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}
-              </select>
-            </div>
+          <ServicesPicker country={country} selected={providers} onChange={setProviders} onServices={setServices} />
 
-            <div className="mq-fblock">
-              <ServicesPicker country={country} selected={providers} onChange={setProviders} onServices={setServices} />
-            </div>
+          {uid ? (
+            <>
+              <button type="button" className="mq-btn2" onClick={saveView}>＋ Save view</button>
+              {views.length ? (
+                <select className="mq-select mq-select--sm" value="" onChange={(e) => { const v = views.find((x) => x.id === e.target.value); if (v) applyCfg(v.config); }} aria-label="My saved views">
+                  <option value="" disabled>My views ({views.length})</option>
+                  {views.map((v) => <option key={v.id} value={v.id}>{v.name}</option>)}
+                </select>
+              ) : null}
+            </>
+          ) : <Link className="mq-signin" href={`/login?next=${encodeURIComponent("/what-to-watch")}`}>Sign in to save views</Link>}
 
-            <div className="mq-fblock">
-              <div className="mq-flabel">Genres {genres.length ? <span className="mq-flabel-n">· {genres.length}</span> : null}</div>
-              <div className="mq-genres">
-                {WTW_GENRES.map((g) => (
-                  <button key={g} type="button" className={`mq-gchip${genres.includes(g) ? " on" : ""}`} onClick={() => toggleGenre(g)}>{g}</button>
-                ))}
-              </div>
-            </div>
+          <span className="mq-bar-sep" />
 
-            <div className="mq-fblock">
-              <div className="mq-flabel">Year</div>
-              <div className="mq-year">
-                <input type="number" className="mq-ynum" placeholder="2000" value={sinceYear ?? ""} min={1900} max={2100}
-                  onChange={(e) => setSinceYear(e.target.value ? parseInt(e.target.value, 10) : null)} aria-label="From year" />
-                <span className="mq-ydash">—</span>
-                <input type="number" className="mq-ynum" placeholder="now" value={toYear ?? ""} min={1900} max={2100}
-                  onChange={(e) => setToYear(e.target.value ? parseInt(e.target.value, 10) : null)} aria-label="To year" />
-              </div>
-            </div>
-
-            <div className="mq-fblock mq-toggles">
-              <button type="button" className={`mq-toggle${vpn ? " on" : ""}`} onClick={() => setVpn((v) => !v)} aria-pressed={vpn}
-                title="Include other countries' catalogues (reference only — check each service's terms)">✈ VPN</button>
-              <button type="button" className={`mq-toggle${usLib ? " on" : ""}`} onClick={() => setUsLib((v) => !v)} aria-pressed={usLib}
-                title="Fold in Kanopy & Hoopla (free with a participating US library card)">🏛 US library</button>
-              <button type="button" className={`mq-toggle${hideSeen ? " on" : ""}`} aria-pressed={hideSeen}
-                onClick={() => { if (!uid) { window.location.href = `/login?next=${encodeURIComponent("/what-to-watch")}`; return; } setHideSeen((v) => !v); }}
-                title={uid ? "Hide films you've marked as seen" : "Sign in to hide what you've seen"}>● Hide seen</button>
-            </div>
-
-            {vpn ? (
-              <div className="mq-fblock">
-                <div className="mq-flabel">Also show catalogues in</div>
+          {/* genres popover */}
+          <div className="mq-pop" ref={genreBox}>
+            <button type="button" className={`mq-popbtn${genres.length ? " on" : ""}`} onClick={() => setGenreOpen((o) => !o)} aria-expanded={genreOpen}>
+              {genres.length ? `Genres · ${genres.length}` : "Genres"} <span aria-hidden>▾</span>
+            </button>
+            {genreOpen ? (
+              <div className="mq-pop-panel" role="dialog" aria-label="Choose genres">
+                <div className="mq-pop-head"><span>Genres</span>{genres.length ? <button type="button" className="mq-pop-clear" onClick={() => setGenres([])}>Clear</button> : null}</div>
                 <div className="mq-genres">
-                  {VPN_COUNTRIES.filter((c) => c !== country).map((c) => (
-                    <button key={c} type="button" className={`mq-gchip${vpnCountries.includes(c) ? " on" : ""}`}
-                      onClick={() => setVpnCountries((s) => s.includes(c) ? s.filter((x) => x !== c) : [...s, c])}>{flag(c)} {c}</button>
+                  {WTW_GENRES.map((g) => (
+                    <button key={g} type="button" className={`mq-gchip${genres.includes(g) ? " on" : ""}`} onClick={() => toggleGenre(g)}>{g}</button>
                   ))}
                 </div>
-                <p className="mq-note">Shown for reference — check each service&apos;s terms.</p>
               </div>
             ) : null}
-
-            <button type="button" className="mq-reset" onClick={reset}>Reset filters</button>
-          </div>
-        </aside>
-
-        {/* ── RIGHT: results ── */}
-        <main className="mq-main">
-          <div className="mq-toolbar">
-            <div className="mq-sortbox">
-              <span className="mq-sort-lab">Sort</span>
-              <select className="mq-select mq-select--sm" value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)}>
-                {SORTS.map((s) => <option key={s.key} value={s.key}>{s.label}</option>)}
-              </select>
-              <button type="button" className="mq-dir" onClick={() => setSortDir((d) => (d === "desc" ? "asc" : "desc"))}
-                title={sortDir === "desc" ? "Descending" : "Ascending"}>{sortDir === "desc" ? "↓" : "↑"}</button>
-            </div>
-
-            <div className="mq-summary">
-              {provActive
-                ? <><b>{total.toLocaleString("en-US")}</b> {total === 1 ? "film" : "films"} to watch in {countryLabel}</>
-                : <>Top by TakeScore — <b>pick your services</b> to narrow to what you can watch now</>}
-            </div>
-
-            <div className="mq-views">
-              {uid ? (
-                <>
-                  <button type="button" className="mq-saveview" onClick={saveView}>＋ Save view</button>
-                  {views.length ? (
-                    <div className="mq-viewsel">
-                      <select className="mq-select mq-select--sm" value="" onChange={(e) => { const v = views.find((x) => x.id === e.target.value); if (v) applyCfg(v.config); }}>
-                        <option value="" disabled>My views ({views.length})</option>
-                        {views.map((v) => <option key={v.id} value={v.id}>{v.name}</option>)}
-                      </select>
-                    </div>
-                  ) : null}
-                </>
-              ) : <Link className="mq-signin" href={`/login?next=${encodeURIComponent("/what-to-watch")}`}>Sign in to save views</Link>}
-            </div>
           </div>
 
-          {views.length && uid ? (
-            <div className="mq-viewchips">
-              {views.map((v) => (
-                <span key={v.id} className="mq-viewchip">
-                  <button type="button" onClick={() => applyCfg(v.config)}>{v.name}</button>
-                  <button type="button" className="mq-viewchip-x" title="Delete view" onClick={() => deleteView(v.id)}>×</button>
-                </span>
-              ))}
-            </div>
-          ) : null}
+          {/* year */}
+          <div className="mq-year">
+            <input type="number" className="mq-ynum" placeholder="2000" value={sinceYear ?? ""} min={1900} max={2100}
+              onChange={(e) => setSinceYear(e.target.value ? parseInt(e.target.value, 10) : null)} aria-label="From year" />
+            <span className="mq-ydash">–</span>
+            <input type="number" className="mq-ynum" placeholder="now" value={toYear ?? ""} min={1900} max={2100}
+              onChange={(e) => setToYear(e.target.value ? parseInt(e.target.value, 10) : null)} aria-label="To year" />
+          </div>
 
-          {empty ? (
-            <div className="mq-empty">
-              <p><b>Nothing matched your filters yet.</b></p>
-              <p>Loosen a genre, widen the years, or turn on <button className="mq-inline" onClick={() => setUsLib(true)}>🏛 US library</button> / <button className="mq-inline" onClick={() => setVpn(true)}>✈ other countries</button>.</p>
-            </div>
-          ) : (
-            <div className="mq-cards" aria-busy={loading}>
-              {rows.map((f) => {
-                const seen = seenSlugs?.has?.(f.slug);
-                const ds = f.director_slug ?? (f.director ? slugify(f.director) : null);
-                const isOpen = openSlug === f.slug;
-                return (
-                  <article className={`mq-card${seen && !hideSeen ? " mq-card--seen" : ""}${isOpen ? " open" : ""}`} key={`${f.slug}-${f.rank}`}>
-                    <div className="mq-card-body">
-                      <Link href={filmUrl(f.slug)} className="mq-poster" aria-label={f.title}>
+          {/* sort */}
+          <div className="mq-sortbox">
+            <span className="mq-sort-lab">Sort</span>
+            <select className="mq-select mq-select--sm" value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)}>
+              {SORTS.map((s) => <option key={s.key} value={s.key}>{s.label}</option>)}
+            </select>
+            <button type="button" className="mq-dir" onClick={() => setSortDir((d) => (d === "desc" ? "asc" : "desc"))} title={sortDir === "desc" ? "Descending" : "Ascending"}>{sortDir === "desc" ? "↓" : "↑"}</button>
+          </div>
+
+          <span className="mq-bar-sep" />
+
+          {/* more toggles popover (VPN / US library / hide-seen) */}
+          <div className="mq-pop" ref={moreBox}>
+            <button type="button" className={`mq-popbtn${vpn || usLib || hideSeen ? " on" : ""}`} onClick={() => setMoreOpen((o) => !o)} aria-expanded={moreOpen}>
+              Options{[vpn, usLib, hideSeen].filter(Boolean).length ? ` · ${[vpn, usLib, hideSeen].filter(Boolean).length}` : ""} <span aria-hidden>▾</span>
+            </button>
+            {moreOpen ? (
+              <div className="mq-pop-panel" role="dialog" aria-label="More options">
+                <button type="button" className={`mq-optrow${vpn ? " on" : ""}`} onClick={() => setVpn((v) => !v)}>✈ VPN — other countries&apos; catalogues</button>
+                {vpn ? (
+                  <div className="mq-genres mq-optcc">
+                    {VPN_COUNTRIES.filter((c) => c !== country).map((c) => (
+                      <button key={c} type="button" className={`mq-gchip${vpnCountries.includes(c) ? " on" : ""}`}
+                        onClick={() => setVpnCountries((s) => s.includes(c) ? s.filter((x) => x !== c) : [...s, c])}>{flag(c)} {c}</button>
+                    ))}
+                  </div>
+                ) : null}
+                <button type="button" className={`mq-optrow${usLib ? " on" : ""}`} onClick={() => setUsLib((v) => !v)}>🏛 US library (Kanopy / Hoopla, free)</button>
+                <button type="button" className={`mq-optrow${hideSeen ? " on" : ""}`}
+                  onClick={() => { if (!uid) { window.location.href = `/login?next=${encodeURIComponent("/what-to-watch")}`; return; } setHideSeen((v) => !v); }}>
+                  ● Hide films I&apos;ve seen{uid ? "" : " (sign in)"}
+                </button>
+              </div>
+            ) : null}
+          </div>
+
+          <button type="button" className="mq-reset" onClick={reset}>Reset</button>
+        </div>
+      </div>
+
+      <div className="mq-wrap2">
+        <div className="mq-summary">
+          {provActive
+            ? <><b>{total.toLocaleString("en-US")}</b> {total === 1 ? "film" : "films"} to watch in {countryLabel}</>
+            : <>Top by TakeScore — <b>pick your services</b> to narrow to what you can watch now</>}
+          {vpn && vpnCountries.length ? <span className="mq-summary-note"> · incl. {vpnCountries.join(", ")} (VPN)</span> : null}
+        </div>
+
+        {views.length && uid ? (
+          <div className="mq-viewchips">
+            {views.map((v) => (
+              <span key={v.id} className="mq-viewchip">
+                <button type="button" onClick={() => applyCfg(v.config)}>{v.name}</button>
+                <button type="button" className="mq-viewchip-x" title="Delete view" onClick={() => deleteView(v.id)}>×</button>
+              </span>
+            ))}
+          </div>
+        ) : null}
+
+        {empty ? (
+          <div className="mq-empty">
+            <p><b>Nothing matched your filters yet.</b></p>
+            <p>Loosen a genre, widen the years, or open <b>Options</b> for US library / other countries.</p>
+          </div>
+        ) : (
+          <div className="mq-cards" aria-busy={loading}>
+            {rows.map((f) => {
+              const seen = seenSlugs?.has?.(f.slug);
+              const ds = f.director_slug ?? (f.director ? slugify(f.director) : null);
+              const isOpen = openSlug === f.slug;
+              return (
+                <article className={`mq-card${seen && !hideSeen ? " mq-card--seen" : ""}${isOpen ? " open" : ""}`} key={`${f.slug}-${f.rank}`}>
+                  <div className="mq-card-body">
+                    <div className="mq-poster">
+                      <Link href={filmUrl(f.slug)} className="mq-poster-img" aria-label={f.title}>
                         {f.poster_path
                           ? // eslint-disable-next-line @next/next/no-img-element
-                            <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" width={72} height={108} />
+                            <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" width={80} height={120} />
                           : <span className="mq-poster--e" />}
                       </Link>
-                      <div className="mq-card-mid">
-                        <div className="mq-card-tsrow">
-                          <span className="mq-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
-                          <span className="mq-card-scores">
-                            <b style={{ color: AX.v }}>V{Math.round(f.v)}</b>
-                            <b style={{ color: AX.c }}>C{Math.round(f.c)}</b>
-                            <b style={{ color: AX.r }}>R{Math.round(f.r)}</b>
-                            {f.imdb_rating != null ? <i>IMDb {Number(f.imdb_rating).toFixed(1)}</i> : null}
-                            {f.rt != null ? <i>RT {f.rt}%</i> : null}
-                          </span>
-                          {seen ? <span className="mq-seen-chip">✓ Seen</span> : null}
-                        </div>
-                        <div className="mq-card-title">
-                          <Link href={filmUrl(f.slug)}>{f.title}</Link> <span className="mq-y">({f.year ?? "?"})</span>
-                        </div>
-                        <div className="mq-card-dir">
-                          {f.director ? (ds ? <Link href={directorUrl(ds)}>{f.director}</Link> : <span>{f.director}</span>) : null}
-                          {f.country_code ? <span className="mq-cc">· {flag(f.country_code)} {f.country_code}</span> : null}
-                        </div>
-                        <AccessBadges rows={avail[f.slug]} providers={providers} showFlags={vpn} />
-                        <div className="mq-card-actions"><PosterActions slug={f.slug} /></div>
-                        <div className="mq-card-btns">
-                          <Link className="mq-btn" href={whereToUrl(f.slug)}>Where to watch</Link>
-                          <Link className="mq-btn" href={filmUrl(f.slug)}>Details →</Link>
-                          <button type="button" className={`mq-btn mq-btn--exp${isOpen ? " on" : ""}`} onClick={() => setOpenSlug(isOpen ? null : f.slug)} aria-expanded={isOpen}>
-                            {isOpen ? "Hide TakeScore ▲" : "TakeScore ▾"}
-                          </button>
-                        </div>
+                      <PosterActions slug={f.slug} />
+                    </div>
+                    <div className="mq-card-mid">
+                      <div className="mq-card-tsrow">
+                        <span className="mq-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
+                        <span className="mq-card-scores">
+                          <b style={{ color: AX.v }}>V{Math.round(f.v)}</b>
+                          <b style={{ color: AX.c }}>C{Math.round(f.c)}</b>
+                          <b style={{ color: AX.r }}>R{Math.round(f.r)}</b>
+                          {f.imdb_rating != null ? <i>IMDb {Number(f.imdb_rating).toFixed(1)}</i> : null}
+                          {f.rt != null ? <i>RT {f.rt}%</i> : null}
+                        </span>
+                        {seen ? <span className="mq-seen-chip">✓ Seen</span> : null}
+                      </div>
+                      <div className="mq-card-title">
+                        <Link href={filmUrl(f.slug)}>{f.title}</Link> <span className="mq-y">({f.year ?? "?"})</span>
+                      </div>
+                      <div className="mq-card-dir">
+                        {f.director ? (ds ? <Link href={directorUrl(ds)}>{f.director}</Link> : <span>{f.director}</span>) : null}
+                        {f.country_code ? <span className="mq-cc">· {flag(f.country_code)} {f.country_code}</span> : null}
+                      </div>
+                      <AccessBadges rows={avail[f.slug]} providers={providers} showFlags={vpn} />
+                      <div className="mq-card-btns">
+                        <Link className="mq-btn" href={whereToUrl(f.slug)}>Where to watch</Link>
+                        <Link className="mq-btn" href={filmUrl(f.slug)}>Details →</Link>
+                        <button type="button" className={`mq-btn mq-btn--exp${isOpen ? " on" : ""}`} onClick={() => setOpenSlug(isOpen ? null : f.slug)} aria-expanded={isOpen}>
+                          {isOpen ? "Hide TakeScore ▲" : "TakeScore ▾"}
+                        </button>
                       </div>
                     </div>
-                    {isOpen ? (
-                      <div className="mq-card-panel">
-                        <FilmCardPanel slug={f.slug} watchCountry={country} fallbackTitle={f.title} fallbackPoster={f.poster_path} onClose={() => setOpenSlug(null)} />
-                      </div>
-                    ) : null}
-                  </article>
-                );
-              })}
-            </div>
-          )}
+                  </div>
+                  {isOpen ? (
+                    <div className="mq-card-panel">
+                      <FilmCardPanel slug={f.slug} watchCountry={country} fallbackTitle={f.title} fallbackPoster={f.poster_path} onClose={() => setOpenSlug(null)} />
+                    </div>
+                  ) : null}
+                </article>
+              );
+            })}
+          </div>
+        )}
 
-          {!empty && rows.length < total ? (
-            <div className="mq-more">
-              <button type="button" onClick={() => void fetchPage(false)} disabled={loading}>
-                {loading ? "Loading…" : `Load more (${rows.length.toLocaleString("en-US")} of ${total.toLocaleString("en-US")})`}
-              </button>
-            </div>
-          ) : null}
+        {!empty && rows.length < total ? (
+          <div className="mq-more">
+            <button type="button" onClick={() => void fetchPage(false)} disabled={loading}>
+              {loading ? "Loading…" : `Load more (${rows.length.toLocaleString("en-US")} of ${total.toLocaleString("en-US")})`}
+            </button>
+          </div>
+        ) : null}
 
-          <p className="mq-attr">
-            Availability via TMDB (data licensed through JustWatch). VPN and library results are shown for reference — check each service&apos;s terms; Kanopy/Hoopla require a participating US library card. External ratings via IMDb, Rotten Tomatoes and Metacritic.
-          </p>
-        </main>
+        <p className="mq-attr">
+          Availability via TMDB (data licensed through JustWatch). VPN and library results are shown for reference — check each service&apos;s terms; Kanopy/Hoopla require a participating US library card. External ratings via IMDb, Rotten Tomatoes and Metacritic.
+        </p>
       </div>
     </div>
   );
