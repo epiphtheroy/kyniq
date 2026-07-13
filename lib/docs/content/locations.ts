@@ -34,6 +34,9 @@ And we let the **two layers disagree in public.** When a film's setting and its 
 ## Limits
 This is a map of *places*, not a complete production history. Coverage is uneven by design — a film with a thin public location record gets a thin, honest set of pins, and some films yield none because their real geography could not be confidently established. A city-level pin is a real answer, not a precise one, and it is labelled as such. And because both layers are compiled from public sources, they inherit whatever those sources got wrong; the correction loop below is how those errors leave the map.
 
+## Published as open data
+This layer is the one we decided to give away rather than guard. The full geocoded record — every filmed and setting location, with coordinates and precision labels — is published as an open dataset on [Hugging Face](https://huggingface.co/datasets/wonwooyoon/metatake-filming-locations) and archived with a citable DOI on [Zenodo](https://doi.org/10.5281/zenodo.21336967), under CC BY 4.0: free to reuse, including commercially, with attribution. The same data is available live through the [API](/methodology/api). Why we opened it, and the full licence, are on [open data and reuse](/methodology/open-data).
+
 ---
 > Locations sit under the same [corrections](/methodology#corrections) loop as everything else: if a pin is in the wrong place, or filed under the wrong layer, tell us and we will move it.
 `;

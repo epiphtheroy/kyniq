@@ -49,6 +49,9 @@ import saveAndShare from "./save-and-share";
 import sourcesWeMonitor from "./sources-we-monitor";
 import theDaily from "./the-daily";
 import theoryExplorer from "./theory-explorer";
+import openData from "./open-data";
+import api from "./api";
+import mcp from "./mcp";
 
 export const DOC_BODIES: Record<string, string> = {
   "ai-disclosure": aiDisclosure,
@@ -97,4 +100,7 @@ export const DOC_BODIES: Record<string, string> = {
   "sources-we-monitor": sourcesWeMonitor,
   "the-daily": theDaily,
   "theory-explorer": theoryExplorer,
+  "open-data": openData,
+  api,
+  mcp,
 };

@@ -38,6 +38,7 @@ export const DOC_CATEGORIES: DocCategory[] = [
   { key: "your-cinema", label: "Your Cinema", blurb: "The personal layer — your films, your room, and how the whole site can re-centre on what you have seen." },
   { key: "live", label: "The Live Desk", blurb: "The hourly Now Playing letters, the morning Daily, and the ambient TV channel." },
   { key: "trust", label: "Trust", blurb: "Editorial responsibility, corrections, independence and AI disclosure." },
+  { key: "open", label: "Open & Machine-Readable", blurb: "The open filming-locations dataset, the free API, the MCP server, and the licence that lets you reuse it all." },
 ];
 
 export const DOCS: DocMeta[] = [
@@ -105,6 +106,11 @@ export const DOCS: DocMeta[] = [
   { slug: "ai-disclosure", category: "trust", nav: "AI disclosure", title: "AI disclosure", desc: "A layer-by-layer map of what's AI-drafted, what's assembled by rule, and what's curated by a human hand." },
   { slug: "collaborate", category: "trust", nav: "Working with us", title: "Working with Metatake", desc: "Who we would like to work with, what we are actually asking, and why it might be worth your while — an open door, not a pitch." },
   { slug: "bots-and-crawlers", category: "trust", nav: "Bots & crawlers", title: "Bots and crawlers", desc: "How our one identified crawler behaves, and how we treat the crawlers that visit us — citation welcome, wholesale scraping declined." },
+
+  // Open & Machine-Readable
+  { slug: "open-data", category: "open", nav: "Open data & licence", title: "Open data and reuse", desc: "The filming-locations dataset we published openly on Hugging Face and Zenodo, and the licence — CC BY for the facts, CC BY-NC for the writing — told plainly." },
+  { slug: "api", category: "open", nav: "The API", title: "The API", desc: "A free, read-only, no-key web API so the criticism can be used inside a script, an agent or a Custom GPT — built for citation, not scraping." },
+  { slug: "mcp", category: "open", nav: "Metatake in your AI", title: "Metatake in your AI", desc: "The MCP server that lets an AI assistant read Metatake live, mid-conversation, and answer with a link back — the open standard, set up in three steps." },
 ];
 
 /** The hub renders from app/methodology/page.tsx; sub-docs from [slug]. */
