@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
+import HubExplore from "@/components/HubExplore";
 import EntityTVHero from "@/components/EntityTVHero";
 import GrowStill from "@/components/read/GrowStill";
 import CreditsExplorer from "../CreditsExplorer";
@@ -689,6 +690,7 @@ export default async function CrewPersonPage({ params }: Props) {
           {p.external_ids?.imdb_id ? <> · <a href={`https://www.imdb.com/name/${p.external_ids.imdb_id}/`} target="_blank" rel="noopener">IMDb ↗</a></> : null}
           {" "}· Updated {updated}
         </p>
+        <HubExplore kind="person" slug={person} />
       </div>
     </div>
   );

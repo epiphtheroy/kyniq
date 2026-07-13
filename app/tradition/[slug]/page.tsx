@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import HubExplore from "@/components/HubExplore";
 import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
@@ -167,6 +168,7 @@ export default async function TraditionPage({ params }: Props) {
           ))}
         </div>
         <p className="th-foot"><Link href="/tradition">← All traditions</Link></p>
+        <HubExplore kind="tradition" slug={slug} />
       </div>
     </div>
   );

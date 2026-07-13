@@ -3,6 +3,7 @@ import EntityTVHero from "@/components/EntityTVHero";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import HubExplore from "@/components/HubExplore";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import ShareDock from "@/components/ShareDock";
 
@@ -360,6 +361,7 @@ export default async function FramePage({ params }: Props) {
               the latest interpretations →
             </Link>
           </p>
+          <HubExplore kind="frame" slug={slug} />
         </div>
       </main>
     </>

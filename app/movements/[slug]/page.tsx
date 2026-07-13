@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import HubExplore from "@/components/HubExplore";
 import EntityTVHero from "@/components/EntityTVHero";
 import MovementHubClient from "@/components/MovementHubClient";
 import ShareDock from "@/components/ShareDock";
@@ -176,6 +177,7 @@ export default async function MovementHub({ params }: Props) {
             ) : null}
           </section>
         )}
+        <HubExplore kind="movement" slug={slug} />
       </div>
     </div>
   );

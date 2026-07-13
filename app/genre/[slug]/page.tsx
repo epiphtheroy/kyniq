@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
+import HubExplore from "@/components/HubExplore";
 import EntityTVHero from "@/components/EntityTVHero";
 import ListFilter from "@/components/ListFilter";
 import EntityFantasiaServer from "@/components/EntityFantasiaServer";
@@ -165,6 +166,7 @@ export default async function GenrePage({ params }: Props) {
             ) : null}
           </section>
         )}
+        <HubExplore kind="genre" slug={slug} />
       </div>
     </div>
   );
