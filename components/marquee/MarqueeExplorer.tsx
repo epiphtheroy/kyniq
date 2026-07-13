@@ -54,7 +54,7 @@ const flag = (cc: string) =>
 type SavedView = { id: string; name: string; config: Cfg };
 
 export default function MarqueeExplorer({
-  initialRows, initialTotal, countries,
+  initialRows, initialTotal, countries: initialCountries,
 }: {
   initialRows: MqRow[];
   initialTotal: number;
@@ -76,6 +76,7 @@ export default function MarqueeExplorer({
   const [sortKey, setSortKey] = useState<SortKey>("ts");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
+  const [countries, setCountries] = useState<Country[]>(initialCountries);
   const [services, setServices] = useState<Service[]>([]);
   const [rows, setRows] = useState<MqRow[]>(initialRows);
   const [total, setTotal] = useState(initialTotal);
@@ -139,6 +140,23 @@ export default function MarqueeExplorer({
       localStorage.setItem("mt-watch-prefs", JSON.stringify({ country, providers }));
     } catch { /* ignore */ }
   }, [currentCfg, country, providers]);
+
+  // Country options: SSR passes them, but if the ISR snapshot was rendered while
+  // wtw_countries was empty/timed-out, fetch them client-side so the dropdown always
+  // populates (independent of SSR/ISR timing).
+  useEffect(() => {
+    if (countries.length > 0) return;
+    let alive = true;
+    let rn: Intl.DisplayNames | null = null;
+    try { rn = new Intl.DisplayNames(["en"], { type: "region" }); } catch { rn = null; }
+    sb.rpc("wtw_countries").then(({ data }) => {
+      if (!alive) return;
+      const list = ((data as { code: string; n_films: number; n_prov: number }[] | null) ?? [])
+        .map((c) => ({ code: c.code, n: c.n_films, label: `${flag(c.code)} ${rn?.of(c.code.toUpperCase()) || c.code.toUpperCase()} (${c.n_films})` }));
+      setCountries(list);
+    });
+    return () => { alive = false; };
+  }, [countries.length]);
 
   useEffect(() => {
     if (!uid) { setViews([]); return; }

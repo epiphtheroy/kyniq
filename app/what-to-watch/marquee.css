@@ -7,9 +7,10 @@
 /* ── compact hero ── */
 .mq-hero2 { background: #0b0b0c; color: #fff; border-bottom: 3px solid var(--mq-green); }
 .mq-hero2-in { max-width: 1280px; margin: 0 auto; padding: 16px 22px 18px; }
-.mq-h1b { font: 700 24px/1.1 var(--font-serif, Georgia, serif); margin: 0 0 4px; letter-spacing: -0.01em; color: #fff; }
+.mq-hero2 .mq-h1b { font: 700 24px/1.1 var(--font-serif, Georgia, serif); margin: 0 0 4px; letter-spacing: -0.01em; color: #fff; }
 .mq-alias { font: 500 12px/1 var(--font-ui, system-ui); color: var(--mq-green); background: #fff; border-radius: 999px; padding: 3px 8px; vertical-align: middle; margin-left: 6px; }
-.mq-witty { font: 14px/1.45 var(--font-ui, system-ui); color: #fff; max-width: 760px; margin: 0; }
+/* specificity must beat globals `.mt p { color: var(--ink) }` — hence .mq-hero2 prefix */
+.mq-hero2 .mq-witty { font: 14px/1.45 var(--font-ui, system-ui); color: #fff; max-width: 760px; margin: 0; }
 
 /* ── top filter bar ── */
 .mq-bar { position: sticky; top: 0; z-index: 20; background: var(--card, #fff); border-bottom: 1px solid var(--line, #e5e3e0); box-shadow: 0 1px 0 rgba(0,0,0,0.03); }
@@ -17,7 +18,7 @@
 .mq-bar-sep { width: 1px; align-self: stretch; background: var(--line, #e5e3e0); margin: 2px 4px; }
 
 .mq-select { font: 500 13px/1 var(--font-ui, system-ui); padding: 8px 10px; border: 1px solid var(--line, #d7d4d0); border-radius: 9px; background: var(--card, #fff); color: var(--fg, #111); cursor: pointer; }
-.mq-select--cc { border: 2px solid var(--mq-green); font-weight: 600; max-width: 210px; }
+.mq-select--cc { border: 2px solid var(--mq-green); font-weight: 600; min-width: 172px; max-width: 250px; flex: 0 0 auto; }
 .mq-select--sm { padding: 7px 8px; }
 
 /* popovers (services / genres / options) */
