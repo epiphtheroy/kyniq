@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { cachedLocationsEligibility } from "@/lib/locations";
 import { Card, SectionHead } from "@/components/curious/ui";
+
+const IMG = "https://image.tmdb.org/t/p";
 
 /**
  * "More on {director}" — the dark bottom plate row shared by the director
@@ -66,7 +69,6 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
 
   type Plate = { key: string; href: string; tag: string; title: string };
   const plates: Plate[] = [];
-  plates.push({ key: "hub", href: `/director/${slug}`, tag: "The director", title: `Everything on ${director} — films, readings, the map` });
   if (facts > 0 && exclude !== "life") plates.push({ key: "life", href: `/director/${slug}/life`, tag: "The life", title: `Who is ${director}? The researched moments, sourced` });
   if (picks > 0 && exclude !== "start") plates.push({ key: "start", href: `/director/${slug}/start`, tag: "Where to start", title: `Where to start with ${director} — the route, argued` });
   if (next > 0 && exclude !== "next") plates.push({ key: "next", href: `/director/${slug}/next`, tag: "Who's next", title: `After ${director}: the directors to watch next — and why` });
@@ -77,36 +79,62 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
   if (films.length >= 3 && exclude !== "takescore") plates.push({ key: "takescore", href: `/director/${slug}/takescore`, tag: "TakeScore", title: `Every ${director} film, scored — the TakeScore ranking` });
   if (takes > 0 && exclude !== "theory") plates.push({ key: "theory", href: `/director/${slug}/theory`, tag: "Through theory", title: `${director} through theory — the lenses his films answer to` });
 
-  // Fill with the director's top films (backdrop-first), up to 10 cards total.
-  const filmCards = films.filter((f) => f.backdrop_path).slice(0, Math.max(0, 10 - plates.length));
+  // Fill with the director's top films (backdrop-first), up to 12 cards total.
+  const filmCards = films.filter((f) => f.backdrop_path).slice(0, Math.max(0, 12 - plates.length));
   const art = films.map((f) => f.backdrop_path).filter(Boolean) as string[];
-  const shown = plates.slice(0, 10);
-  if (shown.length + filmCards.length < 2) return null;
+  const shown = plates.slice(0, 12);
+  const ctaPoster = films[0]?.poster_path ?? null;
+  const lead = `${director}'s filmography on Metatake — every film with its readings, figures and tropes, filming locations and TakeScore, plus where to start, who to watch next, and the record of awards and reception.`;
 
   return (
-    <div className="cur rd-plates">
+    <div
+      className="cur rd-plates"
+      style={{ minHeight: 0, marginTop: 48, borderTop: "3px solid var(--cur-accent)", padding: "4px 0 46px" }}
+    >
       <div className="cur-wrap">
-        <SectionHead title={`More on ${director}`} count={`${shown.length + filmCards.length} places to go next`} />
-        <div className="cur-grid">
-          {shown.map((p, i) => (
-            <Card
-              key={p.key}
-              href={p.href}
-              film={{ slug, title: director, year: null, poster_path: films[0]?.poster_path ?? null, backdrop_path: art.length ? art[i % art.length] : null }}
-              title={p.title}
-              tag={p.tag}
-            />
-          ))}
-          {filmCards.map((f) => (
-            <Card
-              key={f.slug}
-              href={`/film/${f.slug}`}
-              film={{ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, backdrop_path: f.backdrop_path }}
-              title={`${f.title}${f.year ? ` (${f.year})` : ""} — everything on the film`}
-              tag="The film"
-            />
-          ))}
+        {/* About this director — the funnel to the director hub */}
+        <div className="rd-cta">
+          {ctaPoster ? (
+            <Link href={`/director/${slug}`} className="rd-cta__poster" aria-label={director}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${IMG}/w154${ctaPoster}`} alt={director} width={84} height={126} loading="lazy" />
+            </Link>
+          ) : null}
+          <div className="rd-cta__body">
+            <span className="rd-cta__tag">About this director</span>
+            <h2><Link href={`/director/${slug}`}>{director}</Link></h2>
+            <p>{lead}</p>
+            <div className="rd-cta__btns">
+              <Link className="rd-cta__btn" href={`/director/${slug}`}>Explore everything on {director} →</Link>
+            </div>
+          </div>
         </div>
+
+        {shown.length + filmCards.length >= 1 ? (
+          <>
+            <SectionHead title={`More on ${director}`} count={`${shown.length + filmCards.length} places to go next`} />
+            <div className="cur-grid">
+              {shown.map((p, i) => (
+                <Card
+                  key={p.key}
+                  href={p.href}
+                  film={{ slug, title: director, year: null, poster_path: films[0]?.poster_path ?? null, backdrop_path: art.length ? art[i % art.length] : null }}
+                  title={p.title}
+                  tag={p.tag}
+                />
+              ))}
+              {filmCards.map((f) => (
+                <Card
+                  key={f.slug}
+                  href={`/film/${f.slug}`}
+                  film={{ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, backdrop_path: f.backdrop_path }}
+                  title={`${f.title}${f.year ? ` (${f.year})` : ""} — everything on the film`}
+                  tag="The film"
+                />
+              ))}
+            </div>
+          </>
+        ) : null}
       </div>
     </div>
   );

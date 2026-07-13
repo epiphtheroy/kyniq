@@ -15,7 +15,9 @@ import Provenance from "@/components/Provenance";
 import Byline from "@/components/Byline";
 import { FigureStats } from "@/components/detail/FigureDetailBits";
 import RelatedBoxes from "@/components/RelatedBoxes";
+import ReadPlates from "@/components/read/ReadPlates";
 import { relatedForFigure } from "@/lib/related";
+import "@/app/curious/curious.css";
 import { renderTokens } from "@/lib/mtTokens";
 import { fw } from "@/lib/frameworks";
 import { pageRobots } from "@/lib/seo";
@@ -518,6 +520,7 @@ export default async function FigurePage({ params }: Props) {
 
         <Provenance created={figure.created_at} updated={figure.updated_at} />
       </div>
+      <ReadPlates slug={film.slug} />
     </div>
   );
 }

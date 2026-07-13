@@ -7,6 +7,8 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import FilmMap from "@/components/FilmMap";
 import ShareDock from "@/components/ShareDock";
+import DirectorPlates from "@/components/read/DirectorPlates";
+import "@/app/curious/curious.css";
 import { pageRobots } from "@/lib/seo";
 import {
   DIRECTOR_LOCATIONS_MIN_FILMS,
@@ -257,6 +259,7 @@ export default async function DirectorLocationsPage({ params }: Props) {
           Metatake Editorial · Location data researched, compiled and geolocated by Metatake · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
+      <DirectorPlates slug={slug} exclude="locations" />
     </div>
   );
 }
