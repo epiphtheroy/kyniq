@@ -7,6 +7,8 @@ import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
+import ReadPlates from "@/components/read/ReadPlates";
+import "@/app/curious/curious.css";
 import { pageRobots } from "@/lib/seo";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
 import { cachedLocationsEligibility } from "@/lib/locations";
@@ -392,6 +394,7 @@ export default async function FilmHonorsPage({ params }: Props) {
           Metatake Editorial · Lineage record compiled from public sources — cited per entry · Data updated {updated} · Corrections: <Link href="/methodology">methodology</Link>
         </p>
       </div>
+      <ReadPlates slug={film.slug} exclude="lineage" />
     </div>
   );
 }

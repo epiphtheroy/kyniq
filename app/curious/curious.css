@@ -135,6 +135,47 @@
 .cur-card .by { font-size: 12px; color: var(--cur-meta); margin-top: 6px; }
 .cur-card .by b { font-weight: 500; color: #d7d5d6; }
 
+/* ── Reading-page bottom CTA: the funnel back to the film's main page.
+      Sits above the "More on {film}" plate grid (ReadPlates). Scoped to .cur so
+      it inherits the dark plate palette; every ReadPlates host imports this. ── */
+.cur .rd-cta {
+  display: flex; gap: 18px; align-items: flex-start;
+  background: var(--cur-panel); border: 1px solid var(--cur-line);
+  border-radius: 8px; padding: 18px 20px; margin-top: 6px;
+}
+.cur .rd-cta__poster { flex: 0 0 84px; border-radius: 5px; overflow: hidden; background: #0c0c0c; }
+.cur .rd-cta__poster img { width: 84px; height: auto; display: block; }
+.cur .rd-cta__body { min-width: 0; flex: 1; }
+.cur .rd-cta__tag {
+  font-family: var(--cur-display); font-weight: 700; font-size: 12.5px;
+  letter-spacing: 0.8px; text-transform: uppercase; color: var(--cur-accent-hi);
+}
+.cur .rd-cta h2 {
+  font-family: var(--cur-display); font-weight: 700; font-size: 27px; line-height: 1.08;
+  letter-spacing: 0.4px; text-transform: uppercase; color: #fff; margin: 3px 0 8px;
+}
+.cur .rd-cta h2 a { color: #fff; }
+.cur .rd-cta h2 a:hover { color: var(--cur-accent-soft); }
+.cur .rd-cta p {
+  font-family: var(--cur-text); font-size: 14px; line-height: 1.6;
+  color: var(--cur-meta); margin: 0 0 12px; max-width: 66ch;
+}
+.cur .rd-cta__by { font-size: 13px; margin-bottom: 14px; }
+.cur .rd-cta__by a { color: var(--cur-accent-soft); }
+.cur .rd-cta__btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.cur .rd-cta__btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--cur-accent); color: #fff; font-family: var(--cur-text);
+  font-weight: 700; font-size: 13.5px; padding: 10px 18px; border-radius: 5px;
+}
+.cur .rd-cta__btn:hover { background: var(--cur-accent-hover); }
+.cur .rd-cta__btn--tv { background: transparent; border: 1px solid var(--cur-line); }
+.cur .rd-cta__btn--tv:hover { background: transparent; border-color: var(--cur-accent-hi); color: var(--cur-accent-hi); }
+@media (max-width: 600px) {
+  .cur .rd-cta { flex-direction: column; }
+  .cur .rd-cta__poster { flex: 0 0 auto; }
+}
+
 /* ── Index hero: featured overlay card + LATEST panel ─────────────── */
 .cur-herogrid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; margin-top: 20px; }
 .cur-feat { position: relative; border-radius: 4px; overflow: hidden; background: #0c0c0c; display: block; min-height: 420px; }

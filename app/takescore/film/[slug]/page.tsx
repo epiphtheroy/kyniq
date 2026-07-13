@@ -18,6 +18,8 @@ import {
   extSentence,
 } from "@/lib/takescore_prose";
 import TowCard, { loadTow } from "@/components/read/TowCard";
+import ReadPlates from "@/components/read/ReadPlates";
+import "@/app/curious/curious.css";
 import "./takescore-film.css";
 
 // ISR (house pattern, see app/film/[slug]/page.tsx): nothing prebuilt, every
@@ -447,6 +449,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           <Link className="tsf-how" href="/takescore/about">How the TakeScore works →</Link>
         </footer>
       </div>
+      <ReadPlates slug={card.slug} exclude="takescore" />
     </div>
   );
 }

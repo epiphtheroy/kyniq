@@ -9,6 +9,8 @@ import LensQuickBar from "@/components/LensQuickBar";
 import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
+import ReadPlates from "@/components/read/ReadPlates";
+import "@/app/curious/curious.css";
 
 export const revalidate = 300;
 export async function generateStaticParams() { return []; }
@@ -281,10 +283,8 @@ export default async function MoviesLikePage({ params }: Props) {
           corpus and update as the corpus grows. © Metatake — all rights reserved.
         </p>
 
-        <p className="mt-see" style={{ marginTop: "1.2rem" }}>
-          ← Back to <Link href={`/film/${film.slug}`}>{film.title}</Link>
-        </p>
       </div>
+      <ReadPlates slug={film.slug} exclude="movies-like" />
     </div>
   );
 }

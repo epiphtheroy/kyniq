@@ -6,6 +6,8 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import GalleryViewer from "@/components/GalleryViewer";
 import ShareDock from "@/components/ShareDock";
+import ReadPlates from "@/components/read/ReadPlates";
+import "@/app/curious/curious.css";
 
 // Images change rarely; cache the TMDB call for a day (ISR).
 export const revalidate = 86400;
@@ -98,10 +100,8 @@ export default async function FilmGalleryPage({ params }: Props) {
         ) : (
           <GalleryViewer backdrops={backdrops} posters={posters} title={film.title} year={film.year} filmSlug={film.slug} />
         )}
-        <p style={{ margin: "28px 0 8px" }}>
-          <Link href={`/film/${film.slug}`}>← Back to {film.title} on Metatake</Link>
-        </p>
       </div>
+      <ReadPlates slug={film.slug} exclude="gallery" />
     </div>
   );
 }
