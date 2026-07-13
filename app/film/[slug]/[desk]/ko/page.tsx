@@ -8,6 +8,7 @@ import Byline from "@/components/Byline";
 import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
+import FigureLightbox from "@/components/FigureLightbox";
 import { filmBackdropPaths, pickStills, injectFigures } from "@/lib/read-media";
 import "@/app/curious/curious.css";
 import "../../read.css";
@@ -208,6 +209,7 @@ export default async function DeskEssayKoPage({ params }: Props) {
           )}
 
           <div className="essay-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+          <FigureLightbox scope=".essay-body" />
 
           <div className="essay-plaque">
             <p>

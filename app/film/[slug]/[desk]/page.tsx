@@ -9,6 +9,7 @@ import Provenance from "@/components/Provenance";
 import ReadHero from "@/components/read/ReadHero";
 import ReadPlates from "@/components/read/ReadPlates";
 import { filmBackdropPaths, pickStills, injectFigures } from "@/lib/read-media";
+import FigureLightbox from "@/components/FigureLightbox";
 import { pageRobots } from "@/lib/seo";
 import "@/app/curious/curious.css";
 import "../read.css";
@@ -271,6 +272,7 @@ export default async function DeskEssayPage({ params }: Props) {
           )}
 
           <div className="essay-body" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+          <FigureLightbox scope=".essay-body" />
 
           <div className="essay-plaque">
             <p>
