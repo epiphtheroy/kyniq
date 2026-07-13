@@ -33,12 +33,11 @@ export const metadata: Metadata = {
     other: {
       // Bing Webmaster Tools (also verifiable via public/BingSiteAuth.xml — same token)
       "msvalidate.01": "B19CC42557D19874EA92BD9497BB2F68",
-      // Naver Search Advisor — set NAVER_SITE_VERIFICATION in Vercel env to the
-      // token from searchadvisor.naver.com (사이트 등록 → HTML 태그). Emits
-      // <meta name="naver-site-verification" ...> only when present.
-      ...(process.env.NAVER_SITE_VERIFICATION
-        ? { "naver-site-verification": process.env.NAVER_SITE_VERIFICATION }
-        : {}),
+      // Naver Search Advisor (searchadvisor.naver.com, property https://metatake.net).
+      // Hardcoded like Google/Bing above (verification tokens are public). Env var
+      // NAVER_SITE_VERIFICATION overrides it if the property is ever re-registered.
+      "naver-site-verification":
+        process.env.NAVER_SITE_VERIFICATION || "b2140ad0730191ac272895f2cde3ba6c0b226e0f",
     },
   },
   icons: {
