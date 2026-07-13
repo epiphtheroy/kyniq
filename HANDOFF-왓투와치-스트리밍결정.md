@@ -10,12 +10,12 @@
 
 ## AS-BUILT (실제 구현 상태 — 정본, 2026-07-13)
 
-**커밋:** v1 `5bae1e7` (2026-07-13) → **v2 리디자인 `571e099`** (2026-07-13, 현재 라이브). 모두 main 직배포(fast-forward)·Vercel 프로덕션·`metatake.net/what-to-watch` 렌더 검증 완료.
+**커밋:** v1 `5bae1e7` → v2 `571e099` → **v2.1 레이아웃 `105ff89`** (2026-07-13, 현재 라이브). 모두 main 직배포(fast-forward)·Vercel 프로덕션·`metatake.net/what-to-watch` 렌더 검증 완료.
 
 ### 파일 맵 (전부 실존)
 - **페이지(서버·ISR 300s)** `app/what-to-watch/page.tsx` — 전역 top-TakeScore SSR(크롤 백본) + `MarqueeExplorer`에 위임. `wtw_countries()`로 시청국 목록.
-- **클라이언트** `components/marquee/MarqueeExplorer.tsx` (v2 정본) — 좌측 필터 사이드바 + 2열 카드 그리드. 상태 전부 여기.
-- `components/marquee/ServicesPicker.tsx` — `wtw_services()` 로드 → **Subscription/Free/Rent 그룹** 라벨 멀티셀렉트(유튜브·무료 포함).
+- **클라이언트** `components/marquee/MarqueeExplorer.tsx` (정본) — **상단 필터 바(사이드바 폐기, v2.1)** + 2열 카드 그리드. 상태 전부 여기. 팝오버 3종(services·genres·options) 인라인 click-outside.
+- `components/marquee/ServicesPicker.tsx` — **팝오버 토글**("My services ▾") → `wtw_services()` 로드 → **Subscription/Free/Rent 그룹** 라벨 멀티셀렉트(유튜브·무료 포함). 저장뷰 버튼이 바로 옆.
 - `components/marquee/AccessBadges.tsx` — 카드 접근 뱃지(🟢Subscription/🔵Free/🟡Rent, 티어어 명시, VPN 시 국기).
 - **스타일** `app/what-to-watch/marquee.css` (`.mq2*` 스코프) + `../takescore/screener.css` 임포트(FilmCardPanel `.scr-card*` + PosterActions `.pa*` 재사용).
 - `lib/wtw_library.ts` (Kanopy=191·Hoopla=212), `lib/wtw_genres.ts` (18장르 vocab).
@@ -29,8 +29,9 @@
 - **⚠️ 불변식: v10/v11 신규 인자 전부 default → 기본값이 이전 버전과 동일 → Screener/`/api/lens/takescore`/기존 호출 무해(검증: 전역 total 6,704 불변·함수 오버로드 0).** 시그니처 변경 시 구 시그니처 `drop` 먼저(오버로드 함정). `_mine`은 service_role 전용.
 - 라벨 규칙(wtw_services): flatrate≥30편 **또는** flatrate 우세 → subscription; 아니면 free/ads 우세 → free; 나머지 → rent. (count-argmax 순정은 wavve[구독+렌트]를 rent로 오분류 → 이 하이브리드로 교정. YouTube→rent, Kanopy/Hoopla→free 유지.)
 
-### 기능 (원우 v2 피드백 전량 반영)
-얇은 히어로+위트 한 줄 · **좌측 필터 사이드바**(국가·서비스 3그룹·장르18 다중·연도[**기본 2000+**]·VPN·US도서관·hide-seen·reset; 모바일 드로어) · **2열 카드**(TS **좌측**·제목/연도·감독 링크[`director_slug ?? slugify`]·접근뱃지·**PosterActions 풀**[반개 별점·seen·watchlist]·**[Where to watch]**[/whereto/slug]·**[Details →]**[/film/slug]·펼침=FilmCardPanel) · **정렬 5축**(TakeScore·연도·제목·감독·국가)×**정순/역순** · **저장 뷰**(로그인=이름붙인 프리셋 다중 `wtw_saved_views`+`/api/wtw/views`; 비로그인=브라우저 `mt-marquee-cfg` 자동기억).
+### 기능 (원우 v2 + v2.1 피드백 전량 반영)
+얇은 히어로+위트 한 줄(**흰색**) · **상단 필터 바**(국가 select · **My services 팝오버**+옆에 Save view/My views · **Genres 팝오버**(18) · 연도[**기본 2000+**] · 정렬+정순역순 · **Options 팝오버**[VPN·US도서관·hide-seen] · Reset) · **2열 카드**(TS **좌측** · **PosterActions는 포스터 오버레이**[별점/seen/watchlist가 포스터 위, 호버 노출 — `.pa`가 absolute inset:0 pointer-events:none] · 제목/연도 · 감독 링크[`director_slug ?? slugify`] · 접근뱃지 · **[Where to watch]**[/whereto/slug]·**[Details →]**[/film/slug] · 펼침=FilmCardPanel) · **정렬 5축**(TakeScore·연도·제목·감독·국가)×**정순/역순** · **저장 뷰**(로그인=이름붙인 프리셋 다중 `wtw_saved_views`+`/api/wtw/views`; 비로그인=브라우저 `mt-marquee-cfg` 자동기억).
+- **⚠️ PosterActions는 반드시 position:relative 포스터 컨테이너 안에 둘 것**(standalone 렌더 시 `.pa-stars`가 세로로 튀어나오는 "이상한 별점 그리드" 버그 — v2.1에서 수정).
 
 ### 상태 원장 (중복/누락 방지)
 - ✅ 완료: 위 전부. rent 포함(`p_include_rent`)은 **렌트-라벨 서비스를 선택했을 때만** 켜짐(YouTube 등).
