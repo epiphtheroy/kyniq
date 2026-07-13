@@ -18,6 +18,12 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 HOURLY = REPO / "hourly"
 UA = "Mozilla/5.0 (compatible; MetatakeBot/1.0; +https://metatake.net/bot)"
+# Supabase's new-format secret keys (sb_secret_…) are rejected with 401
+# "Forbidden use of secret API key in browser" when the request carries a
+# Mozilla/* User-Agent (the gateway treats it as browser traffic). News
+# sources need the browser-like UA above, so Supabase calls send this plain
+# one instead. (Broke 2026-07-12 when keys rotated to the new format.)
+SB_UA = "MetatakeHourly/1.0 (+https://metatake.net)"
 
 
 def load_env() -> dict:
@@ -67,7 +73,7 @@ def sb_get(env: dict, path: str, *, service: bool = False) -> list | dict | None
     """GET {SUPABASE_URL}/rest/v1/{path}. Returns parsed JSON or None."""
     key = env["SUPABASE_SERVICE_ROLE_KEY" if service else "NEXT_PUBLIC_SUPABASE_ANON_KEY"]
     url = f"{env['NEXT_PUBLIC_SUPABASE_URL']}/rest/v1/{path}"
-    status, data = http(url, headers={"apikey": key, "Authorization": f"Bearer {key}"})
+    status, data = http(url, headers={"apikey": key, "Authorization": f"Bearer {key}", "User-Agent": SB_UA})
     if status != 200:
         return None
     try:
@@ -80,7 +86,7 @@ def sb_insert(env: dict, table: str, row: dict) -> tuple[bool, str]:
     key = env["SUPABASE_SERVICE_ROLE_KEY"]
     url = f"{env['NEXT_PUBLIC_SUPABASE_URL']}/rest/v1/{table}"
     status, data = http(url, method="POST", body=json.dumps(row).encode(),
-                        headers={"apikey": key, "Authorization": f"Bearer {key}",
+                        headers={"apikey": key, "Authorization": f"Bearer {key}", "User-Agent": SB_UA,
                                  "Content-Type": "application/json", "Prefer": "return=minimal"})
     return status in (200, 201), f"{status} {data[:300].decode('utf-8', 'ignore')}"
 
@@ -90,7 +96,7 @@ def sb_rpc(env: dict, fn: str, args: dict, *, service: bool = False):
     key = env["SUPABASE_SERVICE_ROLE_KEY" if service else "NEXT_PUBLIC_SUPABASE_ANON_KEY"]
     url = f"{env['NEXT_PUBLIC_SUPABASE_URL']}/rest/v1/rpc/{fn}"
     status, data = http(url, method="POST", body=json.dumps(args).encode(),
-                        headers={"apikey": key, "Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+                        headers={"apikey": key, "Authorization": f"Bearer {key}", "User-Agent": SB_UA, "Content-Type": "application/json"})
     if status != 200:
         return None
     try:
@@ -104,7 +110,7 @@ def sb_update(env: dict, table: str, filt: str, patch: dict) -> tuple[bool, str]
     key = env["SUPABASE_SERVICE_ROLE_KEY"]
     url = f"{env['NEXT_PUBLIC_SUPABASE_URL']}/rest/v1/{table}?{filt}"
     status, data = http(url, method="PATCH", body=json.dumps(patch).encode(),
-                        headers={"apikey": key, "Authorization": f"Bearer {key}",
+                        headers={"apikey": key, "Authorization": f"Bearer {key}", "User-Agent": SB_UA,
                                  "Content-Type": "application/json", "Prefer": "return=minimal"})
     return status in (200, 204), f"{status} {data[:300].decode('utf-8', 'ignore')}"
 

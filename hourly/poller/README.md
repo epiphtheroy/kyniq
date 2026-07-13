@@ -52,7 +52,7 @@ Run `poller.py` hourly for 3–5 days (cron below). Then read `poller/dryrun.log
 | :-- | :-- | :-- |
 | `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✓ | reads (entities, data packs) |
 | `SUPABASE_SERVICE_ROLE_KEY` | ✓ | insert into `now_articles` |
-| `ANTHROPIC_API_KEY` | ✓ | selector (sonnet) · writer (fable-5 + web search) · gate (sonnet) |
+| `ANTHROPIC_API_KEY` | ✓ | selector (sonnet) · writer (opus-4-8 + web search) · gate (sonnet) |
 | `NEXT_PUBLIC_SITE_URL` | ✓ | links, revalidate, IndexNow |
 | `REVALIDATION_SECRET` | ○ optional | instant ISR refresh after publish (without it, pages refresh within ~2 min anyway) |
 | `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHANNEL` | ○ optional | auto-post per piece |

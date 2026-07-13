@@ -8,7 +8,7 @@
 
 ## 1. What is being built, in one paragraph
 
-A beat-first keyword-chasing pipeline: detect, within minutes, what the world is searching in the film-and-culture territory, and publish within the hour the page only Metatake can produce — verified news facts plus the corpus's data record of the entities involved (honors, scores, tropes, connections, reception), under a named author with prominent timestamps. Detection is code (free RSS/API polling + entity matching against our own DB); the data pack is deterministic SQL; the writing is one Fable 5 call; publishing is automated behind a hard gate with async human review. Volume is capped at 2–4/day by threshold, per the hold rule.
+A beat-first keyword-chasing pipeline: detect, within minutes, what the world is searching in the film-and-culture territory, and publish within the hour the page only Metatake can produce — verified news facts plus the corpus's data record of the entities involved (honors, scores, tropes, connections, reception), under a named author with prominent timestamps. Detection is code (free RSS/API polling + entity matching against our own DB); the data pack is deterministic SQL; the writing is one Opus 4.8 call; publishing is automated behind a hard gate with async human review. Volume is capped at 2–4/day by threshold, per the hold rule.
 
 ## 2. Components
 
@@ -30,7 +30,7 @@ data-pack builder (deterministic SQL, no LLM)
    │  anchor entity → honors/lineage, TakeScore, tropes/figures,
    │  connections, filmography-in-corpus, atlas, reception — with verified URLs
    ▼
-writer (one Fable 5 call, web_search tool on)
+writer (one Opus 4.8 call, web_search tool on)
    │  production prompt = README.md v2 format + data pack + anti-repetition digest
    │  every corpus claim must come from the pack (nothing remembered)
    ▼
@@ -47,7 +47,7 @@ ledger.md append + signals snapshot
 
 - **Poller is code, not LLM.** 24 runs/day of RSS+API polling and scoring costs nothing and never hallucinates a trend. LLM spend only happens when a threshold-passing spike exists.
 - **Existing plumbing reused:** Supabase MCP/REST for film verification (same queries as substack README), metatake.net's IndexNow key + sitemap infra, the auto-deploy watcher for site content, the Cowork-style scheduled-job pattern for the daily curation pass.
-- **Model calls per published piece:** 1 selector (light) + 1 writer (Fable 5 + web search) + 1 gate (light). At 8–14 pieces/day this is real-time API territory, not Batch (matches the standing rule: pilots and low-volume runs are sync).
+- **Model calls per published piece:** 1 selector (light) + 1 writer (Opus 4.8 + web search) + 1 gate (light). At 8–14 pieces/day this is real-time API territory, not Batch (matches the standing rule: pilots and low-volume runs are sync).
 
 ## 3. Signal stack (summary — full comparison in TREND-SOURCES.md)
 
@@ -81,7 +81,7 @@ Spike is measured as *velocity*, not size: a keyword at 200K searches still clim
 | Item | Est. |
 | :-- | :-- |
 | Signal polling (Trends RSS, outlet RSS fleet, GDELT, Reddit OAuth, Wikipedia, Bluesky) | $0 |
-| Writer: 2–4 Fable 5 calls/day with web search (~15–40K tok each) | ~$1–4/day |
+| Writer: 2–4 Opus 4.8 calls/day with web search (~15–40K tok each) | ~$1–4/day |
 | Selector + gate light-model calls | ~$0.5/day |
 | Data-pack builder (SQL only) | $0 |
 | Distribution: Bluesky/Telegram/Mastodon (X dropped — decision 2026-07-08) | $0 |

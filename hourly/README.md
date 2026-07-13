@@ -24,7 +24,7 @@ v2 supersedes v1's fusion recipe after the case-evidence review (`FORECAST.md`):
 | :-- | :-- | :-- |
 | :00–:05 | **DETECT** | Poll the signal stack (`TREND-SOURCES.md`). Build candidate clusters: keyword(s) + best sources + spike score. |
 | :05–:12 | **SELECT** | Entity-match against the corpus (the beat gate). Score the survivors (rubric below). Publish only if top candidate clears the **publish threshold** AND today's count < 4. Otherwise **PASS the hour** (log why). Expect most hours to pass — that is the design, not a failure. |
-| :12–:38 | **RESEARCH & DRAFT** | Fetch the anchor entity's corpus data (data pack, below). One Fable 5 call, web search on: ≥2 searches to verify facts beyond the primary source, then write to the format. Anti-repetition digest injected. |
+| :12–:38 | **RESEARCH & DRAFT** | Fetch the anchor entity's corpus data (data pack, below). One Opus 4.8 call, web search on: ≥2 searches to verify facts beyond the primary source, then write to the format. Anti-repetition digest injected. |
 | :38–:45 | **GATE** | Automated: defamation firewall, unverified assertions, copyright overlap, **every data claim checked against the data pack**, link resolution (200s), length bounds, timestamp block present. One regeneration on failure; two → kill, log. |
 | :45–:50 | **PUBLISH** | Insert to `now_articles` → `/now/<slug>` live. Distribution burst (`DISTRIBUTION.md`): news-sitemap + RSS regenerate, IndexNow, Bluesky/Telegram posts. **No X.** |
 | :50–:60 | **DEPOSIT** | `ledger.md` append (keyword · entity · lane · data modules used · channel status). Signal snapshot to `signals/`. |
