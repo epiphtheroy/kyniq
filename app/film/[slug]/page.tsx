@@ -9,6 +9,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import FilmTabBar, { type FilmTab } from "@/components/FilmTabBar";
 import ShareDock from "@/components/ShareDock";
 import DownloadPackModal from "@/components/DownloadPackModal";
+import McpConnectButton from "@/components/McpConnectButton";
 import { PACK_SECTIONS } from "@/lib/pack";
 import PosterActions from "@/components/PosterActions";
 import SaveChip from "@/components/SaveChip";
@@ -1190,6 +1191,7 @@ export default async function FilmPage({ params }: Props) {
                 <MovieListActions filmId={film.id} />
                 <EntityActions entityType="film" entityId={film.id} />
                 {packVisible && packSecs.length > 0 ? <DownloadPackModal slug={film.slug} sections={packSecs} variant="hero" /> : null}
+                {packVisible && packSecs.length > 0 ? <McpConnectButton title={film.title} variant="hero" /> : null}
               </div>
               <div className="df-share">
                 <ShareDock variant="bar" noSave path={`/film/${film.slug}`} title={`${film.title}${film.year ? ` (${film.year})` : ""}`}
@@ -1235,7 +1237,7 @@ export default async function FilmPage({ params }: Props) {
           <FilmTabBar
             tabs={tabs}
             twoRow
-            {...((film as { visible?: boolean }).visible !== false ? { packSlug: film.slug, packDownload: true } : {})}
+            {...((film as { visible?: boolean }).visible !== false ? { packSlug: film.slug, packDownload: true, packTitle: film.title } : {})}
           />
         ) : null}
 

@@ -67,10 +67,12 @@ export default function McpPage() {
           <li><strong>get_takescore</strong> — just the 13-dimension Value / Cost / Risk assessment.</li>
           <li><strong>find_connected_films</strong> — kindred films that share interpretive threads, for &ldquo;what next after X&rdquo; questions.</li>
         </ul>
-        <p>
-          Try: <em>&ldquo;Search Metatake for Mulholland Drive, then give me its strongest reading and
-          three kindred films.&rdquo;</em>
-        </p>
+        <p>Try these prompts once connected:</p>
+        <ul>
+          <li><em>&ldquo;Search Metatake for Mulholland Drive, then give me its strongest reading and three kindred films.&rdquo;</em></li>
+          <li><em>&ldquo;Compare the TakeScores of the Three Colors trilogy on Metatake — which has the highest Value, and what does the Cost axis say about each?&rdquo;</em></li>
+          <li><em>&ldquo;I loved In the Mood for Love. Use Metatake to find connected films and explain the interpretive threads they share.&rdquo;</em></li>
+        </ul>
 
         <h2 className="mt-h2">License &amp; fair use</h2>
         <p>

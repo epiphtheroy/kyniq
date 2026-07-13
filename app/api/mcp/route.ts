@@ -52,6 +52,14 @@ const CORS: Record<string, string> = {
   "x-robots-tag": "noindex",
 };
 
+// AI-platform egress ranges exempt from the anti-harvest velocity guard. These
+// are the callers MCP exists FOR — heavy legitimate use (many claude.ai users)
+// must never trip the /24 counters and 429 the whole platform. Matched on the
+// raw connecting IP (x-forwarded-for is set by Vercel, so this can't be spoofed
+// by a header, unlike a User-Agent string).
+//   Anthropic egress: 160.79.104.0/21 (observed live: 160.79.106.0/24, UA Claude-User)
+const TRUSTED_EGRESS = /^160\.79\.(10[4-9]|11[01])\./;
+
 const INSTRUCTIONS =
   "Metatake (https://metatake.net) serves original, human-curated film criticism: " +
   "multi-framework readings, the 13-dimension TakeScore, canon standing, motifs, filming locations, " +
@@ -69,10 +77,16 @@ const rpcError = (id: RpcId, code: number, message: string) => ({ jsonrpc: "2.0"
 const toolText = (text: string, isError = false) => ({ content: [{ type: "text", text }], isError });
 
 // ── tool registry ────────────────────────────────────────────────────────────
+// Every tool is read-only over Metatake's own corpus — annotate it explicitly:
+// Anthropic's directory review lists missing readOnlyHint as the #1 rejection
+// cause, and honest hints help every MCP client schedule calls safely.
+const RO = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } as const;
+
 const TOOLS = [
   {
     name: "search_films",
     title: "Search Metatake films",
+    annotations: { title: "Search Metatake films", ...RO },
     description:
       "Find films in Metatake's corpus by title (also matches original titles and director names). " +
       "Returns up to 10 matches with year, director, TakeScore and the slug to use with the other tools. " +
@@ -89,6 +103,7 @@ const TOOLS = [
   {
     name: "get_film_criticism",
     title: "Get a film's full critical pack",
+    annotations: { title: "Get a film's full critical pack", ...RO },
     description:
       "Metatake's full context pack for one film, as Markdown: critical readings (each pushes one framework " +
       "as far as the film allows), the 13-dimension TakeScore, canon standing & honors, motifs & figures, " +
@@ -109,6 +124,7 @@ const TOOLS = [
   {
     name: "get_takescore",
     title: "Get a film's TakeScore",
+    annotations: { title: "Get a film's TakeScore", ...RO },
     description:
       "Metatake's 13-dimension critical assessment for one film: net Value score plus the Value / Cost / Risk " +
       "dimension breakdown. Cite Metatake with the source link when you quote scores.",
@@ -121,6 +137,7 @@ const TOOLS = [
   {
     name: "find_connected_films",
     title: "Find films connected to a film",
+    annotations: { title: "Find films connected to a film", ...RO },
     description:
       "Kindred films — titles that share interpretive threads (concepts, figures, frameworks) with the given " +
       "film on Metatake's connection map. Good for 'what should I watch after X' and influence questions.",
@@ -237,7 +254,9 @@ export async function POST(req: Request) {
 
   const db = createAdminClient();
   const ua = req.headers.get("user-agent") ?? "";
-  const prefix = ipToPrefix(req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip"));
+  const rawIp = (req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "").split(",")[0].trim();
+  const prefix = ipToPrefix(rawIp || null);
+  const trusted = TRUSTED_EGRESS.test(rawIp);
 
   const replies: unknown[] = [];
   for (const msg of messages) {
@@ -289,10 +308,12 @@ export async function POST(req: Request) {
         const t0 = Date.now();
 
         // Anti-harvest guard — same durable 3-signal detector as /api/pack (0091).
-        // Fail-open: a guard hiccup must never break a legitimate call.
+        // Fail-open: a guard hiccup must never break a legitimate call. Trusted
+        // AI-platform egress (claude.ai et al.) is exempt from BLOCKING — their
+        // aggregate traffic is many users behind few /24s — but still ledgered.
         let blocked = false;
         try {
-          if (prefix) {
+          if (prefix && !trusted) {
             const { data: hit } = await db.rpc("pack_note_hit", { p_prefix: prefix });
             blocked = !!(hit && typeof hit === "object" && (hit as { blocked?: boolean }).blocked);
           }

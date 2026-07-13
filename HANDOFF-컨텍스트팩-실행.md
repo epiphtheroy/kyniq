@@ -12,7 +12,9 @@
 
 **W1에서 실제로 나간 것:** `film_context_pack(slug,tier)`+`film_context_pack_trim` RPC(마이그 0085, full=service_role 전용·trim=anon 경계 라이브 검증), `lib/pack.ts` 렌더러, `GET /api/pack/[slug]?tier=&fmt=`(trim만·full은 403·null은 404·X-Robots noindex), `components/CopyForAI.tsx`(Tier-1 히어로 df-share, visible=true 게이트), 기술부채 3건(tmp-sql CORS 제거·middleware /api/* 분리·backfill 하드닝). 5-렌즈 적대적 리뷰 통과(§12).
 
-**읽는 순서:** 본 문서 전체 → (배경이 궁금할 때만) `docs/HANDOFF-데이터사업-마스터.md` → `docs/PLAN-ai-context-packs.md`. 코드 착수 전 §2(실측 정정)·§5(화이트리스트)·§10(금지)을 반드시 숙지.
+**⚠️ 2026-07-13 델타 (팩 라우트 동작 변경 — 팩 작업 전 필독):** ① `/api/pack/[slug]`에 **3층 수확 방어** 적용: 미들웨어가 `/api/pack`·`/api/mcp`에 BAD_UA+`bot_blocks` 403 · 마이그 **0091 `pack_note_hit`** 3-신호 가드(rate 150/10분·volume 600/일·persist 300/일 over 3h → bot_blocks 자동 24h~30d) · **`fmt=json`은 이제 로그인 게이트**(+응답 `private, no-store` — md 복사는 전부 무료 유지). Anthropic 이그레스 160.79.104.0/21은 차단 면제. ② `lib/pack.ts`에 `citeLine()`(기계지향 저작표시 지시문) — 복사/다운로드/MCP 3경로 공통 footer, 사이트 푸터에 CC BY-NC 스탬프. ③ 팩의 채널 ②(답변시점 인용) 확장 = **공개 MCP 서버**(`/api/mcp`, 팩 렌더러 재사용) + film 페이지 "Metatake in Your AI" 버튼 2곳 + 공식 MCP Registry 등록. **MCP 층 정본 = 루트 `HANDOFF-MCP-서버.md`** (전략·가드·원장·함정·등록 전부 거기). AI 유입 측정 = 마이그 0092 + /admin/metrics "AI 유입" 패널. 마이그 0091~0094 소진 — **다음 free = 0095.**
+
+**읽는 순서:** 본 문서 전체 → (배경이 궁금할 때만) `docs/HANDOFF-데이터사업-마스터.md` → `docs/PLAN-ai-context-packs.md`. 코드 착수 전 §2(실측 정정)·§5(화이트리스트)·§10(금지)을 반드시 숙지. **MCP/봇방어/저작표시 쪽 작업은 루트 `HANDOFF-MCP-서버.md`가 정본.**
 
 **한 줄 요약:** 영화 페이지마다 "Copy for AI" 버튼(무료·무로그인, 트림판 마크다운 클립보드) → 로그인 후 풀팩 다운로드(월 10편 무료, .md/.json, 섹션 토글) → Creator Pass $9/월 무제한. 모든 파일에 출처 라인. 90일 클릭 데이터로 API 승격 판정.
 
