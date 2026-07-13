@@ -34,10 +34,11 @@ export const metadata: Metadata = {
       // Bing Webmaster Tools (also verifiable via public/BingSiteAuth.xml — same token)
       "msvalidate.01": "B19CC42557D19874EA92BD9497BB2F68",
       // Naver Search Advisor (searchadvisor.naver.com, property https://metatake.net).
-      // Hardcoded like Google/Bing above (verification tokens are public). Env var
-      // NAVER_SITE_VERIFICATION overrides it if the property is ever re-registered.
-      "naver-site-verification":
-        process.env.NAVER_SITE_VERIFICATION || "b2140ad0730191ac272895f2cde3ba6c0b226e0f",
+      // Hardcoded like Google/Bing above — verification tokens are public. Just the
+      // token, not the surrounding <meta ...> tag (Next wraps it). NB: do NOT read
+      // this from an env var — a malformed `content="…"` value once shipped a broken
+      // double-wrapped tag; the literal token is the single source of truth.
+      "naver-site-verification": "b2140ad0730191ac272895f2cde3ba6c0b226e0f",
     },
   },
   icons: {
