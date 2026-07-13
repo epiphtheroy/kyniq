@@ -1,8 +1,41 @@
 # HANDOFF — What to Watch ("The Marquee") · 구독-중심 시청 의사결정 메뉴 (단일 정본)
 
-> **📝 기획 완료 · 구축 대기 (2026-07-12, 원우 지시).** 이 문서가 정본. 구축은 다른 에이전트가 수행.
-> 라벨 **"What to Watch"** / 라우트 **`/what-to-watch`** / 편집 별칭 **"The Marquee"**. 나브 **Wander 그룹, TakeScore 옆**(원우 확정).
-> 관련 정본: `HANDOFF-테이크스코어-스크리너.md`(엔진·데이터·RPC의 부모 문서 — **먼저 읽을 것**), `HANDOFF-마이필름-렌즈.md`(개인화 불변식), `app/where-to-watch/`(자매 메뉴).
+> **✅ SHIPPED · 라이브 (2026-07-13). v1 → v2 리디자인까지 배포·검증 완료.** 이 문서가 정본.
+> 라벨 **"What to Watch"** / 라우트 **`/what-to-watch`** / 편집 별칭 **"The Marquee"**. 나브 **Wander 그룹, TakeScore 옆**.
+> 관련 정본: `HANDOFF-테이크스코어-스크리너.md`(엔진·데이터·RPC의 부모 문서), `HANDOFF-마이필름-렌즈.md`(개인화 불변식), `app/where-to-watch/`+`app/whereto/[slug]/`(자매 메뉴).
+>
+> **§0~§11은 원래 기획서(설계 근거·의도)이며 아래 "AS-BUILT"가 실제 구현 상태의 정본이다. 이 메뉴 작업은 AS-BUILT부터 읽을 것 — 중복 재구축 금지.**
+
+---
+
+## AS-BUILT (실제 구현 상태 — 정본, 2026-07-13)
+
+**커밋:** v1 `5bae1e7` (2026-07-13) → **v2 리디자인 `571e099`** (2026-07-13, 현재 라이브). 모두 main 직배포(fast-forward)·Vercel 프로덕션·`metatake.net/what-to-watch` 렌더 검증 완료.
+
+### 파일 맵 (전부 실존)
+- **페이지(서버·ISR 300s)** `app/what-to-watch/page.tsx` — 전역 top-TakeScore SSR(크롤 백본) + `MarqueeExplorer`에 위임. `wtw_countries()`로 시청국 목록.
+- **클라이언트** `components/marquee/MarqueeExplorer.tsx` (v2 정본) — 좌측 필터 사이드바 + 2열 카드 그리드. 상태 전부 여기.
+- `components/marquee/ServicesPicker.tsx` — `wtw_services()` 로드 → **Subscription/Free/Rent 그룹** 라벨 멀티셀렉트(유튜브·무료 포함).
+- `components/marquee/AccessBadges.tsx` — 카드 접근 뱃지(🟢Subscription/🔵Free/🟡Rent, 티어어 명시, VPN 시 국기).
+- **스타일** `app/what-to-watch/marquee.css` (`.mq2*` 스코프) + `../takescore/screener.css` 임포트(FilmCardPanel `.scr-card*` + PosterActions `.pa*` 재사용).
+- `lib/wtw_library.ts` (Kanopy=191·Hoopla=212), `lib/wtw_genres.ts` (18장르 vocab).
+- **API** `app/api/lens/marquee/route.ts` (hide-seen exclude 미러, service_role `_mine`), `app/api/wtw/views/route.ts` (저장 뷰 GET/POST/DELETE).
+- 나브 `components/home2/Nav.tsx` (Wander·TakeScore 옆), 사이트맵 `lib/sitemap-data.ts`.
+- **커튼(펼침)** = `components/screener/FilmCardPanel.tsx` 재사용(cinecodex_card RPC — 실제 TakeScore 감정패널: 도넛+13차원+외부평점+제공자).
+
+### DB (마이그레이션 2개, 프로덕션 적용·검증 완료)
+- **0095_marquee_availability.sql** — `cinecodex_ranked`/`_mine` **v10**(+`p_watch_countries text[]`·`p_include_us_library boolean`), `film_availability()`(뱃지 장식 RPC), `wtw_countries()`, `fpi_rebuild()`에 rent/buy 편입(916,277행).
+- **0096_wtw_redesign.sql** — **v11**(추가 tail: `p_genres text[]`·`p_dir text('asc'|'desc')`·`p_include_rent boolean`; 정렬 `director`/`country` 추가; **행에 `director_slug` 방출**), `wtw_services(p_country,p_per_group)`(라벨=구독/무료/렌트, YouTube·렌트스토어 포함, library 플래그), `wtw_saved_views` 테이블(own-row RLS).
+- **⚠️ 불변식: v10/v11 신규 인자 전부 default → 기본값이 이전 버전과 동일 → Screener/`/api/lens/takescore`/기존 호출 무해(검증: 전역 total 6,704 불변·함수 오버로드 0).** 시그니처 변경 시 구 시그니처 `drop` 먼저(오버로드 함정). `_mine`은 service_role 전용.
+- 라벨 규칙(wtw_services): flatrate≥30편 **또는** flatrate 우세 → subscription; 아니면 free/ads 우세 → free; 나머지 → rent. (count-argmax 순정은 wavve[구독+렌트]를 rent로 오분류 → 이 하이브리드로 교정. YouTube→rent, Kanopy/Hoopla→free 유지.)
+
+### 기능 (원우 v2 피드백 전량 반영)
+얇은 히어로+위트 한 줄 · **좌측 필터 사이드바**(국가·서비스 3그룹·장르18 다중·연도[**기본 2000+**]·VPN·US도서관·hide-seen·reset; 모바일 드로어) · **2열 카드**(TS **좌측**·제목/연도·감독 링크[`director_slug ?? slugify`]·접근뱃지·**PosterActions 풀**[반개 별점·seen·watchlist]·**[Where to watch]**[/whereto/slug]·**[Details →]**[/film/slug]·펼침=FilmCardPanel) · **정렬 5축**(TakeScore·연도·제목·감독·국가)×**정순/역순** · **저장 뷰**(로그인=이름붙인 프리셋 다중 `wtw_saved_views`+`/api/wtw/views`; 비로그인=브라우저 `mt-marquee-cfg` 자동기억).
+
+### 상태 원장 (중복/누락 방지)
+- ✅ 완료: 위 전부. rent 포함(`p_include_rent`)은 **렌트-라벨 서비스를 선택했을 때만** 켜짐(YouTube 등).
+- ⛔ 미구현(의도적): P4의 (선택)TS 분포 브러시 — 안 만듦(불필요 판단). "My 스트립"은 저장 뷰로 대체.
+- ⚠️ 함정: SSR은 전역(개인화 0)·클라가 `mt-marquee-cfg`(풀 config)+`mt-watch-prefs`(country/providers, Screener와 공유) 로드 후 재랭크 · `film_availability`는 rent 뱃지를 **선택 provider가 p_providers에 있을 때만** 방출 · anon 8s statement_timeout · 배포순서 **마이그 먼저→코드 병합**(신규 RPC 없으면 라이브 500).
 
 ---
 
