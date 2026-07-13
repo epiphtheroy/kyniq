@@ -48,6 +48,9 @@ export default function Footer() {
             <Link href="/mcp" className="footer-link">
               MCP for AI
             </Link>
+            <Link href="/api" className="footer-link">
+              API &amp; embeds
+            </Link>
             <Link href="/contact" className="footer-link">
               Contact
             </Link>
