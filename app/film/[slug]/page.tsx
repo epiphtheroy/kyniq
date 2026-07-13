@@ -26,6 +26,7 @@ import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
 import StillHero from "@/components/StillHero";
 import BroadcastCard from "@/components/BroadcastCard";
+import StillStrip from "@/components/StillStrip";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -965,7 +966,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -1033,6 +1034,11 @@ export default async function FilmPage({ params }: Props) {
   const heroStills = heroGallery.length
     ? pickStills(heroGallery, `${film.slug}:hero`, 4)
     : (film.backdrop_path ? [film.backdrop_path] : []);
+  // In-body still strip (unified next/prev lightbox) — a different pick than the
+  // hero so the page doesn't repeat itself. These are the film's own stills, so
+  // no "may not be related" disclaimer (disclaim={false}).
+  const stripStills = pickStills(heroGallery, `${film.slug}:strip`, 3)
+    .map((p) => ({ path: p, filmTitle: film.title, filmYear: film.year }));
   // Tabs carry a spoiler `zone` (2026-07-09): the top rail is safe to read
   // before watching, the bottom rail (the close readings) discusses specific
   // scenes and endings. Order within each zone runs decide → context → record
@@ -1356,12 +1362,8 @@ export default async function FilmPage({ params }: Props) {
           </section>
         ) : null}
 
-        {stills.length > 0 ? (
-          <div className="df-stills">
-            {stills.map((s) => (
-              <LightboxImage key={s.id} src={s.thumbnail_url ?? s.url} fullUrl={s.url} alt={s.title ?? `${film.title} still`} className="df-still" caption={`${film.title} — still · TMDB`} />
-            ))}
-          </div>
+        {stripStills.length > 0 ? (
+          <StillStrip stills={stripStills} topic={`${film.title}${film.year ? ` (${film.year})` : ""}`} disclaim={false} />
         ) : null}
 
         {/* FIGURES — grouped by kind */}

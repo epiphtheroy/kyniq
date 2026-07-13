@@ -3856,6 +3856,29 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .bcast--live .bcast-note{margin:10px 0 0; font-size:12px; line-height:1.55; color:var(--muted,#6b7280); max-width:74ch}
 .bcast--live .bcast-note .bcast-open{color:#fff; padding:3px 11px; font-size:12px; margin-left:2px}
 
+/* StillStrip — in-body film stills + shared next/prev lightbox. Captions carry
+   the source title, TMDB credit, the page topic, and the "illustrative" note. */
+.slx{margin:22px 0}
+.slx-head{font-size:13px; font-weight:700; letter-spacing:.02em; color:var(--muted,#6b7280); margin:0 0 10px; text-transform:uppercase}
+.slx-row{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px}
+.slx-fig{margin:0; min-width:0}
+.slx-open{position:relative; display:block; width:100%; border:0; padding:0; cursor:zoom-in; background:transparent; border-radius:8px; overflow:hidden}
+.slx-open img{display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px}
+.slx-zoom{position:absolute; top:8px; right:8px; width:26px; height:26px; display:grid; place-items:center; border-radius:6px; background:rgba(0,0,0,.55); color:#fff; font-size:13px; opacity:.85; transition:background .15s,opacity .15s}
+.slx-open:hover .slx-zoom{opacity:1; background:#C8102E}
+.slx-cap{margin-top:6px; display:flex; flex-direction:column; gap:1px; font-size:11px; line-height:1.4}
+.slx-cap__src{color:var(--muted,#6b7280); font-weight:600}
+.slx-cap__note{color:var(--muted,#6b7280); opacity:.68}
+.slx-lb{position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.92); display:flex; align-items:center; justify-content:center; padding:24px}
+.slx-lb__fig{margin:0; max-width:min(1100px,94vw); max-height:90vh; display:flex; flex-direction:column; gap:10px}
+.slx-lb__fig img{max-width:100%; max-height:80vh; object-fit:contain; border-radius:6px}
+.slx-lb__fig figcaption{color:#cbd2dc; font-size:12px; line-height:1.5; text-align:center}
+.slx-lb__count{opacity:.7}
+.slx-lb__x{position:fixed; top:16px; right:18px; z-index:2; border:0; background:rgba(255,255,255,.12); color:#fff; width:38px; height:38px; border-radius:999px; font-size:16px; cursor:pointer}
+.slx-lb__nav{position:fixed; top:50%; transform:translateY(-50%); z-index:2; border:0; background:rgba(255,255,255,.12); color:#fff; width:46px; height:46px; border-radius:999px; font-size:26px; cursor:pointer; line-height:1}
+.slx-lb__nav--l{left:16px} .slx-lb__nav--r{right:16px}
+.slx-lb__x:hover,.slx-lb__nav:hover{background:rgba(255,255,255,.25)}
+
 /* PlaylistTVEmbed — a METATAKE TV watch list embedded in an axis page */
 .pltv{margin-top:26px}
 .pltv-tag{font-size:13px; color:var(--muted,#6b7280); margin:2px 0 12px}
