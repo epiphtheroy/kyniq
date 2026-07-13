@@ -37,6 +37,8 @@
 - ✅ 완료: 위 전부. rent 포함(`p_include_rent`)은 **렌트-라벨 서비스를 선택했을 때만** 켜짐(YouTube 등).
 - ⛔ 미구현(의도적): P4의 (선택)TS 분포 브러시 — 안 만듦(불필요 판단). "My 스트립"은 저장 뷰로 대체.
 - ⚠️ 함정: SSR은 전역(개인화 0)·클라가 `mt-marquee-cfg`(풀 config)+`mt-watch-prefs`(country/providers, Screener와 공유) 로드 후 재랭크 · `film_availability`는 rent 뱃지를 **선택 provider가 p_providers에 있을 때만** 방출 · anon 8s statement_timeout · 배포순서 **마이그 먼저→코드 병합**(신규 RPC 없으면 라이브 500).
+- ⚠️ **CSS 명시도**: 히어로 문단은 globals `.mt p { color: var(--ink) }`(0,1,1)가 이겨서 검정 히어로 위에 안 보임 → `.mq-hero2 .mq-witty`(0,2,0)로 흰색 강제(0096 후 105ff89→9881b2a 수정). `.mt` 래퍼 안 텍스트는 이 함정 주의.
+- ⚠️ **국가 목록 SSR 신뢰 금지**: `wtw_countries` SSR 값이 (DB 과부하 시점 렌더→ISR 캐시로) 빈 배열로 굳어 국가 셀렉터가 옵션 0개가 될 수 있음 → **MarqueeExplorer가 SSR 목록 비면 클라이언트에서 `wtw_countries` 직접 fetch**(9881b2a). 셀렉터 min-width도 지정(플렉스 붕괴 방지).
 
 ---
 
