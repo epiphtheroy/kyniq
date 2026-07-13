@@ -1,0 +1,15 @@
+{
+  "title": "Metatake Film Filming-Locations Dataset",
+  "description": "<p>A structured, geocoded map of where films were shot and set: 17,341 locations across 1,917 films and 130 countries, each with WGS-84 coordinates. Distinguishes the <em>filmed</em> location from the <em>narrative setting</em> and records each place's role in the film. Curated and published by Metatake (https://metatake.net), an independent film-criticism platform. Fields include film ids (slug, IMDb, TMDB), place name, role, narrative setting, layer, kind, country, latitude, longitude, precision, and confidence. Method: https://metatake.net/methodology#locations</p>",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "cc-by-nc-4.0",
+  "keywords": ["film", "cinema", "filming locations", "geodata", "film studies", "cultural heritage", "geolocation"],
+  "creators": [
+    { "name": "Metatake", "affiliation": "metatake.net" }
+  ],
+  "related_identifiers": [
+    { "identifier": "https://metatake.net", "relation": "isSupplementTo", "resource_type": "other" },
+    { "identifier": "https://metatake.net/api", "relation": "isDocumentedBy", "resource_type": "other" }
+  ]
+}
