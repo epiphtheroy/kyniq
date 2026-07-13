@@ -3,6 +3,8 @@ import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
 import { cachedLocationsEligibility } from "@/lib/locations";
 import { Card, SectionHead } from "@/components/curious/ui";
+import BroadcastCard from "@/components/BroadcastCard";
+import { playlistExists } from "@/lib/tvExists";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -66,6 +68,8 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
   const data = await loadPlates(slug);
   if (!data) return null;
   const { director, films, facts, picks, next, hasLocations, honors, reception, takes } = data;
+  const tvPlaylist = `director-${slug}`;
+  const hasTv = await playlistExists(tvPlaylist);
 
   type Plate = { key: string; href: string; tag: string; title: string };
   const plates: Plate[] = [];
@@ -87,6 +91,18 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
   const lead = `${director}'s filmography on Metatake — every film with its readings, figures and tropes, filming locations and TakeScore, plus where to start, who to watch next, and the record of awards and reception.`;
 
   return (
+    <>
+      {hasTv ? (
+        <div className="cur-wrap">
+          <BroadcastCard
+            playlist={tvPlaylist}
+            watchHref={`/tv/list/${tvPlaylist}`}
+            poster={films[0]?.backdrop_path ?? null}
+            title={`Watch ${director} on METATAKE TV`}
+            theme={`${director}'s films as compiled audiovisual readings — our criticism played over each film's images.`}
+          />
+        </div>
+      ) : null}
     <div
       className="cur rd-plates"
       style={{ minHeight: 0, marginTop: 48, borderTop: "3px solid var(--cur-accent)", padding: "4px 0 46px" }}
@@ -137,5 +153,6 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
         ) : null}
       </div>
     </div>
+    </>
   );
 }

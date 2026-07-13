@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { hubExploreData, type HubKind } from "@/lib/hubExplore";
+import BroadcastCard from "@/components/BroadcastCard";
+import { playlistExists } from "@/lib/tvExists";
 
 /**
  * HubExplore — the "Keep exploring" footer for entity/category hub pages
@@ -14,7 +16,22 @@ export default async function HubExplore({ kind, slug }: { kind: HubKind; slug: 
   if (!data) return null;
   const { intro, siblings, browse, crossLinks } = data;
 
+  // A playable broadcast reel exists for some kinds (genre, lineage, …). Gated so
+  // kinds/slugs without a compiled playlist show nothing. Click-to-play (no iframe).
+  const tvPlaylist = `${kind}-${slug}`;
+  const hasTv = await playlistExists(tvPlaylist);
+
   return (
+    <>
+      {hasTv ? (
+        <BroadcastCard
+          playlist={tvPlaylist}
+          watchHref={`/tv/list/${tvPlaylist}`}
+          poster={null}
+          title="Watch these films on METATAKE TV"
+          theme="A reel of compiled audiovisual readings — our criticism played over each film's images."
+        />
+      ) : null}
     <section aria-label="Keep exploring" style={{ borderTop: "2px solid #16233F", marginTop: 44, paddingTop: 10 }}>
       <h2 className="df-h2" style={{ marginTop: 16, fontSize: 24 }}>Keep exploring</h2>
       <p className="df-sub" style={{ marginBottom: siblings.length ? 14 : 8 }}>{intro}</p>
@@ -38,5 +55,6 @@ export default async function HubExplore({ kind, slug }: { kind: HubKind; slug: 
         ))}
       </p>
     </section>
+    </>
   );
 }
