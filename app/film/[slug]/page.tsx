@@ -24,8 +24,8 @@ import CinecodexPanel, { type Codex, type FilmSubscores } from "@/components/Cin
 import TowCard, { loadTow } from "@/components/read/TowCard";
 import FilmRecommendedBy from "@/components/FilmRecommendedBy";
 import InviteVideo from "@/components/InviteVideo";
-import FilmHeroReel from "@/components/FilmHeroReel";
-import FilmTVHero from "@/components/FilmTVHero";
+import StillHero from "@/components/StillHero";
+import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import LightboxImage from "@/components/LightboxImage";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import ConnectionDesk from "@/components/ConnectionDesk";
@@ -964,7 +964,7 @@ export default async function FilmPage({ params }: Props) {
       </div>
     );
   }
-  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, stills, trailer, videos, heroPoster, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
+  const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, stills, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -1025,6 +1025,13 @@ export default async function FilmPage({ params }: Props) {
   // METATAKE TV — the film's compiled broadcast (replaces the hero trailer and
   // adds a tab linking to the full /tv/[slug] page). Cheap cached exists-probe.
   const hasProgram = await filmHasProgram(film.slug);
+  // Image-first hero (2026-07-14): up to 4 stills, calm cross-fade — no autoplay
+  // trailer <iframe> (Google flagged those "not on a watch page"). The video lives
+  // on /tv/[slug]; a "▶ Watch on METATAKE TV" pill links there when a broadcast exists.
+  const heroGallery = await filmBackdropPaths(film.tmdb_id);
+  const heroStills = heroGallery.length
+    ? pickStills(heroGallery, `${film.slug}:hero`, 4)
+    : (film.backdrop_path ? [film.backdrop_path] : []);
   // Tabs carry a spoiler `zone` (2026-07-09): the top rail is safe to read
   // before watching, the bottom rail (the close readings) discusses specific
   // scenes and endings. Order within each zone runs decide → context → record
@@ -1147,13 +1154,19 @@ export default async function FilmPage({ params }: Props) {
           {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
         </div>
 
-        {/* HERO — the film's METATAKE TV broadcast when one is compiled (a video essay
-            over the trailer); else the autoplay (muted) trailer reel; else the colour backdrop */}
-        <section className={`df-hero${videos.length || hasProgram ? " df-hero--vid" : ""}`}>
-          {hasProgram ? (
-            <FilmTVHero slug={film.slug} videos={videos} poster={heroPoster ?? undefined} backdrop={film.backdrop_path} />
-          ) : videos.length ? (
-            <FilmHeroReel videos={videos} poster={heroPoster ?? undefined} start={7} />
+        {/* HERO — image-first: up to 4 film stills (calm cross-fade + Ken Burns).
+            No autoplay trailer <iframe> (those were flagged "not on a watch page");
+            the broadcast lives on /tv/[slug], linked via the "▶ Watch" pill. */}
+        <section className={`df-hero${heroStills.length ? " df-hero--vid" : ""}`}>
+          {heroStills.length ? (
+            <StillHero
+              stills={heroStills}
+              label={`${film.title} — stills`}
+              watchHref={hasProgram ? `/tv/${film.slug}` : undefined}
+              shell="bare"
+              max={4}
+              calm
+            />
           ) : film.backdrop_path ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} width={780} height={439} />

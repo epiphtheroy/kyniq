@@ -19,26 +19,31 @@ export default function StillHero({
   watchHref,
   watchLabel = "Watch on METATAKE TV",
   shell = "banner",
+  max = 3,
+  calm = false,
 }: {
-  stills: string[];                 // TMDB file_paths (backdrop preferred), 1–3
+  stills: string[];                 // TMDB file_paths (backdrop preferred)
   label: string;                    // a11y label
   watchHref?: string;               // /tv/[slug] or /tv/list/[slug] — shown only when given
   watchLabel?: string;
   shell?: "banner" | "inline" | "bare"; // banner = centered block; inline = fill a slot; bare = plain 16:9 box
+  max?: number;                     // cap the number of stills shown (default 3; film main uses 4)
+  calm?: boolean;                   // slower cross-fade + gentler Ken Burns (long pages)
 }) {
-  const imgs = stills.filter(Boolean).slice(0, 3);
+  const imgs = stills.filter(Boolean).slice(0, Math.max(1, max));
   const [i, setI] = useState(0);
 
   useEffect(() => {
     if (imgs.length < 2) return;
-    const t = setInterval(() => setI((n) => (n + 1) % imgs.length), 6500);
+    const t = setInterval(() => setI((n) => (n + 1) % imgs.length), calm ? 9000 : 6500);
     return () => clearInterval(t);
-  }, [imgs.length]);
+  }, [imgs.length, calm]);
 
   if (!imgs.length) return null;
 
-  const cls =
+  const base =
     shell === "inline" ? "df-tvhero ehero--in sh" : shell === "bare" ? "df-tvhero sh" : "df-tvhero ehero sh";
+  const cls = calm ? `${base} sh--calm` : base;
 
   return (
     <section className={cls} aria-label={label}>

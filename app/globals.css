@@ -3826,6 +3826,8 @@ a.dr-mr-title:hover{color:var(--accent); text-decoration:underline}
 .sh-watch:hover{background:var(--accent,#C8102E)}
 .sh-watch b{font-size:10px; line-height:1}
 .ehero--in.sh .sh-watch{bottom:8px; right:8px; font-size:11px; padding:5px 11px}
+/* calm variant — long pages (film main): slower fade, gentler/slower drift */
+.sh--calm .sh-img{transition:opacity 2.4s ease; animation-duration:44s}
 @media(prefers-reduced-motion:reduce){ .sh-img{animation:none; transition:opacity .4s linear} }
 
 /* PlaylistTVEmbed — a METATAKE TV watch list embedded in an axis page */
