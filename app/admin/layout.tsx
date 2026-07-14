@@ -19,6 +19,7 @@ const NAV_ITEMS = [
   { href: "/admin/factory", label: "Factory", icon: "🏭" },
   { href: "/admin/activity", label: "Activity Log", icon: "📡" },
   { href: "/admin/radar", label: "Radar", icon: "🛰️" },
+  { href: "/admin/docs", label: "Docs", icon: "📚" },
 ];
 
 export default async function AdminLayout({
