@@ -6,7 +6,7 @@ import SiteNav from "@/components/home2/SiteNav";
 // served from the edge (regenerated on every deploy).
 
 export const metadata: Metadata = {
-  title: "About — Metatake",
+  title: "About",
   description:
     "An independent film-interpretation project: close readings connected in one map of meaning — machine-drafted, answered for by a named editor in Seoul.",
   alternates: { canonical: "/about" },

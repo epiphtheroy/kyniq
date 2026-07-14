@@ -25,6 +25,7 @@ import type { ScrRow, Country } from "@/components/screener/ScreenerExplorer";
 import { WTW_GENRES } from "@/lib/wtw_genres";
 import { filmUrl, directorUrl, whereToUrl } from "@/lib/urls";
 import { slugify } from "@/lib/slug";
+import { displayTs } from "@/lib/cinecodex_dims";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 const POSTER = "https://image.tmdb.org/t/p/w154";
@@ -394,14 +395,14 @@ export default function MarqueeExplorer({
                       <Link href={filmUrl(f.slug)} className="mq-poster-img" aria-label={f.title}>
                         {f.poster_path
                           ? // eslint-disable-next-line @next/next/no-img-element
-                            <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" width={80} height={120} />
+                            <img src={`${POSTER}${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} loading="lazy" width={80} height={120} />
                           : <span className="mq-poster--e" />}
                       </Link>
                       <PosterActions slug={f.slug} />
                     </div>
                     <div className="mq-card-mid">
                       <div className="mq-card-tsrow">
-                        <span className="mq-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
+                        <span className="mq-ts"><b>{displayTs(f.u)}</b><i>TS</i></span>
                         <span className="mq-card-scores">
                           <b style={{ color: AX.v }}>V{Math.round(f.v)}</b>
                           <b style={{ color: AX.c }}>C{Math.round(f.c)}</b>

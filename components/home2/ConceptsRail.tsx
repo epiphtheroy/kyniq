@@ -25,7 +25,7 @@ export default function ConceptTiles({ data }: { data: HomeV2 }) {
             <Link className="tile" href={conceptHref(c.slug)} key={c.name}>
               <div className="img" style={{ background: tone(hashTone(c.name)) }}>
                 {backdropUrl(c.backdrop) ? (
-                  <img src={backdropUrl(c.backdrop)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={backdropUrl(c.backdrop)!} alt={`${c.name} — illustrative film still`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                 ) : null}
                 <span className="addcirc">+</span>
                 <div className="lab">

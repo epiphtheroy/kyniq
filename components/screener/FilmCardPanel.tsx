@@ -12,7 +12,7 @@ import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import ScoreDonut from "@/components/ScoreDonut";
 import PosterActions from "@/components/PosterActions";
-import { CODEX_DIMS } from "@/lib/cinecodex_dims";
+import { CODEX_DIMS, displayTs } from "@/lib/cinecodex_dims";
 import { verdictSentence, bandWord, dimSentence } from "@/lib/takescore_prose";
 
 const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
@@ -81,7 +81,7 @@ export default function FilmCardPanel({
       <div className="scr-card-head">
         {poster ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <Link href={`/film/${slug}`}><img className="scr-card-poster" src={`${POSTER}${poster}`} alt="" width={64} height={96} /></Link>
+          <Link href={`/film/${slug}`}><img className="scr-card-poster" src={`${POSTER}${poster}`} alt={`${title}${card?.year ? ` (${card.year})` : ""} poster`} width={64} height={96} /></Link>
         ) : <div className="scr-card-poster scr-card-poster--e" />}
         <div className="scr-card-id">
           <Link href={`/film/${slug}`} className="scr-card-title">{title}{card?.year ? ` (${card.year})` : ""}</Link>
@@ -106,7 +106,7 @@ export default function FilmCardPanel({
           {/* verdict fills the middle; TakeScore + the three rings sit together on the right */}
           <div className="scr-card-scores">
             <div className="scr-card-ts">
-              <b className="scr-card-tsn">{Math.round(card.u)}</b>
+              <b className="scr-card-tsn">{displayTs(card.u)}</b>
               <span className="scr-card-tsk">TakeScore</span>
               {card.rank ? <span className="scr-card-rank">#{card.rank}{card.rank_total ? ` of ${card.rank_total.toLocaleString("en-US")}` : ""}</span> : null}
             </div>

@@ -8,7 +8,7 @@ import { DOC_CATEGORIES, docsInCategory, categoryEntryHref } from "@/lib/docs/re
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Methodology — Metatake",
+  title: "Methodology",
   description:
     "How a Metatake reading is made: an AI system drafts, a human editor reviews and approves every one before it publishes, and pages stay open to correction.",
   alternates: { canonical: "/methodology" },

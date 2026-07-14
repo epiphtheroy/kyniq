@@ -147,7 +147,7 @@ export default function IndexExplorer({
                   <span className={`xplor-thumb xplor-thumb--${imgShape}`}>
                     {h.poster ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={tmdbUrl(h.poster) ?? undefined} alt="" loading="lazy" />
+                      <img src={tmdbUrl(h.poster) ?? undefined} alt={imgShape === "round" ? `${h.title} portrait` : `${h.title}${h.year ? ` (${h.year})` : ""} poster`} loading="lazy" />
                     ) : <span className="xplor-mono">{h.title.charAt(0)}</span>}
                   </span>
                   <span className="xplor-rt">{h.title}{h.year ? <i> {h.year}</i> : null}</span>

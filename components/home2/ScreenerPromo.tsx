@@ -10,6 +10,7 @@
 import Link from "next/link";
 import type { ScreenerTop } from "@/app/page";
 import { TAKESCORE_PRESETS, presetHref } from "@/lib/takescore_presets";
+import { displayTs } from "@/lib/cinecodex_dims";
 
 const POSTER = "https://image.tmdb.org/t/p/w185";
 
@@ -29,13 +30,13 @@ export default function ScreenerPromo({ rows }: { rows: ScreenerTop[] }) {
         {rows.length > 0 ? (
           <div className="scrp-strip" aria-label="Top films by TakeScore">
             {rows.map((f) => (
-              <Link key={f.slug} href={`/takescore?pin=${f.slug}`} className="scrp-film" title={`${f.title}${f.year ? ` (${f.year})` : ""} · TakeScore ${Math.round(f.u)}`}>
+              <Link key={f.slug} href={`/takescore?pin=${f.slug}`} className="scrp-film" title={`${f.title}${f.year ? ` (${f.year})` : ""} · TakeScore ${displayTs(f.u)}`}>
                 <span className="scrp-poster">
                   {f.poster_path ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" />
+                    <img src={`${POSTER}${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} loading="lazy" />
                   ) : <span className="scrp-poster--e" />}
-                  <span className="scrp-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
+                  <span className="scrp-ts"><b>{displayTs(f.u)}</b><i>TS</i></span>
                 </span>
                 <span className="scrp-ti">{f.title}</span>
               </Link>

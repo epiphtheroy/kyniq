@@ -40,14 +40,14 @@ const load = cache(async (slug: string): Promise<{ pl: PlaylistMeta; entries: TV
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const d = await load(slug);
-  if (!d) return { title: "METATAKE TV", robots: { index: false, follow: true } };
+  if (!d) return { title: { absolute: "METATAKE TV" }, robots: { index: false, follow: true } };
   const { pl, entries } = d;
   const first = entries.find((e) => !isIntro(e)) ?? entries[0];
   const img = first?.film?.backdrop ? `${IMG}/w1280${first.film.backdrop}` : undefined;
   const title = `${pl.title} · METATAKE TV`;
   const desc = `${pl.dek ? pl.dek + " " : ""}${pl.n_films ?? 0} films compiled into one watch list on METATAKE TV — no LLM, chapter by chapter from the Metatake record.`.trim();
   return {
-    title,
+    title: { absolute: title },
     description: desc,
     alternates: { canonical: `/tv/list/${slug}` },
     openGraph: { title, description: desc, url: `${SITE}/tv/list/${slug}`, siteName: "Metatake", type: "website", ...(img ? { images: [{ url: img, width: 1280, height: 720 }] } : {}) },

@@ -54,7 +54,7 @@ function TVDossier({ card }: { card: SurpriseCard | null }) {
         <span className="tvd-kick">Now on air</span>
         {card.poster ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className="tvd-poster" src={`${IMG}/w342${card.poster}`} alt="" />
+          <img className="tvd-poster" src={`${IMG}/w342${card.poster}`} alt={`${card.film_title}${card.film_year ? ` (${card.film_year})` : ""} poster`} />
         ) : null}
         <h2 className="tvd-film">{card.film_slug ? <Link href={`/film/${card.film_slug}`}>{filmLine}</Link> : filmLine}</h2>
         {card.director ? (

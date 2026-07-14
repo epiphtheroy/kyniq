@@ -188,7 +188,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical,
       ...(data.hasKo
-        ? { languages: { en: canonical, ko: `${canonical}/ko` } }
+        ? { languages: { en: canonical, ko: `${canonical}/ko`, "x-default": canonical } }
         : {}),
     },
     openGraph: { title, description },

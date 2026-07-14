@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { HomeV2 } from "@/lib/home2";
 import { posterUrl, hashTone, tone, filmHref, tsQuadrant } from "./helpers";
+import { displayTs } from "@/lib/cinecodex_dims";
 import Rail from "./Rail";
 
 export default function Top10({ data }: { data: HomeV2 }) {
@@ -30,7 +31,7 @@ export default function Top10({ data }: { data: HomeV2 }) {
                   {url ? (
                     <img
                       src={url}
-                      alt=""
+                      alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`}
                       loading="lazy"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                     />
@@ -41,8 +42,8 @@ export default function Top10({ data }: { data: HomeV2 }) {
                   <div className="ti">{f.title}</div>
                   <div className="mt">{f.meta}</div>
                   <div className="rt">
-                    <span title={f.ts != null ? `TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}` : undefined}>
-                      {f.ts != null ? <>TakeScore™ {f.ts}{tsQuadrant(f.tsv, f.tsr) ? ` · ${tsQuadrant(f.tsv, f.tsr)}` : ""}</> : "TakeScore —"}
+                    <span title={f.ts != null ? `TakeScore ${displayTs(f.ts)}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}` : undefined}>
+                      {f.ts != null ? <>TakeScore™ {displayTs(f.ts)}{tsQuadrant(f.tsv, f.tsr) ? ` · ${tsQuadrant(f.tsv, f.tsr)}` : ""}</> : "TakeScore —"}
                     </span>
                   </div>
                   <div className="watched">◉ Mark as read</div>
@@ -57,12 +58,12 @@ export default function Top10({ data }: { data: HomeV2 }) {
             <Link className="tr10" href={filmHref(f.slug)} key={f.slug}>
               <div className="pp" style={{ background: tone(hashTone(f.slug)) }}>
                 {posterUrl(f.poster) ? (
-                  <img src={posterUrl(f.poster)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={posterUrl(f.poster)!} alt={`${f.title} poster`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                 ) : null}
                 <div className="rk">#{f.rank}</div>
               </div>
               <div className="nm">{f.title}</div>
-              <div className="rt">{f.ts != null ? `TS ${f.ts}` : "on the canon"}</div>
+              <div className="rt">{f.ts != null ? `TS ${displayTs(f.ts)}` : "on the canon"}</div>
             </Link>
           ))}
         </Rail>

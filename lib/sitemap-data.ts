@@ -248,16 +248,18 @@ export async function movementEntries(): Promise<SitemapEntry[]> {
 }
 
 /**
- * METATAKE TV — /tv/[slug] per-film broadcasts (built_at is an accurate per-film
- * compile event, so lastmod is safe here) and /tv/list/[slug] axis watch lists
- * (rebuilt together, so no lastmod — see the lastmod discipline note above).
+ * /tradition/[slug] — schools from the unified taxonomy (theory_schools_index).
+ * These pages are indexable and hub-linked but had zero sitemap entry. Gate
+ * mirrors the /tradition index and each page's own robots (films > 0).
  */
-export async function tvProgramEntries(): Promise<SitemapEntry[]> {
+export async function traditionEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
-  const rows = await fetchAll<{ slug: string; built_at: string | null }>(
-    (from, to) => db().from("tv_programs").select("slug, built_at").eq("status", "published").order("slug").range(from, to)
-  );
-  return rows.filter((r) => r.slug).map((r) => ({ url: `${siteUrl}/tv/${r.slug}`, ...(r.built_at ? { lastmod: isoDate(r.built_at) } : {}) }));
+  const { data } = await db().rpc("theory_schools_index");
+  const rows = (data ?? []) as { slug: string; films: number | null }[];
+  return rows
+    .filter((r) => r.slug && (r.films ?? 0) > 0)
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .map((r) => ({ url: `${siteUrl}/tradition/${r.slug}` }));
 }
 
 export async function tvListEntries(): Promise<SitemapEntry[]> {

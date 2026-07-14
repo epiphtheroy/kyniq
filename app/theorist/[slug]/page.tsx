@@ -155,7 +155,7 @@ function facts(name: string, readings: Reading[], filmMeta: Map<string, FilmMeta
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) return { title: "Theorist — Metatake" };
+  if (!data) return { title: "Theorist", robots: { index: false } };
   const F = facts(data.name, data.readings, new Map(data.filmMeta));
   const n = F.filmArr.length;
   const title = n >= 3

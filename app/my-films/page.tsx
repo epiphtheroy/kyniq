@@ -7,7 +7,7 @@ import LensCta from "@/components/LensCta";
 // page is prerendered and served from the edge like the rest of the site.
 
 export const metadata: Metadata = {
-  title: "My Films — see Metatake through what you've watched",
+  title: { absolute: "My Films — see Metatake through what you've watched" },
   description:
     "One switch, three views of the whole site. Highlight every film you've seen with a red border, or re-centre the galaxy, the locations and every list on your own watch history.",
   alternates: { canonical: "/my-films" },

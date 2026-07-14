@@ -4,7 +4,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Metatake TakeScore Browser Extension",
+  title: { absolute: "Privacy Policy — Metatake TakeScore Browser Extension" },
   description:
     "Privacy policy for the Metatake TakeScore browser extension: it stores nothing, tracks nothing, and sends only the film title on the page you're viewing to look up a public score.",
   alternates: { canonical: "/privacy/extension" },

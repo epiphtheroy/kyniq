@@ -113,7 +113,7 @@ export default async function DirectorPlates({ slug, exclude }: { slug: string; 
           {ctaPoster ? (
             <Link href={`/director/${slug}`} className="rd-cta__poster" aria-label={director}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`${IMG}/w154${ctaPoster}`} alt={director} width={84} height={126} loading="lazy" />
+              <img src={`${IMG}/w154${ctaPoster}`} alt={films[0] ? `${films[0].title}${films[0].year ? ` (${films[0].year})` : ""} poster` : director} width={84} height={126} loading="lazy" />
             </Link>
           ) : null}
           <div className="rd-cta__body">

@@ -60,7 +60,7 @@ export default function AccessBadges({
             <span className="mq-badge-tier">{TIER_LABEL[tier]}</span>
             {r.logo ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={`${LOGO}${r.logo}`} alt="" width={15} height={15} loading="lazy" />
+              <img src={`${LOGO}${r.logo}`} alt={tier === "rent" ? r.name : ""} width={15} height={15} loading="lazy" />
             ) : null}
             <span className="mq-badge-txt">{tier === "rent" ? "" : r.name}{lib ? " · library" : ""}</span>
             {showFlags ? <span className="mq-badge-flag" aria-hidden>{flag(r.cc)}</span> : null}

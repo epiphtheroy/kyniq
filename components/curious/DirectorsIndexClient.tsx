@@ -46,7 +46,7 @@ function Row({ d }: { d: DirRow }) {
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         {d.profile_path ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={`${IMG}/w92${d.profile_path}`} alt="" loading="lazy" width={40} height={40}
+          <img src={`${IMG}/w92${d.profile_path}`} alt={`${d.name} portrait`} loading="lazy" width={40} height={40}
             style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flex: "none", background: "#0c0c0c" }} />
         ) : null}
         <Link href={`/director/${d.slug}`} style={{ fontFamily: "var(--cur-display)", fontWeight: 600, fontSize: 17, color: "#fff" }}>

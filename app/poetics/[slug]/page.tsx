@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: poeHref(slug) },
     robots: pageRobots(true),
     openGraph: { title: `${e.title} — Poetics · Metatake`, description: e.desc, url: `${SITE}${poeHref(slug)}`, type: "article" },
-    twitter: { card: "summary_large_image", title: `${e.title} — Metatake`, description: e.desc },
+    twitter: { card: "summary_large_image", title: `${e.title} — Poetics · Metatake`, description: e.desc },
   };
 }
 

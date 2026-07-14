@@ -185,7 +185,7 @@ export default function ReadingFeed(
               const F = fw(r.fw); const im = thumb(r);
               return (
                 <Link key={r.id} className="smb-fcard" href={figHref(r)}>
-                  {im ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="smb-fcard__img" src={im} alt="" loading="lazy" /> : <span className="smb-fcard__img smb-fcard__img--blank" />}
+                  {im ? /* eslint-disable-next-line @next/next/no-img-element */ <img className="smb-fcard__img" src={im} alt={`${r.film}${r.year ? ` (${r.year})` : ""} — still`} loading="lazy" /> : <span className="smb-fcard__img smb-fcard__img--blank" />}
                   <span className="smb-fcard__body">
                     <span className="smb-fcard__fw" style={{ color: F.color }}>{F.label}</span>
                     <span className="smb-fcard__tt">{r.tt ?? r.fig}</span>
@@ -248,7 +248,7 @@ export default function ReadingFeed(
               {im ? (
                 <Link className="smb-row__thumb" href={href} aria-hidden="true" tabIndex={-1}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={im} alt="" loading="lazy" />
+                  <img src={im} alt={`${r.film}${r.year ? ` (${r.year})` : ""} — still`} loading="lazy" />
                 </Link>
               ) : null}
             </li>

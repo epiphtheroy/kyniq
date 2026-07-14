@@ -7,7 +7,7 @@ import LatestMagazine, { type LatestPool } from "@/components/LatestMagazine";
 export const revalidate = 600;
 
 export const metadata: Metadata = {
-  title: "Latest — what's newest across Metatake",
+  title: { absolute: "Latest — what's newest across Metatake" },
   description:
     "Fresh film readings, meta takes, tropes, directors and concepts — the newest of everything on Metatake, edited like a magazine.",
   alternates: { canonical: "/latest" },

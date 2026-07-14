@@ -8,7 +8,7 @@ import "./import.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "Import watch history — Metatake",
+  title: "Import watch history",
   description: "Bring your watched films from Letterboxd, IMDb, Trakt, a spreadsheet, or plain text.",
   robots: { index: false, follow: false },
 };

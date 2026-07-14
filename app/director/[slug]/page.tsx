@@ -741,7 +741,7 @@ export default async function DirectorPage({ params }: Props) {
                     <span className="dr-flm__yr">{f.year ?? "—"}</span>
                     {f.poster_path ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img className="dr-flm__po" src={`${IMG}/w92${f.poster_path}`} alt="" width={34} height={51} loading="lazy" />
+                      <img className="dr-flm__po" src={`${IMG}/w92${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} width={34} height={51} loading="lazy" />
                     ) : <span className="dr-flm__po dr-flm__po--e" aria-hidden="true" />}
                     <span className="dr-flm__mid">
                       <span className="dr-flm__ti">{f.title}</span>
@@ -884,7 +884,7 @@ export default async function DirectorPage({ params }: Props) {
                 <div className="dr-next-card" key={n.pos}>
                   {n.profile_path ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img className="dr-next-photo" src={`${IMG}/w185${n.profile_path}`} alt="" loading="lazy" />
+                    <img className="dr-next-photo" src={`${IMG}/w185${n.profile_path}`} alt={`${n.rec_name} portrait`} loading="lazy" />
                   ) : <span className="dr-next-photo dr-next-photo--e" aria-hidden="true" />}
                   <div className="dr-next-b">
                     <div className="dr-next-name">
@@ -1047,7 +1047,7 @@ export default async function DirectorPage({ params }: Props) {
                     {p.film_slug && poster ? (
                       <Link href={`/film/${p.film_slug}`} className="dr-pick-thumb">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={`${IMG}/w92${poster}`} alt="" loading="lazy" />
+                        <img src={`${IMG}/w92${poster}`} alt={`${p.film_title}${p.film_year ? ` (${p.film_year})` : ""} poster`} loading="lazy" />
                       </Link>
                     ) : <span className="dr-pick-thumb dr-pick-thumb--e" aria-hidden="true" />}
                     <div className="dr-pick-b">

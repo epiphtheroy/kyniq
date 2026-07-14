@@ -54,7 +54,7 @@ export default function FilmsIndex({ catalogue, inventoryTotal, initialSlug }: {
           // index from getting heavy)
           thumb: it.rich === false ? undefined : (
             <span className="idx-th idx-th--poster">
-              {THUMB(it.poster) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.poster) as string} alt="" loading="lazy" />
+              {THUMB(it.poster) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.poster) as string} alt={`${it.title}${it.year ? ` (${it.year})` : ""} poster`} loading="lazy" />
                 : <span className="idx-th-mono">{it.title.charAt(0)}</span>}
             </span>
           ),

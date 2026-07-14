@@ -32,7 +32,7 @@ export default function ReadingsDesk({ items }: { items: ReadingCard[] | null })
           <Link className="rdx-lead" href={figureHref(lead.slug, lead.figSlug)}>
             {posterUrl(lead.poster) ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="rdx-art" src={posterUrl(lead.poster)!} alt="" loading="lazy" />
+              <img className="rdx-art" src={posterUrl(lead.poster)!} alt={`${lead.film}${lead.year ? ` (${lead.year})` : ""} poster`} loading="lazy" />
             ) : null}
             <div className="rdx-lead-body">
               <div className="rdx-kick">

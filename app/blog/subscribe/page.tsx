@@ -5,6 +5,7 @@ import SubscribeForm from "@/components/SubscribeForm";
 export const metadata: Metadata = {
   title: "Subscribe — Between Film and the World",
   description: "Get Metatake's daily edition: five events and the films that already knew them, read for the figure underneath. Free, almost every morning.",
+  alternates: { canonical: "/blog/subscribe" },
 };
 
 export default function SubscribePage() {

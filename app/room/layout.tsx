@@ -7,7 +7,7 @@ import "./room.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "My Room — Metatake",
+  title: "My Room",
   description: "Your cinematic asset operating system.",
   robots: { index: false, follow: false },
 };

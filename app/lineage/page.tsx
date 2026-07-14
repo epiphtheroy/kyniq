@@ -44,7 +44,6 @@ export default async function LineageIndex() {
     name: "Metatake Film Lineage Dataset",
     description: `A curated dataset of film-lineage memberships — which films belong to which national cinemas, movements, awards and canons. ${meta.memberships.toLocaleString()} memberships across ${meta.lists} lineages, each compiled from official records and Wikipedia/Wikidata, resolved to a TMDb-backed Metatake film page.`,
     url: "https://metatake.net/lineage",
-    keywords: ["film awards", "film canons", "national cinema", "film movements", "auteur", "cinema lineage"],
     isAccessibleForFree: true,
     creator: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
     editor: { "@type": "Person", "@id": "https://metatake.net/editor#person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },

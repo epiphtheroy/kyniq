@@ -204,7 +204,7 @@ function introDescription(intro: string): string {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) return { title: "Concept — Metatake" };
+  if (!data) return { title: "Concept", robots: { index: false } };
   if (data.kind === "takes") {
     const title = `${data.concept} in film — meaning & examples`;
     const description = `${data.concept} in cinema: ${data.tropes.length} recurring patterns across films, each tracing how the idea plays on screen.`;

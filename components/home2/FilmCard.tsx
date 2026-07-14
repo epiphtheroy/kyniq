@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { Film } from "@/lib/home2";
 import { posterUrl, hashTone, tone, filmHref, tsQuadrant } from "./helpers";
+import { displayTs } from "@/lib/cinecodex_dims";
 
 /**
  * Light film card (.tp). `cat` renders the category-number metric (with the
@@ -25,7 +26,7 @@ export default function FilmCard({
         {url ? (
           <img
             src={url}
-            alt=""
+            alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`}
             loading="lazy"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
           />
@@ -43,9 +44,9 @@ export default function FilmCard({
             <Link
               className="tsc"
               href={`/takescore/film/${f.slug}`}
-              title={`TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}
+              title={`TakeScore ${displayTs(f.ts)}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}
             >
-              TS&nbsp;{f.ts}
+              TS&nbsp;{displayTs(f.ts)}
             </Link>
           ) : null}
           <span className="save">☆</span>

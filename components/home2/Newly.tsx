@@ -29,7 +29,7 @@ export default function Newly({ data }: { data: HomeV2 }) {
                   {url ? (
                     <img
                       src={url}
-                      alt=""
+                      alt={`${f.title}${f.year ? ` (${f.year})` : ""} — still`}
                       loading="lazy"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                     />

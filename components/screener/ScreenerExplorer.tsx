@@ -16,8 +16,8 @@ import { createClient } from "@supabase/supabase-js";
 import { useLens } from "@/components/LensProvider";
 import { useUserFilms } from "@/components/UserFilmsProvider";
 import PosterActions from "@/components/PosterActions";
-import { CODEX_DIMS, takescoreDimUrl } from "@/lib/cinecodex_dims";
-import { verdictSentence } from "@/lib/takescore_prose";
+import { CODEX_DIMS, takescoreDimUrl, displayTs } from "@/lib/cinecodex_dims";
+import { verdictSentence, verdictShort } from "@/lib/takescore_prose";
 import { TAKESCORE_PRESETS } from "@/lib/takescore_presets";
 import ScoreBrush, { type Bucket } from "@/components/screener/ScoreBrush";
 import ProviderPicker from "@/components/screener/ProviderPicker";
@@ -46,8 +46,6 @@ const GENRES = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Document
   "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction",
   "Thriller", "War", "Western"];
 const SINCE = ["", "2020", "2010", "2000", "1990", "1970"];
-// one-line verdict for the collapsed row (quadrant only, title-free); full verdict in the curtain
-const shortVerdict = (v: number, c: number, r: number, u: number) => verdictSentence(v, c, r, u).split(". ")[0];
 const WATCH_COUNTRIES = ["KR", "US", "GB", "CA", "AU", "IN", "FR", "DE", "JP", "BR", "MX", "ES", "IT", "NL", "SE"];
 
 let RN: Intl.DisplayNames | null = null;
@@ -437,7 +435,7 @@ export default function ScreenerExplorer({
               <span className="scr-row-poster">
                 {f.poster_path ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={`${POSTER}${f.poster_path}`} alt="" loading="lazy" width={66} height={99} />
+                  <img src={`${POSTER}${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} loading="lazy" width={66} height={99} />
                 ) : <span className="scr-row-poster--e" />}
               </span>
               <div className="scr-row-mid">
@@ -451,9 +449,9 @@ export default function ScreenerExplorer({
                   {f.imdb_rating != null ? <span>IMDb {Number(f.imdb_rating).toFixed(1)}</span> : null}
                   {f.rt != null ? <span>RT {f.rt}%</span> : null}
                 </div>
-                <div className="scr-row-verdict">{shortVerdict(f.v, f.c, f.r, f.u)}</div>
+                <div className="scr-row-verdict">{verdictShort(f.v, f.c, f.r, f.u)}</div>
               </div>
-              <span className="scr-row-ts"><b>{Math.round(f.u)}</b><i>TS</i></span>
+              <span className="scr-row-ts"><b>{displayTs(f.u)}</b><i>TS</i></span>
               <span className="scr-row-save" onClick={(e) => e.stopPropagation()}><PosterActions slug={f.slug} rating={false} compact /></span>
               <span className="scr-row-chev" aria-hidden>{isOpen ? "▲" : "▼"}</span>
             </div>
@@ -465,7 +463,7 @@ export default function ScreenerExplorer({
                     <span className="scr-cs" style={{ color: AX.v }}><b>{Math.round(f.v)}</b><i>Value</i></span>
                     <span className="scr-cs" style={{ color: AX.c }}><b>{Math.round(f.c)}</b><i>Cost</i></span>
                     <span className="scr-cs" style={{ color: AX.r }}><b>{Math.round(f.r)}</b><i>Risk</i></span>
-                    <span className="scr-cs scr-cs--ts"><b>{Math.round(f.u)}</b><i>TakeScore</i></span>
+                    <span className="scr-cs scr-cs--ts"><b>{displayTs(f.u)}</b><i>TakeScore</i></span>
                     {f.imdb_rating != null ? <span className="scr-cs scr-cs--ext"><b>{Number(f.imdb_rating).toFixed(1)}</b><i>IMDb</i></span> : null}
                     {f.rt != null ? <span className="scr-cs scr-cs--ext"><b>{f.rt}%</b><i>RT</i></span> : null}
                   </div>
@@ -542,14 +540,14 @@ function HeroSearch({ onPin }: { onPin: (slug: string, title: string, poster: st
               ) : <span className="scr-hit-p scr-hit-p--e" />}
               <div className="scr-hit-mid">
                 <div className="scr-hit-t">{h.title} <span className="scr-hit-y">({h.year ?? "?"})</span></div>
-                <div className="scr-hit-v">{shortVerdict(h.v, h.c, h.r, h.u)}</div>
+                <div className="scr-hit-v">{verdictShort(h.v, h.c, h.r, h.u)}</div>
                 <div className="scr-hit-band">
                   <b style={{ color: AX.v }}>V {Math.round(h.v)}</b><b style={{ color: AX.c }}>C {Math.round(h.c)}</b><b style={{ color: AX.r }}>R {Math.round(h.r)}</b>
                   {h.imdb_rating != null ? <span>IMDb {Number(h.imdb_rating).toFixed(1)}</span> : null}
                   {h.rt != null ? <span>RT {h.rt}%</span> : null}
                 </div>
               </div>
-              <span className="scr-hit-ts"><b>{Math.round(h.u)}</b><i>TS</i></span>
+              <span className="scr-hit-ts"><b>{displayTs(h.u)}</b><i>TS</i></span>
               <span className="scr-hit-save" onClick={(e) => e.stopPropagation()}><PosterActions slug={h.slug} rating={false} compact /></span>
             </div>
           )) : <div className="scr-search-empty">{loading ? "Searching…" : "No scored films match — try another title."}</div>}

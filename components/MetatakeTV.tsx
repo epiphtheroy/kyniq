@@ -257,7 +257,7 @@ export default function MetatakeTV({ embed = false, onCard }: { embed?: boolean;
         <a className="sv2-mast" href={card.film_slug ? `/film/${card.film_slug}` : undefined}>
           {card.poster ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="sv2-mast__p" src={`${IMG}/w154${card.poster}`} alt="" />
+            <img className="sv2-mast__p" src={`${IMG}/w154${card.poster}`} alt={`${card.film_title}${card.film_year ? ` (${card.film_year})` : ""} poster`} />
           ) : null}
           <span className="sv2-mast__b">
             <span className="sv2-mast__t">{card.film_title}</span>

@@ -152,7 +152,7 @@ export default function TVProgramPlayer({
         <a className="sv2-mast" href={film.slug ? `/film/${film.slug}` : undefined}>
           {film.poster ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="sv2-mast__p" src={`${IMG}/w154${film.poster}`} alt="" />
+            <img className="sv2-mast__p" src={`${IMG}/w154${film.poster}`} alt={`${film.title}${film.year ? ` (${film.year})` : ""} poster`} />
           ) : null}
           <span className="sv2-mast__b">
             <span className="sv2-mast__t">{film.title}</span>

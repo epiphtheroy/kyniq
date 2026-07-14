@@ -6,7 +6,7 @@ import { cachedLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
 import {
   filmUrl, takescoreFilmUrl, receptionUrl, misreadingsFilmUrl, filmLocationsUrl,
-  filmLineageUrl, moviesLikeUrl, whereToUrl, tvUrl, filmCreditsUrl, filmGalleryUrl,
+  filmLineageUrl, moviesLikeUrl, whereToUrl, tvUrl, filmCreditsUrl,
   questionUrl, directorUrl,
 } from "@/lib/urls";
 import { Card, SectionHead } from "@/components/curious/ui";
@@ -21,7 +21,7 @@ import BroadcastCard from "@/components/BroadcastCard";
  *      direct "watch on Metatake TV" button when the film has a broadcast).
  *   2. OPEN every other read surface the film has — TakeScore, Reception, the
  *      misreadings article, Locations, Lineage, Movies-like, Where to Watch, the
- *      film's own TV broadcast, Credits, Gallery, Curious questions, desk essays
+ *      film's own TV broadcast, Credits, Curious questions, desk essays
  *      and Daily editions — as ScreenRant-style thumbnail cards.
  *
  * Self-contained: fetches by slug, cached an hour, styled by curious.css (the
@@ -32,7 +32,7 @@ import BroadcastCard from "@/components/BroadcastCard";
  *
  * `exclude` drops the card (and, for surfaces, is a no-op elsewhere) for the
  * surface being read: "takescore" | "reception" | "misreadings" | "locations" |
- * "lineage" | "movies-like" | "whereto" | "tv" | "credits" | "gallery" |
+ * "lineage" | "movies-like" | "whereto" | "tv" | "credits" |
  * "desk:<key>" | "q:<slug>". `artPaths` (TMDB backdrop paths) vary the card
  * thumbnails so the row isn't one repeated backdrop.
  */
@@ -181,8 +181,6 @@ export default async function ReadPlates({
   // BroadcastCard below (one TV affordance, not two). See BroadcastCard render.
   if (exclude !== "credits")
     plates.push({ key: "credits", href: filmCreditsUrl(film.slug), tag: "Credits", title: `Who made ${film.title}? The crew, credit by credit` });
-  if (film.poster_path && exclude !== "gallery")
-    plates.push({ key: "gallery", href: filmGalleryUrl(film.slug), tag: "Gallery", title: `${film.title} — stills & gallery` });
   for (const q of questions) {
     const k = `q:${q.slug}`;
     if (k === exclude) continue;

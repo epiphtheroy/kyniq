@@ -45,7 +45,7 @@ export default function NewsletterCard() {
         <Link className="nlc-card" href={`/blog/${post.slug}`}>
           {e0?.bd ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="nlc-th" src={`${W342}${e0.bd}`} alt="" loading="lazy" />
+            <img className="nlc-th" src={`${W342}${e0.bd}`} alt={e0?.film_title ? `${e0.film_title} — still` : ""} loading="lazy" />
           ) : null}
           <div className="nlc-body">
             {e0?.event ? (

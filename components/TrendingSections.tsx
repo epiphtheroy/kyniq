@@ -22,7 +22,7 @@ function Strip({ cases }: { cases: TCase[] }) {
     <div className="tg-strip">
       {cases.map((c, i) => (
         <Link key={i} href={`/film/${c.fs}`} className="tg-film">
-          <span className="tg-th">{c.bd && <img src={`${W342}${c.bd}`} alt="" loading="lazy" />}</span>
+          <span className="tg-th">{c.bd && <img src={`${W342}${c.bd}`} alt={`${c.f}${c.y ? ` (${c.y})` : ""} — still`} loading="lazy" />}</span>
           <div className="tf">{c.f} {c.y ? <span className="yr">({c.y})</span> : null}</div>
           <div className="tvia"><span className="v">via</span> {c.fig}</div>
         </Link>
@@ -59,7 +59,7 @@ export default function TrendingSections({ pool }: { pool: TrendPool }) {
                 <p className="tg-snip">{t.snip}</p>
                 {t.mt && t.mtslug ? <Link className="tg-takevia" href={`/trope/${t.mtslug}`}>→ {t.mt}</Link> : null}
               </div>
-              {t.bd && <Link className="tg-tkthumb" href={t.figslug ? `/film/${t.fs}/figure/${t.figslug}` : `/film/${t.fs}`}><img src={`${W342}${t.bd}`} alt="" loading="lazy" /></Link>}
+              {t.bd && <Link className="tg-tkthumb" href={t.figslug ? `/film/${t.fs}/figure/${t.figslug}` : `/film/${t.fs}`}><img src={`${W342}${t.bd}`} alt={`${t.f}${t.y ? ` (${t.y})` : ""} — still`} loading="lazy" /></Link>}
             </div>
           );
         })}
@@ -82,7 +82,7 @@ export default function TrendingSections({ pool }: { pool: TrendPool }) {
         {pool.films.map((f, i) => (
           <div className="tg-card film" key={f.slug}>
             <span className="tg-rk">{i + 1}</span>
-            {f.bd && <Link className="tg-fthumb" href={`/film/${f.slug}`}><img src={`${W342}${f.bd}`} alt="" loading="lazy" /><PosterActions slug={f.slug} compact /></Link>}
+            {f.bd && <Link className="tg-fthumb" href={`/film/${f.slug}`}><img src={`${W342}${f.bd}`} alt={`${f.t}${f.y ? ` (${f.y})` : ""} — still`} loading="lazy" /><PosterActions slug={f.slug} compact /></Link>}
             <div className="tg-body">
               <Link className="tg-tt" href={`/film/${f.slug}`}>{f.t} {f.y ? <span className="yr">({f.y})</span> : null}</Link>
               <div className="tg-tc">{f.dir ? `dir. ${f.dir} · ` : ""}{f.n} readings</div>

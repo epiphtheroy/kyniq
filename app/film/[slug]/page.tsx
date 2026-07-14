@@ -43,6 +43,8 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { displayTs } from "@/lib/cinecodex_dims";
+import { verdictShort } from "@/lib/takescore_prose";
 import { ruleFigureQuestion } from "@/lib/figureSeo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/locations";
 import { FILM_HONORS_MIN, honorText, loadLineageListMeta } from "@/lib/lineage";
@@ -623,7 +625,7 @@ export default async function FilmPage({ params }: Props) {
   const _cx = codex;
   const codexBadge = _cx ? (
     <a className="df-mts" href="#df-codex" title="TakeScore — durable value minus risk. Click for the full breakdown.">
-      <span className="df-mts-n">{Math.round(_cx.v - _cx.r)}</span>
+      <span className="df-mts-n">{displayTs(_cx.v - _cx.r)}</span>
       <span className="df-mts-l"><b>TakeScore</b><i>value {Math.round(_cx.v)} · cost {Math.round(_cx.c)} · risk {Math.round(_cx.r)}</i></span>
     </a>
   ) : null;
@@ -734,7 +736,7 @@ export default async function FilmPage({ params }: Props) {
     // Tab order mirrors the section order below. With digest data the record
     // leads (Digest → Codex/Lineage/Recommended-by → Atlas → About); with none
     // the page falls back to the old About-first layout.
-    const mTsScore = codex ? Math.round(codex.u) : null;
+    const mTsScore = codex ? displayTs(codex.u) : null;
     const mWatchRegions = watch?.countries?.length ?? 0;
     const mTabs = ([
       hasDigest ? { id: "df-digest", label: "Digest" } : null,
@@ -879,7 +881,7 @@ export default async function FilmPage({ params }: Props) {
           ) : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} slug={f.slug} />
-          <TowCard tow={tow} filmTitle={f.title} />
+          <TowCard tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
@@ -1019,7 +1021,7 @@ export default async function FilmPage({ params }: Props) {
   // Section tabs — each carries its own count as a badge (TakeScore carries the
   // score itself). The counts that used to sit in a separate panel now live in
   // the navigation, on the two-row FilmTabBar.
-  const tsScore = codex ? Math.round(codex.u) : null;
+  const tsScore = codex ? displayTs(codex.u) : null;
   const nPlaces = geoMerged || geoCount;
   const nArch = archGroups.reduce((s, g) => s + g.items.length, 0);
   const nCurious = questions.length + deskEssays.length;
@@ -1107,18 +1109,19 @@ export default async function FilmPage({ params }: Props) {
     ...(wonHonors.filter((l) => l.result === "won").length
       ? { award: wonHonors.filter((l) => l.result === "won").map(honorText) }
       : {}),
-    // TakeScore as a schema.org Review — Tier-1 + scored films only. ratingValue
-    // must equal the TakeScore visibly rendered on the page (Google requires
-    // correspondence): subscores.takescore == Math.round(v − r), the badge number.
-    // Scale is 0–100 to match /takescore/film JSON-LD; negative scores (339
-    // films) ship no Review at all — a negative ratingValue trips Google's
-    // "value out of range" review-snippet error (GSC, 2026-07-11).
-    ...(codex && subscores && subscores.takescore >= 0 ? {
+    // TakeScore as a schema.org Review — any scored film with subscores.
+    // ratingValue must equal the TakeScore visibly rendered on the page (Google
+    // requires correspondence): displayTs floors the raw score at 0 for display
+    // and schema alike, so a film whose raw value lands below zero (216 films)
+    // publishes ratingValue 0 — the same number the page shows — instead of a
+    // negative that would trip Google's "value out of range" error.
+    ...(codex && subscores ? {
       review: {
         "@type": "Review",
         author: { "@type": "Organization", name: "Metatake", url: "https://metatake.net" },
         name: "TakeScore",
-        reviewRating: { "@type": "Rating", ratingValue: subscores.takescore, worstRating: 0, bestRating: 100 },
+        reviewBody: verdictShort(codex.v, codex.c, codex.r, codex.u, film.title),
+        reviewRating: { "@type": "Rating", ratingValue: displayTs(subscores.takescore), worstRating: 0, bestRating: 100 },
       },
     } : {}),
   };
@@ -1215,7 +1218,7 @@ export default async function FilmPage({ params }: Props) {
               </div>
               <div className="df-share">
                 <ShareDock variant="bar" noSave path={`/film/${film.slug}`} title={`${film.title}${film.year ? ` (${film.year})` : ""}`}
-                  hook={`${film.title}${film.year ? ` (${film.year})` : ""}${film.director ? `, ${film.director}` : ""}${codex ? ` — TakeScore ${Math.round(codex.u)}${codex.rank && codex.rank_total ? `, #${codex.rank.toLocaleString()} of ${codex.rank_total.toLocaleString()}` : ""} on Metatake` : " on Metatake"}`} />
+                  hook={`${film.title}${film.year ? ` (${film.year})` : ""}${film.director ? `, ${film.director}` : ""}${codex ? ` — TakeScore ${displayTs(codex.u)}${codex.rank && codex.rank_total ? `, #${codex.rank.toLocaleString()} of ${codex.rank_total.toLocaleString()}` : ""} on Metatake` : " on Metatake"}`} />
                 <ShareDock variant="fab" path={`/film/${film.slug}`} title={film.title} />
               </div>
             </div>
@@ -1289,7 +1292,7 @@ export default async function FilmPage({ params }: Props) {
 
         <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "takescore", label: "TakeScore" }]} variant="section" /> : null} />
-        <TowCard tow={tow} filmTitle={film.title} />
+        <TowCard tow={tow} filmTitle={film.title} variant="short" slug={film.slug} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (

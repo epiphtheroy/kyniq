@@ -29,7 +29,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     ]);
     title = film?.title ? `${film.title}${film.year ? ` (${film.year})` : ""}` : "";
     const row = (Array.isArray(ts) ? ts : [])[0] as { ts?: number } | undefined;
-    if (row && typeof row.ts === "number") score = Math.round(row.ts);
+    if (row && typeof row.ts === "number") score = Math.max(0, Math.round(row.ts));
   } catch { /* neutral badge */ }
 
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">

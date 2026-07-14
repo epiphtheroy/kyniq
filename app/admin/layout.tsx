@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAdminUser } from "@/lib/admin";
 
 export const metadata: Metadata = {
-  title: "Admin — Metatake",
+  title: "Admin",
   robots: { index: false, follow: false },
 };
 

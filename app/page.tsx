@@ -15,7 +15,7 @@ import "@/app/home2.css";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Metatake — a critical map of cinema",
+  title: { absolute: "Metatake — A Critical Map of Cinema" },
   description:
     "Read films closely — a critical map of cinema that links films through the readings they share. Strong Misreadings, tropes, directors, concepts and the canon, all on one map.",
   alternates: {

@@ -11,7 +11,7 @@ import "@/app/home2.css";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Metatake — new home (preview)",
+  title: "New home (preview)",
   robots: { index: false, follow: false },
 };
 

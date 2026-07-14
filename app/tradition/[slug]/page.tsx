@@ -54,7 +54,7 @@ function load(slug: string) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data || data.kind !== "school") return { title: "Tradition — Metatake" };
+  if (!data || data.kind !== "school") return { title: "Tradition", robots: { index: false } };
   const { rows } = data;
   const name = rows[0].school;
   const films = rows.reduce((s, r) => s + r.films, 0);

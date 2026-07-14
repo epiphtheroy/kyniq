@@ -4,7 +4,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Wonwoo Yoon — Founder & Editor · Metatake",
+  title: "Wonwoo Yoon — Founder & Editor",
   description:
     "Wonwoo Yoon (pen name of Wonwoo Je, 제원우) is the founder and editor of Metatake. Ph.D. in business administration (Kyung Hee University); lead author of the six-volume series The Doctors Peter Drucker Saved. Every reading on Metatake publishes under the review of the editorial desk he leads.",
   alternates: { canonical: "/editor" },

@@ -157,7 +157,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     alternates: {
       canonical,
-      languages: { en: `/film/${slug}/${deskKey}`, ko: canonical },
+      languages: { en: `/film/${slug}/${deskKey}`, ko: canonical, "x-default": `/film/${slug}/${deskKey}` },
     },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },

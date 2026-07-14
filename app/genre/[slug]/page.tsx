@@ -17,6 +17,29 @@ export async function generateStaticParams() { return []; }
 
 interface Props { params: Promise<{ slug: string }>; }
 function unslug(s: string) { return s.replace(/-/g, " "); }
+function titleCase(s: string) { return s.replace(/\b\w/g, (c) => c.toUpperCase()); }
+
+// Genre membership, resolved with the same slugify matching the page body uses.
+// Paged with .range() (PostgREST caps responses at 1,000 rows) so the metadata
+// count and representative titles match what the list renders. Year-desc sorted.
+async function fetchGenreFilms(slug: string) {
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+  type Row = { title: string; slug: string; year: number | null; genres: string[] | null };
+  const PAGE = 1000;
+  const films: Row[] = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data } = await supabase
+      .from("films").select("title, slug, year, genres")
+      .eq("visible", true).order("slug").range(from, from + PAGE - 1);
+    if (!data?.length) break;
+    films.push(...(data as Row[]));
+    if (data.length < PAGE) break;
+  }
+  const want = slug.toLowerCase();
+  return films
+    .filter((f) => ((f.genres ?? []) as string[]).some((g) => slugifyGenre(g) === want))
+    .sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+}
 
 // One grammatical, linked enumeration of films — "A (2020), B (2019) and C (2018)"
 // — for the Quick-answers block (never a bare keyword list, charter §0.6).
@@ -39,7 +62,14 @@ type HiddenFilm = { title: string; original_title: string | null; slug: string; 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  return { title: `${unslug(slug)} — films`, alternates: { canonical: `/genre/${slug}` } };
+  const name = titleCase(unslug(slug));
+  const title = `${name} Films — the canon, ranked`;
+  const films = await fetchGenreFilms(slug);
+  const reps = films.slice(0, 3).map((f) => f.title);
+  const description = films.length
+    ? `${films.length} ${name} films read closely on Metatake${reps.length ? ` — including ${reps.join(", ")}` : ""} — each ranked by TakeScore and read scene by scene.`
+    : `${name} films on Metatake, ranked by TakeScore and read scene by scene.`;
+  return { title, description, alternates: { canonical: `/genre/${slug}` } };
 }
 
 export default async function GenrePage({ params }: Props) {
@@ -118,8 +148,29 @@ export default async function GenrePage({ params }: Props) {
     }
   }
 
+  const collectionLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `https://metatake.net/genre/${slug}#page`,
+    name: `${titleCase(unslug(slug))} films`,
+    url: `https://metatake.net/genre/${slug}`,
+    isPartOf: { "@type": "WebSite", "@id": "https://metatake.net/#website" },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: inGenre.length,
+      itemListElement: inGenre.slice(0, 50).map((f, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: f.title,
+        url: `https://metatake.net/film/${f.slug}`,
+      })),
+    },
+  };
+
   return (
     <div className="mt">
+      {/* eslint-disable-next-line react/no-danger */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }} />
       <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/genre">Genres</Link></div>

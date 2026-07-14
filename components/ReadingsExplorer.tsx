@@ -105,7 +105,7 @@ export default function ReadingsExplorer({ readings, about, listenEvent }: { rea
             <article className="thr" key={r.take_id} id={`take-${r.take_id}`}>
               {r.backdrop_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt="" loading="lazy" /></Link>
+                <Link href={href} className="thr-th"><img src={`${IMG}/w300${r.backdrop_path}`} alt={`${r.film_title}${r.film_year ? ` (${r.film_year})` : ""} — still`} loading="lazy" /></Link>
               ) : null}
               <div className="thr-body">
                 <div className="thr-top">

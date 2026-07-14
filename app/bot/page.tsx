@@ -4,7 +4,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "MetatakeBot — Our Crawler",
+  title: { absolute: "MetatakeBot — Our Crawler" },
   description:
     "MetatakeBot is the identified web crawler operated by Metatake (metatake.net). It respects robots.txt, fetches only the pages it needs, and identifies itself with a stable User-Agent that links back here.",
   alternates: { canonical: "/bot" },

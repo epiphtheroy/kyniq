@@ -4,7 +4,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Metatake Data — Open Dataset, API, MCP",
+  title: { absolute: "Metatake Data — Open Dataset, API, MCP" },
   description:
     "Metatake's film-criticism data, open to build on: a free filming-locations dataset (Hugging Face + Zenodo DOI), a no-key REST API, an MCP server for AI assistants, and embeddable TakeScore badges. CC BY for the geodata, CC BY-NC for the writing.",
   alternates: { canonical: "/data" },

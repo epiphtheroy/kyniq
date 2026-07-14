@@ -107,7 +107,7 @@ async function load(seg: string, slug: string) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { seg, slug } = await params;
   const data = await load(seg, slug);
-  if (!data) return { title: "Catalog — Metatake" };
+  if (!data) return { title: "Catalog", robots: { index: false } };
   const { km, detail } = data;
   const n = detail.member_count;
   // Listicle-shaped title with the live count; the root layout appends "· Metatake".
@@ -126,7 +126,6 @@ export default async function CatalogNode({ params }: Props) {
   const mat = maturity(detail.member_count);
   const n = detail.member_count;
   const figLabel = n === 1 ? "figure" : "figures";
-  const topFilms = Array.from(new Map(members.map((m) => [m.film_slug, m])).values()).slice(0, 5);
 
   // ── Deterministic aggregates for the hero + "spelled out" layer (2026-07-08,
   // concept-page grammar). Truth gate: span/decade/most claims only render when
@@ -228,16 +227,6 @@ export default async function CatalogNode({ params }: Props) {
           url: `${SITE}${m.figure_slug ? `/film/${m.film_slug}/figure/${m.figure_slug}` : `/film/${m.film_slug}`}`,
         })),
       },
-      // Mirrors the visible members section (question H2 + film list).
-      ...(members.length > 0 ? [{
-        "@type": "FAQPage",
-        ...(dates?.created_at ? { datePublished: dates.created_at } : {}),
-        ...(dates?.updated_at ? { dateModified: dates.updated_at } : {}),
-        mainEntity: [{
-          "@type": "Question", name: `Which films feature ${detail.label}?`,
-          acceptedAnswer: { "@type": "Answer", text: `Metatake classifies ${n} ${figLabel} as ${detail.label}, in films such as ${topFilms.map((m) => `${m.film_title}${m.yr ? ` (${m.yr})` : ""}`).join(", ")} — each linked to its close reading.` },
-        }],
-      }] : []),
     ],
   };
 

@@ -267,31 +267,12 @@ export default async function FigurePage({ params }: Props) {
   // in <title> and as the visible H2, mirrored by the FAQ markup.
   const ruleQ = ruleFigureQuestion(figure.label as string, figure.kind as string | null, film.title as string);
   const leadQuestion = ruleQ ?? `What does ${withThe(figure.label, figure.kind).replace(/^The\b/, "the")} mean in ${film.title}?`;
-  const topConn = connections.length > 0 ? connections[0] : null;
-  const faqLd = figure.description ? {
-    "@context": "https://schema.org", "@type": "FAQPage",
-    ...(figure.created_at ? { datePublished: figure.created_at as string } : {}),
-    ...(figure.updated_at ? { dateModified: figure.updated_at as string } : {}),
-    mainEntity: [
-      {
-        "@type": "Question", name: leadQuestion,
-        acceptedAnswer: { "@type": "Answer", text: plainText(String(figure.description)) },
-      },
-      // Mirrors the visible "Connected figures" section (films sharing the top trope).
-      // Trope titles often begin with "The …" — don't double the article.
-      ...(topConn ? [{
-        "@type": "Question", name: `Which other films share ${/^the\b/i.test(topConn.title) ? "" : "the "}${topConn.title} trope with ${film.title}?`,
-        acceptedAnswer: { "@type": "Answer", text: `${topConn.total} other ${topConn.total === 1 ? "figure carries" : "figures carry"} ${topConn.title} on Metatake, in films such as ${topConn.siblings.slice(0, 6).map((s) => `${s.filmTitle}${s.year ? ` (${s.year})` : ""}`).join(", ")}.` },
-      }] : []),
-    ],
-  } : null;
 
   return (
     <div className="mt">
       <SiteNav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      {faqLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} /> : null}
 
       <div className="fg-wrap">
         <div className="fg-crumb">

@@ -14,7 +14,7 @@ function LensCard({ f }: { f: LensFilm }) {
         {url ? (
           <img
             src={url}
-            alt=""
+            alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`}
             loading="lazy"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
           />

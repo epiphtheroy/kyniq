@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact — Metatake",
+  title: "Contact",
   description:
     "Contact Metatake: corrections, press, partnerships, and general inquiries. Every correction is reviewed by the editor.",
   alternates: { canonical: "/contact" },

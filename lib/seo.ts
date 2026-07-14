@@ -87,12 +87,13 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
  *    /trope/[slug] members now RANKED live via new RPC trope_members_ranked
  *    (cosine take↔trope embedding; figure_type_members.sim is constant per
  *    trope = cohesion, unusable) with % match badges, listicle titles
- *    ("… — N films that stage this trope, ranked"), ItemList + FAQPage
- *    JSON-LD, coherence stat. Figure pages: visible lead-question H2 (twin
- *    of FAQ), trope Type counts, NEW nearest-figures section (figure_neighbors
+ *    ("… — N films that stage this trope, ranked"), ItemList
+ *    JSON-LD, coherence stat. Figure pages: visible lead-question H2, trope
+ *    Type counts, NEW nearest-figures section (figure_neighbors
  *    RPC, cross-film only). /catalog nodes: double-brand title fix, count+
  *    ranked titles, rank №s + confidence %, kindred sim %, Byline/Provenance
- *    + CollectionPage dates/editor, FAQPage. /methodology#rankings explains
+ *    + CollectionPage dates/editor. (FAQPage/QAPage JSON-LD retired 2026-07-14
+ *    — FAQ rich results are gov/health-only since 2023-08.) /methodology#rankings explains
  *    every % — all numbers render-derived, nothing baked.
  *  - 2026-07-05 (Lineage read layer): the awards/canons corpus (398 lists,
  *    10,551 sourced memberships, 300 Wikidata QIDs) surfaces — /lineage/[slug]

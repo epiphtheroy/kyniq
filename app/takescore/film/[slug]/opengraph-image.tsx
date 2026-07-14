@@ -1,4 +1,5 @@
 import { ogCard, ogFallback, ogDb, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og-template";
+import { displayTs } from "@/lib/cinecodex_dims";
 
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
@@ -15,7 +16,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     const { data: film } = await ogDb().from("films").select("backdrop_path").eq("slug", slug).maybeSingle();
 
     const badges = [
-      { label: "TakeScore", value: String(Math.round(card.u)), tone: "score" as const },
+      { label: "TakeScore", value: String(displayTs(card.u)), tone: "score" as const },
       card.rank && card.rank_total ? { label: `of ${card.rank_total.toLocaleString()}`, value: `#${card.rank.toLocaleString()}`, tone: "plain" as const } : null,
       card.ext?.imdb != null ? { label: "IMDb", value: String(card.ext.imdb), tone: "plain" as const } : null,
       card.ext?.rt != null ? { label: "RT", value: `${card.ext.rt}%`, tone: "plain" as const } : null,

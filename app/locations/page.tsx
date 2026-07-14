@@ -10,7 +10,7 @@ import { cachedLocationsEligibility, cachedLocationsMeta } from "@/lib/locations
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Locations — the real-world map of cinema · Metatake",
+  title: "Locations — the real-world map of cinema",
   description: "Every place Metatake's films are set in and name, geolocated on a world map — and browsable by country, from the United States to South Korea. Click a pin to read what the place means in its film.",
   alternates: { canonical: "/locations" },
 };

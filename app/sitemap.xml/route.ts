@@ -44,6 +44,7 @@ const SECTIONS = [
   "director-reception",
   "director-theory",
   "movements",
+  "traditions",
   "concept-domains",
   "frames",
   "now",

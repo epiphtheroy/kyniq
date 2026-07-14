@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Exhibits } from "@/lib/home2";
 import { posterUrl, backdropUrl, tsQuadrant } from "./helpers";
+import { displayTs } from "@/lib/cinecodex_dims";
 
 /**
  * "Today at Metatake" — a day-seeded band that samples one item from each
@@ -25,7 +26,7 @@ export default function TodayExhibits({ ex }: { ex: Exhibits }) {
           <span className="hx-d">
             {f.director ?? "on the map"}
             {f.ts != null ? (
-              <span className="hx-ts" title={`TakeScore ${f.ts}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}>TakeScore&nbsp;{f.ts}</span>
+              <span className="hx-ts" title={`TakeScore ${displayTs(f.ts)}${tsQuadrant(f.tsv, f.tsr) ? ` — ${tsQuadrant(f.tsv, f.tsr)}` : ""}`}>TakeScore&nbsp;{displayTs(f.ts)}</span>
             ) : null}
           </span>
         </span>

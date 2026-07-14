@@ -10,6 +10,7 @@ import Byline from "@/components/Byline";
 import RecordToc from "@/components/read/RecordToc";
 import TakeScoreBoxes from "@/components/read/TakeScoreBoxes";
 import { cachedRankedScores } from "@/lib/takescore-bulk";
+import { displayTs } from "@/lib/cinecodex_dims";
 import DirectorPlates from "@/components/read/DirectorPlates";
 import ShareDock from "@/components/ShareDock";
 import { pageRobots } from "@/lib/seo";
@@ -112,8 +113,8 @@ function pageDescription(d: Data): string {
   const [top, second] = d.cards;
   const n = d.cards.length;
   return trim158(
-    `${d.director}'s ${n} scored film${n === 1 ? "" : "s"}, ranked by TakeScore — ${top.title} leads at ${Math.round(top.u)}` +
-    `${second ? `; ${second.title} follows at ${Math.round(second.u)}` : ""}. Value minus risk, on a 0–100 scale.`
+    `${d.director}'s ${n} scored film${n === 1 ? "" : "s"}, ranked by TakeScore — ${top.title} leads at ${displayTs(top.u)}` +
+    `${second ? `; ${second.title} follows at ${displayTs(second.u)}` : ""}. Value minus risk, on a 0–100 scale.`
   );
 }
 
@@ -127,7 +128,7 @@ function cardSentence(c: Card): string {
   const shape = c.v >= c.r + 20 ? "value clears its risk with room to spare"
     : c.v >= c.r ? "value edges out the risk"
     : "the risk runs close to the value";
-  parts.push(`its ${c.tier ? `${c.tier.toLowerCase()} ` : ""}score of ${Math.round(c.u)} means ${shape}`);
+  parts.push(`its ${c.tier ? `${c.tier.toLowerCase()} ` : ""}score of ${displayTs(c.u)} means ${shape}`);
   return parts.join(" — ") + ".";
 }
 
@@ -158,10 +159,10 @@ export default async function DirectorTakescorePage({ params }: Props) {
   const top = cards[0];
   const second = cards[1] ?? null;
   const bottom = cards[n - 1];
-  const maxU = Math.round(top.u);
-  const minU = Math.round(bottom.u);
+  const maxU = displayTs(top.u);
+  const minU = displayTs(bottom.u);
   const gap = maxU - minU;
-  const meanU = Math.round(cards.reduce((a, c) => a + c.u, 0) / n);
+  const meanU = displayTs(cards.reduce((a, c) => a + c.u, 0) / n);
 
   const filmBySlug = new Map(films.map((f) => [f.slug, f]));
 
@@ -262,7 +263,7 @@ export default async function DirectorTakescorePage({ params }: Props) {
             </h1>
             <p className="rd-dek">
               {top.title}{yStr(top.year)} leads the filmography at {maxU}
-              {second ? <>; {second.title}{yStr(second.year)} follows at {Math.round(second.u)}</> : null}.
+              {second ? <>; {second.title}{yStr(second.year)} follows at {displayTs(second.u)}</> : null}.
               {" "}TakeScore = Value − Risk on a 0–100 scale — the {n === 1 ? "one scored film" : `${n} scored films`}, ranked below, best first.
             </p>
             <div className="rd-share">

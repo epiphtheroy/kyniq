@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: docHref(slug) },
     robots: pageRobots(true),
     openGraph: { title: `${doc.title} — Methodology · Metatake`, description: doc.desc, url: `${SITE}${docHref(slug)}`, type: "article" },
-    twitter: { card: "summary_large_image", title: `${doc.title} — Metatake`, description: doc.desc },
+    twitter: { card: "summary_large_image", title: `${doc.title} — Methodology · Metatake`, description: doc.desc },
   };
 }
 

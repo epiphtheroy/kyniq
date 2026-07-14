@@ -4,7 +4,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Metatake API — Free Film-Criticism Data for AI & Developers",
+  title: { absolute: "Metatake API — Free Film-Criticism Data for AI & Developers" },
   description:
     "A free, read-only REST API over Metatake's film criticism: search films, the 13-dimension TakeScore, multi-framework readings, and filming-location geodata. OpenAPI schema for ChatGPT Custom GPTs, plus an MCP server for Claude. CC BY-NC 4.0.",
   alternates: { canonical: "/api" },

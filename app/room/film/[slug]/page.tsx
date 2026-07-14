@@ -5,7 +5,7 @@ import { num } from "@/lib/room/format";
 import EvalCard, { type CardData, type MyPosition } from "@/components/room/EvalCard";
 
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "Appraisal — Metatake" };
+export const metadata: Metadata = { title: "Appraisal" };
 
 /** /room/film/[slug] — Appraisal (spec §3.15): the full Cinecodex card plus the
  *  personal layer (My position bar). The position row is read once here from

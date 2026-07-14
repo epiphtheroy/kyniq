@@ -563,19 +563,17 @@ export async function relatedForFigure(args: {
   filmSlug: string; filmTitle: string; year: number | null;
 }): Promise<RelatedSection[]> {
   // Wave 1 — independent fetches (edges feed tropes + frameworks + theorists).
-  const [figEdges, siblings, filmEdges, questions, meta] = await Promise.all([
+  const [figEdges, siblings, filmEdges, meta] = await Promise.all([
     figureTakeEdges(args.figureId),
     siblingFigures(args.filmId, args.filmSlug, args.filmTitle, args.figureId),
     filmTakeEdges(args.filmId),
-    filmQuestions(args.filmId, args.filmSlug),
     filmMeta(args.filmId),
   ]);
   // Wave 2 — lookups derived from wave 1.
-  const [citing, filmFeeds, theorists, dirFilms] = await Promise.all([
+  const [citing, filmFeeds, theorists] = await Promise.all([
     metaTakesByIds(orderedTargets(figEdges).slice(0, 12)),
     metaTakesByIds(rankedTargets(filmEdges).slice(0, 12)),
     theoristBoxesFromEdges(figEdges),
-    meta.directorSlug ? directorFilms(meta.directorSlug, args.filmId) : Promise.resolve([] as RelatedBox[]),
   ]);
   const frameworks = frameworkBoxesFromEdges(figEdges);
   const yearPart = args.year ? ` (${args.year})` : "";
@@ -584,10 +582,6 @@ export async function relatedForFigure(args: {
       { heading: `Readings that cite ${args.figureLabel}`, variant: "cards", boxes: citing, cap: 6 },
       { heading: `More figures from ${args.filmTitle}${yearPart}`, variant: "cards", boxes: siblings, cap: 6 },
       { heading: `The tropes ${args.filmTitle} feeds`, variant: "cards", boxes: filmFeeds, cap: 6 },
-      { heading: `Questions about ${args.filmTitle}`, variant: "rows", boxes: questions, cap: 5 },
-      ...(meta.director && meta.directorSlug
-        ? [{ heading: `More from ${meta.director}`, variant: "posters" as const, boxes: dirFilms, cap: 4 }]
-        : []),
       { heading: `The frameworks and theorists reading ${args.figureLabel}`, variant: "cards", boxes: [...frameworks, ...theorists], cap: 6 },
       {
         heading: `Around ${args.filmTitle}: director & genres`, variant: "rows", cap: 3,
@@ -595,10 +589,6 @@ export async function relatedForFigure(args: {
           ...(meta.director && meta.directorSlug ? [directorHubBox(meta.director, meta.directorSlug)] : []),
           ...genreBoxes(meta.genres),
         ],
-      },
-      {
-        heading: `Watch ${args.filmTitle}`, variant: "rows", cap: 2,
-        boxes: [wheretoBox(args.filmSlug, args.filmTitle, args.year), moviesLikeBox(args.filmSlug, args.filmTitle)],
       },
     ],
     [figureUrl(args.filmSlug, args.figureSlug)],
@@ -787,20 +777,16 @@ export async function relatedForQuestion(args: {
     filmMeta(args.filmId),
   ]);
   // Wave 2 — lookups derived from wave 1.
-  const [readings, theorists, dirFilms] = await Promise.all([
+  const [readings, theorists] = await Promise.all([
     metaTakesByIds(rankedTargets(filmEdges).slice(0, 12)),
     theoristBoxesFromEdges(filmEdges),
-    meta.directorSlug ? directorFilms(meta.directorSlug, args.filmId) : Promise.resolve([] as RelatedBox[]),
   ]);
   const frameworks = frameworkBoxesFromEdges(filmEdges);
   return sectionize(
     [
       { heading: "The scenes behind this question", variant: "cards", boxes: figures, cap: 6 },
-      { heading: `More questions about ${args.filmTitle}`, variant: "rows", boxes: questions, cap: 6 },
+      { heading: `More questions about ${args.filmTitle}`, variant: "rows", boxes: questions, cap: 3 },
       { heading: `How Metatake reads ${args.filmTitle}`, variant: "cards", boxes: readings, cap: 6 },
-      ...(meta.director && meta.directorSlug
-        ? [{ heading: `More from ${meta.director}`, variant: "posters" as const, boxes: dirFilms, cap: 4 }]
-        : []),
       { heading: `The frameworks and theorists reading ${args.filmTitle}`, variant: "cards", boxes: [...frameworks, ...theorists], cap: 5 },
       {
         heading: `Around ${args.filmTitle}: director & genres`, variant: "rows", cap: 3,
@@ -808,10 +794,6 @@ export async function relatedForQuestion(args: {
           ...(meta.director && meta.directorSlug ? [directorHubBox(meta.director, meta.directorSlug)] : []),
           ...genreBoxes(meta.genres),
         ],
-      },
-      {
-        heading: `Watch ${args.filmTitle}`, variant: "rows", cap: 2,
-        boxes: [wheretoBox(args.filmSlug, args.filmTitle, args.year), moviesLikeBox(args.filmSlug, args.filmTitle)],
       },
     ],
     [questionUrl(args.filmSlug, args.questionSlug)],

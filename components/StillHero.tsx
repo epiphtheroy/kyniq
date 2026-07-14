@@ -53,7 +53,7 @@ export default function StillHero({
           key={p}
           className={`sh-img${n === i ? " on" : ""}`}
           src={`${IMG}/w1280${p}`}
-          alt=""
+          alt={`${label} — ${n + 1} of ${imgs.length}`}
           width={1280}
           height={720}
           loading={n === 0 ? "eager" : "lazy"}

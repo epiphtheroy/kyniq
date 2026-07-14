@@ -58,6 +58,14 @@ export const CODEX_DIMS: CodexDim[] = [
     scale: "0 near-consensus → 100 violently divisive" },
 ];
 
+/**
+ * Display-only TakeScore normalizer. U (Value − Risk) can be negative in the
+ * raw data; for public display and schema we clamp at 0 and round. NEVER use
+ * this in sorting, ranking, percentiles, histograms, brush filters, or any
+ * /api data payload — those must operate on the raw signed value.
+ */
+export const displayTs = (u: number): number => Math.max(0, Math.round(u));
+
 export const dimBySlug = new Map(CODEX_DIMS.map((d) => [d.slug, d]));
 export const dimByKey = new Map(CODEX_DIMS.map((d) => [d.key, d]));
 export const takescoreDimUrl = (slug: string) => `/takescore/${slug}`;

@@ -33,7 +33,7 @@ export default function Directors({ data }: { data: HomeV2 }) {
           <div className="dspot" id="dspot">
             <div className="portrait" style={{ background: tone(hashTone(d.slug)) }}>
               {profileUrl(d.image) ? (
-                <img src={profileUrl(d.image)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src={profileUrl(d.image)!} alt={`${d.name} portrait`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
               ) : null}
               <div className="pchip">Director in focus</div>
               {profileUrl(d.image) ? null : <div className="pin">{initials(d.name)}</div>}
@@ -112,7 +112,7 @@ export default function Directors({ data }: { data: HomeV2 }) {
             <Link className="dcard" href={directorHref(dir.slug)} key={dir.slug}>
               <div className="dpic" style={{ background: tone(hashTone(dir.slug)) }}>
                 {profileUrl(dir.image) ? (
-                  <img src={profileUrl(dir.image)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={profileUrl(dir.image)!} alt={`${dir.name} portrait`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                 ) : (
                   <div className="di">{initials(dir.name)}</div>
                 )}

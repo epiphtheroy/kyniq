@@ -162,7 +162,7 @@ function titleText(film: { title: string; year: number | null }, r: Report): str
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) return { title: "Not found" };
+  if (!data) return { title: "Not found", robots: { index: false, follow: false } };
   const { film, watch, record } = data;
   const report = buildReport(watch, record);
   const title = titleText(film, report);

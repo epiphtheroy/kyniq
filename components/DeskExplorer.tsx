@@ -100,7 +100,7 @@ export default function DeskExplorer({ desks, about, listenEvent }: { desks: Des
             <article className="thr" key={`${d.film_slug}/${d.desk_key}`} id={`desk-${d.film_slug}-${d.desk_key}`}>
               {d.backdrop_path ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <Link href={href} className="thr-th"><img src={`${IMG}/w300${d.backdrop_path}`} alt="" loading="lazy" /></Link>
+                <Link href={href} className="thr-th"><img src={`${IMG}/w300${d.backdrop_path}`} alt={`${d.film_title}${d.film_year ? ` (${d.film_year})` : ""} — still`} loading="lazy" /></Link>
               ) : null}
               <div className="thr-body">
                 <div className="thr-top">

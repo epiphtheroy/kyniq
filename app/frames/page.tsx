@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "The big questions of cinema",
   description:
     "The questions viewers keep asking of film after film — endings, motives, symbols, craft — catalogued and ranked across film history by Metatake.",
+  alternates: { canonical: "/frames" },
 };
 
 function supabaseAnon() {

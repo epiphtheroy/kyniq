@@ -52,7 +52,7 @@ function CaseRows({ cases }: { cases: Case[] }) {
             <span className="lt-cf">{c.f} {c.y ? <span className="yr">({c.y})</span> : null}</span>
             <span className="lt-cv"><span className="v">via</span> {c.fig}</span>
           </span>
-          <span className="lt-cth">{c.bd && <img ref={imgRef} onLoad={onImg} src={`${W342}${c.bd}`} alt="" />}</span>
+          <span className="lt-cth">{c.bd && <img ref={imgRef} onLoad={onImg} src={`${W342}${c.bd}`} alt={`${c.f}${c.y ? ` (${c.y})` : ""} — still`} />}</span>
         </span>
       ))}
     </div>
@@ -65,7 +65,7 @@ function Box({ d, type }: { d: unknown; type: string }) {
     return (
       <div className="lt-box lt-box--wide">
         <Link className="lt-inner" href={`/film/${f.slug}`}>
-          <span className="lt-ph">{f.bd && <img ref={imgRef} onLoad={onImg} src={`${W500}${f.bd}`} alt="" />}<PosterActions slug={f.slug} compact /></span>
+          <span className="lt-ph">{f.bd && <img ref={imgRef} onLoad={onImg} src={`${W500}${f.bd}`} alt={`${f.title}${f.y ? ` (${f.y})` : ""} — still`} />}<PosterActions slug={f.slug} compact /></span>
           <Band t="film" />
           <span className="lt-body">
             <span className="lt-hl">{f.title} {f.y ? <span className="yr">({f.y})</span> : null}</span>
@@ -103,7 +103,7 @@ function Box({ d, type }: { d: unknown; type: string }) {
           <Band t="director" />
           <span className="lt-body">
             <span className="lt-drow">
-              {dd.photo && <img className="lt-dph" ref={imgRef} onLoad={onImg} src={`${W185}${dd.photo}`} alt="" />}
+              {dd.photo && <img className="lt-dph" ref={imgRef} onLoad={onImg} src={`${W185}${dd.photo}`} alt={`${dd.name} portrait`} />}
               <span><span className="lt-hl">{dd.name}</span>{dd.place && <span className="lt-dpl">{dd.place}</span>}</span>
             </span>
             <ul className="lt-vias">

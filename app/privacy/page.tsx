@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Metatake",
+  title: "Privacy Policy",
   description: "Metatake privacy policy — data collection, third parties, and your rights.",
   alternates: { canonical: "/privacy" },
 };

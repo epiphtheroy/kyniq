@@ -35,10 +35,10 @@ export function bandWord(group: CodexDimGroup, score: number): string {
  * following sentence are byte-identical with or without it. Omitting
  * `title` keeps the old signature and the old output exactly.
  */
-export function verdictSentence(v: number, c: number, r: number, u: number, title?: string): string {
-  const V = Math.round(v), C = Math.round(c), R = Math.round(r), U = Math.round(u);
+export function verdictShort(v: number, c: number, r: number, u: number, title?: string): string {
+  const V = Math.round(v), R = Math.round(r);
   const hiV = V >= 72, loR = R <= 20;
-  const quadrant = hiV && loR
+  return hiV && loR
     ? title
       ? `${title} sits at high value · low risk — a safe masterpiece.`
       : "High value · low risk — a safe masterpiece."
@@ -53,6 +53,11 @@ export function verdictSentence(v: number, c: number, r: number, u: number, titl
         : title
           ? `${title} sits at mid value, mid risk — approach with care.`
           : "Mid value, mid risk — approach with care.";
+}
+
+export function verdictSentence(v: number, c: number, r: number, u: number, title?: string): string {
+  const V = Math.round(v), C = Math.round(c), R = Math.round(r), U = Math.max(0, Math.round(u));
+  const quadrant = verdictShort(v, c, r, u, title);
   const net = U >= 70
     ? "one of the safest high-yield propositions in the catalog"
     : U >= 50
@@ -179,28 +184,13 @@ export function dimSentence(key: string, score: number): string {
 export function confidenceSentence(
   conf: number | null,
   tier: string | null,
-  n_samples: number | null,
-  sd_v: number | null,
-  flagged: boolean | null
+  _n_samples?: number | null,
+  _sd_v?: number | null,
+  _flagged?: boolean | null
 ): string {
   const parts: string[] = [];
   if (conf != null) parts.push(`Confidence ${Math.round(conf)}${tier ? ` — ${tier} tier` : ""}.`);
   else if (tier) parts.push(`Confidence tier: ${tier}.`);
-  if (n_samples != null && n_samples <= 1) {
-    parts.push(
-      `The score comes from a single scoring pass (n=1), so run-to-run spread is unmeasured${
-        flagged ? " and the card is flagged for re-scoring" : ""
-      }; on a re-score each sub-score can move by a few points. Flagged means unverified, not low quality.`
-    );
-  } else if (n_samples != null) {
-    parts.push(
-      `The score aggregates ${n_samples} independent scoring passes${
-        sd_v != null ? `, with a measured run-to-run spread of ±${sd_v} on Value` : ""
-      }.${flagged ? " The card is flagged for review — flagged means unverified, not low quality." : ""}`
-    );
-  } else if (flagged) {
-    parts.push("The card is flagged for re-scoring — flagged means unverified, not low quality.");
-  }
   return parts.join(" ");
 }
 

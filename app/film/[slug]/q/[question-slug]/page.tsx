@@ -155,7 +155,7 @@ export default async function QuestionPage({ params }: Props) {
   const hero = heroIdx >= 0 ? media[heroIdx] : null;
   const restMedia = media.filter((_, i) => i !== heroIdx);
 
-  // JSON-LD QAPage with about → Movie (§8.2 film-entity recognition)
+  // JSON-LD Article (question as headline) with about → Movie (§8.2 film-entity recognition)
   const sameAsLinks = [
     film.imdb_id ? `https://www.imdb.com/title/${film.imdb_id}/` : null,
     film.wikidata_id ? `https://www.wikidata.org/wiki/${film.wikidata_id}` : null,
@@ -163,7 +163,8 @@ export default async function QuestionPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "QAPage",
+    "@type": "Article",
+    headline: question.title,
     about: {
       "@type": "Movie",
       name: film.title,
@@ -174,25 +175,12 @@ export default async function QuestionPage({ params }: Props) {
       url: `https://metatake.net/film/${film.slug}`,
       ...(sameAsLinks.length > 0 && { sameAs: sameAsLinks }),
     },
-    mainEntity: {
-      "@type": "Question",
-      name: question.title,
-      text: question.body || question.title,
-      dateCreated: question.created_at,
-      datePublished: question.published_at ?? question.created_at,
-      answerCount: canonical ? 1 : 0,
-      ...(canonical && {
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: canonical.body.slice(0, 500),
-          dateModified: canonical.updated_at,
-          author: {
-            "@type": isAI ? "Organization" : "Person",
-            name: isAI ? "Metatake Editorial" : (updater?.display_name || "Community"),
-          },
-        },
-      }),
-    },
+    ...(canonical ? { articleBody: canonical.body.slice(0, 500) } : {}),
+    datePublished: question.published_at ?? question.created_at,
+    ...(canonical ? { dateModified: canonical.updated_at } : {}),
+    author: { "@type": "Organization", name: "Metatake" },
+    editor: { "@type": "Person", name: "Wonwoo Yoon", url: "https://metatake.net/editor" },
+    publisher: { "@type": "Organization", name: "Metatake" },
   };
 
   const breadcrumbLd = {

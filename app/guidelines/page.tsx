@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Community Guidelines — Metatake",
+  title: "Community Guidelines",
   description: "Metatake community guidelines for film interpretation and discussion.",
   alternates: { canonical: "/guidelines" },
 };

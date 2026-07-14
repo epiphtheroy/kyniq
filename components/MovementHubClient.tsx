@@ -16,7 +16,7 @@ function FilmCard({ f }: { f: MvFilm }) {
     <Link className="mvh-film" href={`/film/${f.slug}`}>
       {f.poster_path
         ? // eslint-disable-next-line @next/next/no-img-element
-          <img className="mvh-poster" src={`${IMG}/w154${f.poster_path}`} alt="" loading="lazy" />
+          <img className="mvh-poster" src={`${IMG}/w154${f.poster_path}`} alt={`${f.title}${f.year ? ` (${f.year})` : ""} poster`} loading="lazy" />
         : <div className="mvh-poster mvh-poster--empty" />}
       <div className="mvh-fmeta">
         <div className="mvh-ftitle">{f.title}{f.year ? <span className="mvh-yr"> ({f.year})</span> : null}</div>

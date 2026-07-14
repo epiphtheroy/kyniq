@@ -5,8 +5,8 @@
  *  External metrics shown ALONGSIDE, never blended. */
 import type { CSSProperties, ReactNode } from "react";
 import ScoreDonut from "@/components/ScoreDonut";
-import { dimByKey, takescoreDimUrl } from "@/lib/cinecodex_dims";
-import { bandWord, verdictSentence } from "@/lib/takescore_prose";
+import { dimByKey, takescoreDimUrl, displayTs } from "@/lib/cinecodex_dims";
+import { bandWord, verdictShort } from "@/lib/takescore_prose";
 
 export type Codex = {
   v: number; c: number; r: number; u: number; sharpe: number;
@@ -233,7 +233,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
   const takes = data.n_takes ?? 0;
   const evidence = takes >= 1
     ? `grounded in ${takes} critical take${takes === 1 ? "" : "s"} we hold on this film`
-    : `no written-criticism corpus yet — a single-pass model judgment`;
+    : `no written-criticism corpus yet on this film`;
 
   // Overall U-rank (migration 0047) — rendered only when the RPC provides both
   // numbers; never fabricated. "top N%" when in the upper half, else an honest
@@ -270,15 +270,21 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
         <div className="ccx-grow">
           <div className="ccx-gnet">
             <div className="ccx-gnet-row">
-              <span className="ccx-gnet-n">{data.u}</span>
+              <span className="ccx-gnet-n">{displayTs(data.u)}</span>
               <span className="ccx-gnet-lab">
                 <span className="k">TakeScore</span>
                 <span className="d">Value − Risk</span>
               </span>
             </div>
             <div className="ccx-gnet-eff"><b>{data.sharpe}</b>Efficiency (value per risk)</div>
+            {data.u < 0 ? (
+              <p className="ccx-gnet-eff" style={{ fontSize: "10px", lineHeight: 1.4 }}>
+                The formula floors at zero for display here — Value minus weighted Risk lands below zero.{" "}
+                <a href="/methodology#rankings" style={{ color: "var(--accent,#C8102E)", textDecoration: "none" }}>Why →</a>
+              </p>
+            ) : null}
           </div>
-          <p className="ccx-gmid">{verdictSentence(data.v, data.c, data.r, data.u, title)}</p>
+          <p className="ccx-gmid">{verdictShort(data.v, data.c, data.r, data.u, title)}</p>
           <div className="ccx-gcell">
             <ScoreDonut val={data.v} color={AXIS_HEX.v} label="Value" sub={bandWord("value", data.v)} size={66} />
           </div>
@@ -353,8 +359,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       ) : null}
 
       <div className="df-src">
-        AI-estimated (TakeScore rubric, {data.panel}{data.n_samples ? `, n=${data.n_samples}` : ""}
-        {data.sd_v != null ? `, ±${Math.round(Number(data.sd_v))}` : ""}). A rubric-anchored judgment, not an objective fact;
+        AI-estimated (TakeScore rubric, {data.panel}). A rubric-anchored judgment, not an objective fact;
         popularity metrics above are for comparison only.
         {conf != null ? (
           <> Confidence {tier ? `${tier} ` : ""}({conf}/100) — {evidence}. A measured reliability, not a claim of certainty.</>

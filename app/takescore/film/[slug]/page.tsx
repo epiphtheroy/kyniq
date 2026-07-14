@@ -7,7 +7,7 @@ import { createClient } from "@supabase/supabase-js";
 import SiteNav from "@/components/home2/SiteNav";
 import EntityTVHero from "@/components/EntityTVHero";
 import ScoreDonut from "@/components/ScoreDonut";
-import { CODEX_DIMS, takescoreDimUrl, type CodexDimGroup } from "@/lib/cinecodex_dims";
+import { CODEX_DIMS, takescoreDimUrl, displayTs, type CodexDimGroup } from "@/lib/cinecodex_dims";
 import { filmUrl } from "@/lib/urls";
 import {
   verdictSentence,
@@ -111,11 +111,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const card = await load(slug);
   if (!card) return {};
-  const ts = Math.round(card.u);
+  const ts = displayTs(card.u);
   // Title-bearing verdict: the film's name in the first sentence makes a
   // stronger SERP snippet (entity mention in the meta description).
   const verdict = verdictSentence(card.v, card.c, card.r, card.u, card.title);
-  const title = `${card.title}${card.year ? ` (${card.year})` : ""} TakeScore ${ts} — value, cost and risk, scored | Metatake`;
+  const title = `${card.title}${card.year ? ` (${card.year})` : ""} TakeScore ${ts} — value, cost and risk, scored · Metatake`;
   return {
     // Absolute: the spec title already carries the brand; the root layout
     // template would otherwise append a second "· Metatake".
@@ -154,7 +154,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
   if (!card) notFound();
   const tow = await loadTow(slug);
 
-  const ts = Math.round(card.u);
+  const ts = displayTs(card.u);
   const v = Math.round(card.v), c = Math.round(card.c), r = Math.round(card.r);
   const verdict = verdictSentence(card.v, card.c, card.r, card.u, card.title);
   const rel = card.reliability;
@@ -174,10 +174,11 @@ export default async function TakeScoreFilmPage({ params }: Props) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      // Review markup only when the score fits the declared 0–100 scale.
-      // 339 films score negative (min −50): a negative ratingValue is "out of
-      // range" to Google (GSC review-snippet error, 2026-07-11) and a negative
-      // review snippet has no search value anyway — those pages ship no Review.
+      // Review markup ships on every scored film. Raw U can be negative (216
+      // films, min −50); the page floors the displayed score at 0 (displayTs),
+      // and the Review's ratingValue mirrors that on-page floor (ts), so the
+      // schema always matches the visible number and stays inside the declared
+      // 0–100 scale. The ts >= 0 gate is therefore always true post-floor.
       ...(ts >= 0 ? [{
         "@type": "Review",
         "@id": `${canonical}#review`,
@@ -191,7 +192,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           ...(card.director ? { director: { "@type": "Person", name: card.director } } : {}),
         },
         reviewRating: { "@type": "Rating", ratingValue: ts, worstRating: 0, bestRating: 100 },
-        author: { "@type": "Person", name: "Wonwoo Yoon", url: `${SITE}/editor` },
+        author: { "@type": "Organization", name: "Metatake", url: SITE },
         publisher: { "@type": "Organization", name: "Metatake", url: SITE },
         ...(date ? { datePublished: date } : {}),
         reviewBody: verdict,
@@ -241,7 +242,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
             </p>
           </div>
           <div className="tsf-tscell">
-            <ScoreDonut val={card.u} color={AXIS_HEX.value} size={118} label="TakeScore · Net value" sub={`= V ${v} − λ·R (λ = 1)`} />
+            <ScoreDonut val={displayTs(card.u)} color={AXIS_HEX.value} size={118} label="TakeScore · Net value" sub={`= V ${v} − λ·R (λ = 1)`} />
           </div>
         </div>
 
@@ -253,6 +254,12 @@ export default async function TakeScoreFilmPage({ params }: Props) {
           <p className="tsf-formula">
             TakeScore = Value − λ·Risk at λ = 1 → <b>{ts}</b>. Cost is a difficulty, not a value.
           </p>
+          {card.u < 0 ? (
+            <p className="tsf-formula">
+              The formula floors at zero for display: Value {v} minus weighted Risk lands below zero here, and the
+              published score shows the floor. <Link href="/methodology#rankings">How rankings and scores work →</Link>
+            </p>
+          ) : null}
         </section>
 
         {/* ── to.W — the curator's letter (addressed to. W. Heo, from. W. Yoon).
@@ -332,7 +339,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
         <div className="tsf-cards">
           <section aria-labelledby="tsf-conf-h" className="tsf-card">
             <h2 className="tsf-card-h" id="tsf-conf-h">Confidence &amp; reproducibility</h2>
-            <p className="tsf-aside">Non-determinism, disclosed honestly</p>
+            <p className="tsf-aside">Measured against the fixed TakeScore rubric</p>
             {card.conf != null ? (
               <div className="tsf-conf">
                 <span className="tsf-conf-k">Measured confidence{card.tier ? ` · ${card.tier}` : ""}</span>
@@ -343,16 +350,12 @@ export default async function TakeScoreFilmPage({ params }: Props) {
               </div>
             ) : null}
             <div className="tsf-kvs">
-              {rel?.n_samples != null ? <div className="tsf-kv"><span className="k">n_samples</span><span className="v">{rel.n_samples}</span></div> : null}
-              <div className="tsf-kv"><span className="k">sd_v</span><span className="v">{rel?.sd_v != null ? `±${rel.sd_v}` : "unmeasured (n=1)"}</span></div>
               {rel?.panel ? <div className="tsf-kv"><span className="k">panel</span><span className="v">{rel.panel}</span></div> : null}
               {rel?.prompt_version ? <div className="tsf-kv"><span className="k">rubric</span><span className="v">{rel.prompt_version}</span></div> : null}
-              {rel?.flagged ? <div className="tsf-kv"><span className="k">flagged</span><span className="v">true</span></div> : null}
             </div>
             {confLine ? <p className="tsf-box-p">{confLine}</p> : null}
             <p className="tsf-note">
-              AI-estimated (rubric {rel?.panel ?? "—"}{rel?.n_samples != null ? `, n=${rel.n_samples}` : ""}) — a
-              judgment, not a fact.
+              AI-estimated (rubric {rel?.panel ?? "—"}) — a judgment, not a fact.
             </p>
           </section>
 
@@ -424,7 +427,7 @@ export default async function TakeScoreFilmPage({ params }: Props) {
                       {b.title}{b.year ? <small> ({b.year})</small> : null}
                       {b.self ? <span className="tsf-lchip">This film</span> : null}
                     </span>
-                    <span className="tsf-lu">{Math.round(b.u)}</span>
+                    <span className="tsf-lu">{displayTs(b.u)}</span>
                     <span className="tsf-lr">{Math.round(b.r)}</span>
                   </>
                 );

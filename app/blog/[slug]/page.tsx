@@ -35,7 +35,7 @@ async function load(slug: string) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = await load(slug);
-  if (!p) return { title: "Edition not found — metatake blog" };
+  if (!p) return { title: "Edition not found", robots: { index: false } };
   const title = isSeriesName(p.title)
     ? `Between Film and the World · ${mon(p.edition_date)}`
     : p.title;
@@ -59,6 +59,7 @@ export default async function BlogPost({ params }: Props) {
     url: `${siteUrl}/blog/${slug}`,
     isPartOf: { "@type": "Blog", name: "Between Film and the World", url: `${siteUrl}/blog` },
     author: { "@type": "Organization", name: "Metatake", url: siteUrl },
+    editor: { "@type": "Person", name: "Wonwoo Yoon", "@id": `${siteUrl}/editor#person`, url: `${siteUrl}/editor` },
     publisher: { "@type": "Organization", name: "Metatake", url: siteUrl },
   };
 

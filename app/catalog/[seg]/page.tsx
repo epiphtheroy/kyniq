@@ -19,7 +19,7 @@ type Node = { slug: string; label: string; code: string | null; parent_slug: str
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { seg } = await params;
   const s = sectionBySeg(seg);
-  if (!s) return { title: "Catalog — Metatake" };
+  if (!s) return { title: "Catalog", robots: { index: false } };
   return { title: `${s.label} — Film Archetypes`, description: s.blurb, alternates: { canonical: `/catalog/${seg}` } };
 }
 

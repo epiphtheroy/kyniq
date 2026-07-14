@@ -9,6 +9,7 @@ import LensQuickBar from "@/components/LensQuickBar";
 import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
+import { displayTs } from "@/lib/cinecodex_dims";
 import ReadPlates from "@/components/read/ReadPlates";
 import "@/app/curious/curious.css";
 
@@ -138,7 +139,7 @@ function quickAnswerItems(film: Film, recs: Rec[]): QuickAnswerItem[] {
   // 4 — worth-watching cut: nearest recs that also carry a real TakeScore.
   const scored = recs.filter((r) => r.ts != null).slice(0, 2);
   if (scored.length > 0) {
-    const phr = scored.map((r) => `${r.film.title} (TakeScore ${r.ts})`);
+    const phr = scored.map((r) => `${r.film.title} (TakeScore ${displayTs(r.ts!)})`);
     const joined = phr.length === 1 ? phr[0] : `${phr[0]} and ${phr[1]}`;
     const verb = scored.length === 1 ? "carries" : "carry";
     items.push({
@@ -249,7 +250,7 @@ export default async function MoviesLikePage({ params }: Props) {
                     <p style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "7px 0 0" }}>
                       {r.ts != null ? (
                         <Link href={`/takescore/film/${r.film.slug}`} style={{ fontSize: 11.5, fontWeight: 700, padding: "2px 8px", borderRadius: 999, background: "rgba(176,138,44,.12)", color: "#6b5416", textDecoration: "none" }}>
-                          TakeScore {r.ts}
+                          TakeScore {displayTs(r.ts)}
                         </Link>
                       ) : null}
                       {r.cos != null ? (

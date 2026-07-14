@@ -8,7 +8,7 @@
  * TMDB editorial, ratings, watch providers, verbatim quotes) are excluded at
  * the RPC layer and never reach here.
  */
-import { CODEX_DIMS } from "@/lib/cinecodex_dims";
+import { CODEX_DIMS, displayTs } from "@/lib/cinecodex_dims";
 
 export type PackTier = "trim" | "full";
 
@@ -109,8 +109,7 @@ function takeScoreSection(p: FilmPack): string {
   }
   const lines: string[] = [];
   lines.push("## TakeScore — Metatake's 13-dimension critical assessment");
-  const head = `**TakeScore ${ts.score}** (net value) · Value ${ts.value} · Cost ${ts.cost} · Risk ${ts.risk}` +
-    (ts.low_confidence ? "  ·  ⚠ low-confidence (single-panel) score" : "");
+  const head = `**TakeScore ${displayTs(ts.score)}** (net value) · Value ${ts.value} · Cost ${ts.cost} · Risk ${ts.risk}`;
   lines.push(head);
   lines.push("");
   lines.push("_Value = what the film delivers (higher is better) · Cost = prior knowledge it demands · Risk = how it can fail as art (higher is worse)._");

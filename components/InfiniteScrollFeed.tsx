@@ -207,7 +207,7 @@ export default function InfiniteScrollFeed({
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={img}
-                    alt=""
+                    alt={`${item.film.title}${item.film.year ? ` (${item.film.year})` : ""} — still`}
                     className="lead__img"
                     width={780}
                     height={439}
@@ -243,7 +243,7 @@ export default function InfiniteScrollFeed({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={thumb}
-                  alt=""
+                  alt={`${item.film.title}${item.film.year ? ` (${item.film.year})` : ""} — still`}
                   className="story__thumb"
                   width={92}
                   height={92}

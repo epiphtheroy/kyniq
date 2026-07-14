@@ -87,7 +87,7 @@ export function Card({
       <Link href={href}>
         <div className="th">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          {img ? <img src={img} alt="" loading="lazy" width={342} height={192} /> : null}
+          {img ? <img src={img} alt={`${film.title}${film.year ? ` (${film.year})` : ""} — still`} loading="lazy" width={342} height={192} /> : null}
           {date ? <span className="dt">{monDate(date)}</span> : null}
         </div>
         <div className="tag">{tag}</div>
@@ -123,7 +123,7 @@ export function ResultRow({
     <div className="cur-row">
       <Link href={href} className="th" aria-hidden="true" tabIndex={-1}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        {img ? <img src={img} alt="" loading="lazy" width={342} height={192} /> : null}
+        {img ? <img src={img} alt={`${film.title}${film.year ? ` (${film.year})` : ""} — still`} loading="lazy" width={342} height={192} /> : null}
       </Link>
       <div>
         <span className="dt">{date ? monDate(date) : ""}</span>

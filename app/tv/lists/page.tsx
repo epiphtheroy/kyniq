@@ -15,7 +15,7 @@ function db() {
 }
 
 export const metadata: Metadata = {
-  title: "Every Watch List · METATAKE TV",
+  title: { absolute: "Every Watch List · METATAKE TV" },
   description: "Browse every METATAKE TV watch list — directors, canons, awards, movements, genres, countries, decades, theorists, tropes, concepts and archetypes, each compiled into a broadcast with no LLM.",
   alternates: { canonical: "/tv/lists" },
   openGraph: { title: "Every Watch List · METATAKE TV", url: `${SITE}/tv/lists`, siteName: "Metatake", type: "website" },

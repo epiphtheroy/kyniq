@@ -17,7 +17,7 @@ const SITE = "https://metatake.net";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Metatake TV — Watch",
+  title: { absolute: "Metatake TV — Watch" },
   description: "Watch Metatake TV — a continuous, LLM-free video essay on cinema. Pick a watch list — a director, a canon, a trope, a concept — and leave it on. Browse the full library below.",
   alternates: { canonical: "/tv" },
   openGraph: { title: "Metatake TV — Watch", url: `${SITE}/tv`, siteName: "Metatake", type: "website" },

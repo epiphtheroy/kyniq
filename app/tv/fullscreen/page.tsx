@@ -6,7 +6,7 @@ import "@/app/home2.css";
 // pick, no host, no menu — films and their readings play back to back forever.
 // The interactive watch interface (playlists + library) is at /tv.
 export const metadata: Metadata = {
-  title: "METATAKE TV — On Air",
+  title: { absolute: "METATAKE TV — On Air" },
   description: "The always-on broadcast: films and their readings, back to back, forever. No host, no menu, nothing to pick — just leave it on.",
   alternates: { canonical: "/tv/fullscreen" },
 };

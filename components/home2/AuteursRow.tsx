@@ -25,7 +25,7 @@ export default function Auteurs({ data }: { data: HomeV2 }) {
             <Link className="bp" href={directorHref(p.slug)} key={p.slug}>
               <div className="av" style={{ background: tone(hashTone(p.slug)) }}>
                 {profileUrl(p.image) ? (
-                  <img src={profileUrl(p.image)!} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={profileUrl(p.image)!} alt={`${p.name} portrait`} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                 ) : (
                   <div className="di">{initials(p.name)}</div>
                 )}

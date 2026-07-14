@@ -8,6 +8,7 @@ import { attachKwic, kwic } from "@/lib/kwic";
 import TermHighlight from "@/components/TermHighlight";
 import SiteNav from "@/components/home2/SiteNav";
 import { KIND_LABEL, TMDB_IMG, type SearchHit, type SearchKind } from "@/lib/search-shared";
+import { displayTs } from "@/lib/cinecodex_dims";
 import "./omni.css";
 
 /**
@@ -81,7 +82,7 @@ async function loadEntityCard(hit: SearchHit | undefined): Promise<EntityCard> {
         type: "film", slug: f.slug, title: f.title, year: f.year, director: f.director,
         director_slug: f.director_slug, overview: f.overview, poster_path: f.poster_path,
         backdrop_path: f.backdrop_path, runtime: f.runtime, genres: f.genres,
-        takescore: cx?.u != null ? Math.round(cx.u) : null,
+        takescore: cx?.u != null ? displayTs(cx.u) : null,
         rank: cx?.rank ?? null, rank_total: cx?.rank_total ?? null,
         imdb: rat?.imdb_rating ?? null, rt: rat?.rt_tomatometer ?? null, metascore: rat?.metascore ?? null,
         honors: honRes.count ?? 0,
@@ -306,7 +307,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const { q } = await searchParams;
   const term = (q ?? "").trim();
   return {
-    title: term ? `${term} — Metatake Search` : "Metatake Search — every film, reading, person, idea and place",
+    title: { absolute: term ? `${term} — Metatake Search` : "Metatake Search — every film, reading, person, idea and place" },
     description: "One box over all of Metatake: 6,900 films, 27,000 readings, directors, theorists, ideas, places and the news — text or meaning, any language.",
     alternates: { canonical: "/search" },
     robots: term ? { index: false, follow: true } : { index: true, follow: true },

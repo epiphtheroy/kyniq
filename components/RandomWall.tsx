@@ -55,7 +55,7 @@ export default function RandomWall({ initial }: { initial: PoolItem[] }) {
             <Link key={`${it.href}-${i}`} href={it.href} className={`rw-card rw-${it.type}`}>
               <span className="rw-type">{TYPE_LABEL[it.type] ?? it.type}</span>
               {it.type === "film" && it.img ? (
-                <span className="rw-thumb"><img src={`${IMG}${it.img}`} alt="" loading="lazy" /></span>
+                <span className="rw-thumb"><img src={`${IMG}${it.img}`} alt={`${it.title}${it.yr ? ` (${it.yr})` : ""} poster`} loading="lazy" /></span>
               ) : null}
               <span className="rw-ttl">{it.title}</span>
               {it.sub ? <span className="rw-sub">{it.sub}{it.yr ? ` · ${it.yr}` : ""}</span> : null}

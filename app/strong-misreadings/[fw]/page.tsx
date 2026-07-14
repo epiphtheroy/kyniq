@@ -21,9 +21,13 @@ interface Props { params: Promise<{ fw: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { fw: slug } = await params;
-  if (slug === "all") return { title: "All Strong Misreadings — every critical reading on Metatake", alternates: { canonical: "/strong-misreadings/all" } };
+  if (slug === "all") return {
+    title: { absolute: "All Strong Misreadings — every critical reading on Metatake" },
+    description: "Every Strong Misreading on Metatake in one feed — each film read against the grain across all fourteen critical frameworks, searchable by film, figure and lens.",
+    alternates: { canonical: "/strong-misreadings/all" },
+  };
   const f = fwBySlug(slug);
-  if (!f) return { title: "Strong Misreadings — Metatake" };
+  if (!f) return { title: "Strong Misreadings — Metatake", robots: { index: false } };
   // Lead with the search phrase, keep the brand term in the description.
   const title = f.seoTitle;
   const introText = FRAMEWORK_INTROS[f.slug];

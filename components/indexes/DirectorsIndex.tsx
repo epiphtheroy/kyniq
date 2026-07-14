@@ -55,7 +55,7 @@ export default function DirectorsIndex({ catalogue, initialSlug }: { catalogue: 
           text: `${it.name} ${it.country ?? ""} ${it.sig ?? ""}`.toLowerCase(),
           thumb: (
             <span className="idx-th idx-th--round">
-              {THUMB(it.photo) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.photo) as string} alt="" loading="lazy" />
+              {THUMB(it.photo) ? <img ref={fadeRef} onLoad={onImgLoad} src={THUMB(it.photo) as string} alt={`${it.name} portrait`} loading="lazy" />
                 : <span className="idx-th-mono">{it.name.charAt(0)}</span>}
             </span>
           ),

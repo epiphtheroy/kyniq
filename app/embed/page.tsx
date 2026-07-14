@@ -5,7 +5,7 @@ import { pageRobots } from "@/lib/seo";
 import EmbedBuilder from "@/components/EmbedBuilder";
 
 export const metadata: Metadata = {
-  title: "Embed a TakeScore Badge — Metatake",
+  title: "Embed a TakeScore Badge",
   description:
     "Add a live Metatake TakeScore badge to your film blog or article in one line. Free, self-updating, links back to the full criticism. Script or iframe.",
   alternates: { canonical: "/embed" },

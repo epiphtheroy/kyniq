@@ -93,7 +93,7 @@ export default function SurpriseStage({ auto = false }: { auto?: boolean }) {
                 <iframe key={`${card!.clip}-${muted ? "m" : "s"}`} className="hs-media" src={clipSrc} title={card?.film_title ?? "clip"} allow="autoplay; encrypted-media; picture-in-picture" />
               ) : card?.backdrop ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img className="hs-media" src={`${IMG}/w1280${card.backdrop}`} alt="" />
+                <img className="hs-media" src={`${IMG}/w1280${card.backdrop}`} alt={`${card.film_title ?? ""}${card.film_year ? ` (${card.film_year})` : ""} — still`} />
               ) : <div className="hs-media hs-media--empty" aria-hidden="true" />}
               {clipSrc ? (
                 <button type="button" className={`hs-mute${muted ? "" : " on"}`} onClick={(e) => { e.stopPropagation(); setMuted((v) => !v); }} aria-label={muted ? "Unmute" : "Mute"}>

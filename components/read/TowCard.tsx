@@ -36,8 +36,29 @@ export function loadTow(slug: string): Promise<TowComment | null> {
   )().catch(() => null);
 }
 
-export default function TowCard({ tow, filmTitle }: { tow: TowComment | null; filmTitle: string }) {
+// First sentence of the rationale (split on the first ". "; whole string if none).
+function firstSentence(s: string): string {
+  const i = s.indexOf(". ");
+  return i === -1 ? s : s.slice(0, i + 1);
+}
+
+// variant="short" (film main page): kicker + first sentence + a link to the full
+// letter on the appraisal page — kills the byte-identical cross-page duplication
+// with the /takescore/film/[slug] page, which keeps the full letter (E4).
+export default function TowCard({
+  tow,
+  filmTitle,
+  variant = "full",
+  slug,
+}: {
+  tow: TowComment | null;
+  filmTitle: string;
+  variant?: "full" | "short";
+  slug?: string;
+}) {
   if (!tow?.rationale) return null;
+  const isShort = variant === "short";
+  const body = isShort ? firstSentence(tow.rationale) : tow.rationale;
   return (
     <section className="towc" aria-labelledby="towc-h">
       <div className="towc-head">
@@ -49,18 +70,25 @@ export default function TowCard({ tow, filmTitle }: { tow: TowComment | null; fi
           <span className={`towc-chip towc-chip--${tow.verdict}`}>{tow.verdict_label}</span>
         ) : null}
       </div>
-      <p className="towc-p">{tow.rationale}</p>
-      {tow.rec_date ? (
+      <p className="towc-p">{body}</p>
+      {isShort && slug ? (
+        <p className="towc-more">
+          <Link href={`/takescore/film/${slug}#towc-h`}>Read the full letter on the appraisal page →</Link>
+        </p>
+      ) : null}
+      {!isShort && tow.rec_date ? (
         <p className="towc-recd">Recommended into the Metatake index · {tow.rec_date}</p>
       ) : null}
       <div className="towc-signrow">
         <span className="towc-sign">from. W. Yoon</span>
         <Link href="/editor" className="towc-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
       </div>
-      <p className="towc-note">
-        A curator&apos;s note on {filmTitle}&apos;s place in the Metatake index — drawn from the catalog&apos;s
-        curation records, and kept separate from the TakeScore appraisal above.
-      </p>
+      {!isShort ? (
+        <p className="towc-note">
+          A curator&apos;s note on {filmTitle}&apos;s place in the Metatake index — drawn from the catalog&apos;s
+          curation records, and kept separate from the TakeScore appraisal above.
+        </p>
+      ) : null}
     </section>
   );
 }

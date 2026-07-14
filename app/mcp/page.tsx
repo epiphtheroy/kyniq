@@ -4,7 +4,7 @@ import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Metatake MCP — Film Criticism for Your AI",
+  title: { absolute: "Metatake MCP — Film Criticism for Your AI" },
   description:
     "Connect your AI assistant to Metatake over the Model Context Protocol: live tools for film search, multi-framework critical readings, the 13-dimension TakeScore, and kindred-film connections. Free for conversational use, CC BY-NC 4.0 with attribution.",
   alternates: { canonical: "/mcp" },

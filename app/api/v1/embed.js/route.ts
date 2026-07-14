@@ -43,7 +43,7 @@ const JS = `(function(){
     a.className=(a.className?a.className+" ":"")+"mtk-badge";
     a.title="TakeScore on Metatake — human-curated film criticism";
     fetch(BASE+"/api/v1/takescore/"+encodeURIComponent(slug)).then(function(r){return r.ok?r.json():null;}).then(function(d){
-      var n=(d&&typeof d.score==="number")?Math.round(d.score):null;
+      var n=(d&&typeof d.score==="number")?Math.max(0,Math.round(d.score)):null;
       a.innerHTML='<span class="mtk-badge__n">'+(n!=null?n:"–")+'</span>'
         +'<span class="mtk-badge__lab">TakeScore</span>'
         +'<span class="mtk-badge__x">on</span><span class="mtk-badge__wm">Metatake</span>';

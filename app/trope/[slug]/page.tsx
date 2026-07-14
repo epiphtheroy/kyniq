@@ -124,7 +124,7 @@ function excerptPlain(text: string | null | undefined, maxLen = 190): string | n
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await load(slug);
-  if (!data) return { title: "Trope — Metatake" };
+  if (!data) return { title: "Trope", robots: { index: false } };
   const phrase = (data.t as { seo_phrase?: string | null }).seo_phrase;
   // Listicle framing only once there's a list worth ranking.
   const ranked = data.filmCount >= 4;
@@ -226,22 +226,6 @@ export default async function TropePage({ params }: Props) {
     backdrop_path: bd.get(m.film_slug) ?? null,
   }));
 
-  const faqLd = n > 0 ? {
-    "@context": "https://schema.org", "@type": "FAQPage",
-    ...(t.created_at ? { datePublished: t.created_at } : {}),
-    ...(t.updated_at ? { dateModified: t.updated_at } : {}),
-    mainEntity: [
-      {
-        "@type": "Question", name: `Which films stage ${t.title}?`,
-        acceptedAnswer: { "@type": "Answer", text: `Metatake documents ${n} ${readLabel} across ${filmCount} ${filmLabel} that stage ${t.title}, including ${topFilms.map((m) => `${m.film_title}${m.film_year ? ` (${m.film_year})` : ""}`).join(", ")} — each tied to the exact on-screen figure that carries it.` },
-      },
-      ...(t.thesis || t.laconic ? [{
-        "@type": "Question", name: `What is ${t.title} in film?`,
-        acceptedAnswer: { "@type": "Answer", text: excerptPlain(t.thesis ?? t.laconic, 600) },
-      }] : []),
-    ],
-  } : null;
-
   // ── Quick answers (docs/PLAN-intent-coverage.md §0 + §5.6) ─────────────────
   // Search-phrased Q&A assembled ONLY from fields already in scope, mounted
   // above the "spelled out" bullets (distinct framing, not a duplicate). Every
@@ -316,7 +300,6 @@ export default async function TropePage({ params }: Props) {
             name: `${m.figure_label} — ${m.film_title}${m.film_year ? ` (${m.film_year})` : ""}`,
             url: `${SITE}${figHref(m)}`,
           })) },
-        ...(faqLd ? [faqLd] : []),
       ]) }} />
 
       {/* ── Dark hero: the trope as a working pattern, counted ── */}

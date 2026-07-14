@@ -59,7 +59,7 @@ export default function BlogGraph() {
                 <div className="th">
                   {leadBd ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={`${IMG}${leadBd}`} alt="" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={`${IMG}${leadBd}`} alt={lead?.entries?.[0]?.film_title ? `${lead.entries[0].film_title} — still` : ""} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   ) : null}
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export default function BlogGraph() {
                   <div className="th">
                     {p.entries?.[0]?.bd ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={`${IMG}${p.entries[0].bd}`} alt="" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      <img src={`${IMG}${p.entries[0].bd}`} alt={p.entries?.[0]?.film_title ? `${p.entries[0].film_title} — still` : ""} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     ) : null}
                   </div>
                   <div>

@@ -5,6 +5,7 @@
  * both the <script> snippet (do-follow backlink) and the <iframe> fallback.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { displayTs } from "@/lib/cinecodex_dims";
 
 const BASE = "https://metatake.net";
 type Film = { slug: string; title: string; year: number | null; director: string | null; takescore: number | null };
@@ -56,7 +57,7 @@ export default function EmbedBuilder() {
           {results.map((f) => (
             <button key={f.slug} type="button" className="eb-row" onClick={() => { setPicked(f); setResults([]); setQ(`${f.title}${f.year ? ` (${f.year})` : ""}`); }}>
               <span>{f.title}{f.year ? ` (${f.year})` : ""}{f.director ? ` · ${f.director}` : ""}</span>
-              <span className="eb-ts">{f.takescore != null ? `TS ${f.takescore}` : ""}</span>
+              <span className="eb-ts">{f.takescore != null ? `TS ${displayTs(f.takescore)}` : ""}</span>
             </button>
           ))}
         </div>

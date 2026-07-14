@@ -243,7 +243,6 @@ export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
           <div className="fbadges">
             <span className="tierbadge"><i className="ti ti-award" /><span className="lv">L{al}</span> {AES[al - 1]} <span className="of">/ 10 aesthetic stages</span></span>
             <span className="polarbadge"><i className="ti ti-git-branch" style={{ fontSize: 11 }} /> Divisiveness {pBand} · POLAR {pBand}</span>
-            {rel.flagged ? <span className="flagchip"><i className="ti ti-flag" /> flagged · n={rel.n_samples ?? 1}</span> : null}
           </div>
         </div>
         <div className="axisgrid">
@@ -315,14 +314,9 @@ export default function EvalCard({ d, pos }: { d: CardData; pos: MyPosition }) {
               <div className="ec-kv"><span className="k">Confidence tier</span><span className="v">{d.tier ?? "—"}{d.conf != null ? ` · ${d.conf}` : ""}</span></div>
             </div>
             <div>
-              <div className="ec-kv"><span className="k">n_samples</span><span className="v warn">{rel.n_samples ?? "—"}</span></div>
-              <div className="ec-kv"><span className="k">sd_v / sd_r</span><span className="v warn">{rel.sd_v != null ? `${rel.sd_v} / ${rel.sd_r}` : "Unmeasured (N=1)"}</span></div>
               <div className="ec-kv"><span className="k">Evidence corpus</span><span className="v">{d.n_takes ?? 0} takes</span></div>
-              <div className="ec-kv"><span className="k">flagged</span><span className={`v${rel.flagged ? " warn" : ""}`}>{String(!!rel.flagged)}</span></div>
             </div>
           </div>
-          <div className="honest"><b>An honest note on non-determinism.</b> This score is a single commercial-LLM sample (Pass 1, N=1), so <b>run noise (sd) is unmeasured</b> and the card is flagged. On a re-score each sub-score can move by a few points — that is the nature of generative models, not an error. <b>We hide the arithmetic (HOW) but publish the rationale (WHY) and the confidence.</b> <b>Flagged ≠ low quality</b>, and low divisiveness (POLAR) is never a reason to blur.</div>
-          <div className="pass2"><i className="ti ti-repeat" /><span><b>Pass 2 (N=3) recommended.</b> Re-scoring flagged films with 3 samples stabilizes the median and yields sd. A Pass-3 Opus audit is recommended for the riskiest 5%. Not yet run.</span></div>
         </div>
       </div>
 

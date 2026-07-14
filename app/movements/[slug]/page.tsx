@@ -71,8 +71,8 @@ function load(slug: string): Promise<(MvDetail & { hidden: MvHiddenFilm[] }) | n
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const d = await load(slug);
-  if (!d) return { title: "Not found" };
-  const t = `${d.hub.label} — ${d.kind === "national" ? "national cinema" : "film movement"} · Metatake`;
+  if (!d) return { title: "Not found", robots: { index: false, follow: false } };
+  const t = `${d.hub.label} — ${d.kind === "national" ? "national cinema" : "film movement"}`;
   // Phase-0 origins final. Index hubs with enough films; keep thin hubs (<8) out of the index.
   const thin = (d.films?.length ?? 0) < 8;
   return { title: t, description: `The canon, auteurs and where to start with ${d.hub.label} on Metatake.`, alternates: { canonical: `/movements/${slug}` }, robots: thin ? { index: false, follow: true } : undefined };

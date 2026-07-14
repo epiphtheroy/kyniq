@@ -4,6 +4,8 @@
  * Risk in outline boxes. Numbers-first so a score reads as a scorecard, not
  * loose digits in a sentence. Pure render; sizes via the `size` prop.
  */
+import { displayTs } from "@/lib/cinecodex_dims";
+
 export type TakeScoreVals = { u: number; v: number; c: number; r: number; tier?: string | null };
 
 function uBand(u: number): string {
@@ -13,7 +15,7 @@ function uBand(u: number): string {
 }
 
 export default function TakeScoreBoxes({ s, showUKicker = true }: { s: TakeScoreVals; showUKicker?: boolean }) {
-  const u = Math.round(s.u);
+  const u = displayTs(s.u);
   return (
     <span className="tsc-boxes">
       <span className={`tsc-box tsc-box--u ${uBand(u)}`} title={s.tier ? `${s.tier} — TakeScore ${u}` : `TakeScore ${u}`}>

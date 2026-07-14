@@ -9,7 +9,7 @@ import LatestMagazine, { type LatestPool } from "@/components/LatestMagazine";
 export const revalidate = 900;
 
 export const metadata: Metadata = {
-  title: "How Metatake reads — a critical map of cinema, figure by figure",
+  title: { absolute: "How Metatake reads — a critical map of cinema, figure by figure" },
   description:
     "How Metatake reads films closely through their figures — the concrete things a film keeps returning to — and maps how those readings recur across all of cinema. Not reviews. Not ratings. Readings.",
   alternates: { canonical: "/manifesto" },
