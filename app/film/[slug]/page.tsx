@@ -43,6 +43,7 @@ import { CRAFTS, personSlug } from "@/app/credits/credits-logic";
 import { filmKeyCrew } from "@/lib/filmCrew";
 import { axisLabel, nodeHref } from "@/lib/catalog";
 import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import { displayTs } from "@/lib/cinecodex_dims";
 import { verdictShort } from "@/lib/takescore_prose";
 import { ruleFigureQuestion } from "@/lib/figureSeo";
@@ -571,7 +572,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: { title, description },
       twitter: { card: "summary_large_image", title, description },
       alternates: { canonical: `/film/${slug}` },
-      robots: pageRobots(false),
+      // SEO consolidation gate (HANDOFF §2): a Tier-2 catalog film's main page is
+      // indexable when it clears filmIndexBar (strong-any signal + availability).
+      robots: pageRobots(await filmMainIndexable(slug)),
     };
   }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
@@ -880,7 +883,7 @@ export default async function FilmPage({ params }: Props) {
             </section>
           ) : null}
 
-          <CinecodexPanel data={codex as Codex | null} title={f.title} slug={f.slug} />
+          <CinecodexPanel data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
           <TowCard tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />

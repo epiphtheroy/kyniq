@@ -10,6 +10,7 @@ import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswe
 import ReadPlates from "@/components/read/ReadPlates";
 import "@/app/curious/curious.css";
 import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import { awardBody, awardLabel, canonEmblem } from "@/lib/lineageBodies";
 import { cachedLocationsEligibility } from "@/lib/locations";
 import {
@@ -30,9 +31,11 @@ import {
  * is the read page for "X awards" / "is X in the canon" queries.
  * (Moved 2026-07-06 from /film/[slug]/honors — the old route 308-redirects.)
  *
- * Deliberately NOT gated on films.visible: a Tier-2 catalog film with three
- * sourced honours carries a real record — the honours are facts about the
- * film, not editorial that needs the ≥3-figure bar. Gate: ≥3 lineage rows.
+ * Honours are facts, so this renders for any film with ≥3 sourced lineage rows
+ * (incl. Tier-2 catalog films). INDEXING, though, follows the film's main page:
+ * gated on filmMainIndexable(slug) && ≥3 lineage rows (SEO consolidation, HANDOFF
+ * §2.5) — a Tier-2 film that doesn't clear the main-page bar keeps this page but
+ * noindex, so the sub-cluster never outranks or leaks past a noindex main.
  */
 export const revalidate = 86400;
 export async function generateStaticParams() { return []; }
@@ -199,7 +202,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/film/lineage/${slug}` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(lineage.length >= FILM_HONORS_MIN),
+    robots: pageRobots((await filmMainIndexable(slug)) && lineage.length >= FILM_HONORS_MIN),
   };
 }
 

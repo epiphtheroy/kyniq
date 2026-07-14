@@ -9,6 +9,7 @@ import LensQuickBar from "@/components/LensQuickBar";
 import ShareDock from "@/components/ShareDock";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import { displayTs } from "@/lib/cinecodex_dims";
 import ReadPlates from "@/components/read/ReadPlates";
 import "@/app/curious/curious.css";
@@ -93,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = recs.length
     ? `The ${recs.length} films closest in pattern to ${film.title}, ranked by shared tropes and taste-vector proximity: ${recs.slice(0, 5).map((r) => r.film.title).join(", ")} and more — each with the evidence for why it's kin.`
     : `Films similar to ${film.title}.`;
-  const meetsBar = film.visible && recs.length >= 3;
+  const meetsBar = (await filmMainIndexable(slug, { visible: film.visible })) && recs.length >= 3;
   return {
     title,
     description,

@@ -1,4 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
+import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import EntityTVHero from "@/components/EntityTVHero";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -51,6 +53,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${question.title} — ${film.title}${yearStr}`,
     description: `Read interpretations of "${question.title}" about ${film.title}${yearStr} on Metatake.`,
     alternates: { canonical: `/film/${slug}/q/${qSlug}` },
+    // Subpage invariant (HANDOFF §2.5): indexable only when the film's main page is.
+    robots: pageRobots(await filmMainIndexable(slug)),
   };
 }
 

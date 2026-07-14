@@ -20,6 +20,41 @@ export function pageRobots(meetsBar = true): Metadata["robots"] {
 }
 
 /**
+ * FilmIndexSignals / filmIndexBar — the SEO consolidation gate (2026-07-14,
+ * HANDOFF-SEO-스타터가이드-작업지시서.md §2). Single source of truth shared by the
+ * film main page, all its subpages, and the sitemap (through lib/filmGate.ts).
+ * Raw signal counts come from the film_index_signals_json() RPC (migration 0097).
+ *
+ * Verified on prod 2026-07-14: 1,105 Tier-2 films pass; Tier-1 visible = 1,959.
+ *
+ * ⚠️ `hold` is NOT an input. It is the factory's "ingested-as-stub, not yet
+ * promoted" flag, set on 4,723/4,997 Tier-2 films (the whole cohort) — excluding
+ * it would collapse the gate to 21 films. Deliberate junk = tmdb-% stubs. The 22
+ * editorially-hidden films are is_analyzed=true and never enter the Tier-2 path.
+ */
+export type FilmIndexSignals = {
+  slug: string;
+  is_analyzed: boolean;
+  visible: boolean;
+  n_reception: number;
+  n_lineage: number;
+  n_wd_honors: number;
+  n_providers: number;
+  n_affinities?: number; // movies-like sitemap gate
+  created_at?: string; // sitemap Tier-2 cohort ordering (oldest-first)
+};
+
+export function filmIndexBar(s: FilmIndexSignals): boolean {
+  if (!SITE_INDEXABLE) return false;
+  if (s.slug.startsWith("tmdb-")) return false; // unresolved-stub guard
+  // Tier-1: existing bar — visible ⇔ ≥3 approved figures (DB trigger).
+  if (s.is_analyzed) return s.visible;
+  // Tier-2: a strong editorial signal (any) + an availability baseline.
+  const strong = s.n_reception >= 3 || s.n_lineage >= 3 || s.n_wd_honors >= 3;
+  return strong && s.n_providers >= 1;
+}
+
+/**
  * INDEX COHORTS — scaled-content-abuse guard (2026-07-02).
  * A brand-new domain (indexable since 2026-06-17, ~0 backlinks) advertising
  * 25k+ AI-written pages at once fits Google's scaled-content detection pattern.
@@ -148,6 +183,7 @@ export const INDEX_COHORT_FILM_LOCATIONS = 1000; // /film/*/locations pages in s
 export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap (added 2026-07-05; 895 eligible incl. Tier-2)
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
 export const INDEX_COHORT_ESSAYS_KO = 300; // /film/*/{desk}/ko Korean essays cohort 1 (added 2026-07-08; ~1,613 eligible KO)
+export const INDEX_COHORT_FILMS_T2 = 300; // consolidated Tier-2 film mains in sitemap (added 2026-07-14; 1,105 eligible via filmIndexBar). Raise on the standard weekly GSC-evidence rule.
 
 
 

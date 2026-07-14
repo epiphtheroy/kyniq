@@ -13,9 +13,29 @@ import {
   INDEX_COHORT_MISREADINGS,
   INDEX_COHORT_FILM_CREDITS,
   INDEX_COHORT_ESSAYS_KO,
+  INDEX_COHORT_FILMS_T2,
+  filmIndexBar,
+  type FilmIndexSignals,
 } from "@/lib/seo";
+import { filmIndexRoster } from "@/lib/filmGate";
 import { allLocationCities, loadLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
+
+// SEO consolidation gate (HANDOFF §2.6): the set of slugs whose MAIN page is
+// indexable (Tier-1 visible + gate-passing Tier-2), so film-subpage sitemaps
+// advertise exactly that set and never a noindex URL. Callers treat an empty set
+// (RPC error) as "gate unavailable" and fall back to their prior behaviour rather
+// than dropping coverage — degrade, don't crash (lib/sitemap-data fetchAll rule).
+async function gatePassingSlugs(): Promise<Set<string>> {
+  try {
+    const roster = await filmIndexRoster();
+    const out = new Set<string>();
+    for (const slug in roster) if (filmIndexBar(roster[slug])) out.add(slug);
+    return out;
+  } catch {
+    return new Set<string>();
+  }
+}
 import { KINDS, nodeHref, sectionHref, type SectionKey } from "@/lib/catalog";
 import { BROWSABLE } from "@/lib/frameworks";
 import { personSlug } from "@/app/credits/credits-logic";
@@ -565,12 +585,18 @@ export async function filmReceptionEntries(): Promise<SitemapEntry[]> {
     films.push(...((data ?? []) as { id: string; slug: string }[]));
   }
   films.sort((a, b) => a.slug.localeCompare(b.slug));
-  return films.map((f) => {
-    const ts = latestByFilm.get(f.id);
-    return ts
-      ? { url: `${siteUrl}/film/${f.slug}/reception`, lastmod: isoDate(ts) }
-      : { url: `${siteUrl}/film/${f.slug}/reception` };
-  });
+  // Subpage invariant (HANDOFF §2.6): only advertise reception pages whose film's
+  // main page is indexable. Degrade to the prior (unfiltered) set if the gate is down.
+  const gate = await gatePassingSlugs();
+  const useGate = gate.size > 0;
+  return films
+    .filter((f) => !useGate || gate.has(f.slug))
+    .map((f) => {
+      const ts = latestByFilm.get(f.id);
+      return ts
+        ? { url: `${siteUrl}/film/${f.slug}/reception`, lastmod: isoDate(ts) }
+        : { url: `${siteUrl}/film/${f.slug}/reception` };
+    });
 }
 
 /** Films — every visible film. */
@@ -584,15 +610,42 @@ export async function filmEntries(): Promise<SitemapEntry[]> {
   // must reflect the latest content event, not the row's birth, or enriched
   // pages never earn a recrawl. last_processed_at is bumped by the content
   // pipelines (Q&A loaders etc.).
-  return films.map((f) => ({
+  const base = films.map((f) => ({
     url: `${siteUrl}/film/${f.slug}`,
     lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
   }));
+  // SEO consolidation (HANDOFF §2.6): also advertise gate-passing Tier-2 catalog
+  // films (is_analyzed=false), released oldest-first under INDEX_COHORT_FILMS_T2 —
+  // append-only, so raising the cap only appends. None added on RPC error.
+  let roster: Record<string, FilmIndexSignals> = {};
+  try { roster = await filmIndexRoster(); } catch { roster = {}; }
+  const tier2 = Object.values(roster)
+    .filter((s) => !s.is_analyzed && filmIndexBar(s))
+    .sort((a, b) => (a.created_at ?? "").localeCompare(b.created_at ?? ""))
+    .slice(0, INDEX_COHORT_FILMS_T2)
+    .map((s) => ({
+      url: `${siteUrl}/film/${s.slug}`,
+      ...(s.created_at ? { lastmod: isoDate(s.created_at) } : {}),
+    }));
+  return [...base, ...tier2];
 }
 
 /** /movies-like/* companions — one per visible film. */
 export async function moviesLikeEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
+  // Mirror the page bar EXACTLY (app/movies-like/[slug]: filmMainIndexable && recs>=3),
+  // fixing the old contradiction where every visible film was advertised but the page
+  // noindexed <3-rec films. n_affinities counts only visible-related recs (RPC 0097).
+  // Empty on RPC error — better a temporary gap than re-advertising noindex URLs.
+  let roster: Record<string, FilmIndexSignals> = {};
+  try { roster = await filmIndexRoster(); } catch { roster = {}; }
+  const gated = Object.values(roster)
+    .filter((s) => filmIndexBar(s) && (s.n_affinities ?? 0) >= 3)
+    .map((s) => s.slug)
+    .sort();
+  if (gated.length > 0) return gated.map((slug) => ({ url: `${siteUrl}/movies-like/${slug}` }));
+  // Roster unavailable (e.g. RPC not yet migrated): degrade to the prior all-visible
+  // set rather than emptying the sitemap — coverage over the (soft) noindex mismatch.
   const supabase = db();
   const films = await fetchAll<{ slug: string }>((from, to) =>
     supabase.from("films").select("slug").eq("visible", true).order("slug").range(from, to)
@@ -914,7 +967,14 @@ export async function lineageEntries(): Promise<SitemapEntry[]> {
 export async function honorsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const { films } = await cachedLineageEligibility();
-  return films.slice(0, INDEX_COHORT_FILM_HONORS).map((f) => ({ url: `${siteUrl}/film/lineage/${f.slug}` }));
+  // Subpage invariant (HANDOFF §2.6): only advertise /film/lineage pages whose film's
+  // main page is indexable (was: any visibility). Degrade to prior set if gate is down.
+  const gate = await gatePassingSlugs();
+  const useGate = gate.size > 0;
+  return films
+    .filter((f) => !useGate || gate.has(f.slug))
+    .slice(0, INDEX_COHORT_FILM_HONORS)
+    .map((f) => ({ url: `${siteUrl}/film/lineage/${f.slug}` }));
 }
 
 /**
@@ -927,6 +987,11 @@ export async function honorsEntries(): Promise<SitemapEntry[]> {
 export async function sitemapTakescoreFilms(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
+  // Subpage invariant (HANDOFF §2.6): advertise only films whose main page is
+  // indexable (was: every scored film — the flagship leak). Falls back to the old
+  // all-scored behaviour if the gate is unavailable, so coverage never collapses.
+  const gate = await gatePassingSlugs();
+  const useGate = gate.size > 0;
   const entries: SitemapEntry[] = [];
   const LIMIT = 500;
   for (let offset = 0; ; offset += LIMIT) {
@@ -936,7 +1001,7 @@ export async function sitemapTakescoreFilms(): Promise<SitemapEntry[]> {
     const page = data as { total: number; rows: { slug: string }[] } | null;
     const rows = page?.rows ?? [];
     for (const r of rows) {
-      if (r.slug) entries.push({ url: `${siteUrl}/takescore/film/${r.slug}` });
+      if (r.slug && (!useGate || gate.has(r.slug))) entries.push({ url: `${siteUrl}/takescore/film/${r.slug}` });
     }
     // Stop on a short page (rows exhausted) or once the RPC's own total is
     // covered — the total guard keeps a misbehaving RPC from looping forever.

@@ -12,6 +12,7 @@ import AfterlifeNav from "@/components/read/AfterlifeNav";
 import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswers";
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import { honorText, type FilmLineageRow } from "@/lib/lineage";
 import "@/app/curious/curious.css";
 import "../read.css";
@@ -226,7 +227,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/film/${slug}/reception` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(reviews.length + papers.length + wdHonors.length + lineage.length >= 3),
+    robots: pageRobots((await filmMainIndexable(slug)) && (reviews.length + papers.length + wdHonors.length + lineage.length >= 3)),
   };
 }
 

@@ -13,6 +13,7 @@ import QuickAnswers, { type QuickAnswerItem } from "@/components/read/QuickAnswe
 import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import { filmCreditsData, ordinal, ROLE_NOUN, type Relation, type SharedFilm } from "@/lib/film-credits-data";
 import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import { type CraftKey, personSlug } from "@/app/credits/credits-logic";
 import "@/app/curious/curious.css";
 import "../read.css";
@@ -119,7 +120,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/film/${slug}/credits` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots(film.visible !== false && crew.length >= 2),
+    robots: pageRobots((await filmMainIndexable(slug, { visible: film.visible !== false })) && crew.length >= 2),
   };
 }
 

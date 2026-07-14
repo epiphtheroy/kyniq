@@ -14,6 +14,7 @@ import { filmBackdropPaths, pickStills } from "@/lib/read-media";
 import accessEnrichment from "@/lib/access_enrichment.json";
 import { resolveAlias } from "@/lib/aliases";
 import { pageRobots } from "@/lib/seo";
+import { filmMainIndexable } from "@/lib/filmGate";
 import "@/app/curious/curious.css";
 import "@/app/film/[slug]/read.css";
 
@@ -176,7 +177,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/whereto/${slug}` },
     // Same gate as the film page: hidden (Tier-2) films' watch pages stay
     // crawlable but out of the index.
-    robots: pageRobots(film.visible !== false),
+    robots: pageRobots(await filmMainIndexable(slug, { visible: film.visible !== false })),
   };
 }
 
