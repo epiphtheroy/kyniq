@@ -9,7 +9,10 @@ import { liaOk } from "./types";
 import { renderMessage, scheduleWithin } from "./render";
 
 // Stages a rule may NEVER target — a reply/close means a human takes over (§10-5).
-const HARD_EXCLUDE_STAGES = new Set(["replied", "negotiating", "won", "unsubscribed", "bounced"]);
+// Exported so the send job (cron job ⑤) re-checks against the SAME set at send
+// time; keeping two hand-maintained lists is exactly how a declined contact
+// leaks back into the send loop.
+export const HARD_EXCLUDE_STAGES = new Set(["replied", "negotiating", "won", "unsubscribed", "bounced"]);
 
 interface RuleRow {
   id: number;

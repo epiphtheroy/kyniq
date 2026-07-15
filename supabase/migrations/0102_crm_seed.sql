@@ -1,4 +1,4 @@
--- 0101: CRM seed — 세그먼트(클러스터 14 + 그룹 52 = 66), 오퍼 41, 템플릿 7,
+-- 0102: CRM seed — 세그먼트(클러스터 14 + 그룹 52 = 66), 오퍼 41, 템플릿 7,
 -- 설정 기본 행, 기본 룰 3종(전부 enabled=false). 정본: HANDOFF-CRM-비즈니스접점엔진.md §6.
 -- 재실행 안전(on conflict do nothing / where not exists 가드).
 

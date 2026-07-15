@@ -111,6 +111,10 @@ export default async function ContactDetail({ params }: { params: Promise<{ id: 
     if (eduBlock) return;
 
     const settings = await loadSettings(supabase);
+    // §10-9: no draft body may be frozen without the CAN-SPAM postal address
+    // (drafts freeze their body at creation, so a later address change won't
+    // fix them). No-op like eduBlock; the composer shows a warning banner.
+    if (!settings.physical_address) return;
     const { subject, body } = renderMessage(tpl, c, settings, personalLine);
 
     const { data: inserted } = await supabase
@@ -366,6 +370,11 @@ export default async function ContactDetail({ params }: { params: Promise<{ id: 
       <div>
         <SectionTitle>초안 컴포저</SectionTitle>
         <div style={card}>
+          {!settings.physical_address ? (
+            <div style={{ marginBottom: 10 }}>
+              <Warn tone="var(--bad)">물리 주소(physical_address) 미설정 — CAN-SPAM 필수 푸터를 넣을 수 없어 초안 생성이 차단됩니다 (§10-9). /crm/settings에서 우편 주소를 먼저 저장하세요.</Warn>
+            </div>
+          ) : null}
           {isEduSeg ? (
             <div style={{ marginBottom: 10 }}>
               <Warn>학계·교육 세그먼트({seg}) — non_commercial 템플릿만 저장됩니다 (§10-5b). 상업 톤 템플릿 선택 시 저장이 차단됩니다.</Warn>

@@ -1,4 +1,4 @@
--- 0100: CRM ("Touchpoint Engine") core schema — /crm 오너 전용 아웃리치 CRM.
+-- 0101: CRM ("Touchpoint Engine") core schema — /crm 오너 전용 아웃리치 CRM.
 -- 정본: HANDOFF-CRM-비즈니스접점엔진.md §4.
 --
 -- 하우스 규약: 전 테이블 RLS on + 정책 0 = service-role 전용(서버 컴포넌트/액션/크론만
@@ -6,7 +6,7 @@
 -- set statement_timeout '8s'. pg_trgm는 기존 확장(0019/0040/0054)이라 재설치 불필요.
 --
 -- ⚠️ 마이그레이션 번호는 supabase/migrations · worker/*.sql · radar/*.sql 세 곳의
--- 최대값+1로 구현 시점 재확인(본 파일은 0099 기준 0100 가정).
+-- 최대값+1로 구현 시점 재확인(main이 0100_ai_usage_meter를 선점해 0100→0101로 리넘버).
 
 -- ── 조직(outlet/기관) — allowlist 시드, 컨택 dedup 앵커 ────────────────────────
 create table if not exists crm_orgs (

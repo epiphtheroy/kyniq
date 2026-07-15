@@ -49,7 +49,7 @@ update crm_settings set data = jsonb_set(data,'{lia_doc_path}','"crm-handoff/LIA
 
 ## §4. PR 머지 → 라이브
 
-- **`../supabase/migrations/0100·0101`은 이미 프로덕션 DB에 적용됨** → 코드만 머지하면 됨(마이그레이션 재적용 불필요, IF NOT EXISTS라 재적용해도 안전).
+- **CRM 마이그레이션(파일명 `0101_crm_core`·`0102_crm_seed`로 리넘버, 적용 당시엔 0100/0101)은 이미 프로덕션 DB에 적용됨** → 코드만 머지하면 됨(마이그레이션 재적용 불필요, IF NOT EXISTS라 재적용해도 안전).
 - PR **#5** 머지 시 `metatake.net/crm` 라이브. 크론 `/api/crm/cron`(매시)도 활성 — 단 룰이 전부 off라 초안을 만들지 않음(안전). Gmail 미설정 시 동기화 잡은 무해하게 스킵.
 
 ## §5. 최종 점검 (발송 없이)

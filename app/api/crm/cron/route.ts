@@ -11,7 +11,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { loadSettings, saveSettings } from "@/lib/crm/settings";
-import { evaluateRules } from "@/lib/crm/rules";
+import { evaluateRules, HARD_EXCLUDE_STAGES } from "@/lib/crm/rules";
 import { classifyInbound, classGetsAutoReply } from "@/lib/crm/classify";
 import { renderMessage, inKrWindow } from "@/lib/crm/render";
 import {
@@ -191,9 +191,10 @@ async function classifyInbox(supabase: SupabaseClient, settings: CrmSettings) {
         await supabase.from("crm_contacts").update({ stage: "replied" }).eq("id", contactId);
       }
       await touchIn(supabase, contactId, "reply_in", r);
-      // auto-reply draft (proposed)
+      // auto-reply draft (proposed). §10-9: skip if no physical address is set —
+      // renderMessage would (correctly) throw, and this job must not crash.
       const { data: tpl } = await supabase.from("crm_templates").select("*").eq("kind", "reply").limit(1).maybeSingle();
-      if (tpl && c) {
+      if (tpl && c && settings.physical_address) {
         const { subject, body } = renderMessage(tpl, c, settings, "");
         const { data: d } = await supabase.from("crm_drafts").insert({
           contact_id: contactId, template_id: tpl.id, kind: "reply", subject: `Re: ${r.subject ?? ""}`.slice(0, 200) || subject,
@@ -263,7 +264,14 @@ async function sendQueued(supabase: SupabaseClient, settings: CrmSettings) {
     if (!c || !c.email) { await failDraft(supabase, d.id, "no email"); continue; }
     const email = c.email.toLowerCase(); const dom = email.split("@")[1] ?? "";
     if (suppE.has(email) || (dom && suppD.has(dom))) { await failDraft(supabase, d.id, "suppressed"); continue; }
-    if (["unsubscribed", "bounced", "won"].includes(c.stage)) { await failDraft(supabase, d.id, `stage ${c.stage}`); continue; }
+    // §10-5: re-check the SAME permanent-exclusion set the rule engine uses, at
+    // send time — inbound classify (job ③) can flip a contact to replied/parked
+    // within this very run, so a queued draft must not ship to someone who just
+    // replied or declined. (Previously this only caught unsubscribed/bounced/won.)
+    if (HARD_EXCLUDE_STAGES.has(c.stage) || c.parked_reason === "negative_reply") {
+      await failDraft(supabase, d.id, `stage ${c.stage}${c.parked_reason ? `/${c.parked_reason}` : ""}`);
+      continue;
+    }
     if ((c.jurisdiction === "KR" || c.kr_law_flag) && !inKrWindow(now, settings)) continue; // defer to a later run
     try {
       if (!d.gmail_draft_id) { await failDraft(supabase, d.id, "no gmail_draft_id"); continue; }

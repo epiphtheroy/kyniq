@@ -6,6 +6,18 @@
  */
 import type { CrmSettings } from "./types";
 
+/**
+ * Thrown by renderMessage when a legally-required footer field is missing, so a
+ * non-compliant body can never be assembled/frozen. Callers must fail closed:
+ * the rule engine skips the draft, the composer no-ops, the send job never runs.
+ */
+export class MissingComplianceError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "MissingComplianceError";
+  }
+}
+
 export interface RenderContact {
   name?: string | null;
   org_name?: string | null;
@@ -47,13 +59,21 @@ export function renderMessage(
     subject = `(광고) ${subject}`;
   }
 
-  // Compliance footer — unsubscribe + physical address (CAN-SPAM). Always present.
-  const unsub = settings.unsubscribe_line?.[lang] ?? settings.unsubscribe_line?.en ?? "";
-  const addr = settings.physical_address || "";
-  const footerParts = [unsub, addr].filter(Boolean);
-  if (footerParts.length) {
-    body = `${body}\n\n—\n${footerParts.join("\n")}`;
+  // Compliance footer — unsubscribe + physical address (CAN-SPAM §5(a)(5)).
+  // §10-9: the postal address is legally required on every outbound body, so
+  // refuse to assemble a message without it rather than silently ship a
+  // non-compliant mail (the previous `filter(Boolean)` dropped a null address
+  // and shipped an address-less footer). This is the single enforcement point;
+  // every draft-creation path funnels through here.
+  const addr = (settings.physical_address || "").trim();
+  if (!addr) {
+    throw new MissingComplianceError(
+      "physical_address is not set — cannot render a CAN-SPAM-compliant message (§10-9). Set it in /crm/settings before composing or sending."
+    );
   }
+  const unsub = settings.unsubscribe_line?.[lang] ?? settings.unsubscribe_line?.en ?? "";
+  const footerParts = [unsub, addr].filter(Boolean);
+  body = `${body}\n\n—\n${footerParts.join("\n")}`;
 
   return { subject, body };
 }

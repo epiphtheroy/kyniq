@@ -1,6 +1,6 @@
 /**
  * CRM shared types + label maps. Server + client safe (no imports).
- * Schema source of truth: supabase/migrations/0100_crm_core.sql.
+ * Schema source of truth: supabase/migrations/0101_crm_core.sql.
  */
 
 export type Stage =

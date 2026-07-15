@@ -22,7 +22,7 @@
 
 | 층 | 파일 |
 |---|---|
-| DB 마이그레이션 | `../supabase/migrations/0100_crm_core.sql` (테이블 15·RPC 2), `../supabase/migrations/0101_crm_seed.sql` (시드) |
+| DB 마이그레이션 | `../supabase/migrations/0101_crm_core.sql` (테이블 15·RPC 2), `../supabase/migrations/0102_crm_seed.sql` (시드) — main이 0100_ai_usage_meter를 선점해 0100/0101→0101/0102로 리넘버 |
 | 게이트·셸 | `../middleware.ts`(`/crm` 블록), `../app/crm/layout.tsx` |
 | 페이지 12개 | `../app/crm/` — page(대시보드)·contacts(+[id])·segments(+[code])·offers·rules·outbox·inbox·research·import·settings |
 | API 3개 | `../app/api/crm/cron/route.ts`·`../app/api/crm/import/route.ts`·`../app/api/crm/unsub/route.ts` |
@@ -79,7 +79,7 @@ Supabase MCP로 라이브 DB에 적용 완료(2026-07-15). 실측:
 - `../Metatake_컨택DB_템플릿.xlsx` (시트 `컨택DB`, 61행)
 
 **코드**
-- 스키마: [`../supabase/migrations/0100_crm_core.sql`](../supabase/migrations/0100_crm_core.sql) · 시드: [`../supabase/migrations/0101_crm_seed.sql`](../supabase/migrations/0101_crm_seed.sql)
+- 스키마: [`../supabase/migrations/0101_crm_core.sql`](../supabase/migrations/0101_crm_core.sql) · 시드: [`../supabase/migrations/0102_crm_seed.sql`](../supabase/migrations/0102_crm_seed.sql)
 - 페이지: [`../app/crm/`](../app/crm/) · API: [`../app/api/crm/`](../app/api/crm/) · 로직: [`../lib/crm/`](../lib/crm/)
 - 워커: [`../worker/crm-scout.py`](../worker/crm-scout.py) · [`../worker/gmail-auth.py`](../worker/gmail-auth.py)
 
