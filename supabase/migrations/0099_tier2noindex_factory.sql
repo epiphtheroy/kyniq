@@ -79,7 +79,7 @@ returns text[] language sql stable security definer set search_path = public as 
   where case kind
     when 'locations' then not exists(select 1 from public.film_locations x where x.film_id=c.film_id)
     when 'awards'    then not exists(select 1 from public.film_wd_honors x where x.film_id=c.film_id)
-    when 'takescore' then not exists(select 1 from public.film_scores x where x.film_id=c.film_id)
+    when 'takescore' then not exists(select 1 from cinecodex.scores x where x.film_id=c.film_id)  -- page reads cinecodex_for (raw), not public.film_scores (prestige/discovery only)
     when 'sentences' then not exists(select 1 from public.film_sentences x where x.film_id=c.film_id)
     when 'stills'    then (select count(*) from public.media m where m.entity_type='film' and m.entity_id=c.film_id) < 5
     else false end;
