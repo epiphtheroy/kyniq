@@ -62,13 +62,20 @@ export default async function AdminDocReader({ params }: Props) {
         .adoc .adoc-body .md-tile-d { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
         .adoc .adoc-body .md-details { border: 1px solid var(--hairline); border-radius: 8px; padding: 0.6rem 0.9rem; margin: 0 0 1rem; }
         .adoc .adoc-body .md-details summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+        .adoc .adoc-download { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--accent); text-decoration: none; border: 1px solid var(--hairline); border-radius: 6px; padding: 0.35rem 0.7rem; }
+        .adoc .adoc-download:hover { background: #0f172a; }
       `}</style>
 
       <div className="adoc-crumb">
         <Link href="/admin/docs">Docs</Link>
         {cat ? <> › {cat.label}</> : null} › {doc.title}
       </div>
-      <h1>{doc.title}</h1>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16 }}>
+        <h1 style={{ flex: 1 }}>{doc.title}</h1>
+        <a className="adoc-download" href={`/admin/docs/${slug}/download`} download={`${slug}.md`}>
+          ⬇ .md 다운로드
+        </a>
+      </div>
       <p className="adoc-standfirst">{doc.desc}</p>
       {doc.updated ? <p className="adoc-meta">최종 업데이트 {doc.updated}</p> : null}
 

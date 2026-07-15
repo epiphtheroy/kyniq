@@ -18,8 +18,15 @@ const card: React.CSSProperties = {
   border: "1px solid var(--hairline)",
   borderRadius: 8,
   padding: "1rem 1.125rem",
+};
+
+const cardLink: React.CSSProperties = { textDecoration: "none", color: "inherit" };
+
+const downloadLink: React.CSSProperties = {
+  color: "var(--accent)",
+  fontSize: "0.75rem",
   textDecoration: "none",
-  color: "inherit",
+  flexShrink: 0,
 };
 
 export default async function AdminDocsIndex() {
@@ -44,17 +51,24 @@ export default async function AdminDocsIndex() {
             </div>
             <div style={{ display: "grid", gap: "0.75rem" }}>
               {docs.map((d) => (
-                <Link key={d.slug} href={adminDocHref(d.slug)} style={card}>
+                <div key={d.slug} style={card}>
                   <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12 }}>
-                    <span style={{ fontWeight: 600, color: "var(--ink)" }}>{d.nav}</span>
-                    {d.updated ? (
-                      <span style={{ color: "var(--muted)", fontSize: "0.75rem", flexShrink: 0 }}>{d.updated}</span>
-                    ) : null}
+                    <Link href={adminDocHref(d.slug)} style={{ ...cardLink, fontWeight: 600 }}>
+                      {d.nav}
+                    </Link>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 10, flexShrink: 0 }}>
+                      {d.updated ? <span style={{ color: "var(--muted)", fontSize: "0.75rem" }}>{d.updated}</span> : null}
+                      <a href={`/admin/docs/${d.slug}/download`} download={`${d.slug}.md`} style={downloadLink}>
+                        ⬇ .md
+                      </a>
+                    </div>
                   </div>
-                  <p style={{ color: "var(--muted)", fontSize: "0.8125rem", margin: "0.375rem 0 0", lineHeight: 1.5 }}>
-                    {d.desc}
-                  </p>
-                </Link>
+                  <Link href={adminDocHref(d.slug)} style={cardLink}>
+                    <p style={{ color: "var(--muted)", fontSize: "0.8125rem", margin: "0.375rem 0 0", lineHeight: 1.5 }}>
+                      {d.desc}
+                    </p>
+                  </Link>
+                </div>
               ))}
             </div>
           </section>
