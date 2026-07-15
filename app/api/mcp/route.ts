@@ -319,6 +319,15 @@ export async function POST(req: Request) {
           }
         } catch { /* fail-open */ }
         if (blocked) {
+          // Ledger the blocked call too (0093) — otherwise 429'd tool calls leave no
+          // trace. Tool name/args are already parsed above, so record the real tool.
+          // Best-effort, ok=false; must never break the response.
+          try {
+            const arg = typeof args.slug === "string" ? args.slug : typeof args.query === "string" ? args.query : null;
+            await db.from("mcp_calls").insert({
+              tool: name || "_blocked", arg: arg?.slice(0, 200) ?? null, prefix, ua: ua.slice(0, 300), ok: false,
+            });
+          } catch { /* ledger must not break the response */ }
           replies.push(rpcResult(id, toolText(
             "Rate limited: automated bulk access detected from your network. Metatake's MCP is free for " +
             "conversational use; for bulk or commercial data access see https://metatake.net/data.", true)));

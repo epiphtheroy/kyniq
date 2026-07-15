@@ -10,7 +10,7 @@
  */
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { callerPrefix, harvestBlocked, API_CORS, TOO_MANY } from "@/lib/apiGuard";
+import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -34,8 +34,7 @@ export async function GET(req: Request) {
   }
 
   const db = createAdminClient();
-  const { prefix, trusted } = callerPrefix(req);
-  if (await harvestBlocked(db, prefix, trusted)) {
+  if (await guardAndLog(db, req, "locations", film ?? country)) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
   }
 

@@ -5,7 +5,7 @@
  */
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { callerPrefix, harvestBlocked, API_CORS, TOO_MANY } from "@/lib/apiGuard";
+import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
 import { shapeTakeScore, filmUrl, citeAs, LICENSE } from "@/lib/apiv1";
 import type { FilmPack } from "@/lib/pack";
 
@@ -21,8 +21,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const db = createAdminClient();
 
-  const { prefix, trusted } = callerPrefix(req);
-  if (await harvestBlocked(db, prefix, trusted)) {
+  if (await guardAndLog(db, req, "takescore", slug)) {
     return NextResponse.json(TOO_MANY, { status: 429, headers: API_CORS });
   }
 

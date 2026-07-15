@@ -36,6 +36,34 @@ export async function harvestBlocked(
   }
 }
 
+/**
+ * Run the harvest guard AND ledger the call to api_calls (0100), returning
+ * whether the caller is blocked. The single chokepoint for /api/v1 data routes:
+ * one call replaces callerPrefix + harvestBlocked and adds the usage ledger.
+ */
+export async function guardAndLog(
+  db: ReturnType<typeof createAdminClient>,
+  req: Request,
+  endpoint: string,
+  arg: string | null,
+): Promise<boolean> {
+  const { prefix, trusted } = callerPrefix(req);
+  const blocked = await harvestBlocked(db, prefix, trusted);
+  // Ledger the call — ALWAYS, incl. trusted (Anthropic) callers, so Claude
+  // traffic is not invisible. OUTSIDE the trusted short-circuit by design.
+  // Fail-open: a logging error must never break the API response.
+  try {
+    await db.from("api_calls").insert({
+      endpoint,
+      arg: arg ? arg.slice(0, 200) : null,
+      prefix,
+      ua: (req.headers.get("user-agent") ?? "").slice(0, 300),
+      ok: !blocked,
+    });
+  } catch { /* fail-open */ }
+  return blocked;
+}
+
 // Public read APIs are CORS-open (browser extension + embed widget consume them
 // cross-origin; the data is public first-party content).
 export const API_CORS: Record<string, string> = {

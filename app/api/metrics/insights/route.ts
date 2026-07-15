@@ -76,6 +76,15 @@ export async function GET(req: NextRequest) {
     /* best-effort */
   }
 
+  // Same cadence again: roll up the AI-usage ledgers (mcp_calls + api_calls) into
+  // usage_daily / crawler_daily and GC raw rows past retention (migration 0100,
+  // HANDOFF-AI사용현황-어드민 §4). Isolated so a failure never affects the feed.
+  try {
+    await supabase.rpc("usage_rollup");
+  } catch {
+    /* best-effort */
+  }
+
   await supabase.from("mt_insights").insert({
     kind: "_run",
     key: "run:" + new Date().toISOString().slice(0, 19),

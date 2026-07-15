@@ -14,6 +14,7 @@ import { getAdminUser } from "@/lib/admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 import MetricsChart, { type MetricsPoint } from "@/components/admin/MetricsChart";
 import MetricsOptOut from "@/components/admin/MetricsOptOut";
+import { Kpi, Panel, SubTitle, BarList, fmt, num, grid2, type Row } from "@/components/admin/AdminUI";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +25,7 @@ const RANGES = [
   { d: 90, label: "90d" },
 ];
 
-type Row = Record<string, string | number | null>;
+// Row + presentational helpers (Kpi/Panel/SubTitle/BarList/fmt/num/grid2) now in @/components/admin/AdminUI
 
 interface Overview {
   totals: {
@@ -397,82 +398,3 @@ export default async function MetricsPage({
   );
 }
 
-// ── little presentational helpers ─────────────────────────────────────────
-
-const num: CSSProperties = { textAlign: "right", fontVariantNumeric: "tabular-nums", paddingLeft: 14 };
-const grid2: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 18, marginTop: 4 };
-
-function fmt(v: unknown): string {
-  const n = Number(v);
-  return Number.isFinite(n) ? n.toLocaleString("en-US") : "–";
-}
-
-function Kpi({ label, value }: { label: string; value: string }) {
-  return (
-    <div style={{ background: "#0f172a", border: "1px solid rgba(148,163,184,0.15)", borderRadius: 8, padding: "10px 14px" }}>
-      <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 3 }}>{label}</div>
-      <div style={{ fontSize: 20, fontWeight: 700, color: "#f1f5f9", fontVariantNumeric: "tabular-nums" }}>{value}</div>
-    </div>
-  );
-}
-
-function Panel({ title, children }: { title: React.ReactNode; children: React.ReactNode }) {
-  return (
-    <div style={{ background: "#0f172a", border: "1px solid rgba(148,163,184,0.15)", borderRadius: 8, padding: "14px 16px", marginBottom: 18 }}>
-      <div style={{ fontSize: 13, fontWeight: 600, color: "#cbd5e1", marginBottom: 10 }}>{title}</div>
-      {children}
-    </div>
-  );
-}
-
-function SubTitle({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 13, fontWeight: 600, color: "#cbd5e1", marginBottom: 8 }}>{children}</div>;
-}
-
-/** Horizontal bar list — direct-labeled rows, single sequential hue. */
-function BarList({
-  title, rows, labelKey, valueKey = "n", linkD, extra,
-}: {
-  title: string;
-  rows: Row[];
-  labelKey: string;
-  valueKey?: string;
-  linkD?: number; // when set, labels are paths and link to the drilldown
-  extra?: (r: Row) => string;
-}) {
-  const max = Math.max(1, ...rows.map((r) => Number(r[valueKey]) || 0));
-  return (
-    <div>
-      <SubTitle>{title}</SubTitle>
-      {rows.length === 0 && <div style={{ fontSize: 12, color: "#64748b" }}>Nothing yet.</div>}
-      <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-        {rows.map((r, i) => {
-          const v = Number(r[valueKey]) || 0;
-          const label = String(r[labelKey] ?? "–");
-          const ex = extra ? extra(r) : "";
-          return (
-            <div key={i} style={{ position: "relative", fontSize: 12.5, lineHeight: "22px" }}>
-              <div style={{
-                position: "absolute", inset: 0, width: `${Math.max(2, (v / max) * 100)}%`,
-                background: "rgba(57,135,229,0.16)", borderRadius: 4,
-              }} />
-              <div style={{ position: "relative", display: "flex", justifyContent: "space-between", gap: 10, padding: "0 8px" }}>
-                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "#e2e8f0" }}>
-                  {linkD ? (
-                    <Link href={`/admin/metrics?d=${linkD}&path=${encodeURIComponent(label)}`} style={{ color: "#e2e8f0", textDecoration: "none" }}>
-                      {label}
-                    </Link>
-                  ) : label}
-                </span>
-                <span style={{ color: "#94a3b8", fontVariantNumeric: "tabular-nums", flexShrink: 0 }}>
-                  {ex && <span style={{ marginRight: 10, color: "#64748b" }}>{ex}</span>}
-                  {fmt(v)}
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
