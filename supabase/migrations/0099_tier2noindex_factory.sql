@@ -71,6 +71,21 @@ returns text[] language sql stable security definer set search_path = public as 
      or (select count(*) from public.film_wd_honors w where w.film_id=c.film_id) >= 3;
 $$;
 
+-- Cohort films missing a given content layer — drives the content-parity enrich commands.
+create or replace function public.t2noindex_missing(kind text)
+returns text[] language sql stable security definer set search_path = public as $$
+  select coalesce(array_agg(c.slug order by c.slug), '{}')
+  from public.z_t2noindex_cohort c
+  where case kind
+    when 'locations' then not exists(select 1 from public.film_locations x where x.film_id=c.film_id)
+    when 'awards'    then not exists(select 1 from public.film_wd_honors x where x.film_id=c.film_id)
+    when 'takescore' then not exists(select 1 from public.film_scores x where x.film_id=c.film_id)
+    when 'sentences' then not exists(select 1 from public.film_sentences x where x.film_id=c.film_id)
+    when 'stills'    then (select count(*) from public.media m where m.entity_type='film' and m.entity_id=c.film_id) < 5
+    else false end;
+$$;
+
 grant execute on function public.t2noindex_refresh() to service_role;
 grant execute on function public.t2noindex_measure() to service_role;
 grant execute on function public.t2noindex_crossed_slugs() to service_role;
+grant execute on function public.t2noindex_missing(text) to service_role;

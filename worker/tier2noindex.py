@@ -164,8 +164,37 @@ def cmd_report():
 def cmd_run():
     cmd_refresh(); cmd_slug_backfill(); cmd_awards(); cmd_reception(); cmd_revalidate(); cmd_report()
 
+def _chunks(lst, n):
+    for i in range(0, len(lst), n): yield lst[i:i + n]
+
+def cmd_locations():
+    # content parity: filming locations for cohort films missing them (S19 search-grounded, ~$0.023/film).
+    # chunked (REST slug=in.() URL limit); geocode once at the end.
+    todo = rpc("t2noindex_missing", {"kind": "locations"}) or []
+    print(f"locations: {len(todo)} cohort films missing locations (~${0.023*len(todo):.0f}, sonnet+Tavily)")
+    for i, ch in enumerate(list(_chunks(todo, 120)), 1):
+        print(f"  loc chunk {i}: {len(ch)} films")
+        sh(["python3", "worker/geo-extract-search.py", "--films", ",".join(ch), "--apply"])
+    sh(["python3", "worker/geo-code.py", "--apply"])
+
+def cmd_stills():
+    todo = rpc("t2noindex_missing", {"kind": "stills"}) or []
+    print(f"stills: {len(todo)} cohort films <5 media (free TMDB; yield limited by what TMDB actually has)")
+    for s in todo:
+        sh(["python3", "worker/tmdb-fetch.py", "--persist", "--film", s])
+
+def cmd_takescore():
+    print("takescore: scoring unscored catalog films (resumable — skips already-scored; ~$0.005/film)")
+    sh(["python3", "score/cinecodex_score.py", "100000", "all"])
+
+def cmd_enrich():
+    # full content parity for the cohort, then push the pages: awards+takescore (cheap/free) →
+    # locations (paid) → stills (free) → revalidate so digests reflect immediately.
+    cmd_awards(); cmd_takescore(); cmd_locations(); cmd_stills(); cmd_revalidate()
+
 CMDS = {"measure": cmd_measure, "refresh": cmd_refresh, "slug-backfill": cmd_slug_backfill,
         "reception": cmd_reception, "reception-wave": cmd_reception_wave, "awards": cmd_awards,
+        "locations": cmd_locations, "stills": cmd_stills, "takescore": cmd_takescore, "enrich": cmd_enrich,
         "revalidate": cmd_revalidate, "report": cmd_report, "run": cmd_run}
 if __name__ == "__main__":
     c = sys.argv[1] if len(sys.argv) > 1 else "measure"
