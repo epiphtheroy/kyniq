@@ -18,6 +18,7 @@ import {
   type FilmIndexSignals,
 } from "@/lib/seo";
 import { filmIndexRoster } from "@/lib/filmGate";
+import { directorIndexBar } from "@/lib/directorGate";
 import { allLocationCities, loadLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
 
@@ -804,30 +805,93 @@ export async function creditsEntries(): Promise<SitemapEntry[]> {
     .map((p) => ({ url: `${siteUrl}/credits/${personSlug(p.name, p.id)}` }));
 }
 
-/** Director hubs (unique director_slugs) + life pages (gate ≥4 facts). */
+/** Director hubs + life pages (gate ≥4 facts).
+ *
+ * D6 (2026-07-15, HANDOFF-Tier2-메인통합.md §4): advertise a hub ONLY if it clears
+ * directorIndexBar — the SAME predicate app/director/[slug]/page.tsx applies via
+ * pageRobots, so the sitemap and the page can never drift (the filmGate/filmIndexBar
+ * mirror pattern above). Previously every visible-film director slug was advertised
+ * with no bar, so ~506 single-film hubs with an empty editorial layer were indexed.
+ * The (receptionN + honorsN) rescue is summed from the SAME per-film signal roster
+ * the film gate uses (n_reception + n_lineage + n_wd_honors == the hub's receptionN +
+ * honorsN). Life pages keep their own ≥4-facts bar — a hub may be noindex while its
+ * life subpage indexes (each subpage passes its own bar). */
 export async function directorEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
   const entries: SitemapEntry[] = [];
-  const directors = await fetchAll<{ director_slug: string | null }>((from, to) =>
+
+  // Visible films with a director → total-per-director AND the film→director map
+  // for the reception/honors rescue signal.
+  const filmRows = await fetchAll<{ slug: string; director_slug: string | null }>((from, to) =>
     supabase
       .from("films")
-      .select("director_slug")
+      .select("slug, director_slug")
       .eq("visible", true)
       .not("director_slug", "is", null)
       .order("slug")
       .range(from, to)
   );
-  const uniqueDirectors = new Set(directors.map((d) => d.director_slug).filter(Boolean));
-  for (const ds of uniqueDirectors) {
-    entries.push({ url: `${siteUrl}/director/${ds}` });
+  const totalByDir = new Map<string, number>();
+  const dirByFilmSlug = new Map<string, string>();
+  for (const r of filmRows) {
+    if (!r.director_slug) continue;
+    totalByDir.set(r.director_slug, (totalByDir.get(r.director_slug) ?? 0) + 1);
+    dirByFilmSlug.set(r.slug, r.director_slug);
   }
-  // Director life pages — "Who is X?" (director_facts; ~208 rows, gate ≥4 facts
-  // mirrors the page's own robots bar). Gate on uniqueDirectors too: merged
-  // slugs can leave orphaned facts rows behind (slug repair keeps them for
-  // losslessness), and a sitemap must never list an old_path.
-  const { data: lifeRows } = await supabase.from("director_facts").select("director_slug, facts");
-  for (const r of lifeRows ?? []) {
+  const uniqueDirectors = new Set(totalByDir.keys());
+
+  // Editorial-layer signals per director — the exact fields directorIndexBar reads.
+  const [{ data: portraitRows }, { data: factRows }, { data: pickRows }, { data: nextRows }] = await Promise.all([
+    supabase.from("director_portrait").select("director_slug"),
+    supabase.from("director_facts").select("director_slug, facts"),
+    supabase.from("director_picks").select("director_slug"),
+    supabase.from("director_next").select("director_slug"),
+  ]);
+  const hasPortrait = new Set(((portraitRows ?? []) as { director_slug: string }[]).map((r) => r.director_slug));
+  const factsLen = new Map<string, number>();
+  for (const r of (factRows ?? []) as { director_slug: string; facts: unknown }[]) {
+    factsLen.set(r.director_slug, Array.isArray(r.facts) ? r.facts.length : 0);
+  }
+  const countBy = (rows: { director_slug: string }[] | null | undefined): Map<string, number> => {
+    const m = new Map<string, number>();
+    for (const r of rows ?? []) m.set(r.director_slug, (m.get(r.director_slug) ?? 0) + 1);
+    return m;
+  };
+  const picksLen = countBy(pickRows as { director_slug: string }[] | null);
+  const nextLen = countBy(nextRows as { director_slug: string }[] | null);
+
+  // receptionN + honorsN per director, summed from the shared per-film roster.
+  // Empty on RPC error → the rescue clause simply doesn't fire (degrade, not crash).
+  const recHonorsByDir = new Map<string, number>();
+  try {
+    const roster = await filmIndexRoster();
+    for (const slug in roster) {
+      const ds = dirByFilmSlug.get(slug);
+      if (!ds) continue;
+      const s = roster[slug];
+      const v = (s.n_reception ?? 0) + (s.n_lineage ?? 0) + (s.n_wd_honors ?? 0);
+      recHonorsByDir.set(ds, (recHonorsByDir.get(ds) ?? 0) + v);
+    }
+  } catch { /* leave empty */ }
+
+  for (const ds of uniqueDirectors) {
+    const signals = {
+      total: totalByDir.get(ds) ?? 0,
+      portrait: hasPortrait.has(ds) || null,
+      facts: { facts: { length: factsLen.get(ds) ?? 0 } },
+      picks: { length: picksLen.get(ds) ?? 0 },
+      next: { length: nextLen.get(ds) ?? 0 },
+      receptionN: recHonorsByDir.get(ds) ?? 0, // combined rec+honors (honorsN 0 → sum holds)
+      honorsN: 0,
+    };
+    if (directorIndexBar(signals)) entries.push({ url: `${siteUrl}/director/${ds}` });
+  }
+
+  // Director life pages — "Who is X?" (gate ≥4 facts mirrors the subpage's own
+  // robots bar; reuses factRows). Gate on uniqueDirectors too: merged slugs can
+  // leave orphaned facts rows behind, and a sitemap must never list an old_path.
+  for (const r of (factRows ?? []) as { director_slug: string; facts: unknown }[]) {
     if (Array.isArray(r.facts) && r.facts.length >= 4 && uniqueDirectors.has(r.director_slug)) {
       entries.push({ url: `${siteUrl}/director/${r.director_slug}/life` });
     }

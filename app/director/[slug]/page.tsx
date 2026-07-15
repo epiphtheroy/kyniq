@@ -25,7 +25,9 @@ import FilmMap from "@/components/FilmMap";
 import Byline from "@/components/Byline";
 import { fw } from "@/lib/frameworks";
 import { axisLabel, nodeHref } from "@/lib/catalog";
-import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, type GeoPin } from "@/lib/locations";
+import { DIRECTOR_LOCATIONS_MIN_FILMS, DIRECTOR_LOCATIONS_MIN_PINS, mergeCells, mergePins, pinCountries, countryListPhrase, type GeoPin } from "@/lib/locations";
+import { pageRobots } from "@/lib/seo";
+import { directorIndexBar } from "@/lib/directorGate";
 import SaveButton from "@/components/SaveButton";
 import ShareDock from "@/components/ShareDock";
 import PosterActions from "@/components/PosterActions";
@@ -185,7 +187,16 @@ async function loadUncached(slug: string) {
   const geoCellsArr = Array.isArray(geoRows) ? mergeCells(geoRows as GeoPin[]) : [];
   const geoCells = geoCellsArr.length;
   const geoFilms = new Set(geoCellsArr.map((p) => p.film_slug)).size;
-  const geoMerged = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]).length : 0;
+  const geoMergedArr = Array.isArray(geoRows) ? mergePins(geoRows as GeoPin[]) : [];
+  const geoMerged = geoMergedArr.length;
+  // D4 (2026-07-15) — text digest beside the client-only map, which otherwise
+  // renders ZERO crawlable location text. The first 6 display-merged pins (the
+  // gate rule's own fusion) + the country distribution. Adding these to the
+  // payload CHANGES the cached shape → the loader key is bumped to load6.
+  const geoTopPins = geoMergedArr.slice(0, 6).map((p) => ({
+    name: p.name, film_slug: p.film_slug ?? null, film_title: p.film_title ?? null, country: p.country ?? null,
+  }));
+  const geoCountries = pinCountries(geoMergedArr).slice(0, 5);
 
   return {
     // perFilmReadings is a Map; the Data Cache can't serialize Maps, so return
@@ -195,7 +206,7 @@ async function loadUncached(slug: string) {
     facts: facts as { name_meaning: string | null; intro: string | null; facts: Fact[] } | null,
     picks: (picks as Pick[] | null) ?? [],
     next: nextArr,
-    recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms,
+    recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, geoTopPins, geoCountries,
     hiddenFilms, hiddenTotal, honorsN, receptionN, newsCount,
   };
 }
@@ -205,9 +216,11 @@ async function loadUncached(slug: string) {
 // set dynamically. Cache per slug in the Data Cache so the route is ISR-cached;
 // tagged director:<slug> for on-demand refresh.
 function load(slug: string) {
-  // Cache key bumped (load5) when honorsN/receptionN joined the payload —
-  // the Data Cache outlives deploys, so a shape change needs a new key.
-  return unstable_cache(() => loadUncached(slug), ["director-load5", slug], {
+  // Cache key history: load5 = honorsN/receptionN joined the payload;
+  // load6 (2026-07-15, D4) = geoTopPins/geoCountries joined the payload. The
+  // Data Cache outlives deploys, so any shape change needs a new key or new
+  // render code destructures stale-shaped cached payloads.
+  return unstable_cache(() => loadUncached(slug), ["director-load6", slug], {
     revalidate: 300,
     tags: [`director:${slug}`],
   })();
@@ -242,6 +255,113 @@ function loadCuration(slug: string): Promise<DirectorCuration | null> {
     ["director-curation4", slug],
     { revalidate: 3600, tags: [`director:${slug}`] },
   )().catch(() => null);
+}
+
+// ── Director digests (2026-07-15, HANDOFF §4 D2/D3/D5) ─────────────────────
+// Three filmography-wide records the hub HAS but never renders (press/scholarship,
+// honours, streaming availability), assembled deterministically as DIGESTS — a
+// subset in a different sentence shape than the subpage, each linking out. Kept
+// in a SEPARATE per-slug cached loader (its own key) so the hot director-load6
+// payload shape is untouched (no bump). LLM-0: pure composition from DB rows.
+type PressFragment = { film_slug: string; film_title: string; outlet: string | null; year: number | null; headline: string };
+type DirectorDigest = {
+  press: PressFragment[];   // ≤1 headline'd fragment per film, tier-ordered
+  filmsWithPress: number;   // distinct films with reception in the fetched set
+  honors: { awards: number; canons: number; names: string[] } | null;
+  streamingFilms: number;   // distinct films with a non-rent/buy provider row
+};
+
+function loadDirectorDigest(slug: string): Promise<DirectorDigest | null> {
+  return unstable_cache(
+    async (): Promise<DirectorDigest> => {
+      const supabase = db();
+      // Self-contained (mirrors the main load's film set) so the digest is a
+      // clean per-slug cache unit — film_id → slug/title for the outbound links.
+      const { data: films } = await supabase
+        .from("films").select("id, slug, title").eq("director_slug", slug).eq("visible", true);
+      const fmap = new Map<string, { slug: string; title: string }>(
+        ((films ?? []) as { id: string; slug: string; title: string }[]).map((f) => [f.id, { slug: f.slug, title: f.title }]),
+      );
+      const filmIds = [...fmap.keys()];
+      if (filmIds.length === 0) return { press: [], filmsWithPress: 0, honors: null, streamingFilms: 0 };
+
+      const [rcpRes, wdRes, lnRes, provRes] = await Promise.all([
+        // D2 — one director's reception sits comfortably under the 1,000-row cap
+        // (honors page precedent); .in()+plain select, never an RPC loop (R-Q).
+        supabase.from("film_reception")
+          .select("film_id, outlet, headline, review_year, year, tier")
+          .in("film_id", filmIds).order("tier").limit(30),
+        supabase.from("film_wd_honors").select("film_id, kind, label").in("film_id", filmIds),
+        supabase.from("film_lineage").select("film_id, list_id").in("film_id", filmIds),
+        // D5 — streaming = any provider row that isn't a paid rent/buy.
+        supabase.from("film_provider_index").select("film_id, kind").in("film_id", filmIds).not("kind", "in", "(rent,buy)"),
+      ]);
+
+      // D2 — the sharpest lines: ≤1 headline'd fragment per film, tier-best first.
+      const filmsSeen = new Set<string>();
+      const fragmented = new Set<string>();
+      const press: PressFragment[] = [];
+      for (const r of (rcpRes.data ?? []) as { film_id: string; outlet: string | null; headline: string | null; review_year: number | null; year: number | null }[]) {
+        const meta = fmap.get(r.film_id);
+        if (!meta) continue;
+        filmsSeen.add(r.film_id);
+        if (fragmented.has(r.film_id) || press.length >= 6) continue;
+        const h = (r.headline ?? "").trim();
+        if (!h) continue;
+        fragmented.add(r.film_id);
+        press.push({
+          film_slug: meta.slug, film_title: meta.title, outlet: r.outlet ?? null,
+          year: r.review_year ?? r.year ?? null,
+          headline: h.length > 140 ? h.slice(0, 140).trimEnd() + "…" : h,
+        });
+      }
+
+      // D3 — awards (Wikidata wins) + canons (non-auteur lineage lists), names only.
+      const wd = (wdRes.data ?? []) as { film_id: string; kind: string | null; label: string | null }[];
+      let awards = 0;
+      const winLabels: string[] = [];
+      for (const w of wd) if (w.kind === "award") { awards++; if (w.label) winLabels.push(w.label); }
+      const listIds = [...new Set(((lnRes.data ?? []) as { list_id: string | null }[]).map((r) => r.list_id).filter((x): x is string => !!x))];
+      let canons = 0;
+      const canonNames: string[] = [];
+      if (listIds.length) {
+        const { data: lists } = await supabase.from("lineage_lists").select("id, label, facet").in("id", listIds);
+        for (const l of (lists ?? []) as { label: string | null; facet: string | null }[]) {
+          if ((l.facet ?? "") === "auteur") continue; // auteur lineage isn't a canon
+          canons++;
+          if (l.label) canonNames.push(l.label);
+        }
+      }
+      const nameSet = new Set<string>();
+      const names: string[] = [];
+      for (const n of [...winLabels, ...canonNames]) {
+        const k = n.trim();
+        if (!k || nameSet.has(k.toLowerCase())) continue;
+        nameSet.add(k.toLowerCase());
+        names.push(k);
+        if (names.length >= 3) break;
+      }
+      const honors = awards > 0 || canons > 0 ? { awards, canons, names } : null;
+
+      // D5 — distinct films streaming somewhere (rent/buy already excluded above).
+      const provFilms = new Set<string>();
+      for (const p of (provRes.data ?? []) as { film_id: string }[]) provFilms.add(p.film_id);
+
+      return { press, filmsWithPress: filmsSeen.size, honors, streamingFilms: provFilms.size };
+    },
+    ["director-press-digest-1", slug],
+    { revalidate: 3600, tags: [`director:${slug}`] },
+  )().catch(() => null);
+}
+
+// D3 — honours in one line: names + counts only (the counted table stays on the
+// subpage). Adaptive so a wins-only or canons-only director never reads "0 …".
+function honorsSentence(director: string, h: { awards: number; canons: number; names: string[] }): string {
+  const clauses: string[] = [];
+  if (h.awards > 0) clauses.push(`carry ${h.awards} award${h.awards === 1 ? "" : "s"}`);
+  if (h.canons > 0) clauses.push(`sit in ${h.canons} canon${h.canons === 1 ? "" : "s"}`);
+  const tail = h.names.length ? ` — ${andList(h.names.slice(0, 3))}` : "";
+  return `${director}'s films ${clauses.join(" and ")}${tail}.`;
 }
 
 // Assemble the standing prose from the aggregates — deterministic, no LLM.
@@ -327,6 +447,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    // D6 (2026-07-15) — hub robots gate: index only hubs with their own
+    // substance (≥2 films, or an editorial layer, or the press/honours record
+    // D2/D3 now render). Every input is already in the cached payload — zero
+    // new queries. pageRobots defaults to noindex,follow below the bar; the
+    // sitemap's directorEntries mirrors the SAME predicate so they can't drift.
+    robots: pageRobots(directorIndexBar(data)),
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
     alternates: { canonical: `/director/${slug}` },
@@ -426,7 +552,7 @@ export default async function DirectorPage({ params }: Props) {
     if (alias) permanentRedirect(alias);
     notFound();
   }
-  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
+  const { director, dir, films, sigTropes, perFilmReadings, total, readingCount, tropeCount, portrait, facts, picks, next, recBy, misreadings, archGroups, geoCount, geoCells, geoMerged, geoFilms, geoTopPins = [], geoCountries = [], hiddenFilms = [], hiddenTotal = 0, honorsN = 0, receptionN = 0, newsCount = 0 } = data;
   const native = await directorNative(director);
   // to.W — the curation standing across the index (fail-soft: an RPC hiccup
   // just hides the card; null is the honest "no non-optional films" state).
@@ -436,6 +562,9 @@ export default async function DirectorPage({ params }: Props) {
   // Fail soft: an RPC hiccup hides the module for this render (never 500s, and
   // the loader's throw keeps unstable_cache from caching the empty state).
   const fantasia = await loadFantasia("director", slug, null, `director:${slug}`).catch(() => []);
+  // D2/D3/D5 digests — press/scholarship, honours and streaming, assembled from
+  // this director's films (own cached loader; fail-soft null just hides them).
+  const digest = await loadDirectorDigest(slug);
   // Repertory company — the SEO-crawlable credits copy: recurring key-craft
   // collaborators across this director's catalog films, each linking to their
   // /credits/[person] read page. Per-film crew is 24h-cached (shared cache).
@@ -723,16 +852,27 @@ export default async function DirectorPage({ params }: Props) {
         {(() => {
           const readFilms = (films as { slug: string; title: string; year: number | null; poster_path?: string | null; id: string }[])
             .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path ?? null, readings: perFilmReadings[f.id] ?? 0, score: filmScores[f.slug] ?? null }));
+          // D1 (2026-07-15) — the shared bulk ranking (cachedRankedScores, no
+          // visible filter) is already loaded above and was thrown away for the
+          // catalog rows, hard-coding score:null → "not yet scored" while the
+          // very same film's /film page shows its TakeScore. Reuse it; the ~21
+          // genuinely unscored catalog films keep the per-row "not yet scored"
+          // fallback. TakeScore is a canonical fact — not a cross-page dupe (R-D).
           const catFilms = (hiddenFilms as { slug: string; title: string; year: number | null; poster_path: string | null }[])
-            .map((f) => ({ slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, readings: 0, score: null as Score | null }));
+            .map((f) => {
+              const b = bulkScores[f.slug];
+              const score: Score | null = b ? { u: b.u, v: b.v, c: b.c, r: b.r, tier: null } : null;
+              return { slug: f.slug, title: f.title, year: f.year, poster_path: f.poster_path, readings: 0, score };
+            });
           const allFilms = [...readFilms, ...catFilms].sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999) || a.title.localeCompare(b.title));
-          const scoredN = readFilms.filter((f) => f.score).length;
+          const scoredN = allFilms.filter((f) => f.score).length;
           return (
             <section className="dr-sec" id="dr-filmography">
               <h2 className="dr-h2">Filmography</h2>
               <p className="dr-gloss">
                 Every {director} film on Metatake, oldest first — {total} read closely{hiddenTotal > 0 ? ` and ${hiddenTotal} more in the catalog` : ""}.
                 {scoredN > 0 ? <> {scoredN} carr{scoredN === 1 ? "ies" : "y"} a <Link href={`/director/${slug}/takescore`}>TakeScore</Link> — the boxed numbers are Value, Cost and Risk behind the headline score.</> : null}
+                {digest && digest.streamingFilms > 0 ? <> {digest.streamingFilms} of them {digest.streamingFilms === 1 ? "is" : "are"} streaming somewhere right now — each film&apos;s page lists where.</> : null}
               </p>
               <LensDirectorCoverage slugs={(films as { slug: string }[]).map((f) => f.slug)} />
               <div className="dr-filmo">
@@ -922,6 +1062,28 @@ export default async function DirectorPage({ params }: Props) {
           <section className="dr-sec" id="dr-records">
             <h2 className="dr-h2">The records — across the filmography</h2>
             <p className="dr-gloss">The film-level records ({director}&apos;s scores, honors, press and theory readings) gathered into filmography-wide articles — counted below, argued in full behind each door.</p>
+            {/* D3 (2026-07-15) — honours in one line: names + counts only, the
+                counted table lives behind the honours door below. */}
+            {digest?.honors ? (
+              <p className="dr-gloss" style={{ marginTop: -2 }}>{honorsSentence(director, digest.honors)}</p>
+            ) : null}
+            {/* D2 (2026-07-15) — the press, in brief: one fragment per film (the
+                grouped per-film record stays on /reception). Cohort reception is
+                100% academic → "press and scholarship" (R-C). */}
+            {receptionN >= 3 && digest?.press && digest.press.length > 0 ? (
+              <div style={{ margin: "2px 0 14px" }}>
+                <p className="dr-gloss">Across {digest.filmsWithPress} film{digest.filmsWithPress === 1 ? "" : "s"}, {receptionN} piece{receptionN === 1 ? "" : "s"} of press and scholarship on the record — the sharpest lines:</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: "6px 0 0", display: "grid", gap: 7 }}>
+                  {digest.press.slice(0, 4).map((p, i) => (
+                    <li key={i} style={{ fontSize: 15, lineHeight: 1.5 }}>
+                      <Link href={`/film/${p.film_slug}/reception`}>
+                        {p.outlet ? <b>{p.outlet}</b> : null}{p.outlet && p.year ? " · " : ""}{p.year ?? ""}{p.outlet || p.year ? " — " : ""}{p.headline}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <div className="rec-tocs">
               {total >= 3 ? (
                 <RecordToc
@@ -986,6 +1148,24 @@ export default async function DirectorPage({ params }: Props) {
             <h2 className="dr-h2">{director} — on the map</h2>
             <p className="cmap-intro">The real places {director}&rsquo;s films are set in and name, across the whole filmography. Click a pin to read the location.</p>
             <FilmMap endpoint={`/api/geo?director=${slug}`} height={480} />
+            {/* D4 (2026-07-15) — crawlable list-form digest beside the client-only
+                map (a different sentence shape than the /locations subpage's
+                aggregate lead): named places, film-anchored, each linking to its
+                film. mergePins is the sole merge rule (sitemap/SQL parity). */}
+            {geoTopPins.length > 0 ? (
+              <p className="dr-gloss" style={{ marginTop: 12 }}>
+                <b>Shot and set in:</b>{" "}
+                {geoTopPins.map((p, i) => (
+                  <span key={i}>
+                    {i > 0 ? " · " : ""}
+                    {p.film_slug ? <Link href={`/film/${p.film_slug}`}>{p.name}</Link> : <span>{p.name}</span>}
+                    {p.film_title ? <span style={{ opacity: 0.6 }}> ({p.film_title})</span> : null}
+                  </span>
+                ))}
+                {geoMerged > geoTopPins.length ? <> — and {geoMerged - geoTopPins.length} more location{geoMerged - geoTopPins.length === 1 ? "" : "s"} across the filmography.</> : "."}
+                {geoCountries.length > 1 ? <> Mapped across {countryListPhrase(geoCountries.slice(0, 3).map((c) => c.name), Math.max(0, geoCountries.length - 3))}.</> : null}
+              </p>
+            ) : null}
             {hasLocationsPage ? (
               <div className="rec-tocs" style={{ maxWidth: 420, marginTop: 14 }}>
                 <RecordToc

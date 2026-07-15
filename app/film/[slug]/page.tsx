@@ -171,6 +171,53 @@ function digestNotableHonors(lineage: LinRow[]): LinRow[] {
   return out;
 }
 
+// Wikidata honours (film_wd_honors) + TMDB release ledger (film_release_events)
+// rows — the two sources the Tier-2 digest composes into single aggregate
+// sentences (C1/C2). Same column sets the /reception subpage reads.
+type WdHonor = { kind: string; label: string; event_date: string | null; year_only: boolean };
+type RelEvent = { country: string; event_type: string; event_date: string; note: string | null };
+
+// Word set for the honour-dedupe rule (mirrors reception/page.tsx): the digest's
+// Wikidata line must not restate an award the lineage line already named.
+const normWords = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w.length > 2));
+
+// Deterministic date/country formatting for the release-ledger sentence, parsed
+// from the "YYYY-MM-DD" string (no Date()/timezone drift), matching the subpage.
+const DIGEST_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function fmtDigestDate(d: string): string {
+  const [y, m, day] = d.split("-").map(Number);
+  return `${DIGEST_MONTHS[(m ?? 1) - 1]} ${day}, ${y}`;
+}
+const DIGEST_REGION = new Intl.DisplayNames(["en"], { type: "region" });
+function digestCountry(cc: string): string { try { return DIGEST_REGION.of(cc) ?? cc; } catch { return cc; } }
+// Readable phrase per release-event type for the "…to {phrase} in {year}" tail.
+const REL_TYPE_PHRASE: Record<string, string> = {
+  premiere: "a festival premiere", theatrical_limited: "a limited theatrical opening",
+  theatrical: "a theatrical opening", digital: "a digital release",
+  physical: "a home-video release", tv: "a television broadcast",
+};
+
+// The Tier-2 honours digest (C1): the up-to-3 honour labels named in the
+// aggregate sentence — award wins first (dated first), then nominations —
+// deduped by label and against the lineage line's picks (word-overlap rule).
+function digestWdHonorLabels(wd: WdHonor[], lineageWordSets: Set<string>[]): string[] {
+  const rank = (w: WdHonor) => (w.kind === "award" ? 0 : 2) + (w.event_date ? 0 : 1);
+  const sorted = [...wd].sort((a, b) => rank(a) - rank(b));
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const w of sorted) {
+    const key = w.label.toLowerCase().trim();
+    if (!w.label || seen.has(key)) continue;
+    seen.add(key);
+    const words = normWords(w.label);
+    const dup = lineageWordSets.some((ls) => [...words].filter((x) => ls.has(x)).length >= Math.max(2, Math.floor(words.size * 0.6)));
+    if (dup) continue;
+    out.push(w.label);
+    if (out.length === 3) break;
+  }
+  return out;
+}
+
 async function loadUncached(slug: string) {
   const supabase = db();
   const { data: film } = await supabase
@@ -215,17 +262,24 @@ async function loadUncached(slug: string) {
       (film as { created_at?: string | null }).created_at,
     ].filter((s): s is string => !!s);
     const mRecordUpdated = mStamps.length ? mStamps.reduce((a, b) => (a > b ? a : b)) : null;
-    // Afterlife door: the /reception page renders for a catalog film when it has
-    // critical reception OR an honors record (release dates alone don't qualify),
-    // so only offer the tab when that page won't 404. Two cheap head counts.
-    const [{ count: mHonorCount }, { count: mReviewCount }] = await Promise.all([
-      supabase.from("film_wd_honors").select("id", { count: "exact", head: true }).eq("film_id", film.id),
-      supabase.from("film_reception").select("id", { count: "exact", head: true }).eq("film_id", film.id),
+    // Digest sources (C1/C2/C3): full rows for the Wikidata honours line, the
+    // academic-scholarship section, and the TMDB release ledger — the signals the
+    // consolidation gate promoted this record on, now rendered in the body rather
+    // than counted. These also decide the Afterlife tab door: /reception renders
+    // when honours OR reception exist (release dates alone don't qualify), so the
+    // tab still gates on those two.
+    const [{ data: wdRows }, { data: rcpRows }, { data: relRows }] = await Promise.all([
+      supabase.from("film_wd_honors").select("kind, label, event_date, year_only").eq("film_id", film.id).order("event_date"),
+      supabase.from("film_reception").select("kind, outlet, critic, year, tier, headline, comment, verdict, url, dek_lead, review_year").eq("film_id", film.id).order("position"),
+      supabase.from("film_release_events").select("country, event_type, event_date, note").eq("film_id", film.id).order("event_date"),
     ]);
-    const mHasAfterlife = (mHonorCount ?? 0) > 0 || (mReviewCount ?? 0) > 0;
+    const mWdHonors = (wdRows ?? []) as WdHonor[];
+    const mReception = (rcpRows ?? []) as RcpRow[];
+    const mReleases = (relRows ?? []) as RelEvent[];
+    const mHasAfterlife = mWdHonors.length > 0 || mReception.length > 0;
     return {
       minimal: true as const, film,
-      afterlifeTab: mHasAfterlife, afterlifeHonors: mHonorCount ?? 0,
+      afterlifeTab: mHasAfterlife, afterlifeHonors: mWdHonors.length,
       lineage: mLineage,
       lnListMeta: mListMeta,
       recommendedBy: (revRows ?? []) as RevRow[],
@@ -235,6 +289,9 @@ async function loadUncached(slug: string) {
       geoCountries: mGeoCountries,
       scores: mScores,
       recordUpdated: mRecordUpdated,
+      wdHonors: mWdHonors,
+      reception: mReception,
+      releases: mReleases,
     };
   }
 
@@ -441,7 +498,8 @@ function load(slug: string) {
   // change needs a new key. (load4 was the lnListMeta join.)
   // v6: reception rows carry dek_lead/review_year + afterlife scale counts (2026-07-08)
   // v7: Tier-2 minimal payload adds afterlifeTab/afterlifeHonors (Afterlife tab door)
-  return unstable_cache(() => loadUncached(slug), ["film-load7", slug], {
+  // v8: Tier-2 minimal payload adds wdHonors/reception/releases full rows (C1/C2/C3 digests)
+  return unstable_cache(() => loadUncached(slug), ["film-load8", slug], {
     revalidate: 300,
     tags: [`film:${slug}`],
   })();
@@ -648,7 +706,7 @@ export default async function FilmPage({ params }: Props) {
       certification: string | null; imdb_id: string | null; tmdb_id: number | null; wikidata_id: string | null;
       tmdb_extra: { cast?: { name: string; character: string }[]; writers?: string[]; country?: string[]; original_language?: string | null; collection?: string | null } | null;
     };
-    const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors } = data;
+    const { lineage, lnListMeta, recommendedBy, ratings, watch, geoCount, geoCountries, scores, recordUpdated, afterlifeTab, afterlifeHonors, wdHonors, reception, releases } = data;
     const mAccessRec = accessRecordFor(f.tmdb_id);
     // "Keep reading" modules + the director-hub slug: a Tier-2 row often lacks
     // director_slug even when the hub exists on a visible sibling — the recipe
@@ -698,7 +756,52 @@ export default async function FilmPage({ params }: Props) {
       .map((r) => (r.reason ?? "").trim())
       .find((r) => r.length >= 20 && !/\b(REPLACE|TODO|FIXME)\b/.test(r)) ?? null;
     const watchRegionN = watch?.countries?.length ?? 0;
-    const hasDigest = lineage.length > 0 || ratingBits.length > 0 || recommendedBy.length > 0 || geoCount > 0 || watchRegionN > 0 || prestigeN != null || discoveryN != null;
+    // ── C1: Wikidata honours digest — one aggregate sentence, deduped against the
+    // lineage line's picks (word-overlap) so the same award never renders twice. ──
+    const notableHonorWords = notableHonors.map((l) => normWords(`${l.parent_label ?? ""} ${l.list_label} ${l.result ?? ""}`));
+    const wdWinN = wdHonors.filter((w) => w.kind === "award").length;
+    const wdNomN = wdHonors.length - wdWinN;
+    const wdLabels = digestWdHonorLabels(wdHonors, notableHonorWords);
+    const wdBreakdown: string[] = [];
+    if (wdWinN > 0) wdBreakdown.push(`${wdWinN} win${wdWinN === 1 ? "" : "s"}`);
+    if (wdNomN > 0) wdBreakdown.push(`${wdNomN} nomination${wdNomN === 1 ? "" : "s"}`);
+    // ── C2: release-ledger digest — first premiere (else first theatrical), then a
+    // single aggregate arc to the latest event (a shape the subpage never states). ──
+    const relByDate = [...releases].sort((a, b) => a.event_date.localeCompare(b.event_date));
+    const relFirst = relByDate.find((e) => e.event_type === "premiere")
+      ?? relByDate.find((e) => e.event_type === "theatrical" || e.event_type === "theatrical_limited")
+      ?? relByDate[0] ?? null;
+    const relLatest = relByDate.length ? relByDate[relByDate.length - 1] : null;
+    const relCountryN = new Set(releases.map((e) => (e.country ?? "").trim()).filter(Boolean)).size;
+    // ── C3: scholarship section (academic-only cohort). Split + quote pool
+    // (dek_lead-preferred, one per venue, cap 2 — /reception keeps the rest). The
+    // tier/quote logic must NOT assume kind='criticism' (this cohort is all academic). ──
+    const t2Reviews = reception.filter((r) => r.kind === "criticism");
+    const t2Papers = reception.filter((r) => r.kind === "academic");
+    const t2Quotes = (() => {
+      const seen = new Set<string>();
+      const out: { text: string; outlet: string; critic: string | null; year: number | null; url: string }[] = [];
+      const pool = [
+        ...reception.filter((r) => r.dek_lead && r.tier === "verdict"),
+        ...reception.filter((r) => r.dek_lead && r.tier !== "verdict"),
+        ...reception.filter((r) => !r.dek_lead && r.verdict),
+      ];
+      for (const r of pool) {
+        if (seen.has(r.outlet)) continue;
+        seen.add(r.outlet);
+        out.push({ text: (r.dek_lead ?? r.verdict)!, outlet: r.outlet, critic: r.critic || null, year: r.review_year ?? r.year, url: r.url });
+        if (out.length >= 2) break;
+      }
+      return out;
+    })();
+    const t2RelYears = releases.map((e) => Number(e.event_date.slice(0, 4))).filter((y) => y > 1880);
+    const t2Afterlife = reception.length > 0 ? {
+      reviews: t2Reviews.length, papers: t2Papers.length,
+      releases: releases.length, honors: wdHonors.length,
+      y0: t2RelYears.length ? Math.min(...t2RelYears) : null,
+      y1: t2RelYears.length ? Math.max(...t2RelYears) : null,
+    } : null;
+    const hasDigest = lineage.length > 0 || ratingBits.length > 0 || recommendedBy.length > 0 || geoCount > 0 || watchRegionN > 0 || prestigeN != null || discoveryN != null || wdHonors.length > 0 || releases.length > 0;
     const recordDateFmt = recordUpdated ? new Date(recordUpdated).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) : null;
     const mSameAs = [
       f.imdb_id ? `https://www.imdb.com/title/${f.imdb_id}/` : null,
@@ -746,6 +849,7 @@ export default async function FilmPage({ params }: Props) {
       codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const } : null,
       lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
       recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
+      reception.length ? { id: "df-reception", label: "Reception", badge: reception.length } : null,
       sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia" } : null,
       geoCount > 0 ? { id: "df-atlas", label: "Locations", badge: geoCount } : null,
       afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
@@ -762,6 +866,16 @@ export default async function FilmPage({ params }: Props) {
     const synopsis = f.overview ? (
       <p className="df-synopsis">{f.overview}</p>
     ) : null;
+    // C4 — image parity with Tier-1: an image-first StillHero (up to 4) + an
+    // in-body StillStrip. TMDB fetch-cache, no Supabase query, so no loader
+    // cache-key bump. NO watchHref (this cohort has 0 TV broadcasts) and NO
+    // trailer <iframe> (both would re-trip the "not on a watch page" video flag).
+    const heroGallery = await filmBackdropPaths(f.tmdb_id);
+    const heroStills = heroGallery.length
+      ? pickStills(heroGallery, `${f.slug}:hero`, 4)
+      : (f.backdrop_path ? [f.backdrop_path] : []);
+    const stripStills = pickStills(heroGallery, `${f.slug}:strip`, 3)
+      .map((p) => ({ path: p, filmTitle: f.title, filmYear: f.year }));
     return (
       <div className="mt">
         <SiteNav />
@@ -773,8 +887,12 @@ export default async function FilmPage({ params }: Props) {
             <Link href="/film">Films</Link>
             {f.director && dirSlug ? <><span className="df-sep">›</span><Link href={`/director/${dirSlug}`}>{f.director}</Link></> : null}
           </div>
-          <section className="df-hero">
-            {f.backdrop_path ? (
+          {/* HERO — image-first (C4): up to 4 film stills, calm cross-fade. No
+              autoplay trailer <iframe> and no ▶ pill (this cohort has 0 broadcasts). */}
+          <section className={`df-hero${heroStills.length ? " df-hero--vid" : ""}`}>
+            {heroStills.length ? (
+              <StillHero stills={heroStills} label={`${f.title} — stills`} shell="bare" max={4} calm />
+            ) : f.backdrop_path ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img className="df-backdrop" src={`${IMG}/w780${f.backdrop_path}`} alt={`${f.title} backdrop`} width={780} height={439} />
             ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
@@ -848,6 +966,20 @@ export default async function FilmPage({ params }: Props) {
                   {ratingBits.length > 0 ? <>On the aggregators it holds {joinProse(ratingBits)}.</> : null}
                 </p>
               ) : null}
+              {wdHonors.length > 0 ? (
+                <p className="df-digest__p">
+                  Wikidata&rsquo;s award record holds {wdHonors.length} honor{wdHonors.length === 1 ? "" : "s"} for {f.title} — {joinProse(wdBreakdown)}{wdLabels.length ? <>, including the {joinProse(wdLabels)}</> : null}.{" "}
+                  <Link href={`/film/${f.slug}/reception`}>The year-by-year record →</Link>
+                </p>
+              ) : null}
+              {relFirst && relLatest ? (
+                <p className="df-digest__p">
+                  TMDB&rsquo;s ledger dates {releases.length} release event{releases.length === 1 ? "" : "s"}{relCountryN > 1 ? ` across ${relCountryN} countries and territories` : relCountryN === 1 ? " in one country" : ""}, {relFirst.event_type === "premiere"
+                    ? <>from its {relFirst.country ? `${digestCountry(relFirst.country)} ` : ""}premiere ({fmtDigestDate(relFirst.event_date)})</>
+                    : <>from its first release{relFirst.country ? ` in ${digestCountry(relFirst.country)}` : ""} ({fmtDigestDate(relFirst.event_date)})</>} to {REL_TYPE_PHRASE[relLatest.event_type] ?? `a ${relLatest.event_type} release`} in {relLatest.event_date.slice(0, 4)}.
+                  {afterlifeTab ? <> <Link href={`/film/${f.slug}/reception`}>See the release timeline →</Link></> : null}
+                </p>
+              ) : null}
               {recSources.length > 0 ? (
                 <p className="df-digest__p">
                   Within Metatake, it is the next step after{" "}
@@ -887,6 +1019,11 @@ export default async function FilmPage({ params }: Props) {
           <TowCard tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
           <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+
+          {/* SCHOLARSHIP (C3) — this cohort's reception is 100% academic; the shared
+              component self-gates to null when reviews+papers are both empty, and
+              its "critics" copy is papers-aware. */}
+          <FilmReceptionSection title={f.title} slug={f.slug} reviews={t2Reviews} papers={t2Papers} quotes={t2Quotes} afterlife={t2Afterlife} />
 
           {/* EMBEDDING FANTASIA — thickens thin catalog records with linked facts */}
           <FilmSentences slug={f.slug} title={f.title} rows={sentences} />
@@ -936,6 +1073,12 @@ export default async function FilmPage({ params }: Props) {
               )}
               <div className="df-src">Credits data from TMDB · analysis by Metatake</div>
             </section>
+          ) : null}
+
+          {/* IN-BODY STILLS (C4) — a different pick than the hero; the film's own
+              stills, so no "may not be related" disclaimer. Images only, no video. */}
+          {stripStills.length > 0 ? (
+            <StillStrip stills={stripStills} topic={`${f.title}${f.year ? ` (${f.year})` : ""}`} disclaim={false} />
           ) : null}
 
           <section className="df-sec" id="df-watch">

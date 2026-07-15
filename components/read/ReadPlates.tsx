@@ -4,6 +4,7 @@ import { unstable_cache } from "next/cache";
 import { DESKS, DESK_KEYS, mdToPlain } from "@/lib/desks";
 import { cachedLocationsEligibility } from "@/lib/locations";
 import { cachedLineageEligibility } from "@/lib/lineage";
+import { filmMainIndexable } from "@/lib/filmGate";
 import {
   filmUrl, takescoreFilmUrl, receptionUrl, misreadingsFilmUrl, filmLocationsUrl,
   filmLineageUrl, moviesLikeUrl, whereToUrl, tvUrl, filmCreditsUrl,
@@ -82,7 +83,14 @@ const loadPlates = (slug: string) =>
         .select("id, title, slug, year, poster_path, backdrop_path, overview, director, director_slug, is_analyzed, visible")
         .eq("slug", slug)
         .maybeSingle<PlateFilm & { visible: boolean }>();
-      if (!film || !film.visible) return null;
+      if (!film) return null;
+      // Render the footer plates whenever the film's MAIN page is indexable — that
+      // is Tier-1 (visible) AND promoted Tier-2 catalog records (visible=false but
+      // past the consolidation gate). The old `!film.visible` gate silently dropped
+      // this whole "keep exploring" block on every promoted Tier-2 subpage; the CTA
+      // funnels back to the main page, so gating on the main page's own indexability
+      // keeps them in lockstep. Deliberately-hidden analyzed films stay excluded.
+      if (!(await filmMainIndexable(film.slug, { visible: film.visible }))) return null;
 
       const [
         { data: qRows }, { data: eRows }, { data: dRows },
@@ -141,7 +149,7 @@ const loadPlates = (slug: string) =>
         daily: (dRows ?? []) as PlateData["daily"],
       };
     },
-    ["read-plates-2", slug], // key bumped (2) when gates + CTA fields joined the payload
+    ["read-plates-3", slug], // key bumped (3) when the gate moved from film.visible to filmMainIndexable (promoted Tier-2 now render; stale null results must not persist)
     { revalidate: 3600, tags: [`film:${slug}`] }
   )();
 
