@@ -14,6 +14,15 @@
 >   잔여 주소지정 3,810편(가용성완화로 provider-0 약신호 902 포함)을 ~100-150편/일로 회수(~20% 교차).
 > - 커밋: 게이트 6793119 · 키/fast 7bf1084 · 오케스트레이터/RPC 8b28f5d·3487e28.
 >
+> **⭐⭐⭐ 콘텐츠 완비(2026-07-15 "모두 index 수준으로"):** noindex 3,810편을 Tier-2 페이지 완비.
+> 최종 커버리지(색인/noindex): TakeScore 100/100%·수상 94/37%·촬영지 65→94%/45→**79%**(약 +1,295편).
+> `python3 worker/tier2noindex.py enrich`로 재현(awards→takescore→locations→stills→revalidate).
+> 페이지 df-atlas(촬영지 지도) 렌더 + 1,189 색인 페이지 revalidate 검증. **수상 37%·촬영지 79%의 나머지는
+> 실제 수상없음/웹 촬영지정보 없음(못 만드는 한계).** 스틸=스킵(TMDB 이미지 그것뿐, futile 검증).
+> ⚠️ **Tavily 페이싱 버그픽스 9fcf6f4 필수**: gather()가 편당 3검색→버스트가 Tavily 429를 조용히 삼켜
+> (에러없이) 청크 통째 0되던 것; `_tav_pace`(TAVILY_PACE env, 기본 0.6s)로 해결·재실행 20/20 정상.
+> 커밋: enrich a7405a1 · takescore수정 ed3802f · Tavily페이스 9fcf6f4.
+>
 > ## ⭐ v2 — 실측·부분실행 완료 (2026-07-15, Opus/ultracode 세션)
 > **엔진 구축·파일럿 실행·병목 규명 완료. 전량 스윕은 OpenAlex 일일예산 때문에 다일(多日) 웨이브 필요.**
 >
