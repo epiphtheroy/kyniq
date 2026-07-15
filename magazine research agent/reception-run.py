@@ -233,7 +233,10 @@ def main():
         return
 
     key = rd.brave_key()
+    FILMS_ARG = (args[args.index("--films") + 1].split(",")) if "--films" in args else None  # §7.13: factory scoping — restrict discovery to explicit slugs (Tier-2 noindex cohort)
     films = get_films(limit)
+    if FILMS_ARG:
+        films = [f for f in films if f["slug"] in FILMS_ARG]
     print(f"films: {len(films)} · outlets: {len(allow)} · criticism: "
           f"{'Brave' if key else 'OFF(no key)'} · workers: {workers} · out: {os.path.basename(outdir)}")
     if not key:

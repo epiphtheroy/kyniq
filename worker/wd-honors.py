@@ -86,6 +86,9 @@ def main():
     dry = "--dry" in sys.argv
     limit = int(sys.argv[sys.argv.index("--limit") + 1]) if "--limit" in sys.argv else None
     films = cohort()
+    if "--films" in sys.argv:  # §7.13: scope to explicit comma-separated slugs (combine with --all for Tier-2 visible=false)
+        want = set(sys.argv[sys.argv.index("--films") + 1].split(","))
+        films = [f for f in films if f["slug"] in want]
     if limit:
         films = films[:limit]
     print(f"cohort: {len(films)} films with imdb_id")
