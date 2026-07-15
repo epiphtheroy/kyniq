@@ -7,6 +7,9 @@
 > SeqNav·Provenance·팩/MCP)을 받아 Tier-2가 "옛 포맷"으로 뒤처져 있던 것을 픽스: Tier-2 블록에
 > **EntityActions·SeqNav·Provenance** 이식(id/recordUpdated만 사용). Byline은 제외("Drafted by
 > Editorial" = 규칙-조립 카탈로그엔 과장). 팩/MCP는 `packVisible=visible!==false`라 Tier-2 자연 제외(제품 결정).
+> **팩/MCP도 Tier-2에 붙임(commit `e272a8a`)**: `film_context_pack` RPC(마이그 0103)가 is_analyzed=false도
+> 서빙(카탈로그 섹션만 — takescore·standing·honors·locations; 분석 섹션은 자연 빔 → 유출0)+다운로드 라우트
+> 게이트 완화+히어로 DownloadPackModal·McpConnectButton(t2PackSecs 게이트). 실측 the-turning-point=takescore+수상4+촬영지10.
 > **불변식: 두 블록은 크롬 패리티 유지 — Tier-1에 크롬 추가 시 Tier-2에도 back-port**(정보량만 다르고 포맷 동일).
 >
 > **작성 2026-07-15** · `HANDOFF-SEO-스타터가이드-작업지시서.md` §2.4e fast-follow의 확장 정본.
