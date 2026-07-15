@@ -1,8 +1,15 @@
-# HANDOFF — AI 사용현황 어드민 "The Meter" (/admin/usage) 기획·작업지시서 (정본)
+# HANDOFF — AI 사용현황 어드민 "The Meter" (/admin/usage) (정본)
 
-> **작성 2026-07-15 (기획 완료 · 구현 대기 — 다른 AI 수행 예정).** MCP(`/api/mcp`)·REST(`/api/v1`)·팩·임베드·AI 크롤러·AI 유입을 한 페이지에서 추적하는 경영자용 어드민.
-> 프로덕션 DB 실측(2026-07-15) + 코드 조사(파일:라인)로 근거함. 라인 번호는 착수 시 내용 대조 후 사용.
-> ⚠️ **마이그레이션 번호: 착수 직전 `supabase/migrations/` 재확인** — 조사 시점 다음 프리 번호 **0100**(0097·0098·0099는 타 세션이 선점; 과거 중복 사례 0085×2·0087×2·0096×2 있음).
+> ## ✅ SHIPPED 2026-07-15 · 라이브 검증 완료 (commit f181499 + 배포 재트리거 e6f66b9)
+> 아래 기획대로 전량 구현·배포·검증됨. **현 상태·AS-BUILT는 이 배너 + §11 AS-BUILT**, 아래 본문은 기획 정본(설계 근거).
+> - **마이그 0100** `api_calls`(id·ts·endpoint·arg·prefix·ua·ok·ms; RLS-on/0정책) + `usage_daily`·`crawler_daily`·`crawler_snapshot` + `usage_overview_json(p_from,p_to,p_noise)` 단일행 jsonb RPC + `usage_rollup()`. 적용+검증 완료.
+> - **`lib/apiGuard.guardAndLog()`** → 4개 `/api/v1` 라우트(films/films[slug]/takescore[slug]/locations) 스왑. 인서트는 **trusted-egress 단락 바깥**(Claude 트래픽 보존)·awaited try/catch·fail-open.
+> - **`lib/aiClients.ts`** classifyMcpClient/classifyWebCrawler(assistant→health→registry→sdk→browser 순). **`components/admin/AdminUI.tsx`** = Kpi/Panel/SubTitle/BarList/fmt/num/grid2/Row 추출(metrics/page.tsx 재사용).
+> - **`app/admin/usage/page.tsx`** 8패널 + NAV 🔌 AI Usage. `app/api/metrics/insights` 5번째 라이더 `usage_rollup()`. `app/api/mcp` blocked 브랜치도 mcp_calls 인서트.
+> - **라이브 검증**: 4엔드포인트 5히트 → api_calls 5행 정확 캡처(endpoint→arg 매핑·ok=true) → usage_overview_json api.total=5·by_endpoint 정확 → /admin/usage·/admin/metrics 둘 다 307 auth-gate(500 아님). 테스트행 정리 완료.
+> - ⚠️ **배포 교훈**: f181499가 병렬 세션 푸시 버스트 중 **Vercel 웹훅 드롭 → 미빌드**. 빈 커밋 e6f66b9로 재트리거·라이브 캡처로 확인. rapid 동시 푸시 뒤엔 반드시 배포 라이브 검증.
+>
+> **원 작업지시서(기획, 2026-07-15):** MCP(`/api/mcp`)·REST(`/api/v1`)·팩·임베드·AI 크롤러·AI 유입을 한 페이지에서 추적. 프로덕션 DB 실측 + 코드 조사(파일:라인) 근거. (실제 사용 마이그 번호 = 0100.)
 
 ---
 
