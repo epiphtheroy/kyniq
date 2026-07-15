@@ -4,6 +4,10 @@
 > (카탈로그 메타 + 객관 신호층)까지만 만들어 사이트에 넣는다. Strong Misreadings급 콘텐츠 생산
 > (figures/takes/why-watch/watch-next/감독 프로필) **없음**. 목표: 편당 ~$0.01–0.03, 시간당 수백 편.
 >
+> **개정 2026-07-15 (v2)**: Tier-2 메인 통합(C1~C5·D1~D6) SHIPPED + 문서 정합(5fae0fe) 반영 —
+> 게이트 신호 정정(reception/lineage/wd_honors — 개봉은 본문 재료), 정본을 filmIndexBar로 교체,
+> 스틸 C4 패리티·사이트맵 코호트 캡(INDEX_COHORT_FILMS_T2)·감독 404 정상 판정 추가.
+>
 > **대원칙 — 신축 금지, 포크 금지.** 이것은 새 코드베이스가 아니라 `worker/factory.py` +
 > `factory/manifest.json`의 **`tier=catalog` 레인을 완성**하는 일이다. 엔진은 하나, 조립 라인이 둘.
 > 실행·원장·락·리포트·어드민 전부 기존 공장 것을 그대로 쓴다.
@@ -31,17 +35,26 @@
 | 리셉션(film_reception) | 38 | 0.8% | S17 (선택) |
 | figures / takes / misreadings / why / next | 0 | 0% | **생산 안 함 (계약)** |
 
-- **Tier-2 다이제스트는 공장 산출물이 아니다**: `/film/[slug]`의 Tier-2 다이제스트는 렌더타임
-  규칙 프로즈(`app/film/[slug]/page.tsx`의 digestHonorLabel 등)로, **수상·개봉·평점 행만 있으면
-  자동 조립**된다. 공장은 데이터 행만 채우면 된다.
-- **색인 여부도 공장이 결정하지 않는다**: INDEX는 SEO 게이트(마이그 0097 — 강신호 any(수상/개봉/
-  scholarship) + 가용성 + NOT tmdb-스텁; hold는 입력 아님)가 렌더타임에 판정. 공장의 역할은
-  **게이트 통과 신호(S05/S06/S04)를 채우고, 리포트에 게이트 통과 여부를 표기**하는 것.
+- **⭐ 2026-07-15 Tier-2 메인 통합 SHIPPED** (`HANDOFF-Tier2-메인통합.md`, commit 5e8f507):
+  Tier-2 메인이 이제 공장 산출 행을 **본문에 직접 렌더**한다 — C1 수상 다이제스트(film_wd_honors),
+  C2 개봉 연혁 다이제스트(film_release_events), C3 scholarship(film_reception, 전부 academic —
+  "critics said" 카피 금지·scholarship 프레이밍), C4 스틸 패리티(media **≥5장 권장**), C5 ReadPlates.
+  다이제스트 계약 R-D(부분집합+다른 문장형+전문 링크) 준수는 렌더 쪽 책임 — 공장은 행만 채운다.
+  **킨드레드/TV는 Tier-2 계약상 불가**(affinities 0행이 정상 — t2Sections 셸이 대체)이고, 영상
+  iframe은 GSC watch-page 플래그 때문에 절대 금지 — S25/S42가 full 전용인 현 배선과 정확히 일치.
+- **색인 여부는 공장이 결정하지 않는다. 정본 게이트 = `lib/seo.ts filmIndexBar`(코드 SSOT)**:
+  Tier-2는 `(n_reception≥3 OR n_lineage≥3 OR n_wd_honors≥3) AND n_providers≥1 AND NOT slug like
+  'tmdb-%'`. 원신호는 `film_index_signals_json()` RPC(마이그 0097). **hold은 게이트 입력이 아니다**
+  (hold=공장의 "미승격 스텁" 플래그 — catalog 인테이크가 hold=true 스텁을 만드는 것이 정상).
+  주의: **개봉(S05)은 게이트 신호가 아니라 본문 재료**다. 게이트 신호 중 공장이 채울 수 있는 것은
+  wd_honors(S06)·reception(S17)·providers(S04)이며, **lineage(정전 리스트 멤버십)는 공장 스테이지가
+  없다**(별도 큐레이션 계열 — 신작은 주로 honors/reception으로 게이트를 넘는다고 리포트에 전제).
 
 ## §1 Tier-2 품질바 (산출물 계약 — 이 표가 S59 리포트가 되어야 함)
 
 편당 완료 판정: `tmdb메타 ✓ · imdb ✓ · ratings ✓ · providers ✓ · release ≥1 · honors n(0 허용) ·
-TakeScore ✓ · geo n(0 허용) · sentences n(0 허용) · IDX(0097 게이트 통과 여부, 정보성) · LIVE(HTTP 200)`.
+media n(스틸 — C4 패리티상 ≥5 권장, 0 허용) · TakeScore ✓ · geo n(0 허용) · sentences n(0 허용) ·
+IDX(filmIndexBar 통과 여부, 정보성) · LIVE(HTTP 200)`.
 **visible=false·is_analyzed=false 유지가 정상 상태다** (visible 트리거는 figures≥3에만 반응하고
 Tier-2는 figures를 만들지 않으므로 자연 보장 — 절대 손대지 말 것).
 
@@ -74,8 +87,10 @@ Tier-2는 figures를 만들지 않으므로 자연 보장 — 절대 손대지 �
 ### T3. S17 리셉션 — catalog 레인에 이미 있으나 스코핑 검증 필요
 `magazine research agent/reception-run.py`가 `--limit 0`으로 전 대기열을 도는 구조다.
 `--films` 스코핑을 추가하고 manifest 인자를 `["--films", "{slugs}"]`로 교체하라.
-품질바에서는 **선택 항목**(현 커버리지 0.8% — Tier-2 계약에 사실상 없음). OpenAlex 429 함정
-(메모리 참조: 백오프 필수) 건드리지 말 것.
+**지위 격상 주의**: reception≥3은 filmIndexBar의 강신호 중 하나이므로 S17은 단순 부가정보가
+아니라 **게이트 신호 생산자**다(Tier-2 리셉션은 100% academic → 페이지에선 scholarship 프레이밍).
+다만 무명작은 논문이 없어 커버리지가 낮은 게 정상 — 품질바에서는 여전히 정보성 칼럼(0 허용),
+정전급 투입분의 IDX 통과를 실질적으로 좌우한다. OpenAlex 429 함정(백오프 필수) 건드리지 말 것.
 
 ### T4. S40 TakeScore catalog 검증
 manifest상 이미 `full,catalog`. 파일럿에서 실제로 catalog 영화가 채점되는지만 검증.
@@ -84,9 +99,12 @@ manifest상 이미 `full,catalog`. 파일럿에서 실제로 catalog 영화가 �
 ### T5. Tier-2 품질바 리포트 — `worker/factory.py`
 `run_quality_report()`와 `report_md()`는 현재 full 전용(figs/misr 중심)이다. **tier 분기** 추가:
 - catalog 영화용 SELECT(§1의 칼럼): imdb_id·film_ratings·film_watch_providers·
-  film_release_events(count)·film_wd_honors(count)·TakeScore 존재·film_locations(count)·
-  film_sentences(count)·**IDX**(0097 게이트 술어를 그대로 복제 — 정의는
-  `supabase/migrations/0097_*.sql`에서 복사, 절대 재발명하지 말 것)·LIVE.
+  film_release_events(count)·film_wd_honors(count)·media(count)·TakeScore 존재·
+  film_locations(count)·film_sentences(count)·**IDX**·LIVE.
+- **IDX 칼럼은 술어를 재발명하지 말 것**: `film_index_signals_json()` RPC(0097)로 원신호를 받아
+  `lib/seo.ts filmIndexBar`의 술어(§0에 인용)를 그대로 미러. filmIndexBar가 바뀌면 이 칼럼도
+  같이 바뀌어야 하므로 factory.py 주석에 "SSOT=lib/seo.ts filmIndexBar" 명기 +
+  `factory/coupling-map.json`에 lib/seo.ts 추가(Sentinel이 드리프트 감지).
 - report_md: 런에 두 tier가 섞이면 표 2개. incomplete 판정도 tier별 계약으로
   (catalog 완료 = imdb·ratings·providers·release·TS·LIVE; honors/geo/sent/recep/IDX는 정보성).
 - `factory_matrix_json`/`factory_gaps_json`(어드민 관측)이 catalog 계약을 이해하도록 확장
@@ -109,9 +127,11 @@ manifest상 이미 `full,catalog`. 파일럿에서 실제로 catalog 영화가 �
 2. `python3 worker/factory.py plan --write` → `run --run N --sync --yes` (**테스트는 실시간** —
    오너 규칙; ≤5편이면 자동 실시간).
 3. 판정: ⓐ S10~S16·S30~·S39가 리포트에 아예 안 나타남(스킵) ⓑ §1 품질바 전 칼럼 채움
-   ⓒ `/film/<slug>` HTTP 200 + Tier-2 다이제스트 렌더 ⓓ visible=false·is_analyzed=false 유지
-   ⓔ 정전급 1편은 IDX ✓, 무명작은 IDX ✗(noindex)가 **정상** ⓕ 편당 실측 비용 ≤$0.05
-   ⓖ `factory.py lint` 클린 ⓗ Tier-1 파일럿 1편 회귀(기존 레인 무손상).
+   ⓒ `/film/<slug>` HTTP 200 + **새 레이아웃 본문 렌더 확인: C1 수상 다이제스트·C2 개봉 연혁·
+   C4 스틸(media ≥5장이면)·킨드레드/TV 부재가 정상** ⓓ visible=false·is_analyzed=false·hold=true 유지
+   ⓔ 정전급 1편은 IDX ✓, 무명작은 IDX ✗(noindex)가 **정상** ⓕ 신규 감독이 생겼다면 그 감독
+   허브가 404 또는 noindex인 것이 **정상**(Tier-2 전용 감독은 페이지 없음 — directorGate)
+   ⓖ 편당 실측 비용 ≤$0.05 ⓗ `factory.py lint` 클린 ⓘ Tier-1 파일럿 1편 회귀(기존 레인 무손상).
 4. 실측 비용·시간을 이 문서와 RUN-PLAYBOOK에 기록.
 
 ### T8. 문서
@@ -138,8 +158,10 @@ manifest상 이미 `full,catalog`. 파일럿에서 실제로 catalog 영화가 �
 - `compute_film_scores()` 호출 금지(전역 delete). Mgmt API는 브라우저 UA. PostgREST 1000행 절단.
 - 단일런 락: Tier-1 런과 Tier-2 런도 **동시 실행 금지**(같은 엔진·같은 락 — 2026-07-13 DB IO
   장애 교훈). 대량(>5편)은 배치 모드가 기본, 테스트는 `--sync`.
-- 사이트맵/색인 대량 유입 주의: 신규 Tier-2는 기본 noindex(게이트 미통과)라 안전하지만,
-  정전급 대량 투입 시 IDX 통과 편수가 리포트에 보이므로 오너가 페이스 판단.
+- 사이트맵/색인 대량 유입 주의: 신규 Tier-2는 대부분 noindex(게이트 미통과)라 안전. IDX 통과분도
+  **사이트맵 코호트 캡이 페이스를 통제한다** — `lib/seo.ts INDEX_COHORT_FILMS_T2`(현재 300/1,105,
+  주간 GSC-증거 룰로만 상향). 즉 "생산량 ≠ 광고량": 1,000편을 하루에 만들어도 색인 광고는 코호트
+  룰대로 나간다. 공장이 이 캡을 만지는 것은 금지(오너+GSC 증거 전용 레버).
 - 리네임 금지(어드민 카피만 변경). 기존 Tier-1 레인 회귀 테스트 필수(T7-ⓗ).
 
 ## §5 승격 경로 (Tier-2 → Tier-1)
@@ -152,6 +174,8 @@ Tier-1 전용 스테이지(S10~)만 실질 작업(카탈로그 데이터는 idem
 ## §6 참고
 - 정본: `HANDOFF-영화공장.md`(설계) · `factory/RUN-PLAYBOOK.md`(운영) ·
   `factory/EXECUTOR-CODING-NOTES.md`(실측 교훈: 실패패턴·병렬 스펙·sync 모드·락/하트비트)
-- Tier-2 기존편 보강은 별도 작업지시서 `HANDOFF-Tier2-메인통합.md`(C1~C5)와 **신호 정의를 공유**
-  한다 — 이 공장은 "신규 영화"용, 그 문서는 "기존 1,105 승격편" 백필용. 게이트·필드 정의가
-  어긋나면 안 됨(둘 다 0097을 정본으로).
+- **레이아웃·게이트 계약 정본**: `HANDOFF-Tier2-메인통합.md`(✅ SHIPPED 2026-07-15, 5e8f507 —
+  Tier-2 메인·감독 허브가 무엇을 렌더하는지) + `lib/seo.ts filmIndexBar`(색인 술어 SSOT) +
+  `docs/REMEMBER-thin-content-gate.md`(게이트 역사·hold 시맨틱). 이 공장은 "신규 영화"용이고
+  그 배포는 "기존 승격편" 통합이었다 — 공장이 채우는 필드가 곧 그 레이아웃의 입력이므로
+  필드 정의가 어긋나면 안 된다.
