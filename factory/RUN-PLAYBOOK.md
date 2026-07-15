@@ -149,7 +149,7 @@ python3 worker/trope-tag.py $(for s in ${SLUGS//,/ }; do echo --film $s; done) -
 
 # S17 reception (LLM-0, free — 2025 films usually return 0, that's fine/graceful)   [optional]
 # S19 LOCATIONS  ⚠️ use --films (NOT GEO_FILMS env — the env is ignored, would process the whole corpus):
-python3 worker/geo-extract.py --films $SLUGS --apply
+python3 worker/geo-extract-search.py --films $SLUGS --apply   # ⚠️ 2026-07-15 오너 지시: haiku geo-extract.py 금지(저품질) — 검색근거 sonnet 추출기가 정본 (TAVILY_API_KEY 필요)
 python3 worker/geo-code.py --apply
 ```
 
@@ -244,7 +244,9 @@ the run first (`insert into factory.runs`), attach intake, close with `status='d
 - ~~Loaders with hardcoded input paths (asset-load, next-resolve/load)~~ FIXED 2026-07-12: they honor `--out`.
   boldtake-load still preflight-guards `--apply` → the direct-RPC bypass (or `--incremental`, see executor S11).
 - boldtake-load `--apply` preflight guard → the direct-RPC bypass.
-- geo-extract honors `--films` not `GEO_FILMS` env (manifest S19 corrected 2026-07-12).
+- geo: `--films` scoping (not `GEO_FILMS` env). **S19 = geo-extract-search.py (sonnet+Tavily) — the
+  plain haiku geo-extract.py is BANNED for factory use (owner, 2026-07-15: memory-only haiku pins
+  were low quality; the corpus was upgraded with the search-grounded extractor).**
 - Fantasia D/E/F/H/J patterns need lineage/ratings/filmed-locations; kinship kin value is an approximate
   reconstruction (map weight only, not sentence text). All harmless-when-absent.
 - to.W comment builder is not a DB function (rule assembly by hand per curation.rule) — the W3 step above.

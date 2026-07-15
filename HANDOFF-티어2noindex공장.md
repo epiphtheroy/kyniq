@@ -87,6 +87,11 @@ Tier-2 리셉션은 100% academic → 페이지에서 scholarship 프레이밍(�
 유지 + 리포트에 잔여 수만. `lib/slug.ts`가 유일 슬러그 생성기 원칙과 충돌하지 않게 — 생성이
 아니라 참조 매칭이므로 무관하나, 주석으로 명기.
 
+### N4b. 왓치넥스트 역링크 = 기존 **S27 next-backfill** (2026-07-15 catalog 편입됨)
+기존 영화들의 watch-next 중 tmdb-only 추천이 코호트 영화를 가리키면 내부 링크로 자동 연결 —
+무료 RPC 1회. 캠페인 말미에 1회 실행. (kindred/movies-like는 takes 임베딩 기반이라 이 라인
+범위 밖 — "Tier-2 kindred 원장 재구축" BACKLOG 항목, 오너 결정.)
+
 ### N5. 퍼블리케이션 = 기존 S51(lastmod)·S52(revalidate)
 **게이트를 새로 넘은 영화만** 스코프(전 코호트 revalidate 금지 — 캐시 스탬피드). 넘은 영화는
 filmIndexBar가 렌더타임에 자동 인식하므로 noindex 메타 제거는 자동. 사이트맵 광고는
@@ -109,7 +114,7 @@ lineage 근접 K편(리스트 레버, 오너) / providers만 부족 J편`. 감�
 1. N1 fpi_rebuild 단독 (즉시 62편 — 레버 검증)
 2. N3 전처리: wikidata-id 재해결 113편 → S06 스코프 런(2,261+1,417, 청크)
 3. N2 리셉션 스윕(3,817, 청크 — 가장 오래 걸림, OpenAlex 페이싱)
-4. N4 director_slug 백필 (1회)
+4. N4 director_slug 백필 + N4b next-backfill (각 1회)
 5. N6 재측정 → 리포트 → 오너 보고(잔여 분해 + lineage 레버 제안)
 
 ## §4 파일럿·수용 기준

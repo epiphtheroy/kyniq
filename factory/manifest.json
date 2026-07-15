@@ -232,14 +232,14 @@
       "id": "S19-geo", "wave": "W1", "order": 20, "title": "Locations (setting/filmed)",
       "class": "per_film", "tier": ["full", "catalog"],
       "runner": { "type": "shell_seq", "steps": [
-                    { "script": "worker/geo-extract.py", "args": ["--films", "{slugs}", "--apply"] },
+                    { "script": "worker/geo-extract-search.py", "args": ["--films", "{slugs}", "--apply"] },
                     { "script": "worker/geo-code.py", "args": ["--apply"] } ], "per_film_arg": null, "scoped_by_eligibility": true },
-      "depends_on": ["S03-tmdb-fetch"], "writes": ["film_locations", "geo_cache"], "reads": [], "external": ["anthropic_sync", "google_geocode"],
-      "cost": { "model": "claude-haiku-4-5", "usd_per_film_est": 0.02, "max_usd": null, "measured": false },
+      "depends_on": ["S03-tmdb-fetch"], "writes": ["film_locations", "geo_cache"], "reads": [], "external": ["anthropic_sync", "tavily", "google_geocode"],
+      "cost": { "model": "claude-sonnet-4-6", "usd_per_film_est": 0.04, "max_usd": null, "measured": false },
       "idempotency": "on_conflict",
       "verify_sql": null, "failure_policy": "park", "scoped_by_eligibility": true,
-      "coupling": ["worker/geo-extract.py", "worker/geo-code.py"],
-      "notes": "Uses the RUNBOOK Stage-17 per-film path (GEO_FILMS env scopes to the run's slugs) instead of geo-batch-submit (whose --only/seed-only cannot scope to new films and whose full submit is forbidden). Setting-layer haiku extractor; the sonnet-5 web-search batch (geo-batch-submit, $0.166/film) is a richer optional upgrade the owner can run separately. inherits GEO_운영 gates."
+      "coupling": ["worker/geo-extract-search.py", "worker/geo-code.py"],
+      "notes": "MODEL FIX 2026-07-15 (owner): plain geo-extract.py (haiku, memory-only, 3-4 coarse pins) produced low-quality locations and was superseded — the factory MUST use the search-grounded extractor geo-extract-search.py (sonnet-4-6 + Tavily multi-source, GEO_MIN_SOURCES=2, protected-DB quarantine, address-grade names for geo-code precision). Drop-in same I/O (film_locations). Needs TAVILY_API_KEY. geo-batch-submit (sonnet-5 batch, $0.166/film) remains the bulk-corpus option."
     },
     {
       "id": "S20-embed", "wave": "W2", "order": 20, "title": "Embeddings (null-only)", "retries": 2,
@@ -309,7 +309,7 @@
     },
     {
       "id": "S27-next-backfill", "wave": "W2", "order": 27, "title": "film_next target backfill (1-liner)",
-      "class": "corpus", "tier": ["full"],
+      "class": "corpus", "tier": ["full", "catalog"],
       "runner": { "type": "sql_file", "script": "factory/sql/assertions.sql", "fn": "next_target_backfill" },
       "depends_on": ["S16-next"], "writes": ["film_next"], "reads": ["films"], "external": [],
       "cost": { "model": "none", "usd_per_film_est": 0, "max_usd": null, "measured": true },
