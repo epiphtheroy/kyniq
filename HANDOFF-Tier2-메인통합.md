@@ -2,6 +2,13 @@
 
 > **✅ SHIPPED + 라이브 검증 완료 2026-07-15 (commit `5e8f507`).** 필름 C1~C5 + 감독 D1~D6 전량 배포·확인. D6 게이트 실측 858→678/180(§8). 캐시키 실제값: film-load8·director-load6·director-press-digest-1·**read-plates-3**(§3 C5의 "read-plates-2 검토"는 -3으로 확정). 아래는 그 정본 스펙(구현 완료분).
 >
+> **⭐ 크롬 패리티 픽스(2026-07-15, commit `4a22c33`)**: `app/film/[slug]/page.tsx`는 **두 렌더 블록**
+> — Tier-2(`is_analyzed===false`, ~879~1290) / Tier-1(~1301~1900). Tier-1만 최근 크롬(EntityActions·
+> SeqNav·Provenance·팩/MCP)을 받아 Tier-2가 "옛 포맷"으로 뒤처져 있던 것을 픽스: Tier-2 블록에
+> **EntityActions·SeqNav·Provenance** 이식(id/recordUpdated만 사용). Byline은 제외("Drafted by
+> Editorial" = 규칙-조립 카탈로그엔 과장). 팩/MCP는 `packVisible=visible!==false`라 Tier-2 자연 제외(제품 결정).
+> **불변식: 두 블록은 크롬 패리티 유지 — Tier-1에 크롬 추가 시 Tier-2에도 back-port**(정보량만 다르고 포맷 동일).
+>
 > **작성 2026-07-15** · `HANDOFF-SEO-스타터가이드-작업지시서.md` §2.4e fast-follow의 확장 정본.
 > 전 수정 지점을 프로덕션 DB 실측(2026-07-15) + 코드 검증 파일:라인으로 지정.
 
