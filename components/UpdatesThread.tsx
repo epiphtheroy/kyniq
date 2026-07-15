@@ -49,6 +49,9 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
   // Set when the user drives navigation (page/filter), so the scroll-to-top
   // fires AFTER the new page renders — not against the old, taller layout.
   const navScrollRef = useRef(false);
+  // Holds a hash target (post id) whose page we just switched to; the effect
+  // scrolls to it once it is actually in the DOM (may take the next commit).
+  const pendingHashRef = useRef<string | null>(null);
 
   const cats = useMemo(() => {
     const present = new Set(posts.map((p) => p.cat));
@@ -73,14 +76,12 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
     if (!raw) return;
     const idx = posts.findIndex((p) => p.id === raw);
     if (idx < 0) return;
+    // Defer the scroll to the effect below — after the target's page renders
+    // and the element is in the DOM (a bare requestAnimationFrame fires before
+    // React commits the new page, so the element isn't there yet).
+    pendingHashRef.current = raw;
     setCat("all");
     setPage(Math.floor(idx / PAGE_SIZE) + 1);
-    // instant, not smooth: the site sets html{scroll-behavior:smooth} globally,
-    // and a smooth programmatic scroll to a far target here is silently dropped
-    // by the browser — instant is the only reliable option.
-    requestAnimationFrame(() => {
-      document.getElementById(raw)?.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
-    });
   }, [posts]);
 
   useEffect(() => {
@@ -91,12 +92,24 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
 
   // Scroll to the top of the thread after a user-driven page/filter change has
   // rendered. Hash navigation leaves the flag false (it scrolls to its post).
+  // Runs after each page/filter render. instant, not smooth: the site sets
+  // html{scroll-behavior:smooth} globally and Chrome silently drops a smooth
+  // programmatic scroll to a far target here, so force an instant jump.
   useEffect(() => {
-    if (!navScrollRef.current) return;
-    navScrollRef.current = false;
-    // instant, not smooth — see goToHash: global scroll-behavior:smooth drops
-    // far programmatic scrolls, so force an instant jump to the thread top.
-    document.getElementById("upd-top")?.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+    // Hash navigation: scroll to the target post once its page is in the DOM.
+    if (pendingHashRef.current) {
+      const el = document.getElementById(pendingHashRef.current);
+      if (el) {
+        pendingHashRef.current = null;
+        el.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+      }
+      return; // not yet in DOM → keep pending for the next commit
+    }
+    // Page/filter change: jump to the top of the thread.
+    if (navScrollRef.current) {
+      navScrollRef.current = false;
+      document.getElementById("upd-top")?.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+    }
   }, [safePage, cat]);
 
   const changePage = (n: number) => {
