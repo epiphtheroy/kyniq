@@ -930,6 +930,7 @@ export default async function FilmPage({ params }: Props) {
                 {mvChips}
                 <div className="df-hactions">
                   <MovieListActions filmId={f.id} />
+                  <EntityActions entityType="film" entityId={f.id} />
                   {f.tmdb_id ? <Link className="df-like" href={`/credits?f=${f.tmdb_id}`}>🎞 Follow the credits →</Link> : null}
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
                 </div>
@@ -1110,6 +1111,15 @@ export default async function FilmPage({ params }: Props) {
           ))}
 
           <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
+
+          {/* Modern chrome parity with the Tier-1 main (2026-07-15): prev/next film nav
+              + the E-E-A-T provenance footer. NOT the Byline (it says "drafted by
+              Editorial" — an overclaim for a rule-composed catalog record). Packs/MCP
+              stay gated to visible films (product decision, not format). */}
+          <div className="df-seq">
+            <SeqNav kind="film" id={f.id} />
+          </div>
+          <Provenance created={recordUpdated} />
         </div>
       </div>
     );
