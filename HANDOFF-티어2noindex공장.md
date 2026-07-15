@@ -1,5 +1,34 @@
 # HANDOFF — Tier-2 noindex 공장 (신호 회수 라인) 구축 지시서
 
+> ## ⭐ v2 — 실측·부분실행 완료 (2026-07-15, Opus/ultracode 세션)
+> **엔진 구축·파일럿 실행·병목 규명 완료. 전량 스윕은 OpenAlex 일일예산 때문에 다일(多日) 웨이브 필요.**
+>
+> **① 초기 가정 3건이 실측으로 뒤집힘(적대검증 완료):**
+> - **fpi_rebuild = 무의미(no-op)**. provider=0인 964편은 `film_watch_providers`가 빈 결과(TMDB에
+>   스트리밍 가용성 없음). 재계산해도 0편. 이 964편은 가용성 게이트가 정당하게 막는 것(주소지정 불가).
+> - **주소지정 가능 코호트 = 2,928편**(providers≥1 & noindex), 3,892 전체가 아님. 나머지 964편은 가용성 차단.
+> - **수상(wd-honors) = 게이트 교차 ~0편**. Tier-2 영화는 수상/후보가 1~2개라 임계값 3 미달(파일럿 100편:
+>   40편이 수상 얻었으나 nwd≥3 도달 0). **페이지 내용은 채우나 색인은 못 시킴.**
+>
+> **② 실측 레버 = 리셉션(학술)만. 파일럿 100편: 20편이 reception≥3 도달 → 게이트 교차(20% 수율).**
+>   이 20편은 **라이브 반영**됨(Tier-2 색인 1,105→1,125). 2,908편 × 20% ≈ **~580편 색인 가능**이 현실적 상한.
+>   추가: director_slug 백필 105편(색인 무관·감독허브 보강).
+>
+> **③ ⚠️ 스케일링 병목 = OpenAlex 일일예산.** OpenAlex가 예산제로 전환("Insufficient budget, $0
+>   remaining"→429). 파일럿만으로 오늘치 소진. 대량 수집 불가 → **하루 ~100-200편씩 `reception-wave`
+>   (=`--fill-academic`) 다일 웨이브로 ~2-3주**(무료), 또는 **유료 OpenAlex 키로 단기 완주**. 오너 결정.
+>   ⚠️ 캐시 삭제로 강제 refetch 금지(기존 논문 손실 — 이번에 13편 겪음). `--fill-academic`만 사용.
+>
+> **④ 엔진 구축물(커밋됨):** 마이그 0098(`factory_director_slug_backfill`)·0099(`t2noindex_refresh`/
+>   `_measure` RPC + `z_t2noindex_cohort`) · 워커 `--films` 스코핑(wd-honors·reception-run) ·
+>   **오케스트레이터 `worker/tier2noindex.py`**(measure/refresh/reception/reception-wave/awards/
+>   revalidate/report/run). 재현: `python3 worker/tier2noindex.py reception-wave` 를 하루 1회.
+>
+> **⑤ 남은 일(오너 결정 후):** 다일 웨이브 스케줄(cron) 또는 유료키 · 웨이브 후 `revalidate` · 재측정.
+> ⚠️ 현재 `magazine research agent/reception-all.jsonl`은 열화상태(349편, full2 스윕 부산물) —
+>   **웨이브 완주 전 reception-load 실행 금지**(DB 9,270행 좋은 상태 덮어씀). 웨이브가 정상 재생성함.
+>
+> ---
 > **한 줄**: noindex 상태의 Tier-2 영화 **3,892편**(2026-07-15 실측)을 대상으로, 무료 소스에서
 > 색인 게이트 신호(가용성 인덱스·리셉션·수상)를 **회수·백필**해서 `filmIndexBar`를 넘는 영화를
 > 최대화하는 공장. **신규 영화를 만들지 않는다** — 기존 행의 신호를 채우는 **수리(enrich) 라인**이다.
