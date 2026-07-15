@@ -80,7 +80,7 @@ export default function ScholarHeader({
       </div>
 
       <div className="sch-note">
-        Readings are AI-drafted critical interpretations — cite the films and scholarship, not this page, as a source.
+        Readings are critical interpretations — cite the films and scholarship, not this page, as a source.
       </div>
     </div>
   );

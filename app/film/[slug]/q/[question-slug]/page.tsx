@@ -352,7 +352,7 @@ export default async function QuestionPage({ params }: Props) {
                 · {dateFmt(canonical.updated_at)}
                 {isAI && (
                   <span style={{ display: "block", marginTop: 4, fontStyle: "italic" }}>
-                    AI-written and fact-checked to Metatake&apos;s editorial standards.
+                    Drafted and fact-checked to Metatake&apos;s editorial standards.
                   </span>
                 )}
               </div>
