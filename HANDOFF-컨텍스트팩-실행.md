@@ -144,7 +144,10 @@ RPC가 반환하는 jsonb를 그대로 응답한다(이중 정의 금지 — MD�
   /* ⚠️ 구현 시 변경(2026-07-12): 원안은 "flagged→null 제외"였으나 실측상 점수의 64%가 flagged
      이고 공개 film 페이지(cinecodex_for)는 flagged를 표시한다. 제외하면 Tier-1의 70%가 점수를 잃고
      팩이 원본 페이지와 모순 → flagged를 포함하되 low_confidence:true 마커로 정직 노출. score=value-risk
-     (=film 페이지의 u). n_samples/panel_disagree는 전부 1/무의미라 제거. */
+     (=film 페이지의 u). n_samples/panel_disagree는 전부 1/무의미라 제거.
+     ⚠️ [UPDATE 2026-07-15 Tier-2 메인통합 5e8f507] 사용자 가시 "⚠ low-confidence (single-panel)" 문구는
+     lib/pack.ts에서 제거됨(감사 A9)·팩 점수는 음수 TakeScore를 0-clamp(B32). 이제 기계용 low_confidence
+     필드는 /api/v1 응답에만 잔존(팩 MD/JSON 본문엔 가시 마커 없음). → 정본: HANDOFF-Tier2-메인통합.md §3. */
   "standing": { "prestige","discovery" } | null,
   "honors": [ { "list","facet","result","rank" } ],
   "readings": [ { "framework","title","theorist","concept","figure":{"label","kind"},"text" } ],
@@ -412,7 +415,7 @@ Polar.sh(MoR — VAT/JCT 대행, 한국 사업자 유리) 제품 2개: Pass Mont
 - 2026-07-12: 오너 결정 §1 — Pass 채택($1 단품 폐기)·무로그인 복사·월 10팩 무료 쿼터·마이룸 무료+팩 라이브러리·드라이브 보류(MCP 우선). 실행은 별도 에이전트, 본 지침서 작성.
 - 2026-07-12 실측: 좌표 전면 금지(nominatim 0행)·mt_events 로깅·0085 번호·DB 엣지 GRANT 경계·backfill 클라이언트 호출자·Safari ClipboardItem 패턴 확정.
 - **2026-07-12 W1 구현·배포 (commit d80e016, 다른 세션이 아니라 본 에이전트가 실행):**
-  - **TakeScore flagged 처리 변경(위 §4.3 참조):** flagged 제외→포함+low_confidence 마커. 근거: flagged 64%·공개 페이지 일관성·Tier-1 70% 점수 소실 방지. 라이브 GRANT 검증: full→service_role only, trim→anon+authenticated.
+  - **TakeScore flagged 처리 변경(위 §4.3 참조):** flagged 제외→포함+low_confidence 마커. 근거: flagged 64%·공개 페이지 일관성·Tier-1 70% 점수 소실 방지. **⚠️ [UPDATE 2026-07-15 Tier-2 메인통합] 사용자 가시 low_confidence 마커("⚠ low-confidence (single-panel)")는 lib/pack.ts에서 제거됨(감사 A9)·팩 점수 0-clamp(B32) — 기계용 `low_confidence` 필드는 /api/v1에만 잔존. → `HANDOFF-Tier2-메인통합.md §3`.** 라이브 GRANT 검증: full→service_role only, trim→anon+authenticated.
   - **5-렌즈 적대적 리뷰(13 에이전트) 결과:** 8건 제기 → 6 반박 → **2 확정·수정 완료**: ① `rd`(readings) CTE에 `figures.status='approved'` 조인 누락(비승인 피겨 label/kind가 무료 트림에 샐 수 있었음, 사이트 readings 전부 이 게이트 있음 — 추가·재적용; 현재 전역 위반 0건이라 출력 불변, 드리프트 방어) ② CopyForAI 마운트에 visible=true 게이트 누락(is_analyzed=true·visible=false 22편에서 버튼이 클릭 시 404 — `(film as {visible?}).visible!==false` 게이트 추가).
   - **라이브 검증 전항 통과:** 트림 MD 품질(11KB, 출처·라이선스 상하단·13차원 정순), full→403·missing→404·json content-type·X-Robots noindex, 버튼 Tier-1 존재/Tier-2 부재, 좌표·금지필드 키 0(정밀 검사), 1,939 Tier-1 전편 TakeScore.
   - **⚠️ 발견된 선존 데이터 결함(팩 무관·W1 범위 밖):** 발행 takes 2편의 rationale에 중국어 이중인코딩 모지바케(예 ITMFL TITLE/INVITATION의 `鏌愯姳鏍峰勾鍗`=원래 `花樣年華`). DB 원본 손상이라 film 페이지에도 동일 노출. 팩 파이프라인은 충실 통과(내 버그 아님). 데이터 품질 트랙에서 2건 수정 권고(발행 콘텐츠라 임의 재작성 보류).

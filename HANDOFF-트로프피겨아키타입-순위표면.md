@@ -4,8 +4,8 @@
 
 ## 0. 무엇 (3줄)
 
-1. **/trope/[slug]가 리스티클형 순위 페이지** — 멤버(그 트로프를 나르는 각 영화의 독해)를 라이브 코사인(take↔trope 임베딩)으로 랭킹. 순번·포스터·"% match" 배지·rationale 발췌문(영화별 고유 텍스트). 타이틀 `"{title} — N films that stage this trope, ranked"`(N은 라이브 카운트). ItemList+FAQPage JSON-LD, coherence % 스탯, Article에 editor(Person).
-2. **피겨 페이지**: H1 아래 가시 질문 H2("What does X mean in {Film}?" — FAQ JSON-LD와 문구 1:1 공유, `leadQuestion` 변수) + Type 라인 편수("(in N films)") + **nearest-figures 섹션**(`figure_neighbors` RPC, 교차영화만, % 배지) + FAQ 2번 질문(top 트로프 공유 영화들). **/catalog/[seg]/[slug]**: 이중브랜드 타이틀 버그 수정, `"{label} — {kind}: N film examples, ranked"`, 순번+confidence %, kindred sim %, Byline/Provenance, CollectionPage(날짜+editor), FAQPage. **필름 페이지 Tropes 섹션**: 트로프별 `READING {take_title} →` 라인(그 영화 자신의 독해, 나르는 피겨로 링크).
+1. **/trope/[slug]가 리스티클형 순위 페이지** — 멤버(그 트로프를 나르는 각 영화의 독해)를 라이브 코사인(take↔trope 임베딩)으로 랭킹. 순번·포스터·"% match" 배지·rationale 발췌문(영화별 고유 텍스트). 타이틀 `"{title} — N films that stage this trope, ranked"`(N은 라이브 카운트). ItemList JSON-LD(⚠️ **FAQPage는 2026-07-15 제거** — 가시 QuickAnswers는 유지, → `HANDOFF-Tier2-메인통합.md §3`), coherence % 스탯, Article에 editor(Person).
+2. **피겨 페이지**: H1 아래 가시 질문 H2("What does X mean in {Film}?" — FAQ JSON-LD와 문구 1:1 공유, `leadQuestion` 변수) + Type 라인 편수("(in N films)") + **nearest-figures 섹션**(`figure_neighbors` RPC, 교차영화만, % 배지) + ~~FAQ 2번 질문(top 트로프 공유 영화들)~~(⚠️ **figure FAQPage는 2026-07-15 제거** — 가시 섹션만 유지). **/catalog/[seg]/[slug]**: 이중브랜드 타이틀 버그 수정, `"{label} — {kind}: N film examples, ranked"`, 순번+confidence %, kindred sim %, Byline/Provenance, CollectionPage(날짜+editor)(⚠️ **catalog FAQPage도 2026-07-15 제거** — → `HANDOFF-Tier2-메인통합.md §3`). **필름 페이지 Tropes 섹션**: 트로프별 `READING {take_title} →` 라인(그 영화 자신의 독해, 나르는 피겨로 링크).
 3. 모든 %·순위·카운트는 **렌더 시점 DB 파생**(베이크 없음) — 트로프 재구축·신규 영화에 자동 반영. 로직 설명 앵커는 **/methodology#rankings**(모든 % 배지가 이리로 링크).
 
 ## 1. 파일맵
@@ -30,7 +30,7 @@
 
 1. **순위·%·카운트 하드코딩/베이크 금지** — 전부 렌더 파생. 트로프 개편(trope-build --reset)·신규 영화 후 이 표면은 자동 갱신(별도 재빌드 없음).
 2. **`trope_members_ranked` 수정 시 `supabase/rpc/` 사본 동기** — 연결엔진 핸드오프 불변식 3과 동일 규약(레포가 정본).
-3. **FAQPage 질문 = 가시 콘텐츠 1:1** — 피겨는 `leadQuestion` 변수를 H2와 JSON-LD가 공유, 트로프/카탈로그는 멤버 리스트·thesis가 가시 근거. 가시 콘텐츠 없는 FAQ 추가 금지(리치결과 요건).
+3. **~~FAQPage 질문 = 가시 콘텐츠 1:1~~** ⚠️ **[2026-07-15] FAQPage JSON-LD는 전 유형에서 제거됨**(figure/catalog/trope) — 이제 가시 H2/QuickAnswers 바인딩만 남는다. 피겨 `leadQuestion` 변수는 H2로 유지(JSON-LD 공유는 소멸). 가시 콘텐츠 없는 Q 추가 금지 원칙은 그대로. → 정본: `HANDOFF-Tier2-메인통합.md §3`.
 4. **결정론 정렬 유지**(`order by random()` 금지) — 같은 입력=같은 페이지=캐시 가능.
 5. **타이틀 패턴**: 헤드텀 먼저 + 라이브 카운트 + (n≥4일 때만) ", ranked". 브랜드는 루트 템플릿(`%s · Metatake`)이 붙임 — **페이지 타이틀에 `| Metatake` 재도입 금지**(카탈로그 이중브랜드 버그를 2026-07-05 수정했음).
 6. ISR 규약 유지: `revalidate = 300` + `generateStaticParams(){return[]}` (엣지 캐시 패턴).

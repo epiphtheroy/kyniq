@@ -1,6 +1,6 @@
 # BACKLOG — undone work, gaps, decisions
 
-**Purpose:** the single registry of what's *not* done yet, so nothing is lost. Grouped by theme; each item has a rough size and why it matters. Update in place. Last: 2026-06-24.
+**Purpose:** the single registry of what's *not* done yet, so nothing is lost. Grouped by theme; each item has a rough size and why it matters. Update in place. Last: 2026-07-15.
 
 Priority legend: 🔴 blocks scale/correctness · 🟡 quality/SEO · 🟢 feature/nice.
 
@@ -24,6 +24,23 @@ See `RUNBOOK-new-film-ingestion.md` §6 for the design.
 - 🟡 **Redirect integrity check** after any rename (recluster/trope-build): assert every retired slug has `slug_history`/`merged_into`. *(Low.)*
 
 ## C. SEO (your example: new head-copy)
+
+**✅ SHIPPED 2026-07-14/15 — SEO 대통합** (Tier-2 메인 색인 개방 + 서브페이지 불변식 + TakeScore/구조화데이터 정리 + 감독 허브 통합). 정본: `HANDOFF-SEO-스타터가이드-작업지시서.md` + `HANDOFF-Tier2-메인통합.md`. 완료:
+- ✅ **색인 통합 게이트** (`lib/seo.ts filmIndexBar`, 마이그 0097 `film_index_signals_json`): Tier-2 카탈로그 **1,105편** noindex→색인(색인 필름 메인 1,959→~3,064).
+- ✅ **서브페이지 불변식**: takescore/reception/lineage/movies-like/credits/whereto/q = `filmMainIndexable && ownBar`; 사이트맵 미러(INDEX_COHORT_FILMS_T2=300, 메인 films.xml — films2.xml 아님).
+- ✅ **TakeScore 정리**(displayTs 음수 0-clamp) · **구조화데이터 정리**(figure/catalog/trope FAQPage 제거 · /q QAPage→Article · Review author=Organization "Metatake" · flagged/n=1 카피 제거).
+- ✅ **감독 허브 통합 게이트**(`lib/directorGate.ts directorIndexBar`, commit 5e8f507): 858 허브 → **678 색인 / 180 noindex**.
+
+**남은 것(포인터만 — 정본: `HANDOFF-Tier2-메인통합.md §6` + `HANDOFF-SEO-스타터가이드-작업지시서.md §5`):**
+- 🟡 affinity-ledger Tier-2 확장(kindred).
+- 🟡 OpenAlex reception 재시도.
+- 🟡 director_slug 백필 — 승격된 **773 NULL** 필름.
+- 🟡 thin-hub facts/portrait 생산.
+- 🟢 페이지 없는 감독 **540명** 처리 결정.
+- 🟡 사이트맵 코호트 증량은 GSC 관찰 게이트.
+
+**⚠️ 운영 발견(2026-07-15): GSC 커넥터(`mt_gsc_daily`) STALE — 마지막 데이터 2026-07-10.** `worker/gsc-daily-watch.sh` 재가동 확인 필요. 또한 색인 커버리지 지표(크롤링됨-미색인/발견-미색인, 인덱스 갭)는 `mt_gsc_daily`에 **없음** — GSC UI에서만 확인 가능.
+
 - 🟡 **Per-page head-copy / intros.** Per-**film** dossiers and per-**framework** intro copy for `<title>`/meta/H1 are thin or missing (hub `seo_phrase` exists via `mt-seo-batch`, but films + frameworks need their own). Design a head-copy generator (Haiku/Sonnet batch) writing a `seo_*` field per film + framework. *(Medium.)*
 - 🟡 **Re-run hub seo_phrase after renames** (recluster nulls it). Fold into the garden pass. *(Low.)*
 - 🟡 **strong-misreadings sitemap + canonical/og** completeness; **S2 perf** (materialize counts, home_bundle cache, tz) — carried from roadmap. *(Medium.)*

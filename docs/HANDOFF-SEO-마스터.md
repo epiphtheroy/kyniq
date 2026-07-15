@@ -4,12 +4,22 @@
 
 *작성 2026-07-04 · **갱신 2026-07-06** (계보 층 + 필름 하위 URL 체계 확정 반영). 새 영화 추가·표면 개방·개명 등 변경 작업 전에 반드시 이 문서의 런북부터 확인할 것. 기획 상세: `docs/PLAN-seo-surface-expansion.md`, 지도 표면: `docs/PLAN-atlas-seo.md`. 층별 정본: 아틀라스=`HANDOFF-아틀라스-SEO-읽는층.md`, 계보=`HANDOFF-계보-SEO-읽는층.md`, 순위표면=`HANDOFF-트로프피겨아키타입-순위표면.md`, 연결=`HANDOFF-연결엔진-커넥션.md`.*
 
+> ## ⭐ §3e — 갱신 2026-07-14~15 (SEO 스타터가이드 감사 + Tier-2 통합, SHIPPED)
+> **정본: `HANDOFF-SEO-스타터가이드-작업지시서.md`(§2 게이트·§3~5 TakeScore/구조화데이터) + `HANDOFF-Tier2-메인통합.md`(메인 실속화). 게이트 코드 SSOT: `lib/seo.ts filmIndexBar` · `lib/filmGate.ts` · `lib/directorGate.ts` · 마이그 0097.**
+> 이 배너가 아래 본문의 **"Tier-2 전원 noindex 유지"·"7/16 코호트 동결"·"Track B 대기" 프레이밍을 전부 대체**한다:
+> - **통합 색인 게이트(Track B 실행됨)**: 얇은 서브페이지 3종(takescore/reception/lineage)이 게이트를 우회해 ~6,800p 노출하던 누수를 닫고, **Tier-2 카탈로그 1,105편을 색인 승격**(reception≥3 OR lineage≥3 OR wd_honors≥3 AND provider≥1 AND NOT tmdb-스텁; **`hold`은 게이트 입력 아님**). 색인 메인 1,959→~3,064. 서브 불변식 `filmMainIndexable && ownBar`·사이트맵 미러·신규 코호트 `INDEX_COHORT_FILMS_T2=300`. **`visible`은 색인 경계가 아님**(figures≥3 트리거). **"honours are facts"(계보 무게이트) 결정 번복.**
+> - **감독 허브 robots 게이트 신설**: `lib/directorGate.ts directorIndexBar` — 858→**678 색인/180 noindex**. directorEntries 미러.
+> - **Tier-2 메인 실속화(5e8f507)**: 승격 영화 메인=수상/개봉/학술 다이제스트+StillHero, 감독 허브=카탈로그 TakeScore+press/수상/가용성/촬영지 다이제스트. 캐시키 film-load8·director-load6·director-press-digest-1·read-plates-3.
+> - **TakeScore/구조화데이터 정리**: 음수 0클램프(displayTs, 표시·스키마만)·"flagged/n=1" 문구 전삭·Review author=Organization·**FAQPage 제거**(figure/catalog/trope)·QAPage→Article·이중브랜드 제목 ~40·genre 고유 설명·alt ~35컴포넌트.
+> - ⚠️ 운영: GSC 커넥터 `mt_gsc_daily` 07-10 정체(재가동 필요). 롤아웃 pace·잔여 백로그 = `HANDOFF-Tier2-메인통합.md §6` + `BACKLOG.md`.
+> **→ 이 문서 §3b-8·§5-5·§12의 "7/16 리뷰·Tier-2 noindex·Track B" 항목은 위로 대체됨(역사 기록으로만).**
+
 ---
 
 ## 0. 한눈에 — 지금 검색엔진이 보는 사이트
 
 - **sitemap**: `/sitemap.xml` = 인덱스, 자식 **20개**(`/sitemaps/*.xml` — 07-05에 lineage·honors 합류). 총 ~13,700+ URL. GSC가 **섹션별 색인률**을 따로 보고 → 코호트 증량·후퇴 판단의 계기판.
-- **영화 6,975편** = Tier-1(공개·정독) 1,935 + Tier-2(noindex, 데이터 페이지) 5,040. Tier-2도 TMDB 백필로 원제·감독·장르·개봉일 보유.
+- **영화 6,978편** = Tier-1(figures≥3, visible) 1,959 + Tier-2 4,997. **색인 메인 ~3,064**(Tier-1 + 승격 Tier-2 1,105 — 07-14 게이트 §3e). Tier-2도 TMDB 백필로 원제·감독·장르·개봉일 보유. ⚠️ "Tier-2 전원 noindex"는 07-14 번복(§3e).
 - **필름 하위 읽는층 URL 체계 (2026-07-06 확정)**: 촬영지=`/film/atlas/[slug]`(1,000/적격 1,714) · 수상·정전=`/film/lineage/[slug]`(500/적격 895, **Tier-2 367편 포함**). 구 경로(`/film/x/locations`·`/film/x/honors`)는 라우트 파일 permanentRedirect로 전 패턴 308. 필름 페이지에 별도 탭 없음 — Atlas 섹션 필 버튼 / Lineage 섹션 링크가 진입로.
 - **엔티티 표면**: 감독 870+생애 208 · 크루 1,065 · 이론가 358(QID 299) · 아키타입 노드 500/917 · 컨셉 516 · 장르 18 · 위치(Atlas) 1,000+국가 73+도시 511 · **계보 리스트 202**(QID 320+, Dataset 스키마).
 - **CineCodex**: 13차원 랜딩 13장(/takescore/{slug}) + film 페이지 링크 격자 + Movie.review 스키마.
@@ -27,7 +37,7 @@
 | URL 생성 | `lib/urls.ts` | 새 코드는 반드시 이 헬퍼로 링크 생성 |
 | **관련 박스 모듈** | `lib/related.ts` + `components/RelatedBoxes.tsx` | figure/trope/take/Q&A + Tier-2 film. 관계형 제목, 결정론 선택. **그래프는 takes.trope_id**(meta_take_id는 0행) |
 | **Tier-2 백필** | `worker/tier2-backfill/backfill.mjs` | TMDB fill-only·멱등·visible=true 불가침. `--dry-run --limit N` 후 본실행 |
-| Tier-2 템플릿 | `app/film/[slug]/page.tsx`의 Tier-2 분기 | noindex 유지 원칙. Tier-1 분기와 분리 |
+| Tier-2 템플릿 | `app/film/[slug]/page.tsx`의 Tier-2(minimal) 분기 | ⚠️ **더 이상 "noindex 유지"가 아님**(§3e): `filmMainIndexable`로 게이트 → 승격 1,105편은 index + 실속 다이제스트(HANDOFF-Tier2 §3) 렌더. Tier-1 분기와 분리 |
 | 컬렉션 "not yet read closely" | lineage/genre/director/movements `[slug]/page.tsx` | movements는 RPC `movement_hidden_films`(curation.film_hub) |
 | **CineCodex 공개층** | 레지스트리 `lib/cinecodex_dims.ts` · 앵커 `lib/cinecodex_anchors.ts` · 페이지 `app/takescore/[dim]/` · 패널 `components/CinecodexPanel.tsx` | RPC `cinecodex_dimension_top`(+v/c/r), `cinecodex_film_subscores`(백분위). **cinecodex_for는 bank를 "Bankruptcy"로 반환 — 패널에서 매핑** |
 | **아틀라스 층** | `lib/atlas.ts`(병합·게이트·도시 멤버십) + `lib/atlas_cities.json` + `worker/atlas-cities-build.py` | 정본: `HANDOFF-아틀라스-SEO-읽는층.md` — 게이트=mergeCells 불변식 |

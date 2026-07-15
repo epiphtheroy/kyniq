@@ -1,6 +1,8 @@
 # STATE — Metatake (living snapshot)
 
-**Last verified:** 2026-07-02 (DB counts + route tree + function inventory re-snapshotted live). This is the single "where are we" file; update it in place each session. Prior: 2026-06-24. Replaces `docs/STATE-2026-06-17.md` (history only).
+**Last verified:** 2026-07-15 (SEO consolidation ship — film/director gate counts re-measured live; §2 count row updated). Prior full snapshot 2026-07-02. This is the single "where are we" file; update it in place each session. Replaces `docs/STATE-2026-06-17.md` (history only).
+
+> **Big shift 2026-07-14~15 — SEO 통합 게이트 + Tier-2 메인 실속화** (정본: 루트 `HANDOFF-SEO-스타터가이드-작업지시서.md` §2 + `HANDOFF-Tier2-메인통합.md`; 게이트 코드 SSOT = `lib/seo.ts filmIndexBar` · `lib/filmGate.ts` · `lib/directorGate.ts`; 마이그 0097 `film_index_signals_json`): 구글 SEO 스타터가이드 전면 감사 결과 P1~P4 전량 SHIPPED. **(1) 통합 색인 게이트** — 얇은 서브페이지 3종(takescore/reception/lineage)이 thin 게이트를 우회해 ~6,800p 노출하던 scaled-content 누수를 닫고, **Tier-2 카탈로그 영화 1,105편을 실속 신호 기준으로 색인 승격**(게이트 = reception≥3 OR lineage≥3 OR wd_honors≥3 AND provider≥1 AND NOT tmdb-스텁; **`hold`은 게이트 입력 아님** — 팩토리 스텁 플래그). **색인 영화 메인 1,959→~3,064.** 서브페이지 불변식(= `filmMainIndexable && ownBar`)·사이트맵 미러(코호트 `INDEX_COHORT_FILMS_T2=300`). **⚠️ `visible`은 이제 색인 경계가 아님**(figures≥3 자동 트리거일 뿐; 승격 Tier-2는 visible=false·색인 가능). "honors are facts"(계보 서브 무게이트) 결정은 **번복**됨. **(2) TakeScore 정리** — 음수 점수 `displayTs()` 0클램프(표시·스키마만; 랭킹/API는 raw)·"flagged/n=1/unverified" 문구 전삭·Review author Person→**Organization "Metatake"**. **(3) 구조화 데이터** — figure/catalog/trope **FAQPage 제거**·/q QAPage→Article·이중브랜드 제목 ~40개·genre 고유 설명·alt 스윕 ~35컴포넌트. **(4) Tier-2 메인 실속화(commit 5e8f507)** — 승격 영화 메인이 수상/개봉연혁/학술(academic) 다이제스트+StillHero 렌더, 감독 허브가 카탈로그 TakeScore+press/수상/가용성/촬영지 다이제스트 렌더. **감독 허브 robots 게이트 신설**(`directorIndexBar`, 858→**678 색인/180 noindex**). 캐시키 bump: film-load8·director-load6·director-press-digest-1·read-plates-3. 잔여 백로그·롤아웃 pace는 `HANDOFF-Tier2-메인통합.md §6` + `BACKLOG.md`. ⚠️GSC 커넥터(`mt_gsc_daily`)는 07-10에서 정체 — 재가동 필요.
 
 > **Big shift 2026-07-13 (오후) — AI 배포/개방 접근 표면** (정본: 루트 `HANDOFF-AI배포표면.md`): 오너의 "6항 발상 전환"(안 지은 유료 자산을 배포 채널로) 전부 구현·라이브. **무인증 REST API `/api/v1`**(films·films/{slug}·takescore·locations·openapi.json — GPT Action·임베드·확장의 공통 backbone, `lib/apiGuard`+`lib/apiv1`, LLM 0) + `/api` 개발자 랜딩; **오픈 촬영지 데이터셋**(마이그 0096 `api_locations_json`/`_export` → 17,341위치·1,917편·130국·좌표100%, `worker/export-locations-dataset.py`+HF카드+Zenodo메타 — ⚠️팩의 "좌표0" 불변식 의도적 반전, 좌표는 API/데이터셋 전용채널로만, 라이선스 CC BY vs NC 오너 미결); **네이버/다음 검색축**(GOOD_BOT Yeti/Daum·robots `/api/`·NAVER_SITE_VERIFICATION 훅); **임베드 TakeScore 위젯**(`/api/v1/embed.js` do-follow 스크립트+`/embed/takescore/{slug}` iframe+`/embed` 빌더); **Chrome MV3 확장**(`extension/` — Letterboxd/IMDb/TMDB/RT/Wiki 배지, JSON-LD CDATA 스트립, 라이브검증); MCP 발견(공식 레지스트리→PulseMCP/GitHub 자동). 오너 액션(계정)만 남음=데이터셋 업로드·네이버등록·GPT게시·크롬스토어·런칭포스트(전부 패키지 완비). 마이그 0096 — 다음 free 0097.
 
@@ -12,7 +14,7 @@
 
 > **Big shift 2026-07-07 — figure 질문 title 레이어** (색인: `HANDOFF-SEO-마스터.md` §1 표·§3b-9; 파이프라인 정본: `Outputs/figure_seo/RUNBOOK.md`): figure 18,168页의 `<title>`이 전량 질문형으로 — **렌더 타임 규칙만으로, LLM·DB 무사용/$0** (`lib/figureSeo.ts`: 깨끗한 라벨 57% 완전 질문형 + 지저분한 43% 대시-suffix "what does it mean?"). 부수 수정: 끝마침표 title 깨짐 1,333页·영화명 중복 2,353页. **불변식(원우 확정): H1·상호참조·JSON-LD headline은 label(엔티티) 불변 — 질문은 title·리드 H2·film 페이지 앵커에만.** LLM 폴리싱 2단계는 순수 선택으로 격하(SEO 마스터 §5-7; 0035 마이그레이션 파일 커밋·미적용). 같은 주간 별도 트랙: 백링크 아웃리치 실행(`OUTREACH-실행현황-2026-07-04.md` — Gmail 초안 18건·LibGuides 22곳 검증·매체 티어 리스트).
 
-> **Big shift 2026-07-06 — Tier-2 개방** (정본: `docs/PLAN-tier2-almanac.md`, SEO 색인: `HANDOFF-SEO-마스터.md` §3b-8): Tier-2 5,041편이 이용자 표면 전체에 열림 — 페이지는 **Editor's digest**가 리드(DB 결정론 조합: 정전·평점·인바운드 추천 인용·지리·시청권역·Prestige/Discovery 칩; 바이라인 Wonwoo Yoon + 실데이터 갱신일 + WebPage LD; About 격하; film-load5) + Atlas 미니맵. 사이트 검색은 Tier-2 포함(is_catalog, "catalog" 칩) — 같은 날 통합 엔진 `search_all`로 대체(정본 `HANDOFF-검색엔진-통합.md`; `search_site` v2는 그 징검다리), `/film?view=all` Full catalogue, credits 인물 페이지 Tier-2 링크, Atlas 핀 17,307→**25,029**(표시만, 자격 게이트 불변), director_slug 22→1,022, **stub slug 274편 전량 개명**(slug_aliases +548, /film resolveAlias 배선), /whereto robots 게이트 명시. **색인 정책 변화 없음**(Tier-2 전원 noindex; 선별 개방은 7/16 리뷰 = Track B, 엔진 웨이브 = Track C 대기).
+> **Big shift 2026-07-06 — Tier-2 개방** (정본: `docs/PLAN-tier2-almanac.md`, SEO 색인: `HANDOFF-SEO-마스터.md` §3b-8): Tier-2 5,041편이 이용자 표면 전체에 열림 — 페이지는 **Editor's digest**가 리드(DB 결정론 조합: 정전·평점·인바운드 추천 인용·지리·시청권역·Prestige/Discovery 칩; 바이라인 Wonwoo Yoon + 실데이터 갱신일 + WebPage LD; About 격하; film-load5) + Atlas 미니맵. 사이트 검색은 Tier-2 포함(is_catalog, "catalog" 칩) — 같은 날 통합 엔진 `search_all`로 대체(정본 `HANDOFF-검색엔진-통합.md`; `search_site` v2는 그 징검다리), `/film?view=all` Full catalogue, credits 인물 페이지 Tier-2 링크, Atlas 핀 17,307→**25,029**(표시만, 자격 게이트 불변), director_slug 22→1,022, **stub slug 274편 전량 개명**(slug_aliases +548, /film resolveAlias 배선), /whereto robots 게이트 명시. **색인 정책 변화 없음**(Tier-2 전원 noindex; 선별 개방은 7/16 리뷰 = Track B, 엔진 웨이브 = Track C 대기). — **⚠️ 이 "전원 noindex"는 2026-07-14 통합 게이트로 번복됨**(Track B 실행: 1,105편 승격, 위 07-14~15 배너 참조).
 
 > **Big shift 2026-07-04 — the SEO layer** (full record: `docs/HANDOFF-SEO-마스터.md`): GSC went live and the entire search-facing architecture was built in one day — sitemap split into an index + **18 per-section children** (~13k URLs, section-level dashboards/rollback), www→apex 308, `slug_aliases` permanence ledger, IndexNow, sameAs profiles; **Tier-2** (5,040 hidden films) got TMDB backfill + noindex funnel template + "not yet read closely" collection sections; **related-boxes module system** on figure/trope/take/Q&A; portal hubs standardized (CollectionPage/ItemList schema); head-term landings (Film Tropes / Film Archetypes); theorists.xml (358, Wikidata QID 299) + catalog.xml Phase A (504); **CineCodex surfaced**: 13 dimension landing pages (/takescore/{dim}, essays + 8-anchor ruler + Top-25) + film-page dimension link lattice + Movie.review schema. First GSC signal: impressions 14→46, first 2 clicks, "movie tropes" cluster at positions 44–63.
 
@@ -48,11 +50,11 @@ Figures are also classified into the **Catalog / Archetype** taxonomy (`taxonomy
 
 ---
 
-## 2. Live counts (2026-07-02, live DB `jvgarcqrtsmgfimdcwgo`)
+## 2. Live counts (films/directors re-measured 2026-07-15; rest 2026-07-02, live DB `jvgarcqrtsmgfimdcwgo`)
 
 | Entity | Count | Note |
 |---|---|---|
-| **films** | **6,701** total · **1,935 visible** | visible=Tier-1 editorial pages. The other ~4,766 rows exist for **Cinecodex/TakeScore scoring + Tier-2 imports**, not full pages. (Was 1,957 total on 06-24 — table expanded to the full scored universe.) |
+| **films** | **6,978** total · **1,959 visible** · **~3,064 indexable mains** | ⚠️ **`visible` ≠ indexable now.** `visible` = auto-computed thinness flag (figures≥3 DB trigger), 1,959 Tier-1. **Indexability = `lib/seo.ts filmIndexBar`** (07-14 consolidation): 1,959 Tier-1 + **1,105 promoted Tier-2** (visible=false but strong-signal) = ~3,064 indexable mains. The other ~3,892 Tier-2 stay noindex. → 정본: HANDOFF-SEO-스타터가이드 §2. |
 | figures | **18,168** | all approved |
 | takes | 73,478 total · **26,975 published** | rest retired/candidate |
 | meta_takes (hubs) | 11,974 rows | published hubs are **tropes** (`kind=figure_type`, ~4.7k); `kind=reading` = legacy unpublished, not surfaced |
@@ -60,8 +62,8 @@ Figures are also classified into the **Catalog / Archetype** taxonomy (`taxonomy
 | figure_taxonomy | 42,958 | figure ↔ Catalog archetype (`taxonomy_nodes` 2,928) |
 | figure_tags / trope_tags | 39,749 / 35,508 | trope-tag output |
 | film_affinities | 38,800 | "films like" |
-| **directors** | **862** | (was 754) · director_embedding 873, portrait/facts 208, picks 1,019, next 1,011 |
-| **Cinecodex (`cinecodex.scores`)** | **6,701** | + `cinecodex_confidence` 6,701 · `scoring_runs` 6,535. TakeScore live for all. |
+| **directors** | **862** hubs (858 with ≥1 visible film) | ⚠️ **hub robots gate live 2026-07-15** (`lib/directorGate.ts directorIndexBar`): 858 → **678 indexed / 180 noindex** (bare single-film, no editorial layer, records<6). → HANDOFF-Tier2-메인통합 §4 D6. director_embedding 873, portrait/facts 208, picks 1,019, next 1,011 |
+| **Cinecodex (`cinecodex.scores`)** | **6,704** | TakeScore live. ⚠️ 음수 U는 표시·스키마에서 `displayTs()` 0클램프(랭킹/API는 raw) — 07-14 SEO 정리. |
 | **film_scores (정전가)** | **5,977** | prestige/discovery — portfolio "market price" |
 | **film_taste_vector** | **1,941** | per-film taste embedding (personalization) |
 | **user_movies** | **26** | watched/watchlist + rating (personalization live; small user base) |
@@ -121,7 +123,7 @@ Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app
 
 ## 4. Data model (core)
 
-- **films** (`id uuid` PK, `slug`/`tmdb_id` unique, year, director(+slug), genres[], poster/backdrop, tmdb_extra, **visible**, **is_analyzed**). Now spans the full **6,701-film Cinecodex universe**; only **1,935 visible** (Tier-1 editorial). Parent of figures + all per-film extras.
+- **films** (`id uuid` PK, `slug`/`tmdb_id` unique, year, director(+slug), genres[], poster/backdrop, tmdb_extra, **visible**, **is_analyzed**, **hold**). Now spans the full **6,978-film Cinecodex universe**; **1,959 visible** (figures≥3 trigger), **~3,064 indexable mains** (visible ≠ indexable — see §2 + `lib/seo.ts filmIndexBar`). Parent of figures + all per-film extras.
 - **figures** (`id`, film_id, kind∈character/object/location/trope/form, label, slug, description, embedding) → parent of takes; linked to trope hubs (`figure_type_members`) + catalog (`figure_taxonomy`).
 - **takes** (`id`, figure_id, meta_take_id, **framework**, register, rationale, theorist, embedding, status) — HNSW index.
 - **meta_takes** (`id`, slug, title/laconic/thesis/essay, embedding, **kind** [figure_type=trope | reading=legacy], status, merged_into) + `figure_type_members`, `meta_take_rankings`, `meta_take_edges`, `slug_history`.
@@ -143,7 +145,7 @@ Shared shell (`RoomShell`: appbar·ticker·rail·inspector·activity) under `app
 **Shipped & live (as of 2026-07-02):**
 - Critical layer: Strong-Misreadings (14 frameworks) · Tropes (re-formed) · Catalog/Archetype · Theory/Theorist/Tradition/Concept(`/idea`).
 - Film page full tab set; Reception (8,884); Watch-next (17,095)+Recommended-by; Films-like; **Where-to-watch dedicated page**; Gallery.
-- **TakeScore/Cinecodex** — all 6,701 films scored; `/takescore`; sitewide TS badges; confidence (Pass 2).
+- **TakeScore/Cinecodex** — all 6,704 films scored; `/takescore`; sitewide TS badges; confidence (Pass 2). (음수 U는 표시·스키마 0클램프, 랭킹/API raw — 07-14.)
 - **정전가 + taste-vector personalization** — `/me` portfolio, taste neighbors, NAV, WWI λ recommender.
 - **`/room` OS** — 12 routes (command center/collection/watchlist/desk/analysis/atlas/auteurs/rate/library/write/pair/eval-card).
 - **Geographic Atlas** — `/atlas`, film/director Atlas tabs, filmed+setting layers (9,731 pins).

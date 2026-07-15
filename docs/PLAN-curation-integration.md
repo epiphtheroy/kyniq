@@ -41,6 +41,11 @@ So the rule is: **lineage = data, curation = policy.** Never duplicate; curation
 - **Drift check** (`curation_drift()`): `visible_but_not_indexable = 0` (no leakage);
   `indexable_but_hidden = 22` (analyzed-but-held thin films — intentional). The two systems are
   ~99.7% consistent.
+  > **[UPDATE 2026-07-14] SUPERSEDED as the indexability SSOT.** 실제 색인 가능성의 단일 근원은 이제
+  > `lib/seo.ts filmIndexBar`(마이그 0097 `film_index_signals_json`)다. Tier-2 카탈로그 **1,105편**이
+  > `visible=false`인 채 **색인 가능**해졌으므로 (새 `not_visible_but_indexable` 클래스) — `curation_drift()`가
+  > 모델링하지 않는 상태다. `curation.should_index`/`curation_drift`는 `filmIndexBar`와 **재조정(reconcile)** 필요
+  > (또는 "derives from should_index" 주장 회수). → 정본: `HANDOFF-SEO-스타터가이드-작업지시서.md §2`.
 
 ## 4. Concerns (must respect)
 
@@ -48,6 +53,7 @@ So the rule is: **lineage = data, curation = policy.** Never duplicate; curation
    `curation.should_index` with no link. → bridged now (§6); keep curation as the policy source.
 2. **Thin-content SEO.** The 1,626 parked (D) must stay noindex. When the app starts surfacing
    catalog breadth, indexability MUST derive from `should_index`, not from mere existence.
+   *(→ [2026-07-14] 재조정 필요: 실제 SSOT는 `lib/seo.ts filmIndexBar` — §3 Drift check 노트 참조.)*
 3. **Origin-country accuracy** (HANDOVER §5.6): "on a list ≠ made there" (e.g. Gran Torino→Japan).
    Only auteur+national signals are trusted. `public.films` has no country column yet; country
    hubs must not go live until the **Phase 0 TMDB finalizer** runs (operator step, §7).
@@ -78,6 +84,7 @@ opening the 'image-as-longing' misreading → 3 Hong Kong New Wave deep cuts (au
 - [x] `curation_drift()` RPC — monitors visible↔should_index drift + country readiness.
 - [x] **Phase 0 finalizer** — DONE (2026-07-01): 6,627 origins resolved via TMDB, `rebuild_country_hubs()` ran → country hubs 22 → **40 live**. Movements national hubs now accurate + indexed (thin <8-film hubs kept noindex).
 - [ ] Decide + wire: new-film indexability derives from `should_index` (keep the 22 held as-is).
+  *(→ [2026-07-14] 실측 방향 변경: 색인 SSOT는 `lib/seo.ts filmIndexBar`로 이미 출시됨 — should_index는 이와 재조정할 것. §3 노트 참조.)*
 
 **Phase 2 — Surface (World Cinema Atlas + editorial shelves).**
 - Country / region hubs from `lineage national` + `curation.hub` — the second navigation axis

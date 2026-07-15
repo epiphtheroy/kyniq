@@ -46,7 +46,7 @@
 
 ## 5. 유형별 진단 (데이터 → 답 가능 질문 → 갭)
 
-공통 사실: 아래 5종은 전부 `unstable_cache` 경유라 Quick-answers 블록은 **추가 쿼리 0**으로 렌더 가능. JSON-LD는 기존 스크립트 옆에 FAQPage를 얹을 수 있으나 리치스니펫 기대는 낮음(§7).
+공통 사실: 아래 5종은 전부 `unstable_cache` 경유라 Quick-answers 블록은 **추가 쿼리 0**으로 렌더 가능. ~~JSON-LD는 기존 스크립트 옆에 FAQPage를 얹을 수 있으나~~ (⚠️ **[2026-07-15] FAQPage JSON-LD는 figure/catalog/trope에서 제거됨 — 신규 추가 금지**; 가치 본체는 본문 질문 H3+답, → `HANDOFF-Tier2-메인통합.md §3`) 리치스니펫 기대는 낮음(§7).
 
 ### 5.1 film/atlas (촬영지) — Wave 1
 - 데이터: RPC `film_geo` → 핀별 `name·country·precision·layer(filmed|setting)·built_set·set_host·narrative_setting·scene_role·sources`
@@ -86,7 +86,7 @@
 
 ### 5.5c film/[slug]/[desk] · figure · tv — Wave 4
 - desk: 구조화 답은 dek·spoiler_level·minutes·otherDesks뿐(본문은 프로즈) — Quick facts 스트립 수준
-- figure: **이미 FAQ JSON-LD + leadQuestion 가동**(질문층 선행 사례). 보강: tropes·neighbors·connections 필드로 Q 추가
+- figure: **leadQuestion 가동**(질문층 선행 사례). ⚠️ **[2026-07-15] figure FAQPage JSON-LD는 제거됨** — 가시 H2 질문만 유지. 보강: tropes·neighbors·connections 필드로 (가시) Q 추가
 - tv/[slug]·tv/list: segments(챕터)·duration·built_at / n_films·dek — VideoObject 옆 보조 Q
 
 ### 5.5 film/[slug]/credits — Wave 3
@@ -96,7 +96,7 @@
 - 게이트: tmdb_id 필수, 핵심 크래프트 ≥2만 색인. 마운트: `<Byline>` 직후(150-153행)
 
 ### 5.6 엔티티 허브 (director+서브 9종 · trope · concept · theorist · take · credits/person) — Wave 4
-- **공통 발견: "spelled out" 결정론 섹션이 trope·concept·theorist·credits·catalog에 이미 존재** — Quick answers는 그 스코프 변수를 재사용(추가 페치 0). FAQPage JSON-LD는 현재 /trope에만 있음 → **concept·theorist·credits가 최대 공백 표면**.
+- **공통 발견: "spelled out" 결정론 섹션이 trope·concept·theorist·credits·catalog에 이미 존재** — Quick answers는 그 스코프 변수를 재사용(추가 페치 0). ~~FAQPage JSON-LD는 현재 /trope에만 있음~~ (⚠️ **[2026-07-15] /trope FAQPage 제거 — 전 유형 FAQPage JSON-LD 미사용**) → 가시 Q&A 관점에서 **concept·theorist·credits가 최대 공백 표면**(스키마 무관, → `HANDOFF-Tier2-메인통합.md §3`).
 - director 허브: 필모(ItemList 기존)·born·where-to-start picks·next 추천·sigTropes — 스탯 스트립 직후 마운트(~456-463행). 서브페이지 게이트: start=picks≥3·next≥3·life=facts≥4 색인.
 - trope: thesis/laconic·maturity(cliché 여부!)·filmCount·최초/최다 영화(full 게이트 시) — "is {trope} a cliché" ←maturity는 독특한 답변 가능 질문.
 - concept: 3분기(sm/theory/takes) 각각 마운트 지점 상이(§에이전트 진단), "what is {concept}"←intro/one_liner.
@@ -110,7 +110,7 @@
 - movements: demand 정렬로 "most famous {movement} films" 가능, 시대·역사 서술 불가. noindex<8. 마운트는 서버측(클라이언트 컴포넌트 밖).
 - tradition: **정의 필드 없음** — "what is {school}" 답 불가(갭), 개념·이론가 목록형 Q만.
 - frame: rank+rationale 있어 "best film for {frame}" 가능(진짜 랭킹). 스포일러 게이트: aha는 spoiler none만.
-- catalog: confidence=분류 확실성이지 품질 아님 — "best" 금지, "which films feature/earliest/decade" 가능. FAQPage 이미 있음.
+- catalog: confidence=분류 확실성이지 품질 아님 — "best" 금지, "which films feature/earliest/decade" 가능. ~~FAQPage 이미 있음~~(⚠️ **[2026-07-15] catalog FAQPage 제거** — 가시 Q&A만).
 - atlas 국가/도시: "movies filmed in {country/city}"·landmarks·returning directors — 품질 신호 없어 "best" 금지.
 
 ### 5.8 전 유형 공통 규칙 (진단에서 도출)
@@ -120,7 +120,7 @@
 
 ## 6. 구현 웨이브 (순차, 각 웨이브 = 에이전트 작업지시 1건)
 
-- **Wave 0 — 공통 기반**: `<QuickAnswers>` 컴포넌트 + 유형별 변형어 사전 + `intent_queue` 테이블·탐지기 v1(§1) + FAQPage JSON-LD 헬퍼(선택).
+- **Wave 0 — 공통 기반**: `<QuickAnswers>` 컴포넌트 + 유형별 변형어 사전 + `intent_queue` 테이블·탐지기 v1(§1) + ~~FAQPage JSON-LD 헬퍼(선택)~~(⚠️ **[2026-07-15] FAQPage 미사용 — 얹지 말 것**, → `HANDOFF-Tier2-메인통합.md §3`).
 - **Wave 1 — film-atlas (403p)**: QuickAnswers 블록 + leadText 도시 우선 수정(국가→도시 — meta description 동시 개선). 수요 검증 완료 상태에서 출발. 마운트·필드 §5.1.
 - **Wave 2 — movies-like + film-lineage + lineage 정전**: "movies like X"(위치 8.8) / "did X win {award}" / "which film won {award} in {year}" — 수상 데이터 3면 동시 커버. ⚠️§5.7 함정 2종 준수.
 - **Wave 3 — reception(2,972) + credits(1,000) + whereto 보강**(runtime·ratings 미사용 필드 활용).
@@ -143,7 +143,7 @@
   - W5b atlas 국가/도시·tradition — atlas "best" 금지, tradition "What is" 금지(정의필드 없음). + **탐지기 v2(worker/0080)**: intent_queue 봇노이즈 필터(-site:·news for·wykop.pl), rejected 2·new 4(idiocracy skyline 등 실쿼리 유지).
   - 공용 `<QuickAnswers>` 1개로 전 유형. 전 페이지 추가 페치 0.
 - **⚠️ 배포 CHURN 함정 실측**: 워처가 파일 하나씩 커밋→2분새 배포 6회↑→각 빌드가 sitemap XML(misreadings 1932 등)을 도쿄DB에서 동시생성→DB과부하→일부 빌드 ERROR(`Export encountered an error on /sitemaps/misreadings.xml`). W4b는 최종 배포가 ERROR라 변경이 안 떴음. **해법: 배포상태 확인(Vercel list_deployments)→최신이 ERROR면 빈 커밋 재푸시로 단일 클린 빌드.** 웨이브 후 항상 확인. (dynamic 라우트=generateStaticParams()[]는 로컬빌드가 실제 렌더 안 함→라이브 curl로만 런타임 null 검증됨.)
-- **잔여(후속)**: Wave 1 atlas CTR 판독(배포+1~2주 GSC); figure 페이지 QA 보강(이미 FAQ 있음); take(리다이렉트) 제외 유지; concept "takes"분기·director 기록서브페이지(honors/reception/theory/takescore)는 미착수(패턴은 확립됨); 1층 탐지기 커버판정 자동화(v3).
+- **잔여(후속)**: Wave 1 atlas CTR 판독(배포+1~2주 GSC); figure 페이지 QA 보강(⚠️ [2026-07-15] figure FAQPage 제거 — 가시 H2만); take(리다이렉트) 제외 유지; concept "takes"분기·director 기록서브페이지(honors/reception/theory/takescore)는 미착수(패턴은 확립됨); 1층 탐지기 커버판정 자동화(v3).
 
 ## 7. 리스크 노트
 

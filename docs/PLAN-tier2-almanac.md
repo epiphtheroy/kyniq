@@ -3,7 +3,9 @@
 > 2026-07-05 작성. Supabase(kyniq) 실측 + 코드/문서 감사 기반.
 > 선행 문서: `HANDOFF-SEO-마스터.md` §7(3층 구조), `PLAN-seo-surface-expansion.md`,
 > `RUNBOOK-new-film-ingestion.md`, `REMEMBER-thin-content-gate.md`(※ 정책 변화로 일부 stale).
-> 제약: **코호트 동결 7/16 리뷰까지** — Track B(색인 개방)는 리뷰 이후 실행.
+> 제약: 에세이 코퍼스 코호트는 별개 트랙(그대로 유지).
+> **[UPDATE 2026-07-14] Track B(선별 색인 개방)는 SHIPPED** — `filmIndexBar`로 Tier-2 카탈로그 1,105편 색인 개방.
+> → 실측·정본: `HANDOFF-SEO-스타터가이드-작업지시서.md §2` / `lib/seo.ts filmIndexBar` (마이그 0097 `film_index_signals_json`).
 
 ---
 
@@ -47,7 +49,7 @@ Tier-2 5,041편이 실제 보유한 데이터:
    무관 — SEO 리스크 0으로 즉시 풀 수 있음.)
 2. **보유 데이터가 페이지에 안 실린다** — film_scores 4,751편 미사용, 위치 데이터 1,194편
    미사용(Atlas 모듈이 full 분기에만 있음), 계보 리본에 rank/edition 미표기.
-3. **색인 개방(Layer 3)이 미착수** — 전부 noindex라 827편의 차별화 콘텐츠도 검색 유입 0.
+3. **색인 개방(Layer 3)** — ✅ **SHIPPED 2026-07-14**: `filmIndexBar`로 Tier-2 카탈로그 **1,105편**(is_analyzed=false)이 noindex→색인 개방(색인 필름 메인 1,959→~3,064). → 실측·정본: `HANDOFF-SEO-스타터가이드-작업지시서.md §2` / `lib/seo.ts filmIndexBar`.
 4. 위생: stub slug 274, director_slug 백필.
 
 ## 3. 전략 — 3트랙
@@ -81,7 +83,13 @@ Tier-2 5,041편이 실제 보유한 데이터:
   정책으로 정리 필요). 사이트맵 광고는 visible+데이터만. 제안: Tier-2 whereto는 "시청 데이터
   + 고유 모듈 ≥1" 조건부로 Track B 때 whereto.xml 편입, 그 전엔 크롤러블-비광고 유지.
 
-### Track B — 선별적 색인 개방 (Layer 3, **7/16 리뷰 이후**)
+### Track B — 선별적 색인 개방 (Layer 3) — ✅ SHIPPED 2026-07-14
+> **[UPDATE 2026-07-14] 실제 출시가 아래 제안을 대체(SUPERSEDED).** 게이트는 `almanac_bar(모듈 ≥2)`가 아니라
+> `lib/seo.ts filmIndexBar` = (film_reception≥3 OR film_lineage≥3 OR film_wd_honors≥3) AND film_provider_index≥1
+> AND slug NOT LIKE 'tmdb-%'; 코호트는 별도 `films2.xml`이 **아니라** 메인 films 사이트맵에 편입
+> (INDEX_COHORT_FILMS_T2=300); 개방 편수 **1,105편**(색인 필름 메인 1,959→~3,064). `hold`는 게이트 입력 아님·
+> `visible≠indexable`(승격된 Tier-2는 visible=false지만 indexable). → 실측·정본: `HANDOFF-SEO-스타터가이드-작업지시서.md §2`
+> / `lib/seo.ts filmIndexBar` + 마이그 0097 `film_index_signals_json`. 아래는 원 제안(이력 보존).
 - **원칙**: 신디케이트 데이터(TMDB overview·평점·시청처)만 있는 페이지는 영구 noindex.
   **고유 부가가치**(정전 계보 큐레이션 + 편집 추천 이유 + 자체 지리 데이터)가 있는 페이지만 개방.
 - **1차 코호트**: 모듈 ≥2 & IMDb ≥10k votes = 563편 중 **~500편** (수요 + 차별화 교집합).
@@ -118,7 +126,7 @@ Tier-2 5,041편이 실제 보유한 데이터:
 
 ## 6. 원우 결정 필요
 - [x] Track A 검색 노출 라벨 → "catalog" 칩(.t2-chip)으로 실행됨 (2026-07-06)
-- [ ] Track B 1차 코호트 크기(제안 500) 및 films2.xml 분리 여부 — 7/16 리뷰
+- [x] Track B 선별 색인 개방 → **SHIPPED 2026-07-14**: `filmIndexBar` 게이트로 1,105편 개방, 코호트는 메인 films.xml 편입(films2.xml 미채택). → `HANDOFF-SEO-스타터가이드-작업지시서.md §2`
 - [ ] Track C 웨이브 1 예산 상한(파일럿 실측 후 승인)
 
 ## 7. 실행 기록 — Track A + A+ 전체 출시 (2026-07-06)
@@ -145,5 +153,5 @@ Tier-2 5,041편이 실제 보유한 데이터:
   검증: 전체 핀 25,029 · 한국 119편(Tier-2 +52).
 - M4 stub slug **274편 전량 개명** + slug_aliases 548건(/film·/whereto, 308 동작 확인).
 
-**남은 것:** Track B(7/16 이후 선별 색인), Track C(엔진 웨이브 — 1순위 인바운드 타깃 995편 파일럿 30),
+**남은 것:** ~~Track B(선별 색인)~~ → ✅ **SHIPPED 2026-07-14**(filmIndexBar, 1,105편 — → `HANDOFF-SEO-스타터가이드-작업지시서.md §2`), Track C(엔진 웨이브 — 1순위 인바운드 타깃 995편 파일럿 30),
 atlas_country_json의 visible 키를 쓰는 국가 페이지 UI 뱃지(선택), lineage_editions 노출(계보 세션 카드).

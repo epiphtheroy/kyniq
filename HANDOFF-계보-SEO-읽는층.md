@@ -17,7 +17,7 @@ lineage 데이터(리스트 398개 · **전량 출처 보유 멤버십 10,551건
 | 사이트맵 | 자식 `lineage.xml`(~202) + `honors.xml`(코호트 500/895) — 인덱스 **20분할** | |
 | 내비 | 필름 페이지 **Lineage 탭/섹션이 honors 콘텐츠 담당**(2026-07-06 사용자 결정 — 별도 Honors 탭 삭제): 섹션 자체가 국가별 정전 분리 + 행별 출처 태그로 교체, 하단 "complete record →" → /film/lineage/[slug] (Tier-2 템플릿 포함) | |
 
-**핵심 판단**: honors 페이지는 `films.visible`에 게이트하지 않는다 — 수상·정전 멤버십은 편집물이 아니라 **사실**이라 ≥3-figures 승급제와 무관하게 자립한다. Tier-2 카탈로그 영화도 기록이 3건 이상이면 색인 가능한 페이지를 가진다.
+**핵심 판단**: honors 페이지는 `films.visible`에 게이트하지 않는다 — 수상·정전 멤버십은 편집물이 아니라 **사실**이라 ≥3-figures 승급제와 무관하게 자립한다. Tier-2 카탈로그 영화도 기록이 3건 이상이면 색인 가능한 페이지를 가진다. ⚠️ **[2026-07-14 REVERSED — §2 불변식3 참조]**: 이 판단은 폐기됐다. `/film/lineage`는 이제 `filmMainIndexable && lineage≥3`로 게이트한다(→ `HANDOFF-SEO-스타터가이드-작업지시서.md §2.5`).
 
 ## 1. 파일 맵
 
@@ -39,7 +39,7 @@ lineage 데이터(리스트 398개 · **전량 출처 보유 멤버십 10,551건
 
 1. **게이트 = film_lineage 실측 행 수** (`cachedLineageEligibility`) — `lineage_lists.film_count` 금지(공식 크기≠커버리지: tspdt film_count=100, 실멤버 994).
 2. `FILM_HONORS_MIN`(lib/lineage.ts) = `HONORS_MIN`(FilmLineageSection) = 필름 페이지 탭 조건(≥3) — 세 곳 동기. 사이트맵 honors도 같은 규칙이라 광고 URL은 404 불가.
-3. **honors는 visible 게이트 없음** (의도 — §0). 리스트 페이지의 hidden 멤버는 카드로 노출하되 그 필름 페이지는 noindex 유지(기존 Tier-2 규칙).
+3. **~~honors는 visible 게이트 없음~~** ⚠️ **REVERSED 2026-07-14** — `/film/lineage`(구 honors)는 이제 `filmMainIndexable && lineage≥3`로 게이트한다(필름 메인이 noindex면 이 서브도 noindex). "수상=사실이니 무조건 색인"은 폐기: 메인이 색인 안 되는데 서브만 색인되던 **누수 서브페이지 3종 중 하나**였고 이번에 닫혔다. Tier-2 필름도 `lib/seo.ts filmIndexBar`로 메인이 색인되면 서브가 따라 색인됨. → 정본: `HANDOFF-SEO-스타터가이드-작업지시서.md §2.5/§7` / `lib/seo.ts`. (리스트 페이지 `/lineage/[slug]`의 hidden 멤버 카드 노출은 불변.)
 4. 출처는 **있는 것만**: 소스 코드가 맵에 없으면 코드 그대로 표시(창작 금지), URL은 확실한 것만. 날짜는 렌더 날짜 금지 — `cachedLineageMeta().updated`.
 5. 제목에 "· Metatake" 하드코딩 금지(이번에 고친 버그가 바로 그것).
 6. 캐시 키: lineage3 / film-honors / lineage-eligibility / lineage-meta — payload 형태 변경 시 범프.

@@ -10,7 +10,7 @@
 **모든 섹션을 동시에 개방하되, 게이트는 페이지 단위, 계기판은 섹션 단위, 철회는 스위치 한 개.**
 
 - 새 표면(whereto/theorist/genre/허브)은 **DB 퍼블리싱**(엔티티·유틸리티·분류) 계열이다. LLM 에세이 코퍼스(readings/tropes)와 위험 등급이 다르다 — 구글이 경계하는 것은 "대량 생성 산문"이지 IMDb형 데이터 페이지가 아니다. 따라서 섹션 동시 개방은 정당하다.
-- 단 **에세이 코퍼스의 기존 코호트 캡(7/16 리뷰)은 그대로 유지**한다. 이번 개방과 별개 트랙.
+- 단 **에세이 코퍼스의 기존 코호트 캡은 그대로 유지**한다. 이번 개방과 별개 트랙. *([UPDATE 2026-07-14] "7/16 리뷰" 앵커는 지난 프레이밍 — Tier-2 필름 색인은 별도로 2026-07-14 개방됨, → `HANDOFF-SEO-스타터가이드-작업지시서.md §2`.)*
 - 각 섹션 = sitemap 인덱스의 자식 1개 = GSC 계기판 1개. 특정 섹션에서 "크롤링됨-미색인"이 쌓이면 **그 자식만 인덱스에서 제거**(1줄 수정)하면 된다. 페이지는 계속 살아있고 noindex도 안 붙이므로 불이익 없이 후퇴 가능.
 - "누구나 만들 수 없는 데이터"의 증명은 선언이 아니라 **페이지당 데이터 밀도 게이트**가 한다: 게이트를 통과 못 하는 페이지는 광고하지 않는다.
 
@@ -19,7 +19,7 @@
 ### 원칙 1 — 날짜의 사중 기록 (현재 결손: JSON-LD에 날짜 없음)
 같은 날짜가 네 곳에서 일치해야 구글이 신뢰한다:
 DB(created_at/updated_at) → **JSON-LD datePublished/dateModified** → sitemap lastmod → 페이지 가시 표기("Updated Jul 2026").
-- [ ] Article(trope/take)·QAPage(q)·figure FAQPage에 datePublished/dateModified 추가. 데이터는 이미 있음(updated_at) — 템플릿 몇 줄.
+- [ ] Article(trope/take)에 datePublished/dateModified 추가. 데이터는 이미 있음(updated_at) — 템플릿 몇 줄. **[UPDATE 2026-07-15] QAPage(q)→Article로 전환·figure FAQPage 제거**(Tier-2 메인 통합, commit 5e8f507) — 이 두 항목은 무의미해짐. → 정본: `HANDOFF-Tier2-메인통합.md §3`.
 - [ ] 페이지 하단 가시 날짜는 선택이지만 권장(사람+AI 엔진 둘 다 읽음).
 
 ### 원칙 2 — slug_aliases 전역 리다이렉트 원장 (신규 테이블)
@@ -91,7 +91,7 @@ create table slug_aliases (
 - **1층(완료)**: Tier-2 film 템플릿 재구축 — noindex,follow 유지, Movie JSON-LD(@id·alternateName·sameAs), 자국어 원제 헤더, 크루 링크, 모듈 4종(감독 포스터[Tier-1 우선]·같은 전통 정독작·장르·시청처). Tier-1 경로 불변 검증.
 - **데이터 기반(완료)**: worker/tier2-backfill/backfill.mjs — TMDB fill-only 백필 3라운드: 원제 2,531 / overview 273 / genres 4,962 / runtime 4,989 / release_date 5,012 / tagline 2,273 / 감독명 5,021. 멱등, visible=true 불가침. director_slug는 파이프라인 소관(불기록).
 - **2층(완료)**: 컬렉션 4종에 "not yet read closely" 멤버 섹션(포스터+원제+연도, +N more): lineage(RPC가 원래 전체 멤버 반환 — 분리 표기), genre(.overlaps, 1000행 캡 버그 동시 수정), director(slug-or-name 매칭), movements(신규 RPC public.movement_hidden_films — curation.film_hub 조인, SECURITY DEFINER, anon grant).
-- **3층(대기)**: 개별 Tier-2 인덱스 개방은 승급제(figures ≥3, 기존 자동 편입) 유지. 수요 기반 우선순위 루프(GSC에서 Tier-2 노출/클릭 감지 → 파이프라인 우선 배정)는 7/16 리뷰에 부착. films2.xml 실험 개방은 보류(신규 섹션 관찰 기간).
+- **3층 — ✅ SHIPPED 2026-07-14**: 개별 Tier-2 선별 색인 개방은 `lib/seo.ts filmIndexBar`(film_reception≥3 OR film_lineage≥3 OR film_wd_honors≥3 AND film_provider_index≥1)로 실행 — figures≥3 승급제가 **아니고** films2.xml도 **아님**(메인 films.xml 편입, **1,105편** 개방·색인 필름 메인 1,959→~3,064). 수요 기반 우선순위 루프는 GSC 관찰 후. → 실측·정본: `HANDOFF-SEO-스타터가이드-작업지시서.md §2` / `lib/seo.ts filmIndexBar`.
 
 ## 6. 포털 9종 감사·업그레이드 (2026-07-04 오후, 원우 지시로 실행)
 

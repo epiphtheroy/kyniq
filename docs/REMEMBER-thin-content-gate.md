@@ -1,9 +1,13 @@
 # REMEMBER — thin-content gate (temporary hide of figure-less films)
 
-> **⚠️ 2026-07-06 SUPERSEDED — 정본은 `docs/PLAN-tier2-almanac.md`.** 이 문서의 "숨김(hidden from UI)" 정책은
-> 폐기됨: Tier-2는 이제 검색·Full catalogue·credits·Atlas·digest 페이지로 **이용자에게 전면 노출**되며
-> noindex 퍼널만 유지된다. 아래에서 여전히 유효한 것은 **자동 승격 메커니즘뿐**(approved figures ≥3 →
-> trigger가 visible=true → 색인·사이트맵 자동 편입). 나머지 수치·절차는 역사 기록으로만 읽을 것.
+> **⚠️ 2026-07-14 이후 정본 게이트는 `lib/seo.ts filmIndexBar` (코드 SSOT) + `HANDOFF-SEO-스타터가이드-작업지시서.md §2`.**
+> 이 문서 본문의 "figures≥3 = 색인 경계(meetsBar)" 모델은 **더 이상 색인 정본이 아니다.** 현재 상태:
+> - **`visible` ≠ 색인 가능.** `visible`(=figures≥3 트리거)은 이제 Tier-1 편집 페이지 표시 플래그일 뿐. **색인 여부는 `filmIndexBar`**: Tier-1(visible) + **승격 Tier-2 1,105편**(is_analyzed=false·visible=false지만 reception≥3 OR lineage≥3 OR wd_honors≥3 AND provider≥1). 색인 메인 1,959→~3,064.
+> - **서브페이지 불변식**: takescore/reception/lineage/… 는 `filmMainIndexable && ownBar`로 게이트. 마이그 0097 `film_index_signals_json` 로스터.
+> - **`hold`은 게이트 입력이 아니다** — 팩토리 "미승격 스텁" 플래그(Tier-2 4,723/4,997에 걸림). 진짜 미해결 스텁만 `slug LIKE 'tmdb-%'`.
+> - 감독 허브도 자체 게이트 신설(`lib/directorGate.ts`, 858→678/180 — `HANDOFF-Tier2-메인통합.md §4 D6`).
+>
+> ⚠️ **아래 §"AUTO-REVERSING"의 `films.visible`=DB 트리거(figures≥3) 사실은 여전히 유효**하고 SEO 스타터가이드 §0가 인용함 — 유지. 나머지 "숨김/meetsBar 색인" 수치·절차는 역사 기록으로만 읽을 것. (2026-07-06 배너: Tier-2는 이용자 표면 전면 노출·PLAN-tier2-almanac.md.)
 
 *Created 2026-06-18, during the +405 big bang. Read this before deciding the films are "done".*
 

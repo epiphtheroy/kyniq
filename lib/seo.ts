@@ -136,7 +136,9 @@ export function filmIndexBar(s: FilmIndexSignals): boolean {
  *    members, per-list source + QID sameAs, ItemList JSON-LD) and NEW
  *    /film/x/honors pages (≥3 lineage rows, 895 eligible INCLUDING Tier-2
  *    catalog films — honours are facts, not editorial, so they stand without
- *    the ≥3-figure bar). Children: sitemaps/lineage.xml (~202, no cohort) +
+ *    the ≥3-figure bar). [⚠️ SUPERSEDED 2026-07-14: this "no gate" stance was a
+ *    scaled-content leak; /film/lineage now gates on filmMainIndexable — see the
+ *    07-14 entry below.] Children: sitemaps/lineage.xml (~202, no cohort) +
  *    sitemaps/honors.xml (cohort 500 below). Raise on the standard weekly
  *    GSC evidence rule.
  *  - 2026-07-06 (user decision): the honours record moved to
@@ -158,6 +160,31 @@ export function filmIndexBar(s: FilmIndexSignals): boolean {
  *    carrying figure — per-film unique text under every trope link.
  *    Canonical doc for the whole ranked-surfaces layer:
  *    HANDOFF-트로프피겨아키타입-순위표면.md.
+ *  - 2026-07-14 (SEO consolidation gate — canonical: HANDOFF-SEO-스타터가이드-작업지시서.md §2):
+ *    a full Search-Essentials audit closed a scaled-content LEAK (takescore/
+ *    reception/lineage subpages indexed ~6,800 pages for Tier-2 films the thin
+ *    gate hid) by CONSOLIDATING: filmIndexBar (above) promotes 1,105 Tier-2
+ *    catalog films (reception≥3 OR lineage≥3 OR wd_honors≥3, AND provider≥1,
+ *    NOT tmdb-%) from noindex → indexable. Indexable mains 1,959 → ~3,064. New
+ *    FILMS_T2 cohort at 300 (below), released oldest-first. Every film SUBPAGE
+ *    now gates robots on filmMainIndexable && ownBar; the sitemap functions
+ *    (filmEntries/sitemapTakescoreFilms/filmReceptionEntries/honorsEntries/
+ *    moviesLikeEntries) mirror the gate through the film_index_signals_json
+ *    roster (migration 0097). ⚠️ This REVERSED the 2026-07-05 "honours are
+ *    facts, stand without a gate" decision above: /film/lineage now gates on
+ *    filmMainIndexable && lineage≥3, honorsEntries filters through the roster.
+ *    Same ship: displayTs() 0-clamp on negative TakeScores (display+schema only;
+ *    ranking/API raw), Review author Person→Organization, flagged/n=1 copy
+ *    removed, FAQPage→(removed)/QAPage→Article. `visible` is now decoupled from
+ *    indexability (it is only the figures≥3 thinness trigger).
+ *  - 2026-07-15 (Tier-2 main consolidation — canonical: HANDOFF-Tier2-메인통합.md;
+ *    commit 5e8f507): promoted film mains + thin director hubs now RENDER their
+ *    existing content (wd_honors/release/scholarship digests, StillHero parity /
+ *    catalog TakeScores, press/honors/availability/locations digests) instead of
+ *    head-counting it, so they escape thin-content. NEW director-hub robots gate
+ *    lib/directorGate.ts directorIndexBar (858 → 678 indexed / 180 noindex),
+ *    mirrored by directorEntries. No new INDEX_COHORT (director gate is robots-
+ *    based; all 678 passers advertised).
  */
 // Feeds Organization.sameAs in app/layout.tsx (owner fills in profile URLs as they go live).
 export const SOCIAL_PROFILES: string[] = [
