@@ -61,5 +61,16 @@ returns jsonb language sql stable security definer set search_path = public as $
   ) from s;
 $$;
 
+-- Cohort films that NOW cross the (relaxed) gate — the daily wave revalidates exactly these.
+create or replace function public.t2noindex_crossed_slugs()
+returns text[] language sql stable security definer set search_path = public as $$
+  select coalesce(array_agg(c.slug order by c.slug), '{}')
+  from public.z_t2noindex_cohort c
+  where (select count(*) from public.film_reception r where r.film_id=c.film_id) >= 3
+     or (select count(*) from public.film_lineage  l where l.film_id=c.film_id) >= 3
+     or (select count(*) from public.film_wd_honors w where w.film_id=c.film_id) >= 3;
+$$;
+
 grant execute on function public.t2noindex_refresh() to service_role;
 grant execute on function public.t2noindex_measure() to service_role;
+grant execute on function public.t2noindex_crossed_slugs() to service_role;

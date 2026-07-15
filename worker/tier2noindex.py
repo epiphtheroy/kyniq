@@ -107,10 +107,24 @@ def cmd_reception():
 def cmd_reception_wave():
     # daily wave: retry academic-pending cached films against OpenAlex until the daily budget hits $0
     # (the pipeline circuit-breaks + defers the rest). Preserves already-fetched papers. Then load.
+    # workers 2 (not 6): OpenAlex burst-429s at high concurrency even under the 3 req/s pace lock.
+    # RECEPTION_FAST=1: skip the DOI abstract-fallback (index needs the row count, not abstracts) — ~10x faster.
+    import subprocess, re
+    slugs = cohort_slugs()  # prioritize the addressable cohort (else fill-academic spends the daily budget on the whole corpus)
     workers = argv("--workers", "2")
-    print(f"reception WAVE (--fill-academic) · workers {workers} · run once/day until addressable_noindex stops falling")
-    sh(["python3", "reception-run.py", "--fill-academic", "--workers", str(workers)], cwd=MAG, env={"BRAVE_API_KEY": ""})
-    sh(["python3", "reception-load.py"], cwd=MAG)
+    print(f"reception WAVE (--fill-academic, FAST) · {len(slugs)} cohort films · workers {workers} · run once/day until addressable_noindex stops falling")
+    env = dict(os.environ); env.update({"BRAVE_API_KEY": "", "RECEPTION_FAST": "1"})
+    p = subprocess.run(["python3", "reception-run.py", "--fill-academic", "--films", ",".join(slugs),
+                        "--workers", str(workers)], cwd=MAG, env=env, capture_output=True, text=True)
+    print((p.stdout or "")[-1500:])
+    filled = max([int(x) for x in re.findall(r"filled (\d+)", p.stdout or "")] or [0])
+    # Only load when the wave actually fetched papers. On a budget-exhausted day (0 filled) the
+    # aggregate can be a stale/degraded reception-all.jsonl — loading it would REGRESS the DB.
+    if filled > 0:
+        sh(["python3", "reception-load.py"], cwd=MAG)
+        print(f"  loaded ({filled} films filled this wave)")
+    else:
+        print("  0 filled this wave (OpenAlex daily budget likely exhausted) — skip load, DB unchanged")
 
 def cmd_awards():
     slugs = cohort_slugs()
@@ -123,28 +137,16 @@ def cmd_awards():
 def cmd_revalidate():
     if not SECRET:
         print("no REVALIDATION_SECRET — skip"); return
-    # cohort films that NOW pass the gate (reception/lineage/honors>=3 & providers>=1)
-    slugs = []
-    off = 0
-    while True:
-        st, tx = http("GET", f"/rest/v1/z_t2noindex_cohort?select=film_id,slug&limit=1000&offset={off}")
-        b = json.loads(tx)
-        if not b: break
-        for r in b: slugs.append(r["slug"])
-        if len(b) < 1000: break
-        off += 1000
-    # (the cohort table is the pre-sweep set; re-measure per-film would be ideal, but revalidating the
-    #  whole prior cohort is safe/idempotent and guarantees any newly-crossed film's noindex meta drops)
+    # only cohort films that NOW cross the gate (strong signal) — the ones whose noindex meta must drop.
+    crossed = rpc("t2noindex_crossed_slugs") or []
     n = 0
-    for s in slugs:
+    for s in crossed:
         try:
-            http("POST", "/api/revalidate", {"secret": SECRET, "paths": [f"/film/{s}"], "tags": [f"film:{s}"]},
-                 base="https://metatake.net")
+            http("POST", "/api/revalidate", {"secret": SECRET, "paths": [f"/film/{s}"]}, base="https://metatake.net")
             n += 1
         except Exception:
             pass
-        if n % 200 == 0: time.sleep(1)
-    print(f"revalidated {n} cohort film pages")
+    print(f"revalidated {n} newly-crossed cohort films")
 
 def cmd_report():
     snap = rpc("t2noindex_measure")
