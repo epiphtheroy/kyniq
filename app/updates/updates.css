@@ -1,0 +1,256 @@
+/* Updates (/updates) — the company-news thread.
+   Design system v3 Newspaper: white paper, near-black ink, ONE red accent.
+   A left timeline spine with per-post nodes gives the feed its changelog
+   identity; month boundaries and hover states are the only places red appears.
+   Light-only, like the rest of the site. All classes scoped under .upd-wrap. */
+
+.upd-masthead {
+  margin: 26px 0 0;
+}
+.upd-h1 {
+  font-size: 34px;
+  margin: 8px 0 0;
+  letter-spacing: -0.02em;
+}
+.upd-standfirst {
+  margin: 12px 0 0;
+  max-width: 60ch;
+}
+.upd-metrics {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 16px 0 0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.upd-metrics .upd-tick {
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+  display: inline-block;
+}
+.upd-metrics .upd-dot { color: var(--hairline-2); }
+.upd-metrics .upd-rss { text-decoration: none; letter-spacing: 0.06em; }
+
+/* --- filter bar --- */
+.upd-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  margin: 22px 0 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hairline);
+}
+.upd-filter {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 5px 9px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+.upd-filter:hover { color: var(--ink); }
+.upd-filter.is-on {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+.upd-filter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- the thread --- */
+.upd-thread {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0 0 0 30px;
+  position: relative;
+}
+/* the spine */
+.upd-thread::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  bottom: 7px;
+  width: 1px;
+  background: var(--hairline);
+}
+
+.upd-li {
+  position: relative;
+  padding: 0 0 30px;
+}
+/* per-post node, sitting on the spine, aligned to the kicker line */
+.upd-li::before {
+  content: "";
+  position: absolute;
+  left: -29.5px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--hairline-2);
+  background: var(--bg);
+  border-radius: 50%;
+  transition: background 0.14s ease, border-color 0.14s ease;
+  z-index: 1;
+}
+.upd-li:hover::before {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* month divider — a labelled break with a red node */
+.upd-month {
+  position: relative;
+  margin: 6px 0 20px;
+}
+.upd-thread .upd-month:first-child { margin-top: 0; }
+.upd-month::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 2px;
+  z-index: 1;
+}
+.upd-month-label {
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* --- post --- */
+.upd-item { scroll-margin-top: 70px; }
+.upd-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: var(--font-ui);
+}
+.upd-date {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.upd-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 2px 8px 1.5px;
+  white-space: nowrap;
+}
+.upd-permalink {
+  margin-left: auto;
+  color: var(--hairline-2);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.12s ease, color 0.12s ease;
+}
+.upd-li:hover .upd-permalink,
+.upd-item:focus-within .upd-permalink { opacity: 1; }
+.upd-permalink:hover { color: var(--accent); }
+
+.upd-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.26;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 6px 0 0;
+}
+.upd-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  margin: 8px 0 0;
+  max-width: var(--measure);
+}
+.upd-body a { color: var(--accent-text); text-decoration: none; }
+.upd-body a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+/* --- pager --- */
+.upd-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid var(--hairline);
+}
+.upd-pg {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--muted);
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+.upd-pg:hover:not(:disabled) { color: var(--ink); }
+.upd-pg.is-current {
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom-color: var(--accent);
+}
+.upd-pg:disabled { color: var(--hairline-2); cursor: default; }
+.upd-pg-arrow { font-size: 18px; }
+.upd-pg:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.upd-pager-label {
+  width: 100%;
+  text-align: center;
+  margin: 12px 0 0;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* --- narrow screens --- */
+@media (max-width: 560px) {
+  .upd-h1 { font-size: 28px; }
+  .upd-thread { padding-left: 24px; }
+  .upd-thread::before { left: 4px; }
+  .upd-li::before { left: -23.5px; width: 8px; height: 8px; }
+  .upd-month::before { left: -24px; width: 9px; height: 9px; }
+  .upd-title { font-size: 17.5px; }
+  .upd-body { font-size: 15.5px; }
+}
