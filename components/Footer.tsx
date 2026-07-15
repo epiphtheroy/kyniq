@@ -61,6 +61,9 @@ export default function Footer() {
             <Link href="/about" className="footer-link">
               About
             </Link>
+            <Link href="/updates" className="footer-link">
+              Updates
+            </Link>
             <Link href="/blog" className="footer-link">
               The Daily
             </Link>

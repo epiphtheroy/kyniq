@@ -148,6 +148,15 @@ export default function AboutPage() {
 
       <hr className="rule" />
 
+      <div className="seclbl">The record</div>
+      <div className="tick" />
+      <p className="body reading" style={{ fontSize: 18, margin: 0 }}>
+        What changes here — new features, data releases, policy, the state of the index — is logged
+        with dates on <A href="/updates">Updates</A>.
+      </p>
+
+      <hr className="rule" />
+
       <p className="ui muted" style={{ fontSize: 14.5, lineHeight: 1.6 }}>
         As of July 2026: nearly 7,000 films in the index, 6,704 of them scored; close to 2,000 close-read;
         more than 70,000 readings; hundreds of theorists cited by name.
@@ -157,7 +166,7 @@ export default function AboutPage() {
         <a href="mailto:wonwoo@metatake.net" className="accent" style={{ textDecoration: "none" }}>
           wonwoo@metatake.net
         </a>
-        {" "}· See also <A href="/methodology">Methodology</A> · <A href="/editor">The editor</A>
+        {" "}· See also <A href="/methodology">Methodology</A> · <A href="/updates">Updates</A> · <A href="/editor">The editor</A>
       </p>
     </main>
     </>

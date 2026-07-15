@@ -49,6 +49,7 @@ import { DOCS as METHOD_DOCS, docHref } from "@/lib/docs/registry";
 import { DOC_BODIES } from "@/lib/docs/content";
 import { POE_ESSAYS, poeHref } from "@/lib/poetics/registry";
 import { POE_BODIES } from "@/lib/poetics/content";
+import { LATEST_UPDATE_DATE } from "@/lib/updates/posts";
 
 /**
  * Sitemap data + XML rendering — SPEC §8.5
@@ -101,6 +102,7 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
   const entries: SitemapEntry[] = [
     { url: siteUrl },
     { url: `${siteUrl}/about` },
+    { url: `${siteUrl}/updates`, lastmod: LATEST_UPDATE_DATE },
     { url: `${siteUrl}/film` },
     { url: `${siteUrl}/strong-misreadings` },
     { url: `${siteUrl}/tropes` },

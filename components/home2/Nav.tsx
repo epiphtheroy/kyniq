@@ -48,6 +48,7 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
     { id: "read", label: "Read", items: [
       { t: "Now Playing", h: "/now" },
       { t: "The Daily", h: "/blog" },
+      { t: "Updates", h: "/updates" },
       { t: "Curious", h: "/curious" },
       { t: "Newsletter", h: "/blog/subscribe" },
     ] },
