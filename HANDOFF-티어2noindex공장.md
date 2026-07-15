@@ -1,5 +1,19 @@
 # HANDOFF — Tier-2 noindex 공장 (신호 회수 라인) 구축 지시서
 
+> ## ⭐⭐ v3 결과 (2026-07-15, Opus/ultracode 세션 — 라이브 반영)
+> **Tier-2 색인 1,105 → 1,187 (+82) 라이브.** 두 축으로 달성:
+> - **게이트 완화 +62 (즉시·영구)**: `lib/seo.ts filmIndexBar`에서 Tier-2 가용성 요건(`n_providers≥1`)
+>   제거 → 강신호(논문/수상/lineage≥3)만으로 색인, 페이지는 "No streaming" 정직 표기. 오너 아이디어,
+>   사이트 철학(availability-is-destiny)과 정합. War and Peace(1968)·The Puppetmaster(허우샤오시엔)·
+>   Dream of Light(에리세) 등 스트리밍만 없던 정전작 62편이 라이브 색인 검증 완료(배포 6793119+revalidate).
+> - **리셉션 파일럿 +20 (라이브)**: 학술 회수로 reception≥3 도달.
+> - **OpenAlex 프리미엄 키 배선**(env OPENALEX_API_KEY, 호출시점 읽기): 무인증 429("Insufficient budget")
+>   해결. ⚠️단 **키도 일일 예산제** — 파일럿+테스트로 오늘치 소진. 전량은 **다일 웨이브**.
+> - **일일 루프 SHIPPED**: `worker/tier2noindex-daily.sh`(하루1회 gentle 웨이브·workers2·fast·0-fill시
+>   적재스킵으로 DB보호). 시작=`nohup bash worker/tier2noindex-daily.sh &`·정지=`touch worker/.t2noindex-stop`.
+>   잔여 주소지정 3,810편(가용성완화로 provider-0 약신호 902 포함)을 ~100-150편/일로 회수(~20% 교차).
+> - 커밋: 게이트 6793119 · 키/fast 7bf1084 · 오케스트레이터/RPC 8b28f5d·3487e28.
+>
 > ## ⭐ v2 — 실측·부분실행 완료 (2026-07-15, Opus/ultracode 세션)
 > **엔진 구축·파일럿 실행·병목 규명 완료. 전량 스윕은 OpenAlex 일일예산 때문에 다일(多日) 웨이브 필요.**
 >
