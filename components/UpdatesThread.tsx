@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { CATEGORY_LABEL, type UpdateCategory, type UpdatePost } from "@/lib/updates/posts";
 
@@ -46,6 +46,9 @@ function renderBody(body: string): React.ReactNode[] {
 export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
   const [page, setPage] = useState(1);
   const [cat, setCat] = useState<"all" | UpdateCategory>("all");
+  // Set when the user drives navigation (page/filter), so the scroll-to-top
+  // fires AFTER the new page renders — not against the old, taller layout.
+  const navScrollRef = useRef(false);
 
   const cats = useMemo(() => {
     const present = new Set(posts.map((p) => p.cat));
@@ -83,16 +86,22 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
     return () => window.removeEventListener("hashchange", goToHash);
   }, [goToHash]);
 
-  const scrollToTop = () =>
+  // Scroll to the top of the thread after a user-driven page/filter change has
+  // rendered. Hash navigation leaves the flag false (it scrolls to its post).
+  useEffect(() => {
+    if (!navScrollRef.current) return;
+    navScrollRef.current = false;
     document.getElementById("upd-top")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [safePage, cat]);
 
   const changePage = (n: number) => {
     if (n < 1 || n > pageCount) return;
+    navScrollRef.current = true;
     setPage(n);
-    scrollToTop();
   };
 
   const changeCat = (c: "all" | UpdateCategory) => {
+    navScrollRef.current = true;
     setCat(c);
     setPage(1);
   };
