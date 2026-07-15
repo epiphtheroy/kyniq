@@ -34,8 +34,7 @@ begin
     where not coalesce(f.is_analyzed,false)
   )
   select film_id, slug, has_imdb, wikidata_id, nrec, nlin, nwd, nprov from s
-  where not ((nrec>=3 or nlin>=3 or nwd>=3) and nprov>=1)   -- currently noindex
-    and nprov>=1 and slug not like 'tmdb-%';                -- addressable (has availability, resolved)
+  where not (nrec>=3 or nlin>=3 or nwd>=3) and slug not like 'tmdb-%';  -- weak-signal noindex; reception can lift. Availability no longer required (gate relaxed 2026-07-15 — see lib/seo.ts filmIndexBar).
   get diagnostics n = row_count; return n;
 end; $$;
 
@@ -54,10 +53,11 @@ returns jsonb language sql stable security definer set search_path = public as $
   )
   select jsonb_build_object(
     'tier2_total', count(*),
-    'idx_pass',            count(*) filter (where (nrec>=3 or nlin>=3 or nwd>=3) and nprov>=1 and slug not like 'tmdb-%'),
-    'noindex',             count(*) filter (where not ((nrec>=3 or nlin>=3 or nwd>=3) and nprov>=1)),
-    'addressable_noindex', count(*) filter (where not ((nrec>=3 or nlin>=3 or nwd>=3) and nprov>=1) and nprov>=1 and slug not like 'tmdb-%'),
-    'provider_blocked',    count(*) filter (where nprov=0 and slug not like 'tmdb-%')
+    'idx_pass',                count(*) filter (where (nrec>=3 or nlin>=3 or nwd>=3) and slug not like 'tmdb-%'),
+    'idx_pass_old_gate',       count(*) filter (where (nrec>=3 or nlin>=3 or nwd>=3) and nprov>=1 and slug not like 'tmdb-%'),
+    'newly_indexed_provider0', count(*) filter (where (nrec>=3 or nlin>=3 or nwd>=3) and nprov=0 and slug not like 'tmdb-%'),
+    'addressable_noindex',     count(*) filter (where not (nrec>=3 or nlin>=3 or nwd>=3) and slug not like 'tmdb-%'),
+    'provider0_informational', count(*) filter (where nprov=0 and slug not like 'tmdb-%')
   ) from s;
 $$;
 

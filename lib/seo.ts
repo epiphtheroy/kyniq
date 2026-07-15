@@ -49,9 +49,13 @@ export function filmIndexBar(s: FilmIndexSignals): boolean {
   if (s.slug.startsWith("tmdb-")) return false; // unresolved-stub guard
   // Tier-1: existing bar — visible ⇔ ≥3 approved figures (DB trigger).
   if (s.is_analyzed) return s.visible;
-  // Tier-2: a strong editorial signal (any) + an availability baseline.
+  // Tier-2: a strong editorial signal (any). Availability is NOT required (owner call 2026-07-15):
+  // a film with real scholarship / awards / canon-standing is substantive whether or not it streams
+  // anywhere, and the page states "No streaming" honestly rather than hiding. This aligns with the
+  // site's own stance (poetics/availability-is-destiny: "availability would not move a number").
+  // Effect: +62 provider-less-but-strong films index immediately; more as reception fills.
   const strong = s.n_reception >= 3 || s.n_lineage >= 3 || s.n_wd_honors >= 3;
-  return strong && s.n_providers >= 1;
+  return strong;
 }
 
 /**
