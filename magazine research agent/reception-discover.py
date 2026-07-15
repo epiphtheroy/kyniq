@@ -41,6 +41,12 @@ EXTRA = os.path.join(HERE, "reception-extra-outlets.csv")   # 주류 평론매�
 UA = ce.UA
 TIMEOUT = ce.TIMEOUT
 MAILTO = "contact@metatake.net"
+# OpenAlex switched to a metered daily budget (2026): unauthenticated calls now 429 with
+# "Insufficient budget". A premium api_key (env OPENALEX_API_KEY) restores a working budget.
+# Read at CALL time, not import time — the caller loads .env.local inside main(), after this import.
+def oa_auth():
+    k = os.environ.get("OPENALEX_API_KEY", "").strip()
+    return f"&api_key={k}" if k else ""
 
 FILMS = [
     ("grave-of-the-fireflies-1988", "Grave of the Fireflies", 1988, "Isao Takahata"),
@@ -160,7 +166,7 @@ def _fetch_abstract(doi: str) -> str:
     if not doi:
         return ""
     d = get_json(f"https://api.openalex.org/works/doi:{parse.quote(doi)}"
-                 f"?select=abstract_inverted_index&mailto={MAILTO}")
+                 f"?select=abstract_inverted_index&mailto={MAILTO}{oa_auth()}")
     if d:
         ab = ce.reconstruct_inverted(d.get("abstract_inverted_index"))
         if ab:
@@ -288,7 +294,7 @@ def allow_match(host: str, allow: dict):
 # ── 학술: OpenAlex ─────────────────────────────────────────────────────────
 def discover_academic(title: str, director: str, year: int, cap: int):
     q = parse.quote(f"{title} {director}")
-    url = (f"https://api.openalex.org/works?search={q}&per_page=25&mailto={MAILTO}"
+    url = (f"https://api.openalex.org/works?search={q}&per_page=25&mailto={MAILTO}{oa_auth()}"
            "&select=id,doi,title,type,publication_year,language,authorships,primary_location,"
            "abstract_inverted_index")
     raw = get_json(url)

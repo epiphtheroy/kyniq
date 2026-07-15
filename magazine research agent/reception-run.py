@@ -208,6 +208,8 @@ def main():
     workers = workers or 6
     acad_cap = acad_cap or 8
     crit_cap = crit_cap or 10
+    FILMS_ARG = (args[args.index("--films") + 1].split(",")) if "--films" in args else None  # §7.13: factory scoping (both discovery and fill-academic)
+    FILMS_SET = set(FILMS_ARG) if FILMS_ARG else None
     allow = rd.load_allowlist()
     outdir = os.path.join(HERE, "reception_out_smoke" if limit else "reception_data")
     os.makedirs(outdir, exist_ok=True)
@@ -215,6 +217,8 @@ def main():
 
     if fill:                                   # 학술만 채우기(비평 Brave 미사용)
         files = [os.path.join(outdir, f) for f in sorted(os.listdir(outdir)) if f.endswith(".json")]
+        if FILMS_SET:                          # scope the wave to a cohort (basename minus .json = slug)
+            files = [p for p in files if os.path.basename(p)[:-5] in FILMS_SET]
         pend = [p for p in files if json.load(open(p, encoding="utf-8")).get("ap")]
         print(f"fill-academic: {len(pend)} pending / {len(files)} cached · workers {workers}")
         done = changed = 0
@@ -233,7 +237,6 @@ def main():
         return
 
     key = rd.brave_key()
-    FILMS_ARG = (args[args.index("--films") + 1].split(",")) if "--films" in args else None  # §7.13: factory scoping — restrict discovery to explicit slugs (Tier-2 noindex cohort)
     films = get_films(limit)
     if FILMS_ARG:
         films = [f for f in films if f["slug"] in FILMS_ARG]
