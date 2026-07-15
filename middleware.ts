@@ -188,6 +188,28 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     }
   }
 
+  // ── CRM gate ────────────────────────────────────────────────
+  // Owner-only outreach CRM (HANDOFF-CRM-비즈니스접점엔진.md). Same profiles.role
+  // = 'admin' gate as /admin, but a separate surface. No login page of its own —
+  // unauth → the shared /admin/login; non-admin → stealth 404 (invisible).
+  if (pathname.startsWith("/crm")) {
+    if (!user) {
+      const loginUrl = request.nextUrl.clone();
+      loginUrl.pathname = "/admin/login";
+      return NextResponse.redirect(loginUrl);
+    }
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+    if (!profile || profile.role !== "admin") {
+      const notFoundUrl = request.nextUrl.clone();
+      notFoundUrl.pathname = "/_not-found";
+      return NextResponse.rewrite(notFoundUrl);
+    }
+  }
+
   // ── Auth-required pages ─────────────────────────────────────
   // Segment-exact match so /meta-takes is NOT caught by /me, and /ask (public
   // grounded Q&A) stays open — only /ask/new (posting a question) needs login.

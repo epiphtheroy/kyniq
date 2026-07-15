@@ -58,3 +58,13 @@ outputs/figure_seo/*.jsonl
 worker/gsc-sa.json
 worker/.gsc-watch.pid
 worker/gsc-pull.log
+
+# CRM — Gmail OAuth client secret (worker/gmail-auth.py) — never commit
+worker/client_secret*.json
+worker/*oauth*.json
+worker/gmail-*.json
+worker/.crm-scout.lock
+
+# CRM — generated import data (contains personal contact emails) — never commit
+crm-handoff/contacts.json
+crm-handoff/_batches/
