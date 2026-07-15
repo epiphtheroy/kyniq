@@ -42,7 +42,10 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
     .eq("slug", slug)
     .maybeSingle();
 
-  const eligible = !!film && film.is_analyzed === true && film.visible !== false;
+  // Tier-1 (full analysis) OR Tier-2 catalog record (mig 0103: the pack RPC serves catalog
+  // sections — takescore/standing/locations — for is_analyzed=false films; stubs return null → 404).
+  const eligible = !!film && !slug.startsWith("tmdb-") &&
+    (film.is_analyzed === true ? film.visible !== false : true);
 
   // Quota status (0 remaining if not signed in). `already` = ever downloaded
   // (all-time → free re-download); `remaining` counts only NEW films this month.

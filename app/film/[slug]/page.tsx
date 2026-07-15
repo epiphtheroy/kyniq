@@ -876,6 +876,14 @@ export default async function FilmPage({ params }: Props) {
       : (f.backdrop_path ? [f.backdrop_path] : []);
     const stripStills = pickStills(heroGallery, `${f.slug}:strip`, 3)
       .map((p) => ({ path: p, filmTitle: f.title, filmYear: f.year }));
+    // "Download for AI" + MCP for the catalog record (mig 0103 serves Tier-2 packs — catalog
+    // sections only: takescore/standing/locations; readings/figures are empty for a catalog film).
+    // Offer only the sections this film actually has.
+    const t2PackSecs = ([
+      codex ? { key: "takescore", label: "TakeScore" } : null,
+      (lineage.length || wdHonors.length) ? { key: "standing", label: "Standing & honors" } : null,
+      geoCount > 0 ? { key: "locations", label: "Filming locations" } : null,
+    ].filter(Boolean)) as { key: string; label: string }[];
     return (
       <div className="mt">
         <SiteNav />
@@ -931,6 +939,8 @@ export default async function FilmPage({ params }: Props) {
                 <div className="df-hactions">
                   <MovieListActions filmId={f.id} />
                   <EntityActions entityType="film" entityId={f.id} />
+                  {t2PackSecs.length > 0 ? <DownloadPackModal slug={f.slug} sections={t2PackSecs} variant="hero" /> : null}
+                  {t2PackSecs.length > 0 ? <McpConnectButton title={f.title} variant="hero" /> : null}
                   {f.tmdb_id ? <Link className="df-like" href={`/credits?f=${f.tmdb_id}`}>🎞 Follow the credits →</Link> : null}
                   {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
                 </div>
