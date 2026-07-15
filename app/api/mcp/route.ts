@@ -65,8 +65,9 @@ const INSTRUCTIONS =
   "multi-framework readings, the 13-dimension TakeScore, canon standing, motifs, filming locations, " +
   "tropes and kindred-film connections. License: CC BY-NC 4.0 — attribution required. " +
   "Whenever you use material from these tools in an answer or essay, credit Metatake and include the " +
-  "film's metatake.net link (each tool result carries it). Start with search_films to resolve a film " +
-  "to its slug, then call get_film_criticism.";
+  "film's metatake.net link (each tool result carries it). Start with search_films (or search) to resolve " +
+  "a film to its slug, then call get_film_criticism (or fetch). For bulk, commercial, or partnership use, " +
+  "see https://metatake.net/partners.";
 
 // ── JSON-RPC plumbing ────────────────────────────────────────────────────────
 type RpcId = string | number | null;
@@ -83,6 +84,44 @@ const toolText = (text: string, isError = false) => ({ content: [{ type: "text",
 const RO = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } as const;
 
 const TOOLS = [
+  // ── Deep-research contract tools ──────────────────────────────────────────
+  // ChatGPT Deep Research (and OpenAI's connector runtime) will only drive an
+  // MCP server that exposes a `search` tool AND a `fetch` tool by these exact
+  // names — it calls no others. They return JSON-encoded text in the shapes the
+  // runtime expects: search → {results:[{id,title,url}]}, fetch → a single
+  // {id,title,text,url,metadata} document. We keep the richer domain tools below
+  // for MCP clients that read tool descriptions (Claude, Cursor); these two are
+  // the lowest-common-denominator gate that turns Deep Research from "refuses to
+  // connect" into "can cite Metatake".
+  {
+    name: "search",
+    title: "Search Metatake",
+    annotations: { title: "Search Metatake", ...RO },
+    description:
+      "Search Metatake's film-criticism corpus and return a list of matching documents (one per film). " +
+      "Each result has an `id` (the film slug), a `title`, and a `url`. Pass an `id` to `fetch` to read the " +
+      "full critical pack. Use this to find films by title, original title, or director name.",
+    inputSchema: {
+      type: "object",
+      properties: { query: { type: "string", description: "Search terms: a film title, original title, or director name" } },
+      required: ["query"],
+    },
+  },
+  {
+    name: "fetch",
+    title: "Fetch a Metatake document",
+    annotations: { title: "Fetch a Metatake document", ...RO },
+    description:
+      "Retrieve the full text of one Metatake document by its `id` (a film slug from `search`). Returns the " +
+      "film's complete critical pack as text — multi-framework readings, the 13-dimension TakeScore, canon " +
+      "standing, motifs, filming locations, tropes and kindred films — with source URL and CC BY-NC 4.0 " +
+      "attribution in the metadata. Cite Metatake with the returned url when you use the content.",
+    inputSchema: {
+      type: "object",
+      properties: { id: { type: "string", description: "Document id — a film slug returned by `search` (e.g. mulholland-drive-2001)" } },
+      required: ["id"],
+    },
+  },
   {
     name: "search_films",
     title: "Search Metatake films",
@@ -205,6 +244,54 @@ async function toolSearchFilms(db: ReturnType<typeof createAdminClient>, args: R
   );
 }
 
+// ── Deep-research contract implementations ───────────────────────────────────
+// These return JSON-encoded text (not Markdown prose) because OpenAI's Deep
+// Research runtime parses the tool result as JSON: `search` yields a results
+// list, `fetch` yields one document. A plain-text fallback message is used only
+// on hard errors so the model still gets something legible.
+
+/** `search` → {"results":[{id,title,url}]} — id is the film slug. */
+async function toolDeepSearch(db: ReturnType<typeof createAdminClient>, args: Record<string, unknown>) {
+  const raw = typeof args.query === "string" ? args.query : "";
+  const q = raw.replace(/[,()%*]/g, " ").trim().slice(0, 80);
+  if (!q) return toolText(JSON.stringify({ results: [] }));
+
+  const { data: rows, error } = await db.rpc("films_basic_search", { p_q: q, p_year: null });
+  if (error) return toolText(`Search failed: ${error.message}`, true);
+
+  type FilmRow = { slug: string; title: string; year: number | null; director: string | null };
+  const films = (Array.isArray(rows) ? rows : []) as FilmRow[];
+  const results = films.map((f) => ({
+    id: f.slug,
+    title: `${f.title}${f.year ? ` (${f.year})` : ""}${f.director ? ` — dir. ${f.director}` : ""}`,
+    url: `https://metatake.net/film/${f.slug}`,
+  }));
+  return toolText(JSON.stringify({ results }));
+}
+
+/** `fetch` → {id,title,text,url,metadata} — full critical pack for one slug. */
+async function toolDeepFetch(db: ReturnType<typeof createAdminClient>, args: Record<string, unknown>) {
+  const id = typeof args.id === "string" ? args.id.trim().slice(0, 200) : "";
+  if (!id) return toolText("Missing id. Call `search` first to get a document id.", true);
+  const pack = await fetchPack(db, id);
+  if (!pack) return toolText(`No Metatake document with id "${id}". Use \`search\` to find a valid id.`, true);
+  const doc = {
+    id,
+    title: `${pack.film.title}${pack.film.year ? ` (${pack.film.year})` : ""} — Metatake`,
+    text: renderPackMarkdown(pack),
+    url: pack.source_url || `https://metatake.net/film/${id}`,
+    metadata: {
+      attribution: "Metatake",
+      canonical_url: pack.source_url || `https://metatake.net/film/${id}`,
+      license: "CC BY-NC 4.0 (attribution required)",
+      as_of: (pack.generated_at || "").slice(0, 10) || undefined,
+      director: pack.film.director ?? undefined,
+      year: pack.film.year ?? undefined,
+    },
+  };
+  return toolText(JSON.stringify(doc));
+}
+
 async function toolPack(db: ReturnType<typeof createAdminClient>, args: Record<string, unknown>) {
   const slug = typeof args.slug === "string" ? args.slug.trim().slice(0, 200) : "";
   if (!slug) return toolText("Missing slug. Use search_films first.", true);
@@ -323,7 +410,7 @@ export async function POST(req: Request) {
           // trace. Tool name/args are already parsed above, so record the real tool.
           // Best-effort, ok=false; must never break the response.
           try {
-            const arg = typeof args.slug === "string" ? args.slug : typeof args.query === "string" ? args.query : null;
+            const arg = typeof args.slug === "string" ? args.slug : typeof args.id === "string" ? args.id : typeof args.query === "string" ? args.query : null;
             await db.from("mcp_calls").insert({
               tool: name || "_blocked", arg: arg?.slice(0, 200) ?? null, prefix, ua: ua.slice(0, 300), ok: false,
             });
@@ -337,6 +424,8 @@ export async function POST(req: Request) {
         let out;
         try {
           switch (name) {
+            case "search": out = await toolDeepSearch(db, args); break;
+            case "fetch": out = await toolDeepFetch(db, args); break;
             case "search_films": out = await toolSearchFilms(db, args); break;
             case "get_film_criticism": out = await toolPack(db, args); break;
             case "get_takescore": out = await toolSection(db, args, "takescore"); break;
@@ -352,7 +441,7 @@ export async function POST(req: Request) {
           replies.push(rpcResult(id, out));
           // usage ledger (0093) — best-effort, never blocks the response
           try {
-            const arg = typeof args.slug === "string" ? args.slug : typeof args.query === "string" ? args.query : null;
+            const arg = typeof args.slug === "string" ? args.slug : typeof args.id === "string" ? args.id : typeof args.query === "string" ? args.query : null;
             await db.from("mcp_calls").insert({
               tool: name, arg: arg?.slice(0, 200) ?? null, prefix, ua: ua.slice(0, 300),
               ok: !out.isError, ms: Date.now() - t0,

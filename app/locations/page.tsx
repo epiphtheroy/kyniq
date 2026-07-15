@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import FilmMap from "@/components/FilmMap";
 import { cachedLocationsEligibility, cachedLocationsMeta } from "@/lib/locations";
+import { filmingLocationsDataset } from "@/lib/datasets";
 
 // The map loads client-side from /api/geo (the play layer); the country grid
 // below it is server-rendered at revalidation time (the read layer), so the
@@ -18,17 +19,13 @@ export const metadata: Metadata = {
 export default async function LocationsPage() {
   const [{ countries }, meta] = await Promise.all([cachedLocationsEligibility(), cachedLocationsMeta()]);
   // First-party dataset declaration — this atlas is compiled by Metatake, not
-  // syndicated; Dataset markup states that formally (name, size, freshness).
+  // syndicated; Dataset markup states that formally. Now carries license +
+  // distribution[] + DOI (shared builder, lib/datasets.ts) so it is visible to
+  // Google Dataset Search and to vendor-research agents. Live counts override the
+  // builder defaults so on-page numbers and schema numbers always match.
   const datasetLd = {
     "@context": "https://schema.org",
-    "@type": "Dataset",
-    name: "Metatake Film Locations",
-    url: "https://metatake.net/locations",
-    description: `${meta.pins.toLocaleString()} geolocated film locations across ${meta.films.toLocaleString()} films, researched and compiled by Metatake Editorial from public sources (production records, press kits, encyclopedic references). Each location carries the scene it hosts, a precision label, and its source where on file; filmed places are kept distinct from the places a story claims as its setting.`,
-    creator: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
-    publisher: { "@type": "Organization", "@id": "https://metatake.net/#org", name: "Metatake" },
-    ...(meta.updated ? { dateModified: meta.updated } : {}),
-    isAccessibleForFree: true,
+    ...filmingLocationsDataset({ pins: meta.pins, films: meta.films, updated: meta.updated }),
   };
   return (
     <div className="mt">

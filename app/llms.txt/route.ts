@@ -39,6 +39,17 @@ ${methodology}
 Open questions on film criticism and theory by editor Wonwoo Yoon, under ${SITE}/poetics.
 ${POE_ESSAYS.filter((e) => POE_BODIES[e.slug]).map((e) => `- ${SITE}${poeHref(e.slug)} — ${e.title}: ${e.desc}`).join("\n")}
 
+## For machines — API, MCP & datasets
+Metatake is readable by agents and code, no key required. License: writing CC BY-NC 4.0, filming-locations geodata CC BY 4.0 — attribution required. Bulk/commercial licensing: ${SITE}/partners.
+- REST API (no-key, read-only JSON): ${SITE}/api/v1 — OpenAPI schema at ${SITE}/api/v1/openapi.json
+  - Search films:  curl "${SITE}/api/v1/films?q=mulholland+drive"
+  - One film:      curl "${SITE}/api/v1/films/mulholland-drive-2001"
+  - A TakeScore:   curl "${SITE}/api/v1/takescore/mulholland-drive-2001"
+  - Locations:     curl "${SITE}/api/v1/locations?film=mulholland-drive-2001"
+- MCP server (live, for Claude / ChatGPT / any MCP client): ${SITE}/api/mcp (Streamable HTTP, JSON-RPC 2.0). Tools: search, fetch (deep-research compatible), search_films, get_film_criticism, get_takescore, find_connected_films. Setup: ${SITE}/mcp
+- Open datasets: ${SITE}/data — filming-locations on Hugging Face + Zenodo (DOI 10.5281/zenodo.21336967, cite as "Metatake Film Filming-Locations Dataset").
+- Every API and MCP result carries a canonical source link and the license — please keep the attribution when you reuse it.
+
 ## Sources & attribution
 Film stills and posters are from TMDB. External rating metrics are from an open ratings source; award histories from Wikidata. Readings, figures, tropes, connections, TakeScore, the lineage structure and location pins are original to Metatake.
 

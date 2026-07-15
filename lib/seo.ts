@@ -197,6 +197,54 @@ export const SOCIAL_PROFILES: string[] = [
   "https://x.com/wonwooyoonje",
 ];
 
+/**
+ * Entity-identity resolvers (HANDOFF-AI봇맞이하기.md §0.4 — the ③ trust gate).
+ * Answer engines verify ENTITIES, not phrases: until "Metatake" / metatake.net /
+ * net.metatake/mcp / "Wonwoo Yoon" resolve to one Wikidata item each, credit for
+ * a cited reading scatters across name variants. Set these to the Wikidata URIs
+ * ONCE the owner creates the items (accounts + notability are the owner's job —
+ * do NOT ship a fabricated Q-ID; a wrong sameAs is worse than none). When set,
+ * they flow into Organization.sameAs (app/layout.tsx) and the founder Person node.
+ */
+export const WIKIDATA_ORG_URI: string | null = null; // e.g. "https://www.wikidata.org/wiki/Q…"
+export const WIKIDATA_PERSON_URI: string | null = null; // Wonwoo Yoon's item, once notable
+// ⚠️ A first self-authored item (Q140434620) was DELETED at Wikidata RFD 2026-07-12
+// for failing WD:N (self-published sources don't count). Do NOT point sameAs at a
+// deleted item — recreate WITH independent third-party references (§2.7) first.
+
+/**
+ * ORCID iD for the editor — a notability-free scholarly identifier that Wikidata
+ * deletion cannot touch. A legitimate, durable sameAs for the Person node that
+ * starts closing the ③ entity-identity gap without waiting on Wikidata.
+ */
+export const WONWOO_ORCID = "https://orcid.org/0009-0006-4641-5262";
+
+/** Organization.sameAs = social profiles + any resolved Wikidata item. */
+export const ORG_SAME_AS: string[] = [
+  ...SOCIAL_PROFILES,
+  ...(WIKIDATA_ORG_URI ? [WIKIDATA_ORG_URI] : []),
+];
+
+/** Person.sameAs for the editor — ORCID now, Wikidata person URI once notable. */
+export const PERSON_SAME_AS: string[] = [
+  WONWOO_ORCID,
+  ...(WIKIDATA_PERSON_URI ? [WIKIDATA_PERSON_URI] : []),
+];
+
+/**
+ * knowsAbout — the org's subject-matter expertise, an E-E-A-T signal that helps
+ * an answer engine decide "why this source" for a film-criticism query. Shared
+ * by the Organization node and the /partners proposal graph so they never drift.
+ */
+export const KNOWS_ABOUT: string[] = [
+  "Film criticism",
+  "Film theory",
+  "Film studies",
+  "Cinema",
+  "Film analysis",
+  "Filming locations",
+];
+
 export const INDEX_COHORT_READINGS = 2000; // /take/* pages in sitemap
 export const INDEX_COHORT_MISREADINGS = 2000; // /film/*/misreadings articles in sitemap (added 2026-07-07)
 export const INDEX_COHORT_FILM_CREDITS = 1000; // /film/*/credits pages in sitemap (added 2026-07-08)

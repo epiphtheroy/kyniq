@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
 import { pageRobots } from "@/lib/seo";
+import { filmingLocationsDataset, filmCriticismDataset } from "@/lib/datasets";
 
 export const metadata: Metadata = {
   title: { absolute: "Metatake Data — Open Dataset, API, MCP" },
@@ -14,9 +15,18 @@ export const metadata: Metadata = {
 const HF = "https://huggingface.co/datasets/wonwooyoon/metatake-filming-locations";
 const ZENODO = "https://doi.org/10.5281/zenodo.21336967";
 
+// Dataset JSON-LD for the distribution hub — both open datasets declared with
+// license + DataDownload[] + DOI so Google Dataset Search indexes them and a
+// vendor-research agent can confirm "real, licensed, downloadable" (§2.2).
+const datasetGraph = {
+  "@context": "https://schema.org",
+  "@graph": [filmingLocationsDataset(), filmCriticismDataset()],
+};
+
 export default function DataPage() {
   return (
     <div className="mt">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetGraph) }} />
       <SiteNav />
       <div className="mt-wrap">
         <div className="mt-crumb"><Link href="/about">About</Link></div>

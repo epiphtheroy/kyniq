@@ -126,6 +126,8 @@ export async function coreEntries(): Promise<SitemapEntry[]> {
     { url: `${siteUrl}/where-to-watch` },
     { url: `${siteUrl}/network` },
     { url: `${siteUrl}/locations` },
+    { url: `${siteUrl}/data` }, // dataset distribution hub (Dataset JSON-LD)
+    { url: `${siteUrl}/partners` }, // machine-readable B2B proposal (§2.1)
   ];
   // Strong Misreadings — the 14 framework hubs.
   for (const f of BROWSABLE) {

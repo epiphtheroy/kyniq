@@ -51,6 +51,9 @@ export default function Footer() {
             <Link href="/data" className="footer-link">
               Open data
             </Link>
+            <Link href="/partners" className="footer-link">
+              Partner with us
+            </Link>
             <Link href="/methodology" className="footer-link">
               Methodology
             </Link>

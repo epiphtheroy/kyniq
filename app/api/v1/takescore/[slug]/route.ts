@@ -6,7 +6,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
-import { shapeTakeScore, filmUrl, citeAs, LICENSE } from "@/lib/apiv1";
+import { shapeTakeScore, filmUrl, citeAs, attribution } from "@/lib/apiv1";
 import type { FilmPack } from "@/lib/pack";
 
 export const runtime = "nodejs";
@@ -26,12 +26,12 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
   }
 
   const { data, error } = await db.rpc("film_context_pack", { p_slug: slug, p_tier: "full" });
-  if (error) return NextResponse.json({ error: error.message }, { status: 500, headers: API_CORS });
-  if (!data) return NextResponse.json({ error: `No film found for slug "${slug}".` }, { status: 404, headers: API_CORS });
+  if (error) return NextResponse.json({ error: error.message, error_code: "pack_failed" }, { status: 500, headers: API_CORS });
+  if (!data) return NextResponse.json({ error: `No film found for slug "${slug}".`, error_code: "not_found" }, { status: 404, headers: API_CORS });
 
   const pack = data as FilmPack;
   const ts = shapeTakeScore(pack);
-  if (!ts) return NextResponse.json({ error: `No TakeScore for "${slug}" yet.` }, { status: 404, headers: API_CORS });
+  if (!ts) return NextResponse.json({ error: `No TakeScore for "${slug}" yet.`, error_code: "no_takescore" }, { status: 404, headers: API_CORS });
 
   return NextResponse.json(
     {
@@ -42,8 +42,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
       scale: "Value = what the film delivers (higher better) · Cost = prior knowledge demanded · Risk = how it can fail as art (higher worse). Net TakeScore blends them.",
       url: filmUrl(pack.film.slug),
       methodology: "https://metatake.net/methodology#rankings",
-      license: LICENSE,
       cite_as: citeAs(pack),
+      ...attribution(filmUrl(pack.film.slug), pack.generated_at),
     },
     { headers: { ...API_CORS, "cache-control": "public, s-maxage=86400, stale-while-revalidate=604800" } }
   );

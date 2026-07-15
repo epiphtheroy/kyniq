@@ -46,6 +46,7 @@ import { pageRobots } from "@/lib/seo";
 import { filmMainIndexable } from "@/lib/filmGate";
 import { displayTs } from "@/lib/cinecodex_dims";
 import { verdictShort } from "@/lib/takescore_prose";
+import { filmLead } from "@/lib/lead";
 import { ruleFigureQuestion } from "@/lib/figureSeo";
 import { FILM_LOCATIONS_MIN, mergeCells, mergePins, type GeoPin } from "@/lib/locations";
 import { FILM_HONORS_MIN, honorText, loadLineageListMeta } from "@/lib/lineage";
@@ -917,6 +918,10 @@ export default async function FilmPage({ params }: Props) {
                   <Link href={`/film/${f.slug}`} target="_top" className="df-h1link">{f.title}</Link> <span className="df-yr">({f.year ?? "?"})</span>
                   {nativeTitle ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({nativeTitle})</span> : null}
                 </h1>
+                {/* BLUF lead (§1.1) — answer-first dek; same string as the pack + API digest. */}
+                <p className="df-lead" style={{ margin: "8px 0 2px", fontSize: "1.02rem", lineHeight: 1.5, maxWidth: "64ch" }}>
+                  {filmLead({ title: f.title, year: f.year, director: f.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null })}
+                </p>
                 {f.director && dirSlug ? (
                   <Link className="df-dircard" href={`/director/${dirSlug}`}>
                     {directorPhoto ? (
@@ -1357,6 +1362,10 @@ export default async function FilmPage({ params }: Props) {
             ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
             <div className="df-htxt">
               <h1><Link href={`/film/${film.slug}`} target="_top" className="df-h1link">{film.title}</Link> <span className="df-yr">({film.year ?? "?"})</span></h1>
+              {/* BLUF lead (§1.1) — answer-first dek; same string as the pack + API digest. */}
+              <p className="df-lead" style={{ margin: "8px 0 2px", fontSize: "1.02rem", lineHeight: 1.5, maxWidth: "64ch" }}>
+                {filmLead({ title: film.title, year: film.year, director: film.director, takescore: _cx ? { value: _cx.v, cost: _cx.c, risk: _cx.r, net: _cx.v - _cx.r } : null })}
+              </p>
               {film.director && film.director_slug ? (
                 <Link className="df-dircard" href={`/director/${film.director_slug}`}>
                   {directorPhoto ? (

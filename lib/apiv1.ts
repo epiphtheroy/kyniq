@@ -6,9 +6,11 @@
  */
 import type { FilmPack } from "@/lib/pack";
 import { CODEX_DIMS } from "@/lib/cinecodex_dims";
+import { filmLead } from "@/lib/lead";
 
 const SITE = "https://metatake.net";
 export const LICENSE = "CC BY-NC 4.0 (attribution required)";
+export const ATTRIBUTION = "Metatake";
 
 export function filmUrl(slug: string): string {
   return `${SITE}/film/${slug}`;
@@ -16,6 +18,23 @@ export function filmUrl(slug: string): string {
 export function citeAs(pack: Pick<FilmPack, "film" | "source_url">): string {
   const y = pack.film.year ? ` (${pack.film.year})` : "";
   return `Metatake — ${pack.film.title}${y}: ${pack.source_url || filmUrl(pack.film.slug)} (${LICENSE})`;
+}
+
+/**
+ * Standard attribution block, stamped in-band on every REST/MCP result object
+ * (HANDOFF-AI봇맞이하기.md §2.4). CC BY-NC is only a legal backstop — it cannot
+ * force attribution — so the credit rides IN the payload: canonical_url +
+ * attribution + license + as_of travel with the data even when it is scraped and
+ * re-pasted, turning "raw material" into a named source. `as_of` is the data's
+ * freshness date (the pack's generated_at) when known, else today.
+ */
+export function attribution(canonicalUrl: string, asOf?: string | null) {
+  return {
+    attribution: ATTRIBUTION,
+    canonical_url: canonicalUrl,
+    license: LICENSE,
+    as_of: (asOf && asOf.slice(0, 10)) || new Date().toISOString().slice(0, 10),
+  };
 }
 
 export interface TakeScoreShape {
@@ -77,8 +96,17 @@ export function shapeFilm(pack: FilmPack) {
     kindred: (pack.kindred ?? []).filter((k) => k.title).map((k) => ({
       title: k.title, year: k.year ?? null, slug: k.slug ?? null, shared_threads: k.shared_threads,
     })),
+    // Answer-first BLUF digest (§1.1) — byte-identical to the film page + pack lead.
+    digest: filmLead({
+      title: pack.film.title,
+      year: pack.film.year,
+      director: pack.film.director,
+      takescore: pack.takescore
+        ? { value: pack.takescore.value, cost: pack.takescore.cost, risk: pack.takescore.risk, net: pack.takescore.score }
+        : null,
+    }),
     url: filmUrl(pack.film.slug),
-    license: LICENSE,
     cite_as: citeAs(pack),
+    ...attribution(filmUrl(pack.film.slug), pack.generated_at),
   };
 }

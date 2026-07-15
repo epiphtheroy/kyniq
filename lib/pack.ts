@@ -9,6 +9,7 @@
  * the RPC layer and never reach here.
  */
 import { CODEX_DIMS, displayTs } from "@/lib/cinecodex_dims";
+import { filmLead } from "@/lib/lead";
 
 export type PackTier = "trim" | "full";
 
@@ -96,6 +97,18 @@ function identityLine(p: FilmPack): string {
   ids.push(`metatake ${p.film.slug}`);
   bits.push(`IDs: ${ids.join(" · ")}`);
   return bits.join(" · ");
+}
+
+/** BLUF lead — the answer-first line (§1.1), byte-identical to the film page + API digest. */
+function packLead(p: FilmPack): string {
+  return filmLead({
+    title: p.film.title,
+    year: p.film.year,
+    director: p.film.director,
+    takescore: p.takescore
+      ? { value: p.takescore.value, cost: p.takescore.cost, risk: p.takescore.risk, net: p.takescore.score }
+      : null,
+  });
 }
 
 function takeScoreSection(p: FilmPack): string {
@@ -323,6 +336,7 @@ export function renderPackMarkdown(p: FilmPack): string {
 
   const sections = [
     header,
+    ["## In brief", packLead(p)].join("\n"), // answer-first BLUF lead (§1.1)
     HOW_TO_USE,
     takeScoreSection(p),
     standingAndHonors(p),

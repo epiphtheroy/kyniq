@@ -28,7 +28,7 @@ export async function GET(req: Request) {
 
   if (!film && !country) {
     return NextResponse.json(
-      { error: "Give ?film=<slug> or ?country=<name>. For the whole dataset (CC BY), see https://metatake.net/data." },
+      { error: "Give ?film=<slug> or ?country=<name>. For the whole dataset (CC BY), see https://metatake.net/data.", error_code: "missing_param" },
       { status: 400, headers: API_CORS }
     );
   }
@@ -39,17 +39,23 @@ export async function GET(req: Request) {
   }
 
   const { data, error } = await db.rpc("api_locations_json", { p_film: film, p_country: country, p_limit: limit });
-  if (error) return NextResponse.json({ error: error.message }, { status: 500, headers: API_CORS });
+  if (error) return NextResponse.json({ error: error.message, error_code: "query_failed" }, { status: 500, headers: API_CORS });
 
   const payload = (data ?? { count: 0, locations: [] }) as { count: number; locations: unknown[] };
+  const canonicalUrl = film ? `https://metatake.net/film/locations/${film}` : "https://metatake.net/locations";
   return NextResponse.json(
     {
       ...(film ? { film } : {}),
       ...(country ? { country } : {}),
-      count: payload.count,
+      count: payload.count,        // 0 with locations:[] is a valid empty result, NOT an error
       limit,
+      next_cursor: null,           // raise ?limit= (max 200) for more; single-page today
       locations: payload.locations,
+      // Geodata is CC BY 4.0 (commercial reuse OK) — distinct from the CC BY-NC criticism.
+      attribution: "Metatake",
+      canonical_url: canonicalUrl,
       license: "CC BY 4.0 (attribution required)",
+      as_of: new Date().toISOString().slice(0, 10),
       note: "Filming-location geodata by Metatake (metatake.net), CC BY 4.0 — free to reuse (incl. commercially) with attribution. (Metatake's written criticism elsewhere is CC BY-NC.) Full open dataset: https://metatake.net/data.",
     },
     { headers: { ...API_CORS, "cache-control": "public, s-maxage=86400, stale-while-revalidate=604800" } }

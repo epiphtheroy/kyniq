@@ -6,7 +6,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
-import { filmUrl } from "@/lib/apiv1";
+import { filmUrl, attribution } from "@/lib/apiv1";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,8 +35,10 @@ export async function GET(req: Request) {
   }
 
   const { data, error } = await db.rpc("films_basic_search", { p_q: q, p_year: year });
-  if (error) return NextResponse.json({ error: error.message }, { status: 500, headers: API_CORS });
-  const films = (Array.isArray(data) ? data : []).slice(0, limit) as FilmRow[];
+  if (error) return NextResponse.json({ error: error.message, error_code: "search_failed" }, { status: 500, headers: API_CORS });
+  const allRows = (Array.isArray(data) ? data : []) as FilmRow[];
+  const total = allRows.length;
+  const films = allRows.slice(0, limit);
 
   // Attach TakeScores in one bulk call (best-effort).
   const ts = new Map<string, number>();
@@ -53,7 +55,9 @@ export async function GET(req: Request) {
   return NextResponse.json(
     {
       query: q,
-      count: films.length,
+      count: films.length,        // rows returned in this response
+      total_count: total,         // rows matched before the limit
+      next_cursor: null,          // pagination contract (title-search is single-page)
       films: films.map((f) => ({
         slug: f.slug,
         title: f.title,
@@ -64,8 +68,8 @@ export async function GET(req: Request) {
         analyzed: f.is_analyzed === true,
         url: filmUrl(f.slug),
       })),
-      license: "CC BY-NC 4.0 (attribution required)",
       docs: "https://metatake.net/api",
+      ...attribution(`https://metatake.net/api/v1/films?q=${encodeURIComponent(q)}`),
     },
     { headers: { ...API_CORS, "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400" } }
   );

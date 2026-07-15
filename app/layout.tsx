@@ -6,7 +6,7 @@ import GlobalCmdK from "@/components/GlobalCmdK";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
-import { pageRobots, SOCIAL_PROFILES } from "@/lib/seo";
+import { pageRobots, ORG_SAME_AS, KNOWS_ABOUT, PERSON_SAME_AS } from "@/lib/seo";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://metatake.net";
@@ -92,11 +92,24 @@ const organizationJsonLd = {
     "@id": `${siteUrl}/editor#person`,
     name: "Wonwoo Yoon",
     url: `${siteUrl}/editor`,
+    // Editor + lead author of the criticism; PhD (Kyung Hee University, 2022).
+    // NOT a professor — do not add a professor jobTitle (editor-identity policy).
+    jobTitle: "Editor",
+    knowsAbout: ["Film criticism", "Film theory"],
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Kyung Hee University" },
+    ...(PERSON_SAME_AS.length > 0 ? { sameAs: PERSON_SAME_AS } : {}),
   },
   description:
     "A critical map of cinema — nearly 7,000 films connected through 70,000+ close readings in one embedding space.",
+  knowsAbout: KNOWS_ABOUT,
   email: "wonwoo@metatake.net",
-  ...(SOCIAL_PROFILES.length > 0 ? { sameAs: SOCIAL_PROFILES } : {}),
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "business partnerships",
+    email: "wonwoo@metatake.net",
+    url: `${siteUrl}/partners`,
+  },
+  ...(ORG_SAME_AS.length > 0 ? { sameAs: ORG_SAME_AS } : {}),
 };
 
 // WebSite schema: qualifies the site-name display in SERPs and the sitelinks

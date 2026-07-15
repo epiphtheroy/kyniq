@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/home2/SiteNav";
-import { pageRobots } from "@/lib/seo";
+import { pageRobots, WONWOO_ORCID } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Wonwoo Yoon — Founder & Editor",
@@ -46,7 +46,7 @@ export default function EditorPage() {
       },
       homeLocation: { "@type": "Place", name: "Seoul, Republic of Korea" },
       description: BIO,
-      sameAs: [KYOBO_AUTHOR_URL, RISS_THESIS_URL],
+      sameAs: [WONWOO_ORCID, KYOBO_AUTHOR_URL, RISS_THESIS_URL],
       knowsAbout: [
         "Film criticism",
         "Film interpretation",

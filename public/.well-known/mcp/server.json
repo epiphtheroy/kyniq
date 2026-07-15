@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "net.metatake/mcp",
+  "title": "Metatake — film criticism",
+  "description": "Original, human-curated film criticism for 6,700+ films: multi-framework close readings, the 13-dimension TakeScore, canon lineage, filming locations, tropes and kindred films. Free, no key. Deep-research compatible (search + fetch tools). Example: \"What does the blue box in Mulholland Drive mean, on Metatake?\" License CC BY-NC 4.0 — attribution required. Bulk/commercial: https://metatake.net/partners.",
+  "websiteUrl": "https://metatake.net/mcp",
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://metatake.net/api/mcp"
+    }
+  ]
+}
