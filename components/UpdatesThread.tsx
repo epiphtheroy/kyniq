@@ -75,8 +75,11 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
     if (idx < 0) return;
     setCat("all");
     setPage(Math.floor(idx / PAGE_SIZE) + 1);
+    // instant, not smooth: the site sets html{scroll-behavior:smooth} globally,
+    // and a smooth programmatic scroll to a far target here is silently dropped
+    // by the browser — instant is the only reliable option.
     requestAnimationFrame(() => {
-      document.getElementById(raw)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById(raw)?.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
     });
   }, [posts]);
 
@@ -91,7 +94,9 @@ export default function UpdatesThread({ posts }: { posts: UpdatePost[] }) {
   useEffect(() => {
     if (!navScrollRef.current) return;
     navScrollRef.current = false;
-    document.getElementById("upd-top")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // instant, not smooth — see goToHash: global scroll-behavior:smooth drops
+    // far programmatic scrolls, so force an instant jump to the thread top.
+    document.getElementById("upd-top")?.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
   }, [safePage, cat]);
 
   const changePage = (n: number) => {
