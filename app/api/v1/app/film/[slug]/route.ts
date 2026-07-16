@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { guardAndLog, API_CORS, TOO_MANY } from "@/lib/apiGuard";
+import { mergePins, type GeoPin } from "@/lib/locations";
 
 /**
  * Mobile BFF — Film card (HANDOFF-모바일앱-프리워치.md §7).
@@ -118,18 +119,27 @@ export async function GET(req: Request, { params }: Params) {
       rank_max: l.rank_max,
     }));
 
-    type Pin = {
-      id: number | string;
-      name: string;
-      lat: number;
-      lng: number;
-      country: string | null;
-      layer: string;
-    };
-    const geoRows = (geoRes.data ?? []) as Pin[];
+    // Same fusion the web film page applies (mergePins), plus a
+    // diacritic-insensitive pass mergePins can't do (its name key is byte-wise,
+    // so "Shochiku Ōfuna Studio" and "Shochiku Ofuna Studio" survived as two
+    // pins at the same coordinates).
+    const geoRows = mergePins((geoRes.data ?? []) as GeoPin[]);
+    const seenLoc = new Set<string>();
+    const fused = geoRows.filter((p) => {
+      const seg = (p.name ?? "")
+        .split(",")[0]
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .trim()
+        .toLowerCase();
+      const key = `${seg}:${(p.country ?? "").trim()}:${p.layer}`;
+      if (seenLoc.has(key)) return false;
+      seenLoc.add(key);
+      return true;
+    });
     const locations = {
-      count: geoRows.length,
-      pins: geoRows.slice(0, 12).map((p) => ({
+      count: fused.length,
+      pins: fused.slice(0, 12).map((p) => ({
         id: p.id,
         name: p.name,
         lat: p.lat,

@@ -92,6 +92,7 @@ export const ja: Record<keyof typeof en, string> = {
   "director.theory": "理論",
   "director.misreadings": "ミスリーディング",
   "director.fullPage": "全ページ",
+  "common.cancel": "キャンセル",
   "common.soon": "近日対応",
   "common.more": "もっと見る",
   "common.showAll": "{n}件すべて表示",

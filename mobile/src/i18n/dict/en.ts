@@ -106,6 +106,7 @@ export const en = {
   "director.misreadings": "Misreadings",
   "director.fullPage": "Full page",
   // common
+  "common.cancel": "Cancel",
   "common.soon": "Soon",
   "common.more": "More",
   "common.showAll": "Show all {n}",

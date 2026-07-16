@@ -15,6 +15,14 @@ export const maxDuration = 15;
 const CACHE = "public, s-maxage=900, stale-while-revalidate=3600";
 const PAGE = 40;
 
+/** First sentence of an invitation, capped for a lobby card. */
+function firstSentence(prose: string): string {
+  const text = prose.trim().replace(/\s+/g, " ");
+  const m = text.match(/^.{40,220}?[.!?](?=\s|$)/);
+  if (m) return m[0];
+  return text.length > 180 ? `${text.slice(0, 177).replace(/\s+\S*$/, "")}…` : text;
+}
+
 export async function OPTIONS() {
   return new NextResponse(null, { status: 204, headers: API_CORS });
 }
@@ -95,13 +103,53 @@ export async function GET(req: Request) {
       ]),
     );
 
+    // One-line invite per card (§5.2): the page's invitations in two batched
+    // queries (films → figures → invitation takes), never per-film loops.
+    // Tier-2 rows simply have no invitation and render without a lead.
+    const leadMap = new Map<string, string>();
+    const idMap = new Map<string, string>();
+    if (slugs.length) {
+      try {
+        const { data: filmRows } = await db.from("films").select("id, slug").in("slug", slugs);
+        const slugById = new Map(
+          ((filmRows ?? []) as { id: string; slug: string }[]).map((f) => [f.id, f.slug]),
+        );
+        for (const [id, slug] of slugById) idMap.set(slug, id);
+        if (slugById.size) {
+          const { data: figRows } = await db
+            .from("figures")
+            .select("id, film_id")
+            .in("film_id", [...slugById.keys()])
+            .eq("status", "approved");
+          const filmByFig = new Map(
+            ((figRows ?? []) as { id: string; film_id: string }[]).map((f) => [f.id, f.film_id]),
+          );
+          if (filmByFig.size) {
+            const { data: invRows } = await db
+              .from("takes")
+              .select("figure_id, rationale")
+              .in("figure_id", [...filmByFig.keys()])
+              .eq("status", "published")
+              .eq("is_invitation", true);
+            for (const t of (invRows ?? []) as { figure_id: string; rationale: string | null }[]) {
+              const slug = slugById.get(filmByFig.get(t.figure_id) ?? "");
+              if (!slug || !t.rationale || leadMap.has(slug)) continue;
+              leadMap.set(slug, firstSentence(t.rationale));
+            }
+          }
+        }
+      } catch {
+        /* leads are optional decoration — never fail the feed for them */
+      }
+    }
+
     return NextResponse.json(
       {
         v: 1,
         country,
         total: page.total,
         rows: page.rows.map((r) => ({
-          film_id: null,
+          film_id: idMap.get(r.slug) ?? null,
           slug: r.slug,
           title: r.title,
           year: r.year,
@@ -110,7 +158,7 @@ export async function GET(req: Request) {
           director_slug: r.director_slug ?? null,
           ts: tsMap.get(r.slug) ?? null,
           tiers: tierMap.get(r.slug) ?? [],
-          lead: null,
+          lead: leadMap.get(r.slug) ?? null,
         })),
       },
       { headers: { ...API_CORS, "cache-control": CACHE } },

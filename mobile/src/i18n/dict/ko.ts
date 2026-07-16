@@ -93,6 +93,7 @@ export const ko: Record<keyof typeof en, string> = {
   "director.theory": "이론",
   "director.misreadings": "미스리딩",
   "director.fullPage": "전체 페이지",
+  "common.cancel": "취소",
   "common.soon": "준비 중",
   "common.more": "더 보기",
   "common.showAll": "전체 {n}개 보기",

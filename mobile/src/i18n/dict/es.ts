@@ -92,6 +92,7 @@ export const es: Record<keyof typeof en, string> = {
   "director.theory": "Teoría",
   "director.misreadings": "Misreadings",
   "director.fullPage": "Página completa",
+  "common.cancel": "Cancelar",
   "common.soon": "Próximamente",
   "common.more": "Más",
   "common.showAll": "Ver los {n}",
