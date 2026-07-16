@@ -263,6 +263,7 @@ export const INDEX_COHORT_FILM_HONORS = 500; // /film/*/honors pages in sitemap 
 export const INDEX_COHORT_ESSAYS = 300; // /film/*/{desk} Engine Room essays cohort 1 (added 2026-07-07; ~1,650 eligible EN)
 export const INDEX_COHORT_ESSAYS_KO = 300; // /film/*/{desk}/ko Korean essays cohort 1 (added 2026-07-08; ~1,613 eligible KO)
 export const INDEX_COHORT_FILMS_T2 = 300; // consolidated Tier-2 film mains in sitemap (added 2026-07-14; 1,105 eligible via filmIndexBar). Raise on the standard weekly GSC-evidence rule.
+export const INDEX_COHORT_FILMS_KO = 300; // /ko/film/* mains (added 2026-07-16). Selected for Korean substance, not row age — see §6.5: Tier-2 digest-first + overview_ko first. Raise on the standard weekly GSC-evidence rule.
 
 
 

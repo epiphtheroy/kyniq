@@ -14,6 +14,7 @@ import {
   INDEX_COHORT_FILM_CREDITS,
   INDEX_COHORT_ESSAYS_KO,
   INDEX_COHORT_FILMS_T2,
+  INDEX_COHORT_FILMS_KO,
   filmIndexBar,
   type FilmIndexSignals,
 } from "@/lib/seo";
@@ -612,6 +613,70 @@ export async function filmEntries(): Promise<SitemapEntry[]> {
       ...(s.created_at ? { lastmod: isoDate(s.created_at) } : {}),
     }));
   return [...base, ...tier2];
+}
+
+/**
+ * /ko/film/* mains — the Korean projection sitemap (work order §6.2, §6.3, §6.5).
+ *
+ * Strict subset of the indexable set, twice over:
+ *   1. §6.2 gate — a film is here only when it has a real ko title AND overview
+ *      (the same bar the ko page uses for its own robots), so this shard never
+ *      lists a URL the page itself noindexes.
+ *   2. §6.5 selection — capped at INDEX_COHORT_FILMS_KO, ordered by Korean
+ *      substance rather than row age: Tier-2 catalog films first (their
+ *      deterministic digest IS the body, so a template translation makes the page
+ *      almost fully Korean — the least mixed-language, lowest canonical-folding
+ *      risk), then the rest with a ko overview. Append-only: raising the cap only
+ *      appends, on the weekly GSC-evidence rule.
+ *
+ * Before migration 0105 the _ko columns don't exist; the select 400s, fetchAll's
+ * caller-degrades rule yields [], and the shard is simply empty. No crash, no
+ * bad URLs — the sitemap grows itself once the backfill lands.
+ */
+export async function filmsKoEntries(): Promise<SitemapEntry[]> {
+  if (!SITE_INDEXABLE) return [];
+  const supabase = db();
+  type Row = { slug: string; is_analyzed: boolean; created_at: string; last_processed_at: string | null };
+  let rows: Row[];
+  try {
+    rows = await fetchAll<Row>(
+      (from, to) =>
+        supabase
+          .from("films")
+          .select("slug, is_analyzed, created_at, last_processed_at")
+          .eq("visible", true)
+          .not("title_ko", "is", null)
+          .not("overview_ko", "is", null)
+          .order("slug")
+          .range(from, to) as unknown as PromiseLike<{ data: Row[] | null }>,
+    );
+  } catch {
+    return []; // columns absent (pre-0105) or read failed — empty shard, not a broken build
+  }
+  // A ko page is only advertised when its English twin also clears the gate
+  // (the ko robots inherits it): intersect with the roster.
+  let roster: Record<string, FilmIndexSignals> = {};
+  try {
+    roster = await filmIndexRoster();
+  } catch {
+    roster = {};
+  }
+  const eligible = rows.filter((r) => {
+    const sig = roster[r.slug];
+    // Tier-1 visible films are always gate-passing; Tier-2 must clear filmIndexBar.
+    return r.is_analyzed ? true : sig ? filmIndexBar(sig) : false;
+  });
+  // §6.5 ordering: Tier-2 catalog records (digest-first, least mixed-language)
+  // ahead of Tier-1, then oldest-first within each so the cohort is deterministic
+  // and append-only.
+  eligible.sort((a, b) => {
+    if (a.is_analyzed !== b.is_analyzed) return a.is_analyzed ? 1 : -1;
+    return (a.created_at ?? "").localeCompare(b.created_at ?? "");
+  });
+  return eligible.slice(0, INDEX_COHORT_FILMS_KO).map((f) => ({
+    url: `${siteUrl}/ko/film/${f.slug}`,
+    lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
+  }));
 }
 
 /** /movies-like/* companions — one per visible film. */
