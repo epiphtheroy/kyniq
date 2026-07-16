@@ -203,7 +203,7 @@ def _locations_module(env: dict, film: dict, mid: str) -> dict | None:
             "title": f"Where it was shot — {film['title']}",
             "note": "Geolocated shooting and setting places behind the Atlas.",
             "columns": ["Place", "In the film"], "rows": body,
-            "more_href": f"/film/atlas/{film['slug']}"}
+            "more_href": f"/film/locations/{film['slug']}"}
 
 
 def _misreadings_module(env: dict, film: dict, mid: str) -> dict | None:
@@ -224,7 +224,7 @@ def _misreadings_module(env: dict, film: dict, mid: str) -> dict | None:
     return {"id": mid, "type": "misreadings",
             "title": f"Strong misreadings — {film['title']}",
             "note": "Readings the corpus already holds against this film's figures.",
-            "items": items[:8], "more_href": f"/film/{film['slug']}/misreadings"}
+            "items": items[:8], "more_href": f"/film/meaning/{film['slug']}"}
 
 
 def _essays_module(env: dict, film: dict, mid: str) -> dict | None:
@@ -264,9 +264,9 @@ def _film_archive_links(env: dict, film: dict, modules: list[dict]) -> list[dict
     if "canon" in types:
         links.append({"label": f"{title} in the canon", "href": f"/film/lineage/{slug}", "note": "the record in the lists and prizes"})
     if "locations" in types:
-        links.append({"label": f"Where {title} was shot", "href": f"/film/atlas/{slug}", "note": "every mapped place"})
+        links.append({"label": f"Where {title} was shot", "href": f"/film/locations/{slug}", "note": "every mapped place"})
     if "misreadings" in types:
-        links.append({"label": f"Strong misreadings of {title}", "href": f"/film/{slug}/misreadings", "note": "the readings, assembled"})
+        links.append({"label": f"Strong misreadings of {title}", "href": f"/film/meaning/{slug}", "note": "the readings, assembled"})
 
     # movies-like (kinship connections)
     kin = sb_get(env, f"film_affinities?select=film_id&film_id=eq.{fid}&limit=1")
