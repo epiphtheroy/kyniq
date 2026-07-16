@@ -623,4 +623,17 @@ export const KO: Record<string, string> = {
   "Confidence": "신뢰도",
   "A measured reliability, not a claim of certainty.": "확실성의 주장이 아니라 측정된 신뢰도.",
   "View the full appraisal →": "전체 평가 보기 →",
+
+  // ── audit fill (split fragments + lowercase stat labels) ──
+  "figures": "피겨",
+  "strong misreadings": "강한 오독",
+  "tropes": "트로프",
+  "Cross-film types {title} instantiates — shared under": "{title}가 구현하는, 영화를 가로지르는 유형 — 다음에서 공유된다:",
+  "Via": "경유",
+  "= the figure that carries it.": "= 그것을 나르는 피겨.",
+  "What {title}'s figures": "{title}의 피겨가 무엇인지",
+  "The questions viewers keep asking about {title} — answered in full on": "관객이 {title}에 대해 계속 묻는 질문들 — 전문으로 답하는 곳:",
+  ", the Metatake question desk. Spoiler-heavy titles are masked.": ", Metatake의 질문 데스크. 결말을 건드리는 제목은 가려 둔다.",
+  "When the news rhymed with {title} — editions of": "뉴스가 {title}와 운을 맞춘 날 — 다음의 판본들:",
+  ", Metatake's daily, that filed this film against the day's events.": ", 이 영화를 그날의 사건과 나란히 놓은 Metatake의 일간지.",
 };
