@@ -294,3 +294,9 @@
 
 .rd-share{margin:14px 0 2px}
 
+
+/* i18n — "영어 원문" marker on blocks left in English on a projected-locale page
+   (HANDOFF-KO프로젝션-한국어사이트.md §1.1 decision ②). Quiet, inline, non-intrusive. */
+.i18n-en-orig{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:999px;
+  font-size:11px;font-weight:600;vertical-align:middle;
+  background:rgba(0,0,0,.055);color:rgba(0,0,0,.5);letter-spacing:.01em;cursor:help}

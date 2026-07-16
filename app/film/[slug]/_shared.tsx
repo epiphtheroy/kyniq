@@ -3,6 +3,7 @@ import { t, intlTag, LOCALES, DEFAULT_LOCALE, PROJECTED_LOCALES, type Locale } f
 import { locVal, hasLocVal } from "@/lib/i18n/values";
 import { genreName } from "@/lib/i18n/genres";
 import { localeAlternates, indexableLocales, type LocaleCols } from "@/lib/i18n/seo";
+import EnglishOriginalLabel from "@/components/i18n/EnglishOriginalLabel";
 import type { CSSProperties } from "react";
 import { unstable_cache } from "next/cache";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -753,6 +754,12 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
   // sibling. Kept as a helper so the two render branches read the same way.
   const loc = <T extends Record<string, unknown>>(row: T, field: keyof T & string): string | null =>
     locVal({ ...row, ...i18n }, field, locale);
+  // lang="en" for a container of DB-verbatim English prose on a projected page
+  // (§1.1 decision ②): undefined on the source locale so the EN DOM is unchanged.
+  // Paired with an <EnglishOriginalLabel/> in the section header. The few Korean
+  // chrome labels inside such a section (via, The leap) are short and harmless if
+  // a browser re-translates them.
+  const enOrig: "en" | undefined = locale === DEFAULT_LOCALE ? undefined : "en";
   // Director face photo (shown under the title in both render branches).
   const anyData = data as { minimal?: boolean; directorSlug?: string | null; film?: { director_slug?: string | null } };
   const directorPhoto = await loadDirectorPhoto(anyData.minimal ? (anyData.directorSlug ?? null) : (anyData.film?.director_slug ?? null));
@@ -1603,15 +1610,15 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
           <section className="df-sec" id="df-readings">
-            <h2 className="df-h2">{t(locale, "Strong Misreadings of {title}", { title: film.title })}</h2>
+            <h2 className="df-h2">{t(locale, "Strong Misreadings of {title}", { title: film.title })} <EnglishOriginalLabel locale={locale} /></h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "readings", label: "Strong misreadings" }]} variant="section" /> : null}
             <p className="df-sub">
               {t(locale, "{n} original critical readings of {title}, filed across 14", { n: misreadings.length, title: film.title })} <Link href="/about#strong-misreadings">{t(locale, "frameworks")}</Link> {t(locale, "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by")} <Link href="/editor">Wonwoo Yoon</Link>. {t(locale, "Also readable as one piece:")} <Link href={`/film/meaning/${film.slug}`}>{t(locale, "the full misreadings article →")}</Link>
             </p>
             {smByFamily.map(({ fam, items }) => (
               <div key={fam.key} className="df-smfam">
-                <div className="df-smfam__h">{fam.label}</div>
-                <div className="sm-grid">
+                <div className="df-smfam__h" lang={enOrig}>{fam.label}</div>
+                <div className="sm-grid" lang={enOrig}>
                 {items.map((m, i) => {
                   const F = fw(m.framework);
                   const href = m.figSlug ? `/film/${film.slug}/figure/${m.figSlug}` : null;
@@ -1646,7 +1653,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* FIGURES — grouped by kind */}
         {grouped.length > 0 ? (
           <section className="df-sec" id="df-figures">
-            <h2 className="df-h2">{t(locale, "Figures")}</h2>
+            <h2 className="df-h2">{t(locale, "Figures")} <EnglishOriginalLabel locale={locale} /></h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "figures", label: "Figures" }]} variant="section" /> : null}
             <p className="df-sub">{t(locale, "The characters, objects, places, forms and motifs Metatake singled out in {title} — each the anchor for one or more strong misreadings.", { title: film.title })}</p>
             {grouped.map((g) => (
@@ -1660,14 +1667,14 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   return (
                     <div key={f.id} className="df-fig">
                       <div className="df-figL">
-                        <div className="df-lab">{f.label}</div>
+                        <div className="df-lab" lang={enOrig}>{f.label}</div>
                         <div className="df-figmeta">
                           <span className={`df-rc${n === 0 ? " df-rc--zero" : ""}`}>{locale === DEFAULT_LOCALE ? `${n} reading${n === 1 ? "" : "s"}` : t(locale, "{n} readings", { n })}</span>
                           {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>{fq ? `${fq} →` : t(locale, "Open →")}</Link> : null}
                         </div>
                       </div>
                       <div className="df-figR">
-                        {f.description ? <p className="df-figdesc">{f.description}</p> : null}
+                        {f.description ? <p className="df-figdesc" lang={enOrig}>{f.description}</p> : null}
                       </div>
                     </div>
                   );
@@ -1911,7 +1918,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             from entity_edges + takes at render time, so it changes when the data does. */}
         {counterpoints.length > 0 ? (
           <section className="df-sec" id="df-counterpoints">
-            <h2 className="df-h2">{t(locale, "Counterpoints — same shape, opposite meaning")}</h2>
+            <h2 className="df-h2">{t(locale, "Counterpoints — same shape, opposite meaning")} <EnglishOriginalLabel locale={locale} /></h2>
             <p className="df-sub">
               {t(locale, "Films that stage one of")} <b>{film.title}</b>{t(locale, "'s own tropes but read it against the grain. Kinship maps can find lookalikes; only a reading-level graph can find arguments.")}
             </p>
