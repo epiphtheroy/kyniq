@@ -320,4 +320,37 @@ export const KO: Record<string, string> = {
   "on Metatake": "— Metatake",
   "A Metatake editorial summary, computed from the live corpus — the full portrait is being written.":
     "실시간 코퍼스에서 계산한 Metatake 편집 요약 — 전체 인물기는 집필 중이다.",
+
+  // ── Where-to-watch (AccessSummary) ──
+  "Where to watch — {title}": "볼 수 있는 곳 — {title}",
+  "See the full where-to-watch guide →": "전체 시청 가이드 보기 →",
+  // Tier words
+  Free: "무료",
+  Library: "도서관",
+  Streaming: "스트리밍",
+  Rent: "대여",
+  Buy: "구매",
+  "Not yet": "아직 없음",
+  // Headlines (Korean puts the state after the platform/region)
+  "Free on {platform} — available worldwide.": "{platform}에서 무료 — 전 세계 시청 가능.",
+  "In {region}: free on {platforms}.": "{region}: {platforms}에서 무료.",
+  "In {region}: free on {platforms}{ads}.": "{region}: {platforms}에서 무료{ads}.",
+  " (with ads)": " (광고 포함)",
+  "In {region}: free on {platforms} with a library card.": "{region}: 도서관 카드로 {platforms}에서 무료.",
+  "In {region}: streaming on {platforms}{more}.": "{region}: {platforms}에서 스트리밍{more}.",
+  "In {region}: available to rent on {platforms} — verified by MetaTake.":
+    "{region}: {platforms}에서 대여 가능 — MetaTake 검증.",
+  "In {region}: streaming on {platforms} — verified by MetaTake.":
+    "{region}: {platforms}에서 스트리밍 — MetaTake 검증.",
+  "In {region}: available to rent ({platforms}{more}).": "{region}: 대여 가능 ({platforms}{more}).",
+  "In {region}: available to buy only ({platforms}).": "{region}: 구매만 가능 ({platforms}).",
+  "and more": "외",
+  // Fingerprint
+  "free on {platform} ({region}){extra}": "{platform}에서 무료 ({region}){extra}",
+  "free in {n}": "{n}개국 무료",
+  "streaming in {n}": "{n}개국 스트리밍",
+  "rent in {n}": "{n}개국 대여",
+  "buy in {n}": "{n}개국 구매",
+  "not yet in {n}": "{n}개국 아직 없음",
+  "{breakdown} — across {n} regions.": "{breakdown} — {n}개 지역 기준.",
 };

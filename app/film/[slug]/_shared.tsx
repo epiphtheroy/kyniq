@@ -1201,7 +1201,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           ) : null}
 
           <section className="df-sec" id="df-watch">
-            <AccessSummary watch={watch} record={mAccessRec} slug={f.slug} title={f.title} />
+            <AccessSummary watch={watch} record={mAccessRec} slug={f.slug} title={f.title} locale={locale} />
             {mAccessRec ? <AccessEnrichment record={mAccessRec} tmdbId={f.tmdb_id} /> : null}
           </section>
           </AccessCountryProvider>
@@ -2010,7 +2010,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
 
         {/* WHERE TO WATCH — verified access layer, moved to the final tab */}
         <section className="df-sec" id="df-watch">
-          <AccessSummary watch={watch} record={accessRec} slug={film.slug} title={film.title} />
+          <AccessSummary watch={watch} record={accessRec} slug={film.slug} title={film.title} locale={locale} />
           {accessRec ? <AccessEnrichment record={accessRec} tmdbId={film.tmdb_id} /> : null}
         </section>
         </AccessCountryProvider>

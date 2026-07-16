@@ -9,20 +9,26 @@
 import Link from "next/link";
 import { useAccessCountry } from "@/components/AccessCountryProvider";
 import type { AccessRecord } from "@/components/AccessEnrichment";
+import { t, intlTag, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 type Prov = { provider_id: number; provider_name: string; logo_path: string | null };
 type CountryOffers = { link?: string; flatrate?: Prov[]; rent?: Prov[]; buy?: Prov[]; free?: Prov[]; ads?: Prov[] };
 export type AccessSummaryWatch = { results: Record<string, CountryOffers>; countries: string[] } | null;
 
-let regionNames: Intl.DisplayNames | null = null;
-function countryName(code: string): string {
+// Region display names, one formatter per locale (Intl gives us "미국"/"일본" for
+// free once we pass the locale — no separate country-name dictionary needed).
+const regionNamesByLocale: Record<string, Intl.DisplayNames> = {};
+function countryNameL(code: string, locale: Locale): string {
   try {
-    regionNames = regionNames || new Intl.DisplayNames(["en"], { type: "region" });
-    return regionNames.of(code) || code;
+    const tag = intlTag(locale);
+    regionNamesByLocale[tag] = regionNamesByLocale[tag] || new Intl.DisplayNames([tag], { type: "region" });
+    return regionNamesByLocale[tag].of(code) || code;
   } catch { return code; }
 }
-function proseName(code: string): string {
-  const n = countryName(code);
+function proseNameL(code: string, locale: Locale): string {
+  const n = countryNameL(code, locale);
+  // The "the United States" article is English-only; other languages don't need it.
+  if (locale !== DEFAULT_LOCALE) return n;
   return /^United |^Netherlands$|^Philippines$/.test(n) ? `the ${n}` : n;
 }
 function covers(scope: string, cc: string): boolean {
@@ -61,13 +67,15 @@ function regionTier(o: CountryOffers | undefined, freeVerifiedHere: boolean, krT
   return "none";
 }
 
-export default function AccessSummary({ watch, record, slug, title }: {
-  watch: AccessSummaryWatch; record: AccessRecord | null; slug: string; title: string;
+export default function AccessSummary({ watch, record, slug, title, locale = DEFAULT_LOCALE }: {
+  watch: AccessSummaryWatch; record: AccessRecord | null; slug: string; title: string; locale?: Locale;
 }) {
   const ctx = useAccessCountry();
   const country = ctx ? ctx.country : "US";
   const cc = /^[A-Z]{2}$/.test(country) ? country : "US";
-  const pn = proseName(cc);
+  const pn = proseNameL(cc, locale);
+  const cName = (rc: string) => countryNameL(rc, locale);
+  const tierWord = (tier: RegionTier) => t(locale, TIER_WORD[tier]);
 
   const o = watch?.results?.[cc];
   const all = (xs?: Prov[]) => xs ?? [];
@@ -84,31 +92,35 @@ export default function AccessSummary({ watch, record, slug, title }: {
 
   // Condensed tier verdict: verified free > TMDB free/ads > library > streaming > KR verified > rent > buy.
   let free = false; let headline = ""; let chips: string[] = [];
+  const more = () => t(locale, "and more");
   if (freeVerified.length) {
     free = true;
     const ww = freeVerified.find((s) => s.scope === "worldwide");
     headline = ww
-      ? `Free on ${ww.platform} — available worldwide.`
-      : `In ${pn}: free on ${joinAnd(freeVerified.map((s) => s.platform))}.`;
+      ? t(locale, "Free on {platform} — available worldwide.", { platform: ww.platform })
+      : t(locale, "In {region}: free on {platforms}.", { region: pn, platforms: joinAnd(freeVerified.map((s) => s.platform)) });
     chips = [...freeVerified.map((s) => s.platform), ...names(stream)];
   } else if (freeAds.length) {
     free = true;
-    headline = `In ${pn}: free on ${joinAnd(names(freeAds).slice(0, 2))}${!all(o?.free).length ? " (with ads)" : ""}.`;
+    const withAds = !all(o?.free).length ? t(locale, " (with ads)") : "";
+    headline = t(locale, "In {region}: free on {platforms}{ads}.", { region: pn, platforms: joinAnd(names(freeAds).slice(0, 2)), ads: withAds });
     chips = [...names(freeAds), ...names(stream)];
   } else if (library.length) {
-    headline = `In ${pn}: free on ${joinAnd(names(library))} with a library card.`;
+    headline = t(locale, "In {region}: free on {platforms} with a library card.", { region: pn, platforms: joinAnd(names(library)) });
     chips = [...names(library), ...names(stream)];
   } else if (stream.length) {
-    headline = `In ${pn}: streaming on ${joinAnd(names(stream).slice(0, 3))}${stream.length > 3 ? " and more" : ""}.`;
+    headline = t(locale, "In {region}: streaming on {platforms}{more}.", { region: pn, platforms: joinAnd(names(stream).slice(0, 3)), more: stream.length > 3 ? ` ${more()}` : "" });
     chips = [...names(stream), ...names(rent)];
   } else if (krLocal.length) {
-    headline = `In ${pn}: ${krLocal[0].tier === "rent" ? "available to rent on" : "streaming on"} ${joinAnd(krLocal.map((k) => k.platform))} — verified by MetaTake.`;
+    headline = krLocal[0].tier === "rent"
+      ? t(locale, "In {region}: available to rent on {platforms} — verified by MetaTake.", { region: pn, platforms: joinAnd(krLocal.map((k) => k.platform)) })
+      : t(locale, "In {region}: streaming on {platforms} — verified by MetaTake.", { region: pn, platforms: joinAnd(krLocal.map((k) => k.platform)) });
     chips = krLocal.map((k) => k.platform);
   } else if (rent.length) {
-    headline = `In ${pn}: available to rent (${names(rent).slice(0, 3).join(", ")}${rent.length > 3 ? " and more" : ""}).`;
+    headline = t(locale, "In {region}: available to rent ({platforms}{more}).", { region: pn, platforms: names(rent).slice(0, 3).join(", "), more: rent.length > 3 ? ` ${more()}` : "" });
     chips = names(rent);
   } else if (buy.length) {
-    headline = `In ${pn}: available to buy only (${names(buy).slice(0, 3).join(", ")}).`;
+    headline = t(locale, "In {region}: available to buy only ({platforms}).", { region: pn, platforms: names(buy).slice(0, 3).join(", ") });
     chips = names(buy);
   }
   chips = Array.from(new Set(chips)).slice(0, 5);
@@ -142,21 +154,23 @@ export default function AccessSummary({ watch, record, slug, title }: {
       (record?.free_sources ?? []).find((s) => covers(s.scope, firstFree))?.platform ||
       "";
     freeClause = provName
-      ? `free on ${provName} (${firstFree})${freeRegions.length > 1 ? ` +${freeRegions.length - 1}` : ""}`
-      : `free in ${freeRegions.length}`;
+      ? t(locale, "free on {platform} ({region}){extra}", { platform: provName, region: cName(firstFree), extra: freeRegions.length > 1 ? ` +${freeRegions.length - 1}` : "" })
+      : t(locale, "free in {n}", { n: freeRegions.length });
   }
   const fpParts: string[] = [];
   if (freeClause) fpParts.push(freeClause);
-  if (nStream) fpParts.push(`streaming in ${nStream}`);
-  if (nRent) fpParts.push(`rent in ${nRent}`);
-  if (nBuy) fpParts.push(`buy in ${nBuy}`);
-  if (nNone) fpParts.push(`not yet in ${nNone}`);
+  if (nStream) fpParts.push(t(locale, "streaming in {n}", { n: nStream }));
+  if (nRent) fpParts.push(t(locale, "rent in {n}", { n: nRent }));
+  if (nBuy) fpParts.push(t(locale, "buy in {n}", { n: nBuy }));
+  if (nNone) fpParts.push(t(locale, "not yet in {n}", { n: nNone }));
   // Answer-first: lead with the availability breakdown itself, not "tracked in
   // N regions" — the digest already links that phrasing (R-D dedupe).
   const fpJoined = fpParts.join(", ");
+  // English capitalizes the lead; Korean has no case, so join as-is there.
+  const fpLead = locale === DEFAULT_LOCALE ? `${fpJoined.charAt(0).toUpperCase()}${fpJoined.slice(1)}` : fpJoined;
   const fingerprint =
     countries.length > 0 && hasAny && fpParts.length
-      ? `${fpJoined.charAt(0).toUpperCase()}${fpJoined.slice(1)} — across ${countries.length} region${countries.length === 1 ? "" : "s"}.`
+      ? t(locale, "{breakdown} — across {n} regions.", { breakdown: fpLead, n: countries.length })
       : "";
 
   // Region chips: flag + tier glyph, availability-first, capped.
@@ -167,7 +181,7 @@ export default function AccessSummary({ watch, record, slug, title }: {
 
   return (
     <div className="ax-sum">
-      <div className="ax-sum-k">Where to watch — {title}</div>
+      <div className="ax-sum-k">{t(locale, "Where to watch — {title}", { title })}</div>
       {fingerprint ? <div className="ax-sum-v ax-sum-v--free">{fingerprint}</div> : null}
       {headline ? (
         <>
@@ -182,13 +196,13 @@ export default function AccessSummary({ watch, record, slug, title }: {
       {regionChips.length ? (
         <div className="ax-sum-chips">
           {regionChips.map((rc) => (
-            <span key={rc} className="ax-sum-chip" aria-label={`${TIER_WORD[tierByCc[rc]]} — ${countryName(rc)}`} title={`${TIER_WORD[tierByCc[rc]]} — ${countryName(rc)}`}>
+            <span key={rc} className="ax-sum-chip" aria-label={`${tierWord(tierByCc[rc])} — ${cName(rc)}`} title={`${tierWord(tierByCc[rc])} — ${cName(rc)}`}>
               {flagEmoji(rc)} <span aria-hidden="true">{TIER_GLYPH[tierByCc[rc]]}</span> {rc}
             </span>
           ))}
         </div>
       ) : null}
-      <Link className="ax-sum-btn" href={`/whereto/${slug}`}>See the full where-to-watch guide →</Link>
+      <Link className="ax-sum-btn" href={`/whereto/${slug}`}>{t(locale, "See the full where-to-watch guide →")}</Link>
     </div>
   );
 }
