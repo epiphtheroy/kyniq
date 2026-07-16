@@ -94,3 +94,8 @@ python3 worker/export-locations-dataset.py   # 17,341 rows
 **관찰:** `/api/v1` 호출·`mcp_calls`·AI유입 패널·HF 다운로드·DOI 인용 = 이 전체가 트래픽/수요로 회수되는지의 지표.
 
 **확장 후보(지시 대기·자동착수 금지):** 비영화 엔티티 API·GPT 링크를 /api에 배선·데이터셋 논문·확장 Firefox판·유료 티어(mcp_calls/API 로그 데이터 축적 후).
+
+
+## 11. `/api/v1/app/*` — 모바일 BFF 네임스페이스 (2026-07-17, 이 문서의 공개 API 계약 밖)
+
+`/api/v1/app/{film,director,tonight,services,handoff,account-delete,tmdb-search}`는 **모바일 앱 전용 내부 BFF**다(정본: `HANDOFF-모바일앱-프리워치.md` §7·§16). 공개 REST(§1)와 같은 가드(`guardAndLog`+API_CORS)를 쓰지만: **openapi.json에 넣지 않는다**(외부 계약 아님 — 페이로드는 앱 `PAYLOAD_V`로 버전), attribution 블록 없음, robots는 기존 `/api/` noindex로 커버. handoff·account-delete는 Bearer 인증 POST — **CORS allow-headers/methods를 이 라우트들 때문에 넓히지 말 것**(2026-07-16 결정: 네이티브 앱은 CORS 무관, 브라우저 개방은 불필요한 표면).

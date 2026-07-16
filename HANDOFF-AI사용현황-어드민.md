@@ -166,3 +166,8 @@ alter table public.api_calls enable row level security;  -- 0정책 = service_ro
 | /admin/crawlers 나브 등록 | 등록 권장 |
 | embed 로깅(P3) | 보류(cache-miss 의미론 수용 여부) |
 | 90일 판정 기준일(F패널 D-day) | MCP 런칭 2026-07-12 기점 → 2026-10-10 |
+
+
+## §7. 계측 소비자 추가 — 모바일 앱 BFF (2026-07-17)
+
+모바일 앱 BFF 7라우트가 `guardAndLog`를 통과하므로 `api_calls` 원장에 새 엔드포인트 계열이 등장한다: `app_film` · `app_director` · `app_tonight` · `app_services` · `app_handoff` · `app_account_delete` · `app_tmdb_search`. The Meter에서 이 계열은 **앱 트래픽**으로 읽을 것(AI 에이전트 아님 — UA는 iOS/RN 기본값). vercel.json 크론에 `/api/push/availability-cron`(매일 09:00Z)이 추가됨 — 인사이트 크론 라이더와는 무관한 별도 잡. 정본: `HANDOFF-모바일앱-프리워치.md` §16.2·§16.3.

@@ -309,6 +309,7 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 - v1 (2026-07-16, `319fed7`): 최초 기획 — 6축+접착제 4개, 탭 5개, P0~P4.
 - **v2 (2026-07-16, `681fbce`): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
 - **v2.1 (2026-07-16, c36c1d4): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
+- **v2.3 (2026-07-17): §16 데이터 연동 지도 신설** — 앱↔사이트의 모든 데이터 접점(읽기 10행·쓰기 5행·크론·레지스트리 결합)과 "같이 반영" 체크리스트(§16.5). 관련 정본 4곳(왓투와치·마이필름렌즈·The Meter·AI배포표면)에 상호 링크 블록 추가·STATE.md 배너 등재.
 - **v2.2 (2026-07-16, 70f313a): 완전 시제품** — 지도 3면 실구현(§15.5)·Tonight 카드 리드 채움(편차 #5 해소)·촬영지 핀 융합(발음부호 dedupe)·웹 리더 iframe·스토어 지도 엔진 결정 항목(§12-5). 브라우저 프리뷰가 잡은 결함 3건(§15.6)은 bf1e2b8.
 
 ---
@@ -380,3 +381,55 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 3. **음수 TakeScore 노출** (Green Rain `-11`): 웹의 기결정(표시만 0 클램프·랭킹/API는 raw)을 앱이 위반. `TSBadge` 0~100 클램프로 정합.
 
 **검증 방식:** 스크립트로 실제 루프를 걸었다 — 온보딩(US·Netflix+Criterion) → Tonight(Tokyo Story 86·Joan of Arc 84) → Film 카드(Invitation 산문·가용성·Lineage·촬영지·The Life) → Search(chungking) → Director(왕가위) → My. **콘솔 에러 0.**
+
+---
+
+## §16 데이터 연동 지도 (SSOT 크로스맵) — 앱과 사이트가 "같이 반영"되는 모든 접점 (2026-07-17)
+
+> **이 절이 답하는 질문:** 웹/DB에서 무언가가 바뀌면 앱에 어떻게 반영되는가? 앱이 무언가를 기록하면 웹 어디에 나타나는가? 각 접점의 정본 문서는 어디인가.
+> 원칙(§0 불변): 앱은 자기 데이터를 갖지 않는다 — 아래 표의 모든 행은 기존 프로덕션 자산이고, 앱은 그 위의 클라이언트다.
+
+### 16.1 읽기(소비) — 콘텐츠·랭킹·가용성
+
+| 데이터 | 앱 접근 경로 | 원천(웹 SSOT) | 갱신 전파 |
+|---|---|---|---|
+| Tonight 랭킹 | BFF `app/tonight` → `cinecodex_ranked`(**Marquee v11 인자면**) | `HANDOFF-왓투와치-스트리밍결정.md` — "신규 인자 default=이전 동일" 불변식이 이제 **앱도 보호** | BFF 캐시 s-maxage 900 |
+| TakeScore | `takescore_for_slugs` `[{slug,ts}]` (BFF film/director/tonight) | `HANDOFF-테이크스코어-스크리너.md` — 벌크 TS 표준 계약 | 재채점 → 캐시 만료 시 자동 |
+| 가용성·프로바이더 | `film_availability`·`wtw_services` (BFF + Search 데코는 앱 직접 anon) | 왓투와치 정본 · 원천 `film_provider_index`(`fpi_rebuild()`) | fpi_rebuild → 캐시 만료 + **푸시 diff(16.3)** |
+| Invitation 리드 | BFF film(단건)·tonight(**배치 2쿼리** films→figures→takes, per-film 루프 금지) | takes.is_invitation — 본문=rationale | 발행 즉시(캐시 300s) |
+| Fantasia 폴백 리드 | `film_sentences_for` — **EN 전용**(비-EN 숨김은 오너 기결정) | `HANDOFF-임베딩판타지아-문장층.md` + KO프로젝션 결정 | 문장층 재빌드 시 자동 |
+| Lineage | `film_lineage_for` (BFF film) | `HANDOFF-계보-SEO-읽는층.md` | 데이터 웨이브 시 자동 |
+| 촬영지 핀 | `film_geo`(BFF film — **mergePins+발음부호 dedupe 적용**·앱 맵 필름포커스 직접) + `/api/v1/locations`(맵 글로벌, 시드 10개국) | `HANDOFF-아틀라스-SEO-읽는층.md` · 오픈 데이터셋(`HANDOFF-AI배포표면.md`) | 지오코딩 갱신 시 자동. ⚠️글로벌 맵은 시드 국가 근사(~2,000/17k핀) — 월드 엔드포인트 신설 시 `mobile/src/lib/pins.ts` 한 곳만 교체 |
+| 감독 카드 | `directors`·`director_{picks,next,facts,portrait}` (BFF director) + 가용성 점 필모 | `HANDOFF-감독읽는층-리셉션-SEO.md` | 캐시 300s |
+| 검색 | `search_all` 앱 직접(anon) — 자막(sub)=단일 출처 | `HANDOFF-검색엔진-통합.md` | 즉시 |
+| 깊은 읽기(웹뷰/iframe) | 웹 페이지 그대로 | 각 표면 정본 | **즉시**(재구현 0 = 패리티 세금 0) |
+
+### 16.2 쓰기(기록) — 앱이 사이트 데이터에 남기는 것
+
+| 기록 | 경로 | 웹에 나타나는 곳 | 정본 |
+|---|---|---|---|
+| 찜/Seen | `user_movies` 직접 upsert(own-row RLS, `onConflict user_id,film_id`) — **삭제 없음, 불리언만**(rating 보존) | 렌즈·/room·Marquee hide-seen — **같은 원장, 즉시 동기** | `HANDOFF-마이필름-렌즈.md` |
+| 에디션 선호 | `user_prefs`(country/locale/provider_ids/push_enabled) | 푸시 워커 조인 키 | 마이그 0106 (이 문서 §10.1) |
+| 푸시 토큰 | `push_tokens`(로그인 필수) | 푸시 워커 발송 대상 | 마이그 0106 |
+| API 사용 계측 | `guardAndLog` 자동 → `api_calls` 원장, 엔드포인트 `app_film`·`app_director`·`app_tonight`·`app_services`·`app_handoff`·`app_account_delete`·`app_tmdb_search` | **/admin/usage "The Meter"에 자동 표시** | `HANDOFF-AI사용현황-어드민.md` |
+| 개인화 읽기 | `/api/lens/marquee` — 쿠키 실패 시 **Bearer 폴백**(가산적) | — | 렌즈 정본 · `*_mine` 직호출 금지 불변식 유지 |
+
+### 16.3 크론·워커 — 데이터 흐름의 자동 전파
+
+`/api/push/availability-cron`(vercel.json, 매일 09:00Z): `user_prefs(push_enabled)` × `user_movies(watchlist)` × `film_provider_index(country, sub/free)` − `push_sent` 원장 → Expo push → 원장 기록. **fpi_rebuild가 돌면 다음 크론에서 신규 진입분이 자동 통지된다** — 웹의 가용성 갱신이 앱 리텐션으로 이어지는 유일한 자동 경로.
+
+### 16.4 레지스트리 결합 — 다국가·다국어의 단일화
+
+- 앱 `EDITIONS`(country·locale) ↔ 웹 `lib/i18n/locales.ts` **LOCALES 레지스트리**(`HANDOFF-KO프로젝션-한국어사이트.md` §-2.1): 웹에서 새 언어 live=true → 앱은 에디션 항목 1개 개방이 전부. 콘텐츠 번역은 웹 `_<loc>` 컬럼을 읽을 뿐, 앱 저장소 없음(불변식 §13-1).
+- 앱 i18n 사전 키 ↔ 웹 코어 어휘 매트릭스(KO프로젝션 §2.2.1): "Where to watch" 같은 용어를 웹·앱이 다르게 번역하지 못하게 하는 계약.
+
+### 16.5 변경 시 체크리스트 — "같이 반영" 보장 절차
+
+| 웹에서 이걸 바꿀 때 | 앱 쪽 필요 조치 |
+|---|---|
+| RPC에 인자 추가 | **없음** — default=이전 동일 불변식(왓투와치 §9)이 지키는 한 |
+| RPC 반환/페이로드 형태 변경 | BFF가 흡수(서버 배포로 끝). 앱 계약(`mobile/src/types.ts`)까지 바뀌면 **PAYLOAD_V 범프** + 페이로드 `v` 필드로 구클라이언트 판정 |
+| 콘텐츠 갱신(리드·계보·가용성·좌표) | **없음** — BFF 캐시 만료로 자동 |
+| **읽기 표면 라우트 개명**(예: misreadings→meaning) | ⚠️**유일한 수동 결합점**: 앱 웹뷰 경로 목록 수정 — `mobile/app/film/[slug].tsx` readMore·`mobile/app/director/[slug].tsx` readMore·`mobile/app/read.tsx` 허브 인터셉트 정규식. 개명 작업 정본(`docs/RENAME-*.md`)에 이 3파일을 체크리스트로 추가할 것 |
+| 사이트 디자인 토큰 변경 | `mobile/src/theme.ts`가 DESIGN-SYSTEM v4 이식본 — 큰 개정 시 동기 |
+| user_movies 스키마 변경 | 렌즈 정본과 앱 `src/state/films.tsx` 동시 검토 (원장 공유자 2곳) |

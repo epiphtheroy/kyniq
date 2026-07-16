@@ -98,3 +98,8 @@
 - `next build` exit 0, /my-films 프리렌더 확인
 - 로컬 실사(next start): /my-films·토글 드롭다운·홈 리본·갤럭시 렌더 OK, 콘솔 에러 0
 - 감독 페이지에서 엔진 시뮬레이션: highlight 보더·only 고스트 스크린샷 확인
+
+
+## v1.6 — 모바일 앱: user_movies의 두 번째 기록자 (2026-07-17)
+
+모바일 앱(`HANDOFF-모바일앱-프리워치.md` §16.2)이 찜/Seen을 `user_movies`에 **직접 upsert**한다(own-row RLS, `onConflict user_id,film_id` — 웹 MovieListActions와 같은 원장·같은 계약). 차이 하나: **앱은 행을 삭제하지 않는다**(rating을 모르므로 불리언만 false로) — 웹의 delete-when-empty와 다르지만 데이터 무손실이며 렌즈 로직은 영향 없음. hide-seen은 `/api/lens/marquee`의 **Bearer 폴백**(쿠키 실패 시에만, 가산적)으로도 접근 가능 — `*_mine` service_role 전용 불변식은 그대로다. **user_movies 스키마 변경 시 `mobile/src/state/films.tsx`를 함께 검토할 것.**
