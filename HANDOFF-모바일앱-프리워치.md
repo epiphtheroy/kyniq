@@ -355,10 +355,26 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 4. (P5 시) Play 등록($25)·`assetlinks.json` SHA256 교체.
 5. TestFlight 4주 게이트(§9) — KPI 4개 미달 시 스토어 출시 보류.
 
-### 15.5 실행 방법
+### 15.5 실행 방법 — 상세는 `mobile/README.md` (정본)
 
-```bash
-cd mobile && npm install
-npx expo start            # Expo Go: Map 탭 제외 전 화면 동작(maplibre는 dev build 필요)
-npx expo run:ios          # 네이티브 dev build (Xcode 필요) — Map 포함 전체
-```
+세 가지 경로가 있고, **애플 계정 없이도 앞의 두 개는 지금 된다.**
+
+| 경로 | 필요한 것 | 볼 수 있는 것 |
+|---|---|---|
+| **① 맥 브라우저** `npm run dev` + `cd mobile && npx expo start --web` | 없음 | Map·리더·계정삭제 제외 전부 (설계·동선 검토용) |
+| **② 아이폰 Expo Go** (App Store 무료 앱 → QR 스캔) | 같은 Wi-Fi + `EXPO_PUBLIC_METATAKE_BASE=http://<맥 LAN IP>:3000` | Map 제외 전부 — 실기기 촉감·타이포 확인 |
+| **③ 네이티브 빌드** `eas build` 또는 `expo run:ios` | Apple Developer($99) 또는 Xcode | Map·푸시·Apple 로그인 포함 전체 |
+
+**데이터 출처:** PR #7 머지 전에는 BFF가 프로덕션에 없으므로 로컬 `npm run dev`(:3000)를 켜고 `mobile/.env.local`로 가리켜야 한다. **머지 후에는 기본값(`https://metatake.net`)으로 앱만 켜면 된다.**
+
+⚠️ ①·②에서 **Map 탭은 지도 대신 설명 화면**이 뜬다(웹=렌더러 없음 / Expo Go=커스텀 네이티브 모듈 부재). 네이티브 구현은 `src/screens/MapNative.tsx`에 그대로 있고 route가 지연 require 한다 — 죽지 않게 하려는 분기이지 기능 축소가 아니다.
+
+### 15.6 브라우저 프리뷰가 잡아낸 실제 결함 3건 (2026-07-16, 커밋 bf1e2b8)
+
+데스크톱 프리뷰는 편의 기능이 아니라 **검토 표면**임이 증명됐다 — 네이티브만 돌렸으면 못 봤을 것들:
+
+1. **CORS**: 앱이 보내던 커스텀 헤더 `x-metatake-app`이 모든 GET을 프리플라이트로 만들었고, 공개 API의 allow-headers는 `content-type`뿐이라 브라우저에선 전 읽기가 실패했다. 서버가 읽지도 않던 헤더(계측은 user-agent 기반)라 **제거**. ⚠️**API의 CORS는 건드리지 않았다** — 프리뷰 하나 때문에 `account-delete`·SSO 민트에 POST+Authorization을 열 이유가 없다.
+2. **검색 연도 중복** (`1994 · 1994 · Wong Kar-wai`): `search_all`의 `sub`가 이미 연도를 포함. RPC 자막을 단일 출처로.
+3. **음수 TakeScore 노출** (Green Rain `-11`): 웹의 기결정(표시만 0 클램프·랭킹/API는 raw)을 앱이 위반. `TSBadge` 0~100 클램프로 정합.
+
+**검증 방식:** 스크립트로 실제 루프를 걸었다 — 온보딩(US·Netflix+Criterion) → Tonight(Tokyo Story 86·Joan of Arc 84) → Film 카드(Invitation 산문·가용성·Lineage·촬영지·The Life) → Search(chungking) → Director(왕가위) → My. **콘솔 에러 0.**
