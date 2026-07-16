@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["TEAMID.net.metatake.app"],
+        "components": [
+          { "/": "/film/*" },
+          { "/": "/director/*" },
+          { "/": "/what-to-watch" },
+          { "/": "/whereto/*" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["TEAMID.net.metatake.app"]
+  }
+}

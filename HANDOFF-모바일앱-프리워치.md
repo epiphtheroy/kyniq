@@ -306,4 +306,59 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 ## §14 개정 이력
 
 - v1 (2026-07-16, `319fed7`): 최초 기획 — 6축+접착제 4개, 탭 5개, P0~P4.
-- **v2 (2026-07-16, 이 문서): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
+- **v2 (2026-07-16, `681fbce`): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
+- **v2.1 (2026-07-16, 이 커밋): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
+
+---
+
+## §15 AS-BUILT (2026-07-16) — P0~P3 코드 완성·검증 통과
+
+### 15.1 무엇이 만들어졌나
+
+**모바일 앱 `mobile/`** — Expo SDK 57(RN 0.86)·expo-router v6·TypeScript strict·typedRoutes.
+- 화면 9개: `(tabs)/` Tonight·Search·Map·My + `film/[slug]`(§5.1 그대로: 히어로→TS도넛→Invitation→Where to watch→Lineage→Locations→The Life 프리뷰→Read more→액션바)·`director/[slug]`(§2.2: 가용성 점 필모그래피 포함)·`read`(SSO 웹뷰 리더+링크 인터셉트)·`onboarding`(국가→서비스→계정 3스텝)·`+not-found`(미매치 딥링크→리더).
+- 파운데이션: `src/theme.ts`(DESIGN-SYSTEM v4 토큰 이식)·`src/editions.ts`(§6.2 레지스트리)·`src/i18n/`(en·ko·es·ja 4사전, 전 화면 t() 강제 — TODO(i18n) 0)·`src/lib/{api,supabase,push}.ts`·`src/state/{prefs,films}.tsx`(user_movies 단일 원장, 옵티미스틱+롤백)·`src/components/{ui,TSDonut,FilmRow}.tsx`.
+- app.json: `net.metatake.app`·scheme `metatake`·associatedDomains·Android intentFilters·Sign in with Apple·플러그인(maplibre/notifications/location/apple-auth).
+
+**웹(BFF·인프라)** — `app/api/v1/app/` 7라우트: `film/[slug]`·`director/[slug]`·`tonight`·`services`·`handoff`(POST)·`account-delete`(POST)·`tmdb-search`. 전부 guardAndLog(The Meter 원장에 `app_*` 엔드포인트로 계측)+API_CORS+s-maxage 캐시. `app/api/lens/marquee`에 Bearer 폴백(가산적·쿠키 경로 불변). `app/api/push/availability-cron`(§6.5 diff 워커)+vercel.json 크론(매일 09:00 UTC). `public/.well-known/` AASA+assetlinks(플레이스홀더). next.config에 AASA content-type 헤더. tsconfig exclude+.gitignore에 mobile.
+
+**DB** — 마이그 0106 `push_tokens`·`user_prefs`·`push_sent`(own-row RLS / 원장은 서비스롤 전용) **프로덕션 적용 완료**. ⚠️0105는 다국어 프로젝션(PR #9)이 선점 — 번호 갭은 의도.
+
+### 15.2 검증 기록 (전부 통과)
+
+| 게이트 | 결과 |
+|---|---|
+| mobile `tsc --noEmit` | 0 errors (strict) |
+| mobile `expo export --platform ios` | 번들 성공 (4.7MB hbc) |
+| web `tsc` | 신규·수정 파일 오류 0 (기존 베이스라인 20건은 무관 파일) |
+| web `next build` | 통과 (클린 .next) |
+| BFF 스모크(실데이터) | ITMFL: TS 73·avail 5·lineage 10·loc 8 핀·the_life 4facts / 왕가위: films 8 전부 ts+tiers / tonight(US, Netflix): 207편 / tmdb-search: Dune Part Three 폴백 |
+| Tier-2 폴백(§5.4) | `hamsun-1996`: invitation 없음→Fantasia 문장 리드 "Hamsun won 'Guldbagge…'" ✓ |
+| 인증 가드 | handoff·account-delete·lens 비인증 401 ✓ |
+
+### 15.3 계약 대비 구현 편차 (전부 의도적)
+
+1. **푸시 워커 = Vercel 크론 라우트** (§10.1의 python 워커 대신) — 인프라 0·오너 노트북 무의존. 로직은 §6.5 그대로((film×country) diff, push_sent 원장).
+2. **SSO = 기존 `/auth/confirm` 재사용** — 전용 `/auth/handoff` 라우트 불필요. 민트(`POST /api/v1/app/handoff`, Bearer)가 `generateLink(magiclink)`의 일회용 token_hash URL을 반환.
+3. **push_tokens.user_id NOT NULL** — 익명 등록 배제(문서는 null 허용이었으나 스팸 방지·발송 대상은 어차피 로그인 필요).
+4. **이메일 인증 = 6자리 OTP 코드**(매직링크 대신) — 인앱 완결, 리다이렉트 설정 불요. ⚠️Supabase 이메일 템플릿에 `{{ .Token }}` 노출 필요(오너 TODO).
+5. **Tonight 카드 lead=null** — 편당 invitation 40회 페치는 과중. 후속 최적화 항목.
+6. **hide-seen = 클라이언트 ledger 필터** — lens Bearer 경로는 준비돼 있으나(`api.tonightMine`) v1은 클라 필터로 충분.
+7. **Watch 실행 = `/whereto/[slug]` 리더** — 프로바이더 앱별 신뢰 가능한 딥링크 스킴 부재. (참고: `/film/x/watch`는 `/whereto/x`로 308 — 앱은 직행.)
+8. **user_movies 행 삭제 안 함** — 앱은 rating을 모르므로 불리언만 false로(웹의 delete-when-empty와 다름·데이터 무손실).
+
+### 15.4 오너 TODO (앱이 스토어에 가기 위한 계정·콘솔 작업)
+
+1. **Apple Developer 등록($99/년)** → ① `eas init`(푸시 projectId) ② `eas build --platform ios` ③ `public/.well-known/apple-app-site-association`의 `TEAMID` 교체(수동 커밋).
+2. **Supabase Auth 콘솔**: Apple provider 활성화(Sign in with Apple)·Google provider(선택)·이메일 OTP 템플릿에 `{{ .Token }}` 추가.
+3. (선택) Vercel env `CRON_SECRET` — 푸시 크론 엔드포인트 보호.
+4. (P5 시) Play 등록($25)·`assetlinks.json` SHA256 교체.
+5. TestFlight 4주 게이트(§9) — KPI 4개 미달 시 스토어 출시 보류.
+
+### 15.5 실행 방법
+
+```bash
+cd mobile && npm install
+npx expo start            # Expo Go: Map 탭 제외 전 화면 동작(maplibre는 dev build 필요)
+npx expo run:ios          # 네이티브 dev build (Xcode 필요) — Map 포함 전체
+```

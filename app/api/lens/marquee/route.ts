@@ -11,7 +11,17 @@ export const revalidate = 0;
 export async function GET(request: Request) {
   const ssr = await createServerClient();
   const { data: auth } = await ssr.auth.getUser();
-  const user = auth?.user;
+  let user = auth?.user ?? null;
+  // Mobile app fallback (HANDOFF-모바일앱-프리워치.md §7): the app has no cookie
+  // session — accept a Bearer access token, validated against Supabase Auth.
+  // Additive only; the cookie path above is untouched.
+  if (!user) {
+    const bearer = (request.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+    if (bearer) {
+      const { data: tok } = await createAdminClient().auth.getUser(bearer);
+      user = tok?.user ?? null;
+    }
+  }
   if (!user) return NextResponse.json({ error: "auth" }, { status: 401 });
 
   const { searchParams } = new URL(request.url);

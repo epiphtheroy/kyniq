@@ -68,3 +68,11 @@ worker/.crm-scout.lock
 # CRM — generated import data (contains personal contact emails) — never commit
 crm-handoff/contacts.json
 crm-handoff/_batches/
+
+# mobile app (Expo)
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/ios/
+mobile/android/
