@@ -615,9 +615,13 @@ function loadLocaleCols(slug: string) {
   return unstable_cache(
     async (): Promise<LocaleCols | null> => {
       if (!LOCALE_COL_LIST) return null; // no projected locales live
-      const { data, error } = await db().from("films").select(LOCALE_COL_LIST).eq("slug", slug).maybeSingle();
-      if (error) return null; // columns absent (pre-0105) or read failed → fall back to English everywhere
-      return (data ?? null) as LocaleCols | null;
+      try {
+        const { data, error } = await db().from("films").select(LOCALE_COL_LIST).eq("slug", slug).maybeSingle();
+        if (error) return null; // columns absent (pre-0105) or read failed → fall back to English everywhere
+        return (data ?? null) as LocaleCols | null;
+      } catch {
+        return null; // never let the locale read take down the (English) page
+      }
     },
     ["film-locale-cols-1", slug],
     { revalidate: 300, tags: [`film:${slug}`] },
