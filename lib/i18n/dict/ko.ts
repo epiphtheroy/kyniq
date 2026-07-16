@@ -260,4 +260,8 @@ export const KO: Record<string, string> = {
   "readings diverge N% = distance between the two films' reading vectors on the shared trope (100% = opposite readings). Computed by Metatake's connection engine · Edited by":
     "리딩 격차 N% = 공유 트로프에서 두 영화의 리딩 벡터 사이 거리 (100% = 정반대 리딩). Metatake 연결 엔진이 계산 · 편집:",
   "How it works →": "작동 방식 →",
+
+  // Locale suggest banner (§7)
+  "Read this page in {language} →": "이 페이지를 {language}로 보기 →",
+  Dismiss: "닫기",
 };

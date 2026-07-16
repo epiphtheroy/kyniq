@@ -5557,3 +5557,14 @@ html[data-mtlens="only"] .mtl-swap-out { display: none; }
 .dfk-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
 .dfk-chip{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media (max-width:640px){.dfk-sent{font-size:15px}.dfk-row{padding:11px 12px}}
+
+/* i18n — locale suggestion banner (HANDOFF-KO프로젝션-한국어사이트.md §7).
+   Slim top bar, suggestion only (never a redirect), dismissible. */
+.i18n-suggest{display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:7px 14px;background:#1a1a1a;color:#EFEADD;font-size:13.5px;
+  font-family:var(--ui,system-ui);position:relative;z-index:60}
+.i18n-suggest__go{color:#EFEADD;text-decoration:none;font-weight:600}
+.i18n-suggest__go:hover{text-decoration:underline}
+.i18n-suggest__x{background:none;border:0;color:#EFEADD;opacity:.55;cursor:pointer;
+  font-size:13px;line-height:1;padding:2px 6px}
+.i18n-suggest__x:hover{opacity:1}

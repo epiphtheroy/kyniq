@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
 import LensToggle from "@/components/LensToggle";
+import LocaleSwitcher from "@/components/i18n/LocaleSwitcher";
 import { clearLocalTakeDrafts } from "@/lib/room/drafts";
 
 export type NavCounts = {
@@ -334,7 +335,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
               </div>
             )}
           </div>
-          <div className="lang">EN ▾</div>
+          <LocaleSwitcher />
         </div>
       </div>
 

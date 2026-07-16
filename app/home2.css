@@ -52,7 +52,11 @@
 .mthome .acctmenu .mrow:hover{color:var(--red)}
 .mthome .acctmenu .mrow .ar{font-family:var(--ui);font-size:12px;color:var(--ink-faint)}
 .mthome .acctfoot .logout{margin-left:auto;background:none;border:0;padding:0;font-family:var(--ui);font-size:12.5px;font-weight:600;color:var(--red);cursor:pointer}
-.mthome .lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD;cursor:pointer}
+.mthome .lang{font-family:var(--ui);font-size:13px;font-weight:600;color:#EFEADD;cursor:default}
+.mthome .lang .lang-alt{color:#EFEADD;opacity:.62;text-decoration:none}
+.mthome .lang .lang-alt:hover{opacity:1;text-decoration:underline}
+.mthome .lang .lang-cur{opacity:1}
+.mthome .lang .lang-sep{opacity:.4}
 .mthome .mega{position:absolute;left:0;top:60px;width:100%;background:var(--dark);border-bottom:1px solid var(--dline);display:none;z-index:88}
 .mthome .mega.open{display:block}
 .mthome .mega .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:30px;padding-top:26px;padding-bottom:30px}

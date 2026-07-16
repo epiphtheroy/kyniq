@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Metrics from "@/components/Metrics";
 import Footer from "@/components/Footer";
 import GlobalCmdK from "@/components/GlobalCmdK";
+import LocaleSuggestBanner from "@/components/i18n/LocaleSuggestBanner";
 import { UserFilmsProvider } from "@/components/UserFilmsProvider";
 import { UserSavesProvider } from "@/components/UserSavesProvider";
 import { LensProvider } from "@/components/LensProvider";
@@ -156,6 +157,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
+        <LocaleSuggestBanner />
         <UserFilmsProvider><UserSavesProvider><LensProvider>{children}</LensProvider></UserSavesProvider></UserFilmsProvider>
         <Footer />
         <GlobalCmdK />
