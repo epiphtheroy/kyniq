@@ -287,6 +287,7 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 2. **Apple 4.2(minimal functionality):** 웹뷰 비중이 높아진 만큼, 심사 빌드에서 네이티브 가치(찜·푸시·지도·가용성 필모그래피)가 첫인상이 되도록 스크린샷·리뷰 노트 구성. 웹뷰는 "Read more" 보조층으로 서술.
 3. **KR 에디션 개방 시점** — 웹 /ko 프로젝션 live(PR #9)와 동기. 오너 결정.
 4. **수익화** — v1 무료 전제 유지. 트래픽 확인 후 별도 기획.
+5. **스토어 빌드의 지도 엔진(오너 요청 2026-07-16 "모바일에 맞는 다른 툴 검토")** — 현재 3면 스택은 그대로 두고, 스토어 제출 시점에 택일: **(a) Apple 지도(react-native-maps)로 단일화** — 플랫폼 네이티브 감각·유지비 0·이미 Expo Go용으로 구현돼 있어 코드 삭제만으로 전환, 단 Android는 Google SDK 키 필요·커스텀 스타일 불가. **(b) MapLibre GL Native 유지** — 에디토리얼 커스텀 스타일(직각·단일 레드 클러스터)·iOS/Android 렌더 동일, 단 타일 소스 운영(demotiles는 데모용 — 프로덕션은 Protomaps/OpenFreeMap 등 무료 타일로 교체 필요). 어느 쪽이든 `src/lib/pins.ts` 데이터 계약은 불변.
 
 ## §13 불변식 (구축 시 위반 금지 — v1 8조 + v2 4조)
 
@@ -307,7 +308,8 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 
 - v1 (2026-07-16, `319fed7`): 최초 기획 — 6축+접착제 4개, 탭 5개, P0~P4.
 - **v2 (2026-07-16, `681fbce`): 오너 확정 반영** — 2층 구조 헌법화(§2), Lineage·The Life 네이티브 편입, 다국가 에디션 아키텍처 신설(§6), 디자인 컨셉·동선 상세화(§3~§5), iOS 우선+양플랫폼 준비 3종(§8), TestFlight KPI 게이트(§9), BFF·SSO 핸드오프(§7), 커버리지 실측표(§5.4), 불변식 8→12조.
-- **v2.1 (2026-07-16, 이 커밋): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
+- **v2.1 (2026-07-16, c36c1d4): P0~P3 구현 완료 — §15 AS-BUILT 추가.**
+- **v2.2 (2026-07-16, 70f313a): 완전 시제품** — 지도 3면 실구현(§15.5)·Tonight 카드 리드 채움(편차 #5 해소)·촬영지 핀 융합(발음부호 dedupe)·웹 리더 iframe·스토어 지도 엔진 결정 항목(§12-5). 브라우저 프리뷰가 잡은 결함 3건(§15.6)은 bf1e2b8.
 
 ---
 
@@ -361,13 +363,13 @@ Apple Developer 등록($99/년) · (P5 시) Play $25 · 앱명 최종 확정(권
 
 | 경로 | 필요한 것 | 볼 수 있는 것 |
 |---|---|---|
-| **① 맥 브라우저** `npm run dev` + `cd mobile && npx expo start --web` | 없음 | Map·리더·계정삭제 제외 전부 (설계·동선 검토용) |
-| **② 아이폰 Expo Go** (App Store 무료 앱 → QR 스캔) | 같은 Wi-Fi + `EXPO_PUBLIC_METATAKE_BASE=http://<맥 LAN IP>:3000` | Map 제외 전부 — 실기기 촉감·타이포 확인 |
-| **③ 네이티브 빌드** `eas build` 또는 `expo run:ios` | Apple Developer($99) 또는 Xcode | Map·푸시·Apple 로그인 포함 전체 |
+| **① 맥 브라우저** `npm run dev` + `cd mobile && npx expo start --web` | 없음 | **전부** — 지도 포함(maplibre-gl JS)·리더는 iframe. 계정삭제만 사이트 위임 |
+| **② 아이폰 Expo Go** (App Store 무료 앱 → QR 스캔) | 같은 Wi-Fi + `EXPO_PUBLIC_METATAKE_BASE=http://<맥 LAN IP>:3000` | **전부** — 지도는 Apple 지도(react-native-maps, Expo Go 내장). 푸시·Apple 로그인만 네이티브 빌드 필요 |
+| **③ 네이티브 빌드** `eas build` 또는 `expo run:ios` | Apple Developer($99) 또는 Xcode | 전체 — 지도는 MapLibre GL Native·푸시·Apple 로그인 |
 
 **데이터 출처:** PR #7 머지 전에는 BFF가 프로덕션에 없으므로 로컬 `npm run dev`(:3000)를 켜고 `mobile/.env.local`로 가리켜야 한다. **머지 후에는 기본값(`https://metatake.net`)으로 앱만 켜면 된다.**
 
-⚠️ ①·②에서 **Map 탭은 지도 대신 설명 화면**이 뜬다(웹=렌더러 없음 / Expo Go=커스텀 네이티브 모듈 부재). 네이티브 구현은 `src/screens/MapNative.tsx`에 그대로 있고 route가 지연 require 한다 — 죽지 않게 하려는 분기이지 기능 축소가 아니다.
+**지도 3면 구현(2026-07-16, 70f313a):** 단일 데이터 계약 `src/lib/pins.ts`(시드 국가 글로벌 세트 + `film_geo` 필름 포커스) 위에 표면별 렌더러 — 웹 `map.web.tsx`(maplibre-gl JS·클러스터·Near me), Expo Go `MapExpoGo.tsx`(Apple 지도·마커 캡 500), dev/스토어 `MapNative.tsx`(MapLibre GL Native). `map.tsx`가 런타임 판별·지연 require(부재 모듈이 탭을 죽일 수 없음).
 
 ### 15.6 브라우저 프리뷰가 잡아낸 실제 결함 3건 (2026-07-16, 커밋 bf1e2b8)
 
