@@ -273,7 +273,7 @@ export default function AccessEnrichment({ record, tmdbId }: { record: AccessRec
 
       <div className="ax-attr">
         Free &amp; archive sources verified by MetaTake. Streaming availability:{" "}
-        <a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>, via TMDB.
+        <a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>.
         {" "}Checked {r.checked_at}.{stale ? " Needs re-check." : ""} Some services are region-locked; accessing them from abroad may violate their terms of service.
       </div>
     </section>

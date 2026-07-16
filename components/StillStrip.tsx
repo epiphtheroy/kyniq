@@ -68,7 +68,7 @@ export default function StillStrip({
               <span className="slx-zoom" aria-hidden="true">⤢</span>
             </button>
             <figcaption className="slx-cap">
-              <span className="slx-cap__src">{cap(s)} · still via TMDB</span>
+              <span className="slx-cap__src">{cap(s)}</span>
               {disclaim ? (
                 <span className="slx-cap__note">Shown with {topic} — an illustrative still, not necessarily a scene about it.</span>
               ) : null}
@@ -87,7 +87,7 @@ export default function StillStrip({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${IMG}/w1280${imgs[zoom].path}`} alt={cap(imgs[zoom])} />
             <figcaption>
-              {cap(imgs[zoom])} · still via TMDB{disclaim ? ` — shown with ${topic}, an illustrative still, not necessarily a scene about it` : ""}.
+              {cap(imgs[zoom])}{disclaim ? ` — shown with ${topic}, an illustrative still, not necessarily a scene about it` : ""}.
               {imgs.length > 1 ? <span className="slx-lb__count"> · {zoom + 1} / {imgs.length}</span> : null}
             </figcaption>
           </figure>

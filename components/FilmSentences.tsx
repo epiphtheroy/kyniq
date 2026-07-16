@@ -5,10 +5,16 @@
  * Rule-based sentences from the `film_sentences` layer, grouped into named
  * TOPICS with pill navigation (the pool is bigger than any one screen).
  *
- * Framing (원우, 2026-07-11): this is the designer's own fantasia — SQL-assembled
- * from Metatake's embedding space, explicitly NOT AI-written text and explicitly
- * independent of the filmmakers' intent; a spark for cinematic imagination.
- * The disclaimer below the heading is part of the contract — keep it.
+ * Framing (원우, 2026-07-11; compressed 2026-07-16): this is the designer's own
+ * fantasia — SQL-assembled from Metatake's embedding space, explicitly NOT
+ * AI-written text and explicitly independent of the filmmakers' intent; a spark
+ * for cinematic imagination.
+ * Disclaimer contract: ONE compressed disclaimer + /methodology link below the
+ * heading (no repeated bottom disclaimer); the poetic long-form explanation now
+ * lives on /methodology. The compressed line stays accurate — "SQL-assembled,
+ * not AI-written" describes the S28 sentence assembly (LLM-0); it does not claim
+ * the whole pipeline is pure-deterministic (location inputs come from an S19
+ * sonnet extractor), so the wording must not over-claim.
  *
  * A client component, but the FULL sentence list still server-renders into the
  * HTML (Next.js SSRs client components) — the SEO internal-link mesh survives;
@@ -95,9 +101,7 @@ export default function FilmSentences({ slug, title, rows }: { slug: string; tit
       <div className="dfk-kicker">Embedding Fantasia <span className="dfk-by">· a data fantasia by Wonwoo Yoon</span></div>
       <h2 className="df-h2">{title} — Embedding Fantasia</h2>
       <p className="df-sub dfk-disclaimer">
-        <b>Not AI-written.</b> Every line here is assembled by SQL from Metatake&rsquo;s embedding space — one designer&rsquo;s
-        fantasia on the data, independent of the filmmakers&rsquo; intent. Read it as a spark for cinematic imagination;
-        every name it drops is a door.
+        SQL-assembled from the Metatake database — not AI-written. <a href="/methodology">What is this?</a>
       </p>
       <div className="dfk-nav" role="tablist" aria-label="Fantasia topics">
         <button className={`dfk-pill${active === "all" ? " on" : ""}`} onClick={() => setActive("all")} role="tab" aria-selected={active === "all"}>
@@ -136,7 +140,6 @@ export default function FilmSentences({ slug, title, rows }: { slug: string; tit
           );
         })}
       </ul>
-      <div className="df-src">Embedding Fantasia — SQL-assembled from the Metatake database · no AI-written text · unrelated to the original authors&rsquo; intent.</div>
     </section>
   );
 }

@@ -41,9 +41,9 @@ function SourceTag({ meta }: { meta: ListMetaLite | undefined }) {
   );
 }
 
-export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, headerAccessory }: {
+export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, headerAccessory, recordUpdated = null }: {
   lineage: LinRow[]; title: string; slug?: string; listMeta?: Record<string, ListMetaLite>; movements?: MvChip[];
-  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; headerAccessory?: ReactNode;
+  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; headerAccessory?: ReactNode; recordUpdated?: string | null;
 }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linNational = lineage.filter((l) => l.facet === "national" && l.result === "listed");
@@ -61,6 +61,47 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
   const editionYears = lineage.map((l) => l.edition_year).filter((y): y is number => !!y && y > 1880);
   const eY0 = editionYears.length ? Math.min(...editionYears) : null;
   const eY1 = editionYears.length ? Math.max(...editionYears) : null;
+
+  // ── Per-film lead, assembled deterministically from the counts already in
+  // scope (#8). Every clause is gated on presence — an empty facet drops its
+  // clause, never renders a self-negating line (R-C1). It names national
+  // cinema / movement / auteur (absent from the digest) and reports honour and
+  // canon counts, not the specific award labels the digest already spells out,
+  // so it does not repeat the digest's wording (R-D).
+  const joinProse = (parts: string[]): string =>
+    parts.length <= 1 ? (parts[0] ?? "")
+      : parts.length === 2 ? `${parts[0]} and ${parts[1]}`
+      : `${parts.slice(0, -1).join(", ")}, and ${parts[parts.length - 1]}`;
+
+  const originBits = [...nations.map((m) => m.label), ...moves.map((m) => m.label)];
+  const honorBits: string[] = [];
+  if (wins > 0) honorBits.push(`${wins} win${wins === 1 ? "" : "s"}`);
+  if (noms > 0) honorBits.push(`${noms} nomination${noms === 1 ? "" : "s"}`);
+
+  const leadPreds: string[] = [];
+  if (originBits.length) leadPreds.push(`comes out of ${joinProse(originBits)}`);
+  if (honorBits.length) leadPreds.push(`carries ${joinProse(honorBits)}`);
+  if (canonsN > 0) leadPreds.push(`is cited in ${canonsN} canon${canonsN === 1 ? "" : "s"}`);
+  if (linAuteur.length > 0) leadPreds.push(linAuteur.length === 1 ? "extends its director's auteur line" : `extends ${linAuteur.length} auteur lines`);
+  const leadSpan = eY0 && eY1 && eY1 > eY0 ? ` — a record spanning ${eY0}–${eY1}` : "";
+
+  // ── Sources for this record (#9). Distinct display names per facet group,
+  // drawn from the SourceTag data already in scope (listMeta → lineageSource).
+  const srcNamesFor = (rows: LinRow[]): string[] => {
+    const names = new Set<string>();
+    for (const l of rows) {
+      const s = lineageSource(listMeta[l.list_slug]?.source);
+      if (s?.name) names.add(s.name);
+    }
+    return [...names];
+  };
+  const awardSrc = srcNamesFor(linAwards);
+  const canonRows = [...linCanons, ...linNational];
+  const canonSrc = srcNamesFor(canonRows);
+  const updatedAt = recordUpdated ? new Date(recordUpdated) : null;
+  const updatedFmt = updatedAt && !isNaN(updatedAt.getTime())
+    ? updatedAt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+    : null;
 
   const Row = ({ l, emblem }: { l: LinRow; emblem: string }) => (
     <div className="lin-row">
@@ -106,7 +147,9 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
     <section className="df-sec" id="df-lineage">
       <h2 className="df-h2">Lineage — the record</h2>
       {headerAccessory}
-      <p className="df-sub">Where {title} comes from and sits in cinema&apos;s record — its national cinema and movement, the awards it won, the canons it belongs to, and the auteur line it extends. Sourced per entry.</p>
+      {leadPreds.length > 0 ? (
+        <p className="df-sub">{title} {joinProse(leadPreds)}{leadSpan}.</p>
+      ) : null}
 
       {/* ── The record, spelled out — one glance at the scale ── */}
       <div className="lin-stats">
@@ -199,7 +242,22 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
         </div>
       ) : null}
 
-      <div className="df-src">Origin from TMDB; awards &amp; canons from public records and critics&apos;/institutional polls — cited per entry above; movements from auteur rosters.</div>
+      <div className="df-src" style={{ marginTop: 18, fontSize: 12, color: "var(--muted)" }}>
+        <div className="df-flabel">Sources for this record</div>
+        <ul style={{ listStyle: "none", margin: "8px 0 0", padding: 0, display: "grid", gap: 4 }}>
+          <li><b>Origin</b> — TMDB</li>
+          {linAwards.length > 0 ? (
+            <li><b>Awards &amp; honours</b> — {awardSrc.length ? joinProse(awardSrc) : "public records and critics’ polls"} <span className="lin-meta">({linAwards.length})</span></li>
+          ) : null}
+          {canonRows.length > 0 ? (
+            <li><b>Canon</b> — {canonSrc.length ? joinProse(canonSrc) : "institutional & critics’ polls"} <span className="lin-meta">({canonRows.length})</span></li>
+          ) : null}
+          {movements.length > 0 ? (
+            <li><b>Movements &amp; auteur line</b> — auteur rosters <span className="lin-meta">({movements.length + linAuteur.length})</span></li>
+          ) : null}
+        </ul>
+        {updatedFmt ? <div className="lin-meta" style={{ marginTop: 6 }}>Record updated {updatedFmt}</div> : null}
+      </div>
     </section>
   );
 }

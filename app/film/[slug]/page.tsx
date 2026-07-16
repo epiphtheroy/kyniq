@@ -140,6 +140,32 @@ function joinProse(xs: string[]): string {
   return `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
 }
 
+// #11 — real filming-place names parsed from the already-loaded J_location
+// fantasia sentences ("{title} ({year}) was filmed at {name}, {country}.").
+// Pure string parse of data already in scope — no new fetch, no loader field.
+// Returns the top places by salience + the remaining count for an "and N more"
+// tail. `exclude` drops names already named elsewhere (e.g. the digest's
+// country list) to satisfy the dedupe rule (R-D).
+function filmedPlaceNames(rows: { pattern: string; sentence: string; salience: number }[], exclude?: Set<string>): { names: string[]; more: number } {
+  const seen = new Set<string>();
+  const all: string[] = [];
+  const loc = rows
+    .filter((r) => r.pattern === "J_location" && !!r.sentence)
+    .sort((a, b) => b.salience - a.salience);
+  for (const r of loc) {
+    const m = /\bfilmed at (.+?)\.?\s*$/i.exec(r.sentence);
+    if (!m) continue;
+    // "Hanam, Gyeonggi Province, South Korea" → the leading place token.
+    const place = m[1].split(",")[0].trim();
+    if (!place) continue;
+    const key = place.toLowerCase();
+    if (seen.has(key) || exclude?.has(key)) continue;
+    seen.add(key);
+    all.push(place);
+  }
+  return { names: all.slice(0, 3), more: Math.max(0, all.length - 3) };
+}
+
 // One calm phrase per honour for the digest: "a Best Picture win",
 // "They Shoot Pictures Don't They? 1,000 Greatest Films #314".
 function digestHonorLabel(l: LinRow): string {
@@ -846,26 +872,29 @@ export default async function FilmPage({ params }: Props) {
     const mTsScore = codex ? displayTs(codex.u) : null;
     const mWatchRegions = watch?.countries?.length ?? 0;
     const mTabs = ([
-      hasDigest ? { id: "df-digest", label: "Digest" } : null,
-      codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const } : null,
-      lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length } : null,
-      recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length } : null,
-      reception.length ? { id: "df-reception", label: "Reception", badge: reception.length } : null,
-      sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia" } : null,
-      geoCount > 0 ? { id: "df-atlas", label: "Locations", badge: geoCount } : null,
-      afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined } : null,
+      hasDigest ? { id: "df-digest", label: "Digest", zone: "free" as const } : null,
+      codex ? { id: "df-codex", label: "TakeScore", badge: mTsScore ?? undefined, badgeTone: "score" as const, zone: "free" as const } : null,
+      lineage.length ? { id: "df-lineage", label: "Lineage", badge: lineage.length, zone: "free" as const } : null,
+      recommendedBy.length ? { id: "df-recby", label: "Recommended by", badge: recommendedBy.length, zone: "free" as const } : null,
+      reception.length ? { id: "df-reception", label: "Reception", badge: reception.length, zone: "free" as const } : null,
+      sentences.length >= 2 ? { id: "df-know", label: "Embedding Fantasia", zone: "free" as const } : null,
+      geoCount > 0 ? { id: "df-atlas", label: "Locations", badge: geoCount, zone: "free" as const } : null,
+      afterlifeTab ? { id: "df-afterlife", label: "Afterlife", href: `/film/${f.slug}/reception`, badge: afterlifeHonors || undefined, zone: "free" as const } : null,
       crew.length
-        ? { id: "df-crew", label: "Credits", badge: crew.length }
-        : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}` } : null,
-      { id: "df-watch", label: "Where to watch", badge: mWatchRegions || undefined },
-      f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery` } : null,
+        ? { id: "df-crew", label: "Credits", badge: crew.length, zone: "free" as const }
+        : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}`, zone: "free" as const } : null,
+      { id: "df-watch", label: "Where to watch", badge: mWatchRegions || undefined, zone: "free" as const },
+      f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery`, zone: "free" as const } : null,
     ].filter(Boolean)) as FilmTab[];
     // SYNOPSIS — the film's overview (plot), rendered as a lead paragraph directly
     // under the hero. The old "About" tab and its metadata list were removed: the
     // facts (director/genre/runtime/cert) duplicate the hero, and cast/writing now
     // live in the Credits tab.
     const synopsis = f.overview ? (
-      <p className="df-synopsis">{f.overview}</p>
+      <details className="df-synopsis-fold">
+        <summary>Plot overview (TMDB)</summary>
+        <p className="df-synopsis">{f.overview}</p>
+      </details>
     ) : null;
     // C4 — image parity with Tier-1: an image-first StillHero (up to 4) + an
     // in-body StillStrip. TMDB fetch-cache, no Supabase query, so no loader
@@ -946,20 +975,15 @@ export default async function FilmPage({ params }: Props) {
                   <EntityActions entityType="film" entityId={f.id} />
                   {t2PackSecs.length > 0 ? <DownloadPackModal slug={f.slug} sections={t2PackSecs} variant="hero" /> : null}
                   {t2PackSecs.length > 0 ? <McpConnectButton title={f.title} variant="hero" /> : null}
-                  {f.tmdb_id ? <Link className="df-like" href={`/credits?f=${f.tmdb_id}`}>🎞 Follow the credits →</Link> : null}
-                  {f.poster_path ? <Link className="df-like" href={`/film/${f.slug}/gallery`}>🖼 Gallery →</Link> : null}
                 </div>
                 <div className="df-share">
                   <ShareDock variant="bar" noSave path={`/film/${f.slug}`} title={`${f.title}${f.year ? ` (${f.year})` : ""}`}
                     hook={`${f.title}${f.year ? ` (${f.year})` : ""}${f.director ? `, ${f.director}` : ""}${mTsScore != null ? ` — TakeScore ${mTsScore} on Metatake` : " on Metatake"}`} />
                   <ShareDock variant="fab" path={`/film/${f.slug}`} title={f.title} />
                 </div>
-                <p className="df-catnote">Catalog record — the deep analysis (figures &amp; readings) is still pending. Track it in your lists; the films most readers add are the ones we analyze next.</p>
               </div>
             </div>
           </section>
-
-          {synopsis}
 
           <AccessCountryProvider>
 
@@ -1028,12 +1052,13 @@ export default async function FilmPage({ params }: Props) {
                 Compiled from the Metatake database · Edited by <Link href="/editor">Wonwoo Yoon</Link>
                 {recordDateFmt ? <> · Record updated {recordDateFmt}</> : null}
               </footer>
+              {synopsis}
             </section>
           ) : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
           <TowCard tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
-          <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} />
+          <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} recordUpdated={recordUpdated} />
           <FilmRecommendedBy rows={recommendedBy} title={f.title} />
 
           {/* SCHOLARSHIP (C3) — this cohort's reception is 100% academic; the shared
@@ -1049,7 +1074,14 @@ export default async function FilmPage({ params }: Props) {
           {geoCount > 0 ? (
             <section className="df-sec" id="df-atlas">
               <h2 className="df-h2">{f.title} — on the map</h2>
-              <p className="cmap-intro">The real places {f.title} is set in, was filmed at, or names — geolocated on Metatake's location map.</p>
+              {(() => {
+                const pl = filmedPlaceNames(sentences, new Set(geoCountries.map((c) => c.toLowerCase())));
+                return pl.names.length > 0 ? (
+                  <p className="cmap-intro">Real places {f.title} was filmed at or names — including {joinProse(pl.names)}{pl.more > 0 ? `, and ${pl.more} more` : ""}. Each pin opens what the place means in the film.</p>
+                ) : (
+                  <p className="cmap-intro">The real places {f.title} is set in, was filmed at, or names — geolocated on Metatake&rsquo;s location map.</p>
+                );
+              })()}
               <FilmMap endpoint={`/api/geo?film=${f.slug}`} filmSlug={f.slug} height={460} />
             </section>
           ) : null}
@@ -1087,7 +1119,6 @@ export default async function FilmPage({ params }: Props) {
                   ))}
                 </div>
               )}
-              <div className="df-src">Credits data from TMDB · analysis by Metatake</div>
             </section>
           ) : null}
 
@@ -1125,7 +1156,6 @@ export default async function FilmPage({ params }: Props) {
             <RelatedBoxes key={s.heading} heading={s.heading} variant={s.variant} boxes={s.boxes} />
           ))}
 
-          <div className="df-src">Data &amp; images via TMDB. Not endorsed or certified by TMDB.</div>
 
           {/* Modern chrome parity with the Tier-1 main (2026-07-15): prev/next film nav
               + the E-E-A-T provenance footer. NOT the Byline (it says "drafted by
@@ -1474,7 +1504,14 @@ export default async function FilmPage({ params }: Props) {
           <section className="df-sec" id="df-atlas">
             <h2 className="df-h2">{film.title} — on the map</h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "locations", label: "Filming locations" }]} variant="section" /> : null}
-            <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
+            {(() => {
+              const pl = filmedPlaceNames(sentences);
+              return pl.names.length > 0 ? (
+                <p className="cmap-intro">Real places {film.title} was filmed at or names — including {joinProse(pl.names)}{pl.more > 0 ? `, and ${pl.more} more` : ""}. Click a pin to read what the place means in the film.</p>
+              ) : (
+                <p className="cmap-intro">The real places {film.title} is set in and names — geolocated. Click a pin to read what the place means in the film.</p>
+              );
+            })()}
             {geoCells >= FILM_LOCATIONS_MIN ? (
               <p style={{ margin: "4px 0 14px" }}>
                 <Link
@@ -1496,6 +1533,7 @@ export default async function FilmPage({ params }: Props) {
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
         <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife}
+          recordUpdated={(film as { created_at?: string | null }).created_at ?? null}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "standing", label: "Standing & honors" }]} variant="section" /> : null} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
@@ -1895,7 +1933,6 @@ export default async function FilmPage({ params }: Props) {
                 ))}
               </div>
             )}
-            <div className="df-src">Credits data from TMDB · analysis by Metatake</div>
           </section>
         ) : null}
 

@@ -44,6 +44,19 @@ const NAME_KEY: Record<string, string> = {
   Bankruptcy: "bank", Insincerity: "insincere", Cowardice: "coward", Polarization: "polar",
 };
 
+// Highest-scoring dimension in a group (display value only — reads data.sub,
+// never re-ranks or mutates the raw scores, R-R1). Returns the panel display
+// name (the key data.sub is keyed by) and its clamped-for-display score.
+function topDim(names: string[], sub: Record<string, number>): { name: string; score: number } {
+  let best = names[0];
+  let bestScore = sub[names[0]] ?? 0;
+  for (const n of names) {
+    const s = sub[n] ?? 0;
+    if (s > bestScore) { best = n; bestScore = s; }
+  }
+  return { name: best, score: bestScore };
+}
+
 // The film's plain-word reading of each dimension, shown as a prominent,
 // axis-coloured verdict line under each row — so the judgment reads at a glance
 // instead of hiding at the end of a grey definition sentence (removed). The row's
@@ -249,22 +262,40 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       : `bottom ${Math.max(1, Math.round(((rankTotal - rank + 1) / rankTotal) * 100))}%`
     : "";
 
+  // Per-film TakeScore lead (#5): the film's strongest Value dimension and its
+  // sharpest Risk dimension, read straight from data.sub. Presence-gated (R-C1):
+  // no sub-scores → no one-liner, and the generic definition folds away below.
+  const hasSub = !!data.sub && Object.keys(data.sub).length > 0;
+  const topVal = hasSub ? topDim(VALUE, data.sub) : null;
+  const topRisk = hasSub ? topDim(RISK, data.sub) : null;
+  const valLabel = topVal ? (dimByKey.get(NAME_KEY[topVal.name] ?? "")?.label ?? topVal.name) : "";
+  const riskLabel = topRisk ? (dimByKey.get(NAME_KEY[topRisk.name] ?? "")?.label ?? topRisk.name) : "";
+
   return (
     <section className="df-sec ccx" id="df-codex">
       <h2 className="df-h2">TakeScore™ <a className="ccx-how" href="/takescore/about">how it works →</a></h2>
       {headerAccessory}
-      <p className="df-sub">
-        Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
-        the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
-        {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">TakeScore dimensions</a> against a fixed anchor ruler.</> : null}
-      </p>
+      {topVal && topRisk ? (
+        <p className="df-sub">
+          {title}&rsquo;s strongest value is <strong>{valLabel}</strong> ({bandWord("value", topVal.score).toLowerCase()});
+          {" "}its sharpest risk is <strong>{riskLabel}</strong> ({bandWord("risk", topRisk.score).toLowerCase()}).
+        </p>
+      ) : null}
+      <details className="df-sub" style={{ margin: "0 0 12px" }}>
+        <summary style={{ cursor: "pointer" }}>What TakeScore measures</summary>
+        <span style={{ display: "block", marginTop: 6 }}>
+          Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
+          the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
+          {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">TakeScore dimensions</a> against a fixed anchor ruler.</> : null}
+        </span>
+      </details>
 
       {/* The three central scores as ring gauges — the same <ScoreDonut> instrument
           as the appraisal page and /takescore curtain, with the net TakeScore beside
           them. Same numbers the old bars carried; presentation only. */}
       <style>{GAUGE_CSS}</style>
       <div className="ccx-gauges">
-        <div className="ccx-gk">The three central scores <span>0–100</span></div>
+        <div className="ccx-gk">How {title} scores <span>0–100</span></div>
         {/* TakeScore + verdict fill the width; the three rings sit together at the
             right (same reading order as the /takescore Screener card). */}
         <div className="ccx-grow">
@@ -359,7 +390,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       ) : null}
 
       <div className="df-src">
-        AI-estimated (TakeScore rubric, {data.panel}). A rubric-anchored judgment, not an objective fact;
+        AI-estimated (TakeScore rubric). A rubric-anchored judgment, not an objective fact;
         popularity metrics above are for comparison only.
         {conf != null ? (
           <> Confidence {tier ? `${tier} ` : ""}({conf}/100) — {evidence}. A measured reliability, not a claim of certainty.</>
