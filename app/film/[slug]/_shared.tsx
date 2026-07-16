@@ -1469,7 +1469,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               <Byline created={film.created_at} />
               <div className="df-facts">
                 {film.director ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : null}
-                {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).map((g) => genreName(g, locale)).join(" · ")}</> : null}
+                {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).map((g: string) => genreName(g, locale)).join(" · ")}</> : null}
                 {runtimeFmt ? <><span className="df-d" />{runtimeFmt}</> : null}
                 {cert ? <><span className="df-d" />{cert}</> : null}
                 {country ? <><span className="df-d" />{country}</> : null}
