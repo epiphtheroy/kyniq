@@ -206,4 +206,15 @@ export const KO: Record<string, string> = {
   "English original": "영어 원문",
   "This section is in English — your browser can translate it.":
     "이 대목은 영어다. 브라우저 번역으로 읽을 수 있다.",
+
+  // Metadata (title/description templates — §6.4)
+  "Cast, Where to Watch & Context": "출연·볼 곳·배경",
+  "Analysis, Themes & Symbols": "분석·주제·상징",
+  "directed by {name}": "{name} 감독",
+  " Cast, context and where to watch on Metatake.":
+    " 출연·배경·볼 수 있는 곳을 Metatake에서.",
+  "{title} read closely: {figures} figures and {misreadings} strong misreadings across 14 critical frameworks.":
+    "{title} 깊이 읽기: 피겨 {figures}개와 14개 비평 프레임워크를 가로지르는 강한 오독 {misreadings}편.",
+  " {figures} figures · {misreadings} readings inside.":
+    " 안에 피겨 {figures}개 · 리딩 {misreadings}편.",
 };

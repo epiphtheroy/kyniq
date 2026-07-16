@@ -1,5 +1,8 @@
 import { Metadata } from "next";
-import type { Locale } from "@/lib/i18n";
+import { t, LOCALES, DEFAULT_LOCALE, PROJECTED_LOCALES, type Locale } from "@/lib/i18n";
+import { locVal, hasLocVal } from "@/lib/i18n/values";
+import { genreName } from "@/lib/i18n/genres";
+import { localeAlternates, indexableLocales, type LocaleCols } from "@/lib/i18n/seo";
 import type { CSSProperties } from "react";
 import { unstable_cache } from "next/cache";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -600,6 +603,26 @@ function loadSentences(slug: string) {
   )();
 }
 
+// The `_<loc>` projection columns (migration 0105), fetched apart from the main
+// row so the big EN select never has to name them and cannot 400 if they are not
+// there yet. Returns null when the columns are absent (pre-migration) or the read
+// fails — indexableLocales then yields nothing, every projected page noindexes,
+// and the site behaves exactly as it does today. The select is built from the
+// registry so a new language needs no edit here.
+const LOCALE_COL_LIST = PROJECTED_LOCALES.flatMap((l) => [`title_${l}`, `overview_${l}`]).join(", ");
+function loadLocaleCols(slug: string) {
+  return unstable_cache(
+    async (): Promise<LocaleCols | null> => {
+      if (!LOCALE_COL_LIST) return null; // no projected locales live
+      const { data, error } = await db().from("films").select(LOCALE_COL_LIST).eq("slug", slug).maybeSingle();
+      if (error) return null; // columns absent (pre-0105) or read failed → fall back to English everywhere
+      return (data ?? null) as LocaleCols | null;
+    },
+    ["film-locale-cols-1", slug],
+    { revalidate: 300, tags: [`film:${slug}`] },
+  )();
+}
+
 // order + cap for the film-page Archetype section
 const ARCH_ORDER = ["object", "char_archetype", "char_identity", "char_complex", "location", "theme"];
 const ARCH_CAP: Record<string, number> = { theme: 12, char_identity: 18 };
@@ -632,39 +655,62 @@ function descriptionFromInvitation(invitation: string): string | null {
 }
 
 export async function filmMetadata(slug: string, locale: Locale): Promise<Metadata> {
-  const data = await load(slug);
+  const [data, i18n] = await Promise.all([load(slug), loadLocaleCols(slug)]);
   if (!data) return { title: "Not found" };
+  // Which locales have a real translation of this film — decides both this page's
+  // own indexability and, on the EN page, which hreflang alternates to emit.
+  const twins = indexableLocales(i18n);
+  const alternates = localeAlternates(`/film/${slug}`, locale, twins);
+  // Work order §6.2: a projected locale inherits the English gate, then AND's the
+  // language's own bar on top. A page whose title and synopsis are still English
+  // is EN's duplicate wearing a prefix, and Google folds it back — so it renders
+  // (with fallbacks) but is never advertised.
+  const localeBar = locale === DEFAULT_LOCALE || twins.includes(locale);
+  const og = { locale: LOCALES[locale].ogLocale };
+
   if ("minimal" in data && data.minimal) {
     // Full catalog-record head: Tier-1's pattern minus the analysis claim —
     // no readings exist yet, so the title promises cast/watch/context only.
     const f = data.film as { title: string; original_title: string | null; year: number | null; director: string | null; genres: string[] | null; overview: string | null };
-    const native = f.original_title && f.original_title !== f.title ? ` (${f.original_title})` : "";
-    const title = `${f.title}${f.year ? ` (${f.year})` : ""} — Cast, Where to Watch & Context`;
-    const fromOverview = f.overview ? descriptionFromInvitation(f.overview) : null;
+    const fTitle = locVal({ ...f, ...i18n }, "title", locale) ?? f.title;
+    const fOverview = locVal({ ...f, ...i18n }, "overview", locale) ?? f.overview;
+    const native = f.original_title && f.original_title !== fTitle ? ` (${f.original_title})` : "";
+    const title = `${fTitle}${f.year ? ` (${f.year})` : ""} — ${t(locale, "Cast, Where to Watch & Context")}`;
+    // Only extract from the synopsis when the synopsis is in this language: an
+    // English blurb under a Korean title is the half-translated head §6.4 warns
+    // about, and the formula below is fully translatable.
+    const overviewIsLocal = locale === DEFAULT_LOCALE || hasLocVal(i18n ?? {}, "overview", locale);
+    const fromOverview = fOverview && overviewIsLocal ? descriptionFromInvitation(fOverview) : null;
     const formula = [
-      `${f.title}${native}${f.year ? ` (${f.year})` : ""}`,
-      f.director ? `directed by ${f.director}` : null,
+      `${fTitle}${native}${f.year ? ` (${f.year})` : ""}`,
+      f.director ? t(locale, "directed by {name}", { name: f.director }) : null,
     ].filter(Boolean).join(", ")
-      + (f.genres?.length ? ` — ${f.genres.slice(0, 3).join(", ")}.` : ".")
-      + " Cast, context and where to watch on Metatake.";
+      + (f.genres?.length ? ` — ${f.genres.slice(0, 3).map((g) => genreName(g, locale)).join(", ")}.` : ".")
+      + t(locale, " Cast, context and where to watch on Metatake.");
     const description = fromOverview ?? formula;
     return {
       title,
       description,
-      openGraph: { title, description },
+      openGraph: { title, description, ...og },
       twitter: { card: "summary_large_image", title, description },
-      alternates: { canonical: `/film/${slug}` },
+      alternates,
       // SEO consolidation gate (HANDOFF §2): a Tier-2 catalog film's main page is
       // indexable when it clears filmIndexBar (strong-any signal + availability).
-      robots: pageRobots(await filmMainIndexable(slug)),
+      robots: pageRobots((await filmMainIndexable(slug)) && localeBar),
     };
   }
   const meetsBar = data.figures.length >= 3 && (data.film as { visible?: boolean }).visible !== false;
-  const title = `${data.film.title}${data.film.year ? ` (${data.film.year})` : ""} — Analysis, Themes & Symbols`;
+  const fTitle = locVal({ ...data.film, ...i18n }, "title", locale) ?? data.film.title;
+  const title = `${fTitle}${data.film.year ? ` (${data.film.year})` : ""} — ${t(locale, "Analysis, Themes & Symbols")}`;
   const templatedDescription = data.misreadings.length
-    ? `${data.film.title} read closely: ${data.figures.length} figures and ${data.misreadings.length} strong misreadings across 14 critical frameworks.`
+    ? t(locale, "{title} read closely: {figures} figures and {misreadings} strong misreadings across 14 critical frameworks.", {
+        title: fTitle, figures: data.figures.length, misreadings: data.misreadings.length,
+      })
     : undefined;
-  const fromInvitation = data.invitation ? descriptionFromInvitation(data.invitation) : null;
+  // The invitation is English prose in the DB (work order §1.1) — outside the
+  // source language it can only be quoted, never projected, so the translatable
+  // template wins there.
+  const fromInvitation = locale === DEFAULT_LOCALE && data.invitation ? descriptionFromInvitation(data.invitation) : null;
   // A mid-sentence cut ("…") reads as a broken sentence in search snippets, so a
   // truncated extraction only ships when there is no complete-sentence fallback.
   const picked = fromInvitation && (!fromInvitation.endsWith("…") || !templatedDescription)
@@ -672,17 +718,19 @@ export async function filmMetadata(slug: string, locale: Locale): Promise<Metada
     : templatedDescription;
   // Numbers are a CTR signal — append the corpus counts when the prose
   // description has room (the templated fallback already carries them).
-  const stats = ` ${data.figures.length} figures · ${data.misreadings.length} readings inside.`;
+  const stats = t(locale, " {figures} figures · {misreadings} readings inside.", {
+    figures: data.figures.length, misreadings: data.misreadings.length,
+  });
   const description = picked && picked === fromInvitation && data.misreadings.length && (picked + stats).length <= 168
     ? picked + stats
     : picked;
   return {
     title,
     ...(description ? { description } : {}),
-    openGraph: { title, ...(description ? { description } : {}) },
+    openGraph: { title, ...(description ? { description } : {}), ...og },
     twitter: { card: "summary_large_image", title, ...(description ? { description } : {}) },
-    alternates: { canonical: `/film/${slug}` },
-    robots: pageRobots(meetsBar),
+    alternates,
+    robots: pageRobots(meetsBar && localeBar),
   };
 }
 
@@ -698,11 +746,25 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     notFound();
   }
   const { movements, codex, subscores } = await loadChrome(slug);
+  // Projection columns for this film (title_<loc>/overview_<loc>). Null before
+  // migration 0105, in which case locVal falls back to English throughout.
+  const i18n = (await loadLocaleCols(slug)) ?? {};
+  // Merge onto the film row so locVal(film, "title", locale) sees the _<loc>
+  // sibling. Kept as a helper so the two render branches read the same way.
+  const loc = <T extends Record<string, unknown>>(row: T, field: keyof T & string): string | null =>
+    locVal({ ...row, ...i18n }, field, locale);
   // Director face photo (shown under the title in both render branches).
   const anyData = data as { minimal?: boolean; directorSlug?: string | null; film?: { director_slug?: string | null } };
   const directorPhoto = await loadDirectorPhoto(anyData.minimal ? (anyData.directorSlug ?? null) : (anyData.film?.director_slug ?? null));
   // Embedding Fantasia rows — shared by both the Tier-1 and Tier-2 render branches.
-  const sentences = await loadSentences(slug);
+  // EN only (work order §1.1 decision ①, owner call 2026-07-16): these are whole
+  // English sentences stored per row, so the dictionary cannot reach them, and the
+  // layer carries a "not AI-written" contract that makes *how* to render it in
+  // another language an owner decision, not a translation task. A Korean edition
+  // means regenerating the 13 patterns with Korean slots (master doc, tier B) —
+  // until then the module is absent rather than an English island. Skipping the
+  // fetch too: no query for something no one will see.
+  const sentences = locale === "en" ? await loadSentences(slug) : [];
   // to.W — curator's letter on this film's place in the index (both branches).
   const tow = await loadTow(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
@@ -1484,7 +1546,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <div className="ww-grid">
               {whyWatch.map((L, i) => (
                 <div key={i} className="ww-lens">
-                  <h3 className="ww-h">{WW_TITLE[L.key] ?? L.key.replace(/_/g, " ").toLowerCase()}</h3>
+                  <h3 className="ww-h">{WW_TITLE[L.key] ? t(locale, WW_TITLE[L.key]) : L.key.replace(/_/g, " ").toLowerCase()}</h3>
                   <ul className="ww-pts">
                     {(L.points ?? []).map((p, j) => <li key={j}>{p.label ? <b className="ww-lab">{p.label}</b> : null}{p.label ? " — " : ""}{p.text}</li>)}
                   </ul>
@@ -1589,7 +1651,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <p className="df-sub">The characters, objects, places, forms and motifs Metatake singled out in {film.title} — each the anchor for one or more strong misreadings.</p>
             {grouped.map((g) => (
               <div key={g.kind} className="df-fgroup">
-                <div className="df-flabel">{KIND_LABEL[g.kind] ?? g.kind}</div>
+                <div className="df-flabel">{KIND_LABEL[g.kind] ? t(locale, KIND_LABEL[g.kind], undefined, g.kind === "location" ? "figure-kind" : undefined) : g.kind}</div>
                 {g.items.map((f) => {
                   const n = takeCount[f.id] ?? 0;
                   // Query-shaped anchor to the figure page (clean labels only) —
