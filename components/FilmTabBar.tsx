@@ -16,6 +16,8 @@ import Link from "next/link";
 import DownloadPackModal from "@/components/DownloadPackModal";
 import McpConnectButton from "@/components/McpConnectButton";
 import { PACK_SECTION_BY_TAB, PACK_SECTION_LABEL } from "@/lib/pack";
+import { t } from "@/lib/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 
 export type FilmTab = { id: string; label: string; href?: string; badge?: string | number; badgeTone?: "score"; color?: string; zone?: "free" | "spoiler" };
 export type ZoneLabels = { free: { title: string; sub: string }; spoiler: { title: string; sub: string } };
@@ -53,6 +55,7 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
   packDownload?: boolean;
   packTitle?: string;
 }) {
+  const locale = useLocale();
   const barRef = useRef<HTMLElement>(null);
   const [navH, setNavH] = useState(0);
   const [active, setActive] = useState(tabs[0]?.id ?? "");
@@ -218,13 +221,13 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
             .map((items, i) => ({ key: `r${i}`, kind: "none" as const, items }));
         })();
     return (
-      <nav ref={barRef} className={`df-tabs df-tabs--menu${zoned ? " df-tabs--zoned" : ""}`} style={{ top: navH }} aria-label="Sections on this page">
+      <nav ref={barRef} className={`df-tabs df-tabs--menu${zoned ? " df-tabs--zoned" : ""}`} style={{ top: navH }} aria-label={t(locale, "Sections on this page")}>
         {rails.map((rail, i) => (
           <div key={rail.key} className={`df-tabs__rail${i === 1 ? " df-tabs__rail--b" : ""}${rail.kind !== "none" ? ` df-tabs__rail--${rail.kind}` : ""}`}>
             {rail.kind !== "none" ? (
               <span className={`df-tabs__zlab df-tabs__zlab--${rail.kind}`}>
-                <b>{zoneLabels[rail.kind].title}</b>
-                <em>{zoneLabels[rail.kind].sub}</em>
+                <b>{t(locale, zoneLabels[rail.kind].title)}</b>
+                <em>{t(locale, zoneLabels[rail.kind].sub)}</em>
               </span>
             ) : null}
             <div className="df-tabs__scroll">
@@ -255,15 +258,15 @@ export default function FilmTabBar({ tabs, twoRow = false, center = false, searc
   };
 
   return (
-    <nav ref={barRef} className="df-tabs" style={{ top: navH }} aria-label="Sections on this page">
+    <nav ref={barRef} className="df-tabs" style={{ top: navH }} aria-label={t(locale, "Sections on this page")}>
       <div className={`df-tabs__in${center ? " df-tabs__in--center" : ""}`}>
         {tabs.map(renderTab)}
         {search ? (
           <input
             className="df-tabs__q"
             type="search"
-            placeholder={search.placeholder ?? "Search this page…"}
-            aria-label={search.placeholder ?? "Search this page"}
+            placeholder={search.placeholder ?? t(locale, "Search this page…")}
+            aria-label={search.placeholder ?? t(locale, "Search this page")}
             onChange={(e) => window.dispatchEvent(new CustomEvent(search.event, { detail: e.target.value }))}
             onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); jumpTo(search.targetId); } }}
             onFocus={() => { /* keep context — jump happens on Enter */ }}

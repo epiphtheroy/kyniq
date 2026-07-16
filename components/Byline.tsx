@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MethodologyBadge from "./MethodologyBadge";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 /**
  * Byline — visible top-of-page provenance (Phase 1, 2026-07-02).
@@ -24,11 +25,13 @@ export default function Byline({
   created,
   methodologyHref = "/methodology",
   badge = false,
+  locale = DEFAULT_LOCALE,
 }: {
   updated?: string | null;
   created?: string | null;
   methodologyHref?: string;
   badge?: boolean;
+  locale?: Locale;
 }) {
   const u = fmt(updated) || fmt(created);
   return (
@@ -36,14 +39,14 @@ export default function Byline({
       className="ui muted"
       style={{ fontSize: 12.5, margin: "6px 0 0", letterSpacing: 0.1 }}
     >
-      Drafted by Metatake Editorial · reviewed &amp; edited by{" "}
+      {t(locale, "Drafted by")} Metatake Editorial · {t(locale, "reviewed & edited by")}{" "}
       <Link href="/editor" className="accent" style={{ textDecoration: "none" }}>
         Wonwoo Yoon
       </Link>
-      {u ? <> · updated {u}</> : null}
+      {u ? <> · {t(locale, "updated")} {u}</> : null}
       {" · "}
       <Link href={methodologyHref} className="accent" style={{ textDecoration: "none" }}>
-        how this is made
+        {t(locale, "how this is made")}
       </Link>
       {badge ? <MethodologyBadge href={methodologyHref} /> : null}
     </p>

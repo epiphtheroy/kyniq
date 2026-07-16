@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CRAFT_VERBED, ordinal, type FilmCreditsPayload } from "@/lib/film-credits-data";
 import { personSlug } from "@/app/credits/credits-logic";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 /**
  * MakerPanels — blog-preview cards for the people behind one film (2026-07-08),
@@ -10,7 +11,7 @@ import { personSlug } from "@/app/credits/credits-logic";
  * they did on this film (career count/since-year + the Nth-meeting fact).
  * Styles: .crd-* in app/film/[slug]/read.css.
  */
-export default function MakerPanels({ payload }: { payload: FilmCreditsPayload }) {
+export default function MakerPanels({ payload, locale = DEFAULT_LOCALE }: { payload: FilmCreditsPayload; locale?: Locale }) {
   const { film, director, directorFilmog, relations } = payload;
 
   return (
@@ -20,6 +21,7 @@ export default function MakerPanels({ payload }: { payload: FilmCreditsPayload }
         const href = film.director_slug && film.director === director.name
           ? `/director/${film.director_slug}`
           : `/credits?p=${director.id}&c=dir`;
+        const dOrd = locale === DEFAULT_LOCALE ? ordinal(dIdx + 1) : String(dIdx + 1);
         return (
           <a className="crd-panel" href={href} key="director">
             {director.profile
@@ -27,19 +29,27 @@ export default function MakerPanels({ payload }: { payload: FilmCreditsPayload }
                 <img src={`https://image.tmdb.org/t/p/w185${director.profile}`} alt={director.name} width={92} height={120} loading="lazy" />
               : <span className="crd-ph" aria-hidden>{director.name[0]}</span>}
             <span>
-              <span className="crd-k">Director · {film.title}</span>
-              <h3>What has {director.name} directed — and with whom?</h3>
+              <span className="crd-k">{t(locale, "Director")} · {film.title}</span>
+              <h3>{t(locale, "What has {name} directed — and with whom?", { name: director.name })}</h3>
               <p>
-                The director of {film.title}: {directorFilmog.length} directing credits since {directorFilmog[0].year}
-                {dIdx >= 0 ? <> — {film.title} was the {ordinal(dIdx + 1)} of them</> : null}.
+                {t(locale, "The director of {title}: {count} directing credits since {year}", { title: film.title, count: directorFilmog.length, year: directorFilmog[0].year })}
+                {dIdx >= 0 ? <>{t(locale, " — {title} was the {ord} of them", { title: film.title, ord: dOrd })}</> : null}.
               </p>
-              <span className="crd-go">Open the file →</span>
+              <span className="crd-go">{t(locale, "Open the file →")}</span>
             </span>
           </a>
         );
       })() : null}
       {relations.filter((r) => r.roleKey !== "actor").map((r) => {
         const verbed = CRAFT_VERBED[r.roleKey] ?? "made";
+        const verbedL = t(locale, verbed);
+        const roleL = t(locale, r.role);
+        const filmsPhrase = locale === DEFAULT_LOCALE
+          ? `${r.careerCount} film${r.careerCount === 1 ? "" : "s"}`
+          : t(locale, "{count} films", { count: r.careerCount });
+        const sharedPos = r.idx >= 0
+          ? t(locale, "the {ord}", { ord: locale === DEFAULT_LOCALE ? ordinal(r.idx + 1) : String(r.idx + 1) })
+          : t(locale, "one");
         return (
           <a className="crd-panel" href={`/credits/${personSlug(r.name, r.personId)}`} key={`${r.personId}-${r.roleKey}`}>
             {r.profile
@@ -47,18 +57,18 @@ export default function MakerPanels({ payload }: { payload: FilmCreditsPayload }
                 <img src={`https://image.tmdb.org/t/p/w185${r.profile}`} alt={r.name} width={92} height={120} loading="lazy" />
               : <span className="crd-ph" aria-hidden>{r.name[0]}</span>}
             <span>
-              <span className="crd-k">{r.role} · {film.title}</span>
-              <h3>What has {r.name} {verbed} — and with whom?</h3>
+              <span className="crd-k">{roleL} · {film.title}</span>
+              <h3>{t(locale, "What has {name} {verbed} — and with whom?", { name: r.name, verbed: verbedL })}</h3>
               <p>
-                The {r.role} of {film.title} — {r.careerCount} film{r.careerCount === 1 ? "" : "s"} {verbed}
-                {r.careerFirst ? ` since ${r.careerFirst}` : ""}
+                {t(locale, "The {role} of {title} — {films} {verbed}", { role: roleL, title: film.title, films: filmsPhrase, verbed: verbedL })}
+                {r.careerFirst ? t(locale, " since {year}", { year: r.careerFirst }) : ""}
                 {r.shared.length > 0 && director ? (
                   r.shared.length === 1
-                    ? <>; the only one with {director.name}</>
-                    : <>; {r.idx >= 0 ? `the ${ordinal(r.idx + 1)}` : "one"} of {r.shared.length} with {director.name}</>
+                    ? <>{t(locale, "; the only one with {name}", { name: director.name })}</>
+                    : <>{t(locale, "; {pos} of {count} with {name}", { pos: sharedPos, count: r.shared.length, name: director.name })}</>
                 ) : null}.
               </p>
-              <span className="crd-go">Open the file →</span>
+              <span className="crd-go">{t(locale, "Open the file →")}</span>
             </span>
           </a>
         );
@@ -68,7 +78,7 @@ export default function MakerPanels({ payload }: { payload: FilmCreditsPayload }
 }
 
 /** The film page's compact call-to-action under the panels. */
-export function MakerPanelsCta({ slug, title }: { slug: string; title: string }) {
+export function MakerPanelsCta({ slug, title, locale = DEFAULT_LOCALE }: { slug: string; title: string; locale?: Locale }) {
   return (
     <p style={{ margin: "14px 0 0" }}>
       <Link
@@ -80,7 +90,7 @@ export function MakerPanelsCta({ slug, title }: { slug: string; title: string })
         }}
       >
         <span aria-hidden style={{ color: "#E0922A" }}>◉</span>
-        Who made {title}? — every meeting, counted →
+        {t(locale, "Who made {title}? — every meeting, counted →", { title })}
       </Link>
     </p>
   );

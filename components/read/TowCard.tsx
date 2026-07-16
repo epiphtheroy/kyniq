@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 import "./tow-card.css";
 
 // to.W — the curator's letter, addressed "to. W. Heo" and signed "from. W. Yoon".
@@ -50,11 +51,13 @@ export default function TowCard({
   filmTitle,
   variant = "full",
   slug,
+  locale = DEFAULT_LOCALE,
 }: {
   tow: TowComment | null;
   filmTitle: string;
   variant?: "full" | "short";
   slug?: string;
+  locale?: Locale;
 }) {
   if (!tow?.rationale) return null;
   const isShort = variant === "short";
@@ -64,7 +67,7 @@ export default function TowCard({
       <div className="towc-head">
         <div>
           <div className="towc-kicker">to. WY. Heo</div>
-          <h2 className="towc-h" id="towc-h">Why {filmTitle} is in the index</h2>
+          <h2 className="towc-h" id="towc-h">{t(locale, "Why {title} is in the index", { title: filmTitle })}</h2>
         </div>
         {tow.verdict_label ? (
           <span className={`towc-chip towc-chip--${tow.verdict}`}>{tow.verdict_label}</span>
@@ -73,20 +76,19 @@ export default function TowCard({
       <p className="towc-p">{body}</p>
       {isShort && slug ? (
         <p className="towc-more">
-          <Link href={`/takescore/film/${slug}#towc-h`}>Read the full letter on the appraisal page →</Link>
+          <Link href={`/takescore/film/${slug}#towc-h`}>{t(locale, "Read the full letter on the appraisal page →")}</Link>
         </p>
       ) : null}
       {!isShort && tow.rec_date ? (
-        <p className="towc-recd">Recommended into the Metatake index · {tow.rec_date}</p>
+        <p className="towc-recd">{t(locale, "Recommended into the Metatake index · {date}", { date: tow.rec_date })}</p>
       ) : null}
       <div className="towc-signrow">
         <span className="towc-sign">from. W. Yoon</span>
-        <Link href="/editor" className="towc-ava" title="Wonwoo Yoon — Metatake editor" aria-label="Wonwoo Yoon, Metatake editor — view profile">w</Link>
+        <Link href="/editor" className="towc-ava" title={t(locale, "Wonwoo Yoon — Metatake editor")} aria-label={t(locale, "Wonwoo Yoon, Metatake editor — view profile")}>w</Link>
       </div>
       {!isShort ? (
         <p className="towc-note">
-          A curator&apos;s note on {filmTitle}&apos;s place in the Metatake index — drawn from the catalog&apos;s
-          curation records, and kept separate from the TakeScore appraisal above.
+          {t(locale, "A curator's note on {title}'s place in the Metatake index — drawn from the catalog's curation records, and kept separate from the TakeScore appraisal above.", { title: filmTitle })}
         </p>
       ) : null}
     </section>

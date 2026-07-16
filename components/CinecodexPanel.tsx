@@ -7,6 +7,7 @@ import type { CSSProperties, ReactNode } from "react";
 import ScoreDonut from "@/components/ScoreDonut";
 import { dimByKey, takescoreDimUrl, displayTs } from "@/lib/cinecodex_dims";
 import { bandWord, verdictShort } from "@/lib/takescore_prose";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 export type Codex = {
   v: number; c: number; r: number; u: number; sharpe: number;
@@ -84,7 +85,7 @@ const SUBROW_QM_STYLE: CSSProperties = { gridTemplateColumns: "112px 1fr 26px 16
 function Bar({ v, tone }: { v: number; tone: string }) {
   return <span className="ccx-bar"><i className={tone} style={{ width: `${Math.max(0, Math.min(100, v))}%` }} /></span>;
 }
-function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, number>; tone: string; rich?: boolean }) {
+function Sub({ names, sub, tone, rich, locale }: { names: string[]; sub: Record<string, number>; tone: string; rich?: boolean; locale: Locale }) {
   return (
     <div className="ccx-sub">
       {names.map((n) => {
@@ -92,7 +93,7 @@ function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, 
         if (!rich) {
           return (
             <div className="ccx-subrow" key={n}>
-              <span className="ccx-subn">{n}</span><Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
+              <span className="ccx-subn">{t(locale, n)}</span><Bar v={sub[n] ?? 0} tone={tone} /><span className="ccx-subv">{sub[n] ?? 0}</span>
             </div>
           );
         }
@@ -102,13 +103,13 @@ function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, 
         // film's own band phrase for its score (same muted voice).
         const dim = dimByKey.get(NAME_KEY[n] ?? "");
         const score = sub[n] ?? 0;
-        const qm = dim ? `What is ${dim.label}? — full explanation and ranking` : "";
+        const qm = dim ? t(locale, "What is {label}? — full explanation and ranking", { label: t(locale, dim.label) }) : "";
         return (
           <div key={n}>
             <div className="ccx-subrow" style={dim ? SUBROW_QM_STYLE : undefined}>
               {dim
-                ? <a className="ccx-subn" href={takescoreDimUrl(dim.slug)} title={dim.question}>{n}</a>
-                : <span className="ccx-subn">{n}</span>}
+                ? <a className="ccx-subn" href={takescoreDimUrl(dim.slug)} title={dim.question}>{t(locale, n)}</a>
+                : <span className="ccx-subn">{t(locale, n)}</span>}
               <Bar v={score} tone={tone} /><span className="ccx-subv">{score}</span>
               {dim
                 ? <a className="ccx-qm" href={takescoreDimUrl(dim.slug)} aria-label={qm} title={qm} style={QM_STYLE}>?</a>
@@ -116,7 +117,7 @@ function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, 
             </div>
             {dim ? (
               <div style={{ ...VERDICT_STYLE, color: GROUP_HEX[dim.group] ?? "var(--ink)" }}>
-                {bandWord(dim.group, score)}
+                {t(locale, bandWord(dim.group, score))}
               </div>
             ) : null}
           </div>
@@ -129,20 +130,20 @@ function Sub({ names, sub, tone, rich }: { names: string[]; sub: Record<string, 
 /** Value vs Popularity 2×2 — the divergence IS the product. Our durable Value (y) against
  *  the crowd's attention (x, from log votes). The gap tells the story: high value + low reach
  *  = a hidden gem; high reach + low value = popular but thin. Never blended into the score. */
-function ValuePop({ v, votes, title }: { v: number; votes: number | null; title: string }) {
+function ValuePop({ v, votes, title, locale }: { v: number; votes: number | null; title: string; locale: Locale }) {
   if (votes == null || votes < 50) return null;
   const val = Math.round(v);
   const pop = Math.round(Math.max(0, Math.min(1, (Math.log10(Math.max(votes, 1)) - 3.5) / 3)) * 100);
   const gap = val - pop;
 
   let head: string, note: string;
-  if (val >= 60 && pop < 45) { head = "Hidden gem"; note = `${title} holds durable value ${val} well above its audience reach ${pop} — a cinephile's find.`; }
-  else if (val >= 58 && pop >= 55) { head = "Consensus classic"; note = `${title} is widely seen and it holds up — value ${val}, reach ${pop}.`; }
-  else if (val < 50 && pop >= 58) { head = "Popular, lighter harvest"; note = `${title} is enjoyed widely (reach ${pop}) but holds less durable value (${val}) to re-mine.`; }
-  else if (val < 48 && pop < 45) { head = "A quiet minor work"; note = `${title} pairs modest reach (${pop}) with a modest durable payoff (${val}).`; }
-  else if (gap >= 15) { head = "Under-seen for its value"; note = `${title}'s durable value ${val} outruns its audience reach ${pop}.`; }
-  else if (gap <= -15) { head = "Loved beyond its durable value"; note = `${title}'s audience reach ${pop} outruns its durable value ${val}.`; }
-  else { head = "Value and reach aligned"; note = `${title}'s durable value ${val} and audience reach ${pop} track closely.`; }
+  if (val >= 60 && pop < 45) { head = t(locale, "Hidden gem"); note = t(locale, "{title} holds durable value {val} well above its audience reach {pop} — a cinephile's find.", { title, val, pop }); }
+  else if (val >= 58 && pop >= 55) { head = t(locale, "Consensus classic"); note = t(locale, "{title} is widely seen and it holds up — value {val}, reach {pop}.", { title, val, pop }); }
+  else if (val < 50 && pop >= 58) { head = t(locale, "Popular, lighter harvest"); note = t(locale, "{title} is enjoyed widely (reach {pop}) but holds less durable value ({val}) to re-mine.", { title, val, pop }); }
+  else if (val < 48 && pop < 45) { head = t(locale, "A quiet minor work"); note = t(locale, "{title} pairs modest reach ({pop}) with a modest durable payoff ({val}).", { title, val, pop }); }
+  else if (gap >= 15) { head = t(locale, "Under-seen for its value"); note = t(locale, "{title}'s durable value {val} outruns its audience reach {pop}.", { title, val, pop }); }
+  else if (gap <= -15) { head = t(locale, "Loved beyond its durable value"); note = t(locale, "{title}'s audience reach {pop} outruns its durable value {val}.", { title, val, pop }); }
+  else { head = t(locale, "Value and reach aligned"); note = t(locale, "{title}'s durable value {val} and audience reach {pop} track closely.", { title, val, pop }); }
 
   // plot geometry (viewBox 0 0 260 190). plot area x:34..248, y:14..150
   const px = 34 + (pop / 100) * (248 - 34);
@@ -152,7 +153,7 @@ function ValuePop({ v, votes, title }: { v: number; votes: number | null; title:
 
   return (
     <div className="ccx-vp">
-      <div className="ccx-vp-head"><b>{head}</b><span>Value × Popularity</span></div>
+      <div className="ccx-vp-head"><b>{head}</b><span>{t(locale, "Value × Popularity")}</span></div>
       <div className="ccx-vp-body">
         <svg className="ccx-vp-svg" viewBox="0 0 260 190" role="img" aria-label={`${head}: ${note}`}>
           {/* quadrant tints */}
@@ -166,24 +167,24 @@ function ValuePop({ v, votes, title }: { v: number; votes: number | null; title:
           <line x1={cx} y1="14" x2={cx} y2="150" stroke="var(--hairline,#e6e6e6)" strokeWidth="1" strokeDasharray="3 3" />
           <line x1="34" y1={cy} x2="248" y2={cy} stroke="var(--hairline,#e6e6e6)" strokeWidth="1" strokeDasharray="3 3" />
           {/* corner labels */}
-          <text className="ccx-vp-q" x="40" y="26">Hidden gem</text>
-          <text className="ccx-vp-q" x="244" y="26" textAnchor="end">Consensus classic</text>
-          <text className="ccx-vp-q" x="244" y="146" textAnchor="end">Popular · lighter</text>
-          <text className="ccx-vp-q" x="40" y="146">Minor</text>
+          <text className="ccx-vp-q" x="40" y="26">{t(locale, "Hidden gem")}</text>
+          <text className="ccx-vp-q" x="244" y="26" textAnchor="end">{t(locale, "Consensus classic")}</text>
+          <text className="ccx-vp-q" x="244" y="146" textAnchor="end">{t(locale, "Popular · lighter")}</text>
+          <text className="ccx-vp-q" x="40" y="146">{t(locale, "Minor")}</text>
           {/* the film */}
           <circle cx={px} cy={py} r="9" fill="#0F6E56" opacity="0.16" />
           <circle cx={px} cy={py} r="5" fill="#0F6E56" stroke="#fff" strokeWidth="1.5" />
           {/* axis titles */}
-          <text className="ccx-vp-ax" x="141" y="172" textAnchor="middle">Popularity — audience reach →</text>
-          <text className="ccx-vp-ax" x="14" y="82" textAnchor="middle" transform="rotate(-90 14 82)">Durable value →</text>
+          <text className="ccx-vp-ax" x="141" y="172" textAnchor="middle">{t(locale, "Popularity — audience reach →")}</text>
+          <text className="ccx-vp-ax" x="14" y="82" textAnchor="middle" transform="rotate(-90 14 82)">{t(locale, "Durable value →")}</text>
         </svg>
         <div className="ccx-vp-side">
           <div className="ccx-vp-nums">
-            <span><b>{val}</b> our Value</span>
-            <span><b>{pop}</b> audience reach</span>
+            <span><b>{val}</b> {t(locale, "our Value")}</span>
+            <span><b>{pop}</b> {t(locale, "audience reach")}</span>
           </div>
           <p className="ccx-vp-note">{note}</p>
-          <p className="ccx-vp-cap">The gap is the point — our durable Value versus the crowd&rsquo;s attention. Never blended into the score.</p>
+          <p className="ccx-vp-cap">{t(locale, "The gap is the point — our durable Value versus the crowd’s attention. Never blended into the score.")}</p>
         </div>
       </div>
     </div>
@@ -238,15 +239,19 @@ const GAUGE_CSS = `
 }
 `;
 
-export default function CinecodexPanel({ data, title, subscores, slug, headerAccessory }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null; headerAccessory?: ReactNode }) {
+export default function CinecodexPanel({ data, title, subscores, slug, headerAccessory, locale = DEFAULT_LOCALE }: { data: Codex | null; title: string; subscores?: FilmSubscores | null; slug?: string | null; headerAccessory?: ReactNode; locale?: Locale }) {
   if (!data) return null;
   const { ext } = data;
   const tier = data.conf_tier ?? null;
   const conf = data.conf ?? null;
   const takes = data.n_takes ?? 0;
   const evidence = takes >= 1
-    ? `grounded in ${takes} critical take${takes === 1 ? "" : "s"} we hold on this film`
-    : `no written-criticism corpus yet on this film`;
+    ? (locale === DEFAULT_LOCALE
+        ? `grounded in ${takes} critical take${takes === 1 ? "" : "s"} we hold on this film`
+        : t(locale, "grounded in {takes} critical takes we hold on this film", { takes }))
+    : (locale === DEFAULT_LOCALE
+        ? `no written-criticism corpus yet on this film`
+        : t(locale, "no written-criticism corpus yet on this film"));
 
   // Overall U-rank (migration 0047) — rendered only when the RPC provides both
   // numbers; never fabricated. "top N%" when in the upper half, else an honest
@@ -258,8 +263,8 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
   const topPct = hasRank ? Math.max(1, Math.round((rank / rankTotal) * 100)) : 0;
   const rankShare = hasRank
     ? topPct <= 50
-      ? `top ${topPct}%`
-      : `bottom ${Math.max(1, Math.round(((rankTotal - rank + 1) / rankTotal) * 100))}%`
+      ? t(locale, "top {pct}%", { pct: topPct })
+      : t(locale, "bottom {pct}%", { pct: Math.max(1, Math.round(((rankTotal - rank + 1) / rankTotal) * 100)) })
     : "";
 
   // Per-film TakeScore lead (#5): the film's strongest Value dimension and its
@@ -271,22 +276,38 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
   const valLabel = topVal ? (dimByKey.get(NAME_KEY[topVal.name] ?? "")?.label ?? topVal.name) : "";
   const riskLabel = topRisk ? (dimByKey.get(NAME_KEY[topRisk.name] ?? "")?.label ?? topRisk.name) : "";
 
+  // The deterministic quadrant verdict. EN uses the canonical prose helper
+  // (byte-identical); ko projects the same quadrant thresholds through t().
+  const verdictText = locale === DEFAULT_LOCALE
+    ? verdictShort(data.v, data.c, data.r, data.u, title)
+    : (() => {
+        const V = Math.round(data.v), R = Math.round(data.r);
+        const hiV = V >= 72, loR = R <= 20;
+        const key = hiV && loR
+          ? "{title} sits at high value · low risk — a safe masterpiece."
+          : hiV && !loR
+            ? "{title} sits at high value · high risk — ambitious but divisive."
+            : !hiV && loR
+              ? "{title} is solid but not peak — a stable choice."
+              : "{title} sits at mid value, mid risk — approach with care.";
+        return t(locale, key, { title });
+      })();
+
   return (
     <section className="df-sec ccx" id="df-codex">
-      <h2 className="df-h2">TakeScore™ <a className="ccx-how" href="/takescore/about">how it works →</a></h2>
+      <h2 className="df-h2">TakeScore™ <a className="ccx-how" href="/takescore/about">{t(locale, "how it works →")}</a></h2>
       {headerAccessory}
       {topVal && topRisk ? (
         <p className="df-sub">
-          {title}&rsquo;s strongest value is <strong>{valLabel}</strong> ({bandWord("value", topVal.score).toLowerCase()});
-          {" "}its sharpest risk is <strong>{riskLabel}</strong> ({bandWord("risk", topRisk.score).toLowerCase()}).
+          {t(locale, "{title}’s strongest value is", { title })}{" "}<strong>{t(locale, valLabel)}</strong> ({t(locale, bandWord("value", topVal.score)).toLowerCase()});
+          {" "}{t(locale, "its sharpest risk is")}{" "}<strong>{t(locale, riskLabel)}</strong> ({t(locale, bandWord("risk", topRisk.score)).toLowerCase()}).
         </p>
       ) : null}
       <details className="df-sub" style={{ margin: "0 0 12px" }}>
-        <summary style={{ cursor: "pointer" }}>What TakeScore measures</summary>
+        <summary style={{ cursor: "pointer" }}>{t(locale, "What TakeScore measures")}</summary>
         <span style={{ display: "block", marginTop: 6 }}>
-          Our own estimate of the <strong>durable value</strong> a serious viewer gains from {title},
-          the <strong>cost</strong> to unlock it, and the <strong>risk</strong> it disappoints — not popularity.
-          {subscores ? <>{" "}Scored on the thirteen <a href="/takescore">TakeScore dimensions</a> against a fixed anchor ruler.</> : null}
+          {t(locale, "Our own estimate of the")}{" "}<strong>{t(locale, "durable value")}</strong>{" "}{t(locale, "a serious viewer gains from {title}, the", { title })}{" "}<strong>{t(locale, "cost")}</strong>{" "}{t(locale, "to unlock it, and the")}{" "}<strong>{t(locale, "risk")}</strong>{" "}{t(locale, "it disappoints — not popularity.")}
+          {subscores ? <>{" "}{t(locale, "Scored on the thirteen")}{" "}<a href="/takescore">{t(locale, "TakeScore dimensions")}</a>{" "}{t(locale, "against a fixed anchor ruler.")}</> : null}
         </span>
       </details>
 
@@ -295,7 +316,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
           them. Same numbers the old bars carried; presentation only. */}
       <style>{GAUGE_CSS}</style>
       <div className="ccx-gauges">
-        <div className="ccx-gk">How {title} scores <span>0–100</span></div>
+        <div className="ccx-gk">{t(locale, "How {title} scores", { title })} <span>0–100</span></div>
         {/* TakeScore + verdict fill the width; the three rings sit together at the
             right (same reading order as the /takescore Screener card). */}
         <div className="ccx-grow">
@@ -304,26 +325,26 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
               <span className="ccx-gnet-n">{displayTs(data.u)}</span>
               <span className="ccx-gnet-lab">
                 <span className="k">TakeScore</span>
-                <span className="d">Value − Risk</span>
+                <span className="d">{t(locale, "Value − Risk")}</span>
               </span>
             </div>
-            <div className="ccx-gnet-eff"><b>{data.sharpe}</b>Efficiency (value per risk)</div>
+            <div className="ccx-gnet-eff"><b>{data.sharpe}</b>{t(locale, "Efficiency (value per risk)")}</div>
             {data.u < 0 ? (
               <p className="ccx-gnet-eff" style={{ fontSize: "10px", lineHeight: 1.4 }}>
-                The formula floors at zero for display here — Value minus weighted Risk lands below zero.{" "}
-                <a href="/methodology#rankings" style={{ color: "var(--accent,#C8102E)", textDecoration: "none" }}>Why →</a>
+                {t(locale, "The formula floors at zero for display here — Value minus weighted Risk lands below zero.")}{" "}
+                <a href="/methodology#rankings" style={{ color: "var(--accent,#C8102E)", textDecoration: "none" }}>{t(locale, "Why →")}</a>
               </p>
             ) : null}
           </div>
-          <p className="ccx-gmid">{verdictShort(data.v, data.c, data.r, data.u, title)}</p>
+          <p className="ccx-gmid">{verdictText}</p>
           <div className="ccx-gcell">
-            <ScoreDonut val={data.v} color={AXIS_HEX.v} label="Value" sub={bandWord("value", data.v)} size={66} />
+            <ScoreDonut val={data.v} color={AXIS_HEX.v} label={t(locale, "Value")} sub={t(locale, bandWord("value", data.v))} size={66} />
           </div>
           <div className="ccx-gcell">
-            <ScoreDonut val={data.c} color={AXIS_HEX.c} label="Cost" sub={bandWord("cost", data.c)} size={66} />
+            <ScoreDonut val={data.c} color={AXIS_HEX.c} label={t(locale, "Cost")} sub={t(locale, bandWord("cost", data.c))} size={66} />
           </div>
           <div className="ccx-gcell">
-            <ScoreDonut val={data.r} color={AXIS_HEX.r} label="Risk" sub={bandWord("risk", data.r)} size={66} />
+            <ScoreDonut val={data.r} color={AXIS_HEX.r} label={t(locale, "Risk")} sub={t(locale, bandWord("risk", data.r))} size={66} />
           </div>
         </div>
       </div>
@@ -334,8 +355,8 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       {hasRank ? (
         <div className="ccx-rank">
           <div className="ccx-rank-head">
-            <span className="ccx-rank-lbl">Where {title} ranks</span>
-            <span className="ccx-rank-n">#{rank.toLocaleString("en-US")} of {rankTotal.toLocaleString("en-US")} by TakeScore</span>
+            <span className="ccx-rank-lbl">{t(locale, "Where {title} ranks", { title })}</span>
+            <span className="ccx-rank-n">{t(locale, "#{rank} of {total} by TakeScore", { rank: rank.toLocaleString("en-US"), total: rankTotal.toLocaleString("en-US") })}</span>
             <span className="ccx-rank-pct">{rankShare}</span>
           </div>
           <div className="ccx-rank-track" aria-hidden="true">
@@ -355,7 +376,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
             circled "?" lives here too (server component, so no event handlers). */}
         {subscores ? <style>{`.ccx-qm:hover{color:var(--ink);border-color:var(--muted)}`}</style> : null}
         <div className="ccx-eval-h" style={subscores ? { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "8px" } : undefined}>
-          How {title} scores on the thirteen dimensions
+          {t(locale, "How {title} scores on the thirteen dimensions", { title })}
           {subscores ? (
             <a
               href="/takescore"
@@ -365,24 +386,24 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
                 textTransform: "none", letterSpacing: 0,
               }}
             >
-              What do these mean? →
+              {t(locale, "What do these mean? →")}
             </a>
           ) : null}
         </div>
         <div className="ccx-cols">
-          <div><div className="ccx-gl ccx-glv">Value</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" rich={!!subscores} /></div>
-          <div><div className="ccx-gl ccx-glc">Cost</div><Sub names={COST} sub={data.sub} tone="ccx-c" rich={!!subscores} /></div>
-          <div><div className="ccx-gl ccx-glr">Risk</div><Sub names={RISK} sub={data.sub} tone="ccx-r" rich={!!subscores} /></div>
+          <div><div className="ccx-gl ccx-glv">{t(locale, "Value")}</div><Sub names={VALUE} sub={data.sub} tone="ccx-v" rich={!!subscores} locale={locale} /></div>
+          <div><div className="ccx-gl ccx-glc">{t(locale, "Cost")}</div><Sub names={COST} sub={data.sub} tone="ccx-c" rich={!!subscores} locale={locale} /></div>
+          <div><div className="ccx-gl ccx-glr">{t(locale, "Risk")}</div><Sub names={RISK} sub={data.sub} tone="ccx-r" rich={!!subscores} locale={locale} /></div>
         </div>
       </div>
 
       {/* Value × Popularity (the "hidden gem" read) — a secondary lens, so it sits
           below the score itself and its dimensional breakdown, not above them. */}
-      <ValuePop v={data.v} votes={data.votes} title={title} />
+      <ValuePop v={data.v} votes={data.votes} title={title} locale={locale} />
 
       {(ext.imdb || ext.rt || ext.metascore) ? (
         <div className="ccx-ext">
-          <span className="ccx-extl">Shown alongside — not part of the TakeScore:</span>
+          <span className="ccx-extl">{t(locale, "Shown alongside — not part of the TakeScore:")}</span>
           {ext.imdb ? <span className="ccx-chip">IMDb {ext.imdb}</span> : null}
           {ext.rt ? <span className="ccx-chip">Rotten Tomatoes {ext.rt}%</span> : null}
           {ext.metascore ? <span className="ccx-chip">Metascore {ext.metascore}</span> : null}
@@ -390,10 +411,9 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
       ) : null}
 
       <div className="df-src">
-        AI-estimated (TakeScore rubric). A rubric-anchored judgment, not an objective fact;
-        popularity metrics above are for comparison only.
+        {t(locale, "AI-estimated (TakeScore rubric). A rubric-anchored judgment, not an objective fact; popularity metrics above are for comparison only.")}
         {conf != null ? (
-          <> Confidence {tier ? `${tier} ` : ""}({conf}/100) — {evidence}. A measured reliability, not a claim of certainty.</>
+          <> {t(locale, "Confidence")} {tier ? `${tier} ` : ""}({conf}/100) — {evidence}. {t(locale, "A measured reliability, not a claim of certainty.")}</>
         ) : null}
       </div>
 
@@ -409,7 +429,7 @@ export default function CinecodexPanel({ data, title, subscores, slug, headerAcc
               color: "var(--accent,#C8102E)", textDecoration: "none",
             }}
           >
-            View the full appraisal &rarr;
+            {t(locale, "View the full appraisal →")}
           </a>
         </p>
       ) : null}

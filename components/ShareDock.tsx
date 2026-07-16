@@ -10,6 +10,8 @@
 import { useEffect, useRef, useState } from "react";
 import SaveButton from "@/components/SaveButton";
 import { mtEvent } from "@/components/mtTrack";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { t, type Locale } from "@/lib/i18n";
 import {
   channelIntent, shareHref, trimForX, CHANNEL_LABEL, PRIMARY_CHANNELS, MORE_CHANNELS,
   type ShareChannel,
@@ -44,6 +46,7 @@ const I = {
 } as const;
 
 export default function ShareDock({ path, title, hook, variant = "bar", saveType, saveRef, noSave }: Props) {
+  const locale = useLocale();
   const [copied, setCopied] = useState(false);
   const [sheet, setSheet] = useState(false);
   const [showRail, setShowRail] = useState(false);
@@ -88,8 +91,8 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
   if (variant === "fab") {
     return (
       <>
-        <button className="shd-fab" onClick={native} aria-label={`Share ${title}`}>{I.share}</button>
-        {sheet ? <BottomSheet onClose={() => setSheet(false)} title={title}
+        <button className="shd-fab" onClick={native} aria-label={t(locale, "Share {title}", { title })}>{I.share}</button>
+        {sheet ? <BottomSheet onClose={() => setSheet(false)} title={title} locale={locale}
           intentOf={intentOf} track={track} copy={copy} copied={copied} Save={Save} /> : null}
         <style>{FAB_CSS}</style>
       </>
@@ -99,12 +102,12 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
   /* ---------- rail (desktop sticky) ---------- */
   if (variant === "rail") {
     return (
-      <div ref={railRef} className={`shd-rail${showRail ? " shd-rail--on" : ""}`} aria-label="Share">
+      <div ref={railRef} className={`shd-rail${showRail ? " shd-rail--on" : ""}`} aria-label={t(locale, "Share")}>
         {PRIMARY_CHANNELS.map((c) => (
-          <a key={c} className="shd-ib" href={intentOf(c)} target="_blank" rel="noopener" onClick={track(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}</a>
+          <a key={c} className="shd-ib" href={intentOf(c)} target="_blank" rel="noopener" onClick={track(c)} aria-label={t(locale, "Share on {channel}", { channel: CHANNEL_LABEL[c] })}>{I[c as keyof typeof I]}</a>
         ))}
-        <button className="shd-ib" onClick={copy} aria-label="Copy link">{copied ? <span className="shd-ok">✓</span> : I.copy}</button>
-        <button className="shd-ib" onClick={native} aria-label="More share options">{I.more}</button>
+        <button className="shd-ib" onClick={copy} aria-label={t(locale, "Copy link")}>{copied ? <span className="shd-ok">✓</span> : I.copy}</button>
+        <button className="shd-ib" onClick={native} aria-label={t(locale, "More share options")}>{I.more}</button>
         {Save}
         <style>{`${BAR_CSS}${RAIL_CSS}`}</style>
       </div>
@@ -113,29 +116,29 @@ export default function ShareDock({ path, title, hook, variant = "bar", saveType
 
   /* ---------- bar (default) ---------- */
   return (
-    <div className="shd-bar" role="group" aria-label="Share and save">
-      <span className="shd-lbl">Share</span>
+    <div className="shd-bar" role="group" aria-label={t(locale, "Share and save")}>
+      <span className="shd-lbl">{t(locale, "Share")}</span>
       {PRIMARY_CHANNELS.map((c) => (
-        <a key={c} className="shd-b" href={intentOf(c)} target="_blank" rel="noopener" onClick={track(c)} aria-label={`Share on ${CHANNEL_LABEL[c]}`}>{I[c as keyof typeof I]}<span className="shd-t">{CHANNEL_LABEL[c]}</span></a>
+        <a key={c} className="shd-b" href={intentOf(c)} target="_blank" rel="noopener" onClick={track(c)} aria-label={t(locale, "Share on {channel}", { channel: CHANNEL_LABEL[c] })}>{I[c as keyof typeof I]}<span className="shd-t">{CHANNEL_LABEL[c]}</span></a>
       ))}
-      <button className="shd-b" onClick={copy} aria-label="Copy link">{copied ? <span className="shd-ok">✓</span> : I.copy}<span className="shd-t">{copied ? "Copied" : "Copy link"}</span></button>
-      <button className="shd-b shd-b--icon" onClick={native} aria-label="More share options">{I.more}</button>
+      <button className="shd-b" onClick={copy} aria-label={t(locale, "Copy link")}>{copied ? <span className="shd-ok">✓</span> : I.copy}<span className="shd-t">{copied ? t(locale, "Copied") : t(locale, "Copy link")}</span></button>
+      <button className="shd-b shd-b--icon" onClick={native} aria-label={t(locale, "More share options")}>{I.more}</button>
       {Save ? <><span className="shd-div" aria-hidden />{Save}</> : null}
-      {sheet ? <BottomSheet onClose={() => setSheet(false)} title={title}
+      {sheet ? <BottomSheet onClose={() => setSheet(false)} title={title} locale={locale}
         intentOf={intentOf} track={track} copy={copy} copied={copied} Save={Save} /> : null}
       <style>{BAR_CSS}</style>
     </div>
   );
 }
 
-function BottomSheet({ onClose, title, intentOf, track, copy, copied, Save }: {
-  onClose: () => void; title: string; intentOf: (c: ShareChannel) => string; track: (c: ShareChannel) => () => void; copy: () => void; copied: boolean; Save: React.ReactNode;
+function BottomSheet({ onClose, title, locale, intentOf, track, copy, copied, Save }: {
+  onClose: () => void; title: string; locale: Locale; intentOf: (c: ShareChannel) => string; track: (c: ShareChannel) => () => void; copy: () => void; copied: boolean; Save: React.ReactNode;
 }) {
   const all: ShareChannel[] = [...PRIMARY_CHANNELS, ...MORE_CHANNELS];
   return (
-    <div className="shd-ov" role="dialog" aria-modal="true" aria-label={`Share ${title}`} onClick={onClose}>
+    <div className="shd-ov" role="dialog" aria-modal="true" aria-label={t(locale, "Share {title}", { title })} onClick={onClose}>
       <div className="shd-sheet" onClick={(e) => e.stopPropagation()}>
-        <div className="shd-sheet__h">Share</div>
+        <div className="shd-sheet__h">{t(locale, "Share")}</div>
         <div className="shd-grid">
           {all.map((c) => (
             <a key={c} className="shd-g" href={intentOf(c)} target="_blank" rel="noopener" onClick={() => { track(c)(); onClose(); }}>
@@ -143,11 +146,11 @@ function BottomSheet({ onClose, title, intentOf, track, copy, copied, Save }: {
             </a>
           ))}
           <button className="shd-g" onClick={() => { copy(); }}>
-            <span className="shd-g__i">{copied ? <span className="shd-ok">✓</span> : I.copy}</span>{copied ? "Copied" : "Copy link"}
+            <span className="shd-g__i">{copied ? <span className="shd-ok">✓</span> : I.copy}</span>{copied ? t(locale, "Copied") : t(locale, "Copy link")}
           </button>
         </div>
         {Save ? <div className="shd-sheet__save">{Save}</div> : null}
-        <button className="shd-sheet__close" onClick={onClose}>Close</button>
+        <button className="shd-sheet__close" onClick={onClose}>{t(locale, "Close")}</button>
         <style>{SHEET_CSS}</style>
       </div>
     </div>

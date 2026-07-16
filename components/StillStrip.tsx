@@ -10,6 +10,8 @@
 // Images only (no video) — never flagged by video indexing. Used on entity
 // pages (net-new body images) and, unified, on film/reading pages.
 import { useCallback, useEffect, useState } from "react";
+import { t } from "@/lib/i18n";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 
 const IMG = "https://image.tmdb.org/t/p";
 
@@ -27,6 +29,7 @@ export default function StillStrip({
   disclaim?: boolean; // true on entity pages (stills are from OTHER films than the topic);
                       // false on a film's own page (the stills ARE that film)
 }) {
+  const locale = useLocale();
   const imgs = stills.filter((s) => s && s.path);
   const [zoom, setZoom] = useState<number | null>(null);
 
@@ -62,7 +65,7 @@ export default function StillStrip({
       <div className="slx-row">
         {imgs.map((s, i) => (
           <figure className="slx-fig" key={`${s.path}-${i}`}>
-            <button type="button" className="slx-open" onClick={() => setZoom(i)} aria-label={`View larger — ${cap(s)}`}>
+            <button type="button" className="slx-open" onClick={() => setZoom(i)} aria-label={t(locale, "View larger — {cap}", { cap: cap(s) })}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`${IMG}/w780${s.path}`} alt={cap(s)} loading="lazy" width={780} height={439} />
               <span className="slx-zoom" aria-hidden="true">⤢</span>
@@ -70,7 +73,7 @@ export default function StillStrip({
             <figcaption className="slx-cap">
               <span className="slx-cap__src">{cap(s)}</span>
               {disclaim ? (
-                <span className="slx-cap__note">Shown with {topic} — an illustrative still, not necessarily a scene about it.</span>
+                <span className="slx-cap__note">{t(locale, "Shown with {topic} — an illustrative still, not necessarily a scene about it.", { topic })}</span>
               ) : null}
             </figcaption>
           </figure>
@@ -79,20 +82,20 @@ export default function StillStrip({
 
       {zoom !== null ? (
         <div className="slx-lb" role="dialog" aria-modal="true" onClick={close}>
-          <button type="button" className="slx-lb__x" onClick={close} aria-label="Close">✕</button>
+          <button type="button" className="slx-lb__x" onClick={close} aria-label={t(locale, "Close")}>✕</button>
           {imgs.length > 1 ? (
-            <button type="button" className="slx-lb__nav slx-lb__nav--l" onClick={(e) => { e.stopPropagation(); step(-1); }} aria-label="Previous">‹</button>
+            <button type="button" className="slx-lb__nav slx-lb__nav--l" onClick={(e) => { e.stopPropagation(); step(-1); }} aria-label={t(locale, "Previous")}>‹</button>
           ) : null}
           <figure className="slx-lb__fig" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${IMG}/w1280${imgs[zoom].path}`} alt={cap(imgs[zoom])} />
             <figcaption>
-              {cap(imgs[zoom])}{disclaim ? ` — shown with ${topic}, an illustrative still, not necessarily a scene about it` : ""}.
+              {cap(imgs[zoom])}{disclaim ? t(locale, " — shown with {topic}, an illustrative still, not necessarily a scene about it", { topic }) : ""}.
               {imgs.length > 1 ? <span className="slx-lb__count"> · {zoom + 1} / {imgs.length}</span> : null}
             </figcaption>
           </figure>
           {imgs.length > 1 ? (
-            <button type="button" className="slx-lb__nav slx-lb__nav--r" onClick={(e) => { e.stopPropagation(); step(1); }} aria-label="Next">›</button>
+            <button type="button" className="slx-lb__nav slx-lb__nav--r" onClick={(e) => { e.stopPropagation(); step(1); }} aria-label={t(locale, "Next")}>›</button>
           ) : null}
         </div>
       ) : null}

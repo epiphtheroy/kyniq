@@ -734,7 +734,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
               {director}
               {native ? <span style={{ fontWeight: 400, opacity: 0.72, fontSize: "0.72em" }}> ({native})</span> : null}
             </h1>
-            <Byline methodologyHref="/methodology/where-to-start" badge />
+            <Byline locale={locale} methodologyHref="/methodology/where-to-start" badge />
             {(bornLabel || d?.place_of_birth) && (
               <div className="dr-born">
                 {bornLabel && <span>{t(locale, "Born {date}", { date: bornLabel })}</span>}
@@ -804,7 +804,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
       </div>
 
       <div className="dr-wrap">
-        <QuickAnswers
+        <QuickAnswers locale={locale}
           items={directorQuickAnswers({
             slug, director, total, filmoTotal, hiddenTotal,
             films: films as { title: string; year: number | null }[],
@@ -824,7 +824,7 @@ export async function DirectorPage({ slug, locale }: { slug: string; locale: Loc
               {portraitText ? (
                 <div className="dr-portrait-body" lang={locale === DEFAULT_LOCALE ? undefined : "en"}>
                   {portraitText.split(/\n\s*\n/).map((para, i) => <p key={i}>{para}</p>)}
-                  <Byline />
+                  <Byline locale={locale} />
                 </div>
               ) : (
                 <div className="dr-portrait-body">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { awardBody, awardLabel, canonEmblem, codeToFlag } from "@/lib/lineageBodies";
 import { lineageSource, wikidataUrl } from "@/lib/lineage";
 import RecordToc from "@/components/read/RecordToc";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 /**
  * Lineage section — the film's record, reworked 2026-07-08: a spelled-out
@@ -26,14 +27,14 @@ function CC({ country }: { country?: string | null }) {
   return <span className="lin-cc"> · {f ? `${f} ` : ""}{country.toUpperCase()}</span>;
 }
 
-function SourceTag({ meta }: { meta: ListMetaLite | undefined }) {
+function SourceTag({ meta, locale = DEFAULT_LOCALE }: { meta: ListMetaLite | undefined; locale?: Locale }) {
   if (!meta) return null;
   const src = lineageSource(meta.source);
   const wd = wikidataUrl(meta.external_ref);
   if (!src && !wd) return null;
   return (
     <span className="lin-meta" style={{ opacity: 0.6 }}>
-      {" · via "}
+      {` · ${t(locale, "via")} `}
       {wd ? <a href={wd} target="_blank" rel="noopener">{src?.name ?? "Wikidata"} ↗</a>
         : src?.url ? <a href={src.url} target="_blank" rel="noopener">{src.name} ↗</a>
         : src?.name}
@@ -41,9 +42,9 @@ function SourceTag({ meta }: { meta: ListMetaLite | undefined }) {
   );
 }
 
-export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, headerAccessory, recordUpdated = null }: {
+export default function FilmLineageSection({ lineage, title, slug, listMeta = {}, movements = [], quotes = [], afterlife = null, headerAccessory, recordUpdated = null, locale = DEFAULT_LOCALE }: {
   lineage: LinRow[]; title: string; slug?: string; listMeta?: Record<string, ListMetaLite>; movements?: MvChip[];
-  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; headerAccessory?: ReactNode; recordUpdated?: string | null;
+  quotes?: LinQuote[]; afterlife?: AfterlifeStats | null; headerAccessory?: ReactNode; recordUpdated?: string | null; locale?: Locale;
 }) {
   const linAwards = lineage.filter((l) => l.facet !== "auteur" && l.result !== "listed");
   const linNational = lineage.filter((l) => l.facet === "national" && l.result === "listed");
@@ -70,20 +71,21 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
   // so it does not repeat the digest's wording (R-D).
   const joinProse = (parts: string[]): string =>
     parts.length <= 1 ? (parts[0] ?? "")
+      : locale !== DEFAULT_LOCALE ? parts.join(", ")
       : parts.length === 2 ? `${parts[0]} and ${parts[1]}`
       : `${parts.slice(0, -1).join(", ")}, and ${parts[parts.length - 1]}`;
 
   const originBits = [...nations.map((m) => m.label), ...moves.map((m) => m.label)];
   const honorBits: string[] = [];
-  if (wins > 0) honorBits.push(`${wins} win${wins === 1 ? "" : "s"}`);
-  if (noms > 0) honorBits.push(`${noms} nomination${noms === 1 ? "" : "s"}`);
+  if (wins > 0) honorBits.push(locale === DEFAULT_LOCALE ? `${wins} win${wins === 1 ? "" : "s"}` : t(locale, "{n} wins", { n: wins }));
+  if (noms > 0) honorBits.push(locale === DEFAULT_LOCALE ? `${noms} nomination${noms === 1 ? "" : "s"}` : t(locale, "{n} nominations", { n: noms }));
 
   const leadPreds: string[] = [];
-  if (originBits.length) leadPreds.push(`comes out of ${joinProse(originBits)}`);
-  if (honorBits.length) leadPreds.push(`carries ${joinProse(honorBits)}`);
-  if (canonsN > 0) leadPreds.push(`is cited in ${canonsN} canon${canonsN === 1 ? "" : "s"}`);
-  if (linAuteur.length > 0) leadPreds.push(linAuteur.length === 1 ? "extends its director's auteur line" : `extends ${linAuteur.length} auteur lines`);
-  const leadSpan = eY0 && eY1 && eY1 > eY0 ? ` — a record spanning ${eY0}–${eY1}` : "";
+  if (originBits.length) leadPreds.push(t(locale, "comes out of {origin}", { origin: joinProse(originBits) }));
+  if (honorBits.length) leadPreds.push(t(locale, "carries {honors}", { honors: joinProse(honorBits) }));
+  if (canonsN > 0) leadPreds.push(locale === DEFAULT_LOCALE ? `is cited in ${canonsN} canon${canonsN === 1 ? "" : "s"}` : t(locale, "is cited in {n} canons", { n: canonsN }));
+  if (linAuteur.length > 0) leadPreds.push(linAuteur.length === 1 ? t(locale, "extends its director's auteur line") : (locale === DEFAULT_LOCALE ? `extends ${linAuteur.length} auteur lines` : t(locale, "extends {n} auteur lines", { n: linAuteur.length })));
+  const leadSpan = eY0 && eY1 && eY1 > eY0 ? ` ${t(locale, "— a record spanning {y0}–{y1}", { y0: eY0, y1: eY1 })}` : "";
 
   // ── Sources for this record (#9). Distinct display names per facet group,
   // drawn from the SourceTag data already in scope (listMeta → lineageSource).
@@ -100,7 +102,7 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
   const canonSrc = srcNamesFor(canonRows);
   const updatedAt = recordUpdated ? new Date(recordUpdated) : null;
   const updatedFmt = updatedAt && !isNaN(updatedAt.getTime())
-    ? updatedAt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+    ? updatedAt.toLocaleDateString(locale === DEFAULT_LOCALE ? "en-US" : "ko-KR", { year: "numeric", month: "short", day: "numeric" })
     : null;
 
   const Row = ({ l, emblem }: { l: LinRow; emblem: string }) => (
@@ -112,10 +114,10 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
       <Link className="lin-name" href={`/lineage/${l.list_slug}`}>{awardLabel(l.list_label, l.list_slug)}</Link>
       {l.result && l.result !== "won" && l.result !== "listed" ? <span className="lin-res"> · {l.result}</span> : null}
       {l.edition_year ? <span className="lin-meta"> · {l.edition_year}</span> : null}
-      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` of ${l.rank_max}` : ""}</span> : null}
-      {l.rep_type ? <span className="lin-meta"> · {l.rep_type === "both" ? "defining & recent" : l.rep_type} work</span> : null}
+      {l.rank ? <span className="lin-rank"> · #{l.rank}{l.rank_max ? ` ${t(locale, "of {max}", { max: l.rank_max })}` : ""}</span> : null}
+      {l.rep_type ? <span className="lin-meta"> · {t(locale, "{type} work", { type: l.rep_type === "both" ? t(locale, "defining & recent") : l.rep_type })}</span> : null}
       <CC country={l.country} />
-      <SourceTag meta={listMeta[l.list_slug]} />
+      <SourceTag meta={listMeta[l.list_slug]} locale={locale} />
     </div>
   );
 
@@ -145,7 +147,7 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
 
   return (
     <section className="df-sec" id="df-lineage">
-      <h2 className="df-h2">Lineage — the record</h2>
+      <h2 className="df-h2">{t(locale, "Lineage — the record")}</h2>
       {headerAccessory}
       {leadPreds.length > 0 ? (
         <p className="df-sub">{title} {joinProse(leadPreds)}{leadSpan}.</p>
@@ -153,17 +155,17 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
 
       {/* ── The record, spelled out — one glance at the scale ── */}
       <div className="lin-stats">
-        {wins > 0 ? <span className="lin-stat" style={{ "--sc": "#B8863B" } as React.CSSProperties}>🏆 {wins} win{wins === 1 ? "" : "s"}</span> : null}
-        {noms > 0 ? <span className="lin-stat" style={{ "--sc": "#C87A2C" } as React.CSSProperties}>◇ {noms} nomination{noms === 1 ? "" : "s"}</span> : null}
-        {canonsN > 0 ? <span className="lin-stat" style={{ "--sc": "#12897A" } as React.CSSProperties}>📚 {canonsN} canon appearance{canonsN === 1 ? "" : "s"}</span> : null}
-        {linAuteur.length > 0 ? <span className="lin-stat" style={{ "--sc": "#6B4E9E" } as React.CSSProperties}>🎬 auteur line ×{linAuteur.length}</span> : null}
-        {listsN > 1 ? <span className="lin-stat" style={{ "--sc": "#5A6B86" } as React.CSSProperties}>{listsN} lists</span> : null}
+        {wins > 0 ? <span className="lin-stat" style={{ "--sc": "#B8863B" } as React.CSSProperties}>🏆 {locale === DEFAULT_LOCALE ? `${wins} win${wins === 1 ? "" : "s"}` : t(locale, "{n} wins", { n: wins })}</span> : null}
+        {noms > 0 ? <span className="lin-stat" style={{ "--sc": "#C87A2C" } as React.CSSProperties}>◇ {locale === DEFAULT_LOCALE ? `${noms} nomination${noms === 1 ? "" : "s"}` : t(locale, "{n} nominations", { n: noms })}</span> : null}
+        {canonsN > 0 ? <span className="lin-stat" style={{ "--sc": "#12897A" } as React.CSSProperties}>📚 {locale === DEFAULT_LOCALE ? `${canonsN} canon appearance${canonsN === 1 ? "" : "s"}` : t(locale, "{n} canon appearances", { n: canonsN })}</span> : null}
+        {linAuteur.length > 0 ? <span className="lin-stat" style={{ "--sc": "#6B4E9E" } as React.CSSProperties}>🎬 {t(locale, "auteur line ×{n}", { n: linAuteur.length })}</span> : null}
+        {listsN > 1 ? <span className="lin-stat" style={{ "--sc": "#5A6B86" } as React.CSSProperties}>{t(locale, "{n} lists", { n: listsN })}</span> : null}
         {eY0 && eY1 && eY1 > eY0 ? <span className="lin-stat" style={{ "--sc": "#2F6DB0" } as React.CSSProperties}>{eY0}–{eY1}</span> : null}
       </div>
 
       {movements.length > 0 ? (
         <div className="df-lingrp">
-          <div className="df-flabel">National cinema &amp; movements <span className="df-cnt">{movements.length}</span></div>
+          <div className="df-flabel">{t(locale, "National cinema & movements")} <span className="df-cnt">{movements.length}</span></div>
           <div className="lin-list">
             {nations.map((m, i) => (
               <div key={`n${i}`} className="lin-row">
@@ -184,7 +186,7 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
       {/* ── What critics said — the pull-quotes worth reading in place ── */}
       {quotes.length > 0 ? (
         <div className="lin-quotes">
-          <div className="df-flabel">What critics said</div>
+          <div className="df-flabel">{t(locale, "What critics said")}</div>
           {quotes.map((q, i) => (
             <figure key={i} style={{ margin: "10px 0 0" }}>
               <blockquote className="afl-q" style={{ margin: 0 }}>“{q.text}”</blockquote>
@@ -199,10 +201,10 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
 
       {/* ── The detail, behind counted curtains — scale visible before opening ── */}
       <div style={{ margin: "14px 0 0" }}>
-        <Curtain label="Awards & honours" items={linAwards.map((l) => ({ ...l, parent_label: awardBody(l.list_slug)?.name ?? l.parent_label }))} emblemFor={(l) => awardBody(l.list_slug)?.emblem ?? "🏆"} open={linAwards.length > 0 && linAwards.length <= 6} />
-        <Curtain label="Canons & rankings" items={linCanons} emblemFor={(l) => canonEmblem(l.list_slug)} />
-        <Curtain label="National canons" items={linNational} emblemFor={() => "🏛️"} />
-        <Curtain label="Auteur lineage" items={linAuteur} emblemFor={() => "🎬"} />
+        <Curtain label={t(locale, "Awards & honours")} items={linAwards.map((l) => ({ ...l, parent_label: awardBody(l.list_slug)?.name ?? l.parent_label }))} emblemFor={(l) => awardBody(l.list_slug)?.emblem ?? "🏆"} open={linAwards.length > 0 && linAwards.length <= 6} />
+        <Curtain label={t(locale, "Canons & rankings")} items={linCanons} emblemFor={(l) => canonEmblem(l.list_slug)} />
+        <Curtain label={t(locale, "National canons")} items={linNational} emblemFor={() => "🏛️"} />
+        <Curtain label={t(locale, "Auteur lineage")} items={linAuteur} emblemFor={() => "🎬"} />
       </div>
 
       {/* ── The doors: print-style index cards — the counts ARE the pitch ── */}
@@ -211,52 +213,52 @@ export default function FilmLineageSection({ lineage, title, slug, listMeta = {}
           {showRecordSlate ? (
             <RecordToc
               href={`/film/lineage/${slug}`}
-              kicker="The complete record"
-              title={`Every award, canon and ranking ${title} holds — sourced per entry`}
+              kicker={t(locale, "The complete record")}
+              title={t(locale, "Every award, canon and ranking {title} holds — sourced per entry", { title })}
               rows={[
-                ...(wins > 0 ? [{ label: "Wins", value: wins }] : []),
-                ...(noms > 0 ? [{ label: "Nominations", value: noms }] : []),
-                ...(canonsN > 0 ? [{ label: "Canon appearances", value: canonsN }] : []),
-                ...(linAuteur.length > 0 ? [{ label: "Auteur line", value: linAuteur.length }] : []),
-                { label: "Lists cited", value: listsN },
-                ...(eY0 && eY1 && eY1 > eY0 ? [{ label: "Years covered", value: `${eY0}–${eY1}` }] : []),
+                ...(wins > 0 ? [{ label: t(locale, "Wins"), value: wins }] : []),
+                ...(noms > 0 ? [{ label: t(locale, "Nominations"), value: noms }] : []),
+                ...(canonsN > 0 ? [{ label: t(locale, "Canon appearances"), value: canonsN }] : []),
+                ...(linAuteur.length > 0 ? [{ label: t(locale, "Auteur line"), value: linAuteur.length }] : []),
+                { label: t(locale, "Lists cited"), value: listsN },
+                ...(eY0 && eY1 && eY1 > eY0 ? [{ label: t(locale, "Years covered"), value: `${eY0}–${eY1}` }] : []),
               ]}
-              cta="Open the record"
+              cta={t(locale, "Open the record")}
             />
           ) : null}
           {showAfterlifeSlate && afterlife ? (
             <RecordToc
               href={`/film/${slug}/reception`}
-              kicker="Reviews & afterlife"
-              title={`What critics said about ${title} — and everything since, year by year`}
+              kicker={t(locale, "Reviews & afterlife")}
+              title={t(locale, "What critics said about {title} — and everything since, year by year", { title })}
               rows={[
-                { label: "Reviews", value: afterlife.reviews },
-                ...(afterlife.papers > 0 ? [{ label: "Scholarship", value: afterlife.papers }] : []),
-                ...(afterlife.releases > 0 ? [{ label: "Releases & revivals", value: afterlife.releases }] : []),
-                ...(afterlife.honors > 0 ? [{ label: "Honors", value: afterlife.honors }] : []),
-                ...(afterlife.y0 && afterlife.y1 && afterlife.y1 > afterlife.y0 ? [{ label: "Years covered", value: `${afterlife.y0}–${afterlife.y1}` }] : []),
+                { label: t(locale, "Reviews"), value: afterlife.reviews },
+                ...(afterlife.papers > 0 ? [{ label: t(locale, "Scholarship"), value: afterlife.papers }] : []),
+                ...(afterlife.releases > 0 ? [{ label: t(locale, "Releases & revivals"), value: afterlife.releases }] : []),
+                ...(afterlife.honors > 0 ? [{ label: t(locale, "Honors"), value: afterlife.honors }] : []),
+                ...(afterlife.y0 && afterlife.y1 && afterlife.y1 > afterlife.y0 ? [{ label: t(locale, "Years covered"), value: `${afterlife.y0}–${afterlife.y1}` }] : []),
               ]}
-              cta="Open the timeline"
+              cta={t(locale, "Open the timeline")}
             />
           ) : null}
         </div>
       ) : null}
 
       <div className="df-src" style={{ marginTop: 18, fontSize: 12, color: "var(--muted)" }}>
-        <div className="df-flabel">Sources for this record</div>
+        <div className="df-flabel">{t(locale, "Sources for this record")}</div>
         <ul style={{ listStyle: "none", margin: "8px 0 0", padding: 0, display: "grid", gap: 4 }}>
-          <li><b>Origin</b> — TMDB</li>
+          <li><b>{t(locale, "Origin")}</b> — TMDB</li>
           {linAwards.length > 0 ? (
-            <li><b>Awards &amp; honours</b> — {awardSrc.length ? joinProse(awardSrc) : "public records and critics’ polls"} <span className="lin-meta">({linAwards.length})</span></li>
+            <li><b>{t(locale, "Awards & honours")}</b> — {awardSrc.length ? joinProse(awardSrc) : t(locale, "public records and critics’ polls")} <span className="lin-meta">({linAwards.length})</span></li>
           ) : null}
           {canonRows.length > 0 ? (
-            <li><b>Canon</b> — {canonSrc.length ? joinProse(canonSrc) : "institutional & critics’ polls"} <span className="lin-meta">({canonRows.length})</span></li>
+            <li><b>{t(locale, "Canon")}</b> — {canonSrc.length ? joinProse(canonSrc) : t(locale, "institutional & critics’ polls")} <span className="lin-meta">({canonRows.length})</span></li>
           ) : null}
           {movements.length > 0 ? (
-            <li><b>Movements &amp; auteur line</b> — auteur rosters <span className="lin-meta">({movements.length + linAuteur.length})</span></li>
+            <li><b>{t(locale, "Movements & auteur line")}</b> — {t(locale, "auteur rosters")} <span className="lin-meta">({movements.length + linAuteur.length})</span></li>
           ) : null}
         </ul>
-        {updatedFmt ? <div className="lin-meta" style={{ marginTop: 6 }}>Record updated {updatedFmt}</div> : null}
+        {updatedFmt ? <div className="lin-meta" style={{ marginTop: 6 }}>{t(locale, "Record updated {date}", { date: updatedFmt })}</div> : null}
       </div>
     </section>
   );

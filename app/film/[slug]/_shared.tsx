@@ -1129,10 +1129,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               visible (still demoted, below the tab bar) rather than dropping it. */}
           {!hasDigest ? synopsis : null}
 
-          <CinecodexPanel data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
-          <TowCard tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
-          <FilmLineageSection lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} recordUpdated={recordUpdated} />
-          <FilmRecommendedBy rows={recommendedBy} title={f.title} />
+          <CinecodexPanel locale={locale} data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
+          <TowCard locale={locale} tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
+          <FilmLineageSection locale={locale} lineage={lineage} title={f.title} slug={f.slug} listMeta={lnListMeta} movements={movements} recordUpdated={recordUpdated} />
+          <FilmRecommendedBy locale={locale} rows={recommendedBy} title={f.title} />
 
           {/* SCHOLARSHIP (C3) — this cohort's reception is 100% academic; the shared
               component self-gates to null when reviews+papers are both empty, and
@@ -1166,8 +1166,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               <p className="df-sub">{t(locale, "One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person's own file.")}</p>
               {creditsPayload ? (
                 <>
-                  <MakerPanels payload={creditsPayload} />
-                  <MakerPanelsCta slug={f.slug} title={f.title} />
+                  <MakerPanels locale={locale} payload={creditsPayload} />
+                  <MakerPanelsCta locale={locale} slug={f.slug} title={f.title} />
                 </>
               ) : (
                 <div className="rcp-list">
@@ -1235,9 +1235,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               Editorial" — an overclaim for a rule-composed catalog record). Packs/MCP
               stay gated to visible films (product decision, not format). */}
           <div className="df-seq">
-            <SeqNav kind="film" id={f.id} />
+            <SeqNav locale={locale} kind="film" id={f.id} />
           </div>
-          <Provenance created={recordUpdated} />
+          <Provenance locale={locale} created={recordUpdated} />
         </div>
       </div>
     );
@@ -1489,7 +1489,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   <span className="df-dircard__name">{film.director}</span>
                 </Link>
               ) : null}
-              <Byline created={film.created_at} />
+              <Byline locale={locale} created={film.created_at} />
               <div className="df-facts">
                 {film.director ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : null}
                 {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).map((g: string) => genreName(g, locale)).join(" · ")}</> : null}
@@ -1579,9 +1579,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           </section>
         ) : null}
 
-        <CinecodexPanel data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
+        <CinecodexPanel locale={locale} data={codex as Codex | null} title={film.title} subscores={subscores} slug={film.slug}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "takescore", label: "TakeScore" }]} variant="section" /> : null} />
-        <TowCard tow={tow} filmTitle={film.title} variant="short" slug={film.slug} />
+        <TowCard locale={locale} tow={tow} filmTitle={film.title} variant="short" slug={film.slug} />
 
         {/* ATLAS — real-world places (directly under the TakeScore) */}
         {geoCount > 0 ? (
@@ -1616,12 +1616,12 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         ) : null}
 
         {/* LINEAGE — where the film sits: awards, canons, auteur line */}
-        <FilmLineageSection lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife}
+        <FilmLineageSection locale={locale} lineage={lineage} title={film.title} slug={film.slug} listMeta={lnListMeta} movements={movements} quotes={linQuotes} afterlife={linAfterlife}
           recordUpdated={(film as { created_at?: string | null }).created_at ?? null}
           headerAccessory={packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "standing", label: "Standing & honors" }]} variant="section" /> : null} />
 
         {/* RECOMMENDED BY — reverse graph: films whose "Watch next" points here */}
-        <FilmRecommendedBy rows={recommendedBy} title={film.title} />
+        <FilmRecommendedBy locale={locale} rows={recommendedBy} title={film.title} />
 
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
@@ -1992,8 +1992,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <p className="df-sub">{t(locale, "One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person's own file.")}</p>
             {creditsPayload ? (
               <>
-                <MakerPanels payload={creditsPayload} />
-                <MakerPanelsCta slug={film.slug} title={film.title} />
+                <MakerPanels locale={locale} payload={creditsPayload} />
+                <MakerPanelsCta locale={locale} slug={film.slug} title={film.title} />
               </>
             ) : (
               <div className="rcp-list">
@@ -2041,10 +2041,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         ) : null}
 
         <div className="df-seq">
-          <SeqNav kind="film" id={film.id} />
+          <SeqNav locale={locale} kind="film" id={film.id} />
         </div>
 
-        <Provenance created={film.created_at} />
+        <Provenance locale={locale} created={film.created_at} />
       </div>
     </div>
   );

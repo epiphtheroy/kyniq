@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { t, DEFAULT_LOCALE, type Locale } from "@/lib/i18n";
 
 /**
  * QuickAnswers — the shared deterministic Q&A block
@@ -18,15 +19,18 @@ export type QuickAnswerItem = {
 
 export default function QuickAnswers({
   items,
-  heading = "Quick answers",
+  heading,
+  locale = DEFAULT_LOCALE,
 }: {
   items: QuickAnswerItem[];
   heading?: string;
+  locale?: Locale;
 }) {
   if (!items.length) return null;
+  const headingText = heading ?? t(locale, "Quick answers");
   return (
     <section style={{ margin: "28px 0" }}>
-      <h2 className="df-h2">{heading}</h2>
+      <h2 className="df-h2">{headingText}</h2>
       {items.map((it) => (
         <div key={it.q} style={{ margin: "14px 0 0" }}>
           <h3 style={{ margin: "0 0 3px", fontSize: 16.5, lineHeight: 1.35 }}>{it.q}</h3>
@@ -35,7 +39,7 @@ export default function QuickAnswers({
             {it.href ? (
               <>
                 {" "}
-                <Link href={it.href}>More →</Link>
+                <Link href={it.href}>{t(locale, "More →")}</Link>
               </>
             ) : null}
           </p>

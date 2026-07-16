@@ -389,12 +389,12 @@ export async function FilmLocationsPage({ slug, locale }: { slug: string; locale
         backdropPath={film.backdrop_path}
       />
       <div className="mt-wrap" style={{ maxWidth: 880, padding: "28px 20px 40px" }}>
-        <Byline created={updated} />
+        <Byline locale={locale} created={updated} />
 
         {/* Q&A is assembled over English place names (26k pin names not localized) —
             keep it English on ko, marked, per §1.1. */}
         <div lang={locale === DEFAULT_LOCALE ? undefined : "en"}>
-          <QuickAnswers items={quickAnswerItems(film, filmed, setting)} />
+          <QuickAnswers locale={locale} items={quickAnswerItems(film, filmed, setting)} />
         </div>
 
         {filmed.length > 0 && (
@@ -460,7 +460,7 @@ export async function FilmLocationsPage({ slug, locale }: { slug: string; locale
             an ongoing basis. <Link href="/methodology#locations">{t(locale, "Read the full methodology →")}</Link>
           </p>
         </aside>
-        <Provenance created={updated} />
+        <Provenance locale={locale} created={updated} />
       </div>
 
       <ReadPlates slug={film.slug} exclude="locations" />
