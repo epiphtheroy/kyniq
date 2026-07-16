@@ -53,9 +53,11 @@ function regionTier(o: CountryOffers | undefined, freeVerifiedHere: boolean, krT
   if (freeVerifiedHere || freeNonLib.length) return "free";
   if (lib.length) return "library";
   if (streamNonLib.length) return "stream";
+  // KR verified overrides rank with the same precedence the selected-country
+  // headline uses (stream > KR verified > rent > buy) — keep both paths in sync.
+  if (krTier) return krTier;
   if ((o?.rent ?? []).length) return "rent";
   if ((o?.buy ?? []).length) return "buy";
-  if (krTier) return krTier;
   return "none";
 }
 
@@ -149,9 +151,12 @@ export default function AccessSummary({ watch, record, slug, title }: {
   if (nRent) fpParts.push(`rent in ${nRent}`);
   if (nBuy) fpParts.push(`buy in ${nBuy}`);
   if (nNone) fpParts.push(`not yet in ${nNone}`);
+  // Answer-first: lead with the availability breakdown itself, not "tracked in
+  // N regions" — the digest already links that phrasing (R-D dedupe).
+  const fpJoined = fpParts.join(", ");
   const fingerprint =
     countries.length > 0 && hasAny && fpParts.length
-      ? `Tracked in ${countries.length} region${countries.length === 1 ? "" : "s"} — ${fpParts.join(", ")}.`
+      ? `${fpJoined.charAt(0).toUpperCase()}${fpJoined.slice(1)} — across ${countries.length} region${countries.length === 1 ? "" : "s"}.`
       : "";
 
   // Region chips: flag + tier glyph, availability-first, capped.
@@ -177,8 +182,8 @@ export default function AccessSummary({ watch, record, slug, title }: {
       {regionChips.length ? (
         <div className="ax-sum-chips">
           {regionChips.map((rc) => (
-            <span key={rc} className="ax-sum-chip" title={`${TIER_WORD[tierByCc[rc]]} — ${countryName(rc)}`}>
-              {flagEmoji(rc)} {TIER_GLYPH[tierByCc[rc]]} {rc}
+            <span key={rc} className="ax-sum-chip" aria-label={`${TIER_WORD[tierByCc[rc]]} — ${countryName(rc)}`} title={`${TIER_WORD[tierByCc[rc]]} — ${countryName(rc)}`}>
+              {flagEmoji(rc)} <span aria-hidden="true">{TIER_GLYPH[tierByCc[rc]]}</span> {rc}
             </span>
           ))}
         </div>

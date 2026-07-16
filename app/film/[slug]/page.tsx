@@ -1055,6 +1055,9 @@ export default async function FilmPage({ params }: Props) {
               {synopsis}
             </section>
           ) : null}
+          {/* #3: when there is no digest to fold it into, keep the plot overview
+              visible (still demoted, below the tab bar) rather than dropping it. */}
+          {!hasDigest ? synopsis : null}
 
           <CinecodexPanel data={codex as Codex | null} title={f.title} subscores={subscores} slug={f.slug} />
           <TowCard tow={tow} filmTitle={f.title} variant="short" slug={f.slug} />
