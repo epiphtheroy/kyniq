@@ -764,7 +764,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
   // means regenerating the 13 patterns with Korean slots (master doc, tier B) —
   // until then the module is absent rather than an English island. Skipping the
   // fetch too: no query for something no one will see.
-  const sentences = locale === "en" ? await loadSentences(slug) : [];
+  const sentences = locale === DEFAULT_LOCALE ? await loadSentences(slug) : [];
   // to.W — curator's letter on this film's place in the index (both branches).
   const tow = await loadTow(slug);
   const crew = (data.film as { tmdb_id?: number | null }).tmdb_id ? await filmKeyCrew((data.film as { tmdb_id: number }).tmdb_id) : [];
