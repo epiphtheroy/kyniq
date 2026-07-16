@@ -98,6 +98,7 @@ export const en = {
   "map.showAll": "Show all",
   "map.noFilmPins": "No mapped locations for this film yet.",
   "map.openFilm": "Open film",
+  "map.webUnavailable": "The filming-locations map runs in the iOS app — this browser preview can't render it.",
   "director.records": "The records",
   "director.reception": "Reception",
   "director.theory": "Theory",

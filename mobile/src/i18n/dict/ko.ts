@@ -86,6 +86,7 @@ export const ko: Record<keyof typeof en, string> = {
   "map.showAll": "전체 보기",
   "map.noFilmPins": "이 영화의 촬영지는 아직 지도에 없습니다.",
   "map.openFilm": "영화 보기",
+  "map.webUnavailable": "촬영지 지도는 iOS 앱에서 동작합니다 — 브라우저 프리뷰에서는 표시되지 않습니다.",
   "director.records": "The records",
   "director.reception": "리셉션",
   "director.theory": "이론",
