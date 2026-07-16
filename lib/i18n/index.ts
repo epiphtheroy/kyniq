@@ -135,7 +135,8 @@ export function locTwin(
   if (locale === cur) return pathname;
 
   if (isEssayDesk && cur === DEFAULT_LOCALE && KO_ESSAY_SUFFIX.test(path)) {
-    const [, slug, desk] = path.split("/");
+    // path is "/film/{slug}/{desk}" — split drops a leading "" so slug/desk are [2]/[3].
+    const [, , slug, desk] = path.split("/");
     if (isEssayDesk(desk)) return locale === "ko" ? `/film/${slug}/${desk}/ko` : null;
   }
 
