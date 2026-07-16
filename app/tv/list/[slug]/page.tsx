@@ -49,6 +49,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: { absolute: title },
     description: desc,
+    // Forced noindex: a watch-list is a playlist wrapper, not indexable content.
+    robots: { index: false, follow: true },
     alternates: { canonical: `/tv/list/${slug}` },
     openGraph: { title, description: desc, url: `${SITE}/tv/list/${slug}`, siteName: "Metatake", type: "website", ...(img ? { images: [{ url: img, width: 1280, height: 720 }] } : {}) },
     twitter: { card: "summary_large_image", title, description: desc, ...(img ? { images: [img] } : {}) },

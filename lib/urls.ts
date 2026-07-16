@@ -27,7 +27,7 @@ export const lineageUrl = (slug: string) => `/lineage/${slug}`;
 // film's main page). Some live under /film/[slug]/*, others in their own route
 // trees — this is the single place that spelling is fixed.
 export const receptionUrl = (filmSlug: string) => `/film/${filmSlug}/reception`;
-export const misreadingsFilmUrl = (filmSlug: string) => `/film/${filmSlug}/misreadings`;
+export const misreadingsFilmUrl = (filmSlug: string) => `/film/meaning/${filmSlug}`;
 export const filmLocationsUrl = (filmSlug: string) => `/film/locations/${filmSlug}`;
 export const filmLineageUrl = (filmSlug: string) => `/film/lineage/${filmSlug}`;
 export const takescoreFilmUrl = (filmSlug: string) => `/takescore/film/${filmSlug}`;

@@ -30,7 +30,6 @@ const SECTIONS = [
   "cities",
   "lineage",
   "honors",
-  "takescore-films",
   "essays",
   "misreadings",
   "film-credits",
@@ -48,8 +47,6 @@ const SECTIONS = [
   "concept-domains",
   "frames",
   "now",
-  "tv-programs",
-  "tv-lists",
 ];
 
 export async function GET() {

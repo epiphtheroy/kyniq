@@ -81,7 +81,7 @@ export default function TodayExhibits({ ex }: { ex: Exhibits }) {
   if (ex.misreading) {
     const m = ex.misreading;
     tiles.push(
-      <Link className="hx-tile" href={`/film/${m.slug}/misreadings`} key="mis">
+      <Link className="hx-tile" href={`/film/meaning/${m.slug}`} key="mis">
         {posterUrl(m.poster) ? <span className="hx-thumb" style={{ backgroundImage: `url(${posterUrl(m.poster)})` }} /> : null}
         <span className="hx-body">
           <span className="hx-k">Strong misreading</span>

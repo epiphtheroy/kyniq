@@ -293,7 +293,7 @@ export default async function DirectorStartPage({ params }: Props) {
                       {p.reason ? <p style={{ marginTop: 0 }}>{p.reason}</p> : null}
                       <p style={{ fontSize: "0.92em" }}>
                         {count > 0 && p.film_slug ? (
-                          <Link href={`/film/${p.film_slug}/misreadings`}>{count} Strong Misreading{count === 1 ? "" : "s"} on Metatake →</Link>
+                          <Link href={`/film/meaning/${p.film_slug}`}>{count} Strong Misreading{count === 1 ? "" : "s"} on Metatake →</Link>
                         ) : p.film_slug ? (
                           <Link href={`/film/${p.film_slug}`}>Open {filmTitle} on Metatake →</Link>
                         ) : null}

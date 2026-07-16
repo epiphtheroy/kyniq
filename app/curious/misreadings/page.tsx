@@ -90,7 +90,7 @@ export default async function CuriousMisreadingsIndex() {
         <div className="cur-qindex" style={{ columns: 3 }}>
           {films.map((f) => (
             <div className="cur-qindex__film" key={f.slug} style={{ marginBottom: 10 }}>
-              <Link href={`/film/${f.slug}/misreadings`}>
+              <Link href={`/film/meaning/${f.slug}`}>
                 {f.title}
                 {f.year ? <span className="yr">({f.year})</span> : null}
               </Link>

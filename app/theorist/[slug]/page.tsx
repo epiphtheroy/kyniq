@@ -515,7 +515,7 @@ export default async function TheoristPage({ params }: Props) {
               {F.topFilms.filter((f) => f.backdrop).slice(0, 5).map((f) => (
                 <Card
                   key={f.slug}
-                  href={`/film/${f.slug}/misreadings`}
+                  href={`/film/meaning/${f.slug}`}
                   film={{ slug: f.slug, title: f.title, year: f.year, backdrop_path: f.backdrop, poster_path: filmMeta.get(f.slug)?.poster_path ?? null }}
                   title={`${f.title}, read against the grain — the misreadings article`}
                   tag="Strong Misreadings"

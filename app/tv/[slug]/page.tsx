@@ -79,6 +79,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title,
     description: desc,
+    // Forced noindex: a per-broadcast TV page is a single video, not a
+    // standalone indexable document — the reading value lives on /film/[slug].
+    robots: { index: false, follow: true },
     alternates: { canonical: `/tv/${slug}` },
     openGraph: {
       title, description: desc, url: `${SITE}/tv/${slug}`, siteName: "Metatake", type: "video.other",

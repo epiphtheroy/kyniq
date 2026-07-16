@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { pageRobots } from "@/lib/seo";
-import { filmMainIndexable } from "@/lib/filmGate";
 import ShareDock from "@/components/ShareDock";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
@@ -124,8 +123,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: title },
     description: trim155(verdict),
     alternates: { canonical: `/takescore/film/${card.slug}` },
-    // Subpage invariant (HANDOFF §2.5): indexable only when the film's main page is.
-    robots: pageRobots(await filmMainIndexable(slug)),
+    // Forced noindex: all /takescore/film pages share one scored template
+    // (value/cost/risk) across the catalog; the score belongs on /film/[slug]
+    // as a section, not as thousands of near-identical standalone pages.
+    robots: pageRobots(false),
     openGraph: {
       title,
       description: trim155(verdict),

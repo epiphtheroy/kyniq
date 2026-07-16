@@ -287,55 +287,11 @@ export async function traditionEntries(): Promise<SitemapEntry[]> {
     .map((r) => ({ url: `${siteUrl}/tradition/${r.slug}` }));
 }
 
-export async function tvListEntries(): Promise<SitemapEntry[]> {
-  if (!SITE_INDEXABLE) return [];
-  const rows = await fetchAll<{ slug: string }>(
-    (from, to) => db().from("tv_playlists").select("slug").order("slug").range(from, to)
-  );
-  return rows.filter((r) => r.slug).map((r) => ({ url: `${siteUrl}/tv/list/${r.slug}` }));
-}
-
-// /tv/[slug] as a VIDEO sitemap — each broadcast is the main content of its own
-// watch page, so it qualifies for a <video:video> entry (unlike the decorative
-// trailer reels on film sub-pages, which Google rightly flags "not on the watch
-// page"). player_loc is the trailer's embed (the actual player on the page);
-// the video's own thumbnail/title/description are ours. Requires a thumbnail +
-// a clip; rows missing either are skipped.
-export type VideoEntry = { loc: string; thumbnail: string; title: string; description: string; playerLoc: string; pubDate?: string; duration?: number };
-
-export async function tvProgramVideoEntries(): Promise<VideoEntry[]> {
-  if (!SITE_INDEXABLE) return [];
-  const TMDB = "https://image.tmdb.org/t/p";
-  type Row = {
-    slug: string; title: string | null; dek: string | null; built_at: string | null; duration_ms: number | null;
-    meta: { clips?: string[] } | null;
-    films: { backdrop_path: string | null; poster_path: string | null; title: string | null; year: number | null; director: string | null } | null;
-  };
-  const rows = await fetchAll<Row>(
-    (from, to) => db()
-      .from("tv_programs")
-      .select("slug,title,dek,built_at,duration_ms,meta,films(backdrop_path,poster_path,title,year,director)")
-      .eq("status", "published").order("slug").range(from, to) as unknown as PromiseLike<{ data: Row[] | null }>
-  );
-  const out: VideoEntry[] = [];
-  for (const r of rows) {
-    const f = r.films;
-    const clip = r.meta?.clips?.[0];
-    const thumb = f?.backdrop_path ? `${TMDB}/w1280${f.backdrop_path}` : f?.poster_path ? `${TMDB}/w780${f.poster_path}` : null;
-    if (!r.slug || !clip || !thumb) continue; // a video sitemap entry needs a thumbnail + player
-    const desc = `A chapter-by-chapter video essay on ${f?.title ?? r.slug}${f?.year ? ` (${f.year})` : ""}${f?.director ? `, directed by ${f.director}` : ""}, compiled from the Metatake record. On METATAKE TV.`;
-    out.push({
-      loc: `${siteUrl}/tv/${r.slug}`,
-      thumbnail: thumb,
-      title: (r.title || f?.title || r.slug).slice(0, 100),
-      description: desc.slice(0, 2048),
-      playerLoc: `https://www.youtube-nocookie.com/embed/${clip}`,
-      pubDate: r.built_at ? new Date(r.built_at).toISOString() : undefined,
-      duration: r.duration_ms ? Math.max(1, Math.min(28800, Math.round(r.duration_ms / 1000))) : undefined,
-    });
-  }
-  return out;
-}
+// /tv/[slug] and /tv/list/[slug] are noindex (2026-07-16): a per-broadcast page
+// is a single video and a watch-list is a playlist wrapper — neither is a
+// standalone indexable document, so neither is advertised in any sitemap. The
+// former tvListEntries / tvProgramVideoEntries emitters + the videoUrlset
+// renderer + the tv-programs / tv-lists sitemap routes were removed together.
 
 /**
  * /director/[slug]/start + /director/[slug]/next — the promoted director
@@ -513,10 +469,19 @@ export const misreadingsEligibleSlugs = unstable_cache(
 );
 
 /**
- * /film/[slug]/misreadings articles (added 2026-07-07) — every analyzed film's
- * Strong Misreadings assembled as one article (9–15 readings each, LLM-free).
- * Oldest-first + cap so raising the cohort only appends URLs. The index hub is
- * /curious/misreadings (in coreEntries via the curious section).
+ * /film/meaning/[slug] articles (route moved from /film/[slug]/misreadings
+ * 2026-07-16) — every analyzed film's Strong Misreadings assembled as one
+ * article (9–15 readings each, LLM-free). Oldest-first + cap so raising the
+ * cohort only appends URLs. The index hub is /curious/misreadings.
+ *
+ * Coupling invariant (sitemap ⊆ indexable): misreadingsEligibleSlugs gates on
+ * ">=1 published non-invitation take" (the render/404 gate, shared with the
+ * /curious index), whereas the page's robots gate is pageRobots(n >= 5). These
+ * are only equal by data: verified 2026-07-16 that every visible+analyzed film
+ * with >=1 reading has >=5 (leak of 1–4-reading films = 0). If the factory ever
+ * ships a film with 1–4 readings, add a per-film ">=5 approved-figure readings"
+ * count filter HERE (not in the shared misreadingsEligibleSlugs) so this sitemap
+ * never advertises a noindex meaning page.
  */
 export async function misreadingsEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
@@ -532,7 +497,9 @@ export async function misreadingsEntries(): Promise<SitemapEntry[]> {
     .filter((f) => eligibleSet.has(f.slug))
     .slice(0, INDEX_COHORT_MISREADINGS)
     .map((f) => ({
-      url: `${siteUrl}/film/${f.slug}/misreadings`,
+      // Route moved 2026-07-16: /film/[slug]/misreadings -> /film/meaning/[slug]
+      // (old path 308-redirects). Advertise the new canonical only.
+      url: `${siteUrl}/film/meaning/${f.slug}`,
       lastmod: isoDate(f.last_processed_at && f.last_processed_at > f.created_at ? f.last_processed_at : f.created_at),
     }));
 }
@@ -558,19 +525,29 @@ export async function filmCreditsEntries(): Promise<SitemapEntry[]> {
   }));
 }
 
-/** Per-film afterlife timelines — mirrors the page's publish gate: at least one
- *  film_reception row (reviews/papers), OR a substantial honors record. Honor-
- *  only pages require >= 3 honors so they stay indexable (the page noindexes
- *  thinner records), which is also why non-visible catalog films can qualify. */
+/** Per-film afterlife timelines — mirrors the page's raised index bar
+ *  (reception/page.tsx, 2026-07-16): advertise a reception page only when the
+ *  film carries a substantial archive — criticism + scholarship reviews plus
+ *  Wikidata honors, summed >= 8 (up from the old ">=1 reception OR >=3 honors"
+ *  union). The page's 4th term, dated award/festival/section lineage, is
+ *  intentionally omitted here: dropping a non-negative term keeps this set a
+ *  strict SUBSET of what the page indexes, so the sitemap can never advertise a
+ *  noindex page; the few lineage-only films remain reachable via internal links.
+ *  Reception is filtered to {criticism, academic} so a future kind can't inflate
+ *  the count past the page's reviews+papers sum. */
+const RECEPTION_INDEX_MIN = 8;
 export async function filmReceptionEntries(): Promise<SitemapEntry[]> {
   if (!SITE_INDEXABLE) return [];
   const supabase = db();
   const rows = await fetchAll<{ film_id: string; created_at: string }>(
-    (from, to) => supabase.from("film_reception").select("film_id, created_at").order("film_id").range(from, to),
+    (from, to) => supabase.from("film_reception").select("film_id, created_at")
+      .in("kind", ["criticism", "academic"]).order("film_id").range(from, to),
     20000
   );
+  const rcpCount = new Map<string, number>();
   const latestByFilm = new Map<string, string>();
   for (const r of rows) {
+    rcpCount.set(r.film_id, (rcpCount.get(r.film_id) ?? 0) + 1);
     const cur = latestByFilm.get(r.film_id);
     if (!cur || r.created_at > cur) latestByFilm.set(r.film_id, r.created_at);
   }
@@ -581,8 +558,10 @@ export async function filmReceptionEntries(): Promise<SitemapEntry[]> {
   const honorCount = new Map<string, number>();
   for (const h of honorRows) honorCount.set(h.film_id, (honorCount.get(h.film_id) ?? 0) + 1);
 
-  const ids = new Set<string>(latestByFilm.keys());
-  for (const [fid, n] of honorCount) if (n >= 3) ids.add(fid);
+  const ids = new Set<string>();
+  for (const fid of new Set<string>([...rcpCount.keys(), ...honorCount.keys()])) {
+    if ((rcpCount.get(fid) ?? 0) + (honorCount.get(fid) ?? 0) >= RECEPTION_INDEX_MIN) ids.add(fid);
+  }
   const idList = [...ids];
   const films: { id: string; slug: string }[] = [];
   for (let i = 0; i < idList.length; i += 150) {
@@ -1045,38 +1024,12 @@ export async function honorsEntries(): Promise<SitemapEntry[]> {
     .map((f) => ({ url: `${siteUrl}/film/lineage/${f.slug}` }));
 }
 
-/**
- * /takescore/film/[slug] — per-film TakeScore appraisal pages, one per scored
- * film (~6,701). Roster = the same cinecodex_ranked RPC the /takescore hub
- * renders (single-jsonb {total, rows} payload), paged with p_limit 500 so no
- * page approaches PostgREST's 1,000-row response cap. No lastmod: ranked rows
- * carry no scored_at, and a fabricated date is worse than none (see header).
- */
-export async function sitemapTakescoreFilms(): Promise<SitemapEntry[]> {
-  if (!SITE_INDEXABLE) return [];
-  const supabase = db();
-  // Subpage invariant (HANDOFF §2.6): advertise only films whose main page is
-  // indexable (was: every scored film — the flagship leak). Falls back to the old
-  // all-scored behaviour if the gate is unavailable, so coverage never collapses.
-  const gate = await gatePassingSlugs();
-  const useGate = gate.size > 0;
-  const entries: SitemapEntry[] = [];
-  const LIMIT = 500;
-  for (let offset = 0; ; offset += LIMIT) {
-    const { data } = await supabase.rpc("cinecodex_ranked", {
-      p_sort: "u", p_lambda: 1.0, p_limit: LIMIT, p_offset: offset,
-    });
-    const page = data as { total: number; rows: { slug: string }[] } | null;
-    const rows = page?.rows ?? [];
-    for (const r of rows) {
-      if (r.slug && (!useGate || gate.has(r.slug))) entries.push({ url: `${siteUrl}/takescore/film/${r.slug}` });
-    }
-    // Stop on a short page (rows exhausted) or once the RPC's own total is
-    // covered — the total guard keeps a misbehaving RPC from looping forever.
-    if (rows.length < LIMIT || (page?.total != null && offset + rows.length >= page.total)) break;
-  }
-  return entries;
-}
+// /takescore/film/[slug] pages are noindex (2026-07-16): ~6,701 scored films
+// share one value/cost/risk template, so the score lives on /film/[slug] as a
+// section rather than as thousands of near-identical standalone pages. The
+// former sitemapTakescoreFilms emitter + the takescore-films sitemap route were
+// removed together. The 13 /takescore/[dim] dimension landing pages stay indexed
+// (emitted from coreEntries, unaffected).
 
 /** Public profiles. */
 export async function profileEntries(): Promise<SitemapEntry[]> {
@@ -1131,24 +1084,6 @@ export function urlset(entries: SitemapEntry[]): string {
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
-}
-
-// Video sitemap renderer — one <url> per watch page with a <video:video> child.
-export function videoUrlset(entries: VideoEntry[]): string {
-  const body = entries.map((e) => {
-    const v = [
-      `      <video:thumbnail_loc>${escapeXml(e.thumbnail)}</video:thumbnail_loc>`,
-      `      <video:title>${escapeXml(e.title)}</video:title>`,
-      `      <video:description>${escapeXml(e.description)}</video:description>`,
-      `      <video:player_loc>${escapeXml(e.playerLoc)}</video:player_loc>`,
-      e.duration ? `      <video:duration>${e.duration}</video:duration>` : "",
-      e.pubDate ? `      <video:publication_date>${e.pubDate}</video:publication_date>` : "",
-      `      <video:family_friendly>yes</video:family_friendly>`,
-      `      <video:live>no</video:live>`,
-    ].filter(Boolean).join("\n");
-    return `  <url>\n    <loc>${escapeXml(e.loc)}</loc>\n    <video:video>\n${v}\n    </video:video>\n  </url>`;
-  }).join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n${body}\n</urlset>\n`;
 }
 
 export function sitemapindex(urls: string[]): string {

@@ -227,7 +227,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/film/${slug}/reception` },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    robots: pageRobots((await filmMainIndexable(slug)) && (reviews.length + papers.length + wdHonors.length + lineage.length >= 3)),
+    // Index bar raised 3 -> 8 (2026-07-16): a reception page earns an index slot
+    // only with a substantial critic+scholarship+honors archive; thinner films
+    // still render for direct visitors but stay out of the index (sitemap mirrors
+    // this exact filtered >=8 sum in filmReceptionEntries).
+    robots: pageRobots((await filmMainIndexable(slug)) && (reviews.length + papers.length + wdHonors.length + lineage.length >= 8)),
   };
 }
 
