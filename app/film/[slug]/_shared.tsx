@@ -943,7 +943,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         : f.tmdb_id ? { id: "df-credits", label: "Credits", href: `/credits?f=${f.tmdb_id}`, zone: "free" as const } : null,
       { id: "df-watch", label: "Where to watch", badge: mWatchRegions || undefined, zone: "free" as const },
       f.poster_path ? { id: "gallery", label: "Gallery", href: `/film/${f.slug}/gallery`, zone: "free" as const } : null,
-    ].filter(Boolean)) as FilmTab[];
+    ].filter(Boolean)).map((tab) => ({ ...tab!, label: t(locale, tab!.label) })) as FilmTab[];
     // SYNOPSIS — the film's overview (plot), rendered as a lead paragraph directly
     // under the hero. The old "About" tab and its metadata list were removed: the
     // facts (director/genre/runtime/cert) duplicate the hero, and cast/writing now
@@ -1338,7 +1338,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     archGroups.length ? { id: "df-archetype", label: "Archetype", badge: nArch, zone: "spoiler" as const } : null,
     nCurious ? { id: "df-curious", label: "Curious", badge: nCurious, zone: "spoiler" as const } : null,
     counterpoints.length ? { id: "df-counterpoints", label: "Counterpoints", badge: counterpoints.length, zone: "spoiler" as const } : null,
-  ].filter(Boolean)) as FilmTab[];
+  ].filter(Boolean)).map((tab) => ({ ...tab!, label: t(locale, tab!.label) })) as FilmTab[];
 
   // Pack sections available on this film (mirrors the tabs present) — feeds the
   // hero "Download for AI" selector. visible!==false gate matches the tab bar.
