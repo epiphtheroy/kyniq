@@ -68,3 +68,4 @@ worker/.crm-scout.lock
 # CRM — generated import data (contains personal contact emails) — never commit
 crm-handoff/contacts.json
 crm-handoff/_batches/
+data/i18n/src/
