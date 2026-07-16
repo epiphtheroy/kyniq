@@ -162,10 +162,29 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     }
   );
 
-  // Refresh session on every request
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // Refresh session on every request. Guard with a hard timeout: supabase-js
+  // retries a failing /auth/v1/user fetch internally, so a degraded auth server
+  // (observed 2026-07-16: 522 connection timeouts + multi-second /user latency)
+  // can leave this await pending well past Vercel's 25s middleware limit → every
+  // gated route 504s sitewide until auth recovers. Same fail-open contract as
+  // blockedPrefix above: on timeout, treat the request as unauthenticated —
+  // admin/CRM/auth-required routes redirect to login (never a 504), and public
+  // authed navigation just skips the session refresh for this request.
+  const AUTH_TIMEOUT_MS = 3000;
+  let user: Awaited<
+    ReturnType<typeof supabase.auth.getUser>
+  >["data"]["user"] = null;
+  try {
+    const authResult = await Promise.race([
+      supabase.auth.getUser(),
+      new Promise<{ data: { user: null } }>((resolve) =>
+        setTimeout(() => resolve({ data: { user: null } }), AUTH_TIMEOUT_MS)
+      ),
+    ]);
+    user = authResult.data.user;
+  } catch {
+    user = null;
+  }
 
   // ── Admin gate ──────────────────────────────────────────────
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
