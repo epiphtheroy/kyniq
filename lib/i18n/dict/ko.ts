@@ -374,4 +374,30 @@ export const KO: Record<string, string> = {
     "{title}에 관한 학술 — 그리고 그 이후 전부, 해마다",
   "Headlines & quotes from publishers' link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.":
     "발행처 링크 미리보기(og:description)와 논문 초록(OpenAlex/Crossref)에서 가져온 헤드라인·인용. 기사 본문은 저장하지 않는다.",
+
+  // ── Film locations (/ko/film/locations/[slug]) — chrome; place names stay English ──
+  "Where Was {title} Filmed?": "{title}는 어디서 찍었나?",
+  "{n} Locations, Mapped": "촬영지 {n}곳, 지도로",
+  "On Location": "촬영 현장",
+  "fact-checked & mapped": "사실 검증·지도화",
+  "{n} places": "{n}곳",
+  "see the map ↓": "지도 보기 ↓",
+  "data updated {date}": "데이터 갱신 {date}",
+  "Where was {title} filmed?": "{title}는 어디서 찍었나?",
+  "Filmed locations — {n} places": "촬영지 — {n}곳",
+  "Where the cameras actually stood, from exact addresses down to city level.":
+    "카메라가 실제로 놓였던 곳 — 정확한 주소부터 도시 단위까지.",
+  "The world it pretends to be": "영화가 자처하는 세계",
+  "Places the story claims as its world — distinct from where the cameras stood.":
+    "이야기가 자신의 세계라 주장하는 장소들 — 카메라가 선 곳과는 별개다.",
+  "{title} — every location on the map": "{title} — 모든 촬영지를 지도에",
+  "The same {n} places, live. Click a pin to read what it means in the film.":
+    "같은 {n}곳, 실시간. 핀을 눌러 영화에서 그곳이 뜻하는 바를 읽어라.",
+  "Keep reading": "이어 읽기",
+  "{title} — analysis, themes & symbols →": "{title} — 분석·주제·상징 →",
+  "Where does {director} film? Every location across the filmography →":
+    "{director}는 어디서 찍나? 필모그래피 전체 촬영지 →",
+  "Movies filmed in {country} →": "{country}에서 촬영된 영화 →",
+  "The world map of cinema — every country, one map →": "영화의 세계 지도 — 모든 나라, 하나의 지도 →",
+  "Read the full methodology →": "전체 방법론 보기 →",
 };
