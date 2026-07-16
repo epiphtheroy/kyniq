@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
 import LensToggle from "@/components/LensToggle";
 import LocaleSwitcher from "@/components/i18n/LocaleSwitcher";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { t as tr, type Locale } from "@/lib/i18n";
 import { clearLocalTakeDrafts } from "@/lib/room/drafts";
 
 export type NavCounts = {
@@ -79,12 +81,18 @@ function buildGroups(c: NavCounts, acct: Acct): Group[] {
 // Counts removed (owner request — several were stale/wrong): nav shows labels + arrow only.
 const arrow = (_c?: number) => "→";
 
-// Render a nav label, painting a trailing "TV" red (e.g. "Metatake TV").
-const navLabel = (t: string) =>
-  t.endsWith("TV") ? (<>{t.slice(0, -2)}<span className="nav-tv">TV</span></>) : t;
+// Render a nav label in `locale`, painting a trailing "TV" red (e.g. "Metatake TV").
+// Brand marks (Metatake TV, TakeScore…) have no dictionary entry so they stay
+// English; functional names project. The TV paint runs on the projected string
+// (still ends "TV" for the brand mark).
+const navLabel = (label: string, locale: Locale) => {
+  const s = tr(locale, label);
+  return s.endsWith("TV") ? (<>{s.slice(0, -2)}<span className="nav-tv">TV</span></>) : s;
+};
 
 export default function Nav({ counts = {} }: { counts?: NavCounts }) {
   const router = useRouter();
+  const locale = useLocale();
   const [acct, setAcct] = useState<Acct>({ state: "loading" });
   const groups = buildGroups(counts, acct);
   const [open, setOpen] = useState<"mega" | "am" | null>(null);
@@ -153,7 +161,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
             <i />
             <i />
           </span>
-          Menu
+          {tr(locale, "Menu")}
         </div>
 
         {/* Wide: the five top groups, each with a dropdown */}
@@ -168,7 +176,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                 // a category that is itself a destination (Watch → /watch): the
                 // label navigates on click, the dropdown still opens on hover.
                 <Link className="ngl" href={g.href} aria-expanded={grp === g.id}>
-                  {g.label}
+                  {tr(locale, g.label)}
                 </Link>
               ) : (
                 <button
@@ -177,13 +185,13 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                   onClick={() => setGrp((cur) => (cur === g.id ? null : g.id))}
                   aria-expanded={grp === g.id}
                 >
-                  {g.label}
+                  {tr(locale, g.label)}
                 </button>
               )}
               <div className={`drop${grp === g.id ? " open" : ""}`}>
                 {g.items.map((it) => (
                   <Link key={it.t + it.h} href={it.h}>
-                    <span className="nl">{navLabel(it.t)}</span>
+                    <span className="nl">{navLabel(it.t, locale)}</span>
                     <span className="ar">{arrow(it.c)}</span>
                   </Link>
                 ))}
@@ -195,27 +203,27 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
         <button
           type="button"
           className="navsearch navsearch--cmdk"
-          aria-label="Search Metatake (Cmd+K)"
+          aria-label={tr(locale, "Search Metatake")}
           onClick={() => window.dispatchEvent(new CustomEvent("metatake:cmdk"))}
         >
           <span className="nsico" aria-hidden="true">⌕</span>
-          <span className="nsph">Search all of Metatake…</span>
+          <span className="nsph">{tr(locale, "Search all of Metatake…")}</span>
           <kbd className="nskbd" aria-hidden="true">⌘K</kbd>
         </button>
         {/* the palette needs JS; keep a native path to /search without it */}
         <noscript>
           <form className="navsearch" action="/search" method="get">
-            <input name="q" placeholder="Search all of Metatake…" aria-label="Search Metatake" />
+            <input name="q" placeholder={tr(locale, "Search all of Metatake…")} aria-label={tr(locale, "Search Metatake")} />
             <button type="submit" className="go" aria-label="Search" style={{ border: 0, background: "transparent", cursor: "pointer" }}>⌕</button>
           </form>
         </noscript>
 
         <div className="navright">
-          <Link className="nicon" href="/room" title="My Room">
+          <Link className="nicon" href="/room" title={tr(locale, "My Room")}>
             <svg viewBox="0 0 24 24">
               <path d="M6 3h12v18l-6-4-6 4z" />
             </svg>
-            <span>Room</span>
+            <span>{tr(locale, "Room")}</span>
           </Link>
           <LensToggle />
           <div className="acct">
@@ -224,8 +232,8 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
             )}
             {acct.state === "out" && (
               <>
-                <Link className="signin-pill" href="/login">Sign in</Link>
-                <div className="avatar avatar--join" title="Create account · what you get" onClick={() => tog("am")}>
+                <Link className="signin-pill" href="/login">{tr(locale, "Sign in")}</Link>
+                <div className="avatar avatar--join" title={tr(locale, "Create account · what you get")} onClick={() => tog("am")}>
                   ＋
                 </div>
               </>
@@ -254,7 +262,7 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                 </div>
                 <div className="authbtns">
                   <Link className="ab ab--primary" href="/signup" onClick={() => setOpen(null)}>
-                    Create account
+                    {tr(locale, "Create account")}
                   </Link>
                   <Link className="ab" href="/login" onClick={() => setOpen(null)}>
                     Sign in
@@ -307,12 +315,12 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                   <div>
                     <div className="nm">{acct.name}</div>
                     <Link className="lk" href="/room" onClick={() => setOpen(null)}>
-                      Signed in · My Room →
+                      {tr(locale, "Signed in · My Room →")}
                     </Link>
                   </div>
                 </div>
                 <Link className="mrow" href="/room" role="menuitem" onClick={() => setOpen(null)}>
-                  My Room<span className="ar">→</span>
+                  {tr(locale, "My Room")}<span className="ar">→</span>
                 </Link>
                 {acct.username && (
                   <Link className="mrow" href={`/u/${acct.username}`} role="menuitem" onClick={() => setOpen(null)}>
@@ -320,10 +328,10 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
                   </Link>
                 )}
                 <Link className="mrow" href="/me/import" role="menuitem" onClick={() => setOpen(null)}>
-                  Import your films<span className="ar">→</span>
+                  {tr(locale, "Import your films")}<span className="ar">→</span>
                 </Link>
                 <Link className="mrow" href="/settings" role="menuitem" onClick={() => setOpen(null)}>
-                  Settings<span className="ar">→</span>
+                  {tr(locale, "Settings")}<span className="ar">→</span>
                 </Link>
                 <div className="acctfoot">
                   <Link href="/about">About</Link>
@@ -359,10 +367,10 @@ export default function Nav({ counts = {} }: { counts?: NavCounts }) {
         <div className="wrap">
           {groups.map((g) => (
             <div className="mcol" key={g.id}>
-              <h4>{g.label}</h4>
+              <h4>{tr(locale, g.label)}</h4>
               {g.items.map((it) => (
                 <Link key={it.t + it.h} href={it.h}>
-                  <span className="nl">{navLabel(it.t)}</span>
+                  <span className="nl">{navLabel(it.t, locale)}</span>
                   <span className="ar">{arrow(it.c)}</span>
                 </Link>
               ))}

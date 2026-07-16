@@ -1,7 +1,16 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { t } from "@/lib/i18n";
+
+/** Site footer. Client so it can read the locale from the path (it renders in the
+ *  root layout, outside {children}, so no provider prop reaches it). Labels project
+ *  through t(); brand marks (Metatake, TakeScore, MCP, API) stay English. On the
+ *  English site every t() returns the original, so it is byte-identical. */
 export default function Footer() {
   const year = new Date().getFullYear();
+  const locale = useLocale();
 
   return (
     <footer className="site-footer">
@@ -17,78 +26,42 @@ export default function Footer() {
           <span className="logobox__line">take</span>
         </Link>
         <div className="tagline" style={{ marginTop: 10 }}>
-          Read films closely — a critical map of cinema that links films through the meanings they share.
+          {t(locale, "Read films closely — a critical map of cinema that links films through the meanings they share.")}
         </div>
 
         <div className="footer-cols">
           <div>
-            <div className="footer-head">Sections</div>
-            <Link href="/film" className="footer-link">
-              Films
-            </Link>
-            <Link href="/director" className="footer-link">
-              Directors
-            </Link>
-            <Link href="/tropes" className="footer-link">
-              Tropes
-            </Link>
-            <Link href="/concept" className="footer-link">
-              Concepts
-            </Link>
-            <Link href="/lineage" className="footer-link">
-              Lineage
-            </Link>
+            <div className="footer-head">{t(locale, "Sections")}</div>
+            <Link href="/film" className="footer-link">{t(locale, "Films")}</Link>
+            <Link href="/director" className="footer-link">{t(locale, "Directors")}</Link>
+            <Link href="/tropes" className="footer-link">{t(locale, "Tropes")}</Link>
+            <Link href="/concept" className="footer-link">{t(locale, "Concepts")}</Link>
+            <Link href="/lineage" className="footer-link">{t(locale, "Lineage")}</Link>
           </div>
 
           <div>
-            <div className="footer-head">For AI &amp; developers</div>
-            <Link href="/mcp" className="footer-link">
-              MCP for AI
-            </Link>
-            <Link href="/api" className="footer-link">
-              API &amp; embeds
-            </Link>
-            <Link href="/data" className="footer-link">
-              Open data
-            </Link>
-            <Link href="/partners" className="footer-link">
-              Partner with us
-            </Link>
-            <Link href="/methodology" className="footer-link">
-              Methodology
-            </Link>
+            <div className="footer-head">{t(locale, "For AI & developers")}</div>
+            <Link href="/mcp" className="footer-link">{t(locale, "MCP for AI")}</Link>
+            <Link href="/api" className="footer-link">{t(locale, "API & embeds")}</Link>
+            <Link href="/data" className="footer-link">{t(locale, "Open data")}</Link>
+            <Link href="/partners" className="footer-link">{t(locale, "Partner with us")}</Link>
+            <Link href="/methodology" className="footer-link">{t(locale, "Methodology")}</Link>
           </div>
 
           <div>
             <div className="footer-head">Metatake</div>
-            <Link href="/about" className="footer-link">
-              About
-            </Link>
-            <Link href="/updates" className="footer-link">
-              Updates
-            </Link>
-            <Link href="/blog" className="footer-link">
-              The Daily
-            </Link>
-            <Link href="/curious" className="footer-link">
-              Curious
-            </Link>
-            <Link href="/contact" className="footer-link">
-              Contact
-            </Link>
-            <Link href="/guidelines" className="footer-link">
-              Community guidelines
-            </Link>
+            <Link href="/about" className="footer-link">{t(locale, "About")}</Link>
+            <Link href="/updates" className="footer-link">{t(locale, "Updates")}</Link>
+            <Link href="/blog" className="footer-link">{t(locale, "The Daily")}</Link>
+            <Link href="/curious" className="footer-link">Curious</Link>
+            <Link href="/contact" className="footer-link">{t(locale, "Contact")}</Link>
+            <Link href="/guidelines" className="footer-link">{t(locale, "Community guidelines")}</Link>
           </div>
 
           <div>
-            <div className="footer-head">Legal</div>
-            <Link href="/terms" className="footer-link">
-              Terms
-            </Link>
-            <Link href="/privacy" className="footer-link">
-              Privacy
-            </Link>
+            <div className="footer-head">{t(locale, "Legal")}</div>
+            <Link href="/terms" className="footer-link">{t(locale, "Terms")}</Link>
+            <Link href="/privacy" className="footer-link">{t(locale, "Privacy")}</Link>
             <a href="mailto:wonwoo@metatake.net" className="footer-link">
               wonwoo@metatake.net
             </a>
@@ -97,14 +70,14 @@ export default function Footer() {
 
         {/* TMDB attribution (required, SPEC §10) */}
         <p className="tmdb-note" style={{ marginTop: 22 }}>
-          This product uses the TMDB API but is not endorsed or certified by TMDB.
+          {t(locale, "This product uses the TMDB API but is not endorsed or certified by TMDB.")}
         </p>
 
         {/* Content licence — Metatake's own criticism is free to reuse WITH
             attribution, non-commercially. Stamped site-wide so the terms travel
             with anything copied (incl. the AI context packs). */}
         <p className="tmdb-note" style={{ marginTop: 8 }}>
-          Metatake&rsquo;s original writing — readings, TakeScores, and essays — is licensed{" "}
+          {t(locale, "Metatake's original writing — readings, TakeScores, and essays — is licensed")}{" "}
           <a
             href="https://creativecommons.org/licenses/by-nc/4.0/"
             target="_blank"
@@ -114,12 +87,12 @@ export default function Footer() {
           >
             CC BY-NC 4.0
           </a>
-          : quote and reuse it freely with attribution to Metatake and a link back; not for commercial use.
+          {t(locale, ": quote and reuse it freely with attribution to Metatake and a link back; not for commercial use.")}
         </p>
 
         <div className="footer-baseline">
-          <span>© {year} Metatake. All rights reserved.</span>
-          <span>Seoul, Republic of Korea</span>
+          <span>© {year} Metatake. {t(locale, "All rights reserved.")}</span>
+          <span>{t(locale, "Seoul, Republic of Korea")}</span>
         </div>
       </div>
     </footer>

@@ -265,6 +265,30 @@ export const KO: Record<string, string> = {
   "Read this page in {language} →": "이 페이지를 {language}로 보기 →",
   Dismiss: "닫기",
 
+  // ── Footer ──
+  "Read films closely — a critical map of cinema that links films through the meanings they share.":
+    "영화를 깊이 읽는다 — 영화들이 공유하는 의미로 서로를 잇는 비평 지도.",
+  Sections: "섹션",
+  "For AI & developers": "AI·개발자용",
+  "MCP for AI": "AI용 MCP",
+  "API & embeds": "API·임베드",
+  "Open data": "오픈 데이터",
+  "Partner with us": "제휴 문의",
+  About: "소개",
+  Contact: "연락처",
+  "Community guidelines": "커뮤니티 가이드라인",
+  Legal: "법적 고지",
+  Terms: "이용약관",
+  Privacy: "개인정보",
+  "This product uses the TMDB API but is not endorsed or certified by TMDB.":
+    "이 제품은 TMDB API를 사용하지만 TMDB의 보증이나 인증을 받은 것은 아닙니다.",
+  "Metatake's original writing — readings, TakeScores, and essays — is licensed":
+    "Metatake의 독자적 글 — 리딩·TakeScore·에세이 — 은 다음 라이선스를 따릅니다:",
+  ": quote and reuse it freely with attribution to Metatake and a link back; not for commercial use.":
+    " — Metatake 출처 표기와 링크를 달면 자유롭게 인용·재사용할 수 있으나, 상업적 용도는 불가합니다.",
+  "All rights reserved.": "모든 권리 보유.",
+  "Seoul, Republic of Korea": "대한민국 서울",
+
   // ── Director page ──
   "Films, Style & Where to Start": "영화·스타일·어디서 시작할까",
   Readings: "리딩",
@@ -400,4 +424,8 @@ export const KO: Record<string, string> = {
   "Movies filmed in {country} →": "{country}에서 촬영된 영화 →",
   "The world map of cinema — every country, one map →": "영화의 세계 지도 — 모든 나라, 하나의 지도 →",
   "Read the full methodology →": "전체 방법론 보기 →",
+  "Search Metatake": "Metatake 검색",
+  "Search all of Metatake…": "Metatake 전체 검색…",
+  "Create account · what you get": "회원가입 · 혜택 보기",
+  "Signed in · My Room →": "로그인됨 · 마이룸 →",
 };
