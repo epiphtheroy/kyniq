@@ -161,11 +161,14 @@ export default function SearchScreen() {
         contentContainerStyle={{ paddingTop: sp.s3, paddingBottom: sp.s7 }}
         renderItem={({ item }) =>
           item.kind === "film" ? (
+            // year is null on purpose: search_all's `sub` is already the full
+            // subtitle ("1994 · Wong Kar-wai"), so also passing year printed it
+            // twice. The RPC's subtitle stays the single source for search rows.
             <FilmRow
               slug={item.slug}
               title={item.title}
-              year={item.year}
-              director={item.sub || null}
+              year={null}
+              director={item.sub || String(item.year ?? "")}
               poster_path={item.poster}
               ts={tsMap.get(item.slug) ?? null}
               tiers={tierMap.get(item.slug)}

@@ -99,6 +99,7 @@ export const en = {
   "map.noFilmPins": "No mapped locations for this film yet.",
   "map.openFilm": "Open film",
   "map.webUnavailable": "The filming-locations map runs in the iOS app — this browser preview can't render it.",
+  "map.expoGoUnavailable": "The filming-locations map needs a native build — it can't run inside Expo Go. Every other tab works here.",
   "director.records": "The records",
   "director.reception": "Reception",
   "director.theory": "Theory",

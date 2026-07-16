@@ -2,7 +2,7 @@
 //  - one aggregate BFF endpoint per screen (film / director / tonight / services)
 //  - search + user_movies go direct to Supabase (anon key + RLS)
 //  - personalization (hide-seen) via /api/lens/* with a Bearer token
-import { APP_VERSION, METATAKE_BASE } from "../config";
+import { METATAKE_BASE } from "../config";
 import type {
   DirectorCard,
   FilmCard,
@@ -13,9 +13,13 @@ import type {
 } from "../types";
 import { supabase } from "./supabase";
 
+// `accept` only — every header here must stay CORS-safelisted. A custom header
+// (x-metatake-app) turns each GET into a preflighted request, and the public API's
+// allow-headers is content-type only, so the browser preview would fail on every
+// read. Nothing server-side consumed it (guardAndLog ledgers the user-agent), so
+// the version travels in the UA instead.
 const HEADERS: Record<string, string> = {
   accept: "application/json",
-  "x-metatake-app": APP_VERSION,
 };
 
 async function getJSON<T>(path: string, init?: RequestInit): Promise<T> {

@@ -126,9 +126,14 @@ export function PosterImg({
 }
 
 /** Small mono TakeScore chip. */
+/**
+ * Small TakeScore chip. Display clamps to 0–100 to match the web contract: a
+ * negative net score is meaningful to the ranker but reads as a bug to a viewer,
+ * so the site shows the clamp and keeps the raw value in ranking and the API.
+ */
 export function TSBadge({ ts, size = fs.sm }: { ts: number | null | undefined; size?: number }) {
-  const pal = usePalette();
   if (ts == null) return null;
+  const shown = Math.max(0, Math.min(100, Math.round(ts)));
   return (
     <View
       style={{
@@ -146,11 +151,10 @@ export function TSBadge({ ts, size = fs.sm }: { ts: number | null | undefined; s
           color: brand.tsGreen,
         }}
       >
-        {Math.round(ts)}
+        {shown}
       </Text>
     </View>
   );
-  void pal;
 }
 
 /** Availability dots: ● sub (green) ● free (teal) ● rent/buy (grey). */

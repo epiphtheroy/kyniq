@@ -86,6 +86,7 @@ export const ja: Record<keyof typeof en, string> = {
   "map.noFilmPins": "この映画のロケ地はまだ地図にありません。",
   "map.openFilm": "映画を開く",
   "map.webUnavailable": "ロケ地マップはiOSアプリで動作します — このブラウザプレビューでは表示できません。",
+  "map.expoGoUnavailable": "ロケ地マップはネイティブビルドが必要で、Expo Go内では動作しません。他のタブはすべて利用できます。",
   "director.records": "The records",
   "director.reception": "レセプション",
   "director.theory": "理論",
