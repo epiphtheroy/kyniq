@@ -65,7 +65,7 @@ export default function MediaGallery({ media }: MediaGalleryProps) {
                   loading="lazy"
                   width={780}
                   height={439}
-                  caption={img.title ?? img.attribution ?? "Still via TMDB"}
+                  caption={img.title ?? img.attribution ?? "Film still"}
                   style={{
                     width: "100%",
                     height: "auto",
@@ -77,18 +77,6 @@ export default function MediaGallery({ media }: MediaGalleryProps) {
                 />
               </figure>
             ))}
-          </div>
-          <div
-            className="tmdb-note"
-            style={{
-              marginTop: 6,
-              fontSize: "0.625rem",
-              color: "var(--muted)",
-              opacity: 0.7,
-            }}
-          >
-            Stills via TMDB. This product uses the TMDB API but is not endorsed
-            by TMDB.
           </div>
         </div>
       )}

@@ -51,3 +51,5 @@ Full Disk Access 부여(System Settings) 후 `worker/net.metatake.t2noindex.plis
 - Tier-1 공장 EXECUTOR 완성·실측 벌크 검증(run#6 20편 $20.12, 19/20 Tier-1)·실패패턴 6종 엔진화.
 - Tier-2 noindex: 게이트 완화(+62)·파일럿 리셉션(+20)·콘텐츠 완비(촬영지 45→79% 등)·enrich 명령·일일 웨이브.
 - Tier-2 페이지 크롬 패리티(EntityActions·SeqNav·Provenance) + Download-for-AI·MCP 붙임(마이그 0103).
+
+- **[2026-07-16] 필름 세부페이지 실질성 보강**(render-layer follow-on · 정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md`): 3 공장이 채운 행(S40 subscores 13차원·S19 주소급 촬영지 name·S06 수상·S04 전지역 offers·lineage 큐레이션)을 필름 세부페이지 섹션 리드로 **결정론 조립(LLM-0)** — 신규 페치·LLM·gate 신호 0. 이로써 **공장→렌더 hard 의존**이 생겨 품질바·noindex 커버리지 웨이브가 색인 자격뿐 아니라 **페이지 품질**을 직접 게이트한다. 유일 미결: #12 협업 카운트(TMDB render-time 유지 vs precompute 스테이지 신설 — 오너 결정, `coupling-map.json` 무편입).

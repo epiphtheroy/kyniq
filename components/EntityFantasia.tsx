@@ -3,9 +3,14 @@
 /**
  * EntityFantasia — the **Embedding Fantasia** corner for non-film entity pages
  * (director, theorist, trope, take, figure). Sibling of FilmSentences (the film
- * page variant): same branding contract — designer credit + the not-AI-written
- * disclaimer are part of the deal, keep them — but rows here carry an ANCHOR
- * FILM per sentence (sentences_for_entity), which becomes the first chip.
+ * page variant): same branding contract — designer credit + ONE compressed
+ * not-AI-written disclaimer with a /methodology link below the heading (no
+ * repeated bottom disclaimer); the poetic long-form explanation now lives on
+ * /methodology. The compressed line stays accurate — "SQL-assembled, not
+ * AI-written" describes the S28 sentence assembly (LLM-0) and must not claim the
+ * whole pipeline is pure-deterministic (location inputs come from an S19 sonnet
+ * extractor). Rows here carry an ANCHOR FILM per sentence
+ * (sentences_for_entity), which becomes the first chip.
  *
  * Client component for the topic pills, but Next.js SSRs the full list into the
  * HTML — the SEO internal-link mesh survives; pills only toggle visibility.
@@ -98,9 +103,7 @@ export default function EntityFantasia({ title, rows, sectionId = "fantasia", se
       <div className="dfk-kicker">Embedding Fantasia <span className="dfk-by">· a data fantasia by Wonwoo Yoon</span></div>
       <h2 className="df-h2">{title} — Embedding Fantasia</h2>
       <p className="df-sub dfk-disclaimer">
-        <b>Not AI-written.</b> Every line here is assembled by SQL from Metatake&rsquo;s embedding space — one designer&rsquo;s
-        fantasia on the data, independent of the original authors&rsquo; intent. Read it as a spark for cinematic imagination;
-        every name it drops is a door.
+        SQL-assembled from the Metatake database — not AI-written. <a href="/methodology">What is this?</a>
       </p>
       <div className="dfk-nav" role="tablist" aria-label="Fantasia topics">
         <button className={`dfk-pill${active === "all" ? " on" : ""}`} onClick={() => setActive("all")} role="tab" aria-selected={active === "all"}>
@@ -138,7 +141,6 @@ export default function EntityFantasia({ title, rows, sectionId = "fantasia", se
           );
         })}
       </ul>
-      <div className="df-src">Embedding Fantasia — SQL-assembled from the Metatake database · no AI-written text · unrelated to the original authors&rsquo; intent.</div>
     </section>
   );
 }

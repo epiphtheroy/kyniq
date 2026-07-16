@@ -157,6 +157,8 @@ lineage 근접 K편(리스트 레버, 오너) / providers만 부족 J편`. 감�
 `director_slug 백필 n편, 허브 영향 감독 m명`. 이 표가 오너의 다음 결정(리스트 임포트·코호트
 캡 상향) 입력이다.
 
+> **[반영 2026-07-16 — 필름페이지 보강 정합]** 이 공장의 커버리지 수치(TakeScore 100/100%·수상 94/37%·촬영지 94/79%)는 이제 필름 세부페이지 **enrichment 리드의 도달률 상한**이다: #8(lineage/honors) 리드는 wd_honors(94/37%)에, #11(locations) 리드는 `film_locations.name`(94/79%)에 게이트된다. 매 리셉션/geo 웨이브가 커버리지를 올릴 때마다 리드 도달률도 오른다. **N6/S59 재측정 리포트에 한 줄 추가**: `완전 enrichment 리드셋 렌더 색인작: N / degraded(촬영지 결여 K, honors 결여 M)`. 또한 원칙 C(자기부정 금지)는 이 공장의 "못 만드는 한계" 정직성 원칙과 **정합** — 리드는 datum 부재 시 **섹션 부재**로 강등(gate on presence), "no awards recorded"/"locations pending"를 렌더하지 않는다(부재=게이트가 일하는 것, 결함 아님). 정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md` §0.2·§6.2.
+
 ## §2 어드민 — 세 번째 레인
 `/admin/factory`에 "Tier-2 noindex 공장" 카드 추가: 현재 코호트 크기(코호트 SELECT count)·
 최근 런의 IDX Δ·"▶ 회수 런 큐잉" 버튼(= `factory_queue_run` + cohort 모드 — 기존 큐/워처 재사용).
@@ -188,6 +190,8 @@ lineage 근접 K편(리스트 레버, 오너) / providers만 부족 J편`. 감�
 - **OpenAlex 429**: 스윕 최대 레버이자 최대 리스크 — 기존 백오프 보존, 청크 간 휴지.
 - 수리 라인은 **콘텐츠를 만들지 않는다**: figures/takes/why/next/문장층 생성 금지(그건 Tier-1/
   Tier-2 공장 소관). 이 라인의 쓰기는 신호 테이블 4개 + director_slug + lastmod뿐.
+
+- **[2026-07-16] 필름페이지 보강 #13 정합**: where-to-watch 지역 지문 리드("Tracked in 8 regions — free on Kanopy (US)…")는 **raw `film_watch_providers` 전지역 offers**(S04-external, ~100%, 이미 AccessSummary 메모리 보유 → 0 추가 페치)를 읽는다. **`film_provider_index`(S44 gate 집계)가 아니다** — fpi staleness는 **색인 게이트 전용** 관심사이지 #13 리드와 무관(따라서 "fpi 재빌드로 리드 고침"은 오결론). ⚠️ 단 #13이 provider 데이터를 매몰된 단일지역 카드에서 페이지 headline으로 승격 → 신선도 stakes 상승. S04는 ingest 시점에만 provider를 페치하므로 색인작 대상 **provider-refresh(garden-pass) 케이던스** 노트를 남겨 headline 지문이 stale해지지 않게 할 것.
 
 ## §7 참고
 `HANDOFF-티어2공장.md`(T1·T3 선행 의존, 두 공장 동시 구현 권장) · `HANDOFF-영화공장.md` ·
