@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { t, LOCALES, DEFAULT_LOCALE, PROJECTED_LOCALES, type Locale } from "@/lib/i18n";
+import { t, intlTag, LOCALES, DEFAULT_LOCALE, PROJECTED_LOCALES, type Locale } from "@/lib/i18n";
 import { locVal, hasLocVal } from "@/lib/i18n/values";
 import { genreName } from "@/lib/i18n/genres";
 import { localeAlternates, indexableLocales, type LocaleCols } from "@/lib/i18n/seo";
@@ -1422,7 +1422,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonld) }} />
       <div className="df-wrap">
         <div className="df-crumb">
-          <Link href="/film">Films</Link>
+          <Link href="/film">{t(locale, "Films")}</Link>
           {film.director_slug ? <><span className="df-sep">›</span><Link href={`/director/${film.director_slug}`}>{film.director}</Link></> : null}
         </div>
 
@@ -1433,7 +1433,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           {heroStills.length ? (
             <StillHero
               stills={heroStills}
-              label={`${film.title} — stills`}
+              label={t(locale, "{title} — stills", { title: film.title })}
               watchHref={hasProgram ? `/tv/${film.slug}` : undefined}
               shell="bare"
               max={4}
@@ -1441,13 +1441,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             />
           ) : film.backdrop_path ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={`${film.title} backdrop`} width={780} height={439} />
+            <img className="df-backdrop" src={`${IMG}/w780${film.backdrop_path}`} alt={t(locale, "{title} backdrop", { title: film.title })} width={780} height={439} />
           ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
           <div className="df-headrow">
             {film.poster_path ? (
               <LightboxImage
                 src={`${IMG}/w342${film.poster_path}`} fullUrl={`${IMG}/w500${film.poster_path}`}
-                alt={`${film.title} poster`} className="df-poster" caption={film.title}
+                alt={t(locale, "{title} poster", { title: film.title })} className="df-poster" caption={film.title}
                 width={342} height={513} fetchPriority="high"
               />
             ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
@@ -1469,7 +1469,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               <Byline created={film.created_at} />
               <div className="df-facts">
                 {film.director ? <Link href={`/director/${film.director_slug}`}>{film.director}</Link> : null}
-                {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).join(" · ")}</> : null}
+                {film.genres?.length ? <><span className="df-d" />{film.genres.slice(0, 3).map((g) => genreName(g, locale)).join(" · ")}</> : null}
                 {runtimeFmt ? <><span className="df-d" />{runtimeFmt}</> : null}
                 {cert ? <><span className="df-d" />{cert}</> : null}
                 {country ? <><span className="df-d" />{country}</> : null}
@@ -1495,13 +1495,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <section className={`df-invite${false && trailer ? " df-invite--vid" : ""}`} id="df-invitation">
               <div className="df-invite__txt">
                 <div className="df-invite__head">
-                  <h2 className="df-invite__k">An invitation to {film.title}</h2>
-                  <span className="df-invite__badge">Spoiler-free</span>
+                  <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: film.title })}</h2>
+                  <span className="df-invite__badge">{t(locale, "Spoiler-free")}</span>
                 </div>
                 <p className="df-invite__p">{invitation}</p>
                 <div className="df-invite__foot">
-                  <div className="df-invite__note">The readings below do not hold back.</div>
-                  <div className="df-invite__by">— <Link href="/editor">Wonwoo Yoon</Link>, Editor</div>
+                  <div className="df-invite__note">{t(locale, "The readings below do not hold back.")}</div>
+                  <div className="df-invite__by">— <Link href="/editor">Wonwoo Yoon</Link>, {t(locale, "Editor")}</div>
                 </div>
               </div>
               {/* PRESERVED: the trailer now plays in the hero, so this duplicate is disabled.
@@ -1533,13 +1533,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* WHY WATCH — spoiler-free dossier of what the film offers, across 7 lenses */}
         {whyWatch.length > 0 ? (
           <section className="df-sec" id="df-whywatch">
-            <h2 className="df-h2">Why watch {film.title}?</h2>
-            <p className="df-sub">A spoiler-free brief on what {film.title} offers — the director&apos;s vision, its craft and ideas, its space and its place in film history. Written for this film by Metatake Editorial (edited by <Link href="/editor">Wonwoo Yoon</Link>), not aggregated from reviews.</p>
+            <h2 className="df-h2">{t(locale, "Why watch {title}?", { title: film.title })}</h2>
+            <p className="df-sub">{t(locale, "A spoiler-free brief on what {title} offers — the director's vision, its craft and ideas, its space and its place in film history. Written for this film by Metatake Editorial (edited by", { title: film.title })} <Link href="/editor">Wonwoo Yoon</Link>){t(locale, ", not aggregated from reviews.")}</p>
             {(() => {
               const ww = questions.find((q) => q.question_type === "why-watch");
               return ww ? (
                 <p style={{ margin: "0 0 14px" }}>
-                  <Link className="rcp-h" href={`/film/${film.slug}/q/${ww.slug}`}>The case in one read: Why should you watch {film.title}? →</Link>
+                  <Link className="rcp-h" href={`/film/${film.slug}/q/${ww.slug}`}>{t(locale, "The case in one read: Why should you watch {title}? →", { title: film.title })}</Link>
                 </p>
               ) : null;
             })()}
@@ -1603,10 +1603,10 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* STRONG MISREADINGS — first; full reading + the leap, grouped by framework family */}
         {misreadings.length > 0 ? (
           <section className="df-sec" id="df-readings">
-            <h2 className="df-h2">Strong Misreadings of {film.title}</h2>
+            <h2 className="df-h2">{t(locale, "Strong Misreadings of {title}", { title: film.title })}</h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "readings", label: "Strong misreadings" }]} variant="section" /> : null}
             <p className="df-sub">
-              {misreadings.length} original critical readings of {film.title}, filed across 14 <Link href="/about#strong-misreadings">frameworks</Link> — each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by <Link href="/editor">Wonwoo Yoon</Link>. Also readable as one piece: <Link href={`/film/meaning/${film.slug}`}>the full misreadings article →</Link>
+              {t(locale, "{n} original critical readings of {title}, filed across 14", { n: misreadings.length, title: film.title })} <Link href="/about#strong-misreadings">{t(locale, "frameworks")}</Link> {t(locale, "— each one an argument with a thesis, a deliberate over-reading rather than a summary. Drafted by Metatake Editorial, edited by")} <Link href="/editor">Wonwoo Yoon</Link>. {t(locale, "Also readable as one piece:")} <Link href={`/film/meaning/${film.slug}`}>{t(locale, "the full misreadings article →")}</Link>
             </p>
             {smByFamily.map(({ fam, items }) => (
               <div key={fam.key} className="df-smfam">
@@ -1622,14 +1622,14 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                         {fwHref
                           ? <Link className="sm-fw" href={fwHref} style={{ color: F.color }}>{F.label}</Link>
                           : <span className="sm-fw" style={{ color: F.color }}>{F.label}</span>}
-                        <span className="sm-via">via {href ? <Link href={href}>{m.figLabel}</Link> : m.figLabel}</span>
+                        <span className="sm-via">{t(locale, "via")} {href ? <Link href={href}>{m.figLabel}</Link> : m.figLabel}</span>
                         <SaveChip entityType="take" entityRef={m.id} />
                       </div>
                       {m.take_title ? (
                         <h3 className="sm-row__title">{href ? <Link href={href}>{m.take_title}</Link> : m.take_title}</h3>
                       ) : null}
                       {m.thesis ? <p className="sm-row__thesis sm-row__thesis--full">{m.thesis}</p> : null}
-                      {m.leap ? <p className="sm-row__leap"><span className="sm-leap__l">The leap</span> {m.leap}</p> : null}
+                      {m.leap ? <p className="sm-row__leap"><span className="sm-leap__l">{t(locale, "The leap")}</span> {m.leap}</p> : null}
                     </div>
                   );
                 })}
@@ -1646,9 +1646,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* FIGURES — grouped by kind */}
         {grouped.length > 0 ? (
           <section className="df-sec" id="df-figures">
-            <h2 className="df-h2">Figures</h2>
+            <h2 className="df-h2">{t(locale, "Figures")}</h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "figures", label: "Figures" }]} variant="section" /> : null}
-            <p className="df-sub">The characters, objects, places, forms and motifs Metatake singled out in {film.title} — each the anchor for one or more strong misreadings.</p>
+            <p className="df-sub">{t(locale, "The characters, objects, places, forms and motifs Metatake singled out in {title} — each the anchor for one or more strong misreadings.", { title: film.title })}</p>
             {grouped.map((g) => (
               <div key={g.kind} className="df-fgroup">
                 <div className="df-flabel">{KIND_LABEL[g.kind] ? t(locale, KIND_LABEL[g.kind], undefined, g.kind === "location" ? "figure-kind" : undefined) : g.kind}</div>
@@ -1662,8 +1662,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       <div className="df-figL">
                         <div className="df-lab">{f.label}</div>
                         <div className="df-figmeta">
-                          <span className={`df-rc${n === 0 ? " df-rc--zero" : ""}`}>{n} reading{n === 1 ? "" : "s"}</span>
-                          {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>{fq ? `${fq} →` : "Open →"}</Link> : null}
+                          <span className={`df-rc${n === 0 ? " df-rc--zero" : ""}`}>{locale === DEFAULT_LOCALE ? `${n} reading${n === 1 ? "" : "s"}` : t(locale, "{n} readings", { n })}</span>
+                          {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>{fq ? `${fq} →` : t(locale, "Open →")}</Link> : null}
                         </div>
                       </div>
                       <div className="df-figR">
@@ -1679,9 +1679,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
 
         {/* CONNECTION MAP */}
         <section className="df-sec" id="df-network">
-          <h2 className="df-h2">{film.title} — connection map</h2>
-          <p className="cmap-stat"><b>{figures.length}</b> figures · <b>{misreadings.length}</b> strong misreadings · <b>{tropes.length}</b> tropes</p>
-          <p className="cmap-intro">Where {film.title} sits in Metatake&rsquo;s critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.</p>
+          <h2 className="df-h2">{t(locale, "{title} — connection map", { title: film.title })}</h2>
+          <p className="cmap-stat"><b>{figures.length}</b> {t(locale, "figures")} · <b>{misreadings.length}</b> {t(locale, "strong misreadings")} · <b>{tropes.length}</b> {t(locale, "tropes")}</p>
+          <p className="cmap-intro">{t(locale, "Where {title} sits in Metatake's critical web of cinema — its figures, the tropes and ideas they carry, its director, and the films nearest by shared reading. Click any node to open it.", { title: film.title })}</p>
           <ConnectionDesk
             api={`/api/map?type=film&key=${film.slug}`}
             full={`/network?m=critical&t=film&k=${film.slug}`}
@@ -1697,27 +1697,27 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           <section className="df-sec" id="df-tropes">
             <h2 className="df-h2">Tropes</h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "tropes", label: "Tropes" }]} variant="section" /> : null}
-            <p className="df-sub">Cross-film types {film.title} instantiates — shared under <Link href="/tropes">Tropes</Link>. <b>Via</b> = the figure that carries it.</p>
+            <p className="df-sub">{t(locale, "Cross-film types {title} instantiates — shared under", { title: film.title })} <Link href="/tropes">Tropes</Link>. <b>{t(locale, "Via")}</b> {t(locale, "= the figure that carries it.")}</p>
             <div className="df-mlist df-mlist--wide">
-              {tropes.map((t) => (
-                <div key={t.slug} className={`df-mrow${t.figs.length >= 2 ? " df-top" : ""}`}>
-                  <Link className="df-t" href={`/trope/${t.slug}`}>{t.title}</Link>
-                  {t.figs.length > 1 ? <span className="df-cnt">{t.figs.length}</span> : null}
-                  {t.figs.length ? (
-                    <span className="df-via"><span className="df-via__lab">via</span>{t.figs.slice(0, 3).map((fg, i) => (
+              {tropes.map((tr) => (
+                <div key={tr.slug} className={`df-mrow${tr.figs.length >= 2 ? " df-top" : ""}`}>
+                  <Link className="df-t" href={`/trope/${tr.slug}`}>{tr.title}</Link>
+                  {tr.figs.length > 1 ? <span className="df-cnt">{tr.figs.length}</span> : null}
+                  {tr.figs.length ? (
+                    <span className="df-via"><span className="df-via__lab">{t(locale, "via")}</span>{tr.figs.slice(0, 3).map((fg, i) => (
                       <span key={i}>{i > 0 ? ", " : ""}
                         {fg.slug
                           ? <Link href={`/film/${film.slug}/figure/${fg.slug}`} className="df-f">{fg.label}</Link>
                           : <span className="df-f">{fg.label}</span>}
                       </span>
-                    ))}{t.figs.length > 3 ? ` +${t.figs.length - 3}` : ""}</span>
+                    ))}{tr.figs.length > 3 ? ` +${tr.figs.length - 3}` : ""}</span>
                   ) : null}
-                  {t.takeTitle ? (
+                  {tr.takeTitle ? (
                     <span className="df-ttl">
-                      <span className="df-ttl__lab">reading</span>
-                      {t.takeHref
-                        ? <Link href={t.takeHref}>{t.takeTitle}<span className="df-ttl__arr"> →</span></Link>
-                        : t.takeTitle}
+                      <span className="df-ttl__lab">{t(locale, "reading")}</span>
+                      {tr.takeHref
+                        ? <Link href={tr.takeHref}>{tr.takeTitle}<span className="df-ttl__arr"> →</span></Link>
+                        : tr.takeTitle}
                     </span>
                   ) : null}
                 </div>
@@ -1730,7 +1730,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {archGroups.length > 0 ? (
           <section className="df-sec" id="df-archetype">
             <h2 className="df-h2">Archetype</h2>
-            <p className="df-sub">What {film.title}&apos;s figures <i>are</i> — their catalog classification, each linking into the <Link href="/catalog">Archetype</Link> catalog. <b>Via</b> = the figure that carries it.</p>
+            <p className="df-sub">{t(locale, "What {title}'s figures", { title: film.title })} <i>{t(locale, "are")}</i> {t(locale, "— their catalog classification, each linking into the")} <Link href="/catalog">Archetype</Link> {t(locale, "catalog.")} <b>{t(locale, "Via")}</b> {t(locale, "= the figure that carries it.")}</p>
             {archGroups.map((g) => (
               <div key={g.axis} className="df-archgrp">
                 <div className="df-flabel">{axisLabel(g.axis)}</div>
@@ -1779,7 +1779,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {questions.length > 0 || deskEssays.length > 0 ? (
           <section className="df-sec" id="df-curious">
             <h2 className="df-h2">Curious</h2>
-            <p className="df-sub">The questions viewers keep asking about {film.title} — answered in full on <Link href="/curious">Curious</Link>, the Metatake question desk. Spoiler-heavy titles are masked.</p>
+            <p className="df-sub">{t(locale, "The questions viewers keep asking about {title} — answered in full on", { title: film.title })} <Link href="/curious">Curious</Link>{t(locale, ", the Metatake question desk. Spoiler-heavy titles are masked.")}</p>
             <div className="rcp-list">
               {questions.map((q) => (
                 <div key={q.slug} className="rcp-row">
@@ -1787,8 +1787,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                     {(q.title_spoiler && q.display_title) ? q.display_title : q.title}
                   </Link>
                   <div className="rcp-m">
-                    {q.question_type ? q.question_type : "question"}
-                    {q.spoiler_level === "major" ? " · discusses the ending" : ""}
+                    {q.question_type ? q.question_type : t(locale, "question")}
+                    {q.spoiler_level === "major" ? t(locale, " · discusses the ending") : ""}
                   </div>
                 </div>
               ))}
@@ -1798,8 +1798,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                     {e.title}
                   </Link>
                   <div className="rcp-m">
-                    {e.label.toLowerCase()} · from the desks
-                    {e.spoiler >= 2 ? " · discusses the ending" : ""}
+                    {t(locale, "{label} · from the desks", { label: e.label.toLowerCase() })}
+                    {e.spoiler >= 2 ? t(locale, " · discusses the ending") : ""}
                   </div>
                 </div>
               ))}
@@ -1814,13 +1814,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {dailyRefs.length > 0 ? (
           <section className="df-sec" id="df-daily">
             <h2 className="df-h2">The Daily</h2>
-            <p className="df-sub">When the news rhymed with {film.title} — editions of <Link href="/blog">Between Film and the World</Link>, Metatake&apos;s daily, that filed this film against the day&apos;s events.</p>
+            <p className="df-sub">{t(locale, "When the news rhymed with {title} — editions of", { title: film.title })} <Link href="/blog">Between Film and the World</Link>{t(locale, ", Metatake's daily, that filed this film against the day's events.")}</p>
             <div className="rcp-list">
               {dailyRefs.map((d) => (
                 <div key={d.slug} className="rcp-row">
                   <Link className="rcp-h" href={`/blog/${d.slug}`}>{d.ehead}</Link>
                   <div className="rcp-m">
-                    {new Date(d.edition_date + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    {new Date(d.edition_date + "T00:00:00").toLocaleDateString(intlTag(locale), { month: "short", day: "numeric", year: "numeric" })}
                     {d.title && d.title.toLowerCase() !== "between film and the world" ? ` · ${d.title}` : ""}
                   </div>
                 </div>
@@ -1832,8 +1832,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* WATCH NEXT — curated 9 next films (LLM, with the bridge), linked if in our DB */}
         {watchNext.length > 0 ? (
           <section className="df-sec" id="df-watchnext">
-            <h2 className="df-h2">Watch next</h2>
-            <p className="df-sub">Where to go after {film.title} — nine films that continue its conversation, each chosen for a specific bridge. Curated, not algorithmic.</p>
+            <h2 className="df-h2">{t(locale, "Watch next")}</h2>
+            <p className="df-sub">{t(locale, "Where to go after {title} — nine films that continue its conversation, each chosen for a specific bridge. Curated, not algorithmic.", { title: film.title })}</p>
             <div className="wn-list">
               {watchNext.map((w, i) => {
                 const href = w.target_slug ? `/film/${w.target_slug}` : null;
@@ -1854,7 +1854,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       {w.rec_director ? <div className="wn-dir">{w.rec_director}</div> : null}
                       {w.reason ? <p className="wn-why">{w.reason}</p> : null}
                       {!href && w.tmdb_id ? (
-                        <span className="wn-ext">not yet on Metatake · <a href={`https://www.themoviedb.org/movie/${w.tmdb_id}`} target="_blank" rel="noopener nofollow">TMDB ↗</a></span>
+                        <span className="wn-ext">{t(locale, "not yet on Metatake ·")} <a href={`https://www.themoviedb.org/movie/${w.tmdb_id}`} target="_blank" rel="noopener nofollow">TMDB ↗</a></span>
                       ) : null}
                     </div>
                   </div>
@@ -1867,9 +1867,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* CONNECTED FILMS — top-5 kin with evidence; full ranked list lives on /movies-like */}
         {recs.length > 0 ? (
           <section className="df-sec" id="df-connected">
-            <h2 className="df-h2">The 5 films most connected to {film.title}<Link className="df-more" href={`/movies-like/${film.slug}`}>full ranking →</Link></h2>
+            <h2 className="df-h2">{t(locale, "The 5 films most connected to {title}", { title: film.title })}<Link className="df-more" href={`/movies-like/${film.slug}`}>{t(locale, "full ranking →")}</Link></h2>
             {packVisible ? <DownloadPackModal slug={film.slug} sections={[{ key: "kindred", label: "Kindred films" }]} variant="section" /> : null}
-            <p className="df-sub">Nearest neighbours in meaning-space, ranked by shared tropes and taste-vector proximity. <Link href="/methodology#connections">How connections are computed →</Link></p>
+            <p className="df-sub">{t(locale, "Nearest neighbours in meaning-space, ranked by shared tropes and taste-vector proximity.")} <Link href="/methodology#connections">{t(locale, "How connections are computed →")}</Link></p>
             <div className="df-conn">
               {recs.map((r, i) => (
                 <div key={r.slug} className="df-crow" style={{ display: "flex", gap: 12, alignItems: "center", padding: "7px 0" }}>
@@ -1885,10 +1885,12 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                     <span className="df-cyr">({r.year ?? "?"})</span>
                     <span style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
                       {r.cos != null ? (
-                        <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(31,111,178,.10)", color: "#1a4e7a" }}>taste match {Math.round(r.cos * 100)}%</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(31,111,178,.10)", color: "#1a4e7a" }}>{t(locale, "taste match {n}%", { n: Math.round(r.cos * 100) })}</span>
                       ) : null}
                       <span style={{ fontSize: 11, fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: "rgba(15,110,86,.10)", color: "#0b5343" }}>
-                        {r.sharedN > 0 ? `${r.sharedN} shared trope${r.sharedN > 1 ? "s" : ""}` : "taste neighbour"}
+                        {r.sharedN > 0
+                          ? (locale === DEFAULT_LOCALE ? `${r.sharedN} shared trope${r.sharedN > 1 ? "s" : ""}` : t(locale, "{n} shared tropes", { n: r.sharedN }))
+                          : t(locale, "taste neighbour")}
                       </span>
                     </span>
                   </span>
@@ -1896,11 +1898,11 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               ))}
             </div>
             <div className="df-hactions" style={{ marginTop: 12 }}>
-              <Link className="df-like" href={`/movies-like/${film.slug}`}>🎬 Movies like {film.title} →</Link>
+              <Link className="df-like" href={`/movies-like/${film.slug}`}>{t(locale, "🎬 Movies like {title} →", { title: film.title })}</Link>
             </div>
             <p style={{ fontSize: 11.5, opacity: .6, margin: "12px 0 0" }}>
-              Computed by Metatake&apos;s connection engine · Edited by <Link href="/editor">Wonwoo Yoon</Link>
-              {recsUpdated ? <> · Updated {new Date(recsUpdated).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</> : null}
+              {t(locale, "Computed by Metatake's connection engine · Edited by")} <Link href="/editor">Wonwoo Yoon</Link>
+              {recsUpdated ? <> · {t(locale, "Updated {date}", { date: new Date(recsUpdated).toLocaleDateString(intlTag(locale), { year: "numeric", month: "short", day: "numeric" }) })}</> : null}
             </p>
           </section>
         ) : null}
@@ -1909,10 +1911,9 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             from entity_edges + takes at render time, so it changes when the data does. */}
         {counterpoints.length > 0 ? (
           <section className="df-sec" id="df-counterpoints">
-            <h2 className="df-h2">Counterpoints — same shape, opposite meaning</h2>
+            <h2 className="df-h2">{t(locale, "Counterpoints — same shape, opposite meaning")}</h2>
             <p className="df-sub">
-              Films that stage one of <b>{film.title}</b>&apos;s own tropes but read it against the grain.
-              Kinship maps can find lookalikes; only a reading-level graph can find arguments.
+              {t(locale, "Films that stage one of")} <b>{film.title}</b>{t(locale, "'s own tropes but read it against the grain. Kinship maps can find lookalikes; only a reading-level graph can find arguments.")}
             </p>
             <div className="df-cpgrid">
               {counterpoints.map((c) => {
@@ -1922,14 +1923,14 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                     {/* the two films, juxtaposed */}
                     <div className="df-cpvs" aria-hidden="true">
                       <span className="df-cpposter" style={film.poster_path ? { backgroundImage: `url(${IMG}/w185${film.poster_path})` } : undefined} title={film.title} />
-                      <i className="df-cpx">vs</i>
+                      <i className="df-cpx">{t(locale, "vs")}</i>
                       <Link className="df-cpposter" href={`/film/${c.film.slug}`}
                         style={otherPoster ? { backgroundImage: `url(${IMG}/w185${otherPoster})` } : undefined} title={c.film.title} />
                     </div>
                     <div className="df-cpbody">
                       <p className="df-cpkick">
                         <Link href={`/trope/${c.trope.slug}`}>{c.trope.title}</Link>
-                        <span className="df-cpdiv">readings diverge {Math.round((1 - c.sim) * 100)}%</span>
+                        <span className="df-cpdiv">{t(locale, "readings diverge {n}%", { n: Math.round((1 - c.sim) * 100) })}</span>
                       </p>
                       <p className="df-cpline">
                         <b>{film.title}</b>
@@ -1938,7 +1939,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                           ? (c.here.figure
                               ? <Link href={`/film/${film.slug}/figure/${c.here.figure}`}>&ldquo;{c.here.take}&rdquo;</Link>
                               : <>&ldquo;{c.here.take}&rdquo;</>)
-                          : <>stages it straight</>}
+                          : <>{t(locale, "stages it straight")}</>}
                       </p>
                       <p className="df-cpline">
                         <b><Link href={`/film/${c.film.slug}`}>{c.film.title}</Link></b>
@@ -1947,7 +1948,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                           ? (c.there.figure
                               ? <Link href={`/film/${c.film.slug}/figure/${c.there.figure}`}>&ldquo;{c.there.take}&rdquo;</Link>
                               : <>&ldquo;{c.there.take}&rdquo;</>)
-                          : <>reads it against the grain</>}
+                          : <>{t(locale, "reads it against the grain")}</>}
                       </p>
                     </div>
                   </div>
@@ -1955,8 +1956,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               })}
             </div>
             <p style={{ fontSize: 11.5, opacity: .6, margin: "12px 0 0" }}>
-              <b>readings diverge N%</b> = distance between the two films&apos; reading vectors on the shared trope
-              (100% = opposite readings). Computed by Metatake&apos;s connection engine · Edited by <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology#connections">How it works →</Link>
+              {t(locale, "readings diverge N% = distance between the two films' reading vectors on the shared trope (100% = opposite readings). Computed by Metatake's connection engine · Edited by")} <Link href="/editor">Wonwoo Yoon</Link> · <Link href="/methodology#connections">{t(locale, "How it works →")}</Link>
             </p>
           </section>
         ) : null}
@@ -1964,8 +1964,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         {/* CREDITS — key crafts, crawlable, linking to /credits/[person] read pages */}
         {crew.length > 0 ? (
           <section className="df-sec" id="df-crew">
-            <h2 className="df-h2">Credits — who made {film.title}?</h2>
-            <p className="df-sub">One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person&apos;s own file.</p>
+            <h2 className="df-h2">{t(locale, "Credits — who made {title}?", { title: film.title })}</h2>
+            <p className="df-sub">{t(locale, "One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person's own file.")}</p>
             {creditsPayload ? (
               <>
                 <MakerPanels payload={creditsPayload} />
@@ -1975,7 +1975,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               <div className="rcp-list">
                 {film.director ? (
                   <div className="rcp-row">
-                    <span className="rcp-m" style={{ minWidth: 150 }}>Director</span>
+                    <span className="rcp-m" style={{ minWidth: 150 }}>{t(locale, "Director")}</span>
                     {film.director_slug ? <Link className="rcp-h" href={`/director/${film.director_slug}`}>{film.director}</Link> : <span className="rcp-h">{film.director}</span>}
                   </div>
                 ) : null}
