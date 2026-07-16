@@ -1136,7 +1136,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           {/* SCHOLARSHIP (C3) — this cohort's reception is 100% academic; the shared
               component self-gates to null when reviews+papers are both empty, and
               its "critics" copy is papers-aware. */}
-          <FilmReceptionSection title={f.title} slug={f.slug} reviews={t2Reviews} papers={t2Papers} quotes={t2Quotes} afterlife={t2Afterlife} />
+          <FilmReceptionSection title={f.title} slug={f.slug} reviews={t2Reviews} papers={t2Papers} quotes={t2Quotes} afterlife={t2Afterlife} locale={locale} />
 
           {/* EMBEDDING FANTASIA — thickens thin catalog records with linked facts */}
           <FilmSentences slug={f.slug} title={f.title} rows={sentences} />
@@ -1783,6 +1783,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           papers={papers}
           quotes={rcpQuotes}
           afterlife={linAfterlife}
+          locale={locale}
         />
 
         {/* CURIOUS — the question desk: question + desk-essay titles only,

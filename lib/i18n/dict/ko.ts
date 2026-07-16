@@ -353,4 +353,25 @@ export const KO: Record<string, string> = {
   "buy in {n}": "{n}개국 구매",
   "not yet in {n}": "{n}개국 아직 없음",
   "{breakdown} — across {n} regions.": "{breakdown} — {n}개 지역 기준.",
+
+  // ── Reception (FilmReceptionSection) — chrome only; quotes stay English ──
+  "Reception — what was written": "평단의 기록 — 무엇이 쓰였나",
+  "What critics and scholars have written about {title} — each headline links to the source; quotes are verbatim from publishers' own link previews and paper abstracts.":
+    "비평가와 학자들이 {title}에 대해 쓴 것 — 각 헤드라인은 출처로 이어지고, 인용은 발행처의 링크 미리보기와 논문 초록에서 그대로 가져왔다.",
+  "{n} reviews": "리뷰 {n}편",
+  "{n} outlets": "매체 {n}곳",
+  "{n} papers": "논문 {n}편",
+  "{n} venues": "학술지 {n}곳",
+  Reviews: "리뷰",
+  Scholarship: "학술",
+  "Releases & revivals": "개봉·재개봉",
+  Honors: "수상",
+  "Years covered": "다룬 연도",
+  "The full timeline": "전체 연대기",
+  "What critics said about {title} — and everything since, year by year":
+    "비평가들이 {title}에 대해 한 말 — 그리고 그 이후 전부, 해마다",
+  "The scholarship on {title} — and everything since, year by year":
+    "{title}에 관한 학술 — 그리고 그 이후 전부, 해마다",
+  "Headlines & quotes from publishers' link previews (og:description) and paper abstracts (OpenAlex/Crossref). No article text is stored.":
+    "발행처 링크 미리보기(og:description)와 논문 초록(OpenAlex/Crossref)에서 가져온 헤드라인·인용. 기사 본문은 저장하지 않는다.",
 };
