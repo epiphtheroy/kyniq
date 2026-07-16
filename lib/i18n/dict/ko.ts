@@ -264,4 +264,60 @@ export const KO: Record<string, string> = {
   // Locale suggest banner (§7)
   "Read this page in {language} →": "이 페이지를 {language}로 보기 →",
   Dismiss: "닫기",
+
+  // ── Director page ──
+  "Films, Style & Where to Start": "영화·스타일·어디서 시작할까",
+  Readings: "리딩",
+  "Add to favorites": "즐겨찾기 추가",
+  Favorite: "즐겨찾기됨",
+  "Born {date}": "출생 {date}",
+  "The picks:": "고른 작품:",
+  Filmography: "필모그래피",
+  "Every {director} film on Metatake, oldest first — {n} read closely{more}.":
+    "Metatake에 있는 {director} 영화 전부, 오래된 순 — {n}편을 깊이 읽었다{more}.",
+  ", plus {n} more in the catalog": ", 카탈로그에 {n}편 더",
+  "{n} carry a": "그중 {n}편에는",
+  "— the boxed numbers are Value, Cost and Risk behind the headline score.":
+    "TakeScore가 붙는다 — 상자 안 숫자는 대표 점수 뒤의 가치·비용·위험이다.",
+  "{n} are streaming somewhere right now — each film's page lists where.":
+    "그중 {n}편은 지금 어딘가에서 스트리밍 중이다 — 각 영화 페이지에 어디인지 나온다.",
+  "Strong Misreadings {n}": "Strong Misreadings {n}편",
+  "In the catalog": "카탈로그에 있음",
+  "not yet scored": "아직 채점 안 됨",
+  "Filmography & images via TMDB; readings & TakeScores computed from the Metatake corpus.":
+    "필모그래피·이미지는 TMDB; 리딩·TakeScore는 Metatake 코퍼스에서 계산.",
+  "{n} bold readings across {director}'s films — here are the strongest, at most two per film.":
+    "{director}의 영화들을 가로지르는 대담한 리딩 {n}편 — 가장 강한 것들을, 영화당 최대 두 편.",
+  "The complete set is": "전체 세트는",
+  "on its own page": "별도 페이지에",
+  "Open a film for its full set.": "전체를 보려면 영화를 열어라.",
+  "Figure-types {director} returns to — computed across the filmography.":
+    "{director}가 되풀이하는 피겨 유형 — 필모그래피 전반에서 계산.",
+  "All tropes →": "모든 트로프 →",
+  "The name": "이름",
+  "Open the life": "생애 열기",
+  "Each fact is written freely, then verified against a live web source (English & native-language). Source link per fact.":
+    "각 사실은 자유롭게 서술한 뒤 실시간 웹 출처(영어·현지어)로 검증한다. 사실마다 출처 링크.",
+  "Who's Next": "다음은 누구",
+  "Pointed to from:": "여기서 가리킴:",
+  "Open the kinships": "친연 열기",
+  "The records — across the filmography": "기록 — 필모그래피 전반",
+  "Open the ranking": "순위 열기",
+  "Open the record": "기록 열기",
+  "Open the reception": "평단의 기록 열기",
+  "Open the lenses": "렌즈 열기",
+  "Open all readings": "모든 리딩 열기",
+  "Shot and set in:": "촬영·배경 장소:",
+  "Open the locations article": "촬영지 기사 열기",
+  "The Metatake selection": "Metatake 선정",
+  "Director fingerprint computed from the live corpus — signatures recur across two or more films. The complete filmography, with TakeScores, is above.":
+    "실시간 코퍼스에서 계산한 감독 지문 — 서명적 특징이 두 편 이상에서 되풀이된다. TakeScore가 붙은 전체 필모그래피는 위에 있다.",
+  "Where to Start": "어디서 시작할까",
+  "Open the route": "경로 열기",
+  "See the crew page →": "크루 페이지 보기 →",
+  "Loading the map…": "지도 불러오는 중…",
+  "— a Metatake Portrait": "— Metatake 인물기",
+  "on Metatake": "— Metatake",
+  "A Metatake editorial summary, computed from the live corpus — the full portrait is being written.":
+    "실시간 코퍼스에서 계산한 Metatake 편집 요약 — 전체 인물기는 집필 중이다.",
 };
