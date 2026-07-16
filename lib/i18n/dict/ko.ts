@@ -217,4 +217,14 @@ export const KO: Record<string, string> = {
     "{title} 깊이 읽기: 피겨 {figures}개와 14개 비평 프레임워크를 가로지르는 강한 오독 {misreadings}편.",
   " {figures} figures · {misreadings} readings inside.":
     " 안에 피겨 {figures}개 · 리딩 {misreadings}편.",
+
+  // Tier-2 catalog record — digest heading, footer, atlas intros
+  "The Metatake record on {title}": "{title}에 대한 Metatake 기록",
+  "Compiled from the Metatake database": "Metatake 데이터베이스에서 편찬",
+  "Edited by": "편집",
+  "Record updated {date}": "기록 갱신 {date}",
+  "Real places {title} was filmed at or names — including {places}. Each pin opens what the place means in the film.":
+    "{title}가 촬영했거나 언급하는 실제 장소 — {places} 등. 각 핀은 그 장소가 영화에서 뜻하는 바를 연다.",
+  "The real places {title} is set in, was filmed at, or names — geolocated on Metatake's location map.":
+    "{title}의 배경이거나, 촬영지이거나, 극 중 언급되는 실제 장소들 — Metatake 촬영지 지도에 좌표로 표시했다.",
 };

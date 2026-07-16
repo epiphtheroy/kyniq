@@ -950,7 +950,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     // live in the Credits tab.
     const synopsis = f.overview ? (
       <details className="df-synopsis-fold">
-        <summary>Plot overview (TMDB)</summary>
+        <summary>{t(locale, "Plot overview (TMDB)")}</summary>
         <p className="df-synopsis">{f.overview}</p>
       </details>
     ) : null;
@@ -969,8 +969,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     // Offer only the sections this film actually has.
     const t2PackSecs = ([
       codex ? { key: "takescore", label: "TakeScore" } : null,
-      (lineage.length || wdHonors.length) ? { key: "standing", label: "Standing & honors" } : null,
-      geoCount > 0 ? { key: "locations", label: "Filming locations" } : null,
+      (lineage.length || wdHonors.length) ? { key: "standing", label: t(locale, "Standing & honors") } : null,
+      geoCount > 0 ? { key: "locations", label: t(locale, "Filming locations") } : null,
     ].filter(Boolean)) as { key: string; label: string }[];
     return (
       <div className="mt">
@@ -980,23 +980,23 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mPageJsonld) }} />
         <div className="df-wrap">
           <div className="df-crumb">
-            <Link href="/film">Films</Link>
+            <Link href="/film">{t(locale, "Films")}</Link>
             {f.director && dirSlug ? <><span className="df-sep">›</span><Link href={`/director/${dirSlug}`}>{f.director}</Link></> : null}
           </div>
           {/* HERO — image-first (C4): up to 4 film stills, calm cross-fade. No
               autoplay trailer <iframe> and no ▶ pill (this cohort has 0 broadcasts). */}
           <section className={`df-hero${heroStills.length ? " df-hero--vid" : ""}`}>
             {heroStills.length ? (
-              <StillHero stills={heroStills} label={`${f.title} — stills`} shell="bare" max={4} calm />
+              <StillHero stills={heroStills} label={t(locale, "{title} — stills", { title: f.title })} shell="bare" max={4} calm />
             ) : f.backdrop_path ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="df-backdrop" src={`${IMG}/w780${f.backdrop_path}`} alt={`${f.title} backdrop`} width={780} height={439} />
+              <img className="df-backdrop" src={`${IMG}/w780${f.backdrop_path}`} alt={t(locale, "{title} backdrop", { title: f.title })} width={780} height={439} />
             ) : <div className="df-backdrop df-backdrop--empty" aria-hidden="true" />}
             <div className="df-headrow">
               {f.poster_path ? (
                 <LightboxImage
                   src={`${IMG}/w342${f.poster_path}`} fullUrl={`${IMG}/w500${f.poster_path}`}
-                  alt={`${f.title} poster`} className="df-poster" caption={f.title}
+                  alt={t(locale, "{title} poster", { title: f.title })} className="df-poster" caption={f.title}
                   width={342} height={513} fetchPriority="high"
                 />
               ) : <div className="df-poster df-poster--empty" aria-hidden="true" />}
@@ -1052,7 +1052,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               with no ambient data renders no digest and About leads instead. */}
           {hasDigest ? (
             <section className="df-sec df-digest" id="df-digest">
-              <h2 className="df-h2">The Metatake record on {f.title}</h2>
+              <h2 className="df-h2">{t(locale, "The Metatake record on {title}", { title: f.title })}</h2>
               {lineage.length > 0 || ratingBits.length > 0 ? (
                 <p className="df-digest__p">
                   {lineage.length > 0 ? (
@@ -1102,13 +1102,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               ) : null}
               {prestigeN != null || discoveryN != null ? (
                 <div className="df-digest__chips">
-                  {prestigeN != null ? <Link className="df-chip" href="/score/about" title="Prestige — the film's standing in the canon, on Metatake's scoring">Prestige {prestigeN}</Link> : null}
-                  {discoveryN != null ? <Link className="df-chip" href="/score/about" title="Discovery — under-seen value relative to that standing">Discovery {discoveryN}</Link> : null}
+                  {prestigeN != null ? <Link className="df-chip" href="/score/about" title={t(locale, "Prestige — the film's standing in the canon, on Metatake's scoring")}>{t(locale, "Prestige {n}", { n: prestigeN })}</Link> : null}
+                  {discoveryN != null ? <Link className="df-chip" href="/score/about" title={t(locale, "Discovery — under-seen value relative to that standing")}>{t(locale, "Discovery {n}", { n: discoveryN })}</Link> : null}
                 </div>
               ) : null}
               <footer className="df-digest__by">
-                Compiled from the Metatake database · Edited by <Link href="/editor">Wonwoo Yoon</Link>
-                {recordDateFmt ? <> · Record updated {recordDateFmt}</> : null}
+                {t(locale, "Compiled from the Metatake database")} · {t(locale, "Edited by")} <Link href="/editor">Wonwoo Yoon</Link>
+                {recordDateFmt ? <> · {t(locale, "Record updated {date}", { date: recordDateFmt })}</> : null}
               </footer>
               {synopsis}
             </section>
@@ -1134,13 +1134,13 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
               film_geo is not gated on visibility, so Tier-2 pins load fine. */}
           {geoCount > 0 ? (
             <section className="df-sec" id="df-atlas">
-              <h2 className="df-h2">{f.title} — on the map</h2>
+              <h2 className="df-h2">{t(locale, "{title} — on the map", { title: f.title })}</h2>
               {(() => {
                 const pl = filmedPlaceNames(sentences, new Set(geoCountries.map((c) => c.toLowerCase())));
                 return pl.names.length > 0 ? (
-                  <p className="cmap-intro">Real places {f.title} was filmed at or names — including {joinProse(pl.names)}{pl.more > 0 ? `, and ${pl.more} more` : ""}. Each pin opens what the place means in the film.</p>
+                  <p className="cmap-intro">{t(locale, "Real places {title} was filmed at or names — including {places}. Each pin opens what the place means in the film.", { title: f.title, places: joinProse(pl.names) + (pl.more > 0 ? `, and ${pl.more} more` : "") })}</p>
                 ) : (
-                  <p className="cmap-intro">The real places {f.title} is set in, was filmed at, or names — geolocated on Metatake&rsquo;s location map.</p>
+                  <p className="cmap-intro">{t(locale, "The real places {title} is set in, was filmed at, or names — geolocated on Metatake's location map.", { title: f.title })}</p>
                 );
               })()}
               <FilmMap endpoint={`/api/geo?film=${f.slug}`} filmSlug={f.slug} height={460} />
@@ -1150,8 +1150,8 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           {/* CREDITS — maker panels (shared with /film/[slug]/credits), rows as fallback */}
           {crew.length > 0 || creditsPayload ? (
             <section className="df-sec" id="df-crew">
-              <h2 className="df-h2">Credits — who made {f.title}?</h2>
-              <p className="df-sub">One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person&apos;s own file.</p>
+              <h2 className="df-h2">{t(locale, "Credits — who made {title}?", { title: f.title })}</h2>
+              <p className="df-sub">{t(locale, "One panel per craft — the face, the whole career, and which meeting with the director this film was. Every panel opens the person's own file.")}</p>
               {creditsPayload ? (
                 <>
                   <MakerPanels payload={creditsPayload} />
@@ -1161,7 +1161,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                 <div className="rcp-list">
                   {f.director ? (
                     <div className="rcp-row">
-                      <span className="rcp-m" style={{ minWidth: 150 }}>Director</span>
+                      <span className="rcp-m" style={{ minWidth: 150 }}>{t(locale, "Director")}</span>
                       {dirSlug ? <Link className="rcp-h" href={`/director/${dirSlug}`}>{f.director}</Link> : <span className="rcp-h">{f.director}</span>}
                     </div>
                   ) : null}
@@ -1198,17 +1198,17 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
           {/* EXPLORE FROM HERE — outbound trails composed from data already on
               the row, so a catalog record is never a dead-end. No extra queries. */}
           <section className="df-sec" id="df-explore">
-            <h2 className="df-h2">Explore from here</h2>
+            <h2 className="df-h2">{t(locale, "Explore from here")}</h2>
             <div className="df-digest__chips">
               {f.director && dirSlug ? (
-                <Link className="df-chip" href={`/director/${dirSlug}`}>Director: {f.director}</Link>
+                <Link className="df-chip" href={`/director/${dirSlug}`}>{t(locale, "Director: {name}", { name: f.director })}</Link>
               ) : f.tmdb_id ? (
-                <Link className="df-chip" href={`/credits?f=${f.tmdb_id}`}>Full credits{f.director ? ` — ${f.director}` : ""}</Link>
+                <Link className="df-chip" href={`/credits?f=${f.tmdb_id}`}>{f.director ? t(locale, "Full credits — {name}", { name: f.director }) : t(locale, "Full credits")}</Link>
               ) : null}
               {(f.genres ?? []).map((g) => (
                 <Link key={g} className="df-chip" href={`/genre/${slugifyGenre(g)}`}>{g}</Link>
               ))}
-              <Link className="df-chip" href={`/search?q=${encodeURIComponent(f.title)}`}>Find similar: search &ldquo;{f.title}&rdquo; →</Link>
+              <Link className="df-chip" href={`/search?q=${encodeURIComponent(f.title)}`}>{t(locale, "Find similar: search “{title}” →", { title: f.title })}</Link>
             </div>
           </section>
 
