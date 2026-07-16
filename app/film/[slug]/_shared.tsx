@@ -3,6 +3,7 @@ import { t, intlTag, LOCALES, DEFAULT_LOCALE, PROJECTED_LOCALES, type Locale } f
 import { locVal, hasLocVal } from "@/lib/i18n/values";
 import { genreName } from "@/lib/i18n/genres";
 import { localeAlternates, indexableLocales, type LocaleCols } from "@/lib/i18n/seo";
+import { loadLabels, dbLabel } from "@/lib/i18n/dbLabel";
 import EnglishOriginalLabel from "@/components/i18n/EnglishOriginalLabel";
 import type { CSSProperties } from "react";
 import { unstable_cache } from "next/cache";
@@ -1242,6 +1243,17 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
     );
   }
   const { film, figures, takeCount, invitation, misreadings, tropes, recs, recsUpdated, counterpoints, cpPosters, trailer, archetypes, reception, watchNext, whyWatch, recommendedBy, lineage, lnListMeta, afterlife, ratings, watch, geoCount, geoCells, geoMerged, questions, deskEssays, dailyRefs, newsCount } = data;
+  // DB-label translations (content_i18n) for this page's entities — one query per
+  // type, projected at render via dbLabel. Empty (English fallback) until the
+  // owner loads content_i18n; on the source locale never even queried (SEO safe).
+  const archSlugs = (archetypes as ArchRow[]).map((a) => a.slug).filter((s): s is string => !!s);
+  const [figLabels, tropeLabels, archLabels, invLabels] = await Promise.all([
+    loadLabels(locale, "figure", figures.map((f) => f.slug).filter((s): s is string => !!s)),
+    loadLabels(locale, "trope", tropes.map((tr) => tr.slug)),
+    loadLabels(locale, "taxonomy", archSlugs),
+    loadLabels(locale, "invitation", [film.slug]),
+  ]);
+  const invitationKo = invitation ? dbLabel(invLabels, locale, "invitation", film.slug, "rationale", invitation) : null;
   const reviews = reception.filter((r) => r.kind === "criticism");
   const papers = reception.filter((r) => r.kind === "academic");
   const hasLineage = lineage.length > 0;
@@ -1509,7 +1521,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   <h2 className="df-invite__k">{t(locale, "An invitation to {title}", { title: film.title })}</h2>
                   <span className="df-invite__badge">{t(locale, "Spoiler-free")}</span>
                 </div>
-                <p className="df-invite__p">{invitation}</p>
+                <p className="df-invite__p" lang={invitationKo && locale!==DEFAULT_LOCALE ? locale : enOrig}>{invitationKo ?? invitation}</p>
                 <div className="df-invite__foot">
                   <div className="df-invite__note">{t(locale, "The readings below do not hold back.")}</div>
                   <div className="df-invite__by">— <Link href="/editor">Wonwoo Yoon</Link>, {t(locale, "Editor")}</div>
@@ -1671,7 +1683,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                   return (
                     <div key={f.id} className="df-fig">
                       <div className="df-figL">
-                        <div className="df-lab" lang={enOrig}>{f.label}</div>
+                        <div className="df-lab" lang={dbLabel(figLabels, locale, "figure", f.slug ?? "", "label", null) ? locale : enOrig}>{dbLabel(figLabels, locale, "figure", f.slug ?? "", "label", f.label)}</div>
                         <div className="df-figmeta">
                           <span className={`df-rc${n === 0 ? " df-rc--zero" : ""}`}>{locale === DEFAULT_LOCALE ? `${n} reading${n === 1 ? "" : "s"}` : t(locale, "{n} readings", { n })}</span>
                           {f.slug ? <Link className="df-figopen" href={`/film/${film.slug}/figure/${f.slug}`}>{fq ? `${fq} →` : t(locale, "Open →")}</Link> : null}
@@ -1712,7 +1724,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
             <div className="df-mlist df-mlist--wide">
               {tropes.map((tr) => (
                 <div key={tr.slug} className={`df-mrow${tr.figs.length >= 2 ? " df-top" : ""}`}>
-                  <Link className="df-t" href={`/trope/${tr.slug}`}>{tr.title}</Link>
+                  <Link className="df-t" href={`/trope/${tr.slug}`}>{dbLabel(tropeLabels, locale, "trope", tr.slug, "title", tr.title)}</Link>
                   {tr.figs.length > 1 ? <span className="df-cnt">{tr.figs.length}</span> : null}
                   {tr.figs.length ? (
                     <span className="df-via"><span className="df-via__lab">{t(locale, "via")}</span>{tr.figs.slice(0, 3).map((fg, i) => (
@@ -1754,7 +1766,7 @@ export async function FilmPage({ slug, locale }: { slug: string; locale: Locale 
                       : (a.fig_label ? [{ label: a.fig_label, slug: a.fig_slug }] : []);
                     return (
                       <div key={a.slug} className="df-mrow">
-                        <Link className="df-t" href={nodeHref(g.axis, a.slug)}>{a.label}</Link>
+                        <Link className="df-t" href={nodeHref(g.axis, a.slug)}>{dbLabel(archLabels, locale, "taxonomy", a.slug, "label", a.label)}</Link>
                         {a.n > 1 ? <span className="df-cnt">{a.n}</span> : null}
                         {figs.length ? (
                           <span className="df-via"><span className="df-via__lab">via</span>{figs.slice(0, 3).map((fg, i) => (
