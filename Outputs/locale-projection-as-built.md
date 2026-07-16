@@ -67,13 +67,44 @@ Branch: `feat/locale-projection` off `main`. Written 2026-07-16.
 - Nav has **three** callers (SiteNav server, SiteNavClient client ×8 surfaces,
   HomeV2) — why LocaleProvider falls back to the pathname.
 
-## Not done (later phases / out of v1 scope)
+## Phase 4 — switcher, banner, director ✅ (added same session)
 
-- Phase 3 (atlas/locations ko) — see the 26k correction above.
-- Phase 4 (director/catalog/home ko, locale switcher + suggest banner). The
-  switcher is the re-introduction of the `EN ▾` placeholder that philosopher-panel
-  E6 removes — still present at `components/home2/Nav.tsx:337`; coordinate per §7.
-- `FilmReceptionSection` / `AccessSummary` are shared components with their own
-  English chrome — a `locale?` prop pass, later.
+- `components/i18n/LocaleSwitcher.tsx` — replaces the dead `EN ▾` nav placeholder
+  with a working EN↔KO control (locTwin, hides on page types with no twin). This
+  is both what philosopher-panel E6 wanted (kill the placeholder) and what §7
+  wanted (a real switcher) — one change, no conflict.
+- `components/i18n/LocaleSuggestBanner.tsx` — browser-language reader on an English
+  page with a Korean twin gets a slim top-bar suggestion. Never a redirect;
+  middleware untouched; dismissed → remembered. Mounted in the root layout.
+- `/ko/director/[slug]` — same extract-shell pattern as the film page (~50 chrome
+  strings). Name/bio stay English; ko director hubs are **noindex** (§6.5:
+  mostly-English-under-Korean-shell) but reachable via switcher/banner.
+
+## Shared components ✅ (added same session)
+
+- `AccessSummary` (where-to-watch) — locale prop; country names via
+  Intl.DisplayNames(ko), ~10 headline/fingerprint templates + tier words through
+  t(). Closes the film page's last chrome gap.
+- `FilmReceptionSection` — chrome localized; critic quotes stay English with
+  lang="en" + "영어 원문" chip.
+
+## Phase 3 — data foundation ✅ (added same session); page shells remaining
+
+- `lib/i18n/cities/ko.json` — all **511** atlas cities in Korean (외래어 표기법) +
+  55-country map. `lib/i18n/cities.ts` cityName()/cityCountry() with fallback.
+  (Adversarially verified by a 6-agent review pass.)
+- `scripts/load-locations-i18n.mjs` — ready loader for the film_locations
+  `name_<loc>` CSV.
+- **Remaining**: the atlas/locations ko PAGE shells (`/ko/atlas`, `/ko/locations/*`,
+  `/film/locations/[slug]` ko — 5–7 routes with heavy assembled prose) and the
+  ~26,001 film_locations name translations (an incremental CSV batch per §3.3;
+  the loader above applies it). The film page's own inline atlas section (df-atlas)
+  is already localized (Phase 2).
+
+## Still remaining
+
+- Phase 3 atlas/locations page shells + 26k location-name batch (above).
+- Phase 4: home ko (owner said "light version, owner judgment"), catalog ko.
 - Phase 5 finish (IndexNow ping, GSC watch). Naver is already verified in the root
   layout, and films-ko.xml is in the sitemap index, so Naver picks it up.
+- Owner steps (migration 0105 + backfill) still gate everything going live.
