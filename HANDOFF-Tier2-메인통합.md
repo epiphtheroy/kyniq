@@ -198,6 +198,8 @@ release_events 1쿼리 추가 = 왕복 11→12(+1). 전부 per-slug Data Cache(r
 | director_facts/portrait 생산 | 얇은 645 허브의 편집층(전례 205개 파이프라인) | D6 게이트 구제·허브 실속의 근본 해결 |
 | 페이지 없는 감독 540명 | 승격작 ≥2인 124명(≥3인 60명)만 신규 허브 후보 — 오너 결정 사안 | 신규 표면(신중) |
 
+| **필름 메인 섹션 리드 실질화 (C1~C5 후속)** | 정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md`(기획 완료 2026-07-16, 구현 대기) — C1~C5가 확립한 "다이제스트=결정론 문장 조립(LLM-0), 공장은 행만·조립은 렌더" 계약을 TakeScore·Lineage·Locations·Where-to-watch·Sources 등 나머지 섹션 리드로 확장. R2 다이제스트 계약(부분집합+다른 문장형+전문 링크)·색인/robots/사이트맵 불변 승계, 신규 페치 0 | 필름 세부페이지 thin 탈피 완결(공유 컴포넌트 CinecodexPanel/FilmLineageSection/AccessSummary가 양 티어 동시 반영) |
+
 ## §7. 검증 체크리스트 (수행자가 채워 보고)
 
 - [ ] tsc net-new 0 (기존 베이스라인 ~20; node는 `~/.local/node/bin`)

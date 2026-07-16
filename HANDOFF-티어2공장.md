@@ -35,6 +35,8 @@
 | 리셉션(film_reception) | 38 | 0.8% | S17 (선택) |
 | figures / takes / misreadings / why / next | 0 | 0% | **생산 안 함 (계약)** |
 
+> **[반영 2026-07-16 — 필름페이지 보강 정합]** 위 산출 행들은 이제 필름 세부페이지의 **섹션 리드 입력**이다(렌더가 결정론 문장으로 조립, LLM-0). 두 정합 포인트: ⓐ **R-D 다이제스트 계약 확장** — Editor's digest의 "공장은 행만 채운다; 문장 조립은 렌더(LLM-0)" 분업이 #5/#6/#8/#9/#11/#13 전 섹션 리드로 확장된다. enrichment는 **신규 LLM 스테이지 0·신규 gate 신호 0** → `filmIndexBar`/`INDEX_COHORT_FILMS_T2`/`coupling-map.json` 무변경(색인/robots/사이트맵 불변). ⓑ **#11 촬영지 리드는 `film_locations.name`(주소급, 예 "Hanam, Gyeonggi Province")을 읽는다** — 이 name은 S19 정본 `geo-extract-search.py`(sonnet+Tavily)만 생산. 금지된 순수-haiku `geo-extract.py` 핀은 거친 lat/lon만 있고 주소급 name이 없어 geoCount>0이어도 **degraded/빈 리드** → re-geocode 후보로 표기. 정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md` §0.2·§3.5·§6.2.
+
 - **⭐ 2026-07-15 Tier-2 메인 통합 SHIPPED** (`HANDOFF-Tier2-메인통합.md`, commit 5e8f507):
   Tier-2 메인이 이제 공장 산출 행을 **본문에 직접 렌더**한다 — C1 수상 다이제스트(film_wd_honors),
   C2 개봉 연혁 다이제스트(film_release_events), C3 scholarship(film_reception, 전부 academic —
@@ -57,6 +59,8 @@ media n(스틸 — C4 패리티상 ≥5 권장, 0 허용) · TakeScore ✓ · ge
 IDX(filmIndexBar 통과 여부, 정보성) · LIVE(HTTP 200)`.
 **visible=false·is_analyzed=false 유지가 정상 상태다** (visible 트리거는 figures≥3에만 반응하고
 Tier-2는 figures를 만들지 않으므로 자연 보장 — 절대 손대지 말 것).
+
+> **[반영 2026-07-16 — 필름페이지 보강 정합]** 위 "0 허용" 필드(honors·geo·sentences)는 이제 단순 정보성 칼럼이 아니라 **필름 세부페이지 섹션 리드의 render-critical 입력**이다 — #8 Lineage 리드(honors/lineage)·#11 Locations 리드(`film_locations.name` 주소급)·#10 Fantasia 리드(sentences). 부재 시 리드는 **자기부정 문장이 아니라 섹션 부재**로 강등(원칙 C = 이 품질바의 정직성과 정합, 결함 아님). **T5/S59 품질바 리포트에 "enrichment-lead readiness" 지표 추가 권장**: 색인작별 ≥1 location name(S19)·≥1 honor/lineage(S06/큐레이션)·subscores(S40)·전지역 offers(S04) 보유 여부 → 완전 리드셋을 렌더하는 색인작 vs 희소 페이지 수를 오너가 관측. 정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md` §7.
 
 ## §2 빌드 작업 목록 (T1~T8, 순서대로)
 
@@ -83,6 +87,8 @@ Tier-2는 figures를 만들지 않으므로 자연 보장 — 절대 손대지 �
 - 근거: 패턴 SQL(`factory/sql/sentence_patterns.sql`)은 있는 데이터만으로 생성되고
   ON CONFLICT DO NOTHING이라 부분 데이터에 안전. takes 필요 패턴(A/B/C/G/H/I/L/M/N)은
   자연히 0행 → 무해.
+
+> **[반영 2026-07-16 — #10 Fantasia 리드 전방 의존]** 필름페이지 보강 #10(Embedding Fantasia 리드)과 #11 시티급 지명 리드는 **S28 문장층에 의존**하는데, S28은 라이브 `factory/manifest.json`에서 아직 `tier=["full"]`만이다(위 T2의 `["full","catalog"]` 편입은 문서화된 TODO·미SHIP). 기존 Tier-2 ~95%는 코퍼스 전역 실행의 부산물로 문장을 갖지만, **신규 Tier-2 카탈로그 인제스트는 T2가 SHIP되기 전까지 빈 Fantasia 리드**를 렌더한다(원칙 C에 따라 섹션 부재). #10을 신규 카탈로그작에도 유지하려면 T2 우선.
 
 ### T3. S17 리셉션 — catalog 레인에 이미 있으나 스코핑 검증 필요
 `magazine research agent/reception-run.py`가 `--limit 0`으로 전 대기열을 도는 구조다.
@@ -153,11 +159,15 @@ manifest상 이미 `full,catalog`. 파일럿에서 실제로 catalog 영화가 �
 최소 2출처, 보호DB 격리, 주소급 name → geo-code 정밀 핀). manifest S19에 반영됨(2026-07-15).
 TAVILY_API_KEY 필요. 비용 상승(편당 ~$0.04)은 품질 계약의 대가 — 다운그레이드 금지.
 
+> **[반영 2026-07-16 — /methodology 프로비넌스 싱크]** 필름페이지 보강 #7(내부 모델명 `sonnet-n1`/`{data.panel}` 표면 누수 제거)·#10은 소비자 표면에서 모델/패널명을 걷어내고 **모든 모델·패널 공개를 `/methodology`로 라우팅**한다. 따라서 `/methodology`는 이 매니페스트의 실제 스테이지 모델을 **정확히 미러**해야 한다 — S40 TakeScore=`cinecodex_score.py`(sonnet, Haiku 금지), S19 촬영지=`geo-extract-search.py`(sonnet-4-6 + Tavily 다중출처), S28 Fantasia 문장=LLM-0/결정론. ⚠️ #10 미묘점: Fantasia 면책 "SQL-assembled, not AI-written"은 S28 문장 **조립**엔 참이나 그 **입력인 위치(S19)는 sonnet 추출**이다 → /methodology는 위치가 순수 결정론이라고 주장하지 말고 정확히 서술.
+
 ## §3b 그래프 파급 (신작이 기존 영화·감독에 미치는 영향 — 배선 현황)
 
 | 파급 | Tier-1 레인 | Tier-2 레인 |
 |---|---|---|
 | 기존 영화들의 movies-like/kindred에 신작 진입 | ✓ S25 전역 재계산 | **불가(설계)** — 킨드레드는 takes 임베딩 기반이라 Tier-2는 원천 배제(승격 1,105편도 0행). "Tier-2 kindred 원장 재구축"은 BACKLOG의 오너 결정 항목 |
+
+| **크레딧 "몇 번째 협업" 집계**(필름페이지 보강 #12) | ✓ **render-time** (`lib/film-credits-data.ts`가 TMDB `/person/{id}/movie_credits`에서 idx/shared/careerFirst 계산, daily-cache `film-credits-page-2`) — 코퍼스에 credits/cast/crew 스테이지 **없음**(S03=media+directors만) | ✓ 동일. **TMDB-sourced라 Tier-2 코퍼스 credits 커버리지에 무의존**(얇은 행 과소계수 없음). 계획의 "신규 additive RPC(마이그)"는 (a) TMDB render-time 유지 시 **리던던트=0 공장작업**, (b) DB precompute 이탈 시 **신규 테이블+스테이지+전코퍼스 백필**. **오너 결정**. gate 신호 아님 → `coupling-map.json` 진입 금지 |
 | 기존 영화들의 watch-next가 신작을 내부 링크로 | ✓ S27 백필 | ✓ **S27을 catalog에 편입(2026-07-15)** — 기존 영화의 tmdb-only 추천이 신규 Tier-2 영화를 가리키면 자동 연결 |
 | 문장층 교차 언급(kinship) | ✓ S28 | 부분(무-테이크 패턴만) |
 | 유사도 공간 편입(영화 임베딩·taste) | ✓ S20/S21/S23 | 불가(takes 없음) |

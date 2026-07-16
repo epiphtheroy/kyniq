@@ -155,3 +155,8 @@ Tier-2 5,041편이 실제 보유한 데이터:
 
 **남은 것:** ~~Track B(선별 색인)~~ → ✅ **SHIPPED 2026-07-14**(filmIndexBar, 1,105편 — → `HANDOFF-SEO-스타터가이드-작업지시서.md §2`), Track C(엔진 웨이브 — 1순위 인바운드 타깃 995편 파일럿 30),
 atlas_country_json의 visible 키를 쓰는 국가 페이지 UI 뱃지(선택), lineage_editions 노출(계보 세션 카드).
+
+**[UPDATE 2026-07-16] 필름 세부페이지 실질성 보강 (정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md`, 기획 완료·구현 대기)**
+- 14항목 계획이 이 문서의 **Editor's digest 기법**(DB 행 위 영화별 결정론 문장 조립, LLM-0)을 단일 digest에서 **모든 섹션 리드**(#5/#6 TakeScore·#8 Lineage·#9 Sources·#11 Locations·#13 Where-to-watch)로 확장한다.
+- Track A "모듈 추가" 항목의 후계: `film_scores`→#5/#6 TakeScore 리드, Atlas 미니맵→#11 Locations 리드, 그리고 위 "남은 것"의 **`lineage_editions` 노출(계보 세션 카드)** 미결 항목 = **#9 "Sources for this record" 박스로 배달**(Origin/Awards/Canon 출처별 그룹 + 건수 + "Record updated").
+- **render-only**: 색인/robots/사이트맵 불변, 신규 페치·LLM 비용 0. 캐시키는 렌더 변경 시에만 `film-load8`(shape 무변경이면 범프 불요).

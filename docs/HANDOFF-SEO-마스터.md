@@ -132,6 +132,14 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 18. **⚠️ 불변식(신규 Q 추가 시 필독, 정본 §0·§5.8)**: 답 없는 질문 금지·엔티티 불변·변형어 최대2회·"best"는 실랭킹필드만(genre/atlas/catalog 금지)·lineage 영화단위(인물 노미네이션 금지)·edition_year≠film_year·tradition "What is" 금지(정의필드 없음)·misreadings 해석프레이밍만·reception 집계점수 없음.
 19. **⚠️ 배포 CHURN 함정(§F 보강)**: 워처가 파일별 커밋→2분새 다중 배포→각 빌드가 sitemap XML을 DB서 동시생성→과부하→일부 빌드 ERROR(`Export encountered an error on /sitemaps/*.xml`). 최종 배포가 ERROR면 변경 미반영. **해법: 웨이브 후 Vercel `list_deployments`로 최신 state 확인→ERROR면 빈 커밋 재푸시로 단일 클린빌드.** dynamic 라우트(generateStaticParams()[])는 로컬빌드가 실렌더 안 하니 라이브 curl로 런타임 검증 필수.
 
+## 3f. 2026-07-16 작업 이력 (정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md`)
+
+**영화 세부페이지 실질성 보강 — 기획 완료·구현 대기(다른 AI 수행).** 상세·함정·남은 일은 정본 문서에서 시작. 여기는 색인:
+
+20. **섹션 리드 결정론 재작성(14항목)**: 필름 메인(Tier-2/Tier-1)의 섹션별 리드 보일러플레이트를 이미 로드된 공장 산출 행으로 **영화별 결정론 문장 조립(LLM-0)** — Editor's digest(§3b-8) 기법을 TakeScore·Lineage·Locations·Where-to-watch·Sources 박스로 확장. 신규 페치 0·신규 LLM 스테이지 0. **색인/robots/사이트맵 불변**(`lib/seo.ts filmIndexBar`·`filmMainIndexable`·`INDEX_COHORT_FILMS_T2`·`factory/coupling-map.json` 무변경).
+21. **자기부정 금지(원칙 C, 07-14 정책 승계)**: `pending`/`no awards recorded`/`No streaming data yet` 류 첫화면 문구 삭제 — 데이터 부재 시 **섹션 부재**(gate on presence)로 강등, 자기부정 문장 렌더 금지. Tier-2 공장 정직성 원칙("37%는 실제 수상 없음 — 못 만드는 한계")과 정합.
+22. **⚠️ 오너 결정 2건(§5로 이관)**: ⓐ #10 Embedding Fantasia 면책 압축은 `FilmSentences`/`EntityFantasia` doc-comment의 "keep it" 불변식과 충돌 → 오너 확인 후 doc-comment 동시 수정. ⓑ #12 "몇 번째 협업" 집계는 이미 render-time SHIP(`lib/film-credits-data.ts`, TMDB `/person/{id}/movie_credits`)이라 신규 RPC는 리던던트 — DB precompute(마이그 `0105`+신규 테이블+전코퍼스 백필)는 오너 명시 요청 시에만. #7 `sonnet-n1`/#10 모델·패널명 노출은 `/methodology`로만 라우팅(투명성 페이지가 manifest 스테이지 모델 S40 sonnet·S19 sonnet+Tavily·S28 LLM-0을 정확히 미러).
+
 ## 4. GSC 판독 로그 (추기식)
 
 - **2026-07-04**: 노출 46·클릭 2. 트로프 헤드텀 8종 44~63위 진입. 인명 롱테일 지속(뉴스 연동 확인: eisenberg polish citizenship). 영화 제목 쿼리 첫 등장(inside the yellow cocoon shell).
@@ -148,3 +156,5 @@ DB 마이그레이션(supabase/migrations로 관리됨): `slug_aliases`, `moveme
 7. **figure LLM 폴리싱 2단계(순수 선택)** — 지저분한 라벨 7,862건의 압축 질문+short_label(축소 배치 ~$20). 선행: ① GSC에서 07-07 title 레이어 효과 2~4주 관찰 ② Supabase MCP 재연결 후 0035 적용. 재개 절차·폴백 체인은 `Outputs/figure_seo/RUNBOOK.md`. **18k 전량 배치 재제출 금지**(57%는 규칙으로 이미 커버 — 낭비).
 7. **계보 데이터 카드**(별도 결정): lineage_editions 4,735 노출 여부 · lineage_sources 테이블 채우기 · 플래그십 정전 꼬리 수복(TSPDT+6, NFR+11) · films.wikidata_id 백필(Movie sameAs 자동 강화, theorist QID 매처 재사용).
 8. **도시 엔티티 앵커**: 도시 허브에 Wikidata QID sameAs + 현지어 alternateName(서울/東京).
+
+9. **필름 세부페이지 보강 오너 결정 2건**(정본: 루트 `HANDOFF-필름페이지-보강-작업지시서.md` §9): ⓐ #10 Embedding Fantasia 면책 압축 — `FilmSentences`/`EntityFantasia` doc-comment의 "keep it" 불변식과 충돌하므로, 압축 승인 시 doc-comment도 동시 수정(불변식이 조용히 모순되지 않게). ⓑ #12 "몇 번째 협업" 집계 — 이미 render-time SHIP(TMDB, `lib/film-credits-data.ts`)이므로 **신규 RPC 미생성이 기본**; DB-native precompute(마이그 `0105`+신규 `film_credit_pairs` 테이블+워커 백필)는 오너가 명시적으로 원할 때만(="RPC 1개"가 아니라 새 테이블+스테이지 규모). 둘 다 render-only·색인 게이트 불변.
