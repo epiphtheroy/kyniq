@@ -20,7 +20,8 @@ SAFETY: default DRY (fetches + prints, NO DB writes). --persist to write.
 Usage:
   python3 tmdb-i18n-backfill.py --locale ko                      # DRY, full cohort
   python3 tmdb-i18n-backfill.py --locale ko --persist            # write
-  python3 tmdb-i18n-backfill.py --locale ko --missing --persist  # only never-filled rows (new intake)
+  python3 tmdb-i18n-backfill.py --locale ko --missing --persist  # only never-fetched rows (new intake)
+  python3 tmdb-i18n-backfill.py --locale ko --refill --persist   # retry every title-NULL film via /translations (fills 화양연화·기생충 …)
   python3 tmdb-i18n-backfill.py --locale ko --films alien-1979,parasite-2019 --persist
   python3 tmdb-i18n-backfill.py --locale ko --limit 50 --persist
 """
@@ -51,6 +52,11 @@ PERSIST="--persist" in args
 if "--dry" in args: PERSIST=False   # explicit dry wins; DRY is already the default
 LIMIT=int(args[args.index("--limit")+1]) if "--limit" in args else 100000
 MISSING="--missing" in args
+# --refill: re-fetch every film that still LACKS a localized title, regardless of
+# when it was last fetched. The default cohort skips rows fetched <90d ago, so
+# after a full run the ~5k title-NULL rows would never be retried; --refill + the
+# /translations fallback below is how they get a second chance.
+REFILL="--refill" in args
 # --films a,b (work order §3.2) and --film x --film y (repo convention) both work.
 FILMS=[a for i,x in enumerate(args) if x=="--films" and i+1<len(args) for a in args[i+1].split(",") if a]
 FILMS+=[args[i+1] for i,a in enumerate(args) if a=="--film" and i+1<len(args)]
@@ -99,6 +105,8 @@ def cohort():
         q+="&slug=in.("+",".join(urllib.parse.quote(s) for s in FILMS)+")"
     elif MISSING:
         q+=f"&{T_COL}=is.null&{F_COL}=is.null"   # never fetched: brand-new intake only
+    elif REFILL:
+        q+=f"&{T_COL}=is.null"                    # any film still lacking a localized title (retry via /translations)
     else:
         cutoff=(datetime.datetime.now(datetime.timezone.utc)-datetime.timedelta(days=STALE_DAYS)).isoformat()
         q+=f"&or=({F_COL}.is.null,{F_COL}.lt.{urllib.parse.quote(cutoff)})"
@@ -111,20 +119,40 @@ def main():
     if not films: print("  nothing to do"); return
     n=t_hit=o_hit=t_same=miss=0
     for f in films:
-        d=tmdb(f"/movie/{f['tmdb_id']}?language={LANG}")
+        # append_to_response=translations → one call carries both the primary
+        # localized fields AND the full translations list (no extra request).
+        d=tmdb(f"/movie/{f['tmdb_id']}?language={LANG}&append_to_response=translations")
         if d is None:
             miss+=1; time.sleep(THROTTLE); continue
+        en=(f["title"] or "").strip()
         loc_title=(d.get("title") or "").strip()
-        # A localized title identical to the English one carries no information —
-        # store NULL and let locVal() fall back, so the audit's coverage number
-        # means "has a real localized title", not "TMDB echoed us".
-        title=loc_title if loc_title and loc_title!=(f["title"] or "").strip() else None
+        # The primary title/overview echo English when TMDB has no *primary*
+        # localized value set — even for films that DO carry an explicit
+        # translation (화양연화, 기생충). So resolve in order: primary field →
+        # /translations entry for this locale → original_title when the film's
+        # original language IS this locale (e.g. Parasite's original is ko). A
+        # localized title identical to English carries no info → stays NULL.
+        title=loc_title if loc_title and loc_title!=en else None
         overview=(d.get("overview") or "").strip() or None
+        src="lang" if title else None
+        if not title or not overview:
+            for tr in (d.get("translations") or {}).get("translations", []):
+                if tr.get("iso_639_1")!=LOC: continue
+                data=tr.get("data") or {}
+                cand=(data.get("title") or "").strip()
+                if not title and cand and cand!=en: title=cand; src="trans"
+                if not overview:
+                    ov=(data.get("overview") or "").strip()
+                    if ov: overview=ov
+                break
+        if not title and (d.get("original_language") or "")==LOC:
+            cand=(d.get("original_title") or "").strip()
+            if cand and cand!=en: title=cand; src="orig"
         upd={T_COL:title, O_COL:overview, F_COL:"now()"}
         if title: t_hit+=1
         elif loc_title: t_same+=1
         if overview: o_hit+=1
-        print(f"  · {f['slug']}: title={title or '-'} overview={'Y' if overview else '-'}")
+        print(f"  · {f['slug']}: title={title or '-'}{f' [{src}]' if src else ''} overview={'Y' if overview else '-'}")
         if PERSIST:
             st,tx=sb("PATCH",f"films?id=eq.{f['id']}",upd,prefer="return=minimal")
             if st>=300: print(f"    ! write {st} {tx[:120]}")
