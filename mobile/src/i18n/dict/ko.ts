@@ -164,6 +164,10 @@ export const ko: Record<keyof typeof en, string> = {
   "age.fresh": "새것",
   "age.aging": "묵는 중",
   "age.stale": "오래됨",
+  // v4 — 정렬
+  "sort.takescore": "TakeScore",
+  "sort.newest": "최신순",
+  "sort.oldest": "오래된순",
   // v4 — 탐색
   "explore.browse": "둘러보기",
   "explore.genres": "장르",

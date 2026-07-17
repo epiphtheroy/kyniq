@@ -163,6 +163,10 @@ export const ja: Record<keyof typeof en, string> = {
   "age.fresh": "新しい",
   "age.aging": "熟成中",
   "age.stale": "放置",
+  // v4 — 並び替え
+  "sort.takescore": "TakeScore",
+  "sort.newest": "新しい順",
+  "sort.oldest": "古い順",
   // v4 — 探索
   "explore.browse": "ブラウズ",
   "explore.genres": "ジャンル",

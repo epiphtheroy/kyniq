@@ -163,6 +163,10 @@ export const es: Record<keyof typeof en, string> = {
   "age.fresh": "Reciente",
   "age.aging": "Madurando",
   "age.stale": "Olvidada",
+  // v4 — orden
+  "sort.takescore": "TakeScore",
+  "sort.newest": "Más recientes",
+  "sort.oldest": "Más antiguas",
   // v4 — explorar
   "explore.browse": "Navegar",
   "explore.genres": "Géneros",

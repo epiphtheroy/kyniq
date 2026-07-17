@@ -109,9 +109,18 @@ export default function TonightScreen() {
   const rowsRef = useRef(rows);
   rowsRef.current = rows;
 
-  // Deck state — presets, judgments, undo.
+  // Deck state — presets, sort, judgments, undo.
   const [servicesOn, setServicesOn] = useState(true); // "On my services" composes
-  const [preset, setPreset] = useState<DeckPreset | null>(null);
+  // Chips are MULTI-SELECT and compose (owner directive 2026-07-18b); only
+  // "bold" is exclusive — it swaps the source (me_recommend_wwi) instead of
+  // filtering the shared engine, so it can't intersect with server presets.
+  const [presets, setPresets] = useState<ReadonlySet<DeckPreset>>(new Set());
+  const [sortKey, setSortKey] = useState<"ts" | "new" | "old">("ts");
+  const bold = presets.has("bold");
+  const presetParam = [...presets].filter((p) => p !== "bold").sort().join(",");
+  // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
+  const sortArgs =
+    sortKey === "new" ? { sort: "newest" } : sortKey === "old" ? { sort: "oldest" } : { sort: "u" };
   const [passed, setPassed] = useState<PassedItem[]>([]); // this session only
   const [judged, setJudged] = useState(0);
   const [undoItem, setUndoItem] = useState<UndoItem | null>(null);
@@ -126,7 +135,7 @@ export default function TonightScreen() {
   const hideSeenEff = seenOverride ?? (session ? true : hideSeen);
 
   const hasProviders = providerIds.length > 0;
-  const needsServices = servicesOn && !hasProviders && preset !== "bold";
+  const needsServices = servicesOn && !hasProviders && !bold;
   const uid = session?.user?.id ?? null;
 
   useEffect(
@@ -138,18 +147,17 @@ export default function TonightScreen() {
   );
 
   const fetchDeck = useCallback(async (): Promise<{ rows: DeckRow[]; total: number }> => {
-    if (preset === "bold") {
+    if (bold) {
       const wwi = await me.recommendCached(0.6, 60);
       const mapped = wwi.map(deckRowFromWwi);
       return { rows: mapped, total: mapped.length };
     }
-    const p = await api.tonight(
-      country,
-      servicesOn ? providerIds : [],
-      preset ? { preset } : undefined,
-    );
+    const p = await api.tonight(country, servicesOn ? providerIds : [], {
+      ...(presetParam ? { preset: presetParam } : {}),
+      ...sortArgs,
+    });
     return { rows: p.rows, total: p.total };
-  }, [preset, country, servicesOn, providerIds]);
+  }, [bold, presetParam, sortArgs.sort, country, servicesOn, providerIds]);
 
   // Initial load (and reload on country/services/preset change or retry).
   useEffect(() => {
@@ -172,7 +180,7 @@ export default function TonightScreen() {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    if (preset === "bold") me.invalidateRecommend(); // fresh λ=0.6 pull
+    if (bold) me.invalidateRecommend(); // fresh λ=0.6 pull
     fetchDeck()
       .then((p) => {
         setRows(p.rows);
@@ -182,17 +190,18 @@ export default function TonightScreen() {
       })
       .catch(() => setStatus("error"))
       .finally(() => setRefreshing(false));
-  }, [fetchDeck, preset]);
+  }, [fetchDeck, bold]);
 
   const loadMore = useCallback(() => {
-    if (preset === "bold") return; // fixed 60-row source, no pagination
+    if (bold) return; // fixed 60-row source, no pagination
     if (loadingMore.current || status !== "idle" || refreshing) return;
     if (fetched >= total) return;
     loadingMore.current = true;
     api
       .tonight(country, servicesOn ? providerIds : [], {
         offset: fetched,
-        ...(preset ? { preset } : {}),
+        ...(presetParam ? { preset: presetParam } : {}),
+        ...sortArgs,
       })
       .then((p) => {
         setTotal(p.total);
@@ -206,7 +215,7 @@ export default function TonightScreen() {
       .finally(() => {
         loadingMore.current = false;
       });
-  }, [preset, status, refreshing, fetched, total, country, servicesOn, providerIds]);
+  }, [bold, presetParam, sortArgs.sort, status, refreshing, fetched, total, country, servicesOn, providerIds]);
 
   // Reason chips (session only) — one server-supplied reason per matching card.
   // Bold rows carry their own reason from the λ=0.6 pull (§13-17: no fabrication).
@@ -298,10 +307,19 @@ export default function TonightScreen() {
     [undismiss],
   );
 
-  const togglePreset = useCallback(
-    (k: DeckPreset) => setPreset((p) => (p === k ? null : k)),
-    [],
-  );
+  const togglePreset = useCallback((k: DeckPreset) => {
+    setPresets((prev) => {
+      const next = new Set(prev);
+      if (k === "bold") {
+        // Source swap — exclusive with the filter chips.
+        return next.has("bold") ? new Set() : new Set<DeckPreset>(["bold"]);
+      }
+      next.delete("bold");
+      if (next.has(k)) next.delete(k);
+      else next.add(k);
+      return next;
+    });
+  }, []);
 
   if (ready && !onboarded) return <Redirect href="/onboarding" />;
   if (!ready) return <Loading />;
@@ -371,18 +389,35 @@ export default function TonightScreen() {
           active={servicesOn}
           onPress={() => setServicesOn((v) => !v)}
         />
-        <Chip label={t("preset.safeBet")} active={preset === "safe"} onPress={() => togglePreset("safe")} />
-        <Chip label={t("preset.hiddenGems")} active={preset === "gems"} onPress={() => togglePreset("gems")} />
+        <Chip label={t("preset.safeBet")} active={presets.has("safe")} onPress={() => togglePreset("safe")} />
+        <Chip label={t("preset.hiddenGems")} active={presets.has("gems")} onPress={() => togglePreset("gems")} />
         <Chip
           label={t("preset.freshCentury")}
-          active={preset === "century"}
+          active={presets.has("century")}
           onPress={() => togglePreset("century")}
         />
-        <Chip label={t("preset.ninety")} active={preset === "ninety"} onPress={() => togglePreset("ninety")} />
+        <Chip label={t("preset.ninety")} active={presets.has("ninety")} onPress={() => togglePreset("ninety")} />
         {session ? (
-          <Chip label={t("preset.boldPick")} active={preset === "bold"} onPress={() => togglePreset("bold")} />
+          <Chip label={t("preset.boldPick")} active={bold} onPress={() => togglePreset("bold")} />
         ) : null}
       </ScrollView>
+      {/* Sort — hidden under Bold pick (that list carries the wwi order). */}
+      {!bold ? (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: sp.s2,
+            paddingHorizontal: sp.s4,
+            marginTop: sp.s2,
+          }}
+        >
+          <Ionicons name="swap-vertical" size={14} color={pal.muted} />
+          <Chip label={t("sort.takescore")} active={sortKey === "ts"} onPress={() => setSortKey("ts")} />
+          <Chip label={t("sort.newest")} active={sortKey === "new"} onPress={() => setSortKey("new")} />
+          <Chip label={t("sort.oldest")} active={sortKey === "old"} onPress={() => setSortKey("old")} />
+        </View>
+      ) : null}
       {session && visible.length > 0 ? (
         <Ui size={fs.xs} color={pal.subtle} style={{ paddingHorizontal: sp.s4, paddingTop: sp.s2 }}>
           {t("tonight.swipeHint")}
@@ -519,7 +554,7 @@ export default function TonightScreen() {
       </Screen>
     );
 
-  const canLoadMore = preset !== "bold" && fetched < total;
+  const canLoadMore = !bold && fetched < total;
 
   return (
     <Screen>
@@ -625,9 +660,11 @@ function LobbyCard({
   const router = useRouter();
   const { session, ledger } = useFilms();
   const cardW = screenW - sp.s4 * 2;
-  // Posters are portrait (2:3) — the card frame follows the image, never the
-  // reverse (owner directive 2026-07-18: no landscape-crop of portrait art).
-  const imgH = Math.round(cardW * 1.5);
+  // Split row card (owner directive 2026-07-18b): portrait poster LEFT at its
+  // natural 2:3 — never cropped — info RIGHT. A full-width 2:3 card made the
+  // triage scroll too expensive; ~3-4 of these rows fit a screen instead.
+  const posterW = 116;
+  const posterH = Math.round(posterW * 1.5);
   const entry = ledger.get(row.slug);
   const inWatchlist = !!entry?.watchlist;
   const seen = !!entry?.seen;
@@ -717,63 +754,59 @@ function LobbyCard({
       <Tactile
         onPress={() => router.push({ pathname: "/film/[slug]", params: { slug: row.slug } })}
       >
-        <View style={{ width: cardW }}>
-          <View style={{ width: cardW, height: imgH }}>
-            <PosterImg
-              path={row.poster_path}
-              width={cardW}
-              height={imgH}
-              size="w780"
-              rounded={radius.md}
-            />
-            <View style={{ position: "absolute", top: sp.s3, right: sp.s3 }}>
-              <HeartButton active={inWatchlist} onPress={() => act("want")} />
-            </View>
+        <View
+          style={[
+            {
+              width: cardW,
+              flexDirection: "row",
+              backgroundColor: pal.card,
+              borderRadius: radius.md,
+              overflow: "hidden",
+              borderWidth: StyleSheet.hairlineWidth,
+              borderColor: pal.hairline,
+            },
+            shadow.card,
+          ]}
+        >
+          {/* Left — portrait poster at its natural 2:3, never cropped */}
+          <View style={{ width: posterW, minHeight: posterH }}>
+            <PosterImg path={row.poster_path} width={posterW} height={posterH} size="w342" rounded={0} />
             {row.ts != null ? (
-              <View style={{ position: "absolute", bottom: sp.s3, left: sp.s3 }}>
-                <TSBadge ts={row.ts} onImage />
+              <View style={{ position: "absolute", bottom: sp.s2, left: sp.s2 }}>
+                <TSBadge ts={row.ts} onImage size={fs.xs + 1} />
               </View>
             ) : null}
           </View>
-          <View style={{ paddingTop: sp.s3 }}>
-            <Ui size={fs.md} weight="600" numberOfLines={1}>
-              {row.title}
-            </Ui>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: sp.s2,
-                marginTop: 2,
-              }}
-            >
-              <Ui
-                size={fs.sm}
-                color={pal.muted}
-                numberOfLines={1}
-                style={{ flexShrink: 1 }}
-              >
-                {[row.year, row.director].filter(Boolean).join(" · ")}
+          {/* Right — the judgment column */}
+          <View style={{ flex: 1, padding: sp.s3, justifyContent: "space-between", gap: sp.s1 }}>
+            <View>
+              <Ui size={fs.md} weight="600" numberOfLines={2}>
+                {row.title}
               </Ui>
-              <AvailabilityDots tiers={row.tiers} />
-            </View>
-            {reason ? (
-              <View style={{ flexDirection: "row", marginTop: sp.s2 }}>
-                <ReasonChip label={reason} />
+              <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s2, marginTop: 2 }}>
+                <Ui size={fs.sm} color={pal.muted} numberOfLines={1} style={{ flexShrink: 1 }}>
+                  {[row.year, row.director].filter(Boolean).join(" · ")}
+                </Ui>
+                <AvailabilityDots tiers={row.tiers} />
               </View>
-            ) : null}
-            {row.lead ? (
-              <Serif
-                size={fs.base}
-                italic
-                color={pal.inkSoft}
-                numberOfLines={2}
-                style={{ marginTop: sp.s1 }}
-              >
-                {row.lead}
-              </Serif>
-            ) : null}
-            <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginTop: sp.s3 }}>
+              {row.lead ? (
+                <Serif
+                  size={fs.sm + 1}
+                  italic
+                  color={pal.inkSoft}
+                  numberOfLines={2}
+                  style={{ marginTop: sp.s1 }}
+                >
+                  {row.lead}
+                </Serif>
+              ) : null}
+              {reason ? (
+                <View style={{ flexDirection: "row", marginTop: sp.s2 }}>
+                  <ReasonChip label={reason} />
+                </View>
+              ) : null}
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: sp.s3, marginTop: sp.s2 }}>
               <JudgeDot
                 icon={inWatchlist ? "heart" : "heart-outline"}
                 tint={inWatchlist ? brand.accent : undefined}

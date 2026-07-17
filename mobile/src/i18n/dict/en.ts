@@ -178,6 +178,10 @@ export const en = {
   "age.fresh": "Fresh",
   "age.aging": "Aging",
   "age.stale": "Stale",
+  // v4 — sort
+  "sort.takescore": "TakeScore",
+  "sort.newest": "Newest",
+  "sort.oldest": "Oldest",
   // v4 — explore
   "explore.browse": "Browse",
   "explore.genres": "Genres",

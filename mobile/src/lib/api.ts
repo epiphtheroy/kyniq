@@ -51,7 +51,15 @@ export const api = {
   tonight(
     country: string,
     providers: number[],
-    opts?: { genres?: string[]; yearMin?: number; yearMax?: number; offset?: number; preset?: string },
+    opts?: {
+      genres?: string[];
+      yearMin?: number;
+      yearMax?: number;
+      offset?: number;
+      preset?: string; // comma-list — chips compose (multi-select)
+      sort?: string; // u | year | title (cinecodex_ranked v11 axes)
+      dir?: "asc" | "desc";
+    },
   ): Promise<TonightPayload> {
     const q = new URLSearchParams({ country });
     if (providers.length) q.set("providers", providers.join(","));
@@ -59,6 +67,8 @@ export const api = {
     if (opts?.yearMin) q.set("year_min", String(opts.yearMin));
     if (opts?.yearMax) q.set("year_max", String(opts.yearMax));
     if (opts?.preset) q.set("preset", opts.preset);
+    if (opts?.sort) q.set("sort", opts.sort);
+    if (opts?.dir) q.set("dir", opts.dir);
     if (opts?.offset) q.set("offset", String(opts.offset));
     return getJSON(`/api/v1/app/tonight?${q.toString()}`);
   },

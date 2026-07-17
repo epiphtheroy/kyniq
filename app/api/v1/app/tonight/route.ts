@@ -71,6 +71,28 @@ function presetArgs(preset: string | null): PresetArgs {
   return out;
 }
 
+/** Chips compose (multi-select, 2026-07-18): every constraint holds, so merge
+ *  with intersection semantics — floors take the max, ceilings take the min. */
+function mergedPresetArgs(presets: string[]): PresetArgs {
+  const out: PresetArgs = {};
+  for (const p of presets) {
+    const a = presetArgs(p);
+    if (a.tsMin != null) out.tsMin = Math.max(out.tsMin ?? -Infinity, a.tsMin);
+    if (a.tsMax != null) out.tsMax = Math.min(out.tsMax ?? Infinity, a.tsMax);
+    if (a.yearMin != null) out.yearMin = Math.max(out.yearMin ?? -Infinity, a.yearMin);
+    if (a.maxVotes != null) out.maxVotes = Math.min(out.maxVotes ?? Infinity, a.maxVotes);
+    if (a.maxRuntime != null) out.maxRuntime = Math.min(out.maxRuntime ?? Infinity, a.maxRuntime);
+    if (a.sub) out.sub = { ...(out.sub ?? {}), ...a.sub };
+  }
+  return out;
+}
+
+// Sort axes the app exposes — v11's ACTUAL tokens (0096: u·v·c·r·sharpe·
+// lowrisk·newest·oldest·alpha·director·country). "newest"/"oldest" bake the
+// direction in; an unknown token silently falls back to u with the dir sign
+// applied, which surfaces the WORST films on asc — hence the whitelist.
+const SORTS = new Set(["u", "newest", "oldest", "alpha"]);
+
 /** First sentence of an invitation, capped for a lobby card. */
 function firstSentence(prose: string): string {
   const text = prose.trim().replace(/\s+/g, " ");
@@ -103,9 +125,16 @@ export async function GET(req: Request) {
   const offset = Math.max(num("offset") ?? 0, 0);
   const limit = Math.min(Math.max(num("limit") ?? PAGE, 1), PAGE);
 
-  const presetRaw = url.searchParams.get("preset");
-  const preset = presetRaw && APP_PRESETS.has(presetRaw) ? presetRaw : null;
-  const pa = presetArgs(preset);
+  // preset: comma-list — chips are multi-select and compose (2026-07-18).
+  const presets = (url.searchParams.get("preset") || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s) => APP_PRESETS.has(s))
+    .slice(0, 4);
+  const pa = mergedPresetArgs(presets);
+  const sortRaw = url.searchParams.get("sort");
+  const sort = sortRaw && SORTS.has(sortRaw) ? sortRaw : "u";
+  const dir = url.searchParams.get("dir") === "asc" ? "asc" : "desc";
   // year_min: intersection when both a preset (century=2000) and an explicit
   // filter are present — both constraints hold, so the tighter one wins.
   const yearMinParam = num("year_min");
@@ -121,8 +150,8 @@ export async function GET(req: Request) {
 
   try {
     const { data, error } = await db.rpc("cinecodex_ranked", {
-      p_sort: "u",
-      p_dir: "desc",
+      p_sort: sort,
+      p_dir: dir,
       p_providers: providers.length ? providers : null,
       p_watch_country: country,
       p_watch_countries: [country],
@@ -243,7 +272,9 @@ export async function GET(req: Request) {
       {
         v: 2,
         country,
-        preset,
+        preset: presets.length ? presets.join(",") : null,
+        sort,
+        dir,
         total: page.total,
         rows: page.rows.map((r) => ({
           film_id: idMap.get(r.slug) ?? null,

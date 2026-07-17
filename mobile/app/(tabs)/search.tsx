@@ -36,10 +36,14 @@ import type { SearchRow, TmdbFallbackRow, TonightRow } from "../../src/types";
 
 const DEBOUNCE_MS = 250;
 
-// One browse selection at a time — a second tap on the active chip clears it.
-type BrowseSel =
-  | { kind: "genre"; genre: string }
-  | { kind: "decade"; label: string; yearMin: number; yearMax: number };
+// Browse chips are MULTI-SELECT (owner directive 2026-07-18): genres AND
+// (p_genres is an array) with a decade span; a second tap clears that chip.
+// Selected decades merge into one min..max span (a practical union).
+type BrowseSel = {
+  genres: ReadonlySet<string>;
+  decades: ReadonlySet<string>; // Decade.label keys
+};
+type SortKey = "ts" | "new" | "old";
 
 export default function SearchScreen() {
   const router = useRouter();
@@ -57,9 +61,11 @@ export default function SearchScreen() {
   const seq = useRef(0); // stale-response guard across debounce + awaits
 
   // Browse (empty-query) state — §5.3.
-  const [sel, setSel] = useState<BrowseSel | null>(null);
+  const [sel, setSel] = useState<BrowseSel>({ genres: new Set(), decades: new Set() });
+  const [browseSort, setBrowseSort] = useState<SortKey>("ts");
   const [browseRows, setBrowseRows] = useState<TonightRow[]>([]);
   const [browseLoading, setBrowseLoading] = useState(false);
+  const selActive = sel.genres.size > 0 || sel.decades.size > 0;
 
   const openReader = (path: string, title: string) =>
     router.push({ pathname: "/read", params: { path, title } });
@@ -134,20 +140,34 @@ export default function SearchScreen() {
     return () => clearTimeout(timer);
   }, [q, country]);
 
-  // Browse fetch — same tonight BFF, all providers (empty array). Selection
-  // survives a typed query; the block simply hides until the query clears.
+  // Browse fetch — same tonight BFF, all providers (empty array). Selections
+  // compose; they survive a typed query (the block hides until it clears).
+  const genresKey = [...sel.genres].sort().join(",");
+  const decadesKey = [...sel.decades].sort().join(",");
   useEffect(() => {
-    if (!sel) {
+    if (!selActive) {
       setBrowseRows([]);
       setBrowseLoading(false);
       return;
     }
     let alive = true;
     setBrowseLoading(true);
-    const opts =
-      sel.kind === "genre"
-        ? { genres: [sel.genre] }
-        : { yearMin: sel.yearMin, yearMax: sel.yearMax };
+    const picked = DECADES.filter((d) => sel.decades.has(d.label));
+    const opts: {
+      genres?: string[];
+      yearMin?: number;
+      yearMax?: number;
+      sort?: string;
+      dir?: "asc" | "desc";
+    } = {};
+    if (sel.genres.size) opts.genres = [...sel.genres];
+    if (picked.length) {
+      opts.yearMin = Math.min(...picked.map((d) => d.yearMin));
+      opts.yearMax = Math.max(...picked.map((d) => d.yearMax));
+    }
+    // v11 tokens bake direction into "newest"/"oldest" — never send sort=year.
+    if (browseSort === "new") opts.sort = "newest";
+    else if (browseSort === "old") opts.sort = "oldest";
     api
       .tonight(country, [], opts)
       .then((p) => {
@@ -162,14 +182,22 @@ export default function SearchScreen() {
     return () => {
       alive = false;
     };
-  }, [sel, country]);
+  }, [selActive, genresKey, decadesKey, browseSort, country]);
 
   const pickGenre = (g: string) =>
-    setSel((prev) => (prev?.kind === "genre" && prev.genre === g ? null : { kind: "genre", genre: g }));
+    setSel((prev) => {
+      const genres = new Set(prev.genres);
+      if (genres.has(g)) genres.delete(g);
+      else genres.add(g);
+      return { ...prev, genres };
+    });
   const pickDecade = (d: Decade) =>
-    setSel((prev) =>
-      prev?.kind === "decade" && prev.label === d.label ? null : { kind: "decade", ...d },
-    );
+    setSel((prev) => {
+      const decades = new Set(prev.decades);
+      if (decades.has(d.label)) decades.delete(d.label);
+      else decades.add(d.label);
+      return { ...prev, decades };
+    });
 
   const showEmpty = searched && !loading && rows.length === 0;
   const showBrowse = q.trim().length === 0;
@@ -190,12 +218,7 @@ export default function SearchScreen() {
         }}
       >
         {GENRES.map((g) => (
-          <Chip
-            key={g}
-            label={g}
-            active={sel?.kind === "genre" && sel.genre === g}
-            onPress={() => pickGenre(g)}
-          />
+          <Chip key={g} label={g} active={sel.genres.has(g)} onPress={() => pickGenre(g)} />
         ))}
       </View>
       <Ui
@@ -219,16 +242,32 @@ export default function SearchScreen() {
           <Chip
             key={d.label}
             label={d.label}
-            active={sel?.kind === "decade" && sel.label === d.label}
+            active={sel.decades.has(d.label)}
             onPress={() => pickDecade(d)}
           />
         ))}
       </View>
+      {selActive ? (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: sp.s2,
+            paddingHorizontal: sp.s4,
+            paddingTop: sp.s4,
+          }}
+        >
+          <Ionicons name="swap-vertical" size={14} color={pal.muted} />
+          <Chip label={t("sort.takescore")} active={browseSort === "ts"} onPress={() => setBrowseSort("ts")} />
+          <Chip label={t("sort.newest")} active={browseSort === "new"} onPress={() => setBrowseSort("new")} />
+          <Chip label={t("sort.oldest")} active={browseSort === "old"} onPress={() => setBrowseSort("old")} />
+        </View>
+      ) : null}
       {browseLoading ? (
         <View style={{ paddingVertical: sp.s5 }}>
           <ActivityIndicator color={brand.accent} />
         </View>
-      ) : sel ? (
+      ) : selActive ? (
         <View style={{ paddingTop: sp.s3 }}>
           {browseRows.map((r) => (
             <FilmResultRow
